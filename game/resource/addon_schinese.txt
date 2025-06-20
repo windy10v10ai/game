@@ -586,7 +586,7 @@
 		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%反弹概率："
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%伤害反弹百分比："
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"折射的伤害与原伤害类型相同。"
-		"DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
+		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"贪魔的贪婪"
@@ -609,19 +609,6 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"幻象持续时间："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"基础伤害："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"攻击力伤害加成倍率："
-		//战鼓
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2"					"斯洛姆战鼓"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Lore"				"自然的愤怒是永恒的，而知晓这个秘密的人就能非常轻松地重新激发在斯洛姆衰亡之际雀跃的怒火。"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_Description"			"兽王或周围他控制的单位攻击敌人都会使他敲下战鼓，对附近单位造成伤害，并且治疗自身和他控制的单位，数值为造成伤害的一定百分比。每次攻击都会降低敲鼓的间隔，%max_stacks%次攻击后降低至最短%min_drum_hit_interval%秒敲击一次。如果没有发动攻击，每隔1秒敲鼓间隔都会逐渐变长。<br><br>使用原始咆哮时根据原始咆哮的等级自动增加10/15/20层敲鼓叠加效果。"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_drum_hit_interval"	"最长敲鼓间隔："
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_min_drum_hit_interval"	"最短敲鼓间隔："
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_max_stacks"				"最短间隔所需攻击次数："
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_base_damage"			"敲鼓伤害："
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_radius"					"伤害作用范围："
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_heal_pct"					"%英雄伤害治疗量："
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_creep_heal_pct"					"%非英雄伤害治疗量："
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop"				"斯洛姆战鼓中止"
-		"DOTA_Tooltip_ability_beastmaster_drums_of_slom2_stop_Description"	"中止斯洛姆战鼓技能"
 		//妙手空空
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"妙手空空"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"赏金猎人以敌方英雄为目标施放技能和物品时会偷取金钱。"
@@ -777,32 +764,30 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
 
-		// 火枪暗杀
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"								"暗杀（旧版）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto a target enemy unit and, after %total_cast_time_tooltip% seconds, fires a devastating shot that deals damage at long range, and mini-stuns the target.\n\nUpgradable by Aghanim's Scepter."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"Turns Assassinate into a ground target AoE ability, that after the channel period launches a critical strike on units in the AoE. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spell, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"								"暗杀（旧版）"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
+		// 火枪暗杀（群体）
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"暗杀（群体）"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的地方英雄，在%total_cast_time_tooltip%秒后，发射毁灭性的子弹，在远距离造成伤害，并对目标造成短暂眩晕。只影响可见的英雄。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"为了实现预言并返回家乡，卡尔德必须再次完成一次如同当年古老测试时那样完美的射击。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"打断引导法术，包括对魔法免疫单位。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_radius"			"暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"狙击手正在瞄准你的头部！"
 
 		// 混沌骑士
-		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description"		"混乱之箭施法距离提升至%AbilityCastRange%。"
+		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description"					"混乱之箭施法距离提升至%AbilityCastRange%。"
 
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"混沌之军"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"							"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"									"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"								"混沌之军持续时间："
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"							"额外攻击次数："
-		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"						"攻击冷却时间："
-		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"混沌之军"
-		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"多重影分身之术！"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"									"混沌之军"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_description"						"召集其他维度的混沌骑士来到这个世界，与此处的混沌骑士一同作战。每当混沌骑士攻击时，其他的混沌骑士也会对目标开展额外攻击，其他的混沌骑士的攻击有短暂的冷却。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_Lore"								"凭借混沌骑士在各个世界丰富的战斗经验，他的幻象足以压制所有敢于反抗他的人。"
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_duration"							"混沌之军持续时间："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_count"						"额外攻击次数："
+		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_attack_cooldown"					"攻击冷却时间："
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"				"增加大招攻击次数，降低攻击冷却时间。"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff"											"混沌之军"
+		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"								"多重影分身之术！"
 
 
 		"DOTA_Tooltip_ability_bot_power_n5"							"机械救赎 N5"
@@ -987,6 +972,18 @@
 		"DOTA_Tooltip_modifier_huskar_inner_vitality"					"活血术"
 		"DOTA_Tooltip_modifier_huskar_inner_vitality_Description"		"每秒恢复%fMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点生命值。"
 
+		// 力丸
+		"DOTA_Tooltip_ability_riki_permanent_invisibility"								"永久隐身"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Description"					"力丸遁入阴影，保持隐身状态。主动攻击敌人，力丸将会显形。获得额外移动速度。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Lore"							"力丸来找你了。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note0"						"力丸在隐身时不会自动攻击敌人。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note1"						"力丸的幻象也会有背刺的动作，但是不会造成额外伤害。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note2"						"背刺的额外伤害无法闪避。"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"渐隐时间："
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"移动速度："
+
+		// 树精卫士
+		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"增加疯狂生长作用范围"
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes

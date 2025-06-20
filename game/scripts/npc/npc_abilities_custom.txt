@@ -1,4 +1,4 @@
-#base "npc_abilities_custom_new.txt"
+#base "npc_abilities_custom_lottery.txt"
 
 "DOTAAbilities"
 {
@@ -148,7 +148,7 @@
 		"MaxLevel"						"1"
 	}
 	//=================================================================================================================
-	// Sniper Scepter Assassinate
+	// Sniper Scepter Assassinate 暗杀（群体）
 	//=================================================================================================================
 	"sniper_assassinate_upgrade"
 	{
@@ -158,26 +158,25 @@
 
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilityCastPoint"				"0.6"
 		"AbilityCooldown"				"20.0"
 		"AbilityManaCost"				"200 250 300 350"
-		"HasScepterUpgrade"				"1"
 
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"3000"
 		"AbilityCastRangeBuffer"		"600"
-		"AoERadius"						"%scepter_radius"
+		"AoERadius"						"%radius"
 
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
@@ -191,7 +190,11 @@
 			"projectile_speed"			"2500"
 			"tooltip_range"				"3000"
 			"total_cast_time_tooltip"	"0.6"
-			"scepter_radius" 			"300"
+			"radius"
+			{
+				"value"					"300"
+				"affected_by_aoe_increase"	"1"
+			}
 			"scepter_crit_bonus"		"240 260 280 300"
 		}
 
@@ -200,8 +203,8 @@
 		"precache"
 		{
 			"particle"			"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+			"particle"			"particles/econ/items/sniper/sniper_charlie/sniper_assassinate_charlie.vpcf"
+			"particle"			"particles/econ/items/sniper/sniper_charlie/sniper_crosshair_charlie.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 		}
 		"OnAbilityPhaseStart"
@@ -213,15 +216,15 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+				"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 				"Function"	"AssassinateAcquireTargets"
 				"Target"
 				{
 					"Center"	"POINT"
-					"Radius"	"%scepter_radius"
-					"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
-					"Types"	"DOTA_UNIT_TARGET_HERO"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Radius"	"%radius"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				}
 			}
 		}
@@ -234,7 +237,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+				"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 				"Function"	"AssassinateStart"
 			}
 		}
@@ -247,7 +250,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+				"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 				"Function"	"AssassinateHit"
 			}
 			"DeleteOnHit"	"0"
@@ -265,7 +268,7 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+						"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 						"Function"	"AssassinateRemoveTarget"
 					}
 				}
@@ -745,7 +748,7 @@
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT "
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -796,7 +799,7 @@
 	{
 		"BaseClass"						"special_bonus_undefined"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"pantsushot"
 	{
@@ -809,7 +812,7 @@
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
@@ -836,7 +839,7 @@
 	"special_bonus_unique_miku_201"
 	{
 		"BaseClass"						"special_bonus_undefined"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 	}
 	// 初音飞踢
@@ -846,7 +849,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_miku/liu_kick"
 		"AbilityTextureName" 			"hatsune_3"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -900,13 +903,13 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_miku_302"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"miku_dance"
 	{
@@ -926,7 +929,7 @@
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
- 		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+ 		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -980,7 +983,7 @@
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -1028,7 +1031,7 @@
 		"BaseClass"								"ability_lua"
 		"ScriptFile"							"heroes/hero_miku/chibi_monster"
 		"AbilityTextureName" 					"hatsune_5"
-		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"							"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1084,7 +1087,7 @@
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1134,7 +1137,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT "
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -1188,13 +1191,13 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_artoria_strike_air_2"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	// 直感 先天技能
 	"artoria_instinct"
@@ -1209,7 +1212,7 @@
 		"AbilityTextureName"			"custom/artoria/artoria_instinct"
 
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1_END"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"14.0 12.0 10.0 8.0 6.0 4.0"
 		"AbilityManaCost"				"0"
@@ -1243,7 +1246,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/artoria/artoria_mana_burst"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 
 		// Ability Stats		//------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"450"
@@ -1282,7 +1285,7 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 		"AbilityValues"
 		{
 				"value"				"1"
@@ -1306,7 +1309,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/artoria/artoria_excalibur"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 
 		"HasScepterUpgrade"				"1"
 
@@ -1371,7 +1374,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"custom/artoria/artoria_ultimate_excalibur"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 
 		"HasScepterUpgrade"				"1"
 
@@ -1426,7 +1429,7 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"abyss_sword_rush_night_sword_qi"
@@ -1556,7 +1559,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 
 		"AbilityValues"
 		{
@@ -1593,37 +1596,37 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_abyss_sword_2"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_abyss_sword_3"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_abyss_sword_4"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_abyss_sword_5"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_abyss_sword_6"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	//龙珠-孙悟空
@@ -1643,7 +1646,7 @@
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_1"
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -1821,7 +1824,7 @@
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 
@@ -1915,43 +1918,43 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_goku_2"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_goku_3"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_goku_4"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_goku_5"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_goku_6"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	"special_bonus_unique_goku_7"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	//-------------------------------------------------------------------------------------------------------------
@@ -1967,7 +1970,7 @@
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
-		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"			"ABILITY_TYPE_BASIC"
 		"MaxLevel"				"5"
 		"AbilityCastPoint"		"0.1"
 		"AbilityCastAnimation"	"ACT_DOTA_CAST_ABILITY_3"
@@ -2008,14 +2011,14 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_yukari_01_stun"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	// 静观其变之眼
@@ -2030,7 +2033,7 @@
 		"FightRecapLevel"		"1"
 		// Ability General
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"	"ABILITY_TYPE_BASIC"
 		"MaxLevel"		"5"
 		// Ability Casting
 		// -------------------------------------------------------------------------------------------------------------
@@ -2071,7 +2074,7 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	// 罔两「八云紫的神隐」 先天技能
@@ -2089,7 +2092,7 @@
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
 		"SpellImmunityType"		"SPELL_IMMUNITY_ENEMIES_NO"
 		"FightRecapLevel"		"1"
-		"AbilityType"			"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"			"ABILITY_TYPE_BASIC"
 		"MaxLevel"				"6"
 		"Innate"						"1"
 		"RequiredLevel"			"1"
@@ -2129,7 +2132,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"	"DAMAGE_TYPE_MAGICAL"
-		"AbilityType"	"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"	"ABILITY_TYPE_BASIC"
 		"MaxLevel"	"1"
 		"RequiredLevel"	"0"
 		"LevelsBetweenUpgrades"	"0"
@@ -2200,7 +2203,7 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	// 月相
@@ -2213,7 +2216,7 @@
 		"AbilityUnitTargetType"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"	"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"	"1"
 		"RequiredLevel"	"30"
 		"LevelsBetweenUpgrades"	"1"
@@ -2262,7 +2265,7 @@
 		"FightRecapLevel"		"1"
 		// Ability General
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityType"			"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"			"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"				"4"// 大招
 		"RequiredLevel"			"6"
 		"LevelsBetweenUpgrades"	"5"
@@ -2480,7 +2483,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"	"ABILITY_TYPE_ULTIMATE"
 		"LinkedAbility"	"jack_maria_the_ripper"
 		"FightRecapLevel"				"1"
 		"AbilityCastPoint"	"0.3"
@@ -2507,42 +2510,42 @@
 	{
 		"BaseClass"	"special_bonus_base"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"	"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_jack_2"
 	{
 		"BaseClass"	"special_bonus_base"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"	"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_jack_3"
 	{
 		"BaseClass"	"special_bonus_base"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"	"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_jack_4"
 	{
 		"BaseClass"	"special_bonus_base"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"	"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_jack_5"
 	{
 		"BaseClass"	"special_bonus_base"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"	"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_jack_6"
 	{
 		"BaseClass"	"special_bonus_base"
 		"AbilityBehavior"	"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"	"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	//=================================================================================================================
@@ -2648,7 +2651,7 @@
 		"AbilityTextureName"			"custom/sword_master/sword_master_chop"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"LinkedAbility"					"sword_master_chop_kill_with_one_sword"
 
 		"AbilityValues"
@@ -2675,7 +2678,7 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"LinkedAbility"					"sword_master_chop_kill_everyone_in_world"
 		"AbilityCastPoint"				"0.1"
 
@@ -2706,7 +2709,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"LinkedAbility"					"sword_master_chop_rage_nlade_soars_the_sky"
 		"AbilityCastPoint"				"0.4"
 
@@ -2739,7 +2742,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"LinkedAbility"					"sword_master_chop_swift_incomparable_swordsmanship"
 		"AbilityCastPoint"				"0.4"
 
@@ -2770,7 +2773,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastAnimation" 			""
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"LinkedAbility"					"sword_master_chop"
 		"AbilityCastPoint"				"0"
 
@@ -2832,42 +2835,42 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_sword_master_2"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_sword_master_3"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_sword_master_4"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_sword_master_5"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 	"special_bonus_unique_sword_master_6"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 	//=================================================================================================================
 	// Tinker: Rearm 刷新
@@ -2891,7 +2894,7 @@
 
 		// Ability General
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 
 		// Ability Casting
@@ -2979,7 +2982,7 @@
 		// "AbilityUnitTargetTeam"	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		// "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO | DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
 		"FightRecapLevel"	"2"
-		"AbilityType"	"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"	"ABILITY_TYPE_ULTIMATE"
 		// "HasShardUpgrade"	"1"
 		"HasScepterUpgrade"	"1"
 		"MaxLevel"			"4"
@@ -3030,7 +3033,7 @@
 		"ScriptFile"	"heroes/hero_spectre/spectre_ursa_enrage"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"1"
@@ -3069,7 +3072,7 @@
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityType"				"DOTA_ABILITY_TYPE_ATTRIBUTES"
+		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
 
 
@@ -3085,7 +3088,7 @@
 		"AbilityTextureName"			"brewmaster_primal_split"
 
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"FightRecapLevel"				"2"
 		"AbilitySound"					"Hero_Brewmaster.PrimalSplit.Spawn"
