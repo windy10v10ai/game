@@ -270,42 +270,6 @@
 			"ad" 						"1 1.5 2"
 		}
 	}
-	//兽王 战鼓
-	"beastmaster_drums_of_slom2"
-	{
-		"BaseClass"                     "beastmaster_drums_of_slom"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"IsGrantedByScepter"			"0"
-		"IsOnCastBar"                   "1"
-		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"3"
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"600"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_stacks"					"20"
-			"stack_decay_time"				"1.0"
-			"min_drum_hit_interval"			"0.5"
-			"max_drum_hit_interval"			"3"
-
-			"base_damage"
-			{
-				"value"			"65 85 105"
-				"CalculateSpellDamageTooltip" "1"
-			}
-			"heal_pct"						"20"
-			"creep_heal_pct"				"5"
-			"aura_radius"
-			{
-				"value"			"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
-	}
 	//赏金 妙手空空 技能偷钱
 	"bounty_hunter_cutpurse2"
 	{
