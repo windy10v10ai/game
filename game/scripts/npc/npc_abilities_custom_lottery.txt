@@ -303,8 +303,8 @@
 
 		"AbilityValues"
 		{
-			"range"					"800 900 1000 1100 1200"
-			"damage_pct"			"75 90 105 120 135"
+			"range"					"800 850 900 950 1000"
+			"damage_pct"			"75 85 95 105 115"
 
 			"wave_count"			"6"
 			"projectile_width"
