@@ -805,7 +805,7 @@
 			}
 		}
 	}
-	//炼金 强化武器
+	//炼金 强化武器 选择率过低暂时移除
 	"alchemist_enhanced_weaponry"
 	{
 		"BaseClass"						"ability_lua"

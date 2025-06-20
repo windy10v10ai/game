@@ -158,11 +158,11 @@ export const abilityTiersPassive: Tier[] = [
     level: 5,
     names: [
       // 被动技能
-      'elder_titan_natural_order', // 自然秩序
       'muerta_gunslinger', // 神枪在手
       'slark_essence_shift', // 能量转移
       'templar_assassin_psi_blades', // 灵能之刃
       'dazzle_good_juju', // 善咒
+      'luna_moon_glaive', // 月刃
 
       // 法球/开关技能
       'medusa_split_shot', // 分裂箭
@@ -173,11 +173,11 @@ export const abilityTiersPassive: Tier[] = [
     level: 4,
     names: [
       // 被动技能
+      'elder_titan_natural_order', // 自然秩序
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'earthshaker_aftershock', // 余震
       'sven_great_cleave', // 巨力挥舞
       'faceless_void_time_lock', // 时间锁定
-      'luna_moon_glaive', // 月刃
       'slardar_bash', // 深海重击
       'shredder_reactive_armor', // 活性活甲
       'dawnbreaker_luminosity', // 熠熠生辉
@@ -191,7 +191,6 @@ export const abilityTiersPassive: Tier[] = [
       'ogre_magi_multicast_lua', // 多重施法
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
-      'drow_ranger_trueshot2', // 精准光环
       'leshrac_defilement2', // 大肆污染 拉席克
     ],
   },
@@ -204,7 +203,6 @@ export const abilityTiersPassive: Tier[] = [
       'ursa_fury_swipes', // 怒意狂击
       'vengefulspirit_command_aura', // 复仇光环
       'nevermore_dark_lord', // 魔王降临
-      'drow_ranger_marksmanship', // 射手天赋
       'kunkka_tidebringer', // 潮汐使者 水刀
       'riki_permanent_invisibility', // 永久隐身（旧版）
       'necrolyte_heartstopper_aura', // 竭心光环
@@ -214,18 +212,16 @@ export const abilityTiersPassive: Tier[] = [
       'juggernaut_blade_dance', // 剑舞
 
       // 单位技能
-      'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
-      'ancient_apparition_chilling_touch', // 极寒之触
       'viper_poison_attack', // 毒性攻击
       'silencer_glaives_of_wisdom', // 智慧之刃
 
       // 自定义技能
-      'viper_universal_hero', // 全才
-      'alchemist_enhanced_weaponry', // 强化武器
+      'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
+      'drow_ranger_trueshot2', // 精准光环
       'abyssal_underlord_firestorm2', // 火雨降临
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'sven_wrath_of_god2', // 斯文 神之愤怒
@@ -237,9 +233,9 @@ export const abilityTiersPassive: Tier[] = [
     level: 2,
     names: [
       // 被动技能
+      'drow_ranger_marksmanship', // 射手天赋
       'bloodseeker_thirst', // 焦渴
       'rubick_arcane_supremacy', // 奥术至尊
-      'enchantress_untouchable', // 不可侵犯
       'lina_fiery_soul', // 炽魂
       'monkey_king_jingu_mastery', // 如意棒法
       'skeleton_king_mortal_strike', // 本命一击
@@ -250,17 +246,17 @@ export const abilityTiersPassive: Tier[] = [
       'abaddon_frostmourne', // 魔霭诅咒
       'tiny_grow', // 长大
 
-      // 单位技能
-      'kobold_tunneler_prospecting', // 狗头人 淘金光环
-      'kobold_taskmaster_speed_aura', // 狗头人 速度光环
-
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
+      'ancient_apparition_chilling_touch', // 极寒之触
+
+      // 单位技能
+      'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
 
       // 自定义技能
+      'viper_universal_hero', // 全才
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'abyssal_underlord_malice_aura', // 怨念光环
-      'alchemist_goblins_greed2', // 贪婪
       'axe_one_man_army2', // 斧王 一人成军
       'spectre_dispersion2', // 幽鬼 折射 旧版
     ],
@@ -269,6 +265,8 @@ export const abilityTiersPassive: Tier[] = [
     level: 1,
     names: [
       // 被动技能
+      'enchantress_untouchable', // 不可侵犯
+      'alchemist_goblins_greed2', // 贪婪
       'spirit_breaker_greater_bash', // 巨力重击
       'lycan_feral_impulse', // 野性驱使
       'antimage_mana_break', // 法力损毁
@@ -288,8 +286,11 @@ export const abilityTiersPassive: Tier[] = [
       // 法球/开关技能
       'enchantress_impetus', // 推进
 
+      // 单位技能
+      'kobold_tunneler_prospecting', // 狗头人 淘金光环
+      'kobold_taskmaster_speed_aura', // 狗头人 速度光环
+
       // 自定义技能
-      'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'dark_seer_quick_wit2', // 才思敏捷
       'faceless_void_backtrack2', // 虚空 回到过去
