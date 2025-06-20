@@ -12606,30 +12606,10 @@
 		{
 				"ball_lightning_initial_mana_percentage"		"3.5"
 				"ball_lightning_move_speed"			"1400 1850 2300 2750"
-		}
-	}
-	// 球状闪电残影距离（减少单位降低卡顿）
-	"special_bonus_unique_storm_spirit_4"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "800"	// 500
-				"ad_linked_abilities" "storm_spirit_ball_lightning && storm_spirit_static_remnant"
-			}
-		}
-	}
-	// 超负荷弹射天赋
-	"special_bonus_unique_storm_spirit_7"
-	{
-		"AbilityValues"
-		{
-			"value"
-			{
-				"value" "3"	// 2
-				"ad_linked_abilities" "storm_spirit_overload"
-			}
+				"auto_remnant_interval"	// 球状闪电残影距离（减少单位降低卡顿）
+				{
+					"special_bonus_unique_storm_spirit_4"		"800"		// 450
+				}
 		}
 	}
 	// 通电 看我回蓝（先天）
