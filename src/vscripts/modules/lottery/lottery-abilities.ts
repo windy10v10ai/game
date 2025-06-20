@@ -63,6 +63,7 @@ export const abilityTiersActive: Tier[] = [
       'imba_chaos_knight_phantasm', // 混沌之军
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
+      'sniper_assassinate_upgrade', // 暗杀（群体）
     ],
   },
   {

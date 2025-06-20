@@ -148,7 +148,7 @@
 		"MaxLevel"						"1"
 	}
 	//=================================================================================================================
-	// Sniper Scepter Assassinate
+	// Sniper Scepter Assassinate 暗杀（群体）
 	//=================================================================================================================
 	"sniper_assassinate_upgrade"
 	{
@@ -176,7 +176,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"3000"
 		"AbilityCastRangeBuffer"		"600"
-		"AoERadius"						"%scepter_radius"
+		"AoERadius"						"%radius"
 
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
@@ -190,7 +190,11 @@
 			"projectile_speed"			"2500"
 			"tooltip_range"				"3000"
 			"total_cast_time_tooltip"	"0.6"
-			"scepter_radius" 			"300"
+			"radius"
+			{
+				"value"					"300"
+				"affected_by_aoe_increase"	"1"
+			}
 			"scepter_crit_bonus"		"240 260 280 300"
 		}
 
@@ -217,10 +221,10 @@
 				"Target"
 				{
 					"Center"	"POINT"
-					"Radius"	"%scepter_radius"
-					"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
-					"Types"	"DOTA_UNIT_TARGET_HERO"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Radius"	"%radius"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				}
 			}
 		}

@@ -764,18 +764,16 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
 
-		// 火枪暗杀
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"暗杀（旧版）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定一个目标敌方单位，在%total_cast_time_tooltip%秒后，发射一发毁灭性的子弹，在远距离造成伤害，并对目标造成短暂眩晕。\n\n可用阿哈利姆神杖升级。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_aghanim_description"		"将暗杀转换为地面目标范围技能，在施法期间结束后对范围内的单位发动致命一击。只影响可见的英雄。"
+		// 火枪暗杀（群体）
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"暗杀（群体）"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的地方英雄，在%total_cast_time_tooltip%秒后，发射毁灭性的子弹，在远距离造成伤害，并对目标造成短暂眩晕。只影响可见的英雄。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"为了实现预言并返回家乡，卡尔德必须再次完成一次如同当年古老测试时那样完美的射击。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"打断引导法术，包括对魔法免疫单位。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_tooltip_range"				"施法距离:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"神杖升级暗杀范围:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%神杖升级致命一击:"
-		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀（旧版）"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_radius"			"暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
+		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"狙击手正在瞄准你的头部！"
 
 		// 混沌骑士
