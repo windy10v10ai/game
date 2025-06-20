@@ -68,21 +68,22 @@
 	//血魔 血雾
 	"bloodseeker_blood_mist2"
 	{
+		"MaxLevel"							"5"
 		"BaseClass"							"ability_lua"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
-		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
 		"AbilityTextureName"				"bloodseeker_blood_mist"
+		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
+
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"						"DOTA_ABILITY_TYPE_ULTIMATE"
+
 		"AbilityCastRange"					"450"
 
 		"precache"
 		{
 			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
 		}
-
-		"AbilityType"						"DOTA_ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"							"5"
 
 		"AbilityValues"
 		{
