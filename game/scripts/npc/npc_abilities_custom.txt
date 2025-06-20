@@ -148,7 +148,7 @@
 		"MaxLevel"						"1"
 	}
 	//=================================================================================================================
-	// Sniper Scepter Assassinate
+	// Sniper Scepter Assassinate 暗杀（群体）
 	//=================================================================================================================
 	"sniper_assassinate_upgrade"
 	{
@@ -158,7 +158,7 @@
 
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NORMAL_WHEN_STOLEN"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
@@ -171,13 +171,12 @@
 		"AbilityCastPoint"				"0.6"
 		"AbilityCooldown"				"20.0"
 		"AbilityManaCost"				"200 250 300 350"
-		"HasScepterUpgrade"				"1"
 
 		// Casting
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"3000"
 		"AbilityCastRangeBuffer"		"600"
-		"AoERadius"						"%scepter_radius"
+		"AoERadius"						"%radius"
 
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
@@ -191,7 +190,11 @@
 			"projectile_speed"			"2500"
 			"tooltip_range"				"3000"
 			"total_cast_time_tooltip"	"0.6"
-			"scepter_radius" 			"300"
+			"radius"
+			{
+				"value"					"300"
+				"affected_by_aoe_increase"	"1"
+			}
 			"scepter_crit_bonus"		"240 260 280 300"
 		}
 
@@ -200,8 +203,8 @@
 		"precache"
 		{
 			"particle"			"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+			"particle"			"particles/econ/items/sniper/sniper_charlie/sniper_assassinate_charlie.vpcf"
+			"particle"			"particles/econ/items/sniper/sniper_charlie/sniper_crosshair_charlie.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 		}
 		"OnAbilityPhaseStart"
@@ -213,15 +216,15 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+				"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 				"Function"	"AssassinateAcquireTargets"
 				"Target"
 				{
 					"Center"	"POINT"
-					"Radius"	"%scepter_radius"
-					"Flags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
-					"Types"	"DOTA_UNIT_TARGET_HERO"
-					"Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+					"Radius"	"%radius"
+					"Flags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE | DOTA_UNIT_TARGET_FLAG_NO_INVIS"
+					"Types"		"DOTA_UNIT_TARGET_HERO"
+					"Teams"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 				}
 			}
 		}
@@ -234,7 +237,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+				"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 				"Function"	"AssassinateStart"
 			}
 		}
@@ -247,7 +250,7 @@
 			}
 			"RunScript"
 			{
-				"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+				"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 				"Function"	"AssassinateHit"
 			}
 			"DeleteOnHit"	"0"
@@ -265,7 +268,7 @@
 					}
 					"RunScript"
 					{
-						"ScriptFile"	"heroes/hero_sniper/sniper.lua"
+						"ScriptFile"	"heroes/hero_sniper/sniper_assassinate_upgrade"
 						"Function"	"AssassinateRemoveTarget"
 					}
 				}
