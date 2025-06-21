@@ -8018,10 +8018,11 @@
 			{
 				"value"								"25"	// 65
 			}
-			"bonus_armor"
+			"active_attack_range_bonus"
 			{
-				"value"												"10 20 30 40 50"	// x2
+				"value"									"100 150 200 250 300"
 			}
+			"bonus_vision"								"500 750 1000 1250 1500"
 		}
 	}
 	// 基恩瞄准镜
