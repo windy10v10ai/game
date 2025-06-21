@@ -684,10 +684,9 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"max_stacks"	"2 4 6 8 10"
-				"debuff_duration"		"4.0"
-				"slow_per_stack"		"4 5 6 7 8"
-				"attack_damage_per_stack"		"3 4 5 6 7"
+				"max_stacks"	"6 8 10 12 14"	// 保持最大叠加时，per_stack数值不变
+				"slow_per_stack"			"2 2.5 3 3.5 4"
+				"attack_dmg_per_stack"		"2 2.5 3 3.5 4"
 		}
 	}
 	// 狂暴药剂（魔晶技能）
@@ -737,7 +736,7 @@
 			"gpm_increase_per_stack"	// 天命3 分红
 			{
 				"value"										"0"
-				"special_bonus_facet_alchemist_dividends"	"+300"	// +75
+				"special_bonus_facet_alchemist_dividends"	"+300"	// +70
 			}
 		}
 	}
@@ -5714,12 +5713,11 @@
 				"damage_per_second"
 				{
 					"value"				"50 80 110 140 170"	// +10
-					"special_bonus_unique_ember_spirit_chains_dps"			"+80"		// 60
 				}
 				"unit_count"
 				{
 					"value"			"3"
-					"special_bonus_facet_ember_spirit_chain_gang"		"+3"		// +1
+					"special_bonus_facet_ember_spirit_chain_gang"		"+3"		// +2
 				}
 		}
 	}
@@ -8468,7 +8466,6 @@
 				"value"			"3 5 7 9 11"
 				"special_bonus_unique_ursa_7" "+6"
 			}
-			"slow_resist"			"10 20 30 40 50"
 		}
 	}
 	// 怒意狂击
@@ -8480,9 +8477,7 @@
 			"bonus_reset_time"
 			{
 				"value"						"8 12 16 20 24"
-				"special_bonus_unique_ursa_4" "+20"
 			}
-			"bonus_reset_time_roshan"		"20"
 			"damage_per_stack"
 			{
 				"value"					"13 21 29 37 45"
@@ -8506,7 +8501,7 @@
 			"status_resistance"
 			{
 				"value"							"60"		// 50
-				"special_bonus_unique_ursa_8"			"+35" 		// +20
+				"special_bonus_unique_ursa_8"			"+35" 		// +25
 			}
 			"duration"
 			{
