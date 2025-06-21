@@ -765,7 +765,7 @@
 
 		// 火枪暗杀（群体）
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate Upgrade"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal damage at long range, and mini-stuns the targets. Only affects visible heroes. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal damage at long range, and mini-stuns the targets. Only affects visible heroes."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
