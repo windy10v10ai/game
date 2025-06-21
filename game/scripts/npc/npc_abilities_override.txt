@@ -8100,8 +8100,22 @@
 		{
 			"damage_reflection_pct"
 			{
-				"value"		"8 11 14 17 20"
+				"value"		"7 10 13 16 19"
 				"special_bonus_unique_spectre_5"		"+3"
+			}
+			"min_radius"
+			{
+				"value"		"100"				// 300
+			}
+			"activation_cooldown"
+			{
+				"value"				"0"
+				"special_bonus_shard"				"+50"		// 25
+			}
+			"activation_bonus_pct"
+			{
+				"value"				"0"
+				"special_bonus_shard"				"+30"		// 50
 			}
 		}
 	}
