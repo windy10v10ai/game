@@ -650,10 +650,6 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%概率："
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"变形持续时间："
 
-
-		//神之愤怒
-		"DOTA_Tooltip_ability_viper_universal_hero"						"全才"
-		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"变为全才英雄"
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"神之愤怒"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"斯温从力量中获得额外攻击力，但是基础攻击力降低。"

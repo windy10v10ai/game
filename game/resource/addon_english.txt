@@ -649,9 +649,6 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Chance:"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Hex Duration:"
 
-		//全才
-		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"
-		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"become universal hero"
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven gains additional attack damage from Strength, but has decreased base damage."
