@@ -649,9 +649,6 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Chance:"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Hex Duration:"
 
-		//全才
-		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"
-		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"become universal hero"
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven gains additional attack damage from Strength, but has decreased base damage."
@@ -765,7 +762,7 @@
 
 		// 火枪暗杀（群体）
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate Upgrade"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal damage at long range, and mini-stuns the targets. Only affects visible heroes. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal damage at long range, and mini-stuns the targets. Only affects visible heroes."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
@@ -1614,6 +1611,7 @@
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures."
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"The first hero to pick up a dropped Excalibur and have it in their main inventory becomes the new owner of that Excalibur, and may upgrade it."
+		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur serves the chosen king."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
 

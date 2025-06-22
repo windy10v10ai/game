@@ -108,6 +108,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.UseItemSelf()) {
       return true;
     }
+    if (this.UseAbilitySelf()) {
+      return true;
+    }
     return false;
   }
 

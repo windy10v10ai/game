@@ -447,16 +447,6 @@
 		}
 	}
 
-	// 全才
-	"viper_universal_hero"
-	{
-		"BaseClass"						"special_bonus_unique_viper_5"
-		"AbilityType"					"ABILITY_TYPE_BASIC"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"quan_cai"
-		"MaxLevel"						"1"
-
-	}
 	//施恩 神之愤怒
 	"sven_wrath_of_god2"
 	{

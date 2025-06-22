@@ -400,9 +400,6 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Шанс："
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Длительность трансформации："
 
-		//全才
-		"DOTA_Tooltip_ability_viper_universal_hero"						"Универсальный атрибут"
-		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"Сменить атрибут на универсальный"
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven получает дополнительный урон от силы, но его базовый урон уменьшается."

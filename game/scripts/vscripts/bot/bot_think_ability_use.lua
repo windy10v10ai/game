@@ -117,8 +117,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_Lina(hHero)
 	elseif sHeroName == "npc_dota_hero_spectre" then
 		self:ThinkUseAbility_Spectre(hHero)
-	elseif sHeroName == "npc_dota_hero_necrolyte" then
-		self:ThinkUseAbility_Necrolyte(hHero)
 	elseif sHeroName == "npc_dota_hero_riki" then
 		self:ThinkUseAbility_Riki(hHero)
 	elseif sHeroName == "npc_dota_hero_witch_doctor" then
@@ -434,25 +432,6 @@ function BotAbilityThink:ThinkUseAbility_Spectre(hHero)
 			return true
 		end
 	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Necrolyte(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
-	local hAbility4 = hHero:GetAbilityByIndex(3)
-	local hAbility6 = hHero:GetAbilityByIndex(5)
-
-	if hAbility1:IsFullyCastable() then
-		local iRange = 600
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityNoTarget(hAbility1, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility4) then return true end
-
-	if self:CastAbilityOnEnemyTargetWithLessHp(hHero, hAbility6, 50) then return true end
 end
 
 function BotAbilityThink:ThinkUseAbility_Riki(hHero)
