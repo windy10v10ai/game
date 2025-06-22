@@ -684,10 +684,9 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"max_stacks"	"2 4 6 8 10"
-				"debuff_duration"		"4.0"
-				"slow_per_stack"		"4 5 6 7 8"
-				"attack_damage_per_stack"		"3 4 5 6 7"
+				"max_stacks"	"6 8 10 12 14"	// 保持最大叠加时，per_stack数值不变
+				"slow_per_stack"			"2 2.5 3 3.5 4"
+				"attack_dmg_per_stack"		"2 2.5 3 3.5 4"
 		}
 	}
 	// 狂暴药剂（魔晶技能）
@@ -737,7 +736,7 @@
 			"gpm_increase_per_stack"	// 天命3 分红
 			{
 				"value"										"0"
-				"special_bonus_facet_alchemist_dividends"	"+300"	// +75
+				"special_bonus_facet_alchemist_dividends"	"+300"	// +70
 			}
 		}
 	}
@@ -1171,7 +1170,6 @@
 	"chaos_knight_chaos_bolt"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilityValues"
 		{
 			"stun_min"
@@ -1190,11 +1188,16 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"				"13 12 11 10 9"
-				"special_bonus_unique_chaos_knight_8"			"-3"
+				"value"				"14 13 12 11 10"
 			}
-			"damage_min"				"90 120 150 180 210"
-			"damage_max"				"150 230 310 390 470"
+			"damage_min"
+			{
+				"value"					"90 120 150 180 210"
+			}
+			"damage_max"
+			{
+				"value"					"155 240 325 410 495"
+			}
 		}
 	}
 	// 实相裂隙
@@ -4082,7 +4085,6 @@
 			"damage_per_impact"
 			{
 				"value"		"180 270 360 450"
-				"special_bonus_unique_snapfire_mortimer_kisses_impact_damage"		"+120"	// 60
 			}
 			"burn_damage"
 			{
@@ -5710,12 +5712,11 @@
 				"damage_per_second"
 				{
 					"value"				"50 80 110 140 170"	// +10
-					"special_bonus_unique_ember_spirit_chains_dps"			"+80"		// 60
 				}
 				"unit_count"
 				{
 					"value"			"3"
-					"special_bonus_facet_ember_spirit_chain_gang"		"+3"		// +1
+					"special_bonus_facet_ember_spirit_chain_gang"		"+3"		// +2
 				}
 		}
 	}
@@ -6060,7 +6061,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"18 16 14 12 10"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 			"bonus_range"			"75 150 225 300 375"
@@ -8016,10 +8017,11 @@
 			{
 				"value"								"25"	// 65
 			}
-			"bonus_armor"
+			"active_attack_range_bonus"
 			{
-				"value"												"10 20 30 40 50"	// x2
+				"value"									"100 150 200 250 300"
 			}
+			"bonus_vision"								"500 750 1000 1250 1500"
 		}
 	}
 	// 基恩瞄准镜
@@ -8100,8 +8102,22 @@
 		{
 			"damage_reflection_pct"
 			{
-				"value"		"8 11 14 17 20"
+				"value"		"7 10 13 16 19"
 				"special_bonus_unique_spectre_5"		"+3"
+			}
+			"min_radius"
+			{
+				"value"		"100"				// 300
+			}
+			"activation_cooldown"
+			{
+				"value"				"0"
+				"special_bonus_shard"				"+50"		// 25
+			}
+			"activation_bonus_pct"
+			{
+				"value"				"0"
+				"special_bonus_shard"				"+30"		// 50
 			}
 		}
 	}
@@ -8450,7 +8466,6 @@
 				"value"			"3 5 7 9 11"
 				"special_bonus_unique_ursa_7" "+6"
 			}
-			"slow_resist"			"10 20 30 40 50"
 		}
 	}
 	// 怒意狂击
@@ -8462,9 +8477,7 @@
 			"bonus_reset_time"
 			{
 				"value"						"8 12 16 20 24"
-				"special_bonus_unique_ursa_4" "+20"
 			}
-			"bonus_reset_time_roshan"		"20"
 			"damage_per_stack"
 			{
 				"value"					"13 21 29 37 45"
@@ -8488,7 +8501,7 @@
 			"status_resistance"
 			{
 				"value"							"60"		// 50
-				"special_bonus_unique_ursa_8"			"+35" 		// +20
+				"special_bonus_unique_ursa_8"			"+35" 		// +25
 			}
 			"duration"
 			{
@@ -9421,14 +9434,6 @@
 			"proximity_bonus_radius"
 			{
 				"value"		"8000"
-				"special_bonus_facet_crystal_maiden_cold_comfort"		"=8000"
-				"affected_by_aoe_increase"	"1"
-			}
-			// 命石2
-			"mana_battery_mana_pct"
-			{
-				"value"						"0"
-				"special_bonus_facet_crystal_maiden_cold_comfort"		"10 15 20 25 30"
 			}
 		}
 	}
@@ -9685,13 +9690,11 @@
 		{
 			"damage"
 			{
-				"value"													"85 165 245 325 405"
-				"special_bonus_unique_death_prophet_crypt_swarm_damage"	"+50"
+				"value"													"100 175 250 325 400"
 			}
 			"AbilityCooldown"
 			{
-				"value"									"9 8 7 6 5"
-				"special_bonus_unique_death_prophet_2"	"-2"
+				"value"									"10 9 8 7 6"
 			}
 		}
 	}
@@ -11281,8 +11284,7 @@
 		{
 				"heal"
 				{
-					"value"		"60 90 120 150 180"		// +5
-					"special_bonus_unique_necrophos_4" "+60"	// 50
+					"value"		"70 110 150 190 230"			// +20/level
 				}
 		}
 	}
@@ -11840,7 +11842,7 @@
 				"value"								"30 60 90 120 150"
 			}
 			"duration_damage"		"20 40 60 80 100"
-			"movement_slow"			"-30 -40 -50 -60 -70"
+			"movement_slow"			"-25 -35 -45 -55 -65"
 		}
 	}
 	// 闪烁
@@ -11923,7 +11925,6 @@
 		"AbilityValues"
 		{
 			"spell_amplification"			"70"		// 14
-			"spell_amplification_per_level"	"0.0"
 			"damage_reflected_to_self"		"35.0"		// 27.0
 		}
 	}
@@ -11932,11 +11933,10 @@
 	{
 		"AbilityValues"
 		{
-			"spell_reflect_pct"			"25.0"			// 15.0
+			"spell_reflect_pct"			"25.0"			// 20.0
 			"radius"
 			{
 				"value"			"900"					// 1200
-				"affected_by_aoe_increase"	"1"
 			}
 		}
 	}
@@ -12353,23 +12353,34 @@
 	// 智慧之刃
 	"silencer_glaives_of_wisdom"
 	{
-		"MaxLevel" "5"
 		"AbilityManaCost"				"14 16 18 20 22"
 		"AbilityValues"
 		{
+			"max_level"
+			{
+				"value"												"5"
+			}
+			"max_level_tooltip"
+			{
+				"special_bonus_facet_silencer_spread_the_knowledge" "=6"
+			}
 			"intellect_damage_pct"
 			{
-				"value"					"20 35 50 65 80"
+				"value"					"20 35 50 65 80 95"
 			}
 			"int_steal"
 			{
-				"value"		"1 1 2 2 3"
+				"value"		"1 1 2 2 3 3"
 				"special_bonus_shard"		"+1"
 			}
 			"int_steal_duration"
 			{
-				"value"			"15 20 25 30 35"
-				"special_bonus_shard"		"+25"
+				"value"			"15 20 25 30 35 40"
+			}
+			"bounce_range"
+			{
+				"value"													"0"
+				"special_bonus_facet_silencer_spread_the_knowledge"		"=0 =0 =0 =0 =0 =450"
 			}
 		}
 	}
@@ -12399,8 +12410,7 @@
 		{
 			"AbilityDuration"
 			{
-				"value"					"5.0 6.0 7.0 8.0"
-				"special_bonus_facet_silencer_reverberating_silence"	"=0"
+				"value"					"4.5 5.25 6.0 6.75"
 			}
 
 			"first_duration"
@@ -12431,6 +12441,16 @@
 			}
 		}
 	}
+	// 默默受苦 命石
+	"silencer_oppressive_silence"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"damage_pct"				"8 12 16 20 24"
+		}
+	}
+
 	//=================================================================================================================
 	// Ability: Skywrath Mage 天怒法师
 	//=================================================================================================================

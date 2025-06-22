@@ -650,10 +650,6 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%概率："
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"变形持续时间："
 
-
-		//神之愤怒
-		"DOTA_Tooltip_ability_viper_universal_hero"						"全才"
-		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"变为全才英雄"
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"神之愤怒"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"斯温从力量中获得额外攻击力，但是基础攻击力降低。"
@@ -1623,6 +1619,7 @@
 		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"EX咖喱棒"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。</font> \n<h1>被动：可塑性</h1>能够使用暗影组件进行诅咒强化"
+		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"第一个捡起掉落的EX咖喱棒并将其放入主物品栏的英雄将成为EX咖喱棒的新主人。"
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"咖喱棒效忠于被选中的王者。"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
