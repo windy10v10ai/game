@@ -6734,11 +6734,10 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-				"counter_duration"			"7 8 9 10 11"
+				"counter_duration"			"5.5 7.0 8.5 10.0 11.5"
 				"required_hits"
 				{
 					"value"			"2"
-					"special_bonus_unique_monkey_king_11"	"-1"
 				}
 				"bonus_damage"
 				{
@@ -9914,8 +9913,7 @@
 		{
 			"distance_damage_pct"
 			{
-				"value"			"12 14 16 18 20"
-				"special_bonus_unique_enchantress_4"	"+10"
+				"value"			"5 10 15 20 25"
 			}
 			"distance_cap"			"3500"
 		}
@@ -13600,11 +13598,10 @@
 		{
 			"AbilityCastRange"
 			{
-				"value"			"900"
-				"special_bonus_unique_ringmaster_box_cast_range"		"+300"
+				"value"			"900"		// 600
 			}
 			"invis_duration"			"2.0 2.4 2.8 3.2 3.6"
-			"move_speed"				"20 25 30 35 40"	// +5
+			"move_speed"				"10 15 20 25 30"	// +10
 			"magic_resist"				"50 60 70 80 90"
 			"leash_radius"				"1200"	// 500
 			"AbilityCooldown"
@@ -13628,7 +13625,11 @@
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
-			"damage_impact"				"75 125 175 225 275"
+			"damage_impact"
+			{
+				"value"													"50 100 150 200 250"	// 50
+				"special_bonus_unique_ringmaster_dagger_impact_damage"	"+100"					// 75
+			}
 			"bleed_health_pct"			"4.0 5.0 6.0 7.0 8.0"
 			"bleed_creep_dps"			"100 150 200 250 300"
 			"dagger_width"				"150"	// 130
@@ -13690,11 +13691,9 @@
 		{
 			"radius"
 			{
-				"value"		"600"
-				"affected_by_aoe_increase"	"1"
+				"value"		"600"		// 275
 			}
-			"illusion_percent_damage"		"100"
-			"miss_chance"					"80"
+			"miss_chance"					"80"		// 30
 		}
 	}
 	// 整蛊垫 命石1
