@@ -5176,18 +5176,15 @@
 				"search_radius"					"75"		// 225
 				"damage_per_second"
 				{
-					"value"		"30 50 70 90 110"
-					"special_bonus_scepter"			"+50%"
+					"value"		"30 50 70 90 110"	// x2
 				}
 				"move_speed_slow_pct"
 				{
 					"value" 							"14 21 28 35 42"
-					"special_bonus_unique_arc_warden_4"	"+23"
 				}
 				"AbilityCastRange"
 				{
-					"value"				"650 750 850 950 1050"
-					"special_bonus_unique_arc_warden_5"	"+250"
+					"value"				"500 600 700 800 900"
 				}
 		}
 	}
@@ -5210,12 +5207,10 @@
 			"attack_speed_bonus"
 			{
 				"value" 				"30 60 90 120 150"
-				"special_bonus_unique_arc_warden_3" 		"+40"
 			}
 			"AbilityCooldown"
 			{
 				"value"						"20 19 18 17 16"
-				"special_bonus_unique_arc_warden_9"		"-7"
 			}
 
 		}
@@ -5230,7 +5225,6 @@
 			"spark_damage_base"
 			{
 				"value"									"100 180 260 340 420"
-				"special_bonus_unique_arc_warden"		"+40%"
 			}
 			"ministun_duration"
 			{
