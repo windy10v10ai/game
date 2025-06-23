@@ -10292,13 +10292,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"8"	// 18
-				"special_bonus_unique_invoker_9"	"-5"
-			}
-			"freeze_damage"
-			{
-				"value"					"16 32 48 64 80 96 112 128 136 144"	// x2
-				"levelkey"				"quaslevel"
+				"value"					"10"	// 18
 			}
 		}
 	}
@@ -10335,8 +10329,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"23"	// 27
-				"special_bonus_unique_invoker_3" "-5"
+				"value"					"23"	// 30
 			}
 			"vision_distance"
 			{
@@ -10382,13 +10375,13 @@
 			{
 				"value"					"20 44 68 92 116 140 164 188 212 236"	// x2
 				"levelkey"				"wexlevel"
-				"special_bonus_unique_invoker_5"	"+60"	// x2
+				"special_bonus_unique_invoker_5"	"+70"	// x2
 			}
 			"bonus_damage"
 			{
 				"value"					"20 44 68 92 116 140 164 188 212 236"	// x2
 				"levelkey"				"exortlevel"
-				"special_bonus_unique_invoker_5"	"+60"	// x2
+				"special_bonus_unique_invoker_5"	"+70"	// x2
 				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
@@ -10400,17 +10393,12 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"18"	// 50
+				"value"					"20"	// 50
 			}
 			"land_time"					"1.0"	// 1.3 太短动画效果会变奇怪
 			"area_of_effect"
 			{
-				"value"		"300"
-				"affected_by_aoe_increase"	"1"
-				"special_bonus_facet_invoker_exort_focus"
-				{
-					"value"						"+50"
-				}
+				"value"		"300"	// 275
 			}
 			"main_damage"
 			{
@@ -10419,7 +10407,7 @@
 			}
 			"burn_dps"
 			{
-				"value"					"20 40 60 80 100 120 140 160 180 200"
+				"value"					"20 30 40 50 60 70 80 90 100 110"		// x2
 			}
 		}
 	}
@@ -10435,8 +10423,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"				"16"
-				"special_bonus_unique_invoker_11" "-4"
+				"value"				"16"	// 23
 			}
 			"cataclysm_cooldown"
 			{
@@ -10485,17 +10472,15 @@
 			}
 		}
 	}
-	// 冰墙
+	// 寒冰之墙 冰墙
 	"invoker_ice_wall"
 	{
-		"AbilityCooldown"				"10"	// 23
+		"AbilityCooldown"				"13"	// 23
 		"AbilityValues"
 		{
 			"damage_per_second"
 			{
-				"value"				"16 32 248 64 80 96 112 128 144 160"	// x2
-				"levelkey"			"exortlevel"
-				"special_bonus_unique_invoker_ice_wall_dps" "+100"	// x2
+				"value"				"30 40 50 60 70 80 90 100 110 120"
 			}
 		}
 	}
