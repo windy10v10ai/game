@@ -11521,7 +11521,6 @@
 	"oracle_fates_edict"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"500 600 700 800 900"
 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
@@ -11578,15 +11577,13 @@
 		{
 			"radius"
 			{
-				"value"		"1050"
-				"affected_by_aoe_increase"	"1"
+				"value"		"1050"	// 650
 			}
 			"damage"
 			{
-				"value"					"120"
-				"CalculateSpellDamageTooltip"	"1"
+				"value"					"120"	// 30
 			}
-			"heal_amp"				"50"
+			"heal_amp"				"50"	// 15
 		}
 	}
 	// 命石1 预言家诅咒
