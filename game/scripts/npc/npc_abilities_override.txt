@@ -1395,7 +1395,7 @@
 	"doom_bringer_doom"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"150 225 300 375"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 			"duration"
@@ -2470,15 +2470,13 @@
 			// 命石2
 			"health_per_wolf"
 			{
-				"value"							"120 230 340 450" // 60 115 170 225
-				"special_bonus_unique_lycan_7"	"+500" // 250
-				"RequiresFacet"					"lycan_spirit_wolves"
+				"value"							"120 240 360 480"	// x2
+				"special_bonus_unique_lycan_7"	"+500"				// x2
 			}
 			"damage_per_wolf"
 			{
-				"value"					"12 24 36 48" // 6 12 18 24
-				"special_bonus_unique_lycan_3"	"+12"	// 6
-				"RequiresFacet"					"lycan_spirit_wolves"
+				"value"					"12 24 36 48"				// x2
+				"special_bonus_unique_lycan_3"	"+12"				// x2
 			}
 			"death_fx_time"
 			{
@@ -12150,7 +12148,7 @@
 	{
 		"AbilityValues"
 		{
-			"stack"			"3"			// 2
+			"stack"			"3"			// 2.5
 			"duration"		"12"		// 8
 		}
 	}
