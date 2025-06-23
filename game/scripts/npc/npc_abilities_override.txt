@@ -2563,17 +2563,31 @@
 	// 震荡波
 	"magnataur_shockwave"
 	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"13 12 11 10 9"
+		"AbilityCooldown"				"14 13 12 11 10 9"
+		"AbilityManaCost"				"80 90 100 110 120 130"	// 增加伤害和耗蓝
 		"AbilityValues"
 		{
 			"shock_damage"
 			{
-				"value"			"75 150 225 300 375"
+				"value"			"75 150 225 300 375 450"
+			}
+			"max_level"
+			{
+				"value"												"5"
+				"special_bonus_facet_magnataur_diminishing_return" "+1"
+			}
+			"max_level_tooltip"
+			{
+				"special_bonus_facet_magnataur_diminishing_return" "=6"
 			}
 			"basic_slow_duration"
 			{
-				"value"					"0.7 0.8 0.9 1.0 1.1"
+				"value"					"0.4 0.6 0.8 1.0 1.2 1.4"
+			}
+			"return_damage_pct"
+			{
+				"value"			"0"
+				"special_bonus_facet_magnataur_diminishing_return"		"=0 =0 =0 =0 =0 =50"
 			}
 		}
 	}
@@ -2625,12 +2639,10 @@
 				"tree_hit_damage"
 				{
 					"value"			"15 20 25 30 35"
-					"special_bonus_shard"			"30"
 				}
 				"cliff_hit_damage"
 				{
 					"value"			"50 75 100 125 150"
-					"special_bonus_shard"			"150"
 				}
 		}
 	}
@@ -2677,10 +2689,9 @@
 		{
 				"impact_damage"
 				{
-					"value"			"210 280 350 420 490"
-					"special_bonus_unique_marci_grapple_damage"	"+110"
+					"value"			"60 150 240 330 420"
 				}
-				"movement_slow_pct"		"40 50 60 70 80"
+				"movement_slow_pct"		"20 30 40 50 60"
 		}
 	}
 	// 回身踢
@@ -7418,8 +7429,7 @@
 		{
 			"damage"
 			{
-				"value"					"70 140 210 280 350"
-				"special_bonus_unique_pangolier_shield_crash_radius"		"+150"
+				"value"					"70 130 190 250 310"
 			}
 			"hero_shield"
 			{
@@ -9899,7 +9909,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"6 4 2 1 0"
-		"AbilityManaCost"				"25"			// 50
+		"AbilityManaCost"				"40 45 50 55 60"
 		"AbilityValues"
 		{
 			"distance_damage_pct"
