@@ -1254,8 +1254,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"16 14 12 10 8"	// 17 15 13 11
-				"special_bonus_unique_dawnbreaker_fire_wreath_cooldown"			"-4"
+				"value"					"15 14 13 12 11"	// 17 15 13 11
 			}
 			"swipe_damage"
 			{
