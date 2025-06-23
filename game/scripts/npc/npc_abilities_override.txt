@@ -2393,12 +2393,12 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_hp_per_hero"
+			"bonus_hp_per_hero"			// x3 击杀英雄获得生命上限
 			{
 				"value"											"30 30 30 30"
 				"special_bonus_facet_life_stealer_fleshfeast"	"=45 =60 =75 =90"
 			}
-			"bonus_hp_per_creep"		"10"
+			"bonus_hp_per_creep"		"10"		// x10 击杀小兵获得生命上限
 		}
 	}
 	// 撕裂伤口
@@ -2446,16 +2446,6 @@
 		"RequiredLevel"					"18"
 		"AbilityValues"
 		{
-			"bonus_movement_speed"
-			{
-				"value"				 "15 20 25"
-				"special_bonus_unique_lifestealer_infest_target_bonus"			"+15"
-			}
-			"bonus_health"
-			{
-				"value"								"400 800 1200"
-				"special_bonus_unique_lifestealer_infest_target_bonus"			"+15%"
-			}
 			"attack_rate_enemy"
 			{
 				"value"				"0"
@@ -5632,7 +5622,7 @@
 			"frost_arrows_movement_speed"	"-10 -20 -30 -40 -50"
 			"damage"
 			{
-				"value"						"12 24 36 48 60"
+				"value"						"20 30 40 50 60"	// x2
 			}
 		}
 	}
@@ -6565,7 +6555,7 @@
 			}
 			"snake_damage"
 			{
-				"value"			"90 150 210 270 330"
+				"value"			"90 140 190 240 290"
 			}
 			"snake_mana_steal"					"14 15 16 17 18"
 		}
@@ -6575,7 +6565,7 @@
 	"medusa_gorgon_grasp"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"40 60 80 100 120"
+		"AbilityManaCost"				"65 85 105 125 145"
 		"AbilityCooldown"				"30 27 24 21 18"
 		"AbilityValues"
 		{
@@ -6685,7 +6675,7 @@
 			"root_duration"
 			{
 				"value"											"0"
-				"special_bonus_facet_mirana_leaps_and_bounds"	"=1.1 =1.4 =1.7 =2.0 =2.4"
+				"special_bonus_facet_mirana_leaps_and_bounds"	"=1.5 =1.75 =2.0 =2.25 =2.5"
 			}
 		}
 	}
@@ -6862,7 +6852,7 @@
 				}
 		}
 	}
-	// 转敏捷
+	// 属性变换 转敏捷
 	"morphling_morph_agi"
 	{
 		"MaxLevel" "5"
@@ -6876,7 +6866,7 @@
 			}
 		}
 	}
-	// 转力量
+	// 属性变换 转力量
 	"morphling_morph_str"
 	{
 		"MaxLevel" "5"
@@ -10683,7 +10673,6 @@
 			"AbilityCooldown"
 			{
 				"value"			"18 16 14 12 10"
-				"special_bonus_unique_keeper_of_the_light_7"	"-3"
 			}
 			"self_bonus"				"25"
 		}
@@ -10706,7 +10695,7 @@
 				"value"				"10 15 20 25"
 				"special_bonus_unique_keeper_of_the_light_11"	"+15"
 			}
-			"cast_range"			"125 250 375 500"
+			"cast_range"			"100 200 300 400"
 			"illuminate_heal"
 			{
 				"value"					"50 60 70 80"
