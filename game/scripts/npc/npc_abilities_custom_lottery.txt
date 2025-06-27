@@ -1,5 +1,27 @@
 "DOTAAbilities"
 {
+	// 修补匠 尤里卡！
+	"tinker_eureka2"
+	{
+		"BaseClass"						"tinker_eureka"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"tinker_eureka2"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"int_per_one_cdr"				"3"
+			"one_percent_tooltip"			"1"
+			"max_cdr"						"60"
+
+			"item_cooldown_tooltip"
+			{
+				"dynamic_value"				"true"
+			}
+		}
+	}
 	// 大肆污染 拉席克
 	"leshrac_defilement2"
 	{
@@ -8,8 +30,6 @@
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
 		"AbilityTextureName"			"twin_gate_portal_warp"
-		// "AbilityTextureName"			"miniboss_minion_deflecting_shield"
-		// "AbilityTextureName"			"miniboss_radiance"
 		"MaxLevel"						"1"
 
 		// Special
