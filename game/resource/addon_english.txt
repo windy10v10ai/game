@@ -857,7 +857,7 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, (including upgrades like Black King Bar Upgrade, Aeon Pendant, Linken's Sphere Upgrade, Armor of Insight, Hand of Team, etc.) and any items in the neutral slot, regardless of what they are."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"If Rubick Spell Steals Rearm, he cannot Rearm other heroes' ultimates."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"TIME TO REARM:"
-		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}s Rearm Channel Time<br> -{s:bonus_AbilityManaCost} Mana Cost"
+		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}s Rearm Channel Time<br> -{s:bonus_AbilityManaCost} Rearm Mana Cost"
 
 		// 电棍 razor
 		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} Plasma Field Radius"
