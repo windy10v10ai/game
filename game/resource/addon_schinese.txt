@@ -855,7 +855,8 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。<br>再装填不能刷新修补匠之外的英雄的大招。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"如果拉比克偷取了再装填，他无法刷新其他英雄的大招。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"再装填施法时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}秒 再装填施法时间<br> -{s:bonus_AbilityManaCost} 再装填魔法消耗"
 
 		// 电棍 razor
 		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} 等离子场范围"

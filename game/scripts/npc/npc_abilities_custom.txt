@@ -2900,14 +2900,25 @@
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastPoint"				"0.1"
-		"AbilityChannelTime"			"2.4 1.6 0.8"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityChannelAnimation"		"ACT_DOTA_CHANNEL_ABILITY_4"
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"1"
-		"AbilityManaCost"				"150 200 250"
+		"AbilityValues"
+		{
+			"AbilityChannelTime"
+			{
+				"value"						"2.8 2.0 1.2"
+				"special_bonus_unique_tinker_rearm_lua"	"-0.4"
+			}
+			"AbilityManaCost"
+			{
+				"value"						"200 300 400"
+				"special_bonus_unique_tinker_rearm_lua"	"-150"
+			}
+		}
 	}
 	//=================================================================================================================
     // Juggernaut 主宰/剑圣
