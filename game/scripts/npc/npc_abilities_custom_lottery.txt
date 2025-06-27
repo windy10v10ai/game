@@ -1,14 +1,39 @@
 "DOTAAbilities"
 {
+	// 死亡先知 巫术精研
+	"death_prophet_witchcraft2"
+	{
+		"MaxLevel"						"1"
+		"BaseClass"						"death_prophet_witchcraft"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"death_prophet_witchcraft2"
+
+		"AbilityValues"
+		{
+			"movement_speed_pct_per_level"		"0.5"
+			"cooldown_reduction_pct_per_level"	"0.75"
+
+			"movement_speed_tooltip"
+			{
+				"dynamic_value"					"true"
+			}
+			"cooldown_reduction_tooltip"
+			{
+				"dynamic_value"					"true"
+			}
+		}
+	}
 	// 修补匠 尤里卡！
 	"tinker_eureka2"
 	{
+		"MaxLevel"						"1"
 		"BaseClass"						"tinker_eureka"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
 		"AbilityTextureName"			"tinker_eureka2"
-		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{

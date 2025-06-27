@@ -191,7 +191,6 @@ export const abilityTiersPassive: Tier[] = [
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
-      'tinker_eureka2', // 修补匠 尤里卡！
     ],
   },
   {
@@ -227,6 +226,8 @@ export const abilityTiersPassive: Tier[] = [
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
+      'tinker_eureka2', // 修补匠 尤里卡！
+      'death_prophet_witchcraft2', // 死亡先知 巫术精研
     ],
   },
   {
