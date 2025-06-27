@@ -649,9 +649,6 @@
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_chance"		"%Chance:"
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin_hex_duration"	"Hex Duration:"
 
-		//全才
-		"DOTA_Tooltip_ability_viper_universal_hero"						"Universal Hero"
-		"DOTA_Tooltip_ability_viper_universal_hero_Description"			"become universal hero"
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Sven gains additional attack damage from Strength, but has decreased base damage."
@@ -765,7 +762,7 @@
 
 		// 火枪暗杀（群体）
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate Upgrade"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal damage at long range, and mini-stuns the targets. Only affects visible heroes. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal damage at long range, and mini-stuns the targets. Only affects visible heroes."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
@@ -787,6 +784,25 @@
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm_scepter_description"					"Increases the number of extra attacks and reduces the cooldown between the extra attacks."
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"												"Army of Chaos"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"									"Multiple shadow clones are imbued within you! They will attack when you do with a cooldown."
+
+		// 修补匠 刷新
+		"DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities.<br>Hold Alt to see items that cannot be refreshed."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, (including upgrades like Black King Bar Upgrade, Aeon Pendant, Linken's Sphere Upgrade, Armor of Insight, Hand of Team, etc.) and all neutral items."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"TIME TO REARM:"
+		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}s Rearm Channel Time<br> -{s:bonus_AbilityManaCost} Rearm Mana Cost"
+
+		"DOTA_Tooltip_ability_tinker_eureka2"				"Eureka!"
+		"DOTA_Tooltip_ability_tinker_eureka2_Description"	"Tinker gains %one_percent_tooltip%%% item cooldown reduction per %int_per_one_cdr% Intelligence, up to a maximum of %max_cdr%%%."
+		"DOTA_Tooltip_ability_tinker_eureka2_item_cooldown_tooltip"		"%ITEM COOLDOWN REDUCTION:"
+
+		// 死亡先知
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"Witchcraft"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"Death Prophet's occult knowledge deepens with experience, gaining %movement_speed_pct_per_level%%% movement speed per level, and %cooldown_reduction_pct_per_level%%% spell cooldown reduction per level."
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%MOVEMENT SPEED:"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%COOLDOWN REDUCTION:"
 
 
 		"DOTA_Tooltip_ability_bot_power_n5"							"Bot Salvation N5"
@@ -851,15 +867,6 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"HEALTH REGENERATION:"
 		"DOTA_Tooltip_modifier_omninight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_modifier_omninight_angelic_flight_description"		"Gaining flying movement, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed."
-
-	    // 修补匠 刷新
-	    "DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, (including upgrades like Black King Bar Upgrade, Aeon Pendant, Linken's Sphere Upgrade, Armor of Insight, Hand of Team, etc.) and any items in the neutral slot, regardless of what they are."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"If Rubick Spell Steals Rearm, he cannot Rearm other heroes' ultimates."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"TIME TO REARM:"
 
 		// 电棍 razor
 		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} Plasma Field Radius"
@@ -982,6 +989,16 @@
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note2"						"Bonus damage from Backstab can't be evaded."
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"FADE DELAY:"
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"MOVEMENT SPEED:"
+
+		// 修补匠 热导飞弹
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile"								"Heat-Seeking Missile"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_Description"					"Launches rockets at the nearest visible heroes within %radius% range."
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_Lore"							"The last contraption Boush was able to save was a retrofitted rocket launcher with a homing mechanism."
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_damage"						"DAMAGE:"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_targets"						"TARGETS:"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_speed"						"MISSILE SPEED:"
+		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision"	"Heat-Seeking Missile"
+		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision_Description" "You've been spotted!"
 
 		// 树精卫士
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increase Overgrowth Range"
@@ -1614,6 +1631,7 @@
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures."
 		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"The first hero to pick up a dropped Excalibur and have it in their main inventory becomes the new owner of that Excalibur, and may upgrade it."
+		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur serves the chosen king."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
 
