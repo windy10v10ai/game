@@ -510,7 +510,7 @@
 			}
 			"bonus_ms"
 			{
-				"value"			"5 10 15 20 25"
+				"value"			"11 14 17 20 23"
 			}
 			"buff_duration"			"20.0"
 		}
@@ -901,7 +901,6 @@
 				"CalculateSpellDamageTooltip" "1"
 			}
 			"slow_duration"				"3 3.5 4 4.5"
-			"movement_speed_duration"			"3.0 3.5 4 4.5"
 			"AbilityCooldown"
 			{
 				"value"				"80.0 70.0 60.0 50.0"
@@ -971,7 +970,7 @@
 				"goo_stacks"		"6" // 2
 		}
 	}
-	// 鼻涕
+	// 粘稠鼻液
 	"bristleback_viscous_nasal_goo"
 	{
 		"MaxLevel" "5"
@@ -982,7 +981,7 @@
 			"armor_per_stack"
 			{
 				"value"		"1.5 2.0 2.5 3.0 3.5"
-				"special_bonus_facet_bristleback_snot_rocket"	"+1.5"
+				"special_bonus_facet_bristleback_snot_rocket"	"+1.5"	// +0.5
 			}
 			"move_slow_per_stack"	"3 6 9 12 15"
 		}
@@ -1702,7 +1701,7 @@
 				}
 		}
 	}
-	// 滚
+	// 巨石翻滚
 	"earth_spirit_rolling_boulder"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
@@ -1715,15 +1714,14 @@
 				}
 				"distance"
 				{
-					"value"		"950.0"	// 750
-					"special_bonus_unique_earth_spirit_4" "+200"
+					"value"		"950.0"	// 800
+					"special_bonus_unique_earth_spirit_4" "+250"	// 150
 				}
 				"damage"
 				{
-					"value"		"60 120 180 240 300"
-				"special_bonus_unique_earth_spirit" "+120"
+					"value"		"60 120 180 240 300"	// +50/level
 				}
-				"damage_str"			"150"
+				"damage_str"			"150"			// 100
 
 				"stun_duration"
 				{
@@ -3529,12 +3527,12 @@
 	//=================================================================================================================
 	// Ability: Sand King 沙王
 	//=================================================================================================================
-	// 穿刺
+	// 掘地穿刺
 	"sandking_burrowstrike"
 	{
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"100 110 120 130 140"
-		"AbilityDamage"					"80 140 200 260 320"
+		"AbilityDamage"					"80 150 220 290 360"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -4882,7 +4880,7 @@
 			"tombstone_stun_penalty"	"0.1"
 		}
 	}
-	// 尸王大
+	// 血肉傀儡
 	"undying_flesh_golem"
 	{
 		"MaxLevel" "4"
@@ -4904,7 +4902,6 @@
 				"value"					"40 50 60 80"
 				"special_bonus_unique_undying_4" "+60"
 			}
-			"movement_bonus"			"30 40 50 70"
 			"spawn_zombie_on_attack"
 			{
 				"value"						"0"
@@ -6087,7 +6084,7 @@
 			{
 				"value"		"280"	// 265
 			}
-			"debuff_duration"		"1.4 1.6 1.8 2.0 2.2"
+			"debuff_duration"		"1.5 1.7 1.9 2.1 2.3"
 			"projectile_speed"	"1800"	// 1300
 			"total_damage"
 			{
@@ -6783,7 +6780,7 @@
 		"AbilityCooldown"				"12"
 		"AbilityValues"
 		{
-			"movespeed"					"25"
+			"movespeed"					"25"	// 8
 			"invul_duration"
 			{
 				"value"										"0.5"		// 0.1
@@ -7565,10 +7562,6 @@
 			"radius"				"625 550 475 400 325"
 			"fade_duration"			"0.4 0.6 0.8 1.0 1.2"
 			"active_movespeed_bonus"				"4 6 8 10 12"
-			"AbilityCooldown"
-			{
-				"value"					"60 55 50 45 40"
-			}
 		}
 	}
 	// 飘忽不定
@@ -9243,7 +9236,7 @@
 			"building_damage_pct"
 			{
 				"value"						"0"
-				"special_bonus_shard"		"+15"		// 35
+				"special_bonus_shard"		"+15"		// 25
 			}
 			"napalm_stacks_on_attack"
 			{
@@ -9511,7 +9504,7 @@
 	"dark_willow_shadow_realm"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -9884,8 +9877,8 @@
 		{
 			"slow_attack_speed"
 			{
-				"value" "-100 -200 -300 -400"
-				"special_bonus_unique_enchantress_3" "-300"		// -60
+				"value" "-110 -200 -290 -380"
+				"special_bonus_unique_enchantress_3" "-240"		// -60
 			}
 		}
 	}
@@ -10922,7 +10915,7 @@
 			"destination"		"30 35 40 45 50"
 			"damage"
 			{
-				"special_bonus_facet_lich_cryophobia"		"10 15 20 25 30"
+				"special_bonus_facet_lich_cryophobia"		"10 20 30 40 50"	// +5
 			}
 		}
 	}
@@ -11754,9 +11747,8 @@
 		{
 			"mana_multiplier"
 			{
-				"value"			"1 1.5 2.0 2.5" // 1 1.2 1.4 1.6
-				"special_bonus_unique_pugna_3"		"+1.5"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_MAGICAL"
+				"value"			"1 1.2 1.4 1.6 1.8"
+				"special_bonus_unique_pugna_3"		"+1.5"	// 1.9
 			}
 		}
 	}
@@ -13758,7 +13750,7 @@
 	{
 		"MaxLevel"	"5"
 		"AbilityCooldown"				"20 18 16 14 12"
-		"AbilityManaCost"				"85 100 115 130 145"
+		"AbilityManaCost"				"75 90 105 120 135"
 		"AbilityValues"
 		{
 			"katana_echo_damage"
