@@ -12707,32 +12707,6 @@
 	//=================================================================================================================
 	// Ability: Tinker 修补匠/TK
 	//=================================================================================================================
-	// 防御矩阵
-	"tinker_defense_matrix"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"16"
-		"AbilityManaCost"				"70 80 90 100 110"
-		"AbilityValues"
-		{
-			"damage_absorb"
-			{
-				"value"							"180 360 540 720 900"	// 100 180 240 320
-				"special_bonus_unique_tinker_7"	"+250"	// 125
-			}
-			"status_resistance"
-			{
-				"value"															"10 20 30 40 50"
-				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+10"
-			}
-			"barrier_duration"		"30"	// 15
-			"flicker_range"
-			{
-				"value"											"0"
-				"special_bonus_facet_tinker_translocator"	"+700"	// 350
-			}
-		}
-	}
 	// 激光
 	"tinker_laser"
 	{
@@ -12751,31 +12725,18 @@
 				"value" "75 150 225 300 375"
 				"special_bonus_unique_tinker" "+125"	// 50
 			}
+			"radius_explosion"
+			{
+				"special_bonus_unique_tinker_4"	"+300"	// 200
+			}
 			"scepter_reduction_pct"
 			{
 				"special_bonus_scepter"		"10"		// 13 防止多次叠加 最大血量变负数
 			}
-		}
-	}
-	// 热导飞弹
-	"tinker_heat_seeking_missile"
-	{
-		"MaxLevel" "5"
-		"AbilityCooldown"				"12"			// 18
-		"AbilityManaCost"				"95 105 115 125 135"
-		"AbilityValues"
-		{
-				"damage"			"120 200 280 360 440"
-				"radius"
-				{
-					"value"	"1800"	// 1500
-					"affected_by_aoe_increase"	"1"
-				}
-				"targets"
-				{
-					"value"	"2 3 4 5 6"
-				}
-				"speed"				"900"	// 700
+			"scepter_bounce_radius"
+			{
+				"special_bonus_scepter"		"1000"	// 700
+			}
 		}
 	}
 	// 机械行军
@@ -12794,6 +12755,29 @@
 			}
 		}
 	}
+	// 防御矩阵
+	"tinker_defense_matrix"
+	{
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"90 105 120 135 150"
+		"AbilityValues"
+		{
+			"damage_absorb"
+			{
+				"value"							"160 320 480 640 800"	// x2
+				"special_bonus_unique_tinker_7"	"+400"	// 60
+			}
+			"status_resistance"
+			{
+				"value"															"30 35 40 45 50"
+				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+10"
+			}
+			"barrier_duration"
+			{
+				"value"							"30"	// 15
+			}
+		}
+	}
 	// 再装填
 	"tinker_rearm_lua"
 	{
@@ -12805,13 +12789,8 @@
 	{
 		"AbilityValues"
 		{
-			"damage"					"200"		// 150
+			"damage"					"300"		// 150
 		}
-	}
-	// 再装填（原版）
-	"tinker_rearm"
-	{
-		"AbilityChannelTime"				"2.40 1.60 0.80"
 	}
 	//=================================================================================================================
 	// Ability: Void Spirit 虚无之灵/紫猫
