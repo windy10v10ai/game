@@ -148,7 +148,6 @@ export const abilityTiersActive: Tier[] = [
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
-      'ancient_apparition_frost_seal', // 冰霜封印
     ],
   },
 ];
@@ -192,6 +191,7 @@ export const abilityTiersPassive: Tier[] = [
       'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
+      'tinker_eureka2', // 修补匠 尤里卡！
     ],
   },
   {

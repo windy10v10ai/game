@@ -609,7 +609,7 @@
 			"ad"		"0.15"
 		}
 	}
-	//冰霜封印
+	//冰霜封印 减伤效果可能有问题 暂时移除
 	"ancient_apparition_frost_seal"
 	{
 		"BaseClass"						"ability_lua"
