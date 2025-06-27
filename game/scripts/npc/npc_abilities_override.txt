@@ -13801,8 +13801,8 @@
 	"kez_falcon_rush"
 	{
 		"MaxLevel"	"5"
-		"AbilityCooldown"				"20 18 16 14 12"
-		"AbilityManaCost"				"85 90 95 100 105"
+		"AbilityCooldown"				"20 19 18 17 16"		// 过于强力 削弱CD
+		"AbilityManaCost"				"80 100 120 140 160"	// 过于强力 削弱耗蓝
 		"AbilityValues"
 		{
 			"echo_damage"
