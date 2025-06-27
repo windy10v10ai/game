@@ -99,6 +99,8 @@ export const abilityTiersActive: Tier[] = [
       'chaos_knight_chaos_bolt', // 混乱之箭
       'chaos_knight_reality_rift', // 实相裂隙
       'axe_berserkers_call', // 狂战士之吼
+      'tinker_laser', // 激光
+      'tinker_defense_matrix', // 防御矩阵
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
