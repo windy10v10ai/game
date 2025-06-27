@@ -1,21 +1,23 @@
-LinkLuaModifier("modifier_tinker_rearm_command_restricted", "lua_abilities/tinker_rearm_lua/tinker_rearm_lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tinker_rearm_command_restricted", "lua_abilities/tinker_rearm_lua/tinker_rearm_lua",
+	LUA_MODIFIER_MOTION_NONE)
 tinker_rearm_lua = class({})
 
 function tinker_rearm_lua:GetCastAnimation()
 	return ACT_DOTA_TINKER_REARM1
 end
+
 --------------------------------------------------------------------------------
 -- Ability Start
 function tinker_rearm_lua:OnSpellStart()
 	-- effects
 	local sound_cast = "Hero_Tinker.Rearm"
-	EmitSoundOn( sound_cast, self:GetCaster() )
+	EmitSoundOn(sound_cast, self:GetCaster())
 	-- get parent player id
 	local playerID = self:GetCaster():GetPlayerID()
 	if PlayerResource:IsFakeClient(playerID) then
 		self:GetCaster():AddNewModifier(
-			self:GetCaster(), -- player source
-			self, -- ability source
+			self:GetCaster(),                  -- player source
+			self,                              -- ability source
 			"modifier_tinker_rearm_command_restricted", -- modifier name
 			{ duration = self:GetChannelTime() } -- kv
 		)
@@ -24,39 +26,34 @@ end
 
 --------------------------------------------------------------------------------
 -- Ability Channeling
-function tinker_rearm_lua:OnChannelFinish( bInterrupted )
+function tinker_rearm_lua:OnChannelFinish(bInterrupted)
 	local caster = self:GetCaster()
 
 	-- stop effects
 	local sound_cast = "Hero_Tinker.Rearm"
-	StopSoundOn( sound_cast, self:GetCaster() )
+	StopSoundOn(sound_cast, self:GetCaster())
 
 	if bInterrupted then
 		-- remove modifier modifier_tinker_rearm_command_restricted
-		caster:RemoveModifierByName( "modifier_tinker_rearm_command_restricted" )
+		caster:RemoveModifierByName("modifier_tinker_rearm_command_restricted")
 		return
 	end
 
 	-- find all refreshable abilities
-	for i=0,caster:GetAbilityCount()-1 do
-		local ability = caster:GetAbilityByIndex( i )
-		if ability and ability:GetAbilityType()~=ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException( ability ) then
-			if string.find(ability:GetName(),"tinker") then
-				ability:RefreshCharges()
-				ability:EndCooldown()
-			elseif ability:GetAbilityType()~=ABILITY_TYPE_ULTIMATE then
-				ability:RefreshCharges()
-				ability:EndCooldown()
-			end
+	for i = 0, caster:GetAbilityCount() - 1 do
+		local ability = caster:GetAbilityByIndex(i)
+		if ability and ability:GetAbilityType() ~= ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException(ability) then
+			ability:RefreshCharges()
+			ability:EndCooldown()
 		end
 	end
 
 	-- find all refreshable items
-	for i=0,8 do
+	for i = 0, 8 do
 		local item = caster:GetItemInSlot(i)
 		if item then
 			local pass = false
-			if item:GetPurchaser()==caster and not self:IsItemException( item ) then
+			if item:GetPurchaser() == caster and not self:IsItemException(item) then
 				pass = true
 			end
 
@@ -78,17 +75,16 @@ end
 --------------------------------------------------------------------------------
 -- Helper
 
-function tinker_rearm_lua:IsAbitilyException( ability )
+function tinker_rearm_lua:IsAbitilyException(ability)
 	return self.AbitilyException[ability:GetName()]
 end
+
 tinker_rearm_lua.AbitilyException = {
-	["zuus_cloud"] = true,
-	["phantom_assassin_fan_of_knives"] = true,
-	["invoker_sun_strike"] = true,
 }
-function tinker_rearm_lua:IsItemException( item )
+function tinker_rearm_lua:IsItemException(item)
 	return self.ItemException[item:GetName()]
 end
+
 tinker_rearm_lua.ItemException = {
 	["item_aeon_disk"] = true,
 	["item_arcane_boots"] = true,
@@ -120,19 +116,21 @@ function tinker_rearm_lua:PlayEffects()
 	local sound_cast = "Hero_Tinker.RearmStart"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
-	assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_color"))(self,effect_cast)
-	ParticleManager:ReleaseParticleIndex( effect_cast )
+	local effect_cast = ParticleManager:CreateParticle(particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
+	assert(loadfile("lua_abilities/rubick_spell_steal_lua/rubick_spell_steal_lua_color"))(self, effect_cast)
+	ParticleManager:ReleaseParticleIndex(effect_cast)
 
-	EmitSoundOn( sound_cast, self:GetCaster() )
+	EmitSoundOn(sound_cast, self:GetCaster())
 end
-
 
 -- modifier can not order
 modifier_tinker_rearm_command_restricted = class({})
 function modifier_tinker_rearm_command_restricted:IsHidden() return true end
+
 function modifier_tinker_rearm_command_restricted:IsDebuff() return false end
+
 function modifier_tinker_rearm_command_restricted:IsPurgable() return false end
+
 function modifier_tinker_rearm_command_restricted:RemoveOnDeath() return true end
 
 function modifier_tinker_rearm_command_restricted:CheckState()
