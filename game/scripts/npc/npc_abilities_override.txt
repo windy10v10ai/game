@@ -12769,8 +12769,8 @@
 			}
 			"status_resistance"
 			{
-				"value"															"30 35 40 45 50"
-				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+10"
+				"value"															"30 40 50 60 70"
+				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+20"	// 10
 			}
 			"barrier_duration"
 			{
