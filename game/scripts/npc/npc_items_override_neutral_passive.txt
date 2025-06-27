@@ -80,8 +80,8 @@
 		"MaxLevel"						"3"
 		"AbilityValues"
 		{
-			"attack_lifesteal"				"12 20 28"	// 12 16 20
-			"spell_lifesteal"				"8 16 24"	// 8 12 16
+			"attack_lifesteal"				"12 18 24"	// 12 14 16
+			"spell_lifesteal"				"8 12 16"	// 6 8 10
 			"bonus_night_vision"			"0 100 200"	// 0 0 200
 		}
 	}
