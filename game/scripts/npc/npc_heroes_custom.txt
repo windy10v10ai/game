@@ -432,7 +432,7 @@
 	"npc_dota_hero_tinker"
 	{
 		"Ability6"		"tinker_rearm_lua"
-		"Ability17"		"special_bonus_cast_range_350"
+		"Ability17"		"special_bonus_unique_tinker_rearm_lua"
 		"Bot"
 		{
 			"Build"
@@ -466,7 +466,7 @@
 				"27"		"special_bonus_unique_tinker_march_duration"
 				"28"		"special_bonus_unique_tinker_7"
 				"29"		"special_bonus_unique_tinker_defense_matrix_status_resistance"
-				"30"		"special_bonus_cast_range_350"
+				"30"		"special_bonus_unique_tinker_rearm_lua"
 				"31"		"tinker_defense_matrix"
 				"32"		"tinker_defense_matrix"
 				"33"		"tinker_defense_matrix"

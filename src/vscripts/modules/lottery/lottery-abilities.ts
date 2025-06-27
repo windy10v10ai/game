@@ -51,6 +51,7 @@ export const abilityTiersActive: Tier[] = [
       'medusa_stone_gaze', // 石化凝视
       'tidehunter_ravage', // 毁灭
       'dazzle_bad_juju', // 邪能
+      'tinker_rearm_lua', // 再装填
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
@@ -74,7 +75,6 @@ export const abilityTiersActive: Tier[] = [
       'axe_culling_blade', // 淘汰之刃
       'bloodseeker_rupture', // 割裂
       'centaur_stampede', // 奔袭冲撞
-      'tinker_rearm_lua', // 再装填
       'winter_wyvern_winters_curse', // 寒冬诅咒
       'weaver_time_lapse', // 时光倒流
       'witch_doctor_death_ward', // 死亡守卫
@@ -148,7 +148,6 @@ export const abilityTiersActive: Tier[] = [
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
-      'ancient_apparition_frost_seal', // 冰霜封印
     ],
   },
 ];
@@ -227,6 +226,8 @@ export const abilityTiersPassive: Tier[] = [
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
+      'tinker_eureka2', // 修补匠 尤里卡！
+      'death_prophet_witchcraft2', // 死亡先知 巫术精研
     ],
   },
   {

@@ -785,6 +785,24 @@
 		"DOTA_Tooltip_modifier_imba_phantasm_buff"											"混沌之军"
 		"DOTA_Tooltip_modifier_imba_phantasm_buff_description"								"多重影分身之术！"
 
+		// 修补匠
+		"DOTA_Tooltip_ability_tinker_rearm_lua"												"再装填"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。<br>按住Alt查看不能刷新的物品。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"再装填施法时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}秒 再装填施法时间<br> -{s:bonus_AbilityManaCost} 再装填魔法消耗"
+
+		"DOTA_Tooltip_ability_tinker_eureka2"							"尤里卡！"
+		"DOTA_Tooltip_ability_tinker_eureka2_Description"				"修补匠的每%int_per_one_cdr%点智力提供%one_percent_tooltip%%%物品冷却时间减少，最多为%max_cdr%%%。"
+		"DOTA_Tooltip_ability_tinker_eureka2_item_cooldown_tooltip"		"%物品冷却时间减少："
+
+		// 死亡先知
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"巫术精研"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"死亡先知的神秘学识随着经验积累而加深，每级获得%movement_speed_pct_per_level%%%移动速度和%cooldown_reduction_pct_per_level%%%技能冷却时间减少。"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%移动速度加成："
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%冷却时间减少："
 
 		"DOTA_Tooltip_ability_bot_power_n5"							"机械救赎 N5"
 		"DOTA_Tooltip_ability_bot_power_n5_Description"				"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
@@ -847,15 +865,6 @@
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_hp_regen"			"生命恢复："
 		"DOTA_Tooltip_modifier_omninight_angelic_flight"					"奶飞天"
 		"DOTA_Tooltip_modifier_omninight_angelic_flight_description"		"获得飞行移动状态，%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% 移动速度。"
-
-		// 修补匠
-		"DOTA_Tooltip_ability_tinker_rearm_lua"												"再装填"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。<br>再装填不能刷新修补匠之外的英雄的大招。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"如果拉比克偷取了再装填，他无法刷新其他英雄的大招。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"								"再装填所需时间："
 
 		// 电棍 razor
 		"DOTA_Tooltip_ability_special_bonus_unique_razor_101"   "+{s:bonus_radius} 等离子场范围"
