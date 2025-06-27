@@ -80,6 +80,13 @@ function tinker_rearm_lua:IsAbitilyException(ability)
 end
 
 tinker_rearm_lua.AbitilyException = {
+	["invoker_sun_strike"] = true,
+	["zuus_thundergods_wrath"] = true,
+	["warlock_rain_of_chaos"] = true,
+	["furion_wrath_of_nature"] = true,
+	["faceless_void_time_zone"] = true,
+	["shadow_shaman_mass_serpent_ward"] = true,
+	["spectre_haunt"] = true,
 }
 function tinker_rearm_lua:IsItemException(item)
 	return self.ItemException[item:GetName()]
