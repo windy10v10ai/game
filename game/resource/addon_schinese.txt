@@ -978,6 +978,16 @@
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"渐隐时间："
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"移动速度："
 
+		// 修补匠 热导飞弹
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile"								"热导飞弹"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_Description"					"发射火箭，攻击%radius%范围内可见的最近敌方英雄。"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_Lore"							"鲍什最后救下来的玩意儿，是一个改造过的制导式火箭筒。"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_damage"						"伤害："
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_targets"						"目标数："
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_speed"						"飞弹速度："
+		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision"	"热导飞弹"
+		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision_Description" "你被发现了！"
+
 		// 树精卫士
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"增加疯狂生长作用范围"
 		///////////////////////////////////////////////////

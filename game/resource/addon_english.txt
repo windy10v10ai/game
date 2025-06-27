@@ -980,6 +980,16 @@
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"FADE DELAY:"
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"MOVEMENT SPEED:"
 
+		// 修补匠 热导飞弹
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile"								"Heat-Seeking Missile"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_Description"					"Launches rockets at the nearest visible heroes within %radius% range."
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_Lore"							"The last contraption Boush was able to save was a retrofitted rocket launcher with a homing mechanism."
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_damage"						"DAMAGE:"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_targets"						"TARGETS:"
+		"DOTA_Tooltip_ability_tinker_heat_seeking_missile_speed"						"MISSILE SPEED:"
+		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision"	"Heat-Seeking Missile"
+		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision_Description" "You've been spotted!"
+
 		// 树精卫士
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increase Overgrowth Range"
 		///////////////////////////////////////////////////
