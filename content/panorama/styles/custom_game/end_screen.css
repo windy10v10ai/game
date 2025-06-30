@@ -286,7 +286,6 @@
 }
 
 .NeutralColumn {
-  margin-left: 5px;
   width: 50px;
 }
 
@@ -635,13 +634,13 @@
 
 .Player #ItemsContainer,
 .Player #BackpackItemsContainer,
-.Player #NeutralItemContainer {
+.Player .NeutralColumn {
   height: 100%;
 }
 
 .Player #ItemsContainer DOTAItemImage,
 .Player #BackpackItemsContainer DOTAItemImage,
-.Player #NeutralItemContainer DOTAItemImage {
+.Player .NeutralColumn DOTAItemImage {
   width: 47px;
   height: width-percentage(72.7%);
   margin: 0 1px;
@@ -653,7 +652,7 @@
 
 .AspectRatio4x3 .Player #ItemsContainer DOTAItemImage,
 .AspectRatio4x3 .Player #BackpackItemsContainer DOTAItemImage,
-.AspectRatio4x3 .Player #NeutralItemContainer DOTAItemImage {
+.AspectRatio4x3 .Player .NeutralColumn DOTAItemImage {
   width: 40px;
   horizontal-align: center;
 }

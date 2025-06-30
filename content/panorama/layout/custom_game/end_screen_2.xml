@@ -42,6 +42,7 @@
 					</Panel>
 					<Label class="LegendPanel ItemsColumn" text="#dota_page_match_details_legend_items" />
 					<Label class="LegendPanel NeutralColumn" text="#DOTA_Location_Name_Neutral" />
+					<Label class="LegendPanel NeutralColumn" text="#DOTA_NeutralCraft_EnhancementHeader" />
 					<!-- <Label class="LegendPanel BackpackColumn" text="#dota_page_match_details_legend_backpack_items" /> -->
 					<Image class="LegendPanel StrColumn" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_SHOP_TAG_STR, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Image class="LegendPanel AgiColumn" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_SHOP_TAG_AGI, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
@@ -74,6 +75,7 @@
 				<Label class="PtsColumn" text="{d:points}" />
 				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />
 				<Panel id="NeutralItemContainer" class="NeutralColumn" />
+				<Panel id="NeutralItemPassiveContainer" class="NeutralColumn" />
 				<!-- <Panel id="BackpackItemsContainer" class="BackpackColumn LeftRightFlow" /> -->
 				<Label class="StrColumn" text="{d:strength}" />
 				<Label class="AgiColumn" text="{d:agility}" />
