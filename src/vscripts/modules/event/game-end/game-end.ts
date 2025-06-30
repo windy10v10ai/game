@@ -33,7 +33,7 @@ export class GameEnd {
 
   private static BuildGameEndDto(winnerTeamId: DotaTeam): GameEndDto {
     const gameOptionsData = CustomNetTables.GetTableValue('game_options', 'game_options');
-    const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all').difficulty;
+    const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
     const gameOptions: GameEndGameOptionsDto = {
       multiplierRadiant: gameOptionsData.multiplier_radiant,
       multiplierDire: gameOptionsData.multiplier_dire,
@@ -109,6 +109,7 @@ export class GameEnd {
         str: hero.GetStrength(),
         agi: hero.GetAgility(),
         int: hero.GetIntellect(false),
+        towerKills: playerDto.towerKills,
       });
     });
 

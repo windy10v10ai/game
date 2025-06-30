@@ -25,6 +25,7 @@ declare global {
         str: number;
         agi: number;
         int: number;
+        towerKills: number;
       };
     };
     loading_status: {
