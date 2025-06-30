@@ -285,6 +285,10 @@
   width: 255px;
 }
 
+.NeutralColumnLabel {
+  width: 100px;
+}
+
 .NeutralColumn {
   width: 50px;
 }

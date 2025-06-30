@@ -409,53 +409,52 @@ end
 --     end
 -- end
 
-function AIGameMode:FilterSeasonPointDifficulty(points)
-    -- 根据难度积分加倍
-    local difficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
-    if difficulty == 1 then
-        points = points * 1.2
-    elseif difficulty == 2 then
-        points = points * 1.4
-    elseif difficulty == 3 then
-        points = points * 1.6
-    elseif difficulty == 4 then
-        points = points * 1.8
-    elseif difficulty == 5 then
-        points = points * 2.0
-    elseif difficulty == 6 then
-        points = points * 2.2
-    end
-    return points
-end
-
 -- TODO remove
-function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
-    if AIGameMode:IsInvalidGame() then
-        return 0
-    end
-    if AIGameMode.iDesiredDire < 10 then
-        points = points * AIGameMode.iDesiredDire / 10
-    end
+-- function AIGameMode:FilterSeasonPointDifficulty(points)
+--     -- 根据难度积分加倍
+--     local difficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
+--     if difficulty == 1 then
+--         points = points * 1.2
+--     elseif difficulty == 2 then
+--         points = points * 1.4
+--     elseif difficulty == 3 then
+--         points = points * 1.6
+--     elseif difficulty == 4 then
+--         points = points * 1.8
+--     elseif difficulty == 5 then
+--         points = points * 2.0
+--     elseif difficulty == 6 then
+--         points = points * 2.2
+--     end
+--     return points
+-- end
 
-    if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
-        points = points * 0.5
-    end
+-- function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
+--     if AIGameMode:IsInvalidGame() then
+--         return 0
+--     end
+--     if AIGameMode.iDesiredDire < 10 then
+--         points = points * AIGameMode.iDesiredDire / 10
+--     end
 
-    return math.ceil(points)
-end
+--     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
+--         points = points * 0.5
+--     end
 
--- TODO remove
-function AIGameMode:IsInvalidGame()
-    if AIGameMode.DebugMode then
-        return false
-    end
+--     return math.ceil(points)
+-- end
 
-    if GameRules:IsCheatMode() then
-        return true
-    end
+-- function AIGameMode:IsInvalidGame()
+--     if AIGameMode.DebugMode then
+--         return false
+--     end
 
-    if GameRules:GetDOTATime(false, true) < 5 * 60 then
-        return true
-    end
-    return false
-end
+--     if GameRules:IsCheatMode() then
+--         return true
+--     end
+
+--     if GameRules:GetDOTATime(false, true) < 5 * 60 then
+--         return true
+--     end
+--     return false
+-- end
