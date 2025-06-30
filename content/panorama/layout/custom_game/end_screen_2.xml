@@ -36,6 +36,7 @@
 						<Image class="DrColumnImg" src="s2r://panorama/images/custom_game/icon_armor_png.vtex" onmouseover="UIShowTextTooltipStyled( #dota_page_post_game_damage_received, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					</Panel>
 					<Label class="LegendPanel HeroHealingColumn" text="#dota_page_match_details_legend_hero_healing" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_hero_healing_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<Label class="LegendPanel TowerKillsColumn" text="#custom_end_screen_tower_kills" />
 					<Panel class="LegendPanel PtsColumn">
 						<Image class="PtsColumnImg" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					</Panel>
@@ -69,6 +70,7 @@
 				<Label class="TotalDamageColumn" text="{d:damage}" />
 				<Label class="TotalDamageReceivedColumn" text="{d:damagereceived}" />
 				<Label class="HeroHealingColumn" text="{d:heroHealing}" />
+				<Label class="TowerKillsColumn" text="{d:towerKills}" />
 				<Label class="PtsColumn" text="{d:points}" />
 				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />
 				<Panel id="NeutralItemContainer" class="NeutralColumn" />

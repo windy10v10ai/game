@@ -109,6 +109,7 @@ export class GameEnd {
         str: hero.GetStrength(),
         agi: hero.GetAgility(),
         int: hero.GetIntellect(false),
+        towerKills: playerDto.towerKills,
       });
     });
 
