@@ -101,6 +101,8 @@
 		"player_multiplier"	"Player Multiplier"
 		"bot_multiplier"	"Bot Multiplier"
 
+		"custom_end_screen_tower_kills"		"Towers"
+
 		"ending_status_1"				"Please do not end the game while game data is uploading."
 		"ending_status_2"				"Game data uploaded successfully!"
 		"ending_status_3"				"Game data upload failed! This could be because cheats were enabled, or the game was not on a dedicated server."
