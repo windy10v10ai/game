@@ -60,7 +60,7 @@ function Lottery() {
   const [containerStyle, setContainerStyle] = useState<Partial<VCSSStyleDeclaration>>(() => {
     const lotteryStatus = GetLotteryStatus(steamAccountId);
     const isVisible = getIsVisible(lotteryStatus);
-    return isVisible ? containerStyleShow : containerStleInit;
+    return isVisible ? containerStyleShow : containerStyleInit;
   });
   // 监听nettable数据变化
   useEffect(() => {
