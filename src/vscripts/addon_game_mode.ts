@@ -1,5 +1,5 @@
 import 'utils/index';
-import './ai_game_mode';
+import './ai_game_mode.d';
 import { ActivateModules } from './modules';
 import './utils/lifesteal';
 import Precache from './utils/precache';
