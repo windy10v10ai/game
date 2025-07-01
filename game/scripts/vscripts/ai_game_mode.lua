@@ -78,11 +78,11 @@ function AIGameMode:PreGameOptions()
     self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
     self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
 
-    self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or PLAYER_GOLD_XP_MULTIPLIER
-    self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or BOT_GOLD_XP_MULTIPLIER
+    self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or 1
+    self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or 1
 
     self.iRespawnTimePercentage = self.iRespawnTimePercentage or 1
-    self.iMaxLevel = self.iMaxLevel or MAX_LEVEL
+    self.iMaxLevel = self.iMaxLevel or 50
 
     self.iTowerPower = self.iTowerPower or 3
 
@@ -104,10 +104,6 @@ function AIGameMode:PreGameOptions()
 
     -- 神符
     gameMode:SetUseDefaultDOTARuneSpawnLogic(true)
-
-    gameMode:SetTowerBackdoorProtectionEnabled(true)
-    gameMode:SetMaximumAttackSpeed(MAXIMUM_ATTACK_SPEED)
-    gameMode:SetMinimumAttackSpeed(MINIMUM_ATTACK_SPEED)
 
     if self.bSameHeroSelection == 1 then
         GameRules:SetSameHeroSelectionEnabled(true)

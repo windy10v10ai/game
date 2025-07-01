@@ -64,6 +64,10 @@ export class GameConfig {
     //     GameRules.SetCustomGameTeamMaxPlayers(team, 1);
     // }
 
+    game.SetTowerBackdoorProtectionEnabled(true);
+    game.SetMaximumAttackSpeed(700);
+    game.SetMinimumAttackSpeed(20);
+
     if (IsInToolsMode()) {
       print('[GameConfig] IsInToolsMode set');
       // GameRules.SetCustomGameSetupAutoLaunchDelay(5);
