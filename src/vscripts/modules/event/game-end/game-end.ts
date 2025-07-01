@@ -51,7 +51,7 @@ export class GameEnd {
 
     const players: GameEndPlayerDto[] = [];
     PlayerHelper.ForEachPlayer((playerId) => {
-      const player = PlayerResource.GetPlaye(playerId);
+      const player = PlayerResource.GetPlayer(playerId);
       if (!player) {
         return;
       }
