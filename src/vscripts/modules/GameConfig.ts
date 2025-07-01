@@ -36,8 +36,11 @@ export class GameConfig {
     GameRules.SetUseUniversalShopMode(true); // 是否启用全地图商店模式（在基地也可以购买神秘商店的物品）* 这个不是设置在任何地方都可以购买，如果要设置这个，需要将购买区域覆盖全地图
     // GameRules.SetHideKillMessageHeaders(true); // 是否隐藏顶部的英雄击杀信息
     GameRules.SetCustomGameEndDelay(30);
+    GameRules.SetFilterMoreGold(true);
+    GameRules.SetTimeOfDay(0.25); // 设置天亮时间与Dota2一致
 
     const game: CDOTABaseGameMode = GameRules.GetGameModeEntity();
+    game.SetUseDefaultDOTARuneSpawnLogic(true); // 是否使用默认的神符生成逻辑
     // game.SetRemoveIllusionsOnDeath(true); // 是否在英雄死亡的时候移除幻象
     game.SetFreeCourierModeEnabled(true); // 是否启用免费信使模式
     game.SetSelectionGoldPenaltyEnabled(true); // 是否启用选择英雄时的金钱惩罚（超时每秒扣钱）
@@ -63,6 +66,10 @@ export class GameConfig {
     // for (let team = DotaTeam.CUSTOM_1; team <= DotaTeam.CUSTOM_8; ++team) {
     //     GameRules.SetCustomGameTeamMaxPlayers(team, 1);
     // }
+
+    game.SetTowerBackdoorProtectionEnabled(true);
+    game.SetMaximumAttackSpeed(700);
+    game.SetMinimumAttackSpeed(20);
 
     if (IsInToolsMode()) {
       print('[GameConfig] IsInToolsMode set');

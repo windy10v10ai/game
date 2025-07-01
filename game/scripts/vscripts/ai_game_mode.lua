@@ -9,14 +9,12 @@ end
 
 require('timers')
 require('util')
-require('settings')
 require('bot/bot_item_data')
 require('events')
 require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
-require('voicePlayer/PlayFuncs')
 
 function Activate()
     AIGameMode:InitGameMode()
@@ -54,9 +52,6 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
     ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
     ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(AIGameMode, "OnItemPickedUp"), self)
-    -- ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
-    -- ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
-    -- ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(AIGameMode, "OnPickHeroSpawn"), self)
 
     -- 游戏选项事件
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
@@ -75,14 +70,14 @@ function AIGameMode:LinkLuaModifiers()
 end
 
 function AIGameMode:PreGameOptions()
-    self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
-    self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
+    self.iDesiredRadiant = self.iDesiredRadiant or 1
+    self.iDesiredDire = self.iDesiredDire or 1
 
-    self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or PLAYER_GOLD_XP_MULTIPLIER
-    self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or BOT_GOLD_XP_MULTIPLIER
+    self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or 1
+    self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or 1
 
     self.iRespawnTimePercentage = self.iRespawnTimePercentage or 1
-    self.iMaxLevel = self.iMaxLevel or MAX_LEVEL
+    self.iMaxLevel = self.iMaxLevel or 50
 
     self.iTowerPower = self.iTowerPower or 3
 
@@ -91,23 +86,7 @@ function AIGameMode:PreGameOptions()
     self.bSameHeroSelection = self.bSameHeroSelection or 1
     self.fGameStartTime = 0
 
-    -- GameRules:SetGoldPerTick(GOLD_PER_TICK)
-    -- GameRules:SetGoldTickTime(GOLD_TICK_TIME)
-    -- GameRules:SetUseUniversalShopMode(true)
-    GameRules:SetFilterMoreGold(true)
-
     local gameMode = GameRules:GetGameModeEntity()
-    -- gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
-    -- gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
-
-    GameRules:SetTimeOfDay(0.25)
-
-    -- 神符
-    gameMode:SetUseDefaultDOTARuneSpawnLogic(true)
-
-    gameMode:SetTowerBackdoorProtectionEnabled(true)
-    gameMode:SetMaximumAttackSpeed(MAXIMUM_ATTACK_SPEED)
-    gameMode:SetMinimumAttackSpeed(MINIMUM_ATTACK_SPEED)
 
     if self.bSameHeroSelection == 1 then
         GameRules:SetSameHeroSelectionEnabled(true)
