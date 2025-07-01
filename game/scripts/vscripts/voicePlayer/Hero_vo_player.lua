@@ -1,5 +1,25 @@
-LinkLuaModifier("modifier_hero_vo_player", "voicePlayer/Hero_vo_player", LUA_MODIFIER_MOTION_NONE)
+BaseNPC = IsServer() and CDOTA_BaseNPC or C_DOTA_BaseNPC
 
+function BaseNPC:PlayVoice(VoiceName)
+    local vo_modi = self:FindModifierByName("modifier_hero_vo_player")
+    if vo_modi and not vo_modi.EmitingVoice then
+        vo_modi.EmitingVoice = true
+        self:SetContextThink(DoUniqueString("SetEmitingToFalse"), function() vo_modi.EmitingVoice = false end, 10)
+        EmitAnnouncerSoundForPlayer(VoiceName, self:GetPlayerOwnerID())
+    end
+end
+
+function BaseNPC:PlayVoiceIgnoreCooldown(VoiceName)
+    local vo_modi = self:FindModifierByName("modifier_hero_vo_player")
+    if vo_modi then
+        vo_modi.EmitingVoice = true
+        self:SetContextThink(DoUniqueString("SetEmitingToFalse"), function() vo_modi.EmitingVoice = false end, 10)
+        EmitAnnouncerSoundForPlayer(VoiceName, self:GetPlayerOwnerID())
+    end
+end
+
+--------------------------------
+LinkLuaModifier("modifier_hero_vo_player", "voicePlayer/Hero_vo_player", LUA_MODIFIER_MOTION_NONE)
 
 Hero_vo_player = Hero_vo_player or class({})
 modifier_hero_vo_player = modifier_hero_vo_player or class({})
@@ -20,7 +40,6 @@ function Hero_vo_player:OnHeroLevelUp()
     caster:PlayVoice(caster:GetName() .. ".vo.Upgrade")
 end
 
-
 function Hero_vo_player:OnItemEquipped(item)
     local caster = self:GetCaster()
     if item and not self.itemtable[item:GetName()] then
@@ -30,14 +49,17 @@ function Hero_vo_player:OnItemEquipped(item)
 end
 
 function modifier_hero_vo_player:IsHidden() return true end
+
 function modifier_hero_vo_player:RemoveOnDeath() return false end
+
 function modifier_hero_vo_player:IsPurgeException() return false end
+
 function modifier_hero_vo_player:IsDebuff() return false end
+
 function modifier_hero_vo_player:AllowIllusionDuplicate() return false end
 
-
 function modifier_hero_vo_player:DeclareFunctions()
-    if not IsServer() then return{} end
+    if not IsServer() then return {} end
     return {
         MODIFIER_EVENT_ON_ORDER,
         MODIFIER_EVENT_ON_DEATH
@@ -57,11 +79,9 @@ function modifier_hero_vo_player:OnOrder(keys)
     local order = keys.order_type
     local parent = self:GetParent()
     if parent == keys.unit then
-
         local OrderStr = self:GetVoType(order)
 
-        if  OrderStr ~= "NoOrder" then
-
+        if OrderStr ~= "NoOrder" then
             local heroname = parent:GetName()
             local voName = heroname .. ".vo." .. OrderStr
 
@@ -88,17 +108,17 @@ function modifier_hero_vo_player:OnDeath(keys)
     end
 end
 
-function  modifier_hero_vo_player:GetVoType(order)
+function modifier_hero_vo_player:GetVoType(order)
     local OrderStr = "NoOrder"
     if order == DOTA_UNIT_ORDER_ATTACK_TARGET or order == DOTA_UNIT_ORDER_ATTACK_MOVE then
-        local Probability =  RandomInt(1,100)
+        local Probability = RandomInt(1, 100)
         if Probability <= self.AttackProbability then
             OrderStr = "Attack"
         end
     end
 
     if order == DOTA_UNIT_ORDER_MOVE_TO_POSITION or order == DOTA_UNIT_ORDER_MOVE_TO_TARGET then
-        local Probability =  RandomInt(1,100)
+        local Probability = RandomInt(1, 100)
         if Probability <= self.MoveProbability then
             OrderStr = "Move"
         end

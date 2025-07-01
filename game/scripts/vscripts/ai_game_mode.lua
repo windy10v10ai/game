@@ -15,7 +15,6 @@ require('bot/bot_think_item_build')
 require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
-require('voicePlayer/PlayFuncs')
 
 function Activate()
     AIGameMode:InitGameMode()
