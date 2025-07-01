@@ -9,7 +9,6 @@ end
 
 require('timers')
 require('util')
-require('settings')
 require('bot/bot_item_data')
 require('events')
 require('bot/bot_think_item_build')
