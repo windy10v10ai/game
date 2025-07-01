@@ -20,7 +20,7 @@
   "devDependencies": {
     "@moddota/dota-lua-types": "^4.36.0",
     "@moddota/find-steam-app": "^1.1.0",
-    "@moddota/panorama-types": "^1.35.0",
+    "@moddota/panorama-types": "^1.38.1",
     "@types/jest": "^29.5.14",
     "@types/react": "^16.14.5",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
