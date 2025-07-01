@@ -70,8 +70,8 @@ function AIGameMode:LinkLuaModifiers()
 end
 
 function AIGameMode:PreGameOptions()
-    self.iDesiredRadiant = self.iDesiredRadiant or RADIANT_PLAYER_COUNT
-    self.iDesiredDire = self.iDesiredDire or DIRE_PLAYER_COUNT
+    self.iDesiredRadiant = self.iDesiredRadiant or 1
+    self.iDesiredDire = self.iDesiredDire or 1
 
     self.fPlayerGoldXpMultiplier = self.fPlayerGoldXpMultiplier or 1
     self.fBotGoldXpMultiplier = self.fBotGoldXpMultiplier or 1
