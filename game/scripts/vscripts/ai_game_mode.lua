@@ -52,9 +52,6 @@ function AIGameMode:InitEvents()
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
     ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
     ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(AIGameMode, "OnItemPickedUp"), self)
-    -- ListenToGameEvent("player_reconnected", Dynamic_Wrap(AIGameMode, 'OnPlayerReconnect'), self)
-    -- ListenToGameEvent("last_hit", Dynamic_Wrap(AIGameMode, 'OnLastHit'), self)
-    -- ListenToGameEvent("dota_player_pick_hero", Dynamic_Wrap(AIGameMode, "OnPickHeroSpawn"), self)
 
     -- 游戏选项事件
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
@@ -89,19 +86,7 @@ function AIGameMode:PreGameOptions()
     self.bSameHeroSelection = self.bSameHeroSelection or 1
     self.fGameStartTime = 0
 
-    -- GameRules:SetGoldPerTick(GOLD_PER_TICK)
-    -- GameRules:SetGoldTickTime(GOLD_TICK_TIME)
-    -- GameRules:SetUseUniversalShopMode(true)
-    GameRules:SetFilterMoreGold(true)
-
     local gameMode = GameRules:GetGameModeEntity()
-    -- gameMode:SetModifyGoldFilter(Dynamic_Wrap(AIGameMode, "FilterGold"), self)
-    -- gameMode:SetModifyExperienceFilter(Dynamic_Wrap(AIGameMode, "FilterXP"), self)
-
-    GameRules:SetTimeOfDay(0.25)
-
-    -- 神符
-    gameMode:SetUseDefaultDOTARuneSpawnLogic(true)
 
     if self.bSameHeroSelection == 1 then
         GameRules:SetSameHeroSelectionEnabled(true)
