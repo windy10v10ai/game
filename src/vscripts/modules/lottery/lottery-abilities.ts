@@ -255,6 +255,8 @@ export const abilityTiersPassive: Tier[] = [
 
       // 单位技能
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
+      'furbolg_enrage_attack_speed', // 临死之痛：神速
+      'furbolg_enrage_damage', // 临死之痛：神力
 
       // 自定义技能
       'ursa_maul2', // 拍拍 天生技能 +攻击
