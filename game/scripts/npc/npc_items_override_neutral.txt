@@ -350,7 +350,11 @@
 		"AbilityCastRange"				"1200"	//650
 		"AbilityValues"
 		{
-			"mana_restore"				"180"	//60
+			"mana_restore"
+			{
+				"value"					"180"	//60
+				"apply_curio_bonus"		"1"
+			}
 			"heal_duration"				"4"		//6
 		}
 	}
@@ -550,6 +554,11 @@
 				"value"					"150"	//30
 				"apply_curio_bonus"		"1"
 			}
+			"mana_restore_pct"
+			{
+				"value"					"3"		//3
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//穷鬼盾
@@ -597,7 +606,7 @@
 			"hero_reduction"			"6"		//20
 			"status_res_pct_increase_per_hero"
 			{
-				"value"					"10"	//10
+				"value"					"8"	//10
 				"apply_curio_bonus"		"1"
 			}
 		}
@@ -722,7 +731,7 @@
 		{
 			"barrier_amount"
 			{
-				"value"					"2500"	//250
+				"value"					"3000"	//250
 				"apply_curio_bonus"		"1"
 			}
 		}
@@ -957,6 +966,7 @@
 			"radius"
 			{
 				"value"		"1200"				//800
+				"apply_curio_bonus"		"1"
 				"affected_by_aoe_increase"	"1"
 			}
 			"duration"			"9"				//6
@@ -1111,7 +1121,11 @@
 				"value"			"6"				//2
 				"apply_curio_bonus"		"1"
 			}
-			"magic_resist"		"80"			//50
+			"magic_resist"
+			{
+				"value"					"80"			//50
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//放大单片镜
@@ -1236,7 +1250,11 @@
 					"value"					"450"			//175
 					"apply_curio_bonus"		"1"
 				}
-				"nuke_str_dmg"		"2"				//1.5
+				"nuke_str_dmg"
+				{
+					"value"					"2"				//1.5
+					"apply_curio_bonus"		"1"
+				}
 		}
 	}
 	//天诛之咒
