@@ -1062,8 +1062,16 @@
 		"AbilityValues"
 		{
 				"duration"		"20"	//30
-				"heal_percent"	"50"	//40
-				"armor_bonus"	"50"	//10
+				"heal_percent"
+				{
+					"value"					"50"	//40
+					"apply_curio_bonus"		"1"
+				}
+				"armor_bonus"
+				{
+					"value"					"50"	//10
+					"apply_curio_bonus"		"1"
+				}
 				"hp_regen"		"0"		//25
 		}
 	}
