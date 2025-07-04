@@ -513,7 +513,11 @@
 	{
 		"AbilityValues"
 		{
-			"armor_reduction"		"6"		// 2
+			"armor_reduction"
+			{
+				"value"					"6"		// 2
+				"apply_curio_bonus"		"1"
+			}
 			"slow_melee"			"20"	// 8
 			"slow_range"			"10"	// 4
 			"duration"				"4"		// 3
@@ -541,8 +545,11 @@
 		"AbilityCooldown"				"30.0"	//60
 		"AbilityValues"
 		{
-				"mana_restore"			"150"	//30
-				"mana_restore_pct"		"3"		//3
+			"mana_restore"
+			{
+				"value"					"150"	//30
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//穷鬼盾
@@ -570,8 +577,16 @@
 		"AbilityValues"
 		{
 			"hp_regen"				"0"			//4
-			"damage_return_hero"	"90"		//30
-			"damage_return_creep"	"60"		//20
+			"damage_return_hero"
+			{
+				"value"					"90"		//30
+				"apply_curio_bonus"		"1"
+			}
+			"damage_return_creep"
+			{
+				"value"					"60"		//20
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//不屈之眼
@@ -700,17 +715,13 @@
 	//烈风护体
 	"item_gale_guard"
 	{
-		"AbilityCooldown"				"20.0"	//30
 		"AbilityValues"
 		{
-			"barrier_duration"			"10"	//10
 			"barrier_amount"
 			{
 				"value"					"2500"	//250
 				"apply_curio_bonus"		"1"
 			}
-			"barrier_pct"				"60"	//75
-			"slow_resist"				"50"	//50
 		}
 	}
 	//火药手套
@@ -729,7 +740,11 @@
 				"value"				"300"		//250
 				"affected_by_aoe_increase" "1"
 			}
-			"splash_pct"			"50"		//50
+			"splash_pct"
+			{
+				"value"				"50"		//50
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//邪道私语
@@ -791,10 +806,13 @@
 	//欺诈师斗篷
 	"item_trickster_cloak"
 	{
-		"AbilityCooldown"				"20.0"	//25
 		"AbilityValues"
 		{
-				"duration"			"6"			//6
+			"duration"
+			{
+				"value"					"8"		// 6
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//风暴宝器
@@ -803,8 +821,12 @@
 		"AbilityCooldown"				"1.5"	//3
 		"AbilityValues"
 		{
-			"range"			"1200"			//700
-			"damage"		"400"			//200
+			"range"			"900"			//700
+			"damage"
+			{
+				"value"					"400"	//200
+				"apply_curio_bonus"		"1"
+			}
 			"interval"		"1.5"			//3
 			"slow"			"60"			//40
 			"slow_duration"			"0.6"	//0.4
@@ -822,9 +844,16 @@
 				"damage"				"0"			//45
 				"melee_attack_range"	"0"			//100
 				"maim_chance"			"50"		//25
-				"maim_slow_movement"	"60"		//20
-				"maim_slow_attack"		"200"		//60
-				"maim_duration"			"3"			//3
+				"maim_slow_movement"
+				{
+					"value"					"60"		//20
+					"apply_curio_bonus"		"1"
+				}
+				"maim_slow_attack"
+				{
+					"value"					"200"		//60
+					"apply_curio_bonus"		"1"
+				}
 		}
 	}
 	//智灭
@@ -865,6 +894,18 @@
 			}
 			"duration"					"6"			//4
 			"damage"					"300"		//75
+		}
+	}
+	// 殁境法杖
+	"item_outworld_staff"
+	{
+		"AbilityValues"
+		{
+			"self_dmg_pct"
+			{
+				"value"					"5"
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//祭礼长袍
@@ -916,9 +957,12 @@
 		"AbilityCooldown"				"8"		//10
 		"AbilityValues"
 		{
-				"duration"			"2.5"		//1.5
-				"movespeed"			"100"		//140
-				"projectile_bonus"	"0"			//60
+			"duration"
+			{
+				"value"					"2.5"		//1.5
+				"apply_curio_bonus"		"1"
+			}
+			"projectile_bonus"	"0"			//60
 		}
 	}
 	//锯齿短刀
@@ -1070,7 +1114,11 @@
 				"value"					"200"	// 100
 				"apply_curio_bonus"		"1"
 			}
-			"damage_threshold"			"400"	//250
+			"damage_threshold"
+			{
+				"value"					"400"	//250
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//不朽尸王头盔
@@ -1090,8 +1138,16 @@
 		"AbilityValues"
 		{
 			"count"							"3"		//2
-			"secondary_target_range_bonus"	"350"	//225
-			"proc_bonus_damage"				"100"	//10
+			"secondary_target_range_bonus"
+			{
+				"value"					"300"	//225
+				"apply_curio_bonus"		"1"
+			}
+			"proc_bonus_damage"
+			{
+				"value"					"100"	//10
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 
@@ -1113,7 +1169,11 @@
 			"attack_range_bonus"		"0"		//250
 			"knockback_distance"		"10"	//50
 			"knockback_duration"		"0.1"	//0.2
-			"bonus_damage"				"250"	//50
+			"bonus_damage"
+			{
+				"value"					"250"	//50
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//巨人之戒
@@ -1122,7 +1182,11 @@
 		"AbilityValues"
 		{
 				"model_scale"				"30"	//60
-				"pct_str_damage_per_second"	"120"	//100
+				"pct_str_damage_per_second"
+				{
+					"value"					"120"	//100
+					"apply_curio_bonus"		"1"
+				}
 				"damage_radius"
 				{
 					"value"		"160"				// 100
