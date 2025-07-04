@@ -1,7 +1,25 @@
 require('modifiers/player/enable_player_modifier')
-require('event/js_event')
-require('event/creep')
 require('event/kill')
+
+function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
+    if tonumber(args.host_privilege) ~= 1 then
+        return
+    end
+    self.iDesiredRadiant = tonumber(args.game_options.radiant_player_number)
+    self.iDesiredDire = tonumber(args.game_options.dire_player_number)
+    self.fPlayerGoldXpMultiplier = tonumber(args.game_options.player_gold_xp_multiplier)
+    self.fBotGoldXpMultiplier = tonumber(args.game_options.bot_gold_xp_multiplier)
+
+    self.iRespawnTimePercentage = tonumber(args.game_options.respawn_time_percentage)
+    self.iMaxLevel = tonumber(args.game_options.max_level)
+
+    self.iTowerPower = tonumber(args.game_options.tower_power)
+
+    self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
+    self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
+    self.bSameHeroSelection = args.game_options.same_hero_selection
+    self:PreGameOptions()
+end
 
 function AIGameMode:InitPlayerGold()
     if self.PreGameOptionsSet then
@@ -41,6 +59,7 @@ function AIGameMode:OnGameStateChanged(keys)
             self:PreGameOptions()
         end
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
+        -- TODO 需要初始化，移植到TS中
         local gameDifficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
         -- modifier towers
         local tTowers = Entities:FindAllByClassname("npc_dota_tower")
@@ -213,23 +232,6 @@ function AIGameMode:RefreshGameStatus()
     AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
 end
 
--- function AIGameMode:OnLastHit(keys)
---     if keys.FirstBlood == 1 then
---         local hero = PlayerResource:GetSelectedHeroEntity(keys.PlayerID)
---         if hero and hero:HasAbility("Hero_vo_player") then
---             hero:PlayVoiceAllPlayerIgnoreCooldown(hero:GetName() .. ".vo.FirstBlood")
---         end
---     end
--- end
-
--- function AIGameMode:OnPickHeroSpawn(keys)
---     local heroname = keys.hero
---     local hero = EntIndexToHScript(keys.heroindex)
---     if hero:HasAbility("Hero_vo_player") then
---         hero:PlayVoiceIgnoreCooldown(heroname .. ".vo.Spawn")
---     end
--- end
-
 function AIGameMode:OnNPCSpawned(keys)
     if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
         Timers:CreateTimer(1, function()
@@ -240,19 +242,6 @@ function AIGameMode:OnNPCSpawned(keys)
     local hEntity = EntIndexToHScript(keys.entindex)
     if not hEntity or hEntity:IsNull() then
         return
-    end
-
-    if hEntity:IsBaseNPC() then
-        local playerid = hEntity:GetPlayerOwnerID()
-        if playerid then
-            local hero = PlayerResource:GetSelectedHeroEntity(playerid)
-            if hero and hero == hEntity and hero:HasAbility("Hero_vo_player") then
-                if not hero.isBuyBack then
-                    hero:PlayVoiceIgnoreCooldown(hero:GetName() .. ".vo.Respawn")
-                end
-                hero.isBuyBack = false
-            end
-        end
     end
 
     local sName = hEntity:GetName()
@@ -328,6 +317,20 @@ function AIGameMode:OnNPCSpawned(keys)
 
         hEntity.bInitialized = true
     end
+end
+
+-- 小兵金钱随时间增加
+function AIGameMode:GetLaneGoldMul()
+    local time = GameRules:GetDOTATime(false, false)
+    local mul = 1
+    if time <= 15 * 60 then
+        mul = 1
+    else
+        mul = math.floor(time / 900)
+    end
+    -- 60分钟封顶
+    mul = math.min(mul, 4)
+    return mul
 end
 
 function AIGameMode:OnItemPickedUp(event)
@@ -409,53 +412,52 @@ end
 --     end
 -- end
 
-function AIGameMode:FilterSeasonPointDifficulty(points)
-    -- 根据难度积分加倍
-    local difficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
-    if difficulty == 1 then
-        points = points * 1.2
-    elseif difficulty == 2 then
-        points = points * 1.4
-    elseif difficulty == 3 then
-        points = points * 1.6
-    elseif difficulty == 4 then
-        points = points * 1.8
-    elseif difficulty == 5 then
-        points = points * 2.0
-    elseif difficulty == 6 then
-        points = points * 2.2
-    end
-    return points
-end
-
 -- TODO remove
-function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
-    if AIGameMode:IsInvalidGame() then
-        return 0
-    end
-    if AIGameMode.iDesiredDire < 10 then
-        points = points * AIGameMode.iDesiredDire / 10
-    end
+-- function AIGameMode:FilterSeasonPointDifficulty(points)
+--     -- 根据难度积分加倍
+--     local difficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
+--     if difficulty == 1 then
+--         points = points * 1.2
+--     elseif difficulty == 2 then
+--         points = points * 1.4
+--     elseif difficulty == 3 then
+--         points = points * 1.6
+--     elseif difficulty == 4 then
+--         points = points * 1.8
+--     elseif difficulty == 5 then
+--         points = points * 2.0
+--     elseif difficulty == 6 then
+--         points = points * 2.2
+--     end
+--     return points
+-- end
 
-    if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
-        points = points * 0.5
-    end
+-- function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
+--     if AIGameMode:IsInvalidGame() then
+--         return 0
+--     end
+--     if AIGameMode.iDesiredDire < 10 then
+--         points = points * AIGameMode.iDesiredDire / 10
+--     end
 
-    return math.ceil(points)
-end
+--     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
+--         points = points * 0.5
+--     end
 
--- TODO remove
-function AIGameMode:IsInvalidGame()
-    if AIGameMode.DebugMode then
-        return false
-    end
+--     return math.ceil(points)
+-- end
 
-    if GameRules:IsCheatMode() then
-        return true
-    end
+-- function AIGameMode:IsInvalidGame()
+--     if AIGameMode.DebugMode then
+--         return false
+--     end
 
-    if GameRules:GetDOTATime(false, true) < 5 * 60 then
-        return true
-    end
-    return false
-end
+--     if GameRules:IsCheatMode() then
+--         return true
+--     end
+
+--     if GameRules:GetDOTATime(false, true) < 5 * 60 then
+--         return true
+--     end
+--     return false
+-- end

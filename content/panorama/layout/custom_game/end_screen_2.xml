@@ -36,11 +36,12 @@
 						<Image class="DrColumnImg" src="s2r://panorama/images/custom_game/icon_armor_png.vtex" onmouseover="UIShowTextTooltipStyled( #dota_page_post_game_damage_received, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					</Panel>
 					<Label class="LegendPanel HeroHealingColumn" text="#dota_page_match_details_legend_hero_healing" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_hero_healing_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
+					<Label class="LegendPanel TowerKillsColumn" text="#custom_end_screen_tower_kills" />
 					<Panel class="LegendPanel PtsColumn">
 						<Image class="PtsColumnImg" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					</Panel>
 					<Label class="LegendPanel ItemsColumn" text="#dota_page_match_details_legend_items" />
-					<Label class="LegendPanel NeutralColumn" text="#DOTA_Location_Name_Neutral" />
+					<Label class="LegendPanel NeutralColumnLabel" text="#DOTA_Location_Name_Neutral" />
 					<!-- <Label class="LegendPanel BackpackColumn" text="#dota_page_match_details_legend_backpack_items" /> -->
 					<Image class="LegendPanel StrColumn" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_SHOP_TAG_STR, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Image class="LegendPanel AgiColumn" src="s2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex" onmouseover="UIShowTextTooltipStyled( #DOTA_SHOP_TAG_AGI, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
@@ -69,9 +70,11 @@
 				<Label class="TotalDamageColumn" text="{d:damage}" />
 				<Label class="TotalDamageReceivedColumn" text="{d:damagereceived}" />
 				<Label class="HeroHealingColumn" text="{d:heroHealing}" />
+				<Label class="TowerKillsColumn" text="{d:towerKills}" />
 				<Label class="PtsColumn" text="{d:points}" />
 				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />
 				<Panel id="NeutralItemContainer" class="NeutralColumn" />
+				<Panel id="NeutralItemPassiveContainer" class="NeutralColumn" />
 				<!-- <Panel id="BackpackItemsContainer" class="BackpackColumn LeftRightFlow" /> -->
 				<Label class="StrColumn" text="{d:strength}" />
 				<Label class="AgiColumn" text="{d:agility}" />

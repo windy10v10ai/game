@@ -20,7 +20,7 @@
   "devDependencies": {
     "@moddota/dota-lua-types": "^4.36.0",
     "@moddota/find-steam-app": "^1.1.0",
-    "@moddota/panorama-types": "^1.35.0",
+    "@moddota/panorama-types": "^1.38.1",
     "@types/jest": "^29.5.14",
     "@types/react": "^16.14.5",
     "@typescript-eslint/eslint-plugin": "^8.12.2",
@@ -32,7 +32,7 @@
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "file-loader": "^6.2.0",
     "fs-extra": "^11.3.0",
     "jest": "^29.7.0",
@@ -43,12 +43,12 @@
     "react-panorama-x": "^0.4.0",
     "replace-in-file-webpack-plugin": "^1.0.6",
     "terser-webpack-plugin": "^5.3.14",
-    "ts-jest": "^29.2.5",
-    "ts-loader": "^9.5.1",
+    "ts-jest": "^29.4.0",
+    "ts-loader": "^9.5.2",
     "typescript": "^5.7.2",
     "typescript-to-lua": "^1.28.1",
     "webpack": "^5.99.9",
-    "webpack-cli": "^4.9.1",
+    "webpack-cli": "^6.0.1",
     "webpack-panorama-x": "^0.4.0"
   },
   "jest": {
