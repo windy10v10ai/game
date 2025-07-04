@@ -595,8 +595,11 @@
 		"AbilityValues"
 		{
 			"hero_reduction"			"6"		//20
-			"status_res_pct_increase_per_hero"	"10"	//10
-			"hero_check_radius"			"600"	//600
+			"status_res_pct_increase_per_hero"
+			{
+				"value"					"10"	//10
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//决斗家手套
@@ -917,8 +920,16 @@
 			{
 				"value"			"1800"				//1200
 			}
-			"status_resistance"			"60"		//10
-			"magic_resistance"			"60"		//10
+			"status_resistance"
+			{
+				"value"					"60"		//10
+				"apply_curio_bonus"		"1"
+			}
+			"magic_resistance"
+			{
+				"value"					"60"		//10
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	//网虫腿
@@ -1025,8 +1036,12 @@
 		"AbilityCooldown"				"25.0"	//75
 		"AbilityValues"
 		{
-				"heal"					"8000"	//1500
-				"health_threshold"		"50"	//20
+			"heal"
+			{
+				"value"					"8000"	//1500
+				"apply_curio_bonus"		"1"
+			}
+			"health_threshold"		"50"	//20
 		}
 	}
 	//维修器具
@@ -1216,7 +1231,11 @@
 				}
 				"slow"		"60"					//50
 				"slow_duration"		"3"				//3
-				"nuke_base_dmg"		"450"			//175
+				"nuke_base_dmg"
+				{
+					"value"					"450"			//175
+					"apply_curio_bonus"		"1"
+				}
 				"nuke_str_dmg"		"2"				//1.5
 		}
 	}
@@ -1226,7 +1245,11 @@
 		"AbilityValues"
 		{
 			"debuff_self"	"10"			//6
-			"debuff_enemy"	"30"			//12
+			"debuff_enemy"
+			{
+				"value"					"30"			//12
+				"apply_curio_bonus"		"1"
+			}
 		}
 	}
 	// 力量法则碎片 原 魔童之爪 暴击爪
@@ -1236,7 +1259,11 @@
 		"AbilityTextureName"			"item_power"
 		"AbilityValues"
 		{
-				"crit_multiplier"			"1760"	// 130
+				"crit_multiplier"
+				{
+					"value"					"1760"	// 130
+					"apply_curio_bonus"		"1"
+				}
 		}
 	}
 }
