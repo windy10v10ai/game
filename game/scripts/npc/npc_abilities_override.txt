@@ -10102,7 +10102,7 @@
 		{
 			"damage"
 			{
-				"value"				"50 70 90 110"	// 伤害折半
+				"value"				"60 90 120 150"	// 削弱防止全图刷怪
 				"special_bonus_unique_furion_5"			"+15"
 			}
 			"AbilityCooldown"
