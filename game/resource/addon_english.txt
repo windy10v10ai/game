@@ -101,6 +101,8 @@
 		"player_multiplier"	"Player Multiplier"
 		"bot_multiplier"	"Bot Multiplier"
 
+		"custom_end_screen_tower_kills"		"Towers"
+
 		"ending_status_1"				"Please do not end the game while game data is uploading."
 		"ending_status_2"				"Game data uploaded successfully!"
 		"ending_status_3"				"Game data upload failed! This could be because cheats were enabled, or the game was not on a dedicated server."
@@ -788,9 +790,10 @@
 		// 修补匠 刷新
 		"DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities.<br>Hold Alt to see items that cannot be refreshed."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities.<br>Hold Alt to see items and abilities that cannot be refreshed."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, (including upgrades like Black King Bar Upgrade, Aeon Pendant, Linken's Sphere Upgrade, Armor of Insight, Hand of Team, etc.) and all neutral items."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"Rearm cannot refresh the ability of Sun Strike, Thundergods' Wrath, Rain of Chaos, Wrath of Nature, Time Zone, Mass Serpent Ward, and Haunt."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"TIME TO REARM:"
 		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}s Rearm Channel Time<br> -{s:bonus_AbilityManaCost} Rearm Mana Cost"
 

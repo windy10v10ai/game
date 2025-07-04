@@ -92,6 +92,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('damage', playerData?.damage ?? 0);
   panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
+  panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
   panel.SetDialogVariableInt('points', playerData?.points ?? 0);
 
   panel.SetDialogVariableInt('strength', playerData?.str ?? 0);
@@ -112,14 +113,28 @@ function Snippet_Player(playerId, rootPanel, index) {
     }
   }
 
-  var itemPanel = $.CreatePanel(
+  // 绘制中立物品
+  const neutralItemPanel = $.CreatePanel(
     'DOTAItemImage',
     panel.FindChildTraverse('NeutralItemContainer'),
     '',
   );
   const neutralItem = items?.neutral_item;
   if (neutralItem) {
-    itemPanel.itemname = neutralItem.item_name;
+    neutralItemPanel.itemname = neutralItem.item_name;
+  }
+  // 绘制中立被动
+  const neutralItemPassivePanel = $.CreatePanel(
+    'DOTAItemImage',
+    panel.FindChildTraverse('NeutralItemPassiveContainer'),
+    '',
+  );
+  const heroIndex = Players.GetPlayerHeroEntityIndex(playerId);
+  const neutralItemPassiveIndex = Entities.GetItemInSlot(heroIndex, 17);
+
+  if (neutralItemPassiveIndex > 0) {
+    neutralItemPassivePanel.itemname = Abilities.GetAbilityName(neutralItemPassiveIndex);
+    neutralItemPassivePanel.contextEntityIndex = neutralItemPassiveIndex;
   }
 }
 

@@ -20,19 +20,19 @@ export class Option {
 
   constructor() {
     CustomGameEventManager.RegisterListener('game_options_change', (_, keys) => {
-      return this.onGameOptionChange(keys);
+      return this.OnGameOptionChange(keys);
     });
 
     // 难度选择
     CustomGameEventManager.RegisterListener('choose_difficulty', (_, keys) => {
-      return this.onChooseDifficulty(keys);
+      return this.OnChooseDifficulty(keys);
     });
     CustomGameEventManager.RegisterListener('vote_end', (_, _key) => {
-      return this.calculateDifficulty(true);
+      return this.CalculateDifficulty(true);
     });
   }
 
-  onGameOptionChange(keys: GameOptionsChangeEventData & CustomGameEventDataBase) {
+  OnGameOptionChange(keys: GameOptionsChangeEventData & CustomGameEventDataBase) {
     this.radiantGoldXpMultiplier = keys.multiplier_radiant;
     this.direGoldXpMultiplier = keys.multiplier_dire;
     this.radiantPlayerNumber = keys.player_number_radiant;
@@ -54,15 +54,15 @@ export class Option {
     });
   }
 
-  onChooseDifficulty(keys: { difficulty: number } & CustomGameEventDataBase) {
+  OnChooseDifficulty(keys: { difficulty: number } & CustomGameEventDataBase) {
     CustomNetTables.SetTableValue('difficulty_choice', keys.PlayerID.toString(), {
       difficulty: keys.difficulty,
     });
 
-    this.calculateDifficulty(false);
+    this.CalculateDifficulty(false);
   }
 
-  calculateDifficulty(force: boolean) {
+  CalculateDifficulty(force: boolean) {
     const playerCount = PlayerHelper.GetHumamPlayerCount();
     let playerChosen = 0;
     let averageDifficulty = 0;
@@ -89,6 +89,15 @@ export class Option {
     if (force || playerChosen >= playerCount) {
       CustomNetTables.SetTableValue('game_difficulty', 'all', { difficulty: averageDifficulty });
       this.gameDifficulty = averageDifficulty;
+    }
+  }
+
+  SetDefaultDifficulty() {
+    // if game difficulty is not set, set it to 1
+    if (CustomNetTables.GetTableValue('game_difficulty', 'all') === undefined) {
+      print('[Option] SetDefaultDifficulty');
+      CustomNetTables.SetTableValue('game_difficulty', 'all', { difficulty: 1 });
+      this.gameDifficulty = 1;
     }
   }
 }
