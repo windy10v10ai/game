@@ -40,7 +40,9 @@ export class EventGameStateChange {
   /**
    * 选择英雄时间
    */
-  private OnHeroSelection(): void {}
+  private OnHeroSelection(): void {
+    GameRules.Option.SetDefaultDifficulty();
+  }
 
   /**
    * 策略时间
