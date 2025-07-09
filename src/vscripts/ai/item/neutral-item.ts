@@ -147,7 +147,6 @@ export class NeutralItemManager {
           { name: 'item_enhancement_crude', level: 1 },
           { name: 'item_enhancement_boundless', level: 1 },
           { name: 'item_enhancement_evolved', level: 2 },
-          { name: 'item_neutral_tabi', level: 1 },
         ],
       },
       5: {
