@@ -1347,7 +1347,7 @@
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_count" 			 "SWORD QI QUANTITY:"
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1" 				 "+{s:bonus_damage} Night Sword Rush Qi Attack Bonus"
-		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+{s:bonus_percentage} Out of Sheath Critical Chance"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+{s:bonus_percentage}% Out of Sheath Critical Damage"
 		"Dota_tooltip_ability_special_bonus_unique_abyss_sword_3" 				 "+{s:bonus_attack_bounts}% Hidden Sharp Damage Bonus Per Second"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_4" 				 "+{s:bonus_chance}% Rush Night Sally Chance"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_5" 				 "+{s:bonus_count} Rush Night Sally Sword Qi Quantity"
