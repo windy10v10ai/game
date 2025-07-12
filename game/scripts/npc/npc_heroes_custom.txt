@@ -675,6 +675,7 @@
 	}
 	"npc_dota_hero_bane"
 	{
+		"Ability8"		"generic_hidden"	// 禁用 妮塔莎脓血（属性值平均分配）
 		"Bot"
 		{
 			"Build"
