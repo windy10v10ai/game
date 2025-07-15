@@ -951,9 +951,9 @@
 
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"Good Juju"
-		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"Dazzle's mastery of the arcane affects the perception of nearby enemies, reducing their magic resistance. Can toggle between defensive and offensive modes, choosing to reduce enemy magic resistance or increase ally magic resistance."
-		"DOTA_Tooltip_ability_dazzle_good_juju_scepter_Description"						"Good Juju reduces all item cooldowns by %item_cooldown_reduction%%%, and has an active effect that can be cast on an ally to refresh their item cooldowns."
-		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each incantation from the Nothl Realm allows him to further permeate the surroundings of the mortal world."
+		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"Whenever Dazzle Casts a Spell, all other abilities currently on cooldown have their cooldowns reduced."
+		"DOTA_Tooltip_ability_dazzle_good_juju_scepter_Description"						"Good Juju reduces all item Cooldowns by %item_cooldown_reduction%%% and becomes an active ability that can be cast on allied units to refresh all item cooldowns."
+		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each invocation of the Nothl realm helps it further permeate the surroundings of our own."
 		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"Cooldown Reduction Per Cast:"
 
 		"DOTA_Tooltip_ability_dazzle_bad_juju"											"Bad Juju"
