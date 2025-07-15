@@ -9585,6 +9585,7 @@
 			"heal_amplify"
 			{
 				"value" "2 4 6 8 10"
+				"special_bonus_unique_dazzle_shallow_grave_heal_amplify"		"+10"
 			}
 			"AbilityCooldown"
 			{
@@ -9613,8 +9614,8 @@
 	"dazzle_good_juju"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_nothl_projection"
-		"AbilityDraftPreAbility"		"dazzle_nothl_projection"
+		"LinkedAbility"					"dazzle_bad_juju"
+		"AbilityDraftPreAbility"		"dazzle_bad_juju"
 		"AbilityValues"
 		{
 				"cooldown_reduction"		"1 1.25 1.5 1.75"
@@ -9624,26 +9625,13 @@
 	"dazzle_bad_juju"
 	{
 		"MaxLevel" "4"
+		"LinkedAbility"					"dazzle_good_juju"
+		"AbilityDraftPreAbility"		"dazzle_good_juju"
 		"AbilityCooldown"				"6"
 		"AbilityHealthCost"				"75 100 125 150"
 		"AbilityValues"
 		{
 			"cooldown_reduction"			"3 4 5 6"	// 4 5 6
-		}
-	}
-	"dazzle_nothl_projection"
-	{
-		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_good_juju"
-		"AbilityDraftPreAbility"		"dazzle_good_juju"
-		"AbilityCooldown"				"70 60 50 40"
-		"AbilityManaCost"				"100 150 200 250"
-
-		"AbilityValues"
-		{
-			"poison_touch_hex"			"1.4 1.6 1.8 2.0"
-			"shallow_grave_heal"		"225 300 375 450"
-			"shadow_wave_cdr"			"30 40 50 60"
 		}
 	}
 	// 编织

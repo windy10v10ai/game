@@ -944,6 +944,10 @@
 	"npc_dota_hero_dazzle"
 	{
 		"Ability5"		"dazzle_good_juju"
+		"Ability6"		"dazzle_bad_juju"
+		"Ability7"		"generic_hidden"
+
+		"Ability13"		"special_bonus_unique_dazzle_shallow_grave_heal_amplify"
 		"Bot"
 		{
 			"Build"
@@ -975,7 +979,7 @@
 				"25"		"special_bonus_unique_dazzle_1"
 				"26"		""
 				"27"		"special_bonus_mp_regen_175"
-				"28"		"special_bonus_unique_dazzle_nothl_projection_duration"
+				"28"		"special_bonus_unique_dazzle_shallow_grave_heal_amplify"
 				"29"		"special_bonus_unique_dazzle_shallow_grave_cooldown"
 				"30"		"special_bonus_unique_dazzle_4"
 				"31"		"dazzle_good_juju"

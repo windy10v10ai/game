@@ -966,6 +966,8 @@
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"HEALTH COST INCREASE DURATION:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
 
+		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% Shallow Grave Heal Amplify"
+
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"Increases the stack limit of Sticky Napalm.<br><br>Sticky Napalm deals damage to structures."
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"Sticky Napalm Max Stacks:"
