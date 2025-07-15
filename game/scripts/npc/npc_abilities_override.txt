@@ -2694,7 +2694,6 @@
 	// 回身踢
 	"marci_companion_run"
 	{
-		"MaxLevel" "5"
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
@@ -2721,6 +2720,10 @@
 				"ally_movespeed_pct"
 				{
 					"value"				"25 30 35 40 45"
+				}
+				"max_level"
+				{
+					"value"				"5"
 				}
 		}
 	}
@@ -12260,6 +12263,7 @@
 			{
 				"value"														"200 400 600"
 				"special_bonus_facet_shadow_shaman_massive_serpent_ward"	"x4"
+				"CalculateSpellDamageTooltip"								"0"
 			}
 		}
 	}
