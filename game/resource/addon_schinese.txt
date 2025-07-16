@@ -963,6 +963,8 @@
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"生命消耗增加持续时间："
 		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"编织也会减少物品的冷却时间。"
 
+		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% 薄葬治疗增强"
+
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"增加粘性燃油叠加上限。<br><br>粘性燃油会对建筑造成伤害。"
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"粘性燃油叠加上限："
