@@ -951,9 +951,9 @@
 
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"Good Juju"
-		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"Dazzle's mastery of the arcane affects the perception of nearby enemies, reducing their magic resistance. Can toggle between defensive and offensive modes, choosing to reduce enemy magic resistance or increase ally magic resistance."
-		"DOTA_Tooltip_ability_dazzle_good_juju_scepter_Description"						"Good Juju reduces all item cooldowns by %item_cooldown_reduction%%%, and has an active effect that can be cast on an ally to refresh their item cooldowns."
-		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each incantation from the Nothl Realm allows him to further permeate the surroundings of the mortal world."
+		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"Whenever Dazzle Casts a Spell, all other abilities currently on cooldown have their cooldowns reduced."
+		"DOTA_Tooltip_ability_dazzle_good_juju_scepter_Description"						"Good Juju reduces all item Cooldowns by %item_cooldown_reduction%%% and becomes an active ability that can be cast on allied units to refresh all item cooldowns."
+		"DOTA_Tooltip_ability_dazzle_good_juju_Lore"									"Each invocation of the Nothl realm helps it further permeate the surroundings of our own."
 		"DOTA_Tooltip_ability_dazzle_good_juju_cooldown_reduction"						"Cooldown Reduction Per Cast:"
 
 		"DOTA_Tooltip_ability_dazzle_bad_juju"											"Bad Juju"
@@ -965,6 +965,8 @@
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_pct"					"%HEALTH COST INCREASE PER CAST:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"HEALTH COST INCREASE DURATION:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
+
+		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% Shallow Grave Heal Amplify"
 
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"Increases the stack limit of Sticky Napalm.<br><br>Sticky Napalm deals damage to structures."
@@ -1347,7 +1349,7 @@
 		"DOTA_Tooltip_ability_abyss_sword_rush_night_sally_count" 			 "SWORD QI QUANTITY:"
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_1" 				 "+{s:bonus_damage} Night Sword Rush Qi Attack Bonus"
-		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+{s:bonus_percentage} Out of Sheath Critical Chance"
+		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_2" 				 "+{s:bonus_percentage}% Out of Sheath Critical Damage"
 		"Dota_tooltip_ability_special_bonus_unique_abyss_sword_3" 				 "+{s:bonus_attack_bounts}% Hidden Sharp Damage Bonus Per Second"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_4" 				 "+{s:bonus_chance}% Rush Night Sally Chance"
 		"DOTA_Tooltip_Ability_special_bonus_unique_abyss_sword_5" 				 "+{s:bonus_count} Rush Night Sally Sword Qi Quantity"
