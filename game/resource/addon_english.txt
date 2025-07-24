@@ -883,6 +883,8 @@
 		"DOTA_Tooltip_ability_omniknight_repel_status_resistance"						"%STATUS RESISTANCE:"
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"STRENGTH:"
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"HEALTH REGEN:"
+		"DOTA_Tooltip_modifier_omniknight_repel"									"Heavenly Grace"
+		"DOTA_Tooltip_modifier_omniknight_repel"									"Gaining 50%% status resistance, %dMODIFIER_PROPERTY_BONUS_STATS_STRENGTH% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
@@ -905,17 +907,17 @@
 		// 幽鬼 spe
 		"DOTA_Tooltip_ability_spectre_desolate_Description"		"Deals bonus pure damage whenever Spectre attacks an enemy."
 		"DOTA_Tooltip_ability_spectre_desolate_radius"						""
-		"DOTA_Tooltip_ability_spectre_ursa_enrage"												"Intangible Shadow"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"At this moment, Spectre jumped out of the Three Realms and was not in the Five Elements."
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Spectre reverses causation, providing herself with Damage Reduction and Status Resistance. Removes any existing debuffs on her.\n\nDISPEL TYPE: Strong Dispel"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"Reduces cooldown and allows Spectre to use Intangible Shadow while disabled."
+		"DOTA_Tooltip_ability_spectre_ursa_enrage"												"Defy"
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
+		"DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"Reduces cooldown and allows Monkey King to use Defy while disabled."
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%DAMAGE REDUCTION:"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%STATUS RESISTANCE:"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "DURATION:"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "COOLDOWN:"
-		"DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} Intangible Shadow duration"
-		"DOTA_Tooltip_modifier_spectre_ursa_enrage" "Intangible Shadow"
-		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gained %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance"
+		"DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} Defy Duration"
+		"DOTA_Tooltip_modifier_spectre_ursa_enrage" "Defy"
+		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
 
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
@@ -938,6 +940,11 @@
 
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Movement Speed"
+
+		// WK
+		"DOTA_Tooltip_ability_skeleton_king_spectral_blade_Description"                 "Curses units that Wraith King attacks, dealing a flat amount of damage and a percentage of the attack damage again after a delay. Vampiric Spirit's lifesteal applies to the curse damage and a unit cannot be cursed again for a short period of time.<br><br>When Wraith King reincarnates with Reincarnation, all heroes affected by Reincarnation's slow will have their curse cooldown removed."
+		
+
 
 		// 酒仙
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split MK2"
@@ -967,11 +974,13 @@
 
 		// 拉比克
 		"DOTA_Tooltip_ability_rubick_null_field"								"Null Field"
-		"DOTA_Tooltip_ability_rubick_null_field_Description"					"Rubick's mastery of the arcane affects the perception of nearby enemies, reducing their magic resistance. Can toggle between defensive and offensive modes, choosing to reduce enemy magic resistance or increase ally magic resistance."
+		"DOTA_Tooltip_ability_rubick_null_field_Description"					"Rubick's mastery of the arcane creates an aura that nullifies the enemies' senses, or increases his own by altering the magical resistance of nearby units.<br><br>Null Field can be toggled to increase nearby allies' bonus magic resistance or to decrease nearby enemies' magic resistance."
 		"DOTA_Tooltip_ability_rubick_null_field_Lore"							"Not every magus can become a Grand Magus..."
 		"DOTA_Tooltip_ability_rubick_null_field_Note0"							"Stacks with other magic resistance increasing items and abilities."
 		"DOTA_Tooltip_ability_rubick_null_field_magic_damage_reduction_pct"		"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_rubick_null_field_radius"							"RADIUS:"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect"					"Null Field"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_Description"				"Rubick's affected allies gain %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance. Rubick's affected enemies lose %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance."
 
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"Good Juju"
