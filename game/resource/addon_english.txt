@@ -596,7 +596,7 @@
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Gain extra gold from enemies you last hit, and multiplied gold from bounty runes. Additionally, gain an instant gold bonus when leveling this ability up, and bonus attack damage based on the amount of extra gold your next last hit will grant."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Gain extra gold from enemies you last hit, and multiplied gold from bounty runes. Additionally, gain an instant gold bonus when leveling this ability, and passively gain bonus attack damage based on the amount of extra gold your next last hit will grant."
 		//"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"Chemical Rage Aghanim's Scepter has been moved to Greevil's Greed for Ability Draft. Use Aghanim's Scepter on an allied hero to grant them all Aghanim's Scepter upgrades. When you have a Scepter of your own, you will gain bonus damage and spell amplification for each gifted Scepter."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"While it is not a mountain, Razzil has mastered the conversion of smaller compounds to line his pockets."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"RECENT KILL WINDOW:"
@@ -605,11 +605,11 @@
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"MAX BONUS GOLD PER KILL:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"BOUNTY RUNE MULTIPLIER:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"DAMAGE PER STACK:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"GOLD PER LEVEL SPENT:"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"GOLD GRANTED UPON LEVELING:"
 
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them. Knockback distance is relative to how much you have moved prior to the attack."
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"STUN DURATION:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"MAX KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"ILLUSION DURATION:"
@@ -628,8 +628,8 @@
 		//"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"Dragon Form Multiplier:"
 		//才思敏捷
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"Quick Wit"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Every point of Intelligence also grants 1 attack speed."
-		//"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"Gains Attack Speed from each point of Intelligence:"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Every point of Intelligence also grants attack speed."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"INT TO ATTACK SPEED:"
 		//炽烈火雨
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"CHANNELED - Shoot multiple piercing arrows in the target direction that hit all enemy units dealing a percentage of attack damage and applying any attack modifiers."
@@ -694,9 +694,9 @@
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%COOLDOWN INCREASE:"
 		//冰霜法球
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost Orb"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Every %attack_count%th attack launches an orb of chilling frost, dealing extra AoE damage and slowing the primary target's attack speed."
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_attack_slow"			"ATTACK SPEED SLOW:"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"ORB RADIUS:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Every %attack_count%th attack launches an orb of chilling frost, dealing extra AoE damage and greatly slowing the primary target's movement speed briefly."
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_slow_duration"		"SLOW DURATION:"
+		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_damage"			"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_ad"				"BONUS DAMAGE PER ATTACK DAMAGE:"
 
@@ -714,9 +714,11 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"ACTIVE DURATION:"
 
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura"			"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura_Description"		"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura_Description"		"Taking damage per second and movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, with the effects intensifying the closer you are to the owner of the aura."
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"			"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"		"Taking damage per second and movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, with the effects intensifying the closer you are to the owner of the aura."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"		"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_aura"			"Bonechill Aura"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_aura_Description"	"Damaging and slowing nearby enemies. Slow and damage are stronger to closer enemies."
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
@@ -756,6 +758,9 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"TRIGGER INTERVAL:"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"ROOT DURATION:"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"			"DAMAGE:"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff"		"Aura of Malice"
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff_Description"	"If within this aura for too long, you will be rooted and receive damage."
+		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root"		"Rooted"
 		//强化武器
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"					"Enhanced Weaponry"
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"		"Passively increases the attack range of melee heroes. Activate to double the attack range bonus and add a slow to enemies you attack."
