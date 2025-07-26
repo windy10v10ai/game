@@ -835,7 +835,7 @@
 		"DOTA_Tooltip_ability_bot_power_n5_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n5_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_damage"			"ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_attack_speed"		"ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_bot_power_n5_bonus_attack_speed"		"ATTACK SPEED:"
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_spell_amplify"		"%SPELL AMP:"
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_cooldown"			"%COOLDOWN REDUCTION:"
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_move_speed"		"MOVEMENT SPEED:"
@@ -853,7 +853,7 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_move_speed"		"MOVEMENT SPEED:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"ARMOR:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
-		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBTUES:"
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
