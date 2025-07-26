@@ -42,25 +42,6 @@
 		"hide_chat_team"			"Hide Chat and Team"
 		"show_chat_team"			"Show Chat and Team"
 
-		"bots_multiplier_1"		"1   (Beginner)"
-		"bots_multiplier_1_25"	"1.25 (Beginner)"
-		"bots_multiplier_1_5"	"1.5 (Beginner)"
-		"bots_multiplier_2"		"2   (Easy)"
-		"bots_multiplier_3"		"3   (Normal)"
-		"bots_multiplier_4"		"4   (Hard)"
-		"bots_multiplier_5"		"5   (Difficult)"
-		"bots_multiplier_6"		"6   (Unfair)"
-		"bots_multiplier_10"	"10  (Hell)"
-		"bots_multiplier_20"	"20 (Prepare to Cry)"
-
-		"player_gold_xp_multiplier_1"               "1"
-		"player_gold_xp_multiplier_1_1"             "1.1"
-		"player_gold_xp_multiplier_1_2"				"1.2"
-		"player_gold_xp_multiplier_1_3"				"1.3"
-		"player_gold_xp_multiplier_1_5"             "1.5"
-		"player_gold_xp_multiplier_2"               "2"
-		"player_gold_xp_multiplier_5"               "5"
-
 		"radiant_player_number_1"		"1  (Easy)"
 		"radiant_player_number_10"		"10 (Hard)"
 
@@ -191,17 +172,17 @@
 		"key_bind_mouseover_tooltop"							"Click to bind a hotkey to this ability. <br>If you encounter conflicts or malfunctions, try disconnecting and reconnecting to the game."
 		"key_bind_input_err"									"Invalid input - Try another key"
 		"key_bind_quick_cast"									"Quick Cast"
-		"key_bind_remember"										"Save Hotkey"
+		"key_bind_remember"										"Save Key"
 		///////////////////////////////////////////////////
 		//
 		//			Member
 		//
 		///////////////////////////////////////////////////
 		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/> Membership is valid until {expireDate}."
-		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft expands to 6 total choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/> Membership is valid until {expireDate}."
+		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 6 choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
 		"player_member_ship"				"Click to enable your membership."
-		"player_member_null"				"Membership information failed to load. Please reload or reconnect to the game."
+		"player_member_null"				"Membership information failed to load. Please reload a new game."
 
 		///////////////////////////////////////////////////
 		//
@@ -230,19 +211,19 @@
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
-		"DOTA_Tooltip_ability_creep_buff"						"Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_Description"					"Creeps gain increasing buffs depending on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
+		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many enemy towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"ATTACK DAMAGE BONUS"
 		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"					"Creeps gain increasing buffs depending on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Level up based on how many enemy towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"ARMOR BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_mega_Description"					"Creeps gain increasing buffs depending on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Level up based on how many enemy towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"ARMOR BONUS"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%INCOMING DAMAGE REDUCTION BONUS:"
@@ -274,19 +255,18 @@
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_percent_damage_per_burn"	"%MANA BURNED AS DAMAGE:"
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit"			"MANA BURNED PER HIT:"
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit_pct"		"%MAX MANA BURNED PER HIT:"
-		//"DOTA_Tooltip_ability_tower_antimage_mana_break_move_slow"			"%MOVE SPEED SLOW ON FULL DRAIN:"
-		//"DOTA_Tooltip_ability_tower_antimage_mana_break_slow_duration"		"SLOW DURATION:"
 
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"Structure Reactive Armor"
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"This structure gains extra armor and health regeneration each time it is attacked."
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"					"Structure Reactive Armor"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"This structure gains extra armor and health regeneration each time it is attacked. Hero attacks are counted as %stacks_per_hero_attack%x the amount."
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"BONUS ARMOR:"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"BONUS HP REGEN:"
-		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"STACK DURATION:"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_stack_limit"		"MAX STACKS:"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_stack_duration"		"STACK DURATION:"
 
-		"DOTA_Tooltip_ability_tower_headshot"						"Structure Mini-Bash"
-		"DOTA_Tooltip_ability_tower_headshot_Description"				"This structure slows the movement and attack speed of enemies it attacks by %slow%%% for a brief period of time, while also knocking them back."
-		//"DOTA_Tooltip_ability_tower_headshot_proc_chance"				"%CHANCE:"
-		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"KNOCKBACK DISTANCE:"
+		"DOTA_Tooltip_ability_tower_headshot"							"Structure Mini-Bash"
+		"DOTA_Tooltip_ability_tower_headshot_Description"				"This structure has a chance when attacking to slow the movement and attack speed of enemies by %slow%%% for a brief period of time, while also knocking them back."
+		"DOTA_Tooltip_ability_tower_headshot_proc_chance"				"%CHANCE:"
+		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"		"KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"SLOW DURATION:"
 
 		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
@@ -318,7 +298,7 @@
 		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
 		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft expands to 6 total choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 6 choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/>"
 		// 定制BUFF
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_lumao_Description"		"<font color='#fc8eac'>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
@@ -573,9 +553,9 @@
 		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"Backtrack"
 		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"Gain a %backtrack_per_level%%% chance to completely dodge an instance of incoming damage."
 		//腾焰斗篷
-		"DOTA_Tooltip_ability_lina_flame_cloak2"											"Flame Cloak"
+		"DOTA_Tooltip_ability_lina_flame_cloak2"										"Flame Cloak"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"A natural defense equally suited to keeping anything from unwanted sisters to snarling hellbeasts at bay."
-		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"Grants unobstructed movement, increased spell damage, and magic resistance."
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"							"Grants unobstructed movement, increased spell damage, and magic resistance."
 		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%SPELL AMP:"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%MAGIC RESISTANCE:"
@@ -592,12 +572,10 @@
 		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%REFLECTION CHANCE:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%DAMAGE REFLECTED:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Damage is returned as the same damage type."
-		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% Dispersion Reflect Chance"
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Gain extra gold from enemies you last hit, and multiplied gold from bounty runes. Additionally, gain an instant gold bonus when leveling this ability, and passively gain bonus attack damage based on the amount of extra gold your next last hit will grant."
-		//"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"Chemical Rage Aghanim's Scepter has been moved to Greevil's Greed for Ability Draft. Use Aghanim's Scepter on an allied hero to grant them all Aghanim's Scepter upgrades. When you have a Scepter of your own, you will gain bonus damage and spell amplification for each gifted Scepter."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"While it is not a mountain, Razzil has mastered the conversion of smaller compounds to line his pockets."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"RECENT KILL WINDOW:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"BASE BONUS GOLD:"
@@ -625,7 +603,6 @@
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Passively grants increased health regeneration and armor."
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"				"HP REGEN:"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"ARMOR:"
-		//"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"Dragon Form Multiplier:"
 		//才思敏捷
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"Quick Wit"
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Every point of Intelligence also grants attack speed."
@@ -715,10 +692,6 @@
 
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura"			"Bonechill Aura"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura_Description"		"Taking damage per second and movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, with the effects intensifying the closer you are to the owner of the aura."
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"			"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"		"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_aura"			"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_aura_Description"	"Damaging and slowing nearby enemies. Slow and damage are stronger to closer enemies."
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
@@ -835,7 +808,7 @@
 		"DOTA_Tooltip_ability_bot_power_n5_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n5_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_damage"			"ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_attack_speed"		"ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_bot_power_n5_bonus_attack_speed"		"ATTACK SPEED:"
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_spell_amplify"		"%SPELL AMP:"
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_cooldown"			"%COOLDOWN REDUCTION:"
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_move_speed"		"MOVEMENT SPEED:"
@@ -943,7 +916,7 @@
 
 		// WK
 		"DOTA_Tooltip_ability_skeleton_king_spectral_blade_Description"                 "Curses units that Wraith King attacks, dealing a flat amount of damage and a percentage of the attack damage again after a delay. Vampiric Spirit's lifesteal applies to the curse damage and a unit cannot be cursed again for a short period of time.<br><br>When Wraith King reincarnates with Reincarnation, all heroes affected by Reincarnation's slow will have their curse cooldown removed."
-		
+
 
 
 		// 酒仙
@@ -1731,7 +1704,7 @@
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"Aura of Insight"
 		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction."
 
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"Greater Aura of Insight"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#00FF00'>Greater Aura of Insight</font>"
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction."
 
 		// item_arcane_octarine_core 奥术之心
@@ -1920,8 +1893,6 @@
 		"DOTA_Tooltip_Ability_item_sacred_trident"										"Holy Trinity"
 		"DOTA_Tooltip_Ability_item_sacred_trident_Description"					""
 		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"				"+$all"
-		// "DOTA_Tooltip_Ability_item_sacred_trident_bonus_strength"				"+$str"
-		// "DOTA_Tooltip_Ability_item_sacred_trident_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"					"%+Spell Damage"
 		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_attack_speed"			"+$attack"
@@ -1936,8 +1907,6 @@
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Legendary Hexad"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_Description"					""
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"				"+$all"
-		//"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_strength"				"+$str"
-		//"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"					"%+Spell Damage"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_attack_speed"			"+$attack"
@@ -2157,7 +2126,6 @@
 		"DOTA_Tooltip_ability_item_saint_orb_mana_re"				"+$mana_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_saint_orb_heal_bonus"			"%+$restoration_amp"
-		//"DOTA_Tooltip_ability_item_saint_orb_duration"				"Duration:"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"Saint White Lotus"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"The first targeted spell against you will be blocked as well as reflected, and will heal you based on your max health."
 
@@ -2178,7 +2146,7 @@
 		"DOTA_Tooltip_ability_item_bloodstone"										"Godly Bloodstone"
 		"DOTA_Tooltip_ability_item_bloodstone_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_Note0"									"Using Godly Bloodstone leaves you drained, preventing you from benefitting from its multiplied spell lifesteal again during that time. Drained's duration is dependent on the item's cooldown."
-		"DOTA_Tooltip_modifier_item_bloodstone_active_Description"							"Bloodstone's Spell Lifesteal is multiplied." 
+		"DOTA_Tooltip_modifier_item_bloodstone_active_Description"							"Bloodstone's Spell Lifesteal is multiplied."
 		"DOTA_Tooltip_ability_item_bloodstone_Note1"									"Godly Bloodstone's AoE bonus does not stack with the AoE bonus from Gleipnir or Advanced Gleipnir, but will stack with AoE bonuses from other sources."
 		"DOTA_Tooltip_ability_item_bloodstone_v2"									"Mini Bloodstone"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
@@ -2216,7 +2184,8 @@
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"You're silly. My cursed rapier is now permanent!"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"A cursed rapier liberated by fusing the power of light and darkness."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note1"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
 
 		// item_rapier_ultra_bot_1 解放的诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1"                        "<font color='#CC7A00'>Liberated</font> Rapier"
@@ -2224,7 +2193,8 @@
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1_Lore"					"You're silly! My cursed rapier is now permanent!"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note0"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1Note0"					"A cursed rapier liberated by fusing the power of light and darkness."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note1"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
 
 		// item_bfury_ultra 救世狂战
 		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#F24332'>Worldcleaver</font>"
@@ -2315,8 +2285,8 @@
 		"DOTA_Tooltip_Ability_item_manta_2"				"<font color='#e03e2e'>Artifact: Phase Axe</font>"
 		"DOTA_Tooltip_ability_item_manta_2_Description"	"<h1>Active: Phase Shift</h1> Become invulnerable and untargetable for %invuln_duration%. You cannnot act during this time nor cancel the effect early.<br><br>Dispel type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_manta_2_Lore"			"Lost the ability to create illusions but gained a 1-second invincibility in its place."
-		//"DOTA_Tooltip_ability_item_manta_2_Note0"			"Has a %invuln_duration% second cast time during which it is invulnerable."
-		//"DOTA_Tooltip_ability_item_manta_2_Note1"			"Can be used to remove various negative effects."
+		"DOTA_Tooltip_ability_item_manta_2_Note0"			"Has a %invuln_duration% second cast time during which it is invulnerable."
+		"DOTA_Tooltip_ability_item_manta_2_Note1"			"Can be used to remove various negative effects."
 		"DOTA_Tooltip_ability_item_manta_2_Note2"			"Yasha-based movement speed bonuses from multiple items do not stack."
 		"DOTA_Tooltip_ability_item_manta_2_bonus_agility"	"+$agi"
 		"DOTA_Tooltip_ability_item_manta_2_bonus_strength"	"+$str"
@@ -2405,14 +2375,12 @@
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>Active: Tyson's Flash</h1>Teleport to a target point up to %blink_range% units away.<br><br>After teleportation, all enemies in a %radius% AoE take damage equal to %damage_base% + %damage_pct_instant%%% of your strength and an additional %damage_pct_over_time%%% over time, and have %movement_slow%%% movement speed slow and %attack_slow% attack speed slow for %duration% seconds. <br><br>Overwhelming Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Lore"                    "(Not associated at all with the world-famous Mike Tyson. Any correlation with Mike Tyson is purely coincidental.)"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Note0"                    "Self-casting will cause you to teleport towards your fountain."
-		//"DOTA_Tooltip_ability_item_overwhelming_blink_2_Note1"					"If you used Tyson's Flash to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_bonus_strength"			"+$str"
 		// 敏捷跳2
 		"DOTA_Tooltip_ability_item_swift_blink_2"                               "Blink of Bolt"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Description"         			"<h1>Active: Blink of Bolt</h1>Teleport to a target point up to %blink_range% units away.<br><br>After teleportation, you gain %bonus_movement%%% phased movement speed and +%bonus_agi_active% Agility for %duration% seconds. <br><br>Swift Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_ability_item_swift_blink_2_Lore"                           "Become faster than the speed of light and electricity!"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Note0"                           "Self-casting will cause you to teleport towards your fountain."
-		//"DOTA_Tooltip_ability_item_swift_blink_2_Note1"					        "If you used Blink of Bolt to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
 		"DOTA_Tooltip_ability_item_swift_blink_2_bonus_agility"			        "+$agi"
 		// 大小智力跳对调
 		// 小智力跳
@@ -2420,14 +2388,12 @@
 		"DOTA_Tooltip_ability_item_arcane_blink_2_Description"         			"<h1>Active: Arcane Blink</h1>Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Arcane Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_ability_item_arcane_blink_2_Lore"                          "A revitalizing tool to help bear the weight of arcane expenditure."
 		"DOTA_Tooltip_ability_item_arcane_blink_2_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
-		//"DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"If you used Arcane Blink to teleport a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
 		"DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
 		// 大智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink"                              "Blink of Einstein"
 		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>Active: Blink of Einstein</h1> Teleport to a target point up to %blink_range% units away. <br><br>After teleportation, you restore %heal_amount% health and %mana_amount% mana.<br><br>Arcane Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "The arcane arts' greatest contribution to assassination."
 		"DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "Self-casting will cause you to teleport in the direction of your team's fountain."
-		//"DOTA_Tooltip_ability_item_arcane_blink_Note1"      					"If you used Blink of Einstein to teleport to a distance over the maximum range, you'll be teleported 4/5 of the maximum range instead."
 		"DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
 
 		// item_blessing_of_dragon 神龙
@@ -2551,14 +2517,13 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
-		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"					"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%.\nStrength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nArmor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nSlow resistance increased by %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%.\nLosing %dMODIFIER_PROPERTY_TOOLTIP% health per second."
+		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%.\nStrength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nArmor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nSlow resistance increased by %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%.\nLosing %dMODIFIER_PROPERTY_TOOLTIP% health per second."
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>Artifact</font> Guardian Greaves"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"              		"The aura boost only applies to heroes."
-	        "DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"              		"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note2"              		"The above also includes the standard version of Guardian Greaves."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"The aura boost only applies to heroes."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
