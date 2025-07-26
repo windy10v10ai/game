@@ -1981,7 +1981,7 @@
 		"DOTA_Tooltip_modifier_item_adi_king_aura"											"Speed Aura"
 		"DOTA_Tooltip_modifier_item_adi_king_aura_Description"								"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_item_adi_king_buff"											"Gotta Go Fast"
-		"DOTA_Tooltip_modifier_item_adi_king_buff_Description"								"Gaining unobstructed movement. Movement speed is increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_item_adi_king_buff_Description"								"Gaining unobstructed and uncapped movement. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Boots Plus"
@@ -1999,7 +1999,7 @@
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"Blue Fantasy"
-		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1>Active: <font color='#FFFF00'>Destruction</font></h1> Applies a debuff for %mute_duration% seconds on a target enemy unit. The debuff <font color='#f15b47'>Dispels, Breaks, Mutes and negates all Evasion.</font><br><br>The debuff will also continuously dispel the target, slow their movement speed by %slow_pct%%%, attack speed by %attack_slow%, and reduces Health Restoration and Incoming Heals by %hp_regen_reduction%%%, while dealing <font color='#FFFF00'>%max_hp_dmg_pct%%%</font> maximum health as <font color='#FFCC66'>pure damage</font> every second.\n<h1>Passive: Feedback</h1>Each attack burns %mana_base% mana, and deals physical damage equal to the mana burned."
+		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1>Active: <font color='#FFFF00'>Destruction</font></h1> Applies a debuff for %mute_duration% seconds on a target enemy unit. The debuff <font color='#f15b47'>Dispels, Breaks, Mutes, and negates all Evasion.</font><br><br>The debuff will also continuously dispel the target, slow their movement speed by %slow_pct%%%, attack speed by %attack_slow%, and reduces Health Restoration and Incoming Heals by %hp_regen_reduction%%%, while dealing <font color='#FFFF00'>%max_hp_dmg_pct%%%</font> of their maximum health as <font color='#FFCC66'>pure damage</font> every second.\n<h1>Passive: Feedback</h1>Each attack burns %mana_base% mana, and deals physical damage equal to the mana burned."
 		"DOTA_Tooltip_ability_item_blue_fantasy_Note0"							"Max health damage is not affected by Spell Damage."
 		"DOTA_Tooltip_ability_item_blue_fantasy_Note1"							"Cannot be disjointed."
 		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+$int"
@@ -2034,7 +2034,7 @@
 		// item_wasp_golden
 		"DOTA_Tooltip_ability_item_wasp_golden"							"<font color='#FFD700'>Golden Wasp</font>"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"A faint whisper dances around your ears, 'Do you want absolute power?'"
-		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance and Evasion increases to %active_crit_chance%%%, but Critical Damage decreases to %active_crit_multiplier%%%. Movement speed is increased by %move_speed%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance and Evasion increases to %active_crit_chance%%%, and grants %move_speed%%% Movement Speed, but Critical Damage decreases to %active_crit_multiplier%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
@@ -2159,7 +2159,7 @@
 		"DOTA_Tooltip_ability_item_saint_orb_heal_bonus"			"%+$restoration_amp"
 		//"DOTA_Tooltip_ability_item_saint_orb_duration"				"Duration:"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"Saint White Lotus"
-		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"The first targeted spell against you will be blocked and will heal you based on your max health."
+		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"The first targeted spell against you will be blocked as well as reflected, and will heal you based on your max health."
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
@@ -2511,14 +2511,14 @@
 		// 神器2.0
 		// item_light_part 圣光组件
 		"DOTA_Tooltip_Ability_item_light_part"					"<font color='#FFFF00'>Light</font> Part"
-		"DOTA_Tooltip_ability_item_light_part_Description"		"Can be used to transform items into light-themed upgrades.\nIf Light Parts cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_light_part_Description"		"Can be used to transform items into light-themed upgrades.\nIf a Light Part cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_Ability_item_light_part_Note0"			"Ancient creeps are more likely to drop them. Drop chance from all neutral creeps in the game increases over time. Guaranteed drop from Roshan, who will drop more parts the larger your team is."
 		"DOTA_Tooltip_Ability_item_light_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the day."
 		"DOTA_Tooltip_Ability_item_light_part_bonus_damage"		"+$damage"
 
 		// item_dark_part 暗影组件
 		"DOTA_Tooltip_Ability_item_dark_part"					"<font color='#8A2BE2'>Dark</font> Part"
-		"DOTA_Tooltip_ability_item_dark_part_Description"		"Can be used to transform items into dark-themed upgrades.\nIf Dark Parts cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dark_part_Description"		"Can be used to transform items into dark-themed upgrades.\nIf a Dark Part cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dark_part_Note0"				"Ancient creeps are more likely to drop them. Drop chance from all neutral creeps in the game increases over time. Guaranteed drop from Roshan, who will drop more parts the larger your team is."
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the night."
 		"DOTA_Tooltip_Ability_item_dark_part_bonus_spell_amp"	"%+$spell_amp"
@@ -2550,9 +2550,15 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
 
+		// Updated Armlet tooltip (now shows slow resist on active)
+		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"					"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%.\nStrength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nArmor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nSlow resistance increased by %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%.\nLosing %dMODIFIER_PROPERTY_TOOLTIP% health per second."
+
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>Artifact</font> Guardian Greaves"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"              		"The aura boost only applies to heroes."
+	        "DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"              		"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note2"              		"The above also includes the standard version of Guardian Greaves."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
