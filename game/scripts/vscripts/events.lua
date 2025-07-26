@@ -59,32 +59,6 @@ function AIGameMode:OnGameStateChanged(keys)
             self:PreGameOptions()
         end
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
-        -- TODO 需要初始化，移植到TS中
-        local gameDifficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
-        -- modifier towers
-        local tTowers = Entities:FindAllByClassname("npc_dota_tower")
-        local iTowerLevel = math.max(gameDifficulty, 1)
-        for k, v in pairs(tTowers) do
-            local towerName = v:GetName()
-
-            -- add tower ability
-            if string.find(towerName, "tower3") or string.find(towerName, "tower4") then
-                v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
-                v:AddAbility("tower_shredder_reactive_armor"):SetLevel(iTowerLevel)
-                v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
-            end
-        end
-        local fort = Entities:FindAllByClassname("npc_dota_fort")
-        for k, v in pairs(fort) do
-            -- add tower ability
-            v:AddAbility("tower_ursa_fury_swipes"):SetLevel(iTowerLevel)
-            v:AddAbility("tower_shredder_reactive_armor"):SetLevel(iTowerLevel)
-            v:AddAbility("tower_troll_warlord_fervor"):SetLevel(iTowerLevel)
-            v:AddAbility("tower_antimage_mana_break"):SetLevel(iTowerLevel)
-        end
-
-
-        -- refresh every 10 seconds
         Timers:CreateTimer(2, function()
             AIGameMode:RefreshGameStatus()
             return 10
