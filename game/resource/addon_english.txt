@@ -826,7 +826,7 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_move_speed"		"MOVEMENT SPEED:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"ARMOR:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
-		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBTUES:"
+		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
