@@ -914,10 +914,6 @@
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Movement Speed"
 
-		// WK
-		"DOTA_Tooltip_ability_skeleton_king_spectral_blade_Description"                 "Curses units that Wraith King attacks, dealing a flat amount of damage and a percentage of the attack damage again after a delay. Vampiric Spirit's lifesteal applies to the curse damage and a unit cannot be cursed again for a short period of time.<br><br>When Wraith King reincarnates with Reincarnation, all heroes affected by Reincarnation's slow will have their curse cooldown removed."
-
-
 
 		// 酒仙
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split MK2"
@@ -952,9 +948,10 @@
 		"DOTA_Tooltip_ability_rubick_null_field_Note0"							"Stacks with other magic resistance increasing items and abilities."
 		"DOTA_Tooltip_ability_rubick_null_field_magic_damage_reduction_pct"		"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_rubick_null_field_radius"							"RADIUS:"
-		"DOTA_Tooltip_modifier_rubick_null_field_effect"					"Null Field"
-		"DOTA_Tooltip_modifier_rubick_null_field_effect_Description"				"Rubick's affected allies gain %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance. Rubick's affected enemies lose %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance."
-
+		"DOTA_Tooltip_modifier_rubick_null_field_effect"				"Null Field"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_Description"	"Rubick's affected allies gain %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance. Rubick's affected enemies lose %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance."
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally"				"Null Field"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally_Description"	"Magic Damage Resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"Good Juju"
 		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"Whenever Dazzle Casts a Spell, all other abilities currently on cooldown have their cooldowns reduced."

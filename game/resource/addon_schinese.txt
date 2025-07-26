@@ -841,6 +841,8 @@
 		"DOTA_Tooltip_ability_omniknight_repel_status_resistance"						"%状态抗性："
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"力量加成："
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"生命恢复："
+		"DOTA_Tooltip_modifier_omniknight_repel"						"驱逐"
+		"DOTA_Tooltip_modifier_omniknight_repel_Description"			"状态抗性提升%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%，力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，生命恢复提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒。"
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"奶飞天"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
@@ -929,6 +931,10 @@
 		"DOTA_Tooltip_ability_rubick_null_field_Note0"							"与其他提高魔法抗性的物品和技能叠加。"
 		"DOTA_Tooltip_ability_rubick_null_field_magic_damage_reduction_pct"		"%魔法抗性加成："
 		"DOTA_Tooltip_ability_rubick_null_field_radius"							"作用范围："
+		"DOTA_Tooltip_modifier_rubick_null_field_effect"				"失效力场"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_Description"	"拉比克的队友受到作用时，魔法抗性提升%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。拉比克的敌人受到作用时，魔法抗性降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally"				"失效力场"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally_Description"	"魔法抗性提升%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
 
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"善咒"
