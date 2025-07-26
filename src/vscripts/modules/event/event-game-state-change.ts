@@ -60,11 +60,22 @@ export class EventGameStateChange {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
 
+    const towerAbilityLevel = this.getTowerAbilityLevel();
+
     // 防御塔BUFF
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     for (const tower of towers) {
       this.addModifierToTowers(tower);
+
+      // 根据Lua代码，为tower3和tower4添加特定技能
+      const towerName = tower.GetName();
+      if (towerName.includes('tower3') || towerName.includes('tower4')) {
+        tower.AddAbility('tower_ursa_fury_swipes').SetLevel(towerAbilityLevel);
+        tower.AddAbility('tower_shredder_reactive_armor').SetLevel(towerAbilityLevel);
+        tower.AddAbility('tower_troll_warlord_fervor').SetLevel(towerAbilityLevel);
+      }
     }
+
     // 兵营BUFF
     const barracks = Entities.FindAllByClassname('npc_dota_barracks') as CDOTA_BaseNPC[];
     for (const barrack of barracks) {
@@ -79,6 +90,13 @@ export class EventGameStateChange {
     const bases = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
     for (const base of bases) {
       this.addModifierToTowers(base);
+
+      // 根据Lua代码，为基地添加技能
+      base.AddAbility('tower_ursa_fury_swipes').SetLevel(towerAbilityLevel);
+      base.AddAbility('tower_shredder_reactive_armor').SetLevel(towerAbilityLevel);
+      base.AddAbility('tower_troll_warlord_fervor').SetLevel(towerAbilityLevel);
+      base.AddAbility('tower_antimage_mana_break').SetLevel(towerAbilityLevel);
+
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
 
@@ -167,5 +185,16 @@ export class EventGameStateChange {
       return 7;
     }
     return 1;
+  }
+
+  private getTowerAbilityLevel(): number {
+    // 获取游戏难度
+    const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
+    if (gameDifficulty > 0) {
+      return gameDifficulty;
+    }
+    // 根据防御塔攻击力，获取技能等级，最大6级
+    const towerPower = GameRules.Option.towerPower;
+    return Math.min(this.getTowerLevel(towerPower), 6);
   }
 }
