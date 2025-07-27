@@ -146,14 +146,12 @@ local function HeroKilled(keys)
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
         local gold = 0
-        if iLevel <= 10 then
+        if iLevel <= 30 then
             gold = 5 + iLevel * 0.5
-        elseif iLevel <= 30 then
-            gold = 10 + (iLevel - 10) * 1
         elseif iLevel <= 50 then
-            gold = 15 + (iLevel - 20) * 1.5
+            gold = 20 + (iLevel - 30) * 1
         else
-            gold = 60
+            gold = 40
         end
         gold = math.ceil(gold)
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do

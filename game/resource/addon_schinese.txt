@@ -42,24 +42,6 @@
 		"hide_chat_team"			"隐藏聊天框"
 		"show_chat_team"			"显示聊天框"
 
-		"bots_multiplier_1"		"1     (新手)"
-		"bots_multiplier_1_25"	"1.25(新手)"
-		"bots_multiplier_1_5"	"1.5  (新手)"
-		"bots_multiplier_2"		"2    (简单)"
-		"bots_multiplier_3"		"3    (普通)"
-		"bots_multiplier_4"		"4    (困难)"
-		"bots_multiplier_5"		"5    (疯狂)"
-		"bots_multiplier_6"		"6    (传说)"
-		"bots_multiplier_10"	"10  (地狱)"
-
-		"player_gold_xp_multiplier_1"               "1    (传说)"
-		"player_gold_xp_multiplier_1_1"             "1.1 (疯狂)"
-		"player_gold_xp_multiplier_1_2"             "1.2 (困难)"
-		"player_gold_xp_multiplier_1_3"             "1.3 (普通)"
-		"player_gold_xp_multiplier_1_5"             "1.5 (简单)"
-		"player_gold_xp_multiplier_2"            	"2    (新手)"
-		"player_gold_xp_multiplier_5"               "5    (我要打10个)"
-
 		"radiant_player_number_1"		"1  (简单)"
 		"radiant_player_number_10"		"10 (困难)"
 
@@ -77,8 +59,9 @@
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
 		"custom_game_vote"				"投票倒计时"
-		"map_custom_warning"			"在使用Custom地图时只能选择自定义难度。<br>想进行其他难度时，请在游戏开始前选择 [Dota] 地图"
-		"map_dota_warning"				"在使用Dota地图时不能选择自定义难度。<br>想进行自定义难度时，请在游戏开始前选择 [Custom] 地图"
+		"map_dota_warning"				"当前地图无法选择此难度。<br>想选择N1~N5难度时，请在游戏开始前选择 [Dota] 地图"
+		"map_n6_warning"				"当前地图无法选择此难度。<br>想选择N6难度时，请在游戏开始前选择 [N6] 地图"
+		"map_custom_warning"			"当前地图无法选择此难度。<br>想选择自定义难度时，请在游戏开始前选择 [Custom] 地图"
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"玩家数据加载成功！"
@@ -230,15 +213,18 @@
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"近战英雄额外获得 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
 
 		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
+		"DOTA_Tooltip_ability_creep_buff_Description"					"根据摧毁敌方防御塔的数量升级。"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"+%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"大兵Buff"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"根据摧毁敌方防御塔的数量升级。"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"+%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"超级兵Buff"
+		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"根据摧毁敌方防御塔的数量升级。"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"+%伤害降低："
@@ -270,14 +256,14 @@
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_percent_damage_per_burn"	"燃烧法力作为伤害的百分比："
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit"			"每次攻击燃烧法力："
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit_pct"		"每次攻击燃烧最大法力的百分比："
-		"DOTA_Tooltip_ability_tower_antimage_mana_break_move_slow"			"完全燃烧时的移动速度减缓百分比："
-		"DOTA_Tooltip_ability_tower_antimage_mana_break_slow_duration"			"减速持续时间："
 
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"建筑反应护甲"
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"这座建筑每次被攻击时会获得额外的护甲和生命恢复。英雄攻击计为%stacks_per_hero_attack%次攻击。"
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"额外护甲："
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"额外生命恢复："
-		"DOTA_Tooltip_ability_tower_shredder_stack_duration"				"堆叠持续时间："
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"						"建筑活性护甲"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"			"这座建筑每受到一次物理攻击，他的生命恢复和护甲值都会提升。英雄攻击提供%stacks_per_hero_attack%倍提升。"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"			"额外护甲："
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"			"额外生命恢复："
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_stack_limit"			"最大叠加次数："
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_stack_duration"			"单次效果持续时间："
+
 
 		"DOTA_Tooltip_ability_tower_headshot"				"建筑爆头"
 		"DOTA_Tooltip_ability_tower_headshot_Description"		"这座建筑在攻击时有几率减缓敌人的移动和攻击速度%slow%%，并将其击退。"
@@ -538,7 +524,7 @@
 		///////////////////////////////////////////////////
 		// 大肆污染
 		"DOTA_Tooltip_ability_leshrac_defilement2"										"大肆污染"
-		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"拉席克的每点智力都会提供作用范围加成。"
+		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"每点智力都会提供作用范围加成，影响技能和物品。"
 		"DOTA_Tooltip_ability_leshrac_defilement2_aoe_per_int"							"每点智力作用范围加成："
 		//血魔 血雾
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2"							"血雾"
@@ -552,7 +538,7 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"持续时间："
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"精准光环"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"卓尔游侠根据她自身的当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"根据当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%基础敏捷加成："
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%每级敏捷加成："
@@ -569,9 +555,9 @@
 		"DOTA_Tooltip_ability_faceless_void_backtrack2"				"回到过去"
 		"DOTA_Tooltip_ability_faceless_void_backtrack2_Description"	"%dodge_chance_pct%%%概率躲避伤害"
 		//腾焰斗篷
-		"DOTA_Tooltip_ability_lina_flame_cloak2"											"腾焰斗篷"
+		"DOTA_Tooltip_ability_lina_flame_cloak2"										"腾焰斗篷"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_Lore"									"一道天然的屏障，不论是拦住讨厌的姐妹还是可怕的野兽都能轻松做到。"
-		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"								"使莉娜获得顺畅的移动状态，并且提升技能伤害和魔法抗性。开启时获得炽魂的最高叠加层数。"
+		"DOTA_Tooltip_ability_lina_flame_cloak2_Description"							"使莉娜获得顺畅的移动状态，并且提升技能伤害和魔法抗性。开启时获得炽魂的最高叠加层数。"
 		"DOTA_Tooltip_ability_lina_flame_cloak2_flame_cloak_duration"					"持续时间："
 		"DOTA_Tooltip_ability_lina_flame_cloak2_spell_amp"								"%技能增强："
 		"DOTA_Tooltip_ability_lina_flame_cloak2_magic_resistance"						"%魔法抗性："
@@ -593,11 +579,10 @@
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"贪魔的贪婪"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"炼金术士将敌人的尸体和赏金神符转化成额外的金币。炼金术士每杀死一个单位，就能获得基础额外金钱和附加额外金钱。如果炼金术士在接下来%duration%秒内又杀死了一个单位，获得了黄金，那么他所获得的附加额外金钱将有一定幅度的增加。另外，赏金神符将提供成倍金钱。"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_abilitydraft_note"			"化学狂暴的神杖升级效果在技能征召中已移至贪魔的贪婪。对一名友方英雄使用阿哈利姆神杖可以使他们获得相应的神杖升级效果。而自身拥有神杖后，根据送出的神杖数量将获得额外攻击力和技能增强。"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"尽管对付不了一座山，但拉泽尔还是掌握着技术，能转化一些较小的化合物来填满他的荷包。"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"连杀限时："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"						"尽管对付不了一座山，但拉泽尔还是掌握着技术，能转化一些较小的化合物来填满他的荷包。"
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"					"连杀限时："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"基础金钱奖励："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"额外金钱奖励："
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"			"额外金钱奖励："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"最高额外金钱："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"赏金神符奖励倍数："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"每层攻击力加成："
@@ -622,7 +607,6 @@
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"			"神龙的生命之血提升了龙骑士的生命恢复和护甲。每升一级，两个数值都将提升%level_mult%，在古龙形态下还有倍数加成。"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"		"生命恢复："
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"				"护甲："
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_regen_and_armor_multiplier_during_dragon_form"			"古龙形态倍数："
 		//才思敏捷
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"才思敏捷"
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"黑暗贤者还能从智力中获得攻击速度。"
@@ -858,6 +842,8 @@
 		"DOTA_Tooltip_ability_omniknight_repel_status_resistance"						"%状态抗性："
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"力量加成："
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"生命恢复："
+		"DOTA_Tooltip_modifier_omniknight_repel"						"驱逐"
+		"DOTA_Tooltip_modifier_omniknight_repel_Description"			"状态抗性提升%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%，力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，生命恢复提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒。"
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"奶飞天"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
@@ -946,6 +932,10 @@
 		"DOTA_Tooltip_ability_rubick_null_field_Note0"							"与其他提高魔法抗性的物品和技能叠加。"
 		"DOTA_Tooltip_ability_rubick_null_field_magic_damage_reduction_pct"		"%魔法抗性加成："
 		"DOTA_Tooltip_ability_rubick_null_field_radius"							"作用范围："
+		"DOTA_Tooltip_modifier_rubick_null_field_effect"				"失效力场"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_Description"	"拉比克的队友受到作用时，魔法抗性提升%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。拉比克的敌人受到作用时，魔法抗性降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally"				"失效力场"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally_Description"	"魔法抗性提升%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
 
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"善咒"
@@ -962,6 +952,8 @@
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_pct"					"%每次施法增加生命消耗："
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"生命消耗增加持续时间："
 		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"编织也会减少物品的冷却时间。"
+
+		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% 薄葬治疗增强"
 
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"增加粘性燃油叠加上限。<br><br>粘性燃油会对建筑造成伤害。"
@@ -1698,7 +1690,7 @@
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"洞察盔甲光环"
 		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性，%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#f15b47'>高阶洞察盔甲光环</font>"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#00FF00'>高阶洞察盔甲光环</font>"
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"获得 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复，%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性，%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% 伤害减免。"
 
 		// item_arcane_octarine_core 奥术之心
@@ -1886,9 +1878,7 @@
 		// item_sacred_trident 三叉戟
 		"DOTA_Tooltip_Ability_item_sacred_trident"										"三叉戟"
 		"DOTA_Tooltip_Ability_item_sacred_trident_Description"					"由散华，夜叉和慧光一起合成。"
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_strength"				"+$str"
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"					"+$all"
 		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"					"%+技能增强"
 		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_attack_speed"			"+$attack"
@@ -1901,9 +1891,7 @@
 		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"六脉神剑"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_Description"					"由两个三叉戟合成。"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_strength"				"+$str"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"					"+$all"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"					"%+技能增强"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_attack_speed"			"+$attack"
@@ -2104,7 +2092,7 @@
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量。\n<h1><font color='#FFFF00'>圣洁治愈(被动)：</font></h1>增加自身%heal_bonus%%的所有恢复效果。"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量，护盾持续%duration%秒。"
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
 		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"简单来说就是主动给目标套个一次林肯+莲花。"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"
@@ -2112,7 +2100,7 @@
 		"DOTA_Tooltip_Ability_item_saint_orb_hp_re"					"+$hp_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_mana_re"				"+$mana_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_saint_orb_duration"				"持续时间:"
+		"DOTA_Tooltip_ability_item_saint_orb_heal_bonus"			"%+$restoration_amp"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"白莲花"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"抵挡一次恶心的指向性法术"
 
@@ -2160,6 +2148,7 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"至于能不能幸免于难，施主且行且珍惜。"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Note1"					"诅咒圣剑无法被摧毁、出售或移动到背包。"
 
 		// item_rapier_ultra_bot 解放的诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#e03e2e'>解放的诅咒圣剑</font>"
@@ -2168,6 +2157,7 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"融合了光暗之力获得解放的诅咒圣剑。"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note1"					"诅咒圣剑无法被摧毁、出售或移动到背包。"
 
 		// item_rapier_ultra_bot_1 解放的诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1"                        "<font color='#e03e2e'>解放的诅咒圣剑</font>"
@@ -2176,6 +2166,7 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note0"					"融合了光暗之力获得解放的诅咒圣剑。"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note1"					"诅咒圣剑无法被摧毁、出售或移动到背包。"
 
 		// item_bfury_ultra 救世狂战
 		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>救世狂战</font>"
@@ -2357,14 +2348,12 @@
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Description"			    "<h1>主动：泰森闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后，%radius%范围内所有敌人受到%damage_base% + %damage_pct_instant%%%力量值的瞬时伤害，并且额外持续受到总计为%damage_pct_over_time%%%力量值的伤害，被减缓%movement_slow%%%移动速度，降低%attack_slow%攻击速度，持续%duration%秒。<br><br>受到来自敌方英雄或肉山的攻击时，盛势闪光将在%blink_damage_cooldown%秒内无法使用。"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Lore"                    "令人生畏的匕首，在混沌之喉中打造，凡人之手几乎无法企及。"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Note0"                    "快速点击两次会将自己往己方泉水方向传送。"
-		"DOTA_Tooltip_ability_item_overwhelming_blink_2_Note1"					"如果泰森闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
 		"DOTA_Tooltip_ability_item_overwhelming_blink_2_bonus_strength"			"+$str"
 		// 敏捷跳2
 		"DOTA_Tooltip_ability_item_swift_blink_2"                               "博尔特闪光"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Description"         			"<h1>主动：博尔特闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后获得%bonus_movement%%%移动速度加成和相位移动状态，+%bonus_agi_active%点敏捷，持续%duration%秒。<br><br>受到来自敌方英雄或肉山的攻击时，迅疾闪光将在%blink_damage_cooldown%秒内无法使用。"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Lore"                           "一把聪颖的战刃，可以预见佩戴者的动向并加以实现。"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Note0"                           "快速点击两次会将自己往己方泉水方向传送。"
-		"DOTA_Tooltip_ability_item_swift_blink_2_Note1"					        "如果博尔特闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
 		"DOTA_Tooltip_ability_item_swift_blink_2_bonus_agility"			        "+$agi"
 		// 大小智力跳对调
 		// 小智力跳
@@ -2372,14 +2361,12 @@
 		"DOTA_Tooltip_ability_item_arcane_blink_2_Description"         			"<h1>主动：秘奥闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，秘奥闪光将在%blink_damage_cooldown%秒内无法使用。"
 		"DOTA_Tooltip_ability_item_arcane_blink_2_Lore"                          "让人精神焕发的工具，可以帮忙分担施展奥术耗费的精力。"
 		"DOTA_Tooltip_ability_item_arcane_blink_2_Note0"                          "快速点击两次会将自己往己方泉水方向传送。"
-		"DOTA_Tooltip_ability_item_arcane_blink_2_Note1"      					"如果秘奥闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
 		"DOTA_Tooltip_ability_item_arcane_blink_2_bonus_intellect"                "+$int"
 		// 大智力跳
 		"DOTA_Tooltip_ability_item_arcane_blink"								"爱因斯坦闪光"
 		"DOTA_Tooltip_ability_item_arcane_blink_Description"         			"<h1>主动：爱因斯坦闪光</h1>传送到最远%blink_range%距离的位置。<br><br>传送后回复%heal_amount%点生命和%mana_amount%点魔法。<br><br>受到来自敌方英雄或肉山的攻击时，秘奥闪光将在%blink_damage_cooldown%秒内无法使用。"
 		"DOTA_Tooltip_ability_item_arcane_blink_Lore"                          "让人精神焕发的工具，可以帮忙分担施展奥术耗费的精力。"
 		"DOTA_Tooltip_ability_item_arcane_blink_Note0"                          "快速点击两次会将自己往己方泉水方向传送。"
-		"DOTA_Tooltip_ability_item_arcane_blink_Note1"      					"如果爱因斯坦闪光传送的距离超过最长施法距离，那么只能传送到最长距离的4/5。"
 		"DOTA_Tooltip_ability_item_arcane_blink_bonus_intellect"                "+$int"
 
 		"DOTA_Tooltip_modifier_item_arcane_blink_buff"         			"爱因斯坦闪光"
@@ -2504,9 +2491,14 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
 
+		// Updated Armlet tooltip (now shows slow resist on active)
+		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。\n力量增加%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点。\n护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n减速抗性提升%dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%。\n每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命值"
+
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>神器·卫士胫甲</font>"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命 <font color='#00FF00'>+ %max_health_pct_heal_amount%%% 最大生命值</font> 和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"光环效果仅对英雄有效。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"卫士胫甲的冷却时间内回复不能作用于已经被修复或梅肯斯姆的回复作用过的单位。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"

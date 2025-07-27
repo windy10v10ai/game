@@ -502,15 +502,13 @@
 				"value"		"0.2 0.4 0.6 0.8 1.0 1.5"
 			}
 			"illusion_percentage"		"50"
-			"move_slow"				"10 20 30 40 50 60"
-			"slow_duration"			"0.2"
 		}
 	}
 	// 基地活性护甲
 	"tower_shredder_reactive_armor"
 	{
 		"MaxLevel"						"6"
-		"BaseClass"     				"shredder_reactive_armor"
+		"BaseClass"						"shredder_reactive_armor"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityValues"
@@ -530,7 +528,7 @@
 			}
 			"stacks_per_hero_attack"
 			{
-				"value"				"1"
+				"value"				"2"
 			}
 		}
 		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_3"
