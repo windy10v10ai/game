@@ -59,8 +59,9 @@
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty:"
 		"custom_game_vote"				"Time to Vote:"
-		"map_custom_warning"			"On the 'custom' map, only Custom difficulty is playable. <br>To play other difficulties, please select the 'dota' map before starting the game."
-		"map_dota_warning"				"On the 'dota' map, Custom difficulty cannot be selected. <br>To customize games, please select the 'custom' map before starting thr game."
+		"map_dota_warning"				"Current map cannot select this difficulty. <br>To select N1~N5 difficulty, please select the 'dota' map before starting the game."
+		"map_n6_warning"				"Current map cannot select this difficulty. <br>To select N6 difficulty, please select the 'n6' map before starting the game."
+		"map_custom_warning"			"Current map cannot select this difficulty. <br>To select Custom difficulty, please select the 'custom' map before starting the game."
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Player data loaded successfully!"

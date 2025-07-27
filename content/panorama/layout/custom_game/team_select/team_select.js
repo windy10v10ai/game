@@ -282,33 +282,41 @@ function OnGameLoadingStatusChange(table, key, value) {
  */
 function SetDifficultyByMapName() {
   const mapDisplayName = Game.GetMapInfo().map_display_name;
-  if (mapDisplayName === 'custom') {
-    for (let i = 1; i <= 6; i++) {
+  if (mapDisplayName !== 'dota') {
+    for (let i = 1; i <= 5; i++) {
       const button = $('#DifficultyN' + i);
-      button.enabled = false;
-      button.SetPanelEvent('onmouseover', () => {
-        $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_custom_warning'));
-      });
-      button.SetPanelEvent('onmouseout', () => {
-        $.DispatchEvent('DOTAHideTextTooltip');
-      });
-      button.AddClass('stopHover');
-      button.AddClass('deactivated');
+      disableDifficultyButton(button, '#map_dota_warning');
     }
-    // 直接选择自定义难度
-    OnChooseDifficulty(0);
-  } else {
-    const button = $('#DifficultyN0');
-    button.enabled = false;
-    button.SetPanelEvent('onmouseover', () => {
-      $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#map_dota_warning'));
-    });
-    button.SetPanelEvent('onmouseout', () => {
-      $.DispatchEvent('DOTAHideTextTooltip');
-    });
-    button.AddClass('stopHover');
-    button.AddClass('deactivated');
   }
+
+  if (mapDisplayName !== 'n6') {
+    const button = $('#DifficultyN6');
+    disableDifficultyButton(button, '#map_n6_warning');
+  }
+
+  if (mapDisplayName !== 'custom') {
+    const button = $('#DifficultyN0');
+    disableDifficultyButton(button, '#map_custom_warning');
+  }
+
+  // 根据地图名字，设置难度选择
+  if (mapDisplayName === 'n6') {
+    OnChooseDifficulty(6);
+  } else if (mapDisplayName === 'custom') {
+    OnChooseDifficulty(0);
+  }
+}
+
+function disableDifficultyButton(button, textToken) {
+  button.enabled = false;
+  button.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize(textToken));
+  });
+  button.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
+  });
+  button.AddClass('stopHover');
+  button.AddClass('deactivated');
 }
 
 /**
@@ -320,14 +328,17 @@ function OnChooseDifficulty(difficulty) {
   // get map name
   const mapDisplayName = Game.GetMapInfo().map_display_name;
 
-  // mapDisplayName 不是 custom的时候，difficulty不能选择0
-  if (mapDisplayName !== 'custom' && difficulty === 0) {
-    $.Msg('This map cannot choose difficulty 0');
+  // 检测mapDisplayName 是否可以选择difficulty，custom 只能选择0 dota 只能选择1-5 n6 只能选择6
+  if (mapDisplayName === 'custom' && difficulty !== 0) {
+    $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
     return;
   }
-  // mapDisplayName 是 custom的时候，difficulty只能选择0
-  if (mapDisplayName === 'custom' && difficulty !== 0) {
-    $.Msg('This map must choose difficulty 0');
+  if (mapDisplayName === 'dota' && (difficulty < 1 || difficulty > 5)) {
+    $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
+    return;
+  }
+  if (mapDisplayName === 'n6' && difficulty !== 6) {
+    $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
     return;
   }
 
