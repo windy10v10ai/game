@@ -59,9 +59,9 @@
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty:"
 		"custom_game_vote"				"Time to Vote:"
-		"map_dota_warning"				"Current map cannot select this difficulty. <br>To select N1~N5 difficulty, please select the 'dota' map before starting the game."
-		"map_n6_warning"				"Current map cannot select this difficulty. <br>To select N6 difficulty, please select the 'n6' map before starting the game."
-		"map_custom_warning"			"Current map cannot select this difficulty. <br>To select Custom difficulty, please select the 'custom' map before starting the game."
+		"map_dota_warning"				"Difficulty unavailable. <br>To play on N1-N5 difficulties, please select the 'dota' map before starting the game."
+		"map_n6_warning"				"Difficulty unavailable. <br>To play on N6 difficulty, please select the 'n6' map before starting the game."
+		"map_custom_warning"			"Difficulty. <br>To play on a Custom difficulty, please select the 'custom' map before starting the game."
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Player data loaded successfully!"
@@ -109,7 +109,7 @@
 		"data_panel_member_level"		"Member Level"
 		"data_panel_member_level_tooltip"		"Level up with Member Experience. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
-		"data_panel_link_rule"			"Points and Attribute Rule"
+		"data_panel_link_rule"			"Points and Attributes Rule"
 		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
 		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Experience"
@@ -120,7 +120,7 @@
 		"data_panel_player_property_label_3"		"One level of the attribute will take effect every 2 hero levels, unless otherwise noted."
 		"data_panel_player_property_label_3_tooltip"		"Hero will gain effects progressively at levels 2, 4, 6, 8, 10, 12, 14, and 16, up to the maximum upgrade level unlocked.<br>For example, if you added 2 levels into Cast Range at +50, all heroes you play will gain +25 cast range at level 2, then +50 cast range at level 4."
 
-		"data_panel_player_property_cooldown_percentage"		"Cooldown (%)"
+		"data_panel_player_property_cooldown_percentage"		"Cooldown Reduction (%)"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Damage (%)"
 		"data_panel_player_property_status_resistance_stacking"	"Status Resistance (%)"
@@ -157,8 +157,8 @@
 		//			Lottery Item/Ability
 		//
 		///////////////////////////////////////////////////
-		"lottery_expand"										"Expand"
-		"lottery_collapsed"										"Collapse"
+		"lottery_expand"										"Show"
+		"lottery_collapsed"										"Hide"
 		"lottery_active_ability_title"							"Select an active ability"
 		"lottery_passive_ability_title"							"Select a passive ability"
 
@@ -168,7 +168,7 @@
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
 
 		"key_bind"												"Key Bind"
-		"key_bind_collapsed"									"Collapse"
+		"key_bind_collapsed"									"Hide"
 		"key_bind_placeholder"									"Hotkey"
 		"key_bind_mouseover_tooltop"							"Click to bind a hotkey to this ability. <br>If you encounter conflicts or malfunctions, try disconnecting and reconnecting to the game."
 		"key_bind_input_err"									"Invalid input - Try another key"
@@ -213,18 +213,18 @@
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_Description"					"Levels up based on how many enemy towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"ATTACK DAMAGE BONUS"
 		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Level up based on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Levels up based on how many enemy towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"ARMOR BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Level up based on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Levels up based on how many enemy towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"ARMOR BONUS"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%INCOMING DAMAGE REDUCTION BONUS:"
@@ -257,22 +257,21 @@
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit"			"MANA BURNED PER HIT:"
 		"DOTA_Tooltip_ability_tower_antimage_mana_break_mana_per_hit_pct"		"%MAX MANA BURNED PER HIT:"
 
-		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"					"Structure Reactive Armor"
+		"DOTA_Tooltip_ability_tower_shredder_reactive_armor"				"Structure Reactive Armor"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_Description"		"This structure gains extra armor and health regeneration each time it is attacked. Hero attacks are counted as %stacks_per_hero_attack%x the amount."
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_armor"		"BONUS ARMOR:"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_bonus_hp_regen"		"BONUS HP REGEN:"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_stack_limit"		"MAX STACKS:"
 		"DOTA_Tooltip_ability_tower_shredder_reactive_armor_stack_duration"		"STACK DURATION:"
 
-		"DOTA_Tooltip_ability_tower_headshot"							"Structure Mini-Bash"
-		"DOTA_Tooltip_ability_tower_headshot_Description"				"This structure has a chance when attacking to slow the movement and attack speed of enemies by %slow%%% for a brief period of time, while also knocking them back."
-		"DOTA_Tooltip_ability_tower_headshot_proc_chance"				"%CHANCE:"
-		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"		"KNOCKBACK DISTANCE:"
+		"DOTA_Tooltip_ability_tower_headshot"						"Structure Mini-Bash"
+		"DOTA_Tooltip_ability_tower_headshot_Description"				"This structure slows the movement and attack speed of enemies by %slow%%% for a brief period of time, while also knocking them back."
+		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"SLOW DURATION:"
 
 		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
 		"DOTA_Tooltip_ability_fountain_hp_aura_Description"				"Increases the health capacity of nearby units."
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"BONUS HP PERCENTAGE:"
+		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"%BONUS HP PERCENTAGE:"
 		"DOTA_Tooltip_ability_fountain_hp_aura_radius"					"RADIUS:"
 		///////////////////////////////////////////////////
 		//
@@ -567,9 +566,10 @@
 		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%STATUS RESIST:"
 
 		//折射2
-		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (old)"
+		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (Altered)"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion grants %damage_reduction%%% damage reduction if the damage is not reflected."
 		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"When receiving damage, there is a chance to negate it and reflect it back to the attacking enemy unit."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Lore"			"A daunting task lies before enemies of Mercurial — killing a shadow with blade and magic."
 		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%REFLECTION CHANCE:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%DAMAGE REFLECTED:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Damage is returned as the same damage type."
@@ -589,6 +589,7 @@
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them. Knockback distance is relative to how much you have moved prior to the attack."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Lore"							"As a young soldier, long before he became a leader of his people, Ish'Kafel was known amongst his fellow recruits as quite the pugilist."
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"STUN DURATION:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"MAX KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"ILLUSION DURATION:"
@@ -658,6 +659,7 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%ARMOR TO STRENGTH:"
 		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Manufacture Rune"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Lore"		"For aeons wizards have unsuccessfully tried to divine the origins of the Runes of Power, but to an aspect of the Primordial, they hold no mystery at all."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"Resulting Rune be any Power Rune, as well as a Bounty Rune, Water Rune, or Rune of Wisdom."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"Runes of Wisdom function as if a Shrine of Wisdom was captured, but if activated before 7:00, no XP is given."
@@ -744,6 +746,7 @@
 		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_slow_duration"	"SLOW DURATION:"
 		//狂暴药剂
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2"							"Berserk Potion"
+		"DOTA_Tooltip_ability_alchemist_berserk_potion2_lore"					"After Razzil's great grandfather tested an early version of this potion on himself, a surviving family member immediately saw the profit potential."
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"				"Throws a potion at an ally or yourself, applying a basic dispel and granting attack speed, movement speed and HP regen.<br><br>DISPEL TYPE: Basic Dispel"
 		//"DOTA_Tooltip_ability_alchemist_berserk_potion2_Facet_alchemist_mixologist"	"While Alchemist is affected by Chemical Rage, cooldown is reduced by %chemical_rage_cooldown_reduction_pct%%%."
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_attack_speed"				"BONUS ATTACK SPEED:"
@@ -753,19 +756,18 @@
 
 		// 多重施法
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast MK2"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Allows you cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval."
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"Can trigger most abilities and items, channel ability won't trigger multiple casting."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Grants the chance to cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval. Can trigger with most abilities and items, but never with channeled abilities."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
 		// 火枪暗杀（群体）
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate Upgrade"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Lock onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal a critical strike and mini-stuns all targets. Only affects visible heroes."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate (Altered)"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Lock onto enemy heroes within the target area and, after an aiming time of %total_cast_time_tooltip% seconds, fires devastating shots that deliver critical strikes and mini-stuns all struck targets.<br><br>Only affects visible heroes."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spells, including on Spell Immune units."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
@@ -799,14 +801,17 @@
 		"DOTA_Tooltip_ability_tinker_eureka2_item_cooldown_tooltip"		"%ITEM COOLDOWN REDUCTION:"
 
 		// 死亡先知
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"Witchcraft"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"Gain %movement_speed_pct_per_level%%% movement speed and %cooldown_reduction_pct_per_level%%% spell cooldown reduction per hero level."
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"						"Witchcraft"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Lore"						"With each death, Krobelus adds necromantic power to her repertoire."
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"					"Gain %movement_speed_pct_per_level%%% movement speed and %cooldown_reduction_pct_per_level%%% spell cooldown reduction per hero level."
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%MOVEMENT SPEED:"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%COOLDOWN REDUCTION:"
 
+		"DOTA_Tooltip_ability_death_prophet_exorcism_Description"                       "<font color=\"yellow\">ALTERED: Reduced Spirit Count, Increased Spirit Damage</font><br>Unleashes evil spirits to drain the life of nearby enemy units and structures. Spirits need to return back to Death Prophet in order to attack again. At the end of the spell's duration, Death Prophet is healed in proportion to the damage dealt. Deals 50% damage to buildings. Lasts %abilityduration% seconds.<br/>Increases Death Prophet's movement speed while active."
+
 
 		"DOTA_Tooltip_ability_bot_power_n5"							"Bot Salvation N5"
-		"DOTA_Tooltip_ability_bot_power_n5_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
+		"DOTA_Tooltip_ability_bot_power_n5_Description"				"This ability automatically upgrades every 5 hero levels, boosting core attributes such as but not limited to attack damage and speed, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n5_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_damage"			"ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_attack_speed"		"ATTACK SPEED:"
@@ -818,7 +823,7 @@
 		"DOTA_Tooltip_ability_bot_power_n5_bonus_attributes"		"ATTRIBUTES:"
 
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
-		"DOTA_Tooltip_ability_bot_power_n6_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
+		"DOTA_Tooltip_ability_bot_power_n6_Description"				"This ability automatically upgrades every 5 hero levels, boosting core attributes such as but not limited to attack damage and speed, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n6_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_damage"			"ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attack_speed"		"ATTACK SPEED:"
@@ -834,20 +839,32 @@
 		//
 		///////////////////////////////////////////////////
 		//墓碑改说明
-		// "DOTA_Tooltip_ability_undying_tombstone"						"墓碑·改（不生成小僵尸）"
-		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone·MK2(No Zombie)"
+		"npc_dota_hero_undying_npedesc1"							"<font color=\"red\">ALTERED: Rotting Mitts Disabled</font><br>Summons hordes of zombies to attack his foes"
+		"DOTA_Tooltip_ability_undying_tombstone_Description"            			"<font color=\"red\">ALTERED: Zombie Spawn Rate Increased Exponentially</font><br>Summons a tombstone at the target point.  Zombies will frequently spawn next to every enemy unit in the area around the Tombstone, and attack them.  Zombies have the Deathlust ability, which causes their attacks to slow the target, and if the target reaches below a certain amount of health, increases the attack and movement speed of the zombie."
+		
 		//骨隐步改说明
-		"DOTA_Tooltip_ability_clinkz_wind_walk"											"Skeleton Walk·MK2(No Skeleton Archers)"
+		"DOTA_Tooltip_ability_clinkz_wind_walk_Description"									"<font color=\"red\">ALTERED: Does Not Summon Skeleton Archers</font><br>Clinkz moves invisibly through units until the moment he attacks or uses items."
 		//死亡契约改说明
-		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact·MK2(No Skeleton Archers)"
+		"npc_dota_hero_clinkz_npedesc1"								"<font color=\"red\">ALTERED: Burning Army Disabled, Skeleton Archers Almost Entirely Disabled</font><br>Stalks invisibly to ambush lone enemies"
+		"DOTA_Tooltip_ability_clinkz_death_pact"										"<font color=\"red\">ALTERED: Does Not Summon Skeleton Archers</font><br>Clinkz consumes the target enemy creep or friendly Skeleton Archer, healing and gaining max health. Does not take Clinkz out of Skeleton Walk."
 
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
-		// 撼地者
-		"npc_dota_hero_earthshaker"					"Earthshaker"
 
 		// 电炎绝手/老奶奶
+		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_Description" 	"<font color=\"green\">ALTERED: Heals By Default, Improved With Aghanim's Shard</font><br>Snapfire feeds a potent cookie to Mortimer or an ally, causing them to hop a short distance. The hopping unit stuns and damages enemies in the landing zone."
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
+
+		// Naga
+		"DOTA_Tooltip_ability_naga_siren_mirror_image_Description"              "<font color=\"yellow\">ALTERED: Reduced Image Count, Increased Image Duration</font><br>Creates multiple images of Naga Siren under her control.\n\nDISPEL TYPE: Basic Dispel"
+
+		// Terrorblade
+		"DOTA_Tooltip_ability_terrorblade_reflection_Description"                           "<font color=\"red\">ALTERED: Reduced Duration, Increased Cooldown</font><br>Terrorblade brings forth an invulnerable dark reflection of all enemy heroes in a target area. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection."
+		"DOTA_Tooltip_ability_terrorblade_conjure_image_Description"                        "<font color=\"yellow\">ALTERED: Increased Cooldown, Improved Illusion Stats</font><br>Creates an illusion of Terrorblade that deals damage."
+
+		// Warlock
+
+		"npc_dota_hero_warlock_npedesc1"    	"<font color=\"red\">ALTERED: Innate and Aghanim's Shard Upgrade Disabled</font><br>Summons powerful demons to fight at his side"
 
 		// 全能骑士
 		"DOTA_Tooltip_ability_omniknight_repel"											"Heavenly Grace"
@@ -878,9 +895,16 @@
 		// 火女 lina
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_dragon_slave_damage"	"+{s:bonus_dragon_slave_damage} Dragon Slave Damage"
 
+		// Enigma
+
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_Description"                    "<font color=\"yellow\">ALTERED: Reduced Eidolon Count, Improved Eidolon Stats</font><br>Summons a fragment of Enigma himself at the cost of health.  The eidolon's health is increased by %current_health_pct%%% of Enigma's current health. This eidolon is under Enigma's control, and repeated successful attacks causes it to multiply.  When this happens, the eidolon has its health restored."
+
 		// 幽鬼 spe
-		"DOTA_Tooltip_ability_spectre_desolate_Description"		"Deals bonus pure damage whenever Spectre attacks an enemy."
+		"DOTA_Tooltip_ability_spectre_desolate_Description"		"<font color=\"green\">Bonus Damage Always Applies</font><br>Deals bonus pure damage whenever Spectre attacks an enemy."
 		"DOTA_Tooltip_ability_spectre_desolate_radius"						""
+
+		// Monkey King
+		"npc_dota_hero_monkey_king_npedesc1"    				"<font color=\"yellow\">ALTERED: Reworked Ultimate Ability</font><br>Springs from the cover of the tree tops"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage"												"Defy"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
@@ -896,13 +920,15 @@
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
 
+		"DOTA_Tooltip_ability_venomancer_plague_ward_Description"                       "<font color=\"yellow\">ALTERED: Increased Cooldown, Increased Ward Duration and Stats</font><br>Summons a plague ward to attack enemy units and structures. The ward is immune to magic. Wards gain the Poison Sting level from Venomancer, dealing 50% of the full damage."		
+
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Bounces"
-		"DOTA_Tooltip_ability_lich_frost_armor"											"Ice Armor"
-		"DOTA_Tooltip_ability_lich_frost_armor_Description"								"Creates a shield around the target friendly unit or building, which adds armor and slows attacking units. Lasts %abilityduration% seconds."
-		"DOTA_Tooltip_ability_lich_frost_armor_Lore"									"Originally crafted during his ambush for self-defense, the Lich is capable of enchanting others with a formidable defense of frost magic."
-		"DOTA_Tooltip_ability_lich_frost_armor_Note0"									"If autocast is activated, Lich will cast this spell on nearby allies who are attacked."
-		"DOTA_Tooltip_ability_lich_frost_armor_armor_bonus"								"ALLY ARMOR BONUS:"
+		"DOTA_Tooltip_ability_lich_frost_armor"									"Ice Armor"
+		"DOTA_Tooltip_ability_lich_frost_armor_Description"							"Creates a shield around the target friendly unit or building, which adds armor and slows attacking units. Lasts %abilityduration% seconds."
+		"DOTA_Tooltip_ability_lich_frost_armor_Lore"								"Originally crafted during his ambush for self-defense, the Lich is capable of enchanting others with a formidable defense of frost magic."
+		"DOTA_Tooltip_ability_lich_frost_armor_Note0"								"If autocast is activated, Lich will cast this spell on nearby allies who are attacked."
+		"DOTA_Tooltip_ability_lich_frost_armor_armor_bonus"							"ALLY ARMOR BONUS:"
 		"DOTA_Tooltip_ability_lich_frost_armor_slow_movement_speed"						"%ENEMY MOVE SLOW:"
 		"DOTA_Tooltip_ability_lich_frost_armor_slow_attack_speed"						"ENEMY ATTACK SLOW:"
 		"DOTA_Tooltip_ability_lich_frost_armor_slow_duration"							"SLOW DURATION:"
@@ -910,6 +936,7 @@
 		"DOTA_Tooltip_modifier_lich_frost_armor_Description"	"Adds %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and slows attacking units."
 
 		// Alchemist 炼金术士
+		"DOTA_Tooltip_ability_alchemist_chemical_rage_Description"                  "<font color=\"green\">ALTERED: Grants Bonus Health</font><br>Alchemist causes his Ogre to enter a chemically induced rage, reducing base attack cooldown and increasing movement speed and health regeneration.\n\nDISPEL TYPE: Basic Dispel"
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
 
 		// 夜魔
@@ -939,7 +966,11 @@
 		// 暗影萨满
 		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% Serpent Ward Attack Damage"
 
+       		"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Description"				"<font color=\"yellow\">ALTERED: Reduced Ward Count, Increased Ward Damage</font><br>Summons %ward_count% Serpent Wards to attack enemy units and structures. The Wards are immune to magic. Creeps deal half damage to the Serpent Ward."
+        	"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Facet_shadow_shaman_massive_serpent_ward" "<font color=\"yellow\">ALTERED</font>Summons a single massive Serpent Ward with %mega_ward_multiplier_damage%x damage and %mega_ward_multiplier_health%x health and bounty values."
+
 		// 骷髅王
+		"npc_dota_hero_skeleton_king_npedesc1"  							"<font color=\"red\">ALTERED: Bone Guard Disabled</font><br>Can reincarnate instantly upon death"
 		"DOTA_Tooltip_ability_special_bonus_unique_skeleton_king_spectral_blade_damage"			"+{s:bonus_cursed_damage}/{s:bonus_cursed_damage_pct}% Spectral Blade Base Damage/Curse Damage"
 
 		// 拉比克
@@ -965,10 +996,8 @@
 		"DOTA_Tooltip_ability_dazzle_bad_juju_Lore"										"Each invocation of the Nothl realm helps it further permeate the surroundings of our own."
 		"DOTA_Tooltip_ability_dazzle_bad_juju_duration"									"DURATION:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_cooldown_reduction"						"COOLDOWN REDUCTION:"
-		//"DOTA_Tooltip_ability_dazzle_bad_juju_cooldown_reduction_items"					"COOLDOWN REDUCTION ITEMS:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_pct"					"%HEALTH COST INCREASE PER CAST:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"HEALTH COST INCREASE DURATION:"
-		//"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% Shallow Grave Heal Amp"
 
@@ -1010,6 +1039,7 @@
 		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision_Description" "You've been spotted!"
 
 		// 树精卫士
+		"DOTA_Tooltip_ability_treant_overgrowth_Description"           	"<font color=\"yellow\">ALTERED: Aghanim's Scepter Upgrade Altered</font><br>Summons an overgrowth of vines and branches around Treant that deal damage to afflicted enemies and prevent them from moving, blinking, going invisible, or attacking."
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increases Overgrowth Range."
 		///////////////////////////////////////////////////
 		//
@@ -1693,16 +1723,17 @@
 
 		// item_insight_armor 洞察盔甲
 		"DOTA_Tooltip_ability_item_insight_armor"								"Armor of Insight"
-		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: Greater</h1>Gives nearby allied units extra aura for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Magic Resistance: %aura_magical_resis_buff%%%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives nearby allied units <br>HP Regen: %aura_regen_base%<br>Magic Resistance: %aura_magical_resis_base%%%<br>Damage reduction: %aura_damage_reduction_base%%%<br><br>Radius: %radius%"		"DOTA_Tooltip_ability_item_insight_armor_Lore"							"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
+		"DOTA_Tooltip_ability_item_insight_armor_Description"					"<h1>Active: Greater Aura</h1>Gives nearby allied units extra aura for %duration% seconds.<br><br>Additional HP Regen: %aura_regen_buff%<br>Additional Magic Resistance: %aura_magical_resis_buff%%%<br>Additional Damage Reduction: %aura_damage_reduction_buff%%%<br><br>Radius: %radius%\n<h1>Passive: Aura of Insight</h1>Gives nearby allied units <br>HP Regen: %aura_regen_base%<br>Magic Resistance: %aura_magical_resis_base%%%<br>Damage reduction: %aura_damage_reduction_base%%%<br><br>Radius: %radius%"
+		"DOTA_Tooltip_ability_item_insight_armor_Lore"						"An exquisitely crafted suit of armor that bestows secret wisdom upon the wearer."
 		"DOTA_Tooltip_ability_item_insight_armor_magical_resis"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_insight_armor_bonus_armor"					"+$armor"
-		"DOTA_Tooltip_Ability_item_recipe_insight_armor"						"Armor of Insight Recipe"
+		"DOTA_Tooltip_Ability_item_recipe_insight_armor"					"Armor of Insight Recipe"
 
 		"DOTA_Tooltip_modifier_insight_armor_aura"								"Aura of Insight"
 		"DOTA_Tooltip_modifier_insight_armor_aura_Description"					"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction."
 
-		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"<font color='#00FF00'>Greater Aura of Insight</font>"
+		"DOTA_Tooltip_modifier_insight_armor_aura_buff"							"Greater Aura of Insight"
 		"DOTA_Tooltip_modifier_insight_armor_aura_buff_Description"				"Gaining %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% bonus magical resistance, and %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% damage reduction."
 
 		// item_arcane_octarine_core 奥术之心
