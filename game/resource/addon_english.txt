@@ -777,7 +777,17 @@
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
+		// Tiny
+		"DOTA_Tooltip_ability_tiny_avalanche_Description"                               "<font color=\"FFFF00\">ALTERED: Still Has Four Levels</font><br>Bombards an area with rocks, continously doing small intervals of damage and stun to enemy units."
+
+		// Lifestealer
+		"DOTA_Tooltip_ability_life_stealer_feast_Description"                           "<font color=\"FFFF00\">ALTERED: Still Has Four Levels</font><br>Lifestealer's attacks deal damage and provide heal for a percentage of his target's max health. Allows Lifestealer to attack allied creeps at %creep_deny_percent%%% health. Lifestealer gains permanent max HP whenever he kills a creep or hero."
+
+        	"DOTA_Tooltip_ability_life_stealer_infest_Description"                          "<font color=\"FFFF00\">ALTERED: Still Has Three Levels</font><br>Lifestealer infests the body of a target unit, becoming undetectable, and healing for a portion of his max hitpoints every second while inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and the creep loses a portion of their max hitpoints over time. Does not work on enemy heroes.\n\nDISPEL TYPE: Basic Dispel"
+		
+
 		// 混沌骑士
+		"npc_dota_hero_chaos_knight_npedesc1"   									"<font color=\"FFFF00\">ALTERED: Reworked Ultimate Ability</font><br>Has strong but random damage output"
 		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_description" 							"<font color=\"FF0000\">ALTERED: Aghanim's Shard No Longer Creates Illusions</font><br>Throws a mysterious bolt of energy at the target unit. It stuns for a random duration and deals random damage."
 		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description" 						"Increases the cast range to %AbilityCastRange%."
 
@@ -989,6 +999,8 @@
 		"DOTA_Tooltip_modifier_rubick_null_field_effect_Description"	"Rubick's affected allies gain %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance. Rubick's affected enemies lose %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magic Damage Resistance."
 		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally"				"Null Field"
 		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally_Description"	"Magic Damage Resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
+		"DOTA_Tooltip_ability_rubick_spell_steal_Description"                   "<font color=\"00FF00\">ALTERED: Can Also Steal Allies' Spells</font><br>Rubick studies the trace magical essence of one enemy hero, learning the secrets of the last spell the hero cast. Rubick can use this spell as his own for several minutes or until he dies, and stolen spells last longer on enemies."
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"Good Juju"
 		"DOTA_Tooltip_ability_dazzle_good_juju_Description"								"Whenever Dazzle Casts a Spell, all other abilities currently on cooldown have their cooldowns reduced."
