@@ -51,7 +51,7 @@
 		"respawn_time_percentage_0"          "Near-instant"
 
 		// link面板
-		"dota_survivor_button"			"Also check out: Dota Survivor"
+		"dota_survivor_button"			"Also check out: Dota Survivors"
 		"omg_ai_button"					"Also check out: OMG AI"
 		"join_qq"						"Click to join the QQ"
 		"join_discord"					"Click to join the Discord"
@@ -661,7 +661,7 @@
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Manufacture Rune"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Lore"		"For aeons wizards have unsuccessfully tried to divine the origins of the Runes of Power, but to an aspect of the Primordial, they hold no mystery at all."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you."
-		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"Resulting Rune be any Power Rune, as well as a Bounty Rune, Water Rune, or Rune of Wisdom."
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"Resulting Rune can be any Power Rune, as well as a Bounty Rune, Water Rune, or Rune of Wisdom."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"Runes of Wisdom function as if a Shrine of Wisdom was captured, but if activated before 7:00, no XP is given."
 		//魔法扰动
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
@@ -686,15 +686,17 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow_Description"		"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		//极寒光环
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Bonechill Aura"
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Deal damage and slow nearby enemy units. Slow and damage are stronger the closer enemy units are.<br/><br/>Passively reduces the Heal Amplification and Health Restoration of nearby enemy units."
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Damages and slows nearby enemy units. Slow and damage are stronger the closer enemy units are.<br><br>Passively reduces the Heal Amplification and Health Restoration of nearby enemy units."
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%HEAL AMPLFICIATION REDUCTION:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"%HEALTH RESTORATION REDUCTION:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"MAX BASE DAMAGE:"
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"MAX BONUS DAMAGE PER ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"			"MAX BONUS DAMAGE PER ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"ACTIVE DURATION:"
 
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura"			"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura_Description"		"Taking damage per second and movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, with the effects intensifying the closer you are to the owner of the aura."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"			"Bonechill Aura"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"		"Taking damage per second and movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, with the effects intensifying the closer you are to the owner of the aura."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"			"Bonechill Aura"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"		"Health Restoration decreased by %dMODIFIFER_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Incoming Heals reduced by %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%."
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
@@ -755,12 +757,14 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"DURATION:"
 
 		// 多重施法
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast MK2"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast (Altered)"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Grants the chance to cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval. Can trigger with most abilities and items, but never with channeled abilities."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"Despite being largely incapacitated by his IQ, the Ogre Magi's success in battle is attributed to pure skill."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
+
+		"DOTA_Tooltip_ability_ogre_magi_multicast_Description"					"<font color=\"00FF00\">ALTERED: 3X and 4X Multicast Always Available</font><br>Enables Ogre Magi to cast his abilities and items multiple times with each use."
 
 		// 火枪暗杀（群体）
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate (Altered)"
@@ -774,6 +778,7 @@
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
 		// 混沌骑士
+		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_description" 							"<font color=\"FF0000\">ALTERED: Aghanim's Shard No Longer Creates Illusions</font><br>Throws a mysterious bolt of energy at the target unit. It stuns for a random duration and deals random damage."
 		"DOTA_Tooltip_ability_chaos_knight_chaos_bolt_shard_description" 						"Increases the cast range to %AbilityCastRange%."
 
 		"DOTA_Tooltip_ability_imba_chaos_knight_phantasm"										"Army of Chaos"
@@ -789,7 +794,7 @@
 		// 修补匠 刷新
 		"DOTA_Tooltip_ability_tinker_rearm_lua"												"Rearm"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"For abilities with charges, a single charge of the ability will be added everytime Rearm is cast."
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"CHANNELED - Resets the cooldown on most of Tinker's items and abilities.<br>Hold ALT to see a list of items and abilities that cannot be refreshed by Rearm."
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"<font color=\"00FF00\">ALTERED: Can Rearm Most Items and Most Ultimate Abilties</font><br>CHANNELED - Resets the cooldown on most of Tinker's items and abilities.<br>Hold ALT to see a list of items and abilities that cannot be refreshed by Rearm."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"A new battery here, another set of rockets there, Boush continually improves on existing technology."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"Rearm works on all items except Aeon Disk, Arcane Boots, Black King Bar, Hand of Midas, Helm of the Dominator, Linken's Sphere, Meteor Hammer, Pipe of Insight, Refresher Orb, (including upgrades like Upgraded Black King Bar, Aeon Pendant, Upgraded Linken's Sphere, Armor of Insight, Hand of Team, etc.) and all neutral items."
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"Rearm works on all abilities except Sun Strike, Thundergod's Wrath, Army of Chaos, Wrath of Nature, Time Zone, Mass Serpent Ward, and Haunt."
@@ -807,7 +812,7 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%MOVEMENT SPEED:"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%COOLDOWN REDUCTION:"
 
-		"DOTA_Tooltip_ability_death_prophet_exorcism_Description"                       "<font color=\"yellow\">ALTERED: Reduced Spirit Count, Increased Spirit Damage</font><br>Unleashes evil spirits to drain the life of nearby enemy units and structures. Spirits need to return back to Death Prophet in order to attack again. At the end of the spell's duration, Death Prophet is healed in proportion to the damage dealt. Deals 50% damage to buildings. Lasts %abilityduration% seconds.<br/>Increases Death Prophet's movement speed while active."
+		"DOTA_Tooltip_ability_death_prophet_exorcism_Description"                       "<font color=\"FFFF00\">ALTERED: Reduced Spirit Count, Increased Spirit Damage</font><br>Unleashes evil spirits to drain the life of nearby enemy units and structures. Spirits need to return back to Death Prophet in order to attack again. At the end of the spell's duration, Death Prophet is healed in proportion to the damage dealt. Deals 50% damage to buildings. Lasts %abilityduration% seconds.<br/>Increases Death Prophet's movement speed while active."
 
 
 		"DOTA_Tooltip_ability_bot_power_n5"							"Bot Salvation N5"
@@ -839,32 +844,32 @@
 		//
 		///////////////////////////////////////////////////
 		//墓碑改说明
-		"npc_dota_hero_undying_npedesc1"							"<font color=\"red\">ALTERED: Rotting Mitts Disabled</font><br>Summons hordes of zombies to attack his foes"
-		"DOTA_Tooltip_ability_undying_tombstone_Description"            			"<font color=\"red\">ALTERED: Zombie Spawn Rate Increased Exponentially</font><br>Summons a tombstone at the target point.  Zombies will frequently spawn next to every enemy unit in the area around the Tombstone, and attack them.  Zombies have the Deathlust ability, which causes their attacks to slow the target, and if the target reaches below a certain amount of health, increases the attack and movement speed of the zombie."
+		"npc_dota_hero_undying_npedesc1"							"<font color=\"FF0000\">ALTERED: Rotting Mitts Disabled</font><br>Summons hordes of zombies to attack his foes"
+		"DOTA_Tooltip_ability_undying_tombstone_Description"            			"<font color=\"FF0000\">ALTERED: Zombie Spawn Rate Increased Exponentially</font><br>Summons a tombstone at the target point.  Zombies will frequently spawn next to every enemy unit in the area around the Tombstone, and attack them.  Zombies have the Deathlust ability, which causes their attacks to slow the target, and if the target reaches below a certain amount of health, increases the attack and movement speed of the zombie."
 		
 		//骨隐步改说明
-		"DOTA_Tooltip_ability_clinkz_wind_walk_Description"									"<font color=\"red\">ALTERED: Does Not Summon Skeleton Archers</font><br>Clinkz moves invisibly through units until the moment he attacks or uses items."
+		"DOTA_Tooltip_ability_clinkz_wind_walk_Description"									"<font color=\"FF0000\">ALTERED: Does Not Summon Skeleton Archers</font><br>Clinkz moves invisibly through units until the moment he attacks or uses items."
 		//死亡契约改说明
-		"npc_dota_hero_clinkz_npedesc1"								"<font color=\"red\">ALTERED: Burning Army Disabled, Skeleton Archers Almost Entirely Disabled</font><br>Stalks invisibly to ambush lone enemies"
-		"DOTA_Tooltip_ability_clinkz_death_pact"										"<font color=\"red\">ALTERED: Does Not Summon Skeleton Archers</font><br>Clinkz consumes the target enemy creep or friendly Skeleton Archer, healing and gaining max health. Does not take Clinkz out of Skeleton Walk."
+		"npc_dota_hero_clinkz_npedesc1"								"<font color=\"FF0000\">ALTERED: Burning Army Disabled, Skeleton Archers Almost Entirely Disabled</font><br>Stalks invisibly to ambush lone enemies"
+		"DOTA_Tooltip_ability_clinkz_death_pact"										"<font color=\"FF0000\">ALTERED: Does Not Summon Skeleton Archers</font><br>Clinkz consumes the target enemy creep or friendly Skeleton Archer, healing and gaining max health. Does not take Clinkz out of Skeleton Walk."
 
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
 
 		// 电炎绝手/老奶奶
-		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_Description" 	"<font color=\"green\">ALTERED: Heals By Default, Improved With Aghanim's Shard</font><br>Snapfire feeds a potent cookie to Mortimer or an ally, causing them to hop a short distance. The hopping unit stuns and damages enemies in the landing zone."
+		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_Description" 	"<font color=\"00FF00\">ALTERED: Heals By Default, Improved With Aghanim's Shard</font><br>Snapfire feeds a potent cookie to Mortimer or an ally, causing them to hop a short distance. The hopping unit stuns and damages enemies in the landing zone."
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
 
 		// Naga
-		"DOTA_Tooltip_ability_naga_siren_mirror_image_Description"              "<font color=\"yellow\">ALTERED: Reduced Image Count, Increased Image Duration</font><br>Creates multiple images of Naga Siren under her control.\n\nDISPEL TYPE: Basic Dispel"
+		"DOTA_Tooltip_ability_naga_siren_mirror_image_Description"              "<font color=\"FFFF00\">ALTERED: Reduced Image Count, Increased Image Duration</font><br>Creates multiple images of Naga Siren under her control.\n\nDISPEL TYPE: Basic Dispel"
 
 		// Terrorblade
-		"DOTA_Tooltip_ability_terrorblade_reflection_Description"                           "<font color=\"red\">ALTERED: Reduced Duration, Increased Cooldown</font><br>Terrorblade brings forth an invulnerable dark reflection of all enemy heroes in a target area. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection."
-		"DOTA_Tooltip_ability_terrorblade_conjure_image_Description"                        "<font color=\"yellow\">ALTERED: Increased Cooldown, Improved Illusion Stats</font><br>Creates an illusion of Terrorblade that deals damage."
+		"DOTA_Tooltip_ability_terrorblade_reflection_Description"                           "<font color=\"FF0000\">ALTERED: Reduced Duration, Increased Cooldown</font><br>Terrorblade brings forth an invulnerable dark reflection of all enemy heroes in a target area. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection."
+		"DOTA_Tooltip_ability_terrorblade_conjure_image_Description"                        "<font color=\"FFFF00\">ALTERED: Increased Cooldown, Improved Illusion Stats</font><br>Creates an illusion of Terrorblade that deals damage."
 
 		// Warlock
 
-		"npc_dota_hero_warlock_npedesc1"    	"<font color=\"red\">ALTERED: Innate and Aghanim's Shard Upgrade Disabled</font><br>Summons powerful demons to fight at his side"
+		"npc_dota_hero_warlock_npedesc1"    	"<font color=\"FF0000\">ALTERED: Innate and Aghanim's Shard Upgrade Disabled</font><br>Summons powerful demons to fight at his side"
 
 		// 全能骑士
 		"DOTA_Tooltip_ability_omniknight_repel"											"Heavenly Grace"
@@ -897,14 +902,14 @@
 
 		// Enigma
 
-		"DOTA_Tooltip_ability_enigma_demonic_conversion_Description"                    "<font color=\"yellow\">ALTERED: Reduced Eidolon Count, Improved Eidolon Stats</font><br>Summons a fragment of Enigma himself at the cost of health.  The eidolon's health is increased by %current_health_pct%%% of Enigma's current health. This eidolon is under Enigma's control, and repeated successful attacks causes it to multiply.  When this happens, the eidolon has its health restored."
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_Description"                    "<font color=\"FFFF00\">ALTERED: Reduced Eidolon Count, Improved Eidolon Stats</font><br>Summons a fragment of Enigma himself at the cost of health.  The eidolon's health is increased by %current_health_pct%%% of Enigma's current health. This eidolon is under Enigma's control, and repeated successful attacks causes it to multiply.  When this happens, the eidolon has its health restored."
 
 		// 幽鬼 spe
-		"DOTA_Tooltip_ability_spectre_desolate_Description"		"<font color=\"green\">Bonus Damage Always Applies</font><br>Deals bonus pure damage whenever Spectre attacks an enemy."
+		"DOTA_Tooltip_ability_spectre_desolate_Description"		"<font color=\"00FF00\">Bonus Damage Always Applies</font><br>Deals bonus pure damage whenever Spectre attacks an enemy."
 		"DOTA_Tooltip_ability_spectre_desolate_radius"						""
 
 		// Monkey King
-		"npc_dota_hero_monkey_king_npedesc1"    				"<font color=\"yellow\">ALTERED: Reworked Ultimate Ability</font><br>Springs from the cover of the tree tops"
+		"npc_dota_hero_monkey_king_npedesc1"    				"<font color=\"FFFF00\">ALTERED: Reworked Ultimate Ability</font><br>Springs from the cover of the tree tops"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage"												"Defy"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
@@ -920,7 +925,7 @@
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
 
-		"DOTA_Tooltip_ability_venomancer_plague_ward_Description"                       "<font color=\"yellow\">ALTERED: Increased Cooldown, Increased Ward Duration and Stats</font><br>Summons a plague ward to attack enemy units and structures. The ward is immune to magic. Wards gain the Poison Sting level from Venomancer, dealing 50% of the full damage."		
+		"DOTA_Tooltip_ability_venomancer_plague_ward_Description"                       "<font color=\"FFFF00\">ALTERED: Increased Cooldown, Increased Ward Duration and Stats</font><br>Summons a plague ward to attack enemy units and structures. The ward is immune to magic. Wards gain the Poison Sting level from Venomancer, dealing 50% of the full damage."		
 
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Bounces"
@@ -936,7 +941,7 @@
 		"DOTA_Tooltip_modifier_lich_frost_armor_Description"	"Adds %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and slows attacking units."
 
 		// Alchemist 炼金术士
-		"DOTA_Tooltip_ability_alchemist_chemical_rage_Description"                  "<font color=\"green\">ALTERED: Grants Bonus Health</font><br>Alchemist causes his Ogre to enter a chemically induced rage, reducing base attack cooldown and increasing movement speed and health regeneration.\n\nDISPEL TYPE: Basic Dispel"
+		"DOTA_Tooltip_ability_alchemist_chemical_rage_Description"                  "<font color=\"00FF00\">ALTERED: Grants Bonus Health</font><br>Alchemist causes his Ogre to enter a chemically induced rage, reducing base attack cooldown and increasing movement speed and health regeneration.\n\nDISPEL TYPE: Basic Dispel"
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
 
 		// 夜魔
@@ -944,9 +949,9 @@
 
 
 		// 酒仙
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split MK2"
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"It isn't clear whether Mangix is consciously aware of his potent bond with nature, as it often occurs in the midst of a drunken stupor."
-		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"Gain the bonunses of four different fighting styles."
+		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Description"					"<font color=\"FFFF00\">ALTERED: Ability Reworked</font><br>Gain the bonunses of four different fighting styles."
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_shard_Description"			"Increases duration."
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_duration"						"DURATION:"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_bonus_move_speed"				"%<font color=\"#87ceeb\">%MOVEMENT SPEED</font>:"
@@ -961,16 +966,16 @@
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_slow_duration"				"<font color=\"#662375\">SLOW DURATION</font>:"
 
 		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration"					"Primal Split"
-		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration_Description"			"You are now awesome, with the power of four fighting styles!"
+		"DOTA_Tooltip_modifier_brewmaster_primal_split_lua_duration_Description"			"You are now awesome, imbued with the power of four different fighting styles!"
 
 		// 暗影萨满
 		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% Serpent Ward Attack Damage"
 
-       		"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Description"				"<font color=\"yellow\">ALTERED: Reduced Ward Count, Increased Ward Damage</font><br>Summons %ward_count% Serpent Wards to attack enemy units and structures. The Wards are immune to magic. Creeps deal half damage to the Serpent Ward."
-        	"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Facet_shadow_shaman_massive_serpent_ward" "<font color=\"yellow\">ALTERED</font>Summons a single massive Serpent Ward with %mega_ward_multiplier_damage%x damage and %mega_ward_multiplier_health%x health and bounty values."
+       		"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Description"				"<font color=\"FFFF00\">ALTERED: Reduced Ward Count, Increased Ward Damage</font><br>Summons %ward_count% Serpent Wards to attack enemy units and structures. The Wards are immune to magic. Creeps deal half damage to the Serpent Ward."
+        	"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Facet_shadow_shaman_massive_serpent_ward" "<font color=\"FFFF00\">ALTERED</font>Summons a single massive Serpent Ward with %mega_ward_multiplier_damage%x damage and %mega_ward_multiplier_health%x health and bounty values."
 
 		// 骷髅王
-		"npc_dota_hero_skeleton_king_npedesc1"  							"<font color=\"red\">ALTERED: Bone Guard Disabled</font><br>Can reincarnate instantly upon death"
+		"npc_dota_hero_skeleton_king_npedesc1"  							"<font color=\"FF0000\">ALTERED: Bone Guard Disabled</font><br>Can reincarnate instantly upon death"
 		"DOTA_Tooltip_ability_special_bonus_unique_skeleton_king_spectral_blade_damage"			"+{s:bonus_cursed_damage}/{s:bonus_cursed_damage_pct}% Spectral Blade Base Damage/Curse Damage"
 
 		// 拉比克
@@ -1039,7 +1044,7 @@
 		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision_Description" "You've been spotted!"
 
 		// 树精卫士
-		"DOTA_Tooltip_ability_treant_overgrowth_Description"           	"<font color=\"yellow\">ALTERED: Aghanim's Scepter Upgrade Altered</font><br>Summons an overgrowth of vines and branches around Treant that deal damage to afflicted enemies and prevent them from moving, blinking, going invisible, or attacking."
+		"DOTA_Tooltip_ability_treant_overgrowth_Description"           	"<font color=\"FFFF00\">ALTERED: Aghanim's Scepter Upgrade Reworked</font><br>Summons an overgrowth of vines and branches around Treant that deal damage to afflicted enemies and prevent them from moving, blinking, going invisible, or attacking."
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increases Overgrowth Range."
 		///////////////////////////////////////////////////
 		//
