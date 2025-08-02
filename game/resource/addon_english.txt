@@ -2063,7 +2063,8 @@
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_callous_dodge_chance"		"%+$evasion"
-		"DOTA_Tooltip_ability_item_wasp_callous_attack_speed"		"+$attack"
+		// "DOTA_Tooltip_ability_item_wasp_callous_attack_speed"		"+$attack"
+		"DOTA_Tooltip_ability_item_wasp_callous_base_aspd"		"%+Base Attack Speed Percentage"
 		"DOTA_Tooltip_modifier_item_callous_active"			"Hastened Judgment"
 		"DOTA_Tooltip_modifier_item_callous_active_Description"		"Evasion and movement speed increased."
 
@@ -2074,7 +2075,8 @@
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
-		"DOTA_Tooltip_ability_item_wasp_golden_attack_speed"				"+$attack"
+		// "DOTA_Tooltip_ability_item_wasp_golden_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_wasp_golden_base_aspd"				"%+Base Attack Speed Percentage"
 		"DOTA_Tooltip_modifier_item_soul_active"					"Overwhelming Tyranny"
 		"DOTA_Tooltip_modifier_item_soul_active_Description"				"Evasion, movement speed, and critical chance increased, but critical damage decreased."
 
