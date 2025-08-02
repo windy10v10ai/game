@@ -776,8 +776,16 @@
 				"special_bonus_unique_miku_101"	"-3"
 			}
 			"dragon_slave_speed"		"1000"
-			"dragon_slave_width_initial"	"200"
-			"dragon_slave_width_end"		"150"
+			"dragon_slave_width_initial"
+			{
+				"value"			"200"
+				"affected_by_aoe_increase" "1"
+			}
+			"dragon_slave_width_end"
+			{
+				"value"			"150"
+				"affected_by_aoe_increase" "1"
+			}
 			"dragon_slave_distance"			"1075"
 			"fixed_duration"			"1"
 			"damage"
@@ -1166,8 +1174,16 @@
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"start_radius"			"300"
-			"end_radius"			"300"
+			"start_radius"
+			{
+				"value"			"300"
+				"affected_by_aoe_increase" "1"
+			}
+			"end_radius"
+			{
+				"value"			"300"
+				"affected_by_aoe_increase" "1"
+			}
 			"speed"					"1500.0"
 			"cast_range"			"650"
 			"stun_duration"			"1.2 1.3 1.4 1.5 1.6"
@@ -1269,12 +1285,17 @@
 		"AbilityValues"
 		{
 			"amp_pct"					"8 10 12 14 16"
-			"radius"					"450"
+			"radius"
+			{
+				"value"			"450"
+				"affected_by_aoe_increase" "1"
+			}
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
 			"damage"
 			{
 				"value"					"120 180 240 300 360"
+				"CalculateSpellDamageTooltip"		"1"
 			}
 		}
 	}
@@ -1336,7 +1357,11 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.0"
 			"range"					"2000"
-			"width"					"350"
+			"width"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase" "1"
+			}
 			"speed"					"2000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1403,7 +1428,11 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.5"
 			"range"					"4000"
-			"width"					"400"
+			"width"
+			{
+				"value"			"400"
+				"affected_by_aoe_increase" "1"
+			}
 			"speed"					"4000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1452,7 +1481,11 @@
 		"AbilityValues"
 		{
 			"length"					"850"
-			"width"						"150"
+			"width"
+			{
+				"value"			"150"
+				"affected_by_aoe_increase" "1"
+			}
 			"speed"						"1600"
 			"damage"
 			{
@@ -1678,7 +1711,11 @@
 				"value"					"1500"
 				"special_bonus_unique_goku_5"	"+600"
 			}
-			"width"				"200"
+			"width"
+			{
+				"value"			"200"
+				"affected_by_aoe_increase" "1"
+			}
 			"speed"			"2400"
 			"manacost_pre_second"	"50 75 100 125 150"
 			"damage_per_second"
@@ -1788,7 +1825,11 @@
 			"bonus_attackspeed"				"30 45 60 75 90"
 			"super_saiyan_tick"				"0.2"
 			"super_saiyan_range"			"900"
-			"super_saiyan_radius"			"400"
+			"super_saiyan_radius"
+			{
+				"value"			"400"
+				"affected_by_aoe_increase" "1"
+			}
 			"super_saiyan_cooldown"			"14"
 		}
 
@@ -1906,7 +1947,11 @@
 			"channel"					"2"
 			"visionRange_max"			"2500"
 			"damage_max"				"1500"
-			"radius_max"				"400"
+			"radius_max"
+			{
+				"value"			"400"
+				"affected_by_aoe_increase" "1"
+			}
 			"speed"						"2500"
 		}
 
@@ -1995,7 +2040,11 @@
 				"special_bonus_unique_yukari_01_stun" "+0.8"
 			}
 			"speed"			"1200"
-			"radius"		"150"
+			"radius"
+			{
+				"value"			"150"
+				"affected_by_aoe_increase" "1"
+			}
 			"range"			"1200"
 			"num"			"6"
 			"cast_range"	"1200"
@@ -2184,7 +2233,11 @@
 			"barrage_spawn_point"	"16"
 			"barrage_fire_interval"	"0.1"
 			"barrage_damage"	"200"
-			"barrage_radius"	"750"
+			"barrage_radius"
+			{
+				"value"			"750"
+				"affected_by_aoe_increase" "1"
+			}
 			"ex_damage"			"50"
 			"wanbaochui_radius"	"750"
 			"int_bonus"			"4"
@@ -2290,8 +2343,16 @@
 		"AbilityValues"
 		{
 			"projectile_speed"				"600"
-			"dragon_slave_width_initial"	"350"
-			"dragon_slave_width_end"		"350"
+			"dragon_slave_width_initial"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase" "1"
+			}
+			"dragon_slave_width_end"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase" "1"
+			}
 			"dragon_slave_distance"			"2000"
 
 			"collision_damage"
@@ -2393,6 +2454,7 @@
 			{
 				"value"								"550"
 				"special_bonus_unique_jack_2" 		"+100"
+				"affected_by_aoe_increase"		"1"
 			}
 			"movespeed_down"		"20 30 40 50 60"
 			"attackspeed_down"		"30 50 70 90 100"
@@ -2464,7 +2526,11 @@
 			"AbilityCooldown"		"90"
 			"AbilityManaCost"		"160"
 			// "radius_normal"			"200"
-			"radius_active"			"400"
+			"radius_active"
+			{
+				"value"			"200"
+				"affected_by_aoe_increase" "1"
+			}
 			"duration"				"30"
 		}
 	}
@@ -2572,7 +2638,11 @@
 				"value"									"150"
 				"special_bonus_unique_sword_master_2"	"+80"
 			}
-			"radius"						"350"
+			"radius"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase" "1"
+			}
 			"damage_bonus"					"100 160 220 280 340"
 		}
 	}
@@ -2595,7 +2665,11 @@
 		{
 			"AbilityCooldown"				"0.5"
 			"speed"							"2400"
-			"width"							"120"
+			"width"
+			{
+				"value"			"120"
+				"affected_by_aoe_increase" "1"
+			}
 			"AbilityCastRange"				"650"
 			"damage_bonus"					"80 120 160 200 240"
 			"talent_movespeed"
@@ -2629,7 +2703,11 @@
 		"AbilityValues"
 		{
 			"AbilityCooldown"				"0.5"
-			"width"							"200"
+			"width"
+			{
+				"value"			"200"
+				"affected_by_aoe_increase" "1"
+			}
 			"length"						"550"
 			"damage_bonus"					"60 90 120 150 180"
 			"stun_duration"					"1.2 1.4 1.6 1.8 2.0"
@@ -2719,7 +2797,11 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_crit"				"180 260 340"
-			"radius"					"350"
+			"radius"
+			{
+				"value"			"350"
+				"affected_by_aoe_increase" "1"
+			}
 			"AbilityCooldown"
 			{
 				"value"									"25"
@@ -2746,7 +2828,11 @@
 
 		"AbilityValues"
 		{
-			"width"						"200"
+			"width"
+			{
+				"value"			"200"
+				"affected_by_aoe_increase" "1"
+			}
 			"length"					"650"
 			"damage_per"				"15 20 25"
 			"stun_duration"				"1.6 2.4 3.2"
@@ -2779,7 +2865,11 @@
 		{
 			"AbilityCastRange"				"800"
 			"speed"							"2400"
-			"width"							"120"
+			"width"
+			{
+				"value"			"120"
+				"affected_by_aoe_increase" "1"
+			}
 			"damage_per"					"3 5 7"
 			"attack_times"					"2 3 4"
 			"attack_interval"				"0.05"
