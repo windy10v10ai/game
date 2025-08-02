@@ -2038,6 +2038,7 @@
 		"DOTA_Tooltip_ability_item_blue_fantasy_description"						"<h1>Active: <font color='#FFFF00'>Destruction</font></h1> Applies a debuff for %mute_duration% seconds on a target enemy unit. The debuff <font color='#f15b47'>Dispels, Breaks, Mutes, and negates all Evasion.</font><br><br>The debuff will also continuously dispel the target, slow their movement speed by %slow_pct%%%, attack speed by %attack_slow%, and reduces Health Restoration and Incoming Heals by %hp_regen_reduction%%%, while dealing <font color='#FFFF00'>%max_hp_dmg_pct%%%</font> of their maximum health as <font color='#FFCC66'>pure damage</font> every second.\n<h1>Passive: Feedback</h1>Each attack burns %mana_base% mana, and deals physical damage equal to the mana burned."
 		"DOTA_Tooltip_ability_item_blue_fantasy_Note0"							"Max health damage is not affected by Spell Damage."
 		"DOTA_Tooltip_ability_item_blue_fantasy_Note1"							"Cannot be disjointed."
+		"DOTA_Tooltip_ability_item_blue_fantasy_Note2"							"Dispels buffs even if the target is Debuff Immune, but no other negative effects of the item ignore Debuff Immunity."
 		"DOTA_Tooltip_ability_item_blue_fantasy_int"								"+$int"
 		"DOTA_Tooltip_ability_item_blue_fantasy_agi"								"+$agi"
 		"DOTA_Tooltip_ability_item_blue_fantasy_bonus_damage"						"+$damage"
@@ -2051,6 +2052,7 @@
 		"DOTA_Tooltip_ability_item_wasp_despotic"					"Despotic Wasp"
 		"DOTA_Tooltip_ability_item_wasp_despotic_Lore"				"The product of the ancient moon soul, it represents despotism."
 		"DOTA_Tooltip_ability_item_wasp_despotic_Description"		"<h1>Active: Critical Ruling</h1>Critical Chance increases to %active_crit_chance%%% for %active_boost_duration% seconds, but Critical Damage decreases to %active_crit_multiplier%%%.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_despotic_Note0"			"Critical Strike does not work against buildings."
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_despotic_bonus_agile"		"+$agi"
 		"DOTA_Tooltip_modifier_item_despotic_active"			"Critical Ruling"
@@ -2060,11 +2062,12 @@
 		"DOTA_Tooltip_ability_item_wasp_callous"						"Callous Wasp"
 		"DOTA_Tooltip_ability_item_wasp_callous_Lore"				"The product of the ancient moon soul, it represents callousness."
 		"DOTA_Tooltip_ability_item_wasp_callous_Description"			"<h1>Active: Hastened Judgment</h1>Evasion is increased to %active_dodge_chance%%% and Movement Speed is increased by %move_speed%%% for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_callous_Note0"			"Critical Strike does not work against buildings."
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_callous_dodge_chance"		"%+$evasion"
 		// "DOTA_Tooltip_ability_item_wasp_callous_attack_speed"		"+$attack"
-		"DOTA_Tooltip_ability_item_wasp_callous_base_aspd"		"%+Base Attack Speed Percentage"
+		"DOTA_Tooltip_ability_item_wasp_callous_base_aspd"		"%+$attack"
 		"DOTA_Tooltip_modifier_item_callous_active"			"Hastened Judgment"
 		"DOTA_Tooltip_modifier_item_callous_active_Description"		"Evasion and movement speed increased."
 
@@ -2072,26 +2075,27 @@
 		"DOTA_Tooltip_ability_item_wasp_golden"							"<font color='#FFD700'>Golden Wasp</font>"
 		"DOTA_Tooltip_ability_item_wasp_golden_Lore"						"A faint whisper dances around your ears, 'Do you want absolute power?'"
 		"DOTA_Tooltip_ability_item_wasp_golden_Description"				"<h1>Active: Overwhelming Tyranny</h1>Critical Chance and Evasion increases to %active_crit_chance%%%, and grants %move_speed%%% Movement Speed, but Critical Damage decreases to %active_crit_multiplier%%%. Lasts for %active_boost_duration% seconds.\n<h1>Passive: Critical Strike</h1>Grants each attack a %crit_chance%%% chance to deal %crit_multiplier%%% damage."
+		"DOTA_Tooltip_ability_item_wasp_golden_Note0"					"Critical Strike does not work against buildings."
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
 		// "DOTA_Tooltip_ability_item_wasp_golden_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_item_wasp_golden_base_aspd"				"%+Base Attack Speed Percentage"
+		"DOTA_Tooltip_ability_item_wasp_golden_base_aspd"				"%+$attack"
 		"DOTA_Tooltip_modifier_item_soul_active"					"Overwhelming Tyranny"
 		"DOTA_Tooltip_modifier_item_soul_active_Description"				"Evasion, movement speed, and critical chance increased, but critical damage decreased."
 
 		// item_shotgun 霰弹枪
 		"DOTA_Tooltip_ability_item_shotgun"								"Double-Barrel"
-		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Attacks deal %attack_percent%%% splash damage to all enemies in a %attack_radius% radius around the attacked target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"SPLASH DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_item_shotgun_attack_percent"				"%SPLASH DAMAGE:"
-		"DOTA_Tooltip_ability_item_shotgun_lore"						"Bang! Bang!"
+		// "DOTA_Tooltip_ability_item_shotgun_attack_radius"				"SPLASH DAMAGE RADIUS:"
+		// "DOTA_Tooltip_ability_item_shotgun_attack_percent"				"%SPLASH DAMAGE:"
+		"DOTA_Tooltip_ability_item_shotgun_lore"					"Bang-Bang!"
 
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"							"Bullet-Filled Shotgun"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Attacks deal %attack_percent%%% splash damage to all enemies in a %attack_radius% radius around the attacked target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
@@ -2104,8 +2108,8 @@
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>Active: Megablink</h1>Combines the effects of Fallen Sky and all three Blink Dagger upgrades.<br><br>Transforms into a meteor, which lands at the target point, stunning enemies in %meteor_land_radius% radius for %meteor_stun_duration% seconds.<br>Affected enemies take %base_damage% + %str_damage%%% of the caster's strength as magical damage on impact, then burn for a further %meteor_burn_dps% damage per second for %meteor_burn_duration% seconds.<br>This deals less damage to buildings.<br><br>After all this calamity happens, the caster receives the benefits of Swift and Arcane Blinks. Enemies suffer the effect of Overwhelming Blink after the stun duration ends."
 		"DOTA_Tooltip_Ability_item_jump_jump_jump_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"You call it Flash? No, No, No! I'm a Dotaer, not a LOLer! It's Blink, man! BLINK!"
-		"DOTA_Tooltip_modifier_item_jump_jump_jump_meteor_burn"			"Meteor Burn"
-		"DOTA_Tooltip_modifier_item_jump_jump_jump_meteor_burn_description"	"Slowed and taking damage over time."
+		"DOTA_Tooltip_modifier_item_jump_jump_jump_meteor_burn"			"Meteor Hammer Burn"
+		"DOTA_Tooltip_modifier_item_jump_jump_jump_meteor_burn_description"	"Slowed and taking %dMODIFIER_PROPERTY_TOOLTIP% damage every %dMODIFIER_PROPERTY_TOOLTIP2% seconds."
 
 		// item_gungir_2 大缚灵索
 		"DOTA_Tooltip_ability_item_gungir_2"								"<font color='#91EACE'>Advanced</font> Gleipnir"
@@ -2136,7 +2140,8 @@
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"Orb of the Brine"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"					"Were it not for this revered orb, there would have been no Conclave survivors at the Battle of Stonefish Gate."
-		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1>Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds. The bubble restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana, however during the heal, the unit is silenced, muted, and disarmed, but can move at %bubble_move_speed% movement speed.\n<h1>Passive: Blessing of the Brine</h1>Amplifies heals you provide by %heal_increase%%%."
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Description"			"<h1>Active: Brinefoam</h1>Puts a friendly unit in a protective healing bubble for %bubble_duration% seconds. The bubble restores %bubble_total_heal_tip% health and %bubble_total_mana_tip% mana, however during the heal, the unit is silenced, muted, and disarmed, but is completely invulnerable and untargetable, and can move at %bubble_move_speed% movement speed.\n<h1>Passive: Blessing of the Brine</h1>Amplifies heals you provide by %heal_increase%%%."
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Note0"				"The bubble's movement speed is enforced, regardless of any movement speed boosts or slows that are affected the target."
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
@@ -2171,7 +2176,7 @@
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_plus_bonus_health_regen"					"+$hp_regen"
 
-		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Armlet of Mordiggian Plus Pro Max"
+		"DOTA_Tooltip_Ability_item_armlet_pro_max"				"Armlet of Mordiggian Pro Max"
 		"DOTA_Tooltip_Ability_item_recipe_armlet_pro_max"					"Armlet of Mordiggian Pro Max Recipe"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Description"							"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
 		"DOTA_Tooltip_ability_item_armlet_pro_max_Lore"									"Weapon of choice among brutes, the bearer sacrifices his life energy to gain immense strength and power."
@@ -2186,7 +2191,7 @@
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1>Active:<font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target will heal for %heal%% of their max HP. The shield lasts for %duration% seconds.<br><br>Dispel Type: Basic Dispel"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1>Active:<font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target replenishes %heal%% of their max HP. The shield lasts for %duration% seconds.<br><br>Dispel Type: Basic Dispel"
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"A glowing yellow orb that shines brightly in the darkest of days."
 		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"Grants the effects of Linken's Sphere and Lotus Orb to the target, with the Linken's Spellblock occuring on the first reflected spell, negating the effects of it in addition to reflecting it."
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"
@@ -2211,6 +2216,8 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and scientific investment."
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 
+	    "DOTA_Tooltip_Ability_item_hand_of_midas_Note0"								"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
+
 		// item_bloodstone_v2 血精神石
 		"DOTA_Tooltip_ability_item_bloodstone"										"Godly Bloodstone"
 		"DOTA_Tooltip_ability_item_bloodstone_bonus_aoe"							"+$aoe_bonus"
@@ -2218,14 +2225,11 @@
 		"DOTA_Tooltip_modifier_item_bloodstone_active_Description"							"Bloodstone's Spell Lifesteal is multiplied."
 		"DOTA_Tooltip_ability_item_bloodstone_Note1"									"Godly Bloodstone's AoE bonus does not stack with the AoE bonus from Gleipnir or Advanced Gleipnir, but will stack with AoE bonuses from other sources."
 		"DOTA_Tooltip_ability_item_bloodstone_v2"									"Mini Bloodstone"
-		// "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"It's like a Bloodstone, except one-eighth the size!"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mp_regen"					"+$mana_regen"
-		// "DOTA_Tooltip_ability_item_bloodstone_v2_spell_lifesteal"					"%+$spell_lifesteal"
-		"DOTA_Tooltip_modifier_item_bloodstone_v2_amp"					"Bloodpact"
 
 		// item_refresh_core 大刷新
 		"DOTA_Tooltip_Ability_item_refresh_core"						"Refresher Core"
@@ -2236,28 +2240,26 @@
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_health"			"+$health"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_cooldown"				"%+$cooldown_reduction"
-		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the very gifted can sense."
+		"DOTA_Tooltip_ability_item_refresh_core_Lore"					"At the core of spellcraft are spectrums only the most gifted of wizards can sense and utilize."
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>Cursed</font> Rapier"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base attack damage. Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Great power always comes with a price. <font color='#e03e2e'>This item has a %ruin_chance_tooltip%%% to be completely destroyed on death.</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Great power always comes with a price. <font color='#e03e2e'>This item has a %ruin_chance_tooltip%%% to be completely destroyed on death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"Not covered by warranty."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"You've got to ask yourself one question: do you feel lucky?"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Note1"					"Cursed Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"Cursed Rapiers can never be destroyed, sold, or moved into the backpack."
 
 		// item_rapier_ultra_bot 解放的诅咒圣剑
-		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#CC7A00'>Liberated</font> Rapier"
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#CC4400'>Liberated</font> Rapier"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of Power (Liberated)</font></h1>Great power always comes with a price. <br><font color='#CC7A00'>But there is no price after liberation.</font>"
-		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"You're silly. My cursed rapier is now permanent!"
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot_Lore"					"Lifted from its vehement curse from the greatest powers of light and dark."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"A cursed rapier liberated by fusing the power of light and darkness."
-		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note1"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"				"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
 
 		// item_rapier_ultra_bot_1 解放的诅咒圣剑
-		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1"                        "<font color='#CC7A00'>Liberated</font> Rapier"
+		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1"                        "<font color='#227A00'>Liberated</font> Rapier"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of Power (Liberated)</font></h1>Great power always comes with a price. <font color='#CC7A00'>But there is no price after liberation.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1_Lore"					"You're silly! My cursed rapier is now permanent!"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_damage"			"+$damage"
@@ -2282,14 +2284,9 @@
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_Lore"					"So Spiiicey Ninja Kiwi!"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_intellect"		"+$int"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_attack_speed"		"+$attack"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_mana_regen"		"+$mana_regen"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_magic_resist"		"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_spell_amp"				"%+Spell Amplification"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_mana_regen_multiplier"	"%+Mana Regeneration Amplification"
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_bonus_health_regen"		"+$hp_regen"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_bonuses"		"<b><font color='#7d7d7d'>Upgrade</font></b>: +30% Bloodthorn Critical Strike"
-		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_description"	"Soul Tear 10 enemy heroes."
 
 		// item_devastator_2 Sacred Parasma 神圣斧
 		"DOTA_Tooltip_Ability_item_devastator_2"							"<font color='#87013F'>Sacred</font> Parasma"
@@ -2390,22 +2387,21 @@
 
 		// 神器永恒虚灵刀
 		"DOTA_Tooltip_Ability_item_ethereal_blade_ultra"				"<font color='#e03e2e'>Artifact: Eternal Ethereal Blade</font>"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>Active: Ethereal Shock</h1> Fires an energy wave, turning the target into an ethereal state, increasing the magic damage they take by %ethereal_damage_bonus%%, and making them unable to attack or be attacked.<br><br>If the target is an enemy, they are also slowed by %blast_movement_slow%% and take additional magic damage equal to %blast_agility_multiplier%x[the target's main attribute] + %blast_damage_base%.<br><br>Cast range: %abilitycastrange%<br>Duration: %duration% seconds"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"Shares cooldown with Ghost Scepter."
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"Units in ethereal state take an additional %ethereal_damage_bonus%% magic damage."
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"For versatile heroes, their main attribute value is 60%% of the sum of all attributes."
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note3"						"Using Town Portal Scroll or Boots of Travel will not dispel ethereal state."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>Active: Ethereal Blast</h1>Converts the target unit to ethereal form, rendering them immune to physical damage, but unable to attack and %ethereal_damage_bonus%%% more vulnerable to magic damage.<br><br>  Enemy targets are also slowed by %blast_movement_slow%%%, and take %blast_agility_multiplier%x your target's primary attribute + %blast_damage_base% as magical damage.<br>Duration: %duration% seconds"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"Shares a cooldown with Ghost Scepter and the standard Ethereal Blade."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"Ethereal units take %ethereal_damage_bonus%%% bonus magic damage."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"For Universal Heroes, their primary attribute is %universal_multiplier_tooltip%%% of the sum of all their attributes."
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note3"						"Using a Town Portal Scroll will not dispel Ethereal Form."
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_agility"				"+$all"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana"                      "+$mana"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana_regen"                "+$mana_regen"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_cast_range"                "+$cast_range"
-
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_mana_regen_multiplier"		"%+Mana Regen Amplification"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Lore"						"A sinister blade that flickers in and out of existence, dealing damage in both the physical and magical realms."
+		"DOTA_Tooltip_ability_item_ethereal_blade _ultra_Lore"						"A flickering blade of a ghastly nature, it is capable of dealing damage in both magical and physical planes."
 
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal"				"Ethereal Shock"
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal_Description"	"Ethereal form. Taking %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%% increased magic damage, cannot attack, and immune to physical damage."
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"Ethereal Blade Slow"
+		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal"				"Ethereal Blast"
+		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal_Description"	"Ethereal form. Taking %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%% increased magic damage, cannot attack or be attacked, and immune to physical damage."
+		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"Ethereal Blast Slow"
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%."
 
 		// 大胸针&神器魔武双修
@@ -2427,7 +2423,7 @@
 
 		// 法师泳衣
 		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"Swimagicostume"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Magical Swimming</h1> Converts %mana_restore_pct%%% of spell damage taken from enemies (before reductions) into mana.\n\n<h1>Passive: Diving Suit</h1> Gains a stack of Eternal Endurance for every %stack_threshold% spell damage taken. Each stack lasts %stack_duration% seconds, and the item can have up to a maximum of %max_stacks% stacks. Each stack increases the Swimagicostume's magic resistance by %stack_resist%%."
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Treading Magic</h1>Restores mana equal to %mana_restore_pct%%% of incoming enemy spell damage before reductions.\n\n<h1>Passive: Eternal Endurance</h1> For every %stack_threshold% spell damage that equipped hero receives, it gains a stack of Endurance for %stack_duration%s up to a maximum of %max_stacks% charges. Each charge increases Eternal Shroud's magic resistance by %stack_resist%%% ."
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"Swim freely among the mages' flow of spells and arcanery!"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
@@ -2448,7 +2444,7 @@
 		// 敏捷跳2
 		"DOTA_Tooltip_ability_item_swift_blink_2"                               "Blink of Bolt"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Description"         			"<h1>Active: Blink of Bolt</h1>Teleport to a target point up to %blink_range% units away.<br><br>After teleportation, you gain %bonus_movement%%% phased movement speed and +%bonus_agi_active% Agility for %duration% seconds. <br><br>Swift Blink cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
-		"DOTA_Tooltip_ability_item_swift_blink_2_Lore"                           "Become faster than the speed of light and electricity!"
+		"DOTA_Tooltip_ability_item_swift_blink_2_Lore"                           "Become faster than the speed of light and thought!"
 		"DOTA_Tooltip_ability_item_swift_blink_2_Note0"                           "Self-casting will cause you to teleport towards your fountain."
 		"DOTA_Tooltip_ability_item_swift_blink_2_bonus_agility"			        "+$agi"
 		// 大小智力跳对调
@@ -2490,37 +2486,37 @@
 
 		// item_dragon_ball_1 一星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_1"				"<font color='#FFFF00'>One-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"A glass bead that reveals a pentagram from any angle. Collecting all seven will bring good fortune.\n Shareable with teammate.\nIf Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dragon_ball_1_Description"		"A glass bead that reveals a pentagram from any angle. Collecting all seven will bring good fortune.\n Shareable with teammates.\nIf Dragon Balls cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_1_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_2 二星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_2"				"<font color='#FFFF00'>Two-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_2_Description"		"A glass bead that reveals two pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dragon_ball_2_Description"		"A glass bead that reveals two pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_2_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_3 三星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_3"				"<font color='#FFFF00'>Three-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_3_Description"		"A glass bead that reveals three pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dragon_ball_3_Description"		"A glass bead that reveals three pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_3_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_4 四星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_4"				"<font color='#FFFF00'>Four-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_4_Description"		"A glass bead that reveals four pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dragon_ball_4_Description"		"A glass bead that reveals four pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_4_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_5 五星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_5"				"<font color='#FFFF00'>Five-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_5_Description"		"A glass bead that reveals five pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dragon_ball_5_Description"		"A glass bead that reveals five pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_5_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_6 六星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_6"				"<font color='#FFFF00'>Six-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dragon_ball_6_Description"		"A glass bead that reveals six pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_6_bonus_all_stats"					"+$all"
 
 		// item_dragon_ball_7 七星珠
 		"DOTA_Tooltip_Ability_item_dragon_ball_7"				"<font color='#FFFF00'>Seven-Star Dragon Ball</font>"
-		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again."
+		"DOTA_Tooltip_ability_item_dragon_ball_7_Description"		"A glass bead that reveals seven pentagrams from any angle. Collecting all seven will bring good fortune.\nShareable with teammates.\nIf Dragon Balls cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dragon_ball_7_bonus_all_stats"					"+$all"
 
 		// item_wish_1 愿望1
@@ -2545,14 +2541,14 @@
 
 		// 神器2.0
 		// item_light_part 圣光组件
-		"DOTA_Tooltip_Ability_item_light_part"					"<font color='#FFFF00'>Light</font> Part"
+		"DOTA_Tooltip_Ability_item_light_part"					"<font color='#FF0000'>Light</font> Part"
 		"DOTA_Tooltip_ability_item_light_part_Description"		"Can be used to transform items into light-themed upgrades.\nIf a Light Part cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_Ability_item_light_part_Note0"			"Ancient creeps are more likely to drop them. Drop chance from all neutral creeps in the game increases over time. Guaranteed drop from Roshan, who will drop more parts the larger your team is."
 		"DOTA_Tooltip_Ability_item_light_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the day."
 		"DOTA_Tooltip_Ability_item_light_part_bonus_damage"		"+$damage"
 
 		// item_dark_part 暗影组件
-		"DOTA_Tooltip_Ability_item_dark_part"					"<font color='#8A2BE2'>Dark</font> Part"
+		"DOTA_Tooltip_Ability_item_dark_part"					"<font color='#FF5500'>Dark</font> Part"
 		"DOTA_Tooltip_ability_item_dark_part_Description"		"Can be used to transform items into dark-themed upgrades.\nIf a Dark Part cannot be combined, try moving it from the backpack or stash to the main inventory, or drop it and pick it up again."
 		"DOTA_Tooltip_ability_item_dark_part_Note0"				"Ancient creeps are more likely to drop them. Drop chance from all neutral creeps in the game increases over time. Guaranteed drop from Roshan, who will drop more parts the larger your team is."
 		"DOTA_Tooltip_Ability_item_dark_part_Lore"				"Drops randomly when killing Roshan and neutral creeps during the night."
@@ -2597,19 +2593,18 @@
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mres"				"%+$spell_resist"
 
 		// 神器刃甲（秘术师铠甲）（天地同寿）
 		"DOTA_Tooltip_Ability_item_force_field_ultra"						"<font color='#FFFF00'>Artifact: Arcanist's Armor</font>"
-		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"			"<h1>Active: Mega Shield</h1> Shield Aura Grants %active_reflection_pct%%% Damage Reflection for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants +%bonus_aoe_armor% armor and +%bonus_aoe_mres%%% Magic Resistance to all other allies within %bonus_aoe_radius% radius."
+		"DOTA_Tooltip_Ability_item_force_field_ultra_Description"			"<h1>Active: Reflective Shield</h1> Grants %active_reflection_pct%%% Damage Reflection to all allied heroes and their controlled units that are affected by the Shield Aura. Lasts for 5 seconds.\n\n<h1>Passive: Shield</h1> Grants %bonus_aoe_armor% Armor and %bonus_aoe_mres%%% Magic Resistance to all allies within %bonus_aoe_radius% radius."
 		"DOTA_Tooltip_Ability_item_force_field_ultra_Lore"					"An exquisite piece commissioned by a paranoid monarch who choked on a piece of fruit long before the item saw its intended use."
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_armor"				"+$armor"
 		"DOTA_Tooltip_ability_item_force_field_ultra_self_mres"					"%+$spell_resist"
 
 		// 神器 一瞬千击
 		"DOTA_Tooltip_Ability_item_dagon_ultra"									"<font color='#e03e2e'>Artifact: Thousand Strikes</font>"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit. Heals the caster for %dagon_spell_lifesteal%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
-		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the damage, as long as you have mana."
+		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1>Emits an extremely powerful burst of magical damage upon a targeted enemy unit. Heals the caster %dagon_spell_lifesteal%%% of damage dealt by Dagon. Spammable.<br><br>Damage: %damage%<br> Mana Cost: %mana_cost_tooltip%"
+		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the potential damage... as long as you have the mana to do it."
 		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"Instantly destroys illusions."
 		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
