@@ -685,7 +685,7 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow"			"Frost Orb Slow"
 		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow_Description"		"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		//极寒光环
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Bonechill Aura"
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Bonefrost Aura"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Damages and slows nearby enemy units. Slow and damage are stronger the closer enemy units are.<br><br>Passively reduces the Heal Amplification and Health Restoration of nearby enemy units."
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%HEAL AMPLFICIATION REDUCTION:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"%HEALTH RESTORATION REDUCTION:"
@@ -693,9 +693,9 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"			"MAX BONUS DAMAGE PER ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"ACTIVE DURATION:"
 
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"			"Bonechill Aura"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"			"Bonefrost Aura"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"		"Taking damage per second and movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, with the effects intensifying the closer you are to the owner of the aura."
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"			"Bonechill Aura"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"			"Bonefrost Aura"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"		"Health Restoration decreased by %dMODIFIFER_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Incoming Heals reduced by %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%%."
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
@@ -863,6 +863,10 @@
 		"npc_dota_hero_clinkz_npedesc1"								"<font color=\"FF0000\">ALTERED: Burning Army Disabled, Skeleton Archers Almost Entirely Disabled</font><br>Stalks invisibly to ambush lone enemies"
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"<font color=\"FF0000\">ALTERED: Does Not Summon Skeleton Archers</font><br>Clinkz consumes the target enemy creep or friendly Skeleton Archer, healing and gaining max health. Does not take Clinkz out of Skeleton Walk."
 
+		// Lone Druid
+
+		"npc_dota_hero_lone_druid_npedesc1" 							"<font color=\"FFFF00\">ALTERED: Spirit Bear Ability Replaced</font><br>Commands a powerful spirit bear in battle"
+
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
 
@@ -919,7 +923,7 @@
 		"DOTA_Tooltip_ability_spectre_desolate_radius"						""
 
 		// Monkey King
-		"npc_dota_hero_monkey_king_npedesc1"    				"<font color=\"FFFF00\">ALTERED: Reworked Ultimate Ability</font><br>Springs from the cover of the tree tops"
+		"npc_dota_hero_monkey_king_npedesc1"    				"<font color=\"FFFF00\">ALTERED: Wukong's Command Ability Replaced</font><br>Springs from the cover of the tree tops"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage"												"Defy"
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
 		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
@@ -1000,6 +1004,12 @@
 		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally"				"Null Field"
 		"DOTA_Tooltip_modifier_rubick_null_field_effect_ally_Description"	"Magic Damage Resistance increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_enemy"			"Null Field"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_enemy_Description"	"Magic Damage Resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
+		"DOTA_Tooltip_modifier_rubick_null_field_effect"			"Null Field"
+		"DOTA_Tooltip_modifier_rubick_null_field_effect_Description"		"Rubick's affected allies gain %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magical Damage Resistance. Rubick's affected enemies lose %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% Magical Damage Resistance."
+
 		"DOTA_Tooltip_ability_rubick_spell_steal_Description"                   "<font color=\"00FF00\">ALTERED: Can Also Steal Allies' Spells</font><br>Rubick studies the trace magical essence of one enemy hero, learning the secrets of the last spell the hero cast. Rubick can use this spell as his own for several minutes or until he dies, and stolen spells last longer on enemies."
 		// 戴泽
 		"DOTA_Tooltip_ability_dazzle_good_juju"											"Good Juju"
@@ -1020,7 +1030,7 @@
 
 		// 蝙蝠骑士
 		"DOTA_Tooltip_ability_batrider_sticky_napalm_shard_description"					"Increases the stack limit of Sticky Napalm.<br><br>Sticky Napalm deals damage to structures."
-		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"Sticky Napalm Max Stacks:"
+		"DOTA_Tooltip_ability_batrider_sticky_napalm_max_stacks"						"MAX STACKS:"
 
 		// 哈斯卡
 		"DOTA_Tooltip_ability_huskar_inner_vitality"									"Inner Vitality"
@@ -1037,13 +1047,13 @@
 
 		// 力丸
 		"DOTA_Tooltip_ability_riki_permanent_invisibility"								"Permanent Invisibility"
-		"DOTA_Tooltip_ability_riki_permanent_invisibility_Description"					"Riki fades into the shadows, becoming invisible. When Riki attacks, he becomes visible. Grants bonus movement speed"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_Description"					"Riki fades into the shadows, becoming invisible. When Riki attacks, he becomes visible. Grants bonus movement speed while invisible."
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_Lore"							"Riki comes for you."
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note0"						"Riki won't auto attack enemies while invisible."
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note1"						"Illusions of Riki will play Backstab animations, but not deal any bonus damage."
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_Note2"						"Bonus damage from Backstab can't be evaded."
 		"DOTA_Tooltip_ability_riki_permanent_invisibility_fade_delay"					"FADE DELAY:"
-		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"MOVEMENT SPEED:"
+		"DOTA_Tooltip_ability_riki_permanent_invisibility_movement_speed"				"BONUS MOVEMENT SPEED:"
 
 		// 修补匠 热导飞弹
 		"DOTA_Tooltip_ability_tinker_heat_seeking_missile"								"Heat-Seeking Missile"
@@ -1118,7 +1128,7 @@
 
 		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world"							"No One Survives"
 		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world_description"				"The Sword Master slashes through all enemies in front of him, inflicting additional damage with guaranteed critical strikes."
-		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world_Lore"					"There's never too much damage！"
+		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world_Lore"					"There's never too much damage!"
 		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world_base_damage"				"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world_damage_crit"				"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_sword_master_chop_kill_everyone_in_world_radius"					"RADIUS:"
@@ -1169,7 +1179,7 @@
 		"DOTA_Tooltip_modifier_sword_master_tap_count_Description"								"Gained after using Slash."
 		"DOTA_Tooltip_modifier_sword_master_thrust_movespeed_bonus"								"Thrust: Bonus Movement Speed"
 		"DOTA_Tooltip_modifier_sword_master_thrust_movespeed_bonus_Description"					"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_sword_master_tap_passives_disabled"								"Break"
+		"DOTA_Tooltip_modifier_sword_master_tap_passives_disabled"								"Slash"
 		"DOTA_Tooltip_modifier_sword_master_tap_passives_disabled_Description"					"Passives disabled by Slash."
 
 		//杰克
@@ -1199,30 +1209,30 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%VISION REDUCTION:"
 
 		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"Enemies attacked by Jack will gain stacks of Dissolution. Each stack of Dissolution will reduce healing, health regeneration, lifesteal, and spell lifesteal, up to %max_count% stacks.\nWhen at max stacks, enemies have their passives disabled for %duration% second(s). Subsequent attacks on the same broken enemy will refresh the Break duration. Attacking enemies that are in the mist while also affected by Aura Masking will instantly apply max Dissolution stacks.\nJack will also gain stacks of Treatment, which improves her own healing, health regeneration, lifesteal, and spell lifesteal, based on how many Dissolution stacks the enemy currently has."
+		"DOTA_Tooltip_ability_jack_surgery_description"											"Enemies attacked by Jack will gain stacks of Dissolution. Each stack of Dissolution will reduce Health Restoration and Incoming Heals, and stacks up to %max_count% times.  Stacks last for %duration% seconds, and applying new stacks resets the duration of the entire stack.\nWhen at max stacks, enemies will also suffer from Break, losing their passive abilities. Subsequent attacks on the same broken enemy thereafter will also refresh the Break duration as well as all Dissolution stacks.\nAttacking enemies that are in the mist while also affected by Aura Masking will instantly apply max Dissolution stacks and the resulting Break.\nJack will also gain stacks of Treatment, which improves her own Health Restoration and Incoming Heals, based on the highest amount of Dissolution stacks she has applied to an enemy."
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as herself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
-		"DOTA_Tooltip_ability_jack_surgery_duration"											"DURATION:"
-		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%HEALTH RESTORATION REDUCTION PER STACK:"
+		"DOTA_Tooltip_ability_jack_surgery_duration"											"STACK DURATION:"
+		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%HEALTH RESTORATION/INCOMING HEAL PER STACK:"
 		// "DOTA_Tooltip_ability_jack_surgery_regen_down"											"%HP REGEN REDUCTION PER STACK:"
 		// "DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%LIFESTEAL REDUCTION PER STACK:"
 		// "DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%SPELL LIFESTEAL REDUCTION PER STACK:"
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"Dark Fog City"
-		"DOTA_Tooltip_ability_jack_the_mist_description"										"Immediately turns day into night and instantly surround Jack in the mist. Enemies in the mist will be subject to the same effect as the mist in Misty Night Murder."
-		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"After the Industrial Revolution, a huge amount of soot began to be emitted, and in the 1950s, it became a sulfuric acid fog and caused a major disaster in London. The Dark Fog City is the treasure that recreates the Fog of Death."
+		"DOTA_Tooltip_ability_jack_the_mist_description"										"Immediately turns day into night and instantly surrounds Jack in the mist. Enemies in the mist will be subjected to the same effects as the mist from Misty Night Murder."
+		"DOTA_Tooltip_ability_jack_the_mist_Lore"												"After the Industrial Revolution, a huge amount of soot was emitted, and in the 1950s, it became a sulfuric acid fog and caused a major disaster in London. The Dark Fog City is the treasure that recreates the Fog of Death."
 		// "DOTA_Tooltip_ability_jack_the_mist_radius_normal"										"PASSIVE MIST RADIUS:"
 		"DOTA_Tooltip_ability_jack_the_mist_radius_active"										"ACTIVE MIST RADIUS:"
 		"DOTA_Tooltip_ability_jack_the_mist_duration"											"DURATION:"
 
 		"DOTA_Tooltip_ability_jack_maria_the_ripper"											"Our Lady Dissolution"
-		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"Jack blinks behind and stuns the target enemy. If the target has any Dissolution stacks, Jack will strike the target based on the number of Dissolutions stacks within %attack_duration% second(s), during which she is invisible and cannot be detected by True Sight."
+		"DOTA_Tooltip_ability_jack_maria_the_ripper_description"								"Jack blinks behind and stuns the target enemy. If the target has any Dissolution stacks, Jack will strike the target based on the number of stacks within %attack_duration% second(s), during which she is invisible and cannot be detected by True Sight."
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_Lore"										"At that time, it was said that there were 80,000 prostitutes in the slums of London, and the resentment of the children who could not even become prostitutes, who were killed and thrown away for the reason of living, had a vicious effect."
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_stun_duration"								"STUN DURATION:"
 		"DOTA_Tooltip_ability_jack_maria_the_ripper_attacktimes_count"							"ATTACKS PER DISSOLUTION STACK:"
 
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_1"										"+{s:bonus_heal_down}% Dissolution Reduction Per Stack"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_1"										"+{s:bonus_heal_down}% Surgical Procedures Restoration Per Stack"
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_2"										"+{s:bonus_radius} Misty Night Murder Radius"
-		"DOTA_Tooltip_Ability_special_bonus_unique_jack_3"										"+{s:bonus_dmg_add_agility} Aura Masking Agi Mult"
+		"DOTA_Tooltip_Ability_special_bonus_unique_jack_3"										"+{s:bonus_dmg_add_agility} Aura Masking AGI Mult"
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_4"										"-{s:bonus_invision_time}s Aura Masking Fade Time"
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_5"										"+{s:bonus_attacktimes_count} Our Lady Dissolution Attacks Per Stack"
 		"DOTA_Tooltip_Ability_special_bonus_unique_jack_6"										"{s:bonus_talent_chance}% Chance to Attack Twice"
@@ -1235,34 +1245,40 @@
 		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night"								"Misty"
 		"DOTA_Tooltip_modifier_jack_murderer_of_the_misty_night_Description"					"Hiding within the mist."
 		"DOTA_Tooltip_modifier_jack_surgery"													"Surgical Procedures: Treatment"
-		"DOTA_Tooltip_modifier_jack_surgery_Description"										"Gaining %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% additional Healing, Health Regeneration, Lifesteal, and Spell Lifesteal Amplification."
+		"DOTA_Tooltip_modifier_jack_surgery_Description"										"Gaining %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% Health Restoration and Incoming Healing."
 		"DOTA_Tooltip_modifier_jack_surgery_target"												"Surgical Procedures: Dissolution"
-		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"Suffering %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% reduced Healing, Health Regeneration, Lifesteal, and Spell Lifesteal Amplification."
+		"DOTA_Tooltip_modifier_jack_surgery_target_Description"									"Suffering from %dMODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET%%% reduced Health Restoration and Incoming Healing."
 		"DOTA_Tooltip_modifier_jack_the_mist_aura"												"Dark Fog City"
 		"DOTA_Tooltip_modifier_jack_the_mist_aura_Description"									"Surrounded by mist."
 		"DOTA_Tooltip_modifier_jack_maria_the_ripper"											"Our Lady Dissolution"
-		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"Entering a state of invisibility where you cannot be seen, even with True Sight, and you continuously attack enemy units."
+		"DOTA_Tooltip_modifier_jack_maria_the_ripper_Description"								"Invisible, undetectable, and attacking enemy units rapidly."
 
 		// 初音未来
 		"npc_dota_hero_meepo"										"Miku"
 		"npc_dota_hero_meepo_npedesc1"								"Hatsune Miku Princess"
 
 		"DOTA_Tooltip_ability_miku_hadouken"						"Popipo"
-		"DOTA_Tooltip_ability_miku_hadouken_Description"			"Miku launches a wave of music in the specified direction, damaging all enemies in its path."
+		"DOTA_Tooltip_ability_miku_hadouken_Description"			"Miku launches a wave of music towards the target area, damaging all enemies in its path."
+		"DOTA_Tooltip_ability_miku_hadouken_Note0"				"The projectile travels at a speed of %dragon_slave_speed%."
+		"DOTA_Tooltip_ability_miku_hadouken_Note1"				"The projectile has a width of %dragon_slave_width_initial%, but shrinks to %dragon_slave_width_end% as it flies."
+		"DOTA_Tooltip_ability_miku_hadouken_Note2"				"Popipo can hit units up to %dragon_slave_distance% units away."
 		"DOTA_Tooltip_ability_miku_hadouken_damage"					"DAMAGE:"
 		"DOTA_Tooltip_ability_miku_hadouken_damage_calne"			"DAMAGE (CHIBI):"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"					"Rich and fragrant vegetable juice! Fragrant and soft vegetable juice!"
 		"DOTA_Tooltip_ability_miku_hadouken_shard_description"		"Popipo stuns enemies for %shard_stun% second(s)."
 
 		"DOTA_Tooltip_ability_pantsushot"							"Pantsu Shot"
-		"DOTA_Tooltip_ability_pantsushot_Description"				"Miku passively has a chance to inflict a crushing kick from a 720 degree roundabout, dealing critical damage and mini-stunning the enemy."
+		"DOTA_Tooltip_ability_pantsushot_Description"				"Miku passively has a chance to inflict a crushing kick from a 720 degree roundabout, dealing critical damage and mini-stunning the target."
 		"DOTA_Tooltip_ability_pantsushot_crit_chance"				"%CHANCE:"
 		"DOTA_Tooltip_ability_pantsushot_crit_bonus"				"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_pantsushot_stun_duration"				"STUN DURATION:"
 		"DOTA_Tooltip_ability_pantsushot_Lore"						"Nyanyanyanyanyanyanya!"
 
 		"DOTA_Tooltip_ability_liu_kick"								"Liu-kick"
-		"DOTA_Tooltip_ability_liu_kick_Description"					"Miku leaps from her feet to the target enemy. Any enemies in radius suffer magical damage, knockback, stun and an instant attack from Miku. This attack has True Strike and can proc attack modifiers."
+		"DOTA_Tooltip_ability_liu_kick_Description"					"Miku leaps from her feet at the target enemy. The target as well as any others near it take damage, and the primary target is knocked back, and stunned, and Miku performs an instant attack on it.\nThis attack has True Strike and can proc attack modifiers."
+		"DOTA_Tooltip_ability_liu_kick_Note0"						"Miku soars towards her target at a speed of %speed%."
+		"DOTA_Tooltip_ability_liu_kick_Note1"						"Knockback distance is %range_knockback%.
+		"DOTA_Tooltip_ability_liu_kick_Note2"						"Can be disjointed."
 		"DOTA_Tooltip_ability_liu_kick_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_liu_kick_range"						"CAST RANGE:"
 		"DOTA_Tooltip_ability_liu_kick_radius"						"RADIUS:"
@@ -1270,33 +1286,36 @@
 		"DOTA_Tooltip_ability_liu_kick_Lore"						"Miku~miku~Kick! Who would reject her exquisite and fragrant foot!? -- It was a hentai named BM's last word before he got one-shotted by Liu-kick."
 
 		"DOTA_Tooltip_ability_miku_dance"							"Dancing"
-		"DOTA_Tooltip_ability_miku_dance_Description"				"CHANNELED - Miku begins to sing and dance, inflicting basic attacks around her that deal bonus magic damage to all enemies, and stunning them for %stun_duration% second at intervals of %attack_interval% seconds.<br/>Miku takes significantly less damage while dancing."
+		"DOTA_Tooltip_ability_miku_dance_Description"				"CHANNELED - Miku performs. During this, she takes significantly reduced damage, and constantly attacks all enemy units that are around her, with bonus magic damage, and stunning them for %stun_duration% second at intervals of %attack_interval% second(s). Lasts up to %ability_duration% seconds."
 		"DOTA_Tooltip_ability_miku_dance_dance_radius"				"RADIUS:"
-		"DOTA_Tooltip_ability_miku_dance_dance_damage"				"INTERVAL DAMAGE:"
+		"DOTA_Tooltip_ability_miku_dance_dance_damage"				"BONUS MAGIC DAMAGE:"
 		"DOTA_Tooltip_ability_miku_dance_damage_reduction"			"%INCOMING DAMAGE REDUCTION:"
 		"DOTA_Tooltip_ability_miku_dance_Description"				"Any weird movements that Miku does during this ability are intended!"
 
 		"DOTA_Tooltip_ability_get_down"								"GET DOWN!!!"
-		"DOTA_Tooltip_ability_get_down_Description"					"CHANNELED - Miku dances, attacking each enemy around her every second for the duration of the dance. These attacks have True Strike, deal bonus magical damage, but do not pierce Debuff Immunity."
+		"DOTA_Tooltip_ability_get_down_Description"					"CHANNELED - Miku dances, attacking each enemy around her every second for the duration of the dance. These attacks have True Strike and deal bonus magical damage, but do not pierce Debuff Immunity. Lasts up to %ability_duration% seconds."
 		"DOTA_Tooltip_ability_get_down_dance_radius"				"RADIUS:"
-		"DOTA_Tooltip_ability_get_down_dance_damage"				"BONUS MAGIC DAMAGE PER HIT:"
-		"DOTA_Tooltip_ability_get_down_Lore"						"Is this enough?"
+		"DOTA_Tooltip_ability_get_down_dance_damage"				"BONUS MAGIC DAMAGE:"
+		"DOTA_Tooltip_ability_get_down_Lore"						"Are two of these abilities enough for ya?"
 		"DOTA_Tooltip_ability_get_down_scepter_description"			"Miku uses a secret dance, attacking each enemy around her every second for the duration of the dance. Attacks deal bonus magic damage per hit. These attacks have True Strike, but do not pierce Debuff Immunity."
 
-		"DOTA_Tooltip_ability_chibi_monster"						"Chibi Miku"
-		"DOTA_Tooltip_ability_chibi_monster_Description"			"Miku transforms into a large Chibi version of herself, gaining additional stats as well as a new ability, Chibi Strike.<br>Increases the damage of <font color='#FFFFFF'>Popipo</font>.<br/><font color='#FFFFFF'>Liu-kick</font> can now stun enemy units."
-		"DOTA_Tooltip_ability_chibi_monster_damage"					"BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_chibi_monster"						"Chibi Mode"
+		"DOTA_Tooltip_ability_chibi_monster_Description"			"Miku transforms into a large Chibi version of herself, gaining additional stats as well as a new ability, Chibi Strike. Additionally:\nIncreases the damage of <font color='#FFFFFF'>Popipo</font>.<br/><font color='#FFFFFF'>Liu-kick</font> can now stun enemy units."
+		"DOTA_Tooltip_ability_chibi_monster_Note0"				"Transforming also heals Miku."
+		"DOTA_Tooltip_ability_chibi_monster_Note1"				"Cooldown begins after Chibi Mode expires."
+		"DOTA_Tooltip_ability_chibi_monster_damage"					"BONUS ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_chibi_monster_agility"				"BONUS AGILITY:"
 		"DOTA_Tooltip_ability_chibi_monster_hp"						"BONUS HEALTH:"
 		"DOTA_Tooltip_ability_chibi_monster_fixed_duration"			"DURATION:"
 
-		"DOTA_Tooltip_modifier_chibi_monster"						"Chibi Miku"
+		"DOTA_Tooltip_modifier_chibi_monster"						"Chibi Mode!"
 		"DOTA_Tooltip_modifier_chibi_monster_description"			"Transformed into a chibi version of yourself! Gaining %dMODIFIER_PROPERTY_HEALTH_BONUS% bonus health, %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility, and %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage. Some of your abilities have also been improved."
 
 		"DOTA_Tooltip_ability_chibi_hit"							"CHIBI STRIKE"
-		"DOTA_Tooltip_ability_chibi_hit_Description"				"Performs a devastating blow to the target enemy, dealing colossal damage and stunning them."
+		"DOTA_Tooltip_ability_chibi_hit_Description"				"Performs a devastating blow to the target enemy, stunning them and dealing massive damage."
 		"DOTA_Tooltip_ability_chibi_hit_AbilityDamage"				"DAMAGE:"
 		"DOTA_Tooltip_ability_chibi_hit_stun_duration"				"STUN DURATION:"
+		"DOTA_Tooltip_ability_chibi_hit_Lore"					"Chibi PUNCH!!!"
 
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_101"		"-{s:bonus_AbilityCooldown}s Popipo Cooldown"
 		"DOTA_Tooltip_ability_special_bonus_unique_miku_201"		"+{s:bonus_crit_bonus}% Pantsu Shot Critical Damage"
@@ -1308,9 +1327,10 @@
 		"npc_dota_hero_broodmother_npedesc1"		"Are you my Master?"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
-		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, <font color='#05CAFF'>dealing magical damage</font>, <font color='#FF3399'>stunning</font>, and <font color='#e67f7f'>reducing the armor</font> of all enemies in its path.<br/>Saber gains <font color='#ffd700'>Debuff Immunity</font> for a short time after casting."
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, <font color='#05CAFF'>dealing magical damage</font>, and <font color='#FF3399'>stunning</font> all enemies in its path.<br/>Saber gains <font color='#ffd700'>Debuff Immunity</font> for a short time after casting."
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
-		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_radius"	"RADIUS:"
 		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"DEBUFF IMMUNITY DURATION:"
@@ -1332,13 +1352,13 @@
 		"DOTA_Tooltip_ability_artoria_mana_burst_duration"		"SLOW DURATION:"
 
 		"DOTA_Tooltip_Ability_artoria_excalibur"				"<font color='#FFE56E'>Excalibur</font>"
-		"DOTA_Tooltip_ability_artoria_excalibur_description"	"CHANNELED - Saber supercharges Excalibur with her prana and swings it to unleash a wave of light, dealing damage to every enemy in the path of light.\n\n<font color='#FF3399'>Upgradable with the Excalibur item.</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_description"	"CHANNELED - Saber supercharges Excalibur with her prana and swings it to unleash a wave of light, damaging to every enemy in its wake.\n\n<font color='#FF3399'>Upgradable with the Excalibur item.</font>"
 		"DOTA_Tooltip_ability_artoria_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night."
 		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"CAST DELAY:"
 		"DOTA_Tooltip_ability_artoria_excalibur_width"		"WIDTH:"
 		"DOTA_Tooltip_ability_artoria_excalibur_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_artoria_excalibur_slow_amount"		"%SLOW:"
+		"DOTA_Tooltip_ability_artoria_excalibur_slow_amount"		"%MOVEMENT SLOW:"
 
 		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"<font color='#FFE56E'>Hidden Treasure: Excalibur - The Sword of Promised Victory</font>"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"CHANNELED - Saber unleashes the true radiance of Excalibur forward, engulfing everything in its path in ardent light to deal insane damage."
@@ -1347,16 +1367,16 @@
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_width"		"WIDTH:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_slow_amount"			"%SLOW:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_slow_amount"			"%MOVEMENT SLOW:"
 
-		"DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"Excalibur deals <font color='#FFE56E'>pure damage</font>, and add a slowing effect."
-		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"Excalibur - The Sword of Promised Victory deals <font color='#FFE56E'>pure damage</font>, and adds a slowing effect."
+		"DOTA_Tooltip_ability_artoria_excalibur_scepter_description"			"Excalibur deals <font color='#FFE56E'>pure damage</font>, and slows affected enemies."
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_scepter_description"			"Excalibur - The Sword of Promised Victory deals <font color='#FFE56E'>pure damage</font>, and slows affected enemies."
 
 		"DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_1"			"+{s:bonus_damage} Strike Air Damage"
 		"DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_2"			"-{s:bonus_AbilityCooldown}s Strike Air Cooldown"
 		"DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"					"Mana Burst also Dispels Saber"
 		"DOTA_Tooltip_ability_special_bonus_unique_excalibur_1"						"-{s:bonus_AbilityCooldown}s Excalibur Cooldown"
-		"DOTA_Tooltip_ability_special_bonus_unique_excalibur_1_Description"			"Also applies to Hidden Treasure: Excalibur - The Sword of Promised Victory"
+		"DOTA_Tooltip_ability_special_bonus_unique_excalibur_1_Description"			"Also applies to <font color='#FFE56E'>Hidden Treasure: Excalibur - The Sword of Promised Victory</font>"
 
 		//沉渊之剑
 		"npc_dota_hero_visage" 									"Abyss Sword"
@@ -1375,13 +1395,13 @@
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_chance" 		 "%CHANCE:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_percentage" 			 "%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_lifesteal" 			 "%LIFESTEAL:"
-		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_range" 			 "CAST RANGE:"
+		// "DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_range" 			 "CAST RANGE:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_duration" 			 "DURATION:"
 		"DOTA_Tooltip_ability_abyss_sword_out_of_sheath_shard_description" 		 "Out of Sheath can be activated, allowing Abyss Sword to teleport to the target enemy, where he will execute an Out of Sheath critical attack that also applies Break to the enemy."
 
 
 		"DOTA_Tooltip_Ability_abyss_sword_hidden_sharp" 				 "Hidden Sharp"
-		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_description" 	 "CHANNELING - The Abyss Sword enters a meditative state and starts channeling to concentrate its power. During the channeling period, the Abyss Sword is Debuff Immune and continually gains bonus attack damage per second for all subsequent attacks when the channel concludes. The attack damage bonus effect lasts for a certain number of attacks after the channel is stopped."
+		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_description" 	 "CHANNELED - The Abyss Sword enters a meditative state and starts channeling to concentrate its power. During the channeling period, the Abyss Sword is Debuff Immune and continually gains bonus attack damage per second for all subsequent attacks when the channel concludes. The attack damage bonus effect lasts for a certain number of attacks after the channel is stopped."
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Note0" 		 "Rush Night Sword Qi will not consume any enchanced attack provided by Hidden Sharp."
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_Lore" 		 "The essence of sword meaning lies in concealment."
 		"DOTA_Tooltip_ability_abyss_sword_hidden_sharp_channel" 		 "DURATION:"
@@ -1410,9 +1430,9 @@
 		"npc_dota_hero_chen" 									 			"Goku"
 		"npc_dota_hero_chen_npedesc1"								"Hey, it's me! Goku!"
 		"DOTA_Tooltip_Ability_goku_kamehameha" 								"Kame Hame Ha!!!"
-		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"CHANNELED - Goku concentrates all the energy in his body and releases it together. He emits a light wave that deaks damage to all enemies in a straight line over the duration.\n<h1>Super Saiyan mode:</h1>Distance increases to %super_saiyan_length% and its damage is multiplied by %super_saiyan_damage_multiple%x, but an additional %super_saiyan_mana_percent%%% max mana is consumed per second."
+		"DOTA_Tooltip_ability_goku_kamehameha_description" 					"CHANNELED - Goku concentrates all the energy in his body and releases it as a beam of enemy that deals damage to all enemies in a straight line. Lasts up to %channel% seconds.\n<h1>Super Saiyan mode:</h1>Distance increases to %super_saiyan_length% and its damage is multiplied by %super_saiyan_damage_multiple%x, but an additional %super_saiyan_mana_percent%%% max mana is consumed per second."
 		"DOTA_Tooltip_ability_goku_kamehameha_Lore" 						"A unique skill created by the tortoise Fairy"
-		"DOTA_Tooltip_ability_goku_kamehameha_shard_description"			"Kame Hame Ha!!! gains %AbilityCharges% charges."
+		"DOTA_Tooltip_ability_goku_kamehameha_shard_description"			"Cooldown is removed, and replaced with %AbilityCharges% that restore over %AbilityChargeRestoreTime% seconds."
 		"DOTA_Tooltip_ability_goku_kamehameha_channel" 						"DURATION:"
 		"DOTA_Tooltip_ability_goku_kamehameha_length" 						"LIGHT WAVE LENGTH:"
 		"DOTA_Tooltip_ability_goku_kamehameha_width" 					 	"LIGHT WAVE WIDTH:"
@@ -1420,28 +1440,29 @@
 		"DOTA_Tooltip_ability_goku_kamehameha_damage_per_second" 		 	"DAMAGE PER SECOND:"
 		"DOTA_Tooltip_ability_goku_kamehameha_scepter_description" 			"Kame Hame Ha!!! pierces Debuff Immunity and deals pure damage."
 		"DOTA_Tooltip_Ability_goku_tp" 										"High Speed Mobile"
-		"DOTA_Tooltip_ability_goku_tp_description" 							"Goku unleashes his leg strength and hovers around the battlefield at a very fast speed. Grants Goku increased movement speed and free pathing, and he cannot be targeted until the effect ends.\n<h1>Super Saiyan Mode:</h1>High Speed Mobile allows Goku to ignore the movement speed limit."
-		"DOTA_Tooltip_ability_goku_tp_Lore" 								"Rapid movement is the best way to avoid attack"
+		"DOTA_Tooltip_ability_goku_tp_description" 							"Goku gains the ability to hover around the battlefield at a very fast speed in addition to free pathing, and he cannot be targeted until the effect ends.\n<h1>Super Saiyan Mode:</h1>High Speed Mobile allows Goku to ignore the movement speed limit."
+		"DOTA_Tooltip_ability_goku_tp_Lore" 								"Rapid movement is the best way to avoid attack."
+		"DOTA_Tooltip_ability_goku_tp_Note0"							"High Speed Mobile renders Goku untargetable to both enemies and allies, but Area of Effect abilities will still have full effect on him."
 		"DOTA_Tooltip_ability_goku_tp_duration" 							"DURATION:"
 		"DOTA_Tooltip_ability_goku_tp_bonus_movespeed" 						"%MOVEMENT SPEED BONUS:"
 		"DOTA_Tooltip_Ability_goku_kaioken" 								"Jiewang Boxing"
 		"DOTA_Tooltip_ability_goku_kaioken_description" 					"Goku uses his power beyond his limit, granting him a chance to stun the enemy and summon a illusion of himself to attack the enemy again. Passively grants Goku attack speed.\n<h1>Super Saiyan mode:</h1>Jiewang Boxing can be activated to attack all enemies in a target radius. Goku will jump to each enemy and attack each target once before returning to his original casting position. During the cast, he is invulnerable."
-		"DOTA_Tooltip_ability_goku_kaioken_Lore" 							"The moves that Sun Wukong learned when practicing at the northern boundary king."
+		"DOTA_Tooltip_ability_goku_kaioken_Lore" 							"The same moves that Sun Wukong learned when practicing at the Northern Boundary King."
 		"DOTA_Tooltip_ability_goku_kaioken_chance" 							"%TRIGGER CHANCE:"
 		"DOTA_Tooltip_ability_goku_kaioken_stun_duration" 					"STUN DURATION:"
 		"DOTA_Tooltip_ability_goku_kaioken_bonus_attackspeed" 				"BONUS ATTACK SPEED:"
 		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_tick" 				"ACTIVE ATTACK INTERVAL:"
 		"DOTA_Tooltip_ability_goku_kaioken_super_saiyan_radius" 			"ACTIVE RADIUS:"
 		"DOTA_Tooltip_Ability_goku_super_saiyan" 							"Super Saiyan"
-		"DOTA_Tooltip_ability_goku_super_saiyan_description" 				"<h1>Passive:</h1> The power of the Super Saiyan is within Goku, passively granting him bonuses to all of his attributes.\n<h1>Active:</h1>Goku becomes Super Saiyan, during which he gains health and mana regeneration based om his max health and mana, receives extra Status Resistance, and all of his basic abilities are greatly enhanced."
-		"DOTA_Tooltip_ability_goku_super_saiyan_Lore" 						"It is said that there will be a super soldier every 1000 years."
+		"DOTA_Tooltip_ability_goku_super_saiyan_description" 				"<h1>Passive:</h1> The power of the Super Saiyan is within Goku, passively granting him bonuses to all of his attributes.\n<h1>Active:</h1>Goku becomes Super Saiyan, during which he gains health and mana regeneration based on his max health and mana, receives extra Status Resistance, and all of his basic abilities are greatly enhanced."
+		"DOTA_Tooltip_ability_goku_super_saiyan_Lore" 						"It is said that there will be a super soldier every thousand years."
 		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_attribute" 			"ALL ATTRIBTUE BONUS:"
 		"DOTA_Tooltip_Ability_goku_super_saiyan_bonus_status_resistance" 	"%STATUS RESISTANCE:"
 		"DOTA_Tooltip_Ability_goku_super_saiyan_regen" 						"%MAX HEALTH/MANA REGEN:"
 		"DOTA_Tooltip_Ability_goku_super_saiyan_duration" 					"DURATION:"
 		"DOTA_Tooltip_Ability_goku_spirit_bomb" 							"Vitality Bullet"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_description" 				"CHANNELED - Goku raises his hands high and channels, condensing the energy into a huge blue and white energy ball. The spell also creates flying vision around Goku. The longer he channels, the greater the damage the spell will deal, while also improving the the spell's radius, and receiving a wider vision radius while channeling. After releasing the energy ball, it will deal its damage to all enemies in a circular area.\n<h1>Super Saiyan mode:</h1>Vitality bullet always deals the maximum damage no matter how long Goku channels the spell."
-		"DOTA_Tooltip_ability_goku_spirit_bomb_Lore" 						"Developed by the king of the northern realm, the moves learned by Goku from the king of the northern realm after he died in the first world war with latiz"
+		"DOTA_Tooltip_ability_goku_spirit_bomb_Lore" 						"Developed by the king of the Northern Realm, the moves learned by Goku from the king of the northern realm after he died in the first world war with latiz"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_channel" 					"MAX CAST TIME:"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_visionRange_max" 			"MAX EXTRA VISION RANGE:"
 		"DOTA_Tooltip_ability_goku_spirit_bomb_damage_max" 					"MAX DAMAGE:"
@@ -1472,11 +1493,11 @@
 		"DOTA_Tooltip_modifier_goku_tp" 	 "High Speed Mobile"
 		"DOTA_Tooltip_modifier_goku_tp_Description" 	 "Gaining %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% Movement Speed and free pathing."
 		"DOTA_Tooltip_modifier_goku_kaioken" 	 "Jiewang Boxing"
-		"DOTA_Tooltip_modifier_goku_kaioken_Description" 	 "Receiving %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. Attacks have a chance to stun the target and summon an illusion of yourself to attack the target again."
+		"DOTA_Tooltip_modifier_goku_kaioken_Description" 	 "Gaining %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed. Attacks have a chance to stun the target and summon an illusion of yourself to attack the target again."
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive" 	 "Super Saiyan: Potential"
 		"DOTA_Tooltip_modifier_goku_super_saiyan_passive_Description" 	 "Gaining %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% all stats."
 		"DOTA_Tooltip_modifier_goku_super_saiyan" 	 "Super Saiyan: Active"
-		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Grants %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% Status Resistance, and regenerating %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% max mana and %dMODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE%%% max health. All of your basic abilities are far stronger."
+		"DOTA_Tooltip_modifier_goku_super_saiyan_Description" 	 "Receiving %dMODIFIER_PROPERTY_STATUS_RESISTANCE%%% Status Resistance, and regenerating %dMODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE%%% max health and mana. All of your basic abilities are far stronger."
 
 		// Yukari
 		"npc_dota_yukari_1"	"Yukari"
