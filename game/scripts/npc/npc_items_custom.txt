@@ -3250,6 +3250,7 @@
 				"dodge_chance"		   		"35"
 				"bonus_agile"		   		"40"
 				"attack_speed"		   		"30"
+				"base_aspd"				"25"
 				"crit_chance"				"30"
 				"crit_multiplier"			"180"
 				"active_boost_duration"		"4"
@@ -3284,7 +3285,8 @@
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE"			"%base_aspd"
+					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
 				}
 
 				"OnAttackStart"
@@ -3408,6 +3410,7 @@
 				"dodge_chance"		   		"35"
 				"bonus_agile"		   		"70"
 				"attack_speed"		   		"30"
+				"base_aspd"				"30"
 				"crit_chance"				"30"
 				"crit_multiplier"			"330"
 				"active_boost_duration"		"4"
@@ -3444,7 +3447,8 @@
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"%dodge_chance"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"%bonus_agile"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
+					"MODIFIER_PROPERTY_ATTACKSPEED_PERCENTAGE"			"%base_aspd"
+					// "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%attack_speed"
 				}
 
 				"OnAttackStart"
