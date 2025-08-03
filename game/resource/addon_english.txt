@@ -1995,19 +1995,15 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"Heaven's Lament"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds.\n<h1>Passive: Heaven's Protection</h1>Grants a %block_c%%% to block %block_m% damage on melee heroes, or %block_r% damage on ranged heroes."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_Lore"							"Behold: Heaven's Arsenal!"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_evasion"						"%+$evasion"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_status_resistance"					"%+Status Resistance"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_hp_regen_amp"							"%+Self HP Regen and Lifesteal Amp"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"							"%+$spell_resist"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_lifesteal"						"%+$spell_lifesteal"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_mana_regen"							"+$mana_regen"
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_spell_resist"						"%+$spell_resist"
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Boots"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"Gotta Go Fast!"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -2017,11 +2013,11 @@
 		"DOTA_Tooltip_modifier_item_adi_king_aura"											"Speed Aura"
 		"DOTA_Tooltip_modifier_item_adi_king_aura_Description"								"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_item_adi_king_buff"											"Gotta Go Fast"
-		"DOTA_Tooltip_modifier_item_adi_king_buff_Description"								"Gaining unobstructed and uncapped movement. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_item_adi_king_buff_Description"								"Gaining unobstructed and uncapped movement. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and Evasion increased by 10%%."
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Boots Plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta Go Faster!"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
@@ -2031,7 +2027,7 @@
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"											"Speed Aura"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura_Description"								"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"Gotta Go Faster"
-		"DOTA_Tooltip_modifier_item_adi_king_plus_buff_Description"								"Gaining unobstructed and uncapped movement. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_item_adi_king_plus_buff_Description"								"Gaining unobstructed and uncapped movement. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and Evasion increased by 20%%."
 
 		// item_blue_fantasy 苍蓝幻想
 		"DOTA_Tooltip_ability_item_blue_fantasy"									"Blue Fantasy"
@@ -2145,9 +2141,10 @@
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_health"			"+$health"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mana"				"+$mana"
+		"DOTA_Tooltip_Ability_item_orb_of_the_brine_bonus_mres"				"%+spell_resist"
 
 		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble"				"Brinefoam"
-		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"This unit is protected by Brinefoam. Healing and replenishing mana."
+		"DOTA_Tooltip_modifier_item_orb_of_the_brine_bubble_Description"	"Protected by Brinefoam. Healing and replenishing mana, but cannot act or be acted upon. Moving at a fixed movement speed."
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
@@ -2156,8 +2153,7 @@
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_spell_amp"					"%+$spell_amp"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_mp_regen_amp"					"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_cast_range"					"+Cast Range"
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"						"Necronomicon Blast"
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"			"Your true self is revealed. Cannot attack, cast spells, or use items. Losing 60%% of your intelligence."
