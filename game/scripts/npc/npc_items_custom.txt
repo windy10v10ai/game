@@ -269,7 +269,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"radius"				"900"
+			"radius"
+			{
+				"value"			"900"
+				"affected_by_aoe_increase"	"1"
+			}
 			"duration_minutes"		"9"
 		}
 	}
@@ -692,7 +696,11 @@
 					"mana_regen_aura"		"6"
 					"damage_aura"			"20"
 					"vampiric_aura"			"25"
-					"aura_radius"			"900"
+					"aura_radius"
+					{
+						"value"			"1200"
+						"affected_by_aoe_increase"	"1"
+					}
 					"aura_positive_armor"	"10"
 					"aura_attack_speed"		"60"
 					"aura_negative_armor"	"-10"
@@ -1411,8 +1419,11 @@
 				"bonus_armor"			"20"
 				"magical_resis"			"20"
 
-				"radius"				"900"
-
+				"radius"
+				{
+					"value"			"900"
+					"affected_by_aoe_increase"	"1"
+				}
 				"aura_magical_resis_base"		"10"
 				"aura_regen_base"				"20"
 				"aura_damage_reduction_base"	"-6"
@@ -2687,7 +2698,11 @@
 			"disarm"				"1"
 			"status_resistance"		"20"
 			"spell_resist"			"30"
-			"knockback_range"		"450"
+			"knockback_range"
+			{
+				"value"			"450"
+				"affected_by_aoe_increase"	"1"
+			}
 			"knockback_distance"	"150"
 			"spell_lifesteal"		"20"
 			"mana_re"				"7.6"
@@ -2765,7 +2780,11 @@
 				"dur"					"3"
 
 				"aura_sp"		   		"5"
-				"aura_rd"		   		"600"
+				"aura_rd"
+				{
+					"value"			"1200"
+					"affected_by_aoe_increase"	"1"
+				}
 		}
 	}
 
@@ -2840,7 +2859,11 @@
 				"dur"					"3"
 
 				"aura_sp"		   		"8"
-				"aura_rd"		   		"600"
+				"aura_rd"
+				{
+					"value"			"1200"
+					"affected_by_aoe_increase"	"1"
+				}
 		}
 	}
 	//=================================================================================================================
@@ -3697,7 +3720,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"ID"							"3065"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCooldown"				"16"
 		"AbilityCastRange"				"1200"
@@ -4010,6 +4033,10 @@
 			"blink_damage_cooldown"	"3.0"
 			"meteor_fall_time"		"0.5"
 			"meteor_land_radius"	"350"
+			{
+				"value"		"350"
+				"affected_by_aoe_increase"	"1"
+			{
 			"buff_duration"			"6"
 			// Below are the overwhelming, swift, and arcane modifier values
 			"movement_slow"			"50"
@@ -4097,7 +4124,7 @@
 			"bonus_mana"				"400"			// 200
 			"radius"
 			{
-				"value"						"300"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"value"						"300"		// NOTE: effective radius is 450 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
 				"affected_by_aoe_increase"	"1"
 			}
 			"radius_tooltip"
@@ -4245,8 +4272,16 @@
 				"quelling_bonus"			"50"
 				"quelling_bonus_ranged"	"30"
 
-				"cleave_starting_width"			"150"
-				"cleave_ending_width"			"360"
+				"cleave_starting_width"
+				{
+					"value"		"150"
+					"affected_by_aoe_increase"	"1"
+				}
+				"cleave_ending_width"
+				{
+					"value"		"360"
+					"affected_by_aoe_increase"	"1"
+				}
 				"cleave_distance"			"650"
 				"upgraded_cleave_bonus"			"25"
 				"upgraded_damage_bonus"			"15"
@@ -4784,7 +4819,11 @@
 			"self_xp"			"3.6"
 			"self_gold"			"360"
 
-			"group_range"		"1800"
+			"group_range"
+			{
+				"value"		"1800"
+				"affected_by_aoe_increase"	"1"
+			}
 			"group_xp"			"0.8"
 			"group_gold"		"80"
 		}
@@ -5142,11 +5181,17 @@
 				"quelling_bonus"			"100"
 				"quelling_bonus_ranged"	"60"
 
-				"cleave_starting_width"			"150"
-				"cleave_ending_width"			"500"
+				"cleave_starting_width"
+				{
+					"value"		"150"
+					"affected_by_aoe_increase"	"1"
+				}
+				"cleave_ending_width"
+				{
+					"value"		"500"
+					"affected_by_aoe_increase"	"1"
+				}
 				"cleave_distance"			"1000"
-				"upgraded_cleave_bonus"			"25"
-				"upgraded_damage_bonus"			"15"
 		}
 	}
 
