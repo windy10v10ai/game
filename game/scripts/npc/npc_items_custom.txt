@@ -2688,24 +2688,23 @@
 
 		"AbilityValues"
 		{
-			"bonus_evasion"			"30"
-			"bonus_strength"		"50"	// tooltip, real value in item_heavens_halberd_v2_bonus_strength
+			"bonus_strength"		"20"	// tooltip, real value in item_heavens_halberd_v2_bonus_strength
+			"bonus_health"			"500"
 			"disarm_con_base"		"2"
-			"disarm_con_per_str"	"300"
+			"disarm_con_per_str"		"300"
 			"disarm_con_max"		"4"
-			"hp_regen_amp"			"30"
-			"attch"					"25"
-			"disarm"				"1"
-			"status_resistance"		"20"
+			"attch"				"25"
+			"disarm"			"1"
 			"spell_resist"			"30"
 			"knockback_range"
 			{
 				"value"			"450"
 				"affected_by_aoe_increase"	"1"
 			}
-			"knockback_distance"	"150"
-			"spell_lifesteal"		"20"
-			"mana_re"				"7.6"
+			"knockback_distance"		"150"
+			"block_m"			"80"
+			"block_r"			"40"
+			"block_c"			"75"
 		}
 	}
 
@@ -4355,11 +4354,12 @@
 			"bonus_all_stats"		"20"	// tooltip, real value in item_orb_of_the_brine_bonus_all_stats
 			"bonus_health"			"600"
 			"bonus_mana"			"600"
+			"bonus_mres"			"40"
 			"heal_increase"			"50"
 
 			"bubble_duration"		"1.5"
 			"bubble_move_speed"		"350"
-			"heal_tick_interval"	"0.1"
+			"heal_tick_interval"		"0.1"
 
 			"bubble_total_heal_tip"	"1500"
 			"bubble_total_mana_tip"	"1500"
@@ -4487,8 +4487,7 @@
 			"bonus_strength"		"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
 			"bonus_agility"			"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
 			"bonus_mana_regen"		"12"
-			"spell_amp"				"24"
-			"mp_regen_amp"			"75"
+			"bonus_cast_range"		"250"
 
 			"sheep_duration"		"3.5"
 			"sheep_movement_speed"	"120"
