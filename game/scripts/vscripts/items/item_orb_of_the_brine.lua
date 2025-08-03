@@ -61,6 +61,7 @@ function modifier_item_orb_of_the_brine:OnCreated(kv)
 	self.stats_modifier_name = "modifier_item_orb_of_the_brine_stats"
 	self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
 	self.bonus_mana = self:GetAbility():GetSpecialValueFor("bonus_mana")
+	self.bonus_mres = self:GetAbility():GetSpecialValueFor("bonus_mres")
 	self.heal_increase = self:GetAbility():GetSpecialValueFor("heal_increase")
 	if IsServer() then
 		RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
@@ -80,6 +81,7 @@ function modifier_item_orb_of_the_brine:DeclareFunctions()
 	{
 		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_MANA_BONUS,
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_SOURCE,
 	}
 	return funcs
@@ -93,6 +95,10 @@ end
 
 function modifier_item_orb_of_the_brine:GetModifierManaBonus(params)
 	return self.bonus_mana
+end
+
+function modifier_item_orb_of_the_brine:GetModifierMagicalResistanceBonus(params)
+	return self.bonus_mres
 end
 
 function modifier_item_orb_of_the_brine:GetModifierHealAmplify_PercentageSource(params)
