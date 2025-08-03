@@ -77,12 +77,14 @@ end
 function modifier_item_heavens_halberd_v2:DeclareFunctions()
     return
     {
-        MODIFIER_PROPERTY_EVASION_CONSTANT,
-        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-        MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+        // MODIFIER_PROPERTY_EVASION_CONSTANT,
+        // MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
+        // MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+        // MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+        MODIFIER_PROPERTY_HEALTH_BONUS,
+        MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
+        // MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
@@ -95,14 +97,15 @@ function modifier_item_heavens_halberd_v2:OnCreated()
     self.cd = 5
 
     if self.ability then
-        self.bonus_evasion = self.ability:GetSpecialValueFor("bonus_evasion")
-        self.hp_regen_amp = self.ability:GetSpecialValueFor("hp_regen_amp")
         self.attch = self.ability:GetSpecialValueFor("attch")
         self.disarm = self.ability:GetSpecialValueFor("disarm")
-        self.status_resistance = self.ability:GetSpecialValueFor("status_resistance")
         self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
-        self.spell_lifesteal = self:GetAbility():GetSpecialValueFor("spell_lifesteal")
-        self.mp_re = self.ability:GetSpecialValueFor("mana_re")
+        self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+        self.block_c = self.ability:GetSpecialValueFor("block_c")
+        if self:GetParent():IsRangedAttacker() then
+            self.block_damage = self.ability:GetSpecialValueFor("block_r")
+        else if
+            self.block_damage = self.ability:GetSpecialValueFor("block_m")
     end
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
@@ -128,24 +131,16 @@ function modifier_item_heavens_halberd_v2:OnIntervalThink()
     self:StartIntervalThink(-1)
 end
 
-function modifier_item_heavens_halberd_v2:GetModifierEvasion_Constant()
-    return self.bonus_evasion
+function modifier_item_heavens_halberd_v2:GetModifierPhysical_ConstantBlock()
+    return self.block_r
 end
 
-function modifier_item_heavens_halberd_v2:GetModifierHPRegenAmplify_Percentage()
-    return self.hp_regen_amp
+function modifier_item_heavens_halberd_v2:GetModifierPhysical_ConstantBlock()
+    return self.block_m
 end
 
-function modifier_item_heavens_halberd_v2:GetModifierConstantManaRegen()
-    return self.mp_re
-end
-
-function modifier_item_heavens_halberd_v2:GetModifierHealAmplify_PercentageTarget()
-    return self.hp_regen_amp
-end
-
-function modifier_item_heavens_halberd_v2:GetModifierStatusResistanceStacking()
-    return self.status_resistance
+function modifier_item_heavens_halberd_v2:GetModifierHealthBonus()
+    return self.bonus_health
 end
 
 function modifier_item_heavens_halberd_v2:GetModifierMagicalResistanceBonus()
@@ -175,7 +170,7 @@ end
 modifier_item_heavens_halberd_v2_debuff = class({})
 
 function modifier_item_heavens_halberd_v2_debuff:GetTexture()
-    return "item_heavens_halberd"
+    return "item_heavens_halberd_v2"
 end
 
 function modifier_item_heavens_halberd_v2_debuff:IsDebuff()
