@@ -1015,10 +1015,8 @@
 		"AbilityValues"
 		{
 				"bonus_strength"		"120"	// Tooltip, real value in item_undying_heart_bonus_strength
-				"bonus_health"			"1600"
 				"health_regen_pct"		"2.2"
-				"bonus_evasion"			"20"
-				"status_resistance"		"8"
+				"bonus_evasion"			"15"
 				"dur"					"5"
 				"active_hp_regen"		"1000"
 				"active_hp_regen_pct"	"4"
