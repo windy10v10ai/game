@@ -1987,7 +1987,7 @@
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
-		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds and deals %active_damage_base% plus %active_damage_multi% * your current strength as pure damage.<br><br>Pierces Debuff Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Divination</font></h1>Grants melee heroes a %ch_m%%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%%.\n<h1>Passive: <font color='#f15b47'>Bleak</font></h1>Grants a %block_chance%%% chance to block %block_damage% damage from incoming attacks for both melee and ranged heroes."
+		"DOTA_Tooltip_ability_item_abyssal_blade_v2_description"			"<h1>Active: Flash</h1>Teleport to a target enemy unit and stun it for %stun_m% seconds and deals %active_damage_base% plus %active_damage_multi% * your current strength as pure damage.<br><br>Pierces Debuff Immunity.<br><br>Cast Range: %abilitycastrange%\n<h1>Passive: <font color='#F19B8F'>Power of Sacred Divination</font></h1>Grants melee heroes a %ch_m%%% chance on hit to stun the target for %stun% seconds and deal %damatt% bonus physical damage. Bash chance for ranged heroes is %ch_r%%%."
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_Lore"                   "Why is it called 'Flash' and not 'Blink?'"
 		"DOTA_Tooltip_modifier_item_abyssal_blade_v2_debuff"				"Stunned"
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2_bonus_damage"			"+$damage"
@@ -1997,7 +1997,7 @@
 
 		// item_heavens_halberd_v2 天堂2
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2"                      				"Heaven's Lament"
-		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds.\n<h1>Passive: Heaven's Protection</h1>Grants a %block_c%%% to block %block_m% damage on melee heroes, or %block_r% damage on ranged heroes."
+		"DOTA_Tooltip_ability_item_heavens_halberd_v2_description"							"<h1>Active: Heaven's Rage</h1>Disarm all enemy units within %knockback_range% of yourself and knocks them all back.<br>Disarm Duration: %disarm_con_base%s + STR/%disarm_con_per_str% seconds. Max duration is %disarm_con_max% seconds.\n<h1>Passive: Heaven's Wrath</h1>Attacks have a %attch%%% chance of disarming the target. This effect can only be triggered once every 5 seconds.\n<h1>Passive: Heaven's Guard</h1>Grants a %block_c%%% to block %block_m% damage on melee heroes, or %block_r% damage on ranged heroes."
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_Lore"							"Behold: Heaven's Arsenal!"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_heavens_halberd_v2_bonus_strength"						"+$str"
@@ -2014,7 +2014,7 @@
 		"DOTA_Tooltip_ability_item_adi_king_rate"											"%+Turn Rate"
 		"DOTA_Tooltip_modifier_item_adi_king_aura"											"Speed Aura"
 		"DOTA_Tooltip_modifier_item_adi_king_aura_Description"								"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_item_adi_king_buff"											"Gotta Go Fast"
+		"DOTA_Tooltip_modifier_item_adi_king_buff"											"Gotta Go Fast!"
 		"DOTA_Tooltip_modifier_item_adi_king_buff_Description"								"Gaining unobstructed and uncapped movement. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and Evasion increased by 10%%."
 
 		// item_adi_king_plus
@@ -2028,7 +2028,7 @@
 		"DOTA_Tooltip_ability_item_adi_king_plus_rate"											"%+Turn Rate"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura"											"Speed Aura"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_aura_Description"								"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
-		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"Gotta Go Faster"
+		"DOTA_Tooltip_modifier_item_adi_king_plus_buff"											"Gotta Go Faster!"
 		"DOTA_Tooltip_modifier_item_adi_king_plus_buff_Description"								"Gaining unobstructed and uncapped movement. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and Evasion increased by 20%%."
 
 		// item_blue_fantasy 苍蓝幻想
