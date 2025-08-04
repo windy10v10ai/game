@@ -79,6 +79,7 @@ function modifier_item_heavens_halberd_v2:DeclareFunctions()
     {
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_PROPERTY_HEALTH_BONUS,
+        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
         MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
@@ -96,6 +97,7 @@ function modifier_item_heavens_halberd_v2:OnCreated()
         self.disarm = self.ability:GetSpecialValueFor("disarm")
         self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
         self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
+        self.bonus_hp_regen = self:GetAbility():GetSpecialValueFor("bonus_hp_regen")
         if self:GetParent():IsRangedAttacker() then
             self.block_damage = self.ability:GetSpecialValueFor("block_r")
         else if
@@ -135,6 +137,10 @@ end
 
 function modifier_item_heavens_halberd_v2:GetModifierHealthBonus()
     return self.bonus_health
+end
+
+function modifier_item_heavens_halberd_v2:GetModifierConstantHealthRegen()
+    return self.bonus_hp_regen
 end
 
 function modifier_item_heavens_halberd_v2:GetModifierMagicalResistanceBonus()
