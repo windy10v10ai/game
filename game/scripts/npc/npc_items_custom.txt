@@ -2610,9 +2610,8 @@
 		"AbilityValues"
 		{
 			"bonus_damage"			"80"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
-			"bonus_health"			"600"
-			"bonus_health_regen"	"20"
-			"bonus_strength"		"20"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
+			"bonus_regen_amp"		"30"
+			"bonus_strength"		"45"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			// active
 			"stun_m"				"2.0"
 			"active_damage_base"	"200"
@@ -2621,8 +2620,6 @@
 			"stun"					"1.2"
 			"ch_m"					"30"
 			"ch_r"					"15"
-			"block_chance"			"100"	// tooltip
-			"block_damage"			"120"
 			"damatt"				"240"
 		}
 	}
