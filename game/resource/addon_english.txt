@@ -1637,7 +1637,7 @@
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration.\nMovement speed bonuses from multiple pairs of boots do not stack, but Wings of Haste's movement speed bonus will stack once consumed."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration.\nMovement speed bonuses from multiple pairs of boots do not stack, but Wings of Haste's movement speed bonus will stack once consumed."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
