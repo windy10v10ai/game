@@ -86,9 +86,8 @@ end
 function modifier_item_abyssal_blade_v2:DeclareFunctions()
         return
         {
-                MODIFIER_PROPERTY_HEALTH_BONUS,
-                MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-                MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK,
+                MODIFIER_PROPERTY_RESTORATION_AMPLIFICATION_UNIQUE,
+                MODIFIER_PROPERTY_SLOW_RESISTANCE_UNIQUE,
                 MODIFIER_EVENT_ON_ATTACK_LANDED,
         }
 end
@@ -104,13 +103,12 @@ function modifier_item_abyssal_blade_v2:OnCreated()
                 return
         end
         self.stun = self.ability:GetSpecialValueFor("stun")
-        self.ch_m = self.ability:GetSpecialValueFor("ch_m")
-        self.ch_r = self.ability:GetSpecialValueFor("ch_r")
-        self.block_damage = self.ability:GetSpecialValueFor("block_damage")
+        self.str = self.ability:GetSpecialValueFor("ch_m")
+        self.rest = self.ability:GetSpecialValueFor("ch_r")
 
         self.damatt = self.ability:GetSpecialValueFor("damatt")
-        self.bonus_health = self.ability:GetSpecialValueFor("bonus_health")
-        self.bonus_health_regen = self.ability:GetSpecialValueFor("bonus_health_regen")
+        self.bonus_regen_amp = self.ability:GetSpecialValueFor("bonus_regen_amp")
+        self.slow_resist = self.ability:GetSpecialValueFor("slow_resist")
         self.damageTable2 = {
                 attacker = self.parent,
                 damage = self.damatt,
@@ -154,16 +152,12 @@ function modifier_item_abyssal_blade_v2:OnAttackLanded(tg)
         end
 end
 
-function modifier_item_abyssal_blade_v2:GetModifierHealthBonus()
-        return self.bonus_health
+function modifier_item_abyssal_blade_v2:GetModifierPropertyRestorationAmplificationUnique()
+        return self.bonus_regen_amp
 end
 
-function modifier_item_abyssal_blade_v2:GetModifierConstantHealthRegen()
-        return self.bonus_health_regen
-end
-
-function modifier_item_abyssal_blade_v2:GetModifierPhysical_ConstantBlock()
-        return self.block_damage
+function modifier_item_abyssal_blade_v2:GEtModifierSlowResistance_Unique()
+        return self.slow_resist
 end
 
 modifier_item_abyssal_blade_v2_debuff = class({})
