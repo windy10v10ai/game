@@ -1630,17 +1630,19 @@
 
 		// 可消耗宝石
 		"DOTA_Tooltip_ability_item_consumable_gem"						"Phantom Gem"
-		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"On use, gives the hero True Sight within %radius% range.<br>True Sight buff will last %duration_minutes% minutes or on death, whichever comes first."
+		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"On use, gives the hero True Sight within %radius% range.<br>True Sight buff will last for %duration_minutes% minutes or on death, whichever comes first."
 
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
 		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"Gained the ability to see invisible units and wards to any allied vision within 900 range."
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
-		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration."
+		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed_Description"			"Permanently grants %dMODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE% bonus movement speed, %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed, %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and %dMODIFIER_PROPERTY_MANA_REGEN_CONSTANT% mana regeneration.\nMovement speed bonuses from multiple pairs of boots do not stack, but Wings of Haste's movement speed bonus will stack once consumed."
 		"DOTA_Tooltip_ability_item_wings_of_haste"										"Wings of Haste"
 		"DOTA_Tooltip_ability_item_wings_of_haste_Description"						"<h1>Use: Hasten</h1> Consume the Wings of Haste to permanently gain %bonus_movement_speed% movement speed, %bonus_attack_speed% attack speed, %bonus_health_regen% health regeneration, and %bonus_mana_regen% mana regeneration.\nThis item may be used on allied heroes who have not consumed this item yet."
 		"DOTA_Tooltip_ability_item_wings_of_haste_Lore"								"Wings that grant swift retribution in battle."
+		"DOTA_Tooltip_ability_item_wings_of_haste_Note0"							"Wings of Haste may only be consumed once."
+		"DOTA_Tooltip_ability_item_wings_of_haste_Note1"							"Wings of Haste may may be used on another allied hero to bestow the benefits unto them."
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_attack_speed"			"+$attack"
 		"DOTA_Tooltip_ability_item_wings_of_haste_bonus_all_stats"					"+$all"
@@ -2003,7 +2005,7 @@
 
 		// item_adi_king 阿迪王
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Boots"
-		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius.\nMovement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"Gotta Go Fast!"
 		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
@@ -2017,7 +2019,7 @@
 
 		// item_adi_king_plus
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Boots Plus"
-		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
+		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed and %active_evasion%%% for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius.\nMovement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta Go Faster!"
 		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
