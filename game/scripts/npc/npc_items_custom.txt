@@ -2689,6 +2689,7 @@
 			"bonus_agility"			"10"
 			"bonus_intellect"		"10"
 			"bonus_health"			"500"
+			"bonus_hp_regen"		"10"
 			"disarm_con_base"		"2"
 			"disarm_con_per_str"		"300"
 			"disarm_con_max"		"4"
