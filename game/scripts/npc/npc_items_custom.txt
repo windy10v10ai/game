@@ -2686,6 +2686,8 @@
 		"AbilityValues"
 		{
 			"bonus_strength"		"20"	// tooltip, real value in item_heavens_halberd_v2_bonus_strength
+			"bonus_agility"			"10"
+			"bonus_intellect"		"10"
 			"bonus_health"			"500"
 			"disarm_con_base"		"2"
 			"disarm_con_per_str"		"300"
@@ -2701,7 +2703,7 @@
 			"knockback_distance"		"150"
 			"block_m"			"80"
 			"block_r"			"40"
-			"block_c"			"75"
+			"block_c"			"100"	// tooltip info only
 		}
 	}
 
