@@ -96,7 +96,6 @@ function modifier_item_heavens_halberd_v2:OnCreated()
         self.disarm = self.ability:GetSpecialValueFor("disarm")
         self.spell_resist = self:GetAbility():GetSpecialValueFor("spell_resist")
         self.bonus_health = self:GetAbility():GetSpecialValueFor("bonus_health")
-        self.block_c = self.ability:GetSpecialValueFor("block_c")
         if self:GetParent():IsRangedAttacker() then
             self.block_damage = self.ability:GetSpecialValueFor("block_r")
         else if
