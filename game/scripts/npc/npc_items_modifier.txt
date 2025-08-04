@@ -14,7 +14,7 @@
 		{
 			"item_jump_jump_jump_bonus_all_stats"		"35"
 
-			"item_abyssal_blade_v2_bonus_strength"			"20"
+			"item_abyssal_blade_v2_bonus_strength"			"45"
 
 			"item_heavens_halberd_v2_bonus_strength"			"50"
 
