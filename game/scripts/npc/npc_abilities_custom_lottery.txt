@@ -54,7 +54,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
-		"AbilityTextureName"			"twin_gate_portal_warp"
+		"AbilityTextureName"			"leshrac_defilement2"
 		"MaxLevel"						"1"
 
 		// Special
@@ -245,7 +245,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/spectre_dispersion2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"spectre_dispersion"
+		"AbilityTextureName"			"spectre_dispersion_old"
 		"MaxLevel"						"5"
 		"HasShardUpgrade"				"1"
 
@@ -323,7 +323,7 @@
 		"DependentOnAbility"			"1"
 		"MaxLevel"						"5"
 		"Innate"						"0"
-		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
+		"AbilityTextureName"			"bounty_hunter_cutpurse"
 
 		"AbilityValues"
 		{
@@ -392,7 +392,7 @@
 		"BaseClass"						"dark_seer_quick_wit"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
-		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
+		"AbilityTextureName"			"dark_seer_quick_wit2"
 
 		"AbilityValues"
 		{
@@ -448,7 +448,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
 		"Innate"						"0"
-		"AbilityTextureName"    		"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
+		"AbilityTextureName"    		"dragon_knight_inherited_vigor2"
 
 		"AbilityValues"
 		{
@@ -480,7 +480,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
 		"Innate"						"0"
-		"AbilityTextureName"    		"clinkz_tar_bomb"
+		"AbilityTextureName"    		"batrider_smoldering_resin2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"						"5"
 
@@ -498,7 +498,7 @@
 		"BaseClass"						"sven_wrath_of_god"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"DependentOnAbility"			""
-		"AbilityTextureName"			"sven_storm_bolt_secondary"
+		"AbilityTextureName"			"sven_wrath_of_god2"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -513,7 +513,7 @@
 		"BaseClass"						"ursa_maul"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
-		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
+		"AbilityTextureName"			"ursa_maul2"
 		"MaxLevel"						"5"
 
 
@@ -547,7 +547,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/axe_one_man_army2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
+		"AbilityTextureName"			"axe_one_man_army2"
 
 		"MaxLevel"						"5"
 
