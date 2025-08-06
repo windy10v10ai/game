@@ -842,6 +842,21 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_hp_regen"					"BONUS HP REGEN:"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"DURATION:"
 
+		// Marci
+
+		"npc_dota_hero_marci_npedesc1"   							"<font color=\"00FF00\">ALTERED: Replaced Innate Ability</font><br>Dashes around pummeling enemies with rapid attacks"
+
+		"DOTA_Tooltip_ability_marci_guardian"							"Sidekick"
+		"DOTA_Tooltip_ability_marci_guardian_Description"					"Marci's loyalty ensures survival, imbuing herself and an ally of her choosing with extra base attack damge and lifesteal. Sidekick will last indefinitely on both Marci and her selected ally until one of them dies, or Marci casts Sidekick on another ally. Sidekick's Lifesteal is shared, meaning any lifesteal Marci gains from Sidekick is also granted to the ally, and vice versa.<br><br>If Marci and her ally move too far away from each other, Marci's ally will no longer receive any of Sidekick's benefits until they get closer together again.<br><br>Marci will always gain Sidekick's full bonuses, even if she has not bestowed Sidekick on an ally."
+		"DOTA_Tooltip_ability_marci_guardian_Lore"						"Whenever the going gets tough, Marci knows that having a friend is the best way to overcome any obstacle."
+		"DOTA_Tooltip_ability_marci_guardian_Note0"						"Marci cannot cast Sidekick on illusions, nor herself."
+		"DOTA_Tooltip_ability_marci_guardian_Note1"						"Lifesteal effectiveness gets a %creep_lifesteal_reduction_pct%%% reduction against creeps."
+
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"			"+{s:bonus_damage}% Bodyguard/Sidekick Bonus Damage/Lifesteal"
+
+		"DOTA_Tooltip_modifier_marci_guardian_buff"						"Marci is by your side. Gaining %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%%% attack damage and lifesteal."
+
+
 		// 多重施法
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast (Altered)"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Grants the chance to cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval. Can trigger with most abilities and items, but never with channeled abilities."
