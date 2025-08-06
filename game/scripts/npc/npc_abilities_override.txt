@@ -10020,7 +10020,7 @@
 			"sprout_heal_per_second"
 			{
 				"value"						"0"
-				"special_bonus_facet_furion_soothing_saplings"	"=30 =45 =90 =120 =150"	// x3
+				"special_bonus_facet_furion_soothing_saplings"	"=30 =60 =90 =120 =150"	// x3
 			}
 		}
 	}
