@@ -42,7 +42,7 @@
 		"hide_chat_team"			"Hide Chat and Team"
 		"show_chat_team"			"Show Chat and Team"
 
-		"radiant_player_number_1"		"1  (Easy)"
+		"radiant_player_number_1"		"1 (Easy)"
 		"radiant_player_number_10"		"10 (Hard)"
 
 		"respawn_time_percentage_slow"        "Slow"
@@ -58,7 +58,7 @@
 
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty:"
-		"custom_game_vote"				"Time to Vote:"
+		"custom_game_vote"				"Vote Timer:"
 		"map_dota_warning"				"Difficulty unavailable. <br>To play on N1-N5 difficulties, please select the 'dota' map before starting the game."
 		"map_n6_warning"				"Difficulty unavailable. <br>To play on N6 difficulty, please select the 'n6' map before starting the game."
 		"map_custom_warning"			"Difficulty. <br>To play on a Custom difficulty, please select the 'custom' map before starting the game."
@@ -595,7 +595,7 @@
 		"DOTA_SearchAlias_Ability_item_force_field_ultra"		"bm;blade mail;force field;ff;arcanist armor;arcanists armor;arcanist\'s armor"
 		"DOTA_SearchAlias_Ability_item_revenants_brooch_2"		"rb;revenant brooch;revenants brooch;revenant\'s brooch;revenant broach;revenants broach;revenant\'s broach;"
 		"DOTA_SearchAlias_Ability_item_revenants_brooch_ultra"		"rb;revenant brooch;revenants brooch;revenant\'s brooch;revenant broach;revenants broach;revenant\'s broach;"
-		"DOTA_SearchAlias_Ability_item_dagon_ultra"			"dagon;thousand strikes;thousand-strikes"
+		"DOTA_SearchAlias_Ability_item_dagon_ultra"			"dagon;thousand strikes;thousand-strikes;1000 strikes"
 		
 	
 		
