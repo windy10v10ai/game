@@ -2528,7 +2528,7 @@
 			// "radius_normal"			"200"
 			"radius_active"
 			{
-				"value"			"200"
+				"value"			"400"
 				"affected_by_aoe_increase" "1"
 			}
 			"duration"				"30"
