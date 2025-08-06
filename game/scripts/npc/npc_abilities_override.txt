@@ -523,7 +523,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"19 17 15 13 11"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
 		{
 			"radius"
@@ -587,7 +587,7 @@
 				"special_bonus_unique_axe_5"	"+225"
 			}
 			"speed_bonus"				"20 25 30 35"
-			"armor_bonus"				"20 25 30 35"
+			"armor_bonus"				"10 15 20 25"
 		}
 	}
 	// 血色外衣
@@ -1346,7 +1346,7 @@
 		{
 			"bonus_gold"
 			{
-				"value"				"40 80 120 160 200"
+				"value"				"35 70 105 140 175"
 			}
 			"creep_level"			"6"
 		}
@@ -3303,7 +3303,7 @@
 	"primal_beast_pulverize"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"36 34 32 30"
+		"AbilityCooldown"				"40 25 30 25"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
 		{
@@ -3565,7 +3565,7 @@
 			}
 			"sand_storm_radius"
 			{
-				"value"		"425 500 575 650 725"
+				"value"		"475 550 625 700 775"
 			}
 			"sand_storm_damage"
 			{
@@ -4034,7 +4034,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"		"19 18 17 16 15"
+					"value"		"18 17 16 15 14"
 					"special_bonus_unique_snapfire_3"	"-5"		// -4
 				}
 				"projectile_speed"		"1800"						// 1200
@@ -4742,7 +4742,7 @@
 				}
 				"damage"
 				{
-					"value"					"85 120 155 190"	// 85
+					"value"					"95 130 165 200"	// 85
 				}
 				"AbilityCooldown"
 				{
@@ -5688,7 +5688,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"14 13 12 11 10"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityManaCost"				"95 105 115 125 135"
 		"AbilityValues"
 		{
 				"duration"
@@ -5888,7 +5888,7 @@
 	{
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"900"		// 500
-		"AbilityCooldown"				"120"		// 130 125 120
+		"AbilityCooldown"				"125 120 115 110"		// 130 125 120
 		"AbilityManaCost"				"125 200 275 350"
 		"AbilityValues"
 		{
@@ -6488,7 +6488,6 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"							"120.0 110.0 100.0 90.0"
 				"special_bonus_unique_luna_6"	"-20.0"
 			}
 		}
@@ -6631,7 +6630,7 @@
 				"arrow_max_stun"	"4.0 4.5 5.0 5.5 6.0"	// 2.6 3.4 4.2 5.0
 				"arrow_bonus_damage"
 				{
-					"value"				"150 200 250 300 350"	// 150 160 170 180
+					"value"				"350"	// 150 160 170 180
 				}
 		}
 	}
@@ -8411,7 +8410,7 @@
 			"movement_slow"				"-22 -28 -34 -40 -50"
 			"shard_enrage_duration"
 			{
-				"special_bonus_shard"				"1.2"		// 1.4
+				"special_bonus_shard"				"1.1"		// 1.4
 			}
 			"fury_swipe_stacks_on_hit"
 			{
@@ -8515,7 +8514,6 @@
 	// 魔法箭
 	"vengefulspirit_magic_missile"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// 强化，总是无视魔法免疫
 		"MaxLevel" "5"
 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"90 95 100 105 110"
@@ -8775,7 +8773,7 @@
 		{
 				"min_damage"
 				{
-					"value"		"15 20 25 30 35"
+					"value"		"15 25 35 45 55"
 					"special_bonus_unique_viper_3"	"+45"
 				}
 				"max_damage"
@@ -10017,12 +10015,12 @@
 			"duration"						"2.0 2.5 3 3.5 4"
 			"sprout_damage"
 			{
-				"value"															"70 135 200 265 330"
+				"value"															"70 130 190 250 310"
 			}
 			"sprout_heal_per_second"
 			{
 				"value"						"0"
-				"special_bonus_facet_furion_soothing_saplings"	"=42 =78 =114 =150 =186"	// x3
+				"special_bonus_facet_furion_soothing_saplings"	"=30 =60 =90 =120 =150"	// x3
 			}
 		}
 	}
@@ -12025,7 +12023,7 @@
 	// 崩裂禁锢
 	"shadow_demon_disruption"
 	{
-		"AbilityCastRange"				"650 750 850 950"
+		"AbilityCastRange"				"675 775 875 975"
 		"AbilityManaCost"				"180"
 		"AbilityValues"
 		{
@@ -13368,7 +13366,7 @@
 				"value"					"50 100 150 200 250"	// x2
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"hop_distance"				"300 400 500 600 700"
+			"hop_distance"				"375 450 525 600 675"
 			"range"
 			{
 				"value"		"700 800 900 1000 1100"
@@ -13866,4 +13864,3 @@
 		}
 	}
 }
-
