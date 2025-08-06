@@ -523,7 +523,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"19 17 15 13 11"
-		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"radius"
@@ -587,7 +587,7 @@
 				"special_bonus_unique_axe_5"	"+225"
 			}
 			"speed_bonus"				"20 25 30 35"
-			"armor_bonus"				"10 15 20 25"
+			"armor_bonus"				"20 25 30 35"
 		}
 	}
 	// 血色外衣
@@ -1346,7 +1346,7 @@
 		{
 			"bonus_gold"
 			{
-				"value"				"35 70 105 140 175"
+				"value"				"40 80 120 160 200"
 			}
 			"creep_level"			"6"
 		}
@@ -2694,54 +2694,84 @@
 	// 回身踢
 	"marci_companion_run"
 	{
-		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityManaCost"				"70 75 80 85 90"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"		"20 18 16 14 12"
+					"value"		"16 15 14 13 12"
 				}
+				"move_speed"            "3000"		// 1700
 				"max_jump_distance"
 				{
-					"value"										"450 550 650 750 850"
+					"value"										"550 625 700 775 850"
+					"special_bonus_unique_marci_lunge_range"    					"+150"
 				}
 				"AbilityCastRange"
 				{
-					"value"										"450 550 650 750 850"
+					"value"										"550 625 700 775 850"
+					"special_bonus_unique_marci_lunge_range"    					"+150"
 				}
 				"impact_damage"
 				{
 					"value"				"80 160 240 320 400"
+					"special_bonus_shard"           "+25%"
 				}
 				"debuff_duration"
 				{
-					"value"			"0.8 1.1 1.4 1.7 2.0"
+					"value"			"0.8 1.2 1.6 2.0 2.4"
+					"special_bonus_unique_marci_grapple_stun_duration"  "+0.6"
 				}
+				"ally_buff_duration"    "4.0 4.5 5.0 5.5 6.0"		// 4.0
 				"ally_movespeed_pct"
 				{
 					"value"				"25 30 35 40 45"
+					"special_bonus_unique_marci_lunge_movespeed" "+15"
 				}
+				"ally_impact_damage_pct"
+                		{
+                    			"special_bonus_facet_marci_pickmeup"    "=60"	// 35
+                		} 
 				"max_level"
 				{
 					"value"				"5"
 				}
+		                "postjump_unleash_duration"
+                		{
+                    			"special_bonus_facet_marci_fleeting_fury"       "=6"
+                		}
+                		"postjump_flurry_charges"
+               			{
+                    			"special_bonus_facet_marci_fleeting_fury"       "=6"
+                		}
 		}
 	}
 	// 健体术
 	"marci_guardian"
 	{
 		"MaxLevel" "5"
+		"Innate"   "1"
 		"AbilityManaCost"				"45 40 35 30 25"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"DependentOnAbility"            		"marci_unleash"
 		"AbilityValues"
 		{
 			"lifesteal_pct"
 			{
-				"value"			"12 18 24 30 36"
+				"value"				"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"		// Uses damage talent so that both values increase with one talent
 			}
 			"bonus_damage"
 			{
-				"value"				"12 18 24 30 36"
+				"value"				"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"
 			}
+			"max_partner_distance"              
+            		{
+                		"value"     "3000"
+                		"affected_by_aoe_increase"  "1"
+            		}
+            		"max_partner_penalty"               "100"	// 50
 		}
 	}
 	// 护卫术
@@ -2752,11 +2782,13 @@
 		{
 			"lifesteal_pct"
 			{
-				"value"											"12 18 24 30 36"
+				"value"											"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"		// Uses damage talent so that both values increase with one talent
 			}
 			"bonus_damage"
 			{
-				"value"											"12 18 24 30 36"
+				"value"											"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"
 			}
 			"bonus_armor"										"4 8 12 16 20"
 		}
@@ -2767,14 +2799,42 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			"charges_per_flurry"	"8 12 15 18"	//5
-			"flurry_bonus_attack_speed"	"700 975 1325 1600"
-			"time_between_flurries"	"1.0"	// 1.5
+			"duration"
+                	{
+                   		"value"                                     "24"	// 16
+                	}
+			"charges_per_flurry"	"6"	//5
+			"flurry_bonus_attack_speed"	"800 1200 1600 2000"
+			"time_between_flurries"	"1.0 0.9 0.8 0.7"	// 1.5
 			"pulse_damage"
 			{
-				"value"			"50 100 150 200"
+				"value"			"100 200 300 400"
 			}
-			"pulse_attack_slow_pct"	"60.0 80.0 100.0 120.0"
+			"pulse_move_slow_pct"   	"30.0 40.0 50.0 60.0"		// 30.0
+			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 2x
+			"bonus_movespeed"       
+                	{
+                    		"value"     "10 15 20 25"
+                    		"special_bonus_unique_marci_unleash_speed"  "+15"
+                	}
+                	"recovery_fixed_attack_rate"    "1.0 0.9 0.8 0.7"	// 2.0
+			"scepter_cooldown_reduction"
+                	{       
+                    		"special_bonus_scepter"     "15.0"	// 10.0
+                	}
+                	"dispel"            
+                	{
+				"value"			"1"
+                   		"special_bonus_scepter" "+0"
+                	}
+                	"pulse_silence_duration"
+                	{
+                   	 	"special_bonus_scepter" "+2"		// 1
+               		}
+                	"extend_duration"
+                	{
+                    		"special_bonus_unique_marci_unleash_extend_duration"        "5"
+                	}
 			"AbilityCooldown"
 			{
 				"value"										"90 75 60 45"
@@ -3303,7 +3363,7 @@
 	"primal_beast_pulverize"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"40 25 30 25"
+		"AbilityCooldown"				"36 34 32 30"
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
 		{
@@ -3565,7 +3625,7 @@
 			}
 			"sand_storm_radius"
 			{
-				"value"		"475 550 625 700 775"
+				"value"		"425 500 575 650 725"
 			}
 			"sand_storm_damage"
 			{
@@ -4034,7 +4094,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"		"18 17 16 15 14"
+					"value"		"19 18 17 16 15"
 					"special_bonus_unique_snapfire_3"	"-5"		// -4
 				}
 				"projectile_speed"		"1800"						// 1200
@@ -4742,7 +4802,7 @@
 				}
 				"damage"
 				{
-					"value"					"95 130 165 200"	// 85
+					"value"					"85 120 155 190"	// 85
 				}
 				"AbilityCooldown"
 				{
@@ -5688,7 +5748,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"14 13 12 11 10"
-		"AbilityManaCost"				"95 105 115 125 135"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 				"duration"
@@ -5888,7 +5948,7 @@
 	{
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"900"		// 500
-		"AbilityCooldown"				"125 120 115 110"		// 130 125 120
+		"AbilityCooldown"				"120"		// 130 125 120
 		"AbilityManaCost"				"125 200 275 350"
 		"AbilityValues"
 		{
@@ -6488,6 +6548,7 @@
 			}
 			"AbilityCooldown"
 			{
+				"value"							"120.0 110.0 100.0 90.0"
 				"special_bonus_unique_luna_6"	"-20.0"
 			}
 		}
@@ -6630,7 +6691,7 @@
 				"arrow_max_stun"	"4.0 4.5 5.0 5.5 6.0"	// 2.6 3.4 4.2 5.0
 				"arrow_bonus_damage"
 				{
-					"value"				"350"	// 150 160 170 180
+					"value"				"150 200 250 300 350"	// 150 160 170 180
 				}
 		}
 	}
@@ -8410,7 +8471,7 @@
 			"movement_slow"				"-22 -28 -34 -40 -50"
 			"shard_enrage_duration"
 			{
-				"special_bonus_shard"				"1.1"		// 1.4
+				"special_bonus_shard"				"1.2"		// 1.4
 			}
 			"fury_swipe_stacks_on_hit"
 			{
@@ -8514,6 +8575,7 @@
 	// 魔法箭
 	"vengefulspirit_magic_missile"
 	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// 强化，总是无视魔法免疫
 		"MaxLevel" "5"
 		"AbilityCooldown"				"18 16 14 12 10"
 		"AbilityManaCost"				"90 95 100 105 110"
@@ -8773,7 +8835,7 @@
 		{
 				"min_damage"
 				{
-					"value"		"15 25 35 45 55"
+					"value"		"15 20 25 30 35"
 					"special_bonus_unique_viper_3"	"+45"
 				}
 				"max_damage"
@@ -10015,12 +10077,12 @@
 			"duration"						"2.0 2.5 3 3.5 4"
 			"sprout_damage"
 			{
-				"value"															"70 130 190 250 310"
+				"value"															"70 135 200 265 330"
 			}
 			"sprout_heal_per_second"
 			{
 				"value"						"0"
-				"special_bonus_facet_furion_soothing_saplings"	"=30 =60 =90 =120 =150"	// x3
+				"special_bonus_facet_furion_soothing_saplings"	"=42 =78 =114 =150 =186"	// x3
 			}
 		}
 	}
@@ -12023,7 +12085,7 @@
 	// 崩裂禁锢
 	"shadow_demon_disruption"
 	{
-		"AbilityCastRange"				"675 775 875 975"
+		"AbilityCastRange"				"650 750 850 950"
 		"AbilityManaCost"				"180"
 		"AbilityValues"
 		{
@@ -13366,7 +13428,7 @@
 				"value"					"50 100 150 200 250"	// x2
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"hop_distance"				"375 450 525 600 675"
+			"hop_distance"				"300 400 500 600 700"
 			"range"
 			{
 				"value"		"700 800 900 1000 1100"
