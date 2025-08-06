@@ -2553,8 +2553,9 @@
 		// item_blessing_of_dragon_1 神龙赐福·不死
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>Dragon's Blessing of Immortality</font>"
 		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>Passive: Immortality</font></h1>Self-explanatory.\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Note0"			"Becoming immortal comes with a price. Once you shed your body, you lose the ability to directly attack buildings."
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>Immortality</font>"
-		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>You are immortal! For now anyway...</font>"
+		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>You are immortal! <br><br>...but your incorporeal form has lost the ability to damage structures...</font>"
 
 		// item_blessing_of_dragon_2 神龙赐福·毁灭
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>Dragon's Blessing of Destruction</font>"
