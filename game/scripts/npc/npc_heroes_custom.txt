@@ -423,6 +423,18 @@
 		"AttackRate"		"1.7"	// 2.0
 	}
 
+	"npc_dota_hero_marci"
+	{
+		"Ability4"      	"marci_guardian"
+		"Ability11"		"special_bonus_unique_marci_lunge_range"
+		"AttackRate"		"1.5"	// 1.7
+		"MovementSpeed"         "325"	// 315
+		"ArmorPhysical"         "2"	// 0
+		"AttributeStrengthGain" "3.3"	// 3
+		"AttributeAgilityGain"  "2.4"	// 2.4
+		"AttributeIntelligenceGain" "2.0" // 1.9	
+	}
+
 	"npc_dota_hero_obsidian_destroyer"
 	{
 		"AttackRate"	"1.7"
