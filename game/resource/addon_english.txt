@@ -514,88 +514,6 @@
 		"DOTA_Tooltip_modifier_player_pipilu_Description"		"<font color='#FFCC66'>童话大王<br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
 		"DOTA_Tooltip_modifier_player_nemesis"					"<font color='#00FF00'>Nemesis 1941</font>"
 		"DOTA_Tooltip_modifier_player_nemesis_Description"		"<font color='#00FF00'>Not the malevolent kind of Nemesis. Really loves Marci.<br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
-
-		///////////////////////////////////////////////////
-		//
-		//			Search Aliases
-		//
-		///////////////////////////////////////////////////
-
-		"DOTA_SearchAlias_Ability_item_swift_blink_v2"			"swift blink;blink of bolt"
-		"DOTA_SearchAlias_Ability_item_arcane_blink"			"arcane blink;blink of einstein"
-		"DOTA_SearchAlias_Ability_item_overwhelming_blink_v2"		"overwhelming blink;tyson\'s flash"
-		"DOTA_SearchAlias_Ability_item_ultimate_scepter_2"		"aghanim\'s scepter;aghanims scepter;ultimate scepter;aghanims regalia;aghanim\'s regalia;ultimate regalia;consumable scepter"
-		"DOTA_SearchAlias_Ability_item_wings_of_haste"			"boots;consumable boots"
-		"DOTA_SearchAlias_Ability_item_consumable_gem"			"gem of true sight;gem of truesight;phantom gem;consumable gem of true sight;consumable gem of truesight
-		"DOTA_SearchAlias_Ability_item_refresh_core"			"refresher orb;refresher core;octarine core;aether lens;refresh core;refresh orb"
-		"DOTA_SearchAlias_Ability_item_vladmir_2"			"vladmirs offering;vladmir offering;vladmir\'s offering;vladmir;ac;assault cuirass;vladmir cuirass;vladmirs cuirass;vladmir\'s cuirass;vc;vac"
-		"DOTA_SearchAlias_Ability_item_saint_orb"			"linken\'s;linkens;lotus;lotus orb;swl"
-		"DOTA_SearchAlias_Ability_item_quelling_blade_2_datadriven"	"quelling blade"
-		"DOTA_SearchAlias_Ability_item_undying_heart"			"heart of tarrasque;hot;ud;heart;undying heart"
-		"DOTA_SearchAlias_Ability_item_force_staff_2"			"force staff;fs;gold force staff"
-		"DOTA_SearchAlias_Ability_item_force_staff_3"			"force staff;fs;wind force staff"
-		"DOTA_SearchAlias_Ability_item_insight_armor"			"pipe;pipe of insight;crimson guard;insight armor;armor of insight"
-		"DOTA_SearchAlias_Ability_item_arcane_octarine_core"		"octarine core;aether lens"
-		"DOTA_SearchAlias_Ability_item_aeon_pendant"			"aeon disk;ad;ap;aeon pendant"
-		"DOTA_SearchAlias_Ability_item_force_staff_2"			"force staff;fs"
-		"DOTA_SearchAlias_Ability_item_monkey_king_bar_2"		"mkb;monkey king bar"
-		"DOTA_SearchAlias_Ability_item_magic_scepter"			"ms;magic scepter;hallowed scepter"
-		"DOTA_SearchAlias_Ability_item_hallowed_scepter"		"hs;magic scepter;hallowed scepter"
-		"DOTA_SearchAlias_Ability_item_skadi_2"				"eos;skadi;eye of skadi"
-		"DOTA_SearchAlias_Ability_item_tome_of_agility"			"agility;tome of agility;book of agility"
-		"DOTA_SearchAlias_Ability_item_tome_of_strength"		"strength;tome of strength;book of strength"
-		"DOTA_SearchAlias_Ability_item_tome_of_intelligence"		"intelligence;intellect;tome of intelligence;tome of intellect;book of intelligence;book of intellect"
-		"DOTA_SearchAlias_Ability_item_manta_2"				"manta style"
-		"DOTA_SearchAlias_Ability_item_silver_edge_2"			"shadow blade;silver edge;lothar\'s edge;edge of lothar;lothar edge;lothar blade;lothars blade;lothar\'s blade"
-		"DOTA_SearchAlias_Ability_item_black_king_bar_2"		"bkb;black king bar"
-		"DOTA_SearchAlias_Ability_item_dodo_desolator"			"desolator;dodo desolator;infernal desolator"
-		"DOTA_SearchAlias_Ability_item_infernal_desolator"		"desolator;infernal desolator;ultra desolator"
-		"DOTA_SearchAlias_Ability_item_sacred_trident"			"trident;sacred trident;holy trinity;sacred trinity"
-		"DOTA_SearchAlias_Ability_item_sacred_six_vein"			"six vein;six vain;sacred six vein;sacred six vain;legendary hexad;legendary six vein;legendary six vain;hexad"
-		"DOTA_SearchAlias_Ability_item_abyssal_blade_v2"		"flash;abyssal blade;basher;skull basher"
-		"DOTA_SearchAlias_Ability_item_heavens_halberd_v2"		"heaven halberd;heavens halberd;heaven\'s halberd;heaven lament;heavens lament;heaven\'s lament;shroud;eternal shroud"
-		"DOTA_SearchAlias_Ability_item_adi_king"			"phase boots;advanced phase boots;advanced phase boots plus"
-		"DOTA_SearchAlias_Ability_item_adi_king_plus"			"phase boots;advanced phase boots;advanced phase boots plus"
-		"DOTA_SearchAlias_Ability_item_hurricane_pike_2"		"hurricane pike;gold hurricane pike;golden hurricane pike;gold pike;golden pike"
-		"DOTA_SearchAlias_Ability_item_blue_fantasy"			"bf;blue fantasy;diffusal;diffusal blade;disperser;spirit vessel;sv;nullifier"
-		"DOTA_SearchAlias_Ability_item_wasp_despotic"			"bfly;bf;butterfly;daedalus;wasp;critical"
-		"DOTA_SearchAlias_Ability_item_wasp_callous"			"bfly;bf;butterfly;daedalus;wasp;critical"
-		"DOTA_SearchAlias_Ability_item_wasp_golden"			"bfly;bf;butterfly;daedalus;wasp;critical;gold wasp;golden wasp"
-		"DOTA_SearchAlias_Ability_item_echo_sabre_2"			"es;echo sabre"
-		"DOTA_SearchAlias_Ability_item_shivas_guard_2"			"athena;athena guard;athenas guard;athena\'s guard;shiva guard;shivas guard;shiva\'s guard"
-		"DOTA_SearchAlias_Ability_item_shotgun"				"shotgun;double barrel;doublebarrel;double-barrel;shot gun"
-		"DOTA_SearchAlias_Ability_item_shotgun_v2"			"shotgun;triple barrel;triplebarrel;bullet-filled shotgun;bullet filled shotgun;bulletfilled shotgun;shot gun;bullet filled shot gun;bullet-filled shot gun"
-		"DOTA_SearchAlias_Ability_item_jump_jump_jump"			"jump;jumpumpjump;jump!;jump jump jump!;jump!jump!jump!;jump! jump! jump!blink dagger;blink;meteor hammer;fallen sky;overwhelming blink;swift blink;arcane blink"
-		"DOTA_SearchAlias_Ability_item_gungnir_2"			"atos;rod of atos;roa;gleipnir;dagon"
-		"DOTA_SearchAlias_Ability_item_satanic_2"			"lifesteal;life steal;satanic"
-		"DOTA_SearchAlias_Ability_item_bfury_2"				"bfury;bf;battle fury;battlefury"
-		"DOTA_SearchAlias_Ability_item_orb_of_the_brine"		"hl;holy locket;locket;brine;orb of the brine;wand of the brine"
-		"DOTA_SearchAlias_Ability_item_tome of luoshu"			"luoshu;loushu;tome of luoshu;tome of loushu;tome of strength;tome of agility;tome of intelligence;book of luoshu;book of loushu"
-		"DOTA_SearchAlias_Ability_item_necronomicon_staff"		"hex;sheepstick;scythe of vyse;vyse;necro;necronomicon staff;staff of vyse"
-		"DOTA_SearchAlias_Ability_item_hand_of_group			"hand of team;team;midas;hand of midas"
-		"DOTA_SearchAlias_Ability_item_bloodstone_v2"			"bs;bloodstone;mini-bloodstone;mini bloodstone"
-		"DOTA_SearchAlias_Ability_item_rapier_ultra"			"divine rapier;rapier;excalibur"
-		"DOTA_SearchAlias_Ability_item_rapier_ultra_bot"		"divine rapier;rapier;excalibur"
-		"DOTA_SearchAlias_Ability_item_bfury_ultra"			"bf;bfury;battle fury;battlefury;worldcleaver;worldbreaker;world cleaver;world breaker"
-		"DOTA_SearchAlias_Ability_item_bloodthorn_ultra"		"orchid;orchid malevolence;malevolence;om;bt;bloodthorn"
-		"DOTA_SearchAlias_Ability_item_devastator_2"			"parasma;witch blade;wb"
-		"DOTA_SearchAlias_Ability_item_kaya_and_sange_1"		"snk;kns;s&k;K&s:sk;kaya and sange;sange;kaya"
-		"DOTA_SearchAlias_Ability_item_sange_and_yasha_1"		"sny;s&y;sy;sange and yasha;sange;yasha"
-		"DOTA_SearchAlias_Ability_item_yasha_and_kaya_1"		"ynk;y&k;sk;yasha and kaya;yasha;kaya"
-		"DOTA_SearchAlias_Ability_item_manta_2"				"phase axe"
-		"DOTA_SearchAlias_Ability_item_heavens_halberd_2"		"heaven halberd;heavens halberd;heaven\'s halberd"
-		"DOTA_SearchAlias_Ability_item_meteor_hammer_2"			"meteor hammer;asteroid hammer;asteroid staff;meteor staff"
-		"DOTA_SearchAlias_Ability_item_meteor_hammer_2"			"meteor hammer;asteroid hammer;asteroid staff;meteor staff"
-		"DOTA_SearchAlias_Ability_item_ethereal_blade_ultra"		"eblade;e-blade;e-blade;ethereal blade;ghost scepter"
-		"DOTA_SearchAlias_Ability_item_boots_of_bearing_2"		"boots of bearing;bearing;bearing boots;tranquil boots;drums;drums of endurance"
-		"DOTA_SearchAlias_Ability_item_eternal_shroud_ultra"		"swimagicostume;eternal shroud;shroud;cloak"
-		"DOTA_SearchAlias_Ability_item_guardian_greaves_artifat"	"greaves;guardian greaves;mekasm;arcane boots"
-		"DOTA_SearchAlias_Ability_item_disperser_chaos"			"disperser;diffusal blade"
-		"DOTA_SearchAlias_Ability_item_soul_ring_1"			"soul ring;chaotic soul ring"
-		"DOTA_SearchAlias_Ability_item_force_field_ultra"		"bm;blade mail;force field;ff;arcanist armor;arcanists armor;arcanist\'s armor"
-		"DOTA_SearchAlias_Ability_item_revenants_brooch_2"		"rb;revenant brooch;revenants brooch;revenant\'s brooch;revenant broach;revenants broach;revenant\'s broach;"
-		"DOTA_SearchAlias_Ability_item_revenants_brooch_ultra"		"rb;revenant brooch;revenants brooch;revenant\'s brooch;revenant broach;revenants broach;revenant\'s broach;"
-		"DOTA_SearchAlias_Ability_item_dagon_ultra"			"dagon;thousand strikes;thousand-strikes"
 		
 	
 		
@@ -862,14 +780,6 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
-
-		// Tiny
-		"DOTA_Tooltip_ability_tiny_avalanche_Description"                               "<font color=\"FFFF00\">ALTERED: Still Has Four Levels</font><br>Bombards an area with rocks, continously doing small intervals of damage and stun to enemy units."
-
-		// Lifestealer
-		"DOTA_Tooltip_ability_life_stealer_feast_Description"                           "<font color=\"FFFF00\">ALTERED: Still Has Four Levels</font><br>Lifestealer's attacks deal damage and provide heal for a percentage of his target's max health. Allows Lifestealer to attack allied creeps at %creep_deny_percent%%% health. Lifestealer gains permanent max HP whenever he kills a creep or hero."
-
-        	"DOTA_Tooltip_ability_life_stealer_infest_Description"                          "<font color=\"FFFF00\">ALTERED: Still Has Three Levels</font><br>Lifestealer infests the body of a target unit, becoming undetectable, and healing for a portion of his max hitpoints every second while inside. He can then explode from the host body, dealing damage to nearby enemies. If the infested unit is an enemy creep or a neutral creep, he can take control of the unit's ability to move and attack, and the creep loses a portion of their max hitpoints over time. Does not work on enemy heroes.\n\nDISPEL TYPE: Basic Dispel"
 		
 
 		// 混沌骑士
@@ -907,8 +817,6 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"					"Gain %movement_speed_pct_per_level%%% movement speed and %cooldown_reduction_pct_per_level%%% spell cooldown reduction per hero level."
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%MOVEMENT SPEED:"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%COOLDOWN REDUCTION:"
-
-		"DOTA_Tooltip_ability_death_prophet_exorcism_Description"                       "<font color=\"FFFF00\">ALTERED: Reduced Spirit Count, Increased Spirit Damage</font><br>Unleashes evil spirits to drain the life of nearby enemy units and structures. Spirits need to return back to Death Prophet in order to attack again. At the end of the spell's duration, Death Prophet is healed in proportion to the damage dealt. Deals 50% damage to buildings. Lasts %abilityduration% seconds.<br/>Increases Death Prophet's movement speed while active."
 
 
 		"DOTA_Tooltip_ability_bot_power_n5"							"Bot Salvation N5"
@@ -960,13 +868,6 @@
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_Description" 	"<font color=\"00FF00\">ALTERED: Heals By Default, Improved With Aghanim's Shard</font><br>Snapfire feeds a potent cookie to Mortimer or an ally, causing them to hop a short distance. The hopping unit stuns and damages enemies in the landing zone."
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
 
-		// Naga
-		"DOTA_Tooltip_ability_naga_siren_mirror_image_Description"              "<font color=\"FFFF00\">ALTERED: Reduced Image Count, Increased Image Duration</font><br>Creates multiple images of Naga Siren under her control.\n\nDISPEL TYPE: Basic Dispel"
-
-		// Terrorblade
-		"DOTA_Tooltip_ability_terrorblade_reflection_Description"                           "<font color=\"FF0000\">ALTERED: Reduced Duration, Increased Cooldown</font><br>Terrorblade brings forth an invulnerable dark reflection of all enemy heroes in a target area. Affected enemy heroes have movement and attack speeds slowed and attacked by their reflection."
-		"DOTA_Tooltip_ability_terrorblade_conjure_image_Description"                        "<font color=\"FFFF00\">ALTERED: Increased Cooldown, Improved Illusion Stats</font><br>Creates an illusion of Terrorblade that deals damage."
-
 		// Warlock
 
 		"npc_dota_hero_warlock_npedesc1"    	"<font color=\"FF0000\">ALTERED: Innate and Aghanim's Shard Upgrade Disabled</font><br>Summons powerful demons to fight at his side"
@@ -1002,7 +903,7 @@
 
 		// Enigma
 
-		"DOTA_Tooltip_ability_enigma_demonic_conversion_Description"                    "<font color=\"FFFF00\">ALTERED: Reduced Eidolon Count, Improved Eidolon Stats</font><br>Summons a fragment of Enigma himself at the cost of health.  The eidolon's health is increased by %current_health_pct%%% of Enigma's current health. This eidolon is under Enigma's control, and repeated successful attacks causes it to multiply.  When this happens, the eidolon has its health restored."
+		"DOTA_Tooltip_ability_enigma_demonic_conversion_Description"                    "Summons a fragment of Enigma himself at the cost of health.  The eidolon's health is increased by %current_health_pct%%% of Enigma's current health. This eidolon is under Enigma's control, and repeated successful attacks causes it to multiply.  When this happens, the eidolon has its health restored."
 
 		// 幽鬼 spe
 		"DOTA_Tooltip_ability_spectre_desolate_Description"		"<font color=\"00FF00\">Bonus Damage Always Applies</font><br>Deals bonus pure damage whenever Spectre attacks an enemy."
@@ -1023,9 +924,7 @@
 		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
 
 		// 剧毒
-		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
-
-		"DOTA_Tooltip_ability_venomancer_plague_ward_Description"                       "<font color=\"FFFF00\">ALTERED: Increased Cooldown, Increased Ward Duration and Stats</font><br>Summons a plague ward to attack enemy units and structures. The ward is immune to magic. Wards gain the Poison Sting level from Venomancer, dealing 50% of the full damage."		
+		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"	
 
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Bounces"
@@ -1070,9 +969,6 @@
 
 		// 暗影萨满
 		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% Serpent Ward Attack Damage"
-
-       		"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Description"				"<font color=\"FFFF00\">ALTERED: Reduced Ward Count, Increased Ward Damage</font><br>Summons %ward_count% Serpent Wards to attack enemy units and structures. The Wards are immune to magic. Creeps deal half damage to the Serpent Ward."
-        	"DOTA_Tooltip_ability_shadow_shaman_mass_serpent_ward_Facet_shadow_shaman_massive_serpent_ward" "<font color=\"FFFF00\">ALTERED</font>Summons a single massive Serpent Ward with %mega_ward_multiplier_damage%x damage and %mega_ward_multiplier_health%x health and bounty values."
 
 		// 骷髅王
 		"npc_dota_hero_skeleton_king_npedesc1"  							"<font color=\"FF0000\">ALTERED: Bone Guard Disabled</font><br>Can reincarnate instantly upon death"
@@ -2150,7 +2046,7 @@
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_agile"			"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_callous_bonus_damage"		"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_callous_dodge_chance"		"%+$evasion"
-		// "DOTA_Tooltip_ability_item_wasp_callous_attack_speed"		"+$attack"
+		"DOTA_Tooltip_ability_item_wasp_callous_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_wasp_callous_base_aspd"		"%+$attack"
 		"DOTA_Tooltip_modifier_item_callous_active"			"Hastened Judgment"
 		"DOTA_Tooltip_modifier_item_callous_active_Description"		"Evasion and movement speed increased."
@@ -2163,7 +2059,7 @@
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_agile"				"+$agi"
 		"DOTA_Tooltip_ability_item_wasp_golden_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_wasp_golden_dodge_chance"				"%+$evasion"
-		// "DOTA_Tooltip_ability_item_wasp_golden_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_wasp_golden_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_wasp_golden_base_aspd"				"%+$attack"
 		"DOTA_Tooltip_modifier_item_soul_active"					"Overwhelming Tyranny"
 		"DOTA_Tooltip_modifier_item_soul_active_Description"				"Evasion, movement speed, and critical chance increased, but critical damage decreased."
@@ -2710,5 +2606,87 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+
+		///////////////////////////////////////////////////
+		//
+		//			Search Aliases
+		//
+		///////////////////////////////////////////////////
+
+		"DOTA_SearchAlias_Ability_item_swift_blink_v2"			"swift blink;blink of bolt"
+		"DOTA_SearchAlias_Ability_item_arcane_blink"			"arcane blink;blink of einstein"
+		"DOTA_SearchAlias_Ability_item_overwhelming_blink_v2"		"overwhelming blink;tyson\'s flash"
+		"DOTA_SearchAlias_Ability_item_ultimate_scepter_2"		"aghanim\'s scepter;aghanims scepter;ultimate scepter;aghanims regalia;aghanim\'s regalia;ultimate regalia;consumable scepter"
+		"DOTA_SearchAlias_Ability_item_wings_of_haste"			"boots;consumable boots"
+		"DOTA_SearchAlias_Ability_item_consumable_gem"			"gem of true sight;gem of truesight;phantom gem;consumable gem of true sight;consumable gem of truesight
+		"DOTA_SearchAlias_Ability_item_refresh_core"			"refresher orb;refresher core;octarine core;aether lens;refresh core;refresh orb"
+		"DOTA_SearchAlias_Ability_item_vladmir_2"			"vladmirs offering;vladmir offering;vladmir\'s offering;vladmir;ac;assault cuirass;vladmir cuirass;vladmirs cuirass;vladmir\'s cuirass;vc;vac"
+		"DOTA_SearchAlias_Ability_item_saint_orb"			"linken\'s;linkens;lotus;lotus orb;swl"
+		"DOTA_SearchAlias_Ability_item_quelling_blade_2_datadriven"	"quelling blade"
+		"DOTA_SearchAlias_Ability_item_undying_heart"			"heart of tarrasque;hot;ud;heart;undying heart"
+		"DOTA_SearchAlias_Ability_item_force_staff_2"			"force staff;fs;gold force staff"
+		"DOTA_SearchAlias_Ability_item_force_staff_3"			"force staff;fs;wind force staff"
+		"DOTA_SearchAlias_Ability_item_insight_armor"			"pipe;pipe of insight;crimson guard;insight armor;armor of insight"
+		"DOTA_SearchAlias_Ability_item_arcane_octarine_core"		"octarine core;aether lens"
+		"DOTA_SearchAlias_Ability_item_aeon_pendant"			"aeon disk;ad;ap;aeon pendant"
+		"DOTA_SearchAlias_Ability_item_force_staff_2"			"force staff;fs"
+		"DOTA_SearchAlias_Ability_item_monkey_king_bar_2"		"mkb;monkey king bar"
+		"DOTA_SearchAlias_Ability_item_magic_scepter"			"ms;magic scepter;hallowed scepter"
+		"DOTA_SearchAlias_Ability_item_hallowed_scepter"		"hs;magic scepter;hallowed scepter"
+		"DOTA_SearchAlias_Ability_item_skadi_2"				"eos;skadi;eye of skadi"
+		"DOTA_SearchAlias_Ability_item_tome_of_agility"			"agility;tome of agility;book of agility"
+		"DOTA_SearchAlias_Ability_item_tome_of_strength"		"strength;tome of strength;book of strength"
+		"DOTA_SearchAlias_Ability_item_tome_of_intelligence"		"intelligence;intellect;tome of intelligence;tome of intellect;book of intelligence;book of intellect"
+		"DOTA_SearchAlias_Ability_item_manta_2"				"manta style"
+		"DOTA_SearchAlias_Ability_item_silver_edge_2"			"shadow blade;silver edge;lothar\'s edge;edge of lothar;lothar edge;lothar blade;lothars blade;lothar\'s blade"
+		"DOTA_SearchAlias_Ability_item_black_king_bar_2"		"bkb;black king bar"
+		"DOTA_SearchAlias_Ability_item_dodo_desolator"			"desolator;dodo desolator;infernal desolator"
+		"DOTA_SearchAlias_Ability_item_infernal_desolator"		"desolator;infernal desolator;ultra desolator"
+		"DOTA_SearchAlias_Ability_item_sacred_trident"			"trident;sacred trident;holy trinity;sacred trinity"
+		"DOTA_SearchAlias_Ability_item_sacred_six_vein"			"six vein;six vain;sacred six vein;sacred six vain;legendary hexad;legendary six vein;legendary six vain;hexad"
+		"DOTA_SearchAlias_Ability_item_abyssal_blade_v2"		"flash;abyssal blade;basher;skull basher"
+		"DOTA_SearchAlias_Ability_item_heavens_halberd_v2"		"heaven halberd;heavens halberd;heaven\'s halberd;heaven lament;heavens lament;heaven\'s lament;shroud;eternal shroud"
+		"DOTA_SearchAlias_Ability_item_adi_king"			"phase boots;advanced phase boots;advanced phase boots plus"
+		"DOTA_SearchAlias_Ability_item_adi_king_plus"			"phase boots;advanced phase boots;advanced phase boots plus"
+		"DOTA_SearchAlias_Ability_item_hurricane_pike_2"		"hurricane pike;gold hurricane pike;golden hurricane pike;gold pike;golden pike"
+		"DOTA_SearchAlias_Ability_item_blue_fantasy"			"bf;blue fantasy;diffusal;diffusal blade;disperser;spirit vessel;sv;nullifier"
+		"DOTA_SearchAlias_Ability_item_wasp_despotic"			"bfly;bf;butterfly;daedalus;wasp;critical"
+		"DOTA_SearchAlias_Ability_item_wasp_callous"			"bfly;bf;butterfly;daedalus;wasp;critical"
+		"DOTA_SearchAlias_Ability_item_wasp_golden"			"bfly;bf;butterfly;daedalus;wasp;critical;gold wasp;golden wasp"
+		"DOTA_SearchAlias_Ability_item_echo_sabre_2"			"es;echo sabre"
+		"DOTA_SearchAlias_Ability_item_shivas_guard_2"			"athena;athena guard;athenas guard;athena\'s guard;shiva guard;shivas guard;shiva\'s guard"
+		"DOTA_SearchAlias_Ability_item_shotgun"				"shotgun;double barrel;doublebarrel;double-barrel;shot gun"
+		"DOTA_SearchAlias_Ability_item_shotgun_v2"			"shotgun;triple barrel;triplebarrel;bullet-filled shotgun;bullet filled shotgun;bulletfilled shotgun;shot gun;bullet filled shot gun;bullet-filled shot gun"
+		"DOTA_SearchAlias_Ability_item_jump_jump_jump"			"jump;jumpumpjump;jump!;jump jump jump!;jump!jump!jump!;jump! jump! jump!blink dagger;blink;meteor hammer;fallen sky;overwhelming blink;swift blink;arcane blink"
+		"DOTA_SearchAlias_Ability_item_gungnir_2"			"atos;rod of atos;roa;gleipnir;dagon"
+		"DOTA_SearchAlias_Ability_item_satanic_2"			"lifesteal;life steal;satanic"
+		"DOTA_SearchAlias_Ability_item_bfury_2"				"bfury;bf;battle fury;battlefury"
+		"DOTA_SearchAlias_Ability_item_orb_of_the_brine"		"hl;holy locket;locket;brine;orb of the brine;wand of the brine"
+		"DOTA_SearchAlias_Ability_item_tome of luoshu"			"luoshu;loushu;tome of luoshu;tome of loushu;tome of strength;tome of agility;tome of intelligence;book of luoshu;book of loushu"
+		"DOTA_SearchAlias_Ability_item_necronomicon_staff"		"hex;sheepstick;scythe of vyse;vyse;necro;necronomicon staff;staff of vyse"
+		"DOTA_SearchAlias_Ability_item_hand_of_group			"hand of team;team;midas;hand of midas"
+		"DOTA_SearchAlias_Ability_item_bloodstone_v2"			"bs;bloodstone;mini-bloodstone;mini bloodstone"
+		"DOTA_SearchAlias_Ability_item_rapier_ultra"			"divine rapier;rapier;excalibur"
+		"DOTA_SearchAlias_Ability_item_rapier_ultra_bot"		"divine rapier;rapier;excalibur"
+		"DOTA_SearchAlias_Ability_item_bfury_ultra"			"bf;bfury;battle fury;battlefury;worldcleaver;worldbreaker;world cleaver;world breaker"
+		"DOTA_SearchAlias_Ability_item_bloodthorn_ultra"		"orchid;orchid malevolence;malevolence;om;bt;bloodthorn"
+		"DOTA_SearchAlias_Ability_item_devastator_2"			"parasma;witch blade;wb"
+		"DOTA_SearchAlias_Ability_item_kaya_and_sange_1"		"snk;kns;s&k;K&s:sk;kaya and sange;sange;kaya"
+		"DOTA_SearchAlias_Ability_item_sange_and_yasha_1"		"sny;s&y;sy;sange and yasha;sange;yasha"
+		"DOTA_SearchAlias_Ability_item_yasha_and_kaya_1"		"ynk;y&k;sk;yasha and kaya;yasha;kaya"
+		"DOTA_SearchAlias_Ability_item_manta_2"				"phase axe"
+		"DOTA_SearchAlias_Ability_item_heavens_halberd_2"		"heaven halberd;heavens halberd;heaven\'s halberd"
+		"DOTA_SearchAlias_Ability_item_meteor_hammer_2"			"meteor hammer;asteroid hammer;asteroid staff;meteor staff"
+		"DOTA_SearchAlias_Ability_item_meteor_hammer_2"			"meteor hammer;asteroid hammer;asteroid staff;meteor staff"
+		"DOTA_SearchAlias_Ability_item_ethereal_blade_ultra"		"eblade;e-blade;e-blade;ethereal blade;ghost scepter"
+		"DOTA_SearchAlias_Ability_item_boots_of_bearing_2"		"boots of bearing;bearing;bearing boots;tranquil boots;drums;drums of endurance"
+		"DOTA_SearchAlias_Ability_item_eternal_shroud_ultra"		"swimagicostume;eternal shroud;shroud;cloak"
+		"DOTA_SearchAlias_Ability_item_guardian_greaves_artifat"	"greaves;guardian greaves;mekasm;arcane boots"
+		"DOTA_SearchAlias_Ability_item_disperser_chaos"			"disperser;diffusal blade"
+		"DOTA_SearchAlias_Ability_item_soul_ring_1"			"soul ring;chaotic soul ring"
+		"DOTA_SearchAlias_Ability_item_force_field_ultra"		"bm;blade mail;force field;ff;arcanist armor;arcanists armor;arcanist\'s armor"
+		"DOTA_SearchAlias_Ability_item_revenants_brooch_2"		"rb;revenant brooch;revenants brooch;revenant\'s brooch;revenant broach;revenants broach;revenant\'s broach;"
+		"DOTA_SearchAlias_Ability_item_revenants_brooch_ultra"		"rb;revenant brooch;revenants brooch;revenant\'s brooch;revenant broach;revenants broach;revenant\'s broach;"
+		"DOTA_SearchAlias_Ability_item_dagon_ultra"			"dagon;thousand strikes;thousand-strikes"
 	}
 }
