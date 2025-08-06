@@ -2754,6 +2754,7 @@
 		"AbilityManaCost"				"45 40 35 30 25"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"DependentOnAbility"            		"marci_unleash"
+		"AbilityTextureName"            		"player/nemesis"	// Placeholder texture for now, otherwise Sidekick and Bodyguard would have the exact same texture
 		"AbilityValues"
 		{
 			"lifesteal_pct"
