@@ -2694,54 +2694,85 @@
 	// 回身踢
 	"marci_companion_run"
 	{
-		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityManaCost"				"70 75 80 85 90"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"		"20 18 16 14 12"
+					"value"		"16 15 14 13 12"
 				}
+				"move_speed"            "3000"		// 1700
 				"max_jump_distance"
 				{
-					"value"										"450 550 650 750 850"
+					"value"										"550 625 700 775 850"
+					"special_bonus_unique_marci_lunge_range"    					"+150"
 				}
 				"AbilityCastRange"
 				{
-					"value"										"450 550 650 750 850"
+					"value"										"550 625 700 775 850"
+					"special_bonus_unique_marci_lunge_range"    					"+150"
 				}
 				"impact_damage"
 				{
 					"value"				"80 160 240 320 400"
+					"special_bonus_shard"           "+25%"
 				}
 				"debuff_duration"
 				{
-					"value"			"0.8 1.1 1.4 1.7 2.0"
+					"value"			"0.8 1.2 1.6 2.0 2.4"
+					"special_bonus_unique_marci_grapple_stun_duration"  "+0.6"
 				}
+				"ally_buff_duration"    "4.0 4.5 5.0 5.5 6.0"		// 4.0
 				"ally_movespeed_pct"
 				{
 					"value"				"25 30 35 40 45"
+					"special_bonus_unique_marci_lunge_movespeed" "+15"
 				}
+				"ally_impact_damage_pct"
+                		{
+                    			"special_bonus_facet_marci_pickmeup"    "=60"	// 35
+                		} 
 				"max_level"
 				{
 					"value"				"5"
 				}
+		                "postjump_unleash_duration"
+                		{
+                    			"special_bonus_facet_marci_fleeting_fury"       "=6"
+                		}
+                		"postjump_flurry_charges"
+               			{
+                    			"special_bonus_facet_marci_fleeting_fury"       "=6"
+                		}
 		}
 	}
 	// 健体术
 	"marci_guardian"
 	{
 		"MaxLevel" "5"
+		"Innate"   "1"
 		"AbilityManaCost"				"45 40 35 30 25"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"DependentOnAbility"            		"marci_unleash"
+		"AbilityTextureName"            		"player/nemesis"	// Placeholder texture for now, otherwise Sidekick and Bodyguard would have the exact same texture
 		"AbilityValues"
 		{
 			"lifesteal_pct"
 			{
-				"value"			"12 18 24 30 36"
+				"value"				"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"		// Uses damage talent so that both values increase with one talent
 			}
 			"bonus_damage"
 			{
-				"value"				"12 18 24 30 36"
+				"value"				"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"
 			}
+			"max_partner_distance"              
+            {
+            	"value"     "3000"	// 1750
+            	"affected_by_aoe_increase"  "1"
+           }
+           "max_partner_penalty"               "100"	// 50
 		}
 	}
 	// 护卫术
@@ -2752,11 +2783,13 @@
 		{
 			"lifesteal_pct"
 			{
-				"value"											"12 18 24 30 36"
+				"value"											"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"		// Uses damage talent so that both values increase with one talent
 			}
 			"bonus_damage"
 			{
-				"value"											"12 18 24 30 36"
+				"value"											"15 30 45 60 75"
+				"special_bonus_unique_marci_guardian_damage"            "+25"
 			}
 			"bonus_armor"										"4 8 12 16 20"
 		}
@@ -2767,14 +2800,42 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			"charges_per_flurry"	"8 12 15 18"	//5
-			"flurry_bonus_attack_speed"	"700 975 1325 1600"
-			"time_between_flurries"	"1.0"	// 1.5
+			"duration"
+                	{
+                   		"value"                                     "24"	// 16
+                	}
+			"charges_per_flurry"	"6"	//5
+			"flurry_bonus_attack_speed"	"800 1200 1600 2000"
+			"time_between_flurries"	"1.0 0.9 0.8 0.7"	// 1.5
 			"pulse_damage"
 			{
-				"value"			"50 100 150 200"
+				"value"			"100 200 300 400"
 			}
-			"pulse_attack_slow_pct"	"60.0 80.0 100.0 120.0"
+			"pulse_move_slow_pct"   	"30.0 40.0 50.0 60.0"		// 30.0
+			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 2x
+			"bonus_movespeed"       
+                	{
+                    		"value"     "10 15 20 25"
+                    		"special_bonus_unique_marci_unleash_speed"  "+15"
+                	}
+                	"recovery_fixed_attack_rate"    "1.0 0.9 0.8 0.7"	// 2.0
+			"scepter_cooldown_reduction"
+                	{       
+                    		"special_bonus_scepter"     "15.0"	// 10.0
+                	}
+                	"dispel"            
+                	{
+				"value"			"1"
+                   		"special_bonus_scepter" "+0"
+                	}
+                	"pulse_silence_duration"
+                	{
+                   	 	"special_bonus_scepter" "+2"		// 1
+               		}
+                	"extend_duration"
+                	{
+                    		"special_bonus_unique_marci_unleash_extend_duration"        "5"
+                	}
 			"AbilityCooldown"
 			{
 				"value"										"90 75 60 45"
