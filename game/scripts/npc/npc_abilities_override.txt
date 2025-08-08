@@ -2682,6 +2682,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"14 13 12 11 10"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 				"impact_damage"
@@ -2695,6 +2696,7 @@
 	"marci_companion_run"
 	{
 		"AbilityManaCost"				"70 75 80 85 90"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
@@ -2751,6 +2753,7 @@
 	{
 		"MaxLevel" "5"
 		"Innate"   "1"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityManaCost"				"45 40 35 30 25"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"DependentOnAbility"            		"marci_unleash"
@@ -2798,6 +2801,9 @@
 	"marci_unleash"
 	{
 		"MaxLevel" "4"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+		"AbilityCastPoint"              "0.0"
 		"AbilityValues"
 		{
 			"duration"
@@ -2806,36 +2812,36 @@
                 	}
 			"charges_per_flurry"	"6"	//5
 			"flurry_bonus_attack_speed"	"800 1200 1600 2000"
-			"time_between_flurries"	"1.0 0.9 0.8 0.7"	// 1.5
+			"time_between_flurries"	"1.0 0.8 0.6 0.4"	// 1.5
 			"pulse_damage"
 			{
-				"value"			"100 200 300 400"
+				"value"			"125 250 375 500"
 			}
 			"pulse_move_slow_pct"   	"30.0 40.0 50.0 60.0"		// 30.0
 			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 2x
 			"bonus_movespeed"       
-                	{
-                    		"value"     "10 15 20 25"
-                    		"special_bonus_unique_marci_unleash_speed"  "+15"
-                	}
-                	"recovery_fixed_attack_rate"    "1.0 0.9 0.8 0.7"	// 2.0
+            {
+               		"value"     "10 15 20 25"
+               		"special_bonus_unique_marci_unleash_speed"  "+15"
+            }
+            "recovery_fixed_attack_rate"    "1.0 0.8 0.6 0.4"	// 2.0
 			"scepter_cooldown_reduction"
-                	{       
-                    		"special_bonus_scepter"     "15.0"	// 10.0
-                	}
-                	"dispel"            
-                	{
-				"value"			"1"
-                   		"special_bonus_scepter" "+0"
-                	}
-                	"pulse_silence_duration"
-                	{
-                   	 	"special_bonus_scepter" "+2"		// 1
-               		}
-                	"extend_duration"
-                	{
-                    		"special_bonus_unique_marci_unleash_extend_duration"        "5"
-                	}
+            {       
+               		"special_bonus_scepter"     "15.0"	// 10.0
+            }
+            "dispel"            
+            {
+					"value"			"1"
+               		"special_bonus_scepter" "+0"
+            }
+            "pulse_silence_duration"
+            {
+              	 	"special_bonus_scepter" "+3"		// 1
+            }
+            "extend_duration"
+            {
+               		"special_bonus_unique_marci_unleash_extend_duration"        "5"
+            }
 			"AbilityCooldown"
 			{
 				"value"										"90 75 60 45"
