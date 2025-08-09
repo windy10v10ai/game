@@ -43,7 +43,16 @@
 
 ### 单一数值技能
 
-- 对于只有一个数值的技能，除非数值和原版不一致，否则移除
+- **重要**：对于只有一个数值的技能（如MaxLevel为1的天赋技能），除非数值和原版不一致，否则移除override条目
+- 不要强制将单一数值技能扩展为多级技能
+- 检查原版文件确认技能的实际MaxLevel和数值
+
+**处理流程**：
+
+1. 检查原版文件中技能的MaxLevel
+2. 如果MaxLevel为1且数值已符合更新要求 → 移除override条目
+3. 如果MaxLevel为1但数值不符合要求 → 添加override但保持MaxLevel为1
+4. 如果MaxLevel > 1 → 按多级技能规则处理
 
 ### 不需要复制的kv
 
@@ -91,20 +100,54 @@ grep "天涯墨客"
 # 方法4：使用特征数值搜索
 grep "1\.3.*1\.8.*2\.3.*2\.8"  # 搜索墨涌的眩晕时间
 grep "+40.*腐朽"              # 搜索不朽尸王腐朽天赋
+
+# 方法5：通过abilities_schinese文件查找技能系统名
+grep "暴烈之爪" docs/reference/7.39/abilities_schinese.txt
+# 找到 "DOTA_Tooltip_ability_ursa_maul" 得知系统名为 ursa_maul
 ```
+
+### 技能系统名查找技巧
+
+当遇到不知道系统名的技能时：
+
+1. **使用abilities_schinese文件查找**：
+
+   ```bash
+   grep "技能中文名" docs/reference/7.39/abilities_schinese.txt
+   ```
+
+2. **查看搜索结果中的Tooltip行**：
+
+   ```
+   "DOTA_Tooltip_ability_技能系统名"   "技能中文名"
+   ```
+
+3. **使用找到的系统名在override文件中搜索**：
+   ```bash
+   grep "技能系统名" game/scripts/npc/npc_abilities_override.txt
+   ```
+
+**示例**：
+
+- 搜索"暴烈之爪" → 找到"ursa_maul"
+- 搜索"潮汐使者" → 找到"kunkka_tidebringer"
+- 搜索"沙尘暴" → 找到"sandking_sand_storm"
 
 ## 同步更新日志的工作流程
 
-1. 分析更新日志中提到的所有英雄技能变更
-2. **使用英雄和技能内部名称搜索override文件**
-3. 检查原版文件中的当前数值（原版文件已经是更新后的）
-4. 对于override文件中存在的技能：
+1. **分析更新日志**：列出所有英雄技能变更
+2. **查找技能系统名**：
+   - 如果不知道系统名，使用abilities_schinese文件查找
+   - 在override文件中搜索技能系统名
+3. **检查原版文件**：确认技能的MaxLevel和当前数值（原版文件已经是更新后的）
+4. **处理existing技能**（override文件中存在的技能）：
    - 如果override数值与原版一致 → 移除override条目
    - 如果override数值与原版不同 → 按照差值/倍率规则调整
    - 如果是扩展等级 → 保持扩展并调整数值
-5. 对于override文件中不存在的技能：
+5. **处理missing技能**（override文件中不存在的技能）：
+   - 检查原版MaxLevel：单一数值(MaxLevel=1)还是多级技能
    - 如果原版已经是目标数值 → 不需要添加override
-   - 如果需要自定义修改 → 添加override条目
+   - 如果需要自定义修改 → 添加override条目（保持原版MaxLevel）
 
 ## 示例
 
@@ -161,4 +204,27 @@ grep "+40.*腐朽"              # 搜索不朽尸王腐朽天赋
 // 新原版：+90，严格按差值应该是90+50=140
 // 但可以微调差值为+60，使结果为150（保持整数）
 "special_bonus_unique_example"	"+150"	// 原版90 +60差值
+```
+
+### 单一数值技能处理示例
+
+```
+// 更新日志：熊战士暴烈之爪生命值转攻击力从1.2/1.3/1.4/1.5%调整为1.25%
+
+// 1. 在abilities_schinese中搜索"暴烈之爪"找到系统名：ursa_maul
+// 2. 检查原版文件：MaxLevel为1，health_as_damage_pct为1.25
+// 3. 原版已经是目标数值，不需要override
+
+// 错误做法：强制扩展为5级
+"ursa_maul"
+{
+    "MaxLevel"      "5"
+    "AbilityValues"
+    {
+        "health_as_damage_pct"  "1.25 1.25 1.25 1.25 1.25"
+    }
+}
+
+// 正确做法：移除override或不添加override（因为原版已符合要求）
+// （不需要任何override条目）
 ```
