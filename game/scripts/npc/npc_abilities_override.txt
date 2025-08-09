@@ -325,7 +325,7 @@
 			"regen"
 			{
 				"value"			"0"
-				"special_bonus_unique_abaddon_7"		"+30"	// 12
+				"special_bonus_unique_abaddon_7"		"+30"	// 10 原版 +20差值
 			}
 		}
 	}
@@ -4801,7 +4801,7 @@
 			"decay_damage"
 			{
 				"value"		"40 80 120 160 200"
-				"special_bonus_unique_undying_8" "+100"	// 50
+				"special_bonus_unique_undying_8" "+70"	// 30 原版 +40差值
 			}
 			"str_steal"
 			{
@@ -6488,7 +6488,8 @@
 			}
 			"AbilityCooldown"
 			{
-				"special_bonus_unique_luna_6"	"-20.0"
+				"value"							"90"	// 105
+				"special_bonus_unique_luna_6"	"-20.0"	// -40.0
 			}
 		}
 	}
@@ -7325,7 +7326,6 @@
 			"stun_duration"
 			{
 				"value"					"0.4 0.8 1.2 1.6 2.0"
-				"special_bonus_unique_nyx_6"	"+0.5"
 			}
 		}
 	}
