@@ -29,6 +29,14 @@
 - 如果override的备注中写了+多少，x多少时，同步时对数值进行相应的加减
 - 如果override的数值与备注的数值存在差值时，同步时候保持此差值
 
+### 备注格式规范
+
+- **只记录与原版的差异**：备注应该只显示原版的数值，不包含我们的扩展信息
+- **不要写扩展信息**：如"扩展第4级"、"扩展第5级"等信息不应出现在备注中
+- **示例格式**：
+  - 正确：`"value" "40 35 30 25" // 原版40/35/30`
+  - 错误：`"value" "40 35 30 25" // 原版40/35/30，扩展第4级`
+
 ### 特殊数值处理
 
 - 对于AbilityCooldown或者百分比（pct）数值，在确保最高等级的数值和原版一致的前提下，适当调整1级的数值，或减少每一级的差值，使得每一级的数值都是整数
@@ -61,14 +69,34 @@
 - special_bonus_xxx（除非有修改）
 - affected_by_aoe_increase
 
+### 基础属性处理
+
+- **不在abilities override中写基础属性**：如AttributeBaseStrength、AttributeAgilityGain等基础属性应该在npc_heroes_custom.txt文件中处理，不应该出现在npc_abilities_override.txt中
+- **只处理技能相关的override**：npc_abilities_override.txt只用于技能、天赋等能力的覆盖
+- **无视更新日志中基础属性的变化**：通常不会自定义修改
+
 ### 与原版一致的条目
 
 - **重要**：当override文件中的数值与原版完全一致时，应该移除这些条目
 - 例如：如果原版已经是`"special_bonus_unique_nyx_6" "+0.6"`，则不需要在override中重复写入
 
-## 搜索技巧
+## 文件位置和搜索指南
 
-### 在override文件中搜索技能
+### 主要文件位置
+
+#### 编辑目标文件
+
+- **`game/scripts/npc/npc_abilities_override.txt`** - 技能覆盖文件（主要编辑对象）
+- **`game/scripts/npc/npc_heroes_custom.txt`** - 英雄基础属性覆盖文件（英雄属性修改）
+
+#### 参考文件
+
+- **`docs/reference/7.39/abilities_schinese.txt`** - 中文技能名对应系统名查找
+- **`docs/reference/7.39/heroes/npc_dota_hero_*.txt`** - 原版英雄技能数据（确认MaxLevel和数值）
+
+### 搜索技巧
+
+#### 在override文件中搜索技能
 
 - **重要**：在override中搜索时，可以使用多种方法：
   1. **英雄内部名称和技能内部名称**：最精确的搜索方法
@@ -228,3 +256,59 @@ grep "暴烈之爪" docs/reference/7.39/abilities_schinese.txt
 // 正确做法：移除override或不添加override（因为原版已符合要求）
 // （不需要任何override条目）
 ```
+
+## 常见问题和格式检查
+
+### 重复定义检查
+
+**问题**：同一个key在同一技能中被定义多次
+
+**检查方法**：
+
+- 在技能block内搜索重复的key名
+- 特别注意AbilityCooldown、AbilityManaCost等常见属性
+
+**解决方法**：
+
+- 只保留一个定义
+- 确保定义位置符合原版文件的key顺序
+
+### Key位置顺序检查
+
+**原则**：保持与原版文件相同的key排列顺序
+
+**常见顺序参考**（以wisp_spirits为例）：
+
+```
+"wisp_spirits"
+{
+    "MaxLevel"                  "5"
+    "AbilityDuration"           "10.0"
+    "AbilityValues"
+    {
+        "creep_damage"          // 小兵伤害
+        "hero_damage"           // 英雄伤害
+        "revolution_time"       // 旋转时间
+        "min_range"             // 最小范围
+        "max_range"             // 最大范围
+        "hit_radius"            // 命中半径
+        "explode_radius"        // 爆炸半径
+        "spirit_movement_rate"  // 移动速度
+        "spirit_duration"       // 持续时间
+        "spirit_amount"         // 数量
+        "scepter_*"             // 神杖相关
+        "AbilityManaCost"       // 魔法消耗
+        "AbilityCooldown"       // 冷却时间
+    }
+}
+```
+
+### 格式检查清单
+
+1. **缩进检查**：使用tab缩进，保持一致性
+2. **备注格式**：`// 原版数值` 或 `// 原版数值 (说明)`
+3. **数值分隔**：空格分隔多个数值
+4. **引号使用**：所有key和value都用双引号包围
+5. **重复检查**：确保没有重复定义的key
+6. **顺序检查**：key的顺序尽量符合原版文件
+7. **空行规范**：技能之间保持适当空行分隔```
