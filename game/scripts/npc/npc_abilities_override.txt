@@ -325,7 +325,7 @@
 			"regen"
 			{
 				"value"			"0"
-				"special_bonus_unique_abaddon_7"		"+30"	// 10 原版 +20差值
+				"special_bonus_unique_abaddon_7"		"+30"	// 10 +20差值
 			}
 		}
 	}
@@ -1303,7 +1303,7 @@
 			"cooldown_reduction"
 			{
 				"value"									"0"
-				"special_bonus_facet_dawnbreaker_solar_charged"		"1.6"	// 原版0.8 (x2)
+				"special_bonus_facet_dawnbreaker_solar_charged"		"1.6"	// 0.8 (x2)
 			}
 		}
 	}
@@ -1346,7 +1346,7 @@
 		{
 			"bonus_gold"
 			{
-				"value"				"35 70 105 140 175"	// 原版35/70/105/140
+				"value"				"35 70 105 140 175"	// 35/70/105/140
 			}
 			"creep_level"			"6"
 		}
@@ -2192,7 +2192,7 @@
 			}
 			"cleave_distance"
 			{
-				"value"			"650 775 900 1025 1150"	// 原版650/775/900/1025
+				"value"			"650 775 900 1025 1150"	// 650/775/900/1025
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage_bonus"
@@ -3303,7 +3303,7 @@
 	"primal_beast_pulverize"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"40 35 30 25"	// 原版40/35/30
+		"AbilityCooldown"				"40 35 30 25"	// 40/35/30
 		"AbilityManaCost"				"100 120 140 160"
 		"AbilityValues"
 		{
@@ -3565,7 +3565,7 @@
 			}
 			"sand_storm_radius"
 			{
-				"value"		"475 550 625 700 775"	// 原版475/550/625/700
+				"value"		"475 550 625 700 775"	// 475/550/625/700
 			}
 			"sand_storm_damage"
 			{
@@ -4034,7 +4034,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"		"18 17 16 15 14"	// 原版18/17/16/15
+					"value"		"18 17 16 15 14"	// 18/17/16/15
 					"special_bonus_unique_snapfire_3"	"-5"		// -4
 				}
 				"projectile_speed"		"1800"						// 1200
@@ -4286,7 +4286,7 @@
 	"sven_gods_strength"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100"	// 原版，刚好续不上，有真空期
+		"AbilityCooldown"				"100"	// ，刚好续不上，有真空期
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
@@ -4801,7 +4801,7 @@
 			"decay_damage"
 			{
 				"value"		"40 80 120 160 200"
-				"special_bonus_unique_undying_8" "+70"	// 30 原版 +40差值
+				"special_bonus_unique_undying_8" "+70"	// 30 +40差值
 			}
 			"str_steal"
 			{
@@ -4984,7 +4984,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"				"22 21 20 19 18"	// 原版22/21/20/19
+				"value"				"22 21 20 19 18"	// 22/21/20/19
 			}
 		}
 	}
@@ -5314,7 +5314,7 @@
 				"silence_duration"			"3 4 5 6 7"
 				"damage"
 				{
-					"value"			"115 190 265 340 415"
+					"value"			"100 155 210 265 320"	// 100/155/210/265
 					"special_bonus_unique_bloodseeker_2"	"+185"	// 100
 				}
 		}
@@ -5451,7 +5451,7 @@
 				}
 				"bonus_gold"
 				{
-					"value"		"100 150 200 250"
+					"value"		"100 150 200 250"	// 50/90/130 增强
 					"special_bonus_unique_bounty_hunter_3"	"+100"
 				}
 				"gold_steal"			"0.3 0.4 0.5 0.6"
@@ -5511,7 +5511,7 @@
 		}
 	}
 	// 骨隐步
-	"clinkz_wind_walk" // 原版去掉骷髅兵
+	"clinkz_wind_walk" // 去掉骷髅兵
 	{
 		"AbilityValues"
 		{
@@ -5688,7 +5688,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"14 13 12 11 10"
-		"AbilityManaCost"				"95 105 115 125 135"	// 原版95/105/115/125
+		"AbilityManaCost"				"95 105 115 125 135"	// 95/105/115/125
 		"AbilityValues"
 		{
 				"duration"
@@ -5815,7 +5815,7 @@
 				"chance_pct"			"12 16 20 24 28"
 				"bonus_damage"
 				{
-					"value"				"36 44 52 60 68"	// 原版18/22/26/30 (x2)
+					"value"				"36 44 52 60 68"	// 18/22/26/30 (x2)
 					"special_bonus_unique_faceless_void_3" "+40"	// 30
 				}
 		}
@@ -5866,7 +5866,7 @@
 	"faceless_void_chronosphere"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120"	// 原版155/145/135 固定 120
+		"AbilityCooldown"				"120"	// 155/145/135 固定 120
 		"AbilityManaCost"				"150 225 300 375"
 		"AbilityValues"
 		{
@@ -5888,7 +5888,7 @@
 	{
 		"MaxLevel"						"4"
 		"AbilityCastRange"				"900"		// 500
-		"AbilityCooldown"				"120"	// 原版155/145/135 固定 120
+		"AbilityCooldown"				"120"	// 155/145/135 固定 120
 		"AbilityManaCost"				"125 200 275 350"
 		"AbilityValues"
 		{
@@ -7059,7 +7059,7 @@
 			}
 			"duration"
 			{
-				"value"			"2.6 2.9 3.2 3.5 3.8"	// 原版2.6/2.9/3.2/3.5
+				"value"			"2.6 2.9 3.2 3.5 3.8"	// 2.6/2.9/3.2/3.5
 			}
 			"status_resistance"
 			{
@@ -7084,7 +7084,7 @@
 		{
 			"radius"
 			{
-				"value"			"900 1150 1400 1650"	// 原版900/1150/1400 扩展4级
+				"value"			"900 1150 1400 1650"	// 900/1150/1400 扩展4级
 			}
 			"heal_pct"
 			{
@@ -7218,7 +7218,7 @@
 		{
 			"presence_armor_reduction"
 			{
-				"value"		"-3 -5 -7 -9 -11"	// 原版-3/-4/-5/-6 增强
+				"value"		"-3 -5 -7 -9 -11"	// -3/-4/-5/-6 增强
 			}
 			// 天命 经久不衰
 			"bonus_armor_per_stack"
@@ -10016,12 +10016,12 @@
 			"duration"						"2.0 2.5 3 3.5 4"
 			"sprout_damage"
 			{
-				"value"															"70 130 190 250 310"	// 原版70/130/190/250
+				"value"															"70 130 190 250 310"	// 70/130/190/250
 			}
 			"sprout_heal_per_second"
 			{
 				"value"						"0"
-				"special_bonus_facet_furion_soothing_saplings"	"=30 =45 =60 =75 =90"	// 原版10/15/20/25 (x3)
+				"special_bonus_facet_furion_soothing_saplings"	"=30 =45 =60 =75 =90"	// 10/15/20/25 (x3)
 			}
 		}
 	}
@@ -10207,7 +10207,7 @@
 				{
 					"value"		"180 270 360 450 540"	// +90
 				}
-				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 原版1.6/2.0/2.4/2.8
+				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6/2.0/2.4/2.8
 				"damage_per_tick"		"12 18 24 30 36"	// x2
 				"tick_dps_tooltip"		"60 90 120 150 180"	// x2
 		}
@@ -11260,7 +11260,7 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"health_regen"	"7 10 13 16 19"	// 原版3.5/5/6.5/8 (x2)
+			"health_regen"	"7 10 13 16 19"	// 3.5/5/6.5/8 (x2)
 			"mana_regen"	"7 10 13 16 19"
 		}
 	}
