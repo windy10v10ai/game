@@ -8,7 +8,7 @@
 	{
 		"AbilityValues"
 		{
-			"mana_regen"				"3 6 9 12"		// x3
+			"mana_regen"				"3 6 9 12"		// 0.8 1.6 2.4 3.2
 			"magic_res"					"0 10 25 30"	// 0 10 16 22
 			"bonus_cast_range"			"25 50 75 100"	// 0 0 0 100
 		}
@@ -19,7 +19,7 @@
 		"AbilityValues"
 		{
 			"health_bonus"			"200 400 600 800"	// 110 150 190 230
-			"health_regen"			"5 10 15 20"		// 0 4 8 12
+			"health_regen"			"5 10 15 20"		// 0 3 6 9
 			"slow_resist"			"0 10 20 30"		// 0 0 0 25
 		}
 	}
