@@ -7868,10 +7868,26 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
+			"pounce_distance"
+			{
+				"value"					"1000"		// 原版 700，增强约43%
+			}
+			"pounce_speed"
+			{
+				"value"					"1400"		// 原版 933.33，增强50%
+			}
+			"pounce_acceleration"
+			{
+				"value"					"10000"		// 原版 7000，增强约43%
+			}
 			"leash_duration"
 			{
 				"value"			"2.5 2.75 3 3.25 3.5"
 				"special_bonus_unique_slark"	"+0.75"		// +0.5
+			}
+			"pounce_distance_scepter"
+			{
+				"special_bonus_scepter"		"1200"		// 原版 900，增强约33%
 			}
 			"essence_stacks"
 			{
