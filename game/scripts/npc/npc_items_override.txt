@@ -250,9 +250,8 @@
 	//=================================================================================================================
 	"item_glimmer_cape"
 	{
-		"AbilityCastRange"				"1000"
-		"AbilityCooldown"				"14.0"
-		"AbilityManaCost"				"50"
+		"AbilityCastRange"				"1000"		// 600
+		"AbilityManaCost"				"50"		// 125
 		"AbilityValues"
 		{
 			"active_movement_speed"		"60"		// 20
