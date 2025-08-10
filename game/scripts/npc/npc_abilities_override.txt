@@ -10772,14 +10772,9 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"22 21 20 19 18"
-		"AbilityManaCost"				"90 110 130 150 170"
+		"AbilityManaCost"				"90 120 150 180 210"
 		"AbilityValues"
 		{
-				"num_explosions"
-				{
-					"value"		"50"	// 40
-				"special_bonus_unique_leshrac_1" "+30"	// 20
-				}
 				"damage"
 				{
 					"value"		"10 18 26 34 42"
@@ -10827,17 +10822,12 @@
 				"mana_cost_per_second"	"25 50 75 100"
 				"radius"
 				{
-					"value"		"1000"		// 500
+					"value"		"600 800 1000"		// 500
 					"affected_by_aoe_increase"	"0"	// 防止挂机
 				}
 				"damage"
 				{
 					"value"			"80 135 180 225"
-				}
-				"damage_resistance"
-				{
-					"value"			"0"
-					"special_bonus_unique_leshrac_4"	"+20"	// 10
 				}
 		}
 	}
