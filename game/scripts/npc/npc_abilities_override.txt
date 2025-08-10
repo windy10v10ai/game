@@ -9895,6 +9895,11 @@
 				"value"				"8 16 24 32 40"				// x2
 				"special_bonus_unique_enchantress_5"	"+16"	// x2
 			}
+			"movespeed"
+			{
+				"value"			"30"
+				"special_bonus_unique_enchantress_6"	"+60"	// +30
+			}
 		}
 	}
 	// 魅惑
