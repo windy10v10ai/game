@@ -9621,8 +9621,8 @@
 			"tooltip_max_targets_inc_dazzle"	"5 7 9 11 13"
 			"damage"
 			{
-				"value"					"130 160 190 220 250"	// 85 105 125 145 x1.5
-				"special_bonus_unique_dazzle_2" "+90"	// 45
+				"value"					"170 210 250 290 330"	// 85 105 125 145 x2
+				"special_bonus_unique_dazzle_2" "+90"	// +45 x2
 			}
 		}
 	}
