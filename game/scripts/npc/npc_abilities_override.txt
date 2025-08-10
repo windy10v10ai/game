@@ -3534,7 +3534,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"100 110 120 130 140"
-		"AbilityDamage"					"80 150 220 290 360"
+		"AbilityDamage"					"120 200 280 360 440"	// 80 150 220 290
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -3543,12 +3543,12 @@
 			}
 			"burrow_duration"
 			{
-				"value"			"1.2 1.4 1.6 1.8 2.0"
-				"special_bonus_unique_sand_king_burrowstrike_stun"				"+0.4"
+				"value"			"1.4 1.6 1.8 2.0 2.2"	// 1.2 1.4 1.6 1.8
 			}
 			"AbilityCastRange"
 			{
-				"value"								"525 600 675 750 875"
+				"value"								"900"	// 525 600 675 750
+				"special_bonus_unique_sand_king_8"	"+300"	// +200
 			}
 		}
 	}
@@ -3588,7 +3588,8 @@
 			}
 			"attack_damage"
 			{
-				"value"						"40 80 120 160 200"
+				"value"						"100 150 200 250 300"	// 50 75 100 125 x2
+				"special_bonus_unique_sand_king_scorpion_strike_damage"			"+100"	// +40
 			}
 			"debuff_duration"				"4 5 6 7 8"
 			"strike_slow"
@@ -3606,12 +3607,11 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"		"90 80 70 60"
+				"value"		"60"
 			}
-			"epicenter_pulses"	// x0.5
+			"epicenter_pulses"
 			{
-				"value"		"8 10 12 14"
-				"special_bonus_unique_sand_king"	"+5"
+				"value"		"12 16 20 24"
 			}
 			"epicenter_damage"	// x2
 			{
@@ -3624,7 +3624,7 @@
 			}
 			"epicenter_slow_as"
 			{
-				"value"			"-50 -70 -90 -110"
+				"value"			"-50 -100 -150 -200"	// -50 -55 -60
 			}
 			"shard_interval"
 			{
