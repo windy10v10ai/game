@@ -1,0 +1,315 @@
+# NPC Abilities Override 编辑规则
+
+## 基础原则
+
+1. **以原版文件为基础**：始终以原版（npc_data_hero_xxx）文件为基础进行override
+2. **移除不存在的kv**：当原版中不存在某个kv时，从override文件中移除
+3. **移除与原版一致的数值**：当override文件中的数值与原版完全一致时，应该从override文件中移除这些条目，避免重复
+
+## 数值设置规则
+
+### MaxLevel扩展
+
+- 根据MaxLevel的数字，决定设置多少个数值
+- 多增加的数值保持等差数列
+- 基础等级的数值和原版一致，只添加额外等级数值，不需要备注原版数值
+
+### 原版等级变化处理
+
+- **重要**：当更新日志显示从单一数值变为多级数值时（如"从3.5秒减少至2.6/2.9/3.2/3.5秒"），说明原版进行了等级扩展
+- 检查override中该技能的MaxLevel：
+  - 如果override是更高等级（如5级），需要在原版基础上扩展相应等级
+  - 如果override是相同等级，直接使用原版数值
+- 按等差数列规律扩展额外等级
+
+### 备注和差值处理
+
+- 当override的基础数值与原版不一致时，备注的是之前版本的数值
+- 参照实际value和备注的区别，保持增强或削弱的倍率，或者差值
+- 如果override的备注中写了+多少，x多少时，同步时对数值进行相应的加减
+- 如果override的数值与备注的数值存在差值时，同步时候保持此差值
+
+### 备注格式规范
+
+- **只记录基础数值**：备注应该只显示基础的数值，不包含我们的扩展信息
+- **不要写扩展信息**：如"扩展第4级"、"扩展第5级"等信息不应出现在备注中
+- **不需要写"原版"**：备注中默认就是基础数值，不需要额外标注"原版"
+- **示例格式**：
+  - 正确：`"value" "40 35 30 25" // 40/35/30`
+  - 错误：`"value" "40 35 30 25" // 原版40/35/30，扩展第4级`
+
+### 特殊数值处理
+
+- 对于AbilityCooldown或者百分比（pct）数值，在确保最高等级的数值和原版一致的前提下，适当调整1级的数值，或减少每一级的差值，使得每一级的数值都是整数
+- **数值优化原则**：对于单一数值，修改后的值尽可能保持接近整数（如10、100等整数值），可以适当微调差值来实现这个目标
+
+## 格式要求
+
+- 尽量保持tab的缩进一致
+- value，备注的缩进尽量一致
+
+## 移除规则
+
+### 单一数值技能
+
+- **重要**：对于只有一个数值的技能（如MaxLevel为1的天赋技能），除非数值和原版不一致，否则移除override条目
+- 不要强制将单一数值技能扩展为多级技能
+- 检查原版文件确认技能的实际MaxLevel和数值
+
+**处理流程**：
+
+1. 检查原版文件中技能的MaxLevel
+2. 如果MaxLevel为1且数值已符合更新要求 → 移除override条目
+3. 如果MaxLevel为1但数值不符合要求 → 添加override但保持MaxLevel为1
+4. 如果MaxLevel > 1 → 按多级技能规则处理
+
+### 不需要复制的kv
+
+除非有单独改动，移除没有改动的kv，不需要复制下列kv：
+
+- special_bonus_xxx（除非有修改）
+- affected_by_aoe_increase
+
+### 基础属性处理
+
+- **不在abilities override中写基础属性**：如AttributeBaseStrength、AttributeAgilityGain等基础属性应该在npc_heroes_custom.txt文件中处理，不应该出现在npc_abilities_override.txt中
+- **只处理技能相关的override**：npc_abilities_override.txt只用于技能、天赋等能力的覆盖
+- **无视更新日志中基础属性的变化**：通常不会自定义修改
+
+### 与原版一致的条目
+
+- **重要**：当override文件中的数值与原版完全一致时，应该移除这些条目
+- 例如：如果原版已经是`"special_bonus_unique_nyx_6" "+0.6"`，则不需要在override中重复写入
+
+## 文件位置和搜索指南
+
+### 主要文件位置
+
+#### 编辑目标文件
+
+- **`game/scripts/npc/npc_abilities_override.txt`** - 技能覆盖文件（主要编辑对象）
+- **`game/scripts/npc/npc_heroes_custom.txt`** - 英雄基础属性覆盖文件（英雄属性修改）
+
+#### 参考文件
+
+- **`docs/reference/7.39/abilities_schinese.txt`** - 中文技能名对应系统名查找
+- **`docs/reference/7.39/heroes/npc_dota_hero_*.txt`** - 原版英雄技能数据（确认MaxLevel和数值）
+
+### 搜索技巧
+
+#### 在override文件中搜索技能
+
+- **重要**：在override中搜索时，可以使用多种方法：
+  1. **英雄内部名称和技能内部名称**：最精确的搜索方法
+  2. **中文技能名称或注释**：override文件中通常有中文注释
+  3. **特征数值**：搜索更新日志中提到的特定数值
+
+#### 搜索方法
+
+- 英雄名称通常是英文名称（如grimstroke、marci、nyx_assassin等）
+- 技能名称格式：`英雄名_技能名`（如grimstroke_spirit_walk、marci_grapple等）
+- 中文搜索：直接搜索中文技能名或英雄名
+- 数值搜索：搜索更新日志中的关键数值
+
+### 搜索示例
+
+```bash
+# 方法1：使用内部技能名称（最精确）
+grep "grimstroke_spirit_walk"
+
+# 方法2：使用英雄内部名称
+grep "marci_"
+grep "undying_"
+
+# 方法3：使用中文名称搜索
+grep "墨涌"
+grep "不朽尸王"
+grep "天涯墨客"
+
+# 方法4：使用特征数值搜索
+grep "1\.3.*1\.8.*2\.3.*2\.8"  # 搜索墨涌的眩晕时间
+grep "+40.*腐朽"              # 搜索不朽尸王腐朽天赋
+
+# 方法5：通过abilities_schinese文件查找技能系统名
+grep "暴烈之爪" docs/reference/7.39/abilities_schinese.txt
+# 找到 "DOTA_Tooltip_ability_ursa_maul" 得知系统名为 ursa_maul
+```
+
+### 技能系统名查找技巧
+
+当遇到不知道系统名的技能时：
+
+1. **使用abilities_schinese文件查找**：
+
+   ```bash
+   grep "技能中文名" docs/reference/7.39/abilities_schinese.txt
+   ```
+
+2. **查看搜索结果中的Tooltip行**：
+
+   ```
+   "DOTA_Tooltip_ability_技能系统名"   "技能中文名"
+   ```
+
+3. **使用找到的系统名在override文件中搜索**：
+   ```bash
+   grep "技能系统名" game/scripts/npc/npc_abilities_override.txt
+   ```
+
+**示例**：
+
+- 搜索"暴烈之爪" → 找到"ursa_maul"
+- 搜索"潮汐使者" → 找到"kunkka_tidebringer"
+- 搜索"沙尘暴" → 找到"sandking_sand_storm"
+
+## 同步更新日志的工作流程
+
+1. **分析更新日志**：列出所有英雄技能变更
+2. **查找技能系统名**：
+   - 如果不知道系统名，使用abilities_schinese文件查找
+   - 在override文件中搜索技能系统名
+3. **检查原版文件**：确认技能的MaxLevel和当前数值（原版文件已经是更新后的）
+4. **处理existing技能**（override文件中存在的技能）：
+   - 如果override数值与原版一致 → 移除override条目
+   - 如果override数值与原版不同 → 按照差值/倍率规则调整
+   - 如果是扩展等级 → 保持扩展并调整数值
+5. **处理missing技能**（override文件中不存在的技能）：
+   - 检查原版MaxLevel：单一数值(MaxLevel=1)还是多级技能
+   - 如果原版已经是目标数值 → 不需要添加override
+   - 如果需要自定义修改 → 添加override条目（保持原版MaxLevel）
+
+## 示例
+
+### 天赋同步示例
+
+```
+// 错误：与原版一致的天赋不应该保留
+"special_bonus_unique_nyx_6"	"+0.6"	// 原版0.6
+
+// 正确：移除与原版一致的条目，只保留有差异的
+// （如果原版是+0.6，override不需要写入）
+```
+
+### 数值扩展示例
+
+```
+// 原版4级：30/26/22/18
+// Override扩展为5级，保持等差：30/26/22/18/14
+"AbilityCooldown"	"30 26 22 18 14"
+```
+
+### 原版等级变化示例
+
+```
+// 更新日志：洪水持续时间从3.5秒减少至2.6/2.9/3.2/3.5秒
+// 说明原版从单一值变为4级：2.6/2.9/3.2/3.5
+// Override中MaxLevel是5，需要扩展：
+// 等差数列+0.3，扩展为：2.6/2.9/3.2/3.5/3.8
+
+// 之前（单一值）
+"duration"		"4.0"		// 3.5
+
+// 更新后（扩展为5级）
+"duration"		"2.6 2.9 3.2 3.5 3.8"	// 2.6/2.9/3.2/3.5
+```
+
+### 差值保持示例
+
+```
+// 原版：+30，备注显示之前是+40，差值+10
+// 新原版：+25，应该调整为：25+10=35
+"special_bonus_unique_example"	"+35"	// 25 +10差值
+```
+
+### 数值优化示例
+
+```
+// 原版：+10，之前override是+28（+18差值）
+// 如果严格按差值：新值应该是10+18=28
+// 但28不是整数值，可以微调差值为+20，使结果为30（更接近整数）
+"special_bonus_unique_abaddon_7"	"+30"	// 10 +20差值
+
+// 原版：+100，之前override是+150（+50差值）
+// 新原版：+90，严格按差值应该是90+50=140
+// 但可以微调差值为+60，使结果为150（保持整数）
+"special_bonus_unique_example"	"+150"	// 90 +60差值
+```
+
+### 单一数值技能处理示例
+
+```
+// 更新日志：熊战士暴烈之爪生命值转攻击力从1.2/1.3/1.4/1.5%调整为1.25%
+
+// 1. 在abilities_schinese中搜索"暴烈之爪"找到系统名：ursa_maul
+// 2. 检查原版文件：MaxLevel为1，health_as_damage_pct为1.25
+// 3. 原版已经是目标数值，不需要override
+
+// 错误做法：强制扩展为5级
+"ursa_maul"
+{
+    "MaxLevel"      "5"
+    "AbilityValues"
+    {
+        "health_as_damage_pct"  "1.25 1.25 1.25 1.25 1.25"
+    }
+}
+
+// 正确做法：移除override或不添加override（因为原版已符合要求）
+// （不需要任何override条目）
+```
+
+## 常见问题和格式检查
+
+### 重复定义检查
+
+**问题**：同一个key在同一技能中被定义多次
+
+**检查方法**：
+
+- 在技能block内搜索重复的key名
+- 特别注意AbilityCooldown、AbilityManaCost等常见属性
+
+**解决方法**：
+
+- 只保留一个定义
+- 确保定义位置符合原版文件的key顺序
+
+### Key位置顺序检查
+
+**原则**：保持与原版文件相同的key排列顺序
+
+**常见顺序参考**（以wisp_spirits为例）：
+
+```
+"wisp_spirits"
+{
+    "MaxLevel"                  "5"
+    "AbilityDuration"           "10.0"
+    "AbilityValues"
+    {
+        "creep_damage"          // 小兵伤害
+        "hero_damage"           // 英雄伤害
+        "revolution_time"       // 旋转时间
+        "min_range"             // 最小范围
+        "max_range"             // 最大范围
+        "hit_radius"            // 命中半径
+        "explode_radius"        // 爆炸半径
+        "spirit_movement_rate"  // 移动速度
+        "spirit_duration"       // 持续时间
+        "spirit_amount"         // 数量
+        "scepter_*"             // 神杖相关
+        "AbilityManaCost"       // 魔法消耗
+        "AbilityCooldown"       // 冷却时间
+    }
+}
+```
+
+### 格式检查清单
+
+1. **缩进检查**：使用tab缩进，保持一致性
+2. **备注格式**：`// 原版数值` 或 `// 原版数值 (说明)`
+3. **数值分隔**：空格分隔多个数值
+4. **引号使用**：所有key和value都用双引号包围
+5. **重复检查**：确保没有重复定义的key
+6. **顺序检查**：key的顺序尽量符合原版文件
+7. **空行规范**：技能之间保持适当空行分隔```

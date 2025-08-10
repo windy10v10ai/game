@@ -462,7 +462,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1900"
+		"ItemCost"						"1700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -509,8 +509,8 @@
 				"bonus_armor"			"40"
 				"bonus_intellect"		"0"
 				"duration"				"5.5"
-				"passive_reflection_constant"			"80"
-				"passive_reflection_pct"			"25"
+				"passive_reflection_constant"			"60"
+				"passive_reflection_pct"			"20"
 				"active_reflection_pct"			"100"
 		}
 	}
@@ -1564,8 +1564,8 @@
 		{
 			"bonus_cooldown"		"25"
 			"cast_range_bonus"		"275"
-			"bonus_health"			"1000"
-			"bonus_mana"			"1000"
+			"bonus_health"			"900"
+			"bonus_mana"			"900"
 			"bonus_health_regen"	"8.0"
 			"bonus_mana_regen"		"8.0"
 		}
@@ -2903,7 +2903,7 @@
 			"bonus_intellect"		"40"
 			"bonus_agility"			"80"
 			"bonus_strength"		"40"
-			"base_attack_range"		"250"
+			"base_attack_range"		"240"
 			"push_length"			"1000"
 			"enemy_length"			"450"
 			"range_duration"		"6"
@@ -4915,8 +4915,8 @@
 			"bonus_cooldown"		"34"
 			"bonus_cooldown_stack"	"12"
 			"cast_range_bonus"		"300"
-			"bonus_health"			"1600"
-			"bonus_mana"			"1600"
+			"bonus_health"			"1500"
+			"bonus_mana"			"1500"
 			"bonus_health_regen"	"30.0"
 			"bonus_mana_regen"		"20.0"
 		}
@@ -5261,7 +5261,7 @@
 		{
 				"bonus_intellect"		"80"
 				"bonus_attack_speed"	"80"
-				"bonus_armor"			"16"
+				"bonus_armor"			"14"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
 				"int_damage_multiplier"	"1.25"
