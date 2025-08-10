@@ -9267,9 +9267,7 @@
 				"value"		"4" // 2 持续ticks*tickrate秒 原2*1
 				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" // +4 20级右边天赋
 			}
-			"tick_attack_damage_pct"		"30"	//20
 		}
-
 	}
 	// 燃烧弹
 	"batrider_flamebreak"
