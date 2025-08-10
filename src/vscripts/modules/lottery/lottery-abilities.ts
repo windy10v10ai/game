@@ -72,7 +72,6 @@ export const abilityTiersActive: Tier[] = [
       // 主动技能
       // 大招
       'silencer_global_silence', // 全领域禁默
-      'axe_culling_blade', // 淘汰之刃
       'bloodseeker_rupture', // 割裂
       'centaur_stampede', // 奔袭冲撞
       'winter_wyvern_winters_curse', // 寒冬诅咒
@@ -114,7 +113,7 @@ export const abilityTiersActive: Tier[] = [
     names: [
       // 主动技能
       // 大招
-      'lina_laguna_blade', // 神灭斩
+      'axe_culling_blade', // 淘汰之刃
       'sniper_assassinate', // 暗杀
       'queenofpain_sonic_wave', // 超声冲击波
       'skywrath_mage_mystic_flare', // 神秘之耀
@@ -255,8 +254,6 @@ export const abilityTiersPassive: Tier[] = [
 
       // 单位技能
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
-      'furbolg_enrage_attack_speed', // 临死之痛：神速
-      'furbolg_enrage_damage', // 临死之痛：神力
 
       // 自定义技能
       'ursa_maul2', // 拍拍 天生技能 +攻击
