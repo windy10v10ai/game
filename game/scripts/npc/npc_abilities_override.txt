@@ -13165,7 +13165,7 @@
 	"winter_wyvern_arctic_burn"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"28 26 24 22 20"
+		"AbilityCooldown"				"20"	// 减少前期CD
 		"AbilityValues"
 		{
 				"duration"				"7 8 9 10 11"
@@ -13184,17 +13184,21 @@
 		"AbilityManaCost"				"105 115 125 135 145"
 		"AbilityValues"
 		{
-			"bonus_movespeed"		"-30 -35 -40 -45 -50"	// -28~40
-			"movespeed_slow_tooltip"		"30 35 40 45 50"
+			"split_radius"
+			{
+				"value"		"600"	// 500
+			}
+			"bonus_movespeed"		"-30 -40 -50 -60 -70"	// -28~40
+			"movespeed_slow_tooltip"		"30 40 50 60 70"
 			"damage"
 			{
 				"value"		"80 160 240 320 400"
-				"special_bonus_unique_winter_wyvern_7" "+150"	// 100
+				"special_bonus_unique_winter_wyvern_7" "+200"	// 100
 			}
 			"stun_duration"
 			{
 				"value"		"0"
-				"special_bonus_unique_winter_wyvern_4" "+1.5"	// 1.25
+				"special_bonus_unique_winter_wyvern_4" "+2"	// 1.25
 			}
 		}
 	}
@@ -13203,23 +13207,23 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"1200"	// 1000
-		"AbilityCooldown"				"24 21 18 15 12"
+		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityValues"
 		{
 				"heal_additive"
 				{
 					"value"		"40 60 80 100 120"	// 40 45 50 55
-					"special_bonus_unique_winter_wyvern_5" "+40"	// 25
+					"special_bonus_unique_winter_wyvern_5" "+50"	// 25
 				}
 				"heal_percentage"	"2.25 3 3.75 4.5 5.25"
 				"damage_buff_pct"
 				{
-					"special_bonus_facet_winter_wyvern_winterproof"	"=100"		// 60
+					"special_bonus_facet_winter_wyvern_winterproof"	"=120"		// 60
 				}
 				"damage_buff_duration"
 				{
-					"special_bonus_facet_winter_wyvern_winterproof"	"=10.0"		// 6
+					"special_bonus_facet_winter_wyvern_winterproof"	"=12.0"		// 6
 				}
 		}
 	}
@@ -13227,15 +13231,15 @@
 	"winter_wyvern_winters_curse"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"60"	// 100 90 80 减少CD
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 				"damage_reduction"	"60"	// 100 不会收到敌人伤害 改成伤害降低
 				"bonus_attack_speed"
 				{
-					"value"		"100"	// 65
-					"special_bonus_unique_winter_wyvern_3"	"+100"	// 55
+					"value"		"130"	// 65
+					"special_bonus_unique_winter_wyvern_3"	"+110"	// 55
 				}
 				"max_duration"	"4 5 6 7"
 		}
