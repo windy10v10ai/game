@@ -3534,7 +3534,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"100 110 120 130 140"
-		"AbilityDamage"					"80 150 220 290 360"
+		"AbilityDamage"					"120 200 280 360 440"	// 80 150 220 290
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -3543,12 +3543,12 @@
 			}
 			"burrow_duration"
 			{
-				"value"			"1.2 1.4 1.6 1.8 2.0"
-				"special_bonus_unique_sand_king_burrowstrike_stun"				"+0.4"
+				"value"			"1.4 1.6 1.8 2.0 2.2"	// 1.2 1.4 1.6 1.8
 			}
 			"AbilityCastRange"
 			{
-				"value"								"525 600 675 750 875"
+				"value"								"900"	// 525 600 675 750
+				"special_bonus_unique_sand_king_8"	"+300"	// +200
 			}
 		}
 	}
@@ -3588,7 +3588,8 @@
 			}
 			"attack_damage"
 			{
-				"value"						"40 80 120 160 200"
+				"value"						"100 150 200 250 300"	// 50 75 100 125 x2
+				"special_bonus_unique_sand_king_scorpion_strike_damage"			"+100"	// +40
 			}
 			"debuff_duration"				"4 5 6 7 8"
 			"strike_slow"
@@ -3606,12 +3607,11 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"		"90 80 70 60"
+				"value"		"60"
 			}
-			"epicenter_pulses"	// x0.5
+			"epicenter_pulses"
 			{
-				"value"		"8 10 12 14"
-				"special_bonus_unique_sand_king"	"+5"
+				"value"		"12 16 20 24"
 			}
 			"epicenter_damage"	// x2
 			{
@@ -3624,7 +3624,7 @@
 			}
 			"epicenter_slow_as"
 			{
-				"value"			"-50 -70 -90 -110"
+				"value"			"-50 -100 -150 -200"	// -50 -55 -60
 			}
 			"shard_interval"
 			{
@@ -9238,7 +9238,7 @@
 			"max_stacks"
 			{
 				"value"					"20"
-				"special_bonus_shard"	"+80"	// 魔晶由无上限 改为最大50层
+				"special_bonus_shard"	"+30"	// 魔晶由无上限 改为最大50层
 			}
 			"unlimited_stacks"
 			{
@@ -9267,10 +9267,7 @@
 				"value"		"4" // 2 持续ticks*tickrate秒 原2*1
 				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" // +4 20级右边天赋
 			}
-			"tick_rate"				"0.5" 			//1
-			"tick_attack_damage_pct"		"30"	//20
 		}
-
 	}
 	// 燃烧弹
 	"batrider_flamebreak"
@@ -9282,11 +9279,11 @@
 
 			"damage_impact"
 			{
-				"value"			"50 75 100 125 150"
+				"value"			"25 50 75 100 125"
 			}
 			"damage_per_second"
 			{
-				"value"			"20 30 40 50 60"
+				"value"			"25 30 35 40 45"
 			}
 			"damage_duration"
 			{
@@ -9299,9 +9296,9 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"	 "22 19 16 13 10"
+				"value"	 "21 19 17 15 13"
 			}
-			"slow"	"15 20 25 30 35"
+			"slow"	"12 18 24 30 36"
 		}
 	}
 	// 火焰飞行
@@ -9313,7 +9310,7 @@
 		{
 			"damage_per_second"
 			{
-				"value"			"50 75 100 125 150"
+				"value"			"25 50 75 100 125"
 			}
 			"movement_speed_pct_total"
 			{
@@ -9343,16 +9340,6 @@
 				"special_bonus_unique_batrider_6"			"-15"
 			}
 
-		}
-	}
-	// 火上浇油 命石1
-	"batrider_stoked"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"movement_speed_pct"		"4 6 8 10 12"
-			"spell_amplification"		"2 4 6 8 10"
 		}
 	}
 	//=================================================================================================================
@@ -9477,12 +9464,22 @@
 	"dark_willow_bramble_maze"
 	{
 		"MaxLevel" "5"
-		"AbilityCastRange"				"1000 1100 1200 1300 1400"
+		"AbilityCastRange"				"1300"	// 固定最大距离
 		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityValues"
 		{
-				"latch_duration"		"1.0 1.5 2.0 2.5 3.0"
-				"damage_per_tick"		"50 55 60 65 70"
+			"latch_duration"		"1.5 2.0 2.5 3.0 3.5"	// 1.0 1.5 2.0 2.5
+			"latch_range"
+			{
+				"value"		"120"							// 90
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage_per_tick"		"50 60 70 80 90"		// 50 55 60 65
+			"AbilityCooldown"
+			{
+				"value"					"20"	// 22	减少CD
+				"special_bonus_unique_dark_willow_3"			"-6"	// -7
+			}
 		}
 	}
 	// 作祟
@@ -9494,7 +9491,11 @@
 		{
 			"attack_damage"
 			{
-				"value"						"70 120 170 220"
+				"value"						"105 180 255 330"	// x1.5
+			}
+			"attack_radius"
+			{
+				"value"		"450"		// 300
 			}
 		}
 	}
@@ -9502,7 +9503,7 @@
 	"dark_willow_terrorize"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90 80 70 60"
+		"AbilityCooldown"				"60"	// 100 90 80
 		"AbilityValues"
 		{
 				"destination_radius"
@@ -9530,12 +9531,13 @@
 	"dark_willow_cursed_crown"
 	{
 		"MaxLevel" "5"
+		"AbilityCastRange"				"900"		// 600 625 650 675 增强
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 				"stun_duration"
 				{
-					"value"			"1.2 1.6 2.0 2.4 2.8"
+					"value"			"1.4 1.8 2.2 2.6 3.0"	// 1.2 1.6 2.0 2.4
 				}
 				"AbilityCooldown"
 				{
@@ -9552,7 +9554,7 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"500 600 700 800 900"
-		"AbilityCooldown"				"26 23 20 17 14"
+		"AbilityCooldown"				"23 21 19 17 15"	// 24 21 18 15 减少CD
 		"AbilityManaCost"				"125 130 135 140 145"
 		"AbilityValues"
 		{
@@ -9563,20 +9565,19 @@
 			"targets"					"2 4 6 8 10"
 			"damage"
 			{
-				"value"			"16 28 40 52 64"
+				"value"			"24 42 60 78 96"	// x1.5
 			}
 			"slow"
 			{
-				"value"							"-16 -18 -20 -22 -24"
+				"value"							"-24 -27 -30 -33 -36"	// x1.5
 			}
-			"duration"		"5 6 7 8 9"
+			"duration"		"4 5 6 7 8"
 			"bonus_slow"			"-2 -2.5 -3 -3.5 -4.0"
 			"split_damage"
 			{
 				"special_bonus_facet_dazzle_poison_bloom"
 				{
 					"value"								"=30 =60 =90 =120 =150"
-					"special_bonus_unique_dazzle_3"		"+60"
 				}
 			}
 		}
@@ -9613,15 +9614,15 @@
 	"dazzle_shadow_wave"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"11 10 9 8 7"
+		"AbilityCooldown"				"10 9 8 7 6"
 		"AbilityValues"
 		{
-			"max_targets"			"5 6 7 8 9"
-			"tooltip_max_targets_inc_dazzle"	"6 7 8 9 10"
+			"max_targets"			"4 6 8 10 12"
+			"tooltip_max_targets_inc_dazzle"	"5 7 9 11 13"
 			"damage"
 			{
-				"value"					"85 105 125 145 165"
-				"special_bonus_unique_dazzle_2" "+85"	// 45
+				"value"					"170 210 250 290 330"	// 85 105 125 145 x2
+				"special_bonus_unique_dazzle_2" "+90"	// +45 x2
 			}
 		}
 	}
@@ -9894,6 +9895,42 @@
 				"value"				"8 16 24 32 40"				// x2
 				"special_bonus_unique_enchantress_5"	"+16"	// x2
 			}
+			"movespeed"
+			{
+				"value"			"30"
+				"special_bonus_unique_enchantress_6"	"+60"	// +30
+			}
+		}
+	}
+	// 魅惑
+	"enchantress_enchant"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"
+			{
+				"value"						"800"				// 500 550 600 650
+				"special_bonus_facet_enchantress_spellbound"	"50 100 150 200"
+			}
+			"attack_range_bonus"
+			{
+				"special_bonus_facet_enchantress_spellbound"	"100 200 300 400"	// 100 150 200 250
+			}
+
+			"enchant_health"
+			{
+				"value" 					"500 1000 1500 2000"	// 150 250 350 450
+			}
+
+			"enchant_armor"
+			{
+				"value" 				"0"
+				"special_bonus_unique_enchantress_enchant_armor"		"+20"	// +10
+			}
+			"enchant_damage"
+			{
+				"value" 					"50 100 150 200"	// 0 25 50 75
+			}
 		}
 	}
 	// 推进
@@ -9906,7 +9943,8 @@
 		{
 			"distance_damage_pct"
 			{
-				"value"			"5 10 15 20 25"
+				"value"			"14 18 22 26 30"	// 5 10 15 20
+				"special_bonus_unique_enchantress_4"	"+10"	// +6.5
 			}
 			"distance_cap"			"3500"
 		}
@@ -10783,14 +10821,9 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCooldown"				"22 21 20 19 18"
-		"AbilityManaCost"				"90 110 130 150 170"
+		"AbilityManaCost"				"90 120 150 180 210"
 		"AbilityValues"
 		{
-				"num_explosions"
-				{
-					"value"		"50"	// 40
-				"special_bonus_unique_leshrac_1" "+30"	// 20
-				}
 				"damage"
 				{
 					"value"		"10 18 26 34 42"
@@ -10838,17 +10871,12 @@
 				"mana_cost_per_second"	"25 50 75 100"
 				"radius"
 				{
-					"value"		"1000"		// 500
+					"value"		"600 800 1000"		// 500
 					"affected_by_aoe_increase"	"0"	// 防止挂机
 				}
 				"damage"
 				{
 					"value"			"80 135 180 225"
-				}
-				"damage_resistance"
-				{
-					"value"			"0"
-					"special_bonus_unique_leshrac_4"	"+20"	// 10
 				}
 		}
 	}
@@ -11112,11 +11140,10 @@
 			"AbilityCooldown"
 			{
 				"value"								"70 60 50 40"
-				"special_bonus_unique_lina_6"		"-20"
 			}
 			"supercharge_stacks"
 			{
-				"value"						"0 0 0"
+				"value"						"0 0 0 0"
 				"special_bonus_facet_lina_supercharge"	"=10 =11 =12 =13"
 			}
 			// 护盾
@@ -11638,18 +11665,18 @@
 				}
 				"damage"
 				{
-					"value"		"130 190 250 310 370"
-					"special_bonus_unique_puck_6"	"+100"
+					"value"		"90 180 270 360 450"		// x1.5
+					"special_bonus_unique_puck_6"	"+120"	// x2
 				}
 				"knock_distance"
 				{
 					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+50 +150 +250 +350 +450"
+					"special_bonus_facet_puck_jostling_rift"	"+100 +150 +200 +250 +300"
 				}
 				"pull_distance"
 				{
 					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+50 +150 +250 +350 +450"
+					"special_bonus_facet_puck_jostling_rift"	"+100 +150 +200 +250 +300"
 				}
 		}
 	}
@@ -11671,14 +11698,17 @@
 	"puck_dream_coil"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"45"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
 		{
+				"AbilityCooldown"
+				{
+					"value"				"60"	// 75
+				}
 				"coil_initial_damage"
 				{
 					"value"					"350 500 650 800"				// x2
-					"special_bonus_unique_puck_coil_damage"			"+200"	// 150
+					"special_bonus_unique_puck_coil_damage"			"+300"	// x2
 				}
 				"coil_stun_duration"
 				{
@@ -13188,7 +13218,7 @@
 	"winter_wyvern_arctic_burn"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"28 26 24 22 20"
+		"AbilityCooldown"				"20"	// 减少前期CD
 		"AbilityValues"
 		{
 				"duration"				"7 8 9 10 11"
@@ -13207,17 +13237,21 @@
 		"AbilityManaCost"				"105 115 125 135 145"
 		"AbilityValues"
 		{
-			"bonus_movespeed"		"-30 -35 -40 -45 -50"	// -28~40
-			"movespeed_slow_tooltip"		"30 35 40 45 50"
+			"split_radius"
+			{
+				"value"		"600"	// 500
+			}
+			"bonus_movespeed"		"-30 -40 -50 -60 -70"	// -28~40
+			"movespeed_slow_tooltip"		"30 40 50 60 70"
 			"damage"
 			{
 				"value"		"80 160 240 320 400"
-				"special_bonus_unique_winter_wyvern_7" "+150"	// 100
+				"special_bonus_unique_winter_wyvern_7" "+200"	// 100
 			}
 			"stun_duration"
 			{
 				"value"		"0"
-				"special_bonus_unique_winter_wyvern_4" "+1.5"	// 1.25
+				"special_bonus_unique_winter_wyvern_4" "+2"	// 1.25
 			}
 		}
 	}
@@ -13226,23 +13260,23 @@
 	{
 		"MaxLevel" "5"
 		"AbilityCastRange"				"1200"	// 1000
-		"AbilityCooldown"				"24 21 18 15 12"
+		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityValues"
 		{
 				"heal_additive"
 				{
 					"value"		"40 60 80 100 120"	// 40 45 50 55
-					"special_bonus_unique_winter_wyvern_5" "+40"	// 25
+					"special_bonus_unique_winter_wyvern_5" "+50"	// 25
 				}
 				"heal_percentage"	"2.25 3 3.75 4.5 5.25"
 				"damage_buff_pct"
 				{
-					"special_bonus_facet_winter_wyvern_winterproof"	"=100"		// 60
+					"special_bonus_facet_winter_wyvern_winterproof"	"=120"		// 60
 				}
 				"damage_buff_duration"
 				{
-					"special_bonus_facet_winter_wyvern_winterproof"	"=10.0"		// 6
+					"special_bonus_facet_winter_wyvern_winterproof"	"=12.0"		// 6
 				}
 		}
 	}
@@ -13250,15 +13284,15 @@
 	"winter_wyvern_winters_curse"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90"
+		"AbilityCooldown"				"60"	// 100 90 80 减少CD
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 				"damage_reduction"	"60"	// 100 不会收到敌人伤害 改成伤害降低
 				"bonus_attack_speed"
 				{
-					"value"		"100"	// 65
-					"special_bonus_unique_winter_wyvern_3"	"+100"	// 55
+					"value"		"130"	// 65
+					"special_bonus_unique_winter_wyvern_3"	"+110"	// 55
 				}
 				"max_duration"	"4 5 6 7"
 		}

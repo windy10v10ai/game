@@ -1660,7 +1660,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"16"
+		"AbilityCooldown"				"20"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1680,11 +1680,11 @@
 			}
 			"width"				"200"
 			"speed"			"2400"
-			"manacost_pre_second"	"50 75 100 125 150"
+			"manacost_pre_second"	"40 60 80 100 120"
 			"damage_per_second"
 			{
-				"value"					"80 160 240 320 400"
-				"special_bonus_unique_goku_1"	"+80"
+				"value"					"120 200 280 360 440"
+				"special_bonus_unique_goku_1"	"+120"
 			}
 			"dmg_tick"						"0.1"
 			"super_saiyan_damage_multiple"	"1.2"
@@ -1697,12 +1697,12 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"						"16"
+				"value"						"20"
 				"special_bonus_shard"		"=0"
 			}
 			"AbilityChargeRestoreTime"
 			{
-				"value"						"16"
+				"value"						"20"
 			}
 		}
 
@@ -1831,7 +1831,7 @@
 
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"110"
+		"AbilityCooldown"				"90"
 		"AbilityManaCost"				"100 200 300"
 
 		// Damage
@@ -1850,7 +1850,7 @@
 			"duration"
 			{
 				"value"						"30"
-				"special_bonus_unique_goku_7"	"+6"
+				"special_bonus_unique_goku_7"	"+10"
 			}
 		}
 

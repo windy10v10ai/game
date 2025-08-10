@@ -726,7 +726,7 @@
 		}
 	}
 
-	// 光暗臂章
+	// 圣光臂章
 	"item_recipe_armlet_light"
 	{
 		"BaseClass"						"item_datadriven"
@@ -751,18 +751,19 @@
 		"AbilityTextureName"			"item_armlet_light"
 		"AbilityValues"
 		{
-			"bonus_damage"			"60"
-			"bonus_attack_speed"	"60"
-			"bonus_armor"			"24"
+			"bonus_damage"			"90"
+			"bonus_attack_speed"	"90"
+			"bonus_armor"			"36"
 			"bonus_health_regen"	"30"
 			"unholy_bonus_damage"	"100"
 			"unholy_bonus_strength"	"150"
 			"unholy_bonus_armor"	"24"
-			"unholy_bonus_slow_resistance"	"45"
+			"unholy_bonus_slow_resistance"	"60"
 			"unholy_health_drain_per_second"	"5"
 			"toggle_cooldown"		"0.036"
 		}
 	}
+	// 暗影臂章
 	"item_recipe_armlet_dark"
 	{
 		"BaseClass"						"item_datadriven"
@@ -787,15 +788,15 @@
 		"AbilityTextureName"			"item_armlet_dark"
 		"AbilityValues"
 		{
-			"bonus_damage"			"90"
-			"bonus_attack_speed"	"90"
-			"bonus_armor"			"36"
-			"bonus_health_regen"	"100"
-			"unholy_bonus_damage"	"250"
-			"unholy_bonus_strength"	"350"
+			"bonus_damage"			"120"
+			"bonus_attack_speed"	"120"
+			"bonus_armor"			"48"
+			"bonus_health_regen"	"10"
+			"unholy_bonus_damage"	"200"
+			"unholy_bonus_strength"	"300"
 			"unholy_bonus_armor"	"48"
 			"unholy_bonus_slow_resistance"	"90"
-			"unholy_health_drain_per_second"	"1200"
+			"unholy_health_drain_per_second"	"1500"
 			"toggle_cooldown"		"0.036"
 		}
 	}
