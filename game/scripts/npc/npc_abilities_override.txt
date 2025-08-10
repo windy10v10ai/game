@@ -9897,6 +9897,37 @@
 			}
 		}
 	}
+	// 魅惑
+	"enchantress_enchant"
+	{
+		"AbilityValues"
+		{
+			"AbilityCastRange"
+			{
+				"value"						"800"				// 500 550 600 650
+				"special_bonus_facet_enchantress_spellbound"	"50 100 150 200"
+			}
+			"attack_range_bonus"
+			{
+				"special_bonus_facet_enchantress_spellbound"	"100 200 300 400"	// 100 150 200 250
+			}
+
+			"enchant_health"
+			{
+				"value" 					"500 1000 1500 2000"	// 150 250 350 450
+			}
+
+			"enchant_armor"
+			{
+				"value" 				"0"
+				"special_bonus_unique_enchantress_enchant_armor"		"+20"	// +10
+			}
+			"enchant_damage"
+			{
+				"value" 					"50 100 150 200"	// 0 25 50 75
+			}
+		}
+	}
 	// 推进
 	"enchantress_impetus"
 	{
@@ -9907,7 +9938,8 @@
 		{
 			"distance_damage_pct"
 			{
-				"value"			"5 10 15 20 25"
+				"value"			"14 18 22 26 30"	// 5 10 15 20
+				"special_bonus_unique_enchantress_4"	"+10"	// +6.5
 			}
 			"distance_cap"			"3500"
 		}
