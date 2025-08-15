@@ -914,7 +914,7 @@
 
 		// Marci
 
-		"npc_dota_hero_marci_npedesc1"   							"<font color=\"00FF00\">ALTERED: Replaced Innate Ability</font><br/>Dashes around pummeling enemies with rapid attacks"
+		"npc_dota_hero_marci_npedesc1"   							"<font color=\"00FF00\">ALTERED: Replaced Innate Ability, Updated Talents</font><br/>Dashes around pummeling enemies with rapid attacks"
 
 		"DOTA_Tooltip_ability_marci_guardian"							"Sidekick"
 		"DOTA_Tooltip_ability_marci_guardian_Description"				"Marci's loyalty ensures survival, imbuing herself and an ally of her choosing with extra base attack damge and lifesteal. Sidekick will last indefinitely on both Marci and her selected ally until one of them dies, or Marci casts Sidekick on another ally. Sidekick's Lifesteal is shared, meaning any lifesteal Marci gains from Sidekick is also granted to the ally, and vice versa.<br/><br/>If Marci and her ally move too far away from each other, Marci's ally will no longer receive any of Sidekick's benefits until they get closer together again.<br/><br/>Marci will always gain Sidekick's full bonuses, even if she has not bestowed Sidekick on any ally."
@@ -923,6 +923,7 @@
 		"DOTA_Tooltip_ability_marci_guardian_Note1"						"Lifesteal effectiveness gets a %creep_lifesteal_reduction_pct%%% reduction against creeps."
 
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"			"+{s:bonus_damage}% Bodyguard/Sidekick Bonus Damage/Lifesteal"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"				"+{s:bonus_throw_distance_behind} Dispose/Reound Cast/Throw/Jump Range"
 
 		"DOTA_Tooltip_modifier_marci_guardian_buff"						"Marci stands beside you. Gaining %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%%% attack damage and lifesteal."
 
