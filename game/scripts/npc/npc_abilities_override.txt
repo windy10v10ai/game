@@ -2685,6 +2685,11 @@
 		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
+				"throw_distance_behind" 
+                {
+                    "value"     "250"     
+					"special_bonus_unique_marci_lunge_range"   "+150"
+                }
 				"impact_damage"
 				{
 					"value"			"60 150 240 330 420"
@@ -2714,6 +2719,12 @@
 					"value"										"550 625 700 775 850"
 					"special_bonus_unique_marci_lunge_range"    					"+150"
 				}
+				"landing_radius"        
+                {
+                    "value" "275 280 285 290 295 300"
+					"special_bonus_unique_marci_lunge_range"    	"+150"
+                    "affected_by_aoe_increase"  "1" 
+                }
 				"impact_damage"
 				{
 					"value"				"80 160 240 320 400"
@@ -2731,21 +2742,21 @@
 					"special_bonus_unique_marci_lunge_movespeed" "+15"
 				}
 				"ally_impact_damage_pct"
-                		{
-                    			"special_bonus_facet_marci_pickmeup"    "=60"	// 35
-                		} 
+                {
+                		"special_bonus_facet_marci_pickmeup"    "=60"	// 35
+                } 
 				"max_level"
 				{
 					"value"				"5"
 				}
-		                "postjump_unleash_duration"
-                		{
-                    			"special_bonus_facet_marci_fleeting_fury"       "=6"
-                		}
-                		"postjump_flurry_charges"
-               			{
-                    			"special_bonus_facet_marci_fleeting_fury"       "=6"
-                		}
+		        "postjump_unleash_duration"
+                {
+                		"special_bonus_facet_marci_fleeting_fury"       "=6"
+                }
+                "postjump_flurry_charges"
+               	{
+                		"special_bonus_facet_marci_fleeting_fury"       "=6"
+                }
 		}
 	}
 	// 健体术
