@@ -75,8 +75,7 @@ function modifier_item_necronomicon_staff:OnCreated(params)
 	end
 	self.ability = self:GetAbility()
 	self.bonus_mana_regen = self.ability:GetSpecialValueFor("bonus_mana_regen")
-	self.spell_amp = self.ability:GetSpecialValueFor("spell_amp")
-	self.mp_regen_amp = self.ability:GetSpecialValueFor("mp_regen_amp")
+	self.cast_range = self.ability:GetSpecialValueFor("bonus_cast_range")
 
 	self.sheep_duration = self.ability:GetSpecialValueFor("sheep_duration")
 	self.tooltip_range = self.ability:GetSpecialValueFor("tooltip_range")
@@ -94,8 +93,7 @@ end
 function modifier_item_necronomicon_staff:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
+		MODIFIER_PROPORTY_CAST_RANGE_BONUS_STACKING,
 	}
 end
 
@@ -103,12 +101,8 @@ function modifier_item_necronomicon_staff:GetModifierConstantManaRegen(params)
 	return self.bonus_mana_regen
 end
 
-function modifier_item_necronomicon_staff:GetModifierSpellAmplify_Percentage(params)
-	return self.spell_amp
-end
-
-function modifier_item_necronomicon_staff:GetModifierMPRegenAmplify_Percentage(params)
-	return self.mp_regen_amp
+function modifier_item_necronomicon_staff:GetModifierCastRangeBonusStacking(params)
+	return self.cast_range
 end
 
 ---------------------------------------------------------------------

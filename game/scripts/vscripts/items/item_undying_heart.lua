@@ -55,10 +55,8 @@ function modifier_item_undying_heart:OnRefresh(keys)
 	end
 	self.ability = self:GetAbility()
 	if self:GetAbility() then
-		self.bonus_health = self.ability:GetSpecialValueFor("bonus_health")
 		self.health_regen_pct = self.ability:GetSpecialValueFor("health_regen_pct")
 		self.bonus_evasion = self.ability:GetSpecialValueFor("bonus_evasion")
-		self.status_resistance = self.ability:GetSpecialValueFor("status_resistance")
 	end
 
 	if IsServer() then
@@ -74,15 +72,9 @@ end
 
 function modifier_item_undying_heart:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_HEALTH_BONUS,
 		MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE,
 		MODIFIER_PROPERTY_EVASION_CONSTANT,
-		MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
 	}
-end
-
-function modifier_item_undying_heart:GetModifierHealthBonus()
-	return self.bonus_health
 end
 
 function modifier_item_undying_heart:GetModifierHealthRegenPercentageUnique()
@@ -91,10 +83,6 @@ end
 
 function modifier_item_undying_heart:GetModifierEvasion_Constant()
 	return self.bonus_evasion
-end
-
-function modifier_item_undying_heart:GetModifierStatusResistanceStacking()
-	return self.status_resistance
 end
 
 modifier_item_undying_heart_buff = class({})

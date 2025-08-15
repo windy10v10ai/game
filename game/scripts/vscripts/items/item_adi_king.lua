@@ -143,6 +143,7 @@ function modifier_item_adi_king_buff:CheckState()
     return
     {
         [MODIFIER_STATE_ALLOW_PATHING_THROUGH_CLIFFS] = true,
+        [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES] = true,
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     }
 end
