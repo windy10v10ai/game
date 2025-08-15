@@ -426,7 +426,12 @@
 	"npc_dota_hero_marci"
 	{
 		"Ability4"      	"marci_guardian"
+		"Ability10"     	"special_bonus_unique_marci_lunge_movespeed"
 		"Ability11"			"special_bonus_unique_marci_lunge_range"
+		"Ability12"			"special_bonus_marci_dispose_throw_distance"
+		"Ability13"     	"special_bonus_unique_marci_unleash_speed"
+		"Ability14"			"special_bonus_status_resistance_25"
+		"Ability15"			"special_bonus_marci_rebound_radius"
 		"AttackRate"			"1.5"		// 1.7
 		"MovementSpeed"         "325"		// 315
 		"ArmorPhysical"         "3"			// 0
