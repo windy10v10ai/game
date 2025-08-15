@@ -925,10 +925,6 @@
 	{
 		"AbilityValues"
 		{
-			"aura_radius"
-			{
-				"value"			"1800"				//1200
-			}
 			"status_resistance"
 			{
 				"value"					"60"		//10

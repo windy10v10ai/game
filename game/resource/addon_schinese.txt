@@ -213,18 +213,18 @@
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"近战英雄额外获得 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
 
 		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
-		"DOTA_Tooltip_ability_creep_buff_Description"					"根据摧毁敌方防御塔的数量升级。"
+		"DOTA_Tooltip_ability_creep_buff_Description"					"根据摧毁防御塔的数量升级。"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"+%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"大兵Buff"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"根据摧毁敌方防御塔的数量升级。"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"根据摧毁防御塔的数量升级。"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"+%伤害降低："
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"超级兵Buff"
-		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"根据摧毁敌方防御塔的数量升级。"
+		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"根据摧毁防御塔的数量升级。"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"+$armor"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"+%伤害降低："
