@@ -2582,7 +2582,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"35"
-		"AbilityCastRange"				"450"
+		"AbilityCastRange"				"200"
 		"AbilityCastPoint"				"0.0"
 
 
@@ -2603,12 +2603,12 @@
 			"bonus_health_regen"	"20"
 			"bonus_strength"		"20"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			// active
-			"stun_m"				"2.0"
-			"active_damage_base"	"200"
-			"active_damage_multi"	"1"
+			"stun_m"				"1.8"
+			"active_damage_base"	"150"
+			"active_damage_multi"	"0.75"
 			// Passive
-			"stun"					"1.2"
-			"ch_m"					"30"
+			"stun"					"1.25"
+			"ch_m"					"25"
 			"ch_r"					"15"
 			"block_chance"			"100"	// tooltip
 			"block_damage"			"120"
@@ -4004,7 +4004,7 @@
 		{
 			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
 			"blink_damage_cooldown"	"3.0"
-			"meteor_fall_time"		"0.5"
+			"meteor_fall_time"		"1.5"
 			"meteor_land_radius"	"350"
 			"buff_duration"			"6"
 			// Below are the overwhelming, swift, and arcane modifier values
@@ -4014,13 +4014,13 @@
 			"bonus_movement"		"40"
 			"bonus_agi_active"		"35"
 
-			"cast_pct_improvement"	"50"
-			"manacost_reduction"	"25"
-			"debuff_amp"			"20"
+			"cast_pct_improvement"	"0"
+			"manacost_reduction"	"0"
+			"debuff_amp"			"0"
 			// Fall down effect
 			"base_damage"			"100"
 			"str_damage"			"100"
-			"meteor_stun_duration"	"1.5"
+			"meteor_stun_duration"	"0.8"
 			"slow_duration"			"6.0"
 			"meteor_burn_duration"	"6.0"
 			"meteor_burn_dps"		"100"
@@ -4318,8 +4318,8 @@
 			"bonus_mana"			"600"
 			"heal_increase"			"50"
 
-			"bubble_duration"		"1.5"
-			"bubble_move_speed"		"350"
+			"bubble_duration"		"1"
+			"bubble_move_speed"		"400"
 			"heal_tick_interval"	"0.1"
 
 			"bubble_total_heal_tip"	"1500"
@@ -4451,7 +4451,7 @@
 			"spell_amp"				"24"
 			"mp_regen_amp"			"75"
 
-			"sheep_duration"		"3.5"
+			"sheep_duration"		"3.2"
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"0.5"
