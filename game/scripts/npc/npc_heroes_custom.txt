@@ -116,11 +116,10 @@
 		"VersusScale"				"0.75000"
 
 		"DisableWearables" 			"1"
-		"Ability1"   				"goku_kamehameha"
-		"Ability2"   				"goku_tp"
-		"Ability3"   				"goku_kaioken"
-		"Ability4"   				"ability_hidden"
-		// "Ability4"   				"goku_spirit_bomb"	FIXME 无法正常释放 暂时移除
+		"Ability1"					"goku_kamehameha"
+		"Ability2"					"goku_tp"
+		"Ability3"					"goku_kaioken"
+		"Ability4"					"generic_hidden"
 		"Ability6"					"goku_super_saiyan"
 		"Ability10"					 "special_bonus_unique_goku_5"	// 龟派气功光波长度
 		"Ability11"					 "special_bonus_spell_amplify_10"	// 龟派气功强驱散
@@ -142,10 +141,10 @@
 		"AttributePrimary"			"DOTA_ATTRIBUTE_ALL"
 		"AttributeBaseStrength"		"30"
 		"AttributeStrengthGain"		"2.80000"
-		"AttributeBaseAgility"		"22"
-		"AttributeAgilityGain"		"2.200000"
-		"AttributeBaseIntelligence"		"22"
-		"AttributeIntelligenceGain"		"1.900000"
+		"AttributeBaseAgility"		"25"
+		"AttributeAgilityGain"		"2.400000"
+		"AttributeBaseIntelligence"		"23"
+		"AttributeIntelligenceGain"		"2.300000"
 		"BaseAttackSpeed"			"100"
 		"AttackAnimationPoint"		"0.300000"
 		"MovementSpeed"				"300"

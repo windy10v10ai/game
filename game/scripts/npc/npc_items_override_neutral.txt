@@ -444,9 +444,9 @@
 		"AbilityValues"
 		{
 			"hp_threshold"				"60"	// 50
-			"evasion_max"				"200"
+			"evasion_max"				"200"	// 150
 			"evasion_loss"				"30"	// 75
-			"max_duration"				"10"	// 8
+			"max_duration"				"10"	// 5
 		}
 	}
 	//=================================================================================================================
@@ -731,7 +731,7 @@
 		{
 			"barrier_amount"
 			{
-				"value"					"3000"	//250
+				"value"					"2500"	//225
 				"apply_curio_bonus"		"1"
 			}
 		}
@@ -925,10 +925,6 @@
 	{
 		"AbilityValues"
 		{
-			"aura_radius"
-			{
-				"value"			"1800"				//1200
-			}
 			"status_resistance"
 			{
 				"value"					"60"		//10
@@ -1151,14 +1147,15 @@
 				"value"					"200"	// 100
 				"apply_curio_bonus"		"1"
 			}
+			"damage_disable"			"3"		//6
 			"damage_threshold"
 			{
-				"value"					"400"	//250
+				"value"					"500"	// 25
 				"apply_curio_bonus"		"1"
 			}
 		}
 	}
-	//不朽尸王头盔
+	//不朽尸王的头盔
 	"item_helm_of_the_undying"
 	{
 		"AbilityCooldown"				"60"	// 100

@@ -36,18 +36,18 @@ Pull Type从进到远
 
 [Source 2 Viewer](https://valveresourceformat.github.io/) 点击下载
 
-dota 2 beta\game\dota\maps\dota_coloseum.vpk
-game/maps/dota.vpk (自己编译的地图文件)
+相关文件
+
+- dota 2 beta\game\dota\maps\dota_coloseum.vpk
+- game/maps/dota.vpk (自己编译的地图文件)
 
 ### 操作
 
 1. 使用Source 2 Viewer分别解包上述2文件
-2. 合并文件夹，以dota.vpk解包后的文件为底，用dota_coloseum的文件覆盖
-
-- 注意：修改地图文件的远古野设置后，需要把dota.vpk的以下文件文件夹再次覆盖在合并后的内容上
-  - maps\dota\entities
-
-3. 使用Source 2 Viewer将合并后的文件夹重新打包成VPK文件<br>
+2. 将dota.vpk解包后的文件夹中的maps\dota\entities文件夹备份
+3. 合并文件夹，以dota.vpk解包后的文件为底，用dota_coloseum的文件覆盖
+4. 将备份的entities文件夹覆盖在合并后的文件夹中
+5. 使用Source 2 Viewer将合并后的文件夹重新打包成VPK文件<br>
 
 - 注意maps文件夹结构保持一致
 

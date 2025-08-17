@@ -23,7 +23,7 @@ const { getAddonName, getDotaPath } = require('./utils');
         addonName,
         '+dota_launch_custom_game',
         addonName,
-        'dota',
+        'custom',
       ];
 
       const child = spawn(path.join(win64, 'dota2.exe'), args, {

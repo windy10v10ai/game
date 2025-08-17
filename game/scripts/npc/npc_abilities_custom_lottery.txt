@@ -118,7 +118,7 @@
 		"AbilityTextureName"				"bloodseeker_blood_mist"
 		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
 
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityType"						"ABILITY_TYPE_BASIC"
