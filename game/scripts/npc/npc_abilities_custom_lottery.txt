@@ -8,6 +8,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
+		"IsBreakable"					"1"
 		"AbilityTextureName"			"death_prophet_witchcraft2"
 
 		"AbilityValues"
@@ -34,10 +35,11 @@
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
 		"AbilityTextureName"			"tinker_eureka2"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
-			"int_per_one_cdr"				"3"
+			"int_per_one_cdr"				"8"
 			"one_percent_tooltip"			"1"
 			"max_cdr"						"60"
 
@@ -56,6 +58,7 @@
 		"IsOnCastBar"					"1"
 		"AbilityTextureName"			"twin_gate_portal_warp"
 		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -73,6 +76,7 @@
 		"IsOnCastBar"					"1"
 		"AbilityTextureName"			"drow_ranger_trueshot"
 		"MaxLevel"						"5"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -121,6 +125,7 @@
 		"IsOnCastBar"						"1"
 		"AbilityTextureName"				"luna_lunar_blessing"
 		"MaxLevel"							"1"
+		"IsBreakable"						"1"
 
 		"AbilityValues"
         {
@@ -133,7 +138,6 @@
                 {
                     "value"         "0"			// Night vision disabled
                 }
-
                 "bonus_night_vision_per_level"
                 {
                     "value"         "0"			// Night vision disabled
@@ -175,6 +179,94 @@
             {
                 "dynamic_value"     "true"
             }
+        }
+	}
+	"tiny_insurmountable2"
+	{
+		"BaseClass"							"tiny_insurmountable"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"							"0"
+		"IsOnCastBar"						"1"
+		"AbilityTextureName"				"tiny_insurmountable"
+		"MaxLevel"							"1"
+		"IsBreakable"						"1"
+
+		"AbilityValues"
+        {
+            "str_to_slow_resist_pct"            "6"		// 20 (default) 12 (Windy)
+            "str_to_status_resist_pct"          "3"		// 10 (default) 6 (windy)
+        }
+	}
+	"phantom_lancer_illusory_armaments2"
+	{
+		"BaseClass"							"phantom_lancer_illusory_armaments"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"							"0"
+		"IsOnCastBar"						"1"
+		"AbilityTextureName"				"phantom_lancer_illusory_armaments2"
+		"MaxLevel"							"1"
+
+		"AbilityValues"
+        {
+            "bonus_to_base"
+            {               
+                "value"         "100"
+            }
+
+            "bonus_to_base_illusions"
+            {
+                "value"         "75"	// 70
+            }
+        }
+	}
+	"venomancer_sepsis2"
+	{
+		"BaseClass"							"venomancer_sepsis"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"							"0"
+		"IsOnCastBar"						"1"
+		"AbilityTextureName"				"venomancer_poison_nova"
+		"MaxLevel"							"5"
+		"IsBreakable"						"1"
+
+		"AbilityValues"
+        {
+            "bonus_dmg_per_debuff_pct"
+            {
+                "value"                     "3 6 9 12 15"
+                "special_bonus_scepter"     "+5"
+                "DamageTypeTooltip"         "DAMAGE_TYPE_MAGICAL"
+				"CalculateSpellDamageTooltip"	"0"
+            }
+        }
+	}
+	"lina_combustion2"
+	{
+		"BaseClass"							"lina_combustion"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"							"0"
+		"IsOnCastBar"						"1"
+		"AbilityTextureName"				"lina_combustion2"
+		"MaxLevel"							"5"
+		"IsBreakable"						"1"
+
+		"AbilityValues"
+        {
+            "damage_threshold"          "400"	// 175
+            "damage"
+            {
+                "value"                         "20 40 60 80 100"	// 15 35 55 75
+            }
+            "damage_illusions"
+            {
+                "value"                         "10 20 30 40 50"	// 10 15 20 25
+            }
+            "damage_aoe"
+            {
+                "value"                 "400"
+                "affected_by_aoe_increase"  "1"
+            }
+            "duration"                  "6"
         }
 	}
 	//酒仙 醉拳 未使用
@@ -318,6 +410,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"centaur/berserkers_edge/centaur_double_edge"
 		"MaxLevel"						"5"
+		"IsBreakable"					"1"
 
 		"AbilityValues"
 		{
@@ -333,6 +426,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"spectre_dispersion"
 		"MaxLevel"						"5"
+		"IsBreakable"					"1"
 		"HasShardUpgrade"				"1"
 
 		"precache"
@@ -361,6 +455,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"alchemist_goblins_greed"
 		"Innate"						"0"
+		"IsBreakable"					"1"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -408,6 +503,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"DependentOnAbility"			"1"
 		"MaxLevel"						"5"
+		"IsBreakable"					"1"
 		"Innate"						"0"
 		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
 
@@ -455,6 +551,7 @@
 		"AbilityTextureName"    		"crystal_maiden_freezing_field_alt1"
 		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"                      "5"
+		"IsBreakable"					"1"
 
 
 		"precache"
@@ -478,6 +575,7 @@
 		"BaseClass"						"dark_seer_quick_wit"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
+		"IsBreakable"					"1"
 		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
 
 		"AbilityValues"
@@ -534,6 +632,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"MaxLevel"						"5"
 		"Innate"						"0"
+		"IsBreakable"					"1"
 		"AbilityTextureName"    		"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
 
 		"AbilityValues"
@@ -566,8 +665,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
 		"Innate"						"0"
+		"IsBreakable"					"1"
 		"AbilityTextureName"    		"clinkz_tar_bomb"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -589,8 +689,12 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage_per_str"				"0.6 0.7 0.8 0.9 1"
-			"base_damage_reduction"				"10 20 30 40 50"
+			"bonus_damage_per_str"
+			{
+				"value"		"0.6 0.7 0.8 0.9 1"
+				"DamageTypeTooltip"	"DAMAGE_TYPE_PHYSICAL"
+			}
+			"base_damage_reduction"	"10 20 30 40 50"
 		}
 	}
 	//拍拍 天生技能 +攻击
@@ -634,7 +738,7 @@
 		"ScriptFile"					"abilities/axe_one_man_army2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
-
+		"IsBreakable"					"1"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -704,7 +808,7 @@
 		"AbilityTextureName"    		"freezing_aura"
 		"AbilityCastRange"    			"1200"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
+		"IsBreakable"					"1"
 		"MaxLevel"						"5"
 
 		"AbilityManaCost"				"100 110 120 130 140"
@@ -769,7 +873,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"crystal_maiden_crystal_nova_icecowl"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
+		"IsBreakable"					"1"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -838,7 +942,7 @@
 		"AbilityTextureName"			"underlord/ul_2021_immortal_head_ability_icon/ul_2021_immortal_crimson_dark_rift_cancel"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
+		"IsBreakable"					"1"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
@@ -873,7 +977,7 @@
 		"AbilityTextureName"			"abyssal_underlord/ti8_immortal_weapon/abyssal_underlord_pit_of_malice_immortal"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
+		"IsBreakable"					"1"
 		"MaxLevel"						"5"
 
 		"AbilityValues"
