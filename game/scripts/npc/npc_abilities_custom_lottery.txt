@@ -269,6 +269,55 @@
             "duration"                  "6"
         }
 	}
+	"storm_spirit_galvanized2"
+    {
+		"BaseClass"						"storm_spirit_galvanized"
+        "MaxLevel"                      "5"
+        "Innate"                        "0"
+		"AbilityTextureName"			"storm_spirit_galvanized2"
+		"IsOnCastBar"					"1"
+        "IsBreakable"                   "1"
+
+        "AbilityValues"
+        {
+            "perma_mp_per_kill"     "0.1 0.2 0.3 0.4 0.5"
+            "mp_per_kill"           "0.2 0.4 0.6 0.8 1.0"
+            "charges_per_ult"       "0"
+            "aoe"                   
+            {
+                "value"     "2000"	// 1200
+                "affected_by_aoe_increase"  "1"
+            }
+            "charges_per_death"     "2" // 3
+        }
+    }
+	"skywrath_mage_shield_of_the_scion2"
+    {
+        "BaseClass"						"skywrath_mage_shield_of_the_scion"
+        "MaxLevel"                      "5"
+		"AbilityTextureName"			"skywrath_mage_shield_of_the_scion"
+        "IsBreakable"                   "1"
+        "AbilityValues"
+        {
+            "stack_duration"            "15"	// 25
+            "damage_barrier_base"       "10 15 20 25 30"	// 10
+            "damage_barrier_per_level"  "1 2 3 4 5"		// 1
+            "barrier_duration"          "15"	// 12
+        }
+    }
+    "skywrath_mage_staff_of_the_scion2"
+    {
+        // General
+		"BaseClass"						"skywrath_mage_staff_of_the_scion"
+		"AbilityTextureName"			"skywrath_mage_staff_of_the_scion"
+        "MaxLevel"                      "5"
+        "IsBreakable"                   "1"
+
+        "AbilityValues"
+        {
+            "cooldown_reduction"        "0.1 0.15 0.2 0.25 0.3"	// 0.1
+        }
+    }
 	//酒仙 醉拳 未使用
 	"brewmaster_drunken_boxing"
 	{
