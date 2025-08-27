@@ -306,22 +306,22 @@ function BotThink:ThinkSell(hHero)
   end
 
   -- 如果有魔晶 并且有魔晶buff 则出售
-  local shardName = "item_aghanims_shard"
-  local sellItem = BotThink:FindItemByNameIncludeStash(hHero, shardName)
-  if sellItem and hHero:HasModifier("modifier_item_aghanims_shard") then
-    SellItem(hHero, shardName)
-  end
+  -- local shardName = "item_aghanims_shard"
+  -- local sellItem = BotThink:FindItemByNameIncludeStash(hHero, shardName)
+  -- if sellItem and hHero:HasModifier("modifier_item_aghanims_shard") then
+  --   SellItem(hHero, shardName)
+  -- end
 
   -- 如果物品名称包含recipt 则出售
-  for i = 0, 8 do
-    local hItem = hHero:GetItemInSlot(i)
-    if hItem then
-      local itemName = hItem:GetName()
-      if string.find(itemName, "recipe") then
-        SellItem(hHero, itemName)
-      end
-    end
-  end
+  -- for i = 0, 8 do
+  --   local hItem = hHero:GetItemInSlot(i)
+  --   if hItem then
+  --     local itemName = hItem:GetName()
+  --     if string.find(itemName, "recipe") then
+  --       SellItem(hHero, itemName)
+  --     end
+  --   end
+  -- end
 
   local sellItemCommonList = tBotItemData.sellItemCommonList
   if SellItemFromTable(hHero, sellItemCommonList) then
