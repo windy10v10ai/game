@@ -53,7 +53,10 @@ export class SellItem {
 
     // 已经有魔晶buff，则出售魔晶
     if (hero.HasModifier('modifier_item_aghanims_shard')) {
-      return this.TryToSellItem(hero, 'item_aghanims_shard', true);
+      const result = this.TryToSellItem(hero, 'item_aghanims_shard', true);
+      if (result) {
+        return true;
+      }
     }
 
     // 出售包含recipe的物品
@@ -63,14 +66,20 @@ export class SellItem {
 
       const itemName = item.GetName();
       if (itemName.includes('recipe')) {
-        return this.TryToSellItem(hero, itemName, true);
+        const result = this.TryToSellItem(hero, itemName, true);
+        if (result) {
+          return true;
+        }
       }
     }
 
     // 从通用出售列表中寻找要出售的物品
     for (const itemName of SellItemCommonList) {
       if (hero.HasItemInInventory(itemName)) {
-        return this.TryToSellItem(hero, itemName, true);
+        const result = this.TryToSellItem(hero, itemName, true);
+        if (result) {
+          return true;
+        }
       }
     }
 
@@ -94,13 +103,15 @@ export class SellItem {
 
     // 从英雄特定出售列表中寻找要出售的旧装备
     const heroSellList = SellItemHeroList[heroName];
-    if (!heroSellList) {
-      return false;
-    }
 
-    for (const itemName of heroSellList) {
-      if (hero.HasItemInInventory(itemName)) {
-        return this.TryToSellItem(hero, itemName);
+    if (heroSellList) {
+      for (const itemName of heroSellList) {
+        if (hero.HasItemInInventory(itemName)) {
+          const result = this.TryToSellItem(hero, itemName);
+          if (result) {
+            return true;
+          }
+        }
       }
     }
 
