@@ -107,7 +107,7 @@ export class SellItem {
     // 从英雄特定出售列表中寻找要出售的旧装备
     const heroSellList = SellItemHeroList[heroName];
 
-    if (heroSellList) {
+    if (heroSellList !== undefined) {
       for (const itemName of heroSellList) {
         if (hero.HasItemInInventory(itemName)) {
           const result = this.TryToSellItem(hero, itemName);
