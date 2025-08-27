@@ -32,7 +32,9 @@ export class SellItem {
     // 移除物品
     hero.RemoveItem(item);
     const priceType = fullPrice ? 'full price' : 'half price';
-    print(`[AI] SellItem ${itemName} sold for ${sellPrice} gold (${priceType})`);
+    print(
+      `[AI] SellItem hero: ${hero.GetUnitName()}, item: ${itemName}, sold for ${sellPrice} gold (${priceType})`,
+    );
     return true;
   }
 
@@ -59,10 +61,10 @@ export class SellItem {
       const item = hero.GetItemInSlot(i);
       if (!item) continue;
 
-      const itemName = item.GetAbilityName();
-      if (!itemName.includes('recipe')) continue;
-
-      return this.TryToSellItem(hero, itemName, true);
+      const itemName = item.GetName();
+      if (itemName.includes('recipe')) {
+        return this.TryToSellItem(hero, itemName, true);
+      }
     }
 
     // 从通用出售列表中寻找要出售的物品
