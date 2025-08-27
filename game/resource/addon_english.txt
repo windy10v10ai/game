@@ -213,18 +213,18 @@
 		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"ATTACK DAMAGE BONUS"
 		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Level up based on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Level up based on how many towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"ARMOR BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
-		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Level up based on how many enemy towers are destroyed."
+		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Level up based on how many towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"ATTACK DAMAGE BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"ARMOR BONUS"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%INCOMING DAMAGE REDUCTION BONUS:"
