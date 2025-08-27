@@ -52,7 +52,10 @@ export class SellItem {
     }
 
     // 已经有魔晶buff，则出售魔晶
-    if (hero.HasModifier('modifier_item_aghanims_shard')) {
+    if (
+      hero.HasItemInInventory('item_aghanims_shard') ||
+      hero.HasModifier('modifier_item_aghanims_shard')
+    ) {
       const result = this.TryToSellItem(hero, 'item_aghanims_shard', true);
       if (result) {
         return true;
