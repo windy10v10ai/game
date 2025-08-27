@@ -1027,11 +1027,11 @@ tBotItemData.purchaseItemList = {
 -- sell item if has more than 8 item
 -- same item only need set once
 tBotItemData.sellItemList = {
-	npc_dota_hero_abaddon = {
-		'item_overwhelming_blink',
-		'item_echo_sabre_2',
-		-- local
-	},
+	-- npc_dota_hero_abaddon = {
+	-- 	'item_overwhelming_blink',
+	-- 	'item_echo_sabre_2',
+	-- 	-- local
+	-- },
 	npc_dota_hero_arc_warden = {
 		'item_black_king_bar',
 	},

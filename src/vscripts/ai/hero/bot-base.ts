@@ -3,6 +3,7 @@ import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
 import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
+import { SellItem } from '../build-item/sell-item';
 import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
@@ -341,7 +342,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.ConsumeItem()) {
       return true;
     }
-    if (this.SellItem()) {
+    if (SellItem.SellItems(this.hero)) {
       return true;
     }
     if (this.PurchaseItem()) {
@@ -397,10 +398,6 @@ export class BotBaseAIModifier extends BaseModifier {
     this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
     this.neutralItemTier = targetTier;
     return true;
-  }
-
-  SellItem(): boolean {
-    return false;
   }
 
   ConsumeItem(): boolean {
