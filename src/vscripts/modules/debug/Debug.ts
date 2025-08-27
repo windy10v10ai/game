@@ -55,6 +55,15 @@ export class Debug {
         hero.AddAbility(abilityName);
       });
     }
+    // ---- item ----
+    if (cmd === CMD.ADD_ITEM_ALL) {
+      const itemName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        hero.AddItemByName(itemName);
+      });
+    }
     if (cmd === CMD.RM_ITEM) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
