@@ -30,7 +30,7 @@ export class SellItem {
     hero.ModifyGold(sellPrice, true, ModifyGoldReason.SELL_ITEM);
 
     // 移除物品
-    hero.RemoveItem(item);
+    UTIL_RemoveImmediate(item);
     const priceType = fullPrice ? 'full price' : 'half price';
     print(
       `[AI] SellItem hero: ${hero.GetUnitName()}, item: ${itemName}, sold for ${sellPrice} gold (${priceType})`,

@@ -23,10 +23,10 @@ export class ModifierHelper {
    * @param modifierName 修饰器名称
    */
   static refreshItemDataDrivenModifier(item: CDOTA_Item_Lua, modifierName: string): void {
-    const caster = item.GetCaster();
-    const itemName = item.GetName();
-
     Timers.CreateTimer(0.1, () => {
+      const caster = item.GetCaster();
+      const itemName = item.GetName();
+
       // 计算持有者拥有的该物品数量
       let itemCount = 0;
       for (let i = 0; i < 6; i++) {
