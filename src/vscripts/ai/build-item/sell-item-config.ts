@@ -21,6 +21,8 @@ export const SpecialConsumableItems: string[] = [
   'item_wings_of_haste', // 急速之翼
   'item_ultimate_scepter_2', // 真·阿哈利姆神杖
   'item_moon_shard_datadriven', // 真·银月之晶
+  'item_ward_observer', // 侦查守卫
+  'item_ward_sentry', // 岗哨守卫
 ];
 
 /**
