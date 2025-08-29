@@ -1,4 +1,9 @@
-import { SellItemCommonList, SellItemHeroList, SpecialConsumableItems } from './sell-item-config';
+import {
+  AghanimsShardItem,
+  SellItemCommonList,
+  SellItemHeroList,
+  SpecialConsumableItems,
+} from './sell-item-config';
 
 /**
  * 出售物品功能类
@@ -9,7 +14,7 @@ export class SellItem {
    * @param itemsMap 物品Map
    * @returns 出售阈值，默认7，拥有特殊消耗物品时返回8
    */
-  static getSellThreshold(itemsMap: Map<string, CDOTA_Item>): number {
+  static GetSellThreshold(itemsMap: Map<string, CDOTA_Item>): number {
     // 检查是否拥有特殊消耗物品
     for (const consumableItem of SpecialConsumableItems) {
       if (itemsMap.has(consumableItem)) {
@@ -24,7 +29,7 @@ export class SellItem {
    * @param hero 英雄单位
    * @returns Map<物品名称, 物品对象>
    */
-  static getItemsMap(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item> {
+  static GetItemsMap(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item> {
     const itemsMap = new Map<string, CDOTA_Item>();
     for (let i = 0; i <= 8; i++) {
       const item = hero.GetItemInSlot(i);
@@ -71,34 +76,28 @@ export class SellItem {
   }
 
   /**
-   * 出售多余的物品
+   * 出售魔晶 - 已经有魔晶buff时出售魔晶物品
    * @param hero 英雄单位
+   * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
-  static SellExtraItems(hero: CDOTA_BaseNPC_Hero): boolean {
-    // 获取物品Map
-    const itemsMap = this.getItemsMap(hero);
-
-    // 获取出售阈值
-    const sellThreshold = this.getSellThreshold(itemsMap);
-
-    // 物品栏未达到阈值，不需要出售
-    if (itemsMap.size < sellThreshold) {
-      return false;
-    }
-
-    // 已经有魔晶buff，则出售魔晶
-    if (itemsMap.has('item_aghanims_shard') && hero.HasModifier('modifier_item_aghanims_shard')) {
-      const shardItem = itemsMap.get('item_aghanims_shard');
+  static SellAghanimsShard(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item>): boolean {
+    if (itemsMap.has(AghanimsShardItem) && hero.HasModifier('modifier_item_aghanims_shard')) {
+      const shardItem = itemsMap.get(AghanimsShardItem);
       if (shardItem) {
-        const result = this.SellItem(hero, shardItem, 'item_aghanims_shard', true);
-        if (result) {
-          return true;
-        }
+        return this.SellItem(hero, shardItem, AghanimsShardItem, true);
       }
     }
+    return false;
+  }
 
-    // 出售包含recipe的物品
+  /**
+   * 出售配方物品 - 出售包含recipe的物品
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellRecipeItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item>): boolean {
     for (const [itemName, item] of itemsMap) {
       if (itemName.includes('recipe')) {
         const result = this.SellItem(hero, item, itemName, true);
@@ -107,8 +106,16 @@ export class SellItem {
         }
       }
     }
+    return false;
+  }
 
-    // 从通用出售列表中寻找要出售的物品
+  /**
+   * 出售通用垃圾物品 - 从通用出售列表中寻找要出售的物品
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellCommonJunkItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item>): boolean {
     for (const itemName of SellItemCommonList) {
       if (itemsMap.has(itemName)) {
         const item = itemsMap.get(itemName);
@@ -120,8 +127,19 @@ export class SellItem {
         }
       }
     }
+    return false;
+  }
 
-    // 从英雄特定出售列表中寻找要出售的旧装备
+  /**
+   * 出售英雄特定物品 - 从英雄特定出售列表中寻找要出售的旧装备
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellHeroSpecificItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item>,
+  ): boolean {
     const heroSellList = SellItemHeroList[hero.GetUnitName()];
 
     if (heroSellList !== undefined) {
@@ -136,6 +154,46 @@ export class SellItem {
           }
         }
       }
+    }
+    return false;
+  }
+
+  /**
+   * 出售多余的物品
+   * @param hero 英雄单位
+   * @returns 是否出售了物品
+   */
+  static SellExtraItems(hero: CDOTA_BaseNPC_Hero): boolean {
+    // 获取物品Map
+    const itemsMap = this.GetItemsMap(hero);
+
+    // 获取出售阈值
+    const sellThreshold = this.GetSellThreshold(itemsMap);
+
+    // 物品栏未达到阈值，不需要出售
+    if (itemsMap.size < sellThreshold) {
+      return false;
+    }
+
+    // 按优先级尝试出售物品
+    // 1. 出售魔晶（已有buff时）
+    if (this.SellAghanimsShard(hero, itemsMap)) {
+      return true;
+    }
+
+    // 2. 出售配方物品
+    if (this.SellRecipeItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 3. 出售通用垃圾物品
+    if (this.SellCommonJunkItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 4. 出售英雄特定物品
+    if (this.SellHeroSpecificItems(hero, itemsMap)) {
+      return true;
     }
 
     return false;

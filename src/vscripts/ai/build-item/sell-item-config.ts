@@ -4,6 +4,11 @@
  */
 
 /**
+ * 阿哈利姆魔晶物品名称
+ */
+export const AghanimsShardItem = 'item_aghanims_shard';
+
+/**
  * 特殊消耗物品列表 - 拥有这些物品时提高出售阈值
  * 这些物品比较重要，需要保留更多的物品栏空间
  */
