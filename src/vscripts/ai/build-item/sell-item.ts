@@ -1,26 +1,78 @@
-import { SellItemCommonList, SellItemHeroList } from './sell-item-config';
+import {
+  AghanimsShardItem,
+  SellItemCommonList,
+  SellItemHeroList,
+  SpecialConsumableItems,
+} from './sell-item-config';
 
 /**
  * 出售物品功能类
  */
 export class SellItem {
   /**
-   * 尝试出售指定物品，如果成功则返回true，否则返回false
-   * 包含身上9个格子，中立物品，回城卷轴
-   * 不包含储藏处的物品
+   * 获取出售物品的阈值
+   * @param itemsMap 物品Map
+   * @returns 出售阈值，默认7，拥有特殊消耗物品时返回8
+   */
+  static GetSellThreshold(itemsMap: Map<string, CDOTA_Item[]>): number {
+    // 检查是否拥有特殊消耗物品
+    for (const consumableItem of SpecialConsumableItems) {
+      if (itemsMap.has(consumableItem)) {
+        return 8;
+      }
+    }
+    return 7;
+  }
+
+  /**
+   * 获取英雄物品栏，备用物品栏，储藏处中所有物品的Map
+   * 不包含回城卷轴，中立物品
    * @param hero 英雄单位
+   * @returns Map<物品名称, 物品对象数组> - 支持同名重复物品
+   */
+  static GetItemsMapIncludeStash(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item[]> {
+    const itemsMap = new Map<string, CDOTA_Item[]>();
+    for (let i = 0; i <= 14; i++) {
+      const item = hero.GetItemInSlot(i);
+      if (item) {
+        const itemName = item.GetName();
+        if (!itemsMap.has(itemName)) {
+          itemsMap.set(itemName, []);
+        }
+        itemsMap.get(itemName)!.push(item);
+      }
+    }
+
+    return itemsMap;
+  }
+
+  /**
+   * 尝试出售指定物品，如果成功则返回true，否则返回false
+   * @param hero 英雄单位
+   * @param items 物品数组
    * @param itemName 物品名称
    * @param fullPrice 是否按原价出售，默认false（半价出售）
    * @returns 是否成功出售
    */
-  static TryToSellItem(
+  static SellItem(
     hero: CDOTA_BaseNPC_Hero,
+    items: CDOTA_Item[],
     itemName: string,
     fullPrice: boolean = false,
   ): boolean {
-    const item = hero.FindItemInInventory(itemName);
-    // 没有该物品
+    // 检查物品数组和第一个物品
+    if (!items) {
+      print(
+        `[AI] SellItem ERROR: items is null, hero: ${hero.GetUnitName()}, itemName: ${itemName}`,
+      );
+      return false;
+    }
+
+    const item = items[0];
     if (!item) {
+      print(
+        `[AI] SellItem ERROR: item is null, hero: ${hero.GetUnitName()}, itemName: ${itemName}`,
+      );
       return false;
     }
 
@@ -39,82 +91,91 @@ export class SellItem {
   }
 
   /**
-   * 出售垃圾物品 - 当物品栏有7件及以上物品时出售垃圾的物品
+   * 出售魔晶 - 已经有魔晶buff时出售魔晶物品
    * @param hero 英雄单位
+   * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
-  static SellJunkItems(hero: CDOTA_BaseNPC_Hero): boolean {
-    const itemCount = hero.GetNumItemsInInventory();
-
-    // 物品栏未满，不需要出售
-    if (itemCount < 7) {
-      return false;
+  static SellAghanimsShard(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    if (itemsMap.has(AghanimsShardItem) && hero.HasModifier('modifier_item_aghanims_shard')) {
+      const shardItems = itemsMap.get(AghanimsShardItem)!;
+      return this.SellItem(hero, shardItems, AghanimsShardItem, true);
     }
+    return false;
+  }
 
-    // 已经有魔晶buff，则出售魔晶
-    if (
-      hero.HasItemInInventory('item_aghanims_shard') ||
-      hero.HasModifier('modifier_item_aghanims_shard')
-    ) {
-      const result = this.TryToSellItem(hero, 'item_aghanims_shard', true);
-      if (result) {
-        return true;
-      }
-    }
-
-    // 出售包含recipe的物品
-    for (let i = 0; i <= 8; i++) {
-      const item = hero.GetItemInSlot(i);
-      if (!item) continue;
-
-      const itemName = item.GetName();
+  /**
+   * 出售配方物品 - 出售包含recipe的物品
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellRecipeItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    for (const [itemName, items] of itemsMap) {
       if (itemName.includes('recipe')) {
-        const result = this.TryToSellItem(hero, itemName, true);
-        if (result) {
-          return true;
-        }
+        return this.SellItem(hero, items, itemName, true);
       }
     }
-
-    // 从通用出售列表中寻找要出售的物品
-    for (const itemName of SellItemCommonList) {
-      if (hero.HasItemInInventory(itemName)) {
-        const result = this.TryToSellItem(hero, itemName, true);
-        if (result) {
-          return true;
-        }
-      }
-    }
-
     return false;
   }
 
   /**
-   * 出售过期装备 - 当物品栏有8件及以上物品时出售自定义购买的旧物品
+   * 出售通用垃圾物品 - 从通用出售列表中寻找要出售的物品
    * @param hero 英雄单位
+   * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
-  static SellOutdatedItems(hero: CDOTA_BaseNPC_Hero): boolean {
-    const itemCount = hero.GetNumItemsInInventory();
+  static SellCommonJunkItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item[]>,
+  ): boolean {
+    for (const itemName of SellItemCommonList) {
+      if (itemsMap.has(itemName)) {
+        const items = itemsMap.get(itemName)!;
+        return this.SellItem(hero, items, itemName, true);
+      }
+    }
+    return false;
+  }
 
-    // 物品栏未满8件，不需要出售
-    if (itemCount < 8) {
+  /**
+   * 出售重复物品 - 出售数量超过1个的物品中多余的
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellDuplicateItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item[]>,
+  ): boolean {
+    for (const [itemName, items] of itemsMap) {
+      if (items.length > 1) {
+        return this.SellItem(hero, items, itemName, true);
+      }
+    }
+    return false;
+  }
+
+  /**
+   * 出售英雄特定物品 - 从英雄特定出售列表中寻找要出售的旧装备
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellHeroSpecificItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item[]>,
+  ): boolean {
+    const heroSellList = SellItemHeroList[hero.GetUnitName()];
+
+    if (!heroSellList) {
       return false;
     }
 
-    const heroName = hero.GetUnitName();
-
-    // 从英雄特定出售列表中寻找要出售的旧装备
-    const heroSellList = SellItemHeroList[heroName];
-
-    if (heroSellList !== undefined) {
-      for (const itemName of heroSellList) {
-        if (hero.HasItemInInventory(itemName)) {
-          const result = this.TryToSellItem(hero, itemName);
-          if (result) {
-            return true;
-          }
-        }
+    for (const itemName of heroSellList) {
+      if (itemsMap.has(itemName)) {
+        const items = itemsMap.get(itemName)!;
+        return this.SellItem(hero, items, itemName);
       }
     }
 
@@ -122,21 +183,51 @@ export class SellItem {
   }
 
   /**
-   * 智能出售物品 - 统一入口，按优先级处理出售逻辑
-   * < 7件      → 不出售
-   * ≥ 7件      → 出售垃圾物品
-   * ≥ 8件      → 出售垃圾物品 + 过期装备
+   * 出售多余的物品
    * @param hero 英雄单位
    * @returns 是否出售了物品
    */
-  static SellItems(hero: CDOTA_BaseNPC_Hero): boolean {
-    // 优先出售垃圾物品（7件以上）
-    if (this.SellJunkItems(hero)) {
+  static SellExtraItems(hero: CDOTA_BaseNPC_Hero): boolean {
+    // 获取物品Map
+    const itemsMap = this.GetItemsMapIncludeStash(hero);
+
+    // 计算总物品数量
+    let totalItemCount = 0;
+    for (const items of itemsMap.values()) {
+      totalItemCount += items.length;
+    }
+
+    // 获取出售阈值
+    const sellThreshold = this.GetSellThreshold(itemsMap);
+
+    // 物品栏未达到阈值，不需要出售
+    if (totalItemCount < sellThreshold) {
+      return false;
+    }
+
+    // 按优先级尝试出售物品
+    // 1. 出售魔晶（已有buff时）
+    if (this.SellAghanimsShard(hero, itemsMap)) {
       return true;
     }
 
-    // 再出售过期装备（8件以上）
-    if (this.SellOutdatedItems(hero)) {
+    // 2. 出售配方物品
+    if (this.SellRecipeItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 3. 出售通用垃圾物品
+    if (this.SellCommonJunkItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 4. 出售重复物品
+    if (this.SellDuplicateItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 5. 出售英雄特定物品
+    if (this.SellHeroSpecificItems(hero, itemsMap)) {
       return true;
     }
 

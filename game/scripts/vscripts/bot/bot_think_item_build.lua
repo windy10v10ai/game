@@ -83,12 +83,12 @@ function BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
   return nil
 end
 
-function BotThink:FindItemByName(hHero, sName)
-  for i = 0, 8 do
-    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-  end
-  return nil
-end
+-- function BotThink:FindItemByName(hHero, sName)
+--   for i = 0, 8 do
+--     if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+--   end
+--   return nil
+-- end
 
 function BotThink:FindItemByNameIncludeStash(hHero, sName)
   for i = 0, 15 do
@@ -274,16 +274,16 @@ local function SellItemFromTable(hHero, iPurchaseTable)
   return false
 end
 
-local function SellItem(hHero, vName)
-  local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
-  if sellItem then
-    local iCost = math.floor(GetItemCost(vName) / 2)
-    UTIL_RemoveImmediate(sellItem)
-    PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
-    return true
-  end
-  return false
-end
+-- local function SellItem(hHero, vName)
+--   local sellItem = BotThink:FindItemByNameIncludeStash(hHero, vName)
+--   if sellItem then
+--     local iCost = math.floor(GetItemCost(vName) / 2)
+--     UTIL_RemoveImmediate(sellItem)
+--     PlayerResource:ModifyGold(hHero:GetPlayerID(), iCost, true, DOTA_ModifyGold_SellItem)
+--     return true
+--   end
+--   return false
+-- end
 
 --------------------
 -- Item Think
