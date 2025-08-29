@@ -8,7 +8,9 @@
  * 主要是基础配件和早期物品
  */
 export const SellItemCommonList: string[] = [
+  // v社更新导致的异常出装
   'item_manta', // 幻影斧
+  'item_sphere', // 林肯法球
 ];
 
 /**
