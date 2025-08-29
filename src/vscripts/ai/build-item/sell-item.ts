@@ -142,19 +142,22 @@ export class SellItem {
   ): boolean {
     const heroSellList = SellItemHeroList[hero.GetUnitName()];
 
-    if (heroSellList !== undefined) {
-      for (const itemName of heroSellList) {
-        if (itemsMap.has(itemName)) {
-          const item = itemsMap.get(itemName);
-          if (item) {
-            const result = this.SellItem(hero, item, itemName);
-            if (result) {
-              return true;
-            }
+    if (!heroSellList) {
+      return false;
+    }
+
+    for (const itemName of heroSellList) {
+      if (itemsMap.has(itemName)) {
+        const item = itemsMap.get(itemName);
+        if (item) {
+          const result = this.SellItem(hero, item, itemName);
+          if (result) {
+            return true;
           }
         }
       }
     }
+
     return false;
   }
 
