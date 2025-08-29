@@ -83,12 +83,12 @@ function BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
   return nil
 end
 
-function BotThink:FindItemByName(hHero, sName)
-  for i = 0, 8 do
-    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-  end
-  return nil
-end
+-- function BotThink:FindItemByName(hHero, sName)
+--   for i = 0, 8 do
+--     if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+--   end
+--   return nil
+-- end
 
 function BotThink:FindItemByNameIncludeStash(hHero, sName)
   for i = 0, 15 do
