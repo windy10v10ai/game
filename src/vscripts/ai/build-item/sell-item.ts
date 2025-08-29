@@ -100,10 +100,7 @@ export class SellItem {
   static SellRecipeItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item>): boolean {
     for (const [itemName, item] of itemsMap) {
       if (itemName.includes('recipe')) {
-        const result = this.SellItem(hero, item, itemName, true);
-        if (result) {
-          return true;
-        }
+        return this.SellItem(hero, item, itemName, true);
       }
     }
     return false;
@@ -120,10 +117,7 @@ export class SellItem {
       if (itemsMap.has(itemName)) {
         const item = itemsMap.get(itemName);
         if (item) {
-          const result = this.SellItem(hero, item, itemName, true);
-          if (result) {
-            return true;
-          }
+          return this.SellItem(hero, item, itemName, true);
         }
       }
     }
@@ -150,10 +144,7 @@ export class SellItem {
       if (itemsMap.has(itemName)) {
         const item = itemsMap.get(itemName);
         if (item) {
-          const result = this.SellItem(hero, item, itemName);
-          if (result) {
-            return true;
-          }
+          return this.SellItem(hero, item, itemName);
         }
       }
     }
