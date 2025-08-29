@@ -139,6 +139,24 @@ export class SellItem {
   }
 
   /**
+   * 出售重复物品 - 出售数量超过1个的物品中多余的
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellDuplicateItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item[]>,
+  ): boolean {
+    for (const [itemName, items] of itemsMap) {
+      if (items.length > 1) {
+        return this.SellItem(hero, items, itemName, true);
+      }
+    }
+    return false;
+  }
+
+  /**
    * 出售英雄特定物品 - 从英雄特定出售列表中寻找要出售的旧装备
    * @param hero 英雄单位
    * @param itemsMap 物品Map
@@ -203,7 +221,12 @@ export class SellItem {
       return true;
     }
 
-    // 4. 出售英雄特定物品
+    // 4. 出售重复物品
+    if (this.SellDuplicateItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 5. 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
       return true;
     }
