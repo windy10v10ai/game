@@ -1,9 +1,24 @@
-import { SellItemCommonList, SellItemHeroList } from './sell-item-config';
+import { SellItemCommonList, SellItemHeroList, SpecialConsumableItems } from './sell-item-config';
 
 /**
  * 出售物品功能类
  */
 export class SellItem {
+  /**
+   * 获取出售物品的阈值
+   * @param itemsMap 物品Map
+   * @returns 出售阈值，默认7，拥有特殊消耗物品时返回8
+   */
+  static getSellThreshold(itemsMap: Map<string, CDOTA_Item>): number {
+    // 检查是否拥有特殊消耗物品
+    for (const consumableItem of SpecialConsumableItems) {
+      if (itemsMap.has(consumableItem)) {
+        return 8;
+      }
+    }
+    return 7;
+  }
+
   /**
    * 获取英雄物品栏中所有物品的Map
    * @param hero 英雄单位
@@ -30,7 +45,7 @@ export class SellItem {
    * @param fullPrice 是否按原价出售，默认false（半价出售）
    * @returns 是否成功出售
    */
-  static TryToSellItem(
+  static SellItem(
     hero: CDOTA_BaseNPC_Hero,
     item: CDOTA_Item,
     itemName: string,
@@ -60,12 +75,15 @@ export class SellItem {
    * @param hero 英雄单位
    * @returns 是否出售了物品
    */
-  static SellItems(hero: CDOTA_BaseNPC_Hero): boolean {
+  static SellExtraItems(hero: CDOTA_BaseNPC_Hero): boolean {
     // 获取物品Map
     const itemsMap = this.getItemsMap(hero);
 
-    // 物品栏未满，不需要出售
-    if (itemsMap.size < 7) {
+    // 获取出售阈值
+    const sellThreshold = this.getSellThreshold(itemsMap);
+
+    // 物品栏未达到阈值，不需要出售
+    if (itemsMap.size < sellThreshold) {
       return false;
     }
 
@@ -73,7 +91,7 @@ export class SellItem {
     if (itemsMap.has('item_aghanims_shard') && hero.HasModifier('modifier_item_aghanims_shard')) {
       const shardItem = itemsMap.get('item_aghanims_shard');
       if (shardItem) {
-        const result = this.TryToSellItem(hero, shardItem, 'item_aghanims_shard', true);
+        const result = this.SellItem(hero, shardItem, 'item_aghanims_shard', true);
         if (result) {
           return true;
         }
@@ -83,7 +101,7 @@ export class SellItem {
     // 出售包含recipe的物品
     for (const [itemName, item] of itemsMap) {
       if (itemName.includes('recipe')) {
-        const result = this.TryToSellItem(hero, item, itemName, true);
+        const result = this.SellItem(hero, item, itemName, true);
         if (result) {
           return true;
         }
@@ -95,7 +113,7 @@ export class SellItem {
       if (itemsMap.has(itemName)) {
         const item = itemsMap.get(itemName);
         if (item) {
-          const result = this.TryToSellItem(hero, item, itemName, true);
+          const result = this.SellItem(hero, item, itemName, true);
           if (result) {
             return true;
           }
@@ -111,7 +129,7 @@ export class SellItem {
         if (itemsMap.has(itemName)) {
           const item = itemsMap.get(itemName);
           if (item) {
-            const result = this.TryToSellItem(hero, item, itemName);
+            const result = this.SellItem(hero, item, itemName);
             if (result) {
               return true;
             }
