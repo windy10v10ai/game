@@ -185,9 +185,6 @@ export const ItemUpgradeReplacements: Record<string, string[]> = {
   // 神圣斧系列 - item_devastator_2 > item_devastator
   item_devastator_2: ['item_devastator'],
 
-  // 真·阿哈利姆神杖 > 阿哈利姆神杖
-  item_ultimate_scepter_2: ['item_ultimate_scepter'],
-
   // 不朽之心
   item_undying_heart: ['item_heart'],
 

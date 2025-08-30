@@ -102,6 +102,10 @@ export class SellItem {
       const shardItems = itemsMap.get(AghanimsShardItem)!;
       return this.SellItem(hero, shardItems, AghanimsShardItem, true);
     }
+    // TODO 拥有wings of haste时，出售鞋子
+
+    // TODO 拥有真·阿哈利姆神杖Buff时，出售真·阿哈利姆神杖等
+    // item_ultimate_scepter_2: ['item_ultimate_scepter'],
     return false;
   }
 

@@ -1244,6 +1244,8 @@ tBotItemData.sellItemCommonList = {
 	'item_ring_of_tarrasque', -- 恐鳌之戒
 	'item_headdress',        -- 恢复头巾
 	'item_tiara_of_selemene', -- 赛莉蒙妮之冠
+	'item_vitality_booster', -- 活力之球
+	'item_energy_booster',   -- 能量之球
 	'item_point_booster',    -- 精气之球
 	'item_cornucopia',       -- 丰饶之环
 	'item_talisman_of_evasion', -- 闪避护符
