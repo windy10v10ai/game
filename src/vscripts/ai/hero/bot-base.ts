@@ -342,7 +342,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.ConsumeItem()) {
       return true;
     }
-    if (SellItem.SellItems(this.hero)) {
+    if (SellItem.SellExtraItems(this.hero)) {
       return true;
     }
     if (this.PurchaseItem()) {
