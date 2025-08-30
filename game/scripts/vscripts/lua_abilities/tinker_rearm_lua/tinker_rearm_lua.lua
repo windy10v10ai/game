@@ -87,6 +87,18 @@ tinker_rearm_lua.AbitilyException = {
 	["faceless_void_time_zone"] = true,
 	["shadow_shaman_mass_serpent_ward"] = true,
 	["spectre_haunt"] = true,
+	["beastmaster_call_of_the_wild_hawk"] = true,
+	["beastmaster_call_of_the_wild_boar"] = true,
+	["enigma_demonic_conversion"] = true,
+	["faceless_void_chronosphere"] = true,
+	["undying_tombstone"] = true,
+	["venomancer_plague_ward"] = true,
+	["arc_warden_tempest_double"] = true,
+	["shadow_demon_disruption"] = true,
+	["terrorblade_conjure_image"] = true,
+	["terrorblade_reflection"] = true,
+	["hoodwink_decoy"] = true,
+	["grimstroke_dark_portrait"] = true,
 }
 function tinker_rearm_lua:IsItemException(item)
 	return self.ItemException[item:GetName()]
@@ -98,6 +110,7 @@ tinker_rearm_lua.ItemException = {
 	["item_black_king_bar"] = true,
 	["item_hand_of_midas"] = true,
 	["item_helm_of_the_dominator"] = true,
+	["item_helm_of_the_overlord"] = true,
 	["item_meteor_hammer"] = true,
 	["item_necronomicon"] = true,
 	["item_necronomicon_2"] = true,
@@ -113,6 +126,10 @@ tinker_rearm_lua.ItemException = {
 	["item_sphere_2"] = true,
 	["item_insight_armor"] = true,
 	["item_hand_of_group"] = true,
+	["item_jump_jump_jump"] = true,
+	["item_meteor_hammer_2"] = true,
+	["item_saint_orb"] = true,
+	["item_candy_candy"] = true,
 }
 
 --------------------------------------------------------------------------------
