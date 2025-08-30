@@ -4,11 +4,6 @@
  */
 
 /**
- * 阿哈利姆魔晶物品名称
- */
-export const AghanimsShardItem = 'item_aghanims_shard';
-
-/**
  * 特殊消耗物品列表 - 拥有这些物品时提高出售阈值
  * 这些物品比较重要，需要保留更多的物品栏空间
  */
@@ -145,7 +140,8 @@ export const ItemUpgradeReplacements: Record<string, string[]> = {
   item_heavens_halberd_v2: ['item_heavens_halberd'],
 
   // 阿迪王系列 - item_adi_king_plus > item_adi_king
-  item_adi_king_plus: ['item_adi_king'],
+  item_adi_king_plus: ['item_adi_king', 'item_phase_boots'],
+  item_adi_king: ['item_phase_boots'],
 
   // 飓风长戟系列 - item_hurricane_pike_2 > item_hurricane_pike
   item_hurricane_pike_2: ['item_hurricane_pike'],

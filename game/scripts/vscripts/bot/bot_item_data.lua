@@ -943,6 +943,7 @@ tBotItemData.purchaseItemList = {
 		'item_ultimate_scepter_2',
 		'item_skadi_2',      -- 大冰眼
 		'item_wasp_callous',
+		'item_excalibur',
 	},
 	npc_dota_hero_witch_doctor = {
 		'item_magic_wand',
@@ -1309,7 +1310,7 @@ tBotItemData.sellItemCommonList = {
 
 
 	-- 高级道具 3k~6k
-	'item_ultimate_scepter', -- A杖
+	-- 'item_ultimate_scepter', -- A杖
 	'item_desolator',     -- 黯灭
 	'item_black_king_bar', -- BKB
 	'item_pipe',          -- 笛子
@@ -1327,7 +1328,7 @@ tBotItemData.sellItemCommonList = {
 	'item_guardian_greaves', -- 卫士胫甲
 	'item_assault',       -- 强袭胸甲
 	'item_shivas_guard',  -- 希瓦的守护
-	'item_manta',         -- 幻影斧
+	-- 'item_manta',         -- 幻影斧
 	'item_butterfly',     -- 蝴蝶
 	'item_radiance',      -- 辉耀
 	'item_satanic',       -- 撒旦
@@ -1344,9 +1345,9 @@ tBotItemData.sellItemCommonList = {
 	'item_rapier',        -- 圣剑
 
 	-- 终极道具 6k~10k
-	'item_radiance_2',        -- 大辉耀 圣焰之光
-	'item_arcane_octarine_core', -- 奥术之心（大玲珑心）
-	'item_monkey_king_bar_2', -- 定海神针
+	'item_radiance_2', -- 大辉耀 圣焰之光
+	-- 'item_arcane_octarine_core', -- 奥术之心（大玲珑心）
+	-- 'item_monkey_king_bar_2', -- 定海神针
 }
 
 -- Consume items

@@ -1,5 +1,4 @@
 import {
-  AghanimsShardItem,
   ItemUpgradeReplacements,
   SellItemCommonList,
   SellItemHeroList,
@@ -92,20 +91,43 @@ export class SellItem {
   }
 
   /**
-   * 出售魔晶 - 已经有魔晶buff时出售魔晶物品
+   * 出售已消耗的物品 - 已经获得buff时出售对应物品
    * @param hero 英雄单位
    * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
-  static SellAghanimsShard(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
-    if (itemsMap.has(AghanimsShardItem) && hero.HasModifier('modifier_item_aghanims_shard')) {
-      const shardItems = itemsMap.get(AghanimsShardItem)!;
-      return this.SellItem(hero, shardItems, AghanimsShardItem, true);
+  static SellConsumedItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    // 出售魔晶 - 已经有魔晶buff时出售魔晶物品
+    const aghanimsShardItem = 'item_aghanims_shard';
+    if (itemsMap.has(aghanimsShardItem) && hero.HasModifier('modifier_item_aghanims_shard')) {
+      const shardItems = itemsMap.get(aghanimsShardItem)!;
+      return this.SellItem(hero, shardItems, aghanimsShardItem, true);
     }
-    // TODO 拥有wings of haste时，出售鞋子
 
-    // TODO 拥有真·阿哈利姆神杖Buff时，出售真·阿哈利姆神杖等
-    // item_ultimate_scepter_2: ['item_ultimate_scepter'],
+    // 出售急速之翼的配方鞋子 - 已消耗急速之翼时出售其配方中的鞋子
+    if (hero.HasModifier('modifier_item_wings_of_haste_consumed')) {
+      // 急速之翼的配方鞋子：相位鞋、奥术鞋、静谧鞋
+      const bootsList = ['item_power_treads', 'item_arcane_boots', 'item_tranquil_boots'];
+      for (const bootItem of bootsList) {
+        if (itemsMap.has(bootItem)) {
+          const items = itemsMap.get(bootItem)!;
+          print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售急速之翼配方鞋子: ${bootItem}`);
+          return this.SellItem(hero, items, bootItem, true);
+        }
+      }
+    }
+
+    // 出售真·阿哈利姆神杖相关物品 - 已消耗真·阿哈利姆神杖时出售相关物品
+    if (hero.HasModifier('modifier_item_ultimate_scepter_2')) {
+      // 出售普通阿哈利姆神杖
+      const aghanimsScepter = 'item_ultimate_scepter';
+      if (itemsMap.has(aghanimsScepter)) {
+        const items = itemsMap.get(aghanimsScepter)!;
+        print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售阿哈利姆神杖（已有真·神杖buff）`);
+        return this.SellItem(hero, items, aghanimsScepter, true);
+      }
+    }
+
     return false;
   }
 
@@ -237,8 +259,8 @@ export class SellItem {
     }
 
     // 按优先级尝试出售物品
-    // 1. 出售魔晶（已有buff时）
-    if (this.SellAghanimsShard(hero, itemsMap)) {
+    // 1. 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
+    if (this.SellConsumedItems(hero, itemsMap)) {
       return true;
     }
 
