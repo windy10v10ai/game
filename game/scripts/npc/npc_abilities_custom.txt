@@ -782,15 +782,15 @@
 			"fixed_duration"			"1"
 			"damage"
 			{
-				"value"					"100 150 200 250 300"
+				"value"					"120 180 240 300 360"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_calne"
 			{
-				"value"					"150 225 300 375 450"
+				"value"					"180 270 360 450 540"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"shard_stun"				"1"
+			"shard_stun"				"1.2"
 		}
 	}
 	"special_bonus_unique_miku_101"
@@ -814,8 +814,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityCooldown"				"2.0 1.8 1.6 1.4 1.2 1.0"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -826,7 +824,7 @@
 				"value"					"150 180 210 240 270 300"
 				"special_bonus_unique_miku_201"	"+70"
 			}
-			"stun_duration"				"0.0"
+			"stun_duration"				"0.25"
 		}
 		"precache"
 		{
@@ -868,8 +866,8 @@
 		{
 			"AbilityCooldown"
 			{
-				"value" "20 19 18 17 16"
-				"special_bonus_unique_miku_301"	"-3"
+				"value" "18 17 16 15 14"
+				"special_bonus_unique_miku_301"	"-4"
 			}
 			"AbilityCastRange"
 			{
@@ -909,6 +907,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
+	// 跳舞
 	"miku_dance"
 	{
 		"BaseClass"						"ability_lua"
@@ -935,7 +934,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"120"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_4"
@@ -955,7 +954,7 @@
 			"attack_interval"		"2"
 			"dance_radius"
 			{
-				"value"						"600"
+				"value"						"700"
 				"affected_by_aoe_increase"	"1"
 			}
 			"ability_duration"			"120"
@@ -964,8 +963,8 @@
 				"value"							"450"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"stun_duration"				"0.8"
-			"damage_reduction"			"-60"
+			"stun_duration"				"1.0"
+			"damage_reduction"			"-80"
 		}
 	}
 	// A杖技能
@@ -975,7 +974,7 @@
 		"ScriptFile"					"heroes/hero_miku/get_down"
 		"AbilityTextureName"			"hatsune_6"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"3"
+		"MaxLevel"						"4"
 		"LevelsBetweenUpgrades"			"99"
 		"HasScepterUpgrade"				"1"
 
@@ -989,7 +988,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0"
 		"AbilityChannelTime"			"33"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_5"
@@ -997,22 +996,22 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"200 300 400"
+		"AbilityManaCost"				"200 300 400 500"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attack_interval"			"0.9 0.7 0.5"
+			"attack_interval"			"1.0 0.8 0.6 0.4"
 			"dance_radius"
 			{
-				"value"						"600"
+				"value"						"700"
 				"affected_by_aoe_increase"	"1"
 			}
 			"ability_duration"			"33"
 			"dance_damage"
 			{
-				"value"							"200 300 400"
+				"value"							"200 300 400 500"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 		}
@@ -1023,7 +1022,7 @@
 			"particle"					"particles/get_down.vpcf"
 		}
 	}
-
+	// Q版初音未来 变身
 	"chibi_monster"
 	{
 		"BaseClass"								"ability_lua"
@@ -1041,24 +1040,21 @@
 
 		"AbilityCastPoint"						"0.3"
 		"AbilityCooldown"						"30"
-		"AbilityManaCost"						"150 225 300"
+		"AbilityManaCost"						"150 225 300 375"
 
 		"HasScepterUpgrade"						"0"
 
-		"MaxLevel"								"3"
+		"MaxLevel"								"4"
 		"RequiredLevel"							"8"
 		"LevelsBetweenUpgrades"					"8"
 
 
-		"AbilityCastAnimation"  		"ACT_DOTA_IDLE"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
 		"AbilityValues"
 		{
-			"hp"						"1000 2000 3000"
-			"damage"					"60 90 120"
-			"agility"					"40 60 80"
-			"radius"					"800"
-			"as"						"150"
-			"proc"						"400"
+			"hp"						"1000 2000 3000 4000"
+			"damage"					"60 90 120 150"
+			"agility"					"40 60 80 100"
 			"fixed_duration"			"45"
 		}
 		"precache"
@@ -1112,7 +1108,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"stun_duration"			"1.25 1.5 1.75"
+				"stun_duration"			"1.4 1.7 2.0"
 				"dragon_cast_range"		"400"
 				"projectile_speed"		"1600"
 		}
