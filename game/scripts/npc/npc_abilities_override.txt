@@ -536,7 +536,7 @@
 				"special_bonus_facet_axe_call_out"			"+5 +10 +15 +20 +25"	// +6
 				"special_bonus_unique_axe_7"	"+20"	// 10
 			}
-			"duration"				"1.8 2.2 2.6 3.0 3.4"
+			"duration"				"1.8 2.1 2.4 2.7 3.0"
 			"bonus_attack_speed"
 			{
 				"value"					"0"
@@ -642,7 +642,7 @@
 		"AbilityValues"
 		{
 			"min_stun"					"1.25"	// 0.25
-			"max_stun"					"1.7 2.2 2.7 3.2 3.7"
+			"max_stun"					"1.7 2.1 2.5 2.9 3.3"
 			"min_damage"				"100"
 			"max_damage"
 			{
@@ -665,7 +665,7 @@
 		"AbilityValues"
 		{
 			"min_stun"					"1"	// 0.25
-			"max_stun"					"1.75 2.25 2.75 3.25 3.75"
+			"max_stun"					"1.75 2.15 2.55 2.95 3.35"
 			"min_damage"				"50"
 			"max_damage"
 			{
@@ -888,7 +888,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityValues"
 		{
-			"duration"					"3 3.5 4 4.5"
+			"duration"					"3 3.4 3.8 4.2"
 			"damage"
 			{
 				"value"			"200 300 400 500"
@@ -1088,7 +1088,7 @@
 			"stun_duration"
 			{
 				"value"						"1.6 1.8 2.0 2.2 2.4"
-				"special_bonus_unique_centaur_2"		"+1.2"	// 0.8
+				"special_bonus_unique_centaur_2"		"+0.6"	// 0.8
 			}
 			"windup_time"	"0.3"				// 0.5
 		}
@@ -1172,11 +1172,11 @@
 		{
 			"stun_min"
 			{
-				"value"					"1.25 1.5 1.75 2 2.25"
+				"value"					"1.2 1.4 1.6 1.8 2"
 			}
 			"stun_max"
 			{
-				"value"					"1.75 2.25 2.75 3.25 3.75"
+				"value"					"1.75 2.15 2.55 2.95 3.35"
 			}
 
 			"AbilityCastRange"
@@ -1264,7 +1264,7 @@
 				"value"				"50 70 90 110 130"	// 25 40 55 70
 				"special_bonus_unique_dawnbreaker_fire_wreath_swipe"			"+30"
 			}
-			"smash_stun_duration"			"1 1.1 1.2 1.3 1.4"
+			"smash_stun_duration"			"0.9 1 1.1 1.2 1.3"
 		}
 	}
 	// 上界重锤
@@ -1331,7 +1331,7 @@
 			{
 				"value"			"130 190 250 310"	// 130 160 190
 			}
-			"land_stun_duration"			"1.4 1.6 1.8 2"
+			"land_stun_duration"			"1.2 1.4 1.6 1.8"
 		}
 	}
 	//=================================================================================================================
@@ -1452,7 +1452,7 @@
 		{
 			"stun_duration"
 			{
-				"value"				"1.8 2.0 2.2 2.4 2.6"
+				"value"				"1.6 1.8 2.0 2.2 2.4"
 			}
 			"damage"					"60 90 120 150 180"
 			"dragon_cast_range"			"600"		// 450
@@ -1545,7 +1545,7 @@
 		"AbilityValues"
 		{
 			"fissure_duration"			"6.5"
-			"stun_duration"				"0.8 1.0 1.2 1.4 1.6"
+			"stun_duration"				"0.6 0.8 1.0 1.2 1.4"
 			"fissure_damage"
 			{
 				"value"				"120 200 280 360 440"			// 110 160 210 260
@@ -1598,7 +1598,7 @@
 	"earthshaker_aftershock"
 	{
 		"MaxLevel"						"5"
-		"AbilityDuration"				"0.8 1.0 1.2 1.4 1.6"
+		"AbilityDuration"				"0.9 1 1.1 1.2 1.3"
 		"AbilityValues"
 		{
 				"aftershock_damage"
@@ -2161,7 +2161,7 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-			"slow_duration"				"1 2 3 4 5"
+			"slow_duration"				"1 1.75 2.5 3.25 4"
 			"torrent_damage"
 			{
 				"value"			"80 160 240 320 400"
@@ -2171,6 +2171,10 @@
 			{
 				"value"						"16 14 12 10 8"
 				"special_bonus_unique_kunkka_torrent_cooldown"			"-4"
+			}
+			"stun_duration"
+			{
+				"value"								"1.2"		// 1.4
 			}
 		}
 	}
@@ -3087,7 +3091,7 @@
 			"AbilityCooldown"
 			{
 				"value"								"90"
-				"special_bonus_unique_omniknight_7"	"-10"
+				"special_bonus_unique_omniknight_7"	"-10"	// -20
 			}
 		}
 	}
@@ -3543,7 +3547,7 @@
 			}
 			"burrow_duration"
 			{
-				"value"			"1.4 1.6 1.8 2.0 2.2"	// 1.2 1.4 1.6 1.8
+				"value"			"1.2 1.4 1.6 1.8 2.0"	// 1.2 1.4 1.6 1.8
 			}
 			"AbilityCastRange"
 			{
@@ -3805,7 +3809,7 @@
 		{
 			"blast_stun_duration"
 			{
-				"value"					"1.0 1.2 1.4 1.6 1.8"
+				"value"					"1.2 1.3 1.4 1.5 1.6"
 			}
 			"damage"
 			{
@@ -6226,7 +6230,7 @@
 			"bonus_damage"				"30 40 50 60"
 			"duration"
 			{
-				"value"						"3.0 3.3 3.6 4.0"
+				"value"						"3.0 3.2 3.4 3.6"
 			}
 		}
 	}
@@ -12315,7 +12319,7 @@
 			"damage_reduction_duration"
 			{
 				"value"					"1"
-				"special_bonus_shard"		"+1.5"	// .5
+				"special_bonus_shard"		"+1"	// .5
 			}
 			"invuln_duration"
 			{
@@ -13314,11 +13318,10 @@
 				"bounces"
 				{
 					"value"					"3 4 5 6 7"
-					"special_bonus_unique_witch_doctor_3"			"+3"
 				}
 				"bounce_bonus_damage"
 				{
-					"value"							"50"			// 20
+					"value"							"40"			// 20
 				}
 		}
 	}
@@ -13359,7 +13362,7 @@
 		{
 				"bonus_damage"
 				{
-					"value"			"16 22 28 34 40" // 16 24 32 40 百分比伤害
+					"value"			"16 20 24 28 32" // 16 24 32 40 百分比伤害
 				}
 		}
 	}
@@ -13367,23 +13370,21 @@
 	"witch_doctor_death_ward"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"100 90 80 70"
+		"AbilityCooldown"				"80"
 		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"		"120 190 260 330"					// x2
+					"value"		"100 175 250 325"					// 60 95 130
 					"special_bonus_unique_witch_doctor_5"	"+90"	// 45
-					"special_bonus_facet_witch_doctor_cleft_death"	"=90 =150 =210 =270"	//  命石3
+					"special_bonus_facet_witch_doctor_cleft_death"	"=75 =130 =190 =245"	//  命石3
 				}
 				"attack_range_tooltip"
 				{
-					"value"		"700"								// 600
 					"special_bonus_unique_witch_doctor_1"	"+100"	// 75
 				}
 				"bonus_attack_range"
 				{
-					"value"					"0"
 					"special_bonus_unique_witch_doctor_1"	"+100"	// 75
 				}
 		}
@@ -13392,13 +13393,6 @@
 	"witch_doctor_voodoo_switcheroo"
 	{
 		"AbilityCooldown"				"30" // 50
-		"AbilityValues"
-		{
-			"duration"
-			{
-				"value" "5" // 3
-			}
-		}
 	}
 	//=================================================================================================================
 	// Ability: Zuus 宙斯
@@ -13484,7 +13478,7 @@
 		{
 				"damage_health_pct"
 				{
-					"value"								"2.5 3.0 3.5 4.0 4.5"
+					"value"								"2.0 2.5 3.0 3.5 4.0"
 				}
 				"damage_health_pct_max_close"
 				{
@@ -13847,7 +13841,7 @@
 			{
 				"value"						"45 55 65 75 85"
 			}
-			"slow_resist"					"15 30 45 60 75"
+			"slow_resist"					"20 30 40 50 60"
 			"base_attack_rate"				"1.3 1.2 1.1 1.0 0.9"
 			"base_attack_rate_katana_tooltip"		"1.5 1.4 1.3 1.2 1.1"
 			"attack_speed_factor"		"6 8 10 12 14"
