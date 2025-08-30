@@ -782,15 +782,15 @@
 			"fixed_duration"			"1"
 			"damage"
 			{
-				"value"					"100 150 200 250 300"
+				"value"					"120 180 240 300 360"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_calne"
 			{
-				"value"					"150 225 300 375 450"
+				"value"					"180 270 360 450 540"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"shard_stun"				"1.6"
+			"shard_stun"				"1.2"
 		}
 	}
 	"special_bonus_unique_miku_101"
@@ -814,8 +814,6 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityCooldown"				"2.0 1.8 1.6 1.4 1.2 1.0"
-
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -826,7 +824,7 @@
 				"value"					"150 180 210 240 270 300"
 				"special_bonus_unique_miku_201"	"+70"
 			}
-			"stun_duration"				"0.35"
+			"stun_duration"				"0.25"
 		}
 		"precache"
 		{
@@ -868,8 +866,8 @@
 		{
 			"AbilityCooldown"
 			{
-				"value" "20 19 18 17 16"
-				"special_bonus_unique_miku_301"	"-3"
+				"value" "18 17 16 15 14"
+				"special_bonus_unique_miku_301"	"-4"
 			}
 			"AbilityCastRange"
 			{
@@ -888,7 +886,7 @@
 				"value"							"120 180 240 300 380"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"stun_duration"						"1.2 1.3 1.4 1.5 1.6"
+			"stun_duration"						"1 1.1 1.2 1.3 1.4"
 		}
 		"precache"
 		{
@@ -909,6 +907,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
+	// 跳舞
 	"miku_dance"
 	{
 		"BaseClass"						"ability_lua"
@@ -935,7 +934,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3"
 		"AbilityChannelTime"			"120"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_4"
@@ -955,7 +954,7 @@
 			"attack_interval"		"2"
 			"dance_radius"
 			{
-				"value"						"600"
+				"value"						"700"
 				"affected_by_aoe_increase"	"1"
 			}
 			"ability_duration"			"120"
@@ -975,7 +974,7 @@
 		"ScriptFile"					"heroes/hero_miku/get_down"
 		"AbilityTextureName"			"hatsune_6"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"3"
+		"MaxLevel"						"4"
 		"LevelsBetweenUpgrades"			"99"
 		"HasScepterUpgrade"				"1"
 
@@ -989,7 +988,7 @@
 
 		// Ability Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0"
 		"AbilityChannelTime"			"33"
 		"AbilityCastAnimation"			"ACT_DOTA_CHANNEL_ABILITY_5"
@@ -997,22 +996,22 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"60"
-		"AbilityManaCost"				"200 300 400"
+		"AbilityManaCost"				"200 300 400 500"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"attack_interval"			"0.9 0.7 0.5"
+			"attack_interval"			"1.0 0.8 0.6 0.4"
 			"dance_radius"
 			{
-				"value"						"600"
+				"value"						"700"
 				"affected_by_aoe_increase"	"1"
 			}
 			"ability_duration"			"33"
 			"dance_damage"
 			{
-				"value"							"200 300 400"
+				"value"							"200 300 400 500"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 		}
@@ -1023,7 +1022,7 @@
 			"particle"					"particles/get_down.vpcf"
 		}
 	}
-
+	// Q版初音未来 变身
 	"chibi_monster"
 	{
 		"BaseClass"								"ability_lua"
@@ -1041,24 +1040,21 @@
 
 		"AbilityCastPoint"						"0.3"
 		"AbilityCooldown"						"30"
-		"AbilityManaCost"						"150 225 300"
+		"AbilityManaCost"						"150 225 300 375"
 
 		"HasScepterUpgrade"						"0"
 
-		"MaxLevel"								"3"
+		"MaxLevel"								"4"
 		"RequiredLevel"							"8"
 		"LevelsBetweenUpgrades"					"8"
 
 
-		"AbilityCastAnimation"  		"ACT_DOTA_IDLE"
+		"AbilityCastAnimation"			"ACT_DOTA_IDLE"
 		"AbilityValues"
 		{
-			"hp"						"1000 2000 3000"
-			"damage"					"60 90 120"
-			"agility"					"40 60 80"
-			"radius"					"800"
-			"as"						"150"
-			"proc"						"400"
+			"hp"						"1000 2000 3000 4000"
+			"damage"					"60 90 120 150"
+			"agility"					"40 60 80 100"
 			"fixed_duration"			"45"
 		}
 		"precache"
@@ -1069,6 +1065,7 @@
 			"particle"					"particles/chibi_monster.vpcf"
 		}
 	}
+	// 葱击
 	"chibi_hit"
 	{
 		// Ability Technical Aspect
@@ -1079,7 +1076,7 @@
 		"ScriptFile"					"heroes/hero_miku/chibi_hit"
 		"AbilityTextureName"			"hatsune_5_5"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"3"
+		"MaxLevel"						"4"
 		"LevelsBetweenUpgrades"			"99"
 
 
@@ -1101,18 +1098,18 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"150 225 300"
+		"AbilityManaCost"				"100 175 250 325"
 		"AbilityCastAnimation"  		"ACT_DOTA_CAST_ABILITY_5"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"600 1000 1400"
+		"AbilityDamage"					"600 1000 1400 1800"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"stun_duration"			"1.6 2.0 2.4"
+				"stun_duration"			"1.4 1.6 1.8 2.0"
 				"dragon_cast_range"		"400"
 				"projectile_speed"		"1600"
 		}
@@ -1170,7 +1167,7 @@
 			"end_radius"			"300"
 			"speed"					"1500.0"
 			"cast_range"			"650"
-			"stun_duration"			"1.2 1.3 1.4 1.5 1.6"
+			"stun_duration"			"1 1.1 1.2 1.3 1.4"
 			"immunity_duration"		"3.0"
 			"AbilityCooldown"
 			{
@@ -1782,8 +1779,8 @@
 			"chance"						"12 15 18 21 24"
 			"stun_duration"
 			{
-				"value"						"0.25"
-				"special_bonus_unique_goku_3"	"+0.25"
+				"value"						"0.2"
+				"special_bonus_unique_goku_3"	"+0.2"
 			}
 			"bonus_attackspeed"				"30 45 60 75 90"
 			"super_saiyan_tick"				"0.2"
@@ -1991,8 +1988,8 @@
 			}
 			"stun_duration"
 			{
-				"value"						"1.2"
-				"special_bonus_unique_yukari_01_stun" "+0.8"
+				"value"						"1"
+				"special_bonus_unique_yukari_01_stun" "+0.6"
 			}
 			"speed"			"1200"
 			"radius"		"150"
@@ -2190,8 +2187,8 @@
 			"int_bonus"			"4"
 			"stun_duration"
 			{
-				"value"				"2"
-				"special_bonus_unique_thdots_yukari04_stun"	"+1"
+				"value"				"1.4"
+				"special_bonus_unique_thdots_yukari04_stun"	"+0.6"
 			}
 		}
 		"HasScepterUpgrade"	"1"
@@ -2300,7 +2297,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_PURE"
 			}
-			"stun_time"						"2.0 2.4 2.8 3.2"
+			"stun_time"						"1.6 1.9 2.2 2.5"
 
 			"explosion_radius"
 			{
@@ -2749,7 +2746,7 @@
 			"width"						"200"
 			"length"					"650"
 			"damage_per"				"15 20 25"
-			"stun_duration"				"1.6 2.4 3.2"
+			"stun_duration"				"1.6 2 2.4"
 			"AbilityCooldown"
 			{
 				"value"									"25"
