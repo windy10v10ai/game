@@ -1,0 +1,13 @@
+# Build outputs
+game/itembuilds
+game/maps
+game/materials
+game/models
+game/panorama
+game/particles
+
+# Documentation and reference files (large text files)
+docs/
+
+# Large image and binary files
+*.vxml_c
