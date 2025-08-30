@@ -1,5 +1,6 @@
 import {
   AghanimsShardItem,
+  ItemUpgradeReplacements,
   SellItemCommonList,
   SellItemHeroList,
   SpecialConsumableItems,
@@ -157,6 +158,32 @@ export class SellItem {
   }
 
   /**
+   * 出售被升级替代的装备 - 当拥有高级装备时，出售低级装备
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellUpgradedItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    // 遍历装备升级替代关系
+    for (const [upgradeItem, replaceItems] of Object.entries(ItemUpgradeReplacements)) {
+      // 检查是否拥有高级装备
+      if (itemsMap.has(upgradeItem)) {
+        // 遍历需要被替代的低级装备
+        for (const replaceItem of replaceItems) {
+          if (itemsMap.has(replaceItem)) {
+            const items = itemsMap.get(replaceItem)!;
+            print(
+              `[AI] SellUpgradedItems ${hero.GetUnitName()} 出售被替代装备: ${replaceItem} (已拥有: ${upgradeItem})`,
+            );
+            return this.SellItem(hero, items, replaceItem, true);
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  /**
    * 出售英雄特定物品 - 从英雄特定出售列表中寻找要出售的旧装备
    * @param hero 英雄单位
    * @param itemsMap 物品Map
@@ -216,17 +243,22 @@ export class SellItem {
       return true;
     }
 
-    // 3. 出售通用垃圾物品
+    // 3. 出售被升级替代的装备
+    if (this.SellUpgradedItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 4. 出售通用垃圾物品
     if (this.SellCommonJunkItems(hero, itemsMap)) {
       return true;
     }
 
-    // 4. 出售重复物品
+    // 5. 出售重复物品
     if (this.SellDuplicateItems(hero, itemsMap)) {
       return true;
     }
 
-    // 5. 出售英雄特定物品
+    // 6. 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
       return true;
     }

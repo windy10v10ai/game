@@ -36,6 +36,39 @@ export const SellItemCommonList: string[] = [
 ];
 
 /**
+ * 装备升级替代关系配置
+ * 当拥有高级装备时，自动出售低级装备
+ * 格式: { 高级装备名称: [低级装备名称数组] }
+ */
+export const ItemUpgradeReplacements: Record<string, string[]> = {
+  // 黄金大核荣耀 > 大核荣耀暴虐, 大核荣耀冷酷 > 蝴蝶
+  item_wasp_golden: ['item_wasp_despotic', 'item_wasp_callous', 'item_butterfly'],
+  item_wasp_despotic: ['item_butterfly'],
+  item_wasp_callous: ['item_butterfly'],
+
+  // 跳跳跳刀 > 各种跳刀
+  item_blink_triple: [
+    'item_blink_dagger',
+    'item_swift_blink',
+    'item_overwhelming_blink',
+    'item_arcane_blink',
+    'item_swift_blink_2',
+    'item_overwhelming_blink_2',
+    'item_arcane_blink_2',
+  ],
+
+  // 各种二级跳刀 > 一级跳刀和普通跳刀
+  item_swift_blink_2: ['item_swift_blink', 'item_blink_dagger'],
+  item_overwhelming_blink_2: ['item_overwhelming_blink', 'item_blink_dagger'],
+  item_arcane_blink: ['item_arcane_blink_2', 'item_blink_dagger'], // 大智力跳 对调了
+
+  // 一级跳刀 > 普通跳刀
+  item_swift_blink: ['item_blink_dagger'],
+  item_overwhelming_blink: ['item_blink_dagger'],
+  item_arcane_blink_2: ['item_blink_dagger'], // 小智力跳
+};
+
+/**
  * 英雄特定出售物品列表
  * 根据英雄名称配置特定的出售物品
  */
