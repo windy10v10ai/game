@@ -536,7 +536,7 @@
 				"special_bonus_facet_axe_call_out"			"+5 +10 +15 +20 +25"	// +6
 				"special_bonus_unique_axe_7"	"+20"	// 10
 			}
-			"duration"				"1.4 1.8 2.2 2.6 3.0"
+			"duration"				"1.8 2.1 2.4 2.7 3.0"
 			"bonus_attack_speed"
 			{
 				"value"					"0"
@@ -642,7 +642,7 @@
 		"AbilityValues"
 		{
 			"min_stun"					"1.25"	// 0.25
-			"max_stun"					"1.2 1.7 2.2 2.7 3.2"
+			"max_stun"					"1.7 2.1 2.5 2.9 3.3"
 			"min_damage"				"100"
 			"max_damage"
 			{
@@ -665,7 +665,7 @@
 		"AbilityValues"
 		{
 			"min_stun"					"1"	// 0.25
-			"max_stun"					"1.25 1.75 2.25 2.75 3.25"
+			"max_stun"					"1.75 2.15 2.55 2.95 3.35"
 			"min_damage"				"50"
 			"max_damage"
 			{
@@ -888,7 +888,7 @@
 		"AbilityCastRange"				"800"
 		"AbilityValues"
 		{
-			"duration"					"2.5 3 3.5 4"
+			"duration"					"3 3.4 3.8 4.2"
 			"damage"
 			{
 				"value"			"200 300 400 500"
@@ -1087,8 +1087,8 @@
 			}
 			"stun_duration"
 			{
-				"value"						"1.4 1.6 1.8 2.0 2.2"
-				"special_bonus_unique_centaur_2"		"+1.2"	// 0.8
+				"value"						"1.6 1.8 2.0 2.2 2.4"
+				"special_bonus_unique_centaur_2"		"+0.6"	// 0.8
 			}
 			"windup_time"	"0.3"				// 0.5
 		}
@@ -1172,11 +1172,11 @@
 		{
 			"stun_min"
 			{
-				"value"					"1 1.25 1.5 1.75 2"
+				"value"					"1.2 1.4 1.6 1.8 2"
 			}
 			"stun_max"
 			{
-				"value"					"1.25 1.75 2.25 2.75 3.25"
+				"value"					"1.75 2.15 2.55 2.95 3.35"
 			}
 
 			"AbilityCastRange"
@@ -1598,7 +1598,7 @@
 	"earthshaker_aftershock"
 	{
 		"MaxLevel"						"5"
-		"AbilityDuration"				"0.6 0.8 1.0 1.2 1.4"
+		"AbilityDuration"				"0.9 1 1.1 1.2 1.3"
 		"AbilityValues"
 		{
 				"aftershock_damage"
@@ -2173,9 +2173,9 @@
 				"special_bonus_unique_kunkka_torrent_cooldown"			"-4"
 			}
 			"stun_duration"
-            {
-                "value"                             "1.1"
-            }
+			{
+				"value"								"1.2"		// 1.4
+			}
 		}
 	}
 	// 洪流浪潮（已移除）
@@ -3090,8 +3090,8 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"110"
-				"special_bonus_unique_omniknight_7"	"-10"
+				"value"								"90"
+				"special_bonus_unique_omniknight_7"	"-10"	// -20
 			}
 		}
 	}
@@ -3809,7 +3809,7 @@
 		{
 			"blast_stun_duration"
 			{
-				"value"					"1.15 1.3 1.45 1.6 1.75"
+				"value"					"1.2 1.3 1.4 1.5 1.6"
 			}
 			"damage"
 			{
@@ -6228,10 +6228,9 @@
 		"AbilityValues"
 		{
 			"bonus_damage"				"30 40 50 60"
-			"attack_rate_multiplier"    "1.35"
 			"duration"
 			{
-				"value"						"3.0 3.15 3.3 3.45"
+				"value"						"3.0 3.2 3.4 3.6"
 			}
 		}
 	}
@@ -12320,7 +12319,7 @@
 			"damage_reduction_duration"
 			{
 				"value"					"1"
-				"special_bonus_shard"		"+1.5"	// .5
+				"special_bonus_shard"		"+1"	// .5
 			}
 			"invuln_duration"
 			{
@@ -13314,16 +13313,15 @@
 		{
 				"base_damage"
 				{
-					"value"					"60 70 80 90 100"		// 55 70 85 100
+					"value"					"55 70 85 100 115"		// 55 70 85 100
 				}
 				"bounces"
 				{
-					"value"					"2 3 4 5 6"
-					"special_bonus_unique_witch_doctor_3"			"+3"
+					"value"					"3 4 5 6 7"
 				}
 				"bounce_bonus_damage"
 				{
-					"value"							"25"			// 20
+					"value"							"40"			// 20
 				}
 		}
 	}
@@ -13364,7 +13362,7 @@
 		{
 				"bonus_damage"
 				{
-					"value"			"10 14 18 22 26" // 16 24 32 40 百分比伤害
+					"value"			"16 20 24 28 32" // 16 24 32 40 百分比伤害
 				}
 		}
 	}
@@ -13372,12 +13370,12 @@
 	"witch_doctor_death_ward"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"110 100 90 80"
+		"AbilityCooldown"				"80"
 		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"		"100 175 250 325"					// x2
+					"value"		"100 175 250 325"					// 60 95 130
 					"special_bonus_unique_witch_doctor_5"	"+90"	// 45
 					"special_bonus_facet_witch_doctor_cleft_death"	"=75 =130 =190 =245"	//  命石3
 				}
@@ -13394,7 +13392,7 @@
 	// 魔晶变身
 	"witch_doctor_voodoo_switcheroo"
 	{
-		"AbilityCooldown"				"35" // 50
+		"AbilityCooldown"				"30" // 50
 	}
 	//=================================================================================================================
 	// Ability: Zuus 宙斯
@@ -13480,7 +13478,7 @@
 		{
 				"damage_health_pct"
 				{
-					"value"								"1 1.5 2 2.5 3.0"
+					"value"								"2.0 2.5 3.0 3.5 4.0"
 				}
 				"damage_health_pct_max_close"
 				{
@@ -13843,10 +13841,10 @@
 			{
 				"value"						"45 55 65 75 85"
 			}
-			"slow_resist"					"10 20 30 40 50"
-			"base_attack_rate"				"1.4 1.3 1.2 1.1 1.0"
-			"base_attack_rate_katana_tooltip"		"1.6 1.5 1.4 1.3 1.2"
-			"attack_speed_factor"		"4 6 8 10 12"
+			"slow_resist"					"20 30 40 50 60"
+			"base_attack_rate"				"1.3 1.2 1.1 1.0 0.9"
+			"base_attack_rate_katana_tooltip"		"1.5 1.4 1.3 1.2 1.1"
+			"attack_speed_factor"		"6 8 10 12 14"
 		}
 	}
 	// 利爪飞掷

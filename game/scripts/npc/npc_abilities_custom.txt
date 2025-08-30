@@ -1065,6 +1065,7 @@
 			"particle"					"particles/chibi_monster.vpcf"
 		}
 	}
+	// 葱击
 	"chibi_hit"
 	{
 		// Ability Technical Aspect
@@ -1075,7 +1076,7 @@
 		"ScriptFile"					"heroes/hero_miku/chibi_hit"
 		"AbilityTextureName"			"hatsune_5_5"
 		"FightRecapLevel"				"1"
-		"MaxLevel"						"3"
+		"MaxLevel"						"4"
 		"LevelsBetweenUpgrades"			"99"
 
 
@@ -1097,18 +1098,18 @@
 		// Ability Resource
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"15"
-		"AbilityManaCost"				"150 225 300"
+		"AbilityManaCost"				"100 175 250 325"
 		"AbilityCastAnimation"  		"ACT_DOTA_CAST_ABILITY_5"
 
 		// Damage
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"600 1000 1400"
+		"AbilityDamage"					"600 1000 1400 1800"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"stun_duration"			"1.4 1.7 2.0"
+				"stun_duration"			"1.4 1.6 1.8 2.0"
 				"dragon_cast_range"		"400"
 				"projectile_speed"		"1600"
 		}
@@ -2296,7 +2297,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 				"DamageTypeTooltip"				"DAMAGE_TYPE_PURE"
 			}
-			"stun_time"						"1.3 1.6 1.9 2.2"
+			"stun_time"						"1.6 1.9 2.2 2.5"
 
 			"explosion_radius"
 			{
@@ -2490,7 +2491,7 @@
 			"AbilityCooldown"			"45"
 			"AbilityManaCost"			"150 300 450"
 			"AbilityCastRange"			"1200"
-			"stun_duration"				"1.75 2.25 2.75"
+			"stun_duration"				"2.0 2.5 3.0"
 			"attack_duration"			"1.5"
 			"attacktimes_count"
 			{
@@ -2682,7 +2683,7 @@
 			"base_damage"				"100 200 300"
 			"damage_per"				"60 70 80"
 			"distance_add"				"350"
-			"stun_duration"				"0.4"
+			"stun_duration"				"0.5"
 			"AbilityCooldown"
 			{
 				"value"									"25"
