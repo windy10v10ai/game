@@ -8834,30 +8834,28 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			"duration"
-			{
-				"value"								"6"
-				"special_bonus_unique_viper_4"		"+1"
-			}
 
 			"damage"
 			{
 				"value"				"80 120 160 200"
 				"special_bonus_unique_viper_2"	"+120"
 			}
-			"bonus_movement_speed"	"-60 -70 -80 -90"
-			"bonus_attack_speed"	"-100 -140 -180 -220"
+			"bonus_movement_speed"
+			{
+				"value"				"60 70 80 90"
+			}
+			"bonus_attack_speed"
+			{
+				"value"				"100 140 180 220"
+			}
 			"AbilityCooldown"
 			{
-				"value"				"55 45 35 25"
-				"special_bonus_unique_viper_8"		"-50%"
+				"value"				"45 40 35 30"
 			}
 			"AbilityManaCost"
 			{
 				"value"				"100 150 200 250"
-				"special_bonus_unique_viper_8"		"-50%"
 			}
-			"projectile_speed"	"1200"
 		}
 	}
 	// 极恶俯冲

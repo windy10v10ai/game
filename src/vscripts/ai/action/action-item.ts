@@ -28,16 +28,6 @@ export class ActionItem {
     return true;
   }
 
-  static SellItem(hero: CDOTA_BaseNPC_Hero, itemName: string) {
-    const item = hero.FindItemInInventory(itemName);
-    // 没有该物品
-    if (!item) {
-      return;
-    }
-    // FIXME remove and give half gold
-    hero.SellItem(item);
-  }
-
   // ---------------------------------------------------------
   // Item usage 使用物品
   // ---------------------------------------------------------
