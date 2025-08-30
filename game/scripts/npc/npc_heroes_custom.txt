@@ -2527,7 +2527,7 @@
 				"24"		""
 				"25"		"special_bonus_unique_windranger_2"
 				"26"		""
-				"27"		"special_bonus_unique_windranger_9"
+				"27"		"special_bonus_all_stats_4"
 				"28"		"special_bonus_unique_windranger_3"
 				"29"		"special_bonus_unique_windranger_6"
 				"30"		"special_bonus_unique_windranger_windrun_undispellable"
