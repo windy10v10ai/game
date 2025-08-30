@@ -28,6 +28,102 @@ export const SellItemCommonList: string[] = [
   // v社更新导致的异常出装
   'item_manta', // 幻影斧
   'item_sphere', // 林肯法球
+
+  // 配件
+  'item_orb_of_venom', // 淬毒之珠
+  'item_slippers', // 敏捷便靴
+  'item_mantle', // 智力斗篷
+  'item_gauntlets', // 力量手套
+  'item_circlet', // 圆环
+  'item_ring_of_protection', // 守护指环
+  'item_sobi_mask', // 贤者面罩
+  'item_branches', // 铁树枝干
+  'item_magic_stick', // 魔棒
+  'item_magic_wand', // 魔杖
+  'item_wind_lace', // 风灵之纹
+  'item_ring_of_basilius', // 王者之戒
+  'item_quelling_blade', // 补刀斧
+  'item_fluffy_hat', // 毛毛帽
+  'item_crown', // 王冠
+  'item_diadem', // 宝冕
+  'item_belt_of_strength', // 力量腰带
+  'item_boots_of_elves', // 精灵布带
+  'item_robe', // 法师长袍
+  'item_gloves', // 加速手套
+  'item_blades_of_attack', // 攻击之爪
+  'item_chainmail', // 锁子甲
+  'item_helm_of_iron_will', // 铁意头盔
+  'item_lifesteal', // 吸血面具
+  'item_voodoo_mask', // 巫毒面具
+  'item_ogre_axe', // 食人魔之斧
+  'item_blade_of_alacrity', // 欢欣之刃
+  'item_staff_of_wizardry', // 魔力法杖
+  'item_claymore', // 大剑
+  'item_mithril_hammer', // 秘银锤
+  'item_void_stone', // 虚无宝石
+  'item_ring_of_tarrasque', // 恐鳌之戒
+  'item_headdress', // 恢复头巾
+  'item_tiara_of_selemene', // 赛莉蒙妮之冠
+  'item_vitality_booster', // 活力之球
+  'item_energy_booster', // 能量之球
+  'item_point_booster', // 精气之球
+  'item_cornucopia', // 丰饶之环
+  'item_talisman_of_evasion', // 闪避护符
+  'item_broadsword', // 阔剑
+  'item_platemail', // 板甲
+  'item_hyperstone', // 振奋宝石
+  'item_eagle', // 鹰歌弓
+  'item_reaver', // 掠夺者之斧
+  'item_mystic_staff', // 神秘法杖
+  'item_demon_edge', // 恶魔刀锋
+  'item_relic', // 圣者遗物
+  'item_disperser', // 散魂剑
+  'item_soul_booster', // 振魂石
+
+  // 消耗品
+  'item_tango_single',
+  'item_tango',
+  'item_blood_grenade', // 血腥榴弹
+  'item_clarity',
+  'item_faerie_fire',
+  'item_enchanted_mango',
+  'item_flask',
+  'item_bottle',
+
+  // 初级道具 <2k
+  'item_quelling_blade_2_datadriven', // 毒瘤之刃
+  'item_boots', // 草鞋
+  'item_bracer', // 护腕
+  'item_null_talisman', // 挂件
+  'item_wraith_band', // 系带
+  'item_soul_ring', // 灵魂之戒
+  'item_buckler', // 玄冥盾牌
+  'item_orb_of_corrosion', // 腐蚀之球
+  'item_pavise', // 长盾
+  'item_phase_boots', // 相位
+  'item_power_treads', // 动力鞋
+  'item_arcane_boots', // 秘法
+  'item_tranquil_boots', // 绿鞋
+  'item_oblivion_staff', // 空明杖
+  'item_falcon_blade', // 猎鹰战刃
+
+  'item_travel_boots', // 远行鞋
+  'item_ghost', // 幽魂权杖
+  'item_mask_of_madness', // 疯狂面具
+  'item_ancient_janggo', // 韧鼓
+  'item_veil_of_discord', // 纷争
+
+  // 中级道具 2k~5k
+  'item_cyclone', // 吹风
+  'item_mekansm', // 梅肯斯姆
+  'item_echo_sabre', // 回音刃
+  'item_force_staff', // 推推棒
+  'item_glimmer_cape', // 微光
+  'item_rod_of_atos', // 阿托斯之棍
+
+  // 高级道具 5k~10k
+
+  // 终极道具 10k~
 ];
 
 /**
@@ -36,6 +132,14 @@ export const SellItemCommonList: string[] = [
  * 格式: { 高级装备名称: [低级装备名称数组] }
  */
 export const ItemUpgradeReplacements: Record<string, string[]> = {
+  // 阿迪王系列 - item_adi_king_plus > item_adi_king
+  item_adi_king_plus: ['item_adi_king', 'item_phase_boots'],
+  item_adi_king: ['item_phase_boots'],
+  item_phase_boots: ['item_boots'],
+  item_power_treads: ['item_boots'],
+  item_arcane_boots: ['item_boots'],
+  item_tranquil_boots: ['item_boots'],
+
   // 黄金大核荣耀 > 大核荣耀暴虐, 大核荣耀冷酷 > 蝴蝶
   item_wasp_golden: ['item_wasp_despotic', 'item_wasp_callous', 'item_butterfly'],
   item_wasp_despotic: ['item_butterfly'],
@@ -138,10 +242,6 @@ export const ItemUpgradeReplacements: Record<string, string[]> = {
 
   // 天堂之戟系列 - item_heavens_halberd_v2 > item_heavens_halberd
   item_heavens_halberd_v2: ['item_heavens_halberd'],
-
-  // 阿迪王系列 - item_adi_king_plus > item_adi_king
-  item_adi_king_plus: ['item_adi_king', 'item_phase_boots'],
-  item_adi_king: ['item_phase_boots'],
 
   // 飓风长戟系列 - item_hurricane_pike_2 > item_hurricane_pike
   item_hurricane_pike_2: ['item_hurricane_pike'],
