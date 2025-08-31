@@ -1,3 +1,9 @@
+---
+description: NPC Abilities Override 编辑规则
+globs: ["**/npc_abilities_override.txt"]
+alwaysApply: false
+---
+
 # NPC Abilities Override 编辑规则
 
 ## 基础原则

@@ -6054,7 +6054,6 @@
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
-			"bonus_range"			"75 150 225 300 375"
 			"acorn_shot_damage"
 			{
 				"value"		"50 100 150 200 250"	// +10
@@ -6065,7 +6064,7 @@
 			}
 			"bounce_count"
 			{
-				"value"			"4 5 6 7 8" // 2 3 4 5
+				"value"			"3 4 5 6 7" // 2 3 4 5
 				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"	// +1
 			}
 			"AbilityCharges"
