@@ -1,4 +1,5 @@
-import { IsSameTeam, ReflectSpellToCaster } from '../../modules/helper/unit-helper';
+import { StartAbilityCooldown } from '../../modules/helper/ability-helper';
+import { IsSameTeam } from '../../modules/helper/unit-helper';
 import {
   BaseItem,
   BaseModifier,
@@ -54,6 +55,7 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
       ModifierFunction.HEALTH_REGEN_CONSTANT,
       ModifierFunction.MANA_BONUS,
       ModifierFunction.MANA_REGEN_CONSTANT,
+      ModifierFunction.REFLECT_SPELL,
     ];
   }
 
@@ -75,6 +77,21 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
 
   GetModifierLifestealRegenAmplify_Percentage(): number {
     return this.healBonus;
+  }
+
+  GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
+    const item = this.GetAbility();
+    if (!item) return 0;
+    if (item.GetCooldownTimeRemaining() > 0) {
+      return 0;
+    }
+
+    const parent = this.GetParent();
+    const reflectResult = ReflectSpellToCaster(keys, parent);
+    if (reflectResult) {
+      StartAbilityCooldown(item);
+    }
+    return reflectResult ? 1 : 0;
   }
 }
 
@@ -177,10 +194,86 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
   }
 
   GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
-    if (!IsServer()) return 0;
-
     const parent = this.GetParent();
 
     return ReflectSpellToCaster(keys, parent) ? 1 : 0;
   }
+}
+
+const reflectExceptions: string[] = [
+  'rubick_spell_steal',
+  'shadow_shaman_shackles',
+  'legion_commander_duel',
+  'phantom_assassin_phantom_strike',
+  'riki_blink_strike',
+  'morphling_replicate',
+];
+
+export function ReflectSpellToCaster(keys: ModifierAbilityEvent, parent: CDOTA_BaseNPC): boolean {
+  if (!IsServer()) {
+    return false;
+  }
+
+  const ability = keys.ability;
+  const caster = ability.GetCaster();
+
+  // 如果施法者是队友，不反弹
+  if (IsSameTeam(caster, parent)) {
+    return false;
+  }
+
+  // 如果无法反弹的技能（在例外列表中）
+  if (!ability || reflectExceptions.includes(ability.GetAbilityName())) {
+    return false;
+  }
+
+  // 检查父单位是否存活
+  if (!parent.IsAlive()) {
+    return false;
+  }
+
+  // 复制技能
+  const sourceAbility = ability;
+  const reflectedAbility = parent.AddAbility(sourceAbility.GetAbilityName());
+
+  // 设置反弹技能的属性
+  reflectedAbility.SetLevel(sourceAbility.GetLevel());
+  reflectedAbility.SetStolen(true);
+  reflectedAbility.SetHidden(true);
+
+  // 设置目标为原施法者
+  parent.SetCursorCastTarget(sourceAbility.GetCaster());
+
+  // 释放反弹技能
+  const castResult = reflectedAbility.CastAbility();
+
+  // 返还魔法
+  if (castResult) {
+    parent.GiveMana(sourceAbility.GetManaCost(-1));
+  }
+  // 移除反弹技能
+  parent.RemoveAbilityByHandle(reflectedAbility);
+
+  // 创建反弹特效
+  const particle = ParticleManager.CreateParticle(
+    'particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf',
+    ParticleAttachment.ABSORIGIN_FOLLOW,
+    parent,
+  );
+
+  ParticleManager.SetParticleControlEnt(
+    particle,
+    1,
+    parent,
+    ParticleAttachment.POINT_FOLLOW,
+    'attach_hitloc',
+    parent.GetAbsOrigin(),
+    true,
+  );
+  ParticleManager.ReleaseParticleIndex(particle);
+
+  // 播放特效
+  parent.EmitSound('Item.LotusOrb.Activate');
+
+  return castResult;
 }
