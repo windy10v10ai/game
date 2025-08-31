@@ -9970,10 +9970,10 @@
 				"value"								"55 70 85 100 115"
 			}
 			"eidolon_spawns_per_tick"
-            {
-                "value"                                     "0"
-                "special_bonus_shard"                       "+0"
-            }
+			{
+				"value"										"0"
+				"special_bonus_shard"						"+0"
+			}
 		}
 	}
 	// 恶魔召唤 等级不变

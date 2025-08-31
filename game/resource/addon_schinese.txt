@@ -831,6 +831,9 @@
 		// 撼地者
 		"npc_dota_hero_earthshaker"					"宇智波牛神"
 
+		// 谜团
+		"DOTA_Tooltip_ability_enigma_malefice_shard_description"						"憎恶的眩晕时间增加%shard_bonus_stun_duration_tooltip%秒。"
+
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
 

@@ -846,9 +846,8 @@
 		// 撼地者
 		"npc_dota_hero_earthshaker"					"Earthshaker"
 
-		// Enigma
-
-		"DOTA_Tooltip_ability_enigma_malefice_shard_description"                        "Increases Malefice stun duration by %shard_bonus_stun_duration_tooltip%s."
+		// 谜团
+		"DOTA_Tooltip_ability_enigma_malefice_shard_description"						"Increases Malefice stun duration by %shard_bonus_stun_duration_tooltip%s."
 
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
