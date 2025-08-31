@@ -126,7 +126,6 @@ tinker_rearm_lua.ItemException = {
 	["item_sphere_2"] = true,
 	["item_insight_armor"] = true,
 	["item_hand_of_group"] = true,
-	["item_jump_jump_jump"] = true,
 	["item_meteor_hammer_2"] = true,
 	["item_saint_orb"] = true,
 	["item_candy_candy"] = true,
