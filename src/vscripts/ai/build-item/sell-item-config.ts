@@ -21,7 +21,94 @@ export const SpecialConsumableItems: string[] = [
 ];
 
 /**
- * 通用出售物品列表 - 所有英雄都会出售的物品
+ * 按价值排序的物品出售列表 - 当物品数量过多时按顺序出售
+ * 从低价值到高价值排序：初级(<2k) -> 中级(2k~5k) -> 高级(5k~10k)
+ */
+export const ValueBasedSellItemsList: string[] = [
+  // 初级道具 <2k
+  'item_boots', // 草鞋
+  'item_quelling_blade_2_datadriven', // 毒瘤之刃
+  'item_bracer', // 护腕
+  'item_null_talisman', // 挂件
+  'item_wraith_band', // 系带
+  'item_soul_ring', // 灵魂之戒
+  'item_buckler', // 玄冥盾牌
+  'item_orb_of_corrosion', // 腐蚀之球
+  'item_pavise', // 长盾
+  'item_phase_boots', // 相位
+  'item_power_treads', // 动力鞋
+  'item_arcane_boots', // 秘法
+  'item_tranquil_boots', // 绿鞋
+  'item_oblivion_staff', // 空明杖
+  'item_falcon_blade', // 猎鹰战刃
+
+  'item_ghost', // 幽魂权杖
+  'item_mask_of_madness', // 疯狂面具
+  'item_ancient_janggo', // 韧鼓
+  'item_veil_of_discord', // 纷争
+
+  // 中级道具 2k~5k
+  'item_travel_boots', // 远行鞋
+  'item_cyclone', // 吹风
+  'item_mekansm', // 梅肯斯姆
+  'item_echo_sabre', // 回音刃
+  'item_force_staff', // 推推棒
+  'item_glimmer_cape', // 微光
+  'item_rod_of_atos', // 阿托斯之棍
+
+  'item_kaya', // 慧光
+  'item_sange', // 散华
+  'item_yasha', // 夜叉
+  'item_holy_locket', // 圣洁吊坠
+  'item_blink', // 跳刀
+  'item_solar_crest', // 炎阳纹章
+  'item_blade_mail', // 刃甲
+  'item_vanguard', // 先锋盾
+  'item_basher', // 碎颅锤
+  'item_armlet', // 臂章
+  'item_hand_of_midas', // 点金手
+  'item_aether_lens', // 以太透镜
+  'item_aether_lens_2', // 以太透镜2
+
+  // 高级道具 5k~10k
+  'item_desolator', // 黯灭
+  'item_black_king_bar', // BKB
+  'item_pipe', // 笛子
+  'item_heart', // 龙心
+  'item_bfury', // 狂战斧
+  'item_sheepstick', // 羊刀
+  'item_greater_crit', // 大炮
+  'item_sange_and_yasha', // 散夜对剑
+  'item_heavens_halberd', // 天堂之戟
+  'item_hurricane_pike', // 飓风长戟
+
+  'item_echo_sabre_2', // 音速战刃
+  'item_hand_of_group', // 团队之手
+
+  'item_guardian_greaves', // 卫士胫甲
+  'item_assault', // 强袭胸甲
+  'item_shivas_guard', // 希瓦的守护
+  'item_butterfly', // 蝴蝶
+  'item_radiance', // 辉耀
+  'item_satanic', // 撒旦
+  'item_ethereal_blade', // 虚灵之刃
+  'item_monkey_king_bar', // 金箍棒
+  'item_mjollnir', // 雷神之锤
+  'item_octarine_core', // 玲珑心
+  'item_refresher', // 刷新球
+  'item_silver_edge', // 白银之锋
+  'item_phylactery', // 灵匣
+  'item_abyssal_blade', // 深渊之刃
+  'item_harpoon', // 鱼叉
+  'item_rapier', // 圣剑
+  'item_radiance_2', // 大辉耀 圣焰之光
+  'item_dagon_5', // 达贡之神力（5级）
+
+  // 终极道具 10k~ 不出售
+];
+
+/**
+ * 通用出售垃圾物品列表 - 所有英雄都会出售的物品
  * 主要是基础配件和早期物品
  */
 export const SellItemCommonJunkList: string[] = [
@@ -91,41 +178,6 @@ export const SellItemCommonJunkList: string[] = [
   'item_enchanted_mango',
   'item_flask',
   'item_bottle',
-
-  // 初级道具 <2k
-  'item_quelling_blade_2_datadriven', // 毒瘤之刃
-  'item_boots', // 草鞋
-  'item_bracer', // 护腕
-  'item_null_talisman', // 挂件
-  'item_wraith_band', // 系带
-  'item_soul_ring', // 灵魂之戒
-  'item_buckler', // 玄冥盾牌
-  'item_orb_of_corrosion', // 腐蚀之球
-  'item_pavise', // 长盾
-  'item_phase_boots', // 相位
-  'item_power_treads', // 动力鞋
-  'item_arcane_boots', // 秘法
-  'item_tranquil_boots', // 绿鞋
-  'item_oblivion_staff', // 空明杖
-  'item_falcon_blade', // 猎鹰战刃
-
-  'item_travel_boots', // 远行鞋
-  'item_ghost', // 幽魂权杖
-  'item_mask_of_madness', // 疯狂面具
-  'item_ancient_janggo', // 韧鼓
-  'item_veil_of_discord', // 纷争
-
-  // 中级道具 2k~5k
-  'item_cyclone', // 吹风
-  'item_mekansm', // 梅肯斯姆
-  'item_echo_sabre', // 回音刃
-  'item_force_staff', // 推推棒
-  'item_glimmer_cape', // 微光
-  'item_rod_of_atos', // 阿托斯之棍
-
-  // 高级道具 5k~10k
-
-  // 终极道具 10k~
 ];
 
 /**

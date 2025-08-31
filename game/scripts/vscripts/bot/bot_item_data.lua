@@ -1295,57 +1295,55 @@ tBotItemData.sellItemCommonList = {
 	-- 'item_glimmer_cape', -- 微光
 	-- 'item_rod_of_atos', -- 阿托斯之棍
 
-	'item_kaya',       -- 慧光
-	'item_sange',      -- 散华
-	'item_yasha',      -- 夜叉
-	'item_holy_locket', -- 圣洁吊坠
-	'item_blink',      -- 跳刀
-	'item_solar_crest', -- 炎阳纹章
-	'item_blade_mail', -- 刃甲
-	'item_vanguard',   -- 先锋盾
-	'item_basher',     -- 碎颅锤
-	'item_armlet',     -- 臂章
-	'item_hand_of_midas', -- 点金手
-	'item_aether_lens', -- 以太透镜
-	-- 'item_dragon_lance', -- 魔龙枪
-	'item_aether_lens_2', -- 以太透镜2
+	-- 'item_kaya',       -- 慧光
+	-- 'item_sange',      -- 散华
+	-- 'item_yasha',      -- 夜叉
+	-- 'item_holy_locket', -- 圣洁吊坠
+	-- 'item_blink',      -- 跳刀
+	-- 'item_solar_crest', -- 炎阳纹章
+	-- 'item_blade_mail', -- 刃甲
+	-- 'item_vanguard',   -- 先锋盾
+	-- 'item_basher',     -- 碎颅锤
+	-- 'item_armlet',     -- 臂章
+	-- 'item_hand_of_midas', -- 点金手
+	-- 'item_aether_lens', -- 以太透镜
+	-- 'item_aether_lens_2', -- 以太透镜2
 
 
 	-- 高级道具 3k~6k
 	-- 'item_ultimate_scepter', -- A杖
-	'item_desolator',     -- 黯灭
-	'item_black_king_bar', -- BKB
-	'item_pipe',          -- 笛子
-	'item_heart',         -- 龙心
-	'item_bfury',         -- 狂战斧
-	'item_sheepstick',    -- 羊刀
-	'item_greater_crit',  -- 大炮
-	'item_sange_and_yasha', -- 散夜对剑
-	'item_heavens_halberd', -- 天堂之戟
-	'item_hurricane_pike', -- 飓风长戟
+	-- 'item_desolator',     -- 黯灭
+	-- 'item_black_king_bar', -- BKB
+	-- 'item_pipe',          -- 笛子
+	-- 'item_heart',         -- 龙心
+	-- 'item_bfury',         -- 狂战斧
+	-- 'item_sheepstick',    -- 羊刀
+	-- 'item_greater_crit',  -- 大炮
+	-- 'item_sange_and_yasha', -- 散夜对剑
+	-- 'item_heavens_halberd', -- 天堂之戟
+	-- 'item_hurricane_pike', -- 飓风长戟
 
-	'item_echo_sabre_2',  -- 音速战刃
-	'item_hand_of_group', -- 团队之手
+	-- 'item_echo_sabre_2',  -- 音速战刃
+	-- 'item_hand_of_group', -- 团队之手
 
-	'item_guardian_greaves', -- 卫士胫甲
-	'item_assault',       -- 强袭胸甲
-	'item_shivas_guard',  -- 希瓦的守护
-	-- 'item_manta',         -- 幻影斧
-	'item_butterfly',     -- 蝴蝶
-	'item_radiance',      -- 辉耀
-	'item_satanic',       -- 撒旦
-	'item_dagon_5',       -- 达贡之神力（5级）
-	'item_ethereal_blade', -- 虚灵之刃
-	'item_monkey_king_bar', -- 金箍棒
-	'item_mjollnir',      -- 雷神之锤
-	'item_octarine_core', -- 玲珑心
-	'item_refresher',     -- 刷新球
-	'item_silver_edge',   -- 白银之锋
-	'item_phylactery',    -- 灵匣
-	'item_abyssal_blade', -- 深渊之刃
-	'item_harpoon',       -- 鱼叉
-	'item_rapier',        -- 圣剑
-	'item_radiance_2',    -- 大辉耀 圣焰之光
+	-- 'item_guardian_greaves', -- 卫士胫甲
+	-- 'item_assault',       -- 强袭胸甲
+	-- 'item_shivas_guard',  -- 希瓦的守护
+	-- 'item_butterfly',     -- 蝴蝶
+	-- 'item_radiance',      -- 辉耀
+	-- 'item_satanic',       -- 撒旦
+	-- 'item_ethereal_blade', -- 虚灵之刃
+	-- 'item_monkey_king_bar', -- 金箍棒
+	-- 'item_mjollnir',      -- 雷神之锤
+	-- 'item_octarine_core', -- 玲珑心
+	-- 'item_refresher',     -- 刷新球
+	-- 'item_silver_edge',   -- 白银之锋
+	-- 'item_phylactery',    -- 灵匣
+	-- 'item_abyssal_blade', -- 深渊之刃
+	-- 'item_harpoon',       -- 鱼叉
+	-- 'item_rapier',        -- 圣剑
+	-- 'item_radiance_2',    -- 大辉耀 圣焰之光
+	-- 'item_dagon_5',       -- 达贡之神力（5级）
 
 	-- 终极道具 6k~10k
 	-- 'item_arcane_octarine_core', -- 奥术之心（大玲珑心）

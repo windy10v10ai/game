@@ -3,12 +3,14 @@ import {
   SellItemCommonJunkList,
   SellItemHeroList,
   SpecialConsumableItems,
+  ValueBasedSellItemsList,
 } from './sell-item-config';
 
 /**
  * 出售物品功能类
  */
 export class SellItem {
+  static sellItemsByValueSellThreshold = 8;
   /**
    * 获取出售物品的阈值
    * @param itemsMap 物品Map
@@ -236,6 +238,24 @@ export class SellItem {
   }
 
   /**
+   * 按价值顺序出售物品 - 当物品数量过多时按价值从低到高出售物品
+   * 包括初级(<2k)、中级(2k~5k)、高级(5k~10k)物品
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellItemsByValue(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    for (const itemName of ValueBasedSellItemsList) {
+      if (itemsMap.has(itemName)) {
+        const items = itemsMap.get(itemName)!;
+        print(`[AI] SellItemsByValue ${hero.GetUnitName()} 按价值出售物品: ${itemName}`);
+        return this.SellItem(hero, items, itemName, true);
+      }
+    }
+    return false;
+  }
+
+  /**
    * 出售多余的物品
    * @param hero 英雄单位
    * @returns 是否出售了物品
@@ -287,6 +307,13 @@ export class SellItem {
     // 6. 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
       return true;
+    }
+
+    // 当物品数量过多时，按价值顺序出售物品（初级->中级->高级）
+    if (totalItemCount >= this.sellItemsByValueSellThreshold) {
+      if (this.SellItemsByValue(hero, itemsMap)) {
+        return true;
+      }
     }
 
     return false;
