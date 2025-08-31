@@ -1,6 +1,11 @@
 import { BaseModifier } from '../../utils/dota_ts_adapter';
 
 export abstract class BaseItemModifier extends BaseModifier {
+  /**
+   * 使用DataDriven实现的modifier名称，
+   * 用以缓解lua 属性的卡顿问题。
+   * 如果不需要使用DataDriven实现，填''
+   */
   protected abstract statsModifierName: string;
 
   protected RefreshStatsModifier(): void {
