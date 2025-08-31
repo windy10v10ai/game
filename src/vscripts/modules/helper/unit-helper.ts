@@ -67,7 +67,24 @@ export function ReflectSpellToCaster(keys: ModifierAbilityEvent, parent: CDOTA_B
   // 移除反弹技能
   parent.RemoveAbilityByHandle(reflectedAbility);
 
-  // FIXME 创建反弹特效
+  // 创建反弹特效
+  const particle = ParticleManager.CreateParticle(
+    'particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf',
+    ParticleAttachment.ABSORIGIN_FOLLOW,
+    parent,
+  );
+
+  ParticleManager.SetParticleControlEnt(
+    particle,
+    1,
+    parent,
+    ParticleAttachment.POINT_FOLLOW,
+    'attach_hitloc',
+    parent.GetAbsOrigin(),
+    true,
+  );
+  ParticleManager.ReleaseParticleIndex(particle);
+
   // 播放特效
   parent.EmitSound('Item.LotusOrb.Target');
 

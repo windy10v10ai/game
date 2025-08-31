@@ -1,4 +1,4 @@
-import { IsSameTeam, ReflectSpellToCaster } from '../../modules/helper/utils';
+import { IsSameTeam, ReflectSpellToCaster } from '../../modules/helper/unit-helper';
 import {
   BaseItem,
   BaseModifier,
