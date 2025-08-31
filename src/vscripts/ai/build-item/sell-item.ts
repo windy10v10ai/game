@@ -279,32 +279,32 @@ export class SellItem {
     }
 
     // 按优先级尝试出售物品
-    // 1. 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
+    // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
     if (this.SellConsumedItems(hero, itemsMap)) {
       return true;
     }
 
-    // 2. 出售配方物品
+    // 出售配方物品
     if (this.SellRecipeItems(hero, itemsMap)) {
       return true;
     }
 
-    // 3. 出售被升级替代的装备
-    if (this.SellUpgradedItems(hero, itemsMap)) {
-      return true;
-    }
-
-    // 4. 出售通用垃圾物品
+    // 出售通用垃圾物品
     if (this.SellCommonJunkItems(hero, itemsMap)) {
       return true;
     }
 
-    // 5. 出售重复物品
+    // 出售重复物品
     if (this.SellDuplicateItems(hero, itemsMap)) {
       return true;
     }
 
-    // 6. 出售英雄特定物品
+    // 出售被升级替代的装备
+    if (this.SellUpgradedItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
       return true;
     }
