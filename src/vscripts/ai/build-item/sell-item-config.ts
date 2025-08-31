@@ -119,21 +119,21 @@ export const SellItemCommonJunkList: string[] = [
   'item_dragon_lance', // 魔龙枪
 
   // 配件
-  'item_orb_of_venom', // 淬毒之珠
-  'item_orb_of_frost', // 冰霜之珠
+  'item_branches', // 铁树枝干
+  'item_magic_stick', // 魔棒
+  'item_magic_wand', // 魔杖
   'item_slippers', // 敏捷便靴
   'item_mantle', // 智力斗篷
   'item_gauntlets', // 力量手套
   'item_circlet', // 圆环
   'item_ring_of_protection', // 守护指环
   'item_sobi_mask', // 贤者面罩
-  'item_branches', // 铁树枝干
-  'item_magic_stick', // 魔棒
-  'item_magic_wand', // 魔杖
   'item_wind_lace', // 风灵之纹
   'item_ring_of_basilius', // 王者之戒
   'item_quelling_blade', // 补刀斧
   'item_fluffy_hat', // 毛毛帽
+  'item_orb_of_venom', // 淬毒之珠
+  'item_orb_of_frost', // 冰霜之珠
   'item_crown', // 王冠
   'item_diadem', // 宝冕
   'item_belt_of_strength', // 力量腰带
@@ -148,6 +148,9 @@ export const SellItemCommonJunkList: string[] = [
   'item_ogre_axe', // 食人魔之斧
   'item_blade_of_alacrity', // 欢欣之刃
   'item_staff_of_wizardry', // 魔力法杖
+
+  'item_blitz_knuckles', // 闪电指套
+  'item_javelin', // 标枪
   'item_claymore', // 大剑
   'item_mithril_hammer', // 秘银锤
   'item_void_stone', // 虚无宝石
@@ -169,6 +172,8 @@ export const SellItemCommonJunkList: string[] = [
   'item_relic', // 圣者遗物
   'item_disperser', // 散魂剑
   'item_soul_booster', // 振魂石
+  'item_pers', // 坚韧球
+  'item_ultimate_orb', // 极限法球
 
   // 消耗品
   'item_tango_single',

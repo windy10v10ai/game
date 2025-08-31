@@ -210,6 +210,7 @@ export const abilityTiersPassive: Tier[] = [
       'spectre_desolate', // 荒芜
       'brewmaster_fire_phase', // 永久相位
       'juggernaut_blade_dance', // 剑舞
+      'spectre_dispersion', // 幽鬼 折射
 
       // 单位技能
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
@@ -259,7 +260,6 @@ export const abilityTiersPassive: Tier[] = [
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'abyssal_underlord_malice_aura', // 怨念光环
       'axe_one_man_army2', // 斧王 一人成军
-      'spectre_dispersion2', // 幽鬼 折射 旧版
     ],
   },
   {
