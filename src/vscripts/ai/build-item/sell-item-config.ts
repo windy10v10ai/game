@@ -28,6 +28,8 @@ export const SellItemCommonList: string[] = [
   // v社更新导致的异常出装
   'item_manta', // 幻影斧
   'item_sphere', // 林肯法球
+  'item_dragon_lance', // 魔龙枪
+  'item_diffusal_blade', // 净魂之刃
 
   // 配件
   'item_orb_of_venom', // 淬毒之珠

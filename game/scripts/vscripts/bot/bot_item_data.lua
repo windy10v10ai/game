@@ -386,7 +386,7 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_aghanims_shard',
 		'item_aether_lens_2',
-		'item_aeon_pendant', -- 大盘子（咸鱼之王）
+		'item_aeon_pendant', -- 咸鱼之王（大盘子）
 		'item_ultimate_scepter_2',
 		'item_sheepstick',
 		'item_gungir_2',
@@ -912,6 +912,7 @@ tBotItemData.purchaseItemList = {
 	npc_dota_hero_warlock = {
 		'item_magic_wand',
 		'item_boots',
+		'item_rod_of_atos', -- 阿托斯之棍
 		'item_holy_locket',
 		'item_arcane_boots',
 		'item_glimmer_cape',
@@ -920,6 +921,7 @@ tBotItemData.purchaseItemList = {
 		'item_aghanims_shard',
 		'item_orb_of_the_brine',
 		'item_ultimate_scepter_2',
+		'item_aeon_pendant', -- 咸鱼之王（大盘子）
 		'item_sheepstick',
 		'item_dagon_5',
 		'item_hallowed_scepter',
@@ -1305,7 +1307,7 @@ tBotItemData.sellItemCommonList = {
 	'item_armlet',     -- 臂章
 	'item_hand_of_midas', -- 点金手
 	'item_aether_lens', -- 以太透镜
-	'item_dragon_lance', -- 魔龙枪
+	-- 'item_dragon_lance', -- 魔龙枪
 	'item_aether_lens_2', -- 以太透镜2
 
 
