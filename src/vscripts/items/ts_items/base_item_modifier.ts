@@ -1,7 +1,7 @@
 import { BaseModifier } from '../../utils/dota_ts_adapter';
 
-export class BaseItemModifier extends BaseModifier {
-  protected statsModifierName: string = '';
+export abstract class BaseItemModifier extends BaseModifier {
+  protected abstract statsModifierName: string;
 
   protected RefreshStatsModifier(): void {
     if (this.statsModifierName && this.statsModifierName.trim() !== '') {
