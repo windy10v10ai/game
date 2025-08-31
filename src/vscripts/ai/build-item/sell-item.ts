@@ -1,14 +1,16 @@
 import {
   ItemUpgradeReplacements,
-  SellItemCommonList,
+  SellItemCommonJunkList,
   SellItemHeroList,
   SpecialConsumableItems,
+  ValueBasedSellItemsList,
 } from './sell-item-config';
 
 /**
  * 出售物品功能类
  */
 export class SellItem {
+  static sellItemsByValueSellThreshold = 8;
   /**
    * 获取出售物品的阈值
    * @param itemsMap 物品Map
@@ -156,7 +158,7 @@ export class SellItem {
     hero: CDOTA_BaseNPC_Hero,
     itemsMap: Map<string, CDOTA_Item[]>,
   ): boolean {
-    for (const itemName of SellItemCommonList) {
+    for (const itemName of SellItemCommonJunkList) {
       if (itemsMap.has(itemName)) {
         const items = itemsMap.get(itemName)!;
         return this.SellItem(hero, items, itemName, true);
@@ -236,6 +238,24 @@ export class SellItem {
   }
 
   /**
+   * 按价值顺序出售物品 - 当物品数量过多时按价值从低到高出售物品
+   * 包括初级(<2k)、中级(2k~5k)、高级(5k~10k)物品
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellItemsByValue(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    for (const itemName of ValueBasedSellItemsList) {
+      if (itemsMap.has(itemName)) {
+        const items = itemsMap.get(itemName)!;
+        print(`[AI] SellItemsByValue ${hero.GetUnitName()} 按价值出售物品: ${itemName}`);
+        return this.SellItem(hero, items, itemName, true);
+      }
+    }
+    return false;
+  }
+
+  /**
    * 出售多余的物品
    * @param hero 英雄单位
    * @returns 是否出售了物品
@@ -259,34 +279,41 @@ export class SellItem {
     }
 
     // 按优先级尝试出售物品
-    // 1. 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
+    // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
     if (this.SellConsumedItems(hero, itemsMap)) {
       return true;
     }
 
-    // 2. 出售配方物品
+    // 出售配方物品
     if (this.SellRecipeItems(hero, itemsMap)) {
       return true;
     }
 
-    // 3. 出售被升级替代的装备
-    if (this.SellUpgradedItems(hero, itemsMap)) {
-      return true;
-    }
-
-    // 4. 出售通用垃圾物品
+    // 出售通用垃圾物品
     if (this.SellCommonJunkItems(hero, itemsMap)) {
       return true;
     }
 
-    // 5. 出售重复物品
+    // 出售重复物品
     if (this.SellDuplicateItems(hero, itemsMap)) {
       return true;
     }
 
-    // 6. 出售英雄特定物品
+    // 出售被升级替代的装备
+    if (this.SellUpgradedItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
       return true;
+    }
+
+    // 当物品数量过多时，按价值顺序出售物品（初级->中级->高级）
+    if (totalItemCount >= this.sellItemsByValueSellThreshold) {
+      if (this.SellItemsByValue(hero, itemsMap)) {
+        return true;
+      }
     }
 
     return false;
