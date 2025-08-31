@@ -1,0 +1,75 @@
+---
+globs: *.ts,*.tsx
+alwaysApply: false
+---
+
+# TypeScript 代码规范 - 适用于 src 目录
+
+## 命名规范
+
+### 1. 静态方法 (Static Methods)
+
+- **规则**: 使用 PascalCase (首字母大写)
+- **示例**:
+  ```typescript
+  static GetItemsMap(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item> { }
+  static SellExtraItems(hero: CDOTA_BaseNPC_Hero): boolean { }
+  static GetSellThreshold(itemsMap: Map<string, CDOTA_Item>): number { }
+  ```
+
+### 2. 导出常量 (Exported Constants)
+
+- **规则**: 使用 PascalCase (首字母大写)
+- **示例**:
+  ```typescript
+  export const AghanimsShardItem = "item_aghanims_shard";
+  export const SpecialConsumableItems: string[] = [];
+  export const SellItemCommonList: string[] = [];
+  ```
+
+### 3. 类名 (Class Names)
+
+- **规则**: 使用 PascalCase (首字母大写)
+- **示例**:
+  ```typescript
+  export class SellItem {}
+  export class HeroAI {}
+  ```
+
+### 4. 接口名 (Interface Names)
+
+- **规则**: 使用 PascalCase (首字母大写)
+- **示例**:
+  ```typescript
+  interface LotteryStatus {}
+  interface GameConfig {}
+  ```
+
+### 5. 实例方法 (Instance Methods)
+
+- **规则**: 使用 camelCase (首字母小写)
+- **示例**:
+  ```typescript
+  public updateStatus(): void { }
+  private calculateDamage(): number { }
+  ```
+
+### 6. 变量和参数 (Variables & Parameters)
+
+- **规则**: 使用 camelCase (首字母小写)
+- **示例**:
+  ```typescript
+  const itemsMap = new Map<string, CDOTA_Item>();
+  const sellThreshold = 7;
+  function processHero(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {}
+  ```
+
+### 7. 文件名 (File Names)
+
+- **规则**: 使用 kebab-case (小写字母+连字符)
+- **示例**:
+  ```
+  sell-item.ts
+  sell-item-config.ts
+  hero-base.ts
+  ```
