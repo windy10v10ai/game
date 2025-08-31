@@ -119,21 +119,21 @@ export const SellItemCommonJunkList: string[] = [
   'item_dragon_lance', // 魔龙枪
 
   // 配件
-  'item_orb_of_venom', // 淬毒之珠
-  'item_orb_of_frost', // 冰霜之珠
+  'item_branches', // 铁树枝干
+  'item_magic_stick', // 魔棒
+  'item_magic_wand', // 魔杖
   'item_slippers', // 敏捷便靴
   'item_mantle', // 智力斗篷
   'item_gauntlets', // 力量手套
   'item_circlet', // 圆环
   'item_ring_of_protection', // 守护指环
   'item_sobi_mask', // 贤者面罩
-  'item_branches', // 铁树枝干
-  'item_magic_stick', // 魔棒
-  'item_magic_wand', // 魔杖
   'item_wind_lace', // 风灵之纹
   'item_ring_of_basilius', // 王者之戒
   'item_quelling_blade', // 补刀斧
   'item_fluffy_hat', // 毛毛帽
+  'item_orb_of_venom', // 淬毒之珠
+  'item_orb_of_frost', // 冰霜之珠
   'item_crown', // 王冠
   'item_diadem', // 宝冕
   'item_belt_of_strength', // 力量腰带
