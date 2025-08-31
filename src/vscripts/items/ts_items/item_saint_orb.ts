@@ -1,3 +1,4 @@
+import { IsSameTeam, ReflectSpellToCaster } from '../../modules/helper/utils';
 import {
   BaseItem,
   BaseModifier,
@@ -21,11 +22,7 @@ export class ItemSaintOrb extends BaseItem {
 
     target.EmitSound('Item.LotusOrb.Target');
 
-    // 添加林肯特效
     target.AddNewModifier(caster, this, 'modifier_item_saint_orb_buff', { duration });
-
-    // 添加莲花效果
-    target.AddNewModifier(caster, this, 'modifier_item_lotus_orb_active', { duration });
   }
 }
 
@@ -100,7 +97,7 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ABSORB_SPELL];
+    return [ModifierFunction.ABSORB_SPELL, ModifierFunction.REFLECT_SPELL];
   }
 
   GetTexture(): string {
@@ -177,5 +174,13 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
 
     this.Destroy();
     return 1;
+  }
+
+  GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
+    if (!IsServer()) return 0;
+
+    const parent = this.GetParent();
+
+    return ReflectSpellToCaster(keys, parent) ? 1 : 0;
   }
 }
