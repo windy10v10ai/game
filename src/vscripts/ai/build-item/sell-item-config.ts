@@ -24,7 +24,7 @@ export const SpecialConsumableItems: string[] = [
  * 通用出售物品列表 - 所有英雄都会出售的物品
  * 主要是基础配件和早期物品
  */
-export const SellItemCommonList: string[] = [
+export const SellItemCommonJunkList: string[] = [
   // v社更新导致的异常出装
   'item_manta', // 幻影斧
   'item_sphere', // 林肯法球

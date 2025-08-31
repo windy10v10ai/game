@@ -1,6 +1,6 @@
 import {
   ItemUpgradeReplacements,
-  SellItemCommonList,
+  SellItemCommonJunkList,
   SellItemHeroList,
   SpecialConsumableItems,
 } from './sell-item-config';
@@ -156,7 +156,7 @@ export class SellItem {
     hero: CDOTA_BaseNPC_Hero,
     itemsMap: Map<string, CDOTA_Item[]>,
   ): boolean {
-    for (const itemName of SellItemCommonList) {
+    for (const itemName of SellItemCommonJunkList) {
       if (itemsMap.has(itemName)) {
         const items = itemsMap.get(itemName)!;
         return this.SellItem(hero, items, itemName, true);
