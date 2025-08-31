@@ -843,7 +843,7 @@
 		"AbilityTextureName"			"item_sphere_2"
 
 		"AbilityCastRange"				"900"
-		"AbilityCooldown"				"6.0"
+		"AbilityCooldown"				"7.0"
 		"AbilitySharedCooldown"			"sphere"
 
 		"AbilityValues"
@@ -851,7 +851,7 @@
 				"bonus_all_stats"		"20"
 				"bonus_health_regen"	"12"
 				"bonus_mana_regen"		"9"
-				"block_cooldown"		"6.0"
+				"block_cooldown"		"7.0"
 				"upgrade_absorb_duration"		"10.0"
 				"damage_absorb"		"300"
 				"bonus_damage"			"20"
@@ -4620,11 +4620,11 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"7"
 		"AbilitySharedCooldown"			"lotus_orb"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"	"300"
+		"AbilityManaCost"	"200"
 		// Stats
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"	"900"
@@ -4652,8 +4652,7 @@
 			"hp_re"			"25"	//回血
 			"mana_re"		"16"	//回蓝
 			"bonus_mana"	"400"	//加蓝
-			"heal_bonus"	"20"	//恢复增强
-			"duration"		"15"		//主动持续时间
+			"duration"		"15"	//主动持续时间
 			"heal"			"5"		//反制回血%
 		}
 	}

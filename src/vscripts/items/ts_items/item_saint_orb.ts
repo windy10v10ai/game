@@ -34,7 +34,6 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
   private bonusMana: number = 0;
   private hpRegen: number = 0;
   private manaRegen: number = 0;
-  private healBonus: number = 0;
 
   OnCreated(): void {
     super.OnCreated();
@@ -44,7 +43,6 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
       this.bonusMana = ability.GetSpecialValueFor('bonus_mana');
       this.hpRegen = ability.GetSpecialValueFor('hp_re');
       this.manaRegen = ability.GetSpecialValueFor('mana_re');
-      this.healBonus = ability.GetSpecialValueFor('heal_bonus');
     }
   }
 
@@ -55,8 +53,15 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
       ModifierFunction.HEALTH_REGEN_CONSTANT,
       ModifierFunction.MANA_BONUS,
       ModifierFunction.MANA_REGEN_CONSTANT,
+      ModifierFunction.ABSORB_SPELL,
       ModifierFunction.REFLECT_SPELL,
     ];
+  }
+
+  CheckState(): Partial<Record<ModifierState, boolean>> {
+    return {
+      [ModifierState.UNSLOWABLE]: true,
+    };
   }
 
   GetModifierConstantManaRegen(): number {
@@ -71,15 +76,28 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
     return this.hpRegen;
   }
 
-  GetModifierHPRegenAmplify_Percentage(): number {
-    return this.healBonus;
-  }
+  GetAbsorbSpell(keys: ModifierAbilityEvent): 0 | 1 {
+    if (!IsServer()) {
+      return 0;
+    }
+    const parent = this.GetParent();
+    const item = this.GetAbility();
+    if (!item) return 0;
+    if (item.GetCooldownTimeRemaining() > 0) {
+      return 0;
+    }
+    const absorbResult = GetAbsorbSpell(keys, parent, item);
 
-  GetModifierLifestealRegenAmplify_Percentage(): number {
-    return this.healBonus;
+    if (absorbResult) {
+      StartAbilityCooldown(item);
+    }
+    return absorbResult ? 1 : 0;
   }
 
   GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
+    if (!IsServer()) {
+      return 0;
+    }
     const item = this.GetAbility();
     if (!item) return 0;
     if (item.GetCooldownTimeRemaining() > 0) {
@@ -89,7 +107,8 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
     const parent = this.GetParent();
     const reflectResult = ReflectSpellToCaster(keys, parent);
     if (reflectResult) {
-      StartAbilityCooldown(item);
+      // GetReflectSpell 优先执行 不进入冷却，GetAbsorbSpell执行结束后 进入冷却
+      // StartAbilityCooldown(item);
     }
     return reflectResult ? 1 : 0;
   }
@@ -152,45 +171,13 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
   }
 
   GetAbsorbSpell(keys: ModifierAbilityEvent): 0 | 1 {
-    if (!IsServer()) return 0;
-
-    const caster = keys.ability.GetCaster();
-    if (IsSameTeam(caster, this.GetParent())) {
-      // 不反弹队友技能
-      return 0;
+    const parent = this.GetParent();
+    const item = this.GetAbility();
+    const absorbResult = GetAbsorbSpell(keys, parent, item);
+    if (absorbResult) {
+      this.Destroy();
     }
-
-    // 创建吸收特效
-    const particle = ParticleManager.CreateParticle(
-      'particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf',
-      ParticleAttachment.ABSORIGIN_FOLLOW,
-      this.GetParent(),
-    );
-
-    const parentPos = this.GetParent().GetAbsOrigin();
-    ParticleManager.SetParticleControl(particle, 0, parentPos);
-    ParticleManager.SetParticleControl(particle, 1, parentPos);
-    ParticleManager.SetParticleControl(particle, 2, Vector(10, 10, 10));
-    ParticleManager.ReleaseParticleIndex(particle);
-
-    // 治疗效果
-    const ability = this.GetAbility();
-    if (!ability) return 0;
-
-    const healPercent = ability.GetSpecialValueFor('heal');
-    const healAmount = this.GetParent().GetMaxHealth() * healPercent * 0.01;
-    this.GetParent().Heal(healAmount, ability);
-
-    SendOverheadEventMessage(
-      undefined,
-      OverheadAlert.HEAL,
-      this.GetParent(),
-      healAmount,
-      undefined,
-    );
-
-    this.Destroy();
-    return 1;
+    return absorbResult ? 1 : 0;
   }
 
   GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
@@ -198,6 +185,44 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
 
     return ReflectSpellToCaster(keys, parent) ? 1 : 0;
   }
+}
+
+export function GetAbsorbSpell(
+  keys: ModifierAbilityEvent,
+  parent: CDOTA_BaseNPC,
+  item: CDOTABaseAbility | undefined,
+): boolean {
+  if (!IsServer()) {
+    return false;
+  }
+  if (!item) return false;
+
+  const caster = keys.ability.GetCaster();
+  if (IsSameTeam(caster, parent)) {
+    // 不吸收队友技能
+    return false;
+  }
+
+  // 创建吸收特效
+  const particle = ParticleManager.CreateParticle(
+    'particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf',
+    ParticleAttachment.ABSORIGIN_FOLLOW,
+    parent,
+  );
+
+  const parentPos = parent.GetAbsOrigin();
+  ParticleManager.SetParticleControl(particle, 0, parentPos);
+  ParticleManager.SetParticleControl(particle, 1, parentPos);
+  ParticleManager.SetParticleControl(particle, 2, Vector(10, 10, 10));
+  ParticleManager.ReleaseParticleIndex(particle);
+
+  // 治疗效果
+  const healPercent = item.GetSpecialValueFor('heal');
+  const healAmount = parent.GetMaxHealth() * healPercent * 0.01;
+  parent.Heal(healAmount, item);
+
+  SendOverheadEventMessage(undefined, OverheadAlert.HEAL, parent, healAmount, undefined);
+  return true;
 }
 
 const reflectExceptions: string[] = [

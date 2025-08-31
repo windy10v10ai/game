@@ -2103,7 +2103,6 @@
 		"DOTA_Tooltip_Ability_item_saint_orb_hp_re"					"+$hp_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_mana_re"				"+$mana_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_saint_orb_heal_bonus"			"%+$restoration_amp"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"白莲花"
 		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"抵挡一次恶心的指向性法术"
 
