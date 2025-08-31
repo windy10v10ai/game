@@ -111,7 +111,7 @@
 		}
 	}
 	//=================================================================================================================
-	// Scepter 2 大A杖
+	// 真·阿哈利姆神杖 Scepter 2 大A杖
 	//=================================================================================================================
 	"item_recipe_ultimate_scepter_2"
 	{
@@ -2603,13 +2603,13 @@
 			"bonus_health_regen"	"20"
 			"bonus_strength"		"20"	// tooltip, real value in modifier_item_abyssal_blade_v2_stats
 			// active
-			"stun_m"				"2.0"
+			"stun_m"				"1.6"
 			"active_damage_base"	"200"
-			"active_damage_multi"	"1"
+			"active_damage_multi"	"0.75"
 			// Passive
 			"stun"					"1.2"
-			"ch_m"					"30"
-			"ch_r"					"15"
+			"ch_m"					"25"
+			"ch_r"					"10"
 			"block_chance"			"100"	// tooltip
 			"block_damage"			"120"
 			"damatt"				"240"
@@ -4020,7 +4020,7 @@
 			// Fall down effect
 			"base_damage"			"100"
 			"str_damage"			"100"
-			"meteor_stun_duration"	"1.5"
+			"meteor_stun_duration"	"0.8"
 			"slow_duration"			"6.0"
 			"meteor_burn_duration"	"6.0"
 			"meteor_burn_dps"		"100"
@@ -4318,8 +4318,8 @@
 			"bonus_mana"			"600"
 			"heal_increase"			"50"
 
-			"bubble_duration"		"1.5"
-			"bubble_move_speed"		"350"
+			"bubble_duration"		"1"
+			"bubble_move_speed"		"400"
 			"heal_tick_interval"	"0.1"
 
 			"bubble_total_heal_tip"	"1500"
@@ -4451,7 +4451,7 @@
 			"spell_amp"				"24"
 			"mp_regen_amp"			"75"
 
-			"sheep_duration"		"3.5"
+			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"0.5"
@@ -4653,7 +4653,7 @@
 			"mana_re"		"16"	//回蓝
 			"bonus_mana"	"400"	//加蓝
 			"heal_bonus"	"20"	//恢复增强
-			"duration"		"5"		//主动持续时间
+			"duration"		"4"		//主动持续时间
 			"heal"			"5"		//反制回血%
 		}
 	}
@@ -4857,7 +4857,7 @@
     }
 
     //=================================================================================================================
-    // 大刷新 refresh core
+    // 熔火核心 大刷新 refresh core
     //=================================================================================================================
     "item_recipe_refresh_core"
     {
@@ -5656,7 +5656,7 @@
 				"burn_dps_units"		"150"	//50
 				"burn_slow"			"50"		//20
 				"burn_duration"		"6"			//6
-				"stun_duration"		"1.0"		//0.5
+				"stun_duration"		"0.6"		//0.5
 				"burn_interval"			"1.0"	//1.0
 				"land_time"				".5"	//0.5
 				"impact_radius"
