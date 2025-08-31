@@ -69,6 +69,7 @@ export const ValueBasedSellItemsList: string[] = [
   'item_hand_of_midas', // 点金手
   'item_aether_lens', // 以太透镜
   'item_aether_lens_2', // 以太透镜2
+  'item_diffusal_blade', // 净魂之刃
 
   // 高级道具 5k~10k
   'item_desolator', // 黯灭
@@ -116,10 +117,10 @@ export const SellItemCommonJunkList: string[] = [
   'item_manta', // 幻影斧
   'item_sphere', // 林肯法球
   'item_dragon_lance', // 魔龙枪
-  'item_diffusal_blade', // 净魂之刃
 
   // 配件
   'item_orb_of_venom', // 淬毒之珠
+  'item_orb_of_frost', // 冰霜之珠
   'item_slippers', // 敏捷便靴
   'item_mantle', // 智力斗篷
   'item_gauntlets', // 力量手套
