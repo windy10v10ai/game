@@ -148,6 +148,9 @@ export const SellItemCommonJunkList: string[] = [
   'item_ogre_axe', // 食人魔之斧
   'item_blade_of_alacrity', // 欢欣之刃
   'item_staff_of_wizardry', // 魔力法杖
+
+  'item_blitz_knuckles', // 闪电指套
+  'item_javelin', // 标枪
   'item_claymore', // 大剑
   'item_mithril_hammer', // 秘银锤
   'item_void_stone', // 虚无宝石
@@ -169,6 +172,8 @@ export const SellItemCommonJunkList: string[] = [
   'item_relic', // 圣者遗物
   'item_disperser', // 散魂剑
   'item_soul_booster', // 振魂石
+  'item_pers', // 坚韧球
+  'item_ultimate_orb', // 极限法球
 
   // 消耗品
   'item_tango_single',
