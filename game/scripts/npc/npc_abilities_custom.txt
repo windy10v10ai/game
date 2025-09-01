@@ -2,59 +2,6 @@
 
 "DOTAAbilities"
 {
-	"bot_power_n5"
-	{
-		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"IsBreakable"					"1"
-		"MaxLevel"						"10"
-		"RequiredLevel"					"5"
-		"LevelsBetweenUpgrades"			"5"
-
-		"AbilityTextureName"			"bot_power"
-
-		"AbilityValues"
-		{
-			// 攻击
-			"bonus_damage"				"5 10 15 20 25 30 35 40 45 50"
-			"bonus_attack_speed"		"5 10 15 20 25 30 35 40 45 50"
-			// 技能
-			"bonus_spell_amplify"		"2 4 6 8 10 12 14 16 18 20"
-			"bonus_cooldown"			"2 4 6 8 10 12 14 16 18 20"
-			// 防御
-			"bonus_move_speed"			"5 10 15 20 25 30 35 40 45 50"
-			// "bonus_armor"				"2 4 6 8 10 12 14 16 18 20"
-			// "bonus_magic_resistance"	"2 4 6 8 10 12 14 16 18 20"
-			// 全属性
-			// "bonus_attributes"			"5 10 15 20 25 30 35 40 45 50"
-		}
-
-		"Modifiers"
-		{
-			"modifier_bot_power"
-			{
-				"Passive"					"1"
-				"IsHidden"					"1"
-				"RemoveOnDeath"				"0"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"%bonus_spell_amplify"
-					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"			"%bonus_cooldown"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"%bonus_move_speed"
-					// "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
-					// "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_magic_resistance"
-					// "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_attributes"
-					// "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_attributes"
-					// "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_attributes"
-				}
-			}
-		}
-	}
 	"bot_power_n6"
 	{
 		"BaseClass"						"ability_datadriven"
