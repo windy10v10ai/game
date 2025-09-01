@@ -3,7 +3,8 @@ import { LotteryHelper } from '../lottery/lottery-helper';
 
 export class BotAbility {
   // 每5级升级一次
-  static readonly upgradeInterval = 5;
+  static readonly upgradeIntervalBotPower = 5;
+  static readonly upgradeIntervalBotPassive = 10;
 
   // 存储每个bot的被动技能名称
   private static botPassiveAbilities: Map<number, string> = new Map();
@@ -62,17 +63,19 @@ export class BotAbility {
    * 通用的技能升级方法
    * @param ability 要升级的技能
    * @param heroLevel 英雄等级
+   * @param upgradeInterval 升级间隔，默认为 bot power 的间隔
    * @returns 是否成功升级
    */
   private static UpgradeAbilityToLevel(
     ability: CDOTABaseAbility | undefined,
     heroLevel: number,
+    upgradeInterval: number,
   ): boolean {
     if (!ability) {
       return false;
     }
 
-    const expectedLevel = Math.floor(heroLevel / this.upgradeInterval);
+    const expectedLevel = Math.floor(heroLevel / upgradeInterval);
     const abilityLevel = ability.GetLevel();
     const maxLevel = ability.GetMaxLevel();
 
@@ -104,7 +107,7 @@ export class BotAbility {
     }
 
     const ability = hero.FindAbilityByName(passiveAbilityName);
-    this.UpgradeAbilityToLevel(ability, hero.GetLevel());
+    this.UpgradeAbilityToLevel(ability, hero.GetLevel(), this.upgradeIntervalBotPassive);
   }
 
   /**
@@ -115,6 +118,6 @@ export class BotAbility {
     // find bot_power_n6
     const ability = hero.FindAbilityByName('bot_power_n6');
 
-    this.UpgradeAbilityToLevel(ability, hero.GetLevel());
+    this.UpgradeAbilityToLevel(ability, hero.GetLevel(), this.upgradeIntervalBotPower);
   }
 }
