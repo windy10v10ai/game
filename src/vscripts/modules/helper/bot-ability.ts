@@ -3,14 +3,15 @@ import { LotteryHelper } from '../lottery/lottery-helper';
 
 export class BotAbility {
   // 每5级升级一次
-  static readonly upgradeInterval = 5;
+  static readonly upgradeIntervalBotPower = 5;
+  static readonly upgradeIntervalBotPassive = 8;
 
   // 存储每个bot的被动技能名称
   private static botPassiveAbilities: Map<number, string> = new Map();
 
   public static AddBotAbility(hero: CDOTA_BaseNPC_Hero): void {
     this.AddBotPower(hero);
-    this.AddRandomPassiveAbilityForBot(hero);
+    this.AddPassiveAbilityForBot(hero);
   }
 
   /**
@@ -20,7 +21,7 @@ export class BotAbility {
    * @param executedNames 已有技能列表，用于排除重复
    * @returns 随机选择的被动技能
    */
-  private static AddRandomPassiveAbilityForBot(currentHero: CDOTA_BaseNPC_Hero): void {
+  private static AddPassiveAbilityForBot(currentHero: CDOTA_BaseNPC_Hero): void {
     const isHighTier = GameRules.Option.direGoldXpMultiplier >= 9;
     const results = LotteryHelper.getRandomAbilities(
       abilityTiersPassive,
@@ -41,7 +42,7 @@ export class BotAbility {
   }
 
   /**
-   * 为bot添加bot_power_n5或bot_power_n6
+   * 为bot添加bot_power_n6
    * @param hero 当前英雄
    */
   private static AddBotPower(hero: CDOTA_BaseNPC_Hero): void {
@@ -50,34 +51,31 @@ export class BotAbility {
       if (!hero.HasAbility('bot_power_n6')) {
         hero.AddAbility('bot_power_n6');
       }
-    } else if (GameRules.Option.direGoldXpMultiplier >= 7) {
-      // N5添加
-      if (!hero.HasAbility('bot_power_n5')) {
-        hero.AddAbility('bot_power_n5');
-      }
     }
   }
 
   public static LevelUpBotAbility(hero: CDOTA_BaseNPC_Hero): void {
-    this.LevelUpBotPower(hero);
     this.LevelUpBotPassiveAbility(hero);
+    this.LevelUpBotPower(hero);
   }
 
   /**
    * 通用的技能升级方法
    * @param ability 要升级的技能
    * @param heroLevel 英雄等级
+   * @param upgradeInterval 升级间隔，默认为 bot power 的间隔
    * @returns 是否成功升级
    */
   private static UpgradeAbilityToLevel(
     ability: CDOTABaseAbility | undefined,
     heroLevel: number,
+    upgradeInterval: number,
   ): boolean {
     if (!ability) {
       return false;
     }
 
-    const expectedLevel = Math.floor(heroLevel / this.upgradeInterval);
+    const expectedLevel = Math.floor(heroLevel / upgradeInterval);
     const abilityLevel = ability.GetLevel();
     const maxLevel = ability.GetMaxLevel();
 
@@ -109,20 +107,17 @@ export class BotAbility {
     }
 
     const ability = hero.FindAbilityByName(passiveAbilityName);
-    this.UpgradeAbilityToLevel(ability, hero.GetLevel());
+    this.UpgradeAbilityToLevel(ability, hero.GetLevel(), this.upgradeIntervalBotPassive);
   }
 
   /**
-   * 为bot升级bot_power_n5或bot_power_n6
+   * 为bot升级bot_power_n6
    * @param hero 当前英雄
    */
   private static LevelUpBotPower(hero: CDOTA_BaseNPC_Hero): void {
-    // find bot_power_n5 or bot_power_n6
-    let ability = hero.FindAbilityByName('bot_power_n5');
-    if (!ability) {
-      ability = hero.FindAbilityByName('bot_power_n6');
-    }
+    // find bot_power_n6
+    const ability = hero.FindAbilityByName('bot_power_n6');
 
-    this.UpgradeAbilityToLevel(ability, hero.GetLevel());
+    this.UpgradeAbilityToLevel(ability, hero.GetLevel(), this.upgradeIntervalBotPower);
   }
 }
