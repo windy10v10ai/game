@@ -4,14 +4,14 @@ import { LotteryHelper } from '../lottery/lottery-helper';
 export class BotAbility {
   // 每5级升级一次
   static readonly upgradeIntervalBotPower = 5;
-  static readonly upgradeIntervalBotPassive = 10;
+  static readonly upgradeIntervalBotPassive = 8;
 
   // 存储每个bot的被动技能名称
   private static botPassiveAbilities: Map<number, string> = new Map();
 
   public static AddBotAbility(hero: CDOTA_BaseNPC_Hero): void {
     this.AddBotPower(hero);
-    this.AddRandomPassiveAbilityForBot(hero);
+    this.AddPassiveAbilityForBot(hero);
   }
 
   /**
@@ -21,7 +21,7 @@ export class BotAbility {
    * @param executedNames 已有技能列表，用于排除重复
    * @returns 随机选择的被动技能
    */
-  private static AddRandomPassiveAbilityForBot(currentHero: CDOTA_BaseNPC_Hero): void {
+  private static AddPassiveAbilityForBot(currentHero: CDOTA_BaseNPC_Hero): void {
     const isHighTier = GameRules.Option.direGoldXpMultiplier >= 9;
     const results = LotteryHelper.getRandomAbilities(
       abilityTiersPassive,
