@@ -1,7 +1,7 @@
 import { Player } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameConfig } from '../GameConfig';
-import { BotPower } from '../helper/bot-power';
+import { BotAbility } from '../helper/bot-ability';
 import { PlayerHelper } from '../helper/player-helper';
 
 @reloadable
@@ -31,7 +31,7 @@ export class EventPlayerLevelUp {
       Player.SetPlayerProperty(hero);
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
-      BotPower.LevelUpBotPower(hero);
+      BotAbility.LevelUpBotAbility(hero);
     }
   }
 

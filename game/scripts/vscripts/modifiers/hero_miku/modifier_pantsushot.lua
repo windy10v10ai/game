@@ -58,10 +58,6 @@ function modifier_pantsushot:GetModifierPreAttack_CriticalStrike(params)
 			if self:RollChance(self.crit_chance) and (not self:GetParent():IsIllusion()) then
 				self.record = params.record
 				local target = params.target
-				-- 开始冷却
-				self:GetAbility():StartCooldown(
-					self:GetAbility():GetCooldown(-1) * self:GetParent():GetCooldownReduction()
-				)
 
 				-- stun the enemy
 				local duration = self.stunDuration * (1 - target:GetStatusResistance())
