@@ -41,7 +41,7 @@ export class BotAbility {
   }
 
   /**
-   * 为bot添加bot_power_n5或bot_power_n6
+   * 为bot添加bot_power_n6
    * @param hero 当前英雄
    */
   private static AddBotPower(hero: CDOTA_BaseNPC_Hero): void {
@@ -50,17 +50,12 @@ export class BotAbility {
       if (!hero.HasAbility('bot_power_n6')) {
         hero.AddAbility('bot_power_n6');
       }
-    } else if (GameRules.Option.direGoldXpMultiplier >= 7) {
-      // N5添加
-      if (!hero.HasAbility('bot_power_n5')) {
-        hero.AddAbility('bot_power_n5');
-      }
     }
   }
 
   public static LevelUpBotAbility(hero: CDOTA_BaseNPC_Hero): void {
-    this.LevelUpBotPower(hero);
     this.LevelUpBotPassiveAbility(hero);
+    this.LevelUpBotPower(hero);
   }
 
   /**
@@ -113,15 +108,12 @@ export class BotAbility {
   }
 
   /**
-   * 为bot升级bot_power_n5或bot_power_n6
+   * 为bot升级bot_power_n6
    * @param hero 当前英雄
    */
   private static LevelUpBotPower(hero: CDOTA_BaseNPC_Hero): void {
-    // find bot_power_n5 or bot_power_n6
-    let ability = hero.FindAbilityByName('bot_power_n5');
-    if (!ability) {
-      ability = hero.FindAbilityByName('bot_power_n6');
-    }
+    // find bot_power_n6
+    const ability = hero.FindAbilityByName('bot_power_n6');
 
     this.UpgradeAbilityToLevel(ability, hero.GetLevel());
   }
