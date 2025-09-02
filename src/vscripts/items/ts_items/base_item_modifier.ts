@@ -2,9 +2,12 @@ import { BaseModifier } from '../../utils/dota_ts_adapter';
 
 export abstract class BaseItemModifier extends BaseModifier {
   /**
-   * 使用DataDriven实现的modifier名称，
-   * 用以缓解lua 属性的卡顿问题。
+   * 使用DataDriven实现的modifier名称，用以缓解lua属性的卡顿问题。
+   *
    * 如果不需要使用DataDriven实现，填''
+   *
+   * 如果override了`OnCreated/OnRefresh/OnDestroy`，
+   * 切记要手动调用`super.OnCreated()/super.OnRefresh()/super.OnDestroy()`
    */
   protected abstract statsModifierName: string;
 
@@ -16,6 +19,12 @@ export abstract class BaseItemModifier extends BaseModifier {
   }
 
   OnCreated(): void {
+    if (IsServer()) {
+      this.RefreshStatsModifier();
+    }
+  }
+
+  OnRefresh(): void {
     if (IsServer()) {
       this.RefreshStatsModifier();
     }

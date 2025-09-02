@@ -31,49 +31,14 @@ export class ItemSaintOrb extends BaseItem {
 export class ModifierItemSaintOrbPassive extends BaseItemModifier {
   override statsModifierName: string = 'modifier_item_saint_orb_stats';
 
-  private bonusMana: number = 0;
-  private hpRegen: number = 0;
-  private manaRegen: number = 0;
-
-  OnCreated(): void {
-    super.OnCreated();
-
-    if (this.GetAbility()) {
-      const ability = this.GetAbility() as ItemSaintOrb;
-      this.bonusMana = ability.GetSpecialValueFor('bonus_mana');
-      this.hpRegen = ability.GetSpecialValueFor('hp_re');
-      this.manaRegen = ability.GetSpecialValueFor('mana_re');
-    }
-  }
-
   DeclareFunctions(): ModifierFunction[] {
-    return [
-      ModifierFunction.HP_REGEN_AMPLIFY_PERCENTAGE,
-      ModifierFunction.LIFESTEAL_AMPLIFY_PERCENTAGE,
-      ModifierFunction.HEALTH_REGEN_CONSTANT,
-      ModifierFunction.MANA_BONUS,
-      ModifierFunction.MANA_REGEN_CONSTANT,
-      ModifierFunction.ABSORB_SPELL,
-      ModifierFunction.REFLECT_SPELL,
-    ];
+    return [ModifierFunction.ABSORB_SPELL, ModifierFunction.REFLECT_SPELL];
   }
 
   CheckState(): Partial<Record<ModifierState, boolean>> {
     return {
       [ModifierState.UNSLOWABLE]: true,
     };
-  }
-
-  GetModifierConstantManaRegen(): number {
-    return this.manaRegen;
-  }
-
-  GetModifierManaBonus(): number {
-    return this.bonusMana;
-  }
-
-  GetModifierConstantHealthRegen(): number {
-    return this.hpRegen;
   }
 
   GetAbsorbSpell(keys: ModifierAbilityEvent): 0 | 1 {

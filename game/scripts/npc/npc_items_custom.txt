@@ -4648,13 +4648,15 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_all_stats" "25"	//全属性 tooltip, real value is item_saint_orb_bonus_all_stats
-			"bonus_armor"	"20"	//加甲 tooltip, real value is item_saint_orb_bonus_armor
-			"hp_re"			"25"	//回血
-			"mana_re"		"16"	//回蓝
-			"bonus_mana"	"400"	//加蓝
-			"duration"		"15"	//主动持续时间
-			"heal"			"5"		//反制回血%
+			"duration"						"15"	//主动持续时间
+			"heal_percent"					"10"	//反制回血%
+
+			// real value is item_saint_orb_bonus_all_stats
+			"bonus_all_stats_tooltip"		"30"	//全属性
+			"bonus_armor_tooltip"			"20"	//加甲
+			"hp_regen_tooltip"				"20"	//回血
+			"mana_regen_tooltip"			"15"	//回蓝
+			"bonus_mana_tooltip"			"500"	//加蓝
 		}
 	}
 	//=================================================================================================================
