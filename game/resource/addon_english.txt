@@ -691,8 +691,10 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"MAX BONUS DAMAGE PER ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"ACTIVE DURATION:"
 
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura"			"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura_Description"		"Taking damage per second and movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, with the effects intensifying the closer you are to the owner of the aura."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"				"Bonechill Aura"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Damaging and slowing the movement speed of nearby enemies. Closer enemies suffer stronger effects."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"Bonechill Aura (Passive)"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration also reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
@@ -723,8 +725,7 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"			"FIRESTORM RADIUS:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%MAX HP DAMAGE:"
-		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"Firestorm Advent"
-		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"Every 4 attacks creates a single instance of Firestorm."
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"				"Firestorm Advent Attack Count"
 		//怨念光环
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"				"Aura of Malice"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"	"Enemies that stay within the aura for a certain period of time will receive damage and become rooted briefly."
@@ -805,17 +806,7 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%COOLDOWN REDUCTION:"
 
 
-		"DOTA_Tooltip_ability_bot_power_n5"							"Bot Salvation N5"
-		"DOTA_Tooltip_ability_bot_power_n5_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
-		"DOTA_Tooltip_ability_bot_power_n5_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_damage"			"ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_attack_speed"		"ATTACK SPEED:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_spell_amplify"		"%SPELL AMP:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_cooldown"			"%COOLDOWN REDUCTION:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_move_speed"		"MOVEMENT SPEED:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_armor"				"ARMOR:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_magic_resistance"	"%MAGIC RESISTANCE:"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_attributes"		"ATTRIBUTES:"
+
 
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
@@ -860,8 +851,8 @@
 		"DOTA_Tooltip_ability_omniknight_repel_status_resistance"						"%STATUS RESISTANCE:"
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"STRENGTH:"
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"HEALTH REGEN:"
-		"DOTA_Tooltip_modifier_omniknight_repel"									"Heavenly Grace"
-		"DOTA_Tooltip_modifier_omniknight_repel"									"Gaining 50%% status resistance, %dMODIFIER_PROPERTY_BONUS_STATS_STRENGTH% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
+		"DOTA_Tooltip_modifier_omniknight_repel"										"Heavenly Grace"
+		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance, %dMODIFIER_PROPERTY_BONUS_STATS_STRENGTH% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
@@ -971,7 +962,10 @@
 		//"DOTA_Tooltip_ability_dazzle_bad_juju_cooldown_reduction_items"					"COOLDOWN REDUCTION ITEMS:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_pct"					"%HEALTH COST INCREASE PER CAST:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"HEALTH COST INCREASE DURATION:"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
 		//"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
+		"DOTA_Tooltip_modifier_dazzle_bad_juju_manacost"								"Bad Juju"
+		"DOTA_Tooltip_modifier_dazzle_bad_juju_manacost_Description"					"The cost of Bad Juju has been increased"
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% Shallow Grave Heal Amp"
 
@@ -1204,7 +1198,7 @@
 		"npc_dota_hero_meepo_npedesc1"								"Hatsune Miku Princess"
 
 		"DOTA_Tooltip_ability_miku_hadouken"						"Popipo"
-		"DOTA_Tooltip_ability_miku_hadouken_Description"			"Miku launches a wave of music in the specified direction, damaging all enemies in its path."
+		"DOTA_Tooltip_ability_miku_hadouken_Description"			"Miku launches a wave of music in the target direction, damaging all enemies in its path."
 		"DOTA_Tooltip_ability_miku_hadouken_damage"					"DAMAGE:"
 		"DOTA_Tooltip_ability_miku_hadouken_damage_calne"			"DAMAGE (CHIBI):"
 		"DOTA_Tooltip_ability_miku_hadouken_Lore"					"Rich and fragrant vegetable juice! Fragrant and soft vegetable juice!"
@@ -1223,24 +1217,26 @@
 		"DOTA_Tooltip_ability_liu_kick_range"						"CAST RANGE:"
 		"DOTA_Tooltip_ability_liu_kick_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_liu_kick_stun_duration"				"STUN DURATION (CHIBI):"
-		"DOTA_Tooltip_ability_liu_kick_Lore"						"Miku~miku~Kick! Who would reject her exquisite and fragrant foot!? -- It was a hentai named BM's last word before he got one-shotted by Liu-kick."
+		"DOTA_Tooltip_ability_liu_kick_Lore"						"Miku~miku~Kick! Who would reject her exquisite and fragrant foot!? -- It was a hentai named BM's last word before he was one-hit by Liu-kick."
 
 		"DOTA_Tooltip_ability_miku_dance"							"Dancing"
-		"DOTA_Tooltip_ability_miku_dance_Description"				"CHANNELED - Miku begins to sing and dance, inflicting basic attacks around her that deal bonus magic damage to all enemies, and stunning them for %stun_duration% second at intervals of %attack_interval% seconds.<br/>Miku takes significantly less damage while dancing."
+		"DOTA_Tooltip_ability_miku_dance_Description"				"CHANNELED - Miku begins to sing and dance, striking all enemies around her with instant attacks around her that deal bonus magic damage every %attack_interval% seconds. Each attack also stuns for %stun_duration% second.<br/>Miku takes significantly less damage while dancing. Lasts up to %AbilityChannelTime% seconds. Can be interrupted."
 		"DOTA_Tooltip_ability_miku_dance_dance_radius"				"RADIUS:"
-		"DOTA_Tooltip_ability_miku_dance_dance_damage"				"INTERVAL DAMAGE:"
+		"DOTA_Tooltip_ability_miku_dance_dance_damage"				"BONUS MAGIC DAMAGE PER HIT:"
 		"DOTA_Tooltip_ability_miku_dance_damage_reduction"			"%INCOMING DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_miku_dance_Description"				"Any weird movements that Miku does during this ability are intended!"
+		"DOTA_Tooltip_ability_miku_dance_Lore"						"Any weird movements that Miku does during this ability are intended!"
 
 		"DOTA_Tooltip_ability_get_down"								"GET DOWN!!!"
-		"DOTA_Tooltip_ability_get_down_Description"					"CHANNELED - Miku dances, attacking each enemy around her every second for the duration of the dance. These attacks have True Strike, deal bonus magical damage, but do not pierce Debuff Immunity."
+		"DOTA_Tooltip_ability_get_down_Description"					"CHANNELED - Miku dances, during which, she attacks all enemies in an area around her periodically. These attacks have True Strike and deal bonus magical damage.<br/>Lasts up to %AbilityChannelTime% seconds. Can be interrupted.<br/>Skill level increases with <font color='#FFFFFF'>Chibi Miku</font>."
+		"DOTA_Tooltip_ability_get_down_attack_interval"				"ATTACK INTERVAL:"
 		"DOTA_Tooltip_ability_get_down_dance_radius"				"RADIUS:"
 		"DOTA_Tooltip_ability_get_down_dance_damage"				"BONUS MAGIC DAMAGE PER HIT:"
 		"DOTA_Tooltip_ability_get_down_Lore"						"Is this enough?"
-		"DOTA_Tooltip_ability_get_down_scepter_description"			"Miku uses a secret dance, attacking each enemy around her every second for the duration of the dance. Attacks deal bonus magic damage per hit. These attacks have True Strike, but do not pierce Debuff Immunity."
+		"DOTA_Tooltip_ability_get_down_scepter_description"			"Get a new ability <font color='#FFFFFF'>GET DOWN</font>. <br/>Miku's secret dance, attacks enemies in an area around her."
 
 		"DOTA_Tooltip_ability_chibi_monster"						"Chibi Miku"
-		"DOTA_Tooltip_ability_chibi_monster_Description"			"Miku transforms into a large Chibi version of herself, gaining additional stats as well as a new ability, Chibi Strike.<br>Increases the damage of <font color='#FFFFFF'>Popipo</font>.<br/><font color='#FFFFFF'>Liu-kick</font> can now stun enemy units."
+		"DOTA_Tooltip_ability_chibi_monster_Description"			"Miku transforms into a large Chibi version of herself, gaining additional stats as well as a new ability, Chibi Strike.<br>Increases the damage of <font color='#FFFFFF'>Popipo</font>.<br/><font color='#FFFFFF'>Liu-kick</font> can now stun enemies."
+		"DOTA_Tooltip_ability_chibi_monster_Note0"					"Cooldown begins once Miku exits Chibi mode."
 		"DOTA_Tooltip_ability_chibi_monster_damage"					"BONUS DAMAGE:"
 		"DOTA_Tooltip_ability_chibi_monster_agility"				"BONUS AGILITY:"
 		"DOTA_Tooltip_ability_chibi_monster_hp"						"BONUS HEALTH:"
@@ -1264,14 +1260,14 @@
 		"npc_dota_hero_broodmother_npedesc1"		"Are you my Master?"
 
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
-		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, <font color='#05CAFF'>dealing magical damage</font>, <font color='#FF3399'>stunning</font>, and <font color='#e67f7f'>reducing the armor</font> of all enemies in its path.<br/>Saber gains <font color='#ffd700'>Debuff Immunity</font> for a short time after casting."
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, <font color='#05CAFF'>dealing magical damage</font> and <font color='#FF3399'>stunning</font> all enemies in its path.<br/>Saber gains <font color='#ffd700'>Debuff Immunity</font> for a short time after casting."
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
 		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
 		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"DEBUFF IMMUNITY DURATION:"
 
-		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"Strike Air inflicts a basic attack to the enemy rather than flat magical damage, and now also pierces Debuff Immunity."
+		"DOTA_Tooltip_ability_artoria_strike_air_shard_description"		"Strike Air deals an instant attack to the enemy rather than dealing flat magical damage, and now also pierces Debuff Immunity."
 
 		"DOTA_Tooltip_Ability_artoria_instinct"					"Instinct"
 		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct grants her the ability to <font color='#00e600'>block and reflect</font> most spells targeted against her periodically with a cooldown. She also passively gains extra <font color='#FF3399'>magic resistance</font> and <font color='#C24401'>status resistance</font>."
@@ -1279,7 +1275,7 @@
 		"DOTA_Tooltip_ability_artoria_instinct_status_res"		"%STATUS RESISTANCE:"
 
 		"DOTA_Tooltip_Ability_artoria_mana_burst"					"<font color='#FFE56E'>Mana Burst</font>"
-		"DOTA_Tooltip_ability_artoria_mana_burst_description"		"Saber strikes nearby enemies with a single powerful blow, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>slowing</font> them.\nPassively increase Saber's spell amplification.\nDispel Type:<span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_artoria_mana_burst_description"		"Saber strikes nearby enemies with a single powerful blow, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>slowing</font> them.\nPassively increases Saber's spell amplification."
 		"DOTA_Tooltip_ability_artoria_mana_burst_Lore"		""
 		"DOTA_Tooltip_ability_artoria_mana_burst_amp_pct"		"%SPELL DAMAGE:"
 		"DOTA_Tooltip_ability_artoria_mana_burst_damage"		"DAMAGE:"
@@ -1288,7 +1284,7 @@
 		"DOTA_Tooltip_ability_artoria_mana_burst_duration"		"SLOW DURATION:"
 
 		"DOTA_Tooltip_Ability_artoria_excalibur"				"<font color='#FFE56E'>Excalibur</font>"
-		"DOTA_Tooltip_ability_artoria_excalibur_description"	"CHANNELED - Saber supercharges Excalibur with her prana and swings it to unleash a wave of light, dealing damage to every enemy in the path of light.\n\n<font color='#FF3399'>Upgradable with the Excalibur item.</font>"
+		"DOTA_Tooltip_ability_artoria_excalibur_description"	"CHANNELED - Saber supercharges Excalibur with her prana and swings it to unleash a wave of light, dealing damage to every enemy in a line in front of her.\n\n<font color='#FF3399'>Upgradable with the Excalibur item.</font>"
 		"DOTA_Tooltip_ability_artoria_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night."
 		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"CAST DELAY:"
 		"DOTA_Tooltip_ability_artoria_excalibur_width"		"WIDTH:"
@@ -1310,7 +1306,7 @@
 
 		"DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_1"			"+{s:bonus_damage} Strike Air Damage"
 		"DOTA_Tooltip_ability_special_bonus_unique_artoria_strike_air_2"			"-{s:bonus_AbilityCooldown}s Strike Air Cooldown"
-		"DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"					"Mana Burst also Dispels Saber"
+		"DOTA_Tooltip_ability_special_bonus_artoria_mana_burst_1"					"Mana Burst Dispels Saber"
 		"DOTA_Tooltip_ability_special_bonus_unique_excalibur_1"						"-{s:bonus_AbilityCooldown}s Excalibur Cooldown"
 		"DOTA_Tooltip_ability_special_bonus_unique_excalibur_1_Description"			"Also applies to Hidden Treasure: Excalibur - The Sword of Promised Victory"
 
@@ -1565,7 +1561,7 @@
 
 		// 可消耗宝石
 		"DOTA_Tooltip_ability_item_consumable_gem"						"Phantom Gem"
-		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"On use, gives the hero True Sight within %radius% range.<br>True Sight buff will last %duration_minutes% minutes or on death, whichever comes first."
+		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"<h1>Use: Consume</h1> Consume the Phantom Gem to grant yourself True Sight within %radius% range.<br>True Sight will last for %duration_minutes% minutes or on death, whichever comes first."
 
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
 		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"Gained the ability to see invisible units and wards to any allied vision within 900 range."
@@ -1662,7 +1658,7 @@
 
 		// item_undying_heart 不朽之心
 		"DOTA_Tooltip_Ability_item_undying_heart"				"<font color='#FFFF00'>Undying Heart</font>"
-		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Draconic Recovery</font></h1>Heal %active_hp_regen% + %active_hp_regen_pct%%% of max health and applies a dispel, then receive %buff_hp_regen% + %buff_hp_regen_pct%%% max health as health regeneration for %dur% seconds afterward.<br><br>Dispel Type:<span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_undying_heart_Description"							"<h1><font color='#FFFF00'>Active: Draconic Recovery</font></h1>Heal %active_hp_regen% + %active_hp_regen_pct%%% of max health and applies a dispel, then receive %buff_hp_regen% + %buff_hp_regen_pct%%% max health as health regeneration for %dur% seconds afterward.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_undying_heart_Lore"								"The powerful heart of a dead necromancer."
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_health"							"+$health"
@@ -1671,6 +1667,7 @@
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+Status Resistance"
 		"DOTA_Tooltip_ability_item_undying_heart_note0"								"Max health regeneration from multiple Undying Hearts do not stack."
 		"DOTA_Tooltip_modifier_item_undying_heart_buff"								"Draconic Recovery"
+		"DOTA_Tooltip_modifier_item_undying_heart_buff_Description"					"Regenerating health at a rapid rate based on your max HP."
 
 		// item_force_staff_2 推推2
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"Wind Force Staff"
@@ -2118,7 +2115,7 @@
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1>Active:<font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target will heal for %heal%% of their max HP. The shield lasts for %duration% seconds.<br><br>Dispel Type: Basic Dispel"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1>Active: <font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target will heal for %heal%% of their max HP. The shield lasts for %duration% seconds.<br><br>Dispel Type: Basic Dispel"
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"A glowing yellow orb that shines brightly in the darkest of days."
 		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"Grants the effects of Linken's Sphere and Lotus Orb to the target, with the Linken's Spellblock occuring on the first reflected spell, negating the effects of it in addition to reflecting it."
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"
@@ -2472,7 +2469,7 @@
 
 		// item_radar_of_dragon 龙珠雷达
 		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>Dragon Ball Radar</font><font color='#FF0000'>(NOT PURCHASEABLE!)</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance (Read Below)</h1>Dragon Balls are randomly dropped by neutral creeps, while Roshan will always drop one on death, assuming your team kills him. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>NOTE:</font>If Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again. All Dragon Balls are shareable with teammates."
+		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance (Read Below)</h1>Dragon Balls are randomly dropped by neutral creeps, while Roshan will always drop one on death, assuming your team kills him. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>NOTE:</font> If Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again. All Dragon Balls are shareable with teammates."
 
 		// 神器2.0
 		// item_light_part 圣光组件
