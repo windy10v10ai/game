@@ -4649,7 +4649,7 @@
 		"AbilityValues"
 		{
 			"duration"						"15"	//主动持续时间
-			"heal_percent"					"10"	//反制回血%
+			"heal_percent"					"8"		//反制回血%
 
 			// real value is item_saint_orb_bonus_all_stats
 			"bonus_all_stats_tooltip"		"30"	//全属性
