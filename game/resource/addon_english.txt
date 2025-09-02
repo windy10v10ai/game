@@ -691,10 +691,10 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"MAX BONUS DAMAGE PER ATTACK DAMAGE:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"ACTIVE DURATION:"
 
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura_damage"				"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura_damage_Description"	"Damaging and slowing the movement speed of nearby enemies. Closer enemies suffer stronger effects."
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"					"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"		"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration also reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"				"Bonechill Aura"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Damaging and slowing the movement speed of nearby enemies. Closer enemies suffer stronger effects."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"Bonechill Aura (Passive)"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration also reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
@@ -725,8 +725,7 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"			"FIRESTORM RADIUS:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%MAX HP DAMAGE:"
-		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"Firestorm Advent"
-		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2_Description"		"Every 4 attacks creates a single instance of Firestorm."
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"				"Firestorm Advent Attack Count"
 		//怨念光环
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"				"Aura of Malice"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"	"Enemies that stay within the aura for a certain period of time will receive damage and become rooted briefly."
@@ -853,7 +852,7 @@
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"STRENGTH:"
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"HEALTH REGEN:"
 		"DOTA_Tooltip_modifier_omniknight_repel"										"Heavenly Grace"
-		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"Gaining 50%% status resistance, %dMODIFIER_PROPERTY_BONUS_STATS_STRENGTH% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
+		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"Gaining %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance, %dMODIFIER_PROPERTY_BONUS_STATS_STRENGTH% strength, and %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"Angelic Flight"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"Increases the target's movement speed and health regeneration, and grants flying movement, allowing them to move over any terrain."
@@ -963,9 +962,10 @@
 		//"DOTA_Tooltip_ability_dazzle_bad_juju_cooldown_reduction_items"					"COOLDOWN REDUCTION ITEMS:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_pct"					"%HEALTH COST INCREASE PER CAST:"
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"HEALTH COST INCREASE DURATION:"
+		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
 		//"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"Weave also reduces item cooldowns."
 		"DOTA_Tooltip_modifier_dazzle_bad_juju_manacost"								"Bad Juju"
-		"DOTA_Tooltip_modifier_dazzle_bad_juju_manacost_Description"					"Bad Juju's health cost is increased."
+		"DOTA_Tooltip_modifier_dazzle_bad_juju_manacost_Description"					"The cost of Bad Juju has been increased"
 
 		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% Shallow Grave Heal Amp"
 
@@ -1220,19 +1220,19 @@
 		"DOTA_Tooltip_ability_liu_kick_Lore"						"Miku~miku~Kick! Who would reject her exquisite and fragrant foot!? -- It was a hentai named BM's last word before he was one-hit by Liu-kick."
 
 		"DOTA_Tooltip_ability_miku_dance"							"Dancing"
-		"DOTA_Tooltip_ability_miku_dance_Description"				"CHANNELED - Miku begins to sing and dance, striking all enemies around her with instant attacks around her that deal bonus magic damage every %attack_interval% seconds. Each attack also stuns for %stun_duration% second.<br/>Miku takes significantly less damage while dancing. Lasts up to %AbilityChannelTime% seconds."
+		"DOTA_Tooltip_ability_miku_dance_Description"				"CHANNELED - Miku begins to sing and dance, striking all enemies around her with instant attacks around her that deal bonus magic damage every %attack_interval% seconds. Each attack also stuns for %stun_duration% second.<br/>Miku takes significantly less damage while dancing. Lasts up to %AbilityChannelTime% seconds. Can be interrupted."
 		"DOTA_Tooltip_ability_miku_dance_dance_radius"				"RADIUS:"
 		"DOTA_Tooltip_ability_miku_dance_dance_damage"				"BONUS MAGIC DAMAGE PER HIT:"
 		"DOTA_Tooltip_ability_miku_dance_damage_reduction"			"%INCOMING DAMAGE REDUCTION:"
 		"DOTA_Tooltip_ability_miku_dance_Lore"						"Any weird movements that Miku does during this ability are intended!"
 
 		"DOTA_Tooltip_ability_get_down"								"GET DOWN!!!"
-		"DOTA_Tooltip_ability_get_down_Description"					"CHANNELED - Miku dances, during which, she attacks all enemies in an area around her periodically. These attacks have True Strike and deal bonus magical damage. Lasts up to %AbilityChannelTime% seconds."
+		"DOTA_Tooltip_ability_get_down_Description"					"CHANNELED - Miku dances, during which, she attacks all enemies in an area around her periodically. These attacks have True Strike and deal bonus magical damage.<br/>Lasts up to %AbilityChannelTime% seconds. Can be interrupted.<br/>Skill level increases with <font color='#FFFFFF'>Chibi Miku</font>."
 		"DOTA_Tooltip_ability_get_down_attack_interval"				"ATTACK INTERVAL:"
 		"DOTA_Tooltip_ability_get_down_dance_radius"				"RADIUS:"
 		"DOTA_Tooltip_ability_get_down_dance_damage"				"BONUS MAGIC DAMAGE PER HIT:"
 		"DOTA_Tooltip_ability_get_down_Lore"						"Is this enough?"
-		"DOTA_Tooltip_ability_get_down_scepter_description"			"Enables a new secret dance for Miku to use in combat."
+		"DOTA_Tooltip_ability_get_down_scepter_description"			"Get a new ability <font color='#FFFFFF'>GET DOWN</font>. <br/>Miku's secret dance, attacks enemies in an area around her."
 
 		"DOTA_Tooltip_ability_chibi_monster"						"Chibi Miku"
 		"DOTA_Tooltip_ability_chibi_monster_Description"			"Miku transforms into a large Chibi version of herself, gaining additional stats as well as a new ability, Chibi Strike.<br>Increases the damage of <font color='#FFFFFF'>Popipo</font>.<br/><font color='#FFFFFF'>Liu-kick</font> can now stun enemies."
