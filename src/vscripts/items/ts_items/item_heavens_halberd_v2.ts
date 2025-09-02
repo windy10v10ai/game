@@ -101,10 +101,6 @@ export class ModifierItemHeavensHalberdV2 extends BaseItemModifier {
     super.OnCreated();
   }
 
-  OnDestroy(): void {
-    super.OnDestroy();
-  }
-
   OnTakeDamage(event: ModifierInstanceEvent): void {
     TsSpellLifeSteal(event, this.spellLifesteal, this.GetParent());
   }
