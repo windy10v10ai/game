@@ -309,9 +309,9 @@
 		}
 		"AbilityValues"
 		{
-			"illusion_duration"			"6"
-			"max_stun"					"1.25"
-			"max_damage"				"100 150 200"
+			"illusion_duration"			"3"
+			"max_stun"					"1.0"
+			"max_damage"				"100 200 300"
 			"ad" 						"1 1.5 2"
 		}
 	}

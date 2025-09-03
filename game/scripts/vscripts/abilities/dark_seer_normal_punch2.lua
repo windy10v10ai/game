@@ -41,7 +41,7 @@ function modifier_dark_seer_normal_punch2:OnAttackLanded(keys)
 				{
 					outgoing_damage = 0,
 					incoming_damage = 0,
-					duration = 6,
+					duration = ability:GetSpecialValueFor("illusion_duration"),
 				},
 				1, -- 数量
 				100, -- nPadding
@@ -58,8 +58,8 @@ function modifier_dark_seer_normal_punch2:OnAttackLanded(keys)
 			victim = keys.target,
 			attacker = self:GetCaster(),
 			damage = damage,
-			damage_type =
-				DAMAGE_TYPE_MAGICAL,
+			damage_type = DAMAGE_TYPE_MAGICAL,
+			damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL,
 			ability = self:GetAbility()
 		}
 		ApplyDamage(damageInfo)

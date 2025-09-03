@@ -589,6 +589,7 @@
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them. Knockback distance is relative to how much you have moved prior to the attack."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"							"Not affected by spell amplification, spell lifesteal."
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"STUN DURATION:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"MAX KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"ILLUSION DURATION:"
