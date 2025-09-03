@@ -291,12 +291,12 @@
 	//普通一拳
 	"dark_seer_normal_punch2"
 	{
-		"BaseClass"                     "ability_lua"
+		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/dark_seer_normal_punch2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"IsGrantedByScepter"			"0"
-		"AbilityTextureName"    		"dark_seer_normal_punch"
+		"AbilityTextureName"			"dark_seer_normal_punch"
 
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"3"
