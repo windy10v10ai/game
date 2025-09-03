@@ -591,6 +591,7 @@
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"普通一拳"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"被动技能。使黑暗贤者下次攻击可以打出目标的复制体,造成伤害和眩晕。"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"							"不受技能增强，技能吸血影响。"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"眩晕时间："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"最远击退距离："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"幻象持续时间："
