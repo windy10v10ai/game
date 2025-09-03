@@ -31,7 +31,7 @@ end
 function modifier_dark_seer_normal_punch2:OnAttackLanded(keys)
 	if IsServer() and keys.attacker == self:GetParent() and self:GetAbility():IsCooldownReady() then
 		local ability = self:GetAbility()
-		ability:StartCooldown(9)
+		ability:StartCooldown(ability:GetCooldown(-1) * self:GetParent():GetCooldownReduction())
 
 		if keys.target:IsRealHero() then
 			-- 创建幻象
@@ -53,16 +53,22 @@ function modifier_dark_seer_normal_punch2:OnAttackLanded(keys)
 		EmitSoundOn("Hero_Dark_Seer.NormalPunch.Lv2", keys.target)
 		--造成伤害
 		local damage = self:GetAbility():GetSpecialValueFor("max_damage") +
-		self:GetCaster():GetAverageTrueAttackDamage(nil) * self:GetAbility():GetSpecialValueFor("ad")
-		local damageInfo = { victim = keys.target, attacker = self:GetCaster(), damage = damage, damage_type =
-		DAMAGE_TYPE_MAGICAL, ability = self:GetAbility() }
+			self:GetCaster():GetAverageTrueAttackDamage(nil) * self:GetAbility():GetSpecialValueFor("ad")
+		local damageInfo = {
+			victim = keys.target,
+			attacker = self:GetCaster(),
+			damage = damage,
+			damage_type =
+				DAMAGE_TYPE_MAGICAL,
+			ability = self:GetAbility()
+		}
 		ApplyDamage(damageInfo)
 
 		keys.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = 1.25 })
 
 		--特效
 		local Particle = ParticleManager:CreateParticle(
-		"particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf", 0, self:GetCaster())
+			"particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf", 0, self:GetCaster())
 		ParticleManager:SetParticleControl(Particle, 2, keys.target:GetOrigin())
 	end
 end
