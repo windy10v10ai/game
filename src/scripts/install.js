@@ -51,7 +51,8 @@ async function askQuestion(query) {
       }
     }
 
-    fs.moveSync(sourcePath, targetPath);
+    fs.copySync(sourcePath, targetPath);
+    fs.removeSync(sourcePath);
     fs.symlinkSync(targetPath, sourcePath, 'junction');
     console.log(`Linked ${sourcePath} <==> ${targetPath}`);
   }

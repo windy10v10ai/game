@@ -228,6 +228,7 @@
 	//=================================================================================================================
 	// Custom item Override 通用物品
 	//=================================================================================================================
+	// 回城卷轴
 	"item_tpscroll"
 	{
 		"AbilityCooldown"		"30.0"
@@ -236,10 +237,12 @@
 		"ItemStockMax"			"1"
 		"ItemCost"				"0"
 	}
+	// 阿哈利姆魔晶
 	"item_aghanims_shard"
 	{
 		"ItemInitialStockTime"			"240"
 	}
+	// 刷新球
 	"item_refresher"
 	{
 		"AbilityManaCost"				"450"	// 350
@@ -490,6 +493,10 @@
 	}
 
 	// 共享CD
+	"item_blade_mail"
+	{
+		"AbilitySharedCooldown"			"blade_mail"
+	}
 	"item_black_king_bar"
 	{
 		"AbilitySharedCooldown"			"bkb"
