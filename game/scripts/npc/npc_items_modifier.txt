@@ -24,7 +24,7 @@
 			"item_blue_fantasy_agi"			"50"
 			"item_blue_fantasy_int"			"25"
 
-			"item_saint_orb_bonus_all_stats"		"25"
+			"item_saint_orb_bonus_all_stats"		"30"
 
 			"item_necronomicon_staff_bonus_intellect"		"60"
 			"item_necronomicon_staff_bonus_strength"		"15"
@@ -137,6 +137,9 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%item_saint_orb_bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%item_saint_orb_bonus_all_stats"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"20"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"20"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"15"
+					"MODIFIER_PROPERTY_MANA_BONUS"				"500"
 				}
 			}
 			"modifier_item_necronomicon_staff_stats"

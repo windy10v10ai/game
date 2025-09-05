@@ -591,6 +591,7 @@
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"普通一拳"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"被动技能。使黑暗贤者下次攻击可以打出目标的复制体,造成伤害和眩晕。"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"							"不受技能增强，技能吸血影响。"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"眩晕时间："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"最远击退距离："
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"幻象持续时间："
@@ -686,6 +687,11 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"攻击力伤害加成倍率："
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"持续时间："
 
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"				"极寒光环"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"对周围敌方单位造成伤害和减速，距离自己越近伤害和减速越大"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"极寒光环(被动)"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"减少敌方单位的回复，治疗，吸血效果，降低其生命回复"
+
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"		"冰霜封印"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得%damage_reduction%%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引。结束时对周围造成伤害和眩晕。"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"		"基础生命回复："
@@ -709,12 +715,12 @@
 		"DOTA_Tooltip_ability_abaddon_death_coil2_ad"		"攻击力伤害加成倍率："
 		"DOTA_Tooltip_ability_abaddon_death_coil2_duration"	"持续时间："
 
-		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"		"火雨降临"
-		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"		"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
-		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"		"范围："
-		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"		"基础伤害："
-		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"		"%最大生命值伤害："
-		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"		"火雨降临"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"								"火雨降临"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"					"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"						"范围："
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_base_damage"					"基础伤害："
+		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_max_damage"					"%最大生命值伤害："
+		"DOTA_Tooltip_modifier_abyssal_underlord_firestorm2"							"火雨降临 攻击计数"
 
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura"		"怨念光环"
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_Description"		"在自身光环范围内停留一定时间的敌人会被缠绕，并造成伤害"
@@ -776,8 +782,8 @@
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitydraft_note"							"对于充能型技能，每次施放再装填可以恢复该技能一点能量。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Description"									"持续施法 - 重置修补匠的大多数物品和技能的冷却时间。<br>按住Alt查看不能刷新的物品和技能。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_Lore"										"这儿换块新电池，那儿塞几枚火箭弹，鲍什不断改进现有的技术。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘、奥术鞋、黑皇杖、迈达斯之手、林肯法球、陨星锤、支配头盔、统御头盔、知识之书、洞察烟斗、刷新球(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。"
-		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"再装填不能刷新的技能有阳炎冲击、雷神之怒、混乱之雨、自然之怒、逆转时空、群蛇守卫、鬼影重重。"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note0"										"再装填不能刷新的物品有永恒之盘，奥术鞋，黑皇杖，迈达斯之手，林肯法球，陨星锤，支配头盔，统御头盔，知识之书，洞察烟斗，刷新球，圣女白莲，嘉心糖(含这些物品的进阶版，如咸鱼之王，大黑黄，大林肯，洞察盔甲，团队之手)及所有中立物品。<br>"
+		"DOTA_Tooltip_ability_tinker_rearm_lua_Note1"										"再装填不能刷新的技能有阳炎冲击，雷神之怒，自然之怒，逆转时空，时间结界，群蛇守卫，鬼影重重，混乱之雨，风暴双雄，等所有分身召唤物技能。"
 		"DOTA_Tooltip_ability_tinker_rearm_lua_abilitychanneltime"							"再装填施法时间："
 		"DOTA_Tooltip_ability_special_bonus_unique_tinker_rearm_lua"						"-{s:bonus_AbilityChannelTime}秒 再装填施法时间<br> -{s:bonus_AbilityManaCost} 再装填魔法消耗"
 
@@ -791,17 +797,7 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%移动速度加成："
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%冷却时间减少："
 
-		"DOTA_Tooltip_ability_bot_power_n5"							"机械救赎 N5"
-		"DOTA_Tooltip_ability_bot_power_n5_Description"				"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
-		"DOTA_Tooltip_ability_bot_power_n5_Lore"					"在玩家的智慧和创造力面前，Bot的设计常常显得力不从心。尽管它们能够完美执行命令，却始终无法超越玩家的直觉与策略。因此，开发者为它们注入了 机械救赎 程序，使它们在关键时刻能够激发潜力，扭转战局。"
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_damage"			"攻击力："
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_attack_speed"		"攻击速度："
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_spell_amplify"		"技能增强："
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_cooldown"			"冷却缩减："
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_move_speed"		"移动速度："
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_armor"				"护甲："
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_magic_resistance"	"魔抗："
-		"DOTA_Tooltip_ability_bot_power_n5_bonus_attributes"		"全属性："
+
 
 		"DOTA_Tooltip_ability_bot_power_n6"							"机械救赎 N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
@@ -831,6 +827,9 @@
 		// 撼地者
 		"npc_dota_hero_earthshaker"					"宇智波牛神"
 
+		// 谜团
+		"DOTA_Tooltip_ability_enigma_malefice_shard_description"						"憎恶的眩晕时间增加%shard_bonus_stun_duration_tooltip%秒。"
+
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"治疗："
 
@@ -842,8 +841,8 @@
 		"DOTA_Tooltip_ability_omniknight_repel_status_resistance"						"%状态抗性："
 		"DOTA_Tooltip_ability_omniknight_repel_bonus_str"								"力量加成："
 		"DOTA_Tooltip_ability_omniknight_repel_hp_regen"								"生命恢复："
-		"DOTA_Tooltip_modifier_omniknight_repel"						"驱逐"
-		"DOTA_Tooltip_modifier_omniknight_repel_Description"			"状态抗性提升%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%，力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，生命恢复提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒。"
+		"DOTA_Tooltip_modifier_omniknight_repel"										"驱逐"
+		"DOTA_Tooltip_modifier_omniknight_repel_Description"							"状态抗性提升%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%，力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，生命恢复提升%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒。"
 
 		"DOTA_Tooltip_ability_omniknight_angelic_flight"					"奶飞天"
 		"DOTA_Tooltip_ability_omniknight_angelic_flight_description"		"全能骑士召唤出咸鱼之王的替身使者，提升目标的移动速度和生命恢复，并且使目标飞行。"
@@ -953,6 +952,9 @@
 		"DOTA_Tooltip_ability_dazzle_bad_juju_mana_cost_increase_duration"				"生命消耗增加持续时间："
 		"DOTA_Tooltip_ability_dazzle_bad_juju_scepter_Description"						"编织也会减少物品的冷却时间。"
 
+		"DOTA_Tooltip_modifier_dazzle_bad_juju_manacost"								"邪能"
+		"DOTA_Tooltip_modifier_dazzle_bad_juju_manacost_Description"					"邪能的消耗已经增加"
+
 		"DOTA_Tooltip_Ability_special_bonus_unique_dazzle_shallow_grave_heal_amplify"	"+{s:bonus_heal_amplify}% 薄葬治疗增强"
 
 		// 蝙蝠骑士
@@ -994,6 +996,11 @@
 
 		// 树精卫士
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"增加疯狂生长作用范围"
+
+		// 邪影芳灵
+		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%伤害减免："
+		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"伤害："
+
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
@@ -1209,20 +1216,22 @@
 		"DOTA_Tooltip_ability_liu_kick_Lore"						"把你mikumiku掉！"
 
 		"DOTA_Tooltip_ability_miku_dance"							"跳舞"
-		"DOTA_Tooltip_ability_miku_dance_Description"				"开始唱歌跳舞，每%attack_interval%秒对周围敌人进行一次普通攻击，并眩晕周围敌人%stun_duration%秒，附加额外魔法伤害。<br/>跳舞时初音收到的伤害减少。"
+		"DOTA_Tooltip_ability_miku_dance_Description"				"开始唱歌跳舞，每%attack_interval%秒对周围敌人进行一次普通攻击，并眩晕周围敌人%stun_duration%秒，附加额外魔法伤害。<br/>跳舞时初音收到的伤害减少。持续时间%AbilityChannelTime%秒。会被打断。"
 		"DOTA_Tooltip_ability_miku_dance_dance_radius"				"范围:"
 		"DOTA_Tooltip_ability_miku_dance_dance_damage"				"每次攻击伤害:"
 		"DOTA_Tooltip_ability_miku_dance_damage_reduction"			"%伤害减免:"
 
 		"DOTA_Tooltip_ability_get_down"								"GET DOWN!!!"
-		"DOTA_Tooltip_ability_get_down_Description"					"使用初音未来自己的秘密舞蹈，在整个舞蹈过程中，每%attack_interval%秒对周围敌人进行一次普通攻击，并且附加额外魔法伤害。"
+		"DOTA_Tooltip_ability_get_down_Description"					"使用初音未来自己的秘密舞蹈，在整个舞蹈过程中，对周围敌人进行一次普通攻击，并且附加额外魔法伤害。<br/>持续时间%AbilityChannelTime%秒。会被打断。<br/>技能等级随着 <font color='#FFFFFF'>甩葱形态</font> 增加。"
+		"DOTA_Tooltip_ability_get_down_attack_interval"				"攻击间隔:"
 		"DOTA_Tooltip_ability_get_down_dance_radius"				"范围:"
 		"DOTA_Tooltip_ability_get_down_dance_damage"				"每次攻击附加魔法伤害:"
 		"DOTA_Tooltip_ability_get_down_Lore"						"这样一来就满足了吗？"
-		"DOTA_Tooltip_ability_get_down_scepter_description"			"获得新技能 <font color='#FFFFFF'>GET DOWN</font>。<br/>初音未来的秘密舞蹈，对周围敌人造成伤害。技能等级随着 <font color='#FFFFFF'>甩葱形态</font> 增加。"
+		"DOTA_Tooltip_ability_get_down_scepter_description"			"获得新技能 <font color='#FFFFFF'>GET DOWN</font>。<br/>初音未来的秘密舞蹈，对周围敌人造成伤害。"
 
 		"DOTA_Tooltip_ability_chibi_monster"						"Q版初音未来"
 		"DOTA_Tooltip_ability_chibi_monster_Description"			"初音变身成Q版形态，获得额外的属性和技能。<br/>变身时增加技能蔬菜汁Popipo的伤害，初音飞踢附加眩晕效果。"
+		"DOTA_Tooltip_ability_chibi_monster_Note0"					"变身结束后开始计时冷却时间。"
 		"DOTA_Tooltip_ability_chibi_monster_damage"					"增加攻击力:"
 		"DOTA_Tooltip_ability_chibi_monster_agility"				"获得敏捷:"
 		"DOTA_Tooltip_ability_chibi_monster_hp"						"获得血量:"
@@ -1549,7 +1558,7 @@
 
 		// 可消耗宝石
 		"DOTA_Tooltip_ability_item_consumable_gem"						"幻影宝石"
-		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"使用后赋予英雄在%radius%范围内的真视效果。<br>真视增益将持续%duration_minutes%分钟，或在英雄死亡时移除。"
+		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"<h1>使用: 消耗</h1> 使用后赋予英雄在%radius%范围内的真视效果。<br>真视增益将持续%duration_minutes%分钟，或在英雄死亡时移除。"
 
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"真实视域"
 		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"携带者自身和周围友方单位可以看见<b>900</b>范围内的隐身单位和守卫。"
@@ -1654,7 +1663,8 @@
 		"DOTA_Tooltip_ability_item_undying_heart_bonus_evasion"							"%+$evasion"
 		"DOTA_Tooltip_ability_item_undying_heart_status_resistance"						"%+状态抗性"
 		"DOTA_Tooltip_ability_item_undying_heart_note0"									"多个不朽之心的最大生命恢复效果不叠加。"
-		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"Buff：巨龙复苏"
+		"DOTA_Tooltip_modifier_item_undying_heart_buff"									"巨龙复苏"
+		"DOTA_Tooltip_modifier_item_undying_heart_buff_Description"						"以极快的速度恢复生命值。"
 
 		// item_force_staff_2 推推2
 		"DOTA_Tooltip_Ability_item_force_staff_2"			"风力法杖"
@@ -2091,18 +2101,18 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
 		// 圣女白莲
-		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal%%的血量，护盾持续%duration%秒。"
-		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
-		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"简单来说就是主动给目标套个一次林肯+莲花。"
-		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats"			"+$all"
-		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana"				"+$mana"
-		"DOTA_Tooltip_Ability_item_saint_orb_hp_re"					"+$hp_regen"
-		"DOTA_Tooltip_ability_item_saint_orb_mana_re"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_saint_orb_heal_bonus"			"%+$restoration_amp"
+		"DOTA_Tooltip_Ability_item_saint_orb"										"圣女白莲"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"							"<h1>主动：<font color='#FFFF00'>白莲花</font></h1>给予目标一个护盾，抵挡并反弹大多数指向性技能给施法者一次，并且恢复目标%heal_percent%%的血量，护盾持续 %duration% 秒。\n<h1>被动：莲花坚盾</h1>每 %AbilityCooldown% 秒抵挡并反弹大多数指向性技能给施法者，并且恢复自身%heal_percent%%的血量。<br><br>免疫减速效果。"
+		"DOTA_Tooltip_Ability_item_saint_orb_Lore"									"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
+		"DOTA_Tooltip_Ability_item_saint_orb_Note0"									"集成莲花和林肯的优点，并且更强大。"
+		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats_tooltip"				"+$all"
+		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana_tooltip"					"+$mana"
+		"DOTA_Tooltip_Ability_item_saint_orb_hp_regen_tooltip"						"+$hp_regen"
+		"DOTA_Tooltip_ability_item_saint_orb_mana_regen_tooltip"					"+$mana_regen"
+		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor_tooltip"					"+$armor"
+
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"白莲花"
-		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"抵挡一次恶心的指向性法术"
+		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"抵挡并反弹大多数指向性技能给施法者，并恢复你 5% 的最大生命值。"
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"嘉心糖"
