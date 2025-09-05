@@ -1009,6 +1009,11 @@
 
 		// 树精卫士
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increases Overgrowth Range."
+
+		// 邪影芳灵
+		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%Damage Reduction:"
+		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"DAMAGE:"
+
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
