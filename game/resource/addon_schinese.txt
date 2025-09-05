@@ -996,6 +996,11 @@
 
 		// 树精卫士
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"增加疯狂生长作用范围"
+
+		// 邪影芳灵
+		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%伤害减免："
+		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"伤害："
+
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
