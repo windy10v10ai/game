@@ -75,7 +75,10 @@ function modifier_artoria_instinct:GetReflectSpell(params)
 
 			-- cast the ability
 			self:GetParent():SetCursorCastTarget(sourceAbility:GetCaster())
-			selfAbility:CastAbility()
+			local castResult = selfAbility:CastAbility()
+			if castResult then
+				self:GetParent():GiveMana(sourceAbility:GetManaCost(-1))
+			end
 
 			-- remove ability
 			self:GetParent():RemoveAbilityByHandle(selfAbility)

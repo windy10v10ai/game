@@ -60,7 +60,6 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_undying_heart', -- 不朽之心
 		'item_blade_mail_2',
-		-- 'item_saint_orb', -- 圣女白莲
 		'item_ultimate_scepter_2',
 		'item_moon_shard_datadriven',
 		'item_jump_jump_jump',
@@ -571,8 +570,8 @@ tBotItemData.purchaseItemList = {
 		'item_aeon_pendant',
 		'item_ultimate_scepter_2',
 		'item_octarine_core',
-		'item_saint_orb',
 		'item_insight_armor',
+		'item_undying_heart', -- 不朽之心
 		'item_refresh_core',
 		'item_heavens_halberd_v2',
 	},
@@ -719,7 +718,6 @@ tBotItemData.purchaseItemList = {
 		'item_blade_mail', -- 刃甲
 		'item_aether_lens_2',
 		'item_blink',
-		'item_saint_orb',
 		'item_shivas_guard_2',
 		'item_wings_of_haste',
 		'item_aghanims_shard',
@@ -820,7 +818,6 @@ tBotItemData.purchaseItemList = {
 		'item_blue_fantasy', -- 苍蓝幻想
 		'item_ultimate_scepter_2',
 		'item_infernal_desolator', -- 绝对破防之刃
-		'item_saint_orb',
 		'item_moon_shard_datadriven',
 		'item_excalibur',
 	},
@@ -862,9 +859,7 @@ tBotItemData.purchaseItemList = {
 		'item_black_king_bar_2',
 		'item_vladmir_2',
 		'item_moon_shard_datadriven',
-		'item_saint_orb',
 		'item_undying_heart',
-		'item_moon_shard_datadriven',
 		'item_wasp_despotic',
 		'item_wasp_callous',
 		'item_jump_jump_jump',
@@ -1145,7 +1140,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_sand_king = {
 		'item_overwhelming_blink',
-		'item_saint_orb',
 	},
 	npc_dota_hero_skywrath_mage = {
 	},
