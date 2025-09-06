@@ -3,6 +3,7 @@
 export enum CMD {
   V = '-v', // 获取当前vector
   M = '-m', // 获取当前modifier
+  A = '-a', // 获取当前ability
   REFRESH_AI = '-r', // 刷新AI
 
   KILL = '-k',
