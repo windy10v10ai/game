@@ -222,6 +222,13 @@ export function ReflectSpellToCaster(keys: ModifierAbilityEvent, parent: CDOTA_B
     return false;
   }
 
+  // 移除之前的反弹技能
+  // @ts-expect-error 自定义英雄属性
+  if (parent.reflected_spell) {
+    // @ts-expect-error 自定义英雄属性
+    parent.RemoveAbilityByHandle(parent.reflected_spell);
+  }
+
   // 复制技能
   const sourceAbility = ability;
   const reflectedAbility = parent.AddAbility(sourceAbility.GetAbilityName());
@@ -241,8 +248,9 @@ export function ReflectSpellToCaster(keys: ModifierAbilityEvent, parent: CDOTA_B
   if (castResult) {
     parent.GiveMana(sourceAbility.GetManaCost(-1));
   }
-  // 移除反弹技能
-  parent.RemoveAbilityByHandle(reflectedAbility);
+  // 记录反弹技能
+  // @ts-expect-error 自定义英雄属性
+  parent.reflected_spell = reflectedAbility;
 
   // 创建反弹特效
   const particle = ParticleManager.CreateParticle(

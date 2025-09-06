@@ -50,6 +50,7 @@ function modifier_artoria_instinct:GetAbsorbSpell(params)
 	end
 end
 
+modifier_artoria_instinct.reflected_spell = nil
 function modifier_artoria_instinct:GetReflectSpell(params)
 	if IsServer() then
 		-- if caster is teammate, do nothing
@@ -63,6 +64,11 @@ function modifier_artoria_instinct:GetReflectSpell(params)
 			-- use resources
 			self.reflect = true
 
+			-- remove previous ability
+			if self.reflected_spell ~= nil then
+				self:GetParent():RemoveAbilityByHandle(self.reflected_spell)
+			end
+
 			-- copy the ability
 			local sourceAbility = params.ability
 			local selfAbility = self:GetParent():AddAbility(sourceAbility:GetAbilityName())
@@ -75,10 +81,10 @@ function modifier_artoria_instinct:GetReflectSpell(params)
 
 			-- cast the ability
 			self:GetParent():SetCursorCastTarget(sourceAbility:GetCaster())
-			selfAbility:CastAbility()
-
-			-- remove ability
-			self:GetParent():RemoveAbilityByHandle(selfAbility)
+			local castResult = selfAbility:CastAbility()
+			if castResult then
+				self:GetParent():GiveMana(sourceAbility:GetManaCost(-1))
+			end
 
 			-- play effects
 			self:PlayEffects(false)
