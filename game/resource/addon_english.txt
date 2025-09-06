@@ -693,9 +693,11 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"ACTIVE DURATION:"
 
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"				"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Damaging and slowing the movement speed of nearby enemies. Closer enemies suffer stronger effects."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Taking damage over time and movement speed reduced by %dMODIFER_PROPERTY_MOVESPEED_PERCENTAGE%%%. The effects are stronger the closer you are to the aura's source."
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"Bonechill Aura (Passive)"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration also reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_aura"			"Bonechill Aura (Active)"
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_aura_Description"	"Damaging and slowing nearby enemies. Closer enemies are subjected to stronger effects."
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
@@ -1011,8 +1013,12 @@
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increases Overgrowth Range."
 
 		// 邪影芳灵
-		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%Damage Reduction:"
-		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"DAMAGE:"
+		"DOTA_Tooltip_ability_dark_willow_cursed_crown_shard_description" 				"Cursed Crown creates %shard_bramble_amount% brambles in a %shard_spawn_radius% radius around the target after the counter ends. Cursed Crown cooldown reduced by 2 seconds."
+		"DOTA_Tooltip_ability_dark_willow_bedlam_Description"							"Dark Willow sends her pet wisp to roam around herself for the duration, rapidly attacking nearby enemies and providing her with incoming damage reduction. Bedlam cannot be used while Terrorize is active.
+		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%INCOMING DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_dark_willow_terrorize_Description"						"Dark Willow releases her pet wisp to terrorize her enemies. After a short delay, all enemies in the target area take impact damage, become fearful, and run toward their home fountain. Terrorize cannot be used while Bedlam is active."
+		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"           			"+{s:bonus_impact_damage} Terrorize Impact Damage"
 
 		///////////////////////////////////////////////////
 		//
@@ -1469,7 +1475,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%MOVEMENT SPEED SLOW:"
 
 		"DOTA_Tooltip_modifier_yukari_tentacles"	"Tentacle Portal"
-		"DOTA_Tooltip_modifier_yukari_tentacles_Description"	"Taking damage over time, vision reduced to 600, and movement speed reduced by %dMODIFIER_MOVESPEED_BONUS_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_yukari_tentacles_Description"	"Taking damage over time, vision reduced to 600, and movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
 		"DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses her hidden potential to unleash true power."
@@ -1477,9 +1483,9 @@
 		"DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"MOVEMENT SPEED:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"DURATION:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"Moon Phase"
-		"DOTA_Tooltip_modifier_yukari_morph"					"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_MOVESPEED_BONUS_CONSTANT% movement speed."
+		"DOTA_Tooltip_modifier_yukari_morph_Description"					"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_MOVESPEED_BONUS_CONSTANT% movement speed."
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"Moon Phase"
-		"DOTA_Tooltip_modifier_yukari_morph_real"					"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_MOVESPEED_BONUS_CONSTANT% movement speed."
+		"DOTA_Tooltip_modifier_yukari_morph_real_Description"					"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_MOVESPEED_BONUS_CONSTANT% movement speed."
 
 		// "DOTA_Tooltip_ability_yukari_train" "Yukari's special: Train"
 		// "DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction. Deals enormous damage to all enemies in the train cars collide."
@@ -1651,7 +1657,6 @@
 		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures."
-		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"The first hero to pick up a dropped Excalibur and have it in their main inventory becomes the new owner of that Excalibur, and may upgrade it."
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur serves the chosen king."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
@@ -2121,9 +2126,9 @@
 
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"										"Saint White Lotus"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"							"<h1>Active: <font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, block and reflect most targeted spells back to their caster once, and upon blocking the spell, the target will heal for %heal_percent%% of their max HP. The shield lasts for %duration% seconds.\n<h1>Passive: Lotus Shield</h1>Block and reflect most targeted spells back to their caster, and will heal %heal_percent%% of self max HP. <br><br>Immune to slow effects."
+		"DOTA_Tooltip_ability_item_saint_orb_Description"							"<h1>Active: <font color='#FFFF00'>White Lotus</font></h1>Bestows a shield to the target allied unit. The shield will block and reflect the next targeted spell back to its caster, and upon blocking the spell, the shield then restores %heal_percent%%% of the targets max HP. The shield lasts for up to %duration% seconds or until it is expended.\n<h1>Passive: Lotus Shield</h1>Blocks and reflects most targeted spells back to their caster, and heals the owner for %heal_percent%%% of their max HP upon blocking and reflecting a spell. <br><br>Passively grants complete immunity to movement speed slows."
 		"DOTA_Tooltip_Ability_item_saint_orb_Lore"									"A glowing yellow orb that shines brightly in the darkest of days."
-		"DOTA_Tooltip_Ability_item_saint_orb_Note0"									"It's like a Linken's Sphere and Lotus Orb, but with a more powerful shield."
+		"DOTA_Tooltip_Ability_item_saint_orb_Note0"									"In layman's terms, it's a poor man's Mirror Shield, which also heals whenever it goes off."
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats_tooltip"				"+$all"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana_tooltip"					"+$mana"
 		"DOTA_Tooltip_Ability_item_saint_orb_hp_regen_tooltip"						"+$hp_regen"
@@ -2131,7 +2136,7 @@
 		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor_tooltip"					"+$armor"
 
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"White Lotus"
-		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"Block and reflect most targeted spells back to their caster, and will heal 5% of your max health."
+		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"The next targeted spell will be blocked and reflected back to its caster, and will heal you for 8%% of your max health."
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
@@ -2145,6 +2150,8 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_attack_speed"			                "+$attack"
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and scientific investment."
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
+
+		"DOTA_Tooltip_ability_item_hand_of_midas_Note2"									"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 
 		// item_bloodstone_v2 血精神石
 		"DOTA_Tooltip_ability_item_bloodstone"										"Godly Bloodstone"
@@ -2175,12 +2182,12 @@
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>Cursed</font> Rapier"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base attack damage. Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Great power always comes with a price. <font color='#e03e2e'>This item has a %ruin_chance_tooltip%%% to be completely destroyed on death.</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base attack damage. Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Great power always comes with a price. <font color='#e03e2e'>This item has a %ruin_chance_tooltip%%% to be completely destroyed on death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"Not covered by warranty."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"You've got to ask yourself one question: do you feel lucky?"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Note1"					"Cursed Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Note0"					"Cursed Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Note2"				"If a Cursed Rapier is built in your stash and you cannot collect it, right-click and select 'Drop from Stash'."
 
 		// item_rapier_ultra_bot 解放的诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot"                        "<font color='#CC7A00'>Liberated</font> Rapier"
@@ -2190,6 +2197,7 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note0"					"A cursed rapier liberated by fusing the power of light and darkness."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note1"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_Note2"				"If a Liberated Rapier is built in your stash and you cannot collect it, right-click and select 'Drop from Stash'."
 
 		// item_rapier_ultra_bot_1 解放的诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1"                        "<font color='#CC7A00'>Liberated</font> Rapier"
@@ -2197,8 +2205,9 @@
 		"DOTA_Tooltip_ability_item_rapier_ultra_bot_1_Lore"					"You're silly! My cursed rapier is now permanent!"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_bonus_spell_amp"           "%+$spell_amp"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1Note0"					"A cursed rapier liberated by fusing the power of light and darkness."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note0"					"A cursed rapier liberated by fusing the power of light and darkness."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note1"					"Liberated Rapiers can never be destroyed, sold, or moved into the backpack."
+		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note2"				"If a Liberated Rapier is built in your stash and you cannot collect it, right-click and select 'Drop from Stash'."
 
 		// item_bfury_ultra 救世狂战
 		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#F24332'>Worldcleaver</font>"
