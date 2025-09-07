@@ -2126,18 +2126,18 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
 		// 圣女白莲
-		"DOTA_Tooltip_Ability_item_saint_orb"										"Saint White Lotus"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"							"<h1>Active: <font color='#FFFF00'>White Lotus</font></h1>Bestows a shield to the target allied unit. The shield will block and reflect the next targeted spell back to its caster, and upon blocking the spell, the shield then restores %heal_percent%%% of the targets max HP. The shield lasts for up to %duration% seconds or until it is expended.\n<h1>Passive: Lotus Shield</h1>Blocks and reflects most targeted spells back to their caster, and heals the owner for %heal_percent%%% of their max HP upon blocking and reflecting a spell. <br><br>Passively grants complete immunity to movement speed slows."
-		"DOTA_Tooltip_Ability_item_saint_orb_Lore"									"A glowing yellow orb that shines brightly in the darkest of days."
-		"DOTA_Tooltip_Ability_item_saint_orb_Note0"									"In layman's terms, it's a poor man's Mirror Shield, which also heals whenever it goes off."
+		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1>Active: <font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target will heal for %heal_percent%%% of their max HP. The shield lasts for %duration% seconds.<br><br>Dispel Type: Basic Dispel"
+		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"A glowing yellow orb that shines brightly in the darkest of days."
+		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"Grants the effects of Linken's Sphere and Lotus Orb to the target, with the Linken's Spellblock occuring on the first reflected spell, negating the effects of it in addition to reflecting it."
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats_tooltip"				"+$all"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana_tooltip"					"+$mana"
 		"DOTA_Tooltip_Ability_item_saint_orb_hp_regen_tooltip"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_mana_regen_tooltip"					"+$mana_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor_tooltip"					"+$armor"
 
-		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"White Lotus"
-		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"The next targeted spell will be blocked and reflected back to its caster, and will heal you for 8%% of your max health."
+		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"Saint White Lotus"
+		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"The first targeted spell against you will be blocked as well as reflected, and will heal you based on your max health."
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
