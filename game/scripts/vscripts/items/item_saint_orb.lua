@@ -94,7 +94,7 @@ function modifier_item_saint_orb_buff:GetAbsorbSpell(keys)
     ParticleManager:SetParticleControl(fx, 1, self:GetParent():GetAbsOrigin())
     ParticleManager:SetParticleControl(fx, 2, Vector(10, 10, 10))
     ParticleManager:ReleaseParticleIndex(fx)
-    local hp = self:GetParent():GetMaxHealth() * self:GetAbility():GetSpecialValueFor("heal") * 0.01
+    local hp = self:GetParent():GetMaxHealth() * self:GetAbility():GetSpecialValueFor("heal_percent") * 0.01
     self:GetParent():Heal(hp, self:GetParent())
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, self:GetParent(), hp, nil)
     self:Destroy()
