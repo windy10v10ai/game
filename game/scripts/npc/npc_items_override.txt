@@ -493,6 +493,10 @@
 	}
 
 	// 共享CD
+	"item_blade_mail"
+	{
+		"AbilitySharedCooldown"			"blade_mail"
+	}
 	"item_black_king_bar"
 	{
 		"AbilitySharedCooldown"			"bkb"

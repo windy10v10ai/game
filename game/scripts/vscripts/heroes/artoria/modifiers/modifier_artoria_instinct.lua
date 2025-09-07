@@ -66,7 +66,7 @@ function modifier_artoria_instinct:GetReflectSpell(params)
 
 			-- remove previous ability
 			if self.reflected_spell ~= nil then
-				self:GetParent():RemoveAbility(self.reflected_spell:GetAbilityName())
+				self:GetParent():RemoveAbilityByHandle(self.reflected_spell)
 			end
 
 			-- copy the ability
@@ -81,7 +81,10 @@ function modifier_artoria_instinct:GetReflectSpell(params)
 
 			-- cast the ability
 			self:GetParent():SetCursorCastTarget(sourceAbility:GetCaster())
-			selfAbility:CastAbility()
+			local castResult = selfAbility:CastAbility()
+			if castResult then
+				self:GetParent():GiveMana(sourceAbility:GetManaCost(-1))
+			end
 
 			-- play effects
 			self:PlayEffects(false)
