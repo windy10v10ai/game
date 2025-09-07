@@ -31,17 +31,6 @@ function modifier_item_saint_orb_passive:GetAttributes()
         MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_saint_orb_passive:DeclareFunctions()
-    return
-    {
-        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MANA_BONUS,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-    }
-end
-
 -- 无法被减速
 -- function modifier_item_saint_orb_passive:CheckState()
 -- 		return {
@@ -51,11 +40,6 @@ end
 function modifier_item_saint_orb_passive:OnCreated()
     self.stats_modifier_name = "modifier_item_saint_orb_stats"
     if self:GetAbility() == nil then return end
-    local ab = self:GetAbility()
-    self.mp = ab:GetSpecialValueFor("bonus_mana")
-    self.hp_re = ab:GetSpecialValueFor("hp_re")
-    self.mp_re = ab:GetSpecialValueFor("mana_re")
-    self.heal_bonus = ab:GetSpecialValueFor("heal_bonus")
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
@@ -65,26 +49,6 @@ function modifier_item_saint_orb_passive:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
-end
-
-function modifier_item_saint_orb_passive:GetModifierConstantManaRegen()
-    return self.mp_re
-end
-
-function modifier_item_saint_orb_passive:GetModifierManaBonus()
-    return self.mp
-end
-
-function modifier_item_saint_orb_passive:GetModifierConstantHealthRegen()
-    return self.hp_re
-end
-
-function modifier_item_saint_orb_passive:GetModifierHPRegenAmplify_Percentage()
-    return self.heal_bonus
-end
-
-function modifier_item_saint_orb_passive:GetModifierLifestealRegenAmplify_Percentage()
-    return self.heal_bonus
 end
 
 modifier_item_saint_orb_buff = class({})
