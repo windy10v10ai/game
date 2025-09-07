@@ -588,12 +588,13 @@
 
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them. Knockback distance is relative to how much you have moved prior to the attack."
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"							"Not affected by spell amplification, spell lifesteal."
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"STUN DURATION:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them. Base damage, knockback distance, and stun duration are relative to how much you have moved prior to the attack."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"							"Not affected by spell amplification nor spell lifesteal."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Lore"								"As a young soldier, long before he became a leader of his people, Ish'Kafel was known amongst his fellow recruits as quite the pugilist."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"MAX STUN DURATION:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"MAX KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"ILLUSION DURATION:"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_damage"						"MAX BASE DAMAGE:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"BONUS DAMAGE PER ATTACK DAMAGE:"
 		//妙手空空
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
@@ -602,6 +603,7 @@
 
 		//神龙之血
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Lore"							"Slyrak's blood still courses through Davion's veins, giving him twice the vitality of an ordinary knight."
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Passively grants increased health regeneration and armor."
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"				"HP REGEN:"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"ARMOR:"
@@ -620,9 +622,10 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%DAMAGE PER ARROW:"
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"Ice Explosion"
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Each attack has a 35% chance to summon an icy blast to strike a random area around you, dealing damage and slowing enemies for 1 second. Passively grants attack speed"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Each attack has a 35% chance to summon an icy blast to strike a random area around you, dealing damage and slowing enemies for 1 second. Passively grants attack speed."
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"BONUS DAMAGE PER ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_attack_speed"		"BONUS ATTACK SPEED:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"ICE BLAST SPAWN RADIUS:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"ICE BLAST EXPLOSION RADIUS:"
 		//诅咒之雨
@@ -658,10 +661,11 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Gain Strength based on armor."
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%ARMOR TO STRENGTH:"
 		//人工神符
-		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Manufacture Rune"
-		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you."
+		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Rune Forge"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you. Runes created this way will despawn in 20 seconds if not activated."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"Resulting Rune be any Power Rune, as well as a Bounty Rune, Water Rune, or Rune of Wisdom."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"Runes of Wisdom function as if a Shrine of Wisdom was captured, but if activated before 7:00, no XP is given."
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note2"	"All runes have an equal chance of spawning from this ability, and the same rune can appear twice or more in a row."
 		//魔法扰动
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Deals damage to enemy units in a fan-shaped area of effect while reducing their skill damage, increasing their mana costs and cooldowns, and slowing them."
@@ -693,7 +697,7 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"ACTIVE DURATION:"
 
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"				"Bonechill Aura"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Taking damage over time and movement speed reduced by %dMODIFER_PROPERTY_MOVESPEED_PERCENTAGE%%%. The effects are stronger the closer you are to the aura's source."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Taking damage over time and movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_PERCENTAGE%%%. The effects are stronger the closer you are to the aura's source."
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"Bonechill Aura (Passive)"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration also reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_aura"			"Bonechill Aura (Active)"
@@ -1013,10 +1017,7 @@
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increases Overgrowth Range."
 
 		// 邪影芳灵
-		"DOTA_Tooltip_ability_dark_willow_cursed_crown_shard_description" 				"Cursed Crown creates %shard_bramble_amount% brambles in a %shard_spawn_radius% radius around the target after the counter ends. Cursed Crown cooldown reduced by 2 seconds."
-		"DOTA_Tooltip_ability_dark_willow_bedlam_Description"							"Dark Willow sends her pet wisp to roam around herself for the duration, rapidly attacking nearby enemies and providing her with incoming damage reduction. Bedlam cannot be used while Terrorize is active.
 		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%INCOMING DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_dark_willow_terrorize_Description"						"Dark Willow releases her pet wisp to terrorize her enemies. After a short delay, all enemies in the target area take impact damage, become fearful, and run toward their home fountain. Terrorize cannot be used while Bedlam is active."
 		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"IMPACT DAMAGE:"
 		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"           			"+{s:bonus_impact_damage} Terrorize Impact Damage"
 
