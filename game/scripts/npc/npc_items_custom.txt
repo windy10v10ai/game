@@ -4616,7 +4616,7 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"saint_orb"
-		"ScriptFile"					"items/ts_items/item_saint_orb"
+		"ScriptFile"					"items/item_saint_orb"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
