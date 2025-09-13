@@ -605,6 +605,7 @@
 
 		//神龙之血
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"						"神龙之血"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Lore"					"斯莱克萨的血仍流淌在达维安的血管中，使他拥有普通骑士两倍的生命恢复和护甲。"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"			"神龙的生命之血提升了龙骑士的生命恢复和护甲。每升一级，两个数值都将提升%level_mult%，在古龙形态下还有倍数加成。"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"		"生命恢复："
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"				"护甲："
@@ -623,10 +624,11 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%每支箭矢伤害："
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"冰爆"
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"增加%attack_speed%攻速，攻击有35%概率召唤一个冰爆打击随机区域，造成伤害和1秒减速"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"增加额外攻击速度，攻击有35%概率召唤一个冰爆打击随机区域，造成伤害和1秒减速"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"伤害："
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"攻击力伤害加成倍率："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"随机范围："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_attack_speed"		"额外攻击速度："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"冰爆发射范围："
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"冰爆伤害范围："
 		//诅咒之雨
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"诅咒之雨"
@@ -660,10 +662,12 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2"			"一人之军"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"		"获得护甲一定百分比的力量"
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%护甲力量加成："
-
+		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"人工神符"
-		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符"
-
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符，神符创建后20秒后会消失"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"创建的神符可以是力量神符，赏金神符，水神符，或者智慧神符。"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"智慧神符的效果类似于智慧神殿，但如果激活时间早于7:00，则不会获得经验。"
+		//魔法扰动
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"魔法扰动"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"对扇形区域的敌方单位造成伤害，并施加debuff，降低其技能伤害，增加其魔法消耗,增加其技能cd,并造成%slow_duration%秒减速"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"	"基础伤害："
@@ -1000,6 +1004,7 @@
 		// 邪影芳灵
 		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%伤害减免："
 		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"						"+{s:bonus_impact_damage} 恐吓击中伤害"
 
 		///////////////////////////////////////////////////
 		//
@@ -1282,13 +1287,18 @@
 		"DOTA_Tooltip_ability_yukari_tentacles_duration"	"间隙持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%移动速度降低:"
 
+		"DOTA_Tooltip_modifier_yukari_tentacles"	"静观其变之眼"
+		"DOTA_Tooltip_modifier_yukari_tentacles_Description"	"持续受到伤害，视野范围降低为600，移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
 		"DOTA_Tooltip_ability_yukari_morph"							"月相"
 		"DOTA_Tooltip_ability_yukari_morph_Description"				"使用隐藏潜能释放真正的力量"
 		"DOTA_Tooltip_ability_yukari_morph_amp"					"%技能增强:"
 		"DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"移速增加:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"持续时间:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"月相"
+		"DOTA_Tooltip_modifier_yukari_morph_Description"			"获得%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能增强和%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%移速增加"
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"月相"
+		"DOTA_Tooltip_modifier_yukari_morph_real_Description"		"获得%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能增强和%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%移速增加"
 
 		// "DOTA_Tooltip_ability_yukari_train"	"废线「废弃车站下车之旅」"
 		// "DOTA_Tooltip_ability_yukari_train_Description"	"召唤从入口驶向选定方向的列车,对路线上的敌人造成大量伤害."
@@ -1642,7 +1652,6 @@
 		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"EX咖喱棒"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。</font> \n<h1>被动：可塑性</h1>能够使用暗影组件进行诅咒强化"
-		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"第一个捡起掉落的EX咖喱棒并将其放入主物品栏的英雄将成为EX咖喱棒的新主人。"
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"咖喱棒效忠于被选中的王者。"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
