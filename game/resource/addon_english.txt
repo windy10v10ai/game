@@ -588,8 +588,8 @@
 
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them. Knockback distance is relative to how much you have moved prior to the attack."
-		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"							"Not affected by spell amplification, spell lifesteal."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Description"						"Passively causes your next attack to damage and stun the target, while knocking an illusion out of them."
+		"DOTA_Tooltip_ability_dark_seer_normal_punch2_Note0"							"Not affected by spell amplification nor spell lifesteal."
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_max_stun"							"STUN DURATION:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_knockback_distance"				"MAX KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_illusion_duration"				"ILLUSION DURATION:"
@@ -602,6 +602,7 @@
 
 		//神龙之血
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Lore"							"Slyrak's blood still courses through Davion's veins, giving him twice the vitality of an ordinary knight."
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Passively grants increased health regeneration and armor."
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"				"HP REGEN:"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"ARMOR:"
@@ -620,9 +621,10 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%DAMAGE PER ARROW:"
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"Ice Explosion"
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Each attack has a 35% chance to summon an icy blast to strike a random area around you, dealing damage and slowing enemies for 1 second. Passively grants attack speed"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Each attack has a 35% chance to summon an icy blast to strike a random area around you, dealing damage and slowing enemies for 1 second. Passively grants attack speed."
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"BONUS DAMAGE PER ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_attack_speed"		"BONUS ATTACK SPEED:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"ICE BLAST SPAWN RADIUS:"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"ICE BLAST EXPLOSION RADIUS:"
 		//诅咒之雨
@@ -658,8 +660,8 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"			"Gain Strength based on armor."
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%ARMOR TO STRENGTH:"
 		//人工神符
-		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Manufacture Rune"
-		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you."
+		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Rune Forge"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you. Runes created this way will despawn in 20 seconds if not activated."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"Resulting Rune be any Power Rune, as well as a Bounty Rune, Water Rune, or Rune of Wisdom."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"Runes of Wisdom function as if a Shrine of Wisdom was captured, but if activated before 7:00, no XP is given."
 		//魔法扰动
@@ -907,6 +909,22 @@
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
 
+		// Marci
+		"DOTA_Tooltip_ability_marci_guardian"								"Sidekick"
+		"DOTA_Tooltip_ability_marci_guardian_Description"					"Marci's loyalty helps ensure survival, imbuing a chosen allied hero and herself with shared lifesteal and attack damage. If Marci and her ally are further apart from each other than %max_partner_distance%, the ally receives no bonuses and Marci only gets %max_partner_penalty%%% until they get close again. Marci's lifesteal also heals her ally and the ally lifesteal also heals Marci."
+		"DOTA_Tooltip_ability_marci_guardian_Note0"					"Marci cannot cast Sidekick on herself."
+		"DOTA_Tooltip_ability_marci_guardian_Note1"					"Lifesteal effectiveness gets a %creep_lifesteal_reduction_pct%%% penalty against creeps."
+		"DOTA_Tooltip_ability_marci_guardian_Lore"					"Marci learned at a young age that the best asset in a scrap is a steady companion."
+		"DOTA_Tooltip_ability_marci_guardian_lifesteal_pct"			"%LIFESTEAL:"
+		"DOTA_Tooltip_ability_marci_guardian_bonus_damage"			"%BONUS BASE ATTACK DAMAGE:"
+
+		"DOTA_Tooltip_modifier_marci_guardian_buff"					"Sidekick"
+		"DOTA_Tooltip_modifier_marci_guardian_buff_Description"		"This unit has lifesteal and bonus damage."
+
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"	"+{s:bonus_bonus_damage}% Bodyguard/Sidekick Bonus Damage/Lifesteal"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_throw_distance_behind} Rebound Cast/Jump Range/Landing Radius"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} Dispose Damage/Throw Distance"
+
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Movement Speed"
 
@@ -1011,8 +1029,9 @@
 		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"Increases Overgrowth Range."
 
 		// 邪影芳灵
-		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%Damage Reduction:"
-		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"DAMAGE:"
+		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%INCOMING DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"IMPACT DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"						"+{s:bonus_impact_damage} Terrorize Impact Damage"
 
 		///////////////////////////////////////////////////
 		//
@@ -1268,7 +1287,7 @@
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
 		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, <font color='#05CAFF'>dealing magical damage</font> and <font color='#FF3399'>stunning</font> all enemies in its path.<br/>Saber gains <font color='#ffd700'>Debuff Immunity</font> for a short time after casting."
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
-		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_damage"	"DAMAGE:"
 		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"DEBUFF IMMUNITY DURATION:"
@@ -1469,7 +1488,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%MOVEMENT SPEED SLOW:"
 
 		"DOTA_Tooltip_modifier_yukari_tentacles"	"Tentacle Portal"
-		"DOTA_Tooltip_modifier_yukari_tentacles_Description"	"Taking damage over time, vision reduced to 600, and movement speed reduced by %dMODIFIER_MOVESPEED_BONUS_PERCENTAGE%%%."
+		"DOTA_Tooltip_modifier_yukari_tentacles_Description"	"Taking damage over time, vision reduced to 600, and movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_ability_yukari_morph"							"Moon Phase"
 		"DOTA_Tooltip_ability_yukari_morph_Description" 			"Uses her hidden potential to unleash true power."
@@ -1477,9 +1496,9 @@
 		"DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"MOVEMENT SPEED:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"DURATION:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"Moon Phase"
-		"DOTA_Tooltip_modifier_yukari_morph"					"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_MOVESPEED_BONUS_CONSTANT% movement speed."
+		"DOTA_Tooltip_modifier_yukari_morph_Description"			"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed."
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"Moon Phase"
-		"DOTA_Tooltip_modifier_yukari_morph_real"					"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_MOVESPEED_BONUS_CONSTANT% movement speed."
+		"DOTA_Tooltip_modifier_yukari_morph_real_Description"		"Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed."
 
 		// "DOTA_Tooltip_ability_yukari_train" "Yukari's special: Train"
 		// "DOTA_Tooltip_ability_yukari_train_Description" "Summons the train from portal that rides to selected direction. Deals enormous damage to all enemies in the train cars collide."
@@ -1491,7 +1510,7 @@
 		"DOTA_Tooltip_ability_yukari_twin_trains_stun_time"				"COLLISION STUN DURATION:"
 		"DOTA_Tooltip_ability_yukari_twin_trains_explosion_damage"		"EXPLOSION DAMAGE:"
 		"DOTA_Tooltip_ability_yukari_twin_trains_explosion_radius"		"EXPLOSION RADIUS:"
-		"DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that one train? TWO trains!"
+		"DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that a train? TWO trains!"
 		"DOTA_Tooltip_ability_ability_yukari_01"	"Aerial Bait Hyperactive High Speed Flying Object"
 		"DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires an array of damaging projectiles in a spread towards the designated direction. Enemies hit take damage, as well as extra damage based on Yukari's intelligence, and are stunned. The same enemy can be hit multiple times with one cast, however subsequent hits to the same enemy will deal significantly reduced damage."
 		"DOTA_Tooltip_ability_ability_yukari_01_damage"	"DAMAGE:"
@@ -1500,7 +1519,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"REPEAT HIT FACTOR:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"  "PROJECTILE SPEED:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is channeled at any targeted location across the map. Yukari will be teleported to the target location after channeling. The longer the channeling time, the greater the damage upon arrival. The maximum channel time is 4 seconds, and the radius of the enchantment is 750. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for %stun_duration% seconds."
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"CHANNELED - A large teleportation enchantment is created at the targeted location anywhere on the map. The maximum channel time is %AbilityChannelTime% seconds, and the maximum radius of the enchantment is %max)radius%. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location afterwards. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for up to %stun_duration% seconds, based on how long the spell was channeled for."
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"MAX RADIUS:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"DAMAGE PER INTERVAL:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"INTERVAL:"
@@ -1651,7 +1670,6 @@
 		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"Excalibur"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> Base Attack Damage. This item cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures."
-		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"The first hero to pick up a dropped Excalibur and have it in their main inventory becomes the new owner of that Excalibur, and may upgrade it."
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"Excalibur serves the chosen king."
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
@@ -1841,9 +1859,8 @@
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
 		// item_manta_1 分身2
-		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#DFCAFB'>Upgraded</font> Manta Style"
-		"DOTA_Tooltip_Ability_item_recipe_manta_1"								"Upgraded Manta Style Recipe"
-		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %tooltip_illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>Upgraded Manta Style</font>"
+		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_manta_1_Lore"									"Manta Style Upgrade"
 		"DOTA_Tooltip_ability_item_manta_1_Note0"									"Has a %invuln_duration% second cast time during which you are invulnerable."
 		"DOTA_Tooltip_ability_item_manta_1_Note1"									"Many effects are removed upon using Manta."
@@ -1853,6 +1870,19 @@
 		"DOTA_Tooltip_ability_item_manta_1_bonus_intellect"						"+$int"
 		"DOTA_Tooltip_ability_item_manta_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_manta_1_bonus_movement_speed"					"%+$move_speed"
+
+		// 相位斧
+		"DOTA_Tooltip_Ability_item_manta_2"										"<font color='#e03e2e'>Phase Axe</font>"
+		"DOTA_Tooltip_ability_item_manta_2_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_manta_2_Lore"								"Lost the ability to create illusions but gained a 1-second invincibility in its place."
+		"DOTA_Tooltip_ability_item_manta_2_Note0"								"Has a %invuln_duration% second cast time during which it is invulnerable."
+		"DOTA_Tooltip_ability_item_manta_2_Note1"								"Can be used to remove various negative effects."
+		"DOTA_Tooltip_ability_item_manta_2_Note2"								"Yasha-based movement speed bonuses from multiple items do not stack."
+		"DOTA_Tooltip_ability_item_manta_2_bonus_agility"						"+$agi"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_intellect"						"+$int"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_movement_speed"				"%+$move_speed"
 
 		// item_silver_edge_2 无敌之刃
 		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Edge of Lothar"
@@ -2120,18 +2150,18 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
 		// 圣女白莲
-		"DOTA_Tooltip_Ability_item_saint_orb"										"Saint White Lotus"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"							"<h1>Active: <font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, block and reflect most targeted spells back to their caster once, and upon blocking the spell, the target will heal for %heal_percent%% of their max HP. The shield lasts for %duration% seconds.\n<h1>Passive: Lotus Shield</h1>Block and reflect most targeted spells back to their caster, and will heal %heal_percent%% of self max HP. <br><br>Immune to slow effects."
-		"DOTA_Tooltip_Ability_item_saint_orb_Lore"									"A glowing yellow orb that shines brightly in the darkest of days."
-		"DOTA_Tooltip_Ability_item_saint_orb_Note0"									"It's like a Linken's Sphere and Lotus Orb, but with a more powerful shield."
+		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1>Active: <font color='#FFFF00'>White Lotus</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target will heal for %heal_percent%%% of their max HP. The shield lasts for %duration% seconds.<br><br>Immune to slow effects."
+		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"A glowing yellow orb that shines brightly in the darkest of days."
+		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"Grants the effects of Linken's Sphere and Lotus Orb to the target, with the Linken's Spellblock occuring on the first reflected spell, negating the effects of it in addition to reflecting it."
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats_tooltip"				"+$all"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana_tooltip"					"+$mana"
 		"DOTA_Tooltip_Ability_item_saint_orb_hp_regen_tooltip"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_mana_regen_tooltip"					"+$mana_regen"
 		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor_tooltip"					"+$armor"
 
-		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"White Lotus"
-		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"Block and reflect most targeted spells back to their caster, and will heal 5% of your max health."
+		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"Saint White Lotus"
+		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"The first targeted spell against you will be blocked as well as reflected, and will heal you based on your max health."
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"Diana Candy"
@@ -2175,7 +2205,7 @@
 
 		// item_rapier_ultra 诅咒圣剑
 		"DOTA_Tooltip_ability_item_rapier_ultra"                        "<font color='#e03e2e'>Cursed</font> Rapier"
-		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Protected by Mars. Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base attack damage. Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Great power always comes with a price. <font color='#e03e2e'>This item has a %ruin_chance_tooltip%%% to be completely destroyed on death.</font>"
+		"DOTA_Tooltip_Ability_item_rapier_ultra_Description"            "<h1>Passive: <font color='#a74abd'>Eternal</font></h1>Grants <font color='#f15b47'>%bonus_damage_percent%%%</font> bonus base attack damage. Cannot be sold or destroyed.\n<h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures.\n<h1>Passive: <font color='#e03e2e'>Price of power</font></h1>Great power always comes with a price. <font color='#e03e2e'>This item has a %ruin_chance_tooltip%%% to be completely destroyed on death.</font>"
 		"DOTA_Tooltip_ability_item_rapier_ultra_Lore"					"Not covered by warranty."
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bonus_spell_amp"           "%+$spell_amp"
@@ -2285,22 +2315,9 @@
 		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff"				"Disarmed"
 		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff_Description"	"Disarmed by Heaven's Halberd, unable to attack."
 
-		//神器相位斧
-		"DOTA_Tooltip_Ability_item_manta_2"				"<font color='#e03e2e'>Artifact: Phase Axe</font>"
-		"DOTA_Tooltip_ability_item_manta_2_Description"	"<h1>Active: Phase Shift</h1> Become invulnerable and untargetable for %invuln_duration%. You cannnot act during this time nor cancel the effect early.<br><br>Dispel type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
-		"DOTA_Tooltip_ability_item_manta_2_Lore"			"Lost the ability to create illusions but gained a 1-second invincibility in its place."
-		"DOTA_Tooltip_ability_item_manta_2_Note0"			"Has a %invuln_duration% second cast time during which it is invulnerable."
-		"DOTA_Tooltip_ability_item_manta_2_Note1"			"Can be used to remove various negative effects."
-		"DOTA_Tooltip_ability_item_manta_2_Note2"			"Yasha-based movement speed bonuses from multiple items do not stack."
-		"DOTA_Tooltip_ability_item_manta_2_bonus_agility"	"+$agi"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_strength"	"+$str"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_intellect"	"+$int"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_attack_speed"	"+$attack"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_movement_speed"	"%+$move_speed"
-
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Artifact: Asteroid Hammer</font>"
-		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. <font color='#e03e77'>Stuns enemies regardless of debuff immunity.</font> Continues to deal damage over time to enemy units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <BR><BR>Building Impact Damage: %impact_damage_buildings% <BR>Building Damage Over Time: %burn_dps_buildings% <BR><BR>Non-Building Impact Damage: %impact_damage_units% <BR>Non-Building Damage Over Time: %burn_dps_units% <BR><BR>Channel Duration: %max_duration% seconds.<BR>Landing Time: %land_time% seconds."
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. <font color='#e03e77'>Stuns enemies regardless of debuff immunity.</font> Continues to deal damage over time to enemy units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <br><br>Building Impact Damage: %impact_damage_buildings% <br>Building Damage Over Time: %burn_dps_buildings% <br><br>Non-Building Impact Damage: %impact_damage_units% <br>Non-Building Damage Over Time: %burn_dps_units% <br><br>Channel Duration: %max_duration% seconds.<br>Landing Time: %land_time% seconds."
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_lore"                   "You want the moon so bad? HERE, TAKE IT!"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_agility"						"+$agi"

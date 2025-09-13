@@ -605,6 +605,7 @@
 
 		//神龙之血
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"						"神龙之血"
+		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Lore"					"斯莱克萨的血仍流淌在达维安的血管中，使他拥有普通骑士两倍的生命恢复和护甲。"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"			"神龙的生命之血提升了龙骑士的生命恢复和护甲。每升一级，两个数值都将提升%level_mult%，在古龙形态下还有倍数加成。"
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"		"生命恢复："
 		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"				"护甲："
@@ -623,10 +624,11 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%每支箭矢伤害："
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"冰爆"
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"增加%attack_speed%攻速，攻击有35%概率召唤一个冰爆打击随机区域，造成伤害和1秒减速"
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"增加额外攻击速度，攻击有35%概率召唤一个冰爆打击随机区域，造成伤害和1秒减速"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_damage"		"伤害："
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_ad"			"攻击力伤害加成倍率："
-		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"随机范围："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_attack_speed"		"额外攻击速度："
+		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_random_radius"		"冰爆发射范围："
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_explosion_radius"	"冰爆伤害范围："
 		//诅咒之雨
 		"DOTA_Tooltip_ability_dazzle_rain_of_vermin"				"诅咒之雨"
@@ -660,10 +662,12 @@
 		"DOTA_Tooltip_ability_axe_one_man_army2"			"一人之军"
 		"DOTA_Tooltip_ability_axe_one_man_army2_Description"		"获得护甲一定百分比的力量"
 		"DOTA_Tooltip_ability_axe_one_man_army2_armor_pct_as_strength"	"%护甲力量加成："
-
+		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"人工神符"
-		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符"
-
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符，神符创建后20秒后会消失"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"创建的神符可以是力量神符，赏金神符，水神符，或者智慧神符。"
+		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"智慧神符的效果类似于智慧神殿，但如果激活时间早于7:00，则不会获得经验。"
+		//魔法扰动
 		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"魔法扰动"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"对扇形区域的敌方单位造成伤害，并施加debuff，降低其技能伤害，增加其魔法消耗,增加其技能cd,并造成%slow_duration%秒减速"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"	"基础伤害："
@@ -896,6 +900,22 @@
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"额外生命值："
 
+		// Marci
+		"DOTA_Tooltip_ability_marci_guardian"								"健体术"
+		"DOTA_Tooltip_ability_marci_guardian_Description"					"玛西的忠诚保证了她的安全，为选定的友方英雄和她自身注入了共享吸血效果和攻击力加成。如果玛西和她的友军相距超过%max_partner_distance%后友军不会获得加成效果，而玛西只会获得%max_partner_penalty%%%效果，直到他们再次靠近彼此。玛西的吸血效果还会治疗友军，而友军的吸血效果也会治疗玛西。"
+		"DOTA_Tooltip_ability_marci_guardian_Note0"					"玛西无法对自身施放健体术。"
+		"DOTA_Tooltip_ability_marci_guardian_Note1"					"吸血效果对非英雄单位减少%creep_lifesteal_reduction_pct%%%。"
+		"DOTA_Tooltip_ability_marci_guardian_Lore"					"玛西小时候就已经懂得，乱世之中最好的财富是可靠的伙伴。"
+		"DOTA_Tooltip_ability_marci_guardian_lifesteal_pct"			"%吸血："
+		"DOTA_Tooltip_ability_marci_guardian_bonus_damage"			"%额外基础攻击力："
+
+		"DOTA_Tooltip_modifier_marci_guardian_buff"					"健体术"
+		"DOTA_Tooltip_modifier_marci_guardian_buff_Description"		"这个单位拥有吸血效果和攻击力加成。"
+
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"	"+{s:bonus_bonus_damage}% 护卫术/健体术吸血和攻击力"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_max_jump_distance} 回身踢施法/跳跃距离和落地范围"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} 过肩摔伤害/摔扔距离"
+
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% 暗夜猎影移动速度"
 
@@ -1000,6 +1020,7 @@
 		// 邪影芳灵
 		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%伤害减免："
 		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"						"+{s:bonus_impact_damage} 恐吓击中伤害"
 
 		///////////////////////////////////////////////////
 		//
@@ -1282,13 +1303,18 @@
 		"DOTA_Tooltip_ability_yukari_tentacles_duration"	"间隙持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%移动速度降低:"
 
+		"DOTA_Tooltip_modifier_yukari_tentacles"	"静观其变之眼"
+		"DOTA_Tooltip_modifier_yukari_tentacles_Description"	"持续受到伤害，视野范围降低为600，移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
 		"DOTA_Tooltip_ability_yukari_morph"							"月相"
 		"DOTA_Tooltip_ability_yukari_morph_Description"				"使用隐藏潜能释放真正的力量"
 		"DOTA_Tooltip_ability_yukari_morph_amp"					"%技能增强:"
 		"DOTA_Tooltip_ability_yukari_morph_bonus_movespeed"						"移速增加:"
 		"DOTA_Tooltip_ability_yukari_morph_fixed_duration"			"持续时间:"
 		"DOTA_Tooltip_modifier_yukari_morph"						"月相"
+		"DOTA_Tooltip_modifier_yukari_morph_Description"			"获得%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能增强和%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%移速增加"
 		"DOTA_Tooltip_modifier_yukari_morph_real"					"月相"
+		"DOTA_Tooltip_modifier_yukari_morph_real_Description"		"获得%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能增强和%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT%移速增加"
 
 		// "DOTA_Tooltip_ability_yukari_train"	"废线「废弃车站下车之旅」"
 		// "DOTA_Tooltip_ability_yukari_train_Description"	"召唤从入口驶向选定方向的列车,对路线上的敌人造成大量伤害."
@@ -1642,7 +1668,6 @@
 		// item_excalibur 咖喱棒
 		"DOTA_Tooltip_Ability_item_excalibur"				"EX咖喱棒"
 		"DOTA_Tooltip_Ability_item_excalibur_Description"							"<h1>被动：<font color='#a74abd'>永恒之力</font></h1>受到来自战争之神的神秘力量庇护，获得<font color='#f15b47'>%bonus_damage_percent%%%</font>基础攻击力加成，不能出售或销毁。\n<h1>被动：克敌机先</h1>攻击不会因闪避或其他效果而落空。</font> \n<h1>被动：可塑性</h1>能够使用暗影组件进行诅咒强化"
-		"DOTA_Tooltip_Ability_item_excalibur_Note0"									"第一个捡起掉落的EX咖喱棒并将其放入主物品栏的英雄将成为EX咖喱棒的新主人。"
 		"DOTA_Tooltip_Ability_item_excalibur_Lore"									"咖喱棒效忠于被选中的王者。"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_excalibur_bonus_spell_amp"						"%+$spell_amp"
@@ -1832,10 +1857,9 @@
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"魔法虚弱"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
-		// item_manta_1 分身2
-		"DOTA_Tooltip_Ability_item_manta_1"				"幻身斧"
-		"DOTA_Tooltip_Ability_item_recipe_manta_1"					"图纸（幻身斧）"
-		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%tooltip_illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		// item_manta_1 幻身斧
+		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>幻身斧</font>"
+		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_manta_1_Lore"								"分身屁用没有，除了带线打野，生气气。"
 		"DOTA_Tooltip_ability_item_manta_1_Note0"									"有%invuln_duration%秒的施法时间，其间处于无敌状态。"
 		"DOTA_Tooltip_ability_item_manta_1_Note1"									"可以使用幻影斧移除多种负面效果。"
@@ -1845,6 +1869,19 @@
 		"DOTA_Tooltip_ability_item_manta_1_bonus_intellect"						"+$int"
 		"DOTA_Tooltip_ability_item_manta_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_manta_1_bonus_movement_speed"					"%+$move_speed"
+
+		// 相位斧
+		"DOTA_Tooltip_Ability_item_manta_2"										"<font color='#e03e2e'>相位斧</font>"
+		"DOTA_Tooltip_ability_item_manta_2_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_manta_2_Lore"								"失去了分身能力但是获得了长达1秒的隐藏"
+		"DOTA_Tooltip_ability_item_manta_2_Note0"									"有%invuln_duration%秒的施法时间，其间处于无敌状态。"
+		"DOTA_Tooltip_ability_item_manta_2_Note1"									"可以使用幻影斧移除多种负面效果。"
+		"DOTA_Tooltip_ability_item_manta_2_Note2"									"不会与其他夜叉、散夜对剑以及幻影斧提供的移动速度加成叠加。"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_agility"							"+$agi"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_strength"						"+$str"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_intellect"						"+$int"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_manta_2_bonus_movement_speed"					"%+$move_speed"
 
 		// item_silver_edge_2 无敌之刃
 		"DOTA_Tooltip_Ability_item_silver_edge_2"			"无敌之刃"
@@ -2101,10 +2138,10 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
 		// 圣女白莲
-		"DOTA_Tooltip_Ability_item_saint_orb"										"圣女白莲"
-		"DOTA_Tooltip_ability_item_saint_orb_Description"							"<h1>主动：<font color='#FFFF00'>白莲花</font></h1>给予目标一个护盾，抵挡并反弹大多数指向性技能给施法者一次，并且恢复目标%heal_percent%%的血量，护盾持续 %duration% 秒。\n<h1>被动：莲花坚盾</h1>每 %AbilityCooldown% 秒抵挡并反弹大多数指向性技能给施法者，并且恢复自身%heal_percent%%的血量。<br><br>免疫减速效果。"
-		"DOTA_Tooltip_Ability_item_saint_orb_Lore"									"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
-		"DOTA_Tooltip_Ability_item_saint_orb_Note0"									"集成莲花和林肯的优点，并且更强大。"
+		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
+		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>白莲花(主动):</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal_percent%%%的血量，护盾持续%duration%秒。<br><br>免疫减速效果。"
+		"DOTA_Tooltip_Ability_item_saint_orb_Lore"						"你们不要再打啦，要打去练舞室打，你们这样是打不死人的。"
+		"DOTA_Tooltip_Ability_item_saint_orb_Note0"						"简单来说就是主动给目标套个一次林肯+莲花。"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_all_stats_tooltip"				"+$all"
 		"DOTA_Tooltip_Ability_item_saint_orb_bonus_mana_tooltip"					"+$mana"
 		"DOTA_Tooltip_Ability_item_saint_orb_hp_regen_tooltip"						"+$hp_regen"
@@ -2112,7 +2149,8 @@
 		"DOTA_Tooltip_ability_item_saint_orb_bonus_armor_tooltip"					"+$armor"
 
 		"DOTA_Tooltip_modifier_item_saint_orb_buff"									"白莲花"
-		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"抵挡并反弹大多数指向性技能给施法者，并恢复你 5% 的最大生命值。"
+		"DOTA_Tooltip_modifier_item_saint_orb_buff_Description"						"抵挡一次恶心的指向性法术"
+
 
 		// 嘉心糖
 		"DOTA_Tooltip_Ability_item_candy_candy"							"嘉心糖"
@@ -2263,19 +2301,6 @@
 		"DOTA_Tooltip_modifier_heavens_halberd_2_buff_Description"			"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
 		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff"						"缴械"
 		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff_Description"			"被天堂之戟缴械，无法攻击。"
-
-		//神器相位斧
-		"DOTA_Tooltip_Ability_item_manta_2"				"<font color='#e03e2e'>神器·相位斧</font>"
-		"DOTA_Tooltip_ability_item_manta_2_Description"							"<h1>主动：相位转移</h1>持续1秒的相位转移，不可取消<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
-		"DOTA_Tooltip_ability_item_manta_2_Lore"								"失去了分身能力但是获得了长达1秒的隐藏"
-		"DOTA_Tooltip_ability_item_manta_2_Note0"									"有%invuln_duration%秒的施法时间，其间处于无敌状态。"
-		"DOTA_Tooltip_ability_item_manta_2_Note1"									"可以使用幻影斧移除多种负面效果。"
-		"DOTA_Tooltip_ability_item_manta_2_Note2"									"不会与其他夜叉、散夜对剑以及幻影斧提供的移动速度加成叠加。"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_agility"							"+$agi"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_intellect"						"+$int"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_manta_2_bonus_movement_speed"					"%+$move_speed"
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>神器·星落</font>"
