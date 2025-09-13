@@ -2810,7 +2810,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityValues"
 		{
-			"charges_per_flurry"	"6"	//5
+			"charges_per_flurry"	"6 8 10 12"	//5
 			"flurry_bonus_attack_speed"	"800 1200 1600 2000"
 			"time_between_flurries"	"1.0 0.8 0.6 0.4"	// 1.5
 			"pulse_damage"
@@ -6113,16 +6113,12 @@
 			}
 			"base_damage_pct"
 			{
-				"value"		"100"
+				"value"		"100"	// 80
 			}
 			"bounce_count"
 			{
 				"value"			"3 4 5 6 7" // 2 3 4 5
 				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+2"	// +1
-			}
-			"AbilityCharges"
-			{
-				"special_bonus_unique_hoodwink_acorn_shot_charges"	"3"		// 2
 			}
 		}
 	}

@@ -405,18 +405,6 @@
 		"Ability5"		"abyssal_underlord_dark_rift"
 	}
 
-	"npc_dota_hero_centaur"
-	{
-		"Ability10"		"special_bonus_hp_regen_5"
-		"Ability17"		"special_bonus_movement_speed_20"
-		"Ability12"		"special_bonus_strength_15"
-		"Ability11"		"special_bonus_unique_centaur_4"
-		"Ability14"		"special_bonus_unique_centaur_3"
-		"Ability13"		"special_bonus_unique_centaur_5"
-		"Ability16"		"special_bonus_unique_centaur_1"
-		"Ability15"		"special_bonus_unique_centaur_2"
-	}
-
 	"npc_dota_hero_hoodwink"
 	{
 		"AttackRate"		"1.7"	// 2.0
