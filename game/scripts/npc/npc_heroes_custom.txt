@@ -426,11 +426,9 @@
 	{
 		"Ability4"		"marci_guardian"
 
-		"Ability10"		"special_bonus_unique_marci_lunge_movespeed"
-		"Ability11"		"special_bonus_unique_marci_lunge_range"
-		"Ability13"		"special_bonus_unique_marci_unleash_speed"
-		"Ability14"		"special_bonus_status_resistance_25"
-		"Ability15"		"special_bonus_marci_rebound_radius"
+		"Ability10"		"special_bonus_unique_marci_unleash_speed"
+		"Ability11"		"special_bonus_unique_marci_lunge_range"	// 覆盖原有天赋范围
+		"Ability15"		"special_bonus_status_resistance_25"
 
 		"AttackRate"				"1.5"	// 1.7
 		"MovementSpeed"				"325"	// 315

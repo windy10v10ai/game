@@ -912,8 +912,9 @@
 		"DOTA_Tooltip_modifier_marci_guardian_buff"					"健体术"
 		"DOTA_Tooltip_modifier_marci_guardian_buff_Description"		"这个单位拥有吸血效果和攻击力加成。"
 
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"			"+{s:bonus_bonus_damage}% 护卫术/健体术吸血和攻击力"
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"				"+{s:bonus_max_jump_distance} 过肩摔/回身踢施法/跳跃距离"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"	"+{s:bonus_bonus_damage}% 护卫术/健体术吸血和攻击力"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_max_jump_distance} 回身踢施法/跳跃距离和落地范围"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} 过肩摔伤害/摔扔距离"
 
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% 暗夜猎影移动速度"

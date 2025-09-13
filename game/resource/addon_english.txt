@@ -921,8 +921,9 @@
 		"DOTA_Tooltip_modifier_marci_guardian_buff"					"Sidekick"
 		"DOTA_Tooltip_modifier_marci_guardian_buff_Description"		"This unit has lifesteal and bonus damage."
 
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"			"+{s:bonus_bonus_damage}% Bodyguard/Sidekick Bonus Damage/Lifesteal"
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"				"+{s:bonus_throw_distance_behind} Dispose/Reound Cast/Throw/Jump Range"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"	"+{s:bonus_bonus_damage}% Bodyguard/Sidekick Bonus Damage/Lifesteal"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_throw_distance_behind} Rebound Cast/Jump Range/Landing Radius"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} Dispose Damage/Throw Distance"
 
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Movement Speed"
