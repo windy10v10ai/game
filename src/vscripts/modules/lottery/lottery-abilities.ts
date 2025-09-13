@@ -52,6 +52,7 @@ export const abilityTiersActive: Tier[] = [
       'tidehunter_ravage', // 毁灭
       'dazzle_bad_juju', // 邪能
       'tinker_rearm_lua', // 再装填
+      'marci_unleash', // 怒拳破
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
@@ -100,6 +101,8 @@ export const abilityTiersActive: Tier[] = [
       'axe_berserkers_call', // 狂战士之吼
       'tinker_laser', // 激光
       'tinker_defense_matrix', // 防御矩阵
+      'marci_grapple', // 过肩摔
+      'marci_bodyguard', // 护卫术
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷

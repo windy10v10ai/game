@@ -512,6 +512,10 @@
 	"item_manta"
 	{
 		"AbilitySharedCooldown"			"manta"
+		"AbilityValues"
+		{
+				"images_count"			"1"	// 2
+		}
 	}
 	"item_nullifier"
 	{
