@@ -1859,7 +1859,7 @@
 
 		// item_manta_1 幻身斧
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>幻身斧</font>"
-		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%tooltip_illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_manta_1_Lore"								"分身屁用没有，除了带线打野，生气气。"
 		"DOTA_Tooltip_ability_item_manta_1_Note0"									"有%invuln_duration%秒的施法时间，其间处于无敌状态。"
 		"DOTA_Tooltip_ability_item_manta_1_Note1"									"可以使用幻影斧移除多种负面效果。"
@@ -1872,7 +1872,7 @@
 
 		// 相位斧
 		"DOTA_Tooltip_Ability_item_manta_2"										"<font color='#e03e2e'>相位斧</font>"
-		"DOTA_Tooltip_ability_item_manta_2_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%tooltip_illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_manta_2_Description"							"<h1>主动：镜像</h1>制造%images_count%个你的幻象，持续%illusion_duration%秒。<br><br>近战英雄的幻象继承%tooltip_damage_outgoing_melee%%%的攻击力，远程英雄的幻象继承%tooltip_damage_outgoing_ranged%%%的攻击力。幻象承受%tooltip_damage_incoming_total_pct%%%的伤害。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_manta_2_Lore"								"失去了分身能力但是获得了长达1秒的隐藏"
 		"DOTA_Tooltip_ability_item_manta_2_Note0"									"有%invuln_duration%秒的施法时间，其间处于无敌状态。"
 		"DOTA_Tooltip_ability_item_manta_2_Note1"									"可以使用幻影斧移除多种负面效果。"

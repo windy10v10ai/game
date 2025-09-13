@@ -1860,7 +1860,7 @@
 
 		// item_manta_1 分身2
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>Upgraded Manta Style</font>"
-		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %tooltip_illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_manta_1_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_manta_1_Lore"									"Manta Style Upgrade"
 		"DOTA_Tooltip_ability_item_manta_1_Note0"									"Has a %invuln_duration% second cast time during which you are invulnerable."
 		"DOTA_Tooltip_ability_item_manta_1_Note1"									"Many effects are removed upon using Manta."
@@ -1873,7 +1873,7 @@
 
 		// 相位斧
 		"DOTA_Tooltip_Ability_item_manta_2"										"<font color='#e03e2e'>Phase Axe</font>"
-		"DOTA_Tooltip_ability_item_manta_2_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %tooltip_illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_manta_2_Description"							"<h1>Active: Mirror Image</h1>Creates %images_count% images of your hero that last %illusion_duration% seconds. <br><br>Melee images deal %tooltip_damage_outgoing_melee%%% damage, while Ranged images deal %tooltip_damage_outgoing_ranged%%%. Illusions take %tooltip_damage_incoming_total_pct%%% damage. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_manta_2_Lore"								"Lost the ability to create illusions but gained a 1-second invincibility in its place."
 		"DOTA_Tooltip_ability_item_manta_2_Note0"								"Has a %invuln_duration% second cast time during which it is invulnerable."
 		"DOTA_Tooltip_ability_item_manta_2_Note1"								"Can be used to remove various negative effects."
