@@ -909,6 +909,22 @@
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"HEALTH BONUS:"
 
+		// Marci
+		"DOTA_Tooltip_ability_marci_guardian"								"Sidekick"
+		"DOTA_Tooltip_ability_marci_guardian_Description"					"Marci's loyalty helps ensure survival, imbuing a chosen allied hero and herself with shared lifesteal and attack damage. If Marci and her ally are further apart from each other than %max_partner_distance%, the ally receives no bonuses and Marci only gets %max_partner_penalty%%% until they get close again. Marci's lifesteal also heals her ally and the ally lifesteal also heals Marci."
+		"DOTA_Tooltip_ability_marci_guardian_Note0"					"Marci cannot cast Sidekick on herself."
+		"DOTA_Tooltip_ability_marci_guardian_Note1"					"Lifesteal effectiveness gets a %creep_lifesteal_reduction_pct%%% penalty against creeps."
+		"DOTA_Tooltip_ability_marci_guardian_Lore"					"Marci learned at a young age that the best asset in a scrap is a steady companion."
+		"DOTA_Tooltip_ability_marci_guardian_lifesteal_pct"			"%LIFESTEAL:"
+		"DOTA_Tooltip_ability_marci_guardian_bonus_damage"			"%BONUS BASE ATTACK DAMAGE:"
+
+		"DOTA_Tooltip_modifier_marci_guardian_buff"					"Sidekick"
+		"DOTA_Tooltip_modifier_marci_guardian_buff_Description"		"This unit has lifesteal and bonus damage."
+
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"	"+{s:bonus_bonus_damage}% Bodyguard/Sidekick Bonus Damage/Lifesteal"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_throw_distance_behind} Rebound Cast/Jump Range/Landing Radius"
+		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} Dispose Damage/Throw Distance"
+
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Movement Speed"
 
@@ -1271,7 +1287,7 @@
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"<font color='#FFE56E'>Strike Air</font>"
 		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, <font color='#05CAFF'>dealing magical damage</font> and <font color='#FF3399'>stunning</font> all enemies in its path.<br/>Saber gains <font color='#ffd700'>Debuff Immunity</font> for a short time after casting."
 		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
-		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_damage"	"DAMAGE:"
 		// "DOTA_Tooltip_ability_artoria_strike_air_corruption_armor"		"ARMOR REDUCTION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_stun_duration"			"STUN DURATION:"
 		"DOTA_Tooltip_ability_artoria_strike_air_immunity_duration"		"DEBUFF IMMUNITY DURATION:"
@@ -1494,7 +1510,7 @@
 		"DOTA_Tooltip_ability_yukari_twin_trains_stun_time"				"COLLISION STUN DURATION:"
 		"DOTA_Tooltip_ability_yukari_twin_trains_explosion_damage"		"EXPLOSION DAMAGE:"
 		"DOTA_Tooltip_ability_yukari_twin_trains_explosion_radius"		"EXPLOSION RADIUS:"
-		"DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that one train? TWO trains!"
+		"DOTA_Tooltip_ability_yukari_twin_trains_Lore" "What can be better that a train? TWO trains!"
 		"DOTA_Tooltip_ability_ability_yukari_01"	"Aerial Bait Hyperactive High Speed Flying Object"
 		"DOTA_Tooltip_ability_ability_yukari_01_Description"	"Fires an array of damaging projectiles in a spread towards the designated direction. Enemies hit take damage, as well as extra damage based on Yukari's intelligence, and are stunned. The same enemy can be hit multiple times with one cast, however subsequent hits to the same enemy will deal significantly reduced damage."
 		"DOTA_Tooltip_ability_ability_yukari_01_damage"	"DAMAGE:"
@@ -1503,7 +1519,7 @@
 		"DOTA_Tooltip_ability_ability_yukari_01_factor"		"REPEAT HIT FACTOR:"
 		"DOTA_Tooltip_ability_ability_yukari_01_speed"  "PROJECTILE SPEED:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04"	"Deep Danmaku Barrier -Transient Dreams-"
-		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"A large teleportation enchantment is channeled at any targeted location across the map. Yukari will be teleported to the target location after channeling. The longer the channeling time, the greater the damage upon arrival. The maximum channel time is 4 seconds, and the radius of the enchantment is 750. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for %stun_duration% seconds."
+		"DOTA_Tooltip_ability_ability_thdots_yukari04_Description"	"CHANNELED - A large teleportation enchantment is created at the targeted location anywhere on the map. The maximum channel time is %AbilityChannelTime% seconds, and the maximum radius of the enchantment is %max)radius%. No matter how long the channel is and even if interrupted, as soon as the channel ends, Yukari will be teleported to the target location afterwards. \nWhile channeling, several magical barrages are scattered at the target location, damaging surrounding enemy units. The teleportation generates spatial shock, inflicting up to %int_bonus% * Yukari's intelligence as magical damage to all enemy units within %wanbaochui_radius% radius and stunning them for up to %stun_duration% seconds, based on how long the spell was channeled for."
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_max_radius"	"MAX RADIUS:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_ex_damage"	"DAMAGE PER INTERVAL:"
 		"DOTA_Tooltip_ability_ability_thdots_yukari04_barrage_fire_interval"	"INTERVAL:"
@@ -2302,7 +2318,7 @@
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Artifact: Asteroid Hammer</font>"
-		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. <font color='#e03e77'>Stuns enemies regardless of debuff immunity.</font> Continues to deal damage over time to enemy units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <BR><BR>Building Impact Damage: %impact_damage_buildings% <BR>Building Damage Over Time: %burn_dps_buildings% <BR><BR>Non-Building Impact Damage: %impact_damage_units% <BR>Non-Building Damage Over Time: %burn_dps_units% <BR><BR>Channel Duration: %max_duration% seconds.<BR>Landing Time: %land_time% seconds."
+		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. <font color='#e03e77'>Stuns enemies regardless of debuff immunity.</font> Continues to deal damage over time to enemy units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <br><br>Building Impact Damage: %impact_damage_buildings% <br>Building Damage Over Time: %burn_dps_buildings% <br><br>Non-Building Impact Damage: %impact_damage_units% <br>Non-Building Damage Over Time: %burn_dps_units% <br><br>Channel Duration: %max_duration% seconds.<br>Landing Time: %land_time% seconds."
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_lore"                   "You want the moon so bad? HERE, TAKE IT!"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_agility"						"+$agi"
