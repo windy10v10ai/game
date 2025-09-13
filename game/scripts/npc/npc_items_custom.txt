@@ -2090,7 +2090,7 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: manta 1 大分身卷轴
+	// manta 1 大分身 幻身斧
 	//=================================================================================================================
 	"item_recipe_manta_1"
 	{
@@ -2115,11 +2115,6 @@
 			"01"						"item_manta;item_ultimate_orb"
 		}
 	}
-
-
-	//=================================================================================================================
-	// manta 1 大分身
-	//=================================================================================================================
 	"item_manta_1"
 	{
 		// General
@@ -2132,29 +2127,81 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"30.0"
+		"AbilityCooldown"				"34.0"
 		"AbilityCastPoint"				"0.0"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"250"
+		"AbilityManaCost"				"200"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_strength"		"30"
+				"bonus_strength"		"20"
 				"bonus_agility"			"50"
-				"bonus_intellect"		"30"
-				"bonus_attack_speed"	"25"
-				"bonus_movement_speed"	"15"
-				"images_count"			"2"
-				"illusion_duration"			"20"
-				"images_do_damage_percent_melee"	"+50"
-				"tooltip_damage_outgoing_melee"			"150"
+				"bonus_intellect"		"20"
+				"bonus_attack_speed"	"30"
+				"bonus_movement_speed"	"20"
+				"images_count"			"1"	// 2
+				"illusion_duration"			"24"	// 18
+				"images_do_damage_percent_melee"	"-0"
+				"tooltip_damage_outgoing_melee"			"100"
 				"images_take_damage_percent"	"150"
 				"tooltip_damage_incoming_total_pct"			"250"
-				"images_do_damage_percent_ranged"	"-0"
-				"tooltip_damage_outgoing_ranged"			"100"
-				"invuln_duration"		"0.3"
+				"images_do_damage_percent_ranged"	"-30"
+				"tooltip_damage_outgoing_ranged"			"70"
+				"invuln_duration"		"0.3"	// 0.1
+				"vision_radius"			"1000"
+		}
+	}
+
+	//=================================================================================================================
+	// 相位斧
+	//=================================================================================================================
+	"item_recipe_manta_2"
+	{
+		"BaseClass"						"item_recipe_manta"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"FightRecapLevel"				"1"
+		"ItemCost"						"550"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_manta_2"
+		"ItemRequirements"
+		{
+			"01"						"item_manta_1;item_ultimate_orb"
+		}
+	}
+	"item_manta_2"
+	{
+		"BaseClass"						"item_manta"
+		"AbilityTextureName"			"manta_2"
+		"AbilitySharedCooldown"			"manta"
+
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityCooldown"				"34.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"300"	//125
+		"ItemShopTags"					"agi;str;int;attack_speed;move_speed;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"manta style"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilityValues"
+		{
+				"bonus_strength"		"60"	//10
+				"bonus_agility"			"100"	//26
+				"bonus_intellect"		"60"	//10
+				"bonus_attack_speed"	"60"	//15
+				"bonus_movement_speed"	"30"	//10
+				"images_count"			"1"		//2
+				"illusion_duration"			"30"	// 18
+				"images_do_damage_percent_melee"	"+50"
+				"tooltip_damage_outgoing_melee"			"150"
+				"images_take_damage_percent"	"100"
+				"tooltip_damage_incoming_total_pct"			"200"
+				"images_do_damage_percent_ranged"	"+20"
+				"tooltip_damage_outgoing_ranged"			"120"
+				"invuln_duration"		"0.5"	//0.1
 				"vision_radius"			"1000"
 		}
 	}
@@ -5522,55 +5569,6 @@
 		}
 	}
 
-	//=================================================================================================================
-	// 神器相位斧
-	//=================================================================================================================
-	"item_recipe_manta_2"
-	{
-		"BaseClass"						"item_recipe_manta"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"FightRecapLevel"				"1"
-		"ItemCost"						"550"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_manta_2"
-		"ItemRequirements"
-		{
-			"01"						"item_manta_1;item_manta"
-		}
-	}
-	"item_manta_2"
-	{
-		"BaseClass"						"item_manta"
-		"AbilityTextureName"			"manta_2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityCooldown"				"10.0"	//34
-		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"250"	//125
-		"ItemShopTags"					"agi;str;int;attack_speed;move_speed;hard_to_tag"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"manta style"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SuggestLategame"				"1"
-		"AbilityValues"
-		{
-				"bonus_strength"		"75"	//10
-				"bonus_agility"			"120"	//26
-				"bonus_intellect"		"75"	//10
-				"bonus_attack_speed"	"100"	//15
-				"bonus_movement_speed"	"45"	//10
-				"images_count"			"0"		//2 移除幻象
-				"illusion_duration"			"0"	//18
-				"images_do_damage_percent_melee"	"-67"//-67
-				"tooltip_damage_outgoing_melee"			"33"//33
-				"images_take_damage_percent"	"200"//200
-				"tooltip_damage_incoming_total_pct"			"300"//300
-				"images_do_damage_percent_ranged"	"-72"//-72
-				"tooltip_damage_outgoing_ranged"			"28"//28
-				"invuln_duration"		"1"//0.1 隐藏1s秀起来
-				"vision_radius"			"1000"//1000
-		}
-	}
 	//=================================================================================================================
 	// 神器除你武器
 	//=================================================================================================================
