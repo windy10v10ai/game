@@ -22,7 +22,7 @@ function liu_kick:OnSpellStart()
         return nil
     end
 
-    caster:AddNewModifier(caster, self, "modifier_liu_kick", { damage = damage })
+    caster:AddNewModifier(caster, self, "modifier_liu_kick", { damage = damage, duration = 5.0 }) -- 最大5s后删除
     -- EmitSoundOn("miku.3_"..RandomInt(1, 3), self:GetCaster())
 end
 

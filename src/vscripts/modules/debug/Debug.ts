@@ -137,6 +137,18 @@ export class Debug {
         this.log(modifier.GetName());
       }
     }
+    // log all abilities
+    if (cmd === CMD.A) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const abilities = hero.GetAbilityCount();
+      this.log(`abilities: ${abilities}`);
+      for (let i = 0; i < abilities; i++) {
+        const ability = hero.GetAbilityByIndex(i);
+        if (!ability) continue;
+        this.log(ability.GetName());
+      }
+    }
     if (cmd === CMD.SHARD) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;

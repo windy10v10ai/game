@@ -4,7 +4,7 @@ import { LotteryHelper } from '../lottery/lottery-helper';
 export class BotAbility {
   // 每5级升级一次
   static readonly upgradeIntervalBotPower = 5;
-  static readonly upgradeIntervalBotPassive = 8;
+  static readonly upgradeIntervalBotPassive = 10;
 
   // 存储每个bot的被动技能名称
   private static botPassiveAbilities: Map<number, string> = new Map();
