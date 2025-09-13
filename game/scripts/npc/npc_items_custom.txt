@@ -370,6 +370,8 @@
 			{
 				"IsBuff"			"1"
 				"IsPurgable"		"0"
+				// 可以被幻象继承
+				"AllowIllusionDuplicate"		"1"
 
 				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
