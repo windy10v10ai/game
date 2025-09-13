@@ -32,11 +32,12 @@ function modifier_item_saint_orb_passive:GetAttributes()
 end
 
 -- 无法被减速
--- function modifier_item_saint_orb_passive:CheckState()
--- 		return {
--- 			[MODIFIER_STATE_UNSLOWABLE]	= true
--- 		}
--- end
+function modifier_item_saint_orb_passive:CheckState()
+    return {
+        [MODIFIER_STATE_UNSLOWABLE] = true
+    }
+end
+
 function modifier_item_saint_orb_passive:OnCreated()
     self.stats_modifier_name = "modifier_item_saint_orb_stats"
     if self:GetAbility() == nil then return end
