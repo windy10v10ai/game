@@ -64,7 +64,8 @@ function modifier_dark_seer_normal_punch2:OnAttackLanded(keys)
 		}
 		ApplyDamage(damageInfo)
 
-		keys.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = 1.25 })
+		local stun_duration = self:GetAbility():GetSpecialValueFor("max_stun")
+		keys.target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { duration = stun_duration })
 
 		--特效
 		local Particle = ParticleManager:CreateParticle(
