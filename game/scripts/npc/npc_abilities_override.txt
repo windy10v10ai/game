@@ -2770,7 +2770,7 @@
 			"lifesteal_pct"
 			{
 				"value"				"15 25 35 45 55"
-				"special_bonus_unique_marci_guardian_damage"			"+25"		// Uses damage talent so that both values increase with one talent
+				"special_bonus_unique_marci_guardian_lifesteal"			"+15"
 			}
 			"bonus_damage"
 			{
@@ -2793,7 +2793,7 @@
 			"lifesteal_pct"
 			{
 				"value"											"15 30 45 60 75"
-				"special_bonus_unique_marci_guardian_damage"			"+25"		// Uses damage talent so that both values increase with one talent
+				"special_bonus_unique_marci_guardian_lifesteal"			"+15"
 			}
 			"bonus_damage"
 			{
@@ -2821,7 +2821,7 @@
 			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 2x
 			"bonus_movespeed"
 			{
-				"value"		"10 15 20 25"
+				"value"		"14 21 28 35"
 				"special_bonus_unique_marci_unleash_speed"	"+15"	// +10
 			}
 			"pulse_silence_duration"
@@ -2842,6 +2842,20 @@
 			}
 		}
 	}
+	"special_bonus_unique_marci_guardian_lifesteal"
+    {
+        // General
+        //-------------------------------------------------------------------------------------------------------------
+        "AbilityType"               "ABILITY_TYPE_ATTRIBUTES"
+        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityValues"
+        {
+            "value"
+            {
+                "value" "15"	// 10
+            }
+        }
+    }
 	//=================================================================================================================
 	// Ability: Mars 玛尔斯
 	//=================================================================================================================
