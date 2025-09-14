@@ -2811,7 +2811,7 @@
 		"AbilityValues"
 		{
 			"charges_per_flurry"	"6 8 10 12"	//5
-			"flurry_bonus_attack_speed"	"800 1200 1600 2000"
+			"flurry_bonus_attack_speed"	"700 975 1325 1600"
 			"time_between_flurries"	"1.0 0.8 0.6 0.4"	// 1.5
 			"pulse_damage"
 			{
@@ -2842,20 +2842,6 @@
 			}
 		}
 	}
-	"special_bonus_unique_marci_guardian_lifesteal"
-    {
-        // General
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityType"               "ABILITY_TYPE_ATTRIBUTES"
-        "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "AbilityValues"
-        {
-            "value"
-            {
-                "value" "15"	// 10
-            }
-        }
-    }
 	//=================================================================================================================
 	// Ability: Mars 玛尔斯
 	//=================================================================================================================
