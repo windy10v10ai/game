@@ -307,7 +307,6 @@
     }
     "skywrath_mage_staff_of_the_scion2"
     {
-        // General
 		"BaseClass"						"skywrath_mage_staff_of_the_scion"
 		"AbilityTextureName"			"skywrath_mage_staff_of_the_scion"
         "MaxLevel"                      "5"
@@ -315,9 +314,53 @@
 
         "AbilityValues"
         {
-            "cooldown_reduction"        "0.1 0.15 0.2 0.25 0.3"	// 0.1
+            "cooldown_reduction"        "0.02 0.04 0.06 0.08 0.1"	// 0.1
         }
     }
+	"marci_unleash2"
+	{
+		"BaseClass"						"marci_unleash"
+		"MaxLevel"						"4"
+		"AbilityTextureName"			"marci_unleash"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_NO"
+        "AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"AbilityValues"
+        {
+            "charges_per_flurry"    "6 7 8 9" // 5
+            "flurry_bonus_attack_speed" "700 800 900 1000"
+            "time_between_flurries" "1.2"   // 1.5
+            "pulse_damage"
+            {
+                "value"         "100 200 300 400"
+            }
+            "pulse_move_slow_pct"   "30.0 40.0 50.0 60.0"       // 30.0
+            "pulse_attack_slow_pct"     "120.0 160.0 200.0 240.0"   // 2x
+            "bonus_movespeed"
+            {
+                "value"     "10 15 20 25"
+            }
+            "pulse_silence_duration"
+            {
+                "special_bonus_scepter"	"+1.5"	// +1
+            }
+			"dispel"            
+            {
+            	"special_bonus_scepter"	"+0"	// +1
+        	}
+            "AbilityCooldown"
+            {
+                "value"                                     "60 55 50 45"   // 90 75 60
+            }
+			"scepter_cooldown_reduction"
+            {       
+                "special_bonus_scepter"	"0.0"	// 10.0
+            }
+            "AbilityManaCost"
+            {
+                "value"                                     "150 200 250 300"
+            }
+        }
+	}
 	//酒仙 醉拳 未使用
 	"brewmaster_drunken_boxing"
 	{
