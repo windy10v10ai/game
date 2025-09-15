@@ -1614,6 +1614,7 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"90.0 80.0 70.0 60.0"
 		"AbilityManaCost"				"150 200 250 300"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 				"echo_slam_echo_damage"
@@ -2169,12 +2170,11 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"						"16 14 12 10 8"
-				"special_bonus_unique_kunkka_torrent_cooldown"			"-4"
+				"value"						"16 15 14 13 12"
 			}
 			"stun_duration"
 			{
-				"value"								"1.2"		// 1.4
+				"value"								"1"		// 1.4
 			}
 		}
 	}
@@ -4625,6 +4625,7 @@
 		"AbilityManaCost"				"110 125 140 155 170"
 		"AbilityValues"
 		{
+			"duration"				"0.8"	// 1.25
 			"toss_damage"
 			{
 				"value"				"180 270 360 450 540"	// 90 180 270 360 +90
@@ -6746,6 +6747,14 @@
 			{
 				"value"			"150 250 350 400 450"
 				"special_bonus_unique_mirana_7"	"+350"	// +250
+			}
+			"starfall_radius"
+			{
+				"value"			"825"	// 675
+			}
+			"starfall_secondary_radius"
+			{
+				"value"			"825"	// 675
 			}
 		}
 	}
