@@ -13352,12 +13352,12 @@
 			}
 			"attacks_per_second"
 			{
-				"special_bonus_facet_windrunner_whirlwind" 				"8 9 10 11" // 7 9 11 对单相当于攻速拉满
+				"special_bonus_facet_windrunner_whirlwind" 				"7 8 9 10" // 7 9 11 对单相当于攻速拉满
 			}
 			"focusfire_damage_reduction"
 			{
 				"value"						"-25"
-				"special_bonus_facet_windrunner_whirlwind" "-15" //	5
+				"special_bonus_facet_windrunner_whirlwind" "-20" //	5
 				"special_bonus_unique_windranger_8"		"+15" // 10
 			}
 			"bonus_range"
