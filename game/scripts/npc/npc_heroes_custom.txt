@@ -2529,7 +2529,7 @@
         "AttributeBaseIntelligence"     "21"
         "AttributeIntelligenceGain"     "2.9"
 		"BaseAttackSpeed"       "110"
-		"MovementSpeed"     "320"
+		"MovementSpeed"     "325"
 		"Bot"
 		{
 			"Build"
