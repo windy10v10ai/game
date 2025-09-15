@@ -926,6 +926,13 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_max_jump_distance} Rebound Cast/Jump Range/Landing Radius"
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} Dispose Damage/Throw Distance"
 
+		// Mirana
+		"DOTA_Tooltip_ability_special_bonus_unique_mirana_4"        "-{s:bonus_AbilityCooldown}s Moonlight Shadow/Solar Flare Cooldowns"
+		"DOTA_Tooltip_ability_special_bonus_unique_mirana_5"        "+{s:bonus_evasion}% Evasion during Moonlight Shadow/Solar Flare"
+		"DOTA_Tooltip_ability_special_bonus_unique_mirana_5_Description"	"Evasion works at all times during both abilties, and they stack diminishingly with themselves and other sources of evasion"
+		"DOTA_Tooltip_ability_mirana_solar_flare_Lore"				"In another time, in another place, Mirana would abandon the favor of the Goddess of the Moon and forge a stronger connection through the lands of her home in the Helio Imperium and become God-Empress of the Sun."
+		
+
 		// 夜魔
 		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Movement Speed"
 
