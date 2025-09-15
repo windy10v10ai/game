@@ -2655,7 +2655,7 @@
 			// active
 			"stun_m"				"1.6"
 			"active_damage_base"	"200"
-			"active_damage_multi"	"0.75"
+			"active_damage_multi"	"1"
 			// Passive
 			"stun"					"1.2"
 			"ch_m"					"25"
