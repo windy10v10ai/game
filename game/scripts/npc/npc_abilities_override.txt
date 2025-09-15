@@ -2769,12 +2769,12 @@
 		{
 			"lifesteal_pct"
 			{
-				"value"				"15 25 35 45 55"
+				"value"				"20 25 30 35 40"
 				"special_bonus_unique_marci_guardian_lifesteal"			"+15"
 			}
 			"bonus_damage"
 			{
-				"value"				"15 25 35 45 55"
+				"value"				"20 25 30 35 40"
 				"special_bonus_unique_marci_guardian_damage"			"+25"
 			}
 			"max_partner_distance"
@@ -2792,12 +2792,12 @@
 		{
 			"lifesteal_pct"
 			{
-				"value"											"15 30 45 60 75"
+				"value"											"20 30 40 50 60"
 				"special_bonus_unique_marci_guardian_lifesteal"			"+15"
 			}
 			"bonus_damage"
 			{
-				"value"											"15 30 45 60 75"
+				"value"											"20 30 40 50 60"
 				"special_bonus_unique_marci_guardian_damage"			"+25"
 			}
 		}
@@ -2821,7 +2821,7 @@
 			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 2x
 			"bonus_movespeed"
 			{
-				"value"		"14 21 28 35"
+				"value"		"10 15 20 25"
 				"special_bonus_unique_marci_unleash_speed"	"+15"	// +10
 			}
 			"pulse_silence_duration"
@@ -2834,7 +2834,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"										"60 55 50 45"	// 90 75 60
+				"value"										"60"	// 90 75 60
 			}
 			"AbilityManaCost"
 			{
