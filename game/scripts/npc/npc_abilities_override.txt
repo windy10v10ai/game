@@ -1614,7 +1614,7 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"90.0 80.0 70.0 60.0"
 		"AbilityManaCost"				"150 200 250 300"
-		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 				"echo_slam_echo_damage"
@@ -2170,8 +2170,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"						"20 18 16 14 12"
-				"special_bonus_unique_kunkka_torrent_cooldown"			"-3"
+				"value"						"16 15 14 13 12"
 			}
 			"stun_duration"
 			{
@@ -4626,7 +4625,7 @@
 		"AbilityManaCost"				"110 125 140 155 170"
 		"AbilityValues"
 		{
-			"duration"              "0.8"	// 1.25
+			"duration"				"0.8"	// 1.25
 			"toss_damage"
 			{
 				"value"				"180 270 360 450 540"	// 90 180 270 360 +90
@@ -6749,14 +6748,14 @@
 				"value"			"150 250 350 400 450"
 				"special_bonus_unique_mirana_7"	"+350"	// +250
 			}
-			"starfall_radius"   
-            {
-                "value"         "825"	// 675
-            }
-            "starfall_secondary_radius"
-            {
-                "value"         "825"	// 675
-            }
+			"starfall_radius"
+			{
+				"value"			"825"	// 675
+			}
+			"starfall_secondary_radius"
+			{
+				"value"			"825"	// 675
+			}
 		}
 	}
 	//=================================================================================================================
@@ -8860,21 +8859,8 @@
 					"value"			"35 65 95 125 155"
 					"special_bonus_unique_viper_3"	"+45"
 				}
-				"radius"        
-                {
-                    "value"     "400 500 600 700 800"
-                    "affected_by_aoe_increase"  "1"
-                }
 				"attack_slow"		"30 40 50 60 70"
 				"duration"			"6.5 7 7.5 8 8.5"
-				"radius_increase"           
-                {
-                    "special_bonus_unique_viper_nethertoxin_radius"                     "+0"
-                }       
-                "expand_interval"           
-                {
-                    "special_bonus_unique_viper_nethertoxin_radius"                     "+0"
-                }
 		}
 	}
 	// 腐蚀皮肤
