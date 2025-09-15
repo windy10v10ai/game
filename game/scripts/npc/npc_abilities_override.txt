@@ -6309,6 +6309,7 @@
 	// 迅风斩
 	"juggernaut_swift_slash"
 	{
+		"AbilityCastRange"				"600"		// 450
 		"AbilityCooldown"				"15"		// 25
 	}
 	// 决斗达人 先天
