@@ -13256,10 +13256,16 @@
 	// 狂风之力
 	"windrunner_gale_force"
 	{
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"20"
 		"AbilityValues"
 		{
-			"wind_strength"		"350"
+			"duration"          "5"
+			"wind_strength"		"500"
+			"radius"            
+            {
+                "value"     "1200"
+            }
 		}
 	}
 	// 束缚击
@@ -13275,16 +13281,16 @@
 			}
 			"stun_duration"
 			{
-				"value" "1.6 2.1 2.6 3.1 3.6"
-				"special_bonus_unique_windranger_6" "+1.0"
+				"value" "1.5 2 2.5 3 3.5"
+				"special_bonus_unique_windranger_6" "+0.75"
 			}
 			"bonus_damage_per_hero"
 			{
-				"special_bonus_facet_windrunner_tangled"	"20 40 60 80 100"
+				"special_bonus_facet_windrunner_tangled"	"25 50 75 100 125"
 			}
 			"damage_buff_duration"
 			{
-				"special_bonus_facet_windrunner_tangled"	"6"
+				"special_bonus_facet_windrunner_tangled"	"6 7 8 9 10"
 			}
 		}
 	}
@@ -13298,7 +13304,7 @@
 		{
 				"powershot_damage"
 				{
-					"value"					"170 270 370 470 570"
+					"value"					"175 275 375 475 575"
 					"CalculateSpellDamageTooltip"	"1"
 				}
 				"slow"
@@ -13315,12 +13321,16 @@
 	"windrunner_windrun"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"15"
 		"AbilityDuration"				"3 4 5 6 7"
 		"AbilityManaCost"				"50 75 100 125 150"
 		"AbilityValues"
 		{
 			"duration"					"3 4 5 6 7"
+			"AbilityCooldown"
+            {
+                "value"                                 "15"
+                "special_bonus_unique_windranger_4"     "-3"
+            }
 		}
 	}
 	// 集中火力
@@ -13333,7 +13343,7 @@
 			"AbilityCooldown"
 			{
 				"value"			"60 50 40 30"
-				"special_bonus_facet_windrunner_whirlwind" "=65 =60 =55 =50"
+				"special_bonus_facet_windrunner_whirlwind" "=70 =65 =60 =55"
 			}
 			"bonus_attack_speed"
 			{
@@ -13342,13 +13352,18 @@
 			}
 			"attacks_per_second"
 			{
-				"special_bonus_facet_windrunner_whirlwind" 				"8 10 12 14" // 7 9 11 对单相当于攻速拉满
+				"special_bonus_facet_windrunner_whirlwind" 				"8 9 10 11" // 7 9 11 对单相当于攻速拉满
 			}
 			"focusfire_damage_reduction"
 			{
 				"value"						"-25"
+				"special_bonus_facet_windrunner_whirlwind" "-15" //	5
 				"special_bonus_unique_windranger_8"		"+15" // 10
 			}
+			"bonus_range"
+            {
+                "special_bonus_facet_windrunner_whirlwind"      "+150"	// 125
+            }
 		}
 	}
 	// 举步生风
@@ -13358,7 +13373,7 @@
 		{
 			"min_movespeed"
 			{
-				"value"						"320"
+				"value"						"325"
 				"special_bonus_unique_windranger_9"		"+100"
 			}
 			"max_movespeed"
