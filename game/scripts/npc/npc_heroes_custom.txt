@@ -428,7 +428,24 @@
 		"AttributeBaseIntelligence"	"22"	// 19
 		"AttributeIntelligenceGain" "2.1"	// 1.9
 	}
+	"npc_dota_hero_mirana"
+	{
+		"Ability4"      				"mirana_solar_flare"
 
+		"Ability15"     				"special_bonus_agility_40"
+
+		"ArmorPhysical"     			"2"		// -2
+		"AttackRate"					"1.5"	// 1.7
+		"AttackRange"       			"650"	// 630
+		"ProjectileSpeed"				"1400"	// 900
+		"AttributeBaseStrength"			"23"	// 20
+        "AttributeStrengthGain"			"2.5"	// 2.2
+        "AttributeBaseAgility"			"29"	// 26
+        "AttributeAgilityGain"			"3.4"	// 3.1
+        "AttributeBaseIntelligence"		"26"	// 22
+        "AttributeIntelligenceGain"		"2.8"	// 1.9
+		"MovementSpeed"					"315"	// 285
+	}
 	"npc_dota_hero_obsidian_destroyer"
 	{
 		"AttackRate"	"1.7"
