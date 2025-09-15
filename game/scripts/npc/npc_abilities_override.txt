@@ -6717,10 +6717,38 @@
 			"bonus_lotus"	"200"	// 50
 		}
 	}
+	"mirana_solar_flare"
+	{
+		"DependentOnAbility"			"mirana_invis"
+		"Innate"						"1"
+		"MaxLevel"						"5"
+		"AbilityCastPoint"              "0"
+		"AbilityValues"
+        {
+            "AbilityCooldown"               
+            {
+                "value"         "145.0 125.0 105.0 85.0 65.0"
+                "special_bonus_unique_mirana_4"         "-25"               
+            }
+            "smoothness"                        "0.015"
+            "increase_rate"                     "25"
+            "max_total_increase"                "75 125 175 225 275"
+            "ally_pct"                          "60 70 80 90 100"
+            "duration"                          "16 18 20 22 24"
+            "max_damage_time"                   "6"
+            "evasion"       
+            {
+                "special_bonus_unique_mirana_5"     "+35"
+            }
+        }
+	}
 	// 月神之箭 射箭
 	"mirana_arrow"
 	{
 		"MaxLevel"						"5"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
 		"AbilityCastRange"				"4500"
 		"AbilityCastPoint"				"0.2"	// 0.5
 		"AbilityDamage"					"60 150 240 330 420"
@@ -6728,7 +6756,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"						"17 16 15 14 13"	// -2
+					"value"						"15 14 13 12 11"	// -4
 				}
 				"arrow_speed"		"1200.0"		// 900
 				"arrow_min_stun"	"1.0"			// 0.01
@@ -6743,6 +6771,7 @@
 	"mirana_invis"
 	{
 		"MaxLevel" "4"
+		"AbilityCastPoint"              "0"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -6750,33 +6779,52 @@
 				"value"			"85.0"
 				"special_bonus_unique_mirana_4"			"-25"
 			}
-				"fade_delay"			"2.5 2.0 1.5 1.0"
-				"bonus_movement_speed"		"12 16 20 24"
-				"bonus_outgoing_damage_pct"				"9.0 12.0 15.0 18.0"
+			"fade_delay"			"2.5 2.0 1.5 1.0"
+			"bonus_movement_speed"		"12 16 20 24"
+			"evasion"       
+                {
+                    "special_bonus_unique_mirana_5"     "+35"	// 20
+                }
+			"bonus_outgoing_damage_pct"				"14.0 16.0 18.0 20.0"
 		}
 	}
 	// 跳跃
 	"mirana_leap"
 	{
 		"MaxLevel" "5"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+		"AbilityCharges"                "3"
 		"AbilityChargeRestoreTime"		"24 21 18 15 12"
+		"AbilityManaCost"               "48 36 24 12 0"
 		"AbilityValues"
 		{
+			"leap_distance"         
+            {
+                "value"                         "650 750 850 950 1050"	// 650
+                "special_bonus_unique_mirana_6" "+150"
+            }
+			"leap_speed"            "2000.0"	// 1300.0
 			"leap_speedbonus"	"8 16 24 32 40"
 			"leap_speedbonus_as"
 			{
 				"value"				"25 50 75 100 125"
 				"special_bonus_unique_mirana_1"	"+125"	// +90
 			}
+			"leap_bonus_duration"   "6"	// 5
+			"crit_damage_pct"
+            {
+                "value"                 "0"
+                "special_bonus_shard"   "+225"	// 150
+            }
 			"root_radius"
 			{
 				"value"											"0"
-				"special_bonus_facet_mirana_leaps_and_bounds"	"+450"		// +250
+				"special_bonus_facet_mirana_leaps_and_bounds"	"+600"		// +250
 			}
 			"root_duration"
 			{
 				"value"											"0"
-				"special_bonus_facet_mirana_leaps_and_bounds"	"=1.5 =1.75 =2.0 =2.25 =2.5"
+				"special_bonus_facet_mirana_leaps_and_bounds"	"=1.5 =2.0 =2.5 =3.0 =3.5"
 			}
 		}
 	}
@@ -6785,7 +6833,7 @@
 	{
 		"MaxLevel" "5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastPoint"				"0.2"		// 0.4
+		"AbilityCastPoint"				"0"		// 0.4
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
@@ -6796,9 +6844,15 @@
 			}
 			"damage"
 			{
-				"value"			"150 250 350 400 450"
+				"value"			"150 225 300 375 450"
 				"special_bonus_unique_mirana_7"	"+350"	// +250
 			}
+			"secondary_starfall_damage_percent"
+            {
+                "value"                                 "100"	// 60
+                "CalculateSpellDamageTooltip"           "0"
+                "special_bonus_facet_mirana_starstruck" "+100"	// 40
+            }
 			"starfall_radius"
 			{
 				"value"			"825"	// 675
@@ -6807,6 +6861,14 @@
 			{
 				"value"			"825"	// 675
 			}
+			"starstruck_blind_pct"
+            {
+                "special_bonus_facet_mirana_starstruck" "+100.0"	// 60.0
+            }
+            "starstruck_duration"
+            {
+                "special_bonus_facet_mirana_starstruck" "=5.0"		// 3.0
+            }
 		}
 	}
 	//=================================================================================================================
