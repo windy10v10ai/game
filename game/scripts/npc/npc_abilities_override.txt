@@ -6765,6 +6765,14 @@
 				{
 					"value"				"360"	// 180 (x2)
 				}
+				"scepter_radius"        
+                {
+                    "special_bonus_scepter" 	"600"	// 500
+                }
+                "scepter_starstorm_target_pct"      
+                {
+                    "special_bonus_scepter"     "100"	// 80
+                }
 		}
 	}
 	// 月之暗面
