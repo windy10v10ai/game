@@ -2506,6 +2506,30 @@
 	// 风行
 	"npc_dota_hero_windrunner"
 	{
+		"Ability11"     "special_bonus_all_stats_12"
+		"Facets"
+		{
+			"windrunner_whirlwind" 
+            {
+                "Icon"              "multi_arrow"
+                "Color"             "Green"
+                "GradientID"        "2"
+                "Deprecated"        "false"
+                "AbilityIconReplacements"
+                {
+                    "windrunner_focusfire"  "windrunner_whirlwind"
+                    "windrunner_focusfire_cancel"   "windrunner_whirlwind_stop"
+                }
+            }
+		}
+		"AttributeBaseStrength"     "21"
+        "AttributeStrengthGain"     "2.7"
+        "AttributeBaseAgility"      "24"
+        "AttributeAgilityGain"      "2.1"
+        "AttributeBaseIntelligence"     "21"
+        "AttributeIntelligenceGain"     "2.9"
+		"BaseAttackSpeed"       "110"
+		"MovementSpeed"     "320"
 		"Bot"
 		{
 			"Build"
@@ -2519,7 +2543,7 @@
 				"7"		"windrunner_powershot"
 				"8"		"windrunner_shackleshot"
 				"9"		"windrunner_shackleshot"
-				"10"		"special_bonus_unique_windranger_powershot_slow"
+				"10"		"special_bonus_all_stats_12"
 				"11"		"windrunner_shackleshot"
 				"12"		"windrunner_focusfire"
 				"13"		"windrunner_windrun"
@@ -2536,7 +2560,7 @@
 				"24"		""
 				"25"		"special_bonus_unique_windranger_2"
 				"26"		""
-				"27"		"special_bonus_all_stats_4"
+				"27"		"special_bonus_unique_windranger_powershot_slow"
 				"28"		"special_bonus_unique_windranger_3"
 				"29"		"special_bonus_unique_windranger_6"
 				"30"		"special_bonus_unique_windranger_windrun_undispellable"
