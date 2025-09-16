@@ -1003,13 +1003,13 @@
 		{
 			"side_damage_reduction"
 			{
-				"value"													"8 12 16 20 24"
-				"special_bonus_unique_bristleback_6"					"+4"
+				"value"													"4 8 12 16 20"
+				"special_bonus_unique_bristleback_6"					"+2.5"
 			}
 			"back_damage_reduction"
 			{
-				"value"			"16 23 30 37 44"				// 16 24 32 40 48
-				"special_bonus_unique_bristleback_6"						"+8"
+				"value"			"8 16 24 32 40"				// 16 24 32 40 48
+				"special_bonus_unique_bristleback_6"						"+5"
 			}
 			"quill_release_threshold"
 			{
@@ -2698,6 +2698,11 @@
 					"value"			"60 150 240 330 420"
 					"special_bonus_unique_marci_grapple_damage"	"+150"
 				}
+				"AbilityCastRange"
+				{
+					"value"			"175"
+					"special_bonus_unique_marci_grapple_damage"	"+150"
+				}
 				"movement_slow_pct"		"20 30 40 50 60"
 		}
 	}
@@ -2750,6 +2755,10 @@
 				{
 					"value"				"5"
 				}
+				"postjump_unleash_duration"
+                {
+                    "special_bonus_facet_marci_fleeting_fury"       "=5"	// 3
+                }
 				"postjump_flurry_charges"
 				{
 					"special_bonus_facet_marci_fleeting_fury"		"=6"	// 3
@@ -2774,7 +2783,7 @@
 			}
 			"bonus_damage"
 			{
-				"value"				"20 25 30 35 40"
+				"value"				"30 35 40 45 50"
 				"special_bonus_unique_marci_guardian_damage"			"+25"
 			}
 			"max_partner_distance"
@@ -2797,7 +2806,7 @@
 			}
 			"bonus_damage"
 			{
-				"value"											"20 30 40 50 60"
+				"value"											"35 45 55 65 75"
 				"special_bonus_unique_marci_guardian_damage"			"+25"
 			}
 		}
@@ -4717,8 +4726,8 @@
 	{
 		"AbilityValues"
 		{
-			"str_to_slow_resist_pct"			"12"	// 20 -8
-			"str_to_status_resist_pct"			"8"		// 10 -2
+			"str_to_slow_resist_pct"			"8"		// 20 -12
+			"str_to_status_resist_pct"			"4"		// 10 -6
 		}
 	}
 	//=================================================================================================================
@@ -6224,20 +6233,15 @@
 		{
 			"blade_fury_damage"
 			{
-				"value"		"120 165 210 255 300"			// x1.5
-				"special_bonus_unique_juggernaut"	"+150"	// 90
-			}
-			"blade_fury_radius"
-			{
-				"value"						"320"			// 260
+				"value"		"90 120 150 180 210"			// x1.5
 			}
 			"AbilityCooldown"
 			{
-				"value"					"33 30 26 22 18"
+				"value"					"40 36 32 28 24"
 			}
 			"bonus_movespeed"
 			{
-				"special_bonus_unique_juggernaut_blade_fury_movespeed"		"+100"		// +40
+				"special_bonus_unique_juggernaut_blade_fury_movespeed"		"+50"		// +40
 			}
 		}
 	}
@@ -6292,28 +6296,14 @@
 		"AbilityManaCost"				"250 300 350 400"
 		"AbilityValues"
 		{
-			"attack_rate_multiplier"	"1.5 1.6 1.7 1.8"
 			"bonus_damage"				"50 60 70 80"	// x2
 			"bonus_attack_speed"				"100"	// 40
 			"duration"
 			{
-				"value"						"3.1 3.4 3.7 4.0"
-			}
-			"omni_slash_radius"
-			{
-				"value"		"600"		// 425
-			}
-			"AbilityCastRange"
-			{
-				"value"					"600"		// 450
+				"value"						"3 3.25 3.5 3.75"
+				"special_bonus_unique_juggernaut_omnislash_duration"            "+0.75"
 			}
 		}
-	}
-	// 迅风斩
-	"juggernaut_swift_slash"
-	{
-		"AbilityCastRange"				"600"		// 450
-		"AbilityCooldown"				"15"		// 25
 	}
 	// 决斗达人 先天
 	"juggernaut_duelist"
@@ -6478,7 +6468,7 @@
 			"AbilityCooldown"
 			{
 				"value"					"9.0 8.0 7.0 6.0 5.0"
-				"special_bonus_unique_luna_2" "-3.0"
+				"special_bonus_unique_luna_2" "-2.0"
 			}
 			"AbilityManaCost"
 			{
@@ -6489,10 +6479,14 @@
 				"value"					"80 160 240 320 400"
 				"special_bonus_unique_luna_1"	"+150"	// 110
 			}
+			"stun_duration"
+            {
+                "value"                 "0.6 0.7 0.8 0.9 1.0"
+            }
 			"damage_buff_per_beam"
 			{
 				"value"						"0"
-				"special_bonus_facet_luna_moonstorm"			"+5 8 11 14 17"
+				"special_bonus_facet_luna_moonstorm"			"+6 9 12 15 18"
 			}
 		}
 	}
@@ -6579,10 +6573,9 @@
 			}
 			"beam_interval"
 			{
-				"value"					"0.6 0.6 0.6 0.5"
+				"value"					"0.6 0.6 0.6 0.6"
 				"special_bonus_scepter"	"-0.3"
 			}
-			"beam_interval_scepter"		"0.2" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
 			"hit_count"
 			{
 				"value"					"5"
@@ -6626,7 +6619,8 @@
 				}
 				"arrow_count"
 				{
-					"value"			"4 5 6 7 8"
+					"value"						"5"		// 4
+					"special_bonus_scepter"     "+2"	// 1
 				}
 		}
 	}
@@ -11158,22 +11152,22 @@
 			"bonus_jump_damage"
 			{
 				"value"			"15 20 25 30"
+				"special_bonus_unique_lich_jump_damage" "+30"
 			}
-			"jumps"					"10 15 20 25"
+			"jumps"					"15"
 			"jump_range"
 			{
-				"value"			"800"			// 550
+				"value"			"600"			// 550
 			}
 			"bonus_jumps_per_hero_killed"
 			{
 				"value"					"0"
-				"special_bonus_facet_lich_growing_cold"			"+5" // 3
+				"special_bonus_facet_lich_growing_cold"			"+3" // 3
 			}
-			"bonus_jumps_per_creep_killed"
-			{
-				"value"											"0"
-				"special_bonus_facet_lich_growing_cold"			"+2" // 1
-			}
+			"frostbound_duration"                       
+            {
+                "value"                         "5"        
+            }
 		}
 	}
 	// 死亡充能 先天
@@ -11671,6 +11665,12 @@
 				"special_bonus_facet_ogre_magi_fat_chance" "+0"
 				"dynamic_value"		"true"
 			}
+
+			"strength_mult"
+            {
+                "value"                     "0"
+                "special_bonus_facet_ogre_magi_fat_chance"  "=0.02"
+            }
 		}
 	}
 	//=================================================================================================================
@@ -12615,11 +12615,17 @@
 	"skywrath_mage_arcane_bolt"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"4.0 3.5 3.0 2.5 2.0"
+		"AbilityCooldown"				"7.5 7.0 6.5 6.0 5.5 5.0"
 		"AbilityValues"
 		{
 				"bolt_speed"			"700"	// 500
 				"bolt_damage"			"60 90 120 150 180"
+				"int_multiplier"        
+                {
+                    "value"     "1.25"
+                    "special_bonus_unique_skywrath_2"   "+0.75"
+                    "CalculateSpellDamageTooltip"   "1"
+                }
 		}
 	}
 	// 震荡光弹
@@ -12645,7 +12651,7 @@
 				{
 					"value"		"-20 -25 -30 -35 -40"
 				}
-				"seal_duration"			"3.0 4.0 5.0 6.0 7.0"
+				"seal_duration"			"4.0 4.5 5.0 5.5 6.0"
 		}
 	}
 	// 神秘之耀
@@ -12689,14 +12695,6 @@
 			"damage_barrier_base"		"50"	// 10
 			"damage_barrier_per_level"	"2"		// 1
 			"barrier_duration"			"15"	// 12
-		}
-	}
-	// 天裔之杖 命石2
-	"skywrath_mage_staff_of_the_scion"
-	{
-		"AbilityValues"
-		{
-			"cooldown_reduction"		"0.2"	// 0.1
 		}
 	}
 	//=================================================================================================================
