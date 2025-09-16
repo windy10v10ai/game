@@ -1125,6 +1125,9 @@
 				"34"		"drow_ranger_wave_of_silence"
 			}
 		}
+		"AttackRange"       		"475"	// 625
+		"MovementSpeed"     		"285"	// 310
+		"AttributeAgilityGain"      "2.4"	// 2.9
 	}
 	// 撼地者 小牛
 	"npc_dota_hero_earthshaker"
