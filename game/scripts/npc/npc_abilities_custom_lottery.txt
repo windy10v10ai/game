@@ -361,6 +361,65 @@
             }
         }
 	}
+	"rattletrap_armor_power2"
+	{
+		"MaxLevel"                      "5"
+		"BaseClass"						"rattletrap_armor_power"
+		"AbilityTexureName"				"rattletrap_armor_power"
+        "Innate"                        "0"
+		"IsOnCastBar"					"1"
+        "IsBreakable"                   "1"
+		"AbilityValues"
+		{
+			"damage_per_armor"          "0.05 0.1 0.15 0.2 0.25"
+            "damage_tooltip"
+            {
+                "dynamic_value"                     "true"
+            }
+		}
+	}
+	"queenofpain_succubus2"
+	{
+		"MaxLevel"                      "5"
+		"BaseClass"						"queenofpain_succubus"
+		"AbilityTextureName"			"queenofpain_succubus"
+        "Innate"                        "0"
+		"IsOnCastBar"					"1"
+        "IsBreakable"                   "1"
+		"AbilityValues"
+		{
+			"spell_lifesteal"           
+            {
+                "value"                 "2.0 4.0 6.0 8.0 10.0"
+            }
+            "close_radius"              
+            {
+                "value"     "150 200 250 300 350"
+                "affected_by_aoe_increase"  "1"
+            }
+            "max_radius"                
+            {
+                "value" "800 1000 1200 1400 1600"
+                "affected_by_aoe_increase"  "1"
+            }
+            "spell_lifesteal_close"     
+            {
+                "value"                 "14.0 18.0 22.0 26.0 30.0"
+            }
+		}
+	}
+	"keeper_of_the_light_special_reserve2"
+	{
+			"MaxLevel"					"1"
+			"BaseClass"					"keeper_of_the_light_special_reserve"
+			"AbilityTextureName"		"keeper_of_the_light_special_reserve"
+			"Innate"					"0"
+			"IsOnCastBar"				"1"
+			"AbilityValues"
+        	{
+            	"minimum_mana"              "400"
+        	}
+	}
 	//酒仙 醉拳 未使用
 	"brewmaster_drunken_boxing"
 	{
