@@ -5365,6 +5365,11 @@
 				{
 					"special_bonus_facet_bloodseeker_old_blood"			"=15 =20 =25 =30 =35"
 				}
+				"max_health_dmg_pct"    
+                {
+                    "value"         "0"
+                    "special_bonus_scepter"             "+1.0"
+                }
 		}
 	}
 	// 血祭
@@ -5394,8 +5399,7 @@
 		{
 			"bonus_movement_speed"
 			{
-				"value"									"10 20 30 40 50"
-				"special_bonus_unique_bloodseeker_4"	"+20"
+				"value"									"8 16 24 32 40"
 			}
 		}
 	}
@@ -5413,9 +5417,9 @@
 			}
 			"hp_pct"
 			{
-				"value"	"10"
+				"value"	"6"
 				"CalculateSpellDamageTooltip"	"0"
-				"special_bonus_unique_bloodseeker_7"		"+10"	// 8
+				"special_bonus_unique_bloodseeker_7"		"+6"	// 8
 				"DamageTypeTooltip"				"DAMAGE_TYPE_PURE"
 			}
 			"AbilityCharges"
