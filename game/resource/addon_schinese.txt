@@ -830,6 +830,32 @@
 		"npc_dota_hero_techies"					"茶神"
 		// 撼地者
 		"npc_dota_hero_earthshaker"					"宇智波牛神"
+		// 水人
+		"npc_dota_hero_morphling:n"					"传奇3亚王ame的水人"
+		"npc_dota_hero_morphling__en:n"				"Morphling of ame"
+		"DOTA_Tooltip_ability_morphling_waveform"										"波高"
+		"DOTA_Tooltip_ability_morphling_waveform_Description"							"为什么不能波回来 为什么不能波回来 为什么不能波回来"
+		"DOTA_Tooltip_ability_morphling_waveform_Lore"									"团队决策！"
+		"DOTA_Tooltip_ability_morphling_waveform_pct_damage"							"%攻击伤害："
+		"DOTA_Tooltip_ability_morphling_waveform_Facet_morphling_agi"					"波高会攻击路径上的敌人。会施加攻击特效。"
+		// 小小
+		"npc_dota_hero_tiny:n"					"传奇3亚王ame的小小"
+		"npc_dota_hero_tiny__en:n"				"Tiny of ame"
+		"DOTA_Tooltip_ability_lycan_shapeshift"										"我们狼人小小没输过"
+		"DOTA_Tooltip_ability_lycan_shapeshift_Lore"								"我前妻辣么肥"
+		"DOTA_Tooltip_ability_lycan_shapeshift_Description"							"唉，我前期那么肥"
+		// 泰罗 斯温
+		"npc_dota_hero_sven:n"					"传奇3亚王ame的泰罗"
+		"npc_dota_hero_sven__en:n"				"Sven of ame"
+		"DOTA_Tooltip_ability_sven_gods_strength"										"谢谢你，泰罗"
+		// 小骷髅
+		"npc_dota_hero_clinkz:n"					"传奇3亚王ame的小骷髅"
+		"npc_dota_hero_clinkz__en:n"				"Clinkz of ame"
+		"DOTA_Tooltip_ability_clinkz_burning_barrage"											"这对线有这么难打吗"
+		// 剑圣
+		"npc_dota_hero_juggernaut:n"					"传奇3亚王ame的剑圣"
+		"npc_dota_hero_juggernaut__en:n"				"Juggernaut of ame"
+		"DOTA_Tooltip_ability_juggernaut_omni_slash"									"最后的无敌斩"
 
 		// 谜团
 		"DOTA_Tooltip_ability_enigma_malefice_shard_description"						"憎恶的眩晕时间增加%shard_bonus_stun_duration_tooltip%秒。"
