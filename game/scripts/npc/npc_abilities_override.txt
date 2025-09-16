@@ -5671,7 +5671,7 @@
 	"drow_ranger_frost_arrows"
 	{
 		"MaxLevel" "5"
-		"AbilityManaCost"				"9 10 11 12 13"
+		"AbilityManaCost"				"12 14 16 18 20"
 		"AbilityValues"
 		{
 			"frost_arrows_movement_speed"	"-10 -20 -30 -40 -50"
@@ -5687,12 +5687,16 @@
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
-				"silence_duration"	"3 4 5 6 7"
+				"silence_duration"	"4 4.5 5 5.5 6"
 				"knockback_duration"		"0.6 0.7 0.8 0.9 1.0"
 				"AbilityCooldown"
 				{
-					"value"											"14 12 10 8 6"
+					"value"											"12 11 10 9 8"
 				}
+				"gust_reveals_invis"
+                {
+                    "value"                                         "0"		// 1
+                }
 		}
 	}
 	// 数箭齐发
@@ -5705,12 +5709,10 @@
 			"arrow_damage_pct"
 			{
 				"value"										"120 140 160 180 200"
-				"special_bonus_unique_drow_ranger_1"		"+40"			// 25
 			}
 			"AbilityCooldown"
 			{
 				"value"											"22 20 18 16 14"
-				"special_bonus_unique_drow_ranger_6"			"-8"		// -6
 			}
 		}
 	}
@@ -5722,11 +5724,10 @@
 		{
 			"chance"
 			{
-				"value"										"30 35 40 45"	// 30 35 40
-				"special_bonus_unique_drow_ranger_3"		"+15"			// 10
+				"value"										"30 33 36 39"	// 30 35 40
+				"special_bonus_unique_drow_ranger_3"		"+11"			// 10
 			}
 			"bonus_damage"									"40 60 80 100"
-			"disable_range"									"300" // 400
 		}
 	}
 	// 精准光环（先天 随大招等级）
@@ -5735,7 +5736,9 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"trueshot_agi_bonus_base"			"4 8 12 16 20"
+				"trueshot_agi_bonus_base"			"2 4 6 8 10"	// 4 8 12 16
+				"trueshot_agi_bonus_per_level"      "0.5"			// 1
+                "trueshot_agi_bonus_allies_pct"     "100"			// 50
 		}
 	}
 	//=================================================================================================================
