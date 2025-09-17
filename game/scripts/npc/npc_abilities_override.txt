@@ -2536,16 +2536,15 @@
 	"lycan_shapeshift"
 	{
 		"MaxLevel" "4"
-		// "LinkedAbility"					"tiny_grow"
-		// "AbilityDraftPreAbility"		"tiny_grow"
 		"AbilityValues"
 		{
+			// FIXME 限时强化结束后 削弱持续时间
 			"duration"
 			{
-				"value"				"40"
-				"special_bonus_unique_lycan_1"	"+20"
+				"value"				"40"	// 25
+				"special_bonus_unique_lycan_1"	"+20"	// +7
 			}
-			"speed"				"900"
+			"speed"				"900"	// 550
 			"crit_multiplier"		"160 200 240 280"
 			"health_bonus"		"500 700 900 1100" // x2
 			"AbilityCooldown"
@@ -2559,13 +2558,16 @@
 	"lycan_wolf_bite"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60"
 		"AbilityValues"
 		{
 			"lifesteal_range"
 			{
 				"value"		"1800" // 1200
 				"affected_by_aoe_increase"	"1"
+			}
+			"AbilityCooldown"
+			{
+				"value"							"60"	// 110 100 90
 			}
 		}
 	}
@@ -4291,12 +4293,11 @@
 	"sven_storm_bolt"
 	{
 		"MaxLevel" "5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		// FIXME 限时强化结束后回退
+		// "AbilityCooldown"				"20 18 16 14 12"
 		"AbilityCooldown"				"16 14 12 10 8"
 		"AbilityDamage"					"80 160 240 320 400"
 		"AbilityManaCost"				"110 120 130 140 150"
-		"LinkedAbility"					"sven_great_cleave"
-		"AbilityDraftPreAbility"		"sven_great_cleave"
 		"AbilityValues"
 		{
 				"bolt_stun_duration"
@@ -4307,17 +4308,16 @@
 				{
 					"value"			"250 270 290 310 330"
 				}
+				// FIXME 限时强化结束后回退
 				"cast_range_bonus_scepter"
 				{
-					"special_bonus_scepter"		"650"
+					"special_bonus_scepter"		"650"	// 350
 				}
 		}
 	}
 	// 巨力挥舞
 	"sven_great_cleave"
 	{
-		"LinkedAbility"					"sven_storm_bolt"
-		"AbilityDraftPreAbility"		"sven_storm_bolt"
 		"MaxLevel" "5"
 		"AbilityValues"
 		{
@@ -4331,6 +4331,8 @@
 			}
 			"great_cleave_damage"
 			{
+				// "value"				"50 60 70 80 90"
+				// FIXME 限时强化结束后回退
 				"value"				"65 75 85 95 105"
 				"special_bonus_unique_sven_8" "+45"
 			}
@@ -4340,6 +4342,8 @@
 	"sven_warcry"
 	{
 		"MaxLevel" "5"
+		// FIXME 限时强化结束后回退
+		// "AbilityCooldown"				"40 35 30 25 20"
 		"AbilityCooldown"				"35 30 25 20 15"
 		"AbilityManaCost"				"40 45 50 55 60"
 		"AbilityValues"
@@ -4378,7 +4382,7 @@
 		{
 			"gods_strength_damage"
 			{
-				"value"		"130 160 190 220"
+				"value"		"130 160 190 220"	// 110 150 190
 			}
 		}
 	}
@@ -4641,13 +4645,14 @@
 		{
 				"AbilityCastRange"
 				{
-					"value"		"600"
-					"special_bonus_unique_tiny_4" "+600"
+					// FIXME 限时强化结束后削弱
+					"special_bonus_unique_tiny_4" "+600"	// 200
 				}
 				"avalanche_damage"
 				{
 					"value"				"120 240 360 480"		// 100 190 280 370 加强
-					"special_bonus_unique_tiny"			"+320"
+					// FIXME 限时强化结束后削弱
+					"special_bonus_unique_tiny"			"+320"	// 100
 				}
 		}
 	}
@@ -4696,8 +4701,7 @@
 		{
 			"attack_count"
 			{
-				"value"					"10 15 20 25 30"
-				"special_bonus_shard"	"=0"
+				"value"					"10 15 20 25 30"	// 5
 			}
 			"bonus_damage"
 			{
@@ -4724,8 +4728,6 @@
 	"tiny_grow"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"					"lycan_shapeshift"
-		"AbilityDraftPreAbility"		"lycan_shapeshift"
 		"AbilityValues"
 		{
 				"bonus_armor"				"10 20 30 40"		// 5 10 15 x2
@@ -4735,6 +4737,8 @@
 				}
 				"attack_speed_reduction"
 				{
+					// FIXME 限时强化结束后回退
+					// "value"		"-20"						// -35 +15
 					"value"		"-0"						// -35 +15
 					"special_bonus_unique_tiny_6" "+10"		// +8 +2
 				}
@@ -5584,6 +5588,7 @@
 			"attack_speed_bonus"
 			{
 				"value"									"100 140 180 220 260"
+				// FIXME 限时强化结束后回退
 				"special_bonus_unique_clinkz_7"			"+200"
 			}
 			"duration"
@@ -5596,11 +5601,7 @@
 				"value"								"30 25 20 15 10"
 				"special_bonus_unique_clinkz_4"		"-5"
 			}
-			"debuff_duration"
-			{
-				"value"							"0"
-				"special_bonus_facet_clinkz_suppressive_fire"			"=2.0"
-			}
+			// FIXME 限时强化结束后回退
 			"blind_pct"
 			{
 				"value"							"0"
@@ -5639,10 +5640,8 @@
 	// 炽烈火雨
 	"clinkz_burning_barrage"
 	{
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"6"		// 17
 		"AbilityManaCost"				"90"
-		"Innate" 						"1"
-		"IsGrantedByShard"				"0"
 		"AbilityValues"
 		{
 			"wave_count"		"9"
@@ -6344,17 +6343,22 @@
 	"juggernaut_omni_slash"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90 90 90 1"		// 120
-		"AbilityManaCost"				"250 300 350 400"
+		// "AbilityCooldown"				"90"		// 120
+		// FIXME 限时强化结束后回退
+		"AbilityCooldown"				"90 60 30 3"		// 120
 		"LevelsBetweenUpgrades"					"12"
+
+		"AbilityManaCost"				"250 300 350 400"
 		"AbilityValues"
 		{
-			"attack_rate_multiplier"	"1.5 1.7 1.9 2.1"
+			"attack_rate_multiplier"	"1.5 1.7 1.9 2.1"	// 1.5
 			"bonus_damage"				"50 70 90 110"	// x2
 			"bonus_attack_speed"				"100"	// 40
 			"duration"
 			{
-				"value"						"3.1 4.0 5.0 80000"
+				// "value"						"3.1 3.4 3.7 4.0"
+				// FIXME 限时强化结束后回退
+				"value"						"3.0 4.0 5.0 6.0"
 			}
 			"omni_slash_radius"
 			{
@@ -6362,6 +6366,8 @@
 			}
 			"AbilityCastRange"
 			{
+				// "value"					"600"		// 450
+				// FIXME 限时强化结束后回退
 				"value"					"600 600 600 1200"		// 450
 			}
 		}
@@ -6967,21 +6973,6 @@
 		"AbilityDamage"					"75 150 225 300 375"
 		"AbilityValues"
 		{
-			"speed"					"1250"
-			"width"
-			{
-				"value"				"200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"AbilityCharges"
-			{
-				"value"	"0"
-			}
-			// "charge_restore_time"
-			// {
-			// 	"value"	"17 15 13 11 9"
-			// 	"special_bonus_unique_morphling_waveform_cooldown"			"-60%"
-			// }
 			"AbilityCastRange"
 			{
 				"value"				"700 800 900 1000 1100"
@@ -6989,17 +6980,16 @@
 			}
 			"AbilityCooldown"
 			{
+				// "value"									"20 18 16 14 12"
+				// FIXME 限时强化结束后回退
 				"value"														"17 15 13 11 9"
 				"special_bonus_unique_morphling_waveform_cooldown"			"-60%"
 			}
 			"pct_damage"
 			{
-				"value"										"0"
 				"special_bonus_facet_morphling_agi"			"+100"
-				"special_bonus_unique_morphling_4"			"+100"
-				"CalculateSpellDamageTooltip"				"0"
-				"DamageTypeTooltip"							"DAMAGE_TYPE_PHYSICAL"
 			}
+			// FIXME 限时强化结束后回退
 			"process_procs"
 			{
 				"value" "1"
@@ -7043,6 +7033,8 @@
 				}
 				"extra_targets"
 				{
+					// "value"								"1"
+					// FIXME 限时强化结束后回退
 					"value"								"2"
 				}
 		}
@@ -7080,8 +7072,9 @@
 	{
 		"AbilityValues"
 		{
-			"agi_per_one_spell_amp"			"3"
-			"one_percent_tooltip"			"1"
+			// 每N点敏捷增加1%魔法伤害
+			// FIXME 限时强化结束后削弱
+			"agi_per_one_spell_amp"			"3"	// 4
 		}
 	}
 	// 变形
@@ -7094,7 +7087,7 @@
 		{
 			"duration"
 			{
-				"value"								"45"
+				"value"								"45"	// 24
 				"special_bonus_unique_morphling_8" "+15"
 			}
 			"scepter_stat_steal"

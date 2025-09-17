@@ -830,6 +830,7 @@
 		"npc_dota_hero_techies"					"茶神"
 		// 撼地者
 		"npc_dota_hero_earthshaker"					"宇智波牛神"
+		// FIXME 限时强化结束后回退
 		// 水人
 		"npc_dota_hero_morphling:n"					"传奇3亚王ame的水人"
 		"npc_dota_hero_morphling__en:n"				"Morphling of ame"

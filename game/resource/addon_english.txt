@@ -828,7 +828,6 @@
 		//
 		///////////////////////////////////////////////////
 		//墓碑改说明
-		// "DOTA_Tooltip_ability_undying_tombstone"						"墓碑·改（不生成小僵尸）"
 		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone·MK2(No Zombie)"
 		//骨隐步改说明
 		"DOTA_Tooltip_ability_clinkz_wind_walk"											"Skeleton Walk·MK2(No Skeleton Archers)"

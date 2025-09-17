@@ -1289,6 +1289,8 @@
 				"9"		"juggernaut_blade_dance"
 				"10"		"special_bonus_unique_juggernaut"
 				"11"		"juggernaut_healing_ward"
+				// FIXME 限时强化结束后回退
+				// "12"		"juggernaut_omni_slash"
 				"12"		""//只让bot学3级
 				"13"		"juggernaut_healing_ward"
 				"14"		"juggernaut_healing_ward"
@@ -1782,6 +1784,7 @@
 	{
 		"Ability5"		"generic_hidden" // Remove 烈焰之军
 		"Ability12"		"special_bonus_attack_range_100"
+		// FIXME 限时强化结束后回退
 		"Ability15"		"special_bonus_unique_clinkz_1"
 		"Ability13"		"special_bonus_unique_clinkz_10"
 		"Ability11"		"special_bonus_unique_clinkz_9"
@@ -2372,6 +2375,7 @@
 	// 水人
 	"npc_dota_hero_morphling"
 	{
+		// FIXME 限时强化结束后回退
 		"Ability15"		"special_bonus_magic_resistance_15"
 		"Ability21"		"special_bonus_unique_morphling_1"
 		"Ability18"		"special_bonus_attack_range_75"
@@ -2383,8 +2387,7 @@
 	// 小小
 	"npc_dota_hero_tiny"
 	{
-		// "Ability6"		"lycan_shapeshift"
-		// "Ability8"		"tiny_grow"
+		// FIXME 限时强化结束后回退
 		"Ability15"		"special_bonus_unique_tiny_4"
 		"Ability11"		"special_bonus_strength_8"
 		"Ability14"		"special_bonus_unique_tiny_6"
