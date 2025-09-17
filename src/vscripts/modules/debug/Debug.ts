@@ -56,6 +56,14 @@ export class Debug {
       });
     }
     // ---- item ----
+    // add bkb to all
+    if (cmd === CMD.ADD_BKB_ALL) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        hero.AddItemByName('item_black_king_bar_2');
+      });
+    }
     if (cmd === CMD.ADD_ITEM_ALL) {
       const itemName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
