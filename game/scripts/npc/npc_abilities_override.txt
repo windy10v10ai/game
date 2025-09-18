@@ -6287,7 +6287,7 @@
 		{
 				"blade_dance_crit_mult"
 				{
-					"value"		"180 200 220 240 260"
+					"value"		"175 200 225 250 275"
 					"special_bonus_unique_juggernaut_4"	"+10"
 				}
 		}
@@ -6296,15 +6296,16 @@
 	"juggernaut_omni_slash"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90"		// 120
-		"AbilityManaCost"				"250 300 350 400"
+		"AbilityCooldown"				"100 90 80 70"		// 120
+		"AbilityManaCost"				"250 350 450 550"
 		"AbilityValues"
 		{
+			"attack_rate_multiplier"    "1.75"			// 1.5
 			"bonus_damage"				"50 60 70 80"	// x2
-			"bonus_attack_speed"				"100"	// 40
+			"bonus_attack_speed"				"100 120 140 160"	// 40
 			"duration"
 			{
-				"value"						"3 3.25 3.5 3.75"
+				"value"						"3.0 3.25 3.5 3.75"
 				"special_bonus_unique_juggernaut_omnislash_duration"            "+0.75"
 			}
 		}
