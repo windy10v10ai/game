@@ -1548,6 +1548,9 @@
 	// 美杜莎
 	"npc_dota_hero_medusa"
 	{
+		"ArmorPhysical"     "2"
+		"AttributeBaseStrength"     "15"	// 0
+        "AttributeStrengthGain"     "1.4"	// 0c
 		"Bot"
 		{
 			"Build"
@@ -2399,6 +2402,8 @@
 		"Ability17"		"special_bonus_unique_tiny_5"
 		"Ability13"		"special_bonus_unique_tiny_3"
 		"Ability10"		"special_bonus_unique_tiny_2"
+		"AttributeBaseAgility"      "13"	// 0
+        "AttributeAgilityGain"      "1.1"	// 0
 		"Bot"
 		{
 			"Build"
