@@ -1614,6 +1614,7 @@
 		"AbilityCooldown"				"90.0 80.0 70.0 60.0"
 		"AbilityManaCost"				"150 200 250 300"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityValues"
 		{
 				"echo_slam_echo_damage"
@@ -5638,6 +5639,7 @@
 	// 骨隐步
 	"clinkz_wind_walk" // 去掉骷髅兵
 	{
+		"MaxLevel"						"4"
 		"AbilityValues"
 		{
 			"skeleton_count"
@@ -5646,7 +5648,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"									"16 13 10"
+				"value"									"16 14 12 10"
 				"special_bonus_unique_clinkz_10"		"-4"
 			}
 		}
@@ -5658,7 +5660,7 @@
 		"AbilityManaCost"				"90"
 		"AbilityValues"
 		{
-			"wave_count"		"9"
+			"wave_count"			"9"
 			"damage_pct"			"90"
 		}
 	}
@@ -7478,7 +7480,7 @@
 				}
 				"impale_damage"
 				{
-					"value"			"100 160 220 280 340"
+					"value"			"150 200 250 300 350"
 				}
 		}
 	}
@@ -7529,11 +7531,11 @@
 			}
 			"AbilityManaCost"
 			{
-				"value"				"180 240 300 360"
+				"value"				"175 200 225 250"
 			}
 			"movement_speed"
 			{
-				"value"			"16 18 20 22"
+				"value"			"16 20 24 28"
 			}
 			"bonus_damage"
 			{
@@ -7556,7 +7558,7 @@
 			"mana_regen_rate"		"1"
 			"damage_reduction"			"40"
 			"cast_range"			"600"			// 500
-			"cooldown_reduction"			"40"	// 25
+			"cooldown_reduction"			"33"	// 25
 		}
 	}
 	// 夜之感知 先天技能
@@ -8797,18 +8799,18 @@
 		{
 			"strike_damage"
 			{
-				"value"					"50 75 100 125 150"	// 25 50 75 100
+				"value"					"100 150 200 250 300"	// 25 50 75 100
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"tick_damage"
 			{
-				"value"					"40 70 100 130 160"	// 10 40 70 100
+				"value"					"80 140 200 260 320 380"	// 10 40 70 100
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"movement_slow"			"-35 -40 -45 -50 -55"
+			"movement_slow"			"-55 -60 -65 -70 -75"
 			"radius"
 			{
-				"value"		"175"	// 125
+				"value"		"250"	// 125
 				"affected_by_aoe_increase"	"1"
 			}
 			"create_wards"
@@ -8823,7 +8825,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"									"21 20 19 18 17"
+				"value"									"18 17 16 15 14"
 				"special_bonus_unique_venomancer_3"					"-5"
 			}
 		}
@@ -8837,17 +8839,17 @@
 			"duration"				"6 9 12 15 18"
 			"damage"
 			{
-				"value"				"16 32 48 64 80"
-				"special_bonus_unique_venomancer_201"		"+30"
+				"value"				"20 40 60 80 100"
+				"special_bonus_unique_venomancer_201"		"+50"
 			}
 			"movement_speed"
 			{
-				"value"			"-8 -10 -12 -14 -16"
+				"value"			"-12 -15 -18 -21 -24"
 				"special_bonus_unique_venomancer_2"		"-10"
 			}
 			"hp_regen_reduction"
 			{
-				"value"				"10"
+				"value"				"25"
 				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+25"	// +15
 			}
 		}
@@ -8877,25 +8879,25 @@
 
 			"ward_hp_tooltip"
 			{
-				"value"							"300 450 600 750 900"
-				"special_bonus_unique_venomancer" "x2.5"
+				"value"							"300 400 500 600 700"
+				"special_bonus_unique_venomancer" "x3"
 			}
 			"ward_damage_tooltip"
 			{
-				"value"							"20 30 40 50 60"
-				"special_bonus_unique_venomancer" "x2.5"
+				"value"							"30 60 90 120 150"
+				"special_bonus_unique_venomancer" "x3"
 			}
 			// "threshold"
 			// {
-			// 	"value"							"300 450 600 750 900"
-			// 	"special_bonus_unique_venomancer" "x2.5"
+			// 	"value"							"300 400 500 600 700"
+			// 	"special_bonus_unique_venomancer" "x3"
 			// }
 			// "threshold_max_hp_pct"
 			// {
 			// 	"special_bonus_facet_venomancer_plague_carrier"
 			// 	{
-			// 		"value"							"1.5 2 2.5 3 3.5"
-			// 		"special_bonus_unique_venomancer" "x2.5"
+			// 		"value"							"2 3 4 5 6"
+			// 		"special_bonus_unique_venomancer" "x3"
 			// 	}
 			// }
 		}
@@ -9393,11 +9395,11 @@
 			"AbilityCooldown"
 			{
 				"value"	"90 80 70 60"
-				"special_bonus_scepter"	"-30"
+				"special_bonus_scepter"	"-20"
 			}
 			"illusion_count"
 			{
-				"special_bonus_scepter" "+0"
+				"special_bonus_scepter" "+2"	// Reduce to 1 if lag becomes an issue
 			}
 		}
 	}
@@ -10442,7 +10444,7 @@
 		{
 			"damage"
 			{
-				"value"		"100 180 260 340 420"	// 100 160 220 280
+				"value"		"100 200 300 400 500"	// 100 160 220 280
 			}
 			"bonus_damage_per_hero"
 			{
@@ -10455,11 +10457,11 @@
 			"movement_slow_pct"		"50 60 70 80 90"
 			"AbilityCastRange"
 			{
-				"value"									"1800"		// 1400
+				"value"									"2000"		// 1400
 			}
 			"projectile_speed"
 			{
-				"value"						"2400"		// 2000
+				"value"						"2500"		// 2000
 			}
 		}
 	}
@@ -10474,13 +10476,13 @@
 		{
 			"destroy_attacks"
 			{
-				"value"			"6 6 9 9 12"
+				"value"			"9 9 12 12 15"
 			}
 			"damage_per_second"
 			{
-				"value"			"10 20 30 40 50"
+				"value"			"15 30 45 60 75"
 			}
-			"pop_damage"				"120 200 280 360 440"
+			"pop_damage"				"125 250 375 500 625"
 		}
 	}
 	// 墨涌
@@ -10494,11 +10496,11 @@
 		{
 				"max_damage"
 				{
-					"value"		"180 270 360 450 540"	// +90
+					"value"		"270 360 450 540 630"	// +180
 				}
 				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6/2.0/2.4/2.8
-				"damage_per_tick"		"12 18 24 30 36"	// x2
-				"tick_dps_tooltip"		"60 90 120 150 180"	// x2
+				"damage_per_tick"		"18 27 36 45 54"	// x3
+				"tick_dps_tooltip"		"90 135 170 225 270"	// x3
 		}
 	}
 	// 暗绘
@@ -10507,13 +10509,17 @@
 		"AbilityCooldown"				"60"		// 幻想卡顿，增加CD
 		"AbilityValues"
 		{
+			"illusion_duration"
+            {
+                "value" "30"	// 25
+            }
 			"images_take_damage_percent"
 			{
-				"value" "200"	// 250-50
+				"value" "0"		// 250
 			}
 			"images_take_damage_percent_tooltip"
 			{
-				"value" "300"	// 350-50
+				"value" "100"	// 350-250
 			}
 			"images_movespeed_bonus"
 			{
@@ -11767,8 +11773,18 @@
 		{
 			"damage"
 			{
-				"value"					"100 160 220 280 340"
+				"value"					"100 175 250 325 40"
 			}
+			"damage_per_buff"               
+            {
+                "value"                 "0"
+                "special_bonus_unique_oracle_damage_per_purge"          "+125"	// 80
+            }   
+            "heal_per_debuff"
+            {
+                "value"                 "0"
+                "special_bonus_unique_oracle_damage_per_purge"          "+125"	// 80
+            }
 		}
 	}
 	// 命运敕令
@@ -11792,8 +11808,8 @@
 		"AbilityValues"
 		{
 				"damage"				"90 180 270 360 450"
-				"heal_per_second"		"15 25 35 45 55"
-				"total_heal_tooltip"	"150 250 350 450 550"
+				"heal_per_second"		"20 30 40 50 60"
+				"total_heal_tooltip"	"200 300 400 500 600"
 		}
 	}
 	// 虚妄之诺
@@ -11807,8 +11823,16 @@
 			"duration"
 			{
 				"value"				"7 8 9 10"
-				"special_bonus_unique_oracle"	"+1.5"
+				"special_bonus_unique_oracle"	"+2"
 			}
+			"shard_spell_amp_bonus"
+            {
+                "special_bonus_scepter"             "50"	// 30
+            }
+            "shard_bat_bonus"
+            {
+                "special_bonus_scepter"             "0.3"	// 0.25
+            }
 			"AbilityCooldown"
 			{
 				"value"								"90 80 70 60"
@@ -11819,14 +11843,17 @@
 			}
 			"heal_amp_pct"
 			{
-				"value"							"100 125 150 175"
+				"value"							"100 125 150 175"	// 100
+				"special_bonus_shard"			"+25"				// 0
 			}
 		}
 	}
 	// 天命之雨
 	"oracle_rain_of_destiny"
 	{
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"25"
+		"AbilityCastRange"              "800"	// 650
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"radius"
@@ -11835,8 +11862,9 @@
 			}
 			"damage"
 			{
-				"value"					"120"	// 30
+				"value"					"150"	// 30
 			}
+			"tick_rate"             "0.5"	// 1.0
 			"heal_amp"				"50"	// 15
 		}
 	}
@@ -11853,7 +11881,7 @@
 	{
 		"AbilityValues"
 		{
-			"heal_amplification"		"1.5"		// 0.75
+			"heal_amplification"		"1.75"		// 0.75
 		}
 	}
 	//=================================================================================================================
@@ -13040,13 +13068,12 @@
 		{
 			"damage_absorb"
 			{
-				"value"							"160 320 480 640 800"	// x2
-				"special_bonus_unique_tinker_7"	"+400"	// 60
+				"value"							"120 240 360 480 600"	// x1.5
+				"special_bonus_unique_tinker_7"	"+100"	// 60
 			}
 			"status_resistance"
 			{
-				"value"															"30 40 50 60 70"
-				"special_bonus_unique_tinker_defense_matrix_status_resistance"	"+20"	// 10
+				"value"															"30 35 40 45 50"
 			}
 			"barrier_duration"
 			{
