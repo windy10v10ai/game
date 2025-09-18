@@ -414,7 +414,7 @@
 	{
 		"Ability4"		"marci_guardian"
 
-		"Ability10"		"special_bonus_unique_marci_unleash_speed"
+		"Ability10"		"special_bonus_unique_marci_guardian_lifesteal"
 		"Ability11"		"special_bonus_unique_marci_lunge_range"	// 覆盖原有天赋范围
 		"Ability15"		"special_bonus_status_resistance_25"
 
@@ -1272,7 +1272,8 @@
 	// 剑圣
 	"npc_dota_hero_juggernaut"
 	{
-		// "DisableWearables" 			"1"
+		"Ability10"		"special_bonus_unique_juggernaut"
+		"Ability15"		"special_bonus_unique_juggernaut_5"// 对调10和15
 		"Bot"
 		{
 			"Build"
@@ -1286,9 +1287,11 @@
 				"7"		"juggernaut_blade_dance"
 				"8"		"juggernaut_healing_ward"
 				"9"		"juggernaut_blade_dance"
-				"10"		"special_bonus_unique_juggernaut_3"
+				"10"		"special_bonus_unique_juggernaut"
 				"11"		"juggernaut_healing_ward"
-				"12"		"juggernaut_omni_slash"
+				// FIXME 限时强化结束后回退
+				// "12"		"juggernaut_omni_slash"
+				"12"		""//只让bot学3级
 				"13"		"juggernaut_healing_ward"
 				"14"		"juggernaut_healing_ward"
 				"15"		"special_bonus_unique_juggernaut_blade_fury_movespeed"
@@ -1296,14 +1299,14 @@
 				"17"		""
 				"18"		"juggernaut_omni_slash"
 				"19"		""
-				"20"		"special_bonus_unique_juggernaut"
+				"20"		"special_bonus_unique_juggernaut_5"
 				"21"		""
 				"22"		""
 				"23"		""
 				"24"		""
 				"25"		"special_bonus_unique_juggernaut_omnislash_duration"
 				"26"		""
-				"27"		"special_bonus_unique_juggernaut_5"
+				"27"		"special_bonus_unique_juggernaut_3"
 				"28"		"special_bonus_unique_juggernaut_healing_ward_heal"
 				"29"		"special_bonus_unique_juggernaut_2"
 				"30"		"special_bonus_unique_juggernaut_blade_dance_lifesteal"
@@ -1781,6 +1784,14 @@
 	{
 		"Ability5"		"generic_hidden" // Remove 烈焰之军
 		"Ability12"		"special_bonus_attack_range_100"
+		// FIXME 限时强化结束后回退
+		"Ability15"		"special_bonus_unique_clinkz_1"
+		"Ability13"		"special_bonus_unique_clinkz_10"
+		"Ability11"		"special_bonus_unique_clinkz_9"
+		"Ability14"		"special_bonus_unique_clinkz_8"
+		"Ability17"		"special_bonus_unique_clinkz_7"
+		"Ability16"		"special_bonus_unique_clinkz_4"
+		"Ability10"		"special_bonus_unique_clinkz_3"
 	}
 	// 全能骑士
 	"npc_dota_hero_omniknight"
@@ -2361,9 +2372,30 @@
 			}
 		}
 	}
+	// 水人
+	"npc_dota_hero_morphling"
+	{
+		// FIXME 限时强化结束后回退
+		"Ability15"		"special_bonus_magic_resistance_15"
+		"Ability21"		"special_bonus_unique_morphling_1"
+		"Ability18"		"special_bonus_attack_range_75"
+		"Ability19"		"special_bonus_unique_morphling_7"
+		"Ability17"		"special_bonus_unique_morphling_waveform_cooldown"
+		"Ability20"		"special_bonus_attack_range_100"
+		"Ability22"		"special_bonus_attack_range_150"
+	}
 	// 小小
 	"npc_dota_hero_tiny"
 	{
+		// FIXME 限时强化结束后回退
+		"Ability15"		"special_bonus_unique_tiny_4"
+		"Ability11"		"special_bonus_strength_8"
+		"Ability14"		"special_bonus_unique_tiny_6"
+		"Ability16"		"special_bonus_unique_tiny"
+		"Ability12"		"special_bonus_unique_tiny_7"
+		"Ability17"		"special_bonus_unique_tiny_5"
+		"Ability13"		"special_bonus_unique_tiny_3"
+		"Ability10"		"special_bonus_unique_tiny_2"
 		"Bot"
 		{
 			"Build"
