@@ -36,6 +36,7 @@ export enum CMD {
   ADD_ABILITY_ALL = '-aball',
 
   // ---- item ----
+  ADD_BKB_ALL = '-bkball', // 所有人添加bkb
   ADD_ITEM_ALL = '-additemall', // 所有人添加物品
   RM_ITEM = '-rmitem', // 移除物品
   REPLACE_NEUTRAL_ITEM = '-rn', // 替换中立物品

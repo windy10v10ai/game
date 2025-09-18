@@ -1,4 +1,3 @@
-import { StartAbilityCooldown } from '../../modules/helper/ability-helper';
 import { IsSameTeam } from '../../modules/helper/unit-helper';
 import {
   BaseItem,
@@ -24,6 +23,7 @@ export class ItemSaintOrb extends BaseItem {
     target.EmitSound('Item.LotusOrb.Target');
 
     target.AddNewModifier(caster, this, 'modifier_item_saint_orb_buff', { duration });
+    target.AddNewModifier(caster, this, 'modifier_item_lotus_orb_active', { duration });
   }
 }
 
@@ -31,9 +31,9 @@ export class ItemSaintOrb extends BaseItem {
 export class ModifierItemSaintOrbPassive extends BaseItemModifier {
   override statsModifierName: string = 'modifier_item_saint_orb_stats';
 
-  DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ABSORB_SPELL, ModifierFunction.REFLECT_SPELL];
-  }
+  // DeclareFunctions(): ModifierFunction[] {
+  //   return [ModifierFunction.ABSORB_SPELL, ModifierFunction.REFLECT_SPELL];
+  // }
 
   CheckState(): Partial<Record<ModifierState, boolean>> {
     return {
@@ -41,42 +41,42 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
     };
   }
 
-  GetAbsorbSpell(keys: ModifierAbilityEvent): 0 | 1 {
-    if (!IsServer()) {
-      return 0;
-    }
-    const parent = this.GetParent();
-    const item = this.GetAbility();
-    if (!item) return 0;
-    if (item.GetCooldownTimeRemaining() > 0) {
-      return 0;
-    }
-    const absorbResult = GetAbsorbSpell(keys, parent, item);
+  // GetAbsorbSpell(keys: ModifierAbilityEvent): 0 | 1 {
+  //   if (!IsServer()) {
+  //     return 0;
+  //   }
+  //   const parent = this.GetParent();
+  //   const item = this.GetAbility();
+  //   if (!item) return 0;
+  //   if (item.GetCooldownTimeRemaining() > 0) {
+  //     return 0;
+  //   }
+  //   const absorbResult = GetAbsorbSpell(keys, parent, item);
 
-    if (absorbResult) {
-      StartAbilityCooldown(item);
-    }
-    return absorbResult ? 1 : 0;
-  }
+  //   if (absorbResult) {
+  //     StartAbilityCooldown(item);
+  //   }
+  //   return absorbResult ? 1 : 0;
+  // }
 
-  GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
-    if (!IsServer()) {
-      return 0;
-    }
-    const item = this.GetAbility();
-    if (!item) return 0;
-    if (item.GetCooldownTimeRemaining() > 0) {
-      return 0;
-    }
+  // GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
+  //   if (!IsServer()) {
+  //     return 0;
+  //   }
+  //   const item = this.GetAbility();
+  //   if (!item) return 0;
+  //   if (item.GetCooldownTimeRemaining() > 0) {
+  //     return 0;
+  //   }
 
-    const parent = this.GetParent();
-    const reflectResult = ReflectSpellToCaster(keys, parent);
-    if (reflectResult) {
-      // GetReflectSpell 优先执行 不进入冷却，GetAbsorbSpell执行结束后 进入冷却
-      // StartAbilityCooldown(item);
-    }
-    return reflectResult ? 1 : 0;
-  }
+  //   const parent = this.GetParent();
+  //   const reflectResult = ReflectSpellToCaster(keys, parent);
+  //   if (reflectResult) {
+  //     // GetReflectSpell 优先执行 不进入冷却，GetAbsorbSpell执行结束后 进入冷却
+  //     // StartAbilityCooldown(item);
+  //   }
+  //   return reflectResult ? 1 : 0;
+  // }
 }
 
 @registerModifier('modifier_item_saint_orb_buff')
@@ -98,7 +98,10 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ABSORB_SPELL, ModifierFunction.REFLECT_SPELL];
+    return [
+      ModifierFunction.ABSORB_SPELL,
+      // ModifierFunction.REFLECT_SPELL,
+    ];
   }
 
   GetTexture(): string {
@@ -145,11 +148,11 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
     return absorbResult ? 1 : 0;
   }
 
-  GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
-    const parent = this.GetParent();
+  // GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
+  //   const parent = this.GetParent();
 
-    return ReflectSpellToCaster(keys, parent) ? 1 : 0;
-  }
+  //   return ReflectSpellToCaster(keys, parent) ? 1 : 0;
+  // }
 }
 
 export function GetAbsorbSpell(
@@ -182,7 +185,7 @@ export function GetAbsorbSpell(
   ParticleManager.ReleaseParticleIndex(particle);
 
   // 治疗效果
-  const healPercent = item.GetSpecialValueFor('heal');
+  const healPercent = item.GetSpecialValueFor('heal_percent');
   const healAmount = parent.GetMaxHealth() * healPercent * 0.01;
   parent.Heal(healAmount, item);
 

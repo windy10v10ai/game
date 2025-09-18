@@ -2655,7 +2655,7 @@
 			// active
 			"stun_m"				"1.6"
 			"active_damage_base"	"200"
-			"active_damage_multi"	"0.75"
+			"active_damage_multi"	"1"
 			// Passive
 			"stun"					"1.2"
 			"ch_m"					"25"
@@ -4053,7 +4053,7 @@
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
-			"blink_damage_cooldown"	"3.0"
+			"blink_damage_cooldown"	"1.0"
 			"meteor_fall_time"		"0.5"
 			"meteor_land_radius"	"350"
 			"buff_duration"			"6"
@@ -4665,7 +4665,7 @@
 	{
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"saint_orb"
-		"ScriptFile"					"items/item_saint_orb"
+		"ScriptFile"					"items/ts_items/item_saint_orb"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"

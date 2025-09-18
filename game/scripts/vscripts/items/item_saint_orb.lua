@@ -1,6 +1,6 @@
 item_saint_orb = class({})
-LinkLuaModifier("modifier_item_saint_orb_passive", "items/item_saint_orb", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_saint_orb_buff", "items/item_saint_orb", LUA_MODIFIER_MOTION_NONE)
+-- LinkLuaModifier("modifier_item_saint_orb_passive", "items/item_saint_orb", LUA_MODIFIER_MOTION_NONE)
+-- LinkLuaModifier("modifier_item_saint_orb_buff", "items/item_saint_orb", LUA_MODIFIER_MOTION_NONE)
 -- LinkLuaModifier("modifier_item_saint_orb_buff2", "items/item_saint_orb", LUA_MODIFIER_MOTION_NONE)
 function item_saint_orb:GetIntrinsicModifierName() return "modifier_item_saint_orb_passive" end
 
