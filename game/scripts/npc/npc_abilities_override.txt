@@ -6824,12 +6824,14 @@
 				{
 					"value"						"15 14 13 12 11"	// -4
 				}
-				"arrow_speed"		"1200.0"		// 900
+				"arrow_range"       	"4500"		// 3000	Matches cast range
+                "arrow_max_stunrange"   "1500"
+				"arrow_speed"		"1500.0"		// 900
 				"arrow_min_stun"	"1.0"			// 0.01
 				"arrow_max_stun"	"4.0 4.5 5.0 5.5 6.0"	// 2.6 3.4 4.2 5.0
 				"arrow_bonus_damage"
 				{
-					"value"				"360"	// 180 (x2)
+					"value"						"360"	// 180 (x2)
 				}
 				"scepter_radius"        
                 {
@@ -6844,8 +6846,8 @@
 	// 月之暗面
 	"mirana_invis"
 	{
-		"MaxLevel" "4"
-		"AbilityCastPoint"              "0"
+		"MaxLevel"					"4"
+		"AbilityCastPoint"			"0"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -6853,42 +6855,42 @@
 				"value"			"85.0"
 				"special_bonus_unique_mirana_4"			"-25"
 			}
-			"fade_delay"			"2.5 2.0 1.5 1.0"
+			"fade_delay"				"2.5 2.0 1.5 1.0"
 			"bonus_movement_speed"		"12 16 20 24"
 			"evasion"       
                 {
                     "special_bonus_unique_mirana_5"     "+35"	// 20
                 }
-			"bonus_outgoing_damage_pct"				"14.0 16.0 18.0 20.0"
+			"bonus_outgoing_damage_pct"					"14.0 16.0 18.0 20.0"
 		}
 	}
 	// 跳跃
 	"mirana_leap"
 	{
 		"MaxLevel" "5"
-		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
-		"AbilityCharges"                "3"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCharges"				"3"
 		"AbilityChargeRestoreTime"		"24 21 18 15 12"
-		"AbilityManaCost"               "48 36 24 12 0"
+		"AbilityManaCost"				"40 30 20 10 0"
 		"AbilityValues"
 		{
 			"leap_distance"         
             {
-                "value"                         "650 750 850 950 1050"	// 650
+                "value"							"650 750 850 950 1050"	// 650
                 "special_bonus_unique_mirana_6" "+150"
             }
-			"leap_speed"            "2000.0"	// 1300.0
-			"leap_speedbonus"	"8 16 24 32 40"
+			"leap_speed"						"2000.0"	// 1300.0
+			"leap_speedbonus"					"8 16 24 32 40"
 			"leap_speedbonus_as"
 			{
 				"value"				"25 50 75 100 125"
 				"special_bonus_unique_mirana_1"	"+125"	// +90
 			}
-			"leap_bonus_duration"   "6"	// 5
+			"leap_bonus_duration"				"6"	// 5
 			"crit_damage_pct"
             {
-                "value"                 "0"
-                "special_bonus_shard"   "+225"	// 150
+                "value"							"0"
+                "special_bonus_shard"			"+225"	// 150
             }
 			"root_radius"
 			{
@@ -6918,14 +6920,14 @@
 			}
 			"damage"
 			{
-				"value"			"150 225 300 375 450"
-				"special_bonus_unique_mirana_7"	"+350"	// +250
+				"value"										"150 225 300 375 450"
+				"special_bonus_unique_mirana_7"				"+350"	// +250
 			}
 			"secondary_starfall_damage_percent"
             {
-                "value"                                 "100"	// 60
-                "CalculateSpellDamageTooltip"           "0"
-                "special_bonus_facet_mirana_starstruck" "+100"	// 40
+                "value"										"100"	// 60
+                "CalculateSpellDamageTooltip"				"0"
+                "special_bonus_facet_mirana_starstruck"		"+100"	// 40
             }
 			"starfall_radius"
 			{
