@@ -7088,7 +7088,7 @@
 		{
 			// 每N点敏捷增加1%魔法伤害
 			// FIXME 限时强化结束后削弱
-			"agi_per_one_spell_amp"			"8"	// 4
+			"agi_per_one_spell_amp"			"10"	// 4
 		}
 	}
 	// 变形
