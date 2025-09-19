@@ -1501,6 +1501,19 @@
 	}
 	"npc_dota_hero_luna"
 	{
+		"Ability12"						"special_bonus_unique_luna_8"
+		"ArmorPhysical"					"4"			// 2
+		"AttackRate"					"1.4"		// 1.7
+		"AttackRange"					"450"		// 330
+		"ProjectileSpeed"				"1250"		// 900
+		"AttributeBaseStrength"			"25"		// 21
+        "AttributeStrengthGain"			"2.6"		// 2.2
+        "AttributeBaseAgility"			"36"		// 24
+        "AttributeAgilityGain"			"4.1"		// 3.4
+        "AttributeIntelligenceGain"		"2.3"		// 1.9
+        "StatusHealthRegen"				"5"			// 0.5
+		"MovementSpeed"					"340"		// 325
+		"VisionNighttimeRange"      	"1800"		// 800
 		"Bot"
 		{
 			"Build"
@@ -1532,7 +1545,7 @@
 				"25"		"special_bonus_unique_luna_5"
 				"26"		""
 				"27"		"special_bonus_unique_luna_7"
-				"28"		"special_bonus_unique_luna_lunar_orbit_glaive_count"
+				"28"		"special_bonus_unique_luna_5"
 				"29"		"special_bonus_unique_luna_2"
 				"30"		"special_bonus_unique_luna_3"
 				"31"		"luna_eclipse"
