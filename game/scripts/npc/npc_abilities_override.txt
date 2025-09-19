@@ -1543,7 +1543,7 @@
 		"AbilityManaCost"				"120 125 130 135 140"
 		"AbilityValues"
 		{
-			"fissure_duration"			"6.5"
+			"fissure_duration"			"6"
 			"stun_duration"				"0.6 0.8 1.0 1.2 1.4"
 			"fissure_damage"
 			{
@@ -1554,6 +1554,23 @@
 			{
 				"value"			"18 17 16 15 14"
 			}
+			"shard_aftershock_stun_duration_pct"
+            {
+                "special_bonus_shard"               				"=75"	// 50
+            }
+            "free_pathing_linger_duration"
+            {
+                "special_bonus_shard"                               "=2.0"	// 1.0
+            }
+			"echoes_radius"
+            {
+                "special_bonus_facet_earthshaker_reverberating_ridge" "500"	// 400
+            }
+
+            "echoes_damage_multiplier"
+            {
+                "special_bonus_facet_earthshaker_reverberating_ridge" "=100"	// 60
+            }
 		}
 	}
 	// 强化图腾
@@ -1614,14 +1631,14 @@
 		"AbilityCooldown"				"90.0 80.0 70.0 60.0"
 		"AbilityManaCost"				"150 200 250 300"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityValues"
 		{
 				"echo_slam_echo_damage"
 				{
-					"value"				"90 120 150 180"
+					"value"				"125 150 175 200"
+					"special_bonus_unique_earthshaker_2" "+150"
 				}
-				"echo_slam_initial_damage"		"200 280 360 440"	// x2
+				"echo_slam_initial_damage"		"200 300 400 500"	// 100 140 180
 				"AbilityCooldown"
 				{
 					"value"										"90.0"
@@ -2829,7 +2846,6 @@
 	{
 		"MaxLevel" "4"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityValues"
 		{
 			"charges_per_flurry"	"6 8 10 12"	//5
