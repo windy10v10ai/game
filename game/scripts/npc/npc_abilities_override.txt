@@ -6540,23 +6540,27 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"9.0 8.0 7.0 6.0 5.0"
-				"special_bonus_unique_luna_2" "-3.0"
+				"value"					"6.0 5.0 4.0 3.0 2.0"
+				"special_bonus_unique_luna_2" "-0.5"
 			}
 			"AbilityManaCost"
 			{
-				"value"					"90 100 110 120 130"
+				"value"					"90 80 70 60 50"
 			}
 			"beam_damage"
 			{
-				"value"					"80 160 240 320 400"
-				"special_bonus_unique_luna_1"	"+150"	// 110
+				"value"					"100 200 300 400 500"
+				"special_bonus_unique_luna_1"	"+125"	// 110
 			}
 			"damage_buff_per_beam"
 			{
 				"value"						"0"
-				"special_bonus_facet_luna_moonstorm"			"+5 8 11 14 17"
-			}
+				"special_bonus_facet_luna_moonstorm"			"+5 10 15 20 25"
+			}	
+			"damage_buff_from_eclipse_pct"
+            {
+                "special_bonus_facet_luna_moonstorm"                "=100"	// 50
+            }
 		}
 	}
 	// 月刃
@@ -6568,8 +6572,8 @@
 			"bounces"							"3 4 5 6 7"
 			"damage_reduction_percent"
 			{
-				"value"							"50 45 40 35 30"
-				"special_bonus_unique_luna_7"	"-10"		// -5
+				"value"							"-10 -15 -20 -25 -30"
+				"special_bonus_unique_luna_7"	"-15"		// -5
 			}
 		}
 	}
@@ -6581,16 +6585,16 @@
 		{
 			"rotating_glaives_duration"
 			{
-				"value"								"5 6 7 8 9"
+				"value"								"6 8 10 12 14"
 			}
 			"rotating_glaives"
 			{
-				"value"								"4"
+				"value"								"4 5 6 7 8"
 				"special_bonus_unique_luna_lunar_orbit_glaive_count"				"+4"	// +1
 			}
 			"rotating_glaives_collision_damage"
 			{
-				"value"								"20 25 30 35 40"
+				"value"								"20 30 40 50 60"
 			}
 			"AbilityCooldown"
 			{
@@ -6598,12 +6602,12 @@
 			}
 			"AbilityManaCost"
 			{
-				"value"			"65 70 75 80 85"
+				"value"			"65 55 45 35 25"
 			}
 			"rotating_glaives_damage_reduction"
 			{
 				"value"									"0"
-				"special_bonus_facet_luna_moonshield"	"15 20 25 30 35"
+				"special_bonus_facet_luna_moonshield"	"15 30 45 60 75"
 			}
 		}
 	}
@@ -6614,17 +6618,17 @@
 		{
 				"bonus_night_vision_self"
 				{
-					"value"			"400"			// 250
+					"value"			"500"			// 250
 				}
 				"bonus_damage_per_level"
 				{
-					"value"							"3"			// 1
-					"special_bonus_unique_luna_3"	"+3"		// +1
+					"value"							"5"			// 1
+					"special_bonus_unique_luna_3"	"+5"		// +1
 				}
 				"self_bonus_damage_per_level"
 				{
-					"value"							"6"			// 2
-					"special_bonus_unique_luna_3"	"+6"		// +2
+					"value"							"10"			// 2
+					"special_bonus_unique_luna_3"	"+10"		// +2
 				}
 		}
 	}
@@ -6642,14 +6646,14 @@
 			}
 			"beam_interval"
 			{
-				"value"					"0.6 0.6 0.6 0.5"
-				"special_bonus_scepter"	"-0.3"
+				"value"					"0.6 0.6 0.6 0.6"
+				"special_bonus_scepter"	"-0.4"
 			}
 			"beam_interval_scepter"		"0.2" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
 			"hit_count"
 			{
-				"value"					"5"
-				"special_bonus_scepter"	"+1 +7 +13 +19"
+				"value"					"6 12 18 24"
+				"special_bonus_scepter"	"+0"
 			}
 			"AbilityDuration"
 			{
@@ -6658,8 +6662,8 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"							"90"	// 105
-				"special_bonus_unique_luna_6"	"-20.0"	// -40.0
+				"value"							"90 80 70 60"	// 105
+				"special_bonus_unique_luna_6"	"-30.0"	// -40.0
 			}
 		}
 	}
