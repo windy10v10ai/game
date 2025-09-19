@@ -6812,7 +6812,6 @@
 	"mirana_arrow"
 	{
 		"MaxLevel"						"5"
-		"AbilityUnitDamageType"         "DAMAGE_TYPE_PURE"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
 		"AbilityCastRange"				"4500"
@@ -6824,7 +6823,7 @@
 				{
 					"value"						"15 14 13 12 11"	// -4
 				}
-				"arrow_range"       	"4500"		// 3000	Matches cast range
+				"arrow_range"       	"4500"		// 3000 - Now Matches cast range
                 "arrow_max_stunrange"   "1500"
 				"arrow_speed"		"1500.0"		// 900
 				"arrow_min_stun"	"1.0"			// 0.01
