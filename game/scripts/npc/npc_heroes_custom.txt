@@ -2384,11 +2384,13 @@
 		// FIXME 限时强化结束后回退
 		"Ability15"		"special_bonus_magic_resistance_15"
 		"Ability21"		"special_bonus_unique_morphling_1"
-		"Ability18"		"special_bonus_attack_range_75"
+		"Ability18"		"special_bonus_all_stats_20"
 		"Ability19"		"special_bonus_unique_morphling_7"
 		"Ability17"		"special_bonus_unique_morphling_waveform_cooldown"
-		"Ability20"		"special_bonus_attack_range_100"
+		"Ability20"		"special_bonus_lifesteal_30"
 		"Ability22"		"special_bonus_attack_range_150"
+
+		"AttackRange"				"500"	//	350
 	}
 	// 小小
 	"npc_dota_hero_tiny"
