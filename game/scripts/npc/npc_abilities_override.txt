@@ -5673,11 +5673,11 @@
 	// 炽烈火雨
 	"clinkz_burning_barrage"
 	{
-		"AbilityCooldown"				"6"		// 17
-		"AbilityManaCost"				"90"
+		"AbilityCooldown"				"25"		// 17
+		"AbilityManaCost"				"200"
 		"AbilityValues"
 		{
-			"wave_count"			"8"
+			"wave_count"			"6"
 			"damage_pct"			"100"
 		}
 	}
