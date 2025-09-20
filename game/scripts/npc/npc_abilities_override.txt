@@ -2740,6 +2740,7 @@
 	"marci_companion_run"
 	{
 		"AbilityManaCost"				"70 80 90 100 110"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
@@ -5632,10 +5633,10 @@
 				"value"								"30 25 20 15 10"
 				"special_bonus_unique_clinkz_4"		"-5"
 			}
+			"archer_attack_speed_pct"                   "100"			// 60
 			// FIXME 限时强化结束后回退
 			"blind_pct"
 			{
-				"value"							"0"
 				"special_bonus_facet_clinkz_suppressive_fire"			"=100"
 			}
 		}
@@ -5660,12 +5661,12 @@
 		{
 			"skeleton_count"
 			{
-				"value"					"0"
+				"value"					"2 3 4 5"
 			}
 			"AbilityCooldown"
 			{
-				"value"									"16 14 12 10"
-				"special_bonus_unique_clinkz_10"		"-4"
+				"value"									"24 21 18 15"
+				"special_bonus_unique_clinkz_10"		"-5"
 			}
 		}
 	}
@@ -5676,8 +5677,8 @@
 		"AbilityManaCost"				"90"
 		"AbilityValues"
 		{
-			"wave_count"			"9"
-			"damage_pct"			"90"
+			"wave_count"			"8"
+			"damage_pct"			"100"
 		}
 	}
 	// 焦油
@@ -5737,7 +5738,7 @@
 			"spawn_skeleton_on_origin"
 			{
 				"value"				"0"
-				"special_bonus_facet_clinkz_engulfing_step"				"0"
+				"special_bonus_facet_clinkz_engulfing_step"				"1"
 			}
 			"creep_level"			"6 6 6 6 6"
 		}
@@ -9010,8 +9011,20 @@
 					"value"			"35 65 95 125 155"
 					"special_bonus_unique_viper_3"	"+45"
 				}
-				"attack_slow"		"30 40 50 60 70"
+				"attack_slow"		"30 45 60 75 90"
 				"duration"			"6.5 7 7.5 8 8.5"
+				"radius"
+				{
+					"value"     "400 450 500 550 600"
+				}
+				"radius_increase"
+				{
+					"special_bonus_unique_viper_nethertoxin_radius"						"0"
+				}       
+                "expand_interval"           
+				{
+					"special_bonus_unique_viper_nethertoxin_radius"						"0"
+				}
 		}
 	}
 	// 腐蚀皮肤
@@ -9062,6 +9075,11 @@
 			"AbilityManaCost"
 			{
 				"value"				"100 150 200 250"
+			}
+			"AbilityCastRange"
+			{
+				"value"				"900"
+				"special_bonus_unique_viper_viper_strike_cast_range_bonus"	"+25%"
 			}
 		}
 	}
@@ -13371,7 +13389,7 @@
 			"manahealthboost"
 			{
 				"value"					"0"
-				"special_bonus_facet_warlock_golem" "+80"	// 90
+				"special_bonus_facet_warlock_golem" "+50"	// 90
 			}
 			"manaboost_scale_mult"		".02"	// .25 模型变大速度
 		}
