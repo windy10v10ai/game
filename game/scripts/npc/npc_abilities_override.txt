@@ -6680,19 +6680,8 @@
 				}
 				"arrow_count"
 				{
-					"value"			"4 5 6 7 8"
+					"value"			"4 5 6 7 8"		// 4
 				}
-		}
-	}
-	// 剧毒飞箭 命石2 跟随分裂箭
-	"medusa_venomed_volley"
-	{
-		"MaxLevel"						"6"
-		"AbilityValues"
-		{
-			"move_slow"				"15 20 25 30 35 40"
-			"attack_slow"			"20 35 50 65 80 95"
-			"attack_count"			"3"		// 6
 		}
 	}
 	// 秘术异蛇
@@ -6703,8 +6692,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"15 14 13 12 11"
-				"special_bonus_unique_medusa_5"					"-3"
+				"value"				"16 15 14 13 12"
 			}
 			"AbilityManaCost"					"80 100 120 140 160"
 			"snake_jumps"
@@ -6715,7 +6703,6 @@
 			{
 				"value"			"90 140 190 240 290"
 			}
-			"snake_mana_steal"					"14 15 16 17 18"
 		}
 	}
 
@@ -6741,13 +6728,23 @@
 			"duration"
 			{
 				"value"							"5 5.5 6 6.5"
-				"special_bonus_unique_medusa"	"+1.5"
 			}
 			"bonus_physical_damage"
 			{
 				"value"							"35 45 55 65"
 			}
 			"stone_duration"					"2 2.2 2.4 2.6"
+		}
+	}
+	// 剧毒飞箭 命石2 跟随分裂箭
+	"medusa_venomed_volley"
+	{
+		"MaxLevel"						"6"
+		"AbilityValues"
+		{
+			"move_slow"				"15 20 25 30 35 40"
+			"attack_slow"			"20 35 50 65 80 95"
+			"attack_count"			"3"		// 6
 		}
 	}
 	// 不动如蛇 命石3锁移速
@@ -6757,6 +6754,15 @@
 		{
 			"fixed_movespeed"				"550"	// 310
 			"stone_gaze_ms_tooltip_only"	"825"	// 465 大招固定提升50%移速
+		}
+	}
+	// 魔法盾 先天
+	"medusa_mana_shield"
+	{
+		"AbilityValues"
+		{
+			"damage_per_mana"						"2.5"	// 2.2
+			"damage_per_mana_per_level"				"0.2"	// 0.1
 		}
 	}
 	//=================================================================================================================
