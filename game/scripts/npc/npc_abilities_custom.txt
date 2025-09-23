@@ -514,7 +514,7 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		// 实际生效的数值是2倍
+		// 2级开始，实际生效的数值是2倍
 		// 收益预期 https://docs.google.com/spreadsheets/d/1FiBGurpuD74qQgmX8maBof-tkHmbBhai6jm9HcL5ymY/edit#gid=116224814
 		"AbilityValues"
 		{
