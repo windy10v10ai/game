@@ -1,3 +1,4 @@
+import { StartAbilityCooldown } from '../../modules/helper/ability-helper';
 import { IsSameTeam } from '../../modules/helper/unit-helper';
 import {
   BaseItem,
@@ -31,9 +32,12 @@ export class ItemSaintOrb extends BaseItem {
 export class ModifierItemSaintOrbPassive extends BaseItemModifier {
   override statsModifierName: string = 'modifier_item_saint_orb_stats';
 
-  // DeclareFunctions(): ModifierFunction[] {
-  //   return [ModifierFunction.ABSORB_SPELL, ModifierFunction.REFLECT_SPELL];
-  // }
+  DeclareFunctions(): ModifierFunction[] {
+    return [
+      ModifierFunction.ABSORB_SPELL,
+      // ModifierFunction.REFLECT_SPELL
+    ];
+  }
 
   CheckState(): Partial<Record<ModifierState, boolean>> {
     return {
@@ -41,23 +45,23 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
     };
   }
 
-  // GetAbsorbSpell(keys: ModifierAbilityEvent): 0 | 1 {
-  //   if (!IsServer()) {
-  //     return 0;
-  //   }
-  //   const parent = this.GetParent();
-  //   const item = this.GetAbility();
-  //   if (!item) return 0;
-  //   if (item.GetCooldownTimeRemaining() > 0) {
-  //     return 0;
-  //   }
-  //   const absorbResult = GetAbsorbSpell(keys, parent, item);
+  GetAbsorbSpell(keys: ModifierAbilityEvent): 0 | 1 {
+    if (!IsServer()) {
+      return 0;
+    }
+    const parent = this.GetParent();
+    const item = this.GetAbility();
+    if (!item) return 0;
+    if (item.GetCooldownTimeRemaining() > 0) {
+      return 0;
+    }
+    const absorbResult = GetAbsorbSpell(keys, parent, item);
 
-  //   if (absorbResult) {
-  //     StartAbilityCooldown(item);
-  //   }
-  //   return absorbResult ? 1 : 0;
-  // }
+    if (absorbResult) {
+      StartAbilityCooldown(item);
+    }
+    return absorbResult ? 1 : 0;
+  }
 
   // GetReflectSpell(keys: ModifierAbilityEvent): 0 | 1 {
   //   if (!IsServer()) {
