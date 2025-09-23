@@ -1492,13 +1492,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_lone_druid"
-	{
-		"Ability1"		"broodmother_insatiable_hunger"
-		"Ability5"		"lone_druid_entangling_claws"
-		"Ability16"		"special_bonus_hp_200"
-		"Ability10"		"special_bonus_unique_lone_druid_8"
-	}
 	"npc_dota_hero_luna"
 	{
 		"Bot"
