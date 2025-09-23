@@ -100,7 +100,7 @@ export class EventEntityKilled {
 
     if (creepName === 'npc_dota_roshan') {
       // 击杀肉山
-      if (PlayerHelper.IsHumanPlayer(attacker)) {
+      if (PlayerHelper.IsGoodTeamUnit(attacker)) {
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
