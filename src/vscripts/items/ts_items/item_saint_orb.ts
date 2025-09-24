@@ -60,6 +60,9 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
     if (absorbResult) {
       StartAbilityCooldown(item);
     }
+    // 播放林肯音效
+    parent.EmitSound('DOTA_Item.LinkensSphere.Activate');
+
     return absorbResult ? 1 : 0;
   }
 
