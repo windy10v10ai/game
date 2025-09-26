@@ -12,7 +12,7 @@
 		"ItemSellable"					"0"
 		"AbilityValues"
 		{
-			"item_jump_jump_jump_bonus_all_stats"		"35"
+			"item_jump_jump_jump_bonus_all_stats"		"60"
 
 			"item_abyssal_blade_v2_bonus_strength"			"20"
 

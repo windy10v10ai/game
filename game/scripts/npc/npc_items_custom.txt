@@ -4022,7 +4022,7 @@
 		"ItemResult"					"item_jump_jump_jump"
 		"ItemRequirements"
 		{
-			"01"						"item_overwhelming_blink;item_swift_blink;item_arcane_blink_2"
+			"01"						"item_meteor_hammer_2;item_overwhelming_blink;item_swift_blink;item_arcane_blink_2"
 		}
 	}
 
@@ -4045,14 +4045,10 @@
 
 		"ItemCost"						"21000"
 		"ItemAliases"				"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
-		//"ItemSellable"					"1"
-		//"ItemPurchasable"				"0"
-		//"ItemIsNeutralDrop"				"1"
-		//"Model"							"models/props_gameplay/neutral_box.vmdl"
 
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
+			"bonus_all_stats"		"60"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
 			"blink_damage_cooldown"	"1.0"
 			"meteor_fall_time"		"0.5"
 			"meteor_land_radius"	"350"
