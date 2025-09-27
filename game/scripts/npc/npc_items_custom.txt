@@ -4085,7 +4085,7 @@
 	{
 		"ID"							"3071"
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/item_jump_jump_jump"
+		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
 		"AbilityTextureName"			"jump_jump_jump"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
@@ -4096,7 +4096,7 @@
 		"AbilitySharedCooldown"			"blink"
 
 		"ItemCost"						"21000"
-		"ItemAliases"				"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
+		"ItemAliases"					"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
 
 		"AbilityValues"
 		{
