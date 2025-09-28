@@ -1,5 +1,35 @@
 "DOTAAbilities"
 {
+	// 魔法盾
+	"medusa_mana_shield2"
+	{
+
+		"BaseClass"						"medusa_mana_shield"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Medusa.ManaShield.On"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"medusa_mana_shield"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage_per_mana"						"2 3 4 5 6"
+			"damage_per_mana_per_level"				"0.1 0.2 0.3 0.4 0.5"
+			"illusion_percentage"					"60"
+
+			"absorption_pct"						"98"
+			"damage_per_mana_total"
+			{
+				"dynamic_value"			"true"
+			}
+		}
+	}
 	// 死亡先知 巫术精研
 	"death_prophet_witchcraft2"
 	{
@@ -479,7 +509,7 @@
 	//蝙蝠骑士 树脂
 	"batrider_smoldering_resin2"
 	{
-		"BaseClass"                     "batrider_smoldering_resin"
+		"BaseClass"						"batrider_smoldering_resin"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
 		"Innate"						"0"
@@ -491,11 +521,11 @@
 		{
 			"total_ticks"			"2"
 			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"20 30 40 50 60"
+			"tick_attack_damage_pct"		"20 25 30 35 40"
 		}
 	}
 
-	//施恩 神之愤怒
+	//斯温 神之愤怒
 	"sven_wrath_of_god2"
 	{
 		"BaseClass"						"sven_wrath_of_god"

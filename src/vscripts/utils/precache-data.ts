@@ -14,7 +14,7 @@ export const heroNameListParticles = [
   // 'npc_dota_hero_bristleback', // 钢背兽
   // 'npc_dota_hero_broodmother', // 育母蜘蛛
   'npc_dota_hero_centaur', // 半人马战行者
-  'npc_dota_hero_chaos_knight', // 混沌骑士
+  // 'npc_dota_hero_chaos_knight', // 混沌骑士
   // 'npc_dota_hero_chen', // 陈
   'npc_dota_hero_clinkz', // 克林克兹
   // 'npc_dota_hero_crystalmaiden', // 水晶室女
