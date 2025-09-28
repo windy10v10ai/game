@@ -808,7 +808,14 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%MOVEMENT SPEED:"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%COOLDOWN REDUCTION:"
 
-
+		// 魔法盾
+		"DOTA_Tooltip_ability_medusa_mana_shield2"								"Mana Shield"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"Creates a shield that absorbs %absorption_pct%%% of incoming damage in exchange for Medusa's mana that increases with each level of Medusa. Illusions absorb %illusion_percentage%%% less damage per point of mana."
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"Absorbs damage before any damage reduction takes place, meaning that armor will not reduce the amount of mana needed to absorb damage."
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"BASE DAMAGE PER MANA:"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_per_level"		"DAMAGE PER MANA PER LEVEL:"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"TOTAL DAMAGE PER MANA:"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
 
 
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"

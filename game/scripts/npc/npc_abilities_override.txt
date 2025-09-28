@@ -912,49 +912,6 @@
 	//=================================================================================================================
 	//已经替换成新英雄 杰克
 	//=================================================================================================================
-	// FIXME 未使用
-	// 土猫魔免
-	"brewmaster_earth_spell_immunity"
-	{
-		"MaxLevel"						"1"
-	}
-	// 风猫群体驱散
-	"brewmaster_storm_dispel_magic"
-	{
-		"MaxLevel"						"1"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"1000" // 500
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value" "750" // 600
-			}
-		}
-	}
-	// 风猫吹风
-	"brewmaster_storm_cyclone"
-	{
-		"MaxLevel"						"1"
-	}
-	// 风猫风步
-	"brewmaster_storm_wind_walk"
-	{
-		"MaxLevel"						"1"
-	}
-	// 紫猫小颠勺
-	"brewmaster_void_astral_pull"
-	{
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"AbilityCastRange"			"150"
-			"damage"					"150"
-			"pull_distance"				"700"
-			"pull_duration"				"0.5"
-		}
-	}
 
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
@@ -2538,13 +2495,7 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			// FIXME 限时强化结束后 削弱持续时间
-			"duration"
-			{
-				"value"				"40"	// 25
-				"special_bonus_unique_lycan_1"	"+20"	// +7
-			}
-			"speed"				"900"	// 550
+			"speed"				"800"	// 550
 			"crit_multiplier"		"160 200 240 280"
 			"health_bonus"		"500 700 900 1100" // x2
 			"AbilityCooldown"
@@ -3714,7 +3665,6 @@
 	// 死亡旋风
 	"shredder_whirling_death"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // fixme 强了就不无视魔免，再想别的办法
 		"MaxLevel" "5"
 		"AbilityCooldown"				"6"
 		"AbilityValues"
@@ -4284,9 +4234,7 @@
 	"sven_storm_bolt"
 	{
 		"MaxLevel" "5"
-		// FIXME 限时强化结束后回退
-		// "AbilityCooldown"				"20 18 16 14 12"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityDamage"					"80 160 240 320 400"
 		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilityValues"
@@ -4298,11 +4246,6 @@
 				"bolt_aoe"
 				{
 					"value"			"250 270 290 310 330"
-				}
-				// FIXME 限时强化结束后回退
-				"cast_range_bonus_scepter"
-				{
-					"special_bonus_scepter"		"650"	// 350
 				}
 		}
 	}
@@ -4322,10 +4265,7 @@
 			}
 			"great_cleave_damage"
 			{
-				// "value"				"50 60 70 80 90"
-				// FIXME 限时强化结束后回退
-				"value"				"65 75 85 95 105"
-				"special_bonus_unique_sven_8" "+45"
+				"value"				"50 60 70 80 90"
 			}
 		}
 	}
@@ -4333,9 +4273,7 @@
 	"sven_warcry"
 	{
 		"MaxLevel" "5"
-		// FIXME 限时强化结束后回退
-		// "AbilityCooldown"				"40 35 30 25 20"
-		"AbilityCooldown"				"35 30 25 20 15"
+		"AbilityCooldown"				"40 35 30 25 20"
 		"AbilityManaCost"				"40 45 50 55 60"
 		"AbilityValues"
 		{
@@ -4367,7 +4305,7 @@
 	"sven_gods_strength"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"80"	// 100s刚好续不上，有真空期
+		"AbilityCooldown"				"90"	// 100s刚好续不上，有真空期
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
@@ -4636,14 +4574,12 @@
 		{
 				"AbilityCastRange"
 				{
-					// FIXME 限时强化结束后削弱
-					"special_bonus_unique_tiny_4" "+600"	// 200
+					"special_bonus_unique_tiny_4" "+400"	// 200
 				}
 				"avalanche_damage"
 				{
 					"value"				"120 240 360 480"		// 100 190 280 370 加强
-					// FIXME 限时强化结束后削弱
-					"special_bonus_unique_tiny"			"+320"	// 100
+					"special_bonus_unique_tiny"			"+220"	// 100
 				}
 		}
 	}
@@ -4728,10 +4664,8 @@
 				}
 				"attack_speed_reduction"
 				{
-					// FIXME 限时强化结束后回退
-					// "value"		"-20"						// -35 +15
-					"value"		"-0"						// -35 +15
-					"special_bonus_unique_tiny_6" "+10"		// +8 +2
+					"value"		"-10"						// -35
+					"special_bonus_unique_tiny_6" "+10"		// +8
 				}
 				"toss_bonus_damage"
 				{
@@ -5579,8 +5513,6 @@
 			"attack_speed_bonus"
 			{
 				"value"									"100 140 180 220 260"
-				// FIXME 限时强化结束后回退
-				"special_bonus_unique_clinkz_7"			"+200"
 			}
 			"duration"
 			{
@@ -5591,12 +5523,6 @@
 			{
 				"value"								"30 25 20 15 10"
 				"special_bonus_unique_clinkz_4"		"-5"
-			}
-			// FIXME 限时强化结束后回退
-			"blind_pct"
-			{
-				"value"							"0"
-				"special_bonus_facet_clinkz_suppressive_fire"			"=100"
 			}
 		}
 	}
@@ -6334,22 +6260,17 @@
 	"juggernaut_omni_slash"
 	{
 		"MaxLevel" "4"
-		// "AbilityCooldown"				"90"		// 120
-		// FIXME 限时强化结束后回退
-		"AbilityCooldown"				"90 60 30 3"		// 120
-		"LevelsBetweenUpgrades"					"12"
+		"AbilityCooldown"				"90"		// 120
 
 		"AbilityManaCost"				"250 300 350 400"
 		"AbilityValues"
 		{
-			"attack_rate_multiplier"	"1.5 1.7 1.9 2.1"	// 1.5
-			"bonus_damage"				"50 70 90 110"	// x2
+			"attack_rate_multiplier"	"1.5 1.6 1.7 1.8"	// 1.5
+			"bonus_damage"				"50 60 70 80"	// x2
 			"bonus_attack_speed"				"100"	// 40
 			"duration"
 			{
-				// "value"						"3.1 3.4 3.7 4.0"
-				// FIXME 限时强化结束后回退
-				"value"						"3.0 4.0 5.0 6.0"
+				"value"						"3.1 3.4 3.7 4.0"
 			}
 			"omni_slash_radius"
 			{
@@ -6357,9 +6278,7 @@
 			}
 			"AbilityCastRange"
 			{
-				// "value"					"600"		// 450
-				// FIXME 限时强化结束后回退
-				"value"					"600 600 600 1200"		// 450
+				"value"					"600"		// 450
 			}
 		}
 	}
@@ -6376,8 +6295,8 @@
 		{
 			"front_damage_increase"
 			{
-				"value"			"20"		// 12
-				"special_bonus_unique_juggernaut_3"		"+10"	// +4
+				"value"			"16"		// 12
+				"special_bonus_unique_juggernaut_3"		"+8"	// +4
 			}
 		}
 	}
@@ -6387,7 +6306,7 @@
 		"AbilityValues"
 		{
 			"stack_gain_time"			"1.0"		// 2
-			"agi_bonus_pct_per_stack"	"5.0"		// 2
+			"agi_bonus_pct_per_stack"	"4.0"		// 2
 			"movement_speed_pct_per_stack"		"2"	// 1
 		}
 	}
@@ -6761,7 +6680,7 @@
 	{
 		"AbilityValues"
 		{
-			"damage_per_mana"						"2.5"	// 2.2
+			"damage_per_mana"						"3.0"	// 2.2
 			"damage_per_mana_per_level"				"0.2"	// 0.1
 		}
 	}
@@ -6977,19 +6896,12 @@
 			}
 			"AbilityCooldown"
 			{
-				// "value"									"20 18 16 14 12"
-				// FIXME 限时强化结束后回退
-				"value"														"17 15 13 11 9"
+				"value"									"20 18 16 14 12"
 				"special_bonus_unique_morphling_waveform_cooldown"			"-60%"
 			}
 			"pct_damage"
 			{
 				"special_bonus_facet_morphling_agi"			"+100"
-			}
-			// FIXME 限时强化结束后回退
-			"process_procs"
-			{
-				"value" "1"
 			}
 		}
 	}
@@ -7030,9 +6942,7 @@
 				}
 				"extra_targets"
 				{
-					// "value"								"1"
-					// FIXME 限时强化结束后回退
-					"value"								"2"
+					"value"								"1"
 				}
 		}
 	}
@@ -7070,8 +6980,7 @@
 		"AbilityValues"
 		{
 			// 每N点敏捷增加1%魔法伤害
-			// FIXME 限时强化结束后削弱
-			"agi_per_one_spell_amp"			"3"	// 4
+			"agi_per_one_spell_amp"			"5"	// 4
 		}
 	}
 	// 变形
@@ -9449,11 +9358,11 @@
 	{
 		"AbilityValues"
 		{
-			"total_ticks"
-			{
-				"value"		"4" // 2 持续ticks*tickrate秒 原2*1
-				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" // +4 20级右边天赋
-			}
+			// "total_ticks"
+			// {
+			// 	"value"		"4" // 2 持续ticks*tickrate秒 原2*1
+			// 	"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" // +4 20级右边天赋
+			// }
 		}
 	}
 	// 燃烧弹
@@ -12438,7 +12347,7 @@
 				}
 				"damage"
 				{
-					"value"		"140 200 260 320 380"
+					"value"		"160 220 280 340 400"	// 125 190 255 320
 				}
 		}
 	}

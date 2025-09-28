@@ -801,6 +801,14 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%移动速度加成："
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%冷却时间减少："
 
+		// 魔法盾
+		"DOTA_Tooltip_ability_medusa_mana_shield2"								"魔法盾"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"创造一个魔法护盾，消耗美杜莎的魔法值以吸收%absorption_pct%%%的伤害，美杜莎每次升级都会使伤害吸收系数提升。幻象的伤害吸收系数减少%illusion_percentage%%%。"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"伤害的吸收先于任何伤害减免机制，所以提高物理护甲，物理格挡和魔法抗性都不能减少吸收相同伤害所需的魔法。"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"基础魔法吸收系数："
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_per_level"		"每级魔法吸收系数："
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"总魔法吸收系数："
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"尽管美杜莎生来没被赐以永恒的生命，但她所受的诅咒赋予了她独一无二的防御力量。"
 
 
 		"DOTA_Tooltip_ability_bot_power_n6"							"机械救赎 N6"
@@ -830,33 +838,6 @@
 		"npc_dota_hero_techies"					"茶神"
 		// 撼地者
 		"npc_dota_hero_earthshaker"					"宇智波牛神"
-		// FIXME 限时强化结束后回退
-		// 水人
-		"npc_dota_hero_morphling:n"					"传奇3亚王ame的水人"
-		"npc_dota_hero_morphling__en:n"				"Morphling of ame"
-		"DOTA_Tooltip_ability_morphling_waveform"										"波高"
-		"DOTA_Tooltip_ability_morphling_waveform_Description"							"为什么不能波回来 为什么不能波回来 为什么不能波回来"
-		"DOTA_Tooltip_ability_morphling_waveform_Lore"									"团队决策！"
-		"DOTA_Tooltip_ability_morphling_waveform_pct_damage"							"%攻击伤害："
-		"DOTA_Tooltip_ability_morphling_waveform_Facet_morphling_agi"					"波高会攻击路径上的敌人。会施加攻击特效。"
-		// 小小
-		"npc_dota_hero_tiny:n"					"传奇3亚王ame的小小"
-		"npc_dota_hero_tiny__en:n"				"Tiny of ame"
-		"DOTA_Tooltip_ability_lycan_shapeshift"										"我们狼人小小没输过"
-		"DOTA_Tooltip_ability_lycan_shapeshift_Lore"								"我前妻辣么肥"
-		"DOTA_Tooltip_ability_lycan_shapeshift_Description"							"唉，我前期那么肥"
-		// 泰罗 斯温
-		"npc_dota_hero_sven:n"					"传奇3亚王ame的泰罗"
-		"npc_dota_hero_sven__en:n"				"Sven of ame"
-		"DOTA_Tooltip_ability_sven_gods_strength"										"谢谢你，泰罗"
-		// 小骷髅
-		"npc_dota_hero_clinkz:n"					"传奇3亚王ame的小骷髅"
-		"npc_dota_hero_clinkz__en:n"				"Clinkz of ame"
-		"DOTA_Tooltip_ability_clinkz_burning_barrage"											"这对线有这么难打吗"
-		// 剑圣
-		"npc_dota_hero_juggernaut:n"					"传奇3亚王ame的剑圣"
-		"npc_dota_hero_juggernaut__en:n"				"Juggernaut of ame"
-		"DOTA_Tooltip_ability_juggernaut_omni_slash"									"最后的无敌斩"
 
 		// 谜团
 		"DOTA_Tooltip_ability_enigma_malefice_shard_description"						"憎恶的眩晕时间增加%shard_bonus_stun_duration_tooltip%秒。"
