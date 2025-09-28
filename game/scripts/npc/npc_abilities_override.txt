@@ -912,49 +912,6 @@
 	//=================================================================================================================
 	//已经替换成新英雄 杰克
 	//=================================================================================================================
-	// FIXME 未使用
-	// 土猫魔免
-	"brewmaster_earth_spell_immunity"
-	{
-		"MaxLevel"						"1"
-	}
-	// 风猫群体驱散
-	"brewmaster_storm_dispel_magic"
-	{
-		"MaxLevel"						"1"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"1000" // 500
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value" "750" // 600
-			}
-		}
-	}
-	// 风猫吹风
-	"brewmaster_storm_cyclone"
-	{
-		"MaxLevel"						"1"
-	}
-	// 风猫风步
-	"brewmaster_storm_wind_walk"
-	{
-		"MaxLevel"						"1"
-	}
-	// 紫猫小颠勺
-	"brewmaster_void_astral_pull"
-	{
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"AbilityCastRange"			"150"
-			"damage"					"150"
-			"pull_distance"				"700"
-			"pull_duration"				"0.5"
-		}
-	}
 
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
