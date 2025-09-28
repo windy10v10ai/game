@@ -509,7 +509,7 @@
 	//蝙蝠骑士 树脂
 	"batrider_smoldering_resin2"
 	{
-		"BaseClass"                     "batrider_smoldering_resin"
+		"BaseClass"						"batrider_smoldering_resin"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
 		"Innate"						"0"
@@ -521,11 +521,11 @@
 		{
 			"total_ticks"			"2"
 			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"20 30 40 50 60"
+			"tick_attack_damage_pct"		"20 25 30 35 40"
 		}
 	}
 
-	//施恩 神之愤怒
+	//斯温 神之愤怒
 	"sven_wrath_of_god2"
 	{
 		"BaseClass"						"sven_wrath_of_god"
