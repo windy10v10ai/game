@@ -912,49 +912,6 @@
 	//=================================================================================================================
 	//已经替换成新英雄 杰克
 	//=================================================================================================================
-	// FIXME 未使用
-	// 土猫魔免
-	"brewmaster_earth_spell_immunity"
-	{
-		"MaxLevel"						"1"
-	}
-	// 风猫群体驱散
-	"brewmaster_storm_dispel_magic"
-	{
-		"MaxLevel"						"1"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"1000" // 500
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value" "750" // 600
-			}
-		}
-	}
-	// 风猫吹风
-	"brewmaster_storm_cyclone"
-	{
-		"MaxLevel"						"1"
-	}
-	// 风猫风步
-	"brewmaster_storm_wind_walk"
-	{
-		"MaxLevel"						"1"
-	}
-	// 紫猫小颠勺
-	"brewmaster_void_astral_pull"
-	{
-		"MaxLevel"						"1"
-		"AbilityValues"
-		{
-			"AbilityCastRange"			"150"
-			"damage"					"150"
-			"pull_distance"				"700"
-			"pull_duration"				"0.5"
-		}
-	}
 
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
@@ -2538,13 +2495,7 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-			// FIXME 限时强化结束后 削弱持续时间
-			"duration"
-			{
-				"value"				"40"	// 25
-				"special_bonus_unique_lycan_1"	"+20"	// +7
-			}
-			"speed"				"900"	// 550
+			"speed"				"800"	// 550
 			"crit_multiplier"		"160 200 240 280"
 			"health_bonus"		"500 700 900 1100" // x2
 			"AbilityCooldown"
@@ -2747,7 +2698,7 @@
 				}
 				"debuff_duration"
 				{
-					"value"			"0.8 1.1 1.4 1.7 2.0"
+					"value"			"0.9 1.1 1.3 1.5 1.7"
 				}
 				"ally_buff_duration"	"4.0 4.5 5.0 5.5 6.0"		// 4.0
 				"ally_movespeed_pct"
@@ -2783,12 +2734,10 @@
 			"lifesteal_pct"
 			{
 				"value"				"20 25 30 35 40"
-				"special_bonus_unique_marci_guardian_lifesteal"			"+15"
 			}
 			"bonus_damage"
 			{
 				"value"				"20 25 30 35 40"
-				"special_bonus_unique_marci_guardian_damage"			"+25"
 			}
 			"max_partner_distance"
 			{
@@ -2806,12 +2755,10 @@
 			"lifesteal_pct"
 			{
 				"value"											"20 30 40 50 60"
-				"special_bonus_unique_marci_guardian_lifesteal"			"+15"
 			}
 			"bonus_damage"
 			{
 				"value"											"20 30 40 50 60"
-				"special_bonus_unique_marci_guardian_damage"			"+25"
 			}
 		}
 	}
@@ -2825,25 +2772,20 @@
 		{
 			"charges_per_flurry"	"6 8 10 12"	//5
 			"flurry_bonus_attack_speed"	"700 975 1325 1600"
-			"time_between_flurries"	"1.0 0.8 0.6 0.4"	// 1.5
+			"time_between_flurries"	"1.0 0.8 0.6 0.5"	// 1.5
 			"pulse_damage"
 			{
 				"value"			"100 200 300 400"
 			}
 			"pulse_move_slow_pct"	"30.0 40.0 50.0 60.0"		// 30.0
 			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 2x
-			"bonus_movespeed"
-			{
-				"value"		"10 15 20 25"
-				"special_bonus_unique_marci_unleash_speed"	"+15"	// +10
-			}
 			"pulse_silence_duration"
 			{
-				"special_bonus_scepter"	"+3"	// +1
+				"special_bonus_scepter"	"+2"	// +1
 			}
-			"extend_duration"
+			"extend_duration"	// 击杀后延长
 			{
-				"special_bonus_unique_marci_unleash_extend_duration" 		"5"	// 6
+				"special_bonus_unique_marci_unleash_extend_duration" 		"3"	// 6
 			}
 			"AbilityCooldown"
 			{
@@ -3723,7 +3665,6 @@
 	// 死亡旋风
 	"shredder_whirling_death"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // fixme 强了就不无视魔免，再想别的办法
 		"MaxLevel" "5"
 		"AbilityCooldown"				"6"
 		"AbilityValues"
@@ -4293,9 +4234,7 @@
 	"sven_storm_bolt"
 	{
 		"MaxLevel" "5"
-		// FIXME 限时强化结束后回退
-		// "AbilityCooldown"				"20 18 16 14 12"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityDamage"					"80 160 240 320 400"
 		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilityValues"
@@ -4307,11 +4246,6 @@
 				"bolt_aoe"
 				{
 					"value"			"250 270 290 310 330"
-				}
-				// FIXME 限时强化结束后回退
-				"cast_range_bonus_scepter"
-				{
-					"special_bonus_scepter"		"650"	// 350
 				}
 		}
 	}
@@ -4331,10 +4265,7 @@
 			}
 			"great_cleave_damage"
 			{
-				// "value"				"50 60 70 80 90"
-				// FIXME 限时强化结束后回退
-				"value"				"65 75 85 95 105"
-				"special_bonus_unique_sven_8" "+45"
+				"value"				"50 60 70 80 90"
 			}
 		}
 	}
@@ -4342,9 +4273,7 @@
 	"sven_warcry"
 	{
 		"MaxLevel" "5"
-		// FIXME 限时强化结束后回退
-		// "AbilityCooldown"				"40 35 30 25 20"
-		"AbilityCooldown"				"35 30 25 20 15"
+		"AbilityCooldown"				"40 35 30 25 20"
 		"AbilityManaCost"				"40 45 50 55 60"
 		"AbilityValues"
 		{
@@ -4376,7 +4305,7 @@
 	"sven_gods_strength"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"80"	// 100s刚好续不上，有真空期
+		"AbilityCooldown"				"90"	// 100s刚好续不上，有真空期
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
@@ -4645,14 +4574,12 @@
 		{
 				"AbilityCastRange"
 				{
-					// FIXME 限时强化结束后削弱
-					"special_bonus_unique_tiny_4" "+600"	// 200
+					"special_bonus_unique_tiny_4" "+400"	// 200
 				}
 				"avalanche_damage"
 				{
 					"value"				"120 240 360 480"		// 100 190 280 370 加强
-					// FIXME 限时强化结束后削弱
-					"special_bonus_unique_tiny"			"+320"	// 100
+					"special_bonus_unique_tiny"			"+220"	// 100
 				}
 		}
 	}
@@ -4737,10 +4664,8 @@
 				}
 				"attack_speed_reduction"
 				{
-					// FIXME 限时强化结束后回退
-					// "value"		"-20"						// -35 +15
-					"value"		"-0"						// -35 +15
-					"special_bonus_unique_tiny_6" "+10"		// +8 +2
+					"value"		"-10"						// -35
+					"special_bonus_unique_tiny_6" "+10"		// +8
 				}
 				"toss_bonus_damage"
 				{
@@ -5588,8 +5513,6 @@
 			"attack_speed_bonus"
 			{
 				"value"									"100 140 180 220 260"
-				// FIXME 限时强化结束后回退
-				"special_bonus_unique_clinkz_7"			"+200"
 			}
 			"duration"
 			{
@@ -5600,12 +5523,6 @@
 			{
 				"value"								"30 25 20 15 10"
 				"special_bonus_unique_clinkz_4"		"-5"
-			}
-			// FIXME 限时强化结束后回退
-			"blind_pct"
-			{
-				"value"							"0"
-				"special_bonus_facet_clinkz_suppressive_fire"			"=100"
 			}
 		}
 	}
@@ -6343,22 +6260,17 @@
 	"juggernaut_omni_slash"
 	{
 		"MaxLevel" "4"
-		// "AbilityCooldown"				"90"		// 120
-		// FIXME 限时强化结束后回退
-		"AbilityCooldown"				"90 60 30 3"		// 120
-		"LevelsBetweenUpgrades"					"12"
+		"AbilityCooldown"				"90"		// 120
 
 		"AbilityManaCost"				"250 300 350 400"
 		"AbilityValues"
 		{
-			"attack_rate_multiplier"	"1.5 1.7 1.9 2.1"	// 1.5
-			"bonus_damage"				"50 70 90 110"	// x2
+			"attack_rate_multiplier"	"1.5 1.6 1.7 1.8"	// 1.5
+			"bonus_damage"				"50 60 70 80"	// x2
 			"bonus_attack_speed"				"100"	// 40
 			"duration"
 			{
-				// "value"						"3.1 3.4 3.7 4.0"
-				// FIXME 限时强化结束后回退
-				"value"						"3.0 4.0 5.0 6.0"
+				"value"						"3.1 3.4 3.7 4.0"
 			}
 			"omni_slash_radius"
 			{
@@ -6366,9 +6278,7 @@
 			}
 			"AbilityCastRange"
 			{
-				// "value"					"600"		// 450
-				// FIXME 限时强化结束后回退
-				"value"					"600 600 600 1200"		// 450
+				"value"					"600"		// 450
 			}
 		}
 	}
@@ -6385,8 +6295,8 @@
 		{
 			"front_damage_increase"
 			{
-				"value"			"20"		// 12
-				"special_bonus_unique_juggernaut_3"		"+10"	// +4
+				"value"			"16"		// 12
+				"special_bonus_unique_juggernaut_3"		"+8"	// +4
 			}
 		}
 	}
@@ -6396,7 +6306,7 @@
 		"AbilityValues"
 		{
 			"stack_gain_time"			"1.0"		// 2
-			"agi_bonus_pct_per_stack"	"5.0"		// 2
+			"agi_bonus_pct_per_stack"	"4.0"		// 2
 			"movement_speed_pct_per_stack"		"2"	// 1
 		}
 	}
@@ -6689,19 +6599,8 @@
 				}
 				"arrow_count"
 				{
-					"value"			"4 5 6 7 8"
+					"value"			"4 5 6 7 8"		// 4
 				}
-		}
-	}
-	// 剧毒飞箭 命石2 跟随分裂箭
-	"medusa_venomed_volley"
-	{
-		"MaxLevel"						"6"
-		"AbilityValues"
-		{
-			"move_slow"				"15 20 25 30 35 40"
-			"attack_slow"			"20 35 50 65 80 95"
-			"attack_count"			"3"		// 6
 		}
 	}
 	// 秘术异蛇
@@ -6712,8 +6611,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"15 14 13 12 11"
-				"special_bonus_unique_medusa_5"					"-3"
+				"value"				"16 15 14 13 12"
 			}
 			"AbilityManaCost"					"80 100 120 140 160"
 			"snake_jumps"
@@ -6724,7 +6622,6 @@
 			{
 				"value"			"90 140 190 240 290"
 			}
-			"snake_mana_steal"					"14 15 16 17 18"
 		}
 	}
 
@@ -6750,13 +6647,23 @@
 			"duration"
 			{
 				"value"							"5 5.5 6 6.5"
-				"special_bonus_unique_medusa"	"+1.5"
 			}
 			"bonus_physical_damage"
 			{
 				"value"							"35 45 55 65"
 			}
 			"stone_duration"					"2 2.2 2.4 2.6"
+		}
+	}
+	// 剧毒飞箭 命石2 跟随分裂箭
+	"medusa_venomed_volley"
+	{
+		"MaxLevel"						"6"
+		"AbilityValues"
+		{
+			"move_slow"				"15 20 25 30 35 40"
+			"attack_slow"			"20 35 50 65 80 95"
+			"attack_count"			"3"		// 6
 		}
 	}
 	// 不动如蛇 命石3锁移速
@@ -6766,6 +6673,15 @@
 		{
 			"fixed_movespeed"				"550"	// 310
 			"stone_gaze_ms_tooltip_only"	"825"	// 465 大招固定提升50%移速
+		}
+	}
+	// 魔法盾 先天
+	"medusa_mana_shield"
+	{
+		"AbilityValues"
+		{
+			"damage_per_mana"						"3.0"	// 2.2
+			"damage_per_mana_per_level"				"0.2"	// 0.1
 		}
 	}
 	//=================================================================================================================
@@ -6980,19 +6896,12 @@
 			}
 			"AbilityCooldown"
 			{
-				// "value"									"20 18 16 14 12"
-				// FIXME 限时强化结束后回退
-				"value"														"17 15 13 11 9"
+				"value"									"20 18 16 14 12"
 				"special_bonus_unique_morphling_waveform_cooldown"			"-60%"
 			}
 			"pct_damage"
 			{
 				"special_bonus_facet_morphling_agi"			"+100"
-			}
-			// FIXME 限时强化结束后回退
-			"process_procs"
-			{
-				"value" "1"
 			}
 		}
 	}
@@ -7033,9 +6942,7 @@
 				}
 				"extra_targets"
 				{
-					// "value"								"1"
-					// FIXME 限时强化结束后回退
-					"value"								"2"
+					"value"								"1"
 				}
 		}
 	}
@@ -7073,8 +6980,7 @@
 		"AbilityValues"
 		{
 			// 每N点敏捷增加1%魔法伤害
-			// FIXME 限时强化结束后削弱
-			"agi_per_one_spell_amp"			"3"	// 4
+			"agi_per_one_spell_amp"			"5"	// 4
 		}
 	}
 	// 变形
@@ -9402,7 +9308,7 @@
 	//=================================================================================================================
 	// Ability: Batrider 蝙蝠骑士
 	//=================================================================================================================
-	// 叠油
+	// 粘性燃油 叠油
 	"batrider_sticky_napalm"
 	{
 		"AbilityValues"
@@ -9447,16 +9353,16 @@
 			}
 		}
 	}
-	// 先天闷烧树脂
+	// 闷烧树脂 先天
 	"batrider_smoldering_resin"
 	{
 		"AbilityValues"
 		{
-			"total_ticks"
-			{
-				"value"		"4" // 2 持续ticks*tickrate秒 原2*1
-				"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" // +4 20级右边天赋
-			}
+			// "total_ticks"
+			// {
+			// 	"value"		"4" // 2 持续ticks*tickrate秒 原2*1
+			// 	"special_bonus_unique_batrider_smoldering_resin_ticks"	"+8" // +4 20级右边天赋
+			// }
 		}
 	}
 	// 燃烧弹
@@ -12441,7 +12347,7 @@
 				}
 				"damage"
 				{
-					"value"		"140 200 260 320 380"
+					"value"		"160 220 280 340 400"	// 125 190 255 320
 				}
 		}
 	}
@@ -14001,23 +13907,23 @@
 	// Kez: Echo Slash 凯
 	//=================================================================================================================
 	// 回音重斩
-	"kez_echo_slash"
-	{
-		"MaxLevel"	"5"
-		"AbilityCooldown"				"20 18 16 14 12"
-		"AbilityManaCost"				"75 90 105 120 135"
-		"AbilityValues"
-		{
-			"katana_echo_damage"
-			{
-				"value" 												"70 80 90 100 110"
-			}
-			"echo_hero_damage"
-			{
-				"value"													"20 40 60 80 100"
-			}
-		}
-	}
+	// "kez_echo_slash"
+	// {
+	// 	"MaxLevel"	"5"
+	// 	"AbilityCooldown"				"20 18 16 14 12"
+	// 	"AbilityManaCost"				"75 90 105 120 135"
+	// 	"AbilityValues"
+	// 	{
+	// 		"katana_echo_damage"
+	// 		{
+	// 			"value" 												"70 80 90 100 110"
+	// 		}
+	// 		"echo_hero_damage"
+	// 		{
+	// 			"value"													"20 40 60 80 100"
+	// 		}
+	// 	}
+	// }
 	// 制敌爪钩
 	"kez_grappling_claw"
 	{
@@ -14064,24 +13970,25 @@
 			}
 		}
 	}
+	// 攻速在600~700时有问题，暂时移除
 	// 天隼冲击
-	"kez_falcon_rush"
-	{
-		"MaxLevel"	"5"
-		"AbilityCooldown"				"20 19 18 17 16"		// 过于强力 削弱CD
-		"AbilityManaCost"				"80 100 120 140 160"	// 过于强力 削弱耗蓝
-		"AbilityValues"
-		{
-			"echo_damage"
-			{
-				"value"						"45 55 65 75 85"
-			}
-			"slow_resist"					"20 30 40 50 60"
-			"base_attack_rate"				"1.3 1.2 1.1 1.0 0.9"
-			"base_attack_rate_katana_tooltip"		"1.5 1.4 1.3 1.2 1.1"
-			"attack_speed_factor"		"6 8 10 12 14"
-		}
-	}
+	// "kez_falcon_rush"
+	// {
+	// 	"MaxLevel"	"5"
+	// 	"AbilityCooldown"				"20 19 18 17 16"		// 过于强力 削弱CD
+	// 	"AbilityManaCost"				"80 100 120 140 160"	// 过于强力 削弱耗蓝
+	// 	"AbilityValues"
+	// 	{
+	// 		"echo_damage"
+	// 		{
+	// 			"value"						"45 55 65 75 85"
+	// 		}
+	// 		"slow_resist"					"20 30 40 50 60"
+	// 		"base_attack_rate"				"1.3 1.2 1.1 1.0 0.9"
+	// 		"base_attack_rate_katana_tooltip"		"1.5 1.4 1.3 1.2 1.1"
+	// 		"attack_speed_factor"		"6 8 10 12 14"
+	// 	}
+	// }
 	// 利爪飞掷
 	"kez_talon_toss"
 	{

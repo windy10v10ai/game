@@ -4000,7 +4000,63 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: Jump!Jump!Jump! 跳！跳！跳！刀合成图
+	// 星落
+	//=================================================================================================================
+	"item_recipe_meteor_hammer_2"
+	{
+		"BaseClass"						"item_recipe_meteor_hammer"
+		"ItemCost"						"350"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_meteor_hammer_2"
+		"ItemRequirements"
+		{
+			"01"						"item_meteor_hammer;item_ultimate_orb"
+		}
+	}
+	"item_meteor_hammer_2"
+	{
+		"BaseClass"						"item_meteor_hammer"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"AbilityChannelTime"			"1.5"	//2
+		"AbilityCastRange"				"900"	//600
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"300"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"meteor_hammer_2"
+		"AbilityValues"
+		{
+				"bonus_strength"		"30"	//6
+				"bonus_agility"			"30"	//6
+				"bonus_intellect"		"50"	//24
+				"spell_amp"				"30"	//10
+				"mana_regen_multiplier"	"150"	//50
+
+				"burn_dps_buildings"	"60"	//50
+				"burn_dps_units"		"150"	//50
+				"burn_slow"			"50"		//20
+				"burn_duration"		"6"			//6
+				"stun_duration"		"0.6"		//0.5
+				"burn_interval"			"1.0"	//1.0
+				"land_time"				".5"	//0.5
+				"impact_radius"
+				{
+					"value"		"400"			// 400
+					"affected_by_aoe_increase"	"1"
+				}
+				"max_duration"		"1.5"			//2
+				"impact_damage_buildings"	"120"	//90
+				"impact_damage_units"		"400"	//130
+				"enemy_particles_visible"		"0"
+		}
+	}
+	//=================================================================================================================
+	// Jump!Jump!Jump! 跳！跳！跳！刀合成图
 	//=================================================================================================================
 	"item_recipe_jump_jump_jump"
 	{
@@ -4025,10 +4081,6 @@
 			"01"						"item_overwhelming_blink;item_swift_blink;item_arcane_blink_2"
 		}
 	}
-
-	//=================================================================================================================
-	// Jump!Jump!Jump! 跳！跳！跳！刀
-	//=================================================================================================================
 	"item_jump_jump_jump"
 	{
 		"ID"							"3071"
@@ -4044,18 +4096,18 @@
 		"AbilitySharedCooldown"			"blink"
 
 		"ItemCost"						"21000"
-		"ItemAliases"				"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
-		//"ItemSellable"					"1"
-		//"ItemPurchasable"				"0"
-		//"ItemIsNeutralDrop"				"1"
-		//"Model"							"models/props_gameplay/neutral_box.vmdl"
+		"ItemAliases"					"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
 
 		"AbilityValues"
 		{
 			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
 			"blink_damage_cooldown"	"1.0"
 			"meteor_fall_time"		"0.5"
-			"meteor_land_radius"	"350"
+			"meteor_land_radius"
+			{
+				"value"		"400"
+				"affected_by_aoe_increase"	"1"
+			}
 			"buff_duration"			"6"
 			// Below are the overwhelming, swift, and arcane modifier values
 			"movement_slow"			"50"
@@ -5614,62 +5666,6 @@
 				"block_chance"				"90"	//60
 				"block_damage_melee"		"200"	//60
 				"block_damage_ranged"		"100"	//30
-		}
-	}
-	//=================================================================================================================
-	// 神器星落
-	//=================================================================================================================
-	"item_recipe_meteor_hammer_2"
-	{
-		"BaseClass"						"item_recipe_meteor_hammer"
-		"ItemCost"						"350"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_meteor_hammer_2"
-		"ItemRequirements"
-		{
-			"01"						"item_meteor_hammer;item_ultimate_orb"
-		}
-	}
-	"item_meteor_hammer_2"
-	{
-		"BaseClass"						"item_meteor_hammer"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"FightRecapLevel"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-		"AbilityChannelTime"			"1.5"	//2
-		"AbilityCastRange"				"900"	//600
-		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"300"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"			"meteor_hammer_2"
-		"AbilityValues"
-		{
-				"bonus_strength"		"30"	//6
-				"bonus_agility"			"30"	//6
-				"bonus_intellect"		"60"	//24
-				"spell_amp"				"30"	//10
-				"mana_regen_multiplier"	"150"	//50
-
-				"burn_dps_buildings"	"60"	//50
-				"burn_dps_units"		"150"	//50
-				"burn_slow"			"50"		//20
-				"burn_duration"		"6"			//6
-				"stun_duration"		"0.6"		//0.5
-				"burn_interval"			"1.0"	//1.0
-				"land_time"				".5"	//0.5
-				"impact_radius"
-				{
-					"value"		"450"			// 400
-					"affected_by_aoe_increase"	"1"
-				}
-				"max_duration"		"1.5"			//2
-				"impact_damage_buildings"	"120"	//90
-				"impact_damage_units"		"400"	//130
-				"enemy_particles_visible"		"0"
 		}
 	}
 	//=================================================================================================================

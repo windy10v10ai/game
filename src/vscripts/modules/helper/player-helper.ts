@@ -60,6 +60,13 @@ export class PlayerHelper {
     return undefined;
   }
 
+  static IsGoodTeamUnit(unit: CDOTA_BaseNPC | undefined): boolean {
+    if (!unit) {
+      return false;
+    }
+    return unit.GetTeamNumber() === DotaTeam.GOODGUYS;
+  }
+
   static IsGoodTeamPlayer(playerId: PlayerID): boolean {
     return PlayerResource.GetTeam(playerId) === DotaTeam.GOODGUYS;
   }
