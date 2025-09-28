@@ -4078,14 +4078,14 @@
 		"ItemResult"					"item_jump_jump_jump"
 		"ItemRequirements"
 		{
-			"01"						"item_meteor_hammer_2;item_overwhelming_blink;item_swift_blink;item_arcane_blink_2"
+			"01"						"item_overwhelming_blink;item_swift_blink;item_arcane_blink_2"
 		}
 	}
 	"item_jump_jump_jump"
 	{
 		"ID"							"3071"
 		"BaseClass"						"item_lua"
-		"ScriptFile"					"items/ts_items/item_jump_jump_jump"
+		"ScriptFile"					"items/item_jump_jump_jump"
 		"AbilityTextureName"			"jump_jump_jump"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
@@ -4100,7 +4100,7 @@
 
 		"AbilityValues"
 		{
-			"bonus_all_stats"		"60"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
+			"bonus_all_stats"		"35"	// Tooltip, real value in item_jump_jump_jump_bonus_all_stats
 			"blink_damage_cooldown"	"1.0"
 			"meteor_fall_time"		"0.5"
 			"meteor_land_radius"
