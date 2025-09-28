@@ -96,12 +96,9 @@ export const abilityTiersActive: Tier[] = [
       'weaver_shukuchi', // 缩地
       'centaur_double_edge', // 双刃剑
       'centaur_hoof_stomp', // 战争践踏
-      'chaos_knight_chaos_bolt', // 混乱之箭
-      'chaos_knight_reality_rift', // 实相裂隙
       'axe_berserkers_call', // 狂战士之吼
       'tinker_laser', // 激光
       'tinker_defense_matrix', // 防御矩阵
-      'marci_grapple', // 过肩摔
       'marci_bodyguard', // 护卫术
 
       // 自定义技能
@@ -145,10 +142,11 @@ export const abilityTiersActive: Tier[] = [
       'medusa_mystic_snake', // 秘术异蛇
       'ancient_apparition_ice_vortex', // 冰霜漩涡
       'bloodseeker_blood_bath', // 血祭
-      'shadow_shaman_voodoo', // 妖术
       'dark_willow_bramble_maze', // 荆棘迷宫
       'lich_frost_armor', // 霜冻护甲
       'abaddon_aphotic_shield', // 无光之盾
+      'shadow_shaman_ether_shock', // 苍穹震击
+      'tiny_avalanche', // 山崩
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
@@ -263,6 +261,7 @@ export const abilityTiersPassive: Tier[] = [
       'ursa_maul2', // 拍拍 天生技能 +攻击
       'abyssal_underlord_malice_aura', // 怨念光环
       'axe_one_man_army2', // 斧王 一人成军
+      'medusa_mana_shield2', // 魔法盾
     ],
   },
   {

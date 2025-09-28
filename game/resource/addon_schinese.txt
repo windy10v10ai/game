@@ -801,6 +801,14 @@
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%移动速度加成："
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%冷却时间减少："
 
+		// 魔法盾
+		"DOTA_Tooltip_ability_medusa_mana_shield2"								"魔法盾"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"创造一个魔法护盾，消耗美杜莎的魔法值以吸收%absorption_pct%%%的伤害，美杜莎每次升级都会使伤害吸收系数提升。幻象的伤害吸收系数减少%illusion_percentage%%%。"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"伤害的吸收先于任何伤害减免机制，所以提高物理护甲，物理格挡和魔法抗性都不能减少吸收相同伤害所需的魔法。"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"基础魔法吸收系数："
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_per_level"		"每级魔法吸收系数："
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"总魔法吸收系数："
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"尽管美杜莎生来没被赐以永恒的生命，但她所受的诅咒赋予了她独一无二的防御力量。"
 
 
 		"DOTA_Tooltip_ability_bot_power_n6"							"机械救赎 N6"

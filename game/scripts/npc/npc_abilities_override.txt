@@ -6680,7 +6680,7 @@
 	{
 		"AbilityValues"
 		{
-			"damage_per_mana"						"2.5"	// 2.2
+			"damage_per_mana"						"3.0"	// 2.2
 			"damage_per_mana_per_level"				"0.2"	// 0.1
 		}
 	}
@@ -12347,7 +12347,7 @@
 				}
 				"damage"
 				{
-					"value"		"140 200 260 320 380"
+					"value"		"160 220 280 340 400"	// 125 190 255 320
 				}
 		}
 	}

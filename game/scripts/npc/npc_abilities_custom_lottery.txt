@@ -1,5 +1,35 @@
 "DOTAAbilities"
 {
+	// 魔法盾
+	"medusa_mana_shield2"
+	{
+
+		"BaseClass"						"medusa_mana_shield"
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Medusa.ManaShield.On"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"medusa_mana_shield"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"damage_per_mana"						"2 3 4 5 6"
+			"damage_per_mana_per_level"				"0.1 0.2 0.3 0.4 0.5"
+			"illusion_percentage"					"60"
+
+			"absorption_pct"						"98"
+			"damage_per_mana_total"
+			{
+				"dynamic_value"			"true"
+			}
+		}
+	}
 	// 死亡先知 巫术精研
 	"death_prophet_witchcraft2"
 	{
