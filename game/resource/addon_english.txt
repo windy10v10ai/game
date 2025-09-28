@@ -2066,7 +2066,7 @@
 
 		// item_jump_jump_jump 跳刀3
 		"DOTA_Tooltip_ability_item_jump_jump_jump"						"Jump! Jump! Jump!"
-		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>Active: Megablink</h1>Combines the effects of Fallen Sky and all three Blink Dagger upgrades.<br><br>Transforms into a meteor, which lands at the target point, stunning enemies in %meteor_land_radius% radius for %meteor_stun_duration% seconds.<br>Affected enemies take %base_damage% + %str_damage%%% of the caster's strength as magical damage on impact, then burn for a further %meteor_burn_dps% damage per second for %meteor_burn_duration% seconds.<br>This deals less damage to buildings.<br><br>After all this calamity happens, the caster receives the benefits of Swift and Arcane Blinks. Enemies suffer the effect of Overwhelming Blink after the stun duration ends."
+		"DOTA_Tooltip_ability_item_jump_jump_jump_Description"			"<h1>Active: Megablink</h1>Transforms into a meteor, which lands at the target point after %meteor_fall_time% seconds in %meteor_land_radius% radius, stunning enemies for %meteor_stun_duration% seconds.<br>Affected enemies take %base_damage% + %str_damage%%% of the caster's strength as magical damage on impact, then burn for a further %meteor_burn_dps% damage per second for %meteor_burn_duration% seconds.<br>This deals half damage to buildings.<br><br>After all this calamity happens, the caster receives the benefits of Swift and Arcane Blinks. Enemies suffer the effect of Overwhelming Blink after the stun duration ends.<br><br>Cannot be used for %blink_damage_cooldown% seconds after taking damage from an enemy hero or Roshan."
 		"DOTA_Tooltip_Ability_item_jump_jump_jump_bonus_all_stats"		"+$all"
 		"DOTA_Tooltip_ability_item_jump_jump_jump_Lore"					"You call it Flash? No, No, No! I'm a Dotaer, not a LOLer! It's Blink, man! BLINK!"
 		"DOTA_Tooltip_modifier_item_jump_jump_jump_meteor_burn"			"Meteor Burn"
@@ -2316,7 +2316,7 @@
 		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff_Description"	"Disarmed by Heaven's Halberd, unable to attack."
 
 		// 神器星落
-		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Artifact: Asteroid Hammer</font>"
+		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Asteroid Hammer</font>"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>Active: Meteor</h1> CHANNELED - After a successful channel, summons a meteor that strikes a %impact_radius% AoE, stunning enemies for %stun_duration% seconds and dealing impact damage. <font color='#e03e77'>Stuns enemies regardless of debuff immunity.</font> Continues to deal damage over time to enemy units and buildings for %burn_duration% seconds. Non-building units are also slowed for %burn_slow%%% for the duration of the burn. <br><br>Building Impact Damage: %impact_damage_buildings% <br>Building Damage Over Time: %burn_dps_buildings% <br><br>Non-Building Impact Damage: %impact_damage_units% <br>Non-Building Damage Over Time: %burn_dps_units% <br><br>Channel Duration: %max_duration% seconds.<br>Landing Time: %land_time% seconds."
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_lore"                   "You want the moon so bad? HERE, TAKE IT!"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_bonus_strength"						"+$str"
