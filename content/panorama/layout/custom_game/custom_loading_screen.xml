@@ -187,6 +187,13 @@
 					</Button>
 					<Image id="OMGAIImage" class="LinkImg" src="file://{images}/custom_game/omg_ai.png"/>
 				</Panel>
+				<!--  TenvTen Remake -->
+				<Panel id="TenvTenRemakePanel" class="LinkPanel GameOptionsSubPanel">
+					<Button id="TenvTenRemakeButton" class="LinkButton ButtonBevel">
+						<Label id="TenvTenRemakeLabel" text="#tenvten_remake_button" />
+					</Button>
+					<Image id="TenvTenRemakeImage" class="LinkImg" src="file://{images}/custom_game/tenvten_remake.png"/>
+				</Panel>
 			</Panel>
 			<!-- 聊天框 -->
 			<Panel id="ChatHideButtonContainer" hittest="false">
