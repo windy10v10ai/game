@@ -53,6 +53,7 @@
 		// link面板
 		"dota_survivor_button"			"Also check out: Dota Survivor"
 		"omg_ai_button"					"Also check out: OMG AI"
+		"tenvten_remake_button"			"Also check out: TenvTen Remake"
 		"join_qq"						"Click to join the QQ"
 		"join_discord"					"Click to join the Discord"
 

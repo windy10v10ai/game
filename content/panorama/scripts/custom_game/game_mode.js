@@ -309,28 +309,40 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
-  if (Math.random() > 0.5) {
-    $('#DotaSurvivorPanel').visible = true;
-    $('#OMGAIPanel').visible = false;
-    DispatchDotaSurvivor();
-  } else {
-    $('#DotaSurvivorPanel').visible = false;
-    $('#OMGAIPanel').visible = true;
-    DispatchOMGAI();
-  }
+  // if (Math.random() > 0.5) {
+  //   $('#DotaSurvivorPanel').visible = true;
+  //   $('#OMGAIPanel').visible = false;
+  //   DispatchDotaSurvivor();
+  // } else {
+  //   $('#DotaSurvivorPanel').visible = false;
+  //   $('#OMGAIPanel').visible = true;
+  //   DispatchOMGAI();
+  // }
+  // 现在显示tenvten_remake按钮，隐藏omg_ai_button
+  $('#DotaSurvivorPanel').visible = false;
+  $('#OMGAIPanel').visible = false;
+  $('#TenvTenRemakePanel').visible = true;
+  DispatchTenvTenRemake();
 }
 
-function DispatchDotaSurvivor() {
+function _DispatchDotaSurvivor() {
   const button = $('#DotaSurvivorButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
   });
 }
 
-function DispatchOMGAI() {
+function _DispatchOMGAI() {
   const button = $('#OMGAIButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 2841790376);
+  });
+}
+
+function DispatchTenvTenRemake() {
+  const button = $('#TenvTenRemakeButton');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', 3564393242);
   });
 }
 
