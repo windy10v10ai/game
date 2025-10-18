@@ -70,12 +70,12 @@ function InitSetting() {
   $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('14');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
   $('#dire_player_number_dropdown').SetSelected('10');
 
   $('#respawn_time_percentage_dropdown').SetSelected('10');
   $('#max_level_dropdown').SetSelected('200');
-  $('#tower_power_dropdown').SetSelected('350');
+  $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('4981');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
@@ -182,7 +182,7 @@ function InitN5Setting() {
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('12');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
 
   $('#tower_power_dropdown').SetSelected('350');
 
@@ -309,28 +309,40 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
-  if (Math.random() > 0.5) {
-    $('#DotaSurvivorPanel').visible = true;
-    $('#OMGAIPanel').visible = false;
-    DispatchDotaSurvivor();
-  } else {
-    $('#DotaSurvivorPanel').visible = false;
-    $('#OMGAIPanel').visible = true;
-    DispatchOMGAI();
-  }
+  // if (Math.random() > 0.5) {
+  //   $('#DotaSurvivorPanel').visible = true;
+  //   $('#OMGAIPanel').visible = false;
+  //   DispatchDotaSurvivor();
+  // } else {
+  //   $('#DotaSurvivorPanel').visible = false;
+  //   $('#OMGAIPanel').visible = true;
+  //   DispatchOMGAI();
+  // }
+  // 现在显示tenvten_remake按钮，隐藏omg_ai_button
+  $('#DotaSurvivorPanel').visible = false;
+  $('#OMGAIPanel').visible = false;
+  $('#TenvTenRemakePanel').visible = true;
+  DispatchTenvTenRemake();
 }
 
-function DispatchDotaSurvivor() {
+function _DispatchDotaSurvivor() {
   const button = $('#DotaSurvivorButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
   });
 }
 
-function DispatchOMGAI() {
+function _DispatchOMGAI() {
   const button = $('#OMGAIButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 2841790376);
+  });
+}
+
+function DispatchTenvTenRemake() {
+  const button = $('#TenvTenRemakeButton');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', 3564393242);
   });
 }
 
