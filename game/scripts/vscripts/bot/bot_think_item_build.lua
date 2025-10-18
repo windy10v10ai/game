@@ -31,7 +31,7 @@ local function replaceItemByRecipe(v, recipeComponents, newItemName)
         table.remove(v, i)
         table.insert(v, newItemName)
         print("replaceItemByRecipe: found " .. component .. ", replacing with " .. newItemName)
-        return true  -- 只替换一次
+        return true -- 只替换一次
       end
     end
   end
@@ -45,7 +45,7 @@ local function addTome(k, v)
   -- 计算替换概率（难度倍率 = 替换概率%）
   -- 限制最大概率为100%
   if multiplier >= 20 then
-    local replace_chance = math.min(multiplier*1.5, 100)
+    local replace_chance = math.min(multiplier * 1.5, 100)
 
     -- 随机替换装备（基于配方）
     -- 1. 万剑归宗：六脉神剑、无锋战戟 -> 万剑归宗
@@ -108,7 +108,7 @@ local function addTome(k, v)
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_undying_heart", "item_withered_spring")
     end
-      -- 11. 枯木逢春：咸鱼之王 -> 枯木逢春
+    -- 11. 枯木逢春：咸鱼之王 -> 枯木逢春
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_aeon_pendant", "item_withered_spring")
     end
@@ -136,7 +136,7 @@ local function addTome(k, v)
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_necronomicon_staff", "item_forbidden_staff")
     end
-      -- 15. 禁忌法锤：风暴之锤 -> 禁忌法锤
+    -- 15. 禁忌法锤：风暴之锤 -> 禁忌法锤
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_gungir_2", "item_forbidden_staff")
     end
@@ -166,13 +166,13 @@ local function addTome(k, v)
   local amount = 0
   if AIGameMode.fBotGoldXpMultiplier >= 60 then
     amount = 60
-  if AIGameMode.fBotGoldXpMultiplier >= 40 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 40 then
     amount = 40
-  if AIGameMode.fBotGoldXpMultiplier >= 30 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 30 then
     amount = 30
-  if AIGameMode.fBotGoldXpMultiplier >= 20 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 20 then
     amount = 25
-  if AIGameMode.fBotGoldXpMultiplier >= 10 then
+  elseif AIGameMode.fBotGoldXpMultiplier >= 10 then
     amount = 20
   elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
     amount = 15

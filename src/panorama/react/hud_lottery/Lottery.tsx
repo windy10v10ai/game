@@ -82,14 +82,13 @@ function Lottery() {
     const passiveCount = lotteryStatus.passiveAbilityCount || 0;
     const activeCount = lotteryStatus.activeAbilityCount || 0;
 
-
-    if (activeCount>=1 && passiveCount >= currentMaxPassiveCount) {
+    if (activeCount >= 1 && passiveCount >= currentMaxPassiveCount) {
       $.Msg('All abilities selected, hiding UI');
       return false;
     }
 
-    $.Msg('Not all abilities selected, showing UI',passiveCount,currentMaxPassiveCount);
-    $.Msg('Not all abilities selected, showing UI',activeCount);
+    $.Msg('Not all abilities selected, showing UI', passiveCount, currentMaxPassiveCount);
+    $.Msg('Not all abilities selected, showing UI', activeCount);
     $.Msg('Not all abilities selected, showing UI');
     return true;
   };
