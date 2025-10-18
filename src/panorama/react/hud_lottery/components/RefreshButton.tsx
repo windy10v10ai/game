@@ -38,6 +38,7 @@ const getTooltipTextToken = (
   }
   return '#lottery_tooltip_ability_refresh';
 };
+
 const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
   // 根据会员 抽选状态判断是否禁用
   const isMember = member?.enable;
@@ -65,35 +66,27 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
   // 刷新事件
   const refreshEventName = 'lottery_refresh_ability';
 
-const handleButtonClick = () => {
-  $.Msg('=== RefreshButton Click Debug ===');
-  $.Msg('isMember: ' + isMember);
-  $.Msg('isRefreshed: ' + isRefreshed);
-  $.Msg('pickedName: ' + pickedName);
-  $.Msg('isSkillResetMode: ' + isSkillResetMode);
-  $.Msg('enabled: ' + enabled);
-  $.Msg('================================');
+  const handleButtonClick = () => {
+    if (!isMember) {
+      $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
+      return;
+    }
 
-  if (!isMember) {
-    $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
-    return;
-  }
+    if (isSkillResetMode) {
+      $.Msg('[RefreshButton] In skill reset mode, button should be disabled');
+      return;
+    }
 
-  if (isSkillResetMode) {
-    $.Msg('[RefreshButton] In skill reset mode, button should be disabled');
-    return;
-  }
+    if (isRefreshed) {
+      $.Msg('[RefreshButton] Already refreshed, ignoring click');
+      return;
+    }
 
-  if (isRefreshed) {
-    $.Msg('[RefreshButton] Already refreshed, ignoring click');
-    return;
-  }
-
-  $.Msg('[RefreshButton] Sending refresh event');
-  GameEvents.SendCustomGameEventToServer(refreshEventName, {
-    type,
-  });
-};
+    $.Msg('[RefreshButton] Sending refresh event');
+    GameEvents.SendCustomGameEventToServer(refreshEventName, {
+      type,
+    });
+  };
 
   return (
     <Button
