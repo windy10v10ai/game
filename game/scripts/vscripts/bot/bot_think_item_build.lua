@@ -18,25 +18,7 @@ local function replaceItem(v, oldItemName, newItemName)
     end
   end
 end
--- 检测装备列表中是否包含配方中的任意配件，如果有则替换为高级装备
-local function replaceItemByRecipe(v, recipeComponents, newItemName)
-  -- recipeComponents 是一个包含所有配件名称的表
-  -- 例如: {"item_sacred_six_vein", "item_sange_and_yasha_1", "item_yasha_and_kaya_1", "item_kaya_and_sange_1"}
 
-  for i, vItem in ipairs(v) do
-    -- 检查当前装备是否是配方中的任意一个配件
-    for _, component in ipairs(recipeComponents) do
-      if vItem == component then
-        -- 找到配件，移除它并添加高级装备
-        table.remove(v, i)
-        table.insert(v, newItemName)
-        print("replaceItemByRecipe: found " .. component .. ", replacing with " .. newItemName)
-        return true -- 只替换一次
-      end
-    end
-  end
-  return false
-end
 local function addTome(k, v)
   -- 高难度替换
   -- 获取难度倍率

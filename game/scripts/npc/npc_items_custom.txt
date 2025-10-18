@@ -7217,7 +7217,6 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"            "item_tome_of_knowledge"
 
-		"ItemPurchasable"               "0"	// TODO 有bug 暂且不可购买
 		"ItemCost"                      "30000"
 		"ItemShopTags"                  ""
 		"ItemQuality"                   "consumable"
