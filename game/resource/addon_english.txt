@@ -2590,5 +2590,236 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"If this mana is not used before the duration ends, the extra mana is lost."
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+
+
+		// Fusion Rune Series
+// Hawkeye Rune
+"DOTA_Tooltip_ability_item_fusion_hawkeye"						"Hawkeye Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"          "A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter"
+
+// Forbidden Rune
+"DOTA_Tooltip_ability_item_fusion_forbidden"					"Forbidden Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade"
+
+// Brutal Rune
+"DOTA_Tooltip_ability_item_fusion_brutal"						"Brutal Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_brutal_Description"           "A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance"
+
+// Beast Rune
+"DOTA_Tooltip_ability_item_fusion_beast"						"Beastly Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_beast_Description"            "A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor"
+
+// Life Rune
+"DOTA_Tooltip_ability_item_fusion_life"							"Life Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_life_Description"             "A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask"
+
+// Shadow Rune
+"DOTA_Tooltip_ability_item_fusion_shadow"						"Shadow Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_shadow_Description"           "A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact"
+
+// Magic Rune
+"DOTA_Tooltip_ability_item_fusion_magic"						"Arcane Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_magic_Description"            "A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Abyss Staff, Magic Sword"
+
+// Agile Rune
+"DOTA_Tooltip_ability_item_fusion_agile"						"Agile Fusion Recipe Booklet"
+"DOTA_Tooltip_ability_item_fusion_agile_Description"            "A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords, Time Gem"
+
+// Hawkeye Turret
+"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "Hawkeye Turret"
+"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>Active: Humanoid Turret</font></h1>Plant your feet and stand your ground, gaining high ground vision. While in this state, you gain %active_armor% armor and %bat_reduction_pct%%% Base Attack Time reduction, as well as %active_attack_range% attack range per consumed Moon Shards multiplied by %moon_shard_bonus%x. However, while in this state, you are rooted and are unable to move.<br><br>Lasts %active_duration% seconds\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% pure damage to enemies in a %attack_radius% around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown%s internal cooldown."
+"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"                 "Transform into a stationary turret, suppressing enemies with overwhelming firepower."
+"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"         "+$damage"
+"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"   "+$attack"
+"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_armor"          "+$armor"
+"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"   "+$attack_range"
+
+// Hawkeye Fighter
+"DOTA_Tooltip_Ability_item_hawkeye_fighter"                  "Hawkeye Fighter"
+"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"      "<h1><font color='#FFFF00'>Active: Humanoid Fighter</font></h1>Take to the air and soar, gaining flying vision and movement for %active_duration% seconds with %active_movement_speed_pct%%% bonus movement speed and a removed movement speed cap. Applies a dispel on use.<br><br>Vision range dynamically adjusts based on hero's current night vision<br>Cooldown: %AbilityCooldown% seconds<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"             "Transform into a fighter, soaring through the skies, unmatched by anyone."
+"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"  "+$all"
+"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+$move_speed"
+"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct" "%+$move_speed"
+"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"  "%+Turn Rate"
+"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_status_resistance" "%+Status Resistance"
+
+"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"          "Fighter Mode"
+"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."
+
+// Forbidden Staff
+"DOTA_Tooltip_Ability_item_forbidden_staff"                  "<font color='#8B008B'>Forbidden Staff</font>"
+"DOTA_Tooltip_ability_item_forbidden_staff_Description"      "<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Deals magical damage equal to %necrolyte_att_multiplier% your total combined attributes and hexes all targets for %sheep_duration% seconds.<br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Radius: %radius%"
+"DOTA_Tooltip_ability_item_forbidden_staff_Lore"             "Forbidden power, not to be touched lightly."
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"  "+$int"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_strength"   "+$str"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_agility"    "+$agi"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_damage"     "+$damage"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_armor"      "+$armor"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana_regen" "+$mana_regen"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"     "+$health"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"       "+$mana"
+"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"        "%+Spell Damage"
+"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"        "+$aoe_bonus"
+
+"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"           "Forbidden Domain"
+"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description" "You are weak. Cannot perform any actions except to try to run away."
+
+"DOTA_Tooltip_Ability_item_recipe_forbidden_staff"           "Forbidden Staff Recipe"
+
+// Forbidden Blade
+"DOTA_Tooltip_Ability_item_forbidden_blade"                  "<font color='#8B008B'>Forbidden Blade</font>"
+"DOTA_Tooltip_ability_item_forbidden_blade_Description"      "<h1><font color='#8B008B'>Active: Forbidden Prison</font></h1>Enemy units in the target area are subject to the effects of Flash, Lightning Storm, and Song of Destruction.<br><br>Flash Stun Duration: %stun_duration% seconds.<br>Flash Damage: %active_damage_base% base damage plus %active_damage_multi%%% of your primary attribute as pure damage<br>Lightning Storm Damage: %lightning_damage%<br>Song of Destruction: Lasts %mute_duration% seconds and disables passives, evasion, and items while crippling healing, and movement/attack speed.<br><br>Radius: %radius%"
+"DOTA_Tooltip_ability_item_forbidden_blade_Lore"             "The forbidden blade, severing all."
+"DOTA_Tooltip_ability_item_forbidden_blade_Note0"            "Flash's stun pierces debuff immunity."
+"DOTA_Tooltip_ability_item_forbidden_blade_bonus_strength"   "+$str"
+"DOTA_Tooltip_ability_item_forbidden_blade_bonus_agility"    "+$agi"
+"DOTA_Tooltip_ability_item_forbidden_blade_bonus_damage"     "+$damage"
+"DOTA_Tooltip_ability_item_forbidden_blade_bonus_armor"      "+$armor"
+"DOTA_Tooltip_ability_item_forbidden_blade_bonus_attack_speed" "+$attack"
+"DOTA_Tooltip_ability_item_forbidden_blade_bonus_health"     "+$health"
+"DOTA_Tooltip_ability_item_forbidden_blade_spell_amp"        "%+Spell Amplification"
+"DOTA_Tooltip_ability_item_forbidden_blade_bonus_aoe"        "+$aoe_bonus"
+
+"DOTA_Tooltip_Ability_item_recipe_forbidden_blade"           "Forbidden Blade Recipe"
+// Guihai Blade (归海一刀)
+"DOTA_Tooltip_Ability_item_switchable_crit_blade"                      "Guihai Blade"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_Description"          "<h1>Toggle: Switch Mode</h1>Cycles through three critical strike modes, each with different chances and multipliers, as well as differing cooldowns for each.<br><br><h1>Mode 1: Balanced Strike</h1>%crit_chance_mode1%%% chance to deal %crit_multiplier_mode1%x critical damage. Guaranteed critical strikes deal %guaranteed_crit_multiplier_mode1%x damage.<br>Cooldown: %cooldown_mode1% seconds<br><br><h1>Mode 2: Heavy Strike</h1>%crit_chance_mode2%%% chance to deal %crit_multiplier_mode2%x critical damage. Guaranteed critical strikes deal %guaranteed_crit_multiplier_mode2%x damage.<br>Cooldown: %cooldown_mode2% seconds<br><br><h1>Mode 3: Devastating Strike</h1>%crit_chance_mode3%%% chance to deal %crit_multiplier_mode3%x critical damage. Guaranteed critical strikes deal %guaranteed_crit_multiplier_mode3%x damage.<br>Cooldown: %cooldown_mode3% seconds<br><br><h1>Passive: True Strike</h1>Attacks will never miss due to evasion or other effects, unless you attack structures."
+"DOTA_Tooltip_ability_item_switchable_crit_blade_Lore"                 "'The dragon returns to the sea; if the sea does not welcome me, I shall come myself.'"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_damage"         "+$damage"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_spell_amp"      "%+$spell_amp"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_damage_percent" "%+Base Attack Damage"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_agility"        "+$agi"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_evasion"        "%+$evasion"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_attack_speed"   "+$attack"
+
+// Dragon Dance (魔龙狂舞)
+"DOTA_Tooltip_Ability_item_recipe_magic_crit_blade"                    "Dragon Dance Recipe"
+"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
+"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1>Toggle: Switch Mode</h1>Cycles through three spell critical strike modes with different chances and multipliers. Each mode has its own cooldown.<br><br><h1>Mode 1: Balanced Spell Crit</h1>%spell_crit_chance_mode1%%% chance to deal %spell_crit_multiplier_mode1%x spell critical damage. Guaranteed spell crits deal %guaranteed_spell_crit_multiplier_mode1%x damage.<br>Cooldown: %cooldown_mode1% seconds<br><br><h1>Mode 2: Heavy Spell Crit</h1>%spell_crit_chance_mode2%%% chance to deal %spell_crit_multiplier_mode2%x spell critical damage. Guaranteed spell crits deal %guaranteed_spell_crit_multiplier_mode2%x damage.<br>Cooldown: %cooldown_mode2% seconds<br><br><h1>Mode 3: Devastating Spell Crit</h1>%spell_crit_chance_mode3%%% chance to deal %spell_crit_multiplier_mode3%x spell critical damage. Guaranteed spell crits deal %guaranteed_spell_crit_multiplier_mode3%x damage.<br>Cooldown: %cooldown_mode3% seconds<br><br><h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence.<br><br><h1>Passive: Phantom Critical</h1>Grants each attack a %phantom_crit_chance%%% chance to deal an additional %phantom_crit_multiplier%%% of the attack's damage as bonus magic damage.<br><br><h1>Passive: True Strike</h1>Attacks will never miss."
+"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "The dragon's dance brings devastation to all who witness it."
+"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
+"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
+"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_spell_amp"           "%+$spell_amp"
+"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent"      "%+Base Attack Damage"
+"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"           "%+$spell_lifesteal"
+// Withered Spring (枯木逢春)
+"DOTA_Tooltip_Ability_item_recipe_withered_spring"                     "Withered Spring Recipe"
+"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
+"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. Instantly heals %instant_heal% health and grants %bonus_armor_active% armor, %bonus_regen_active% health regeneration, %damage_reduction%%% damage reduction, and %status_resistance_active%%% status resistance for %active_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span><br><br><h1>Passive: Vitality</h1>Grants %health_regen_pct%%% of max health as health regeneration."
+"DOTA_Tooltip_ability_item_withered_spring_Lore"                       "From withered wood, spring blooms anew."
+"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"             "+$str"
+"DOTA_Tooltip_ability_item_withered_spring_bonus_health"               "+$health"
+"DOTA_Tooltip_ability_item_withered_spring_bonus_health_regen"         "+$hp_regen"
+"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"           "%+Max Health Regen"
+"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"                "+$armor"
+"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"              "%+$evasion"
+"DOTA_Tooltip_ability_item_withered_spring_status_resistance"          "%+Status Resistance"
+"DOTA_Tooltip_ability_item_withered_spring_magic_resistance"           "%+$spell_resist"
+
+// Dracula Mask (德古拉面罩)
+"DOTA_Tooltip_Ability_item_recipe_dracula_mask"                        "Dracula's Mask Recipe"
+"DOTA_Tooltip_Ability_item_dracula_mask"                               "Dracula's Mask"
+"DOTA_Tooltip_ability_item_dracula_mask_Description"                   "<h1>Passive: Vampiric Feast</h1>Automatically triggers when health falls below %hp_threshold%%%. Increases lifesteal to %lifesteal_active%%%, spell lifesteal to %spell_lifesteal_active%%%, grants +%bonus_attack_speed_active% attack speed, +%bonus_movement_speed_active%%% movement speed, %damage_reduction%%% damage reduction, and %status_resistance_active%%% status resistance for %active_duration% seconds.<br><br><h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt.<br><br><h1>Passive: Spell Lifesteal</h1>Heals for %spell_lifesteal%%% of spell damage dealt."
+"DOTA_Tooltip_ability_item_dracula_mask_Lore"                          "The mask of the immortal vampire lord."
+"DOTA_Tooltip_ability_item_dracula_mask_bonus_strength"                "+$str"
+"DOTA_Tooltip_ability_item_dracula_mask_bonus_health"                  "+$health"
+"DOTA_Tooltip_ability_item_dracula_mask_bonus_damage"                  "+$damage"
+"DOTA_Tooltip_ability_item_dracula_mask_lifesteal_percent"             "%+Lifesteal"
+"DOTA_Tooltip_ability_item_dracula_mask_spell_lifesteal"               "%+Spell Lifesteal"
+"DOTA_Tooltip_ability_item_dracula_mask_bonus_movement_speed"          "+$move_speed"
+
+// Shadow Judgment (暗影裁决)
+"DOTA_Tooltip_Ability_item_recipe_shadow_judgment"                     "Shadow Judgment Recipe"
+"DOTA_Tooltip_Ability_item_shadow_judgment"                            "Shadow Judgment"
+"DOTA_Tooltip_ability_item_shadow_judgment_Description"                "<h1>Active: Judgment</h1>Stuns the target for %stun_duration% seconds, dealing %active_damage_base% base damage plus %active_damage_multi%%% of your primary attribute as pure damage, before then applying multiple debuffs:<br><br>- Mutes and silences for %mute_duration% seconds<br>- Slows movement by %slow_pct%%% and attack speed by %attack_slow%<br>- Deals %max_hp_dmg_pct%%% of max HP as damage per second<br>- Reduces healing by %hp_regen_reduction%%%<br>- Reduces armor by %corruption_armor% for %corruption_duration% seconds<br>- Silences for %silence_duration% seconds, causing attacks to deal %silence_damage_percent%%% bonus damage<br>Pierces debuff immunity."
+"DOTA_Tooltip_ability_item_shadow_judgment_Lore"                       "The shadow's judgment is absolute."
+"DOTA_Tooltip_ability_item_shadow_judgment_Note0"						"Max health damage is not affected by Spell Damage."
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_strength"             "+$str"
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_agility"              "+$agi"
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_intellect"            "+$int"
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_damage"               "+$damage"
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_armor"                "+$armor"
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_attack_speed"         "+$attack"
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_health"               "+$health"
+"DOTA_Tooltip_ability_item_shadow_judgment_bonus_mana_regen"           "+$mana_regen"
+"DOTA_Tooltip_ability_item_shadow_judgment_spell_amp"                  "%+$spell_amp"
+
+// Shadow Impact (暗影咒灭)
+"DOTA_Tooltip_Ability_item_recipe_shadow_impact"                       "Shadow Impact Recipe"
+"DOTA_Tooltip_Ability_item_shadow_impact"                              "Shadow Impact"
+"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes plus %blast_damage_base% to it<br>- Applies ethereal form for %ethereal_duration% seconds, dealing %blast_agility_multiplier%%% of your agility as magical damage and slowing it by %blast_movement_slow%%%<br>- Increases magic damage taken by %ethereal_damage_bonus%%%<br>- Deals %absolute_damage% additional pure damage<br><br>Cast Range: %abilitycastrange%<br>Pierces debuff immunity."
+"DOTA_Tooltip_ability_item_shadow_impact_Lore"                         "The shadow's curse brings annihilation."
+"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"              "+$int"
+"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"               "+$str"
+"DOTA_Tooltip_ability_item_shadow_impact_bonus_agility"                "+$agi"
+"DOTA_Tooltip_ability_item_shadow_impact_bonus_damage"                 "+$damage"
+"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana"                   "+$mana"
+"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana_regen"             "+$mana_regen"
+"DOTA_Tooltip_ability_item_shadow_impact_spell_amp"                    "%+$spell_amp"
+"DOTA_Tooltip_ability_item_shadow_impact_bonus_cast_range"             "+$cast_range"
+
+// Swift Glove (无限手套)
+"DOTA_Tooltip_Ability_item_recipe_swift_glove"                         "Swift Glove Recipe"
+"DOTA_Tooltip_Ability_item_swift_glove"                                "Swift Glove"
+"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%."
+"DOTA_Tooltip_ability_item_swift_glove_Lore"                           "Gloves that grant unmatched speed and precision."
+"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"                 "+$str"
+"DOTA_Tooltip_ability_item_swift_glove_bonus_agility"                  "+$agi"
+"DOTA_Tooltip_ability_item_swift_glove_bonus_intellect"                "+$int"
+"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"             "+$attack"
+"DOTA_Tooltip_ability_item_swift_glove_bonus_movement_speed"           "+$move_speed"
+"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_range"             "+$attack_range"
+
+// Ten Thousand Swords (万剑归宗)
+"DOTA_Tooltip_Ability_item_ten_thousand_swords"                 "<font color='#C0C0C0'>Ten Thousand Swords</font>"
+//"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"     "<h1>Active: Sword Formation</h1>Summon %sword_count% flying swords that attack nearby enemies for %duration% seconds.<br><br>Cooldown: %AbilityCooldown% seconds"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_Lore"            "All swords return to their origin."
+"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_strength" "+$all"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_status_resistance" "%+Status Resistance"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_attack_speed"	"+$attack"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_movement_speed_percent_bonus"	"%+$move_speed"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_hp_regen_amp"		"%+$restoration_amp"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_mana_regen_multiplier"	"%+Mana Regen Amplification"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_spell_damage"		"%+Spell Damage"
+"DOTA_Tooltip_ability_item_ten_thousand_swords_magic_damage_attack"	"+Magic Attack Damage"
+
+// Time Gem (时间宝石)
+"DOTA_Tooltip_Ability_item_time_gem"                            "<font color='#00FF00'>Time Gem</font>"
+"DOTA_Tooltip_ability_item_time_gem_Description"                "<h1>Active: Time Manipulation</h1>Resets the cooldown of all your abilities and items.<br><br>Cooldown: %AbilityCooldown% seconds"
+"DOTA_Tooltip_ability_item_time_gem_Lore"                       "Control time itself."
+"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"            "+$all"
+// Magic Staff (魔渊法杖)
+"DOTA_Tooltip_Ability_item_magic_staff"                         "Magic Staff"
+"DOTA_Tooltip_ability_item_magic_staff_Description"             "<h1>Active: One Thought to Demon</h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage."
+"DOTA_Tooltip_ability_item_magic_staff_Lore"                    "'One thought to Buddha, one thought to demon.'"
+"DOTA_Tooltip_Ability_item_recipe_magic_staff"                  "Magic Staff Recipe"
+"DOTA_Tooltip_Ability_item_magic_staff_bonus_damage"            "+$damage"
+"DOTA_Tooltip_Ability_item_magic_staff_bonus_all_stats"         "+$all"
+
+"DOTA_Tooltip_modifier_item_magic_staff_active"                 "One Thought to Demon"
+"DOTA_Tooltip_modifier_item_magic_staff_active_Description"     "%dMODIFIER_PROPERTY_TOOLTIP%%% of physical damage converted to pure damage"
+
+// Magic Sword (魔渊剑)
+"DOTA_Tooltip_Ability_item_magic_sword"                         "Demonic Sword"
+"DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units.\n<h1>Passive: Chilling Strike</h1>Attacks apply a %slow_pct%%% slow to the target for %slow_duration% seconds."
+"DOTA_Tooltip_ability_item_magic_sword_Lore"                    "'One thought to Buddha, one thought to demon.'"
+"DOTA_Tooltip_ability_item_magic_sword_Note0"					"Ranged units cannot cleave."
+"DOTA_Tooltip_Ability_item_recipe_magic_sword"                  "Magic Sword Recipe"
+"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"            "+$damage"
+"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"         "+$all"
+
+"DOTA_Tooltip_modifier_item_magic_sword_active"                 "One Thought to Buddha"
+"DOTA_Tooltip_modifier_item_magic_sword_active_Description"     "%dMODIFIER_PROPERTY_TOOLTIP%%% of physical damage converted to pure damage"
+
+"DOTA_Tooltip_modifier_item_magic_sword_slow"                   "Demonic Sword Slow"
+"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+
+"DOTA_Tooltip_Ability_item_tome_of_skill_reset"                "Skill Reset Tome"
+"DOTA_Tooltip_ability_item_tome_of_skill_reset_Description"    "<h1>Use: Reselect Skill</h1>Allows you to remove one lottery ability and select a new one from a pool of 2 active and 4 passive abilities.<br><br>The new ability selection will be prioritized as follows:<br>1. Active abilities<br>2. Passive abilities with active effects (e.g., orb effects)<br>3. Pure passive abilities<br><br>Shareable with teammates."
+"DOTA_Tooltip_ability_item_tome_of_skill_reset_Lore"          "A mystical tome that grants the power to reshape one's destiny."
+// Legion Commander Talent (军团指挥官天赋)
+"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"  "Deal 90% of Duel damage bonus to each hero."
 	}
 }

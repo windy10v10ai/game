@@ -129,6 +129,10 @@ tinker_rearm_lua.ItemException = {
 	["item_meteor_hammer_2"] = true,
 	["item_saint_orb"] = true,
 	["item_candy_candy"] = true,
+	["item_switchable_crit_blade"] = true,
+	["item_magic_crit_blade"] = true,
+	-- 新增:时间宝石
+    ["item_time_gem"] = true,
 }
 
 --------------------------------------------------------------------------------

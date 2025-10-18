@@ -64,6 +64,7 @@ export const abilityTiersActive: Tier[] = [
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
       'bloodseeker_blood_mist2', // 血魔 血雾
+      'ability_trigger_learned_skills', // 蝴蝶效应
     ],
   },
   {

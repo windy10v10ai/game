@@ -3027,8 +3027,29 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
+//蝴蝶效应
+	"ability_trigger_learned_skills"
+	{
+		"BaseClass"             "ability_lua"
+		"ScriptFile"            "abilities/ability_trigger_learned_skills"
+		"AbilityTextureName"    "ability_trigger_learned_skills"
 
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"           "DOTA_ABILITY_TYPE_BASIC"
 
+		"MaxLevel"              "5"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "6"
+
+		"AbilityValues"
+		{
+			// 普通技能触发概率 (每级)
+			"basic_trigger_chance"      "3 6 9 12 15"
+
+			// 终极技能触发概率 (每级)
+			"ultimate_trigger_chance"   "1 2 2.6 3.3 4"
+		}
+	}
 	//=================================================================================================================
 	// Brewmaster: Primal Split
 	//=================================================================================================================
