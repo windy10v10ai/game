@@ -21,6 +21,118 @@ end
 
 local function addTome(k, v)
   -- 高难度替换
+  -- 获取难度倍率
+  local multiplier = AIGameMode.fBotGoldXpMultiplier
+
+  -- 计算替换概率（难度倍率 = 替换概率%）
+  -- 限制最大概率为100%
+  if multiplier >= 20 then
+    local replace_chance = math.min(multiplier * 1.5, 100)
+
+    -- 随机替换装备（基于配方）
+    -- 1. 万剑归宗：六脉神剑、无锋战戟 -> 万剑归宗
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_sacred_six_vein", "item_ten_thousand_swords")
+    end
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_eternal_shroud", "item_ten_thousand_swords")
+    end
+
+    -- 2. 时间宝石：刷新核心 -> 时间宝石
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_refresh_core", "item_time_gem")
+    end
+
+    -- 3. 兽化盾：洞察盔甲 -> 兽化盾
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_insight_armor", "item_beast_shield")
+    end
+
+    -- 4. 兽化甲：刃甲2 -> 兽化甲
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_blade_mail_2", "item_beast_armor")
+    end
+
+    -- 5. 魔渊法杖：圣杖 -> 魔渊法杖
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_hallowed_scepter", "item_magic_abyss_staff")
+    end
+
+    -- 6. 魔渊剑：大冰眼 -> 魔渊剑
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_skadi_2", "item_magic_sword")
+    end
+
+    -- 7. 无限手套：黄金魔龙枪 -> 无限手套
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_dragon_lance_pro_max", "item_swift_glove")
+    end
+
+    -- 8. 暗影咒灭：达贡5 -> 暗影咒灭
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_dagon_5", "item_shadow_impact")
+    end
+
+    -- 9. 暗影裁决：深渊之刃v2 -> 暗影裁决
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_abyssal_blade_v2", "item_shadow_judgment")
+    end
+    -- 9. 暗影裁决：苍蓝幻想 -> 暗影裁决
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_blue_fantasy", "item_shadow_judgment")
+    end
+    -- 10. 德古拉面罩：撒旦2 -> 德古拉面罩
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_satanic_2", "item_dracula_mask")
+    end
+
+    -- 11. 枯木逢春：不朽之心 -> 枯木逢春
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_undying_heart", "item_withered_spring")
+    end
+    -- 11. 枯木逢春：咸鱼之王 -> 枯木逢春
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_aeon_pendant", "item_withered_spring")
+    end
+
+    -- 12. 魔龙狂舞：圣杖 -> 魔龙狂舞
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_hallowed_scepter", "item_magic_crit_blade")
+    end
+
+    -- 13. 归海一刀：黄金大核 -> 归海一刀
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_wasp_golden", "item_switchable_crit_blade")
+    end
+
+    -- 14. 禁忌战刃：深渊之刃v2 -> 禁忌战刃
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_abyssal_blade_v2", "item_forbidden_blade")
+    end
+
+    -- 14. 禁忌战刃：苍蓝幻想-> 禁忌战刃
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_blue_fantasy", "item_forbidden_blade")
+    end
+    -- 15. 禁忌法锤：死灵法杖 -> 禁忌法锤
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_necronomicon_staff", "item_forbidden_staff")
+    end
+    -- 15. 禁忌法锤：风暴之锤 -> 禁忌法锤
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_gungir_2", "item_forbidden_staff")
+    end
+
+    -- 16. 鹰眼战机：阿迪王-> 鹰眼战机
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_adi_king_plus", "item_hawkeye_fighter")
+    end
+
+    -- 17. 鹰眼炮台：黄金魔龙枪 -> 鹰眼炮台
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_hurricane_pike_2", "item_hawkeye_turret")
+    end
+  end
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
     -- 天地同寿甲(秘术铠甲 群体刃甲)
     replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
@@ -34,7 +146,15 @@ local function addTome(k, v)
   table.insert(v, "item_tome_of_luoshu")
 
   local amount = 0
-  if AIGameMode.fBotGoldXpMultiplier >= 10 then
+  if AIGameMode.fBotGoldXpMultiplier >= 60 then
+    amount = 60
+  elseif AIGameMode.fBotGoldXpMultiplier >= 40 then
+    amount = 40
+  elseif AIGameMode.fBotGoldXpMultiplier >= 30 then
+    amount = 30
+  elseif AIGameMode.fBotGoldXpMultiplier >= 20 then
+    amount = 25
+  elseif AIGameMode.fBotGoldXpMultiplier >= 10 then
     amount = 20
   elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
     amount = 15
