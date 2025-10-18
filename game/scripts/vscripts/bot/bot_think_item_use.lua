@@ -76,10 +76,28 @@ function BotItemThink:UseActiveItem(hHero)
             end
         end
     end
-
+    -- 对敌军目标
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_forbidden_blade") then
+        local iRandom = RandomInt(1, 100)
+        local usePercent = 20
+        if iRandom <= usePercent and hHero:GetHealthPercent() > 15 then
+            local iRange = GetFullCastRange(hHero, tUsableItems["item_forbidden_blade"])
+            local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+            if #tAllHeroes > 0 then
+                local hTarget = tAllHeroes[1]
+                if BotItemThink:UseItemOnTarget(tUsableItems, hHero, "item_forbidden_blade", hTarget) then
+                    return true
+                end
+            end
+        end
+    end
 
     -- item_blue_fantasy 苍蓝
     if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_blue_fantasy") then
+        return true
+    end
+    -- item_shadow_judgment 暗影裁决
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_shadow_judgment") then
         return true
     end
 
@@ -111,7 +129,10 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_dagon_5") then
         return true
     end
-
+    --暗影咒灭
+    if BotItemThink:UseItemOnEnemyNear(tUsableItems, hHero, "item_shadow_impact") then
+        return true
+    end
     -- 大天堂
     if BotItemThink:IsItemCanUse(tUsableItems, "item_heavens_halberd_v2") then
         local iRange = GetFullCastRange(hHero, tUsableItems["item_heavens_halberd_v2"])
@@ -149,7 +170,17 @@ function BotItemThink:UseActiveItem(hHero)
             end
         end
     end
-
+    -- 禁忌法杖
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_forbidden_staff") then
+        local iRange = GetFullCastRange(hHero, tUsableItems["item_forbidden_staff"])
+        local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
+        if #tAllHeroes > 0 then
+            local hTarget = tAllHeroes[1]
+            if BotItemThink:UseItemOnPostion(tUsableItems, hHero, "item_forbidden_staff", hTarget) then
+                return true
+            end
+        end
+    end
     ------------------ 无目标 长距离 ------------------
     local searchRange = 1200
     local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
@@ -170,7 +201,12 @@ function BotItemThink:UseActiveItem(hHero)
             return true
         end
     end
-
+    -- 兽化甲
+    if hHero:GetHealthPercent() < 99 then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_beast_armor") then
+            return true
+        end
+    end
     -- item_insight_armor
     if hHero:GetHealthPercent() < 90 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_insight_armor") then
@@ -184,7 +220,12 @@ function BotItemThink:UseActiveItem(hHero)
             return true
         end
     end
-
+    -- 枯木逢春
+    if hHero:GetHealthPercent() < 50 then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_withered_spring") then
+            return true
+        end
+    end
     -- item_silver_edge_2 无敌之刃
     if hHero:GetHealthPercent() < 50 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_silver_edge_2") then
@@ -201,7 +242,10 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_adi_king_plus") then
         return true
     end
-
+    -- 鹰眼战机
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hawkeye_fighter") then
+        return true
+    end
     -- item_force_field
     if hHero:GetHealthPercent() < 90 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_force_field") then
@@ -218,7 +262,14 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hallowed_scepter") then
         return true
     end
-
+    -- item_magic_abyss_staff 魔渊法杖
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_abyss_staff") then
+        return true
+    end
+       -- item_magic_sword 魔渊剑
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_sword") then
+        return true
+    end
     ------------------ 无目标 中距离 ------------------
     searchRange = 900
     tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)
@@ -229,6 +280,12 @@ function BotItemThink:UseActiveItem(hHero)
     -- 大撒旦
     if hHero:GetHealthPercent() < 60 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_satanic_2") then
+            return true
+        end
+    end
+        -- 德古拉面罩
+    if hHero:GetHealthPercent() < 60 then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_dracula_mask") then
             return true
         end
     end
@@ -283,13 +340,16 @@ function BotItemThink:UseActiveItem(hHero)
     end
 
     -- refresh 刷新
-    if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") or BotItemThink:IsItemCanUse(tUsableItems, "item_refresh_core") then
+    if BotItemThink:IsItemCanUse(tUsableItems, "item_refresher") or BotItemThink:IsItemCanUse(tUsableItems, "item_refresh_core") or BotItemThink:IsItemCanUse(tUsableItems, "item_time_gem") then
         local cooldownThreshold = 60
         if BotThink:GetCooldownTotal(hHero) > cooldownThreshold then
             if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresher") then
                 return true
             end
             if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_refresh_core") then
+                return true
+            end
+            if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_time_gem") then
                 return true
             end
         end

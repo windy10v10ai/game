@@ -94,72 +94,93 @@ export class EventEntityKilled {
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
   private dropItemChanceNeutral = 0.2;
+  //符文
+  private dropItemListFusionMaterial: string[] = [
+    'item_fusion_hawkeye',
+    'item_fusion_forbidden',
+    'item_fusion_brutal',
+    'item_fusion_beast',
+    'item_fusion_life',
+    'item_fusion_shadow',
+    'item_fusion_magic',
+    'item_fusion_agile',
+  ];
 
+  private dropItemChanceFusionRoshan = 100;
+  private dropItemChanceFusionAncient = 1.0;
+  private dropItemChanceFusionNeutral = 0.2;
+  //限时高概率
+ // private dropItemChanceFusionRoshan = 30;
+   //private dropItemChanceFusionAncient = 0.3;
+   //private dropItemChanceFusionNeutral = 0.1;
   private onCreepKilled(creep: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC | undefined): void {
-    const creepName = creep.GetName();
+  const creepName = creep.GetName();
 
-    if (creepName === 'npc_dota_roshan') {
-      // 击杀肉山
-      if (PlayerHelper.IsGoodTeamUnit(attacker)) {
-        this.dropItemListDragonBall = this.dropItem(
-          creep,
-          this.dropItemListDragonBall,
-          this.dropItemChanceRoshan,
-        );
+  if (creepName === 'npc_dota_roshan') {
+    // 击杀肉山
+    if (PlayerHelper.IsGoodTeamUnit(attacker)) {
+      // 龙珠掉落(保持原逻辑)
+      this.dropItemListDragonBall = this.dropItem(
+        creep,
+        this.dropItemListDragonBall,
+        this.dropItemChanceRoshan,
+      );
 
-        // 神器组件掉落，掉落数量 1 ~ 3 的随机数
-        const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
-        const dropCount = RandomInt(1, maxDropCount);
-        print(`[EventEntityKilled] OnCreepKilled dropCount is ${dropCount}`);
-        for (let i = 0; i < dropCount; i++) {
-          const isDaytime = GameRules.IsDaytime();
-          if (isDaytime) {
-            // 白天掉落圣光组件
-            this.dropItem(creep, [this.itemLightPartName], this.dropItemChanceRoshanArtifactPart);
-          } else {
-            // 夜晚掉落暗影组件
-            this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
-          }
-        }
-      } else {
-        print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
+      // 融合符文掉落 - 使用神器组件的循环逻辑
+      const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
+      const dropCount = RandomInt(1, maxDropCount);
+      print(`[EventEntityKilled] Fusion material dropCount is ${dropCount}`);
+      for (let i = 0; i < dropCount; i++) {
+        // 从符文列表中随机选择一个
+        const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
+        const randomRune = this.dropItemListFusionMaterial[randomIndex];
+        this.dropItem(creep, [randomRune], this.dropItemChanceFusionRoshan);
       }
 
-      // 延迟移除无人捡取的金币袋
-      Timers.CreateTimer(this.removeGoldBagDelay, () => {
-        const goldBags = Entities.FindAllByClassname('dota_item_drop') as CDOTA_Item_Physical[];
-        for (const goldBag of goldBags) {
-          const itemName = goldBag.GetContainedItem().GetName();
-          if (itemName === 'item_bag_of_gold') {
-            goldBag.RemoveSelf();
-          }
+      // 神器组件掉落(保持原逻辑)
+      for (let i = 0; i < dropCount; i++) {
+        const isDaytime = GameRules.IsDaytime();
+        if (isDaytime) {
+          this.dropItem(creep, [this.itemLightPartName], this.dropItemChanceRoshanArtifactPart);
+        } else {
+          this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
         }
-      });
-    } else if (creep.IsAncient()) {
-      // 击杀远古
-      if (PlayerHelper.IsHumanPlayer(attacker)) {
-        this.dropItemListDragonBall = this.dropItem(
-          creep,
-          this.dropItemListDragonBall,
-          this.dropItemChanceAncient,
-        );
-
-        this.dropParts(creep, this.dropItemChanceAncient);
-      }
-    } else if (creep.IsNeutralUnitType()) {
-      // 击杀中立单位
-      if (PlayerHelper.IsHumanPlayer(attacker)) {
-        this.dropItemListDragonBall = this.dropItem(
-          creep,
-          this.dropItemListDragonBall,
-          this.dropItemChanceNeutral,
-        );
-
-        this.dropParts(creep, this.dropItemChanceNeutral);
       }
     }
-  }
+  } else if (creep.IsAncient()) {
+    // 击杀远古 - 符文掉落
+    if (PlayerHelper.IsHumanPlayer(attacker)) {
+      this.dropItemListDragonBall = this.dropItem(
+        creep,
+        this.dropItemListDragonBall,
+        this.dropItemChanceAncient,
+      );
 
+      // 符文掉落 - 单次随机
+      const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
+      const randomRune = this.dropItemListFusionMaterial[randomIndex];
+      this.dropItem(creep, [randomRune], this.dropItemChanceFusionAncient);
+
+      this.dropParts(creep, this.dropItemChanceAncient);
+    }
+  } else if (creep.IsNeutralUnitType()) {
+    // 击杀中立单位 - 符文掉落
+    if (PlayerHelper.IsHumanPlayer(attacker)) {
+      this.dropItemListDragonBall = this.dropItem(
+        creep,
+        this.dropItemListDragonBall,
+        this.dropItemChanceNeutral,
+      );
+
+      // 符文掉落 - 单次随机
+      const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
+      const randomRune = this.dropItemListFusionMaterial[randomIndex];
+      this.dropItem(creep, [randomRune], this.dropItemChanceFusionNeutral);
+
+      this.dropParts(creep, this.dropItemChanceNeutral);
+    }
+  }
+}
   private dropParts(creep: CDOTA_BaseNPC, chance = 1): void {
     // 获取白天夜晚
     const isDaytime = GameRules.IsDaytime();
