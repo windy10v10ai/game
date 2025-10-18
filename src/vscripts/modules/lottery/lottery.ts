@@ -7,7 +7,7 @@ import { LotteryHelper } from './lottery-helper';
 
 @reloadable
 export class Lottery {
-  readonly randomCountBase = 5;
+  readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
   // 新增：每个玩家的被动技能选择计数器
   private passiveAbilityPickCount: Map<string, number> = new Map();
