@@ -156,6 +156,7 @@
 	//=================================================================================
 	"npc_dota_warlock_golem"
 	{
+		"BaseAttackSpeed"           "180"
 		"AttackRate"				"1.2"		// 1.25
 	}
 
@@ -276,6 +277,7 @@
 		//Inventory
 		"HasInventory"				"0"
 	}
+
 	"npc_dota_warlock_golem_scepter_5"
 	{
 		// General

@@ -48,7 +48,13 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
       : lotteryStatus?.isPassiveAbilityRefreshed;
   const pickedName =
     type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
-  const enabled = isMember && !isRefreshed && !pickedName;
+
+  // 添加重选模式检查
+  const isSkillResetMode = lotteryStatus?.isSkillResetMode === true;
+
+  // 在重选模式下或其他条件不满足时禁用刷新按钮
+  const enabled = isMember && !isRefreshed && !pickedName && !isSkillResetMode;
+
   const imageSrc = enabled
     ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
     : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
@@ -65,13 +71,23 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
       $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
       return;
     }
-    if (isRefreshed) {
+
+    if (isSkillResetMode) {
+      $.Msg('[RefreshButton] In skill reset mode, button should be disabled');
       return;
     }
+
+    if (isRefreshed) {
+      $.Msg('[RefreshButton] Already refreshed, ignoring click');
+      return;
+    }
+
+    $.Msg('[RefreshButton] Sending refresh event');
     GameEvents.SendCustomGameEventToServer(refreshEventName, {
       type,
     });
   };
+
   return (
     <Button
       onactivate={handleButtonClick}
