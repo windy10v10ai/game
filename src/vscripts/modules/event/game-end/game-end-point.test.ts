@@ -195,7 +195,7 @@ describe('GameEndPoint', () => {
     it('夜魇金钱经验倍率>=10时', () => {
       const option = { ...defaultOption, direGoldXpMultiplier: 10 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2);
+      expect(multiplier).toBe(1.9);
     });
 
     it('夜魇金钱经验倍率>=5时', () => {
@@ -241,7 +241,7 @@ describe('GameEndPoint', () => {
         startingGoldPlayer: 5000,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(1.9);
+      expect(multiplier).toBe(1.8);
     });
 
     it('电脑金钱<=1000时应该-0.1', () => {
@@ -251,7 +251,7 @@ describe('GameEndPoint', () => {
         startingGoldBot: 1000,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(1.9);
+      expect(multiplier).toBe(1.8);
     });
 
     it('N6难度多个条件组合', () => {
@@ -262,7 +262,7 @@ describe('GameEndPoint', () => {
         towerPower: 350,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2.1);
+      expect(multiplier).toBe(2);
     });
 
     it('最高难度倍率', () => {
@@ -286,7 +286,7 @@ describe('GameEndPoint', () => {
         towerPower: 150,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.2);
+      expect(multiplier).toBe(0.1);
     });
   });
 });

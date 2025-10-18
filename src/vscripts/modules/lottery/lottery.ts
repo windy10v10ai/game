@@ -1,3 +1,4 @@
+import { LotteryDto } from '../../../common/dto/lottery';
 import { MemberLevel } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { NetTableHelper } from '../helper/net-table-helper';
@@ -102,18 +103,6 @@ export class Lottery {
     }
   }
 
-  // 在 lottery.ts 中添加方法
-  private getAbilityCountByMaxLevel(): number {
-    const maxLevel = GameRules.Option.maxLevel;
-    if (maxLevel >= 200) {
-      return 4;
-    } else if (maxLevel === 100) {
-      return 3;
-    } else {
-      return 2;
-    }
-  }
-
   private getSpecifiedPassiveAbilityByStartingGold(): { name: string; level: number } | null {
     const startingGold = GameRules.Option.startingGoldPlayer;
 
@@ -181,7 +170,7 @@ export class Lottery {
     if (member.enable && member.level >= MemberLevel.PREMIUM) {
       const extraAbilities = LotteryHelper.getRandomAbilities(
         abilityTiers,
-        this.getAbilityCountByMaxLevel(),
+        this.randomCountExtra,
         hero,
         executedNames,
         true, // 使用高级别技能
@@ -366,7 +355,7 @@ export class Lottery {
     lotteryStatus.skillResetPickedCount = 0;
     lotteryStatus.isSkillResetMode = true;
 
-    const currentAbilities: any[] = [];
+    const currentAbilities: LotteryDto[] = [];
 
     // 从英雄身上读取实际的lottery技能
     for (let i = 0; i < hero.GetAbilityCount(); i++) {
@@ -517,7 +506,6 @@ export class Lottery {
         if (ability) {
           const abilityName = ability.GetAbilityName();
           // 检查是否为lottery技能
-          const isLotteryAbility = this.isLotteryAbility(abilityName);
           lotteryAbilities.push({
             name: abilityName,
             level: ability.GetLevel(),
@@ -737,8 +725,8 @@ export class Lottery {
       steamAccountID,
     );
     if (activeAbilities !== undefined) {
-      const abilities = Object.values(activeAbilities) as any[];
-      const updatedAbilities = abilities.filter((ability: any) => ability.name !== event.name);
+      const abilities = Object.values(activeAbilities) as LotteryDto[];
+      const updatedAbilities = abilities.filter((ability) => ability.name !== event.name);
       CustomNetTables.SetTableValue('lottery_active_abilities', steamAccountID, updatedAbilities);
     }
 
