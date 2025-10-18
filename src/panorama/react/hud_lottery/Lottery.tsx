@@ -63,20 +63,12 @@ function Lottery() {
   }, [maxPassiveCount]);
 
   const getIsVisible = (lotteryStatus: LotteryStatusDto | null) => {
-    $.Msg('=== getIsVisible Debug ===');
-
     if (!lotteryStatus) {
-      $.Msg('No lottery status, hiding UI');
       return false;
     }
-
-    $.Msg('isSkillResetMode: ' + lotteryStatus.isSkillResetMode);
-
     if (lotteryStatus.isSkillResetMode) {
-      $.Msg('Skill reset mode active, showing UI');
       return true;
     }
-
     // 使用 ref 中的值,而不是重新计算
     const currentMaxPassiveCount = maxPassiveCountRef.current;
     const passiveCount = lotteryStatus.passiveAbilityCount || 0;

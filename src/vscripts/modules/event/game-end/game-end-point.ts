@@ -94,17 +94,17 @@ export class GameEndPoint {
 
     if (option.direGoldXpMultiplier >= 40) {
       multiplier *= 2.4;
-    } else if (option.direGoldXpMultiplier == 30) {
+    } else if (option.direGoldXpMultiplier === 30) {
       multiplier *= 2.3;
-    } else if (option.direGoldXpMultiplier == 20) {
+    } else if (option.direGoldXpMultiplier === 20) {
       multiplier *= 2.2;
-    } else if (option.direGoldXpMultiplier == 17) {
+    } else if (option.direGoldXpMultiplier === 17) {
       multiplier *= 2.1;
-    } else if (option.direGoldXpMultiplier == 14) {
+    } else if (option.direGoldXpMultiplier === 14) {
       multiplier *= 2.0;
-    } else if (option.direGoldXpMultiplier == 12) {
+    } else if (option.direGoldXpMultiplier === 12) {
       multiplier *= 1.95;
-    } else if (option.direGoldXpMultiplier == 10) {
+    } else if (option.direGoldXpMultiplier === 10) {
       multiplier *= 1.9;
     } else if (option.direGoldXpMultiplier >= 5) {
       multiplier *= 1.5;
@@ -116,7 +116,7 @@ export class GameEndPoint {
     }
     // 相同英雄选择 -- 实际上目前是全英雄随机
     if (!option.sameHeroSelection) {
-      multiplier +=0.1;
+      multiplier += 0.1;
     }
     // 防御塔倍率
     if (option.towerPower <= 100) {
@@ -136,14 +136,14 @@ export class GameEndPoint {
     if (multiplier > 1.5) {
       if (option.startingGoldPlayer >= 5000) {
         multiplier -= 0.1;
-      }
-      else if (option.startingGoldPlayer == 4981) {//三被动模式
+      } else if (option.startingGoldPlayer === 4981) {
+        //三被动模式
         multiplier -= 0.4;
-      }
-      else if (option.startingGoldPlayer == 4982) {//二被动模式
+      } else if (option.startingGoldPlayer === 4982) {
+        //二被动模式
         multiplier -= 0.2;
-      }
-      else if (option.startingGoldPlayer >= 4000) {//指定被动模式
+      } else if (option.startingGoldPlayer >= 4000) {
+        //指定被动模式
         multiplier -= 0.4;
       }
       if (option.startingGoldBot <= 1000) {

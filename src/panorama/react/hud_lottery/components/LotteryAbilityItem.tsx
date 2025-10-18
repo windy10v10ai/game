@@ -42,7 +42,6 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
 }) => {
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const lotteryStatus = GetLotteryStatus(steamAccountId);
-  const activeAbilities = CustomNetTables.GetTableValue('lottery_active_abilities', steamAccountId);
 
   const isResetMode = lotteryStatus?.isSkillResetMode === true;
 
