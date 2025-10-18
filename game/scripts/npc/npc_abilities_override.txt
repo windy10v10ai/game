@@ -408,8 +408,8 @@
 				}
 				"burn_damage"
 				{
-					"value"					"1 2 3 4 5 6"
-					"special_bonus_unique_underlord_4"	"+1"
+					"value"					"1.0 1.5 2 2.5 3 3.5"
+					"special_bonus_unique_underlord_4"	"+0.8"
 				}
 		}
 	}
@@ -909,12 +909,6 @@
 			}
 		}
 	}
-	//=================================================================================================================
-	// Ability: Brewmaster 酒仙
-	//=================================================================================================================
-	//已经替换成新英雄 杰克
-	//=================================================================================================================
-
 	//=================================================================================================================
 	// Ability: Bristleback 钢背兽
 	//=================================================================================================================
@@ -2217,15 +2211,6 @@
 	// 压倒性优势
 	"legion_commander_overwhelming_odds"
 	{
-		"BaseClass"             "ability_lua"
-		"ScriptFile"            "abilities/legion_commander_overwhelming_odds"
-		"AbilityTextureName"    "legion_commander_overwhelming_odds"
-
-		"precache"
-		{
-			"particle"  "particles/units/heroes/hero_legion_commander/legion_commander_odds.vpcf"
-			"particle"  "particles/units/heroes/hero_legion_commander/legion_commander_odds_buff.vpcf"
-		}
 		"MaxLevel" "5"
 
 		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
@@ -2252,10 +2237,9 @@
 				"duel_damage_pct"
 				{
 					"value"                 "0"
-					"special_bonus_unique_legion_commander_4"	"+90"
+					"special_bonus_unique_legion_commander_4"	"+90"	// 40
 				}
-				"bonus_attack_speed"		"50 75 100 125 150 200 200 200"
-				"duration"					"6"
+				"bonus_attack_speed"		"50 75 100 125 150"
 		}
 	}
 	// 强攻
@@ -6743,16 +6727,6 @@
 	// 月神之箭 射箭
 	"mirana_arrow"
 	{
-//		"BaseClass"     "ability_lua"
-//		"ScriptFile"    "abilities/mirana_arrow"
-//		"HasScepterUpgrade"  "1"
-//    	"AbilityTextureName" "mirana_arrow"  // 添加这一行
-
-//		"precache"
-//		{
-//			"particle"   "particles/units/heroes/hero_mirana/mirana_spell_arrow.vpcf"
-//        	"particle"   "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-//		}
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"4500"
 		"AbilityCastPoint"				"0.1"	// 0.5
@@ -6831,14 +6805,6 @@
 	// 星落
 	"mirana_starfall"
 	{
-//		"BaseClass"     "ability_lua"
-//		"ScriptFile"    "abilities/mirana_starfall"
-//   	"AbilityTextureName" "mirana_starfall"  // 添加这一行
-
-//		"precache"
-//		{
-//			"particle"   "particles/units/heroes/hero_mirana/mirana_starfall_attack.vpcf"
-//		}
 		"MaxLevel" "5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastPoint"				"0.05"		// 0.4

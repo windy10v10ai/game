@@ -6919,7 +6919,7 @@
     "ItemResult"                "item_time_gem"
     "ItemRequirements"
     {
-        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
+        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1,item_yasha_and_kaya_1;item_fusion_agile"
     }
 }
 
@@ -7217,6 +7217,7 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"            "item_tome_of_knowledge"
 
+		"ItemPurchasable"               "0"	// TODO 有bug 暂且不可购买
 		"ItemCost"                      "30000"
 		"ItemShopTags"                  ""
 		"ItemQuality"                   "consumable"
