@@ -83,14 +83,12 @@ function AIGameMode:PreGameOptions()
 
     self.iStartingGoldPlayer = self.iStartingGoldPlayer or 600
     self.iStartingGoldBot = self.iStartingGoldBot or 600
-    self.bSameHeroSelection = self.bSameHeroSelection or 1
+    self.bSameHeroSelection = self.bSameHeroSelection or 0
     self.fGameStartTime = 0
 
     local gameMode = GameRules:GetGameModeEntity()
 
-    if self.bSameHeroSelection == 1 then
-        GameRules:SetSameHeroSelectionEnabled(true)
-    end
+    GameRules:SetSameHeroSelectionEnabled(true)
 
     self.sumTowerPower = AIGameMode.iTowerPower
     self.creepBuffLevel = 0
@@ -137,10 +135,11 @@ function AIGameMode:PreGameOptions()
         self.botPushMin = RandomInt(11, 13)
     elseif self.fBotGoldXpMultiplier <= 10 then
         self.botPushMin = RandomInt(8, 10)
-    else
+    elseif self.fBotGoldXpMultiplier <= 20 then
         self.botPushMin = RandomInt(5, 7)
+    else
+        self.botPushMin = RandomInt(4, 5)
     end
-
     print("botPushMin: " .. self.botPushMin)
 
     BotThink:SetTome()

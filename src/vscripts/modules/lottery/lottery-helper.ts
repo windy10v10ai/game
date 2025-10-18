@@ -6,7 +6,7 @@ export class LotteryHelper {
   private static readonly BASE_TIER_RATES = [1, 5, 20, 60, 100];
 
   // 高级会员概率设置（5-1级）
-  private static readonly PREMIUM_TIER_RATES = [5, 20, 60, 100, 100];
+  private static readonly PREMIUM_TIER_RATES = [10, 30, 60, 100, 100];
 
   private static getRandomTier(tiers: Tier[]): Tier {
     const random = RandomInt(1, 100);

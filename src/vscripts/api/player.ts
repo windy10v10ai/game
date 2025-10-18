@@ -128,7 +128,6 @@ export class Player {
     // set member to member table
     Player.savePlayerToNetTable();
     Player.saveMemberToNetTable();
-    // set point info to point info table
     Player.savePointInfoToNetTable();
 
     const status = Player.playerList.length > 0 ? 2 : 3;
@@ -148,7 +147,6 @@ export class Player {
 
   // 英雄出生/升级时，设置玩家属性
   public static SetPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
-    print(`[Player] SetPlayerProperty ${hero.GetUnitName()}`);
     if (!hero) {
       return;
     }

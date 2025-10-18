@@ -67,17 +67,17 @@ function ShowChatTeamActivate() {
 // -------- Game Setting --------
 
 function InitSetting() {
-  $('#same_hero_selection').checked = true;
+  $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('5');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
   $('#dire_player_number_dropdown').SetSelected('10');
 
-  $('#respawn_time_percentage_dropdown').SetSelected('100');
-  $('#max_level_dropdown').SetSelected('50');
-  $('#tower_power_dropdown').SetSelected('300');
+  $('#respawn_time_percentage_dropdown').SetSelected('10');
+  $('#max_level_dropdown').SetSelected('200');
+  $('#tower_power_dropdown').SetSelected('400');
 
-  $('#starting_gold_player_dropdown').SetSelected('3000');
+  $('#starting_gold_player_dropdown').SetSelected('4981');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
 
   // 开发模式
@@ -131,7 +131,7 @@ function InitDifficultyCommonSetting() {
   $('#respawn_time_percentage_dropdown').SetSelected('100');
   $('#max_level_dropdown').SetSelected('50');
 
-  $('#same_hero_selection').checked = true;
+  $('#same_hero_selection').checked = false;
   $('#enable_player_attribute').checked = true;
 }
 
@@ -182,7 +182,7 @@ function InitN5Setting() {
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('9');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
 
   $('#tower_power_dropdown').SetSelected('350');
 

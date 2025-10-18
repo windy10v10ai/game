@@ -5,10 +5,16 @@ export class HeroPick {
   static PickHumanHeroes() {
     PlayerHelper.ForEachPlayer((playerId) => {
       if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
-        if (PlayerResource.HasSelectedHero(playerId)) {
-          return;
+        // 只有当 sameHeroSelection 为 true 时才强制随机
+        if (GameRules.Option.sameHeroSelection) {
+          // 强制随机模式:忽略玩家选择,直接随机
+          PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
+        } else {
+          // 正常模式:只为未选择的玩家随机
+          if (!PlayerResource.HasSelectedHero(playerId)) {
+            PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
+          }
         }
-        PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
       }
     });
   }
