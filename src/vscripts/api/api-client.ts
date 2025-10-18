@@ -26,7 +26,9 @@ export class ApiClient {
   private static RETRY_TIMES = 3;
 
   private static HOST_NAME: string = (() => {
-    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
+    //return 'http://localhost:5000/api';
+    return 'https://windy10v10ai.com/api';
+    //return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
   })();
   // private static HOST_NAME: string = 'https://windy10v10ai.com/api';
 
@@ -62,6 +64,7 @@ export class ApiClient {
 
     // 本地主机只发送开局请求
     if (this.IsLocalhost() && path !== ApiClient.GAME_START_URL) {
+    //if (path !== ApiClient.GAME_START_URL) {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,
@@ -86,6 +89,7 @@ export class ApiClient {
   }
 
   public static sendWithRetry(apiParameter: ApiParameter) {
+
     let retryCount = 0;
     const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
     const retry = () => {

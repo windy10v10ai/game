@@ -97,6 +97,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
                 name={lotteryDto.name}
                 type={type}
                 pickedName={pickedName}
+                sourceTable={lotteryDataTableName}  // 添加这个 prop
               />
             ))}
           </>

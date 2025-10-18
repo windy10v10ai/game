@@ -13,7 +13,7 @@ export class Option {
   startingGoldBot = 1000;
   respawnTimePercentage = 100;
   maxLevel = 50;
-  sameHeroSelection = true;
+  sameHeroSelection = false;
   enablePlayerAttribute = true;
 
   gameDifficulty = 0;
@@ -42,8 +42,16 @@ export class Option {
     this.startingGoldBot = keys.starting_gold_bot;
     this.respawnTimePercentage = keys.respawn_time_pct;
     this.maxLevel = keys.max_level;
-    this.sameHeroSelection = keys.same_hero_selection === 1;
+    this.sameHeroSelection = keys.same_hero_selection === 1; // 现在表示是否强制随机
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
+    // 如果启用强制随机,缩短英雄选择时间
+  if (this.sameHeroSelection) {
+    GameRules.SetHeroSelectionTime(2); // 设置为3秒,快速跳过
+    GameRules.SetHeroSelectPenaltyTime(0);
+  } else {
+    GameRules.SetHeroSelectionTime(50); // 恢复正常时间
+    GameRules.SetHeroSelectPenaltyTime(10);
+  }
     CustomNetTables.SetTableValue('game_options', 'game_options', keys);
     CustomNetTables.SetTableValue('game_options', 'point_multiplier', {
       point_multiplier: GameEndPoint.GetDifficultyMultiplier(
