@@ -61,6 +61,8 @@ function modifier_item_magic_crit_blade:GetModifierPriority()
 end
 
 function modifier_item_magic_crit_blade:OnCreated()
+    self:OnRefresh()
+
     if IsServer() then
         local ability = self:GetAbility()
         if not ability then return end
@@ -94,30 +96,36 @@ function modifier_item_magic_crit_blade:OnCreated()
 
     -- 初始化属性值(客户端和服务端都需要)
     if self:GetAbility() then
-        self.spell_amp_per_int = self:GetAbility():GetSpecialValueFor("spell_amp_per_int") or 0.2
-        self.spell_lifesteal = self:GetAbility():GetSpecialValueFor("spell_lifesteal") or 50
+        self.spell_amp_per_int = self:GetAbility():GetSpecialValueFor("spell_amp_per_int") or 0.3
+        self.spell_lifesteal = self:GetAbility():GetSpecialValueFor("spell_lifesteal") or 30
     else
         -- 默认值
-        self.spell_amp_per_int = 0.2
-        self.spell_lifesteal = 50
+        self.spell_amp_per_int = 0.3
+        self.spell_lifesteal = 30
+    end
+end
+
+function modifier_item_magic_crit_blade:OnRefresh()
+    self.stats_modifier_name = "modifier_item_magic_crit_blade_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
 function modifier_item_magic_crit_blade:OnDestroy()
     if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
 function modifier_item_magic_crit_blade:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
         MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
         MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
         MODIFIER_PROPERTY_TOOLTIP,
-        MODIFIER_EVENT_ON_ATTACK_LANDED, -- 添加攻击落地事件
+        MODIFIER_EVENT_ON_ATTACK_LANDED,
     }
 end
 
@@ -151,23 +159,11 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
 end
 
 function modifier_item_magic_crit_blade:GetModifierSpellAmplify_Percentage()
-    -- 咖喱棒的固定50%法术增强
-    local base_spell_amp = 50
-
-    -- 如果有仙云法杖，不提供智力法术增强（避免叠加）
-    if self:GetParent():HasModifier("modifier_item_hallowed_scepter") then
-        return base_spell_amp
-    end
-
     -- 仙云法杖的智力法术强化 - 所有模式都生效
-    if self:GetAbility() then
-        local current_int = self:GetParent():GetIntellect(false)
-        local spell_amp_per_int = self.spell_amp_per_int or 0.2
-        local int_spell_amp = current_int * spell_amp_per_int
-        return base_spell_amp + int_spell_amp
-    end
-
-    return base_spell_amp
+    local current_int = self:GetParent():GetIntellect(false)
+    local spell_amp_per_int = self.spell_amp_per_int or 0.3
+    local int_spell_amp = current_int * spell_amp_per_int
+    return int_spell_amp
 end
 
 function modifier_item_magic_crit_blade:GetModifierSpellLifestealRegenAmplify_Percentage()
@@ -177,26 +173,6 @@ end
 
 function modifier_item_magic_crit_blade:OnTooltip()
     return self:GetStackCount()
-end
-
-function modifier_item_magic_crit_blade:GetModifierBonusStats_Intellect()
-    return self:GetAbility():GetSpecialValueFor("bonus_intellect")
-end
-
-function modifier_item_magic_crit_blade:GetModifierPreAttack_BonusDamage()
-    -- 继承咖喱棒的600攻击力
-    return self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
-function modifier_item_magic_crit_blade:GetModifierBaseDamageOutgoing_Percentage()
-    -- 继承咖喱棒的100%基础伤害加成
-    return self:GetAbility():GetSpecialValueFor("bonus_damage_percent")
-end
-
-function modifier_item_magic_crit_blade:CheckState()
-    return {
-        [MODIFIER_STATE_CANNOT_MISS] = true, -- 继承咖喱棒的真实打击
-    }
 end
 
 function modifier_item_magic_crit_blade:OnTakeDamage(params)

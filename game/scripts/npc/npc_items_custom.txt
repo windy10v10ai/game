@@ -6360,26 +6360,28 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
 		"ItemCost"                      "60000"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
 
 		"AbilityValues"
 		{
-			// 从仙云法杖继承的被动属性
-			"bonus_intellect"           "120"
-			"spell_amp"                 "0"
-			"spell_amp_per_int"         "0.3"  // 每点智力0.2%法术增强
+			// Lua 逻辑需要 - 法术增强计算
+			"spell_amp_per_int"         "0.3"  // 每点智力0.3%法术增强
 
-			// 从英灵胸针继承的被动属性
-			"bonus_damage"              "300"
-			"spell_lifesteal"           "30"
-			"phantom_crit_chance"       "40"
-			"phantom_crit_multiplier"   "260"
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_spell_amp"           "50"    // tooltip only - 基础法术增强
+			"bonus_intellect"           "120"   // tooltip only - 智力加成
+			"bonus_damage"              "300"   // tooltip only - 攻击力加成
+			"bonus_damage_percent"      "100"   // tooltip only - 基础伤害加成百分比
 
-			// 从咖喱棒继承的被动属性
-			"bonus_spell_amp"           "50"
-			"bonus_damage_percent"      "100"
+			// Lua 逻辑需要 - 法术吸血（不在可优化列表）
+			"spell_lifesteal"           "30"    // Lua 逻辑需要 - 法术吸血
 
+			// Lua 逻辑需要 - 幻影暴击（事件驱动）
+			"phantom_crit_chance"       "40"    // Lua 逻辑需要 - 幻影暴击概率
+			"phantom_crit_multiplier"   "260"   // Lua 逻辑需要 - 幻影暴击倍率
+
+			// Lua 逻辑需要 - 法术暴击参数（事件驱动）
 			// 模式1:
 			"spell_crit_chance_mode1"   "50"
 			"spell_crit_multiplier_mode1" "2.0"
@@ -6397,30 +6399,6 @@
 			"spell_crit_multiplier_mode3" "10.0"
 			"guaranteed_spell_crit_multiplier_mode3" "6.0"
 			"cooldown_mode3"            "60"
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_magic_crit_blade_stats"
-			{
-				"Passive"               "1"
-				"IsHidden"              "1"
-				"RemoveOnDeath"         "0"
-
-				"Attributes"            "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"           "%bonus_intellect"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"          "%bonus_damage"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"        "%bonus_spell_amp"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_percent"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 
