@@ -2,6 +2,18 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Language Preference
+
+**IMPORTANT: All responses should be in Chinese (Simplified Chinese) by default**, unless:
+- The user explicitly requests a response in English
+- You are writing code, code comments, or commit messages (which should remain in English)
+- You are referencing technical terms, API names, or function names (which should remain in their original English form)
+
+When communicating with the user:
+- Use Chinese for explanations, summaries, and general communication
+- Use English for code snippets, variable names, function names, and technical identifiers
+- You may use a mix of Chinese and English when discussing code (Chinese for explanations, English for code references)
+
 ## Project Overview
 
 Windy10v10AI is a PVE Dota 2 custom game featuring 10v10 matches with AI opponents and a unique ability lottery system. The codebase uses TypeScript compiled to Lua for game logic (VScripts) and React + TypeScript for the UI (Panorama).
