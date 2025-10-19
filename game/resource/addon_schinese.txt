@@ -1110,7 +1110,6 @@
 "DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"     "+$health"
 "DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"       "+$mana"
 "DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"        "%+技能增强"
-"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"        "+$aoe_bonus"
 
 "DOTA_Tooltip_modifier_item_forbidden_staff_sheep"           "死灵冲击"
 "DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description" "变成一只小动物。不能攻击、释放技能或使用物品。"
@@ -1341,14 +1340,14 @@
 "DOTA_Tooltip_modifier_item_beast_armor_radiance_debuff_Description" "每秒受到%dMODIFIER_PROPERTY_TOOLTIP%点伤害，而且攻击有%dMODIFIER_PROPERTY_MISS_PERCENTAGE%%%几率不会命中。"
 
 // item_magic_abyss_staff 魔渊法杖
-"DOTA_Tooltip_Ability_item_magic_abyss_staff"								"魔渊法杖"
-"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"					"<h1>主动: <font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的魔法伤害的 %convert_pct%%% 会转化为额外纯粹伤害。"
-"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"							"佛曰：一念成佛，一念成魔。"
-"DOTA_Tooltip_Ability_item_recipe_magic_abyss_staff"						"魔渊法杖卷轴"
+"DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "魔渊法杖"
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>主动: <font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的魔法伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"                          "佛曰：一念成佛，一念成魔。"
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intelligence"            "+$int"
+"DOTA_Tooltip_Ability_item_recipe_magic_abyss_staff"                        "魔渊法杖卷轴"
 
-"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"						"一念成佛"
-"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"			"魔法伤害的 %dMODIFIER_PROPERTY_TOOLTIP%%% 转化为纯粹伤害"
-
+"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"                       "一念成佛"
+"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"           "魔法伤害的 %dMODIFIER_PROPERTY_TOOLTIP%%% 转化为纯粹伤害"
 // item_magic_sword 魔渊剑
 "DOTA_Tooltip_Ability_item_magic_sword"                                 "魔渊剑"
 "DOTA_Tooltip_Ability_item_magic_sword_Description"                     "<h1>主动: <font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内,你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动: 溅射</h1>近战攻击对目标周围 %cleave_distance% 范围内的敌人造成 %cleave_damage_percent%%% 的溅射伤害,对非英雄单位造成 %cleave_damage_percent_creep%%% 的溅射伤害。\n<h1>被动: 减速</h1>攻击时对目标施加 %slow_pct%%% 的减速效果,持续 %slow_duration% 秒。"
@@ -1363,11 +1362,18 @@
 "DOTA_Tooltip_modifier_item_magic_sword_slow"                          "魔渊减速"
 "DOTA_Tooltip_modifier_item_magic_sword_slow_Description"              "移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
-"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "蝴蝶效应"
+"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "蝴蝶效应 · 蓝武"
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%触发其中一个普通技能的概率:"
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%触发其中一个终极技能的概率:"
+// 蝴蝶效应·红魔 (施法触发)
+"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "蝴蝶效应 · 红魔"
+"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；<br><br>普通技能触发概率: %basic_trigger_chance%%%<br>终极技能触发概率: %ultimate_trigger_chance%%%<br>"
+"DOTA_Tooltip_ability_ability_trigger_on_cast_basic_trigger_chance"            "%普通技能触发概率:"
+"DOTA_Tooltip_ability_ability_trigger_on_cast_ultimate_trigger_chance"         "%终极技能触发概率:"
 
+"DOTA_Tooltip_modifier_trigger_on_cast"                                        "蝴蝶效应 · 红魔"
+"DOTA_Tooltip_modifier_trigger_on_cast_Description"                            "施法有概率触发已学习的技能。"
 "DOTA_Tooltip_Ability_item_tome_of_skill_reset"                 "技能重置书（低阶）"
 "DOTA_Tooltip_Ability_item_tome_of_skill_reset_Description"    "<h1>使用:技能重置</h1>打开技能重置界面,可以移除已学习的lottery技能并学习新技能。\n上面一排是可选移除的技能列表，下面一排是可选择添加的技能列表\n\n</h1>快捷键会自动更新，但不要选过多的主动技能（只有两个额外快捷键）。\n\n</h1>有时候英雄本身的技能也会进入列表，未经充分测试无法提供列表，也能成功替换但不保证没问题，慎选。\n\n</h1>移除技能时会返还技能点。\n\n</h1>开弓没有回头箭，不选完不许回家。"
 "DOTA_Tooltip_Ability_item_tome_of_skill_reset_Lore"           "重新规划你的技能路线。"
@@ -2922,5 +2928,14 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"如果在持续时间结束时没有使用，额外的魔法将会消失。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
+
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "不会触发以下类型的技能:"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• 地图功能性技能(传送、占点等)"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note2"    "• 隐身技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note3"    "• 切换类技能和法球效果"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note4"    "• 引导/持续施法技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• 召唤类技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• 两段式技能和取消技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• 卡尔的元素球和融合技能"
 	}
 }

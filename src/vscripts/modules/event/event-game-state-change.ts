@@ -60,20 +60,11 @@ export class EventGameStateChange {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
 
-    const towerAbilityLevel = this.getTowerAbilityLevel();
-
     // 防御塔BUFF
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     for (const tower of towers) {
       this.addModifierToTowers(tower);
-
-      // 根据Lua代码，为tower3和tower4添加特定技能
-      const towerName = tower.GetName();
-      if (towerName.includes('tower3') || towerName.includes('tower4')) {
-        tower.AddAbility('tower_ursa_fury_swipes').SetLevel(towerAbilityLevel);
-        tower.AddAbility('tower_shredder_reactive_armor').SetLevel(towerAbilityLevel);
-        tower.AddAbility('tower_troll_warlord_fervor').SetLevel(towerAbilityLevel);
-      }
+      // 删除重复的技能添加代码
     }
 
     // 兵营BUFF
@@ -81,6 +72,7 @@ export class EventGameStateChange {
     for (const barrack of barracks) {
       this.addModifierToTowers(barrack);
     }
+
     const healer = Entities.FindAllByClassname('npc_dota_healer') as CDOTA_BaseNPC[];
     for (const heal of healer) {
       this.addModifierToTowers(heal);
@@ -90,13 +82,7 @@ export class EventGameStateChange {
     const bases = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
     for (const base of bases) {
       this.addModifierToTowers(base);
-
-      // 根据Lua代码，为基地添加技能
-      base.AddAbility('tower_ursa_fury_swipes').SetLevel(towerAbilityLevel);
-      base.AddAbility('tower_shredder_reactive_armor').SetLevel(towerAbilityLevel);
-      base.AddAbility('tower_troll_warlord_fervor').SetLevel(towerAbilityLevel);
-      base.AddAbility('tower_antimage_mana_break').SetLevel(towerAbilityLevel);
-
+      // 删除重复的技能添加代码
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
 
@@ -154,18 +140,50 @@ export class EventGameStateChange {
   private addModifierToTowers(building: CDOTA_BaseNPC) {
     // 防御塔攻击
     const towerPower = GameRules.Option.towerPower;
+    const towerLevel = this.getTowerLevel(towerPower);
 
-    ModifierHelper.applyTowerModifier(
-      building,
-      `modifier_tower_power`,
-      this.getTowerLevel(towerPower),
-    );
+    ModifierHelper.applyTowerModifier(building, `modifier_tower_power`, towerLevel);
 
     // 防御塔血量
     const newHealth = Math.floor((towerPower / 100) * building.GetMaxHealth());
     building.SetMaxHealth(newHealth);
     building.SetBaseMaxHealth(newHealth);
     building.SetHealth(newHealth);
+
+    // 添加防御塔技能
+    const buildingName = building.GetUnitName();
+
+    // 检查是否是三塔或四塔
+    if (buildingName.includes('tower3') || buildingName.includes('tower4')) {
+      this.addTowerAbilities(building, towerLevel);
+    }
+
+    // 检查是否是基地
+    if (buildingName.includes('fort')) {
+      this.addTowerAbilities(building, towerLevel);
+      // 基地额外添加法力破坏
+      const manaBreak = building.AddAbility('tower_antimage_mana_break');
+      if (manaBreak !== undefined) {
+        // 修改这里
+        manaBreak.SetLevel(towerLevel);
+      }
+    }
+  }
+
+  private addTowerAbilities(building: CDOTA_BaseNPC, level: number) {
+    const abilities = [
+      'tower_ursa_fury_swipes',
+      'tower_shredder_reactive_armor',
+      'tower_troll_warlord_fervor',
+    ];
+
+    for (const abilityName of abilities) {
+      const ability = building.AddAbility(abilityName);
+      if (ability !== undefined) {
+        // 修改这里
+        ability.SetLevel(level);
+      }
+    }
   }
 
   private getTowerLevel(percent: number): number {
