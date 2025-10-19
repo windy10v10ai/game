@@ -183,8 +183,14 @@ export class EventGameStateChange {
       return 6;
     } else if (percent <= 400) {
       return 7;
+    } else if (percent <= 500) {
+      return 8;
+    } else if (percent <= 600) {
+      return 9;
+    } else if (percent <= 700) {
+      return 10;
     }
-    return 1;
+    return 10;
   }
 
   private getTowerAbilityLevel(): number {
