@@ -6693,7 +6693,7 @@
 		"max_hp_dmg_pct"        "4"      // 添加这个参数
     	"hp_regen_reduction"    "-80"    // 添加这个参数
 
-        // 绝对破防效果
+        // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
         "corruption_armor"      "-80"
         "corruption_duration"   "7.0"
 
@@ -6701,16 +6701,16 @@
         "silence_duration"      "5.0"
         "silence_damage_percent" "30"
 
-        // 被动属性
-        "bonus_strength"        "55"
-        "bonus_agility"         "115"
-        "bonus_intellect"       "85"
-        "bonus_damage"          "360"
-        "bonus_armor"           "25"
-        "bonus_attack_speed"    "150"
-        "bonus_health"          "600"
-        "bonus_mana_regen"      "25"
-        "spell_amp"             "50"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"        "55"    // tooltip only - 力量
+        "bonus_agility"         "115"   // tooltip only - 敏捷
+        "bonus_intellect"       "85"    // tooltip only - 智力
+        "bonus_damage"          "360"   // tooltip only - 攻击力
+        "bonus_armor"           "25"    // tooltip only - 护甲
+        "bonus_attack_speed"    "150"   // tooltip only - 攻击速度
+        "bonus_health"          "600"   // tooltip only - 生命值
+        "bonus_mana_regen"      "25"    // tooltip only - 魔法恢复
+        "spell_amp"             "50"    // tooltip only - 法术增强
     }
 }
 //=================================================================================================================
