@@ -13,46 +13,37 @@ function modifier_item_swift_glove:RemoveOnDeath() return false end
 function modifier_item_swift_glove:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
-function modifier_item_swift_glove:OnCreated()
-    local ability = self:GetAbility()
 
-    -- 读取 BAT 减少百分比参数
+function modifier_item_swift_glove:OnCreated()
+    self:OnRefresh()
+
+    local ability = self:GetAbility()
     if ability then
-        self.bat_reduction_pct = ability:GetSpecialValueFor("bat_reduction_pct") or 20
+        self.bat_reduction_pct = ability:GetSpecialValueFor("bat_reduction_pct") or 40
     else
-        self.bat_reduction_pct = 20
+        self.bat_reduction_pct = 40
     end
 end
+
+function modifier_item_swift_glove:OnRefresh()
+    self.stats_modifier_name = "modifier_item_swift_glove_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_swift_glove:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
 function modifier_item_swift_glove:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
         MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-        MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,  -- 改用 CONSTANT
+        MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,
     }
-end
-
-function modifier_item_swift_glove:GetModifierBonusStats_Strength()
-    return self:GetAbility():GetSpecialValueFor("bonus_strength")
-end
-
-function modifier_item_swift_glove:GetModifierBonusStats_Agility()
-    return self:GetAbility():GetSpecialValueFor("bonus_agility")
-end
-
-function modifier_item_swift_glove:GetModifierBonusStats_Intellect()
-    return self:GetAbility():GetSpecialValueFor("bonus_intellect")
-end
-
-function modifier_item_swift_glove:GetModifierAttackSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
-end
-
-function modifier_item_swift_glove:GetModifierMoveSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("bonus_movement_speed")
 end
 
 function modifier_item_swift_glove:GetModifierAttackRangeBonus()

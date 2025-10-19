@@ -1053,7 +1053,7 @@
 "DOTA_Tooltip_ability_item_fusion_hawkeye_Description"          "一种神秘的融合符文,蕴含着鹰眼的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 鹰眼炮台、鹰眼战机"
 
 // 禁忌符文
-"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法杖、禁忌战刃"
+"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法锤、禁忌战刃"
 
 // 暴虐符文
 "DOTA_Tooltip_ability_item_fusion_brutal_Description"           "一种神秘的融合符文,蕴含着暴虐的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 归海一刀、魔龙狂舞"
@@ -1142,7 +1142,7 @@
 "DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_evasion"    "%+$evasion"
 "DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_spell_amp"  "%+$spell_amp"
 "DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_damage_percent" "%+基础伤害"
-"DOTA_Tooltip_ability_item_switchable_crit_blade_Note0"            "真实打击: 攻击无视闪避"
+"DOTA_Tooltip_ability_item_switchable_crit_blade_Note0"            "克敌机先: 攻击无视闪避"
 "DOTA_Tooltip_ability_item_switchable_crit_blade_Note1"            "继承黄金大核荣耀的基础暴击效果"
 "DOTA_Tooltip_ability_item_switchable_crit_blade_Lore"             "破浪：潮初起时刃轻扬<br>断流：潮横断处月凝霜<br>归海：潮归瀚海刀义藏"
 "DOTA_Tooltip_modifier_item_switchable_crit_blade"                 "刀势"
@@ -1150,13 +1150,14 @@
 
 // 魔龙狂舞
 "DOTA_Tooltip_Ability_item_magic_crit_blade"                  "魔龙狂舞"
-"DOTA_Tooltip_ability_item_magic_crit_blade_Description"      "<h1><font color='#FF0000'>主动: 龙魂切换</font></h1>非冷却期间点击切换龙魂形态,获得不同的法术暴击概率和倍率。<br><br><h1><font color='#FF0000'>被动: 龙息爆发</font></h1>每次造成法术伤害有概率释放龙息,引发法术暴击。<br>长时间的魔力积蓄唤醒龙魂,下一次法术必然暴击。<br>只有必然暴击未触发时才可切换龙魂形态。<br><br>初阶·亚龙之息: %spell_crit_chance_mode1%%%概率%spell_crit_multiplier_mode1%倍法术暴击,必然暴击%guaranteed_spell_crit_multiplier_mode1%倍,冷却%cooldown_mode1%秒<br>进阶·黑龙之怒: %spell_crit_chance_mode2%%%概率%spell_crit_multiplier_mode2%倍法术暴击,必然暴击%guaranteed_spell_crit_multiplier_mode2%倍,冷却%cooldown_mode2%秒<br>终阶·魔龙狂舞: %spell_crit_chance_mode3%%%概率%spell_crit_multiplier_mode3%倍法术暴击,必然暴击%guaranteed_spell_crit_multiplier_mode3%倍,冷却%cooldown_mode3%秒<br><br><h1><font color='#FF0000'>被动: 幻影暴击</font></h1>每次攻击有%phantom_crit_chance%%%几率造成额外的魔法伤害,数值为攻击伤害的%phantom_crit_multiplier%%%。" "DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"  "+$int"
+"DOTA_Tooltip_ability_item_magic_crit_blade_Description"      "<h1><font color='#FF0000'>主动: 龙魂切换</font></h1>非冷却期间点击切换龙魂形态,获得不同的法术暴击概率和倍率。<br><br><h1><font color='#FF0000'>被动: 龙息爆发</font></h1>每次造成法术伤害有概率释放龙息,引发法术暴击。<br>长时间的魔力积蓄唤醒龙魂,下一次法术必然暴击。<br>只有必然暴击未触发时才可切换龙魂形态。<br><br>初阶·亚龙之息: %spell_crit_chance_mode1%%%概率%spell_crit_multiplier_mode1%倍法术暴击,必然暴击%guaranteed_spell_crit_multiplier_mode1%倍,冷却%cooldown_mode1%秒<br>进阶·黑龙之怒: %spell_crit_chance_mode2%%%概率%spell_crit_multiplier_mode2%倍法术暴击,必然暴击%guaranteed_spell_crit_multiplier_mode2%倍,冷却%cooldown_mode2%秒<br>终阶·魔龙狂舞: %spell_crit_chance_mode3%%%概率%spell_crit_multiplier_mode3%倍法术暴击,必然暴击%guaranteed_spell_crit_multiplier_mode3%倍,冷却%cooldown_mode3%秒<br><br><h1><font color='#FF0000'>被动: 幻影暴击</font></h1>每次攻击有%phantom_crit_chance%%%几率造成额外的魔法伤害,数值为攻击伤害的%phantom_crit_multiplier%%%。<br><br><h1><font color='#FF0000'>被动: 克敌机先</font></h1>攻击无视闪避,永不落空。"
+"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"             "亚龙：魔焰初燃法杖鸣<br>黑龙：龙怒九天惊星辰<br>魔龙：魔焰狂舞灭万世"
+"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"  "+$int"
 "DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"     "+$damage"
 "DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"        "%+$spell_amp"
 "DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int" "%+每点智力法术增强"
 "DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"  "%+$spell_lifesteal"
 "DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent" "%+基础伤害"
-"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"             "亚龙：魔焰初燃法杖鸣<br>黑龙：龙怒九天惊星辰<br>魔龙：魔焰狂舞灭万世"
 "DOTA_Tooltip_modifier_item_magic_crit_blade"                   "龙魂形态"
 "DOTA_Tooltip_modifier_item_magic_crit_blade_Description"       "当前形态: %dMODIFIER_PROPERTY_TOOLTIP%<br>1=初阶·亚龙之息 2=进阶·黑龙之怒 3=终阶·魔龙狂舞"
 
@@ -1317,8 +1318,7 @@
 "DOTA_Tooltip_ability_item_beast_armor_Note0"               "反弹的均为减免前的伤害。"
 "DOTA_Tooltip_ability_item_beast_armor_Note1"               "伤害反弹不会反弹来自其他刃甲的伤害。"
 "DOTA_Tooltip_ability_item_beast_armor_Note2"               "反弹伤害的类型与受到时相同。"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_strength"      "+$str"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_intellect"     "+$int"
+"DOTA_Tooltip_ability_item_beast_armor_bonus_strength"      "+$all"
 "DOTA_Tooltip_ability_item_beast_armor_bonus_health"        "+$health"
 "DOTA_Tooltip_ability_item_beast_armor_bonus_armor"         "+$armor"
 "DOTA_Tooltip_ability_item_beast_armor_bonus_spell_resist"  "%+$spell_resist"
