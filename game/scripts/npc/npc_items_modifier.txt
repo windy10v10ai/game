@@ -419,6 +419,23 @@
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			// 禁忌法锤
+			"modifier_item_forbidden_staff_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个禁忌法锤可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"170"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"15"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"15"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "30"
+				}
+			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{

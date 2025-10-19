@@ -6142,30 +6142,27 @@
     "AOERadius"                 "300"  // 添加固定的 AOE 指示器
     "AbilityValues"
     {
-        // 主动效果
+        // 主动技能参数（Lua 逻辑需要）
         "radius"
         {
             "value"             "500"
             "affected_by_aoe_increase" "1"
         }
-        // 死灵冲击 - 使用与死灵法杖相同的计算方式
-        "necrolyte_att_multiplier"  "0.5"    // 全属性倍数
-
-        // 闪电风暴伤害
+        "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
 		"lightning_damage"
 		{
 			"value"                 "2000"
-			"CalculateSpellDamageTooltip" "1"  // 启用技能伤害计算
+			"CalculateSpellDamageTooltip" "1"
 		}
-        "mute_duration"         "4.0"
+        "mute_duration"         "4.0"        // Lua 逻辑需要 - 沉默持续时间
+		"sheep_duration"        "3.0"        // Lua 逻辑需要 - 变形持续时间
+		"sheep_movement_speed"  "0"          // Lua 逻辑需要 - 变形移动速度
 
-        // 被动属性 (继承所有配件)
-        "bonus_intellect"       "170"  // 死灵法杖60 + 达贡5 40 + 苍蓝幻想25 + 额外45
-        "bonus_strength"        "15"   // 死灵法杖
-        "bonus_mana_regen"      "15"   // 综合
-        "spell_amp"             "30"   // 综合技能增强
-		"sheep_duration"				"3.0"
-		"sheep_movement_speed"			"0"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_intellect"       "170"  // tooltip only - 智力
+        "bonus_strength"        "15"   // tooltip only - 力量
+        "bonus_mana_regen"      "15"   // tooltip only - 魔法回复
+        "spell_amp"             "30"   // tooltip only - 技能增强
     }
 	"precache"
     {

@@ -107,63 +107,25 @@ function modifier_item_forbidden_staff:GetAttributes()
 end
 
 function modifier_item_forbidden_staff:OnCreated()
-    if not self:GetAbility() then return end
-    local ability = self:GetAbility()
+    self:OnRefresh()
+end
 
-    -- 继承所有配件属性
-    self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
-    self.bonus_aoe = ability:GetSpecialValueFor("bonus_aoe")
+function modifier_item_forbidden_staff:OnRefresh()
+    self.stats_modifier_name = "modifier_item_forbidden_staff_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_forbidden_staff:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
 end
 
 function modifier_item_forbidden_staff:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_HEALTH_BONUS,
-        MODIFIER_PROPERTY_MANA_BONUS,
-        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
-    }
-end
-
-function modifier_item_forbidden_staff:GetModifierBonusStats_Intellect()
-    return self.bonus_intellect or 0
-end
-
-function modifier_item_forbidden_staff:GetModifierBonusStats_Strength()
-    return self.bonus_strength or 0
-end
-
-function modifier_item_forbidden_staff:GetModifierConstantManaRegen()
-    return self.bonus_mana_regen or 0
-end
-
-function modifier_item_forbidden_staff:GetModifierHealthBonus()
-    return self.bonus_health or 0
-end
-
-function modifier_item_forbidden_staff:GetModifierManaBonus()
-    return self.bonus_mana or 0
-end
-
-function modifier_item_forbidden_staff:GetModifierSpellAmplify_Percentage()
-    return self.spell_amp or 0
-end
-
-function modifier_item_forbidden_staff:GetModifierCastRangeBonusStacking()
-    return self.bonus_aoe or 0
+    return {}
 end
 
 -- 死灵冲击变形debuff
