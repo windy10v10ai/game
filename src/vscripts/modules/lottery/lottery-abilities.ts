@@ -52,11 +52,12 @@ export const abilityTiersActive: Tier[] = [
       'tidehunter_ravage', // 毁灭
       'dazzle_bad_juju', // 邪能
       'tinker_rearm_lua', // 再装填
+      'dragon_knight_elder_dragon_form', //变龙
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
       'dark_seer_vacuum', // 真空
-      'sandking_burrowstrike', // 穿刺 沙王
+      'mars_bulwark', // 护身甲盾
       'magnataur_reverse_polarity', // 两级反转
       'antimage_counterspell', // 法术反制
 
@@ -102,6 +103,7 @@ export const abilityTiersActive: Tier[] = [
       'skywrath_mage_arcane_bolt', // 天怒奥法鹰隼
       'tidehunter_anchor_smash', // 锚击
       'primal_beast_trample', // 踏
+      //'keeper_of_the_light_will_o_wisp', // 灵光
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
@@ -158,6 +160,7 @@ export const abilityTiersPassive: Tier[] = [
       'dazzle_good_juju', // 善咒
       'faceless_void_time_lock', // 时间锁定
       'ability_trigger_learned_skills', //技能连锁
+      'ability_trigger_on_cast', //多样施法
       // 法球/开关技能
       'medusa_split_shot', // 分裂箭
       'winter_wyvern_arctic_burn', // 严寒灼烧
