@@ -133,7 +133,7 @@ export class Lottery {
       4987: { name: 'luna_moon_glaive', level: 4 },
       4986: { name: 'templar_assassin_psi_blades', level: 5 },
       4985: { name: 'faceless_void_time_lock', level: 4 },
-      4984: { name: 'slardar_bash', level: 4 },
+      4984: { name: 'ability_trigger_on_cast', level: 4 },
       4983: { name: 'ability_trigger_learned_skills', level: 5 },
     };
 
