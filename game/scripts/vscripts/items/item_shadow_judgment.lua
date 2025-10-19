@@ -144,7 +144,7 @@ function item_shadow_judgment:ApplyBloodthornEffect(target)
     EmitSoundOn("DOTA_Item.Bloodthorn.Activate", target)
 end
 
--- 被动modifier(参考禁忌战刃的简洁实现)
+-- 被动modifier
 modifier_item_shadow_judgment = class({})
 
 function modifier_item_shadow_judgment:IsHidden() return true end
@@ -155,45 +155,37 @@ function modifier_item_shadow_judgment:GetAttributes()
 end
 
 function modifier_item_shadow_judgment:OnCreated()
-    if not self:GetAbility() then return end
-    local ability = self:GetAbility()
+    self:OnRefresh()
 
-    -- 读取所有属性(与禁忌战刃相同方式)
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
-    self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
-    self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+    if self:GetAbility() then
+        -- 被动减甲参数（事件驱动，必须在 Lua 中实现）
+        self.corruption_duration = self:GetAbility():GetSpecialValueFor("corruption_duration")
+    end
+end
 
-    -- 被动减甲参数
-    self.corruption_armor = ability:GetSpecialValueFor("corruption_armor")
-    self.corruption_duration = ability:GetSpecialValueFor("corruption_duration")
+function modifier_item_shadow_judgment:OnRefresh()
+    self.stats_modifier_name = "modifier_item_shadow_judgment_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_shadow_judgment:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
 end
 
 function modifier_item_shadow_judgment:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_HEALTH_BONUS,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-        MODIFIER_EVENT_ON_ATTACK_LANDED,  -- 被动减甲触发
+        MODIFIER_EVENT_ON_ATTACK_LANDED,
     }
 end
 
--- 被动减甲效果
 function modifier_item_shadow_judgment:OnAttackLanded(params)
     if not IsServer() then return end
     if params.attacker ~= self:GetParent() then return end
-    --if params.target:IsBuilding() then return end
 
     -- 施加减甲debuff
     params.target:AddNewModifier(
@@ -202,42 +194,6 @@ function modifier_item_shadow_judgment:OnAttackLanded(params)
         "modifier_shadow_judgment_corruption",
         {duration = self.corruption_duration}
     )
-end
-
-function modifier_item_shadow_judgment:GetModifierBonusStats_Strength()
-    return self.bonus_strength or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierBonusStats_Agility()
-    return self.bonus_agility or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierBonusStats_Intellect()
-    return self.bonus_intellect or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierPreAttack_BonusDamage()
-    return self.bonus_damage or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierPhysicalArmorBonus()
-    return self.bonus_armor or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierAttackSpeedBonus_Constant()
-    return self.bonus_attack_speed or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierHealthBonus()
-    return self.bonus_health or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierConstantManaRegen()
-    return self.bonus_mana_regen or 0
-end
-
-function modifier_item_shadow_judgment:GetModifierSpellAmplify_Percentage()
-    return self.spell_amp or 0
 end
 modifier_shadow_judgment_mute = class({})
 
