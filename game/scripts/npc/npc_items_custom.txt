@@ -7003,32 +7003,36 @@
     }
     "AbilityValues"
     {
-        "bonus_strength"            "100"
-        "bonus_agility"           	"100"
-        "bonus_intellect"           "100"
-        "bonus_health"              "1500"
-        "bonus_armor"               "80"
-        "bonus_spell_resist"        "30"
-        "bonus_health_regen"        "40"
-        "bonus_mana_regen"          "25"
-        "bonus_damage"              "150"
-        "evasion"                   "25"
+        // Lua 逻辑需要 - 反伤和莲花格挡（事件驱动）
+        "passive_reflection_constant"   "80"    // Lua 逻辑需要 - 被动反伤固定值
+        "passive_reflection_pct"        "25"    // Lua 逻辑需要 - 被动反伤百分比
+        "active_reflection_pct"         "100"   // Lua 逻辑需要 - 主动反伤百分比
+        "block_cooldown"                "15"    // Lua 逻辑需要 - 莲花格挡冷却
 
-        "passive_reflection_constant"   "80"
-        "passive_reflection_pct"        "25"
-        "active_reflection_pct"         "100"
+        // Lua 逻辑需要 - 主动技能参数
+        "active_duration"           "5"     // Lua 逻辑需要 - 主动持续时间
+        "blast_radius"              "900"   // Lua 逻辑需要 - 冲击波范围
+        "blast_damage"              "350"   // Lua 逻辑需要 - 冲击波伤害
+        "movement_slow"             "40"    // Lua 逻辑需要 - 移速减缓
+        "attack_slow"               "40"    // Lua 逻辑需要 - 攻速减缓
+        "resist_reduction"          "25"    // Lua 逻辑需要 - 抗性降低
 
-        "active_duration"           "5"
-        "blast_radius"              "900"
-        "blast_damage"              "350"
-        "movement_slow"             "40"
-        "attack_slow"               "40"
-        "resist_reduction"          "25"
-        "block_cooldown"            "15"
+        // Lua 逻辑需要 - 辉耀光环（事件驱动）
+        "aura_damage"               "120"   // Lua 逻辑需要 - 光环伤害
+        "aura_radius"               "700"   // Lua 逻辑需要 - 光环范围
+        "blind_pct"                 "17"    // Lua 逻辑需要 - 致盲百分比
 
-        "aura_damage"               "120"
-        "aura_radius"               "700"
-        "blind_pct"                 "17"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"            "100"   // tooltip only - 力量
+        "bonus_agility"           	"100"   // tooltip only - 敏捷
+        "bonus_intellect"           "100"   // tooltip only - 智力
+        "bonus_health"              "1500"  // tooltip only - 生命值
+        "bonus_armor"               "80"    // tooltip only - 护甲
+        "bonus_spell_resist"        "30"    // tooltip only - 魔法抗性
+        "bonus_health_regen"        "40"    // tooltip only - 生命回复
+        "bonus_mana_regen"          "25"    // tooltip only - 魔法回复
+        "bonus_damage"              "150"   // tooltip only - 攻击力
+        "evasion"                   "25"    // tooltip only - 闪避
     }
 }
 
