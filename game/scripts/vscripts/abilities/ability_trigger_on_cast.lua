@@ -27,6 +27,10 @@ local EXCLUDED_IN_ABILITIES = {
     ["kez_switch_weapons"] = true,                -- Kez 切换武器
     ["ancient_apparition_chilling_touch"] = true, -- 冰魂 - 极寒之触  ["winter_wyvern_arctic_burn"] = true,       -- 寒冬飞龙 - 极寒之触 [1](#38-0)
     ["morphling_morph_agi"] = true,               -- 水人 - 变体(敏捷)
+    ["invoker_invoke"] = true,                    -- 卡尔 法术融合
+    ["invoker_quas"] = true,                      -- 卡尔 (冰)
+    ["invoker_wex"] = true,                       -- 卡尔 (雷)
+    ["invoker_exort"] = true,                     -- 卡尔 (火)
 }
 -- 定义需要排除的技能黑名单
 -- 这些技能不会被蝴蝶效应物品触发，避免游戏机制冲突或性能问题
@@ -198,7 +202,7 @@ local EXCLUDED_ABILITIES = {
     ["obsidian_destroyer_essence_flux"] = true, -- 黑鸟 精华变迁
     ["viper_nethertoxin"] = true,               -- 冥界亚龙 剧毒攻击
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
-
+    ["tinker_keen_teleport"] = true,            -- 修补匠 传送  ✅ 新增
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招
@@ -219,6 +223,7 @@ local EXCLUDED_ABILITIES = {
     ["spectre_haunt"] = true,              -- 幽鬼 - 降临
     ["spectre_haunt_single"] = true,       -- 幽鬼 - 单体降临
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
+    ["skeleton_king_reincarnation"] = true,
 }
 
 function ability_trigger_on_cast:GetIntrinsicModifierName()
@@ -259,11 +264,22 @@ function modifier_trigger_on_cast:OnAbilityExecuted(params)
     if caster ~= parent then return end
     if parent:IsIllusion() then return end
 
+    -- ✅ 全局冷却
+    if self.global_cooldown then return end
+    -- ✅ 新增：如果技能正在多重施法中，不触发蝴蝶效应
+    if executed_ability.multicast and executed_ability.multicast > 1 then
+        return
+    end
     if executed_ability:IsItem() then return end
     if executed_ability:IsPassive() then return end
     if EXCLUDED_IN_ABILITIES[executed_ability:GetAbilityName()] then
         return
     end
+    -- ✅ 设置全局冷却
+    self.global_cooldown = true
+    Timers:CreateTimer(0.5, function()
+        self.global_cooldown = nil
+    end)
 
     -- 检查是否为持续施法技能
     local behavior = executed_ability:GetBehavior()
@@ -292,7 +308,12 @@ end
 function modifier_trigger_on_cast:TriggerRandomAbility(params)
     local caster = params.unit
     local parent = self:GetParent()
+    local executed_ability = params.ability
 
+    -- ✅ 标记原始技能，防止多重施法触发
+    if executed_ability then
+        executed_ability.butterfly_triggered = true
+    end
     if not self.trigger_depth then
         self.trigger_depth = 0
     end
@@ -353,15 +374,40 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
     local remaining_cooldown = random_ability:GetCooldownTimeRemaining() or 0
     local has_charges = random_ability:GetMaxAbilityCharges(random_ability:GetLevel()) > 0
     local current_charges = 0
-
+    local was_ready = (remaining_cooldown <= 0) -- ✅ 新增:记录技能是否原本冷却好
     if has_charges then
         current_charges = random_ability:GetCurrentAbilityCharges()
     end
 
-    -- ✅ 修复: 保存原始目标信息
+    -- ✅ 修复: 改进原始目标信息的保存
     local original_target = params.target
-    local original_position = params.ability:GetCursorPosition()
+    local original_position = nil
 
+    -- 尝试从原始技能获取位置
+    if params.ability then
+        local ability_behavior = params.ability:GetBehavior()
+        if bit.band(ability_behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
+            bit.band(ability_behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
+            original_position = params.ability:GetCursorPosition()
+        end
+    end
+
+    -- ✅ 新增: 如果没有获取到有效位置,重试
+    if not original_position or original_position == Vector(0, 0, 0) then
+        -- 尝试从玩家获取鼠标位置
+        local player_id = caster:GetPlayerOwnerID()
+        if player_id and player_id >= 0 then
+            -- 注意: 这个方法在服务器端可能不可用
+            -- 作为替代方案,使用原始目标位置或施法者位置
+            if original_target and not original_target:IsNull() then
+                original_position = original_target:GetAbsOrigin()
+            else
+                original_position = caster:GetAbsOrigin()
+            end
+        else
+            original_position = caster:GetAbsOrigin()
+        end
+    end
     Timers:CreateTimer(0.5, function()
         if not caster or caster:IsNull() then
             self.trigger_depth = self.trigger_depth - 1
@@ -371,7 +417,10 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             self.trigger_depth = self.trigger_depth - 1
             return
         end
-
+        -- ✅ 标记随机技能，防止递归触发蝴蝶效应
+        if random_ability then
+            random_ability.butterfly_triggered = true
+        end
         random_ability:EndCooldown()
 
         if caster:IsStunned() or caster:IsSilenced() then
@@ -430,10 +479,14 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
                     target_position = original_position or caster:GetAbsOrigin()
                     --print("[cast_trigger] 敌方技能,目标: 点位置")
                 else
-                    --print("[cast_trigger] 敌方单体技能但无有效目标,跳过")
-                    self.trigger_depth = self.trigger_depth - 1
-                    random_ability:StartCooldown(remaining_cooldown)
-                    return
+                    if ability_name == "invoker_sun_strike" then
+                        --print("[cast_trigger] 天火")
+                    else
+                        --print("[cast_trigger] 敌方单体技能但无有效目标,跳过")
+                        self.trigger_depth = self.trigger_depth - 1
+                        random_ability:StartCooldown(remaining_cooldown)
+                        return
+                    end
                 end
             end
 
@@ -444,9 +497,9 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
                 target_position = original_target:GetAbsOrigin()
                 --print("[cast_trigger] 任意目标技能,目标: 原始目标")
             else
-                cast_target = caster
-                target_position = caster:GetAbsOrigin()
-                --print("[cast_trigger] 任意目标技能,目标: 自己")
+                cast_target = nil
+                target_position = original_position
+                --print("[cast_trigger] 任意目标技能,目标: 原释放位置")
             end
 
             -- 无目标限制
@@ -457,7 +510,13 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
 
         -- ✅ 施放技能
         local cast_success = false
-
+        local ability_name = random_ability:GetAbilityName()
+        -- 卡尔天火特殊处理:强制使用双击版本(施法者位置)
+        if ability_name == "invoker_sun_strike" then
+            --print("[cast_trigger] 天火")
+            target_position = nil
+            cast_target = caster -- 清除单体目标,强制使用点目标模式
+        end
         if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 and
             bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 and
             bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == 0 then
@@ -476,8 +535,12 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
         elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
             bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
             if target_position then
-                --print("[cast_trigger] 施放点目标/AOE技能")
+                --print("[cast_trigger] 施放点目标/AOE技能到targetposition")
                 caster:SetCursorPosition(target_position)
+                cast_success = caster:CastAbilityImmediately(random_ability, caster:GetPlayerOwnerID())
+            else
+                --print("[cast_trigger] 施放点目标/AOE技能到target")
+                caster:SetCursorCastTarget(cast_target)
                 cast_success = caster:CastAbilityImmediately(random_ability, caster:GetPlayerOwnerID())
             end
         end
@@ -496,7 +559,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             ParticleManager:ReleaseParticleIndex(particle)
         end
 
-        local restore_delay = 0.5
+        local restore_delay = 0.1
         if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
             restore_delay = 4.0
         end
@@ -512,12 +575,28 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
                     random_ability:SetCurrentAbilityCharges(current_charges)
                 end
             else
-                if remaining_cooldown > 0 then
+                -- ✅ 修改:根据原始状态恢复冷却
+                if was_ready then
+                    -- 原本冷却好的技能,清除冷却
+                    random_ability:EndCooldown()
+                else
+                    -- 原本在冷却的技能,恢复原来的冷却时间
+                    random_ability:EndCooldown()
                     random_ability:StartCooldown(remaining_cooldown)
                 end
+            end
+            -- ✅ 清除标记
+            if random_ability then
+                random_ability.butterfly_triggered = nil
             end
             self.trigger_depth = self.trigger_depth - 1
             --print("[cast_trigger] 触发深度恢复到: " .. self.trigger_depth)
         end)
+    end)
+    -- ✅ 延迟清除原始技能的标记
+    Timers:CreateTimer(0.5, function()
+        if executed_ability then
+            executed_ability.butterfly_triggered = nil
+        end
     end)
 end

@@ -73,9 +73,9 @@ function InitSetting() {
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('14');
   $('#dire_player_number_dropdown').SetSelected('10');
 
-  $('#respawn_time_percentage_dropdown').SetSelected('10');
+  $('#respawn_time_percentage_dropdown').SetSelected('50');
   $('#max_level_dropdown').SetSelected('200');
-  $('#tower_power_dropdown').SetSelected('350');
+  $('#tower_power_dropdown').SetSelected('500');
 
   $('#starting_gold_player_dropdown').SetSelected('4981');
   $('#starting_gold_bot_dropdown').SetSelected('3000');

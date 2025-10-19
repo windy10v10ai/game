@@ -7224,10 +7224,10 @@
 		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"                 "0"
 		"ItemInitialCharges"            "1"
-		"ItemInitialStockTime"			"10"	// 16分钟买
+		"ItemInitialStockTime"			"900"	// 16分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"10"
+		"ItemStockTime"					"180"
 		"OnSpellStart"
 		{
 			"SpendCharge"
