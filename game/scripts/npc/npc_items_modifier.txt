@@ -363,6 +363,23 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"50"
 				}
 			}
+			// 时间宝石
+			"modifier_item_time_gem_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个时间宝石不可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"1500"
+					"MODIFIER_PROPERTY_MANA_BONUS"				"1500"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"30"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"20"
+				}
+			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{

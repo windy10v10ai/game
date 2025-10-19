@@ -6917,13 +6917,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_health"			"1500"  // tooltip only - 生命值
+			"bonus_mana"			"1500"  // tooltip only - 魔法值
+			"bonus_health_regen"	"30.0"  // tooltip only - 生命恢复
+			"bonus_mana_regen"		"20.0"  // tooltip only - 魔法恢复
+
+			// Lua 逻辑需要的参数
 			"bonus_cooldown"		"55"
-			"bonus_cooldown_stack"	"12"
+			"bonus_cooldown_stack"	"12"    // 未使用（可能是遗留代码）
 			"cast_range_bonus"		"400"
-			"bonus_health"			"1500"
-			"bonus_mana"			"1500"
-			"bonus_health_regen"	"30.0"
-			"bonus_mana_regen"		"20.0"
 			"manacost_reduction"    "50"    // 新增:减魔耗百分比
 			"cast_speed_pct"        "50"    // 新增:施法速度加成百分比
 		}
