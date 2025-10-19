@@ -129,10 +129,16 @@ function modifier_item_time_gem:GetModifierPercentageCasttime()
 end
 
 function modifier_item_time_gem:GetModifierPercentageCooldown()
-    -- 检查是否存在熔火核心
-    if self:GetParent():HasModifier("modifier_item_refresh_core") then
+    local parent = self:GetParent()
+
+    -- 检查是否存在其他减少CD的物品
+    -- 如果存在熔火核心、奥术之心或玲珑心，时光宝石的CD减少失效
+    if parent:HasModifier("modifier_item_refresh_core")
+        or parent:HasModifier("modifier_item_arcane_octarine_core")
+        or parent:HasModifier("modifier_item_octarine_core") then
         return 0
     end
+
     return self.bonus_cooldown or 55
 end
 
