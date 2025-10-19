@@ -119,7 +119,7 @@ export class EventEntityKilled {
     if (creepName === 'npc_dota_roshan') {
       // 击杀肉山
       if (PlayerHelper.IsGoodTeamUnit(attacker)) {
-        // 龙珠掉落
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
@@ -162,11 +162,12 @@ export class EventEntityKilled {
     } else if (creep.IsAncient()) {
       // 击杀远古
       if (PlayerHelper.IsHumanPlayer(attacker)) {
-        // 龙珠掉落
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceAncient,
+          true,
         );
 
         // 符文掉落 - 单次随机
@@ -177,11 +178,12 @@ export class EventEntityKilled {
     } else if (creep.IsNeutralUnitType()) {
       // 击杀中立单位
       if (PlayerHelper.IsHumanPlayer(attacker)) {
-        // 龙珠掉落
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceNeutral,
+          true,
         );
 
         // 符文掉落 - 单次随机
