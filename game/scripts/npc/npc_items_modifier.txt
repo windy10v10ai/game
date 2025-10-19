@@ -325,6 +325,26 @@
 					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			// 禁忌战刃
+			"modifier_item_forbidden_blade_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个禁忌战刃可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"35"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"65"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"180"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"15"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"600"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"20"
+				}
+			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{
