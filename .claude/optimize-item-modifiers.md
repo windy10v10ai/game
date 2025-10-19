@@ -119,21 +119,21 @@ end
 
     "AbilityValues"
     {
-        // tooltip 显示值，实际值在 modifier_item_adi_king_stats 中
-        "sp"                    "60"    // 移动速度
-        "att"                   "30"    // 攻击力
-        "ar"                    "10"    // 护甲
-        "rate"                  "25"    // 转身速率
-        "bonus_evasion"         "10"    // 闪避
+        // 静态属性值（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "sp"                    "60"    // tooltip only - 移动速度
+        "att"                   "30"    // tooltip only - 攻击力
+        "ar"                    "10"    // tooltip only - 护甲
+        "rate"                  "25"    // tooltip only - 转身速率
+        "bonus_evasion"         "10"    // tooltip only - 闪避
 
-        // 主动技能的实际值（仍在 Lua 中实现）
-        "active_sp"             "35"    // 主动移动速度加成
-        "active_evasion"        "10"    // 主动闪避
-        "dur"                   "3"     // 主动持续时间
+        // 主动技能的实际值（在 Lua 中实现）
+        "active_sp"             "35"
+        "active_evasion"        "10"
+        "dur"                   "3"
 
-        // 光环值（仍在 Lua 中实现）
-        "aura_sp"               "5"     // 光环移动速度
-        "aura_rd"               "600"   // 光环范围
+        // 光环值（在 Lua 中实现）
+        "aura_sp"               "5"
+        "aura_rd"               "600"
     }
 }
 ```
@@ -223,6 +223,12 @@ end
 
 ### 第三步：修改 Lua 代码
 
+**🔑 重要优化原则**：
+
+1. ✅ **不保留已删除函数的注释** - 直接删除，保持代码简洁，不要保留DeclareFunctions中已删除声明的注释
+2. ✅ **移除 `SetSecondaryCharges` 逻辑** - `OnRefresh` 和 `OnDestroy` 中不需要充能数更新
+3. ✅ **简化代码** - 只保留必要的 `RefreshItemDataDrivenModifier` 调用
+
 #### 3.1 清空 DeclareFunctions（如果所有属性都迁移了）
 
 ```lua
@@ -254,37 +260,28 @@ function modifier_item_xxx:OnRefresh(keys)
     if IsServer() then
         -- 刷新 DataDriven modifier
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-
-        -- 如果物品可以叠加，需要更新充能数
-        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-            mod:GetAbility():SetSecondaryCharges(_)
-        end
     end
 end
 
 -- ✅ OnDestroy 负责清理 DataDriven modifier
 function modifier_item_xxx:OnDestroy()
     if IsServer() then
-        -- 同样的刷新逻辑
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-            mod:GetAbility():SetSecondaryCharges(_)
-        end
     end
 end
 ```
 
-#### 3.3 移除 GetModifier 函数
+#### 3.3 移除 GetModifier 函数和不必要的注释
 
 ```lua
--- ❌ 删除这些函数（已迁移到 DataDriven）
--- function modifier_item_xxx:GetModifierMoveSpeedBonus_Constant()
---     return self.sp
--- end
---
--- function modifier_item_xxx:GetModifierPreAttack_BonusDamage()
---     return self.att
--- end
+-- 直接删除这些函数，不需要保留注释
+-- 已删除：
+// GetModifierMoveSpeedBonus_Constant()
+// GetModifierPreAttack_BonusDamage()
+// GetModifierPhysicalArmorBonus()
+// GetModifierAttackSpeedBonus_Constant()
+// GetModifierAttackRangeBonus()
+// 等等...
 ```
 
 ### 第四步：清理不必要的属性读取
@@ -325,12 +322,14 @@ end
 {
     "AbilityValues"
     {
-        // 这些值会自动显示在 tooltip 中，无需 Lua 读取
-        "sp"        "60"    // %sp% 在 tooltip 中可用
-        "att"       "30"    // %att% 在 tooltip 中可用
+        // 静态属性值（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "sp"        "60"    // tooltip only - 移动速度
+        "att"       "30"    // tooltip only - 攻击力
     }
 }
 ```
+
+**重要**：为已迁移的属性添加 `// tooltip only` 注释，便于区分哪些值仅用于显示。
 
 ## 注意事项
 
