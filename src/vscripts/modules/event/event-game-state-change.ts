@@ -152,21 +152,18 @@ export class EventGameStateChange {
 
     // 添加防御塔技能
     const buildingName = building.GetUnitName();
+    const towerAbilityLevel = this.getTowerAbilityLevel();
 
     // 检查是否是三塔或四塔
     if (buildingName.includes('tower3') || buildingName.includes('tower4')) {
-      this.addTowerAbilities(building, towerLevel);
+      this.addTowerAbilities(building, towerAbilityLevel);
     }
 
     // 检查是否是基地
     if (buildingName.includes('fort')) {
-      this.addTowerAbilities(building, towerLevel);
+      this.addTowerAbilities(building, towerAbilityLevel);
       // 基地额外添加法力破坏
-      const manaBreak = building.AddAbility('tower_antimage_mana_break');
-      if (manaBreak !== undefined) {
-        // 修改这里
-        manaBreak.SetLevel(towerLevel);
-      }
+      building.AddAbility('tower_antimage_mana_break').SetLevel(towerAbilityLevel);
     }
   }
 
@@ -178,11 +175,7 @@ export class EventGameStateChange {
     ];
 
     for (const abilityName of abilities) {
-      const ability = building.AddAbility(abilityName);
-      if (ability !== undefined) {
-        // 修改这里
-        ability.SetLevel(level);
-      }
+      building.AddAbility(abilityName).SetLevel(level);
     }
   }
 
