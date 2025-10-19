@@ -6081,14 +6081,14 @@
 
     "AbilityValues"
     {
-        // 被动属性
-        "bonus_all_stats"       "30"
-        "bonus_movement_speed"  "160"
-        "bonus_movement_speed_pct" "60"
-        "bonus_turn_rate"       "50"
-        "bonus_status_resistance" "30"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_all_stats"       "30"    // tooltip only - 全属性
+        "bonus_movement_speed"  "160"   // tooltip only - 移动速度
+        "bonus_movement_speed_pct" "60" // tooltip only - 移动速度百分比
+        "bonus_turn_rate"       "50"    // tooltip only - 转身速率
+        "bonus_status_resistance" "30"  // Lua 逻辑需要 - 状态抗性
 
-        // 主动效果
+        // 主动效果（在 Lua 中实现）
         "active_movement_speed_pct" "150"
         "active_duration"       "8"
     }
