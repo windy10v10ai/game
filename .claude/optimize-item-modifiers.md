@@ -140,6 +140,12 @@ end
 
 ## 可优化的属性类型（从现有代码归纳）
 
+**⚠️ 重要限制**：
+
+- ✅ **只优化下面列表中的属性**
+- ❌ **不在列表中的属性不要迁移到 DataDriven**
+- ❌ **即使是静态值，如果不在列表中也不要迁移**
+
 ### 基础属性
 
 - `MODIFIER_PROPERTY_STATS_STRENGTH_BONUS` - 力量加成
@@ -151,6 +157,7 @@ end
 - `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE` - 攻击力加成
 - `MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT` - 攻击速度加成（固定值）
 - `MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE` - 基础伤害加成百分比
+- `MODIFIER_PROPERTY_ATTACK_RANGE_BONUS` - 攻击距离加成
 
 ### 防御相关
 
@@ -161,6 +168,7 @@ end
 ### 移动相关
 
 - `MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT` - 移动速度加成（固定值）
+- `MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE` - 移动速度加成百分比
 - `MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE` - 移动速度加成（唯一）
 - `MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE` - 绝对移动速度
 - `MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE` - 转身速率百分比
@@ -180,14 +188,23 @@ end
 
 ### 第一步：识别需要优化的属性
 
+**检查清单**：
+
+1. ✅ 属性在**可优化的属性类型列表**中
+2. ✅ 属性值是**静态的**（固定数值）
+3. ✅ 属性没有**复杂逻辑**
+
+**同时满足以上 3 个条件才能优化！**
+
 在 Lua 文件中找到：
 
 ```lua
 function modifier_item_xxx:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,  -- ✅ 可优化（静态值）
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,    -- ✅ 可优化（静态值）
-        MODIFIER_PROPERTY_EVASION_CONSTANT,          -- ✅ 可优化（静态值）
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,  -- ✅ 可优化（在列表中 + 静态值）
+        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,    -- ✅ 可优化（在列表中 + 静态值）
+        MODIFIER_PROPERTY_EVASION_CONSTANT,          -- ✅ 可优化（在列表中 + 静态值）
+        MODIFIER_PROPERTY_SOME_CUSTOM_PROPERTY,      -- ❌ 不优化（不在列表中）
         -- ❌ 不要优化动态计算的属性（如需要根据条件变化的）
     }
 end
@@ -335,17 +352,24 @@ end
 
 ### ✅ 适合优化的场景
 
-1. **静态属性**：属性值固定，不需要动态计算
-2. **简单属性**：直接返回数值，没有复杂逻辑
-3. **频繁触发**：每帧都会计算的属性
+**必须同时满足以下所有条件**：
+
+1. ✅ **在可优化列表中**：属性必须存在于上面的"可优化的属性类型"列表中
+2. ✅ **静态属性**：属性值固定，不需要动态计算
+3. ✅ **简单属性**：直接返回数值，没有复杂逻辑
+4. ✅ **频繁触发**：每帧都会计算的属性
 
 ### ❌ 不适合优化的场景
 
-1. **动态计算**：属性值需要根据条件变化（如：基于生命值百分比）
-2. **复杂逻辑**：需要调用函数或检查状态
-3. **主动技能效果**：临时 buff/debuff（如阿迪王的主动加速）
-4. **光环效果**：Aura 相关的 modifier
-5. **事件驱动**：需要响应游戏事件的属性
+**任何一条满足就不要优化**：
+
+1. ❌ **不在可优化列表中**：即使是静态值，只要属性不在列表中就不要迁移
+2. ❌ **动态计算**：属性值需要根据条件变化（如：基于生命值百分比）
+3. ❌ **复杂逻辑**：需要调用函数或检查状态
+4. ❌ **主动技能效果**：临时 buff/debuff（如阿迪王的主动加速）
+5. ❌ **光环效果**：Aura 相关的 modifier
+6. ❌ **事件驱动**：需要响应游戏事件的属性
+7. ❌ **特殊属性**：如 `MODIFIER_PROPERTY_PROCATTACK_FEEDBACK`（攻击触发）等
 
 ### 示例：保留在 Lua 中的动态属性
 
@@ -365,99 +389,6 @@ end
 --     return 60  -- 应该迁移到 DataDriven
 -- end
 ```
-
-## 性能对比
-
-### Lua 实现
-
-- ❌ 每帧调用 `GetModifier*()` 函数
-- ❌ 需要 Lua 虚拟机调用开销
-- ❌ 多个物品 = 多次函数调用
-
-### DataDriven 实现
-
-- ✅ C++ 层直接计算
-- ✅ 无 Lua 调用开销
-- ✅ 引擎优化的属性计算
-
-## 实战案例汇总
-
-### 案例 1：跳跳跳 (item_jump_jump_jump)
-
-```kv
-"modifier_item_jump_jump_jump_stats"
-{
-    "Properties"
-    {
-        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"    "%item_jump_jump_jump_bonus_all_stats"  // 35
-        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"     "%item_jump_jump_jump_bonus_all_stats"
-        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"   "%item_jump_jump_jump_bonus_all_stats"
-    }
-}
-```
-
-### 案例 2：圣者宝珠 (item_saint_orb)
-
-```kv
-"modifier_item_saint_orb_stats"
-{
-    "Properties"
-    {
-        "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"        "%item_saint_orb_bonus_all_stats"  // 30
-        "MODIFIER_PROPERTY_STATS_AGILITY_BONUS"         "%item_saint_orb_bonus_all_stats"
-        "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"       "%item_saint_orb_bonus_all_stats"
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "20"
-        "MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"       "20"
-        "MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"         "15"
-        "MODIFIER_PROPERTY_MANA_BONUS"                  "500"
-    }
-}
-```
-
-### 案例 3：洛书 (item_tome_of_luoshu)
-
-```kv
-"modifier_item_tome_of_luoshu_stats"
-{
-    "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"  // 不可叠加
-
-    "Properties"
-    {
-        "MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"        "50"
-        "MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "80"
-    }
-}
-```
-
-## 调试技巧
-
-### 1. 验证 DataDriven modifier 是否生效
-
-```lua
--- 在 Lua 控制台中
-local hero = PlayerResource:GetSelectedHeroEntity(0)
-for _, mod in pairs(hero:FindAllModifiers()) do
-    print(mod:GetName())
-end
--- 应该看到 "modifier_item_xxx_stats"
-```
-
-### 2. 检查属性是否正确应用
-
-```lua
-local hero = PlayerResource:GetSelectedHeroEntity(0)
-print("移动速度:", hero:GetIdealSpeed())
-print("攻击力:", hero:GetAverageTrueAttackDamage(nil))
-print("护甲:", hero:GetPhysicalArmorValue(false))
-```
-
-### 3. RefreshItemDataDrivenModifier 的作用
-
-该函数用于：
-
-- 购买/出售物品时刷新 DataDriven modifier
-- 确保多个相同物品的属性正确叠加/移除
-- 同步物品数量和 modifier 数量
 
 ## 总结
 
