@@ -28,50 +28,32 @@ function modifier_item_hawkeye_fighter:GetAttributes()
 end
 
 function modifier_item_hawkeye_fighter:OnCreated()
+    self:OnRefresh()
+
     if self:GetAbility() then
-        self.bonus_all_stats = self:GetAbility():GetSpecialValueFor("bonus_all_stats") or 30
-        -- 修复键名匹配
-        self.bonus_movespeed = self:GetAbility():GetSpecialValueFor("bonus_movement_speed") or 160
-        self.bonus_movespeed_pct = self:GetAbility():GetSpecialValueFor("bonus_movement_speed_pct") or 60
-        self.bonus_turn_rate = self:GetAbility():GetSpecialValueFor("bonus_turn_rate") or 50
+        -- 状态抗性不在可优化列表中，需要在 Lua 中实现
         self.bonus_status_resistance = self:GetAbility():GetSpecialValueFor("bonus_status_resistance") or 30
+    end
+end
+
+function modifier_item_hawkeye_fighter:OnRefresh()
+    self.stats_modifier_name = "modifier_item_hawkeye_fighter_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_hawkeye_fighter:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
 function modifier_item_hawkeye_fighter:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-        MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
     }
-end
-
-function modifier_item_hawkeye_fighter:GetModifierBonusStats_Strength()
-    return self.bonus_all_stats or 0
-end
-
-function modifier_item_hawkeye_fighter:GetModifierBonusStats_Agility()
-    return self.bonus_all_stats or 0
-end
-
-function modifier_item_hawkeye_fighter:GetModifierBonusStats_Intellect()
-    return self.bonus_all_stats or 0
-end
-
-function modifier_item_hawkeye_fighter:GetModifierMoveSpeedBonus_Constant()
-    return self.bonus_movespeed or 0
-end
-
-function modifier_item_hawkeye_fighter:GetModifierMoveSpeedBonus_Percentage()
-    return self.bonus_movespeed_pct or 0
-end
-
-function modifier_item_hawkeye_fighter:GetModifierTurnRate_Percentage()
-    return self.bonus_turn_rate or 0
 end
 
 function modifier_item_hawkeye_fighter:GetModifierStatusResistanceStacking()
