@@ -152,18 +152,21 @@ export class EventGameStateChange {
 
     // 添加防御塔技能
     const buildingName = building.GetUnitName();
-    const towerAbilityLevel = this.getTowerAbilityLevel();
 
     // 检查是否是三塔或四塔
     if (buildingName.includes('tower3') || buildingName.includes('tower4')) {
-      this.addTowerAbilities(building, towerAbilityLevel);
+      this.addTowerAbilities(building, towerLevel);
     }
 
     // 检查是否是基地
     if (buildingName.includes('fort')) {
-      this.addTowerAbilities(building, towerAbilityLevel);
+      this.addTowerAbilities(building, towerLevel);
       // 基地额外添加法力破坏
-      building.AddAbility('tower_antimage_mana_break').SetLevel(towerAbilityLevel);
+      const manaBreak = building.AddAbility('tower_antimage_mana_break');
+      if (manaBreak !== undefined) {
+        // 修改这里
+        manaBreak.SetLevel(towerLevel);
+      }
     }
   }
 
@@ -175,7 +178,11 @@ export class EventGameStateChange {
     ];
 
     for (const abilityName of abilities) {
-      building.AddAbility(abilityName).SetLevel(level);
+      const ability = building.AddAbility(abilityName);
+      if (ability !== undefined) {
+        // 修改这里
+        ability.SetLevel(level);
+      }
     }
   }
 
@@ -202,16 +209,5 @@ export class EventGameStateChange {
       return 10;
     }
     return 10;
-  }
-
-  private getTowerAbilityLevel(): number {
-    // 获取游戏难度
-    const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
-    if (gameDifficulty > 0) {
-      return gameDifficulty;
-    }
-    // 根据防御塔攻击力，获取技能等级，最大6级
-    const towerPower = GameRules.Option.towerPower;
-    return Math.min(this.getTowerLevel(towerPower), 6);
   }
 }
