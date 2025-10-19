@@ -53,8 +53,10 @@ function item_shadow_impact:ApplyDagonEffect(target)
         PATTACH_CUSTOMORIGIN,
         caster
     )
-    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1",
+        caster:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc",
+        target:GetAbsOrigin(), true)
     ParticleManager:ReleaseParticleIndex(particle)
 
     EmitSoundOn("DOTA_Item.Dagon5.Activate", caster)
@@ -75,7 +77,7 @@ function item_shadow_impact:ApplyEtherealBladeEffect(target)
     end
 
     local damage = self:GetSpecialValueFor("blast_damage_base") +
-                   primary_stat * self:GetSpecialValueFor("blast_agility_multiplier")
+        primary_stat * self:GetSpecialValueFor("blast_agility_multiplier")
 
     ApplyDamage({
         victim = target,
@@ -86,16 +88,18 @@ function item_shadow_impact:ApplyEtherealBladeEffect(target)
     })
 
     -- 添加虚灵状态
-    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_ethereal", {duration = duration})
-    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_slow", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_ethereal", { duration = duration })
+    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_slow", { duration = duration })
 
     local particle = ParticleManager:CreateParticle(
         "particles/items2_fx/ethereal_blade.vpcf",
         PATTACH_CUSTOMORIGIN,
         caster
     )
-    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1", caster:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1",
+        caster:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc",
+        target:GetAbsOrigin(), true)
     ParticleManager:ReleaseParticleIndex(particle)
 
     EmitSoundOn("DOTA_Item.EtherealBlade.Activate", caster)
@@ -119,7 +123,7 @@ function item_shadow_impact:ApplyNecrolyteEffect(target)
 
     -- 变羊效果
     local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
-    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", { duration = duration })
 
     EmitSoundOn("DOTA_Item.Sheepstick.Activate", target)
 end
@@ -141,65 +145,43 @@ end
 modifier_item_shadow_impact = class({})
 
 function modifier_item_shadow_impact:IsHidden() return true end
+
 function modifier_item_shadow_impact:IsPurgable() return false end
+
 function modifier_item_shadow_impact:RemoveOnDeath() return false end
+
 function modifier_item_shadow_impact:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_shadow_impact:OnCreated()
+    self:OnRefresh()
+
     if not self:GetAbility() then return end
     local ability = self:GetAbility()
 
-    self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+    -- bonus_cast_range 不在可优化列表中，需要在 Lua 中实现
     self.bonus_cast_range = ability:GetSpecialValueFor("bonus_cast_range")
+end
+
+function modifier_item_shadow_impact:OnRefresh()
+    self.stats_modifier_name = "modifier_item_shadow_impact_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_shadow_impact:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
 end
 
 function modifier_item_shadow_impact:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_MANA_BONUS,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
         MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
     }
-end
-
-function modifier_item_shadow_impact:GetModifierBonusStats_Intellect()
-    return self.bonus_intellect or 0
-end
-
-function modifier_item_shadow_impact:GetModifierBonusStats_Strength()
-    return self.bonus_strength or 0
-end
-
-function modifier_item_shadow_impact:GetModifierBonusStats_Agility()
-    return self.bonus_agility or 0
-end
-
-function modifier_item_shadow_impact:GetModifierPreAttack_BonusDamage()
-    return self.bonus_damage or 0
-end
-
-function modifier_item_shadow_impact:GetModifierManaBonus()
-    return self.bonus_mana or 0
-end
-
-function modifier_item_shadow_impact:GetModifierConstantManaRegen()
-    return self.bonus_mana_regen or 0
-end
-
-function modifier_item_shadow_impact:GetModifierSpellAmplify_Percentage()
-    return self.spell_amp or 0
 end
 
 function modifier_item_shadow_impact:GetModifierCastRangeBonusStacking()
@@ -210,7 +192,9 @@ end
 modifier_shadow_impact_sheep = class({})
 
 function modifier_shadow_impact_sheep:IsHidden() return false end
+
 function modifier_shadow_impact_sheep:IsDebuff() return true end
+
 function modifier_shadow_impact_sheep:IsPurgable() return true end
 
 function modifier_shadow_impact_sheep:GetTexture()
