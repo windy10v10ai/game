@@ -32,49 +32,39 @@ function modifier_item_magic_sword:GetAttributes()
 end
 
 function modifier_item_magic_sword:OnCreated()
+    self:OnRefresh()
+
     if not self:GetAbility() then return end
     local ability = self:GetAbility()
 
-    -- 溅射参数
-    self.cleave_distance = ability:GetSpecialValueFor("cleave_distance") or 650
+    -- 溅射参数（事件驱动，必须在 Lua 中实现）
+    self.cleave_distance = ability:GetSpecialValueFor("cleave_distance") or 1200
     self.cleave_damage_percent = ability:GetSpecialValueFor("cleave_damage_percent") or 100
     self.cleave_damage_percent_creep = ability:GetSpecialValueFor("cleave_damage_percent_creep") or 150
 
-    -- 属性加成
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage") or 300
-    self.bonus_all_stats = ability:GetSpecialValueFor("bonus_all_stats") or 200
-
-    -- 减速参数
+    -- 减速参数（事件驱动，必须在 Lua 中实现）
     self.slow_duration = ability:GetSpecialValueFor("slow_duration") or 2.0
-    self.slow_pct = ability:GetSpecialValueFor("slow_pct") or -30
+end
+
+function modifier_item_magic_sword:OnRefresh()
+    self.stats_modifier_name = "modifier_item_magic_sword_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_magic_sword:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
 end
 
 function modifier_item_magic_sword:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,      -- 溅射
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,   -- 攻击力
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,     -- 力量
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,      -- 敏捷
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,    -- 智力
-        MODIFIER_EVENT_ON_ATTACK_LANDED,            -- 减速触发
+        MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
+        MODIFIER_EVENT_ON_ATTACK_LANDED,
     }
-end
-
--- 属性加成函数
-function modifier_item_magic_sword:GetModifierPreAttack_BonusDamage()
-    return self.bonus_damage or 300
-end
-
-function modifier_item_magic_sword:GetModifierBonusStats_Strength()
-    return self.bonus_all_stats or 200
-end
-
-function modifier_item_magic_sword:GetModifierBonusStats_Agility()
-    return self.bonus_all_stats or 200
-end
-
-function modifier_item_magic_sword:GetModifierBonusStats_Intellect()
-    return self.bonus_all_stats or 200
 end
 
 -- 溅射效果
