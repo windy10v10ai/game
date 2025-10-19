@@ -6240,14 +6240,14 @@
 		}
         "mute_duration"         "4.0"
 
-        // 被动属性 (继承所有配件)
-        "bonus_strength"        "35"   // 一闪20 + 额外15
-        "bonus_agility"         "65"   // 苍蓝幻想50 + 额外15
-        "bonus_damage"          "180"  // 一闪80 + 苍蓝幻想80 + 额外20
-        "bonus_armor"           "15"   // 一闪5 + 苍蓝幻想10
-        "bonus_attack_speed"    "80"   // 风暴之锤
-        "bonus_health"          "600"  // 一闪
-        "spell_amp"             "20"   // 综合技能增强
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"        "35"    // tooltip only - 力量（一闪20 + 额外15）
+        "bonus_agility"         "65"    // tooltip only - 敏捷（苍蓝幻想50 + 额外15）
+        "bonus_damage"          "180"   // tooltip only - 攻击力（一闪80 + 苍蓝幻想80 + 额外20）
+        "bonus_armor"           "15"    // tooltip only - 护甲（一闪5 + 苍蓝幻想10）
+        "bonus_attack_speed"    "80"    // tooltip only - 攻击速度（风暴之锤）
+        "bonus_health"          "600"   // tooltip only - 生命值（一闪）
+        "spell_amp"             "20"    // tooltip only - 法术增强
     }
 }
 //=================================================================================================================
