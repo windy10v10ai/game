@@ -6452,45 +6452,27 @@
     }
     "AbilityValues"
     {
-		// 被动属性
-		"bonus_health"          "2500"
-		// 枯木逢春属性定义
-		"bonus_strength"        "150"
-		"bonus_health_regen"    "80"
-		"health_regen_pct"      "5"
-		"bonus_armor"           "40"
-		"bonus_evasion"         "25"
-		"status_resistance"     "30"
-		"magic_resistance"      "20"
+		// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
+		"health_regen_pct"      "5"     // Lua 逻辑需要 - 百分比生命回复
+		"status_resistance"     "30"    // Lua 逻辑需要 - 状态抗性
 
-		// 主动效果
-		"hp_threshold"          "40"
-		"active_duration"       "3"      // 持续3秒
-		"instant_heal"          "1500"
-		"bonus_armor_active"    "30"
-		"bonus_regen_active"    "200"
-		"damage_reduction"      "-30"   // 添加:30%减伤
-		"status_resistance_active" "80"  // 添加这个参数:80%抗性
+		// Lua 逻辑需要 - 主动技能参数
+		"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
+		"active_duration"       "3"     // Lua 逻辑需要 - 主动持续时间
+		"instant_heal"          "1500"  // Lua 逻辑需要 - 立即恢复生命值
+		"bonus_armor_active"    "30"    // Lua 逻辑需要 - 主动护甲加成
+		"bonus_regen_active"    "200"   // Lua 逻辑需要 - 主动生命回复
+		"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
+		"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
+
+		// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+		"bonus_strength"        "150"   // tooltip only - 力量
+		"bonus_health"          "2500"  // tooltip only - 生命值
+		"bonus_health_regen"    "80"    // tooltip only - 生命回复
+		"bonus_armor"           "40"    // tooltip only - 护甲
+		"bonus_evasion"         "25"    // tooltip only - 闪避
+		"magic_resistance"      "20"    // tooltip only - 魔法抗性
     }
-
-
-	// 枯木逢春属性modifier
-	"Modifiers"
-	{
-		"modifier_item_withered_spring_stats"
-		{
-			"Passive"           "1"
-			"IsHidden"          "1"
-			"RemoveOnDeath"     "0"
-
-			"Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"    "%bonus_strength"
-			}
-		}
-	}
 }
 //=================================================================================================================
 // Recipe: 德古拉面罩

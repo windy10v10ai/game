@@ -456,6 +456,25 @@
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "60"
 				}
 			}
+			// 枯木逢春
+			"modifier_item_withered_spring_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个枯木逢春可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"150"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"2500"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"80"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"40"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"25"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
+				}
+			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{
