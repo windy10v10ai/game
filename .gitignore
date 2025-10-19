@@ -34,3 +34,4 @@ game/scripts/vscripts/utils/
 
 #忽略
 game/.idea/
+.claude/settings.local.json
