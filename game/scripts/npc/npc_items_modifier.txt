@@ -475,6 +475,24 @@
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "20"
 				}
 			}
+			// 德古拉面罩
+			"modifier_item_dracula_mask_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个德古拉面罩可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"80"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"2000"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"250"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "20"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"0"
+				}
+			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{

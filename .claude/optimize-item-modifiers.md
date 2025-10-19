@@ -51,9 +51,6 @@ function modifier_item_adi_king:OnRefresh(keys)
 
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-            mod:GetAbility():SetSecondaryCharges(_)
-        end
     end
 end
 ```

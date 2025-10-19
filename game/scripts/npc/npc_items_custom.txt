@@ -6523,25 +6523,26 @@
 
     "AbilityValues"
     {
+		// Lua 逻辑需要 - 吸血属性（不在可优化列表，事件驱动）
+		"lifesteal_percent"     "75"    // Lua 逻辑需要 - 被动物理吸血
+		"spell_lifesteal"       "30"    // Lua 逻辑需要 - 被动法术吸血
 
-		// 被动属性
-		"bonus_strength"        "80"
-		"bonus_health"          "2000"
-		"bonus_damage"          "250"
-		"lifesteal_percent"     "75"    // 被动物理吸血
-		"spell_lifesteal"       "30"    // 被动法术吸血
-		"bonus_movement_speed"  "20"
-		"bonus_health_regen"    "0"
+		// Lua 逻辑需要 - 主动技能参数
+		"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
+		"active_duration"       "5"     // Lua 逻辑需要 - 主动持续时间
+		"lifesteal_active"      "300"   // Lua 逻辑需要 - 主动期间物理吸血
+		"spell_lifesteal_active" "100"  // Lua 逻辑需要 - 主动期间法术吸血
+		"bonus_attack_speed_active" "150" // Lua 逻辑需要 - 主动攻速加成
+		"bonus_movement_speed_active" "30" // Lua 逻辑需要 - 主动移速加成
+		"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
+    	"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
 
-		// 主动效果
-		"hp_threshold"          "40"
-		"active_duration"       "5"
-		"lifesteal_active"      "300"   // 主动期间物理吸血
-		"spell_lifesteal_active" "100"  // 添加:主动期间法术吸血
-		"bonus_attack_speed_active" "150"
-		"bonus_movement_speed_active" "30"
-		"damage_reduction"      "-30"   // 添加:30%减伤
-    	"status_resistance_active" "80"  // 添加这个参数
+		// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+		"bonus_strength"        "80"    // tooltip only - 力量
+		"bonus_health"          "2000"  // tooltip only - 生命值
+		"bonus_damage"          "250"   // tooltip only - 攻击力
+		"bonus_movement_speed"  "20"    // tooltip only - 移动速度
+		"bonus_health_regen"    "0"     // tooltip only - 生命回复
     }
 }
 //暗影

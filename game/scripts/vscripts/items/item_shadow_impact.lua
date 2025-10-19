@@ -170,11 +170,6 @@ function modifier_item_shadow_impact:OnRefresh()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
-
-    -- 更新施法距离加成
-    if self:GetAbility() then
-        self.bonus_cast_range = self:GetAbility():GetSpecialValueFor("bonus_cast_range")
-    end
 end
 
 function modifier_item_shadow_impact:OnDestroy()
