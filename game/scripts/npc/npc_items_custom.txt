@@ -6296,58 +6296,32 @@
 
 		"AbilityValues"
 		{
-			// 从咖喱棒继承的被动属性
-			"bonus_damage"              "600"
-			"bonus_spell_amp"           "50"
-			"bonus_damage_percent"      "100"
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_damage"              "600"   // tooltip only - 攻击力
+			"bonus_spell_amp"           "50"    // tooltip only - 法术增强
+			"bonus_damage_percent"      "100"   // tooltip only - 基础伤害加成
+			"bonus_agility"             "150"   // tooltip only - 敏捷
+			"bonus_evasion"             "25"    // tooltip only - 闪避
+			"bonus_attack_speed"        "100"   // tooltip only - 攻击速度
 
-			// 从黄金大核荣耀继承的被动属性
-			"bonus_agility"             "150"  // 根据黄金大核荣耀的属性
-			"bonus_evasion"             "25"
-			"bonus_attack_speed"        "100"
-
+			// 暴击参数（Lua 逻辑需要 - 动态暴击计算）
 			// 模式1:
 			"crit_chance_mode1" "12"
 			"crit_multiplier_mode1" "10"
-			"guaranteed_crit_multiplier_mode1" "6"   // 新增
+			"guaranteed_crit_multiplier_mode1" "6"
 			"cooldown_mode1" "8"
 
 			// 模式2:
 			"crit_chance_mode2" "6"
 			"crit_multiplier_mode2" "30"
-			"guaranteed_crit_multiplier_mode2" "20"  // 新增
+			"guaranteed_crit_multiplier_mode2" "20"
 			"cooldown_mode2" "15"
 
 			// 模式3:
 			"crit_chance_mode3" "3"
 			"crit_multiplier_mode3" "100"
-			"guaranteed_crit_multiplier_mode3" "60"  // 新增
+			"guaranteed_crit_multiplier_mode3" "60"
 			"cooldown_mode3" "60"
-		}
-		 "Modifiers"
-		{
-			"modifier_item_switchable_crit_blade_stats"
-			{
-				"Passive"               "1"
-				"IsHidden"              "1"
-				"RemoveOnDeath"         "0"
-
-				"Attributes"            "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"          "%bonus_damage"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"        "%bonus_spell_amp"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_percent"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"             "%bonus_agility"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"                "%bonus_evasion"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%bonus_attack_speed"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 

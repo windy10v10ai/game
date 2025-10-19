@@ -301,6 +301,30 @@
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"50"
 				}
 			}
+			// 归海一刀
+			"modifier_item_switchable_crit_blade_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个归海一刀可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"600"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"50"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"100"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"				"150"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"				"25"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"100"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{
