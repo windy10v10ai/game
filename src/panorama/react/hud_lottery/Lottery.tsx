@@ -52,10 +52,15 @@ function Lottery() {
   });
 
   const [isCollapsed, setIsCollapsed] = useState(false);
+  // 添加 lotteryStatus 状态
+  const lotteryStatus = GetLotteryStatus(steamAccountId);
   const toggleCollapse = () => {
+    // 如果在技能重选模式，禁止折叠
+    if (lotteryStatus?.isSkillResetMode) {
+      return;
+    }
     setIsCollapsed(!isCollapsed);
   };
-
   // 使用 useRef 来访问最新的 maxPassiveCount,避免闭包问题
   const maxPassiveCountRef = React.useRef(maxPassiveCount);
   React.useEffect(() => {
