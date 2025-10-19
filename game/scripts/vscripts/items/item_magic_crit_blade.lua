@@ -59,6 +59,7 @@ end
 function modifier_item_magic_crit_blade:GetModifierPriority()
     return MODIFIER_PRIORITY_SUPER_ULTRA
 end
+
 function modifier_item_magic_crit_blade:OnCreated()
     if IsServer() then
         local ability = self:GetAbility()
@@ -101,10 +102,12 @@ function modifier_item_magic_crit_blade:OnCreated()
         self.spell_lifesteal = 50
     end
 end
+
 function modifier_item_magic_crit_blade:OnDestroy()
     if IsServer() then
     end
 end
+
 function modifier_item_magic_crit_blade:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
@@ -114,10 +117,9 @@ function modifier_item_magic_crit_blade:DeclareFunctions()
         MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
         MODIFIER_PROPERTY_TOOLTIP,
-        MODIFIER_EVENT_ON_ATTACK_LANDED,  -- 添加攻击落地事件
+        MODIFIER_EVENT_ON_ATTACK_LANDED, -- 添加攻击落地事件
     }
 end
-
 
 function modifier_item_magic_crit_blade:OnAttackLanded(params)
     if not IsServer() then return end
@@ -152,10 +154,15 @@ function modifier_item_magic_crit_blade:GetModifierSpellAmplify_Percentage()
     -- 咖喱棒的固定50%法术增强
     local base_spell_amp = 50
 
-    -- 仙云法杖的智力法术强化
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
+    -- 如果有仙云法杖，不提供智力法术增强（避免叠加）
+    if self:GetParent():HasModifier("modifier_item_hallowed_scepter") then
+        return base_spell_amp
+    end
+
+    -- 仙云法杖的智力法术强化 - 所有模式都生效
+    if self:GetAbility() then
         local current_int = self:GetParent():GetIntellect(false)
-        local spell_amp_per_int = self.spell_amp_per_int or 0.2  -- 添加默认值
+        local spell_amp_per_int = self.spell_amp_per_int or 0.2
         local int_spell_amp = current_int * spell_amp_per_int
         return base_spell_amp + int_spell_amp
     end
@@ -176,7 +183,6 @@ function modifier_item_magic_crit_blade:GetModifierBonusStats_Intellect()
     return self:GetAbility():GetSpecialValueFor("bonus_intellect")
 end
 
-
 function modifier_item_magic_crit_blade:GetModifierPreAttack_BonusDamage()
     -- 继承咖喱棒的600攻击力
     return self:GetAbility():GetSpecialValueFor("bonus_damage")
@@ -189,9 +195,10 @@ end
 
 function modifier_item_magic_crit_blade:CheckState()
     return {
-        [MODIFIER_STATE_CANNOT_MISS] = true,  -- 继承咖喱棒的真实打击
+        [MODIFIER_STATE_CANNOT_MISS] = true, -- 继承咖喱棒的真实打击
     }
 end
+
 function modifier_item_magic_crit_blade:OnTakeDamage(params)
     if not IsServer() then return end
 
@@ -260,11 +267,13 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
         end
 
         -- 特效和音效
-        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW, target)
         ParticleManager:ReleaseParticleIndex(particle)
         EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
 
-        SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, params.original_damage + extra_damage, nil)
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, params.original_damage + extra_damage,
+            nil)
     end
 end
 
