@@ -6009,39 +6009,27 @@
     "AbilityManaCost"           "0"
 	"AbilityValues"
 	{
-		"bonus_damage"          "120"
-		"bonus_attack_speed"    "80"
-		"bonus_armor"           "30"
-		"bonus_attack_range"    "200"
+		// 静态属性值（迁移到item_apply_modifiers的DataDriven，仅用于 tooltip 显示）
+		"bonus_damage"          "120"       // tooltip only - 攻击力
+		"bonus_attack_speed"    "80"        // tooltip only - 攻击速度
+		"bonus_armor"           "30"        // tooltip only - 护甲
+		"bonus_attack_range"    "200"       // tooltip only - 攻击距离
 
+		// 主动技能参数（在 Lua 中实现）
 		"active_armor"          "100"
 		"active_attack_range"   "500"
 		"active_duration"       "8"
 		"moon_shard_bonus"      "100"
 		"bat_reduction_pct"     "20"  // 新增:BAT减少值
-		    // 溅射伤害参数
+
+		// 溅射伤害参数（Lua 逻辑需要）
 		"attack_radius"         "500"      // 溅射范围
 		"attack_percent"        "100"      // 溅射伤害百分比
 		"internal_cooldown"     "0.05"      // 内置冷却时间
 	}
 
-    "Modifiers"
-    {
-        "modifier_item_hawkeye_turret_stats"
-        {
-            "Passive"           "1"
-            "IsHidden"          "1"
-            "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
-
-            "Properties"
-            {
-                "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
-                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%bonus_attack_speed"
-                "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%bonus_armor"
-                "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"          "%bonus_attack_range"
-            }
-        }
-    }
+    // ✅ modifier_item_hawkeye_turret_stats 已迁移到 npc_items_modifier.txt
+    // 静态属性由 DataDriven 实现，性能更优
 }
 //=================================================================================================================
 // Recipe: 鹰眼战机
