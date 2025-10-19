@@ -64,7 +64,7 @@ export class ApiClient {
 
     // 本地主机只发送开局请求
     if (this.IsLocalhost() && path !== ApiClient.GAME_START_URL) {
-    //if (path !== ApiClient.GAME_START_URL) {
+      //if (path !== ApiClient.GAME_START_URL) {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,
@@ -89,7 +89,6 @@ export class ApiClient {
   }
 
   public static sendWithRetry(apiParameter: ApiParameter) {
-
     let retryCount = 0;
     const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
     const retry = () => {

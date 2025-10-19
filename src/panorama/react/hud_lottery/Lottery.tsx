@@ -52,10 +52,15 @@ function Lottery() {
   });
 
   const [isCollapsed, setIsCollapsed] = useState(false);
+  // 添加 lotteryStatus 状态
+  const lotteryStatus = GetLotteryStatus(steamAccountId);
   const toggleCollapse = () => {
+    // 如果在技能重选模式，禁止折叠
+    if (lotteryStatus?.isSkillResetMode) {
+      return;
+    }
     setIsCollapsed(!isCollapsed);
   };
-
   // 使用 useRef 来访问最新的 maxPassiveCount,避免闭包问题
   const maxPassiveCountRef = React.useRef(maxPassiveCount);
   React.useEffect(() => {
@@ -82,14 +87,13 @@ function Lottery() {
     const passiveCount = lotteryStatus.passiveAbilityCount || 0;
     const activeCount = lotteryStatus.activeAbilityCount || 0;
 
-
-    if (activeCount>=1 && passiveCount >= currentMaxPassiveCount) {
+    if (activeCount >= 1 && passiveCount >= currentMaxPassiveCount) {
       $.Msg('All abilities selected, hiding UI');
       return false;
     }
 
-    $.Msg('Not all abilities selected, showing UI',passiveCount,currentMaxPassiveCount);
-    $.Msg('Not all abilities selected, showing UI',activeCount);
+    $.Msg('Not all abilities selected, showing UI', passiveCount, currentMaxPassiveCount);
+    $.Msg('Not all abilities selected, showing UI', activeCount);
     $.Msg('Not all abilities selected, showing UI');
     return true;
   };

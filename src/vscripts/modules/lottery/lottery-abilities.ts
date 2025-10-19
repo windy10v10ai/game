@@ -52,7 +52,7 @@ export const abilityTiersActive: Tier[] = [
       'tidehunter_ravage', // 毁灭
       'dazzle_bad_juju', // 邪能
       'tinker_rearm_lua', // 再装填
-      'dragon_knight_elder_dragon_form',//变龙
+      'dragon_knight_elder_dragon_form', //变龙
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
@@ -159,7 +159,8 @@ export const abilityTiersPassive: Tier[] = [
       'templar_assassin_psi_blades', // 灵能之刃
       'dazzle_good_juju', // 善咒
       'faceless_void_time_lock', // 时间锁定
-      'ability_trigger_learned_skills',//技能连锁
+      'ability_trigger_learned_skills', //技能连锁
+      'ability_trigger_on_cast', //多样施法
       // 法球/开关技能
       'medusa_split_shot', // 分裂箭
       'winter_wyvern_arctic_burn', // 严寒灼烧
