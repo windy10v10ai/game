@@ -164,27 +164,27 @@ local function addTome(k, v)
   table.insert(v, "item_tome_of_luoshu")
 
   local amount = 0
-  if AIGameMode.fBotGoldXpMultiplier >= 60 then
-    amount = 60
-  if AIGameMode.fBotGoldXpMultiplier >= 40 then
-    amount = 40
-  if AIGameMode.fBotGoldXpMultiplier >= 30 then
-    amount = 30
-  if AIGameMode.fBotGoldXpMultiplier >= 20 then
-    amount = 25
-  if AIGameMode.fBotGoldXpMultiplier >= 10 then
-    amount = 20
-  elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
-    amount = 15
-  elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
-    amount = 12
-  elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
-    amount = 9
-  elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
-    amount = 6
-  elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
-    amount = 3
-  end
+if AIGameMode.fBotGoldXpMultiplier >= 60 then
+  amount = 60
+elseif AIGameMode.fBotGoldXpMultiplier >= 40 then
+  amount = 40
+elseif AIGameMode.fBotGoldXpMultiplier >= 30 then
+  amount = 30
+elseif AIGameMode.fBotGoldXpMultiplier >= 20 then
+  amount = 25
+elseif AIGameMode.fBotGoldXpMultiplier >= 10 then
+  amount = 20
+elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
+  amount = 15
+elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
+  amount = 12
+elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
+  amount = 9
+elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
+  amount = 6
+elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
+  amount = 3
+end
   for i = 1, amount do
     table.insert(v, "item_tome_of_strength")
     table.insert(v, "item_tome_of_agility")

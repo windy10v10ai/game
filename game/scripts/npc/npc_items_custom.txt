@@ -6176,7 +6176,6 @@
         "bonus_strength"        "15"   // 死灵法杖
         "bonus_mana_regen"      "15"   // 综合
         "spell_amp"             "30"   // 综合技能增强
-
 		"sheep_duration"				"3.0"
 		"sheep_movement_speed"			"0"
     }
@@ -6407,7 +6406,7 @@
 			// 从仙云法杖继承的被动属性
 			"bonus_intellect"           "120"
 			"spell_amp"                 "0"
-			"spell_amp_per_int"         "0.2"  // 每点智力0.2%法术增强
+			"spell_amp_per_int"         "0.3"  // 每点智力0.2%法术增强
 
 			// 从英灵胸针继承的被动属性
 			"bonus_damage"              "300"
@@ -7155,6 +7154,7 @@
     {
         "active_duration"       "6"
         "convert_pct"           "10"
+		"spell_amp_per_int"     "0.2"
     }
 }
 
@@ -7203,7 +7203,7 @@
 		"cleave_damage_percent"     "100"
 		"cleave_damage_percent_creep" "150"
 
-    	"bonus_all_stats"           "200"
+    	"bonus_all_stats"           "80"
 		"bonus_damage"              "300"
 		"slow_duration"             "2.0"
 		"slow_pct"                  "-60"
@@ -7224,10 +7224,10 @@
 		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"                 "0"
 		"ItemInitialCharges"            "1"
-		"ItemInitialStockTime"			"1020"	// 16分钟买
+		"ItemInitialStockTime"			"10"	// 16分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"10"
 		"OnSpellStart"
 		{
 			"SpendCharge"

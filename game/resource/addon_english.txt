@@ -2659,7 +2659,6 @@
 "DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"     "+$health"
 "DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"       "+$mana"
 "DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"        "%+Spell Damage"
-"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"        "+$aoe_bonus"
 
 "DOTA_Tooltip_modifier_item_forbidden_staff_sheep"           "Forbidden Domain"
 "DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description" "You are weak. Cannot perform any actions except to try to run away."
@@ -2820,5 +2819,19 @@
 "DOTA_Tooltip_ability_item_tome_of_skill_reset_Lore"          "A mystical tome that grants the power to reshape one's destiny."
 // Legion Commander Talent (军团指挥官天赋)
 "DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"  "Deal 90% of Duel damage bonus to each hero."
+// Butterfly Effect: Blue (Attack Trigger)
+"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "Butterfly Effect: Blue"
+"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>Passive: Chain Reaction</h1>When your attacks land, there is a chance to trigger a random learned ability.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br><br>Triggered abilities cost no mana and restore their original cooldown after casting."
+"DOTA_Tooltip_ability_ability_trigger_learned_skills_Lore"                     "A single strike can set off a chain reaction that changes the tide of battle."
+"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note0"                    "Does not trigger passive abilities, items, or certain special abilities."
+"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note1"                    "Uses pseudo-random distribution for trigger chance."
+
+// Butterfly Effect: Red (Cast Trigger)
+"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "Butterfly Effect: Red"
+"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "<h1>Passive: Spell Echo</h1>When you cast an ability, there is a chance to trigger a random learned ability after 0.5 seconds.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br><br>Triggered abilities cost no mana and restore their original cooldown after casting. Triggered abilities can chain up to 3 times."
+"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"                            "Every spell cast creates ripples in the magical network, triggering unexpected chain reactions."
+"DOTA_Tooltip_ability_ability_trigger_on_cast_Note0"                           "Does not trigger passive abilities, items, or certain special abilities."
+"DOTA_Tooltip_ability_ability_trigger_on_cast_Note1"                           "Uses pseudo-random distribution for trigger chance."
+"DOTA_Tooltip_ability_ability_trigger_on_cast_Note2"                           "Cannot retrigger during an active trigger to prevent infinite loops."
 	}
 }

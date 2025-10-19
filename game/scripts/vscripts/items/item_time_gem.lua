@@ -5,6 +5,10 @@ function item_time_gem:GetIntrinsicModifierName()
     return "modifier_item_time_gem"
 end
 
+function item_time_gem:IsRefreshable()
+    return false -- ✅ 防止被修补匠刷新
+end
+
 function item_time_gem:OnSpellStart()
     if not IsServer() then return end
 
@@ -60,6 +64,7 @@ function item_time_gem:RefreshItem(item, caster)
         end
     end
 end
+
 function item_time_gem:IsAbitilyException(ability)
     local exceptions = {
         ["dazzle_good_juju"] = true,
@@ -67,15 +72,17 @@ function item_time_gem:IsAbitilyException(ability)
     return exceptions[ability:GetName()]
 end
 
-
 -- Modifier
 if modifier_item_time_gem == nil then modifier_item_time_gem = class({}) end
 
 function modifier_item_time_gem:IsHidden() return true end
+
 function modifier_item_time_gem:IsPurgable() return false end
+
 function modifier_item_time_gem:RemoveOnDeath() return false end
+
 function modifier_item_time_gem:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_time_gem:OnCreated()
@@ -87,7 +94,7 @@ function modifier_item_time_gem:OnCreated()
         self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
         self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
         self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-        self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction")  -- 新增
+        self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction") -- 新增
         self.cast_speed_pct = ability:GetSpecialValueFor("cast_speed_pct")
     end
 end
@@ -100,21 +107,25 @@ function modifier_item_time_gem:DeclareFunctions()
         MODIFIER_PROPERTY_MANA_BONUS,
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
         MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,      -- 新增:减魔耗
-        MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,      -- 新增:减施法前摇
+        MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING, -- 新增:减魔耗
+        MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,          -- 新增:减施法前摇
     }
 end
 
 function modifier_item_time_gem:GetModifierPercentageManacostStacking()
-    print("self.manacost_reduction")
-    return (self.manacost_reduction or 0)  -- 负值减少魔耗
+    --print("self.manacost_reduction")
+    return (self.manacost_reduction or 0) -- 负值减少魔耗
 end
 
 function modifier_item_time_gem:GetModifierPercentageCasttime()
-    return (self.cast_speed_pct or 0)  -- 负值减少施法时间
+    return (self.cast_speed_pct or 0) -- 负值减少施法时间
 end
+
 function modifier_item_time_gem:GetModifierPercentageCooldown()
-    -- 直接返回 50% 冷却减少,不需要检查 SecondaryCharges
+    -- 检查是否存在熔火核心
+    if self:GetParent():HasModifier("modifier_item_refresh_core") then
+        return 0
+    end
     return self.bonus_cooldown or 50
 end
 
