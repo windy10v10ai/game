@@ -7164,16 +7164,20 @@
 
     "AbilityValues"
     {
-        "active_duration"       "6"
-        "convert_pct"           "10"
-		"cleave_distance"           "1200"
-		"cleave_damage_percent"     "100"
-		"cleave_damage_percent_creep" "150"
+        // 主动技能参数（Lua 逻辑需要）
+        "active_duration"       "6"     // 主动持续时间
+        "convert_pct"           "10"    // 物理转纯粹伤害百分比
 
-    	"bonus_all_stats"           "80"
-		"bonus_damage"              "300"
-		"slow_duration"             "2.0"
-		"slow_pct"                  "-60"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+    	"bonus_all_stats"           "80"    // tooltip only - 全属性
+		"bonus_damage"              "300"   // tooltip only - 攻击力
+
+        // 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
+		"cleave_distance"           "1200"  // Lua 逻辑需要 - 溅射范围
+		"cleave_damage_percent"     "100"   // Lua 逻辑需要 - 溅射伤害百分比（英雄）
+		"cleave_damage_percent_creep" "150" // Lua 逻辑需要 - 溅射伤害百分比（小兵）
+		"slow_duration"             "2.0"   // Lua 逻辑需要 - 减速持续时间
+		"slow_pct"                  "-60"   // Lua 逻辑需要 - 减速百分比
     }
 }
 	//技能重置书
