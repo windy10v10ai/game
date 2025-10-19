@@ -6009,39 +6009,27 @@
     "AbilityManaCost"           "0"
 	"AbilityValues"
 	{
-		"bonus_damage"          "120"
-		"bonus_attack_speed"    "80"
-		"bonus_armor"           "30"
-		"bonus_attack_range"    "200"
+		// 静态属性值（迁移到item_apply_modifiers的DataDriven，仅用于 tooltip 显示）
+		"bonus_damage"          "120"       // tooltip only - 攻击力
+		"bonus_attack_speed"    "80"        // tooltip only - 攻击速度
+		"bonus_armor"           "30"        // tooltip only - 护甲
+		"bonus_attack_range"    "200"       // tooltip only - 攻击距离
 
+		// 主动技能参数（在 Lua 中实现）
 		"active_armor"          "100"
 		"active_attack_range"   "500"
 		"active_duration"       "8"
 		"moon_shard_bonus"      "100"
 		"bat_reduction_pct"     "20"  // 新增:BAT减少值
-		    // 溅射伤害参数
+
+		// 溅射伤害参数（Lua 逻辑需要）
 		"attack_radius"         "500"      // 溅射范围
 		"attack_percent"        "100"      // 溅射伤害百分比
 		"internal_cooldown"     "0.05"      // 内置冷却时间
 	}
 
-    "Modifiers"
-    {
-        "modifier_item_hawkeye_turret_stats"
-        {
-            "Passive"           "1"
-            "IsHidden"          "1"
-            "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
-
-            "Properties"
-            {
-                "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
-                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%bonus_attack_speed"
-                "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%bonus_armor"
-                "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"          "%bonus_attack_range"
-            }
-        }
-    }
+    // ✅ modifier_item_hawkeye_turret_stats 已迁移到 npc_items_modifier.txt
+    // 静态属性由 DataDriven 实现，性能更优
 }
 //=================================================================================================================
 // Recipe: 鹰眼战机
@@ -6093,14 +6081,14 @@
 
     "AbilityValues"
     {
-        // 被动属性
-        "bonus_all_stats"       "30"
-        "bonus_movement_speed"  "160"
-        "bonus_movement_speed_pct" "60"
-        "bonus_turn_rate"       "50"
-        "bonus_status_resistance" "30"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_all_stats"       "30"    // tooltip only - 全属性
+        "bonus_movement_speed"  "160"   // tooltip only - 移动速度
+        "bonus_movement_speed_pct" "60" // tooltip only - 移动速度百分比
+        "bonus_turn_rate"       "50"    // tooltip only - 转身速率
+        "bonus_status_resistance" "30"  // Lua 逻辑需要 - 状态抗性
 
-        // 主动效果
+        // 主动效果（在 Lua 中实现）
         "active_movement_speed_pct" "150"
         "active_duration"       "8"
     }
@@ -6251,14 +6239,14 @@
 		}
         "mute_duration"         "4.0"
 
-        // 被动属性 (继承所有配件)
-        "bonus_strength"        "35"   // 一闪20 + 额外15
-        "bonus_agility"         "65"   // 苍蓝幻想50 + 额外15
-        "bonus_damage"          "180"  // 一闪80 + 苍蓝幻想80 + 额外20
-        "bonus_armor"           "15"   // 一闪5 + 苍蓝幻想10
-        "bonus_attack_speed"    "80"   // 风暴之锤
-        "bonus_health"          "600"  // 一闪
-        "spell_amp"             "20"   // 综合技能增强
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"        "35"    // tooltip only - 力量（一闪20 + 额外15）
+        "bonus_agility"         "65"    // tooltip only - 敏捷（苍蓝幻想50 + 额外15）
+        "bonus_damage"          "180"   // tooltip only - 攻击力（一闪80 + 苍蓝幻想80 + 额外20）
+        "bonus_armor"           "15"    // tooltip only - 护甲（一闪5 + 苍蓝幻想10）
+        "bonus_attack_speed"    "80"    // tooltip only - 攻击速度（风暴之锤）
+        "bonus_health"          "600"   // tooltip only - 生命值（一闪）
+        "spell_amp"             "20"    // tooltip only - 法术增强
     }
 }
 //=================================================================================================================
@@ -6307,58 +6295,32 @@
 
 		"AbilityValues"
 		{
-			// 从咖喱棒继承的被动属性
-			"bonus_damage"              "600"
-			"bonus_spell_amp"           "50"
-			"bonus_damage_percent"      "100"
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_damage"              "600"   // tooltip only - 攻击力
+			"bonus_spell_amp"           "50"    // tooltip only - 法术增强
+			"bonus_damage_percent"      "100"   // tooltip only - 基础伤害加成
+			"bonus_agility"             "150"   // tooltip only - 敏捷
+			"bonus_evasion"             "25"    // tooltip only - 闪避
+			"bonus_attack_speed"        "100"   // tooltip only - 攻击速度
 
-			// 从黄金大核荣耀继承的被动属性
-			"bonus_agility"             "150"  // 根据黄金大核荣耀的属性
-			"bonus_evasion"             "25"
-			"bonus_attack_speed"        "100"
-
+			// 暴击参数（Lua 逻辑需要 - 动态暴击计算）
 			// 模式1:
 			"crit_chance_mode1" "12"
 			"crit_multiplier_mode1" "10"
-			"guaranteed_crit_multiplier_mode1" "6"   // 新增
+			"guaranteed_crit_multiplier_mode1" "6"
 			"cooldown_mode1" "8"
 
 			// 模式2:
 			"crit_chance_mode2" "6"
 			"crit_multiplier_mode2" "30"
-			"guaranteed_crit_multiplier_mode2" "20"  // 新增
+			"guaranteed_crit_multiplier_mode2" "20"
 			"cooldown_mode2" "15"
 
 			// 模式3:
 			"crit_chance_mode3" "3"
 			"crit_multiplier_mode3" "100"
-			"guaranteed_crit_multiplier_mode3" "60"  // 新增
+			"guaranteed_crit_multiplier_mode3" "60"
 			"cooldown_mode3" "60"
-		}
-		 "Modifiers"
-		{
-			"modifier_item_switchable_crit_blade_stats"
-			{
-				"Passive"               "1"
-				"IsHidden"              "1"
-				"RemoveOnDeath"         "0"
-
-				"Attributes"            "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"          "%bonus_damage"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"        "%bonus_spell_amp"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_percent"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"             "%bonus_agility"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"                "%bonus_evasion"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%bonus_attack_speed"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 
@@ -6704,7 +6666,7 @@
 		"max_hp_dmg_pct"        "4"      // 添加这个参数
     	"hp_regen_reduction"    "-80"    // 添加这个参数
 
-        // 绝对破防效果
+        // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
         "corruption_armor"      "-80"
         "corruption_duration"   "7.0"
 
@@ -6712,16 +6674,16 @@
         "silence_duration"      "5.0"
         "silence_damage_percent" "30"
 
-        // 被动属性
-        "bonus_strength"        "55"
-        "bonus_agility"         "115"
-        "bonus_intellect"       "85"
-        "bonus_damage"          "360"
-        "bonus_armor"           "25"
-        "bonus_attack_speed"    "150"
-        "bonus_health"          "600"
-        "bonus_mana_regen"      "25"
-        "spell_amp"             "50"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"        "55"    // tooltip only - 力量
+        "bonus_agility"         "115"   // tooltip only - 敏捷
+        "bonus_intellect"       "85"    // tooltip only - 智力
+        "bonus_damage"          "360"   // tooltip only - 攻击力
+        "bonus_armor"           "25"    // tooltip only - 护甲
+        "bonus_attack_speed"    "150"   // tooltip only - 攻击速度
+        "bonus_health"          "600"   // tooltip only - 生命值
+        "bonus_mana_regen"      "25"    // tooltip only - 魔法恢复
+        "spell_amp"             "50"    // tooltip only - 法术增强
     }
 }
 //=================================================================================================================
