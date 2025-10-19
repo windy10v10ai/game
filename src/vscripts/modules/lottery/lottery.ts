@@ -181,10 +181,6 @@ export class Lottery {
     // 修改修改修改开始 - 强制第一个被动技能为 高级技能
 
     if (!isActive && abilityLotteryResults.length > 0) {
-      const hudiexiaoying = RandomInt(1, 1);
-      if (hudiexiaoying === 1) {
-        abilityLotteryResults[0] = { name: 'ability_trigger_learned_skills', level: 4 }; // level可调整
-      }
       // 新增: 只有在强制随机英雄模式下才应用特殊技能逻辑
       const isForceRandomHero = GameRules.Option.sameHeroSelection;
 
