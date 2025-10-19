@@ -5446,8 +5446,8 @@
 			}
 			"gold_steal"
 			{
-				"value"			"10 20 30 40 50 60"
-				"special_bonus_unique_bounty_hunter"		"+50"	// 50 电脑钱太好偷了，削弱
+				"value"			"5 10 15 20 25 30"
+				"special_bonus_unique_bounty_hunter"		"+20"	// 50 电脑钱太好偷了，削弱
 			}
 			"AbilityCooldown"
 			{
@@ -8819,7 +8819,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"			"10"
+				"value"			"30"
 				"special_bonus_unique_venomancer_8"			"-5"
 			}
 			"duration"
