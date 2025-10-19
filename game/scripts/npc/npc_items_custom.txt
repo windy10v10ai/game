@@ -6709,41 +6709,37 @@
 
     "AbilityValues"
     {
-        // 达贡伤害
+        // 主动技能参数（Lua 逻辑需要）
         "dagon_damage"
         {
             "value"             "800"
             "CalculateSpellDamageTooltip" "1"
         }
-
-        // 死灵法杖效果
-        "necrolyte_att_multiplier"  "0.5"
-        "sheep_duration"            "3.0"
-        "sheep_movement_speed"      "140"
-
-        // 虚灵之刃效果
-        "ethereal_duration"         "4.0"
-        "blast_agility_multiplier"  "2.5"
-        "blast_damage_base"         "300"
-        "blast_movement_slow"       "-80"
-        "ethereal_damage_bonus"     "40"
-
-        // 绝刃效果 (假设为额外纯粹伤害)
+        "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
+        "sheep_duration"            "3.0"    // Lua 逻辑需要 - 变形持续时间
+        "sheep_movement_speed"      "140"    // Lua 逻辑需要 - 变形移动速度
+        "ethereal_duration"         "4.0"    // Lua 逻辑需要 - 虚灵持续时间
+        "blast_agility_multiplier"  "2.5"    // Lua 逻辑需要 - 虚灵之刃主属性倍数
+        "blast_damage_base"         "300"    // Lua 逻辑需要 - 虚灵之刃基础伤害
+        "blast_movement_slow"       "-80"    // Lua 逻辑需要 - 虚灵减速百分比
+        "ethereal_damage_bonus"     "40"     // Lua 逻辑需要 - 虚灵伤害加成
         "absolute_damage"
         {
             "value"             "1000"
             "CalculateSpellDamageTooltip" "1"
         }
 
-        // 被动属性
-        "bonus_intellect"       "200"
-        "bonus_strength"        "80"
-        "bonus_agility"         "120"
-        "bonus_damage"          "250"
-        "bonus_mana"            "1500"
-        "bonus_mana_regen"      "30"
-        "spell_amp"             "60"
-        "bonus_cast_range"      "300"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_intellect"       "200"   // tooltip only - 智力
+        "bonus_strength"        "80"    // tooltip only - 力量
+        "bonus_agility"         "120"   // tooltip only - 敏捷
+        "bonus_damage"          "250"   // tooltip only - 攻击力
+        "bonus_mana"            "1500"  // tooltip only - 魔法值
+        "bonus_mana_regen"      "30"    // tooltip only - 魔法回复
+        "spell_amp"             "60"    // tooltip only - 技能增强
+
+        // Lua 逻辑需要 - 施法距离（不在可优化列表）
+        "bonus_cast_range"      "300"   // Lua 逻辑需要 - 施法距离加成
     }
 
     "precache"

@@ -436,6 +436,26 @@
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "30"
 				}
 			}
+			// 暗影冲击
+			"modifier_item_shadow_impact_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				// 多个暗影冲击可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"200"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"80"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"120"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"250"
+					"MODIFIER_PROPERTY_MANA_BONUS"				"1500"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"30"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "60"
+				}
+			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{
