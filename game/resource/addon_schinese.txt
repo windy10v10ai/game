@@ -3,8 +3,8 @@
 	"Language"		"schinese"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI by Windy"
-		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
+		"addon_game_name"		"Dota 10v10 AI by Windy RENO"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy RENO"
 		"DOTA_SHARD"			"勇士经验"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -2938,5 +2938,8 @@
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• 召唤类技能"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• 两段式技能和取消技能"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• 卡尔的元素球和融合技能"
+
+		"npc_dota_neutral_kobold_taskmaster"                                 "Windy的化身，击杀获得不了任何东西，除了快乐"
+		"DOTA_Tooltip_unit_npc_dota_neutral_kobold_taskmaster"              "Windy的化身，击杀获得不了任何东西，除了快乐"
 	}
 }

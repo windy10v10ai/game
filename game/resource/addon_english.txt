@@ -2834,5 +2834,9 @@
 "DOTA_Tooltip_ability_ability_trigger_on_cast_Note0"                           "Does not trigger passive abilities, items, or certain special abilities."
 "DOTA_Tooltip_ability_ability_trigger_on_cast_Note1"                           "Uses pseudo-random distribution for trigger chance."
 "DOTA_Tooltip_ability_ability_trigger_on_cast_Note2"                           "Cannot retrigger during an active trigger to prevent infinite loops."
+
+
+		"npc_windy"                                 "Windy"
+		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}
 }

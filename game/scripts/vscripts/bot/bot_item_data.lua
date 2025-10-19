@@ -978,7 +978,7 @@ tBotItemData.purchaseItemList = {
 		'item_gungir_2',
 		'item_necronomicon_staff',
 		'item_excalibur',
-		'item_shadow_impact',
+		'item_dagon_5',
 	},
 }
 

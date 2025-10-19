@@ -88,8 +88,8 @@ function AIGameMode:PreGameOptions()
 
     local gameMode = GameRules:GetGameModeEntity()
 
-   -- if self.bSameHeroSelection == 1 then
-        GameRules:SetSameHeroSelectionEnabled(true)
+    -- if self.bSameHeroSelection == 1 then
+    GameRules:SetSameHeroSelectionEnabled(true)
     --end
 
     self.sumTowerPower = AIGameMode.iTowerPower

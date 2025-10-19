@@ -31,6 +31,7 @@ local EXCLUDED_IN_ABILITIES = {
     ["invoker_quas"] = true,                      -- 卡尔 (冰)
     ["invoker_wex"] = true,                       -- 卡尔 (雷)
     ["invoker_exort"] = true,                     -- 卡尔 (火)
+    ["zuus_lightning_hands"] = true,
 }
 -- 定义需要排除的技能黑名单
 -- 这些技能不会被蝴蝶效应物品触发，避免游戏机制冲突或性能问题
@@ -91,6 +92,7 @@ local EXCLUDED_ABILITIES = {
     ["vengefulspirit_nether_swap"] = true, -- 复仇之魂 移形换位
     ["nyx_assassin_burrow"] = true,        -- 司夜刺客 钻地
     ["nyx_assassin_unburrow"] = true,      -- 司夜刺客 现身
+    ["nyx_assassin_vendetta"] = true,      -- 司夜刺客 复仇
     ["pudge_rot"] = true,                  -- 屠夫 腐肉（持续伤害自己）
     ["axe_culling_blade"] = true,          -- 斧王 淘汰之刃（斩杀技能）
 
@@ -118,6 +120,9 @@ local EXCLUDED_ABILITIES = {
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
     ["phantom_assassin_phantom_strike"] = true,
+
+
+    ["elder_titan_ancestral_spirit"] = true,
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降
@@ -280,7 +285,7 @@ function modifier_trigger_on_cast:OnAbilityExecuted(params)
     Timers:CreateTimer(0.5, function()
         self.global_cooldown = nil
     end)
-
+    --print("[trigger]", executed_ability:GetAbilityName())
     -- 检查是否为持续施法技能
     local behavior = executed_ability:GetBehavior()
     local is_channeled = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) ~= 0
@@ -402,7 +407,14 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             if original_target and not original_target:IsNull() then
                 original_position = original_target:GetAbsOrigin()
             else
-                original_position = caster:GetAbsOrigin()
+                -- ✅ 修改: 对施法者前方施法距离极限释放
+                local cast_range = random_ability:GetCastRange(caster:GetAbsOrigin(), nil)
+                if cast_range <= 0 then
+                    cast_range = 600 -- 默认距离
+                end
+                local forward = caster:GetForwardVector()
+                original_position = caster:GetAbsOrigin() + forward * cast_range
+                --print("[cast_trigger] 敌方点目标/AOE技能,目标: 施法者前方" .. cast_range .. "距离")
             end
         else
             original_position = caster:GetAbsOrigin()
@@ -559,7 +571,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             ParticleManager:ReleaseParticleIndex(particle)
         end
 
-        local restore_delay = 0.1
+        local restore_delay = 0.5
         if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
             restore_delay = 4.0
         end
