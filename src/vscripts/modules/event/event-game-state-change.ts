@@ -85,8 +85,30 @@ export class EventGameStateChange {
       // 删除重复的技能添加代码
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
-
+    // ✅ 新增: 生成泉水守卫
+    this.SpawnFountainGuard();
     this.setPlayerColor();
+  }
+
+  private SpawnFountainGuard(): void {
+    // 天辉泉水位置
+    const fountainPosition = Vector(-5400, -6800, 384) as Vector;
+
+    const guard = CreateUnitByName(
+      'npc_windy',
+      fountainPosition,
+      true,
+      undefined,
+      undefined,
+      DotaTeam.BADGUYS,
+    );
+
+    if (guard !== undefined && guard !== null) {
+      guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
+      print('[Fountain Guard] 泉水守卫已生成');
+    } else {
+      print('[Fountain Guard] ERROR: 生成失败');
+    }
   }
 
   /**
