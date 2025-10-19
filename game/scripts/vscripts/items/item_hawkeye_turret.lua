@@ -13,21 +13,25 @@ function item_hawkeye_turret:OnSpellStart()
     local duration = self:GetSpecialValueFor("active_duration")
 
     caster:EmitSound("DOTA_Item.MoonShard.Consume")
-    caster:AddNewModifier(caster, self, "modifier_item_hawkeye_turret_active", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_item_hawkeye_turret_active", { duration = duration })
 end
 
 -- 被动效果modifier
 if modifier_item_hawkeye_turret == nil then modifier_item_hawkeye_turret = class({}) end
 
 function modifier_item_hawkeye_turret:IsHidden() return true end
+
 function modifier_item_hawkeye_turret:IsPurgable() return false end
+
 function modifier_item_hawkeye_turret:RemoveOnDeath() return false end
+
 function modifier_item_hawkeye_turret:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_hawkeye_turret:OnCreated()
-    self.stats_modifier_name = "modifier_item_hawkeye_turret_stats"
+    -- ✅ 必须调用 OnRefresh 来应用 DataDriven modifier
+    self:OnRefresh()
 
     local ability = self:GetAbility()
     if ability then
@@ -43,6 +47,13 @@ function modifier_item_hawkeye_turret:OnCreated()
 
     if IsServer() then
         if not self:GetAbility() then self:Destroy() end
+    end
+end
+
+function modifier_item_hawkeye_turret:OnRefresh()
+    self.stats_modifier_name = "modifier_item_hawkeye_turret_stats"
+
+    if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
@@ -55,11 +66,7 @@ end
 
 function modifier_item_hawkeye_turret:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-        MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-        MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,  -- 添加这个
+        MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
     }
 end
 
@@ -93,8 +100,8 @@ function modifier_item_hawkeye_turret:GetModifierProcAttack_Feedback(keys)
         target_loc,
         nil,
         self.attack_radius or 400,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,  -- 直接使用常量
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,  -- 直接使用常量
+        DOTA_UNIT_TARGET_TEAM_ENEMY,                    -- 直接使用常量
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, -- 直接使用常量
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -106,7 +113,7 @@ function modifier_item_hawkeye_turret:GetModifierProcAttack_Feedback(keys)
                 victim       = enemy,
                 attacker     = keys.attacker,
                 damage       = damage,
-                damage_type  = DAMAGE_TYPE_PURE,  -- 纯粹伤害
+                damage_type  = DAMAGE_TYPE_PURE, -- 纯粹伤害
                 damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
                 ability      = ability,
             })
@@ -118,34 +125,22 @@ function modifier_item_hawkeye_turret:GetModifierProcAttack_Feedback(keys)
         { duration = self.internal_cooldown or 0.5 })
 end
 
-
-
-function modifier_item_hawkeye_turret:GetModifierPreAttack_BonusDamage()
-    return self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
-function modifier_item_hawkeye_turret:GetModifierAttackSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
-end
-
-function modifier_item_hawkeye_turret:GetModifierPhysicalArmorBonus()
-    return self:GetAbility():GetSpecialValueFor("bonus_armor")
-end
-
-function modifier_item_hawkeye_turret:GetModifierAttackRangeBonus()
-    return self:GetAbility():GetSpecialValueFor("bonus_attack_range")
-end
 -- 内置冷却modifier
 if modifier_item_hawkeye_turret_cooldown == nil then modifier_item_hawkeye_turret_cooldown = class({}) end
 
 function modifier_item_hawkeye_turret_cooldown:IsDebuff() return false end
+
 function modifier_item_hawkeye_turret_cooldown:IsHidden() return true end
+
 function modifier_item_hawkeye_turret_cooldown:IsPurgable() return false end
+
 function modifier_item_hawkeye_turret_cooldown:RemoveOnDeath() return true end
+
 -- 主动效果modifier
 if modifier_item_hawkeye_turret_active == nil then modifier_item_hawkeye_turret_active = class({}) end
 
 function modifier_item_hawkeye_turret_active:IsHidden() return false end
+
 function modifier_item_hawkeye_turret_active:IsPurgable() return false end
 
 function modifier_item_hawkeye_turret_active:OnCreated()
@@ -196,6 +191,7 @@ end
 function modifier_item_hawkeye_turret_active:HandleCustomTransmitterData(data)
     self.moon_shard_count = data.moon_shard_count
 end
+
 function modifier_item_hawkeye_turret_active:OnDestroy()
     if not IsServer() then return end
 
@@ -215,7 +211,7 @@ function modifier_item_hawkeye_turret_active:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
         MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-        MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT,  -- 使用百分比减少
+        MODIFIER_PROPERTY_BASE_ATTACK_TIME_CONSTANT, -- 使用百分比减少
     }
 end
 
@@ -225,8 +221,6 @@ function modifier_item_hawkeye_turret_active:CheckState()
         [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
     }
 end
-
-
 
 function modifier_item_hawkeye_turret_active:GetModifierBaseAttackTimeConstant()
     if self.bat_check ~= true then
@@ -242,6 +236,7 @@ function modifier_item_hawkeye_turret_active:GetModifierBaseAttackTimeConstant()
         return new_bat
     end
 end
+
 function modifier_item_hawkeye_turret_active:GetModifierMoveSpeed_Absolute()
     return 0
 end
@@ -255,7 +250,6 @@ function modifier_item_hawkeye_turret_active:GetModifierAttackRangeBonus()
     local moon_bonus = self:GetAbility():GetSpecialValueFor("moon_shard_bonus")
     return base_range + (self.moon_shard_count or 0) * moon_bonus
 end
-
 
 function modifier_item_hawkeye_turret_active:GetModifierProvidesFOWVision()
     return 1
@@ -273,11 +267,15 @@ end
 if modifier_item_hawkeye_turret_stats == nil then modifier_item_hawkeye_turret_stats = class({}) end
 
 function modifier_item_hawkeye_turret_stats:IsHidden() return true end
+
 function modifier_item_hawkeye_turret_stats:IsPurgable() return false end
+
 function modifier_item_hawkeye_turret_stats:RemoveOnDeath() return false end
+
 function modifier_item_hawkeye_turret_stats:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
+
 -- 在 modifier_item_hawkeye_turret_active 中
 function modifier_item_hawkeye_turret_active:GetPriority()
     return MODIFIER_PRIORITY_LOW
