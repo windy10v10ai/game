@@ -1366,6 +1366,15 @@
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%触发其中一个普通技能的概率:"
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%触发其中一个终极技能的概率:"
+
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "不会触发以下类型的技能:"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• 地图功能性技能(传送、占点等)"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note2"    "• 隐身技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note3"    "• 切换类技能和法球效果"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note4"    "• 引导/持续施法技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• 召唤类技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• 两段式技能和取消技能"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• 卡尔的元素球和融合技能"
 // 蝴蝶效应·红魔 (施法触发)
 "DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "蝴蝶效应 · 红魔"
 "DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；<br><br>普通技能触发概率: %basic_trigger_chance%%%<br>终极技能触发概率: %ultimate_trigger_chance%%%<br>"
@@ -2928,14 +2937,5 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_Note0"								"如果在持续时间结束时没有使用，额外的魔法将会消失。"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
-
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "不会触发以下类型的技能:"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• 地图功能性技能(传送、占点等)"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note2"    "• 隐身技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note3"    "• 切换类技能和法球效果"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note4"    "• 引导/持续施法技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• 召唤类技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• 两段式技能和取消技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• 卡尔的元素球和融合技能"
 	}
 }

@@ -2880,6 +2880,7 @@
 "DOTA_Tooltip_Ability_item_magic_abyss_staff"								"Magic Abyss Staff"
 "DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"					"<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your magical damage is converted to additional pure damage."
 "DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"							"Buddha said: One thought to Buddha, one thought to demon."
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intelligence"            "+$int"
 "DOTA_Tooltip_Ability_item_recipe_magic_abyss_staff"						"Magic Abyss Staff Recipe"
 
 "DOTA_Tooltip_modifier_item_magic_abyss_staff_active"						"One Thought to Buddha"
@@ -2904,6 +2905,15 @@
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "The basic attack has a probability to trigger an active skill that has been learned, and the basic and ultimate skills trigger independently pseudo-randomly; if the skill is not on cooldown, it will briefly enter cooldown after triggering, and then return (Sword Saint's invincible slash returns separately for 4s, other skills return for 0.1s); if the skill is on cooldown, it will re-cool after triggering."
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%Probability of triggering one of the basic skills:"
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%Probability of triggering one of the ultimate skills:"
+
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note2"    "• Hidden skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note3"    "• Switching skills and spell effects"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note4"    "• Guide/continuous casting skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• Summoning skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
 
 "DOTA_Tooltip_Ability_item_tome_of_skill_reset"                "Skill Reset Tome"
 "DOTA_Tooltip_ability_item_tome_of_skill_reset_Description"    "<h1>Use: Reselect Skill</h1>Allows you to remove one lottery ability and select a new one from a pool of 2 active and 4 passive abilities.<br><br>The new ability selection will be prioritized as follows:<br>1. Active abilities<br>2. Passive abilities with active effects (e.g., orb effects)<br>3. Pure passive abilities<br><br>Shareable with teammates."
