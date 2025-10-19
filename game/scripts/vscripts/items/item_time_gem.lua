@@ -5,6 +5,10 @@ function item_time_gem:GetIntrinsicModifierName()
     return "modifier_item_time_gem"
 end
 
+function item_time_gem:IsRefreshable()
+    return false -- ✅ 防止被修补匠刷新
+end
+
 function item_time_gem:OnSpellStart()
     if not IsServer() then return end
 
@@ -78,7 +82,7 @@ function modifier_item_time_gem:IsPurgable() return false end
 function modifier_item_time_gem:RemoveOnDeath() return false end
 
 function modifier_item_time_gem:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_time_gem:OnCreated()
@@ -109,6 +113,7 @@ function modifier_item_time_gem:DeclareFunctions()
 end
 
 function modifier_item_time_gem:GetModifierPercentageManacostStacking()
+    --print("self.manacost_reduction")
     return (self.manacost_reduction or 0) -- 负值减少魔耗
 end
 
@@ -117,7 +122,10 @@ function modifier_item_time_gem:GetModifierPercentageCasttime()
 end
 
 function modifier_item_time_gem:GetModifierPercentageCooldown()
-    -- 直接返回 50% 冷却减少,不需要检查 SecondaryCharges
+    -- 检查是否存在熔火核心
+    if self:GetParent():HasModifier("modifier_item_refresh_core") then
+        return 0
+    end
     return self.bonus_cooldown or 50
 end
 

@@ -10,7 +10,7 @@ end
 function item_forbidden_staff:OnSpellStart()
     local caster = self:GetCaster()
     local radius = self:GetSpecialValueFor("radius")
-    local target_point = self:GetCursorPosition()  -- 获取目标点位置
+    local target_point = self:GetCursorPosition() -- 获取目标点位置
 
     -- 查找范围内的敌人
     local enemies = FindUnitsInRadius(
@@ -20,11 +20,11 @@ function item_forbidden_staff:OnSpellStart()
         radius,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
         DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,  -- ← 包含魔免单位
+        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, -- ← 包含魔免单位
         FIND_ANY_ORDER,
         false
     )
--- 添加沉默音效
+    -- 添加沉默音效
     EmitSoundOn("Hero_Silencer.Curse.Cast", self:GetParent())
 
     for _, enemy in pairs(enemies) do
@@ -36,7 +36,7 @@ function item_forbidden_staff:OnSpellStart()
         end
     end
 
--- 范围特效
+    -- 范围特效
     local particle = ParticleManager:CreateParticle(
         "particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf",
         PATTACH_WORLDORIGIN,
@@ -69,7 +69,7 @@ function item_forbidden_staff:ApplyNecrolyteEffect(target)
 
     -- 添加变形效果
     local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
-    target:AddNewModifier(caster, self, "modifier_item_forbidden_staff_sheep", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_item_forbidden_staff_sheep", { duration = duration })
 end
 
 function item_forbidden_staff:ApplyLightningEffect(target)
@@ -97,8 +97,11 @@ end
 modifier_item_forbidden_staff = class({})
 
 function modifier_item_forbidden_staff:IsHidden() return true end
+
 function modifier_item_forbidden_staff:IsPurgable() return false end
+
 function modifier_item_forbidden_staff:RemoveOnDeath() return false end
+
 function modifier_item_forbidden_staff:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -143,7 +146,6 @@ function modifier_item_forbidden_staff:GetModifierBonusStats_Strength()
     return self.bonus_strength or 0
 end
 
-
 function modifier_item_forbidden_staff:GetModifierConstantManaRegen()
     return self.bonus_mana_regen or 0
 end
@@ -168,7 +170,9 @@ end
 modifier_item_forbidden_staff_sheep = class({})
 
 function modifier_item_forbidden_staff_sheep:IsHidden() return false end
+
 function modifier_item_forbidden_staff_sheep:IsDebuff() return true end
+
 function modifier_item_forbidden_staff_sheep:IsPurgable() return true end
 
 function modifier_item_forbidden_staff_sheep:GetTexture()

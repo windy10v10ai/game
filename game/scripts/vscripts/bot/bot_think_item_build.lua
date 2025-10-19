@@ -18,7 +18,25 @@ local function replaceItem(v, oldItemName, newItemName)
     end
   end
 end
+-- 检测装备列表中是否包含配方中的任意配件，如果有则替换为高级装备
+local function replaceItemByRecipe(v, recipeComponents, newItemName)
+  -- recipeComponents 是一个包含所有配件名称的表
+  -- 例如: {"item_sacred_six_vein", "item_sange_and_yasha_1", "item_yasha_and_kaya_1", "item_kaya_and_sange_1"}
 
+  for i, vItem in ipairs(v) do
+    -- 检查当前装备是否是配方中的任意一个配件
+    for _, component in ipairs(recipeComponents) do
+      if vItem == component then
+        -- 找到配件，移除它并添加高级装备
+        table.remove(v, i)
+        table.insert(v, newItemName)
+        print("replaceItemByRecipe: found " .. component .. ", replacing with " .. newItemName)
+        return true  -- 只替换一次
+      end
+    end
+  end
+  return false
+end
 local function addTome(k, v)
   -- 高难度替换
   -- 获取难度倍率
@@ -27,7 +45,7 @@ local function addTome(k, v)
   -- 计算替换概率（难度倍率 = 替换概率%）
   -- 限制最大概率为100%
   if multiplier >= 20 then
-    local replace_chance = math.min(multiplier * 1.5, 100)
+    local replace_chance = math.min(multiplier*1.5, 100)
 
     -- 随机替换装备（基于配方）
     -- 1. 万剑归宗：六脉神剑、无锋战戟 -> 万剑归宗
@@ -90,7 +108,7 @@ local function addTome(k, v)
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_undying_heart", "item_withered_spring")
     end
-    -- 11. 枯木逢春：咸鱼之王 -> 枯木逢春
+      -- 11. 枯木逢春：咸鱼之王 -> 枯木逢春
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_aeon_pendant", "item_withered_spring")
     end
@@ -118,7 +136,7 @@ local function addTome(k, v)
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_necronomicon_staff", "item_forbidden_staff")
     end
-    -- 15. 禁忌法锤：风暴之锤 -> 禁忌法锤
+      -- 15. 禁忌法锤：风暴之锤 -> 禁忌法锤
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_gungir_2", "item_forbidden_staff")
     end
@@ -146,27 +164,27 @@ local function addTome(k, v)
   table.insert(v, "item_tome_of_luoshu")
 
   local amount = 0
-  if AIGameMode.fBotGoldXpMultiplier >= 60 then
-    amount = 60
-  elseif AIGameMode.fBotGoldXpMultiplier >= 40 then
-    amount = 40
-  elseif AIGameMode.fBotGoldXpMultiplier >= 30 then
-    amount = 30
-  elseif AIGameMode.fBotGoldXpMultiplier >= 20 then
-    amount = 25
-  elseif AIGameMode.fBotGoldXpMultiplier >= 10 then
-    amount = 20
-  elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
-    amount = 15
-  elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
-    amount = 12
-  elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
-    amount = 9
-  elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
-    amount = 6
-  elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
-    amount = 3
-  end
+if AIGameMode.fBotGoldXpMultiplier >= 60 then
+  amount = 60
+elseif AIGameMode.fBotGoldXpMultiplier >= 40 then
+  amount = 40
+elseif AIGameMode.fBotGoldXpMultiplier >= 30 then
+  amount = 30
+elseif AIGameMode.fBotGoldXpMultiplier >= 20 then
+  amount = 25
+elseif AIGameMode.fBotGoldXpMultiplier >= 10 then
+  amount = 20
+elseif AIGameMode.fBotGoldXpMultiplier >= 8 then
+  amount = 15
+elseif AIGameMode.fBotGoldXpMultiplier >= 5 then
+  amount = 12
+elseif AIGameMode.fBotGoldXpMultiplier >= 4 then
+  amount = 9
+elseif AIGameMode.fBotGoldXpMultiplier >= 3 then
+  amount = 6
+elseif AIGameMode.fBotGoldXpMultiplier >= 2 then
+  amount = 3
+end
   for i = 1, amount do
     table.insert(v, "item_tome_of_strength")
     table.insert(v, "item_tome_of_agility")
