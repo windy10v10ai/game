@@ -170,7 +170,7 @@ function BotItemThink:UseActiveItem(hHero)
             end
         end
     end
-    -- 禁忌法杖
+    -- 禁忌法锤
     if BotItemThink:IsItemCanUse(tUsableItems, "item_forbidden_staff") then
         local iRange = GetFullCastRange(hHero, tUsableItems["item_forbidden_staff"])
         local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
@@ -266,7 +266,7 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_abyss_staff") then
         return true
     end
-       -- item_magic_sword 魔渊剑
+    -- item_magic_sword 魔渊剑
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_sword") then
         return true
     end
@@ -283,7 +283,7 @@ function BotItemThink:UseActiveItem(hHero)
             return true
         end
     end
-        -- 德古拉面罩
+    -- 德古拉面罩
     if hHero:GetHealthPercent() < 60 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_dracula_mask") then
             return true

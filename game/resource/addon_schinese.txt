@@ -1053,7 +1053,7 @@
 "DOTA_Tooltip_ability_item_fusion_hawkeye_Description"          "一种神秘的融合符文,蕴含着鹰眼的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 鹰眼炮台、鹰眼战机"
 
 // 禁忌符文
-"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法杖、禁忌战刃"
+"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法锤、禁忌战刃"
 
 // 暴虐符文
 "DOTA_Tooltip_ability_item_fusion_brutal_Description"           "一种神秘的融合符文,蕴含着暴虐的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 归海一刀、魔龙狂舞"
