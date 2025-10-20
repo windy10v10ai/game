@@ -3393,33 +3393,33 @@
 	// 肉钩
 	"pudge_meat_hook"
 	{
-		"MaxLevel"						"12"
+		"MaxLevel"						"8"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"									"150 220 290 360 430 600 800 1000 1200 1400 1600 1800"
-				"special_bonus_facet_pudge_flayers_hook"	"=80 =120 =160 =200 =240 =300 =400 =500 =500 =500 =500 =500"
+				"value"									"150 220 290 360 430 600 800 1000"
+				"special_bonus_facet_pudge_flayers_hook"	"=80 =120 =160 =200 =240 =300 =400 =500"
 				"special_bonus_unique_pudge_7"			"+170"
 			}
 			"hook_speed"
 			{
-				"value"						"1600 1800 2000 2200 2500 3200 4500 6000 7000 8000 9000 10000" // 1600 增长率与距离增长率同步
+				"value"						"1600 1800 2000 2200 2500 3000 3500 4000" // 1600 增长率与距离增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+0"
 			}
 			"AbilityCastRange"
 			{
-				"value"						"1600 1800 2000 2200 2500 3200 4500 6000 8000 10000 12000 16000" // 1300 增长率与钩子速度增长率同步
+				"value"						"1600 1800 2000 2200 2500 3000 3500 4000" // 1300 增长率与钩子速度增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+15%"
 			}
 			"AbilityCooldown"
 			{
-				"value"							"18 16 14 12 10 10 10 10 10 10 10 10"
+				"value"							"18 16 14 12 10 10 10 10"
 			}
 
 			"distance_to_damage"
 			{
-				"special_bonus_shard" "12 18 24 30 36 50 60 80 100 100 100 100"
+				"special_bonus_shard" "12 18 24 30 36 50 60 80"
 			}
 		}
 	}
