@@ -3027,7 +3027,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
-//蝴蝶效应·蓝
+	//蝴蝶效应·蓝
 	"ability_trigger_learned_skills"
 	{
 		"BaseClass"             "ability_lua"
@@ -3050,26 +3050,46 @@
 			"ultimate_trigger_chance"   "1 2 2.6 3.3 4"
 		}
 	}
-//蝴蝶效应·红
-"ability_trigger_on_cast"
-{
-    "BaseClass"                     "ability_lua"
-    "ScriptFile"                    "abilities/ability_trigger_on_cast"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "AbilityTextureName"            "ability_trigger_on_cast"
+	//蝴蝶效应·红
+	"ability_trigger_on_cast"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ability_trigger_on_cast"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "ability_trigger_on_cast"
+			"MaxLevel"              "5"
+			"RequiredLevel"         "6"
+			"LevelsBetweenUpgrades" "6"
+
+		"AbilityValues"
+		{
+			// 普通技能触发概率 (每级)
+			"basic_trigger_chance"      "30 40 50 60 70"
+			// 终极技能触发概率 (每级)
+			"ultimate_trigger_chance"   "15 20 25 30 35"
+		}
+	}
+	//蝴蝶效应·金
+	"ability_trigger_on_attacked"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ability_trigger_on_attacked"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "jinshen"
 		"MaxLevel"              "5"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "6"
+		"AbilityValues"
+		{
+			// 普通技能触发概率 (每级)
+			"basic_trigger_chance"      "3 6 9 12 15"
 
-    "AbilityValues"
-    {
-		// 普通技能触发概率 (每级)
-        "basic_trigger_chance"      "30 40 50 60 70"
-		// 终极技能触发概率 (每级)
-        "ultimate_trigger_chance"   "15 20 25 30 35"
-    }
-}
-//幸运：所有概率事件将变成百分之百
+			// 终极技能触发概率 (每级)
+			"ultimate_trigger_chance"   "1 2 2.6 3.3 4"
+			"cooldown_duration"          "0.3 0.3 0.2 0.2 0.1"
+		}
+	}
+
 	//=================================================================================================================
 	// Brewmaster: Primal Split
 	//=================================================================================================================

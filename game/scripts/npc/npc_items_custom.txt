@@ -7131,7 +7131,7 @@
 		"bonus_damage"              "300"   // tooltip only - 攻击力
 
         // 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
-		"cleave_distance"           "1200"  // Lua 逻辑需要 - 溅射范围
+		"cleave_distance"           "600"  // Lua 逻辑需要 - 溅射范围
 		"cleave_damage_percent"     "100"   // Lua 逻辑需要 - 溅射伤害百分比（英雄）
 		"cleave_damage_percent_creep" "150" // Lua 逻辑需要 - 溅射伤害百分比（小兵）
 		"slow_duration"             "2.0"   // Lua 逻辑需要 - 减速持续时间
