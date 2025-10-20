@@ -86,7 +86,7 @@ export class EventGameStateChange {
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
     // ✅ 新增: 生成泉水守卫
-    this.SpawnFountainGuard();
+    // this.SpawnFountainGuard();
     this.setPlayerColor();
   }
 
