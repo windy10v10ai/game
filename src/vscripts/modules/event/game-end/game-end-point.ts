@@ -136,10 +136,10 @@ export class GameEndPoint {
     if (multiplier > 1.5) {
       if (option.startingGoldPlayer >= 5000) {
         multiplier -= 0.1;
-      } else if (option.startingGoldPlayer == 4981) {
+      } else if (option.startingGoldPlayer === 4981) {
         //三被动模式
         multiplier -= 0.4;
-      } else if (option.startingGoldPlayer == 4982) {
+      } else if (option.startingGoldPlayer === 4982) {
         //二被动模式
         multiplier -= 0.2;
       } else if (option.startingGoldPlayer >= 4000) {

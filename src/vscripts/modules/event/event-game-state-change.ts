@@ -230,17 +230,6 @@ export class EventGameStateChange {
     } else if (percent <= 700) {
       return 10;
     }
-    return 1;
-  }
-
-  private getTowerAbilityLevel(): number {
-    // 获取游戏难度
-    const gameDifficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
-    if (gameDifficulty > 0) {
-      return gameDifficulty;
-    }
-    // 根据防御塔攻击力，获取技能等级，最大6级
-    const towerPower = GameRules.Option.towerPower;
-    return Math.min(this.getTowerLevel(towerPower), 6);
+    return 10;
   }
 }

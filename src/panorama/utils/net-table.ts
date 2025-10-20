@@ -6,14 +6,13 @@ function Transdata(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
   return {
     activeAbilityName: data.activeAbilityName,
     activeAbilityLevel: data.activeAbilityLevel,
-    activeAbilityCount: data.activeAbilityCount || 0,  // 添加这一行
+    activeAbilityCount: data.activeAbilityCount || 0, // 添加这一行
     isActiveAbilityRefreshed: Boolean(data.isActiveAbilityRefreshed),
     passiveAbilityName: data.passiveAbilityName,
     passiveAbilityLevel: data.passiveAbilityLevel,
     passiveAbilityCount: data.passiveAbilityCount, // 添加这一行
     isPassiveAbilityRefreshed: Boolean(data.isPassiveAbilityRefreshed),
-    isSkillResetMode: Boolean(data.isSkillResetMode ?? 0),  // 使用空值合并运算符
-
+    isSkillResetMode: Boolean(data.isSkillResetMode ?? 0), // 使用空值合并运算符
   };
 }
 export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | null {
