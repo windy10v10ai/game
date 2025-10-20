@@ -7012,7 +7012,7 @@
         // Lua 逻辑需要 - 主动技能参数
         "active_duration"           "5"     // Lua 逻辑需要 - 主动持续时间
         "blast_radius"              "900"   // Lua 逻辑需要 - 冲击波范围
-        "blast_damage"              "350"   // Lua 逻辑需要 - 冲击波伤害
+        "blast_damage"              "900"   // Lua 逻辑需要 - 冲击波伤害
         "movement_slow"             "40"    // Lua 逻辑需要 - 移速减缓
         "attack_slow"               "40"    // Lua 逻辑需要 - 攻速减缓
         "resist_reduction"          "25"    // Lua 逻辑需要 - 抗性降低
