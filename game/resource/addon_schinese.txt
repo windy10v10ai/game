@@ -3,8 +3,8 @@
 	"Language"		"schinese"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI by Windy RENO"
-		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy RENO"
+		"addon_game_name"		"Dota 10v10 AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
 		"DOTA_SHARD"			"勇士经验"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -1367,14 +1367,6 @@
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%触发其中一个普通技能的概率:"
 "DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%触发其中一个终极技能的概率:"
 
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "不会触发以下类型的技能:"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• 地图功能性技能(传送、占点等)"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note2"    "• 隐身技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note3"    "• 切换类技能和法球效果"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note4"    "• 引导/持续施法技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• 召唤类技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• 两段式技能和取消技能"
-		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• 卡尔的元素球和融合技能"
 // 蝴蝶效应·红魔 (施法触发)
 "DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "蝴蝶效应 · 红魔"
 "DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；与多重施法互斥；孙悟空模型无法触发；<br><br>普通技能触发概率: %basic_trigger_chance%%%<br>终极技能触发概率: %ultimate_trigger_chance%%%<br>"
