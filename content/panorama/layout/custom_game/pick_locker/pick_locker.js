@@ -11,7 +11,7 @@ let player = GetPlayer();
   PickLockerLoop();
 
   // 监听游戏选项变化
-  CustomNetTables.SubscribeNetTableListener('game_options', (table, key, value) => {
+  CustomNetTables.SubscribeNetTableListener('game_options', (table, key, _value) => {
     if (key === 'game_options') {
       // 选项变化时重新检查
       PickLocker();

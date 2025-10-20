@@ -2437,7 +2437,7 @@
 	// 大树
 	"npc_dota_hero_treant"
 	{
-		"Ability4"		"brewmaster_storm_dispel_magic"	// 替代 树眼
+		"Ability4"		""	// 移除树眼
 	}
 	"npc_dota_hero_undying"
 	{

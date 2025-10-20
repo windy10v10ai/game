@@ -24,15 +24,14 @@
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
 						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
+							<Label text="1" id="1"/>
 							<Label text="2" id="2"/>
 							<Label text="3" id="3"/>
 							<Label text="4" id="4"/>
 							<Label text="5" id="5"/>
 							<Label text="7" id="7"/>
 							<Label text="10" id="10"/>
-							<Label text="12" id="12"/>
-							<Label text="14" id="14"/>
-							<Label text="17" id="17"/>
+							<Label text="15" id="15"/>
 							<Label text="20" id="20"/>
 							<Label text="30" id="30"/>
 							<Label text="40" id="40"/>
@@ -211,6 +210,13 @@
 						<Label id="OMGAILabel" text="#omg_ai_button" />
 					</Button>
 					<Image id="OMGAIImage" class="LinkImg" src="file://{images}/custom_game/omg_ai.png"/>
+				</Panel>
+				<!--  TenvTen Remake -->
+				<Panel id="TenvTenRemakePanel" class="LinkPanel GameOptionsSubPanel">
+					<Button id="TenvTenRemakeButton" class="LinkButton ButtonBevel">
+						<Label id="TenvTenRemakeLabel" text="#tenvten_remake_button" />
+					</Button>
+					<Image id="TenvTenRemakeImage" class="LinkImg" src="file://{images}/custom_game/tenvten_remake.png"/>
 				</Panel>
 			</Panel>
 			<!-- 聊天框 -->

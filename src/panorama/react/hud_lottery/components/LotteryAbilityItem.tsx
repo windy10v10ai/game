@@ -8,7 +8,7 @@ interface LotteryAbilityItemProps {
   name: string;
   type: AbilityItemType;
   pickedName: string | undefined;
-  sourceTable?: string;  // 添加这个字段
+  sourceTable?: string; // 添加这个字段
 }
 const itemStyle = {
   width: '80px',
@@ -42,7 +42,6 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
 }) => {
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const lotteryStatus = GetLotteryStatus(steamAccountId);
-  const activeAbilities = CustomNetTables.GetTableValue('lottery_active_abilities', steamAccountId);
 
   const isResetMode = lotteryStatus?.isSkillResetMode === true;
 
@@ -55,37 +54,37 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
   };
 
   const handleClick = () => {
-  $.Msg('=== Click Debug Info ===');
-  $.Msg('Ability name: ' + name);
-  $.Msg('isResetMode: ' + isResetMode);
-  $.Msg('sourceTable: ' + sourceTable);
-  $.Msg('isCurrentAbility: ' + isCurrentAbility);
-  $.Msg('=======================');
+    $.Msg('=== Click Debug Info ===');
+    $.Msg('Ability name: ' + name);
+    $.Msg('isResetMode: ' + isResetMode);
+    $.Msg('sourceTable: ' + sourceTable);
+    $.Msg('isCurrentAbility: ' + isCurrentAbility);
+    $.Msg('=======================');
 
-  if (isResetMode) {
-    if (isCurrentAbility) {
-      $.Msg('[Lottery] Removing current ability: ' + name);
-      GameEvents.SendCustomGameEventToServer('skill_reset_remove', {
-        name,
-        type,
-        level,
-      });
+    if (isResetMode) {
+      if (isCurrentAbility) {
+        $.Msg('[Lottery] Removing current ability: ' + name);
+        GameEvents.SendCustomGameEventToServer('skill_reset_remove', {
+          name,
+          type,
+          level,
+        });
+      } else {
+        $.Msg('[Lottery] Selecting new ability: ' + name);
+        GameEvents.SendCustomGameEventToServer('skill_reset_pick', {
+          name,
+          type,
+          level,
+        });
+      }
     } else {
-      $.Msg('[Lottery] Selecting new ability: ' + name);
-      GameEvents.SendCustomGameEventToServer('skill_reset_pick', {
+      GameEvents.SendCustomGameEventToServer('lottery_pick_ability', {
         name,
         type,
         level,
       });
     }
-  } else {
-    GameEvents.SendCustomGameEventToServer('lottery_pick_ability', {
-      name,
-      type,
-      level,
-    });
-  }
-};
+  };
 
   const showtooltip = true;
   let className = 'BrightHover';

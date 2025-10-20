@@ -93,39 +93,6 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
 	}
-	"npc_test_dummy_high_regen"
-	{
-		"BaseClass"                 "npc_dota_creature"
-		"Model"                     "models/development/invisiblebox.vmdl"
-		"Level"                     "1"
-
-		// 攻击能力
-		"AttackCapabilities"        "DOTA_UNIT_CAP_NO_ATTACK"
-
-		// 护甲
-		"ArmorPhysical"             "0"
-		"MagicalResistance"         "0"
-
-		// 生命值和回复
-		"StatusHealth"              "10000000"
-		"StatusHealthRegen"         "1000000"
-
-		// 经验和金钱
-		"BountyXP"                  "0"
-		"BountyGoldMin"             "0"
-		"BountyGoldMax"             "0"
-
-		// 移动
-		"MovementCapabilities"      "DOTA_UNIT_CAP_MOVE_NONE"
-		"MovementSpeed"             "0"
-
-		// 队伍
-		"TeamName"                  "DOTA_TEAM_NEUTRALS"
-
-		// 视野
-		"VisionDaytimeRange"        "0"
-		"VisionNighttimeRange"      "0"
-	}
 
 	"npc_dota_courier"
 	{
@@ -191,31 +158,9 @@
 	{
 		"BaseAttackSpeed"           "180"
 		"AttackRate"				"1.2"		// 1.25
-		//"Ability3"					"warlock_golem_magic_immune_passive"			// Ability 3
 	}
 
-	"warlock_golem_magic_immune_passive"
-	{
-		"BaseClass"                 "ability_datadriven"
-		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"        "black_king_bar"
-		"MaxLevel"                  "1"
 
-		"Modifiers"
-		{
-			"modifier_warlock_golem_magic_immune"
-			{
-				"Passive"           "1"
-				"IsHidden"          "0"
-				"IsPurgable"        "0"
-
-				"States"
-				{
-					"MODIFIER_STATE_MAGIC_IMMUNE"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
-		}
-	}
 	//=================================================================================
 	// Warlock: Golem 1 (Scepter Upgraded)
 	//=================================================================================

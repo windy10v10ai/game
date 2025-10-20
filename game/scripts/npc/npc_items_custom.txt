@@ -6836,7 +6836,7 @@
     "ItemResult"                "item_time_gem"
     "ItemRequirements"
     {
-        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
+        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1,item_yasha_and_kaya_1;item_fusion_agile"
     }
 }
 
