@@ -28,55 +28,57 @@ function modifier_item_beast_shield:GetAttributes()
 end
 
 function modifier_item_beast_shield:OnCreated()
-    if not IsServer() then return end
-    if not self:GetAbility() then self:Destroy() return end
+    self:OnRefresh()
+    if IsServer() then
+        if not self:GetAbility() then
+            self:Destroy()
+            return
+        end
 
-    -- 设置叠加计数
-    for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-        mod:GetAbility():SetSecondaryCharges(_)
+        local ability = self:GetAbility()
+
+        -- 设置叠加计数
+        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+            mod:GetAbility():SetSecondaryCharges(_)
+        end
+
+        -- 读取 Lua 逻辑需要的参数（法师泳衣被动）
+        self.mana_restore_pct = ability:GetSpecialValueFor("mana_restore_pct")
+        self.stack_threshold = ability:GetSpecialValueFor("stack_threshold")
+        self.stack_duration = ability:GetSpecialValueFor("stack_duration")
+        self.max_stacks = ability:GetSpecialValueFor("max_stacks")
+        self.stack_resist = ability:GetSpecialValueFor("stack_resist")
+        self.damage_taken = 0  -- 累计受到的技能伤害
+    end
+end
+
+function modifier_item_beast_shield:OnRefresh()
+    self.stats_modifier_name = "modifier_item_beast_shield_stats"
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+
+        -- 更新叠加计数
+        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+            mod:GetAbility():SetSecondaryCharges(_)
+        end
     end
 end
 
 function modifier_item_beast_shield:OnDestroy()
-    if not IsServer() then return end
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
 
-    for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-        mod:GetAbility():SetSecondaryCharges(_)
+        -- 更新叠加计数
+        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+            mod:GetAbility():SetSecondaryCharges(_)
+        end
     end
 end
 
--- 在modifier_item_beast_shield的DeclareFunctions中添加
 function modifier_item_beast_shield:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_HEALTH_BONUS,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-        MODIFIER_EVENT_ON_TAKEDAMAGE,  -- 新增：监听受到伤害事件
+        MODIFIER_EVENT_ON_TAKEDAMAGE,  -- 法师泳衣被动
     }
-end
-
--- 在modifier_item_beast_shield中添加OnCreated
-function modifier_item_beast_shield:OnCreated()
-    if not IsServer() then return end
-    if not self:GetAbility() then self:Destroy() return end
-
-    -- 设置叠加计数
-    for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-        mod:GetAbility():SetSecondaryCharges(_)
-    end
-
-    -- 法师泳衣被动参数
-    self.mana_restore_pct = 25  -- 受到魔法伤害转化为魔法的百分比
-    self.stack_threshold = 100  -- 每受到100点技能伤害获得一层
-    self.stack_duration = 10    -- 叠加效果持续10秒
-    self.max_stacks = 10        -- 最多10层
-    self.stack_resist = 3       -- 每层增加3%魔抗
-
-    self.damage_taken = 0       -- 累计受到的技能伤害
 end
 
 -- 新增：处理受到伤害事件
@@ -120,49 +122,6 @@ function modifier_item_beast_shield:OnTakeDamage(params)
                 new_modifier:SetStackCount(1)
             end
         end
-    end
-end
-
-
-function modifier_item_beast_shield:GetModifierBonusStats_Strength()
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        return self:GetAbility():GetSpecialValueFor("bonus_strength")
-    end
-end
-
-function modifier_item_beast_shield:GetModifierHealthBonus()
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        return self:GetAbility():GetSpecialValueFor("bonus_health")
-    end
-end
-
-function modifier_item_beast_shield:GetModifierPhysicalArmorBonus()
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        return self:GetAbility():GetSpecialValueFor("bonus_armor")
-    end
-end
-
-function modifier_item_beast_shield:GetModifierMagicalResistanceBonus()
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        return self:GetAbility():GetSpecialValueFor("bonus_spell_resist")
-    end
-end
-
-function modifier_item_beast_shield:GetModifierConstantHealthRegen()
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        return self:GetAbility():GetSpecialValueFor("bonus_health_regen")
-    end
-end
-
-function modifier_item_beast_shield:GetModifierConstantManaRegen()
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        return self:GetAbility():GetSpecialValueFor("bonus_mana_regen")
-    end
-end
-
-function modifier_item_beast_shield:GetModifierAttackSpeedBonus_Constant()
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
     end
 end
 
