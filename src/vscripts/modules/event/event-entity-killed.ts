@@ -12,7 +12,11 @@ export class EventEntityKilled {
     if (!killedUnit) {
       return;
     }
-
+    // ✅ 新增: 检查是否为npc_windy
+    if (killedUnit.GetUnitName() === 'npc_windy') {
+      this.onWindyKilled(killedUnit);
+      return;
+    }
     if (killedUnit.IsRealHero() && !killedUnit.IsReincarnating()) {
       this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero, attacker);
     } else if (killedUnit.IsCreep()) {
@@ -206,6 +210,25 @@ export class EventEntityKilled {
       // 夜晚掉落暗影组件
       this.dropItem(creep, [this.itemDarkPartName], chance);
     }
+  }
+
+  // ✅ 新增: npc_windy复活处理
+  private onWindyKilled(unit: CDOTA_BaseNPC): void {
+    const respawnTime = 30; // 30秒后复活
+    const unitName = unit.GetUnitName();
+    const position = unit.GetAbsOrigin();
+    const team = unit.GetTeam();
+
+    print(`[Windy] npc_windy被击杀,将在${respawnTime}秒后复活`);
+
+    Timers.CreateTimer(respawnTime, () => {
+      const newUnit = CreateUnitByName(unitName, position, true, undefined, undefined, team);
+
+      if (newUnit !== undefined) {
+        newUnit.AddNewModifier(newUnit, undefined, 'modifier_rooted', {});
+        print('[Windy] npc_windy已复活');
+      }
+    });
   }
 
   /**

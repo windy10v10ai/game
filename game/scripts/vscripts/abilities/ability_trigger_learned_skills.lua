@@ -197,6 +197,7 @@ local EXCLUDED_ABILITIES = {
     ["spectre_haunt"] = true,              -- 幽鬼 - 降临
     ["spectre_haunt_single"] = true,       -- 幽鬼 - 单体降临
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
+    ["skeleton_king_reincarnation"] = true,
 }
 function ability_trigger_learned_skills:GetIntrinsicModifierName()
     return "modifier_trigger_learned_skills"
