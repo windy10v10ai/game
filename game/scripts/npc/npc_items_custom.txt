@@ -5817,6 +5817,10 @@
     "ItemPermanent"             "1"
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
+	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 }
 
@@ -5839,6 +5843,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 暴虐符文
@@ -5860,6 +5868,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 兽化符文
@@ -5881,6 +5893,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"360"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 生命符文
@@ -5902,6 +5918,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"480"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 暗影符文
@@ -5923,6 +5943,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 魔化符文
@@ -5944,6 +5968,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"1060"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 灵动符文
@@ -5965,6 +5993,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 //=================================================================================================================
 // Recipe: 鹰眼炮台
@@ -7153,7 +7185,7 @@
 		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"                 "0"
 		"ItemInitialCharges"            "1"
-		"ItemInitialStockTime"			"900"	// 16分钟买
+		"ItemInitialStockTime"			"900"	// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"180"

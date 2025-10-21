@@ -92,7 +92,6 @@ local EXCLUDED_ABILITIES = {
     ["ember_spirit_activate_fire_remnant"] = true, -- 灰烬之灵 激活火焰残影
     ["earth_spirit_rolling_boulder"] = true,       -- 大地之灵 巨石翻滚
     ["wisp_relocate"] = true,                      -- 艾欧 迁移
-    ["marci_companion_run"] = true,                -- 玛西 伙伴奔跑
     ["viper_nosedive"] = true,                     -- 冥界亚龙 俯冲
 
     -- ========================================
@@ -112,7 +111,7 @@ local EXCLUDED_ABILITIES = {
     ["shredder_twisted_chakram"] = true,      -- 伐木机 锯齿飞轮2
     ["earthshaker_enchant_totem"] = true,     -- 撼地者 强化图腾
     ["tiny_tree_grab"] = true,                -- 小小 抓树
-    -- ["enigma_black_hole"] = true,             -- 谜团 黑洞
+    ["enigma_black_hole"] = true,             -- 谜团 黑洞
     ["bane_fiends_grip"] = true,              -- 祸乱之源 魔爪
     ["crystal_maiden_freezing_field"] = true, -- 水晶室女 极寒领域
     ["witch_doctor_death_ward"] = true,       -- 巫医 死亡守卫
@@ -189,6 +188,7 @@ local EXCLUDED_ABILITIES = {
     ["marci_bodyguard"] = true,        -- 玛西 保镖
     ["marci_special_delivery"] = true, -- 玛西 特快专递
     ["marci_grapple"] = true,          -- 玛西 过肩摔
+    ["marci_companion_run"] = true,    -- 玛西 伙伴奔跑
 
     -- ========================================
     -- 幻象类技能
@@ -351,6 +351,9 @@ function modifier_trigger_on_attacked:OnAttacked(params)
 
     -- 恢复原有冷却状态
     local restore_delay = 0.4
+    if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
+        restore_delay = 4.0
+    end
 
     random_ability:SetContextThink("restore_cooldown_" .. random_ability:GetEntityIndex(), function()
         if not random_ability or random_ability:IsNull() then

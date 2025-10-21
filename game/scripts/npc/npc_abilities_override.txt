@@ -12566,12 +12566,14 @@
 		{
 			"damage"
 			{
-				"value"							"50 90 130 170 210 250 290 330"
+				"value"							"50 90 110 130 150 170 190 210"
 			}
-			"application_damage"				"50 90 130 170 210 250 290 330"
+			//"application_damage"				"50 90 130 170 210 250 290 330"
+			"application_damage"				"50 90 110 130 150 170 190 210"
 			"AbilityCooldown"
 			{
-				"value"						"20 17 14 11 8 8 8 8"
+				"value"						"20 17 15 15 15 15 15 15"
+				//"value"						"20 17 14 11 8 8 8 8"//红蝴蝶削弱
 			}
 			"movespeed"			"-10 -15 -20 -25 -30"
 		}
@@ -12614,7 +12616,8 @@
 	"silencer_last_word"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"18 16 14 12 10"
+		//"AbilityCooldown"				"18 16 14 12 10" //红蝴蝶削弱
+		"AbilityCooldown"				"18 18 18 18 18"
 		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilityValues"
 		{

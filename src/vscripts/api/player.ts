@@ -75,10 +75,10 @@ export class Player {
     // 添加更多白名单 SteamID
   ]);
 
-  //游戏里面每隔15s会发一个暗影裁决+暗影咒灭  的debuf
-  private static readonly BLACK_STEAM_IDS: Set<number> = new Set([
-    171404072, // 替换为实际的 SteamID
-    // 添加更多黑名单 SteamID
+  //高玩自然要经历更多的考验，游戏里面每隔15s会发一个暗影裁决+暗影咒灭                     的debuf
+  private static readonly GAO_WAN_STEAM_IDS: Set<number> = new Set([
+    171404072, 335880293, 121373743,
+    // 添加更多的 SteamID
   ]);
 
   public static memberList: MemberDto[] = [];
