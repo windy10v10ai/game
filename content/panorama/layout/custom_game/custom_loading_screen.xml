@@ -155,6 +155,11 @@
 						<Label id="PlayerAttributeTitle" class="GameOptionsLabel" text="#enable_player_attribute" />
 						<ToggleButton checked="true" class="GameOptionsToggle" id="enable_player_attribute" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
+					<!-- 是否增加额外被动技能 -->
+					<Panel id="ExtraPassiveAbilitiesPanel"	class="GameOptionsSubPanel">
+						<Label id="ExtraPassiveAbilitiesTitle" class="GameOptionsLabel" text="#extra_passive_abilities" />
+						<ToggleButton checked="false" class="GameOptionsToggle" id="extra_passive_abilities" onactivate="SendGameOptionsToServer()"/>
+					</Panel>
 				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 START-->
