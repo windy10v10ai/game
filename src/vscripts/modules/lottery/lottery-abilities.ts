@@ -159,8 +159,9 @@ export const abilityTiersPassive: Tier[] = [
       'templar_assassin_psi_blades', // 灵能之刃
       'dazzle_good_juju', // 善咒
       'faceless_void_time_lock', // 时间锁定
-      'ability_trigger_learned_skills', //技能连锁
-      'ability_trigger_on_cast', //多样施法
+      'ability_trigger_learned_skills', //蓝蝴蝶
+      'ability_trigger_on_cast', //红蝴蝶
+      'ability_trigger_on_attacked', //金蝴蝶
       // 法球/开关技能
       'medusa_split_shot', // 分裂箭
       'winter_wyvern_arctic_burn', // 严寒灼烧
