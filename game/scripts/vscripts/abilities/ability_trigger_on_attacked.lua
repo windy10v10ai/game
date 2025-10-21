@@ -1,6 +1,10 @@
-ability_trigger_learned_skills = class({})
+ability_trigger_on_attacked = class({})
 
-LinkLuaModifier("modifier_trigger_learned_skills", "abilities/ability_trigger_learned_skills", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_trigger_on_attacked", "abilities/ability_trigger_on_attacked",
+    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_trigger_on_attacked_cooldown",
+    "abilities/ability_trigger_on_attacked", LUA_MODIFIER_MOTION_NONE)
+
 
 -- 定义需要排除的技能黑名单
 -- 这些技能不会被蝴蝶效应物品触发，避免游戏机制冲突或性能问题
@@ -67,8 +71,8 @@ local EXCLUDED_ABILITIES = {
     ["nyx_assassin_burrow"] = true,        -- 司夜刺客 钻地
     ["nyx_assassin_unburrow"] = true,      -- 司夜刺客 现身
     ["pudge_rot"] = true,                  -- 屠夫 腐肉（持续伤害自己）
-    ["axe_culling_blade"] = true,          -- 斧王 淘汰之刃（斩杀技能）
-
+    --["axe_culling_blade"] = true,          -- 斧王 淘汰之刃（斩杀技能）
+    ["hoodwink_sharpshooter"] = true,
     -- ========================================
     -- 位移/冲刺类技能
     -- 原因：位移技能会打断攻击并改变位置，可能导致战斗混乱
@@ -108,7 +112,7 @@ local EXCLUDED_ABILITIES = {
     ["shredder_twisted_chakram"] = true,      -- 伐木机 锯齿飞轮2
     ["earthshaker_enchant_totem"] = true,     -- 撼地者 强化图腾
     ["tiny_tree_grab"] = true,                -- 小小 抓树
-    ["enigma_black_hole"] = true,             -- 谜团 黑洞
+    -- ["enigma_black_hole"] = true,             -- 谜团 黑洞
     ["bane_fiends_grip"] = true,              -- 祸乱之源 魔爪
     ["crystal_maiden_freezing_field"] = true, -- 水晶室女 极寒领域
     ["witch_doctor_death_ward"] = true,       -- 巫医 死亡守卫
@@ -177,7 +181,6 @@ local EXCLUDED_ABILITIES = {
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
-    ["hoodwink_sharpshooter"] = true,
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招
@@ -201,48 +204,51 @@ local EXCLUDED_ABILITIES = {
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
     ["skeleton_king_reincarnation"] = true,
 }
-function ability_trigger_learned_skills:GetIntrinsicModifierName()
-    return "modifier_trigger_learned_skills"
+
+function ability_trigger_on_attacked:GetIntrinsicModifierName()
+    return "modifier_trigger_on_attacked"
 end
 
-modifier_trigger_learned_skills = class({})
-function modifier_trigger_learned_skills:IsHidden()
+modifier_trigger_on_attacked = class({})
+
+function modifier_trigger_on_attacked:IsHidden()
     return true
 end
 
-function modifier_trigger_learned_skills:IsPermanent()
+function modifier_trigger_on_attacked:IsPermanent()
     return true
 end
 
-function modifier_trigger_learned_skills:RemoveOnDeath()
+function modifier_trigger_on_attacked:RemoveOnDeath()
     return false
 end
 
-function modifier_trigger_learned_skills:IsPurgable()
+function modifier_trigger_on_attacked:IsPurgable()
     return false
 end
 
-function modifier_trigger_learned_skills:DeclareFunctions()
+function modifier_trigger_on_attacked:DeclareFunctions()
     return {
-        MODIFIER_EVENT_ON_ATTACK_LANDED
+        MODIFIER_EVENT_ON_ATTACKED -- 关键修改:监听被攻击事件
     }
 end
 
-function modifier_trigger_learned_skills:OnAttackLanded(params)
+function modifier_trigger_on_attacked:OnAttacked(params)
     if not IsServer() then return end
 
     local attacker = params.attacker
-    local parent = self:GetParent()
+    local parent = self:GetParent() -- 被攻击者
 
-    if attacker ~= parent then return end
+    -- 确保是自己被攻击
+    if params.target ~= parent then return end
     if parent:IsIllusion() then return end
-    if params.target:IsBuilding() then return end
+    if attacker:IsBuilding() then return end
 
-    -- 过滤由技能触发的攻击
-    if params.inflictor and params.inflictor:GetAbilityName() == "puck_dream_coil" then
-        -- print("[butter] puck_dream_coil detected")
+    -- 检查内置冷却(0.1秒)
+    if parent:HasModifier("modifier_trigger_on_attacked_cooldown") then
         return
     end
+
     -- 获取触发概率
     local passive_level = self:GetAbility():GetLevel()
     if passive_level <= 0 then passive_level = 1 end
@@ -263,8 +269,8 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     local ultimate_abilities = {}
     local basic_abilities = {}
 
-    for i = 0, attacker:GetAbilityCount() - 1 do
-        local ability = attacker:GetAbilityByIndex(i)
+    for i = 0, parent:GetAbilityCount() - 1 do
+        local ability = parent:GetAbilityByIndex(i)
         if ability and ability:GetLevel() > 0
             and not ability:IsPassive()
             and ability ~= self:GetAbility()
@@ -282,7 +288,6 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     -- 选择要触发的技能
     local random_ability = nil
 
-    -- 优先触发终极技能(如果同时触发)
     if trigger_ultimate and #ultimate_abilities > 0 then
         random_ability = ultimate_abilities[RandomInt(1, #ultimate_abilities)]
     elseif trigger_basic and #basic_abilities > 0 then
@@ -290,9 +295,9 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     end
 
     if not random_ability then return end
-    -- 立即获取冷却时间(添加默认值处理)
+
+    -- 保存冷却和充能状态
     local remaining_cooldown = random_ability:GetCooldownTimeRemaining() or 0
-    -- 保存充能状态
     local has_charges = random_ability:GetMaxAbilityCharges(random_ability:GetLevel()) > 0
     local current_charges = 0
 
@@ -302,53 +307,50 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
 
     -- 临时结束冷却以允许施放
     random_ability:EndCooldown()
-    --施放技能 - 使用位运算检查行为
-    local target = params.target
+
+    -- 施放技能
+    local target = attacker -- 对攻击者释放技能
     local behavior = random_ability:GetBehavior()
     local target_team = random_ability:GetAbilityTargetTeam()
 
-    -- 确定实际施放目标
     local cast_target = target
-    local is_valid_target = true
 
     -- 根据技能目标队伍类型选择目标
     if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_FRIENDLY) ~= 0 then
-        -- 友方技能,对自己释放
-        cast_target = attacker
+        cast_target = parent   -- 友方技能对自己释放
     elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
-        -- 敌方技能,对攻击目标释放
-        cast_target = target
-    elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_BOTH) ~= 0 then
-        -- 任意目标技能,对攻击目标释放
-        cast_target = target
+        cast_target = attacker -- 敌方技能对攻击者释放
     end
-
+    -- 卡尔天火特殊处理:强制使用双击版本(施法者位置)
+    local ability_name = random_ability:GetAbilityName()
+    if ability_name == "invoker_sun_strike" then
+        --print("[cast_trigger] 天火")
+        cast_target = parent -- 清除单体目标,强制使用点目标模式
+    end
     -- 根据技能行为类型施放
     local cast_success = false
     if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
-        -- 单位目标技能
-        attacker:SetCursorCastTarget(cast_target)
-        cast_success = attacker:CastAbilityImmediately(random_ability, attacker:GetPlayerOwnerID())
+        parent:SetCursorCastTarget(cast_target)
+        cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
     elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
         bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
-        -- 点目标或AOE技能,使用目标位置
-        attacker:SetCursorPosition(cast_target:GetAbsOrigin())
-        cast_success = attacker:CastAbilityImmediately(random_ability, attacker:GetPlayerOwnerID())
+        parent:SetCursorPosition(cast_target:GetAbsOrigin())
+        cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
     elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
-        -- 无目标技能,直接施放
-        cast_success = attacker:CastAbilityImmediately(random_ability, attacker:GetPlayerOwnerID())
+        cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
     end
 
-    -- 只在施放成功时返还魔法
+    -- 施放成功时返还魔法并添加内置冷却
     if cast_success then
-        attacker:GiveMana(random_ability:GetManaCost(random_ability:GetLevel() - 1))
+        --print("GiveMana", random_ability:GetManaCost(random_ability:GetLevel() - 1))
+        parent:GiveMana(random_ability:GetManaCost(random_ability:GetLevel() - 1))
+        local cooldown_duration = self:GetAbility():GetSpecialValueFor("cooldown_duration")
+        parent:AddNewModifier(parent, self:GetAbility(), "modifier_trigger_on_attacked_cooldown",
+            { duration = cooldown_duration })
     end
 
-    --- 针对无敌斩设置特殊延迟
-    local restore_delay = 0.1
-    if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
-        restore_delay = 4.0 -- 无敌斩延迟4秒恢复冷却
-    end
+    -- 恢复原有冷却状态
+    local restore_delay = 0.4
 
     random_ability:SetContextThink("restore_cooldown_" .. random_ability:GetEntityIndex(), function()
         if not random_ability or random_ability:IsNull() then
@@ -370,7 +372,23 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
         end
 
         return nil
-    end, restore_delay) -- 使用变量延迟时间
+    end, restore_delay)
+
     -- 特效
-    EmitSoundOn("Hero_Juggernaut.BladeFury", attacker)
+    EmitSoundOn("Hero_Juggernaut.BladeFury", parent)
+end
+
+-- 内置冷却modifier
+modifier_trigger_on_attacked_cooldown = class({})
+
+function modifier_trigger_on_attacked_cooldown:IsHidden()
+    return true
+end
+
+function modifier_trigger_on_attacked_cooldown:IsPurgable()
+    return false
+end
+
+function modifier_trigger_on_attacked_cooldown:RemoveOnDeath()
+    return false
 end
