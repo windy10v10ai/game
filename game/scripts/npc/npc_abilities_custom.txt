@@ -3089,7 +3089,29 @@
 			"cooldown_duration"          "0.3 0.3 0.2 0.2 0.1"
 		}
 	}
+	//蝴蝶效应·橙
+	"ability_trigger_on_move"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ability_trigger_on_move"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "chengying"
+		"MaxLevel"                      "5"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+		"AbilityValues"
+		{
+			// 基础触发概率(移速500时的概率)
+			"basic_trigger_chance"      "4 5 6 7 8"
+			"ultimate_trigger_chance"   "0.4 0.5 0.6 0.7 0.8"
 
+			// 检查间隔(秒)
+			"check_interval"            "0.2"
+
+			// 基准距离
+			"base_distance"             "100"
+		}
+	}
 	//=================================================================================================================
 	// Brewmaster: Primal Split
 	//=================================================================================================================
