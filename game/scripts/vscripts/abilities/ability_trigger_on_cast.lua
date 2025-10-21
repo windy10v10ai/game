@@ -95,6 +95,7 @@ local EXCLUDED_ABILITIES = {
     ["nyx_assassin_vendetta"] = true,      -- 司夜刺客 复仇
     ["pudge_rot"] = true,                  -- 屠夫 腐肉（持续伤害自己）
     ["axe_culling_blade"] = true,          -- 斧王 淘汰之刃（斩杀技能）
+    ["hoodwink_sharpshooter"] = true,
 
     -- ========================================
     -- 位移/冲刺类技能
@@ -215,6 +216,7 @@ local EXCLUDED_ABILITIES = {
     ["marci_guardian"] = true,         -- 玛西 守护者
     ["marci_bodyguard"] = true,        -- 玛西 保镖
     ["marci_special_delivery"] = true, -- 玛西 特快专递
+    ["marci_grapple"] = true,          -- 玛西 过肩摔
 
     -- ========================================
     -- 幻象类技能
