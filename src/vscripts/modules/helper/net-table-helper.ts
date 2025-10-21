@@ -8,32 +8,32 @@ function Boolean(value: number): boolean {
 }
 
 export class NetTableHelper {
-public static GetLotteryStatus(steamAccountID: string): LotteryStatusDto {
-  const lotteryStatusData = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
-  if (!lotteryStatusData) {
+  public static GetLotteryStatus(steamAccountID: string): LotteryStatusDto {
+    const lotteryStatusData = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
+    if (!lotteryStatusData) {
+      return {
+        isActiveAbilityRefreshed: false,
+        isPassiveAbilityRefreshed: false,
+        skillResetRemovedCount: 0,
+        skillResetPickedCount: 0,
+        isSkillResetMode: false,
+      };
+    }
+
     return {
-      isActiveAbilityRefreshed: false,
-      isPassiveAbilityRefreshed: false,
-      skillResetRemovedCount: 0,
-      skillResetPickedCount: 0,
-      isSkillResetMode: false,
+      activeAbilityName: lotteryStatusData.activeAbilityName,
+      activeAbilityLevel: lotteryStatusData.activeAbilityLevel,
+      activeAbilityCount: lotteryStatusData.activeAbilityCount ?? 0,
+      isActiveAbilityRefreshed: Boolean(lotteryStatusData.isActiveAbilityRefreshed),
+      passiveAbilityName: lotteryStatusData.passiveAbilityName,
+      passiveAbilityLevel: lotteryStatusData.passiveAbilityLevel,
+      passiveAbilityCount: lotteryStatusData.passiveAbilityCount ?? 0, // 添加这一行
+      isPassiveAbilityRefreshed: Boolean(lotteryStatusData.isPassiveAbilityRefreshed),
+      skillResetRemovedCount: lotteryStatusData.skillResetRemovedCount ?? 0,
+      skillResetPickedCount: lotteryStatusData.skillResetPickedCount ?? 0,
+      isSkillResetMode: Boolean(lotteryStatusData.isSkillResetMode ?? 0),
     };
   }
-
-  return {
-    activeAbilityName: lotteryStatusData.activeAbilityName,
-    activeAbilityLevel: lotteryStatusData.activeAbilityLevel,
-    activeAbilityCount: lotteryStatusData.activeAbilityCount ?? 0,
-    isActiveAbilityRefreshed: Boolean(lotteryStatusData.isActiveAbilityRefreshed),
-    passiveAbilityName: lotteryStatusData.passiveAbilityName,
-    passiveAbilityLevel: lotteryStatusData.passiveAbilityLevel,
-    passiveAbilityCount: lotteryStatusData.passiveAbilityCount ?? 0,  // 添加这一行
-    isPassiveAbilityRefreshed: Boolean(lotteryStatusData.isPassiveAbilityRefreshed),
-    skillResetRemovedCount: lotteryStatusData.skillResetRemovedCount ?? 0,
-    skillResetPickedCount: lotteryStatusData.skillResetPickedCount ?? 0,
-    isSkillResetMode: Boolean(lotteryStatusData.isSkillResetMode ?? 0),
-  };
-}
 
   public static GetMember(steamAccountID: string): MemberDto {
     const memberData = CustomNetTables.GetTableValue('member_table', steamAccountID);

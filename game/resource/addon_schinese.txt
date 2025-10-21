@@ -3,8 +3,8 @@
 	"Language"		"schinese"
 	"Tokens"
 	{
-		"addon_game_name"		"Dota 10v10 AI by Windy RENO"
-		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy RENO"
+		"addon_game_name"		"Dota 10v10 AI by Windy"
+		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
 		"DOTA_SHARD"			"勇士经验"
 
 		// /////////////////////////////////////////////////////////////////////////////
@@ -181,7 +181,7 @@
 		//
 		///////////////////////////////////////////////////
 		"player_member_button_normal"			"感谢您的支持！您现在是 <font color='#FFCC66'>普通会员</font><br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/> 会员有效期：{expireDate}"
-		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 6选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/> 会员有效期：{expireDate}"
+		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 8选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/> 会员有效期：{expireDate}"
 		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
 		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
@@ -301,7 +301,7 @@
 		"DOTA_Tooltip_modifier_global_member_normal"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
 		"DOTA_Tooltip_modifier_global_member_normal_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"						"<font color='#FFCC66'>★ 高级会员BUFF ★</font>"
-		"DOTA_Tooltip_modifier_global_member_premium_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 6选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 8选1，新增的 2 个技能中有更高概率出现 高级技能</font><br/>"
 		// 定制BUFF
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_lumao_Description"		"<font color='#fc8eac'>开服玩家限定称号，无属性加成，已绝版。</font>"

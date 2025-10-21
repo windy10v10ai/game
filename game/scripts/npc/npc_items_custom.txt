@@ -6836,7 +6836,7 @@
     "ItemResult"                "item_time_gem"
     "ItemRequirements"
     {
-        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
+        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1,item_yasha_and_kaya_1;item_fusion_agile"
     }
 }
 
@@ -6918,25 +6918,25 @@
 
     "AbilityValues"
     {
-        // 继承属性（需根据组件计算）
-        "bonus_strength"            "150"
-        "bonus_health"              "2500"
-        "bonus_armor"               "100"
-        "bonus_spell_resist"        "60"
-        "bonus_health_regen"        "50"
-        "bonus_mana_regen"          "15"
-        "bonus_attack_speed"        "50"
-
-        // 主动技能
-        "active_duration"           "6"
-        "active_bonus_multiplier"   "100"    // 被动效果加成100%
+        // Lua 逻辑需要 - 主动技能
+        "active_duration"           "6"     // 主动持续时间
+        "active_bonus_multiplier"   "100"   // 主动时属性加成倍数
 
 		// 法师泳衣被动
-		"mana_restore_pct"          "50"    // 魔法伤害转化为魔法的百分比
-		"stack_threshold"           "600"   // 每受到100点技能伤害获得一层
-		"stack_duration"            "10"    // 叠加效果持续时间
-		"max_stacks"                "8"    // 最大叠加层数
-		"stack_resist"              "4"     // 每层魔抗加成
+        "mana_restore_pct"          "50"    // 魔法伤害转化为魔法的百分比
+        "stack_threshold"           "600"   // 每受到600点技能伤害获得一层
+        "stack_duration"            "10"    // 叠加效果持续时间
+        "max_stacks"                "8"     // 最大叠加层数
+        "stack_resist"              "4"     // 每层魔抗加成
+
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"            "150"   // tooltip only - 力量
+        "bonus_health"              "2500"  // tooltip only - 生命值
+        "bonus_armor"               "100"   // tooltip only - 护甲
+        "bonus_spell_resist"        "60"    // tooltip only - 魔法抗性
+        "bonus_health_regen"        "50"    // tooltip only - 生命回复
+        "bonus_mana_regen"          "15"    // tooltip only - 魔法回复
+        "bonus_attack_speed"        "50"    // tooltip only - 攻击速度
     }
 }
 	//8兽化甲 刃甲2+莲花+辉耀+冰甲+兽化符文 继承所有组件的力量、生命、护甲、魔抗、生命回复等加成效果，并有辉耀2的灼烧效果，主动：不粘锅 继承刃甲+莲花+冰甲的主动效果，释放冰甲的冲击波降低攻速和魔抗，并反弹所有伤害和指向性技能
@@ -7012,7 +7012,7 @@
         // Lua 逻辑需要 - 主动技能参数
         "active_duration"           "5"     // Lua 逻辑需要 - 主动持续时间
         "blast_radius"              "900"   // Lua 逻辑需要 - 冲击波范围
-        "blast_damage"              "350"   // Lua 逻辑需要 - 冲击波伤害
+        "blast_damage"              "900"   // Lua 逻辑需要 - 冲击波伤害
         "movement_slow"             "40"    // Lua 逻辑需要 - 移速减缓
         "attack_slow"               "40"    // Lua 逻辑需要 - 攻速减缓
         "resist_reduction"          "25"    // Lua 逻辑需要 - 抗性降低

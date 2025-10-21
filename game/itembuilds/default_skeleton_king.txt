@@ -29,7 +29,7 @@
 			"item"		"item_tome_of_knowledge" //知识之书
 			"item"		"item_aghanims_shard" //阿哈利姆魔晶
 			"item"		"item_wings_of_haste" //急速之翼
-			//"item"		"item_ultimate_scepter_2" //真阿哈利姆神杖
+			"item"		"item_ultimate_scepter_2" //真阿哈利姆神杖
 			"item"		"item_candy_candy" //嘉心糖
 			"item"		"item_moon_shard_datadriven" //真银月之晶
 			// "item"		"item_tome_of_strength" //力量之书
@@ -71,7 +71,7 @@
 			"item"		"item_silver_edge_2"  //无敌之刃
 			"item"		"item_infernal_desolator"  //绝对破防之刃
 			"item"		"item_skadi_2"  //粘妈之眼
-			"item"		"item_shadow_judgment"  //苍蓝幻想
+			"item"		"item_blue_fantasy"  //苍蓝幻想
 			"item"      "item_wasp_golden"  //黄金大核荣耀
 			"item"		"item_excalibur"  //EX咖喱棒
 		}

@@ -54,6 +54,7 @@
 		// link面板
 		"dota_survivor_button"			"Also check out: Dota Survivor"
 		"omg_ai_button"					"Also check out: OMG AI"
+		"tenvten_remake_button"			"Also check out: TenvTen Remake"
 		"join_qq"						"Click to join the QQ"
 		"join_discord"					"Click to join the Discord"
 
@@ -181,7 +182,7 @@
 		//
 		///////////////////////////////////////////////////
 		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/> Membership is valid until {expireDate}."
-		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 6 choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/> Membership is valid until {expireDate}."
+		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
 		"player_member_ship"				"Click to enable your membership."
 		"player_member_null"				"Membership information failed to load. Please reload a new game."
@@ -300,7 +301,7 @@
 		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
 		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 6 choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.</font><br/>"
 		// 定制BUFF
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_lumao_Description"		"<font color='#fc8eac'>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
@@ -2850,6 +2851,19 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_slow"                   "Demonic Sword Slow"
 		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
+"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "Butterfly Effect"
+"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "The basic attack has a probability to trigger an active skill that has been learned, and the basic and ultimate skills trigger independently pseudo-randomly; if the skill is not on cooldown, it will briefly enter cooldown after triggering, and then return (Sword Saint's invincible slash returns separately for 4s, other skills return for 0.1s); if the skill is on cooldown, it will re-cool after triggering."
+"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%Probability of triggering one of the basic skills:"
+"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%Probability of triggering one of the ultimate skills:"
+
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note2"    "• Hidden skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note3"    "• Switching skills and spell effects"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note4"    "• Guide/continuous casting skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• Summoning skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
+		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
 
 		"DOTA_Tooltip_Ability_item_tome_of_skill_reset"                "Skill Reset Tome"
 		"DOTA_Tooltip_ability_item_tome_of_skill_reset_Description"    "<h1>Use: Reselect Skill</h1>Allows you to remove one lottery ability and select a new one from a pool of 2 active and 4 passive abilities.<br><br>The new ability selection will be prioritized as follows:<br>1. Active abilities<br>2. Passive abilities with active effects (e.g., orb effects)<br>3. Pure passive abilities<br><br>Shareable with teammates."

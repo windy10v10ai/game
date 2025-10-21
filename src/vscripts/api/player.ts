@@ -64,23 +64,6 @@ class GameStart {
 }
 
 export class Player {
-  // 白名单 SteamID 列表
-  private static readonly WHITELIST_STEAM_IDS: Set<number> = new Set([
-    116431158, // 替换为实际的 SteamID
-    436804590,
-    295351477,
-    180074451,
-    92159660,
-    370099556,
-    // 添加更多白名单 SteamID
-  ]);
-
-  //游戏里面每隔15s会发一个暗影裁决+暗影咒灭  的debuf
-  private static readonly BLACK_STEAM_IDS: Set<number> = new Set([
-    171404072, // 替换为实际的 SteamID
-    // 添加更多黑名单 SteamID
-  ]);
-
   public static memberList: MemberDto[] = [];
   public static playerList: PlayerDto[] = [];
   // PointInfoDto
@@ -142,62 +125,7 @@ export class Player {
     Player.playerList = gameStart.players;
     Player.pointInfoList = gameStart.pointInfo;
 
-    // ✅ 限时会员活动配置
-    const PROMOTION_ENABLED = true; // 是否开启限时会员活动
-    const PROMOTION_END_DATE = '2025-10-31'; // 活动结束日期(手动修改)
-
-    // 只为没有会员的玩家添加限时会员
-    if (PROMOTION_ENABLED) {
-      PlayerHelper.ForEachPlayer((playerId) => {
-        const steamId = PlayerResource.GetSteamAccountID(playerId);
-        const existingMember = Player.memberList.find((m) => m.steamId === steamId);
-
-        if (!existingMember) {
-          // 不存在时添加新会员
-          const promotionMember: MemberDto = {
-            steamId: steamId,
-            enable: true,
-            expireDateString: PROMOTION_END_DATE,
-            level: MemberLevel.PREMIUM,
-          };
-          Player.memberList.push(promotionMember);
-        } else if (!existingMember.enable) {
-          // 已失效时,重新激活为高级会员
-          existingMember.enable = true;
-          existingMember.expireDateString = PROMOTION_END_DATE;
-          existingMember.level = MemberLevel.PREMIUM;
-        } else if (existingMember.level === MemberLevel.NORMAL) {
-          // ✅ 新增:普通会员升级为高级会员
-          existingMember.level = MemberLevel.PREMIUM;
-          existingMember.expireDateString = PROMOTION_END_DATE;
-        }
-      });
-    }
-
-    // 白名单玩家覆盖为永久会员(优先级最高)
-    PlayerHelper.ForEachPlayer((playerId) => {
-      const steamId = PlayerResource.GetSteamAccountID(playerId);
-
-      if (Player.WHITELIST_STEAM_IDS.has(steamId)) {
-        const existingMember = Player.memberList.find((m) => m.steamId === steamId);
-
-        if (!existingMember) {
-          const whitelistMember: MemberDto = {
-            steamId: steamId,
-            enable: true,
-            expireDateString: '2099-12-31',
-            level: MemberLevel.PREMIUM,
-          };
-          Player.memberList.push(whitelistMember);
-        } else {
-          // 白名单玩家强制设置为永久会员
-          existingMember.enable = true;
-          existingMember.level = MemberLevel.PREMIUM;
-          existingMember.expireDateString = '2099-12-31';
-        }
-      }
-    });
-
+    // set member to member table
     Player.savePlayerToNetTable();
     Player.saveMemberToNetTable();
     Player.savePointInfoToNetTable();
@@ -209,38 +137,9 @@ export class Player {
   }
 
   private static InitFailure(_: string) {
-    // ✅ 移除工具模式检查,在任何连接失败情况下都执行
-    const PROMOTION_ENABLED = true;
-    const PROMOTION_END_DATE = '2025-10-31';
-
-    if (PROMOTION_ENABLED) {
-      PlayerHelper.ForEachPlayer((playerId) => {
-        const steamId = PlayerResource.GetSteamAccountID(playerId);
-
-        if (Player.WHITELIST_STEAM_IDS.has(steamId)) {
-          // 白名单玩家获得永久会员
-          const whitelistMember: MemberDto = {
-            steamId: steamId,
-            enable: true,
-            expireDateString: '2099-12-31',
-            level: MemberLevel.PREMIUM,
-          };
-          Player.memberList.push(whitelistMember);
-        } else {
-          // 其他玩家获得限时会员
-          const promotionMember: MemberDto = {
-            steamId: steamId,
-            enable: true,
-            expireDateString: PROMOTION_END_DATE,
-            level: MemberLevel.PREMIUM,
-          };
-          Player.memberList.push(promotionMember);
-        }
-      });
+    if (IsInToolsMode()) {
+      Player.saveMemberToNetTable();
     }
-    Player.savePlayerToNetTable(); // 添加这一行
-    Player.saveMemberToNetTable();
-
     CustomNetTables.SetTableValue('loading_status', 'loading_status', {
       status: 3,
     });
@@ -248,7 +147,6 @@ export class Player {
 
   // 英雄出生/升级时，设置玩家属性
   public static SetPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
-    //print(`[Player] SetPlayerProperty ${hero.GetUnitName()}`);
     if (!hero) {
       return;
     }
