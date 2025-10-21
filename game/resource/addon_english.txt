@@ -162,8 +162,8 @@
 		///////////////////////////////////////////////////
 		"lottery_expand"										"Expand"
 		"lottery_collapsed"										"Collapse"
-		"lottery_active_ability_title"							"Select an ability"
-		"lottery_passive_ability_title"							"Select an ability"
+		"lottery_active_ability_title"							"Select active ability"
+		"lottery_passive_ability_title"							"Select passive ability"
 
 		"lottery_tooltip_ability_refresh"						"Click to reroll bonus abilities."
 		"lottery_tooltip_ability_refresh_used"					"Ability has been rerolled."

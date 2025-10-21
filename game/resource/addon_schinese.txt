@@ -161,8 +161,8 @@
 		///////////////////////////////////////////////////
 		"lottery_expand"										"展开"
 		"lottery_collapsed"										"折叠"
-		"lottery_active_ability_title"							"选择技能"
-		"lottery_passive_ability_title"							"选择技能"
+		"lottery_active_ability_title"							"选择主动技能"
+		"lottery_passive_ability_title"							"选择被动技能"
 
 		"lottery_tooltip_ability_refresh"						"点击刷新技能"
 		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
