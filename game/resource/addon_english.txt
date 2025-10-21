@@ -2851,10 +2851,6 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_slow"                   "Demonic Sword Slow"
 		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
-"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "Butterfly Effect"
-"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "The basic attack has a probability to trigger an active skill that has been learned, and the basic and ultimate skills trigger independently pseudo-randomly; if the skill is not on cooldown, it will briefly enter cooldown after triggering, and then return (Sword Saint's invincible slash returns separately for 4s, other skills return for 0.1s); if the skill is on cooldown, it will re-cool after triggering."
-"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%Probability of triggering one of the basic skills:"
-"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%Probability of triggering one of the ultimate skills:"
 
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"
@@ -2873,6 +2869,8 @@
 		// Butterfly Effect: Blue (Attack Trigger)
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "Butterfly Effect: Blue"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>Passive: Chain Reaction</h1>When your attacks land, there is a chance to trigger a random learned ability.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br><br>Triggered abilities cost no mana and restore their original cooldown after casting."
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%Probability of triggering one of the basic skills:"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%Probability of triggering one of the ultimate skills:"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Lore"                     "A single strike can set off a chain reaction that changes the tide of battle."
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note0"                    "Does not trigger passive abilities, items, or certain special abilities."
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note1"                    "Uses pseudo-random distribution for trigger chance."
