@@ -115,23 +115,30 @@
 							<Label text="1000" id="1000"/>
 							<Label text="3000" id="3000"/>
 							<Label text="5000" id="5000"/>
-							<Label text="4999 + 分裂箭" id="4999"/>
-							<Label text="4998 + 严寒烧灼" id="4998"/>
-							<Label text="4997 + 善咒" id="4997"/>
-							<Label text="4996 + 多重施法" id="4996"/>
-							<Label text="4995 + 大肆污染 " id="4995"/>
-							<Label text="4994 + 尤里卡" id="4994"/>
-							<Label text="4993 + 巫术精研" id="4993"/>
-							<Label text="4992 + 余震" id="4992"/>
-							<Label text="4991 + 双生恐怖" id="4991"/>
-							<Label text="4990 + 折射" id="4990"/>
-							<Label text="4989 + 火雨降临" id="4989"/>
-							<Label text="4988 + 焦渴" id="4988"/>
-							<Label text="4987+  月刃" id="4987"/>
-							<Label text="4986 + 灵能之刃" id="4986"/>
-							<Label text="4985 + 时间锁定" id="4985"/>
-							<Label text="4984 + 蝴蝶效应·红魔" id="4984"/>
-							<Label text="4983 + 蝴蝶效应·蓝武" id="4983"/>
+						</DropDown>
+					</Panel>
+					<!-- 固定技能 -->
+					<Panel id="FixedAbilityPanel"	class="GameOptionsSubPanel">
+						<Label id="FixedAbilityTitle" class="GameOptionsLabel" text="#fixed_ability" />
+						<DropDown id="fixed_ability_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
+							<Label text="#fixed_ability_none" id="none"/>
+							<Label text="分裂箭" id="medusa_split_shot"/>
+							<Label text="严寒烧灼" id="winter_wyvern_arctic_burn"/>
+							<Label text="善咒" id="dazzle_good_juju"/>
+							<Label text="多重施法" id="ogre_magi_multicast_lua"/>
+							<Label text="大肆污染" id="leshrac_defilement2"/>
+							<Label text="尤里卡" id="tinker_eureka2"/>
+							<Label text="巫术精研" id="death_prophet_witchcraft2"/>
+							<Label text="余震" id="earthshaker_aftershock"/>
+							<Label text="双生恐怖" id="jakiro_double_trouble2"/>
+							<Label text="折射" id="spectre_dispersion"/>
+							<Label text="火雨降临" id="abyssal_underlord_firestorm2"/>
+							<Label text="焦渴" id="bloodseeker_thirst"/>
+							<Label text="月刃" id="luna_moon_glaive"/>
+							<Label text="灵能之刃" id="templar_assassin_psi_blades"/>
+							<Label text="时间锁定" id="faceless_void_time_lock"/>
+							<Label text="蝴蝶效应·红魔" id="ability_trigger_on_cast"/>
+							<Label text="蝴蝶效应·蓝武" id="ability_trigger_learned_skills"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">

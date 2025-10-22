@@ -37,6 +37,8 @@
 		"tower_power"				"防御塔增强"
 		"starting_gold_player"		"玩家初始金钱"
 		"starting_gold_bot"			"电脑初始金钱"
+		"fixed_ability"				"固定技能"
+		"fixed_ability_none"		"无"
 		"same_hero_selection"		"允许选择相同英雄"
 		"force_random_hero"			"强制随机英雄"
 		"enable_player_attribute"	"启用玩家属性"

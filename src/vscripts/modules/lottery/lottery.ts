@@ -97,30 +97,14 @@ export class Lottery {
     );
   }
 
-  private getSpecifiedPassiveAbilityByStartingGold(): { name: string; level: number } | null {
-    const startingGold = GameRules.Option.startingGoldPlayer;
+  private getSpecifiedPassiveAbilityByFixedAbility(): { name: string; level: number } | null {
+    const fixedAbility = GameRules.Option.fixedAbility;
 
-    const abilityMap: { [key: number]: { name: string; level: number } } = {
-      4999: { name: 'medusa_split_shot', level: 5 },
-      4998: { name: 'winter_wyvern_arctic_burn', level: 5 },
-      4997: { name: 'dazzle_good_juju', level: 5 },
-      4996: { name: 'ogre_magi_multicast_lua', level: 4 },
-      4995: { name: 'leshrac_defilement2', level: 4 },
-      4994: { name: 'tinker_eureka2', level: 3 },
-      4993: { name: 'death_prophet_witchcraft2', level: 3 },
-      4992: { name: 'earthshaker_aftershock', level: 4 },
-      4991: { name: 'jakiro_double_trouble2', level: 3 },
-      4990: { name: 'spectre_dispersion', level: 3 },
-      4989: { name: 'abyssal_underlord_firestorm2', level: 3 },
-      4988: { name: 'bloodseeker_thirst', level: 3 },
-      4987: { name: 'luna_moon_glaive', level: 4 },
-      4986: { name: 'templar_assassin_psi_blades', level: 5 },
-      4985: { name: 'faceless_void_time_lock', level: 4 },
-      4984: { name: 'ability_trigger_on_cast', level: 4 },
-      4983: { name: 'ability_trigger_learned_skills', level: 5 },
-    };
+    if (fixedAbility === 'none') {
+      return null;
+    }
 
-    return abilityMap[startingGold] || null;
+    return { name: fixedAbility, level: 5 };
   }
 
   // ---- 随机技能 ----
@@ -204,11 +188,10 @@ export class Lottery {
         if (randomIndex === 5)
           abilityLotteryResults[0] = { name: 'ability_trigger_learned_skills', level: 3 }; // level可调整
       }
-      // 添加基于初始金钱的额外技能
-      const specifiedAbility = this.getSpecifiedPassiveAbilityByStartingGold();
+      // 添加基于固定技能选项的额外技能
+      const specifiedAbility = this.getSpecifiedPassiveAbilityByFixedAbility();
       if (specifiedAbility) {
         abilityLotteryResults[1] = specifiedAbility;
-        //print(`为玩家 ${playerId} 指定第二个被动技能: ${specifiedAbility.name} (等级 ${specifiedAbility.level})`);
       }
     }
 

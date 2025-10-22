@@ -142,7 +142,10 @@ export class GameEndPoint {
       }
     }
 
-    // TODO 固定技能时，降低倍率
+    // 固定技能时，降低倍率
+    if (option.fixedAbility !== 'none') {
+      multiplier -= 0.2;
+    }
 
     // 勾选额外技能时，降低倍率
     if (option.extraPassiveAbilities) {
