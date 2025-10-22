@@ -69,6 +69,7 @@ function ShowChatTeamActivate() {
 function InitSetting() {
   $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
+  $('#extra_passive_abilities').checked = false; // 默认不增加额外被动技能
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('14');
   $('#dire_player_number_dropdown').SetSelected('10');
@@ -107,6 +108,7 @@ function LockOption() {
   $('#starting_gold_bot_dropdown').enabled = false;
   $('#same_hero_selection').enabled = false;
   $('#enable_player_attribute').enabled = false;
+  $('#extra_passive_abilities').enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -123,6 +125,7 @@ function UnLockOptionAll() {
   $('#starting_gold_bot_dropdown').enabled = true;
   $('#same_hero_selection').enabled = true;
   $('#enable_player_attribute').enabled = true;
+  $('#extra_passive_abilities').enabled = true;
 }
 
 function InitDifficultyCommonSetting() {
@@ -133,6 +136,7 @@ function InitDifficultyCommonSetting() {
 
   $('#same_hero_selection').checked = false;
   $('#enable_player_attribute').checked = true;
+  $('#extra_passive_abilities').checked = false;
 }
 
 function InitN1Setting() {
@@ -190,7 +194,6 @@ function InitN6Setting() {
   $('#starting_gold_bot_dropdown').SetSelected('5000');
 }
 // -------- send to server --------
-// FIXME 用SendGameOptionsToServer替代
 function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
     // 游戏选项显示（全体玩家）
@@ -212,6 +215,7 @@ function StateChange() {
         max_level: $('#max_level_dropdown').GetSelected().id,
         same_hero_selection: $('#same_hero_selection').checked,
         enable_player_attribute: $('#enable_player_attribute').checked,
+        extra_passive_abilities: $('#extra_passive_abilities').checked,
       },
     });
     SendGameOptionsToServer();
@@ -234,6 +238,7 @@ function SendGameOptionsToServer() {
   const maxLevel = $('#max_level_dropdown').GetSelected().id;
   const sameHeroSelection = $('#same_hero_selection').checked;
   const enablePlayerAttribute = $('#enable_player_attribute').checked;
+  const extraPassiveAbilities = $('#extra_passive_abilities').checked;
 
   GameEvents.SendCustomGameEventToServer('game_options_change', {
     multiplier_radiant: Number(playerGoldXpMultiplier),
@@ -247,6 +252,7 @@ function SendGameOptionsToServer() {
     max_level: Number(maxLevel),
     same_hero_selection: sameHeroSelection,
     enable_player_attribute: enablePlayerAttribute,
+    extra_passive_abilities: extraPassiveAbilities,
   });
 }
 

@@ -23,6 +23,7 @@
     // 抽选相关
     "lottery_active_abilities",
     "lottery_passive_abilities",
+    "lottery_passive_abilities_2",
     "lottery_status",
   ]
 }

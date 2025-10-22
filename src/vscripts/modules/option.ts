@@ -15,6 +15,7 @@ export class Option {
   maxLevel = 50;
   sameHeroSelection = false;
   enablePlayerAttribute = true;
+  extraPassiveAbilities = false;
 
   gameDifficulty = 0;
 
@@ -44,6 +45,7 @@ export class Option {
     this.maxLevel = keys.max_level;
     this.sameHeroSelection = keys.same_hero_selection === 1; // 现在表示是否强制随机
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
+    this.extraPassiveAbilities = keys.extra_passive_abilities === 1;
     // 如果启用强制随机,缩短英雄选择时间
   if (this.sameHeroSelection) {
     GameRules.SetHeroSelectionTime(2); // 设置为3秒,快速跳过
