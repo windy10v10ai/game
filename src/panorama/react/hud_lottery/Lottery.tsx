@@ -55,13 +55,26 @@ function Lottery() {
     if (!lotteryStatus) {
       return false;
     }
-    if (
-      lotteryStatus.activeAbilityName &&
-      lotteryStatus.passiveAbilityName &&
-      lotteryStatus.passiveAbilityName2
-    ) {
-      // 如果所有技能都已选择，则隐藏 UI
-      return false;
+
+    // 读取游戏选项判断是否启用额外被动技能
+    const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
+    const extraPassiveEnabled = gameOptions?.extra_passive_abilities === 1;
+
+    // 检查主动技能和第一个被动技能是否都已选择
+    const hasRequiredAbilities =
+      lotteryStatus.activeAbilityName && lotteryStatus.passiveAbilityName;
+
+    // 如果启用了额外被动技能，还需要检查第二个被动技能是否已选择
+    if (extraPassiveEnabled) {
+      if (hasRequiredAbilities && lotteryStatus.passiveAbilityName2) {
+        // 所有技能都已选择，隐藏 UI
+        return false;
+      }
+    } else {
+      if (hasRequiredAbilities) {
+        // 基础技能都已选择，隐藏 UI
+        return false;
+      }
     }
 
     // 如果还有技能未选择，则显示 UI
