@@ -137,6 +137,10 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 	end
 	local ability = keys.ability
 	local abilityName = ability:GetName()
+	-- ✅ 新增：如果技能被蝴蝶效应触发，不触发多重施法
+	if ability.butterfly_triggered then
+		return nil
+	end
 	--不支持技能池
 	if no_support_abilitys[abilityName] then
 		print("no_support_abilitys" .. abilityName)

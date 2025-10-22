@@ -11,7 +11,7 @@ function item_magic_abyss_staff:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration") or 4
 
-    caster:AddNewModifier(caster, self, "modifier_item_magic_abyss_staff_active", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_item_magic_abyss_staff_active", { duration = duration })
 
     EmitSoundOn("Hero_Oracle.FortunesEnd.Target", caster)
 end
@@ -20,21 +20,52 @@ end
 modifier_item_magic_abyss_staff = class({})
 
 function modifier_item_magic_abyss_staff:IsHidden() return true end
+
 function modifier_item_magic_abyss_staff:IsPurgable() return false end
+
 function modifier_item_magic_abyss_staff:RemoveOnDeath() return false end
+
+function modifier_item_magic_abyss_staff:DeclareFunctions()
+    return {
+        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    }
+end
 
 function modifier_item_magic_abyss_staff:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_item_magic_abyss_staff:GetModifierSpellAmplify_Percentage()
+    if self:GetParent():HasModifier("modifier_item_hallowed_scepter") then
+        return 0
+    end
+    if self:GetParent():HasModifier("modifier_item_magic_crit_blade") then
+        return 0
+    end
+
+    -- ✅ 修复: 先获取ability对象
+    local ability = self:GetAbility()
+    if not ability then return 0 end
+
+    local spell_amp_per_int = ability:GetSpecialValueFor("spell_amp_per_int")
+    if not spell_amp_per_int or spell_amp_per_int == 0 then
+        return 0
+    end
+
+    local current_int = self:GetParent():GetIntellect(false)
+    local int_spell_amp = current_int * spell_amp_per_int
+
+    return int_spell_amp
 end
 
 -- 主动效果modifier
 modifier_item_magic_abyss_staff_active = class({})
 
 function modifier_item_magic_abyss_staff_active:IsHidden() return false end
+
 function modifier_item_magic_abyss_staff_active:IsPurgable() return false end
+
 function modifier_item_magic_abyss_staff_active:IsDebuff() return false end
-
-
 
 function modifier_item_magic_abyss_staff_active:OnCreated()
     if not IsServer() then return end
@@ -57,7 +88,7 @@ end
 function modifier_item_magic_abyss_staff_active:DeclareFunctions()
     return {
         MODIFIER_EVENT_ON_TAKEDAMAGE,
-        MODIFIER_PROPERTY_TOOLTIP,  -- 【新增】声明tooltip属性
+        MODIFIER_PROPERTY_TOOLTIP, -- 【新增】声明tooltip属性
     }
 end
 

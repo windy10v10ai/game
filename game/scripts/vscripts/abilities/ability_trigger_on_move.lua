@@ -1,7 +1,6 @@
-ability_trigger_learned_skills = class({})
+ability_trigger_on_move = class({})
 
-LinkLuaModifier("modifier_trigger_learned_skills", "abilities/ability_trigger_learned_skills", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_trigger_on_move", "abilities/ability_trigger_on_move", LUA_MODIFIER_MOTION_NONE)
 -- 定义需要排除的技能黑名单
 -- 这些技能不会被蝴蝶效应物品触发，避免游戏机制冲突或性能问题
 local EXCLUDED_ABILITIES = {
@@ -22,17 +21,12 @@ local EXCLUDED_ABILITIES = {
     -- 隐身技能
     -- 原因：隐身技能会破坏战斗节奏，且可能导致AI行为异常
     -- ========================================
-    ["bounty_hunter_wind_walk"] = true,          -- 赏金猎人 疾风步
-    ["clinkz_skeleton_walk"] = true,             -- 火枪手 灼热之箭
-    ["riki_permanent_invisibility"] = true,      -- 力丸 永久隐身
-    ["nyx_assassin_vendetta"] = true,            -- 司夜刺客 复仇
-    ["invoker_ghost_walk"] = true,               -- 卡尔 幽灵漫步
+    ["clinkz_skeleton_walk"] = true,        -- 火枪手 灼热之箭
+    ["riki_permanent_invisibility"] = true, -- 力丸 永久隐身
     --["templar_assassin_meld"] = true,            -- 圣堂刺客 融合（已注释）
-    ["weaver_shukuchi"] = true,                  -- 编织者 缩地
     --["sand_king_sand_storm"] = true,             -- 沙王 沙尘暴（已注释）
-    ["treant_natures_guise"] = true,             -- 树精卫士 自然之姿
-    ["jack_murderer_of_the_misty_night"] = true, -- Jack 雾夜杀人
-    ["jack_presence_concealment"] = true,        -- Jack 气息遮断
+    ["treant_natures_guise"] = true, -- 树精卫士 自然之姿
+
     -- ========================================
     -- 切换类技能/法球技能
     -- 原因：这些是攻击修改器，会与普通攻击冲突
@@ -66,8 +60,10 @@ local EXCLUDED_ABILITIES = {
     ["vengefulspirit_nether_swap"] = true, -- 复仇之魂 移形换位
     ["nyx_assassin_burrow"] = true,        -- 司夜刺客 钻地
     ["nyx_assassin_unburrow"] = true,      -- 司夜刺客 现身
+    ["nyx_assassin_vendetta"] = true,      -- 司夜刺客 复仇
     ["pudge_rot"] = true,                  -- 屠夫 腐肉（持续伤害自己）
     ["axe_culling_blade"] = true,          -- 斧王 淘汰之刃（斩杀技能）
+    ["hoodwink_sharpshooter"] = true,
 
     -- ========================================
     -- 位移/冲刺类技能
@@ -89,7 +85,12 @@ local EXCLUDED_ABILITIES = {
     ["earth_spirit_rolling_boulder"] = true,       -- 大地之灵 巨石翻滚
     ["wisp_relocate"] = true,                      -- 艾欧 迁移
     ["viper_nosedive"] = true,                     -- 冥界亚龙 俯冲
+    ["winter_wyvern_cold_embrace"] = true,
+    ["snapfire_firesnap_cookie"] = true,
+    ["phantom_assassin_phantom_strike"] = true,
 
+
+    ["elder_titan_ancestral_spirit"] = true,
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降
@@ -174,9 +175,7 @@ local EXCLUDED_ABILITIES = {
     ["obsidian_destroyer_essence_flux"] = true, -- 黑鸟 精华变迁
     ["viper_nethertoxin"] = true,               -- 冥界亚龙 剧毒攻击
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
-    ["winter_wyvern_cold_embrace"] = true,
-    ["snapfire_firesnap_cookie"] = true,
-    ["hoodwink_sharpshooter"] = true,
+    ["tinker_keen_teleport"] = true,            -- 修补匠 传送  ✅ 新增
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招
@@ -185,7 +184,7 @@ local EXCLUDED_ABILITIES = {
     ["marci_bodyguard"] = true,        -- 玛西 保镖
     ["marci_special_delivery"] = true, -- 玛西 特快专递
     ["marci_grapple"] = true,          -- 玛西 过肩摔
-    ["marci_companion_run"] = true,    -- 玛西 伙伴奔跑
+    ["marci_companion_run"] = true,    -- 玛西 过肩摔
 
     -- ========================================
     -- 幻象类技能
@@ -201,49 +200,66 @@ local EXCLUDED_ABILITIES = {
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
     ["skeleton_king_reincarnation"] = true,
 }
-function ability_trigger_learned_skills:GetIntrinsicModifierName()
-    return "modifier_trigger_learned_skills"
+function ability_trigger_on_move:GetIntrinsicModifierName()
+    return "modifier_trigger_on_move"
 end
 
-modifier_trigger_learned_skills = class({})
-function modifier_trigger_learned_skills:IsHidden()
+modifier_trigger_on_move = class({})
+
+function modifier_trigger_on_move:IsHidden()
     return true
 end
 
-function modifier_trigger_learned_skills:IsPermanent()
+function modifier_trigger_on_move:IsPermanent()
     return true
 end
 
-function modifier_trigger_learned_skills:RemoveOnDeath()
+function modifier_trigger_on_move:RemoveOnDeath()
     return false
 end
 
-function modifier_trigger_learned_skills:IsPurgable()
+function modifier_trigger_on_move:IsPurgable()
     return false
 end
 
-function modifier_trigger_learned_skills:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_ATTACK_LANDED
-    }
-end
-
-function modifier_trigger_learned_skills:OnAttackLanded(params)
+function modifier_trigger_on_move:OnCreated()
     if not IsServer() then return end
 
-    local attacker = params.attacker
+    self.last_position = self:GetParent():GetAbsOrigin()
+    self.check_interval = self:GetAbility():GetSpecialValueFor("check_interval") or 0.5 -- 检查间隔
+    self.base_distance = 100                                                            -- 基准距离
+
+    -- 使用更长的检查间隔降低开销
+    self:StartIntervalThink(self.check_interval)
+end
+
+function modifier_trigger_on_move:OnIntervalThink()
+    if not IsServer() then return end
+
+    local parent = self:GetParent()
+    if not parent or parent:IsNull() or not parent:IsAlive() then return end
+    if parent:IsIllusion() then return end
+
+    local current_position = parent:GetAbsOrigin()
+    local distance = (current_position - self.last_position):Length2D()
+
+    -- 更新位置
+    self.last_position = current_position
+
+    -- 如果移动距离太小,不触发
+    if distance < 10 then return end
+
+    -- 计算距离系数: 移动100距离时系数为1.0
+    local distance_multiplier = distance / self.base_distance
+
+    -- 触发技能检查
+    self:TriggerRandomAbility(distance_multiplier)
+end
+
+function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
     local parent = self:GetParent()
 
-    if attacker ~= parent then return end
-    if parent:IsIllusion() then return end
-    if params.target:IsBuilding() then return end
-
-    -- 过滤由技能触发的攻击
-    if params.inflictor and params.inflictor:GetAbilityName() == "puck_dream_coil" then
-        -- print("[butter] puck_dream_coil detected")
-        return
-    end
-    -- 获取触发概率
+    -- 获取基础触发概率
     local passive_level = self:GetAbility():GetLevel()
     if passive_level <= 0 then passive_level = 1 end
 
@@ -251,27 +267,33 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     local ultimate_trigger_chance = self:GetAbility():GetLevelSpecialValueFor("ultimate_trigger_chance",
         passive_level - 1)
 
+    -- 应用距离系数,但设置上限避免过高
+    local adjusted_basic_chance = math.min(basic_trigger_chance * distance_multiplier, 100)
+    local adjusted_ultimate_chance = math.min(ultimate_trigger_chance * distance_multiplier, 100)
+
     -- 分别判断终极技能和普通技能的触发
-    local trigger_ultimate = RollPseudoRandomPercentage(ultimate_trigger_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1, parent)
-    local trigger_basic = RollPseudoRandomPercentage(basic_trigger_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_2, parent)
+    local trigger_ultimate = RollPseudoRandomPercentage(adjusted_ultimate_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_5,
+        parent)
+    local trigger_basic = RollPseudoRandomPercentage(adjusted_basic_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_6, parent)
 
     if not trigger_ultimate and not trigger_basic then
         return
     end
 
-    -- 构建技能列表(按类型分类)
+    -- [后续的技能选择和施放逻辑保持不变]
+    -- 构建技能列表
     local ultimate_abilities = {}
     local basic_abilities = {}
 
-    for i = 0, attacker:GetAbilityCount() - 1 do
-        local ability = attacker:GetAbilityByIndex(i)
+    for i = 0, parent:GetAbilityCount() - 1 do
+        local ability = parent:GetAbilityByIndex(i)
         if ability and ability:GetLevel() > 0
             and not ability:IsPassive()
             and ability ~= self:GetAbility()
             and not ability:IsItem()
             and not EXCLUDED_ABILITIES[ability:GetAbilityName()] then
             local ability_type = ability:GetAbilityType()
-            if ability_type == 1 then
+            if ability_type == ABILITY_TYPE_ULTIMATE then
                 table.insert(ultimate_abilities, ability)
             else
                 table.insert(basic_abilities, ability)
@@ -281,8 +303,6 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
 
     -- 选择要触发的技能
     local random_ability = nil
-
-    -- 优先触发终极技能(如果同时触发)
     if trigger_ultimate and #ultimate_abilities > 0 then
         random_ability = ultimate_abilities[RandomInt(1, #ultimate_abilities)]
     elseif trigger_basic and #basic_abilities > 0 then
@@ -290,9 +310,9 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     end
 
     if not random_ability then return end
-    -- 立即获取冷却时间(添加默认值处理)
+
+    -- 保存冷却和充能状态
     local remaining_cooldown = random_ability:GetCooldownTimeRemaining() or 0
-    -- 保存充能状态
     local has_charges = random_ability:GetMaxAbilityCharges(random_ability:GetLevel()) > 0
     local current_charges = 0
 
@@ -302,58 +322,105 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
 
     -- 临时结束冷却以允许施放
     random_ability:EndCooldown()
-    --施放技能 - 使用位运算检查行为
-    local target = params.target
+
+    -- 施放技能 - 使用与 ability_trigger_on_cast 相同的目标选择逻辑
     local behavior = random_ability:GetBehavior()
     local target_team = random_ability:GetAbilityTargetTeam()
 
-    -- 确定实际施放目标
-    local cast_target = target
-    local is_valid_target = true
+    local cast_target = nil
+    local target_position = nil
 
-    -- 根据技能目标队伍类型选择目标
+    -- 友方技能 - 对自己释放
     if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_FRIENDLY) ~= 0 then
-        -- 友方技能,对自己释放
-        cast_target = attacker
+        cast_target = parent
+        target_position = parent:GetAbsOrigin()
+        -- 敌方技能 - 搜索附近敌人
     elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
-        -- 敌方技能,对攻击目标释放
-        cast_target = target
-    elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_BOTH) ~= 0 then
-        -- 任意目标技能,对攻击目标释放
-        cast_target = target
+        local search_radius = 1200
+        local enemies = FindUnitsInRadius(
+            parent:GetTeamNumber(),
+            parent:GetAbsOrigin(),
+            nil,
+            search_radius,
+            DOTA_UNIT_TARGET_TEAM_ENEMY,
+            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+            FIND_CLOSEST,
+            false
+        )
+
+        if #enemies > 0 then
+            cast_target = enemies[1]
+            target_position = cast_target:GetAbsOrigin()
+        elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
+            bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
+            -- 对前方施放
+            local cast_range = random_ability:GetCastRange(parent:GetAbsOrigin(), nil)
+            if cast_range <= 0 then cast_range = 600 end
+            local forward = parent:GetForwardVector()
+            target_position = parent:GetAbsOrigin() + forward * cast_range
+        else
+            -- 无有效目标,跳过
+            random_ability:StartCooldown(remaining_cooldown)
+            return
+        end
+    else
+        -- 无目标限制或任意目标
+        target_position = parent:GetAbsOrigin()
+    end
+
+    -- 卡尔天火特殊处理
+    local ability_name = random_ability:GetAbilityName()
+    if ability_name == "invoker_sun_strike" then
+        cast_target = parent
     end
 
     -- 根据技能行为类型施放
     local cast_success = false
-    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
-        -- 单位目标技能
-        attacker:SetCursorCastTarget(cast_target)
-        cast_success = attacker:CastAbilityImmediately(random_ability, attacker:GetPlayerOwnerID())
+    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 and
+        bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 and
+        bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == 0 then
+        cast_success = parent:CastAbilityNoTarget(random_ability, parent:GetPlayerOwnerID())
+    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
+        if cast_target and not cast_target:IsNull() then
+            parent:SetCursorCastTarget(cast_target)
+            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
+        elseif target_position and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
+            parent:SetCursorPosition(target_position)
+            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
+        end
     elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
         bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
-        -- 点目标或AOE技能,使用目标位置
-        attacker:SetCursorPosition(cast_target:GetAbsOrigin())
-        cast_success = attacker:CastAbilityImmediately(random_ability, attacker:GetPlayerOwnerID())
-    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
-        -- 无目标技能,直接施放
-        cast_success = attacker:CastAbilityImmediately(random_ability, attacker:GetPlayerOwnerID())
-    end
-
-    -- 只在施放成功时返还魔法
-    if cast_success then
-        attacker:GiveMana(random_ability:GetManaCost(random_ability:GetLevel() - 1))
-    end
-
-    --- 针对无敌斩设置特殊延迟
-    local restore_delay = 0.1
-    if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
-        restore_delay = 4.0 -- 无敌斩延迟4秒恢复冷却
-    end
-
-    random_ability:SetContextThink("restore_cooldown_" .. random_ability:GetEntityIndex(), function()
-        if not random_ability or random_ability:IsNull() then
-            return nil
+        if target_position then
+            parent:SetCursorPosition(target_position)
+            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
+        else
+            parent:SetCursorCastTarget(cast_target)
+            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
         end
+    end
+
+    -- 施放成功时返还魔法并播放特效
+    if cast_success then
+        parent:GiveMana(random_ability:GetManaCost(random_ability:GetLevel() - 1))
+        EmitSoundOn("Hero_OgreMagi.Fireblast.x1", parent)
+        local particle = ParticleManager:CreateParticle(
+            "particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf",
+            PATTACH_OVERHEAD_FOLLOW,
+            parent
+        )
+        ParticleManager:SetParticleControl(particle, 1, Vector(1, 1, 1))
+        ParticleManager:ReleaseParticleIndex(particle)
+    end
+
+    -- 恢复原有冷却状态
+    local restore_delay = 0.5
+    if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
+        restore_delay = 4.0
+    end
+
+    Timers:CreateTimer(restore_delay, function()
+        if not random_ability or random_ability:IsNull() then return end
 
         if has_charges then
             if random_ability:IsItem() then
@@ -368,9 +435,5 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
                 random_ability:EndCooldown()
             end
         end
-
-        return nil
-    end, restore_delay) -- 使用变量延迟时间
-    -- 特效
-    EmitSoundOn("Hero_Juggernaut.BladeFury", attacker)
+    end)
 end

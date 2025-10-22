@@ -2,16 +2,19 @@ import { LotteryStatusDto } from '../../common/dto/lottery-status';
 import { MemberDto, PlayerDto } from '../../vscripts/api/player';
 
 const lotteryStatusTable = 'lottery_status';
-function Transdata(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
+function TransLotteryData(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
   return {
     activeAbilityName: data.activeAbilityName,
     activeAbilityLevel: data.activeAbilityLevel,
-    activeAbilityCount: data.activeAbilityCount || 0, // 添加这一行
     isActiveAbilityRefreshed: Boolean(data.isActiveAbilityRefreshed),
     passiveAbilityName: data.passiveAbilityName,
     passiveAbilityLevel: data.passiveAbilityLevel,
-    passiveAbilityCount: data.passiveAbilityCount, // 添加这一行
     isPassiveAbilityRefreshed: Boolean(data.isPassiveAbilityRefreshed),
+    // 第二个被动技能槽位
+    passiveAbilityName2: data.passiveAbilityName2,
+    passiveAbilityLevel2: data.passiveAbilityLevel2,
+    isPassiveAbilityRefreshed2: Boolean(data.isPassiveAbilityRefreshed2),
+    // FIXME 重构技能重选功能
     isSkillResetMode: Boolean(data.isSkillResetMode ?? 0), // 使用空值合并运算符
   };
 }
@@ -21,7 +24,7 @@ export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | nul
     return null;
   }
 
-  return Transdata(data);
+  return TransLotteryData(data);
 }
 export function SubscribeLotteryStatus(
   steamAccountID: string,
@@ -29,7 +32,7 @@ export function SubscribeLotteryStatus(
 ) {
   return CustomNetTables.SubscribeNetTableListener(lotteryStatusTable, (_tableName, key, value) => {
     if (key === steamAccountID && value) {
-      callback(Transdata(value));
+      callback(TransLotteryData(value));
     }
   });
 }

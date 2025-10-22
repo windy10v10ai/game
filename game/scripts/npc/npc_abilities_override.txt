@@ -3377,33 +3377,33 @@
 	// 肉钩
 	"pudge_meat_hook"
 	{
-		"MaxLevel"						"12"
+		"MaxLevel"						"8"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"									"150 220 290 360 430 600 800 1000 1200 1400 1600 1800"
-				"special_bonus_facet_pudge_flayers_hook"	"=80 =120 =160 =200 =240 =300 =400 =500 =500 =500 =500 =500"
+				"value"									"150 220 290 360 430 600 800 1000"
+				"special_bonus_facet_pudge_flayers_hook"	"=80 =120 =160 =200 =240 =300 =400 =500"
 				"special_bonus_unique_pudge_7"			"+170"
 			}
 			"hook_speed"
 			{
-				"value"						"1600 1800 2000 2200 2500 3200 4500 6000 7000 8000 9000 10000" // 1600 增长率与距离增长率同步
+				"value"						"1600 1800 2000 2200 2500 3000 3500 4000" // 1600 增长率与距离增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+0"
 			}
 			"AbilityCastRange"
 			{
-				"value"						"1600 1800 2000 2200 2500 3200 4500 6000 8000 10000 12000 16000" // 1300 增长率与钩子速度增长率同步
+				"value"						"1600 1800 2000 2200 2500 3000 3500 4000" // 1300 增长率与钩子速度增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+15%"
 			}
 			"AbilityCooldown"
 			{
-				"value"							"18 16 14 12 10 10 10 10 10 10 10 10"
+				"value"							"18 16 14 12 10 10 10 10"
 			}
 
 			"distance_to_damage"
 			{
-				"special_bonus_shard" "12 18 24 30 36 50 60 80 100 100 100 100"
+				"special_bonus_shard" "12 18 24 30 36 50 60 80"
 			}
 		}
 	}
@@ -5446,8 +5446,8 @@
 			}
 			"gold_steal"
 			{
-				"value"			"10 20 30 40 50 60"
-				"special_bonus_unique_bounty_hunter"		"+50"	// 50 电脑钱太好偷了，削弱
+				"value"			"5 10 15 20 25 30"
+				"special_bonus_unique_bounty_hunter"		"+20"	// 50 电脑钱太好偷了，削弱
 			}
 			"AbilityCooldown"
 			{
@@ -8819,7 +8819,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"			"10"
+				"value"			"30"
 				"special_bonus_unique_venomancer_8"			"-5"
 			}
 			"duration"
@@ -12532,12 +12532,14 @@
 		{
 			"damage"
 			{
-				"value"							"50 90 130 170 210 250 290 330"
+				"value"							"50 90 110 130 150 170 190 210"
 			}
-			"application_damage"				"50 90 130 170 210 250 290 330"
+			//"application_damage"				"50 90 130 170 210 250 290 330"
+			"application_damage"				"50 90 110 130 150 170 190 210"
 			"AbilityCooldown"
 			{
-				"value"						"20 17 14 11 8 8 8 8"
+				"value"						"20 17 15 15 15 15 15 15"
+				//"value"						"20 17 14 11 8 8 8 8"//红蝴蝶削弱
 			}
 			"movespeed"			"-10 -15 -20 -25 -30"
 		}
@@ -12580,7 +12582,8 @@
 	"silencer_last_word"
 	{
 		"MaxLevel" "5"
-		"AbilityCooldown"				"18 16 14 12 10"
+		//"AbilityCooldown"				"18 16 14 12 10" //红蝴蝶削弱
+		"AbilityCooldown"				"18 18 18 18 18"
 		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilityValues"
 		{

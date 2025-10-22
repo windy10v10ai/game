@@ -74,22 +74,12 @@ function modifier_item_beast_armor:GetAttributes()
 end
 
 function modifier_item_beast_armor:OnCreated()
-    if not self:GetAbility() then return end
-    local ability = self:GetAbility()
-
-    -- 【简化】直接缓存属性,不使用 SecondaryCharges
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
-    self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
-    self.bonus_spell_resist = ability:GetSpecialValueFor("bonus_spell_resist")
-    self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-    self.evasion = ability:GetSpecialValueFor("evasion")
+    self:OnRefresh()
 
     if IsServer() then
+        if not self:GetAbility() then return end
+        local ability = self:GetAbility()
+
         -- 莲花被动格挡
         self.block_cooldown = ability:GetSpecialValueFor("block_cooldown")
         self.last_block_time = 0
@@ -99,67 +89,27 @@ function modifier_item_beast_armor:OnCreated()
     end
 end
 
+function modifier_item_beast_armor:OnRefresh()
+    self.stats_modifier_name = "modifier_item_beast_armor_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
 function modifier_item_beast_armor:OnDestroy()
-    if not IsServer() then return end
-    -- 移除辉耀光环
-    self:GetParent():RemoveModifierByName("modifier_item_beast_armor_radiance")
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+        -- 移除辉耀光环
+        self:GetParent():RemoveModifierByName("modifier_item_beast_armor_radiance")
+    end
 end
 
 function modifier_item_beast_armor:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_ABSORB_SPELL,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_HEALTH_BONUS,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_EVASION_CONSTANT,
     }
-end
-
--- 【简化】直接返回缓存值,不检查 SecondaryCharges
-function modifier_item_beast_armor:GetModifierBonusStats_Strength()
-    return self.bonus_strength or 0
-end
-
-function modifier_item_beast_armor:GetModifierBonusStats_Agility()
-    return self.bonus_agility or 0
-end
-function modifier_item_beast_armor:GetModifierBonusStats_Intellect()
-    return self.bonus_intellect or 0
-end
-
-function modifier_item_beast_armor:GetModifierHealthBonus()
-    return self.bonus_health or 0
-end
-
-function modifier_item_beast_armor:GetModifierPhysicalArmorBonus()
-    return self.bonus_armor or 0
-end
-
-function modifier_item_beast_armor:GetModifierMagicalResistanceBonus()
-    return self.bonus_spell_resist or 0
-end
-
-function modifier_item_beast_armor:GetModifierConstantHealthRegen()
-    return self.bonus_health_regen or 0
-end
-
-function modifier_item_beast_armor:GetModifierConstantManaRegen()
-    return self.bonus_mana_regen or 0
-end
-
-function modifier_item_beast_armor:GetModifierPreAttack_BonusDamage()
-    return self.bonus_damage or 0
-end
-
-function modifier_item_beast_armor:GetModifierEvasion_Constant()
-    return self.evasion or 0
 end
 
 
