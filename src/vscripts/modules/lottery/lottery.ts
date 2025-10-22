@@ -217,7 +217,7 @@ export class Lottery {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     const abilityType = event.type;
-    if (lotteryStatus.activeAbilityName && abilityType === 'abilityActive') {
+    if (abilityType === 'abilityActive' && lotteryStatus.activeAbilityName) {
       print('已经抽取过主动技能');
       return;
     }
