@@ -136,12 +136,6 @@ export class GameEndPoint {
     if (multiplier > 1.5) {
       if (option.startingGoldPlayer >= 5000) {
         multiplier -= 0.1;
-      } else if (option.startingGoldPlayer == 4981) {
-        //三被动模式
-        multiplier -= 0.4;
-      } else if (option.startingGoldPlayer == 4982) {
-        //二被动模式
-        multiplier -= 0.2;
       } else if (option.startingGoldPlayer >= 4000) {
         //指定被动模式
         multiplier -= 0.4;
@@ -150,7 +144,17 @@ export class GameEndPoint {
         multiplier -= 0.1;
       }
     }
-    // 小数点1位
+
+    // 勾选额外技能时，降低倍率
+    if (option.extraPassiveAbilities) {
+      multiplier -= 0.3;
+    }
+
+    // 不为负数
+    if (multiplier < 0) {
+      multiplier = 0;
+    }
+    // 保留小数点1位
     return Math.round(multiplier * 10) / 10;
   }
 }

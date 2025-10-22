@@ -12,7 +12,7 @@ export interface LotteryStatusDto {
   // 被动技能槽位2（额外被动技能，当启用额外被动选项时）
   passiveAbilityName2?: string;
   passiveAbilityLevel2?: number;
-  isPassiveAbilityRefreshed2?: boolean;
+  isPassiveAbilityRefreshed2: boolean;
 
   // FIXME 重构技能重选功能
   // 重选模式标志

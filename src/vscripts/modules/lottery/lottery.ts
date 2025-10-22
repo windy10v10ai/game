@@ -139,6 +139,22 @@ export class Lottery {
       ? Object.values(lotteryAbilitiesRaw).map((item) => item.name)
       : [];
 
+    // 如果是passive技能，则排除另外一组被动技能
+    if (abilityType === 'abilityPassive' || abilityType === 'abilityPassive2') {
+      const otherAbilityTable =
+        abilityType === 'abilityPassive'
+          ? 'lottery_passive_abilities_2'
+          : 'lottery_passive_abilities';
+      const otherAbilityAbilitiesRaw = CustomNetTables.GetTableValue(
+        otherAbilityTable,
+        steamAccountID,
+      );
+      const otherAbilityExecutedNames = !!otherAbilityAbilitiesRaw
+        ? Object.values(otherAbilityAbilitiesRaw).map((item) => item.name)
+        : [];
+      executedNames.push(...otherAbilityExecutedNames);
+    }
+
     // 随机技能
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
     const abilityLotteryResults = LotteryHelper.getRandomAbilities(
@@ -217,7 +233,7 @@ export class Lottery {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     const abilityType = event.type;
-    if (lotteryStatus.activeAbilityName && abilityType === 'abilityActive') {
+    if (abilityType === 'abilityActive' && lotteryStatus.activeAbilityName) {
       print('已经抽取过主动技能');
       return;
     }
