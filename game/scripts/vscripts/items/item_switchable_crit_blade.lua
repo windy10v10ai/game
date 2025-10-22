@@ -61,6 +61,8 @@ function modifier_item_switchable_crit_blade:GetModifierPriority()
 end
 
 function modifier_item_switchable_crit_blade:OnCreated()
+    self:OnRefresh()
+
     if IsServer() then
         local ability = self:GetAbility()
         if not ability then return end
@@ -87,47 +89,27 @@ function modifier_item_switchable_crit_blade:OnCreated()
         end
     end
 end
+
+function modifier_item_switchable_crit_blade:OnRefresh()
+    self.stats_modifier_name = "modifier_item_switchable_crit_blade_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
 function modifier_item_switchable_crit_blade:OnDestroy()
     if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
 function modifier_item_switchable_crit_blade:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_EVASION_CONSTANT,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_PROPERTY_TOOLTIP,
-        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-        MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,  -- 暴击
+        MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
     }
-end
-
-function modifier_item_switchable_crit_blade:GetModifierPreAttack_BonusDamage()
-    return self:GetAbility():GetSpecialValueFor("bonus_damage")
-end
-
-function modifier_item_switchable_crit_blade:GetModifierSpellAmplify_Percentage()
-    return self:GetAbility():GetSpecialValueFor("bonus_spell_amp")
-end
-
-function modifier_item_switchable_crit_blade:GetModifierBonusStats_Agility()
-    return self:GetAbility():GetSpecialValueFor("bonus_agility")
-end
-
-function modifier_item_switchable_crit_blade:GetModifierEvasion_Constant()
-    return self:GetAbility():GetSpecialValueFor("bonus_evasion")
-end
-
-function modifier_item_switchable_crit_blade:GetModifierAttackSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("bonus_attack_speed")
-end
-
-function modifier_item_switchable_crit_blade:GetModifierBaseDamageOutgoing_Percentage()
-    return self:GetAbility():GetSpecialValueFor("bonus_damage_percent")
 end
 
 function modifier_item_switchable_crit_blade:OnTooltip()
@@ -212,11 +194,5 @@ function modifier_item_switchable_crit_blade:GetTexture()
     }
 
     return textures[mode]
-end
-
-function modifier_item_switchable_crit_blade:CheckState()
-    return {
-        [MODIFIER_STATE_CANNOT_MISS] = true,  -- 真实打击
-    }
 end
 

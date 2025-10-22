@@ -5,6 +5,10 @@ function item_time_gem:GetIntrinsicModifierName()
     return "modifier_item_time_gem"
 end
 
+function item_time_gem:IsRefreshable()
+    return false -- ✅ 防止被修补匠刷新
+end
+
 function item_time_gem:OnSpellStart()
     if not IsServer() then return end
 
@@ -78,20 +82,32 @@ function modifier_item_time_gem:IsPurgable() return false end
 function modifier_item_time_gem:RemoveOnDeath() return false end
 
 function modifier_item_time_gem:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_time_gem:OnCreated()
+    self:OnRefresh()
+
     local ability = self:GetAbility()
     if ability then
         self.bonus_cooldown = ability:GetSpecialValueFor("bonus_cooldown")
         self.cast_range_bonus = ability:GetSpecialValueFor("cast_range_bonus")
-        self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-        self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-        self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
-        self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-        self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction") -- 新增
+        self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction")
         self.cast_speed_pct = ability:GetSpecialValueFor("cast_speed_pct")
+    end
+end
+
+function modifier_item_time_gem:OnRefresh()
+    self.stats_modifier_name = "modifier_item_time_gem_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_time_gem:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
@@ -99,44 +115,33 @@ function modifier_item_time_gem:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE,
         MODIFIER_PROPERTY_CAST_RANGE_BONUS,
-        MODIFIER_PROPERTY_HEALTH_BONUS,
-        MODIFIER_PROPERTY_MANA_BONUS,
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING, -- 新增:减魔耗
-        MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,          -- 新增:减施法前摇
+        MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
+        MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
     }
 end
 
 function modifier_item_time_gem:GetModifierPercentageManacostStacking()
-    return (self.manacost_reduction or 0) -- 负值减少魔耗
+    return self.manacost_reduction or 0
 end
 
 function modifier_item_time_gem:GetModifierPercentageCasttime()
-    return (self.cast_speed_pct or 0) -- 负值减少施法时间
+    return self.cast_speed_pct or 0
 end
 
 function modifier_item_time_gem:GetModifierPercentageCooldown()
-    -- 直接返回 50% 冷却减少,不需要检查 SecondaryCharges
-    return self.bonus_cooldown or 50
+    local parent = self:GetParent()
+
+    -- 检查是否存在其他减少CD的物品
+    -- 如果存在熔火核心、奥术之心或玲珑心，时光宝石的CD减少失效
+    if parent:HasModifier("modifier_item_refresh_core")
+        or parent:HasModifier("modifier_item_arcane_octarine_core")
+        or parent:HasModifier("modifier_item_octarine_core") then
+        return 0
+    end
+
+    return self.bonus_cooldown or 55
 end
 
 function modifier_item_time_gem:GetModifierCastRangeBonus()
     return self.cast_range_bonus or 0
-end
-
-function modifier_item_time_gem:GetModifierHealthBonus()
-    return self.bonus_health or 0
-end
-
-function modifier_item_time_gem:GetModifierManaBonus()
-    return self.bonus_mana or 0
-end
-
-function modifier_item_time_gem:GetModifierConstantHealthRegen()
-    return self.bonus_health_regen or 0
-end
-
-function modifier_item_time_gem:GetModifierConstantManaRegen()
-    return self.bonus_mana_regen or 0
 end

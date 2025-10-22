@@ -43,6 +43,7 @@
 		"item"		"item_blade_of_alacrity"	// 欢欣之刃
 		"item"		"item_staff_of_wizardry"	// 魔力法杖
 		"item"		"item_diadem"
+		"item"		"item_travel_boots"			// 飞鞋 远行鞋
 		"item"		"item_light_part"			// 圣光组件
 		"item"		"item_dark_part"			// 暗影组件
 	}
@@ -142,7 +143,8 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
-		"item"		"item_travel_boots"			// 飞鞋
+		// FIXME 技能重选物品暂时禁用
+		// "item"      "item_tome_of_skill_reset"
 	}
 
 	// Level 2 - Blue Recipes 辅助
@@ -192,7 +194,7 @@
 		"item"		"item_hallowed_scepter"		// 仙云法杖
 		"item"		"item_necronomicon_staff"	// 死灵法杖
 		"item"      "item_magic_crit_blade"      // 魔龙狂舞
-		"item"      "item_forbidden_staff"      // 禁忌法杖
+		"item"      "item_forbidden_staff"      // 禁忌法锤
 		"item"      "item_shadow_impact"      // 暗影咒灭
 		"item"      "item_magic_abyss_staff"      // 魔渊法杖
 	}
@@ -226,7 +228,7 @@
 	"weapons"
 	{
 		"item"		"item_lesser_crit"			// 水晶剑
-		"item"		"item_basher"				// 碎颅锤
+		// "item"		"item_basher"				// 碎颅锤
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
 		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
 		"item"		"item_echo_sabre_2"			// 音速战刃
@@ -254,7 +256,6 @@
 		"item"      "item_forbidden_blade"      // 禁忌战刃
 		"item"      "item_hawkeye_turret"      // 鹰眼炮台
 		"item"      "item_magic_sword"      // 魔渊剑
-		"item"      "item_tome_of_skill_reset"
 	}
 
 	// Level 6 - Orange / Orb / Artifacts 宝物

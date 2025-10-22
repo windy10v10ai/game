@@ -5817,6 +5817,10 @@
     "ItemPermanent"             "1"
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
+	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 }
 
@@ -5839,6 +5843,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 暴虐符文
@@ -5860,6 +5868,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 兽化符文
@@ -5881,6 +5893,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"360"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 生命符文
@@ -5902,6 +5918,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"480"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 暗影符文
@@ -5923,6 +5943,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 魔化符文
@@ -5944,6 +5968,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"1060"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 
 // 灵动符文
@@ -5965,6 +5993,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemStockInitial"			"0"
+	"ItemStockMax"				"3"
+	"ItemStockTime"				"120"
 }
 //=================================================================================================================
 // Recipe: 鹰眼炮台
@@ -6009,39 +6041,27 @@
     "AbilityManaCost"           "0"
 	"AbilityValues"
 	{
-		"bonus_damage"          "120"
-		"bonus_attack_speed"    "80"
-		"bonus_armor"           "30"
-		"bonus_attack_range"    "200"
+		// 静态属性值（迁移到item_apply_modifiers的DataDriven，仅用于 tooltip 显示）
+		"bonus_damage"          "120"       // tooltip only - 攻击力
+		"bonus_attack_speed"    "80"        // tooltip only - 攻击速度
+		"bonus_armor"           "30"        // tooltip only - 护甲
+		"bonus_attack_range"    "200"       // tooltip only - 攻击距离
 
+		// 主动技能参数（在 Lua 中实现）
 		"active_armor"          "100"
 		"active_attack_range"   "500"
 		"active_duration"       "8"
 		"moon_shard_bonus"      "100"
 		"bat_reduction_pct"     "20"  // 新增:BAT减少值
-		    // 溅射伤害参数
+
+		// 溅射伤害参数（Lua 逻辑需要）
 		"attack_radius"         "500"      // 溅射范围
 		"attack_percent"        "100"      // 溅射伤害百分比
 		"internal_cooldown"     "0.05"      // 内置冷却时间
 	}
 
-    "Modifiers"
-    {
-        "modifier_item_hawkeye_turret_stats"
-        {
-            "Passive"           "1"
-            "IsHidden"          "1"
-            "Attributes"        "MODIFIER_ATTRIBUTE_MULTIPLE"
-
-            "Properties"
-            {
-                "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "%bonus_damage"
-                "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "%bonus_attack_speed"
-                "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "%bonus_armor"
-                "MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"          "%bonus_attack_range"
-            }
-        }
-    }
+    // ✅ modifier_item_hawkeye_turret_stats 已迁移到 npc_items_modifier.txt
+    // 静态属性由 DataDriven 实现，性能更优
 }
 //=================================================================================================================
 // Recipe: 鹰眼战机
@@ -6093,14 +6113,14 @@
 
     "AbilityValues"
     {
-        // 被动属性
-        "bonus_all_stats"       "30"
-        "bonus_movement_speed"  "160"
-        "bonus_movement_speed_pct" "60"
-        "bonus_turn_rate"       "50"
-        "bonus_status_resistance" "30"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_all_stats"       "30"    // tooltip only - 全属性
+        "bonus_movement_speed"  "160"   // tooltip only - 移动速度
+        "bonus_movement_speed_pct" "60" // tooltip only - 移动速度百分比
+        "bonus_turn_rate"       "50"    // tooltip only - 转身速率
+        "bonus_status_resistance" "30"  // Lua 逻辑需要 - 状态抗性
 
-        // 主动效果
+        // 主动效果（在 Lua 中实现）
         "active_movement_speed_pct" "150"
         "active_duration"       "8"
     }
@@ -6154,31 +6174,27 @@
     "AOERadius"                 "300"  // 添加固定的 AOE 指示器
     "AbilityValues"
     {
-        // 主动效果
+        // 主动技能参数（Lua 逻辑需要）
         "radius"
         {
             "value"             "500"
             "affected_by_aoe_increase" "1"
         }
-        // 死灵冲击 - 使用与死灵法杖相同的计算方式
-        "necrolyte_att_multiplier"  "0.5"    // 全属性倍数
-
-        // 闪电风暴伤害
+        "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
 		"lightning_damage"
 		{
 			"value"                 "2000"
-			"CalculateSpellDamageTooltip" "1"  // 启用技能伤害计算
+			"CalculateSpellDamageTooltip" "1"
 		}
-        "mute_duration"         "4.0"
+        "mute_duration"         "4.0"        // Lua 逻辑需要 - 沉默持续时间
+		"sheep_duration"        "3.0"        // Lua 逻辑需要 - 变形持续时间
+		"sheep_movement_speed"  "0"          // Lua 逻辑需要 - 变形移动速度
 
-        // 被动属性 (继承所有配件)
-        "bonus_intellect"       "170"  // 死灵法杖60 + 达贡5 40 + 苍蓝幻想25 + 额外45
-        "bonus_strength"        "15"   // 死灵法杖
-        "bonus_mana_regen"      "15"   // 综合
-        "spell_amp"             "30"   // 综合技能增强
-
-		"sheep_duration"				"3.0"
-		"sheep_movement_speed"			"0"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_intellect"       "170"  // tooltip only - 智力
+        "bonus_strength"        "15"   // tooltip only - 力量
+        "bonus_mana_regen"      "15"   // tooltip only - 魔法回复
+        "spell_amp"             "30"   // tooltip only - 技能增强
     }
 	"precache"
     {
@@ -6252,14 +6268,14 @@
 		}
         "mute_duration"         "4.0"
 
-        // 被动属性 (继承所有配件)
-        "bonus_strength"        "35"   // 一闪20 + 额外15
-        "bonus_agility"         "65"   // 苍蓝幻想50 + 额外15
-        "bonus_damage"          "180"  // 一闪80 + 苍蓝幻想80 + 额外20
-        "bonus_armor"           "15"   // 一闪5 + 苍蓝幻想10
-        "bonus_attack_speed"    "80"   // 风暴之锤
-        "bonus_health"          "600"  // 一闪
-        "spell_amp"             "20"   // 综合技能增强
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"        "35"    // tooltip only - 力量（一闪20 + 额外15）
+        "bonus_agility"         "65"    // tooltip only - 敏捷（苍蓝幻想50 + 额外15）
+        "bonus_damage"          "180"   // tooltip only - 攻击力（一闪80 + 苍蓝幻想80 + 额外20）
+        "bonus_armor"           "15"    // tooltip only - 护甲（一闪5 + 苍蓝幻想10）
+        "bonus_attack_speed"    "80"    // tooltip only - 攻击速度（风暴之锤）
+        "bonus_health"          "600"   // tooltip only - 生命值（一闪）
+        "spell_amp"             "20"    // tooltip only - 法术增强
     }
 }
 //=================================================================================================================
@@ -6308,58 +6324,32 @@
 
 		"AbilityValues"
 		{
-			// 从咖喱棒继承的被动属性
-			"bonus_damage"              "600"
-			"bonus_spell_amp"           "50"
-			"bonus_damage_percent"      "100"
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_damage"              "600"   // tooltip only - 攻击力
+			"bonus_spell_amp"           "50"    // tooltip only - 法术增强
+			"bonus_damage_percent"      "100"   // tooltip only - 基础伤害加成
+			"bonus_agility"             "150"   // tooltip only - 敏捷
+			"bonus_evasion"             "25"    // tooltip only - 闪避
+			"bonus_attack_speed"        "100"   // tooltip only - 攻击速度
 
-			// 从黄金大核荣耀继承的被动属性
-			"bonus_agility"             "150"  // 根据黄金大核荣耀的属性
-			"bonus_evasion"             "25"
-			"bonus_attack_speed"        "100"
-
+			// 暴击参数（Lua 逻辑需要 - 动态暴击计算）
 			// 模式1:
 			"crit_chance_mode1" "12"
 			"crit_multiplier_mode1" "10"
-			"guaranteed_crit_multiplier_mode1" "6"   // 新增
+			"guaranteed_crit_multiplier_mode1" "6"
 			"cooldown_mode1" "8"
 
 			// 模式2:
 			"crit_chance_mode2" "6"
 			"crit_multiplier_mode2" "30"
-			"guaranteed_crit_multiplier_mode2" "20"  // 新增
+			"guaranteed_crit_multiplier_mode2" "20"
 			"cooldown_mode2" "15"
 
 			// 模式3:
 			"crit_chance_mode3" "3"
 			"crit_multiplier_mode3" "100"
-			"guaranteed_crit_multiplier_mode3" "60"  // 新增
+			"guaranteed_crit_multiplier_mode3" "60"
 			"cooldown_mode3" "60"
-		}
-		 "Modifiers"
-		{
-			"modifier_item_switchable_crit_blade_stats"
-			{
-				"Passive"               "1"
-				"IsHidden"              "1"
-				"RemoveOnDeath"         "0"
-
-				"Attributes"            "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"          "%bonus_damage"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"        "%bonus_spell_amp"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_percent"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"             "%bonus_agility"
-					"MODIFIER_PROPERTY_EVASION_CONSTANT"                "%bonus_evasion"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"      "%bonus_attack_speed"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"    "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 
@@ -6399,26 +6389,28 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
 		"ItemCost"                      "60000"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
 
 		"AbilityValues"
 		{
-			// 从仙云法杖继承的被动属性
-			"bonus_intellect"           "120"
-			"spell_amp"                 "0"
-			"spell_amp_per_int"         "0.2"  // 每点智力0.2%法术增强
+			// Lua 逻辑需要 - 法术增强计算
+			"spell_amp_per_int"         "0.3"  // 每点智力0.3%法术增强
 
-			// 从英灵胸针继承的被动属性
-			"bonus_damage"              "300"
-			"spell_lifesteal"           "30"
-			"phantom_crit_chance"       "40"
-			"phantom_crit_multiplier"   "260"
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_spell_amp"           "50"    // tooltip only - 基础法术增强
+			"bonus_intellect"           "120"   // tooltip only - 智力加成
+			"bonus_damage"              "300"   // tooltip only - 攻击力加成
+			"bonus_damage_percent"      "100"   // tooltip only - 基础伤害加成百分比
 
-			// 从咖喱棒继承的被动属性
-			"bonus_spell_amp"           "50"
-			"bonus_damage_percent"      "100"
+			// Lua 逻辑需要 - 法术吸血（不在可优化列表）
+			"spell_lifesteal"           "30"    // Lua 逻辑需要 - 法术吸血
 
+			// Lua 逻辑需要 - 幻影暴击（事件驱动）
+			"phantom_crit_chance"       "40"    // Lua 逻辑需要 - 幻影暴击概率
+			"phantom_crit_multiplier"   "260"   // Lua 逻辑需要 - 幻影暴击倍率
+
+			// Lua 逻辑需要 - 法术暴击参数（事件驱动）
 			// 模式1:
 			"spell_crit_chance_mode1"   "50"
 			"spell_crit_multiplier_mode1" "2.0"
@@ -6436,30 +6428,6 @@
 			"spell_crit_multiplier_mode3" "10.0"
 			"guaranteed_spell_crit_multiplier_mode3" "6.0"
 			"cooldown_mode3"            "60"
-		}
-
-		"Modifiers"
-		{
-			"modifier_item_magic_crit_blade_stats"
-			{
-				"Passive"               "1"
-				"IsHidden"              "1"
-				"RemoveOnDeath"         "0"
-
-				"Attributes"            "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"           "%bonus_intellect"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"          "%bonus_damage"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"        "%bonus_spell_amp"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"   "%bonus_damage_percent"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 		}
 	}
 
@@ -6516,45 +6484,27 @@
     }
     "AbilityValues"
     {
-		// 被动属性
-		"bonus_health"          "2500"
-		// 枯木逢春属性定义
-		"bonus_strength"        "150"
-		"bonus_health_regen"    "80"
-		"health_regen_pct"      "5"
-		"bonus_armor"           "40"
-		"bonus_evasion"         "25"
-		"status_resistance"     "30"
-		"magic_resistance"      "20"
+		// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
+		"health_regen_pct"      "5"     // Lua 逻辑需要 - 百分比生命回复
+		"status_resistance"     "30"    // Lua 逻辑需要 - 状态抗性
 
-		// 主动效果
-		"hp_threshold"          "40"
-		"active_duration"       "3"      // 持续3秒
-		"instant_heal"          "1500"
-		"bonus_armor_active"    "30"
-		"bonus_regen_active"    "200"
-		"damage_reduction"      "-30"   // 添加:30%减伤
-		"status_resistance_active" "80"  // 添加这个参数:80%抗性
+		// Lua 逻辑需要 - 主动技能参数
+		"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
+		"active_duration"       "3"     // Lua 逻辑需要 - 主动持续时间
+		"instant_heal"          "1500"  // Lua 逻辑需要 - 立即恢复生命值
+		"bonus_armor_active"    "30"    // Lua 逻辑需要 - 主动护甲加成
+		"bonus_regen_active"    "200"   // Lua 逻辑需要 - 主动生命回复
+		"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
+		"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
+
+		// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+		"bonus_strength"        "150"   // tooltip only - 力量
+		"bonus_health"          "2500"  // tooltip only - 生命值
+		"bonus_health_regen"    "80"    // tooltip only - 生命回复
+		"bonus_armor"           "40"    // tooltip only - 护甲
+		"bonus_evasion"         "25"    // tooltip only - 闪避
+		"magic_resistance"      "20"    // tooltip only - 魔法抗性
     }
-
-
-	// 枯木逢春属性modifier
-	"Modifiers"
-	{
-		"modifier_item_withered_spring_stats"
-		{
-			"Passive"           "1"
-			"IsHidden"          "1"
-			"RemoveOnDeath"     "0"
-
-			"Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"    "%bonus_strength"
-			}
-		}
-	}
 }
 //=================================================================================================================
 // Recipe: 德古拉面罩
@@ -6605,25 +6555,26 @@
 
     "AbilityValues"
     {
+		// Lua 逻辑需要 - 吸血属性（不在可优化列表，事件驱动）
+		"lifesteal_percent"     "75"    // Lua 逻辑需要 - 被动物理吸血
+		"spell_lifesteal"       "30"    // Lua 逻辑需要 - 被动法术吸血
 
-		// 被动属性
-		"bonus_strength"        "80"
-		"bonus_health"          "2000"
-		"bonus_damage"          "250"
-		"lifesteal_percent"     "75"    // 被动物理吸血
-		"spell_lifesteal"       "30"    // 被动法术吸血
-		"bonus_movement_speed"  "20"
-		"bonus_health_regen"    "0"
+		// Lua 逻辑需要 - 主动技能参数
+		"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
+		"active_duration"       "5"     // Lua 逻辑需要 - 主动持续时间
+		"lifesteal_active"      "300"   // Lua 逻辑需要 - 主动期间物理吸血
+		"spell_lifesteal_active" "100"  // Lua 逻辑需要 - 主动期间法术吸血
+		"bonus_attack_speed_active" "150" // Lua 逻辑需要 - 主动攻速加成
+		"bonus_movement_speed_active" "30" // Lua 逻辑需要 - 主动移速加成
+		"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
+    	"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
 
-		// 主动效果
-		"hp_threshold"          "40"
-		"active_duration"       "5"
-		"lifesteal_active"      "300"   // 主动期间物理吸血
-		"spell_lifesteal_active" "100"  // 添加:主动期间法术吸血
-		"bonus_attack_speed_active" "150"
-		"bonus_movement_speed_active" "30"
-		"damage_reduction"      "-30"   // 添加:30%减伤
-    	"status_resistance_active" "80"  // 添加这个参数
+		// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+		"bonus_strength"        "80"    // tooltip only - 力量
+		"bonus_health"          "2000"  // tooltip only - 生命值
+		"bonus_damage"          "250"   // tooltip only - 攻击力
+		"bonus_movement_speed"  "20"    // tooltip only - 移动速度
+		"bonus_health_regen"    "0"     // tooltip only - 生命回复
     }
 }
 //暗影
@@ -6705,7 +6656,7 @@
 		"max_hp_dmg_pct"        "4"      // 添加这个参数
     	"hp_regen_reduction"    "-80"    // 添加这个参数
 
-        // 绝对破防效果
+        // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
         "corruption_armor"      "-80"
         "corruption_duration"   "7.0"
 
@@ -6713,16 +6664,16 @@
         "silence_duration"      "5.0"
         "silence_damage_percent" "30"
 
-        // 被动属性
-        "bonus_strength"        "55"
-        "bonus_agility"         "115"
-        "bonus_intellect"       "85"
-        "bonus_damage"          "360"
-        "bonus_armor"           "25"
-        "bonus_attack_speed"    "150"
-        "bonus_health"          "600"
-        "bonus_mana_regen"      "25"
-        "spell_amp"             "50"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"        "55"    // tooltip only - 力量
+        "bonus_agility"         "115"   // tooltip only - 敏捷
+        "bonus_intellect"       "85"    // tooltip only - 智力
+        "bonus_damage"          "360"   // tooltip only - 攻击力
+        "bonus_armor"           "25"    // tooltip only - 护甲
+        "bonus_attack_speed"    "150"   // tooltip only - 攻击速度
+        "bonus_health"          "600"   // tooltip only - 生命值
+        "bonus_mana_regen"      "25"    // tooltip only - 魔法恢复
+        "spell_amp"             "50"    // tooltip only - 法术增强
     }
 }
 //=================================================================================================================
@@ -6773,41 +6724,37 @@
 
     "AbilityValues"
     {
-        // 达贡伤害
+        // 主动技能参数（Lua 逻辑需要）
         "dagon_damage"
         {
             "value"             "800"
             "CalculateSpellDamageTooltip" "1"
         }
-
-        // 死灵法杖效果
-        "necrolyte_att_multiplier"  "0.5"
-        "sheep_duration"            "3.0"
-        "sheep_movement_speed"      "140"
-
-        // 虚灵之刃效果
-        "ethereal_duration"         "4.0"
-        "blast_agility_multiplier"  "2.5"
-        "blast_damage_base"         "300"
-        "blast_movement_slow"       "-80"
-        "ethereal_damage_bonus"     "40"
-
-        // 绝刃效果 (假设为额外纯粹伤害)
+        "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
+        "sheep_duration"            "3.0"    // Lua 逻辑需要 - 变形持续时间
+        "sheep_movement_speed"      "140"    // Lua 逻辑需要 - 变形移动速度
+        "ethereal_duration"         "4.0"    // Lua 逻辑需要 - 虚灵持续时间
+        "blast_agility_multiplier"  "2.5"    // Lua 逻辑需要 - 虚灵之刃主属性倍数
+        "blast_damage_base"         "300"    // Lua 逻辑需要 - 虚灵之刃基础伤害
+        "blast_movement_slow"       "-80"    // Lua 逻辑需要 - 虚灵减速百分比
+        "ethereal_damage_bonus"     "40"     // Lua 逻辑需要 - 虚灵伤害加成
         "absolute_damage"
         {
             "value"             "1000"
             "CalculateSpellDamageTooltip" "1"
         }
 
-        // 被动属性
-        "bonus_intellect"       "200"
-        "bonus_strength"        "80"
-        "bonus_agility"         "120"
-        "bonus_damage"          "250"
-        "bonus_mana"            "1500"
-        "bonus_mana_regen"      "30"
-        "spell_amp"             "60"
-        "bonus_cast_range"      "300"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_intellect"       "200"   // tooltip only - 智力
+        "bonus_strength"        "80"    // tooltip only - 力量
+        "bonus_agility"         "120"   // tooltip only - 敏捷
+        "bonus_damage"          "250"   // tooltip only - 攻击力
+        "bonus_mana"            "1500"  // tooltip only - 魔法值
+        "bonus_mana_regen"      "30"    // tooltip only - 魔法回复
+        "spell_amp"             "60"    // tooltip only - 技能增强
+
+        // Lua 逻辑需要 - 施法距离（不在可优化列表）
+        "bonus_cast_range"      "300"   // Lua 逻辑需要 - 施法距离加成
     }
 
     "precache"
@@ -6847,14 +6794,16 @@
 
     "AbilityValues"
     {
-        // 继承的属性
-        "bonus_strength"            "66"
-        "bonus_agility"             "66"
-        "bonus_intellect"           "66"
-        "bonus_attack_speed"        "166"     // 66 + 100 额外
-        "bonus_movement_speed"      "50"
-        "bonus_attack_range"        "200"
-        "bat_reduction_pct"             "40"     // 减少 0.2 秒 BAT (约20%)
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"            "66"    // tooltip only - 力量
+        "bonus_agility"             "66"    // tooltip only - 敏捷
+        "bonus_intellect"           "66"    // tooltip only - 智力
+        "bonus_attack_speed"        "166"   // tooltip only - 攻击速度（66 + 100 额外）
+        "bonus_movement_speed"      "50"    // tooltip only - 移动速度
+
+        // Lua 逻辑需要的参数
+        "bonus_attack_range"        "200"   // Lua 逻辑需要 - 有条件判断（仅远程英雄）
+        "bat_reduction_pct"         "40"    // Lua 逻辑需要 - 动态计算 BAT
     }
 }
 
@@ -6954,13 +6903,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_health"			"1500"  // tooltip only - 生命值
+			"bonus_mana"			"1500"  // tooltip only - 魔法值
+			"bonus_health_regen"	"30.0"  // tooltip only - 生命恢复
+			"bonus_mana_regen"		"20.0"  // tooltip only - 魔法恢复
+
+			// Lua 逻辑需要的参数
 			"bonus_cooldown"		"55"
-			"bonus_cooldown_stack"	"12"
+			"bonus_cooldown_stack"	"12"    // 未使用（可能是遗留代码）
 			"cast_range_bonus"		"400"
-			"bonus_health"			"1500"
-			"bonus_mana"			"1500"
-			"bonus_health_regen"	"30.0"
-			"bonus_mana_regen"		"20.0"
 			"manacost_reduction"    "50"    // 新增:减魔耗百分比
 			"cast_speed_pct"        "50"    // 新增:施法速度加成百分比
 		}
@@ -6998,25 +6950,25 @@
 
     "AbilityValues"
     {
-        // 继承属性（需根据组件计算）
-        "bonus_strength"            "150"
-        "bonus_health"              "2500"
-        "bonus_armor"               "100"
-        "bonus_spell_resist"        "60"
-        "bonus_health_regen"        "50"
-        "bonus_mana_regen"          "15"
-        "bonus_attack_speed"        "50"
-
-        // 主动技能
-        "active_duration"           "6"
-        "active_bonus_multiplier"   "100"    // 被动效果加成100%
+        // Lua 逻辑需要 - 主动技能
+        "active_duration"           "6"     // 主动持续时间
+        "active_bonus_multiplier"   "100"   // 主动时属性加成倍数
 
 		// 法师泳衣被动
-		"mana_restore_pct"          "50"    // 魔法伤害转化为魔法的百分比
-		"stack_threshold"           "600"   // 每受到100点技能伤害获得一层
-		"stack_duration"            "10"    // 叠加效果持续时间
-		"max_stacks"                "8"    // 最大叠加层数
-		"stack_resist"              "4"     // 每层魔抗加成
+        "mana_restore_pct"          "50"    // 魔法伤害转化为魔法的百分比
+        "stack_threshold"           "600"   // 每受到600点技能伤害获得一层
+        "stack_duration"            "10"    // 叠加效果持续时间
+        "max_stacks"                "8"     // 最大叠加层数
+        "stack_resist"              "4"     // 每层魔抗加成
+
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"            "150"   // tooltip only - 力量
+        "bonus_health"              "2500"  // tooltip only - 生命值
+        "bonus_armor"               "100"   // tooltip only - 护甲
+        "bonus_spell_resist"        "60"    // tooltip only - 魔法抗性
+        "bonus_health_regen"        "50"    // tooltip only - 生命回复
+        "bonus_mana_regen"          "15"    // tooltip only - 魔法回复
+        "bonus_attack_speed"        "50"    // tooltip only - 攻击速度
     }
 }
 	//8兽化甲 刃甲2+莲花+辉耀+冰甲+兽化符文 继承所有组件的力量、生命、护甲、魔抗、生命回复等加成效果，并有辉耀2的灼烧效果，主动：不粘锅 继承刃甲+莲花+冰甲的主动效果，释放冰甲的冲击波降低攻速和魔抗，并反弹所有伤害和指向性技能
@@ -7083,32 +7035,36 @@
     }
     "AbilityValues"
     {
-        "bonus_strength"            "100"
-        "bonus_agility"           	"100"
-        "bonus_intellect"           "100"
-        "bonus_health"              "1500"
-        "bonus_armor"               "80"
-        "bonus_spell_resist"        "30"
-        "bonus_health_regen"        "40"
-        "bonus_mana_regen"          "25"
-        "bonus_damage"              "150"
-        "evasion"                   "25"
+        // Lua 逻辑需要 - 反伤和莲花格挡（事件驱动）
+        "passive_reflection_constant"   "80"    // Lua 逻辑需要 - 被动反伤固定值
+        "passive_reflection_pct"        "25"    // Lua 逻辑需要 - 被动反伤百分比
+        "active_reflection_pct"         "100"   // Lua 逻辑需要 - 主动反伤百分比
+        "block_cooldown"                "15"    // Lua 逻辑需要 - 莲花格挡冷却
 
-        "passive_reflection_constant"   "80"
-        "passive_reflection_pct"        "25"
-        "active_reflection_pct"         "100"
+        // Lua 逻辑需要 - 主动技能参数
+        "active_duration"           "5"     // Lua 逻辑需要 - 主动持续时间
+        "blast_radius"              "900"   // Lua 逻辑需要 - 冲击波范围
+        "blast_damage"              "900"   // Lua 逻辑需要 - 冲击波伤害
+        "movement_slow"             "40"    // Lua 逻辑需要 - 移速减缓
+        "attack_slow"               "40"    // Lua 逻辑需要 - 攻速减缓
+        "resist_reduction"          "25"    // Lua 逻辑需要 - 抗性降低
 
-        "active_duration"           "5"
-        "blast_radius"              "900"
-        "blast_damage"              "350"
-        "movement_slow"             "40"
-        "attack_slow"               "40"
-        "resist_reduction"          "25"
-        "block_cooldown"            "15"
+        // Lua 逻辑需要 - 辉耀光环（事件驱动）
+        "aura_damage"               "120"   // Lua 逻辑需要 - 光环伤害
+        "aura_radius"               "700"   // Lua 逻辑需要 - 光环范围
+        "blind_pct"                 "17"    // Lua 逻辑需要 - 致盲百分比
 
-        "aura_damage"               "120"
-        "aura_radius"               "700"
-        "blind_pct"                 "17"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+        "bonus_strength"            "100"   // tooltip only - 力量
+        "bonus_agility"           	"100"   // tooltip only - 敏捷
+        "bonus_intellect"           "100"   // tooltip only - 智力
+        "bonus_health"              "1500"  // tooltip only - 生命值
+        "bonus_armor"               "80"    // tooltip only - 护甲
+        "bonus_spell_resist"        "30"    // tooltip only - 魔法抗性
+        "bonus_health_regen"        "40"    // tooltip only - 生命回复
+        "bonus_mana_regen"          "25"    // tooltip only - 魔法回复
+        "bonus_damage"              "150"   // tooltip only - 攻击力
+        "evasion"                   "25"    // tooltip only - 闪避
     }
 }
 
@@ -7155,6 +7111,7 @@
     {
         "active_duration"       "6"
         "convert_pct"           "10"
+		"spell_amp_per_int"     "0.2"
     }
 }
 
@@ -7197,16 +7154,20 @@
 
     "AbilityValues"
     {
-        "active_duration"       "6"
-        "convert_pct"           "10"
-		"cleave_distance"           "1200"
-		"cleave_damage_percent"     "100"
-		"cleave_damage_percent_creep" "150"
+        // 主动技能参数（Lua 逻辑需要）
+        "active_duration"       "6"     // 主动持续时间
+        "convert_pct"           "10"    // 物理转纯粹伤害百分比
 
-    	"bonus_all_stats"           "200"
-		"bonus_damage"              "300"
-		"slow_duration"             "2.0"
-		"slow_pct"                  "-60"
+        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+    	"bonus_all_stats"           "80"    // tooltip only - 全属性
+		"bonus_damage"              "300"   // tooltip only - 攻击力
+
+        // 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
+		"cleave_distance"           "600"  // Lua 逻辑需要 - 溅射范围
+		"cleave_damage_percent"     "100"   // Lua 逻辑需要 - 溅射伤害百分比（英雄）
+		"cleave_damage_percent_creep" "150" // Lua 逻辑需要 - 溅射伤害百分比（小兵）
+		"slow_duration"             "2.0"   // Lua 逻辑需要 - 减速持续时间
+		"slow_pct"                  "-60"   // Lua 逻辑需要 - 减速百分比
     }
 }
 	//技能重置书
@@ -7224,7 +7185,7 @@
 		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"                 "0"
 		"ItemInitialCharges"            "1"
-		"ItemInitialStockTime"			"1020"	// 16分钟买
+		"ItemInitialStockTime"			"900"	// 15分钟买
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"180"

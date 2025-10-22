@@ -14,6 +14,7 @@ export class NetTableHelper {
       return {
         isActiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed: false,
+        isPassiveAbilityRefreshed2: false,
         skillResetRemovedCount: 0,
         skillResetPickedCount: 0,
         isSkillResetMode: false,
@@ -23,12 +24,13 @@ export class NetTableHelper {
     return {
       activeAbilityName: lotteryStatusData.activeAbilityName,
       activeAbilityLevel: lotteryStatusData.activeAbilityLevel,
-      activeAbilityCount: lotteryStatusData.activeAbilityCount ?? 0,
       isActiveAbilityRefreshed: Boolean(lotteryStatusData.isActiveAbilityRefreshed),
       passiveAbilityName: lotteryStatusData.passiveAbilityName,
       passiveAbilityLevel: lotteryStatusData.passiveAbilityLevel,
-      passiveAbilityCount: lotteryStatusData.passiveAbilityCount ?? 0, // 添加这一行
       isPassiveAbilityRefreshed: Boolean(lotteryStatusData.isPassiveAbilityRefreshed),
+      passiveAbilityName2: lotteryStatusData.passiveAbilityName2,
+      passiveAbilityLevel2: lotteryStatusData.passiveAbilityLevel2,
+      isPassiveAbilityRefreshed2: Boolean(lotteryStatusData.isPassiveAbilityRefreshed2),
       skillResetRemovedCount: lotteryStatusData.skillResetRemovedCount ?? 0,
       skillResetPickedCount: lotteryStatusData.skillResetPickedCount ?? 0,
       isSkillResetMode: Boolean(lotteryStatusData.isSkillResetMode ?? 0),
