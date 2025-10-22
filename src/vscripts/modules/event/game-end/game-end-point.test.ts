@@ -160,6 +160,8 @@ describe('GameEndPoint', () => {
       maxLevel: 50,
       sameHeroSelection: false,
       enablePlayerAttribute: true,
+      fixedAbility: 'none',
+      extraPassiveAbilities: false,
       gameDifficulty: 0,
     } as Option;
     it('默认选项应该返回1', () => {
@@ -283,7 +285,16 @@ describe('GameEndPoint', () => {
         extraPassiveAbilities: true,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.7);
+      expect(multiplier).toBe(0.8);
+    });
+
+    it('固定技能时，降低倍率', () => {
+      const option = {
+        ...defaultOption,
+        fixedAbility: 'medusa_split_shot',
+      } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.8);
     });
 
     it('最低倍率不低于0', () => {

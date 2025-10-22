@@ -136,18 +136,20 @@ export class GameEndPoint {
     if (multiplier > 1.5) {
       if (option.startingGoldPlayer >= 5000) {
         multiplier -= 0.1;
-      } else if (option.startingGoldPlayer >= 4000) {
-        //指定被动模式
-        multiplier -= 0.4;
       }
       if (option.startingGoldBot <= 1000) {
         multiplier -= 0.1;
       }
     }
 
+    // 固定技能时，降低倍率
+    if (option.fixedAbility !== 'none') {
+      multiplier -= 0.2;
+    }
+
     // 勾选额外技能时，降低倍率
     if (option.extraPassiveAbilities) {
-      multiplier -= 0.3;
+      multiplier -= 0.2;
     }
 
     // 不为负数

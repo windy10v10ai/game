@@ -97,32 +97,6 @@ export class Lottery {
     );
   }
 
-  private getSpecifiedPassiveAbilityByStartingGold(): { name: string; level: number } | null {
-    const startingGold = GameRules.Option.startingGoldPlayer;
-
-    const abilityMap: { [key: number]: { name: string; level: number } } = {
-      4999: { name: 'medusa_split_shot', level: 5 },
-      4998: { name: 'winter_wyvern_arctic_burn', level: 5 },
-      4997: { name: 'dazzle_good_juju', level: 5 },
-      4996: { name: 'ogre_magi_multicast_lua', level: 4 },
-      4995: { name: 'leshrac_defilement2', level: 4 },
-      4994: { name: 'tinker_eureka2', level: 3 },
-      4993: { name: 'death_prophet_witchcraft2', level: 3 },
-      4992: { name: 'earthshaker_aftershock', level: 4 },
-      4991: { name: 'jakiro_double_trouble2', level: 3 },
-      4990: { name: 'spectre_dispersion', level: 3 },
-      4989: { name: 'abyssal_underlord_firestorm2', level: 3 },
-      4988: { name: 'bloodseeker_thirst', level: 3 },
-      4987: { name: 'luna_moon_glaive', level: 4 },
-      4986: { name: 'templar_assassin_psi_blades', level: 5 },
-      4985: { name: 'faceless_void_time_lock', level: 4 },
-      4984: { name: 'slardar_bash', level: 4 },
-      4983: { name: 'ability_trigger_on_attacked', level: 5 },
-    };
-
-    return abilityMap[startingGold] || null;
-  }
-
   // ---- 随机技能 ----
   randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
     const abilityTable =
@@ -164,6 +138,7 @@ export class Lottery {
       executedNames,
     );
 
+    // 会员额外技能
     const member = NetTableHelper.GetMember(steamAccountID);
     if (member.enable && member.level >= MemberLevel.PREMIUM) {
       const extraAbilities = LotteryHelper.getRandomAbilities(
@@ -176,59 +151,45 @@ export class Lottery {
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 修改修改修改开始 - 强制第一个被动技能为 高级技能
-
+    // 强制第一个被动技能为 固定技能
     if (abilityType === 'abilityPassive' && abilityLotteryResults.length > 0) {
-      const hudiexiaoying = RandomInt(1, 1);
-      if (hudiexiaoying === 1) {
-        const hudie = RandomInt(0, 1);
-        if (hudie === 0)
-          abilityLotteryResults[0] = { name: 'ability_trigger_on_cast', level: 5 }; // level可调整
-        else abilityLotteryResults[0] = { name: 'ability_trigger_learned_skills', level: 5 }; // level可调整
-      }
-      // 新增: 只有在强制随机英雄模式下才应用特殊技能逻辑
-      const isForceRandomHero = GameRules.Option.sameHeroSelection;
-
-      if (isForceRandomHero) {
-        const randomIndex = RandomInt(0, 5);
-        if (randomIndex === 0)
-          abilityLotteryResults[0] = { name: 'ogre_magi_multicast_lua', level: 4 }; // level可调整
-        if (randomIndex === 1) abilityLotteryResults[0] = { name: 'dazzle_good_juju', level: 5 }; // level可调整
-        if (randomIndex === 2) abilityLotteryResults[0] = { name: 'leshrac_defilement2', level: 4 }; // level可调整
-        if (randomIndex === 3)
-          abilityLotteryResults[0] = { name: 'death_prophet_witchcraft2', level: 3 }; // level可调整
-        if (randomIndex === 4) abilityLotteryResults[0] = { name: 'medusa_split_shot', level: 5 }; // level可调整
-        if (randomIndex === 5)
-          abilityLotteryResults[0] = { name: 'ability_trigger_learned_skills', level: 3 }; // level可调整
-      }
-      // 添加基于初始金钱的额外技能
-      const specifiedAbility = this.getSpecifiedPassiveAbilityByStartingGold();
+      const specifiedAbility = this.getSpecifiedPassiveAbilityByFixedAbility();
       if (specifiedAbility) {
-        abilityLotteryResults[1] = specifiedAbility;
-        //print(`为玩家 ${playerId} 指定第二个被动技能: ${specifiedAbility.name} (等级 ${specifiedAbility.level})`);
+        abilityLotteryResults[0] = specifiedAbility;
       }
     }
-
-    // 修改修改修改开始 - 强制第一个主动技能为 高级技能
-    if (abilityType === 'abilityActive' && abilityLotteryResults.length > 0) {
-      const randomIndex = RandomInt(0, 6);
-      if (randomIndex === 0) abilityLotteryResults[0] = { name: 'marci_unleash', level: 3 }; // level可调整
-      if (randomIndex === 1) abilityLotteryResults[0] = { name: 'dazzle_bad_juju', level: 3 }; // level可调整
-      if (randomIndex === 2)
-        abilityLotteryResults[0] = { name: 'ember_spirit_sleight_of_fist', level: 3 }; // level可调整
-      if (randomIndex === 3)
-        abilityLotteryResults[0] = { name: 'gyrocopter_flak_cannon', level: 5 }; // level可调整
-      if (randomIndex === 4)
-        abilityLotteryResults[0] = { name: 'alchemist_chemical_rage', level: 5 }; // level可调整
-      if (randomIndex === 5) abilityLotteryResults[0] = { name: 'tinker_rearm_lua', level: 3 }; // level可调整
-      if (randomIndex === 6) abilityLotteryResults[0] = { name: 'juggernaut_omni_slash', level: 3 }; // level可调整
-    }
-    // 修改修改结束
 
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
   }
 
-  // ---- 选择 ----
+  /**
+   * 获取固定技能，不存在则返回null
+   */
+  private getSpecifiedPassiveAbilityByFixedAbility(): LotteryDto | null {
+    const fixedAbility = GameRules.Option.fixedAbility;
+
+    if (fixedAbility === 'none') {
+      return null;
+    }
+
+    // 从 abilityTiersPassive 中找到技能等级
+    for (const tier of abilityTiersPassive) {
+      if (tier.names.includes(fixedAbility)) {
+        return { name: fixedAbility, level: tier.level };
+      }
+    }
+
+    // 从 abilityTiersActive 中找到技能等级
+    for (const tier of abilityTiersActive) {
+      if (tier.names.includes(fixedAbility)) {
+        return { name: fixedAbility, level: tier.level };
+      }
+    }
+
+    return null;
+  }
+
+  // ---- 选择技能 ----
   pickAbility(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
@@ -265,17 +226,6 @@ export class Lottery {
       lotteryStatus.passiveAbilityLevel2 = event.level;
     }
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
-
-    // 发送分析事件
-    // Analytic.SendPickAbilityEvent({
-    //   steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
-    //   matchId: GameRules.Script_GetMatchID().toString(),
-    //   name: event.name,
-    //   type: abilityType,
-    //   level: event.level,
-    //   difficulty: GameRules.Option.gameDifficulty,
-    //   version: GameConfig.GAME_VERSION,
-    // });
   }
 
   // ---- 刷新 ----
