@@ -40,17 +40,6 @@ const containerStyleShow: Partial<VCSSStyleDeclaration> = {
 function Lottery() {
   const steamAccountId = GetLocalPlayerSteamAccountID();
 
-  // 初始化时计算 maxPassiveCount
-  const [maxPassiveCount, setMaxPassiveCount] = useState<number>(() => {
-    const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
-    if (!gameOptions) return 1;
-
-    const startingGold = gameOptions.starting_gold_player;
-    if (startingGold >= 4982 && startingGold < 5000) return 2;
-    if (startingGold === 4981) return 3;
-    return 1;
-  });
-
   const [isCollapsed, setIsCollapsed] = useState(false);
   // 添加 lotteryStatus 状态
   const lotteryStatus = GetLotteryStatus(steamAccountId);
@@ -61,40 +50,21 @@ function Lottery() {
     }
     setIsCollapsed(!isCollapsed);
   };
-  // 使用 useRef 来访问最新的 maxPassiveCount,避免闭包问题
-  const maxPassiveCountRef = React.useRef(maxPassiveCount);
-  React.useEffect(() => {
-    maxPassiveCountRef.current = maxPassiveCount;
-  }, [maxPassiveCount]);
 
   const getIsVisible = (lotteryStatus: LotteryStatusDto | null) => {
-    $.Msg('=== getIsVisible Debug ===');
-
     if (!lotteryStatus) {
-      $.Msg('No lottery status, hiding UI');
+      return false;
+    }
+    if (
+      lotteryStatus.activeAbilityName &&
+      lotteryStatus.passiveAbilityName &&
+      lotteryStatus.passiveAbilityName2
+    ) {
+      // 如果所有技能都已选择，则隐藏 UI
       return false;
     }
 
-    $.Msg('isSkillResetMode: ' + lotteryStatus.isSkillResetMode);
-
-    if (lotteryStatus.isSkillResetMode) {
-      $.Msg('Skill reset mode active, showing UI');
-      return true;
-    }
-
-    // 使用 ref 中的值,而不是重新计算
-    const currentMaxPassiveCount = maxPassiveCountRef.current;
-    const passiveCount = lotteryStatus.passiveAbilityCount || 0;
-    const activeCount = lotteryStatus.activeAbilityCount || 0;
-
-    if (activeCount >= 1 && passiveCount >= currentMaxPassiveCount) {
-      $.Msg('All abilities selected, hiding UI');
-      return false;
-    }
-
-    $.Msg('Not all abilities selected, showing UI', passiveCount, currentMaxPassiveCount);
-    $.Msg('Not all abilities selected, showing UI', activeCount);
-    $.Msg('Not all abilities selected, showing UI');
+    // 如果还有技能未选择，则显示 UI
     return true;
   };
 
@@ -112,10 +82,6 @@ function Lottery() {
         setContainerStyle(containerStyleShow);
       } else {
         setContainerStyle(containerStyleFadeout);
-        // 当 lottery 完成后,将 maxPassiveCount 设置为 1
-        if (!data.isSkillResetMode && data.activeAbilityName && data.passiveAbilityName) {
-          setMaxPassiveCount(1);
-        }
       }
     });
 

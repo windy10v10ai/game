@@ -45,6 +45,7 @@ interface GameOptionsChangeEventData {
   max_level: number;
   same_hero_selection: number;
   enable_player_attribute: number;
+  extra_passive_abilities: number;
 }
 
 interface LoadingSetOptionsEventData {
@@ -61,6 +62,7 @@ interface LoadingSetOptionsEventData {
     max_level: string;
     same_hero_selection: boolean;
     enable_player_attribute: boolean;
+    extra_passive_abilities: boolean;
   };
 }
 
