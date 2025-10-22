@@ -88,7 +88,6 @@ function InitSetting() {
     $('#radiant_player_number_dropdown').SetSelected('3');
     $('#dire_player_number_dropdown').SetSelected('3');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
-    $('#tower_power_dropdown').SetSelected('300');
   }
 }
 
