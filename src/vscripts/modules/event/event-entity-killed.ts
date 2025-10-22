@@ -112,39 +112,40 @@ export class EventEntityKilled {
 
   private dropItemChanceFusionRoshan = 100;
   private dropItemChanceFusionAncient = 1.2;
-  private dropItemChanceFusionNeutral = 0.25;
-  private calculateDropChance(baseChance: number): number {
+
+  private calculateDropChance(): number {
     // 获取游戏难度
+
     const difficulty = GameRules.Option.direGoldXpMultiplier || 1;
     // 获取玩家人数
     const playerCount = Player.GetPlayerCount();
+
     // 难度系数: 难度越高,掉落概率越高
     let difficultyMultiplier = 1;
     if (difficulty >= 60) {
       difficultyMultiplier = 3.0; // 60难度: 3倍概率
-    } else if (difficulty >= 30) {
+    } else if (difficulty >= 20) {
       difficultyMultiplier = 2.0; // 20难度: 2倍概率
-    } else if (difficulty >= 17) {
-      difficultyMultiplier = 1.6; // 20难度: 2倍概率
     } else if (difficulty >= 12) {
-      difficultyMultiplier = 1.2; // 12难度: 1.4倍概率
+      difficultyMultiplier = 1.5; // 12难度: 1.4倍概率
     } else if (difficulty >= 1) {
       difficultyMultiplier = 1; // N2难度: 1.2倍概率
     }
+
     // 人数系数: 人数越多概率越高
     let playerMultiplier = 1;
     if (playerCount >= 6) {
-      playerMultiplier = 1.3; // 6人: 2倍概率
+      playerMultiplier = 1.8; // 6人: 2倍概率
     } else if (playerCount >= 4) {
-      playerMultiplier = 1.2; // 4-5人: 1.0倍概率
+      playerMultiplier = 1.5; // 4-5人: 1.0倍概率
     } else if (playerCount >= 2) {
       playerMultiplier = 1.0; // 2-3人: 1.5倍概率
     } else if (playerCount <= 1) {
-      playerMultiplier = 1.1; // 1人: 2倍概率
+      playerMultiplier = 1.2; // 1人: 2倍概率
     }
 
     // 最终概率 = 基础概率 × 难度系数 × 人数系数
-    const finalChance = baseChance * difficultyMultiplier * playerMultiplier;
+    const finalChance = this.dropItemChanceFusionAncient * difficultyMultiplier * playerMultiplier;
 
     // 设置上限,避免概率过高
     return Math.min(finalChance, 100);
@@ -156,11 +157,12 @@ export class EventEntityKilled {
     if (creepName === 'npc_dota_roshan') {
       // 击杀肉山
       if (PlayerHelper.IsGoodTeamUnit(attacker)) {
-        // 龙珠掉落(保持原逻辑)
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceRoshan,
+          true,
         );
 
         // 融合符文掉落 - 使用神器组件的循环逻辑可重复
@@ -169,12 +171,10 @@ export class EventEntityKilled {
         print(`[EventEntityKilled] Fusion material dropCount is ${dropCount}`);
         for (let i = 0; i < dropCount; i++) {
           // 从符文列表中随机选择一个
-          const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
-          const randomRune = this.dropItemListFusionMaterial[randomIndex];
-          this.dropItem(creep, [randomRune], this.dropItemChanceFusionRoshan);
+          this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceFusionRoshan);
         }
 
-        // 神器组件掉落(保持原逻辑)
+        // 神器组件掉落，掉落数量 1 ~ 3 的随机数
         for (let i = 0; i < dropCount; i++) {
           const isDaytime = GameRules.IsDaytime();
           if (isDaytime) {
@@ -183,40 +183,46 @@ export class EventEntityKilled {
             this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
           }
         }
+      } else {
+        print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
       }
+
+      // 延迟移除无人捡取的金币袋
+      Timers.CreateTimer(this.removeGoldBagDelay, () => {
+        const goldBags = Entities.FindAllByClassname('dota_item_drop') as CDOTA_Item_Physical[];
+        for (const goldBag of goldBags) {
+          const itemName = goldBag.GetContainedItem().GetName();
+          if (itemName === 'item_bag_of_gold') {
+            goldBag.RemoveSelf();
+          }
+        }
+      });
     } else if (creep.IsAncient()) {
-      // 击杀远古 - 龙珠
+      // 击杀远古
       if (PlayerHelper.IsHumanPlayer(attacker)) {
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceAncient,
-        );
-        const MultiplieddropItemChanceFusionAncient = this.calculateDropChance(
-          this.dropItemChanceFusionAncient,
+          true,
         );
         // 符文掉落 - 单次随机
-        const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
-        const randomRune = this.dropItemListFusionMaterial[randomIndex];
-        this.dropItem(creep, [randomRune], MultiplieddropItemChanceFusionAncient);
-        //神器组件
+        this.dropItem(creep, this.dropItemListFusionMaterial, this.calculateDropChance());
         this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
+      // 击杀中立单位
       if (PlayerHelper.IsHumanPlayer(attacker)) {
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceNeutral,
+          true,
         );
-        // 击杀中立单位 - 符文掉落
-        const MultiplieddropItemChanceFusionNeutral = this.calculateDropChance(
-          this.dropItemChanceFusionNeutral,
-        );
-        // 单次随机
-        const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
-        const randomRune = this.dropItemListFusionMaterial[randomIndex];
-        this.dropItem(creep, [randomRune], MultiplieddropItemChanceFusionNeutral);
+        // 符文掉落 - 单次随机
+        this.dropItem(creep, this.dropItemListFusionMaterial, this.calculateDropChance());
         //神器组件
         this.dropParts(creep, this.dropItemChanceNeutral);
       }
@@ -257,7 +263,12 @@ export class EventEntityKilled {
   /**
    * 从指定list中随机掉落一件物品
    */
-  private dropItem(creep: CDOTA_BaseNPC, dropItemList: string[], dropChance = 100): string[] {
+  private dropItem(
+    creep: CDOTA_BaseNPC,
+    dropItemList: string[],
+    dropChance = 100,
+    dropOnce = false,
+  ): string[] {
     if (dropItemList.length === 0) {
       print(`[EventEntityKilled] OnCreepKilled dropItemList is empty`);
       return dropItemList;
@@ -278,7 +289,12 @@ export class EventEntityKilled {
       }
 
       print(`[EventEntityKilled] OnCreepKilled drop item ${itemName}`);
-      return dropItemList.filter((v, i) => i !== itemIndex);
+      if (dropOnce) {
+        // 从物品列表中移除，不再掉落
+        return dropItemList.filter((v, i) => i !== itemIndex);
+      } else {
+        return dropItemList;
+      }
     }
     return dropItemList;
   }
