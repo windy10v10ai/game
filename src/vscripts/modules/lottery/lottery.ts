@@ -97,16 +97,6 @@ export class Lottery {
     );
   }
 
-  private getSpecifiedPassiveAbilityByFixedAbility(): { name: string; level: number } | null {
-    const fixedAbility = GameRules.Option.fixedAbility;
-
-    if (fixedAbility === 'none') {
-      return null;
-    }
-
-    return { name: fixedAbility, level: 5 };
-  }
-
   // ---- 随机技能 ----
   randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
     const abilityTable =
@@ -148,6 +138,7 @@ export class Lottery {
       executedNames,
     );
 
+    // 会员额外技能
     const member = NetTableHelper.GetMember(steamAccountID);
     if (member.enable && member.level >= MemberLevel.PREMIUM) {
       const extraAbilities = LotteryHelper.getRandomAbilities(
@@ -160,7 +151,7 @@ export class Lottery {
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 强制第一个被动技能为 高级技能
+    // 强制第一个被动技能为 固定技能
     if (abilityType === 'abilityPassive' && abilityLotteryResults.length > 0) {
       const specifiedAbility = this.getSpecifiedPassiveAbilityByFixedAbility();
       if (specifiedAbility) {
@@ -171,7 +162,34 @@ export class Lottery {
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
   }
 
-  // ---- 选择 ----
+  /**
+   * 获取固定技能，不存在则返回null
+   */
+  private getSpecifiedPassiveAbilityByFixedAbility(): LotteryDto | null {
+    const fixedAbility = GameRules.Option.fixedAbility;
+
+    if (fixedAbility === 'none') {
+      return null;
+    }
+
+    // 从 abilityTiersPassive 中找到技能等级
+    for (const tier of abilityTiersPassive) {
+      if (tier.names.includes(fixedAbility)) {
+        return { name: fixedAbility, level: tier.level };
+      }
+    }
+
+    // 从 abilityTiersActive 中找到技能等级
+    for (const tier of abilityTiersActive) {
+      if (tier.names.includes(fixedAbility)) {
+        return { name: fixedAbility, level: tier.level };
+      }
+    }
+
+    return null;
+  }
+
+  // ---- 选择技能 ----
   pickAbility(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
@@ -208,17 +226,6 @@ export class Lottery {
       lotteryStatus.passiveAbilityLevel2 = event.level;
     }
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
-
-    // 发送分析事件
-    // Analytic.SendPickAbilityEvent({
-    //   steamId: PlayerResource.GetSteamAccountID(event.PlayerID),
-    //   matchId: GameRules.Script_GetMatchID().toString(),
-    //   name: event.name,
-    //   type: abilityType,
-    //   level: event.level,
-    //   difficulty: GameRules.Option.gameDifficulty,
-    //   version: GameConfig.GAME_VERSION,
-    // });
   }
 
   // ---- 刷新 ----
