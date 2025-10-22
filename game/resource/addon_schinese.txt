@@ -39,6 +39,21 @@
 		"starting_gold_bot"			"电脑初始金钱"
 		"fixed_ability"				"固定技能"
 		"fixed_ability_none"		"无"
+		"same_hero_selection"		"允许选择相同英雄"
+		"force_random_hero"			"强制随机英雄"
+		"enable_player_attribute"	"启用玩家属性"
+		"extra_passive_abilities"	"额外被动技能"
+		"hide_chat_team"			"隐藏聊天框"
+		"show_chat_team"			"显示聊天框"
+
+		"radiant_player_number_1"		"1  (简单)"
+		"radiant_player_number_10"		"10 (困难)"
+
+		"respawn_time_percentage_slow"        "较慢"
+		"respawn_time_percentage_normal"        "普通"
+		"respawn_time_percentage_fast"         "快速"
+		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
+
 		"fixed_ability_medusa_split_shot"							"分裂箭"
 		"fixed_ability_winter_wyvern_arctic_burn"					"严寒烧灼"
 		"fixed_ability_dazzle_good_juju"							"善咒"
@@ -56,21 +71,6 @@
 		"fixed_ability_faceless_void_time_lock"					"时间锁定"
 		"fixed_ability_trigger_on_cast"							"蝴蝶效应·红魔"
 		"fixed_ability_trigger_learned_skills"						"蝴蝶效应·蓝武"
-		"same_hero_selection"		"允许选择相同英雄"
-		"force_random_hero"			"强制随机英雄"
-		"enable_player_attribute"	"启用玩家属性"
-		"extra_passive_abilities"	"额外被动技能"
-		"hide_chat_team"			"隐藏聊天框"
-		"show_chat_team"			"显示聊天框"
-
-		"radiant_player_number_1"		"1  (简单)"
-		"radiant_player_number_10"		"10 (困难)"
-
-		"respawn_time_percentage_slow"        "较慢"
-		"respawn_time_percentage_normal"        "普通"
-		"respawn_time_percentage_fast"         "快速"
-		"respawn_time_percentage_0"          "秒活 (可能卡顿)"
-
 		// link面板
 		"dota_survivor_button"			"全新联动 刀塔幸存者"
 		"omg_ai_button"					"全新联动 OMG AI"
