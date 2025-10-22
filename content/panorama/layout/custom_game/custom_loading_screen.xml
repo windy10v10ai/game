@@ -122,23 +122,23 @@
 						<Label id="FixedAbilityTitle" class="GameOptionsLabel" text="#fixed_ability" />
 						<DropDown id="fixed_ability_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="#fixed_ability_none" id="none"/>
-							<Label text="分裂箭" id="medusa_split_shot"/>
-							<Label text="严寒烧灼" id="winter_wyvern_arctic_burn"/>
-							<Label text="善咒" id="dazzle_good_juju"/>
-							<Label text="多重施法" id="ogre_magi_multicast_lua"/>
-							<Label text="大肆污染" id="leshrac_defilement2"/>
-							<Label text="尤里卡" id="tinker_eureka2"/>
-							<Label text="巫术精研" id="death_prophet_witchcraft2"/>
-							<Label text="余震" id="earthshaker_aftershock"/>
-							<Label text="双生恐怖" id="jakiro_double_trouble2"/>
-							<Label text="折射" id="spectre_dispersion"/>
-							<Label text="火雨降临" id="abyssal_underlord_firestorm2"/>
-							<Label text="焦渴" id="bloodseeker_thirst"/>
-							<Label text="月刃" id="luna_moon_glaive"/>
-							<Label text="灵能之刃" id="templar_assassin_psi_blades"/>
-							<Label text="时间锁定" id="faceless_void_time_lock"/>
-							<Label text="蝴蝶效应·红魔" id="ability_trigger_on_cast"/>
-							<Label text="蝴蝶效应·蓝武" id="ability_trigger_learned_skills"/>
+							<Label text="#fixed_ability_medusa_split_shot" id="medusa_split_shot"/>
+							<Label text="#fixed_ability_winter_wyvern_arctic_burn" id="winter_wyvern_arctic_burn"/>
+							<Label text="#fixed_ability_dazzle_good_juju" id="dazzle_good_juju"/>
+							<Label text="#fixed_ability_ogre_magi_multicast_lua" id="ogre_magi_multicast_lua"/>
+							<Label text="#fixed_ability_leshrac_defilement2" id="leshrac_defilement2"/>
+							<Label text="#fixed_ability_tinker_eureka2" id="tinker_eureka2"/>
+							<Label text="#fixed_ability_death_prophet_witchcraft2" id="death_prophet_witchcraft2"/>
+							<Label text="#fixed_ability_earthshaker_aftershock" id="earthshaker_aftershock"/>
+							<Label text="#fixed_ability_jakiro_double_trouble2" id="jakiro_double_trouble2"/>
+							<Label text="#fixed_ability_spectre_dispersion" id="spectre_dispersion"/>
+							<Label text="#fixed_ability_abyssal_underlord_firestorm2" id="abyssal_underlord_firestorm2"/>
+							<Label text="#fixed_ability_bloodseeker_thirst" id="bloodseeker_thirst"/>
+							<Label text="#fixed_ability_luna_moon_glaive" id="luna_moon_glaive"/>
+							<Label text="#fixed_ability_templar_assassin_psi_blades" id="templar_assassin_psi_blades"/>
+							<Label text="#fixed_ability_faceless_void_time_lock" id="faceless_void_time_lock"/>
+							<Label text="#fixed_ability_trigger_on_cast" id="ability_trigger_on_cast"/>
+							<Label text="#fixed_ability_trigger_learned_skills" id="ability_trigger_learned_skills"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">

@@ -331,6 +331,36 @@ When adding new UI elements or text that needs translation:
 
 3. **Do NOT add to Russian file** (`addon_russian.txt`) - only update if the key already exists
 
+### Finding Official Dota 2 Ability Names
+
+When editing abilities from Dota 2 that don't exist in the project's language files, find the official translations from the reference files:
+
+1. **Search in reference files** located in `docs/reference/7.39/`:
+
+   - English: `abilities_english.txt`
+   - Chinese: `abilities_schinese.txt`
+
+2. **Search pattern**: Use the ability internal name (e.g., `medusa_split_shot`) to find entries like:
+
+   ```
+   English: "DOTA_Tooltip_ability_medusa_split_shot"    "Split Shot"
+   Chinese: "DOTA_Tooltip_ability_medusa_split_shot"    "分裂箭"
+   ```
+
+3. **Example workflow**:
+
+   ```bash
+   # Search for the ability name in reference files
+   grep "luna_moon_glaive" docs/reference/7.39/abilities_english.txt
+   grep "luna_moon_glaive" docs/reference/7.39/abilities_schinese.txt
+
+   # Results will show:
+   # English: "DOTA_Tooltip_ability_luna_moon_glaive"    "Moon Glaives"
+   # Chinese: "DOTA_Tooltip_ability_luna_moon_glaive"    "月刃"
+   ```
+
+**Note**: The reference files are from Dota 2 version 7.39 and contain official Valve translations for all standard abilities.
+
 ### Usage in Code
 
 Reference localization keys in XML/Panorama:
