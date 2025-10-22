@@ -7234,7 +7234,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilitySharedCooldown"			"gungir"
 		"BaseClass"						"item_gungir"
-		"AbilityTextureName"			"item_gungir_2"
+		"AbilityTextureName"			"item_gungir_3"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
