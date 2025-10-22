@@ -111,12 +111,50 @@ export class EventEntityKilled {
   ];
 
   private dropItemChanceFusionRoshan = 100;
-  private dropItemChanceFusionAncient = 1.0;
-  private dropItemChanceFusionNeutral = 0.2;
+  private dropItemChanceFusionAncient = 1.2;
+  private dropItemChanceFusionNeutral = 0.25;
   //限时高概率
   // private dropItemChanceFusionRoshan = 30;
   //private dropItemChanceFusionAncient = 0.3;
   //private dropItemChanceFusionNeutral = 0.1;
+  private calculateDropChance(baseChance: number): number {
+    // 获取游戏难度
+
+    const difficulty = GameRules.Option.direGoldXpMultiplier || 1;
+    // 获取玩家人数
+    const playerCount = Player.GetPlayerCount();
+
+    // 难度系数: 难度越高,掉落概率越高
+    let difficultyMultiplier = 1;
+    if (difficulty >= 60) {
+      difficultyMultiplier = 3.0; // 60难度: 3倍概率
+    } else if (difficulty >= 20) {
+      difficultyMultiplier = 2.0; // 20难度: 2倍概率
+    } else if (difficulty >= 12) {
+      difficultyMultiplier = 1.5; // 12难度: 1.4倍概率
+    } else if (difficulty >= 1) {
+      difficultyMultiplier = 1; // N2难度: 1.2倍概率
+    }
+
+    // 人数系数: 人数越多概率越高
+    let playerMultiplier = 1;
+    if (playerCount >= 6) {
+      playerMultiplier = 1.8; // 6人: 2倍概率
+    } else if (playerCount >= 4) {
+      playerMultiplier = 1.5; // 4-5人: 1.0倍概率
+    } else if (playerCount >= 2) {
+      playerMultiplier = 1.0; // 2-3人: 1.5倍概率
+    } else if (playerCount <= 1) {
+      playerMultiplier = 1.2; // 1人: 2倍概率
+    }
+
+    // 最终概率 = 基础概率 × 难度系数 × 人数系数
+    const finalChance = baseChance * difficultyMultiplier * playerMultiplier;
+
+    // 设置上限,避免概率过高
+    return Math.min(finalChance, 100);
+  }
+
   private onCreepKilled(creep: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC | undefined): void {
     const creepName = creep.GetName();
 
@@ -131,7 +169,7 @@ export class EventEntityKilled {
           true,
         );
 
-        // 融合符文掉落 - 掉落数量 1 ~ 3 的随机数
+        // 融合符文掉落 - 使用神器组件的循环逻辑可重复
         const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
         const dropCount = RandomInt(1, maxDropCount);
         print(`[EventEntityKilled] Fusion material dropCount is ${dropCount}`);
@@ -173,10 +211,15 @@ export class EventEntityKilled {
           this.dropItemChanceAncient,
           true,
         );
-
+        const MultiplieddropItemChanceFusionNeutral = this.calculateDropChance(
+          this.dropItemChanceFusionAncient,
+        );
         // 符文掉落 - 单次随机
-        this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceFusionAncient);
-
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          MultiplieddropItemChanceFusionNeutral,
+        );
         this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
@@ -189,12 +232,16 @@ export class EventEntityKilled {
           this.dropItemChanceNeutral,
           true,
         );
-
+        const MultiplieddropItemChanceFusionNeutral = this.calculateDropChance(
+          this.dropItemChanceFusionAncient,
+        );
         // 符文掉落 - 单次随机
-        const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
-        const randomRune = this.dropItemListFusionMaterial[randomIndex];
-        this.dropItem(creep, [randomRune], this.dropItemChanceFusionNeutral);
-
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          MultiplieddropItemChanceFusionNeutral,
+        );
+        //神器组件
         this.dropParts(creep, this.dropItemChanceNeutral);
       }
     }
