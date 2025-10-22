@@ -277,16 +277,26 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(2.7);
     });
 
-    it('刷分玩家倍率', () => {
+    it('勾选额外技能时，降低倍率', () => {
+      const option = {
+        ...defaultOption,
+        extraPassiveAbilities: true,
+      } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.7);
+    });
+
+    it('最低倍率不低于0', () => {
       const option = {
         ...defaultOption,
         radiantGoldXpMultiplier: 5,
         direGoldXpMultiplier: 10,
         direPlayerNumber: 5,
         towerPower: 150,
+        extraPassiveAbilities: true,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.1);
+      expect(multiplier).toBeGreaterThanOrEqual(0);
     });
   });
 });

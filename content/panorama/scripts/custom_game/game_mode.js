@@ -69,7 +69,7 @@ function ShowChatTeamActivate() {
 function InitSetting() {
   $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
-  $('#extra_passive_abilities').checked = false; // 默认不增加额外被动技能
+  $('#extra_passive_abilities').checked = true; // 自定义难度默认勾选额外被动技能
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
   $('#dire_player_number_dropdown').SetSelected('10');
@@ -128,6 +128,7 @@ function UnLockOptionAll() {
   $('#extra_passive_abilities').enabled = true;
 }
 
+// N1-N6 通用设置
 function InitDifficultyCommonSetting() {
   $('#dire_player_number_dropdown').SetSelected('10');
 
