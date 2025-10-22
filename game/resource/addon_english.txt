@@ -2884,12 +2884,16 @@
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note1"                           "Uses pseudo-random distribution for trigger chance."
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note2"                           "Cannot retrigger during an active trigger to prevent infinite loops."
 
-		"DOTA_Tooltip_ability_trigger_on_attacked"                          "Butterfly Effect - Gold"
-		"DOTA_Tooltip_ability_trigger_on_attacked_Description"              "When attacked, has a chance to trigger learned abilities. Triggered abilities cost no mana and don't go on cooldown. Built-in cooldown decreases per level to prevent excessive triggering."
-		"DOTA_Tooltip_ability_trigger_on_attacked_basic_trigger_chance"     "%BASIC ABILITY TRIGGER CHANCE:"
-		"DOTA_Tooltip_ability_trigger_on_attacked_ultimate_trigger_chance"  "%ULTIMATE ABILITY TRIGGER CHANCE:"
-		"DOTA_Tooltip_ability_trigger_on_attacked_cooldown_duration"        "INTERNAL COOLDOWN:"
-
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked"                          "Butterfly Effect - Gold"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"              "When attacked, has a chance to trigger learned abilities. Built-in cooldown decreases per level to prevent excessive triggering."
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"     "%BASIC ABILITY TRIGGER CHANCE:"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"  "%ULTIMATE ABILITY TRIGGER CHANCE:"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"        "INTERNAL COOLDOWN:"
+"DOTA_Tooltip_ability_ability_trigger_on_move"                         "Butterfly Effect - Orange"
+"DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "Trigger a random learned ability depend on the distance you've moved"
+"DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"    "%Basic Ability Trigger Chance (speed 500):"
+"DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance" "%Ultimate Ability Trigger Chance (speed 500):"
+"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "Check interval:"
 		"npc_windy"                                 "Windy"
 		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}

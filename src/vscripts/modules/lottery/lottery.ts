@@ -116,8 +116,8 @@ export class Lottery {
       4987: { name: 'luna_moon_glaive', level: 4 },
       4986: { name: 'templar_assassin_psi_blades', level: 5 },
       4985: { name: 'faceless_void_time_lock', level: 4 },
-      4984: { name: 'slardar_bash', level: 4 },
-      4983: { name: 'ability_trigger_on_attacked', level: 5 },
+      4984: { name: 'ability_trigger_on_cast', level: 4 },
+      4983: { name: 'ability_trigger_learned_skills', level: 5 },
     };
 
     return abilityMap[startingGold] || null;
@@ -181,9 +181,12 @@ export class Lottery {
     if (abilityType === 'abilityPassive' && abilityLotteryResults.length > 0) {
       const hudiexiaoying = RandomInt(1, 1);
       if (hudiexiaoying === 1) {
-        const hudie = RandomInt(0, 1);
-        if (hudie === 0)
-          abilityLotteryResults[0] = { name: 'ability_trigger_on_cast', level: 5 }; // level可调整
+        const hudie = RandomInt(0, 3);
+        if (hudie === 0) abilityLotteryResults[0] = { name: 'ability_trigger_on_cast', level: 5 }; // level可调整
+        if (hudie === 1)
+          abilityLotteryResults[0] = { name: 'ability_trigger_on_attacked', level: 5 }; // level可调整
+        if (hudie === 2)
+          abilityLotteryResults[0] = { name: 'ability_trigger_on_move', level: 5 }; // level可调整
         else abilityLotteryResults[0] = { name: 'ability_trigger_learned_skills', level: 5 }; // level可调整
       }
       // 新增: 只有在强制随机英雄模式下才应用特殊技能逻辑
