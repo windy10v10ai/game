@@ -160,56 +160,13 @@ export class Lottery {
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 修改修改修改开始 - 强制第一个被动技能为 高级技能
-
+    // 强制第一个被动技能为 高级技能
     if (abilityType === 'abilityPassive' && abilityLotteryResults.length > 0) {
-      const hudiexiaoying = RandomInt(1, 1);
-      if (hudiexiaoying === 1) {
-        const hudie = RandomInt(0, 3);
-        if (hudie === 0) abilityLotteryResults[0] = { name: 'ability_trigger_on_cast', level: 5 }; // level可调整
-        if (hudie === 1)
-          abilityLotteryResults[0] = { name: 'ability_trigger_on_attacked', level: 5 }; // level可调整
-        if (hudie === 2)
-          abilityLotteryResults[0] = { name: 'ability_trigger_on_move', level: 5 }; // level可调整
-        else abilityLotteryResults[0] = { name: 'ability_trigger_learned_skills', level: 5 }; // level可调整
-      }
-      // 新增: 只有在强制随机英雄模式下才应用特殊技能逻辑
-      const isForceRandomHero = GameRules.Option.sameHeroSelection;
-
-      if (isForceRandomHero) {
-        const randomIndex = RandomInt(0, 5);
-        if (randomIndex === 0)
-          abilityLotteryResults[0] = { name: 'ogre_magi_multicast_lua', level: 4 }; // level可调整
-        if (randomIndex === 1) abilityLotteryResults[0] = { name: 'dazzle_good_juju', level: 5 }; // level可调整
-        if (randomIndex === 2) abilityLotteryResults[0] = { name: 'leshrac_defilement2', level: 4 }; // level可调整
-        if (randomIndex === 3)
-          abilityLotteryResults[0] = { name: 'death_prophet_witchcraft2', level: 3 }; // level可调整
-        if (randomIndex === 4) abilityLotteryResults[0] = { name: 'medusa_split_shot', level: 5 }; // level可调整
-        if (randomIndex === 5)
-          abilityLotteryResults[0] = { name: 'ability_trigger_learned_skills', level: 3 }; // level可调整
-      }
-      // 添加基于固定技能选项的额外技能
       const specifiedAbility = this.getSpecifiedPassiveAbilityByFixedAbility();
       if (specifiedAbility) {
-        abilityLotteryResults[1] = specifiedAbility;
+        abilityLotteryResults[0] = specifiedAbility;
       }
     }
-
-    // 修改修改修改开始 - 强制第一个主动技能为 高级技能
-    if (abilityType === 'abilityActive' && abilityLotteryResults.length > 0) {
-      const randomIndex = RandomInt(0, 6);
-      if (randomIndex === 0) abilityLotteryResults[0] = { name: 'marci_unleash', level: 3 }; // level可调整
-      if (randomIndex === 1) abilityLotteryResults[0] = { name: 'dazzle_bad_juju', level: 3 }; // level可调整
-      if (randomIndex === 2)
-        abilityLotteryResults[0] = { name: 'ember_spirit_sleight_of_fist', level: 3 }; // level可调整
-      if (randomIndex === 3)
-        abilityLotteryResults[0] = { name: 'gyrocopter_flak_cannon', level: 5 }; // level可调整
-      if (randomIndex === 4)
-        abilityLotteryResults[0] = { name: 'alchemist_chemical_rage', level: 5 }; // level可调整
-      if (randomIndex === 5) abilityLotteryResults[0] = { name: 'tinker_rearm_lua', level: 3 }; // level可调整
-      if (randomIndex === 6) abilityLotteryResults[0] = { name: 'juggernaut_omni_slash', level: 3 }; // level可调整
-    }
-    // 修改修改结束
 
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
   }
