@@ -66,7 +66,7 @@ function ShowChatTeamActivate() {
 
 // -------- Game Setting --------
 
-function InitSetting() {
+function InitCustomSetting() {
   $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
   $('#extra_passive_abilities').checked = true; // 自定义难度默认勾选额外被动技能
@@ -288,7 +288,7 @@ function OnDifficultyDropDownChanged(difficulty) {
   const optionId = difficulty;
   if (optionId === 0) {
     UnLockOptionAll();
-    InitSetting();
+    InitCustomSetting();
   } else {
     InitDifficultyCommonSetting();
     if (optionId === 1) {

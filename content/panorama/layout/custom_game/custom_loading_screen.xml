@@ -117,7 +117,16 @@
 							<Label text="5000" id="5000"/>
 						</DropDown>
 					</Panel>
-					<!-- 固定技能 -->
+					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">
+						<Label id="StartingGoldBotTitle" class="GameOptionsLabel" text="#starting_gold_bot" />
+						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
+							<Label text="1000" id="1000"/>
+							<Label text="3000" id="3000"/>
+							<Label text="5000" id="5000"/>
+							<Label text="10000" id="10000"/>
+						</DropDown>
+					</Panel>
+					<!-- 固定技能, id为技能的系统名称 -->
 					<Panel id="FixedAbilityPanel"	class="GameOptionsSubPanel">
 						<Label id="FixedAbilityTitle" class="GameOptionsLabel" text="#fixed_ability" />
 						<DropDown id="fixed_ability_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
@@ -139,15 +148,6 @@
 							<Label text="#fixed_ability_faceless_void_time_lock" id="faceless_void_time_lock"/>
 							<Label text="#fixed_ability_trigger_on_cast" id="ability_trigger_on_cast"/>
 							<Label text="#fixed_ability_trigger_learned_skills" id="ability_trigger_learned_skills"/>
-						</DropDown>
-					</Panel>
-					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">
-						<Label id="StartingGoldBotTitle" class="GameOptionsLabel" text="#starting_gold_bot" />
-						<DropDown id="starting_gold_bot_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
-							<Label text="1000" id="1000"/>
-							<Label text="3000" id="3000"/>
-							<Label text="5000" id="5000"/>
-							<Label text="10000" id="10000"/>
 						</DropDown>
 					</Panel>
 					<!-- 是否强制随机英雄 -->
