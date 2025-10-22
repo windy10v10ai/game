@@ -23,11 +23,9 @@ export class NetTableHelper {
     return {
       activeAbilityName: lotteryStatusData.activeAbilityName,
       activeAbilityLevel: lotteryStatusData.activeAbilityLevel,
-      activeAbilityCount: lotteryStatusData.activeAbilityCount ?? 0,
       isActiveAbilityRefreshed: Boolean(lotteryStatusData.isActiveAbilityRefreshed),
       passiveAbilityName: lotteryStatusData.passiveAbilityName,
       passiveAbilityLevel: lotteryStatusData.passiveAbilityLevel,
-      passiveAbilityCount: lotteryStatusData.passiveAbilityCount ?? 0, // 添加这一行
       isPassiveAbilityRefreshed: Boolean(lotteryStatusData.isPassiveAbilityRefreshed),
       skillResetRemovedCount: lotteryStatusData.skillResetRemovedCount ?? 0,
       skillResetPickedCount: lotteryStatusData.skillResetPickedCount ?? 0,

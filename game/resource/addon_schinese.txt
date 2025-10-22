@@ -40,6 +40,7 @@
 		"same_hero_selection"		"允许选择相同英雄"
 		"force_random_hero"			"强制随机英雄"
 		"enable_player_attribute"	"启用玩家属性"
+		"extra_passive_abilities"	"额外被动技能"
 		"hide_chat_team"			"隐藏聊天框"
 		"show_chat_team"			"显示聊天框"
 
@@ -160,8 +161,8 @@
 		///////////////////////////////////////////////////
 		"lottery_expand"										"展开"
 		"lottery_collapsed"										"折叠"
-		"lottery_active_ability_title"							"选择技能"
-		"lottery_passive_ability_title"							"选择技能"
+		"lottery_active_ability_title"							"选择主动技能"
+		"lottery_passive_ability_title"							"选择被动技能"
 
 		"lottery_tooltip_ability_refresh"						"点击刷新技能"
 		"lottery_tooltip_ability_refresh_used"					"技能已刷新"

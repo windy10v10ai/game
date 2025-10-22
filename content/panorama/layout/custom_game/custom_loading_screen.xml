@@ -132,8 +132,6 @@
 							<Label text="4985 + 时间锁定" id="4985"/>
 							<Label text="4984 + 蝴蝶效应·红魔" id="4984"/>
 							<Label text="4983 + 蝴蝶效应·蓝武" id="4983"/>
-							<Label text="4982 + 自选2被动" id="4982"/>
-							<Label text="4981 + 自选3被动" id="4981"/>
 						</DropDown>
 					</Panel>
 					<Panel id="StartingGoldBotPanel"	class="GameOptionsSubPanel">
@@ -154,6 +152,11 @@
 					<Panel id="PlayerAttributePanel"	class="GameOptionsSubPanel">
 						<Label id="PlayerAttributeTitle" class="GameOptionsLabel" text="#enable_player_attribute" />
 						<ToggleButton checked="true" class="GameOptionsToggle" id="enable_player_attribute" onactivate="SendGameOptionsToServer()"/>
+					</Panel>
+					<!-- 是否增加额外被动技能 -->
+					<Panel id="ExtraPassiveAbilitiesPanel"	class="GameOptionsSubPanel">
+						<Label id="ExtraPassiveAbilitiesTitle" class="GameOptionsLabel" text="#extra_passive_abilities" />
+						<ToggleButton checked="false" class="GameOptionsToggle" id="extra_passive_abilities" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
 				</Panel>
 			</Panel>

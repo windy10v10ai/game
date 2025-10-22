@@ -7,7 +7,7 @@ interface LotteryAbilityItemProps {
   level: number;
   name: string;
   type: AbilityItemType;
-  pickedName: string | undefined;
+  pickedAbilityName: string | undefined;
   sourceTable?: string; // 添加这个字段
 }
 const itemStyle = {
@@ -37,7 +37,7 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
   level,
   name,
   type,
-  pickedName,
+  pickedAbilityName,
   sourceTable,
 }) => {
   const steamAccountId = GetLocalPlayerSteamAccountID();
@@ -91,9 +91,9 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
 
   if (isCurrentAbility) {
     className = 'Bright';
-  } else if (pickedName === name) {
+  } else if (pickedAbilityName === name) {
     className = 'Bright';
-  } else if (pickedName) {
+  } else if (pickedAbilityName) {
     className = 'Darker';
   }
 
