@@ -39,15 +39,37 @@ const getTooltipTextToken = (
   return '#lottery_tooltip_ability_refresh';
 };
 
+const getIsRefreshed = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | null) => {
+  if (type === 'abilityActive') {
+    return lotteryStatus?.isActiveAbilityRefreshed;
+  }
+  if (type === 'abilityPassive') {
+    return lotteryStatus?.isPassiveAbilityRefreshed;
+  }
+  if (type === 'abilityPassive2') {
+    return lotteryStatus?.isPassiveAbilityRefreshed2;
+  }
+  return false;
+};
+
+const getPickedName = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | null) => {
+  if (type === 'abilityActive') {
+    return lotteryStatus?.activeAbilityName;
+  }
+  if (type === 'abilityPassive') {
+    return lotteryStatus?.passiveAbilityName;
+  }
+  if (type === 'abilityPassive2') {
+    return lotteryStatus?.passiveAbilityName2;
+  }
+  return undefined;
+};
+
 const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
   // 根据会员 抽选状态判断是否禁用
   const isMember = member?.enable;
-  const isRefreshed =
-    type === 'abilityActive'
-      ? lotteryStatus?.isActiveAbilityRefreshed
-      : lotteryStatus?.isPassiveAbilityRefreshed;
-  const pickedName =
-    type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
+  const isRefreshed = getIsRefreshed(type, lotteryStatus);
+  const pickedName = getPickedName(type, lotteryStatus);
 
   // 添加重选模式检查
   const isSkillResetMode = lotteryStatus?.isSkillResetMode === true;
