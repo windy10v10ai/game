@@ -116,7 +116,6 @@ local EXCLUDED_ABILITIES = {
     ["ember_spirit_activate_fire_remnant"] = true, -- 灰烬之灵 激活火焰残影
     ["earth_spirit_rolling_boulder"] = true,       -- 大地之灵 巨石翻滚
     ["wisp_relocate"] = true,                      -- 艾欧 迁移
-    ["marci_companion_run"] = true,                -- 玛西 伙伴奔跑
     ["viper_nosedive"] = true,                     -- 冥界亚龙 俯冲
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
@@ -217,6 +216,7 @@ local EXCLUDED_ABILITIES = {
     ["marci_bodyguard"] = true,        -- 玛西 保镖
     ["marci_special_delivery"] = true, -- 玛西 特快专递
     ["marci_grapple"] = true,          -- 玛西 过肩摔
+    ["marci_companion_run"] = true,    -- 玛西 伙伴奔跑
 
     -- ========================================
     -- 幻象类技能

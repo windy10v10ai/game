@@ -8,9 +8,6 @@
 		// 继承岩石傀儡的基础属性
 		"include_keys_from" "npc_dota_neutral_kobold_taskmaster"
 
-   		// ✅ 新增: 强制覆盖单位名称
-    	"override_hero"     "npc_windy"
-
 		// Armor - 大幅提高护甲和魔抗
 		//----------------------------------------------------------------
 		"ArmorPhysical"         "90"        // 原值未知,大幅提高
