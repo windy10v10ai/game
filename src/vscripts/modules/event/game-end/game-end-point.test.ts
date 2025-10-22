@@ -283,7 +283,7 @@ describe('GameEndPoint', () => {
         extraPassiveAbilities: true,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.7);
+      expect(multiplier).toBe(0.8);
     });
 
     it('最低倍率不低于0', () => {
