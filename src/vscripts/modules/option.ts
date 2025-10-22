@@ -13,6 +13,7 @@ export class Option {
   startingGoldBot = 1000;
   respawnTimePercentage = 100;
   maxLevel = 50;
+  fixedAbility = 'none';
   sameHeroSelection = false;
   enablePlayerAttribute = true;
   extraPassiveAbilities = false;
@@ -43,6 +44,7 @@ export class Option {
     this.startingGoldBot = keys.starting_gold_bot;
     this.respawnTimePercentage = keys.respawn_time_pct;
     this.maxLevel = keys.max_level;
+    this.fixedAbility = keys.fixed_ability;
     this.sameHeroSelection = keys.same_hero_selection === 1; // 现在表示是否强制随机
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
     this.extraPassiveAbilities = keys.extra_passive_abilities === 1;
