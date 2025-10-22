@@ -69,7 +69,7 @@ function ShowChatTeamActivate() {
 function InitSetting() {
   $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
-  $('#extra_passive_abilities').checked = false; // 默认不增加额外被动技能
+  $('#extra_passive_abilities').checked = true; // 自定义难度默认勾选额外被动技能
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('14');
   $('#dire_player_number_dropdown').SetSelected('10');
@@ -78,7 +78,7 @@ function InitSetting() {
   $('#max_level_dropdown').SetSelected('200');
   $('#tower_power_dropdown').SetSelected('500');
 
-  $('#starting_gold_player_dropdown').SetSelected('4981');
+  $('#starting_gold_player_dropdown').SetSelected('4983');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
 
   // 开发模式
@@ -88,7 +88,6 @@ function InitSetting() {
     $('#radiant_player_number_dropdown').SetSelected('3');
     $('#dire_player_number_dropdown').SetSelected('3');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
-    $('#tower_power_dropdown').SetSelected('300');
   }
 }
 
@@ -128,6 +127,7 @@ function UnLockOptionAll() {
   $('#extra_passive_abilities').enabled = true;
 }
 
+// N1-N6 通用设置
 function InitDifficultyCommonSetting() {
   $('#dire_player_number_dropdown').SetSelected('10');
 

@@ -3,27 +3,7 @@ import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import { MemberDto } from '../../../../vscripts/api/player';
 import { GetOpenMemberUrl } from '@utils/utils';
 import { AbilityItemType } from '../../../../common/dto/lottery';
-// 特殊用户 Steam ID 列表(可以刷新 100 次)
-// 在文件顶部添加权限配置(与后端保持一致)
-const REFRESH_TIER_CONFIGS = [
-  { tier: 1, maxCount: 100, steamIds: ['116431158'] },
-  { tier: 2, maxCount: 10, steamIds: ['76561198111111111', '76561198222222222'] },
-  {
-    tier: 3,
-    maxCount: 3,
-    steamIds: ['436804590', '295351477', '180074451', '92159660', '370099556'],
-  },
-  { tier: 4, maxCount: 2, steamIds: ['198490822'] },
-];
 
-function getMaxRefreshCount(steamAccountID: string): number {
-  for (const config of REFRESH_TIER_CONFIGS) {
-    if (config.steamIds.includes(steamAccountID)) {
-      return config.maxCount;
-    }
-  }
-  return 1; // 默认会员
-}
 interface RefreshButtonProps {
   type: AbilityItemType;
   lotteryStatus: LotteryStatusDto | null;
@@ -59,21 +39,37 @@ const getTooltipTextToken = (
   return '#lottery_tooltip_ability_refresh';
 };
 
+const getIsRefreshed = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | null) => {
+  if (type === 'abilityActive') {
+    return lotteryStatus?.isActiveAbilityRefreshed;
+  }
+  if (type === 'abilityPassive') {
+    return lotteryStatus?.isPassiveAbilityRefreshed;
+  }
+  if (type === 'abilityPassive2') {
+    return lotteryStatus?.isPassiveAbilityRefreshed2;
+  }
+  return false;
+};
+
+const getPickedName = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | null) => {
+  if (type === 'abilityActive') {
+    return lotteryStatus?.activeAbilityName;
+  }
+  if (type === 'abilityPassive') {
+    return lotteryStatus?.passiveAbilityName;
+  }
+  if (type === 'abilityPassive2') {
+    return lotteryStatus?.passiveAbilityName2;
+  }
+  return undefined;
+};
+
 const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
-  const localPlayerID = Players.GetLocalPlayer();
-  const steamID = Game.GetPlayerInfo(localPlayerID).player_steamid;
-
+  // 根据会员 抽选状态判断是否禁用
   const isMember = member?.enable;
-  const refreshCount =
-    type === 'abilityActive'
-      ? lotteryStatus?.activeAbilityRefreshCount || 0
-      : lotteryStatus?.passiveAbilityRefreshCount || 0;
-
-  const maxRefreshCount = getMaxRefreshCount(steamID);
-  const isRefreshed = refreshCount >= maxRefreshCount;
-
-  const pickedName =
-    type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
+  const isRefreshed = getIsRefreshed(type, lotteryStatus);
+  const pickedName = getPickedName(type, lotteryStatus);
 
   // 添加重选模式检查
   const isSkillResetMode = lotteryStatus?.isSkillResetMode === true;
@@ -85,31 +81,14 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
     ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
     : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
 
-  // 提示文本 - 为特殊用户显示剩余次数
-  let tooltipText: string;
-  if (isMember && !pickedName && !isSkillResetMode) {
-    const remainingCount = maxRefreshCount - refreshCount;
-    tooltipText =
-      $.Localize('#lottery_tooltip_ability_refresh') + ` (${remainingCount}/${maxRefreshCount})`;
-  } else {
-    const tooltipTextToken = getTooltipTextToken(type, isMember, isRefreshed, pickedName);
-    tooltipText = $.Localize(tooltipTextToken);
-  }
+  // 提示文本
+  const tooltipTextToken = getTooltipTextToken(type, isMember, isRefreshed, pickedName);
+  const tooltipText = $.Localize(tooltipTextToken);
 
   // 刷新事件
   const refreshEventName = 'lottery_refresh_ability';
 
   const handleButtonClick = () => {
-    $.Msg('=== RefreshButton Click Debug ===');
-    $.Msg('isMember: ' + isMember);
-    $.Msg('isRefreshed: ' + isRefreshed);
-    $.Msg('refreshCount: ' + refreshCount);
-    $.Msg('maxRefreshCount: ' + maxRefreshCount);
-    $.Msg('pickedName: ' + pickedName);
-    $.Msg('isSkillResetMode: ' + isSkillResetMode);
-    $.Msg('enabled: ' + enabled);
-    $.Msg('================================');
-
     if (!isMember) {
       $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
       return;
@@ -121,7 +100,7 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
     }
 
     if (isRefreshed) {
-      $.Msg('[RefreshButton] Already refreshed maximum times, ignoring click');
+      $.Msg('[RefreshButton] Already refreshed, ignoring click');
       return;
     }
 
