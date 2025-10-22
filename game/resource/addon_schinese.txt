@@ -1363,12 +1363,12 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"              "移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "蝴蝶效应 · 蓝武"
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>被动:武痴</h1>普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%触发其中一个普通技能的概率:"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%触发其中一个终极技能的概率:"
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "蝴蝶效应 · 红魔"
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；与多重施法互斥；孙悟空模型无法触发；<br><br>普通技能触发概率: %basic_trigger_chance%%%<br>终极技能触发概率: %ultimate_trigger_chance%%%<br>"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "<h1>被动:入魔</h1>施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；与多重施法互斥；孙悟空模型无法触发；<br><br>普通技能触发概率: %basic_trigger_chance%%%<br>终极技能触发概率: %ultimate_trigger_chance%%%<br>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_basic_trigger_chance"            "%普通技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_ultimate_trigger_chance"         "%终极技能触发概率:"
 
@@ -1378,7 +1378,7 @@
 
 		// 蝴蝶效应·金身 (被攻击触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked"                         "蝴蝶效应 · 金身"
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"             "被攻击时有概率触发已学习的技能。普通技能和终极技能独立伪随机触发。"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"             "<h1>被动:金身</h1>被攻击时有概率触发已学习的技能。普通技能和终极技能独立伪随机触发。"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"    "%普通技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance" "%终极技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"       "内置冷却时间:"
@@ -1387,19 +1387,43 @@
 		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown_Description"   "蝴蝶效应技能处于内置冷却中。"
 
 "DOTA_Tooltip_ability_ability_trigger_on_move"                         "蝴蝶效应 · 橙影"
-"DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "根据过去检查间隔内的移动距离概率触发已学习的技能。腿儿倒腾的越快,触发概率越高。"
+"DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "<h1>被动:绝影</h1>根据过去一定时间内的位移距离概率触发已学习的技能。腿儿倒腾的越快,触发概率越高。"
 "DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"    "%基础普通技能触发概率（对应移速500）:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance" "%基础终极技能触发概率（对应移速500）:"
-"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "检查间隔:"
+"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "触发时间间隔:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_Note1"                   "触发的技能会自动选择合适的目标:敌方技能对最近的敌人释放,友方技能对自己释放。"
 "DOTA_Tooltip_ability_ability_trigger_on_move_Note2"                   "某些特殊技能(如隐身、传送、引导技能等)不会被触发。"
 		"DOTA_Tooltip_Ability_item_tome_of_skill_reset"                 "技能重置书（低阶）"
 		"DOTA_Tooltip_Ability_item_tome_of_skill_reset_Description"    "<h1>使用:技能重置</h1>打开技能重置界面,可以移除已学习的lottery技能并学习新技能。\n上面一排是可选移除的技能列表，下面一排是可选择添加的技能列表\n\n</h1>快捷键会自动更新，但不要选过多的主动技能（只有两个额外快捷键）。\n\n</h1>有时候英雄本身的技能也会进入列表，未经充分测试无法提供列表，也能成功替换但不保证没问题，慎选。\n\n</h1>移除技能时会返还技能点。\n\n</h1>开弓没有回头箭，不选完不许回家。"
 		"DOTA_Tooltip_Ability_item_tome_of_skill_reset_Lore"           "重新规划你的技能路线。"
 
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "蝴蝶效应 · 绿莲"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "<h1>被动:幽莲</h1>受到指向性技能伤害时有概率反弹伤害,成功反弹时有概率触发已学习的技能。"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"          "%反弹概率:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"      "%反弹伤害百分比:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_trigger_chance"          "%技能触发概率:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_cooldown_duration"       "内置冷却时间:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note0"                   "反弹伤害与原伤害类型相同。触发的技能会自动选择合适的目标:敌方技能对攻击者释放,友方技能对自己释放。"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note1"                   "某些特殊技能(如隐身、传送、引导技能等)不会被触发。"
 
-		//"DOTA_Tooltip_ability_special_bonus_unique_mirana_7"							"星落增加60%攻击伤害"
-		"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
+"DOTA_Tooltip_modifier_trigger_on_spell_reflect_cooldown"               "法术反弹冷却"
+"DOTA_Tooltip_modifier_trigger_on_spell_reflect_cooldown_Description"   "法术反弹技能处于内置冷却中。"
+
+"DOTA_Tooltip_ability_ability_trigger_on_active"                        "蝴蝶效应 · 紫啸"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "<h1>主动：狂潮</h1>以前所未有的速度对指定地点范围内的敌人疯狂倾斜法术，包括所有可用的技能和物品。效果期间所有冷却时间缩短为1/5,并移除施法前摇，但人无法移动。<br><br>持续时间: %duration% 秒"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦"
+"DOTA_Tooltip_ability_ability_trigger_on_active_duration"               "持续时间:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"          "搜索范围:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"     "施法间隔:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_cd_reduction_pct"       "%冷却缩减:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_cast_time_reduction_pct" "%施法前摇减免:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_bonus_cast_range"       "期间额外施法距离:"
+
+"DOTA_Tooltip_ability_ability_charge_damage"                        "蝴蝶效应 · 青凝"
+"DOTA_Tooltip_ability_ability_charge_damage_Description"            "<h1>被动:凝心</h1>凝心静气，在技能冷却好而不释放的时候积蓄能量、增幅下次释放造成的第一次伤害。<br>加成对象：有伤害的主动技能；<br>增幅倍率 = 充能时间除以技能冷却时间。<br><br>充能延迟: %ready_delay% 秒<br>最大伤害倍率: %max_times%x"
+"DOTA_Tooltip_ability_ability_charge_damage_Lore"                   "耐心等待,一击必杀。"
+
+	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
@@ -2133,11 +2157,11 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		// item_magic_scepter 紫杖
-		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔渊法杖"
+		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔云法杖"
 		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续 %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
-		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"魔渊法杖卷轴"
+		"DOTA_Tooltip_Ability_item_recipe_magic_scepter"						"魔云法杖卷轴"
 
 		"DOTA_Tooltip_modifier_item_magic_scepter_active"	                	"魔力爆发"
 		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
@@ -2446,6 +2470,14 @@
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"				"+$int"
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_hp"						"+$health"
 		"DOTA_Tooltip_Ability_item_gungir_2_bonus_mana"						"+$mana"
+		// item_gungir_3 大大缚灵索
+		"DOTA_Tooltip_ability_item_gungir_3"								"风灵之锤"
+		"DOTA_Tooltip_ability_item_gungir_3_Description"					"<h1>主动：闪电风暴</h1>缠绕目标%radius_tooltip%范围内所有敌人，持续%duration%秒，并造成%active_damage%点伤害。"
+		"DOTA_Tooltip_ability_item_gungir_3_Lore"							"警告：侦测到天气控制机。闪电风暴准备就绪。"
+		"DOTA_Tooltip_ability_item_gungir_3_bonus_aoe"						"+$aoe_bonus"
+		"DOTA_Tooltip_ability_item_gungir_3_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_gungir_3_bonus_hp"						"+$health"
+		"DOTA_Tooltip_Ability_item_gungir_3_bonus_mana"						"+$mana"
 
 		"DOTA_Tooltip_Ability_item_satanic_2"				"真红·撒旦之邪力"
 		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>主动：不洁狂热</h1>吸血效果提升至%unholy_lifesteal_total_tooltip%%%，持续%unholy_duration%秒。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：吸血</h1>攻击者每次攻击都将根据造成伤害的一定百分比回复生命值。攻击非英雄单位的吸血效果降低%creep_lifesteal_reduction_pct%%%。"

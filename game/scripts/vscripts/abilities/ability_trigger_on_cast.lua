@@ -115,7 +115,6 @@ local EXCLUDED_ABILITIES = {
     ["queenofpain_blink"] = true,                  -- 痛苦女王 闪烁
     ["ember_spirit_activate_fire_remnant"] = true, -- 灰烬之灵 激活火焰残影
     ["earth_spirit_rolling_boulder"] = true,       -- 大地之灵 巨石翻滚
-    ["wisp_relocate"] = true,                      -- 艾欧 迁移
     ["viper_nosedive"] = true,                     -- 冥界亚龙 俯冲
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
@@ -199,7 +198,6 @@ local EXCLUDED_ABILITIES = {
     ["terrorblade_reflection"] = true,          -- 恐怖利刃 倒影
     ["goku_kaioken"] = true,                    -- 悟空 界王拳
     ["tusk_snowball"] = true,                   -- 巨牙海民 雪球
-    ["wisp_tether"] = true,                     -- 艾欧 羁绊
     ["muerta_the_calling"] = true,              -- 唤魂
     ["magnataur_empower"] = true,               -- 马格纳斯 授予力量
     ["furion_teleportation"] = true,            -- 先知 传送
@@ -208,6 +206,12 @@ local EXCLUDED_ABILITIES = {
     ["viper_nethertoxin"] = true,               -- 冥界亚龙 剧毒攻击
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
     ["tinker_keen_teleport"] = true,            -- 修补匠 传送  ✅ 新增
+    --精灵
+    ["wisp_tether"] = true,
+    ["wisp_spirits"] = true,
+    ["wisp_relocate"] = true,
+    ["wisp_spirits_in"] = true,
+    ["wisp_spirits_out"] = true,
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招
@@ -231,6 +235,12 @@ local EXCLUDED_ABILITIES = {
     ["spectre_haunt_single"] = true,       -- 幽鬼 - 单体降临
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
     ["skeleton_king_reincarnation"] = true,
+    ["mars_bulwark"] = true,
+    ["ember_spirit_fire_remnant"] = true,
+    ["earth_spirit_stone_caller"] = true,
+    ["muerta_gunslinger"] = true,
+    ["troll_warlord_switch_stance"] = true,
+    ["earthshaker_fissure"] = true,
 }
 
 function ability_trigger_on_cast:GetIntrinsicModifierName()
@@ -439,6 +449,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
 
         if caster:IsStunned() or caster:IsSilenced() then
             self.trigger_depth = self.trigger_depth - 1
+            random_ability:EndCooldown() -- 先结束
             random_ability:StartCooldown(remaining_cooldown)
             return
         end
@@ -498,6 +509,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
                     else
                         --print("[cast_trigger] 敌方单体技能但无有效目标,跳过")
                         self.trigger_depth = self.trigger_depth - 1
+                        random_ability:EndCooldown() -- 先结束
                         random_ability:StartCooldown(remaining_cooldown)
                         return
                     end
@@ -573,30 +585,39 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             ParticleManager:ReleaseParticleIndex(particle)
         end
 
-        local restore_delay = 0.5
-        if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
-            restore_delay = 4.0
-        end
+        -- 获取技能的抬手时间
+        local cast_point = random_ability:GetCastPoint()
+        --print(string.format("[Trigger Debug] Ability cast point: %.2fs", cast_point))
 
-        Timers:CreateTimer(restore_delay, function()
+        -- 恢复原有冷却状态 - 加入抬手时间
+        local restore_delay = cast_point + 0.01
+
+        -- 特殊技能的额外延迟
+        if ability_name == "juggernaut_omni_slash" then
+            restore_delay = 4.0
+            --print("[Trigger Debug] Special delay for juggernaut_omni_slash: 4.0s")
+        end
+        random_ability:SetContextThink("restore_cooldown_" .. random_ability:GetEntityIndex(), function()
             if not random_ability or random_ability:IsNull() then
-                return
+                --print("[Trigger Debug] Ability is null, cannot restore CD")
+                return nil
             end
+
             if has_charges then
                 if random_ability:IsItem() then
                     random_ability:SetCurrentCharges(current_charges)
                 else
                     random_ability:SetCurrentAbilityCharges(current_charges)
                 end
+                --print(string.format("[Trigger Debug] Restored charges to %d", current_charges))
             else
-                -- ✅ 修改:根据原始状态恢复冷却
-                if was_ready then
-                    -- 原本冷却好的技能,清除冷却
-                    random_ability:EndCooldown()
+                if remaining_cooldown and remaining_cooldown > 0 then
+                    random_ability:EndCooldown()                     -- 先结束
+                    random_ability:StartCooldown(remaining_cooldown) -- 再用剩余时间开始
+                    --print(string.format("[Trigger Debug] Restored cooldown: %.2fs", remaining_cooldown))
                 else
-                    -- 原本在冷却的技能,恢复原来的冷却时间
                     random_ability:EndCooldown()
-                    random_ability:StartCooldown(remaining_cooldown)
+                    --print("[Trigger Debug] Ended cooldown (was 0)")
                 end
             end
             -- ✅ 清除标记
@@ -604,8 +625,8 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
                 random_ability.butterfly_triggered = nil
             end
             self.trigger_depth = self.trigger_depth - 1
-            --print("[cast_trigger] 触发深度恢复到: " .. self.trigger_depth)
-        end)
+            return nil
+        end, restore_delay)
     end)
     -- ✅ 延迟清除原始技能的标记
     Timers:CreateTimer(0.5, function()

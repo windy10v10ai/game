@@ -2088,6 +2088,14 @@
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"				"+$int"
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_hp"						"+$health"
 		"DOTA_Tooltip_Ability_item_gungir_2_bonus_mana"						"+$mana"
+		// item_gungir_3 大缚灵索
+		"DOTA_Tooltip_ability_item_gungir_3"								"<font color='#91EACE'>Advanced</font> Gleipnir Plus"
+		"DOTA_Tooltip_ability_item_gungir_3_Description"					"<h1>Active: Lightning Storm</h1>Roots all enemies in a target %radius_tooltip% radius for %duration% seconds and deals %active_damage% damage."
+		"DOTA_Tooltip_ability_item_gungir_3_Lore"							"WARNING: Weather control device detected. Lightning Storm Ready."
+		"DOTA_Tooltip_ability_item_gungir_3_bonus_aoe"						"+$aoe_bonus"
+		"DOTA_Tooltip_ability_item_gungir_3_bonus_intellect"				"+$int"
+		"DOTA_Tooltip_ability_item_gungir_3_bonus_hp"						"+$health"
+		"DOTA_Tooltip_Ability_item_gungir_3_bonus_mana"						"+$mana"
 
 		"DOTA_Tooltip_Ability_item_satanic_2"				"<font color='#FFE44D'>Upgraded</font> Satanic"
 		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n\n<h1>Passive: Lifesteal</h1>Heals the attacker for a percentage of attack damage dealt. Lifesteal from creeps is reduced by %creep_lifesteal_reduction_pct%%%."
@@ -2833,10 +2841,15 @@
 "DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"    "+$mana_regen"
 "DOTA_Tooltip_ability_item_beast_armor_bonus_damage"        "+$damage"
 "DOTA_Tooltip_ability_item_beast_armor_evasion"             "%+$evasion"
+// item_magic_abyss_staff 魔渊法杖
+"DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "Magic Abyss Staff"
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your magic damage is converted into additional pure damage.\n<h1>Passive: Spell Amplification</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"                          "Buddha said: One thought to become Buddha, one thought to become demon."
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intelligence"            "+$int"
+"DOTA_Tooltip_Ability_item_recipe_magic_abyss_staff"                        "Magic Abyss Staff Recipe"
 
-		"DOTA_Tooltip_modifier_item_magic_staff_active"                 "One Thought to Demon"
-		"DOTA_Tooltip_modifier_item_magic_staff_active_Description"     "%dMODIFIER_PROPERTY_TOOLTIP%%% of physical damage converted to pure damage"
-
+"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"                       "One Thought to Buddha"
+"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"           "%dMODIFIER_PROPERTY_TOOLTIP%%% of magic damage converted to pure damage"
 		// Magic Sword (魔渊剑)
 		"DOTA_Tooltip_Ability_item_magic_sword"                         "Demonic Sword"
 		"DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units.\n<h1>Passive: Chilling Strike</h1>Attacks apply a %slow_pct%%% slow to the target for %slow_duration% seconds."
@@ -2883,6 +2896,29 @@
 "DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"    "%Basic Ability Trigger Chance (speed 500):"
 "DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance" "%Ultimate Ability Trigger Chance (speed 500):"
 "DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "Check interval:"
+
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "Butterfly Effect · Green"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "When taking damage from targeted spells, has a chance to reflect the damage. Upon successful reflection, has a chance to trigger learned abilities."
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"          "%REFLECTION CHANCE:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"      "%DAMAGE REFLECTION PERCENTAGE:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_trigger_chance"          "%ABILITY TRIGGER CHANCE:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_cooldown_duration"       "INTERNAL COOLDOWN:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note0"                   "Reflected damage type is the same as the original. Triggered abilities automatically select appropriate targets: enemy abilities target the attacker, friendly abilities target self."
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note1"                   "Certain special abilities (such as invisibility, teleportation, channeled abilities, etc.) will not be triggered."
+
+"DOTA_Tooltip_ability_ability_trigger_on_active"                        "Butterfly Effect - Purple"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "Target a location to root yourself and automatically cast all available abilities and items on enemies within range. Reduces all cooldowns to 1/5 and removes cast points during the effect.<br><br>Duration: %duration% seconds"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "Unleash a barrage of abilities with unprecedented speed."
+"DOTA_Tooltip_ability_ability_trigger_on_active_duration"               "DURATION:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"          "SEARCH RADIUS:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"     "CAST INTERVAL:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_cd_reduction_pct"       "%COOLDOWN REDUCTION:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_cast_time_reduction_pct" "%CAST TIME REDUCTION:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_bonus_cast_range"       "BONUS CAST RANGE:"
+
+"DOTA_Tooltip_ability_ability_charge_damage"                        "Butterfly Effect · Cyan"
+"DOTA_Tooltip_ability_ability_charge_damage_Description"            "<h1>Passive: Focused Mind</h1>Calm your mind and accumulate energy to amplify damage when abilities are ready but not cast.<br>Applies to: Active abilities that deal damage<br>Amplification ratio: Charge time / Ability cooldown<br><br>Charge Delay: %ready_delay% seconds<br>Maximum Damage Multiplier: %max_times%x"
+"DOTA_Tooltip_ability_ability_charge_damage_Lore"                   "Patience is the key to a decisive strike."
 		"npc_windy"                                 "Windy"
 		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}
