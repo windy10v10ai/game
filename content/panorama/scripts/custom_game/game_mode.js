@@ -140,7 +140,7 @@ function InitDifficultyCommonSetting() {
   $('#fixed_ability_dropdown').SetSelected('none');
   $('#same_hero_selection').checked = false;
   $('#enable_player_attribute').checked = true;
-  $('#extra_passive_abilities').checked = false;
+  $('#extra_passive_abilities').checked = true;
 }
 
 function InitN1Setting() {

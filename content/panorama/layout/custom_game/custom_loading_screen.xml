@@ -163,7 +163,7 @@
 					<!-- 是否增加额外被动技能 -->
 					<Panel id="ExtraPassiveAbilitiesPanel"	class="GameOptionsSubPanel">
 						<Label id="ExtraPassiveAbilitiesTitle" class="GameOptionsLabel" text="#extra_passive_abilities" />
-						<ToggleButton checked="false" class="GameOptionsToggle" id="extra_passive_abilities" onactivate="SendGameOptionsToServer()"/>
+						<ToggleButton checked="true" class="GameOptionsToggle" id="extra_passive_abilities" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
 				</Panel>
 			</Panel>
