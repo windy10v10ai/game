@@ -7196,4 +7196,88 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// gungir_3 风灵之锤
+	//=================================================================================================================
+	"item_recipe_gungir_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"10329"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_recipe_gungir"
+		"AbilityTextureName" 			"item_recipe_gungir_2"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3000"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_gungir_3"
+		"ItemRequirements"
+		{
+			"01"						"item_gungir_2;item_fusion_agile"
+		}
+	}
+	"item_gungir_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"10330"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySharedCooldown"			"gungir"
+		"BaseClass"						"item_gungir"
+		"AbilityTextureName"			"item_gungir_3"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"27"
+		"AbilityCastRange"				"1000"	// 1100
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityManaCost"				"600"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"46000"
+		"ItemShopTags"					"damage;attack_speed;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"gleipnir;gliepnir;glaypnir"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_aoe"					"225"			// If changing this, change radius_tooltip
+			"bonus_hp"					"1800"			// 450
+			"bonus_intellect"			"60"			// 15
+			"bonus_mana"				"800"			// 200
+			"radius"
+			{
+				"value"						"375"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"affected_by_aoe_increase"	"1"
+			}
+			"radius_tooltip"
+			{
+				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
+				"affected_by_aoe_increase"	"1"
+			}
+			"active_damage"
+			{
+				"value"							"1600"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"duration"				"2.0"
+		}
+	}
+
 }

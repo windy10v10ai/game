@@ -87,9 +87,13 @@ local EXCLUDED_ABILITIES = {
     ["queenofpain_blink"] = true,                  -- 痛苦女王 闪烁
     ["ember_spirit_activate_fire_remnant"] = true, -- 灰烬之灵 激活火焰残影
     ["earth_spirit_rolling_boulder"] = true,       -- 大地之灵 巨石翻滚
-    ["wisp_relocate"] = true,                      -- 艾欧 迁移
     ["viper_nosedive"] = true,                     -- 冥界亚龙 俯冲
-
+    --精灵
+    ["wisp_tether"] = true,
+    ["wisp_spirits"] = true,
+    ["wisp_relocate"] = true,
+    ["wisp_spirits_in"] = true,
+    ["wisp_spirits_out"] = true,
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降
@@ -166,7 +170,6 @@ local EXCLUDED_ABILITIES = {
     ["terrorblade_reflection"] = true,          -- 恐怖利刃 倒影
     ["goku_kaioken"] = true,                    -- 悟空 界王拳
     ["tusk_snowball"] = true,                   -- 巨牙海民 雪球
-    ["wisp_tether"] = true,                     -- 艾欧 羁绊
     ["muerta_the_calling"] = true,              -- 唤魂
     ["magnataur_empower"] = true,               -- 马格纳斯 授予力量
     ["furion_teleportation"] = true,            -- 先知 传送
@@ -200,6 +203,12 @@ local EXCLUDED_ABILITIES = {
     ["spectre_haunt_single"] = true,       -- 幽鬼 - 单体降临
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
     ["skeleton_king_reincarnation"] = true,
+    ["mars_bulwark"] = true,
+    ["ember_spirit_fire_remnant"] = true,
+    ["earth_spirit_stone_caller"] = true,
+    ["muerta_gunslinger"] = true,
+    ["troll_warlord_switch_stance"] = true,
+    ["earthshaker_fissure"] = true,
 }
 function ability_trigger_learned_skills:GetIntrinsicModifierName()
     return "modifier_trigger_learned_skills"
@@ -322,7 +331,12 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
         -- 任意目标技能,对攻击目标释放
         cast_target = target
     end
-
+    -- 卡尔天火特殊处理:强制使用双击版本(施法者位置)
+    local ability_name = random_ability:GetAbilityName()
+    if ability_name == "invoker_sun_strike" then
+        --print("[cast_trigger] 天火")
+        cast_target = parent -- 清除单体目标,强制使用点目标模式
+    end
     -- 根据技能行为类型施放
     local cast_success = false
     if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
@@ -343,15 +357,24 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     if cast_success then
         attacker:GiveMana(random_ability:GetManaCost(random_ability:GetLevel() - 1))
     end
+    -- 获取技能的抬手时间
+    local cast_point = random_ability:GetCastPoint()
+    --print(string.format("[Trigger Debug] Ability cast point: %.2fs", cast_point))
 
-    --- 针对无敌斩设置特殊延迟
-    local restore_delay = 0.1
-    if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
-        restore_delay = 4.0 -- 无敌斩延迟4秒恢复冷却
+    -- 恢复原有冷却状态 - 加入抬手时间
+    local restore_delay = cast_point + 0.01
+
+    -- 特殊技能的额外延迟
+    if ability_name == "juggernaut_omni_slash" then
+        restore_delay = 4.0
+        --print("[Trigger Debug] Special delay for juggernaut_omni_slash: 4.0s")
     end
+
+    --print(string.format("[Trigger Debug] CD restore delay: %.2fs (cast_point=%.2fs + 0.1s buffer)",restore_delay, cast_point))
 
     random_ability:SetContextThink("restore_cooldown_" .. random_ability:GetEntityIndex(), function()
         if not random_ability or random_ability:IsNull() then
+            --print("[Trigger Debug] Ability is null, cannot restore CD")
             return nil
         end
 
@@ -361,16 +384,21 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
             else
                 random_ability:SetCurrentAbilityCharges(current_charges)
             end
+            --print(string.format("[Trigger Debug] Restored charges to %d", current_charges))
         else
             if remaining_cooldown and remaining_cooldown > 0 then
-                random_ability:StartCooldown(remaining_cooldown)
+                random_ability:EndCooldown()                     -- 先结束
+                random_ability:StartCooldown(remaining_cooldown) -- 再用剩余时间开始
+                --print(string.format("[Trigger Debug] Restored cooldown: %.2fs", remaining_cooldown))
             else
                 random_ability:EndCooldown()
+                --print("[Trigger Debug] Ended cooldown (was 0)")
             end
         end
 
         return nil
-    end, restore_delay) -- 使用变量延迟时间
+    end, restore_delay)
+
     -- 特效
     EmitSoundOn("Hero_Juggernaut.BladeFury", attacker)
 end

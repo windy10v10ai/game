@@ -1,6 +1,10 @@
-ability_trigger_on_move = class({})
+ability_trigger_on_spell_reflect = class({})
 
-LinkLuaModifier("modifier_trigger_on_move", "abilities/ability_trigger_on_move", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_trigger_on_spell_reflect", "abilities/ability_trigger_on_spell_reflect",
+    LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_trigger_on_spell_reflect_cooldown", "abilities/ability_trigger_on_spell_reflect",
+    LUA_MODIFIER_MOTION_NONE)
+
 -- 定义需要排除的技能黑名单
 -- 这些技能不会被蝴蝶效应物品触发，避免游戏机制冲突或性能问题
 local EXCLUDED_ABILITIES = {
@@ -174,6 +178,12 @@ local EXCLUDED_ABILITIES = {
     ["viper_nethertoxin"] = true,               -- 冥界亚龙 剧毒攻击
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
     ["tinker_keen_teleport"] = true,            -- 修补匠 传送  ✅ 新增
+    --精灵
+    ["wisp_tether"] = true,
+    ["wisp_spirits"] = true,
+    ["wisp_relocate"] = true,
+    ["wisp_spirits_in"] = true,
+    ["wisp_spirits_out"] = true,
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招
@@ -182,13 +192,8 @@ local EXCLUDED_ABILITIES = {
     ["marci_bodyguard"] = true,        -- 玛西 保镖
     ["marci_special_delivery"] = true, -- 玛西 特快专递
     ["marci_grapple"] = true,          -- 玛西 过肩摔
-    ["marci_companion_run"] = true,    -- 玛西 过肩摔
-    --精灵
-    ["wisp_tether"] = true,
-    ["wisp_spirits"] = true,
-    ["wisp_relocate"] = true,
-    ["wisp_spirits_in"] = true,
-    ["wisp_spirits_out"] = true,
+    ["marci_companion_run"] = true,    -- 玛西 伙伴奔跑
+
     -- ========================================
     -- 幻象类技能
     -- 原因: 创建幻象单位,可能导致单位管理混乱和性能问题
@@ -209,87 +214,160 @@ local EXCLUDED_ABILITIES = {
     ["troll_warlord_switch_stance"] = true,
     ["earthshaker_fissure"] = true,
 }
-function ability_trigger_on_move:GetIntrinsicModifierName()
-    return "modifier_trigger_on_move"
+function ability_trigger_on_spell_reflect:GetIntrinsicModifierName()
+    return "modifier_trigger_on_spell_reflect"
 end
 
-modifier_trigger_on_move = class({})
+modifier_trigger_on_spell_reflect = class({})
 
-function modifier_trigger_on_move:IsHidden()
+function modifier_trigger_on_spell_reflect:IsHidden()
     return true
 end
 
-function modifier_trigger_on_move:IsPermanent()
+function modifier_trigger_on_spell_reflect:IsPermanent()
     return true
 end
 
-function modifier_trigger_on_move:RemoveOnDeath()
+function modifier_trigger_on_spell_reflect:RemoveOnDeath()
     return false
 end
 
-function modifier_trigger_on_move:IsPurgable()
+function modifier_trigger_on_spell_reflect:IsPurgable()
     return false
 end
 
-function modifier_trigger_on_move:OnCreated()
-    if not IsServer() then return end
-
-    self.last_position = self:GetParent():GetAbsOrigin()
-    self.check_interval = self:GetAbility():GetSpecialValueFor("check_interval") or 0.5 -- 检查间隔
-    self.base_distance = 100                                                            -- 基准距离
-
-    -- 使用更长的检查间隔降低开销
-    self:StartIntervalThink(self.check_interval)
+function modifier_trigger_on_spell_reflect:DeclareFunctions()
+    return {
+        MODIFIER_EVENT_ON_TAKEDAMAGE
+    }
 end
 
-function modifier_trigger_on_move:OnIntervalThink()
+function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
     if not IsServer() then return end
 
     local parent = self:GetParent()
-    if not parent or parent:IsNull() or not parent:IsAlive() then return end
-    if parent:IsIllusion() then return end
+    local attacker = params.attacker
 
-    local current_position = parent:GetAbsOrigin()
-    local distance = (current_position - self.last_position):Length2D()
+    -- 检查内置冷却
+    if parent:HasModifier("modifier_trigger_on_spell_reflect_cooldown") then
+        --print("[SpellReflect] On cooldown, skipping")
+        return
+    end
 
-    -- 更新位置
-    self.last_position = current_position
+    -- 确保是自己受到伤害
+    if params.unit ~= parent then
+        -- print("[SpellReflect] Not parent unit, skipping")
+        return
+    end
+    if parent:IsIllusion() then
+        --print("[SpellReflect] Is illusion, skipping")
+        return
+    end
 
-    -- 如果移动距离太小,不触发
-    if distance < 10 then return end
+    --print("[SpellReflect] OnTakeDamage triggered for", parent:GetUnitName())
 
-    -- 计算距离系数: 移动100距离时系数为1.0
-    local distance_multiplier = distance / self.base_distance
+    -- 只处理技能伤害,不处理普通攻击
+    if not params.inflictor then
+        --print("[SpellReflect] No inflictor (not ability damage), skipping")
+        return
+    end
 
-    -- 触发技能检查
-    self:TriggerRandomAbility(distance_multiplier)
-end
+    --print("[SpellReflect] Damage from ability:", params.inflictor:GetAbilityName(), "Damage:", params.original_damage)
 
-function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
-    local parent = self:GetParent()
+    -- 关键修改: 检查是否为指向性技能
+    local ability = params.inflictor
+    local behavior = ability:GetBehavior()
 
-    -- 获取基础触发概率
+    if ability:IsItem() then
+        --print("[SpellReflect] Checking item ability behavior")
+        if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 then
+            --print("[SpellReflect] Not unit target item, skipping")
+            return
+        end
+    else
+        --print("[SpellReflect] Checking normal ability behavior")
+        if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 then
+            --print("[SpellReflect] Not unit target ability, skipping")
+            return
+        end
+    end
+
+    --print("[SpellReflect] Passed unit target check")
+
+    -- 获取触发概率
     local passive_level = self:GetAbility():GetLevel()
     if passive_level <= 0 then passive_level = 1 end
 
+    local reflect_chance = self:GetAbility():GetLevelSpecialValueFor("reflect_chance", passive_level - 1)
     local basic_trigger_chance = self:GetAbility():GetLevelSpecialValueFor("basic_trigger_chance", passive_level - 1)
     local ultimate_trigger_chance = self:GetAbility():GetLevelSpecialValueFor("ultimate_trigger_chance",
         passive_level - 1)
 
-    -- 应用距离系数,但设置上限避免过高
-    local adjusted_basic_chance = math.min(basic_trigger_chance * distance_multiplier, 100)
-    local adjusted_ultimate_chance = math.min(ultimate_trigger_chance * distance_multiplier, 100)
+    --print("[SpellReflect] Reflect chance:", reflect_chance, "Basic trigger chance:", basic_trigger_chance,"Ultimate trigger chance:", ultimate_trigger_chance)
 
-    -- 分别判断终极技能和普通技能的触发
-    local trigger_ultimate = RollPseudoRandomPercentage(adjusted_ultimate_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_5,
-        parent)
-    local trigger_basic = RollPseudoRandomPercentage(adjusted_basic_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_6, parent)
+    -- 判断是否触发反弹
+    local should_reflect = RollPseudoRandomPercentage(reflect_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_7, parent)
 
-    if not trigger_ultimate and not trigger_basic then
-        return
+    --print("[SpellReflect] Should reflect:", should_reflect)
+
+    if should_reflect then
+        -- 反弹伤害
+        local reflect_pct = self:GetAbility():GetLevelSpecialValueFor("reflect_damage_pct", passive_level - 1)
+        local reflect_damage = params.original_damage * (reflect_pct / 100)
+
+        --print("[SpellReflect] Reflecting", reflect_damage, "damage (", reflect_pct, "% of", params.original_damage, ")")
+
+        ApplyDamage({
+            victim = attacker,
+            attacker = parent,
+            damage = reflect_damage,
+            damage_type = params.damage_type,
+            damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
+            ability = self:GetAbility(),
+        })
+
+        -- 播放反弹特效
+        local particle = ParticleManager:CreateParticle(
+            "particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf",
+            PATTACH_CUSTOMORIGIN,
+            nil
+        )
+        ParticleManager:SetParticleControl(particle, 0, parent:GetAbsOrigin())
+        ParticleManager:SetParticleControl(particle, 1, attacker:GetAbsOrigin())
+        ParticleManager:ReleaseParticleIndex(particle)
+
+        EmitSoundOn("Hero_Antimage.SpellShield.Reflect", parent)
+
+        -- 分别判断大招和小技能的触发
+        local trigger_ultimate = RollPseudoRandomPercentage(ultimate_trigger_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_8,
+            parent)
+        local trigger_basic = RollPseudoRandomPercentage(basic_trigger_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_9, parent)
+
+        --print("[SpellReflect] Should trigger ultimate:", trigger_ultimate)
+        --print("[SpellReflect] Should trigger basic:", trigger_basic)
+
+        -- 如果两者都没触发,不执行技能释放
+        if not trigger_ultimate and not trigger_basic then
+            --print("[SpellReflect] Neither ultimate nor basic triggered")
+            return
+        end
+
+        -- 添加内置冷却
+        local cooldown_duration = self:GetAbility():GetSpecialValueFor("cooldown_duration")
+        --print("[SpellReflect] Adding cooldown:", cooldown_duration, "seconds")
+
+        parent:AddNewModifier(parent, self:GetAbility(), "modifier_trigger_on_spell_reflect_cooldown",
+            { duration = cooldown_duration })
+
+        -- 触发随机技能,传递触发类型
+        self:TriggerRandomAbility(attacker, trigger_ultimate, trigger_basic)
     end
+end
 
-    -- [后续的技能选择和施放逻辑保持不变]
+function modifier_trigger_on_spell_reflect:TriggerRandomAbility(original_attacker, trigger_ultimate, trigger_basic)
+    local parent = self:GetParent()
+
+    --print("[SpellReflect] TriggerRandomAbility called, trigger_ultimate:", trigger_ultimate, "trigger_basic:",trigger_basic)
     -- 构建技能列表
     local ultimate_abilities = {}
     local basic_abilities = {}
@@ -310,15 +388,22 @@ function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
         end
     end
 
-    -- 选择要触发的技能
+    --print("[SpellReflect] Found", #basic_abilities, "basic abilities and", #ultimate_abilities, "ultimate abilities")
+
+    -- 根据触发类型选择技能
     local random_ability = nil
     if trigger_ultimate and #ultimate_abilities > 0 then
         random_ability = ultimate_abilities[RandomInt(1, #ultimate_abilities)]
+        --print("[SpellReflect] Selected ultimate ability:", random_ability:GetAbilityName())
     elseif trigger_basic and #basic_abilities > 0 then
         random_ability = basic_abilities[RandomInt(1, #basic_abilities)]
+        --print("[SpellReflect] Selected basic ability:", random_ability:GetAbilityName())
     end
 
-    if not random_ability then return end
+    if not random_ability then
+        --print("[SpellReflect] No valid ability found for triggered type")
+        return
+    end
 
     -- 保存冷却和充能状态
     local remaining_cooldown = random_ability:GetCooldownTimeRemaining() or 0
@@ -327,101 +412,107 @@ function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
 
     if has_charges then
         current_charges = random_ability:GetCurrentAbilityCharges()
+        --print("[SpellReflect] Ability has charges:", current_charges)
+        --else
+        --print("[SpellReflect] Ability cooldown:", remaining_cooldown)
     end
 
-    -- 临时结束冷却以允许施放
+    -- 临时结束冷却
     random_ability:EndCooldown()
 
-    -- 施放技能 - 使用与 ability_trigger_on_cast 相同的目标选择逻辑
+    -- 施放技能 - 参照 ability_trigger_on_cast 的目标选择逻辑
     local behavior = random_ability:GetBehavior()
     local target_team = random_ability:GetAbilityTargetTeam()
 
     local cast_target = nil
     local target_position = nil
+    local is_friendly = original_attacker:GetTeamNumber() == parent:GetTeamNumber()
+
+    --print("[SpellReflect] Is friendly:", is_friendly, "Target team:", target_team)
 
     -- 友方技能 - 对自己释放
     if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_FRIENDLY) ~= 0 then
         cast_target = parent
         target_position = parent:GetAbsOrigin()
-        -- 敌方技能 - 搜索附近敌人
+        --print("[SpellReflect] Friendly ability, casting on self")
     elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
-        local search_radius = 1200
-        local enemies = FindUnitsInRadius(
-            parent:GetTeamNumber(),
-            parent:GetAbsOrigin(),
-            nil,
-            search_radius,
-            DOTA_UNIT_TARGET_TEAM_ENEMY,
-            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
-            FIND_CLOSEST,
-            false
-        )
-
-        if #enemies > 0 then
-            cast_target = enemies[1]
-            target_position = cast_target:GetAbsOrigin()
-        elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
-            bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
-            -- 对前方施放
-            local cast_range = random_ability:GetCastRange(parent:GetAbsOrigin(), nil)
-            if cast_range <= 0 then cast_range = 600 end
-            local forward = parent:GetForwardVector()
-            target_position = parent:GetAbsOrigin() + forward * cast_range
+        if original_attacker and not original_attacker:IsNull() and original_attacker:IsAlive() and not is_friendly then
+            cast_target = original_attacker
+            target_position = original_attacker:GetAbsOrigin()
+            --print("[SpellReflect] Enemy ability, casting on attacker")
         else
-            -- 无有效目标,跳过
-            random_ability:EndCooldown() -- 先结束
-            random_ability:StartCooldown(remaining_cooldown)
-            return
+            --print("[SpellReflect] Searching for nearby enemies")
+            local search_radius = 1200
+            local enemies = FindUnitsInRadius(
+                parent:GetTeamNumber(),
+                parent:GetAbsOrigin(),
+                nil,
+                search_radius,
+                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+                DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+                FIND_CLOSEST,
+                false
+            )
+
+            if #enemies > 0 then
+                cast_target = enemies[1]
+                target_position = cast_target:GetAbsOrigin()
+                --print("[SpellReflect] Found enemy:", cast_target:GetUnitName())
+            else
+                cast_target = parent
+                target_position = parent:GetAbsOrigin()
+                --print("[SpellReflect] No enemies found, casting on self position")
+            end
         end
     else
-        -- 无目标限制或任意目标
         target_position = parent:GetAbsOrigin()
+        --print("[SpellReflect] No team restriction, casting on self position")
     end
 
-    -- 卡尔天火特殊处理
-    local ability_name = random_ability:GetAbilityName()
-    if ability_name == "invoker_sun_strike" then
-        cast_target = parent
-    end
-
-    -- 根据技能行为类型施放
+    -- 根据技能行为类型施放 - 使用 -1 强制施放
     local cast_success = false
     if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 and
         bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 and
         bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == 0 then
-        cast_success = parent:CastAbilityNoTarget(random_ability, parent:GetPlayerOwnerID())
+        --print("[SpellReflect] Casting no-target ability (forced)")
+        cast_success = parent:CastAbilityNoTarget(random_ability, -1) -- 使用 -1 强制施放
     elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
         if cast_target and not cast_target:IsNull() then
+            --print("[SpellReflect] Casting unit-target ability on", cast_target:GetUnitName(), "(forced)")
             parent:SetCursorCastTarget(cast_target)
-            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
-        elseif target_position and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
-            parent:SetCursorPosition(target_position)
-            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
+            cast_success = parent:CastAbilityImmediately(random_ability, -1) -- 使用 -1 强制施放
         end
     elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
         bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
         if target_position then
+            --print("[SpellReflect] Casting point/AOE ability at position (forced)")
             parent:SetCursorPosition(target_position)
-            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
-        else
-            parent:SetCursorCastTarget(cast_target)
-            cast_success = parent:CastAbilityImmediately(random_ability, parent:GetPlayerOwnerID())
+            cast_success = parent:CastAbilityImmediately(random_ability, -1) -- 使用 -1 强制施放
         end
     end
 
-    -- 施放成功时返还魔法并播放特效
-    if cast_success then
-        parent:GiveMana(random_ability:GetManaCost(random_ability:GetLevel() - 1))
-        EmitSoundOn("Hero_OgreMagi.Fireblast.x1", parent)
-        local particle = ParticleManager:CreateParticle(
-            "particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf",
-            PATTACH_OVERHEAD_FOLLOW,
-            parent
-        )
-        ParticleManager:SetParticleControl(particle, 1, Vector(1, 1, 1))
-        ParticleManager:ReleaseParticleIndex(particle)
-    end
+    --print("[SpellReflect] Cast success:", cast_success)
+
+    -- 延迟返还魔法
+    Timers:CreateTimer(0.1, function()
+        if cast_success then
+            local mana_cost = random_ability:GetManaCost(random_ability:GetLevel() - 1)
+            --print("[SpellReflect] Returning mana:", mana_cost)
+            parent:GiveMana(mana_cost)
+            EmitSoundOn("Hero_OgreMagi.Fireblast.x1", parent)
+            local particle = ParticleManager:CreateParticle(
+                "particles/econ/items/ogre_magi/ogre_magi_jackpot/ogre_magi_jackpot_multicast.vpcf",
+                PATTACH_OVERHEAD_FOLLOW,
+                parent
+            )
+            ParticleManager:SetParticleControl(particle, 1, Vector(1, 1, 1))
+            ParticleManager:ReleaseParticleIndex(particle)
+        end
+    end)
+
+
+
     -- 获取技能的抬手时间
     local cast_point = random_ability:GetCastPoint()
     --print(string.format("[Trigger Debug] Ability cast point: %.2fs", cast_point))
@@ -463,4 +554,19 @@ function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
 
         return nil
     end, restore_delay)
+end
+
+-- 内置冷却modifier
+modifier_trigger_on_spell_reflect_cooldown = class({})
+
+function modifier_trigger_on_spell_reflect_cooldown:IsHidden()
+    return true
+end
+
+function modifier_trigger_on_spell_reflect_cooldown:IsPurgable()
+    return false
+end
+
+function modifier_trigger_on_spell_reflect_cooldown:RemoveOnDeath()
+    return false
 end

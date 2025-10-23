@@ -26,8 +26,8 @@ local function addTome(k, v)
 
   -- 计算替换概率（难度倍率 = 替换概率%）
   -- 限制最大概率为100%
-  if multiplier >= 20 then
-    local replace_chance = math.min(multiplier * 1, 100)
+  if multiplier >= 10 then
+    local replace_chance = multiplier
 
     -- 随机替换装备（基于配方）
     -- 1. 万剑归宗：六脉神剑、无锋战戟 -> 万剑归宗
@@ -62,7 +62,13 @@ local function addTome(k, v)
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_skadi_2", "item_magic_sword")
     end
-
+    if RandomInt(1, 100) <= replace_chance then
+      if (RandomInt(0, 1) == 0) then
+        replaceItem(v, "item_infernal_desolator", "item_magic_sword")
+      else
+        replaceItem(v, "item_infernal_desolator", "item_shadow_judgment")
+      end
+    end
     -- 7. 无限手套：黄金魔龙枪 -> 无限手套
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_dragon_lance_pro_max", "item_swift_glove")
@@ -137,7 +143,10 @@ local function addTome(k, v)
     -- 天地同寿甲(秘术铠甲 群体刃甲)
     replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
   end
-  if AIGameMode.fBotGoldXpMultiplier >= 9 then
+  if AIGameMode.fBotGoldXpMultiplier >= 20 then
+    -- 诅咒圣剑
+    replaceItem(v, "item_excalibur", "item_switchable_crit_blade")
+  else
     -- 诅咒圣剑
     replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
   end

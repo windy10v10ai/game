@@ -3027,7 +3027,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityType"				"ABILITY_TYPE_ATTRIBUTES"
 	}
-	//蝴蝶效应·蓝
+	//蝴蝶效应·蓝武
 	"ability_trigger_learned_skills"
 	{
 		"BaseClass"             "ability_lua"
@@ -3050,7 +3050,7 @@
 			"ultimate_trigger_chance"   "1 2 2.6 3.3 4"
 		}
 	}
-	//蝴蝶效应·红
+	//蝴蝶效应·红魔
 	"ability_trigger_on_cast"
 	{
 		"BaseClass"                     "ability_lua"
@@ -3069,7 +3069,7 @@
 			"ultimate_trigger_chance"   "15 20 25 30 35"
 		}
 	}
-	//蝴蝶效应·金
+	//蝴蝶效应·金身
 	"ability_trigger_on_attacked"
 	{
 		"BaseClass"                     "ability_lua"
@@ -3089,7 +3089,7 @@
 			"cooldown_duration"          "0.3 0.3 0.2 0.2 0.1"
 		}
 	}
-	//蝴蝶效应·橙
+	//蝴蝶效应·橙影
 	"ability_trigger_on_move"
 	{
 		"BaseClass"                     "ability_lua"
@@ -3110,6 +3110,81 @@
 
 			// 基准距离
 			"base_distance"             "100"
+		}
+	}
+	//蝴蝶效应·绿莲
+	"ability_trigger_on_spell_reflect"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ability_trigger_on_spell_reflect"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "lvlian"
+		"MaxLevel"                      "5"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+		"AbilityValues"
+		{
+			// 反弹伤害百分比
+			"reflect_damage_pct"        "100"
+
+			// 反弹概率
+			"reflect_chance"            "10 15 20 25 30"
+
+			// 触发技能概率(在反弹成功后)
+			"basic_trigger_chance"            "80"
+			"ultimate_trigger_chance"            "20"
+
+
+			// 内置冷却时间
+			"cooldown_duration"         "0.5 0.4 0.3 0.3 0.3"
+		}
+	}
+	//蝴蝶效应·紫耀
+	"ability_trigger_on_active"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ability_trigger_on_active"
+		"AbilityTextureName"            "ziyao"
+
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"MaxLevel"                      "3"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+
+		"AbilityCastPoint"              "0.2"
+		"AbilityCastRange"              "1200"
+		"AbilityCooldown"               "60 50 40"
+		"AbilityManaCost"               "200 300 400"
+
+		"AbilityValues"
+		{
+			"auto_cast_interval"        "0.2"
+			"duration"                  "8.0"  // 【新增】持续时间
+			"cd_reduction_pct"          "80"
+			"cast_time_reduction_pct"   "100"
+			"search_radius"             "800"
+			"bonus_cast_range"          "1200"
+		}
+	}
+	//蝴蝶效应·青凝
+	"ability_charge_damage"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ability_charge_damage"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "qingning"
+		"MaxLevel"                      "5"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+		"AbilityValues"
+		{
+			"ready_delay"               "5.0"  // 冷却好后5秒才开始计数
+			"amplify_duration"          "4.0" // 伤害增幅持续（伤害产生后消失）
+			"max_times"          		"2 3 4 5 6" // 增幅最大倍率
 		}
 	}
 	//=================================================================================================================
