@@ -189,7 +189,7 @@
 		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
 		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
 
-		"item"		"item_gungir_2"				// 风暴之锤
+		"item"		"item_gungir_3"				// 风灵之锤
 		"item"		"item_refresh_core"			// 刷新球
 		"item"		"item_hallowed_scepter"		// 仙云法杖
 		"item"		"item_necronomicon_staff"	// 死灵法杖

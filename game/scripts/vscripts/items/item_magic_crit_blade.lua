@@ -242,11 +242,6 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
             self:StartIntervalThink(cooldown)
         end
 
-        -- 特效和音效
-        local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf",
-            PATTACH_ABSORIGIN_FOLLOW, target)
-        ParticleManager:ReleaseParticleIndex(particle)
-        EmitSoundOn("Hero_Zuus.ArcLightning.Target", target)
 
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, params.original_damage + extra_damage,
             nil)
