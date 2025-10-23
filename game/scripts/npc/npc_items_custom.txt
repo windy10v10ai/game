@@ -7257,13 +7257,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_aoe"					"300"			// If changing this, change radius_tooltip
-			"bonus_hp"					"900"			// 450
-			"bonus_intellect"			"50"			// 15
-			"bonus_mana"				"600"			// 200
+			"bonus_aoe"					"225"			// If changing this, change radius_tooltip
+			"bonus_hp"					"1800"			// 450
+			"bonus_intellect"			"60"			// 15
+			"bonus_mana"				"800"			// 200
 			"radius"
 			{
-				"value"						"300"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"value"						"375"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
 				"affected_by_aoe_increase"	"1"
 			}
 			"radius_tooltip"
