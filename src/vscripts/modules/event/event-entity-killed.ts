@@ -112,8 +112,9 @@ export class EventEntityKilled {
 
   private dropItemChanceFusionRoshan = 100;
   private dropItemChanceFusionAncient = 1.2;
+  private dropItemChanceFusionNeutral = 0.25;
 
-  private calculateDropChance(): number {
+  private calculateDropChance(baseChance: number): number {
     // 获取游戏难度
 
     const difficulty = GameRules.Option.direGoldXpMultiplier || 1;
@@ -145,7 +146,7 @@ export class EventEntityKilled {
     }
 
     // 最终概率 = 基础概率 × 难度系数 × 人数系数
-    const finalChance = this.dropItemChanceFusionAncient * difficultyMultiplier * playerMultiplier;
+    const finalChance = baseChance * difficultyMultiplier * playerMultiplier;
 
     // 设置上限,避免概率过高
     return Math.min(finalChance, 100);
@@ -208,7 +209,11 @@ export class EventEntityKilled {
           true,
         );
         // 符文掉落 - 单次随机
-        this.dropItem(creep, this.dropItemListFusionMaterial, this.calculateDropChance());
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          this.calculateDropChance(this.dropItemChanceFusionAncient),
+        );
         this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
@@ -222,7 +227,11 @@ export class EventEntityKilled {
           true,
         );
         // 符文掉落 - 单次随机
-        this.dropItem(creep, this.dropItemListFusionMaterial, this.calculateDropChance());
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          this.calculateDropChance(this.dropItemChanceFusionNeutral),
+        );
         //神器组件
         this.dropParts(creep, this.dropItemChanceNeutral);
       }
