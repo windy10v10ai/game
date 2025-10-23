@@ -56,23 +56,6 @@
 		"respawn_time_percentage_0"						"秒活 (可能卡顿)"
 
 		"fixed_ability_none"							"无"
-		"fixed_ability_medusa_split_shot"				"分裂箭"
-		"fixed_ability_winter_wyvern_arctic_burn"		"严寒烧灼"
-		"fixed_ability_dazzle_good_juju"				"善咒"
-		"fixed_ability_ogre_magi_multicast_lua"			"多重施法"
-		"fixed_ability_leshrac_defilement2"				"大肆污染"
-		"fixed_ability_tinker_eureka2"					"尤里卡"
-		"fixed_ability_death_prophet_witchcraft2"		"巫术精研"
-		"fixed_ability_earthshaker_aftershock"			"余震"
-		"fixed_ability_jakiro_double_trouble2"			"双生恐怖"
-		"fixed_ability_spectre_dispersion"				"折射"
-		"fixed_ability_abyssal_underlord_firestorm2"	"火雨降临"
-		"fixed_ability_bloodseeker_thirst"				"焦渴"
-		"fixed_ability_luna_moon_glaive"				"月刃"
-		"fixed_ability_templar_assassin_psi_blades"		"灵能之刃"
-		"fixed_ability_faceless_void_time_lock"			"时间锁定"
-		"fixed_ability_trigger_on_cast"					"蝴蝶效应·红魔"
-		"fixed_ability_trigger_learned_skills"			"蝴蝶效应·蓝武"
 
 		// link面板
 		"dota_survivor_button"			"全新联动 刀塔幸存者"
