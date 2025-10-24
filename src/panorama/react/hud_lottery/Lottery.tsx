@@ -41,19 +41,19 @@ function Lottery() {
   const steamAccountId = GetLocalPlayerSteamAccountID();
 
   const [isCollapsed, setIsCollapsed] = useState(false);
-  // 添加 lotteryStatus 状态
-  const lotteryStatus = GetLotteryStatus(steamAccountId);
   const toggleCollapse = () => {
-    // 如果在技能重选模式，禁止折叠
-    if (lotteryStatus?.isSkillResetMode) {
-      return;
-    }
     setIsCollapsed(!isCollapsed);
   };
 
   const getIsVisible = (lotteryStatus: LotteryStatusDto | null) => {
     if (!lotteryStatus) {
       return false;
+    }
+
+    // 检查是否有可用的技能重选次数，如果有则不隐藏
+    const hasAbilityResetCount = (lotteryStatus.abilityResettableCount ?? 0) > 0;
+    if (hasAbilityResetCount) {
+      return true;
     }
 
     // 读取游戏选项判断是否启用额外被动技能

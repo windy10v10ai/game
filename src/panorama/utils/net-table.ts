@@ -14,8 +14,8 @@ function TransLotteryData(data: NetworkedData<LotteryStatusDto>): LotteryStatusD
     passiveAbilityName2: data.passiveAbilityName2,
     passiveAbilityLevel2: data.passiveAbilityLevel2,
     isPassiveAbilityRefreshed2: Boolean(data.isPassiveAbilityRefreshed2),
-    // FIXME 重构技能重选功能
-    isSkillResetMode: Boolean(data.isSkillResetMode ?? 0), // 使用空值合并运算符
+    // 可重选技能的次数
+    abilityResettableCount: data.abilityResettableCount ?? 0,
   };
 }
 export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | null {

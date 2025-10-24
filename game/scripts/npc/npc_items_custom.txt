@@ -7176,7 +7176,7 @@
 		"ID"							"9999"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"tome_of_torrents"
+		"AbilityTextureName"			"item_tome_of_aghanim"
 
 		// "ItemCost"						"30000"
 		"ItemCost"						"3"
@@ -7192,6 +7192,12 @@
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"300"
+		"OnSpellStart"
+		{
+			"SpendCharge"
+			{
+			}
+		}
 	}
 	//=================================================================================================================
 	// gungir_3 风灵之锤
