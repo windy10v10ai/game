@@ -7178,13 +7178,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"tome_of_torrents"
 
-		"ItemCost"						"30000"
+		// "ItemCost"						"30000"
+		"ItemCost"						"3"
 		"ItemShopTags"					"tome"
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"					"0"
 		"ItemInitialCharges"			"1"
+		// 库存设置
 		// "ItemInitialStockTime"			"900"	// 15分钟买
 		"ItemInitialStockTime"			"0"	// FIXME
 		"ItemStockInitial"				"0"

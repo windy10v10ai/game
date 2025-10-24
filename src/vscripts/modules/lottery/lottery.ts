@@ -35,21 +35,6 @@ export class Lottery {
       this.refreshAbility(userId, event);
     });
 
-    // 监听技能重选物品使用
-    ListenToGameEvent(
-      'dota_item_used',
-      (event) => {
-        const itemName = event.itemname;
-        if (itemName === 'item_tome_of_skill_reset') {
-          print('[Lottery] Skill reset item detected!');
-          const playerId = event.PlayerID as PlayerID;
-          print('[Lottery] Player ID: ' + playerId);
-          this.initSkillReset(playerId);
-        }
-      },
-      undefined,
-    );
-
     // 注册技能重选事件 - 显式指定泛型类型
     CustomGameEventManager.RegisterListener<LotteryPickEventData>(
       'skill_reset_pick',
