@@ -175,6 +175,11 @@
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
 
+		"lottery_button_ability_reset"							"Reset Ability"
+		"lottery_tooltip_ability_reset_enable"					"Remove the selected ability and reroll a new set of abilities"
+		"lottery_tooltip_ability_reset_no_count"				"No ability reset charges available"
+		"lottery_tooltip_ability_reset_not_picked"				"No ability picked for this row"
+
 		"key_bind"												"Key Bind"
 		"key_bind_collapsed"									"Collapse"
 		"key_bind_placeholder"									"Hotkey"

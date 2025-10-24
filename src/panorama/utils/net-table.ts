@@ -15,7 +15,7 @@ function TransLotteryData(data: NetworkedData<LotteryStatusDto>): LotteryStatusD
     passiveAbilityLevel2: data.passiveAbilityLevel2,
     isPassiveAbilityRefreshed2: Boolean(data.isPassiveAbilityRefreshed2),
     // 可重选技能的次数
-    abilityResettableCount: data.abilityResettableCount ?? 0,
+    abilityResettableCount: data.abilityResettableCount,
   };
 }
 export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | null {
