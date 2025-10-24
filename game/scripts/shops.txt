@@ -143,8 +143,7 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
-		// FIXME 技能重选物品暂时禁用
-		// "item"      "item_tome_of_skill_reset"
+		"item"		"item_tome_of_skill_reset"	// 技能重选书
 	}
 
 	// Level 2 - Blue Recipes 辅助
