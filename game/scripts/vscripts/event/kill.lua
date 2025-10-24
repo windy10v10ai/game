@@ -142,6 +142,24 @@ local function HeroKilled(keys)
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
 
+    -- ✅ 检查被击杀的英雄是否是Boss
+    local isBoss = hHero.isBoss or false
+    local bossMultiplier = 1
+
+    if isBoss then
+        -- 根据Bot经验金钱倍数决定奖励倍率
+        local botMultiplier = AIGameMode.fBotGoldXpMultiplier or 1
+        if botMultiplier >= 60 then
+            bossMultiplier = 3
+        elseif botMultiplier >= 20 then
+            bossMultiplier = 2.5
+        else
+            bossMultiplier = 2
+        end
+
+        print(string.format("[BotBoss] Boss %s was killed! Bot multiplier: %.0fx, Reward multiplier: %dx",
+            hHero:GetUnitName(), botMultiplier, bossMultiplier))
+    end
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
@@ -153,15 +171,22 @@ local function HeroKilled(keys)
         else
             gold = 40
         end
-        gold = math.ceil(gold)
+        -- ✅ 应用Boss倍率
+        gold = math.ceil(gold * bossMultiplier)
+
         for playerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-            if attackerPlayerID ~= playerID and PlayerResource:IsValidPlayerID(playerID) and PlayerResource:IsValidPlayer(playerID) and
+            if attackerPlayerID ~= playerID and PlayerResource:IsValidPlayerID(playerID) and
+                PlayerResource:IsValidPlayer(playerID) and
                 PlayerResource:GetSelectedHeroEntity(playerID) and IsGoodTeamPlayer(playerID) then
                 GameRules:ModifyGoldFiltered(playerID, gold, true, DOTA_ModifyGold_HeroKill)
                 local playerHero = PlayerResource:GetSelectedHeroEntity(playerID)
                 SendOverheadEventMessage(playerHero, OVERHEAD_ALERT_GOLD, playerHero,
                     gold * AIGameMode:GetPlayerGoldXpMultiplier(playerID), playerHero)
             end
+        end
+
+        if isBoss then
+            print(string.format("[BotBoss] Team members received %d gold (%dx multiplier)", gold, bossMultiplier))
         end
     end
 

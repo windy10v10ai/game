@@ -157,10 +157,10 @@ local function addTome(k, v)
       replaceItem(v, "item_hurricane_pike_2", "item_hawkeye_turret")
     end
   end
-  if AIGameMode.fBotGoldXpMultiplier >= 10 then
-    -- 天地同寿甲(秘术铠甲 群体刃甲)
-    replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
-  end
+  -- if AIGameMode.fBotGoldXpMultiplier >= 10 then
+  -- 天地同寿甲(秘术铠甲 群体刃甲)
+  --replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
+  --  end
   if AIGameMode.fBotGoldXpMultiplier >= 20 then
     -- 诅咒圣剑
     replaceItem(v, "item_excalibur", "item_switchable_crit_blade")

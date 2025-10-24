@@ -67,6 +67,8 @@ function AIGameMode:LinkLuaModifiers()
     LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
+    -- ✅ 新增: Boss行为modifier
+    LinkLuaModifier("modifier_bot_boss_behavior", "bot/bot_boss_behavior", LUA_MODIFIER_MOTION_NONE)
 end
 
 function AIGameMode:PreGameOptions()
