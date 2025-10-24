@@ -12,12 +12,13 @@ const buttonStyle: Partial<VCSSStyleDeclaration> = {
   width: '60px',
   borderRadius: '3px',
   horizontalAlign: 'center',
-  verticalAlign: 'bottom',
+  verticalAlign: 'center',
   marginRight: '10px',
 };
 
 const labelStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
+  verticalAlign: 'center',
   fontSize: '16px',
   letterSpacing: '-1px',
 };
@@ -38,7 +39,6 @@ const getPickedName = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | 
 const AbilityResetButton: React.FC<AbilityResetButtonProps> = ({ type, lotteryStatus }) => {
   const pickedName = getPickedName(type, lotteryStatus);
 
-  $.Msg(lotteryStatus);
   // 开局未初始化重选次数，不显示按钮
   if (!lotteryStatus?.showAbilityResetButton) {
     return null;

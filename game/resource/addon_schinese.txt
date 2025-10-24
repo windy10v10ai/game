@@ -175,7 +175,7 @@
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
 		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
 
-		"lottery_button_ability_reset"							"重选技能"
+		"lottery_button_ability_reset"							"重置"
 		"lottery_tooltip_ability_reset_enable"					"移除已选择的技能，并重新抽选一组新技能"
 		"lottery_tooltip_ability_reset_no_count"				"没有可用的技能重选次数"
 		"lottery_tooltip_ability_reset_not_picked"				"技能尚未选择"
