@@ -1369,9 +1369,9 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_slow"                          "魔渊减速"
 		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"              "移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
-		"DOTA_Tooltip_Ability_item_tome_of_skill_reset"								"能力重置书"
-		"DOTA_Tooltip_ability_item_tome_of_skill_reset_Description"					"<h1>主动：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。\n\n</h1>可以分享给队友"
-		"DOTA_Tooltip_ability_item_tome_of_skill_reset_Lore"						"重新规划你的能力路线。"
+		"DOTA_Tooltip_Ability_item_tome_of_ability_reset"								"能力重置书"
+		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>主动：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。\n\n</h1>可以分享给队友"
+		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"						"重新规划你的能力路线。"
 
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "蝴蝶效应 · 蓝武"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>被动:武痴</h1>普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
