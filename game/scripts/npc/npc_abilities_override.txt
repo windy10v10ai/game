@@ -5451,7 +5451,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"			"10 8 6 4 2 1 0"
+				"value"			"9 8 7 6 5 4 3"
 			}
 		}
 	}
@@ -12386,7 +12386,7 @@
 	{
 		"MaxLevel" "7"
 		"AbilityCastRange"				"800"		// 600
-		"AbilityCooldown"				"14 12 10 8 6 6 6"
+		"AbilityCooldown"				"14 13 12 11 10 9 8"
 		"AbilityManaCost"				"90 105 120 135 155 175 195"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
