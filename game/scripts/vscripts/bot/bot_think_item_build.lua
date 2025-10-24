@@ -142,11 +142,6 @@ local function addTome(k, v)
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
     -- 天地同寿甲(秘术铠甲 群体刃甲)
     replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
-  end
-  if AIGameMode.fBotGoldXpMultiplier >= 20 then
-    -- 诅咒圣剑
-    replaceItem(v, "item_excalibur", "item_switchable_crit_blade")
-  else
     -- 诅咒圣剑
     replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
   end
