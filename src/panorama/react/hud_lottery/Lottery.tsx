@@ -51,7 +51,7 @@ function Lottery() {
     }
 
     // 检查是否有可用的技能重选次数，如果有则不隐藏
-    const hasAbilityResetCount = (lotteryStatus.abilityResettableCount ?? 0) > 0;
+    const hasAbilityResetCount = lotteryStatus.abilityResettableCount > 0;
     if (hasAbilityResetCount) {
       return true;
     }

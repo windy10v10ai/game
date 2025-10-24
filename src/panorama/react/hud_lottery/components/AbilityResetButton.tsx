@@ -38,8 +38,9 @@ const getPickedName = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | 
 const AbilityResetButton: React.FC<AbilityResetButtonProps> = ({ type, lotteryStatus }) => {
   const pickedName = getPickedName(type, lotteryStatus);
 
+  $.Msg(lotteryStatus);
   // 开局未初始化重选次数，不显示按钮
-  if (lotteryStatus?.abilityResettableCount === undefined) {
+  if (!lotteryStatus?.showAbilityResetButton) {
     return null;
   }
   const hasResetCount = lotteryStatus.abilityResettableCount > 0;

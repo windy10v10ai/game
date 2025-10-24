@@ -7178,17 +7178,19 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
 
-		// "ItemCost"						"30000"
-		"ItemCost"						"3"
+		"ItemCost"						"30000"
 		"ItemShopTags"					"tome"
 		"ItemQuality"					"consumable"
-		"ItemStackable"					"0"
+
+		"ItemPurchasable"				"1"
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"					"0"
+		"ItemStackable"					"0"
 		"ItemInitialCharges"			"1"
 		// 库存设置
-		// "ItemInitialStockTime"			"900"	// 15分钟买
-		"ItemInitialStockTime"			"0"	// FIXME
+		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"300"

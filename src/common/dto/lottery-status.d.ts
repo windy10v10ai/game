@@ -15,5 +15,6 @@ export interface LotteryStatusDto {
   isPassiveAbilityRefreshed2: boolean;
 
   // 可重选技能的次数
-  abilityResettableCount?: number;
+  abilityResettableCount: number;
+  showAbilityResetButton: boolean;
 }

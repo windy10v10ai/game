@@ -67,6 +67,8 @@ export class Lottery {
         isActiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed2: false,
+        abilityResettableCount: 0,
+        showAbilityResetButton: false,
       },
     );
   }
@@ -255,20 +257,24 @@ export class Lottery {
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 
+  /**
+   * 初始化技能重选次数
+   */
   initAbilityReset(playerId: PlayerID) {
-    print('[Lottery] initAbilityReset called for player: ' + playerId);
-
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
 
     // 增加技能重选次数
     const currentCount = lotteryStatus.abilityResettableCount ?? 0;
     lotteryStatus.abilityResettableCount = currentCount + 1;
+    lotteryStatus.showAbilityResetButton = true;
 
-    print('[Lottery] Ability reset count increased to: ' + lotteryStatus.abilityResettableCount);
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 
+  /**
+   * 重置技能
+   */
   resetAbility(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const playerId = event.PlayerID;
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();

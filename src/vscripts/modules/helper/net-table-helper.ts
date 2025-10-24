@@ -16,6 +16,7 @@ export class NetTableHelper {
         isPassiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed2: false,
         abilityResettableCount: 0,
+        showAbilityResetButton: false,
       };
     }
 
@@ -29,7 +30,8 @@ export class NetTableHelper {
       passiveAbilityName2: lotteryStatusData.passiveAbilityName2,
       passiveAbilityLevel2: lotteryStatusData.passiveAbilityLevel2,
       isPassiveAbilityRefreshed2: Boolean(lotteryStatusData.isPassiveAbilityRefreshed2),
-      abilityResettableCount: lotteryStatusData.abilityResettableCount ?? 0,
+      abilityResettableCount: lotteryStatusData.abilityResettableCount,
+      showAbilityResetButton: Boolean(lotteryStatusData.showAbilityResetButton),
     };
   }
 
