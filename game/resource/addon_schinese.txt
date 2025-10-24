@@ -1369,6 +1369,10 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_slow"                          "魔渊减速"
 		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"              "移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
+		"DOTA_Tooltip_Ability_item_tome_of_skill_reset"								"能力重置书"
+		"DOTA_Tooltip_ability_item_tome_of_skill_reset_Description"					"<h1>主动：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。\n\n</h1>可以分享给队友"
+		"DOTA_Tooltip_ability_item_tome_of_skill_reset_Lore"						"重新规划你的能力路线。"
+
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "蝴蝶效应 · 蓝武"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>被动:武痴</h1>普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%触发其中一个普通技能的概率:"
@@ -1400,9 +1404,6 @@
 "DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "触发时间间隔:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_Note1"                   "触发的技能会自动选择合适的目标:敌方技能对最近的敌人释放,友方技能对自己释放。"
 "DOTA_Tooltip_ability_ability_trigger_on_move_Note2"                   "某些特殊技能(如隐身、传送、引导技能等)不会被触发。"
-		"DOTA_Tooltip_Ability_item_tome_of_skill_reset"                 "技能重置书（低阶）"
-		"DOTA_Tooltip_Ability_item_tome_of_skill_reset_Description"    "<h1>使用:技能重置</h1>打开技能重置界面,可以移除已学习的lottery技能并学习新技能。\n上面一排是可选移除的技能列表，下面一排是可选择添加的技能列表\n\n</h1>快捷键会自动更新，但不要选过多的主动技能（只有两个额外快捷键）。\n\n</h1>有时候英雄本身的技能也会进入列表，未经充分测试无法提供列表，也能成功替换但不保证没问题，慎选。\n\n</h1>移除技能时会返还技能点。\n\n</h1>开弓没有回头箭，不选完不许回家。"
-		"DOTA_Tooltip_Ability_item_tome_of_skill_reset_Lore"           "重新规划你的技能路线。"
 
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "蝴蝶效应 · 绿莲"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "<h1>被动:幽莲</h1>受到指向性技能伤害时有概率反弹伤害,成功反弹时有概率触发已学习的技能。"
