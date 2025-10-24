@@ -4724,7 +4724,7 @@
 		{
 				"damage_per_second"
 				{
-					"value"		"50 100 200 300 400 500 600 700"
+					"value"		"50 100 150 200 250 300 350 400"
 				}
 				"movement_slow"				"20 25 30 35 40"
 				"vines_duration"				"9 10 11 12 13"
@@ -6221,7 +6221,7 @@
 		{
 			"blade_fury_damage"
 			{
-				"value"		"80 160 240 320 400 480 500 580"			// x1.5
+				"value"		"80 160 240 320 400 480 560 640"			// x1.5
 				"special_bonus_unique_juggernaut"	"+200"	// 90
 			}
 			"blade_fury_radius"
@@ -10730,7 +10730,7 @@
 		{
 			"burn_damage"
 			{
-				"value"							"20 40 60 80 100 150 200 250"
+				"value"							"20 40 60 80 100 120 140 160"
 			}
 			"slow_movement_speed_pct"
 			{
@@ -12532,14 +12532,12 @@
 		{
 			"damage"
 			{
-				"value"							"50 90 110 130 150 170 190 210"
+				"value"							"30 50 70 90 110 130 150 170"	// 16 24 32 40
 			}
-			//"application_damage"				"50 90 130 170 210 250 290 330"
-			"application_damage"				"50 90 110 130 150 170 190 210"
+			"application_damage"				"40 80 120 160 200 240 280 320"	// 20 40 60 80
 			"AbilityCooldown"
 			{
 				"value"						"20 17 15 15 15 15 15 15"
-				//"value"						"20 17 14 11 8 8 8 8"//红蝴蝶削弱
 			}
 			"movespeed"			"-10 -15 -20 -25 -30"
 		}
