@@ -165,11 +165,15 @@ function modifier_ability_trigger_on_active:CanCastAbility(ability)
 
         local behavior = ability:GetBehavior()
         local target_team = ability:GetAbilityTargetTeam()
-
+        -- 【新增】点金手特殊处理
+        if ability_name == "item_hand_of_midas" or
+            ability_name == "item_hand_of_group" then
+            return false
+        end
         -- 如果物品只能对友方释放(包括自己),跳过
         if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_FRIENDLY) ~= 0 and
             bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) == 0 then
-            print("[ability_trigger_on_active] CanCast:", ability_name, "- Item targets self/allies only, skipped")
+            --print("[ability_trigger_on_active] CanCast:", ability_name, "- Item targets self/allies only, skipped")
             return false
         end
 

@@ -112,7 +112,12 @@ export class GoldXPFilter {
     } else {
       mul = GameRules.Option.direGoldXpMultiplier;
     }
-
+    // ✅ 新增: Boss获得额外倍率
+    const hero = PlayerResource.GetSelectedHeroEntity(playerID);
+    if (hero && hero.isBoss) {
+      mul = mul * 2; // Boss获得2倍的额外倍率
+      //print(`[BotBoss] Applying 1.5x multiplier to boss, total: ${mul}x`);
+    }
     return mul;
   }
 

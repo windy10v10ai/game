@@ -142,7 +142,7 @@ export class Lottery {
     }
     // 其他情况返回 1
     else {
-      return 1;
+      return 2;
     }
   }
 
@@ -186,9 +186,9 @@ export class Lottery {
         { name: 'ability_trigger_on_cast', level: 5 },
         { name: 'ability_trigger_on_attacked', level: 5 },
         { name: 'ability_trigger_on_move', level: 4 },
-        { name: 'ability_trigger_learned_skills', level: 5 }, //等21日下线
-        //{ name: 'ability_trigger_on_spell_reflect', level: 5 }, //等红蝴蝶满一周后上线，26日
-        //{ name: 'ability_charge_damage', level: 5 }, //等红蝴蝶满一周后上线，26日
+        //{ name: 'ability_trigger_learned_skills', level: 5 }, //等21日下线
+        { name: 'ability_trigger_on_spell_reflect', level: 5 }, //等红蝴蝶满一周后上线，26日
+        //{ name: 'ability_charge_damage', level: 5 }, //等金蝴蝶满一周后上线，26日
       ];
 
       const hudiexiaoying = 1;
@@ -233,13 +233,13 @@ export class Lottery {
     // 主动技能配置
     if (isActive && abilityLotteryResults.length > 0) {
       const activeAbilities = [
-        { name: 'marci_unleash', level: 4 },
-        { name: 'dazzle_bad_juju', level: 3 },
-        { name: 'ember_spirit_sleight_of_fist', level: 4 },
-        { name: 'gyrocopter_flak_cannon', level: 5 },
-        { name: 'alchemist_chemical_rage', level: 5 },
-        { name: 'tinker_rearm_lua', level: 3 },
-        { name: 'juggernaut_omni_slash', level: 4 },
+        { name: 'dragon_knight_elder_dragon_form', level: 4 },
+        { name: 'dragon_knight_elder_dragon_form', level: 3 },
+        { name: 'dragon_knight_elder_dragon_form', level: 4 },
+        { name: 'dragon_knight_elder_dragon_form', level: 5 },
+        { name: 'dragon_knight_elder_dragon_form', level: 5 },
+        { name: 'dragon_knight_elder_dragon_form', level: 3 },
+        { name: 'dragon_knight_elder_dragon_form', level: 4 },
         //{ name: 'ability_trigger_on_active', level: 5 },//等红蝴蝶满一周后上线，26日
       ];
       const selectedAbility = this.selectUniqueAbility(activeAbilities, abilityLotteryResults);

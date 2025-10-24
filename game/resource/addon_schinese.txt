@@ -1401,7 +1401,8 @@
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "<h1>被动:幽莲</h1>受到指向性技能伤害时有概率反弹伤害,成功反弹时有概率触发已学习的技能。"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"          "%反弹概率:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"      "%反弹伤害百分比:"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_trigger_chance"          "%技能触发概率:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"     "%反弹触发后，普通技能触发概率:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_ultimate_trigger_chance"  "%反弹触发后，终级技能触发概率:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_cooldown_duration"       "内置冷却时间:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note0"                   "反弹伤害与原伤害类型相同。触发的技能会自动选择合适的目标:敌方技能对攻击者释放,友方技能对自己释放。"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note1"                   "某些特殊技能(如隐身、传送、引导技能等)不会被触发。"
@@ -1422,7 +1423,7 @@
 "DOTA_Tooltip_ability_ability_charge_damage"                        "蝴蝶效应 · 青凝"
 "DOTA_Tooltip_ability_ability_charge_damage_Description"            "<h1>被动:凝心</h1>凝心静气，在技能冷却好而不释放的时候积蓄能量、增幅下次释放造成的第一次伤害。<br>加成对象：有伤害的主动技能；<br>增幅倍率 = 充能时间除以技能冷却时间。<br><br>充能延迟: %ready_delay% 秒<br>最大伤害倍率: %max_times%x"
 "DOTA_Tooltip_ability_ability_charge_damage_Lore"                   "耐心等待,一击必杀。"
-
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。</h1></h1>近战英雄:不要选！攻击无效！远程英雄:功能正常但缺少龙形态模型。"
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
 		///////////////////////////////////////////////////
 		//

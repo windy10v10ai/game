@@ -111,8 +111,8 @@ export class EventEntityKilled {
   ];
 
   private dropItemChanceFusionRoshan = 100;
-  private dropItemChanceFusionAncient = 1.0;
-  private dropItemChanceFusionNeutral = 0.2;
+  private dropItemChanceFusionAncient = 1.2;
+  private dropItemChanceFusionNeutral = 0.25;
   private calculateDropChance(baseChance: number): number {
     // 获取游戏难度
     const difficulty = GameRules.Option.direGoldXpMultiplier || 1;
@@ -192,28 +192,28 @@ export class EventEntityKilled {
           this.dropItemListDragonBall,
           this.dropItemChanceAncient,
         );
-        const MultiplieddropItemChanceFusionNeutral = this.calculateDropChance(
+        const MultiplieddropItemChanceFusionAncient = this.calculateDropChance(
           this.dropItemChanceFusionAncient,
         );
         // 符文掉落 - 单次随机
         const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
         const randomRune = this.dropItemListFusionMaterial[randomIndex];
-        this.dropItem(creep, [randomRune], MultiplieddropItemChanceFusionNeutral);
+        this.dropItem(creep, [randomRune], MultiplieddropItemChanceFusionAncient);
         //神器组件
         this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
-      // 击杀中立单位 - 符文掉落
       if (PlayerHelper.IsHumanPlayer(attacker)) {
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceNeutral,
         );
+        // 击杀中立单位 - 符文掉落
         const MultiplieddropItemChanceFusionNeutral = this.calculateDropChance(
-          this.dropItemChanceFusionAncient,
+          this.dropItemChanceFusionNeutral,
         );
-        // 符文掉落 - 单次随机
+        // 单次随机
         const randomIndex = RandomInt(0, this.dropItemListFusionMaterial.length - 1);
         const randomRune = this.dropItemListFusionMaterial[randomIndex];
         this.dropItem(creep, [randomRune], MultiplieddropItemChanceFusionNeutral);
