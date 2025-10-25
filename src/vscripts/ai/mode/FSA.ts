@@ -6,26 +6,18 @@ import { ModeEnum } from './mode-enum';
 import { ModeLaning } from './mode-laning';
 import { ModePush } from './mode-push';
 import { ModeRetreat } from './mode-retreat';
-// 【新增】导入三个新的模式类
-import { ModeAssassin } from './mode-assassin';
-import { ModeSplitPush } from './mode-split-push';
-//import { ModeVanguard } from './mode-vanguard';
+
 @reloadable
 export class FSA {
   // 切换模式的阈值
   public static readonly MODE_SWITCH_THRESHOLD = 0.5;
 
   ModeList: ModeBase[] = [];
-
-  // 在构造函数中添加
   constructor() {
     this.ModeList.push(new ModeLaning());
     this.ModeList.push(new ModeAttack());
     this.ModeList.push(new ModeRetreat());
     this.ModeList.push(new ModePush());
-    this.ModeList.push(new ModeSplitPush());
-    this.ModeList.push(new ModeAssassin());
-    //this.ModeList.push(new ModeVanguard());
   }
 
   GetMode(heroAI: BotBaseAIModifier): ModeEnum {
@@ -42,9 +34,7 @@ export class FSA {
 
     if (maxDesire >= FSA.MODE_SWITCH_THRESHOLD) {
       if (desireMode !== currentMode) {
-        //print(
-        //  `[AI-] hero ${heroAI.GetHero().GetUnitName()} desire to switch mode to ${desireMode}`,
-        //);
+        // print(`[AI] hero ${heroAI.GetHero().GetUnitName()} desire to switch mode to ${desireMode}`);
       }
       return desireMode!;
     } else {

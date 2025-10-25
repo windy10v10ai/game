@@ -23,6 +23,7 @@ export class EventNpcSpawned {
     // "generic_season_point_bag_fountain",
   ];
 
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   private static supportHeroBlacklist = [
     'npc_dota_hero_crystal_maiden', // 水晶室女
     'npc_dota_hero_dazzle', // 戴泽
@@ -196,26 +197,7 @@ export class EventNpcSpawned {
         // 设置bot难度 0~4
         hero.SetBotDifficulty(4);
         GameRules.AI.EnableAI(hero);
-        // 随机选择一个Bot作为Boss
-        GameRules.AI.EnableAI(hero);
-
-        // ✅ 新增: 只有经验金钱倍数>=12时才会出现Boss
-        if (
-          !EventNpcSpawned.bossSelected &&
-          hero.GetTeam() === DotaTeam.BADGUYS &&
-          GameRules.Option.direGoldXpMultiplier >= 12
-        ) {
-          // 黑名单
-          const isSupport = EventNpcSpawned.supportHeroBlacklist.includes(hero.GetUnitName());
-          // 检查是否在白名单中
-          const isCandidate = EventNpcSpawned.bossCandidateWhitelist.includes(hero.GetUnitName());
-
-          if (!isSupport && isCandidate) {
-            EventNpcSpawned.bossSelected = true;
-            this.MakeBotBoss(hero);
-          }
-        }
-        if (!hero.isBoss) BotAbility.AddBotAbility(hero, 0);
+        BotAbility.AddBotAbility(hero);
       });
 
       // bot在家待机一会在出门，防止出门在符点送人头
@@ -228,6 +210,7 @@ export class EventNpcSpawned {
     }
   }
 
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   private MakeBotBoss(hero: CDOTA_BaseNPC_Hero): void {
     //print(`[BotBoss] Selected ${hero.GetUnitName()} as Boss`);
     hero.isBoss = true;
@@ -260,6 +243,7 @@ export class EventNpcSpawned {
     });
   }
 
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   private ApplyBossProperties(
     hero: CDOTA_BaseNPC_Hero,
     playerInfo: { hero: CDOTA_BaseNPC_Hero; steamId: number; totalLevel: number },
@@ -287,6 +271,7 @@ export class EventNpcSpawned {
     BotAbility.AddBotAbility(hero, extraAbilityCount);
   }
 
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   private FindHighestPropertyPlayer():
     | { hero: CDOTA_BaseNPC_Hero; steamId: number; totalLevel: number }
     | undefined {
@@ -340,6 +325,7 @@ export class EventNpcSpawned {
     return result;
   }
 
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   private CopyPlayerPropertiesToBot(
     bot: CDOTA_BaseNPC_Hero,
     playerSteamId: number,

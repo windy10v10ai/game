@@ -8,20 +8,7 @@ export class ModeAttack extends ModeBase {
 
   GetDesire(heroAI: BotBaseAIModifier): number {
     let desire = 0;
-    const hero = heroAI.GetHero();
-    // ✅ 新增: Boss特殊逻辑
-    if (hero.isBoss) {
-      const bossLevel = hero.GetLevel();
-      const targetLevel = 30; // 可以根据难度调整为30/40/50
 
-      // Boss等级低于目标等级时,强制保持laning
-      if (bossLevel < targetLevel) {
-        desire -= 0.3; // 高优先级保持laning
-        //print(
-        //  `[BotBoss] ${hero.GetUnitName()} level ${bossLevel} < ${targetLevel}, no activate attacking mode`,
-        //);
-      }
-    }
     if (heroAI.mode === ModeEnum.RETREAT) {
       desire -= 0.4;
     }

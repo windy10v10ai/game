@@ -531,6 +531,7 @@
 		"DOTA_Tooltip_modifier_player_nemesis_Description"		"<font color='#00FF00'>Not the malevolent kind of Nemesis. Really loves Marci.<br/>开服玩家限定称号，无属性加成，已绝版。</font>"
 
 		///////////////////////////////////////////////////
+		//
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////

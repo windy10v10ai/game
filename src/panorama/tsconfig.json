@@ -12,7 +12,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
-    "esModuleInterop": true, //增加刷新次数refresh-tier-config.json
     "paths": {
       "@utils/*": ["utils/*"]
     }

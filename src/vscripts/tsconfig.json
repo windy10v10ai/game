@@ -12,8 +12,7 @@
     "noImplicitReturns": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": false,
-    "strict": false,
-    "esModuleInterop": true //增加刷新次数refresh-tier-config.json
+    "strict": false
   },
   "tstl": {
     "luaTarget": "JIT",

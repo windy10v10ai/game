@@ -9,6 +9,8 @@ export class BotAbility {
 
   // 存储每个bot的被动技能名称
   private static botPassiveAbilities: Map<number, string> = new Map();
+
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   // ✅ 新增: 存储每个bot的Boss额外技能列表
   private static botBossAbilities: Map<number, string[]> = new Map();
 
@@ -36,12 +38,14 @@ export class BotAbility {
     this.AddBotPower(hero);
     this.AddPassiveAbilityForBot(hero);
 
+    // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
     // ✅ 新增: 如果是Boss,添加额外技能
     if (bossAbilityCount > 0) {
-      this.AddBossAbilities(hero, bossAbilityCount);
+      //   this.AddBossAbilities(hero, bossAbilityCount);
     }
   }
 
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   /**
    * ✅ 新增: 为Boss添加额外技能
    * @param hero 当前英雄
@@ -152,9 +156,11 @@ export class BotAbility {
   public static LevelUpBotAbility(hero: CDOTA_BaseNPC_Hero): void {
     this.LevelUpBotPassiveAbility(hero);
     this.LevelUpBotPower(hero);
-    this.LevelUpBossAbilities(hero); // ✅ 新增: 升级Boss技能
+    // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
+    // this.LevelUpBossAbilities(hero); // ✅ 新增: 升级Boss技能
   }
 
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
   /**
    * ✅ 新增: 升级Boss额外技能
    */
