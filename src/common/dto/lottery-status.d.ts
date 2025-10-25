@@ -13,7 +13,11 @@ export interface LotteryStatusDto {
   passiveAbilityName2?: string;
   passiveAbilityLevel2?: number;
   isPassiveAbilityRefreshed2: boolean;
-
+  // 【新增】刷新计数器
+  activeAbilityRefreshCount?: number;
+  passiveAbilityRefreshCount?: number;
+  passiveAbilityRefreshCount2?: number;
+  maxRefreshCount?: number;
   // 可重选技能的次数
   abilityResettableCount: number;
   showAbilityResetButton: boolean;

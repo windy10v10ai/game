@@ -10,6 +10,17 @@ import { LotteryHelper } from './lottery-helper';
 export class Lottery {
   readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
+  // 【新增】刷新次数配置
+  private readonly REFRESH_TIER_CONFIGS = [
+    { tier: 1, maxCount: 100, steamIds: ['116431158'] },
+    { tier: 2, maxCount: 10, steamIds: ['76561198111111111', '76561198222222222'] },
+    {
+      tier: 3,
+      maxCount: 3,
+      steamIds: ['436804590', '295351477', '180074451', '92159660', '370099556'],
+    },
+    { tier: 4, maxCount: 2, steamIds: ['198490822', '116431138'] },
+  ];
 
   constructor() {
     // 启动物品抽奖
@@ -40,6 +51,16 @@ export class Lottery {
     });
   }
 
+  // 【新增】获取玩家的最大刷新次数
+  private getMaxRefreshCount(steamAccountID: string): number {
+    for (const config of this.REFRESH_TIER_CONFIGS) {
+      if (config.steamIds.includes(steamAccountID)) {
+        return config.maxCount;
+      }
+    }
+    return 1; // 默认刷新次数
+  }
+
   initLotteryAll() {
     print('initLotteryAll');
     PlayerHelper.ForEachPlayer((playerId) => {
@@ -59,6 +80,9 @@ export class Lottery {
     if (extraPassiveAbilities) {
       this.randomAbilityForPlayer(playerId, 'abilityPassive2');
     }
+    // 【新增】获取该玩家的最大刷新次数
+    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
+    const maxRefreshCount = this.getMaxRefreshCount(steamAccountID);
 
     CustomNetTables.SetTableValue(
       'lottery_status',
@@ -67,6 +91,11 @@ export class Lottery {
         isActiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed2: false,
+        // 【新增】为每个技能类型设置刷新计数器
+        activeAbilityRefreshCount: 0,
+        passiveAbilityRefreshCount: 0,
+        passiveAbilityRefreshCount2: 0,
+        maxRefreshCount: maxRefreshCount, // 存储最大刷新次数
         abilityResettableCount: 0,
         showAbilityResetButton: false,
       },
@@ -204,10 +233,10 @@ export class Lottery {
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 
-  // ---- 刷新 ----
   refreshAbility(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+
     if (
       event.type !== 'abilityActive' &&
       event.type !== 'abilityPassive' &&
@@ -216,25 +245,36 @@ export class Lottery {
       print('刷新技能类型错误');
       return;
     }
+
+    // 【修改】检查是否已选择技能
+    if (event.type === 'abilityActive' && lotteryStatus.activeAbilityName) {
+      print('已经抽取过主动技能');
+      return;
+    }
+    if (event.type === 'abilityPassive' && lotteryStatus.passiveAbilityName) {
+      print('已经抽取过被动技能');
+      return;
+    }
+    if (event.type === 'abilityPassive2' && lotteryStatus.passiveAbilityName2) {
+      print('已经抽取过第二个被动技能');
+      return;
+    }
+
+    // 【修改】检查刷新次数
+    const maxRefreshCount = lotteryStatus.maxRefreshCount ?? 1;
+    let currentRefreshCount = 0;
+
     if (event.type === 'abilityActive') {
-      if (lotteryStatus.isActiveAbilityRefreshed || lotteryStatus.activeAbilityName) {
-        print('已经刷新/抽取过主动技能');
-        return;
-      }
+      currentRefreshCount = lotteryStatus.activeAbilityRefreshCount ?? 0;
+    } else if (event.type === 'abilityPassive') {
+      currentRefreshCount = lotteryStatus.passiveAbilityRefreshCount ?? 0;
+    } else if (event.type === 'abilityPassive2') {
+      currentRefreshCount = lotteryStatus.passiveAbilityRefreshCount2 ?? 0;
     }
-    // 将被动技能刷新检查改为：
-    if (event.type === 'abilityPassive') {
-      if (lotteryStatus.isPassiveAbilityRefreshed || lotteryStatus.passiveAbilityName) {
-        print('已经刷新/抽取过被动技能');
-        return;
-      }
-    }
-    // 检查第二个被动技能槽位刷新
-    if (event.type === 'abilityPassive2') {
-      if (lotteryStatus.isPassiveAbilityRefreshed2 || lotteryStatus.passiveAbilityName2) {
-        print('已经刷新/抽取过第二个被动技能');
-        return;
-      }
+
+    if (currentRefreshCount >= maxRefreshCount) {
+      print(`已达到最大刷新次数: ${currentRefreshCount}/${maxRefreshCount}`);
+      return;
     }
 
     const member = NetTableHelper.GetMember(steamAccountID);
@@ -246,15 +286,24 @@ export class Lottery {
     // 刷新技能
     this.randomAbilityForPlayer(event.PlayerID, event.type);
 
-    // 记录刷新状态
+    // 【修改】增加刷新计数
     if (event.type === 'abilityActive') {
-      lotteryStatus.isActiveAbilityRefreshed = true;
+      lotteryStatus.activeAbilityRefreshCount = currentRefreshCount + 1;
+      lotteryStatus.isActiveAbilityRefreshed =
+        lotteryStatus.activeAbilityRefreshCount >= maxRefreshCount;
     } else if (event.type === 'abilityPassive') {
-      lotteryStatus.isPassiveAbilityRefreshed = true;
+      lotteryStatus.passiveAbilityRefreshCount = currentRefreshCount + 1;
+      lotteryStatus.isPassiveAbilityRefreshed =
+        lotteryStatus.passiveAbilityRefreshCount >= maxRefreshCount;
     } else if (event.type === 'abilityPassive2') {
-      lotteryStatus.isPassiveAbilityRefreshed2 = true;
+      lotteryStatus.passiveAbilityRefreshCount2 = currentRefreshCount + 1;
+      lotteryStatus.isPassiveAbilityRefreshed2 =
+        lotteryStatus.passiveAbilityRefreshCount2 >= maxRefreshCount;
     }
+
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+
+    print(`[Lottery] 刷新成功: ${event.type}, 次数: ${currentRefreshCount + 1}/${maxRefreshCount}`);
   }
 
   /**

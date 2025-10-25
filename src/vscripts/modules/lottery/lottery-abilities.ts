@@ -16,7 +16,7 @@ export const abilityTiersActive: Tier[] = [
       'alchemist_chemical_rage', // 化学狂暴
       // 小技能
       'gyrocopter_flak_cannon', // 高射火炮
-      // 'ability_trigger_on_active', //紫蝴蝶 等红蝴蝶满一周后上线，26日
+      'ability_trigger_on_active', //紫蝴蝶 等红蝴蝶满一周后上线，26日
     ],
   },
   {
@@ -160,8 +160,8 @@ export const abilityTiersPassive: Tier[] = [
       'templar_assassin_psi_blades', // 灵能之刃
       'dazzle_good_juju', // 善咒
       'faceless_void_time_lock', // 时间锁定
-      // 'ability_trigger_on_spell_reflect', //绿蝴蝶//等红蝴蝶满一周后上线，26日
-      // 'ability_charge_damage', //青蝴蝶//等红蝴蝶满一周后上线，26日
+      'ability_trigger_on_spell_reflect', //绿蝴蝶//等红蝴蝶满一周后上线，26日
+      'ability_charge_damage', //青蝴蝶//等红蝴蝶满一周后上线，26日
       // 法球/开关技能
       'medusa_split_shot', // 分裂箭
       'winter_wyvern_arctic_burn', // 严寒灼烧

@@ -32,6 +32,11 @@ export class NetTableHelper {
       isPassiveAbilityRefreshed2: Boolean(lotteryStatusData.isPassiveAbilityRefreshed2),
       abilityResettableCount: lotteryStatusData.abilityResettableCount,
       showAbilityResetButton: Boolean(lotteryStatusData.showAbilityResetButton),
+      // 【新增】
+      activeAbilityRefreshCount: lotteryStatusData.activeAbilityRefreshCount,
+      passiveAbilityRefreshCount: lotteryStatusData.passiveAbilityRefreshCount,
+      passiveAbilityRefreshCount2: lotteryStatusData.passiveAbilityRefreshCount2,
+      maxRefreshCount: lotteryStatusData.maxRefreshCount,
     };
   }
 
