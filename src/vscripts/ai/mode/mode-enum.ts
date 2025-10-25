@@ -35,7 +35,4 @@ export enum ModeEnum {
   //   ROSHAN = 19,
   //   ITEM = 20,
   //   WARD = 21,
-  SPLIT_PUSH = 'SPLIT_PUSH', // 分路带
-  ASSASSIN = 'ASSASSIN', // 刺杀
-  VANGUARD = 'VANGUARD', // 冲锋
 }
