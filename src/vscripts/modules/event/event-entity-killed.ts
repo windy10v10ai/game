@@ -82,6 +82,9 @@ export class EventEntityKilled {
   private itemLightPartName = 'item_light_part';
   private itemDarkPartName = 'item_dark_part';
 
+  // 技能重置书
+  private itemTomeOfAbilityReset = 'item_tome_of_ability_reset';
+
   private dropItemChanceRoshanArtifactPart = 100;
 
   // 龙珠
@@ -163,6 +166,9 @@ export class EventEntityKilled {
           this.dropItemChanceRoshan,
           true,
         );
+
+        // 技能重置书掉落
+        this.dropItem(creep, [this.itemTomeOfAbilityReset], this.dropItemChanceRoshan);
 
         // 融合符文掉落 - 使用神器组件的循环逻辑可重复
         const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);

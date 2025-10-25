@@ -5096,7 +5096,7 @@
 	"item_recipe_rapier_ultra_bot"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"9597"
+		"ID"							"9596"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
 		"ItemCost"						"8000"
@@ -5112,7 +5112,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"9596"
+		"ID"							"9597"
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"60000"
 
@@ -5158,7 +5158,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"19596"
+		"ID"							"9598"
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"60000"
 
@@ -5261,7 +5261,7 @@
 	"item_recipe_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_recipe_bloodthorn"
-		"ID"							"9611"
+		"ID"							"9592"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
@@ -5275,7 +5275,7 @@
 	"item_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_bloodthorn"
-		"ID"							"9612"
+		"ID"							"9593"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -7170,25 +7170,30 @@
 		"slow_pct"                  "-60"   // Lua 逻辑需要 - 减速百分比
     }
 }
-	//技能重置书
-	"item_tome_of_skill_reset"
+	// 技能重置书
+	"item_tome_of_ability_reset"
 	{
-		"ID"                            "9999"
-		"BaseClass"                     "item_datadriven"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_tome_of_knowledge"
+		"ID"							"9999"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_tome_of_aghanim"
 
-		"ItemCost"                      "30000"
-		"ItemShopTags"                  ""
-		"ItemQuality"                   "consumable"
-		"ItemStackable"                 "1"
-		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
-		"ItemPermanent"                 "0"
-		"ItemInitialCharges"            "1"
-		"ItemInitialStockTime"			"900"	// 15分钟买
+		"ItemCost"						"30000"
+		"ItemShopTags"					"tome"
+		"ItemQuality"					"consumable"
+
+		"ItemPurchasable"				"1"
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"1"
+		// 库存设置
+		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"300"
 		"OnSpellStart"
 		{
 			"SpendCharge"
