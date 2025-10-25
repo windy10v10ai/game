@@ -114,8 +114,8 @@ export class EventEntityKilled {
   ];
 
   private dropItemChanceFusionRoshan = 100;
-  private dropItemChanceFusionAncient = 1.0;
-  private dropItemChanceFusionNeutral = 0.2;
+  private dropItemChanceFusionAncient = 1.2;
+  private dropItemChanceFusionNeutral = 0.25;
   private calculateDropChance(baseChance: number): number {
     // 获取游戏难度
     const difficulty = GameRules.Option.direGoldXpMultiplier || 1;
