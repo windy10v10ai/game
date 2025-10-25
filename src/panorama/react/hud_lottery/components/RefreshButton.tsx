@@ -68,19 +68,31 @@ const getPickedName = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | 
 const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
   // 根据会员 抽选状态判断是否禁用
   const isMember = member?.enable;
-  const isRefreshed = getIsRefreshed(type, lotteryStatus);
+  // 【修改】获取刷新次数信息
+  const maxRefreshCount = lotteryStatus?.maxRefreshCount ?? 1;
+  let currentRefreshCount = 0;
+
+  if (type === 'abilityActive') {
+    currentRefreshCount = lotteryStatus?.activeAbilityRefreshCount ?? 0;
+  } else if (type === 'abilityPassive') {
+    currentRefreshCount = lotteryStatus?.passiveAbilityRefreshCount ?? 0;
+  } else if (type === 'abilityPassive2') {
+    currentRefreshCount = lotteryStatus?.passiveAbilityRefreshCount2 ?? 0;
+  }
+
+  const remainingRefreshCount = maxRefreshCount - currentRefreshCount;
+  const isRefreshed = remainingRefreshCount <= 0;
   const pickedName = getPickedName(type, lotteryStatus);
-
-  // 禁用刷新按钮的条件
   const enabled = isMember && !isRefreshed && !pickedName;
-
   const imageSrc = enabled
     ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
     : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
 
-  // 提示文本
-  const tooltipTextToken = getTooltipTextToken(type, isMember, isRefreshed, pickedName);
-  const tooltipText = $.Localize(tooltipTextToken);
+  // 【修改】提示文本包含剩余次数
+  let tooltipText = $.Localize(getTooltipTextToken(type, isMember, isRefreshed, pickedName));
+  if (isMember && !isRefreshed && !pickedName) {
+    tooltipText += `\n剩余刷新次数: ${remainingRefreshCount}/${maxRefreshCount}`;
+  }
 
   // 刷新事件
   const refreshEventName = 'lottery_refresh_ability';
