@@ -44,5 +44,6 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "sumneko.lua"
   },
-  "githubPullRequests.ignoredPullRequestBranches": ["develop"]
+  "githubPullRequests.ignoredPullRequestBranches": ["develop"],
+  "editor.wordWrap": "on"
 }

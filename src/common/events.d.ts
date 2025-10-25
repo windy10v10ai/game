@@ -21,8 +21,7 @@ interface CustomGameEventDeclarations {
   lottery_pick_ability: LotteryPickEventData;
   lottery_refresh_ability: LotteryRefreshEventData;
   save_bind_ability_key: SaveBindAbilityKeyEventData;
-   skill_reset_pick: LotteryPickEventData;
-  skill_reset_remove: LotteryPickEventData;  // 添加这一行
+  lottery_reset_ability: LotteryRefreshEventData;
 }
 
 interface CustomGameEventDataBase {
