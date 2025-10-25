@@ -127,11 +127,19 @@ export class Lottery {
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 强制第一个被动技能为 固定技能
-    if (abilityType === 'abilityPassive' && abilityLotteryResults.length > 0) {
-      const specifiedAbility = this.getSpecifiedPassiveAbilityByFixedAbility();
-      if (specifiedAbility) {
-        abilityLotteryResults[0] = specifiedAbility;
+    // 强制第一个技能为 固定技能
+    if (abilityLotteryResults.length > 0) {
+      const specifiedAbilityInfo = this.getSpecifiedAbilityByFixedAbility();
+      if (specifiedAbilityInfo) {
+        const { ability: specifiedAbility, isActive } = specifiedAbilityInfo;
+
+        if (isActive && abilityType === 'abilityActive') {
+          // 固定技能是主动技能，替换主动技能的第一个
+          abilityLotteryResults[0] = specifiedAbility;
+        } else if (!isActive && abilityType === 'abilityPassive') {
+          // 固定技能是被动技能，替换被动技能的第一个
+          abilityLotteryResults[0] = specifiedAbility;
+        }
       }
     }
 
@@ -141,7 +149,7 @@ export class Lottery {
   /**
    * 获取固定技能，不存在则返回null
    */
-  private getSpecifiedPassiveAbilityByFixedAbility(): LotteryDto | null {
+  private getSpecifiedAbilityByFixedAbility(): { ability: LotteryDto; isActive: boolean } | null {
     const fixedAbility = GameRules.Option.fixedAbility;
 
     if (fixedAbility === 'none') {
@@ -151,14 +159,14 @@ export class Lottery {
     // 从 abilityTiersPassive 中找到技能等级
     for (const tier of abilityTiersPassive) {
       if (tier.names.includes(fixedAbility)) {
-        return { name: fixedAbility, level: tier.level };
+        return { ability: { name: fixedAbility, level: tier.level }, isActive: false };
       }
     }
 
     // 从 abilityTiersActive 中找到技能等级
     for (const tier of abilityTiersActive) {
       if (tier.names.includes(fixedAbility)) {
-        return { name: fixedAbility, level: tier.level };
+        return { ability: { name: fixedAbility, level: tier.level }, isActive: true };
       }
     }
 
