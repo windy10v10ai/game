@@ -80,7 +80,7 @@ function InitCustomSetting() {
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
-  $('#fixed_ability_dropdown').SetSelected('ability_trigger_on_attacked');
+  $('#fixed_ability_dropdown').SetSelected('ability_trigger_on_active');
 
   // 开发模式
   if (Game.IsInToolsMode()) {
