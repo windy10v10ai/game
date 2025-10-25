@@ -73,40 +73,57 @@ export class Lottery {
     );
   }
 
-  // ---- 随机技能 ----
-  randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
-    const abilityTable =
-      abilityType === 'abilityActive'
-        ? 'lottery_active_abilities'
-        : abilityType === 'abilityPassive'
-          ? 'lottery_passive_abilities'
-          : 'lottery_passive_abilities_2';
-    const abilityTiers = abilityType === 'abilityActive' ? abilityTiersActive : abilityTiersPassive;
-    // 排除刷新前抽取的
-    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
-    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(abilityTable, steamAccountID);
-    const executedNames = !!lotteryAbilitiesRaw
-      ? Object.values(lotteryAbilitiesRaw).map((item) => item.name)
-      : [];
+  /**
+   * 获取技能表名称
+   */
+  private getAbilityTableName(
+    abilityType: AbilityItemType,
+  ): 'lottery_active_abilities' | 'lottery_passive_abilities' | 'lottery_passive_abilities_2' {
+    if (abilityType === 'abilityActive') return 'lottery_active_abilities';
+    if (abilityType === 'abilityPassive') return 'lottery_passive_abilities';
+    return 'lottery_passive_abilities_2';
+  }
 
-    // 如果是passive技能，则排除另外一组被动技能
+  /**
+   * 获取已排除的技能名称（包括刷新前抽取的和另一组被动技能）
+   */
+  private getExcludedAbilityNames(abilityType: AbilityItemType, steamAccountID: string): string[] {
+    // 获取当前表中的技能
+    const abilityTable = this.getAbilityTableName(abilityType);
+    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(abilityTable, steamAccountID);
+    const executedNames =
+      lotteryAbilitiesRaw !== undefined
+        ? Object.values(lotteryAbilitiesRaw).map((item) => item.name)
+        : [];
+
+    // 如果是被动技能，排除另一组被动技能
     if (abilityType === 'abilityPassive' || abilityType === 'abilityPassive2') {
-      const otherAbilityTable =
+      const otherTable =
         abilityType === 'abilityPassive'
           ? 'lottery_passive_abilities_2'
           : 'lottery_passive_abilities';
-      const otherAbilityAbilitiesRaw = CustomNetTables.GetTableValue(
-        otherAbilityTable,
-        steamAccountID,
-      );
-      const otherAbilityExecutedNames = !!otherAbilityAbilitiesRaw
-        ? Object.values(otherAbilityAbilitiesRaw).map((item) => item.name)
-        : [];
-      executedNames.push(...otherAbilityExecutedNames);
+      const otherAbilitiesRaw = CustomNetTables.GetTableValue(otherTable, steamAccountID);
+      if (otherAbilitiesRaw !== undefined) {
+        const otherNames = Object.values(otherAbilitiesRaw).map((item) => item.name);
+        executedNames.push(...otherNames);
+      }
     }
 
-    // 随机技能
+    return executedNames;
+  }
+
+  // ---- 随机技能 ----
+  randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
+    // 获取基本配置
+    const abilityTable = this.getAbilityTableName(abilityType);
+    const abilityTiers = abilityType === 'abilityActive' ? abilityTiersActive : abilityTiersPassive;
+    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+
+    // 获取已排除的技能
+    const executedNames = this.getExcludedAbilityNames(abilityType, steamAccountID);
+
+    // 生成随机技能
     const abilityLotteryResults = LotteryHelper.getRandomAbilities(
       abilityTiers,
       this.randomCountBase,
@@ -114,7 +131,7 @@ export class Lottery {
       executedNames,
     );
 
-    // 会员额外技能
+    // 添加会员额外技能
     const member = NetTableHelper.GetMember(steamAccountID);
     if (member.enable && member.level >= MemberLevel.PREMIUM) {
       const extraAbilities = LotteryHelper.getRandomAbilities(
@@ -127,7 +144,7 @@ export class Lottery {
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 强制第一个技能为 固定技能
+    // 应用固定技能
     if (abilityLotteryResults.length > 0) {
       const specifiedAbilityInfo = this.getSpecifiedAbilityByFixedAbility();
       if (specifiedAbilityInfo) {
