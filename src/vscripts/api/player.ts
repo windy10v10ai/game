@@ -77,7 +77,7 @@ export class Player {
 
   //高玩自然要经历更多的考验，游戏里面每隔15s会发一个暗影裁决+暗影咒灭                     的debuf
   private static readonly GAO_WAN_STEAM_IDS: Set<number> = new Set([
-    171404072, 335880293, 121373743,
+    171404072, 335880293, 121373743, 256116833,
     // 添加更多的 SteamID
   ]);
 
