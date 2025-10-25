@@ -22,8 +22,10 @@ export class PlayerSetting {
   isRememberAbilityKey: boolean;
   activeAbilityKey: string;
   passiveAbilityKey: string;
+  passiveAbilityKey2?: string;
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
+  passiveAbilityQuickCast2?: boolean;
 }
 
 export class PlayerDto {
@@ -333,8 +335,10 @@ export class Player {
       isRememberAbilityKey: event.isRememberAbilityKey === 1,
       activeAbilityKey: event.activeAbilityKey,
       passiveAbilityKey: event.passiveAbilityKey,
+      passiveAbilityKey2: event.passiveAbilityKey2 ?? '',
       activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
       passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
+      passiveAbilityQuickCast2: event.passiveAbilityQuickCast2 === 1,
     };
 
     ApiClient.sendWithRetry({
