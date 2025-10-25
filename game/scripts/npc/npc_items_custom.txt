@@ -6657,7 +6657,7 @@
     	"hp_regen_reduction"    "-80"    // 添加这个参数
 
         // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
-        "corruption_armor"      "-80"
+        "corruption_armor"      "-60"
         "corruption_duration"   "7.0"
 
         // 变态辣效果
@@ -6717,7 +6717,7 @@
     "ItemPurchasable"           "1"
     "ItemSellable"              "0"
 
-    "AbilityCooldown"           "2"
+    "AbilityCooldown"           "8"
     "AbilityManaCost"           "1600"
     "AbilityCastRange"          "900"
     "AbilityCastPoint"          "0.2"

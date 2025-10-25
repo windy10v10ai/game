@@ -10,7 +10,7 @@ interface LotteryAbilityItemProps {
 const itemStyle = {
   width: '80px',
   flowChildren: 'down',
-  margin: '20px',
+  margin: '16px',
 };
 
 const getBoxColor = (level: number) => {

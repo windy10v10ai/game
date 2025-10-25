@@ -3044,10 +3044,10 @@
 		"AbilityValues"
 		{
 			// 普通技能触发概率 (每级)
-			"basic_trigger_chance"      "3 6 9 12 15"
+			"basic_trigger_chance"      "6 9 12 15 18"
 
 			// 终极技能触发概率 (每级)
-			"ultimate_trigger_chance"   "1 2 2.6 3.3 4"
+			"ultimate_trigger_chance"   "2 2.6 3.3 4 4.8"
 		}
 	}
 	//蝴蝶效应·红魔
@@ -3151,22 +3151,22 @@
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
 
-		"MaxLevel"                      "3"
+		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
 
 		"AbilityCastPoint"              "0.2"
 		"AbilityCastRange"              "1200"
-		"AbilityCooldown"               "60 50 40"
+		"AbilityCooldown"               "60"
 		"AbilityManaCost"               "200 300 400"
 
 		"AbilityValues"
 		{
-			"auto_cast_interval"        "0.2"
-			"duration"                  "8.0"  // 【新增】持续时间
-			"cd_reduction_pct"          "80"
+			"auto_cast_interval"        "0.4 0.4 0.3 0.3 0.2"
+			"duration"                  "3 4 5 6 7"  // 【新增】持续时间
+			"cd_reduction_pct"          "60 70 75 80 85"
 			"cast_time_reduction_pct"   "100"
-			"search_radius"             "800"
+			"search_radius"             "300 400 500 600 700"
 			"bonus_cast_range"          "1200"
 		}
 	}
