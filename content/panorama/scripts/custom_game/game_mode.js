@@ -80,14 +80,14 @@ function InitCustomSetting() {
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
-  $('#fixed_ability_dropdown').SetSelected('ability_trigger_on_active');
+  $('#fixed_ability_dropdown').SetSelected('none');
 
   // 开发模式
   if (Game.IsInToolsMode()) {
     $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
     $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
     $('#radiant_player_number_dropdown').SetSelected('3');
-    $('#dire_player_number_dropdown').SetSelected('3');
+    $('#dire_player_number_dropdown').SetSelected('10');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
   }
 }

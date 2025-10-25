@@ -44,7 +44,7 @@ local function addTome(k, v)
 
   -- 计算替换概率（难度倍率 = 替换概率%）
   -- 限制最大概率为100%
-  if multiplier >= 10 then
+  if multiplier >= 12 then
     local replace_chance = multiplier
 
     -- 随机替换装备（基于配方）
