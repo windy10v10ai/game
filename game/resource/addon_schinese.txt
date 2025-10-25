@@ -531,7 +531,6 @@
 		"DOTA_Tooltip_modifier_player_nemesis_Description"		"<font color='#00FF00'>Not the malevolent kind of Nemesis. Really loves Marci.<br/>开服玩家限定称号，无属性加成，已绝版。</font>"
 
 		///////////////////////////////////////////////////
-		//
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
@@ -1378,13 +1377,13 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>使用：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。<br><br>一本书只能选择一个技能进行重置。\n\n<h1>击杀肉山时掉落</h1>可以分享给队友"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
 
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "蝴蝶效应 · 蓝武"
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>被动:武痴</h1>普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "<font color='#0096FF'>蝴蝶效应 · 蓝武</font>"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1><font color='#0096FF'>被动:武痴</h1>普攻有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；如果技能不在冷却，触发后会短暂进入冷却后返还（剑圣无敌斩单独4s返还，其他技能0.1s返还）；如果技能在冷却，触发后会重新冷却"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%触发其中一个普通技能的概率:"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%触发其中一个终极技能的概率:"
 		// 蝴蝶效应·红魔 (施法触发)
-		"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "蝴蝶效应 · 红魔"
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "<h1>被动:入魔</h1>施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；与多重施法互斥；孙悟空模型无法触发。"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "<font color='#FF0000'>蝴蝶效应 · 红魔</font>"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "<h1><font color='#FF0000'>被动:入魔</h1>施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；与多重施法互斥；孙悟空模型无法触发。"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_basic_trigger_chance"            "%普通技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_ultimate_trigger_chance"         "%终极技能触发概率:"
 
@@ -1393,8 +1392,8 @@
 
 
 		// 蝴蝶效应·金身 (被攻击触发)
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked"                         "蝴蝶效应 · 金身"
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"             "<h1>被动:金身</h1>被攻击时有概率触发已学习的技能。普通技能和终极技能独立伪随机触发。"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked"                         "<font color='#FFFF00'>蝴蝶效应 · 金身"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"             "<h1><font color='#FFFF00'>被动:金身</h1>被攻击时有概率触发已学习的技能。普通技能和终极技能独立伪随机触发。"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"    "%普通技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance" "%终极技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"       "内置冷却时间:"
@@ -1402,19 +1401,20 @@
 		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown"               "蝴蝶效应冷却"
 		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown_Description"   "蝴蝶效应技能处于内置冷却中。"
 
-"DOTA_Tooltip_ability_ability_trigger_on_move"                         "蝴蝶效应 · 橙影"
-"DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "<h1>被动:绝影</h1>根据过去一定时间内的位移距离概率触发已学习的技能。腿儿倒腾的越快,触发概率越高。"
+"DOTA_Tooltip_ability_ability_trigger_on_move"                         "<font color='#FFCC66'>蝴蝶效应 · 橙影"
+"DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "<h1><font color='#FFCC66'>被动:绝影</h1>根据过去一定时间内的位移距离概率触发已学习的技能。腿儿倒腾的越快,触发概率越高。"
 "DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"    "%基础普通技能触发概率（对应移速500）:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance" "%基础终极技能触发概率（对应移速500）:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "触发时间间隔:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_Note1"                   "触发的技能会自动选择合适的目标:敌方技能对最近的敌人释放,友方技能对自己释放。"
 "DOTA_Tooltip_ability_ability_trigger_on_move_Note2"                   "某些特殊技能(如隐身、传送、引导技能等)不会被触发。"
 
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "蝴蝶效应 · 绿莲"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "<h1>被动:幽莲</h1>受到指向性技能伤害时有概率反弹伤害,成功反弹时有概率触发已学习的技能。"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "<h1><font color='#90EE90'>蝴蝶效应 · 绿莲"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "<h1><font color='#90EE90'>被动:幽莲</h1>受到指向性技能伤害时有概率反弹伤害,成功反弹时有概率触发已学习的技能。"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"          "%反弹概率:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"      "%反弹伤害百分比:"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_trigger_chance"          "%技能触发概率:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"     "%反弹触发后，普通技能触发概率:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_ultimate_trigger_chance"  "%反弹触发后，终级技能触发概率:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_cooldown_duration"       "内置冷却时间:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note0"                   "反弹伤害与原伤害类型相同。触发的技能会自动选择合适的目标:敌方技能对攻击者释放,友方技能对自己释放。"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note1"                   "某些特殊技能(如隐身、传送、引导技能等)不会被触发。"
@@ -1422,8 +1422,8 @@
 "DOTA_Tooltip_modifier_trigger_on_spell_reflect_cooldown"               "法术反弹冷却"
 "DOTA_Tooltip_modifier_trigger_on_spell_reflect_cooldown_Description"   "法术反弹技能处于内置冷却中。"
 
-"DOTA_Tooltip_ability_ability_trigger_on_active"                        "蝴蝶效应 · 紫啸"
-"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "<h1>主动：狂潮</h1>以前所未有的速度对指定地点范围内的敌人疯狂倾斜法术，包括所有可用的技能和物品。效果期间所有冷却时间缩短为1/5,并移除施法前摇，但人无法移动。<br><br>持续时间: %duration% 秒"
+"DOTA_Tooltip_ability_ability_trigger_on_active"                        "<font color='#a74abd'>蝴蝶效应 · 紫啸"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "<h1><font color='#a74abd'>主动：狂潮</h1>以前所未有的速度对指定地点范围内的敌人疯狂倾斜法术，包括所有可用的技能和物品。效果期间所有冷却时间缩短为1/5,并移除施法前摇，但人无法移动。<br><br>持续时间: %duration% 秒"
 "DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦"
 "DOTA_Tooltip_ability_ability_trigger_on_active_duration"               "持续时间:"
 "DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"          "搜索范围:"
@@ -1432,10 +1432,10 @@
 "DOTA_Tooltip_ability_ability_trigger_on_active_cast_time_reduction_pct" "%施法前摇减免:"
 "DOTA_Tooltip_ability_ability_trigger_on_active_bonus_cast_range"       "期间额外施法距离:"
 
-"DOTA_Tooltip_ability_ability_charge_damage"                        "蝴蝶效应 · 青凝"
-"DOTA_Tooltip_ability_ability_charge_damage_Description"            "<h1>被动:凝心</h1>凝心静气，在技能冷却好而不释放的时候积蓄能量、增幅下次释放造成的第一次伤害。<br>加成对象：有伤害的主动技能；<br>增幅倍率 = 充能时间除以技能冷却时间。<br><br>充能延迟: %ready_delay% 秒<br>最大伤害倍率: %max_times%x"
+"DOTA_Tooltip_ability_ability_charge_damage"                        "<font color=\"#87ceeb\">蝴蝶效应 · 青凝"
+"DOTA_Tooltip_ability_ability_charge_damage_Description"            "<h1><font color=\"#87ceeb\">被动:凝心</h1>凝心静气，在技能冷却好而不释放的时候积蓄能量、增幅下次释放造成的第一次伤害。<br>加成对象：有伤害的主动技能；<br>增幅倍率 = 充能时间除以技能冷却时间。<br><br>充能延迟: %ready_delay% 秒<br>最大伤害倍率: %max_times%x"
 "DOTA_Tooltip_ability_ability_charge_damage_Lore"                   "耐心等待,一击必杀。"
-
+"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。<br><br><font color='#FF0000'>近战英雄: 不要选！！！攻击无效！<br>远程英雄: 功能正常但缺少龙形态模型！！！"
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
 		///////////////////////////////////////////////////
 		//

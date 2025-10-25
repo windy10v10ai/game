@@ -5808,7 +5808,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5833,7 +5833,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5858,7 +5858,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5883,7 +5883,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5908,7 +5908,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5933,7 +5933,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5958,7 +5958,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5983,7 +5983,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"

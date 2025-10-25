@@ -23,6 +23,7 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly CastRange: number = 900;
 
   public readonly PushLevel: number = 10;
+  protected assassinTargetSpot: Vector | undefined;
 
   protected hero: CDOTA_BaseNPC_Hero;
   public GetHero(): CDOTA_BaseNPC_Hero {
@@ -62,7 +63,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-    print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
+    //print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
 
     // 初始化Think
     if (IsInToolsMode()) {
@@ -183,15 +184,31 @@ export class BotBaseAIModifier extends BaseModifier {
   ActionMode(): boolean {
     switch (this.mode) {
       case ModeEnum.ATTACK:
+        //if (this.hero.isBoss) print(`[BotBoss] ${this.hero.GetUnitName()} executing ATTACK action`);
         return this.ActionAttack();
       case ModeEnum.LANING:
+        //if (this.hero.isBoss) print(`[BotBoss] ${this.hero.GetUnitName()} executing LANING action`);
         return this.ActionLaning();
       case ModeEnum.PUSH:
+        //if (this.hero.isBoss) print(`[BotBoss] ${this.hero.GetUnitName()} executing PUSH action`);
         return this.ActionPush();
       case ModeEnum.RETREAT:
+        //if (this.hero.isBoss)
+        //  print(`[BotBoss] ${this.hero.GetUnitName()} executing RETREAT action`);
         return this.ActionRetreat();
+      case ModeEnum.SPLIT_PUSH:
+        //if (this.hero.isBoss)
+        //  print(`[BotBoss] ${this.hero.GetUnitName()} executing SPLIT_PUSH action`);
+        return this.ActionSplitPush();
+      case ModeEnum.ASSASSIN:
+        //if (this.hero.isBoss)
+        //  print(`[BotBoss] ${this.hero.GetUnitName()} executing ASSASSIN action`);
+        return this.ActionAssassin();
+      //case ModeEnum.VANGUARD:
+      //  if (this.hero.isBoss) print(`[BotBoss] ${this.hero.GetUnitName()} executing VANGUARD action`);
+      //  return this.ActionVanguard();
       default:
-        print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
+        //print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
         return false;
     }
   }
@@ -248,6 +265,327 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     return false;
+  }
+
+  // 添加新的行为方法
+  protected ActionSplitPush(): boolean {
+    //const heroName = this.hero.GetUnitName();
+    //print(`[AI-SplitPush] ${heroName} executing split push action`);
+
+    // 寻找最远的可推进兵线
+    const lanes = [
+      Vector(-6000, -6000, 0), // 下路
+      Vector(0, 0, 0), // 中路
+      Vector(6000, 6000, 0), // 上路
+    ];
+
+    // 找到离队友最远的路
+    const nearbyAllies = this.FindNearbyAllies(1800);
+    //print(`[AI-SplitPush] ${heroName} found ${nearbyAllies.length} allies nearby`);
+
+    let bestLane = lanes[0];
+    let maxDistance = 0;
+
+    for (let i = 0; i < lanes.length; i++) {
+      const lane = lanes[i];
+      let totalDistance = 0;
+      for (const ally of nearbyAllies) {
+        totalDistance += ((ally.GetAbsOrigin() - lane) as Vector).Length2D();
+      }
+      if (totalDistance > maxDistance) {
+        maxDistance = totalDistance;
+        bestLane = lane;
+        //const laneNames = ['下路', '中路', '上路'];
+        //print(
+        //  `[AI-SplitPush] ${heroName} selected ${laneNames[i]} (distance: ${maxDistance.toFixed(0)})`,
+        //);
+      }
+    }
+
+    // 移动到该路
+    //const distanceToLane = this.GetDistanceToPosition(bestLane);
+    //print(`[AI-SplitPush] ${heroName} moving to lane (distance: ${distanceToLane.toFixed(0)})`);
+    this.hero.MoveToPosition(bestLane);
+
+    // 攻击附近的塔
+    const nearestTower = this.FindNearestEnemyTower();
+    if (nearestTower && this.GetDistanceTo(nearestTower) < 800) {
+      //print(
+      // `[AI-SplitPush] ${heroName} attacking tower at distance ${this.GetDistanceTo(nearestTower).toFixed(0)}`,
+      //);
+      ActionAttack.Attack(this.hero, nearestTower);
+    } else if (nearestTower) {
+      //print(
+      //  `[AI-SplitPush] ${heroName} tower too far (${this.GetDistanceTo(nearestTower).toFixed(0)})`,
+      //);
+    } else {
+      //print(`[AI-SplitPush] ${heroName} no tower found`);
+    }
+
+    // 使用技能清兵
+    if (this.CastCreep()) {
+      //print(`[AI-SplitPush] ${heroName} cast ability on creeps`);
+    }
+
+    return true;
+  }
+
+  // 在 ModeBase 类中
+  protected ActionAssassin(): boolean {
+    //const heroName = this.hero.GetUnitName();
+    //print(`[AI-Assassin] ${heroName} executing assassin action`);
+
+    // ✅ 简化: 直接使用 FindNearestAloneEnemyAssassin()
+    const nearestAloneEnemy = this.FindNearestAloneEnemyAssassin();
+
+    if (!nearestAloneEnemy) {
+      //print(`[AI-Assassin] ${heroName} no suitable target found, deactivating assassin mode`);
+      return false;
+    }
+
+    //const distanceToEnemy = this.GetDistanceTo(nearestAloneEnemy);
+    //print(
+    // `[AI-Assassin] ${heroName} targeting ${nearestAloneEnemy.GetUnitName()} at distance ${distanceToEnemy.toFixed(0)}`,
+    //);
+
+    // 直接攻击目标
+    //print(`[AI-Assassin] ${heroName} engaging target!`);
+    this.hero.MoveToTargetToAttack(nearestAloneEnemy);
+
+    return true;
+  }
+
+  // 在 BotBaseAIModifier 或 ModeBase 中修改
+  public FindNearestAloneEnemyAssassin(): CDOTA_BaseNPC_Hero | undefined {
+    const hero = this.GetHero();
+    const myLevel = hero.GetLevel();
+
+    // 使用更大的搜索半径(5000单位)来寻找敌人
+    const enemies = ActionFind.FindEnemyHeroes(hero, 5000);
+
+    if (enemies.length === 0) {
+      return undefined;
+    }
+
+    // 按距离排序,从近到远检查
+    enemies.sort((a, b) => {
+      const distA = ((a.GetAbsOrigin() - hero.GetAbsOrigin()) as Vector).Length2D();
+      const distB = ((b.GetAbsOrigin() - hero.GetAbsOrigin()) as Vector).Length2D();
+      return distA - distB;
+    });
+
+    // ✅ 新增: 检查是否有等级优势足够大的敌人(30级以上)
+    for (const enemy of enemies) {
+      const enemyHero = enemy as CDOTA_BaseNPC_Hero;
+      const enemyLevel = enemyHero.GetLevel();
+      const levelDifference = myLevel - enemyLevel;
+
+      // 如果等级差距>=30,直接返回最近的敌人,无视是否落单
+      if (levelDifference >= 30) {
+        //const distance = ((enemyHero.GetAbsOrigin() - hero.GetAbsOrigin()) as Vector).Length2D();
+        //print(
+        //  `[AI-Assassin] Found enemy with 30+ level disadvantage: ${enemyHero.GetUnitName()} at distance ${distance.toFixed(0)} (level diff: ${levelDifference})`,
+        //);
+        return enemyHero;
+      }
+    }
+
+    // ✅ 新增: 如果没有30级优势,检查是否有足够等级优势可以无视塔的落单敌人
+    for (const enemy of enemies) {
+      const enemyHero = enemy as CDOTA_BaseNPC_Hero;
+      const enemyLevel = enemyHero.GetLevel();
+      const levelDifference = myLevel - enemyLevel;
+
+      // 检查敌人周围1200范围内的队友数量
+      const enemyAllies = FindUnitsInRadius(
+        enemyHero.GetTeamNumber(),
+        enemyHero.GetAbsOrigin(),
+        undefined,
+        1200,
+        UnitTargetTeam.FRIENDLY,
+        UnitTargetType.HERO,
+        UnitTargetFlags.NONE,
+        FindOrder.ANY,
+        false,
+      );
+
+      // 如果敌人落单(周围只有自己,没有队友)
+      if (enemyAllies.length <= 1) {
+        // ✅ 新增: 根据等级差距判断是否可以无视塔
+        const canIgnoreTower = this.CanIgnoreTowerByLevel(hero, enemyHero, levelDifference);
+
+        if (canIgnoreTower) {
+          //const distance = ((enemyHero.GetAbsOrigin() - hero.GetAbsOrigin()) as Vector).Length2D();
+          //print(
+          //  `[AI-Assassin] Found alone enemy ${enemyHero.GetUnitName()} at distance ${distance.toFixed(0)} (level diff: ${levelDifference}, can ignore tower)`,
+          //);
+          return enemyHero;
+        }
+      }
+    }
+
+    // 所有敌人都不符合条件
+    //print(`[AI-Assassin] No suitable target found among ${enemies.length} enemies`);
+    return undefined;
+  }
+
+  // ✅ 新增: 辅助方法 - 根据等级差距判断是否可以无视塔
+  private CanIgnoreTowerByLevel(
+    hero: CDOTA_BaseNPC_Hero,
+    enemy: CDOTA_BaseNPC_Hero,
+    levelDifference: number,
+  ): boolean {
+    // 等级差距不足10级,不能无视任何塔
+    if (levelDifference < 10) {
+      return false;
+    }
+
+    // 查找敌人附近的塔
+    const nearbyTowers = ActionFind.FindEnemyBuildingsInvulnerable(hero, 1800);
+
+    if (nearbyTowers.length === 0) {
+      // 没有塔,可以追杀
+      return true;
+    }
+
+    // 检查每个塔的等级
+    for (const tower of nearbyTowers) {
+      const towerName = tower.GetUnitName();
+      let towerTier = 0;
+
+      if (towerName.includes('tower1')) {
+        towerTier = 1;
+      } else if (towerName.includes('tower2')) {
+        towerTier = 2;
+      } else if (towerName.includes('tower3')) {
+        towerTier = 3;
+      } else if (towerName.includes('tower4') || towerName.includes('fort')) {
+        towerTier = 4;
+      }
+
+      // 根据等级差距判断是否可以无视这个塔
+      const requiredLevelDiff = towerTier * 10;
+      if (levelDifference < requiredLevelDiff) {
+        // 等级差距不足以无视这个塔
+        //print(
+        //  `[AI-Assassin] Cannot ignore tower${towerTier} (need ${requiredLevelDiff} level diff, have ${levelDifference})`,
+        //);
+        return false;
+      }
+    }
+
+    // 可以无视所有附近的塔
+    return true;
+  }
+
+  // 计算到目标坐标的距离
+  public GetDistanceToPosition(position: Vector): number {
+    return ((this.hero.GetAbsOrigin() - position) as Vector).Length2D();
+  }
+
+  //冲锋者
+  protected ActionVanguard(): boolean {
+    //const heroName = this.hero.GetUnitName();
+    //print(`[AI-Vanguard] ${heroName} executing vanguard action`);
+
+    // 找到最近的敌方塔
+    const nearestTower = this.FindNearestEnemyTowerInvulnerable();
+
+    if (nearestTower) {
+      const distanceToTower = this.GetDistanceTo(nearestTower);
+      //print(`[AI-Vanguard] ${heroName} found tower at distance ${distanceToTower.toFixed(0)}`);
+
+      const targetPos = nearestTower.GetAbsOrigin();
+
+      // 检查队友是否在附近
+      const nearbyAllies = this.FindNearbyAllies(1500);
+      //print(`[AI-Vanguard] ${heroName} has ${nearbyAllies.length} allies nearby`);
+
+      if (nearbyAllies.length > 0) {
+        // 向塔方向前进,比队友更靠前
+        const direction = ((targetPos - this.hero.GetAbsOrigin()) as Vector).Normalized();
+        const vanguardPos = (this.hero.GetAbsOrigin() + direction * 300) as Vector;
+
+        //print(`[AI-Vanguard] ${heroName} moving ahead of team towards tower`);
+        this.hero.MoveToPosition(vanguardPos);
+
+        // 优先检查并处理附近的敌方英雄
+        const nearestEnemyHero = this.FindNearestEnemyHero();
+
+        if (nearestEnemyHero) {
+          const distanceToHero = this.GetDistanceTo(nearestEnemyHero);
+          const attackRange = 1000;
+          //print(
+          //  `[AI-Vanguard] ${heroName} found enemy hero ${nearestEnemyHero.GetUnitName()} at distance ${distanceToHero.toFixed(0)}`,
+          //);
+
+          // 如果敌方英雄在攻击范围或施法范围内,优先处理英雄
+          if (distanceToHero <= attackRange + this.NotAttactTowerHeroAttackRangeBuff) {
+            //print(`[AI-Vanguard] ${heroName} enemy in attack range, engaging hero`);
+            // 优先对英雄施法
+            if (this.CastEnemy()) {
+              //print(`[AI-Vanguard] ${heroName} successfully cast ability on enemy hero`);
+              return true;
+            }
+            // 如果施法失败,攻击英雄
+            //print(`[AI-Vanguard] ${heroName} attacking enemy hero`);
+            ActionAttack.Attack(this.hero, nearestEnemyHero);
+            return true;
+          }
+
+          // 如果英雄在施法范围内但不在攻击范围内,只施法
+          if (distanceToHero <= this.CastRange) {
+            //print(`[AI-Vanguard] ${heroName} enemy in cast range, attempting to cast`);
+            if (this.CastEnemy()) {
+              //print(`[AI-Vanguard] ${heroName} successfully cast ability on enemy hero`);
+              return true;
+            }
+          } else {
+            //print(
+            //   `[AI-Vanguard] ${heroName} enemy too far for abilities (${distanceToHero.toFixed(0)} > ${this.CastRange})`,
+            // );
+          }
+        } else {
+          //print(`[AI-Vanguard] ${heroName} no enemy hero found nearby`);
+        }
+
+        // 只有在没有敌方英雄威胁时才攻击塔
+        if (distanceToTower < 800) {
+          //print(`[AI-Vanguard] ${heroName} attacking tower (no enemy threat)`);
+          ActionAttack.Attack(this.hero, nearestTower);
+        } else {
+          //print(`[AI-Vanguard] ${heroName} tower too far (${distanceToTower.toFixed(0)})`);
+        }
+
+        return true;
+      } else {
+        //print(`[AI-Vanguard] ${heroName} no allies nearby, falling back to normal push`);
+      }
+    } else {
+      //print(`[AI-Vanguard] ${heroName} no tower found, falling back to normal push`);
+    }
+
+    // 没有队友时按正常推进
+    return this.ActionPush();
+  }
+
+  // 查找附近队友
+  public FindNearbyAllies(radius: number): CDOTA_BaseNPC[] {
+    return ActionFind.FindTeams(this.hero, radius, UnitTargetType.HERO);
+  }
+
+  // 查找最近的敌方塔
+  public FindNearestEnemyTower(): CDOTA_BaseNPC | undefined {
+    const towers = ActionFind.FindEnemyBuildings(this.hero, 1800);
+    if (towers.length > 0) {
+      return towers[0];
+    }
+    return undefined;
+  }
+
+  // 计算到目标的距离
+  public GetDistanceTo(target: CDOTA_BaseNPC): number {
+    return HeroUtil.GetDistanceToHero(this.hero, target);
   }
 
   ThinkRetreatGetAwayFromTower(): void {
@@ -367,7 +705,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const neutralItemConfig = this.getNeutralItemConfig();
     const selectedItem = NeutralItemManager.GetRandomTierItem(targetTier, neutralItemConfig);
     if (!selectedItem) {
-      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立物品`);
+      //print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立物品`);
       return false;
     }
 
@@ -376,13 +714,13 @@ export class BotBaseAIModifier extends BaseModifier {
       neutralItemConfig,
     );
     if (!selectedEnhancement) {
-      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
+      //print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
       return false;
     }
 
-    print(
-      `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItem.name} 和 中立增强 ${selectedEnhancement.name}`,
-    );
+    //print(
+    //  `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItem.name} 和 中立增强 ${selectedEnhancement.name}`,
+    // );
 
     // 移除当前中立物品
     const oldItem = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
@@ -519,7 +857,7 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     const delay = RandomFloat(1, 2);
-    print(`[AI] HeroBase OnCreated delay ${delay}`);
+    //print(`[AI] HeroBase OnCreated delay ${delay}`);
     Timers.CreateTimer(delay, () => {
       this.Init();
     });
