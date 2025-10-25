@@ -82,6 +82,9 @@ export class EventEntityKilled {
   private itemLightPartName = 'item_light_part';
   private itemDarkPartName = 'item_dark_part';
 
+  // 技能重置书
+  private itemTomeOfAbilityReset = 'item_tome_of_ability_reset';
+
   private dropItemChanceRoshanArtifactPart = 100;
 
   // 龙珠
@@ -111,41 +114,40 @@ export class EventEntityKilled {
   ];
 
   private dropItemChanceFusionRoshan = 100;
-  private dropItemChanceFusionAncient = 1.2;
-
-  private calculateDropChance(): number {
+  private dropItemChanceFusionAncient = 1.0;
+  private dropItemChanceFusionNeutral = 0.2;
+  private calculateDropChance(baseChance: number): number {
     // 获取游戏难度
-
     const difficulty = GameRules.Option.direGoldXpMultiplier || 1;
     // 获取玩家人数
     const playerCount = Player.GetPlayerCount();
-
     // 难度系数: 难度越高,掉落概率越高
     let difficultyMultiplier = 1;
     if (difficulty >= 60) {
       difficultyMultiplier = 3.0; // 60难度: 3倍概率
-    } else if (difficulty >= 20) {
+    } else if (difficulty >= 30) {
       difficultyMultiplier = 2.0; // 20难度: 2倍概率
+    } else if (difficulty >= 17) {
+      difficultyMultiplier = 1.6; // 20难度: 2倍概率
     } else if (difficulty >= 12) {
-      difficultyMultiplier = 1.5; // 12难度: 1.4倍概率
+      difficultyMultiplier = 1.2; // 12难度: 1.4倍概率
     } else if (difficulty >= 1) {
       difficultyMultiplier = 1; // N2难度: 1.2倍概率
     }
-
     // 人数系数: 人数越多概率越高
     let playerMultiplier = 1;
     if (playerCount >= 6) {
-      playerMultiplier = 1.8; // 6人: 2倍概率
+      playerMultiplier = 1.3; // 6人: 2倍概率
     } else if (playerCount >= 4) {
-      playerMultiplier = 1.5; // 4-5人: 1.0倍概率
+      playerMultiplier = 1.2; // 4-5人: 1.0倍概率
     } else if (playerCount >= 2) {
       playerMultiplier = 1.0; // 2-3人: 1.5倍概率
     } else if (playerCount <= 1) {
-      playerMultiplier = 1.2; // 1人: 2倍概率
+      playerMultiplier = 1.1; // 1人: 2倍概率
     }
 
     // 最终概率 = 基础概率 × 难度系数 × 人数系数
-    const finalChance = this.dropItemChanceFusionAncient * difficultyMultiplier * playerMultiplier;
+    const finalChance = baseChance * difficultyMultiplier * playerMultiplier;
 
     // 设置上限,避免概率过高
     return Math.min(finalChance, 100);
@@ -164,6 +166,9 @@ export class EventEntityKilled {
           this.dropItemChanceRoshan,
           true,
         );
+
+        // 技能重置书掉落
+        this.dropItem(creep, [this.itemTomeOfAbilityReset], this.dropItemChanceRoshan);
 
         // 融合符文掉落 - 使用神器组件的循环逻辑可重复
         const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
@@ -208,7 +213,11 @@ export class EventEntityKilled {
           true,
         );
         // 符文掉落 - 单次随机
-        this.dropItem(creep, this.dropItemListFusionMaterial, this.calculateDropChance());
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          this.calculateDropChance(this.dropItemChanceFusionAncient),
+        );
         this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
@@ -222,7 +231,11 @@ export class EventEntityKilled {
           true,
         );
         // 符文掉落 - 单次随机
-        this.dropItem(creep, this.dropItemListFusionMaterial, this.calculateDropChance());
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          this.calculateDropChance(this.dropItemChanceFusionNeutral),
+        );
         //神器组件
         this.dropParts(creep, this.dropItemChanceNeutral);
       }

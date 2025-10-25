@@ -66,7 +66,7 @@ function ShowChatTeamActivate() {
 
 // -------- Game Setting --------
 
-function InitSetting() {
+function InitCustomSetting() {
   $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
   $('#extra_passive_abilities').checked = true; // 自定义难度默认勾选额外被动技能
@@ -78,8 +78,9 @@ function InitSetting() {
   $('#max_level_dropdown').SetSelected('200');
   $('#tower_power_dropdown').SetSelected('500');
 
-  $('#starting_gold_player_dropdown').SetSelected('4983');
+  $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
+  $('#fixed_ability_dropdown').SetSelected('ability_trigger_on_attacked');
 
   // 开发模式
   if (Game.IsInToolsMode()) {
@@ -105,6 +106,7 @@ function LockOption() {
 
   $('#starting_gold_player_dropdown').enabled = false;
   $('#starting_gold_bot_dropdown').enabled = false;
+  $('#fixed_ability_dropdown').enabled = false;
   $('#same_hero_selection').enabled = false;
   $('#enable_player_attribute').enabled = false;
   $('#extra_passive_abilities').enabled = false;
@@ -122,6 +124,7 @@ function UnLockOptionAll() {
 
   $('#starting_gold_player_dropdown').enabled = true;
   $('#starting_gold_bot_dropdown').enabled = true;
+  $('#fixed_ability_dropdown').enabled = true;
   $('#same_hero_selection').enabled = true;
   $('#enable_player_attribute').enabled = true;
   $('#extra_passive_abilities').enabled = true;
@@ -134,9 +137,10 @@ function InitDifficultyCommonSetting() {
   $('#respawn_time_percentage_dropdown').SetSelected('100');
   $('#max_level_dropdown').SetSelected('50');
 
+  $('#fixed_ability_dropdown').SetSelected('none');
   $('#same_hero_selection').checked = false;
   $('#enable_player_attribute').checked = true;
-  $('#extra_passive_abilities').checked = false;
+  $('#extra_passive_abilities').checked = true;
 }
 
 function InitN1Setting() {
@@ -213,6 +217,7 @@ function StateChange() {
         starting_gold_player: $('#starting_gold_player_dropdown').GetSelected().id,
         starting_gold_bot: $('#starting_gold_bot_dropdown').GetSelected().id,
         max_level: $('#max_level_dropdown').GetSelected().id,
+        fixed_ability: $('#fixed_ability_dropdown').GetSelected().id,
         same_hero_selection: $('#same_hero_selection').checked,
         enable_player_attribute: $('#enable_player_attribute').checked,
         extra_passive_abilities: $('#extra_passive_abilities').checked,
@@ -236,6 +241,7 @@ function SendGameOptionsToServer() {
   const startingGoldPlayer = $('#starting_gold_player_dropdown').GetSelected().id;
   const startingGoldBot = $('#starting_gold_bot_dropdown').GetSelected().id;
   const maxLevel = $('#max_level_dropdown').GetSelected().id;
+  const fixedAbility = $('#fixed_ability_dropdown').GetSelected().id;
   const sameHeroSelection = $('#same_hero_selection').checked;
   const enablePlayerAttribute = $('#enable_player_attribute').checked;
   const extraPassiveAbilities = $('#extra_passive_abilities').checked;
@@ -250,6 +256,7 @@ function SendGameOptionsToServer() {
     starting_gold_player: Number(startingGoldPlayer),
     starting_gold_bot: Number(startingGoldBot),
     max_level: Number(maxLevel),
+    fixed_ability: fixedAbility,
     same_hero_selection: sameHeroSelection,
     enable_player_attribute: enablePlayerAttribute,
     extra_passive_abilities: extraPassiveAbilities,
@@ -281,7 +288,7 @@ function OnDifficultyDropDownChanged(difficulty) {
   const optionId = difficulty;
   if (optionId === 0) {
     UnLockOptionAll();
-    InitSetting();
+    InitCustomSetting();
   } else {
     InitDifficultyCommonSetting();
     if (optionId === 1) {

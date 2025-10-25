@@ -91,9 +91,13 @@ local EXCLUDED_ABILITIES = {
     ["queenofpain_blink"] = true,                  -- 痛苦女王 闪烁
     ["ember_spirit_activate_fire_remnant"] = true, -- 灰烬之灵 激活火焰残影
     ["earth_spirit_rolling_boulder"] = true,       -- 大地之灵 巨石翻滚
-    ["wisp_relocate"] = true,                      -- 艾欧 迁移
     ["viper_nosedive"] = true,                     -- 冥界亚龙 俯冲
-
+    --精灵
+    ["wisp_tether"] = true,
+    ["wisp_spirits"] = true,
+    ["wisp_relocate"] = true,
+    ["wisp_spirits_in"] = true,
+    ["wisp_spirits_out"] = true,
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降
@@ -170,7 +174,6 @@ local EXCLUDED_ABILITIES = {
     ["terrorblade_reflection"] = true,          -- 恐怖利刃 倒影
     ["goku_kaioken"] = true,                    -- 悟空 界王拳
     ["tusk_snowball"] = true,                   -- 巨牙海民 雪球
-    ["wisp_tether"] = true,                     -- 艾欧 羁绊
     ["muerta_the_calling"] = true,              -- 唤魂
     ["magnataur_empower"] = true,               -- 马格纳斯 授予力量
     ["furion_teleportation"] = true,            -- 先知 传送
@@ -203,6 +206,12 @@ local EXCLUDED_ABILITIES = {
     ["spectre_haunt_single"] = true,       -- 幽鬼 - 单体降临
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
     ["skeleton_king_reincarnation"] = true,
+    ["mars_bulwark"] = true,
+    ["ember_spirit_fire_remnant"] = true,
+    ["earth_spirit_stone_caller"] = true,
+    ["muerta_gunslinger"] = true,
+    ["troll_warlord_switch_stance"] = true,
+    ["earthshaker_fissure"] = true,
 }
 
 function ability_trigger_on_attacked:GetIntrinsicModifierName()
@@ -298,6 +307,7 @@ function modifier_trigger_on_attacked:OnAttacked(params)
 
     -- 保存冷却和充能状态
     local remaining_cooldown = random_ability:GetCooldownTimeRemaining() or 0
+    --print('[Trigger Debug]', remaining_cooldown)
     local has_charges = random_ability:GetMaxAbilityCharges(random_ability:GetLevel()) > 0
     local current_charges = 0
 
@@ -349,14 +359,24 @@ function modifier_trigger_on_attacked:OnAttacked(params)
             { duration = cooldown_duration })
     end
 
-    -- 恢复原有冷却状态
-    local restore_delay = 0.4
-    if random_ability:GetAbilityName() == "juggernaut_omni_slash" then
+    -- 获取技能的抬手时间
+    local cast_point = random_ability:GetCastPoint()
+    --print(string.format("[Trigger Debug] Ability cast point: %.2fs", cast_point))
+
+    -- 恢复原有冷却状态 - 加入抬手时间
+    local restore_delay = cast_point + 0.01
+
+    -- 特殊技能的额外延迟
+    if ability_name == "juggernaut_omni_slash" then
         restore_delay = 4.0
+        --print("[Trigger Debug] Special delay for juggernaut_omni_slash: 4.0s")
     end
+
+    --print(string.format("[Trigger Debug] CD restore delay: %.2fs (cast_point=%.2fs + 0.1s buffer)",restore_delay, cast_point))
 
     random_ability:SetContextThink("restore_cooldown_" .. random_ability:GetEntityIndex(), function()
         if not random_ability or random_ability:IsNull() then
+            --print("[Trigger Debug] Ability is null, cannot restore CD")
             return nil
         end
 
@@ -366,11 +386,15 @@ function modifier_trigger_on_attacked:OnAttacked(params)
             else
                 random_ability:SetCurrentAbilityCharges(current_charges)
             end
+            --print(string.format("[Trigger Debug] Restored charges to %d", current_charges))
         else
             if remaining_cooldown and remaining_cooldown > 0 then
-                random_ability:StartCooldown(remaining_cooldown)
+                random_ability:EndCooldown()                     -- 先结束
+                random_ability:StartCooldown(remaining_cooldown) -- 再用剩余时间开始
+                --print(string.format("[Trigger Debug] Restored cooldown: %.2fs", remaining_cooldown))
             else
                 random_ability:EndCooldown()
+                --print("[Trigger Debug] Ended cooldown (was 0)")
             end
         end
 

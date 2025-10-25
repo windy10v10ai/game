@@ -21,8 +21,7 @@ interface CustomGameEventDeclarations {
   lottery_pick_ability: LotteryPickEventData;
   lottery_refresh_ability: LotteryRefreshEventData;
   save_bind_ability_key: SaveBindAbilityKeyEventData;
-  skill_reset_pick: LotteryPickEventData;
-  skill_reset_remove: LotteryPickEventData; // 添加这一行
+  lottery_reset_ability: LotteryRefreshEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -43,6 +42,7 @@ interface GameOptionsChangeEventData {
   starting_gold_player: number;
   starting_gold_bot: number;
   max_level: number;
+  fixed_ability: string;
   same_hero_selection: number;
   enable_player_attribute: number;
   extra_passive_abilities: number;
@@ -60,6 +60,7 @@ interface LoadingSetOptionsEventData {
     starting_gold_player: string;
     starting_gold_bot: string;
     max_level: string;
+    fixed_ability: string;
     same_hero_selection: boolean;
     enable_player_attribute: boolean;
     extra_passive_abilities: boolean;
