@@ -56,6 +56,10 @@
 		"respawn_time_percentage_0"						"Near-instant"
 
 		"fixed_ability_none"							"None"
+		"ability_trigger_on_attacked_name"				"Butterfly Effect - Gold"
+		"ability_trigger_on_move_name"					"Butterfly Effect - Orange"
+		"ability_trigger_on_cast_name"					"Butterfly Effect - Red"
+		"ability_trigger_learned_skills_name"			"Butterfly Effect - Blue"
 
 		// link面板
 		"dota_survivor_button"			"Also check out: Dota Survivor"

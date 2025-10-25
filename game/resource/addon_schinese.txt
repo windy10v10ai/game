@@ -56,6 +56,10 @@
 		"respawn_time_percentage_0"						"秒活 (可能卡顿)"
 
 		"fixed_ability_none"							"无"
+		"ability_trigger_on_attacked_name"				"蝴蝶效应 · 金身"
+		"ability_trigger_on_move_name"					"蝴蝶效应 · 橙影"
+		"ability_trigger_on_cast_name"					"蝴蝶效应 · 红魔"
+		"ability_trigger_learned_skills_name"			"蝴蝶效应 · 蓝武"
 
 		// link面板
 		"dota_survivor_button"			"全新联动 刀塔幸存者"
