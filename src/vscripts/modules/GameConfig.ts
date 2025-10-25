@@ -11,6 +11,7 @@ export class GameConfig {
 
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
+    SendToServerConsole('dota_pause_cooldown_time 0'); // 暂停冷却时间
 
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 10); // 设置天辉队伍人数上限
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限
