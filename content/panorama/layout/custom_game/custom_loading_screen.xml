@@ -131,10 +131,13 @@
 						<Label id="FixedAbilityTitle" class="GameOptionsLabel" text="#fixed_ability" />
 						<DropDown id="fixed_ability_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="#fixed_ability_none" id="none"/>
-							<Label text="#DOTA_Tooltip_ability_ability_trigger_on_attacked" id="ability_trigger_on_attacked"/>
-							<Label text="#DOTA_Tooltip_ability_ability_trigger_on_move" id="ability_trigger_on_move"/>
-							<Label text="#DOTA_Tooltip_ability_ability_trigger_on_cast" id="ability_trigger_on_cast"/>
-							<Label text="#DOTA_Tooltip_ability_ability_trigger_learned_skills" id="ability_trigger_learned_skills"/>
+							<Label text="#fixed_ability_ability_trigger_on_active_name" id="ability_trigger_on_active"/>
+							<Label text="#fixed_ability_ability_trigger_on_spell_reflect_name" id="ability_trigger_on_spell_reflect"/>
+							<Label text="#fixed_ability_ability_charge_damage_name" id="ability_charge_damage"/>
+							<Label text="#fixed_ability_ability_trigger_on_attacked_name" id="ability_trigger_on_attacked"/>
+							<Label text="#fixed_ability_ability_trigger_on_move_name" id="ability_trigger_on_move"/>
+							<Label text="#fixed_ability_ability_trigger_on_cast_name" id="ability_trigger_on_cast"/>
+							<Label text="#fixed_ability_ability_trigger_learned_skills_name" id="ability_trigger_learned_skills"/>
 							<Label text="#DOTA_Tooltip_ability_ogre_magi_multicast_lua" id="ogre_magi_multicast_lua"/>
 							<Label text="#DOTA_Tooltip_ability_death_prophet_witchcraft2" id="death_prophet_witchcraft2"/>
 							<Label text="#DOTA_Tooltip_ability_bloodseeker_thirst" id="bloodseeker_thirst"/>

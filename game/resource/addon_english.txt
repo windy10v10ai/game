@@ -56,10 +56,13 @@
 		"respawn_time_percentage_0"						"Near-instant"
 
 		"fixed_ability_none"							"None"
-		"ability_trigger_on_attacked_name"				"Butterfly Effect - Gold"
-		"ability_trigger_on_move_name"					"Butterfly Effect - Orange"
-		"ability_trigger_on_cast_name"					"Butterfly Effect - Red"
-		"ability_trigger_learned_skills_name"			"Butterfly Effect - Blue"
+		"fixed_ability_ability_trigger_on_attacked_name"	"Butterfly Effect - Gold"
+		"fixed_ability_ability_trigger_on_move_name"		"Butterfly Effect - Orange"
+		"fixed_ability_ability_trigger_on_cast_name"		"Butterfly Effect - Red"
+		"fixed_ability_ability_trigger_learned_skills_name"	"Butterfly Effect - Blue"
+		"fixed_ability_ability_trigger_on_active_name"		"Butterfly Effect - Purple"
+		"fixed_ability_ability_trigger_on_spell_reflect_name"	"Butterfly Effect - Green"
+		"fixed_ability_ability_charge_damage_name"			"Butterfly Effect - Cyan"
 
 		// link面板
 		"dota_survivor_button"			"Also check out: Dota Survivor"
