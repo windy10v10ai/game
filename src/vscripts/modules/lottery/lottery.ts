@@ -5,13 +5,36 @@ import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { abilityTiersActive, abilityTiersPassive } from './lottery-abilities';
 import { LotteryHelper } from './lottery-helper';
+// 特殊用户 Steam ID 列表(可以刷新 100 次)
+// 在 Lottery 类外部或内部添加
+const REFRESH_TIER_CONFIGS = [
+  { tier: 1, maxCount: 100, steamIds: ['116431158'] },
+  { tier: 2, maxCount: 10, steamIds: ['76561198111111111', '76561198222222222'] },
+  {
+    tier: 3,
+    maxCount: 3,
+    steamIds: ['436804590', '295351477', '180074451', '92159660', '370099556'],
+  },
+  { tier: 4, maxCount: 2, steamIds: ['198490822'] },
+];
 
+function getMaxRefreshCount(steamAccountID: string): number {
+  for (const config of REFRESH_TIER_CONFIGS) {
+    if (config.steamIds.includes(steamAccountID)) {
+      return config.maxCount;
+    }
+  }
+  return 1;
+}
 @reloadable
 export class Lottery {
   readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
   // 新增：每个玩家的被动技能选择计数器
   private passiveAbilityPickCount: Map<string, number> = new Map();
+  // 【新增】追踪刷新次数
+  private activeAbilityRefreshCount: Map<string, number> = new Map();
+  private passiveAbilityRefreshCount: Map<string, number> = new Map();
 
   constructor() {
     // 启动物品抽奖
@@ -183,12 +206,12 @@ export class Lottery {
     if (!isActive && abilityLotteryResults.length > 0) {
       // 配置1: 蝴蝶效应技能池
       const hudieAbilities = [
-        { name: 'ability_trigger_on_cast', level: 5 },
+        //{ name: 'ability_trigger_on_cast', level: 5 },
         { name: 'ability_trigger_on_attacked', level: 5 },
-        { name: 'ability_trigger_on_move', level: 4 },
+        //{ name: 'ability_trigger_on_move', level: 4 },
         //{ name: 'ability_trigger_learned_skills', level: 5 }, //等21日下线
         { name: 'ability_trigger_on_spell_reflect', level: 5 }, //等红蝴蝶满一周后上线，26日
-        //{ name: 'ability_charge_damage', level: 5 }, //等金蝴蝶满一周后上线，26日
+        { name: 'ability_charge_damage', level: 5 }, //等金蝴蝶满一周后上线，26日
       ];
 
       const hudiexiaoying = 1;
@@ -233,14 +256,14 @@ export class Lottery {
     // 主动技能配置
     if (isActive && abilityLotteryResults.length > 0) {
       const activeAbilities = [
-        { name: 'dragon_knight_elder_dragon_form', level: 4 },
-        { name: 'dragon_knight_elder_dragon_form', level: 3 },
-        { name: 'dragon_knight_elder_dragon_form', level: 4 },
-        { name: 'dragon_knight_elder_dragon_form', level: 5 },
-        { name: 'dragon_knight_elder_dragon_form', level: 5 },
-        { name: 'dragon_knight_elder_dragon_form', level: 3 },
-        { name: 'dragon_knight_elder_dragon_form', level: 4 },
-        //{ name: 'ability_trigger_on_active', level: 5 },//等红蝴蝶满一周后上线，26日
+        { name: 'marci_unleash', level: 4 },
+        //{ name: 'dazzle_bad_juju', level: 3 },
+        //{ name: 'ember_spirit_sleight_of_fist', level: 4 },
+        { name: 'gyrocopter_flak_cannon', level: 5 },
+        { name: 'alchemist_chemical_rage', level: 5 },
+        { name: 'tinker_rearm_lua', level: 3 },
+        //{ name: 'juggernaut_omni_slash', level: 4 },
+        { name: 'ability_trigger_on_active', level: 5 }, //等红蝴蝶满一周后上线，26日
       ];
       const selectedAbility = this.selectUniqueAbility(activeAbilities, abilityLotteryResults);
       if (selectedAbility) {
@@ -335,48 +358,47 @@ export class Lottery {
     // });
   }
 
-  // ---- 刷新 ----
   refreshAbility(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
-    const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-    if (event.type !== 'abilityActive' && event.type !== 'abilityPassive') {
-      print('刷新技能类型错误');
-      return;
-    }
-    if (event.type === 'abilityActive') {
-      if (lotteryStatus.isActiveAbilityRefreshed || lotteryStatus.activeAbilityName) {
-        print('已经刷新/抽取过主动技能');
-        return;
-      }
-    }
-    // 将被动技能刷新检查改为：
-    if (event.type === 'abilityPassive') {
-      const hero = PlayerResource.GetSelectedHeroEntity(event.PlayerID);
-      if (hero) {
-        const passiveCount = this.passiveAbilityPickCount.get(steamAccountID) || 0;
-        const abilitynumber = this.getAbilityNumberByStartingGoldNumber();
-        if (lotteryStatus.isPassiveAbilityRefreshed || passiveCount >= abilitynumber) {
-          print('已经刷新/抽取过' + passiveCount + '个被动技能');
-          return;
-        }
-      }
-    }
+    const maxRefreshCount = getMaxRefreshCount(steamAccountID);
 
-    const member = NetTableHelper.GetMember(steamAccountID);
-    if (!member.enable) {
-      print('非会员不能刷新物品');
+    // 获取当前刷新次数
+    const currentCount =
+      event.type === 'abilityActive'
+        ? this.activeAbilityRefreshCount.get(steamAccountID) || 0
+        : this.passiveAbilityRefreshCount.get(steamAccountID) || 0;
+
+    // ✅ 修改: 检查是否超过上限,如果超过也要同步状态
+    if (currentCount >= maxRefreshCount) {
+      print(`已达到刷新上限: ${currentCount}/${maxRefreshCount}`);
+
+      // ✅ 新增: 确保客户端状态同步
+      const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+      lotteryStatus.activeAbilityRefreshCount =
+        this.activeAbilityRefreshCount.get(steamAccountID) || 0;
+      lotteryStatus.passiveAbilityRefreshCount =
+        this.passiveAbilityRefreshCount.get(steamAccountID) || 0;
+      CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+
       return;
     }
 
     // 刷新技能
     this.randomAbilityForPlayer(event.PlayerID, event.type === 'abilityActive');
 
-    // 记录刷新状态
+    // 更新刷新次数
     if (event.type === 'abilityActive') {
-      lotteryStatus.isActiveAbilityRefreshed = true;
+      this.activeAbilityRefreshCount.set(steamAccountID, currentCount + 1);
     } else {
-      lotteryStatus.isPassiveAbilityRefreshed = true;
+      this.passiveAbilityRefreshCount.set(steamAccountID, currentCount + 1);
     }
+
+    // 同步到网络表
+    const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+    lotteryStatus.activeAbilityRefreshCount =
+      this.activeAbilityRefreshCount.get(steamAccountID) || 0;
+    lotteryStatus.passiveAbilityRefreshCount =
+      this.passiveAbilityRefreshCount.get(steamAccountID) || 0;
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 

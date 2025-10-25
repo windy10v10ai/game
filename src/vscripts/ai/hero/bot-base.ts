@@ -269,7 +269,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 添加新的行为方法
   protected ActionSplitPush(): boolean {
-    const heroName = this.hero.GetUnitName();
+    //const heroName = this.hero.GetUnitName();
     //print(`[AI-SplitPush] ${heroName} executing split push action`);
 
     // 寻找最远的可推进兵线
@@ -280,7 +280,7 @@ export class BotBaseAIModifier extends BaseModifier {
     ];
 
     // 找到离队友最远的路
-    const nearbyAllies = this.FindNearbyAllies(3000);
+    const nearbyAllies = this.FindNearbyAllies(1800);
     //print(`[AI-SplitPush] ${heroName} found ${nearbyAllies.length} allies nearby`);
 
     let bestLane = lanes[0];
@@ -295,7 +295,7 @@ export class BotBaseAIModifier extends BaseModifier {
       if (totalDistance > maxDistance) {
         maxDistance = totalDistance;
         bestLane = lane;
-        const laneNames = ['下路', '中路', '上路'];
+        //const laneNames = ['下路', '中路', '上路'];
         //print(
         //  `[AI-SplitPush] ${heroName} selected ${laneNames[i]} (distance: ${maxDistance.toFixed(0)})`,
         //);
@@ -303,7 +303,7 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     // 移动到该路
-    const distanceToLane = this.GetDistanceToPosition(bestLane);
+    //const distanceToLane = this.GetDistanceToPosition(bestLane);
     //print(`[AI-SplitPush] ${heroName} moving to lane (distance: ${distanceToLane.toFixed(0)})`);
     this.hero.MoveToPosition(bestLane);
 
@@ -332,7 +332,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 在 ModeBase 类中
   protected ActionAssassin(): boolean {
-    const heroName = this.hero.GetUnitName();
+    //const heroName = this.hero.GetUnitName();
     //print(`[AI-Assassin] ${heroName} executing assassin action`);
 
     // ✅ 简化: 直接使用 FindNearestAloneEnemyAssassin()
@@ -343,7 +343,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
 
-    const distanceToEnemy = this.GetDistanceTo(nearestAloneEnemy);
+    //const distanceToEnemy = this.GetDistanceTo(nearestAloneEnemy);
     //print(
     // `[AI-Assassin] ${heroName} targeting ${nearestAloneEnemy.GetUnitName()} at distance ${distanceToEnemy.toFixed(0)}`,
     //);
@@ -382,7 +382,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
       // 如果等级差距>=30,直接返回最近的敌人,无视是否落单
       if (levelDifference >= 30) {
-        const distance = ((enemyHero.GetAbsOrigin() - hero.GetAbsOrigin()) as Vector).Length2D();
+        //const distance = ((enemyHero.GetAbsOrigin() - hero.GetAbsOrigin()) as Vector).Length2D();
         //print(
         //  `[AI-Assassin] Found enemy with 30+ level disadvantage: ${enemyHero.GetUnitName()} at distance ${distance.toFixed(0)} (level diff: ${levelDifference})`,
         //);
@@ -441,7 +441,7 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     // 查找敌人附近的塔
-    const nearbyTowers = ActionFind.FindEnemyBuildingsInvulnerable(hero, 2000);
+    const nearbyTowers = ActionFind.FindEnemyBuildingsInvulnerable(hero, 1800);
 
     if (nearbyTowers.length === 0) {
       // 没有塔,可以追杀
@@ -485,7 +485,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   //冲锋者
   protected ActionVanguard(): boolean {
-    const heroName = this.hero.GetUnitName();
+    //const heroName = this.hero.GetUnitName();
     //print(`[AI-Vanguard] ${heroName} executing vanguard action`);
 
     // 找到最近的敌方塔
@@ -576,7 +576,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 查找最近的敌方塔
   public FindNearestEnemyTower(): CDOTA_BaseNPC | undefined {
-    const towers = ActionFind.FindEnemyBuildings(this.hero, 3000);
+    const towers = ActionFind.FindEnemyBuildings(this.hero, 1800);
     if (towers.length > 0) {
       return towers[0];
     }
