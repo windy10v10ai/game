@@ -5096,7 +5096,7 @@
 	"item_recipe_rapier_ultra_bot"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"9597"
+		"ID"							"9596"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
 		"ItemCost"						"8000"
@@ -5112,7 +5112,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"9596"
+		"ID"							"9597"
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"60000"
 
@@ -5158,7 +5158,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"ID"							"19596"
+		"ID"							"9598"
 		"AbilityTextureName"			"item_rapier_ultra"
 		"ItemCost"						"60000"
 
@@ -5261,7 +5261,7 @@
 	"item_recipe_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_recipe_bloodthorn"
-		"ID"							"9611"
+		"ID"							"9592"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"0"
 		"ItemRecipe"					"1"
@@ -5275,7 +5275,7 @@
 	"item_bloodthorn_ultra"
 	{
 		"BaseClass"						"item_bloodthorn"
-		"ID"							"9612"
+		"ID"							"9593"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -7170,25 +7170,30 @@
 		"slow_pct"                  "-60"   // Lua 逻辑需要 - 减速百分比
     }
 }
-	//技能重置书
-	"item_tome_of_skill_reset"
+	// 技能重置书
+	"item_tome_of_ability_reset"
 	{
-		"ID"                            "9999"
-		"BaseClass"                     "item_datadriven"
-		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"            "item_tome_of_knowledge"
+		"ID"							"9999"
+		"BaseClass"						"item_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"item_tome_of_aghanim"
 
-		"ItemCost"                      "30000"
-		"ItemShopTags"                  ""
-		"ItemQuality"                   "consumable"
-		"ItemStackable"                 "1"
-		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
-		"ItemPermanent"                 "0"
-		"ItemInitialCharges"            "1"
-		"ItemInitialStockTime"			"900"	// 15分钟买
+		"ItemCost"						"30000"
+		"ItemShopTags"					"tome"
+		"ItemQuality"					"consumable"
+
+		"ItemPurchasable"				"1"
+		"ItemKillable"					"0"
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"					"0"
+		"ItemStackable"					"0"
+		"ItemInitialCharges"			"1"
+		// 库存设置
+		"ItemInitialStockTime"			"660"	// 10分钟买（开局准备1分钟）
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
+		"ItemStockTime"					"300"
 		"OnSpellStart"
 		{
 			"SpendCharge"
@@ -7196,4 +7201,88 @@
 			}
 		}
 	}
+	//=================================================================================================================
+	// gungir_3 风灵之锤
+	//=================================================================================================================
+	"item_recipe_gungir_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"10329"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_recipe_gungir"
+		"AbilityTextureName" 			"item_recipe_gungir_2"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"3000"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_gungir_3"
+		"ItemRequirements"
+		{
+			"01"						"item_gungir_2;item_fusion_agile"
+		}
+	}
+	"item_gungir_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"10330"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySharedCooldown"			"gungir"
+		"BaseClass"						"item_gungir"
+		"AbilityTextureName"			"item_gungir_3"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"27"
+		"AbilityCastRange"				"1000"	// 1100
+		"AbilityCastPoint"				"0.0"
+
+		"AbilityManaCost"				"600"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"46000"
+		"ItemShopTags"					"damage;attack_speed;unique"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"gleipnir;gliepnir;glaypnir"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_aoe"					"225"			// If changing this, change radius_tooltip
+			"bonus_hp"					"1800"			// 450
+			"bonus_intellect"			"60"			// 15
+			"bonus_mana"				"800"			// 200
+			"radius"
+			{
+				"value"						"375"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
+				"affected_by_aoe_increase"	"1"
+			}
+			"radius_tooltip"
+			{
+				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
+				"affected_by_aoe_increase"	"1"
+			}
+			"active_damage"
+			{
+				"value"							"1600"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"duration"				"2.0"
+		}
+	}
+
 }
