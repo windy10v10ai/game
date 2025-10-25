@@ -3,6 +3,7 @@ import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import LotteryAbilityItem from './LotteryAbilityItem';
 import { AbilityItemType, LotteryDto } from '../../../../common/dto/lottery';
 import RefreshButton from './RefreshButton';
+import AbilityResetButton from './AbilityResetButton';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import {
   GetLotteryStatus,
@@ -79,6 +80,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
 
   return (
     <Panel style={{ flowChildren: 'right' }}>
+      <AbilityResetButton type={type} lotteryStatus={lotteryStatus} />
       {lotteryData && (
         <>
           {lotteryData.map((lotteryDto, index) => (
