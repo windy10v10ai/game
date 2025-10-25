@@ -199,6 +199,17 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["spectre_haunt_single"] = true,       -- 幽鬼 - 单体降临
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
     ["skeleton_king_reincarnation"] = true,
+    ["earthshaker_fissure"] = true,
+    ["kunkka_x_marks_the_spot"] = true,
+    ["dark_willow_cursed_crown"] = true,
+    ["morphling_hybrid"] = true,
+
+    ["mars_bulwark"] = true,
+    ["ember_spirit_fire_remnant"] = true,
+    ["earth_spirit_stone_caller"] = true,
+    ["muerta_gunslinger"] = true,
+    ["troll_warlord_switch_stance"] = true,
+    ["shadow_demon_disruption"] = true, --崩裂禁锢
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题
@@ -271,5 +282,4 @@ EXCLUDED_ITEMS = {
     ["earth_spirit_stone_caller"] = true,
     ["muerta_gunslinger"] = true,
     ["troll_warlord_switch_stance"] = true,
-    ["earthshaker_fissure"] = true,
 }
