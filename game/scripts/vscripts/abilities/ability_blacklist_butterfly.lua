@@ -210,6 +210,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["muerta_gunslinger"] = true,
     ["troll_warlord_switch_stance"] = true,
     ["shadow_demon_disruption"] = true, --崩裂禁锢
+    ["keeper_of_the_light_recall"] = true,
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题

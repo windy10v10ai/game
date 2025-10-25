@@ -17,9 +17,9 @@ export class ModeAttack extends ModeBase {
       // Boss等级低于目标等级时,强制保持laning
       if (bossLevel < targetLevel) {
         desire -= 0.3; // 高优先级保持laning
-        //print(
+        // print(
         //  `[BotBoss] ${hero.GetUnitName()} level ${bossLevel} < ${targetLevel}, no activate attacking mode`,
-        //);
+        // );
       }
     }
     if (heroAI.mode === ModeEnum.RETREAT) {
