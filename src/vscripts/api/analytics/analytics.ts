@@ -1,12 +1,12 @@
 import { GameConfig } from '../../modules/GameConfig';
 import { reloadable } from '../../utils/tstl-utils';
 import { ApiClient, ApiParameter, HttpMethod } from '../api-client';
-import { PickDto } from './dto/pick-ability-dto';
+import { PickListDto } from './dto/pick-list-dto';
 import { PlayerLanguageListDto } from './dto/player-language-dto';
 
 @reloadable
 export class Analytics {
-  public static readonly POST_GAME_END_PICK_ABILITY_URL = '/analytics/game-end/pick/ability';
+  public static readonly POST_GAME_END_PICK_ABILITIES_URL = '/analytics/game-end/pick/abilities';
   public static readonly POST_PLAYER_LANGUAGE_URL = '/analytics/player/language';
   private static PLAYER_LANGUAGES: PlayerLanguageListDto = {
     players: [],
@@ -32,13 +32,18 @@ export class Analytics {
     );
   }
 
-  public static async SendGameEndPickAbilityEvent(pickDto: PickDto) {
+  /**
+   * 批量发送游戏结束时的技能选择数据
+   */
+  public static async SendGameEndPickAbilitiesEvent(pickListDto: PickListDto) {
     const apiParameter: ApiParameter = {
       method: HttpMethod.POST,
-      path: this.POST_GAME_END_PICK_ABILITY_URL,
-      body: pickDto,
+      path: this.POST_GAME_END_PICK_ABILITIES_URL,
+      body: pickListDto,
       successFunc: () => {
-        print(`[Analytic] SendGameEndPickAbilityEvent success`);
+        print(
+          `[Analytic] SendGameEndPickAbilitiesEvent success for ${pickListDto.picks.length} picks`,
+        );
       },
     };
 

@@ -1,6 +1,6 @@
-import { EventBaseDto } from './event-base-dto';
+export class PickDto {
+  steamId: number;
 
-export class PickDto extends EventBaseDto {
   name: string;
 
   type: string;

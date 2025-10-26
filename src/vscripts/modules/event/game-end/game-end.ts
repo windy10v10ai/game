@@ -4,6 +4,7 @@ import {
   GameEndGameOptionsDto,
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
+import { PickDto } from '../../../api/analytics/dto/pick-ability-dto';
 import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
@@ -148,40 +149,56 @@ export class GameEnd {
   }
 
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
+    const picks: PickDto[] = [];
+
     gameEndDto.players.forEach((player) => {
       if (player.steamId > 0) {
         const steamAccountID = player.steamId.toString();
         const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
         const activeAbilityName = LotteryStatus.activeAbilityName;
         const passiveAbilityName = LotteryStatus.passiveAbilityName;
+        const passiveAbilityName2 = LotteryStatus.passiveAbilityName2;
 
-        // SendGameEndPickAbilityEvent
+        // 收集主动技能选择
         if (activeAbilityName) {
-          Analytics.SendGameEndPickAbilityEvent({
+          picks.push({
             steamId: player.steamId,
-            matchId: gameEndDto.matchId,
             name: activeAbilityName,
             type: 'abilityActive',
             level: LotteryStatus.activeAbilityLevel ?? 0,
-            difficulty: gameEndDto.difficulty,
-            version: gameEndDto.version,
-            isWin: gameEndDto.winnerTeamId === player.teamId,
           });
         }
 
+        // 收集第一个被动技能选择
         if (passiveAbilityName) {
-          Analytics.SendGameEndPickAbilityEvent({
+          picks.push({
             steamId: player.steamId,
-            matchId: gameEndDto.matchId,
             name: passiveAbilityName,
             type: 'abilityPassive',
             level: LotteryStatus.passiveAbilityLevel ?? 0,
-            difficulty: gameEndDto.difficulty,
-            version: gameEndDto.version,
-            isWin: gameEndDto.winnerTeamId === player.teamId,
+          });
+        }
+
+        // 收集第二个被动技能选择（仅当gameOption开启时）
+        if (GameRules.Option.extraPassiveAbilities && passiveAbilityName2) {
+          picks.push({
+            steamId: player.steamId,
+            name: passiveAbilityName2,
+            type: 'abilityPassive', // 统计时不区分第一和第二被动
+            level: LotteryStatus.passiveAbilityLevel2 ?? 0,
           });
         }
       }
     });
+
+    // 批量发送技能选择统计
+    if (picks.length > 0) {
+      Analytics.SendGameEndPickAbilitiesEvent({
+        matchId: gameEndDto.matchId,
+        version: gameEndDto.version,
+        difficulty: gameEndDto.difficulty,
+        picks,
+      });
+    }
   }
 }
