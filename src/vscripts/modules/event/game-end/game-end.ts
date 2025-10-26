@@ -105,6 +105,7 @@ export class GameEnd {
 
       // 结算界面数据
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
+        steamId: playerDto.steamId.toString(),
         damage: playerDto.damage,
         damagereceived: damageTaken,
         healing: playerDto.healing,

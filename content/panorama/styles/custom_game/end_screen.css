@@ -16,7 +16,7 @@
 }
 
 #EndScreenWindow #MatchResultBlock {
-  width: 1700px;
+  width: 1800px;
   background-color: rgba(20, 20, 20, 0.5);
   background-color: gradient(
     linear,
@@ -293,6 +293,21 @@
   width: 50px;
 }
 
+.AbilitiesColumn {
+  width: 120px;
+  margin-left: 5px;
+}
+
+.AbilityImage {
+  height: 100%;
+  width: height-percentage(100%);
+  margin: 2px;
+  border: 1px solid #000;
+  vertical-align: center;
+  tooltip-position: right;
+  tooltip-body-position: 3%;
+}
+
 .BackpackColumn {
   width: 150px;
   margin-left: 10px;
@@ -378,7 +393,7 @@
 }
 
 .Team #TeamInfo {
-  width: 1700px;
+  width: 1800px;
   height: 50px;
   padding-top: 1px;
   padding-bottom: 6px;
@@ -497,7 +512,7 @@
 }
 
 .Player {
-  width: 1700px;
+  width: 1800px;
   height: 40px;
   padding-bottom: 0px;
   background-color: rgba(0, 0, 0, 0.95);
@@ -638,7 +653,8 @@
 
 .Player #ItemsContainer,
 .Player #BackpackItemsContainer,
-.Player .NeutralColumn {
+.Player .NeutralColumn,
+.Player #AbilitiesContainer {
   height: 100%;
 }
 
@@ -657,6 +673,21 @@
 .AspectRatio4x3 .Player #ItemsContainer DOTAItemImage,
 .AspectRatio4x3 .Player #BackpackItemsContainer DOTAItemImage,
 .AspectRatio4x3 .Player .NeutralColumn DOTAItemImage {
+  width: 40px;
+  horizontal-align: center;
+}
+
+.Player #AbilitiesContainer .AbilityIcon {
+  width: 47px;
+  height: width-percentage(72.7%);
+  margin: 0 1px;
+  vertical-align: center;
+  border: 1px solid #000;
+  tooltip-position: right;
+  tooltip-body-position: 3%;
+}
+
+.AspectRatio4x3 .Player #AbilitiesContainer .AbilityIcon {
   width: 40px;
   horizontal-align: center;
 }
