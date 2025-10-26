@@ -16,7 +16,7 @@
 }
 
 #EndScreenWindow #MatchResultBlock {
-  width: 1700px;
+  width: 1800px;
   background-color: rgba(20, 20, 20, 0.5);
   background-color: gradient(
     linear,
@@ -113,7 +113,7 @@
 
 /* 结束按钮 */
 #EndScreenWindow #MatchResultBlock #CloseButton {
-  width: 40%;
+  width: 400px;
   height: 38px;
   margin: 5px;
   align: center bottom;
@@ -240,7 +240,7 @@
 }
 
 .LastHitColumn {
-  width: 80px;
+  width: 60px;
   wash-color: white;
 }
 
@@ -291,6 +291,21 @@
 
 .NeutralColumn {
   width: 50px;
+}
+
+.AbilitiesColumn {
+  width: 120px;
+  margin-left: 5px;
+}
+
+.AbilityImage {
+  height: 100%;
+  width: height-percentage(100%);
+  margin: 2px;
+  border: 1px solid #000;
+  vertical-align: center;
+  tooltip-position: right;
+  tooltip-body-position: 3%;
 }
 
 .BackpackColumn {
@@ -378,7 +393,7 @@
 }
 
 .Team #TeamInfo {
-  width: 1700px;
+  width: 1800px;
   height: 50px;
   padding-top: 1px;
   padding-bottom: 6px;
@@ -497,7 +512,7 @@
 }
 
 .Player {
-  width: 1700px;
+  width: 1800px;
   height: 40px;
   padding-bottom: 0px;
   background-color: rgba(0, 0, 0, 0.95);
@@ -638,7 +653,8 @@
 
 .Player #ItemsContainer,
 .Player #BackpackItemsContainer,
-.Player .NeutralColumn {
+.Player .NeutralColumn,
+.Player #AbilitiesContainer {
   height: 100%;
 }
 
