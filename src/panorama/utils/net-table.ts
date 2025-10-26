@@ -81,6 +81,8 @@ function TransPlayerData(data: NetworkedData<PlayerDto>): PlayerDto {
 
       activeAbilityQuickCast: Boolean(data.playerSetting.activeAbilityQuickCast),
       passiveAbilityQuickCast: Boolean(data.playerSetting.passiveAbilityQuickCast),
+      passiveAbilityKey2: data.playerSetting.passiveAbilityKey2,
+      passiveAbilityQuickCast2: Boolean(data.playerSetting.passiveAbilityQuickCast2 ?? 0),
     },
   };
 }

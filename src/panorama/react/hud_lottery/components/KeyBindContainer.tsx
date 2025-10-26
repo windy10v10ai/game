@@ -15,7 +15,7 @@ interface KeyBindContainerProps {
 const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, playerSetting }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     visibility: isCollapsed ? 'collapse' : 'visible',
-    flowChildren: 'down',
+    flowChildren: 'right',
   };
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
@@ -23,16 +23,26 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
   );
   const [activeAbilityKey, setActiveAbilityKey] = useState(playerSetting.activeAbilityKey);
   const [passiveAbilityKey, setPassiveAbilityKey] = useState(playerSetting.passiveAbilityKey);
+  const [passiveAbilityKey2, setPassiveAbilityKey2] = useState(
+    playerSetting.passiveAbilityKey2 ?? '',
+  );
   const [activeAbilityQuickCast, setActiveAbilityQuickCast] = useState(
     playerSetting.activeAbilityQuickCast,
   );
   const [passiveAbilityQuickCast, setPassiveAbilityQuickCast] = useState(
     playerSetting.passiveAbilityQuickCast,
   );
+  const [passiveAbilityQuickCast2, setPassiveAbilityQuickCast2] = useState(
+    playerSetting.passiveAbilityQuickCast2 ?? false,
+  );
   const [isRememberAbilityKey, setIsRememberAbilityKey] = useState(
     playerSetting.isRememberAbilityKey,
   );
   const isFirstRender = useRef(true);
+
+  // 获取游戏选项判断是否启用额外被动技能
+  const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
+  const extraPassiveEnabled = gameOptions?.extra_passive_abilities === 1;
 
   // 监听nettable数据变化
   useEffect(() => {
@@ -54,15 +64,19 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
       isRememberAbilityKey,
       activeAbilityKey,
       passiveAbilityKey,
+      passiveAbilityKey2,
       activeAbilityQuickCast,
       passiveAbilityQuickCast,
+      passiveAbilityQuickCast2,
     });
   }, [
     isRememberAbilityKey,
     activeAbilityKey,
     passiveAbilityKey,
+    passiveAbilityKey2,
     activeAbilityQuickCast,
     passiveAbilityQuickCast,
+    passiveAbilityQuickCast2,
   ]);
 
   useEffect(() => {
@@ -73,6 +87,8 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
         activeAbilityKey,
         lotteryStatus?.passiveAbilityName,
         passiveAbilityKey,
+        lotteryStatus?.passiveAbilityName2,
+        passiveAbilityKey2,
       );
     }, 1000);
     return () => {
@@ -82,8 +98,10 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
     lotteryStatus,
     activeAbilityKey,
     passiveAbilityKey,
+    passiveAbilityKey2,
     activeAbilityQuickCast,
     passiveAbilityQuickCast,
+    passiveAbilityQuickCast2,
   ]);
 
   return (
@@ -102,6 +120,15 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
         quickCast={passiveAbilityQuickCast}
         setQuickCast={setPassiveAbilityQuickCast}
       />
+      {extraPassiveEnabled && (
+        <KeySettingButton
+          abilityname={lotteryStatus?.passiveAbilityName2}
+          bindKeyText={passiveAbilityKey2}
+          setBindKeyText={setPassiveAbilityKey2}
+          quickCast={passiveAbilityQuickCast2}
+          setQuickCast={setPassiveAbilityQuickCast2}
+        />
+      )}
       <KeyBindRemember
         isRememberAbilityKey={isRememberAbilityKey}
         setIsRememberAbilityKey={setIsRememberAbilityKey}
