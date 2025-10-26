@@ -95,6 +95,7 @@
 
 		"custom_end_screen_victory_message"	"天辉获胜"
 		"custom_end_screen_lose_message"	"夜魇获胜"
+		"custom_end_screen_abilities"		"技能"
 
 		"player_multiplier"		"玩家倍率"
 		"bot_multiplier"		"电脑倍率"
