@@ -113,7 +113,7 @@
 
 /* 结束按钮 */
 #EndScreenWindow #MatchResultBlock #CloseButton {
-  width: 40%;
+  width: 400px;
   height: 38px;
   margin: 5px;
   align: center bottom;
@@ -240,7 +240,7 @@
 }
 
 .LastHitColumn {
-  width: 80px;
+  width: 60px;
   wash-color: white;
 }
 
@@ -673,21 +673,6 @@
 .AspectRatio4x3 .Player #ItemsContainer DOTAItemImage,
 .AspectRatio4x3 .Player #BackpackItemsContainer DOTAItemImage,
 .AspectRatio4x3 .Player .NeutralColumn DOTAItemImage {
-  width: 40px;
-  horizontal-align: center;
-}
-
-.Player #AbilitiesContainer .AbilityIcon {
-  width: 47px;
-  height: width-percentage(72.7%);
-  margin: 0 1px;
-  vertical-align: center;
-  border: 1px solid #000;
-  tooltip-position: right;
-  tooltip-body-position: 3%;
-}
-
-.AspectRatio4x3 .Player #AbilitiesContainer .AbilityIcon {
   width: 40px;
   horizontal-align: center;
 }
