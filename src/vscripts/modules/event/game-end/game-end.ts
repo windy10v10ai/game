@@ -151,97 +151,10 @@ export class GameEnd {
   }
 
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
-    const picks: PickDto[] = [];
-    const items: ItemBuildDto[] = [];
-
-    // 遍历所有玩家收集技能和物品数据
-    gameEndDto.players.forEach((player) => {
-      const steamId = player.steamId;
-      const playerId = player.playerId;
-
-      // 只统计真实玩家 (steamId > 0)
-      if (steamId <= 0) {
-        return;
-      }
-
-      const steamAccountID = steamId.toString();
-      const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-
-      // 收集技能选择数据
-      const activeAbilityName = LotteryStatus.activeAbilityName;
-      const passiveAbilityName = LotteryStatus.passiveAbilityName;
-      const passiveAbilityName2 = LotteryStatus.passiveAbilityName2;
-
-      // 收集主动技能选择
-      if (activeAbilityName) {
-        picks.push({
-          steamId,
-          name: activeAbilityName,
-          type: 'abilityActive',
-          level: LotteryStatus.activeAbilityLevel ?? 0,
-        });
-      }
-
-      // 收集第一个被动技能选择
-      if (passiveAbilityName) {
-        picks.push({
-          steamId,
-          name: passiveAbilityName,
-          type: 'abilityPassive',
-          level: LotteryStatus.passiveAbilityLevel ?? 0,
-        });
-      }
-
-      // 收集第二个被动技能选择（仅当gameOption开启时）
-      if (GameRules.Option.extraPassiveAbilities && passiveAbilityName2) {
-        picks.push({
-          steamId,
-          name: passiveAbilityName2,
-          type: 'abilityPassive', // 统计时不区分第一和第二被动
-          level: LotteryStatus.passiveAbilityLevel2 ?? 0,
-        });
-      }
-
-      // 收集物品出装数据
-      if (hero) {
-        const itemBuild: ItemBuildDto = {
-          steamId,
-        };
-
-        // 收集普通物品槽位 (slot 0-5)
-        for (let i = 0; i < 6; i++) {
-          const item = hero.GetItemInSlot(i);
-          if (item) {
-            const itemName = item.GetAbilityName();
-            // 根据槽位索引设置对应的 slot 字段
-            if (i === 0) itemBuild.slot1 = itemName;
-            else if (i === 1) itemBuild.slot2 = itemName;
-            else if (i === 2) itemBuild.slot3 = itemName;
-            else if (i === 3) itemBuild.slot4 = itemName;
-            else if (i === 4) itemBuild.slot5 = itemName;
-            else if (i === 5) itemBuild.slot6 = itemName;
-          }
-        }
-
-        // 收集中立物品槽位 (slot 16 = DOTA_ITEM_NEUTRAL_SLOT)
-        const neutralActiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-        if (neutralActiveItem) {
-          itemBuild.neutralActiveSlot = neutralActiveItem.GetAbilityName();
-        }
-
-        const neutralPassiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-        if (neutralPassiveItem) {
-          itemBuild.neutralPassiveSlot = neutralPassiveItem.GetAbilityName();
-        }
-
-        items.push(itemBuild);
-      }
-    });
-
     const isWin = gameEndDto.winnerTeamId === DotaTeam.GOODGUYS;
 
-    // 批量发送技能选择统计
+    // 收集并发送技能选择统计
+    const picks = this.CollectAbilityPicks(gameEndDto.players);
     if (picks.length > 0) {
       Analytics.SendGameEndPickAbilitiesEvent({
         matchId: gameEndDto.matchId,
@@ -252,7 +165,8 @@ export class GameEnd {
       });
     }
 
-    // 批量发送物品出装统计
+    // 收集并发送物品出装统计
+    const items = this.CollectItemBuilds(gameEndDto.players);
     if (items.length > 0) {
       Analytics.SendGameEndItemBuildsEvent({
         matchId: gameEndDto.matchId,
@@ -262,5 +176,107 @@ export class GameEnd {
         isWin,
       });
     }
+  }
+
+  /**
+   * 收集玩家的技能选择数据
+   */
+  private static CollectAbilityPicks(players: GameEndPlayerDto[]): PickDto[] {
+    const picks: PickDto[] = [];
+
+    players.forEach((player) => {
+      // 只统计真实玩家 (steamId > 0)
+      if (player.steamId <= 0) {
+        return;
+      }
+
+      const steamAccountID = player.steamId.toString();
+      const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+
+      // 收集主动技能选择
+      if (LotteryStatus.activeAbilityName) {
+        picks.push({
+          steamId: player.steamId,
+          name: LotteryStatus.activeAbilityName,
+          type: 'abilityActive',
+          level: LotteryStatus.activeAbilityLevel ?? 0,
+        });
+      }
+
+      // 收集第一个被动技能选择
+      if (LotteryStatus.passiveAbilityName) {
+        picks.push({
+          steamId: player.steamId,
+          name: LotteryStatus.passiveAbilityName,
+          type: 'abilityPassive',
+          level: LotteryStatus.passiveAbilityLevel ?? 0,
+        });
+      }
+
+      // 收集第二个被动技能选择（仅当gameOption开启时）
+      if (GameRules.Option.extraPassiveAbilities && LotteryStatus.passiveAbilityName2) {
+        picks.push({
+          steamId: player.steamId,
+          name: LotteryStatus.passiveAbilityName2,
+          type: 'abilityPassive', // 统计时不区分第一和第二被动
+          level: LotteryStatus.passiveAbilityLevel2 ?? 0,
+        });
+      }
+    });
+
+    return picks;
+  }
+
+  /**
+   * 收集玩家的物品出装数据
+   */
+  private static CollectItemBuilds(players: GameEndPlayerDto[]): ItemBuildDto[] {
+    const items: ItemBuildDto[] = [];
+
+    players.forEach((player) => {
+      // 只统计真实玩家 (steamId > 0)
+      if (player.steamId <= 0) {
+        return;
+      }
+
+      const hero = PlayerResource.GetSelectedHeroEntity(player.playerId);
+      if (!hero) {
+        return;
+      }
+
+      const itemBuild: ItemBuildDto = {
+        steamId: player.steamId,
+      };
+
+      // 收集普通物品槽位 (slot 0-5)
+      for (let i = 0; i < 6; i++) {
+        const item = hero.GetItemInSlot(i);
+        if (item) {
+          const itemName = item.GetAbilityName();
+          // 根据槽位索引设置对应的 slot 字段
+          if (i === 0) itemBuild.slot1 = itemName;
+          else if (i === 1) itemBuild.slot2 = itemName;
+          else if (i === 2) itemBuild.slot3 = itemName;
+          else if (i === 3) itemBuild.slot4 = itemName;
+          else if (i === 4) itemBuild.slot5 = itemName;
+          else if (i === 5) itemBuild.slot6 = itemName;
+        }
+      }
+
+      // 收集中立物品槽位
+      const neutralActiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+      if (neutralActiveItem) {
+        itemBuild.neutralActiveSlot = neutralActiveItem.GetAbilityName();
+      }
+
+      const neutralPassiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+      if (neutralPassiveItem) {
+        itemBuild.neutralPassiveSlot = neutralPassiveItem.GetAbilityName();
+      }
+
+      items.push(itemBuild);
+    });
+
+    return items;
   }
 }
