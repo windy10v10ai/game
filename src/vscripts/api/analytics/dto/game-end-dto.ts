@@ -11,6 +11,7 @@ export class GameEndGameOptionsDto {
 export class GameEndPlayerDto {
   heroName: string;
   steamId: number;
+  playerId: PlayerID;
   teamId: number;
   isDisconnected: boolean;
   level: number;
