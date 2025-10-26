@@ -7,7 +7,7 @@ export class PickListDto {
 
   difficulty: number;
 
-  isWin?: boolean;
+  isWin: boolean;
 
   picks: PickDto[];
 }

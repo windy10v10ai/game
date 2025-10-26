@@ -1,12 +1,14 @@
 import { GameConfig } from '../../modules/GameConfig';
 import { reloadable } from '../../utils/tstl-utils';
 import { ApiClient, ApiParameter, HttpMethod } from '../api-client';
+import { ItemListDto } from './dto/item-list-dto';
 import { PickListDto } from './dto/pick-list-dto';
 import { PlayerLanguageListDto } from './dto/player-language-dto';
 
 @reloadable
 export class Analytics {
   public static readonly POST_GAME_END_PICK_ABILITIES_URL = '/analytics/game-end/pick/abilities';
+  public static readonly POST_GAME_END_ITEM_BUILDS_URL = '/analytics/game-end/item-builds';
   public static readonly POST_PLAYER_LANGUAGE_URL = '/analytics/player/language';
   private static PLAYER_LANGUAGES: PlayerLanguageListDto = {
     players: [],
@@ -43,6 +45,24 @@ export class Analytics {
       successFunc: () => {
         print(
           `[Analytic] SendGameEndPickAbilitiesEvent success for ${pickListDto.picks.length} picks`,
+        );
+      },
+    };
+
+    ApiClient.sendWithRetry(apiParameter);
+  }
+
+  /**
+   * 批量发送游戏结束时的物品出装数据
+   */
+  public static async SendGameEndItemBuildsEvent(itemListDto: ItemListDto) {
+    const apiParameter: ApiParameter = {
+      method: HttpMethod.POST,
+      path: this.POST_GAME_END_ITEM_BUILDS_URL,
+      body: itemListDto,
+      successFunc: () => {
+        print(
+          `[Analytic] SendGameEndItemBuildsEvent success for ${itemListDto.items.length} players`,
         );
       },
     };

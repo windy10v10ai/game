@@ -11,6 +11,7 @@ describe('GameEndPoint', () => {
   const createBasePlayer = (overrides: Partial<GameEndPlayerDto> = {}): GameEndPlayerDto => ({
     heroName: 'npc_dota_hero_axe',
     steamId: 123456,
+    playerId: 1,
     teamId: 2,
     isDisconnected: false,
     level: 1,
