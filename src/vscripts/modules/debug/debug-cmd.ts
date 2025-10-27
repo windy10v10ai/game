@@ -38,11 +38,11 @@ export enum CMD {
   // ---- item ----
   ADD_BKB_ALL = '-bkball', // 所有人添加bkb
   ADD_ITEM_ALL = '-additemall', // 所有人添加物品
+  REMOVE_ITEM_ALL = '-rmiall', // 移除所有物品
   RM_ITEM = '-rmitem', // 移除物品
   REPLACE_NEUTRAL_ITEM = '-rn', // 替换中立物品
   REPLACE_ENHANCE_ITEM = '-re', // 替换附魔物品
   REPLACE_ITEM_ALL = '-rpiall', // 替换所有物品
-  REMOVE_ITEM_ALL = '-rmiall', // 移除所有物品
 
   // ---- modifier相关 ----
   // lua modifier，需要先购买物品激活
