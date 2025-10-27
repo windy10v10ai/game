@@ -6155,9 +6155,9 @@
     "ID"                        "10302"
     "ScriptFile"                "items/item_forbidden_staff"
     "AbilityTextureName"        "jinjifachui"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"FightRecapLevel"				"1"
 	"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
@@ -6232,7 +6232,9 @@
     "ID"                        "10304"
     "ScriptFile"                "items/item_forbidden_blade"
     "AbilityTextureName"        "jinjizhanren"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"  // 改为AOE点目标
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
     "ItemShopTags"              "damage;str;hard_to_tag"
     "ItemQuality"               "epic"

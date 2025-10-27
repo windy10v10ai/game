@@ -113,6 +113,13 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     if not random_ability then return end
     -- 立即获取冷却时间(添加默认值处理)
     local remaining_cooldown = random_ability:GetCooldownTimeRemaining() or 0
+    -- 【关键修复1】保存当前魔法值
+    local current_mana = attacker:GetMana()
+    local mana_cost = random_ability:GetManaCost(random_ability:GetLevel() - 1)
+    -- 【关键修复1】保存原始施法前摇时间
+    local original_cast_point = random_ability:GetCastPoint()
+
+
     -- 保存充能状态
     local has_charges = random_ability:GetMaxAbilityCharges(random_ability:GetLevel()) > 0
     local current_charges = 0
@@ -123,6 +130,12 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
 
     -- 临时结束冷却以允许施放
     random_ability:EndCooldown()
+    -- 【关键修复2】临时设置施法前摇为0
+    random_ability:SetOverrideCastPoint(0)
+    -- 【关键修复2】给予足够的魔法以确保施放成功
+    if current_mana < mana_cost then
+        attacker:GiveMana(mana_cost - current_mana)
+    end
     --施放技能 - 使用位运算检查行为
     local target = params.target
     local behavior = random_ability:GetBehavior()
@@ -165,16 +178,14 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
         cast_success = attacker:CastAbilityImmediately(random_ability, attacker:GetPlayerOwnerID())
     end
 
-    -- 只在施放成功时返还魔法
-    if cast_success then
-        attacker:GiveMana(random_ability:GetManaCost(random_ability:GetLevel() - 1))
-    end
-    -- 获取技能的抬手时间
-    local cast_point = random_ability:GetCastPoint()
-    --print(string.format("[Trigger Debug] Ability cast point: %.2fs", cast_point))
+    -- 【关键修复5】立即恢复原始魔法值
+    attacker:SetMana(current_mana)
+
+    -- 【关键修复6】恢复原始施法前摇时间
+    random_ability:SetOverrideCastPoint(original_cast_point)
 
     -- 恢复原有冷却状态 - 加入抬手时间
-    local restore_delay = cast_point + 0.01
+    local restore_delay = FrameTime()
 
     -- 特殊技能的额外延迟
     if ability_name == "juggernaut_omni_slash" then

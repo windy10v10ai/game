@@ -136,13 +136,17 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
     -- 对建筑物无效
     if params.target:IsBuilding() then return end
 
-    -- 幻影暴击概率判定 - 修复:使用正确的函数名
+    -- 幻影暴击概率判定
     local phantom_crit_chance = self:GetAbility():GetSpecialValueFor("phantom_crit_chance")
     if not RollPseudoRandomPercentage(phantom_crit_chance, DOTA_PSEUDO_RANDOM_NONE, self) then return end
 
     -- 造成额外魔法伤害
     local phantom_crit_multiplier = self:GetAbility():GetSpecialValueFor("phantom_crit_multiplier")
     local damage = params.damage * (phantom_crit_multiplier / 100)
+
+    -- 【新增】调试输出 - 幻影暴击
+    -- print(string.format("[MagicCritBlade] 幻影暴击触发! 原始攻击伤害: %.0f, 暴击倍率: %.0f%%, 额外魔法伤害: %.0f",
+    --     params.damage, phantom_crit_multiplier, damage))
 
     ApplyDamage({
         victim = params.target,
@@ -155,7 +159,8 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
     -- 播放暴击音效
     EmitSoundOn("Hero_Brewmaster.Brawler.Crit", params.target)
     -- 显示幻影暴击伤害数字(蓝紫色)
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, params.target, damage, nil)
+    local total_spell_amp = self:GetParent():GetSpellAmplification(false)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, params.target, damage * (total_spell_amp + 1), nil)
 end
 
 function modifier_item_magic_crit_blade:GetModifierSpellAmplify_Percentage()
@@ -197,8 +202,13 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
     local mode = self:GetStackCount()
     if mode == 0 then mode = 1 end
 
+    -- 【新增】调试输出 - 基础信息
+    -- print(string.format("[MagicCritBlade] 检测到法术伤害: %.0f (模式%d), 目标: %s",
+    --     params.original_damage, mode, target:GetUnitName()))
+
     local should_crit = false
     local multiplier = 0
+    local crit_type = ""
 
     -- 优先检查必然暴击
     if self.has_guaranteed_crit then
@@ -206,21 +216,42 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
         multiplier = ability:GetSpecialValueFor("guaranteed_spell_crit_multiplier_mode" .. mode)
         self.triggered_guaranteed_crit = true
         self.triggered_chance_crit = false
+        crit_type = "必然暴击"
+
+        -- 【新增】调试输出 - 必然暴击触发
+        --print(string.format("[MagicCritBlade] 必然暴击触发! 倍率: %.1fx", multiplier))
     else
         -- 概率暴击判定
         local crit_chance = ability:GetSpecialValueFor("spell_crit_chance_mode" .. mode)
-        if RandomFloat(0, 100) <= crit_chance then
+        local roll = RandomFloat(0, 100)
+
+        -- 【新增】调试输出 - 概率判定
+        --print(string.format("[MagicCritBlade] 概率暴击判定: %.1f%% vs %.1f%%", roll, crit_chance))
+
+        if roll <= crit_chance then
             should_crit = true
             multiplier = ability:GetSpecialValueFor("spell_crit_multiplier_mode" .. mode)
             self.triggered_guaranteed_crit = false
             self.triggered_chance_crit = true
+            crit_type = "概率暴击"
+
+            -- 【新增】调试输出 - 概率暴击触发
+            --print(string.format("[MagicCritBlade] 概率暴击触发! 倍率: %.1fx", multiplier))
         else
             self.triggered_chance_crit = false
+
+            -- 【新增】调试输出 - 未触发暴击
+            --print("[MagicCritBlade] 未触发暴击")
         end
     end
 
     if should_crit then
         local extra_damage = params.original_damage * (multiplier - 1)
+        local total_damage = params.original_damage + extra_damage
+
+        -- 【新增】调试输出 - 暴击伤害详情
+        --print(string.format("[MagicCritBlade] %s - 原始伤害: %.0f, 暴击倍率: %.1fx, 额外伤害: %.0f, 总伤害: %.0f",
+        --    crit_type, params.original_damage, multiplier, extra_damage, total_damage))
 
         ApplyDamage({
             victim = target,
@@ -240,11 +271,12 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
             local cooldown = ability:GetSpecialValueFor("cooldown_mode" .. mode)
             ability:StartCooldown(cooldown)
             self:StartIntervalThink(cooldown)
+
+            -- 【新增】调试输出 - 冷却开始
+            --print(string.format("[MagicCritBlade] 必然暴击进入冷却: %.0f秒", cooldown))
         end
 
-
-        SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, params.original_damage + extra_damage,
-            nil)
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, extra_damage, nil)
     end
 end
 

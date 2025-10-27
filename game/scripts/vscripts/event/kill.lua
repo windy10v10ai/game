@@ -157,8 +157,8 @@ local function HeroKilled(keys)
             bossMultiplier = 2
         end
 
-        print(string.format("[BotBoss] Boss %s was killed! Bot multiplier: %.0fx, Reward multiplier: %dx",
-            hHero:GetUnitName(), botMultiplier, bossMultiplier))
+        --print(string.format("[BotBoss] Boss %s was killed! Bot multiplier: %.0fx, Reward multiplier: %dx",
+        --    hHero:GetUnitName(), botMultiplier, bossMultiplier))
     end
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
@@ -185,9 +185,9 @@ local function HeroKilled(keys)
             end
         end
 
-        if isBoss then
-            print(string.format("[BotBoss] Team members received %d gold (%dx multiplier)", gold, bossMultiplier))
-        end
+        --if isBoss then
+        --    print(string.format("[BotBoss] Team members received %d gold (%dx multiplier)", gold, bossMultiplier))
+        --end
     end
 
     -- AI连续死亡记录
