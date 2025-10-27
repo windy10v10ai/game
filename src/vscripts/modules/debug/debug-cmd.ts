@@ -45,6 +45,7 @@ export enum CMD {
   REMOVE_ITEM_ALL = '-rmiall', // 移除所有物品
 
   // ---- modifier相关 ----
+  // lua modifier，需要先购买物品激活
   ADD_MODIFIER = '-am', // 添加指定modifier
   REMOVE_MODIFIER = '-rm', // 移除指定modifier
   ADD_MODIFIER_All_100 = '-amall', // 添加指定modifier
