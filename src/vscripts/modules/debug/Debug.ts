@@ -236,6 +236,7 @@ export class Debug {
       this.log(`${version}: ${key}`);
     }
 
+    // add modifier 卡顿测试
     if (cmd.startsWith(CMD.ADD_MODIFIER)) {
       const modifierName = args[0];
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
@@ -280,6 +281,7 @@ export class Debug {
       const modifierName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
         // add modifier
+        // TODO 物品modifier
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (hero) {
           for (let i = 0; i < 100; i++) {

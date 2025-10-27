@@ -48,8 +48,8 @@ export enum CMD {
   ADD_MODIFIER = '-am', // 添加指定modifier
   REMOVE_MODIFIER = '-rm', // 移除指定modifier
   ADD_MODIFIER_All_100 = '-amall', // 添加指定modifier
-  ADD_DATADRIVE_MODIFIER_All_100 = '-amdall', // 添加指定modifier
   REMOVE_MODIFIER_ALL_100 = '-rmmall', // 移除指定modifier
+  ADD_DATADRIVE_MODIFIER_All_100 = '-amdall', // 添加指定modifier
 
   GET_KEY_V3 = '-get_key_v3', // 获取key
 }
