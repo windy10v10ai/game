@@ -193,6 +193,9 @@ function modifier_item_magic_sword_active:OnTakeDamage(params)
         ability = ability,
         damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
     })
+
+    -- 显示总伤害数字
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, params.unit, params.damage + pure_damage, nil)
 end
 
 function modifier_item_magic_sword_active:GetTexture()
