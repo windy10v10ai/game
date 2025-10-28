@@ -39,9 +39,6 @@ function modifier_item_magic_abyss_staff:GetModifierSpellAmplify_Percentage()
     if self:GetParent():HasModifier("modifier_item_hallowed_scepter") then
         return 0
     end
-    if self:GetParent():HasModifier("modifier_item_magic_crit_blade") then
-        return 0
-    end
 
     -- ✅ 修复: 先获取ability对象
     local ability = self:GetAbility()

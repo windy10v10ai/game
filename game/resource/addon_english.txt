@@ -2948,9 +2948,11 @@
 "DOTA_Tooltip_ability_ability_trigger_on_active_cast_time_reduction_pct" "%CAST TIME REDUCTION:"
 "DOTA_Tooltip_ability_ability_trigger_on_active_bonus_cast_range"       "BONUS CAST RANGE:"
 
-"DOTA_Tooltip_ability_ability_charge_damage"                        "Butterfly Effect · Cyan"
-"DOTA_Tooltip_ability_ability_charge_damage_Description"            "<h1>Passive: Focused Mind</h1>Calm your mind and accumulate energy to amplify damage when abilities are ready but not cast.<br>Applies to: Active abilities that deal damage<br>Amplification ratio: Charge time / Ability cooldown<br><br>Charge Delay: %ready_delay% seconds<br>Maximum Damage Multiplier: %max_times%x"
-"DOTA_Tooltip_ability_ability_charge_damage_Lore"                   "Patience is the key to a decisive strike."
+"DOTA_Tooltip_ability_charge_damage"                                      "Butterfly Effect: Qingning"
+"DOTA_Tooltip_ability_charge_damage_Description"                          "Passively tracks the charge status of your damage-dealing abilities. After an ability finishes its cooldown, it begins charging after a buffer period. The longer the charge time, the higher the damage amplification when you next cast that ability.<br><br>Ultimate abilities start charging after %ultimate_ready_delay% seconds, normal abilities after %normal_ready_delay% seconds.<br>Upon reaching the threshold, gain an additional %base_amplify%x base amplification.<br>Damage amplification lasts %amplify_duration% seconds.<br>Maximum amplification: %max_times%x."
+
+"DOTA_Tooltip_modifier_ability_charge_damage_display"                     "Ability Charge"
+"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"         "Current damage amplification: <font color='#FF6B6B'>%dMODIFIER_PROPERTY_TOOLTIP2%%%</font>"
 		"npc_windy"                                 "Windy"
 		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}

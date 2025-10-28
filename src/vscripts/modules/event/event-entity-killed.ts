@@ -116,7 +116,6 @@ export class EventEntityKilled {
   private dropItemChanceFusionRoshan = 100;
   private dropItemChanceFusionAncient = 1.2;
   private dropItemChanceFusionNeutral = 0.25;
-
   private calculateDropChance(baseChance: number): number {
     // 获取游戏难度
 
