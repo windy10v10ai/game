@@ -7,6 +7,11 @@ function item_forbidden_staff:GetIntrinsicModifierName()
     return "modifier_item_forbidden_staff"
 end
 
+-- 添加这个函数来显示范围指示器
+function item_forbidden_staff:GetAOERadius()
+    return self:GetSpecialValueFor("radius")
+end
+
 function item_forbidden_staff:OnSpellStart()
     local caster = self:GetCaster()
     local radius = self:GetSpecialValueFor("radius")
@@ -36,15 +41,7 @@ function item_forbidden_staff:OnSpellStart()
         end
     end
 
-    -- 范围特效
-    local particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf",
-        PATTACH_WORLDORIGIN,
-        nil
-    )
-    ParticleManager:SetParticleControl(particle, 0, target_point)
-    ParticleManager:SetParticleControl(particle, 1, Vector(radius, 0, 0))
-    ParticleManager:ReleaseParticleIndex(particle)
+    EmitSoundOn("DOTA_Item.MeteorHammer.Impact", caster)
 end
 
 function item_forbidden_staff:ApplyNecrolyteEffect(target)
@@ -83,14 +80,16 @@ function item_forbidden_staff:ApplyLightningEffect(target)
         damage_type = DAMAGE_TYPE_MAGICAL,
         ability = self
     })
-
+    -- 流星锤特效
     local particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_zuus/zuus_lightning_bolt.vpcf",
-        PATTACH_ABSORIGIN_FOLLOW,
-        target
+        "particles/items4_fx/meteor_hammer_spell.vpcf",
+        PATTACH_WORLDORIGIN,
+        nil
     )
+    ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin() + Vector(0, 0, 100))
+    ParticleManager:SetParticleControl(particle, 1, target:GetAbsOrigin() + Vector(0, 0, 0))
+    ParticleManager:SetParticleControl(particle, 2, Vector(0.1, 0, 0))
     ParticleManager:ReleaseParticleIndex(particle)
-    EmitSoundOn("Hero_Zuus.LightningBolt", target)
 end
 
 -- 被动modifier
