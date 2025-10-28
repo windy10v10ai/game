@@ -10,19 +10,25 @@ end
 
 function item_magic_crit_blade:OnSpellStart()
     local caster = self:GetCaster()
-    local modifier = caster:FindModifierByName("modifier_item_magic_crit_blade")
 
-    if not modifier then return end
-    if modifier.is_on_cooldown then return end
+    -- 【修复】找到第一个modifier实例来切换模式
+    local all_modifiers = caster:FindAllModifiersByName("modifier_item_magic_crit_blade")
+    if not all_modifiers or #all_modifiers == 0 then return end
 
-    local current_mode = modifier:GetStackCount()
+    local first_modifier = all_modifiers[1]
+    if first_modifier.is_on_cooldown then return end
+
+    local current_mode = first_modifier:GetStackCount()
     if current_mode == 0 then current_mode = 1 end
 
     current_mode = current_mode + 1
     if current_mode > 3 then current_mode = 1 end
 
-    modifier:SetStackCount(current_mode)
-    self:SetSecondaryCharges(current_mode)
+    -- 【修复】将模式同步到所有modifier实例
+    for _, mod in pairs(all_modifiers) do
+        mod:SetStackCount(current_mode)
+    end
+
     EmitSoundOn("Item.ToggleOn", caster)
 end
 
@@ -135,6 +141,8 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
 
     -- 对建筑物无效
     if params.target:IsBuilding() then return end
+    -- 【修复】使用SecondaryCharges判断
+    if not self:GetAbility() or self:GetAbility():GetSecondaryCharges() ~= 1 then return end
 
     -- 幻影暴击概率判定
     local phantom_crit_chance = self:GetAbility():GetSpecialValueFor("phantom_crit_chance")
@@ -147,7 +155,8 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
     -- 【新增】调试输出 - 幻影暴击
     -- print(string.format("[MagicCritBlade] 幻影暴击触发! 原始攻击伤害: %.0f, 暴击倍率: %.0f%%, 额外魔法伤害: %.0f",
     --     params.damage, phantom_crit_multiplier, damage))
-
+    -- 【修改】不添加NO_SPELL_AMPLIFICATION标记,但标记为幻影暴击伤害
+    self.is_phantom_crit_damage = true -- 设置标记
     ApplyDamage({
         victim = params.target,
         attacker = params.attacker,
@@ -155,7 +164,10 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
         damage_type = DAMAGE_TYPE_MAGICAL,
         ability = self:GetAbility(),
     })
-
+    -- 在下一帧清除标记
+    Timers:CreateTimer(FrameTime(), function()
+        self.is_phantom_crit_damage = false
+    end)
     -- 播放暴击音效
     EmitSoundOn("Hero_Brewmaster.Brawler.Crit", params.target)
     -- 显示幻影暴击伤害数字(蓝紫色)
@@ -164,16 +176,28 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
 end
 
 function modifier_item_magic_crit_blade:GetModifierSpellAmplify_Percentage()
-    -- 仙云法杖的智力法术强化 - 所有模式都生效
-    local current_int = self:GetParent():GetIntellect(false)
-    local spell_amp_per_int = self.spell_amp_per_int or 0.3
-    local int_spell_amp = current_int * spell_amp_per_int
-    return int_spell_amp
+    -- 【推荐方案】使用SecondaryCharges判断,避免FindAllModifiersByName
+    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
+        local ability = self:GetAbility()
+        if not ability or ability:IsNull() then return 0 end
+
+        local spell_amp_per_int = ability:GetSpecialValueFor("spell_amp_per_int")
+        local current_int = self:GetParent():GetIntellect(false)
+        return current_int * spell_amp_per_int
+    end
+    return 0
 end
 
 function modifier_item_magic_crit_blade:GetModifierSpellLifestealRegenAmplify_Percentage()
-    -- 继承英灵胸针的法术吸血
-    return self.spell_lifesteal
+    -- 【修复】使用SecondaryCharges判断,与智力法强保持一致
+    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
+        local ability = self:GetAbility()
+        if not ability or ability:IsNull() then return 0 end
+
+        local spell_lifesteal = ability:GetSpecialValueFor("spell_lifesteal")
+        return spell_lifesteal
+    end
+    return 0
 end
 
 function modifier_item_magic_crit_blade:OnTooltip()
@@ -192,12 +216,13 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
     end
     if params.damage_type == DAMAGE_TYPE_PHYSICAL then return end
 
+    -- 【新增】跳过幻影暴击造成的伤害,防止无限循环
+    if self.is_phantom_crit_damage then return end
     local target = params.unit
     if not target or target:IsBuilding() then return end
 
-    -- 关键修复: 确保只有第一个modifier实例处理暴击
-    local all_modifiers = parent:FindAllModifiersByName("modifier_item_magic_crit_blade")
-    if all_modifiers[1] ~= self then return end
+    -- 【修复】使用SecondaryCharges判断
+    if not ability or ability:GetSecondaryCharges() ~= 1 then return end
 
     local mode = self:GetStackCount()
     if mode == 0 then mode = 1 end
@@ -275,8 +300,11 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
             -- 【新增】调试输出 - 冷却开始
             --print(string.format("[MagicCritBlade] 必然暴击进入冷却: %.0f秒", cooldown))
         end
-
+        -- 使用CRITICAL伤害类型显示更大的数字
         SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, extra_damage, nil)
+
+        -- 【修改】更改音效为更震撼的暴击音效
+        EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target) -- PA大招音效
     end
 end
 
@@ -289,14 +317,5 @@ function modifier_item_magic_crit_blade:OnIntervalThink()
 end
 
 function modifier_item_magic_crit_blade:GetTexture()
-    local mode = self:GetStackCount()
-    if mode == 0 then mode = 1 end
-
-    local textures = {
-        [1] = "bloodthorn_ultra",
-        [2] = "bloodthorn_ultra",
-        [3] = "bloodthorn_ultra"
-    }
-
-    return textures[mode]
+    return "bloodthorn_ultra"
 end

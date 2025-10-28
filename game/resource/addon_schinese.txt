@@ -1252,7 +1252,7 @@
 
 		// 暗影咒灭
 		"DOTA_Tooltip_Ability_item_shadow_impact"                    "<font color='#8A2BE2'>暗影咒灭</font>"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"        "<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭,融合达贡之神力、永恒虚灵之刃、死灵法杖和绝刃的所有主动效果。<br><br>达贡伤害：%dagon_damage%点魔法伤害<br>虚灵之刃：造成%blast_damage_base%+%blast_agility_multiplier%x[主属性]点魔法伤害,并使目标进入虚灵状态%ethereal_duration%秒,减速%blast_movement_slow%%%<br>死灵冲击：造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br>绝刃：造成%absolute_damage%点纯粹伤害<br><br>施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"        "<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭。<br><br>纯粹伤害：%absolute_damage%点<br>魔法伤害：%dagon_damage%点<br>虚灵冲击：造成%blast_damage_base%+%blast_agility_multiplier%x[主属性]点魔法伤害,并使目标进入虚灵状态%ethereal_duration%秒,减速%blast_movement_slow%%%<br>死灵冲击：造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br><br>施法距离：%abilitycastrange%"
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"               "暗影的冲击,毁灭一切。"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"    "+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"     "+$str"
