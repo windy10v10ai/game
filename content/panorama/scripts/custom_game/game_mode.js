@@ -322,30 +322,35 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
-  // if (Math.random() > 0.5) {
-  //   $('#DotaSurvivorPanel').visible = true;
-  //   $('#OMGAIPanel').visible = false;
-  //   DispatchDotaSurvivor();
-  // } else {
-  //   $('#DotaSurvivorPanel').visible = false;
-  //   $('#OMGAIPanel').visible = true;
-  //   DispatchOMGAI();
-  // }
-  // 现在显示tenvten_remake按钮，隐藏omg_ai_button
-  $('#DotaSurvivorPanel').visible = false;
-  $('#OMGAIPanel').visible = false;
-  $('#TenvTenRemakePanel').visible = true;
-  DispatchTenvTenRemake();
+  const random = Math.random();
+  const chanceSurvivor = 0.2;
+  const chanceOMGAI = 0.4;
+  if (random < chanceSurvivor) {
+    $('#DotaSurvivorPanel').visible = true;
+    $('#OMGAIPanel').visible = false;
+    $('#TenvTenRemakePanel').visible = false;
+    DispatchDotaSurvivor();
+  } else if (random < chanceOMGAI) {
+    $('#DotaSurvivorPanel').visible = false;
+    $('#OMGAIPanel').visible = true;
+    $('#TenvTenRemakePanel').visible = false;
+    DispatchOMGAI();
+  } else {
+    $('#DotaSurvivorPanel').visible = false;
+    $('#OMGAIPanel').visible = false;
+    $('#TenvTenRemakePanel').visible = true;
+    DispatchTenvTenRemake();
+  }
 }
 
-function _DispatchDotaSurvivor() {
+function DispatchDotaSurvivor() {
   const button = $('#DotaSurvivorButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
   });
 }
 
-function _DispatchOMGAI() {
+function DispatchOMGAI() {
   const button = $('#OMGAIButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 2841790376);
