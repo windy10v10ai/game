@@ -65,9 +65,9 @@
 		"fixed_ability_ability_charge_damage_name"			"蝴蝶效应 · 青凝"
 
 		// link面板
-		"dota_survivor_button"			"全新联动 刀塔幸存者"
-		"omg_ai_button"					"全新联动 OMG AI"
-		"tenvten_remake_button"			"全新联动 TenvTen Remake"
+		"dota_survivor_button"			"联动 刀塔幸存者"
+		"omg_ai_button"					"联动 OMG AI"
+		"tenvten_remake_button"			"联动 TenvTen Remake"
 		"join_qq"						"点击加群"
 		"join_discord"					"点击加入Discord"
 

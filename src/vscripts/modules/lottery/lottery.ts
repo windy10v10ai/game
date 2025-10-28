@@ -157,79 +157,10 @@ export class Lottery {
           // 固定技能是被动技能，替换被动技能的第一个
           abilityLotteryResults[0] = specifiedAbility;
         }
-      } else {
-        // 修改修改修改开始 - 强制第一个被动技能为 高级技能
-        // 被动技能配置
-        if (abilityType === 'abilityPassive' && abilityType === 'abilityPassive') {
-          // 配置1: 蝴蝶效应技能池
-          const hudieAbilities = [
-            { name: 'ability_trigger_on_attacked', level: 5 }, // 金蝴蝶
-            { name: 'ability_trigger_on_spell_reflect', level: 5 }, // 绿蝴蝶
-            { name: 'ability_charge_damage', level: 5 }, // 充能伤害
-          ];
-
-          const hudiexiaoying = 1; // 控制开关
-          if (hudiexiaoying === 1) {
-            const selectedAbility = this.selectUniqueAbility(hudieAbilities, abilityLotteryResults);
-            if (selectedAbility !== null) {
-              abilityLotteryResults[0] = selectedAbility;
-              print(`[Lottery] Replaced passive ability with: ${selectedAbility.name}`);
-            } else {
-              print(`[Lottery] Failed to find unique passive ability from pool`);
-            }
-          }
-        }
-
-        // 主动技能配置
-        if (abilityType === 'abilityActive' && abilityLotteryResults.length > 0) {
-          const activeAbilities = [
-            { name: 'marci_unleash', level: 4 },
-            //{ name: 'dazzle_bad_juju', level: 3 },
-            //{ name: 'ember_spirit_sleight_of_fist', level: 4 },
-            { name: 'gyrocopter_flak_cannon', level: 5 },
-            { name: 'alchemist_chemical_rage', level: 5 },
-            { name: 'tinker_rearm_lua', level: 3 },
-            //{ name: 'juggernaut_omni_slash', level: 4 },
-            { name: 'ability_trigger_on_active', level: 5 }, //等红蝴蝶满一周后上线，26日
-          ];
-          const selectedAbility = this.selectUniqueAbility(activeAbilities, abilityLotteryResults);
-          if (selectedAbility !== null) {
-            abilityLotteryResults[0] = selectedAbility;
-            print(`[Lottery] Replaced active ability with: ${selectedAbility.name}`);
-          } else {
-            print(`[Lottery] Failed to find unique active ability from pool`);
-          }
-        }
-        // 修改修改结束
       }
     }
 
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
-  }
-
-  private selectUniqueAbility(
-    abilityPool: LotteryDto[],
-    existingAbilities: LotteryDto[],
-    maxAttempts: number = 10,
-  ): LotteryDto | null {
-    // 获取已存在的技能名称列表
-    const existingNames = existingAbilities.map((ability) => ability.name);
-
-    let attempts = 0;
-    while (attempts < maxAttempts) {
-      // 从技能池中随机选择
-      const randomAbility = abilityPool[RandomInt(0, abilityPool.length - 1)];
-
-      // 检查是否重复
-      if (!existingNames.includes(randomAbility.name)) {
-        return randomAbility;
-      }
-
-      attempts++;
-    }
-
-    // 如果达到最大尝试次数仍未找到不重复的技能,返回null或随机一个
-    return abilityPool[RandomInt(0, abilityPool.length - 1)];
   }
 
   /**
