@@ -7100,6 +7100,7 @@
     "ID"                        "10327"
     "AbilityTextureName"        "moyuanfazhang"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
     "AbilityCastPoint"          "0.0"
     "AbilityCooldown"           "20.0"
@@ -7145,6 +7146,7 @@
     "ID"                        "10328"
     "AbilityTextureName"        "moyuanjian"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
     "AbilityCastPoint"          "0.0"
     "AbilityCooldown"           "18.0"
