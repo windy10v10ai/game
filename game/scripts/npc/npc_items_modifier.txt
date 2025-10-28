@@ -381,22 +381,22 @@
 				}
 			}
 			// 魔剑
-			"modifier_item_magic_sword_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
+			// "modifier_item_magic_sword_stats"
+			// {
+			// 	"Passive"				"1"
+			// 	"IsHidden"				"1"
+			// 	"RemoveOnDeath"			"0"
 
-				// 多个魔剑可叠加
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"300"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"80"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"80"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"80"
-				}
-			}
+			// 	// 多个魔剑可叠加
+			// 	"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			// 	"Properties"
+			// 	{
+			// 		"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"300"
+			// 		"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"80"
+			// 		"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"80"
+			// 		"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"80"
+			// 	}
+			// }
 			// 魔龙狂舞
 			"modifier_item_magic_crit_blade_stats"
 			{

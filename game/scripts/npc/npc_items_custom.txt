@@ -7118,62 +7118,117 @@
 	}
 }
 
-//=================================================================================================================
-// Recipe: 魔渊剑
-//=================================================================================================================
-"item_recipe_magic_sword"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10330"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_magic_sword"
+	//=================================================================================================================
+	// 魔渊剑
+	//=================================================================================================================
+	"item_recipe_magic_sword"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10330"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_magic_sword"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
 
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_magic_sword"
-    "ItemRequirements"
-    {
-        "01"                    "item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
-    }
-}
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_magic_sword"
+		"ItemRequirements"
+		{
+			"01"                    "item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
+		}
+	}
+	"item_magic_sword"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10328"
+		"AbilityTextureName"        "moyuanjian"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
-"item_magic_sword"
-{
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                "items/item_magic_sword"
-    "ID"                        "10328"
-    "AbilityTextureName"        "moyuanjian"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"AbilityCastPoint"          "0.0"
+		"AbilityCooldown"           "18.0"
+		"AbilityManaCost"           "150"
 
-    "AbilityCastPoint"          "0.0"
-    "AbilityCooldown"           "18.0"
-    "AbilityManaCost"           "150"
+		"ItemCost"                  "25000"
+		"ItemShopTags"              "damage;agi;hard_to_tag"
+		"ItemQuality"               "artifact"
 
-    "ItemCost"                  "25000"
-    "ItemShopTags"              "damage;agi;hard_to_tag"
-    "ItemQuality"               "artifact"
+		"AbilityValues"
+		{
+			// 主动技能参数（Lua 逻辑需要）
+			"active_duration"			"6"		// 主动持续时间
+			"convert_pct"				"15"	// 物理转纯粹伤害百分比
 
-    "AbilityValues"
-    {
-		// 主动技能参数（Lua 逻辑需要）
-		"active_duration"			"6"		// 主动持续时间
-		"convert_pct"				"15"	// 物理转纯粹伤害百分比
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_all_stats"           "80"    // tooltip only - 全属性
+			"bonus_damage"              "300"   // tooltip only - 攻击力
 
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-    	"bonus_all_stats"           "80"    // tooltip only - 全属性
-		"bonus_damage"              "300"   // tooltip only - 攻击力
+			// 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
+			"cleave_distance"           "600"  // Lua 逻辑需要 - 溅射范围
+			"cleave_damage_percent"     "100"   // Lua 逻辑需要 - 溅射伤害百分比（英雄）
+			"cleave_damage_percent_creep" "150" // Lua 逻辑需要 - 溅射伤害百分比（小兵）
+			"slow_duration"             "2.0"   // Lua 逻辑需要 - 减速持续时间
 
-        // 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
-		"cleave_distance"           "600"  // Lua 逻辑需要 - 溅射范围
-		"cleave_damage_percent"     "100"   // Lua 逻辑需要 - 溅射伤害百分比（英雄）
-		"cleave_damage_percent_creep" "150" // Lua 逻辑需要 - 溅射伤害百分比（小兵）
-		"slow_duration"             "2.0"   // Lua 逻辑需要 - 减速持续时间
-		"slow_pct"                  "-60"   // Lua 逻辑需要 - 减速百分比
-    }
-}
+			// Debuff
+			"slow_pct"                  "-60"   // 减速
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_magic_sword"
+				"Function"			"MagicSwordOnSpellStart"
+			}
+		}
+
+		// Data driven modifiers
+		"Modifiers"
+		{
+			"modifier_item_magic_sword_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"				"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+				}
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_magic_sword"
+						"Function"			"MagicSwordCleaveEffect"
+					}
+					"ApplyModifier"
+					{
+						"Target"			"TARGET"
+						"ModifierName"		"modifier_item_magic_sword_slow"
+						"Duration"			"%slow_duration"
+					}
+				}
+			}
+
+			"modifier_item_magic_sword_slow"
+			{
+				"IsDebuff"				"1"
+				"IsPurgable"			"1"
+				"TextureName"			"item_magic_sword"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_pct"
+				}
+			}
+		}
+	}
 	// 技能重置书
 	"item_tome_of_ability_reset"
 	{
