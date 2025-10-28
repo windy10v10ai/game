@@ -182,7 +182,7 @@ function modifier_item_magic_sword_active:OnTakeDamage(params)
     local ability = self:GetAbility()
     if not ability then return end
 
-    local pure_damage = params.original_damage * self.convert_pct / 100
+    local pure_damage = params.damage * self.convert_pct / 100
 
     -- 造成纯粹伤害
     ApplyDamage({
