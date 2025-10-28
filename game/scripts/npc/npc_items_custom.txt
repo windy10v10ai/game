@@ -6415,14 +6415,14 @@
 			// Lua 逻辑需要 - 法术暴击参数（事件驱动）
 			// 模式1:
 			"spell_crit_chance_mode1"   "50"
-			"spell_crit_multiplier_mode1" "2.0"
-			"guaranteed_spell_crit_multiplier_mode1" "1.5"
+			"spell_crit_multiplier_mode1" "2.5"
+			"guaranteed_spell_crit_multiplier_mode1" "2"
 			"cooldown_mode1"            "12"
 
 			// 模式2:
 			"spell_crit_chance_mode2"   "30"
 			"spell_crit_multiplier_mode2" "4.0"
-			"guaranteed_spell_crit_multiplier_mode2" "2.5"
+			"guaranteed_spell_crit_multiplier_mode2" "3"
 			"cooldown_mode2"            "20"
 
 			// 模式3:
@@ -6733,7 +6733,7 @@
             "CalculateSpellDamageTooltip" "1"
         }
         "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
-        "sheep_duration"            "3.0"    // Lua 逻辑需要 - 变形持续时间
+        "sheep_duration"            "1.5"    // Lua 逻辑需要 - 变形持续时间
         "sheep_movement_speed"      "140"    // Lua 逻辑需要 - 变形移动速度
         "ethereal_duration"         "4.0"    // Lua 逻辑需要 - 虚灵持续时间
         "blast_agility_multiplier"  "2.5"    // Lua 逻辑需要 - 虚灵之刃主属性倍数
@@ -6742,7 +6742,7 @@
         "ethereal_damage_bonus"     "40"     // Lua 逻辑需要 - 虚灵伤害加成
         "absolute_damage"
         {
-            "value"             "1000"
+            "value"             "600"
             "CalculateSpellDamageTooltip" "1"
         }
 

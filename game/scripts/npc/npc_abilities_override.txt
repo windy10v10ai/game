@@ -7645,7 +7645,7 @@
 				}
 				"forward_move_speed"
 				{
-					"value"		"700"
+					"value"		"800"
 					"special_bonus_facet_pangolier_thunderbolt"	"+200" // 命石2
 				}
 				"turn_rate_boosted"
