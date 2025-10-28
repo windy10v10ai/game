@@ -12,7 +12,7 @@ end
 
 function item_magic_sword:OnSpellStart()
     local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("active_duration") or 4
+    local duration = self:GetSpecialValueFor("active_duration")
 
     caster:AddNewModifier(caster, self, "modifier_item_magic_sword_active", { duration = duration })
     EmitSoundOn("Hero_Juggernaut.BladeFury", caster)
@@ -40,12 +40,12 @@ function modifier_item_magic_sword:OnCreated()
     local ability = self:GetAbility()
 
     -- 溅射参数（事件驱动，必须在 Lua 中实现）
-    self.cleave_distance = ability:GetSpecialValueFor("cleave_distance") or 1200
-    self.cleave_damage_percent = ability:GetSpecialValueFor("cleave_damage_percent") or 100
-    self.cleave_damage_percent_creep = ability:GetSpecialValueFor("cleave_damage_percent_creep") or 150
+    self.cleave_distance = ability:GetSpecialValueFor("cleave_distance")
+    self.cleave_damage_percent = ability:GetSpecialValueFor("cleave_damage_percent")
+    self.cleave_damage_percent_creep = ability:GetSpecialValueFor("cleave_damage_percent_creep")
 
     -- 减速参数（事件驱动，必须在 Lua 中实现）
-    self.slow_duration = ability:GetSpecialValueFor("slow_duration") or 2.0
+    self.slow_duration = ability:GetSpecialValueFor("slow_duration")
 end
 
 function modifier_item_magic_sword:OnRefresh()
@@ -166,7 +166,7 @@ function modifier_item_magic_sword_active:DeclareFunctions()
 end
 
 function modifier_item_magic_sword_active:OnTooltip()
-    return self.convert_pct or 10
+    return self.convert_pct
 end
 
 function modifier_item_magic_sword_active:OnTakeDamage(params)
@@ -196,7 +196,7 @@ function modifier_item_magic_sword_active:OnTakeDamage(params)
 end
 
 function modifier_item_magic_sword_active:GetTexture()
-    return "item_great_crit"
+    return "item_magic_sword"
 end
 
 -- ============================================
