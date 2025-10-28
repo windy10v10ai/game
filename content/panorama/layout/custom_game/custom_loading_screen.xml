@@ -24,14 +24,15 @@
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
 						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
-							<Label text="1" id="1"/>
 							<Label text="2" id="2"/>
 							<Label text="3" id="3"/>
 							<Label text="4" id="4"/>
 							<Label text="5" id="5"/>
 							<Label text="7" id="7"/>
 							<Label text="10" id="10"/>
-							<Label text="15" id="15"/>
+							<Label text="12" id="12"/>
+							<Label text="14" id="14"/>
+							<Label text="17" id="17"/>
 							<Label text="20" id="20"/>
 							<Label text="30" id="30"/>
 							<Label text="40" id="40"/>
@@ -138,7 +139,6 @@
 							<Label text="#fixed_ability_ability_trigger_on_move_name" id="ability_trigger_on_move"/>
 							<Label text="#fixed_ability_ability_trigger_on_cast_name" id="ability_trigger_on_cast"/>
 							<Label text="#fixed_ability_ability_trigger_learned_skills_name" id="ability_trigger_learned_skills"/>
-							<!-- 10月限时蝴蝶技能，每月轮换 -->
 							<!-- <Label text="#DOTA_Tooltip_ability_ogre_magi_multicast_lua" id="ogre_magi_multicast_lua"/>
 							<Label text="#DOTA_Tooltip_ability_death_prophet_witchcraft2" id="death_prophet_witchcraft2"/>
 							<Label text="#DOTA_Tooltip_ability_bloodseeker_thirst" id="bloodseeker_thirst"/>

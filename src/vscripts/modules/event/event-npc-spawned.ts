@@ -334,24 +334,33 @@ export class EventNpcSpawned {
     const playerData = CustomNetTables.GetTableValue('player_table', playerSteamId.toString());
 
     if (!playerData || !playerData.properties) {
-      //print('[BotBoss] No properties found for player');
       return;
     }
 
     const discountRate = Math.min(multiplier / 100, 1.0);
-    //print(
-    //  `[BotBoss] Applying ${(discountRate * 100).toFixed(0)}% of player properties (${multiplier}x multiplier)`,
-    //);
-
     const properties = playerData.properties as Record<string, PlayerProperty>;
 
-    // 添加调试:显示属性总数
-    //const propertyCount = Object.keys(properties).length;
-    //print(`[BotBoss] Found ${propertyCount} properties to copy`);
+    // 【新增】定义布尔型属性列表
+    const booleanProperties = ['property_ignore_movespeed_limit', 'property_cannot_miss'];
 
     Object.values(properties).forEach((property) => {
       if (property.level > 0) {
-        const discountedLevel = Math.floor(property.level * discountRate);
+        let discountedLevel: number;
+
+        // 【新增】对布尔型属性进行特殊处理
+        if (booleanProperties.includes(property.name)) {
+          // 布尔型属性:只有当玩家等级达到一定阈值时,Boss才获得
+          // 例如:玩家需要至少4点,Boss才能获得(相当于50%的概率)
+          const threshold = 8;
+          discountedLevel = property.level >= threshold ? 1 : 0;
+
+          // 或者使用概率判断:
+          // const probability = discountRate;
+          // discountedLevel = Math.random() < probability ? 1 : 0;
+        } else {
+          // 普通数值型属性:按折扣率计算
+          discountedLevel = Math.floor(property.level * discountRate);
+        }
 
         if (discountedLevel > 0) {
           const discountedProperty: PlayerProperty = {
@@ -361,15 +370,9 @@ export class EventNpcSpawned {
           };
 
           PropertyController.LevelupHeroProperty(bot, discountedProperty);
-          //print(
-          //  `[BotBoss] Applied property ${property.name} level ${discountedLevel} (original: ${property.level}, discount: ${(discountRate * 100).toFixed(0)}%)`,
-          //);
-        } else {
-          //print(`[BotBoss] Skipped property ${property.name} (discounted level is 0)`);
         }
       }
     });
-    //print(`[BotBoss] Applied all property`);
   }
 
   private OnCreepSpawned(creep: CDOTA_BaseNPC): void {
