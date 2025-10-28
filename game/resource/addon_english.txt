@@ -2874,7 +2874,7 @@
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"         "+$all"
 
 		"DOTA_Tooltip_modifier_item_magic_sword_active"                 "One Thought to Buddha"
-		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"     "%dMODIFIER_PROPERTY_TOOLTIP%%% of physical damage converted to pure damage"
+		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"     "Part of physical damage converted to additional pure damage"
 
 		"DOTA_Tooltip_modifier_item_magic_sword_slow"                   "Demonic Sword Slow"
 		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"

@@ -1377,7 +1377,7 @@
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"                "+$all"
 
 		"DOTA_Tooltip_modifier_item_magic_sword_active"                        "一念成佛"
-		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"            "物理伤害的 %dMODIFIER_PROPERTY_TOOLTIP%%% 转化为纯粹伤害"
+		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"            "物理伤害的一部分转化为额外纯粹伤害"
 
 		"DOTA_Tooltip_modifier_item_magic_sword_slow"                          "魔渊减速"
 		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"              "移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
