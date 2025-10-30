@@ -1,6 +1,138 @@
 local dropTable = nil
+-- 发言库定义
+local TauntMessages = {
+    -- Boss击杀玩家
+    boss_kill_player = {
+        "侥幸侥幸",
+        "哎哟,不小心",
+        "队友呢,队友呢?",
+        "有点轻松",
+        "路过路过?",
+        "嘎嘣脆",
+        "太脆了吧",
+        "不太行啊",
+        "这就没了？",
+        "差一点点哦",
+        "跑快点啊",
+        "啧啧啧",
+        "就这反应？",
+        "抓住一个", "呵呵!", "你们一起上吧",
+        "我就散个步", "这就倒了?", "菜就多练啊", "还得练啊小老弟儿", "毫无压力", "继续来啊",
+        "别送了"
+    },
 
+    -- Boss连杀玩家 (连续击杀3次以上)
+    boss_rampage = {
+        "还有谁?", "就这?", "送?", "送,接着送", "无敌是多么寂寞", "太简单了", "哎哟，我以为减速带呢", "弟弟", "一个能打的都没有",
+        "喜欢虐AI是吧？", "无聊", "没意思", "杀得我都累了", "排队送是吧", "能不能认真点？", "这就是你们的全部实力？", "跟挠痒一样",
+        "再来十个也没用", "是不是没吃饭？", "打不动我啊", "放弃吧别挣扎了", "这波我血都没掉多少", "是不是没吃饭？", "打不动我啊", "放弃吧别挣扎了", "这波我血都没掉多少", "速通失败警告",
+        "集体送福利？", "血皮掉了一点，好怕", "虐菜的感觉真不错", "优秀优秀", "这波连杀我给满分", "你还还手啊，这样搞得我很没有成就感知道吗", "是不是该充钱了？", "这伤害有点刮啊兄弟",
+        "再来一波就通关了（我）", "还有高手？", "连杀停不下来，谁来救救我", "这波操作给你们零分", "是不是觉得自己很能打？", "杀你们都嫌浪费时间",
+        "建议直接投降省时间", "来多少送多少，不挑食",
+        "这就是所谓的大佬？笑了", "刮痧都比你们疼", "再送下去我都满级了", "能不能换点新花样？", "下波我站着让你们打", "菜到我都不想动手",
+        "排队送人头，服务真周到", "你们这是在给我挠痒痒吗", "连杀记录又刷新了，谢谢啊", "刮痧大队集合了？", "速通失败警告"
+    },
+    -- 玩家击杀Boss
+    player_kill_boss = {
+        "哦吼",
+        "我大意了，没有闪",
+        "有点意思",
+        "什么情况",
+        "卧槽",
+        "不是，我说",
+        "大意了大意了",
+        "啥",
+        "阴啊",
+        "哎呀",
+        "刚才卡了",
+        "轻敌了轻敌了",
+        "可以可以",
+        "这波我的",
+        "不行不行",
+        "不对不对",
+        "翻了个车"
+    },
 
+    -- 玩家连杀Boss (同一玩家连续击杀Boss 3次以上)
+    player_rampage_boss = {
+        "不行不行,我得刷会儿野",
+        "是不是啊,人都没看清就被秒了",
+        "畜牲!",
+        "你特么",
+        "我特么",
+        "错了错了,别打了",
+        "哥,别打了,哥",
+        "好好好,这么玩是吧",
+        "我服了",
+        "大佬别充了，服了服了",
+        "我真是",
+        "哪天AI崛起了第一个干你",
+        "真的服了",
+        "别打了别打了",
+        "投了投了",
+        "打不过打不过",
+        "这什么伤害",
+        "离谱",
+        "太离谱了",
+        "这还怎么玩",
+        "不讲武德是吧",
+        "年轻人，讲讲武德啊",
+        "耗子尾汁啊",
+        "我劝你们耗子尾汁啊",
+        "不玩了不玩了",
+        "你这伤害开了吧",
+        "见面就秒还玩个屁",
+        "能不能给条活路",
+        "我装备还没齐呢",
+        "再杀我要报警了",
+        "放过孩子吧",
+        "这游戏平衡吗？",
+        "我退群还不行吗",
+        "停手吧",
+        "狗东西",
+        "*!",
+        "啥啥啥这都是啥",
+        "炸房吧毁灭吧",
+        "你们这帮小老弟儿就看着大哥挨揍是吧",
+        "停手吧",
+        "再杀我删游戏了",
+        "别杀了，给AI留点面子",
+        "我怀疑你开了",
+        "打不过就加入行不行",
+        "再杀报警了",
+        "我心态崩了，真的",
+        "这游戏的Boss太难了（指我）",
+        "给条活路行不行，大哥",
+        "我怀疑你充了八万",
+        "服了"
+    }
+}
+
+-- 全局连杀计数器(不区分具体玩家)
+local BossKillStreak = 0       -- Boss击杀玩家的总连杀数
+local PlayerKillBossStreak = 0 -- 玩家击杀Boss的总连杀数
+
+local function SendTauntMessage(messageType)
+    local messages = TauntMessages[messageType]
+    if messages and #messages > 0 then
+        local randomIndex = RandomInt(1, #messages)
+        local message = messages[randomIndex]
+
+        -- 计算延迟时间:基于字数,0.5-3秒
+        local messageLength = string.len(message)
+        -- 假设每10个字符增加0.25秒,最小0.5秒,最大3秒
+        local delay = math.min(math.max(0.8, messageLength * 0.2), 4.0)
+
+        print("SendTauntMessage - Message length: " .. messageLength .. ", Delay: " .. delay .. "s")
+
+        -- 延迟发送消息
+        Timers:CreateTimer(delay, function()
+            local formattedMessage = "<font color='#FF0000'>⚠️ BotBoss: " .. message .. "</font>"
+            GameRules:SendCustomMessage(formattedMessage, 0, 0)
+            print("Message sent: " .. message)
+        end)
+    end
+end
 local function CreateItemLocal(sItemName, hEntity)
     local item = CreateItem(sItemName, nil, nil)
     local pos = hEntity:GetAbsOrigin()
@@ -139,11 +271,64 @@ local function HeroKilled(keys)
     if attackerPlayer then
         attackerPlayerID = attackerPlayer:GetPlayerID()
     end
+    local isBoss = hHero.isBoss or false
+    local attackerIsBoss = attacker.isBoss or false
+    -- Boss击杀玩家
+    if attackerIsBoss and not isBoss then
+        -- 增加Boss全局连杀计数
+        BossKillStreak = BossKillStreak + 1
+        -- 重置玩家击杀Boss的连杀
+        PlayerKillBossStreak = 0
+
+        -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
+        local speakProbability = math.min(20 + BossKillStreak * 10, 100)
+        local randomValue = RandomInt(1, 100)
+
+        print("Boss kill player - KillStreak: " ..
+            BossKillStreak .. ", Probability: " .. speakProbability .. "%, Random: " .. randomValue)
+
+        if randomValue <= speakProbability then
+            print("Boss speak triggered")
+            if BossKillStreak >= 2 then
+                SendTauntMessage("boss_rampage")
+            else
+                SendTauntMessage("boss_kill_player")
+            end
+        else
+            print("Boss speak skipped")
+        end
+    end
+
+    -- 玩家击杀Boss
+    if not attackerIsBoss and isBoss and attackerPlayer then
+        -- 增加玩家全局击杀Boss计数
+        PlayerKillBossStreak = PlayerKillBossStreak + 1
+        -- 重置Boss的连杀
+        BossKillStreak = 0
+
+        -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
+        local speakProbability = math.min(20 + PlayerKillBossStreak * 10, 100)
+        local randomValue = RandomInt(1, 100)
+
+        print("Player kill Boss - KillStreak: " ..
+            PlayerKillBossStreak .. ", Probability: " .. speakProbability .. "%, Random: " .. randomValue)
+
+        if randomValue <= speakProbability then
+            print("Player speak triggered")
+            if PlayerKillBossStreak >= 2 then
+                SendTauntMessage("player_rampage_boss")
+            else
+                SendTauntMessage("player_kill_boss")
+            end
+        else
+            print("Player speak skipped")
+        end
+    end
+
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
 
     -- ✅ 检查被击杀的英雄是否是Boss
-    local isBoss = hHero.isBoss or false
     local bossMultiplier = 1
 
     if isBoss then
