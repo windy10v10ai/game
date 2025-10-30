@@ -7166,11 +7166,11 @@
 			"cleave_damage_percent_creep" "150"	// Lua 逻辑需要 - 溅射伤害百分比（小兵）
 
 			// Debuff
-			"slow_duration"				"4.0"	// 减速持续时间
-			"slow_pct"					"-60"	// 减速
-			"corruption_armor"			"-60"	// 减甲
-			"cold_attack_slow"			"-60"	// 攻击速度降低
-			"restoration_reduction"		"-70"	// 生命回复降低
+			"debuff_duration"			"4.0"	// Debuff持续时间
+			"slow_pct"					"-60"	// Debuff移动速度降低
+			"corruption_armor"			"-60"	// Debuff减甲
+			"attack_slow"				"-200"	// Debuff攻击速度降低
+			"hp_regen_reduction_pct"	"-70"	// Debuff生命回复降低
 		}
 
 		"OnSpellStart"
@@ -7211,7 +7211,7 @@
 					{
 						"Target"			"TARGET"
 						"ModifierName"		"modifier_item_magic_sword_debuff"
-						"Duration"			"%slow_duration"
+						"Duration"			"%debuff_duration"
 					}
 				}
 			}
@@ -7242,8 +7242,8 @@
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_pct"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%corruption_armor"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%cold_attack_slow"
-					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%restoration_reduction"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%attack_slow"
+					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%hp_regen_reduction_pct"
 				}
 			}
 		}

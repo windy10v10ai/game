@@ -1370,7 +1370,7 @@
 		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"           "魔法伤害的 %dMODIFIER_PROPERTY_TOOLTIP%%% 转化为纯粹伤害"
 		// item_magic_sword 魔渊剑
 		"DOTA_Tooltip_Ability_item_magic_sword"                                 "魔渊剑"
-		"DOTA_Tooltip_Ability_item_magic_sword_Description"                     "<h1>主动：<font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动：溅射</h1>近战攻击对目标周围 %cleave_distance% 范围内的敌人造成 %cleave_damage_percent%%% 的溅射伤害，对非英雄单位造成 %cleave_damage_percent_creep%%% 的溅射伤害。\n<h1>被动：魔渊腐蚀</h1>攻击时对目标施加腐蚀效果，持续 %slow_duration% 秒：<br>- 移动速度降低 %slow_pct%%%<br>- 护甲降低 %corruption_armor%<br>- 攻击速度降低 %cold_attack_slow%<br>- 生命回复和治疗效果降低 %restoration_reduction%%%"
+		"DOTA_Tooltip_Ability_item_magic_sword_Description"                     "<h1>主动：<font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动：溅射</h1>近战攻击对目标周围 %cleave_distance% 范围内的敌人造成 %cleave_damage_percent%%% 的溅射伤害，对非英雄单位造成 %cleave_damage_percent_creep%%% 的溅射伤害。（仅近战有效）\n<h1>被动：魔渊腐蚀</h1>攻击时对目标施加腐蚀效果，持续 %debuff_duration% 秒：<br>- 护甲降低 %corruption_armor%<br>- 攻击速度降低 %attack_slow%<br>- 移动速度降低 %slow_pct%%%<br>- 生命回复和治疗效果降低 %hp_regen_reduction_pct%%%"
 		"DOTA_Tooltip_Ability_item_magic_sword_Lore"                           "佛曰：一念成佛，一念成魔。"
 		"DOTA_Tooltip_Ability_item_recipe_magic_sword"                         "魔渊剑卷轴"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"                   "+$damage"

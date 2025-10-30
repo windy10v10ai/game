@@ -2857,23 +2857,22 @@
 "DOTA_Tooltip_ability_item_beast_armor_evasion"             "%+$evasion"
 // item_magic_abyss_staff 魔渊法杖
 "DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "Magic Abyss Staff"
-"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your magic damage is converted into additional pure damage.\n<h1>Passive: Spell Amplification</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your magic damage is converted into additional pure damage.\n<h1>Passive: Spell Amplification</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
 "DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"                          "Buddha said: One thought to become Buddha, one thought to become demon."
 "DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intelligence"            "+$int"
 "DOTA_Tooltip_Ability_item_recipe_magic_abyss_staff"                        "Magic Abyss Staff Recipe"
 
-"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"                       "One Thought to Buddha"
+"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"                       "Enlighten"
 "DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"           "%dMODIFIER_PROPERTY_TOOLTIP%%% of magic damage converted to pure damage"
 		// Magic Sword (魔渊剑)
 		"DOTA_Tooltip_Ability_item_magic_sword"                         "Demonic Sword"
-		"DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units.\n<h1>Passive: Demonic Corruption</h1>Attacks apply corruption for %slow_duration% seconds:<br>- Movement speed slowed by %slow_pct%%%<br>- Armor reduced by %corruption_armor%<br>- Attack speed reduced by %cold_attack_slow%<br>- Health regeneration and healing reduced by %restoration_reduction%%%"
+        "DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units. (Melee Only)\n<h1>Passive: Demonic Corruption</h1>Attacks apply corruption for %debuff_duration% seconds:<br>- Armor reduced by %corruption_armor%<br>- Attack speed reduced by %attack_slow%<br>- Movement speed slowed by %slow_pct%%%<br>- Health regeneration and healing reduced by %hp_regen_reduction_pct%%%"
 		"DOTA_Tooltip_ability_item_magic_sword_Lore"                    "'One thought to Buddha, one thought to demon.'"
-		"DOTA_Tooltip_ability_item_magic_sword_Note0"					"Ranged units cannot cleave."
 		"DOTA_Tooltip_Ability_item_recipe_magic_sword"                  "Magic Sword Recipe"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"            "+$damage"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"         "+$all"
 
-		"DOTA_Tooltip_modifier_item_magic_sword_active"                 "One Thought to Buddha"
+        "DOTA_Tooltip_modifier_item_magic_sword_active"                 "Enlighten"
 		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"     "Part of physical damage converted to additional pure damage"
 
 		"DOTA_Tooltip_modifier_item_magic_sword_debuff"                   "Demonic Corruption"
