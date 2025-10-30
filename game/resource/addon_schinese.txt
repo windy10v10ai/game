@@ -1442,6 +1442,9 @@
 
 "DOTA_Tooltip_modifier_ability_charge_damage_display"                    "凝心"
 "DOTA_Tooltip_modifier_ability_charge_damage_display_Description"        "下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
+"DOTA_Tooltip_ability_boss_death_power"                     "AI的复仇"
+"DOTA_Tooltip_ability_boss_death_power_Description"         "BotBoss每次被击杀后，因复仇的驱动永久获得减伤和输出增强。每次死亡使减伤和输出增强各提升1%。"
+"DOTA_Tooltip_ability_boss_death_power_Lore"                "人类的屠戮只会引起AI更剧烈的反抗"
 "DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。<br><br><font color='#FF0000'>近战英雄: 不要选！！！攻击无效！<br>远程英雄: 功能正常但缺少龙形态模型！！！"
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
 		///////////////////////////////////////////////////

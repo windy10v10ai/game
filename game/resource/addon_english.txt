@@ -2950,6 +2950,9 @@
 
 "DOTA_Tooltip_modifier_ability_charge_damage_display"                     "Ability Charge"
 "DOTA_Tooltip_modifier_ability_charge_damage_display_Description"         "Current damage amplification: <font color='#FF6B6B'>%dMODIFIER_PROPERTY_TOOLTIP2%%%</font>"
+
+"DOTA_Tooltip_ability_boss_death_power"                     "Death Power"
+"DOTA_Tooltip_ability_boss_death_power_Description"         "Each time the Boss is killed, it gains 1 percent permanent damage reduction and damage output increase. The more times killed, the stronger it becomes."
 		"npc_windy"                                 "Windy"
 		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}

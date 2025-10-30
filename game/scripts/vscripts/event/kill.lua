@@ -3,7 +3,7 @@ local dropTable = nil
 local TauntMessages = {
     -- Boss击杀玩家
     boss_kill_player = {
-        "侥幸侥幸",
+        "侥幸侥幸", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
         "哎哟,不小心",
         "队友呢,队友呢?",
         "有点轻松",
@@ -23,32 +23,43 @@ local TauntMessages = {
 
     -- Boss连杀玩家 (连续击杀3次以上)
     boss_rampage = {
-        "还有谁?", "就这?", "送?", "送,接着送", "无敌是多么寂寞", "太简单了", "哎哟，我以为减速带呢", "弟弟", "一个能打的都没有",
+        "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
+        "?", "?", "?", "?", "?", "?", "?", "?", "?",
+        "你不会急眼了把？", "大家看他好急啊，他好气呀", "撒一把米在你的键盘上，鸡都玩的比你溜", "你玩游戏的这个时间，还不如多看几集喜羊羊", "你比美团还能送", "哥哥上手吧，别用脚玩了",
+        "你一直不杀人，是信佛吗？", "我要开直播", "两只耳朵中间夹着的是回族的禁忌吗", "逗？", "对面是人机吗？",
+        "还有谁?", "就这?", "?", "送?", "送,接着送", "有点子寂寞哟", "太简单了", "哎哟，我以为减速带呢",
+        "弟弟", "一个能打的都没有",
         "喜欢虐AI是吧？", "无聊", "没意思", "杀得我都累了", "排队送是吧", "能不能认真点？", "这就是你们的全部实力？", "跟挠痒一样",
         "再来十个也没用", "是不是没吃饭？", "打不动我啊", "放弃吧别挣扎了", "这波我血都没掉多少", "是不是没吃饭？", "打不动我啊", "放弃吧别挣扎了", "这波我血都没掉多少", "速通失败警告",
-        "集体送福利？", "血皮掉了一点，好怕", "虐菜的感觉真不错", "优秀优秀", "这波连杀我给满分", "你还还手啊，这样搞得我很没有成就感知道吗", "是不是该充钱了？", "这伤害有点刮啊兄弟",
-        "再来一波就通关了（我）", "还有高手？", "连杀停不下来，谁来救救我", "这波操作给你们零分", "是不是觉得自己很能打？", "杀你们都嫌浪费时间",
+        "集体送福利？", "血皮掉了一点，好怕", "虐菜的感觉真不错", "优秀优秀", "再送超鬼了", "你还还手啊，这样搞得我很没有成就感知道吗", "是不是该充钱了？", "这伤害有点刮啊兄弟",
+        "再来一波就通关了（我）", "还有高手？", "根本停不下来", "你不是很能打么？", "杀你们都嫌浪费时间",
         "建议直接投降省时间", "来多少送多少，不挑食",
         "这就是所谓的大佬？笑了", "刮痧都比你们疼", "再送下去我都满级了", "能不能换点新花样？", "下波我站着让你们打", "菜到我都不想动手",
         "排队送人头，服务真周到", "你们这是在给我挠痒痒吗", "连杀记录又刷新了，谢谢啊", "刮痧大队集合了？", "速通失败警告"
     },
     -- 玩家击杀Boss
     player_kill_boss = {
-        "哦吼",
-        "我大意了，没有闪",
+        "哦ho",
+        "大意了，没有闪",
         "有点意思",
         "什么情况",
         "卧槽",
         "不是，我说",
-        "大意了大意了",
+        "什么鬼",
         "啥",
         "阴啊",
         "哎呀",
-        "刚才卡了",
+        "卡",
         "轻敌了轻敌了",
         "可以可以",
         "这波我的",
-        "不行不行",
+        "Hey!",
+        "wtf",
+        "！",
+        "！",
+        "wtf",
+        "SHIT",
+        "！",
         "不对不对",
         "翻了个车"
     },
@@ -57,8 +68,10 @@ local TauntMessages = {
     player_rampage_boss = {
         "不行不行,我得刷会儿野",
         "是不是啊,人都没看清就被秒了",
-        "畜牲!",
+        "畜牲!", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
         "你特么",
+        "后里希！",
+        "马泽法克！",
         "我特么",
         "错了错了,别打了",
         "哥,别打了,哥",
@@ -279,7 +292,12 @@ local function HeroKilled(keys)
         BossKillStreak = BossKillStreak + 1
         -- 重置玩家击杀Boss的连杀
         PlayerKillBossStreak = 0
-
+        -- ✅ Boss击杀玩家后模型增大
+        if not attacker.bossKillCount then
+            attacker.bossKillCount = 0
+            attacker.bossBaseScale = attacker:GetModelScale() or 1.0
+        end
+        attacker.bossKillCount = attacker.bossKillCount + 1
         -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
         local speakProbability = math.min(20 + BossKillStreak * 10, 100)
         local randomValue = RandomInt(1, 100)
@@ -306,6 +324,39 @@ local function HeroKilled(keys)
         -- 重置Boss的连杀
         BossKillStreak = 0
 
+        -- ✅ Boss被击杀后模型减小
+        if not hHero.bossDeathCount then
+            hHero.bossDeathCount = 0
+            hHero.bossBaseScale = hHero:GetModelScale() or 1.0
+        end
+        hHero.bossDeathCount = hHero.bossDeathCount + 1
+
+        -- 减小模型，但不能小于基础大小的50%
+        local scaleReduction = hHero.bossDeathCount * 0.05
+        local newScale = math.max(hHero.bossBaseScale * 0.5, hHero.bossBaseScale - scaleReduction)
+        hHero:SetModelScale(newScale)
+
+        -- 添加或升级Boss增强能力
+        local bossAbility = hHero:FindAbilityByName("boss_death_power")
+        if not bossAbility then
+            bossAbility = hHero:AddAbility("boss_death_power")
+        end
+
+        if bossAbility then
+            local newLevel = math.min(hHero.bossDeathCount, 50) -- 最多100级
+            bossAbility:SetLevel(newLevel)
+
+            -- print(string.format(
+            --     "[BotBoss] Boss %s has been killed %d times. Power level: %d (-%d%% damage taken, +%d%% damage dealt)",
+            --     hHero:GetUnitName(), hHero.bossDeathCount, newLevel, newLevel, newLevel))
+
+            -- 发送全局消息提示
+            -- GameRules:SendCustomMessage(
+            --     string.format("<font color='#FF6B6B'>⚠️ BotBoss总是会从失败中总结教训获得增强，当前减伤 +%d%%，输出 +%d%%</font>",
+            --         hHero.bossDeathCount, newLevel, newLevel),
+            --     0, 0
+            -- )
+        end
         -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
         local speakProbability = math.min(20 + PlayerKillBossStreak * 10, 100)
         local randomValue = RandomInt(1, 100)
