@@ -112,7 +112,7 @@ function modifier_item_magic_abyss_staff_active:OnTakeDamage(params)
     if not ability then return end
 
     local convert_pct = ability:GetSpecialValueFor("convert_pct") or 10
-    local pure_damage = params.original_damage * convert_pct / 100
+    local pure_damage = params.damage * convert_pct / 100
 
     -- 造成额外的纯粹伤害
     local actual_damage = ApplyDamage({

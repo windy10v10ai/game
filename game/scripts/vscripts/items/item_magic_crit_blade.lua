@@ -229,7 +229,7 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
 
     -- 【新增】调试输出 - 基础信息
     -- print(string.format("[MagicCritBlade] 检测到法术伤害: %.0f (模式%d), 目标: %s",
-    --     params.original_damage, mode, target:GetUnitName()))
+    --     params.damage, mode, target:GetUnitName()))
 
     local should_crit = false
     local multiplier = 0
@@ -271,12 +271,12 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
     end
 
     if should_crit then
-        local extra_damage = params.original_damage * (multiplier - 1)
-        local total_damage = params.original_damage + extra_damage
+        local extra_damage = params.damage * (multiplier - 1)
+        -- local total_damage = params.damage + extra_damage
 
         -- 【新增】调试输出 - 暴击伤害详情
         --print(string.format("[MagicCritBlade] %s - 原始伤害: %.0f, 暴击倍率: %.1fx, 额外伤害: %.0f, 总伤害: %.0f",
-        --    crit_type, params.original_damage, multiplier, extra_damage, total_damage))
+        --    crit_type, params.damage, multiplier, extra_damage, total_damage))
 
         ApplyDamage({
             victim = target,
