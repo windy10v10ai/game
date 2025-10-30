@@ -303,6 +303,66 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
 
+## 开发文档索引
+
+`docs/development/` 目录包含详细的开发指南和最佳实践文档。在处理相关任务时,请参考这些文档:
+
+### API 使用文档 (`docs/development/api-usage.md`)
+
+**适用场景**: 实现 API 调用、与后端集成、添加分析事件
+
+**主要内容**:
+- API 架构概览和目录结构
+- ApiClient 核心组件使用方法
+- 认证机制 (API Key 方式)
+- 两种 API 调用模式:
+  - 模式 1: 静态方法调用 (一次性数据发送)
+  - 模式 2: 事件监听 + 数据收集 + 延迟发送 (批量数据发送)
+- 现有 API 端点列表和参数结构
+
+**关键示例**: 游戏结束时发送技能选择数据、收集并发送玩家语言信息
+
+### DataDriven 实现指南 (`docs/development/data-driven-implementation-guide.md`)
+
+**适用场景**: 将传统 Lua modifier 迁移到 DataDriven 实现、优化 modifier 性能
+
+**主要内容**:
+- DataDriven vs Lua Modifier 对比和混合架构原则
+- 完整的迁移步骤 (以 item_magic_sword 为例)
+- DataDriven 配置结构详解 (AbilityValues, OnSpellStart, Modifiers 等)
+- Lua 函数实现最佳实践
+- 关键经验:
+  - 事件选择 (OnAttackLanded vs OnTakeDamage)
+  - 参数传递和 Modifier 管理
+  - 伤害计算优化和特效管理
+- 常见问题排查
+
+**核心原则**: DataDriven 处理简单属性和事件,Lua 处理复杂逻辑
+
+### 优化物品 Modifiers (`docs/development/optimize-item-modifiers.md`)
+
+**适用场景**: 减少游戏卡顿、优化物品性能、处理大量物品属性
+
+**主要内容**:
+- 核心思路: 将静态属性从 Lua 迁移到 DataDriven
+- 详细示例: 阿迪王 (item_adi_king) 的优化过程
+- 可优化的属性类型完整列表:
+  - 基础属性 (力量、敏捷、智力)
+  - 攻击相关 (攻击力、攻击速度、攻击距离)
+  - 防御相关 (护甲、魔抗、闪避)
+  - 移动相关 (移动速度、转身速率)
+  - 生命/魔法相关 (生命值、魔法值、恢复)
+  - 法术相关 (法术增强)
+- 标准优化步骤:
+  1. 识别需要优化的属性
+  2. 在 npc_items_modifier.txt 中添加 DataDriven modifier
+  3. 修改 Lua 代码 (清空 DeclareFunctions、添加 OnRefresh 逻辑)
+  4. 清理不必要的属性读取
+- 适合/不适合优化的场景判断标准
+- 优化原则: 静态用 DataDriven,动态用 Lua
+
+**重要提示**: 只优化列表中的属性,保持代码简洁,不保留已删除函数的注释
+
 ## 本地化
 
 语言文件位于 `game/resource/`,使用 Valve 的 KeyValues 格式:
