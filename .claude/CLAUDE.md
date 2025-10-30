@@ -391,16 +391,42 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 3. **不要添加到俄文文件** (`addon_russian.txt`) - 仅在键已存在时更新
 
+### 中文标点符号规范
+
+**重要**: 中文本地化文本必须使用全角标点符号，不要使用半角标点符号。
+
+**常用全角标点对照表**：
+- ✅ 逗号：`，` (全角)  ❌ `,` (半角)
+- ✅ 句号：`。` (全角)  ❌ `.` (半角)
+- ✅ 冒号：`：` (全角)  ❌ `:` (半角)
+- ✅ 分号：`；` (全角)  ❌ `;` (半角)
+- ✅ 问号：`？` (全角)  ❌ `?` (半角)
+- ✅ 感叹号：`！` (全角)  ❌ `!` (半角)
+
+**示例**：
+```
+// ❌ 错误 - 使用了半角标点
+"item_description"    "主动: 一念成佛。持续 4 秒,造成伤害。"
+
+// ✅ 正确 - 使用全角标点
+"item_description"    "主动：一念成佛。持续 4 秒，造成伤害。"
+```
+
+**注意**：
+- 数字和英文字母保持半角
+- 百分号 `%`、括号 `()` 等特殊符号根据上下文判断（通常保持半角）
+- HTML 标签和变量占位符（如 `%active_duration%`）保持原样
+
 ### 查找 Dota 2 官方技能名称
 
-当添加项目语言文件中不存在的 Dota 2 技能时,从参考文件中查找官方翻译:
+当添加项目语言文件中不存在的 Dota 2 技能时，从参考文件中查找官方翻译：
 
-1. **在参考文件中搜索**,位于 `docs/reference/7.39/`:
+1. **在参考文件中搜索**，位于 `docs/reference/7.39/`：
 
-   - 英文: `abilities_english.txt`
-   - 中文: `abilities_schinese.txt`
+   - 英文：`abilities_english.txt`
+   - 中文：`abilities_schinese.txt`
 
-2. **搜索模式**: 使用技能内部名称(例如 `medusa_split_shot`)查找条目:
+2. **搜索模式**：使用技能内部名称(例如 `medusa_split_shot`)查找条目：
 
    ```
    English: "DOTA_Tooltip_ability_medusa_split_shot"    "Split Shot"
@@ -419,11 +445,11 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
    # Chinese: "DOTA_Tooltip_ability_luna_moon_glaive"    "月刃"
    ```
 
-**注意**: 参考文件来自 Dota 2 版本 7.39,包含所有标准技能的 Valve 官方翻译。
+**注意**：参考文件来自 Dota 2 版本 7.39，包含所有标准技能的 Valve 官方翻译。
 
 ### 在代码中使用
 
-在 XML/Panorama 中引用本地化键:
+在 XML/Panorama 中引用本地化键：
 
 ```xml
 <Label text="#my_new_key" />
@@ -437,17 +463,17 @@ $.Localize("#my_new_key");
 
 ### 文件格式
 
-- 格式: Valve KeyValues (具有特定结构的 `.txt` 文件)
-- 编码: UTF-8 with BOM
-- **缩进**: 在键和值之间使用 tab,根据键的长度对齐:
-  - 短键名(例如 `"max_level"`): 使用 tab 在一致的列对齐值
-  - 长键名(例如 `"DOTA_Tooltip_ability_attribute_bonus"`): 使用 tab 保持可读性
-  - 示例:
+- 格式：Valve KeyValues (具有特定结构的 `.txt` 文件)
+- 编码：UTF-8 with BOM
+- **缩进**：在键和值之间使用 tab，根据键的长度对齐：
+  - 短键名(例如 `"max_level"`)：使用 tab 在一致的列对齐值
+  - 长键名(例如 `"DOTA_Tooltip_ability_attribute_bonus"`)：使用 tab 保持可读性
+  - 示例：
     ```
     "short_key"                    "短文本"
     "DOTA_Tooltip_very_long_key"                                "长键名的文本"
     ```
-- 结构:
+- 结构：
   ```
   "lang"
   {
@@ -463,16 +489,16 @@ $.Localize("#my_new_key");
 
 ### 分支命名
 
-- 功能分支: `feature/{issue-number}-{branch-name}`
-- 示例: `feature/123-add-new-hero-ai`
+- 功能分支：`feature/{issue-number}-{branch-name}`
+- 示例：`feature/123-add-new-hero-ai`
 
 ### Pull Request
 
 - 从功能分支创建 PR 到 `develop` 分支(不是 `main`)
-- CI 在 PR 上运行: linting → tests → build (参见 `.github/workflows/test.yml`)
+- CI 在 PR 上运行：linting → tests → build (参见 `.github/workflows/test.yml`)
 - 存在所有者 PR 的自动批准工作流
 
 ### 提交
 
 - 遵循现有的提交风格(参见 `git log` 示例)
-- PR 会被 squash 合并,因此单个提交消息不如 PR 描述重要
+- PR 会被 squash 合并，因此单个提交消息不如 PR 描述重要

@@ -2866,7 +2866,7 @@
 "DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"           "%dMODIFIER_PROPERTY_TOOLTIP%%% of magic damage converted to pure damage"
 		// Magic Sword (魔渊剑)
 		"DOTA_Tooltip_Ability_item_magic_sword"                         "Demonic Sword"
-		"DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units.\n<h1>Passive: Corrupting Strike</h1>Attacks apply a %slow_pct%%% slow and reduce armor by %corruption_armor% for %slow_duration% seconds."
+		"DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units.\n<h1>Passive: Demonic Corruption</h1>Attacks apply corruption for %slow_duration% seconds:<br>- Movement speed slowed by %slow_pct%%%<br>- Armor reduced by %corruption_armor%<br>- Attack speed reduced by %cold_attack_slow%<br>- Health regeneration and healing reduced by %restoration_reduction%%%"
 		"DOTA_Tooltip_ability_item_magic_sword_Lore"                    "'One thought to Buddha, one thought to demon.'"
 		"DOTA_Tooltip_ability_item_magic_sword_Note0"					"Ranged units cannot cleave."
 		"DOTA_Tooltip_Ability_item_recipe_magic_sword"                  "Magic Sword Recipe"
@@ -2876,8 +2876,8 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_active"                 "One Thought to Buddha"
 		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"     "Part of physical damage converted to additional pure damage"
 
-		"DOTA_Tooltip_modifier_item_magic_sword_slow"                   "Demonic Corruption"
-		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
+		"DOTA_Tooltip_modifier_item_magic_sword_debuff"                   "Demonic Corruption"
+		"DOTA_Tooltip_modifier_item_magic_sword_debuff_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%, health regeneration reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_Ability_item_tome_of_ability_reset"								"Ability Reset Tome"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>Use: Ability Reset</h1>Opens the ability draft interface, allowing you to remove selected abilities and learn new ones.<br>Skill points are refunded when removing abilities.<br><br>One tome can only be used to reset one ability.\n\n<h1>Dropped by Roshan</h1>Can be shared with teammates."

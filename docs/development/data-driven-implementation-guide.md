@@ -102,7 +102,7 @@
                 "ApplyModifier"
                 {
                     "Target"        "TARGET"
-                    "ModifierName"  "modifier_item_magic_sword_slow"
+                    "ModifierName"  "modifier_item_magic_sword_debuff"
                     "Duration"      "%slow_duration"
                 }
             }
@@ -133,12 +133,12 @@
             }
         }
         
-        "modifier_item_magic_sword_slow"
+        "modifier_item_magic_sword_debuff"
         {
             "IsDebuff"          "1"
             "IsPurgable"        "1"
             "TextureName"        "item_magic_sword"
-            
+
             "Properties"
             {
                 "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow_pct"

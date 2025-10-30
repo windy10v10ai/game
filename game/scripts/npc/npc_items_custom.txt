@@ -7156,9 +7156,9 @@
 			"active_duration"			"4"		// 主动持续时间
 			"convert_pct"				"20"	// 物理转纯粹伤害百分比
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_all_stats"			"80"	// tooltip only - 全属性
-			"bonus_damage"				"300"	// tooltip only - 攻击力
+			// 被动属性
+			"bonus_all_stats"			"80"	// 全属性
+			"bonus_damage"				"300"	// 攻击力
 
 			// 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
 			"cleave_distance"			"600"	// Lua 逻辑需要 - 溅射范围
@@ -7166,9 +7166,11 @@
 			"cleave_damage_percent_creep" "150"	// Lua 逻辑需要 - 溅射伤害百分比（小兵）
 
 			// Debuff
-			"slow_duration"				"2.0"	// Lua 逻辑需要 - 减速持续时间
+			"slow_duration"				"4.0"	// 减速持续时间
 			"slow_pct"					"-60"	// 减速
 			"corruption_armor"			"-60"	// 减甲
+			"cold_attack_slow"			"-60"	// 攻击速度降低
+			"restoration_reduction"		"-70"	// 生命回复降低
 		}
 
 		"OnSpellStart"
@@ -7208,7 +7210,7 @@
 					"ApplyModifier"
 					{
 						"Target"			"TARGET"
-						"ModifierName"		"modifier_item_magic_sword_slow"
+						"ModifierName"		"modifier_item_magic_sword_debuff"
 						"Duration"			"%slow_duration"
 					}
 				}
@@ -7230,7 +7232,7 @@
 				}
 			}
 
-			"modifier_item_magic_sword_slow"
+			"modifier_item_magic_sword_debuff"
 			{
 				"IsDebuff"				"1"
 				"IsPurgable"			"1"
@@ -7238,8 +7240,10 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_pct"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%corruption_armor"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_pct"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%corruption_armor"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%cold_attack_slow"
+					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%restoration_reduction"
 				}
 			}
 		}
