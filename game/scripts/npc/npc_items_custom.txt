@@ -7256,7 +7256,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
 
-		"ItemCost"						"30000"
+		"ItemCost"						"20000"
 		"ItemShopTags"					"tome"
 		"ItemQuality"					"consumable"
 
