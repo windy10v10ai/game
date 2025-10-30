@@ -7274,9 +7274,16 @@
 		"ItemStockTime"					"300"
 		"OnSpellStart"
 		{
-			"SpendCharge"
+
+			"RunScript"
 			{
+				"ScriptFile"		"items/item_tome_of_ability_reset"
+				"Function"			"OnSpellStart"
 			}
+
+			// "SpendCharge"
+			// {
+			// }
 		}
 	}
 	//=================================================================================================================

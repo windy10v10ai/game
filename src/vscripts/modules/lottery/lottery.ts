@@ -285,7 +285,7 @@ export class Lottery {
   /**
    * 初始化技能重选次数
    */
-  initAbilityReset(playerId: PlayerID) {
+  InitAbilityReset(playerId: PlayerID): boolean {
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
 
@@ -295,6 +295,7 @@ export class Lottery {
     lotteryStatus.showAbilityResetButton = true;
 
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+    return true;
   }
 
   /**
@@ -383,3 +384,11 @@ export class Lottery {
     print('[Lottery] resetAbilityRow completed');
   }
 }
+
+declare global {
+  function InitAbilityReset(playerId: PlayerID): boolean;
+}
+
+_G.InitAbilityReset = (playerId: PlayerID) => {
+  return GameRules.Lottery.InitAbilityReset(playerId);
+};
