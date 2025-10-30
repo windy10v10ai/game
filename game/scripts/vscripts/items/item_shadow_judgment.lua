@@ -1,7 +1,6 @@
 LinkLuaModifier("modifier_item_shadow_judgment", "items/item_shadow_judgment", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shadow_judgment_silence", "items/item_shadow_judgment", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shadow_judgment_mute", "items/item_shadow_judgment", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_shadow_judgment_corruption", "items/item_shadow_judgment", LUA_MODIFIER_MOTION_NONE)
 
 item_shadow_judgment = class({})
 
@@ -38,10 +37,7 @@ function item_shadow_judgment:OnSpellStart()
         self:ApplyBlueFantasyEffect(target)
     end
 
-    -- 3. 绝对破防效果 - 降低护甲
-    self:ApplyDesolatorEffect(target)
-
-    -- 4. 变态辣效果 - 沉默和伤害放大
+    -- 3. 变态辣效果 - 沉默和伤害放大
     if not target:IsMagicImmune() then
         self:ApplyBloodthornEffect(target)
     end
@@ -120,18 +116,6 @@ function item_shadow_judgment:ApplyBlueFantasyEffect(target)
     EmitSoundOn("DOTA_Item.Nullifier.Target", target)
 end
 
-function item_shadow_judgment:ApplyDesolatorEffect(target)
-    if not IsServer() then return end
-
-    local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("corruption_duration")
-
-    -- 添加自定义破防debuff
-    target:AddNewModifier(caster, self, "modifier_shadow_judgment_corruption", {duration = duration})
-
-    EmitSoundOn("DOTA_Item.Desolator.Target", target)
-end
-
 function item_shadow_judgment:ApplyBloodthornEffect(target)
     if not IsServer() then return end
 
@@ -156,11 +140,6 @@ end
 
 function modifier_item_shadow_judgment:OnCreated()
     self:OnRefresh()
-
-    if self:GetAbility() then
-        -- 被动减甲参数（事件驱动，必须在 Lua 中实现）
-        self.corruption_duration = self:GetAbility():GetSpecialValueFor("corruption_duration")
-    end
 end
 
 function modifier_item_shadow_judgment:OnRefresh()
@@ -177,24 +156,6 @@ function modifier_item_shadow_judgment:OnDestroy()
     end
 end
 
-function modifier_item_shadow_judgment:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_ATTACK_LANDED,
-    }
-end
-
-function modifier_item_shadow_judgment:OnAttackLanded(params)
-    if not IsServer() then return end
-    if params.attacker ~= self:GetParent() then return end
-
-    -- 施加减甲debuff
-    params.target:AddNewModifier(
-        self:GetParent(),
-        self:GetAbility(),
-        "modifier_shadow_judgment_corruption",
-        {duration = self.corruption_duration}
-    )
-end
 modifier_shadow_judgment_mute = class({})
 
 function modifier_shadow_judgment_mute:IsHidden() return false end
@@ -297,31 +258,6 @@ end
 
 function modifier_shadow_judgment_mute:GetModifierSpellLifestealRegenAmplify_Percentage()
     return self.hp_regen_reduction
-end
--- 破防debuff
-modifier_shadow_judgment_corruption = class({})
-
-function modifier_shadow_judgment_corruption:IsHidden() return false end
-function modifier_shadow_judgment_corruption:IsDebuff() return true end
-function modifier_shadow_judgment_corruption:IsPurgable() return true end
-
-function modifier_shadow_judgment_corruption:GetTexture()
-    return "item_desolator"
-end
-
-function modifier_shadow_judgment_corruption:OnCreated()
-    if not self:GetAbility() then return end
-    self.corruption_armor = self:GetAbility():GetSpecialValueFor("corruption_armor")
-end
-
-function modifier_shadow_judgment_corruption:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-    }
-end
-
-function modifier_shadow_judgment_corruption:GetModifierPhysicalArmorBonus()
-    return self.corruption_armor or -50
 end
 
 -- 沉默debuff

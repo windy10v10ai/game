@@ -12,7 +12,7 @@ if IsServer() then
 			caster:ModifyAgility(bonus_all_stats)
 			caster:ModifyStrength(bonus_all_stats)
 			caster:AddNewModifier(caster, self, "modifier_luoshu_tome", {})
-			ApplyItemDataDrivenModifier(_, caster, "modifier_item_tome_of_luoshu_stats", {})
+			ApplyItemDataDrivenModifier(_, caster, caster, "modifier_item_tome_of_luoshu_stats", {})
 			EmitSoundOnClient("Item.TomeOfKnowledge", caster)
 		end
 		self:SpendCharge(1)

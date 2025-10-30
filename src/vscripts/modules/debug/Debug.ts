@@ -237,14 +237,15 @@ export class Debug {
       this.log(`${version}: ${key}`);
     }
 
-    if (cmd.startsWith(CMD.ADD_MODIFIER)) {
+    // add modifier 卡顿测试
+    if (cmd.startsWith(CMD.MODIFIER_ADD)) {
       const modifierName = args[0];
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (hero) {
         hero.AddNewModifier(hero, undefined, modifierName, {});
       }
     }
-    if (cmd.startsWith(CMD.REMOVE_MODIFIER)) {
+    if (cmd.startsWith(CMD.MODIFIER_REMOVE)) {
       const modifierName = args[0];
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (hero) {
@@ -252,43 +253,46 @@ export class Debug {
       }
     }
 
-    if (cmd.startsWith(CMD.ADD_MODIFIER_All_100)) {
+    const modiferCount = 50;
+    if (cmd.startsWith(CMD.MODIFIER_ADD_All)) {
       const modifierName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
         // add modifier
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (hero) {
-          for (let i = 0; i < 100; i++) {
+          for (let i = 0; i < modiferCount; i++) {
             hero.AddNewModifier(hero, undefined, modifierName, {});
           }
         }
       });
     }
-    if (cmd.startsWith(CMD.REMOVE_MODIFIER_ALL_100)) {
+    if (cmd.startsWith(CMD.MODIFIER_ADD_DATADRIVE_All)) {
+      const modifierName = args[0];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        // add modifier
+        // TODO 物品modifier
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (hero) {
+          for (let i = 0; i < modiferCount; i++) {
+            ModifierHelper.applyItemDataDrivenModifier(hero, hero, modifierName);
+          }
+        }
+      });
+    }
+    if (cmd.startsWith(CMD.MODIFIER_REMOVE_All)) {
       const modifierName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
         // add modifier
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (hero) {
           // remove all modifier
-          for (let i = 0; i < 100; i++) {
+          for (let i = 0; i < modiferCount; i++) {
             hero.RemoveModifierByName(modifierName);
           }
         }
       });
     }
-    if (cmd.startsWith(CMD.ADD_DATADRIVE_MODIFIER_All_100)) {
-      const modifierName = args[0];
-      PlayerHelper.ForEachPlayer((playerId) => {
-        // add modifier
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (hero) {
-          for (let i = 0; i < 100; i++) {
-            ModifierHelper.applyGlobalModifier(hero, modifierName);
-          }
-        }
-      });
-    }
+
     if (cmd === CMD.REPLACE_HERO) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
