@@ -1371,16 +1371,15 @@
 		// item_magic_sword 魔渊剑
 		"DOTA_Tooltip_Ability_item_magic_sword"											"魔渊剑"
 		"DOTA_Tooltip_Ability_item_magic_sword_Description"								"<h1>主动：<font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动：溅射</h1>近战攻击对目标周围 %cleave_distance% 范围内的敌人造成 %cleave_damage_percent%%% 的溅射伤害，对非英雄单位造成 %cleave_damage_percent_creep%%% 的溅射伤害。（仅近战有效）\n<h1>被动：魔渊腐蚀</h1>攻击时对目标施加腐蚀效果，持续 %debuff_duration% 秒：<br>- 护甲降低 %corruption_armor%<br>- 攻击速度降低 %attack_slow%<br>- 移动速度降低 %slow_pct%%%<br>- 生命回复和治疗效果降低 %hp_regen_reduction_pct%%%"
-		"DOTA_Tooltip_Ability_item_magic_sword_Lore"                           "佛曰：一念成佛，一念成魔。"
-		"DOTA_Tooltip_Ability_item_recipe_magic_sword"                         "魔渊剑卷轴"
-		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"                   "+$damage"
-		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"                "+$all"
+		"DOTA_Tooltip_Ability_item_magic_sword_Lore"									"佛曰：一念成佛，一念成魔。"
+		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"							"+$all"
 
-		"DOTA_Tooltip_modifier_item_magic_sword_active"                        "一念成佛"
-		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"            "物理伤害的一部分转化为额外纯粹伤害"
+		"DOTA_Tooltip_modifier_item_magic_sword_active"									"一念成佛"
+		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"						"物理伤害的一部分转化为额外纯粹伤害"
 
-		"DOTA_Tooltip_modifier_item_magic_sword_debuff"                          "魔渊腐蚀"
-		"DOTA_Tooltip_modifier_item_magic_sword_debuff_Description"              "护甲降低 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%，攻击速度降低 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%，移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，生命回复降低 %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%"
+		"DOTA_Tooltip_modifier_item_magic_sword_debuff"									"魔渊腐蚀"
+		"DOTA_Tooltip_modifier_item_magic_sword_debuff_Description"						"护甲降低 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%，攻击速度降低 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%，移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，生命回复降低 %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_Ability_item_tome_of_ability_reset"								"能力重置书"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>使用：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。<br><br>一本书只能选择一个技能进行重置。\n\n<h1>击杀肉山时掉落</h1>可以分享给队友"
