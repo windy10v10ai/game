@@ -2755,7 +2755,7 @@
 
 		// Shadow Judgment (暗影裁决)
 		"DOTA_Tooltip_Ability_item_shadow_judgment"                            "Shadow Judgment"
-		"DOTA_Tooltip_ability_item_shadow_judgment_Description"                "<h1>Active: Judgment</h1>Stuns the target for %stun_duration% seconds, dealing %active_damage_base% base damage plus %active_damage_multi%%% of your primary attribute as pure damage, before then applying multiple debuffs:<br><br>- Mutes and silences for %mute_duration% seconds<br>- Slows movement by %slow_pct%%% and attack speed by %attack_slow%<br>- Deals %max_hp_dmg_pct%%% of max HP as damage per second<br>- Reduces healing by %hp_regen_reduction%%%<br>- Reduces armor by %corruption_armor% for %corruption_duration% seconds<br>- Silences for %silence_duration% seconds, causing attacks to deal %silence_damage_percent%%% bonus damage<br>Pierces debuff immunity."
+		"DOTA_Tooltip_ability_item_shadow_judgment_Description"                "<h1>Active: Judgment</h1>Stuns the target for %stun_duration% seconds, dealing %active_damage_base% base damage plus %active_damage_multi%%% of your primary attribute as pure damage, before then applying multiple debuffs:<br><br>- Mutes and silences for %mute_duration% seconds<br>- Slows movement by %slow_pct%%% and attack speed by %attack_slow%<br>- Deals %max_hp_dmg_pct%%% of max HP as damage per second<br>- Reduces healing by %hp_regen_reduction%%%<br>- Silences for %silence_duration% seconds, causing attacks to deal %silence_damage_percent%%% bonus damage<br>Pierces debuff immunity."
 		"DOTA_Tooltip_ability_item_shadow_judgment_Lore"                       "The shadow's judgment is absolute."
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note0"						"Max health damage is not affected by Spell Damage."
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_strength"             "+$str"
@@ -2866,7 +2866,7 @@
 "DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"           "%dMODIFIER_PROPERTY_TOOLTIP%%% of magic damage converted to pure damage"
 		// Magic Sword (魔渊剑)
 		"DOTA_Tooltip_Ability_item_magic_sword"                         "Demonic Sword"
-		"DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units.\n<h1>Passive: Chilling Strike</h1>Attacks apply a %slow_pct%%% slow to the target for %slow_duration% seconds."
+		"DOTA_Tooltip_ability_item_magic_sword_Description"             "<h1>Active: <font color='#a74abd'>One Thought to Buddha</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: Cleave</h1>Melee attacks deal %cleave_damage_percent%%% cleave damage to enemies within %cleave_distance% range around the target, and %cleave_damage_percent_creep%%% cleave damage to non-hero units.\n<h1>Passive: Corrupting Strike</h1>Attacks apply a %slow_pct%%% slow and reduce armor by %corruption_armor% for %slow_duration% seconds."
 		"DOTA_Tooltip_ability_item_magic_sword_Lore"                    "'One thought to Buddha, one thought to demon.'"
 		"DOTA_Tooltip_ability_item_magic_sword_Note0"					"Ranged units cannot cleave."
 		"DOTA_Tooltip_Ability_item_recipe_magic_sword"                  "Magic Sword Recipe"
@@ -2876,8 +2876,8 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_active"                 "One Thought to Buddha"
 		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"     "Part of physical damage converted to additional pure damage"
 
-		"DOTA_Tooltip_modifier_item_magic_sword_slow"                   "Demonic Sword Slow"
-		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+		"DOTA_Tooltip_modifier_item_magic_sword_slow"                   "Demonic Corruption"
+		"DOTA_Tooltip_modifier_item_magic_sword_slow_Description"       "Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%"
 
 		"DOTA_Tooltip_Ability_item_tome_of_ability_reset"								"Ability Reset Tome"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>Use: Ability Reset</h1>Opens the ability draft interface, allowing you to remove selected abilities and learn new ones.<br>Skill points are refunded when removing abilities.<br><br>One tome can only be used to reset one ability.\n\n<h1>Dropped by Roshan</h1>Can be shared with teammates."

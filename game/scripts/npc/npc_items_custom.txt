@@ -6599,7 +6599,7 @@
     "ItemResult"                "item_shadow_judgment"
     "ItemRequirements"
     {
-        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_infernal_desolator;item_bloodthorn_ultra;item_fusion_shadow"
+        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
     }
 }
 
@@ -6657,10 +6657,6 @@
         "attack_slow"           "-200"
 		"max_hp_dmg_pct"        "4"      // 添加这个参数
     	"hp_regen_reduction"    "-80"    // 添加这个参数
-
-        // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
-        "corruption_armor"      "-60"
-        "corruption_duration"   "7.0"
 
         // 变态辣效果
         "silence_duration"      "5.0"
@@ -7168,10 +7164,11 @@
 			"cleave_distance"			"600"	// Lua 逻辑需要 - 溅射范围
 			"cleave_damage_percent"		"100"	// Lua 逻辑需要 - 溅射伤害百分比（英雄）
 			"cleave_damage_percent_creep" "150"	// Lua 逻辑需要 - 溅射伤害百分比（小兵）
-			"slow_duration"				"2.0"	// Lua 逻辑需要 - 减速持续时间
 
 			// Debuff
+			"slow_duration"				"2.0"	// Lua 逻辑需要 - 减速持续时间
 			"slow_pct"					"-60"	// 减速
+			"corruption_armor"			"-60"	// 减甲
 		}
 
 		"OnSpellStart"
@@ -7242,6 +7239,7 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow_pct"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%corruption_armor"
 				}
 			}
 		}
