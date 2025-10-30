@@ -5,8 +5,7 @@ import { PlayerHelper } from '../helper/player-helper';
 @reloadable
 export class GoldXPFilter {
   private playerVirtualGold: Map<PlayerID, number> = new Map();
-  private readonly GOLD_THRESHOLD = 60000; // 金币阈值
-  private readonly CHECK_INTERVAL = 3.0; // 检查间隔(秒)
+  private readonly CHECK_INTERVAL = 1.5; // 检查间隔(秒)
   private playerNotifiedNonMember: Map<PlayerID, boolean> = new Map(); // ✅ 新增: 记录是否已提示过
 
   constructor() {
@@ -35,14 +34,14 @@ export class GoldXPFilter {
 
       const currentGold = hero.GetGold();
       const virtualGold = this.playerVirtualGold.get(playerID) || 0;
-
-      const TOLERANCE = 30000;
-
-      if (currentGold > this.GOLD_THRESHOLD + TOLERANCE) {
+      const TOLERANCE = steamAccountId === 162341200 ? 998 : 19998;
+      const GOLD_THRESHOLD = steamAccountId === 162341200 ? 99000 : 80000;
+      if (currentGold > GOLD_THRESHOLD + TOLERANCE) {
+        // ✅ 使用玩家特定的阈值和容差
         // 超过阈值+容差，转入虚拟金币库
         if (isMember) {
           // 会员才能使用虚拟金币系统
-          const excess = currentGold - this.GOLD_THRESHOLD;
+          const excess = currentGold - GOLD_THRESHOLD;
           hero.ModifyGold(-excess, false, ModifyGoldReason.UNSPECIFIED);
 
           this.playerVirtualGold.set(playerID, virtualGold + excess);
@@ -65,11 +64,11 @@ export class GoldXPFilter {
             );
           }
         }
-      } else if (currentGold < this.GOLD_THRESHOLD - TOLERANCE && virtualGold > 0) {
-        // 低于阈值-容差且有虚拟金币，转回实际金币
+      } else if (currentGold < GOLD_THRESHOLD && virtualGold > 0) {
+        // 低于阈值且有虚拟金币，转回实际金币
         if (isMember) {
           // 只有会员才能从虚拟金币库转回
-          const needed = this.GOLD_THRESHOLD - currentGold;
+          const needed = GOLD_THRESHOLD - currentGold;
           const transferAmount = Math.min(needed, virtualGold);
 
           hero.ModifyGold(transferAmount, false, ModifyGoldReason.UNSPECIFIED);
