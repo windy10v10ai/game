@@ -55,7 +55,38 @@
 			}
 		}
 	}
+	"boss_death_power"
+	{
+		"BaseClass"                     "ability_datadriven"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsBreakable"                   "0"
+		"MaxLevel"                      "100"
 
+		"AbilityTextureName"            "boss_power"
+
+		"AbilityValues"
+		{
+			"damage_reduction"          "-1 -2 -3 -4 -5 -6 -7 -8 -9 -10 -11 -12 -13 -14 -15 -16 -17 -18 -19 -20 -21 -22 -23 -24 -25 -26 -27 -28 -29 -30 -31 -32 -33 -34 -35 -36 -37 -38 -39 -40 -41 -42 -43 -44 -45 -46 -47 -48 -49 -50 -51 -52 -53 -54 -55 -56 -57 -58 -59 -60 -61 -62 -63 -64 -65 -66 -67 -68 -69 -70 -71 -72 -73 -74 -75 -76 -77 -78 -79 -80 -81 -82 -83 -84 -85 -86 -87 -88 -89 -90 -91 -92 -93 -94 -95 -96 -97 -98 -99 -100"
+			"bonus_damage"              "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100"
+		}
+
+		"Modifiers"
+		{
+			"modifier_boss_death_power"
+			{
+				"Passive"                   "1"
+				"IsHidden"                  "0"
+				"RemoveOnDeath"             "0"
+				"Attributes"                "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"      "%damage_reduction"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"          "%bonus_damage"
+				}
+			}
+		}
+	}
 
 	//================================================
 	// dummy unit passive (collection of global modifiers)

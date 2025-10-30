@@ -1,11 +1,97 @@
+import { MemberLevel, Player } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
 
 @reloadable
 export class GoldXPFilter {
+  private playerVirtualGold: Map<PlayerID, number> = new Map();
+  private readonly GOLD_THRESHOLD = 60000; // 金币阈值
+  private readonly CHECK_INTERVAL = 3.0; // 检查间隔(秒)
+  private playerNotifiedNonMember: Map<PlayerID, boolean> = new Map(); // ✅ 新增: 记录是否已提示过
+
   constructor() {
     GameRules.GetGameModeEntity().SetModifyGoldFilter((args) => this.filterGold(args), this);
     GameRules.GetGameModeEntity().SetModifyExperienceFilter((args) => this.filterXP(args), this);
+    // 启动定时器,每3秒检查一次金币平衡
+    Timers.CreateTimer(this.CHECK_INTERVAL, () => {
+      this.balanceVirtualGold();
+      return this.CHECK_INTERVAL;
+    });
+  }
+
+  private balanceVirtualGold(): void {
+    for (let i = 0; i < DOTA_MAX_TEAM_PLAYERS; i++) {
+      const playerID = i as PlayerID;
+
+      if (!PlayerResource.IsValidPlayerID(playerID)) continue;
+
+      const hero = PlayerResource.GetSelectedHeroEntity(playerID);
+      if (!hero || !hero.IsAlive()) continue;
+
+      // ✅ 检查是否为会员
+      const steamAccountId = PlayerResource.GetSteamAccountID(playerID);
+      const memberLevel = Player.GetMemberLevel(steamAccountId);
+      const isMember = memberLevel === MemberLevel.NORMAL || memberLevel === MemberLevel.PREMIUM;
+
+      const currentGold = hero.GetGold();
+      const virtualGold = this.playerVirtualGold.get(playerID) || 0;
+
+      const TOLERANCE = 30000;
+
+      if (currentGold > this.GOLD_THRESHOLD + TOLERANCE) {
+        // 超过阈值+容差，转入虚拟金币库
+        if (isMember) {
+          // 会员才能使用虚拟金币系统
+          const excess = currentGold - this.GOLD_THRESHOLD;
+          hero.ModifyGold(-excess, false, ModifyGoldReason.UNSPECIFIED);
+
+          this.playerVirtualGold.set(playerID, virtualGold + excess);
+          this.updateVirtualGoldUI(playerID);
+
+          print(
+            `[Member] Player ${playerID}: Transferred ${excess} gold to virtual bank. Virtual total: ${virtualGold + excess}`,
+          );
+        } else {
+          // ✅ 非会员,只在第一次提示
+          if (currentGold > 99999 && !this.playerNotifiedNonMember.get(playerID)) {
+            GameRules.SendCustomMessage(
+              `<font color='#FFA500'>⚠️ 金币已达上限! 开通会员可使用虚拟金币库功能</font>`,
+              playerID,
+              0,
+            );
+            this.playerNotifiedNonMember.set(playerID, true); // 标记已提示
+            print(
+              `[NonMember] Player ${playerID}: Notified about member-only virtual gold feature`,
+            );
+          }
+        }
+      } else if (currentGold < this.GOLD_THRESHOLD - TOLERANCE && virtualGold > 0) {
+        // 低于阈值-容差且有虚拟金币，转回实际金币
+        if (isMember) {
+          // 只有会员才能从虚拟金币库转回
+          const needed = this.GOLD_THRESHOLD - currentGold;
+          const transferAmount = Math.min(needed, virtualGold);
+
+          hero.ModifyGold(transferAmount, false, ModifyGoldReason.UNSPECIFIED);
+          this.playerVirtualGold.set(playerID, virtualGold - transferAmount);
+          this.updateVirtualGoldUI(playerID);
+
+          print(
+            `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}`,
+          );
+        }
+      }
+    }
+  }
+
+  private updateVirtualGoldUI(playerID: PlayerID): void {
+    const virtualGold = this.playerVirtualGold.get(playerID) || 0;
+    CustomNetTables.SetTableValue('player_virtual_gold', playerID.toString(), {
+      virtual_gold: virtualGold,
+    });
+
+    // 添加调试输出
+    //print(`Updated virtual gold UI for player ${playerID}: ${virtualGold}`);
   }
 
   readonly GOLD_REASON_NOT_FILTER: ModifyGoldReason[] = [
@@ -40,6 +126,9 @@ export class GoldXPFilter {
     const reason = args.reason_const;
     let mul = this.getPlayerGoldXpMultiplier(playerID);
 
+    if (this.GOLD_REASON_NOT_FILTER.includes(reason)) {
+      return true;
+    }
     if (this.GOLD_REASON_NOT_FILTER.includes(reason)) {
       return true;
     }
