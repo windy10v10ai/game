@@ -251,6 +251,7 @@ export class EventNpcSpawned {
             hero.SetModelScale(2);
             return;
           }
+
           this.ApplyBossProperties(hero, retryPlayer);
         });
         return;
@@ -271,6 +272,14 @@ export class EventNpcSpawned {
     //);
 
     hero.SetModelScale(2);
+    // ✅ 首先添加 boss_death_power 作为基础能力
+    if (!hero.HasAbility('boss_death_power')) {
+      const bossDeathPower = hero.AddAbility('boss_death_power');
+      if (bossDeathPower !== undefined) {
+        bossDeathPower.SetLevel(0); // 初始等级为0
+        print(`[BotAbility] Added boss_death_power to ${hero.GetUnitName()}`);
+      }
+    }
     this.CopyPlayerPropertiesToBot(hero, playerInfo.steamId, math.min(multiplier * 1.2, 100));
 
     // 根据倍数决定技能数量

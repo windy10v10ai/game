@@ -336,26 +336,14 @@ local function HeroKilled(keys)
         local newScale = math.max(hHero.bossBaseScale * 0.5, hHero.bossBaseScale - scaleReduction)
         hHero:SetModelScale(newScale)
 
-        -- 添加或升级Boss增强能力
+        -- 每2次死亡升1级，最高30级
+        local newLevel = math.min(math.floor(hHero.bossDeathCount / 2), 30)
+
         local bossAbility = hHero:FindAbilityByName("boss_death_power")
-        if not bossAbility then
-            bossAbility = hHero:AddAbility("boss_death_power")
-        end
-
         if bossAbility then
-            local newLevel = math.min(hHero.bossDeathCount, 50) -- 最多100级
             bossAbility:SetLevel(newLevel)
-
-            -- print(string.format(
-            --     "[BotBoss] Boss %s has been killed %d times. Power level: %d (-%d%% damage taken, +%d%% damage dealt)",
-            --     hHero:GetUnitName(), hHero.bossDeathCount, newLevel, newLevel, newLevel))
-
-            -- 发送全局消息提示
-            -- GameRules:SendCustomMessage(
-            --     string.format("<font color='#FF6B6B'>⚠️ BotBoss总是会从失败中总结教训获得增强，当前减伤 +%d%%，输出 +%d%%</font>",
-            --         hHero.bossDeathCount, newLevel, newLevel),
-            --     0, 0
-            -- )
+            print(string.format("[BotBoss] Boss %s death count: %d, ability level: %d",
+                hHero:GetUnitName(), hHero.bossDeathCount, newLevel))
         end
         -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
         local speakProbability = math.min(20 + PlayerKillBossStreak * 10, 100)
