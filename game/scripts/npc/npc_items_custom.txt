@@ -7167,9 +7167,9 @@
 
 			// Debuff
 			"debuff_duration"			"4.0"	// Debuff持续时间
-			"slow_pct"					"-60"	// Debuff移动速度降低
 			"corruption_armor"			"-60"	// Debuff减甲
 			"attack_slow"				"-200"	// Debuff攻击速度降低
+			"slow_pct"					"-60"	// Debuff移动速度降低
 			"hp_regen_reduction_pct"	"-70"	// Debuff生命回复降低
 		}
 
