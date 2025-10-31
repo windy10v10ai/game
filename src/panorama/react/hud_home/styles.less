@@ -1,0 +1,190 @@
+/* Home 模块样式文件 */
+.root {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== 主容器 ========== */
+.home-container {
+  width: 50%;
+  height: 50%;
+  margin-top: 120px;
+}
+
+/* ========== 标题栏 ========== */
+.home-header {
+  width: 100%;
+  height: 50px;
+  background-color: #1a1a1a;
+  border-radius: 6px 6px 0 0;
+  flow-children: right;
+  padding: 10px 20px;
+}
+
+.home-title {
+  font-size: 20px;
+  color: #ffd700;
+  vertical-align: center;
+}
+
+/* ========== Tab 导航栏 ========== */
+.tab-container {
+  width: 100%;
+  height: 45px;
+  flow-children: right;
+  background-color: #0a0a0a;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+}
+
+.tab-button {
+  width: 33.33%;
+  height: 100%;
+  background-color: transparent;
+  font-size: 14px;
+  color: #aaaaaa;
+  text-align: center;
+  transition-property: background-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    background-color: #151515;
+    color: #ffffff;
+  }
+
+  &.active {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #ffd700;
+    color: #ffd700;
+  }
+}
+
+/* ========== 内容区域 ========== */
+.content-area {
+  width: 100%;
+  height: 305px;
+  padding: 15px;
+  flow-children: down;
+}
+
+/* ========== StatsPage 样式 ========== */
+.stats-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 10px;
+}
+
+.stat-item {
+  font-size: 16px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  flow-children: right;
+}
+
+.stat-label {
+  color: #aaaaaa;
+}
+
+.stat-value {
+  color: #ffd700;
+  margin-left: 10px;
+}
+
+/* ========== AchievementsPage 样式 ========== */
+.achievements-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 10px;
+}
+
+.achievement-item {
+  width: 100%;
+  height: 40px;
+  background-color: #00000066;
+  border: 1px solid #444444;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  padding: 8px;
+  flow-children: right;
+  transition-property: background-color, border-color;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: #00000099;
+    border-color: #666666;
+  }
+}
+
+.achievement-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 10px;
+
+  &.unlocked {
+    background-color: #ffd700;
+  }
+
+  &.locked {
+    background-color: #666666;
+  }
+}
+
+.achievement-text-container {
+  flow-children: down;
+}
+
+.achievement-title {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.achievement-desc {
+  font-size: 12px;
+  color: #aaaaaa;
+}
+
+/* ========== SettingsPage 样式 ========== */
+.settings-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 10px;
+}
+
+.setting-item {
+  width: 100%;
+  height: 35px;
+  flow-children: right;
+  margin-bottom: 10px;
+}
+
+.setting-label {
+  font-size: 14px;
+  color: #ffffff;
+  vertical-align: center;
+  width: 150px;
+}
+
+.setting-button {
+  width: 80px;
+  height: 25px;
+  font-size: 12px;
+}
+
+.section-title {
+  font-size: 16px;
+  color: #ffd700;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.setting-value {
+  font-size: 14px;
+  color: #aaaaaa;
+  vertical-align: center;
+  width: 150px;
+}

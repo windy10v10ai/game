@@ -90,3 +90,11 @@ interface SaveBindAbilityKeyEventData {
   passiveAbilityQuickCast: boolean;
   passiveAbilityQuickCast2?: boolean;
 }
+
+// 注意：Home 相关事件已注释，需要时取消注释
+// interface HomeExampleEventData {
+//   // 在这里添加事件数据字段
+//   // 例如：
+//   // action: string;
+//   // value: number;
+// }
