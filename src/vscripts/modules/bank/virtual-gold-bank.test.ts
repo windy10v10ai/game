@@ -130,7 +130,7 @@ describe('VirtualGoldBank', () => {
 
   describe('transferToVirtualBank', () => {
     it('should transfer excess gold to virtual bank for premium member', () => {
-      const currentGold = 95000; // 超过阈值(80000) + 容差(10000)
+      const currentGold = 95000; // 超过阈值(80000)
       const virtualGold = 5000;
 
       virtualGoldBank.setVirtualGold(PLAYER_ID, virtualGold);

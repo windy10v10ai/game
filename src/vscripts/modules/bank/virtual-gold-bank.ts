@@ -7,7 +7,6 @@ export class VirtualGoldBank {
   private playerTransferredBackTotal: Map<PlayerID, number> = new Map(); // 记录从虚拟金币库转回的总额
   private readonly CHECK_INTERVAL = 1.5; // 检查间隔(秒)
   private readonly GOLD_THRESHOLD = 80000;
-  private readonly TOLERANCE = 10000;
 
   constructor() {
     // 启动定时器,每1.5秒检查一次金币平衡
@@ -34,7 +33,7 @@ export class VirtualGoldBank {
         continue;
       }
 
-      if (currentGold > this.GOLD_THRESHOLD + this.TOLERANCE) {
+      if (currentGold > this.GOLD_THRESHOLD) {
         // 超过阈值+容差，转入虚拟金币库
         this.transferToVirtualBank(playerID, hero, currentGold, virtualGold);
       } else if (currentGold < this.GOLD_THRESHOLD && virtualGold > 0) {
