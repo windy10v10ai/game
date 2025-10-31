@@ -1304,7 +1304,7 @@
 		"DOTA_Tooltip_ability_item_time_gem_Lore"                      "掌控时间的神秘宝石，能让使用者操纵时间的流速。"
 		"DOTA_Tooltip_ability_item_time_gem_Note0"                     "时间重置不会刷新刷新球系列物品（刷新球、刷新核心、时间宝石）。"
 		"DOTA_Tooltip_ability_item_time_gem_Note1"                     "与其他刷新球系列物品共享冷却时间。"
-		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"            "%冷却减少"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"            "%+$cooldown_reduction"
 		"DOTA_Tooltip_ability_item_time_gem_cast_range_bonus"          "+$cast_range"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_health"              "+$health"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_mana"                "+$mana"
@@ -2158,7 +2158,7 @@
 
 		// item_arcane_octarine_core 奥术之心
 		"DOTA_Tooltip_Ability_item_arcane_octarine_core"			"奥术之心"
-		"DOTA_Tooltip_ability_item_arcane_octarine_core_Description"				"<h1>被动：冷却时间减少</h1>降低所有技能和物品的冷却时间。"
+		"DOTA_Tooltip_ability_item_arcane_octarine_core_Description"				"<h1>被动：冷却时间减少</h1>降低所有技能和物品%bonus_cooldown%%%的冷却时间。"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_cast_range_bonus"             "+$cast_range"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_arcane_octarine_core_bonus_mana_regen"                "+$mana_regen"
@@ -2616,7 +2616,7 @@
 
 		// item_refresh_core 大刷新
 		"DOTA_Tooltip_Ability_item_refresh_core"						"熔火核心"
-		"DOTA_Tooltip_ability_item_refresh_core_Description"			"<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。\n<h1>被动：冷却时间减少</h1>降低所有技能和物品的冷却时间。"
+		"DOTA_Tooltip_ability_item_refresh_core_Description"			"<h1>主动：完全重置</h1>重置所有物品和技能的冷却时间。\n<h1>被动：冷却时间减少</h1>降低所有技能和物品%bonus_cooldown%%%的冷却时间。"
 		"DOTA_Tooltip_ability_item_refresh_core_cast_range_bonus"		"+$cast_range"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_mana_regen"		"+$mana_regen"
 		"DOTA_Tooltip_ability_item_refresh_core_bonus_health_regen"		"+$hp_regen"
