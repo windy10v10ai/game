@@ -2785,12 +2785,14 @@
 		"DOTA_Tooltip_Ability_item_swift_glove"                                "Swift Glove"
 		"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%."
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"                           "Gloves that grant unmatched speed and precision."
+		"DOTA_Tooltip_ability_item_swift_glove_Note0"                          "Base Attack Time reduction effect cannot be stacked."
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"                 "+$str"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_agility"                  "+$agi"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_intellect"                "+$int"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"             "+$attack"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_movement_speed"           "+$move_speed"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_range"             "+$attack_range"
+		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"				"%+$bat_reduction_pct"
 
 // Ten Thousand Swords (万剑归宗)
 "DOTA_Tooltip_Ability_item_ten_thousand_swords"                    "Ten Thousand Swords"
@@ -2819,8 +2821,8 @@
 		"DOTA_Tooltip_ability_item_time_gem_bonus_mana"                "+$mana"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_health_regen"        "+$hp_regen"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_mana_regen"          "+$mana_regen"
-		"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"     "%+Magic Cost Reduction"
-		"DOTA_Tooltip_ability_item_time_gem_cast_speed_pct"         "%+Cast Speed Bonus"
+		"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"			"%+$manacost_reduction"
+		"DOTA_Tooltip_ability_item_time_gem_cast_speed_pct"				"%+Cast Speed Bonus"
 
 		// Tooltip
 		// item_beast_shield 兽化盾

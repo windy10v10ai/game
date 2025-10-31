@@ -1276,14 +1276,14 @@
 		"DOTA_Tooltip_Ability_item_swift_glove"                "无限手套"
 		"DOTA_Tooltip_ability_item_swift_glove_Description"    "<h1><font color='#FFFF00'>被动：极速</h1>提升攻击速度、移动速度和攻击距离，并减少%bat_reduction_pct%%%基础攻击间隔。"
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"          "传说中的手套，能让佩戴者的速度快到看不见。"
-		"DOTA_Tooltip_ability_item_swift_glove_Note0"         "基础攻击间隔减少效果可能不与其他 BAT 减少效果叠加。"
+		"DOTA_Tooltip_ability_item_swift_glove_Note0"         "基础攻击间隔减少效果无法叠加。"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"     "+$str"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_agility"      "+$agi"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_intellect"    "+$int"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed" "+$attack"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_movement_speed" "+$move_speed"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_range"   "+$attack_range"
-		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"        "%基础攻击间隔减少"
+		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"        "%+基础攻击间隔减少"
 
 		"DOTA_Tooltip_Ability_item_ten_thousand_swords"                    "万剑归宗"
 		"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"        "<h1><font color='#FFFF00'>被动：剑之极致</h1>集四把神器对剑之力于一身，大幅提升全属性、状态抗性、攻击速度、移动速度、生命恢复、魔法恢复和技能增强。攻击附带魔法伤害。"
@@ -1310,8 +1310,8 @@
 		"DOTA_Tooltip_ability_item_time_gem_bonus_mana"                "+$mana"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_health_regen"        "+$hp_regen"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_mana_regen"          "+$mana_regen"
-		"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"     "%+魔法消耗降低"
-		"DOTA_Tooltip_ability_item_time_gem_cast_speed_pct"         "%+施法速度加成"
+		"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"			"%+$manacost_reduction"
+		"DOTA_Tooltip_ability_item_time_gem_cast_speed_pct"				"%+施法速度加成"
 
 		// Tooltip
 		"DOTA_Tooltip_Ability_item_beast_shield"                    "兽化盾"
