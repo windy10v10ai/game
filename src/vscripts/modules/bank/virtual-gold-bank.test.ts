@@ -143,12 +143,12 @@ describe('VirtualGoldBank', () => {
         virtualGold,
       );
 
-      expect(mockHero.ModifyGold).toHaveBeenCalledWith(-15000, false, ModifyGoldReason.UNSPECIFIED);
+      expect(mockHero.ModifyGold).toHaveBeenCalledWith(-15000, true, ModifyGoldReason.UNSPECIFIED);
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(20000);
       expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
         'player_virtual_gold',
         PLAYER_ID.toString(),
-        { virtual_gold: 20000 },
+        { virtual_gold: 20000, transferred_back_total: 0 },
       );
     });
 
@@ -258,12 +258,12 @@ describe('VirtualGoldBank', () => {
         virtualGold,
       );
 
-      expect(mockHero.ModifyGold).toHaveBeenCalledWith(5000, false, ModifyGoldReason.UNSPECIFIED);
+      expect(mockHero.ModifyGold).toHaveBeenCalledWith(5000, true, ModifyGoldReason.UNSPECIFIED);
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(15000);
       expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
         'player_virtual_gold',
         PLAYER_ID.toString(),
-        { virtual_gold: 15000 },
+        { virtual_gold: 15000, transferred_back_total: 5000 },
       );
     });
 
@@ -281,8 +281,13 @@ describe('VirtualGoldBank', () => {
         virtualGold,
       );
 
-      expect(mockHero.ModifyGold).toHaveBeenCalledWith(10000, false, ModifyGoldReason.UNSPECIFIED);
+      expect(mockHero.ModifyGold).toHaveBeenCalledWith(10000, true, ModifyGoldReason.UNSPECIFIED);
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(40000);
+      expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
+        'player_virtual_gold',
+        PLAYER_ID.toString(),
+        { virtual_gold: 40000, transferred_back_total: 10000 },
+      );
     });
 
     it('should transfer all virtual gold when needed exceeds virtual gold', () => {
@@ -301,10 +306,15 @@ describe('VirtualGoldBank', () => {
 
       expect(mockHero.ModifyGold).toHaveBeenCalledWith(
         virtualGold,
-        false,
+        true,
         ModifyGoldReason.UNSPECIFIED,
       );
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(0);
+      expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
+        'player_virtual_gold',
+        PLAYER_ID.toString(),
+        { virtual_gold: 0, transferred_back_total: 5000 },
+      );
     });
 
     it('should not transfer gold for non-premium member', () => {
@@ -340,7 +350,7 @@ describe('VirtualGoldBank', () => {
       expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
         'player_virtual_gold',
         PLAYER_ID.toString(),
-        { virtual_gold: amount },
+        { virtual_gold: amount, transferred_back_total: 0 },
       );
     });
   });

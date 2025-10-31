@@ -5,6 +5,7 @@ import { reloadable } from '../../utils/tstl-utils';
 @reloadable
 export class VirtualGoldBank {
   private playerVirtualGold: Map<PlayerID, number> = new Map();
+  private playerTransferredBackTotal: Map<PlayerID, number> = new Map(); // 记录从虚拟金币库转回的总额
   private readonly CHECK_INTERVAL = 1.5; // 检查间隔(秒)
   private playerNotifiedNonMember: Map<PlayerID, boolean> = new Map(); // 记录是否已提示过
   private readonly GOLD_THRESHOLD = 80000;
@@ -65,7 +66,7 @@ export class VirtualGoldBank {
     virtualGold: number,
   ): void {
     const excess = currentGold - this.GOLD_THRESHOLD;
-    hero.ModifyGold(-excess, false, ModifyGoldReason.UNSPECIFIED);
+    hero.ModifyGold(-excess, true, ModifyGoldReason.UNSPECIFIED);
 
     this.playerVirtualGold.set(playerID, virtualGold + excess);
     this.updateVirtualGoldUI(playerID);
@@ -87,12 +88,17 @@ export class VirtualGoldBank {
     const needed = this.GOLD_THRESHOLD - currentGold;
     const transferAmount = Math.min(needed, virtualGold);
 
-    hero.ModifyGold(transferAmount, false, ModifyGoldReason.UNSPECIFIED);
+    hero.ModifyGold(transferAmount, true, ModifyGoldReason.UNSPECIFIED);
     this.playerVirtualGold.set(playerID, virtualGold - transferAmount);
+
+    // 累加转回的总金额
+    const currentTransferTotal = this.playerTransferredBackTotal.get(playerID) || 0;
+    this.playerTransferredBackTotal.set(playerID, currentTransferTotal + transferAmount);
+
     this.updateVirtualGoldUI(playerID);
 
     print(
-      `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}`,
+      `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}, Total transferred back: ${currentTransferTotal + transferAmount}`,
     );
   }
 
@@ -115,8 +121,10 @@ export class VirtualGoldBank {
 
   private updateVirtualGoldUI(playerID: PlayerID): void {
     const virtualGold = this.playerVirtualGold.get(playerID) || 0;
+    const transferredBackTotal = this.playerTransferredBackTotal.get(playerID) || 0;
     CustomNetTables.SetTableValue('player_virtual_gold', playerID.toString(), {
       virtual_gold: virtualGold,
+      transferred_back_total: transferredBackTotal,
     });
   }
 
