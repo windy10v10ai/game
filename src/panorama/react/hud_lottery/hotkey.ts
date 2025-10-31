@@ -292,15 +292,18 @@ export function saveInputKeyborard(
   activeKey: string = '',
   passiveAbilityname: string | undefined,
   passiveKey: string = '',
+  passiveAbilityname2: string | undefined = undefined,
+  passiveKey2: string = '',
 ) {
-  if (!activeAbilityname && !passiveAbilityname) {
+  if (!activeAbilityname && !passiveAbilityname && !passiveAbilityname2) {
     return;
   }
-  if (activeKey === '' && passiveKey === '') {
+  if (activeKey === '' && passiveKey === '' && passiveKey2 === '') {
     return;
   }
   const activeKeyText = bindKeyToText(activeKey);
   const passiveKeyText = bindKeyToText(passiveKey);
+  const passiveKeyText2 = bindKeyToText(passiveKey2);
 
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
@@ -320,6 +323,9 @@ export function saveInputKeyborard(
   if (passiveAbilityname) {
     setCurrentHotkey(passiveAbilityname, passiveKeyText, abilityPanels);
   }
+  if (passiveAbilityname2) {
+    setCurrentHotkey(passiveAbilityname2, passiveKeyText2, abilityPanels);
+  }
 
   // 移除其他技能的改键（增减技能时，会错位）
   for (const abilityPanel of abilityPanels) {
@@ -328,7 +334,11 @@ export function saveInputKeyborard(
     }
     const abilityImage = abilityPanel.FindChildTraverse('AbilityImage') as AbilityImage | null;
     const currentAbilityName = abilityImage?.abilityname;
-    if (activeAbilityname === currentAbilityName || passiveAbilityname === currentAbilityName) {
+    if (
+      activeAbilityname === currentAbilityName ||
+      passiveAbilityname === currentAbilityName ||
+      passiveAbilityname2 === currentAbilityName
+    ) {
       continue;
     }
     removeCustomHotkey(abilityPanel);

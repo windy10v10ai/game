@@ -73,40 +73,57 @@ export class Lottery {
     );
   }
 
-  // ---- 随机技能 ----
-  randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
-    const abilityTable =
-      abilityType === 'abilityActive'
-        ? 'lottery_active_abilities'
-        : abilityType === 'abilityPassive'
-          ? 'lottery_passive_abilities'
-          : 'lottery_passive_abilities_2';
-    const abilityTiers = abilityType === 'abilityActive' ? abilityTiersActive : abilityTiersPassive;
-    // 排除刷新前抽取的
-    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
-    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(abilityTable, steamAccountID);
-    const executedNames = !!lotteryAbilitiesRaw
-      ? Object.values(lotteryAbilitiesRaw).map((item) => item.name)
-      : [];
+  /**
+   * 获取技能表名称
+   */
+  private getAbilityTableName(
+    abilityType: AbilityItemType,
+  ): 'lottery_active_abilities' | 'lottery_passive_abilities' | 'lottery_passive_abilities_2' {
+    if (abilityType === 'abilityActive') return 'lottery_active_abilities';
+    if (abilityType === 'abilityPassive') return 'lottery_passive_abilities';
+    return 'lottery_passive_abilities_2';
+  }
 
-    // 如果是passive技能，则排除另外一组被动技能
+  /**
+   * 获取已排除的技能名称（包括刷新前抽取的和另一组被动技能）
+   */
+  private getExcludedAbilityNames(abilityType: AbilityItemType, steamAccountID: string): string[] {
+    // 获取当前表中的技能
+    const abilityTable = this.getAbilityTableName(abilityType);
+    const lotteryAbilitiesRaw = CustomNetTables.GetTableValue(abilityTable, steamAccountID);
+    const executedNames =
+      lotteryAbilitiesRaw !== undefined
+        ? Object.values(lotteryAbilitiesRaw).map((item) => item.name)
+        : [];
+
+    // 如果是被动技能，排除另一组被动技能
     if (abilityType === 'abilityPassive' || abilityType === 'abilityPassive2') {
-      const otherAbilityTable =
+      const otherTable =
         abilityType === 'abilityPassive'
           ? 'lottery_passive_abilities_2'
           : 'lottery_passive_abilities';
-      const otherAbilityAbilitiesRaw = CustomNetTables.GetTableValue(
-        otherAbilityTable,
-        steamAccountID,
-      );
-      const otherAbilityExecutedNames = !!otherAbilityAbilitiesRaw
-        ? Object.values(otherAbilityAbilitiesRaw).map((item) => item.name)
-        : [];
-      executedNames.push(...otherAbilityExecutedNames);
+      const otherAbilitiesRaw = CustomNetTables.GetTableValue(otherTable, steamAccountID);
+      if (otherAbilitiesRaw !== undefined) {
+        const otherNames = Object.values(otherAbilitiesRaw).map((item) => item.name);
+        executedNames.push(...otherNames);
+      }
     }
 
-    // 随机技能
+    return executedNames;
+  }
+
+  // ---- 随机技能 ----
+  randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
+    // 获取基本配置
+    const abilityTable = this.getAbilityTableName(abilityType);
+    const abilityTiers = abilityType === 'abilityActive' ? abilityTiersActive : abilityTiersPassive;
+    const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+
+    // 获取已排除的技能
+    const executedNames = this.getExcludedAbilityNames(abilityType, steamAccountID);
+
+    // 生成随机技能
     const abilityLotteryResults = LotteryHelper.getRandomAbilities(
       abilityTiers,
       this.randomCountBase,
@@ -114,7 +131,7 @@ export class Lottery {
       executedNames,
     );
 
-    // 会员额外技能
+    // 添加会员额外技能
     const member = NetTableHelper.GetMember(steamAccountID);
     if (member.enable && member.level >= MemberLevel.PREMIUM) {
       const extraAbilities = LotteryHelper.getRandomAbilities(
@@ -127,11 +144,19 @@ export class Lottery {
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 强制第一个被动技能为 固定技能
-    if (abilityType === 'abilityPassive' && abilityLotteryResults.length > 0) {
-      const specifiedAbility = this.getSpecifiedPassiveAbilityByFixedAbility();
-      if (specifiedAbility) {
-        abilityLotteryResults[0] = specifiedAbility;
+    // 应用固定技能
+    if (abilityLotteryResults.length > 0) {
+      const specifiedAbilityInfo = this.getSpecifiedAbilityByFixedAbility();
+      if (specifiedAbilityInfo) {
+        const { ability: specifiedAbility, isActive } = specifiedAbilityInfo;
+
+        if (isActive && abilityType === 'abilityActive') {
+          // 固定技能是主动技能，替换主动技能的第一个
+          abilityLotteryResults[0] = specifiedAbility;
+        } else if (!isActive && abilityType === 'abilityPassive') {
+          // 固定技能是被动技能，替换被动技能的第一个
+          abilityLotteryResults[0] = specifiedAbility;
+        }
       }
     }
 
@@ -141,7 +166,7 @@ export class Lottery {
   /**
    * 获取固定技能，不存在则返回null
    */
-  private getSpecifiedPassiveAbilityByFixedAbility(): LotteryDto | null {
+  private getSpecifiedAbilityByFixedAbility(): { ability: LotteryDto; isActive: boolean } | null {
     const fixedAbility = GameRules.Option.fixedAbility;
 
     if (fixedAbility === 'none') {
@@ -151,14 +176,14 @@ export class Lottery {
     // 从 abilityTiersPassive 中找到技能等级
     for (const tier of abilityTiersPassive) {
       if (tier.names.includes(fixedAbility)) {
-        return { name: fixedAbility, level: tier.level };
+        return { ability: { name: fixedAbility, level: tier.level }, isActive: false };
       }
     }
 
     // 从 abilityTiersActive 中找到技能等级
     for (const tier of abilityTiersActive) {
       if (tier.names.includes(fixedAbility)) {
-        return { name: fixedAbility, level: tier.level };
+        return { ability: { name: fixedAbility, level: tier.level }, isActive: true };
       }
     }
 
@@ -260,7 +285,7 @@ export class Lottery {
   /**
    * 初始化技能重选次数
    */
-  initAbilityReset(playerId: PlayerID) {
+  InitAbilityReset(playerId: PlayerID): boolean {
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
 
@@ -270,6 +295,7 @@ export class Lottery {
     lotteryStatus.showAbilityResetButton = true;
 
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+    return true;
   }
 
   /**
@@ -358,3 +384,11 @@ export class Lottery {
     print('[Lottery] resetAbilityRow completed');
   }
 }
+
+declare global {
+  function InitAbilityReset(playerId: PlayerID): boolean;
+}
+
+_G.InitAbilityReset = (playerId: PlayerID) => {
+  return GameRules.Lottery.InitAbilityReset(playerId);
+};

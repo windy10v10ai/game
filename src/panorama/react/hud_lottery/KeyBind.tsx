@@ -24,16 +24,26 @@ function KeyBind() {
     isRememberAbilityKey: false,
     activeAbilityKey: '',
     passiveAbilityKey: '',
+    passiveAbilityKey2: '',
     activeAbilityQuickCast: false,
     passiveAbilityQuickCast: false,
+    passiveAbilityQuickCast2: false,
   };
 
   useEffect(() => {
     // 如果快捷键有设置，则默认折叠
-    if (playerSetting.activeAbilityKey || playerSetting.passiveAbilityKey) {
+    if (
+      playerSetting.activeAbilityKey ||
+      playerSetting.passiveAbilityKey ||
+      playerSetting.passiveAbilityKey2
+    ) {
       setIsCollapsed(true);
     }
-  }, [playerSetting.activeAbilityKey, playerSetting.passiveAbilityKey]);
+  }, [
+    playerSetting.activeAbilityKey,
+    playerSetting.passiveAbilityKey,
+    playerSetting.passiveAbilityKey2,
+  ]);
 
   // 获取玩家steamId，如果获取失败，则为观战，不显示
   const steamAccountId = GetLocalPlayerSteamAccountID();

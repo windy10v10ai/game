@@ -380,9 +380,9 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
 
-    print(
-      `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItem.name} 和 中立增强 ${selectedEnhancement.name}`,
-    );
+    //print(
+    //  `[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 选取中立物品 ${selectedItem.name} 和 中立增强 ${selectedEnhancement.name}`,
+    // );
 
     // 移除当前中立物品
     const oldItem = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);

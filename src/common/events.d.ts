@@ -85,6 +85,8 @@ interface SaveBindAbilityKeyEventData {
   isRememberAbilityKey: boolean;
   activeAbilityKey: string;
   passiveAbilityKey: string;
+  passiveAbilityKey2?: string;
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
+  passiveAbilityQuickCast2?: boolean;
 }
