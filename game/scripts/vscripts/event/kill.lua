@@ -1,4 +1,7 @@
 local dropTable = nil
+
+-- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 Start
+
 -- 发言库定义
 local TauntMessages = {
     -- Boss击杀玩家
@@ -150,6 +153,10 @@ local function SendTauntMessage(messageType)
         end)
     end
 end
+
+-- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 End
+
+
 local function CreateItemLocal(sItemName, hEntity)
     local item = CreateItem(sItemName, nil, nil)
     local pos = hEntity:GetAbsOrigin()
@@ -288,6 +295,8 @@ local function HeroKilled(keys)
     if attackerPlayer then
         attackerPlayerID = attackerPlayer:GetPlayerID()
     end
+
+    -- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 Start
     local isBoss = hHero.isBoss or false
     local attackerIsBoss = attacker.isBoss or false
     -- Boss击杀玩家
@@ -368,8 +377,6 @@ local function HeroKilled(keys)
         end
     end
 
-    local iLevel = hHero:GetLevel()
-    local GameTime = GameRules:GetDOTATime(false, false)
 
     -- ✅ 检查被击杀的英雄是否是Boss
     local bossMultiplier = 1
@@ -388,6 +395,12 @@ local function HeroKilled(keys)
         --print(string.format("[BotBoss] Boss %s was killed! Bot multiplier: %.0fx, Reward multiplier: %dx",
         --    hHero:GetUnitName(), botMultiplier, bossMultiplier))
     end
+
+    -- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 End
+
+    local iLevel = hHero:GetLevel()
+    local GameTime = GameRules:GetDOTATime(false, false)
+
     -- 玩家团队奖励逻辑
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
