@@ -1,99 +1,122 @@
 // 创建文件: src/vscripts/ai/item/fusion-rune-manager.ts
+import { reloadable } from '../../utils/tstl-utils';
 
 interface FusionRuneConfig {
   itemName: string;
-  baseStockTimeMinutes: number; // 初始化库存时间(分钟)
-  StockSpeedMinutes: number; //库存补充时间
-  initialStock: number; // 初始库存
-  maxStock: number; // 最大库存
+  baseStockTimeMinutes: number;
+  stockSpeedMinutes: number;
+  initialStock: number;
+  maxStock: number;
 }
 
+@reloadable
 export class FusionRuneManager {
   // 8种符文配置
   private static readonly RUNES: FusionRuneConfig[] = [
     {
       itemName: 'item_fusion_hawkeye',
-      baseStockTimeMinutes: 15,
-      StockSpeedMinutes: 3,
+      baseStockTimeMinutes: 10,
+      stockSpeedMinutes: 3,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_forbidden',
       baseStockTimeMinutes: 15,
-      StockSpeedMinutes: 3,
+      stockSpeedMinutes: 3,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_brutal',
       baseStockTimeMinutes: 16,
-      StockSpeedMinutes: 4,
+      stockSpeedMinutes: 4,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_beast',
       baseStockTimeMinutes: 8,
-      StockSpeedMinutes: 2,
+      stockSpeedMinutes: 2,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_life',
       baseStockTimeMinutes: 12,
-      StockSpeedMinutes: 3,
+      stockSpeedMinutes: 3,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_shadow',
       baseStockTimeMinutes: 15,
-      StockSpeedMinutes: 3,
+      stockSpeedMinutes: 3,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_magic',
       baseStockTimeMinutes: 20,
-      StockSpeedMinutes: 4,
+      stockSpeedMinutes: 4,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_agile',
       baseStockTimeMinutes: 16,
-      StockSpeedMinutes: 3,
+      stockSpeedMinutes: 3,
       initialStock: 0,
       maxStock: 3,
     },
   ];
 
-  // 根据倍率计算库存补充时间(秒)
-  private static CalculateStockTime(baseMinutes: number): number {
+  /**
+   * 根据难度倍率获取时间倍数
+   * 倍率越高，时间越短（倍数越小）
+   */
+  private static GetDifficultyTimeMultiplier(): number {
     const multiplier = GameRules.Option.direGoldXpMultiplier;
-    let timeMultiplier = 1.0;
 
-    // 倍率越高,库存时间越快
     if (multiplier >= 100) {
-      timeMultiplier = 0.5; // 20倍及以上,库存时间减少70%
+      return 0.6; // 100倍及以上，时间减少70%
     } else if (multiplier >= 60) {
-      timeMultiplier = 0.6; // 10倍,库存时间减少50%
+      return 0.7; // 60倍，时间减少60%
     } else if (multiplier >= 30) {
-      timeMultiplier = 0.7; // 8倍,库存时间减少40%
+      return 0.8; // 30倍，时间减少50%
     } else if (multiplier >= 20) {
-      timeMultiplier = 0.8; // 6倍,库存时间减少30%
+      return 0.9; // 20倍，时间减少40%
     } else if (multiplier >= 12) {
-      timeMultiplier = 1; // 4倍,库存时间减少20%
+      return 1.0; // 12倍，时间减少20%
+    } else if (multiplier >= 8) {
+      return 1.1; // 8倍，正常时间
+    } else if (multiplier >= 4) {
+      return 1.2; // 4倍，时间增加20%
     } else {
-      timeMultiplier = 1.2; // 默认倍率,不减少
+      return 1.5; // 低倍率，时间增加50%
     }
+  }
 
+  /**
+   * 计算初始库存时间（秒）
+   * @param baseMinutes 基础时间（分钟）
+   */
+  private static CalculateBaseStockTime(baseMinutes: number): number {
+    const timeMultiplier = this.GetDifficultyTimeMultiplier();
     return baseMinutes * 60 * timeMultiplier;
   }
 
+  /**
+   * 计算库存补充间隔时间（秒）
+   * @param speedMinutes 基础补充间隔（分钟）
+   */
+  private static CalculateStockSpeed(speedMinutes: number): number {
+    const timeMultiplier = this.GetDifficultyTimeMultiplier();
+    return speedMinutes * 60 * timeMultiplier;
+  }
+
   // 初始化符文库存系统
-  public static InitializeOnWindyKilled(): void {
+  public static InitializeFusion(): void {
     const gameMode = GameRules.GetGameModeEntity();
 
     if (!gameMode) {
@@ -102,6 +125,8 @@ export class FusionRuneManager {
     }
 
     print('[FusionRune] Initializing fusion rune stock system...');
+    print(`[FusionRune] Difficulty multiplier: ${GameRules.Option.direGoldXpMultiplier}`);
+    print(`[FusionRune] Time multiplier: ${this.GetDifficultyTimeMultiplier()}`);
 
     // 为每个符文设置库存
     this.RUNES.forEach((rune) => {
@@ -110,33 +135,59 @@ export class FusionRuneManager {
         GameRules.SetItemStockCount(rune.initialStock, DotaTeam.GOODGUYS, rune.itemName, -1);
         GameRules.SetItemStockCount(rune.initialStock, DotaTeam.BADGUYS, rune.itemName, -1);
 
-        const stockTimeSeconds = this.CalculateStockTime(rune.baseStockTimeMinutes);
+        // 计算初始库存时间和补充间隔
+        const baseStockTimeSeconds = this.CalculateBaseStockTime(rune.baseStockTimeMinutes);
+        const stockSpeedSeconds = this.CalculateStockSpeed(rune.stockSpeedMinutes);
 
+        print(`[FusionRune] ${rune.itemName}:`);
+        print(`  - Initial stock: ${rune.initialStock}, Max stock: ${rune.maxStock}`);
         print(
-          `[FusionRune] ${rune.itemName}: stock=${rune.initialStock}, time=${stockTimeSeconds}s (base=${rune.baseStockTimeMinutes}min)`,
+          `  - Base stock time: ${baseStockTimeSeconds}s (base: ${rune.baseStockTimeMinutes}min)`,
         );
+        print(`  - Stock speed: ${stockSpeedSeconds}s (base: ${rune.stockSpeedMinutes}min)`);
 
         // 设置定时补充库存
-        this.SetupStockReplenishment(rune, stockTimeSeconds);
+        this.SetupStockReplenishment(rune, baseStockTimeSeconds, stockSpeedSeconds);
       } catch (error) {
         print(`[FusionRune] Error setting up ${rune.itemName}: ${error}`);
       }
     });
 
-    print(
-      `[FusionRune] Initialized ${this.RUNES.length} fusion runes with multiplier ${GameRules.Option.direGoldXpMultiplier}`,
-    );
+    print(`[FusionRune] Initialized ${this.RUNES.length} fusion runes`);
   }
 
-  // 设置库存定时补充
-  private static SetupStockReplenishment(rune: FusionRuneConfig, intervalSeconds: number): void {
-    Timers.CreateTimer(intervalSeconds, () => {
+  /**
+   * 设置库存定时补充
+   * @param rune 符文配置
+   * @param initialDelay 初始延迟（秒）
+   * @param intervalSeconds 补充间隔（秒）
+   */
+  private static SetupStockReplenishment(
+    rune: FusionRuneConfig,
+    initialDelay: number,
+    intervalSeconds: number,
+  ): void {
+    // 首次补充在 initialDelay 后触发
+    Timers.CreateTimer(initialDelay, () => {
       // 为两个队伍增加库存(最多到maxStock)
       GameRules.IncreaseItemStock(DotaTeam.GOODGUYS, rune.itemName, 1, -1);
       GameRules.IncreaseItemStock(DotaTeam.BADGUYS, rune.itemName, 1, -1);
 
-      // 继续定时补充
-      return intervalSeconds;
+      print(`[FusionRune] ${rune.itemName}: Stock increased (first time after ${initialDelay}s)`);
+
+      // 后续按 intervalSeconds 间隔补充
+      Timers.CreateTimer(intervalSeconds, () => {
+        GameRules.IncreaseItemStock(DotaTeam.GOODGUYS, rune.itemName, 1, -1);
+        GameRules.IncreaseItemStock(DotaTeam.BADGUYS, rune.itemName, 1, -1);
+
+        print(`[FusionRune] ${rune.itemName}: Stock increased (interval: ${intervalSeconds}s)`);
+
+        // 继续定时补充
+        return intervalSeconds;
+      });
+
+      // 不返回值，因为后续补充由新的定时器处理
+      return undefined;
     });
   }
 }
