@@ -12,7 +12,11 @@ export class EventEntityKilled {
     if (!killedUnit) {
       return;
     }
-
+    // ✅ 新增: 检查是否为npc_windy
+    if (killedUnit.GetUnitName() === 'npc_windy') {
+      this.onWindyKilled(killedUnit);
+      return;
+    }
     if (killedUnit.IsRealHero() && !killedUnit.IsReincarnating()) {
       this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero, attacker);
     } else if (killedUnit.IsCreep()) {
@@ -78,6 +82,9 @@ export class EventEntityKilled {
   private itemLightPartName = 'item_light_part';
   private itemDarkPartName = 'item_dark_part';
 
+  // 技能重置书
+  private itemTomeOfAbilityReset = 'item_tome_of_ability_reset';
+
   private dropItemChanceRoshanArtifactPart = 100;
 
   // 龙珠
@@ -94,6 +101,58 @@ export class EventEntityKilled {
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
   private dropItemChanceNeutral = 0.2;
+  //符文
+  private dropItemListFusionMaterial: string[] = [
+    'item_fusion_hawkeye',
+    'item_fusion_forbidden',
+    'item_fusion_brutal',
+    'item_fusion_beast',
+    'item_fusion_life',
+    'item_fusion_shadow',
+    'item_fusion_magic',
+    'item_fusion_agile',
+  ];
+
+  private dropItemChanceFusionRoshan = 100;
+  private dropItemChanceFusionAncient = 1.2;
+  private dropItemChanceFusionNeutral = 0.25;
+  private calculateDropChance(baseChance: number): number {
+    // 获取游戏难度
+
+    const difficulty = GameRules.Option.direGoldXpMultiplier || 1;
+    // 获取玩家人数
+    const playerCount = Player.GetPlayerCount();
+
+    // 难度系数: 难度越高,掉落概率越高
+    let difficultyMultiplier = 1;
+    if (difficulty >= 60) {
+      difficultyMultiplier = 3.0; // 60难度: 3倍概率
+    } else if (difficulty >= 20) {
+      difficultyMultiplier = 2.0; // 20难度: 2倍概率
+    } else if (difficulty >= 12) {
+      difficultyMultiplier = 1.5; // 12难度: 1.4倍概率
+    } else if (difficulty >= 1) {
+      difficultyMultiplier = 1; // N2难度: 1.2倍概率
+    }
+
+    // 人数系数: 人数越多概率越高
+    let playerMultiplier = 1;
+    if (playerCount >= 6) {
+      playerMultiplier = 1.8; // 6人: 2倍概率
+    } else if (playerCount >= 4) {
+      playerMultiplier = 1.5; // 4-5人: 1.0倍概率
+    } else if (playerCount >= 2) {
+      playerMultiplier = 1.0; // 2-3人: 1.5倍概率
+    } else if (playerCount <= 1) {
+      playerMultiplier = 1.2; // 1人: 2倍概率
+    }
+
+    // 最终概率 = 基础概率 × 难度系数 × 人数系数
+    const finalChance = baseChance * difficultyMultiplier * playerMultiplier;
+
+    // 设置上限,避免概率过高
+    return Math.min(finalChance, 100);
+  }
 
   private onCreepKilled(creep: CDOTA_BaseNPC, attacker: CDOTA_BaseNPC | undefined): void {
     const creepName = creep.GetName();
@@ -101,23 +160,32 @@ export class EventEntityKilled {
     if (creepName === 'npc_dota_roshan') {
       // 击杀肉山
       if (PlayerHelper.IsGoodTeamUnit(attacker)) {
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceRoshan,
+          true,
         );
 
-        // 神器组件掉落，掉落数量 1 ~ 3 的随机数
+        // 技能重置书掉落
+        this.dropItem(creep, [this.itemTomeOfAbilityReset], this.dropItemChanceRoshan);
+
+        // 融合符文掉落 - 使用神器组件的循环逻辑可重复
         const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
         const dropCount = RandomInt(1, maxDropCount);
-        print(`[EventEntityKilled] OnCreepKilled dropCount is ${dropCount}`);
+        print(`[EventEntityKilled] Fusion material dropCount is ${dropCount}`);
+        for (let i = 0; i < dropCount; i++) {
+          // 从符文列表中随机选择一个
+          this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceFusionRoshan);
+        }
+
+        // 神器组件掉落，掉落数量 1 ~ 3 的随机数
         for (let i = 0; i < dropCount; i++) {
           const isDaytime = GameRules.IsDaytime();
           if (isDaytime) {
-            // 白天掉落圣光组件
             this.dropItem(creep, [this.itemLightPartName], this.dropItemChanceRoshanArtifactPart);
           } else {
-            // 夜晚掉落暗影组件
             this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
           }
         }
@@ -138,23 +206,38 @@ export class EventEntityKilled {
     } else if (creep.IsAncient()) {
       // 击杀远古
       if (PlayerHelper.IsHumanPlayer(attacker)) {
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceAncient,
+          true,
         );
-
+        // 符文掉落 - 单次随机
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          this.calculateDropChance(this.dropItemChanceFusionAncient),
+        );
         this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
       // 击杀中立单位
       if (PlayerHelper.IsHumanPlayer(attacker)) {
+        // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
           this.dropItemListDragonBall,
           this.dropItemChanceNeutral,
+          true,
         );
-
+        // 符文掉落 - 单次随机
+        this.dropItem(
+          creep,
+          this.dropItemListFusionMaterial,
+          this.calculateDropChance(this.dropItemChanceFusionNeutral),
+        );
+        //神器组件
         this.dropParts(creep, this.dropItemChanceNeutral);
       }
     }
@@ -172,10 +255,34 @@ export class EventEntityKilled {
     }
   }
 
+  // ✅ 新增: npc_windy复活处理
+  private onWindyKilled(unit: CDOTA_BaseNPC): void {
+    const respawnTime = 30; // 30秒后复活
+    const unitName = unit.GetUnitName();
+    const position = unit.GetAbsOrigin();
+    const team = unit.GetTeam();
+
+    print(`[Windy] npc_windy被击杀,将在${respawnTime}秒后复活`);
+
+    Timers.CreateTimer(respawnTime, () => {
+      const newUnit = CreateUnitByName(unitName, position, true, undefined, undefined, team);
+
+      if (newUnit !== undefined) {
+        newUnit.AddNewModifier(newUnit, undefined, 'modifier_rooted', {});
+        print('[Windy] npc_windy已复活');
+      }
+    });
+  }
+
   /**
    * 从指定list中随机掉落一件物品
    */
-  private dropItem(creep: CDOTA_BaseNPC, dropItemList: string[], dropChance = 100): string[] {
+  private dropItem(
+    creep: CDOTA_BaseNPC,
+    dropItemList: string[],
+    dropChance = 100,
+    dropOnce = false,
+  ): string[] {
     if (dropItemList.length === 0) {
       print(`[EventEntityKilled] OnCreepKilled dropItemList is empty`);
       return dropItemList;
@@ -196,7 +303,12 @@ export class EventEntityKilled {
       }
 
       print(`[EventEntityKilled] OnCreepKilled drop item ${itemName}`);
-      return dropItemList.filter((v, i) => i !== itemIndex);
+      if (dropOnce) {
+        // 从物品列表中移除，不再掉落
+        return dropItemList.filter((v, i) => i !== itemIndex);
+      } else {
+        return dropItemList;
+      }
     }
     return dropItemList;
   }

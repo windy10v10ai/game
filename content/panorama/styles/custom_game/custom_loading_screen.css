@@ -33,7 +33,7 @@
 }
 
 #GameOptionsPanel {
-  margin-top: 60px;
+  margin-top: 40px;
   margin-left: 5px;
   margin-right: 5px;
   width: 100%;
@@ -56,8 +56,8 @@
 
 .GameOptionsSubPanel {
   flow-children: right;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 6px;
+  margin-bottom: 6px;
   width: 100%;
 }
 

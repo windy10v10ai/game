@@ -2,6 +2,38 @@
 // neutral
 "DOTAUnits"
 {
+	//windy
+	"npc_windy"
+	{
+		// 继承岩石傀儡的基础属性
+		"include_keys_from" "npc_dota_neutral_kobold_taskmaster"
+
+		// Armor - 大幅提高护甲和魔抗
+		//----------------------------------------------------------------
+		"ArmorPhysical"         "90"        // 原值未知,大幅提高
+		"MagicalResistance"     "90"        // 原值未知,大幅提高到80%
+
+		// Movement - 禁止移动
+		//----------------------------------------------------------------
+		"MovementCapabilities"  "DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"         "0"
+		"BaseAttackSpeed"			"1000"		// 100
+
+		// Status - 大幅提高生命和生命回复
+		//----------------------------------------------------------------
+		"StatusHealth"          "50000000"     // 原值未知,设置为5万生命
+		"StatusHealthRegen"     "0"       // 原值未知,设置为每秒500回复
+
+		// Bounty - 不给予奖励
+		//----------------------------------------------------------------
+		"BountyXP"              "0"
+		"BountyGoldMin"         "0"
+		"BountyGoldMax"         "0"
+
+		// Team - 设置为夜宴阵营
+		//----------------------------------------------------------------
+		"TeamName"              "DOTA_TEAM_BADGUYS"
+	}
 	// 远古
 	// Armor x2 Attack x4 Bounty x2 Status x3
 	//=================================================================================

@@ -39,16 +39,41 @@ const getTooltipTextToken = (
   return '#lottery_tooltip_ability_refresh';
 };
 
+const getIsRefreshed = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | null) => {
+  if (type === 'abilityActive') {
+    return lotteryStatus?.isActiveAbilityRefreshed;
+  }
+  if (type === 'abilityPassive') {
+    return lotteryStatus?.isPassiveAbilityRefreshed;
+  }
+  if (type === 'abilityPassive2') {
+    return lotteryStatus?.isPassiveAbilityRefreshed2;
+  }
+  return false;
+};
+
+const getPickedName = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | null) => {
+  if (type === 'abilityActive') {
+    return lotteryStatus?.activeAbilityName;
+  }
+  if (type === 'abilityPassive') {
+    return lotteryStatus?.passiveAbilityName;
+  }
+  if (type === 'abilityPassive2') {
+    return lotteryStatus?.passiveAbilityName2;
+  }
+  return undefined;
+};
+
 const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
   // 根据会员 抽选状态判断是否禁用
   const isMember = member?.enable;
-  const isRefreshed =
-    type === 'abilityActive'
-      ? lotteryStatus?.isActiveAbilityRefreshed
-      : lotteryStatus?.isPassiveAbilityRefreshed;
-  const pickedName =
-    type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
+  const isRefreshed = getIsRefreshed(type, lotteryStatus);
+  const pickedName = getPickedName(type, lotteryStatus);
+
+  // 禁用刷新按钮的条件
   const enabled = isMember && !isRefreshed && !pickedName;
+
   const imageSrc = enabled
     ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
     : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
@@ -65,13 +90,18 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
       $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
       return;
     }
+
     if (isRefreshed) {
+      $.Msg('[RefreshButton] Already refreshed, ignoring click');
       return;
     }
+
+    $.Msg('[RefreshButton] Sending refresh event');
     GameEvents.SendCustomGameEventToServer(refreshEventName, {
       type,
     });
   };
+
   return (
     <Button
       onactivate={handleButtonClick}

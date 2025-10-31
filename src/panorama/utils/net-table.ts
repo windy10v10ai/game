@@ -2,7 +2,7 @@ import { LotteryStatusDto } from '../../common/dto/lottery-status';
 import { MemberDto, PlayerDto } from '../../vscripts/api/player';
 
 const lotteryStatusTable = 'lottery_status';
-function Transdata(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
+function TransLotteryData(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
   return {
     activeAbilityName: data.activeAbilityName,
     activeAbilityLevel: data.activeAbilityLevel,
@@ -10,6 +10,13 @@ function Transdata(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
     passiveAbilityName: data.passiveAbilityName,
     passiveAbilityLevel: data.passiveAbilityLevel,
     isPassiveAbilityRefreshed: Boolean(data.isPassiveAbilityRefreshed),
+    // 第二个被动技能槽位
+    passiveAbilityName2: data.passiveAbilityName2,
+    passiveAbilityLevel2: data.passiveAbilityLevel2,
+    isPassiveAbilityRefreshed2: Boolean(data.isPassiveAbilityRefreshed2),
+    // 可重选技能的次数
+    abilityResettableCount: data.abilityResettableCount,
+    showAbilityResetButton: Boolean(data.showAbilityResetButton),
   };
 }
 export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | null {
@@ -18,7 +25,7 @@ export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | nul
     return null;
   }
 
-  return Transdata(data);
+  return TransLotteryData(data);
 }
 export function SubscribeLotteryStatus(
   steamAccountID: string,
@@ -26,7 +33,7 @@ export function SubscribeLotteryStatus(
 ) {
   return CustomNetTables.SubscribeNetTableListener(lotteryStatusTable, (_tableName, key, value) => {
     if (key === steamAccountID && value) {
-      callback(Transdata(value));
+      callback(TransLotteryData(value));
     }
   });
 }
@@ -71,8 +78,11 @@ function TransPlayerData(data: NetworkedData<PlayerDto>): PlayerDto {
       isRememberAbilityKey: Boolean(data.playerSetting.isRememberAbilityKey),
       activeAbilityKey: data.playerSetting.activeAbilityKey,
       passiveAbilityKey: data.playerSetting.passiveAbilityKey,
+
       activeAbilityQuickCast: Boolean(data.playerSetting.activeAbilityQuickCast),
       passiveAbilityQuickCast: Boolean(data.playerSetting.passiveAbilityQuickCast),
+      passiveAbilityKey2: data.playerSetting.passiveAbilityKey2,
+      passiveAbilityQuickCast2: Boolean(data.playerSetting.passiveAbilityQuickCast2 ?? 0),
     },
   };
 }

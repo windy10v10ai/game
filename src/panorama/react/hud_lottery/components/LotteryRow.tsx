@@ -3,6 +3,7 @@ import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import LotteryAbilityItem from './LotteryAbilityItem';
 import { AbilityItemType, LotteryDto } from '../../../../common/dto/lottery';
 import RefreshButton from './RefreshButton';
+import AbilityResetButton from './AbilityResetButton';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import {
   GetLotteryStatus,
@@ -16,28 +17,20 @@ interface LotteryRowProps {
   type: AbilityItemType;
 }
 
-const rowStyle: Partial<VCSSStyleDeclaration> = {
-  // 位置
-  padding: '5px',
-  horizontalAlign: 'center',
-  verticalAlign: 'center',
-  flowChildren: 'down',
-};
-
-const titleStyle: Partial<VCSSStyleDeclaration> = {
-  horizontalAlign: 'center', // 标题居中
-  fontSize: '24px',
-  color: 'gradient(linear, 0% 0%, 0% 100%, from(#FFFFFF), color-stop(0.6, #FFE982), to(#CA8E25))',
-
-  textOverflow: 'shrink',
-  textAlign: 'center',
-  fontWeight: 'bold', // 粗体
+// lotteryDataTableName function
+const getLotteryDataTableName = (type: AbilityItemType) => {
+  if (type === 'abilityActive') {
+    return 'lottery_active_abilities';
+  } else if (type === 'abilityPassive') {
+    return 'lottery_passive_abilities';
+  } else {
+    return 'lottery_passive_abilities_2';
+  }
 };
 
 const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   // 初始化 从nettable中获取数据
-  const lotteryDataTableName =
-    type === 'abilityActive' ? 'lottery_active_abilities' : 'lottery_passive_abilities';
+  const lotteryDataTableName = getLotteryDataTableName(type);
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const getLotteryData = () => {
     const rawData = CustomNetTables.GetTableValue(lotteryDataTableName, steamAccountId);
@@ -78,31 +71,30 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
     };
   }, [lotteryDataTableName, steamAccountId]);
 
-  // 标题
-  const titleToken =
-    type === 'abilityActive' ? '#lottery_active_ability_title' : '#lottery_passive_ability_title';
-  const pickedName =
-    type === 'abilityActive' ? lotteryStatus?.activeAbilityName : lotteryStatus?.passiveAbilityName;
+  const pickedAbilityName =
+    type === 'abilityActive'
+      ? lotteryStatus?.activeAbilityName
+      : type === 'abilityPassive'
+        ? lotteryStatus?.passiveAbilityName
+        : lotteryStatus?.passiveAbilityName2;
 
   return (
-    <Panel style={rowStyle}>
-      <Label style={titleStyle} text={$.Localize(titleToken)} />
-      <Panel style={{ flowChildren: 'right' }}>
-        {lotteryData && (
-          <>
-            {lotteryData.map((lotteryDto, index) => (
-              <LotteryAbilityItem
-                key={`${type}-${index}`}
-                level={lotteryDto.level}
-                name={lotteryDto.name}
-                type={type}
-                pickedName={pickedName}
-              />
-            ))}
-          </>
-        )}
-        <RefreshButton type={type} lotteryStatus={lotteryStatus} member={member} />
-      </Panel>
+    <Panel style={{ flowChildren: 'right' }}>
+      <AbilityResetButton type={type} lotteryStatus={lotteryStatus} />
+      {lotteryData && (
+        <>
+          {lotteryData.map((lotteryDto, index) => (
+            <LotteryAbilityItem
+              key={`${type}-${index}`}
+              level={lotteryDto.level}
+              name={lotteryDto.name}
+              type={type}
+              pickedAbilityName={pickedAbilityName}
+            />
+          ))}
+        </>
+      )}
+      <RefreshButton type={type} lotteryStatus={lotteryStatus} member={member} />
     </Panel>
   );
 };

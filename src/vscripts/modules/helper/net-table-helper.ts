@@ -11,7 +11,13 @@ export class NetTableHelper {
   public static GetLotteryStatus(steamAccountID: string): LotteryStatusDto {
     const lotteryStatusData = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
     if (!lotteryStatusData) {
-      return { isActiveAbilityRefreshed: false, isPassiveAbilityRefreshed: false };
+      return {
+        isActiveAbilityRefreshed: false,
+        isPassiveAbilityRefreshed: false,
+        isPassiveAbilityRefreshed2: false,
+        abilityResettableCount: 0,
+        showAbilityResetButton: false,
+      };
     }
 
     return {
@@ -21,6 +27,11 @@ export class NetTableHelper {
       passiveAbilityName: lotteryStatusData.passiveAbilityName,
       passiveAbilityLevel: lotteryStatusData.passiveAbilityLevel,
       isPassiveAbilityRefreshed: Boolean(lotteryStatusData.isPassiveAbilityRefreshed),
+      passiveAbilityName2: lotteryStatusData.passiveAbilityName2,
+      passiveAbilityLevel2: lotteryStatusData.passiveAbilityLevel2,
+      isPassiveAbilityRefreshed2: Boolean(lotteryStatusData.isPassiveAbilityRefreshed2),
+      abilityResettableCount: lotteryStatusData.abilityResettableCount,
+      showAbilityResetButton: Boolean(lotteryStatusData.showAbilityResetButton),
     };
   }
 

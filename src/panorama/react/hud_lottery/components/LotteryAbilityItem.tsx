@@ -1,17 +1,16 @@
 import React from 'react';
 import { colors } from '@utils/colors';
 import { AbilityItemType } from '../../../../common/dto/lottery';
-
 interface LotteryAbilityItemProps {
   level: number;
   name: string;
   type: AbilityItemType;
-  pickedName: string | undefined;
+  pickedAbilityName: string | undefined;
 }
 const itemStyle = {
   width: '80px',
   flowChildren: 'down',
-  margin: '20px',
+  margin: '16px',
 };
 
 const getBoxColor = (level: number) => {
@@ -35,7 +34,7 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
   level,
   name,
   type,
-  pickedName,
+  pickedAbilityName,
 }) => {
   const imageStyle = {
     boxShadow: `0 0 5px ${getBoxColor(level)}`,
@@ -52,9 +51,10 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
 
   const showtooltip = true;
   let className = 'BrightHover';
-  if (pickedName === name) {
+
+  if (pickedAbilityName === name) {
     className = 'Bright';
-  } else if (pickedName) {
+  } else if (pickedAbilityName) {
     className = 'Darker';
   }
 

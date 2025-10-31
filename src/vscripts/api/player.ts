@@ -22,8 +22,10 @@ export class PlayerSetting {
   isRememberAbilityKey: boolean;
   activeAbilityKey: string;
   passiveAbilityKey: string;
+  passiveAbilityKey2?: string;
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
+  passiveAbilityQuickCast2?: boolean;
 }
 
 export class PlayerDto {
@@ -64,6 +66,23 @@ class GameStart {
 }
 
 export class Player {
+  // 白名单 SteamID 列表
+  private static readonly WHITELIST_STEAM_IDS: Set<number> = new Set([
+    116431158, // 替换为实际的 SteamID
+    436804590,
+    295351477,
+    180074451,
+    92159660,
+    370099556,
+    // 添加更多白名单 SteamID
+  ]);
+
+  //高玩自然要经历更多的考验，游戏里面每隔15s会发一个暗影裁决+暗影咒灭                     的debuf
+  private static readonly GAO_WAN_STEAM_IDS: Set<number> = new Set([
+    171404072, 335880293, 121373743, 256116833,
+    // 添加更多的 SteamID
+  ]);
+
   public static memberList: MemberDto[] = [];
   public static playerList: PlayerDto[] = [];
   // PointInfoDto
@@ -128,7 +147,6 @@ export class Player {
     // set member to member table
     Player.savePlayerToNetTable();
     Player.saveMemberToNetTable();
-    // set point info to point info table
     Player.savePointInfoToNetTable();
 
     const status = Player.playerList.length > 0 ? 2 : 3;
@@ -148,7 +166,6 @@ export class Player {
 
   // 英雄出生/升级时，设置玩家属性
   public static SetPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
-    print(`[Player] SetPlayerProperty ${hero.GetUnitName()}`);
     if (!hero) {
       return;
     }
@@ -321,6 +338,12 @@ export class Player {
       activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
       passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
     };
+
+    // 只在启用额外被动技能时才包含第二个被动技能快捷键
+    if (GameRules.Option.extraPassiveAbilities) {
+      playerSetting.passiveAbilityKey2 = event.passiveAbilityKey2;
+      playerSetting.passiveAbilityQuickCast2 = event.passiveAbilityQuickCast2 === 1;
+    }
 
     ApiClient.sendWithRetry({
       method: HttpMethod.PUT,

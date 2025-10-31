@@ -815,8 +815,8 @@ tBotItemData.purchaseItemList = {
 		'item_adi_king_plus',
 		'item_jump_jump_jump',
 		'item_monkey_king_bar_2',
-		'item_blue_fantasy', -- 苍蓝幻想
-		'item_ultimate_scepter_2',
+		'item_blue_fantasy', -- 暗影裁决
+		--'item_ultimate_scepter_2',
 		'item_infernal_desolator', -- 绝对破防之刃
 		'item_moon_shard_datadriven',
 		'item_excalibur',
@@ -840,7 +840,7 @@ tBotItemData.purchaseItemList = {
 		'item_angels_demise',  -- 绝刃
 		'item_hallowed_scepter',
 		'item_ethereal_blade_ultra', -- 先哲换其他施法距离
-		'item_blue_fantasy',   -- 苍蓝幻想
+		'item_blue_fantasy',   --暗影裁决
 	},
 	npc_dota_hero_tiny = {
 		'item_magic_wand',
@@ -978,6 +978,7 @@ tBotItemData.purchaseItemList = {
 		'item_gungir_2',
 		'item_necronomicon_staff',
 		'item_excalibur',
+		'item_dagon_5',
 	},
 }
 

@@ -18,6 +18,7 @@ declare global {
     };
     player_stats: {
       [playerId: string]: {
+        steamId: string;
         damage: number;
         damagereceived: number;
         healing: number;
@@ -59,6 +60,9 @@ declare global {
     lottery_passive_abilities: {
       [steamAccountID: string]: LotteryDto[];
     };
+    lottery_passive_abilities_2: {
+      [steamAccountID: string]: LotteryDto[];
+    };
     lottery_status: {
       [steamAccountID: string]: LotteryStatusDto;
     };
@@ -77,4 +81,5 @@ export interface GameOptions {
   max_level: number;
   same_hero_selection: number;
   enable_player_attribute: number;
+  extra_passive_abilities: number;
 }

@@ -43,6 +43,7 @@
 		"item"		"item_blade_of_alacrity"	// 欢欣之刃
 		"item"		"item_staff_of_wizardry"	// 魔力法杖
 		"item"		"item_diadem"
+		"item"		"item_travel_boots"			// 飞鞋 远行鞋
 		"item"		"item_light_part"			// 圣光组件
 		"item"		"item_dark_part"			// 暗影组件
 	}
@@ -75,6 +76,7 @@
 		"item"		"item_point_booster"
 		"item"		"item_talisman_of_evasion"
 		"item"		"item_platemail"
+
 	}
 	// 其他
 	"misc"
@@ -103,7 +105,6 @@
 		"item"		"item_eagle"				// 鹰歌弓
 		"item"		"item_relic"				// 神秘法球
 		"item"		"item_dragon_lance"			// 魔龙枪
-
 	}
 	// 神秘商店
 	"secretshop"
@@ -142,7 +143,7 @@
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
-		"item"		"item_travel_boots"			// 飞鞋
+		"item"		"item_tome_of_ability_reset"	// 技能重选书
 	}
 
 	// Level 2 - Blue Recipes 辅助
@@ -187,10 +188,14 @@
 		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
 		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
 
-		"item"		"item_gungir_2"				// 风暴之锤
+		"item"		"item_gungir_3"				// 风灵之锤
 		"item"		"item_refresh_core"			// 刷新球
 		"item"		"item_hallowed_scepter"		// 仙云法杖
 		"item"		"item_necronomicon_staff"	// 死灵法杖
+		"item"      "item_magic_crit_blade"      // 魔龙狂舞
+		"item"      "item_forbidden_staff"      // 禁忌法锤
+		"item"      "item_shadow_impact"      // 暗影咒灭
+		"item"      "item_magic_abyss_staff"      // 魔渊法杖
 	}
 
 	// Level 4 - Purple Recipes 防具
@@ -213,12 +218,16 @@
 		"item"		"item_undying_heart"
 		"item"		"item_vladmir_2"
 		"item"		"item_bloodstone"		// 血精神石
+		"item"      "item_withered_spring"      // 枯木逢春
+		"item"      "item_dracula_mask"      // 德古拉面罩
+		"item"      "item_beast_armor"      // 兽化甲
+		"item"      "item_beast_shield"      // 兽化盾
 	}
 	// Level 5 - 兵刃
 	"weapons"
 	{
 		"item"		"item_lesser_crit"			// 水晶剑
-		"item"		"item_basher"				// 碎颅锤
+		// "item"		"item_basher"				// 碎颅锤
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
 		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
 		"item"		"item_echo_sabre_2"			// 音速战刃
@@ -241,6 +250,11 @@
 
 		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
+		"item"      "item_shadow_judgment"      // 暗影裁决
+		"item"      "item_switchable_crit_blade"      // 归海一刀
+		"item"      "item_forbidden_blade"      // 禁忌战刃
+		"item"      "item_hawkeye_turret"      // 鹰眼炮台
+		"item"      "item_magic_sword"      // 魔渊剑
 	}
 
 	// Level 6 - Orange / Orb / Artifacts 宝物
@@ -268,6 +282,10 @@
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"
+		"item"      "item_ten_thousand_swords"      // 万剑归宗
+		"item"      "item_hawkeye_fighter"      // 鹰眼战机
+		"item"      "item_swift_glove"      // 无限手套
+		"item"      "item_time_gem"      // 时间宝石
 	}
 
 	"sideshop1"

@@ -92,10 +92,20 @@ export class GameEndPoint {
       multiplier *= 1.1;
     }
 
-    if (option.direGoldXpMultiplier >= 20) {
+    if (option.direGoldXpMultiplier >= 40) {
+      multiplier *= 2.4;
+    } else if (option.direGoldXpMultiplier === 30) {
+      multiplier *= 2.3;
+    } else if (option.direGoldXpMultiplier === 20) {
       multiplier *= 2.2;
-    } else if (option.direGoldXpMultiplier >= 10) {
+    } else if (option.direGoldXpMultiplier === 17) {
+      multiplier *= 2.1;
+    } else if (option.direGoldXpMultiplier === 14) {
       multiplier *= 2.0;
+    } else if (option.direGoldXpMultiplier === 12) {
+      multiplier *= 1.95;
+    } else if (option.direGoldXpMultiplier === 10) {
+      multiplier *= 1.9;
     } else if (option.direGoldXpMultiplier >= 5) {
       multiplier *= 1.5;
     }
@@ -104,7 +114,10 @@ export class GameEndPoint {
     if (!option.enablePlayerAttribute) {
       multiplier += 0.2;
     }
-
+    // 相同英雄选择 -- 实际上目前是全英雄随机
+    if (option.sameHeroSelection) {
+      multiplier += 0.2;
+    }
     // 防御塔倍率
     if (option.towerPower <= 100) {
       multiplier -= 0.2;
@@ -128,7 +141,22 @@ export class GameEndPoint {
         multiplier -= 0.1;
       }
     }
-    // 小数点1位
+
+    // 固定技能时，降低倍率
+    if (option.fixedAbility !== 'none') {
+      multiplier -= 0.2;
+    }
+
+    // 勾选额外技能时，降低倍率
+    if (option.extraPassiveAbilities) {
+      multiplier -= 0.2;
+    }
+
+    // 不为负数
+    if (multiplier < 0) {
+      multiplier = 0;
+    }
+    // 保留小数点1位
     return Math.round(multiplier * 10) / 10;
   }
 }

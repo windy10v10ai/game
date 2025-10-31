@@ -66,28 +66,29 @@ function ShowChatTeamActivate() {
 
 // -------- Game Setting --------
 
-function InitSetting() {
-  $('#same_hero_selection').checked = true;
+function InitCustomSetting() {
+  $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
+  $('#extra_passive_abilities').checked = true; // 自定义难度默认勾选额外被动技能
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('5');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
   $('#dire_player_number_dropdown').SetSelected('10');
 
-  $('#respawn_time_percentage_dropdown').SetSelected('100');
-  $('#max_level_dropdown').SetSelected('50');
-  $('#tower_power_dropdown').SetSelected('300');
+  $('#respawn_time_percentage_dropdown').SetSelected('50');
+  $('#max_level_dropdown').SetSelected('200');
+  $('#tower_power_dropdown').SetSelected('400');
 
-  $('#starting_gold_player_dropdown').SetSelected('3000');
+  $('#starting_gold_player_dropdown').SetSelected('5000');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
+  $('#fixed_ability_dropdown').SetSelected('none');
 
   // 开发模式
   if (Game.IsInToolsMode()) {
     $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
     $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
     $('#radiant_player_number_dropdown').SetSelected('3');
-    $('#dire_player_number_dropdown').SetSelected('3');
+    $('#dire_player_number_dropdown').SetSelected('10');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
-    $('#tower_power_dropdown').SetSelected('300');
   }
 }
 
@@ -105,8 +106,10 @@ function LockOption() {
 
   $('#starting_gold_player_dropdown').enabled = false;
   $('#starting_gold_bot_dropdown').enabled = false;
+  $('#fixed_ability_dropdown').enabled = false;
   $('#same_hero_selection').enabled = false;
   $('#enable_player_attribute').enabled = false;
+  $('#extra_passive_abilities').enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -121,18 +124,23 @@ function UnLockOptionAll() {
 
   $('#starting_gold_player_dropdown').enabled = true;
   $('#starting_gold_bot_dropdown').enabled = true;
+  $('#fixed_ability_dropdown').enabled = true;
   $('#same_hero_selection').enabled = true;
   $('#enable_player_attribute').enabled = true;
+  $('#extra_passive_abilities').enabled = true;
 }
 
+// N1-N6 通用设置
 function InitDifficultyCommonSetting() {
   $('#dire_player_number_dropdown').SetSelected('10');
 
   $('#respawn_time_percentage_dropdown').SetSelected('100');
   $('#max_level_dropdown').SetSelected('50');
 
-  $('#same_hero_selection').checked = true;
+  $('#fixed_ability_dropdown').SetSelected('none');
+  $('#same_hero_selection').checked = false;
   $('#enable_player_attribute').checked = true;
+  $('#extra_passive_abilities').checked = true;
 }
 
 function InitN1Setting() {
@@ -182,7 +190,7 @@ function InitN5Setting() {
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('9');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
 
   $('#tower_power_dropdown').SetSelected('350');
 
@@ -190,7 +198,6 @@ function InitN6Setting() {
   $('#starting_gold_bot_dropdown').SetSelected('5000');
 }
 // -------- send to server --------
-// FIXME 用SendGameOptionsToServer替代
 function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
     // 游戏选项显示（全体玩家）
@@ -210,8 +217,10 @@ function StateChange() {
         starting_gold_player: $('#starting_gold_player_dropdown').GetSelected().id,
         starting_gold_bot: $('#starting_gold_bot_dropdown').GetSelected().id,
         max_level: $('#max_level_dropdown').GetSelected().id,
+        fixed_ability: $('#fixed_ability_dropdown').GetSelected().id,
         same_hero_selection: $('#same_hero_selection').checked,
         enable_player_attribute: $('#enable_player_attribute').checked,
+        extra_passive_abilities: $('#extra_passive_abilities').checked,
       },
     });
     SendGameOptionsToServer();
@@ -232,8 +241,10 @@ function SendGameOptionsToServer() {
   const startingGoldPlayer = $('#starting_gold_player_dropdown').GetSelected().id;
   const startingGoldBot = $('#starting_gold_bot_dropdown').GetSelected().id;
   const maxLevel = $('#max_level_dropdown').GetSelected().id;
+  const fixedAbility = $('#fixed_ability_dropdown').GetSelected().id;
   const sameHeroSelection = $('#same_hero_selection').checked;
   const enablePlayerAttribute = $('#enable_player_attribute').checked;
+  const extraPassiveAbilities = $('#extra_passive_abilities').checked;
 
   GameEvents.SendCustomGameEventToServer('game_options_change', {
     multiplier_radiant: Number(playerGoldXpMultiplier),
@@ -245,8 +256,10 @@ function SendGameOptionsToServer() {
     starting_gold_player: Number(startingGoldPlayer),
     starting_gold_bot: Number(startingGoldBot),
     max_level: Number(maxLevel),
+    fixed_ability: fixedAbility,
     same_hero_selection: sameHeroSelection,
     enable_player_attribute: enablePlayerAttribute,
+    extra_passive_abilities: extraPassiveAbilities,
   });
 }
 
@@ -275,7 +288,7 @@ function OnDifficultyDropDownChanged(difficulty) {
   const optionId = difficulty;
   if (optionId === 0) {
     UnLockOptionAll();
-    InitSetting();
+    InitCustomSetting();
   } else {
     InitDifficultyCommonSetting();
     if (optionId === 1) {
@@ -309,14 +322,24 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
-  if (Math.random() > 0.5) {
+  const random = Math.random();
+  const chanceSurvivor = 0.2;
+  const chanceOMGAI = 0.4;
+  if (random < chanceSurvivor) {
     $('#DotaSurvivorPanel').visible = true;
     $('#OMGAIPanel').visible = false;
+    $('#TenvTenRemakePanel').visible = false;
     DispatchDotaSurvivor();
-  } else {
+  } else if (random < chanceOMGAI) {
     $('#DotaSurvivorPanel').visible = false;
     $('#OMGAIPanel').visible = true;
+    $('#TenvTenRemakePanel').visible = false;
     DispatchOMGAI();
+  } else {
+    $('#DotaSurvivorPanel').visible = false;
+    $('#OMGAIPanel').visible = false;
+    $('#TenvTenRemakePanel').visible = true;
+    DispatchTenvTenRemake();
   }
 }
 
@@ -331,6 +354,13 @@ function DispatchOMGAI() {
   const button = $('#OMGAIButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 2841790376);
+  });
+}
+
+function DispatchTenvTenRemake() {
+  const button = $('#TenvTenRemakeButton');
+  button.SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', 3564393242);
   });
 }
 

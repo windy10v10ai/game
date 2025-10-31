@@ -1,11 +1,11 @@
 import { ActionMove } from '../../ai/action/action-move';
-import { MemberLevel, Player } from '../../api/player';
+import { MemberLevel, Player, PlayerProperty } from '../../api/player';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { GameConfig } from '../GameConfig';
 import { BotAbility } from '../helper/bot-ability';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
-
+import { PropertyController } from '../property/property_controller';
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
   private heroSpawnRetryCount = 0;
@@ -21,6 +21,54 @@ export class EventNpcSpawned {
     'roshan_buff',
     'generic_gold_bag_fountain',
     // "generic_season_point_bag_fountain",
+  ];
+
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
+  private static supportHeroBlacklist = [
+    'npc_dota_hero_crystal_maiden', // 水晶室女
+    'npc_dota_hero_dazzle', // 戴泽
+    'npc_dota_hero_omniknight', // 全能骑士
+    'npc_dota_hero_warlock', // 术士
+    'npc_dota_hero_witch_doctor', // 巫医
+    'npc_dota_hero_shadow_shaman', // 暗影萨满
+    'npc_dota_hero_oracle', // 神谕者
+    'npc_dota_hero_jakiro', // 杰奇洛
+    'npc_dota_hero_bane', // 祸乱之源
+    'npc_dota_hero_lich', // 巫妖
+    'npc_dota_hero_lion', // lion
+  ];
+
+  // ✅ 修改: 严格基于Bot AI实际选择列表的Boss白名单
+  private static bossCandidateWhitelist = [
+    // === 力量型核心 (高生存+输出) ===
+    'npc_dota_hero_axe', // 斧王 - 反击螺旋,高护甲
+    'npc_dota_hero_bristleback', // 钢背兽 - 减伤被动,持续输出
+    'npc_dota_hero_chaos_knight', // 混沌骑士 - 高爆发,幻象
+    'npc_dota_hero_dragon_knight', // 龙骑士 - 高护甲,AOE输出
+    'npc_dota_hero_pudge', // 帕吉 - 高生命,魔法伤害
+    'npc_dota_hero_sven', // 斯温 - 高爆发,AOE清场
+    'npc_dota_hero_tiny', // 小小 - 高爆发,后期肉盾
+    'npc_dota_hero_skeleton_king', // 骷髅王 - 重生,高输出
+
+    // === 敏捷型核心 (输出+一定生存) ===
+    'npc_dota_hero_juggernaut', // 剑圣 - 魔免,高输出
+    'npc_dota_hero_phantom_assassin', // 幻影刺客 - 高爆发,闪避
+    'npc_dota_hero_luna', // 露娜 - AOE输出,月光
+    'npc_dota_hero_medusa', // 美杜莎 - 魔法盾,后期肉盾
+    'npc_dota_hero_spectre', // 幽鬼 - 折射,后期肉盾
+    'npc_dota_hero_kunkka', // 昆卡 - AOE控制+输出
+
+    // === 智力型核心 (高输出+控制) ===
+    'npc_dota_hero_death_prophet', // 死亡先知 - 持续输出,生存
+    'npc_dota_hero_necrolyte', // 瘟疫法师 - 回复+输出
+    'npc_dota_hero_tinker', // 修补匠 - 持续输出
+
+    // === 混合型 (输出+生存平衡) ===
+    'npc_dota_hero_bloodseeker', // 血魔 - 追杀能力,回复
+    'npc_dota_hero_bounty_hunter', // 赏金猎人 - 爆发+隐身
+    'npc_dota_hero_riki', // 力丸 - 持续输出+隐身
+    'npc_dota_hero_viper', // 冥界亚龙 - 持续输出,减速
+    'npc_dota_hero_windrunner', // 风行者 - 高输出,闪避
   ];
 
   constructor() {
@@ -59,13 +107,13 @@ export class EventNpcSpawned {
   // 设置英雄出生点，DebugCreateHeroWithVariant创造的 bot出生点在地图中央，需要移动到泉水
   private SetHeroSpawnPoint(hero: CDOTA_BaseNPC_Hero): void {
     if (PlayerHelper.IsHumanPlayer(hero)) {
-      print(`[EventNpcSpawned] SetHeroSpawnPoint human player ${hero.GetName()}`);
+      //print(`[EventNpcSpawned] SetHeroSpawnPoint human player ${hero.GetName()}`);
       return;
     }
 
     // 检查重试次数
     if (this.heroSpawnRetryCount >= this.MAX_SPAWN_RETRY) {
-      print(`[EventNpcSpawned] SetHeroSpawnPoint reached max retry count for ${hero.GetName()}`);
+      //print(`[EventNpcSpawned] SetHeroSpawnPoint reached max retry count for ${hero.GetName()}`);
       return;
     }
 
@@ -107,6 +155,8 @@ export class EventNpcSpawned {
     });
   }
 
+  // 在 event-npc-spawned.ts 中添加
+  private static bossSelected = false;
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
     this.SetHeroSpawnPoint(hero);
@@ -158,6 +208,171 @@ export class EventNpcSpawned {
         });
       }
     }
+  }
+
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
+  private MakeBotBoss(hero: CDOTA_BaseNPC_Hero): void {
+    //print(`[BotBoss] Selected ${hero.GetUnitName()} as Boss`);
+    hero.isBoss = true;
+    // ✅ 新增: 向所有玩家发送Boss生成通知 mark bug
+    const heroName = hero.GetUnitName();
+    const localizedName = `#${heroName}`;
+    GameRules.SendCustomMessage(
+      `<font color='#FF0000'>⚠️ 随机BotBoss: ${localizedName}。BotBoss拥有双倍经验金钱倍率，并有更高的进攻性，但击杀boss也会得到成倍的经验和金钱！</font>`,
+      1,
+      0,
+    );
+    Timers.CreateTimer(3, () => {
+      const highestPropertyPlayer = this.FindHighestPropertyPlayer();
+
+      if (!highestPropertyPlayer) {
+        //print('[BotBoss] No player with properties found, retrying in 5s...');
+        Timers.CreateTimer(5, () => {
+          const retryPlayer = this.FindHighestPropertyPlayer();
+          if (!retryPlayer) {
+            //print('[BotBoss] Still no player found, skipping boss property copy');
+            hero.SetModelScale(2);
+            return;
+          }
+          this.ApplyBossProperties(hero, retryPlayer);
+        });
+        return;
+      }
+
+      this.ApplyBossProperties(hero, highestPropertyPlayer);
+    });
+  }
+
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
+  private ApplyBossProperties(
+    hero: CDOTA_BaseNPC_Hero,
+    playerInfo: { hero: CDOTA_BaseNPC_Hero; steamId: number; totalLevel: number },
+  ): void {
+    const multiplier = GameRules.Option.direGoldXpMultiplier;
+
+    //print(
+    //  `[BotBoss] Copying properties from ${playerInfo.hero.GetUnitName()} (Property Level: ${playerInfo.totalLevel}, Multiplier: ${multiplier}x)`,
+    //);
+
+    hero.SetModelScale(2);
+    this.CopyPlayerPropertiesToBot(hero, playerInfo.steamId, math.min(multiplier * 1.2, 100));
+
+    // 根据倍数决定技能数量
+    let extraAbilityCount = 0;
+    if (multiplier >= 60) {
+      extraAbilityCount = 2;
+    } else if (multiplier >= 20) {
+      extraAbilityCount = 1;
+    } else {
+      extraAbilityCount = 0;
+    }
+
+    // ✅ 修改: 使用BotAbility添加技能
+    BotAbility.AddBotAbility(hero, extraAbilityCount);
+  }
+
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
+  private FindHighestPropertyPlayer():
+    | { hero: CDOTA_BaseNPC_Hero; steamId: number; totalLevel: number }
+    | undefined {
+    let highestLevel = 0;
+    let result: { hero: CDOTA_BaseNPC_Hero; steamId: number; totalLevel: number } | undefined;
+
+    //print('[BotBoss] Searching for highest property player...');
+
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        const steamId = PlayerResource.GetSteamAccountID(playerId);
+
+        //print(
+        //  `[BotBoss] Checking player ${playerId}, steamId: ${steamId}, hero: ${hero ? hero.GetUnitName() : 'null'}`,
+        //);
+
+        if (hero && hero.IsRealHero() && !hero.IsIllusion()) {
+          const playerData = CustomNetTables.GetTableValue('player_table', steamId.toString());
+
+          // 修改后
+          if (playerData !== undefined && playerData !== null) {
+            //print(
+            //  `[BotBoss] Player ${steamId} has data, totalLevel: ${playerData.totalLevel || 'undefined'}`,
+            //);
+
+            // 修改后
+            if (playerData.totalLevel !== undefined && playerData.totalLevel > 0) {
+              const totalLevel = playerData.totalLevel as number;
+              if (totalLevel > highestLevel) {
+                highestLevel = totalLevel;
+                result = { hero, steamId, totalLevel };
+                //print(`[BotBoss] New highest: ${hero.GetUnitName()} with level ${totalLevel}`);
+              }
+            }
+          } else {
+            //print(`[BotBoss] Player ${steamId} has no data in player_table`);
+          }
+        }
+      }
+    });
+
+    if (result) {
+      //print(
+      //  `[BotBoss] Found highest property player: ${result.hero.GetUnitName()} (level ${result.totalLevel})`,
+      //);
+    } else {
+      //print('[BotBoss] No player with properties found');
+    }
+
+    return result;
+  }
+
+  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
+  private CopyPlayerPropertiesToBot(
+    bot: CDOTA_BaseNPC_Hero,
+    playerSteamId: number,
+    multiplier: number,
+  ): void {
+    const playerData = CustomNetTables.GetTableValue('player_table', playerSteamId.toString());
+
+    if (!playerData || !playerData.properties) {
+      return;
+    }
+
+    const discountRate = Math.min(multiplier / 100, 1.0);
+    const properties = playerData.properties as Record<string, PlayerProperty>;
+
+    // 【新增】定义布尔型属性列表
+    const booleanProperties = ['property_ignore_movespeed_limit', 'property_cannot_miss'];
+
+    Object.values(properties).forEach((property) => {
+      if (property.level > 0) {
+        let discountedLevel: number;
+
+        // 【新增】对布尔型属性进行特殊处理
+        if (booleanProperties.includes(property.name)) {
+          // 布尔型属性:只有当玩家等级达到一定阈值时,Boss才获得
+          // 例如:玩家需要至少4点,Boss才能获得(相当于50%的概率)
+          const threshold = 8;
+          discountedLevel = property.level >= threshold ? 1 : 0;
+
+          // 或者使用概率判断:
+          // const probability = discountRate;
+          // discountedLevel = Math.random() < probability ? 1 : 0;
+        } else {
+          // 普通数值型属性:按折扣率计算
+          discountedLevel = Math.floor(property.level * discountRate);
+        }
+
+        if (discountedLevel > 0) {
+          const discountedProperty: PlayerProperty = {
+            steamId: property.steamId,
+            name: property.name,
+            level: discountedLevel,
+          };
+
+          PropertyController.LevelupHeroProperty(bot, discountedProperty);
+        }
+      }
+    });
   }
 
   private OnCreepSpawned(creep: CDOTA_BaseNPC): void {

@@ -1,6 +1,6 @@
 import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
-
+import React from 'react';
 import { useEffect, useState } from 'react';
 import ExpandButton from './components/ExpandButton';
 import LotteryContainer from './components/LotteryContainer';
@@ -37,18 +37,6 @@ const containerStyleShow: Partial<VCSSStyleDeclaration> = {
   transform: 'translateY(0)',
 };
 
-const getIsVisible = (lotteryStatus: LotteryStatusDto | null) => {
-  if (!lotteryStatus) {
-    return false;
-  }
-
-  if (lotteryStatus.activeAbilityName && lotteryStatus.passiveAbilityName) {
-    return false;
-  }
-
-  return true;
-};
-
 function Lottery() {
   const steamAccountId = GetLocalPlayerSteamAccountID();
 
@@ -57,12 +45,49 @@ function Lottery() {
     setIsCollapsed(!isCollapsed);
   };
 
+  const getIsVisible = (lotteryStatus: LotteryStatusDto | null) => {
+    if (!lotteryStatus) {
+      return false;
+    }
+
+    // 检查是否有可用的技能重选次数，如果有则不隐藏
+    const hasAbilityResetCount = lotteryStatus.abilityResettableCount > 0;
+    if (hasAbilityResetCount) {
+      return true;
+    }
+
+    // 读取游戏选项判断是否启用额外被动技能
+    const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
+    const extraPassiveEnabled = gameOptions?.extra_passive_abilities === 1;
+
+    // 检查主动技能和第一个被动技能是否都已选择
+    const hasRequiredAbilities =
+      lotteryStatus.activeAbilityName && lotteryStatus.passiveAbilityName;
+
+    // 如果启用了额外被动技能，还需要检查第二个被动技能是否已选择
+    if (extraPassiveEnabled) {
+      if (hasRequiredAbilities && lotteryStatus.passiveAbilityName2) {
+        // 所有技能都已选择，隐藏 UI
+        return false;
+      }
+    } else {
+      if (hasRequiredAbilities) {
+        // 基础技能都已选择，隐藏 UI
+        return false;
+      }
+    }
+
+    // 如果还有技能未选择，则显示 UI
+    return true;
+  };
+
   const [containerStyle, setContainerStyle] = useState<Partial<VCSSStyleDeclaration>>(() => {
     const lotteryStatus = GetLotteryStatus(steamAccountId);
     const isVisible = getIsVisible(lotteryStatus);
     return isVisible ? containerStyleShow : containerStyleInit;
   });
-  // 监听nettable数据变化
+
+  // 监听 lottery 完成事件,将 maxPassiveCount 设置为 1
   useEffect(() => {
     const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
       const isVisible = getIsVisible(data);
