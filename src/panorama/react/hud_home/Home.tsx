@@ -7,6 +7,7 @@ import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { StatsPage } from './components/StatsPage';
 import { AchievementsPage } from './components/AchievementsPage';
 import { SettingsPage } from './components/SettingsPage';
+import { TabNavigation } from './components/TabNavigation';
 
 type PageType = 'stats' | 'achievements' | 'settings';
 
@@ -16,6 +17,13 @@ type PageType = 'stats' | 'achievements' | 'settings';
 function Home() {
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const [currentPage, setCurrentPage] = useState<PageType>('stats');
+
+  // 定义主 Tab 配置
+  const mainTabs = [
+    { id: 'stats' as PageType, label: '统计' },
+    { id: 'achievements' as PageType, label: '排行榜' },
+    { id: 'settings' as PageType, label: '设置' },
+  ];
 
   // 订阅 home_status Net Table
   const [homeStatus, setHomeStatus] = useState<HomeStatusDto | null>(() => {
@@ -47,26 +55,7 @@ function Home() {
       </Panel>
 
       {/* Tab 导航栏 */}
-      <Panel className="tab-container">
-        <Button
-          className={`tab-button ${currentPage === 'stats' ? 'active' : ''}`}
-          onactivate={() => setCurrentPage('stats')}
-        >
-          <Label text="统计" />
-        </Button>
-        <Button
-          className={`tab-button ${currentPage === 'achievements' ? 'active' : ''}`}
-          onactivate={() => setCurrentPage('achievements')}
-        >
-          <Label text="排行榜" />
-        </Button>
-        <Button
-          className={`tab-button ${currentPage === 'settings' ? 'active' : ''}`}
-          onactivate={() => setCurrentPage('settings')}
-        >
-          <Label text="设置" />
-        </Button>
-      </Panel>
+      <TabNavigation tabs={mainTabs} currentTab={currentPage} onTabChange={setCurrentPage} />
 
       {/* 页面内容 */}
       <Panel className="content-area">

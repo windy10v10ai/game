@@ -9,6 +9,24 @@ interface SubTabNavigationProps {
   onTabChange: (tabId: string) => void;
 }
 
+const subTabButtonStyle: Partial<VCSSStyleDeclaration> = {
+  width: '100%',
+  height: '45px',
+  backgroundColor: '#2a2a3e',
+  borderRadius: '5px',
+  margin: '5px 0px',
+  fontSize: '65px',
+  flowChildren: 'left',
+};
+
+const subTabLabelStyle: Partial<VCSSStyleDeclaration> = {
+  fontSize: '25px',
+  fontWeight: 'bold',
+  color: '#9b5de0',
+  textAlign: 'center',
+  verticalAlign: 'center',
+};
+
 /**
  * 可复用的竖向 Sub Tab 导航栏组件
  */
@@ -16,15 +34,15 @@ export function SubTabNavigation({ tabs, currentTab, onTabChange }: SubTabNaviga
   return (
     <Panel className="sub-tab-container">
       {tabs.map((tab) => (
-        <Button
+        <RadioButton
           key={tab.id}
-          className={`sub-tab-button ${currentTab === tab.id ? 'active' : ''}`}
+          style={subTabButtonStyle}
+          selected={currentTab === tab.id}
           onactivate={() => onTabChange(tab.id)}
         >
-          <Label text={tab.label} />
-        </Button>
+          <Label style={subTabLabelStyle} text={tab.label} />
+        </RadioButton>
       ))}
     </Panel>
   );
 }
-
