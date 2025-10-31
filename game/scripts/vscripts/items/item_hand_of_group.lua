@@ -24,7 +24,7 @@ function item_hand_of_group:OnSpellStart()
     ParticleManager:SetParticleControl(pfx, 1, target_pos)
     ParticleManager:ReleaseParticleIndex(pfx)
 
-    target:ForceKill(false)
+    target:Kill(self, caster) -- 使用 Kill() 而不是 ForceKill()
     caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     caster:ModifyGoldFiltered(self_gold, true, DOTA_ModifyGold_CreepKill)
     if not caster:IsTempestDouble() then

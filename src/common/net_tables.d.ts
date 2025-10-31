@@ -66,6 +66,12 @@ declare global {
     lottery_status: {
       [steamAccountID: string]: LotteryStatusDto;
     };
+    // 添加虚拟金币表定义
+    player_virtual_gold: {
+      [playerID: string]: {
+        virtual_gold: number;
+      };
+    };
   }
 }
 

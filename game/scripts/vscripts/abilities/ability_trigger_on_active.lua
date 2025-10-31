@@ -96,8 +96,19 @@ function modifier_ability_trigger_on_active:OnIntervalThink()
 end
 
 function modifier_ability_trigger_on_active:AutoCastAbilities()
-    --print("[ability_trigger_on_active1332] AutoCastAbilities - Start")
-
+    -- 打印所有技能
+    print("[ability_trigger_on_active] Hero abilities:")
+    for i = 0, self.caster:GetAbilityCount() - 1 do
+        local ability = self.caster:GetAbilityByIndex(i)
+        if ability then
+            print(string.format("  [%d] %s (Type: %s, Level: %d)",
+                i,
+                ability:GetName(),
+                ability:GetAbilityType() == DOTA_ABILITY_TYPE_ULTIMATE and "ULTIMATE" or "BASIC",
+                ability:GetLevel()
+            ))
+        end
+    end
 
     -- 【新增】先检查并释放大招
     for i = 0, self.caster:GetAbilityCount() - 1 do
@@ -282,6 +293,11 @@ function modifier_ability_trigger_on_active:TryCastAbility(ability)
         --print("[ability_trigger_on_active] 施放结果:", tostring(cast_success))
         return
     end
+
+    -- 【新增】火焰风暴特殊处理:始终对目标点释放
+    if ability_name == "abyssal_underlord_firestorm" then
+        return self:CastFirestormOnPoint(ability)
+    end
     -- 结束CD
     ability:EndCooldown()
 
@@ -382,6 +398,45 @@ function modifier_ability_trigger_on_active:TryCastAbility(ability)
         -- 返还魔法
         self.caster:GiveMana(ability:GetManaCost(ability:GetLevel() - 1))
     end
+end
+
+-- 【新增】火焰风暴专用施法函数
+function modifier_ability_trigger_on_active:CastFirestormOnPoint(ability)
+    local search_range = self.ability:GetSpecialValueFor("search_radius")
+    local target_position = self.target_point
+
+    -- 查找目标点附近的敌方单位
+    local enemies = FindUnitsInRadius(
+        self.caster:GetTeamNumber(),
+        self.target_point,
+        nil,
+        search_range,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+        FIND_CLOSEST,
+        false
+    )
+
+    if #enemies > 0 then
+        -- 找到敌方单位,使用敌方单位的位置
+        target_position = enemies[1]:GetAbsOrigin()
+    else
+        -- 没找到敌方单位,使用原始目标点
+        target_position = self.target_point
+    end
+
+    -- 结束CD并施放
+    ability:EndCooldown()
+    self.caster:SetCursorPosition(target_position)
+    local cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
+
+    if cast_success then
+        -- 返还魔法
+        self.caster:GiveMana(ability:GetManaCost(ability:GetLevel() - 1))
+    end
+
+    return cast_success
 end
 
 function modifier_ability_trigger_on_active:DeclareFunctions()

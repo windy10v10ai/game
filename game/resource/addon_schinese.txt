@@ -1252,7 +1252,7 @@
 		"DOTA_Tooltip_Ability_item_recipe_shadow_judgment"           "暗影裁决（图纸）"
 
 		// 暗影咒灭
-		"DOTA_Tooltip_Ability_item_shadow_impact"                    "<font color='#8A2BE2'>暗影咒灭</font>"
+		"DOTA_Tooltip_Ability_item_shadow_impact"                    "<font color='#18161aff'>暗影咒灭</font>"
 		"DOTA_Tooltip_ability_item_shadow_impact_Description"        "<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭。<br><br>纯粹伤害：%absolute_damage%点<br>魔法伤害：%dagon_damage%点<br>虚灵冲击：造成%blast_damage_base%+%blast_agility_multiplier%x[主属性]点魔法伤害,并使目标进入虚灵状态%ethereal_duration%秒,减速%blast_movement_slow%%%<br>死灵冲击：造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br><br>施法距离：%abilitycastrange%"
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"               "暗影的冲击,毁灭一切。"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"    "+$int"
@@ -1429,7 +1429,7 @@
 "DOTA_Tooltip_modifier_trigger_on_spell_reflect_cooldown_Description"   "法术反弹技能处于内置冷却中。"
 
 "DOTA_Tooltip_ability_ability_trigger_on_active"                        "<font color='#a74abd'>蝴蝶效应 · 紫啸"
-"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "<h1><font color='#a74abd'>主动：狂潮</h1>以前所未有的速度对指定地点范围内的敌人疯狂倾斜法术，包括所有可用的技能和物品。效果期间所有冷却时间缩短为1/5,并移除施法前摇，但人无法移动。<br><br>持续时间: %duration% 秒"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "<h1><font color='#a74abd'>主动：狂潮</h1>以前所未有的速度对指定地点范围内的敌人疯狂倾泻法术，包括所有可用的技能和物品。效果期间所有冷却时间缩短为1/5,移除施法前摇，持续状态不会被打断，直至蓝尽人亡，但人无法移动。<br><br>持续时间: %duration% 秒"
 "DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦"
 "DOTA_Tooltip_ability_ability_trigger_on_active_duration"               "持续时间:"
 "DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"          "搜索范围:"
@@ -1443,6 +1443,9 @@
 
 "DOTA_Tooltip_modifier_ability_charge_damage_display"                    "凝心"
 "DOTA_Tooltip_modifier_ability_charge_damage_display_Description"        "下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
+"DOTA_Tooltip_ability_boss_death_power"                     "AI的复仇"
+"DOTA_Tooltip_ability_boss_death_power_Description"         "BotBoss每次被击杀后，因复仇的驱动永久获得减伤和输出增强。每次死亡使减伤和输出增强各提升1%。"
+"DOTA_Tooltip_ability_boss_death_power_Lore"                "人类的屠戮只会引起AI更剧烈的反抗"
 "DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。<br><br><font color='#FF0000'>近战英雄: 不要选！！！攻击无效！<br>远程英雄: 功能正常但缺少龙形态模型！！！"
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
 		///////////////////////////////////////////////////
