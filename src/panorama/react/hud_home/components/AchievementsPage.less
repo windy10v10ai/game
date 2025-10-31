@@ -1,0 +1,75 @@
+/* AchievementsPage 组件样式文件 */
+/* 配色方案: #4E56C0 #9B5DE0 #D78FEE #FDCFFA */
+
+/* ========== 主布局容器 ========== */
+.leaderboard-main-layout {
+  width: 100%;
+  height: 100%;
+  flow-children: right;
+}
+
+/* ========== Sub Tab 导航栏 ========== */
+.sub-tab-container {
+  width: 200px;
+  height: 100%;
+  flow-children: down;
+  background-color: #1a1a2e;
+  padding: 10px 5px;
+  margin-right: 10px;
+  border-radius: 5px;
+  vertical-align: top;
+}
+
+.sub-tab-button {
+  width: 100%;
+  height: 45px;
+  background-color: #2a2a3e;
+  border: 2px solid #4e56c0;
+  border-radius: 5px;
+  margin: 5px 0px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #9b5de0;
+  text-align: center;
+  vertical-align: center;
+  transition-property: background-color, color, border-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+
+  &:hover {
+    background-color: #3a3a4e;
+    border-color: #9b5de0;
+    color: #d78fee;
+  }
+
+  &.active {
+    background-color: #9b5de0;
+    border-color: #fdcffa;
+    color: #ffffff;
+    text-shadow: 0px 1px 2px #00000088;
+  }
+
+  Label {
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+  }
+}
+
+/* ========== 排行榜内容区域 ========== */
+.leaderboard-content {
+  width: fill-parent-flow(1);
+  height: 100%;
+  flow-children: down;
+  vertical-align: top;
+}
+
+/* 成就排行榜的额外列样式 */
+.leaderboard-col-achievements {
+  width: 25%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9b5de0;
+  vertical-align: center;
+}

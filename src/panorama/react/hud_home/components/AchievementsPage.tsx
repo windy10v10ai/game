@@ -1,27 +1,72 @@
-import React from 'react';
+import { useState, useRef } from 'react';
+import { LeaderboardView } from './LeaderboardView';
+import { SubTabNavigation } from './SubTabNavigation';
+
+type SubTabType = 'bravery' | 'achievements';
 
 /**
- * 成就页面组件
+ * 排行榜页面组件
+ * 包含勇士积分排行榜和成就排行榜两个子标签页
  */
 export function AchievementsPage() {
-  // 示例成就数据
-  const achievements = [
-    { id: 1, title: '首次胜利', desc: '赢得第一场游戏', unlocked: true },
-    { id: 2, title: '连胜达人', desc: '连续赢得 5 场游戏', unlocked: false },
-    { id: 3, title: '杀戮机器', desc: '单局击杀超过 20 次', unlocked: false },
+  const [currentSubTab, setCurrentSubTab] = useState<SubTabType>('bravery');
+  const braveryListRef = useRef<Panel>(null);
+  const achievementsListRef = useRef<Panel>(null);
+
+  // Sub Tab 导航栏配置
+  const subTabs = [
+    { id: 'bravery', label: '勇士积分排行榜' },
+    { id: 'achievements', label: '成就排行榜' },
   ];
 
+  // 勇士积分排行榜列配置
+  const braveryColumns = [
+    { className: 'leaderboard-col-rank', text: '排名' },
+    { className: 'leaderboard-col-name', text: '玩家名称' },
+  ];
+
+  // 成就排行榜列配置
+  const achievementsColumns = [
+    { className: 'leaderboard-col-rank', text: '排名' },
+    { className: 'leaderboard-col-name', text: '玩家名称' },
+    { className: 'leaderboard-col-achievements', text: '成就数' },
+  ];
+
+  // 取得玩家信息
+  const currentBraveryRank = 'N/A';
+  const currentAchievementsRank = 'N/A';
+
+  // 处理 tab 切换
+  const handleTabChange = (tabId: string) => {
+    setCurrentSubTab(tabId as SubTabType);
+  };
+
   return (
-    <Panel className="achievements-container">
-      {achievements.map((achievement) => (
-        <Panel key={achievement.id} className="achievement-item">
-          <Panel className={`achievement-icon ${achievement.unlocked ? 'unlocked' : 'locked'}`} />
-          <Panel className="achievement-text-container">
-            <Label className="achievement-title" text={achievement.title} />
-            <Label className="achievement-desc" text={achievement.desc} />
-          </Panel>
-        </Panel>
-      ))}
+    <Panel className="leaderboard-container">
+      {/* Sub Tab 导航栏和内容区域容器 */}
+      <Panel className="leaderboard-main-layout">
+        {/* Sub Tab 导航栏 */}
+        <SubTabNavigation tabs={subTabs} currentTab={currentSubTab} onTabChange={handleTabChange} />
+
+        {/* 页面内容 */}
+        {currentSubTab === 'bravery' && (
+          <LeaderboardView
+            title="勇士积分排行榜"
+            currentRank={currentBraveryRank}
+            columns={braveryColumns}
+            listRef={braveryListRef}
+          />
+        )}
+
+        {currentSubTab === 'achievements' && (
+          <LeaderboardView
+            title="成就排行榜"
+            currentRank={currentAchievementsRank}
+            columns={achievementsColumns}
+            listRef={achievementsListRef}
+          />
+        )}
+      </Panel>
     </Panel>
   );
 }

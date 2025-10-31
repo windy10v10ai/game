@@ -6,6 +6,7 @@
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
         <include src="../styles/utils.less" />
         <include src="./styles.less" />
+        <include src="./components/AchievementsPage.less" />
     </styles>
     <Panel class="root" hittest="false" />
 </root>

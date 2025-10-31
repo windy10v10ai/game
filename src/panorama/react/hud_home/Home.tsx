@@ -58,7 +58,7 @@ function Home() {
           className={`tab-button ${currentPage === 'achievements' ? 'active' : ''}`}
           onactivate={() => setCurrentPage('achievements')}
         >
-          <Label text="成就" />
+          <Label text="排行榜" />
         </Button>
         <Button
           className={`tab-button ${currentPage === 'settings' ? 'active' : ''}`}

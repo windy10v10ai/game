@@ -9,33 +9,33 @@
 
 /* ========== 主容器 ========== */
 .home-container {
-  width: 700px;
-  height: 500px;
+  width: 80%;
+  height: 60%;
   horizontal-align: center;
   vertical-align: center;
   background-color: #1a1a2eea;
-  border: 3px solid #9B5DE0;
+  border: 3px solid #9b5de0;
   border-radius: 10px;
   flow-children: down;
-  box-shadow: 0px 0px 25px 8px #4E56C088;
+  box-shadow: 0px 0px 25px 8px #4e56c088;
 }
 
 /* ========== 标题栏 ========== */
 .home-header {
   width: 100%;
   height: 60px;
-  background-color: #4E56C0;
-  background-image: linear-gradient(to right, #4E56C0 0%, #9B5DE0 100%);
+  background-color: #4e56c0;
+  // background-image: linear-gradient(to right, #4E56C0 0%, #9B5DE0 100%);
   border-radius: 7px 7px 0 0;
   flow-children: right;
   padding: 15px 25px;
-  border-bottom: 2px solid #D78FEE;
+  border-bottom: 2px solid #d78fee;
 }
 
 .home-title {
   font-size: 24px;
   font-weight: bold;
-  color: #FDCFFA;
+  color: #fdcffa;
   text-shadow: 2px 2px 4px #00000088;
   vertical-align: center;
   letter-spacing: 1px;
@@ -54,12 +54,12 @@
   width: 33.33%;
   height: 100%;
   background-color: #2a2a3e;
-  border: 2px solid #4E56C0;
+  border: 2px solid #4e56c0;
   border-radius: 5px;
   margin: 0px 5px;
   font-size: 16px;
   font-weight: bold;
-  color: #9B5DE0;
+  color: #9b5de0;
   text-align: center;
   vertical-align: center;
   transition-property: background-color, color, border-color;
@@ -68,14 +68,14 @@
 
   &:hover {
     background-color: #3a3a4e;
-    border-color: #9B5DE0;
-    color: #D78FEE;
+    border-color: #9b5de0;
+    color: #d78fee;
   }
 
   &.active {
-    background-color: #9B5DE0;
-    background-image: linear-gradient(to bottom, #D78FEE 0%, #9B5DE0 100%);
-    border-color: #FDCFFA;
+    background-color: #9b5de0;
+    // background-image: linear-gradient(to bottom, #d78fee 0%, #9b5de0 100%);
+    border-color: #fdcffa;
     color: #ffffff;
     text-shadow: 0px 1px 2px #00000088;
   }
@@ -110,32 +110,32 @@
   background-color: #00000044;
   padding: 8px 15px;
   border-radius: 4px;
-  border-left: 3px solid #9B5DE0;
+  border-left: 3px solid #9b5de0;
   transition-property: background-color, border-left-color;
   transition-duration: 0.15s;
 
   &:hover {
     background-color: #00000066;
-    border-left-color: #D78FEE;
+    border-left-color: #d78fee;
   }
 }
 
 .stat-label {
-  color: #D78FEE;
+  color: #d78fee;
   font-weight: bold;
   width: 150px;
 }
 
 .stat-value {
-  color: #FDCFFA;
+  color: #fdcffa;
   font-size: 20px;
   font-weight: bold;
-  text-shadow: 1px 1px 2px #4E56C088;
+  text-shadow: 1px 1px 2px #4e56c088;
   margin-left: 15px;
 }
 
-/* ========== AchievementsPage 样式 ========== */
-.achievements-container {
+/* ========== 勇士积分排行榜样式 (AchievementsPage) ========== */
+.leaderboard-container {
   width: 100%;
   height: 100%;
   flow-children: down;
@@ -144,60 +144,144 @@
   border-radius: 5px;
 }
 
-.achievement-item {
+/* 排行榜标题和当前排名 */
+.leaderboard-header {
   width: 100%;
   height: 50px;
-  background-color: #00000055;
-  border: 2px solid #4E56C0;
-  border-radius: 5px;
-  margin-bottom: 8px;
-  padding: 10px 15px;
   flow-children: right;
-  transition-property: background-color, border-color, transform;
-  transition-duration: 0.2s;
+  padding: 10px 15px;
+  background-color: #4e56c088;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 2px solid #9b5de0;
+}
+
+.leaderboard-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fdcffa;
+  text-shadow: 2px 2px 4px #00000088;
+  vertical-align: center;
+  width: 60%;
+}
+
+.current-rank-display {
+  width: 40%;
+  flow-children: right;
+  vertical-align: center;
+}
+
+.current-rank-label {
+  font-size: 14px;
+  color: #d78fee;
+  vertical-align: center;
+  margin-right: 5px;
+}
+
+.current-rank-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fdcffa;
+  text-shadow: 1px 1px 3px #4e56c0;
+  vertical-align: center;
+}
+
+/* 表头 */
+.leaderboard-table-header {
+  width: 100%;
+  height: 30px;
+  flow-children: right;
+  padding: 5px 15px;
+  background-color: #2a2a3e;
+  border: 1px solid #4e56c0;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.leaderboard-col-rank {
+  width: 15%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9b5de0;
+  vertical-align: center;
+}
+
+.leaderboard-col-avatar {
+  width: 15%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9b5de0;
+  vertical-align: center;
+}
+
+.leaderboard-col-name {
+  width: 70%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9b5de0;
+  vertical-align: center;
+}
+
+/* 排行榜列表 */
+.leaderboard-list {
+  width: 100%;
+  height: 260px;
+  flow-children: down;
+  overflow: scroll;
+}
+
+.leaderboard-item {
+  width: 100%;
+  height: 35px;
+  flow-children: right;
+  padding: 5px 15px;
+  background-color: #00000044;
+  border-left: 3px solid #4e56c0;
+  margin-bottom: 3px;
+  transition-property: background-color, border-left-color;
+  transition-duration: 0.15s;
 
   &:hover {
-    background-color: #00000088;
-    border-color: #9B5DE0;
-    transform: translateX(5px);
+    background-color: #00000066;
+    border-left-color: #9b5de0;
+  }
+
+  &.is-current-player {
+    background-color: #4e56c044;
+    border-left-color: #fdcffa;
+    border-left-width: 5px;
+
+    .player-rank {
+      color: #fdcffa;
+    }
+
+    .player-name {
+      color: #fdcffa;
+      font-weight: bold;
+    }
   }
 }
 
-.achievement-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 15px;
-  border: 2px solid #4E56C0;
-  vertical-align: center;
-
-  &.unlocked {
-    background-color: #D78FEE;
-    border-color: #FDCFFA;
-    box-shadow: 0px 0px 8px 2px #D78FEE88;
-  }
-
-  &.locked {
-    background-color: #2a2a3e;
-    border-color: #4E56C0;
-  }
-}
-
-.achievement-text-container {
-  flow-children: down;
-  vertical-align: center;
-}
-
-.achievement-title {
+.player-rank {
+  width: 15%;
   font-size: 16px;
   font-weight: bold;
-  color: #FDCFFA;
-  margin-bottom: 2px;
+  color: #d78fee;
+  vertical-align: center;
 }
 
-.achievement-desc {
-  font-size: 13px;
-  color: #9B5DE0;
+.player-avatar {
+  width: 40px;
+  height: 40px;
+  vertical-align: center;
+  margin-right: 8px;
+}
+
+.player-name {
+  width: 70%;
+  font-size: 14px;
+  color: #9b5de0;
+  vertical-align: center;
 }
 
 /* ========== SettingsPage 样式 ========== */
@@ -218,17 +302,17 @@
   background-color: #00000044;
   padding: 8px 15px;
   border-radius: 4px;
-  border-left: 3px solid #4E56C0;
+  border-left: 3px solid #4e56c0;
 
   &:hover {
-    border-left-color: #D78FEE;
+    border-left-color: #d78fee;
   }
 }
 
 .setting-label {
   font-size: 16px;
   font-weight: bold;
-  color: #D78FEE;
+  color: #d78fee;
   vertical-align: center;
   width: 200px;
 }
@@ -239,21 +323,21 @@
   font-size: 14px;
   font-weight: bold;
   background-color: #2a2a3e;
-  border: 2px solid #4E56C0;
+  border: 2px solid #4e56c0;
   border-radius: 4px;
-  color: #D78FEE;
+  color: #d78fee;
   transition-property: background-color, border-color, color;
   transition-duration: 0.2s;
 
   &:hover {
-    background-color: #4E56C0;
-    border-color: #9B5DE0;
-    color: #FDCFFA;
+    background-color: #4e56c0;
+    border-color: #9b5de0;
+    color: #fdcffa;
   }
 
   &:active {
-    background-color: #9B5DE0;
-    border-color: #FDCFFA;
+    background-color: #9b5de0;
+    border-color: #fdcffa;
     color: #ffffff;
   }
 }
@@ -261,17 +345,17 @@
 .section-title {
   font-size: 20px;
   font-weight: bold;
-  color: #D78FEE;
-  text-shadow: 2px 2px 4px #4E56C088;
+  color: #d78fee;
+  text-shadow: 2px 2px 4px #4e56c088;
   margin-top: 15px;
   margin-bottom: 15px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #9B5DE044;
+  border-bottom: 2px solid #9b5de044;
 }
 
 .setting-value {
   font-size: 16px;
-  color: #9B5DE0;
+  color: #9b5de0;
   vertical-align: center;
   margin-left: 10px;
 }
