@@ -81,14 +81,14 @@ function modifier_item_magic_sword:GetModifierProcAttack_Feedback(keys)
 
     local target_loc = keys.target:GetAbsOrigin()
 
-    -- 计算锥形区域内的敌人
+    -- 计算圆形区域内的敌人
     local enemies = FindUnitsInRadius(
         keys.attacker:GetTeamNumber(),
         target_loc,
         nil,
         self.cleave_distance,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
         FIND_ANY_ORDER,
         false
