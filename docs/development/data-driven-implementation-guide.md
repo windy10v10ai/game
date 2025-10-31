@@ -8,12 +8,12 @@
 
 ### DataDriven vs Lua Modifier
 
-| 特性 | DataDriven | Lua Modifier |
-|------|------------|--------------|
-| 性能 | 更优 | 较差 |
-| 维护性 | 配置化 | 代码化 |
-| 灵活性 | 有限 | 完全灵活 |
-| 适用场景 | 简单属性、事件 | 复杂逻辑 |
+| 特性     | DataDriven     | Lua Modifier |
+| -------- | -------------- | ------------ |
+| 性能     | 更优           | 较差         |
+| 维护性   | 配置化         | 代码化       |
+| 灵活性   | 有限           | 完全灵活     |
+| 适用场景 | 简单属性、事件 | 复杂逻辑     |
 
 ### 混合架构原则
 
@@ -27,12 +27,14 @@
 以 item_magic_sword 为例：
 
 **原始功能**：
+
 - 被动属性加成（攻击力、全属性）
 - 溅射伤害
 - 攻击减速
 - 主动技能（物理转纯粹伤害）
 
 **分类**：
+
 - ✅ **DataDriven 适合**：属性加成、减速 debuff、modifier 管理
 - ⚠️ **需要 Lua**：溅射伤害、纯粹伤害计算
 
@@ -41,11 +43,11 @@
 `kv
 "item_magic_sword"
 {
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10328"
-    "AbilityTextureName"        "moyuanjian"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    
+"BaseClass" "item_datadriven"
+"ID" "10328"
+"AbilityTextureName" "moyuanjian"
+"AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
     // 技能参数
     "AbilityValues"
     {
@@ -58,7 +60,7 @@
         "slow_duration"         "2.0"
         "slow_pct"              "-60"
     }
-    
+
     // 技能事件
     "OnSpellStart"
     {
@@ -74,7 +76,7 @@
             "Function"          "MagicSwordOnSpellStart"
         }
     }
-    
+
     // Modifier 定义
     "Modifiers"
     {
@@ -83,7 +85,7 @@
             "Passive"           "1"
             "IsHidden"          "1"
             "Attributes"        "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-            
+
             "Properties"
             {
                 "MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"      "%bonus_all_stats"
@@ -91,7 +93,7 @@
                 "MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"     "%bonus_all_stats"
                 "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"    "%bonus_damage"
             }
-            
+
             "OnAttackLanded"
             {
                 "RunScript"
@@ -107,13 +109,13 @@
                 }
             }
         }
-        
+
         "modifier_item_magic_sword_active"
         {
             "IsBuff"            "1"
             "IsPurgable"        "0"
             "TextureName"       "item_magic_sword"
-            
+
             "OnCreated"
             {
                 "RunScript"
@@ -122,7 +124,7 @@
                     "Function"      "MagicSwordActiveOnCreated"
                 }
             }
-            
+
             "OnAttackLanded"
             {
                 "RunScript"
@@ -132,7 +134,7 @@
                 }
             }
         }
-        
+
         "modifier_item_magic_sword_debuff"
         {
             "IsDebuff"          "1"
@@ -145,6 +147,7 @@
             }
         }
     }
+
 }
 `
 
@@ -153,31 +156,32 @@
 `lua
 -- 主动技能音效
 function MagicSwordOnSpellStart(keys)
-    local caster = keys.caster
-    EmitSoundOn("Hero_Juggernaut.BladeFury", caster)
+local caster = keys.caster
+EmitSoundOn("Hero_Juggernaut.BladeFury", caster)
 end
 
 -- 主动效果特效
 function MagicSwordActiveOnCreated(keys)
-    if not IsServer() then return end
-    
+if not IsServer() then return end
+
     local parent = keys.caster
     local ability = keys.ability
-    
+
     local fx = ParticleManager:CreateParticle(
         "particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf",
         PATTACH_ABSORIGIN_FOLLOW,
         parent
     )
     ParticleManager:ReleaseParticleIndex(fx)
+
 end
 
 -- 溅射效果
 function MagicSwordCleaveEffect(params)
-    if not IsServer() then return end
-    if not params.attacker:IsRealHero() then return end
-    if params.attacker:IsRangedAttacker() then return end
-    if params.attacker:GetTeam() == params.target:GetTeam() then return end
+if not IsServer() then return end
+if not params.attacker:IsRealHero() then return end
+if params.attacker:IsRangedAttacker() then return end
+if params.attacker:GetTeam() == params.target:GetTeam() then return end
 
     local ability = params.ability
     if not ability then return end
@@ -193,7 +197,7 @@ function MagicSwordCleaveEffect(params)
         nil,
         cleave_distance,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
         FIND_ANY_ORDER,
         false
@@ -216,19 +220,20 @@ function MagicSwordCleaveEffect(params)
             })
         end
     end
+
 end
 
 -- 纯粹伤害处理
 function MagicSwordActiveOnAttackLanded(params)
-    if not IsServer() then return end
-    
+if not IsServer() then return end
+
     if params.attacker ~= params.caster then return end
 
     local ability = params.ability
     if not ability then return end
 
     local convert_pct = ability:GetSpecialValueFor("convert_pct")
-    
+
     local attacker_damage = params.attacker:GetAverageTrueAttackDamage(params.target)
     local actual_damage = CalculateActualDamage(attacker_damage, params.target)
     local pure_damage = actual_damage * convert_pct / 100
@@ -243,6 +248,7 @@ function MagicSwordActiveOnAttackLanded(params)
     })
 
     SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, params.target, actual_damage + pure_damage, nil)
+
 end
 `
 
@@ -251,16 +257,19 @@ end
 ### 1. 事件选择
 
 **OnAttackLanded vs OnTakeDamage**：
+
 - OnAttackLanded：攻击命中时触发，适合攻击相关效果
 - OnTakeDamage：受到伤害后触发，适合伤害处理
 
 **选择原则**：
+
 - 攻击效果 → OnAttackLanded
 - 伤害处理 → OnTakeDamage
 
 ### 2. 参数传递
 
 **DataDriven 事件参数**：
+
 - keys.caster - 施法者
 - keys.ability - 技能
 - params.attacker - 攻击者
@@ -270,6 +279,7 @@ end
 ### 3. Modifier 管理
 
 **完全 DataDriven 化**：
+
 - 移除所有 LinkLuaModifier 调用
 - 移除 Lua modifier 类定义
 - 使用 ApplyModifier 添加 modifier
@@ -288,6 +298,7 @@ local actual_damage = CalculateActualDamage(attacker_damage, params.target)
 ### 5. 特效管理
 
 **特效生命周期**：
+
 - OnCreated - 添加持续特效
 - OnDestroy - 释放一次性特效
 
@@ -323,6 +334,7 @@ PrintTable(params)
 ### 1. Modifier 不生效
 
 **检查项**：
+
 - DataDriven 配置是否正确
 - ApplyModifier 参数是否正确
 - Lua 函数是否存在
@@ -330,6 +342,7 @@ PrintTable(params)
 ### 2. 事件不触发
 
 **检查项**：
+
 - 事件名称是否正确
 - 函数参数是否匹配
 - IsServer() 检查
@@ -337,6 +350,7 @@ PrintTable(params)
 ### 3. 伤害计算错误
 
 **检查项**：
+
 - 使用正确的伤害计算函数
 - 参数传递是否正确
 - 伤害类型是否匹配
