@@ -312,6 +312,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **适用场景**: 实现 API 调用、与后端集成、添加分析事件
 
 **主要内容**:
+
 - API 架构概览和目录结构
 - ApiClient 核心组件使用方法
 - 认证机制 (API Key 方式)
@@ -327,6 +328,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **适用场景**: 将传统 Lua modifier 迁移到 DataDriven 实现、优化 modifier 性能
 
 **主要内容**:
+
 - DataDriven vs Lua Modifier 对比和混合架构原则
 - 完整的迁移步骤 (以 item_magic_sword 为例)
 - DataDriven 配置结构详解 (AbilityValues, OnSpellStart, Modifiers 等)
@@ -344,6 +346,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **适用场景**: 减少游戏卡顿、优化物品性能、处理大量物品属性
 
 **主要内容**:
+
 - 核心思路: 将静态属性从 Lua 迁移到 DataDriven
 - 详细示例: 阿迪王 (item_adi_king) 的优化过程
 - 可优化的属性类型完整列表:
@@ -396,14 +399,16 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **重要**: 中文本地化文本必须使用全角标点符号，不要使用半角标点符号。
 
 **常用全角标点对照表**：
-- ✅ 逗号：`，` (全角)  ❌ `,` (半角)
-- ✅ 句号：`。` (全角)  ❌ `.` (半角)
-- ✅ 冒号：`：` (全角)  ❌ `:` (半角)
-- ✅ 分号：`；` (全角)  ❌ `;` (半角)
-- ✅ 问号：`？` (全角)  ❌ `?` (半角)
-- ✅ 感叹号：`！` (全角)  ❌ `!` (半角)
+
+- ✅ 逗号：`，` (全角) ❌ `,` (半角)
+- ✅ 句号：`。` (全角) ❌ `.` (半角)
+- ✅ 冒号：`：` (全角) ❌ `:` (半角)
+- ✅ 分号：`；` (全角) ❌ `;` (半角)
+- ✅ 问号：`？` (全角) ❌ `?` (半角)
+- ✅ 感叹号：`！` (全角) ❌ `!` (半角)
 
 **示例**：
+
 ```
 // ❌ 错误 - 使用了半角标点
 "item_description"    "主动: 一念成佛。持续 4 秒,造成伤害。"
@@ -413,6 +418,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 ```
 
 **注意**：
+
 - 数字和英文字母保持半角
 - 百分号 `%`、括号 `()` 等特殊符号根据上下文判断（通常保持半角）
 - HTML 标签和变量占位符（如 `%active_duration%`）保持原样
@@ -446,6 +452,86 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
    ```
 
 **注意**：参考文件来自 Dota 2 版本 7.39，包含所有标准技能的 Valve 官方翻译。
+
+### 本地化通用规则
+
+**重要**：在对数值进行描述时，如果有标准通用翻译，应该使用它替代直接文本。
+
+**规则示例**：
+
+❌ **错误** - 直接使用文本：
+
+```
+"DOTA_T_ability_item_time_gem_manacost_reduction"    "%+魔法消耗降低"
+```
+
+✅ **正确** - 使用标准通用翻译：
+
+```
+"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"    "%+$manacost_reduction"
+```
+
+**标准通用变量翻译列表**：
+
+以下列表中的变量可以在工具提示中使用，系统会自动用对应的中文文本替换 `$variable_name`：
+
+| 中文文本                                              | 变量名                           |
+| ----------------------------------------------------- | -------------------------------- |
+| 生命值                                                | `$health`                        |
+| 魔法值                                                | `$mana`                          |
+| 护甲                                                  | `$armor`                         |
+| 攻击力                                                | `$damage`                        |
+| 力量                                                  | `$str`                           |
+| 智力                                                  | `$int`                           |
+| 敏捷                                                  | `$agi`                           |
+| 全属性                                                | `$all`                           |
+| 主属性                                                | `$primary_attribute`             |
+| 攻击速度                                              | `$attack`                        |
+| 基础攻击速度                                          | `$attack_pct`                    |
+| 生命恢复                                              | `$hp_regen`                      |
+| 吸血                                                  | `$lifesteal`                     |
+| 魔法恢复                                              | `$mana_regen`                    |
+| 魔法恢复光环                                          | `$mana_regen_aura`               |
+| 技能伤害                                              | `$spell_amp`                     |
+| 负面状态持续时间                                      | `$debuff_amp`                    |
+| 移动速度                                              | `$move_speed`                    |
+| 闪避                                                  | `$evasion`                       |
+| 魔法抗性                                              | `$spell_resist`                  |
+| 技能吸血                                              | `$spell_lifesteal`               |
+| 对英雄的攻击                                          | `$spell_lifesteal_hero_attacks`  |
+| 对英雄的技能                                          | `$spell_lifesteal_hero_spells`   |
+| 对非英雄的攻击                                        | `$spell_lifesteal_creep_attacks` |
+| 对非英雄的技能                                        | `$spell_lifesteal_creep_spells`  |
+| 对英雄的攻击                                          | `$lifesteal_hero_attacks`        |
+| 对英雄的技能                                          | `$lifesteal_hero_spells`         |
+| 对非英雄的攻击                                        | `$lifesteal_creep_attacks`       |
+| 对非英雄的技能                                        | `$lifesteal_creep_spells`        |
+| 所选属性                                              | `$selected_attribute`            |
+| 攻击距离<font color='#7d7d7d'>（仅对远程有效）</font> | `$attack_range`                  |
+| 攻击距离<font color='#7d7d7d'>（仅对近战有效）</font> | `$attack_range_melee`            |
+| 攻击距离<font color='#7d7d7d'>（近战/远程）</font>    | `$attack_range_all`              |
+| 施法距离                                              | `$cast_range`                    |
+| 状态抗性                                              | `$status_resist`                 |
+| 弹道速度                                              | `$projectile_speed`              |
+| 魔法消耗降低                                          | `$manacost_reduction`            |
+| 冷却时间减少                                          | `$cooldown_reduction`            |
+| 额外最大魔法值                                        | `$max_mana_percentage`           |
+| 减速抗性                                              | `$slow_resistance`               |
+| 作用范围加成                                          | `$aoe_bonus`                     |
+| 移动速度加成                                          | `$exclusive_movespeed`           |
+| 对外治疗增强                                          | `$healing_amp`                   |
+
+**使用方法**：
+
+在工具提示中使用变量名而不是直接文本：
+
+```
+"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"    "%+$manacost_reduction"
+"DOTA_Tooltip_ability_item_example_damage"                "+$damage"
+"DOTA_Tooltip_ability_item_example_attributes"            "+$str / $agi / $int 属性"
+```
+
+系统会自动将 `$variable_name` 替换为对应的本地化文本。
 
 ### 在代码中使用
 
@@ -508,6 +594,7 @@ $.Localize("#my_new_key");
 发布新版本时，需要提供中英文更新日志，格式如下：
 
 **中文更新日志**：
+
 ```
 [b]游戏性更新 v4.00[/b]
 
@@ -515,6 +602,7 @@ $.Localize("#my_new_key");
 ```
 
 **英文更新日志**：
+
 ```
 [b]Gameplay update v4.00[/b]
 
@@ -522,6 +610,7 @@ Fixed some bugs and balance.
 ```
 
 **格式要点**：
+
 - 使用 BBCode 标签 `[b]...[/b]` 加粗标题
 - 标题格式：`游戏性更新 v版本号` (中文) / `Gameplay update v版本号` (英文)
 - 版本号格式：
@@ -532,9 +621,11 @@ Fixed some bugs and balance.
 - 中文使用全角标点符号，英文使用半角标点符号
 
 **更新类型**：
+
 - 游戏性更新 / Gameplay update - 平衡性改动、功能调整、bug 修复
 - 内容更新 / Content update - 新英雄、新物品、新功能
 - 重大更新 / Major update - 大型功能更新或重构
 
 **相关文件**：
+
 - 自动化 PR 创建：`.github/workflows/create_release_pr.yml`

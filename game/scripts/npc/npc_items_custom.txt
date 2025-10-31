@@ -5579,10 +5579,10 @@
 		{
 				"bonus_strength"		"80"	// 16
 				"bonus_agility"			"80"	// 16
-				"status_resistance"		"40"	// 20
+				"status_resistance"		"35"	// 15
 				"bonus_attack_speed"	"60"	// 20
-				"movement_speed_percent_bonus"	"30" // 12
-				"hp_regen_amp"			"50"	// 25
+				"movement_speed_percent_bonus"	"25" // 12
+				"hp_regen_amp"			"40"	// 25
 				"slow_resistance"		"50"	// 25
 		}
 	}
@@ -5617,7 +5617,7 @@
 				"bonus_intellect"		"80"
 				"bonus_attack_speed"	"60" // 20
 				"mana_regen_multiplier"	"100" // 50
-				"movement_speed_percent_bonus"	"30" // 12
+				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"30" // 12
 				"cast_speed_pct"		"50" // 25
 		}
@@ -5808,7 +5808,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5833,7 +5833,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5858,7 +5858,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5883,7 +5883,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5908,7 +5908,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5933,7 +5933,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5958,7 +5958,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -5983,7 +5983,7 @@
     "AbilityTextureName"        "item_tome_of_knowledge"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "30000"
+    "ItemCost"                  "20000"
     "ItemIsNeutralDrop"         "0"
     "ItemPurchasable"           "1"
     "ItemKillable"              "0"
@@ -6045,7 +6045,8 @@
 		"bonus_damage"          "120"       // tooltip only - 攻击力
 		"bonus_attack_speed"    "80"        // tooltip only - 攻击速度
 		"bonus_armor"           "30"        // tooltip only - 护甲
-		"bonus_attack_range"    "200"       // tooltip only - 攻击距离
+		// FIXME 现在对近战也有用 需要修复
+		"bonus_attack_range"    "250"       // tooltip only - 攻击距离
 
 		// 主动技能参数（在 Lua 中实现）
 		"active_armor"          "100"
@@ -6086,7 +6087,7 @@
     "ItemResult"                "item_hawkeye_fighter"
     "ItemRequirements"
     {
-        "01"                    "item_adi_king_plus;item_soul_scattering_sword;item_wind_waker;item_sacred_six_vein;item_fusion_hawkeye"
+        "01"                    "item_adi_king_plus;item_soul_scattering_sword;item_wind_waker;item_boots_of_bearing_2;item_fusion_hawkeye"
     }
 }
 //=================================================================================================================
@@ -6118,11 +6119,12 @@
         "bonus_movement_speed"  "160"   // tooltip only - 移动速度
         "bonus_movement_speed_pct" "60" // tooltip only - 移动速度百分比
         "bonus_turn_rate"       "50"    // tooltip only - 转身速率
+		// FIXME 继承配方物品，移除抗性
         "bonus_status_resistance" "30"  // Lua 逻辑需要 - 状态抗性
 
         // 主动效果（在 Lua 中实现）
-        "active_movement_speed_pct" "150"
-        "active_duration"       "8"
+        "active_movement_speed_pct"	"100"
+        "active_duration"			"6"
     }
 }
 //=================================================================================================================
@@ -6327,30 +6329,30 @@
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_damage"              "600"   // tooltip only - 攻击力
+			"bonus_damage"              "800"   // tooltip only - 攻击力
 			"bonus_spell_amp"           "50"    // tooltip only - 法术增强
 			"bonus_damage_percent"      "100"   // tooltip only - 基础伤害加成
-			"bonus_agility"             "150"   // tooltip only - 敏捷
-			"bonus_evasion"             "25"    // tooltip only - 闪避
+			"bonus_agility"             "100"   // tooltip only - 敏捷
+			"bonus_evasion"             "35"    // tooltip only - 闪避
 			"bonus_attack_speed"        "100"   // tooltip only - 攻击速度
 
 			// 暴击参数（Lua 逻辑需要 - 动态暴击计算）
 			// 模式1:
-			"crit_chance_mode1" "12"
-			"crit_multiplier_mode1" "10"
-			"guaranteed_crit_multiplier_mode1" "6"
-			"cooldown_mode1" "8"
+			"crit_chance_mode1" "18"
+			"crit_multiplier_mode1" "6"
+			"guaranteed_crit_multiplier_mode1" "5"
+			"cooldown_mode1" "6"
 
 			// 模式2:
 			"crit_chance_mode2" "6"
-			"crit_multiplier_mode2" "30"
-			"guaranteed_crit_multiplier_mode2" "20"
-			"cooldown_mode2" "15"
+			"crit_multiplier_mode2" "20"
+			"guaranteed_crit_multiplier_mode2" "15"
+			"cooldown_mode2" "20"
 
 			// 模式3:
-			"crit_chance_mode3" "3"
+			"crit_chance_mode3" "1"
 			"crit_multiplier_mode3" "100"
-			"guaranteed_crit_multiplier_mode3" "60"
+			"guaranteed_crit_multiplier_mode3" "50"
 			"cooldown_mode3" "60"
 		}
 	}
@@ -6487,7 +6489,7 @@
     "AbilityValues"
     {
 		// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
-		"health_regen_pct"      "5"     // Lua 逻辑需要 - 百分比生命回复
+		"health_regen_pct"      "4"     // Lua 逻辑需要 - 百分比生命回复
 		"status_resistance"     "30"    // Lua 逻辑需要 - 状态抗性
 
 		// Lua 逻辑需要 - 主动技能参数
@@ -6624,7 +6626,7 @@
     "ItemPurchasable"           "1"
     "ItemSellable"              "0"
 
-    "AbilityCooldown"           "10"
+    "AbilityCooldown"           "12"
     "AbilityManaCost"           "800"
     "AbilityCastRange"          "900"
     "AbilityCastPoint"          "0.2"
@@ -6777,7 +6779,7 @@
     "ItemResult"                "item_swift_glove"
     "ItemRequirements"
     {
-        "01"                    "item_dragon_lance_pro_max;item_abyssal_blade_v2;item_moon_shard;item_sacred_six_vein;item_fusion_agile"
+        "01"                    "item_hand_of_group;item_hurricane_pike_2;item_sacred_six_vein;item_fusion_agile"
     }
 }
 "item_swift_glove"
@@ -6793,15 +6795,16 @@
     "AbilityValues"
     {
         // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_strength"            "66"    // tooltip only - 力量
-        "bonus_agility"             "66"    // tooltip only - 敏捷
-        "bonus_intellect"           "66"    // tooltip only - 智力
+        "bonus_strength"            "100"    // tooltip only - 力量
+        "bonus_agility"             "100"    // tooltip only - 敏捷
+        "bonus_intellect"           "100"    // tooltip only - 智力
         "bonus_attack_speed"        "166"   // tooltip only - 攻击速度（66 + 100 额外）
+		// FIXME 继承配方，移除移动速度
         "bonus_movement_speed"      "50"    // tooltip only - 移动速度
 
         // Lua 逻辑需要的参数
-        "bonus_attack_range"        "200"   // Lua 逻辑需要 - 有条件判断（仅远程英雄）
-        "bat_reduction_pct"         "40"    // Lua 逻辑需要 - 动态计算 BAT
+        "bonus_attack_range"        "250"   // Lua 逻辑需要 - 有条件判断（仅远程英雄）
+        "bat_reduction_pct"         "30"    // Lua 逻辑需要 - 动态计算 BAT
     }
 }
 
@@ -6843,9 +6846,9 @@
 			"bonus_strength"				"250"
 			"bonus_agility"					"250"
 			"bonus_intellect"				"250"
-			"status_resistance"				"70"
+			"status_resistance"				"60"
 			"bonus_attack_speed"			"200"
-			"movement_speed_percent_bonus"	"80"
+			"movement_speed_percent_bonus"	"70"
 			"hp_regen_amp"					"100"
 			"mana_regen_multiplier"			"150"
 			"spell_amp"						"100"
@@ -6881,7 +6884,7 @@
         // Stats
         //-------------------------------------------------------------------------------------------------------------
         "AbilityCastPoint"				"0.0"
-        "AbilityCooldown"				"80.0"
+        "AbilityCooldown"				"100.0"
         "AbilityManaCost"				"900"
 		"AbilitySharedCooldown"			"refresh"
 
@@ -6908,7 +6911,7 @@
 			"bonus_mana_regen"		"20.0"  // tooltip only - 魔法恢复
 
 			// Lua 逻辑需要的参数
-			"bonus_cooldown"		"55"
+			"bonus_cooldown"		"50"
 			"bonus_cooldown_stack"	"12"    // 未使用（可能是遗留代码）
 			"cast_range_bonus"		"400"
 			"manacost_reduction"    "50"    // 新增:减魔耗百分比
@@ -6962,7 +6965,7 @@
         // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
         "bonus_strength"            "150"   // tooltip only - 力量
         "bonus_health"              "2500"  // tooltip only - 生命值
-        "bonus_armor"               "100"   // tooltip only - 护甲
+        "bonus_armor"               "80"   // tooltip only - 护甲
         "bonus_spell_resist"        "60"    // tooltip only - 魔法抗性
         "bonus_health_regen"        "50"    // tooltip only - 生命回复
         "bonus_mana_regen"          "15"    // tooltip only - 魔法回复
