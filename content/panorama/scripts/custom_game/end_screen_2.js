@@ -136,6 +136,32 @@ function Snippet_Player(playerId, rootPanel, index) {
     neutralItemPassivePanel.itemname = Abilities.GetAbilityName(neutralItemPassiveIndex);
     neutralItemPassivePanel.contextEntityIndex = neutralItemPassiveIndex;
   }
+
+  // 绘制选择的技能
+  const steamAccountID = playerData?.steamId;
+  if (steamAccountID) {
+    const lotteryStatus = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
+    if (lotteryStatus) {
+      const abilitiesContainer = panel.FindChildTraverse('AbilitiesContainer');
+
+      // 显示主动技能
+      CreateAbilityImage(abilitiesContainer, lotteryStatus.activeAbilityName);
+
+      // 显示第一个被动技能
+      CreateAbilityImage(abilitiesContainer, lotteryStatus.passiveAbilityName);
+
+      // 显示第二个被动技能
+      CreateAbilityImage(abilitiesContainer, lotteryStatus.passiveAbilityName2);
+    }
+  }
+}
+
+function CreateAbilityImage(abilitiesContainer, abilityName) {
+  const abilityPanel = $.CreatePanel('DOTAAbilityImage', abilitiesContainer, '', {
+    abilityname: abilityName,
+    showtooltip: true,
+  });
+  abilityPanel.AddClass('AbilityImage');
 }
 
 /**

@@ -61,17 +61,19 @@ export class ModifierHelper {
 
   /**
    * 应用物品的数据驱动修饰器
+   * @param caster 施法者单位
    * @param target 目标单位
    * @param modifierName 修饰器名称
    * @param modifierTable 修饰器参数表
    */
   static applyItemDataDrivenModifier(
+    caster: CDOTA_BaseNPC,
     target: CDOTA_BaseNPC,
     modifierName: string,
     modifierTable?: object,
   ): void {
     this.GLOBAL_APPLY_MODIFIERS_ITEM.ApplyDataDrivenModifier(
-      target,
+      caster,
       target,
       modifierName,
       modifierTable,
@@ -141,6 +143,7 @@ export class ModifierHelper {
 declare global {
   function RefreshItemDataDrivenModifier(item: CDOTA_Item_Lua, modifierName: string): void;
   function ApplyItemDataDrivenModifier(
+    caster: CDOTA_BaseNPC,
     target: CDOTA_BaseNPC,
     modifierName: string,
     modifierTable?: object,
@@ -152,7 +155,8 @@ _G.RefreshItemDataDrivenModifier = (item: CDOTA_Item_Lua, modifierName: string) 
 };
 
 _G.ApplyItemDataDrivenModifier = (
+  caster: CDOTA_BaseNPC,
   target: CDOTA_BaseNPC,
   modifierName: string,
   modifierTable?: object,
-) => ModifierHelper.applyItemDataDrivenModifier(target, modifierName, modifierTable);
+) => ModifierHelper.applyItemDataDrivenModifier(caster, target, modifierName, modifierTable);

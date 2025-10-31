@@ -39,9 +39,6 @@ function modifier_item_magic_abyss_staff:GetModifierSpellAmplify_Percentage()
     if self:GetParent():HasModifier("modifier_item_hallowed_scepter") then
         return 0
     end
-    if self:GetParent():HasModifier("modifier_item_magic_crit_blade") then
-        return 0
-    end
 
     -- ✅ 修复: 先获取ability对象
     local ability = self:GetAbility()
@@ -115,7 +112,7 @@ function modifier_item_magic_abyss_staff_active:OnTakeDamage(params)
     if not ability then return end
 
     local convert_pct = ability:GetSpecialValueFor("convert_pct") or 10
-    local pure_damage = params.original_damage * convert_pct / 100
+    local pure_damage = params.damage * convert_pct / 100
 
     -- 造成额外的纯粹伤害
     local actual_damage = ApplyDamage({

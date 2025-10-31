@@ -22,8 +22,10 @@ export class PlayerSetting {
   isRememberAbilityKey: boolean;
   activeAbilityKey: string;
   passiveAbilityKey: string;
+  passiveAbilityKey2?: string;
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
+  passiveAbilityQuickCast2?: boolean;
 }
 
 export class PlayerDto {
@@ -77,7 +79,7 @@ export class Player {
 
   //高玩自然要经历更多的考验，游戏里面每隔15s会发一个暗影裁决+暗影咒灭                     的debuf
   private static readonly GAO_WAN_STEAM_IDS: Set<number> = new Set([
-    171404072, 335880293, 121373743,
+    171404072, 335880293, 121373743, 256116833,
     // 添加更多的 SteamID
   ]);
 
@@ -336,6 +338,12 @@ export class Player {
       activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
       passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
     };
+
+    // 只在启用额外被动技能时才包含第二个被动技能快捷键
+    if (GameRules.Option.extraPassiveAbilities) {
+      playerSetting.passiveAbilityKey2 = event.passiveAbilityKey2;
+      playerSetting.passiveAbilityQuickCast2 = event.passiveAbilityQuickCast2 === 1;
+    }
 
     ApiClient.sendWithRetry({
       method: HttpMethod.PUT,

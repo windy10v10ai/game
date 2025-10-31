@@ -6155,9 +6155,9 @@
     "ID"                        "10302"
     "ScriptFile"                "items/item_forbidden_staff"
     "AbilityTextureName"        "jinjifachui"
-    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-	"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-	"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	"FightRecapLevel"				"1"
 	"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
@@ -6232,7 +6232,9 @@
     "ID"                        "10304"
     "ScriptFile"                "items/item_forbidden_blade"
     "AbilityTextureName"        "jinjizhanren"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"  // 改为AOE点目标
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 
     "ItemShopTags"              "damage;str;hard_to_tag"
     "ItemQuality"               "epic"
@@ -6413,14 +6415,14 @@
 			// Lua 逻辑需要 - 法术暴击参数（事件驱动）
 			// 模式1:
 			"spell_crit_chance_mode1"   "50"
-			"spell_crit_multiplier_mode1" "2.0"
-			"guaranteed_spell_crit_multiplier_mode1" "1.5"
+			"spell_crit_multiplier_mode1" "2.5"
+			"guaranteed_spell_crit_multiplier_mode1" "2"
 			"cooldown_mode1"            "12"
 
 			// 模式2:
 			"spell_crit_chance_mode2"   "30"
 			"spell_crit_multiplier_mode2" "4.0"
-			"guaranteed_spell_crit_multiplier_mode2" "2.5"
+			"guaranteed_spell_crit_multiplier_mode2" "3"
 			"cooldown_mode2"            "20"
 
 			// 模式3:
@@ -6597,7 +6599,7 @@
     "ItemResult"                "item_shadow_judgment"
     "ItemRequirements"
     {
-        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_infernal_desolator;item_bloodthorn_ultra;item_fusion_shadow"
+        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
     }
 }
 
@@ -6656,10 +6658,6 @@
 		"max_hp_dmg_pct"        "4"      // 添加这个参数
     	"hp_regen_reduction"    "-80"    // 添加这个参数
 
-        // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
-        "corruption_armor"      "-80"
-        "corruption_duration"   "7.0"
-
         // 变态辣效果
         "silence_duration"      "5.0"
         "silence_damage_percent" "30"
@@ -6717,7 +6715,7 @@
     "ItemPurchasable"           "1"
     "ItemSellable"              "0"
 
-    "AbilityCooldown"           "2"
+    "AbilityCooldown"           "8"
     "AbilityManaCost"           "1600"
     "AbilityCastRange"          "900"
     "AbilityCastPoint"          "0.2"
@@ -6731,7 +6729,7 @@
             "CalculateSpellDamageTooltip" "1"
         }
         "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
-        "sheep_duration"            "3.0"    // Lua 逻辑需要 - 变形持续时间
+        "sheep_duration"            "1.5"    // Lua 逻辑需要 - 变形持续时间
         "sheep_movement_speed"      "140"    // Lua 逻辑需要 - 变形移动速度
         "ethereal_duration"         "4.0"    // Lua 逻辑需要 - 虚灵持续时间
         "blast_agility_multiplier"  "2.5"    // Lua 逻辑需要 - 虚灵之刃主属性倍数
@@ -6740,7 +6738,7 @@
         "ethereal_damage_bonus"     "40"     // Lua 逻辑需要 - 虚灵伤害加成
         "absolute_damage"
         {
-            "value"             "1000"
+            "value"             "600"
             "CalculateSpellDamageTooltip" "1"
         }
 
@@ -7098,6 +7096,7 @@
     "ID"                        "10327"
     "AbilityTextureName"        "moyuanfazhang"
     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
     "AbilityCastPoint"          "0.0"
     "AbilityCooldown"           "20.0"
@@ -7107,69 +7106,148 @@
     "ItemShopTags"              "damage;int;hard_to_tag"
     "ItemQuality"               "artifact"
 
-    "AbilityValues"
-    {
-        "active_duration"       "6"
-        "convert_pct"           "10"
-		"spell_amp_per_int"     "0.2"
-    }
+	"AbilityValues"
+	{
+		"active_duration"		"6"
+		"convert_pct"			"15"
+		"spell_amp_per_int"		"0.2"
+	}
 }
 
-//=================================================================================================================
-// Recipe: 魔渊剑
-//=================================================================================================================
-"item_recipe_magic_sword"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10330"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_magic_sword"
+	//=================================================================================================================
+	// 魔渊剑
+	//=================================================================================================================
+	"item_recipe_magic_sword"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10330"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_magic_sword"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"					"0"
+		"ItemShopTags"				""
 
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_magic_sword"
-    "ItemRequirements"
-    {
-        "01"                    "item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
-    }
-}
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_magic_sword"
+		"ItemRequirements"
+		{
+			"01"					"item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
+		}
+	}
+	"item_magic_sword"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10328"
+		"AbilityTextureName"		"moyuanjian"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
-"item_magic_sword"
-{
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                "items/item_magic_sword"
-    "ID"                        "10328"
-    "AbilityTextureName"        "moyuanjian"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"18.0"
+		"AbilityManaCost"			"150"
 
-    "AbilityCastPoint"          "0.0"
-    "AbilityCooldown"           "18.0"
-    "AbilityManaCost"           "150"
+		"ItemCost"					"25000"
+		"ItemShopTags"				"damage;agi;hard_to_tag"
+		"ItemQuality"				"artifact"
 
-    "ItemCost"                  "25000"
-    "ItemShopTags"              "damage;agi;hard_to_tag"
-    "ItemQuality"               "artifact"
+		"AbilityValues"
+		{
+			// 主动技能参数（Lua 逻辑需要）
+			"active_duration"			"4"		// 主动持续时间
+			"convert_pct"				"20"	// 物理转纯粹伤害百分比
 
-    "AbilityValues"
-    {
-        // 主动技能参数（Lua 逻辑需要）
-        "active_duration"       "6"     // 主动持续时间
-        "convert_pct"           "10"    // 物理转纯粹伤害百分比
+			// 被动属性
+			"bonus_all_stats"			"80"	// 全属性
+			"bonus_damage"				"300"	// 攻击力
 
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-    	"bonus_all_stats"           "80"    // tooltip only - 全属性
-		"bonus_damage"              "300"   // tooltip only - 攻击力
+			// 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
+			"cleave_distance"			"600"	// Lua 逻辑需要 - 溅射范围
+			"cleave_damage_percent"		"100"	// Lua 逻辑需要 - 溅射伤害百分比（英雄）
+			"cleave_damage_percent_creep" "150"	// Lua 逻辑需要 - 溅射伤害百分比（小兵）
 
-        // 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
-		"cleave_distance"           "600"  // Lua 逻辑需要 - 溅射范围
-		"cleave_damage_percent"     "100"   // Lua 逻辑需要 - 溅射伤害百分比（英雄）
-		"cleave_damage_percent_creep" "150" // Lua 逻辑需要 - 溅射伤害百分比（小兵）
-		"slow_duration"             "2.0"   // Lua 逻辑需要 - 减速持续时间
-		"slow_pct"                  "-60"   // Lua 逻辑需要 - 减速百分比
-    }
-}
+			// Debuff
+			"debuff_duration"			"4.0"	// Debuff持续时间
+			"corruption_armor"			"-60"	// Debuff减甲
+			"attack_slow"				"-200"	// Debuff攻击速度降低
+			"slow_pct"					"-60"	// Debuff移动速度降低
+			"hp_regen_reduction_pct"	"-70"	// Debuff生命回复降低
+		}
+
+		"OnSpellStart"
+		{
+			"ApplyModifier"
+			{
+				"Target"			"CASTER"
+				"ModifierName"		"modifier_item_magic_sword_active"
+				"Duration"			"%active_duration"
+			}
+		}
+
+		// Data driven modifiers
+		"Modifiers"
+		{
+			"modifier_item_magic_sword_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"				"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+				}
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_magic_sword"
+						"Function"			"MagicSwordCleaveEffect"
+					}
+					"ApplyModifier"
+					{
+						"Target"			"TARGET"
+						"ModifierName"		"modifier_item_magic_sword_debuff"
+						"Duration"			"%debuff_duration"
+					}
+				}
+			}
+
+			"modifier_item_magic_sword_active"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"item_magic_sword"
+
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_magic_sword"
+						"Function"			"MagicSwordActiveOnAttackLanded"
+					}
+				}
+			}
+
+			"modifier_item_magic_sword_debuff"
+			{
+				"IsDebuff"				"1"
+				"IsPurgable"			"1"
+				"TextureName"			"item_magic_sword"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_pct"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%corruption_armor"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%attack_slow"
+					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%hp_regen_reduction_pct"
+				}
+			}
+		}
+	}
 	// 技能重置书
 	"item_tome_of_ability_reset"
 	{
@@ -7178,7 +7256,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
 
-		"ItemCost"						"30000"
+		"ItemCost"						"20000"
 		"ItemShopTags"					"tome"
 		"ItemQuality"					"consumable"
 
@@ -7196,9 +7274,16 @@
 		"ItemStockTime"					"300"
 		"OnSpellStart"
 		{
-			"SpendCharge"
+
+			"RunScript"
 			{
+				"ScriptFile"		"items/item_tome_of_ability_reset"
+				"Function"			"OnSpellStart"
 			}
+
+			// "SpendCharge"
+			// {
+			// }
 		}
 	}
 	//=================================================================================================================

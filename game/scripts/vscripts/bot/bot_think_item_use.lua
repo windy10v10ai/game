@@ -317,6 +317,11 @@ function BotItemThink:UseActiveItem(hHero)
         return true
     end
 
+    -- item_hawkeye_turret 鹰眼炮台
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hawkeye_turret") then
+        return true
+    end
+
     -- 无目标 短距离
     searchRange = 600
     tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, searchRange)

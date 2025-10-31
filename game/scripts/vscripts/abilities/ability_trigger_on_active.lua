@@ -5,13 +5,17 @@ LinkLuaModifier("modifier_ability_trigger_on_active", "abilities/ability_trigger
 
 ability_trigger_on_active = class({})
 
+-- 添加这个函数来显示AOE范围指示器
+function ability_trigger_on_active:GetAOERadius()
+    return self:GetSpecialValueFor("search_radius")
+end
+
 function ability_trigger_on_active:OnSpellStart()
     local caster = self:GetCaster()
     local point = self:GetCursorPosition()
     local duration = self:GetSpecialValueFor("duration") -- 【新增】获取持续时间
 
     --print("[ability_trigger_on_active1332] OnSpellStart")
-
     -- 添加modifier,设置持续时间
     caster:AddNewModifier(caster, self, "modifier_ability_trigger_on_active", {
         duration = duration, -- 【新增】设置持续时间
@@ -19,9 +23,10 @@ function ability_trigger_on_active:OnSpellStart()
         target_y = point.y,
         target_z = point.z
     })
-
-    -- 音效
-    EmitSoundOn("Hero_Invoker.SunStrike.Ignite", caster)
+    -- 组合音效
+    EmitSoundOn("goku.3", caster)                     -- 主音效:能量爆发
+    EmitSoundOn("Hero_OgreMagi.Fireblast.x3", caster) -- 辅助音效:多重施法
+    EmitSoundOn("Hero_Silencer.Curse.Cast", caster)
 end
 
 -- ========================================
@@ -76,27 +81,10 @@ function modifier_ability_trigger_on_active:OnCreated(params)
     --print("[ability_trigger_on_active1332] OnStartThink")
     -- 开始自动施法循环
     self:StartIntervalThink(self.auto_cast_interval)
-
-    -- 特效
-    self.particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_invoker/invoker_sun_strike_team.vpcf",
-        PATTACH_ABSORIGIN,
-        self.caster
-    )
-    ParticleManager:SetParticleControl(self.particle, 0, self.target_point)
 end
 
 function modifier_ability_trigger_on_active:OnDestroy()
     if not IsServer() then return end
-
-    --print("[ability_trigger_on_active1332] OnDestroy")
-
-    if self.particle then
-        ParticleManager:DestroyParticle(self.particle, false)
-        ParticleManager:ReleaseParticleIndex(self.particle)
-    end
-
-    StopSoundOn("Hero_Invoker.SunStrike.Ignite", self.caster)
 end
 
 function modifier_ability_trigger_on_active:OnIntervalThink()
@@ -150,7 +138,10 @@ function modifier_ability_trigger_on_active:CanCastAbility(ability)
     if not ability or ability:IsHidden() or ability:IsPassive() then
         return false
     end
-
+    -- 【新增】影魔大招单独黑名单
+    if ability_name == "nevermore_requiem" then
+        return false
+    end
     -- 【使用共享黑名单检查】
     if self.no_support_abilities[ability_name] then
         --print("[ability_trigger_on_active1332] CanCast:", ability_name, "- In blacklist")
@@ -165,11 +156,15 @@ function modifier_ability_trigger_on_active:CanCastAbility(ability)
 
         local behavior = ability:GetBehavior()
         local target_team = ability:GetAbilityTargetTeam()
-
+        -- 【新增】点金手特殊处理
+        if ability_name == "item_hand_of_midas" or
+            ability_name == "item_hand_of_group" then
+            return false
+        end
         -- 如果物品只能对友方释放(包括自己),跳过
         if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_FRIENDLY) ~= 0 and
             bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) == 0 then
-            print("[ability_trigger_on_active] CanCast:", ability_name, "- Item targets self/allies only, skipped")
+            --print("[ability_trigger_on_active] CanCast:", ability_name, "- Item targets self/allies only, skipped")
             return false
         end
 
@@ -267,103 +262,121 @@ end
 function modifier_ability_trigger_on_active:TryCastAbility(ability)
     local behavior = ability:GetBehavior()
     local ability_name = ability:GetName()
-    -- 【新增】虚灵之刃特殊处理
-    if ability_name == "item_ethereal_blade" or
-        ability_name == "item_ethereal_blade_2" or
-        ability_name == "item_ethereal_blade_ultra" then
-        --print("[ability_trigger_on_active1332] TryCast:", item_ethereal_blade_ultra)
-        return self:CastEtherealBladeOnEnemy(ability)
-    end
-    --print("[ability_trigger_on_active1332] TryCast:", ability_name)
 
-    -- 【移除延迟,直接施法】
-    -- 重新获取技能属性
-    local target_team = ability:GetAbilityTargetTeam()
-
-    -- 智能目标选择
+    -- 【关键】每次调用都重新声明局部变量
     local cast_target = nil
     local target_position = nil
 
-    -- 友方技能 - 对自己释放
-    if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_FRIENDLY) ~= 0 then
-        cast_target = self.caster
-        target_position = self.caster:GetAbsOrigin()
-        --print("[ability_trigger_on_active1332] 友方技能,目标: 自己")
+    --print("[ability_trigger_on_active] TryCast:", ability_name)
+    -- 【新增】风杖特殊处理:始终对自己施法
+    if ability_name == "item_wind_waker" or ability_name == "invoker_sun_strike" then
+        --print("[ability_trigger_on_active] 风杖,对自己施法")
 
-        -- 敌方技能 - 搜索敌人
-    elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
-        local search_range = self.ability:GetSpecialValueFor("search_radius")
-        local enemies = FindUnitsInRadius(
-            self.caster:GetTeamNumber(),
-            self.target_point,
-            nil,
-            search_range,
-            DOTA_UNIT_TARGET_TEAM_ENEMY,
-            DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
-            FIND_CLOSEST,
-            false
-        )
+        ability:EndCooldown()
 
-        if #enemies > 0 then
-            cast_target = enemies[1]
-            target_position = cast_target:GetAbsOrigin()
-            --print("[ability_trigger_on_active1332] 敌方技能,目标:", cast_target:GetUnitName())
-        elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
-            bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
-            target_position = self.target_point
-            --print("[ability_trigger_on_active1332] 敌方技能,目标: 点位置")
-        else
-            --print("[ability_trigger_on_active1332] 敌方单体技能但无有效目标,跳过")
-            return
-        end
-    else
-        cast_target = self.caster
-        target_position = self.target_point
-        --print("[ability_trigger_on_active1332] 任意目标技能")
+        self.caster:SetCursorCastTarget(self.caster)
+        local cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
+
+        -- 【关键】清除光标目标状态
+        self.caster:SetCursorCastTarget(nil)
+        --print("[ability_trigger_on_active] 施放结果:", tostring(cast_success))
+        return
     end
-    -- 卡尔天火特殊处理:强制使用双击版本(施法者位置)
-    if ability_name == "invoker_sun_strike" then
-        --print("[cast_trigger] 天火")
-        target_position = nil
-        cast_target = self.caster -- 清除单体目标,强制使用点目标模式
-    end
-    -- 【关键】在施法前才EndCooldown
+    -- 结束CD
     ability:EndCooldown()
 
-    -- 施放技能
     local cast_success = false
-    -- 根据技能行为类型施法
-    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 and
-        bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 and
-        bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == 0 then
-        --print("[ability_trigger_on_active1332] 施放无目标技能")
-        cast_success = self.caster:CastAbilityNoTarget(ability, self.caster:GetPlayerOwnerID())
-    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
-        if cast_target and not cast_target:IsNull() then
-            --print("[ability_trigger_on_active1332] 施放单体技能,目标:", cast_target:GetUnitName())
-            self.caster:SetCursorCastTarget(cast_target)
-            cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
-        elseif target_position and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 then
-            --print("[ability_trigger_on_active1332] 施放点目标技能(备选)")
-            self.caster:SetCursorPosition(target_position)
-            cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
+    -- 【关键修改】先检查单体目标行为
+    if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
+        -- 单体目标技能
+        local target_team = ability:GetAbilityTargetTeam()
+        local target_type = ability:GetAbilityTargetType()
+        local target_flags = ability:GetAbilityTargetFlags()
+        local search_range = self.ability:GetSpecialValueFor("search_radius")
+
+        -- 根据目标队伍查找目标
+        if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
+            -- 敌方目标
+            local enemies = FindUnitsInRadius(
+                self.caster:GetTeamNumber(),
+                self.target_point,
+                nil,
+                search_range,
+                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                target_type,
+                DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+                FIND_CLOSEST,
+                false
+            )
+
+            if #enemies > 0 then
+                cast_target = enemies[1]
+                --print(string.format("[ability_trigger_on_active] 找到敌方目标: %s", cast_target:GetUnitName()))
+            else
+                --print("[ability_trigger_on_active] 未找到敌方目标,跳过")
+                return
+            end
+        elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_FRIENDLY) ~= 0 then
+            -- 友方目标
+            cast_target = self.caster
+            --print("[ability_trigger_on_active] 使用施法者作为友方目标")
         end
-    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
-        bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
-        if target_position then
-            --print("[ability_trigger_on_active1332] 施放点目标/AOE技能")
-            self.caster:SetCursorPosition(target_position)
+
+        if cast_target then
+            --print(string.format("[ability_trigger_on_active] 施放单体技能,目标: %s", cast_target:GetUnitName()))
+            self.caster:SetCursorCastTarget(cast_target)
             cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
         else
-            --print("[ability_trigger_on_active1332] 施放点目标/AOE技能到target")
-            self.caster:SetCursorCastTarget(cast_target)
-            cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
+            --print("[ability_trigger_on_active] 单体技能无有效目标,跳过")
+            return
         end
+        -- 然后检查点目标/AOE行为
+        -- 然后检查点目标/AOE行为
+    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
+        bit.band(behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
+        -- 【新增】先尝试查找敌方单位
+        local target_team = ability:GetAbilityTargetTeam()
+        local search_range = self.ability:GetSpecialValueFor("search_radius")
+
+        -- 如果技能目标是敌方,先查找敌方单位
+        if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
+            local enemies = FindUnitsInRadius(
+                self.caster:GetTeamNumber(),
+                self.target_point,
+                nil,
+                search_range,
+                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+                DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+                FIND_CLOSEST,
+                false
+            )
+
+            if #enemies > 0 then
+                -- 找到敌方单位,使用敌方单位的位置
+                target_position = enemies[1]:GetAbsOrigin()
+                --print(string.format("[ability_trigger_on_active] 施放点目标/AOE技能,目标敌方单位位置: %s", tostring(target_position)))
+            else
+                -- 没找到敌方单位,使用原始目标点
+                target_position = self.target_point
+                --print(string.format("[ability_trigger_on_active] 施放点目标/AOE技能,无敌方单位,使用原始目标点: %s",
+                --   tostring(target_position)))
+            end
+        else
+            -- 技能目标不是敌方(可能是友方或自身),使用原始目标点
+            target_position = self.target_point
+            --print(string.format("[ability_trigger_on_active] 施放点目标/AOE技能,目标点: %s", tostring(target_position)))
+        end
+
+        self.caster:SetCursorPosition(target_position)
+        cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
+    elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NO_TARGET) ~= 0 then
+        -- 无目标技能
+        --print("[ability_trigger_on_active] 施放无目标技能")
+        cast_success = self.caster:CastAbilityImmediately(ability, self.caster:GetPlayerOwnerID())
     end
 
-
-    --print("[ability_trigger_on_active1332] 施放结果:", tostring(cast_success))
+    --print(string.format("[ability_trigger_on_active] 施放结果: %s", tostring(cast_success)))
 
     if cast_success then
         -- 返还魔法
@@ -380,14 +393,17 @@ function modifier_ability_trigger_on_active:DeclareFunctions()
 end
 
 function modifier_ability_trigger_on_active:GetModifierCastRangeBonusStacking()
-    return self.ability:GetSpecialValueFor("bonus_cast_range") -- 【新增】返回施法距离加成
+    if not self.ability then return 0 end -- 【新增】nil 检查
+    return self.ability:GetSpecialValueFor("bonus_cast_range")
 end
 
 function modifier_ability_trigger_on_active:GetModifierPercentageCooldown()
+    if not self.ability then return 0 end -- 【新增】nil 检查
     return self.ability:GetSpecialValueFor("cd_reduction_pct")
 end
 
 function modifier_ability_trigger_on_active:GetModifierPercentageCasttime()
+    if not self.ability then return 0 end -- 【新增】nil 检查
     return self.ability:GetSpecialValueFor("cast_time_reduction_pct")
 end
 

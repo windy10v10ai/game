@@ -59,7 +59,9 @@ function item_shadow_impact:ApplyDagonEffect(target)
         target:GetAbsOrigin(), true)
     ParticleManager:ReleaseParticleIndex(particle)
 
-    EmitSoundOn("DOTA_Item.Dagon5.Activate", caster)
+    -- 使用更强的音效
+    EmitSoundOn("Hero_Lion.FingerOfDeath", target)
+    EmitSoundOn("Hero_Zuus.LightningBolt", target) -- 添加雷击音效增强冲击感
 end
 
 function item_shadow_impact:ApplyEtherealBladeEffect(target)
@@ -90,17 +92,6 @@ function item_shadow_impact:ApplyEtherealBladeEffect(target)
     -- 添加虚灵状态
     target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_ethereal", { duration = duration })
     target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_slow", { duration = duration })
-
-    local particle = ParticleManager:CreateParticle(
-        "particles/items2_fx/ethereal_blade.vpcf",
-        PATTACH_CUSTOMORIGIN,
-        caster
-    )
-    ParticleManager:SetParticleControlEnt(particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_attack1",
-        caster:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc",
-        target:GetAbsOrigin(), true)
-    ParticleManager:ReleaseParticleIndex(particle)
 
     EmitSoundOn("DOTA_Item.EtherealBlade.Activate", caster)
 end

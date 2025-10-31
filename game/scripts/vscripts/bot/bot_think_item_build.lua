@@ -30,6 +30,10 @@ local function addTome(k, v)
     local replace_chance = multiplier
 
     -- 随机替换装备（基于配方）
+    -- 天地同寿甲(秘术铠甲 群体刃甲)
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
+    end
     -- 1. 万剑归宗：六脉神剑、无锋战戟 -> 万剑归宗
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_sacred_six_vein", "item_ten_thousand_swords")
@@ -140,8 +144,6 @@ local function addTome(k, v)
     end
   end
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
-    -- 天地同寿甲(秘术铠甲 群体刃甲)
-    replaceItem(v, "item_blade_mail_2", "item_force_field_ultra")
     -- 诅咒圣剑
     replaceItem(v, "item_excalibur", "item_rapier_ultra_bot_1")
   end
