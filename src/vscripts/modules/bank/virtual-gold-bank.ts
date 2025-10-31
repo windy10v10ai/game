@@ -66,7 +66,7 @@ export class VirtualGoldBank {
     virtualGold: number,
   ): void {
     const excess = currentGold - this.GOLD_THRESHOLD;
-    hero.ModifyGold(-excess, true, ModifyGoldReason.UNSPECIFIED);
+    hero.ModifyGold(-excess, false, ModifyGoldReason.UNSPECIFIED);
 
     this.playerVirtualGold.set(playerID, virtualGold + excess);
     this.updateVirtualGoldUI(playerID);
@@ -88,7 +88,7 @@ export class VirtualGoldBank {
     const needed = this.GOLD_THRESHOLD - currentGold;
     const transferAmount = Math.min(needed, virtualGold);
 
-    hero.ModifyGold(transferAmount, true, ModifyGoldReason.UNSPECIFIED);
+    hero.ModifyGold(transferAmount, false, ModifyGoldReason.UNSPECIFIED);
     this.playerVirtualGold.set(playerID, virtualGold - transferAmount);
 
     // 累加转回的总金额
