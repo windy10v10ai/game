@@ -1975,7 +1975,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1100"
+		"ItemCost"						"500"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1999,15 +1999,15 @@
 		"AbilityValues"
 		{
 				"bonus_all_stats"		"80"
-				"bonus_health"			"600"
-				"bonus_mana"			"600"
+				// "bonus_health"			"600"
+				// "bonus_mana"			"600"
 				"cold_slow_melee"		"-60"
 				"cold_attack_slow_melee"	"-60"
 				"cold_slow_ranged"	"-75"
 				"cold_attack_slow_ranged"	"-60"
 				"cold_duration"	"4.0"
-				"restoration_reduction" "70"	// 40
-				"heal_reduction"	"70"		// 40
+				"restoration_reduction" "60"	// 40
+				"heal_reduction"	"60"		// 40
 		}
 	}
 
@@ -7108,8 +7108,8 @@
 
 	"AbilityValues"
 	{
-		"active_duration"		"6"
-		"convert_pct"			"15"
+		"active_duration"		"3"
+		"convert_pct"			"50"
 		"spell_amp_per_int"		"0.2"
 	}
 }
@@ -7143,7 +7143,7 @@
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"18.0"
+		"AbilityCooldown"			"20.0"
 		"AbilityManaCost"			"150"
 
 		"ItemCost"					"25000"
@@ -7153,12 +7153,14 @@
 		"AbilityValues"
 		{
 			// 主动技能参数（Lua 逻辑需要）
-			"active_duration"			"4"		// 主动持续时间
-			"convert_pct"				"20"	// 物理转纯粹伤害百分比
+			"active_duration"			"3"		// 主动持续时间
+			"convert_pct"				"50"	// 物理转纯粹伤害百分比
 
 			// 被动属性
 			"bonus_all_stats"			"80"	// 全属性
-			"bonus_damage"				"300"	// 攻击力
+			"bonus_damage"				"500"	// 攻击力
+			"bonus_health_regen"		"30"	// 生命回复
+			"bonus_mana_regen"			"10"	// 魔法回复
 
 			// 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
 			"cleave_distance"			"600"	// Lua 逻辑需要 - 溅射范围
@@ -7195,9 +7197,11 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
-					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
 				}
 
 				"OnAttackLanded"
