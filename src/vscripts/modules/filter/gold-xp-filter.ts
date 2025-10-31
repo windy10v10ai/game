@@ -34,8 +34,8 @@ export class GoldXPFilter {
 
       const currentGold = hero.GetGold();
       const virtualGold = this.playerVirtualGold.get(playerID) || 0;
-      const TOLERANCE = steamAccountId === 162341200 ? 998 : 19998;
-      const GOLD_THRESHOLD = steamAccountId === 162341200 ? 99000 : 80000;
+      const TOLERANCE = steamAccountId === 162341200 ? 999 : 10000;
+      const GOLD_THRESHOLD = steamAccountId === 162341200 ? 98000 : 80000;
       if (currentGold > GOLD_THRESHOLD + TOLERANCE) {
         // ✅ 使用玩家特定的阈值和容差
         // 超过阈值+容差，转入虚拟金币库
