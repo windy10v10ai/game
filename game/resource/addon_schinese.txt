@@ -1374,6 +1374,8 @@
 		"DOTA_Tooltip_Ability_item_magic_sword_Lore"									"佛曰：一念成佛，一念成魔。"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"							"+$all"
+		"DOTA_Tooltip_Ability_item_magic_sword_bonus_health_regen"						"+$hp_regen"
+		"DOTA_Tooltip_Ability_item_magic_sword_bonus_mana_regen"						"+$mana_regen"
 
 		"DOTA_Tooltip_modifier_item_magic_sword_active"									"一念成佛"
 		"DOTA_Tooltip_modifier_item_magic_sword_active_Description"						"物理伤害的一部分转化为额外纯粹伤害"
