@@ -1,4 +1,7 @@
 /* Home 模块样式文件 */
+/* 配色方案: #4E56C0 #9B5DE0 #D78FEE #FDCFFA */
+
+/* ========== 根容器 ========== */
 .root {
   width: 100%;
   height: 100%;
@@ -6,66 +9,85 @@
 
 /* ========== 主容器 ========== */
 .home-container {
-  width: 50%;
-  height: 50%;
-  margin-top: 120px;
+  width: 700px;
+  height: 500px;
+  horizontal-align: center;
+  vertical-align: center;
+  background-color: #1a1a2eea;
+  border: 3px solid #9B5DE0;
+  border-radius: 10px;
+  flow-children: down;
+  box-shadow: 0px 0px 25px 8px #4E56C088;
 }
 
 /* ========== 标题栏 ========== */
 .home-header {
   width: 100%;
-  height: 50px;
-  background-color: #1a1a1a;
-  border-radius: 6px 6px 0 0;
+  height: 60px;
+  background-color: #4E56C0;
+  background-image: linear-gradient(to right, #4E56C0 0%, #9B5DE0 100%);
+  border-radius: 7px 7px 0 0;
   flow-children: right;
-  padding: 10px 20px;
+  padding: 15px 25px;
+  border-bottom: 2px solid #D78FEE;
 }
 
 .home-title {
-  font-size: 20px;
-  color: #ffd700;
+  font-size: 24px;
+  font-weight: bold;
+  color: #FDCFFA;
+  text-shadow: 2px 2px 4px #00000088;
   vertical-align: center;
+  letter-spacing: 1px;
 }
 
 /* ========== Tab 导航栏 ========== */
 .tab-container {
   width: 100%;
-  height: 45px;
+  height: 50px;
   flow-children: right;
-  background-color: #0a0a0a;
-  border-top: 1px solid #333333;
-  border-bottom: 1px solid #333333;
+  background-color: #1a1a2e;
+  padding: 5px 10px;
 }
 
 .tab-button {
   width: 33.33%;
   height: 100%;
-  background-color: transparent;
-  font-size: 14px;
-  color: #aaaaaa;
+  background-color: #2a2a3e;
+  border: 2px solid #4E56C0;
+  border-radius: 5px;
+  margin: 0px 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #9B5DE0;
   text-align: center;
-  transition-property: background-color, color;
+  vertical-align: center;
+  transition-property: background-color, color, border-color;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
 
   &:hover {
-    background-color: #151515;
-    color: #ffffff;
+    background-color: #3a3a4e;
+    border-color: #9B5DE0;
+    color: #D78FEE;
   }
 
   &.active {
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #ffd700;
-    color: #ffd700;
+    background-color: #9B5DE0;
+    background-image: linear-gradient(to bottom, #D78FEE 0%, #9B5DE0 100%);
+    border-color: #FDCFFA;
+    color: #ffffff;
+    text-shadow: 0px 1px 2px #00000088;
   }
 }
 
 /* ========== 内容区域 ========== */
 .content-area {
   width: 100%;
-  height: 305px;
-  padding: 15px;
+  height: 390px;
+  padding: 20px;
   flow-children: down;
+  background-color: #0f0f0f22;
 }
 
 /* ========== StatsPage 样式 ========== */
@@ -73,23 +95,43 @@
   width: 100%;
   height: 100%;
   flow-children: down;
-  padding: 10px;
+  padding: 15px;
+  background-color: #00000033;
+  border-radius: 5px;
 }
 
 .stat-item {
-  font-size: 16px;
+  width: 100%;
+  height: 35px;
+  font-size: 18px;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
   flow-children: right;
+  background-color: #00000044;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #9B5DE0;
+  transition-property: background-color, border-left-color;
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: #00000066;
+    border-left-color: #D78FEE;
+  }
 }
 
 .stat-label {
-  color: #aaaaaa;
+  color: #D78FEE;
+  font-weight: bold;
+  width: 150px;
 }
 
 .stat-value {
-  color: #ffd700;
-  margin-left: 10px;
+  color: #FDCFFA;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #4E56C088;
+  margin-left: 15px;
 }
 
 /* ========== AchievementsPage 样式 ========== */
@@ -98,53 +140,64 @@
   height: 100%;
   flow-children: down;
   padding: 10px;
+  background-color: #00000033;
+  border-radius: 5px;
 }
 
 .achievement-item {
   width: 100%;
-  height: 40px;
-  background-color: #00000066;
-  border: 1px solid #444444;
-  border-radius: 3px;
-  margin-bottom: 5px;
-  padding: 8px;
+  height: 50px;
+  background-color: #00000055;
+  border: 2px solid #4E56C0;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  padding: 10px 15px;
   flow-children: right;
-  transition-property: background-color, border-color;
+  transition-property: background-color, border-color, transform;
   transition-duration: 0.2s;
 
   &:hover {
-    background-color: #00000099;
-    border-color: #666666;
+    background-color: #00000088;
+    border-color: #9B5DE0;
+    transform: translateX(5px);
   }
 }
 
 .achievement-icon {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 15px;
+  border: 2px solid #4E56C0;
+  vertical-align: center;
 
   &.unlocked {
-    background-color: #ffd700;
+    background-color: #D78FEE;
+    border-color: #FDCFFA;
+    box-shadow: 0px 0px 8px 2px #D78FEE88;
   }
 
   &.locked {
-    background-color: #666666;
+    background-color: #2a2a3e;
+    border-color: #4E56C0;
   }
 }
 
 .achievement-text-container {
   flow-children: down;
+  vertical-align: center;
 }
 
 .achievement-title {
-  font-size: 14px;
-  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  color: #FDCFFA;
+  margin-bottom: 2px;
 }
 
 .achievement-desc {
-  font-size: 12px;
-  color: #aaaaaa;
+  font-size: 13px;
+  color: #9B5DE0;
 }
 
 /* ========== SettingsPage 样式 ========== */
@@ -152,39 +205,73 @@
   width: 100%;
   height: 100%;
   flow-children: down;
-  padding: 10px;
+  padding: 15px;
+  background-color: #00000033;
+  border-radius: 5px;
 }
 
 .setting-item {
   width: 100%;
-  height: 35px;
+  height: 40px;
   flow-children: right;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  background-color: #00000044;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #4E56C0;
+
+  &:hover {
+    border-left-color: #D78FEE;
+  }
 }
 
 .setting-label {
-  font-size: 14px;
-  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  color: #D78FEE;
   vertical-align: center;
-  width: 150px;
+  width: 200px;
 }
 
 .setting-button {
-  width: 80px;
-  height: 25px;
-  font-size: 12px;
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #2a2a3e;
+  border: 2px solid #4E56C0;
+  border-radius: 4px;
+  color: #D78FEE;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: #4E56C0;
+    border-color: #9B5DE0;
+    color: #FDCFFA;
+  }
+
+  &:active {
+    background-color: #9B5DE0;
+    border-color: #FDCFFA;
+    color: #ffffff;
+  }
 }
 
 .section-title {
-  font-size: 16px;
-  color: #ffd700;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #D78FEE;
+  text-shadow: 2px 2px 4px #4E56C088;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #9B5DE044;
 }
 
 .setting-value {
-  font-size: 14px;
-  color: #aaaaaa;
+  font-size: 16px;
+  color: #9B5DE0;
   vertical-align: center;
-  width: 150px;
+  margin-left: 10px;
 }
