@@ -20,7 +20,7 @@ function Home() {
 
   // 定义主 Tab 配置
   const mainTabs = [
-    { id: 'stats' as PageType, label: '统计' },
+    // { id: 'stats' as PageType, label: '统计' },
     { id: 'achievements' as PageType, label: '排行榜' },
     { id: 'settings' as PageType, label: '设置' },
   ];
