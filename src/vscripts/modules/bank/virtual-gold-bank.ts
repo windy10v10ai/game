@@ -1,4 +1,3 @@
-import { Analytics } from '../../api/analytics/analytics';
 import { MemberLevel, Player } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 
@@ -7,7 +6,6 @@ export class VirtualGoldBank {
   private playerVirtualGold: Map<PlayerID, number> = new Map();
   private playerTransferredBackTotal: Map<PlayerID, number> = new Map(); // 记录从虚拟金币库转回的总额
   private readonly CHECK_INTERVAL = 1.5; // 检查间隔(秒)
-  private playerNotifiedNonMember: Map<PlayerID, boolean> = new Map(); // 记录是否已提示过
   private readonly GOLD_THRESHOLD = 80000;
   private readonly TOLERANCE = 10000;
 
@@ -32,16 +30,15 @@ export class VirtualGoldBank {
       const virtualGold = this.playerVirtualGold.get(playerID) || 0;
       const isPremiumMember = this.isPremiumMember(playerID);
 
+      if (!isPremiumMember) {
+        continue;
+      }
+
       if (currentGold > this.GOLD_THRESHOLD + this.TOLERANCE) {
         // 超过阈值+容差，转入虚拟金币库
-        if (isPremiumMember) {
-          this.transferToVirtualBank(playerID, hero, currentGold, virtualGold);
-        } else {
-          // 非会员，通知金币已达上限
-          this.notifyNonMemberLimitReached(playerID, currentGold);
-        }
-      } else if (currentGold < this.GOLD_THRESHOLD && virtualGold > 0 && isPremiumMember) {
-        // 低于阈值且有虚拟金币，只有会员才能转回实际金币
+        this.transferToVirtualBank(playerID, hero, currentGold, virtualGold);
+      } else if (currentGold < this.GOLD_THRESHOLD && virtualGold > 0) {
+        // 低于阈值且有虚拟金币，转回实际金币
         this.transferFromVirtualBank(playerID, hero, currentGold, virtualGold);
       }
     }
@@ -100,23 +97,6 @@ export class VirtualGoldBank {
     print(
       `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}, Total transferred back: ${currentTransferTotal + transferAmount}`,
     );
-  }
-
-  /**
-   * 通知非会员玩家金币已达上限
-   */
-  private notifyNonMemberLimitReached(playerID: PlayerID, currentGold: number): void {
-    if (currentGold > 99999 && !this.playerNotifiedNonMember.get(playerID)) {
-      const steamAccountId = PlayerResource.GetSteamAccountID(playerID);
-      const message =
-        Analytics.PLAYER_LANGUAGES.players.find((player) => player.steamId === steamAccountId)
-          ?.language === 'schinese'
-          ? '金币已达上限! 开通高级会员可使用虚拟金币库功能'
-          : 'Gold limit reached! Open premium membership to use virtual gold bank';
-      GameRules.SendCustomMessage(`<font color='#FFA500'>⚠️ ${message}</font>`, playerID, 0);
-      this.playerNotifiedNonMember.set(playerID, true); // 标记已提示
-      print(`[NonMember] Player ${playerID}: Notified about member-only virtual gold feature`);
-    }
   }
 
   private updateVirtualGoldUI(playerID: PlayerID): void {

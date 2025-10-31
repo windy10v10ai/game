@@ -143,7 +143,7 @@ describe('VirtualGoldBank', () => {
         virtualGold,
       );
 
-      expect(mockHero.ModifyGold).toHaveBeenCalledWith(-15000, true, ModifyGoldReason.UNSPECIFIED);
+      expect(mockHero.ModifyGold).toHaveBeenCalledWith(-15000, false, ModifyGoldReason.UNSPECIFIED);
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(20000);
       expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
         'player_virtual_gold',
@@ -164,83 +164,6 @@ describe('VirtualGoldBank', () => {
       // 如果需要测试 balanceVirtualGold 的行为，应该通过它来测试
       // 这里保留方法测试，验证方法本身的逻辑
     });
-
-    it('should notify non-member when gold exceeds 99999', () => {
-      mockGetMemberLevel.mockReturnValue(MemberLevel.NORMAL);
-      const currentGold = 100000; // 超过 99999
-
-      Analytics.PLAYER_LANGUAGES.players = [{ steamId: STEAM_ACCOUNT_ID, language: 'schinese' }];
-
-      // 在 balanceVirtualGold 中会检测并通知，这里直接测试通知方法
-      // 由于 notifyNonMemberLimitReached 是 private，我们需要通过 balanceVirtualGold 来测试
-      // 但为了测试通知逻辑，我们直接调用（通过类型断言并绑定 this）
-      const notifyMethod = (
-        virtualGoldBank as unknown as {
-          notifyNonMemberLimitReached: (pid: PlayerID, gold: number) => void;
-        }
-      ).notifyNonMemberLimitReached.bind(virtualGoldBank);
-      notifyMethod(PLAYER_ID, currentGold);
-
-      expect(mockGameRules.SendCustomMessage).toHaveBeenCalledWith(
-        expect.stringContaining('金币已达上限! 开通高级会员可使用虚拟金币库功能'),
-        PLAYER_ID,
-        0,
-      );
-    });
-
-    it('should notify non-member in English when language is not schinese', () => {
-      mockGetMemberLevel.mockReturnValue(MemberLevel.NORMAL);
-      const currentGold = 100000;
-
-      Analytics.PLAYER_LANGUAGES.players = [{ steamId: STEAM_ACCOUNT_ID, language: 'english' }];
-
-      const notifyMethod = (
-        virtualGoldBank as unknown as {
-          notifyNonMemberLimitReached: (pid: PlayerID, gold: number) => void;
-        }
-      ).notifyNonMemberLimitReached.bind(virtualGoldBank);
-      notifyMethod(PLAYER_ID, currentGold);
-
-      expect(mockGameRules.SendCustomMessage).toHaveBeenCalledWith(
-        expect.stringContaining(
-          'Gold limit reached! Open premium membership to use virtual gold bank',
-        ),
-        PLAYER_ID,
-        0,
-      );
-    });
-
-    it('should not notify non-member twice', () => {
-      mockGetMemberLevel.mockReturnValue(MemberLevel.NORMAL);
-      const currentGold = 100000;
-
-      Analytics.PLAYER_LANGUAGES.players = [{ steamId: STEAM_ACCOUNT_ID, language: 'schinese' }];
-
-      const notifyMethod = (
-        virtualGoldBank as unknown as {
-          notifyNonMemberLimitReached: (pid: PlayerID, gold: number) => void;
-        }
-      ).notifyNonMemberLimitReached.bind(virtualGoldBank);
-
-      notifyMethod(PLAYER_ID, currentGold);
-      notifyMethod(PLAYER_ID, currentGold);
-
-      expect(mockGameRules.SendCustomMessage).toHaveBeenCalledTimes(1);
-    });
-
-    it('should not notify non-member when gold is below 99999', () => {
-      mockGetMemberLevel.mockReturnValue(MemberLevel.NORMAL);
-      const currentGold = 95000; // 超过阈值+容差，但未超过99999
-
-      const notifyMethod = (
-        virtualGoldBank as unknown as {
-          notifyNonMemberLimitReached: (pid: PlayerID, gold: number) => void;
-        }
-      ).notifyNonMemberLimitReached.bind(virtualGoldBank);
-      notifyMethod(PLAYER_ID, currentGold);
-
-      expect(mockGameRules.SendCustomMessage).not.toHaveBeenCalled();
-    });
   });
 
   describe('transferFromVirtualBank', () => {
@@ -258,7 +181,7 @@ describe('VirtualGoldBank', () => {
         virtualGold,
       );
 
-      expect(mockHero.ModifyGold).toHaveBeenCalledWith(5000, true, ModifyGoldReason.UNSPECIFIED);
+      expect(mockHero.ModifyGold).toHaveBeenCalledWith(5000, false, ModifyGoldReason.UNSPECIFIED);
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(15000);
       expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
         'player_virtual_gold',
@@ -281,7 +204,7 @@ describe('VirtualGoldBank', () => {
         virtualGold,
       );
 
-      expect(mockHero.ModifyGold).toHaveBeenCalledWith(10000, true, ModifyGoldReason.UNSPECIFIED);
+      expect(mockHero.ModifyGold).toHaveBeenCalledWith(10000, false, ModifyGoldReason.UNSPECIFIED);
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(40000);
       expect(mockCustomNetTables.SetTableValue).toHaveBeenCalledWith(
         'player_virtual_gold',
@@ -306,7 +229,7 @@ describe('VirtualGoldBank', () => {
 
       expect(mockHero.ModifyGold).toHaveBeenCalledWith(
         virtualGold,
-        true,
+        false,
         ModifyGoldReason.UNSPECIFIED,
       );
       expect(virtualGoldBank.getVirtualGold(PLAYER_ID)).toBe(0);
