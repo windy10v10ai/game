@@ -70,6 +70,7 @@ declare global {
     player_virtual_gold: {
       [playerID: string]: {
         virtual_gold: number;
+        transferred_back_total: number; // 从虚拟金币库转回的总金额
       };
     };
   }

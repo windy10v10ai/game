@@ -88,7 +88,14 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('deaths', Players.GetDeaths(playerId));
   panel.SetDialogVariableInt('assists', Players.GetAssists(playerId));
   panel.SetDialogVariableInt('lasthits', Players.GetLastHits(playerId));
-  panel.SetDialogVariableInt('money', Players.GetTotalEarnedGold(playerId));
+
+  // 获取总金币，减去从虚拟金币库转回的金额
+  const totalEarnedGold = Players.GetTotalEarnedGold(playerId);
+  const virtualGoldData = CustomNetTables.GetTableValue('player_virtual_gold', playerId.toString());
+  const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
+  const adjustedGold = Math.max(0, totalEarnedGold - transferredBackTotal);
+  panel.SetDialogVariableInt('money', adjustedGold);
+
   panel.SetDialogVariableInt('damage', playerData?.damage ?? 0);
   panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
