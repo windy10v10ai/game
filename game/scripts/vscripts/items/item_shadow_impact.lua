@@ -171,11 +171,11 @@ end
 
 function modifier_item_shadow_impact:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_CAST_RANGE_BONUS_STACKING,
+        MODIFIER_PROPERTY_CAST_RANGE_BONUS,
     }
 end
 
-function modifier_item_shadow_impact:GetModifierCastRangeBonusStacking()
+function modifier_item_shadow_impact:GetModifierCastRangeBonus()
     return self.bonus_cast_range or 0
 end
 
