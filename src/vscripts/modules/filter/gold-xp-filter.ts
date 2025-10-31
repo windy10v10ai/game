@@ -43,9 +43,6 @@ export class GoldXPFilter {
     if (this.GOLD_REASON_NOT_FILTER.includes(reason)) {
       return true;
     }
-    if (this.GOLD_REASON_NOT_FILTER.includes(reason)) {
-      return true;
-    }
 
     if (reason === ModifyGoldReason.HERO_KILL) {
       gold = this.filterHeroKillGold(gold);

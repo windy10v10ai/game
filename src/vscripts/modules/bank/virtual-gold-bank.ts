@@ -27,57 +27,89 @@ export class VirtualGoldBank {
       const hero = PlayerResource.GetSelectedHeroEntity(playerID);
       if (!hero || !hero.IsAlive()) continue;
 
-      // 检查是否为高级会员，高级会员及才能使用虚拟金币系统
-      const steamAccountId = PlayerResource.GetSteamAccountID(playerID);
-      const memberLevel = Player.GetMemberLevel(steamAccountId);
-      const isPremiumMember = memberLevel === MemberLevel.PREMIUM;
-
       const currentGold = hero.GetGold();
       const virtualGold = this.playerVirtualGold.get(playerID) || 0;
+      const isPremiumMember = this.isPremiumMember(playerID);
+
       if (currentGold > this.GOLD_THRESHOLD + this.TOLERANCE) {
-        // 使用玩家特定的阈值和容差
         // 超过阈值+容差，转入虚拟金币库
         if (isPremiumMember) {
-          const excess = currentGold - this.GOLD_THRESHOLD;
-          hero.ModifyGold(-excess, false, ModifyGoldReason.UNSPECIFIED);
-
-          this.playerVirtualGold.set(playerID, virtualGold + excess);
-          this.updateVirtualGoldUI(playerID);
-
-          print(
-            `[Member] Player ${playerID}: Transferred ${excess} gold to virtual bank. Virtual total: ${virtualGold + excess}`,
-          );
+          this.transferToVirtualBank(playerID, hero, currentGold, virtualGold);
         } else {
-          // 非会员,只在第一次提示
-          if (currentGold > 99999 && !this.playerNotifiedNonMember.get(playerID)) {
-            const message =
-              Analytics.PLAYER_LANGUAGES.players.find((player) => player.steamId === steamAccountId)
-                ?.language === 'schinese'
-                ? '金币已达上限! 开通高级会员可使用虚拟金币库功能'
-                : 'Gold limit reached! Open premium membership to use virtual gold bank';
-            GameRules.SendCustomMessage(`<font color='#FFA500'>⚠️ ${message}</font>`, playerID, 0);
-            this.playerNotifiedNonMember.set(playerID, true); // 标记已提示
-            print(
-              `[NonMember] Player ${playerID}: Notified about member-only virtual gold feature`,
-            );
-          }
+          // 非会员，通知金币已达上限
+          this.notifyNonMemberLimitReached(playerID, currentGold);
         }
-      } else if (currentGold < this.GOLD_THRESHOLD && virtualGold > 0) {
-        // 低于阈值且有虚拟金币，转回实际金币
-        if (isPremiumMember) {
-          // 只有会员才能从虚拟金币库转回
-          const needed = this.GOLD_THRESHOLD - currentGold;
-          const transferAmount = Math.min(needed, virtualGold);
-
-          hero.ModifyGold(transferAmount, false, ModifyGoldReason.UNSPECIFIED);
-          this.playerVirtualGold.set(playerID, virtualGold - transferAmount);
-          this.updateVirtualGoldUI(playerID);
-
-          print(
-            `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}`,
-          );
-        }
+      } else if (currentGold < this.GOLD_THRESHOLD && virtualGold > 0 && isPremiumMember) {
+        // 低于阈值且有虚拟金币，只有会员才能转回实际金币
+        this.transferFromVirtualBank(playerID, hero, currentGold, virtualGold);
       }
+    }
+  }
+
+  /**
+   * 检查玩家是否为高级会员
+   */
+  private isPremiumMember(playerID: PlayerID): boolean {
+    const steamAccountId = PlayerResource.GetSteamAccountID(playerID);
+    const memberLevel = Player.GetMemberLevel(steamAccountId);
+    return memberLevel === MemberLevel.PREMIUM;
+  }
+
+  /**
+   * 将超出阈值的金币转入虚拟金币库（仅限会员）
+   */
+  transferToVirtualBank(
+    playerID: PlayerID,
+    hero: CDOTA_BaseNPC_Hero,
+    currentGold: number,
+    virtualGold: number,
+  ): void {
+    const excess = currentGold - this.GOLD_THRESHOLD;
+    hero.ModifyGold(-excess, false, ModifyGoldReason.UNSPECIFIED);
+
+    this.playerVirtualGold.set(playerID, virtualGold + excess);
+    this.updateVirtualGoldUI(playerID);
+
+    print(
+      `[Member] Player ${playerID}: Transferred ${excess} gold to virtual bank. Virtual total: ${virtualGold + excess}`,
+    );
+  }
+
+  /**
+   * 从虚拟金币库转回实际金币（仅限会员）
+   */
+  transferFromVirtualBank(
+    playerID: PlayerID,
+    hero: CDOTA_BaseNPC_Hero,
+    currentGold: number,
+    virtualGold: number,
+  ): void {
+    const needed = this.GOLD_THRESHOLD - currentGold;
+    const transferAmount = Math.min(needed, virtualGold);
+
+    hero.ModifyGold(transferAmount, false, ModifyGoldReason.UNSPECIFIED);
+    this.playerVirtualGold.set(playerID, virtualGold - transferAmount);
+    this.updateVirtualGoldUI(playerID);
+
+    print(
+      `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}`,
+    );
+  }
+
+  /**
+   * 通知非会员玩家金币已达上限
+   */
+  private notifyNonMemberLimitReached(playerID: PlayerID, currentGold: number): void {
+    if (currentGold > 99999 && !this.playerNotifiedNonMember.get(playerID)) {
+      const steamAccountId = PlayerResource.GetSteamAccountID(playerID);
+      const message =
+        Analytics.PLAYER_LANGUAGES.players.find((player) => player.steamId === steamAccountId)
+          ?.language === 'schinese'
+          ? '金币已达上限! 开通高级会员可使用虚拟金币库功能'
+          : 'Gold limit reached! Open premium membership to use virtual gold bank';
+      GameRules.SendCustomMessage(`<font color='#FFA500'>⚠️ ${message}</font>`, playerID, 0);
+      this.playerNotifiedNonMember.set(playerID, true); // 标记已提示
+      print(`[NonMember] Player ${playerID}: Notified about member-only virtual gold feature`);
     }
   }
 
