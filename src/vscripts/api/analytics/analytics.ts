@@ -10,7 +10,7 @@ export class Analytics {
   public static readonly POST_GAME_END_PICK_ABILITIES_URL = '/analytics/game-end/pick/abilities';
   public static readonly POST_GAME_END_ITEM_BUILDS_URL = '/analytics/game-end/item-builds';
   public static readonly POST_PLAYER_LANGUAGE_URL = '/analytics/player/language';
-  private static PLAYER_LANGUAGES: PlayerLanguageListDto = {
+  public static PLAYER_LANGUAGES: PlayerLanguageListDto = {
     players: [],
     matchId: '',
     version: '',
