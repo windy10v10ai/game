@@ -192,9 +192,13 @@ export class Lottery {
         if (abilityType === 'abilityPassive' && abilityType === 'abilityPassive') {
           // 配置1: 蝴蝶效应技能池
           const hudieAbilities = [
-            { name: 'ability_trigger_on_attacked', level: 5 }, // 金蝴蝶
-            { name: 'ability_trigger_on_spell_reflect', level: 5 }, // 绿蝴蝶
-            { name: 'ability_charge_damage', level: 5 }, // 充能伤害
+            { name: 'slark_essence_shift', level: 5 }, // 能量转移
+            { name: 'axe_counter_helix', level: 5 }, // 反击
+            { name: 'medusa_split_shot', level: 5 }, // 分裂箭
+            { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒烧灼
+            { name: 'elder_titan_natural_order', level: 5 }, // 自然秩序
+            { name: 'omniknight_hammer_of_purity', level: 5 }, // 纯洁
+            { name: 'ability_trigger_on_move', level: 5 }, // 橙影蝴蝶
           ];
 
           const hudiexiaoying = 1; // 控制开关
@@ -212,14 +216,13 @@ export class Lottery {
         // 主动技能配置
         if (abilityType === 'abilityActive' && abilityLotteryResults.length > 0) {
           const activeAbilities = [
-            { name: 'marci_unleash', level: 4 },
-            //{ name: 'dazzle_bad_juju', level: 3 },
-            //{ name: 'ember_spirit_sleight_of_fist', level: 4 },
-            { name: 'gyrocopter_flak_cannon', level: 5 },
-            { name: 'alchemist_chemical_rage', level: 5 },
-            { name: 'tinker_rearm_lua', level: 3 },
-            //{ name: 'juggernaut_omni_slash', level: 4 },
-            { name: 'ability_trigger_on_active', level: 5 }, //等红蝴蝶满一周后上线，26日
+            { name: 'ability_defection', level: 4 },
+            { name: 'faceless_void_time_zone', level: 5 },
+            { name: 'slark_shadow_dance', level: 4 },
+            { name: 'abaddon_borrowed_time', level: 5 },
+            { name: 'legion_commander_duel', level: 5 },
+            { name: 'clinkz_burning_barrage2', level: 3 },
+            { name: 'ability_mind_control', level: 5 },
           ];
           const selectedAbility = this.selectUniqueAbility(activeAbilities, abilityLotteryResults);
           if (selectedAbility !== null) {
@@ -234,7 +237,7 @@ export class Lottery {
             '116431158', // 测试账号
             '335880293', // 兔子
             '357545069', //你们这么萌
-            //'198490822', //你们这么萌
+            '173045960', //残影
             // 添加其他允许使用此技能的Steam ID
           ];
           print(`[Lottery] Add ability_mind_control for special player: ${steamAccountID}`);

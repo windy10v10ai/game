@@ -40,25 +40,22 @@ end
 
 -- *** 新增: 减伤效果 ***
 function modifier_mind_control:GetModifierIncomingDamage_Percentage()
+    local reduction = -90 -- 默认值
     if self:GetAbility() then
-        return self:GetAbility():GetSpecialValueFor("damage_reduction")
+        reduction = self:GetAbility():GetSpecialValueFor("damage_reduction")
     end
-    return -60 -- 默认值
+    --print("[MindControl] GetModifierIncomingDamage_Percentage called, returning: " .. reduction)
+    return reduction
 end
 
 -- *** 新增: 状态抗性效果 ***
 function modifier_mind_control:GetModifierStatusResistanceStacking()
+    local resistance = -90 -- 默认值
     if self:GetAbility() then
-        return self:GetAbility():GetSpecialValueFor("status_resistance")
+        resistance = self:GetAbility():GetSpecialValueFor("status_resistance")
     end
-    return 60 -- 默认值
-end
-
-function modifier_mind_control:CheckState()
-    --print("[MindControl] CheckState called")
-    return {
-        --[MODIFIER_STATE_DOMINATED] = true,
-    }
+    --print("[MindControl] GetModifierStatusResistanceStacking called, returning: " .. resistance)
+    return resistance -- 默认值
 end
 
 function modifier_mind_control:OnCreated(params)
@@ -66,7 +63,8 @@ function modifier_mind_control:OnCreated(params)
 
     local parent = self:GetParent()
     local caster = self:GetCaster()
-
+    -- 获取原始持续时间(不受状态抗性影响)
+    local duration = self:GetAbility():GetSpecialValueFor("duration")
     -- 保存原始信息
     self.originalPlayerID = parent:GetPlayerOwnerID()
     self.originalTeam = parent:GetTeam()
@@ -112,10 +110,42 @@ function modifier_mind_control:OnCreated(params)
     )
     self:AddParticle(particle, false, false, -1, false, false)
 
-    --print("[MindControl] OnCreated completed successfully")
+    -- *** 修复: 使用延迟来确保物品在正确的时机被激活 ***
+    Timers:CreateTimer(0.1, function()
+        if not parent or parent:IsNull() then return end
 
-    -- 定期检查
+        for i = 0, 8 do
+            local item = parent:GetItemInSlot(i)
+            if item then
+                item:SetActivated(true)
+                print("[MindControl] Activated item in slot " .. i .. ": " .. item:GetAbilityName())
+            end
+        end
+    end)
+    -- 启动周期性检查
     self:StartIntervalThink(0.5)
+    -- 设置一个定时器来在指定时间后移除modifier
+    Timers:CreateTimer(duration, function()
+        if not self:IsNull() then
+            self:Destroy()
+        end
+    end)
+end
+
+function modifier_mind_control:OnIntervalThink()
+    if not IsServer() then return end
+
+    local parent = self:GetParent()
+    if not parent or parent:IsNull() then return end
+
+    -- 确保所有物品保持激活状态
+    for i = 0, 8 do
+        local item = parent:GetItemInSlot(i)
+        if item and not item:IsActivated() then
+            item:SetActivated(true)
+            print("[MindControl] Re-activated item: " .. item:GetAbilityName())
+        end
+    end
 end
 
 function modifier_mind_control:OnDestroy()
@@ -159,25 +189,10 @@ function modifier_mind_control:OnDestroy()
     --print("[MindControl] OnDestroy completed")
 end
 
-function modifier_mind_control:OnIntervalThink()
-    if not IsServer() then return end
-
-    local parent = self:GetParent()
-    --print("[MindControl] OnIntervalThink - Parent: " .. parent:GetUnitName())
-
-    -- 可选: 禁用传送类物品
-    for i = 0, 8 do
-        local item = parent:GetItemInSlot(i)
-        if item then
-            local itemName = item:GetAbilityName()
-            if itemName == "item_tpscroll" or
-                itemName == "item_travel_boots" or
-                itemName == "item_travel_boots_2" then
-                item:SetActivated(false)
-                --print("[MindControl] Disabled TP item: " .. itemName)
-            end
-        end
-    end
+function modifier_mind_control:CheckState()
+    return {
+        [MODIFIER_STATE_DEBUFF_IMMUNE] = true, -- 减益免疫
+    }
 end
 
 function modifier_mind_control:DisableAI(hero)
@@ -188,7 +203,7 @@ function modifier_mind_control:DisableAI(hero)
 
     -- 移除Lua AI modifiers
     local luaModifiers = {
-        "modifier_bot_think_item_use",
+        --"modifier_bot_think_item_use",
         "modifier_bot_think_strategy",
         "modifier_bot_think_ward"
     }
@@ -259,12 +274,4 @@ function modifier_mind_control:EnableAI(hero)
             end
         end
     end
-end
-
-function modifier_mind_control:GetEffectName()
-    return "particles/units/heroes/hero_bane/bane_nightmare.vpcf"
-end
-
-function modifier_mind_control:GetEffectAttachType()
-    return PATTACH_OVERHEAD_FOLLOW
 end

@@ -1455,7 +1455,7 @@
 
 
 "DOTA_Tooltip_ability_ability_defection"                     "卧底？叛变"
-"DOTA_Tooltip_ability_ability_defection_Description"         "可以自由在天辉、夜魇和中立阵营之间切换，但无法攻击天辉阵营的人类玩家；切换回天辉阵营有2s延迟。"
+"DOTA_Tooltip_ability_ability_defection_Description"         "可以自由在天辉、夜魇和中立阵营之间切换，但无法攻击天辉阵营的人类玩家；切换回天辉阵营有2s延迟。当处于中立阵营时，危机感使玩家增加20%减伤"
 "DOTA_Tooltip_ability_ability_defection_Lore"                "身在曹营心在汉，还是干脆一不做二不休？"
 
 "DOTA_Tooltip_modifier_defection"                           "叛变"

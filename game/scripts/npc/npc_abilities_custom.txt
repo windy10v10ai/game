@@ -132,11 +132,11 @@
         }
         "damage_reduction"
         {
-            "value"         "-50 -70 -90"  // 负数表示减伤
+            "value"         "-75 -85 -95"  // 负数表示减伤
         }
         "status_resistance"
         {
-            "value"         "50 70 90"
+            "value"         "75 85 95"
         }
     }
 
@@ -146,7 +146,7 @@
         {
             "Target"        "TARGET"
             "ModifierName"  "modifier_mind_control"
-            "Duration"      "%duration"
+            "Duration"      "100"
         }
     }
 }

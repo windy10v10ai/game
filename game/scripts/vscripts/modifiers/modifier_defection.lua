@@ -145,12 +145,24 @@ function modifier_defection:DeclareFunctions()
         MODIFIER_EVENT_ON_HERO_KILLED,
         MODIFIER_EVENT_ON_ATTACK_START,
         MODIFIER_PROPERTY_DISABLE_TELEPORT,
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE, -- 添加减伤属性
     }
 end
 
 function modifier_defection:GetDisableTeleport()
     if self:GetParent():GetTeam() == DOTA_TEAM_NEUTRALS then
         return 1
+    end
+    return 0
+end
+
+-- 新增: 减伤效果
+function modifier_defection:GetModifierIncomingDamage_Percentage()
+    if not IsServer() then return 0 end
+
+    local parent = self:GetParent()
+    if parent:GetTeam() == DOTA_TEAM_NEUTRALS then
+        return -20 -- 负数表示减伤,20%减伤
     end
     return 0
 end
