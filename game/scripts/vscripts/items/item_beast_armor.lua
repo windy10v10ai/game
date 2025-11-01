@@ -125,7 +125,7 @@ function modifier_item_beast_armor_passive:IsPurgable() return false end
 function modifier_item_beast_armor_passive:RemoveOnDeath() return true end
 
 function modifier_item_beast_armor_passive:GetAttributes()
-    return MODIFIER_ATTRIBUTE_MULTIPLE
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 function modifier_item_beast_armor_passive:OnCreated()
