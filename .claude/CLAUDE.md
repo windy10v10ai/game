@@ -175,12 +175,7 @@ export class MyAbility extends BaseAbility {
 
 #### 3. AI 状态机 (FSA)
 
-Bot AI 使用基于欲望值的有限状态机进行模式切换:
-
-- **模式**: Laning, Attack, Retreat, Push (每个模式位于 `ai/mode/`)
-- **阈值**: 0.5 的欲望值触发模式切换
-- **思考间隔**: 0.3 秒执行一次游戏逻辑
-- **动作**: Attack, Move, Cast, Item usage (位于 `ai/action/`)
+Bot AI 使用基于欲望值的有限状态机: 模式 (Laning/Attack/Retreat/Push) 位于 `ai/mode/`,动作 (Attack/Move/Cast) 位于 `ai/action/`,每 0.3 秒思考一次。
 
 #### 4. 数据流
 
@@ -250,13 +245,6 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
   - 加载器: ts-loader, babel-loader, less-loader
   - `PanoramaTargetPlugin` 用于转换为 Valve 格式
   - 启用 tree-shaking 和文件系统缓存
-
-### 符号链接设置
-
-`npm install` 的 postinstall 脚本 (`src/scripts/install.js`) 创建 junction 符号链接:
-
-- `game/` ↔ `{dota_path}/game/dota_addons/windy10v10ai/`
-- `content/` ↔ `{dota_path}/content/dota_addons/windy10v10ai/`
 
 这使项目可以自动与 Dota 2 的 addon 目录同步。
 
