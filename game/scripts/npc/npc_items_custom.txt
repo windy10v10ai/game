@@ -7074,53 +7074,51 @@
 		}
 	}
 
-//魔化
-	//13魔渊法杖 仙云法杖+风暴之锤+以太2+神圣斧 没有任何被动加成 主动技能：一念成佛：4s内10%魔法伤害转为纯粹伤害；
-	//14魔化狂战 音速战刃+狂战斧+散魂剑+暗灭 没有任何被动加成 主动技能：一念成佛：4s内10%物理伤害转为纯粹伤害；
-//=================================================================================================================
-// Recipe: 魔渊法杖
-//=================================================================================================================
-"item_recipe_magic_abyss_staff"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10329"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_magic_abyss_staff"
-
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_magic_abyss_staff"
-    "ItemRequirements"
-    {
-        "01"                    "item_hallowed_scepter;item_gungir_2;item_aether_lens_2;item_devastator_2;item_fusion_magic"
-    }
-}
-  "item_magic_abyss_staff"
-{
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                "items/item_magic_abyss_staff"
-    "ID"                        "10327"
-    "AbilityTextureName"        "moyuanfazhang"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-	"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
-
-    "AbilityCastPoint"          "0.0"
-    "AbilityCooldown"           "20.0"
-    "AbilityManaCost"           "150"
-
-    "ItemCost"                  "25000"
-    "ItemShopTags"              "damage;int;hard_to_tag"
-    "ItemQuality"               "artifact"
-
-	"AbilityValues"
+	//=================================================================================================================
+	// 魔渊法杖
+	//=================================================================================================================
+	// 仙云法杖+风暴之锤+以太2+神圣斧 没有任何被动加成 主动技能：一念成佛：4s内10%魔法伤害转为纯粹伤害；
+	"item_recipe_magic_abyss_staff"
 	{
-		"active_duration"		"3"
-		"convert_pct"			"50"
-		"spell_amp_per_int"		"0.2"
+		"BaseClass"					"item_datadriven"
+		"ID"						"10329"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_magic_abyss_staff"
+
+		"ItemCost"					"0"
+		"ItemShopTags"				""
+
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_magic_abyss_staff"
+		"ItemRequirements"
+		{
+			"01"					"item_hallowed_scepter;item_gungir_2;item_aether_lens_2;item_devastator_2;item_fusion_magic"
+		}
 	}
-}
+	"item_magic_abyss_staff"
+	{
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/item_magic_abyss_staff"
+		"ID"						"10327"
+		"AbilityTextureName"		"moyuanfazhang"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"20.0"
+		"AbilityManaCost"			"150"
+
+		"ItemCost"					"25000"
+		"ItemShopTags"				"damage;int;hard_to_tag"
+		"ItemQuality"				"artifact"
+
+		"AbilityValues"
+		{
+			"active_duration"		"3"
+			"convert_pct"			"50"
+			"spell_amp_per_int"		"0.2"
+		}
+	}
 
 	//=================================================================================================================
 	// 魔渊剑
