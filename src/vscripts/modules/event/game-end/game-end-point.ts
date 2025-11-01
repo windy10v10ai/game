@@ -111,6 +111,7 @@ export class GameEndPoint {
       multiplier *= 1.5;
     }
 
+    // ---- 以下使用加减法计算倍率 ----
     // 禁用玩家属性
     if (!option.enablePlayerAttribute) {
       multiplier += 0.2;
@@ -145,6 +146,8 @@ export class GameEndPoint {
     if (option.extraPassiveAbilities) {
       multiplier -= 0.2;
     }
+
+    // ---- 以上使用加减法计算倍率 ----
 
     // 电脑玩家数量
     multiplier *= option.direPlayerNumber / 10;
