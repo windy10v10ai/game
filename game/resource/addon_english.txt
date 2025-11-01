@@ -2829,22 +2829,33 @@
 		"DOTA_Tooltip_modifier_item_beast_shield_active"           "Human Shield"
 		"DOTA_Tooltip_modifier_item_beast_shield_active_Description" "All bonuses are increased, but cannot attack or move."
 
-// item_beast_armor 兽化甲
-"DOTA_Tooltip_Ability_item_beast_armor"                     "Beast Armor"
-"DOTA_Tooltip_ability_item_beast_armor_Description"         "<h1>Active: Non-Stick Pot</h1>Sends a cold shock wave, dealing %blast_damage% magical damage to enemies within %blast_radius% range, reducing %movement_slow%%% movement speed and %attack_slow% attack speed, and reducing %spell_resist_reduction%%% magic resistance. Also reflects %active_reflection_pct%%% of all damage and reflects directed skills, for %active_duration% seconds.<br><h1>Passive: Damage Reflection</h1>Reflects %passive_reflection_constant% + %passive_reflection_pct%%% of the damage taken each time an attack is made.<br><br>Passively blocks one directed spell every %block_cooldown% seconds.<br><h1>Passive: Radiance Burning</h1>Deals %aura_damage% magical damage per second to enemies within %aura_radius% range, and makes their physical attacks have a %blind_pct%%% chance to miss."
-"DOTA_Tooltip_ability_item_beast_armor_Lore"                "The ultimate armor fused with the power of the four Artifacts; the Beast Rune grants it unparalleled defense and counterattack capabilities."
-"DOTA_Tooltip_ability_item_beast_armor_Note0"               "The reflected damage is before reduction."
-"DOTA_Tooltip_ability_item_beast_armor_Note1"               "Damage reflection does not reflect damage from other Blade Mail items."
-"DOTA_Tooltip_ability_item_beast_armor_Note2"               "The type of reflected damage is the same as the damage received."
-"DOTA_Tooltip_ability_item_beast_armor_bonus_strength"      "+$all"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_health"        "+$health"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"         "+$armor"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_spell_resist"  "%+$spell_resist"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"  "+$hp_regen"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"    "+$mana_regen"
-"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"        "+$damage"
-"DOTA_Tooltip_ability_item_beast_armor_evasion"             "%+$evasion"
-// TODO 添加兽化甲BUFF说明
+		// item_beast_armor Beast Armor
+		"DOTA_Tooltip_Ability_item_beast_armor"											"Beast Armor"
+		"DOTA_Tooltip_ability_item_beast_armor_Description"								"<h1>Active: Non-Stick Pot</h1>Sends a cold shock wave, dealing %blast_damage% magical damage to enemies within %blast_radius% range, reducing %movement_slow%%% movement speed and %attack_slow% attack speed, and reducing %spell_resist_reduction%%% magic resistance. Also reflects %active_reflection_pct%%% of all damage and reflects directed skills, for %active_duration% seconds.<br><h1>Passive: Damage Reflection</h1>Reflects %passive_reflection_constant% + %passive_reflection_pct%%% of the damage taken each time an attack is made.<br><br>Passively blocks one directed spell every %block_cooldown% seconds.<br><h1>Passive: Radiance Burning</h1>Deals %aura_damage% magical damage per second to enemies within %aura_radius% range, and makes their physical attacks have a %blind_pct%%% chance to miss."
+		"DOTA_Tooltip_ability_item_beast_armor_Lore"									"The ultimate armor fused with the power of the four Artifacts; the Beast Rune grants it unparalleled defense and counterattack capabilities."
+		"DOTA_Tooltip_ability_item_beast_armor_Note0"									"The reflected damage is before reduction."
+		"DOTA_Tooltip_ability_item_beast_armor_Note1"									"Damage reflection does not reflect damage from other Blade Mail items."
+		"DOTA_Tooltip_ability_item_beast_armor_Note2"									"The type of reflected damage is the same as the damage received."
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_strength"							"+$all"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_health"							"+$health"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_spell_resist"						"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
+
+		"DOTA_Tooltip_modifier_item_beast_armor_active"									"Non-Stick Pot"
+		"DOTA_Tooltip_modifier_item_beast_armor_active_Description"						"Reflects all damage and directed skills, immune to directed spells."
+
+		"DOTA_Tooltip_modifier_item_beast_armor_debuff"									"Cold Shock"
+		"DOTA_Tooltip_modifier_item_beast_armor_debuff_Description"						"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%, magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
+
+		"DOTA_Tooltip_modifier_item_beast_armor_radiance"								"Radiance Burning"
+		"DOTA_Tooltip_modifier_item_beast_armor_radiance_Description"					"Deals burning damage to surrounding enemies per second."
+
+		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura"					"Burning Damage"
+		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura_Description"		"Takes %dMODIFIER_PROPERTY_TOOLTIP% damage per second, and attacks have a %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% chance to miss."
 
 // item_magic_abyss_staff 魔渊法杖
 "DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "Magic Abyss Staff"
