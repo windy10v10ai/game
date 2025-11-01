@@ -7042,9 +7042,10 @@
 			"active_duration"				"5"		// Lua 逻辑需要 - 主动持续时间
 			"blast_radius"					"900"	// Lua 逻辑需要 - 冲击波范围
 			"blast_damage"					"900"	// Lua 逻辑需要 - 冲击波伤害
-			"movement_slow"					"40"	// Lua 逻辑需要 - 移速减缓
-			"attack_slow"					"40"	// Lua 逻辑需要 - 攻速减缓
-			"resist_reduction"				"25"	// Lua 逻辑需要 - 抗性降低
+
+			"movement_slow"					"40"	// tooltip only - 移速减缓
+			"attack_slow"					"40"	// tooltip only - 攻速减缓
+			"spell_resist_reduction"		"25"	// tooltip only - 魔法抗性降低
 
 			// Lua 逻辑需要 - 辉耀光环（事件驱动）
 			"aura_damage"					"120"	// Lua 逻辑需要 - 光环伤害

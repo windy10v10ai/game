@@ -504,6 +504,23 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"25"
 				}
 			}
+
+			// 兽化甲主动技能减速 debuff（完整 DataDriven）
+			"modifier_item_beast_armor_debuff"
+			{
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+				"IsPurgable"			"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-40"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-40"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-25"
+				}
+			}
+
 			// 兽化盾
 			"modifier_item_beast_shield_stats"
 			{
