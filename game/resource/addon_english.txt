@@ -2816,6 +2816,7 @@
 		"DOTA_Tooltip_ability_item_time_gem_Note0"                     "Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem). Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem)."
 		"DOTA_Tooltip_ability_item_time_gem_Note1"                     "Shares cooling time with other refresh ball series items."
 		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"            "%+$cooldown_reduction"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"           "+$all"
 		"DOTA_Tooltip_ability_item_time_gem_cast_range_bonus"          "+$cast_range"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_health"              "+$health"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_mana"                "+$mana"

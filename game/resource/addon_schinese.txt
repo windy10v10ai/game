@@ -1305,6 +1305,7 @@
 		"DOTA_Tooltip_ability_item_time_gem_Note0"                     "时间重置不会刷新刷新球系列物品（刷新球、刷新核心、时间宝石）。"
 		"DOTA_Tooltip_ability_item_time_gem_Note1"                     "与其他刷新球系列物品共享冷却时间。"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"            "%+$cooldown_reduction"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"           "+$all"
 		"DOTA_Tooltip_ability_item_time_gem_cast_range_bonus"          "+$cast_range"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_health"              "+$health"
 		"DOTA_Tooltip_ability_item_time_gem_bonus_mana"                "+$mana"

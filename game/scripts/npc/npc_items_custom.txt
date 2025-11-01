@@ -6860,7 +6860,7 @@
 		"ItemResult"				"item_time_gem"
 		"ItemRequirements"
 		{
-			"01"					"item_refresh_core;item_refresher;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
+			"01"					"item_refresh_core;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
 		}
 	}
 
@@ -6896,17 +6896,17 @@
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_all_stats"			"100"	// tooltip only - 全属性
 			"bonus_health"				"1500"	// tooltip only - 生命值
 			"bonus_mana"				"1500"	// tooltip only - 魔法值
 			"bonus_health_regen"		"30.0"	// tooltip only - 生命恢复
 			"bonus_mana_regen"			"20.0"	// tooltip only - 魔法恢复
 
 			// Lua 逻辑需要的参数
-			"bonus_cooldown"			"50"
-			"bonus_cooldown_stack"		"12"	// 未使用（可能是遗留代码）
-			"cast_range_bonus"			"400"
 			"manacost_reduction"		"50"	// 新增:减魔耗百分比
 			"cast_speed_pct"			"50"	// 新增:施法速度加成百分比
+			"bonus_cooldown"			"50"
+			"cast_range_bonus"			"400"
 		}
 	}
 
