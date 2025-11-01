@@ -85,10 +85,10 @@ export class SellItem {
 
     // 移除物品
     UTIL_RemoveImmediate(item);
-    const priceType = fullPrice ? 'full price' : 'half price';
-    print(
-      `[AI] SellItem hero: ${hero.GetUnitName()}, item: ${itemName}, sold for ${sellPrice} gold (${priceType})`,
-    );
+    // const priceType = fullPrice ? 'full price' : 'half price';
+    // print(
+    //   `[AI] SellItem hero: ${hero.GetUnitName()}, item: ${itemName}, sold for ${sellPrice} gold (${priceType})`,
+    // );
     return true;
   }
 
