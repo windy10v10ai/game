@@ -1357,8 +1357,8 @@
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance"           "辉耀灼烧"
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance_Description" "每秒对周围敌人造成灼烧伤害。"
 
-		"DOTA_Tooltip_modifier_item_beast_armor_radiance_debuff"    "灼烧伤害"
-		"DOTA_Tooltip_modifier_item_beast_armor_radiance_debuff_Description" "每秒受到%dMODIFIER_PROPERTY_TOOLTIP%点伤害，而且攻击有%dMODIFIER_PROPERTY_MISS_PERCENTAGE%%%几率不会命中。"
+		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura"    "灼烧伤害"
+		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura_Description" "每秒受到%dMODIFIER_PROPERTY_TOOLTIP%点伤害，而且攻击有%dMODIFIER_PROPERTY_MISS_PERCENTAGE%%%几率不会命中。"
 
 		// item_magic_abyss_staff 魔渊法杖
 		"DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "魔渊法杖"

@@ -1,24 +1,59 @@
 -- game/scripts/vscripts/items/item_beast_armor.lua
 if item_beast_armor == nil then item_beast_armor = class({}) end
 
-LinkLuaModifier("modifier_item_beast_armor", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_beast_armor_active", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_beast_armor_debuff", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_beast_armor_radiance", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_beast_armor_radiance_debuff", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_beast_armor_passive", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_beast_armor:GetIntrinsicModifierName()
     return "modifier_item_beast_armor"
 end
 
-function item_beast_armor:OnSpellStart()
-    local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("active_duration")
-    local radius = self:GetSpecialValueFor("blast_radius")
-    local damage = self:GetSpecialValueFor("blast_damage")
+-- ========================================
+-- DataDriven modifier_item_beast_armor 的 OnCreated 回调
+-- ========================================
+function BeastArmorOnCreated(keys)
+    if not IsServer() then return end
+
+    local caster = keys.caster
+    local ability = keys.ability
+
+    if not caster or not ability then return end
+
+    -- 添加 Lua 辅助 modifier 处理 ABSORB_SPELL 和反伤
+    caster:AddNewModifier(caster, ability, "modifier_item_beast_armor_passive", {})
+end
+
+-- ========================================
+-- DataDriven modifier_item_beast_armor 的 OnDestroy 回调
+-- ========================================
+function BeastArmorOnDestroy(keys)
+    if not IsServer() then return end
+
+    local caster = keys.caster
+
+    if not caster then return end
+
+    -- 移除 Lua 辅助 modifier
+    caster:RemoveModifierByName("modifier_item_beast_armor_passive")
+end
+
+-- DataDriven OnSpellStart 全局函数
+function OnSpellStart(keys)
+    local caster = keys.caster
+    local ability = keys.ability
+
+    if not caster or not ability then return end
+
+    local duration = ability:GetSpecialValueFor("active_duration")
+    local radius = ability:GetSpecialValueFor("blast_radius")
+    local damage = ability:GetSpecialValueFor("blast_damage")
 
     -- 刃甲激活音效
     EmitSoundOn("DOTA_Item.BladeMail.Activate", caster)
+
+    -- 先给自己添加反弹效果，再对敌人造成伤害
+    caster:AddNewModifier(caster, ability, "modifier_item_beast_armor_active", { duration = duration })
+    caster:AddNewModifier(caster, ability, "modifier_item_lotus_orb_active", { duration = duration })
 
     -- 冰甲冲击波效果
     local particle = ParticleManager:CreateParticle("particles/items2_fx/shivas_guard_active.vpcf",
@@ -28,10 +63,6 @@ function item_beast_armor:OnSpellStart()
     ParticleManager:ReleaseParticleIndex(particle)
 
     EmitSoundOn("DOTA_Item.ShivasGuard.Activate", caster)
-
-    -- 【重要】先给自己添加反弹效果，再对敌人造成伤害
-    caster:AddNewModifier(caster, self, "modifier_item_beast_armor_active", { duration = duration })
-    caster:AddNewModifier(caster, self, "modifier_item_lotus_orb_active", { duration = duration })
 
     -- 对范围内敌人造成伤害和debuff
     local enemies = FindUnitsInRadius(
@@ -52,14 +83,14 @@ function item_beast_armor:OnSpellStart()
             attacker = caster,
             damage = damage,
             damage_type = DAMAGE_TYPE_MAGICAL,
-            ability = self
+            ability = ability
         })
 
         -- 只给敌人添加减速debuff
-        enemy:AddNewModifier(caster, self, "modifier_item_beast_armor_debuff", {
+        ability:ApplyDataDrivenModifier(caster, enemy, "modifier_item_beast_armor_debuff", {
             duration = duration * (1 - enemy:GetStatusResistance())
         })
-        -- 添加特效 particles/items2_fx/shivas_guard_impact.vpcf
+        -- 添加特效
         local particle = ParticleManager:CreateParticle("particles/items2_fx/shivas_guard_impact.vpcf",
             PATTACH_ABSORIGIN_FOLLOW, enemy)
         ParticleManager:ReleaseParticleIndex(particle)
@@ -67,23 +98,44 @@ function item_beast_armor:OnSpellStart()
 end
 
 -- ========================================
--- 被动modifier（包含被动25%反伤）
+-- 辉耀灼烧伤害函数（DataDriven OnIntervalThink 调用）
 -- ========================================
-modifier_item_beast_armor = class({})
+function RadianceBurnDamage(keys)
+    if not IsServer() then return end
 
-function modifier_item_beast_armor:IsHidden() return true end
+    local target = keys.target
+    local caster = keys.caster
+    local ability = keys.ability
 
-function modifier_item_beast_armor:IsPurgable() return false end
+    if not ability then return end
 
-function modifier_item_beast_armor:RemoveOnDeath() return false end
+    local aura_damage = ability:GetSpecialValueFor("aura_damage")
 
-function modifier_item_beast_armor:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+    ApplyDamage({
+        victim = target,
+        attacker = caster,
+        damage = aura_damage,
+        damage_type = DAMAGE_TYPE_MAGICAL,
+        ability = ability
+    })
 end
 
-function modifier_item_beast_armor:OnCreated()
-    self:OnRefresh()
+-- ========================================
+-- Lua 辅助 modifier（处理 ABSORB_SPELL 和被动反伤）
+-- ========================================
+modifier_item_beast_armor_passive = class({})
 
+function modifier_item_beast_armor_passive:IsHidden() return true end
+
+function modifier_item_beast_armor_passive:IsPurgable() return false end
+
+function modifier_item_beast_armor_passive:RemoveOnDeath() return true end
+
+function modifier_item_beast_armor_passive:GetAttributes()
+    return MODIFIER_ATTRIBUTE_MULTIPLE
+end
+
+function modifier_item_beast_armor_passive:OnCreated()
     if IsServer() then
         if not self:GetAbility() then return end
         local ability = self:GetAbility()
@@ -91,37 +143,18 @@ function modifier_item_beast_armor:OnCreated()
         -- 莲花被动格挡
         self.block_cooldown = ability:GetSpecialValueFor("block_cooldown")
         self.last_block_time = 0
-
-        -- 自动开启辉耀光环
-        self:GetParent():AddNewModifier(self:GetParent(), ability, "modifier_item_beast_armor_radiance", {})
     end
 end
 
-function modifier_item_beast_armor:OnRefresh()
-    self.stats_modifier_name = "modifier_item_beast_armor_stats"
-
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
-end
-
-function modifier_item_beast_armor:OnDestroy()
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-        -- 移除辉耀光环
-        self:GetParent():RemoveModifierByName("modifier_item_beast_armor_radiance")
-    end
-end
-
-function modifier_item_beast_armor:DeclareFunctions()
+function modifier_item_beast_armor_passive:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_ABSORB_SPELL,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
 end
 
--- 被动25%反伤
-function modifier_item_beast_armor:OnTakeDamage(params)
+-- 被动反伤
+function modifier_item_beast_armor_passive:OnTakeDamage(params)
     if not IsServer() then return end
     if params.unit ~= self:GetParent() then return end
     if params.attacker == self:GetParent() then return end
@@ -135,7 +168,7 @@ function modifier_item_beast_armor:OnTakeDamage(params)
     local ability = self:GetAbility()
     if not ability or ability:GetSecondaryCharges() ~= 1 then return end
 
-    -- 计算被动反伤：固定值 + 25%
+    -- 计算被动反伤：固定值 + 百分比
     local constant_reflect = ability:GetSpecialValueFor("passive_reflection_constant")
     local pct_reflect = ability:GetSpecialValueFor("passive_reflection_pct") / 100
     local reflect_damage = constant_reflect + (params.original_damage * pct_reflect)
@@ -152,7 +185,7 @@ function modifier_item_beast_armor:OnTakeDamage(params)
 end
 
 -- 莲花被动格挡
-function modifier_item_beast_armor:GetAbsorbSpell(params)
+function modifier_item_beast_armor_passive:GetAbsorbSpell(params)
     if not IsServer() then return 0 end
 
     local caster = params.ability:GetCaster()
@@ -176,99 +209,7 @@ function modifier_item_beast_armor:GetAbsorbSpell(params)
 end
 
 -- ========================================
--- 辉耀灼烧光环 modifier
--- ========================================
-modifier_item_beast_armor_radiance = class({})
-
-function modifier_item_beast_armor_radiance:IsHidden() return false end
-
-function modifier_item_beast_armor_radiance:IsPurgable() return false end
-
-function modifier_item_beast_armor_radiance:IsAura() return true end
-
-function modifier_item_beast_armor_radiance:GetAuraRadius()
-    return self:GetAbility():GetSpecialValueFor("aura_radius")
-end
-
-function modifier_item_beast_armor_radiance:GetAuraSearchTeam()
-    return DOTA_UNIT_TARGET_TEAM_ENEMY
-end
-
-function modifier_item_beast_armor_radiance:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
-end
-
-function modifier_item_beast_armor_radiance:GetModifierAura()
-    return "modifier_item_beast_armor_radiance_debuff"
-end
-
-function modifier_item_beast_armor_radiance:GetAuraSearchFlags()
-    return DOTA_UNIT_TARGET_FLAG_NONE
-end
-
-function modifier_item_beast_armor_radiance:GetEffectName()
-    return "particles/items2_fx/radiance_owner.vpcf"
-end
-
-function modifier_item_beast_armor_radiance:GetEffectAttachType()
-    return PATTACH_ABSORIGIN_FOLLOW
-end
-
-function modifier_item_beast_armor_radiance:GetTexture()
-    return "item_radiance"
-end
-
--- 补充完整的辉耀灼烧debuff modifier
-modifier_item_beast_armor_radiance_debuff = class({})
-
-function modifier_item_beast_armor_radiance_debuff:IsHidden() return false end
-
-function modifier_item_beast_armor_radiance_debuff:IsDebuff() return true end
-
-function modifier_item_beast_armor_radiance_debuff:IsPurgable() return false end
-
-function modifier_item_beast_armor_radiance_debuff:OnCreated()
-    if not IsServer() then return end
-    if not self:GetAbility() then return end
-
-    self.aura_damage = self:GetAbility():GetSpecialValueFor("aura_damage")
-    self.blind_pct = self:GetAbility():GetSpecialValueFor("blind_pct")
-
-    self:StartIntervalThink(1.0)
-end
-
-function modifier_item_beast_armor_radiance_debuff:OnIntervalThink()
-    if not IsServer() then return end
-
-    ApplyDamage({
-        victim = self:GetParent(),
-        attacker = self:GetCaster(),
-        damage = self.aura_damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = self:GetAbility()
-    })
-end
-
-function modifier_item_beast_armor_radiance_debuff:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_MISS_PERCENTAGE,
-    }
-end
-
-function modifier_item_beast_armor_radiance_debuff:GetModifierMiss_Percentage()
-    return self.blind_pct
-end
-
-function modifier_item_beast_armor_radiance_debuff:GetEffectName()
-    return "particles/items2_fx/radiance.vpcf"
-end
-
-function modifier_item_beast_armor_radiance_debuff:GetEffectAttachType()
-    return PATTACH_ABSORIGIN_FOLLOW
-end
-
--- ========================================
--- 主动反弹modifier（100%反伤）- 删除重复定义
+-- 主动反弹modifier（100%反伤）
 -- ========================================
 modifier_item_beast_armor_active = class({})
 
@@ -356,4 +297,3 @@ end
 function modifier_item_beast_armor_active:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
-

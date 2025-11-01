@@ -2858,6 +2858,8 @@
 "DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"    "+$mana_regen"
 "DOTA_Tooltip_ability_item_beast_armor_bonus_damage"        "+$damage"
 "DOTA_Tooltip_ability_item_beast_armor_evasion"             "%+$evasion"
+// TODO 添加兽化甲BUFF说明
+
 // item_magic_abyss_staff 魔渊法杖
 "DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "Magic Abyss Staff"
 "DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your magic damage is converted into additional pure damage.\n<h1>Passive: Spell Amplification</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."

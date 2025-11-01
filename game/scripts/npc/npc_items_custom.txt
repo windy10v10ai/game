@@ -570,11 +570,11 @@
 				"aura_damage"			"120"
 				"aura_damage_illusions"	"60"
 				"upgrade_day_vision"	"400"
-				"evasion"				"30"
+				"evasion"				"17"
 				"blind_pct"				"30"
 				"aura_radius"
 				{
-					"value"		"700"
+					"value"		"750"
 					"affected_by_aoe_increase"	"1"
 				}
 				"illusion_multiplier_pct"	"150"
@@ -685,7 +685,6 @@
 			"ItemQuality"					"artifact"
 			"ItemAliases"					"vladmir's offering;vlads"
 			"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-			"AbilityCastRange"              "900"
 
 
 			"AbilityValues"
@@ -1393,7 +1392,6 @@
 		"Model"                         "models/props_gameplay/red_box.vmdl"
 		"Effect"                        "particles/generic_gameplay/dropped_item.vpcf"
 		"AbilityTextureName"            "item_insight_armor"
-		"AbilityCastRange"              "900"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6986,7 +6984,7 @@
 
 	"item_beast_armor"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ScriptFile"				"items/item_beast_armor"
 		"ID"						"10326"
 		"AbilityTextureName"		"shouhuajia"
@@ -6994,7 +6992,7 @@
 
 		"AbilityCastPoint"			"0.0"
 		"AbilityCooldown"			"15.0"
-		"AbilityManaCost"			"200"
+		"AbilityManaCost"			"300"
 
 		"ItemCost"					"35000"
 		"ItemShopTags"				"damage;armor;int;hard_to_tag"
@@ -7047,22 +7045,137 @@
 			"attack_slow"					"40"	// tooltip only - 攻速减缓
 			"spell_resist_reduction"		"25"	// tooltip only - 魔法抗性降低
 
-			// Lua 逻辑需要 - 辉耀光环（事件驱动）
-			"aura_damage"					"120"	// Lua 逻辑需要 - 光环伤害
-			"aura_radius"					"700"	// Lua 逻辑需要 - 光环范围
-			"blind_pct"						"17"	// Lua 逻辑需要 - 致盲百分比
+			// 辉耀光环（事件驱动）
+			"aura_radius"					"900"	// 光环范围
+			"aura_damage"					"120"	// 光环伤害
+			"blind_pct"						"17"	// 致盲百分比
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"				"100"	// tooltip only - 力量
-			"bonus_agility"					"100"	// tooltip only - 敏捷
-			"bonus_intellect"				"100"	// tooltip only - 智力
-			"bonus_health"					"1500"	// tooltip only - 生命值
-			"bonus_armor"					"80"	// tooltip only - 护甲
-			"bonus_spell_resist"			"30"	// tooltip only - 魔法抗性
-			"bonus_health_regen"			"40"	// tooltip only - 生命回复
-			"bonus_mana_regen"				"25"	// tooltip only - 魔法回复
-			"bonus_damage"					"150"	// tooltip only - 攻击力
-			"evasion"						"25"	// tooltip only - 闪避
+			// 被动属性
+			"bonus_strength"				"100"	// 力量
+			"bonus_agility"					"100"	// 敏捷
+			"bonus_intellect"				"100"	// 智力
+			"bonus_health"					"1500"	// 生命值
+			"bonus_armor"					"80"	// 护甲
+			"bonus_spell_resist"			"30"	// 魔法抗性
+			"bonus_health_regen"			"40"	// 生命回复
+			"bonus_mana_regen"				"25"	// 魔法回复
+			"bonus_damage"					"150"	// 攻击力
+			"evasion"						"25"	// 闪避
+		}
+
+		// 主动技能
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_beast_armor"
+				"Function"		"OnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_beast_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_spell_resist"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%evasion"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_armor"
+						"Function"		"BeastArmorOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_armor"
+						"Function"		"BeastArmorOnDestroy"
+					}
+				}
+			}
+
+			"modifier_item_beast_armor_debuff"
+			{
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+				"IsPurgable"			"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-%movement_slow"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-%attack_slow"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-%spell_resist_reduction"
+				}
+
+				"TextureName"			"item_shivas_guard"
+			}
+
+			"modifier_item_beast_armor_radiance"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+
+				"Aura"					"modifier_item_beast_armor_radiance_enemy_aura"
+				"Aura_Radius"			"%aura_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"0"
+
+				"EffectName"			"particles/items2_fx/radiance_owner.vpcf"
+				"EffectAttachType"		"PATTACH_ABSORIGIN_FOLLOW"
+
+				"TextureName"			"item_radiance"
+			}
+
+			"modifier_item_beast_armor_radiance_enemy_aura"
+			{
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE"			"%blind_pct"
+				}
+
+				"ThinkInterval"			"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_armor"
+						"Function"		"RadianceBurnDamage"
+					}
+				}
+
+				"EffectName"			"particles/items2_fx/radiance.vpcf"
+				"EffectAttachType"		"PATTACH_ABSORIGIN_FOLLOW"
+				"TextureName"			"item_radiance"
+			}
 		}
 	}
 
