@@ -246,8 +246,6 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
   - `PanoramaTargetPlugin` 用于转换为 Valve 格式
   - 启用 tree-shaking 和文件系统缓存
 
-这使项目可以自动与 Dota 2 的 addon 目录同步。
-
 ## 开发指南
 
 ### 修改 VScripts (游戏逻辑) 时:

@@ -14,48 +14,33 @@
 
 ## 示例分析：阿迪王 (item_adi_king)
 
-### 1. 原始 Lua 实现（已优化后的代码）
-
-**文件位置**: `game/scripts/vscripts/items/item_adi_king.lua`
+### 1. 优化后的 Lua 实现
 
 ```lua
--- modifier_item_adi_king 已经移除了 DeclareFunctions 中的静态属性
 function modifier_item_adi_king:DeclareFunctions()
     return {}  -- 已清空，静态属性已迁移到 DataDriven
 end
 
--- ✅ OnCreated 中必须调用 OnRefresh 来初始化 DataDriven modifier
 function modifier_item_adi_king:OnCreated(keys)
-    -- 重要：必须调用 OnRefresh 来应用 DataDriven modifier
-    self:OnRefresh(keys)
-
-    -- 注意：以下代码仅作示例，item_adi_king 实际不需要读取这些值
-    -- 如果这些值仅用于 tooltip 显示，不需要在 Lua 中读取！
-    -- tooltip 显示只需在 npc_items_custom.txt 的 AbilityValues 中定义即可
-    if self:GetAbility() == nil then
-        return
-    end
-    -- 这些值在 item_adi_king 中实际并未使用，可以删除
-    -- 仅作示例：如果 Lua 逻辑需要这些值，才需要读取
-    self.sp = self:GetAbility():GetSpecialValueFor("sp")       -- 60
-    self.att = self:GetAbility():GetSpecialValueFor("att")     -- 30
-    self.ar = self:GetAbility():GetSpecialValueFor("ar")       -- 10
-    self.rate = self:GetAbility():GetSpecialValueFor("rate")   -- 25
-    self.bonus_evasion = self:GetAbility():GetSpecialValueFor("bonus_evasion") -- 10
+    self:OnRefresh(keys)  -- 必须调用 OnRefresh 来应用 DataDriven modifier
+    -- 仅在 Lua 逻辑真正需要时才读取属性值，tooltip 显示不需要
 end
 
--- OnRefresh 和 OnDestroy 中调用 RefreshItemDataDrivenModifier
--- 用于刷新 DataDriven modifier
 function modifier_item_adi_king:OnRefresh(keys)
     self.stats_modifier_name = "modifier_item_adi_king_stats"
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
 
+function modifier_item_adi_king:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 ```
 
-### 2. DataDriven 实现（优化方案）
+### 2. DataDriven 实现
 
 **文件位置**: `game/scripts/npc/npc_items_modifier.txt`
 
@@ -64,18 +49,6 @@ end
 {
     "item_apply_modifiers"
     {
-        "ID"                            "3001"
-        "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-        "BaseClass"                     "item_datadriven"
-
-        "ItemPurchasable"               "0"
-        "ItemSellable"                  "0"
-
-        "AbilityValues"
-        {
-            // 其他物品...
-        }
-
         "Modifiers"
         {
             // 阿迪王的静态属性 modifier
@@ -90,11 +63,11 @@ end
 
                 "Properties"
                 {
-                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"    "60"   // sp
-                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "30"   // att
-                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "10"   // ar
-                    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"        "25"   // rate
-                    "MODIFIER_PROPERTY_EVASION_CONSTANT"            "10"   // bonus_evasion
+                    "MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"    "60"
+                    "MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"      "30"
+                    "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"        "10"
+                    "MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE"        "25"
+                    "MODIFIER_PROPERTY_EVASION_CONSTANT"            "10"
                 }
             }
         }
@@ -109,28 +82,16 @@ end
 ```kv
 "item_adi_king"
 {
-    "ID"                                "3047"
-    "BaseClass"                         "item_lua"
-    "AbilityTextureName"                "item_adi_king"
-    "ScriptFile"                        "items/item_adi_king"
-
     "AbilityValues"
     {
-        // 静态属性值（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "sp"                    "60"    // tooltip only - 移动速度
-        "att"                   "30"    // tooltip only - 攻击力
-        "ar"                    "10"    // tooltip only - 护甲
-        "rate"                  "25"    // tooltip only - 转身速率
-        "bonus_evasion"         "10"    // tooltip only - 闪避
+        // tooltip only - 静态属性值（已迁移到 DataDriven，仅用于显示）
+        "sp"                    "60"
+        "att"                   "30"
+        "ar"                    "10"
 
-        // 主动技能的实际值（在 Lua 中实现）
+        // Lua 逻辑需要的值
         "active_sp"             "35"
-        "active_evasion"        "10"
         "dur"                   "3"
-
-        // 光环值（在 Lua 中实现）
-        "aura_sp"               "5"
-        "aura_rd"               "600"
     }
 }
 ```
@@ -251,33 +212,20 @@ function modifier_item_xxx:DeclareFunctions()
 end
 ```
 
-#### 3.2 添加 OnCreated、OnRefresh 和 OnDestroy 刷新逻辑
+#### 3.2 添加刷新逻辑
 
 ```lua
--- ✅ OnCreated 必须调用 OnRefresh 来初始化
 function modifier_item_xxx:OnCreated(keys)
-    -- 重要：调用 OnRefresh 来应用 DataDriven modifier
-    self:OnRefresh(keys)
-
-    -- 如果 Lua 逻辑需要使用属性值，在这里读取
-    if self:GetAbility() == nil then
-        return
-    end
-    -- 仅在 Lua 逻辑真正需要时才读取，tooltip 显示不需要
-    self.some_value = self:GetAbility():GetSpecialValueFor("some_value")
+    self:OnRefresh(keys)  -- 必须调用
 end
 
--- ✅ OnRefresh 负责刷新 DataDriven modifier
 function modifier_item_xxx:OnRefresh(keys)
     self.stats_modifier_name = "modifier_item_xxx_stats"
-
     if IsServer() then
-        -- 刷新 DataDriven modifier
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
--- ✅ OnDestroy 负责清理 DataDriven modifier
 function modifier_item_xxx:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
@@ -285,65 +233,26 @@ function modifier_item_xxx:OnDestroy()
 end
 ```
 
-#### 3.3 移除 GetModifier 函数和不必要的注释
+#### 3.3 移除 GetModifier 函数
 
-```lua
--- 直接删除这些函数，不需要保留注释
--- 已删除：
-// GetModifierMoveSpeedBonus_Constant()
-// GetModifierPreAttack_BonusDamage()
-// GetModifierPhysicalArmorBonus()
-// GetModifierAttackSpeedBonus_Constant()
-// GetModifierAttackRangeBonus()
-// 等等...
-```
+直接删除所有已迁移属性的 `GetModifier*()` 函数，不要保留注释。
 
 ### 第四步：清理不必要的属性读取
 
-**重要提示**：
+**重要原则**：
 
-1. ✅ `OnCreated` 中**必须调用** `self:OnRefresh(keys)` 来初始化 DataDriven modifier
-2. ❌ 如果属性值仅用于 tooltip 显示，**不需要**在 Lua 中读取
+1. ✅ `OnCreated` 中必须调用 `self:OnRefresh(keys)`
+2. ❌ 仅用于 tooltip 显示的属性值不需要在 Lua 中读取
+3. ✅ Tooltip 显示：在 `npc_items_custom.txt` 的 `AbilityValues` 中定义即可
 
 ```lua
 function modifier_item_xxx:OnCreated(keys)
-    -- ✅ 必须：调用 OnRefresh 来应用 DataDriven modifier
     self:OnRefresh(keys)
-
-    if self:GetAbility() == nil then
-        return
-    end
-
-    -- ❌ 错误：如果仅用于 tooltip，不需要这样做
-    -- self.sp = self:GetAbility():GetSpecialValueFor("sp")
-    -- self.att = self:GetAbility():GetSpecialValueFor("att")
-
-    -- ✅ 正确：只在 Lua 逻辑真正需要这些值时才读取
-    -- 例如：主动技能的参数、动态计算的基础值等
-    self.active_sp = self:GetAbility():GetSpecialValueFor("active_sp")  -- Lua 逻辑需要
+    -- 只在 Lua 逻辑真正需要时才读取值
+    self.active_sp = self:GetAbility():GetSpecialValueFor("active_sp")  -- Lua 需要
+    -- ❌ 不要读取仅用于 tooltip 的值：self.sp = ...
 end
 ```
-
-**Tooltip 显示的正确做法**：
-
-- 在 `npc_items_custom.txt` 的 `AbilityValues` 中定义值
-- 游戏引擎会自动将 `AbilityValues` 中的值显示在 tooltip 中
-- Lua 代码无需读取这些值（除非逻辑需要）
-
-```kv
-// npc_items_custom.txt
-"item_xxx"
-{
-    "AbilityValues"
-    {
-        // 静态属性值（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "sp"        "60"    // tooltip only - 移动速度
-        "att"       "30"    // tooltip only - 攻击力
-    }
-}
-```
-
-**重要**：为已迁移的属性添加 `// tooltip only` 注释，便于区分哪些值仅用于显示。
 
 ## 注意事项
 
@@ -407,9 +316,7 @@ end
 ```kv
 "modifier_item_beast_armor_debuff"
 {
-    "Passive"   "0"      // 非被动
     "IsDebuff"  "1"
-
     "Properties"
     {
         "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "-40"
@@ -421,8 +328,6 @@ end
 #### Lua 使用
 
 ```lua
--- ❌ 不需要 LinkLuaModifier
--- ✅ 使用 ApplyItemDataDrivenModifier 添加
 ApplyItemDataDrivenModifier(_, caster, enemy, "modifier_item_beast_armor_debuff", {
     duration = duration
 })
