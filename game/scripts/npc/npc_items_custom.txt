@@ -6825,20 +6825,20 @@
     }
 }
 
-"item_ten_thousand_swords"
-{
-    "BaseClass"                 "item_trident"
-    "ID"                        "10320"
-    "AbilityTextureName"        "wanjianguizong"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	"item_ten_thousand_swords"
+	{
+		"BaseClass"					"item_trident"
+		"ID"						"10320"
+		"AbilityTextureName"		"wanjianguizong"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemShopTags"              "damage;str;agi;attack_speed;unique"
-    "ItemQuality"               "artifact"
-    "ItemAliases"               "ten thousand swords"
-    "ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"         "1"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		"ItemShopTags"				"damage;str;agi;attack_speed;unique"
+		"ItemQuality"				"artifact"
+		"ItemAliases"				"ten thousand swords"
+		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"			"1"
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"0"
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
@@ -6854,70 +6854,70 @@
 			"spell_amp"						"100"
 			"magic_damage_attack"			"100"
 		}
-}
+	}
 
-//17时间宝石 大小刷新球，减50%cd
-"item_recipe_time_gem"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10321"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_time_gem"
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_time_gem"
-    "ItemRequirements"
-    {
-        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1,item_yasha_and_kaya_1;item_fusion_agile"
-    }
-}
+	//17时间宝石 大小刷新球，减50%cd
+	"item_recipe_time_gem"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10321"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_time_gem"
+		"ItemCost"					"0"
+		"ItemShopTags"				""
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_time_gem"
+		"ItemRequirements"
+		{
+			"01"					"item_refresh_core;item_refresher;item_kaya_and_sange_1,item_yasha_and_kaya_1;item_fusion_agile"
+		}
+	}
 
-"item_time_gem"
-{
-	"ID"                        "10322"
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                    "items/item_time_gem"
-    "AbilityTextureName"        "shijianbaoshi"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"item_time_gem"
+	{
+		"ID"						"10322"
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/item_time_gem"
+		"AbilityTextureName"		"shijianbaoshi"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"				"0.0"
-        "AbilityCooldown"				"100.0"
-        "AbilityManaCost"				"900"
-		"AbilitySharedCooldown"			"refresh"
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"100.0"
+		"AbilityManaCost"			"900"
+		"AbilitySharedCooldown"		"refresh"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"19800"
-		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ShouldBeSuggested"				"1"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					"19800"
+		"ItemShopTags"				"move_speed;boost_mana;mana_pool"
+		"ItemQuality"				"rare"
+		"ItemAliases"				"mana;mb;refresh core;refresher orb;octarine core"
+		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"ShouldBeSuggested"			"1"
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_health"			"1500"  // tooltip only - 生命值
-			"bonus_mana"			"1500"  // tooltip only - 魔法值
-			"bonus_health_regen"	"30.0"  // tooltip only - 生命恢复
-			"bonus_mana_regen"		"20.0"  // tooltip only - 魔法恢复
+			"bonus_health"				"1500"	// tooltip only - 生命值
+			"bonus_mana"				"1500"	// tooltip only - 魔法值
+			"bonus_health_regen"		"30.0"	// tooltip only - 生命恢复
+			"bonus_mana_regen"			"20.0"	// tooltip only - 魔法恢复
 
 			// Lua 逻辑需要的参数
-			"bonus_cooldown"		"50"
-			"bonus_cooldown_stack"	"12"    // 未使用（可能是遗留代码）
-			"cast_range_bonus"		"400"
-			"manacost_reduction"    "50"    // 新增:减魔耗百分比
-			"cast_speed_pct"        "50"    // 新增:施法速度加成百分比
+			"bonus_cooldown"			"50"
+			"bonus_cooldown_stack"		"12"	// 未使用（可能是遗留代码）
+			"cast_range_bonus"			"400"
+			"manacost_reduction"		"50"	// 新增:减魔耗百分比
+			"cast_speed_pct"			"50"	// 新增:施法速度加成百分比
 		}
-}
+	}
 
 	//=================================================================================================================
 	// 兽化盾
