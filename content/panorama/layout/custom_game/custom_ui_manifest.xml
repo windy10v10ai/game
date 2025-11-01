@@ -2,6 +2,7 @@
 	<scripts>
 		<include src="file://{resources}/scripts/custom_game/main.js" />
 		<include src="file://{resources}/scripts/custom_game/replaceHeroImage.js"/>
+		<include src="file://{resources}/scripts/custom_game/replaceGold.js"/>
 	</scripts>
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />

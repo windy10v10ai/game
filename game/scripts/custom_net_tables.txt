@@ -25,5 +25,6 @@
     "lottery_passive_abilities",
     "lottery_passive_abilities_2",
     "lottery_status",
+	  "player_virtual_gold",  // 添加这一行
   ]
 }

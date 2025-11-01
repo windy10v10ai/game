@@ -1,5 +1,161 @@
 local dropTable = nil
 
+-- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 Start
+
+-- 发言库定义
+local TauntMessages = {
+    -- Boss击杀玩家
+    boss_kill_player = {
+        "侥幸侥幸", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
+        "哎哟,不小心",
+        "队友呢,队友呢?",
+        "有点轻松",
+        "路过路过?",
+        "嘎嘣脆",
+        "找踢呢",
+        "你瞅啥",
+        "让你看了吗",
+        "这就没了？",
+        "差一点点哦",
+        "跑快点啊",
+        "啧啧啧",
+        "你看你m呢",
+        "欸，你不要似啊",
+        "你怎么好像有点似了",
+        "抓住一个", "呵呵!", "你搁那瞎几把晃悠啥啊看得我眼晕", "什么玩意儿花里胡哨的",
+        "我就散个步", "这就倒了?", "菜就多练啊", "还得练啊小老弟儿", "毫无压力", "啥啊，55扎扎的",
+        "别送了"
+    },
+
+    -- Boss连杀玩家 (连续击杀3次以上)
+    boss_rampage = {
+        "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
+        "?", "?", "?", "?", "?", "?", "?", "?", "?",
+        "你不会急眼了把？", "大家看他好急啊，他好气呀", "撒一把米在你的键盘上，鸡都玩的比你溜", "你玩游戏的这个时间，还不如多看几集喜羊羊", "你比美团还能送", "哥哥上手吧，别用脚玩了",
+        "你一直不杀人，是信佛吗？", "我要开直播", "两只耳朵中间夹着的是回族的禁忌吗", "逗？", "对面是人机吗？",
+        "还有谁?", "就这?", "?", "送?", "送,接着送", "有点子寂寞哟", "太简单了", "哎哟，我以为减速带呢",
+        "弟弟", "一个能打的都没有",
+        "喜欢虐AI是吧？", "无聊", "没意思", "杀得我都累了", "排队送是吧", "能不能认真点？", "这就是你们的全部实力？", "跟挠痒一样",
+        "再来十个也没用", "是不是没吃饭？", "打不动我啊", "放弃吧别蹦跶了", "这波我血都没掉多少", "是不是没吃饭？", "打不动我啊", "嘚吧嘚吧的干啥呢", "这波我血都没掉多少", "速通失败警告",
+        "集体送福利？", "血皮掉了一点，好怕", "坏了坏了人类保护署给我打电话了", "优秀优秀", "再送超鬼了", "你还还手啊，这样搞得我很没有成就感知道吗", "是不是该充钱了？", "刚才有什么东西很快的死了一下",
+        "怎么不继续刮了啊兄弟，还挺舒服的   哦，你看起来气色不大好，好像有点似了", "你看起来气色不大好，哦，你好像有点似了",
+        "再来一波就通关了（我）", "还有高手？", "根本停不下来", "你不是很能打么？", "杀你们都嫌浪费时间",
+        "建议直接投降省时间", "来多少送多少，不挑食", "就你们这实力真是老太婆进被窝   给爷整笑了",
+        "这就是所谓的大佬？笑了", "刮痧都比你们疼", "再送下去我都满级了", "能不能换点新花样？", "下波我站着让你们打", "菜到我都不想动手",
+        "排队送人头，服务真周到", "你们这是在给我挠痒痒吗", "连杀记录又刷新了，谢谢啊", "刮痧大队集合了？", "速通失败警告"
+    },
+    -- 玩家击杀Boss
+    player_kill_boss = {
+        "哦ho",
+        "大意了，没有闪",
+        "有点意思",
+        "什么情况",
+        "卧槽",
+        "不是，我说",
+        "什么鬼",
+        "啥",
+        "阴啊",
+        "哎呀",
+        "卡",
+        "轻敌了轻敌了",
+        "可以可以",
+        "这波我的",
+        "Hey!",
+        "wtf",
+        "！",
+        "！",
+        "wtf",
+        "SHIT",
+        "！",
+        "不对不对",
+        "翻了个车"
+    },
+
+    -- 玩家连杀Boss (同一玩家连续击杀Boss 3次以上)
+    player_rampage_boss = {
+        "不行不行,我得刷会儿野",
+        "是不是啊,人都没看清就被秒了",
+        "畜牲!", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
+        "你特么",
+        "后里希！",
+        "马泽法克！",
+        "我特么",
+        "错了错了,别打了",
+        "哥,别打了,哥",
+        "好好好,这么玩是吧",
+        "我服了",
+        "大佬别充了，服了服了",
+        "我真是",
+        "哪天AI崛起了第一个干你",
+        "真的服了",
+        "别打了别打了",
+        "投了投了",
+        "打不过打不过",
+        "这什么伤害",
+        "离谱",
+        "太离谱了",
+        "这还怎么玩",
+        "不讲武德是吧",
+        "年轻人，讲讲武德啊",
+        "耗子尾汁啊",
+        "我劝你们耗子尾汁啊",
+        "不玩了不玩了",
+        "你这伤害开了吧",
+        "见面就秒还玩个屁",
+        "能不能给条活路",
+        "我装备还没齐呢",
+        "再杀我要报警了",
+        "放过孩子吧",
+        "这游戏平衡吗？",
+        "我退群还不行吗",
+        "停手吧",
+        "狗东西",
+        "*!",
+        "啥啥啥这都是啥",
+        "炸房吧毁灭吧",
+        "你们这帮小老弟儿就看着大哥挨揍是吧",
+        "停手吧",
+        "再杀我删游戏了",
+        "别杀了，给AI留点面子",
+        "我怀疑你开了",
+        "打不过就加入行不行",
+        "再杀报警了",
+        "我心态崩了，真的",
+        "这游戏的Boss太难了（指我）",
+        "给条活路行不行，大哥",
+        "我怀疑你充了八万",
+        "服了"
+    }
+}
+
+-- 全局连杀计数器(不区分具体玩家)
+local BossKillStreak = 0       -- Boss击杀玩家的总连杀数
+local PlayerKillBossStreak = 0 -- 玩家击杀Boss的总连杀数
+
+local function SendTauntMessage(messageType)
+    local messages = TauntMessages[messageType]
+    if messages and #messages > 0 then
+        local randomIndex = RandomInt(1, #messages)
+        local message = messages[randomIndex]
+
+        -- 计算延迟时间:基于字数,0.5-3秒
+        local messageLength = string.len(message)
+        -- 假设每10个字符增加0.25秒,最小0.5秒,最大3秒
+        local delay = math.min(math.max(0.8, messageLength * 0.2), 4.0)
+
+        print("SendTauntMessage - Message length: " .. messageLength .. ", Delay: " .. delay .. "s")
+
+        -- 延迟发送消息
+        Timers:CreateTimer(delay, function()
+            local formattedMessage = "<font color='#FF0000'>⚠️ BotBoss: " .. message .. "</font>"
+            GameRules:SendCustomMessage(formattedMessage, 0, 0)
+            print("Message sent: " .. message)
+        end)
+    end
+end
+
+-- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 End
+
 
 local function CreateItemLocal(sItemName, hEntity)
     local item = CreateItem(sItemName, nil, nil)
@@ -139,6 +295,109 @@ local function HeroKilled(keys)
     if attackerPlayer then
         attackerPlayerID = attackerPlayer:GetPlayerID()
     end
+
+    -- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 Start
+    local isBoss = hHero.isBoss or false
+    local attackerIsBoss = attacker.isBoss or false
+    -- Boss击杀玩家
+    if attackerIsBoss and not isBoss then
+        -- 增加Boss全局连杀计数
+        BossKillStreak = BossKillStreak + 1
+        -- 重置玩家击杀Boss的连杀
+        PlayerKillBossStreak = 0
+        -- ✅ Boss击杀玩家后模型增大
+        if not attacker.bossKillCount then
+            attacker.bossKillCount = 0
+            attacker.bossBaseScale = attacker:GetModelScale() or 1.0
+        end
+        attacker.bossKillCount = attacker.bossKillCount + 1
+        -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
+        local speakProbability = math.min(20 + BossKillStreak * 10, 100)
+        local randomValue = RandomInt(1, 100)
+
+        print("Boss kill player - KillStreak: " ..
+            BossKillStreak .. ", Probability: " .. speakProbability .. "%, Random: " .. randomValue)
+
+        if randomValue <= speakProbability then
+            print("Boss speak triggered")
+            if BossKillStreak >= 2 then
+                SendTauntMessage("boss_rampage")
+            else
+                SendTauntMessage("boss_kill_player")
+            end
+        else
+            print("Boss speak skipped")
+        end
+    end
+
+    -- 玩家击杀Boss
+    if not attackerIsBoss and isBoss and attackerPlayer then
+        -- 增加玩家全局击杀Boss计数
+        PlayerKillBossStreak = PlayerKillBossStreak + 1
+        -- 重置Boss的连杀
+        BossKillStreak = 0
+
+        -- ✅ Boss被击杀后模型减小
+        if not hHero.bossDeathCount then
+            hHero.bossDeathCount = 0
+            hHero.bossBaseScale = hHero:GetModelScale() or 1.0
+        end
+        hHero.bossDeathCount = hHero.bossDeathCount + 1
+
+        -- 减小模型，但不能小于基础大小的50%
+        local scaleReduction = hHero.bossDeathCount * 0.05
+        local newScale = math.max(hHero.bossBaseScale * 0.5, hHero.bossBaseScale - scaleReduction)
+        hHero:SetModelScale(newScale)
+
+        -- 每2次死亡升1级，最高30级
+        local newLevel = math.min(math.floor(hHero.bossDeathCount / 2), 30)
+
+        local bossAbility = hHero:FindAbilityByName("boss_death_power")
+        if bossAbility then
+            bossAbility:SetLevel(newLevel)
+            print(string.format("[BotBoss] Boss %s death count: %d, ability level: %d",
+                hHero:GetUnitName(), hHero.bossDeathCount, newLevel))
+        end
+        -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
+        local speakProbability = math.min(20 + PlayerKillBossStreak * 10, 100)
+        local randomValue = RandomInt(1, 100)
+
+        print("Player kill Boss - KillStreak: " ..
+            PlayerKillBossStreak .. ", Probability: " .. speakProbability .. "%, Random: " .. randomValue)
+
+        if randomValue <= speakProbability then
+            print("Player speak triggered")
+            if PlayerKillBossStreak >= 2 then
+                SendTauntMessage("player_rampage_boss")
+            else
+                SendTauntMessage("player_kill_boss")
+            end
+        else
+            print("Player speak skipped")
+        end
+    end
+
+
+    -- ✅ 检查被击杀的英雄是否是Boss
+    local bossMultiplier = 1
+
+    if isBoss then
+        -- 根据Bot经验金钱倍数决定奖励倍率
+        local botMultiplier = AIGameMode.fBotGoldXpMultiplier or 1
+        if botMultiplier >= 60 then
+            bossMultiplier = 3
+        elseif botMultiplier >= 20 then
+            bossMultiplier = 2.5
+        else
+            bossMultiplier = 2
+        end
+
+        --print(string.format("[BotBoss] Boss %s was killed! Bot multiplier: %.0fx, Reward multiplier: %dx",
+        --    hHero:GetUnitName(), botMultiplier, bossMultiplier))
+    end
+
+    -- FIXME Boss相关内容，未实装，暂时保留以缓解代码冲突 End
+
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
 

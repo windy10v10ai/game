@@ -8,8 +8,11 @@ end
 if modifier_item_swift_glove == nil then modifier_item_swift_glove = class({}) end
 
 function modifier_item_swift_glove:IsHidden() return true end
+
 function modifier_item_swift_glove:IsPurgable() return false end
+
 function modifier_item_swift_glove:RemoveOnDeath() return false end
+
 function modifier_item_swift_glove:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -18,11 +21,7 @@ function modifier_item_swift_glove:OnCreated()
     self:OnRefresh()
 
     local ability = self:GetAbility()
-    if ability then
-        self.bat_reduction_pct = ability:GetSpecialValueFor("bat_reduction_pct") or 40
-    else
-        self.bat_reduction_pct = 40
-    end
+    self.bat_reduction_pct = ability:GetSpecialValueFor("bat_reduction_pct")
 end
 
 function modifier_item_swift_glove:OnRefresh()
@@ -60,14 +59,15 @@ function modifier_item_swift_glove:GetModifierBaseAttackTimeConstant()
         local current_bat = parent:GetBaseAttackTime()
 
         -- 手动计算百分比减少
-        local bat_reduction_pct = self.bat_reduction_pct or 20
+        local bat_reduction_pct = self.bat_reduction_pct
         local new_bat = current_bat * (1 - bat_reduction_pct / 100)
 
         self.bat_check = false
         return new_bat
     end
 end
+
 -- 在 modifier_item_swift_glove 中添加
 function modifier_item_swift_glove:GetPriority()
-    return MODIFIER_PRIORITY_HIGH  -- 比鹰眼炮台更高的优先级
+    return MODIFIER_PRIORITY_HIGH -- 比鹰眼炮台更高的优先级
 end

@@ -40,8 +40,8 @@ export class BotAbility {
 
     // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
     // ✅ 新增: 如果是Boss,添加额外技能
-    if (bossAbilityCount > 0) {
-      //   this.AddBossAbilities(hero, bossAbilityCount);
+    if (bossAbilityCount >= 0) {
+      // this.AddBossAbilities(hero, bossAbilityCount);
     }
   }
 

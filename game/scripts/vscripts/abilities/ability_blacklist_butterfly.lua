@@ -172,6 +172,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["tinker_keen_teleport"] = true,            -- 修补匠 传送  ✅ 新增
     --精灵
     ["wisp_tether"] = true,
+    ["wisp_tether_break"] = true,
     ["wisp_spirits"] = true,
     ["wisp_relocate"] = true,
     ["wisp_spirits_in"] = true,
@@ -214,6 +215,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["nevermore_frenzy"] = true,
     ["ringmaster_tame_the_beasts"] = true,
     ["furion_sprout"] = true,
+    ["abyssal_underlord_dark_portal"] = true,
+    ["abyssal_underlord_dark_rift"] = true,
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题
