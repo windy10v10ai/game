@@ -1,12 +1,5 @@
--- game/scripts/vscripts/items/item_beast_armor.lua
-if item_beast_armor == nil then item_beast_armor = class({}) end
-
 LinkLuaModifier("modifier_item_beast_armor_active", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_beast_armor_passive", "items/item_beast_armor.lua", LUA_MODIFIER_MOTION_NONE)
-
-function item_beast_armor:GetIntrinsicModifierName()
-    return "modifier_item_beast_armor"
-end
 
 -- ========================================
 -- DataDriven modifier_item_beast_armor 的 OnCreated 回调

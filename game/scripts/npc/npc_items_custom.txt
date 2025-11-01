@@ -7124,6 +7124,8 @@
 				"IsDebuff"				"1"
 				"IsPurgable"			"1"
 
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-40"
@@ -7139,6 +7141,8 @@
 				"Passive"				"1"
 				"IsHidden"				"0"
 				"IsPurgable"			"0"
+
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
 				"Aura"					"modifier_item_beast_armor_radiance_enemy_aura"
 				"Aura_Radius"			"%aura_radius"
