@@ -288,23 +288,22 @@ end
 
 **光环 Modifier 命名规范**：
 
-- 光环发射器必须以 `_aura_emitter` 结尾
 - 光环效果必须以 `_aura` 结尾
 
 示例：
 
 ```
-"modifier_item_vladmir_2_enemy_aura_emitter"  // 光环发射器
+"modifier_item_radiance"  // 光环发射器
 {
-    "Aura"  "modifier_item_vladmir_2_enemy_aura"  // 光环效果
+    "Aura"  "modifier_item_radiance_enemy_aura"  // 光环效果
     ...
 }
 
-"modifier_item_vladmir_2_enemy_aura"  // 被 aura 应用的效果
+"modifier_item_radiance_enemy_aura"  // 被 aura 应用的光环效果
 {
     "Properties"
     {
-        "MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"  "%aura_negative_armor"
+        "MODIFIER_PROPERTY_MISS_PERCENTAGE"  "%aura_miss_percentage"
     }
 }
 ```

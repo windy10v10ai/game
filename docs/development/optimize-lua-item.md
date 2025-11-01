@@ -395,10 +395,10 @@ end
 
 ### 关键区别
 
-| 方案 | 适用场景 | 实现方式 |
-|------|---------|---------|
-| **RefreshItemDataDrivenModifier** | 永久物品基础属性 | 使用 `_stats` 后缀的 modifier |
-| **完整 DataDriven Modifier** | 临时 debuff/buff | 直接定义完整 modifier，在 Lua 中通过 `AddNewModifier` 施加 |
+| 方案                              | 适用场景         | 实现方式                                                   |
+| --------------------------------- | ---------------- | ---------------------------------------------------------- |
+| **RefreshItemDataDrivenModifier** | 永久物品基础属性 | 使用 `_stats` 后缀的 modifier                              |
+| **完整 DataDriven Modifier**      | 临时 debuff/buff | 直接定义完整 modifier，在 Lua 中通过 `AddNewModifier` 施加 |
 
 ### 示例：兽化甲减速 debuff
 
@@ -431,7 +431,7 @@ ApplyItemDataDrivenModifier(_, caster, enemy, "modifier_item_beast_armor_debuff"
 ### 示例：辉耀灼烧（DataDriven + RunScript）
 
 ```kv
-"modifier_item_beast_armor_radiance_debuff"
+"modifier_item_beast_armor_radiance_enemy_aura"
 {
     "Properties"
     {
@@ -451,12 +451,12 @@ ApplyItemDataDrivenModifier(_, caster, enemy, "modifier_item_beast_armor_debuff"
 
 ### 优势对比
 
-| 对比项 | 传统 Lua Modifier | 完整 DataDriven Modifier |
-|--------|------------------|-------------------------|
-| **代码量** | ~50 行 Lua | ~20 行 KV |
-| **性能** | 每帧调用 Lua | 引擎原生处理 |
-| **维护性** | 代码分散 | 配置集中 |
-| **灵活性** | 完全灵活 | 静态属性 + RunScript |
+| 对比项     | 传统 Lua Modifier | 完整 DataDriven Modifier |
+| ---------- | ----------------- | ------------------------ |
+| **代码量** | ~50 行 Lua        | ~20 行 KV                |
+| **性能**   | 每帧调用 Lua      | 引擎原生处理             |
+| **维护性** | 代码分散          | 配置集中                 |
+| **灵活性** | 完全灵活          | 静态属性 + RunScript     |
 
 ### 重要限制
 
@@ -478,6 +478,7 @@ ApplyItemDataDrivenModifier(_, caster, enemy, "modifier_item_beast_armor_debuff"
 4. ✅ 提升游戏整体性能
 
 **优化原则**：
+
 - 永久物品属性 → 使用 `RefreshItemDataDrivenModifier` + `_stats` modifier
 - 临时 debuff/buff → 直接定义完整 DataDriven modifier
 - 复杂逻辑 → DataDriven 调用 Lua 函数（`RunScript`）
