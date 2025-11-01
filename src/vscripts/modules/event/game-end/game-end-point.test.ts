@@ -219,12 +219,6 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(0.6);
     });
 
-    it('复活时间百分比<=50时应该返回0.8', () => {
-      const option = { ...defaultOption, respawnTimePercentage: 50 } as Option;
-      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.8);
-    });
-
     it('防御塔倍率<=150时', () => {
       const option = { ...defaultOption, towerPower: 150 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);

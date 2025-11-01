@@ -151,8 +151,6 @@ export class GameEndPoint {
     // 复活时间
     if (option.respawnTimePercentage <= 10) {
       multiplier *= 0.6;
-    } else if (option.respawnTimePercentage <= 50) {
-      multiplier *= 0.8;
     }
 
     // 不为负数
