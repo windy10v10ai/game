@@ -6581,249 +6581,247 @@
 		"bonus_health_regen"    "0"     // tooltip only - 生命回复
     }
 }
-//暗影
-	//11暗影裁决 一闪+苍蓝幻想+绝对破防之刃+变态辣 融合所有debuff，cd适当短，但不能无限
-	//12暗影咒灭 达贡之神力+永恒虚灵之刃+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
-//=================================================================================================================
-// Recipe: 暗影裁决
-//=================================================================================================================
-"item_recipe_shadow_judgment"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10311"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_shadow_judgment"
+	//=================================================================================================================
+	// 暗影裁决
+	//=================================================================================================================
+	// 一闪+苍蓝幻想+绝对破防之刃+变态辣 融合所有debuff，cd适当短，但不能无限
+	"item_recipe_shadow_judgment"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10311"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_shadow_judgment"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"					"0"
+		"ItemShopTags"				""
 
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_shadow_judgment"
-    "ItemRequirements"
-    {
-        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
-    }
-}
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_shadow_judgment"
+		"ItemRequirements"
+		{
+			"01"					"item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
+		}
+	}
 
-//=================================================================================================================
-// 暗影裁决
-//=================================================================================================================
-"item_shadow_judgment"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10312"
-    "ScriptFile"                "items/item_shadow_judgment"
-    "AbilityTextureName"        "anyingcaijue"
-     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"  // 允许选中魔免目标
-    "FightRecapLevel"           "1"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"  // 一闪效果穿透魔免
+	"item_shadow_judgment"
+	{
+		"BaseClass"					"item_lua"
+		"ID"						"10312"
+		"ScriptFile"				"items/item_shadow_judgment"
+		"AbilityTextureName"		"anyingcaijue"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"	// 允许选中魔免目标
+		"FightRecapLevel"			"1"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"	// 一闪效果穿透魔免
 
-    "ItemShopTags"              "damage;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		"ItemShopTags"				"damage;hard_to_tag"
+		"ItemQuality"				"epic"
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"0"
 
-    "AbilityCooldown"           "12"
-    "AbilityManaCost"           "800"
-    "AbilityCastRange"          "900"
-    "AbilityCastPoint"          "0.2"
-    // 添加这个precache部分
-    "precache"
-    {
-        "particle"              "particles/items4_fx/nullifier_slow.vpcf"
-        "particle"              "particles/items4_fx/nullifier_mute_debuff.vpcf"
-        "particle"              "particles/status_fx/status_effect_nullifier.vpcf"
-        "particle"              "particles/items4_fx/nullifier_mute.vpcf"
-        "particle"              "particles/items4_fx/bloodthorn_pop.vpcf"
-        "particle"              "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_requiem.vpcf"
-        "particle"              "particles/econ/events/ti9/blink_dagger_ti9_start_lvl2.vpcf"
-        "particle"              "particles/econ/events/ti9/blink_dagger_ti9_lvl2_end.vpcf"
-    }
-    "AbilityValues"
-    {
-        // 一闪效果
-        "stun_duration"         "2.0"
-        "active_damage_base"
-        {
-            "value"                 "200"
-            "CalculateSpellDamageTooltip" "1"
-        }
-        "active_damage_multi"   "1.0"
+		"AbilityCooldown"			"12"
+		"AbilityManaCost"			"800"
+		"AbilityCastRange"			"900"
+		"AbilityCastPoint"			"0.2"
+		// 添加这个precache部分
+		"precache"
+		{
+			"particle"				"particles/items4_fx/nullifier_slow.vpcf"
+			"particle"				"particles/items4_fx/nullifier_mute_debuff.vpcf"
+			"particle"				"particles/status_fx/status_effect_nullifier.vpcf"
+			"particle"				"particles/items4_fx/nullifier_mute.vpcf"
+			"particle"				"particles/items4_fx/bloodthorn_pop.vpcf"
+			"particle"				"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_requiem.vpcf"
+			"particle"				"particles/econ/events/ti9/blink_dagger_ti9_start_lvl2.vpcf"
+			"particle"				"particles/econ/events/ti9/blink_dagger_ti9_lvl2_end.vpcf"
+		}
+		"AbilityValues"
+		{
+			// 一闪效果
+			"stun_duration"			"2.0"
+			"active_damage_base"
+			{
+				"value"					"200"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"active_damage_multi"	"1.0"
 
-        // 苍蓝幻想效果
-        "mute_duration"         "4.0"
-        "slow_pct"              "-60"
-        "attack_slow"           "-200"
-		"max_hp_dmg_pct"        "4"      // 添加这个参数
-    	"hp_regen_reduction"    "-80"    // 添加这个参数
+			// 苍蓝幻想效果
+			"mute_duration"			"4.0"
+			"slow_pct"				"-60"
+			"attack_slow"			"-200"
+			"max_hp_dmg_pct"		"4"		// 添加这个参数
+			"hp_regen_reduction"	"-80"	// 添加这个参数
 
-        // 变态辣效果
-        "silence_duration"      "5.0"
-        "silence_damage_percent" "30"
+			// 变态辣效果
+			"silence_duration"		"5.0"
+			"silence_damage_percent"	"30"
 
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_strength"        "55"    // tooltip only - 力量
-        "bonus_agility"         "115"   // tooltip only - 敏捷
-        "bonus_intellect"       "85"    // tooltip only - 智力
-        "bonus_damage"          "360"   // tooltip only - 攻击力
-        "bonus_armor"           "25"    // tooltip only - 护甲
-        "bonus_attack_speed"    "150"   // tooltip only - 攻击速度
-        "bonus_health"          "600"   // tooltip only - 生命值
-        "bonus_mana_regen"      "25"    // tooltip only - 魔法恢复
-        "spell_amp"             "50"    // tooltip only - 法术增强
-    }
-}
-//=================================================================================================================
-// Recipe: 暗影咒灭
-//=================================================================================================================
-"item_recipe_shadow_impact"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10313"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_shadow_impact"
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"		"55"	// tooltip only - 力量
+			"bonus_agility"			"115"	// tooltip only - 敏捷
+			"bonus_intellect"		"85"	// tooltip only - 智力
+			"bonus_damage"			"360"	// tooltip only - 攻击力
+			"bonus_armor"			"25"	// tooltip only - 护甲
+			"bonus_attack_speed"	"150"	// tooltip only - 攻击速度
+			"bonus_health"			"600"	// tooltip only - 生命值
+			"bonus_mana_regen"		"25"	// tooltip only - 魔法恢复
+			"spell_amp"				"50"	// tooltip only - 法术增强
+		}
+	}
+	//=================================================================================================================
+	// 暗影咒灭
+	//=================================================================================================================
+	// 达贡之神力+永恒虚灵之刃+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
+	"item_recipe_shadow_impact"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10313"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_shadow_impact"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"					"0"
+		"ItemShopTags"				""
 
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_shadow_impact"
-    "ItemRequirements"
-    {
-        "01"                    "item_dagon_5;item_ethereal_blade_ultra;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
-    }
-}
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_shadow_impact"
+		"ItemRequirements"
+		{
+			"01"					"item_dagon_5;item_ethereal_blade_ultra;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
+		}
+	}
 
-//=================================================================================================================
-// 暗影咒灭
-//=================================================================================================================
-"item_shadow_impact"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10314"
-    "ScriptFile"                "items/item_shadow_impact"
-    "AbilityTextureName"        "anyingchongji"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"           "1"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"  // 允许选中魔免目标
-	"ItemShopTags"              "damage;int;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+	"item_shadow_impact"
+	{
+		"BaseClass"					"item_lua"
+		"ID"						"10314"
+		"ScriptFile"				"items/item_shadow_impact"
+		"AbilityTextureName"		"anyingchongji"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"			"1"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"	// 允许选中魔免目标
+		"ItemShopTags"				"damage;int;hard_to_tag"
+		"ItemQuality"				"epic"
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"0"
 
-    "AbilityCooldown"           "8"
-    "AbilityManaCost"           "1600"
-    "AbilityCastRange"          "900"
-    "AbilityCastPoint"          "0.2"
+		"AbilityCooldown"			"8"
+		"AbilityManaCost"			"1600"
+		"AbilityCastRange"			"900"
+		"AbilityCastPoint"			"0.2"
 
-    "AbilityValues"
-    {
-        // 主动技能参数（Lua 逻辑需要）
-        "dagon_damage"
-        {
-            "value"             "800"
-            "CalculateSpellDamageTooltip" "1"
-        }
-        "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
-        "sheep_duration"            "1.5"    // Lua 逻辑需要 - 变形持续时间
-        "sheep_movement_speed"      "140"    // Lua 逻辑需要 - 变形移动速度
-        "ethereal_duration"         "4.0"    // Lua 逻辑需要 - 虚灵持续时间
-        "blast_agility_multiplier"  "2.5"    // Lua 逻辑需要 - 虚灵之刃主属性倍数
-        "blast_damage_base"         "300"    // Lua 逻辑需要 - 虚灵之刃基础伤害
-        "blast_movement_slow"       "-80"    // Lua 逻辑需要 - 虚灵减速百分比
-        "ethereal_damage_bonus"     "40"     // Lua 逻辑需要 - 虚灵伤害加成
-        "absolute_damage"
-        {
-            "value"             "600"
-            "CalculateSpellDamageTooltip" "1"
-        }
+		"AbilityValues"
+		{
+			// 主动技能参数（Lua 逻辑需要）
+			"dagon_damage"
+			{
+				"value"					"800"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"sheep_duration"			"1.5"	// Lua 逻辑需要 - 变形持续时间
+			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
+			"ethereal_duration"			"4.0"	// Lua 逻辑需要 - 虚灵持续时间
+			"blast_agility_multiplier"	"2.5"	// Lua 逻辑需要 - 虚灵之刃主属性倍数
+			"blast_damage_base"			"300"	// Lua 逻辑需要 - 虚灵之刃基础伤害
+			"blast_movement_slow"		"-80"	// Lua 逻辑需要 - 虚灵减速百分比
+			"ethereal_damage_bonus"		"40"	// Lua 逻辑需要 - 虚灵伤害加成
+			"absolute_damage"
+			{
+				"value"					"600"
+				"CalculateSpellDamageTooltip"	"1"
+			}
 
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_intellect"       "200"   // tooltip only - 智力
-        "bonus_strength"        "80"    // tooltip only - 力量
-        "bonus_agility"         "120"   // tooltip only - 敏捷
-        "bonus_damage"          "250"   // tooltip only - 攻击力
-        "bonus_mana"            "1500"  // tooltip only - 魔法值
-        "bonus_mana_regen"      "30"    // tooltip only - 魔法回复
-        "spell_amp"             "60"    // tooltip only - 技能增强
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_intellect"			"200"	// tooltip only - 智力
+			"bonus_strength"			"80"	// tooltip only - 力量
+			"bonus_agility"				"120"	// tooltip only - 敏捷
+			"bonus_damage"				"250"	// tooltip only - 攻击力
+			"bonus_mana"				"1500"	// tooltip only - 魔法值
+			"bonus_mana_regen"			"30"	// tooltip only - 魔法回复
+			"spell_amp"					"60"	// tooltip only - 技能增强
 
-        // Lua 逻辑需要 - 施法距离（不在可优化列表）
-        "bonus_cast_range"      "300"   // Lua 逻辑需要 - 施法距离加成
-    }
+			// Lua 逻辑需要 - 施法距离（不在可优化列表）
+			"bonus_cast_range"			"300"	// Lua 逻辑需要 - 施法距离加成
+		}
 
-    "precache"
-    {
-        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
-        "particle"      "particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
-        "particle"      "particles/items2_fx/ethereal_blade.vpcf"
-    }
-}
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
+			"particle"					"particles/items2_fx/ethereal_blade.vpcf"
+		}
+	}
 
-//灵动
-	//15无限手套 霰弹枪+黄金魔龙枪+散魂剑+六脉神剑，加移速加攻速加攻击距离
-"item_recipe_swift_glove"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10317"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_swift_glove"
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_swift_glove"
-    "ItemRequirements"
-    {
-        "01"                    "item_hand_of_group;item_hurricane_pike_2;item_sacred_six_vein;item_fusion_agile"
-    }
-}
-"item_swift_glove"
-{
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                "items/item_swift_glove"
-    "ID"                        "10318"
-    "AbilityTextureName"        "jisushoutao"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+	//=================================================================================================================
+	// 无限手套
+	//=================================================================================================================
+	// 霰弹枪+黄金魔龙枪+散魂剑+六脉神剑，加移速加攻速加攻击距离
+	"item_recipe_swift_glove"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10317"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_swift_glove"
+		"ItemCost"					"0"
+		"ItemShopTags"				""
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_swift_glove"
+		"ItemRequirements"
+		{
+			"01"					"item_hand_of_group;item_hurricane_pike_2;item_sacred_six_vein;item_fusion_agile"
+		}
+	}
 
-    "AbilityValues"
-    {
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_strength"            "100"    // tooltip only - 力量
-        "bonus_agility"             "100"    // tooltip only - 敏捷
-        "bonus_intellect"           "100"    // tooltip only - 智力
-        "bonus_attack_speed"        "166"   // tooltip only - 攻击速度（66 + 100 额外）
-		// FIXME 继承配方，移除移动速度
-        "bonus_movement_speed"      "50"    // tooltip only - 移动速度
+	"item_swift_glove"
+	{
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/item_swift_glove"
+		"ID"						"10318"
+		"AbilityTextureName"		"jisushoutao"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"0"
 
-        // Lua 逻辑需要的参数
-        "bonus_attack_range"        "250"   // Lua 逻辑需要 - 有条件判断（仅远程英雄）
-        "bat_reduction_pct"         "30"    // Lua 逻辑需要 - 动态计算 BAT
-    }
-}
+		"AbilityValues"
+		{
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"			"100"	// tooltip only - 力量
+			"bonus_agility"				"100"	// tooltip only - 敏捷
+			"bonus_intellect"			"100"	// tooltip only - 智力
+			"bonus_attack_speed"		"166"	// tooltip only - 攻击速度（66 + 100 额外）
+			// FIXME 继承配方，移除移动速度
+			"bonus_movement_speed"		"50"	// tooltip only - 移动速度
 
-//16万剑归宗 几把神器对剑 加60%抗性
-"item_recipe_ten_thousand_swords"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10319"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_ten_thousand_swords"
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_ten_thousand_swords"
-    "ItemRequirements"
-    {
-        "01"                    "item_sacred_six_vein;item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1;item_fusion_agile"
-    }
-}
+			// Lua 逻辑需要的参数
+			"bonus_attack_range"		"250"	// Lua 逻辑需要 - 有条件判断（仅远程英雄）
+			"bat_reduction_pct"			"30"	// Lua 逻辑需要 - 动态计算 BAT
+		}
+	}
+
+	//=================================================================================================================
+	// 万剑归宗
+	//=================================================================================================================
+	"item_recipe_ten_thousand_swords"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10319"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_ten_thousand_swords"
+		"ItemCost"					"0"
+		"ItemShopTags"				""
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_ten_thousand_swords"
+		"ItemRequirements"
+		{
+			"01"					"item_sacred_six_vein;item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1;item_fusion_agile"
+		}
+	}
 
 	"item_ten_thousand_swords"
 	{
@@ -6856,7 +6854,10 @@
 		}
 	}
 
-	//17时间宝石 大小刷新球，减50%cd
+	//=================================================================================================================
+	// 时间宝石
+	//=================================================================================================================
+	// 大小刷新球，减50%cd
 	"item_recipe_time_gem"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6869,7 +6870,7 @@
 		"ItemResult"				"item_time_gem"
 		"ItemRequirements"
 		{
-			"01"					"item_refresh_core;item_refresher;item_kaya_and_sange_1,item_yasha_and_kaya_1;item_fusion_agile"
+			"01"					"item_refresh_core;item_refresher;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
 		}
 	}
 
