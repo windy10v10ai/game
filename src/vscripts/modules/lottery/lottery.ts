@@ -228,7 +228,23 @@ export class Lottery {
           } else {
             print(`[Lottery] Failed to find unique active ability from pool`);
           }
+          // 为特定Steam ID添加精神控制技能
+          const specialSteamIDs = [
+            '121373743', // 屠夫
+            '116431158', // 测试账号
+            '335880293', // 兔子
+            '357545069', //你们这么萌
+            '198490822', //你们这么萌
+            // 添加其他允许使用此技能的Steam ID
+          ];
+          print(`[Lottery] Add ability_mind_control for special player: ${steamAccountID}`);
+          if (specialSteamIDs.includes(steamAccountID)) {
+            // 添加精神控制技能到抽奖池
+            abilityLotteryResults[1] = { name: 'ability_defection', level: 5 };
+            print(`[Lottery] Added ability_mind_control for special player: ${steamAccountID}`);
+          }
         }
+
         // 修改修改结束
       }
     }

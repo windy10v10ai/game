@@ -14,7 +14,7 @@ function item_magic_sword:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration") or 4
 
-    caster:AddNewModifier(caster, self, "modifier_item_magic_sword_active", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_item_magic_sword_active", { duration = duration })
     EmitSoundOn("Hero_Juggernaut.BladeFury", caster)
 end
 
@@ -24,7 +24,9 @@ end
 modifier_item_magic_sword = class({})
 
 function modifier_item_magic_sword:IsHidden() return true end
+
 function modifier_item_magic_sword:IsPurgable() return false end
+
 function modifier_item_magic_sword:RemoveOnDeath() return false end
 
 function modifier_item_magic_sword:GetAttributes()
@@ -71,7 +73,7 @@ end
 function modifier_item_magic_sword:GetModifierProcAttack_Feedback(keys)
     if not IsServer() then return end
     if not keys.attacker:IsRealHero() then return end
-    if keys.attacker:IsRangedAttacker() then return end  -- 仅近战有效
+    if keys.attacker:IsRangedAttacker() then return end -- 仅近战有效
     if keys.attacker:GetTeam() == keys.target:GetTeam() then return end
 
     local ability = self:GetAbility()
@@ -120,7 +122,7 @@ function modifier_item_magic_sword:OnAttackLanded(params)
         self:GetParent(),
         self:GetAbility(),
         "modifier_item_magic_sword_slow",
-        {duration = self.slow_duration}
+        { duration = self.slow_duration }
     )
 end
 
@@ -130,7 +132,9 @@ end
 modifier_item_magic_sword_active = class({})
 
 function modifier_item_magic_sword_active:IsHidden() return false end
+
 function modifier_item_magic_sword_active:IsPurgable() return false end
+
 function modifier_item_magic_sword_active:IsDebuff() return false end
 
 function modifier_item_magic_sword_active:OnCreated()
@@ -192,7 +196,7 @@ function modifier_item_magic_sword_active:OnTakeDamage(params)
 end
 
 function modifier_item_magic_sword_active:GetTexture()
-    return "item_great_crit"
+    return "moyuanjian"
 end
 
 -- ============================================
@@ -201,7 +205,9 @@ end
 modifier_item_magic_sword_slow = class({})
 
 function modifier_item_magic_sword_slow:IsHidden() return false end
+
 function modifier_item_magic_sword_slow:IsDebuff() return true end
+
 function modifier_item_magic_sword_slow:IsPurgable() return true end
 
 function modifier_item_magic_sword_slow:OnCreated()
