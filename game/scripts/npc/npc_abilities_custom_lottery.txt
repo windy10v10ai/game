@@ -43,7 +43,7 @@
 		"AbilityValues"
 		{
 			"movement_speed_pct_per_level"		"0.5"
-			"cooldown_reduction_pct_per_level"	"1.25"
+			"cooldown_reduction_pct_per_level"	"1.0"
 
 			"movement_speed_tooltip"
 			{
@@ -91,7 +91,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"aoe_per_int"				"0.6"
+			"aoe_per_int"				"0.5"
 		}
 	}
 	//精准光环
