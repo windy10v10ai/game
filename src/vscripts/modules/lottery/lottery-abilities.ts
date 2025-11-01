@@ -29,7 +29,7 @@ export const abilityTiersActive: Tier[] = [
       'legion_commander_duel', // 决斗
       'marci_unleash', // 怒拳破
       'mars_bulwark', // 护身甲盾
-
+      'ability_mind_control', //夺舍
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
 
