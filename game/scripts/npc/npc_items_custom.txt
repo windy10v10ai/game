@@ -7041,8 +7041,9 @@
 			"blast_radius"					"900"	// Lua 逻辑需要 - 冲击波范围
 			"blast_damage"					"900"	// Lua 逻辑需要 - 冲击波伤害
 
+			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
 			"movement_slow"					"40"	// tooltip only - 移速减缓
-			"attack_slow"					"40"	// tooltip only - 攻速减缓
+			"attack_slow"					"160"	// tooltip only - 攻速减缓
 			"spell_resist_reduction"		"25"	// tooltip only - 魔法抗性降低
 
 			// 辉耀光环（事件驱动）
@@ -7125,9 +7126,9 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-%movement_slow"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-%attack_slow"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-%spell_resist_reduction"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-40"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-160"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-25"
 				}
 
 				"TextureName"			"item_shivas_guard"
