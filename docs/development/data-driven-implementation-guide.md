@@ -4,6 +4,8 @@
 
 本文档记录了将传统 Lua modifier 迁移到 DataDriven 实现的经验和最佳实践，以 item_magic_sword 为例。
 
+官方文档: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven
+
 ## 核心概念
 
 ### DataDriven vs Lua Modifier

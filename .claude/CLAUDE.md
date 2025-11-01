@@ -341,7 +341,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 **核心原则**: DataDriven 处理简单属性和事件,Lua 处理复杂逻辑
 
-### 优化物品 Modifiers (`docs/development/optimize-item-modifiers.md`)
+### 优化 Lua 物品 (`docs/development/optimize-lua-item.md`)
 
 **适用场景**: 减少游戏卡顿、优化物品性能、处理大量物品属性
 

@@ -387,6 +387,87 @@ end
 -- end
 ```
 
+## 高级优化：临时 Debuff 的 DataDriven 实现
+
+### 适用场景
+
+对于**有持续时间的临时 debuff**（如主动技能施加的减速、致盲等），可以直接在 `npc_items_modifier.txt` 中定义完整的 DataDriven modifier，而不是使用 `_stats` 辅助 modifier。
+
+### 关键区别
+
+| 方案 | 适用场景 | 实现方式 |
+|------|---------|---------|
+| **RefreshItemDataDrivenModifier** | 永久物品基础属性 | 使用 `_stats` 后缀的 modifier |
+| **完整 DataDriven Modifier** | 临时 debuff/buff | 直接定义完整 modifier，在 Lua 中通过 `AddNewModifier` 施加 |
+
+### 示例：兽化甲减速 debuff
+
+#### DataDriven 定义
+
+```kv
+"modifier_item_beast_armor_debuff"
+{
+    "Passive"   "0"      // 非被动
+    "IsDebuff"  "1"
+
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"  "-40"
+        "MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"  "-40"
+    }
+}
+```
+
+#### Lua 使用
+
+```lua
+-- ❌ 不需要 LinkLuaModifier
+-- ✅ 使用 ApplyItemDataDrivenModifier 添加
+ApplyItemDataDrivenModifier(_, caster, enemy, "modifier_item_beast_armor_debuff", {
+    duration = duration
+})
+```
+
+### 示例：辉耀灼烧（DataDriven + RunScript）
+
+```kv
+"modifier_item_beast_armor_radiance_debuff"
+{
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_MISS_PERCENTAGE"  "17"  // 静态属性
+    }
+
+    "ThinkInterval"  "1.0"
+    "OnIntervalThink"
+    {
+        "RunScript"
+        {
+            "Function"  "RadianceBurnDamage"  // Lua 函数处理伤害
+        }
+    }
+}
+```
+
+### 优势对比
+
+| 对比项 | 传统 Lua Modifier | 完整 DataDriven Modifier |
+|--------|------------------|-------------------------|
+| **代码量** | ~50 行 Lua | ~20 行 KV |
+| **性能** | 每帧调用 Lua | 引擎原生处理 |
+| **维护性** | 代码分散 | 配置集中 |
+| **灵活性** | 完全灵活 | 静态属性 + RunScript |
+
+### 重要限制
+
+⚠️ **无法在 DataDriven 中实现的功能**：
+
+- `MODIFIER_PROPERTY_ABSORB_SPELL`（莲花格挡）- 必须用 Lua
+- `OnTakeDamage` 的复杂伤害逻辑 - 必须用 Lua
+- 需要维护状态的逻辑（如冷却时间管理）- 必须用 Lua
+
+对于这些场景，仍需保持 `BaseClass = "item_lua"` 并使用 Lua modifier。
+
 ## 总结
 
 通过将**静态属性**从 Lua 迁移到 DataDriven：
@@ -396,4 +477,8 @@ end
 3. ✅ 保留 Lua 用于复杂逻辑和动态效果
 4. ✅ 提升游戏整体性能
 
-**优化原则**：静态用 DataDriven，动态用 Lua。
+**优化原则**：
+- 永久物品属性 → 使用 `RefreshItemDataDrivenModifier` + `_stats` modifier
+- 临时 debuff/buff → 直接定义完整 DataDriven modifier
+- 复杂逻辑 → DataDriven 调用 Lua 函数（`RunScript`）
+- 特殊功能（如法术格挡）→ 必须保留 Lua modifier
