@@ -7009,7 +7009,7 @@
 
 			// 冰甲冲击波特效
 			"particle"				"particles/items2_fx/shivas_guard_active.vpcf"
-			"particle"				"particles/items2_fx/shivas_guard_slow_debuff.vpcf"
+			"particle"				"particles/items2_fx/shivas_guard_impact.vpcf"
 			"soundfile"				"soundevents/game_sounds_items.vsndevts"
 
 			// 辉耀特效

@@ -59,6 +59,10 @@ function item_beast_armor:OnSpellStart()
         enemy:AddNewModifier(caster, self, "modifier_item_beast_armor_debuff", {
             duration = duration * (1 - enemy:GetStatusResistance())
         })
+        -- 添加特效 particles/items2_fx/shivas_guard_impact.vpcf
+        local particle = ParticleManager:CreateParticle("particles/items2_fx/shivas_guard_impact.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW, enemy)
+        ParticleManager:ReleaseParticleIndex(particle)
     end
 end
 
@@ -391,9 +395,9 @@ function modifier_item_beast_armor_debuff:GetModifierMagicalResistanceBonus()
     return -self.resist_reduction
 end
 
-function modifier_item_beast_armor_debuff:GetEffectName()
-    return "particles/items2_fx/shivas_guard_slow_debuff.vpcf"
-end
+-- function modifier_item_beast_armor_debuff:GetEffectName()
+--     return "particles/items2_fx/shivas_guard_flash.vpcf"
+-- end
 
 function modifier_item_beast_armor_debuff:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
