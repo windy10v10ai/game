@@ -84,6 +84,7 @@ export class GameEndPoint {
 
   public static GetCustomModeMultiplier(option: Option): number {
     let multiplier = 1;
+    // 基础倍率
     if (option.radiantGoldXpMultiplier >= 5) {
       multiplier *= 0.2;
     } else if (option.radiantGoldXpMultiplier >= 2) {
@@ -119,17 +120,10 @@ export class GameEndPoint {
       multiplier += 0.2;
     }
     // 防御塔倍率
-    if (option.towerPower <= 100) {
-      multiplier -= 0.2;
-    } else if (option.towerPower <= 150) {
+    if (option.towerPower <= 150) {
       multiplier -= 0.1;
-    } else if (option.towerPower >= 300) {
-      multiplier += 0.1;
-    }
-
-    multiplier *= option.direPlayerNumber / 10;
-    if (option.respawnTimePercentage <= 0) {
-      multiplier *= 0.5;
+    } else if (option.towerPower >= 600) {
+      multiplier -= 0.1;
     }
 
     // 倍率大于1时，玩家金钱高于等于5000时，倍率加-0.1
@@ -150,6 +144,15 @@ export class GameEndPoint {
     // 勾选额外技能时，降低倍率
     if (option.extraPassiveAbilities) {
       multiplier -= 0.2;
+    }
+
+    // 电脑玩家数量
+    multiplier *= option.direPlayerNumber / 10;
+    // 复活时间
+    if (option.respawnTimePercentage <= 10) {
+      multiplier *= 0.6;
+    } else if (option.respawnTimePercentage <= 50) {
+      multiplier *= 0.8;
     }
 
     // 不为负数

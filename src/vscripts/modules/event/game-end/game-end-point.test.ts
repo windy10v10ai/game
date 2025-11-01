@@ -213,20 +213,26 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(0.5);
     });
 
-    it('复活时间百分比<=0时应该返回0.5', () => {
-      const option = { ...defaultOption, respawnTimePercentage: 0 } as Option;
+    it('复活时间百分比<=10时应该返回0.6', () => {
+      const option = { ...defaultOption, respawnTimePercentage: 10 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.5);
+      expect(multiplier).toBe(0.6);
     });
 
-    it('防御塔倍率<=100时', () => {
-      const option = { ...defaultOption, towerPower: 100 } as Option;
+    it('复活时间百分比<=50时应该返回0.8', () => {
+      const option = { ...defaultOption, respawnTimePercentage: 50 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBe(0.8);
     });
 
     it('防御塔倍率<=150时', () => {
       const option = { ...defaultOption, towerPower: 150 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.9);
+    });
+
+    it('防御塔倍率>=600时', () => {
+      const option = { ...defaultOption, towerPower: 600 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBe(0.9);
     });
@@ -265,7 +271,7 @@ describe('GameEndPoint', () => {
         towerPower: 350,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2);
+      expect(multiplier).toBe(1.9);
     });
 
     it('最高难度倍率', () => {
@@ -277,7 +283,7 @@ describe('GameEndPoint', () => {
         enablePlayerAttribute: false,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2.7);
+      expect(multiplier).toBe(2.6);
     });
 
     it('勾选额外技能时，降低倍率', () => {
