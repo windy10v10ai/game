@@ -19,7 +19,7 @@ export class Lottery {
       maxCount: 3,
       steamIds: ['436804590', '295351477', '180074451', '92159660', '370099556'],
     },
-    { tier: 4, maxCount: 2, steamIds: ['198490822', '116431138'] },
+    { tier: 4, maxCount: 2, steamIds: ['198490822', '116431128'] },
   ];
 
   constructor() {
@@ -497,14 +497,17 @@ export class Lottery {
       lotteryStatus.activeAbilityName = undefined;
       lotteryStatus.activeAbilityLevel = undefined;
       lotteryStatus.isActiveAbilityRefreshed = false;
+      lotteryStatus.activeAbilityRefreshCount = 0; // *** 添加这一行 ***
     } else if (abilityType === 'abilityPassive') {
       lotteryStatus.passiveAbilityName = undefined;
       lotteryStatus.passiveAbilityLevel = undefined;
       lotteryStatus.isPassiveAbilityRefreshed = false;
+      lotteryStatus.passiveAbilityRefreshCount = 0; // *** 添加这一行 ***
     } else if (abilityType === 'abilityPassive2') {
       lotteryStatus.passiveAbilityName2 = undefined;
       lotteryStatus.passiveAbilityLevel2 = undefined;
       lotteryStatus.isPassiveAbilityRefreshed2 = false;
+      lotteryStatus.passiveAbilityRefreshCount2 = 0; // *** 添加这一行 ***
     }
 
     // 重新生成该行的技能
