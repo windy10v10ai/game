@@ -7014,7 +7014,7 @@
 
 			// 辉耀特效
 			"particle"				"particles/items2_fx/radiance_owner.vpcf"
-			"particle"				"particles/items2_fx/radiance_debuff.vpcf"
+			"particle"				"particles/items2_fx/radiance.vpcf"
 
 			// 圣堂刺客折射特效（用于护盾）
 			"particle"				"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"

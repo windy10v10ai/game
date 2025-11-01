@@ -10,6 +10,7 @@ LinkLuaModifier("modifier_item_beast_armor_radiance_debuff", "items/item_beast_a
 function item_beast_armor:GetIntrinsicModifierName()
     return "modifier_item_beast_armor"
 end
+
 function item_beast_armor:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration")
@@ -20,7 +21,8 @@ function item_beast_armor:OnSpellStart()
     EmitSoundOn("DOTA_Item.BladeMail.Activate", caster)
 
     -- 冰甲冲击波效果
-    local particle = ParticleManager:CreateParticle("particles/items2_fx/shivas_guard_active.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    local particle = ParticleManager:CreateParticle("particles/items2_fx/shivas_guard_active.vpcf",
+        PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1, Vector(radius, radius, radius))
     ParticleManager:ReleaseParticleIndex(particle)
@@ -66,7 +68,9 @@ end
 modifier_item_beast_armor = class({})
 
 function modifier_item_beast_armor:IsHidden() return true end
+
 function modifier_item_beast_armor:IsPurgable() return false end
+
 function modifier_item_beast_armor:RemoveOnDeath() return false end
 
 function modifier_item_beast_armor:GetAttributes()
@@ -112,7 +116,6 @@ function modifier_item_beast_armor:DeclareFunctions()
     }
 end
 
-
 -- 被动25%反伤
 function modifier_item_beast_armor:OnTakeDamage(params)
     if not IsServer() then return end
@@ -142,7 +145,6 @@ function modifier_item_beast_armor:OnTakeDamage(params)
         ability = ability,
         damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
     })
-
 end
 
 -- 莲花被动格挡
@@ -160,20 +162,24 @@ function modifier_item_beast_armor:GetAbsorbSpell(params)
     self.last_block_time = current_time
 
     -- 特效
-    local particle = ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN_FOLLOW,
+        self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
 
     EmitSoundOn("DOTA_Item.LinkensSphere.Activate", self:GetParent())
 
     return 1
 end
+
 -- ========================================
 -- 辉耀灼烧光环 modifier
 -- ========================================
 modifier_item_beast_armor_radiance = class({})
 
 function modifier_item_beast_armor_radiance:IsHidden() return false end
+
 function modifier_item_beast_armor_radiance:IsPurgable() return false end
+
 function modifier_item_beast_armor_radiance:IsAura() return true end
 
 function modifier_item_beast_armor_radiance:GetAuraRadius()
@@ -207,11 +213,14 @@ end
 function modifier_item_beast_armor_radiance:GetTexture()
     return "item_radiance"
 end
+
 -- 补充完整的辉耀灼烧debuff modifier
 modifier_item_beast_armor_radiance_debuff = class({})
 
 function modifier_item_beast_armor_radiance_debuff:IsHidden() return false end
+
 function modifier_item_beast_armor_radiance_debuff:IsDebuff() return true end
+
 function modifier_item_beast_armor_radiance_debuff:IsPurgable() return false end
 
 function modifier_item_beast_armor_radiance_debuff:OnCreated()
@@ -247,18 +256,20 @@ function modifier_item_beast_armor_radiance_debuff:GetModifierMiss_Percentage()
 end
 
 function modifier_item_beast_armor_radiance_debuff:GetEffectName()
-    return "particles/items2_fx/radiance_debuff.vpcf"
+    return "particles/items2_fx/radiance.vpcf"
 end
 
 function modifier_item_beast_armor_radiance_debuff:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
+
 -- ========================================
 -- 主动反弹modifier（100%反伤）- 删除重复定义
 -- ========================================
 modifier_item_beast_armor_active = class({})
 
 function modifier_item_beast_armor_active:IsHidden() return false end
+
 function modifier_item_beast_armor_active:IsPurgable() return false end
 
 function modifier_item_beast_armor_active:DeclareFunctions()
@@ -266,12 +277,13 @@ function modifier_item_beast_armor_active:DeclareFunctions()
         MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
 end
-  -- 主动反弹modifier（100%反伤）- 续
+
+-- 主动反弹modifier（100%反伤）- 续
 function modifier_item_beast_armor_active:OnCreated()
     if not IsServer() then return end
     self.reflection_pct = self:GetAbility():GetSpecialValueFor("active_reflection_pct")
 
-        -- 添加持续特效（护盾特效）
+    -- 添加持续特效（护盾特效）
     local parent = self:GetParent()
 
     -- 【修复】使用 AddParticle 添加持续特效
@@ -280,8 +292,10 @@ function modifier_item_beast_armor_active:OnCreated()
         PATTACH_ABSORIGIN_FOLLOW,
         parent
     )
-    ParticleManager:SetParticleControlEnt(fx, 0, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(fx, 1, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(fx, 0, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(),
+        true)
+    ParticleManager:SetParticleControlEnt(fx, 1, parent, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", parent:GetAbsOrigin(),
+        true)
     self:AddParticle(fx, false, false, -1, false, false)
 
     -- 【新增】添加刃甲激活特效（持续显示）
@@ -338,13 +352,16 @@ end
 function modifier_item_beast_armor_active:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
+
 -- ========================================
 -- 减速Debuff modifier
 -- ========================================
 modifier_item_beast_armor_debuff = class({})
 
 function modifier_item_beast_armor_debuff:IsHidden() return false end
+
 function modifier_item_beast_armor_debuff:IsDebuff() return true end
+
 function modifier_item_beast_armor_debuff:IsPurgable() return true end
 
 function modifier_item_beast_armor_debuff:DeclareFunctions()
