@@ -2953,6 +2953,20 @@
 
 "DOTA_Tooltip_ability_boss_death_power"                     "Death Power"
 "DOTA_Tooltip_ability_boss_death_power_Description"         "Each time the Boss is killed, it gains 1 percent permanent damage reduction and damage output increase. The more times killed, the stronger it becomes."
+
+"DOTA_Tooltip_ability_ability_mind_control"                     "Mind Control"
+"DOTA_Tooltip_ability_ability_mind_control_Description"         "Take control of an enemy AI hero for %duration% seconds. You can temporarily control their movement, attacks, and spells. During the control period, the hero's team allegiance changes, and kills or deaths count towards you. However, the AI's residual consciousness may still compete with you for control."
+"DOTA_Tooltip_ability_ability_mind_control_Lore"                "Invade the enemy's consciousness and briefly seize control of their body."
+"DOTA_Tooltip_ability_ability_mind_control_duration"            "DURATION:"
+"DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%DAMAGE REDUCTION:"
+"DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%STATUS RESISTANCE:"
+
+"DOTA_Tooltip_ability_ability_defection"                     "Defection"
+"DOTA_Tooltip_ability_ability_defection_Description"         "Switch freely between Radiant, Dire, and Neutral factions. Cannot attack human players on the Radiant side. 2 seconds delay before swith back to radiant"
+"DOTA_Tooltip_ability_ability_defection_Lore"                "Serve one master while your heart belongs to another, or simply betray them all?"
+
+"DOTA_Tooltip_modifier_defection"                           "Defection"
+"DOTA_Tooltip_modifier_defection_Description"               "1=Radiant, 2=Dire, 3=Neutral"
 		"npc_windy"                                 "Windy"
 		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}

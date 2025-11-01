@@ -234,7 +234,7 @@ export class Lottery {
             '116431158', // 测试账号
             '335880293', // 兔子
             '357545069', //你们这么萌
-            '198490822', //你们这么萌
+            //'198490822', //你们这么萌
             // 添加其他允许使用此技能的Steam ID
           ];
           print(`[Lottery] Add ability_mind_control for special player: ${steamAccountID}`);

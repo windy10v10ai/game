@@ -30,6 +30,7 @@ export const abilityTiersActive: Tier[] = [
       'marci_unleash', // 怒拳破
       'mars_bulwark', // 护身甲盾
       'ability_mind_control', //夺舍
+      'ability_defection', //卧底
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
 

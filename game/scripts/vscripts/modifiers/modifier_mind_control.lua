@@ -106,7 +106,7 @@ function modifier_mind_control:OnCreated(params)
 
     -- 添加粒子效果
     local particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_bane/bane_nightmare.vpcf",
+        "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf",
         PATTACH_OVERHEAD_FOLLOW,
         parent
     )
