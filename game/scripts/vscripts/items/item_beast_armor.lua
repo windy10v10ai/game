@@ -19,7 +19,7 @@ function BeastArmorOnCreated(keys)
 
     if not caster or not ability then return end
 
-    -- 添加 Lua 辅助 modifier 处理 ABSORB_SPELL 和反伤
+    -- 添加 Lua 辅助 modifier 处理 ABSORB_SPELL（莲花被动格挡）和被动反伤
     caster:AddNewModifier(caster, ability, "modifier_item_beast_armor_passive", {})
 end
 
@@ -143,6 +143,14 @@ function modifier_item_beast_armor_passive:OnCreated()
         -- 莲花被动格挡
         self.block_cooldown = ability:GetSpecialValueFor("block_cooldown")
         self.last_block_time = 0
+
+        -- 属性
+        self.active_reflection_pct = ability:GetSpecialValueFor("active_reflection_pct") / 100
+        self.passive_reflection_constant = ability:GetSpecialValueFor("passive_reflection_constant")
+        self.passive_reflection_pct = ability:GetSpecialValueFor("passive_reflection_pct") / 100
+        print("active_reflection_pct", self.active_reflection_pct)
+        print("passive_reflection_constant", self.passive_reflection_constant)
+        print("passive_reflection_pct", self.passive_reflection_pct)
     end
 end
 
@@ -165,21 +173,22 @@ function modifier_item_beast_armor_passive:OnTakeDamage(params)
         return
     end
 
-    local ability = self:GetAbility()
-    if not ability or ability:GetSecondaryCharges() ~= 1 then return end
+    local reflect_damage
+    -- 检测是否有主动 modifier，使用对应的反伤数值
+    if self:GetParent():HasModifier("modifier_item_beast_armor_active") then
+        -- 主动反伤：100% 原始伤害
+        reflect_damage = params.original_damage * self.active_reflection_pct
+    else
+        -- 被动反伤：固定值 + 百分比
+        reflect_damage = self.passive_reflection_constant + (params.original_damage * self.passive_reflection_pct)
+    end
 
-    -- 计算被动反伤：固定值 + 百分比
-    local constant_reflect = ability:GetSpecialValueFor("passive_reflection_constant")
-    local pct_reflect = ability:GetSpecialValueFor("passive_reflection_pct") / 100
-    local reflect_damage = constant_reflect + (params.original_damage * pct_reflect)
-
-    -- 反弹伤害
     ApplyDamage({
         victim = params.attacker,
         attacker = self:GetParent(),
         damage = reflect_damage,
         damage_type = params.damage_type,
-        ability = ability,
+        ability = self:GetAbility(),
         damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
     })
 end
@@ -217,12 +226,6 @@ function modifier_item_beast_armor_active:IsHidden() return false end
 
 function modifier_item_beast_armor_active:IsPurgable() return false end
 
-function modifier_item_beast_armor_active:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
-    }
-end
-
 -- 主动反弹modifier（100%反伤）- 续
 function modifier_item_beast_armor_active:OnCreated()
     if not IsServer() then return end
@@ -259,31 +262,6 @@ end
 function modifier_item_beast_armor_active:OnDestroy()
     if not IsServer() then return end
     StopSoundOn("DOTA_Item.BladeMail.Damage", self:GetParent())
-end
-
--- 主动100%反伤（只保留一个定义）
-function modifier_item_beast_armor_active:OnTakeDamage(params)
-    if not IsServer() then return end
-    if params.unit ~= self:GetParent() then return end
-    if params.attacker == self:GetParent() then return end
-    if not params.attacker:IsAlive() then return end
-
-    -- 检查是否来自其他刃甲反伤
-    if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-        return
-    end
-
-    -- 主动反伤：使用减免前的伤害 * 100%
-    local reflect_damage = params.original_damage * self.reflection_pct / 100
-
-    ApplyDamage({
-        victim = params.attacker,
-        attacker = self:GetParent(),
-        damage = reflect_damage,
-        damage_type = params.damage_type,
-        ability = self:GetAbility(),
-        damage_flags = DOTA_DAMAGE_FLAG_REFLECTION + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-    })
 end
 
 function modifier_item_beast_armor_active:GetTexture()

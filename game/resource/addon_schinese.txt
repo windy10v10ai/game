@@ -1318,7 +1318,7 @@
 
 		// item_beast_armor 兽化甲
 		"DOTA_Tooltip_Ability_item_beast_armor"											"兽化甲"
-		"DOTA_Tooltip_ability_item_beast_armor_Description"								"<h1>主动：不粘锅</h1>发出极寒冲击波，对%blast_radius%范围内敌人造成%blast_damage%点魔法伤害，降低%movement_slow%%%移动速度和%attack_slow%攻击速度，降低%spell_resist_reduction%%%魔法抗性。同时反弹%active_reflection_pct%%%所有伤害并反弹指向性技能，持续%active_duration%秒。\n<h1>被动：伤害反弹</h1>每次受到攻击时，反弹%passive_reflection_constant% + 所受攻击伤害的%passive_reflection_pct%%%。<br><br>每%block_cooldown%秒被动抵挡一次指向性法术。\n<h1>被动：辉耀灼烧</h1>每秒对%aura_radius%范围内敌军造成%aura_damage%点魔法伤害，并使其物理攻击有%blind_pct%%%几率不会命中。"
+		"DOTA_Tooltip_ability_item_beast_armor_Description"								"<h1>主动：不粘锅</h1>发出极寒冲击波，对%blast_radius%范围内敌人造成%blast_damage%点魔法伤害，降低%movement_slow%%%移动速度和%attack_slow%攻击速度，降低%spell_resist_reduction%%%魔法抗性。<br>同时反弹%active_reflection_pct%%%所有伤害并反弹指向性技能，持续%active_duration%秒。\n<h1>被动：伤害反弹</h1>每次受到攻击时，反弹%passive_reflection_constant% + 所受攻击伤害的%passive_reflection_pct%%%。<br><br>每%block_cooldown%秒被动抵挡一次指向性法术。\n<h1>被动：辉耀灼烧</h1>每秒对%aura_radius%范围内敌军造成%aura_damage%点魔法伤害，并使其物理攻击有%blind_pct%%%几率不会命中。"
 		"DOTA_Tooltip_ability_item_beast_armor_Lore"									"集四大神器之力于一身的终极护甲，兽化符文赋予了它无与伦比的防御和反击能力。"
 		"DOTA_Tooltip_ability_item_beast_armor_Note0"									"反弹的均为减免前的伤害。"
 		"DOTA_Tooltip_ability_item_beast_armor_Note1"									"伤害反弹不会反弹来自其他刃甲的伤害。"
