@@ -5798,206 +5798,208 @@
 	}
 
 
-// 融合材料系列 - 符文/卷轴形式(可购买版本)
-// 鹰眼符文
-"item_fusion_hawkeye"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10101"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	//=================================================================================================================
+	// 融合材料系列 - 符文/卷轴形式(可购买版本)
+	//=================================================================================================================
+	// 鹰眼符文
+	"item_fusion_hawkeye"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10101"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-	"ItemInitialStockTime"		"600"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-}
-
-// 禁忌符文
-"item_fusion_forbidden"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10102"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemInitialStockTime"		"600"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-}
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+	}
 
-// 暴虐符文
-"item_fusion_brutal"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10103"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	// 禁忌符文
+	"item_fusion_forbidden"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10102"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"600"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-}
-
-// 兽化符文
-"item_fusion_beast"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10104"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"360"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-}
-
-// 生命符文
-"item_fusion_life"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10105"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"480"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-}
-
-// 暗影符文
-"item_fusion_shadow"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10106"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
 		"ItemInitialStockTime"		"600"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-}
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+	}
 
-// 魔化符文
-"item_fusion_magic"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10107"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	// 暴虐符文
+	"item_fusion_brutal"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10103"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"1060"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-}
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+	}
 
-// 灵动符文
-"item_fusion_agile"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10108"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+	// 兽化符文
+	"item_fusion_beast"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10104"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"600"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
-}
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemInitialStockTime"		"360"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+	}
+
+	// 生命符文
+	"item_fusion_life"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10105"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemInitialStockTime"		"480"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+	}
+
+	// 暗影符文
+	"item_fusion_shadow"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10106"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+	}
+
+	// 魔化符文
+	"item_fusion_magic"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10107"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemInitialStockTime"		"1060"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+	}
+
+	// 灵动符文
+	"item_fusion_agile"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10108"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_tome_of_knowledge"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ItemCost"					"20000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"1"
+		"ItemDroppable"				"1"		// 添加:允许丢弃
+		"ItemStackable"				"0"		// 添加:不可堆叠
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"120"
+	}
 
 	//=================================================================================================================
 	// 鹰眼炮台
