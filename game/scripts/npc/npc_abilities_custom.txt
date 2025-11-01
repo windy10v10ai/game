@@ -119,7 +119,7 @@
     "RequiredLevel"         "10"
     "LevelsBetweenUpgrades" "10"
 
-    "AbilityCastRange"      "1000"
+    "AbilityCastRange"      "3000"
     "AbilityCastPoint"      "0.3"
     "AbilityCooldown"       "100"
     "AbilityManaCost"       "200 300 400"
