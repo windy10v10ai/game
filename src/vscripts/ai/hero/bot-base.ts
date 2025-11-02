@@ -79,7 +79,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return; // 暂停AI思考
     }
 
-    this.gameTime = GameRules.GetDOTATime(false, false);
+    this.gameTime = GameRules.GetDOTATime(false, true);
     if (this.StopAction()) {
       return;
     }

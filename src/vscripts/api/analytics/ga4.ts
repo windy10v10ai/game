@@ -35,6 +35,9 @@ export class GA4 {
   private static isInitialized = false;
   private static isDebugMode = false;
 
+  // 游戏时间记录
+  private static gameStartRealTime: number | null = null; // Unix 时间戳（秒）
+
   /**
    * 使用服务器配置初始化 GA4
    * 在 Dota 2 Tools 模式下自动启用调试模式
@@ -168,13 +171,94 @@ export class GA4 {
   }
 
   /**
+   * 从互联网获取当前时间（Unix 时间戳，秒）
+   * 使用备用 API 以确保中国和全球都能访问
+   */
+  public static FetchCurrentTime(callback: (timestamp: number | null) => void) {
+    // 使用 CloudFlare 的 trace API 获取时间戳
+    // 格式: ts=1234567890.123
+    const apiUrl = 'https://cloudflare.com/cdn-cgi/trace';
+
+    print(`[GA4] Fetching current time from: ${apiUrl}`);
+    const request = CreateHTTPRequestScriptVM('GET', apiUrl);
+    request.SetHTTPRequestNetworkActivityTimeout(5);
+
+    request.Send((result: CScriptHTTPResponse) => {
+      if (result.StatusCode >= 200 && result.StatusCode < 300) {
+        try {
+          // 解析响应文本，提取 ts= 行
+          const body = result.Body;
+          const lines = body.split('\n');
+          for (const line of lines) {
+            if (line.startsWith('ts=')) {
+              const timestamp = parseFloat(line.substring(3));
+              if (!isNaN(timestamp)) {
+                const unixTimestamp = Math.floor(timestamp);
+                print(`[GA4] Successfully fetched time: ${unixTimestamp}`);
+                callback(unixTimestamp);
+                return;
+              }
+            }
+          }
+          print(`[GA4] Failed to parse timestamp from response: ${body}`);
+        } catch {
+          print(`[GA4] Failed to parse time API response: ${result.Body}`);
+        }
+      } else {
+        print(`[GA4] Time API request failed with status: ${result.StatusCode}`);
+      }
+      // 失败时返回 null
+      print('[GA4] Failed to fetch time, using local time as fallback');
+      callback(null);
+    });
+  }
+
+  /**
+   * 记录游戏开始时间
+   * 应在 GAME_IN_PROGRESS 状态时调用
+   */
+  public static RecordGameStartTime() {
+    // 异步获取真实世界时间
+    this.FetchCurrentTime((timestamp) => {
+      if (timestamp !== null) {
+        this.gameStartRealTime = timestamp;
+      }
+    });
+  }
+
+  /**
    * 发送游戏结束匹配时间事件
+   * 包含现实时间和游戏时间
    */
   public static SendGameEndMatchTimeEvent() {
     const eventName = 'game_end_match_time';
-    const event = this.BuildEvent(eventName, 0, {
-      match_time: GameRules.GetGameTime(),
+    const dotaDuration = GameRules.GetDOTATime(false, true);
+
+    // 异步获取当前真实时间
+    this.FetchCurrentTime((endRealTime) => {
+      if (this.gameStartRealTime === null) {
+        print('[GA4] Game start real time not recorded, skipping event send');
+        return;
+      }
+      if (endRealTime === null) {
+        print('[GA4] Failed to fetch end real time, skipping event send');
+        return;
+      }
+
+      const eventParams: { [key: string]: string | number | boolean } = {
+        dota_duration: dotaDuration,
+      };
+
+      const realDuration = endRealTime - this.gameStartRealTime;
+      eventParams.real_duration = realDuration;
+      eventParams.real_start_time = this.gameStartRealTime;
+      eventParams.real_end_time = endRealTime;
+
+      // 现实时间/Dota2游戏时长（>=1）越大说明越卡顿
+      eventParams.real_duration_ratio = realDuration / dotaDuration;
+
+      const event = this.BuildEvent(eventName, 0, eventParams);
+      this.SendEvent(0, event);
     });
-    this.SendEvent(0, event);
   }
 }
