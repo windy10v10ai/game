@@ -7136,14 +7136,19 @@
     {
         "01"                    "item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
     }
+}
+"item_magic_sword"
+	{
+		"BaseClass"					"item_datadriven"
+		"ID"						"10328"
+		"AbilityTextureName"		"moyuanjian"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
 		"AbilityCastPoint"			"0.0"
 		"AbilityCooldown"			"20.0"
 		"AbilityManaCost"			"150"
 
-    "AbilityCastPoint"          "0.0"
-    "AbilityCooldown"           "18.0"
-    "AbilityManaCost"           "150"
 
 		"AbilityValues"
 		{
