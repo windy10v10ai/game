@@ -67,9 +67,9 @@ export class VirtualGoldBank {
     this.playerVirtualGold.set(playerID, virtualGold + excess);
     this.updateVirtualGoldUI(playerID);
 
-    print(
-      `[Member] Player ${playerID}: Transferred ${excess} gold to virtual bank. Virtual total: ${virtualGold + excess}`,
-    );
+    // print(
+    //   `[Member] Player ${playerID}: Transferred ${excess} gold to virtual bank. Virtual total: ${virtualGold + excess}`,
+    // );
   }
 
   /**
@@ -93,9 +93,9 @@ export class VirtualGoldBank {
 
     this.updateVirtualGoldUI(playerID);
 
-    print(
-      `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}, Total transferred back: ${currentTransferTotal + transferAmount}`,
-    );
+    // print(
+    //   `[Member] Player ${playerID}: Transferred ${transferAmount} gold from virtual bank. Virtual remaining: ${virtualGold - transferAmount}, Total transferred back: ${currentTransferTotal + transferAmount}`,
+    // );
   }
 
   private updateVirtualGoldUI(playerID: PlayerID): void {
