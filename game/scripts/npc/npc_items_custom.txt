@@ -6601,7 +6601,7 @@
     "ItemResult"                "item_shadow_judgment"
     "ItemRequirements"
     {
-        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_infernal_desolator;item_bloodthorn_ultra;item_fusion_shadow"
+        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
     }
 }
 
@@ -6661,8 +6661,8 @@
     	"hp_regen_reduction"    "-80"    // 添加这个参数
 
         // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
-        "corruption_armor"      "-60"
-        "corruption_duration"   "7.0"
+       // "corruption_armor"      "-60"
+        //"corruption_duration"   "7.0"
 
         // 变态辣效果
         "silence_duration"      "5.0"

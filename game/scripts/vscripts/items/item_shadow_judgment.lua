@@ -39,7 +39,7 @@ function item_shadow_judgment:OnSpellStart()
     end
 
     -- 3. 绝对破防效果 - 降低护甲
-    self:ApplyDesolatorEffect(target)
+    --self:ApplyDesolatorEffect(target)
 
     -- 4. 变态辣效果 - 沉默和伤害放大
     if not target:IsMagicImmune() then
@@ -88,7 +88,7 @@ function item_shadow_judgment:ApplyAbyssalEffect(target)
     ParticleManager:ReleaseParticleIndex(blink_end_particle)
 
     -- 眩晕
-    target:AddNewModifier(caster, self, "modifier_stunned", {duration = stun_duration})
+    target:AddNewModifier(caster, self, "modifier_stunned", { duration = stun_duration })
 
     -- 纯粹伤害
     ApplyDamage({
@@ -115,7 +115,7 @@ function item_shadow_judgment:ApplyBlueFantasyEffect(target)
     target:Purge(true, false, false, false, false)
 
     -- 添加自定义苍蓝幻想debuff
-    target:AddNewModifier(caster, self, "modifier_shadow_judgment_mute", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_shadow_judgment_mute", { duration = duration })
 
     EmitSoundOn("DOTA_Item.Nullifier.Target", target)
 end
@@ -127,7 +127,7 @@ function item_shadow_judgment:ApplyDesolatorEffect(target)
     local duration = self:GetSpecialValueFor("corruption_duration")
 
     -- 添加自定义破防debuff
-    target:AddNewModifier(caster, self, "modifier_shadow_judgment_corruption", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_shadow_judgment_corruption", { duration = duration })
 
     EmitSoundOn("DOTA_Item.Desolator.Target", target)
 end
@@ -139,7 +139,7 @@ function item_shadow_judgment:ApplyBloodthornEffect(target)
     local duration = self:GetSpecialValueFor("silence_duration") * (1 - target:GetStatusResistance())
 
     -- 添加沉默debuff
-    target:AddNewModifier(caster, self, "modifier_shadow_judgment_silence", {duration = duration})
+    target:AddNewModifier(caster, self, "modifier_shadow_judgment_silence", { duration = duration })
 
     EmitSoundOn("DOTA_Item.Bloodthorn.Activate", target)
 end
@@ -148,8 +148,11 @@ end
 modifier_item_shadow_judgment = class({})
 
 function modifier_item_shadow_judgment:IsHidden() return true end
+
 function modifier_item_shadow_judgment:IsPurgable() return false end
+
 function modifier_item_shadow_judgment:RemoveOnDeath() return false end
+
 function modifier_item_shadow_judgment:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -192,14 +195,18 @@ function modifier_item_shadow_judgment:OnAttackLanded(params)
         self:GetParent(),
         self:GetAbility(),
         "modifier_shadow_judgment_corruption",
-        {duration = self.corruption_duration}
+        { duration = self.corruption_duration }
     )
 end
+
 modifier_shadow_judgment_mute = class({})
 
 function modifier_shadow_judgment_mute:IsHidden() return false end
+
 function modifier_shadow_judgment_mute:IsDebuff() return true end
-function modifier_shadow_judgment_mute:IsPurgable() return false end  -- 注意:苍蓝幻想是false
+
+function modifier_shadow_judgment_mute:IsPurgable() return false end -- 注意:苍蓝幻想是false
+
 function modifier_shadow_judgment_mute:IsPurgeException() return false end
 
 function modifier_shadow_judgment_mute:GetTexture()
@@ -242,7 +249,8 @@ function modifier_shadow_judgment_mute:OnCreated()
     }
 
     self:GetParent():EmitSound("DOTA_Item.Nullifier.Slow")
-    local FX = ParticleManager:CreateParticle("particles/items4_fx/nullifier_mute_debuff.vpcf", PATTACH_ROOTBONE_FOLLOW, self:GetParent())
+    local FX = ParticleManager:CreateParticle("particles/items4_fx/nullifier_mute_debuff.vpcf", PATTACH_ROOTBONE_FOLLOW,
+        self:GetParent())
     self:AddParticle(FX, false, false, -1, false, false)
 
     self:StartIntervalThink(1)
@@ -298,11 +306,14 @@ end
 function modifier_shadow_judgment_mute:GetModifierSpellLifestealRegenAmplify_Percentage()
     return self.hp_regen_reduction
 end
+
 -- 破防debuff
 modifier_shadow_judgment_corruption = class({})
 
 function modifier_shadow_judgment_corruption:IsHidden() return false end
+
 function modifier_shadow_judgment_corruption:IsDebuff() return true end
+
 function modifier_shadow_judgment_corruption:IsPurgable() return true end
 
 function modifier_shadow_judgment_corruption:GetTexture()
@@ -328,7 +339,9 @@ end
 modifier_shadow_judgment_silence = class({})
 
 function modifier_shadow_judgment_silence:IsHidden() return false end
+
 function modifier_shadow_judgment_silence:IsDebuff() return true end
+
 function modifier_shadow_judgment_silence:IsPurgable() return true end
 
 function modifier_shadow_judgment_silence:GetTexture()
