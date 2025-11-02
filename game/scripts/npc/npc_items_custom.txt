@@ -6992,86 +6992,208 @@
     }
 }
 
-"item_beast_armor"
-{
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                "items/item_beast_armor"
-    "ID"                        "10326"
-    "AbilityTextureName"        "shouhuajia"
-     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	"item_beast_armor"
+	{
+		"BaseClass"					"item_datadriven"
+		"ScriptFile"				"items/item_beast_armor"
+		"ID"						"10326"
+		"AbilityTextureName"		"shouhuajia"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
-    "AbilityCastPoint"          "0.0"
-    "AbilityCooldown"           "15.0"
-    "AbilityManaCost"           "200"
+		"AbilityCastPoint"			"0.0"
+		"AbilityCooldown"			"15.0"
+		"AbilityManaCost"			"300"
 
-    "ItemCost"                  "35000"
-    "ItemShopTags"              "damage;armor;int;hard_to_tag"
-    "ItemQuality"               "artifact"
-    "ItemAliases"               "beast armor"
-    "ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"         "1"
-	"precache"
-    {
-        // 刃甲特效
-        "particle"  "particles/items_fx/blademail.vpcf"
+		"ItemCost"					"35000"
+		"ItemShopTags"				"damage;armor;int;hard_to_tag"
+		"ItemQuality"				"artifact"
+		"ItemAliases"				"beast armor"
+		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"			"1"
+		"precache"
+		{
+			// 刃甲特效
+			"particle"				"particles/items_fx/blademail.vpcf"
 
-        // 冰甲冲击波特效
-        "particle"  "particles/items2_fx/shivas_guard_active.vpcf"
-        "particle"  "particles/items2_fx/shivas_guard_slow_debuff.vpcf"
-        "soundfile" "soundevents/game_sounds_items.vsndevts"
+			// 冰甲冲击波特效
+			"particle"				"particles/items2_fx/shivas_guard_active.vpcf"
+			"particle"				"particles/items2_fx/shivas_guard_impact.vpcf"
+			"soundfile"				"soundevents/game_sounds_items.vsndevts"
 
-        // 辉耀特效
-        "particle"  "particles/items2_fx/radiance_owner.vpcf"
-        "particle"  "particles/items2_fx/radiance_debuff.vpcf"
+			// 辉耀特效
+			"particle"				"particles/items2_fx/radiance_owner.vpcf"
+			"particle"				"particles/items2_fx/radiance.vpcf"
 
-        // 圣堂刺客折射特效（用于护盾）
-        "particle"  "particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
-        "particle"  "particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf"
+			// 圣堂刺客折射特效（用于护盾）
+			"particle"				"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction.vpcf"
+			"particle"				"particles/units/heroes/hero_templar_assassin/templar_loadout.vpcf"
 
-        // 莲花/免疫球特效
-        "particle"  "particles/items_fx/immunity_sphere.vpcf"
+			// 莲花/免疫球特效
+			"particle"				"particles/items_fx/immunity_sphere.vpcf"
 
-        // 反魔法护盾特效
-        "particle"  "particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf"
+			// 反魔法护盾特效
+			"particle"				"particles/units/heroes/hero_antimage/antimage_spellshield_reflect.vpcf"
 
-        // 闪烁特效（用于主动技能）
-        "particle"  "particles/econ/events/ti9/blink_dagger_ti9_start_lvl2.vpcf"
-        "particle"  "particles/econ/events/ti9/blink_dagger_ti9_lvl2_end.vpcf"
-    }
-    "AbilityValues"
-    {
-        // Lua 逻辑需要 - 反伤和莲花格挡（事件驱动）
-        "passive_reflection_constant"   "80"    // Lua 逻辑需要 - 被动反伤固定值
-        "passive_reflection_pct"        "25"    // Lua 逻辑需要 - 被动反伤百分比
-        "active_reflection_pct"         "100"   // Lua 逻辑需要 - 主动反伤百分比
-        "block_cooldown"                "15"    // Lua 逻辑需要 - 莲花格挡冷却
+			// 闪烁特效（用于主动技能）
+			"particle"				"particles/econ/events/ti9/blink_dagger_ti9_start_lvl2.vpcf"
+			"particle"				"particles/econ/events/ti9/blink_dagger_ti9_lvl2_end.vpcf"
+		}
+		"AbilityValues"
+		{
+			// 刃甲属性
+			"passive_reflection_constant"	"80"	// 被动反伤固定值
+			"passive_reflection_pct"		"25"	// 被动反伤百分比
+			"active_reflection_pct"			"100"	// 主动反伤百分比
+			"bonus_armor"					"80"	// 护甲
 
-        // Lua 逻辑需要 - 主动技能参数
-        "active_duration"           "5"     // Lua 逻辑需要 - 主动持续时间
-        "blast_radius"              "900"   // Lua 逻辑需要 - 冲击波范围
-        "blast_damage"              "900"   // Lua 逻辑需要 - 冲击波伤害
-        "movement_slow"             "40"    // Lua 逻辑需要 - 移速减缓
-        "attack_slow"               "40"    // Lua 逻辑需要 - 攻速减缓
-        "resist_reduction"          "25"    // Lua 逻辑需要 - 抗性降低
+			"block_cooldown"				"15"	// Lua 逻辑需要 - 莲花格挡冷却
 
-        // Lua 逻辑需要 - 辉耀光环（事件驱动）
-        "aura_damage"               "120"   // Lua 逻辑需要 - 光环伤害
-        "aura_radius"               "700"   // Lua 逻辑需要 - 光环范围
-        "blind_pct"                 "17"    // Lua 逻辑需要 - 致盲百分比
+			// Lua 逻辑需要 - 主动技能参数
+			"active_duration"				"5"		// Lua 逻辑需要 - 主动持续时间
+			"blast_radius"					"900"	// Lua 逻辑需要 - 冲击波范围
+			"blast_damage"					"900"	// Lua 逻辑需要 - 冲击波伤害
 
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_strength"            "100"   // tooltip only - 力量
-        "bonus_agility"           	"100"   // tooltip only - 敏捷
-        "bonus_intellect"           "100"   // tooltip only - 智力
-        "bonus_health"              "1500"  // tooltip only - 生命值
-        "bonus_armor"               "80"    // tooltip only - 护甲
-        "bonus_spell_resist"        "30"    // tooltip only - 魔法抗性
-        "bonus_health_regen"        "40"    // tooltip only - 生命回复
-        "bonus_mana_regen"          "25"    // tooltip only - 魔法回复
-        "bonus_damage"              "150"   // tooltip only - 攻击力
-        "evasion"                   "25"    // tooltip only - 闪避
-    }
-}
+			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
+			"movement_slow"					"40"	// tooltip only - 移速减缓
+			"attack_slow"					"160"	// tooltip only - 攻速减缓
+			"spell_resist_reduction"		"25"	// tooltip only - 魔法抗性降低
+
+			// 辉耀光环（事件驱动）
+			"aura_radius"					"900"	// 光环范围
+			"aura_damage"					"120"	// 光环伤害
+			"blind_pct"						"17"	// 致盲百分比
+
+			// 被动属性
+			"bonus_strength"				"100"	// 力量
+			"bonus_agility"					"100"	// 敏捷
+			"bonus_intellect"				"100"	// 智力
+			"bonus_health"					"1500"	// 生命值
+			"bonus_spell_resist"			"30"	// 魔法抗性
+			"bonus_health_regen"			"40"	// 生命回复
+			"bonus_mana_regen"				"25"	// 魔法回复
+			"bonus_damage"					"150"	// 攻击力
+			"evasion"						"25"	// 闪避
+		}
+
+		// 主动技能
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_beast_armor"
+				"Function"		"OnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_beast_armor"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_spell_resist"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%evasion"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_armor"
+						"Function"		"BeastArmorOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_armor"
+						"Function"		"BeastArmorOnDestroy"
+					}
+				}
+			}
+
+			"modifier_item_beast_armor_debuff"
+			{
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+				"IsPurgable"			"1"
+
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-40"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-160"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-25"
+				}
+
+				"TextureName"			"item_shivas_guard"
+			}
+
+			"modifier_item_beast_armor_radiance"
+			{
+				"Passive"				"1"
+				"IsHidden"				"0"
+				"IsPurgable"			"0"
+
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Aura"					"modifier_item_beast_armor_radiance_enemy_aura"
+				"Aura_Radius"			"%aura_radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Aura_ApplyToCaster"	"0"
+
+				"EffectName"			"particles/items2_fx/radiance_owner.vpcf"
+				"EffectAttachType"		"PATTACH_ABSORIGIN_FOLLOW"
+
+				"TextureName"			"item_radiance"
+			}
+
+			"modifier_item_beast_armor_radiance_enemy_aura"
+			{
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MISS_PERCENTAGE"			"%blind_pct"
+				}
+
+				"ThinkInterval"			"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_armor"
+						"Function"		"RadianceBurnDamage"
+					}
+				}
+
+				"EffectName"			"particles/items2_fx/radiance.vpcf"
+				"EffectAttachType"		"PATTACH_ABSORIGIN_FOLLOW"
+				"TextureName"			"item_radiance"
+			}
+		}
+	}
+
 
 //魔化
 	//13魔渊法杖 仙云法杖+风暴之锤+以太2+神圣斧 没有任何被动加成 主动技能：一念成佛：4s内10%魔法伤害转为纯粹伤害；
