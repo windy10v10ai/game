@@ -2845,9 +2845,6 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
-		"DOTA_Tooltip_modifier_item_beast_armor_active"									"Non-Stick Pot"
-		"DOTA_Tooltip_modifier_item_beast_armor_active_Description"						"Reflects all damage and directed skills, immune to directed spells."
-
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff"									"Cold Shock"
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff_Description"						"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%, magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 

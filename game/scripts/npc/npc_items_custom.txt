@@ -7030,11 +7030,13 @@
 		}
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 反伤和莲花格挡（事件驱动）
-			"passive_reflection_constant"	"80"	// Lua 逻辑需要 - 被动反伤固定值
-			"passive_reflection_pct"			"25"	// Lua 逻辑需要 - 被动反伤百分比
-			"active_reflection_pct"			"100"	// Lua 逻辑需要 - 主动反伤百分比
-			"block_cooldown"					"15"	// Lua 逻辑需要 - 莲花格挡冷却
+			// 刃甲属性
+			"passive_reflection_constant"	"80"	// 被动反伤固定值
+			"passive_reflection_pct"		"25"	// 被动反伤百分比
+			"active_reflection_pct"			"100"	// 主动反伤百分比
+			"bonus_armor"					"80"	// 护甲
+
+			"block_cooldown"				"15"	// Lua 逻辑需要 - 莲花格挡冷却
 
 			// Lua 逻辑需要 - 主动技能参数
 			"active_duration"				"5"		// Lua 逻辑需要 - 主动持续时间
@@ -7056,7 +7058,6 @@
 			"bonus_agility"					"100"	// 敏捷
 			"bonus_intellect"				"100"	// 智力
 			"bonus_health"					"1500"	// 生命值
-			"bonus_armor"					"80"	// 护甲
 			"bonus_spell_resist"			"30"	// 魔法抗性
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
@@ -7090,7 +7091,6 @@
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
 					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_armor"
 					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_spell_resist"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen"

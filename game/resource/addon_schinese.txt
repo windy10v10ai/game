@@ -1332,9 +1332,6 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
-		"DOTA_Tooltip_modifier_item_beast_armor_active"									"不粘锅"
-		"DOTA_Tooltip_modifier_item_beast_armor_active_Description"						"反弹所有伤害和指向性技能，免疫指向性法术。"
-
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff"									"极寒冲击"
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff_Description"						"移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%，魔法抗性降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
 
