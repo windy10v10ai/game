@@ -7340,7 +7340,7 @@
 			{
 				"IsBuff"				"1"
 				"IsPurgable"			"0"
-				"TextureName"			"item_magic_sword"
+				"TextureName"			"moyuanjian"
 
 				"OnAttackLanded"
 				{
@@ -7356,7 +7356,7 @@
 			{
 				"IsDebuff"				"1"
 				"IsPurgable"			"1"
-				"TextureName"			"item_magic_sword"
+				"TextureName"			"moyuanjian"
 
 				"Properties"
 				{

@@ -79,10 +79,6 @@ export class BotBaseAIModifier extends BaseModifier {
       return; // 暂停AI思考
     }
 
-    // 使用TypeScript的等效函数
-    if (HeroUtil.NotActionable(this.hero)) {
-      return;
-    }
     this.gameTime = GameRules.GetDOTATime(false, false);
     if (this.StopAction()) {
       return;
