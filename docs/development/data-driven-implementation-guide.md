@@ -4,6 +4,8 @@
 
 本文档记录了将传统 Lua modifier 迁移到 DataDriven 实现的经验和最佳实践，以 item_magic_sword 为例。
 
+官方文档: https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven
+
 ## 核心概念
 
 ### DataDriven vs Lua Modifier
@@ -283,6 +285,28 @@ end
 - 移除所有 LinkLuaModifier 调用
 - 移除 Lua modifier 类定义
 - 使用 ApplyModifier 添加 modifier
+
+**光环 Modifier 命名规范**：
+
+- 光环效果必须以 `_aura` 结尾
+
+示例：
+
+```
+"modifier_item_radiance"  // 光环发射器
+{
+    "Aura"  "modifier_item_radiance_enemy_aura"  // 光环效果
+    ...
+}
+
+"modifier_item_radiance_enemy_aura"  // 被 aura 应用的光环效果
+{
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_MISS_PERCENTAGE"  "%aura_miss_percentage"
+    }
+}
+```
 
 ### 4. 伤害计算优化
 
