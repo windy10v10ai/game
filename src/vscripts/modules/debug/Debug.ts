@@ -89,10 +89,6 @@ export class Debug {
       });
     }
 
-    if (cmd === CMD.GA4) {
-      GA4.SendGameEndMatchTimeEvent();
-    }
-
     if (cmd === CMD.SHARD) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;

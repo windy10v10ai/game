@@ -15,8 +15,6 @@ export enum CMD {
   G_ALL = '-gall', // 所有人升级加钱
   L_ALL = '-lall', // 所有人逐级升级
 
-  GA4 = '-ga', // 发送GA4事件
-
   /** 抽奖 */
   LOTTERY = '-lottery',
   END = '-end',
