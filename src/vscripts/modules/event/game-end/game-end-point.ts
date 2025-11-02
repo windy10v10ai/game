@@ -153,7 +153,7 @@ export class GameEndPoint {
     multiplier *= option.direPlayerNumber / 10;
     // 复活时间
     if (option.respawnTimePercentage <= 10) {
-      multiplier *= 0.6;
+      multiplier *= 0.8;
     }
 
     // 不为负数
