@@ -6,8 +6,7 @@ export enum CMD {
   M = '-m', // 获取当前modifier
   A = '-a', // 获取当前ability
   REFRESH_AI = '-r', // 刷新AI
-  T = '-t', // 获取当前时间，包含暂停
-  GameTime = '-gt', // 获取游戏时间，不包含暂停
+  T = '-t', // 获取当前时间，不包含暂停
 
   KILL = '-k',
   KILL_ALL = '-kall',
@@ -15,6 +14,8 @@ export enum CMD {
   G = '-g', // 加钱升级
   G_ALL = '-gall', // 所有人升级加钱
   L_ALL = '-lall', // 所有人逐级升级
+
+  GA4 = '-ga', // 发送GA4事件
 
   /** 抽奖 */
   LOTTERY = '-lottery',

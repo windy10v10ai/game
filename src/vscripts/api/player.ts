@@ -1,5 +1,7 @@
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { PropertyController } from '../modules/property/property_controller';
+import { GA4ConfigDto } from './analytics/dto/ga4-dto';
+import { GA4 } from './analytics/ga4';
 import { ApiClient, HttpMethod } from './api-client';
 
 export enum MemberLevel {
@@ -65,6 +67,7 @@ class GameStart {
   members!: MemberDto[];
   players!: PlayerDto[];
   pointInfo!: PointInfoDto[];
+  ga4Config?: GA4ConfigDto; // Only present for official servers
 }
 
 export class Player {
@@ -145,6 +148,14 @@ export class Player {
     Player.memberList = gameStart.members;
     Player.playerList = gameStart.players;
     Player.pointInfoList = gameStart.pointInfo;
+
+    // Initialize GA4 if config is provided (only for official servers)
+    if (gameStart.ga4Config) {
+      GA4.Initialize(gameStart.ga4Config);
+      print(`[Player] GA4 initialized with measurementId: ${gameStart.ga4Config.measurementId}`);
+    } else {
+      print('[Player] GA4 config not provided (non-official server)');
+    }
 
     // set member to member table
     Player.savePlayerToNetTable();

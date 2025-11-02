@@ -1,3 +1,4 @@
+import { GA4 } from '../../api/analytics/ga4';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
@@ -81,11 +82,11 @@ export class Debug {
     }
 
     if (cmd === CMD.T) {
-      this.log(`Time: ${Time()}`);
+      this.log(`GameTime: ${GameRules.GetGameTime()}`);
     }
 
-    if (cmd === CMD.GameTime) {
-      this.log(`GameTime: ${GameRules.GetGameTime()}`);
+    if (cmd === CMD.GA4) {
+      GA4.SendGameEndMatchTimeEvent();
     }
 
     if (cmd === CMD.SHARD) {
