@@ -24,6 +24,7 @@
 					<Panel id="DireGoldXPMultiplierPanel"	class="GameOptionsSubPanel">
 						<Label id="DireGoldXPMultiplierTitle" class="GameOptionsLabel" text="#bot_gold_xp_multiplier" />
 						<DropDown id="bot_gold_xp_multiplier_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
+							<Label text="1" id="1"/>
 							<Label text="2" id="2"/>
 							<Label text="3" id="3"/>
 							<Label text="4" id="4"/>
@@ -137,16 +138,22 @@
 							<Label text="#fixed_ability_ability_charge_damage_name" id="ability_charge_damage"/>
 							<Label text="#fixed_ability_ability_trigger_on_attacked_name" id="ability_trigger_on_attacked"/>
 							<Label text="#fixed_ability_ability_trigger_on_move_name" id="ability_trigger_on_move"/>
-							<Label text="#fixed_ability_ability_trigger_on_cast_name" id="ability_trigger_on_cast"/>
-							<Label text="#fixed_ability_ability_trigger_learned_skills_name" id="ability_trigger_learned_skills"/>
-							<!-- <Label text="#DOTA_Tooltip_ability_ogre_magi_multicast_lua" id="ogre_magi_multicast_lua"/>
+							<!-- <Label text="#fixed_ability_ability_trigger_on_cast_name" id="ability_trigger_on_cast"/>
+							<Label text="#fixed_ability_ability_trigger_learned_skills_name" id="ability_trigger_learned_skills"/> -->
+							<Label text="#DOTA_Tooltip_ability_ogre_magi_multicast_lua" id="ogre_magi_multicast_lua"/>
 							<Label text="#DOTA_Tooltip_ability_death_prophet_witchcraft2" id="death_prophet_witchcraft2"/>
-							<Label text="#DOTA_Tooltip_ability_bloodseeker_thirst" id="bloodseeker_thirst"/>
-							<Label text="#DOTA_Tooltip_ability_leshrac_defilement2" id="leshrac_defilement2"/>
+							<Label text="#DOTA_Tooltip_ability_winter_wyvern_arctic_burn" id="winter_wyvern_arctic_burn"/>
+							<Label text="#DOTA_Tooltip_ability_dazzle_good_juju" id="dazzle_good_juju"/>
+							<!-- <Label text="#DOTA_Tooltip_ability_leshrac_defilement2" id="leshrac_defilement2"/>
 							<Label text="#DOTA_Tooltip_ability_medusa_split_shot" id="medusa_split_shot"/>
 							<Label text="#DOTA_Tooltip_ability_tinker_eureka2" id="tinker_eureka2"/>
-							<Label text="#DOTA_Tooltip_ability_luna_moon_glaive" id="luna_moon_glaive"/>
+							<Label text="#DOTA_Tooltip_ability_earthshaker_aftershock" id="earthshaker_aftershock"/>
+							<Label text="#DOTA_Tooltip_ability_jakiro_double_trouble2" id="jakiro_double_trouble2"/>
 							<Label text="#DOTA_Tooltip_ability_spectre_dispersion" id="spectre_dispersion"/>
+							<Label text="#DOTA_Tooltip_ability_abyssal_underlord_firestorm2" id="abyssal_underlord_firestorm2"/>
+							<Label text="#DOTA_Tooltip_ability_bloodseeker_thirst" id="bloodseeker_thirst"/>
+							<Label text="#DOTA_Tooltip_ability_luna_moon_glaive" id="luna_moon_glaive"/>
+							<Label text="#DOTA_Tooltip_ability_templar_assassin_psi_blades" id="templar_assassin_psi_blades"/>
 							<Label text="#DOTA_Tooltip_ability_faceless_void_time_lock" id="faceless_void_time_lock"/> -->
 						</DropDown>
 					</Panel>

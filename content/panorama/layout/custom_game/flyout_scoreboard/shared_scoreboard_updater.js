@@ -53,7 +53,22 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
     if (isTeammate) {
       ultStateOrTime = Game.GetPlayerUltimateStateOrTime(playerId);
     }
-    goldValue = playerInfo.player_gold;
+    // 获取真实金币
+    const realGold = playerInfo.player_gold;
+
+    // 从 CustomNetTables 获取虚拟金币
+    const virtualGoldData = CustomNetTables.GetTableValue(
+      'player_virtual_gold',
+      playerId.toString(),
+    );
+    const virtualGold = virtualGoldData ? virtualGoldData.virtual_gold : 0;
+
+    // 组合显示格式: "真实金币 + 虚拟金币"
+    if (virtualGold > 0) {
+      goldValue = realGold + virtualGold;
+    } else {
+      goldValue = realGold;
+    }
 
     playerPanel.SetHasClass('player_dead', playerInfo.player_respawn_seconds >= 0);
     playerPanel.SetHasClass(
@@ -432,3 +447,10 @@ function ScoreboardUpdater_GetSortedTeamInfoList(scoreboardHandle) {
 
   return teamsList;
 }
+// 监听虚拟金币变化，触发计分板更新
+CustomNetTables.SubscribeNetTableListener('player_virtual_gold', function (table, key, data) {
+  // 触发计分板刷新
+  $.Schedule(0.1, function () {
+    // 计分板会在下次更新时自动读取新的虚拟金币值
+  });
+});
