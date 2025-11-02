@@ -2,6 +2,7 @@ import { AI } from '../ai/AI';
 import { Analytics } from '../api/analytics/analytics';
 import { Player } from '../api/player';
 import { GameConfig } from './GameConfig';
+import { VirtualGoldBank } from './bank/virtual-gold-bank';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
 import { GoldXPFilter } from './filter/gold-xp-filter';
@@ -36,6 +37,8 @@ export function ActivateModules() {
     new PropertyController();
 
     new GoldXPFilter();
+
+    new VirtualGoldBank();
 
     new Player();
   }

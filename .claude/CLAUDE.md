@@ -175,12 +175,7 @@ export class MyAbility extends BaseAbility {
 
 #### 3. AI 状态机 (FSA)
 
-Bot AI 使用基于欲望值的有限状态机进行模式切换:
-
-- **模式**: Laning, Attack, Retreat, Push (每个模式位于 `ai/mode/`)
-- **阈值**: 0.5 的欲望值触发模式切换
-- **思考间隔**: 0.3 秒执行一次游戏逻辑
-- **动作**: Attack, Move, Cast, Item usage (位于 `ai/action/`)
+Bot AI 使用基于欲望值的有限状态机: 模式 (Laning/Attack/Retreat/Push) 位于 `ai/mode/`,动作 (Attack/Move/Cast) 位于 `ai/action/`,每 0.3 秒思考一次。
 
 #### 4. 数据流
 
@@ -251,15 +246,6 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
   - `PanoramaTargetPlugin` 用于转换为 Valve 格式
   - 启用 tree-shaking 和文件系统缓存
 
-### 符号链接设置
-
-`npm install` 的 postinstall 脚本 (`src/scripts/install.js`) 创建 junction 符号链接:
-
-- `game/` ↔ `{dota_path}/game/dota_addons/windy10v10ai/`
-- `content/` ↔ `{dota_path}/content/dota_addons/windy10v10ai/`
-
-这使项目可以自动与 Dota 2 的 addon 目录同步。
-
 ## 开发指南
 
 ### 修改 VScripts (游戏逻辑) 时:
@@ -312,6 +298,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **适用场景**: 实现 API 调用、与后端集成、添加分析事件
 
 **主要内容**:
+
 - API 架构概览和目录结构
 - ApiClient 核心组件使用方法
 - 认证机制 (API Key 方式)
@@ -327,6 +314,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **适用场景**: 将传统 Lua modifier 迁移到 DataDriven 实现、优化 modifier 性能
 
 **主要内容**:
+
 - DataDriven vs Lua Modifier 对比和混合架构原则
 - 完整的迁移步骤 (以 item_magic_sword 为例)
 - DataDriven 配置结构详解 (AbilityValues, OnSpellStart, Modifiers 等)
@@ -339,11 +327,12 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 **核心原则**: DataDriven 处理简单属性和事件,Lua 处理复杂逻辑
 
-### 优化物品 Modifiers (`docs/development/optimize-item-modifiers.md`)
+### 优化 Lua 物品 (`docs/development/optimize-lua-item.md`)
 
 **适用场景**: 减少游戏卡顿、优化物品性能、处理大量物品属性
 
 **主要内容**:
+
 - 核心思路: 将静态属性从 Lua 迁移到 DataDriven
 - 详细示例: 阿迪王 (item_adi_king) 的优化过程
 - 可优化的属性类型完整列表:
@@ -363,127 +352,25 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 **重要提示**: 只优化列表中的属性,保持代码简洁,不保留已删除函数的注释
 
-## 本地化
+### 本地化文件格式指南 (`docs/development/localization-format-guide.md`)
 
-语言文件位于 `game/resource/`,使用 Valve 的 KeyValues 格式:
+**适用场景**: 维护本地化文件、添加新翻译、同步中英文版本格式
 
-### 语言文件维护策略
+**主要内容**:
 
 - **中文 (`addon_schinese.txt`)**: 必须维护 - 添加所有新键
 - **英文 (`addon_english.txt`)**: 必须维护 - 添加所有新键
 - **俄文 (`addon_russian.txt`)**: 仅维护现有键 - 不要添加新键
+- 格式要求: 缩进和对齐、注释格式、HTML 标签同步
+- 语言文件维护策略: 中文、英文、俄文的维护要求
+- 添加新的本地化键: 完整的工作流程
+- 中文标点符号规范: 全角标点使用规则
+- 查找 Dota 2 官方技能名称: 使用参考文件的方法
+- 本地化通用规则: 标准变量翻译列表和使用方法
+- 中英文版本同步要求: 格式一致性和内容完整性
+- Modifier 说明补全: 必须包含的条目和格式
 
-### 添加新的本地化键
-
-当添加需要翻译的新 UI 元素或文本时:
-
-1. **添加到中文文件** (`addon_schinese.txt`):
-
-   ```
-   "my_new_key"    "我的新文本"
-   ```
-
-2. **添加到英文文件** (`addon_english.txt`):
-
-   ```
-   "my_new_key"    "My New Text"
-   ```
-
-3. **不要添加到俄文文件** (`addon_russian.txt`) - 仅在键已存在时更新
-
-### 中文标点符号规范
-
-**重要**: 中文本地化文本必须使用全角标点符号，不要使用半角标点符号。
-
-**常用全角标点对照表**：
-- ✅ 逗号：`，` (全角)  ❌ `,` (半角)
-- ✅ 句号：`。` (全角)  ❌ `.` (半角)
-- ✅ 冒号：`：` (全角)  ❌ `:` (半角)
-- ✅ 分号：`；` (全角)  ❌ `;` (半角)
-- ✅ 问号：`？` (全角)  ❌ `?` (半角)
-- ✅ 感叹号：`！` (全角)  ❌ `!` (半角)
-
-**示例**：
-```
-// ❌ 错误 - 使用了半角标点
-"item_description"    "主动: 一念成佛。持续 4 秒,造成伤害。"
-
-// ✅ 正确 - 使用全角标点
-"item_description"    "主动：一念成佛。持续 4 秒，造成伤害。"
-```
-
-**注意**：
-- 数字和英文字母保持半角
-- 百分号 `%`、括号 `()` 等特殊符号根据上下文判断（通常保持半角）
-- HTML 标签和变量占位符（如 `%active_duration%`）保持原样
-
-### 查找 Dota 2 官方技能名称
-
-当添加项目语言文件中不存在的 Dota 2 技能时，从参考文件中查找官方翻译：
-
-1. **在参考文件中搜索**，位于 `docs/reference/7.39/`：
-
-   - 英文：`abilities_english.txt`
-   - 中文：`abilities_schinese.txt`
-
-2. **搜索模式**：使用技能内部名称(例如 `medusa_split_shot`)查找条目：
-
-   ```
-   English: "DOTA_Tooltip_ability_medusa_split_shot"    "Split Shot"
-   Chinese: "DOTA_Tooltip_ability_medusa_split_shot"    "分裂箭"
-   ```
-
-3. **示例工作流**:
-
-   ```bash
-   # Search for the ability name in reference files
-   grep "luna_moon_glaive" docs/reference/7.39/abilities_english.txt
-   grep "luna_moon_glaive" docs/reference/7.39/abilities_schinese.txt
-
-   # Results will show:
-   # English: "DOTA_Tooltip_ability_luna_moon_glaive"    "Moon Glaives"
-   # Chinese: "DOTA_Tooltip_ability_luna_moon_glaive"    "月刃"
-   ```
-
-**注意**：参考文件来自 Dota 2 版本 7.39，包含所有标准技能的 Valve 官方翻译。
-
-### 在代码中使用
-
-在 XML/Panorama 中引用本地化键：
-
-```xml
-<Label text="#my_new_key" />
-```
-
-或在 JavaScript/TypeScript 中:
-
-```javascript
-$.Localize("#my_new_key");
-```
-
-### 文件格式
-
-- 格式：Valve KeyValues (具有特定结构的 `.txt` 文件)
-- 编码：UTF-8 with BOM
-- **缩进**：在键和值之间使用 tab，根据键的长度对齐：
-  - 短键名(例如 `"max_level"`)：使用 tab 在一致的列对齐值
-  - 长键名(例如 `"DOTA_Tooltip_ability_attribute_bonus"`)：使用 tab 保持可读性
-  - 示例：
-    ```
-    "short_key"                    "短文本"
-    "DOTA_Tooltip_very_long_key"                                "长键名的文本"
-    ```
-- 结构：
-  ```
-  "lang"
-  {
-      "Language"  "schinese"  // or "english", "russian"
-      "Tokens"
-      {
-          "key_name"    "translated text"
-      }
-  }
-  ```
+**关键要点**: 使用两个 tab 缩进、注释使用中文、HTML 标签格式需同步、所有 modifier 必须完整
 
 ## Git 工作流
 
@@ -508,6 +395,7 @@ $.Localize("#my_new_key");
 发布新版本时，需要提供中英文更新日志，格式如下：
 
 **中文更新日志**：
+
 ```
 [b]游戏性更新 v4.00[/b]
 
@@ -515,6 +403,7 @@ $.Localize("#my_new_key");
 ```
 
 **英文更新日志**：
+
 ```
 [b]Gameplay update v4.00[/b]
 
@@ -522,6 +411,7 @@ Fixed some bugs and balance.
 ```
 
 **格式要点**：
+
 - 使用 BBCode 标签 `[b]...[/b]` 加粗标题
 - 标题格式：`游戏性更新 v版本号` (中文) / `Gameplay update v版本号` (英文)
 - 版本号格式：
@@ -532,9 +422,11 @@ Fixed some bugs and balance.
 - 中文使用全角标点符号，英文使用半角标点符号
 
 **更新类型**：
+
 - 游戏性更新 / Gameplay update - 平衡性改动、功能调整、bug 修复
 - 内容更新 / Content update - 新英雄、新物品、新功能
 - 重大更新 / Major update - 大型功能更新或重构
 
 **相关文件**：
+
 - 自动化 PR 创建：`.github/workflows/create_release_pr.yml`

@@ -7,7 +7,7 @@ game/panorama
 game/particles
 
 # Documentation and reference files (large text files)
-docs/
+docs/reference
 
 # Large image and binary files
 *.vxml_c

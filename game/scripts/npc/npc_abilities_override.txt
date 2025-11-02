@@ -10465,11 +10465,11 @@
 		{
 			"images_take_damage_percent"
 			{
-				"value" "200"	// 250-50
+				"value" "100"	// 250-50
 			}
 			"images_take_damage_percent_tooltip"
 			{
-				"value" "300"	// 350-50
+				"value" "200"	// 350-50
 			}
 			"images_movespeed_bonus"
 			{

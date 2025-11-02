@@ -12,8 +12,10 @@ export class EventEntityKilled {
     if (!killedUnit) {
       return;
     }
+    //print(`[EventEntityKilled] Unit killed: ${killedUnit.GetUnitName()}`);
     // ✅ 新增: 检查是否为npc_windy
     if (killedUnit.GetUnitName() === 'npc_windy') {
+      //print('[EventEntityKilled] npc_windy detected, triggering respawn');
       this.onWindyKilled(killedUnit);
       return;
     }
@@ -126,7 +128,7 @@ export class EventEntityKilled {
     // 难度系数: 难度越高,掉落概率越高
     let difficultyMultiplier = 1;
     if (difficulty >= 60) {
-      difficultyMultiplier = 3.0; // 60难度: 3倍概率
+      difficultyMultiplier = 4.0; // 60难度: 3倍概率
     } else if (difficulty >= 20) {
       difficultyMultiplier = 2.0; // 20难度: 2倍概率
     } else if (difficulty >= 12) {
@@ -138,13 +140,13 @@ export class EventEntityKilled {
     // 人数系数: 人数越多概率越高
     let playerMultiplier = 1;
     if (playerCount >= 6) {
-      playerMultiplier = 1.8; // 6人: 2倍概率
+      playerMultiplier = 1.8; // 6人: 1.8倍概率
     } else if (playerCount >= 4) {
-      playerMultiplier = 1.5; // 4-5人: 1.0倍概率
+      playerMultiplier = 1.5; // 4-5人: 1.5倍概率
     } else if (playerCount >= 2) {
-      playerMultiplier = 1.0; // 2-3人: 1.5倍概率
+      playerMultiplier = 1.0; // 2-3人: 1.0倍概率
     } else if (playerCount <= 1) {
-      playerMultiplier = 1.2; // 1人: 2倍概率
+      playerMultiplier = 1.5; // 1人: 1.2倍概率
     }
 
     // 最终概率 = 基础概率 × 难度系数 × 人数系数
@@ -174,7 +176,7 @@ export class EventEntityKilled {
         // 融合符文掉落 - 使用神器组件的循环逻辑可重复
         const maxDropCount = Math.floor(Player.GetPlayerCount() / 4);
         const dropCount = RandomInt(1, maxDropCount);
-        print(`[EventEntityKilled] Fusion material dropCount is ${dropCount}`);
+        //print(`[EventEntityKilled] Fusion material dropCount is ${dropCount}`);
         for (let i = 0; i < dropCount; i++) {
           // 从符文列表中随机选择一个
           this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceFusionRoshan);
@@ -190,7 +192,7 @@ export class EventEntityKilled {
           }
         }
       } else {
-        print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
+        //print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
       }
 
       // 延迟移除无人捡取的金币袋
@@ -257,19 +259,94 @@ export class EventEntityKilled {
 
   // ✅ 新增: npc_windy复活处理
   private onWindyKilled(unit: CDOTA_BaseNPC): void {
-    const respawnTime = 30; // 30秒后复活
+    const respawnTime = 1; // 30秒后复活
     const unitName = unit.GetUnitName();
     const position = unit.GetAbsOrigin();
     const team = unit.GetTeam();
 
-    print(`[Windy] npc_windy被击杀,将在${respawnTime}秒后复活`);
+    //print(`[Windy] npc_windy被击杀,将在${respawnTime}秒后复活`);
 
+    // ✅ 符文掉落 - 使用远古单位2倍的概率
+    const windyDropChance = this.dropItemChanceFusionAncient * 2; // 1.5 * 3 * 5 = 18
+    this.dropItem(
+      unit, // 修正: 使用 unit 而不是 npc_windy
+      this.dropItemListFusionMaterial,
+      this.calculateDropChance(windyDropChance),
+    );
+
+    //print(`[Windy] Fusion rune drop chance: ${this.calculateDropChance(windyDropChance)}%`);
+    const goldmultiplier = GameRules.Option.direGoldXpMultiplier || 2;
+    // ✅ 新增: 10%概率掉落经验书
+    const baseChance = 10;
+    // 线性插值公式: 在 goldmultiplier 10-100 之间，从 10% 增长到 20%
+    // 公式: baseChance * (1 + (goldmultiplier - 10) / 90)
+    const expBookDropChance = baseChance * (1 + Math.max(0, goldmultiplier - 10) / 90);
+    if (RandomFloat(0, 100) <= expBookDropChance) {
+      const expBook = CreateItem('item_tome_of_knowledge', undefined, undefined);
+      if (expBook) {
+        CreateItemOnPositionSync(position, expBook);
+        expBook.LaunchLoot(
+          false,
+          300,
+          0.75,
+          position.__add(Vector(RandomInt(-100, 100), RandomInt(-100, 100), 0)),
+          undefined,
+        );
+        //print(`[Windy] npc_windy掉落经验书`);
+      }
+    }
+    // ✅ 新增: 10%概率掉落金币包，数量基于难度动态计算概率
+    const goldBagDropChance = baseChance * (1 + Math.max(0, goldmultiplier - 10) / 90);
+
+    // print(
+    //   `[Windy] Gold multiplier: ${goldmultiplier}, Drop chance: ${goldBagDropChance.toFixed(2)}%`,
+    // );
+
+    if (RandomFloat(0, 100) <= goldBagDropChance) {
+      let dropCount = 1; // 默认至少掉1个
+
+      // 根据 goldmultiplier (2-100) 动态计算第2个金币袋的掉落概率
+      // 公式: 基础概率 = (goldmultiplier - 2) / 98 * 100，范围 0%-100%
+      const secondBagChance = Math.min(((goldmultiplier - 2) / 98) * 100, 100);
+      if (RandomFloat(0, 100) <= secondBagChance) {
+        dropCount = 2;
+
+        // 根据 goldmultiplier 动态计算第3个金币袋的掉落概率
+        // 公式: 只有在 goldmultiplier >= 30 时才有机会掉第3个
+        // 概率 = (goldmultiplier - 30) / 70 * 100，范围 0%-100%
+        const thirdBagChance = Math.min(Math.max(0, ((goldmultiplier - 30) / 70) * 100), 100);
+        if (RandomFloat(0, 100) <= thirdBagChance) {
+          dropCount = 3;
+        }
+      }
+
+      // print(
+      //   `[Windy] npc_windy will drop ${dropCount} gold bags (difficulty: ${goldmultiplier}x, 2nd chance: ${secondBagChance.toFixed(1)}%)`,
+      // );
+
+      // 掉落对应数量的金币包
+      for (let i = 0; i < dropCount; i++) {
+        const goldBag = CreateItem('item_bag_of_gold', undefined, undefined);
+        if (goldBag) {
+          CreateItemOnPositionSync(position, goldBag);
+          goldBag.LaunchLoot(
+            false,
+            300,
+            0.75,
+            position.__add(Vector(RandomInt(-100, 100), RandomInt(-100, 100), 0)),
+            undefined,
+          );
+        }
+      }
+
+      // print(`[Windy] npc_windy dropped ${dropCount} gold bags`);
+    }
     Timers.CreateTimer(respawnTime, () => {
       const newUnit = CreateUnitByName(unitName, position, true, undefined, undefined, team);
 
       if (newUnit !== undefined) {
         newUnit.AddNewModifier(newUnit, undefined, 'modifier_rooted', {});
-        print('[Windy] npc_windy已复活');
+        // print('[Windy] npc_windy已复活');
       }
     });
   }
@@ -284,7 +361,7 @@ export class EventEntityKilled {
     dropOnce = false,
   ): string[] {
     if (dropItemList.length === 0) {
-      print(`[EventEntityKilled] OnCreepKilled dropItemList is empty`);
+      //print(`[EventEntityKilled] OnCreepKilled dropItemList is empty`);
       return dropItemList;
     }
     if (RandomFloat(0, 100) <= dropChance) {
@@ -302,7 +379,7 @@ export class EventEntityKilled {
         );
       }
 
-      print(`[EventEntityKilled] OnCreepKilled drop item ${itemName}`);
+      //print(`[EventEntityKilled] OnCreepKilled drop item ${itemName}`);
       if (dropOnce) {
         // 从物品列表中移除，不再掉落
         return dropItemList.filter((v, i) => i !== itemIndex);
