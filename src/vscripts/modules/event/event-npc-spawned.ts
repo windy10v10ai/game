@@ -222,6 +222,11 @@ export class EventNpcSpawned {
       1,
       0,
     );
+    GameRules.SendCustomMessage(
+      `<font color='#FF0000'>⚠️ Random BotBoss: ${localizedName}。BotBoss features double experience and money multipliers, with higher aggressiveness, yet defeating the boss will also grant you multiplied experience and money!</font>`,
+      1,
+      0,
+    );
     Timers.CreateTimer(3, () => {
       const highestPropertyPlayer = this.FindHighestPropertyPlayer();
 

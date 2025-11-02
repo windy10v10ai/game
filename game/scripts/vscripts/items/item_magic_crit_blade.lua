@@ -317,5 +317,5 @@ function modifier_item_magic_crit_blade:OnIntervalThink()
 end
 
 function modifier_item_magic_crit_blade:GetTexture()
-    return "bloodthorn_ultra"
+    return "molongkuangwu"
 end
