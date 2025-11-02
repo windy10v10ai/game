@@ -6,7 +6,6 @@ LinkLuaModifier("modifier_item_beast_armor_passive", "items/item_beast_armor.lua
 function BeastArmorOnCreated(keys)
     if not IsServer() then return end
 
-    print("BeastArmorOnCreated")
     local caster = keys.caster
     local ability = keys.ability
 
@@ -21,7 +20,6 @@ end
 -- DataDriven modifier_item_beast_armor 的 OnDestroy 回调
 -- ========================================
 function BeastArmorOnDestroy(keys)
-    print("BeastArmorOnDestroy")
     if not IsServer() then return end
 
     local caster = keys.caster
@@ -44,11 +42,11 @@ function OnSpellStart(keys)
     local radius = ability:GetSpecialValueFor("blast_radius")
     local damage = ability:GetSpecialValueFor("blast_damage")
 
-    -- 刃甲激活音效
+    -- 刃甲效果
     EmitSoundOn("DOTA_Item.BladeMail.Activate", caster)
-
-    -- 先给自己添加反弹效果，再对敌人造成伤害
     caster:AddNewModifier(caster, ability, "modifier_item_blade_mail_reflect", { duration = duration })
+
+    -- 莲花效果
     caster:AddNewModifier(caster, ability, "modifier_item_lotus_orb_active", { duration = duration })
 
     -- 冰甲冲击波效果
@@ -139,14 +137,6 @@ function modifier_item_beast_armor_passive:OnCreated()
         -- 莲花被动格挡
         self.block_cooldown = ability:GetSpecialValueFor("block_cooldown")
         self.last_block_time = 0
-
-        -- 属性
-        self.active_reflection_pct = ability:GetSpecialValueFor("active_reflection_pct") / 100
-        self.passive_reflection_constant = ability:GetSpecialValueFor("passive_reflection_constant")
-        self.passive_reflection_pct = ability:GetSpecialValueFor("passive_reflection_pct") / 100
-        print("active_reflection_pct", self.active_reflection_pct)
-        print("passive_reflection_constant", self.passive_reflection_constant)
-        print("passive_reflection_pct", self.passive_reflection_pct)
     end
 end
 
