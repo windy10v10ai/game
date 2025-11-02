@@ -1430,6 +1430,22 @@
 "DOTA_Tooltip_ability_boss_death_power"                     "AI的复仇"
 "DOTA_Tooltip_ability_boss_death_power_Description"         "BotBoss每次被击杀后，因复仇的驱动永久获得减伤和输出增强。每次死亡使减伤和输出增强各提升1%。"
 "DOTA_Tooltip_ability_boss_death_power_Lore"                "人类的屠戮只会引起AI更剧烈的反抗"
+
+"DOTA_Tooltip_ability_ability_mind_control"                     "夺舍"
+"DOTA_Tooltip_ability_ability_mind_control_Description"         "夺舍一个敌方AI英雄%duration%秒。你可以暂时操控该英雄的移动、攻击和施法。在控制期间,该英雄队伍转变，且击杀和被击杀都算到你头上。但AI残余的意识还可能与你争抢，拼手速的时候到了"
+"DOTA_Tooltip_ability_ability_mind_control_Lore"                "侵入敌人的意识,短暂地夺取其身体的控制权。"
+"DOTA_Tooltip_ability_ability_mind_control_duration"            "持续时间:"
+"DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%减伤:"
+"DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%状态抗性:"
+
+
+"DOTA_Tooltip_ability_ability_defection"                     "卧底？叛变"
+"DOTA_Tooltip_ability_ability_defection_Description"         "可以自由在天辉、夜魇和中立阵营之间切换，但无法攻击天辉阵营的人类玩家；切换回天辉阵营有2s延迟。当处于中立阵营时，危机感使玩家增加20%减伤"
+"DOTA_Tooltip_ability_ability_defection_Lore"                "身在曹营心在汉，还是干脆一不做二不休？"
+
+"DOTA_Tooltip_modifier_defection"                           "叛变"
+"DOTA_Tooltip_modifier_defection_Description"               "1=天辉, 2=夜魇, 3=中立"
+
 "DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。<br><br><font color='#FF0000'>近战英雄: 不要选！！！攻击无效！<br>远程英雄: 功能正常但缺少龙形态模型！！！"
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
 		///////////////////////////////////////////////////

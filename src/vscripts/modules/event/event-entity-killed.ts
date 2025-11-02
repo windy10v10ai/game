@@ -259,7 +259,7 @@ export class EventEntityKilled {
 
   // ✅ 新增: npc_windy复活处理
   private onWindyKilled(unit: CDOTA_BaseNPC): void {
-    const respawnTime = 1; // 30秒后复活
+    const respawnTime = 30; // 30秒后复活
     const unitName = unit.GetUnitName();
     const position = unit.GetAbsOrigin();
     const team = unit.GetTeam();
