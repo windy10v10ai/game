@@ -7,6 +7,7 @@ import {
   GA4UserProperty,
   SERVER_TYPE,
 } from './dto/ga4-dto';
+import { GameEndDto, GameEndPlayerDto } from './dto/game-end-dto';
 
 // 重新导出 SERVER_TYPE 供外部使用
 export { SERVER_TYPE };
@@ -227,11 +228,110 @@ export class GA4 {
   }
 
   /**
-   * 发送游戏结束匹配时间事件
-   * 包含现实时间和游戏时间
+   * 发送游戏匹配时间事件（内部方法）
+   * @param realDurationRatio 现实时间/游戏时间比例
+   * @param dotaDuration Dota 游戏时长（秒）
+   * @param realDuration 现实时长（秒）
    */
-  public static SendGameEndMatchTimeEvent() {
+  private static SendMatchTimingEvent(
+    realDurationRatio: number,
+    dotaDuration: number,
+    realDuration: number,
+  ) {
     const eventName = 'game_end_match_time';
+    const eventParams: { [key: string]: string | number | boolean } = {
+      dota_duration: dotaDuration,
+      real_duration: realDuration,
+      real_duration_ratio: realDurationRatio,
+    };
+
+    const event = this.BuildEvent(eventName, 0, eventParams);
+    this.SendEvent(0, event);
+  }
+
+  /**
+   * 发送玩家级别事件（内部方法）
+   * 为每个玩家发送数据事件
+   * @param players 游戏结束时的玩家数据
+   * @param realDurationRatio 现实时间/游戏时间比例
+   */
+  private static SendPlayerLevelEvents(gameEndDto: GameEndDto, realDurationRatio: number) {
+    gameEndDto.players.forEach((player) => {
+      // 只统计真实玩家
+      if (player.steamId <= 0) {
+        return;
+      }
+      const itemEvents: GA4Event[] = this.BuildItemEvents(player, gameEndDto, realDurationRatio);
+
+      this.SendEvents(player.steamId, itemEvents);
+    });
+  }
+
+  /**
+   * 发送物品性能事件（内部方法）
+   * 为每个物品发送单独的事件，便于按物品维度统计
+   * @param players 游戏结束时的玩家数据
+   * @param gameEndDto 游戏结束数据
+   * @param realDurationRatio 现实时间/游戏时间比例
+   */
+  private static BuildItemEvents(
+    player: GameEndPlayerDto,
+    gameEndDto: GameEndDto,
+    realDurationRatio: number,
+  ): GA4Event[] {
+    // 遍历每个玩家的物品数据
+    const eventName = 'game_end_item_build';
+    const itemSlots: { name: string; type: string }[] = [];
+
+    const hero = PlayerResource.GetSelectedHeroEntity(player.playerId);
+    if (!hero) {
+      return [];
+    }
+
+    for (let i = 0; i < 6; i++) {
+      const item = hero.GetItemInSlot(i);
+      if (item) {
+        itemSlots.push({ name: item.GetAbilityName(), type: 'normal' });
+      }
+    }
+
+    const neutralActiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+    if (neutralActiveItem) {
+      itemSlots.push({ name: neutralActiveItem.GetAbilityName(), type: 'neutral_active' });
+    }
+
+    const neutralPassiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+    if (neutralPassiveItem) {
+      itemSlots.push({ name: neutralPassiveItem.GetAbilityName(), type: 'neutral_passive' });
+    }
+
+    // 收集该玩家的所有物品事件
+    const itemEvents: GA4Event[] = [];
+    itemSlots.forEach((slot) => {
+      const eventParams: { [key: string]: string | number | boolean } = {
+        hero_name: player.heroName,
+        item_name: slot.name,
+        type: slot.type,
+        difficulty: gameEndDto.difficulty,
+        win_metrics: gameEndDto.isWin,
+        team_id: player.teamId,
+        real_duration_ratio: realDurationRatio,
+      };
+
+      const event = this.BuildEvent(eventName, player.steamId, eventParams);
+      itemEvents.push(event);
+    });
+
+    return itemEvents;
+  }
+
+  /**
+   * 发送游戏结束相关的所有事件
+   * 包括匹配时间事件和玩家性能事件
+   * @param players 游戏结束时的玩家数据
+   * @param items 玩家物品数据
+   */
+  public static SendGameEndEvents(gameEndDto: GameEndDto) {
     const dotaDuration = GameRules.GetDOTATime(false, true);
 
     // 异步获取当前真实时间
@@ -245,20 +345,14 @@ export class GA4 {
         return;
       }
 
-      const eventParams: { [key: string]: string | number | boolean } = {
-        dota_duration: dotaDuration,
-      };
-
       const realDuration = endRealTime - this.gameStartRealTime;
-      eventParams.real_duration = realDuration;
-      eventParams.real_start_time = this.gameStartRealTime;
-      eventParams.real_end_time = endRealTime;
+      const realDurationRatio = realDuration / dotaDuration;
 
-      // 现实时间/Dota2游戏时长（>=1）越大说明越卡顿
-      eventParams.real_duration_ratio = realDuration / dotaDuration;
+      // 发送匹配时间事件
+      this.SendMatchTimingEvent(realDurationRatio, dotaDuration, realDuration);
 
-      const event = this.BuildEvent(eventName, 0, eventParams);
-      this.SendEvent(0, event);
+      // 发送玩家级别事件
+      this.SendPlayerLevelEvents(gameEndDto, realDurationRatio);
     });
   }
 }

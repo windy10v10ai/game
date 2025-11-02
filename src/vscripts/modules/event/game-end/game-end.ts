@@ -119,6 +119,7 @@ export class GameEnd {
     });
 
     const gameEndDto: GameEndDto = {
+      isWin: winnerTeamId === DotaTeam.GOODGUYS,
       matchId: GameRules.Script_GetMatchID().toString(),
       version: GameConfig.GAME_VERSION,
       difficulty,
@@ -168,18 +169,19 @@ export class GameEnd {
     }
 
     // 收集并发送物品出装统计
-    const items = this.CollectItemBuilds(gameEndDto.players);
-    if (items.length > 0) {
-      Analytics.SendGameEndItemBuildsEvent({
-        matchId: gameEndDto.matchId,
-        version: gameEndDto.version,
-        difficulty: gameEndDto.difficulty,
-        items,
-        isWin,
-      });
-    }
+    // const items = this.CollectItemBuilds(gameEndDto.players);
+    // if (items.length > 0) {
+    //   Analytics.SendGameEndItemBuildsEvent({
+    //     matchId: gameEndDto.matchId,
+    //     version: gameEndDto.version,
+    //     difficulty: gameEndDto.difficulty,
+    //     items,
+    //     isWin,
+    //   });
+    // }
 
-    GA4.SendGameEndMatchTimeEvent();
+    // 发送 GA4 游戏结束事件（包括匹配时间和玩家性能）
+    GA4.SendGameEndEvents(gameEndDto);
   }
 
   /**
