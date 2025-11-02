@@ -22,6 +22,57 @@ export class Lottery {
     { tier: 4, maxCount: 2, steamIds: ['198490822', '116431128'] },
   ];
 
+  // 【新增】统一的技能池配置
+  private readonly ABILITY_POOLS = {
+    // 非随机模式(普通模式)
+    normal: {
+      passive: [
+        { name: 'slark_essence_shift', level: 5 }, // 能量转移
+        { name: 'axe_counter_helix', level: 5 }, // 反击
+        { name: 'medusa_split_shot', level: 5 }, // 分裂箭
+        { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒烧灼
+        { name: 'elder_titan_natural_order', level: 5 }, // 自然秩序
+        { name: 'omniknight_hammer_of_purity', level: 5 }, // 纯洁
+        { name: 'ability_trigger_on_move', level: 5 }, // 橙影蝴蝶
+      ],
+      active: [
+        { name: 'ability_defection', level: 4 },
+        { name: 'faceless_void_time_zone', level: 5 },
+        { name: 'slark_shadow_dance', level: 4 },
+        { name: 'abaddon_borrowed_time', level: 5 },
+        { name: 'legion_commander_duel', level: 5 },
+        { name: 'clinkz_burning_barrage2', level: 3 },
+        { name: 'ability_mind_control', level: 5 },
+      ],
+    },
+    // 全英雄随机模式
+    allHeroRandom: {
+      passive: [
+        { name: 'dazzle_good_juju', level: 4 }, // 人马反伤
+        { name: 'earthshaker_aftershock', level: 4 }, // 余震
+        { name: 'ability_charge_damage', level: 4 }, // 怒意狂击
+        { name: 'ogre_magi_multicast_lua', level: 4 }, // 月刃
+        { name: 'leshrac_defilement2', level: 3 }, // 魔王降临
+        { name: 'ability_trigger_learned_skills', level: 3 }, // 射手天赋
+        { name: 'ability_trigger_on_cast', level: 3 }, // 射手天赋
+        { name: 'ability_trigger_on_attacked', level: 3 }, // 连击
+        { name: 'ability_trigger_on_move', level: 3 }, // 炽魂
+      ],
+      active: [
+        { name: 'enigma_black_hole', level: 5 }, // 黑洞
+        { name: 'juggernaut_omni_slash', level: 4 }, // 无敌斩
+        { name: 'abaddon_borrowed_time', level: 4 }, // 末日
+        { name: 'alchemist_chemical_rage', level: 3 }, // 死亡一指
+        { name: 'pudge_meat_hook', level: 2 }, // 肉钩
+        { name: 'gyrocopter_flak_cannon', level: 1 }, // 闪烁
+        { name: 'ability_trigger_on_active', level: 1 }, // 闪烁
+        { name: 'marci_unleash', level: 1 }, // 闪烁
+        { name: 'ability_mind_control', level: 1 }, // 闪烁
+        { name: 'tinker_rearm_lua', level: 1 }, // 闪烁
+      ],
+    },
+  };
+
   constructor() {
     // 启动物品抽奖
     ListenToGameEvent(
@@ -141,7 +192,6 @@ export class Lottery {
     return executedNames;
   }
 
-  // ---- 随机技能 ----
   randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
     // 获取基本配置
     const abilityTable = this.getAbilityTableName(abilityType);
@@ -168,91 +218,79 @@ export class Lottery {
         this.randomCountExtra,
         hero,
         executedNames,
-        true, // 使用高级别技能
+        true,
       );
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 应用固定技能
+    // 应用固定技能或特殊技能池
     if (abilityLotteryResults.length > 0) {
       const specifiedAbilityInfo = this.getSpecifiedAbilityByFixedAbility();
       if (specifiedAbilityInfo) {
+        // 固定技能逻辑
         const { ability: specifiedAbility, isActive } = specifiedAbilityInfo;
-
         if (isActive && abilityType === 'abilityActive') {
-          // 固定技能是主动技能，替换主动技能的第一个
           abilityLotteryResults[0] = specifiedAbility;
         } else if (!isActive && abilityType === 'abilityPassive') {
-          // 固定技能是被动技能，替换被动技能的第一个
           abilityLotteryResults[0] = specifiedAbility;
         }
       } else {
-        // 修改修改修改开始 - 强制第一个被动技能为 高级技能
-        // 被动技能配置
-        if (abilityType === 'abilityPassive' && abilityType === 'abilityPassive') {
-          // 配置1: 蝴蝶效应技能池
-          const hudieAbilities = [
-            { name: 'slark_essence_shift', level: 5 }, // 能量转移
-            { name: 'axe_counter_helix', level: 5 }, // 反击
-            { name: 'medusa_split_shot', level: 5 }, // 分裂箭
-            { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒烧灼
-            { name: 'elder_titan_natural_order', level: 5 }, // 自然秩序
-            { name: 'omniknight_hammer_of_purity', level: 5 }, // 纯洁
-            { name: 'ability_trigger_on_move', level: 5 }, // 橙影蝴蝶
-          ];
+        // 【修改】只对第一个被动技能和主动技能使用固定池
+        const abilityPool = this.getAbilityPool(abilityType);
 
-          const hudiexiaoying = 1; // 控制开关
-          if (hudiexiaoying === 1) {
-            const selectedAbility = this.selectUniqueAbility(hudieAbilities, abilityLotteryResults);
-            if (selectedAbility !== null) {
-              abilityLotteryResults[0] = selectedAbility;
-              print(`[Lottery] Replaced passive ability with: ${selectedAbility.name}`);
-            } else {
-              print(`[Lottery] Failed to find unique passive ability from pool`);
-            }
-          }
-        }
+        if (abilityPool !== null) {
+          const selectedAbility = this.selectUniqueAbility(abilityPool, abilityLotteryResults);
 
-        // 主动技能配置
-        if (abilityType === 'abilityActive' && abilityLotteryResults.length > 0) {
-          const activeAbilities = [
-            { name: 'ability_defection', level: 4 },
-            { name: 'faceless_void_time_zone', level: 5 },
-            { name: 'slark_shadow_dance', level: 4 },
-            { name: 'abaddon_borrowed_time', level: 5 },
-            { name: 'legion_commander_duel', level: 5 },
-            { name: 'clinkz_burning_barrage2', level: 3 },
-            { name: 'ability_mind_control', level: 5 },
-          ];
-          const selectedAbility = this.selectUniqueAbility(activeAbilities, abilityLotteryResults);
           if (selectedAbility !== null) {
             abilityLotteryResults[0] = selectedAbility;
-            print(`[Lottery] Replaced active ability with: ${selectedAbility.name}`);
-          } else {
-            print(`[Lottery] Failed to find unique active ability from pool`);
-          }
-          // 为特定Steam ID添加精神控制技能
-          const specialSteamIDs = [
-            '121373743', // 屠夫
-            '116431158', // 测试账号
-            '335880293', // 兔子
-            '357545069', //你们这么萌
-            '173045960', //残影
-            // 添加其他允许使用此技能的Steam ID
-          ];
-          print(`[Lottery] Add ability_mind_control for special player: ${steamAccountID}`);
-          if (specialSteamIDs.includes(steamAccountID)) {
-            // 添加精神控制技能到抽奖池
-            abilityLotteryResults[1] = { name: 'ability_defection', level: 5 };
-            print(`[Lottery] Added ability_mind_control for special player: ${steamAccountID}`);
+            const mode = this.isAllHeroRandomMode() ? 'AllHeroRandom' : 'Normal';
+            const type = abilityType === 'abilityActive' ? 'active' : 'passive';
+            print(
+              `[Lottery] ${mode} mode - Replaced ${type} ability with: ${selectedAbility.name}`,
+            );
           }
         }
-
-        // 修改修改结束
+        // 如果 abilityPool 为 null (即 abilityPassive2),则不替换第一个技能
+        // 特定Steam ID的特殊处理(仅主动技能)
+        if (abilityType === 'abilityActive') {
+          const specialSteamIDs = ['121373743', '116431158', '335880293', '357545069', '173045960'];
+          if (specialSteamIDs.includes(steamAccountID)) {
+            abilityLotteryResults[1] = { name: 'ability_defection', level: 5 };
+            print(`[Lottery] Added ability_defection for special player: ${steamAccountID}`);
+          }
+        }
       }
     }
 
     CustomNetTables.SetTableValue(abilityTable, steamAccountID, abilityLotteryResults);
+  }
+
+  /**
+   * 根据游戏模式和技能类型获取对应的技能池
+   */
+  private getAbilityPool(abilityType: AbilityItemType): LotteryDto[] | null {
+    // 第二个被动技能不使用固定技能池
+    if (abilityType === 'abilityPassive2') {
+      return null;
+    }
+
+    const isAllHeroRandom = this.isAllHeroRandomMode();
+    const mode = isAllHeroRandom ? 'allHeroRandom' : 'normal';
+
+    if (abilityType === 'abilityActive') {
+      return this.ABILITY_POOLS[mode].active;
+    } else if (abilityType === 'abilityPassive') {
+      return this.ABILITY_POOLS[mode].passive;
+    }
+
+    return null;
+  }
+
+  /**
+   * 检查是否启用全英雄随机模式
+   */
+  private isAllHeroRandomMode(): boolean {
+    return GameRules.Option.sameHeroSelection === true;
   }
 
   private selectUniqueAbility(
