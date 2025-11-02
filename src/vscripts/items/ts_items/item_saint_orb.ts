@@ -1,4 +1,3 @@
-import { StartAbilityCooldown } from '../../modules/helper/ability-helper';
 import { IsSameTeam } from '../../modules/helper/unit-helper';
 import {
   BaseItem,
@@ -32,6 +31,23 @@ export class ItemSaintOrb extends BaseItem {
 export class ModifierItemSaintOrbPassive extends BaseItemModifier {
   override statsModifierName: string = 'modifier_item_saint_orb_stats';
 
+  // 被动格挡单独计时
+  private blockCooldown: number = 0;
+  private lastBlockTime: number = 0;
+
+  OnCreated(): void {
+    super.OnCreated();
+
+    if (IsServer()) {
+      const ability = this.GetAbility();
+      if (!ability) return;
+
+      // 初始化冷却时间
+      this.blockCooldown = ability.GetSpecialValueFor('block_cooldown');
+      this.lastBlockTime = 0;
+    }
+  }
+
   DeclareFunctions(): ModifierFunction[] {
     return [
       ModifierFunction.ABSORB_SPELL,
@@ -49,16 +65,23 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
     if (!IsServer()) {
       return 0;
     }
+
     const parent = this.GetParent();
     const item = this.GetAbility();
     if (!item) return 0;
-    if (item.GetCooldownTimeRemaining() > 0) {
+
+    // 检查单独计时的冷却
+    const currentTime = GameRules.GetGameTime();
+    if (currentTime - this.lastBlockTime < this.blockCooldown) {
       return 0;
     }
+
     const absorbResult = GetAbsorbSpell(keys, parent, item);
 
     if (absorbResult) {
-      StartAbilityCooldown(item);
+      // 更新最后格挡时间
+      this.lastBlockTime = currentTime;
+
       // 播放林肯音效
       parent.EmitSound('DOTA_Item.LinkensSphere.Activate');
     }
