@@ -90,12 +90,7 @@ function AIGameMode:PreGameOptions()
 
     self.iStartingGoldPlayer = self.iStartingGoldPlayer or 600
     self.iStartingGoldBot = self.iStartingGoldBot or 600
-    self.bSameHeroSelection = self.bSameHeroSelection or 0
     self.fGameStartTime = 0
-
-    local gameMode = GameRules:GetGameModeEntity()
-
-    GameRules:SetSameHeroSelectionEnabled(true)
 
     self.sumTowerPower = AIGameMode.iTowerPower
     self.creepBuffLevel = 0

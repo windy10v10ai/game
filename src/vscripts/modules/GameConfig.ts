@@ -26,7 +26,7 @@ export class GameConfig {
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
     GameRules.SetPreGameTime(GameConfig.PRE_GAME_TIME); // 进入游戏后号角吹响前的准备时间
     // GameRules.SetPostGameTime(30); // 游戏结束后时长
-    // GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
+    GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱
     GameRules.SetGoldTickTime(1); // 设置工资发放间隔
     GameRules.SetGoldPerTick(3); // 设置工资发放数额

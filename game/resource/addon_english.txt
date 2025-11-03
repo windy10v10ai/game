@@ -39,10 +39,8 @@
 		"starting_gold_player"		"Player Starting Gold"
 		"starting_gold_bot"			"Bot Starting Gold"
 		"fixed_ability"				"Fixed Ability"
-		"same_hero_selection"		"Allow Same Hero Selection"
 		"force_random_hero"			"Force Random Hero"
 		"enable_player_attribute"	"Enable Player Attribute"
-		"extra_passive_abilities"	"Extra Passive Abilities"
 		"hide_chat_team"			"Hide Chat and Team"
 		"show_chat_team"			"Show Chat and Team"
 
