@@ -5,8 +5,8 @@ export class HeroPick {
   static PickHumanHeroes() {
     PlayerHelper.ForEachPlayer((playerId) => {
       if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
-        // 只有当 sameHeroSelection 为 true 时才强制随机
-        if (GameRules.Option.sameHeroSelection) {
+        // 只有当 forceRandomHero 为 true 时才强制随机
+        if (GameRules.Option.forceRandomHero) {
           // 强制随机模式:忽略玩家选择,直接随机
           // FIXME 这段代码执行时机在策略时间，太晚没有用，需要修改到刚进入选人时候执行
           PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();

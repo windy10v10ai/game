@@ -17,7 +17,6 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 
     self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
     self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
-    self.bSameHeroSelection = args.game_options.same_hero_selection
     self:PreGameOptions()
 end
 

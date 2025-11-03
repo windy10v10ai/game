@@ -159,7 +159,7 @@ describe('GameEndPoint', () => {
       startingGoldBot: 3000,
       respawnTimePercentage: 100,
       maxLevel: 50,
-      sameHeroSelection: false,
+      forceRandomHero: false,
       enablePlayerAttribute: true,
       fixedAbility: 'none',
       gameDifficulty: 0,

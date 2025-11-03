@@ -14,7 +14,7 @@ export class Option {
   respawnTimePercentage = 100;
   maxLevel = 50;
   fixedAbility = 'none';
-  sameHeroSelection = false;
+  forceRandomHero = false;
   enablePlayerAttribute = true;
 
   gameDifficulty = 0;
@@ -44,10 +44,10 @@ export class Option {
     this.respawnTimePercentage = keys.respawn_time_pct;
     this.maxLevel = keys.max_level;
     this.fixedAbility = keys.fixed_ability;
-    this.sameHeroSelection = keys.same_hero_selection === 1; // 现在表示是否强制随机
+    this.forceRandomHero = keys.force_random_hero === 1;
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
     // 如果启用强制随机,缩短英雄选择时间
-    if (this.sameHeroSelection) {
+    if (this.forceRandomHero) {
       GameRules.SetHeroSelectionTime(2); // 设置为3秒,快速跳过
       GameRules.SetHeroSelectPenaltyTime(0);
     } else {

@@ -86,6 +86,6 @@ export interface GameOptions {
   starting_gold_player: number;
   starting_gold_bot: number;
   max_level: number;
-  same_hero_selection: number;
+  force_random_hero: number;
   enable_player_attribute: number;
 }

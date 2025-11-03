@@ -116,8 +116,8 @@ export class GameEndPoint {
     if (!option.enablePlayerAttribute) {
       multiplier += 0.2;
     }
-    // 相同英雄选择 -- 实际上目前是全英雄随机
-    if (option.sameHeroSelection) {
+    // 强制随机英雄
+    if (option.forceRandomHero) {
       multiplier += 0.2;
     }
     // 防御塔倍率

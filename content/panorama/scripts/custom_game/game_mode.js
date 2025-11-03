@@ -67,7 +67,7 @@ function ShowChatTeamActivate() {
 // -------- Game Setting --------
 
 function InitCustomSetting() {
-  $('#same_hero_selection').checked = false; // 默认不强制随机
+  $('#force_random_hero').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
@@ -106,7 +106,7 @@ function LockOption() {
   $('#starting_gold_player_dropdown').enabled = false;
   $('#starting_gold_bot_dropdown').enabled = false;
   $('#fixed_ability_dropdown').enabled = false;
-  $('#same_hero_selection').enabled = false;
+  $('#force_random_hero').enabled = false;
   $('#enable_player_attribute').enabled = false;
 }
 
@@ -123,7 +123,7 @@ function UnLockOptionAll() {
   $('#starting_gold_player_dropdown').enabled = true;
   $('#starting_gold_bot_dropdown').enabled = true;
   $('#fixed_ability_dropdown').enabled = true;
-  $('#same_hero_selection').enabled = true;
+  $('#force_random_hero').enabled = true;
   $('#enable_player_attribute').enabled = true;
 }
 
@@ -135,7 +135,7 @@ function InitDifficultyCommonSetting() {
   $('#max_level_dropdown').SetSelected('50');
 
   $('#fixed_ability_dropdown').SetSelected('none');
-  $('#same_hero_selection').checked = false;
+  $('#force_random_hero').checked = false;
   $('#enable_player_attribute').checked = true;
 }
 
@@ -214,7 +214,7 @@ function StateChange() {
         starting_gold_bot: $('#starting_gold_bot_dropdown').GetSelected().id,
         max_level: $('#max_level_dropdown').GetSelected().id,
         fixed_ability: $('#fixed_ability_dropdown').GetSelected().id,
-        same_hero_selection: $('#same_hero_selection').checked,
+        force_random_hero: $('#force_random_hero').checked,
         enable_player_attribute: $('#enable_player_attribute').checked,
       },
     });
@@ -237,7 +237,7 @@ function SendGameOptionsToServer() {
   const startingGoldBot = $('#starting_gold_bot_dropdown').GetSelected().id;
   const maxLevel = $('#max_level_dropdown').GetSelected().id;
   const fixedAbility = $('#fixed_ability_dropdown').GetSelected().id;
-  const sameHeroSelection = $('#same_hero_selection').checked;
+  const forceRandomHero = $('#force_random_hero').checked;
   const enablePlayerAttribute = $('#enable_player_attribute').checked;
 
   GameEvents.SendCustomGameEventToServer('game_options_change', {
@@ -251,7 +251,7 @@ function SendGameOptionsToServer() {
     starting_gold_bot: Number(startingGoldBot),
     max_level: Number(maxLevel),
     fixed_ability: fixedAbility,
-    same_hero_selection: sameHeroSelection,
+    force_random_hero: forceRandomHero,
     enable_player_attribute: enablePlayerAttribute,
   });
 }
