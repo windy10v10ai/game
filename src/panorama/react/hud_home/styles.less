@@ -146,18 +146,6 @@
   vertical-align: center;
 }
 
-/* 表头 */
-.leaderboard-table-header {
-  width: 100%;
-  height: 30px;
-  flow-children: right;
-  padding: 5px 15px;
-  background-color: #2a2a3e;
-  border: 1px solid #4e56c0;
-  border-radius: 3px;
-  margin-bottom: 5px;
-}
-
 .leaderboard-col-rank {
   width: 15%;
   font-size: 14px;
@@ -180,46 +168,6 @@
   font-weight: bold;
   color: #9b5de0;
   vertical-align: center;
-}
-
-/* 排行榜列表 */
-.leaderboard-list {
-  width: 100%;
-  height: 260px;
-  flow-children: down;
-  overflow: scroll;
-}
-
-.leaderboard-item {
-  width: 100%;
-  height: 35px;
-  flow-children: right;
-  padding: 5px 15px;
-  background-color: #00000044;
-  border-left: 3px solid #4e56c0;
-  margin-bottom: 3px;
-  transition-property: background-color, border-left-color;
-  transition-duration: 0.15s;
-
-  &:hover {
-    background-color: #00000066;
-    border-left-color: #9b5de0;
-  }
-
-  &.is-current-player {
-    background-color: #4e56c044;
-    border-left-color: #fdcffa;
-    border-left-width: 5px;
-
-    .player-rank {
-      color: #fdcffa;
-    }
-
-    .player-name {
-      color: #fdcffa;
-      font-weight: bold;
-    }
-  }
 }
 
 .player-rank {
