@@ -42,7 +42,6 @@
 		"same_hero_selection"		"允许选择相同英雄"
 		"force_random_hero"			"强制随机英雄"
 		"enable_player_attribute"	"启用玩家属性"
-		"extra_passive_abilities"	"额外被动技能"
 		"hide_chat_team"			"隐藏聊天框"
 		"show_chat_team"			"显示聊天框"
 

@@ -69,7 +69,6 @@ function ShowChatTeamActivate() {
 function InitCustomSetting() {
   $('#same_hero_selection').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
-  $('#extra_passive_abilities').checked = true; // 自定义难度默认勾选额外被动技能
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
   $('#dire_player_number_dropdown').SetSelected('10');
@@ -109,7 +108,6 @@ function LockOption() {
   $('#fixed_ability_dropdown').enabled = false;
   $('#same_hero_selection').enabled = false;
   $('#enable_player_attribute').enabled = false;
-  $('#extra_passive_abilities').enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -127,7 +125,6 @@ function UnLockOptionAll() {
   $('#fixed_ability_dropdown').enabled = true;
   $('#same_hero_selection').enabled = true;
   $('#enable_player_attribute').enabled = true;
-  $('#extra_passive_abilities').enabled = true;
 }
 
 // N1-N6 通用设置
@@ -140,7 +137,6 @@ function InitDifficultyCommonSetting() {
   $('#fixed_ability_dropdown').SetSelected('none');
   $('#same_hero_selection').checked = false;
   $('#enable_player_attribute').checked = true;
-  $('#extra_passive_abilities').checked = true;
 }
 
 function InitN1Setting() {
@@ -220,7 +216,6 @@ function StateChange() {
         fixed_ability: $('#fixed_ability_dropdown').GetSelected().id,
         same_hero_selection: $('#same_hero_selection').checked,
         enable_player_attribute: $('#enable_player_attribute').checked,
-        extra_passive_abilities: $('#extra_passive_abilities').checked,
       },
     });
     SendGameOptionsToServer();
@@ -244,7 +239,6 @@ function SendGameOptionsToServer() {
   const fixedAbility = $('#fixed_ability_dropdown').GetSelected().id;
   const sameHeroSelection = $('#same_hero_selection').checked;
   const enablePlayerAttribute = $('#enable_player_attribute').checked;
-  const extraPassiveAbilities = $('#extra_passive_abilities').checked;
 
   GameEvents.SendCustomGameEventToServer('game_options_change', {
     multiplier_radiant: Number(playerGoldXpMultiplier),
@@ -259,7 +253,6 @@ function SendGameOptionsToServer() {
     fixed_ability: fixedAbility,
     same_hero_selection: sameHeroSelection,
     enable_player_attribute: enablePlayerAttribute,
-    extra_passive_abilities: extraPassiveAbilities,
   });
 }
 

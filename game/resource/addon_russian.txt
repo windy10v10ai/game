@@ -35,7 +35,6 @@
 		"starting_gold_bot"			"Стартовое золото ботов"
 		"same_hero_selection"		"Разрешить выбор одинаковых героев"
 		"enable_player_attribute"	"Enable Player Attribute"
-		"extra_passive_abilities"	"Дополнительно пассивных способности"
 		"hide_chat_team"			"Скрыть командный чат"
 		"show_chat_team"			"Показать командный чат"
 

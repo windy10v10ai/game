@@ -88,5 +88,4 @@ export interface GameOptions {
   max_level: number;
   same_hero_selection: number;
   enable_player_attribute: number;
-  extra_passive_abilities: number;
 }

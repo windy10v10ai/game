@@ -142,11 +142,6 @@ export class GameEndPoint {
       multiplier -= 0.2;
     }
 
-    // 勾选额外技能时，降低倍率
-    if (option.extraPassiveAbilities) {
-      multiplier -= 0.2;
-    }
-
     // ---- 以上使用加减法计算倍率 ----
 
     // 电脑玩家数量
