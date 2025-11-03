@@ -219,8 +219,8 @@ export class GameEnd {
         });
       }
 
-      // 收集第二个被动技能选择（仅当gameOption开启时）
-      if (GameRules.Option.extraPassiveAbilities && LotteryStatus.passiveAbilityName2) {
+      // 收集第二个被动技能选择
+      if (LotteryStatus.passiveAbilityName2) {
         picks.push({
           steamId: player.steamId,
           name: LotteryStatus.passiveAbilityName2,

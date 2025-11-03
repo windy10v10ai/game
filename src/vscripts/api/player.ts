@@ -348,15 +348,11 @@ export class Player {
       isRememberAbilityKey: event.isRememberAbilityKey === 1,
       activeAbilityKey: event.activeAbilityKey,
       passiveAbilityKey: event.passiveAbilityKey,
+      passiveAbilityKey2: event.passiveAbilityKey2,
       activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
       passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
+      passiveAbilityQuickCast2: event.passiveAbilityQuickCast2 === 1,
     };
-
-    // 只在启用额外被动技能时才包含第二个被动技能快捷键
-    if (GameRules.Option.extraPassiveAbilities) {
-      playerSetting.passiveAbilityKey2 = event.passiveAbilityKey2;
-      playerSetting.passiveAbilityQuickCast2 = event.passiveAbilityQuickCast2 === 1;
-    }
 
     ApiClient.sendWithRetry({
       method: HttpMethod.PUT,

@@ -159,10 +159,9 @@ describe('GameEndPoint', () => {
       startingGoldBot: 3000,
       respawnTimePercentage: 100,
       maxLevel: 50,
-      sameHeroSelection: false,
+      forceRandomHero: false,
       enablePlayerAttribute: true,
       fixedAbility: 'none',
-      extraPassiveAbilities: false,
       gameDifficulty: 0,
     } as Option;
     it('默认选项应该返回1', () => {
@@ -213,10 +212,16 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(0.5);
     });
 
-    it('复活时间百分比<=10时应该返回0.8', () => {
+    it('复活时间百分比<=10时应该返回0.7', () => {
       const option = { ...defaultOption, respawnTimePercentage: 10 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.8);
+      expect(multiplier).toBe(0.7);
+    });
+
+    it('复活时间百分比<=50时应该返回0.9', () => {
+      const option = { ...defaultOption, respawnTimePercentage: 50 } as Option;
+      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
+      expect(multiplier).toBe(0.9);
     });
 
     it('防御塔倍率<=150时', () => {
@@ -280,15 +285,6 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(2.6);
     });
 
-    it('勾选额外技能时，降低倍率', () => {
-      const option = {
-        ...defaultOption,
-        extraPassiveAbilities: true,
-      } as Option;
-      const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(0.8);
-    });
-
     it('固定技能时，降低倍率', () => {
       const option = {
         ...defaultOption,
@@ -305,7 +301,6 @@ describe('GameEndPoint', () => {
         direGoldXpMultiplier: 10,
         direPlayerNumber: 5,
         towerPower: 150,
-        extraPassiveAbilities: true,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBeGreaterThanOrEqual(0);

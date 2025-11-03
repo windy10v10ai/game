@@ -46,6 +46,9 @@ export class EventGameStateChange {
    */
   private OnHeroSelection(): void {
     GameRules.Option.SetDefaultDifficulty();
+    if (GameRules.Option.forceRandomHero) {
+      HeroPick.PickRandomHeroes();
+    }
   }
 
   /**
