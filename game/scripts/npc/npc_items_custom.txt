@@ -7373,6 +7373,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
+		"IsTempestDoubleClonable"		"0"
 
 		"ItemCost"						"20000"
 		"ItemShopTags"					"tome"
