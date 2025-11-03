@@ -127,7 +127,7 @@ local TauntMessages = {
 -- 全局连杀计数器(不区分具体玩家)
 local BossKillStreak = 0       -- Boss击杀玩家的总连杀数
 local PlayerKillBossStreak = 0 -- 玩家击杀Boss的总连杀数
-local function SendTauntMessage(messageType, playerID)
+local function SendTauntMessage(messageType, playerID, victimName, bossHeroName)
     -- 获取玩家语言设置
     local language = "schinese" -- 默认中文
     if playerID then
@@ -151,16 +151,25 @@ local function SendTauntMessage(messageType, playerID)
 
         -- 计算延迟时间:基于字数,0.5-3秒
         local messageLength = string.len(message)
-        -- 假设每10个字符增加0.25秒,最小0.5秒,最大3秒
         local delay = math.min(math.max(0.8, messageLength * 0.2), 4.0)
-
-        print("SendTauntMessage - Message length: " .. messageLength .. ", Delay: " .. delay .. "s")
 
         -- 延迟发送消息
         Timers:CreateTimer(delay, function()
-            local formattedMessage = "<font color='#FF0000'>⚠️ BotBoss: " .. message .. "</font>"
+            -- 如果提供了受害者名字,在消息前添加@
+            local finalMessage = message
+            if victimName then
+                finalMessage = "<font color='#FFD700'>@" .. victimName .. "</font> " .. message
+            end
+
+            -- 构建 BotBoss 标签,如果提供了英雄名字则添加
+            local bossLabel = "BotBoss"
+            if bossHeroName then
+                bossLabel = "BotBoss(<font color='#FFD700'>" .. bossHeroName .. "</font>)"
+            end
+
+            local formattedMessage = "<font color='#FF0000'>" .. bossLabel .. ": " .. finalMessage .. "</font>"
             GameRules:SendCustomMessage(formattedMessage, 0, 0)
-            print("Message sent: " .. message)
+            print("Message sent: " .. finalMessage)
         end)
     end
 end
@@ -310,75 +319,115 @@ local function HeroKilled(keys)
         BossKillStreak = BossKillStreak + 1
         -- 重置玩家击杀Boss的连杀
         PlayerKillBossStreak = 0
+        --print("[BotBoss] ===== Getting victim name =====")
+        --print("[BotBoss] PlayerID:", playerId)
+
+        local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
+        --print("[BotBoss] SteamAccountID:", steamAccountID)
+
+
+        local victimName = nil
+        if steamAccountID > 0 then
+            local key = tostring(steamAccountID)
+            local playerData = CustomNetTables:GetTableValue("player_table", key)
+
+            if playerData and playerData.playerName then
+                victimName = playerData.playerName
+                --print("[BotBoss] ✓ Got Steam player name:", victimName)
+                --else
+                --print("[BotBoss] ✗ No cached name found for key:", key)
+            end
+        end
+        -- 如果没有获取到玩家名字,使用英雄名字作为后备
+        if not victimName or victimName == "" then
+            local heroName = hHero:GetUnitName()
+            heroName       = string.gsub(heroName, "npc_dota_hero_", "")
+            victimName     = heroName
+            --print("[BotBoss] Using hero name instead:", victimName)
+        end
+
+        -- 获取 Boss 的英雄名字
+        local bossHeroName = attacker:GetUnitName()
+        bossHeroName = string.gsub(bossHeroName, "npc_dota_hero_", "")
         -- ✅ Boss击杀玩家后模型增大
         if not attacker.bossKillCount then
             attacker.bossKillCount = 0
             attacker.bossBaseScale = attacker:GetModelScale() or 1.0
         end
         attacker.bossKillCount = attacker.bossKillCount + 1
+
         -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
         local speakProbability = math.min(20 + BossKillStreak * 10, 100)
         local randomValue = RandomInt(1, 100)
 
-        print("Boss kill player - KillStreak: " ..
-            BossKillStreak .. ", Probability: " .. speakProbability .. "%, Random: " .. randomValue)
+        --print("Boss kill player - KillStreak: " ..
+        --   BossKillStreak .. ", Probability: " .. speakProbability .. "%, Random: " .. randomValue)
 
         if randomValue <= speakProbability then
-            print("Boss speak triggered")
             if BossKillStreak >= 2 then
-                SendTauntMessage("boss_rampage")
+                SendTauntMessage("boss_rampage", playerId, victimName, bossHeroName)
             else
-                SendTauntMessage("boss_kill_player")
+                SendTauntMessage("boss_kill_player", playerId, victimName, bossHeroName)
             end
-        else
-            print("Boss speak skipped")
         end
     end
-
     -- 玩家击杀Boss
     if not attackerIsBoss and isBoss and attackerPlayer then
-        -- 增加玩家全局击杀Boss计数
         PlayerKillBossStreak = PlayerKillBossStreak + 1
-        -- 重置Boss的连杀
         BossKillStreak = 0
 
-        -- ✅ Boss被击杀后模型减小
+        -- 获取击杀者(玩家)的名字
+        local killerName = nil
+        local killerSteamAccountID = PlayerResource:GetSteamAccountID(attackerPlayerID)
+
+        if killerSteamAccountID > 0 then
+            -- 真实玩家:从 player_table 获取 Steam 名字
+            local key = tostring(killerSteamAccountID)
+            local playerData = CustomNetTables:GetTableValue("player_table", key)
+
+            if playerData and playerData.playerName then
+                killerName = playerData.playerName
+            end
+        end
+
+        -- 如果没有获取到玩家名字,使用英雄名字作为后备
+        if not killerName or killerName == "" then
+            local heroName = attacker:GetUnitName()
+            killerName = string.gsub(heroName, "npc_dota_hero_", "")
+        end
+
+        -- 获取被击杀的 Boss 英雄名字
+        local bossHeroName = hHero:GetUnitName()
+        bossHeroName = string.gsub(bossHeroName, "npc_dota_hero_", "")
+
+        -- Boss 被击杀后模型减小
         if not hHero.bossDeathCount then
             hHero.bossDeathCount = 0
             hHero.bossBaseScale = hHero:GetModelScale() or 1.0
         end
         hHero.bossDeathCount = hHero.bossDeathCount + 1
 
-        -- 减小模型，但不能小于基础大小的50%
         local scaleReduction = hHero.bossDeathCount * 0.05
         local newScale = math.max(hHero.bossBaseScale * 0.5, hHero.bossBaseScale - scaleReduction)
         hHero:SetModelScale(newScale)
 
-        -- 每2次死亡升1级，最高30级
         local newLevel = math.min(math.floor(hHero.bossDeathCount / 2), 30)
-
         local bossAbility = hHero:FindAbilityByName("boss_death_power")
         if bossAbility then
             bossAbility:SetLevel(newLevel)
-            print(string.format("[BotBoss] Boss %s death count: %d, ability level: %d",
-                hHero:GetUnitName(), hHero.bossDeathCount, newLevel))
         end
-        -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
+
+        -- 计算发言概率
         local speakProbability = math.min(20 + PlayerKillBossStreak * 10, 100)
         local randomValue = RandomInt(1, 100)
 
-        print("Player kill Boss - KillStreak: " ..
-            PlayerKillBossStreak .. ", Probability: " .. speakProbability .. "%, Random: " .. randomValue)
-
         if randomValue <= speakProbability then
-            print("Player speak triggered")
+            -- 传递 attackerPlayerID 以区分语言,同时传递玩家名字和 Boss 名字
             if PlayerKillBossStreak >= 2 then
-                SendTauntMessage("player_rampage_boss")
+                SendTauntMessage("player_rampage_boss", attackerPlayerID, killerName, bossHeroName)
             else
-                SendTauntMessage("player_kill_boss")
+                SendTauntMessage("player_kill_boss", attackerPlayerID, killerName, bossHeroName)
             end
-        else
-            print("Player speak skipped")
         end
     end
 

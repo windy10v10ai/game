@@ -4722,7 +4722,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"7"
+		"AbilityCooldown"				"15"
 		"AbilitySharedCooldown"			"lotus_orb"
 		// Item Info
 		// -------------------------------------------------------------------------------------------------------------
@@ -4751,6 +4751,7 @@
 		{
 			"duration"						"5"		//主动持续时间
 			"heal_percent"					"8"		//反制回血%
+			"block_cooldown"				"7"		//被动格挡冷却时间
 
 			// real value is item_saint_orb_bonus_all_stats
 			"bonus_all_stats_tooltip"		"30"	//全属性
@@ -6350,7 +6351,7 @@
 			"cooldown_mode2" "20"
 
 			// 模式3:
-			"crit_chance_mode3" "1"
+			"crit_chance_mode3" "3"
 			"crit_multiplier_mode3" "100"
 			"guaranteed_crit_multiplier_mode3" "50"
 			"cooldown_mode3" "60"
@@ -7236,8 +7237,8 @@
 
 	"AbilityValues"
 	{
-		"active_duration"		"3"
-		"convert_pct"			"50"
+		"active_duration"		"4"
+		"convert_pct"			"10"
 		"spell_amp_per_int"		"0.2"
 	}
 }

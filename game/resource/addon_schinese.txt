@@ -1274,7 +1274,7 @@
 
 		"DOTA_Tooltip_Ability_item_swift_glove"                "无限手套"
 		"DOTA_Tooltip_ability_item_swift_glove_Description"    "<h1><font color='#FFFF00'>被动：极速</h1>提升攻击速度、移动速度和攻击距离，并减少%bat_reduction_pct%%%基础攻击间隔。"
-		"DOTA_Tooltip_ability_item_swift_glove_Lore"          "RN: 单身三十年的手速，能让敌人看不清你在刮痧""
+		"DOTA_Tooltip_ability_item_swift_glove_Lore"          "RN: 单身三十年的手速，能让敌人看不清你在刮痧"
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"         "基础攻击间隔减少效果无法叠加。"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"     "+$str"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_agility"      "+$agi"
@@ -1357,7 +1357,7 @@
 
 		// item_magic_abyss_staff 魔渊法杖
 		"DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "魔渊法杖"
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>主动: <font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的魔法伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
+		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>主动: <font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，魔法伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
 		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"                          "RN: 没什么属性的小垃圾"
 		"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intelligence"            "+$int"
 		"DOTA_Tooltip_Ability_item_recipe_magic_abyss_staff"                        "魔渊法杖卷轴"
@@ -1367,7 +1367,7 @@
 		// item_magic_sword 魔渊剑
 		"DOTA_Tooltip_Ability_item_magic_sword"											"魔渊剑"
 		"DOTA_Tooltip_Ability_item_magic_sword_Description"								"<h1>主动：<font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动：溅射</h1>近战攻击对目标周围 %cleave_distance% 范围内的敌人造成 %cleave_damage_percent%%% 的溅射伤害，对非英雄单位造成 %cleave_damage_percent_creep%%% 的溅射伤害。（仅近战有效）\n<h1>被动：魔渊腐蚀</h1>攻击时对目标施加腐蚀效果，持续 %debuff_duration% 秒：<br>- 护甲降低 %corruption_armor%<br>- 攻击速度降低 %attack_slow%<br>- 移动速度降低 %slow_pct%%%<br>- 生命回复和治疗效果降低 %hp_regen_reduction_pct%%%"
-		"DOTA_Tooltip_Ability_item_magic_sword_Lore"									"RN：这下魔渊牛逼了"
+		"DOTA_Tooltip_Ability_item_magic_sword_Lore"									"RN：这下魔渊牛逼了？"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"							"+$all"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_health_regen"						"+$hp_regen"

@@ -146,7 +146,7 @@
         {
             "Target"        "TARGET"
             "ModifierName"  "modifier_mind_control"
-            "Duration"      "100"
+            "Duration"      "999999999"
         }
     }
 }
