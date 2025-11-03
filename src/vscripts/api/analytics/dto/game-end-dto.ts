@@ -35,6 +35,6 @@ export class GameEndDto extends EventBaseDto {
   gameOptions: GameEndGameOptionsDto;
   winnerTeamId: number;
   gameTimeMsec: number;
-  country: string;
+  countryCode: string;
   players: GameEndPlayerDto[];
 }

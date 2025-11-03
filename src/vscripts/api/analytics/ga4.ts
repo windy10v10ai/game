@@ -40,7 +40,7 @@ export class GA4 {
   private static gameStartRealTime: number | null = null; // Unix 时间戳（秒，保留小数部分）
   private static gameStartDotatime: number | null = null; // Dota 时间戳（秒）
   // 服务器位置
-  public static serverLocation: string = '';
+  public static countryCode: string = '';
 
   /**
    * 使用服务器配置初始化 GA4
@@ -94,7 +94,7 @@ export class GA4 {
         version: GameConfig.GAME_VERSION,
         match_id: Number(matchId),
         server_type: this.serverType,
-        country: this.serverLocation,
+        country: this.countryCode,
         engagement_time_msec: engagementTimeMsec || eventParams.engagement_time_msec || 1000,
         debug_mode: this.isDebugMode,
       },
@@ -202,8 +202,8 @@ export class GA4 {
               }
             }
             if (line.startsWith('loc=')) {
-              this.serverLocation = line.substring(4);
-              print(`[GA4] Successfully fetched server location: ${this.serverLocation}`);
+              this.countryCode = line.substring(4);
+              print(`[GA4] Successfully fetched server location: ${this.countryCode}`);
             }
           }
         } catch {
