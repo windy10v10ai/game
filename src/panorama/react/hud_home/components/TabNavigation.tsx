@@ -16,6 +16,7 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   flowChildren: 'right',
   backgroundColor: '#1a1a2e',
   padding: '8px 15px',
+  // visibility: 'collapse',
 };
 
 // 按钮基础样式
