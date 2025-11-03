@@ -19,14 +19,14 @@ function MagicSwordCleaveEffect(params)
     local cleave_damage_percent_creep = ability:GetSpecialValueFor("cleave_damage_percent_creep")
     local target_loc = params.target:GetAbsOrigin()
 
-    -- 计算锥形区域内的敌人
+    -- 计算圆形区域内的敌人
     local enemies = FindUnitsInRadius(
         params.attacker:GetTeamNumber(),
         target_loc,
         nil,
         cleave_distance,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_BUILDING,
+        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
         FIND_ANY_ORDER,
         false

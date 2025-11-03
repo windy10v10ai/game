@@ -67,6 +67,13 @@ function AIGameMode:LinkLuaModifiers()
     LinkLuaModifier("modifier_bot_think_strategy", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
+    -- ✅ 新增: Boss行为modifier
+    LinkLuaModifier("modifier_bot_boss_behavior", "bot/bot_boss_behavior", LUA_MODIFIER_MOTION_NONE)
+    -- 添加精神控制modifier
+    LinkLuaModifier("modifier_mind_control", "modifiers/modifier_mind_control.lua", LUA_MODIFIER_MOTION_NONE)
+    print("[Defection] Linking modifier_defection")
+    LinkLuaModifier("modifier_defection", "modifiers/modifier_defection.lua", LUA_MODIFIER_MOTION_NONE)
+    print("[Defection] modifier_defection linked successfully")
 end
 
 function AIGameMode:PreGameOptions()
@@ -83,12 +90,7 @@ function AIGameMode:PreGameOptions()
 
     self.iStartingGoldPlayer = self.iStartingGoldPlayer or 600
     self.iStartingGoldBot = self.iStartingGoldBot or 600
-    self.bSameHeroSelection = self.bSameHeroSelection or 0
     self.fGameStartTime = 0
-
-    local gameMode = GameRules:GetGameModeEntity()
-
-    GameRules:SetSameHeroSelectionEnabled(true)
 
     self.sumTowerPower = AIGameMode.iTowerPower
     self.creepBuffLevel = 0

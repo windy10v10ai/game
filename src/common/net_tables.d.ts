@@ -69,6 +69,12 @@ declare global {
     };
     home_status: {
       [steamAccountID: string]: HomeStatusDto;
+    // 添加虚拟金币表定义
+    player_virtual_gold: {
+      [playerID: string]: {
+        virtual_gold: number;
+        transferred_back_total: number; // 从虚拟金币库转回的总金额
+      };
     };
   }
 }
@@ -83,7 +89,6 @@ export interface GameOptions {
   starting_gold_player: number;
   starting_gold_bot: number;
   max_level: number;
-  same_hero_selection: number;
+  force_random_hero: number;
   enable_player_attribute: number;
-  extra_passive_abilities: number;
 }

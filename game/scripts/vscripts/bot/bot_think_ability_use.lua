@@ -93,8 +93,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 
 	if sHeroName == "npc_dota_hero_axe" then
 		self:ThinkUseAbility_Axe(hHero)
-	elseif sHeroName == "npc_dota_hero_earthshaker" then
-		self:ThinkUseAbility_EarthShaker(hHero)
 	elseif sHeroName == "npc_dota_hero_phantom_assassin" then
 		self:ThinkUseAbility_PhantomAssassin(hHero)
 	elseif sHeroName == "npc_dota_hero_zuus" then
@@ -165,23 +163,6 @@ function BotAbilityThink:ThinkUseAbility_Axe(hHero)
 
 	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility2) then
 		return true
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_EarthShaker(hHero)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-
-	if hAbility2:IsFullyCastable() then
-		local iRange = hAbility2:GetSpecialValueFor("aftershock_range")
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			if hHero:HasModifier("modifier_item_ultimate_scepter") then
-				hHero:CastAbilityOnTarget(hHero, hAbility2, hHero:GetPlayerOwnerID())
-			else
-				hHero:CastAbilityNoTarget(hAbility2, hHero:GetPlayerOwnerID())
-			end
-			return true
-		end
 	end
 end
 

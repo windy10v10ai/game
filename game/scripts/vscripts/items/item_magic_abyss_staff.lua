@@ -129,5 +129,5 @@ function modifier_item_magic_abyss_staff_active:OnTakeDamage(params)
 end
 
 function modifier_item_magic_abyss_staff_active:GetTexture()
-    return "item_magic_abyss_staff"
+    return "moyuanfazhang"
 end

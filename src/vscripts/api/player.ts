@@ -1,5 +1,7 @@
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { PropertyController } from '../modules/property/property_controller';
+import { GA4ConfigDto } from './analytics/dto/ga4-dto';
+import { GA4 } from './analytics/ga4';
 import { ApiClient, HttpMethod } from './api-client';
 
 export enum MemberLevel {
@@ -33,6 +35,8 @@ export class PlayerDto {
   matchCount!: number;
   winCount!: number;
   disconnectCount!: number;
+  conductPoint!: number;
+
   seasonPointTotal!: number;
   seasonLevel!: number;
   seasonCurrrentLevelPoint!: number;
@@ -63,6 +67,7 @@ class GameStart {
   members!: MemberDto[];
   players!: PlayerDto[];
   pointInfo!: PointInfoDto[];
+  ga4Config?: GA4ConfigDto; // Only present for official servers
 }
 
 export class Player {
@@ -143,6 +148,14 @@ export class Player {
     Player.memberList = gameStart.members;
     Player.playerList = gameStart.players;
     Player.pointInfoList = gameStart.pointInfo;
+
+    // Initialize GA4 if config is provided (only for official servers)
+    if (gameStart.ga4Config) {
+      GA4.Initialize(gameStart.ga4Config);
+      print(`[Player] GA4 initialized with measurementId: ${gameStart.ga4Config.measurementId}`);
+    } else {
+      print('[Player] GA4 config not provided (non-official server)');
+    }
 
     // set member to member table
     Player.savePlayerToNetTable();
@@ -335,15 +348,11 @@ export class Player {
       isRememberAbilityKey: event.isRememberAbilityKey === 1,
       activeAbilityKey: event.activeAbilityKey,
       passiveAbilityKey: event.passiveAbilityKey,
+      passiveAbilityKey2: event.passiveAbilityKey2,
       activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
       passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
+      passiveAbilityQuickCast2: event.passiveAbilityQuickCast2 === 1,
     };
-
-    // 只在启用额外被动技能时才包含第二个被动技能快捷键
-    if (GameRules.Option.extraPassiveAbilities) {
-      playerSetting.passiveAbilityKey2 = event.passiveAbilityKey2;
-      playerSetting.passiveAbilityQuickCast2 = event.passiveAbilityQuickCast2 === 1;
-    }
 
     ApiClient.sendWithRetry({
       method: HttpMethod.PUT,

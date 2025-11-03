@@ -22,7 +22,7 @@ function item_switchable_crit_blade:OnSpellStart()
     if current_mode > 3 then current_mode = 1 end
 
     modifier:SetStackCount(current_mode)
-    self:SetSecondaryCharges(current_mode)  -- 新增:保存到物品
+    self:SetSecondaryCharges(current_mode) -- 新增:保存到物品
     EmitSoundOn("Item.ToggleOn", caster)
 end
 
@@ -129,7 +129,7 @@ function modifier_item_switchable_crit_blade:GetModifierPreAttack_CriticalStrike
     if self.has_guaranteed_crit then
         local guaranteed_multiplier = ability:GetSpecialValueFor("guaranteed_crit_multiplier_mode" .. mode)
         self.triggered_guaranteed_crit = true
-        self.triggered_chance_crit = false  -- 新增
+        self.triggered_chance_crit = false -- 新增
         return guaranteed_multiplier * 100
     end
 
@@ -139,11 +139,11 @@ function modifier_item_switchable_crit_blade:GetModifierPreAttack_CriticalStrike
 
     if RandomFloat(0, 100) <= crit_chance then
         self.triggered_guaranteed_crit = false
-        self.triggered_chance_crit = true  -- 新增
+        self.triggered_chance_crit = true -- 新增
         return crit_multiplier * 100
     end
 
-    self.triggered_chance_crit = false  -- 新增
+    self.triggered_chance_crit = false -- 新增
     return 0
 end
 
@@ -184,15 +184,5 @@ function modifier_item_switchable_crit_blade:OnIntervalThink()
 end
 
 function modifier_item_switchable_crit_blade:GetTexture()
-    local mode = self:GetStackCount()
-    if mode == 0 then mode = 1 end
-
-    local textures = {
-        [1] = "item_great_crit",
-        [2] = "item_great_crit",
-        [3] = "item_great_crit"
-    }
-
-    return textures[mode]
+    return "guihaiyidao"
 end
-

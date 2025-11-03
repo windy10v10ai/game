@@ -53,12 +53,7 @@ export class Lottery {
   initLottery(playerId: PlayerID) {
     this.randomAbilityForPlayer(playerId, 'abilityActive');
     this.randomAbilityForPlayer(playerId, 'abilityPassive');
-
-    // 如果启用了额外被动技能选项，随机第二个被动技能槽位
-    const extraPassiveAbilities = GameRules.Option.extraPassiveAbilities;
-    if (extraPassiveAbilities) {
-      this.randomAbilityForPlayer(playerId, 'abilityPassive2');
-    }
+    this.randomAbilityForPlayer(playerId, 'abilityPassive2');
 
     CustomNetTables.SetTableValue(
       'lottery_status',

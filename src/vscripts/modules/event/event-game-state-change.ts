@@ -1,3 +1,4 @@
+import { GA4 } from '../../api/analytics/ga4';
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
@@ -35,13 +36,19 @@ export class EventGameStateChange {
     }
   }
 
-  private OnGameInProgress(): void {}
+  private OnGameInProgress(): void {
+    // 记录游戏开始时间用于 GA4 统计
+    GA4.RecordGameStartTime();
+  }
 
   /**
    * 选择英雄时间
    */
   private OnHeroSelection(): void {
     GameRules.Option.SetDefaultDifficulty();
+    if (GameRules.Option.forceRandomHero) {
+      HeroPick.PickRandomHeroes();
+    }
   }
 
   /**
