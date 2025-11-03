@@ -37,7 +37,10 @@ export class GA4 {
   private static isDebugMode = false;
 
   // 游戏时间记录
-  private static gameStartRealTime: number | null = null; // Unix 时间戳（秒）
+  private static gameStartRealTime: number | null = null; // Unix 时间戳（秒，保留小数部分）
+  private static gameStartDotatime: number | null = null; // Dota 时间戳（秒）
+  // 服务器位置
+  public static countryCode: string = '';
 
   /**
    * 使用服务器配置初始化 GA4
@@ -91,6 +94,7 @@ export class GA4 {
         version: GameConfig.GAME_VERSION,
         match_id: Number(matchId),
         server_type: this.serverType,
+        country: this.countryCode,
         engagement_time_msec: engagementTimeMsec || eventParams.engagement_time_msec || 1000,
         debug_mode: this.isDebugMode,
       },
@@ -173,7 +177,6 @@ export class GA4 {
 
   /**
    * 从互联网获取当前时间（Unix 时间戳，秒）
-   * 使用备用 API 以确保中国和全球都能访问
    */
   public static FetchCurrentTime(callback: (timestamp: number | null) => void) {
     // 使用 CloudFlare 的 trace API 获取时间戳
@@ -194,23 +197,21 @@ export class GA4 {
             if (line.startsWith('ts=')) {
               const timestamp = parseFloat(line.substring(3));
               if (!isNaN(timestamp)) {
-                const unixTimestamp = Math.floor(timestamp);
-                print(`[GA4] Successfully fetched time: ${unixTimestamp}`);
-                callback(unixTimestamp);
-                return;
+                print(`[GA4] Successfully fetched time: ${timestamp}`);
+                callback(timestamp);
               }
             }
+            if (line.startsWith('loc=')) {
+              this.countryCode = line.substring(4);
+              print(`[GA4] Successfully fetched server location: ${this.countryCode}`);
+            }
           }
-          print(`[GA4] Failed to parse timestamp from response: ${body}`);
         } catch {
           print(`[GA4] Failed to parse time API response: ${result.Body}`);
         }
       } else {
         print(`[GA4] Time API request failed with status: ${result.StatusCode}`);
       }
-      // 失败时返回 null
-      print('[GA4] Failed to fetch time, using local time as fallback');
-      callback(null);
     });
   }
 
@@ -223,6 +224,7 @@ export class GA4 {
     this.FetchCurrentTime((timestamp) => {
       if (timestamp !== null) {
         this.gameStartRealTime = timestamp;
+        this.gameStartDotatime = Time();
       }
     });
   }
@@ -332,11 +334,9 @@ export class GA4 {
    * @param items 玩家物品数据
    */
   public static SendGameEndEvents(gameEndDto: GameEndDto) {
-    const dotaDuration = GameRules.GetDOTATime(false, true);
-
     // 异步获取当前真实时间
     this.FetchCurrentTime((endRealTime) => {
-      if (this.gameStartRealTime === null) {
+      if (this.gameStartRealTime === null || this.gameStartDotatime === null) {
         print('[GA4] Game start real time not recorded, skipping event send');
         return;
       }
@@ -345,6 +345,7 @@ export class GA4 {
         return;
       }
 
+      const dotaDuration = Time() - this.gameStartDotatime;
       const realDuration = endRealTime - this.gameStartRealTime;
       const realDurationRatio = realDuration / dotaDuration;
 

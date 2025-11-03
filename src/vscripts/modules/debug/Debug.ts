@@ -82,6 +82,7 @@ export class Debug {
     }
 
     if (cmd === CMD.T) {
+      this.log(`Time: ${Time()}`);
       this.log(`GameTime: ${GameRules.GetGameTime()}`);
       this.log(`GetDOTATime: ${GameRules.GetDOTATime(false, true)}`);
       GA4.FetchCurrentTime((timestamp) => {
