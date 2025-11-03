@@ -75,7 +75,7 @@ local function addTome(k, v)
     end
     -- 7. 无限手套：黄金魔龙枪 -> 无限手套
     if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_dragon_lance_pro_max", "item_swift_glove")
+      replaceItem(v, "item_hurricane_pike_2", "item_swift_glove")
     end
 
     -- 8. 暗影咒灭：达贡5 -> 暗影咒灭
