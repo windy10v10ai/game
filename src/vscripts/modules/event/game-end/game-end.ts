@@ -127,6 +127,7 @@ export class GameEnd {
       gameOptions,
       winnerTeamId,
       gameTimeMsec: Math.round(gameTime * 1000),
+      country: GA4.serverLocation,
       players,
     };
 
