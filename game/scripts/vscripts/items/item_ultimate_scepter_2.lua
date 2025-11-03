@@ -49,8 +49,15 @@ function Scepter2OnSpell(keys)
 		return
 	end
 
-	if keys.caster:IsRealHero() and keys.target:IsRealHero()
-		and not keys.caster:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier("modifier_arc_warden_tempest_double") then
+	-- 风暴双雄复制体无法释放，获得BUFF
+	if keys.caster:HasModifier("modifier_arc_warden_tempest_double") then
+		return
+	end
+	if keys.target:HasModifier("modifier_arc_warden_tempest_double") then
+		return
+	end
+
+	if keys.caster:IsRealHero() and keys.target:IsRealHero() then
 		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
 			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
 		end
