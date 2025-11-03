@@ -180,7 +180,7 @@ export class Player {
         level: 8,
       };
       PropertyController.LevelupPlayerProperty(cannotMissProperty);
-      print(`[Whitelist] Applied property_cannot_miss level 8 to player ${steamId}`);
+      //print(`[Whitelist] Applied property_cannot_miss level 8 to player ${steamId}`);
     }
     if (playerInfo?.properties) {
       for (const property of playerInfo.properties) {
