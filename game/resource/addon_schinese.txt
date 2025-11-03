@@ -1996,10 +1996,10 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"据说这是月亮女神塞莉墨涅的眼泪。"
 
 		// item_ultimate_scepter_2
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"真·阿哈利姆神杖"
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"永久获得阿哈利姆神杖加成, 获得生命, 魔法,技能伤害加成。"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"真·阿哈利姆神杖"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>使用</h1>消耗阿哈利姆神杖永久获得神杖加成, +%bonus_health% 生命, +%bonus_mana% 魔法, +%spell_amp%%%技能伤害。\n<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。"
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"真·阿哈利姆神杖"
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"永久获得阿哈利姆神杖加成, 获得%dMODIFIER_PROPERTY_HEALTH_BONUS%生命, %dMODIFIER_PROPERTY_MANA_BONUS%魔法, %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能伤害, %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%全属性。"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2"								"真·阿哈利姆神杖"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>使用：永久升级</h1>消耗阿哈利姆神杖永久获得神杖和属性加成，不可叠加。<br>可以对友方英雄释放。\n<h1>被动：技能升级</h1>提升所有英雄的终极技能或基础技能效果。"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_all_stats"				"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_health"					"+$health"

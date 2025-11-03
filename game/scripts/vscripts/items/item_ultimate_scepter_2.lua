@@ -41,16 +41,21 @@ end
 --[[	Author: Hewdraw
 		Date: 17.05.2015	]]
 function Scepter2OnSpell(keys)
-	local modifierName = "modifier_item_ultimate_scepter_2_consumed"
+	local consumedModifierName = "modifier_item_ultimate_scepter_2_consumed"
+
+	-- 目标身上有消耗后的buff，则不消耗
+	local consumedModifiers = keys.target:FindAllModifiersByName(consumedModifierName)
+	if #consumedModifiers > 0 then
+		return
+	end
+
 	if keys.caster:IsRealHero() and keys.target:IsRealHero()
-		and not keys.caster:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier(modifierName) then
+		and not keys.caster:HasModifier("modifier_arc_warden_tempest_double") and not keys.target:HasModifier("modifier_arc_warden_tempest_double") then
 		if keys.target:HasModifier("modifier_item_ultimate_scepter") then
 			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
 		end
 		keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", { duration = -1 })
-		-- if keys.target:GetUnitName() ~= "npc_dota_hero_bane" then
-		-- end
-		keys.target:AddNewModifier(keys.caster, keys.ability, keys.modifier, {})
+		ApplyItemDataDrivenModifier(_, keys.caster, keys.target, consumedModifierName, {})
 
 		keys.target:EmitSound("Hero_Alchemist.Scepter.Cast")
 		-- keys.caster:RemoveItem(keys.ability)

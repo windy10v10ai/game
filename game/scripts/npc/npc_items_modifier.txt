@@ -520,10 +520,10 @@
 				}
 			}
 			// 大阿哈利姆神杖消耗后的属性
-			"modifier_item_ultimate_scepter_2_consumed_stats"
+			"modifier_item_ultimate_scepter_2_consumed"
 			{
 				"Passive"				"1"
-				"IsHidden"				"1"
+				"IsHidden"				"0"
 
 				"IsPermanent"			"1"
 				"RemoveOnDeath"			"0"
@@ -535,7 +535,12 @@
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"600"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"600"
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"24"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"10"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"10"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"10"
 				}
+
+				"TextureName"		"item_ultimate_regalia"
 			}
 		}
 	}
