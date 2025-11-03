@@ -519,6 +519,24 @@
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"80"
 				}
 			}
+			// 大阿哈利姆神杖消耗后的属性
+			"modifier_item_ultimate_scepter_2_consumed_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+
+				"IsPermanent"			"1"
+				"RemoveOnDeath"			"0"
+
+				// 不可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"600"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"600"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"24"
+				}
+			}
 		}
 	}
 

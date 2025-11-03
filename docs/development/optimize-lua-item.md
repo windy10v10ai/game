@@ -296,6 +296,68 @@ end
 -- end
 ```
 
+## 进阶优化：永久 BUFF 的完全 DataDriven 实现
+
+### 适用场景
+
+对于**消耗型物品产生的永久 BUFF**（不绑定物品实例），可以完全使用 DataDriven 实现，无需任何 Lua modifier 定义。
+
+### 关键特点
+
+- ✅ **不绑定物品**：BUFF 独立存在，不依赖物品实例
+- ✅ **完全 DataDriven**：无需 Lua modifier 类定义
+- ✅ **性能最优**：所有属性由引擎原生处理
+
+### 示例：A杖2消耗后的属性 (item_ultimate_scepter_2_consumed)
+
+#### 1. DataDriven 完整定义
+
+**文件位置**: `game/scripts/npc/npc_items_modifier.txt`
+
+```kv
+"modifier_item_ultimate_scepter_2_consumed"
+{
+    "Passive"       "1"
+    "IsHidden"      "0"
+    "IsPurgable"    "0"
+    "IsPermanent"   "1"
+    "RemoveOnDeath" "0"
+    "TextureName"   "item_ultimate_regalia"
+
+    // 可叠加
+    "Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+    "Properties"
+    {
+        "MODIFIER_PROPERTY_HEALTH_BONUS"             "600"
+        "MODIFIER_PROPERTY_MANA_BONUS"               "600"
+        "MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "24"
+    }
+}
+```
+
+#### 2. Lua 使用方式
+
+```lua
+-- 直接使用 ApplyItemDataDrivenModifier 施加 modifier
+ApplyItemDataDrivenModifier(_, caster, target, "modifier_item_ultimate_scepter_2_consumed", {})
+```
+
+#### 3. 与物品属性优化的区别
+
+| 对比项         | 物品属性优化 (RefreshItemDataDrivenModifier) | 永久 BUFF 优化 (ApplyItemDataDrivenModifier) |
+| -------------- | -------------------------------------------- | --------------------------------------------- |
+| **适用场景**   | 绑定物品实例的属性                           | 不绑定物品的永久 BUFF                         |
+| **Lua 定义**   | 需要 Lua modifier 类 + OnRefresh 逻辑       | 完全不需要 Lua modifier 类                    |
+| **modifier 名** | 使用 `_stats` 后缀                           | 直接使用原 modifier 名                        |
+| **典型例子**   | 阿迪王（物品属性）                           | A杖2消耗、洛书消耗                            |
+
+### 优势总结
+
+- **代码减少**：Lua 文件可减少 50+ 行代码
+- **性能最优**：无任何 Lua 调用，纯引擎处理
+- **维护简单**：所有配置集中在 KV 文件
+
 ## 高级优化：临时 Debuff 的 DataDriven 实现
 
 ### 适用场景
@@ -384,7 +446,8 @@ ApplyItemDataDrivenModifier(_, caster, enemy, "modifier_item_beast_armor_debuff"
 
 **优化原则**：
 
-- 永久物品属性 → 使用 `RefreshItemDataDrivenModifier` + `_stats` modifier
+- 永久物品属性（绑定物品） → 使用 `RefreshItemDataDrivenModifier` + `_stats` modifier
+- 永久 BUFF（不绑定物品） → 使用 `ApplyItemDataDrivenModifier` + 完整 DataDriven modifier
 - 临时 debuff/buff → 直接定义完整 DataDriven modifier
 - 复杂逻辑 → DataDriven 调用 Lua 函数（`RunScript`）
 - 特殊功能（如法术格挡）→ 必须保留 Lua modifier

@@ -177,8 +177,6 @@
 			{
 				"ScriptFile"		"items/item_ultimate_scepter_2"
 				"Function"			"Scepter2OnSpell"
-
-				"modifier"			"modifier_item_ultimate_scepter_2_consumed"
 			}
 		}
 		"Modifiers"
