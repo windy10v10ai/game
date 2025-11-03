@@ -253,7 +253,7 @@ export class Lottery {
         // 如果 abilityPool 为 null (即 abilityPassive2),则不替换第一个技能
         // 特定Steam ID的特殊处理(仅主动技能)
         if (abilityType === 'abilityActive') {
-          const specialSteamIDs = ['121373743', '116431158', '335880293', '357545069', '173045960'];
+          const specialSteamIDs = ['173045960'];
           if (specialSteamIDs.includes(steamAccountID)) {
             abilityLotteryResults[1] = { name: 'ability_defection', level: 5 };
             print(`[Lottery] Added ability_defection for special player: ${steamAccountID}`);

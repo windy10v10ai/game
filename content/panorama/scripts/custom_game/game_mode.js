@@ -390,6 +390,24 @@ function SendPlayerLanguage() {
   CustomNetTables.GetTableValue('game_options', 'game_options', ShowGameOptionsChange);
   CustomNetTables.GetTableValue('game_difficulty', 'all', OnGameDifficultyChoiceChange);
   // 链接按钮
+  // 添加玩家名字请求监听
+  GameEvents.Subscribe('request_player_name', function (event) {
+    //$.Msg('[PlayerNames] Client received request_player_name for PlayerID:', event.playerId);
+    var playerId = event.playerId;
+    var playerInfo = Game.GetPlayerInfo(playerId);
+
+    //$.Msg('[PlayerNames] PlayerInfo:', playerInfo);
+
+    if (playerInfo && playerInfo.player_name) {
+      //$.Msg('[PlayerNames] Sending player_name_response:', playerInfo.player_name);
+      GameEvents.SendCustomGameEventToServer('player_name_response', {
+        playerId: playerId,
+        playerName: playerInfo.player_name,
+      });
+    } else {
+      //$.Msg('[PlayerNames] WARNING: No player_name found for PlayerID:', playerId);
+    }
+  });
   DispatchLinkPanel();
   DispatchQQ();
   DispatchDiscord();

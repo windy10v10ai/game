@@ -1,92 +1,30 @@
--- 链接所有modifier
-LinkLuaModifier("modifier_item_magic_sword", "items/item_magic_sword", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_magic_sword_active", "items/item_magic_sword", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_magic_sword_slow", "items/item_magic_sword", LUA_MODIFIER_MOTION_NONE)
+-- 主动技能效果（datadriven 调用）
+-- function MagicSwordOnSpellStart(keys)
+--     local caster = keys.caster
+--     EmitSoundOn("Hero_Juggernaut.BladeFury", caster)
+-- end
 
--- 物品主类
-item_magic_sword = class({})
-
-function item_magic_sword:GetIntrinsicModifierName()
-    return "modifier_item_magic_sword"
-end
-
-function item_magic_sword:OnSpellStart()
-    local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("active_duration") or 4
-
-    caster:AddNewModifier(caster, self, "modifier_item_magic_sword_active", { duration = duration })
-    EmitSoundOn("Hero_Juggernaut.BladeFury", caster)
-end
-
--- ============================================
--- 被动modifier - 提供属性、溅射和减速
--- ============================================
-modifier_item_magic_sword = class({})
-
-function modifier_item_magic_sword:IsHidden() return true end
-
-function modifier_item_magic_sword:IsPurgable() return false end
-
-function modifier_item_magic_sword:RemoveOnDeath() return false end
-
-function modifier_item_magic_sword:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function modifier_item_magic_sword:OnCreated()
-    self:OnRefresh()
-
-    if not self:GetAbility() then return end
-    local ability = self:GetAbility()
-
-    -- 溅射参数（事件驱动，必须在 Lua 中实现）
-    self.cleave_distance = ability:GetSpecialValueFor("cleave_distance") or 1200
-    self.cleave_damage_percent = ability:GetSpecialValueFor("cleave_damage_percent") or 100
-    self.cleave_damage_percent_creep = ability:GetSpecialValueFor("cleave_damage_percent_creep") or 150
-
-    -- 减速参数（事件驱动，必须在 Lua 中实现）
-    self.slow_duration = ability:GetSpecialValueFor("slow_duration") or 2.0
-end
-
-function modifier_item_magic_sword:OnRefresh()
-    self.stats_modifier_name = "modifier_item_magic_sword_stats"
-
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
-end
-
-function modifier_item_magic_sword:OnDestroy()
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
-end
-
-function modifier_item_magic_sword:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
-        MODIFIER_EVENT_ON_ATTACK_LANDED,
-    }
-end
-
--- 溅射效果
-function modifier_item_magic_sword:GetModifierProcAttack_Feedback(keys)
+-- 溅射效果子函数
+function MagicSwordCleaveEffect(params)
     if not IsServer() then return end
-    if not keys.attacker:IsRealHero() then return end
-    if keys.attacker:IsRangedAttacker() then return end -- 仅近战有效
-    if keys.attacker:GetTeam() == keys.target:GetTeam() then return end
+    if not params.attacker:IsRealHero() then return end
+    if params.attacker:IsRangedAttacker() then return end -- 仅近战有效
+    if params.attacker:GetTeam() == params.target:GetTeam() then return end
 
-    local ability = self:GetAbility()
+    local ability = params.ability
     if not ability then return end
 
-    local target_loc = keys.target:GetAbsOrigin()
+    local cleave_distance = ability:GetSpecialValueFor("cleave_distance")
+    local cleave_damage_percent = ability:GetSpecialValueFor("cleave_damage_percent")
+    local cleave_damage_percent_creep = ability:GetSpecialValueFor("cleave_damage_percent_creep")
+    local target_loc = params.target:GetAbsOrigin()
 
     -- 计算圆形区域内的敌人
     local enemies = FindUnitsInRadius(
-        keys.attacker:GetTeamNumber(),
+        params.attacker:GetTeamNumber(),
         target_loc,
         nil,
-        self.cleave_distance,
+        cleave_distance,
         DOTA_UNIT_TARGET_TEAM_ENEMY,
         DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
@@ -94,15 +32,18 @@ function modifier_item_magic_sword:GetModifierProcAttack_Feedback(keys)
         false
     )
 
+    -- 计算基础溅射伤害（基于攻击者的攻击力）
+    local attacker_damage = params.attacker:GetAverageTrueAttackDamage(params.target)
+
     for _, enemy in pairs(enemies) do
-        if enemy ~= keys.target then
-            local damage_percent = enemy:IsCreep() and self.cleave_damage_percent_creep or self.cleave_damage_percent
-            local damage = keys.damage * damage_percent / 100
+        if enemy ~= params.target then
+            local damage_percent = enemy:IsCreep() and cleave_damage_percent_creep or cleave_damage_percent
+            local cleave_damage = attacker_damage * damage_percent / 100
 
             ApplyDamage({
                 victim = enemy,
-                attacker = keys.attacker,
-                damage = damage,
+                attacker = params.attacker,
+                damage = cleave_damage,
                 damage_type = DAMAGE_TYPE_PHYSICAL,
                 damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
                 ability = ability,
@@ -111,120 +52,49 @@ function modifier_item_magic_sword:GetModifierProcAttack_Feedback(keys)
     end
 end
 
--- 减速效果触发
-function modifier_item_magic_sword:OnAttackLanded(params)
-    if not IsServer() then return end
-    if params.attacker ~= self:GetParent() then return end
-    if params.attacker:GetTeam() == params.target:GetTeam() then return end
+-- 主动效果创建（datadriven 调用）
+-- function MagicSwordActiveOnCreated(keys)
+--     if not IsServer() then return end
 
-    -- 施加减速debuff
-    params.target:AddNewModifier(
-        self:GetParent(),
-        self:GetAbility(),
-        "modifier_item_magic_sword_slow",
-        { duration = self.slow_duration }
-    )
-end
+--     local parent = keys.caster
+--     local ability = keys.ability
 
--- ============================================
--- 主动效果modifier - 物理伤害转纯粹伤害
--- ============================================
-modifier_item_magic_sword_active = class({})
+--     -- 添加特效
+--     local fx = ParticleManager:CreateParticle(
+--         "particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf",
+--         PATTACH_ABSORIGIN_FOLLOW,
+--         parent
+--     )
+--     ParticleManager:ReleaseParticleIndex(fx)
+-- end
 
-function modifier_item_magic_sword_active:IsHidden() return false end
-
-function modifier_item_magic_sword_active:IsPurgable() return false end
-
-function modifier_item_magic_sword_active:IsDebuff() return false end
-
-function modifier_item_magic_sword_active:OnCreated()
-    local ability = self:GetAbility()
-    if ability then
-        self.convert_pct = ability:GetSpecialValueFor("convert_pct") or 10
-    else
-        self.convert_pct = 10
-    end
-
+-- 主动效果攻击处理（datadriven 调用）
+function MagicSwordActiveOnAttackLanded(params)
     if not IsServer() then return end
 
-    local parent = self:GetParent()
+    if params.attacker ~= params.caster then return end
+    -- if params.damage_type ~= DAMAGE_TYPE_PHYSICAL then return end
 
-    -- 添加特效
-    local fx = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf",
-        PATTACH_ABSORIGIN_FOLLOW,
-        parent
-    )
-    self:AddParticle(fx, false, false, -1, false, false)
-end
-
-function modifier_item_magic_sword_active:DeclareFunctions()
-    return {
-        MODIFIER_EVENT_ON_TAKEDAMAGE,
-        MODIFIER_PROPERTY_TOOLTIP,
-    }
-end
-
-function modifier_item_magic_sword_active:OnTooltip()
-    return self.convert_pct or 10
-end
-
-function modifier_item_magic_sword_active:OnTakeDamage(params)
-    if not IsServer() then return end
-
-    if params.attacker ~= self:GetParent() then return end
-    if params.damage_type ~= DAMAGE_TYPE_PHYSICAL then return end
-
-    if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
-        return
-    end
-
-    local ability = self:GetAbility()
+    local ability = params.ability
     if not ability then return end
 
-    local pure_damage = params.original_damage * self.convert_pct / 100
+    local convert_pct = ability:GetSpecialValueFor("convert_pct")
+
+    -- 根据攻击者的攻击力和目标的防御计算实际伤害
+    local attacker_damage = params.attacker:GetAverageTrueAttackDamage(params.target)
+    local actual_damage = CalculateActualDamage(attacker_damage, params.target)
+    local pure_damage = actual_damage * convert_pct / 100
 
     -- 造成纯粹伤害
     ApplyDamage({
-        victim = params.unit,
-        attacker = self:GetParent(),
+        victim = params.target,
+        attacker = params.attacker,
         damage = pure_damage,
         damage_type = DAMAGE_TYPE_PURE,
         ability = ability,
         damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
     })
-end
 
-function modifier_item_magic_sword_active:GetTexture()
-    return "moyuanjian"
-end
-
--- ============================================
--- 减速debuff modifier
--- ============================================
-modifier_item_magic_sword_slow = class({})
-
-function modifier_item_magic_sword_slow:IsHidden() return false end
-
-function modifier_item_magic_sword_slow:IsDebuff() return true end
-
-function modifier_item_magic_sword_slow:IsPurgable() return true end
-
-function modifier_item_magic_sword_slow:OnCreated()
-    if not self:GetAbility() then return end
-    self.slow_pct = self:GetAbility():GetSpecialValueFor("slow_pct") or -30
-end
-
-function modifier_item_magic_sword_slow:DeclareFunctions()
-    return {
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-    }
-end
-
-function modifier_item_magic_sword_slow:GetModifierMoveSpeedBonus_Percentage()
-    return self.slow_pct or -30
-end
-
-function modifier_item_magic_sword_slow:GetTexture()
-    return "item_magic_sword"
+    -- 显示总伤害数字
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, params.target, actual_damage + pure_damage, nil)
 end

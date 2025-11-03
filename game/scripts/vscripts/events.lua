@@ -44,6 +44,8 @@ function AIGameMode:OnGameStateChanged(keys)
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
             self:InitPlayerGold()
+
+            self:CachePlayerNames()
         end
     elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
         -- 计算天辉玩家人数
@@ -343,6 +345,7 @@ function AIGameMode:SetUnitShareMask(data)
         CustomNetTables:SetTableValue("disable_help", tostring(playerId), disableHelp)
     end
 end
+
 -- 技能重置:移除技能
 CustomGameEventManager:RegisterListener("skill_reset_remove_ability", function(userId, event)
     local playerID = event.PlayerID
