@@ -2,20 +2,21 @@ import { PlayerHelper } from '../helper/player-helper';
 import { HeroFacetConfig } from './hero-facet-config';
 
 export class HeroPick {
+  static PickRandomHeroes() {
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
+        PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
+      }
+    });
+  }
+
   static PickHumanHeroes() {
     PlayerHelper.ForEachPlayer((playerId) => {
       if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
-        // 只有当 forceRandomHero 为 true 时才强制随机
-        if (GameRules.Option.forceRandomHero) {
-          // 强制随机模式:忽略玩家选择,直接随机
-          // FIXME 这段代码执行时机在策略时间，太晚没有用，需要修改到刚进入选人时候执行
-          PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
-        } else {
-          // 正常模式:只为未选择的玩家随机
-          if (!PlayerResource.HasSelectedHero(playerId)) {
-            PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
-          }
+        if (PlayerResource.HasSelectedHero(playerId)) {
+          return;
         }
+        PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
       }
     });
   }
