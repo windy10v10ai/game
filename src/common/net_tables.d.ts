@@ -1,7 +1,7 @@
 import { MemberDto, PlayerDto, PointInfoDto } from '../vscripts/api/player';
+import { HomeStatusDto } from './dto/home-status';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
-import { HomeStatusDto } from './dto/home-status';
 
 declare global {
   interface CustomNetTableDeclarations {
@@ -69,26 +69,27 @@ declare global {
     };
     home_status: {
       [steamAccountID: string]: HomeStatusDto;
-    // 添加虚拟金币表定义
-    player_virtual_gold: {
-      [playerID: string]: {
-        virtual_gold: number;
-        transferred_back_total: number; // 从虚拟金币库转回的总金额
+      // 添加虚拟金币表定义
+      player_virtual_gold: {
+        [playerID: string]: {
+          virtual_gold: number;
+          transferred_back_total: number; // 从虚拟金币库转回的总金额
+        };
       };
     };
   }
-}
 
-export interface GameOptions {
-  multiplier_radiant: number;
-  multiplier_dire: number;
-  player_number_radiant: number;
-  player_number_dire: number;
-  tower_power_pct: number;
-  respawn_time_pct: number;
-  starting_gold_player: number;
-  starting_gold_bot: number;
-  max_level: number;
-  force_random_hero: number;
-  enable_player_attribute: number;
+  export interface GameOptions {
+    multiplier_radiant: number;
+    multiplier_dire: number;
+    player_number_radiant: number;
+    player_number_dire: number;
+    tower_power_pct: number;
+    respawn_time_pct: number;
+    starting_gold_player: number;
+    starting_gold_bot: number;
+    max_level: number;
+    force_random_hero: number;
+    enable_player_attribute: number;
+  }
 }
