@@ -215,15 +215,19 @@ export class EventNpcSpawned {
     //print(`[BotBoss] Selected ${hero.GetUnitName()} as Boss`);
     hero.isBoss = true;
     // ✅ 新增: 向所有玩家发送Boss生成通知 mark bug
-    const heroName = hero.GetUnitName();
+    const [heroName] = string.gsub(hero.GetUnitName(), 'npc_dota_hero_', '');
     const localizedName = `#${heroName}`;
+
+    // 将 Boss 名字改为金色
+    const goldBossName = `<font color='#FFD700'>${localizedName}</font>`;
+
     GameRules.SendCustomMessage(
-      `<font color='#FF0000'>⚠️ 随机BotBoss: ${localizedName}。BotBoss拥有双倍经验金钱倍率，并有更高的进攻性，但击杀boss也会得到成倍的经验和金钱！</font>`,
+      `<font color='#FF0000'>⚠️ 随机BotBoss: ${goldBossName}。BotBoss拥有双倍经验金钱倍率，并有更高的进攻性，但击杀boss也会得到成倍的经验和金钱！</font>`,
       1,
       0,
     );
     GameRules.SendCustomMessage(
-      `<font color='#FF0000'>⚠️ Random BotBoss: ${localizedName}。BotBoss features double experience and money multipliers, with higher aggressiveness, yet defeating the boss will also grant you multiplied experience and money!</font>`,
+      `<font color='#FF0000'>⚠️ Random BotBoss: ${goldBossName}。BotBoss features double experience and money multipliers, with higher aggressiveness, yet defeating the boss will also grant you multiplied experience and money!</font>`,
       1,
       0,
     );

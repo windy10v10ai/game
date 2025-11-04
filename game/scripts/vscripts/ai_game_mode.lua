@@ -47,12 +47,54 @@ function AIGameMode:InitGlobalVariables()
     AIGameMode.BotRecordSuccessiveDeathTable = {}
 end
 
+-- 在 AIGameMode:InitGameMode() 函数之后添加获取玩家名字用于嘲讽
+function AIGameMode:CachePlayerNames()
+    for playerId = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+        if PlayerResource:IsValidPlayerID(playerId) then
+            local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
+            if steamAccountID > 0 then
+                CustomGameEventManager:Send_ServerToPlayer(
+                    PlayerResource:GetPlayer(playerId),
+                    "request_player_name",
+                    { playerId = playerId }
+                )
+            end
+        end
+    end
+end
+
 function AIGameMode:InitEvents()
     ListenToGameEvent("game_rules_state_change", Dynamic_Wrap(AIGameMode, "OnGameStateChanged"), self)
     ListenToGameEvent("npc_spawned", Dynamic_Wrap(AIGameMode, "OnNPCSpawned"), self)
     ListenToGameEvent("entity_killed", Dynamic_Wrap(AIGameMode, "OnEntityKilled"), self)
     ListenToGameEvent("dota_item_picked_up", Dynamic_Wrap(AIGameMode, "OnItemPickedUp"), self)
+    -- 添加这个新的监听器PlayerNames
+    -- 在 AIGameMode:InitEvents() 中,确保只注册一次
+    CustomGameEventManager:RegisterListener("player_name_response", function(userId, event)
+        local playerId = event.playerId
+        local playerName = event.playerName
+        local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
+        local key = tostring(steamAccountID)
 
+        -- 获取现有的 player_table 数据
+        local playerData = CustomNetTables:GetTableValue("player_table", key) or {}
+
+        -- 添加玩家名字
+        playerData.playerName = playerName
+
+        -- 保存回 player_table
+        CustomNetTables:SetTableValue("player_table", key, playerData)
+
+        --print("[PlayerNames] Cached player name:", playerName, "in player_table for SteamAccountID:", steamAccountID)
+
+        -- 验证
+        local verify = CustomNetTables:GetTableValue("player_table", key)
+        -- if verify and verify.playerName then
+        --     print("[PlayerNames] ✓ Verification successful, name:", verify.playerName)
+        -- else
+        --     print("[PlayerNames] ✗ Verification failed!")
+        -- end
+    end)
     -- 游戏选项事件
     CustomGameEventManager:RegisterListener("loading_set_options", function(eventSourceIndex, args)
         return AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
