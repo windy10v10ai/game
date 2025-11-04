@@ -11,6 +11,7 @@ export class Lottery {
   readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
 
+  // FIXME 技能池配置未同步，暂时保留以缓解代码冲突 START
   // 【新增】统一的技能池配置
   private readonly ABILITY_POOLS = {
     // 非随机模式(普通模式)
@@ -61,6 +62,8 @@ export class Lottery {
       ],
     },
   };
+
+  // FIXME 技能池配置未同步，暂时保留以缓解代码冲突 END
 
   constructor() {
     // 启动物品抽奖
@@ -189,7 +192,7 @@ export class Lottery {
       abilityLotteryResults.push(...extraAbilities);
     }
 
-    // 应用固定技能或特殊技能池
+    // 应用固定技能
     if (abilityLotteryResults.length > 0) {
       const specifiedAbilityInfo = this.getSpecifiedAbilityByFixedAbility();
       if (specifiedAbilityInfo) {
@@ -404,17 +407,14 @@ export class Lottery {
       lotteryStatus.activeAbilityName = undefined;
       lotteryStatus.activeAbilityLevel = undefined;
       lotteryStatus.isActiveAbilityRefreshed = false;
-      lotteryStatus.activeAbilityRefreshCount = 0; // *** 添加这一行 ***
     } else if (abilityType === 'abilityPassive') {
       lotteryStatus.passiveAbilityName = undefined;
       lotteryStatus.passiveAbilityLevel = undefined;
       lotteryStatus.isPassiveAbilityRefreshed = false;
-      lotteryStatus.passiveAbilityRefreshCount = 0; // *** 添加这一行 ***
     } else if (abilityType === 'abilityPassive2') {
       lotteryStatus.passiveAbilityName2 = undefined;
       lotteryStatus.passiveAbilityLevel2 = undefined;
       lotteryStatus.isPassiveAbilityRefreshed2 = false;
-      lotteryStatus.passiveAbilityRefreshCount2 = 0; // *** 添加这一行 ***
     }
 
     // 重新生成该行的技能

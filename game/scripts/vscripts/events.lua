@@ -43,8 +43,6 @@ function AIGameMode:OnGameStateChanged(keys)
     elseif state == DOTA_GAMERULES_STATE_HERO_SELECTION then
         if IsServer() then
             self:InitPlayerGold()
-
-            self:CachePlayerNames()
         end
     elseif state == DOTA_GAMERULES_STATE_STRATEGY_TIME then
         -- 计算天辉玩家人数

@@ -1094,7 +1094,7 @@
 		// 鹰眼炮台
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "鹰眼炮台"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>主动:人形炮台</h1>化身炮台,获得高空视野。持续%active_duration%秒,护甲+%active_armor%,被缠绕无法移动,攻击距离+%active_attack_range%+吃的银月数量×%moon_shard_bonus%,基础攻击间隔减少%bat_reduction_pct%%%。<br><br>冷却时间:%AbilityCooldown%秒\n<h1>被动: 霰弹 (仅限远程)</h1>对攻击目标周围的敌人造成纯粹溅射伤害。<br/>霰弹特效无法叠加,拥有%internal_cooldown%s内置冷却。"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"                 "RN: 10个火枪9个菜，装了炮台也不堪大用，别刮了"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"                 "化身为固定炮台,以强大的火力压制敌人。"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"         "+$damage"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"   "+$attack"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_armor"          "+$armor"
@@ -1104,7 +1104,7 @@
 		// 鹰眼战机
 		"DOTA_Tooltip_Ability_item_hawkeye_fighter"                  "鹰眼战机"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"      "<h1><font color='#FFFF00'>主动: 人形战斗机</font></h1>激活战机模式,获得高空视野和极高的机动性。持续%active_duration%秒内,获得%active_movement_speed_pct%%%移速加成,变为飞行单位,无视地形移动,无视单位碰撞,无视移速上限,并施加弱驱散效果。<br><br>视野范围:根据英雄当前夜间视野动态调整<br>冷却时间:%AbilityCooldown%秒<br><br>驱散类型:<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"             "RN: 买机票（TP）的钱，不如直接买飞机"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"             "化身战机,翱翔天际,无人能及。"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"  "+$all"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct" "%+$move_speed"
@@ -1117,7 +1117,7 @@
 		// 禁忌法锤
 		"DOTA_Tooltip_Ability_item_forbidden_staff"                  "<font color='#8B008B'>禁忌法锤</font>"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Description"      "<h1><font color='#8B008B'>主动：禁忌领域</h1>在目标区域施放禁忌领域,对%radius%范围内所有敌人施放死灵冲击、闪电风暴和变羊术。<br><br>死灵冲击：造成%necrolyte_att_multiplier%x[你的全属性]点魔法伤害,并将目标变成小动物%sheep_duration%秒<br>闪电风暴：造成%lightning_damage%点魔法伤害<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"             "RN: 我话讲完，谁赞成，谁反对？"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"             "禁忌的力量,不可轻易触碰。"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Note0"            "死灵冲击会将目标变成无害的小动物,无法攻击、施法或使用物品。"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"  "+$int"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_strength"   "+$str"
@@ -1136,7 +1136,7 @@
 		// 禁忌战刃
 		"DOTA_Tooltip_Ability_item_forbidden_blade"                  "<font color='#8B008B'>禁忌战刃</font>"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Description"      "<h1><font color='#8B008B'>主动：忌炼杀狱</h1>在目标区域施放忌炼杀狱,对%radius%范围内所有敌人施放一闪、闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
-		"DOTA_Tooltip_ability_item_forbidden_blade_Lore"             "RN: 我不是针对你啊，我的意思是，在座的各位，都是垃圾"
+		"DOTA_Tooltip_ability_item_forbidden_blade_Lore"             "禁忌之刃,斩断一切。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Note0"            "一闪效果造成纯粹伤害,无视魔法免疫。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_strength"   "+$str"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_agility"    "+$agi"
@@ -1158,7 +1158,7 @@
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_damage_percent" "%+基础伤害"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_Note0"            "克敌机先: 攻击无视闪避"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_Note1"            "继承黄金大核荣耀的基础暴击效果"
-		"DOTA_Tooltip_ability_item_switchable_crit_blade_Lore"             "RN: 砍砍砍砍砍的王，吗？（魔龙阴笑脸）"
+		"DOTA_Tooltip_ability_item_switchable_crit_blade_Lore"             "破浪：潮初起时刃轻扬<br>断流：潮横断处月凝霜<br>归海：潮归瀚海刀义藏"
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade"                 "刀势"
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade_Description"     "1=初式·破浪 2=二式·断流 3=终式·归海"
 
