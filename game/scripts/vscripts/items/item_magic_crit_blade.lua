@@ -172,7 +172,7 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
     EmitSoundOn("Hero_Brewmaster.Brawler.Crit", params.target)
     -- 显示幻影暴击伤害数字(蓝紫色)
     local total_spell_amp = self:GetParent():GetSpellAmplification(false)
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, params.target, damage * (total_spell_amp + 1), nil)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, params.target, damage * (total_spell_amp + 1), nil)
 end
 
 function modifier_item_magic_crit_blade:GetModifierSpellAmplify_Percentage()
@@ -301,7 +301,7 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
             --print(string.format("[MagicCritBlade] 必然暴击进入冷却: %.0f秒", cooldown))
         end
         -- 使用CRITICAL伤害类型显示更大的数字
-        SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, extra_damage, nil)
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, target, extra_damage, nil)
 
         -- 【修改】更改音效为更震撼的暴击音效
         EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target) -- PA大招音效
