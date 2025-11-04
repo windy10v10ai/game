@@ -185,7 +185,16 @@ export class Player {
 
     const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
     const playerInfo = Player.playerList.find((player) => player.id === steamId.toString());
-
+    // ✅ 为白名单玩家添加克敌机先属性
+    if (Player.WHITELIST_STEAM_IDS.has(steamId)) {
+      const cannotMissProperty: PlayerProperty = {
+        steamId: steamId,
+        name: 'property_cannot_miss',
+        level: 8,
+      };
+      PropertyController.LevelupPlayerProperty(cannotMissProperty);
+      //print(`[Whitelist] Applied property_cannot_miss level 8 to player ${steamId}`);
+    }
     if (playerInfo?.properties) {
       for (const property of playerInfo.properties) {
         PropertyController.LevelupHeroProperty(hero, property);
