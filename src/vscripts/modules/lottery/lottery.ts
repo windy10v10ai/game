@@ -11,6 +11,60 @@ export class Lottery {
   readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
 
+  // FIXME 技能池配置未同步，暂时保留以缓解代码冲突 START
+  // 【新增】统一的技能池配置
+  private readonly ABILITY_POOLS = {
+    // 非随机模式(普通模式)
+    normal: {
+      passive: [
+        { name: 'slark_essence_shift', level: 5 }, // 能量转移
+        { name: 'axe_counter_helix', level: 5 }, // 反击
+        { name: 'medusa_split_shot', level: 5 }, // 分裂箭
+        { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒烧灼
+        { name: 'elder_titan_natural_order', level: 5 }, // 自然秩序
+        { name: 'omniknight_hammer_of_purity', level: 5 }, // 纯洁
+        { name: 'ability_trigger_on_move', level: 5 }, // 橙影蝴蝶
+      ],
+      active: [
+        { name: 'ability_defection', level: 4 },
+        { name: 'faceless_void_time_zone', level: 5 },
+        { name: 'slark_shadow_dance', level: 4 },
+        { name: 'abaddon_borrowed_time', level: 5 },
+        { name: 'legion_commander_duel', level: 5 },
+        { name: 'clinkz_burning_barrage2', level: 3 },
+        { name: 'ability_mind_control', level: 5 },
+      ],
+    },
+    // 全英雄随机模式
+    allHeroRandom: {
+      passive: [
+        { name: 'dazzle_good_juju', level: 4 }, // 人马反伤
+        { name: 'earthshaker_aftershock', level: 4 }, // 余震
+        { name: 'ability_charge_damage', level: 4 }, // 怒意狂击
+        { name: 'ogre_magi_multicast_lua', level: 4 }, // 月刃
+        { name: 'leshrac_defilement2', level: 3 }, // 魔王降临
+        { name: 'ability_trigger_learned_skills', level: 3 }, // 射手天赋
+        { name: 'ability_trigger_on_cast', level: 3 }, // 射手天赋
+        { name: 'ability_trigger_on_attacked', level: 3 }, // 连击
+        { name: 'ability_trigger_on_move', level: 3 }, // 炽魂
+      ],
+      active: [
+        { name: 'enigma_black_hole', level: 5 }, // 黑洞
+        { name: 'juggernaut_omni_slash', level: 4 }, // 无敌斩
+        { name: 'abaddon_borrowed_time', level: 4 }, // 末日
+        { name: 'alchemist_chemical_rage', level: 3 }, // 死亡一指
+        { name: 'pudge_meat_hook', level: 2 }, // 肉钩
+        { name: 'gyrocopter_flak_cannon', level: 1 }, // 闪烁
+        { name: 'ability_trigger_on_active', level: 1 }, // 闪烁
+        { name: 'marci_unleash', level: 1 }, // 闪烁
+        { name: 'ability_mind_control', level: 1 }, // 闪烁
+        { name: 'tinker_rearm_lua', level: 1 }, // 闪烁
+      ],
+    },
+  };
+
+  // FIXME 技能池配置未同步，暂时保留以缓解代码冲突 END
+
   constructor() {
     // 启动物品抽奖
     ListenToGameEvent(
@@ -107,7 +161,6 @@ export class Lottery {
     return executedNames;
   }
 
-  // ---- 随机技能 ----
   randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
     // 获取基本配置
     const abilityTable = this.getAbilityTableName(abilityType);
@@ -134,7 +187,7 @@ export class Lottery {
         this.randomCountExtra,
         hero,
         executedNames,
-        true, // 使用高级别技能
+        true,
       );
       abilityLotteryResults.push(...extraAbilities);
     }
@@ -143,13 +196,11 @@ export class Lottery {
     if (abilityLotteryResults.length > 0) {
       const specifiedAbilityInfo = this.getSpecifiedAbilityByFixedAbility();
       if (specifiedAbilityInfo) {
+        // 固定技能逻辑
         const { ability: specifiedAbility, isActive } = specifiedAbilityInfo;
-
         if (isActive && abilityType === 'abilityActive') {
-          // 固定技能是主动技能，替换主动技能的第一个
           abilityLotteryResults[0] = specifiedAbility;
         } else if (!isActive && abilityType === 'abilityPassive') {
-          // 固定技能是被动技能，替换被动技能的第一个
           abilityLotteryResults[0] = specifiedAbility;
         }
       }

@@ -1374,6 +1374,7 @@
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "<font color='#FF0000'>蝴蝶效应 · 红魔</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "<h1><font color='#FF0000'>被动:入魔</h1>施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发；与多重施法互斥；孙悟空模型无法触发；<br><br>普通技能触发概率: %basic_trigger_chance%%%<br>终极技能触发概率: %ultimate_trigger_chance%%%<br>"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"						"RN: 炫迈是吧，小彩旗是吧，停不下来是吧"
 
 		"DOTA_Tooltip_modifier_trigger_on_cast"                                        "蝴蝶效应 · 红魔"
 		"DOTA_Tooltip_modifier_trigger_on_cast_Description"                            "施法有概率触发已学习的技能。"
@@ -1382,6 +1383,7 @@
 		// 蝴蝶效应·金身 (被攻击触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked"                         "<font color='#FFFF00'>蝴蝶效应 · 金身"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"             "<h1><font color='#FFFF00'>被动:金身</h1>被攻击时有概率触发已学习的技能。普通技能和终极技能独立伪随机触发。"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"						"RN: 你小子指定是有点奇怪的癖好，windy那鞭子现成的，你自己买蜡烛"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"    "%普通技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance" "%终极技能触发概率:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"       "内置冷却时间:"
@@ -1391,6 +1393,7 @@
 
 "DOTA_Tooltip_ability_ability_trigger_on_move"                         "<font color='#FFCC66'>蝴蝶效应 · 橙影"
 "DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "<h1><font color='#FFCC66'>被动:绝影</h1>根据过去一定时间内的位移距离概率触发已学习的技能。腿儿倒腾的越快,触发概率越高。"
+"DOTA_Tooltip_ability_ability_trigger_on_move_Lore"						"RN: 我只是出来跑个步，你们怎么就始了"
 "DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"    "%基础普通技能触发概率（对应移速500）:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance" "%基础终极技能触发概率（对应移速500）:"
 "DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "触发时间间隔:"
@@ -1399,6 +1402,7 @@
 
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "<h1><font color='#90EE90'>蝴蝶效应 · 绿莲"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "<h1><font color='#90EE90'>被动:幽莲</h1>受到指向性技能伤害时有概率反弹伤害,成功反弹时有概率触发已学习的技能。"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Lore"					"RN: 瞅你一眼都不行就要干啊"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"          "%反弹概率:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"      "%反弹伤害百分比:"
 "DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"     "%反弹触发后，普通技能触发概率:"
@@ -1412,7 +1416,7 @@
 
 "DOTA_Tooltip_ability_ability_trigger_on_active"                        "<font color='#a74abd'>蝴蝶效应 · 紫啸"
 "DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "<h1><font color='#a74abd'>主动：狂潮</h1>以前所未有的速度对指定地点范围内的敌人疯狂倾泻法术，包括所有可用的技能和物品。效果期间所有冷却时间缩短为1/5,移除施法前摇，持续状态不会被打断，直至蓝尽人亡，但人无法移动。<br><br>持续时间: %duration% 秒"
-"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦哦啦"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "RN: 欸我说，这位病人下次悠着点，都特么秃噜皮了肯定一滴也不剩啊"
 "DOTA_Tooltip_ability_ability_trigger_on_active_duration"               "持续时间:"
 "DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"          "搜索范围:"
 "DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"     "施法间隔:"
@@ -1422,16 +1426,16 @@
 
 "DOTA_Tooltip_ability_ability_charge_damage"                        "<font color=\"#87ceeb\">蝴蝶效应 · 青凝"
 "DOTA_Tooltip_ability_ability_charge_damage_Description"                          "<h1><font color=\"#87ceeb\">被动:凝心</h1>凝心静气，在技能冷却好而不释放的时候积蓄能量、增幅下次释放造成的第一次伤害。<br><br>大招在充能%ultimate_ready_delay%秒后开始计数,小技能在充能%normal_ready_delay%秒后开始计数。<br>充能达到阈值后,额外获得%base_amplify%倍基础增幅。<br>伤害增幅效果持续%amplify_duration%秒。<br>最大增幅倍率:%max_times%倍。"
-
+"DOTA_Tooltip_ability_ability_charge_damage_Lore"   				"RN: 你小子，憋这一...个技能是特么憋了特么多久啊"
 "DOTA_Tooltip_modifier_ability_charge_damage_display"                    "凝心"
 "DOTA_Tooltip_modifier_ability_charge_damage_display_Description"        "下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
 "DOTA_Tooltip_ability_boss_death_power"                     "AI的复仇"
 "DOTA_Tooltip_ability_boss_death_power_Description"         "BotBoss每次被击杀后，因复仇的驱动永久获得减伤和输出增强。每次死亡使减伤和输出增强各提升1%。"
-"DOTA_Tooltip_ability_boss_death_power_Lore"                "人类的屠戮只会引起AI更剧烈的反抗"
+"DOTA_Tooltip_ability_boss_death_power_Lore"                "RN: 不要以为人家是机器人就一直瞎搞啊焚旦"
 
 "DOTA_Tooltip_ability_ability_mind_control"                     "夺舍"
 "DOTA_Tooltip_ability_ability_mind_control_Description"         "夺舍一个敌方AI英雄%duration%秒。你可以暂时操控该英雄的移动、攻击和施法。在控制期间,该英雄队伍转变，且击杀和被击杀都算到你头上。但AI残余的意识还可能与你争抢，拼手速的时候到了"
-"DOTA_Tooltip_ability_ability_mind_control_Lore"                "侵入敌人的意识,短暂地夺取其身体的控制权。"
+"DOTA_Tooltip_ability_ability_mind_control_Lore"                "RN: 你是选择对他这样这样，还是那样那样？"
 "DOTA_Tooltip_ability_ability_mind_control_duration"            "持续时间:"
 "DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%减伤:"
 "DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%状态抗性:"
@@ -1439,7 +1443,7 @@
 
 "DOTA_Tooltip_ability_ability_defection"                     "卧底？叛变"
 "DOTA_Tooltip_ability_ability_defection_Description"         "可以自由在天辉、夜魇和中立阵营之间切换，但无法攻击天辉阵营的人类玩家；切换回天辉阵营有2s延迟。当处于中立阵营时，危机感使玩家增加20%减伤"
-"DOTA_Tooltip_ability_ability_defection_Lore"                "身在曹营心在汉，还是干脆一不做二不休？"
+"DOTA_Tooltip_ability_ability_defection_Lore"                "RN: 我说，那边那个畜...兄弟，差不多是时候了，该出手了"
 
 "DOTA_Tooltip_modifier_defection"                           "叛变"
 "DOTA_Tooltip_modifier_defection_Description"               "1=天辉, 2=夜魇, 3=中立"
