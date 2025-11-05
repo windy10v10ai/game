@@ -300,7 +300,64 @@ local function RecordTowerKilled(hEntity)
         end
     end
 end
+-- 获取玩家名字的辅助函数
+local function GetPlayerName(playerId)
+    print("[GetPlayerName] ===== START =====")
+    print("[GetPlayerName] playerId:", playerId)
 
+    local playerName = nil
+    local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
+    print("[GetPlayerName] steamAccountID:", steamAccountID)
+
+    -- 尝试从 player_table 获取玩家名字
+    if steamAccountID > 0 then
+        local key = tostring(steamAccountID)
+        print("[GetPlayerName] Looking up key in player_table:", key)
+
+        local playerData = CustomNetTables:GetTableValue("player_table", key)
+
+        if playerData then
+            print("[GetPlayerName] Found playerData:")
+            -- DeepPrintTable(playerData)
+
+            if playerData.playerName then
+                playerName = playerData.playerName
+                print("[GetPlayerName] ✓ Got playerName from player_table:", playerName)
+            else
+                print("[GetPlayerName] ✗ playerData exists but playerName is nil")
+            end
+        else
+            print("[GetPlayerName] ✗ No playerData found for key:", key)
+        end
+    else
+        print("[GetPlayerName] steamAccountID <= 0, skipping player_table lookup")
+    end
+
+    -- 如果没有获取到,使用 PlayerResource 的名字作为后备
+    if not playerName or playerName == "" then
+        print("[GetPlayerName] Trying PlayerResource:GetPlayerName()")
+        playerName = PlayerResource:GetPlayerName(playerId)
+        print("[GetPlayerName] PlayerResource returned:", playerName)
+    end
+
+    -- 如果还是空,使用英雄名字
+    if not playerName or playerName == "" then
+        print("[GetPlayerName] Trying hero name as fallback")
+        local hero = PlayerResource:GetSelectedHeroEntity(playerId)
+        if hero then
+            local heroName = hero:GetUnitName()
+            playerName = string.gsub(heroName, "npc_dota_hero_", "")
+            print("[GetPlayerName] Using hero name:", playerName)
+        else
+            print("[GetPlayerName] ✗ No hero found for playerId:", playerId)
+        end
+    end
+
+    print("[GetPlayerName] Final playerName:", playerName)
+    print("[GetPlayerName] ===== END =====")
+
+    return playerName
+end
 -- local tDOTARespawnTime = { 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 23, 25, 26, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64 }
 local function HeroKilled(keys)
     local hHero = EntIndexToHScript(keys.entindex_killed)
@@ -322,30 +379,8 @@ local function HeroKilled(keys)
         --print("[BotBoss] ===== Getting victim name =====")
         --print("[BotBoss] PlayerID:", playerId)
 
-        local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-        --print("[BotBoss] SteamAccountID:", steamAccountID)
-
-
-        local victimName = nil
-        if steamAccountID > 0 then
-            local key = tostring(steamAccountID)
-            local playerData = CustomNetTables:GetTableValue("player_table", key)
-
-            if playerData and playerData.playerName then
-                victimName = playerData.playerName
-                --print("[BotBoss] ✓ Got Steam player name:", victimName)
-                --else
-                --print("[BotBoss] ✗ No cached name found for key:", key)
-            end
-        end
-        -- 如果没有获取到玩家名字,使用英雄名字作为后备
-        if not victimName or victimName == "" then
-            local heroName = hHero:GetUnitName()
-            heroName       = string.gsub(heroName, "npc_dota_hero_", "")
-            victimName     = heroName
-            --print("[BotBoss] Using hero name instead:", victimName)
-        end
-
+        -- ✅ 使用辅助函数获取受害者名字
+        local victimName = GetPlayerName(playerId)
         -- 获取 Boss 的英雄名字
         local bossHeroName = attacker:GetUnitName()
         bossHeroName = string.gsub(bossHeroName, "npc_dota_hero_", "")
@@ -357,7 +392,7 @@ local function HeroKilled(keys)
         attacker.bossKillCount = attacker.bossKillCount + 1
 
         -- 计算发言概率:基础30% + 连杀数 * 10%,最高100%
-        local speakProbability = math.min(20 + BossKillStreak * 10, 100)
+        local speakProbability = math.min(30 + BossKillStreak * 10, 100)
         local randomValue = RandomInt(1, 100)
 
         --print("Boss kill player - KillStreak: " ..
@@ -376,40 +411,8 @@ local function HeroKilled(keys)
         PlayerKillBossStreak = PlayerKillBossStreak + 1
         BossKillStreak = 0
 
-        -- 获取击杀者(玩家)的名字
-        local killerName = nil
-        local killerSteamAccountID = PlayerResource:GetSteamAccountID(attackerPlayerID)
-
-        if killerSteamAccountID > 0 then
-            -- 真实玩家:从 player_table 获取 Steam 名字
-            local key = tostring(killerSteamAccountID)
-            local playerData = CustomNetTables:GetTableValue("player_table", key)
-
-            if playerData and playerData.playerName then
-                killerName = playerData.playerName
-            end
-        end
-        local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-        --print("[BotBoss] SteamAccountID:", steamAccountID)
-
-
-        local victimName = nil
-        if steamAccountID > 0 then
-            local key = tostring(steamAccountID)
-            local playerData = CustomNetTables:GetTableValue("player_table", key)
-
-            if playerData and playerData.playerName then
-                victimName = playerData.playerName
-                --print("[BotBoss] ✓ Got Steam player name:", victimName)
-                --else
-                --print("[BotBoss] ✗ No cached name found for key:", key)
-            end
-        end
-        -- 如果没有获取到玩家名字,使用英雄名字作为后备
-        if not killerName or killerName == "" then
-            local heroName = attacker:GetUnitName()
-            killerName = string.gsub(heroName, "npc_dota_hero_", "")
-        end
+        -- ✅ 使用辅助函数获取受害者名字
+        local killerName = GetPlayerName(attackerPlayerID)
 
         -- 获取被击杀的 Boss 英雄名字
         local bossHeroName = hHero:GetUnitName()
@@ -433,7 +436,7 @@ local function HeroKilled(keys)
         end
 
         -- 计算发言概率
-        local speakProbability = math.min(20 + PlayerKillBossStreak * 10, 100)
+        local speakProbability = math.min(30 + PlayerKillBossStreak * 10, 100)
         local randomValue = RandomInt(1, 100)
 
         if randomValue <= speakProbability then

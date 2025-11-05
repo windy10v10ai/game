@@ -62,8 +62,17 @@ export class BotBaseAIModifier extends BaseModifier {
   public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
 
   Init() {
-    this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-    //print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
+    // 添加空值检查
+    if (!this || this.IsNull()) {
+      return;
+    }
+
+    const parent = this.GetParent();
+    if (!parent || parent.IsNull()) {
+      return;
+    }
+
+    this.hero = parent as CDOTA_BaseNPC_Hero;
 
     // 初始化Think
     if (IsInToolsMode()) {
@@ -278,64 +287,53 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 添加新的行为方法
   protected ActionSplitPush(): boolean {
-    //const heroName = this.hero.GetUnitName();
-    //print(`[AI-SplitPush] ${heroName} executing split push action`);
+    // 先执行施法逻辑
+    if (this.CastSelf()) {
+      return true;
+    }
 
-    // 寻找最远的可推进兵线
-    const lanes = [
-      Vector(-6000, -6000, 0), // 下路
-      Vector(0, 0, 0), // 中路
-      Vector(6000, 6000, 0), // 上路
-    ];
-
-    // 找到离队友最远的路
-    const nearbyAllies = this.FindNearbyAllies(1800);
-    //print(`[AI-SplitPush] ${heroName} found ${nearbyAllies.length} allies nearby`);
-
-    let bestLane = lanes[0];
-    let maxDistance = 0;
-
-    for (let i = 0; i < lanes.length; i++) {
-      const lane = lanes[i];
-      let totalDistance = 0;
-      for (const ally of nearbyAllies) {
-        totalDistance += ((ally.GetAbsOrigin() - lane) as Vector).Length2D();
-      }
-      if (totalDistance > maxDistance) {
-        maxDistance = totalDistance;
-        bestLane = lane;
-        //const laneNames = ['下路', '中路', '上路'];
-        //print(
-        //  `[AI-SplitPush] ${heroName} selected ${laneNames[i]} (distance: ${maxDistance.toFixed(0)})`,
-        //);
+    // 如果附近有敌方英雄,优先处理
+    const nearestEnemy = this.FindNearestEnemyHero();
+    if (nearestEnemy) {
+      const distanceToEnemy = this.GetDistanceTo(nearestEnemy);
+      if (distanceToEnemy <= this.CastRange) {
+        if (this.CastEnemy()) {
+          return true;
+        }
       }
     }
 
-    // 移动到该路
-    //const distanceToLane = this.GetDistanceToPosition(bestLane);
-    //print(`[AI-SplitPush] ${heroName} moving to lane (distance: ${distanceToLane.toFixed(0)})`);
-    this.hero.MoveToPosition(bestLane);
+    // ✅ 核心改动: 寻找最远的防御塔
+    const farthestTower = this.FindFarthestEnemyTower();
 
-    // 攻击附近的塔
-    const nearestTower = this.FindNearestEnemyTower();
-    if (nearestTower && this.GetDistanceTo(nearestTower) < 800) {
-      //print(
-      // `[AI-SplitPush] ${heroName} attacking tower at distance ${this.GetDistanceTo(nearestTower).toFixed(0)}`,
-      //);
-      ActionAttack.Attack(this.hero, nearestTower);
-    } else if (nearestTower) {
-      //print(
-      //  `[AI-SplitPush] ${heroName} tower too far (${this.GetDistanceTo(nearestTower).toFixed(0)})`,
-      //);
-    } else {
-      //print(`[AI-SplitPush] ${heroName} no tower found`);
+    if (!farthestTower) {
+      // 没有防御塔,回退到普通推进
+      return this.ActionPush();
     }
 
-    // 使用技能清兵
-    if (this.CastCreep()) {
-      //print(`[AI-SplitPush] ${heroName} cast ability on creeps`);
+    const towerPos = farthestTower.GetAbsOrigin();
+    const distanceToTower = this.GetDistanceTo(farthestTower);
+
+    // 如果距离塔很远,先移动过去
+    if (distanceToTower > 800) {
+      this.hero.MoveToPosition(towerPos);
+      return true;
     }
 
+    // 已接近目标塔,执行推进逻辑
+    // 检查是否有偷塔保护
+    if (farthestTower.HasModifier('modifier_backdoor_protection_active')) {
+      // 有偷塔保护,先清兵
+      if (this.CastCreep()) {
+        return true;
+      }
+      // 继续向塔移动
+      this.hero.MoveToPosition(towerPos);
+      return true;
+    }
+
+    // 没有偷塔保护,攻击塔
+    ActionAttack.Attack(this.hero, farthestTower);
     return true;
   }
 
@@ -349,7 +347,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
     if (!nearestAloneEnemy) {
       //print(`[AI-Assassin] ${heroName} no suitable target found, deactivating assassin mode`);
-      return false;
+      return this.ActionPush();
     }
 
     //const distanceToEnemy = this.GetDistanceTo(nearestAloneEnemy);
@@ -840,6 +838,35 @@ export class BotBaseAIModifier extends BaseModifier {
       }
     }
     return undefined;
+  }
+
+  // 在 BotBaseAIModifier 类中添加
+  public FindFarthestEnemyTower(): CDOTA_BaseNPC | undefined {
+    const hero = this.GetHero();
+    // 搜索整个地图的防御塔
+    const allTowers = ActionFind.FindEnemyBuildingsInvulnerable(hero, 10000);
+
+    let farthestTower: CDOTA_BaseNPC | undefined;
+    let maxDistance = 0;
+
+    for (const building of allTowers) {
+      const buildingName = building.GetUnitName();
+      // 只考虑防御塔
+      if (
+        buildingName.includes('tower') ||
+        buildingName.includes('rax') ||
+        buildingName.includes('fort')
+      )
+        continue;
+
+      const distance = ((building.GetAbsOrigin() - hero.GetAbsOrigin()) as Vector).Length2D();
+      if (distance > maxDistance) {
+        maxDistance = distance;
+        farthestTower = building;
+      }
+    }
+
+    return farthestTower;
   }
 
   public FindNearestEnemyTowerInvulnerable(): CDOTA_BaseNPC | undefined {

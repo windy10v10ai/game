@@ -49,18 +49,37 @@ end
 
 -- 在 AIGameMode:InitGameMode() 函数之后添加获取玩家名字用于嘲讽
 function AIGameMode:CachePlayerNames()
-    for playerId = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-        if PlayerResource:IsValidPlayerID(playerId) then
-            local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-            if steamAccountID > 0 then
-                CustomGameEventManager:Send_ServerToPlayer(
-                    PlayerResource:GetPlayer(playerId),
-                    "request_player_name",
-                    { playerId = playerId }
-                )
+    print("[CachePlayerNames] ===== START =====")
+
+    -- 延迟执行,确保客户端UI已加载
+    Timers:CreateTimer(10, function()
+        print("[CachePlayerNames] Attempting to cache player names...")
+
+        for playerId = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+            if PlayerResource:IsValidPlayerID(playerId) and not PlayerResource:IsFakeClient(playerId) then
+                local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
+                print("[CachePlayerNames] Processing playerId:", playerId, "steamAccountID:", steamAccountID)
+
+                if steamAccountID > 0 then
+                    local player = PlayerResource:GetPlayer(playerId)
+                    if player then
+                        print("[CachePlayerNames] Sending request_player_name to playerId:", playerId)
+                        CustomGameEventManager:Send_ServerToPlayer(
+                            player,
+                            "request_player_name",
+                            { playerId = playerId }
+                        )
+                    else
+                        print("[CachePlayerNames] ✗ Player object not found for playerId:", playerId)
+                    end
+                else
+                    print("[CachePlayerNames] ✗ Invalid steamAccountID for playerId:", playerId)
+                end
             end
         end
-    end
+
+        print("[CachePlayerNames] ===== END =====")
+    end)
 end
 
 function AIGameMode:InitEvents()
@@ -113,9 +132,9 @@ function AIGameMode:LinkLuaModifiers()
     LinkLuaModifier("modifier_bot_boss_behavior", "bot/bot_boss_behavior", LUA_MODIFIER_MOTION_NONE)
     -- 添加精神控制modifier
     LinkLuaModifier("modifier_mind_control", "modifiers/modifier_mind_control.lua", LUA_MODIFIER_MOTION_NONE)
-    print("[Defection] Linking modifier_defection")
+    --print("[Defection] Linking modifier_defection")
     LinkLuaModifier("modifier_defection", "modifiers/modifier_defection.lua", LUA_MODIFIER_MOTION_NONE)
-    print("[Defection] modifier_defection linked successfully")
+    --print("[Defection] modifier_defection linked successfully")
 end
 
 function AIGameMode:PreGameOptions()
