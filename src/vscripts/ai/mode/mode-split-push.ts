@@ -19,73 +19,90 @@ export class ModeSplitPush extends ModeBase {
   ];
 
   GetDesire(heroAI: BotBaseAIModifier): number {
-    let desire = 0;
-    const heroName = heroAI.GetHero().GetUnitName();
     const hero = heroAI.GetHero();
-    // 基础带线欲望
-    desire += 0.5;
-    // ✅ 新增: Boss特殊逻辑
-    if (hero.isBoss) {
-      const bossLevel = hero.GetLevel();
-      const targetLevel = 30; // 可以根据难度调整为30/40/50
+    const heroName = hero.GetUnitName();
 
-      // Boss达到目标等级
-      if (bossLevel >= targetLevel) {
-        const highestPlayerLevel = this.GetHighestPlayerLevel();
-        if (bossLevel >= highestPlayerLevel) {
-          desire -= 0.5; // 去attack而不是splitpysh
-          //print(`[BotBoss] ${hero.GetUnitName()} level ${bossLevel} > player ${highestPlayerLevel}, decreasing splitpush desire`,);
-        } else {
-          // 等级低于玩家,提高分路带线欲望
-          desire += 0.5;
-          //print(
-          //  `[BotBoss] ${hero.GetUnitName()} level ${bossLevel} < player ${highestPlayerLevel}, adding splitpush desire`,
-          //);
-        }
-      } else {
-        // 未达到目标等级,不进入
-        desire -= 0.5;
-      }
-
-      desire = Math.min(desire, 0.95);
-      desire = Math.max(desire, 0);
-    } else {
-      // 只有特定英雄才能使用带线模式
-      if (!this.splitPushHeroes.includes(heroName)) {
-        return 0;
-      }
-      // 等级至少10级才考虑带线
-      const heroLevel = heroAI.GetHero().GetLevel();
-      if (heroLevel < 20) {
-        return 0;
-      }
-      if (heroLevel > 30) desire += 0.2;
+    // ✅ 修复: 先检查英雄是否符合条件
+    if (!this.splitPushHeroes.includes(heroName) && !hero.isBoss) {
+      return 0;
     }
 
-    // 如果队友聚集在一起,增加带线欲望
-    const nearbyAllies = heroAI.FindNearbyAllies(1500);
-    if (nearbyAllies.length >= 2) {
+    // ✅ 修复: 先检查等级要求
+    const heroLevel = hero.GetLevel();
+    if (heroLevel < 20) {
+      return 0;
+    }
+
+    // ✅ 新增: 游戏时间限制 - 游戏开始10分钟后才考虑分推
+    const gameTime = GameRules.GetDOTATime(false, false);
+    if (gameTime < 10 * 60) {
+      return 0;
+    }
+
+    let desire = 0;
+
+    // 基础分推欲望
+    desire += 0.5;
+
+    // ✅ 新增: 根据游戏时间增加欲望(类似 ModePush)
+    desire += Math.floor(gameTime / 60) * 0.02;
+
+    // 等级加成
+    if (heroLevel > 30) {
       desire += 0.2;
     }
 
-    // 如果附近有敌方英雄,降低欲望
+    // ✅ 优化: 队友聚集判断 - 需要至少3个队友才考虑分推
+    const nearbyAllies = heroAI.FindNearbyAllies(1500);
+    if (nearbyAllies.length >= 3) {
+      desire += 0.2;
+    } else if (nearbyAllies.length >= 2) {
+      desire += 0.1;
+    }
+
+    // ✅ 优化: 敌人距离判断 - 分级处理
     const nearestEnemy = heroAI.FindNearestEnemyHero();
     if (nearestEnemy) {
       const distance = heroAI.GetDistanceTo(nearestEnemy);
-      if (distance < 2000) {
+      if (distance < 1200) {
+        // 非常近,不适合分推
+        desire -= 0.5;
+      } else if (distance < 2000) {
+        // 较近,降低欲望
         desire -= 0.3;
       }
     }
 
-    // 血量低于50%时不带线
-    if (heroAI.GetHero().GetHealthPercent() < 50) {
+    // 血量判断
+    const healthPercent = hero.GetHealthPercent();
+    if (healthPercent < 50) {
       desire -= 0.5;
+    } else if (healthPercent > 80) {
+      // ✅ 新增: 血量充足时增加欲望
+      desire += 0.1;
+    }
+
+    // ✅ 新增: Boss特殊逻辑
+    if (hero.isBoss) {
+      const bossLevel = hero.GetLevel();
+      const highestPlayerLevel = this.GetHighestPlayerLevel();
+
+      // Boss等级远超玩家时,更倾向于分推施压
+      if (bossLevel >= highestPlayerLevel + 10) {
+        desire += 0.2;
+      }
+    }
+
+    // ✅ 新增: 检查是否有可推的塔
+    const nearestTower = heroAI.FindNearestEnemyTower();
+    if (!nearestTower) {
+      // 没有塔可推,降低欲望
+      desire -= 0.2;
     }
 
     return Math.max(0, Math.min(desire, 0.75));
   }
 
-  // 新增: 获取最高玩家等级
   private GetHighestPlayerLevel(): number {
     let highestLevel = 0;
     for (let i = 0; i < 24; i++) {

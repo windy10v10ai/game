@@ -7,6 +7,11 @@ export class ModeAssassin extends ModeBase {
   GetDesire(heroAI: BotBaseAIModifier): number {
     let desire = 0;
 
+    // 添加时间限制:游戏开始后10分钟内才能使用刺客模式
+    const gameTime = GameRules.GetDOTATime(false, false);
+    if (gameTime > 13 * 60) {
+      return 0;
+    }
     // 只有特定英雄适合暗杀
     const heroName = heroAI.GetHero().GetUnitName();
     const assassinHeroes = [
