@@ -85,8 +85,33 @@ export class EventGameStateChange {
       // 删除重复的技能添加代码
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
-    // ✅ 新增: 生成泉水守卫
+
+    // ✅ 新增: 生成泉水守卫windy
     this.SpawnFountainGuard();
+    // 延迟为泉水设置技能等级
+    Timers.CreateTimer(1, () => {
+      const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
+      //print('[fountain] found', fountains.length, 'fountains');
+
+      for (const fountain of fountains) {
+        const towerPower = GameRules.Option.towerPower;
+        const towerLevel = this.getTowerLevel(towerPower);
+        //print('[fountain] level', towerLevel);
+
+        // 查找并设置技能等级
+        const furySwipes = fountain.FindAbilityByName('tower_ursa_fury_swipes');
+        if (furySwipes !== undefined) {
+          furySwipes.SetLevel(towerLevel);
+          //print('[fountain] furySwipes SetLevel', towerLevel);
+        }
+
+        const manaBreak = fountain.FindAbilityByName('tower_antimage_mana_break');
+        if (manaBreak !== undefined) {
+          manaBreak.SetLevel(towerLevel);
+          //print('[fountain] manaBreak SetLevel', towerLevel);
+        }
+      }
+    });
     this.setPlayerColor();
   }
 
@@ -105,9 +130,9 @@ export class EventGameStateChange {
 
     if (guard !== undefined && guard !== null) {
       guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
-      print('[Fountain Guard] 泉水守卫已生成');
+      // print('[Fountain Guard] 泉水守卫已生成');
     } else {
-      print('[Fountain Guard] ERROR: 生成失败');
+      //print('[Fountain Guard] ERROR: 生成失败');
     }
   }
 
