@@ -209,6 +209,9 @@ end
 function modifier_item_magic_crit_blade:OnTakeDamage(params)
     if not IsServer() then return end
 
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
+
     local parent = self:GetParent()
     local ability = self:GetAbility()
 

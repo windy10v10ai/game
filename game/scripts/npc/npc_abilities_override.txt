@@ -11356,7 +11356,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"damage_threshold"			"200"		// 175
+			"damage_threshold"			"400"		// 175
 			"damage"
 			{
 				"value"							"20 30 40 50 60"
