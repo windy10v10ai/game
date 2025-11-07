@@ -3221,7 +3221,7 @@
 			"reflect_damage_pct"        "100"
 
 			// 反弹概率
-			"reflect_chance"            "10 15 20 25 30"
+			"reflect_chance"            "30 40 50 60 70"
 
 			// 触发技能概率(在反弹成功后)
 			"basic_trigger_chance"            "80"

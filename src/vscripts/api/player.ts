@@ -32,6 +32,7 @@ export class PlayerSetting {
 
 export class PlayerDto {
   id!: string;
+  playerName?: string; // ✅ 添加这个字段
   matchCount!: number;
   winCount!: number;
   disconnectCount!: number;
