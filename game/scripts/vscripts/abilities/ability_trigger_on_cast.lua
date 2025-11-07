@@ -171,20 +171,20 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
     local random_ability = nil
     if trigger_ultimate and #ultimate_abilities > 0 then
         random_ability = ultimate_abilities[RandomInt(1, #ultimate_abilities)]
-        -- ✅ 新增: 特定英雄大招的1/3概率检查
-        local ability_name = random_ability:GetAbilityName()
-        if ability_name == "zuus_thundergods_wrath" or
-            ability_name == "silencer_global_silence" or
-            ability_name == "furion_wrath_of_nature" then
-            local random_num = RandomInt(1, 2)
-            if random_num ~= 1 then
-                -- 未随到1,改为选择普通技能
-                random_ability = nil
-                if #basic_abilities > 0 then
-                    random_ability = basic_abilities[RandomInt(1, #basic_abilities)]
-                end
-            end
-        end
+        -- -- ✅ 新增: 特定英雄大招的1/3概率检查 ----改回来
+        -- local ability_name = random_ability:GetAbilityName()
+        -- if ability_name == "zuus_thundergods_wrath" or
+        --     ability_name == "silencer_global_silence" or
+        --     ability_name == "furion_wrath_of_nature" then
+        --     local random_num = RandomInt(1, 2)
+        --     if random_num ~= 1 then
+        --         -- 未随到1,改为选择普通技能
+        --         random_ability = nil
+        --         if #basic_abilities > 0 then
+        --             random_ability = basic_abilities[RandomInt(1, #basic_abilities)]
+        --         end
+        --     end
+        -- end
     elseif trigger_basic and #basic_abilities > 0 then
         random_ability = basic_abilities[RandomInt(1, #basic_abilities)]
     end

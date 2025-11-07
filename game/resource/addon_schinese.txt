@@ -588,12 +588,11 @@
 		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%状态抗性:"
 
 		//折射2
-		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
-		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"折射未触发时，也将提供%damage_reduction%%%伤害减免。"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"受到伤害时有概率免疫并反弹伤害"
-		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%反弹概率："
-		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%伤害反弹百分比："
-		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"折射的伤害与原伤害类型相同。"
+		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（改）"
+		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"提供%damage_reduction%%%伤害减免。"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"减免、积累并反弹一定比例的伤害（反弹间隔1s）"
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"	"%折射比例："
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"伤害类型为纯粹，不可以被技能增强，无视减益免疫"
 		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
 		//贪魔的贪婪
@@ -1223,7 +1222,7 @@
 
 		// 暗影裁决
 		"DOTA_Tooltip_Ability_item_shadow_judgment"                  "<font color='#8A2BE2'>暗影裁决</font>"
-		"DOTA_Tooltip_ability_item_shadow_judgment_Description"      "<h1>主动：暗影审判</h1>对目标施加暗影审判,融合一闪、苍蓝幻想、绝对破防和变态辣的所有debuff效果。<br><br>一闪：瞬移到目标身后,眩晕%stun_duration%秒,造成%active_damage_base%+%active_damage_multi%x[主属性]点纯粹伤害<br>苍蓝幻想：持续驱散增益,%mute_duration%秒禁用装备和被动,减速%slow_pct%%%,攻击速度减少%attack_slow%,每秒造成%max_hp_dmg_pct%%%最大生命值的纯粹伤害,降低%hp_regen_reduction%%%生命恢复<br>绝对破防：降低%corruption_armor%点护甲,持续%corruption_duration%秒<br>变态辣：沉默%silence_duration%秒,结束时造成期间受到伤害的%silence_damage_percent%%%作为额外魔法伤害<br><br>施法距离：%abilitycastrange%<br><br><h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲,持续%corruption_duration%秒。"
+		"DOTA_Tooltip_ability_item_shadow_judgment_Description"      "<h1>主动：暗影审判</h1>对目标施加暗影审判,融合一闪、苍蓝幻想、绝对破防和变态辣的所有debuff效果。<br><br>一闪：瞬移到目标身后,眩晕%stun_duration%秒,造成%active_damage_base%+%active_damage_multi%x[主属性]点纯粹伤害<br>苍蓝幻想：持续驱散增益,%mute_duration%秒禁用装备和被动,减速%slow_pct%%%,攻击速度减少%attack_slow%,每秒造成%max_hp_dmg_pct%%%最大生命值的纯粹伤害,降低%hp_regen_reduction%%%生命恢复<br><br>变态辣：沉默%silence_duration%秒,结束时造成期间受到伤害的%silence_damage_percent%%%作为额外魔法伤害<br><br>施法距离：%abilitycastrange%"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Lore"             "RN: 极致的针对，要是能对队友使用就好了"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_strength"   "+$str"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_agility"    "+$agi"
