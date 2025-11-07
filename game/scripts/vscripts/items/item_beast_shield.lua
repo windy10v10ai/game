@@ -20,7 +20,9 @@ end
 modifier_item_beast_shield = class({})
 
 function modifier_item_beast_shield:IsHidden() return true end
+
 function modifier_item_beast_shield:IsPurgable() return false end
+
 function modifier_item_beast_shield:RemoveOnDeath() return false end
 
 function modifier_item_beast_shield:GetAttributes()
@@ -48,7 +50,7 @@ function modifier_item_beast_shield:OnCreated()
         self.stack_duration = ability:GetSpecialValueFor("stack_duration")
         self.max_stacks = ability:GetSpecialValueFor("max_stacks")
         self.stack_resist = ability:GetSpecialValueFor("stack_resist")
-        self.damage_taken = 0  -- 累计受到的技能伤害
+        self.damage_taken = 0 -- 累计受到的技能伤害
     end
 end
 
@@ -77,13 +79,17 @@ end
 
 function modifier_item_beast_shield:DeclareFunctions()
     return {
-        MODIFIER_EVENT_ON_TAKEDAMAGE,  -- 法师泳衣被动
+        MODIFIER_EVENT_ON_TAKEDAMAGE, -- 法师泳衣被动
     }
 end
 
 -- 新增：处理受到伤害事件
 function modifier_item_beast_shield:OnTakeDamage(params)
     if not IsServer() then return end
+
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
+
     if params.unit ~= self:GetParent() then return end
     if params.attacker == self:GetParent() then return end
 
@@ -95,7 +101,8 @@ function modifier_item_beast_shield:OnTakeDamage(params)
     self:GetParent():GiveMana(mana_restore)
 
     -- 显示魔法恢复特效
-    local particle = ParticleManager:CreateParticle("particles/items3_fx/mana_amulet.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+    local particle = ParticleManager:CreateParticle("particles/items3_fx/mana_amulet.vpcf", PATTACH_ABSORIGIN_FOLLOW,
+        self:GetParent())
     ParticleManager:ReleaseParticleIndex(particle)
 
     -- 被动：潜水服 - 累计伤害并增加魔抗层数
@@ -131,12 +138,14 @@ LinkLuaModifier("modifier_item_beast_shield_resist_stack", "items/item_beast_shi
 modifier_item_beast_shield_resist_stack = class({})
 
 function modifier_item_beast_shield_resist_stack:IsHidden() return false end
+
 function modifier_item_beast_shield_resist_stack:IsDebuff() return false end
+
 function modifier_item_beast_shield_resist_stack:IsPurgable() return false end
 
 function modifier_item_beast_shield_resist_stack:OnCreated()
     if not self:GetAbility() then return end
-    self.stack_resist = 3  -- 每层3%魔抗
+    self.stack_resist = 3 -- 每层3%魔抗
 end
 
 function modifier_item_beast_shield_resist_stack:DeclareFunctions()
@@ -152,10 +161,12 @@ end
 function modifier_item_beast_shield_resist_stack:GetTexture()
     return "item_eternal_shroud"
 end
+
 -- 主动modifier
 modifier_item_beast_shield_active = class({})
 
 function modifier_item_beast_shield_active:IsHidden() return false end
+
 function modifier_item_beast_shield_active:IsPurgable() return false end
 
 function modifier_item_beast_shield_active:CheckState()
