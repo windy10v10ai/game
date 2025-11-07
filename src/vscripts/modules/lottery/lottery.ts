@@ -18,47 +18,47 @@ export class Lottery {
     normal: {
       passive: [
         { name: 'slark_essence_shift', level: 5 }, // 能量转移
-        { name: 'axe_counter_helix', level: 5 }, // 反击
+        { name: 'axe_counter_helix', level: 3 }, // 反击螺旋
         { name: 'medusa_split_shot', level: 5 }, // 分裂箭
-        { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒烧灼
-        { name: 'elder_titan_natural_order', level: 5 }, // 自然秩序
-        { name: 'omniknight_hammer_of_purity', level: 5 }, // 纯洁
-        { name: 'ability_trigger_on_move', level: 5 }, // 橙影蝴蝶
+        { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒灼烧
+        { name: 'elder_titan_natural_order', level: 4 }, // 自然秩序
+        { name: 'omniknight_hammer_of_purity', level: 4 }, // 纯洁之锤
+        { name: 'ability_trigger_on_move', level: 4 }, // 橙影蝴蝶
       ],
       active: [
-        { name: 'ability_defection', level: 4 },
-        { name: 'faceless_void_time_zone', level: 5 },
-        { name: 'slark_shadow_dance', level: 4 },
-        { name: 'abaddon_borrowed_time', level: 5 },
-        { name: 'legion_commander_duel', level: 5 },
-        { name: 'clinkz_burning_barrage2', level: 3 },
-        { name: 'ability_mind_control', level: 5 },
+        { name: 'ability_defection', level: 4 }, // 卧底
+        { name: 'faceless_void_time_zone', level: 5 }, // 逆转时空
+        { name: 'slark_shadow_dance', level: 3 }, // 暗影之舞
+        { name: 'abaddon_borrowed_time', level: 5 }, // 回光返照
+        { name: 'legion_commander_duel', level: 4 }, // 决斗
+        { name: 'clinkz_burning_barrage2', level: 3 }, // 炽烈火雨
+        { name: 'ability_mind_control', level: 4 }, // 夺舍
       ],
     },
     // 全英雄随机模式
     allHeroRandom: {
       passive: [
-        { name: 'dazzle_good_juju', level: 4 }, // 人马反伤
-        { name: 'earthshaker_aftershock', level: 4 }, // 余震
-        { name: 'ability_charge_damage', level: 4 }, // 怒意狂击
-        { name: 'ogre_magi_multicast_lua', level: 4 }, // 月刃
-        { name: 'leshrac_defilement2', level: 3 }, // 魔王降临
-        { name: 'ability_trigger_learned_skills', level: 3 }, // 射手天赋
-        { name: 'ability_trigger_on_cast', level: 3 }, // 射手天赋
-        { name: 'ability_trigger_on_attacked', level: 3 }, // 连击
-        { name: 'ability_trigger_on_move', level: 3 }, // 炽魂
+        { name: 'dazzle_good_juju', level: 5 }, // 善咒
+        { name: 'earthshaker_aftershock', level: 3 }, // 余震
+        { name: 'ability_charge_damage', level: 5 }, // 青蝴蝶
+        { name: 'ogre_magi_multicast_lua', level: 4 }, // 多重施法
+        { name: 'leshrac_defilement2', level: 4 }, // 大肆污染
+        { name: 'ability_trigger_learned_skills', level: 4 }, // 蓝蝴蝶
+        { name: 'ability_trigger_on_cast', level: 4 }, // 红蝴蝶
+        { name: 'ability_trigger_on_attacked', level: 4 }, // 金蝴蝶
+        { name: 'ability_trigger_on_move', level: 4 }, // 橙影蝴蝶
       ],
       active: [
         { name: 'enigma_black_hole', level: 5 }, // 黑洞
         { name: 'juggernaut_omni_slash', level: 4 }, // 无敌斩
-        { name: 'abaddon_borrowed_time', level: 4 }, // 末日
-        { name: 'alchemist_chemical_rage', level: 3 }, // 死亡一指
-        { name: 'pudge_meat_hook', level: 2 }, // 肉钩
-        { name: 'gyrocopter_flak_cannon', level: 1 }, // 闪烁
-        { name: 'ability_trigger_on_active', level: 1 }, // 闪烁
-        { name: 'marci_unleash', level: 1 }, // 闪烁
-        { name: 'ability_mind_control', level: 1 }, // 闪烁
-        { name: 'tinker_rearm_lua', level: 1 }, // 闪烁
+        { name: 'abaddon_borrowed_time', level: 5 }, // 回光返照
+        { name: 'alchemist_chemical_rage', level: 5 }, // 化学狂暴
+        { name: 'pudge_meat_hook', level: 1 }, // 肉钩
+        { name: 'gyrocopter_flak_cannon', level: 5 }, // 高射火炮
+        { name: 'ability_trigger_on_active', level: 5 }, // 紫蝴蝶
+        { name: 'marci_unleash', level: 4 }, // 怒拳破
+        { name: 'ability_mind_control', level: 4 }, // 夺舍
+        { name: 'tinker_rearm_lua', level: 3 }, // 再装填
       ],
     },
   };
