@@ -1727,16 +1727,16 @@
 		"AbilityTextureName" 			"magic_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_magic_scepter"
+		"ScriptFile"					"items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"600"
+		"AbilityManaCost"				"450"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"7800"
+		"ItemCost"						"8000"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"magic scepter"
@@ -1749,7 +1749,7 @@
 		"AbilityValues"
 		{
 				"bonus_intelligence"		"60"	// tooltip, real value in item_magic_scepter_bonus_intelligence
-				"spell_amp_per_int"			"0.12"
+				"spell_amp_per_int"			"0.1"
 				"active_boost"				"50"
 				"active_boost_duration"		"4"
 		}
@@ -1795,11 +1795,11 @@
 		"AbilityTextureName" 			"hallowed_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_hallowed_scepter"
+		"ScriptFile"					"items/item_hallowed_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"1000"
+		"AbilityManaCost"				"900"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -7213,7 +7213,7 @@
 		"ItemResult"				"item_magic_abyss_staff"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_gungir_2;item_aether_lens_2;item_devastator_2;item_fusion_magic"
+			"01"					"item_hallowed_scepter;item_gungir_2;item_devastator_2;item_fusion_magic"
 		}
 	}
 	"item_magic_abyss_staff"
@@ -7226,8 +7226,8 @@
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"20.0"
-		"AbilityManaCost"			"150"
+		"AbilityCooldown"			"40.0"
+		"AbilityManaCost"			"900"
 
 		"ItemCost"					"25000"
 		"ItemShopTags"				"damage;int;hard_to_tag"
@@ -7236,7 +7236,7 @@
 		"AbilityValues"
 		{
 			"bonus_intellect"		"300"	// tooltip only, real value in modifier_item_magic_abyss_staff_stats
-			"active_duration"		"3"
+			"active_duration"		"4"
 			"convert_pct"			"50"
 			"spell_amp_per_int"		"0.2"
 		}
