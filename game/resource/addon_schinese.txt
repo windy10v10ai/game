@@ -1193,8 +1193,8 @@
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"减伤,加抗性，护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%,生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%,状态抗性增加%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%。"
 
 		// 德古拉面罩/生命之盔
-		"DOTA_Tooltip_Ability_item_dracula_mask"											"<font color='#8B0000'>生命之盔</font>"
-		"DOTA_Tooltip_ability_item_dracula_mask_Description"								"<h1><font color='#90EE90'>主动：吸血盛宴</h1>驱散所有负面效果,并在%active_duration%秒内获得:<br>%lifesteal_active%%%物理吸血<br>%spell_lifesteal_active%%%法术吸血<br>+%bonus_attack_speed_active%攻击速度<br>+%bonus_movement_speed_active%%%移动速度<br>%damage_reduction%%%减伤<br>免疫减速<br><br>生命值低于%hp_threshold%%%时自动触发。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n<h1>"
+		"DOTA_Tooltip_Ability_item_dracula_mask"										"<font color='#8B0000'>生命之盔</font>"
+		"DOTA_Tooltip_ability_item_dracula_mask_Description"							"<h1><font color='#90EE90'>主动：吸血盛宴</h1>驱散所有负面效果,并在%active_duration%秒内获得:<br>%lifesteal_active%%%物理吸血<br>%spell_lifesteal_active%%%法术吸血<br>+%bonus_attack_speed_active%攻击速度<br>+%bonus_movement_speed_active%%%移动速度<br>%damage_reduction%%%减伤<br>免疫减速<br><br>生命值低于%hp_threshold%%%时自动触发。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n<h1>"
 		"DOTA_Tooltip_ability_item_dracula_mask_Lore"									"饱含生命之力的头盔,赋予佩戴者永恒的生命力。"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_strength"							"+$str"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health"							"+$health"
@@ -1207,8 +1207,8 @@
 		"DOTA_Tooltip_ability_item_dracula_mask_Note1"									"自动触发后进入冷却。"
 		"DOTA_Tooltip_ability_item_dracula_mask_Note2"									"被动物理吸血和法术吸血效果持续生效。"
 
-		"DOTA_Tooltip_modifier_item_dracula_mask_active"									"吸血盛宴"
-		"DOTA_Tooltip_modifier_item_dracula_mask_active_Description"						"物理吸血增加至%dMODIFIER_PROPERTY_TOOLTIP%%%,法术吸血增加至%dMODIFIER_PROPERTY_TOOLTIP2%%%,攻击速度增加%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%,移动速度增加%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,受到伤害减少30%,免疫减速。"
+		"DOTA_Tooltip_modifier_item_dracula_mask_active"								"吸血盛宴"
+		"DOTA_Tooltip_modifier_item_dracula_mask_active_Description"					"物理吸血增加至%dMODIFIER_PROPERTY_TOOLTIP%%%,法术吸血增加至%dMODIFIER_PROPERTY_TOOLTIP2%%%,攻击速度增加%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%,移动速度增加%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,受到伤害减少30%,免疫减速。"
 
 		// 暗影裁决
 		"DOTA_Tooltip_Ability_item_shadow_judgment"										"<font color='#8A2BE2'>暗影裁决</font>"
@@ -1217,18 +1217,18 @@
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_agility"						"+$agi"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_intellect"						"+$int"
-		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_mana_regen"					"+$mana_regen"
 		"DOTA_Tooltip_ability_item_shadow_judgment_spell_amp"							"%+技能增强"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note0"								"一闪效果造成纯粹伤害，无视魔法免疫。"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note1"								"苍蓝幻想效果会持续驱散目标身上的增益效果。"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note2"								"苍蓝幻想的最大生命值伤害不受技能增强影响。"
 
-		"DOTA_Tooltip_modifier_shadow_judgment_mute"										"暗影审判：毁灭终曲"
-		"DOTA_Tooltip_modifier_shadow_judgment_mute_Description"							"装备被锁闭，被动和闪避被禁用，所有生命恢复降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，持续被驱散增益。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒损失4%%最大生命值。"
+		"DOTA_Tooltip_modifier_shadow_judgment_mute"									"暗影审判：毁灭终曲"
+		"DOTA_Tooltip_modifier_shadow_judgment_mute_Description"						"装备被锁闭，被动和闪避被禁用，所有生命恢复降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，持续被驱散增益。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒损失4%%最大生命值。"
 
 		"DOTA_Tooltip_modifier_shadow_judgment_silence"									"暗影审判：灵魂撕裂"
 		"DOTA_Tooltip_modifier_shadow_judgment_silence_Description"						"被沉默。效果结束时,期间受到伤害的%dMODIFIER_PROPERTY_TOOLTIP%%%将以额外魔法伤害的形式结算。"
