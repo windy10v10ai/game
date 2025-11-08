@@ -275,9 +275,12 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/spectre_dispersion2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"spectre_dispersion"
+    	"SpellImmunityType"  "SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"spectre_dispersion2"
 		"MaxLevel"						"5"
 		"HasShardUpgrade"				"1"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
 
 		"precache"
 		{
@@ -285,16 +288,10 @@
 		}
 		"AbilityValues"
 		{
-			"reflexion_chance"
-			{
-				"value"		"16 18 20 22 24"
-				"special_bonus_unique_spectre_5"		"+5"
-			}
-			"damage_pct"		"80 90 100 110 120"
 			"damage_reduction"
 			{
-				"value"				"0"
-				"special_bonus_shard"				"+16"
+				"value"				"7 10 13 16 19"
+				"special_bonus_shard"				"+3"
 			}
 		}
 	}

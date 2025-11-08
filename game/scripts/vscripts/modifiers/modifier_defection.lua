@@ -175,9 +175,20 @@ function modifier_defection:OnAttackStart(params)
     local target = params.target
 
     if target and target:IsRealHero() then
+        local attackerPlayerID = self:GetParent():GetPlayerOwnerID()
+
+        -- 检查击杀计数
+        _G.DefectionKillCount = _G.DefectionKillCount or {}
+        local killCount = _G.DefectionKillCount[attackerPlayerID] or 0
+
+        -- 如果击杀超过3名队友，允许攻击任何人
+        if killCount > 2 then
+            return -- 不阻止攻击
+        end
+
+        -- 否则，阻止攻击原队友
         if target:GetTeam() == self.originalTeam and IsHumanPlayer(target:GetPlayerOwnerID()) then
             self:GetParent():Stop()
-            --print("[Defection] Blocked attack on original teammate")
             return false
         end
     end
