@@ -1300,7 +1300,7 @@
 
 		// Tooltip
 		"DOTA_Tooltip_Ability_item_beast_shield"										"兽化盾"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，但无法攻击和移动，持续%active_duration%秒。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使魔法抗性提升%stack_resist%%%。"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，移动速度固定为%active_movespeed%，持续%active_duration%秒。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使魔法抗性提升%stack_resist%%%。"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"潜水服"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"每层增加%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"融合了兽化符文力量的终极防御装备，能让使用者化身为不可摧毁的堡垒。"

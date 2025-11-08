@@ -6809,6 +6809,7 @@
 			// 主动技能
 			"active_duration"				"6"
 			"active_bonus_multiplier_tooltip"	"100"
+			"active_movespeed"				"200"
 
 			// 法师泳衣被动
 			"stack_threshold"			"600"
@@ -6888,12 +6889,6 @@
 				"IsHidden"			"0"
 				"IsPurgable"		"0"
 
-				"States"
-				{
-					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
@@ -6903,6 +6898,7 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%active_movespeed"
 				}
 
 				"EffectName"		"particles/items_fx/aegis_lvl_1000_ambient.vpcf"
