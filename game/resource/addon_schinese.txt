@@ -587,12 +587,11 @@
 		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%状态抗性:"
 
 		//折射2
-		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（旧版）"
-		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"折射未触发时，也将提供%damage_reduction%%%伤害减免。"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"受到伤害时有概率免疫并反弹伤害"
-		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%反弹概率："
-		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%伤害反弹百分比："
-		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"折射的伤害与原伤害类型相同。"
+		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（改）"
+		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"提供%damage_reduction%%%伤害减免。"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"减免、积累并反弹一定比例的伤害（反弹间隔1s）"
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"	"%折射比例："
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"伤害类型为纯粹，不可以被技能增强，无视减益免疫"
 		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
 		//贪魔的贪婪
@@ -1230,9 +1229,6 @@
 
 		"DOTA_Tooltip_modifier_shadow_judgment_mute"										"暗影审判：毁灭终曲"
 		"DOTA_Tooltip_modifier_shadow_judgment_mute_Description"							"装备被锁闭，被动和闪避被禁用，所有生命恢复降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，持续被驱散增益。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒损失4%%最大生命值。"
-
-		"DOTA_Tooltip_modifier_shadow_judgment_corruption"								"暗影审判：绝对破防"
-		"DOTA_Tooltip_modifier_shadow_judgment_corruption_Description"					"护甲降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%。"
 
 		"DOTA_Tooltip_modifier_shadow_judgment_silence"									"暗影审判：灵魂撕裂"
 		"DOTA_Tooltip_modifier_shadow_judgment_silence_Description"						"被沉默。效果结束时,期间受到伤害的%dMODIFIER_PROPERTY_TOOLTIP%%%将以额外魔法伤害的形式结算。"
