@@ -27,6 +27,7 @@ export enum CMD {
   /** 对英雄造成存粹伤害 */
   DAMAGE_PURE = '-damagePure',
   HP_LOSS = '-hploss',
+  MP_LOSS = '-mploss',
   STUN = '-stun',
   SILENCE = '-silence',
   ROOT = '-root',

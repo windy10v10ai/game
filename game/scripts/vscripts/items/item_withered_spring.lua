@@ -13,8 +13,8 @@ function item_withered_spring:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration")
 
-    -- BKB 音效
-    caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
+    -- 回血 音效
+    caster:EmitSound("Item.GuardianGreaves.Activate")
 
     -- 永恒之盘触发音效
     caster:EmitSound("DOTA_Item.AeonDisk.Activate")
@@ -36,15 +36,6 @@ function item_withered_spring:OnSpellStart()
         caster
     )
     ParticleManager:ReleaseParticleIndex(particle)
-
-    -- 额外的冲击波特效
-    local particle_shockwave = ParticleManager:CreateParticle(
-        "particles/items4_fx/combo_breaker.vpcf",
-        PATTACH_ABSORIGIN,
-        caster
-    )
-    ParticleManager:SetParticleControl(particle_shockwave, 0, caster:GetAbsOrigin())
-    ParticleManager:ReleaseParticleIndex(particle_shockwave)
 end
 
 -- 被动modifier
