@@ -17,27 +17,57 @@
 3. **最小化 Lua 代码**: 仅在 DataDriven 无法实现的功能时使用 Lua
 4. **保持功能完整**: 优化后物品功能必须与优化前完全一致
 
+### 实现方式优先级
+
+优化物品时，按以下优先级选择实现方式：
+
+**1. 优先 DataDriven** ⭐⭐⭐
+
+- 静态属性加成 → 使用 `Properties` 块
+- 状态控制 → 使用 `States` 块
+- 主动技能 → 使用 `OnSpellStart` + DataDriven Actions
+- 特效音效 → 使用 `EffectName` + `FireSound`
+
+**2. 其次 Dota 2 原生 Modifier** ⭐⭐
+
+- 复杂被动效果 → 复用原生 modifier（如 `modifier_item_eternal_shroud`）
+- 在 Lua 的 OnCreated 中添加: `caster:AddNewModifier(caster, ability, "modifier_xxx", {})`
+- 原生 modifier 自动从 `AbilityValues` 读取参数
+
+**3. 最后 Lua Modifier** ⭐
+
+- 仅在 DataDriven 和原生 modifier 都无法实现时使用
+- 动态计算的属性（基于层数、生命值百分比等）
+- 特殊功能（`MODIFIER_PROPERTY_ABSORB_SPELL` 等）
+- 复杂的伤害计算和冷却管理
+
+**优化目标**: 尽可能使用 DataDriven（性能最优）> 原生 modifier（次优）> Lua modifier（最差）
+
 ### 可使用 DataDriven 实现的属性列表
 
 **⚠️ 重要**: 只有以下列表中的属性可以迁移到 DataDriven,不在列表中的属性必须保留在 Lua 中。
 
 #### 基础属性
+
 - `MODIFIER_PROPERTY_STATS_STRENGTH_BONUS` - 力量加成
 - `MODIFIER_PROPERTY_STATS_AGILITY_BONUS` - 敏捷加成
 - `MODIFIER_PROPERTY_STATS_INTELLECT_BONUS` - 智力加成
 
 #### 攻击相关
+
 - `MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE` - 攻击力加成
 - `MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT` - 攻击速度加成(固定值)
 - `MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE` - 基础伤害加成百分比
 - `MODIFIER_PROPERTY_ATTACK_RANGE_BONUS` - 攻击距离加成
 
 #### 防御相关
+
 - `MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS` - 物理护甲加成
 - `MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS` - 魔法抗性加成
 - `MODIFIER_PROPERTY_EVASION_CONSTANT` - 闪避率
 
 #### 移动相关
+
 - `MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT` - 移动速度加成(固定值)
 - `MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE` - 移动速度加成百分比
 - `MODIFIER_PROPERTY_MOVESPEED_BONUS_UNIQUE` - 移动速度加成(唯一)
@@ -45,13 +75,51 @@
 - `MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE` - 转身速率百分比
 
 #### 生命/魔法相关
+
 - `MODIFIER_PROPERTY_HEALTH_BONUS` - 生命值加成
 - `MODIFIER_PROPERTY_MANA_BONUS` - 魔法值加成
 - `MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT` - 生命恢复(固定值)
 - `MODIFIER_PROPERTY_MANA_REGEN_CONSTANT` - 魔法恢复(固定值)
 
 #### 法术相关
+
 - `MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE` - 法术增强百分比
+
+### 可使用 DataDriven 实现的状态 (States)
+
+DataDriven modifier 支持通过 `States` 块控制单位状态:
+
+```kv
+"States"
+{
+    "MODIFIER_STATE_ROOTED"     "MODIFIER_STATE_VALUE_ENABLED"
+    "MODIFIER_STATE_DISARMED"   "MODIFIER_STATE_VALUE_ENABLED"
+}
+```
+
+**常用状态列表**:
+
+- `MODIFIER_STATE_ROOTED` - 禁锢（无法移动）
+- `MODIFIER_STATE_DISARMED` - 缴械（无法攻击）
+- `MODIFIER_STATE_SILENCED` - 沉默（无法施法）
+- `MODIFIER_STATE_MUTED` - 锁闭（无法使用物品）
+- `MODIFIER_STATE_STUNNED` - 眩晕
+- `MODIFIER_STATE_HEXED` - 妖术
+- `MODIFIER_STATE_INVISIBLE` - 隐身
+- `MODIFIER_STATE_INVULNERABLE` - 无敌
+- `MODIFIER_STATE_MAGIC_IMMUNE` - 魔法免疫
+- `MODIFIER_STATE_FLYING` - 飞行
+- `MODIFIER_STATE_NO_HEALTH_BAR` - 隐藏血条
+- `MODIFIER_STATE_NO_UNIT_COLLISION` - 无视单位碰撞
+- `MODIFIER_STATE_ATTACK_IMMUNE` - 攻击免疫
+- `MODIFIER_STATE_UNSELECTABLE` - 无法选中
+- `MODIFIER_STATE_CANNOT_MISS` - 攻击不会 Miss
+- `MODIFIER_STATE_BLIND` - 致盲（攻击会 Miss）
+
+**状态值**:
+
+- `MODIFIER_STATE_VALUE_ENABLED` - 启用状态
+- `MODIFIER_STATE_VALUE_DISABLED` - 禁用状态
 
 ### 必须保留在 Lua 中的功能
 
@@ -68,6 +136,7 @@
 对于复杂被动效果,优先考虑复用 Dota 2 原生 modifier,无需虚拟物品:
 
 **直接添加原生 modifier**:
+
 ```lua
 -- OnCreated 回调
 caster:AddNewModifier(caster, ability, "modifier_item_eternal_shroud", {})
@@ -77,12 +146,14 @@ caster:RemoveModifierByName("modifier_item_eternal_shroud")
 ```
 
 **要点**:
+
 - 原生 modifier 会从传入的 `ability` 读取 `AbilityValues`
 - 在自定义物品的 `AbilityValues` 中添加原生 modifier 需要的参数
 - 无需创建虚拟物品或 dummy item
 - 不要在 DataDriven Modifiers 块中定义已有的原生 modifier
 
 **示例**: 复用法师泳衣 (Eternal Shroud) 被动
+
 ```kv
 "AbilityValues"
 {
@@ -103,10 +174,12 @@ caster:RemoveModifierByName("modifier_item_eternal_shroud")
 #### 步骤 1: 分析现有 Lua 实现
 
 读取以下文件:
+
 1. `game/scripts/vscripts/items/item_<物品名>.lua` - Lua 逻辑
 2. `game/scripts/npc/npc_items_custom.txt` - 物品定义(搜索 `item_<物品名>`)
 
 识别:
+
 - ✅ 可以迁移到 DataDriven 的静态属性(在上述列表中)
 - ❌ 必须保留在 Lua 中的复杂逻辑
 - 🔍 主动技能逻辑
@@ -450,6 +523,7 @@ end
 如果优化前使用了 `RefreshItemDataDrivenModifier`:
 
 1. **检查 Lua 代码**:
+
    ```lua
    // 旧代码中是否有这样的调用?
    RefreshItemDataDrivenModifier(_, self:GetAbility(), "modifier_item_<物品名>_stats")
@@ -467,6 +541,7 @@ end
 ### 代码模式总结
 
 **优化前 (item_lua)**:
+
 ```
 Lua: 完整的 modifier class
 ├── DeclareFunctions() - 声明所有属性
@@ -478,6 +553,7 @@ KV: 仅物品定义和 AbilityValues
 ```
 
 **优化后 (item_datadriven)**:
+
 ```
 KV: 物品定义 + Modifiers 块
 ├── modifier_item_<物品名> (主 modifier)
@@ -504,11 +580,13 @@ Lua: 最小化代码
 ### 参考示例: item_beast_armor
 
 **优化前问题**:
+
 - 使用 `item_lua` BaseClass
 - 所有属性在 Lua 中通过 `GetModifier*()` 计算
 - 每帧调用 Lua,造成性能问题
 
 **优化后实现**:
+
 1. **BaseClass 改为 `item_datadriven`**
 2. **静态属性迁移到 DataDriven**:
    - 力量、敏捷、智力
@@ -546,11 +624,13 @@ Lua: 最小化代码
 ## 使用此 Meta Prompt
 
 当需要优化某个物品时,向 AI 提供:
+
 1. 物品名称 (如 `item_beast_armor`)
 2. 此 meta prompt 文档
 3. 让 AI 按照步骤执行优化
 
 AI 将自动:
+
 1. 读取现有实现
 2. 识别可优化的属性
 3. 生成优化后的 KV 和 Lua 代码

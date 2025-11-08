@@ -6806,9 +6806,9 @@
 
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 主动技能
-			"active_duration"			"6"
-			"active_bonus_multiplier"	"100"
+			// 主动技能
+			"active_duration"				"6"
+			"active_bonus_multiplier_tooltip"	"100"
 
 			// 法师泳衣被动
 			"stack_threshold"			"600"
@@ -6829,10 +6829,17 @@
 
 		"OnSpellStart"
 		{
-			"RunScript"
+			"FireSound"
 			{
-				"ScriptFile"	"items/item_beast_shield"
-				"Function"		"OnSpellStart"
+				"EffectName"	"DOTA_Item.BladeMail.Activate"
+				"Target"		"CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_item_beast_shield_active"
+				"Target"		"CASTER"
+				"Duration"		"%active_duration"
 			}
 		}
 
@@ -6874,6 +6881,32 @@
 						"Function"		"BeastShieldOnDestroy"
 					}
 				}
+			}
+
+			"modifier_item_beast_shield_active"
+			{
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+
+				"States"
+				{
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_strength"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%bonus_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_spell_resist"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+				}
+
+				"EffectName"		"particles/units/heroes/hero_dark_willow/dark_willow_bramble_cast.vpcf"
+				"EffectAttachType"	"PATTACH_ABSORIGIN_FOLLOW"
 			}
 		}
 	}
