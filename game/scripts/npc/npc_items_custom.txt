@@ -7235,6 +7235,7 @@
 
 		"AbilityValues"
 		{
+			"bonus_intellect"		"300"	// tooltip only, real value in modifier_item_magic_abyss_staff_stats
 			"active_duration"		"3"
 			"convert_pct"			"50"
 			"spell_amp_per_int"		"0.2"
