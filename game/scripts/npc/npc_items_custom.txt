@@ -6810,6 +6810,7 @@
 			"active_duration"				"6"
 			"active_bonus_multiplier_tooltip"	"100"
 			"active_movespeed"				"200"
+			// BKB
 			"magic_resist"					"100"
 
 			// 法师泳衣被动
