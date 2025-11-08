@@ -63,6 +63,41 @@
 - 需要维护冷却时间的被动效果
 - 动态计算的属性值(基于生命值百分比、层数等)
 
+### 复用原生 Modifier
+
+对于复杂被动效果,优先考虑复用 Dota 2 原生 modifier,无需虚拟物品:
+
+**直接添加原生 modifier**:
+```lua
+-- OnCreated 回调
+caster:AddNewModifier(caster, ability, "modifier_item_eternal_shroud", {})
+
+-- OnDestroy 回调
+caster:RemoveModifierByName("modifier_item_eternal_shroud")
+```
+
+**要点**:
+- 原生 modifier 会从传入的 `ability` 读取 `AbilityValues`
+- 在自定义物品的 `AbilityValues` 中添加原生 modifier 需要的参数
+- 无需创建虚拟物品或 dummy item
+- 不要在 DataDriven Modifiers 块中定义已有的原生 modifier
+
+**示例**: 复用法师泳衣 (Eternal Shroud) 被动
+```kv
+"AbilityValues"
+{
+    // 自定义物品属性
+    "bonus_strength"     "150"
+
+    // Eternal Shroud modifier 需要的参数
+    "mana_restore_pct"   "50"
+    "stack_threshold"    "600"
+    "stack_duration"     "10"
+    "max_stacks"         "8"
+    "stack_resist"       "4"
+}
+```
+
 ### 优化实施步骤
 
 #### 步骤 1: 分析现有 Lua 实现
@@ -227,6 +262,8 @@
 ```
 
 #### 步骤 3: 重写 Lua 文件
+
+**重要**: Lua 文件使用 **4 个空格**缩进,不使用 tab。
 
 **3.1 文件头部(LinkLuaModifier)**
 
@@ -408,6 +445,25 @@ function modifier_item_<物品名>_<特殊功能>:GetAbsorbSpell(params)
 end
 ```
 
+#### 步骤 4: 清理旧定义
+
+如果优化前使用了 `RefreshItemDataDrivenModifier`:
+
+1. **检查 Lua 代码**:
+   ```lua
+   // 旧代码中是否有这样的调用?
+   RefreshItemDataDrivenModifier(_, self:GetAbility(), "modifier_item_<物品名>_stats")
+   ```
+
+2. **删除 npc_items_modifier.txt 中的旧定义**:
+   ```kv
+   // 删除这个块
+   "modifier_item_<物品名>_stats"
+   {
+       "Properties" { ... }
+   }
+   ```
+
 ### 代码模式总结
 
 **优化前 (item_lua)**:
@@ -482,6 +538,8 @@ Lua: 最小化代码
 3. **代码简洁性**: 不保留已删除代码的注释
 4. **测试验证**: 优化后必须测试所有功能
 5. **特效和音效**: 确保所有特效和音效正常播放
+6. **清理旧定义**: 如果之前使用了 `RefreshItemDataDrivenModifier`,优化后需要删除 `npc_items_modifier.txt` 中的旧 modifier 定义
+7. **避免冗余代码**: 不需要 `SetSecondaryCharges` 等物品叠加显示逻辑,除非有特殊需求
 
 ---
 
