@@ -6830,9 +6830,9 @@
 
 			// 强袭光环
 			"aura_radius"					"900"
-			"aura_positive_armor"			"10"
-			"aura_attack_speed"				"60"
-			"aura_negative_armor"			"-10"
+			"aura_positive_armor"			"15"
+			"aura_attack_speed"				"90"
+			"aura_negative_armor"			"-15"
 		}
 
 		"OnSpellStart"
