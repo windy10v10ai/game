@@ -6296,7 +6296,7 @@
 	}
 
 	//=================================================================================================================
-	// 枯木逢春
+	// 枯木逢春 生命之心
 	//=================================================================================================================
 	// 咸鱼之王+卫士胫甲+item_undying_heart+洞察盔甲+item_fusion_life 主动：枯木逢春：融合几个效果的主动，生命低于20%自动触发 被动：继承所有装备的被动
 	"item_recipe_withered_spring"
@@ -6831,7 +6831,7 @@
 		{
 			"FireSound"
 			{
-				"EffectName"	"DOTA_Item.BladeMail.Activate"
+				"EffectName"	"DOTA_Item.BlackKingBar.Activate"
 				"Target"		"CASTER"
 			}
 
@@ -6905,7 +6905,7 @@
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
 				}
 
-				"EffectName"		"particles/units/heroes/hero_dark_willow/dark_willow_bramble_cast.vpcf"
+				"EffectName"		"particles/items_fx/aegis_lvl_1000_ambient.vpcf"
 				"EffectAttachType"	"PATTACH_ABSORIGIN_FOLLOW"
 			}
 		}
