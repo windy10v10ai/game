@@ -1296,7 +1296,7 @@
 
 		// Tooltip
 		"DOTA_Tooltip_Ability_item_beast_shield"										"兽化盾"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，移动速度固定为%active_movespeed%，持续%active_duration%秒。提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使魔法抗性提升%stack_resist%%%。"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，移动速度固定为%active_movespeed%，持续%active_duration%秒。<br>提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使魔法抗性提升%stack_resist%%%。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"潜水服"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"每层增加%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"融合了兽化符文力量的终极防御装备，能让使用者化身为不可摧毁的堡垒。"
@@ -1307,8 +1307,14 @@
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_health_regen"				"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_damage"					"+$damage"
+
 		"DOTA_Tooltip_modifier_item_beast_shield_active"								"人形肉盾"
-		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"所有加成提升，但无法攻击和移动。"
+		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"所有加成提升，移动速度减慢。"
+
+		"DOTA_Tooltip_modifier_item_beast_shield_aura"									"兽化盾强袭光环"
+		"DOTA_Tooltip_modifier_item_beast_shield_aura_Description"						"获得%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲和%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
+		"DOTA_Tooltip_modifier_item_beast_shield_enemy_aura"							"兽化盾强袭光环"
+		"DOTA_Tooltip_modifier_item_beast_shield_enemy_aura_Description"				"护甲被降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。"
 
 		// item_beast_armor 兽化甲
 		"DOTA_Tooltip_Ability_item_beast_armor"											"兽化甲"
