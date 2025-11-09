@@ -137,11 +137,11 @@ function modifier_item_magic_abyss_staff_active:OnTakeDamage(params)
         damage = pure_damage,
         damage_type = DAMAGE_TYPE_PURE,
         ability = ability,
-        damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
+        damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_REFLECTION,
     })
 
     -- 【新增】显示金色伤害数字
-    -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, params.unit, actual_damage, nil)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, params.unit, actual_damage, nil)
 end
 
 function modifier_item_magic_abyss_staff_active:GetTexture()
