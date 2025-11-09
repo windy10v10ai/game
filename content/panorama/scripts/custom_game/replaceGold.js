@@ -13,6 +13,9 @@ function SwapInGameGold() {
 }
 
 function SwapGoldLabelText() {
+  const localPlayerID = Game.GetLocalPlayerID();
+  if (localPlayerID === undefined) return;
+
   if (!topmostpanel) {
     topmostpanel = $.GetContextPanel();
     while (topmostpanel.GetParent() != null) {
@@ -25,9 +28,9 @@ function SwapGoldLabelText() {
   }
 
   const virtualGold =
-    CustomNetTables.GetTableValue('player_virtual_gold', Game.GetLocalPlayerID().toString())
-      ?.virtual_gold ?? 0;
-  const currentGold = Players.GetGold(Game.GetLocalPlayerID());
+    CustomNetTables.GetTableValue('player_virtual_gold', localPlayerID.toString())?.virtual_gold ??
+    0;
+  const currentGold = Players.GetGold(localPlayerID);
   if (goldLabel) {
     goldLabel.text = currentGold + virtualGold;
   }
