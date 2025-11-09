@@ -89,7 +89,67 @@
             }
         }
 	}
+//卧底/叛变
+"ability_defection"
+{
+    "BaseClass"             "ability_lua"
+    "ScriptFile"            "abilities/ability_defection"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"  // 改为 IMMEDIATE
+    "AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityTextureName"    "defection"
+	"MaxLevel"              "3"
+    "RequiredLevel"         "6"
+    "LevelsBetweenUpgrades" "6"
+    "AbilityCastPoint"      "0.0"
+    "AbilityCooldown"       "3.0 1.5 0.0"  // 添加短冷却防止误触
+    "AbilityManaCost"       "200 100 0"
+}
+"ability_mind_control"
+{
+    "BaseClass"             "ability_datadriven"
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+    "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+    "AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+    "AbilityUnitTargetFlags" "DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+    "SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_NO"
+    "AbilityTextureName"    "mind_control"
 
+    "AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
+    "MaxLevel"              "3"
+    "RequiredLevel"         "10"
+    "LevelsBetweenUpgrades" "10"
+
+    "AbilityCastRange"      "3000"
+    "AbilityCastPoint"      "0.3"
+    "AbilityCooldown"       "100"
+    "AbilityManaCost"       "200 300 400"
+
+    "AbilityValues"
+    {
+        "duration"
+        {
+            "value"         "7 10 13"
+        }
+        "damage_reduction"
+        {
+            "value"         "-75 -85 -95"  // 负数表示减伤
+        }
+        "status_resistance"
+        {
+            "value"         "75 85 95"
+        }
+    }
+
+    "OnSpellStart"
+    {
+        "ApplyModifier"
+        {
+            "Target"        "TARGET"
+            "ModifierName"  "modifier_mind_control"
+            "Duration"      "999999999"
+        }
+    }
+}
 	//================================================
 	// dummy unit passive (collection of global modifiers)
 	//================================================
@@ -3161,7 +3221,7 @@
 			"reflect_damage_pct"        "100"
 
 			// 反弹概率
-			"reflect_chance"            "10 15 20 25 30"
+			"reflect_chance"            "30 40 50 60 70"
 
 			// 触发技能概率(在反弹成功后)
 			"basic_trigger_chance"            "80"

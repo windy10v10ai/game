@@ -25,6 +25,19 @@ function modifier_item_magic_abyss_staff:IsPurgable() return false end
 
 function modifier_item_magic_abyss_staff:RemoveOnDeath() return false end
 
+function modifier_item_magic_abyss_staff:OnCreated()
+    self.stats_modifier_name = "modifier_item_magic_abyss_staff_stats"
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_magic_abyss_staff:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
 function modifier_item_magic_abyss_staff:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
@@ -97,6 +110,9 @@ end
 function modifier_item_magic_abyss_staff_active:OnTakeDamage(params)
     if not IsServer() then return end
 
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
+
     -- 只处理自己造成的伤害
     if params.attacker ~= self:GetParent() then return end
 
@@ -129,5 +145,5 @@ function modifier_item_magic_abyss_staff_active:OnTakeDamage(params)
 end
 
 function modifier_item_magic_abyss_staff_active:GetTexture()
-    return "item_magic_abyss_staff"
+    return "moyuanfazhang"
 end

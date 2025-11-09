@@ -116,8 +116,8 @@ export class GameEndPoint {
     if (!option.enablePlayerAttribute) {
       multiplier += 0.2;
     }
-    // 相同英雄选择 -- 实际上目前是全英雄随机
-    if (option.sameHeroSelection) {
+    // 强制随机英雄
+    if (option.forceRandomHero) {
       multiplier += 0.2;
     }
     // 防御塔倍率
@@ -142,18 +142,15 @@ export class GameEndPoint {
       multiplier -= 0.2;
     }
 
-    // 勾选额外技能时，降低倍率
-    if (option.extraPassiveAbilities) {
-      multiplier -= 0.2;
-    }
-
     // ---- 以上使用加减法计算倍率 ----
 
     // 电脑玩家数量
     multiplier *= option.direPlayerNumber / 10;
     // 复活时间
     if (option.respawnTimePercentage <= 10) {
-      multiplier *= 0.6;
+      multiplier *= 0.7;
+    } else if (option.respawnTimePercentage <= 50) {
+      multiplier *= 0.9;
     }
 
     // 不为负数

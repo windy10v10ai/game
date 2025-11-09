@@ -7,5 +7,5 @@ export class EventBaseDto {
 
   steamId: number;
 
-  isWin?: boolean;
+  isWin: boolean;
 }

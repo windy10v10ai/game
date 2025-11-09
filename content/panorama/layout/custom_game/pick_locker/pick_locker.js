@@ -36,7 +36,7 @@ function PickRandomHero() {
 function PickLocker() {
   // 检查是否启用强制随机模式
   const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
-  if (gameOptions && gameOptions.same_hero_selection === 1) {
+  if (gameOptions && gameOptions.force_random_hero === 1) {
     // 强制随机模式:锁定所有选择按钮
     lockForceRandomMode();
     PickLockerLoop();

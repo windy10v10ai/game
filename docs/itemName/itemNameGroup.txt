@@ -137,7 +137,6 @@
  		    "item"		"item_yasha"  //夜叉
  		    "item"		"item_kaya"  //慧光
  		    "item"		"item_maelstrom"  //旋涡
-		    "item"		"item_dragon_lance_pro_max"  //魔龙枪 PRO MAX
 		    "item"		"item_echo_sabre_2"  //音速战刃
 		    "item"		"item_blue_fantasy"  //苍蓝幻想
  		    "item"		"item_mage_slayer"  //法师克星

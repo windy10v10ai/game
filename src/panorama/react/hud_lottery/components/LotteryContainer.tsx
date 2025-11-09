@@ -24,10 +24,6 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 const LotteryContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
-  // 直接读取游戏选项，不需要状态和 useEffect
-  const gameOptions = CustomNetTables.GetTableValue('game_options', 'game_options');
-  const extraPassiveEnabled = gameOptions?.extra_passive_abilities === 1;
-
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     // 位置
     marginTop: '120px',
@@ -52,7 +48,7 @@ const LotteryContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
       <Panel style={rowStyle}>
         <Label style={titleStyle} text={$.Localize('#lottery_passive_ability_title')} />
         <LotteryRow type="abilityPassive" />
-        {extraPassiveEnabled && <LotteryRow type="abilityPassive2" />}
+        <LotteryRow type="abilityPassive2" />
       </Panel>
     </Panel>
   );
