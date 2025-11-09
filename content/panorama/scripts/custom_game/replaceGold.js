@@ -14,6 +14,7 @@ function SwapInGameGold() {
 
 function SwapGoldLabelText() {
   const player_info = Game.GetLocalPlayerInfo();
+  // 观战时没有玩家信息，不执行
   if (!player_info) return;
   const localPlayerID = player_info.player_id;
 
