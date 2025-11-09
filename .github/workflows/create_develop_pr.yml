@@ -9,6 +9,10 @@ jobs:
   create_pull_request:
     if: github.actor == 'windybirth'
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: read
     steps:
       - name: Check out base code
         uses: actions/checkout@v5

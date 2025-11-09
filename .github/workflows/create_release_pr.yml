@@ -12,6 +12,9 @@ on:
 jobs:
   create_pull_request:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Check out code
         uses: actions/checkout@v5
