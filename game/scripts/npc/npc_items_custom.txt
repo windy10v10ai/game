@@ -5070,12 +5070,12 @@
 	{
 		"ID"							"9590"
 		"BaseClass"						"item_recipe_bfury"
-		"ItemCost"						"600"
+		"ItemCost"						"4100"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_bfury_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_bfury_2;item_relic;item_relic"
+			"01"						"item_bfury;item_relic;item_quelling_blade_2_datadriven"
 		}
 	}
 
@@ -5096,17 +5096,17 @@
 
 		"AbilityValues"
 		{
-				"bonus_damage"			"200"
-				"bonus_health_regen"	"30"
-				"bonus_mana_regen"		"10"
-				"cleave_damage_percent"	"100"
-				"cleave_damage_percent_creep"	"120"
+				"bonus_damage"			"160"
+				"bonus_health_regen"	"20"
+				"bonus_mana_regen"		"8"
+				"cleave_damage_percent"	"80"
+				"cleave_damage_percent_creep"	"80"
 				"quelling_bonus"			"100"
 				"quelling_bonus_ranged"	"60"
 
 				"cleave_starting_width"			"150"
 				"cleave_ending_width"			"500"
-				"cleave_distance"			"1000"
+				"cleave_distance"				"900"
 				"upgraded_cleave_bonus"			"25"
 				"upgraded_damage_bonus"			"15"
 		}
@@ -7295,8 +7295,8 @@
 			"cleave_damage_percent"			"100"	// 溅射伤害百分比（英雄）
 			"cleave_damage_percent_creep"	"120"	// 溅射伤害百分比（小兵）
 			"cleave_starting_width"			"150"	// 溅射起始宽度
-			"cleave_ending_width"			"360"	// 溅射结束宽度
-			"cleave_distance"				"600"	// 溅射距离
+			"cleave_ending_width"			"500"	// 溅射结束宽度
+			"cleave_distance"				"1000"	// 溅射距离
 
 			// Debuff
 			"debuff_duration"			"4.0"	// Debuff持续时间
