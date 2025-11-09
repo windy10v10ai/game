@@ -57,7 +57,6 @@
 
 		"#dota_item_build_windy_physical_core_items"
 		{
-			"item"		"item_bfury_2"  //超级狂战斧
 			"item"		"item_infernal_desolator"  //绝对破防之刃
 			"item"		"item_monkey_king_bar_2"  //定海神针
 			"item"		"item_shotgun_v2"  //三管霰弹枪
@@ -115,7 +114,6 @@
 		{
 		    "item"		"item_basher"  //碎颅锤
 		    "item"		"item_greater_crit"  //代达罗斯之殇
-		    "item"		"item_bfury_2"  //超级狂战斧
 		    "item"		"item_ethereal_blade"  //虚灵之刃
 		    "item"		"item_nullifier"  //否决坠饰
 		    "item"		"item_bloodthorn"  //血棘

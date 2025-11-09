@@ -289,6 +289,25 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
 
+### 读取 Dota 2 官方说明:
+
+编写物品/技能说明时，应参考 Dota 2 官方文本以保持术语一致性。
+
+**参考文件位置**:
+
+- 中文: `docs/reference/7.39/abilities_schinese.txt`
+- 英文: `docs/reference/7.39/abilities_english.txt`
+
+**使用方法**:
+
+```bash
+# 搜索狂战斧的中文说明
+grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abilities_schinese.txt
+
+# 搜索狂战斧的英文说明
+grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abilities_english.txt
+```
+
 ## 开发文档索引
 
 `docs/development/` 目录包含详细的开发指南和最佳实践文档。在处理相关任务时,请参考这些文档:
@@ -359,6 +378,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **适用场景**: 优化物品性能,将 Lua 物品迁移到 DataDriven 实现
 
 **使用方式**:
+
 - **命令方式**: 使用 `/optimize-item` 命令快速调用
 - **手动引用**: 在对话中引用该文档
 
@@ -382,10 +402,13 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 **优化效果**: 减少 Lua 代码量 60-80%,显著降低 CPU 占用,减少卡顿
 
 **使用示例**:
+
 ```
 /optimize-item item_xxx
 ```
+
 或
+
 ```
 请按照 docs/development/item-optimization-meta-prompt.md 中的 Meta Prompt 优化 item_xxx
 ```

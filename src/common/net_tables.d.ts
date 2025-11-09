@@ -34,6 +34,7 @@ declare global {
     };
     ending_status: {
       ending_status: { status: number };
+      ending_data: { winner_team_id: number };
     };
     member_table: {
       [steamAccountID: string]: MemberDto;

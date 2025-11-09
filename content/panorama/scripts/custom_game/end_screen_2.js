@@ -221,7 +221,11 @@ function Snippet_Team(team) {
 }
 
 function OnGameResult(_table, key, value) {
-  if (!value?.status || value.status < 1) {
+  if (key !== 'ending_data') {
+    return;
+  }
+
+  if (!value?.winner_team_id) {
     return;
   }
 
@@ -233,8 +237,7 @@ function OnGameResult(_table, key, value) {
 
   var result_label = $('#EndScreenVictory');
 
-  $.Msg(`[EndScreen2] winner is ${Game.GetGameWinner()}`);
-  if (Game.GetGameWinner() === 2) {
+  if (value.winner_team_id === 2) {
     result_label.text = $.Localize('#custom_end_screen_victory_message');
     result_label.style.color = '#5ebd51';
   } else {
@@ -259,25 +262,6 @@ function OnGameResult(_table, key, value) {
   }
 }
 
-// function OnGameEndingStatusChange(table, key, value) {
-// 	$.Msg("OnGameEndingStatusChange", table, key, value);
-// 	if (value) {
-// 		const status = value.status;
-// 		$("#GameEndingStatusText").text = $.Localize("#ending_status_" + status);
-// 		if (status == 1) {
-// 			$("#CloseButton").enabled = false;
-// 		}
-// 		if (status == 2) {
-// 			$("#CloseButton").enabled = true;
-// 			$("#GameEndingStatusText").style.color = "#6bc1ff";
-// 		}
-// 		if (status == 3) {
-// 			$("#CloseButton").enabled = true;
-// 			$("#GameEndingStatusText").style.color = "#ff8367";
-// 		}
-// 	}
-// }
-
 (function () {
   $.Msg('CustomGameEndScreen2.js loaded');
   GameUI.SetDefaultUIEnabled(DotaDefaultUIElement_t.DOTA_DEFAULT_UI_ENDGAME, false);
@@ -291,5 +275,5 @@ function OnGameResult(_table, key, value) {
   $('#EndScreenWindow').visible = false;
   CustomNetTables.SubscribeNetTableListener('ending_status', OnGameResult);
   // CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
-  OnGameResult(null, null, CustomNetTables.GetTableValue('ending_status', 'ending_status'));
+  OnGameResult(null, 'ending_data', CustomNetTables.GetTableValue('ending_status', 'ending_data'));
 })();
