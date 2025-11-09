@@ -243,6 +243,19 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"20"
 				}
 			}
+			// 魔渊法杖
+			"modifier_item_magic_abyss_staff_stats"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"300"
+				}
+			}
 			// 鹰眼炮台
 			"modifier_item_hawkeye_turret_stats"
 			{
