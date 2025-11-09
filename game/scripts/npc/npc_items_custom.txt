@@ -17,7 +17,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"0"
+		"ItemCost"					"4000"
 		"ItemShopTags"				""
 
 		// Recipe
@@ -26,7 +26,7 @@
 		"ItemResult"				"item_moon_shard_datadriven"
 		"ItemRequirements"
 		{
-			"01"					"item_hyperstone;item_hyperstone;item_hyperstone;item_hyperstone"
+			"01"					"item_hyperstone;item_hyperstone"
 		}
 	}
 	//=================================================================================================================
@@ -58,7 +58,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_attack_speed"			"240"	// 现在一个振奋宝石是60
+				"bonus_attack_speed"			"200"
 				"bonus_night_vision"			"400"
 				"consumed_bonus_attack_speed"	"100"	// tooltip only
 				"consumed_bonus_night_vision"	"200"	// tooltip only
