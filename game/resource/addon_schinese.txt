@@ -1193,8 +1193,8 @@
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"减伤,加抗性，护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%,生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%,状态抗性增加%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%。"
 
 		// 德古拉面罩/生命之盔
-		"DOTA_Tooltip_Ability_item_dracula_mask"											"<font color='#8B0000'>生命之盔</font>"
-		"DOTA_Tooltip_ability_item_dracula_mask_Description"								"<h1><font color='#90EE90'>主动：吸血盛宴</h1>驱散所有负面效果,并在%active_duration%秒内获得:<br>%lifesteal_active%%%物理吸血<br>%spell_lifesteal_active%%%法术吸血<br>+%bonus_attack_speed_active%攻击速度<br>+%bonus_movement_speed_active%%%移动速度<br>%damage_reduction%%%减伤<br>免疫减速<br><br>生命值低于%hp_threshold%%%时自动触发。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n<h1>"
+		"DOTA_Tooltip_Ability_item_dracula_mask"										"<font color='#8B0000'>生命之盔</font>"
+		"DOTA_Tooltip_ability_item_dracula_mask_Description"							"<h1><font color='#90EE90'>主动：吸血盛宴</h1>驱散所有负面效果,并在%active_duration%秒内获得:<br>%lifesteal_active%%%物理吸血<br>%spell_lifesteal_active%%%法术吸血<br>+%bonus_attack_speed_active%攻击速度<br>+%bonus_movement_speed_active%%%移动速度<br>%damage_reduction%%%减伤<br>免疫减速<br><br>生命值低于%hp_threshold%%%时自动触发。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n<h1>"
 		"DOTA_Tooltip_ability_item_dracula_mask_Lore"									"饱含生命之力的头盔,赋予佩戴者永恒的生命力。"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_strength"							"+$str"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health"							"+$health"
@@ -1207,8 +1207,8 @@
 		"DOTA_Tooltip_ability_item_dracula_mask_Note1"									"自动触发后进入冷却。"
 		"DOTA_Tooltip_ability_item_dracula_mask_Note2"									"被动物理吸血和法术吸血效果持续生效。"
 
-		"DOTA_Tooltip_modifier_item_dracula_mask_active"									"吸血盛宴"
-		"DOTA_Tooltip_modifier_item_dracula_mask_active_Description"						"物理吸血增加至%dMODIFIER_PROPERTY_TOOLTIP%%%,法术吸血增加至%dMODIFIER_PROPERTY_TOOLTIP2%%%,攻击速度增加%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%,移动速度增加%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,受到伤害减少30%,免疫减速。"
+		"DOTA_Tooltip_modifier_item_dracula_mask_active"								"吸血盛宴"
+		"DOTA_Tooltip_modifier_item_dracula_mask_active_Description"					"物理吸血增加至%dMODIFIER_PROPERTY_TOOLTIP%%%,法术吸血增加至%dMODIFIER_PROPERTY_TOOLTIP2%%%,攻击速度增加%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%,移动速度增加%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,受到伤害减少30%,免疫减速。"
 
 		// 暗影裁决
 		"DOTA_Tooltip_Ability_item_shadow_judgment"										"<font color='#8A2BE2'>暗影裁决</font>"
@@ -1217,18 +1217,18 @@
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_agility"						"+$agi"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_intellect"						"+$int"
-		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_health"							"+$health"
-		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_health"						"+$health"
+		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_mana_regen"					"+$mana_regen"
 		"DOTA_Tooltip_ability_item_shadow_judgment_spell_amp"							"%+技能增强"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note0"								"一闪效果造成纯粹伤害，无视魔法免疫。"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note1"								"苍蓝幻想效果会持续驱散目标身上的增益效果。"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note2"								"苍蓝幻想的最大生命值伤害不受技能增强影响。"
 
-		"DOTA_Tooltip_modifier_shadow_judgment_mute"										"暗影审判：毁灭终曲"
-		"DOTA_Tooltip_modifier_shadow_judgment_mute_Description"							"装备被锁闭，被动和闪避被禁用，所有生命恢复降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，持续被驱散增益。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒损失4%%最大生命值。"
+		"DOTA_Tooltip_modifier_shadow_judgment_mute"									"暗影审判：毁灭终曲"
+		"DOTA_Tooltip_modifier_shadow_judgment_mute_Description"						"装备被锁闭，被动和闪避被禁用，所有生命恢复降低%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，持续被驱散增益。移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。每秒损失4%%最大生命值。"
 
 		"DOTA_Tooltip_modifier_shadow_judgment_silence"									"暗影审判：灵魂撕裂"
 		"DOTA_Tooltip_modifier_shadow_judgment_silence_Description"						"被沉默。效果结束时,期间受到伤害的%dMODIFIER_PROPERTY_TOOLTIP%%%将以额外魔法伤害的形式结算。"
@@ -1294,9 +1294,9 @@
 		"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"							"%+$manacost_reduction"
 		"DOTA_Tooltip_ability_item_time_gem_cast_speed_pct"								"%+施法速度加成"
 
-		// Tooltip
+		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"兽化盾"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，移动速度固定为%active_movespeed%，持续%active_duration%秒。提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使魔法抗性提升%stack_resist%%%。"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，移动速度固定为%active_movespeed%，持续%active_duration%秒。<br>提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：潜水服</h1>装备的英雄每受到%stack_threshold%点技能伤害，就会获得一层持续%stack_duration%秒的叠加效果，最多为%max_stacks%层。每层效果会使魔法抗性提升%stack_resist%%%。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"潜水服"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"每层增加%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"融合了兽化符文力量的终极防御装备，能让使用者化身为不可摧毁的堡垒。"
@@ -1307,8 +1307,14 @@
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_health_regen"				"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_damage"					"+$damage"
+
 		"DOTA_Tooltip_modifier_item_beast_shield_active"								"人形肉盾"
-		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"所有加成提升，但无法攻击和移动。"
+		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"所有加成提升，移动速度减慢。"
+
+		"DOTA_Tooltip_modifier_item_beast_shield_aura"									"兽化盾强袭光环"
+		"DOTA_Tooltip_modifier_item_beast_shield_aura_Description"						"获得%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲和%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"
+		"DOTA_Tooltip_modifier_item_beast_shield_enemy_aura"							"兽化盾强袭光环"
+		"DOTA_Tooltip_modifier_item_beast_shield_enemy_aura_Description"				"护甲被降低%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。"
 
 		// item_beast_armor 兽化甲
 		"DOTA_Tooltip_Ability_item_beast_armor"											"兽化甲"
@@ -1339,7 +1345,7 @@
 		"DOTA_Tooltip_Ability_item_magic_abyss_staff"									"魔渊法杖"
 		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"						"<h1>主动: <font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的魔法伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
 		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"								"佛曰：一念成佛，一念成魔。"
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intelligence"				"+$int"
+		"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intellect"					"+$int"
 
 		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"							"一念成佛"
 		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"				"魔法伤害的 %dMODIFIER_PROPERTY_TOOLTIP%%% 转化为纯粹伤害"

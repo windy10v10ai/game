@@ -1727,16 +1727,16 @@
 		"AbilityTextureName" 			"magic_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_magic_scepter"
+		"ScriptFile"					"items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"600"
+		"AbilityManaCost"				"450"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"7800"
+		"ItemCost"						"8000"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"magic scepter"
@@ -1749,7 +1749,7 @@
 		"AbilityValues"
 		{
 				"bonus_intelligence"		"60"	// tooltip, real value in item_magic_scepter_bonus_intelligence
-				"spell_amp_per_int"			"0.12"
+				"spell_amp_per_int"			"0.1"
 				"active_boost"				"50"
 				"active_boost_duration"		"4"
 		}
@@ -1795,11 +1795,11 @@
 		"AbilityTextureName" 			"hallowed_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_hallowed_scepter"
+		"ScriptFile"					"items/item_hallowed_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"1000"
+		"AbilityManaCost"				"900"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -6809,7 +6809,8 @@
 			// 主动技能
 			"active_duration"				"6"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"200"
+			"active_movespeed"				"300"
+			// BKB
 			"magic_resist"					"100"
 
 			// 法师泳衣被动
@@ -6822,11 +6823,17 @@
 			// 被动属性
 			"passive_bonus_strength"			"150"
 			"passive_bonus_health"				"2500"
-			"passive_bonus_armor"				"80"
+			"passive_bonus_armor"				"60"
 			"passive_bonus_spell_resist"		"60"
 			"passive_bonus_health_regen"		"50"
 			"passive_bonus_attack_speed"		"50"
 			"passive_bonus_damage"				"100"
+
+			// 强袭光环
+			"aura_radius"					"900"
+			"aura_positive_armor"			"15"
+			"aura_attack_speed"				"90"
+			"aura_negative_armor"			"-15"
 		}
 
 		"OnSpellStart"
@@ -6911,6 +6918,59 @@
 
 				"EffectName"		"particles/items_fx/aegis_lvl_1000_ambient.vpcf"
 				"EffectAttachType"	"PATTACH_ABSORIGIN_FOLLOW"
+			}
+
+			"modifier_item_beast_shield_aura_emitter"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Aura" 					"modifier_item_beast_shield_aura"
+				"Aura_Radius" 			"%aura_radius"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				"Aura_ApplyToCaster" 	"1"
+			}
+
+			"modifier_item_beast_shield_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%aura_positive_armor"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%aura_attack_speed"
+				}
+			}
+
+			"modifier_item_beast_shield_enemy_aura_emitter"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+
+				"Aura" 					"modifier_item_beast_shield_enemy_aura"
+				"Aura_Radius" 			"%aura_radius"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				"Aura_ApplyToCaster" 	"0"
+			}
+
+			"modifier_item_beast_shield_enemy_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsBuff"			"0"
+				"IsPurgable"		"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%aura_negative_armor"
+				}
 			}
 		}
 	}
@@ -7153,7 +7213,7 @@
 		"ItemResult"				"item_magic_abyss_staff"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_gungir_2;item_aether_lens_2;item_devastator_2;item_fusion_magic"
+			"01"					"item_hallowed_scepter;item_gungir_2;item_devastator_2;item_fusion_magic"
 		}
 	}
 	"item_magic_abyss_staff"
@@ -7166,8 +7226,8 @@
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"20.0"
-		"AbilityManaCost"			"150"
+		"AbilityCooldown"			"40.0"
+		"AbilityManaCost"			"900"
 
 		"ItemCost"					"25000"
 		"ItemShopTags"				"damage;int;hard_to_tag"
@@ -7175,7 +7235,8 @@
 
 		"AbilityValues"
 		{
-			"active_duration"		"3"
+			"bonus_intellect"		"300"	// tooltip only, real value in modifier_item_magic_abyss_staff_stats
+			"active_duration"		"4"
 			"convert_pct"			"50"
 			"spell_amp_per_int"		"0.2"
 		}
