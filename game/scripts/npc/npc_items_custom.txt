@@ -7286,14 +7286,17 @@
 
 			// 被动属性
 			"bonus_all_stats"			"80"	// 全属性
+
+			// 狂战斧属性（modifier_item_battlefury）
 			"bonus_damage"				"500"	// 攻击力
 			"bonus_health_regen"		"30"	// 生命回复
 			"bonus_mana_regen"			"10"	// 魔法回复
-
-			// 溅射和减速参数（Lua 逻辑需要 - 事件驱动）
-			"cleave_distance"			"600"	// Lua 逻辑需要 - 溅射范围
-			"cleave_damage_percent"		"100"	// Lua 逻辑需要 - 溅射伤害百分比（英雄）
-			"cleave_damage_percent_creep" "120"	// Lua 逻辑需要 - 溅射伤害百分比（小兵）
+			// 狂战斧溅射参数
+			"cleave_damage_percent"			"100"	// 溅射伤害百分比（英雄）
+			"cleave_damage_percent_creep"	"120"	// 溅射伤害百分比（小兵）
+			"cleave_starting_width"			"150"	// 溅射起始宽度
+			"cleave_ending_width"			"360"	// 溅射结束宽度
+			"cleave_distance"				"600"	// 溅射距离
 
 			// Debuff
 			"debuff_duration"			"4.0"	// Debuff持续时间
@@ -7327,18 +7330,28 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%bonus_health_regen"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"%bonus_mana_regen"
 				}
 
-				"OnAttackLanded"
+				"OnCreated"
 				{
 					"RunScript"
 					{
 						"ScriptFile"		"items/item_magic_sword"
-						"Function"			"MagicSwordCleaveEffect"
+						"Function"			"MagicSwordOnCreated"
 					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"items/item_magic_sword"
+						"Function"			"MagicSwordOnDestroy"
+					}
+				}
+
+				"OnAttackLanded"
+				{
 					"ApplyModifier"
 					{
 						"Target"			"TARGET"
