@@ -3388,22 +3388,22 @@
 			}
 			"hook_speed"
 			{
-				"value"						"1600 1800 2000 2200 2500 3000 3500" // 1600 增长率与距离增长率同步
+				"value"						"1600 1800 2000 2200 2400 2600 2800" // 1600 增长率与距离增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+0"
 			}
 			"AbilityCastRange"
 			{
-				"value"						"1600 1800 2000 2200 2500 3000 3500" // 1300 增长率与钩子速度增长率同步
+				"value"						"1300 1500 1700 1900 2100 2300 2500" // 1300 增长率与钩子速度增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+15%"
 			}
 			"AbilityCooldown"
 			{
-				"value"							"18 16 14 12 10 10 10"
+				"value"							"18 17 16 15 14 13 12"
 			}
 
 			"distance_to_damage"
 			{
-				"special_bonus_shard" "12 18 24 30 36 50 60"
+				"special_bonus_shard" "12 18 24 30 36 42 48"
 			}
 		}
 	}
