@@ -6809,7 +6809,7 @@
 			// 主动技能
 			"active_duration"				"6"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"200"
+			"active_movespeed"				"300"
 			// BKB
 			"magic_resist"					"100"
 
@@ -6823,7 +6823,7 @@
 			// 被动属性
 			"passive_bonus_strength"			"150"
 			"passive_bonus_health"				"2500"
-			"passive_bonus_armor"				"80"
+			"passive_bonus_armor"				"60"
 			"passive_bonus_spell_resist"		"60"
 			"passive_bonus_health_regen"		"50"
 			"passive_bonus_attack_speed"		"50"
