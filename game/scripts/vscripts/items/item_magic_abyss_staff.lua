@@ -25,6 +25,19 @@ function modifier_item_magic_abyss_staff:IsPurgable() return false end
 
 function modifier_item_magic_abyss_staff:RemoveOnDeath() return false end
 
+function modifier_item_magic_abyss_staff:OnCreated()
+    self.stats_modifier_name = "modifier_item_magic_abyss_staff_stats"
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
+function modifier_item_magic_abyss_staff:OnDestroy()
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
 function modifier_item_magic_abyss_staff:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
