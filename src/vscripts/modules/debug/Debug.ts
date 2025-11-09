@@ -1,3 +1,4 @@
+import { GA4 } from '../../api/analytics/ga4';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
@@ -40,7 +41,96 @@ export class Debug {
     // commands that only work in debug mode below:
     if (!this.DebugEnabled) return;
 
-    // add ability by name
+    // ---- 常用命令 ----
+
+    if (cmd === CMD.V) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const pos = hero.GetAbsOrigin();
+      const vectorString = `Vector(${Math.floor(pos.x)}, ${Math.floor(pos.y)}, ${Math.floor(
+        pos.z,
+      )})`;
+      this.log(`当前位置: ${vectorString}`);
+    }
+    if (cmd === CMD.M) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const modifiers = hero.FindAllModifiers();
+      for (const modifier of modifiers) {
+        this.log(modifier.GetName());
+      }
+    }
+    if (cmd === CMD.A) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      const abilities = hero.GetAbilityCount();
+      this.log(`abilities: ${abilities}`);
+      for (let i = 0; i < abilities; i++) {
+        const ability = hero.GetAbilityByIndex(i);
+        if (!ability) continue;
+        this.log(ability.GetName());
+      }
+    }
+
+    if (cmd === CMD.REFRESH_AI) {
+      this.log(`REFRESH_AI`);
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        GameRules.AI.EnableAI(hero);
+      });
+    }
+
+    if (cmd === CMD.T) {
+      this.log(`Time: ${Time()}`);
+      this.log(`GameTime: ${GameRules.GetGameTime()}`);
+      this.log(`GetDOTATime: ${GameRules.GetDOTATime(false, true)}`);
+      GA4.FetchCurrentTime((timestamp) => {
+        this.log(`FetchCurrentTime: ${timestamp}`);
+      });
+    }
+
+    if (cmd === CMD.SHARD) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.AddItemByName('item_aghanims_shard');
+    }
+
+    if (cmd === CMD.G) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      // 获得金钱经验技能升满
+      hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
+      hero.AddExperience(99999, ModifyXpReason.UNSPECIFIED, false, true);
+      // refresh teleport
+      hero.GetItemInSlot(15)?.EndCooldown();
+    }
+
+    if (cmd === CMD.G_ALL) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        // 获得金钱经验技能升满
+        hero.ModifyGold(50000, false, ModifyGoldReason.UNSPECIFIED);
+        hero.AddExperience(50000, ModifyXpReason.UNSPECIFIED, false, true);
+      });
+    }
+
+    if (cmd === CMD.L_ALL) {
+      for (let i = 0; i < 30; i++) {
+        Timers.CreateTimer(i * 3, () => {
+          PlayerHelper.ForEachPlayer((playerId) => {
+            const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+            if (!hero) return;
+            // 升级 加钱
+            hero.HeroLevelUp(true);
+            hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
+          });
+        });
+      }
+    }
+
+    // ---- ability ----
     if (cmd === CMD.ADD_ABILITY) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
@@ -129,91 +219,12 @@ export class Debug {
       });
     }
 
-    if (cmd === CMD.V) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const pos = hero.GetAbsOrigin();
-      const vectorString = `Vector(${Math.floor(pos.x)}, ${Math.floor(pos.y)}, ${Math.floor(
-        pos.z,
-      )})`;
-      this.log(`当前位置: ${vectorString}`);
-    }
-    if (cmd === CMD.M) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const modifiers = hero.FindAllModifiers();
-      for (const modifier of modifiers) {
-        this.log(modifier.GetName());
-      }
-    }
-    // log all abilities
-    if (cmd === CMD.A) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const abilities = hero.GetAbilityCount();
-      this.log(`abilities: ${abilities}`);
-      for (let i = 0; i < abilities; i++) {
-        const ability = hero.GetAbilityByIndex(i);
-        if (!ability) continue;
-        this.log(ability.GetName());
-      }
-    }
-    if (cmd === CMD.SHARD) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      hero.AddItemByName('item_aghanims_shard');
-    }
-
-    if (cmd === CMD.G) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      // 获得金钱经验技能升满
-      hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
-      hero.AddExperience(99999, ModifyXpReason.UNSPECIFIED, false, true);
-      // refresh teleport
-      hero.GetItemInSlot(15)?.EndCooldown();
-    }
-
-    // 常用命令
-    if (cmd === CMD.G_ALL) {
-      PlayerHelper.ForEachPlayer((playerId) => {
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (!hero) return;
-        // 获得金钱经验技能升满
-        hero.ModifyGold(50000, false, ModifyGoldReason.UNSPECIFIED);
-        hero.AddExperience(50000, ModifyXpReason.UNSPECIFIED, false, true);
-      });
-    }
-
-    if (cmd === CMD.L_ALL) {
-      for (let i = 0; i < 30; i++) {
-        Timers.CreateTimer(i * 3, () => {
-          PlayerHelper.ForEachPlayer((playerId) => {
-            const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-            if (!hero) return;
-            // 升级 加钱
-            hero.HeroLevelUp(true);
-            hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
-          });
-        });
-      }
-    }
-
     if (cmd === CMD.LOTTERY) {
       GameRules.Lottery.initLotteryAll();
     }
 
     if (cmd === CMD.END) {
       GameEnd.OnGameEnd(2);
-    }
-
-    if (cmd === CMD.REFRESH_AI) {
-      this.log(`REFRESH_AI`);
-      PlayerHelper.ForEachPlayer((playerId) => {
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (!hero) return;
-        GameRules.AI.EnableAI(hero);
-      });
     }
 
     if (cmd === CMD.KILL) {
@@ -270,7 +281,6 @@ export class Debug {
       const modifierName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
         // add modifier
-        // TODO 物品modifier
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (hero) {
           for (let i = 0; i < modiferCount; i++) {
@@ -293,6 +303,7 @@ export class Debug {
       });
     }
 
+    // ---- 当前英雄相关 ----
     if (cmd === CMD.REPLACE_HERO) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
@@ -341,6 +352,12 @@ export class Debug {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       hero.SetHealth(hero.GetHealth() * 0.1);
+    }
+    // 减少魔法值
+    if (cmd === CMD.MP_LOSS) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.SetMana(hero.GetMana() * 0.1);
     }
     // 晕眩
     if (cmd === CMD.STUN) {

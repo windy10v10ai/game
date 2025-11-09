@@ -39,10 +39,8 @@
 		"starting_gold_player"		"Player Starting Gold"
 		"starting_gold_bot"			"Bot Starting Gold"
 		"fixed_ability"				"Fixed Ability"
-		"same_hero_selection"		"Allow Same Hero Selection"
 		"force_random_hero"			"Force Random Hero"
 		"enable_player_attribute"	"Enable Player Attribute"
-		"extra_passive_abilities"	"Extra Passive Abilities"
 		"hide_chat_team"			"Hide Chat and Team"
 		"show_chat_team"			"Show Chat and Team"
 
@@ -1602,10 +1600,10 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
 
 		// item_ultimate_scepter_2
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"						"Aghanim's Regalia"
-		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted all benefits from Aghanim's Regalia, including your Ultimate Upgrade as well as %dMODIFIER_PROPERTY_HEALTH_BONUS% bonus health, %dMODIFIER_PROPERTY_MANA_BONUS% bonus mana, and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage."
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2"									"Aghanim's Regalia"
-		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>Use: Permanently Upgrade</h1> Consume the Aghanim's Regalia to permanently gain your Ultimate Upgrade, +%bonus_health% health, +%bonus_mana% mana, and +%spell_amp%%% spell damage.\n<h1>Passive: Ultimate Upgrade</h1> Upgrades the ultimate, and some abilities, of certain heroes.\nThis item may be used on allied heroes who have not consumed this item yet."
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"Aghanim's Regalia"
+		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted Aghanim's Regalia benefits, %dMODIFIER_PROPERTY_HEALTH_BONUS% health, %dMODIFIER_PROPERTY_MANA_BONUS% mana, and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% all attributes."
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2"								"Aghanim's Regalia"
+		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Description"					"<h1>Use: Permanently Upgrade</h1> Consume the Aghanim's Regalia to permanently gain your Ultimate Upgrade and attribute bonuses. Cannot stack with itself.<br>Can be used on allied heroes.\n<h1>Passive: Ultimate Upgrade</h1> Upgrades the ultimate, and some abilities, of certain heroes."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_Lore"							"The regalia of a wizard with demigod-like powers."
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_all_stats"				"+$all"
 		"DOTA_Tooltip_ability_item_ultimate_scepter_2_bonus_health"					"+$health"
@@ -1798,27 +1796,6 @@
 
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active"	                "Hallowed Spell Boost"
 		"DOTA_Tooltip_modifier_item_hallowed_scepter_active_Description"	    "Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Spell Amplification"
-
-		// item_dragon_lance_plus 魔龙枪plus
-		// "DOTA_Tooltip_Ability_item_dragon_lance_plus"							"Dragon Lance Plus"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_Description"				"<h1>Active: Quick draw</h1> Grants %active_boost% attack speed for  %active_boost_duration% seconds."
-		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_Lore"						"（Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_agility"		  		 "+$agi"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_strength"		   "+$str"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_plus_bonus_attack_range"	   "+$attack_range"
-
-		// "DOTA_Tooltip_modifier_item_dragon_lance_plus_active"	                "Quick draw"
-		// "DOTA_Tooltip_modifier_item_dragon_lance_plus_active_Description"	    "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
-
-		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max"						"Dragon Lance Pro Max"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Description"			"<h1>Active: Quick Draw!</h1> Grants %active_boost% attack speed for %active_boost_duration% seconds."
-		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_Lore"					"Attack range）become more longer and（bonus）become more strengther is the eternal pursuit of all people"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_agility"		    "+$agi"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_strength"		    "+$str"
-		// "DOTA_Tooltip_Ability_item_dragon_lance_pro_max_bonus_attack_range"	    "+$attack_range"
-
-		// "DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active"	             "Quick Draw"
-		// "DOTA_Tooltip_modifier_item_dragon_lance_pro_max_active_Description"	 "Granting <font color='#49bf57'>%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font> Attack Speed"
 
 		// item_hurricane_pike_2 黄金魔龙枪
 		"DOTA_Tooltip_Ability_item_hurricane_pike_2"			"<font color='#FFD700'>Golden Hurricane Pike</font>"
@@ -2781,53 +2758,58 @@
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_range"             "+$attack_range"
 		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"				"%+$bat_reduction_pct"
 
-// Ten Thousand Swords (万剑归宗)
-"DOTA_Tooltip_Ability_item_ten_thousand_swords"                    "Ten Thousand Swords"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"        "<h1><font color='#FFFF00'>Passive: Sword Mastery</h1>Gains the power of all four Artifacts, greatly increasing all attributes, status resistance, attack speed, movement speed, health regeneration, mana regeneration, and spell amplification. Attacks deal bonus magical damage."
-"DOTA_Tooltip_ability_item_ten_thousand_swords_Lore"              "Ten Thousand Swords, invincible. The power of the four Artifacts converges here, forging a supreme weapon."
-"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_strength"         "+$str"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_agility"          "+$agi"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_intellect"        "+$int"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_status_resistance"      "%+Status Resistance"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_attack_speed"     "+$attack"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_movement_speed_percent_bonus" "%+$move_speed"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_hp_regen_amp"           "%+Health Regen and Lifesteal Enhancement"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_mana_regen_multiplier"  "%+Mana Regen Enhancement"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_spell_amp"              "%+Spell Amplification"
-"DOTA_Tooltip_ability_item_ten_thousand_swords_magic_damage_attack"    "+Magic Damage Attack"
+		// Ten Thousand Swords (万剑归宗)
+		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"Ten Thousand Swords"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"						"<h1><font color='#FFFF00'>Passive: Sword Mastery</h1>Gains the power of all four Artifacts, greatly increasing all attributes, status resistance, attack speed, movement speed, health regeneration, mana regeneration, and spell amplification. Attacks deal bonus magical damage."
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_Lore"								"Ten Thousand Swords, invincible. The power of the four Artifacts converges here, forging a supreme weapon."
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_agility"					"+$agi"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_intellect"					"+$int"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_status_resistance"				"%+Status Resistance"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_movement_speed_percent_bonus"	"%+$move_speed"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_hp_regen_amp"					"%+Health Regen and Lifesteal Enhancement"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_mana_regen_multiplier"			"%+Mana Regen Enhancement"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_spell_amp"						"%+Spell Amplification"
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_magic_damage_attack"				"+Magic Damage Attack"
 
 		// Time Gem (时间宝石)
-		"DOTA_Tooltip_Ability_item_time_gem"                           "Time Gem"
-		"DOTA_Tooltip_ability_item_time_gem_Description"               "<h1><font color='#FFFF00'>Active: Time Manipulation</h1>Reset the cooldowns of all items and abilities.<br><br>Cooldown: %AbilityCooldown% seconds\n<h1>Passive: Time Acceleration</h1>Reduces the cooldowns of all abilities and items by %bonus_cooldown%%%."
-		"DOTA_Tooltip_ability_item_time_gem_Lore"                      "The mysterious gem that controls the flow of time, allowing the user to manipulate the flow of time."
-		"DOTA_Tooltip_ability_item_time_gem_Note0"                     "Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem). Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem)."
-		"DOTA_Tooltip_ability_item_time_gem_Note1"                     "Shares cooling time with other refresh ball series items."
-		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"            "%+$cooldown_reduction"
-		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"           "+$all"
-		"DOTA_Tooltip_ability_item_time_gem_cast_range_bonus"          "+$cast_range"
-		"DOTA_Tooltip_ability_item_time_gem_bonus_health"              "+$health"
-		"DOTA_Tooltip_ability_item_time_gem_bonus_mana"                "+$mana"
-		"DOTA_Tooltip_ability_item_time_gem_bonus_health_regen"        "+$hp_regen"
-		"DOTA_Tooltip_ability_item_time_gem_bonus_mana_regen"          "+$mana_regen"
-		"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"			"%+$manacost_reduction"
-		"DOTA_Tooltip_ability_item_time_gem_cast_speed_pct"				"%+Cast Speed Bonus"
+		"DOTA_Tooltip_Ability_item_time_gem"											"Time Gem"
+		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>Active: Time Manipulation</h1>Reset the cooldowns of all items and abilities.<br><br>Cooldown: %AbilityCooldown% seconds\n<h1>Passive: Time Acceleration</h1>Reduces the cooldowns of all abilities and items by %bonus_cooldown%%%."
+		"DOTA_Tooltip_ability_item_time_gem_Lore"										"The mysterious gem that controls the flow of time, allowing the user to manipulate the flow of time."
+		"DOTA_Tooltip_ability_item_time_gem_Note0"										"Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem). Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem)."
+		"DOTA_Tooltip_ability_item_time_gem_Note1"										"Shares cooling time with other refresh ball series items."
+		"DOTA_Tooltip_ability_item_time_gem_bonus_cooldown"								"%+$cooldown_reduction"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_all_stats"							"+$all"
+		"DOTA_Tooltip_ability_item_time_gem_cast_range_bonus"							"+$cast_range"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_health"								"+$health"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_mana"									"+$mana"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_health_regen"							"+$hp_regen"
+		"DOTA_Tooltip_ability_item_time_gem_bonus_mana_regen"							"+$mana_regen"
+		"DOTA_Tooltip_ability_item_time_gem_manacost_reduction"							"%+$manacost_reduction"
+		"DOTA_Tooltip_ability_item_time_gem_cast_speed_pct"								"%+Cast Speed Bonus"
 
-		// Tooltip
 		// item_beast_shield 兽化盾
-		"DOTA_Tooltip_Ability_item_beast_shield"                    "Beast Shield"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"        "<h1>Active: Human Shield</h1>Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier%%%, but cannot attack or move, for %active_duration% seconds.<br><br><h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.<br><h1>Passive: Diving Suit</h1>For each %stack_threshold% skill damage taken, the hero gains one layer of stacking effect for %stack_duration% seconds, up to %max_stacks% layers. Each layer increases magic resistance by %stack_resist%%%."
-		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"           "Diving Suit"
-		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description" "Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
-		"DOTA_Tooltip_ability_item_beast_shield_Lore"              "The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."
-		"DOTA_Tooltip_ability_item_beast_shield_bonus_strength"    "+$str"
-		"DOTA_Tooltip_ability_item_beast_shield_bonus_health"      "+$health"
-		"DOTA_Tooltip_ability_item_beast_shield_bonus_armor"       "+$armor"
-		"DOTA_Tooltip_ability_item_beast_shield_bonus_spell_resist" "%+$spell_resist"
-		"DOTA_Tooltip_ability_item_beast_shield_bonus_health_regen" "+$hp_regen"
-		"DOTA_Tooltip_ability_item_beast_shield_bonus_mana_regen"  "+$mana_regen"
-		"DOTA_Tooltip_ability_item_beast_shield_bonus_attack_speed" "+$attack"
-		"DOTA_Tooltip_modifier_item_beast_shield_active"           "Human Shield"
-		"DOTA_Tooltip_modifier_item_beast_shield_active_Description" "All bonuses are increased, but cannot attack or move."
+		"DOTA_Tooltip_Ability_item_beast_shield"										"Beast Shield"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, movement speed is set to %active_movespeed%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Diving Suit</h1>For each %stack_threshold% skill damage taken, the hero gains one layer of stacking effect for %stack_duration% seconds, up to %max_stacks% layers. Each layer increases magic resistance by %stack_resist%%%.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"Diving Suit"
+		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
+		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."
+		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_health"					"+$health"
+		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_armor"					"+$armor"
+		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_spell_resist"				"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_health_regen"				"+$hp_regen"
+		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_damage"					"+$damage"
+
+		"DOTA_Tooltip_modifier_item_beast_shield_active"								"Human Shield"
+		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"All bonuses are increased, movement speed slowed."
+
+		"DOTA_Tooltip_modifier_item_beast_shield_aura"									"Beast Shield Assault Aura"
+		"DOTA_Tooltip_modifier_item_beast_shield_aura_Description"						"Gaining %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
+		"DOTA_Tooltip_modifier_item_beast_shield_enemy_aura"							"Beast Shield Assault Aura"
+		"DOTA_Tooltip_modifier_item_beast_shield_enemy_aura_Description"				"Armor decreased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
 		// item_beast_armor 兽化甲
 		"DOTA_Tooltip_Ability_item_beast_armor"											"Beast Armor"
@@ -2854,14 +2836,14 @@
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura"					"Burning Damage"
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura_Description"		"Takes %dMODIFIER_PROPERTY_TOOLTIP% damage per second, and attacks have a %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% chance to miss."
 
-// item_magic_abyss_staff 魔渊法杖
-"DOTA_Tooltip_Ability_item_magic_abyss_staff"                               "Magic Abyss Staff"
-"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"                   "<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your magic damage is converted into additional pure damage.\n<h1>Passive: Spell Amplification</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
-"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"                          "Buddha said: One thought to become Buddha, one thought to become demon."
-"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intelligence"            "+$int"
+		// item_magic_abyss_staff 魔渊法杖
+		"DOTA_Tooltip_Ability_item_magic_abyss_staff"									"Magic Abyss Staff"
+		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"						"<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your magic damage is converted into additional pure damage.\n<h1>Passive: Spell Amplification</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"								"Buddha said: One thought to become Buddha, one thought to become demon."
+		"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intellect"					"+$int"
 
-"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"                       "Enlighten"
-"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"           "%dMODIFIER_PROPERTY_TOOLTIP%%% of magic damage converted to pure damage"
+		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"							"Enlighten"
+		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"				"%dMODIFIER_PROPERTY_TOOLTIP%%% of magic damage converted to pure damage"
 
 		// Magic Sword (魔渊剑)
 		"DOTA_Tooltip_Ability_item_magic_sword"											"Demonic Sword"
@@ -2947,6 +2929,20 @@
 
 "DOTA_Tooltip_ability_boss_death_power"                     "Death Power"
 "DOTA_Tooltip_ability_boss_death_power_Description"         "Each time the Boss is killed, it gains 1 percent permanent damage reduction and damage output increase. The more times killed, the stronger it becomes."
+
+"DOTA_Tooltip_ability_ability_mind_control"                     "Mind Control"
+"DOTA_Tooltip_ability_ability_mind_control_Description"         "Take control of an enemy AI hero for %duration% seconds. You can temporarily control their movement, attacks, and spells. During the control period, the hero's team allegiance changes, and kills or deaths count towards you. However, the AI's residual consciousness may still compete with you for control."
+"DOTA_Tooltip_ability_ability_mind_control_Lore"                "Invade the enemy's consciousness and briefly seize control of their body."
+"DOTA_Tooltip_ability_ability_mind_control_duration"            "DURATION:"
+"DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%DAMAGE REDUCTION:"
+"DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%STATUS RESISTANCE:"
+
+"DOTA_Tooltip_ability_ability_defection"                     "Defection"
+"DOTA_Tooltip_ability_ability_defection_Description"         "Switch freely between Radiant, Dire, and Neutral factions. Cannot attack human players on the Radiant side. 2 seconds delay before swith back to radiant. 20% damage decrease when in Neutral faction"
+"DOTA_Tooltip_ability_ability_defection_Lore"                "Serve one master while your heart belongs to another, or simply betray them all?"
+
+"DOTA_Tooltip_modifier_defection"                           "Defection"
+"DOTA_Tooltip_modifier_defection_Description"               "1=Radiant, 2=Dire, 3=Neutral"
 		"npc_windy"                                 "Windy"
 		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}

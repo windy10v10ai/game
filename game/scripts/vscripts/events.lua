@@ -17,7 +17,6 @@ function AIGameMode:OnGetLoadingSetOptions(eventSourceIndex, args)
 
     self.iStartingGoldPlayer = tonumber(args.game_options.starting_gold_player)
     self.iStartingGoldBot = tonumber(args.game_options.starting_gold_bot)
-    self.bSameHeroSelection = args.game_options.same_hero_selection
     self:PreGameOptions()
 end
 
@@ -343,124 +342,34 @@ function AIGameMode:SetUnitShareMask(data)
         CustomNetTables:SetTableValue("disable_help", tostring(playerId), disableHelp)
     end
 end
--- 技能重置:移除技能
-CustomGameEventManager:RegisterListener("skill_reset_remove_ability", function(userId, event)
-    local playerID = event.PlayerID
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    if not hero then return end
 
-    local abilityName = event.ability_name
-    local ability = hero:FindAbilityByName(abilityName)
-    if ability then
-        local level = ability:GetLevel()
-        hero:RemoveAbility(abilityName)
-        hero:SetAbilityPoints(hero:GetAbilityPoints() + level)
-        print("[SkillReset] Removed ability: " .. abilityName .. ", returned " .. level .. " points")
-    end
-end)
+-- -- 技能重置:移除技能
+-- CustomGameEventManager:RegisterListener("skill_reset_remove_ability", function(userId, event)
+--     local playerID = event.PlayerID
+--     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+--     if not hero then return end
 
--- 技能重置:添加技能
-CustomGameEventManager:RegisterListener("skill_reset_add_ability", function(userId, event)
-    local playerID = event.PlayerID
-    local hero = PlayerResource:GetSelectedHeroEntity(playerID)
-    if not hero then return end
-
-    local abilityName = event.ability_name
-    hero:AddAbility(abilityName)
-    print("[SkillReset] Added ability: " .. abilityName)
-
-    -- 清除 CustomNetTables 数据
-    local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
-    CustomNetTables:SetTableValue("skill_reset", tostring(steamAccountID), nil)
-end)
--- function AIGameMode:OnPlayerReconnect(keys)
---     local playerID = keys.PlayerID
---     if not self.tHumanPlayerList[playerID] then
---         DisconnectClient(playerID, true)
---         return
+--     local abilityName = event.ability_name
+--     local ability = hero:FindAbilityByName(abilityName)
+--     if ability then
+--         local level = ability:GetLevel()
+--         hero:RemoveAbility(abilityName)
+--         hero:SetAbilityPoints(hero:GetAbilityPoints() + level)
+--         print("[SkillReset] Removed ability: " .. abilityName .. ", returned " .. level .. " points")
 --     end
---     local new_state = GameRules:State_Get()
---     if new_state > DOTA_GAMERULES_STATE_HERO_SELECTION then
---         if PlayerResource:IsValidPlayer(playerID) then
---             if PlayerResource:HasSelectedHero(playerID) or PlayerResource:HasRandomed(playerID) then
---                 -- This playerID already had a hero before disconnect
---             else
---                 if not PlayerResource:IsBroadcaster(playerID) then
---                     local hPlayer = PlayerResource:GetPlayer(playerID)
---                     hPlayer:MakeRandomHeroSelection()
---                     PlayerResource:SetHasRandomed(playerID)
+-- end)
 
---                     if new_state > DOTA_GAMERULES_STATE_WAIT_FOR_MAP_TO_LOAD then
---                         local hHero = PlayerResource:GetSelectedHeroEntity(playerID)
---                         if hHero then
---                             print("hHero:RemoveSelf()")
---                             hHero:RemoveSelf()
---                         end
---                         local pszHeroClass = PlayerResource:GetSelectedHeroName(playerID)
---                         local hTeam = PlayerResource:GetTeam(playerID)
---                         local vPositions = nil
---                         if hTeam == DOTA_TEAM_GOODGUYS then
---                             vPositions = Vector(-6900, -6400, 384)
---                         else
---                             vPositions = Vector(7000, 6150, 384)
---                         end
---                         local hHero = CreateUnitByName(pszHeroClass, vPositions, true, nil, nil, hTeam)
---                         hHero:SetControllableByPlayer(playerID, true)
---                         hPlayer:SetAssignedHeroEntity(hHero)
---                         hPlayer:SpawnCourierAtPosition(vPositions)
---                     end
---                 end
---             end
---         end
---     end
--- end
+-- -- 技能重置:添加技能
+-- CustomGameEventManager:RegisterListener("skill_reset_add_ability", function(userId, event)
+--     local playerID = event.PlayerID
+--     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
+--     if not hero then return end
 
--- TODO remove
--- function AIGameMode:FilterSeasonPointDifficulty(points)
---     -- 根据难度积分加倍
---     local difficulty = CustomNetTables:GetTableValue('game_difficulty', 'all').difficulty
---     if difficulty == 1 then
---         points = points * 1.2
---     elseif difficulty == 2 then
---         points = points * 1.4
---     elseif difficulty == 3 then
---         points = points * 1.6
---     elseif difficulty == 4 then
---         points = points * 1.8
---     elseif difficulty == 5 then
---         points = points * 2.0
---     elseif difficulty == 6 then
---         points = points * 2.2
---     end
---     return points
--- end
+--     local abilityName = event.ability_name
+--     hero:AddAbility(abilityName)
+--     print("[SkillReset] Added ability: " .. abilityName)
 
--- function AIGameMode:FilterSeasonPoint(points, winnerTeamId)
---     if AIGameMode:IsInvalidGame() then
---         return 0
---     end
---     if AIGameMode.iDesiredDire < 10 then
---         points = points * AIGameMode.iDesiredDire / 10
---     end
-
---     if winnerTeamId ~= DOTA_TEAM_GOODGUYS then
---         points = points * 0.5
---     end
-
---     return math.ceil(points)
--- end
-
--- function AIGameMode:IsInvalidGame()
---     if AIGameMode.DebugMode then
---         return false
---     end
-
---     if GameRules:IsCheatMode() then
---         return true
---     end
-
---     if GameRules:GetDOTATime(false, true) < 5 * 60 then
---         return true
---     end
---     return false
--- end
+--     -- 清除 CustomNetTables 数据
+--     local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
+--     CustomNetTables:SetTableValue("skill_reset", tostring(steamAccountID), nil)
+-- end)

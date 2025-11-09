@@ -1,15 +1,17 @@
 // cmd enum
 
 export enum CMD {
+  // ---- 常用命令 ----
   V = '-v', // 获取当前vector
   M = '-m', // 获取当前modifier
   A = '-a', // 获取当前ability
   REFRESH_AI = '-r', // 刷新AI
+  T = '-t', // 获取当前时间，不包含暂停
 
   KILL = '-k',
   KILL_ALL = '-kall',
-  G = '-g', // 加钱升级
   SHARD = '-shard', // 给自己碎片
+  G = '-g', // 加钱升级
   G_ALL = '-gall', // 所有人升级加钱
   L_ALL = '-lall', // 所有人逐级升级
 
@@ -27,6 +29,7 @@ export enum CMD {
   /** 对英雄造成存粹伤害 */
   DAMAGE_PURE = '-damagePure',
   HP_LOSS = '-hploss',
+  MP_LOSS = '-mploss',
   STUN = '-stun',
   SILENCE = '-silence',
   ROOT = '-root',

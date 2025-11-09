@@ -309,24 +309,6 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 **关键示例**: 游戏结束时发送技能选择数据、收集并发送玩家语言信息
 
-### DataDriven 实现指南 (`docs/development/data-driven-implementation-guide.md`)
-
-**适用场景**: 将传统 Lua modifier 迁移到 DataDriven 实现、优化 modifier 性能
-
-**主要内容**:
-
-- DataDriven vs Lua Modifier 对比和混合架构原则
-- 完整的迁移步骤 (以 item_magic_sword 为例)
-- DataDriven 配置结构详解 (AbilityValues, OnSpellStart, Modifiers 等)
-- Lua 函数实现最佳实践
-- 关键经验:
-  - 事件选择 (OnAttackLanded vs OnTakeDamage)
-  - 参数传递和 Modifier 管理
-  - 伤害计算优化和特效管理
-- 常见问题排查
-
-**核心原则**: DataDriven 处理简单属性和事件,Lua 处理复杂逻辑
-
 ### 优化 Lua 物品 (`docs/development/optimize-lua-item.md`)
 
 **适用场景**: 减少游戏卡顿、优化物品性能、处理大量物品属性
@@ -371,6 +353,42 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - Modifier 说明补全: 必须包含的条目和格式
 
 **关键要点**: 使用两个 tab 缩进、注释使用中文、HTML 标签格式需同步、所有 modifier 必须完整
+
+### 物品性能优化 Meta Prompt (`docs/development/item-optimization-meta-prompt.md`)
+
+**适用场景**: 优化物品性能,将 Lua 物品迁移到 DataDriven 实现
+
+**使用方式**:
+- **命令方式**: 使用 `/optimize-item` 命令快速调用
+- **手动引用**: 在对话中引用该文档
+
+**主要内容**:
+
+- 完整的 meta prompt 指南,用于指导 AI 优化物品
+- 核心优化原则:
+  - BaseClass 从 `item_lua` 迁移到 `item_datadriven`
+  - 静态属性迁移到 DataDriven Properties
+  - 最小化 Lua 代码,仅保留特殊逻辑
+- 可使用 DataDriven 实现的属性完整列表
+- 必须保留在 Lua 中的功能列表 (ABSORB_SPELL 等)
+- 详细的优化实施步骤:
+  1. 分析现有 Lua 实现
+  2. 修改 npc_items_custom.txt (完整 KV 模板)
+  3. 重写 Lua 文件 (完整 Lua 模板)
+- 代码模式对比 (优化前后结构差异)
+- 参考示例: item_beast_armor (基于 PR #1695)
+- 完整的代码模板 (可直接使用)
+
+**优化效果**: 减少 Lua 代码量 60-80%,显著降低 CPU 占用,减少卡顿
+
+**使用示例**:
+```
+/optimize-item item_xxx
+```
+或
+```
+请按照 docs/development/item-optimization-meta-prompt.md 中的 Meta Prompt 优化 item_xxx
+```
 
 ## Git 工作流
 

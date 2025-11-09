@@ -74,7 +74,12 @@ export class BotBaseAIModifier extends BaseModifier {
 
   OnIntervalThink(): void {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-    this.gameTime = GameRules.GetDOTATime(false, false);
+    // 检查是否被精神控制
+    if (this.hero.HasModifier('modifier_mind_control')) {
+      return; // 暂停AI思考
+    }
+
+    this.gameTime = GameRules.GetDOTATime(false, true);
     if (this.StopAction()) {
       return;
     }

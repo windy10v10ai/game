@@ -160,17 +160,12 @@
 					<!-- 是否强制随机英雄 -->
 					<Panel id="ForceRandomHeroPanel" class="GameOptionsSubPanel">
 						<Label id="ForceRandomHeroTitle" class="GameOptionsLabel" text="#force_random_hero" />
-						<ToggleButton checked="false" class="GameOptionsToggle" id="same_hero_selection" onactivate="SendGameOptionsToServer()"/>
+						<ToggleButton checked="false" class="GameOptionsToggle" id="force_random_hero" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
 					<!-- 是否启用玩家属性（Player attribute） -->
 					<Panel id="PlayerAttributePanel"	class="GameOptionsSubPanel">
 						<Label id="PlayerAttributeTitle" class="GameOptionsLabel" text="#enable_player_attribute" />
 						<ToggleButton checked="true" class="GameOptionsToggle" id="enable_player_attribute" onactivate="SendGameOptionsToServer()"/>
-					</Panel>
-					<!-- 是否增加额外被动技能 -->
-					<Panel id="ExtraPassiveAbilitiesPanel"	class="GameOptionsSubPanel">
-						<Label id="ExtraPassiveAbilitiesTitle" class="GameOptionsLabel" text="#extra_passive_abilities" />
-						<ToggleButton checked="true" class="GameOptionsToggle" id="extra_passive_abilities" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
 				</Panel>
 			</Panel>

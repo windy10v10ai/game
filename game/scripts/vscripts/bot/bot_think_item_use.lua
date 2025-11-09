@@ -297,6 +297,13 @@ function BotItemThink:UseActiveItem(hHero)
         end
     end
 
+    -- item_beast_shield 兽化盾
+    if hHero:GetHealthPercent() < 99 then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_beast_shield") then
+            return true
+        end
+    end
+
     -- 分身斧
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_manta_1") then
         return true

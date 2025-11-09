@@ -259,11 +259,10 @@ export class EventEntityKilled {
 
   // ✅ 新增: npc_windy复活处理
   private onWindyKilled(unit: CDOTA_BaseNPC): void {
-    const respawnTime = 1; // 30秒后复活
+    const respawnTime = 60; // 30秒后复活
     const unitName = unit.GetUnitName();
     const position = unit.GetAbsOrigin();
     const team = unit.GetTeam();
-
     //print(`[Windy] npc_windy被击杀,将在${respawnTime}秒后复活`);
 
     // ✅ 符文掉落 - 使用远古单位2倍的概率
@@ -277,7 +276,7 @@ export class EventEntityKilled {
     //print(`[Windy] Fusion rune drop chance: ${this.calculateDropChance(windyDropChance)}%`);
     const goldmultiplier = GameRules.Option.direGoldXpMultiplier || 2;
     // ✅ 新增: 10%概率掉落经验书
-    const baseChance = 10;
+    const baseChance = 30;
     // 线性插值公式: 在 goldmultiplier 10-100 之间，从 10% 增长到 20%
     // 公式: baseChance * (1 + (goldmultiplier - 10) / 90)
     const expBookDropChance = baseChance * (1 + Math.max(0, goldmultiplier - 10) / 90);
@@ -297,10 +296,6 @@ export class EventEntityKilled {
     }
     // ✅ 新增: 10%概率掉落金币包，数量基于难度动态计算概率
     const goldBagDropChance = baseChance * (1 + Math.max(0, goldmultiplier - 10) / 90);
-
-    // print(
-    //   `[Windy] Gold multiplier: ${goldmultiplier}, Drop chance: ${goldBagDropChance.toFixed(2)}%`,
-    // );
 
     if (RandomFloat(0, 100) <= goldBagDropChance) {
       let dropCount = 1; // 默认至少掉1个
@@ -341,6 +336,7 @@ export class EventEntityKilled {
 
       // print(`[Windy] npc_windy dropped ${dropCount} gold bags`);
     }
+
     Timers.CreateTimer(respawnTime, () => {
       const newUnit = CreateUnitByName(unitName, position, true, undefined, undefined, team);
 

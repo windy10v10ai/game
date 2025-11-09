@@ -147,10 +147,12 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
     -- 幻影暴击概率判定
     local phantom_crit_chance = self:GetAbility():GetSpecialValueFor("phantom_crit_chance")
     if not RollPseudoRandomPercentage(phantom_crit_chance, DOTA_PSEUDO_RANDOM_NONE, self) then return end
-
+    -- 基于攻击力计算额外伤害
+    local base_damage = params.attacker:GetAverageTrueAttackDamage(params.attacker)
+    --local bonus_damage = base_damage * (self.crit_multiplier - 1)
     -- 造成额外魔法伤害
     local phantom_crit_multiplier = self:GetAbility():GetSpecialValueFor("phantom_crit_multiplier")
-    local damage = params.damage * (phantom_crit_multiplier / 100)
+    local damage = base_damage * (phantom_crit_multiplier / 100)
 
     -- 【新增】调试输出 - 幻影暴击
     -- print(string.format("[MagicCritBlade] 幻影暴击触发! 原始攻击伤害: %.0f, 暴击倍率: %.0f%%, 额外魔法伤害: %.0f",
@@ -161,7 +163,7 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
         victim = params.target,
         attacker = params.attacker,
         damage = damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
+        damage_type = DAMAGE_TYPE_MAGICAL + DOTA_DAMAGE_FLAG_REFLECTION,
         ability = self:GetAbility(),
     })
     -- 在下一帧清除标记
@@ -172,7 +174,7 @@ function modifier_item_magic_crit_blade:OnAttackLanded(params)
     EmitSoundOn("Hero_Brewmaster.Brawler.Crit", params.target)
     -- 显示幻影暴击伤害数字(蓝紫色)
     local total_spell_amp = self:GetParent():GetSpellAmplification(false)
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, params.target, damage * (total_spell_amp + 1), nil)
+    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, params.target, damage * (total_spell_amp + 1), nil)
 end
 
 function modifier_item_magic_crit_blade:GetModifierSpellAmplify_Percentage()
@@ -207,11 +209,18 @@ end
 function modifier_item_magic_crit_blade:OnTakeDamage(params)
     if not IsServer() then return end
 
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
+
     local parent = self:GetParent()
     local ability = self:GetAbility()
 
     if params.attacker ~= parent then return end
     if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) == DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION then
+        return
+    end
+    -- 【关键修复】检查反射伤害标志,防止无限循环
+    if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == DOTA_DAMAGE_FLAG_REFLECTION then
         return
     end
     if params.damage_type == DAMAGE_TYPE_PHYSICAL then return end
@@ -283,7 +292,7 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
             attacker = parent,
             damage = extra_damage,
             damage_type = params.damage_type,
-            damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+            damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_REFLECTION,
             ability = ability,
         })
 
@@ -301,7 +310,7 @@ function modifier_item_magic_crit_blade:OnTakeDamage(params)
             --print(string.format("[MagicCritBlade] 必然暴击进入冷却: %.0f秒", cooldown))
         end
         -- 使用CRITICAL伤害类型显示更大的数字
-        SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, target, extra_damage, nil)
+        SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, target, extra_damage, nil)
 
         -- 【修改】更改音效为更震撼的暴击音效
         EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", target) -- PA大招音效
@@ -317,5 +326,5 @@ function modifier_item_magic_crit_blade:OnIntervalThink()
 end
 
 function modifier_item_magic_crit_blade:GetTexture()
-    return "bloodthorn_ultra"
+    return "molongkuangwu"
 end

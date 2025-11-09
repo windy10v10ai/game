@@ -177,8 +177,6 @@
 			{
 				"ScriptFile"		"items/item_ultimate_scepter_2"
 				"Function"			"Scepter2OnSpell"
-
-				"modifier"			"modifier_item_ultimate_scepter_2_consumed"
 			}
 		}
 		"Modifiers"
@@ -1689,140 +1687,6 @@
 		}
 	}
 
-	//=================================================================================================================
-	// Recipe: Dragon Lance PLUS  魔龙枪 PLUS合成图
-	//=================================================================================================================
-	// "item_recipe_dragon_lance_plus"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"9064"
-	// 	"BaseClass"						"item_datadriven"
-	// 	"AbilityTextureName" 			"item_recipe_dragon_lance_plus"
-	// 	"Model"							"models/props_gameplay/recipe.vmdl"
-
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"1500"
-	// 	"ItemShopTags"					""
-
-	// 	// Recipe
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemRecipe"					"1"
-	// 	"ItemResult"					"item_dragon_lance_plus"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"						"item_dragon_lance;"
-	// 	}
-	// }
-
-	// //=================================================================================================================
-	// // Dragon Lance PLUS  魔龙枪 PLUS
-	// //=================================================================================================================
-	// "item_dragon_lance_plus"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"9065"
-	// 	"BaseClass"						"item_lua"
-	// 	"AbilityTextureName" 			"dragon_lance_plus"
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	// 	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-	// 	"ScriptFile"                    "items/item_dragon_lance_plus"
-
-	// 	"AbilityCooldown"				"20.0"
-	// 	"AbilityManaCost"				"60"
-	// 	"AbilitySharedCooldown"			"dragonlance"
-
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"3400"
-	// 	"ItemShopTags"					"damage;attack_speed"
-	// 	"ItemQuality"					"arcane"
-	// 	"ItemAliases"					"dragon lance plus"
-	// 	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-	// 	"ItemRequiresCharges"			"0"
-
-
-	// 	// Special
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"AbilityValues"
-	// 	{
-	// 			"bonus_agility"		        "25"
-	// 			"bonus_strength"		    "20"
-	// 			"bonus_attack_range"		"180"
-	// 			"active_boost"				"70"
-	// 			"active_boost_duration"		"4"
-	// 	}
-	// }
-
-	//=================================================================================================================
-	// Recipe: Dragon Lance PRO MAX  魔龙枪 PRO MAX合成图
-	//=================================================================================================================
-	// "item_recipe_dragon_lance_pro_max"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"9066"
-	// 	"BaseClass"						"item_datadriven"
-	// 	"AbilityTextureName" 			"item_recipe_dragon_lance_pro_max"
-	// 	"Model"							"models/props_gameplay/recipe.vmdl"
-
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemCost"						"600"
-	// 	"ItemShopTags"					""
-
-	// 	// Recipe
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ItemRecipe"					"1"
-	// 	"ItemResult"					"item_dragon_lance_pro_max"
-	// 	"ItemRequirements"
-	// 	{
-	// 		"01"						"item_dragon_lance_plus;item_eagle;"
-	// 	}
-	// }
-
-	// //=================================================================================================================
-	// // Dragon Lance PRO MAX  魔龙枪PRO MAX
-	// //=================================================================================================================
-	// "item_dragon_lance_pro_max"
-	// {
-	// 	// General
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"ID"							"9067"
-	// 	"BaseClass"						"item_lua"
-	// 	"AbilityTextureName" 			"dragon_lance_pro_max"
-	// 	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-	// 	"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-	// 	"ScriptFile"                    "items/item_dragon_lance_pro_max"
-
-	// 	"AbilityCooldown"				"20.0"
-	// 	"AbilityManaCost"			    "120"
-	// 	"AbilitySharedCooldown"			"dragonlance"
-
-	// 	// Item Info
-	// 	//-------------------------------------------------------------------------------------------------------------
-
-	// 	"ItemCost"						"6800"
-	// 	"ItemShopTags"					"damage;attack_speed"
-	// 	"ItemQuality"					"artifact"
-	// 	"ItemAliases"					"dragon lance pro max"
-	// 	"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-	// 	"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-	// 	"ItemRequiresCharges"			"0"
-
-	// 	// Special
-	// 	//-------------------------------------------------------------------------------------------------------------
-	// 	"AbilityValues"
-	// 	{
-	// 			"bonus_agility"	        	"50"
-	// 			"bonus_strength"		    "20"
-	// 			"bonus_attack_range"		"210"
-	// 			"active_boost"				"140"
-	// 			"active_boost_duration"		"4"
-	// 	}
-	// }
 
 	//=================================================================================================================
 	// Recipe: Magic Scepter
@@ -1863,16 +1727,16 @@
 		"AbilityTextureName" 			"magic_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_magic_scepter"
+		"ScriptFile"					"items/item_magic_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"600"
+		"AbilityManaCost"				"450"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"7800"
+		"ItemCost"						"8000"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"magic scepter"
@@ -1885,7 +1749,7 @@
 		"AbilityValues"
 		{
 				"bonus_intelligence"		"60"	// tooltip, real value in item_magic_scepter_bonus_intelligence
-				"spell_amp_per_int"			"0.12"
+				"spell_amp_per_int"			"0.1"
 				"active_boost"				"50"
 				"active_boost_duration"		"4"
 		}
@@ -1931,11 +1795,11 @@
 		"AbilityTextureName" 			"hallowed_scepter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"Effect"						"particles/generic_gameplay/dropped_item.vpcf"
-		"ScriptFile"                    "items/item_hallowed_scepter"
+		"ScriptFile"					"items/item_hallowed_scepter"
 		"AbilitySharedCooldown"			"magic_scepter"
 
 		"AbilityCooldown"				"60.0"
-		"AbilityManaCost"				"1000"
+		"AbilityManaCost"				"900"
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
@@ -5717,7 +5581,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器蹦迪之鞋 fixme初版 后考虑作为阿迪王的一个分支（也许）
+	// 神器蹦迪之鞋
 	//=================================================================================================================
 	"item_recipe_boots_of_bearing_2"
 	{
@@ -6432,7 +6296,7 @@
 	}
 
 	//=================================================================================================================
-	// 枯木逢春
+	// 枯木逢春 生命之心
 	//=================================================================================================================
 	// 咸鱼之王+卫士胫甲+item_undying_heart+洞察盔甲+item_fusion_life 主动：枯木逢春：融合几个效果的主动，生命低于20%自动触发 被动：继承所有装备的被动
 	"item_recipe_withered_spring"
@@ -6924,16 +6788,16 @@
 		"ItemResult"				"item_beast_shield"
 		"ItemRequirements"
 		{
-			"01"					"item_armlet_pro_max;item_vladmir_2;item_eternal_shroud_ultra;item_insight_armor;item_fusion_beast"
+			"01"					"item_black_king_bar_2;item_vladmir_2;item_eternal_shroud_ultra;item_insight_armor;item_fusion_beast"
 		}
 	}
 
 	"item_beast_shield"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ScriptFile"				"items/item_beast_shield"
 		"ID"						"10324"
-		"AbilityTextureName"		"shouhuadun"
+		"AbilityTextureName"		"beast_shield"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityCastPoint"			"0.0"
@@ -6942,25 +6806,172 @@
 
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 主动技能
-			"active_duration"			"6"		// 主动持续时间
-			"active_bonus_multiplier"	"100"	// 主动时属性加成倍数
+			// 主动技能
+			"active_duration"				"6"
+			"active_bonus_multiplier_tooltip"	"100"
+			"active_movespeed"				"300"
+			// BKB
+			"magic_resist"					"100"
 
 			// 法师泳衣被动
-			"mana_restore_pct"			"50"	// 魔法伤害转化为魔法的百分比
-			"stack_threshold"			"600"	// 每受到600点技能伤害获得一层
-			"stack_duration"			"10"	// 叠加效果持续时间
-			"max_stacks"				"8"		// 最大叠加层数
-			"stack_resist"				"4"		// 每层魔抗加成
+			"stack_threshold"			"600"
+			"stack_duration"			"10"
+			"stack_resist"				"4"
+			"mana_restore_pct"			"50"
+			"max_stacks"				"8"
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"150"	// tooltip only - 力量
-			"bonus_health"				"2500"	// tooltip only - 生命值
-			"bonus_armor"				"80"	// tooltip only - 护甲
-			"bonus_spell_resist"		"60"	// tooltip only - 魔法抗性
-			"bonus_health_regen"		"50"	// tooltip only - 生命回复
-			"bonus_mana_regen"			"15"	// tooltip only - 魔法回复
-			"bonus_attack_speed"		"50"	// tooltip only - 攻击速度
+			// 被动属性
+			"passive_bonus_strength"			"150"
+			"passive_bonus_health"				"2500"
+			"passive_bonus_armor"				"60"
+			"passive_bonus_spell_resist"		"60"
+			"passive_bonus_health_regen"		"50"
+			"passive_bonus_attack_speed"		"50"
+			"passive_bonus_damage"				"100"
+
+			// 强袭光环
+			"aura_radius"					"900"
+			"aura_positive_armor"			"15"
+			"aura_attack_speed"				"90"
+			"aura_negative_armor"			"-15"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"	"DOTA_Item.BlackKingBar.Activate"
+				"Target"		"CASTER"
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_black_king_bar_immune"
+				"Target"		"CASTER"
+				"Duration"		"%active_duration"
+			}
+
+			"ApplyModifier"
+			{
+				"ModifierName"	"modifier_item_beast_shield_active"
+				"Target"		"CASTER"
+				"Duration"		"%active_duration"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_beast_shield"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"RemoveOnDeath"		"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%passive_bonus_strength"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%passive_bonus_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%passive_bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%passive_bonus_spell_resist"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%passive_bonus_health_regen"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%passive_bonus_attack_speed"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%passive_bonus_damage"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_shield"
+						"Function"		"BeastShieldOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_beast_shield"
+						"Function"		"BeastShieldOnDestroy"
+					}
+				}
+			}
+
+			"modifier_item_beast_shield_active"
+			{
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%passive_bonus_strength"
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"%passive_bonus_health"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%passive_bonus_armor"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%passive_bonus_spell_resist"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%passive_bonus_health_regen"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%passive_bonus_attack_speed"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%passive_bonus_damage"
+					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%active_movespeed"
+				}
+
+				"EffectName"		"particles/items_fx/aegis_lvl_1000_ambient.vpcf"
+				"EffectAttachType"	"PATTACH_ABSORIGIN_FOLLOW"
+			}
+
+			"modifier_item_beast_shield_aura_emitter"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Aura" 					"modifier_item_beast_shield_aura"
+				"Aura_Radius" 			"%aura_radius"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				"Aura_ApplyToCaster" 	"1"
+			}
+
+			"modifier_item_beast_shield_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%aura_positive_armor"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%aura_attack_speed"
+				}
+			}
+
+			"modifier_item_beast_shield_enemy_aura_emitter"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+
+				"Aura" 					"modifier_item_beast_shield_enemy_aura"
+				"Aura_Radius" 			"%aura_radius"
+				"Aura_Teams" 			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types" 			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_BUILDING"
+				"Aura_Flags" 			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+				"Aura_ApplyToCaster" 	"0"
+			}
+
+			"modifier_item_beast_shield_enemy_aura"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"IsBuff"			"0"
+				"IsPurgable"		"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%aura_negative_armor"
+				}
+			}
 		}
 	}
 
@@ -7202,7 +7213,7 @@
 		"ItemResult"				"item_magic_abyss_staff"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_gungir_2;item_aether_lens_2;item_devastator_2;item_fusion_magic"
+			"01"					"item_hallowed_scepter;item_gungir_2;item_devastator_2;item_fusion_magic"
 		}
 	}
 	"item_magic_abyss_staff"
@@ -7215,8 +7226,8 @@
 		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"20.0"
-		"AbilityManaCost"			"150"
+		"AbilityCooldown"			"40.0"
+		"AbilityManaCost"			"900"
 
 		"ItemCost"					"25000"
 		"ItemShopTags"				"damage;int;hard_to_tag"
@@ -7224,7 +7235,8 @@
 
 		"AbilityValues"
 		{
-			"active_duration"		"3"
+			"bonus_intellect"		"300"	// tooltip only, real value in modifier_item_magic_abyss_staff_stats
+			"active_duration"		"4"
 			"convert_pct"			"50"
 			"spell_amp_per_int"		"0.2"
 		}
@@ -7340,7 +7352,7 @@
 			{
 				"IsBuff"				"1"
 				"IsPurgable"			"0"
-				"TextureName"			"item_magic_sword"
+				"TextureName"			"moyuanjian"
 
 				"OnAttackLanded"
 				{
@@ -7356,7 +7368,7 @@
 			{
 				"IsDebuff"				"1"
 				"IsPurgable"			"1"
-				"TextureName"			"item_magic_sword"
+				"TextureName"			"moyuanjian"
 
 				"Properties"
 				{
@@ -7375,6 +7387,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
+		"IsTempestDoubleClonable"		"0"
 
 		"ItemCost"						"20000"
 		"ItemShopTags"					"tome"
