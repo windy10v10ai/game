@@ -13,8 +13,9 @@ function SwapInGameGold() {
 }
 
 function SwapGoldLabelText() {
-  const localPlayerID = Game.GetLocalPlayerID();
-  if (localPlayerID === undefined) return;
+  const player_info = Game.GetLocalPlayerInfo();
+  if (!player_info) return;
+  const localPlayerID = player_info.player_id;
 
   if (!topmostpanel) {
     topmostpanel = $.GetContextPanel();
