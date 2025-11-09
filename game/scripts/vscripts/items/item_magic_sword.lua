@@ -22,22 +22,6 @@ function MagicSwordOnDestroy(keys)
     caster:RemoveModifierByName("modifier_item_battlefury")
 end
 
--- 主动效果创建（datadriven 调用）
--- function MagicSwordActiveOnCreated(keys)
---     if not IsServer() then return end
-
---     local parent = keys.caster
---     local ability = keys.ability
-
---     -- 添加特效
---     local fx = ParticleManager:CreateParticle(
---         "particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf",
---         PATTACH_ABSORIGIN_FOLLOW,
---         parent
---     )
---     ParticleManager:ReleaseParticleIndex(fx)
--- end
-
 -- 主动效果攻击处理（datadriven 调用）
 function MagicSwordActiveOnAttackLanded(params)
     if not IsServer() then return end
