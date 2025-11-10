@@ -1048,6 +1048,10 @@
 		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%伤害减免："
 		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"伤害："
 		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"						"+{s:bonus_impact_damage} 恐吓击中伤害"
+
+		// 赏金猎人
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-{s:bonus_AbilityCooldown}%  忍术冷却"
+
 		// 融合符文系列
 		// 鹰眼符文
 		"DOTA_Tooltip_ability_item_fusion_hawkeye"          "鹰眼符文"

@@ -1059,6 +1059,9 @@
 		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"IMPACT DAMAGE:"
 		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"						"+{s:bonus_impact_damage} Terrorize Impact Damage"
 
+		// 赏金猎人
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-{s:bonus_AbilityCooldown}% Jinada Cooldown"
+
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes

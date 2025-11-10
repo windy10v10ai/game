@@ -13,6 +13,11 @@ function SwapInGameGold() {
 }
 
 function SwapGoldLabelText() {
+  const player_info = Game.GetLocalPlayerInfo();
+  // 观战时没有玩家信息，不执行
+  if (!player_info) return;
+  const localPlayerID = player_info.player_id;
+
   if (!topmostpanel) {
     topmostpanel = $.GetContextPanel();
     while (topmostpanel.GetParent() != null) {
@@ -25,9 +30,9 @@ function SwapGoldLabelText() {
   }
 
   const virtualGold =
-    CustomNetTables.GetTableValue('player_virtual_gold', Game.GetLocalPlayerID().toString())
-      ?.virtual_gold ?? 0;
-  const currentGold = Players.GetGold(Game.GetLocalPlayerID());
+    CustomNetTables.GetTableValue('player_virtual_gold', localPlayerID.toString())?.virtual_gold ??
+    0;
+  const currentGold = Players.GetGold(localPlayerID);
   if (goldLabel) {
     goldLabel.text = currentGold + virtualGold;
   }
