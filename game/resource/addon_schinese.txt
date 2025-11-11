@@ -1459,8 +1459,39 @@
 "DOTA_Tooltip_ability_ability_defection_Description"         "可以自由在天辉、夜魇和中立阵营之间切换，但无法攻击天辉阵营的人类玩家；切换回天辉阵营有2s延迟。当处于中立阵营时，危机感使玩家增加20%减伤"
 "DOTA_Tooltip_ability_ability_defection_Lore"                "RN: 我说，那边那个畜...兄弟，差不多是时候了，该出手了"
 
+"DOTA_Tooltip_ability_rubick_might_and_magus2"                     "剑魔"
+"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"                     "每1%%的技能增强获得0.5%%的攻击力和0.5%%的魔抗"
+
 "DOTA_Tooltip_modifier_defection"                           "叛变"
 "DOTA_Tooltip_modifier_defection_Description"               "1=天辉, 2=夜魇, 3=中立"
+// 俄罗斯轮盘赌
+"DOTA_Tooltip_ability_russian_roulette"                                 "赌命（隐藏）"
+"DOTA_Tooltip_ability_russian_roulette_Description"                     "掏出左轮,把你的手套扔到对方的脸上,向他发起俄罗斯轮盘赌。在6秒内,双方交替开枪,其中随机的一枪是致命的。<br><br>如果敌人死亡,冷却时间减少100%%。<br><br>技能生效期间双方被禁锢。<br><br>技能等级和双方等级可能影响赌局的公平。\n\n驱散类型:无法被驱散"
+"DOTA_Tooltip_ability_russian_roulette_Lore"                            "一场只有一人能活下来的赌局。"
+"DOTA_Tooltip_ability_russian_roulette_interval"                        "射击间隔:"
+"DOTA_Tooltip_ability_russian_roulette_AbilityCastRange"                "施法距离:"
+
+"DOTA_Tooltip_modifier_russian_roulette_root"                "赌命"
+"DOTA_Tooltip_modifier_russian_roulette_root_Description"   "当前轮盘序列: %dMODIFIER_PROPERTY_TOOLTIP%"
+
+"DOTA_Tooltip_ability_ability_copy_item"                    "山寨（隐藏）"
+"DOTA_Tooltip_ability_ability_copy_item_Description"        "持续施法1.5秒后,随机复制范围内任意英雄的一件装备到自己的物品栏。打断或死亡则失败。"
+"DOTA_Tooltip_ability_ability_copy_item_search_radius"      "搜索范围:"
+"DOTA_Tooltip_ability_ability_copy_item_channel_duration"   "持续施法时间:"
+
+"DOTA_Tooltip_ability_item_skill_talisman"                  "符箓（隐藏）"
+"DOTA_Tooltip_ability_item_skill_talisman_Description"    "拥有该装备后释放的第一个技能将被存储。使用后释放存储的技能,无冷却无施法前摇。可堆叠,可完全分享。后续购买的符箓自动继承已存储的技能。<br><br><font color='#70EA72'>当前存储技能: %stored_ability%</font>"
+"DOTA_Tooltip_modifier_skill_talisman_display"                "符箓存储的技能"
+// 英雄附身
+"DOTA_Tooltip_ability_hero_possession"                              "剑来（隐藏）"
+"DOTA_Tooltip_ability_hero_possession_Description"                  "召唤同英雄历史上的剑灵附身。获得全部装备、属性和技能。<br><br>附身期间,请勿对英灵的装备动歪心思。<br><br>持续时间结束后,所有效果将被移除并恢复你原本的状态。"
+"DOTA_Tooltip_ability_hero_possession_Lore"                         "在绝望的时刻,英雄可以召唤前辈最伟大战士的英灵。"
+"DOTA_Tooltip_ability_hero_possession_duration"                     "持续时间:"
+"DOTA_Tooltip_ability_hero_possession_Note0"                        "附身装备在效果期间无法丢弃或出售。"
+"DOTA_Tooltip_ability_hero_possession_Note1"                        "来自属性书和银月的属性加成以临时modifier形式应用。"
+
+"DOTA_Tooltip_modifier_hero_possession"                             "英灵附身"
+"DOTA_Tooltip_modifier_hero_possession_Description"                 "正在召唤传奇英雄的力量。获得他们的装备、属性和技能。"
 
 "DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。<br><br><font color='#FF0000'>近战英雄: 不要选！！！攻击无效！<br>远程英雄: 功能正常但缺少龙形态模型！！！"
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"

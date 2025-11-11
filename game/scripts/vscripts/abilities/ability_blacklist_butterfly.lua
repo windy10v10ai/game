@@ -218,6 +218,10 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["abyssal_underlord_dark_portal"] = true,
     ["abyssal_underlord_dark_rift"] = true,
     ["windrunner_powershot"] = true,
+    ["oracle_fortunes_end"] = true,
+    ["phoenix_sun_ray"] = true,
+    ["phoenix_sun_ray_stop"] = true,
+    ["hero_possession"] = true,
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题

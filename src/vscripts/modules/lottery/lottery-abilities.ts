@@ -67,6 +67,7 @@ export const abilityTiersActive: Tier[] = [
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
       'bloodseeker_blood_mist2', // 血魔 血雾
+      'tusk_walrus_punch', //海象神拳
     ],
   },
   {
@@ -180,6 +181,7 @@ export const abilityTiersPassive: Tier[] = [
       'shredder_reactive_armor', // 活性活甲
       'dawnbreaker_luminosity', // 熠熠生辉
       'spectre_dispersion', // 幽鬼 折射
+      //'spectre_dispersion2', // 幽鬼 折射改 测试完毕，问题不大，暂不实装
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
 

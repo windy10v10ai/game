@@ -7382,14 +7382,16 @@
 		}
 	}
 	// 技能重置书
+	// 技能重置书
 	"item_tome_of_ability_reset"
 	{
 		"ID"							"9999"
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
+		"IsTempestDoubleClonable"		"0"
 
-		"ItemCost"						"30000"
+		"ItemCost"						"20000"
 		"ItemShopTags"					"tome"
 		"ItemQuality"					"consumable"
 
@@ -7407,9 +7409,16 @@
 		"ItemStockTime"					"300"
 		"OnSpellStart"
 		{
-			"SpendCharge"
+
+			"RunScript"
 			{
+				"ScriptFile"		"items/item_tome_of_ability_reset"
+				"Function"			"OnSpellStart"
 			}
+
+			// "SpendCharge"
+			// {
+			// }
 		}
 	}
 	//=================================================================================================================
@@ -7495,5 +7504,40 @@
 			"duration"				"2.0"
 		}
 	}
+	"item_skill_talisman"
+	{
+		"ID"                        "9999"
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_skill_talisman.lua"
+		"AbilityTextureName"        "item_ultimate_scepter"
 
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityCastRange"          "99999"  // 全地图范围
+
+		"ItemCost"                  "1000"
+		"ItemShopTags"              "consumable"
+		"ItemQuality"               "consumable"
+		"ItemStackable"             "1"
+		"ItemPermanent"             "0"
+		"ItemInitialCharges"        "1"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"IsTempestDoubleClonable"   "0"
+
+		"AbilityCastPoint"          "0.0"
+		"AbilityCooldown"           "0.0"
+		"AbilityManaCost"           "0"
+
+		"AbilityValues"
+		{
+			"radius"                "100"  // 用于AOE指示器
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"stored_ability"        "0"
+			}
+		}
+	}
 }

@@ -8,7 +8,7 @@ export class EventItemUsed {
 
     if (itemName === 'item_tome_of_ability_reset') {
       const playerId = keys.PlayerID as PlayerID;
-      GameRules.Lottery.initAbilityReset(playerId);
+      GameRules.Lottery.InitAbilityReset(playerId);
     }
   }
 }

@@ -2978,6 +2978,15 @@
 
 "DOTA_Tooltip_modifier_defection"                           "Defection"
 "DOTA_Tooltip_modifier_defection_Description"               "1=Radiant, 2=Dire, 3=Neutral"
+
+// Russian Roulette
+"DOTA_Tooltip_ability_russian_roulette"                                 "Russian Roulette"
+"DOTA_Tooltip_ability_russian_roulette_Description"                     "Challenges an enemy hero to a deadly game of Russian Roulette. Both the caster and target are rooted and unable to act. Over 6 seconds, damage is dealt alternately between the caster and target. One random shot deals fatal damage and kills the target instantly. If the enemy dies, cooldown is reduced by 100%%.\n\nDISPEL TYPE: Cannot be dispelled"
+"DOTA_Tooltip_ability_russian_roulette_Lore"                           "A game of chance where only one survives."
+"DOTA_Tooltip_ability_russian_roulette_interval"                       "SHOT INTERVAL:"
+"DOTA_Tooltip_ability_russian_roulette_AbilityCastRange"               "CAST RANGE:"
+"DOTA_Tooltip_modifier_russian_roulette_root"                          "Russian Roulette"
+"DOTA_Tooltip_modifier_russian_roulette_root_Description"              "Locked in a deadly game. Cannot move, attack, cast spells, or use items."
 		"npc_windy"                                 "Windy"
 		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}

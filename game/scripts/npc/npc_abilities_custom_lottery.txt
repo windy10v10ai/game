@@ -277,7 +277,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
     	"SpellImmunityType"  "SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"spectre_dispersion2"
-		"MaxLevel"						"5"
+		"MaxLevel"						"3"
 		"HasShardUpgrade"				"1"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
@@ -290,8 +290,8 @@
 		{
 			"damage_reduction"
 			{
-				"value"				"7 10 13 16 19"
-				"special_bonus_shard"				"+3"
+				"value"				"8 10 12"
+				"special_bonus_shard"				"+2"
 			}
 		}
 	}
@@ -521,7 +521,41 @@
 			"tick_attack_damage_pct"		"20 25 30 35 40"
 		}
 	}
+	//力量与魔法 拉比克 //暂不实装
+	"rubick_might_and_magus2"
+	{
+		"BaseClass"						"rubick_might_and_magus"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"    "rubick"
+		"MaxLevel"						"1"
 
+
+		"AbilityValues"
+		{
+			"one_tooltip"					"1"
+			"bonus_damage_pct"
+			{
+				"value"									"50"		// 75
+				"special_bonus_unique_rubick_2" 		"+25"
+			}
+			"bonus_damage_pct_tooltip"
+			{
+				"value"									"0.5"		// 0.75
+				"special_bonus_unique_rubick_2" 		"+0.25"
+			}
+			"magic_resist_pct"
+			{
+				"value"									"50"		// 75
+				"special_bonus_unique_rubick_2" 		"+25"
+			}
+			"magic_resist_pct_tooltip"
+			{
+				"value"									"0.5"		// 0.75
+				"special_bonus_unique_rubick_2" 		"+0.25"
+			}
+		}
+	}
 	//斯温 神之愤怒
 	"sven_wrath_of_god2"
 	{
