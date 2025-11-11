@@ -15,9 +15,8 @@ export enum CMD {
   G_ALL = '-gall', // 所有人升级加钱
   L_ALL = '-lall', // 所有人逐级升级
 
-  /** 抽奖 */
-  LOTTERY = '-lottery',
-  END = '-end',
+  LOTTERY = '-lottery', // 抽奖
+  END = '-end', // 游戏结算
 
   // ---- 当前英雄相关 ----
   REPLACE_HERO = '-rh', // 替换当前英雄

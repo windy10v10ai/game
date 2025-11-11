@@ -17,7 +17,7 @@ import { GameEndPoint } from './game-end-point';
 
 @reloadable
 export class GameEnd {
-  private static gameEndTriggered: boolean = false;
+  public static gameEndTriggered: boolean = false;
 
   public static OnGameEnd(winnerTeamId: DotaTeam): void {
     if (this.gameEndTriggered) {
@@ -28,8 +28,10 @@ export class GameEnd {
     print(`[GameEnd] OnGameEnd ${winnerTeamId}`);
     // build game end dto
     const gameEndDto = this.BuildGameEndDto(winnerTeamId);
+
     // send game end dto
     Game.PostEndGame(gameEndDto);
+    CustomNetTables.SetTableValue('ending_status', 'ending_data', { winner_team_id: winnerTeamId });
 
     this.SendAnalyticsEvent(gameEndDto);
   }

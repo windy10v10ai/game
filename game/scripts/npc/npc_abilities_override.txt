@@ -3388,22 +3388,22 @@
 			}
 			"hook_speed"
 			{
-				"value"						"1600 1800 2000 2200 2500 3000 3500" // 1600 增长率与距离增长率同步
+				"value"						"1600 1800 2000 2200 2400 2600 2800" // 1600 增长率与距离增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+0"
 			}
 			"AbilityCastRange"
 			{
-				"value"						"1600 1800 2000 2200 2500 3000 3500" // 1300 增长率与钩子速度增长率同步
+				"value"						"1300 1500 1700 1900 2100 2300 2500" // 1300 增长率与钩子速度增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+15%"
 			}
 			"AbilityCooldown"
 			{
-				"value"							"18 16 14 12 10 10 10"
+				"value"							"18 17 16 15 14 13 12"
 			}
 
 			"distance_to_damage"
 			{
-				"special_bonus_shard" "12 18 24 30 36 50 60"
+				"special_bonus_shard" "12 18 24 30 36 42 48"
 			}
 		}
 	}
@@ -5436,22 +5436,23 @@
 	// 忍术
 	"bounty_hunter_jinada"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
-				"value"			"70 105 140 175 210 245 280"
+				"value"			"70 105 140 175 210"
 				"special_bonus_unique_bounty_hunter_4"		"+200"	// 忍术攻击力
 			}
 			"gold_steal"
 			{
-				"value"			"5 10 15 20 25 30 35"
-				"special_bonus_unique_bounty_hunter"		"+20"	// 50 电脑钱太好偷了，削弱
+				"value"			"5 10 15 20 25"
+				"special_bonus_unique_bounty_hunter"		"+15"	// 50 电脑钱太好偷了，削弱
 			}
 			"AbilityCooldown"
 			{
-				"value"			"9 8 7 6 5 4 3"
+				"value"			"7 6 5 4 3"
+				"special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-70%"	// -100%，削弱 防止无限偷钱
 			}
 		}
 	}
@@ -6705,8 +6706,8 @@
 	{
 		"AbilityValues"
 		{
-			"damage_per_mana"						"3.0"	// 2.2
-			"damage_per_mana_per_level"				"0.2"	// 0.1
+			"damage_per_mana"						"5.0"	// 2.2
+			"damage_per_mana_per_level"				"0.3"	// 0.1
 		}
 	}
 	//=================================================================================================================
