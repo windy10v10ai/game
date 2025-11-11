@@ -201,7 +201,7 @@ export class EventNpcSpawned {
       });
 
       // bot在家待机一会在出门，防止出门在符点送人头
-      const moveTime = 40;
+      const moveTime = 30;
       hero.AddNewModifier(hero, undefined, 'modifier_rooted', {
         duration: GameConfig.PRE_GAME_TIME - moveTime,
       });
