@@ -13,9 +13,8 @@ export class GameConfig {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
     SendToServerConsole('dota_pause_cooldown_time 0'); // 暂停冷却时间
     // 设置bot模式
-    SendToServerConsole('sv_cheats 1');
-    SendToServerConsole('dota_bot_mode true');
-    SendToServerConsole('dota_bot_disable false');
+    Convars.SetBool('dota_bot_mode', true);
+    Convars.SetBool('dota_bot_disable', false);
 
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 10); // 设置天辉队伍人数上限
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限

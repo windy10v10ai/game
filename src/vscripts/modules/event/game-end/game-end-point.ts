@@ -57,31 +57,28 @@ export class GameEndPoint {
 
   static GetDifficultyMultiplier(difficulty: number, isLocalhost: boolean, option: Option): number {
     // 如果是作弊模式，不计算倍率。开发模式无视这条
-    // TODO bots只有作弊模式生效，暂时给分，等后面再修改
-    // if (!IsInToolsMode()) {
-    //   if (GameRules.IsCheatMode() || isLocalhost) {
-    //     return 0;
-    //   }
-    // }
-
-    const baseMultiplier = 0.5;
+    if (!IsInToolsMode()) {
+      if (GameRules.IsCheatMode() || isLocalhost) {
+        return 0;
+      }
+    }
 
     switch (difficulty) {
       case 1:
-        return baseMultiplier * 1.2;
+        return 1.2;
       case 2:
-        return baseMultiplier * 1.4;
+        return 1.4;
       case 3:
-        return baseMultiplier * 1.6;
+        return 1.6;
       case 4:
-        return baseMultiplier * 1.8;
+        return 1.8;
       case 5:
-        return baseMultiplier * 2;
+        return 2;
       case 6:
-        return baseMultiplier * 2.2;
+        return 2.2;
       default:
         // 自定义模式
-        return baseMultiplier * this.GetCustomModeMultiplier(option);
+        return this.GetCustomModeMultiplier(option);
     }
   }
 
