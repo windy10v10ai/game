@@ -1,5 +1,5 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v4.53';
+  public static readonly GAME_VERSION = 'v4.55';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -12,6 +12,9 @@ export class GameConfig {
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
     SendToServerConsole('dota_pause_cooldown_time 0'); // 暂停冷却时间
+    // 设置bot模式
+    Convars.SetBool('dota_bot_mode', true);
+    Convars.SetBool('dota_bot_disable', false);
 
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 10); // 设置天辉队伍人数上限
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限
@@ -26,7 +29,7 @@ export class GameConfig {
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
     GameRules.SetPreGameTime(GameConfig.PRE_GAME_TIME); // 进入游戏后号角吹响前的准备时间
     // GameRules.SetPostGameTime(30); // 游戏结束后时长
-    // GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
+    GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱
     GameRules.SetGoldTickTime(1); // 设置工资发放间隔
     GameRules.SetGoldPerTick(3); // 设置工资发放数额
@@ -73,12 +76,12 @@ export class GameConfig {
     game.SetMinimumAttackSpeed(20);
 
     if (IsInToolsMode()) {
-      print('[GameConfig] IsInToolsMode set');
-      // GameRules.SetCustomGameSetupAutoLaunchDelay(5);
-      // GameRules.SetHeroSelectionTime(15);
-      // GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
-      // GameRules.SetStrategyTime(5);
-      // GameRules.SetPreGameTime(15); // 进入游戏后号角吹响前的准备时间
+      print('[GameConfig] 开发者模式快速开始游戏');
+      GameRules.SetCustomGameSetupAutoLaunchDelay(10);
+      GameRules.SetHeroSelectionTime(5);
+      GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
+      GameRules.SetStrategyTime(3);
+      GameRules.SetPreGameTime(5); // 进入游戏后号角吹响前的准备时间
     }
   }
 

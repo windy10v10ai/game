@@ -2,22 +2,24 @@ import { PlayerHelper } from '../helper/player-helper';
 import { HeroFacetConfig } from './hero-facet-config';
 
 export class HeroPick {
-static PickHumanHeroes() {
-  PlayerHelper.ForEachPlayer((playerId) => {
-    if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
-      // 只有当 sameHeroSelection 为 true 时才强制随机
-      if (GameRules.Option.sameHeroSelection) {
-        // 强制随机模式:忽略玩家选择,直接随机
+  static PickRandomHeroes() {
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
         PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
-      } else {
-        // 正常模式:只为未选择的玩家随机
-        if (!PlayerResource.HasSelectedHero(playerId)) {
-          PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
-        }
       }
-    }
-  });
-}
+    });
+  }
+
+  static PickHumanHeroes() {
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
+        if (PlayerResource.HasSelectedHero(playerId)) {
+          return;
+        }
+        PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
+      }
+    });
+  }
 
   static PickBotHeroes() {
     math.randomseed(GameRules.GetGameTime());
@@ -48,19 +50,14 @@ static PickHumanHeroes() {
     for (let i = 0; i < direBotNumberNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
       const facetId = HeroFacetConfig.getRandomFacetId(heroName);
-      if (i === 0) {
-        // 第一个bot使用教程，不然所有bot都不会动
-        Tutorial.AddBot(heroName, '', 'unfair', false);
-      } else {
-        DebugCreateHeroWithVariant(
-          player,
-          heroName,
-          facetId,
-          DotaTeam.BADGUYS,
-          false,
-          (_hero: CDOTA_BaseNPC_Hero) => {},
-        );
-      }
+      DebugCreateHeroWithVariant(
+        player,
+        heroName,
+        facetId,
+        DotaTeam.BADGUYS,
+        false,
+        (_hero: CDOTA_BaseNPC_Hero) => {},
+      );
     }
 
     for (let i = 0; i < radiantBotNumber; i++) {
@@ -78,7 +75,6 @@ static PickHumanHeroes() {
     }
 
     GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
-    Tutorial.StartTutorialMode();
 
     // 添加初始金钱 bot
     PlayerHelper.ForEachPlayer((playerId) => {
