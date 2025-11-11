@@ -81,8 +81,7 @@ export class HeroPick {
 
     GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
     // Tutorial.StartTutorialMode();
-    SendToServerConsole('dota_bot_mode true');
-    SendToServerConsole('dota_bot_disable false');
+
     // 添加初始金钱 bot
     PlayerHelper.ForEachPlayer((playerId) => {
       if (PlayerHelper.IsBotPlayerByPlayerId(playerId)) {
