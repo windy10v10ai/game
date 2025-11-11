@@ -116,8 +116,8 @@ export class EventEntityKilled {
   ];
 
   private dropItemChanceFusionRoshan = 100;
-  private dropItemChanceFusionAncient = 1.2;
-  private dropItemChanceFusionNeutral = 0.25;
+  private dropItemChanceFusionAncient = 1.0;
+  private dropItemChanceFusionNeutral = 0.2;
   private calculateDropChance(baseChance: number): number {
     // 获取游戏难度
 
@@ -128,25 +128,23 @@ export class EventEntityKilled {
     // 难度系数: 难度越高,掉落概率越高
     let difficultyMultiplier = 1;
     if (difficulty >= 60) {
-      difficultyMultiplier = 4.0; // 60难度: 3倍概率
+      difficultyMultiplier = 3.0;
+    } else if (difficulty >= 40) {
+      difficultyMultiplier = 2.5;
     } else if (difficulty >= 20) {
-      difficultyMultiplier = 2.0; // 20难度: 2倍概率
-    } else if (difficulty >= 12) {
-      difficultyMultiplier = 1.5; // 12难度: 1.4倍概率
+      difficultyMultiplier = 2.0;
+    } else if (difficulty >= 10) {
+      difficultyMultiplier = 1.5;
     } else if (difficulty >= 1) {
-      difficultyMultiplier = 1; // N2难度: 1.2倍概率
+      difficultyMultiplier = 1;
     }
 
-    // 人数系数: 人数越多概率越高
+    // 人数系数: 人数过多野怪分不过来时才调高概率
     let playerMultiplier = 1;
     if (playerCount >= 6) {
-      playerMultiplier = 1.8; // 6人: 1.8倍概率
-    } else if (playerCount >= 4) {
-      playerMultiplier = 1.5; // 4-5人: 1.5倍概率
-    } else if (playerCount >= 2) {
-      playerMultiplier = 1.0; // 2-3人: 1.0倍概率
-    } else if (playerCount <= 1) {
-      playerMultiplier = 1.5; // 1人: 1.2倍概率
+      playerMultiplier = 1.5;
+    } else if (playerCount >= 3) {
+      playerMultiplier = 1.2;
     }
 
     // 最终概率 = 基础概率 × 难度系数 × 人数系数
