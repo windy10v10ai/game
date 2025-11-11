@@ -1,3 +1,5 @@
+import { GameEndPlayerDto } from '../../api/analytics/dto/game-end-dto';
+import { Game } from '../../api/game';
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
@@ -5,7 +7,7 @@ import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
-
+import { GameEndPoint } from './game-end/game-end-point';
 export class EventGameStateChange {
   constructor() {
     ListenToGameEvent('game_rules_state_change', () => this.OnGameStateChanged(), this);
@@ -35,7 +37,52 @@ export class EventGameStateChange {
     }
   }
 
-  private OnGameInProgress(): void {}
+  private OnGameInProgress(): void {
+    // 每20分钟发送一次暂存积分
+    // 工具模式下每2分钟发送一次,方便测试
+    const interval = IsInToolsMode() ? 20 : 1200;
+    Timers.CreateTimer(interval, () => {
+      print('[TempPoints] Timer triggered');
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const steamId = PlayerResource.GetSteamAccountID(playerId);
+        if (steamId > 0) {
+          const matchId = GameRules.Script_GetMatchID().toString();
+
+          const playerDto: GameEndPlayerDto = {
+            heroName: PlayerResource.GetSelectedHeroName(playerId),
+            steamId: steamId,
+            playerId: playerId, // 添加这个字段
+            teamId: PlayerResource.GetTeam(playerId),
+            isDisconnected:
+              PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
+            level: PlayerResource.GetLevel(playerId),
+            gold: PlayerResource.GetGold(playerId),
+            kills: PlayerResource.GetKills(playerId),
+            deaths: PlayerResource.GetDeaths(playerId),
+            assists: PlayerResource.GetAssists(playerId),
+            damage: PlayerResource.GetRawPlayerDamage(playerId),
+            damageTaken: 0,
+            healing: PlayerResource.GetHealing(playerId),
+            lastHits: PlayerResource.GetLastHits(playerId),
+            towerKills: PlayerResource.GetTowerKills(playerId),
+            score: 0,
+            battlePoints: 0,
+            facetId: 0,
+          };
+
+          const battlePoints = GameEndPoint.CalculatePlayerScore(playerDto);
+          // 输出调试信息
+          print(`[TempPoints] Player ${steamId}: ${battlePoints} points`);
+          print(
+            `[TempPoints] Stats - K:${playerDto.kills} D:${playerDto.deaths} A:${playerDto.assists}`,
+          );
+
+          Game.PostSaveTempPoints(steamId, matchId, battlePoints);
+        }
+      });
+      return 1200; // 继续每20分钟执行
+    });
+  }
 
   /**
    * 选择英雄时间
@@ -87,7 +134,8 @@ export class EventGameStateChange {
     }
 
     // ✅ 新增: 生成泉水守卫windy
-    this.SpawnFountainGuard();
+    //this.SpawnFountainGuard();
+    //this.SpawnFountainGuardDire();
     // 延迟为泉水设置技能等级
     Timers.CreateTimer(1, () => {
       const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
@@ -117,7 +165,28 @@ export class EventGameStateChange {
 
   private SpawnFountainGuard(): void {
     // 天辉泉水位置
-    const fountainPosition = Vector(-5400, -6800, 384) as Vector;
+    const fountainPosition = Vector(-5820, -6580, 384) as Vector;
+
+    const guard = CreateUnitByName(
+      'npc_windy',
+      fountainPosition,
+      true,
+      undefined,
+      undefined,
+      DotaTeam.BADGUYS,
+    );
+
+    if (guard !== undefined && guard !== null) {
+      guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
+      // print('[Fountain Guard] 泉水守卫已生成');
+    } else {
+      //print('[Fountain Guard] ERROR: 生成失败');
+    }
+  }
+
+  private SpawnFountainGuardDire(): void {
+    // 天辉泉水位置
+    const fountainPosition = Vector(5820, 6580, 384) as Vector;
 
     const guard = CreateUnitByName(
       'npc_windy',
