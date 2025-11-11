@@ -50,19 +50,19 @@ export class HeroPick {
     for (let i = 0; i < direBotNumberNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
       const facetId = HeroFacetConfig.getRandomFacetId(heroName);
-      if (i === 0) {
-        // 第一个bot使用教程，不然所有bot都不会动
-        Tutorial.AddBot(heroName, '', 'unfair', false);
-      } else {
-        DebugCreateHeroWithVariant(
-          player,
-          heroName,
-          facetId,
-          DotaTeam.BADGUYS,
-          false,
-          (_hero: CDOTA_BaseNPC_Hero) => {},
-        );
-      }
+      // if (i === 0) {
+      //   // 第一个bot使用教程，不然所有bot都不会动
+      //   Tutorial.AddBot(heroName, '', 'unfair', false);
+      // } else {
+      DebugCreateHeroWithVariant(
+        player,
+        heroName,
+        facetId,
+        DotaTeam.BADGUYS,
+        false,
+        (_hero: CDOTA_BaseNPC_Hero) => {},
+      );
+      // }
     }
 
     for (let i = 0; i < radiantBotNumber; i++) {
@@ -80,8 +80,9 @@ export class HeroPick {
     }
 
     GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
-    Tutorial.StartTutorialMode();
-
+    // Tutorial.StartTutorialMode();
+    SendToServerConsole('dota_bot_mode true');
+    SendToServerConsole('dota_bot_disable false');
     // 添加初始金钱 bot
     PlayerHelper.ForEachPlayer((playerId) => {
       if (PlayerHelper.IsBotPlayerByPlayerId(playerId)) {
