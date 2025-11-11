@@ -18,7 +18,7 @@ function item_dracula_mask:OnSpellStart()
     -- 撒旦触发音效
     caster:EmitSound("DOTA_Item.Satanic.Activate")
     -- 添加主动buff
-    caster:AddNewModifier(caster, self, "modifier_item_dracula_mask_active", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_item_dracula_mask_active", { duration = duration })
 
     -- 驱散负面效果
     caster:Purge(false, true, false, true, true)
@@ -35,9 +35,13 @@ end
 modifier_item_dracula_mask = class({})
 
 function modifier_item_dracula_mask:IsHidden() return true end
+
 function modifier_item_dracula_mask:IsPurgable() return false end
+
 function modifier_item_dracula_mask:IsPurgeException() return false end
+
 function modifier_item_dracula_mask:RemoveOnDeath() return false end
+
 function modifier_item_dracula_mask:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -54,7 +58,7 @@ function modifier_item_dracula_mask:OnCreated()
     self.hp_threshold = ability:GetSpecialValueFor("hp_threshold")
 
     if IsServer() then
-        self:StartIntervalThink(0.1)  -- 每0.1秒检查生命值
+        self:StartIntervalThink(0.1) -- 每0.1秒检查生命值
     end
 end
 
@@ -65,11 +69,13 @@ function modifier_item_dracula_mask:OnRefresh()
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
+
 function modifier_item_dracula_mask:DeclareFunctions()
     return {
         MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
 end
+
 function modifier_item_dracula_mask:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
@@ -89,12 +95,16 @@ function modifier_item_dracula_mask:OnIntervalThink()
     if hp_pct <= self.hp_threshold and ability:IsFullyCastable() then
         -- 自动触发主动技能
         ability:OnSpellStart()
-        ability:UseResources(false, false, false, true)  -- 消耗冷却
+        ability:UseResources(false, false, false, true) -- 消耗冷却
     end
 end
+
 -- 被动双吸血效果(物理+法术)
 function modifier_item_dracula_mask:OnTakeDamage(params)
     if not IsServer() then return end
+
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
 
     local parent = self:GetParent()
     local attacker = params.attacker
@@ -106,15 +116,13 @@ function modifier_item_dracula_mask:OnTakeDamage(params)
     if not params.inflictor and params.damage_type == DAMAGE_TYPE_PHYSICAL then
         local heal = params.damage * (self.lifesteal_percent or 30) / 100
         parent:Heal(heal, self:GetAbility())
-
     end
 
     -- 被动法术吸血:对技能造成的魔法伤害生效
     if params.inflictor and params.damage_type ~= DAMAGE_TYPE_PURE then
         -- 排除反弹伤害和HP移除
-    if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == 0 and
-    bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == 0 then
-
+        if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == 0 and
+            bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == 0 then
             local spell_heal = params.damage * (self.spell_lifesteal or 25) / 100
 
             -- 非英雄目标降低吸血效果
@@ -139,12 +147,13 @@ function modifier_item_dracula_mask:OnTakeDamage(params)
     end
 end
 
-
 -- 主动buff
 modifier_item_dracula_mask_active = class({})
 
 function modifier_item_dracula_mask_active:IsHidden() return false end
+
 function modifier_item_dracula_mask_active:IsDebuff() return false end
+
 function modifier_item_dracula_mask_active:IsPurgable() return false end
 
 function modifier_item_dracula_mask_active:GetTexture()
@@ -165,10 +174,8 @@ function modifier_item_dracula_mask_active:OnCreated()
     if not IsServer() then return end
 
     -- 服务器端逻辑
-    self.damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction") or -100  -- 100%减伤 = 不受任何伤害
-
+    self.damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction") or -100 -- 100%减伤 = 不受任何伤害
 end
-
 
 function modifier_item_dracula_mask_active:DeclareFunctions()
     return {
@@ -179,9 +186,13 @@ function modifier_item_dracula_mask_active:DeclareFunctions()
         MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
 end
+
 -- 主动期间增强双吸血效果
 function modifier_item_dracula_mask_active:OnTakeDamage(params)
     if not IsServer() then return end
+
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
 
     local parent = self:GetParent()
     local attacker = params.attacker
@@ -192,14 +203,12 @@ function modifier_item_dracula_mask_active:OnTakeDamage(params)
     if not params.inflictor and params.damage_type == DAMAGE_TYPE_PHYSICAL then
         local heal = params.damage * (self.lifesteal_active or 200) / 100
         parent:Heal(heal, self:GetAbility())
-
     end
 
     -- 主动期间法术吸血
     if params.inflictor and params.damage_type ~= DAMAGE_TYPE_PURE then
         if bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) == 0 and
             bit.band(params.damage_flags, DOTA_DAMAGE_FLAG_HPLOSS) == 0 then
-
             local spell_heal = params.damage * (self.spell_lifesteal_active or 100) / 100
 
             if not params.unit:IsHero() then
@@ -221,6 +230,7 @@ function modifier_item_dracula_mask_active:OnTakeDamage(params)
         end
     end
 end
+
 function modifier_item_dracula_mask_active:GetModifierAttackSpeedBonus_Constant()
     return self.bonus_attack_speed_active or 0
 end
