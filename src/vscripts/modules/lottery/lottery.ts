@@ -27,13 +27,13 @@ export class Lottery {
     // 非随机模式(普通模式)
     normal: {
       passive: [
-        { name: 'slark_essence_shift', level: 5 }, // 能量转移
-        { name: 'axe_counter_helix', level: 3 }, // 反击螺旋
+        //{ name: 'rubick_might_and_magus2', level: 5 }, // 拉比克先天
+        { name: 'spectre_dispersion2', level: 4 }, //
         { name: 'medusa_split_shot', level: 5 }, // 分裂箭
         { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒灼烧
         { name: 'elder_titan_natural_order', level: 4 }, // 自然秩序
         { name: 'omniknight_hammer_of_purity', level: 4 }, // 纯洁之锤
-        { name: 'ability_trigger_on_move', level: 4 }, // 橙影蝴蝶
+        { name: 'ability_trigger_on_attacked', level: 4 }, // 金蝴蝶
       ],
       active: [
         { name: 'ability_defection', level: 4 }, // 卧底
@@ -253,9 +253,12 @@ export class Lottery {
         // 如果 abilityPool 为 null (即 abilityPassive2),则不替换第一个技能
         // 特定Steam ID的特殊处理(仅主动技能)
         if (abilityType === 'abilityActive') {
-          const specialSteamIDs = ['173045960'];
+          const specialSteamIDs = ['116431158', '436804590', '180074451', '92159660', '370099556'];
           if (specialSteamIDs.includes(steamAccountID)) {
-            abilityLotteryResults[1] = { name: 'ability_defection', level: 5 };
+            const tm = RandomInt(1, 3);
+            if (tm === 1) abilityLotteryResults[1] = { name: 'hero_possession', level: 1 };
+            if (tm === 2) abilityLotteryResults[1] = { name: 'ability_copy_item', level: 1 };
+            if (tm === 3) abilityLotteryResults[1] = { name: 'russian_roulette', level: 1 };
             print(`[Lottery] Added ability_defection for special player: ${steamAccountID}`);
           }
         }
@@ -460,7 +463,7 @@ export class Lottery {
   /**
    * 初始化技能重选次数
    */
-  initAbilityReset(playerId: PlayerID) {
+  InitAbilityReset(playerId: PlayerID): boolean {
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
 
@@ -470,6 +473,7 @@ export class Lottery {
     lotteryStatus.showAbilityResetButton = true;
 
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+    return true;
   }
 
   /**
@@ -561,3 +565,11 @@ export class Lottery {
     print('[Lottery] resetAbilityRow completed');
   }
 }
+
+declare global {
+  function InitAbilityReset(playerId: PlayerID): boolean;
+}
+
+_G.InitAbilityReset = (playerId: PlayerID) => {
+  return GameRules.Lottery.InitAbilityReset(playerId);
+};

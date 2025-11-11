@@ -12264,6 +12264,7 @@
 	// 力量与魔法 先天技能
 	"rubick_might_and_magus"
 	{
+
 		"AbilityValues"
 		{
 			"one_tooltip"					"1"
