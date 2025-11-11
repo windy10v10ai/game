@@ -224,6 +224,7 @@ export class Debug {
     }
 
     if (cmd === CMD.END) {
+      GameEnd.gameEndTriggered = false;
       GameEnd.OnGameEnd(2);
     }
 

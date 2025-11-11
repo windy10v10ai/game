@@ -1048,6 +1048,10 @@
 		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%伤害减免："
 		"DOTA_Tooltip_ability_dark_willow_terrorize_impact_damage"						"伤害："
 		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_2"						"+{s:bonus_impact_damage} 恐吓击中伤害"
+
+		// 赏金猎人
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-{s:bonus_AbilityCooldown}%  忍术冷却"
+
 		// 融合符文系列
 		// 鹰眼符文
 		"DOTA_Tooltip_ability_item_fusion_hawkeye"          "鹰眼符文"
@@ -1352,7 +1356,7 @@
 
 		// item_magic_sword 魔渊剑
 		"DOTA_Tooltip_Ability_item_magic_sword"											"魔渊剑"
-		"DOTA_Tooltip_Ability_item_magic_sword_Description"								"<h1>主动：<font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动：溅射</h1>近战攻击对目标周围 %cleave_distance% 范围内的敌人造成 %cleave_damage_percent%%% 的溅射伤害，对非英雄单位造成 %cleave_damage_percent_creep%%% 的溅射伤害。（仅近战有效）\n<h1>被动：魔渊腐蚀</h1>攻击时对目标施加腐蚀效果，持续 %debuff_duration% 秒：<br>- 护甲降低 %corruption_armor%<br>- 攻击速度降低 %attack_slow%<br>- 移动速度降低 %slow_pct%%%<br>- 生命回复和治疗效果降低 %hp_regen_reduction_pct%%%"
+		"DOTA_Tooltip_Ability_item_magic_sword_Description"								"<h1>主动：<font color='#a74abd'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动：斩断世界线</h1>普通攻击时对目标周围最远 %cleave_distance% 距离的锥形区域内敌人造成 %cleave_damage_percent%%% 物理伤害。对非英雄单位造成 %cleave_damage_percent_creep%%% 物理伤害。（仅近战有效）\n<h1>被动：魔渊腐蚀</h1>攻击时对目标施加腐蚀效果，持续 %debuff_duration% 秒：<br>- 护甲降低 %corruption_armor%<br>- 攻击速度降低 %attack_slow%<br>- 移动速度降低 %slow_pct%%%<br>- 生命回复和治疗效果降低 %hp_regen_reduction_pct%%%"
 		"DOTA_Tooltip_Ability_item_magic_sword_Lore"									"佛曰：一念成佛，一念成魔。"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"							"+$all"
@@ -2486,16 +2490,6 @@
 		"DOTA_Tooltip_ability_item_satanic_2_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_satanic_2_lifesteal_percent"					"%+$lifesteal"
 
-		// 大狂战
-		"DOTA_Tooltip_Ability_item_bfury_2"				"超级狂战斧"
-		"DOTA_Tooltip_ability_item_bfury_2_Description"							"<h1>主动：砍伐</h1>砍伐一根指定树木。<br><br>砍伐施法距离：%abilitycastrange%\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n<h1>被动：分裂</h1>普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
-		"DOTA_Tooltip_ability_item_bfury_2_Lore"									"持有这把强大斧头的人可以一次砍倒一片敌人。"
-		"DOTA_Tooltip_ability_item_bfury_2_Note0"									"分裂伤害无视技能免疫。"
-		"DOTA_Tooltip_ability_item_bfury_2_Note1"									"如果存在多个分裂效果，每个分裂的伤害都会单独计算。"
-		"DOTA_Tooltip_ability_item_bfury_2_bonus_damage"							"+$damage"
-		"DOTA_Tooltip_ability_item_bfury_2_bonus_health_regen"					"+$hp_regen"
-		"DOTA_Tooltip_ability_item_bfury_2_bonus_mana_regen"						"+$mana_regen"
-
 		// 苍洋魔珠
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine"						"苍洋魔珠"
 		"DOTA_Tooltip_Ability_item_orb_of_the_brine_Lore"						"要不是这颗尊崇的魔珠，教团在石鱼门一役就全军覆没。"
@@ -2624,14 +2618,14 @@
 		"DOTA_Tooltip_Ability_item_rapier_ultra_bot_1_Note1"					"诅咒圣剑无法被摧毁、出售或移动到背包。"
 
 		// item_bfury_ultra 救世狂战
-		"DOTA_Tooltip_ability_item_bfury_ultra"                         "<font color='#e03e2e'>救世狂战</font>"
-		"DOTA_Tooltip_Ability_item_bfury_ultra_Description"             "<h1>被动：斩断世界线</h1>知道Sccc斩断世界线的那一刀吗？普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
-		"DOTA_Tooltip_Ability_item_bfury_ultra_Lore"                    "你听说过六狂战拯救世界的故事吗？"
+		"DOTA_Tooltip_ability_item_bfury_ultra"							"<font color='#e03e2e'>救世狂战</font>"
+		"DOTA_Tooltip_Ability_item_bfury_ultra_Description"				"<h1>主动：砍伐</h1>砍伐一根指定树木。\n<h1>被动：压制</h1>对非英雄单位进行物理攻击会造成额外伤害，近战英雄为%quelling_bonus%点，远程英雄为%quelling_bonus_ranged%点。\n<h1>被动：斩断世界线</h1>知道Sccc斩断世界线的那一刀吗？普通攻击时对目标周围最远%cleave_distance%距离的锥形区域内敌人造成%cleave_damage_percent%%%物理伤害。对非英雄单位造成%cleave_damage_percent_creep%%%物理伤害。（仅近战有效）"
+		"DOTA_Tooltip_Ability_item_bfury_ultra_Lore"					"你听说过六狂战拯救世界的故事吗？"
+		"DOTA_Tooltip_ability_item_bfury_ultra_Note0"					"分裂伤害无视技能免疫。"
+		"DOTA_Tooltip_ability_item_bfury_ultra_Note1"					"如果存在多个分裂效果，每个分裂的伤害都会单独计算。"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_damage"			"+$damage"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_health_regen"		"+$hp_regen"
 		"DOTA_Tooltip_ability_item_bfury_ultra_bonus_mana_regen"		"+$mana_regen"
-		"DOTA_Tooltip_ability_item_bfury_ultra_Note0"					"分裂伤害无视减益免疫。"
-		"DOTA_Tooltip_ability_item_bfury_ultra_Note1"					"如果存在多个分裂效果，每个分裂的伤害都会单独计算。"
 
 		// item_bloodthorn_ultra 变态辣
 		"DOTA_Tooltip_Ability_item_bloodthorn_ultra"						"<font color='#e03e2e'>变态辣</font>"

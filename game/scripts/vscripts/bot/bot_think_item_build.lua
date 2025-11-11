@@ -26,7 +26,7 @@ local function addTome(k, v)
 
   -- 计算替换概率（难度倍率 = 替换概率%）
   -- 限制最大概率为100%
-  if multiplier >= 10 then
+  if multiplier >= 5 then
     local replace_chance = multiplier
 
     -- 随机替换装备（基于配方）
@@ -596,7 +596,7 @@ end
 
 -- 加钱
 function BotThink:AddMoney(hHero)
-  local iAddBase = AIGameMode.playerNumber + 5
+  local iAddBase = AIGameMode.playerNumber + 7
   local GameTime = GameRules:GetDOTATime(false, false)
   local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
 

@@ -1,72 +1,26 @@
--- 主动技能效果（datadriven 调用）
--- function MagicSwordOnSpellStart(keys)
---     local caster = keys.caster
---     EmitSoundOn("Hero_Juggernaut.BladeFury", caster)
--- end
-
--- 溅射效果子函数
-function MagicSwordCleaveEffect(params)
+-- 被动 modifier 创建时添加狂战斧溅射效果
+function MagicSwordOnCreated(keys)
     if not IsServer() then return end
-    if not params.attacker:IsRealHero() then return end
-    if params.attacker:IsRangedAttacker() then return end -- 仅近战有效
-    if params.attacker:GetTeam() == params.target:GetTeam() then return end
 
-    local ability = params.ability
-    if not ability then return end
+    local caster = keys.caster
+    local ability = keys.ability
 
-    local cleave_distance = ability:GetSpecialValueFor("cleave_distance")
-    local cleave_damage_percent = ability:GetSpecialValueFor("cleave_damage_percent")
-    local cleave_damage_percent_creep = ability:GetSpecialValueFor("cleave_damage_percent_creep")
-    local target_loc = params.target:GetAbsOrigin()
+    if not caster or not ability then return end
 
-    -- 计算圆形区域内的敌人
-    local enemies = FindUnitsInRadius(
-        params.attacker:GetTeamNumber(),
-        target_loc,
-        nil,
-        cleave_distance,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-        FIND_ANY_ORDER,
-        false
-    )
-
-    -- 计算基础溅射伤害（基于攻击者的攻击力）
-    local attacker_damage = params.attacker:GetAverageTrueAttackDamage(params.target)
-
-    for _, enemy in pairs(enemies) do
-        if enemy ~= params.target then
-            local damage_percent = enemy:IsCreep() and cleave_damage_percent_creep or cleave_damage_percent
-            local cleave_damage = attacker_damage * damage_percent / 100
-
-            ApplyDamage({
-                victim = enemy,
-                attacker = params.attacker,
-                damage = cleave_damage,
-                damage_type = DAMAGE_TYPE_PHYSICAL,
-                damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
-                ability = ability,
-            })
-        end
-    end
+    -- 添加原生狂战斧 modifier 实现溅射效果
+    caster:AddNewModifier(caster, ability, "modifier_item_battlefury", {})
 end
 
--- 主动效果创建（datadriven 调用）
--- function MagicSwordActiveOnCreated(keys)
---     if not IsServer() then return end
+-- 被动 modifier 移除时移除狂战斧效果
+function MagicSwordOnDestroy(keys)
+    if not IsServer() then return end
 
---     local parent = keys.caster
---     local ability = keys.ability
+    local caster = keys.caster
 
---     -- 添加特效
---     local fx = ParticleManager:CreateParticle(
---         "particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf",
---         PATTACH_ABSORIGIN_FOLLOW,
---         parent
---     )
---     ParticleManager:ReleaseParticleIndex(fx)
--- end
+    if not caster then return end
+
+    caster:RemoveModifierByName("modifier_item_battlefury")
+end
 
 -- 主动效果攻击处理（datadriven 调用）
 function MagicSwordActiveOnAttackLanded(params)
