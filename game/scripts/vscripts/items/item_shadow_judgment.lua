@@ -399,7 +399,12 @@ end
 
 function modifier_shadow_judgment_silence:OnTakeDamage(params)
     if not IsServer() then return end
+
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
+
     if params.unit ~= self:GetParent() then return end
+
 
     if params.damage > 0 then
         self.damage_record = self.damage_record + params.damage

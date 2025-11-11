@@ -97,6 +97,9 @@ end
 function modifier_item_magic_abyss_staff_active:OnTakeDamage(params)
     if not IsServer() then return end
 
+    -- 伤害小于10不不处理，优化性能
+    if params.damage < 10 then return end
+
     -- 只处理自己造成的伤害
     if params.attacker ~= self:GetParent() then return end
 
