@@ -5818,10 +5818,10 @@
     "ItemPermanent"             "1"
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
-	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 }
 
@@ -5844,10 +5844,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
 }
 
 // 暴虐符文
@@ -5869,10 +5869,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
 }
 
 // 兽化符文
@@ -5894,10 +5894,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"360"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
 }
 
 // 生命符文
@@ -5919,10 +5919,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"480"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
 }
 
 // 暗影符文
@@ -5944,10 +5944,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
 }
 
 // 魔化符文
@@ -5969,10 +5969,10 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"1060"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
 }
 
 // 灵动符文
@@ -5994,11 +5994,12 @@
 	"ItemDroppable"             "1"              // 添加:允许丢弃
 	"ItemStackable"             "0"              // 添加:不可堆叠
     "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"600"	// 16分钟买
+	"ItemInitialStockTime"		"0"	// 16分钟买
 	"ItemStockInitial"			"0"
-	"ItemStockMax"				"3"
-	"ItemStockTime"				"120"
+	"ItemStockMax"				"2"
+	"ItemStockTime"				"0"
 }
+
 //=================================================================================================================
 // Recipe: 鹰眼炮台
 //=================================================================================================================
@@ -7654,13 +7655,13 @@
 	}
 	"item_skill_talisman"
 	{
-		"ID"                        "9999"
+		"ID"                        "10331"
 		"BaseClass"                 "item_lua"
-		"ScriptFile"                "items/item_skill_talisman.lua"
+		"ScriptFile"                "items/item_skill_talisman"
 		"AbilityTextureName"        "item_ultimate_scepter"
 
 		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityCastRange"          "99999"  // 全地图范围
+		"AbilityCastRange"          "1800"  //
 
 		"ItemCost"                  "1000"
 		"ItemShopTags"              "consumable"
