@@ -9,7 +9,6 @@ interface FusionRuneConfig {
   maxStock: number;
 }
 
-// FIXME暂时未使用，保留以缓解代码冲突
 @reloadable
 export class FusionRuneManager {
   // 8种符文配置

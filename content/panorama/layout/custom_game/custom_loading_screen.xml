@@ -68,7 +68,7 @@
 							<Label text="4" id="4"/>
 							<Label text="3" id="3"/>
 							<Label text="2" id="2"/>
-							<Label text="0" id="0"/>
+							<Label text="1" id="1"/>
 						</DropDown>
 					</Panel>
 					<!-- 防御塔增强 -->
