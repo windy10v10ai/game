@@ -1,0 +1,5267 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	techies_tech_spawn_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.149388
+	}
+	techies_tech_spawn_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.213061
+	}
+	techies_tech_spawn_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.224490
+	}
+	techies_tech_spawn_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.892245
+	}
+	techies_tech_spawn_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.631020
+	}
+	techies_tech_spawn_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.172245
+	}
+	techies_tech_begin_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.799184
+	}
+	techies_tech_firstblood_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_firstblood_01.vsnd"
+		vsnd_duration = 5.773061
+	}
+	techies_tech_firstblood_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_firstblood_02.vsnd"
+		vsnd_duration = 3.657143
+	}
+	techies_tech_firstblood_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_firstblood_03.vsnd"
+		vsnd_duration = 6.635102
+	}
+	techies_tech_move_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_move_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_move_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_move_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 2.011429
+	}
+	techies_tech_move_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_move_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_move_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_move_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 2.351020
+	}
+	techies_tech_move_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_move_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_tech_move_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_tech_move_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 3.030204
+	}
+	techies_tech_move_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_move_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_tech_move_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.802449
+	}
+	techies_tech_move_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_move_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_move_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 0.496327
+	}
+	techies_tech_move_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_move_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.906939
+	}
+	techies_tech_move_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_move_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 0.914286
+	}
+	techies_tech_move_27 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.280000
+	}
+	techies_tech_move_28 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_tech_move_30 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 4.858776
+	}
+	techies_tech_move_32 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_tech_move_33 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 2.168163
+	}
+	techies_tech_move_34 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_move_36 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_move_37 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_move_38 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_tech_move_39 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.384490
+	}
+	techies_tech_move_40 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_move_42 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_move_43 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.358367
+	}
+	techies_tech_move_44 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.149388
+	}
+	techies_tech_move_45 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_move_46 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_move_47 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.985306
+	}
+	techies_tech_move_48 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_move_49 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 0.522449
+	}
+	techies_tech_move_50 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_tech_move_51 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_move_52 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_move_53 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_move_54 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 2.142041
+	}
+	techies_tech_move_56 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_tech_move_60 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_attack_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.574694
+	}
+	techies_tech_attack_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_attack_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_attack_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_attack_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_attack_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_attack_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.358367
+	}
+	techies_tech_attack_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_attack_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_attack_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_attack_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.933061
+	}
+	techies_tech_attack_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.671837
+	}
+	techies_tech_attack_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_attack_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_attack_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_attack_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_attack_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_attack_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_tech_attack_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.671837
+	}
+	techies_tech_cast_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_tech_cast_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.115918
+	}
+	techies_tech_cast_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.533878
+	}
+	techies_tech_setmine_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.548571
+	}
+	techies_tech_setmine_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_setmine_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.888163
+	}
+	techies_tech_setmine_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.496327
+	}
+	techies_tech_setmine_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_setmine_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.750204
+	}
+	techies_tech_setmine_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_tech_setmine_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_setmine_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_setmine_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.776327
+	}
+	techies_tech_setmine_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.854694
+	}
+	techies_tech_setmine_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_setmine_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.754286
+	}
+	techies_tech_setmine_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_setmine_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.574694
+	}
+	techies_tech_setmine_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.835918
+	}
+	techies_tech_setmine_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_setmine_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_setmine_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_setmine_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.071020
+	}
+	techies_tech_setmine_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_setmine_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_setmine_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_setmine_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.679184
+	}
+	techies_tech_setmine_28 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_setmine_29 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_setmine_30 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.522449
+	}
+	techies_tech_setmine_32 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.071020
+	}
+	techies_tech_setmine_33 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_tech_setmine_34 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.470204
+	}
+	techies_tech_setmine_35 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_setmine_36 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.384490
+	}
+	techies_tech_setmine_37 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_setmine_38 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.835918
+	}
+	techies_tech_setmine_39 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.574694
+	}
+	techies_tech_setmine_41 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_setmine_42 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_setmine_43 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_setmine_44 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_setmine_45 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.168163
+	}
+	techies_tech_setmine_46 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.030204
+	}
+	techies_tech_setmine_47 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.194286
+	}
+	techies_tech_setmine_48 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.638367
+	}
+	techies_tech_setmine_50 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_setmine_51 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.220408
+	}
+	techies_tech_setmine_52 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.075102
+	}
+	techies_tech_setmine_53 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.619592
+	}
+	techies_tech_setmine_54 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.750204
+	}
+	techies_tech_mineblowsup_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
+	}
+	techies_tech_mineblowsup_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.612245
+	}
+	techies_tech_mineblowsup_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_mineblowsup_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_mineblowsup_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.220408
+	}
+	techies_tech_mineblowsup_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_mineblowsup_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_mineblowsup_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_settrap_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.142041
+	}
+	techies_tech_settrap_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_settrap_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_settrap_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.567347
+	}
+	techies_tech_settrap_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_settrap_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_settrap_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.298775
+	}
+	techies_tech_settrap_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_settrap_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.160816
+	}
+	techies_tech_settrap_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.324898
+	}
+	techies_tech_trapgoesoff_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_trapgoesoff_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_trapgoesoff_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_tech_trapgoesoff_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_tech_trapgoesoff_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.906939
+	}
+	techies_tech_trapgoesoff_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_trapgoesoff_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_suicidesquad_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.220408
+	}
+	techies_tech_suicidesquad_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_suicidesquad_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.612245
+	}
+	techies_tech_suicidesquad_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.324898
+	}
+	techies_tech_suicidesquad_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.750204
+	}
+	techies_tech_suicidesquad_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.985306
+	}
+	techies_tech_suicidesquad_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_suicidesquad_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_suicidesquad_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.888163
+	}
+	techies_tech_suicidesquad_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_tech_suicidesquad_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.697959
+	}
+	techies_tech_failure_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.115918
+	}
+	techies_tech_remotemines_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.324898
+	}
+	techies_tech_remotemines_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.127347
+	}
+	techies_tech_remotemines_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_remotemines_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_remotemines_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_remotemines_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_tech_remotemines_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.455510
+	}
+	techies_tech_remotemines_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.906939
+	}
+	techies_tech_remotemines_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_remotemines_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.567347
+	}
+	techies_tech_remotemines_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_remotemines_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.750204
+	}
+	techies_tech_remotemines_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.567347
+	}
+	techies_tech_remotemines_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_remotemines_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.515102
+	}
+	techies_tech_remotemines_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.488980
+	}
+	techies_tech_remotemines_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.664490
+	}
+	techies_tech_remotemines_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_remotemines_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.011429
+	}
+	techies_tech_remotemines_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.220408
+	}
+	techies_tech_remotemines_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.716735
+	}
+	techies_tech_remotemines_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_remotemines_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.011429
+	}
+	techies_tech_remotemines_27 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_remotemines_28 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.776327
+	}
+	techies_tech_remotemines_29 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.358367
+	}
+	techies_tech_remotemines_30 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.395918
+	}
+	techies_tech_focuseddetonate_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.690612
+	}
+	techies_tech_focuseddetonate_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_focuseddetonate_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.835918
+	}
+	techies_tech_focuseddetonate_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.071020
+	}
+	techies_tech_focuseddetonate_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.298775
+	}
+	techies_tech_focuseddetonate_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.567347
+	}
+	techies_tech_focuseddetonate_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.716735
+	}
+	techies_tech_focuseddetonate_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.560000
+	}
+	techies_tech_focuseddetonate_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.664490
+	}
+	techies_tech_focuseddetonate_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_focuseddetonate_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.280000
+	}
+	techies_tech_focuseddetonate_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
+	}
+	techies_tech_focuseddetonate_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.985306
+	}
+	techies_tech_focuseddetonate_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.272653
+	}
+	techies_tech_focuseddetonate_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.709388
+	}
+	techies_tech_focuseddetonate_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.619592
+	}
+	techies_tech_focuseddetonate_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_failure_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.742857
+	}
+	techies_tech_failure_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.754286
+	}
+	techies_tech_failure_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.768980
+	}
+	techies_tech_failure_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.977959
+	}
+	techies_tech_levelup_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.802449
+	}
+	techies_tech_levelup_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.933061
+	}
+	techies_tech_levelup_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.089796
+	}
+	techies_tech_levelup_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_levelup_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.653061
+	}
+	techies_tech_levelup_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.847347
+	}
+	techies_tech_levelup_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.802449
+	}
+	techies_tech_levelup_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.500408
+	}
+	techies_tech_levelup_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.507755
+	}
+	techies_tech_levelup_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.455510
+	}
+	techies_tech_levelup_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.619592
+	}
+	techies_tech_levelup_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.317551
+	}
+	techies_tech_levelup_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.709388
+	}
+	techies_tech_levelup_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_levelup_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_tech_levelup_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.515102
+	}
+	techies_tech_levelup_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.168163
+	}
+	techies_tech_levelup_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.593469
+	}
+	techies_tech_levelup_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.776327
+	}
+	techies_tech_levelup_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.854694
+	}
+	techies_tech_kill_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.996735
+	}
+	techies_tech_kill_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.194286
+	}
+	techies_tech_kill_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.246531
+	}
+	techies_tech_kill_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_kill_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_kill_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.220408
+	}
+	techies_tech_kill_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.194286
+	}
+	techies_tech_kill_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.455510
+	}
+	techies_tech_kill_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.369796
+	}
+	techies_tech_kill_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.455510
+	}
+	techies_tech_kill_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.578775
+	}
+	techies_tech_kill_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.488980
+	}
+	techies_tech_kill_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.194286
+	}
+	techies_tech_kill_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.324898
+	}
+	techies_tech_kill_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.925714
+	}
+	techies_tech_kill_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.377143
+	}
+	techies_tech_kill_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.638367
+	}
+	techies_tech_kill_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.056327
+	}
+	techies_tech_kill_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.750204
+	}
+	techies_tech_kill_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.854694
+	}
+	techies_tech_kill_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.284081
+	}
+	techies_tech_minekill_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_minekill_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.593469
+	}
+	techies_tech_minekill_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.362449
+	}
+	techies_tech_detonatekill_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.455510
+	}
+	techies_tech_detonatekill_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.664490
+	}
+	techies_tech_detonatekill_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.186939
+	}
+	techies_tech_rival_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.906939
+	}
+	techies_tech_rival_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.840000
+	}
+	techies_tech_rival_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.709388
+	}
+	techies_tech_rival_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.795102
+	}
+	techies_tech_rival_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.768980
+	}
+	techies_tech_rival_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_rival_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_rival_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.120000
+	}
+	techies_tech_rival_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.892245
+	}
+	techies_tech_ally_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.041633
+	}
+	techies_tech_ally_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.683265
+	}
+	techies_tech_ally_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.918367
+	}
+	techies_tech_ally_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.395918
+	}
+	techies_tech_ally_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.552653
+	}
+	techies_tech_ally_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.440816
+	}
+	techies_tech_ally_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.030204
+	}
+	techies_tech_lasthit_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.888163
+	}
+	techies_tech_lasthit_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.149388
+	}
+	techies_tech_lasthit_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_lasthit_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_lasthit_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_tech_lasthit_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_lasthit_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.567347
+	}
+	techies_tech_lasthit_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_lasthit_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.761633
+	}
+	techies_tech_lasthit_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_lasthit_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_tech_lasthit_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_lasthit_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.384490
+	}
+	techies_tech_lasthit_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_tech_lasthit_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.358367
+	}
+	techies_tech_lasthit_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_lasthit_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_lasthit_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_death_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_tech_death_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_death_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.724082
+	}
+	techies_tech_death_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 2.194286
+	}
+	techies_tech_death_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 2.429388
+	}
+	techies_tech_death_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.933061
+	}
+	techies_tech_death_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 2.037551
+	}
+	techies_tech_death_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.802449
+	}
+	techies_tech_death_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.541224
+	}
+	techies_tech_death_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 2.142041
+	}
+	techies_tech_death_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_death_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.488980
+	}
+	techies_tech_death_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_death_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_fastres_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.526531
+	}
+	techies_tech_fastressuicide_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.507755
+	}
+	techies_tech_fastressuicide_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.280000
+	}
+	techies_tech_fastressuicide_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_respawn_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.205714
+	}
+	techies_tech_respawn_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.466939
+	}
+	techies_tech_respawn_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.298775
+	}
+	techies_tech_respawn_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_respawn_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.780408
+	}
+	techies_tech_respawn_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.127347
+	}
+	techies_tech_respawn_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.213061
+	}
+	techies_tech_respawn_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.030204
+	}
+	techies_tech_respawn_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.906939
+	}
+	techies_tech_respawn_ssa_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.813878
+	}
+	techies_tech_respawn_ssa_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.526531
+	}
+	techies_tech_respawn_ssa_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.265306
+	}
+	techies_tech_respawn_ssa_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.048980
+	}
+	techies_tech_purch_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.899592
+	}
+	techies_tech_purch_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.324898
+	}
+	techies_tech_purch_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.911020
+	}
+	techies_tech_scepter_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.776327
+	}
+	techies_tech_scepter_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 6.844081
+	}
+	techies_tech_scepter_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_blink_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_tech_blink_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.433469
+	}
+	techies_tech_blink_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.840000
+	}
+	techies_tech_blink_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_items_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.526531
+	}
+	techies_tech_items_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.213061
+	}
+	techies_tech_items_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.709388
+	}
+	techies_tech_items_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.683265
+	}
+	techies_tech_items_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.638367
+	}
+	techies_tech_items_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.246531
+	}
+	techies_tech_items_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_items_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_items_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_items_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.854694
+	}
+	techies_tech_items_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_items_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_items_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.567347
+	}
+	techies_tech_items_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.623673
+	}
+	techies_tech_items_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.500408
+	}
+	techies_tech_items_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
+	}
+	techies_tech_items_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_items_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.541224
+	}
+	techies_tech_bottle_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.500408
+	}
+	techies_tech_bottle_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.395918
+	}
+	techies_tech_deny_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_deny_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_deny_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_deny_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.280000
+	}
+	techies_tech_deny_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_deny_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_deny_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_deny_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.324898
+	}
+	techies_tech_deny_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_deny_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.671837
+	}
+	techies_tech_deny_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_deny_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.280000
+	}
+	techies_tech_deny_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_deny_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.541224
+	}
+	techies_tech_deny_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_deny_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.011429
+	}
+	techies_tech_deny_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.429388
+	}
+	techies_tech_deny_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.384490
+	}
+	techies_tech_deny_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.246531
+	}
+	techies_tech_deny_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.298775
+	}
+	techies_tech_lanemissing_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_lanemissing_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.149388
+	}
+	techies_tech_lanemissing_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_lanemissing_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_lanemissing_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_lanemissing_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_itemcommon_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_tech_itemmoderate_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.179592
+	}
+	techies_tech_itemmoderate_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.507755
+	}
+	techies_tech_itemrare_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.951837
+	}
+	techies_tech_immort_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.142041
+	}
+	techies_tech_immort_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_tech_haste_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.828571
+	}
+	techies_tech_haste_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.384490
+	}
+	techies_tech_haste_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_haste_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_tech_doubdam_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.488980
+	}
+	techies_tech_doubdam_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_doubdam_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.866122
+	}
+	techies_tech_regen_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.697959
+	}
+	techies_tech_regen_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.619592
+	}
+	techies_tech_regen_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.724082
+	}
+	techies_tech_illus_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.515102
+	}
+	techies_tech_illus_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_illus_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_tech_illus_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.959184
+	}
+	techies_tech_invis_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.515102
+	}
+	techies_tech_invis_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.063673
+	}
+	techies_tech_invis_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.828571
+	}
+	techies_tech_notyet_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_notyet_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_notyet_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.645714
+	}
+	techies_tech_notyet_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_notyet_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.697959
+	}
+	techies_tech_notyet_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.246531
+	}
+	techies_tech_notyet_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_notyet_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.507755
+	}
+	techies_tech_notyet_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.089796
+	}
+	techies_tech_notyet_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_notyet_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.515102
+	}
+	techies_tech_notyet_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.298775
+	}
+	techies_tech_notyet_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.914286
+	}
+	techies_tech_notyet_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.645714
+	}
+	techies_tech_notyet_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.246531
+	}
+	techies_tech_notyet_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_tech_notyet_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.168163
+	}
+	techies_tech_notyet_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.768980
+	}
+	techies_tech_nomana_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_nomana_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.541224
+	}
+	techies_tech_nomana_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.429388
+	}
+	techies_tech_nomana_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_nomana_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.854694
+	}
+	techies_tech_nomana_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.645714
+	}
+	techies_tech_nomana_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_tech_nomana_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.828571
+	}
+	techies_tech_nomana_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.186939
+	}
+	techies_tech_nomana_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.888163
+	}
+	techies_tech_nomana_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.515102
+	}
+	techies_tech_nomana_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.481633
+	}
+	techies_tech_nomana_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_nomana_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.959184
+	}
+	techies_tech_nomana_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.298775
+	}
+	techies_tech_nomana_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_nomana_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.037551
+	}
+	techies_tech_nomana_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.690612
+	}
+	techies_tech_thanks_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_thanks_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.653061
+	}
+	techies_tech_thanks_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_thanks_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_tech_thanks_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_thanks_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.906939
+	}
+	techies_tech_thanks_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_thanks_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_thanks_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_underattack_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.123265
+	}
+	techies_tech_underattack_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_inthebag_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.048980
+	}
+	techies_tech_inthebag_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.884898
+	}
+	techies_tech_crumwiz_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.586123
+	}
+	techies_tech_shiwiz_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.500408
+	}
+	techies_tech_lose_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.768980
+	}
+	techies_tech_lose_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_lose_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.429388
+	}
+	techies_tech_lose_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.847347
+	}
+	techies_tech_lose_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.075102
+	}
+	techies_tech_lose_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.362449
+	}
+	techies_tech_lose_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.377143
+	}
+	techies_tech_lose_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.933061
+	}
+	techies_tech_win_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.933061
+	}
+	techies_tech_win_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_win_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.593469
+	}
+	techies_tech_win_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.291429
+	}
+	techies_tech_win_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.377143
+	}
+	techies_tech_win_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.697959
+	}
+	techies_tech_rare_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 6.844081
+	}
+	techies_tech_rare_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 8.881633
+	}
+	techies_tech_rare_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.982041
+	}
+	techies_tech_rare_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.768980
+	}
+	techies_tech_pain_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.417959
+	}
+	techies_tech_pain_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.444082
+	}
+	techies_tech_pain_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.444082
+	}
+	techies_tech_pain_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.444082
+	}
+	techies_tech_pain_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.548571
+	}
+	techies_tech_pain_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.522449
+	}
+	techies_tech_pain_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_tech_pain_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.574694
+	}
+	techies_tech_pain_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.548571
+	}
+	techies_tech_pain_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.548571
+	}
+	techies_tech_pain_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_tech_pain_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.365714
+	}
+	techies_tech_pain_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.444082
+	}
+	techies_tech_pain_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.496327
+	}
+	techies_tech_pain_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_pain_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.444082
+	}
+	techies_tech_pain_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.522449
+	}
+	techies_tech_pain_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.391837
+	}
+	techies_tech_pain_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.496327
+	}
+	techies_tech_pain_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.391837
+	}
+	techies_tech_pain_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_tech_pain_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.470204
+	}
+	techies_tech_pain_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.679184
+	}
+	techies_tech_pain_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.679184
+	}
+	techies_tech_pain_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_pain_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_pain_27 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_pain_28 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_pain_29 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_pain_30 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_pain_31 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_pain_32 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_tech_pain_33 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_pain_34 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_pain_35 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_tech_pain_36 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_pain_37 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_pain_38 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_tech_pain_39 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.679184
+	}
+	techies_tech_pain_40 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_pain_41 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_pain_42 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_pain_43 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_anger_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_anger_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_anger_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_anger_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_tech_anger_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.653061
+	}
+	techies_tech_anger_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.914286
+	}
+	techies_tech_anger_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.541224
+	}
+	techies_tech_anger_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_anger_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.914286
+	}
+	techies_tech_anger_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_anger_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_anger_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_anger_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_tech_anger_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_tech_anger_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.653061
+	}
+	techies_tech_anger_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_anger_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_anger_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_anger_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_anger_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.071020
+	}
+	techies_tech_anger_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.888163
+	}
+	techies_tech_anger_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.280000
+	}
+	techies_tech_anger_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.593469
+	}
+	techies_tech_anger_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_anger_27 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_happy_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_happy_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_happy_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_happy_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.358367
+	}
+	techies_tech_happy_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_tech_happy_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_happy_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_happy_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.835918
+	}
+	techies_tech_happy_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.044898
+	}
+	techies_tech_happy_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_happy_11 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_tech_happy_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_happy_13 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_happy_15 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_happy_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.541224
+	}
+	techies_tech_happy_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_happy_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_tech_happy_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.645714
+	}
+	techies_tech_happy_21 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_happy_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_tech_happy_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.705306
+	}
+	techies_tech_happy_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_tech_happy_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.906939
+	}
+	techies_tech_happy_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.671837
+	}
+	techies_tech_happy_27 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.149388
+	}
+	techies_tech_happy_28 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_happy_29 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_tech_happy_30 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.966531
+	}
+	techies_tech_happy_31 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_tech_happy_32 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_tech_happy_33 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.880816
+	}
+	techies_tech_happy_34 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.332245
+	}
+	techies_tech_happy_35 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_happy_36 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_happy_37 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_tech_happy_38 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_tech_happy_39 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.358367
+	}
+	techies_tech_happy_40 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.619592
+	}
+	techies_tech_happy_41 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.541224
+	}
+	techies_tech_happy_42 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.018775
+	}
+	techies_tech_happy_43 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.992653
+	}
+	techies_noba_tech_spawn_05 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.422041
+	}
+	techies_noba_tech_spawn_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.172245
+	}
+	techies_noba_tech_begin_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 5.799184
+	}
+	techies_noba_tech_move_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 0.679184
+	}
+	techies_noba_tech_move_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_noba_tech_move_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 1.724082
+	}
+	techies_noba_tech_move_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 0.888163
+	}
+	techies_noba_tech_move_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_noba_tech_move_30 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 4.649796
+	}
+	techies_noba_tech_move_32 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_noba_tech_move_33 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_01.vsnd"
+		vsnd_duration = 2.037551
+	}
+	techies_noba_tech_move_34 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_02.vsnd"
+		vsnd_duration = 0.653061
+	}
+	techies_noba_tech_move_43 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_03.vsnd"
+		vsnd_duration = 1.306122
+	}
+	techies_noba_tech_move_44 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_noba_tech_move_56 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_move_04.vsnd"
+		vsnd_duration = 0.496327
+	}
+	techies_noba_tech_firstblood_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_firstblood_03.vsnd"
+		vsnd_duration = 6.608980
+	}
+	techies_noba_tech_suicidesquad_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.455510
+	}
+	techies_noba_tech_levelup_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.515102
+	}
+	techies_noba_tech_levelup_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.645714
+	}
+	techies_noba_tech_kill_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.944490
+	}
+	techies_noba_tech_kill_14 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.037551
+	}
+	techies_noba_tech_kill_16 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.194286
+	}
+	techies_noba_tech_lasthit_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.526531
+	}
+	techies_noba_tech_death_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/zhongmolvxing/tech_death_01.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_noba_tech_respawn_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.205714
+	}
+	techies_noba_tech_respawn_09 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.022857
+	}
+	techies_noba_tech_respawn_12 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.802449
+	}
+	techies_noba_tech_itemmoderate_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.127347
+	}
+	techies_noba_tech_itemrare_01 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.768980
+	}
+	techies_noba_tech_doubdam_04 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 3.813878
+	}
+	techies_noba_tech_thanks_03 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.835918
+	}
+	techies_noba_tech_thanks_07 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.802449
+	}
+	techies_noba_tech_thanks_10 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.914286
+	}
+	techies_noba_tech_inthebag_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 4.728163
+	}
+	techies_noba_tech_lose_08 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 2.272653
+	}
+	techies_noba_tech_win_06 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.567347
+	}
+	techies_noba_tech_rare_02 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 8.881633
+	}
+	techies_noba_tech_pain_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.653061
+	}
+	techies_noba_tech_pain_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.574694
+	}
+	techies_noba_tech_pain_27 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_noba_tech_pain_28 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_noba_tech_pain_29 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.809796
+	}
+	techies_noba_tech_pain_30 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_noba_tech_pain_31 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_noba_tech_pain_32 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_noba_tech_pain_33 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.679184
+	}
+	techies_noba_tech_pain_34 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_noba_tech_pain_35 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.470204
+	}
+	techies_noba_tech_pain_36 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.548571
+	}
+	techies_noba_tech_pain_37 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.600816
+	}
+	techies_noba_tech_pain_38 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.470204
+	}
+	techies_noba_tech_pain_39 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.548571
+	}
+	techies_noba_tech_pain_40 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+	techies_noba_tech_pain_41 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.731429
+	}
+	techies_noba_tech_pain_42 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.626939
+	}
+	techies_noba_tech_pain_43 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.548571
+	}
+	techies_noba_tech_anger_17 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_noba_tech_anger_18 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.071020
+	}
+	techies_noba_tech_anger_19 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.097143
+	}
+	techies_noba_tech_anger_20 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.280000
+	}
+	techies_noba_tech_anger_22 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.914286
+	}
+	techies_noba_tech_anger_23 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.757551
+	}
+	techies_noba_tech_anger_24 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.175510
+	}
+	techies_noba_tech_anger_25 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.436735
+	}
+	techies_noba_tech_anger_26 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.071020
+	}
+	techies_noba_tech_anger_27 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.783673
+	}
+	techies_noba_tech_happy_34 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.227755
+	}
+	techies_noba_tech_happy_35 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.201633
+	}
+	techies_noba_tech_happy_36 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.940408
+	}
+	techies_noba_tech_happy_37 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_noba_tech_happy_38 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.384490
+	}
+	techies_noba_tech_happy_39 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.253878
+	}
+	techies_noba_tech_happy_40 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.462857
+	}
+	techies_noba_tech_happy_41 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 1.410612
+	}
+	techies_noba_tech_happy_42 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.888163
+	}
+	techies_noba_tech_happy_43 =
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/miku/null.vsnd"
+		vsnd_duration = 0.862041
+	}
+}

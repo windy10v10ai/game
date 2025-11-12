@@ -1,6 +1,6 @@
 export const heroNameListParticles = [
   'npc_dota_hero_abaddon', // 亚巴顿
-  'npc_dota_hero_abyssal_underlord', // 孽主
+  'npc_dota_heroes_underlord', // 孽主
   'npc_dota_hero_alchemist', // 炼金术士
   'npc_dota_hero_ancient_apparition', // 远古冰魄
   'npc_dota_hero_antimage', // 敌法师
@@ -24,7 +24,7 @@ export const heroNameListParticles = [
   // 'npc_dota_hero_disruptor', // 干扰者
   'npc_dota_hero_doom_bringer', // 末日使者
   'npc_dota_hero_dragon_knight', // 龙骑士
-  'npc_dota_hero_drowranger', // 卓尔游侠
+  'npc_dota_hero_drow', // 卓尔游侠
   'npc_dota_hero_earth_spirit', // 大地之灵
   'npc_dota_hero_earthshaker', // 撼地者
   'npc_dota_hero_elder_titan', // 上古巨神
