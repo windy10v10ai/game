@@ -1,3 +1,4 @@
+import { FusionRuneManager } from '../../ai/item/fusion-rune-manager'; // 新增这行
 import { GameEndPlayerDto } from '../../api/analytics/dto/game-end-dto';
 import { Game } from '../../api/game';
 import { Player } from '../../api/player';
@@ -38,6 +39,7 @@ export class EventGameStateChange {
   }
 
   private OnGameInProgress(): void {
+    FusionRuneManager.InitializeFusion(); // 新增这行
     // 每20分钟发送一次暂存积分
     // 工具模式下每2分钟发送一次,方便测试
     const interval = IsInToolsMode() ? 20 : 1200;
@@ -134,7 +136,7 @@ export class EventGameStateChange {
     }
 
     // ✅ 新增: 生成泉水守卫windy
-    //this.SpawnFountainGuard();
+    this.SpawnFountainGuard();
     //this.SpawnFountainGuardDire();
     // 延迟为泉水设置技能等级
     Timers.CreateTimer(1, () => {
