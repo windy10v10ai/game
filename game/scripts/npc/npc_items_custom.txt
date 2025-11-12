@@ -5606,11 +5606,11 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"600"	// 16分钟买
-		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemInitialStockTime"		"0"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	// 禁忌符文
@@ -5632,10 +5632,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"0"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	// 暴虐符文
@@ -5657,10 +5657,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"0"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	// 兽化符文
@@ -5682,10 +5682,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"360"	// 16分钟买
+		"ItemInitialStockTime"		"0"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	// 生命符文
@@ -5707,10 +5707,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"480"	// 16分钟买
+		"ItemInitialStockTime"		"0"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	// 暗影符文
@@ -5732,10 +5732,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"0"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	// 魔化符文
@@ -5757,10 +5757,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"1060"	// 16分钟买
+		"ItemInitialStockTime"		"0"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	// 灵动符文
@@ -5782,10 +5782,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"0"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"0"
 	}
 
 	//=================================================================================================================
@@ -7318,6 +7318,7 @@
 		}
 	}
 	// 技能重置书
+	// 技能重置书
 	"item_tome_of_ability_reset"
 	{
 		"ID"							"9999"
@@ -7439,5 +7440,40 @@
 			"duration"				"2.0"
 		}
 	}
+	"item_skill_talisman"
+	{
+		"ID"                        "10331"
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_skill_talisman"
+		"AbilityTextureName"        "item_ultimate_scepter"
 
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityCastRange"          "1800"  //
+
+		"ItemCost"                  "1000"
+		"ItemShopTags"              "consumable"
+		"ItemQuality"               "consumable"
+		"ItemStackable"             "1"
+		"ItemPermanent"             "0"
+		"ItemInitialCharges"        "1"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"IsTempestDoubleClonable"   "0"
+
+		"AbilityCastPoint"          "0.0"
+		"AbilityCooldown"           "0.0"
+		"AbilityManaCost"           "0"
+
+		"AbilityValues"
+		{
+			"radius"                "100"  // 用于AOE指示器
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"stored_ability"        "0"
+			}
+		}
+	}
 }

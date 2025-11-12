@@ -46,9 +46,11 @@ export class EventNpcSpawned {
     'npc_dota_hero_chaos_knight', // 混沌骑士 - 高爆发,幻象
     'npc_dota_hero_dragon_knight', // 龙骑士 - 高护甲,AOE输出
     'npc_dota_hero_pudge', // 帕吉 - 高生命,魔法伤害
+    'npc_dota_hero_omniknight', // 全能骑士
     'npc_dota_hero_sven', // 斯温 - 高爆发,AOE清场
     'npc_dota_hero_tiny', // 小小 - 高爆发,后期肉盾
     'npc_dota_hero_skeleton_king', // 骷髅王 - 重生,高输出
+    'npc_dota_hero_abaddon', // yabadun - 重生,高输出
 
     // === 敏捷型核心 (输出+一定生存) ===
     'npc_dota_hero_juggernaut', // 剑圣 - 魔免,高输出
