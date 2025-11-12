@@ -7318,7 +7318,6 @@
 		}
 	}
 	// 技能重置书
-	// 技能重置书
 	"item_tome_of_ability_reset"
 	{
 		"ID"							"9999"
