@@ -17,13 +17,13 @@ export class Lottery {
     // 非随机模式(普通模式)
     normal: {
       passive: [
-        { name: 'slark_essence_shift', level: 5 }, // 能量转移
-        { name: 'axe_counter_helix', level: 3 }, // 反击螺旋
+        //{ name: 'rubick_might_and_magus2', level: 5 }, // 拉比克先天
+        { name: 'spectre_dispersion2', level: 4 }, //
         { name: 'medusa_split_shot', level: 5 }, // 分裂箭
         { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒灼烧
         { name: 'elder_titan_natural_order', level: 4 }, // 自然秩序
         { name: 'omniknight_hammer_of_purity', level: 4 }, // 纯洁之锤
-        { name: 'ability_trigger_on_move', level: 4 }, // 橙影蝴蝶
+        { name: 'ability_trigger_on_attacked', level: 4 }, // 金蝴蝶
       ],
       active: [
         { name: 'ability_defection', level: 4 }, // 卧底
