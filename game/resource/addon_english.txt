@@ -838,7 +838,7 @@
 
 		// 蝴蝶效应·蓝武（攻击触发）
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"							"<font color='#0096FF'>Butterfly Effect: Blue</font>"
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"				"<h1><font color='#0096FF'>Passive: Chain Reaction</h1>When your attacks land, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. If the ability is not on cooldown, it will enter a brief cooldown after triggering and then restore (Juggernaut's Omnislash restores after 4s separately, other abilities restore after 0.1s). If the ability is on cooldown, it will reset the cooldown."
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"				"<h1><font color='#0096FF'>Passive: Chain Reaction</font></h1>When your attacks land, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. If the ability is not on cooldown, it will enter a brief cooldown after triggering and then restore (Juggernaut's Omnislash restores after 4s separately, other abilities restore after 0.1s). If the ability is on cooldown, it will reset the cooldown."
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"		"%Probability of triggering one of the basic skills:"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"	"%Probability of triggering one of the ultimate skills:"
 
@@ -853,7 +853,7 @@
 
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"									"<font color='#FF0000'>Butterfly Effect: Red</font>"
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>Passive: Spell Echo</h1>When you cast an ability, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. Mutually exclusive with multiple cast. Monkey King model cannot trigger.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br>"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>Passive: Spell Echo</font></h1>When you cast an ability, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. Mutually exclusive with multiple cast. Monkey King model cannot trigger.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"								"RN: Chewing gum, right? Little colorful flag, right? Can't stop, right?"
 
 		"DOTA_Tooltip_modifier_trigger_on_cast"							"Butterfly Effect: Red"
@@ -861,7 +861,7 @@
 
 		// 蝴蝶效应·金身 (被攻击触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked"								"<font color='#FFFF00'>Butterfly Effect: Gold</font>"
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"					"<h1><font color='#FFFF00'>Passive: Golden Body</h1>When attacked, has a chance to trigger learned abilities. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution."
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"					"<h1><font color='#FFFF00'>Passive: Golden Body</font></h1>When attacked, has a chance to trigger learned abilities. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution."
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"							"RN: You definitely have some strange fetish, windy has that whip ready, you buy the candles yourself"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"			"%Basic Ability Trigger Chance:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"		"%Ultimate Ability Trigger Chance:"
@@ -871,7 +871,7 @@
 		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown_Description"				"Butterfly Effect ability is on internal cooldown."
 		// 蝴蝶效应·橙影（移动触发）
 		"DOTA_Tooltip_ability_ability_trigger_on_move"									"<font color='#FFCC66'>Butterfly Effect: Orange</font>"
-		"DOTA_Tooltip_ability_ability_trigger_on_move_Description"						"<h1><font color='#FFCC66'>Passive: Shadow Step</h1>Triggers learned abilities based on the distance moved within a certain time period. The faster you move, the higher the trigger chance."
+		"DOTA_Tooltip_ability_ability_trigger_on_move_Description"						"<h1><font color='#FFCC66'>Passive: Shadow Step</font></h1>Triggers learned abilities based on the distance moved within a certain time period. The faster you move, the higher the trigger chance."
 		"DOTA_Tooltip_ability_ability_trigger_on_move_Lore"								"RN: I was just out for a run, why did you all start fighting?"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"				"%Base Basic Ability Trigger Chance (at speed 500):"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance"			"%Base Ultimate Ability Trigger Chance (at speed 500):"
@@ -881,7 +881,7 @@
 
 		// 蝴蝶效应·绿莲（指向技能反弹触发）
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"							"<font color='#90EE90'>Butterfly Effect: Green</font>"
-		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"				"<h1><font color='#90EE90'>Passive: Lotus</h1>When taking damage from targeted spells, has a chance to reflect the damage. Upon successful reflection, has a chance to trigger learned abilities."
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"				"<h1><font color='#90EE90'>Passive: Lotus</font></h1>When taking damage from targeted spells, has a chance to reflect the damage. Upon successful reflection, has a chance to trigger learned abilities."
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Lore"					"RN: Can't even look at you without wanting to fight?"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"			"%Reflection Chance:"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"		"%Reflected Damage Percentage:"
@@ -896,7 +896,7 @@
 
 		// 蝴蝶效应·紫啸（主动释放）
 		"DOTA_Tooltip_ability_ability_trigger_on_active"								"<font color='#A74ABD'>Butterfly Effect: Purple</font>"
-		"DOTA_Tooltip_ability_ability_trigger_on_active_Description"					"<h1><font color='#A74ABD'>Active: Frenzy</h1>Unleash a barrage of spells at unprecedented speed on enemies within range at the target location, including all available abilities and items. During the effect, all cooldowns are reduced to 1/5, cast points are removed, channeling states cannot be interrupted, until mana is exhausted, but you cannot move.<br><br>Duration: %duration% seconds"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_Description"					"<h1><font color='#A74ABD'>Active: Frenzy</font></h1>Unleash a barrage of spells at unprecedented speed on enemies within range at the target location, including all available abilities and items. During the effect, all cooldowns are reduced to 1/5, cast points are removed, channeling states cannot be interrupted, until mana is exhausted, but you cannot move.<br><br>Duration: %duration% seconds"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"							"RN: Hey, I'm telling you, this patient should take it easy next time, it's all chafed, definitely not a drop left"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_duration"						"Duration:"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"					"Search Radius:"
@@ -907,7 +907,7 @@
 
 		// 蝴蝶效应·青凝（积蓄能量）
 		"DOTA_Tooltip_ability_ability_charge_damage"									"<font color='#87CEEB'>Butterfly Effect: Cyan</font>"
-		"DOTA_Tooltip_ability_ability_charge_damage_Description"						"<h1><font color='#87CEEB'>Passive: Focus</h1>Focus and calm, accumulating energy when abilities are off cooldown but not cast, amplifying the first damage dealt by the next cast.<br><br>Ultimate abilities start counting after %ultimate_ready_delay% seconds of charging, normal abilities after %normal_ready_delay% seconds of charging.<br>Upon reaching the threshold, gain an additional %base_amplify%x base amplification.<br>Damage amplification effect lasts %amplify_duration% seconds.<br>Maximum amplification multiplier: %max_times%x."
+		"DOTA_Tooltip_ability_ability_charge_damage_Description"						"<h1><font color='#87CEEB'>Passive: Focus</font></h1>Focus and calm, accumulating energy when abilities are off cooldown but not cast, amplifying the first damage dealt by the next cast.<br><br>Ultimate abilities start counting after %ultimate_ready_delay% seconds of charging, normal abilities after %normal_ready_delay% seconds of charging.<br>Upon reaching the threshold, gain an additional %base_amplify%x base amplification.<br>Damage amplification effect lasts %amplify_duration% seconds.<br>Maximum amplification multiplier: %max_times%x."
 		"DOTA_Tooltip_ability_ability_charge_damage_Lore"								"RN: You, holding back this... one ability for how long?"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
@@ -2836,7 +2836,7 @@
 
 		// Ten Thousand Swords (万剑归宗)
 		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"Ten Thousand Swords"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"						"<h1><font color='#FFFF00'>Passive: Sword Mastery</h1>Gains the power of all four Artifacts, greatly increasing all attributes, status resistance, attack speed, movement speed, health regeneration, mana regeneration, and spell amplification. Attacks deal bonus magical damage."
+		"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"						"<h1><font color='#FFFF00'>Passive: Sword Mastery</font></h1>Gains the power of all four Artifacts, greatly increasing all attributes, status resistance, attack speed, movement speed, health regeneration, mana regeneration, and spell amplification. Attacks deal bonus magical damage."
 		"DOTA_Tooltip_ability_item_ten_thousand_swords_Lore"								"Ten Thousand Swords, invincible. The power of the four Artifacts converges here, forging a supreme weapon."
 		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_strength"					"+$str"
 		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_agility"					"+$agi"
@@ -2851,7 +2851,7 @@
 
 		// Time Gem (时间宝石)
 		"DOTA_Tooltip_Ability_item_time_gem"											"Time Gem"
-		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>Active: Time Manipulation</h1>Reset the cooldowns of all items and abilities.<br><br>Cooldown: %AbilityCooldown% seconds\n<h1>Passive: Time Acceleration</h1>Reduces the cooldowns of all abilities and items by %bonus_cooldown%%%."
+		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>Active: Time Manipulation</font></h1>Reset the cooldowns of all items and abilities.<br><br>Cooldown: %AbilityCooldown% seconds\n<h1>Passive: Time Acceleration</h1>Reduces the cooldowns of all abilities and items by %bonus_cooldown%%%."
 		"DOTA_Tooltip_ability_item_time_gem_Lore"										"The mysterious gem that controls the flow of time, allowing the user to manipulate the flow of time."
 		"DOTA_Tooltip_ability_item_time_gem_Note0"										"Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem). Time Reset will not refresh the refresh ball series items (refresh ball, refresh core, time gem)."
 		"DOTA_Tooltip_ability_item_time_gem_Note1"										"Shares cooling time with other refresh ball series items."
