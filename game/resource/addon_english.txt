@@ -836,6 +836,64 @@
 		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"TOTAL DAMAGE PER MANA:"
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
 
+		// Butterfly Effect: Blue (Attack Trigger)
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "Butterfly Effect: Blue"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>Passive: Chain Reaction</h1>When your attacks land, there is a chance to trigger a random learned ability.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br><br>Triggered abilities cost no mana and restore their original cooldown after casting."
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%Probability of triggering one of the basic skills:"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%Probability of triggering one of the ultimate skills:"
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Lore"                     "A single strike can set off a chain reaction that changes the tide of battle."
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note0"                    "Does not trigger passive abilities, items, or certain special abilities."
+		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note1"                    "Uses pseudo-random distribution for trigger chance."
+
+		// Butterfly Effect: Red (Cast Trigger)
+		"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "Butterfly Effect: Red"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "<h1>Passive: Spell Echo</h1>When you cast an ability, there is a chance to trigger a random learned ability after 0.5 seconds.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br><br>Triggered abilities cost no mana and restore their original cooldown after casting. Triggered abilities can chain up to 3 times."
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"                            "Every spell cast creates ripples in the magical network, triggering unexpected chain reactions."
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note0"                           "Does not trigger passive abilities, items, or certain special abilities."
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note1"                           "Uses pseudo-random distribution for trigger chance."
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note2"                           "Cannot retrigger during an active trigger to prevent infinite loops."
+
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked"                          "Butterfly Effect - Gold"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"              "When attacked, has a chance to trigger learned abilities. Built-in cooldown decreases per level to prevent excessive triggering."
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"     "%BASIC ABILITY TRIGGER CHANCE:"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"  "%ULTIMATE ABILITY TRIGGER CHANCE:"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"        "INTERNAL COOLDOWN:"
+"DOTA_Tooltip_ability_ability_trigger_on_move"                         "Butterfly Effect - Orange"
+"DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "Trigger a random learned ability depend on the distance you've moved"
+"DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"    "%Basic Ability Trigger Chance (speed 500):"
+"DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance" "%Ultimate Ability Trigger Chance (speed 500):"
+"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "Check interval:"
+
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "Butterfly Effect · Green"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "When taking damage from targeted spells, has a chance to reflect the damage. Upon successful reflection, has a chance to trigger learned abilities."
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"          "%REFLECTION CHANCE:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"      "%DAMAGE REFLECTION PERCENTAGE:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"     "%Basic ability chance:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_ultimate_trigger_chance"  "%Ultimate ability chance:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_cooldown_duration"       "INTERNAL COOLDOWN:"
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note0"                   "Reflected damage type is the same as the original. Triggered abilities automatically select appropriate targets: enemy abilities target the attacker, friendly abilities target self."
+"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note1"                   "Certain special abilities (such as invisibility, teleportation, channeled abilities, etc.) will not be triggered."
+
+"DOTA_Tooltip_ability_ability_trigger_on_active"                        "Butterfly Effect - Purple"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "Target a location to root yourself and automatically cast all available abilities and items on enemies within range. Reduces all cooldowns to 1/5 and removes cast points during the effect.<br><br>Duration: %duration% seconds"
+"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "Unleash a barrage of abilities with unprecedented speed."
+"DOTA_Tooltip_ability_ability_trigger_on_active_duration"               "DURATION:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"          "SEARCH RADIUS:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"     "CAST INTERVAL:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_cd_reduction_pct"       "%COOLDOWN REDUCTION:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_cast_time_reduction_pct" "%CAST TIME REDUCTION:"
+"DOTA_Tooltip_ability_ability_trigger_on_active_bonus_cast_range"       "BONUS CAST RANGE:"
+
+"DOTA_Tooltip_ability_charge_damage"                                      "Butterfly Effect: Qingning"
+"DOTA_Tooltip_ability_charge_damage_Description"                          "Passively tracks the charge status of your damage-dealing abilities. After an ability finishes its cooldown, it begins charging after a buffer period. The longer the charge time, the higher the damage amplification when you next cast that ability.<br><br>Ultimate abilities start charging after %ultimate_ready_delay% seconds, normal abilities after %normal_ready_delay% seconds.<br>Upon reaching the threshold, gain an additional %base_amplify%x base amplification.<br>Damage amplification lasts %amplify_duration% seconds.<br>Maximum amplification: %max_times%x."
+
+"DOTA_Tooltip_modifier_ability_charge_damage_display"                     "Ability Charge"
+"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"         "Current damage amplification: <font color='#FF6B6B'>%dMODIFIER_PROPERTY_TOOLTIP2%%%</font>"
+
+		// ---- bot技能 ----
+
+"DOTA_Tooltip_ability_boss_death_power"                     "Death Power"
+"DOTA_Tooltip_ability_boss_death_power_Description"         "Each time the Boss is killed, it gains 1 percent permanent damage reduction and damage output increase. The more times killed, the stronger it becomes."
 
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
@@ -2866,62 +2924,7 @@
 
 		// Legion Commander Talent (军团指挥官天赋)
 		"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"  "Deal 90% of Duel damage bonus to each hero."
-		// Butterfly Effect: Blue (Attack Trigger)
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills"                          "Butterfly Effect: Blue"
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"              "<h1>Passive: Chain Reaction</h1>When your attacks land, there is a chance to trigger a random learned ability.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br><br>Triggered abilities cost no mana and restore their original cooldown after casting."
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_basic_trigger_chance"     "%Probability of triggering one of the basic skills:"
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_ultimate_trigger_chance"  "%Probability of triggering one of the ultimate skills:"
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Lore"                     "A single strike can set off a chain reaction that changes the tide of battle."
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note0"                    "Does not trigger passive abilities, items, or certain special abilities."
-		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note1"                    "Uses pseudo-random distribution for trigger chance."
 
-		// Butterfly Effect: Red (Cast Trigger)
-		"DOTA_Tooltip_ability_ability_trigger_on_cast"                                 "Butterfly Effect: Red"
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"                     "<h1>Passive: Spell Echo</h1>When you cast an ability, there is a chance to trigger a random learned ability after 0.5 seconds.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br><br>Triggered abilities cost no mana and restore their original cooldown after casting. Triggered abilities can chain up to 3 times."
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"                            "Every spell cast creates ripples in the magical network, triggering unexpected chain reactions."
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note0"                           "Does not trigger passive abilities, items, or certain special abilities."
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note1"                           "Uses pseudo-random distribution for trigger chance."
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Note2"                           "Cannot retrigger during an active trigger to prevent infinite loops."
-
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked"                          "Butterfly Effect - Gold"
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"              "When attacked, has a chance to trigger learned abilities. Built-in cooldown decreases per level to prevent excessive triggering."
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"     "%BASIC ABILITY TRIGGER CHANCE:"
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"  "%ULTIMATE ABILITY TRIGGER CHANCE:"
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"        "INTERNAL COOLDOWN:"
-"DOTA_Tooltip_ability_ability_trigger_on_move"                         "Butterfly Effect - Orange"
-"DOTA_Tooltip_ability_ability_trigger_on_move_Description"             "Trigger a random learned ability depend on the distance you've moved"
-"DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"    "%Basic Ability Trigger Chance (speed 500):"
-"DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance" "%Ultimate Ability Trigger Chance (speed 500):"
-"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"          "Check interval:"
-
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"                         "Butterfly Effect · Green"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"             "When taking damage from targeted spells, has a chance to reflect the damage. Upon successful reflection, has a chance to trigger learned abilities."
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"          "%REFLECTION CHANCE:"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"      "%DAMAGE REFLECTION PERCENTAGE:"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"     "%Basic ability chance:"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_ultimate_trigger_chance"  "%Ultimate ability chance:"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_cooldown_duration"       "INTERNAL COOLDOWN:"
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note0"                   "Reflected damage type is the same as the original. Triggered abilities automatically select appropriate targets: enemy abilities target the attacker, friendly abilities target self."
-"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Note1"                   "Certain special abilities (such as invisibility, teleportation, channeled abilities, etc.) will not be triggered."
-
-"DOTA_Tooltip_ability_ability_trigger_on_active"                        "Butterfly Effect - Purple"
-"DOTA_Tooltip_ability_ability_trigger_on_active_Description"            "Target a location to root yourself and automatically cast all available abilities and items on enemies within range. Reduces all cooldowns to 1/5 and removes cast points during the effect.<br><br>Duration: %duration% seconds"
-"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"                   "Unleash a barrage of abilities with unprecedented speed."
-"DOTA_Tooltip_ability_ability_trigger_on_active_duration"               "DURATION:"
-"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"          "SEARCH RADIUS:"
-"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"     "CAST INTERVAL:"
-"DOTA_Tooltip_ability_ability_trigger_on_active_cd_reduction_pct"       "%COOLDOWN REDUCTION:"
-"DOTA_Tooltip_ability_ability_trigger_on_active_cast_time_reduction_pct" "%CAST TIME REDUCTION:"
-"DOTA_Tooltip_ability_ability_trigger_on_active_bonus_cast_range"       "BONUS CAST RANGE:"
-
-"DOTA_Tooltip_ability_charge_damage"                                      "Butterfly Effect: Qingning"
-"DOTA_Tooltip_ability_charge_damage_Description"                          "Passively tracks the charge status of your damage-dealing abilities. After an ability finishes its cooldown, it begins charging after a buffer period. The longer the charge time, the higher the damage amplification when you next cast that ability.<br><br>Ultimate abilities start charging after %ultimate_ready_delay% seconds, normal abilities after %normal_ready_delay% seconds.<br>Upon reaching the threshold, gain an additional %base_amplify%x base amplification.<br>Damage amplification lasts %amplify_duration% seconds.<br>Maximum amplification: %max_times%x."
-
-"DOTA_Tooltip_modifier_ability_charge_damage_display"                     "Ability Charge"
-"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"         "Current damage amplification: <font color='#FF6B6B'>%dMODIFIER_PROPERTY_TOOLTIP2%%%</font>"
-
-"DOTA_Tooltip_ability_boss_death_power"                     "Death Power"
-"DOTA_Tooltip_ability_boss_death_power_Description"         "Each time the Boss is killed, it gains 1 percent permanent damage reduction and damage output increase. The more times killed, the stronger it becomes."
 
 "DOTA_Tooltip_ability_ability_mind_control"                     "Mind Control"
 "DOTA_Tooltip_ability_ability_mind_control_Description"         "Take control of an enemy AI hero for %duration% seconds. You can temporarily control their movement, attacks, and spells. During the control period, the hero's team allegiance changes, and kills or deaths count towards you. However, the AI's residual consciousness may still compete with you for control."
