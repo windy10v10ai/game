@@ -28,18 +28,21 @@
 ### 2. 注释格式
 
 - **注释使用中文，不翻译**
+- **中英文版本中的注释必须完全一致**（直接复制中文注释到英文文件）
 - 格式：`// item_name 中文名称`
 
 **正确示例**：
 
 ```
 		// item_beast_armor 兽化甲
+		// 蝴蝶效应·蓝武（攻击触发）
 ```
 
 **错误示例**：
 
 ```
 		// item_beast_armor Beast Armor  ❌
+		// Butterfly Effect: Blue (Attack Trigger)  ❌
 ```
 
 ### 3. HTML 标签同步
@@ -62,6 +65,27 @@
 - `<h1>标题</h1>` - 用于主要标题（主动、被动等）
 - `<br>` 或 `<br><br>` - 用于段落内换行
 - `\n` - 用于分隔不同的主要部分
+- `<font color='#RRGGBB'>文本</font>` - 用于颜色文本
+
+#### 颜色代码规范
+
+- **所有颜色代码必须使用大写字母**
+- 格式：`<font color='#RRGGBB'>文本</font>`
+
+**正确示例**：
+
+```
+<font color='#0096FF'>蝴蝶效应 · 蓝武</font>
+<font color='#A74ABD'>蝴蝶效应 · 紫啸</font>
+<font color='#87CEEB'>蝴蝶效应 · 青凝</font>
+```
+
+**错误示例**：
+
+```
+<font color='#a74abd'>蝴蝶效应 · 紫啸</font>  ❌
+<font color='#87ceeb'>蝴蝶效应 · 青凝</font>  ❌
+```
 
 ### 4. 补全 Modifier 说明
 
@@ -90,6 +114,14 @@
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff_Description"						"移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%，魔法抗性降低%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
 ```
 
+#### Modifier 描述中的变量使用
+
+Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式：
+
+```
+"移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
+```
+
 ## 中英文版本同步要求
 
 ### 1. 格式一致性
@@ -103,53 +135,45 @@
 - 新增条目时，必须同时在两个文件中添加
 - 删除条目时，必须同时在两个文件中删除
 
-### 3. 条目对应关系
+### 3. 必须完全一致的内容
+
+以下内容在中英文版本中必须**完全一致**，不能有任何差异：
+
+- **键名（Key）**：必须完全相同
+- **Tab 格式**：缩进和对齐必须完全一致
+- **HTML 标签**：`<h1>`、`<br>`、`<font>` 等标签的位置和格式必须完全一致
+- **数值占位符**：`%xxx%%%` 格式必须完全一致
+- **注释**：注释内容必须完全一致（使用中文）
+
+**示例**：
+
+```
+// 中文版本
+"DOTA_Tooltip_ability_item_example_Description"				"<h1><font color='#A74ABD'>主动：技能名</h1>描述内容。<br><br>持续时间: %duration% 秒"
+
+// 英文版本（格式必须完全一致）
+"DOTA_Tooltip_ability_item_example_Description"				"<h1><font color='#A74ABD'>Active: Skill Name</h1>Description content.<br><br>Duration: %duration% seconds"
+```
+
+### 4. 翻译文本要求
+
+- **翻译文本保持意思大致相同即可**，不需要逐字翻译
+- 可以适当调整表达方式以符合目标语言习惯
+- 但必须保持核心含义和功能描述准确
+
+### 5. 条目对应关系
 
 确保中英文版本的条目顺序和结构保持一致：
 
 **检查清单**：
 
-- [ ] 注释格式一致
+- [ ] 注释格式一致（使用中文）
 - [ ] 所有条目都存在
 - [ ] HTML 标签格式一致（特别是 `\n` 和 `<br>` 的使用）
+- [ ] 颜色代码使用大写字母
 - [ ] Tab 对齐一致
 - [ ] 空行位置一致
-
-## 常见问题
-
-### Q1: 如何检查格式是否正确？
-
-检查要点：
-
-1. 所有行都以两个 tab 开头
-2. 键名和值之间使用足够的 tab，使值对齐在同一列
-3. 描述中的 `\n` 和 `<br>` 使用正确
-4. 所有 modifier 条目都已补全
-
-### Q2: 描述中的换行符如何使用？
-
-- **不同部分之间**：使用 `\n`（如不同的 `<h1>` 标题部分之间）
-- **段落内换行**：使用 `<br><br>`
-
-**示例**：
-
-```
-"<h1>主动技能</h1>描述内容。\n<h1>被动技能</h1>描述内容。<br><br>额外说明。\n<h1>另一个被动</h1>描述内容。"
-```
-
-### Q3: 如果某个条目在中文版本中存在但英文版本中缺失怎么办？
-
-1. 检查英文版本的对应位置
-2. 按照中文版本的格式添加缺失的条目
-3. 翻译内容并保持格式一致
-
-### Q4: Modifier 描述中可以使用变量吗？
-
-可以，使用 `%dMODIFIER_PROPERTY_XXX%` 格式：
-
-```
-"移动速度降低%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
-```
+- [ ] 数值占位符格式一致
 
 ## 参考示例
 
@@ -219,16 +243,28 @@
 
 ## 中文标点符号规范
 
-**重要**: 中文本地化文本必须使用全角标点符号（`，` `。` `：` `；` `？` `！`），不要使用半角标点（`,` `.` `:` `;` `?` `!`）。
+**重要**: 中文本地化文本必须使用全角标点符号（`，` `。` `：` `？` `！`），不要使用半角标点（`,` `.` `:` `?` `!`）。
+
+### 标点符号使用规则
+
+- **不使用分号（`；`）和顿号（`、`）**
+- **根据上下文使用逗号（`，`）和句号（`。`）替代**
+  - 并列的词语或短语之间使用逗号（`，`）
+  - 完整的句子之间使用句号（`。`）
+  - 句子内部的停顿使用逗号（`，`）
 
 **示例**：
 
 ```
 // ❌ 错误
 "item_description"    "主动: 一念成佛。持续 4 秒,造成伤害。"
+"item_description"    "技能包括：攻击、防御、治疗；效果持续10秒。"
+"item_description"    "获得力量、敏捷、智力加成。"
 
 // ✅ 正确
 "item_description"    "主动：一念成佛。持续 4 秒，造成伤害。"
+"item_description"    "技能包括：攻击，防御，治疗。效果持续10秒。"
+"item_description"    "获得力量，敏捷，智力加成。"
 ```
 
 **注意**：数字、英文字母、HTML 标签和变量占位符（如 `%active_duration%`）保持原样。
