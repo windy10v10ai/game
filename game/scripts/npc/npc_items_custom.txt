@@ -5799,517 +5799,547 @@
 	}
 
 
-// 融合材料系列 - 符文/卷轴形式(可购买版本)
-// 鹰眼符文
-"item_fusion_hawkeye"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10101"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-}
-
-// 禁忌符文
-"item_fusion_forbidden"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10102"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-}
-
-// 暴虐符文
-"item_fusion_brutal"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10103"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-}
-
-// 兽化符文
-"item_fusion_beast"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10104"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-}
-
-// 生命符文
-"item_fusion_life"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10105"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-}
-
-// 暗影符文
-"item_fusion_shadow"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10106"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-}
-
-// 魔化符文
-"item_fusion_magic"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10107"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-}
-
-// 灵动符文
-"item_fusion_agile"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10108"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_tome_of_knowledge"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemCost"                  "20000"
-    "ItemIsNeutralDrop"         "0"
-    "ItemPurchasable"           "1"
-    "ItemKillable"              "0"
-    "ItemSellable"              "0"
-    "ItemShareability"          "ITEM_FULLY_SHAREABLE"
-    "ItemPermanent"             "1"
-	"ItemDroppable"             "1"              // 添加:允许丢弃
-	"ItemStackable"             "0"              // 添加:不可堆叠
-    "ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
-	"ItemInitialStockTime"		"0"	// 16分钟买
-	"ItemStockInitial"			"0"
-	"ItemStockMax"				"2"
-	"ItemStockTime"				"0"
-}
-
-//=================================================================================================================
-// Recipe: 鹰眼炮台
-//=================================================================================================================
-"item_recipe_hawkeye_turret"
-{
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10201"
-    "Model"                     "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"        "item_recipe_hawkeye_turret"
-
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_hawkeye_turret"
-    "ItemRequirements"
-    {
-        "01"                    "item_shotgun_v2;item_hurricane_pike_2;item_vladmir_2;item_fusion_hawkeye"
-    }
-}
-"item_hawkeye_turret"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10202"
-    "ScriptFile"                "items/item_hawkeye_turret"
-    "AbilityTextureName"        "yingyanpaotai"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
-    "ItemShopTags"              "damage;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
-
-    "AbilityCooldown"           "50"
-    "AbilityManaCost"           "0"
-	"AbilityValues"
+	// 融合材料系列 - 符文/卷轴形式(可购买版本)
+	// 鹰眼符文
+	"item_fusion_hawkeye"
 	{
-		// 静态属性值（迁移到item_apply_modifiers的DataDriven，仅用于 tooltip 显示）
-		"bonus_damage"          "120"       // tooltip only - 攻击力
-		"bonus_attack_speed"    "80"        // tooltip only - 攻击速度
-		"bonus_armor"           "30"        // tooltip only - 护甲
-		// FIXME 现在对近战也有用 需要修复
-		"bonus_attack_range"    "250"       // tooltip only - 攻击距离
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10101"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		// 主动技能参数（在 Lua 中实现）
-		"active_armor"          "100"
-		"active_attack_range"   "500"
-		"active_duration"       "8"
-		"moon_shard_bonus"      "100"
-		"bat_reduction_pct"     "20"  // 新增:BAT减少值
-
-		// 溅射伤害参数（Lua 逻辑需要）
-		"attack_radius"         "500"      // 溅射范围
-		"attack_percent"        "100"      // 溅射伤害百分比
-		"internal_cooldown"     "0.05"      // 内置冷却时间
+		"ItemCost"                  "29999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemInitialStockTime"		"720"	// 12分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"240"
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 	}
 
-    // ✅ modifier_item_hawkeye_turret_stats 已迁移到 npc_items_modifier.txt
-    // 静态属性由 DataDriven 实现，性能更优
-}
-//=================================================================================================================
-// Recipe: 鹰眼战机
-//=================================================================================================================
-"item_recipe_hawkeye_fighter"
-{
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10203"
-    "Model"                     "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"        "item_recipe_hawkeye_fighter"
+	// 禁忌符文
+	"item_fusion_forbidden"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10102"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"                  "19999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"720"	// 12分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"240"
+	}
 
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_hawkeye_fighter"
-    "ItemRequirements"
-    {
-        "01"                    "item_adi_king_plus;item_soul_scattering_sword;item_wind_waker;item_boots_of_bearing_2;item_fusion_hawkeye"
-    }
-}
-//=================================================================================================================
-// 鹰眼战机
-//=================================================================================================================
-//=================================================================================================================
-// 鹰眼战机 (阿迪王Plus+散魂剑+风之杖+六脉神剑+鹰眼)
-//=================================================================================================================
-"item_hawkeye_fighter"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10205"
-    "ScriptFile"                "items/item_hawkeye_fighter"
-    "AbilityTextureName"        "yingyanzhanji"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	// 暴虐符文
+	"item_fusion_brutal"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10103"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemShopTags"              "move_speed;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		"ItemCost"                  "29999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"900"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"240"
+	}
 
-    "AbilityCooldown"           "15"
-    "AbilityManaCost"           "0"
+	// 兽化符文
+	"item_fusion_beast"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10104"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "AbilityValues"
-    {
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_all_stats"       "30"    // tooltip only - 全属性
-        "bonus_movement_speed"  "160"   // tooltip only - 移动速度
-        "bonus_movement_speed_pct" "60" // tooltip only - 移动速度百分比
-        "bonus_turn_rate"       "50"    // tooltip only - 转身速率
-		// FIXME 继承配方物品，移除抗性
-        "bonus_status_resistance" "30"  // Lua 逻辑需要 - 状态抗性
+		"ItemCost"                  "29999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"180"
+	}
 
-        // 主动效果（在 Lua 中实现）
-        "active_movement_speed_pct"	"100"
-        "active_duration"			"6"
-    }
-}
-//=================================================================================================================
-// Recipe: 禁忌法锤
-//=================================================================================================================
-"item_recipe_forbidden_staff"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10301"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_forbidden_staff"
+	// 生命符文
+	"item_fusion_life"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10105"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"                  "29999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"900"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"240"
+	}
 
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_forbidden_staff"
-    "ItemRequirements"
-    {
-        "01"                    "item_necronomicon_staff;item_gungir_2;item_dagon_5;item_fusion_forbidden"
-    }
-}
+	// 暗影符文
+	"item_fusion_shadow"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10106"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-//=================================================================================================================
-// 禁忌法锤
-//=================================================================================================================
-"item_forbidden_staff"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10302"
-    "ScriptFile"                "items/item_forbidden_staff"
-    "AbilityTextureName"        "jinjifachui"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	"FightRecapLevel"				"1"
-	"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"ItemCost"                  "19999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"720"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"240"
+	}
 
-    "ItemShopTags"              "damage;int;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+	// 魔化符文
+	"item_fusion_magic"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10107"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-    "AbilityCooldown"           "40"
-    "AbilityManaCost"           "400"
-    "AbilityCastRange"          "800"      // 添加施法距离
-    "AbilityCastPoint"          "0.2"      // 添加施法前摇
+		"ItemCost"                  "29999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"1200"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"3"
+		"ItemStockTime"				"240"
+	}
 
-    "AOERadius"                 "300"  // 添加固定的 AOE 指示器
-    "AbilityValues"
-    {
-        // 主动技能参数（Lua 逻辑需要）
-        "radius"
-        {
-            "value"             "500"
-            "affected_by_aoe_increase" "1"
-        }
-        "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
-		"lightning_damage"
+	// 灵动符文
+	"item_fusion_agile"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10108"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ItemCost"                  "29999"
+		"ItemIsNeutralDrop"         "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"             "1"
+		"ItemDroppable"             "1"              // 添加:允许丢弃
+		"ItemStackable"             "0"              // 添加:不可堆叠
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemInitialStockTime"		"960"	// 16分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"2"
+		"ItemStockTime"				"120"
+	}
+	//=================================================================================================================
+	// 通用符文 - 自动合成物品
+	//=================================================================================================================
+	"item_universal_rune"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                        "10335"
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_universal_rune"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                  "79999"
+		"ItemShopTags"              "consumable"
+		"ItemQuality"               "consumable"
+		"ItemPermanent"             "0"
+		"ItemStackable"             "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemInitialStockTime"		"60"	// 0分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"300"
+		"AbilityCooldown"           "1.0"
+	}
+
+	//=================================================================================================================
+	// Recipe: 鹰眼炮台
+	//=================================================================================================================
+	"item_recipe_hawkeye_turret"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10201"
+		"Model"                     "models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"        "item_recipe_hawkeye_turret"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_hawkeye_turret"
+		"ItemRequirements"
 		{
-			"value"                 "2000"
-			"CalculateSpellDamageTooltip" "1"
+			"01"                    "item_shotgun_v2;item_hurricane_pike_2;item_vladmir_2;item_fusion_hawkeye"
 		}
-        "mute_duration"         "4.0"        // Lua 逻辑需要 - 沉默持续时间
-		"sheep_duration"        "3.0"        // Lua 逻辑需要 - 变形持续时间
-		"sheep_movement_speed"  "0"          // Lua 逻辑需要 - 变形移动速度
+	}
+	"item_hawkeye_turret"
+	{
+		"BaseClass"                 "item_lua"
+		"ID"                        "10202"
+		"ScriptFile"                "items/item_hawkeye_turret"
+		"AbilityTextureName"        "yingyanpaotai"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_intellect"       "170"  // tooltip only - 智力
-        "bonus_strength"        "15"   // tooltip only - 力量
-        "bonus_mana_regen"      "15"   // tooltip only - 魔法回复
-        "spell_amp"             "30"   // tooltip only - 技能增强
-    }
-	"precache"
-    {
-        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
-        "particle"      "particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
-    }
-}
-//=================================================================================================================
-// Recipe: 禁忌战刃
-//=================================================================================================================
-"item_recipe_forbidden_blade"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10303"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "jinjizhanren"
+		"ItemShopTags"              "damage;hard_to_tag"
+		"ItemQuality"               "epic"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_forbidden_blade"
-    "ItemRequirements"
-    {
-        "01"                    "item_abyssal_blade_v2;item_gungir_2;item_blue_fantasy;item_fusion_forbidden"
-    }
-}
-
-//=================================================================================================================
-// 禁忌战刃
-//=================================================================================================================
-"item_forbidden_blade"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10304"
-    "ScriptFile"                "items/item_forbidden_blade"
-    "AbilityTextureName"        "jinjizhanren"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-    "AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-
-    "ItemShopTags"              "damage;str;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
-
-    "AbilityCooldown"           "50"
-    "AbilityManaCost"           "300"
-    "AbilityCastRange"          "800"      // 添加施法距离
-    "AbilityCastPoint"          "0.2"      // 添加施法前摇
-
-    "AOERadius"                 "300"  // 添加固定的 AOE 指示器
-    "AbilityValues"
-    {
-        // 主动效果
-        "radius"
-        {
-            "value"             "500"
-            "affected_by_aoe_increase" "1"
-        }
-		"active_damage_base"
+		"AbilityCooldown"           "50"
+		"AbilityManaCost"           "0"
+		"AbilityValues"
 		{
-			"value"                 "200"
-			"CalculateSpellDamageTooltip" "1"  // 启用技能伤害计算
+			// 静态属性值（迁移到item_apply_modifiers的DataDriven，仅用于 tooltip 显示）
+			"bonus_damage"          "120"       // tooltip only - 攻击力
+			"bonus_attack_speed"    "80"        // tooltip only - 攻击速度
+			"bonus_armor"           "30"        // tooltip only - 护甲
+			// FIXME 现在对近战也有用 需要修复
+			"bonus_attack_range"    "250"       // tooltip only - 攻击距离
+
+			// 主动技能参数（在 Lua 中实现）
+			"active_armor"          "100"
+			"active_attack_range"   "500"
+			"active_duration"       "8"
+			"moon_shard_bonus"      "100"
+			"bat_reduction_pct"     "20"  // 新增:BAT减少值
+
+			// 溅射伤害参数（Lua 逻辑需要）
+			"attack_radius"         "500"      // 溅射范围
+			"attack_percent"        "100"      // 溅射伤害百分比
+			"internal_cooldown"     "0.05"      // 内置冷却时间
 		}
-        "active_damage_multi" 	"1.0"
-        "stun_duration"         "2.0"
-                // 闪电风暴伤害
-		"lightning_damage"
+
+		// ✅ modifier_item_hawkeye_turret_stats 已迁移到 npc_items_modifier.txt
+		// 静态属性由 DataDriven 实现，性能更优
+	}
+	//=================================================================================================================
+	// Recipe: 鹰眼战机
+	//=================================================================================================================
+	"item_recipe_hawkeye_fighter"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10203"
+		"Model"                     "models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"        "item_recipe_hawkeye_fighter"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_hawkeye_fighter"
+		"ItemRequirements"
 		{
-			"value"                 "1000"
-			"CalculateSpellDamageTooltip" "1"  // 启用技能伤害计算
+			"01"                    "item_adi_king_plus;item_wind_waker;item_boots_of_bearing_2;item_fusion_hawkeye"
 		}
-        "mute_duration"         "4.0"
+	}
+	//=================================================================================================================
+	// 鹰眼战机
+	//=================================================================================================================
+	//=================================================================================================================
+	// 鹰眼战机 (阿迪王Plus+散魂剑+风之杖+六脉神剑+鹰眼)
+	//=================================================================================================================
+	"item_hawkeye_fighter"
+	{
+		"BaseClass"                 "item_lua"
+		"ID"                        "10205"
+		"ScriptFile"                "items/item_hawkeye_fighter"
+		"AbilityTextureName"        "yingyanzhanji"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_strength"        "35"    // tooltip only - 力量（一闪20 + 额外15）
-        "bonus_agility"         "65"    // tooltip only - 敏捷（苍蓝幻想50 + 额外15）
-        "bonus_damage"          "180"   // tooltip only - 攻击力（一闪80 + 苍蓝幻想80 + 额外20）
-        "bonus_armor"           "15"    // tooltip only - 护甲（一闪5 + 苍蓝幻想10）
-        "bonus_attack_speed"    "80"    // tooltip only - 攻击速度（风暴之锤）
-        "bonus_health"          "600"   // tooltip only - 生命值（一闪）
-        "spell_amp"             "20"    // tooltip only - 法术增强
-    }
-}
-//=================================================================================================================
-// Recipe: 归海一刀
-//=================================================================================================================
-"item_recipe_switchable_crit_blade"
-{
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "9996"
-    "Model"                     "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"        "item_recipe_switchable_crit_blade"
+		"ItemShopTags"              "move_speed;hard_to_tag"
+		"ItemQuality"               "epic"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"AbilityCooldown"           "15"
+		"AbilityManaCost"           "0"
 
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_switchable_crit_blade"
-    "ItemRequirements"
-    {
-        "01"                    "item_wasp_golden;item_excalibur;item_fusion_brutal"
-    }
-}
+		"AbilityValues"
+		{
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_all_stats"       "30"    // tooltip only - 全属性
+			"bonus_movement_speed"  "160"   // tooltip only - 移动速度
+			"bonus_movement_speed_pct" "60" // tooltip only - 移动速度百分比
+			"bonus_turn_rate"       "50"    // tooltip only - 转身速率
+			// FIXME 继承配方物品，移除抗性
+			"bonus_status_resistance" "30"  // Lua 逻辑需要 - 状态抗性
+
+			// 主动效果（在 Lua 中实现）
+			"active_movement_speed_pct"	"100"
+			"active_duration"			"6"
+		}
+	}
+	//=================================================================================================================
+	// Recipe: 禁忌法锤
+	//=================================================================================================================
+	"item_recipe_forbidden_staff"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10301"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_forbidden_staff"
+
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_forbidden_staff"
+		"ItemRequirements"
+		{
+			"01"                    "item_necronomicon_staff;item_gungir_2;item_dagon_5;item_fusion_forbidden"
+		}
+	}
+
+	//=================================================================================================================
+	// 禁忌法锤
+	//=================================================================================================================
+	"item_forbidden_staff"
+	{
+		"BaseClass"                 "item_lua"
+		"ID"                        "10302"
+		"ScriptFile"                "items/item_forbidden_staff"
+		"AbilityTextureName"        "jinjifachui"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		"ItemShopTags"              "damage;int;hard_to_tag"
+		"ItemQuality"               "epic"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
+
+		"AbilityCooldown"           "40"
+		"AbilityManaCost"           "400"
+		"AbilityCastRange"          "800"      // 添加施法距离
+		"AbilityCastPoint"          "0.2"      // 添加施法前摇
+
+		"AOERadius"                 "300"  // 添加固定的 AOE 指示器
+		"AbilityValues"
+		{
+			// 主动技能参数（Lua 逻辑需要）
+			"radius"
+			{
+				"value"             "500"
+				"affected_by_aoe_increase" "1"
+			}
+			"necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
+			"lightning_damage"
+			{
+				"value"                 "2000"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"mute_duration"         "4.0"        // Lua 逻辑需要 - 沉默持续时间
+			"sheep_duration"        "3.0"        // Lua 逻辑需要 - 变形持续时间
+			"sheep_movement_speed"  "0"          // Lua 逻辑需要 - 变形移动速度
+
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_intellect"       "170"  // tooltip only - 智力
+			"bonus_strength"        "15"   // tooltip only - 力量
+			"bonus_mana_regen"      "15"   // tooltip only - 魔法回复
+			"spell_amp"             "30"   // tooltip only - 技能增强
+		}
+		"precache"
+		{
+			"soundfile"     "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"      "particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
+		}
+	}
+	//=================================================================================================================
+	// Recipe: 禁忌战刃
+	//=================================================================================================================
+	"item_recipe_forbidden_blade"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10303"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "jinjizhanren"
+
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_forbidden_blade"
+		"ItemRequirements"
+		{
+			"01"                    "item_abyssal_blade_v2;item_gungir_2;item_blue_fantasy;item_fusion_forbidden"
+		}
+	}
+
+	//=================================================================================================================
+	// 禁忌战刃
+	//=================================================================================================================
+	"item_forbidden_blade"
+	{
+		"BaseClass"                 "item_lua"
+		"ID"                        "10304"
+		"ScriptFile"                "items/item_forbidden_blade"
+		"AbilityTextureName"        "jinjizhanren"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+
+		"ItemShopTags"              "damage;str;hard_to_tag"
+		"ItemQuality"               "epic"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
+
+		"AbilityCooldown"           "50"
+		"AbilityManaCost"           "300"
+		"AbilityCastRange"          "800"      // 添加施法距离
+		"AbilityCastPoint"          "0.2"      // 添加施法前摇
+
+		"AOERadius"                 "300"  // 添加固定的 AOE 指示器
+		"AbilityValues"
+		{
+			// 主动效果
+			"radius"
+			{
+				"value"             "500"
+				"affected_by_aoe_increase" "1"
+			}
+			"active_damage_base"
+			{
+				"value"                 "200"
+				"CalculateSpellDamageTooltip" "1"  // 启用技能伤害计算
+			}
+			"active_damage_multi" 	"1.0"
+			"stun_duration"         "2.0"
+					// 闪电风暴伤害
+			"lightning_damage"
+			{
+				"value"                 "1000"
+				"CalculateSpellDamageTooltip" "1"  // 启用技能伤害计算
+			}
+			"mute_duration"         "4.0"
+
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"        "35"    // tooltip only - 力量（一闪20 + 额外15）
+			"bonus_agility"         "65"    // tooltip only - 敏捷（苍蓝幻想50 + 额外15）
+			"bonus_damage"          "180"   // tooltip only - 攻击力（一闪80 + 苍蓝幻想80 + 额外20）
+			"bonus_armor"           "15"    // tooltip only - 护甲（一闪5 + 苍蓝幻想10）
+			"bonus_attack_speed"    "80"    // tooltip only - 攻击速度（风暴之锤）
+			"bonus_health"          "600"   // tooltip only - 生命值（一闪）
+			"spell_amp"             "20"    // tooltip only - 法术增强
+		}
+	}
+	//=================================================================================================================
+	// Recipe: 归海一刀
+	//=================================================================================================================
+	"item_recipe_switchable_crit_blade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "9996"
+		"Model"                     "models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"        "item_recipe_switchable_crit_blade"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_switchable_crit_blade"
+		"ItemRequirements"
+		{
+			"01"                    "item_wasp_golden;item_excalibur;item_fusion_brutal"
+		}
+	}
 	//归海一刀
 	"item_switchable_crit_blade"
 	{
@@ -6360,31 +6390,31 @@
 	}
 
 	//=================================================================================================================
-// Recipe: 魔龙狂舞
-//=================================================================================================================
-"item_recipe_magic_crit_blade"
-{
-    // General
-    //-------------------------------------------------------------------------------------------------------------
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "9995"
-    "Model"                     "models/props_gameplay/recipe.mdl"
-    "AbilityTextureName"        "item_recipe_magic_crit_blade"
+	// Recipe: 魔龙狂舞
+	//=================================================================================================================
+	"item_recipe_magic_crit_blade"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "9995"
+		"Model"                     "models/props_gameplay/recipe.mdl"
+		"AbilityTextureName"        "item_recipe_magic_crit_blade"
 
-    // Item Info
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
 
-    // Recipe
-    //-------------------------------------------------------------------------------------------------------------
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_magic_crit_blade"
-    "ItemRequirements"
-    {
-        "01"                    "item_hallowed_scepter;item_revenants_brooch_2;item_excalibur;item_fusion_brutal"
-    }
-}
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_magic_crit_blade"
+		"ItemRequirements"
+		{
+			"01"                    "item_hallowed_scepter;item_revenants_brooch_2;item_excalibur;item_fusion_brutal"
+		}
+	}
 	//魔龙狂舞
 	"item_magic_crit_blade"
 	{
@@ -6448,480 +6478,477 @@
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_withered_spring"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
 
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_withered_spring"
-    "ItemRequirements"
-    {
-        "01"                    "item_aeon_pendant;item_guardian_greaves;item_undying_heart;item_insight_armor;item_fusion_life"
-    }
-}
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_withered_spring"
+		"ItemRequirements"
+		{
+			"01"                    "item_aeon_pendant;item_guardian_greaves;item_undying_heart;item_insight_armor;item_fusion_life"
+		}
+	}
 
-//=================================================================================================================
-// 枯木逢春
-//=================================================================================================================
-"item_withered_spring"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10314"
-    "ScriptFile"                "items/item_withered_spring"
-    "AbilityTextureName"        "kumufengchun"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "FightRecapLevel"           "1"
+	//=================================================================================================================
+	// 枯木逢春
+	//=================================================================================================================
+	"item_withered_spring"
+	{
+		"BaseClass"                 "item_lua"
+		"ID"                        "10314"
+		"ScriptFile"                "items/item_withered_spring"
+		"AbilityTextureName"        "kumufengchun"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"           "1"
 
-    "ItemShopTags"              "str;health;regen;armor;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		"ItemShopTags"              "str;health;regen;armor;hard_to_tag"
+		"ItemQuality"               "epic"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
 
-    "AbilityCooldown"           "60"
-    "AbilityManaCost"           "0"
+		"AbilityCooldown"           "60"
+		"AbilityManaCost"           "0"
 
 
-    "precache"
-    {
-        "soundfile"             "soundevents/game_sounds_items.vsndevts"
-        "particle"              "particles/items4_fx/combo_breaker.vpcf"
-        "particle"              "particles/items4_fx/combo_breaker_buff.vpcf"
-    }
-    "AbilityValues"
-    {
-		// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
-		"health_regen_pct"      "4"     // Lua 逻辑需要 - 百分比生命回复
-		"status_resistance"     "30"    // Lua 逻辑需要 - 状态抗性
-
-		// Lua 逻辑需要 - 主动技能参数
-		"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
-		"active_duration"       "3"     // Lua 逻辑需要 - 主动持续时间
-		"instant_heal"          "1500"  // Lua 逻辑需要 - 立即恢复生命值
-		"bonus_armor_active"    "30"    // Lua 逻辑需要 - 主动护甲加成
-		"bonus_regen_active"    "200"   // Lua 逻辑需要 - 主动生命回复
-		"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
-		"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
-
-		// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-		"bonus_strength"        "150"   // tooltip only - 力量
-		"bonus_health"          "2500"  // tooltip only - 生命值
-		"bonus_health_regen"    "80"    // tooltip only - 生命回复
-		"bonus_armor"           "40"    // tooltip only - 护甲
-		"bonus_evasion"         "25"    // tooltip only - 闪避
-		"magic_resistance"      "20"    // tooltip only - 魔法抗性
-    }
-}
-//=================================================================================================================
-// Recipe: 德古拉面罩
-//=================================================================================================================
-"item_recipe_dracula_mask"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10315"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_dracula_mask"
-
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_dracula_mask"
-    "ItemRequirements"
-    {
-        "01"                    "item_aeon_pendant;item_guardian_greaves;item_satanic_2;item_bloodstone_v2;item_fusion_life"
-    }
-}
-
-//=================================================================================================================
-// 德古拉面罩
-//=================================================================================================================
-"item_dracula_mask"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10316"
-    "ScriptFile"                "items/item_dracula_mask"
-    "AbilityTextureName"        "xixuemianzhao"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-    "FightRecapLevel"           "1"
-
-    "ItemShopTags"              "str;damage;lifesteal;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
-
-    "AbilityCooldown"           "50"
-    "AbilityManaCost"           "0"
-
-    "precache"
-    {
-        "particle"              "particles/items2_fx/satanic_buff.vpcf"
-        "particle"              "particles/generic_gameplay/generic_lifesteal.vpcf"
-    }
-
-    "AbilityValues"
-    {
-		// Lua 逻辑需要 - 吸血属性（不在可优化列表，事件驱动）
-		"lifesteal_percent"     "75"    // Lua 逻辑需要 - 被动物理吸血
-		"spell_lifesteal"       "30"    // Lua 逻辑需要 - 被动法术吸血
-
-		// Lua 逻辑需要 - 主动技能参数
-		"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
-		"active_duration"       "5"     // Lua 逻辑需要 - 主动持续时间
-		"lifesteal_active"      "300"   // Lua 逻辑需要 - 主动期间物理吸血
-		"spell_lifesteal_active" "100"  // Lua 逻辑需要 - 主动期间法术吸血
-		"bonus_attack_speed_active" "150" // Lua 逻辑需要 - 主动攻速加成
-		"bonus_movement_speed_active" "30" // Lua 逻辑需要 - 主动移速加成
-		"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
-    	"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
-
-		// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-		"bonus_strength"        "80"    // tooltip only - 力量
-		"bonus_health"          "2000"  // tooltip only - 生命值
-		"bonus_damage"          "250"   // tooltip only - 攻击力
-		"bonus_movement_speed"  "20"    // tooltip only - 移动速度
-		"bonus_health_regen"    "0"     // tooltip only - 生命回复
-    }
-}
-//暗影
-	//11暗影裁决 一闪+苍蓝幻想+绝对破防之刃+变态辣 融合所有debuff，cd适当短，但不能无限
-	//12暗影咒灭 达贡之神力+永恒虚灵之刃+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
-//=================================================================================================================
-// Recipe: 暗影裁决
-//=================================================================================================================
-"item_recipe_shadow_judgment"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10311"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_shadow_judgment"
-
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_shadow_judgment"
-    "ItemRequirements"
-    {
-        "01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
-    }
-}
-
-//=================================================================================================================
-// 暗影裁决
-//=================================================================================================================
-"item_shadow_judgment"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10312"
-    "ScriptFile"                "items/item_shadow_judgment"
-    "AbilityTextureName"        "anyingcaijue"
-     "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"  // 允许选中魔免目标
-    "FightRecapLevel"           "1"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"  // 一闪效果穿透魔免
-
-    "ItemShopTags"              "damage;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
-
-    "AbilityCooldown"           "12"
-    "AbilityManaCost"           "800"
-    "AbilityCastRange"          "900"
-    "AbilityCastPoint"          "0.2"
-    // 添加这个precache部分
-    "precache"
-    {
-        "particle"              "particles/items4_fx/nullifier_slow.vpcf"
-        "particle"              "particles/items4_fx/nullifier_mute_debuff.vpcf"
-        "particle"              "particles/status_fx/status_effect_nullifier.vpcf"
-        "particle"              "particles/items4_fx/nullifier_mute.vpcf"
-        "particle"              "particles/items4_fx/bloodthorn_pop.vpcf"
-        "particle"              "particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_requiem.vpcf"
-        "particle"              "particles/econ/events/ti9/blink_dagger_ti9_start_lvl2.vpcf"
-        "particle"              "particles/econ/events/ti9/blink_dagger_ti9_lvl2_end.vpcf"
-    }
-    "AbilityValues"
-    {
-        // 一闪效果
-        "stun_duration"         "2.0"
-        "active_damage_base"
-        {
-            "value"                 "200"
-            "CalculateSpellDamageTooltip" "1"
-        }
-        "active_damage_multi"   "1.0"
-
-        // 苍蓝幻想效果
-        "mute_duration"         "4.0"
-        "slow_pct"              "-60"
-        "attack_slow"           "-200"
-		"max_hp_dmg_pct"        "4"      // 添加这个参数
-    	"hp_regen_reduction"    "-80"    // 添加这个参数
-
-        // 绝对破防效果（Lua 逻辑需要 - 主动技能和被动攻击触发都使用）
-       // "corruption_armor"      "-60"
-        //"corruption_duration"   "7.0"
-
-        // 变态辣效果
-        "silence_duration"      "5.0"
-        "silence_damage_percent" "30"
-
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_strength"        "55"    // tooltip only - 力量
-        "bonus_agility"         "115"   // tooltip only - 敏捷
-        "bonus_intellect"       "85"    // tooltip only - 智力
-        "bonus_damage"          "360"   // tooltip only - 攻击力
-        "bonus_armor"           "25"    // tooltip only - 护甲
-        "bonus_attack_speed"    "150"   // tooltip only - 攻击速度
-        "bonus_health"          "600"   // tooltip only - 生命值
-        "bonus_mana_regen"      "25"    // tooltip only - 魔法恢复
-        "spell_amp"             "50"    // tooltip only - 法术增强
-    }
-}
-//=================================================================================================================
-// Recipe: 暗影咒灭
-//=================================================================================================================
-"item_recipe_shadow_impact"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10313"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_shadow_impact"
-
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_shadow_impact"
-    "ItemRequirements"
-    {
-        "01"                    "item_dagon_5;item_ethereal_blade_ultra;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
-    }
-}
-
-//=================================================================================================================
-// 暗影咒灭
-//=================================================================================================================
-"item_shadow_impact"
-{
-    "BaseClass"                 "item_lua"
-    "ID"                        "10314"
-    "ScriptFile"                "items/item_shadow_impact"
-    "AbilityTextureName"        "anyingchongji"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-    "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
-    "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-    "FightRecapLevel"           "1"
-    "SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
-    "AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"  // 允许选中魔免目标
-	"ItemShopTags"              "damage;int;hard_to_tag"
-    "ItemQuality"               "epic"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
-
-    "AbilityCooldown"           "8"
-    "AbilityManaCost"           "1600"
-    "AbilityCastRange"          "900"
-    "AbilityCastPoint"          "0.2"
-
-    "AbilityValues"
-    {
-        // 主动技能参数（Lua 逻辑需要）
-        "dagon_damage"
-        {
-            "value"             "800"
-            "CalculateSpellDamageTooltip" "1"
-        }
-        "necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
-        "sheep_duration"            "1.5"    // Lua 逻辑需要 - 变形持续时间
-        "sheep_movement_speed"      "140"    // Lua 逻辑需要 - 变形移动速度
-        "ethereal_duration"         "4.0"    // Lua 逻辑需要 - 虚灵持续时间
-        "blast_agility_multiplier"  "2.5"    // Lua 逻辑需要 - 虚灵之刃主属性倍数
-        "blast_damage_base"         "300"    // Lua 逻辑需要 - 虚灵之刃基础伤害
-        "blast_movement_slow"       "-80"    // Lua 逻辑需要 - 虚灵减速百分比
-        "ethereal_damage_bonus"     "40"     // Lua 逻辑需要 - 虚灵伤害加成
-        "absolute_damage"
-        {
-            "value"             "600"
-            "CalculateSpellDamageTooltip" "1"
-        }
-
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_intellect"       "200"   // tooltip only - 智力
-        "bonus_strength"        "80"    // tooltip only - 力量
-        "bonus_agility"         "120"   // tooltip only - 敏捷
-        "bonus_damage"          "250"   // tooltip only - 攻击力
-        "bonus_mana"            "1500"  // tooltip only - 魔法值
-        "bonus_mana_regen"      "30"    // tooltip only - 魔法回复
-        "spell_amp"             "60"    // tooltip only - 技能增强
-
-        // Lua 逻辑需要 - 施法距离（不在可优化列表）
-        "bonus_cast_range"      "300"   // Lua 逻辑需要 - 施法距离加成
-    }
-
-    "precache"
-    {
-        "soundfile"     "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
-        "particle"      "particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
-        "particle"      "particles/items2_fx/ethereal_blade.vpcf"
-    }
-}
-
-//灵动
-	//15无限手套 霰弹枪+黄金魔龙枪+散魂剑+六脉神剑，加移速加攻速加攻击距离
-"item_recipe_swift_glove"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10317"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_swift_glove"
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_swift_glove"
-    "ItemRequirements"
-    {
-        "01"                    "item_hand_of_group;item_hurricane_pike_2;item_sacred_six_vein;item_fusion_agile"
-    }
-}
-"item_swift_glove"
-{
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                "items/item_swift_glove"
-    "ID"                        "10318"
-    "AbilityTextureName"        "jisushoutao"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
-
-    "AbilityValues"
-    {
-        // 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-        "bonus_strength"            "100"    // tooltip only - 力量
-        "bonus_agility"             "100"    // tooltip only - 敏捷
-        "bonus_intellect"           "100"    // tooltip only - 智力
-        "bonus_attack_speed"        "166"   // tooltip only - 攻击速度（66 + 100 额外）
-		// FIXME 继承配方，移除移动速度
-        "bonus_movement_speed"      "50"    // tooltip only - 移动速度
-
-        // Lua 逻辑需要的参数
-        "bonus_attack_range"        "250"   // Lua 逻辑需要 - 有条件判断（仅远程英雄）
-        "bat_reduction_pct"         "30"    // Lua 逻辑需要 - 动态计算 BAT
-    }
-}
-
-//16万剑归宗 几把神器对剑 加60%抗性
-"item_recipe_ten_thousand_swords"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10319"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_ten_thousand_swords"
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_ten_thousand_swords"
-    "ItemRequirements"
-    {
-        "01"                    "item_sacred_six_vein;item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1;item_fusion_agile"
-    }
-}
-
-"item_ten_thousand_swords"
-{
-    "BaseClass"                 "item_trident"
-    "ID"                        "10320"
-    "AbilityTextureName"        "wanjianguizong"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-    "ItemShopTags"              "damage;str;agi;attack_speed;unique"
-    "ItemQuality"               "artifact"
-    "ItemAliases"               "ten thousand swords"
-    "ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-    "ShouldBeSuggested"         "1"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"soundfile"             "soundevents/game_sounds_items.vsndevts"
+			"particle"              "particles/items4_fx/combo_breaker.vpcf"
+			"particle"              "particles/items4_fx/combo_breaker_buff.vpcf"
+		}
 		"AbilityValues"
 		{
-			"bonus_strength"				"250"
-			"bonus_agility"					"250"
-			"bonus_intellect"				"250"
-			"status_resistance"				"60"
-			"bonus_attack_speed"			"200"
-			"movement_speed_percent_bonus"	"70"
-			"hp_regen_amp"					"100"
-			"mana_regen_multiplier"			"150"
-			"spell_amp"						"100"
-			"magic_damage_attack"			"100"
+			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
+			"health_regen_pct"      "4"     // Lua 逻辑需要 - 百分比生命回复
+			"status_resistance"     "30"    // Lua 逻辑需要 - 状态抗性
+
+			// Lua 逻辑需要 - 主动技能参数
+			"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
+			"active_duration"       "3"     // Lua 逻辑需要 - 主动持续时间
+			"instant_heal"          "1500"  // Lua 逻辑需要 - 立即恢复生命值
+			"bonus_armor_active"    "30"    // Lua 逻辑需要 - 主动护甲加成
+			"bonus_regen_active"    "200"   // Lua 逻辑需要 - 主动生命回复
+			"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
+			"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
+
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"        "150"   // tooltip only - 力量
+			"bonus_health"          "2500"  // tooltip only - 生命值
+			"bonus_health_regen"    "80"    // tooltip only - 生命回复
+			"bonus_armor"           "40"    // tooltip only - 护甲
+			"bonus_evasion"         "25"    // tooltip only - 闪避
+			"magic_resistance"      "20"    // tooltip only - 魔法抗性
 		}
-}
+	}
+	//=================================================================================================================
+	// Recipe: 德古拉面罩
+	//=================================================================================================================
+	"item_recipe_dracula_mask"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10315"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_dracula_mask"
 
-//17时间宝石 大小刷新球，减50%cd
-"item_recipe_time_gem"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10321"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_time_gem"
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_time_gem"
-    "ItemRequirements"
-    {
-        "01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
-    }
-}
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
 
-"item_time_gem"
-{
-	"ID"                        "10322"
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                    "items/item_time_gem"
-    "AbilityTextureName"        "shijianbaoshi"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_dracula_mask"
+		"ItemRequirements"
+		{
+			"01"                    "item_aeon_pendant;item_guardian_greaves;item_satanic_2;item_bloodstone_v2;item_fusion_life"
+		}
+	}
 
-        // Stats
-        //-------------------------------------------------------------------------------------------------------------
-        "AbilityCastPoint"				"0.0"
-        "AbilityCooldown"				"100.0"
-        "AbilityManaCost"				"900"
-		"AbilitySharedCooldown"			"refresh"
+	//=================================================================================================================
+	// 德古拉面罩
+	//=================================================================================================================
+	"item_dracula_mask"
+	{
+		"BaseClass"                 "item_lua"
+		"ID"                        "10316"
+		"ScriptFile"                "items/item_dracula_mask"
+		"AbilityTextureName"        "xixuemianzhao"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"           "1"
 
-        // Item Info
-        //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"19800"
-		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ShouldBeSuggested"				"1"
-    "ItemPurchasable"           "1"
-    "ItemSellable"              "0"
+		"ItemShopTags"              "str;damage;lifesteal;hard_to_tag"
+		"ItemQuality"               "epic"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
 
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"           "50"
+		"AbilityManaCost"           "0"
+
+		"precache"
+		{
+			"particle"              "particles/items2_fx/satanic_buff.vpcf"
+			"particle"              "particles/generic_gameplay/generic_lifesteal.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			// Lua 逻辑需要 - 吸血属性（不在可优化列表，事件驱动）
+			"lifesteal_percent"     "75"    // Lua 逻辑需要 - 被动物理吸血
+			"spell_lifesteal"       "30"    // Lua 逻辑需要 - 被动法术吸血
+
+			// Lua 逻辑需要 - 主动技能参数
+			"hp_threshold"          "40"    // Lua 逻辑需要 - 自动触发生命阈值
+			"active_duration"       "5"     // Lua 逻辑需要 - 主动持续时间
+			"lifesteal_active"      "300"   // Lua 逻辑需要 - 主动期间物理吸血
+			"spell_lifesteal_active" "100"  // Lua 逻辑需要 - 主动期间法术吸血
+			"bonus_attack_speed_active" "150" // Lua 逻辑需要 - 主动攻速加成
+			"bonus_movement_speed_active" "30" // Lua 逻辑需要 - 主动移速加成
+			"damage_reduction"      "-30"   // Lua 逻辑需要 - 主动伤害减免
+			"status_resistance_active" "80" // Lua 逻辑需要 - 主动状态抗性
+
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"        "80"    // tooltip only - 力量
+			"bonus_health"          "2000"  // tooltip only - 生命值
+			"bonus_damage"          "250"   // tooltip only - 攻击力
+			"bonus_movement_speed"  "20"    // tooltip only - 移动速度
+			"bonus_health_regen"    "0"     // tooltip only - 生命回复
+		}
+	}
+	//暗影
+		//11暗影裁决 一闪+苍蓝幻想+绝对破防之刃+变态辣 融合所有debuff，cd适当短，但不能无限
+		//12暗影咒灭 达贡之神力+永恒虚灵之刃+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
+	//=================================================================================================================
+	// Recipe: 暗影裁决
+	//=================================================================================================================
+	"item_recipe_shadow_judgment"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10311"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_shadow_judgment"
+
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_shadow_judgment"
+		"ItemRequirements"
+		{
+			"01"                    "item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
+		}
+	}
+
+	//=================================================================================================================
+	// 暗影裁决
+	//=================================================================================================================
+
+		"item_shadow_judgment"
+		{
+			"BaseClass"					"item_lua"
+			"ID"						"10312"
+			"ScriptFile"				"items/item_shadow_judgment"
+			"AbilityTextureName"		"anyingcaijue"
+			"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+			"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+			"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"	// 允许选中魔免目标
+			"FightRecapLevel"			"1"
+			"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"	// 一闪效果穿透魔免
+
+			"ItemShopTags"				"damage;hard_to_tag"
+			"ItemQuality"				"epic"
+			"ItemPurchasable"			"1"
+			"ItemSellable"				"0"
+
+			"AbilityCooldown"			"12"
+			"AbilityManaCost"			"800"
+			"AbilityCastRange"			"900"
+			"AbilityCastPoint"			"0.2"
+			// 添加这个precache部分
+			"precache"
+			{
+				"particle"				"particles/items4_fx/nullifier_slow.vpcf"
+				"particle"				"particles/items4_fx/nullifier_mute_debuff.vpcf"
+				"particle"				"particles/status_fx/status_effect_nullifier.vpcf"
+				"particle"				"particles/items4_fx/nullifier_mute.vpcf"
+				"particle"				"particles/items4_fx/bloodthorn_pop.vpcf"
+				"particle"				"particles/econ/items/shadow_fiend/sf_fire_arcana/sf_fire_arcana_requiem.vpcf"
+				"particle"				"particles/econ/events/ti9/blink_dagger_ti9_start_lvl2.vpcf"
+				"particle"				"particles/econ/events/ti9/blink_dagger_ti9_lvl2_end.vpcf"
+			}
+			"AbilityValues"
+			{
+				// 一闪效果
+				"stun_duration"			"2.0"
+				"active_damage_base"
+				{
+					"value"					"200"
+					"CalculateSpellDamageTooltip"	"1"
+				}
+				"active_damage_multi"	"1.0"
+
+				// 苍蓝幻想效果
+				"mute_duration"			"4.0"
+				"slow_pct"				"-60"
+				"attack_slow"			"-200"
+				"max_hp_dmg_pct"		"4"		// 添加这个参数
+				"hp_regen_reduction"	"-80"	// 添加这个参数
+
+				// 变态辣效果
+				"silence_duration"		"5.0"
+				"silence_damage_percent"	"30"
+
+				// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+				"bonus_strength"		"55"	// tooltip only - 力量
+				"bonus_agility"			"115"	// tooltip only - 敏捷
+				"bonus_intellect"		"85"	// tooltip only - 智力
+				"bonus_damage"			"360"	// tooltip only - 攻击力
+				"bonus_armor"			"25"	// tooltip only - 护甲
+				"bonus_attack_speed"	"150"	// tooltip only - 攻击速度
+				"bonus_health"			"600"	// tooltip only - 生命值
+				"bonus_mana_regen"		"25"	// tooltip only - 魔法恢复
+				"spell_amp"				"50"	// tooltip only - 法术增强
+			}
+		}
+	//=================================================================================================================
+	// Recipe: 暗影咒灭
+	//=================================================================================================================
+	"item_recipe_shadow_impact"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10313"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_shadow_impact"
+
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_shadow_impact"
+		"ItemRequirements"
+		{
+			"01"                    "item_dagon_5;item_ethereal_blade_ultra;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
+		}
+	}
+
+	//=================================================================================================================
+	// 暗影咒灭
+	//=================================================================================================================
+	"item_shadow_impact"
+	{
+		"BaseClass"                 "item_lua"
+		"ID"                        "10314"
+		"ScriptFile"                "items/item_shadow_impact"
+		"AbilityTextureName"        "anyingchongji"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"           "1"
+		"SpellImmunityType"         "SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitTargetFlags"    "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"  // 允许选中魔免目标
+		"ItemShopTags"              "damage;int;hard_to_tag"
+		"ItemQuality"               "epic"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
+
+		"AbilityCooldown"           "8"
+		"AbilityManaCost"           "1600"
+		"AbilityCastRange"          "900"
+		"AbilityCastPoint"          "0.2"
+
+		"AbilityValues"
+		{
+			// 主动技能参数（Lua 逻辑需要）
+			"dagon_damage"
+			{
+				"value"             "800"
+				"CalculateSpellDamageTooltip" "1"
+			}
+			"necrolyte_att_multiplier"  "0.5"    // Lua 逻辑需要 - 死灵冲击全属性倍数
+			"sheep_duration"            "1.5"    // Lua 逻辑需要 - 变形持续时间
+			"sheep_movement_speed"      "140"    // Lua 逻辑需要 - 变形移动速度
+			"ethereal_duration"         "4.0"    // Lua 逻辑需要 - 虚灵持续时间
+			"blast_agility_multiplier"  "2.5"    // Lua 逻辑需要 - 虚灵之刃主属性倍数
+			"blast_damage_base"         "300"    // Lua 逻辑需要 - 虚灵之刃基础伤害
+			"blast_movement_slow"       "-80"    // Lua 逻辑需要 - 虚灵减速百分比
+			"ethereal_damage_bonus"     "40"     // Lua 逻辑需要 - 虚灵伤害加成
+			"absolute_damage"
+			{
+				"value"             "600"
+				"CalculateSpellDamageTooltip" "1"
+			}
+
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_intellect"       "200"   // tooltip only - 智力
+			"bonus_strength"        "80"    // tooltip only - 力量
+			"bonus_agility"         "120"   // tooltip only - 敏捷
+			"bonus_damage"          "250"   // tooltip only - 攻击力
+			"bonus_mana"            "1500"  // tooltip only - 魔法值
+			"bonus_mana_regen"      "30"    // tooltip only - 魔法回复
+			"spell_amp"             "60"    // tooltip only - 技能增强
+
+			// Lua 逻辑需要 - 施法距离（不在可优化列表）
+			"bonus_cast_range"      "300"   // Lua 逻辑需要 - 施法距离加成
+		}
+
+		"precache"
+		{
+			"soundfile"     "soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
+			"particle"      "particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
+			"particle"      "particles/items2_fx/ethereal_blade.vpcf"
+		}
+	}
+
+	//灵动
+		//15无限手套 霰弹枪+黄金魔龙枪+散魂剑+六脉神剑，加移速加攻速加攻击距离
+	"item_recipe_swift_glove"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10317"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_swift_glove"
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_swift_glove"
+		"ItemRequirements"
+		{
+			"01"                    "item_hand_of_group;item_hurricane_pike_2;item_sacred_six_vein;item_fusion_agile"
+		}
+	}
+	"item_swift_glove"
+	{
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_swift_glove"
+		"ID"                        "10318"
+		"AbilityTextureName"        "jisushoutao"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
+
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_health"			"1500"  // tooltip only - 生命值
-			"bonus_mana"			"1500"  // tooltip only - 魔法值
-			"bonus_health_regen"	"30.0"  // tooltip only - 生命恢复
-			"bonus_mana_regen"		"20.0"  // tooltip only - 魔法恢复
+			"bonus_strength"            "100"    // tooltip only - 力量
+			"bonus_agility"             "100"    // tooltip only - 敏捷
+			"bonus_intellect"           "100"    // tooltip only - 智力
+			"bonus_attack_speed"        "166"   // tooltip only - 攻击速度（66 + 100 额外）
+			// FIXME 继承配方，移除移动速度
+			"bonus_movement_speed"      "50"    // tooltip only - 移动速度
 
 			// Lua 逻辑需要的参数
-			"bonus_cooldown"		"50"
-			"bonus_cooldown_stack"	"12"    // 未使用（可能是遗留代码）
-			"cast_range_bonus"		"400"
-			"manacost_reduction"    "50"    // 新增:减魔耗百分比
-			"cast_speed_pct"        "50"    // 新增:施法速度加成百分比
+			"bonus_attack_range"        "250"   // Lua 逻辑需要 - 有条件判断（仅远程英雄）
+			"bat_reduction_pct"         "30"    // Lua 逻辑需要 - 动态计算 BAT
 		}
-}
+	}
+
+	//16万剑归宗 几把神器对剑 加60%抗性
+	"item_recipe_ten_thousand_swords"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10319"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_ten_thousand_swords"
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_ten_thousand_swords"
+		"ItemRequirements"
+		{
+			"01"                    "item_sacred_six_vein;item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1;item_fusion_agile"
+		}
+	}
+
+	"item_ten_thousand_swords"
+	{
+		"BaseClass"                 "item_trident"
+		"ID"                        "10320"
+		"AbilityTextureName"        "wanjianguizong"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ItemShopTags"              "damage;str;agi;attack_speed;unique"
+		"ItemQuality"               "artifact"
+		"ItemAliases"               "ten thousand swords"
+		"ItemDeclarations"          "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"         "1"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
+			// Special
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilityValues"
+			{
+				"bonus_strength"				"250"
+				"bonus_agility"					"250"
+				"bonus_intellect"				"250"
+				"status_resistance"				"60"
+				"bonus_attack_speed"			"200"
+				"movement_speed_percent_bonus"	"70"
+				"hp_regen_amp"					"100"
+				"mana_regen_multiplier"			"150"
+				"spell_amp"						"100"
+				"magic_damage_attack"			"100"
+			}
+	}
+
+	//17时间宝石 大小刷新球，减50%cd
+	"item_recipe_time_gem"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10321"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_time_gem"
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_time_gem"
+		"ItemRequirements"
+		{
+			"01"                    "item_refresh_core;item_refresher;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
+		}
+	}
+
+	"item_time_gem"
+	{
+		"ID"                        "10322"
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                    "items/item_time_gem"
+		"AbilityTextureName"        "shijianbaoshi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+
+			// Stats
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilityCastPoint"				"0.0"
+			"AbilityCooldown"				"100.0"
+			"AbilityManaCost"				"900"
+			"AbilitySharedCooldown"			"refresh"
+
+			// Item Info
+			//-------------------------------------------------------------------------------------------------------------
+			"ItemCost"						"19800"
+			"ItemShopTags"					"move_speed;boost_mana;mana_pool"
+			"ItemQuality"					"rare"
+			"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
+			"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+			"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+			"ShouldBeSuggested"				"1"
+		"ItemPurchasable"           "1"
+		"ItemSellable"              "0"
+
+			// Special
+			//-------------------------------------------------------------------------------------------------------------
+			"AbilityValues"
+			{
+				// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+				"bonus_health"			"1500"  // tooltip only - 生命值
+				"bonus_mana"			"1500"  // tooltip only - 魔法值
+				"bonus_health_regen"	"30.0"  // tooltip only - 生命恢复
+				"bonus_mana_regen"		"20.0"  // tooltip only - 魔法恢复
+
+				// Lua 逻辑需要的参数
+				"bonus_cooldown"		"50"
+				"bonus_cooldown_stack"	"12"    // 未使用（可能是遗留代码）
+				"cast_range_bonus"		"400"
+				"manacost_reduction"    "50"    // 新增:减魔耗百分比
+				"cast_speed_pct"        "50"    // 新增:施法速度加成百分比
+			}
+	}
 
 		//以下是不同融合材料可以合成的物品简介
 //兽化
@@ -7345,74 +7372,74 @@
 	}
 
 
-//魔化
-	//13魔渊法杖 仙云法杖+风暴之锤+以太2+神圣斧 没有任何被动加成 主动技能：一念成佛：4s内10%魔法伤害转为纯粹伤害；
-	//14魔化狂战 音速战刃+狂战斧+散魂剑+暗灭 没有任何被动加成 主动技能：一念成佛：4s内10%物理伤害转为纯粹伤害；
-//=================================================================================================================
-// Recipe: 魔渊法杖
-//=================================================================================================================
-"item_recipe_magic_abyss_staff"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10329"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_magic_abyss_staff"
-
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
-
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_magic_abyss_staff"
-    "ItemRequirements"
-    {
-        "01"                    "item_hallowed_scepter;item_gungir_2;item_aether_lens_2;item_devastator_2;item_fusion_magic"
-    }
-}
-  "item_magic_abyss_staff"
-{
-    "BaseClass"                 "item_lua"
-    "ScriptFile"                "items/item_magic_abyss_staff"
-    "ID"                        "10327"
-    "AbilityTextureName"        "moyuanfazhang"
-    "AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
-    "AbilityCastPoint"          "0.0"
-    "AbilityCooldown"           "20.0"
-    "AbilityManaCost"           "150"
-
-    "ItemCost"                  "25000"
-    "ItemShopTags"              "damage;int;hard_to_tag"
-    "ItemQuality"               "artifact"
-
-	"AbilityValues"
+	//魔化
+		//13魔渊法杖 仙云法杖+风暴之锤+以太2+神圣斧 没有任何被动加成 主动技能：一念成佛：4s内10%魔法伤害转为纯粹伤害；
+		//14魔化狂战 音速战刃+狂战斧+散魂剑+暗灭 没有任何被动加成 主动技能：一念成佛：4s内10%物理伤害转为纯粹伤害；
+	//=================================================================================================================
+	// Recipe: 魔渊法杖
+	//=================================================================================================================
+	"item_recipe_magic_abyss_staff"
 	{
-		"active_duration"		"4"
-		"convert_pct"			"10"
-		"spell_amp_per_int"		"0.2"
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10329"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_magic_abyss_staff"
+
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_magic_abyss_staff"
+		"ItemRequirements"
+		{
+			"01"                    "item_hallowed_scepter;item_gungir_2;item_aether_lens_2;item_devastator_2;item_fusion_magic"
+		}
 	}
-}
+	"item_magic_abyss_staff"
+	{
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_magic_abyss_staff"
+		"ID"                        "10327"
+		"AbilityTextureName"        "moyuanfazhang"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
-//=================================================================================================================
-// Recipe: 魔渊剑
-//=================================================================================================================
-"item_recipe_magic_sword"
-{
-    "BaseClass"                 "item_datadriven"
-    "ID"                        "10330"
-    "Model"                     "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"        "item_recipe_magic_sword"
+		"AbilityCastPoint"          "0.0"
+		"AbilityCooldown"           "20.0"
+		"AbilityManaCost"           "150"
 
-    "ItemCost"                  "0"
-    "ItemShopTags"              ""
+		"ItemCost"                  "25000"
+		"ItemShopTags"              "damage;int;hard_to_tag"
+		"ItemQuality"               "artifact"
 
-    "ItemRecipe"                "1"
-    "ItemResult"                "item_magic_sword"
-    "ItemRequirements"
-    {
-        "01"                    "item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
-    }
-}
-"item_magic_sword"
+		"AbilityValues"
+		{
+			"active_duration"		"4"
+			"convert_pct"			"10"
+			"spell_amp_per_int"		"0.2"
+		}
+	}
+
+	//=================================================================================================================
+	// Recipe: 魔渊剑
+	//=================================================================================================================
+	"item_recipe_magic_sword"
+	{
+		"BaseClass"                 "item_datadriven"
+		"ID"                        "10330"
+		"Model"                     "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"        "item_recipe_magic_sword"
+
+		"ItemCost"                  "0"
+		"ItemShopTags"              ""
+
+		"ItemRecipe"                "1"
+		"ItemResult"                "item_magic_sword"
+		"ItemRequirements"
+		{
+			"01"                    "item_skadi_2;item_bfury_ultra;item_infernal_desolator;item_fusion_magic"
+		}
+	}
+	"item_magic_sword"
 	{
 		"BaseClass"					"item_datadriven"
 		"ID"						"10328"
@@ -7658,7 +7685,7 @@
 		"ID"                        "10331"
 		"BaseClass"                 "item_lua"
 		"ScriptFile"                "items/item_skill_talisman"
-		"AbilityTextureName"        "item_ultimate_scepter"
+		"AbilityTextureName"        "skill_talisman"
 
 		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityCastRange"          "1800"  //
@@ -7689,4 +7716,5 @@
 			}
 		}
 	}
+
 }
