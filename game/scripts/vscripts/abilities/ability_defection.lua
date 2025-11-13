@@ -41,7 +41,8 @@ function ability_defection:OnSpellStart()
         -- 只在第一次显示警告消息
         if not _G.DefectionWarningShown[playerID] then
             GameRules:SendCustomMessage(
-            "有人已经被AI蛊惑，他击杀了超过3名人类玩家，将永远无法回归人类阵营! Someone has killed more than 3 human players, he will never return", 0,
+                "有人已经被AI蛊惑，他击杀了超过3名人类玩家，将永远无法回归人类阵营! Someone has killed more than 3 human players, he will never return",
+                0,
                 0)
             _G.DefectionWarningShown[playerID] = true -- 标记为已显示
         end

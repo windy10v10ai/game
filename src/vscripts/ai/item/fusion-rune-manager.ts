@@ -9,22 +9,21 @@ interface FusionRuneConfig {
   maxStock: number;
 }
 
-// FIXME暂时未使用，保留以缓解代码冲突
 @reloadable
 export class FusionRuneManager {
   // 8种符文配置
   private static readonly RUNES: FusionRuneConfig[] = [
     {
       itemName: 'item_fusion_hawkeye',
-      baseStockTimeMinutes: 10,
-      stockSpeedMinutes: 3,
+      baseStockTimeMinutes: 12,
+      stockSpeedMinutes: 4,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_forbidden',
-      baseStockTimeMinutes: 15,
-      stockSpeedMinutes: 3,
+      baseStockTimeMinutes: 12,
+      stockSpeedMinutes: 4,
       initialStock: 0,
       maxStock: 3,
     },
@@ -37,29 +36,29 @@ export class FusionRuneManager {
     },
     {
       itemName: 'item_fusion_beast',
-      baseStockTimeMinutes: 8,
-      stockSpeedMinutes: 2,
+      baseStockTimeMinutes: 10,
+      stockSpeedMinutes: 3,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_life',
-      baseStockTimeMinutes: 12,
-      stockSpeedMinutes: 3,
+      baseStockTimeMinutes: 15,
+      stockSpeedMinutes: 4,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_shadow',
-      baseStockTimeMinutes: 15,
-      stockSpeedMinutes: 3,
+      baseStockTimeMinutes: 12,
+      stockSpeedMinutes: 4,
       initialStock: 0,
       maxStock: 3,
     },
     {
       itemName: 'item_fusion_magic',
       baseStockTimeMinutes: 20,
-      stockSpeedMinutes: 4,
+      stockSpeedMinutes: 5,
       initialStock: 0,
       maxStock: 3,
     },

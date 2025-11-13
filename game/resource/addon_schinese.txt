@@ -1069,31 +1069,32 @@
 		"DOTA_Tooltip_ability_item_fusion_magic"            "魔化符文"
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"            "灵动符文"
+// 鹰眼符文
+"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"          "一种神秘的融合符文,蕴含着鹰眼的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 鹰眼炮台、鹰眼战机\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 7.2分 / 2.4分\n• 难度≥60倍: 8.4分 / 2.8分\n• 难度≥30倍: 9.6分 / 3.2分\n• 难度≥20倍: 10.8分 / 3.6分\n• 难度≥12倍: 12分 / 4分\n• 难度≥8倍: 13.2分 / 4.4分\n• 难度≥4倍: 14.4分 / 4.8分\n• 其他: 18分 / 6分</font>"
 
-		// 鹰眼符文
-		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"          "一种神秘的融合符文,蕴含着鹰眼的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 鹰眼炮台、鹰眼战机"
+// 禁忌符文
+"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法锤、禁忌战刃\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 7.2分 / 2.4分\n• 难度≥60倍: 8.4分 / 2.8分\n• 难度≥30倍: 9.6分 / 3.2分\n• 难度≥20倍: 10.8分 / 3.6分\n• 难度≥12倍: 12分 / 4分\n• 难度≥8倍: 13.2分 / 4.4分\n• 难度≥4倍: 14.4分 / 4.8分\n• 其他: 18分 / 6分</font>"
 
-		// 禁忌符文
-		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法锤、禁忌战刃"
+// 暴虐符文
+"DOTA_Tooltip_ability_item_fusion_brutal_Description"           "一种神秘的融合符文,蕴含着暴虐的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 归海一刀、魔龙狂舞\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 9.6分 / 2.4分\n• 难度≥60倍: 11.2分 / 2.8分\n• 难度≥30倍: 12.8分 / 3.2分\n• 难度≥20倍: 14.4分 / 3.6分\n• 难度≥12倍: 16分 / 4分\n• 难度≥8倍: 17.6分 / 4.4分\n• 难度≥4倍: 19.2分 / 4.8分\n• 其他: 24分 / 6分</font>"
 
-		// 暴虐符文
-		"DOTA_Tooltip_ability_item_fusion_brutal_Description"           "一种神秘的融合符文,蕴含着暴虐的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 归海一刀、魔龙狂舞"
+// 兽化符文
+"DOTA_Tooltip_ability_item_fusion_beast_Description"            "一种神秘的融合符文,蕴含着兽化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 兽化盾、兽化甲\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 6分 / 1.8分\n• 难度≥60倍: 7分 / 2.1分\n• 难度≥30倍: 8分 / 2.4分\n• 难度≥20倍: 9分 / 2.7分\n• 难度≥12倍: 10分 / 3分\n• 难度≥8倍: 11分 / 3.3分\n• 难度≥4倍: 12分 / 3.6分\n• 其他: 15分 / 4.5分</font>"
 
-		// 兽化符文
-		"DOTA_Tooltip_ability_item_fusion_beast_Description"            "一种神秘的融合符文,蕴含着兽化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 兽化盾、兽化甲"
+// 生命符文
+"DOTA_Tooltip_ability_item_fusion_life_Description"             "一种神秘的融合符文,蕴含着生命的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 生命之心、生命之盔\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 9分 / 2.4分\n• 难度≥60倍: 10.5分 / 2.8分\n• 难度≥30倍: 12分 / 3.2分\n• 难度≥20倍: 13.5分 / 3.6分\n• 难度≥12倍: 15分 / 4分\n• 难度≥8倍: 16.5分 / 4.4分\n• 难度≥4倍: 18分 / 4.8分\n• 其他: 22.5分 / 6分</font>"
 
-		// 生命符文
-		"DOTA_Tooltip_ability_item_fusion_life_Description"             "一种神秘的融合符文,蕴含着生命的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 生命之心、生命之盔"
+// 暗影符文
+"DOTA_Tooltip_ability_item_fusion_shadow_Description"           "一种神秘的融合符文,蕴含着暗影的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 暗影裁决、暗影咒灭\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 7.2分 / 2.4分\n• 难度≥60倍: 8.4分 / 2.8分\n• 难度≥30倍: 9.6分 / 3.2分\n• 难度≥20倍: 10.8分 / 3.6分\n• 难度≥12倍: 12分 / 4分\n• 难度≥8倍: 13.2分 / 4.4分\n• 难度≥4倍: 14.4分 / 4.8分\n• 其他: 18分 / 6分</font>"
 
-		// 暗影符文
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"           "一种神秘的融合符文,蕴含着暗影的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 暗影裁决、暗影咒灭"
+// 魔化符文
+"DOTA_Tooltip_ability_item_fusion_magic_Description"            "一种神秘的融合符文,蕴含着魔化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 魔渊法杖、魔渊剑\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 12分 / 3分\n• 难度≥60倍: 14分 / 3.5分\n• 难度≥30倍: 16分 / 4分\n• 难度≥20倍: 18分 / 4.5分\n• 难度≥12倍: 20分 / 5分\n• 难度≥8倍: 22分 / 5.5分\n• 难度≥4倍: 24分 / 6分\n• 其他: 30分 / 7.5分</font>"
 
-		// 魔化符文
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"            "一种神秘的融合符文,蕴含着魔化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 魔渊法杖、魔渊剑"
+// 灵动符文
+"DOTA_Tooltip_ability_item_fusion_agile_Description"            "一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套、万剑归宗、时间宝石\n\n<font color='#70B0FF'>库存刷新时间:</font>\n初始库存时间 | 补充间隔\n<font color='#888888'>• 难度≥100倍: 9.6分 / 1.8分\n• 难度≥60倍: 11.2分 / 2.1分\n• 难度≥30倍: 12.8分 / 2.4分\n• 难度≥20倍: 14.4分 / 2.7分\n• 难度≥12倍: 16分 / 3分\n• 难度≥8倍: 17.6分 / 3.3分\n• 难度≥4倍: 19.2分 / 3.6分\n• 其他: 24分 / 4.5分</font>"
 
-		// 灵动符文
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"            "一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套、万剑归宗、时间宝石"
-
+		"DOTA_Tooltip_modifier_item_hero_possession_stats"                    "英灵附身"
+"DOTA_Tooltip_modifier_item_hero_possession_stats_Description"        "被传奇英雄的力量附身。获得 +%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% 力量、+%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% 敏捷、+%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% 智力、+%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度、+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强 和 +%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性。"
 		// 鹰眼炮台
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "鹰眼炮台"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>主动:人形炮台</h1>化身炮台,获得高空视野。持续%active_duration%秒,护甲+%active_armor%,被缠绕无法移动,攻击距离+%active_attack_range%+吃的银月数量×%moon_shard_bonus%,基础攻击间隔减少%bat_reduction_pct%%%。<br><br>冷却时间:%AbilityCooldown%秒\n<h1>被动: 霰弹 (仅限远程)</h1>对攻击目标周围的敌人造成纯粹溅射伤害。<br/>霰弹特效无法叠加,拥有%internal_cooldown%s内置冷却。"
@@ -1217,7 +1218,7 @@
 		// 暗影裁决
 		"DOTA_Tooltip_Ability_item_shadow_judgment"										"<font color='#8A2BE2'>暗影裁决</font>"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Description"							"<h1>主动：暗影审判</h1>对目标施加暗影审判，融合一闪、苍蓝幻想和变态辣的所有debuff效果。<br><br>一闪：瞬移到目标身后，眩晕%stun_duration%秒，造成%active_damage_base%+%active_damage_multi%x[主属性]点纯粹伤害<br>苍蓝幻想：持续驱散增益，%mute_duration%秒禁用装备和被动，减速%slow_pct%%%，攻击速度减少%attack_slow%，每秒造成%max_hp_dmg_pct%%%最大生命值的纯粹伤害，降低%hp_regen_reduction%%%生命恢复<br>变态辣：沉默%silence_duration%秒，结束时造成期间受到伤害的%silence_damage_percent%%%作为额外魔法伤害<br><br>施法距离：%abilitycastrange%"
-		"DOTA_Tooltip_ability_item_shadow_judgment_Lore"									"暗影的裁决，无人可逃。"
+		"DOTA_Tooltip_ability_item_shadow_judgment_Lore"								"暗影的裁决，无人可逃。"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_agility"						"+$agi"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_intellect"						"+$int"
@@ -1451,8 +1452,40 @@
 "DOTA_Tooltip_ability_ability_defection_Description"         "可以自由在天辉、夜魇和中立阵营之间切换，但无法攻击天辉阵营的人类玩家；切换回天辉阵营有2s延迟。当处于中立阵营时，危机感使玩家增加20%减伤"
 "DOTA_Tooltip_ability_ability_defection_Lore"                "RN: 我说，那边那个畜...兄弟，差不多是时候了，该出手了"
 
+"DOTA_Tooltip_ability_rubick_might_and_magus2"                     "剑魔"
+"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"                     "每1%%的技能增强获得0.5%%的攻击力和0.5%%的魔抗"
+
 "DOTA_Tooltip_modifier_defection"                           "叛变"
 "DOTA_Tooltip_modifier_defection_Description"               "1=天辉, 2=夜魇, 3=中立"
+// 俄罗斯轮盘赌
+"DOTA_Tooltip_ability_russian_roulette"                                 "赌命（隐藏）"
+"DOTA_Tooltip_ability_russian_roulette_Description"                     "掏出左轮,把你的手套扔到对方的脸上,向他发起俄罗斯轮盘赌。在6秒内,双方交替开枪,其中随机的一枪是致命的。<br><br>如果敌人死亡,冷却时间减少100%%。<br><br>技能生效期间双方被禁锢。<br><br>技能等级和双方等级可能影响赌局的公平。\n\n驱散类型:无法被驱散"
+"DOTA_Tooltip_ability_russian_roulette_Lore"                            "RN: 队友之间可以用的，快快快"
+"DOTA_Tooltip_ability_russian_roulette_interval"                        "射击间隔:"
+"DOTA_Tooltip_ability_russian_roulette_AbilityCastRange"                "施法距离:"
+
+"DOTA_Tooltip_modifier_russian_roulette_root"                "赌命"
+"DOTA_Tooltip_modifier_russian_roulette_root_Description"   "当前轮盘序列: %dMODIFIER_PROPERTY_TOOLTIP%"
+
+"DOTA_Tooltip_ability_ability_copy_item"                    "山寨（隐藏）"
+"DOTA_Tooltip_ability_ability_copy_item_Description"        "持续施法1.5秒后,随机复制范围内任意英雄的一件装备到自己的物品栏。打断或死亡则失败。"
+"DOTA_Tooltip_ability_ability_copy_item_search_radius"      "搜索范围:"
+"DOTA_Tooltip_ability_ability_copy_item_channel_duration"   "持续施法时间:"
+"DOTA_Tooltip_ability_ability_copy_item_Lore"                            "RN: 藏在阴影里，手不停的动，不知道在干什么"
+
+"DOTA_Tooltip_ability_item_skill_talisman"                  "符箓（隐藏）"
+"DOTA_Tooltip_ability_item_skill_talisman_Description"    "拥有该装备后释放的第一个技能将被存储。使用后释放存储的技能,无冷却无施法前摇。可堆叠,可完全分享。后续购买的符箓自动继承已存储的技能。<br><br><font color='#70EA72'>当前存储技能: %stored_ability%</font>"
+"DOTA_Tooltip_modifier_skill_talisman_display"                "符箓存储的技能"
+// 英雄附身
+"DOTA_Tooltip_ability_hero_possession"                              "剑来（隐藏）"
+"DOTA_Tooltip_ability_hero_possession_Description"                  "召唤同英雄历史上的剑灵附身。获得全部装备、属性和技能。<br><br>附身期间,请勿对英灵的装备动歪心思。<br><br>持续时间结束后,所有效果将被移除并恢复你原本的状态。"
+"DOTA_Tooltip_ability_hero_possession_Lore"                         "RN: 剑来！"
+"DOTA_Tooltip_ability_hero_possession_duration"                     "持续时间:"
+"DOTA_Tooltip_ability_hero_possession_Note0"                        "附身装备在效果期间无法丢弃或出售。"
+"DOTA_Tooltip_ability_hero_possession_Note1"                        "来自属性书和银月的属性加成以临时modifier形式应用。"
+
+"DOTA_Tooltip_modifier_hero_possession"                             "英灵附身"
+"DOTA_Tooltip_modifier_hero_possession_Description"                 "正在召唤传奇英雄的力量。获得他们的装备、属性和技能。"
 
 "DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。<br><br><font color='#FF0000'>近战英雄: 不要选！！！攻击无效！<br>远程英雄: 功能正常但缺少龙形态模型！！！"
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
