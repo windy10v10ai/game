@@ -1,4 +1,4 @@
-"lang"
+﻿"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -409,7 +409,7 @@
 		"DOTA_Tooltip_modifier_player_xiayibing"				"<font color='#0096FF'>★ 冰神 ★</font>"
 		"DOTA_Tooltip_modifier_player_xiayibing_Description"	"<font color='#0096FF'> 2009级卡尔亡 <br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
 		"DOTA_Tooltip_modifier_player_abyss"					"<font color='#55D8C1'>★ 万物塑造之主 ★</font>"
-		"DOTA_Tooltip_modifier_player_abyss_Description"		"<font color='#55D8C1'>掌控元素塑造形体的万物之主。<br>当前已塑造形体：<br>SABER、沉渊之剑、超级赛亚人、开膛手杰克<br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
+		"DOTA_Tooltip_modifier_player_abyss_Description"		"<font color='#55D8C1'>掌控元素塑造形体的万物之主。<br>当前已塑造形体：<br>SABER，沉渊之剑，超级赛亚人，开膛手杰克<br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
 		"DOTA_Tooltip_modifier_player_luoshu"					"<font color='#FFCC66'>★ 洛书 ★</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_Description"		"<font color='#FFCC66'> 然而和我洛书有什么关系呢？ <br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
 		"DOTA_Tooltip_modifier_player_luoshu_2"					"<font color='#FFCC66'>★ 天神下凡 ★</font>"
