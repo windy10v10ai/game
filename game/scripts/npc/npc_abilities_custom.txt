@@ -3157,7 +3157,7 @@
 		"AbilityValues"
 		{
 			// 普通技能触发概率 (每级)
-			"basic_trigger_chance"      "30 40 50 60 70"
+			"basic_trigger_chance"      "35 45 55 65 75"
 			// 终极技能触发概率 (每级)
 			"ultimate_trigger_chance"   "15 20 25 30 35"
 		}
@@ -3282,6 +3282,91 @@
 			"base_amplify"              "2"
 		}
 	}
+	"russian_roulette"
+	{
+		"BaseClass"             "ability_lua"
+		"ScriptFile"            "abilities/russian_roulette"
+		"AbilityTextureName"    "russian_roulette"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+    	"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_BOTH"  // 改为BOTH,允许对敌人和队友使用
+		"SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"              "5"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+
+		"AbilityCastPoint"      "0"
+		"AbilityCastRange"      "16000"
+		"AbilityCooldown"       "50 60 70 85 100"
+		"AbilityManaCost"       "0"
+
+		"precache"
+		{
+			"particle"  "particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
+			"soundfile" "soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+		}
+
+		"AbilityValues"
+		{
+			"interval"              "1.0"
+		}
+	}
+	"hero_possession"
+{
+    // General
+    "BaseClass"                     "ability_lua"
+    "ScriptFile"                    "abilities/hero_possession"
+    "AbilityTextureName"            "hero_possession"
+    "MaxLevel"                      "3"
+    "RequiredLevel"                 "6"
+    "LevelsBetweenUpgrades"         "6"
+
+    // Ability General
+    "AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+    "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_4"
+    "AbilityCastPoint"              "0.3"
+
+    // Ability Resource
+    "AbilityCooldown"               "3600"
+    "AbilityManaCost"               "200 300 400"
+
+    // Special Values
+    "AbilityValues"
+    {
+        "duration"                  "10"
+        "tower_check_radius"        "2000"
+    }
+
+    // Precache
+    "precache"
+    {
+        "particle"                  "particles/units/heroes/hero_morphling/morphling_morph.vpcf"
+    }
+}
+"ability_copy_item"
+{
+    "BaseClass"             "ability_lua"
+    "ScriptFile"            "abilities/ability_copy_item.lua"
+    "AbilityTextureName"    "copy_item"
+
+    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+    "AbilityType"           "DOTA_ABILITY_TYPE_BASIC"
+
+    "AbilityCastPoint"      "0.2"
+    "AbilityChannelTime"    "3 2.5 2 1.5 1"  // 修改这里,与 channel_duration 匹配
+    "AbilityCooldown"       "80 70 60 60 60"
+    "AbilityManaCost"       "100"
+	"MaxLevel"                      "5"
+    "RequiredLevel"                 "10"
+    "LevelsBetweenUpgrades"         "10"
+
+    "AbilityValues"
+    {
+        "search_radius"     "900 1200 1500 1800 2100"
+        "channel_duration"  "3 2.5 2 1.5 1"
+    }
+}
 	//=================================================================================================================
 	// Brewmaster: Primal Split
 	//=================================================================================================================

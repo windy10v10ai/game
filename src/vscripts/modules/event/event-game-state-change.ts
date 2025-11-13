@@ -1,3 +1,4 @@
+import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
 import { GA4 } from '../../api/analytics/ga4';
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
@@ -6,7 +7,6 @@ import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
-
 export class EventGameStateChange {
   constructor() {
     ListenToGameEvent('game_rules_state_change', () => this.OnGameStateChanged(), this);
@@ -39,6 +39,8 @@ export class EventGameStateChange {
   private OnGameInProgress(): void {
     // 记录游戏开始时间用于 GA4 统计
     GA4.RecordGameStartTime();
+    // 初始化融合符文
+    FusionRuneManager.InitializeFusion();
   }
 
   /**
@@ -96,6 +98,7 @@ export class EventGameStateChange {
     // FIXME 泉水守卫windy实装未同步，暂时保留以缓解代码冲突
     // ✅ 新增: 生成泉水守卫windy
     // this.SpawnFountainGuard();
+    //this.SpawnFountainGuardDire();
 
     // 延迟为泉水设置技能等级
     Timers.CreateTimer(1, () => {
@@ -126,7 +129,28 @@ export class EventGameStateChange {
 
   private SpawnFountainGuard(): void {
     // 天辉泉水位置
-    const fountainPosition = Vector(-5400, -6800, 384) as Vector;
+    const fountainPosition = Vector(-5820, -6580, 384) as Vector;
+
+    const guard = CreateUnitByName(
+      'npc_windy',
+      fountainPosition,
+      true,
+      undefined,
+      undefined,
+      DotaTeam.BADGUYS,
+    );
+
+    if (guard !== undefined && guard !== null) {
+      guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
+      // print('[Fountain Guard] 泉水守卫已生成');
+    } else {
+      //print('[Fountain Guard] ERROR: 生成失败');
+    }
+  }
+
+  private SpawnFountainGuardDire(): void {
+    // 天辉泉水位置
+    const fountainPosition = Vector(5820, 6580, 384) as Vector;
 
     const guard = CreateUnitByName(
       'npc_windy',

@@ -28,7 +28,10 @@ local TauntMessages = {
     boss_rampage = {
         schinese = {
             "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
-            "?",
+            "?", "蛆一样", "蛆一样", "蛆一样", "蛆一样？", "蛆一样？", "蛆一样？", "蛆一样？", "蛆一样", "蛆一样", "蛆一样", "蛆一样", "蛆一样", "蛆一样", "蛆一样",
+            "蛆一样",
+            "蛆", "蛆", "蛆", "蛆", "蛆", "蛆？", "蛆？", "蛆？", "蛆、", "蛆?", "蛆?", "蛆?", "蛆", "蛆", "蛆",
+            "爬", "爬", "爬", "爬", "爬", "爬?", "爬", "爬", "爬", "爬", "爬", "爬",
             "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
             "你不会急眼了把？", "大家看他好急啊，他好气呀", "撒一把米在键盘上，鸡都玩的比你溜", "你玩游戏的这个时间，还不如多看几集喜羊羊", "你比美团还能送", "哥哥上手吧，别用脚玩了",
             "你一直不杀人，是信佛吗？", "我要开直播", "两只耳朵中间夹着的是回族的禁忌吗", "逗？", "您是人机吗？",
@@ -36,18 +39,18 @@ local TauntMessages = {
             "弟弟", "一个能打的都没有",
             "喜欢虐AI是吧？", "无聊", "没意思", "杀得我都累了", "排队送是吧", "能不能认真点？", "这就是你们的全部实力？", "再来十个也没用", "是不是没吃饭？", "打不动我啊",
             "放弃吧别蹦跶了",
-            "小手儿扇忽扇忽的慢点啊，都快给我扇感冒了", "嘚吧嘚吧的干啥呢", "刚才好像不小心拍死了只蚊子，哦原来是你啊", "刚才脚边好像有只跳蚤蹦跶，踩死了，不会是你吧",
+            "小手儿扇忽扇忽的慢点啊，都快给我扇感冒了", "嘚吧嘚吧的干啥呢", "刚才好像不小心拍似了只蚊子，不会是你吧", "刚才脚边好像有只跳蚤蹦跶，踩似了，不会是你吧",
             "集体送福利？", "血皮掉了一点，好怕", "坏了坏了人类保护署给我打电话了", "优秀优秀", "再送超鬼了", "你还还手啊，这样搞得我很没有成就感知道吗", "是不是该充钱了？",
-            "刚才有什么东西很快的死了一下",
-            "刚才好像有个虫子被我碾死了，不会是你吧",
+            "刚才有什么东西很快的似了一下",
+            "刚才好像有个虫子被我碾似了，不会是你吧",
             "刚才有点太快了没看清，你能再似一次吗", "小胳膊小腿抡得挺欢，就是没瞅见我掉血啊", "叮叮当当地打半天，我还以为谁在敲锣呢", "这伤害刚好给我醒醒盹，谢了啊", "跑这么快，是急着去领复活奖励吗",
-            "刚才是不是有片叶子飘过去死了？不会是你吧哥哥", "刚才好像不小心踩死了一条蛆，不会是你吧",
-            "啊不行了不行了，挠的太痒了", "小腿儿捣腾的倒是挺快", "跑啊你怎么不跑了，哦你好像有点似了呢", "跑啊你怎么不跑了，哦你好像有点似了呢",
-            "怎么不继续刮了啊兄弟，还挺舒服的   哦，你看起来气色不大好，好像有点似了", "你看起来气色不大好，是不是好像有点似了",
-            "再来一波就通关了（我）", "还有高手？", "根本停不下来", "你不是很能打么？", "杀你们都嫌浪费时间",
-            "建议直接投降省时间", "来多少杀多少，不挑食", "就你们这实力真是老太婆进被窝   给爷整笑了", "排的也不够整齐啊，送就要有送的样子，向右看齐！",
+            "刚才是不是有片叶子飘过去似了？不会是你吧哥哥", "刚才好像不小心踩似了一条蛆，不会是你吧",
+            "啊不行了不行了，挠的太痒了", "小腿儿捣腾的倒是挺快", "跑啊你怎么不跑了，哦你好像有点似了呢", "跑啊你怎么不跑了，是不是有点似了",
+            "怎么不继续刮了啊兄弟，还挺舒服的   哦，你看起来气色不大好——好像有点似了", "你看起来气色不大好，是不是好像有点似了",
+            "再来一波就通关了（我）", "还有高手？", "爽，好爽啊", "你不是很能打么？", "杀你们都嫌浪费时间",
+            "建议直接投降省时间", "来多少嘎多少", "就你们这实力真是老太婆进被窝   给爷整笑了", "排的也不够整齐啊，送就要有送的样子，向右看齐！",
             "这就是所谓的大佬？笑了", "刮呀刮，刮个大气球", "再送下去我都满级了", "能不能换点新花样？", "下波我站着让你们打", "菜到我都不想动手",
-            "排队送人头，服务真周到", "你们这是在给我挠痒痒吗", "连杀记录又刷新了，谢谢啊", "刮痧大队集合了？", "速通失败警告"
+            "排队送人头，服务真周到", "你们这是在给我挠痒痒吗", "连杀记录又刷新咯", "刮痧大队集合了？", "速通失败警告"
         },
         english = {
             "Getting mad?", "Look how angry they are",
@@ -87,17 +90,20 @@ local TauntMessages = {
 
     player_rampage_boss = {
         schinese = {
-            "不行不行,我得刷会儿野", "是不是啊,人都没看清就被秒了",
+            "不行不行,我得刷会儿野", "人都没看清就被秒了",
             "畜牲!", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?", "?",
             "你特么", "后里希！", "马泽法克！", "我特么", "错了错了,别打了", "哥,别打了,哥",
             "好好好,这么玩是吧", "我服了", "大佬别充了，服了服了", "我真是", "哪天AI崛起了第一个干你",
             "真的服了", "牛b", "投了投了", "我不服！", "我一定要杀了你", "巴噶！", "sob！", "你这狗东西",
-            "他妈的我好气啊！", "打不过打不过", "这什么伤害", "离谱", "这尼玛",
-            "我r啊！", "下把第一个杀你！", "你走夜路小心点！", "尼格玛德！", "我淦啊！",
+            "他妈的我好气啊！", "打不过打不过", "这什么玩意儿", "离谱！", "畜牲！",
+            "这尼玛", "咱们不是挚爱亲朋吗", "我要r你，就今晚", "我要r你的大爷",
+            "我r啊！", "下把第一个杀你！", "你走夜路小心点！", "尼格玛德！", "我淦啊！", "看着我的眼睛，告诉我，你是畜牲吗",
             "太离谱了", "这还怎么玩", "不讲武德是吧", "年轻人，讲讲武德啊", "耗子尾汁啊", "我劝你们耗子尾汁啊",
             "不玩了不玩了", "你这伤害开了吧", "见面就秒还玩个屁", "能不能给条活路", "你踏马别截图发群里行吗",
             "报警了", "放过孩子吧", "这游戏平衡吗？", "你也就打打ai的水平了", "停手吧", "狗东西", "喂，110吗",
-            "*!", "啥啥啥这都是啥", "炸房吧毁灭吧", "你真不是好东西", "停手吧",
+            "SB！(上班)", "DSB！(都上班)", "NM！(牛马)",
+            "CNM！(纯牛马)", "NMB！(你忙吧)", "WCNM！(我纯牛马)", "CNM！(纯牛马)", "TMD！(挺忙的)", "NTMD！(你挺忙的)",
+            "*!", "啥啥啥这都是啥", "炸房吧毁灭吧", "你真不是好东西", "看着我的眼睛，告诉我，你是好东西吗",
             "再杀我删游戏了", "别杀了，给AI留点面子", "有种你就杀我一百次", "我怀疑你开了", "打不过就加入行不行",
             "再杀报警了", "我心态崩了，真的", "这游戏的Boss太难了（指我）", "给条活路行不行，大哥", "我怀疑你充了八万", "服了"
         },
@@ -130,7 +136,7 @@ local TauntMessages = {
 -- 全局连杀计数器(不区分具体玩家)
 local BossKillStreak = 0       -- Boss击杀玩家的总连杀数
 local PlayerKillBossStreak = 0 -- 玩家击杀Boss的总连杀数
-local function SendTauntMessage(messageType, playerID, victimName, bossHeroName)
+local function SendTauntMessage(messageType, playerID, victimName, bossHeroName, bossHero)
     -- 获取玩家语言设置
     local language = "schinese" -- 默认中文
     if playerID then
@@ -171,8 +177,15 @@ local function SendTauntMessage(messageType, playerID, victimName, bossHeroName)
             end
 
             local formattedMessage = "<font color='#FF0000'>" .. bossLabel .. ": " .. finalMessage .. "</font>"
-            GameRules:SendCustomMessage(formattedMessage, 0, 0)
-            print("Message sent: " .. finalMessage)
+            -- 使用 Boss 英雄实体发送消息
+            if bossHero and not bossHero:IsNull() then
+                NoFormatMessage = "@" .. victimName .. "  " .. message
+                Say(bossHero, NoFormatMessage, false)
+            else
+                -- 回退到系统消息
+                GameRules:SendCustomMessage(formattedMessage, 0, 0)
+            end
+            --print("Message sent: " .. finalMessage)
         end)
     end
 end
@@ -309,59 +322,35 @@ local function RecordTowerKilled(hEntity)
 end
 -- 获取玩家名字的辅助函数
 local function GetPlayerName(playerId)
-    print("[GetPlayerName] ===== START =====")
-    print("[GetPlayerName] playerId:", playerId)
-
     local playerName = nil
     local steamAccountID = PlayerResource:GetSteamAccountID(playerId)
-    print("[GetPlayerName] steamAccountID:", steamAccountID)
 
     -- 尝试从 player_table 获取玩家名字
     if steamAccountID > 0 then
         local key = tostring(steamAccountID)
-        print("[GetPlayerName] Looking up key in player_table:", key)
 
         local playerData = CustomNetTables:GetTableValue("player_table", key)
 
         if playerData then
-            print("[GetPlayerName] Found playerData:")
-            -- DeepPrintTable(playerData)
-
             if playerData.playerName then
                 playerName = playerData.playerName
-                print("[GetPlayerName] ✓ Got playerName from player_table:", playerName)
-            else
-                print("[GetPlayerName] ✗ playerData exists but playerName is nil")
             end
-        else
-            print("[GetPlayerName] ✗ No playerData found for key:", key)
         end
-    else
-        print("[GetPlayerName] steamAccountID <= 0, skipping player_table lookup")
     end
 
     -- 如果没有获取到,使用 PlayerResource 的名字作为后备
     if not playerName or playerName == "" then
-        print("[GetPlayerName] Trying PlayerResource:GetPlayerName()")
         playerName = PlayerResource:GetPlayerName(playerId)
-        print("[GetPlayerName] PlayerResource returned:", playerName)
     end
 
     -- 如果还是空,使用英雄名字
     if not playerName or playerName == "" then
-        print("[GetPlayerName] Trying hero name as fallback")
         local hero = PlayerResource:GetSelectedHeroEntity(playerId)
         if hero then
             local heroName = hero:GetUnitName()
             playerName = string.gsub(heroName, "npc_dota_hero_", "")
-            print("[GetPlayerName] Using hero name:", playerName)
-        else
-            print("[GetPlayerName] ✗ No hero found for playerId:", playerId)
         end
     end
-
-    print("[GetPlayerName] Final playerName:", playerName)
-    print("[GetPlayerName] ===== END =====")
 
     return playerName
 end
@@ -409,9 +398,9 @@ local function HeroKilled(keys)
 
         if randomValue <= speakProbability then
             if BossKillStreak >= 2 then
-                SendTauntMessage("boss_rampage", playerId, victimName, bossHeroName)
+                SendTauntMessage("boss_rampage", playerId, victimName, bossHeroName, attacker)
             else
-                SendTauntMessage("boss_kill_player", playerId, victimName, bossHeroName)
+                SendTauntMessage("boss_kill_player", playerId, victimName, bossHeroName, attacker)
             end
         end
     end
@@ -451,9 +440,9 @@ local function HeroKilled(keys)
         if randomValue <= speakProbability then
             -- 传递 attackerPlayerID 以区分语言,同时传递玩家名字和 Boss 名字
             if PlayerKillBossStreak >= 2 then
-                SendTauntMessage("player_rampage_boss", attackerPlayerID, killerName, bossHeroName)
+                SendTauntMessage("player_rampage_boss", attackerPlayerID, killerName, bossHeroName, hHero)
             else
-                SendTauntMessage("player_kill_boss", attackerPlayerID, killerName, bossHeroName)
+                SendTauntMessage("player_kill_boss", attackerPlayerID, killerName, bossHeroName, hHero)
             end
         end
     end

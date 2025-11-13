@@ -282,6 +282,7 @@
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"
+		//"item"		"item_skill_talisman" //测试成功，暂不实装
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
