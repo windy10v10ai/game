@@ -869,6 +869,7 @@
 
 		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown"							"Butterfly Effect Cooldown"
 		"DOTA_Tooltip_modifier_trigger_on_attacked_cooldown_Description"				"Butterfly Effect ability is on internal cooldown."
+
 		// 蝴蝶效应·橙影（移动触发）
 		"DOTA_Tooltip_ability_ability_trigger_on_move"									"<font color='#FFCC66'>Butterfly Effect: Orange</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_Description"						"<h1><font color='#FFCC66'>Passive: Shadow Step</font></h1>Triggers learned abilities based on the distance moved within a certain time period. The faster you move, the higher the trigger chance."
