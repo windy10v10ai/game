@@ -49,7 +49,12 @@ function jack_maria_the_ripper:OnSpellStart()
     caster:AddNewModifier(caster, self, "modifier_jack_maria_the_ripper", {duration = attack_duration,tick = tick})
 
     -- caster:PerformAttack(target, true, true, true, true, false, false, true)
-    caster:MoveToTargetToAttack(self.target)
+    ExecuteOrderFromTable({
+        UnitIndex = caster:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+        TargetIndex = self.target:entindex(),
+        Queue = false
+    })
 
     caster:PlayVoice("npc_dota_hero_brewmaster.vo.MariaTheRipper.Cast")
 end

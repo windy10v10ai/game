@@ -23,7 +23,12 @@ export class ActionAttack {
       }
       // 300 range内，移动到目标处攻击
       print(`[AI] MoveToTargetToAttack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
-      hero.MoveToTargetToAttack(target);
+      ExecuteOrderFromTable({
+        OrderType: UnitOrder.ATTACK_MOVE,
+        UnitIndex: hero.GetEntityIndex(),
+        Position: target.GetAbsOrigin(),
+        Queue: false,
+      });
       return true;
     }
   }
