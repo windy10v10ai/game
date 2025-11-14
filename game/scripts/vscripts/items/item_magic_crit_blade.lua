@@ -128,7 +128,6 @@ end
 function modifier_item_magic_crit_blade:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
         MODIFIER_PROPERTY_TOOLTIP,
         MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -186,18 +185,6 @@ function modifier_item_magic_crit_blade:GetModifierSpellAmplify_Percentage()
         local spell_amp_per_int = ability:GetSpecialValueFor("spell_amp_per_int")
         local current_int = self:GetParent():GetIntellect(false)
         return current_int * spell_amp_per_int
-    end
-    return 0
-end
-
-function modifier_item_magic_crit_blade:GetModifierSpellLifestealRegenAmplify_Percentage()
-    -- 【修复】使用SecondaryCharges判断,与智力法强保持一致
-    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-        local ability = self:GetAbility()
-        if not ability or ability:IsNull() then return 0 end
-
-        local spell_lifesteal = ability:GetSpecialValueFor("spell_lifesteal")
-        return spell_lifesteal
     end
     return 0
 end
