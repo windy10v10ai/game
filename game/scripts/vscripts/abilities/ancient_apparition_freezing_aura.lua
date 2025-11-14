@@ -136,8 +136,6 @@ function modifier_ancient_apparition_freezing_aura2:DeclareFunctions()
 	local funcs =
 	{
 		MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE,
 		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
 		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT
 	}
@@ -158,14 +156,6 @@ function modifier_ancient_apparition_freezing_aura2:IsPurgable() return false en
 
 --回复增强
 function modifier_ancient_apparition_freezing_aura2:GetModifierHPRegenAmplify_Percentage(keys) return -self.percentage end
-
---吸血增强
-function modifier_ancient_apparition_freezing_aura2:GetModifierLifestealRegenAmplify_Percentage(keys) return -self
-	.percentage end
-
---法吸增强
-function modifier_ancient_apparition_freezing_aura2:GetModifierSpellLifestealRegenAmplify_Percentage(keys) return -self
-	.percentage end
 
 --治疗增强
 function modifier_ancient_apparition_freezing_aura2:GetModifierHealAmplify_PercentageTarget(keys) return -self

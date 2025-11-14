@@ -706,7 +706,7 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_frost_orb_slow_Description"		"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		//极寒光环
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura"					"Bonechill Aura"
-		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Deal damage and slow nearby enemy units. Slow and damage are stronger the closer enemy units are.<br/><br/>Passively reduces the Heal Amplification and Health Restoration of nearby enemy units."
+		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_Description"		"Reduces the healing and health restoration of enemy units.<br/><br/>Active: Deal damage and slow nearby enemy units. Slow and damage are stronger the closer enemy units are."
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_percentage"		"%HEAL AMPLFICIATION REDUCTION:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_hp_regen"		"%HEALTH RESTORATION REDUCTION:"
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"MAX BASE DAMAGE:"
@@ -716,7 +716,7 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage"				"Bonechill Aura"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Damaging and slowing the movement speed of nearby enemies. Closer enemies suffer stronger effects."
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"Bonechill Aura (Passive)"
-		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Health Restoration and Incoming Heals reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration also reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%."
+		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Healing and health restoration reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%"
 		//冰霜封印
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
@@ -2773,6 +2773,7 @@
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_spell_amp"           "%+$spell_amp"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent"      "%+Base Attack Damage"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"           "%+$spell_lifesteal"
+
 		// Withered Spring (枯木逢春)
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
 		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. Instantly heals %instant_heal% health and grants %bonus_armor_active% armor, %bonus_regen_active% health regeneration, %damage_reduction%%% damage reduction, and %status_resistance_active%%% status resistance for %active_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span><br><br><h1>Passive: Vitality</h1>Grants %health_regen_pct%%% of max health as health regeneration."

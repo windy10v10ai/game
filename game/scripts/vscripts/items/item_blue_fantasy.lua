@@ -189,9 +189,7 @@ function modifier_item_blue_fantasy_debuff:DeclareFunctions()
         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, --攻速速度
 
         MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE
+        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE
     }
 end
 
@@ -240,13 +238,5 @@ function modifier_item_blue_fantasy_debuff:GetModifierHealAmplify_PercentageTarg
 end
 
 function modifier_item_blue_fantasy_debuff:GetModifierHPRegenAmplify_Percentage()
-    return self.hp_regen_reduction
-end
-
-function modifier_item_blue_fantasy_debuff:GetModifierLifestealRegenAmplify_Percentage()
-    return self.hp_regen_reduction
-end
-
-function modifier_item_blue_fantasy_debuff:GetModifierSpellLifestealRegenAmplify_Percentage()
     return self.hp_regen_reduction
 end
