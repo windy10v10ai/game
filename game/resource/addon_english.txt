@@ -2664,38 +2664,43 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
 
 
-		// Fusion Rune Series
-		// Hawkeye Rune
-		"DOTA_Tooltip_ability_item_fusion_hawkeye"						"Hawkeye Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"          "A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter"
+		// 融合符文系列
+		// 鹰眼符文
+		"DOTA_Tooltip_ability_item_fusion_hawkeye"										"Hawkeye Rune"
+		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 11 minutes, replenished every 4 minutes (11, 15, 19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 6.6, 9.0, 13.8, 18.6, 23.4, 28.2 minutes\n• Difficulty ≥20x: Additional refresh at 8.8, 17.6, 26.4 minutes</font>"
 
-		// Forbidden Rune
-		"DOTA_Tooltip_ability_item_fusion_forbidden"					"Forbidden Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"        "A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade"
+		// 禁忌符文
+		"DOTA_Tooltip_ability_item_fusion_forbidden"									"Forbidden Rune"
+		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 11 minutes, replenished every 4 minutes (11, 15, 19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 6.6, 9.0, 13.8, 18.6, 23.4, 28.2 minutes\n• Difficulty ≥20x: Additional refresh at 8.8, 17.6, 26.4 minutes</font>"
 
-		// Brutal Rune
-		"DOTA_Tooltip_ability_item_fusion_brutal"						"Brutal Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_brutal_Description"           "A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance"
+		// 暴虐符文
+		"DOTA_Tooltip_ability_item_fusion_brutal"										"Brutal Rune"
+		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 14 minutes, replenished every 4 minutes (14, 18, 22, 26, 30 minutes)\n• Difficulty ≥40x: Additional refresh at 8.4, 10.8, 13.2, 20.4, 25.2, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 11.2, 22.4 minutes</font>"
 
-		// Beast Rune
-		"DOTA_Tooltip_ability_item_fusion_beast"						"Beastly Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_beast_Description"            "A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor"
+		// 兽化符文
+		"DOTA_Tooltip_ability_item_fusion_beast"										"Beast Rune"
+		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 9 minutes, replenished every 3 minutes (9, 12, 15, 18, 21, 24, 27, 30 minutes)\n• Difficulty ≥40x: Additional refresh at 5.4, 7.2, 10.8, 13.2, 16.2, 19.8, 22.8, 25.8, 28.8 minutes\n• Difficulty ≥20x: Additional refresh at 10.8, 14.4, 21.6, 28.8 minutes</font>"
 
-		// Life Rune
-		"DOTA_Tooltip_ability_item_fusion_life"							"Life Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_life_Description"             "A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask"
+		// 生命符文
+		"DOTA_Tooltip_ability_item_fusion_life"											"Life Rune"
+		"DOTA_Tooltip_ability_item_fusion_life_Description"								"A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 14 minutes, replenished every 4 minutes (14, 18, 22, 26, 30 minutes)\n• Difficulty ≥40x: Additional refresh at 8.4, 10.8, 13.2, 20.4, 25.2, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 11.2, 22.4 minutes</font>"
 
-		// Shadow Rune
-		"DOTA_Tooltip_ability_item_fusion_shadow"						"Shadow Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"           "A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact"
+		// 暗影符文
+		"DOTA_Tooltip_ability_item_fusion_shadow"										"Shadow Rune"
+		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 11 minutes, replenished every 4 minutes (11, 15, 19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 6.6, 9.0, 13.8, 18.6, 23.4, 28.2 minutes\n• Difficulty ≥20x: Additional refresh at 8.8, 17.6, 26.4 minutes</font>"
 
-		// Magic Rune
-		"DOTA_Tooltip_ability_item_fusion_magic"						"Arcane Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"            "A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Abyss Staff, Magic Sword"
+		// 魔化符文
+		"DOTA_Tooltip_ability_item_fusion_magic"										"Magic Rune"
+		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Abyss Staff, Magic Sword\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 19 minutes, replenished every 4 minutes (19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 11.4, 13.8, 16.2, 18.6, 25.8, 30.6 minutes\n• Difficulty ≥20x: Additional refresh at 15.2, 26.4 minutes</font>"
 
-		// Agile Rune
-		"DOTA_Tooltip_ability_item_fusion_agile"						"Agile Fusion Recipe Booklet"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"            "A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords, Time Gem"
+		// 灵动符文
+		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords, Time Gem\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 15 minutes, replenished every 2 minutes (15, 17, 19, 21, 23, 25, 27, 29, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 9.0, 10.2, 11.4, 12.6, 13.8, 20.4, 22.8, 25.2, 27.6, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 12.0, 13.6, 19.2, 20.8, 22.4, 24.0, 25.6, 27.2, 28.8, 30.4 minutes</font>"
+
+		// item_universal_rune 通用符文
+		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
+		"DOTA_Tooltip_ability_item_universal_rune_Description"							"<h1>Active: Craft</h1>Detects all components in the inventory. If any artifact crafting conditions are met (except runes), it will craft directly. Universal Rune can replace any fusion material (Hawkeye, Forbidden, Brutal, Life, Shadow, Agile, Beast, or Magic)."
+		"DOTA_Tooltip_ability_item_universal_rune_Lore"									"RN: 'The worst thing is having money but not being able to buy equipment'? Then you're still not rich enough"
 
 		// Hawkeye Turret
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "Hawkeye Turret"

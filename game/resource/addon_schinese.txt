@@ -1136,58 +1136,7 @@
 		// 赏金猎人
 		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-{s:bonus_AbilityCooldown}%  忍术冷却"
 
-		// 融合符文系列
-		// 鹰眼符文
-		"DOTA_Tooltip_ability_item_fusion_hawkeye"          "鹰眼符文"
-		// 禁忌符文
-		"DOTA_Tooltip_ability_item_fusion_forbidden"        "禁忌符文"
-		// 暴虐符文
-		"DOTA_Tooltip_ability_item_fusion_brutal"           "暴虐符文"
-		// 兽化符文
-		"DOTA_Tooltip_ability_item_fusion_beast"            "兽化符文"
-		// 生命符文
-		"DOTA_Tooltip_ability_item_fusion_life"             "生命符文"
-		// 暗影符文
-		"DOTA_Tooltip_ability_item_fusion_shadow"           "暗影符文"
-		// 魔化符文
-		"DOTA_Tooltip_ability_item_fusion_magic"            "魔化符文"
-		// 灵动符文
-		"DOTA_Tooltip_ability_item_fusion_agile"            "灵动符文"
-		// 鹰眼符文 (更新后: ItemInitialStockTime: 720s = 12分钟, ItemStockTime: 240s = 4分钟)
-		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"
-		"一种神秘的融合符文,蕴含着鹰眼的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 鹰眼炮台、鹰眼战机\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 11分钟首次,每4分钟补充(11、15、19、23、27、31分)\n• 难度≥40倍: 额外在6.6、9.0、13.8、18.6、23.4、28.2分刷新\n• 难度≥20倍: 额外在8.8、17.6、26.4分刷新</font>"
 
-		// 禁忌符文 (ItemInitialStockTime: 720s = 12分钟, ItemStockTime: 240s = 4分钟)
-		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"
-		"一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法锤、禁忌战刃\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 11分钟首次,每4分钟补充(11、15、19、23、27、31分)\n• 难度≥40倍: 额外在6.6、9.0、13.8、18.6、23.4、28.2分刷新\n• 难度≥20倍: 额外在8.8、17.6、26.4分刷新</font>"
-
-		// 暴虐符文 (ItemInitialStockTime: 900s = 15分钟, ItemStockTime: 240s = 4分钟)
-		"DOTA_Tooltip_ability_item_fusion_brutal_Description"
-		"一种神秘的融合符文,蕴含着暴虐的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 归海一刀、魔龙狂舞\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 14分钟首次,每4分钟补充(14、18、22、26、30分)\n• 难度≥40倍: 额外在8.4、10.8、13.2、20.4、25.2、30.0分刷新\n• 难度≥20倍: 额外在11.2、22.4分刷新</font>"
-
-		// 兽化符文 (ItemInitialStockTime: 600s = 10分钟, ItemStockTime: 180s = 3分钟)
-		"DOTA_Tooltip_ability_item_fusion_beast_Description"
-		"一种神秘的融合符文,蕴含着兽化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 兽化盾、兽化甲\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 9分钟首次,每3分钟补充(9、12、15、18、21、24、27、30分)\n• 难度≥40倍: 额外在5.4、7.2、10.8、13.2、16.2、19.8、22.8、25.8、28.8分刷新\n• 难度≥20倍: 额外在10.8、14.4、21.6、28.8分刷新</font>"
-
-		// 生命符文 (ItemInitialStockTime: 900s = 15分钟, ItemStockTime: 240s = 4分钟)
-		"DOTA_Tooltip_ability_item_fusion_life_Description"
-		"一种神秘的融合符文,蕴含着生命的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 生命之心、生命之盔\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 14分钟首次,每4分钟补充(14、18、22、26、30分)\n• 难度≥40倍: 额外在8.4、10.8、13.2、20.4、25.2、30.0分刷新\n• 难度≥20倍: 额外在11.2、22.4分刷新</font>"
-
-		// 暗影符文 (ItemInitialStockTime: 720s = 12分钟, ItemStockTime: 240s = 4分钟)
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"
-		"一种神秘的融合符文,蕴含着暗影的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 暗影裁决、暗影咒灭\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 11分钟首次,每4分钟补充(11、15、19、23、27、31分)\n• 难度≥40倍: 额外在6.6、9.0、13.8、18.6、23.4、28.2分刷新\n• 难度≥20倍: 额外在8.8、17.6、26.4分刷新</font>"
-
-		// 魔化符文 (ItemInitialStockTime: 1200s = 20分钟, ItemStockTime: 240s = 4分钟)
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"
-		"一种神秘的融合符文,蕴含着魔化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 魔渊法杖、魔渊剑\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 19分钟首次,每4分钟补充(19、23、27、31分)\n• 难度≥40倍: 额外在11.4、13.8、16.2、18.6、25.8、30.6分刷新\n• 难度≥20倍: 额外在15.2、26.4分刷新</font>"
-
-		// 灵动符文 (ItemInitialStockTime: 960s = 16分钟, ItemStockTime: 120s = 2分钟)
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"
-		"一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套、万剑归宗、时间宝石\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 15分钟首次,每2分钟补充(15、17、19、21、23、25、27、29、31分)\n• 难度≥40倍: 额外在9.0、10.2、11.4、12.6、13.8、20.4、22.8、25.2、27.6、30.0分刷新\n• 难度≥20倍: 额外在12.0、13.6、19.2、20.8、22.4、24.0、25.6、27.2、28.8、30.4分刷新</font>"
-		// item_universal_rune 通用符文
-		"DOTA_Tooltip_Ability_item_universal_rune"                      "通用符文"
-		"DOTA_Tooltip_ability_item_universal_rune_Description"          "<h1>主动:自动合成</h1>自动检测背包内的所有配件,如果满足任何神器的合成条件（除符文）,则直接合成。通用符文可以替代任意融合材料(鹰眼、禁忌、暴力、生命、暗影、灵动、兽化或魔化)。"
-		"DOTA_Tooltip_ability_item_universal_rune_Lore"                 "RN: '最难受的是有钱买不了装备'？那你TMD还是不够有钱"
 		// 鹰眼炮台
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "鹰眼炮台"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>主动:人形炮台</font></h1>化身炮台,获得高空视野。持续%active_duration%秒,护甲+%active_armor%,被缠绕无法移动,攻击距离+%active_attack_range%+吃的银月数量×%moon_shard_bonus%,基础攻击间隔减少%bat_reduction_pct%%%。<br><br>冷却时间:%AbilityCooldown%秒\n<h1>被动: 霰弹 (仅限远程)</h1>对攻击目标周围的敌人造成纯粹溅射伤害。<br/>霰弹特效无法叠加,拥有%internal_cooldown%s内置冷却。"
@@ -3042,7 +2991,43 @@
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_soul_ring_1_bonus_armor"					"+$armor"
 
-		"npc_dota_neutral_kobold_taskmaster"                                 "Windy"
-		"DOTA_Tooltip_unit_npc_dota_neutral_kobold_taskmaster"              "Windy"
+
+		// 融合符文系列
+		// 鹰眼符文
+		"DOTA_Tooltip_ability_item_fusion_hawkeye"										"鹰眼符文"
+		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"一种神秘的融合符文,蕴含着鹰眼的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 鹰眼炮台、鹰眼战机\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 11分钟首次,每4分钟补充(11、15、19、23、27、31分)\n• 难度≥40倍: 额外在6.6、9.0、13.8、18.6、23.4、28.2分刷新\n• 难度≥20倍: 额外在8.8、17.6、26.4分刷新</font>"
+
+		// 禁忌符文
+		"DOTA_Tooltip_ability_item_fusion_forbidden"									"禁忌符文"
+		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"一种神秘的融合符文,蕴含着禁忌的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 禁忌法锤、禁忌战刃\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 11分钟首次,每4分钟补充(11、15、19、23、27、31分)\n• 难度≥40倍: 额外在6.6、9.0、13.8、18.6、23.4、28.2分刷新\n• 难度≥20倍: 额外在8.8、17.6、26.4分刷新</font>"
+
+		// 暴虐符文
+		"DOTA_Tooltip_ability_item_fusion_brutal"										"暴虐符文"
+		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"一种神秘的融合符文,蕴含着暴虐的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 归海一刀、魔龙狂舞\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 14分钟首次,每4分钟补充(14、18、22、26、30分)\n• 难度≥40倍: 额外在8.4、10.8、13.2、20.4、25.2、30.0分刷新\n• 难度≥20倍: 额外在11.2、22.4分刷新</font>"
+
+		// 兽化符文
+		"DOTA_Tooltip_ability_item_fusion_beast"										"兽化符文"
+		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"一种神秘的融合符文,蕴含着兽化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 兽化盾、兽化甲\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 9分钟首次,每3分钟补充(9、12、15、18、21、24、27、30分)\n• 难度≥40倍: 额外在5.4、7.2、10.8、13.2、16.2、19.8、22.8、25.8、28.8分刷新\n• 难度≥20倍: 额外在10.8、14.4、21.6、28.8分刷新</font>"
+
+		// 生命符文
+		"DOTA_Tooltip_ability_item_fusion_life"											"生命符文"
+		"DOTA_Tooltip_ability_item_fusion_life_Description"								"一种神秘的融合符文,蕴含着生命的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 生命之心、生命之盔\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 14分钟首次,每4分钟补充(14、18、22、26、30分)\n• 难度≥40倍: 额外在8.4、10.8、13.2、20.4、25.2、30.0分刷新\n• 难度≥20倍: 额外在11.2、22.4分刷新</font>"
+
+		// 暗影符文
+		"DOTA_Tooltip_ability_item_fusion_shadow"										"暗影符文"
+		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"一种神秘的融合符文,蕴含着暗影的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 暗影裁决、暗影咒灭\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 11分钟首次,每4分钟补充(11、15、19、23、27、31分)\n• 难度≥40倍: 额外在6.6、9.0、13.8、18.6、23.4、28.2分刷新\n• 难度≥20倍: 额外在8.8、17.6、26.4分刷新</font>"
+
+		// 魔化符文
+		"DOTA_Tooltip_ability_item_fusion_magic"										"魔化符文"
+		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"一种神秘的融合符文,蕴含着魔化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 魔渊法杖、魔渊剑\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 19分钟首次,每4分钟补充(19、23、27、31分)\n• 难度≥40倍: 额外在11.4、13.8、16.2、18.6、25.8、30.6分刷新\n• 难度≥20倍: 额外在15.2、26.4分刷新</font>"
+
+		// 灵动符文
+		"DOTA_Tooltip_ability_item_fusion_agile"										"灵动符文"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套、万剑归宗、时间宝石\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 15分钟首次,每2分钟补充(15、17、19、21、23、25、27、29、31分)\n• 难度≥40倍: 额外在9.0、10.2、11.4、12.6、13.8、20.4、22.8、25.2、27.6、30.0分刷新\n• 难度≥20倍: 额外在12.0、13.6、19.2、20.8、22.4、24.0、25.6、27.2、28.8、30.4分刷新</font>"
+
+		// item_universal_rune 通用符文
+		"DOTA_Tooltip_Ability_item_universal_rune"										"通用符文"
+		"DOTA_Tooltip_ability_item_universal_rune_Description"							"<h1>主动:合成</h1>检测背包内的所有配件,如果满足任何神器的合成条件（除符文）,则直接合成。通用符文可以替代任意融合材料(鹰眼、禁忌、暴力、生命、暗影、灵动、兽化或魔化)。"
+		"DOTA_Tooltip_ability_item_universal_rune_Lore"									"RN: '最难受的是有钱买不了装备'？那你还是不够有钱"
 	}
 }
