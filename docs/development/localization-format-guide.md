@@ -366,6 +366,7 @@ Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式�
 | 作用范围加成                                          | `$aoe_bonus`                     |
 | 移动速度加成                                          | `$exclusive_movespeed`           |
 | 对外治疗增强                                          | `$healing_amp`                   |
+| 生命回复                                              | `$restoration_amp`               |
 
 **使用方法**：
 
