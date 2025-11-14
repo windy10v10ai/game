@@ -1287,13 +1287,11 @@
 		"DOTA_Tooltip_ability_jack_murderer_of_the_misty_night_visionrange_down"				"%VISION REDUCTION:"
 
 		"DOTA_Tooltip_ability_jack_surgery"														"Surgical Procedures"
-		"DOTA_Tooltip_ability_jack_surgery_description"											"Enemies attacked by Jack will gain stacks of Dissolution. Each stack of Dissolution will reduce healing, health regeneration, lifesteal, and spell lifesteal, up to %max_count% stacks.\nWhen at max stacks, enemies have their passives disabled for %duration% second(s). Subsequent attacks on the same broken enemy will refresh the Break duration. Attacking enemies that are in the mist while also affected by Aura Masking will instantly apply max Dissolution stacks.\nJack will also gain stacks of Treatment, which improves her own healing, health regeneration, lifesteal, and spell lifesteal, based on how many Dissolution stacks the enemy currently has."
+		"DOTA_Tooltip_ability_jack_surgery_description"											"Enemies attacked by Jack will gain stacks of Dissolution. Each stack of Dissolution will reduce healing, health regeneration, up to %max_count% stacks.\nWhen at max stacks, enemies have their passives disabled for %duration% second(s). Subsequent attacks on the same broken enemy will refresh the Break duration. Attacking enemies that are in the mist while also affected by Aura Masking will instantly apply max Dissolution stacks.\nJack will also gain stacks of Treatment, which improves her own healing, health regeneration, based on how many Dissolution stacks the enemy currently has."
 		"DOTA_Tooltip_ability_jack_surgery_Lore"												"A blood-stained scalpel can be used to heal the Master as well as herself. Jack the Ripper's victims are killed in a way that requires anatomical knowledge, such as removal of specific organs."
 		"DOTA_Tooltip_ability_jack_surgery_duration"											"DURATION:"
-		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%HEALTH RESTORATION REDUCTION PER STACK:"
-		// "DOTA_Tooltip_ability_jack_surgery_regen_down"											"%HP REGEN REDUCTION PER STACK:"
-		// "DOTA_Tooltip_ability_jack_surgery_attack_lifesteal_down"								"%LIFESTEAL REDUCTION PER STACK:"
-		// "DOTA_Tooltip_ability_jack_surgery_spell_lifesteal_down"								"%SPELL LIFESTEAL REDUCTION PER STACK:"
+		"DOTA_Tooltip_ability_jack_surgery_heal_down"											"%HEAL REDUCTION PER STACK:"
+		"DOTA_Tooltip_ability_jack_surgery_regen_down"											"%HP REGEN REDUCTION PER STACK:"
 
 		"DOTA_Tooltip_ability_jack_the_mist"													"Dark Fog City"
 		"DOTA_Tooltip_ability_jack_the_mist_description"										"Immediately turns day into night and instantly surround Jack in the mist. Enemies in the mist will be subject to the same effect as the mist in Misty Night Murder."
