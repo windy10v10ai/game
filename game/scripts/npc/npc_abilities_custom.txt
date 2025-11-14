@@ -2465,16 +2465,6 @@
 				"value"								"14 18 22 26 30"
 				"special_bonus_unique_jack_1" 		"+10"
 			}
-			"attack_lifesteal_down"
-			{
-				"value"								"14 18 22 26 30"
-				"special_bonus_unique_jack_1" 		"+10"
-			}
-			"spell_lifesteal_down"
-			{
-				"value"								"14 18 22 26 30"
-				"special_bonus_unique_jack_1" 		"+10"
-			}
 		}
 	}
 
