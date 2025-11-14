@@ -21,7 +21,12 @@ function item_abyssal_blade_v2:OnSpellStart()
         local duration = self.stun_m * (1 - target:GetStatusResistance())
         target:AddNewModifier(self.caster, self, "modifier_item_abyssal_blade_v2_debuff", { duration = duration })
         --commit att to target
-        self.caster:MoveToPositionAggressive(tpos)
+        ExecuteOrderFromTable({
+                UnitIndex = self.caster:entindex(),
+                OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+                Position = tpos,
+                Queue = false
+        })
 
         -- blink
         local blink_start_particle = ParticleManager:CreateParticle(

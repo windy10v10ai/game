@@ -96,7 +96,12 @@ function item_shadow_judgment:ApplyAbyssalEffect(target)
     })
 
     -- 攻击目标
-    caster:MoveToPositionAggressive(target:GetAbsOrigin())
+    ExecuteOrderFromTable({
+        UnitIndex = caster:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+        Position = target:GetAbsOrigin(),
+        Queue = false
+    })
 
     EmitSoundOn("DOTA_Item.AbyssalBlade.Activate", target)
 end
