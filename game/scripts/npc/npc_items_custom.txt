@@ -6222,7 +6222,8 @@
 			"bonus_damage_percent"		"100"	// tooltip only - 基础伤害加成百分比
 
 			// Lua 逻辑需要 - 法术吸血（不在可优化列表）
-			"spell_lifesteal"			"30"	// Lua 逻辑需要 - 法术吸血
+			// FIXME lua的实装无效，需要修正
+			// "spell_lifesteal"			"30"	// Lua 逻辑需要 - 法术吸血
 
 			// Lua 逻辑需要 - 幻影暴击（事件驱动）
 			"phantom_crit_chance"		"40"	// Lua 逻辑需要 - 幻影暴击概率
