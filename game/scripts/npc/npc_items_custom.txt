@@ -6194,7 +6194,7 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_revenants_brooch_2;item_devastator_2;item_excalibur;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_revenants_brooch_2;item_devastator_2;item_fusion_brutal"
 		}
 	}
 
@@ -6206,8 +6206,9 @@
 		"ScriptFile"				"items/item_magic_crit_blade"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"			"60"
-		"AbilityManaCost"			"1000"
+		"AbilityCooldown"			"4"
+		"AbilityManaCost"			"1200"
+		"AbilitySharedCooldown"		"magic_scepter"
 
 		"ItemCost"					"60000"
 		"ItemPurchasable"			"1"
@@ -6215,24 +6216,22 @@
 
 		"AbilityValues"
 		{
-			// DataDriven 属性 - 静态加成
-			"bonus_spell_amp"			"50"
-			"bonus_intellect"			"120"
-			"bonus_damage_percent"		"100"
-
 			// Lua 逻辑需要 - 法术增强计算(动态)
 			"spell_amp_per_int"			"0.3"
 
 			// 主动技能 - 龙息爆发
+			"active_cooldown"			"60"
 			"active_duration"			"4"
 			"spell_amp_multiplier"		"2"
 
 			// 幻影暴击 modifier
-			"bonus_damage"				"300"
+			"bonus_damage"				"200"
 			"crit_chance"				"40"
 			"crit_multiplier"			"320"
 			"spell_lifesteal"			"30"
 
+			// 神圣斧
+			"bonus_intellect"			"180"
 			// 巫师之刃 + 魔蚀 modifier
 			"projectile_speed"			"300"
 			"int_damage_multiplier"		"1.25"
@@ -6267,18 +6266,6 @@
 				"RemoveOnDeath"		"0"
 
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_intellect"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"%bonus_spell_amp"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_damage_percent"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
 
 				"OnCreated"
 				{

@@ -16,7 +16,10 @@ function MagicCritBladeOnCreated(keys)
     local devastator_modifier = caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 
     -- 添加 Lua 辅助 modifier 处理动态法术增强
-    local passive_modifier = caster:AddNewModifier(caster, ability, "modifier_item_magic_crit_blade_passive", {})
+    local passive_modifier = nil
+    if not caster:HasModifier("modifier_item_magic_crit_blade_passive") then
+        passive_modifier = caster:AddNewModifier(caster, ability, "modifier_item_magic_crit_blade_passive", {})
+    end
 
     -- 将添加的 modifier 保存到 ability 上,以便 OnDestroy 时移除
     if not ability.added_modifiers then
@@ -33,26 +36,6 @@ function MagicCritBladeOnCreated(keys)
     if passive_modifier then
         table.insert(ability.added_modifiers, passive_modifier)
     end
-end
-
--- ========================================
--- DataDriven modifier_item_magic_crit_blade 的 OnSpellStart 回调
--- ========================================
-function MagicCritBladeOnSpellStart(keys)
-    if not IsServer() then return end
-
-    local caster = keys.caster
-    local ability = keys.ability
-
-    if not caster or not ability then return end
-
-    local duration = ability:GetSpecialValueFor("active_duration")
-
-    -- 添加主动效果 modifier，提供2倍法术增强
-    caster:AddNewModifier(caster, ability, "modifier_item_magic_crit_blade_active", { duration = duration })
-
-    -- 播放音效和特效
-    EmitSoundOn("Hero_DragonKnight.BreathFire", caster)
 end
 
 -- ========================================
@@ -74,6 +57,30 @@ function MagicCritBladeOnDestroy(keys)
 
     -- 清空记录
     ability.added_modifiers = nil
+end
+
+-- ========================================
+-- DataDriven modifier_item_magic_crit_blade 的 OnSpellStart 回调
+-- ========================================
+function MagicCritBladeOnSpellStart(keys)
+    if not IsServer() then return end
+
+    local caster = keys.caster
+    local ability = keys.ability
+
+    if not caster or not ability then return end
+
+    local duration = ability:GetSpecialValueFor("active_duration")
+    local cooldown = ability:GetSpecialValueFor("active_cooldown")
+
+    -- 添加主动效果 modifier，提供2倍法术增强
+    caster:AddNewModifier(caster, ability, "modifier_item_magic_crit_blade_active", { duration = duration })
+
+    -- FIXME 寻找其他更合适的音效
+    -- 播放音效和特效
+    EmitSoundOn("Hero_DragonKnight.BreathFire", caster)
+
+    ability:StartCooldown(cooldown * caster:GetCooldownReduction())
 end
 
 -- ========================================
