@@ -6194,7 +6194,7 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_revenants_brooch_2;item_devastator_2;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_2;item_fusion_brutal"
 		}
 	}
 
@@ -6803,9 +6803,9 @@
 		"AbilityValues"
 		{
 			// 主动技能
-			"active_duration"				"6"
+			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"300"
+			"active_movespeed"				"350"
 			// BKB
 			"magic_resist"					"100"
 

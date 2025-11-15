@@ -239,11 +239,3 @@ function modifier_item_magic_crit_blade_active:RemoveOnDeath() return true end
 function modifier_item_magic_crit_blade_active:GetTexture()
     return "molongkuangwu"
 end
-
-function modifier_item_magic_crit_blade_active:GetEffectName()
-    return "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire_debuff.vpcf"
-end
-
-function modifier_item_magic_crit_blade_active:GetEffectAttachType()
-    return PATTACH_ABSORIGIN_FOLLOW
-end
