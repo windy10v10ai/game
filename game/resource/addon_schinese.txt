@@ -2797,20 +2797,20 @@
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"							"+$mana"
 		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+技能增强"
 
-		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"							"死灵冲击"
-		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"				"变成一只小动物。不能攻击，释放技能或使用物品。"
+		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"								"死灵冲击"
+		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"变成一只小动物。不能攻击，释放技能或使用物品。"
 
 
 		// 禁忌战刃
-		"DOTA_Tooltip_Ability_item_forbidden_blade"									"<font color='#8B008B'>禁忌战刃</font>"
-		"DOTA_Tooltip_ability_item_forbidden_blade_Description"						"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对%radius%范围内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
+		"DOTA_Tooltip_Ability_item_forbidden_blade"										"<font color='#8B008B'>禁忌战刃</font>"
+		"DOTA_Tooltip_ability_item_forbidden_blade_Description"							"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对%radius%范围内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Lore"								"禁忌之刃,斩断一切。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Note0"								"一闪效果造成纯粹伤害,无视魔法免疫。"
-		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_agility"						"+$agi"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_armor"						"+$armor"
-		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_armor"							"+$armor"
+		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_forbidden_blade_spell_amp"							"%+技能增强"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_aoe"							"+$aoe_bonus"
