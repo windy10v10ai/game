@@ -7005,12 +7005,12 @@
 			"active_reflection_pct"			"100"	// 主动反伤百分比
 			"bonus_armor"					"80"	// 护甲
 
-			"block_cooldown"				"15"	// Lua 逻辑需要 - 莲花格挡冷却
+			// Lua 逻辑需要
+			"block_cooldown"				"7"		// 林肯格挡冷却
 
-			// Lua 逻辑需要 - 主动技能参数
-			"active_duration"				"5"		// Lua 逻辑需要 - 主动持续时间
-			"blast_radius"					"900"	// Lua 逻辑需要 - 冲击波范围
-			"blast_damage"					"900"	// Lua 逻辑需要 - 冲击波伤害
+			"active_duration"				"5"		// 主动持续时间
+			"blast_radius"					"900"	// 冲击波范围
+			"blast_damage"					"900"	// 冲击波伤害
 
 			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
 			"movement_slow"					"40"	// tooltip only - 移速减缓
