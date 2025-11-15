@@ -261,5 +261,6 @@ export const abilityModelNameList = [
   'models/heroes/techies/fx_techiesfx_mine.vmdl', // 感应地雷
   // 'models/heroes/phoenix/phoenix_egg.vmdl', // 超新星
   'models/heroes/mars/mars_soldier.vmdl', // 护身甲盾
-  'models/heroes/gyro/gyro_flak_cannon_fx.vmdl_c', // 高射火炮
+  'models/heroes/gyro/gyro_flak_cannon_fx.vmdl', // 高射火炮
+  'models/heroes/dragon_knight/dragon_knight_dragon.vmdl', // 变龙
 ];
