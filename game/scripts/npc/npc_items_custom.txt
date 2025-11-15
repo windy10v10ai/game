@@ -6200,11 +6200,10 @@
 
 	"item_magic_crit_blade"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ID"						"9998"
 		"AbilityTextureName"		"molongkuangwu"
 		"ScriptFile"				"items/item_magic_crit_blade"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
 		"ItemCost"					"60000"
 		"ItemPurchasable"			"1"
@@ -6212,41 +6211,67 @@
 
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 法术增强计算
-			"spell_amp_per_int"			"0.3"	// 每点智力0.3%法术增强
+			// DataDriven 属性 - 静态加成
+			"bonus_spell_amp"			"50"
+			"bonus_intellect"			"120"
+			"bonus_damage"				"300"
+			"bonus_damage_percent"		"100"
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_spell_amp"			"50"	// tooltip only - 基础法术增强
-			"bonus_intellect"			"120"	// tooltip only - 智力加成
-			"bonus_damage"				"300"	// tooltip only - 攻击力加成
-			"bonus_damage_percent"		"100"	// tooltip only - 基础伤害加成百分比
+			// Lua 逻辑需要 - 法术增强计算(动态)
+			"spell_amp_per_int"			"0.3"
 
-			// Lua 逻辑需要 - 法术吸血（不在可优化列表）
-			// FIXME lua的实装无效，需要修正
-			// "spell_lifesteal"			"30"	// Lua 逻辑需要 - 法术吸血
+			// Lua 逻辑需要 - 幻影暴击(事件驱动)
+			"phantom_crit_chance"		"40"
+			"phantom_crit_multiplier"	"260"
 
-			// Lua 逻辑需要 - 幻影暴击（事件驱动）
-			"phantom_crit_chance"		"40"	// Lua 逻辑需要 - 幻影暴击概率
-			"phantom_crit_multiplier"	"260"	// Lua 逻辑需要 - 幻影暴击倍率
+			// Lua 逻辑需要 - 龙息爆发(法术暴击,事件驱动)
+			"spell_crit_chance"			"15"
+			"spell_crit_multiplier"		"10.0"
+			"guaranteed_spell_crit_multiplier"	"6.0"
+			"spell_crit_cooldown"		"60"
+		}
 
-			// Lua 逻辑需要 - 法术暴击参数（事件驱动）
-			// 模式1:
-			"spell_crit_chance_mode1"			"50"
-			"spell_crit_multiplier_mode1"		"2.5"
-			"guaranteed_spell_crit_multiplier_mode1"	"2"
-			"cooldown_mode1"					"12"
+		"Modifiers"
+		{
+			"modifier_item_magic_crit_blade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"RemoveOnDeath"		"0"
 
-			// 模式2:
-			"spell_crit_chance_mode2"			"30"
-			"spell_crit_multiplier_mode2"		"4.0"
-			"guaranteed_spell_crit_multiplier_mode2"	"3"
-			"cooldown_mode2"					"20"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 
-			// 模式3:
-			"spell_crit_chance_mode3"			"15"
-			"spell_crit_multiplier_mode3"		"10.0"
-			"guaranteed_spell_crit_multiplier_mode3"	"6.0"
-			"cooldown_mode3"					"60"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_intellect"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"%bonus_spell_amp"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
+					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_damage_percent"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_magic_crit_blade"
+						"Function"		"MagicCritBladeOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_magic_crit_blade"
+						"Function"		"MagicCritBladeOnDestroy"
+					}
+				}
+			}
 		}
 	}
 

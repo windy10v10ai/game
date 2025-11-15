@@ -2803,13 +2803,13 @@
 
 		// Dragon Dance (魔龙狂舞)
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1>Toggle: Switch Mode</h1>Cycles through three spell critical strike modes with different chances and multipliers. Each mode has its own cooldown.<br><br><h1>Mode 1: Balanced Spell Crit</h1>%spell_crit_chance_mode1%%% chance to deal %spell_crit_multiplier_mode1%x spell critical damage. Guaranteed spell crits deal %guaranteed_spell_crit_multiplier_mode1%x damage.<br>Cooldown: %cooldown_mode1% seconds<br><br><h1>Mode 2: Heavy Spell Crit</h1>%spell_crit_chance_mode2%%% chance to deal %spell_crit_multiplier_mode2%x spell critical damage. Guaranteed spell crits deal %guaranteed_spell_crit_multiplier_mode2%x damage.<br>Cooldown: %cooldown_mode2% seconds<br><br><h1>Mode 3: Devastating Spell Crit</h1>%spell_crit_chance_mode3%%% chance to deal %spell_crit_multiplier_mode3%x spell critical damage. Guaranteed spell crits deal %guaranteed_spell_crit_multiplier_mode3%x damage.<br>Cooldown: %cooldown_mode3% seconds<br><br><h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence.<br><br><h1>Passive: Phantom Critical</h1>Grants each attack a %phantom_crit_chance%%% chance to deal an additional %phantom_crit_multiplier%%% of the attack's damage as bonus magic damage.<br><br><h1>Passive: True Strike</h1>Attacks will never miss."
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "The dragon's dance brings devastation to all who witness it."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Dragon Breath</font></h1>Each spell damage instance has a %spell_crit_chance%%% chance to unleash dragon breath, dealing %spell_crit_multiplier%x spell critical damage.<br>After prolonged mana accumulation, the dragon soul awakens and the next spell will guaranteed crit for %guaranteed_spell_crit_multiplier%x damage. Cooldown: %spell_crit_cooldown% seconds.\n<h1><font color='#FF0000'>Passive: Phantom Critical</font></h1>Each attack has a %phantom_crit_chance%%% chance to deal additional magic damage equal to %phantom_crit_multiplier%%% of the attack damage.\n<h1><font color='#FF0000'>Passive: True Strike</font></h1>Attacks will never miss, ignoring evasion."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_spell_amp"           "%+$spell_amp"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"                 "%+$spell_amp"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"         "%+Spell Amp per Intelligence"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent"      "%+Base Attack Damage"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"           "%+$spell_lifesteal"
 
 		// Withered Spring (枯木逢春)
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"

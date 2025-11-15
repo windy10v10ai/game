@@ -398,28 +398,6 @@
 			}
 			// 魔剑
 
-			// 魔龙狂舞
-			"modifier_item_magic_crit_blade_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				// 多个魔龙狂舞可叠加
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"120"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"50"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"300"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"100"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			// 禁忌法锤
 			"modifier_item_forbidden_staff_stats"
 			{
