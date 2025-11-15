@@ -9,8 +9,24 @@ function MagicCritBladeOnCreated(keys)
 
     if not caster or not ability then return end
 
-    -- 添加 Lua 辅助 modifier 处理特殊功能
-    caster:AddNewModifier(caster, ability, "modifier_item_magic_crit_blade_passive", {})
+    -- 添加原生 Revenants Brooch modifier 处理幻影暴击
+    local brooch_modifier = caster:AddNewModifier(caster, ability, "modifier_item_revenants_brooch", {})
+
+    -- 添加 Lua 辅助 modifier 处理动态法术增强和龙息爆发
+    local passive_modifier = caster:AddNewModifier(caster, ability, "modifier_item_magic_crit_blade_passive", {})
+
+    -- 将添加的 modifier 保存到 ability 上,以便 OnDestroy 时移除
+    if not ability.added_modifiers then
+        ability.added_modifiers = {}
+    end
+
+    -- 使用 modifier 的 entindex 作为唯一标识
+    if brooch_modifier then
+        table.insert(ability.added_modifiers, brooch_modifier)
+    end
+    if passive_modifier then
+        table.insert(ability.added_modifiers, passive_modifier)
+    end
 end
 
 -- ========================================
@@ -19,16 +35,23 @@ end
 function MagicCritBladeOnDestroy(keys)
     if not IsServer() then return end
 
-    local caster = keys.caster
+    local ability = keys.ability
 
-    if not caster then return end
+    if not ability or not ability.added_modifiers then return end
 
-    -- 移除 Lua 辅助 modifier
-    caster:RemoveModifierByName("modifier_item_magic_crit_blade_passive")
+    -- 移除此物品添加的 modifier
+    for _, modifier in pairs(ability.added_modifiers) do
+        if modifier and not modifier:IsNull() then
+            modifier:Destroy()
+        end
+    end
+
+    -- 清空记录
+    ability.added_modifiers = nil
 end
 
 -- ========================================
--- Lua 辅助 modifier - 处理动态法术增强和暴击
+-- Lua 辅助 modifier - 处理动态法术增强和龙息爆发
 -- ========================================
 LinkLuaModifier("modifier_item_magic_crit_blade_passive", "items/item_magic_crit_blade.lua", LUA_MODIFIER_MOTION_NONE)
 
@@ -55,14 +78,12 @@ function modifier_item_magic_crit_blade_passive:OnCreated()
     -- 初始化必然暴击状态
     self.has_guaranteed_crit = true
     self.is_on_cooldown = false
-    self.is_phantom_crit_damage = false
 end
 
 function modifier_item_magic_crit_blade_passive:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
         MODIFIER_EVENT_ON_TAKEDAMAGE,
-        MODIFIER_EVENT_ON_ATTACK_LANDED,
     }
 end
 
@@ -76,45 +97,6 @@ function modifier_item_magic_crit_blade_passive:GetModifierSpellAmplify_Percenta
     local spell_amp_per_int = ability:GetSpecialValueFor("spell_amp_per_int")
     local current_int = self:GetParent():GetIntellect(false)
     return current_int * spell_amp_per_int
-end
-
--- ========================================
--- 幻影暴击 - 物理攻击触发魔法伤害
--- ========================================
-function modifier_item_magic_crit_blade_passive:OnAttackLanded(params)
-    if not IsServer() then return end
-    if params.attacker ~= self:GetParent() then return end
-    if params.target:IsBuilding() then return end
-
-    local ability = self:GetAbility()
-    if not ability then return end
-
-    local phantom_crit_chance = ability:GetSpecialValueFor("phantom_crit_chance")
-    if not RollPseudoRandomPercentage(phantom_crit_chance, DOTA_PSEUDO_RANDOM_NONE, self) then return end
-
-    local base_damage = params.attacker:GetAverageTrueAttackDamage(params.attacker)
-    local phantom_crit_multiplier = ability:GetSpecialValueFor("phantom_crit_multiplier")
-    local damage = base_damage * (phantom_crit_multiplier / 100)
-
-    -- 标记为幻影暴击伤害,防止触发法术暴击
-    self.is_phantom_crit_damage = true
-    ApplyDamage({
-        victim = params.target,
-        attacker = params.attacker,
-        damage = damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = ability,
-    })
-
-    -- 下一帧清除标记
-    Timers:CreateTimer(FrameTime(), function()
-        self.is_phantom_crit_damage = false
-    end)
-
-    -- 播放暴击音效和伤害数字
-    EmitSoundOn("Hero_Brewmaster.Brawler.Crit", params.target)
-    local total_spell_amp = self:GetParent():GetSpellAmplification(false)
-    SendOverheadEventMessage(nil, OVERHEAD_ALERT_BONUS_SPELL_DAMAGE, params.target, damage * (total_spell_amp + 1), nil)
 end
 
 -- ========================================
@@ -137,9 +119,6 @@ function modifier_item_magic_crit_blade_passive:OnTakeDamage(params)
         return
     end
     if params.damage_type == DAMAGE_TYPE_PHYSICAL then return end
-
-    -- 跳过幻影暴击造成的伤害
-    if self.is_phantom_crit_damage then return end
 
     local target = params.unit
     if not target or target:IsBuilding() then return end

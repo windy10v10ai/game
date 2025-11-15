@@ -6220,9 +6220,10 @@
 			// Lua 逻辑需要 - 法术增强计算(动态)
 			"spell_amp_per_int"			"0.3"
 
-			// Lua 逻辑需要 - 幻影暴击(事件驱动)
-			"phantom_crit_chance"		"40"
-			"phantom_crit_multiplier"	"260"
+			// Revenants Brooch modifier 参数 - 幻影暴击
+			"crit_chance"				"40"
+			"crit_multiplier"			"260"
+			"spell_lifesteal"			"0"
 
 			// Lua 逻辑需要 - 龙息爆发(法术暴击,事件驱动)
 			"spell_crit_chance"			"15"
