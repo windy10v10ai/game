@@ -235,6 +235,7 @@ export const abilityTiersPassive: Tier[] = [
       'ancient_apparition_frost_orb', // 冰霜法球
       'death_prophet_witchcraft2', // 死亡先知 巫术精研
       'medusa_mana_shield2', // 魔法盾
+
       'ability_trigger_on_cast', //红蝴蝶
       'ability_trigger_on_attacked', //金蝴蝶
       'ability_trigger_on_move', //橙影蝴蝶
