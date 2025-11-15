@@ -2787,7 +2787,7 @@
 		"AbilityValues"
 		{
 			"charges_per_flurry"	"6 8 9 10"	//5
-			"flurry_bonus_attack_speed"	"700 975 1325 1600"
+			"flurry_bonus_attack_speed"	"700 925 1150 1375"
 			"time_between_flurries"	"1.0 0.9 0.8 0.7"	// 1.5
 			"pulse_damage"
 			{
@@ -11290,7 +11290,7 @@
 		{
 			"fiery_soul_attack_speed_bonus"
 			{
-				"value"								"8 16 24 32 40"
+				"value"								"10 20 30 40 50"	// 8 16 24 32
 			}
 			"fiery_soul_move_speed_bonus"
 			{
@@ -11300,7 +11300,7 @@
 			"target_crit_multiplier"
 			{
 				"value"												"0"
-				"special_bonus_unique_lina_crit_debuff"				"+175"	// 150
+				"special_bonus_unique_lina_crit_debuff"				"+250"	// 150
 			}
 		}
 	}
@@ -11310,7 +11310,7 @@
 		"AbilityValues"
 		{
 			"magic_resistance"					"50"	// 35
-			"spell_amp"							"50"	// 35
+			"spell_amp"							"70"	// 35
 		}
 	}
 	// 神灭斩
@@ -13788,12 +13788,12 @@
 			}
 			"damage_min"
 			{
-				"value"		"50 100 200 300 400"
+				"value"		"100 150 200 250 300"	// x2
 				"special_bonus_unique_ringmaster_whip_damage"	"+100"
 			}
 			"damage_max"
 			{
-				"value"		"200 400 800 1200 1600" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
+				"value"		"400 600 800 1000 1200" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
 				"special_bonus_unique_ringmaster_whip_damage"	"+400"
 			}
 			"fear_duration_min"				"0.2 0.4 0.6 0.8 1.0"	// x2
