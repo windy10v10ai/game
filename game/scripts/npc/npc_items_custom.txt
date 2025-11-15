@@ -6194,7 +6194,7 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_revenants_brooch_2;item_excalibur;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_revenants_brooch_2;item_devastator_2;item_excalibur;item_fusion_brutal"
 		}
 	}
 
@@ -6214,16 +6214,16 @@
 			// DataDriven 属性 - 静态加成
 			"bonus_spell_amp"			"50"
 			"bonus_intellect"			"120"
-			"bonus_damage"				"300"
 			"bonus_damage_percent"		"100"
 
 			// Lua 逻辑需要 - 法术增强计算(动态)
 			"spell_amp_per_int"			"0.3"
 
-			// Revenants Brooch modifier 参数 - 幻影暴击
+			// 幻影暴击 modifier
+			"bonus_damage"				"300"
 			"crit_chance"				"40"
 			"crit_multiplier"			"260"
-			"spell_lifesteal"			"0"
+			"spell_lifesteal"			"30"
 
 			// Lua 逻辑需要 - 龙息爆发(法术暴击,事件驱动)
 			"spell_crit_chance"			"15"
@@ -6246,7 +6246,6 @@
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"%bonus_intellect"
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"%bonus_spell_amp"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"%bonus_damage"
 					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%bonus_damage_percent"
 				}
 

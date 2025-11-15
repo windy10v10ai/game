@@ -2809,6 +2809,7 @@
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp"                 "%+$spell_amp"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"         "%+Spell Amp per Intelligence"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent"      "%+Base Attack Damage"
 
 		// Withered Spring (枯木逢春)
