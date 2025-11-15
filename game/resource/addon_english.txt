@@ -540,6 +540,8 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
+// 					Custom Abilities 自定义技能
+
 		// 大肆污染
 		"DOTA_Tooltip_ability_leshrac_defilement2"										"Defilement"
 		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"Gain AoE per intelligence. Affects both abilities and items."
@@ -917,6 +919,29 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
 
+		"DOTA_Tooltip_ability_ability_mind_control"                     "Mind Control"
+		"DOTA_Tooltip_ability_ability_mind_control_Description"         "Take control of an enemy AI hero for %duration% seconds. You can temporarily control their movement, attacks, and spells. During the control period, the hero's team allegiance changes, and kills or deaths count towards you. However, the AI's residual consciousness may still compete with you for control."
+		"DOTA_Tooltip_ability_ability_mind_control_Lore"                "Invade the enemy's consciousness and briefly seize control of their body."
+		"DOTA_Tooltip_ability_ability_mind_control_duration"            "DURATION:"
+		"DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%STATUS RESISTANCE:"
+
+		"DOTA_Tooltip_ability_ability_defection"                     "Defection"
+		"DOTA_Tooltip_ability_ability_defection_Description"         "Switch freely between Radiant, Dire, and Neutral factions. Cannot attack human players on the Radiant side. 2 seconds delay before swith back to radiant. 20% damage decrease when in Neutral faction"
+		"DOTA_Tooltip_ability_ability_defection_Lore"                "Serve one master while your heart belongs to another, or simply betray them all?"
+
+		"DOTA_Tooltip_modifier_defection"                           "Defection"
+		"DOTA_Tooltip_modifier_defection_Description"               "1=Radiant, 2=Dire, 3=Neutral"
+
+		// Russian Roulette
+		"DOTA_Tooltip_ability_russian_roulette"                                 "Russian Roulette"
+		"DOTA_Tooltip_ability_russian_roulette_Description"                     "Challenges an enemy hero to a deadly game of Russian Roulette. Both the caster and target are rooted and unable to act. Over 6 seconds, damage is dealt alternately between the caster and target. One random shot deals fatal damage and kills the target instantly. If the enemy dies, cooldown is reduced by 100%%.\n\nDISPEL TYPE: Cannot be dispelled"
+		"DOTA_Tooltip_ability_russian_roulette_Lore"                           "A game of chance where only one survives."
+		"DOTA_Tooltip_ability_russian_roulette_interval"                       "SHOT INTERVAL:"
+		"DOTA_Tooltip_ability_russian_roulette_AbilityCastRange"               "CAST RANGE:"
+		"DOTA_Tooltip_modifier_russian_roulette_root"                          "Russian Roulette"
+		"DOTA_Tooltip_modifier_russian_roulette_root_Description"              "Locked in a deadly game. Cannot move, attack, cast spells, or use items."
+
 		// ---- bot技能 ----
 		// AI的复仇
 		"DOTA_Tooltip_ability_boss_death_power"						"AI's Revenge"
@@ -935,11 +960,14 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"ARMOR:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
 		//
 		///////////////////////////////////////////////////
+// 					Heroes Override 原版英雄技能
+
 		//墓碑改说明
 		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone·MK2(No Zombie)"
 		//骨隐步改说明
@@ -1155,9 +1183,10 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 自定义英雄 Custom Heroes
+		//			自定义英雄 Custom Heroes
 		//
 		///////////////////////////////////////////////////
+//			自定义英雄 Custom Heroes
 
 		//执剑泰斗
 		"npc_dota_hero_dark_seer"																"Sword Master"
@@ -1649,6 +1678,7 @@
 		// 					Items 物品
 		//
 		// /////////////////////////////////////////////////////////////////////////////
+// 				Items 自定义物品
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
 		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Experience"
@@ -2959,33 +2989,5 @@
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
 
-		// Legion Commander Talent (军团指挥官天赋)
-		"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"  "Deal 90% of Duel damage bonus to each hero."
-
-
-"DOTA_Tooltip_ability_ability_mind_control"                     "Mind Control"
-"DOTA_Tooltip_ability_ability_mind_control_Description"         "Take control of an enemy AI hero for %duration% seconds. You can temporarily control their movement, attacks, and spells. During the control period, the hero's team allegiance changes, and kills or deaths count towards you. However, the AI's residual consciousness may still compete with you for control."
-"DOTA_Tooltip_ability_ability_mind_control_Lore"                "Invade the enemy's consciousness and briefly seize control of their body."
-"DOTA_Tooltip_ability_ability_mind_control_duration"            "DURATION:"
-"DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%DAMAGE REDUCTION:"
-"DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%STATUS RESISTANCE:"
-
-"DOTA_Tooltip_ability_ability_defection"                     "Defection"
-"DOTA_Tooltip_ability_ability_defection_Description"         "Switch freely between Radiant, Dire, and Neutral factions. Cannot attack human players on the Radiant side. 2 seconds delay before swith back to radiant. 20% damage decrease when in Neutral faction"
-"DOTA_Tooltip_ability_ability_defection_Lore"                "Serve one master while your heart belongs to another, or simply betray them all?"
-
-"DOTA_Tooltip_modifier_defection"                           "Defection"
-"DOTA_Tooltip_modifier_defection_Description"               "1=Radiant, 2=Dire, 3=Neutral"
-
-// Russian Roulette
-"DOTA_Tooltip_ability_russian_roulette"                                 "Russian Roulette"
-"DOTA_Tooltip_ability_russian_roulette_Description"                     "Challenges an enemy hero to a deadly game of Russian Roulette. Both the caster and target are rooted and unable to act. Over 6 seconds, damage is dealt alternately between the caster and target. One random shot deals fatal damage and kills the target instantly. If the enemy dies, cooldown is reduced by 100%%.\n\nDISPEL TYPE: Cannot be dispelled"
-"DOTA_Tooltip_ability_russian_roulette_Lore"                           "A game of chance where only one survives."
-"DOTA_Tooltip_ability_russian_roulette_interval"                       "SHOT INTERVAL:"
-"DOTA_Tooltip_ability_russian_roulette_AbilityCastRange"               "CAST RANGE:"
-"DOTA_Tooltip_modifier_russian_roulette_root"                          "Russian Roulette"
-"DOTA_Tooltip_modifier_russian_roulette_root_Description"              "Locked in a deadly game. Cannot move, attack, cast spells, or use items."
-		"npc_windy"                                 "Windy"
-		"DOTA_Tooltip_unit_npc_windy"              "Windy"
 	}
 }
