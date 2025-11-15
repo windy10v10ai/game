@@ -62,7 +62,7 @@ function modifier_item_magic_scepter:GetModifierSpellAmplify_Percentage()
 	if self:GetParent():HasModifier("modifier_item_hallowed_scepter") then
 		return 0
 	end
-	if self:GetParent():HasModifier("modifier_item_magic_crit_blade") then
+	if self:GetParent():HasModifier("modifier_item_magic_crit_blade_passive") then
 		return 0
 	end
 

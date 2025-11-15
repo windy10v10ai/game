@@ -6206,7 +6206,7 @@
 		"ScriptFile"				"items/item_magic_crit_blade"
 
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityCooldown"			"30"
+		"AbilityCooldown"			"60"
 		"AbilityManaCost"			"1000"
 
 		"ItemCost"					"60000"
@@ -6230,7 +6230,7 @@
 			// 幻影暴击 modifier
 			"bonus_damage"				"300"
 			"crit_chance"				"40"
-			"crit_multiplier"			"260"
+			"crit_multiplier"			"320"
 			"spell_lifesteal"			"30"
 
 			// 巫师之刃 + 魔蚀 modifier
@@ -6263,7 +6263,7 @@
 			"modifier_item_magic_crit_blade"
 			{
 				"Passive"			"1"
-				"IsHidden"			"0"
+				"IsHidden"			"1"
 				"RemoveOnDeath"		"0"
 
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"

@@ -53,10 +53,6 @@ function MagicCritBladeOnSpellStart(keys)
 
     -- 播放音效和特效
     EmitSoundOn("Hero_DragonKnight.BreathFire", caster)
-
-    local particle = ParticleManager:CreateParticle(
-        "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-    ParticleManager:ReleaseParticleIndex(particle)
 end
 
 -- ========================================
@@ -94,12 +90,12 @@ function modifier_item_magic_crit_blade_passive:IsPurgable() return false end
 function modifier_item_magic_crit_blade_passive:RemoveOnDeath() return false end
 
 function modifier_item_magic_crit_blade_passive:GetAttributes()
-    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 
-function modifier_item_magic_crit_blade_passive:GetModifierPriority()
-    return MODIFIER_PRIORITY_SUPER_ULTRA
-end
+-- function modifier_item_magic_crit_blade_passive:GetModifierPriority()
+--     return MODIFIER_PRIORITY_SUPER_ULTRA
+-- end
 
 function modifier_item_magic_crit_blade_passive:OnCreated()
     if not IsServer() then return end
@@ -108,8 +104,8 @@ function modifier_item_magic_crit_blade_passive:OnCreated()
     if not ability then return end
 
     -- 初始化必然暴击状态
-    self.has_guaranteed_crit = true
-    self.is_on_cooldown = false
+    -- self.has_guaranteed_crit = true
+    -- self.is_on_cooldown = false
 end
 
 function modifier_item_magic_crit_blade_passive:DeclareFunctions()

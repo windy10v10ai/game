@@ -2830,7 +2830,7 @@
 
 		// 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"									"<font color='#A74ABD'>魔龙狂舞</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>使用后%active_duration%秒内，获得%spell_amp_multiplier%倍被动态法术增强。\n<h1><font color='#0096FF'>被动：幻影暴击</font></h1>每次攻击有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。\n<h1><font color='#FFD700'>被动：克敌机先</font></h1>攻击无视闪避，永不落空。\n<h1><font color='#FF0000'>被动：圣神斧</font></h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。<br><br>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>使用后%active_duration%秒内，获得%spell_amp_multiplier%倍被智力法术增强。\n<h1><font color='#0096FF'>被动：幻影暴击</font></h1>每次攻击有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。\n<h1><font color='#FFD700'>被动：克敌机先</font></h1>攻击无视闪避，永不落空。\n<h1><font color='#FF0000'>被动：圣神斧</font></h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。<br><br>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"								"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"						"+$damage"
@@ -2838,8 +2838,10 @@
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"					"%+每点智力法术增强"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent"				"%+基础伤害"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_projectile_speed"				"+$projectile_speed"
+
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"							"龙息爆发"
-		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"				"获得%spell_amp_multiplier%倍被动态法术增强。"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"				"获得额外智力法术增强。"
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"
