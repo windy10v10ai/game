@@ -935,11 +935,14 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"ARMOR:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
 		//
 		///////////////////////////////////////////////////
+// 					Heroes Override 原版英雄技能
+
 		//墓碑改说明
 		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone·MK2(No Zombie)"
 		//骨隐步改说明
@@ -1155,9 +1158,10 @@
 
 		///////////////////////////////////////////////////
 		//
-		// 自定义英雄 Custom Heroes
+		//			自定义英雄 Custom Heroes
 		//
 		///////////////////////////////////////////////////
+//			自定义英雄 Custom Heroes
 
 		//执剑泰斗
 		"npc_dota_hero_dark_seer"																"Sword Master"
@@ -1649,6 +1653,7 @@
 		// 					Items 物品
 		//
 		// /////////////////////////////////////////////////////////////////////////////
+// 				Items 自定义物品
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
 		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Experience"

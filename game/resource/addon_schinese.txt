@@ -9,7 +9,7 @@
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
-		// 					Options
+		//					Options 选项
 		//
 		// /////////////////////////////////////////////////////////////////////////////
 		"addon_option_title"		"游戏选项"
@@ -541,6 +541,8 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
+// 					Custom Abilities 自定义技能
+
 		// 大肆污染
 		"DOTA_Tooltip_ability_leshrac_defilement2"										"大肆污染"
 		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"每点智力都会提供作用范围加成，影响技能和物品。"
@@ -927,11 +929,14 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"护甲："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"魔抗："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"全属性："
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
 		//
 		///////////////////////////////////////////////////
+// 					Heroes Override 原版英雄技能
+
 		//墓碑改说明
 		"DOTA_Tooltip_ability_undying_tombstone"						"墓碑·改（不生成小僵尸）"
 		//骨隐步改说明
@@ -1200,9 +1205,10 @@
 	"DOTA_Tooltip_ability_special_bonus_unique_legion_commander_4"					"每个英雄额外造成决斗获得攻击力的90%伤害。"
 		///////////////////////////////////////////////////
 		//
-		// 自定义英雄 Custom Heroes
+		//			自定义英雄 Custom Heroes
 		//
 		///////////////////////////////////////////////////
+//			自定义英雄 Custom Heroes
 
 		//执剑泰斗
 		"npc_dota_hero_dark_seer"																"执剑泰斗"
@@ -1703,6 +1709,7 @@
 		// 					Items 物品
 		//
 		// /////////////////////////////////////////////////////////////////////////////
+// 				Items 自定义物品
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"金袋"
 		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"勇士经验"
@@ -2753,41 +2760,41 @@
 		"DOTA_Tooltip_ability_item_universal_rune_Lore"									"RN: '最难受的是有钱买不了装备'？那你还是不够有钱"
 
 		// 鹰眼炮台
-		"DOTA_Tooltip_Ability_item_hawkeye_turret"									"鹰眼炮台"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"						"<h1><font color='#FFFF00'>主动:人形炮台</font></h1>化身炮台,获得高空视野。持续%active_duration%秒,护甲+%active_armor%,被缠绕无法移动,攻击距离+%active_attack_range%+吃的银月数量×%moon_shard_bonus%,基础攻击间隔减少%bat_reduction_pct%%%。<br><br>冷却时间:%AbilityCooldown%秒\n<h1>被动: 霰弹 (仅限远程)</h1>对攻击目标周围的敌人造成纯粹溅射伤害。<br/>霰弹特效无法叠加,拥有%internal_cooldown%s内置冷却。"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"								"化身为固定炮台,以强大的火力压制敌人。"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_Ability_item_hawkeye_turret"										"鹰眼炮台"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>主动:人形炮台</font></h1>化身炮台,获得高空视野。持续%active_duration%秒,护甲+%active_armor%,被缠绕无法移动,攻击距离+%active_attack_range%+吃的银月数量×%moon_shard_bonus%,基础攻击间隔减少%bat_reduction_pct%%%。<br><br>冷却时间:%AbilityCooldown%秒\n<h1>被动: 霰弹 (仅限远程)</h1>对攻击目标周围的敌人造成纯粹溅射伤害。<br/>霰弹特效无法叠加,拥有%internal_cooldown%s内置冷却。"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"									"化身为固定炮台,以强大的火力压制敌人。"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"					"+$attack_range"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_attack_radius"						"溅射范围:"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_attack_percent"						"%溅射伤害:"
 		// 鹰眼战机
-		"DOTA_Tooltip_Ability_item_hawkeye_fighter"									"鹰眼战机"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"						"<h1><font color='#FFFF00'>主动: 人形战斗机</font></h1>激活战机模式,获得高空视野和极高的机动性。持续%active_duration%秒内,获得%active_movement_speed_pct%%%移速加成,变为飞行单位,无视地形移动,无视单位碰撞,无视移速上限,并施加弱驱散效果。<br><br>视野范围:根据英雄当前夜间视野动态调整<br>冷却时间:%AbilityCooldown%秒<br><br>驱散类型:<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_Ability_item_hawkeye_fighter"										"鹰眼战机"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"							"<h1><font color='#FFFF00'>主动: 人形战斗机</font></h1>激活战机模式,获得高空视野和极高的机动性。持续%active_duration%秒内,获得%active_movement_speed_pct%%%移速加成,变为飞行单位,无视地形移动,无视单位碰撞,无视移速上限,并施加弱驱散效果。<br><br>视野范围:根据英雄当前夜间视野动态调整<br>冷却时间:%AbilityCooldown%秒<br><br>驱散类型:<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"								"化身战机,翱翔天际,无人能及。"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"					"+$all"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct"			"%+$move_speed"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"					"%+转身速率"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_status_resistance"			"%+状态抗性"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"						"%+转身速率"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_status_resistance"				"%+状态抗性"
 
-		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"							"战机模式"
-		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"				"获得高空视野,移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,无视地形和单位碰撞。"
+		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"								"战机模式"
+		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"					"获得高空视野,移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,无视地形和单位碰撞。"
 
 		// 禁忌法锤
-		"DOTA_Tooltip_Ability_item_forbidden_staff"									"<font color='#8B008B'>禁忌法锤</font>"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Description"						"<h1><font color='#8B008B'>主动：禁忌领域</font></h1>在目标区域施放禁忌领域,对%radius%范围内所有敌人施放死灵冲击，闪电风暴和变羊术。<br><br>死灵冲击：造成%necrolyte_att_multiplier%x[你的全属性]点魔法伤害,并将目标变成小动物%sheep_duration%秒<br>闪电风暴：造成%lightning_damage%点魔法伤害<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
+		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>禁忌法锤</font>"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>主动：禁忌领域</font></h1>在目标区域施放禁忌领域,对%radius%范围内所有敌人施放死灵冲击，闪电风暴和变羊术。<br><br>死灵冲击：造成%necrolyte_att_multiplier%x[你的全属性]点魔法伤害,并将目标变成小动物%sheep_duration%秒<br>闪电风暴：造成%lightning_damage%点魔法伤害<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"								"禁忌的力量,不可轻易触碰。"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Note0"								"死灵冲击会将目标变成无害的小动物,无法攻击，施法或使用物品。"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_strength"					"+$str"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"						"+$int"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_agility"						"+$agi"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana_regen"					"+$mana_regen"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"						"+$health"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"						"+$mana"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"							"+$mana"
 		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+技能增强"
 
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"							"死灵冲击"
@@ -2812,16 +2819,16 @@
 		"DOTA_Tooltip_Ability_item_switchable_crit_blade"								"归海一刀"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_Description"					"<h1><font color='#FF0000'>主动: 刀势切换</font></h1>非冷却期间点击切换刀势,获得不同的暴击概率和倍率。<br><br><h1><font color='#FF0000'>被动: 归海一刀</font></h1>每次攻击有概率斩出归海一刀,砍断世界线。<br>长时间的信念凝聚刀意,下一击必然暴击。<br>只有必然暴击未触发时才可切换刀势。<br><br>初式·破浪: %crit_chance_mode1%%%概率%crit_multiplier_mode1%倍暴击,必然暴击%guaranteed_crit_multiplier_mode1%倍,冷却%cooldown_mode1%秒<br>二式·断流: %crit_chance_mode2%%%概率%crit_multiplier_mode2%倍暴击,必然暴击%guaranteed_crit_multiplier_mode2%倍,冷却%cooldown_mode2%秒<br>终式·归海: %crit_chance_mode3%%%概率%crit_multiplier_mode3%倍暴击,必然暴击%guaranteed_crit_multiplier_mode3%倍,冷却%cooldown_mode3%秒"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_damage"					"+$damage"
-		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_agility"				"+$agi"
+		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_agility"					"+$agi"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_evasion"				"%+$evasion"
+		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_evasion"					"%+$evasion"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_spell_amp"				"%+$spell_amp"
-		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_damage_percent"		"%+基础伤害"
-		"DOTA_Tooltip_ability_item_switchable_crit_blade_Note0"						"克敌机先: 攻击无视闪避"
-		"DOTA_Tooltip_ability_item_switchable_crit_blade_Note1"						"继承黄金大核荣耀的基础暴击效果"
+		"DOTA_Tooltip_ability_item_switchable_crit_blade_bonus_damage_percent"			"%+基础伤害"
+		"DOTA_Tooltip_ability_item_switchable_crit_blade_Note0"							"克敌机先: 攻击无视闪避"
+		"DOTA_Tooltip_ability_item_switchable_crit_blade_Note1"							"继承黄金大核荣耀的基础暴击效果"
 		"DOTA_Tooltip_ability_item_switchable_crit_blade_Lore"							"破浪：潮初起时刃轻扬<br>断流：潮横断处月凝霜<br>归海：潮归瀚海刀义藏"
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade"								"刀势"
-		"DOTA_Tooltip_modifier_item_switchable_crit_blade_Description"				"1=初式·破浪 2=二式·断流 3=终式·归海"
+		"DOTA_Tooltip_modifier_item_switchable_crit_blade_Description"					"1=初式·破浪 2=二式·断流 3=终式·归海"
 
 		// 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"									"魔龙狂舞"
