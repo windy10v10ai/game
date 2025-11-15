@@ -347,6 +347,8 @@ LinkLuaModifier("modifier_item_<物品名>_<特殊功能>", "items/item_<物品�
 
 **3.2 DataDriven 回调函数(全局函数)**
 
+**重要**: 当在 OnCreated 中添加辅助 modifier 时,必须将 modifier 引用保存到 ability 对象上,以便在 OnDestroy 时精确移除。这样可以避免在有多个相同物品时误删其他物品的 modifier。
+
 ```lua
 -- ========================================
 -- DataDriven modifier_item_<物品名> 的 OnCreated 回调
@@ -359,11 +361,29 @@ function <物品名>OnCreated(keys)
 
     if not caster or not ability then return end
 
-    -- 添加 Lua 辅助 modifier 处理特殊功能(如 ABSORB_SPELL)
-    caster:AddNewModifier(caster, ability, "modifier_item_<物品名>_<特殊功能>", {})
+    -- 添加原生 modifier(如果需要)
+    local native_modifier = caster:AddNewModifier(caster, ability, "modifier_item_xxx", {})
 
-    -- 添加其他需要的 modifier(如刃甲、光环等)
-    caster:AddNewModifier(caster, ability, "modifier_item_<物品名>_aura", {})
+    -- 添加 Lua 辅助 modifier 处理特殊功能(如 ABSORB_SPELL)
+    local special_modifier = caster:AddNewModifier(caster, ability, "modifier_item_<物品名>_<特殊功能>", {})
+
+    -- 添加其他需要的 modifier(如光环等)
+    local aura_modifier = caster:AddNewModifier(caster, ability, "modifier_item_<物品名>_aura", {})
+
+    -- 将添加的 modifier 保存到 ability 上,以便 OnDestroy 时精确移除
+    if not ability.added_modifiers then
+        ability.added_modifiers = {}
+    end
+
+    if native_modifier then
+        table.insert(ability.added_modifiers, native_modifier)
+    end
+    if special_modifier then
+        table.insert(ability.added_modifiers, special_modifier)
+    end
+    if aura_modifier then
+        table.insert(ability.added_modifiers, aura_modifier)
+    end
 end
 
 -- ========================================
@@ -372,13 +392,19 @@ end
 function <物品名>OnDestroy(keys)
     if not IsServer() then return end
 
-    local caster = keys.caster
+    local ability = keys.ability
 
-    if not caster then return end
+    if not ability or not ability.added_modifiers then return end
 
-    -- 移除 Lua 辅助 modifier
-    caster:RemoveModifierByName("modifier_item_<物品名>_<特殊功能>")
-    caster:RemoveModifierByName("modifier_item_<物品名>_aura")
+    -- 只移除此物品实例添加的 modifier
+    for _, modifier in pairs(ability.added_modifiers) do
+        if modifier and not modifier:IsNull() then
+            modifier:Destroy()
+        end
+    end
+
+    -- 清空记录,防止内存泄漏
+    ability.added_modifiers = nil
 end
 
 -- ========================================

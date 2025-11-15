@@ -5332,8 +5332,8 @@
 				"bonus_intellect"			"80"
 				"slow_resistance"			"50"	// 25
 				"mana_regen_multiplier"		"100"	// 50
-				"spell_amp"				"30"		// 12
-				"hp_regen_amp"			"50"		// 25
+				"spell_amp"				"25"		// 12
+				"hp_regen_amp"			"40"		// 20
 				"manacost_reduction"	"40"		// 25
 		}
 	}
@@ -5405,7 +5405,7 @@
 				"bonus_attack_speed"	"60" // 20
 				"mana_regen_multiplier"	"100" // 50
 				"movement_speed_percent_bonus"	"25" // 12
-				"spell_amp"				"30" // 12
+				"spell_amp"				"25" // 12
 				"cast_speed_pct"		"50" // 25
 		}
 	}
@@ -5597,7 +5597,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "29999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5606,11 +5606,11 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"720"	// 12分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
-		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
+		"ItemStockTime"				"240"
+		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 	}
 
 	// 禁忌符文
@@ -5622,7 +5622,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "19999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5632,10 +5632,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"720"	// 12分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"240"
 	}
 
 	// 暴虐符文
@@ -5647,7 +5647,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "29999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5657,10 +5657,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"900"	// 16分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"240"
 	}
 
 	// 兽化符文
@@ -5672,7 +5672,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "29999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5682,10 +5682,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"360"	// 16分钟买
+		"ItemInitialStockTime"		"600"	// 16分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"180"
 	}
 
 	// 生命符文
@@ -5697,7 +5697,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "29999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5707,10 +5707,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"480"	// 16分钟买
+		"ItemInitialStockTime"		"900"	// 16分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"240"
 	}
 
 	// 暗影符文
@@ -5722,7 +5722,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "19999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5732,10 +5732,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"720"	// 16分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"240"
 	}
 
 	// 魔化符文
@@ -5747,7 +5747,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "29999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5757,10 +5757,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"1060"	// 16分钟买
+		"ItemInitialStockTime"		"1200"	// 16分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"240"
 	}
 
 	// 灵动符文
@@ -5772,7 +5772,7 @@
 		"AbilityTextureName"		"item_tome_of_knowledge"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"                  "29999"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5782,10 +5782,40 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"960"	// 16分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"3"
+		"ItemStockMax"				"2"
 		"ItemStockTime"				"120"
+	}
+	//=================================================================================================================
+	// 通用符文 - 自动合成物品
+	//=================================================================================================================
+	"item_universal_rune"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"                        "10335"
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_universal_rune"
+		"AbilityTextureName"        "item_tome_of_knowledge"
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"                  "79999"
+		"ItemShopTags"              "consumable"
+		"ItemQuality"               "consumable"
+		"ItemPermanent"             "0"
+		"ItemStackable"             "0"
+		"ItemPurchasable"           "1"
+		"ItemKillable"              "0"
+		"ItemSellable"              "0"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"ItemInitialStockTime"		"60"	// 0分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"300"
+		"AbilityCooldown"           "1.0"
 	}
 
 	//=================================================================================================================
@@ -5879,7 +5909,7 @@
 		"ItemResult"				"item_hawkeye_fighter"
 		"ItemRequirements"
 		{
-			"01"					"item_adi_king_plus;item_soul_scattering_sword;item_wind_waker;item_boots_of_bearing_2;item_fusion_hawkeye"
+			"01"                    "item_adi_king_plus;item_wind_waker;item_boots_of_bearing_2;item_fusion_hawkeye"
 		}
 	}
 
@@ -6164,17 +6194,21 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_revenants_brooch_2;item_excalibur;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_2;item_fusion_brutal"
 		}
 	}
 
 	"item_magic_crit_blade"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ID"						"9998"
 		"AbilityTextureName"		"molongkuangwu"
 		"ScriptFile"				"items/item_magic_crit_blade"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"			"4"
+		"AbilityManaCost"			"1200"
+		"AbilitySharedCooldown"		"magic_scepter"
 
 		"ItemCost"					"60000"
 		"ItemPurchasable"			"1"
@@ -6182,40 +6216,75 @@
 
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 法术增强计算
-			"spell_amp_per_int"			"0.3"	// 每点智力0.3%法术增强
+			// Lua 逻辑需要 - 法术增强计算(动态)
+			"spell_amp_per_int"			"0.3"
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_spell_amp"			"50"	// tooltip only - 基础法术增强
-			"bonus_intellect"			"120"	// tooltip only - 智力加成
-			"bonus_damage"				"300"	// tooltip only - 攻击力加成
-			"bonus_damage_percent"		"100"	// tooltip only - 基础伤害加成百分比
+			// 主动技能 - 龙息爆发
+			"active_cooldown"			"60"
+			"active_duration"			"4"
+			"spell_amp_multiplier"		"2"
 
-			// Lua 逻辑需要 - 法术吸血（不在可优化列表）
-			"spell_lifesteal"			"30"	// Lua 逻辑需要 - 法术吸血
+			// 幻影暴击 modifier
+			"bonus_damage"				"200"
+			"crit_chance"				"30"
+			"crit_multiplier"			"480"
+			"spell_lifesteal"			"30"
 
-			// Lua 逻辑需要 - 幻影暴击（事件驱动）
-			"phantom_crit_chance"		"40"	// Lua 逻辑需要 - 幻影暴击概率
-			"phantom_crit_multiplier"	"260"	// Lua 逻辑需要 - 幻影暴击倍率
+			// 神圣斧
+			"bonus_intellect"			"180"
+			// 巫师之刃 + 魔蚀 modifier
+			"projectile_speed"			"300"
+			"int_damage_multiplier"		"1.25"
+			"slow"						"50"
+			"slow_duration"				"4"
+			"active_mres_reduction"		"40"
+			"passive_cooldown"			"4"
 
-			// Lua 逻辑需要 - 法术暴击参数（事件驱动）
-			// 模式1:
-			"spell_crit_chance_mode1"			"50"
-			"spell_crit_multiplier_mode1"		"2.5"
-			"guaranteed_spell_crit_multiplier_mode1"	"2"
-			"cooldown_mode1"					"12"
+			// Lua 逻辑需要 - 龙息爆发(法术暴击,事件驱动)
+			"spell_crit_chance"			"15"
+			"spell_crit_multiplier"		"10.0"
+			"guaranteed_spell_crit_multiplier"	"6.0"
+			"spell_crit_cooldown"		"60"
+		}
 
-			// 模式2:
-			"spell_crit_chance_mode2"			"30"
-			"spell_crit_multiplier_mode2"		"4.0"
-			"guaranteed_spell_crit_multiplier_mode2"	"3"
-			"cooldown_mode2"					"20"
 
-			// 模式3:
-			"spell_crit_chance_mode3"			"15"
-			"spell_crit_multiplier_mode3"		"10.0"
-			"guaranteed_spell_crit_multiplier_mode3"	"6.0"
-			"cooldown_mode3"					"60"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_crit_blade"
+				"Function"		"MagicCritBladeOnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_magic_crit_blade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"RemoveOnDeath"		"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_magic_crit_blade"
+						"Function"		"MagicCritBladeOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_magic_crit_blade"
+						"Function"		"MagicCritBladeOnDestroy"
+					}
+				}
+			}
 		}
 	}
 
@@ -6379,6 +6448,10 @@
 			"01"					"item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
 		}
 	}
+
+	//=================================================================================================================
+	// 暗影裁决
+	//=================================================================================================================
 
 	"item_shadow_judgment"
 	{
@@ -6623,7 +6696,7 @@
 			"bonus_intellect"				"250"
 			"status_resistance"				"60"
 			"bonus_attack_speed"			"200"
-			"movement_speed_percent_bonus"	"60"
+			"movement_speed_percent_bonus"	"50"
 			"hp_regen_amp"					"100"
 			"mana_regen_multiplier"			"150"
 			"spell_amp"						"100"
@@ -6647,7 +6720,7 @@
 		"ItemResult"				"item_time_gem"
 		"ItemRequirements"
 		{
-			"01"					"item_refresh_core;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
+			"01"					"item_refresh_core;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_magic"
 		}
 	}
 
@@ -6700,7 +6773,6 @@
 	//=================================================================================================================
 	// 兽化盾
 	//=================================================================================================================
-	// 臂章+强袭+法师泳衣+洞察盔甲+兽化符文 继承所有组件的力量、生命、护甲、魔抗、生命和魔法回复（主要是法师泳衣）加成效果，并有主动技能：人形肉盾：被动效果加成50%，但无法攻击和移动
 	"item_recipe_beast_shield"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6725,15 +6797,15 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"30.0"
-		"AbilityManaCost"			"150"
+		"AbilityCooldown"			"40.0"
+		"AbilityManaCost"			"300"
 
 		"AbilityValues"
 		{
 			// 主动技能
-			"active_duration"				"6"
+			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"300"
+			"active_movespeed"				"350"
 			// BKB
 			"magic_resist"					"100"
 
@@ -6926,8 +6998,8 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"15.0"
-		"AbilityManaCost"			"300"
+		"AbilityCooldown"			"20.0"
+		"AbilityManaCost"			"400"
 
 		"ItemCost"					"35000"
 		"ItemShopTags"				"damage;armor;int;hard_to_tag"
@@ -6971,12 +7043,12 @@
 			"active_reflection_pct"			"100"	// 主动反伤百分比
 			"bonus_armor"					"80"	// 护甲
 
-			"block_cooldown"				"15"	// Lua 逻辑需要 - 莲花格挡冷却
+			// Lua 逻辑需要
+			"block_cooldown"				"7"		// 林肯格挡冷却
 
-			// Lua 逻辑需要 - 主动技能参数
-			"active_duration"				"5"		// Lua 逻辑需要 - 主动持续时间
-			"blast_radius"					"900"	// Lua 逻辑需要 - 冲击波范围
-			"blast_damage"					"900"	// Lua 逻辑需要 - 冲击波伤害
+			"active_duration"				"5"		// 主动持续时间
+			"blast_radius"					"900"	// 冲击波范围
+			"blast_damage"					"900"	// 冲击波伤害
 
 			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
 			"movement_slow"					"40"	// tooltip only - 移速减缓
@@ -7116,53 +7188,6 @@
 				"EffectAttachType"		"PATTACH_ABSORIGIN_FOLLOW"
 				"TextureName"			"item_radiance"
 			}
-		}
-	}
-
-	//=================================================================================================================
-	// 魔渊法杖
-	//=================================================================================================================
-	// 仙云法杖+风暴之锤+以太2+神圣斧 没有任何被动加成 主动技能：一念成佛：4s内10%魔法伤害转为纯粹伤害；
-	"item_recipe_magic_abyss_staff"
-	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"10329"
-		"Model"						"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"		"item_recipe_magic_abyss_staff"
-
-		"ItemCost"					"0"
-		"ItemShopTags"				""
-
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_magic_abyss_staff"
-		"ItemRequirements"
-		{
-			"01"					"item_hallowed_scepter;item_gungir_2;item_devastator_2;item_fusion_magic"
-		}
-	}
-	"item_magic_abyss_staff"
-	{
-		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_magic_abyss_staff"
-		"ID"						"10327"
-		"AbilityTextureName"		"moyuanfazhang"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
-
-		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"40.0"
-		"AbilityManaCost"			"900"
-
-		"ItemCost"					"25000"
-		"ItemShopTags"				"damage;int;hard_to_tag"
-		"ItemQuality"				"artifact"
-
-		"AbilityValues"
-		{
-			"bonus_intellect"		"300"	// tooltip only, real value in modifier_item_magic_abyss_staff_stats
-			"active_duration"		"4"
-			"convert_pct"			"50"
-			"spell_amp_per_int"		"0.2"
 		}
 	}
 
@@ -7437,6 +7462,42 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"duration"				"2.0"
+		}
+	}
+	"item_skill_talisman"
+	{
+		"ID"                        "10331"
+		"BaseClass"                 "item_lua"
+		"ScriptFile"                "items/item_skill_talisman"
+		"AbilityTextureName"        "skill_talisman"
+
+		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityCastRange"          "1800"  //
+
+		"ItemCost"                  "1000"
+		"ItemShopTags"              "consumable"
+		"ItemQuality"               "consumable"
+		"ItemStackable"             "1"
+		"ItemPermanent"             "0"
+		"ItemInitialCharges"        "1"
+		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
+		"IsTempestDoubleClonable"   "0"
+
+		"AbilityCastPoint"          "0.0"
+		"AbilityCooldown"           "0.0"
+		"AbilityManaCost"           "0"
+
+		"AbilityValues"
+		{
+			"radius"                "100"  // 用于AOE指示器
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"              "FIELD_INTEGER"
+				"stored_ability"        "0"
+			}
 		}
 	}
 

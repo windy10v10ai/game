@@ -84,6 +84,15 @@ function modifier_mind_control:OnCreated(params)
         return
     end
 
+    -- *** 在这里添加消息通知 ***
+    --local caster_name = caster:GetUnitName() or caster:GetName()
+    local parent_name = parent:GetUnitName() or parent:GetName()
+    local HeroName = string.gsub(parent_name, "npc_dota_hero_", "")
+    -- GameRules:SendCustomMessage(
+    --     caster_name .. " 夺舍了 " .. parent_name .. "!", 0, 0)
+    -- 使用 Say 让施法者说话
+    local message = "三年之期已到，" .. HeroName .. " 出手吧!"
+    Say(caster, message, false)
     -- 禁用AI系统
     self:DisableAI(parent)
 
