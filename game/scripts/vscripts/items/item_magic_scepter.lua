@@ -62,6 +62,10 @@ function modifier_item_magic_scepter:GetModifierSpellAmplify_Percentage()
 	if self:GetParent():HasModifier("modifier_item_hallowed_scepter") then
 		return 0
 	end
+	if self:GetParent():HasModifier("modifier_item_magic_crit_blade") then
+		return 0
+	end
+
 	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
 		local current_int = self:GetParent():GetIntellect(false)
 		return current_int * self.spell_amp_per_int

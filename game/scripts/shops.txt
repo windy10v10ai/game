@@ -193,10 +193,10 @@
 		"item"		"item_refresh_core"			// 刷新球
 		"item"		"item_hallowed_scepter"		// 仙云法杖
 		"item"		"item_necronomicon_staff"	// 死灵法杖
-		"item"      "item_magic_crit_blade"      // 魔龙狂舞
-		"item"      "item_forbidden_staff"      // 禁忌法锤
-		"item"      "item_shadow_impact"      // 暗影咒灭
-		"item"      "item_magic_abyss_staff"      // 魔渊法杖
+		"item"		"item_magic_crit_blade"		// 魔龙狂舞
+		"item"		"item_forbidden_staff"		// 禁忌法锤
+		"item"		"item_shadow_impact"		// 暗影咒灭
+		"item"		"item_time_gem"				// 时间宝石
 	}
 
 	// Level 4 - Purple Recipes 防具
@@ -287,7 +287,6 @@
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
-		"item"      "item_time_gem"      // 时间宝石
 	}
 
 	"sideshop1"

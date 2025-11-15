@@ -59,9 +59,6 @@ function modifier_item_hallowed_scepter:DeclareFunctions()
 end
 
 function modifier_item_hallowed_scepter:GetModifierSpellAmplify_Percentage()
-	if self:GetParent():HasModifier("modifier_item_magic_abyss_staff") then
-		return 0
-	end
 	if self:GetParent():HasModifier("modifier_item_magic_crit_blade") then
 		return 0
 	end

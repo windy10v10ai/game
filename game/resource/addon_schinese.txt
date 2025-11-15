@@ -1932,8 +1932,8 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		// item_magic_scepter 紫杖
-		"DOTA_Tooltip_Ability_item_magic_scepter"								"魔云法杖"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>主动: <font color='#a74abd'>魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续 %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强."
+		"DOTA_Tooltip_Ability_item_magic_scepter"								"<font color='#A74ABD'>魔云法杖</font>"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1><font color='#A74ABD'>主动: 魔力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续 %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, mildly deteriorated.."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 
@@ -1941,8 +1941,8 @@
 		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Grants <font color='#49bf57'>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</font> Spell Amplification"
 
 		// item_hallowed_scepter 大紫杖
-		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"仙云法杖"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>主动: <font color='#a74abd'>仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续  %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"<font color='#A74ABD'>仙云法杖</font>"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1><font color='#A74ABD'>主动: 仙力爆发</font></h1> 将终极魔力赋予巫术师, 获得 %active_boost%%% 技能增强 持续  %active_boost_duration% 秒.\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 
@@ -2746,11 +2746,11 @@
 
 		// 魔化符文
 		"DOTA_Tooltip_ability_item_fusion_magic"										"魔化符文"
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"一种神秘的融合符文,蕴含着魔化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 魔渊法杖、魔渊剑\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 19分钟首次,每4分钟补充(19、23、27、31分)\n• 难度≥40倍: 额外在11.4、13.8、16.2、18.6、25.8、30.6分刷新\n• 难度≥20倍: 额外在15.2、26.4分刷新</font>"
+		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"一种神秘的融合符文,蕴含着魔化的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 魔渊剑、时间宝石\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 19分钟首次,每4分钟补充(19、23、27、31分)\n• 难度≥40倍: 额外在11.4、13.8、16.2、18.6、25.8、30.6分刷新\n• 难度≥20倍: 额外在15.2、26.4分刷新</font>"
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"灵动符文"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套、万剑归宗、时间宝石\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 15分钟首次,每2分钟补充(15、17、19、21、23、25、27、29、31分)\n• 难度≥40倍: 额外在9.0、10.2、11.4、12.6、13.8、20.4、22.8、25.2、27.6、30.0分刷新\n• 难度≥20倍: 额外在12.0、13.6、19.2、20.8、22.4、24.0、25.6、27.2、28.8、30.4分刷新</font>"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套、万剑归宗、\n\n<font color='#70B0FF'>库存刷新时间:</font>\n<font color='#888888'>• 基础: 15分钟首次,每2分钟补充(15、17、19、21、23、25、27、29、31分)\n• 难度≥40倍: 额外在9.0、10.2、11.4、12.6、13.8、20.4、22.8、25.2、27.6、30.0分刷新\n• 难度≥20倍: 额外在12.0、13.6、19.2、20.8、22.4、24.0、25.6、27.2、28.8、30.4分刷新</font>"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"通用符文"
@@ -2829,8 +2829,8 @@
 		"DOTA_Tooltip_modifier_item_switchable_crit_blade_Description"					"1=初式·破浪 2=二式·断流 3=终式·归海"
 
 		// 魔龙狂舞
-		"DOTA_Tooltip_Ability_item_magic_crit_blade"									"魔龙狂舞"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#FF0000'>被动：龙息爆发</font></h1>每次造成法术伤害有%spell_crit_chance%%%几率释放龙息，引发%spell_crit_multiplier%倍法术暴击。<br>长时间的魔力积蓄唤醒龙魂，下一次法术必然造成%guaranteed_spell_crit_multiplier%倍暴击，冷却%spell_crit_cooldown%秒。\n<h1><font color='#0096FF'>被动：幻影暴击</font></h1>每次攻击有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。\n<h1><font color='#FFD700'>被动：克敌机先</font></h1>攻击无视闪避，永不落空。"
+		"DOTA_Tooltip_Ability_item_magic_crit_blade"									"<font color='#A74ABD'>魔龙狂舞</font>"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>使用后%active_duration%秒内，获得%spell_amp_multiplier%倍被动态法术增强。\n<h1><font color='#0096FF'>被动：幻影暴击</font></h1>每次攻击有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。\n<h1><font color='#FFD700'>被动：克敌机先</font></h1>攻击无视闪避，永不落空。\n<h1><font color='#FF0000'>被动：圣神斧</font></h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。<br><br>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"								"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"						"+$damage"
@@ -2838,6 +2838,8 @@
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"					"%+每点智力法术增强"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent"				"%+基础伤害"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"							"龙息爆发"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"				"获得%spell_amp_multiplier%倍被动态法术增强。"
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"
@@ -3005,15 +3007,6 @@
 
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura"					"灼烧伤害"
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura_Description"		"每秒受到%dMODIFIER_PROPERTY_TOOLTIP%点伤害，而且攻击有%dMODIFIER_PROPERTY_MISS_PERCENTAGE%%%几率不会命中。"
-
-		// item_magic_abyss_staff 魔渊法杖
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff"									"魔渊法杖"
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"						"<h1>主动: <font color='#A74ABD'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的魔法伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动: 技能增强</h1>每点智力获得 %spell_amp_per_int%%% 技能增强。"
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"								"佛曰：一念成佛，一念成魔。"
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intellect"					"+$int"
-
-		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"							"一念成佛"
-		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"				"魔法伤害的 %dMODIFIER_PROPERTY_TOOLTIP%%% 转化为纯粹伤害"
 
 		// item_magic_sword 魔渊剑
 		"DOTA_Tooltip_Ability_item_magic_sword"											"魔渊剑"

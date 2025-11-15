@@ -1902,8 +1902,8 @@
 		"DOTA_Tooltip_ability_item_monkey_king_bar_2_bonus_attack_speed"					"+$attack"
 
 		// item_magic_scepter 紫杖
-		"DOTA_Tooltip_Ability_item_magic_scepter"								"<font color='#a74abd'>Magic Scepter</font>"
-		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1>Active: Spell Boost</h1> Imbues the wielder with enhanced magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_magic_scepter"								"<font color='#A74ABD'>Magic Scepter</font>"
+		"DOTA_Tooltip_Ability_item_magic_scepter_Description"					"<h1><font color='#A74ABD'>Active: Spell Boost</font></h1> Imbues the wielder with enhanced magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_magic_scepter_Lore"							"An ancient relic from the War Wizards, though mildly deteriorated."
 		"DOTA_Tooltip_Ability_item_magic_scepter_bonus_intelligence"			"+$int"
 
@@ -1911,8 +1911,8 @@
 		"DOTA_Tooltip_modifier_item_magic_scepter_active_Description"	        "Gaining %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% Spell Amplification"
 
 		// item_hallowed_scepter 大紫杖
-		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"<font color='#a74abd'>Hallowed Scepter</font>"
-		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1>Active: <font color='#a74abd'>Hallowed Spell Boost</h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
+		"DOTA_Tooltip_Ability_item_hallowed_scepter"							"<font color='#A74ABD'>Hallowed Scepter</font>"
+		"DOTA_Tooltip_Ability_item_hallowed_scepter_Description"				"<h1><font color='#A74ABD'>Active: Hallowed Spell Boost</font></h1> Imbues the wielder with ultimate magic powers, granting %active_boost%%% Spell Amplification for %active_boost_duration% seconds.\n<h1>Passive: Arcane Refinement</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_Lore"						"An ancient relic, mysteriously restored to its prime by unknown entities."
 		"DOTA_Tooltip_Ability_item_hallowed_scepter_bonus_intelligence"			"+$int"
 
@@ -2372,7 +2372,7 @@
 		"DOTA_Tooltip_ability_item_bloodthorn_ultra_upgrade_description"	"Soul Tear 10 enemy heroes."
 
 		// item_devastator_2 Sacred Parasma 神圣斧
-		"DOTA_Tooltip_Ability_item_devastator_2"							"<font color='#87013F'>Sacred</font> Parasma"
+		"DOTA_Tooltip_Ability_item_devastator_2"							"<font color='#87013F'>Sacred Parasma</font>"
 		"DOTA_Tooltip_ability_item_devastator_2_Description"				"<h1>Passive: Witch Blade</h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.\n\n<h1>Passive: Magic Corruption</h1> Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds."
 		"DOTA_Tooltip_ability_item_devastator_2_Lore"						"Warning: There is no antidote if picked up by the wrong end."
 		"DOTA_Tooltip_ability_item_devastator_2_bonus_attack_speed"				"+$attack"
@@ -2726,11 +2726,11 @@
 
 		// 魔化符文
 		"DOTA_Tooltip_ability_item_fusion_magic"										"Magic Rune"
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Abyss Staff, Magic Sword\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 19 minutes, replenished every 4 minutes (19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 11.4, 13.8, 16.2, 18.6, 25.8, 30.6 minutes\n• Difficulty ≥20x: Additional refresh at 15.2, 26.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Sword, Time Gem\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 19 minutes, replenished every 4 minutes (19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 11.4, 13.8, 16.2, 18.6, 25.8, 30.6 minutes\n• Difficulty ≥20x: Additional refresh at 15.2, 26.4 minutes</font>"
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords, Time Gem\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 15 minutes, replenished every 2 minutes (15, 17, 19, 21, 23, 25, 27, 29, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 9.0, 10.2, 11.4, 12.6, 13.8, 20.4, 22.8, 25.2, 27.6, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 12.0, 13.6, 19.2, 20.8, 22.4, 24.0, 25.6, 27.2, 28.8, 30.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 15 minutes, replenished every 2 minutes (15, 17, 19, 21, 23, 25, 27, 29, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 9.0, 10.2, 11.4, 12.6, 13.8, 20.4, 22.8, 25.2, 27.6, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 12.0, 13.6, 19.2, 20.8, 22.4, 24.0, 25.6, 27.2, 28.8, 30.4 minutes</font>"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
@@ -2803,7 +2803,7 @@
 
 		// Dragon Dance (魔龙狂舞)
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Dragon Breath</font></h1>Each spell damage instance has a %spell_crit_chance%%% chance to unleash dragon breath, dealing %spell_crit_multiplier%x spell critical damage.<br>After prolonged mana accumulation, the dragon soul awakens and the next spell will guaranteed crit for %guaranteed_spell_crit_multiplier%x damage. Cooldown: %spell_crit_cooldown% seconds.\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage.\n<h1><font color='#FFD700'>Passive: True Strike</font></h1>Attacks will never miss, ignoring evasion."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x passive spell amplification for %active_duration% seconds.\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage.\n<h1><font color='#FFD700'>Passive: True Strike</font></h1>Attacks will never miss, ignoring evasion.\n<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
@@ -2811,6 +2811,8 @@
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"         "%+Spell Amp per Intelligence"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage_percent"      "%+Base Attack Damage"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"                   "Dragon Breath"
+		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"       "Gains %spell_amp_multiplier%x passive spell amplification."
 
 		// Withered Spring (枯木逢春)
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
@@ -2954,15 +2956,6 @@
 
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura"					"Burning Damage"
 		"DOTA_Tooltip_modifier_item_beast_armor_radiance_enemy_aura_Description"		"Takes %dMODIFIER_PROPERTY_TOOLTIP% damage per second, and attacks have a %dMODIFIER_PROPERTY_MISS_PERCENTAGE%%% chance to miss."
-
-		// item_magic_abyss_staff 魔渊法杖
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff"									"Magic Abyss Staff"
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Description"						"<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your magic damage is converted into additional pure damage.\n<h1>Passive: Spell Amplification</h1>Grants %spell_amp_per_int%%% Spell Amplification for each point of Intelligence."
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_Lore"								"Buddha said: One thought to become Buddha, one thought to become demon."
-		"DOTA_Tooltip_Ability_item_magic_abyss_staff_bonus_intellect"					"+$int"
-
-		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active"							"Enlighten"
-		"DOTA_Tooltip_modifier_item_magic_abyss_staff_active_Description"				"%dMODIFIER_PROPERTY_TOOLTIP%%% of magic damage converted to pure damage"
 
 		// Magic Sword (魔渊剑)
 		"DOTA_Tooltip_Ability_item_magic_sword"											"Demonic Sword"
