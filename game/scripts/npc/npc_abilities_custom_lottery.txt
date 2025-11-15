@@ -521,13 +521,13 @@
 			"tick_attack_damage_pct"		"20 25 30 35 40"
 		}
 	}
-	//力量与魔法 拉比克 //暂不实装
+	//力量与魔法 拉比克
 	"rubick_might_and_magus2"
 	{
 		"BaseClass"						"rubick_might_and_magus"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
-		"AbilityTextureName"    "rubick"
+		"AbilityTextureName"			"rubick"
 		"MaxLevel"						"1"
 
 

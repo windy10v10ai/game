@@ -13788,12 +13788,12 @@
 			}
 			"damage_min"
 			{
-				"value"		"50 100 200 300 400"
+				"value"		"100 150 200 250 300"	// x2
 				"special_bonus_unique_ringmaster_whip_damage"	"+100"
 			}
 			"damage_max"
 			{
-				"value"		"200 400 800 1200 1600" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
+				"value"		"400 600 800 1000 1200" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
 				"special_bonus_unique_ringmaster_whip_damage"	"+400"
 			}
 			"fear_duration_min"				"0.2 0.4 0.6 0.8 1.0"	// x2

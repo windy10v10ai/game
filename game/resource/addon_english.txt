@@ -836,6 +836,9 @@
 		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"TOTAL DAMAGE PER MANA:"
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
 
+		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"Magic Sword"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"For each %one_tooltip%%% of skill enhancement, gain %bonus_damage_pct_tooltip%%% attack and %magic_resist_pct_tooltip%%% magic resistance."
+
 		// 蝴蝶效应·蓝武（攻击触发）
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"							"<font color='#0096FF'>Butterfly Effect: Blue</font>"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Description"				"<h1><font color='#0096FF'>Passive: Chain Reaction</font></h1>When your attacks land, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. If the ability is not on cooldown, it will enter a brief cooldown after triggering and then restore (Juggernaut's Omnislash restores after 4s separately, other abilities restore after 0.1s). If the ability is on cooldown, it will reset the cooldown."
