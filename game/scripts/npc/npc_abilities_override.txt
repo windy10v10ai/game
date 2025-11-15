@@ -11290,7 +11290,7 @@
 		{
 			"fiery_soul_attack_speed_bonus"
 			{
-				"value"								"8 16 24 32 40"
+				"value"								"10 20 30 40 50"	// 8 16 24 32
 			}
 			"fiery_soul_move_speed_bonus"
 			{
@@ -11300,7 +11300,7 @@
 			"target_crit_multiplier"
 			{
 				"value"												"0"
-				"special_bonus_unique_lina_crit_debuff"				"+175"	// 150
+				"special_bonus_unique_lina_crit_debuff"				"+250"	// 150
 			}
 		}
 	}
@@ -11310,7 +11310,7 @@
 		"AbilityValues"
 		{
 			"magic_resistance"					"50"	// 35
-			"spell_amp"							"50"	// 35
+			"spell_amp"							"70"	// 35
 		}
 	}
 	// 神灭斩
