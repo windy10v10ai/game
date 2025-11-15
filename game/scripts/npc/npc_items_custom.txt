@@ -6735,7 +6735,6 @@
 	//=================================================================================================================
 	// 兽化盾
 	//=================================================================================================================
-	// 臂章+强袭+法师泳衣+洞察盔甲+兽化符文 继承所有组件的力量、生命、护甲、魔抗、生命和魔法回复（主要是法师泳衣）加成效果，并有主动技能：人形肉盾：被动效果加成50%，但无法攻击和移动
 	"item_recipe_beast_shield"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6760,8 +6759,8 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"30.0"
-		"AbilityManaCost"			"150"
+		"AbilityCooldown"			"40.0"
+		"AbilityManaCost"			"300"
 
 		"AbilityValues"
 		{
@@ -6961,8 +6960,8 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"15.0"
-		"AbilityManaCost"			"300"
+		"AbilityCooldown"			"20.0"
+		"AbilityManaCost"			"400"
 
 		"ItemCost"					"35000"
 		"ItemShopTags"				"damage;armor;int;hard_to_tag"
