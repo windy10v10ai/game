@@ -42,8 +42,8 @@
 
 		"AbilityValues"
 		{
-			"movement_speed_pct_per_level"		"0.5"
-			"cooldown_reduction_pct_per_level"	"1.0"
+			"movement_speed_pct_per_level"		"0.5"	// 0.5
+			"cooldown_reduction_pct_per_level"	"1.0"	// 0.75
 
 			"movement_speed_tooltip"
 			{
