@@ -31,7 +31,6 @@ local RECIPE_WHITELIST = {
 	"item_time_gem",
 	"item_beast_shield",
 	"item_beast_armor",
-	"item_magic_abyss_staff",
 	"item_magic_sword",
 }
 

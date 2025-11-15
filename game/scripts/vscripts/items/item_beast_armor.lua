@@ -12,8 +12,20 @@ function BeastArmorOnCreated(keys)
     if not caster or not ability then return end
 
     -- 添加 Lua 辅助 modifier 处理 ABSORB_SPELL（莲花被动格挡）
-    caster:AddNewModifier(caster, ability, "modifier_item_beast_armor_passive", {})
-    caster:AddNewModifier(caster, ability, "modifier_item_blade_mail", {})
+    local passive_modifier = caster:AddNewModifier(caster, ability, "modifier_item_beast_armor_passive", {})
+    local blade_mail_modifier = caster:AddNewModifier(caster, ability, "modifier_item_blade_mail", {})
+
+    -- 将添加的 modifier 保存到 ability 上,以便 OnDestroy 时精确移除
+    if not ability.added_modifiers then
+        ability.added_modifiers = {}
+    end
+
+    if passive_modifier then
+        table.insert(ability.added_modifiers, passive_modifier)
+    end
+    if blade_mail_modifier then
+        table.insert(ability.added_modifiers, blade_mail_modifier)
+    end
 end
 
 -- ========================================
@@ -22,13 +34,19 @@ end
 function BeastArmorOnDestroy(keys)
     if not IsServer() then return end
 
-    local caster = keys.caster
+    local ability = keys.ability
 
-    if not caster then return end
+    if not ability or not ability.added_modifiers then return end
 
-    -- 移除 Lua 辅助 modifier
-    caster:RemoveModifierByName("modifier_item_beast_armor_passive")
-    caster:RemoveModifierByName("modifier_item_blade_mail")
+    -- 只移除此物品实例添加的 modifier
+    for _, modifier in pairs(ability.added_modifiers) do
+        if modifier and not modifier:IsNull() then
+            modifier:Destroy()
+        end
+    end
+
+    -- 清空记录
+    ability.added_modifiers = nil
 end
 
 -- DataDriven OnSpellStart 全局函数

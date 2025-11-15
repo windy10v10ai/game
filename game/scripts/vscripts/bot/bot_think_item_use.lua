@@ -257,15 +257,15 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_scepter") then
         return true
     end
-
     -- item_hallowed_scepter 仙云法杖
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hallowed_scepter") then
         return true
     end
-    -- item_magic_abyss_staff 魔渊法杖
-    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_abyss_staff") then
+    -- item_magic_crit_blade 魔龙狂舞
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_crit_blade") then
         return true
     end
+
     -- item_magic_sword 魔渊剑
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_sword") then
         return true
