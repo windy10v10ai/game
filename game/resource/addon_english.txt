@@ -1146,6 +1146,10 @@
 		// 赏金猎人
 		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-{s:bonus_AbilityCooldown}% Jinada Cooldown"
 
+		// 噬魂鬼 狂暴
+		"DOTA_Tooltip_ability_life_stealer_rage_status_resist"							"%STATUS RESISTANCE:"
+		"DOTA_Tooltip_ability_life_stealer_rage_bonus_armor"							"BONUS ARMOR:"
+
 		///////////////////////////////////////////////////
 		//
 		// 自定义英雄 Custom Heroes
