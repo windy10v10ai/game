@@ -189,14 +189,15 @@
 		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
 		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
 
-		"item"		"item_gungir_3"				// 风灵之锤
 		"item"		"item_refresh_core"			// 刷新球
+		"item"		"item_gungir_3"				// 风灵之锤
 		"item"		"item_hallowed_scepter"		// 仙云法杖
 		"item"		"item_necronomicon_staff"	// 死灵法杖
-		"item"      "item_magic_crit_blade"      // 魔龙狂舞
-		"item"      "item_forbidden_staff"      // 禁忌法锤
-		"item"      "item_shadow_impact"      // 暗影咒灭
-		"item"      "item_magic_abyss_staff"      // 魔渊法杖
+
+		"item"		"item_time_gem"				// 时间宝石
+		"item"		"item_forbidden_staff"		// 禁忌法锤
+		"item"		"item_magic_crit_blade"		// 魔龙狂舞
+		"item"		"item_shadow_impact"		// 暗影咒灭
 	}
 
 	// Level 4 - Purple Recipes 防具
@@ -228,7 +229,7 @@
 	"weapons"
 	{
 		"item"		"item_lesser_crit"			// 水晶剑
-		// "item"		"item_basher"				// 碎颅锤
+		"item"		"item_basher"				// 碎颅锤
 		"item"		"item_armlet_pro_max"		// 小鸡臂章
 		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
 		"item"		"item_echo_sabre_2"			// 音速战刃
@@ -251,7 +252,6 @@
 
 		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
-		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_switchable_crit_blade"      // 归海一刀
 		"item"      "item_forbidden_blade"      // 禁忌战刃
 		"item"      "item_hawkeye_turret"      // 鹰眼炮台
@@ -284,10 +284,10 @@
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"
 		//"item"		"item_skill_talisman" //测试成功，暂不实装
+		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
-		"item"      "item_time_gem"      // 时间宝石
 	}
 
 	"sideshop1"

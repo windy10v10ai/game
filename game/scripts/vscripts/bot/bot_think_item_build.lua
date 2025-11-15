@@ -57,11 +57,6 @@ local function addTome(k, v)
       replaceItem(v, "item_blade_mail_2", "item_beast_armor")
     end
 
-    -- 5. 魔渊法杖：圣杖 -> 魔渊法杖
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_hallowed_scepter", "item_magic_abyss_staff")
-    end
-
     -- 6. 魔渊剑：大冰眼 -> 魔渊剑
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_skadi_2", "item_magic_sword")

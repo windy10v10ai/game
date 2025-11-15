@@ -6194,17 +6194,21 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_revenants_brooch_2;item_excalibur;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_2;item_fusion_brutal"
 		}
 	}
 
 	"item_magic_crit_blade"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ID"						"9998"
 		"AbilityTextureName"		"molongkuangwu"
 		"ScriptFile"				"items/item_magic_crit_blade"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityCooldown"			"4"
+		"AbilityManaCost"			"1200"
+		"AbilitySharedCooldown"		"magic_scepter"
 
 		"ItemCost"					"60000"
 		"ItemPurchasable"			"1"
@@ -6212,41 +6216,75 @@
 
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 法术增强计算
-			"spell_amp_per_int"			"0.3"	// 每点智力0.3%法术增强
+			// Lua 逻辑需要 - 法术增强计算(动态)
+			"spell_amp_per_int"			"0.3"
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_spell_amp"			"50"	// tooltip only - 基础法术增强
-			"bonus_intellect"			"120"	// tooltip only - 智力加成
-			"bonus_damage"				"300"	// tooltip only - 攻击力加成
-			"bonus_damage_percent"		"100"	// tooltip only - 基础伤害加成百分比
+			// 主动技能 - 龙息爆发
+			"active_cooldown"			"60"
+			"active_duration"			"4"
+			"spell_amp_multiplier"		"2"
 
-			// Lua 逻辑需要 - 法术吸血（不在可优化列表）
-			// FIXME lua的实装无效，需要修正
-			// "spell_lifesteal"			"30"	// Lua 逻辑需要 - 法术吸血
+			// 幻影暴击 modifier
+			"bonus_damage"				"200"
+			"crit_chance"				"30"
+			"crit_multiplier"			"480"
+			"spell_lifesteal"			"30"
 
-			// Lua 逻辑需要 - 幻影暴击（事件驱动）
-			"phantom_crit_chance"		"40"	// Lua 逻辑需要 - 幻影暴击概率
-			"phantom_crit_multiplier"	"260"	// Lua 逻辑需要 - 幻影暴击倍率
+			// 神圣斧
+			"bonus_intellect"			"180"
+			// 巫师之刃 + 魔蚀 modifier
+			"projectile_speed"			"300"
+			"int_damage_multiplier"		"1.25"
+			"slow"						"50"
+			"slow_duration"				"4"
+			"active_mres_reduction"		"40"
+			"passive_cooldown"			"4"
 
-			// Lua 逻辑需要 - 法术暴击参数（事件驱动）
-			// 模式1:
-			"spell_crit_chance_mode1"			"50"
-			"spell_crit_multiplier_mode1"		"2.5"
-			"guaranteed_spell_crit_multiplier_mode1"	"2"
-			"cooldown_mode1"					"12"
+			// Lua 逻辑需要 - 龙息爆发(法术暴击,事件驱动)
+			"spell_crit_chance"			"15"
+			"spell_crit_multiplier"		"10.0"
+			"guaranteed_spell_crit_multiplier"	"6.0"
+			"spell_crit_cooldown"		"60"
+		}
 
-			// 模式2:
-			"spell_crit_chance_mode2"			"30"
-			"spell_crit_multiplier_mode2"		"4.0"
-			"guaranteed_spell_crit_multiplier_mode2"	"3"
-			"cooldown_mode2"					"20"
 
-			// 模式3:
-			"spell_crit_chance_mode3"			"15"
-			"spell_crit_multiplier_mode3"		"10.0"
-			"guaranteed_spell_crit_multiplier_mode3"	"6.0"
-			"cooldown_mode3"					"60"
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_magic_crit_blade"
+				"Function"		"MagicCritBladeOnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_item_magic_crit_blade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"RemoveOnDeath"		"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_magic_crit_blade"
+						"Function"		"MagicCritBladeOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_magic_crit_blade"
+						"Function"		"MagicCritBladeOnDestroy"
+					}
+				}
+			}
 		}
 	}
 
@@ -6682,7 +6720,7 @@
 		"ItemResult"				"item_time_gem"
 		"ItemRequirements"
 		{
-			"01"					"item_refresh_core;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_agile"
+			"01"					"item_refresh_core;item_kaya_and_sange_1;item_yasha_and_kaya_1;item_fusion_magic"
 		}
 	}
 
@@ -6765,9 +6803,9 @@
 		"AbilityValues"
 		{
 			// 主动技能
-			"active_duration"				"6"
+			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"300"
+			"active_movespeed"				"350"
 			// BKB
 			"magic_resist"					"100"
 
@@ -7150,53 +7188,6 @@
 				"EffectAttachType"		"PATTACH_ABSORIGIN_FOLLOW"
 				"TextureName"			"item_radiance"
 			}
-		}
-	}
-
-	//=================================================================================================================
-	// 魔渊法杖
-	//=================================================================================================================
-	// 仙云法杖+风暴之锤+以太2+神圣斧 没有任何被动加成 主动技能：一念成佛：4s内10%魔法伤害转为纯粹伤害；
-	"item_recipe_magic_abyss_staff"
-	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"10329"
-		"Model"						"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"		"item_recipe_magic_abyss_staff"
-
-		"ItemCost"					"0"
-		"ItemShopTags"				""
-
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_magic_abyss_staff"
-		"ItemRequirements"
-		{
-			"01"					"item_hallowed_scepter;item_gungir_2;item_devastator_2;item_fusion_magic"
-		}
-	}
-	"item_magic_abyss_staff"
-	{
-		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_magic_abyss_staff"
-		"ID"						"10327"
-		"AbilityTextureName"		"moyuanfazhang"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
-
-		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"40.0"
-		"AbilityManaCost"			"900"
-
-		"ItemCost"					"25000"
-		"ItemShopTags"				"damage;int;hard_to_tag"
-		"ItemQuality"				"artifact"
-
-		"AbilityValues"
-		{
-			"bonus_intellect"		"300"	// tooltip only, real value in modifier_item_magic_abyss_staff_stats
-			"active_duration"		"4"
-			"convert_pct"			"50"
-			"spell_amp_per_int"		"0.2"
 		}
 	}
 
