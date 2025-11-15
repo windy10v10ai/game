@@ -540,6 +540,8 @@
 		// 					Custom Abilities 自定义技能
 		//
 		///////////////////////////////////////////////////
+// 					Custom Abilities 自定义技能
+
 		// 大肆污染
 		"DOTA_Tooltip_ability_leshrac_defilement2"										"Defilement"
 		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"Gain AoE per intelligence. Affects both abilities and items."
