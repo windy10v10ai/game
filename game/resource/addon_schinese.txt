@@ -1201,7 +1201,6 @@
 		"DOTA_Tooltip_Ability_item_skill_learning_Lore"               "RN：喏，你要的三被动"
 		"DOTA_Tooltip_modifier_skill_learning_display"                    "可以学习的技能"
 
-"DOTA_Tooltip_ability_dragon_knight_elder_dragon_form_Description"                  "龙骑士能够变身成为三种古龙形态之一，同时提升移动速度以及神龙摆尾的施法距离，并且获得新的能力。<br><br><font color='#FF0000'>近战英雄: 不要选！！！攻击无效！<br>远程英雄: 功能正常但缺少龙形态模型！！！"
 		///////////////////////////////////////////////////
 		//
 		//			自定义英雄 Custom Heroes
