@@ -4,7 +4,12 @@ export class ActionMove {
   static readonly posRadiantBase: Vector = Vector(-7050, -6550, 384);
   static readonly posDireBase: Vector = Vector(6950, 6320, 384);
   static MoveHero(hero: CDOTA_BaseNPC_Hero, pos: Vector) {
-    hero.MoveToPosition(pos);
+    ExecuteOrderFromTable({
+      OrderType: UnitOrder.MOVE_TO_POSITION,
+      UnitIndex: hero.GetEntityIndex(),
+      Position: pos,
+      Queue: false,
+    });
   }
 
   static MoveHeroToDirection(

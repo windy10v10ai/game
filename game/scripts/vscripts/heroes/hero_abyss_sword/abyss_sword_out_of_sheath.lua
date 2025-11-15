@@ -60,7 +60,12 @@ function abyss_sword_out_of_sheath:OnSpellStart()
     target:AddNewModifier(caster,self,"modifier_abyss_sword_out_of_sheath_shard",{duration = duration})
 
     caster:PerformAttack(target, true, true, true, true, false, false, true)
-    caster:MoveToTargetToAttack(target)
+    ExecuteOrderFromTable({
+        UnitIndex = caster:entindex(),
+        OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET,
+        TargetIndex = target:entindex(),
+        Queue = false
+    })
     caster:EmitSound("Hero_Abyss_Sword.OutOfSheath.Shard")
 end
 

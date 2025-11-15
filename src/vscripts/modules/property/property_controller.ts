@@ -157,10 +157,12 @@ export class PropertyController {
 
   // 升级单条属性
   public static LevelupHeroProperty(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
-    if (!GameRules.Option.enablePlayerAttribute) {
+    // 移速属性作为例外,即使禁用玩家属性也生效
+    const isMoveSpeedProperty = property.name === 'property_movespeed_bonus_constant';
+
+    if (!GameRules.Option.enablePlayerAttribute && !isMoveSpeedProperty) {
       return;
     }
-
     const name = property.name;
     const activeLevel = PropertyController.GetPropertyActiveLevel(hero, property);
 

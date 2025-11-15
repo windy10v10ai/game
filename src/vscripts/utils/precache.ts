@@ -106,8 +106,7 @@ function precacheEverythingFromTable(kvTable: any, context: CScriptPrecacheConte
 function precacheHeroAbilities(context: CScriptPrecacheContext) {
   // 技能特效
   heroNameListParticles.forEach((heroName) => {
-    const hero = heroName.replace('npc_dota_', '');
-    PrecacheResource('particle_folder', `particles/units/heroes/${hero}`, context);
+    PrecacheResource('particle_folder', `particles/units/heroes/${heroName}`, context);
   });
   // 技能音效
   heroNameListSound.forEach((heroName) => {

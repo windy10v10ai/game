@@ -15,7 +15,7 @@ interface KeyBindContainerProps {
 const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, playerSetting }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     visibility: isCollapsed ? 'collapse' : 'visible',
-    flowChildren: 'right',
+    flowChildren: 'down',
   };
   const steamAccountId = GetLocalPlayerSteamAccountID();
   const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
@@ -102,27 +102,29 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
 
   return (
     <Panel style={containerStyle} className="container">
-      <KeySettingButton
-        abilityname={lotteryStatus?.activeAbilityName}
-        bindKeyText={activeAbilityKey}
-        setBindKeyText={setActiveAbilityKey}
-        quickCast={activeAbilityQuickCast}
-        setQuickCast={setActiveAbilityQuickCast}
-      />
-      <KeySettingButton
-        abilityname={lotteryStatus?.passiveAbilityName}
-        bindKeyText={passiveAbilityKey}
-        setBindKeyText={setPassiveAbilityKey}
-        quickCast={passiveAbilityQuickCast}
-        setQuickCast={setPassiveAbilityQuickCast}
-      />
-      <KeySettingButton
-        abilityname={lotteryStatus?.passiveAbilityName2}
-        bindKeyText={passiveAbilityKey2}
-        setBindKeyText={setPassiveAbilityKey2}
-        quickCast={passiveAbilityQuickCast2}
-        setQuickCast={setPassiveAbilityQuickCast2}
-      />
+      <Panel style={{ flowChildren: 'right' }}>
+        <KeySettingButton
+          abilityname={lotteryStatus?.activeAbilityName}
+          bindKeyText={activeAbilityKey}
+          setBindKeyText={setActiveAbilityKey}
+          quickCast={activeAbilityQuickCast}
+          setQuickCast={setActiveAbilityQuickCast}
+        />
+        <KeySettingButton
+          abilityname={lotteryStatus?.passiveAbilityName}
+          bindKeyText={passiveAbilityKey}
+          setBindKeyText={setPassiveAbilityKey}
+          quickCast={passiveAbilityQuickCast}
+          setQuickCast={setPassiveAbilityQuickCast}
+        />
+        <KeySettingButton
+          abilityname={lotteryStatus?.passiveAbilityName2}
+          bindKeyText={passiveAbilityKey2}
+          setBindKeyText={setPassiveAbilityKey2}
+          quickCast={passiveAbilityQuickCast2}
+          setQuickCast={setPassiveAbilityQuickCast2}
+        />
+      </Panel>
       <KeyBindRemember
         isRememberAbilityKey={isRememberAbilityKey}
         setIsRememberAbilityKey={setIsRememberAbilityKey}

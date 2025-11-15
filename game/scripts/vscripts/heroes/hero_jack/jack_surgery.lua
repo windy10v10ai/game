@@ -29,9 +29,7 @@ function modifier_jack_surgery:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE
+        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE
     }
     return funcs
 end
@@ -59,14 +57,6 @@ function modifier_jack_surgery:GetModifierHPRegenAmplify_Percentage()
     return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("regen_down")
 end
 
-function modifier_jack_surgery:GetModifierLifestealRegenAmplify_Percentage()
-    return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("attack_lifesteal_down")
-end
-
-function modifier_jack_surgery:GetModifierSpellLifestealRegenAmplify_Percentage()
-    return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("spell_lifesteal_down")
-end
-
 
 
 
@@ -77,8 +67,6 @@ function modifier_jack_surgery_target:OnCreated(table)
     self.maxcount = ability:GetSpecialValueFor("max_count")
     self.heal_down = -ability:GetSpecialValueFor("heal_down")
     self.regen_down = -ability:GetSpecialValueFor("regen_down")
-    self.attack_lifesteal_down = -ability:GetSpecialValueFor("attack_lifesteal_down")
-    self.spell_lifesteal_down = -ability:GetSpecialValueFor("spell_lifesteal_down")
     if not IsServer() then return end
     if self:GetStackCount() < self.maxcount then
         self:IncrementStackCount()
@@ -103,9 +91,7 @@ end
 function modifier_jack_surgery_target:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_LIFESTEAL_AMPLIFY_PERCENTAGE,
-        MODIFIER_PROPERTY_SPELL_LIFESTEAL_AMPLIFY_PERCENTAGE
+        MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE
     }
     return funcs
 end
@@ -123,14 +109,6 @@ end
 
 function modifier_jack_surgery_target:GetModifierHPRegenAmplify_Percentage()
     return self:GetStackCount() * self.regen_down
-end
-
-function modifier_jack_surgery_target:GetModifierLifestealRegenAmplify_Percentage()
-    return self:GetStackCount() * self.attack_lifesteal_down
-end
-
-function modifier_jack_surgery_target:GetModifierSpellLifestealRegenAmplify_Percentage()
-    return self:GetStackCount() * self.spell_lifesteal_down
 end
 
 function modifier_jack_surgery_target:OnDestroy()

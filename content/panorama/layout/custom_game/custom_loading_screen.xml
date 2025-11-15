@@ -32,12 +32,9 @@
 							<Label text="7" id="7"/>
 							<Label text="10" id="10"/>
 							<Label text="12" id="12"/>
-							<Label text="14" id="14"/>
-							<Label text="17" id="17"/>
+							<Label text="15" id="15"/>
 							<Label text="20" id="20"/>
-							<Label text="30" id="30"/>
 							<Label text="40" id="40"/>
-							<Label text="60" id="60"/>
 							<Label text="100" id="100"/>
 						</DropDown>
 					</Panel>
@@ -133,28 +130,28 @@
 						<Label id="FixedAbilityTitle" class="GameOptionsLabel" text="#fixed_ability" />
 						<DropDown id="fixed_ability_dropdown" class="GameOptionsDropdown" oninputsubmit="SendGameOptionsToServer()">
 							<Label text="#fixed_ability_none" id="none"/>
-							<Label text="#fixed_ability_ability_trigger_on_active_name" id="ability_trigger_on_active"/>
+							<!-- <Label text="#fixed_ability_ability_trigger_on_active_name" id="ability_trigger_on_active"/>-->
 							<Label text="#fixed_ability_ability_trigger_on_spell_reflect_name" id="ability_trigger_on_spell_reflect"/>
 							<Label text="#fixed_ability_ability_charge_damage_name" id="ability_charge_damage"/>
-							<Label text="#fixed_ability_ability_trigger_on_attacked_name" id="ability_trigger_on_attacked"/>
+							<!-- <Label text="#fixed_ability_ability_trigger_on_attacked_name" id="ability_trigger_on_attacked"/>
 							<Label text="#fixed_ability_ability_trigger_on_move_name" id="ability_trigger_on_move"/>
-							<!-- <Label text="#fixed_ability_ability_trigger_on_cast_name" id="ability_trigger_on_cast"/>
-							<Label text="#fixed_ability_ability_trigger_learned_skills_name" id="ability_trigger_learned_skills"/> -->
+							<Label text="#fixed_ability_ability_trigger_on_cast_name" id="ability_trigger_on_cast"/>
+							<Label text="#fixed_ability_ability_trigger_learned_skills_name" id="ability_trigger_learned_skills"/>
 							<Label text="#DOTA_Tooltip_ability_ogre_magi_multicast_lua" id="ogre_magi_multicast_lua"/>
 							<Label text="#DOTA_Tooltip_ability_death_prophet_witchcraft2" id="death_prophet_witchcraft2"/>
 							<Label text="#DOTA_Tooltip_ability_winter_wyvern_arctic_burn" id="winter_wyvern_arctic_burn"/>
 							<Label text="#DOTA_Tooltip_ability_dazzle_good_juju" id="dazzle_good_juju"/>
-							<!-- <Label text="#DOTA_Tooltip_ability_leshrac_defilement2" id="leshrac_defilement2"/>
+							<Label text="#DOTA_Tooltip_ability_leshrac_defilement2" id="leshrac_defilement2"/>-->
 							<Label text="#DOTA_Tooltip_ability_medusa_split_shot" id="medusa_split_shot"/>
 							<Label text="#DOTA_Tooltip_ability_tinker_eureka2" id="tinker_eureka2"/>
 							<Label text="#DOTA_Tooltip_ability_earthshaker_aftershock" id="earthshaker_aftershock"/>
 							<Label text="#DOTA_Tooltip_ability_jakiro_double_trouble2" id="jakiro_double_trouble2"/>
-							<Label text="#DOTA_Tooltip_ability_spectre_dispersion" id="spectre_dispersion"/>
+							<!--<Label text="#DOTA_Tooltip_ability_spectre_dispersion" id="spectre_dispersion2"/>-->
 							<Label text="#DOTA_Tooltip_ability_abyssal_underlord_firestorm2" id="abyssal_underlord_firestorm2"/>
 							<Label text="#DOTA_Tooltip_ability_bloodseeker_thirst" id="bloodseeker_thirst"/>
 							<Label text="#DOTA_Tooltip_ability_luna_moon_glaive" id="luna_moon_glaive"/>
-							<Label text="#DOTA_Tooltip_ability_templar_assassin_psi_blades" id="templar_assassin_psi_blades"/>
-							<Label text="#DOTA_Tooltip_ability_faceless_void_time_lock" id="faceless_void_time_lock"/> -->
+							<!--<Label text="#DOTA_Tooltip_ability_templar_assassin_psi_blades" id="templar_assassin_psi_blades"/>
+							<Label text="#DOTA_Tooltip_ability_faceless_void_time_lock" id="faceless_void_time_lock"/>-->
 						</DropDown>
 					</Panel>
 					<!-- 是否强制随机英雄 -->
