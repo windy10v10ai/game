@@ -6226,8 +6226,8 @@
 
 			// 幻影暴击 modifier
 			"bonus_damage"				"200"
-			"crit_chance"				"40"
-			"crit_multiplier"			"320"
+			"crit_chance"				"30"
+			"crit_multiplier"			"480"
 			"spell_lifesteal"			"30"
 
 			// 神圣斧
