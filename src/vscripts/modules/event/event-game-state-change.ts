@@ -7,6 +7,8 @@ import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
+import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
+import { HeroManager } from './game-in-progress/hero-manager';
 export class EventGameStateChange {
   constructor() {
     ListenToGameEvent('game_rules_state_change', () => this.OnGameStateChanged(), this);
@@ -68,6 +70,10 @@ export class EventGameStateChange {
   private OnPreGame(): void {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
+
+    // 初始化团队策略（推进策略、买活策略）
+    new CreepBuffManager();
+    new HeroManager();
 
     // 防御塔BUFF
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];

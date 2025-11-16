@@ -1,52 +1,27 @@
-import { TowerPushStatus } from '../../modules/event/event-entity-killed';
-import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
+import { TowerPushStatus } from '../event-entity-killed';
 
 /**
  * 团队策略管理器
  * 负责管理电脑的推进策略和买活金钱策略
  */
-@registerModifier()
-export class TeamStrategy extends BaseModifier {
-  protected readonly ThinkInterval: number = 10; // 每10秒刷新一次策略
-
+export class HeroManager {
   private botPushMin: number = 15; // 电脑开始推进的分钟数
+  protected readonly refreshInterval: number = 1; // 刷新策略间隔
 
-  // ---------------------------------------------------------
-  // DotaModifierFunctions
-  // ---------------------------------------------------------
-  OnCreated() {
-    if (IsClient()) {
-      return;
-    }
-
+  constructor() {
     // 计算电脑推进时间
     this.calculateBotPushTime();
 
-    const delay = 2;
-    Timers.CreateTimer(delay, () => {
-      this.StartIntervalThink(this.ThinkInterval);
+    // 延迟2秒后开始定时刷新策略
+    Timers.CreateTimer(2, () => {
+      this.refreshPushStrategy();
+      this.refreshBuybackCost();
+      return this.refreshInterval;
     });
   }
 
-  OnIntervalThink(): void {
-    this.refreshPushStrategy();
-    this.refreshBuybackCost();
-  }
-
-  IsPurgable(): boolean {
-    return false;
-  }
-
-  RemoveOnDeath(): boolean {
-    return false;
-  }
-
-  IsHidden(): boolean {
-    return true;
-  }
-
   // ---------------------------------------------------------
-  // 推进策略
+  // bot推进策略
   // ---------------------------------------------------------
 
   /**
@@ -125,9 +100,11 @@ export class TeamStrategy extends BaseModifier {
         if (TowerPushStatus.tower3PushedGood > 0 || TowerPushStatus.tower3PushedBad > 0) {
           // 3塔被推后，允许买活
           PlayerResource.SetCustomBuybackCost(playerId, this.getBuybackCost(playerId));
+          print(`[TeamStrategy] Player ${playerId} buyback cost: ${this.getBuybackCost(playerId)}`);
         } else {
           // 3塔未被推，禁止买活
           PlayerResource.SetCustomBuybackCost(playerId, 100000);
+          print(`[TeamStrategy] Player ${playerId} buyback cost: 100000`);
         }
       } else {
         // 真人玩家，正常买活
