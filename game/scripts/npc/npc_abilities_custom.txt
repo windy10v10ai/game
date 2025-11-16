@@ -2202,7 +2202,6 @@
 			{
 				"ScriptFile"	"heroes/hero_yukari/yukari04"
 				"Function"	"Yukari04_OnSpellStart"
-				"Target"	"POINT"
 				"MinRadius"	"%min_radius"
 				"MaxRadius"	"%max_radius"
 				"TargetRange"	"%target_range"

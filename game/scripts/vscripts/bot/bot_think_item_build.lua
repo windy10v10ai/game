@@ -61,13 +61,13 @@ local function addTome(k, v)
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_skadi_2", "item_magic_sword")
     end
-    if RandomInt(1, 100) <= replace_chance then
-      if (RandomInt(0, 1) == 0) then
-        replaceItem(v, "item_infernal_desolator", "item_magic_sword")
-      else
-        replaceItem(v, "item_infernal_desolator", "item_shadow_judgment")
-      end
-    end
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   if (RandomInt(0, 1) == 0) then
+    --     replaceItem(v, "item_infernal_desolator", "item_magic_sword")
+    --   else
+    --     replaceItem(v, "item_infernal_desolator", "item_shadow_judgment")
+    --   end
+    -- end
     -- 7. 无限手套：黄金魔龙枪 -> 无限手套
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_hurricane_pike_2", "item_swift_glove")
@@ -79,13 +79,13 @@ local function addTome(k, v)
     end
 
     -- 9. 暗影裁决：深渊之刃v2 -> 暗影裁决
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_abyssal_blade_v2", "item_shadow_judgment")
-    end
-    -- 9. 暗影裁决：苍蓝幻想 -> 暗影裁决
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_blue_fantasy", "item_shadow_judgment")
-    end
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_abyssal_blade_v2", "item_shadow_judgment")
+    -- end
+    -- -- 9. 暗影裁决：苍蓝幻想 -> 暗影裁决
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_blue_fantasy", "item_shadow_judgment")
+    -- end
     -- 10. 德古拉面罩：撒旦2 -> 德古拉面罩
     if RandomInt(1, 100) <= replace_chance then
       replaceItem(v, "item_satanic_2", "item_dracula_mask")
@@ -106,37 +106,37 @@ local function addTome(k, v)
     end
 
     -- 13. 归海一刀：黄金大核 -> 归海一刀
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_wasp_golden", "item_switchable_crit_blade")
-    end
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_wasp_golden", "item_switchable_crit_blade")
+    -- end
 
-    -- 14. 禁忌战刃：深渊之刃v2 -> 禁忌战刃
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_abyssal_blade_v2", "item_forbidden_blade")
-    end
+    -- -- 14. 禁忌战刃：深渊之刃v2 -> 禁忌战刃
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_abyssal_blade_v2", "item_forbidden_blade")
+    -- end
 
     -- 14. 禁忌战刃：苍蓝幻想-> 禁忌战刃
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_blue_fantasy", "item_forbidden_blade")
-    end
-    -- 15. 禁忌法锤：死灵法杖 -> 禁忌法锤
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_necronomicon_staff", "item_forbidden_staff")
-    end
-    -- 15. 禁忌法锤：风暴之锤 -> 禁忌法锤
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_gungir_2", "item_forbidden_staff")
-    end
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_blue_fantasy", "item_forbidden_blade")
+    -- end
+    -- -- 15. 禁忌法锤：死灵法杖 -> 禁忌法锤
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_necronomicon_staff", "item_forbidden_staff")
+    -- end
+    -- -- 15. 禁忌法锤：风暴之锤 -> 禁忌法锤
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_gungir_2", "item_forbidden_staff")
+    -- end
 
-    -- 16. 鹰眼战机：阿迪王-> 鹰眼战机
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_adi_king_plus", "item_hawkeye_fighter")
-    end
+    -- -- 16. 鹰眼战机：阿迪王-> 鹰眼战机
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_adi_king_plus", "item_hawkeye_fighter")
+    -- end
 
-    -- 17. 鹰眼炮台：黄金魔龙枪 -> 鹰眼炮台
-    if RandomInt(1, 100) <= replace_chance then
-      replaceItem(v, "item_hurricane_pike_2", "item_hawkeye_turret")
-    end
+    -- -- 17. 鹰眼炮台：黄金魔龙枪 -> 鹰眼炮台
+    -- if RandomInt(1, 100) <= replace_chance then
+    --   replaceItem(v, "item_hurricane_pike_2", "item_hawkeye_turret")
+    -- end
   end
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
     -- 诅咒圣剑
