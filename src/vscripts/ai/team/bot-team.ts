@@ -104,7 +104,6 @@ export class BotTeam {
     const avgLevel = this.getBotTeamAverageLevel();
     // 获取防御塔根据防御塔强度 需要的平均等级
     const towerRequiredLevel = this.getTowerRequiredLevel();
-    print(`[BotTeam] avgLevel: ${avgLevel}, towerRequiredLevel: ${towerRequiredLevel}`);
     return avgLevel >= towerRequiredLevel;
   }
 
@@ -157,13 +156,11 @@ export class BotTeam {
       gameModeEntity.SetBotsMaxPushTier(pushTier);
       gameModeEntity.SetBotsInLateGame(true);
       gameModeEntity.SetBotsAlwaysPushWithHuman(true);
-      print(`[BotTeam] MIDGAME - 开始推进 推进层级: ${pushTier}`);
     } else {
       // EARLYGAME - 不推进
       gameModeEntity.SetBotsInLateGame(false);
       gameModeEntity.SetBotsAlwaysPushWithHuman(false);
       gameModeEntity.SetBotsMaxPushTier(1);
-      print(`[BotTeam] EARLYGAME - 不推进`);
     }
   }
 }
