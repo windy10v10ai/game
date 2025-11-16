@@ -26,12 +26,11 @@ end
 function Yukari04_OnSpellStart(keys)
 	local ability = keys.ability
 	local caster = keys.caster
-	local target = keys.target_points[1]
-	local vecPos = nil
+	-- get mouse point
+	local vecPos = ability:GetCursorPosition()
 	local lvl = ability:GetLevel()
 	local wanbaochui_radius = ability:GetSpecialValueFor("wanbaochui_radius")
 	local max_int_bonus = ability:GetSpecialValueFor("int_bonus")
-	vecPos = target
 	if vecPos then
 		local tick = 0
 		local tick_interval = keys.BarrageFireInterval
@@ -228,7 +227,7 @@ function Yukari04_OnSpellStart(keys)
 			if caster:IsChanneling() then
 				local targets = FindUnitsInRadius(
 					caster:GetTeam(), --caster team
-					keys.target_points[1], --find position
+					vecPos, --find position
 					nil,    --find entity
 					exradius, --find radius
 					DOTA_UNIT_TARGET_TEAM_ENEMY,
