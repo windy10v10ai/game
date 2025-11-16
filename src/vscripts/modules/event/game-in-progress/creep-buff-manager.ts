@@ -130,28 +130,28 @@ export class CreepBuffManager {
     let buffLevelGood = baseCreepBuffLevel;
     let buffLevelBad = baseCreepBuffLevel;
 
+    // 根据1塔摧毁情况增加buff
+    if (TowerPushStatus.tower1PushedGood === 1) {
+      buffLevelGood += 1;
+    }
+    if (TowerPushStatus.tower1PushedBad === 1) {
+      buffLevelBad += 1;
+    }
+
     // 根据2塔摧毁情况增加buff
     if (TowerPushStatus.tower2PushedGood === 1) {
       buffLevelGood += 1;
-    } else if (TowerPushStatus.tower2PushedGood > 1) {
-      buffLevelGood += 2;
     }
     if (TowerPushStatus.tower2PushedBad === 1) {
       buffLevelBad += 1;
-    } else if (TowerPushStatus.tower2PushedBad > 1) {
-      buffLevelBad += 2;
     }
 
     // 根据3塔摧毁情况增加buff
     if (TowerPushStatus.tower3PushedGood === 1) {
       buffLevelGood += 1;
-    } else if (TowerPushStatus.tower3PushedGood > 1) {
-      buffLevelGood += 2;
     }
     if (TowerPushStatus.tower3PushedBad === 1) {
       buffLevelBad += 1;
-    } else if (TowerPushStatus.tower3PushedBad > 1) {
-      buffLevelBad += 2;
     }
 
     // 根据4塔摧毁情况增加buff和超级小兵buff
@@ -192,9 +192,9 @@ export class CreepBuffManager {
 
     if (buffLevel > 0) {
       // 额外百分比血量
-      baseMaxHealth += baseMaxHealth * (0.1 * buffLevel);
+      baseMaxHealth += baseMaxHealth * (0.06 * buffLevel);
       // 基础数值
-      baseMaxHealth += 200 * buffLevel;
+      baseMaxHealth += 120 * buffLevel;
     }
     return baseMaxHealth;
   }

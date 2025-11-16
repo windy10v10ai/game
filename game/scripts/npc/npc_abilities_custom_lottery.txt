@@ -290,8 +290,8 @@
 		{
 			"damage_reduction"
 			{
-				"value"				"8 10 12 14 16"
-				"special_bonus_shard"				"+2"
+				"value"				"8 11 14 17 20"
+				"special_bonus_shard"				"+4"
 			}
 			// 伤害阈值
 			"threshold"
