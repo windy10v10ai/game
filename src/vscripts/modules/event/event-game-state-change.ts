@@ -1,6 +1,4 @@
 import { FusionRuneManager } from '../../ai/item/fusion-rune-manager'; // 新增这行
-import { GameEndPlayerDto } from '../../api/analytics/dto/game-end-dto';
-import { Game } from '../../api/game';
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
@@ -8,7 +6,6 @@ import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { HeroPick } from '../hero/hero-pick';
-import { GameEndPoint } from './game-end/game-end-point';
 export class EventGameStateChange {
   constructor() {
     ListenToGameEvent('game_rules_state_change', () => this.OnGameStateChanged(), this);
@@ -42,48 +39,48 @@ export class EventGameStateChange {
     FusionRuneManager.InitializeFusion(); // 新增这行
     // 每20分钟发送一次暂存积分
     // 工具模式下每2分钟发送一次,方便测试
-    const interval = IsInToolsMode() ? 20 : 1200;
-    Timers.CreateTimer(interval, () => {
-      print('[TempPoints] Timer triggered');
-      PlayerHelper.ForEachPlayer((playerId) => {
-        const steamId = PlayerResource.GetSteamAccountID(playerId);
-        if (steamId > 0) {
-          const matchId = GameRules.Script_GetMatchID().toString();
+    // const interval = IsInToolsMode() ? 20 : 1200;
+    // Timers.CreateTimer(interval, () => {
+    //   print('[TempPoints] Timer triggered');
+    //   PlayerHelper.ForEachPlayer((playerId) => {
+    //     const steamId = PlayerResource.GetSteamAccountID(playerId);
+    //     if (steamId > 0) {
+    //       const matchId = GameRules.Script_GetMatchID().toString();
 
-          const playerDto: GameEndPlayerDto = {
-            heroName: PlayerResource.GetSelectedHeroName(playerId),
-            steamId: steamId,
-            playerId: playerId, // 添加这个字段
-            teamId: PlayerResource.GetTeam(playerId),
-            isDisconnected:
-              PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
-            level: PlayerResource.GetLevel(playerId),
-            gold: PlayerResource.GetGold(playerId),
-            kills: PlayerResource.GetKills(playerId),
-            deaths: PlayerResource.GetDeaths(playerId),
-            assists: PlayerResource.GetAssists(playerId),
-            damage: PlayerResource.GetRawPlayerDamage(playerId),
-            damageTaken: 0,
-            healing: PlayerResource.GetHealing(playerId),
-            lastHits: PlayerResource.GetLastHits(playerId),
-            towerKills: PlayerResource.GetTowerKills(playerId),
-            score: 0,
-            battlePoints: 0,
-            facetId: 0,
-          };
+    //       const playerDto: GameEndPlayerDto = {
+    //         heroName: PlayerResource.GetSelectedHeroName(playerId),
+    //         steamId: steamId,
+    //         playerId: playerId, // 添加这个字段
+    //         teamId: PlayerResource.GetTeam(playerId),
+    //         isDisconnected:
+    //           PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
+    //         level: PlayerResource.GetLevel(playerId),
+    //         gold: PlayerResource.GetGold(playerId),
+    //         kills: PlayerResource.GetKills(playerId),
+    //         deaths: PlayerResource.GetDeaths(playerId),
+    //         assists: PlayerResource.GetAssists(playerId),
+    //         damage: PlayerResource.GetRawPlayerDamage(playerId),
+    //         damageTaken: 0,
+    //         healing: PlayerResource.GetHealing(playerId),
+    //         lastHits: PlayerResource.GetLastHits(playerId),
+    //         towerKills: PlayerResource.GetTowerKills(playerId),
+    //         score: 0,
+    //         battlePoints: 0,
+    //         facetId: 0,
+    //       };
 
-          const battlePoints = GameEndPoint.CalculatePlayerScore(playerDto);
-          // 输出调试信息
-          print(`[TempPoints] Player ${steamId}: ${battlePoints} points`);
-          print(
-            `[TempPoints] Stats - K:${playerDto.kills} D:${playerDto.deaths} A:${playerDto.assists}`,
-          );
+    //       const battlePoints = GameEndPoint.CalculatePlayerScore(playerDto);
+    //       // 输出调试信息
+    //       print(`[TempPoints] Player ${steamId}: ${battlePoints} points`);
+    //       print(
+    //         `[TempPoints] Stats - K:${playerDto.kills} D:${playerDto.deaths} A:${playerDto.assists}`,
+    //       );
 
-          Game.PostSaveTempPoints(steamId, matchId, battlePoints);
-        }
-      });
-      return 1200; // 继续每20分钟执行
-    });
+    //       Game.PostSaveTempPoints(steamId, matchId, battlePoints);
+    //     }
+    //   });
+    //   return 1200; // 继续每20分钟执行
+    // });
   }
 
   /**
@@ -141,24 +138,19 @@ export class EventGameStateChange {
     // 延迟为泉水设置技能等级
     Timers.CreateTimer(1, () => {
       const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
-      //print('[fountain] found', fountains.length, 'fountains');
 
       for (const fountain of fountains) {
-        const towerPower = GameRules.Option.towerPower;
-        const towerLevel = this.getTowerLevel(towerPower);
-        //print('[fountain] level', towerLevel);
+        const botMultiplier = GameRules.Option.direGoldXpMultiplier;
+        const towerLevel = this.getTowerLevel(botMultiplier);
 
-        // 查找并设置技能等级
         const furySwipes = fountain.FindAbilityByName('tower_ursa_fury_swipes');
         if (furySwipes !== undefined) {
           furySwipes.SetLevel(towerLevel);
-          //print('[fountain] furySwipes SetLevel', towerLevel);
         }
 
         const manaBreak = fountain.FindAbilityByName('tower_antimage_mana_break');
         if (manaBreak !== undefined) {
           manaBreak.SetLevel(towerLevel);
-          //print('[fountain] manaBreak SetLevel', towerLevel);
         }
       }
     });
@@ -256,14 +248,17 @@ export class EventGameStateChange {
   }
 
   private addModifierToTowers(building: CDOTA_BaseNPC) {
-    // 防御塔攻击
-    const towerPower = GameRules.Option.towerPower;
-    const towerLevel = this.getTowerLevel(towerPower);
-
+    // // 防御塔攻击
+    // const towerPower = GameRules.Option.towerPower;
+    // const towerLevel = this.getTowerLevel(towerPower);
+    // 使用AI倍率而非towerPower百分比
+    const botMultiplier = GameRules.Option.direGoldXpMultiplier;
+    const towerLevel = this.getTowerLevel(botMultiplier);
     ModifierHelper.applyTowerModifier(building, `modifier_tower_power`, towerLevel);
 
     // 防御塔血量
-    const newHealth = Math.floor((towerPower / 100) * building.GetMaxHealth());
+    //const newHealth = Math.floor((towerPower / 100) * building.GetMaxHealth());
+    const newHealth = Math.floor((towerLevel / 1.3) * building.GetMaxHealth());
     building.SetMaxHealth(newHealth);
     building.SetBaseMaxHealth(newHealth);
     building.SetHealth(newHealth);
@@ -304,27 +299,51 @@ export class EventGameStateChange {
     }
   }
 
-  private getTowerLevel(percent: number): number {
-    if (percent <= 100) {
-      return 1;
-    } else if (percent <= 150) {
-      return 2;
-    } else if (percent <= 200) {
-      return 3;
-    } else if (percent <= 250) {
-      return 4;
-    } else if (percent <= 300) {
-      return 5;
-    } else if (percent <= 350) {
-      return 6;
-    } else if (percent <= 400) {
-      return 7;
-    } else if (percent <= 500) {
-      return 8;
-    } else if (percent <= 600) {
-      return 9;
-    } else if (percent <= 700) {
+  // private getTowerLevel(percent: number): number {
+  //   if (percent <= 100) {
+  //     return 1;
+  //   } else if (percent <= 150) {
+  //     return 2;
+  //   } else if (percent <= 200) {
+  //     return 3;
+  //   } else if (percent <= 250) {
+  //     return 4;
+  //   } else if (percent <= 300) {
+  //     return 5;
+  //   } else if (percent <= 350) {
+  //     return 6;
+  //   } else if (percent <= 400) {
+  //     return 7;
+  //   } else if (percent <= 500) {
+  //     return 8;
+  //   } else if (percent <= 600) {
+  //     return 9;
+  //   } else if (percent <= 700) {
+  //     return 10;
+  //   }
+  //   return 1;
+  // }
+  private getTowerLevel(multiplier: number): number {
+    if (multiplier >= 100) {
       return 10;
+    } else if (multiplier >= 40) {
+      return 9;
+    } else if (multiplier >= 20) {
+      return 8;
+    } else if (multiplier >= 15) {
+      return 7;
+    } else if (multiplier >= 12) {
+      return 6;
+    } else if (multiplier >= 10) {
+      return 5;
+    } else if (multiplier >= 8) {
+      return 4;
+    } else if (multiplier >= 6) {
+      return 3;
+    } else if (multiplier >= 4) {
+      return 2;
+    } else if (multiplier >= 2) {
+      return 1;
     }
     return 1;
   }
