@@ -7040,7 +7040,7 @@
 			// 刃甲属性
 			"passive_reflection_constant"	"80"	// 被动反伤固定值
 			"passive_reflection_pct"		"25"	// 被动反伤百分比
-			"active_reflection_pct"			"100"	// 主动反伤百分比
+			"active_reflection_pct"			"120"	// 主动反伤百分比
 			"bonus_armor"					"80"	// 护甲
 
 			// Lua 逻辑需要
@@ -7048,7 +7048,7 @@
 
 			"active_duration"				"5"		// 主动持续时间
 			"blast_radius"					"900"	// 冲击波范围
-			"blast_damage"					"900"	// 冲击波伤害
+			"blast_damage"					"1200"	// 冲击波伤害
 
 			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
 			"movement_slow"					"40"	// tooltip only - 移速减缓
@@ -7057,7 +7057,7 @@
 
 			// 辉耀光环（事件驱动）
 			"aura_radius"					"900"	// 光环范围
-			"aura_damage"					"120"	// 光环伤害
+			"aura_damage"					"180"	// 光环伤害
 			"blind_pct"						"17"	// 致盲百分比
 
 			// 被动属性

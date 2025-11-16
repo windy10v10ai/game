@@ -133,25 +133,17 @@ export class CreepBuffManager {
     // 根据2塔摧毁情况增加buff
     if (TowerPushStatus.tower2PushedGood === 1) {
       buffLevelGood += 1;
-    } else if (TowerPushStatus.tower2PushedGood > 1) {
-      buffLevelGood += 2;
     }
     if (TowerPushStatus.tower2PushedBad === 1) {
       buffLevelBad += 1;
-    } else if (TowerPushStatus.tower2PushedBad > 1) {
-      buffLevelBad += 2;
     }
 
     // 根据3塔摧毁情况增加buff
     if (TowerPushStatus.tower3PushedGood === 1) {
       buffLevelGood += 1;
-    } else if (TowerPushStatus.tower3PushedGood > 1) {
-      buffLevelGood += 2;
     }
     if (TowerPushStatus.tower3PushedBad === 1) {
       buffLevelBad += 1;
-    } else if (TowerPushStatus.tower3PushedBad > 1) {
-      buffLevelBad += 2;
     }
 
     // 根据4塔摧毁情况增加buff和超级小兵buff
