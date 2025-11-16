@@ -200,22 +200,20 @@ export class CreepBuffManager {
   }
 
   private getCreepBuffByTowerPower(): number {
-    // 前10分钟不计算防御塔buff等级
+    // 前5分钟不计算防御塔buff等级
     const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 10 * 60) {
+    if (gameTime <= 5 * 60) {
       return 0;
     }
     const sumTowerPower = GameRules.Option.towerPower;
-    if (sumTowerPower <= 5) {
-      return 0; // 150%
-    } else if (sumTowerPower <= 7) {
-      return 1; // 200%
-    } else if (sumTowerPower <= 8) {
+    if (sumTowerPower <= 150) {
+      return 0;
+    } else if (sumTowerPower <= 300) {
+      return 1;
+    } else if (sumTowerPower <= 400) {
       return 2; // 250%
-    } else if (sumTowerPower <= 9) {
-      return 3; // 300%
     } else {
-      return 4; // 500%
+      return 3;
     }
   }
 

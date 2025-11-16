@@ -40,13 +40,6 @@ export class EventGameStateChange {
     }
   }
 
-  private OnGameInProgress(): void {
-    // 记录游戏开始时间用于 GA4 统计
-    GA4.RecordGameStartTime();
-    // 初始化融合符文
-    FusionRuneManager.InitializeFusion();
-  }
-
   /**
    * 选择英雄时间
    */
@@ -75,9 +68,6 @@ export class EventGameStateChange {
 
     // 初始化小兵buff管理器
     new CreepBuffManager();
-
-    // 初始化Bot团队策略
-    new BotTeam();
 
     // 初始化英雄买活金钱管理器
     new HeroBuyback();
@@ -138,6 +128,15 @@ export class EventGameStateChange {
       }
     });
     this.setPlayerColor();
+  }
+
+  private OnGameInProgress(): void {
+    // 记录游戏开始时间用于 GA4 统计
+    GA4.RecordGameStartTime();
+    // 初始化融合符文
+    FusionRuneManager.InitializeFusion();
+    // 初始化Bot团队策略
+    new BotTeam();
   }
 
   private SpawnFountainGuard(): void {
