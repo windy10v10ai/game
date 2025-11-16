@@ -202,6 +202,9 @@ export const abilityTiersPassive: Tier[] = [
       'ability_trigger_learned_skills', //蓝蝴蝶
       'ability_trigger_on_spell_reflect', //绿蝴蝶
       'ability_charge_damage', //青蝴蝶
+      'ability_trigger_on_cast', //红蝴蝶
+      'ability_trigger_on_attacked', //金蝴蝶
+      'ability_trigger_on_move', //橙影蝴蝶
     ],
   },
   {
@@ -234,10 +237,6 @@ export const abilityTiersPassive: Tier[] = [
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
       'medusa_mana_shield2', // 魔法盾
-
-      'ability_trigger_on_cast', //红蝴蝶
-      'ability_trigger_on_attacked', //金蝴蝶
-      'ability_trigger_on_move', //橙影蝴蝶
     ],
   },
   {
