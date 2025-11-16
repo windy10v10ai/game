@@ -342,34 +342,3 @@ function AIGameMode:SetUnitShareMask(data)
         CustomNetTables:SetTableValue("disable_help", tostring(playerId), disableHelp)
     end
 end
-
--- -- 技能重置:移除技能
--- CustomGameEventManager:RegisterListener("skill_reset_remove_ability", function(userId, event)
---     local playerID = event.PlayerID
---     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
---     if not hero then return end
-
---     local abilityName = event.ability_name
---     local ability = hero:FindAbilityByName(abilityName)
---     if ability then
---         local level = ability:GetLevel()
---         hero:RemoveAbility(abilityName)
---         hero:SetAbilityPoints(hero:GetAbilityPoints() + level)
---         print("[SkillReset] Removed ability: " .. abilityName .. ", returned " .. level .. " points")
---     end
--- end)
-
--- -- 技能重置:添加技能
--- CustomGameEventManager:RegisterListener("skill_reset_add_ability", function(userId, event)
---     local playerID = event.PlayerID
---     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
---     if not hero then return end
-
---     local abilityName = event.ability_name
---     hero:AddAbility(abilityName)
---     print("[SkillReset] Added ability: " .. abilityName)
-
---     -- 清除 CustomNetTables 数据
---     local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
---     CustomNetTables:SetTableValue("skill_reset", tostring(steamAccountID), nil)
--- end)
