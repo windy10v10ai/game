@@ -76,7 +76,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 1
+		"ArmorPhysical"				"10"		// 1
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
@@ -108,7 +108,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"5"			// 1
+		"ArmorPhysical"				"10"		// 1
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
@@ -140,7 +140,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 3
+		"ArmorPhysical"				"20"		// 3
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
@@ -171,7 +171,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 3
+		"ArmorPhysical"				"20"		// 3
 		"MagicalResistance"			"25"		// 0
 
 		// Attack
@@ -272,7 +272,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 1
+		"ArmorPhysical"				"20"		// 1
 		"MagicalResistance"			"50"		// 0
 
 		// Attack
@@ -304,7 +304,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"10"		// 1
+		"ArmorPhysical"				"20"		// 1
 		"MagicalResistance"			"50"		// 0
 
 		// Attack
@@ -337,7 +337,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// 1
+		"ArmorPhysical"				"40"		// 1
 		"MagicalResistance"			"50"		// 0
 
 		// Attack
@@ -368,7 +368,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"20"		// 1
+		"ArmorPhysical"				"40"		// 1
 		"MagicalResistance"			"50"		// 0
 
 		// Attack

@@ -362,7 +362,6 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"30 60 90 120 160 200 250 300"
-				"bonus_armor"			"5 10 15 20 25 30 35 40"
 				"damage_reduction"		"-33 -50 -60 -67 -71 -75 -78 -80"
 		}
 		"Modifiers"
@@ -376,7 +375,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_reduction"
 				}
 			}
@@ -395,7 +393,6 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"60 120 180 240 320 400 500 600"
-				"bonus_armor"			"5 10 15 20 25 30 35 40"
 				"damage_reduction"		"-33 -50 -60 -67 -71 -75 -78 -80"
 		}
 		"Modifiers"
@@ -409,7 +406,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"%bonus_armor"
 					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_reduction"
 				}
 			}

@@ -239,13 +239,11 @@
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Level up based on how many towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"ATTACK DAMAGE BONUS:"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"ARMOR BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Level up based on how many towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"ATTACK DAMAGE BONUS:"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"ARMOR BONUS"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%NON-HERO BONUS ATTACK DAMAGE:"
