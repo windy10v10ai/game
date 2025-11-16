@@ -2,7 +2,7 @@ import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
 
 // 全局游戏状态 - 记录塔摧毁情况
-export class GamePushStatus {
+export class TowerPushStatus {
   static tower1PushedBad = 0;
   static tower1PushedGood = 0;
   static tower2PushedBad = 0;
@@ -61,26 +61,26 @@ export class EventEntityKilled {
 
     if (unitName.indexOf('tower1') !== -1) {
       if (team === DotaTeam.GOODGUYS) {
-        GamePushStatus.tower1PushedBad++;
-        print(`tower1PushedBad ${GamePushStatus.tower1PushedBad}`);
+        TowerPushStatus.tower1PushedBad++;
+        print(`tower1PushedBad ${TowerPushStatus.tower1PushedBad}`);
       } else if (team === DotaTeam.BADGUYS) {
-        GamePushStatus.tower1PushedGood++;
-        print(`tower1PushedGood ${GamePushStatus.tower1PushedGood}`);
+        TowerPushStatus.tower1PushedGood++;
+        print(`tower1PushedGood ${TowerPushStatus.tower1PushedGood}`);
       }
     } else if (unitName.indexOf('tower2') !== -1) {
       if (team === DotaTeam.GOODGUYS) {
-        GamePushStatus.tower2PushedBad++;
-        print(`tower2PushedBad ${GamePushStatus.tower2PushedBad}`);
+        TowerPushStatus.tower2PushedBad++;
+        print(`tower2PushedBad ${TowerPushStatus.tower2PushedBad}`);
       } else if (team === DotaTeam.BADGUYS) {
-        GamePushStatus.tower2PushedGood++;
-        print(`tower2PushedGood ${GamePushStatus.tower2PushedGood}`);
+        TowerPushStatus.tower2PushedGood++;
+        print(`tower2PushedGood ${TowerPushStatus.tower2PushedGood}`);
       }
     } else if (unitName.indexOf('tower3') !== -1) {
       if (team === DotaTeam.GOODGUYS) {
-        GamePushStatus.tower3PushedBad++;
-        print(`tower3PushedBad ${GamePushStatus.tower3PushedBad}`);
+        TowerPushStatus.tower3PushedBad++;
+        print(`tower3PushedBad ${TowerPushStatus.tower3PushedBad}`);
         // 破高地后 给4塔和基地添加分裂箭
-        if (GamePushStatus.tower3PushedBad === 1) {
+        if (TowerPushStatus.tower3PushedBad === 1) {
           this.addSplitShotToTowersAndFort(
             'npc_dota_goodguys_tower4',
             'npc_dota_goodguys_fort',
@@ -89,10 +89,10 @@ export class EventEntityKilled {
           );
         }
       } else if (team === DotaTeam.BADGUYS) {
-        GamePushStatus.tower3PushedGood++;
-        print(`tower3PushedGood ${GamePushStatus.tower3PushedGood}`);
+        TowerPushStatus.tower3PushedGood++;
+        print(`tower3PushedGood ${TowerPushStatus.tower3PushedGood}`);
         // 破高地后 给4塔和基地添加分裂箭
-        if (GamePushStatus.tower3PushedGood === 1) {
+        if (TowerPushStatus.tower3PushedGood === 1) {
           this.addSplitShotToTowersAndFort(
             'npc_dota_badguys_tower4',
             'npc_dota_badguys_fort',
@@ -103,11 +103,11 @@ export class EventEntityKilled {
       }
     } else if (unitName.indexOf('tower4') !== -1) {
       if (team === DotaTeam.GOODGUYS) {
-        GamePushStatus.tower4PushedBad++;
-        print(`tower4PushedBad ${GamePushStatus.tower4PushedBad}`);
+        TowerPushStatus.tower4PushedBad++;
+        print(`tower4PushedBad ${TowerPushStatus.tower4PushedBad}`);
       } else if (team === DotaTeam.BADGUYS) {
-        GamePushStatus.tower4PushedGood++;
-        print(`tower4PushedGood ${GamePushStatus.tower4PushedGood}`);
+        TowerPushStatus.tower4PushedGood++;
+        print(`tower4PushedGood ${TowerPushStatus.tower4PushedGood}`);
       }
     }
   }
@@ -155,11 +155,11 @@ export class EventEntityKilled {
   private onBarrackKilled(barrack: CDOTA_BaseNPC): void {
     const team = barrack.GetTeamNumber();
     if (team === DotaTeam.GOODGUYS) {
-      GamePushStatus.barrackPushedBad++;
-      print(`barrackPushedBad ${GamePushStatus.barrackPushedBad}`);
+      TowerPushStatus.barrackPushedBad++;
+      print(`barrackPushedBad ${TowerPushStatus.barrackPushedBad}`);
     } else if (team === DotaTeam.BADGUYS) {
-      GamePushStatus.barrackPushedGood++;
-      print(`barrackPushedGood ${GamePushStatus.barrackPushedGood}`);
+      TowerPushStatus.barrackPushedGood++;
+      print(`barrackPushedGood ${TowerPushStatus.barrackPushedGood}`);
     }
   }
 
