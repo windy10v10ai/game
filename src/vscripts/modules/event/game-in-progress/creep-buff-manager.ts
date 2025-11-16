@@ -192,9 +192,9 @@ export class CreepBuffManager {
 
     if (buffLevel > 0) {
       // 额外百分比血量
-      baseMaxHealth += baseMaxHealth * (0.1 * buffLevel);
+      baseMaxHealth += baseMaxHealth * (0.06 * buffLevel);
       // 基础数值
-      baseMaxHealth += 200 * buffLevel;
+      baseMaxHealth += 150 * buffLevel;
     }
     return baseMaxHealth;
   }
