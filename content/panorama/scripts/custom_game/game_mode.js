@@ -71,7 +71,7 @@ function InitCustomSetting() {
   $('#enable_player_attribute').checked = true;
   $('#extra_passive_abilities').checked = true; // 自定义难度默认勾选额外被动技能
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('14');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('15');
   $('#dire_player_number_dropdown').SetSelected('10');
 
   $('#respawn_time_percentage_dropdown').SetSelected('50');
