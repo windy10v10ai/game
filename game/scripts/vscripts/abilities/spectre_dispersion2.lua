@@ -64,7 +64,7 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
 
     local caster = self:GetParent()
     local ability = self:GetAbility()
-    local radius = 800
+    local radius = ability:GetSpecialValueFor("radius")
 
     -- 找到范围内所有敌人
     local enemies = FindUnitsInRadius(

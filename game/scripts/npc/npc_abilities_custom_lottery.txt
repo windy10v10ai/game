@@ -298,6 +298,11 @@
 			{
 				"value"				"10 20 30 40 50"
 			}
+			"radius"
+			{
+				"value"				"800"
+				"affected_by_aoe_increase"	"1"
+			}
 		}
 	}
 	//贪婪
