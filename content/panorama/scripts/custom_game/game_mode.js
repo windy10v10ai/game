@@ -379,7 +379,31 @@ function SendPlayerLanguage() {
   const language = $.Language();
   GameEvents.SendCustomGameEventToServer('player_language', { language });
 }
+// 在 game_mode.js 中添加或修改
+CustomNetTables.SubscribeNetTableListener('game_options', function (table, key, value) {
+  if (key === 'game_options' && value) {
+    // 计算防御塔等级上限
+    const xpMultiplier = value.multiplier_dire;
+    let maxLevel = 1;
 
+    if (xpMultiplier >= 100) {
+      maxLevel = 700;
+    } else if (xpMultiplier >= 40) {
+      maxLevel = 600;
+    } else if (xpMultiplier >= 20) {
+      maxLevel = 500;
+    } else if (xpMultiplier >= 15) {
+      maxLevel = 400;
+    } else if (xpMultiplier >= 12) {
+      maxLevel = 350;
+    } else {
+      maxLevel = Math.max(1, 350 - 50 * Math.floor((12 - xpMultiplier) / 2));
+    }
+
+    // 更新显示
+    $('#DisplayOptionsTowerMaxLevel').text = maxLevel + '%';
+  }
+});
 (function () {
   $('#radiant_player_number_dropdown').SetSelected('1');
   LockOption();
