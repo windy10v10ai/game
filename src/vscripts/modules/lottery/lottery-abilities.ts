@@ -103,7 +103,6 @@ export const abilityTiersActive: Tier[] = [
       'faceless_void_chronosphere', // 时间结界
       'marci_bodyguard', // 护卫术
       'shredder_whirling_death', // 死亡旋风
-      'shadow_demon_disseminate', // 散播
       'tidehunter_anchor_smash', // 锚击
       'primal_beast_trample', // 踏
       'mars_gods_rebuke', // 神之遣戒
@@ -185,7 +184,7 @@ export const abilityTiersPassive: Tier[] = [
       'sven_great_cleave', // 巨力挥舞
       'slardar_bash', // 深海重击
       'shredder_reactive_armor', // 活性活甲
-      'spectre_dispersion', // 幽鬼 折射
+      // 'spectre_dispersion', // 幽鬼 折射
       'spectre_dispersion2', // 幽鬼 折射改
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
