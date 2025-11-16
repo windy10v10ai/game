@@ -83,14 +83,16 @@ export class BotTeam {
    */
   private getTowerRequiredLevel(): number {
     const towerPower = GameRules.Option.towerPower;
-    if (towerPower <= 300) {
+    if (towerPower <= 200) {
       return 10;
-    } else if (towerPower <= 400) {
+    } else if (towerPower <= 300) {
       return 12;
-    } else if (towerPower <= 500) {
+    } else if (towerPower <= 400) {
       return 14;
-    } else {
+    } else if (towerPower <= 500) {
       return 16;
+    } else {
+      return 18;
     }
   }
 
