@@ -129,6 +129,7 @@ function UnLockOptionAll() {
 
 // N1-N6 通用设置
 function InitDifficultyCommonSetting() {
+  $('#radiant_player_number_dropdown').SetSelected('1');
   $('#dire_player_number_dropdown').SetSelected('10');
 
   $('#respawn_time_percentage_dropdown').SetSelected('100');
@@ -391,7 +392,10 @@ function SendPlayerLanguage() {
 }
 
 (function () {
-  $('#radiant_player_number_dropdown').SetSelected('1');
+  if (Game.GameStateIsAfter(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
+    // 选择英雄界面不再执行
+    return;
+  }
   LockOption();
   // 游戏选择项目table监听
   CustomNetTables.SubscribeNetTableListener('game_options', ShowGameOptionsChange);
