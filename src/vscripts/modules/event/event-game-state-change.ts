@@ -1,4 +1,5 @@
 import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
+import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4';
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
@@ -6,9 +7,9 @@ import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
-import { HeroManager } from './game-in-progress/hero-manager';
 export class EventGameStateChange {
   constructor() {
     ListenToGameEvent('game_rules_state_change', () => this.OnGameStateChanged(), this);
@@ -71,9 +72,14 @@ export class EventGameStateChange {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
 
-    // 初始化团队策略（推进策略、买活策略）
+    // 初始化小兵buff管理器
     new CreepBuffManager();
-    new HeroManager();
+
+    // 初始化Bot团队策略
+    new BotTeam();
+
+    // 初始化英雄买活金钱管理器
+    new HeroBuyback();
 
     // 防御塔BUFF
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];

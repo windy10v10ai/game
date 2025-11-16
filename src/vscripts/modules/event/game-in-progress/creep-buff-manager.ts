@@ -1,16 +1,18 @@
+import { reloadable } from '../../../utils/tstl-utils';
 import { TowerPushStatus } from '../event-entity-killed';
 
 /**
  * 小兵buff管理器
  * 负责给刷新的小兵添加buff
  */
+@reloadable
 export class CreepBuffManager {
   private currentBuffLevels = {
     buffLevelGood: 0,
     buffLevelBad: 0,
-    buffLevelMegaGood: 0,
-    buffLevelMegaBad: 0,
   };
+
+  private laneGoldMultiplier = 1;
 
   constructor() {
     ListenToGameEvent('npc_spawned', (keys) => this.onNPCSpawned(keys), this);
@@ -22,8 +24,8 @@ export class CreepBuffManager {
   }
 
   private refreshBuffLevels(): void {
-    const gameTime = GameRules.GetDOTATime(false, false);
-    this.currentBuffLevels = this.calculateCreepBuffLevels(gameTime);
+    this.currentBuffLevels = this.calculateCreepBuffLevels();
+    this.laneGoldMultiplier = this.calculateLaneGoldMultiplier();
   }
 
   private onNPCSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
@@ -51,26 +53,27 @@ export class CreepBuffManager {
     const team = creep.GetTeamNumber();
 
     let buffLevel = 0;
-    let buffLevelMega = 0;
 
     if (team === DotaTeam.GOODGUYS) {
       buffLevel = this.currentBuffLevels.buffLevelGood;
-      buffLevelMega = this.currentBuffLevels.buffLevelMegaGood;
     } else if (team === DotaTeam.BADGUYS) {
       buffLevel = this.currentBuffLevels.buffLevelBad;
-      buffLevelMega = this.currentBuffLevels.buffLevelMegaBad;
     }
 
     // 随时间增加金钱
     const originMaxGold = creep.GetMaximumGoldBounty();
     const originMinGold = creep.GetMinimumGoldBounty();
-    const mul = this.getLaneGoldMultiplier();
-    const modifiedMaxGold = originMaxGold * mul;
-    const modifiedMinGold = originMinGold * mul;
+    const modifiedMaxGold = originMaxGold * this.laneGoldMultiplier;
+    const modifiedMinGold = originMinGold * this.laneGoldMultiplier;
     creep.SetMaximumGoldBounty(modifiedMaxGold);
     creep.SetMinimumGoldBounty(modifiedMinGold);
+    // TODO
+    creep.SetBaseMaxHealth(10000);
+    print(
+      `[CreepBuffManager] applyCreepBuff: ${creep.GetUnitName()}, maxGold: ${modifiedMaxGold}, minGold: ${modifiedMinGold}`,
+    );
 
-    // 普通小兵buff
+    // 添加小兵buff
     if (buffLevel > 0) {
       if (unitName.indexOf('upgraded') === -1 && unitName.indexOf('mega') === -1) {
         const ability = creep.AddAbility('creep_buff');
@@ -78,23 +81,18 @@ export class CreepBuffManager {
           ability.SetLevel(buffLevel);
         }
         return;
-      }
-    }
-
-    // 超级小兵buff
-    if (buffLevelMega > 0) {
-      if (unitName.indexOf('upgraded') !== -1 && unitName.indexOf('mega') === -1) {
+      } else if (unitName.indexOf('upgraded') !== -1 && unitName.indexOf('mega') === -1) {
         // upgrade creep
         const ability = creep.AddAbility('creep_buff_upgraded');
         if (ability !== undefined) {
-          ability.SetLevel(buffLevelMega);
+          ability.SetLevel(buffLevel);
         }
         return;
       } else if (unitName.indexOf('mega') !== -1) {
         // mega creep
         const ability = creep.AddAbility('creep_buff_mega');
         if (ability !== undefined) {
-          ability.SetLevel(buffLevelMega);
+          ability.SetLevel(buffLevel);
         }
         return;
       }
@@ -104,7 +102,7 @@ export class CreepBuffManager {
   /**
    * 小兵金钱随时间增加
    */
-  private getLaneGoldMultiplier(): number {
+  private calculateLaneGoldMultiplier(): number {
     const time = GameRules.GetDOTATime(false, false);
     let mul = 1;
     if (time <= 15 * 60) {
@@ -117,90 +115,56 @@ export class CreepBuffManager {
     return mul;
   }
 
-  private calculateBaseCreepBuffLevel(sumTowerPower: number): number {
-    if (sumTowerPower <= 5) {
-      return 0; // 150%
-    } else if (sumTowerPower <= 7) {
-      return 1; // 200%
-    } else if (sumTowerPower <= 8) {
-      return 2; // 250%
-    } else if (sumTowerPower <= 9) {
-      return 3; // 300%
-    } else {
-      return 4; // 500%
-    }
-  }
-
   /**
    * 计算小兵buff等级
    */
-  private calculateCreepBuffLevels(gameTime: number): {
+  private calculateCreepBuffLevels(): {
     buffLevelGood: number;
     buffLevelBad: number;
-    buffLevelMegaGood: number;
-    buffLevelMegaBad: number;
   } {
-    let buffLevelGood = 0;
-    let buffLevelBad = 0;
-    let buffLevelMegaGood = 0;
-    let buffLevelMegaBad = 0;
+    // 添加基础buff等级
+    // 根据防御塔等级增加buff
+    let baseCreepBuffLevel = this.getCreepBuffByTowerPower();
+    // 根据游戏时间增加buff
+    baseCreepBuffLevel += this.getCreepBuffByGameTime();
+
+    let buffLevelGood = baseCreepBuffLevel;
+    let buffLevelBad = baseCreepBuffLevel;
+
+    // 根据2塔摧毁情况增加buff
+    if (TowerPushStatus.tower2PushedGood === 1) {
+      buffLevelGood += 1;
+    } else if (TowerPushStatus.tower2PushedGood > 1) {
+      buffLevelGood += 2;
+    }
+    if (TowerPushStatus.tower2PushedBad === 1) {
+      buffLevelBad += 1;
+    } else if (TowerPushStatus.tower2PushedBad > 1) {
+      buffLevelBad += 2;
+    }
 
     // 根据3塔摧毁情况增加buff
     if (TowerPushStatus.tower3PushedGood === 1) {
       buffLevelGood += 1;
     } else if (TowerPushStatus.tower3PushedGood > 1) {
-      buffLevelGood += 3;
+      buffLevelGood += 2;
     }
     if (TowerPushStatus.tower3PushedBad === 1) {
       buffLevelBad += 1;
     } else if (TowerPushStatus.tower3PushedBad > 1) {
-      buffLevelBad += 3;
+      buffLevelBad += 2;
     }
 
     // 根据4塔摧毁情况增加buff和超级小兵buff
-    if (TowerPushStatus.tower4PushedGood > 1) {
-      buffLevelGood += 2;
-      buffLevelMegaGood += 1;
-    }
-    if (TowerPushStatus.tower4PushedBad > 1) {
-      buffLevelBad += 2;
-      buffLevelMegaBad += 1;
-    }
-
-    // 添加基础buff等级
-    const baseCreepBuffLevel = this.calculateBaseCreepBuffLevel(GameRules.Option.towerPower);
-    buffLevelMegaGood += baseCreepBuffLevel;
-    buffLevelMegaBad += baseCreepBuffLevel;
-
-    // 根据游戏时间增加buff
-    if (gameTime >= 45 * 60) {
-      buffLevelGood += 5;
-      buffLevelBad += 5;
-      buffLevelMegaGood += 5;
-      buffLevelMegaBad += 5;
-    } else if (gameTime >= 40 * 60) {
-      buffLevelGood += 4;
-      buffLevelBad += 4;
-      buffLevelMegaGood += 4;
-      buffLevelMegaBad += 4;
-    } else if (gameTime >= 35 * 60) {
-      buffLevelGood += 3;
-      buffLevelBad += 3;
-      buffLevelMegaGood += 3;
-      buffLevelMegaBad += 3;
-    } else if (gameTime >= 30 * 60) {
-      buffLevelGood += 2;
-      buffLevelBad += 2;
-      buffLevelMegaGood += 2;
-      buffLevelMegaBad += 2;
-    } else if (gameTime >= 25 * 60) {
+    if (TowerPushStatus.tower4PushedGood === 1) {
       buffLevelGood += 1;
+    } else if (TowerPushStatus.tower4PushedGood > 1) {
+      buffLevelGood += 2;
+    }
+    if (TowerPushStatus.tower4PushedBad === 1) {
       buffLevelBad += 1;
-      buffLevelMegaGood += 1;
-      buffLevelMegaBad += 1;
-    } else if (gameTime >= 20 * 60) {
-      buffLevelGood += 1;
-      buffLevelBad += 1;
+    } else if (TowerPushStatus.tower4PushedBad > 1) {
+      buffLevelBad += 2;
     }
 
     // 未推掉任何塔时，不设置小兵buff
@@ -214,14 +178,49 @@ export class CreepBuffManager {
     // 限制最大值为8
     buffLevelGood = Math.min(buffLevelGood, 8);
     buffLevelBad = Math.min(buffLevelBad, 8);
-    buffLevelMegaGood = Math.min(buffLevelMegaGood, 8);
-    buffLevelMegaBad = Math.min(buffLevelMegaBad, 8);
 
     return {
       buffLevelGood,
       buffLevelBad,
-      buffLevelMegaGood,
-      buffLevelMegaBad,
     };
+  }
+
+  private getCreepBuffByTowerPower(): number {
+    // 前10分钟不计算防御塔buff等级
+    const gameTime = GameRules.GetDOTATime(false, false);
+    if (gameTime <= 10 * 60) {
+      return 0;
+    }
+    const sumTowerPower = GameRules.Option.towerPower;
+    if (sumTowerPower <= 5) {
+      return 0; // 150%
+    } else if (sumTowerPower <= 7) {
+      return 1; // 200%
+    } else if (sumTowerPower <= 8) {
+      return 2; // 250%
+    } else if (sumTowerPower <= 9) {
+      return 3; // 300%
+    } else {
+      return 4; // 500%
+    }
+  }
+
+  private getCreepBuffByGameTime(): number {
+    const gameTime = GameRules.GetDOTATime(false, false);
+    if (gameTime <= 10 * 60) {
+      return 0;
+    } else if (gameTime <= 15 * 60) {
+      return 1;
+    } else if (gameTime <= 20 * 60) {
+      return 2;
+    } else if (gameTime <= 25 * 60) {
+      return 3;
+    } else if (gameTime <= 30 * 60) {
+      return 4;
+    } else if (gameTime <= 35 * 60) {
+      return 5;
+    } else {
+      return 6;
+    }
   }
 }
