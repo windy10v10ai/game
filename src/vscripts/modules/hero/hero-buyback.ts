@@ -32,13 +32,9 @@ export class HeroBuyback {
         if (TowerPushStatus.tower3PushedGood > 0 || TowerPushStatus.tower3PushedBad > 0) {
           // 3塔被推后，允许买活
           PlayerResource.SetCustomBuybackCost(playerId, this.calculateBuybackCost(playerId));
-          print(
-            `[HeroBuyback] playerId: ${playerId}, buybackCost: ${this.calculateBuybackCost(playerId)}`,
-          );
         } else {
           // 3塔未被推，禁止买活
           PlayerResource.SetCustomBuybackCost(playerId, 100000);
-          print(`[HeroBuyback] playerId: ${playerId}, buybackCost: 100000`);
         }
       } else {
         // 真人玩家，正常买活

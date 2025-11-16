@@ -10,6 +10,7 @@ import { PlayerHelper } from '../helper/player-helper';
 import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
+
 export class EventGameStateChange {
   constructor() {
     ListenToGameEvent('game_rules_state_change', () => this.OnGameStateChanged(), this);
