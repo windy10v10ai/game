@@ -1,6 +1,20 @@
 import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
 
+// 全局游戏状态 - 记录塔摧毁情况
+export class GamePushStatus {
+  static tower1PushedBad = 0;
+  static tower1PushedGood = 0;
+  static tower2PushedBad = 0;
+  static tower2PushedGood = 0;
+  static tower3PushedBad = 0;
+  static tower3PushedGood = 0;
+  static tower4PushedBad = 0;
+  static tower4PushedGood = 0;
+  static barrackPushedBad = 0;
+  static barrackPushedGood = 0;
+}
+
 export class EventEntityKilled {
   constructor() {
     ListenToGameEvent('entity_killed', (keys) => this.OnEntityKilled(keys), this);
@@ -19,10 +33,133 @@ export class EventEntityKilled {
       this.onWindyKilled(killedUnit);
       return;
     }
-    if (killedUnit.IsRealHero() && !killedUnit.IsReincarnating()) {
+    // 检查是否为防御塔
+    if (killedUnit.IsTower()) {
+      this.onTowerKilled(killedUnit);
+    }
+    // 检查是否为兵营
+    else if (this.isBarrack(killedUnit)) {
+      this.onBarrackKilled(killedUnit);
+    }
+    // 检查是否为英雄
+    else if (killedUnit.IsRealHero() && !killedUnit.IsReincarnating()) {
       this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero, attacker);
-    } else if (killedUnit.IsCreep()) {
+    }
+    // 检查是否为小兵
+    else if (killedUnit.IsCreep()) {
       this.onCreepKilled(killedUnit, attacker);
+    }
+  }
+
+  //--------------------------------------------------------------------------------------------------------
+  // 防御塔击杀
+  //--------------------------------------------------------------------------------------------------------
+
+  private onTowerKilled(tower: CDOTA_BaseNPC): void {
+    const team = tower.GetTeamNumber();
+    const unitName = tower.GetUnitName();
+
+    if (unitName.indexOf('tower1') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        GamePushStatus.tower1PushedBad++;
+        print(`tower1PushedBad ${GamePushStatus.tower1PushedBad}`);
+      } else if (team === DotaTeam.BADGUYS) {
+        GamePushStatus.tower1PushedGood++;
+        print(`tower1PushedGood ${GamePushStatus.tower1PushedGood}`);
+      }
+    } else if (unitName.indexOf('tower2') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        GamePushStatus.tower2PushedBad++;
+        print(`tower2PushedBad ${GamePushStatus.tower2PushedBad}`);
+      } else if (team === DotaTeam.BADGUYS) {
+        GamePushStatus.tower2PushedGood++;
+        print(`tower2PushedGood ${GamePushStatus.tower2PushedGood}`);
+      }
+    } else if (unitName.indexOf('tower3') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        GamePushStatus.tower3PushedBad++;
+        print(`tower3PushedBad ${GamePushStatus.tower3PushedBad}`);
+        // 破高地后 给4塔和基地添加分裂箭
+        if (GamePushStatus.tower3PushedBad === 1) {
+          this.addSplitShotToTowersAndFort(
+            'npc_dota_goodguys_tower4',
+            'npc_dota_goodguys_fort',
+            1,
+            3,
+          );
+        }
+      } else if (team === DotaTeam.BADGUYS) {
+        GamePushStatus.tower3PushedGood++;
+        print(`tower3PushedGood ${GamePushStatus.tower3PushedGood}`);
+        // 破高地后 给4塔和基地添加分裂箭
+        if (GamePushStatus.tower3PushedGood === 1) {
+          this.addSplitShotToTowersAndFort(
+            'npc_dota_badguys_tower4',
+            'npc_dota_badguys_fort',
+            1,
+            2,
+          );
+        }
+      }
+    } else if (unitName.indexOf('tower4') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        GamePushStatus.tower4PushedBad++;
+        print(`tower4PushedBad ${GamePushStatus.tower4PushedBad}`);
+      } else if (team === DotaTeam.BADGUYS) {
+        GamePushStatus.tower4PushedGood++;
+        print(`tower4PushedGood ${GamePushStatus.tower4PushedGood}`);
+      }
+    }
+  }
+
+  private addSplitShotToTowersAndFort(
+    towerName: string,
+    fortName: string,
+    towerLevel: number,
+    fortLevel: number,
+  ): void {
+    // 给4塔添加分裂箭
+    const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
+    for (const tower of towers) {
+      if (tower.GetUnitName().indexOf(towerName) !== -1) {
+        const splitShot = tower.AddAbility('tower_split_shot');
+        if (splitShot !== undefined) {
+          splitShot.SetLevel(towerLevel);
+          splitShot.ToggleAbility();
+        }
+      }
+    }
+
+    // 给基地添加分裂箭
+    const forts = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
+    for (const fort of forts) {
+      if (fort.GetUnitName().indexOf(fortName) !== -1) {
+        const splitShot = fort.AddAbility('tower_split_shot');
+        if (splitShot !== undefined) {
+          splitShot.SetLevel(fortLevel);
+          splitShot.ToggleAbility();
+        }
+      }
+    }
+  }
+
+  //--------------------------------------------------------------------------------------------------------
+  // 兵营击杀
+  //--------------------------------------------------------------------------------------------------------
+
+  private isBarrack(unit: CDOTA_BaseNPC): boolean {
+    const unitName = unit.GetUnitName();
+    return unitName.indexOf('barracks') !== -1;
+  }
+
+  private onBarrackKilled(barrack: CDOTA_BaseNPC): void {
+    const team = barrack.GetTeamNumber();
+    if (team === DotaTeam.GOODGUYS) {
+      GamePushStatus.barrackPushedBad++;
+      print(`barrackPushedBad ${GamePushStatus.barrackPushedBad}`);
+    } else if (team === DotaTeam.BADGUYS) {
+      GamePushStatus.barrackPushedGood++;
+      print(`barrackPushedGood ${GamePushStatus.barrackPushedGood}`);
     }
   }
 
