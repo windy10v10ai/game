@@ -30,12 +30,12 @@ end
 function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
         if keys.target == self:GetParent() then
-            if keys.original_damage >= 100 then
+            if keys.damage >= self:GetAbility():GetSpecialValueFor("damage_threshold") then
                 local damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction")
                 if self:GetParent():IsRealHero() then
                     if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION then
                         -- 累积总伤害(减免前的伤害)
-                        local reduced_damage = keys.original_damage * damage_reduction / 100
+                        local reduced_damage = keys.damage * damage_reduction / 100
                         self.accumulated_damage = self.accumulated_damage + reduced_damage
 
                         -- 启动定时器
