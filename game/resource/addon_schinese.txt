@@ -591,8 +591,10 @@
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（改）"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"提供%damage_reduction%%%伤害减免。"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"减免，积累并反弹一定比例的伤害（反弹间隔1s）"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"减免一定比例的伤害。并反弹实际收到的伤害给范围内的所有敌人。"
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"	"%折射比例："
+		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"		"折射伤害阈值："
+		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"折射范围："
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"伤害类型为纯粹，不可以被技能增强，无视减益免疫"
 		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
@@ -2991,9 +2993,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_Note1"									"伤害反弹不会反弹来自其他刃甲的伤害。"
 		"DOTA_Tooltip_ability_item_beast_armor_Note2"									"反弹伤害的类型与受到时相同。"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_strength"							"+$all"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_health"							"+$health"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_spell_resist"						"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"

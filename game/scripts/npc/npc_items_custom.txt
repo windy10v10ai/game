@@ -6999,7 +6999,7 @@
 
 		"AbilityCastPoint"			"0.0"
 		"AbilityCooldown"			"20.0"
-		"AbilityManaCost"			"400"
+		"AbilityManaCost"			"600"
 
 		"ItemCost"					"35000"
 		"ItemShopTags"				"damage;armor;int;hard_to_tag"
@@ -7061,11 +7061,9 @@
 			"blind_pct"						"17"	// 致盲百分比
 
 			// 被动属性
-			"bonus_strength"				"100"	// 力量
-			"bonus_agility"					"100"	// 敏捷
-			"bonus_intellect"				"100"	// 智力
-			"bonus_health"					"1500"	// 生命值
-			"bonus_spell_resist"			"30"	// 魔法抗性
+			"bonus_strength"				"80"	// 力量
+			"bonus_agility"					"80"	// 敏捷
+			"bonus_intellect"				"80"	// 智力
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
 			"bonus_damage"					"150"	// 攻击力
@@ -7097,8 +7095,6 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"%bonus_health"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%bonus_spell_resist"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"

@@ -588,12 +588,13 @@
 		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%STATUS RESIST:"
 
 		//折射2
-		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (old)"
+		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (MK2)"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion grants %damage_reduction%%% damage reduction if the damage is not reflected."
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"When receiving damage, there is a chance to negate it and reflect it back to the attacking enemy unit."
-		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%REFLECTION CHANCE:"
-		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%DAMAGE REFLECTED:"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Damage is returned as the same damage type."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"Reduce a certain percentage of damage. And reflect the actual damage received to all enemies in the range."
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"		"%DAMAGE REFLECTED:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"			"REFLECTION DAMAGE THRESHOLD:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"REFLECTION RADIUS:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"The damage type is pure, cannot be enhanced by skills, immune to debuffs."
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
@@ -2803,7 +2804,7 @@
 
 		// Dragon Dance (魔龙狂舞)
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x intelligence spell amplification for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
@@ -2939,9 +2940,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_Note1"									"Damage reflection does not reflect damage from other Blade Mail items."
 		"DOTA_Tooltip_ability_item_beast_armor_Note2"									"The type of reflected damage is the same as the damage received."
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_strength"							"+$all"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_health"							"+$health"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_spell_resist"						"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"

@@ -4,7 +4,7 @@ import { Tier } from './tier';
  * 技能列表，Tier 5-1
  * 确保概率从低到高排列
  */
-export const abilityTiersActive: Tier[] = [
+export const abilityTiersActiveBot: Tier[] = [
   {
     level: 5,
     names: [
@@ -40,7 +40,7 @@ export const abilityTiersActive: Tier[] = [
       // 自定义技能
       'imba_chaos_knight_phantasm', // 混沌之军
       'bloodseeker_blood_mist2', // 血魔 血雾
-      'ability_trigger_on_active', //紫蝴蝶
+      // 'ability_trigger_on_active', //紫蝴蝶
     ],
   },
   {
@@ -155,7 +155,7 @@ export const abilityTiersActive: Tier[] = [
   },
 ];
 
-export const abilityTiersPassive: Tier[] = [
+export const abilityTiersPassiveBot: Tier[] = [
   {
     level: 5,
     names: [
@@ -199,12 +199,12 @@ export const abilityTiersPassive: Tier[] = [
       'rubick_might_and_magus2', // 拉比克 力量与魔法 魔剑
       'death_prophet_witchcraft2', // 死亡先知 巫术精研
 
-      'ability_trigger_learned_skills', //蓝蝴蝶
-      'ability_trigger_on_spell_reflect', //绿蝴蝶
-      'ability_charge_damage', //青蝴蝶
-      'ability_trigger_on_cast', //红蝴蝶
-      'ability_trigger_on_attacked', //金蝴蝶
-      'ability_trigger_on_move', //橙影蝴蝶
+      // 'ability_trigger_learned_skills', //蓝蝴蝶
+      // 'ability_trigger_on_spell_reflect', //绿蝴蝶
+      // 'ability_charge_damage', //青蝴蝶
+      // 'ability_trigger_on_cast', //红蝴蝶
+      // 'ability_trigger_on_attacked', //金蝴蝶
+      // 'ability_trigger_on_move', //橙影蝴蝶
     ],
   },
   {
