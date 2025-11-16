@@ -77,7 +77,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"10"		// 1
-		"MagicalResistance"			"25"		// 0
+		"MagicalResistance"			"10"		// 0
 
 		// Attack
 		"AttackDamageMin"			"120"		// 41
@@ -109,7 +109,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"10"		// 1
-		"MagicalResistance"			"25"		// 0
+		"MagicalResistance"			"10"		// 0
 
 		// Attack
 		"AttackDamageMin"			"120"		// 41
@@ -141,7 +141,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"20"		// 3
-		"MagicalResistance"			"25"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		"AttackDamageMin"			"100"		// 36
@@ -172,7 +172,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"20"		// 3
-		"MagicalResistance"			"25"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		"AttackDamageMin"			"100"		// 36
@@ -273,7 +273,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"20"		// 1
-		"MagicalResistance"			"50"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -305,7 +305,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"20"		// 1
-		"MagicalResistance"			"50"		// 0
+		"MagicalResistance"			"20"		// 0
 
 		// Attack
 		//----------------------------------------------------------------
@@ -338,7 +338,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 1
-		"MagicalResistance"			"50"		// 0
+		"MagicalResistance"			"30"		// 0
 
 		// Attack
 		"AttackDamageMin"			"164"		// 41
@@ -369,7 +369,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"40"		// 1
-		"MagicalResistance"			"50"		// 0
+		"MagicalResistance"			"30"		// 0
 
 		// Attack
 		"AttackDamageMin"			"164"		// 41
