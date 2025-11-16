@@ -30,7 +30,7 @@ end
 function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
         if keys.target == self:GetParent() then
-            if keys.damage >= self:GetAbility():GetSpecialValueFor("damage_threshold") then
+            if keys.damage >= self:GetAbility():GetSpecialValueFor("threshold") then
                 local damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction")
                 if self:GetParent():IsRealHero() then
                     if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION then
