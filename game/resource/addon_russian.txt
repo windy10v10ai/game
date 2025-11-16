@@ -198,12 +198,10 @@
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"Бонусный урон: "
-		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"Бонусная броня: "
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%Бонус к снижению урона: "
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"Бонусный урон: "
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"Бонусная броня: "
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%Бонус к снижению урона: "
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%Бонусный урон не героям: "
