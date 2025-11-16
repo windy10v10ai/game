@@ -148,8 +148,7 @@ export class EventEntityKilled {
   //--------------------------------------------------------------------------------------------------------
 
   private isBarrack(unit: CDOTA_BaseNPC): boolean {
-    const unitName = unit.GetUnitName();
-    return unitName.indexOf('barracks') !== -1;
+    return unit.GetClassname() === 'npc_dota_barracks';
   }
 
   private onBarrackKilled(barrack: CDOTA_BaseNPC): void {

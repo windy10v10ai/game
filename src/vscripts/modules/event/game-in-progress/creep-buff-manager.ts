@@ -211,7 +211,7 @@ export class CreepBuffManager {
     } else if (sumTowerPower <= 300) {
       return 1;
     } else if (sumTowerPower <= 400) {
-      return 2; // 250%
+      return 2;
     } else {
       return 3;
     }
