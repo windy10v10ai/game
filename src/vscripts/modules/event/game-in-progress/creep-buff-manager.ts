@@ -67,11 +67,10 @@ export class CreepBuffManager {
     const modifiedMinGold = originMinGold * this.laneGoldMultiplier;
     creep.SetMaximumGoldBounty(modifiedMaxGold);
     creep.SetMinimumGoldBounty(modifiedMinGold);
-    // TODO
-    creep.SetBaseMaxHealth(10000);
-    print(
-      `[CreepBuffManager] applyCreepBuff: ${creep.GetUnitName()}, maxGold: ${modifiedMaxGold}, minGold: ${modifiedMinGold}`,
-    );
+
+    // 设置小兵基础血量
+    const baseMaxHealth = this.calculateCreepBaseMaxHealth(creep, buffLevel);
+    creep.SetBaseMaxHealth(baseMaxHealth);
 
     // 添加小兵buff
     if (buffLevel > 0) {
@@ -183,6 +182,21 @@ export class CreepBuffManager {
       buffLevelGood,
       buffLevelBad,
     };
+  }
+
+  /**
+   * 计算小兵baseMaxHealth
+   */
+  private calculateCreepBaseMaxHealth(creep: CDOTA_BaseNPC, buffLevel: number): number {
+    let baseMaxHealth = creep.GetBaseMaxHealth();
+
+    if (buffLevel > 0) {
+      // 额外百分比血量
+      baseMaxHealth += baseMaxHealth * (0.1 * buffLevel);
+      // 基础数值
+      baseMaxHealth += 100 * buffLevel;
+    }
+    return baseMaxHealth;
   }
 
   private getCreepBuffByTowerPower(): number {

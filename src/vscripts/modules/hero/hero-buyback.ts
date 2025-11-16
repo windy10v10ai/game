@@ -1,11 +1,9 @@
-import { reloadable } from '../../utils/tstl-utils';
 import { TowerPushStatus } from '../event/event-entity-killed';
 
 /**
  * 英雄买活管理器
  * 负责管理买活金钱
  */
-@reloadable
 export class HeroBuyback {
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
@@ -45,9 +43,6 @@ export class HeroBuyback {
       } else {
         // 真人玩家，正常买活
         PlayerResource.SetCustomBuybackCost(playerId, this.calculateBuybackCost(playerId));
-        print(
-          `[HeroBuyback] playerId: ${playerId}, buybackCost: ${this.calculateBuybackCost(playerId)}`,
-        );
       }
     }
   }
