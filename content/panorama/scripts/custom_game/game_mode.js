@@ -69,10 +69,8 @@ function ShowChatTeamActivate() {
 function InitCustomSetting() {
   $('#force_random_hero').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
-
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
-
   $('#radiant_player_number_dropdown').SetSelected('1');
   $('#dire_player_number_dropdown').SetSelected('10');
 
@@ -86,11 +84,11 @@ function InitCustomSetting() {
 
   // 开发模式
   if (Game.IsInToolsMode()) {
-    // $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
-    // $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
-    // $('#radiant_player_number_dropdown').SetSelected('3');
-    // $('#dire_player_number_dropdown').SetSelected('3');
-    // $('#starting_gold_bot_dropdown').SetSelected('5000');
+    $('#player_gold_xp_multiplier_dropdown').SetSelected('2');
+    $('#bot_gold_xp_multiplier_dropdown').SetSelected('2');
+    $('#radiant_player_number_dropdown').SetSelected('3');
+    $('#dire_player_number_dropdown').SetSelected('3');
+    $('#starting_gold_bot_dropdown').SetSelected('5000');
   }
 }
 
