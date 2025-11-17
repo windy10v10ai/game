@@ -43,7 +43,7 @@ function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
                         local reflected_damage = damage * damage_reduction / 100
 
                         -- 根据伤害类型分别累积
-                        local damage_type = keys.damage_type
+                        local damage_type = keys.damage_type or DAMAGE_TYPE_PHYSICAL
                         self.accumulated_damage[damage_type] = (self.accumulated_damage[damage_type] or 0) +
                             reflected_damage
 
