@@ -592,7 +592,7 @@
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"		"%DAMAGE REFLECTED:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"			"REFLECTION DAMAGE THRESHOLD:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"REFLECTION RADIUS:"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Reflection damage type matches received damage type (Physical/Magical/Pure). Cannot be enhanced by spell amplification, pierces debuff immunity. Reflection damage decreases with distance."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Reflection damage type matches received damage type (Physical/Magical/Pure). Pierces debuff immunity. Reflection damage decreases with distance."
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
