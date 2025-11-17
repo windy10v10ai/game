@@ -278,6 +278,7 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"spectre_dispersion2"
+		"IsBreakable"					"1"
 		"MaxLevel"						"5"
 		"HasShardUpgrade"				"1"
 
