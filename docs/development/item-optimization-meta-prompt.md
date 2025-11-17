@@ -336,7 +336,12 @@ caster:RemoveModifierByName("modifier_item_eternal_shroud")
 
 #### 步骤 3: 重写 Lua 文件
 
-**重要**: Lua 文件使用 **4 个空格**缩进,不使用 tab。
+**重要**:
+- Lua 文件使用 **4 个空格**缩进,不使用 tab。
+- **Lua 中组合 MODIFIER_ATTRIBUTE 必须使用 `+` 而不是 `|`**
+  - 正确: `return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_MULTIPLE`
+  - 错误: `return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_MULTIPLE`
+  - 注意: KV 文件（DataDriven）中使用 `|` 是正确的
 
 **3.1 文件头部(LinkLuaModifier)**
 
