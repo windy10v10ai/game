@@ -275,7 +275,6 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/spectre_dispersion2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"spectre_dispersion2"
@@ -299,11 +298,7 @@
 			{
 				"value"				"10 20 30 40 50"
 			}
-			"radius"
-			{
-				"value"				"800"
-				"affected_by_aoe_increase"	"1"
-			}
+			"radius"				"800"
 		}
 	}
 	//贪婪
