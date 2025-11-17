@@ -95,14 +95,10 @@ export class GameEndPoint {
 
     if (option.direGoldXpMultiplier >= 40) {
       multiplier *= 2.4;
-    } else if (option.direGoldXpMultiplier === 30) {
-      multiplier *= 2.3;
-    } else if (option.direGoldXpMultiplier === 20) {
+    } else if (option.direGoldXpMultiplier >= 20) {
       multiplier *= 2.2;
-    } else if (option.direGoldXpMultiplier === 17) {
+    } else if (option.direGoldXpMultiplier >= 15) {
       multiplier *= 2.1;
-    } else if (option.direGoldXpMultiplier === 14) {
-      multiplier *= 2.0;
     } else if (option.direGoldXpMultiplier === 12) {
       multiplier *= 1.95;
     } else if (option.direGoldXpMultiplier === 10) {
