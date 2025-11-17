@@ -5876,7 +5876,7 @@
 			"bonus_damage"				"350"	// 攻击力
 			"corruption_armor"			"-60"	// 护甲降低
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
-			"bonus_damage_per_kill"		"5"		// 每次击杀增加的攻击力
+			"bonus_damage_per_kill"		"10"	// 每次击杀增加的攻击力
 			"bonus_damage_per_assist"	"2"		// 每次助攻增加的攻击力
 			"max_damage"				"300"	// 最大额外攻击力
 
