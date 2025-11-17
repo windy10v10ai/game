@@ -71,7 +71,6 @@ export const abilityTiersActive: Tier[] = [
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
-      'tusk_walrus_punch', //海象神拳
     ],
   },
   {
@@ -230,6 +229,7 @@ export const abilityTiersPassive: Tier[] = [
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
 
       // 法球/开关技能
+      'tusk_walrus_punch', //海象神拳
 
       // 自定义技能
       'drow_ranger_trueshot2', // 精准光环

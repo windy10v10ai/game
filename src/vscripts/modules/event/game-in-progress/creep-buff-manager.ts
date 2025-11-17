@@ -174,9 +174,9 @@ export class CreepBuffManager {
       buffLevelBad = 0;
     }
 
-    // 限制最大值为8
-    buffLevelGood = Math.min(buffLevelGood, 8);
-    buffLevelBad = Math.min(buffLevelBad, 8);
+    // 限制最大值为10级
+    buffLevelGood = Math.min(buffLevelGood, 10);
+    buffLevelBad = Math.min(buffLevelBad, 10);
 
     return {
       buffLevelGood,
@@ -192,9 +192,9 @@ export class CreepBuffManager {
 
     if (buffLevel > 0) {
       // 额外百分比血量
-      baseMaxHealth += baseMaxHealth * (0.06 * buffLevel);
+      baseMaxHealth += baseMaxHealth * (0.05 * buffLevel);
       // 基础数值
-      baseMaxHealth += 120 * buffLevel;
+      baseMaxHealth += 100 * buffLevel;
     }
     return baseMaxHealth;
   }
