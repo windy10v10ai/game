@@ -8231,7 +8231,6 @@
 			"damage_reflection_pct"
 			{
 				"value"		"7 10 13 16 19"
-				"special_bonus_unique_spectre_5"		"+3"
 			}
 			"min_radius"
 			{
@@ -9107,7 +9106,7 @@
 		{
 			"cooldown_scepter"
 			{
-				"value" "30" // 同步第四级冷却
+				"value" "30 25 20 15"
 			}
 		}
 	}
