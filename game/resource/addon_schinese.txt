@@ -589,11 +589,11 @@
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"		"折射（改）"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"提供%damage_reduction%%%伤害减免。"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"减免一定比例的伤害。并反弹实际收到的伤害给范围内的所有敌人。"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"减免一定比例的伤害。基于减免前的伤害，累积1秒后反射给范围内的所有敌人，反射伤害类型与接收伤害类型一致。"
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"	"%折射比例："
 		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"		"折射伤害阈值："
 		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"折射范围："
-		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"伤害类型为纯粹，不可以被技能增强，无视减益免疫"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"反射伤害类型与接收伤害类型一致（物理/魔法/纯粹），不可以被技能增强，无视减益免疫。反射伤害随距离递减。"
 		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
 		//贪魔的贪婪
