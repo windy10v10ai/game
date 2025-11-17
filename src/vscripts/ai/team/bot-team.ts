@@ -8,6 +8,7 @@ import { reloadable } from '../../utils/tstl-utils';
 @reloadable
 export class BotTeam {
   private botPushMin: number = 15; // 电脑开始推进的分钟数
+  private botPushLevel: number = 10; // 电脑推进等级
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
 
   private readonly refreshInterval: number = 1; // 刷新策略间隔
@@ -48,6 +49,11 @@ export class BotTeam {
     this.botPushMin = this.baseBotPushMin;
 
     print(`[BotTeam] Base bot push min: ${this.baseBotPushMin}`);
+
+    // 根据难度计算电脑推进等级
+    const randomLevel = RandomInt(0, 2); // 随机额外增加0~2级
+    this.botPushLevel = this.getTowerRequiredLevel() + randomLevel;
+    print(`[BotTeam] Bot push level: ${this.botPushLevel}`);
   }
 
   /**
@@ -97,17 +103,6 @@ export class BotTeam {
   }
 
   /**
-   * 动态计算是否需要推进
-   */
-  private calculateIsNeedPush(): boolean {
-    // 获取Bot团队平均等级
-    const avgLevel = this.getBotTeamAverageLevel();
-    // 获取防御塔根据防御塔强度 需要的平均等级
-    const towerRequiredLevel = this.getTowerRequiredLevel();
-    return avgLevel >= towerRequiredLevel;
-  }
-
-  /**
    * 根据防御塔状态计算推进层级
    * @returns 推进层级
    */
@@ -142,7 +137,9 @@ export class BotTeam {
    */
   private refreshTeamStrategy(): void {
     // 动态计算推进时间
-    const isStartPushForce = this.calculateIsNeedPush();
+    // 获取Bot团队平均等级
+    const avgLevel = this.getBotTeamAverageLevel();
+    const isStartPushForce = avgLevel >= this.botPushLevel;
 
     const gameTime = GameRules.GetDOTATime(false, false);
     const gameModeEntity = GameRules.GetGameModeEntity();

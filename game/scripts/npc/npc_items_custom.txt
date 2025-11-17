@@ -462,7 +462,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1700"
+		"ItemCost"						"1900"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -471,7 +471,7 @@
 		"ItemResult"					"item_blade_mail_2"
 		"ItemRequirements"
 		{
-			"01"						"item_blade_mail;item_platemail;item_platemail"
+			"01"						"item_blade_mail;item_platemail"
 		}
 	}
 
@@ -507,7 +507,7 @@
 		"AbilityValues"
 		{
 				"bonus_damage"			"60"
-				"bonus_armor"			"40"
+				"bonus_armor"			"30"
 				"bonus_intellect"		"0"
 				"duration"				"5.5"
 				"passive_reflection_constant"			"60"
@@ -3548,7 +3548,7 @@
 				"bonus_strength"		"30"
 				"bonus_agility"			"30"
 				"bonus_hp_regen"		"15"
-				"bonus_armor"			"40"
+				"bonus_armor"			"30"
 				"aura_radius"
 				{
 					"value"	"1200"
@@ -6817,10 +6817,10 @@
 			"max_stacks"				"8"
 
 			// 被动属性
-			"passive_bonus_strength"			"150"
-			"passive_bonus_health"				"2500"
-			"passive_bonus_armor"				"60"
-			"passive_bonus_spell_resist"		"60"
+			"passive_bonus_strength"			"120"
+			"passive_bonus_health"				"2000"
+			"passive_bonus_armor"				"50"
+			"passive_bonus_spell_resist"		"50"
 			"passive_bonus_health_regen"		"50"
 			"passive_bonus_attack_speed"		"50"
 			"passive_bonus_damage"				"100"
@@ -7061,9 +7061,9 @@
 			"blind_pct"						"17"	// 致盲百分比
 
 			// 被动属性
-			"bonus_strength"				"80"	// 力量
-			"bonus_agility"					"80"	// 敏捷
-			"bonus_intellect"				"80"	// 智力
+			"bonus_strength"				"60"	// 力量
+			"bonus_agility"					"60"	// 敏捷
+			"bonus_intellect"				"60"	// 智力
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
 			"bonus_damage"					"150"	// 攻击力

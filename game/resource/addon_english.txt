@@ -588,11 +588,11 @@
 		//折射2
 		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (MK2)"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion grants %damage_reduction%%% damage reduction if the damage is not reflected."
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"Reduce a certain percentage of damage. And reflect the actual damage received to all enemies in the range."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"Reduces a percentage of incoming damage. Based on pre-mitigation damage, accumulates for 1 second then reflects to all enemies in range. Reflection damage type matches the received damage type."
 		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"		"%DAMAGE REFLECTED:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"			"REFLECTION DAMAGE THRESHOLD:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"REFLECTION RADIUS:"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"The damage type is pure, cannot be enhanced by skills, immune to debuffs."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Reflection damage type matches received damage type (Physical/Magical/Pure). Cannot be enhanced by spell amplification, pierces debuff immunity. Reflection damage decreases with distance."
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
