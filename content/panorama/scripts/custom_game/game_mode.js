@@ -71,6 +71,7 @@ function InitCustomSetting() {
   $('#enable_player_attribute').checked = true;
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
+  $('#radiant_player_number_dropdown').SetSelected('1');
   $('#dire_player_number_dropdown').SetSelected('10');
 
   $('#respawn_time_percentage_dropdown').SetSelected('50');
@@ -129,7 +130,6 @@ function UnLockOptionAll() {
 
 // N1-N6 通用设置
 function InitDifficultyCommonSetting() {
-  $('#radiant_player_number_dropdown').SetSelected('1');
   $('#dire_player_number_dropdown').SetSelected('10');
 
   $('#respawn_time_percentage_dropdown').SetSelected('100');

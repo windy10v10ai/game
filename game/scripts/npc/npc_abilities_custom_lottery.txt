@@ -275,6 +275,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/spectre_dispersion2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_PHYSICAL | DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"spectre_dispersion2"
@@ -291,8 +292,9 @@
 			"damage_reduction"
 			{
 				"value"				"8 10 12 14 16"
-				"special_bonus_shard"				"+4"
-				"special_bonus_unique_spectre_5"		"+5"
+				"special_bonus_shard"				"+3"
+				"special_bonus_unique_spectre_5"		"+3"
+				"CalculateSpellDamageTooltip"	"1"
 			}
 			// 伤害阈值
 			"threshold"
