@@ -25,8 +25,9 @@
 
 - 静态属性加成 → 使用 `Properties` 块
 - 状态控制 → 使用 `States` 块
-- 主动技能 → 使用 `OnSpellStart` + DataDriven Actions
-- 特效音效 → 使用 `EffectName` + `FireSound`
+- **主动技能逻辑 → 使用 `OnSpellStart` + DataDriven Actions (FireSound, ApplyModifier, Damage 等)**
+- 特效音效 → 使用 `EffectName` (modifier 特效) + `FireSound` (音效)
+- 事件触发 → 使用 DataDriven Events (`OnSpellStart`, `OnAttackLanded`, `OnTakeDamage` 等)
 
 **2. 其次 Dota 2 原生 Modifier** ⭐⭐
 
@@ -121,15 +122,14 @@ DataDriven modifier 支持通过 `States` 块控制单位状态:
 - `MODIFIER_STATE_VALUE_ENABLED` - 启用状态
 - `MODIFIER_STATE_VALUE_DISABLED` - 禁用状态
 
-### 必须保留在 Lua 中的功能
+### 必须使用 Lua 的特殊属性
 
-以下功能**无法**用 DataDriven 实现,必须使用 Lua modifier:
+以下 modifier 属性**无法**用 DataDriven 实现,必须使用 Lua:
 
 - `MODIFIER_PROPERTY_ABSORB_SPELL` - 法术格挡(如莲花球)
 - `MODIFIER_PROPERTY_PROCATTACK_FEEDBACK` - 攻击触发反馈
-- 复杂的伤害计算和状态管理
-- 需要维护冷却时间的被动效果
-- 动态计算的属性值(基于生命值百分比、层数等)
+- `MODIFIER_EVENT_ON_ATTACK_LANDED` - 攻击命中事件(需复杂逻辑时)
+- `MODIFIER_EVENT_ON_TAKEDAMAGE` - 受伤事件(需复杂逻辑时)
 
 ### 复用原生 Modifier
 
@@ -214,6 +214,161 @@ caster:RemoveModifierByName("modifier_item_eternal_shroud")
 
 **2.2 添加主动技能逻辑(如果有)**
 
+⚠️ **重要**: 优先使用 DataDriven Actions,仅在无法实现时才使用 Lua。
+
+**DataDriven Actions 优先** ⭐⭐⭐ (推荐)
+
+使用 DataDriven Actions 实现主动技能逻辑,性能更优,代码更简洁:
+
+```kv
+"OnSpellStart"
+{
+    // 播放音效
+    "FireSound"
+    {
+        "EffectName"    "DOTA_Item.HurricanePike.Activate"
+        "Target"        "CASTER"
+    }
+
+    // 应用 modifier (简单形式)
+    "ApplyModifier"
+    {
+        "ModifierName"  "modifier_item_<物品名>_active"
+        "Target"        "CASTER"
+        "Duration"      "%active_duration"
+    }
+
+    // 应用 modifier (带条件判断 - 仅远程英雄)
+    "ApplyModifier"
+    {
+        "ModifierName"  "modifier_item_<物品名>_active"
+        "Duration"      "%active_duration"
+        "Target"
+        {
+            "Flags"     "DOTA_UNIT_TARGET_FLAG_RANGED_ONLY"
+            "Center"    "CASTER"
+            "Radius"    "0"
+        }
+    }
+
+    // 其他可用 Actions:
+    // - Damage: 造成伤害
+    // - Heal: 治疗
+    // - RemoveModifier: 移除 modifier
+    // - Knockback: 击退
+    // - Stun: 眩晕
+    // - 等等...
+}
+```
+
+**常用 DataDriven Actions**:
+
+| Action | 用途 | 示例 |
+|--------|------|------|
+| `FireSound` | 播放音效 | `"EffectName" "Sound.Name"` |
+| `ApplyModifier` | 应用 modifier | `"ModifierName" "modifier_name"` |
+| `RemoveModifier` | 移除 modifier | `"ModifierName" "modifier_name"` |
+| `Damage` | 造成伤害 | `"Damage" "%damage_value"` |
+| `Heal` | 治疗 | `"HealAmount" "%heal_value"` |
+| `Knockback` | 击退 | `"Distance" "%knockback_distance"` |
+| `Stun` | 眩晕 | `"Duration" "%stun_duration"` |
+| `CreateThinker` | 创建思考者单位 | 用于范围效果 |
+
+完整 Actions 列表请参考: [Abilities Data Driven - Actions](https://developer.valvesoftware.com/wiki/Dota_2_Workshop_Tools/Scripting/Abilities_Data_Driven#Actions)
+
+**Target 块详解** 🎯
+
+DataDriven Actions 支持通过 `Target` 块实现条件判断和目标筛选，**无需使用 Lua**！
+
+**简单目标指定**:
+
+```kv
+"Target"    "CASTER"           // 施法者
+"Target"    "TARGET"           // 目标单位
+"Target"    "POINT"            // 目标点
+```
+
+**高级目标筛选** (支持近战/远程判断):
+
+```kv
+"Target"
+{
+    "Center"    "CASTER"       // 搜索中心 (CASTER/TARGET/POINT)
+    "Radius"    "0"            // 搜索半径 (0 = 仅自身)
+    "Teams"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"  // 队伍筛选
+    "Types"     "DOTA_UNIT_TARGET_HERO"           // 单位类型筛选
+    "Flags"     "DOTA_UNIT_TARGET_FLAG_RANGED_ONLY"  // 特殊标志
+}
+```
+
+**常用 Flags 标志**:
+
+| Flag | 说明 | 使用场景 |
+|------|------|----------|
+| `DOTA_UNIT_TARGET_FLAG_RANGED_ONLY` | 仅远程单位 | 只对远程英雄生效的物品/技能 |
+| `DOTA_UNIT_TARGET_FLAG_MELEE_ONLY` | 仅近战单位 | 只对近战英雄生效的物品/技能 |
+| `DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES` | 包含魔免敌人 | 可以作用于魔免目标 |
+| `DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES` | 排除魔免友军 | 不对魔免友军生效 |
+| `DOTA_UNIT_TARGET_FLAG_INVULNERABLE` | 包含无敌单位 | 可以作用于无敌目标 |
+| `DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS` | 排除幻象 | 不对幻象生效 |
+| `DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO` | 排除远古生物 | 不对远古单位生效 |
+
+**实际应用示例**:
+
+```kv
+// 示例 1: 仅对远程英雄应用 buff
+"ApplyModifier"
+{
+    "ModifierName"  "modifier_item_hawkeye_turret_active"
+    "Duration"      "%active_duration"
+    "Target"
+    {
+        "Flags"     "DOTA_UNIT_TARGET_FLAG_RANGED_ONLY"
+        "Center"    "CASTER"
+        "Radius"    "0"
+    }
+}
+
+// 示例 2: 对范围内的所有敌方英雄造成伤害 (包含魔免)
+"Damage"
+{
+    "Damage"    "%damage"
+    "Type"      "DAMAGE_TYPE_MAGICAL"
+    "Target"
+    {
+        "Center"    "CASTER"
+        "Radius"    "%radius"
+        "Teams"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "Types"     "DOTA_UNIT_TARGET_HERO"
+        "Flags"     "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+    }
+}
+
+// 示例 3: 治疗范围内的友方英雄 (不包含幻象)
+"Heal"
+{
+    "HealAmount"    "%heal"
+    "Target"
+    {
+        "Center"    "CASTER"
+        "Radius"    "%heal_radius"
+        "Teams"     "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+        "Types"     "DOTA_UNIT_TARGET_HERO"
+        "Flags"     "DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+    }
+}
+```
+
+**重要提示**:
+- ✅ 使用 Target 块可以实现近战/远程判断，**无需 Lua**
+- ✅ Flags 可以组合使用，用 `|` 分隔
+- ✅ `Radius` 为 0 时表示仅作用于中心单位自身
+- ⚠️ 如果 Action 对目标无效（如近战英雄使用仅远程生效的技能），Action 会被跳过执行
+
+**Lua 实现** ⭐ (仅在必要时使用)
+
+仅在 DataDriven Actions 无法实现复杂逻辑时使用 Lua:
+
 ```kv
 "OnSpellStart"
 {
@@ -224,6 +379,13 @@ caster:RemoveModifierByName("modifier_item_eternal_shroud")
     }
 }
 ```
+
+**何时使用 Lua**:
+- 需要动态计算参数（基于生命值百分比、层数等）
+- 需要复杂状态管理和数据存储
+- 需要特殊功能（ABSORB_SPELL、PROCATTACK_FEEDBACK 等）
+- 需要多步骤逻辑判断（Target 块无法满足的复杂条件）
+- DataDriven Actions 组合无法实现的功能
 
 **2.3 添加 Modifiers 块**
 
@@ -608,6 +770,71 @@ Lua: 最小化代码
         └── GetAbsorbSpell() - 实现特殊逻辑
 ```
 
+### 参考示例: DataDriven Actions 实现主动技能
+
+**示例物品**: item_hawkeye_turret (鹰眼炮台)
+
+**优化前 - 使用 Lua**:
+
+```kv
+"OnSpellStart"
+{
+    "RunScript"
+    {
+        "ScriptFile"    "items/item_hawkeye_turret"
+        "Function"      "OnSpellStart"
+    }
+}
+```
+
+```lua
+-- Lua 文件
+function OnSpellStart(keys)
+    local caster = keys.caster
+    local ability = keys.ability
+    local duration = ability:GetSpecialValueFor("active_duration")
+
+    ability:ApplyDataDrivenModifier(caster, caster, "modifier_item_hawkeye_turret_active", {
+        duration = duration
+    })
+
+    EmitSoundOn("DOTA_Item.HurricanePike.Activate", caster)
+end
+```
+
+**优化后 - 使用 DataDriven Actions + Target 块**:
+
+```kv
+"OnSpellStart"
+{
+    "FireSound"
+    {
+        "EffectName"    "DOTA_Item.HurricanePike.Activate"
+        "Target"        "CASTER"
+    }
+
+    "ApplyModifier"
+    {
+        "ModifierName"  "modifier_item_hawkeye_turret_active"
+        "Duration"      "%active_duration"
+        "Target"
+        {
+            "Flags"     "DOTA_UNIT_TARGET_FLAG_RANGED_ONLY"  // 仅远程英雄
+            "Center"    "CASTER"
+            "Radius"    "0"
+        }
+    }
+}
+```
+
+**优化效果**:
+- ✅ 完全移除 Lua OnSpellStart 函数和近战/远程判断
+- ✅ 使用 Target 块的 Flags 实现条件判断，无需 Lua
+- ✅ 引擎原生处理，性能更优
+- ✅ 代码更清晰，易于维护
+
+---
+
 ### 参考示例: item_beast_armor
 
 **优化前问题**:
@@ -652,17 +879,14 @@ Lua: 最小化代码
 
 ---
 
-## 使用此 Meta Prompt
+## 使用指南
 
-当需要优化某个物品时,向 AI 提供:
+**优化命令**: `/optimize-item <物品名>`
 
-1. 物品名称 (如 `item_beast_armor`)
-2. 此 meta prompt 文档
-3. 让 AI 按照步骤执行优化
+**示例**: `/optimize-item item_hawkeye_turret`
 
-AI 将自动:
-
-1. 读取现有实现
-2. 识别可优化的属性
-3. 生成优化后的 KV 和 Lua 代码
-4. 提供完整的文件修改说明
+AI 将按以下步骤自动执行优化:
+1. 读取现有 Lua 和 KV 实现
+2. 识别可迁移到 DataDriven 的属性和逻辑
+3. 生成优化后的代码（优先使用 DataDriven Actions 和 Target 块）
+4. 更新本地化文件说明
