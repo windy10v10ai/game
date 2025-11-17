@@ -34,7 +34,6 @@ end
 function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
         if keys.target == self:GetParent() then
-            local damage_type = keys.damage_type
             local damage = keys.original_damage
             if damage >= self:GetAbility():GetSpecialValueFor("threshold") then
                 local damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction")
@@ -44,6 +43,7 @@ function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
                         local reflected_damage = damage * damage_reduction / 100
 
                         -- 根据伤害类型分别累积
+                        local damage_type = keys.damage_type
                         self.accumulated_damage[damage_type] = (self.accumulated_damage[damage_type] or 0) +
                             reflected_damage
 
@@ -88,23 +88,22 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
         false
     )
 
-    -- 对每种伤害类型分别处理
-    for damage_type, total_damage in pairs(self.accumulated_damage) do
-        if total_damage > 0 then
-            -- 对每个敌人造成对应类型的伤害
-            for _, enemy in pairs(enemies) do
-                if enemy and IsValidEntity(enemy) and enemy:IsAlive() then
-                    local distance = (enemy:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
+    -- 先遍历敌人，再遍历伤害类型（性能优化：距离只计算一次）
+    for _, enemy in pairs(enemies) do
+        if enemy and IsValidEntity(enemy) and enemy:IsAlive() then
+            local distance = (enemy:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
 
-                    -- 计算距离衰减
-                    local distance_multiplier = 1.0
-                    if distance > 300 then
-                        local extra_distance = distance - 300
-                        local reduction_steps = math.floor(extra_distance / 100)
-                        distance_multiplier = math.max(0, 1.0 - (reduction_steps * 0.2))
-                    end
+            -- 计算距离衰减
+            local distance_multiplier = 1.0
+            if distance > 300 then
+                local extra_distance = distance - 300
+                local reduction_steps = math.floor(extra_distance / 100)
+                distance_multiplier = math.max(0, 1.0 - (reduction_steps * 0.2))
+            end
 
-                    -- 计算最终伤害
+            -- 对每种伤害类型分别造成伤害
+            for damage_type, total_damage in pairs(self.accumulated_damage) do
+                if total_damage > 0 then
                     local final_damage = total_damage * distance_multiplier
 
                     if final_damage > 0 then
