@@ -2252,7 +2252,7 @@
 		{
 				"bonus_damage"			"150"
 				"corruption_armor"		"-15"
-				"corruption_duration"	"8.0"
+				"corruption_duration"	"7.0"
 				"bonus_damage_per_kill"	"3"
 				"bonus_damage_per_assist"	"2"
 				"max_damage"			"60"
@@ -2310,7 +2310,7 @@
 		{
 			"bonus_damage"			"300"
 			"corruption_armor"		"-30"
-			"corruption_duration"	"9.0"
+			"corruption_duration"	"7.0"
 			"bonus_damage_per_kill"	"5"
 			"bonus_damage_per_assist"	"2"
 			"max_damage"			"150"
@@ -5565,12 +5565,14 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-			"bonus_spell_resist"					"40"	//20
+			"bonus_spell_resist"					"50"	//20
 			"bonus_strength"						"30"	//10
 			"bonus_health"							"1000"	//250
-			"stack_threshold"						"600"	//300
-			"stack_duration"						"8"		//5
-			"stack_resist"							"4.0"	//3.5
+			// 禁用被动防止炸房
+			"stack_threshold"						"99999"	//300
+			"stack_duration"						"0"		//5
+			"stack_resist"							"0.0"	//3.5
+
 			"mana_restore_pct"						"50"	//25
 			"max_stacks"							"8"		//6
 		}
@@ -6508,7 +6510,7 @@
 	//=================================================================================================================
 	// 暗影裁决
 	//=================================================================================================================
-	// 一闪+苍蓝幻想+绝对破防之刃+变态辣 融合所有debuff，cd适当短，但不能无限
+	// 一闪+苍蓝幻想+变态辣 融合所有debuff，cd适当短，但不能无限
 	"item_recipe_shadow_judgment"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6888,9 +6890,11 @@
 			"magic_resist"					"100"
 
 			// 法师泳衣被动
-			"stack_threshold"			"600"
-			"stack_duration"			"10"
-			"stack_resist"				"4"
+			// 禁用被动防止炸房
+			"stack_threshold"			"99999"
+			"stack_duration"			"0"
+			"stack_resist"				"0"
+
 			"mana_restore_pct"			"50"
 			"max_stacks"				"8"
 
