@@ -130,6 +130,7 @@ function UnLockOptionAll() {
 
 // N1-N6 通用设置
 function InitDifficultyCommonSetting() {
+  $('#radiant_player_number_dropdown').SetSelected('1');
   $('#dire_player_number_dropdown').SetSelected('10');
 
   $('#respawn_time_percentage_dropdown').SetSelected('100');

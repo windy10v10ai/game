@@ -134,9 +134,9 @@ local function addTome(k, v)
     -- end
 
     -- -- 17. 鹰眼炮台：黄金魔龙枪 -> 鹰眼炮台
-    -- if RandomInt(1, 100) <= replace_chance then
-    --   replaceItem(v, "item_hurricane_pike_2", "item_hawkeye_turret")
-    -- end
+    if RandomInt(1, 100) <= replace_chance then
+      replaceItem(v, "item_hurricane_pike_2", "item_hawkeye_turret")
+    end
   end
   if AIGameMode.fBotGoldXpMultiplier >= 10 then
     -- 诅咒圣剑
@@ -588,4 +588,3 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
     end
   end
 end
-
