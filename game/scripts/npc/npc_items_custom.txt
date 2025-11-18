@@ -5863,9 +5863,8 @@
 		"AbilityValues"
 		{
 			// 主动技能参数
-			"active_attack_range"		"800"	// 固定攻击距离（仅远程）
+			"active_attack_range"		"800"	// 主动攻击距离（仅远程）
 			"active_duration"			"6"		// 主动持续时间
-			"active_movespeed"			"100"	// 固定移动速度
 
 			// 溅射伤害参数（Lua 逻辑）
 			"attack_radius"				"500"	// 溅射范围
@@ -5881,7 +5880,7 @@
 			"max_damage"				"300"	// 最大额外攻击力
 
 			// 被动属性（DataDriven Properties）
-			"bonus_attack_range"		"250"	// 攻击距离加成（仅远程）
+			"bonus_attack_range"		"250"	// 攻击距离加成
 			"bonus_attack_speed"		"150"	// 攻击速度
 		}
 
@@ -5939,14 +5938,13 @@
 
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%active_movespeed"
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"%active_attack_range"
 				}
 
-				// "States"
-				// {
-				// 	"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
-				// }
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 
 				"OnCreated"
 				{

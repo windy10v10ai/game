@@ -2738,7 +2738,7 @@
 
 		// Hawkeye Turret
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "Hawkeye Turret"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>Active: Humanoid Turret (Ranged Only)</font></h1>Plant your feet and stand your ground, gaining high ground vision. While in this state, movement speed is fixed at %active_movespeed% and attack range fixed at %active_attack_range%.\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% splash damage to enemies in a %attack_radius% radius around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown% second internal cooldown.\n<h1>Passive: Absolute Corruption</h1>Physical attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.<br><br>Gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>Active: Humanoid Turret (Ranged Only)</font></h1>Plant your feet and stand your ground, gaining high ground vision. While in this state, you are rooted and unable to move, with attack range fixed at %active_attack_range%.\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% splash damage to enemies in a %attack_radius% radius around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown% second internal cooldown.\n<h1>Passive: Absolute Corruption</h1>Physical attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.<br><br>Gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"                 "Transform into a stationary turret, suppressing enemies with overwhelming firepower."
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Note0"                "Armor reduction works on buildings."
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"         "+$damage"
@@ -2746,7 +2746,7 @@
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"   "+$attack_range_all"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_turret_active"              "Turret Mode"
-		"DOTA_Tooltip_modifier_item_hawkeye_turret_active_Description"  "Movement speed fixed at %dMODIFIER_PROPERTY_MOVESPEED_ABSOLUTE%, attack range fixed at 800 (Ranged Only)."
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active_Description"  "Rooted and unable to move, attack range fixed at 800 (Ranged Only)."
 
 
 		// Hawkeye Fighter
