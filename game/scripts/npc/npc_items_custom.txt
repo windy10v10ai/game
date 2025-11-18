@@ -569,7 +569,7 @@
 				"aura_damage_illusions"	"60"
 				"upgrade_day_vision"	"400"
 				"evasion"				"17"
-				"blind_pct"				"30"
+				"blind_pct"				"17"
 				"aura_radius"
 				{
 					"value"		"750"
@@ -922,7 +922,7 @@
 
 				"States"
 				{
-					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -3771,11 +3771,7 @@
 		{
 			"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
 			"attack_speed"			"40" 	// tooltip, real value in modifier_item_shotgun_stats
-			"attack_radius"
-			{
-				"value"		"350"
-				"affected_by_aoe_increase"	"1"
-			}
+			"attack_radius"			"400"
 			"attack_percent"
 			{
 				"value"				"40"
@@ -3847,11 +3843,7 @@
 		{
 			"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
 			"attack_speed"			"130" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-			"attack_radius"
-			{
-				"value"		"350"
-				"affected_by_aoe_increase"	"1"
-			}
+			"attack_radius"			"400"
 			"attack_percent"
 			{
 				"value"				"60"
@@ -4871,7 +4863,7 @@
 
 				"States"
 				{
-					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -4934,7 +4926,7 @@
 
 				"States"
 				{
-					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -4981,7 +4973,7 @@
 
 				"States"
 				{
-					"MODIFIER_STATE_CANNOT_MISS" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}
@@ -5841,16 +5833,16 @@
 		"ItemResult"				"item_hawkeye_turret"
 		"ItemRequirements"
 		{
-			"01"					"item_shotgun_v2;item_hurricane_pike_2;item_vladmir_2;item_fusion_hawkeye"
+			"01"					"item_shotgun_v2;item_hurricane_pike_2;item_infernal_desolator;item_fusion_hawkeye"
 		}
 	}
 
 	"item_hawkeye_turret"
 	{
-		"BaseClass"					"item_lua"
+		"BaseClass"					"item_datadriven"
 		"ID"						"10202"
 		"ScriptFile"				"items/item_hawkeye_turret"
-		"AbilityTextureName"		"yingyanpaotai"
+		"AbilityTextureName"		"hawkeye_turret"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
 		"ItemShopTags"				"damage;hard_to_tag"
@@ -5858,32 +5850,118 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"50"
+		"AbilityCooldown"			"60"
 		"AbilityManaCost"			"0"
 		"AbilityValues"
 		{
-			// 静态属性值（迁移到item_apply_modifiers的DataDriven，仅用于 tooltip 显示）
-			"bonus_damage"				"120"	// tooltip only - 攻击力
-			"bonus_attack_speed"		"80"	// tooltip only - 攻击速度
-			"bonus_armor"				"30"	// tooltip only - 护甲
-			// FIXME 现在对近战也有用 需要修复
-			"bonus_attack_range"		"250"	// tooltip only - 攻击距离
+			// 主动技能参数
+			"active_attack_range"		"800"	// 主动攻击距离（仅远程）
+			"active_duration"			"6"		// 主动持续时间
+			"active_bonus_vision"		"400"	// 额外视野
 
-			// 主动技能参数（在 Lua 中实现）
-			"active_armor"				"100"
-			"active_attack_range"		"500"
-			"active_duration"			"8"
-			"moon_shard_bonus"			"100"
-			"bat_reduction_pct"			"20"	// 新增:BAT减少值
-
-			// 溅射伤害参数（Lua 逻辑需要）
-			"attack_radius"				"500"	// 溅射范围
+			// 溅射伤害参数（Lua 逻辑）
+			"attack_radius"				"400"	// 溅射范围
 			"attack_percent"			"100"	// 溅射伤害百分比
 			"internal_cooldown"			"0.05"	// 内置冷却时间
+
+			// Desolator 参数（从 item_infernal_desolator 继承）
+			"bonus_damage"				"300"	// 攻击力
+			"corruption_armor"			"-60"	// 护甲降低
+			"corruption_duration"		"7.0"	// 护甲降低持续时间
+			"bonus_damage_per_kill"		"10"	// 每次击杀增加的攻击力
+			"bonus_damage_per_assist"	"2"		// 每次助攻增加的攻击力
+			"max_damage"				"300"	// 最大额外攻击力
+
+			// 被动属性（DataDriven Properties）
+			"bonus_attack_range"		"250"	// 攻击距离加成
+			"bonus_attack_speed"		"200"	// 攻击速度
 		}
 
-		// ✅ modifier_item_hawkeye_turret_stats 已迁移到 npc_items_modifier.txt
-		// 静态属性由 DataDriven 实现，性能更优
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"items/item_hawkeye_turret"
+				"Function"		"OnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			// 主 modifier - 被动属性
+			"modifier_item_hawkeye_turret"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"RemoveOnDeath"		"0"
+
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"%bonus_attack_range"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_hawkeye_turret"
+						"Function"		"HawkeyeTurretOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_hawkeye_turret"
+						"Function"		"HawkeyeTurretOnDestroy"
+					}
+				}
+			}
+
+			// 主动技能 buff
+			"modifier_item_hawkeye_turret_active"
+			{
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"%active_attack_range"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_hawkeye_turret"
+						"Function"		"HawkeyeTurretActiveOnCreated"
+					}
+				}
+
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"items/item_hawkeye_turret"
+						"Function"		"HawkeyeTurretActiveOnDestroy"
+					}
+				}
+
+				"EffectName"		"particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_buff.vpcf"
+				"EffectAttachType"	"PATTACH_ABSORIGIN_FOLLOW"
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -5934,7 +6012,7 @@
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_all_stats"			"30"	// tooltip only - 全属性
 			"bonus_movement_speed"		"160"	// tooltip only - 移动速度
-			"bonus_movement_speed_pct"	"60"	// tooltip only - 移动速度百分比
+			"bonus_movement_speed_pct"	"50"	// tooltip only - 移动速度百分比
 			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
 			// FIXME 继承配方物品，移除抗性
 			"bonus_status_resistance"	"30"	// Lua 逻辑需要 - 状态抗性
@@ -7058,7 +7136,7 @@
 			// 辉耀光环（事件驱动）
 			"aura_radius"					"900"	// 光环范围
 			"aura_damage"					"180"	// 光环伤害
-			"blind_pct"						"17"	// 致盲百分比
+			"blind_pct"						"20"	// 致盲百分比
 
 			// 被动属性
 			"bonus_strength"				"60"	// 力量
@@ -7067,7 +7145,7 @@
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
 			"bonus_damage"					"150"	// 攻击力
-			"evasion"						"25"	// 闪避
+			"evasion"						"20"	// 闪避
 		}
 
 		// 主动技能

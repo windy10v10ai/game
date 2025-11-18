@@ -80,7 +80,7 @@ function modifier_item_shotgun:GetModifierProcAttack_Feedback(keys)
 				attacker     = keys.attacker,
 				damage       = damage,
 				damage_type  = ability:GetAbilityDamageType(),
-				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+				damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_REFLECTION,
 				ability      = ability,
 			})
 		end
