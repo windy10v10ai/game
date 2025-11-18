@@ -5841,19 +5841,23 @@
 
 	"item_hawkeye_turret"
 	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"10202"
-		"ScriptFile"				"items/item_hawkeye_turret"
-		"AbilityTextureName"		"hawkeye_turret"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"item_datadriven"
+		"ID"							"10202"
+		"ScriptFile"					"items/item_hawkeye_turret"
+		"AbilityTextureName"			"hawkeye_turret"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"ItemShopTags"				"damage;hard_to_tag"
-		"ItemQuality"				"epic"
-		"ItemPurchasable"			"1"
-		"ItemSellable"				"0"
+		"ItemShopTags"					"damage;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
 
-		"AbilityCooldown"			"60"
-		"AbilityManaCost"			"0"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"0"
 		"AbilityValues"
 		{
 			// 主动技能参数
@@ -7291,19 +7295,22 @@
 	}
 	"item_magic_sword"
 	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"10328"
-		"AbilityTextureName"		"moyuanjian"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"BaseClass"						"item_datadriven"
+		"ID"							"10328"
+		"AbilityTextureName"			"moyuanjian"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"20.0"
-		"AbilityManaCost"			"150"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"20.0"
+		"AbilityManaCost"				"150"
 
-		"ItemCost"					"25000"
-		"ItemShopTags"				"damage;agi;hard_to_tag"
-		"ItemQuality"				"artifact"
+		"ItemCost"						"25000"
+		"ItemShopTags"					"damage;agi;hard_to_tag"
+		"ItemQuality"					"artifact"
 
 		"AbilityValues"
 		{
@@ -7312,10 +7319,10 @@
 			"convert_pct"				"40"	// 物理转纯粹伤害百分比
 
 			// 被动属性
+			"bonus_damage_passive"		"500"	// 攻击力
 			"bonus_all_stats"			"80"	// 全属性
 
 			// 狂战斧属性（modifier_item_battlefury）
-			"bonus_damage"				"500"	// 攻击力
 			"bonus_health_regen"		"30"	// 生命回复
 			"bonus_mana_regen"			"10"	// 魔法回复
 			// 狂战斧溅射参数
@@ -7325,9 +7332,15 @@
 			"cleave_ending_width"			"500"	// 溅射结束宽度
 			"cleave_distance"				"1000"	// 溅射距离
 
-			// Debuff
+			// Desolator 参数（从 item_infernal_desolator 继承）
+			"corruption_armor"			"-60"	// 护甲降低
+			"corruption_duration"		"7.0"	// 护甲降低持续时间
+			"bonus_damage_per_kill"		"0"		// 每次击杀增加的攻击力
+			"bonus_damage_per_assist"	"0"		// 每次助攻增加的攻击力
+			"max_damage"				"0"		// 最大额外攻击力
+
+			// 其他 Debuff
 			"debuff_duration"			"4.0"	// Debuff持续时间
-			"corruption_armor"			"-60"	// Debuff减甲
 			"attack_slow"				"-200"	// Debuff攻击速度降低
 			"slow_pct"					"-60"	// Debuff移动速度降低
 			"hp_regen_reduction_pct"	"-70"	// Debuff生命回复降低
@@ -7357,6 +7370,7 @@
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%bonus_all_stats"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"%bonus_all_stats"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%bonus_damage_passive"
 				}
 
 				"OnCreated"
@@ -7413,7 +7427,6 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"		"%slow_pct"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"			"%corruption_armor"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%attack_slow"
 					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%hp_regen_reduction_pct"
 				}
