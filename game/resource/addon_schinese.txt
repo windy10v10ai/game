@@ -2189,20 +2189,16 @@
 
 		// item_shotgun 霰弹枪
  		"DOTA_Tooltip_ability_item_shotgun"								"双管霰弹枪"
-		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围的敌人造成溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"溅射范围:"
-		"DOTA_Tooltip_ability_item_shotgun_attack_percent"				"%溅射伤害:"
 		"DOTA_Tooltip_ability_item_shotgun_lore"						"嗵！嗵！"
 
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"							"三管霰弹枪"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围的敌人造成溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_radius"			"溅射范围:"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_percent"			"%溅射伤害:"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"						"嗵！嗵！嗵！"
 
 		// item_jump_jump_jump 跳刀3
@@ -2759,14 +2755,16 @@
 
 		// 鹰眼炮台
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"										"鹰眼炮台"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>主动:人形炮台</font></h1>化身炮台,获得高空视野。持续%active_duration%秒,护甲+%active_armor%,被缠绕无法移动,攻击距离+%active_attack_range%+吃的银月数量×%moon_shard_bonus%,基础攻击间隔减少%bat_reduction_pct%%%。<br><br>冷却时间:%AbilityCooldown%秒\n<h1>被动: 霰弹 (仅限远程)</h1>对攻击目标周围的敌人造成纯粹溅射伤害。<br/>霰弹特效无法叠加,拥有%internal_cooldown%s内置冷却。"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"									"化身为固定炮台,以强大的火力压制敌人。"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>主动：人形炮台（仅限远程）</font></h1>化身炮台，变为飞行单位，获得高空视野。持续%active_duration%秒，禁锢无法移动，攻击距离固定为%active_attack_range%，视野范围为攻击距离 + %active_bonus_vision%。<br><br><font color='#FF6B6B'>近战英雄使用没有效果。</font>\n<h1>被动：霰弹（仅限远程）</h1>对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%秒内置冷却。\n<h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。<br><br>每次有英雄死于毁蚀效果下就会+%bonus_damage_per_kill%点攻击力，最多获得%max_damage%点。"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"									"化身为固定炮台，以强大的火力压制敌人。"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Note0"								"护甲降低效果对建筑有效。"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"					"+$attack"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"					"+$attack_range"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_attack_radius"						"溅射范围:"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_attack_percent"						"%溅射伤害:"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"					"+$attack_range_all"
+
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active"								"炮台模式"
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active_Description"					"飞行单位，禁锢无法移动，攻击距离固定为800（仅远程），视野范围为攻击距离 + 800。"
+
 		// 鹰眼战机
 		"DOTA_Tooltip_Ability_item_hawkeye_fighter"										"鹰眼战机"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"							"<h1><font color='#FFFF00'>主动: 人形战斗机</font></h1>激活战机模式,获得高空视野和极高的机动性。持续%active_duration%秒内,获得%active_movement_speed_pct%%%移速加成,变为飞行单位,无视地形移动,无视单位碰撞,无视移速上限,并施加弱驱散效果。<br><br>视野范围:根据英雄当前夜间视野动态调整<br>冷却时间:%AbilityCooldown%秒<br><br>驱散类型:<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"

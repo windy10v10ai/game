@@ -243,23 +243,6 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"20"
 				}
 			}
-			// 鹰眼炮台
-			"modifier_item_hawkeye_turret_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				// 多个鹰眼炮台可叠加
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"120"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"30"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"250"
-				}
-			}
 			// 鹰眼战机
 			"modifier_item_hawkeye_fighter_stats"
 			{

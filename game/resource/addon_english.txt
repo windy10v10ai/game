@@ -2166,21 +2166,17 @@
 
 		// item_shotgun 霰弹枪
 		"DOTA_Tooltip_ability_item_shotgun"								"Double-Barrel"
-		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals %attack_percent%%% splash damage to enemies within %attack_radius% radius around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"SPLASH DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_item_shotgun_attack_percent"				"%SPLASH DAMAGE:"
 		"DOTA_Tooltip_ability_item_shotgun_lore"						"Bang! Bang!"
 
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"							"Bullet-Filled Shotgun"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals %attack_percent%%% splash damage to enemies within %attack_radius% radius around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_radius"			"SPLASH DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_percent"			"%SPLASH DAMAGE:"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"						"Aim? What's that?"
 
 		// item_jump_jump_jump 跳刀3
@@ -2738,12 +2734,16 @@
 
 		// Hawkeye Turret
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "Hawkeye Turret"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>Active: Humanoid Turret</font></h1>Plant your feet and stand your ground, gaining high ground vision. While in this state, you gain %active_armor% armor and %bat_reduction_pct%%% Base Attack Time reduction, as well as %active_attack_range% attack range per consumed Moon Shards multiplied by %moon_shard_bonus%x. However, while in this state, you are rooted and are unable to move.<br><br>Lasts %active_duration% seconds\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% pure damage to enemies in a %attack_radius% around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown%s internal cooldown."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>Active: Humanoid Turret (Ranged Only)</font></h1>Transform into a flying turret, gaining high ground vision. While in this state, you are rooted and unable to move, with attack range fixed at %active_attack_range% and vision range equal to attack range + %active_bonus_vision%.<br><br><font color='#FF6B6B'>Has no effect when used by melee heroes.</font>\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% splash damage to enemies in a %attack_radius% radius around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown% second internal cooldown.\n<h1>Passive: Absolute Corruption</h1>Physical attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.<br><br>Gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"                 "Transform into a stationary turret, suppressing enemies with overwhelming firepower."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Note0"                "Armor reduction works on buildings."
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"         "+$damage"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"   "+$attack"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_armor"          "+$armor"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"   "+$attack_range"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"   "+$attack_range_all"
+
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active"              "Turret Mode"
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active_Description"  "Flying unit, rooted and unable to move, attack range fixed at 800 (Ranged Only), bonus vision of 800."
+
 
 		// Hawkeye Fighter
 		"DOTA_Tooltip_Ability_item_hawkeye_fighter"                  "Hawkeye Fighter"
