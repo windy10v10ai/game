@@ -5841,19 +5841,23 @@
 
 	"item_hawkeye_turret"
 	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"10202"
-		"ScriptFile"				"items/item_hawkeye_turret"
-		"AbilityTextureName"		"hawkeye_turret"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"item_datadriven"
+		"ID"							"10202"
+		"ScriptFile"					"items/item_hawkeye_turret"
+		"AbilityTextureName"			"hawkeye_turret"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"ItemShopTags"				"damage;hard_to_tag"
-		"ItemQuality"				"epic"
-		"ItemPurchasable"			"1"
-		"ItemSellable"				"0"
+		"ItemShopTags"					"damage;hard_to_tag"
+		"ItemQuality"					"epic"
+		"ItemPurchasable"				"1"
+		"ItemSellable"					"0"
 
-		"AbilityCooldown"			"60"
-		"AbilityManaCost"			"0"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"0"
 		"AbilityValues"
 		{
 			// 主动技能参数
@@ -7291,19 +7295,22 @@
 	}
 	"item_magic_sword"
 	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"10328"
-		"AbilityTextureName"		"moyuanjian"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"BaseClass"						"item_datadriven"
+		"ID"							"10328"
+		"AbilityTextureName"			"moyuanjian"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 
-		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"20.0"
-		"AbilityManaCost"			"150"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"20.0"
+		"AbilityManaCost"				"150"
 
-		"ItemCost"					"25000"
-		"ItemShopTags"				"damage;agi;hard_to_tag"
-		"ItemQuality"				"artifact"
+		"ItemCost"						"25000"
+		"ItemShopTags"					"damage;agi;hard_to_tag"
+		"ItemQuality"					"artifact"
 
 		"AbilityValues"
 		{
