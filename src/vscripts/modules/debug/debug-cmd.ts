@@ -6,7 +6,7 @@ export enum CMD {
   M = '-m', // 获取当前modifier
   A = '-a', // 获取当前ability
   REFRESH_AI = '-r', // 刷新AI
-  T = '-t', // 获取当前时间，不包含暂停
+  TIME = '-time', // 获取当前时间，不包含暂停
 
   KILL = '-k',
   KILL_ALL = '-kall',

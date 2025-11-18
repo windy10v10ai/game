@@ -81,7 +81,7 @@ export class Debug {
       });
     }
 
-    if (cmd === CMD.T) {
+    if (cmd === CMD.TIME) {
       this.log(`Time: ${Time()}`);
       this.log(`GameTime: ${GameRules.GetGameTime()}`);
       this.log(`GetDOTATime: ${GameRules.GetDOTATime(false, true)}`);
