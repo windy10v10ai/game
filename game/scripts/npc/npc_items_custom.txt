@@ -5968,7 +5968,7 @@
 					}
 				}
 
-				"EffectName"		"particles/econ/events/ti10/phase_boots_ti10.vpcf"
+				"EffectName"		"particles/units/heroes/hero_winter_wyvern/wyvern_arctic_burn_buff.vpcf"
 				"EffectAttachType"	"PATTACH_ABSORIGIN_FOLLOW"
 			}
 		}
