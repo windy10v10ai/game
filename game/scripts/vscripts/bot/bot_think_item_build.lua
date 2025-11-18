@@ -589,28 +589,3 @@ function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassN
   end
 end
 
--- 加钱
-function BotThink:AddMoney(hHero)
-  local iAddBase = AIGameMode.playerNumber + 6
-  local GameTime = GameRules:GetDOTATime(false, false)
-  local totalGold = PlayerResource:GetTotalEarnedGold(hHero:GetPlayerID())
-
-  local goldPerSec = totalGold / GameTime
-
-  local multiplier = AIGameMode.fBotGoldXpMultiplier
-  if hHero:GetTeam() == DOTA_TEAM_GOODGUYS then
-    multiplier = AIGameMode.fPlayerGoldXpMultiplier
-  end
-
-  local iAddMoney = math.floor(multiplier * iAddBase)
-
-  if goldPerSec > iAddMoney then
-    return false
-  end
-
-  if iAddMoney > 0 then
-    hHero:ModifyGold(iAddMoney, true, DOTA_ModifyGold_GameTick)
-    return true
-  end
-  return false
-end

@@ -106,43 +106,18 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('agility', playerData?.agi ?? 0);
   panel.SetDialogVariableInt('intellect', playerData?.int ?? 0);
 
-  // 绘制物品栏
-  const items = Game.GetPlayerItems(playerId);
-  for (var i = 0; i < 6; i++) {
-    var itemPanel = $.CreatePanel(
-      'DOTAItemImage',
-      panel.FindChildTraverse(i >= 6 ? 'BackpackItemsContainer' : 'ItemsContainer'),
-      '',
-    );
-    var item = items?.inventory[i];
-    if (item) {
-      itemPanel.itemname = item.item_name;
-    }
-  }
-
-  // 绘制中立物品
-  const neutralItemPanel = $.CreatePanel(
-    'DOTAItemImage',
-    panel.FindChildTraverse('NeutralItemContainer'),
-    '',
-  );
-  const neutralItem = items?.neutral_item;
-  if (neutralItem) {
-    neutralItemPanel.itemname = neutralItem.item_name;
-  }
-  // 绘制中立被动
-  const neutralItemPassivePanel = $.CreatePanel(
-    'DOTAItemImage',
-    panel.FindChildTraverse('NeutralItemPassiveContainer'),
-    '',
-  );
   const heroIndex = Players.GetPlayerHeroEntityIndex(playerId);
-  const neutralItemPassiveIndex = Entities.GetItemInSlot(heroIndex, 17);
 
-  if (neutralItemPassiveIndex > 0) {
-    neutralItemPassivePanel.itemname = Abilities.GetAbilityName(neutralItemPassiveIndex);
-    neutralItemPassivePanel.contextEntityIndex = neutralItemPassiveIndex;
+  // 绘制物品栏 (槽位 0-5)
+  for (var i = 0; i < 6; i++) {
+    CreateItemImage(panel.FindChildTraverse('ItemsContainer'), heroIndex, i);
   }
+
+  // 绘制中立物品 (槽位 16)
+  CreateItemImage(panel.FindChildTraverse('NeutralItemContainer'), heroIndex, 16);
+
+  // 绘制中立被动 (槽位 17)
+  CreateItemImage(panel.FindChildTraverse('NeutralItemPassiveContainer'), heroIndex, 17);
 
   // 绘制选择的技能
   const steamAccountID = playerData?.steamId;
@@ -169,6 +144,25 @@ function CreateAbilityImage(abilitiesContainer, abilityName) {
     showtooltip: true,
   });
   abilityPanel.AddClass('AbilityImage');
+}
+
+/**
+ * 创建物品图像面板
+ * @param {Panel} container 父容器
+ * @param {Number} heroIndex 英雄实体索引
+ * @param {Number} slotIndex 物品栏位索引
+ * @returns {Panel} 创建的物品面板
+ */
+function CreateItemImage(container, heroIndex, slotIndex) {
+  const itemPanel = $.CreatePanel('DOTAItemImage', container, '');
+  const itemIndex = Entities.GetItemInSlot(heroIndex, slotIndex);
+
+  if (itemIndex > 0) {
+    itemPanel.itemname = Abilities.GetAbilityName(itemIndex);
+    itemPanel.contextEntityIndex = itemIndex;
+  }
+
+  return itemPanel;
 }
 
 /**
