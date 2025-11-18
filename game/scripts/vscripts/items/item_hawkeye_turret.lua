@@ -4,6 +4,7 @@
 
 -- LinkLuaModifier for Lua-based modifiers
 LinkLuaModifier("modifier_item_hawkeye_turret_splash", "items/item_hawkeye_turret.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_hawkeye_turret_splash_cooldown", "items/item_hawkeye_turret.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- ========================================
 -- 主动技能
@@ -45,8 +46,11 @@ function HawkeyeTurretOnCreated(keys)
     -- 添加 Desolator modifier (原生 modifier)
     local desolator_modifier = caster:AddNewModifier(caster, ability, "modifier_item_desolator", {})
 
-    -- 添加溅射伤害 Lua modifier
-    local splash_modifier = caster:AddNewModifier(caster, ability, "modifier_item_hawkeye_turret_splash", {})
+    -- 添加溅射伤害 Lua modifier (检查是否已存在，避免叠加)
+    local splash_modifier = nil
+    if not caster:HasModifier("modifier_item_hawkeye_turret_splash") then
+        splash_modifier = caster:AddNewModifier(caster, ability, "modifier_item_hawkeye_turret_splash", {})
+    end
 
     -- 保存 modifier 引用到 ability，以便 OnDestroy 时精确移除
     if not ability.added_modifiers then
@@ -105,54 +109,58 @@ function modifier_item_hawkeye_turret_splash:GetAttributes()
 end
 
 function modifier_item_hawkeye_turret_splash:OnCreated()
-    if IsServer() then
-        self.last_trigger_time = 0
-    end
+    if not IsServer() then return end
+
+    local ability = self:GetAbility()
+    self.attack_radius = ability:GetSpecialValueFor("attack_radius")
+    self.attack_percent = ability:GetSpecialValueFor("attack_percent")
+    self.internal_cooldown = ability:GetSpecialValueFor("internal_cooldown")
 end
 
 function modifier_item_hawkeye_turret_splash:DeclareFunctions()
     return {
-        MODIFIER_EVENT_ON_ATTACK_LANDED
+        MODIFIER_PROPERTY_PROCATTACK_FEEDBACK
     }
 end
 
--- 攻击命中时触发溅射
-function modifier_item_hawkeye_turret_splash:OnAttackLanded(params)
+-- 攻击反馈时触发溅射
+function modifier_item_hawkeye_turret_splash:GetModifierProcAttack_Feedback(params)
     if not IsServer() then return end
 
     local attacker = params.attacker
     local target = params.target
-    local ability = self:GetAbility()
 
+    -- 基础检查
+    if not attacker:IsRealHero() then return end
+    if not attacker:IsRangedAttacker() then return end
+    if attacker:GetTeam() == target:GetTeam() then return end
+    if target:IsBuilding() then return end
+
+    -- 检查冷却时间
+    if attacker:HasModifier("modifier_item_hawkeye_turret_splash_cooldown") then return end
+
+    local ability = self:GetAbility()
     if not ability then return end
 
-    -- 只对持有者的攻击生效
-    if attacker ~= self:GetParent() then return end
+    local target_loc = target:GetAbsOrigin()
 
-    -- 读取参数
-    local radius = ability:GetSpecialValueFor("attack_radius")
-    local damage_percent = ability:GetSpecialValueFor("attack_percent") / 100
-    local cooldown = ability:GetSpecialValueFor("internal_cooldown")
+    -- 使用 CalculateActualDamage 计算考虑护甲减免的实际伤害
+    local actual_damage = CalculateActualDamage(params.damage, target)
+    local damage = actual_damage * self.attack_percent / 100
 
-    -- 检查内部冷却时间
-    local current_time = GameRules:GetGameTime()
-    if current_time - self.last_trigger_time < cooldown then
-        return
-    end
-
-    self.last_trigger_time = current_time
-
-    -- 获取攻击伤害
-    local damage = params.damage
+    -- 播放粒子特效
+    local blast_pfx = ParticleManager:CreateParticle("particles/custom/shrapnel.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    ParticleManager:SetParticleControl(blast_pfx, 0, target_loc)
+    ParticleManager:ReleaseParticleIndex(blast_pfx)
 
     -- 查找范围内的敌人
     local enemies = FindUnitsInRadius(
         attacker:GetTeamNumber(),
-        target:GetAbsOrigin(),
+        target_loc,
         nil,
-        radius,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        self.attack_radius,
+        ability:GetAbilityTargetTeam(),
+        ability:GetAbilityTargetType(),
         DOTA_UNIT_TARGET_FLAG_NONE,
         FIND_ANY_ORDER,
         false
@@ -160,17 +168,37 @@ function modifier_item_hawkeye_turret_splash:OnAttackLanded(params)
 
     -- 对范围内的敌人造成溅射伤害
     for _, enemy in pairs(enemies) do
-        -- 跳过主目标（已经受到原始伤害）
         if enemy ~= target then
-            -- 造成溅射伤害
             ApplyDamage({
                 victim = enemy,
                 attacker = attacker,
-                damage = damage * damage_percent,
-                damage_type = DAMAGE_TYPE_PHYSICAL,
-                damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION,
+                damage = damage,
+                damage_type = ability:GetAbilityDamageType(),
+                damage_flags = DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION + DOTA_DAMAGE_FLAG_REFLECTION,
                 ability = ability
             })
         end
     end
+
+    -- 应用冷却时间
+    attacker:AddNewModifier(attacker, ability, "modifier_item_hawkeye_turret_splash_cooldown", {
+        duration = self.internal_cooldown
+    })
+end
+
+-- ========================================
+-- 溅射冷却 modifier
+-- ========================================
+modifier_item_hawkeye_turret_splash_cooldown = class({})
+
+function modifier_item_hawkeye_turret_splash_cooldown:IsHidden()
+    return true
+end
+
+function modifier_item_hawkeye_turret_splash_cooldown:IsPurgable()
+    return false
+end
+
+function modifier_item_hawkeye_turret_splash_cooldown:RemoveOnDeath()
+    return true
 end

@@ -5865,6 +5865,7 @@
 			// 主动技能参数
 			"active_attack_range"		"800"	// 主动攻击距离（仅远程）
 			"active_duration"			"6"		// 主动持续时间
+			"active_bonus_vision"		"800"	// 额外视野
 
 			// 溅射伤害参数（Lua 逻辑）
 			"attack_radius"				"500"	// 溅射范围
@@ -5939,11 +5940,14 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"%active_attack_range"
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"			"%active_bonus_vision"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"			"%active_bonus_vision"
 				}
 
 				"States"
 				{
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FLYING"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 
 				"OnCreated"
