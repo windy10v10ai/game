@@ -221,15 +221,15 @@ export class CreepBuffManager {
     const gameTime = GameRules.GetDOTATime(false, false);
     if (gameTime <= 10 * 60) {
       return 0;
-    } else if (gameTime <= 15 * 60) {
-      return 1;
     } else if (gameTime <= 20 * 60) {
-      return 2;
+      return 1;
     } else if (gameTime <= 25 * 60) {
-      return 3;
+      return 2;
     } else if (gameTime <= 30 * 60) {
-      return 4;
+      return 3;
     } else if (gameTime <= 35 * 60) {
+      return 4;
+    } else if (gameTime <= 40 * 60) {
       return 5;
     } else {
       return 6;
