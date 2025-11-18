@@ -5565,10 +5565,10 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-			"bonus_spell_resist"					"40"	//20
+			"bonus_spell_resist"					"50"	//20
 			"bonus_strength"						"30"	//10
 			"bonus_health"							"1000"	//250
-			"stack_threshold"						"600"	//300
+			"stack_threshold"						"99999"	//300
 			"stack_duration"						"8"		//5
 			"stack_resist"							"4.0"	//3.5
 			"mana_restore_pct"						"50"	//25
@@ -6888,7 +6888,7 @@
 			"magic_resist"					"100"
 
 			// 法师泳衣被动
-			"stack_threshold"			"600"
+			"stack_threshold"			"99999"
 			"stack_duration"			"10"
 			"stack_resist"				"4"
 			"mana_restore_pct"			"50"
