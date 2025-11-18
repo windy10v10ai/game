@@ -2489,7 +2489,7 @@
 
 		// 法师泳衣
 		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"Swimagicostume"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Magical Swimming</h1> Converts %mana_restore_pct%%% of spell damage taken from enemies (before reductions) into mana.\n\n<h1>Passive: Diving Suit</h1> Gains a stack of Eternal Endurance for every %stack_threshold% spell damage taken. Each stack lasts %stack_duration% seconds, and the item can have up to a maximum of %max_stacks% stacks. Each stack increases the Swimagicostume's magic resistance by %stack_resist%%."
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Magical Swimming</h1> Converts %mana_restore_pct%%% of spell damage taken from enemies (before reductions) into mana."
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"Swim freely among the mages' flow of spells and arcanery!"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
@@ -2733,16 +2733,16 @@
 		"DOTA_Tooltip_ability_item_universal_rune_Lore"									"RN: 'The worst thing is having money but not being able to buy equipment'? Then you're still not rich enough"
 
 		// Hawkeye Turret
-		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "Hawkeye Turret"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>Active: Humanoid Turret (Ranged Only)</font></h1>Transform into a flying turret, gaining high ground vision. While in this state, you are rooted and unable to move, with attack range fixed at %active_attack_range% and vision range equal to attack range + %active_bonus_vision%.<br><br><font color='#FF6B6B'>Has no effect when used by melee heroes.</font>\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% splash damage to enemies in a %attack_radius% radius around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown% second internal cooldown.\n<h1>Passive: Absolute Corruption</h1>Physical attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.<br><br>Gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"                 "Transform into a stationary turret, suppressing enemies with overwhelming firepower."
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Note0"                "Armor reduction works on buildings."
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"         "+$damage"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"   "+$attack"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"   "+$attack_range_all"
+		"DOTA_Tooltip_Ability_item_hawkeye_turret"										"Hawkeye Turret"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>Active: Humanoid Turret (Ranged Only)</font></h1>Transform into a flying turret, gaining high ground vision. Lasts %active_duration% seconds, rooted and unable to move, gains bonus attack range of %active_attack_range%, vision range equals attack range + %active_bonus_vision%.<br><br><font color='#FF6B6B'>Has no effect when used by melee heroes.</font>\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% splash damage to enemies in a %attack_radius% radius around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown% second internal cooldown.\n<h1>Passive: Absolute Corruption</h1>Physical attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.<br><br>Gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"									"Transform into a stationary turret, suppressing enemies with overwhelming firepower."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Note0"								"Armor reduction works on buildings."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"					"+$attack_range_all"
 
-		"DOTA_Tooltip_modifier_item_hawkeye_turret_active"              "Turret Mode"
-		"DOTA_Tooltip_modifier_item_hawkeye_turret_active_Description"  "Flying unit, rooted and unable to move, attack range fixed at 800 (Ranged Only), bonus vision of 800."
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active"								"Turret Mode"
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active_Description"					"Flying unit, rooted and unable to move, gains bonus attack range (Ranged Only), vision range equals attack range + bonus vision."
 
 
 		// Hawkeye Fighter
@@ -2910,7 +2910,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"Beast Shield"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, movement speed is set to %active_movespeed%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Diving Suit</h1>For each %stack_threshold% skill damage taken, the hero gains one layer of stacking effect for %stack_duration% seconds, up to %max_stacks% layers. Each layer increases magic resistance by %stack_resist%%%.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, movement speed is set to %active_movespeed%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"Diving Suit"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."
