@@ -2957,7 +2957,7 @@
 		"DOTA_Tooltip_Ability_item_magic_sword"											"Demonic Sword"
 		"DOTA_Tooltip_ability_item_magic_sword_Description"								"<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: World Splitter</h1>Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against non-hero units. (Melee Only)\n<h1>Passive: Demonic Corruption</h1>Attacks apply corruption for %debuff_duration% seconds:<br>- Armor reduced by %corruption_armor%<br>- Attack speed reduced by %attack_slow%<br>- Movement speed slowed by %slow_pct%%%<br>- Health regeneration and healing reduced by %hp_regen_reduction_pct%%%"
 		"DOTA_Tooltip_ability_item_magic_sword_Lore"									"Buddha said: One thought to become Buddha, one thought to become demon."
-		"DOTA_Tooltip_ability_item_magic_sword_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_magic_sword_bonus_damage_passive"					"+$damage"
 		"DOTA_Tooltip_ability_item_magic_sword_bonus_all_stats"							"+$all"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_mana_regen"						"+$mana_regen"

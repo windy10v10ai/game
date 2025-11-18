@@ -3008,7 +3008,7 @@
 		"DOTA_Tooltip_Ability_item_magic_sword"											"魔渊剑"
 		"DOTA_Tooltip_Ability_item_magic_sword_Description"								"<h1>主动：<font color='#A74ABD'>一念成佛</font></h1>持续 %active_duration% 秒内，你造成的物理伤害的 %convert_pct%%% 会转化为额外纯粹伤害。\n<h1>被动：斩断世界线</h1>普通攻击时对目标周围最远 %cleave_distance% 距离的锥形区域内敌人造成 %cleave_damage_percent%%% 物理伤害。对非英雄单位造成 %cleave_damage_percent_creep%%% 物理伤害。（仅近战有效）\n<h1>被动：魔渊腐蚀</h1>攻击时对目标施加腐蚀效果，持续 %debuff_duration% 秒：<br>- 护甲降低 %corruption_armor%<br>- 攻击速度降低 %attack_slow%<br>- 移动速度降低 %slow_pct%%%<br>- 生命回复和治疗效果降低 %hp_regen_reduction_pct%%%"
 		"DOTA_Tooltip_Ability_item_magic_sword_Lore"									"佛曰：一念成佛，一念成魔。"
-		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_Ability_item_magic_sword_bonus_damage_passive"					"+$damage"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_all_stats"							"+$all"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_mana_regen"						"+$mana_regen"

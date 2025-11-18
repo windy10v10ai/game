@@ -1,4 +1,4 @@
--- 被动 modifier 创建时添加狂战斧溅射效果
+-- 被动 modifier 创建时添加狂战斧溅射效果和 Desolator 减甲效果
 function MagicSwordOnCreated(keys)
     if not IsServer() then return end
 
@@ -10,6 +10,9 @@ function MagicSwordOnCreated(keys)
     -- 添加原生狂战斧 modifier 实现溅射效果
     local battlefury_modifier = caster:AddNewModifier(caster, ability, "modifier_item_battlefury", {})
 
+    -- 添加原生 Desolator modifier 实现减甲效果
+    local desolator_modifier = caster:AddNewModifier(caster, ability, "modifier_item_desolator", {})
+
     -- 将添加的 modifier 保存到 ability 上,以便 OnDestroy 时精确移除
     if not ability.added_modifiers then
         ability.added_modifiers = {}
@@ -17,6 +20,9 @@ function MagicSwordOnCreated(keys)
 
     if battlefury_modifier then
         table.insert(ability.added_modifiers, battlefury_modifier)
+    end
+    if desolator_modifier then
+        table.insert(ability.added_modifiers, desolator_modifier)
     end
 end
 
