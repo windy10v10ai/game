@@ -205,7 +205,7 @@ export class Debug {
         }
       });
     }
-    if (cmd === CMD.REPLACE_ITEM) {
+    if (cmd === CMD.REPLACE_ITEM_LIST) {
       const itemNameList = [
         'item_beast_shield',
         'item_beast_shield',
