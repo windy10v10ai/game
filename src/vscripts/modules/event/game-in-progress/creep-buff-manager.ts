@@ -131,26 +131,26 @@ export class CreepBuffManager {
     let buffLevelBad = baseCreepBuffLevel;
 
     // 根据1塔摧毁情况增加buff
-    if (TowerPushStatus.tower1PushedGood === 1) {
+    if (TowerPushStatus.tower1PushedGood >= 1) {
       buffLevelGood += 1;
     }
-    if (TowerPushStatus.tower1PushedBad === 1) {
+    if (TowerPushStatus.tower1PushedBad >= 1) {
       buffLevelBad += 1;
     }
 
     // 根据2塔摧毁情况增加buff
-    if (TowerPushStatus.tower2PushedGood === 1) {
+    if (TowerPushStatus.tower2PushedGood >= 1) {
       buffLevelGood += 1;
     }
-    if (TowerPushStatus.tower2PushedBad === 1) {
+    if (TowerPushStatus.tower2PushedBad >= 1) {
       buffLevelBad += 1;
     }
 
     // 根据3塔摧毁情况增加buff
-    if (TowerPushStatus.tower3PushedGood === 1) {
+    if (TowerPushStatus.tower3PushedGood >= 1) {
       buffLevelGood += 1;
     }
-    if (TowerPushStatus.tower3PushedBad === 1) {
+    if (TowerPushStatus.tower3PushedBad >= 1) {
       buffLevelBad += 1;
     }
 
@@ -202,24 +202,22 @@ export class CreepBuffManager {
   private getCreepBuffByTowerPower(): number {
     // 前5分钟不计算防御塔buff等级
     const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 5 * 60) {
+    if (gameTime <= 10 * 60) {
       return 0;
     }
     const sumTowerPower = GameRules.Option.towerPower;
     if (sumTowerPower <= 150) {
       return 0;
-    } else if (sumTowerPower <= 300) {
-      return 1;
     } else if (sumTowerPower <= 400) {
-      return 2;
+      return 1;
     } else {
-      return 3;
+      return 2;
     }
   }
 
   private getCreepBuffByGameTime(): number {
     const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 10 * 60) {
+    if (gameTime <= 15 * 60) {
       return 0;
     } else if (gameTime <= 20 * 60) {
       return 1;
