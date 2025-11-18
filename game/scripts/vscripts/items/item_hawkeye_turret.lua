@@ -86,7 +86,61 @@ function HawkeyeTurretOnDestroy(keys)
     ability.added_modifiers = nil
 end
 
--- TODO 优化，参考幽鬼折射 或者使用行家阵列
+-- ========================================
+-- DataDriven modifier_item_hawkeye_turret_active 的 OnCreated 回调
+-- 使用 AddFOWViewer 添加高空视野
+-- ========================================
+function HawkeyeTurretActiveOnCreated(keys)
+    if not IsServer() then return end
+
+    local caster = keys.caster
+    local ability = keys.ability
+
+    if not caster or not ability then return end
+
+    -- 获取视野参数
+    local vision_radius = caster:Script_GetAttackRange() + ability:GetSpecialValueFor("active_bonus_vision")
+    local duration = ability:GetSpecialValueFor("active_duration")
+
+    print("vision_radius", vision_radius)
+    print("caster name", caster:GetName())
+    -- 初始化 FOW viewers 表
+    if not caster.fow_viewers then
+        caster.fow_viewers = {}
+    end
+
+    -- 在单位位置添加高空视野（false = 高空视野，无视地形阻挡）
+    local fow_viewer = AddFOWViewer(
+        caster:GetTeamNumber(), -- 队伍
+        caster:GetAbsOrigin(),  -- 位置
+        vision_radius,          -- 视野半径
+        duration,               -- 持续时间
+        false                   -- false = 高空视野（flying vision），无视地形阻挡
+    )
+    table.insert(caster.fow_viewers, fow_viewer)
+end
+
+-- ========================================
+-- DataDriven modifier_item_hawkeye_turret_active 的 OnDestroy 回调
+-- 移除 AddFOWViewer 添加的视野
+-- ========================================
+function HawkeyeTurretActiveOnDestroy(keys)
+    if not IsServer() then return end
+
+    local caster = keys.caster
+
+    if not caster then return end
+
+    -- 移除所有 FOW viewers
+    if caster.fow_viewers then
+        local team_number = caster:GetTeamNumber()
+        for _, viewer in pairs(caster.fow_viewers) do
+            RemoveFOWViewer(team_number, viewer)
+        end
+        caster.fow_viewers = nil
+    end
+end
+
 -- ========================================
 -- Lua 辅助 modifier - 溅射伤害
 -- ========================================
