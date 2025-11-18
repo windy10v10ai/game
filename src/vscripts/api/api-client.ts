@@ -28,7 +28,9 @@ export class ApiClient {
   // private static HOST_NAME: string = (() => {
   //   return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
   // })();
-  private static HOST_NAME: string = 'https://windy10v10ai.com/api';
+  // private static HOST_NAME: string = 'https://windy10v10ai.com/api';
+  // FIXME 临时修改应对 Cloudflare 网络故障，需要修改回来
+  private static HOST_NAME: string = 'https://client-464cmh4bkq-an.a.run.app/api';
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   // dont change this version, it is used to identify the server
