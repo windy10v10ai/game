@@ -2759,7 +2759,7 @@
 
 		// 鹰眼炮台
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"										"鹰眼炮台"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>主动：人形炮台（仅限远程）</font></h1>化身炮台，变为飞行单位，获得高空视野。持续%active_duration%秒，禁锢无法移动，攻击距离固定为%active_attack_range%，视野增加%active_bonus_vision%。\n<h1>被动：霰弹（仅限远程）</h1>对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%秒内置冷却。\n<h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。<br><br>每次有英雄死于毁蚀效果下就会+%bonus_damage_per_kill%点攻击力，最多获得%max_damage%点。"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>主动：人形炮台（仅限远程）</font></h1>化身炮台，变为飞行单位，获得高空视野。持续%active_duration%秒，禁锢无法移动，攻击距离固定为%active_attack_range%，视野增加%active_bonus_vision%。<br><br><font color='#FF6B6B'>近战英雄使用没有效果。</font>\n<h1>被动：霰弹（仅限远程）</h1>对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%秒内置冷却。\n<h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。<br><br>每次有英雄死于毁蚀效果下就会+%bonus_damage_per_kill%点攻击力，最多获得%max_damage%点。"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"									"化身为固定炮台，以强大的火力压制敌人。"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Note0"								"护甲降低效果对建筑有效。"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"							"+$damage"

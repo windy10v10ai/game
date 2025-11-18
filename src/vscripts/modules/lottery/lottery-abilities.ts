@@ -57,7 +57,7 @@ export const abilityTiersActive: Tier[] = [
       'tidehunter_ravage', // 毁灭
       'dazzle_bad_juju', // 邪能
       'tinker_rearm_lua', // 再装填
-      'dragon_knight_elder_dragon_form', //变龙
+      // 'dragon_knight_elder_dragon_form', //变龙 近战选择有问题
       'puck_dream_coil', // 梦境缠绕
 
       // 小技能
