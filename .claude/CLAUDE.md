@@ -265,6 +265,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 4. 通过 `GameEvents.SendCustomGameEventToServer()` 发送事件
 5. 路径别名 `@utils/*` 映射到 `panorama/react/utils/*`
 6. Panorama UI 使用 React 16.14 配合函数式组件和 hooks
+7. **重要**: 直接修改 `content/panorama/` 下的文件（`.xml`, `.css`, `.js`）不需要运行 `npm run build`，Dota 2 会自动编译这些文件
 
 ### 添加新的共享类型时:
 
