@@ -3771,11 +3771,7 @@
 		{
 			"bonus_damage"			"25" 	// tooltip, real value in modifier_item_shotgun_stats
 			"attack_speed"			"40" 	// tooltip, real value in modifier_item_shotgun_stats
-			"attack_radius"
-			{
-				"value"		"350"
-				"affected_by_aoe_increase"	"1"
-			}
+			"attack_radius"			"400"
 			"attack_percent"
 			{
 				"value"				"40"
@@ -3847,11 +3843,7 @@
 		{
 			"bonus_damage"			"50" 	// tooltip, real value in modifier_item_shotgun_v2_stats
 			"attack_speed"			"130" 	// tooltip, real value in modifier_item_shotgun_v2_stats
-			"attack_radius"
-			{
-				"value"		"350"
-				"affected_by_aoe_increase"	"1"
-			}
+			"attack_radius"			"400"
 			"attack_percent"
 			{
 				"value"				"60"
@@ -5858,7 +5850,7 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"50"
+		"AbilityCooldown"			"60"
 		"AbilityManaCost"			"0"
 		"AbilityValues"
 		{
@@ -5868,12 +5860,12 @@
 			"active_bonus_vision"		"400"	// 额外视野
 
 			// 溅射伤害参数（Lua 逻辑）
-			"attack_radius"				"500"	// 溅射范围
+			"attack_radius"				"400"	// 溅射范围
 			"attack_percent"			"100"	// 溅射伤害百分比
 			"internal_cooldown"			"0.05"	// 内置冷却时间
 
 			// Desolator 参数（从 item_infernal_desolator 继承）
-			"bonus_damage"				"350"	// 攻击力
+			"bonus_damage"				"300"	// 攻击力
 			"corruption_armor"			"-60"	// 护甲降低
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
 			"bonus_damage_per_kill"		"10"	// 每次击杀增加的攻击力
@@ -5882,7 +5874,7 @@
 
 			// 被动属性（DataDriven Properties）
 			"bonus_attack_range"		"250"	// 攻击距离加成
-			"bonus_attack_speed"		"150"	// 攻击速度
+			"bonus_attack_speed"		"200"	// 攻击速度
 		}
 
 		"OnSpellStart"

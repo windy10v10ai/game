@@ -2189,20 +2189,16 @@
 
 		// item_shotgun 霰弹枪
  		"DOTA_Tooltip_ability_item_shotgun"								"双管霰弹枪"
-		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围的敌人造成溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"溅射范围:"
-		"DOTA_Tooltip_ability_item_shotgun_attack_percent"				"%溅射伤害:"
 		"DOTA_Tooltip_ability_item_shotgun_lore"						"嗵！嗵！"
 
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"							"三管霰弹枪"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围的敌人造成溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>被动: 霰弹</h1>仅限远程：对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%s内置冷却。"
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_radius"			"溅射范围:"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_percent"			"%溅射伤害:"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"						"嗵！嗵！嗵！"
 
 		// item_jump_jump_jump 跳刀3

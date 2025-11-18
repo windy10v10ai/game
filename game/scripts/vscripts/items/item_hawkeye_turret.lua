@@ -102,8 +102,6 @@ function HawkeyeTurretActiveOnCreated(keys)
     local vision_radius = caster:Script_GetAttackRange() + ability:GetSpecialValueFor("active_bonus_vision")
     local duration = ability:GetSpecialValueFor("active_duration")
 
-    print("vision_radius", vision_radius)
-    print("caster name", caster:GetName())
     -- 初始化 FOW viewers 表
     if not caster.fow_viewers then
         caster.fow_viewers = {}
