@@ -1,4 +1,6 @@
+import { Player } from '../../api/player';
 import { TowerPushStatus } from '../../modules/event/event-entity-killed';
+import { PlayerHelper } from '../../modules/helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
 
 /**
@@ -19,8 +21,10 @@ export class BotTeam {
   constructor() {
     // 计算电脑推进时间
     this.initBotPushTime();
-    Timers.CreateTimer(2, () => {
+    // 每1秒刷新一次团队策略和给Bot发钱
+    Timers.CreateTimer(this.refreshInterval, () => {
       this.refreshTeamStrategy();
+      this.addMoneyForBots();
       return this.refreshInterval;
     });
   }
@@ -159,5 +163,48 @@ export class BotTeam {
       gameModeEntity.SetBotsAlwaysPushWithHuman(false);
       gameModeEntity.SetBotsMaxPushTier(1);
     }
+  }
+
+  /**
+   * 给Bot发钱
+   * 每1秒调用一次(原Lua实现是2秒调用一次,现在金额减半以保持总量不变)
+   */
+  private addMoneyForBots(): void {
+    const gameTime = GameRules.GetDOTATime(false, false);
+    if (gameTime <= 0) return; // 避免除以0
+
+    const playerNumber = Player.GetPlayerCount();
+    const baseAmount = playerNumber + 6;
+
+    // 遍历所有Bot玩家(天辉和夜魇)
+    PlayerHelper.ForEachPlayer((playerId) => {
+      // 只给Bot发钱
+      if (!PlayerHelper.IsBotPlayerByPlayerId(playerId)) return;
+
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+      if (!hero) return;
+
+      // 根据队伍选择倍率
+      const multiplier = PlayerHelper.IsGoodTeamPlayer(playerId)
+        ? GameRules.Option.radiantGoldXpMultiplier
+        : GameRules.Option.direGoldXpMultiplier;
+
+      // 原来2秒发一次的金额
+      const originalAmount = Math.floor(multiplier * baseAmount);
+      // 现在1秒发一次,金额减半
+      const addMoney = Math.floor(originalAmount / 2);
+
+      if (addMoney <= 0) return;
+
+      // 检查金币上限
+      const totalGold = PlayerResource.GetTotalEarnedGold(playerId);
+      const goldPerSec = totalGold / gameTime;
+
+      // 如果玩家平均每秒赚的钱 > 原来的上限,则不发钱
+      if (goldPerSec > originalAmount) return;
+
+      // 发钱(死亡时也发钱)
+      hero.ModifyGold(addMoney, true, ModifyGoldReason.GAME_TICK);
+    });
   }
 }
