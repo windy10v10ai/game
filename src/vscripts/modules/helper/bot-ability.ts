@@ -136,6 +136,12 @@ export class BotAbility {
     // 记录bot的被动技能名称
     const heroIndex = currentHero.GetEntityIndex();
     this.botPassiveAbilities.set(heroIndex, abilityName);
+
+    // 将bot被动技能信息设置到net table，供结算界面显示
+    const playerId = currentHero.GetPlayerOwnerID();
+    CustomNetTables.SetTableValue('bot_passive_abilities', playerId.toString(), {
+      abilityName: abilityName,
+    });
   }
 
   /**

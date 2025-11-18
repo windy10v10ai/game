@@ -121,11 +121,24 @@ function Snippet_Player(playerId, rootPanel, index) {
 
   // 绘制选择的技能
   const steamAccountID = playerData?.steamId;
-  if (steamAccountID) {
+  const abilitiesContainer = panel.FindChildTraverse('AbilitiesContainer');
+
+  // 检查是否是bot
+  const isBot = playerInfo.player_steamid === '0';
+
+  if (isBot) {
+    // Bot: 显示bot的被动技能
+    const botAbilityData = CustomNetTables.GetTableValue(
+      'bot_passive_abilities',
+      playerId.toString(),
+    );
+    if (botAbilityData && botAbilityData.abilityName) {
+      CreateAbilityImage(abilitiesContainer, botAbilityData.abilityName);
+    }
+  } else if (steamAccountID) {
+    // 玩家: 显示抽选的技能
     const lotteryStatus = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
     if (lotteryStatus) {
-      const abilitiesContainer = panel.FindChildTraverse('AbilitiesContainer');
-
       // 显示主动技能
       CreateAbilityImage(abilitiesContainer, lotteryStatus.activeAbilityName);
 

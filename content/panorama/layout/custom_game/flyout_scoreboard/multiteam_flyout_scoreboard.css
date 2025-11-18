@@ -333,6 +333,19 @@
   text-align: center;
 }
 
+.ScoreCol_Abilities {
+  width: 90px;
+  text-align: center;
+  flow-children: right;
+}
+
+.ScoreCol_Abilities .AbilityImage {
+  width: 28px;
+  height: 28px;
+  margin: 1px;
+  vertical-align: center;
+}
+
 #TeamInfo {
   min-width: 55px;
 }

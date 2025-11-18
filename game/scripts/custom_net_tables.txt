@@ -25,6 +25,7 @@
     "lottery_passive_abilities",
     "lottery_passive_abilities_2",
     "lottery_status",
-	  "player_virtual_gold",  // 添加这一行
+	  "player_virtual_gold",
+	  "bot_passive_abilities",  // Bot 被动技能表
   ]
 }
