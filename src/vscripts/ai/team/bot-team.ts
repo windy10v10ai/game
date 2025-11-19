@@ -189,9 +189,8 @@ export class BotTeam {
         ? GameRules.Option.radiantGoldXpMultiplier
         : GameRules.Option.direGoldXpMultiplier;
 
-      // 原来2秒发一次的金额
+      // 1秒发一次,金额为金币上限的1/2
       const originalAmount = Math.floor(multiplier * baseAmount);
-      // 现在1秒发一次,金额减半
       const addMoney = Math.floor(originalAmount / 2);
 
       if (addMoney <= 0) return;
