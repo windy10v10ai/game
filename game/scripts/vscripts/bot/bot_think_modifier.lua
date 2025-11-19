@@ -74,8 +74,6 @@ function modifier_bot_think_strategy:OnIntervalThink()
 	local hHero = self:GetParent()
 	if hHero:IsNull() then return end
 
-	BotThink:AddMoney(hHero)
-
 	if IsHeroUncontrollable(hHero) then return end
 
 	BotThink:ThinkSell(hHero)

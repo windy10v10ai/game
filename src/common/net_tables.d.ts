@@ -74,6 +74,12 @@ declare global {
         transferred_back_total: number; // 从虚拟金币库转回的总金额
       };
     };
+    // Bot 被动技能表
+    bot_passive_abilities: {
+      [playerID: string]: {
+        abilityName: string; // Bot 的被动技能名称
+      };
+    };
   }
 }
 

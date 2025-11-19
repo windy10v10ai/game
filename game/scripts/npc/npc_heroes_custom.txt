@@ -543,22 +543,22 @@
 	// 幽鬼
 	"npc_dota_hero_spectre"
 	{
-		// "Ability3"		"spectre_dispersion2"
+		"Ability3"		"spectre_dispersion2"
 		"Bot"
 		{
 			"Build"
 			{
 				"1"		"spectre_spectral_dagger"
-				"2"		"spectre_dispersion"
+				"2"		"spectre_dispersion2"
 				"3"		"spectre_spectral_dagger"
-				"4"		"spectre_dispersion"
+				"4"		"spectre_dispersion2"
 				"5"		"spectre_spectral_dagger"
-				"6"		"spectre_dispersion"
+				"6"		"spectre_dispersion2"
 				"7"		"spectre_spectral_dagger"
-				"8"		"spectre_dispersion"
+				"8"		"spectre_dispersion2"
 				"9"		"spectre_spectral_dagger"
 				"10"		"special_bonus_unique_spectre"
-				"11"		"spectre_dispersion"
+				"11"		"spectre_dispersion2"
 				"12"		"spectre_desolate"
 				"13"		"spectre_desolate"
 				"14"		"spectre_desolate"

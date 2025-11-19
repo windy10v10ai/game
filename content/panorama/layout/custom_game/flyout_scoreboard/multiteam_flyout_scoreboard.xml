@@ -26,6 +26,7 @@
 				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 				<Label class="LegendPanel ScoreCol_Deaths" text="#custom_end_screen_legend_deaths" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_deaths_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 				<Label class="LegendPanel ScoreCol_Assists" text="#custom_end_screen_legend_assists" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_assists_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+				<Label class="LegendPanel ScoreCol_Abilities" text="#custom_end_screen_abilities" />
 				<Label class="LegendPanel ScoreCol_Buttons" />
 			</Panel>
 			<Panel hittest="false" id="_dynamic_team_2" class="FlyoutTeam">
@@ -49,6 +50,7 @@
 				<Label class="LegendPanel ScoreCol_Kills" text="#custom_end_screen_legend_kills" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_kills_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 				<Label class="LegendPanel ScoreCol_Deaths" text="#custom_end_screen_legend_deaths" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_deaths_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 				<Label class="LegendPanel ScoreCol_Assists" text="#custom_end_screen_legend_assists" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_assists_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+				<Label class="LegendPanel ScoreCol_Abilities" text="#custom_end_screen_abilities" />
 				<Label class="LegendPanel ScoreCol_Buttons" />
 			</Panel>
 			<Panel hittest="false" id="_dynamic_team_3" class="FlyoutTeam">

@@ -226,100 +226,8 @@ local function RollDrops(hHero)
     end
 end
 
-local function RecordBarrackKilled(hEntity)
-    local team = hEntity:GetTeamNumber()
-    if DOTA_TEAM_GOODGUYS == team then
-        AIGameMode.barrackPushedBad = AIGameMode.barrackPushedBad + 1
-        print("barrackPushedBad ", AIGameMode.barrackPushedBad)
-    elseif DOTA_TEAM_BADGUYS == team then
-        AIGameMode.barrackPushedGood = AIGameMode.barrackPushedGood + 1
-        print("barrackPushedGood ", AIGameMode.barrackPushedGood)
-    end
-end
-
-local function RecordTowerKilled(hEntity)
-    local team = hEntity:GetTeamNumber()
-    local sName = hEntity:GetUnitName()
-    if string.find(sName, "tower1") then
-        if DOTA_TEAM_GOODGUYS == team then
-            AIGameMode.tower1PushedBad = AIGameMode.tower1PushedBad + 1
-            print("tower1PushedBad ", AIGameMode.tower1PushedBad)
-        elseif DOTA_TEAM_BADGUYS == team then
-            AIGameMode.tower1PushedGood = AIGameMode.tower1PushedGood + 1
-            print("tower1PushedGood ", AIGameMode.tower1PushedGood)
-        end
-    elseif string.find(sName, "tower2") then
-        if DOTA_TEAM_GOODGUYS == team then
-            AIGameMode.tower2PushedBad = AIGameMode.tower2PushedBad + 1
-            print("tower2PushedBad ", AIGameMode.tower2PushedBad)
-        elseif DOTA_TEAM_BADGUYS == team then
-            AIGameMode.tower2PushedGood = AIGameMode.tower2PushedGood + 1
-            print("tower2PushedGood ", AIGameMode.tower2PushedGood)
-        end
-    elseif string.find(sName, "tower3") then
-        if DOTA_TEAM_GOODGUYS == team then
-            AIGameMode.tower3PushedBad = AIGameMode.tower3PushedBad + 1
-            print("tower3PushedBad ", AIGameMode.tower3PushedBad)
-            -- 破高地后 给4塔 基地添加分裂箭
-            if AIGameMode.tower3PushedBad == 1 then
-                local towers = Entities:FindAllByClassname("npc_dota_tower")
-                for _, tower in pairs(towers) do
-                    if string.find(tower:GetUnitName(), "npc_dota_goodguys_tower4") then
-                        local towerSplitShot = tower:AddAbility("tower_split_shot")
-                        if towerSplitShot then
-                            towerSplitShot:SetLevel(1)
-                            towerSplitShot:ToggleAbility()
-                        end
-                    end
-                end
-                local forts = Entities:FindAllByClassname("npc_dota_fort")
-                for _, fort in pairs(forts) do
-                    if string.find(fort:GetUnitName(), "npc_dota_goodguys_fort") then
-                        local towerSplitShot = fort:AddAbility("tower_split_shot")
-                        if towerSplitShot then
-                            towerSplitShot:SetLevel(3)
-                            towerSplitShot:ToggleAbility()
-                        end
-                    end
-                end
-            end
-        elseif DOTA_TEAM_BADGUYS == team then
-            AIGameMode.tower3PushedGood = AIGameMode.tower3PushedGood + 1
-            print("tower3PushedGood ", AIGameMode.tower3PushedGood)
-            -- 破高地后 给4塔 基地添加分裂箭
-            if AIGameMode.tower3PushedGood == 1 then
-                local towers = Entities:FindAllByClassname("npc_dota_tower")
-                for _, tower in pairs(towers) do
-                    if string.find(tower:GetUnitName(), "npc_dota_badguys_tower4") then
-                        local towerSplitShot = tower:AddAbility("tower_split_shot")
-                        if towerSplitShot then
-                            towerSplitShot:SetLevel(1)
-                            towerSplitShot:ToggleAbility()
-                        end
-                    end
-                end
-                local forts = Entities:FindAllByClassname("npc_dota_fort")
-                for _, fort in pairs(forts) do
-                    if string.find(fort:GetUnitName(), "npc_dota_badguys_fort") then
-                        local towerSplitShot = fort:AddAbility("tower_split_shot")
-                        if towerSplitShot then
-                            towerSplitShot:SetLevel(2)
-                            towerSplitShot:ToggleAbility()
-                        end
-                    end
-                end
-            end
-        end
-    elseif string.find(sName, "tower4") then
-        if DOTA_TEAM_GOODGUYS == team then
-            AIGameMode.tower4PushedBad = AIGameMode.tower4PushedBad + 1
-            print("tower4PushedBad ", AIGameMode.tower4PushedBad)
-        elseif DOTA_TEAM_BADGUYS == team then
-            AIGameMode.tower4PushedGood = AIGameMode.tower4PushedGood + 1
-            print("tower4PushedGood ", AIGameMode.tower4PushedGood)
-        end
-    end
-end
+-- REFACTORED: RecordBarrackKilled and RecordTowerKilled moved to TypeScript
+-- See: src/vscripts/modules/event/event-entity-killed.ts
 -- 获取玩家名字的辅助函数
 local function GetPlayerName(playerId)
     local playerName = nil
@@ -579,12 +487,6 @@ function AIGameMode:OnEntityKilled(keys)
         RollDrops(EntIndexToHScript(keys.entindex_killed))
         -- end
     end
-    -- on barrack killed
-    if hEntity:GetClassname() == "npc_dota_barracks" then
-        RecordBarrackKilled(hEntity)
-    end
-    -- on tower killed
-    if hEntity:GetClassname() == "npc_dota_tower" then
-        RecordTowerKilled(hEntity)
-    end
+    -- REFACTORED: Tower and barrack record moved to TypeScript
+    -- See: src/vscripts/modules/event/event-entity-killed.ts
 end

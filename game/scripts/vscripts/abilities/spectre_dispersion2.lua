@@ -15,8 +15,12 @@ function modifier_spectre_dispersion2:IsPurgable() return false end
 
 function modifier_spectre_dispersion2:OnCreated()
     if IsServer() then
-        -- 简化:只累积总伤害值
-        self.accumulated_damage = 0
+        -- 分别累积不同类型的伤害
+        self.accumulated_damage = {
+            [DAMAGE_TYPE_PHYSICAL] = 0,
+            [DAMAGE_TYPE_MAGICAL] = 0,
+            [DAMAGE_TYPE_PURE] = 0,
+        }
         self.is_timer_active = false
     end
 end
@@ -30,13 +34,18 @@ end
 function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
         if keys.target == self:GetParent() then
-            if keys.original_damage >= 100 then
+            local damage = keys.original_damage
+            if damage >= self:GetAbility():GetSpecialValueFor("threshold") then
                 local damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction")
                 if self:GetParent():IsRealHero() then
                     if bit.band(keys.damage_flags, DOTA_DAMAGE_FLAG_REFLECTION) ~= DOTA_DAMAGE_FLAG_REFLECTION then
-                        -- 累积总伤害(减免前的伤害)
-                        local reduced_damage = keys.original_damage * damage_reduction / 100
-                        self.accumulated_damage = self.accumulated_damage + reduced_damage
+                        -- 计算反射的伤害量（税前伤害的百分比）
+                        local reflected_damage = damage * damage_reduction / 100
+
+                        -- 根据伤害类型分别累积
+                        local damage_type = keys.damage_type or DAMAGE_TYPE_PHYSICAL
+                        self.accumulated_damage[damage_type] = (self.accumulated_damage[damage_type] or 0) +
+                            reflected_damage
 
                         -- 启动定时器
                         if not self.is_timer_active then
@@ -64,7 +73,7 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
 
     local caster = self:GetParent()
     local ability = self:GetAbility()
-    local radius = 800
+    local radius = ability:GetSpecialValueFor("radius")
 
     -- 找到范围内所有敌人
     local enemies = FindUnitsInRadius(
@@ -79,7 +88,7 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
         false
     )
 
-    -- 对每个敌人造成纯粹伤害
+    -- 先遍历敌人，再遍历伤害类型（性能优化：距离只计算一次）
     for _, enemy in pairs(enemies) do
         if enemy and IsValidEntity(enemy) and enemy:IsAlive() then
             local distance = (enemy:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
@@ -92,26 +101,33 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
                 distance_multiplier = math.max(0, 1.0 - (reduction_steps * 0.2))
             end
 
-            -- 计算最终伤害
-            local final_damage = self.accumulated_damage * distance_multiplier
+            -- 对每种伤害类型分别造成伤害
+            for damage_type, total_damage in pairs(self.accumulated_damage) do
+                if total_damage > 0 then
+                    local final_damage = total_damage * distance_multiplier
 
-            if final_damage > 0 then
-                -- 以纯粹伤害形式释放
-                ApplyDamage({
-                    victim = enemy,
-                    attacker = caster,
-                    damage = final_damage,
-                    damage_type = DAMAGE_TYPE_PURE,
-                    ability = ability,
-                    damage_flags = DOTA_DAMAGE_FLAG_REFLECTION +
-                        DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL +
-                        DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
-                })
+                    if final_damage > 0 then
+                        -- 使用与接收伤害相同的类型释放
+                        ApplyDamage({
+                            victim = enemy,
+                            attacker = caster,
+                            damage = final_damage,
+                            damage_type = damage_type,
+                            ability = ability,
+                            damage_flags = DOTA_DAMAGE_FLAG_REFLECTION +
+                                DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL
+                        })
+                    end
+                end
             end
         end
     end
 
     -- 重置累积数据
-    self.accumulated_damage = 0
+    self.accumulated_damage = {
+        [DAMAGE_TYPE_PHYSICAL] = 0,
+        [DAMAGE_TYPE_MAGICAL] = 0,
+        [DAMAGE_TYPE_PURE] = 0,
+    }
     self.is_timer_active = false
 end
