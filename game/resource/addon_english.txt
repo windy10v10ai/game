@@ -199,7 +199,7 @@
 		//
 		///////////////////////////////////////////////////
 		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/> Membership is valid until {expireDate}."
-		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.<br/>- Unlock the maximum amount of money.</font><br/> Membership is valid until {expireDate}."
+		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.<br/>- Unlock the maximum amount of gold.</font><br/> Membership is valid until {expireDate}."
 		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
 		"player_member_ship"				"Click to enable your membership."
 		"player_member_null"				"Membership information failed to load. Please reload a new game."
@@ -239,13 +239,11 @@
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Level up based on how many towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"ATTACK DAMAGE BONUS:"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_armor"			"ARMOR BONUS:"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Level up based on how many towers are destroyed."
 		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"ATTACK DAMAGE BONUS:"
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_armor"				"ARMOR BONUS"
 		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%INCOMING DAMAGE REDUCTION BONUS:"
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%NON-HERO BONUS ATTACK DAMAGE:"
@@ -318,7 +316,7 @@
 		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
 		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.<br/>- Unlock the maximum amount of money.</font><br/>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.<br/>- Unlock the maximum amount of gold.</font><br/>"
 		// 定制BUFF
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_lumao_Description"		"<font color='#fc8eac'>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
@@ -588,12 +586,13 @@
 		"DOTA_Tooltip_ability_centaur_sturdy_status"					"%STATUS RESIST:"
 
 		//折射2
-		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (old)"
+		"DOTA_Tooltip_ability_spectre_dispersion2"					"Dispersion (MK2)"
 		"DOTA_Tooltip_ability_spectre_dispersion2_shard_description"	"Dispersion grants %damage_reduction%%% damage reduction if the damage is not reflected."
-		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"When receiving damage, there is a chance to negate it and reflect it back to the attacking enemy unit."
-		"DOTA_Tooltip_ability_spectre_dispersion2_reflexion_chance"	"%REFLECTION CHANCE:"
-		"DOTA_Tooltip_ability_spectre_dispersion2_damage_pct"		"%DAMAGE REFLECTED:"
-		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Damage is returned as the same damage type."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Description"		"Reduces a percentage of incoming damage. Based on pre-mitigation damage, accumulates for 1 second then reflects to all enemies in range. Reflection damage type matches the received damage type."
+		"DOTA_Tooltip_ability_spectre_dispersion2_damage_reduction"		"%DAMAGE REFLECTED:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"			"REFLECTION DAMAGE THRESHOLD:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"REFLECTION RADIUS:"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Reflection damage type matches received damage type (Physical/Magical/Pure). Pierces debuff immunity. Reflection damage decreases with distance."
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
@@ -2167,21 +2166,17 @@
 
 		// item_shotgun 霰弹枪
 		"DOTA_Tooltip_ability_item_shotgun"								"Double-Barrel"
-		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_Description"					"<h1>Passive: Scatterblast (Ranged Only)</h1>Deals %attack_percent%%% splash damage to enemies within %attack_radius% radius around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_attack_radius"				"SPLASH DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_item_shotgun_attack_percent"				"%SPLASH DAMAGE:"
 		"DOTA_Tooltip_ability_item_shotgun_lore"						"Bang! Bang!"
 
 		// item_shotgun_v2
 		"DOTA_Tooltip_ability_item_shotgun_v2"							"Bullet-Filled Shotgun"
-		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals splash damage to enemies around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
+		"DOTA_Tooltip_ability_item_shotgun_v2_Description"				"<h1>Passive: Greater Scatterblast (Ranged only)</h1>Deals %attack_percent%%% splash damage to enemies within %attack_radius% radius around the attack target.<br>Scatterblast cannot stack with itself and has a %internal_cooldown%s internal cooldown."
 		"DOTA_Tooltip_ability_item_shotgun_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_attack_speed"				"+$attack"
 		"DOTA_Tooltip_ability_item_shotgun_v2_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_radius"			"SPLASH DAMAGE RADIUS:"
-		"DOTA_Tooltip_ability_item_shotgun_v2_attack_percent"			"%SPLASH DAMAGE:"
 		"DOTA_Tooltip_ability_item_shotgun_v2_lore"						"Aim? What's that?"
 
 		// item_jump_jump_jump 跳刀3
@@ -2494,7 +2489,7 @@
 
 		// 法师泳衣
 		"DOTA_Tooltip_Ability_item_eternal_shroud_ultra"						"Swimagicostume"
-		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Magical Swimming</h1> Converts %mana_restore_pct%%% of spell damage taken from enemies (before reductions) into mana.\n\n<h1>Passive: Diving Suit</h1> Gains a stack of Eternal Endurance for every %stack_threshold% spell damage taken. Each stack lasts %stack_duration% seconds, and the item can have up to a maximum of %max_stacks% stacks. Each stack increases the Swimagicostume's magic resistance by %stack_resist%%."
+		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Description"			"<h1>Passive: Magical Swimming</h1> Converts %mana_restore_pct%%% of spell damage taken from enemies (before reductions) into mana."
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_Lore"					"Swim freely among the mages' flow of spells and arcanery!"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_spell_resist"		"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_eternal_shroud_ultra_bonus_strength"			"+$str"
@@ -2738,13 +2733,17 @@
 		"DOTA_Tooltip_ability_item_universal_rune_Lore"									"RN: 'The worst thing is having money but not being able to buy equipment'? Then you're still not rich enough"
 
 		// Hawkeye Turret
-		"DOTA_Tooltip_Ability_item_hawkeye_turret"                      "Hawkeye Turret"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"          "<h1><font color='#FFFF00'>Active: Humanoid Turret</font></h1>Plant your feet and stand your ground, gaining high ground vision. While in this state, you gain %active_armor% armor and %bat_reduction_pct%%% Base Attack Time reduction, as well as %active_attack_range% attack range per consumed Moon Shards multiplied by %moon_shard_bonus%x. However, while in this state, you are rooted and are unable to move.<br><br>Lasts %active_duration% seconds\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% pure damage to enemies in a %attack_radius% around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown%s internal cooldown."
-		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"                 "Transform into a stationary turret, suppressing enemies with overwhelming firepower."
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"         "+$damage"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"   "+$attack"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_armor"          "+$armor"
-		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"   "+$attack_range"
+		"DOTA_Tooltip_Ability_item_hawkeye_turret"										"Hawkeye Turret"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>Active: Humanoid Turret (Ranged Only)</font></h1>Transform into a flying turret, gaining high ground vision. Lasts %active_duration% seconds, rooted and unable to move, gains bonus attack range of %active_attack_range%, vision range equals attack range + %active_bonus_vision%.<br><br><font color='#FF6B6B'>Has no effect when used by melee heroes.</font>\n<h1>Passive: Buckshot (Ranged Only)</h1>Your attacks deal %attack_percent%%% splash damage to enemies in a %attack_radius% radius around the attack target.<br/>Buckshot does not stack with itself, and has a %internal_cooldown% second internal cooldown.\n<h1>Passive: Absolute Corruption</h1>Physical attacks reduce the target's armor by %corruption_armor% for %corruption_duration% seconds.<br><br>Gains +%bonus_damage_per_kill% damage every time an enemy hero dies while affected by Corruption, to a maximum of %max_damage%."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Lore"									"Transform into a stationary turret, suppressing enemies with overwhelming firepower."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_Note0"								"Armor reduction works on buildings."
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_hawkeye_turret_bonus_attack_range"					"+$attack_range_all"
+
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active"								"Turret Mode"
+		"DOTA_Tooltip_modifier_item_hawkeye_turret_active_Description"					"Flying unit, rooted and unable to move, gains bonus attack range (Ranged Only), vision range equals attack range + bonus vision."
+
 
 		// Hawkeye Fighter
 		"DOTA_Tooltip_Ability_item_hawkeye_fighter"                  "Hawkeye Fighter"
@@ -2803,7 +2802,7 @@
 
 		// Dragon Dance (魔龙狂舞)
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x intelligence spell amplification for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
@@ -2911,7 +2910,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"Beast Shield"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, movement speed is set to %active_movespeed%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Diving Suit</h1>For each %stack_threshold% skill damage taken, the hero gains one layer of stacking effect for %stack_duration% seconds, up to %max_stacks% layers. Each layer increases magic resistance by %stack_resist%%%.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, movement speed is set to %active_movespeed%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"Diving Suit"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."
@@ -2939,9 +2938,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_Note1"									"Damage reflection does not reflect damage from other Blade Mail items."
 		"DOTA_Tooltip_ability_item_beast_armor_Note2"									"The type of reflected damage is the same as the damage received."
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_strength"							"+$all"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_health"							"+$health"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_spell_resist"						"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
@@ -2960,7 +2957,7 @@
 		"DOTA_Tooltip_Ability_item_magic_sword"											"Demonic Sword"
 		"DOTA_Tooltip_ability_item_magic_sword_Description"								"<h1>Active: <font color='#a74abd'>Enlighten</font></h1>For %active_duration% seconds, %convert_pct%%% of your physical damage is converted to additional pure damage.\n<h1>Passive: World Splitter</h1>Deals %cleave_damage_percent%%% of attack damage as physical damage in a cone up to %cleave_distance% around the target. Deals %cleave_damage_percent_creep%%% against non-hero units. (Melee Only)\n<h1>Passive: Demonic Corruption</h1>Attacks apply corruption for %debuff_duration% seconds:<br>- Armor reduced by %corruption_armor%<br>- Attack speed reduced by %attack_slow%<br>- Movement speed slowed by %slow_pct%%%<br>- Health regeneration and healing reduced by %hp_regen_reduction_pct%%%"
 		"DOTA_Tooltip_ability_item_magic_sword_Lore"									"Buddha said: One thought to become Buddha, one thought to become demon."
-		"DOTA_Tooltip_ability_item_magic_sword_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_magic_sword_bonus_damage_passive"					"+$damage"
 		"DOTA_Tooltip_ability_item_magic_sword_bonus_all_stats"							"+$all"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_Ability_item_magic_sword_bonus_mana_regen"						"+$mana_regen"

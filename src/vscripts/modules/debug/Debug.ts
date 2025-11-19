@@ -81,7 +81,7 @@ export class Debug {
       });
     }
 
-    if (cmd === CMD.T) {
+    if (cmd === CMD.TIME) {
       this.log(`Time: ${Time()}`);
       this.log(`GameTime: ${GameRules.GetGameTime()}`);
       this.log(`GetDOTATime: ${GameRules.GetDOTATime(false, true)}`);
@@ -146,8 +146,8 @@ export class Debug {
         hero.AddAbility(abilityName);
       });
     }
-    // ---- item ----
-    // add bkb to all
+
+    // ---- item 替换装备命令 ----
     if (cmd === CMD.ADD_BKB_ALL) {
       PlayerHelper.ForEachPlayer((playerId) => {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
@@ -202,6 +202,27 @@ export class Debug {
             UTIL_RemoveImmediate(item);
           }
           hero.AddItemByName(itemName);
+        }
+      });
+    }
+    if (cmd === CMD.REPLACE_ITEM_LIST) {
+      const itemNameList = [
+        'item_beast_shield',
+        'item_beast_shield',
+        'item_beast_shield',
+        'item_magic_crit_blade',
+        'item_magic_crit_blade',
+        'item_magic_crit_blade',
+      ];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        for (let i = 0; i < 6; i++) {
+          const item = hero.GetItemInSlot(i);
+          if (item) {
+            UTIL_RemoveImmediate(item);
+          }
+          hero.AddItemByName(itemNameList[i]);
         }
       });
     }

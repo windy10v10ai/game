@@ -149,7 +149,6 @@ function AIGameMode:PreGameOptions()
     self.PreGameOptionsSet = true
 end
 
--- FIXME 移除相关调用
 -- 根据playerid获取金钱经验倍率
 function AIGameMode:GetPlayerGoldXpMultiplier(iPlayerID)
     local mul = 1

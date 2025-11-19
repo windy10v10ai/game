@@ -58,10 +58,7 @@ function AIGameMode:OnGameStateChanged(keys)
             self:PreGameOptions()
         end
     elseif state == DOTA_GAMERULES_STATE_PRE_GAME then
-        Timers:CreateTimer(2, function()
-            AIGameMode:RefreshGameStatus()
-            return 10
-        end)
+        -- REFACTORED: RefreshGameStatus moved to TypeScript (team-strategy.ts)
     elseif state == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
         self.fGameStartTime = GameRules:GetGameTime()
 
@@ -85,125 +82,10 @@ function AIGameMode:SpawnNeutralCreeps30sec()
     GameRules:SpawnNeutralCreeps()
 end
 
-function AIGameMode:RefreshGameStatus()
-    -- set global state
-    local GameTime = GameRules:GetDOTATime(false, false)
-    if (GameTime >= ((AIGameMode.botPushMin * 4) * 60)) then
-        -- LATEGAME
-        GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-    elseif (GameTime >= ((AIGameMode.botPushMin * 1.3) * 60)) then
-        -- MIDGAME
-        if AIGameMode.tower3PushedGood >= 2 or AIGameMode.tower3PushedBad >= 2 then
-            GameRules:GetGameModeEntity():SetBotsMaxPushTier(4)
-        end
-
-        if AIGameMode.barrackPushedGood > 5 or AIGameMode.barrackPushedBad > 5 then
-            GameRules:GetGameModeEntity():SetBotsMaxPushTier(-1)
-        elseif AIGameMode.barrackPushedGood > 2 or AIGameMode.barrackPushedBad > 2 then
-            GameRules:GetGameModeEntity():SetBotsMaxPushTier(5)
-        end
-    elseif (GameTime >= (AIGameMode.botPushMin * 60)) then
-        -- MIDGAME
-        GameRules:GetGameModeEntity():SetBotsInLateGame(true)
-        GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(true)
-        GameRules:GetGameModeEntity():SetBotsMaxPushTier(3)
-    else
-        -- EARLYGAME
-        GameRules:GetGameModeEntity():SetBotsInLateGame(false)
-        GameRules:GetGameModeEntity():SetBotsAlwaysPushWithHuman(false)
-        GameRules:GetGameModeEntity():SetBotsMaxPushTier(1)
-    end
-
-    -- 设置买活金钱
-    SelectEveryValidPlayerDoFunc(function(playerId)
-        if PlayerResource:IsFakeClient(playerId) then
-            if AIGameMode.tower3PushedGood > 0 or AIGameMode.tower3PushedBad > 0 then
-                PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(playerId))
-            else
-                PlayerResource:SetCustomBuybackCost(playerId, 100000)
-            end
-        else
-            PlayerResource:SetCustomBuybackCost(playerId, GetBuyBackCost(playerId))
-        end
-    end)
-
-    -- set creep buff level
-    local buffLevelGood = 0
-    local buffLevelBad = 0
-    local buffLevelMegaGood = 0
-    local buffLevelMegaBad = 0
-
-    if AIGameMode.tower3PushedGood == 1 then
-        buffLevelGood = buffLevelGood + 1
-    elseif AIGameMode.tower3PushedGood > 1 then
-        buffLevelGood = buffLevelGood + 3
-    end
-    if AIGameMode.tower3PushedBad == 1 then
-        buffLevelBad = buffLevelBad + 1
-    elseif AIGameMode.tower3PushedBad > 1 then
-        buffLevelBad = buffLevelBad + 3
-    end
-
-    if AIGameMode.tower4PushedGood > 1 then
-        buffLevelGood = buffLevelGood + 2
-        buffLevelMegaGood = buffLevelMegaGood + 1
-    end
-    if AIGameMode.tower4PushedBad > 1 then
-        buffLevelBad = buffLevelBad + 2
-        buffLevelMegaBad = buffLevelMegaBad + 1
-    end
-
-    buffLevelMegaGood = buffLevelMegaGood + AIGameMode.creepBuffLevel
-    buffLevelMegaBad = buffLevelMegaBad + AIGameMode.creepBuffLevel
-
-    if (GameTime >= (45 * 60)) then
-        buffLevelGood = buffLevelGood + 5
-        buffLevelBad = buffLevelBad + 5
-        buffLevelMegaGood = buffLevelMegaGood + 5
-        buffLevelMegaBad = buffLevelMegaBad + 5
-    elseif (GameTime >= (40 * 60)) then
-        buffLevelGood = buffLevelGood + 4
-        buffLevelBad = buffLevelBad + 4
-        buffLevelMegaGood = buffLevelMegaGood + 4
-        buffLevelMegaBad = buffLevelMegaBad + 4
-    elseif (GameTime >= (35 * 60)) then
-        buffLevelGood = buffLevelGood + 3
-        buffLevelBad = buffLevelBad + 3
-        buffLevelMegaGood = buffLevelMegaGood + 3
-        buffLevelMegaBad = buffLevelMegaBad + 3
-    elseif (GameTime >= (30 * 60)) then
-        buffLevelGood = buffLevelGood + 2
-        buffLevelBad = buffLevelBad + 2
-        buffLevelMegaGood = buffLevelMegaGood + 2
-        buffLevelMegaBad = buffLevelMegaBad + 2
-    elseif (GameTime >= (25 * 60)) then
-        buffLevelGood = buffLevelGood + 1
-        buffLevelBad = buffLevelBad + 1
-        buffLevelMegaGood = buffLevelMegaGood + 1
-        buffLevelMegaBad = buffLevelMegaBad + 1
-    elseif (GameTime >= (20 * 60)) then
-        buffLevelGood = buffLevelGood + 1
-        buffLevelBad = buffLevelBad + 1
-    end
-
-    -- 未推掉任何塔时，不设置小兵buff
-    if AIGameMode.tower1PushedGood == 0 then
-        buffLevelGood = 0
-    end
-    if AIGameMode.tower1PushedBad == 0 then
-        buffLevelBad = 0
-    end
-
-    buffLevelGood = math.min(buffLevelGood, 8)
-    buffLevelBad = math.min(buffLevelBad, 8)
-    buffLevelMegaGood = math.min(buffLevelMegaGood, 8)
-    buffLevelMegaBad = math.min(buffLevelMegaBad, 8)
-
-    AIGameMode.creepBuffLevelGood = buffLevelGood
-    AIGameMode.creepBuffLevelBad = buffLevelBad
-    AIGameMode.creepBuffLevelMegaGood = buffLevelMegaGood
-    AIGameMode.creepBuffLevelMegaBad = buffLevelMegaBad
-end
+-- REFACTORED: RefreshGameStatus moved to TypeScript
+-- - Push strategy: src/vscripts/ai/team/team-strategy.ts
+-- - Buyback cost: src/vscripts/ai/team/team-strategy.ts
+-- - Creep buff level: src/vscripts/modules/event/game-in-progress/game-status-refresh.ts
 
 function AIGameMode:OnNPCSpawned(keys)
     if GameRules:State_Get() < DOTA_GAMERULES_STATE_PRE_GAME then
@@ -218,51 +100,8 @@ function AIGameMode:OnNPCSpawned(keys)
     end
 
     local sName = hEntity:GetName()
-    if sName == "npc_dota_creep_lane" or sName == "npc_dota_creep_siege" then
-        local sUnitName = hEntity:GetUnitName()
-        local team = hEntity:GetTeamNumber()
-        local buffLevel = 0
-        local buffLevelMega = 0
-        if DOTA_TEAM_GOODGUYS == team then
-            buffLevel = AIGameMode.creepBuffLevelGood
-            buffLevelMega = AIGameMode.creepBuffLevelMegaGood
-        elseif DOTA_TEAM_BADGUYS == team then
-            buffLevel = AIGameMode.creepBuffLevelBad
-            buffLevelMega = AIGameMode.creepBuffLevelMegaBad
-        end
-
-        -- 随时间增加金钱
-        local originMaxGold = hEntity:GetMaximumGoldBounty()
-        local originMinGold = hEntity:GetMinimumGoldBounty()
-        local mul = AIGameMode:GetLaneGoldMul()
-        local modifiedMaxGold = originMaxGold * mul
-        local modifiedMinGold = originMinGold * mul
-        hEntity:SetMaximumGoldBounty(modifiedMaxGold)
-        hEntity:SetMinimumGoldBounty(modifiedMinGold)
-
-        if buffLevel > 0 then
-            if not string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-                -- normal creep
-                local ability = hEntity:AddAbility("creep_buff")
-                ability:SetLevel(buffLevel)
-                return
-            end
-        end
-
-        if buffLevelMega > 0 then
-            if string.find(sUnitName, "upgraded") and not string.find(sUnitName, "mega") then
-                -- upgrade creep
-                local ability = hEntity:AddAbility("creep_buff_upgraded")
-                ability:SetLevel(buffLevelMega)
-                return
-            elseif string.find(sUnitName, "mega") then
-                -- mega creep
-                local ability = hEntity:AddAbility("creep_buff_mega")
-                ability:SetLevel(buffLevelMega)
-                return
-            end
-        end
-    end
+    -- REFACTORED: Creep buff system moved to TypeScript
+    -- See: src/vscripts/modules/event/game-in-progress/creep-buff-manager.ts
 
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
@@ -292,19 +131,8 @@ function AIGameMode:OnNPCSpawned(keys)
     end
 end
 
--- 小兵金钱随时间增加
-function AIGameMode:GetLaneGoldMul()
-    local time = GameRules:GetDOTATime(false, false)
-    local mul = 1
-    if time <= 15 * 60 then
-        mul = 1
-    else
-        mul = math.floor(time / 900)
-    end
-    -- 60分钟封顶
-    mul = math.min(mul, 4)
-    return mul
-end
+-- REFACTORED: GetLaneGoldMul moved to TypeScript
+-- See: src/vscripts/modules/event/game-in-progress/creep-buff-manager.ts
 
 function AIGameMode:OnItemPickedUp(event)
     -- if not courier
@@ -342,34 +170,3 @@ function AIGameMode:SetUnitShareMask(data)
         CustomNetTables:SetTableValue("disable_help", tostring(playerId), disableHelp)
     end
 end
-
--- -- 技能重置:移除技能
--- CustomGameEventManager:RegisterListener("skill_reset_remove_ability", function(userId, event)
---     local playerID = event.PlayerID
---     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
---     if not hero then return end
-
---     local abilityName = event.ability_name
---     local ability = hero:FindAbilityByName(abilityName)
---     if ability then
---         local level = ability:GetLevel()
---         hero:RemoveAbility(abilityName)
---         hero:SetAbilityPoints(hero:GetAbilityPoints() + level)
---         print("[SkillReset] Removed ability: " .. abilityName .. ", returned " .. level .. " points")
---     end
--- end)
-
--- -- 技能重置:添加技能
--- CustomGameEventManager:RegisterListener("skill_reset_add_ability", function(userId, event)
---     local playerID = event.PlayerID
---     local hero = PlayerResource:GetSelectedHeroEntity(playerID)
---     if not hero then return end
-
---     local abilityName = event.ability_name
---     hero:AddAbility(abilityName)
---     print("[SkillReset] Added ability: " .. abilityName)
-
---     -- 清除 CustomNetTables 数据
---     local steamAccountID = PlayerResource:GetSteamAccountID(playerID)
---     CustomNetTables:SetTableValue("skill_reset", tostring(steamAccountID), nil)
--- end)

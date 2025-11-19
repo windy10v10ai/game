@@ -6,7 +6,7 @@ export enum CMD {
   M = '-m', // 获取当前modifier
   A = '-a', // 获取当前ability
   REFRESH_AI = '-r', // 刷新AI
-  T = '-t', // 获取当前时间，不包含暂停
+  TIME = '-time', // 获取当前时间，不包含暂停
 
   KILL = '-k',
   KILL_ALL = '-kall',
@@ -44,7 +44,8 @@ export enum CMD {
   RM_ITEM = '-rmitem', // 移除物品
   REPLACE_NEUTRAL_ITEM = '-rn', // 替换中立物品
   REPLACE_ENHANCE_ITEM = '-re', // 替换附魔物品
-  REPLACE_ITEM_ALL = '-rpiall', // 替换所有物品
+  REPLACE_ITEM_ALL = '-rpa', // 替换所有物品
+  REPLACE_ITEM_LIST = '-rpl', // 替换指定装备
 
   // ---- modifier相关 ----
   // lua modifier，需要先购买物品激活

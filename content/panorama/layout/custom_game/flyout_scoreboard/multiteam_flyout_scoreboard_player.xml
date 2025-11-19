@@ -34,6 +34,7 @@
 			<Panel id="AssistsContainer" class="ScoreCol_Assists ScoreboardPanel">
 				<Label id="Assists" text="999" />
 			</Panel>
+			<Panel id="AbilitiesContainer" class="ScoreCol_Abilities ScoreboardPanel" />
 			<Panel class="ScoreCol_Buttons ScoreboardPanel">
 				<!-- <Button id="BtnMuteVoice" onactivate="ToggleMute();" onmouseover="ShowToolTipMute();" onmouseout="HideToolTips();"/> -->
 				<Button id="BtnShareUnit" onactivate="ToggleShareUnit();" onmouseover="ShowToolTipShareUnit();" onmouseout="HideToolTips();"/>
