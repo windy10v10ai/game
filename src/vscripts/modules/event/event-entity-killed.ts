@@ -3,6 +3,7 @@ import { PlayerHelper } from '../helper/player-helper';
 
 // 全局游戏状态 - 记录塔摧毁情况
 export class TowerPushStatus {
+  // Good是天辉摧毁的，Bad是夜魇摧毁的
   static tower1PushedBad = 0;
   static tower1PushedGood = 0;
   static tower2PushedBad = 0;
