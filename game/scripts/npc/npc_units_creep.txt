@@ -72,7 +72,7 @@
 	"npc_dota_creep_badguys_ranged_upgraded"
 	{
 		// General
-		"ModelScale"				"1.2" // 1.12
+		"ModelScale"				"1.2"		// 1.12
 
 		// Armor
 		//----------------------------------------------------------------
@@ -104,7 +104,7 @@
 	"npc_dota_creep_goodguys_ranged_upgraded"
 	{
 		// General
-		"ModelScale"				"1.2" // 1.12
+		"ModelScale"				"1.2"		// 1.12
 
 		// Armor
 		//----------------------------------------------------------------
@@ -136,7 +136,7 @@
 	"npc_dota_creep_badguys_melee_upgraded"
 	{
 		// General
-		"ModelScale"				"1.2" // 1.12
+		"ModelScale"				"1.2"		// 1.12
 
 		// Armor
 		//----------------------------------------------------------------
@@ -167,7 +167,7 @@
 	"npc_dota_creep_goodguys_melee_upgraded"
 	{
 		// General
-		"ModelScale"				"1.2" // 1.12
+		"ModelScale"				"1.2"		// 1.12
 
 		// Armor
 		//----------------------------------------------------------------
@@ -196,13 +196,73 @@
 		"StatusHealthRegen"			"1"			// 0.5
 	}
 
-	//=================================================================================
+	// 旗手
+	"npc_dota_creep_badguys_flagbearer_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2"		// 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 3
+		"MagicalResistance"			"40"		// 40
+
+		// Attack
+		"AttackDamageMin"			"100"		// 41
+		"AttackDamageMax"			"120"		// 49
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"160"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"86"		// 25
+		"BountyGoldMin"				"51"		// 20
+		"BountyGoldMax"				"59"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1400"		// 700
+	}
+	"npc_dota_creep_goodguys_flagbearer_upgraded"
+	{
+		// General
+		"ModelScale"				"1.2"		// 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"20"		// 3
+		"MagicalResistance"			"40"		// 40
+
+		// Attack
+		"AttackDamageMin"			"100"		// 41
+		"AttackDamageMax"			"120"		// 49
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"160"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"86"		// 25
+		"BountyGoldMin"				"51"		// 20
+		"BountyGoldMax"				"59"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"355"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1400"		// 700
+	}
+
 	// Creeps: 小兵 投石车
-	//=================================================================================
 	"npc_dota_goodguys_siege_upgraded"
 	{
 		// General
-		"ModelScale"				"0.85" // .65
+		"ModelScale"				"0.85"		// .65
 
 		// Armor
 		//----------------------------------------------------------------
@@ -233,7 +293,7 @@
 	"npc_dota_badguys_siege_upgraded"
 	{
 		// General
-		"ModelScale"				"0.85" // .65
+		"ModelScale"				"0.85"		// .65
 
 		// Armor
 		//----------------------------------------------------------------
@@ -392,9 +452,70 @@
 		"StatusHealth"				"1400"		// 700
 		"StatusHealthRegen"			"1"			// 0.5
 	}
-	//=================================================================================
+
+	// 旗手
+	"npc_dota_creep_badguys_flagbearer_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.5" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"		// 3
+		"MagicalResistance"			"40"		// 40
+
+		// Attack
+		"AttackDamageMin"			"164"		// 41
+		"AttackDamageMax"			"196"		// 49
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"200"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"86"		// 25
+		"BountyGoldMin"				"51"		// 20
+		"BountyGoldMax"				"59"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1400"		// 700
+	}
+	"npc_dota_creep_goodguys_flagbearer_upgraded_mega"
+	{
+		// General
+		"ModelScale"				"1.5" // 1.12
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"40"		// 3
+		"MagicalResistance"			"40"		// 40
+
+		// Attack
+		"AttackDamageMin"			"164"		// 41
+		"AttackDamageMax"			"196"		// 49
+		"AttackRate"				"1"			// 1
+		"BaseAttackSpeed"			"200"		// 100
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"86"		// 25
+		"BountyGoldMin"				"51"		// 20
+		"BountyGoldMax"				"59"		// 26
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementSpeed"				"375"		// 325
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1400"		// 700
+	}
+
 	// Creeps: 小兵 投石车
-	//=================================================================================
 	"npc_dota_goodguys_siege_upgraded_mega"
 	{
 		// General
