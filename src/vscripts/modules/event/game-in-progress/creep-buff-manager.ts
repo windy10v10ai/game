@@ -130,19 +130,24 @@ export class CreepBuffManager {
     let buffLevelGood = baseCreepBuffLevel;
     let buffLevelBad = baseCreepBuffLevel;
 
-    // 根据1塔摧毁情况增加buff
-    if (TowerPushStatus.tower1PushedGood >= 1) {
+    // 根据1塔和2塔累计摧毁情况增加buff
+    const totalTower12Good = TowerPushStatus.tower1PushedGood + TowerPushStatus.tower2PushedGood;
+    const totalTower12Bad = TowerPushStatus.tower1PushedBad + TowerPushStatus.tower2PushedBad;
+
+    // 累计摧毁1个时增加1级，3个时增加2级，6个时增加3级
+    if (totalTower12Good >= 6) {
+      buffLevelGood += 3;
+    } else if (totalTower12Good >= 3) {
+      buffLevelGood += 2;
+    } else if (totalTower12Good >= 1) {
       buffLevelGood += 1;
-    }
-    if (TowerPushStatus.tower1PushedBad >= 1) {
-      buffLevelBad += 1;
     }
 
-    // 根据2塔摧毁情况增加buff
-    if (TowerPushStatus.tower2PushedGood >= 1) {
-      buffLevelGood += 1;
-    }
-    if (TowerPushStatus.tower2PushedBad >= 1) {
+    if (totalTower12Bad >= 6) {
+      buffLevelBad += 3;
+    } else if (totalTower12Bad >= 3) {
+      buffLevelBad += 2;
+    } else if (totalTower12Bad >= 1) {
       buffLevelBad += 1;
     }
 
