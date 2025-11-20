@@ -122,7 +122,6 @@ export class BuildItemManager {
     return undefined;
   }
 
-
   /**
    * 从模板中获取下一个要购买的装备
    */
@@ -284,18 +283,12 @@ export class BuildItemManager {
   private static GetHeroItems(hero: CDOTA_BaseNPC_Hero): string[] {
     const items: string[] = [];
 
-    // 遍历所有装备栏位 (0-8: 背包和物品栏, 15: TP, 16: 中立物品)
+    // 遍历所有装备栏位 (0-8: 背包和物品栏,不包括中立物品)
     for (let i = 0; i < 9; i++) {
       const item = hero.GetItemInSlot(i);
       if (item) {
         items.push(item.GetName());
       }
-    }
-
-    // 中立物品槽
-    const neutralItem = hero.GetItemInSlot(16);
-    if (neutralItem) {
-      items.push(neutralItem.GetName());
     }
 
     return items;
