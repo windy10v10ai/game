@@ -1,3 +1,4 @@
+import { BuildItemManager } from './BuildItemManager';
 import {
   ItemUpgradeReplacements,
   SellItemCommonJunkList,
@@ -256,6 +257,25 @@ export class SellItem {
   }
 
   /**
+   * 智能出售低等级装备 - 使用BuildItemManager系统
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @returns 是否出售了物品
+   */
+  static SellLowTierItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    // 遍历所有装备
+    for (const [itemName, items] of itemsMap) {
+      // 检查是否应该出售这个装备
+      if (BuildItemManager.ShouldSellItem(hero, itemName)) {
+        print(`[AI] SellLowTierItems ${hero.GetUnitName()} 出售低级装备: ${itemName}`);
+        return this.SellItem(hero, items, itemName, true);
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * 出售多余的物品
    * @param hero 英雄单位
    * @returns 是否出售了物品
@@ -276,6 +296,11 @@ export class SellItem {
     // 物品栏未达到阈值，不需要出售
     if (totalItemCount < sellThreshold) {
       return false;
+    }
+
+    // 优先使用智能出售系统
+    if (this.SellLowTierItems(hero, itemsMap)) {
+      return true;
     }
 
     // 按优先级尝试出售物品

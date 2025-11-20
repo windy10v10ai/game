@@ -3,6 +3,7 @@ import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
 import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
+import { BuildItemManager } from '../build-item/BuildItemManager';
 import { SellItem } from '../build-item/sell-item';
 import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { ModeEnum } from '../mode/mode-enum';
@@ -347,6 +348,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.ConsumeItem()) {
       return true;
     }
+    // SellItem.SellExtraItems 内部已包含智能出售系统
     if (SellItem.SellExtraItems(this.hero)) {
       return true;
     }
@@ -360,6 +362,33 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   PurchaseItem(): boolean {
+    // 使用新的BuildItemManager系统
+    const decision = BuildItemManager.GetNextItemToBuy(this.hero);
+    if (!decision) {
+      return false;
+    }
+
+    // 获取装备的实际价格
+    const itemCost = GetItemCost(decision.itemName);
+
+    // 再次检查金钱是否足够(防止并发问题)
+    const currentGold = this.hero.GetGold();
+    if (currentGold < itemCost) {
+      return false;
+    }
+
+    // 尝试购买推荐的装备
+    const result = this.hero.AddItemByName(decision.itemName);
+    if (result !== undefined) {
+      // 扣除金钱
+      this.hero.SpendGold(itemCost, ModifyGoldReason.PURCHASE_ITEM);
+
+      print(
+        `[AI] BuildItem ${this.hero.GetUnitName()} 购买装备: ${decision.itemName} (${decision.slot}, T${decision.tier}) 花费: ${itemCost}金`,
+      );
+      return true;
+    }
+
     return false;
   }
 
