@@ -42,18 +42,19 @@ export function InitializeHeroBuild(
     [ItemTier.T5]: [],
   };
 
-  // 第一步：填充用户配置的装备
+  // 第一步：填充用户配置的装备（最多 6 个）
   if (config.targetItemsByTier) {
     for (const tierStr in config.targetItemsByTier) {
       const tier = parseInt(tierStr) as ItemTier;
       const items = config.targetItemsByTier[tier];
       if (items !== undefined) {
-        resolvedItems[tier] = [...items];
+        // 只取前 6 个装备
+        resolvedItems[tier] = items.slice(0, 6);
       }
     }
   }
 
-  // 第二步：为高 tier 装备补全前置装备
+  // 第二步：为高 tier 装备补全前置装备（每个 tier 最多 6 个）
   for (let tier = ItemTier.T5; tier >= ItemTier.T1; tier--) {
     const tierItems = resolvedItems[tier];
 
@@ -66,9 +67,11 @@ export function InitializeHeroBuild(
 
         const prereqTier = prereqConfig.tier;
         if (prereqTier < tier) {
-          // 添加到对应 tier，去重
+          // 添加到对应 tier，去重，且不超过 6 个
           if (!resolvedItems[prereqTier].includes(prereq)) {
-            resolvedItems[prereqTier].push(prereq);
+            if (resolvedItems[prereqTier].length < 6) {
+              resolvedItems[prereqTier].push(prereq);
+            }
           }
         }
       }
