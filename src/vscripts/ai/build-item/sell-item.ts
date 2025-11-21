@@ -289,7 +289,7 @@ export class SellItem {
       }
     }
 
-    // 优先级 2: 如果背包满了（总数>6），出售同槽位最低 tier 的装备
+    // 优先级 2: 如果背包满了（总数>6），出售同槽位中有更高 tier 装备的低 tier 装备
     const totalItemCount = currentItems.length;
     if (totalItemCount > 6) {
       // 按槽位分组装备
@@ -306,19 +306,25 @@ export class SellItem {
         itemsBySlot.get(slot)!.push({ name: itemName, tier: itemConfig.tier });
       }
 
-      // 找到有多个装备的槽位
+      // 找到有多个不同 tier 装备的槽位
       for (const [slot, slotItems] of itemsBySlot) {
         if (slotItems.length > 1) {
-          // 按 tier 排序，找到最低 tier 的装备
+          // 按 tier 排序
           slotItems.sort((a, b) => a.tier - b.tier);
-          const lowestTierItem = slotItems[0];
 
-          const items = itemsMap.get(lowestTierItem.name);
-          if (items) {
-            print(
-              `[AI] SellLowTierItems ${hero.GetUnitName()} 出售同槽位最低tier装备: ${lowestTierItem.name} (槽位: ${slot}, T${lowestTierItem.tier})`,
-            );
-            return this.SellItem(hero, items, lowestTierItem.name, true);
+          // 检查是否有不同 tier 的装备
+          const lowestTierItem = slotItems[0];
+          const highestTierItem = slotItems[slotItems.length - 1];
+
+          // 只有当最高 tier 和最低 tier 不同时，才出售低 tier 装备
+          if (lowestTierItem.tier < highestTierItem.tier) {
+            const items = itemsMap.get(lowestTierItem.name);
+            if (items) {
+              print(
+                `[AI] SellLowTierItems ${hero.GetUnitName()} 出售同槽位低tier装备: ${lowestTierItem.name} (槽位: ${slot}, T${lowestTierItem.tier}, 拥有高tier: T${highestTierItem.tier})`,
+              );
+              return this.SellItem(hero, items, lowestTierItem.name, true);
+            }
           }
         }
       }
