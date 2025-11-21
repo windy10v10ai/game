@@ -24,44 +24,6 @@ export interface PurchaseDecision {
  */
 export class BuildItemManager {
   /**
-   * 获取英雄下一个应该购买的装备
-   * @param hero 英雄单位
-   * @param buildState 出装状态（来自 bot-base.ts）
-   * @param currentItems 当前拥有的装备列表
-   * @returns 购买决策，如果没有需要购买的返回 undefined
-   */
-  public static GetNextItemToBuy(
-    hero: CDOTA_BaseNPC_Hero,
-    buildState: HeroBuildState,
-    currentItems: string[],
-  ): PurchaseDecision | undefined {
-    if (!buildState) {
-      print(
-        `[AI] BuildItemManager.GetNextItemToBuy: buildState is undefined for ${hero.GetUnitName()}`,
-      );
-      return undefined;
-    }
-
-    // 然后处理当前 tier 的普通装备
-    const currentTierItems = buildState.resolvedItems[currentTier];
-    if (currentTierItems && currentTierItems.length > 0) {
-      for (const itemName of currentTierItems) {
-        // 跳过已拥有的装备
-        if (currentItems.includes(itemName)) {
-          continue;
-        }
-
-        const itemConfig = getItemConfig(itemName);
-        if (!itemConfig) {
-          continue;
-        }
-      }
-    }
-
-    return undefined;
-  }
-
-  /**
    * 判断当前应该购买的 tier
    * @param hero 英雄单位
    * @param buildState 出装状态
