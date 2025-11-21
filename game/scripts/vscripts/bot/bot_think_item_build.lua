@@ -444,10 +444,10 @@ function BotThink:ThinkSell(hHero)
   --   end
   -- end
 
-  local sellItemCommonList = tBotItemData.sellItemCommonList
-  if SellItemFromTable(hHero, sellItemCommonList) then
-    return
-  end
+  -- local sellItemCommonList = tBotItemData.sellItemCommonList
+  -- if SellItemFromTable(hHero, sellItemCommonList) then
+  --   return
+  -- end
 
   local iSellTable = tBotItemData.sellItemList[iHeroName]
   if not iSellTable then
