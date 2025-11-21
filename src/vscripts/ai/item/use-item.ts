@@ -10,11 +10,9 @@ import { ActionItem } from '../action/action-item';
  * 这些物品会对英雄自身使用
  */
 const CONSUME_ITEMS_WITH_TARGET = [
-  'item_tango',
-  'item_flask',
-  'item_clarity',
-  'item_enchanted_mango',
-  'item_faerie_fire',
+  'item_wings_of_haste',
+  'item_ultimate_scepter_2',
+  'item_moon_shard_datadriven',
 ];
 
 /**
@@ -22,9 +20,10 @@ const CONSUME_ITEMS_WITH_TARGET = [
  * 这些物品直接使用，无需指定目标
  */
 const CONSUME_ITEMS_NO_TARGET = [
-  'item_bottle',
-  'item_dust',
-  'item_smoke_of_deceit',
+  'item_tome_of_agility',
+  'item_tome_of_strength',
+  'item_tome_of_intelligence',
+  'item_tome_of_luoshu',
 ];
 
 export class UseItem {

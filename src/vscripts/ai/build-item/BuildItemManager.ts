@@ -73,6 +73,7 @@ export class BuildItemManager {
         }
       }
 
+      // FIXME 去除重复检测
       // 检查金币是否足够
       if (itemConfig.cost <= gold) {
         return {
@@ -171,12 +172,6 @@ export class BuildItemManager {
       if (item && !item.IsNull()) {
         items.push(item.GetName());
       }
-    }
-
-    // 中立物品槽 (16)
-    const neutralItem = hero.GetItemInSlot(16);
-    if (neutralItem && !neutralItem.IsNull()) {
-      items.push(neutralItem.GetName());
     }
 
     return items;

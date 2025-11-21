@@ -149,6 +149,26 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     },
   },
 
+  npc_dota_hero_abaddon: {
+    template: HeroTemplate.Tank,
+    targetItemsByTier: {
+      [ItemTier.T3]: [
+        'item_radiance_2', // 大辉耀 圣焰之光
+        'item_overwhelming_blink', // 力量跳刀
+        'item_blade_mail_2', // 真·刃甲
+        'item_ultimate_scepter_2', // 真·阿哈利姆神杖
+        'item_vladmir_2', // 真·祭品
+        'item_moon_shard_datadriven', // 月之晶
+      ],
+      [ItemTier.T4]: [
+        'item_shivas_guard_2', // 希瓦的守护2
+        'item_insight_armor', // 洞察护甲
+        'item_saint_orb', // 圣球
+        'item_jump_jump_jump', // 跳跳跳刀
+      ],
+    },
+  },
+
   // ===== 辅助英雄 =====
 
   npc_dota_hero_crystal_maiden: {

@@ -3,10 +3,10 @@
  * 状态由 BotBaseAIModifier 管理，不使用全局 Map
  */
 
-import { ItemTier, ItemSlot, getItemConfig } from './item-tier-config';
-import { GetItemPrerequisites } from './item-upgrade-tree';
 import { HeroBuildConfig } from './hero-build-config';
 import { HeroTemplate, getTemplateItemChain } from './hero-template-config';
+import { ItemSlot, ItemTier, getItemConfig } from './item-tier-config';
+import { GetItemPrerequisites } from './item-upgrade-tree';
 
 /**
  * 英雄出装运行时状态
@@ -43,18 +43,58 @@ export function InitializeHeroBuild(
   };
 
   // 第一步：填充用户配置的装备（最多 6 个）
-  if (config.targetItemsByTier) {
-    for (const tierStr in config.targetItemsByTier) {
-      const tier = parseInt(tierStr) as ItemTier;
-      const items = config.targetItemsByTier[tier];
-      if (items !== undefined) {
-        // 只取前 6 个装备
-        resolvedItems[tier] = items.slice(0, 6);
-      }
-    }
-  }
+  FillUserConfigItems(config, resolvedItems);
 
   // 第二步：为高 tier 装备补全前置装备（每个 tier 最多 6 个）
+  FillPrerequisiteItems(resolvedItems);
+
+  // 第三步：使用 template 填充空缺或稀疏的 tier
+  FillTemplateItems(config, resolvedItems);
+
+  print(
+    `[AI] InitializeHeroBuild ${hero.GetUnitName()} 初始化出装:\n` +
+      `  T1: ${resolvedItems[ItemTier.T1].join(', ')}\n` +
+      `  T2: ${resolvedItems[ItemTier.T2].join(', ')}\n` +
+      `  T3: ${resolvedItems[ItemTier.T3].join(', ')}\n` +
+      `  T4: ${resolvedItems[ItemTier.T4].join(', ')}\n` +
+      `  T5: ${resolvedItems[ItemTier.T5].join(', ')}`,
+  );
+
+  return {
+    currentTier: ItemTier.T1,
+    resolvedItems,
+    consumedItems: new Set(),
+  };
+}
+
+/**
+ * 第一步：填充用户配置的装备
+ * @param config 英雄出装配置
+ * @param resolvedItems 装备记录
+ */
+function FillUserConfigItems(
+  config: HeroBuildConfig,
+  resolvedItems: Record<number, string[]>,
+): void {
+  if (!config.targetItemsByTier) {
+    return;
+  }
+
+  for (const tierStr in config.targetItemsByTier) {
+    const tier = parseInt(tierStr) as ItemTier;
+    const items = config.targetItemsByTier[tier];
+    if (items !== undefined) {
+      // 只取前 6 个装备
+      resolvedItems[tier] = items.slice(0, 6);
+    }
+  }
+}
+
+/**
+ * 第二步：为高 tier 装备补全前置装备
+ * @param resolvedItems 装备记录
+ */
+function FillPrerequisiteItems(resolvedItems: Record<number, string[]>): void {
   for (let tier = ItemTier.T5; tier >= ItemTier.T1; tier--) {
     const tierItems = resolvedItems[tier];
 
@@ -77,43 +117,36 @@ export function InitializeHeroBuild(
       }
     }
   }
+}
 
-  // 第三步：使用 template 填充空缺或稀疏的 tier
-  if (config.template !== undefined) {
-    for (let tier = ItemTier.T1; tier <= ItemTier.T5; tier++) {
-      // 如果该 tier 装备数量少于 3 个，从 template 补充
-      if (resolvedItems[tier].length < 3) {
-        const templateItems = GetTemplateItemsAtTier(config.template, tier);
+/**
+ * 第三步：使用 template 填充空缺或稀疏的 tier
+ * @param config 英雄出装配置
+ * @param resolvedItems 装备记录
+ */
+function FillTemplateItems(config: HeroBuildConfig, resolvedItems: Record<number, string[]>): void {
+  if (config.template === undefined) {
+    return;
+  }
 
-        for (const templateItem of templateItems) {
-          // 避免重复添加
-          if (!resolvedItems[tier].includes(templateItem)) {
-            resolvedItems[tier].push(templateItem);
-          }
+  for (let tier = ItemTier.T1; tier <= ItemTier.T5; tier++) {
+    // 如果该 tier 装备数量少于 3 个，从 template 补充
+    if (resolvedItems[tier].length < 3) {
+      const templateItems = GetTemplateItemsAtTier(config.template, tier);
 
-          // 最多补充到 6 个装备
-          if (resolvedItems[tier].length >= 6) {
-            break;
-          }
+      for (const templateItem of templateItems) {
+        // 避免重复添加
+        if (!resolvedItems[tier].includes(templateItem)) {
+          resolvedItems[tier].push(templateItem);
+        }
+
+        // 最多补充到 6 个装备
+        if (resolvedItems[tier].length >= 6) {
+          break;
         }
       }
     }
   }
-
-  print(
-    `[AI] InitializeHeroBuild ${hero.GetUnitName()} 初始化出装:\n` +
-      `  T1: ${resolvedItems[ItemTier.T1].join(', ')}\n` +
-      `  T2: ${resolvedItems[ItemTier.T2].join(', ')}\n` +
-      `  T3: ${resolvedItems[ItemTier.T3].join(', ')}\n` +
-      `  T4: ${resolvedItems[ItemTier.T4].join(', ')}\n` +
-      `  T5: ${resolvedItems[ItemTier.T5].join(', ')}`,
-  );
-
-  return {
-    currentTier: ItemTier.T1,
-    resolvedItems,
-    consumedItems: new Set(),
-  };
 }
 
 /**
