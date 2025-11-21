@@ -8,6 +8,9 @@ import { SellItem } from '../build-item/sell-item';
 import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
+import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
+import { getHeroBuildConfig } from '../build-item/hero-build-config';
+import { HeroTemplate } from '../build-item/hero-template-config';
 
 @registerModifier()
 export class BotBaseAIModifier extends BaseModifier {
@@ -56,6 +59,9 @@ export class BotBaseAIModifier extends BaseModifier {
     currentLevel: 0,
   };
 
+  // 出装状态
+  public buildState: HeroBuildState | undefined;
+
   public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
@@ -64,6 +70,15 @@ export class BotBaseAIModifier extends BaseModifier {
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
     print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
+
+    // 初始化出装状态
+    const config = getHeroBuildConfig(this.hero.GetUnitName());
+    if (config) {
+      this.buildState = InitializeHeroBuild(this.hero, config);
+    } else {
+      // 如果没有配置，使用默认 PhysicalCarry 模板
+      this.buildState = InitializeHeroBuild(this.hero, { template: HeroTemplate.PhysicalCarry });
+    }
 
     // 初始化Think
     if (IsInToolsMode()) {
@@ -362,34 +377,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   PurchaseItem(): boolean {
-    // 使用新的BuildItemManager系统
-    const decision = BuildItemManager.GetNextItemToBuy(this.hero);
-    if (!decision) {
+    if (!this.buildState) {
       return false;
     }
-
-    // 获取装备的实际价格
-    const itemCost = GetItemCost(decision.itemName);
-
-    // 再次检查金钱是否足够(防止并发问题)
-    const currentGold = this.hero.GetGold();
-    if (currentGold < itemCost) {
-      return false;
-    }
-
-    // 尝试购买推荐的装备
-    const result = this.hero.AddItemByName(decision.itemName);
-    if (result !== undefined) {
-      // 扣除金钱
-      this.hero.SpendGold(itemCost, ModifyGoldReason.PURCHASE_ITEM);
-
-      print(
-        `[AI] BuildItem ${this.hero.GetUnitName()} 购买装备: ${decision.itemName} (${decision.slot}, T${decision.tier}) 花费: ${itemCost}金`,
-      );
-      return true;
-    }
-
-    return false;
+    return BuildItemManager.TryPurchaseItem(this.hero, this.buildState);
   }
 
   PickNeutralItem(): boolean {

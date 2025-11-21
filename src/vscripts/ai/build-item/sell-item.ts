@@ -1,4 +1,5 @@
-import { BuildItemManager } from './BuildItemManager';
+import { getItemConfig } from './item-tier-config';
+import { GetItemPrerequisites } from './item-upgrade-tree';
 import {
   ItemUpgradeReplacements,
   SellItemCommonJunkList,
@@ -257,18 +258,68 @@ export class SellItem {
   }
 
   /**
-   * 智能出售低等级装备 - 使用BuildItemManager系统
+   * 智能出售低等级装备 - 使用装备成长树系统
    * @param hero 英雄单位
    * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
   static SellLowTierItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
-    // 遍历所有装备
-    for (const [itemName, items] of itemsMap) {
-      // 检查是否应该出售这个装备
-      if (BuildItemManager.ShouldSellItem(hero, itemName)) {
-        print(`[AI] SellLowTierItems ${hero.GetUnitName()} 出售低级装备: ${itemName}`);
-        return this.SellItem(hero, items, itemName, true);
+    // 获取所有当前拥有的装备名
+    const currentItems = Array.from(itemsMap.keys());
+
+    // 优先级 1: 查找并出售下位装备（同一装备链）
+    for (const itemName of currentItems) {
+      const items = itemsMap.get(itemName);
+      if (!items) continue;
+
+      // 检查是否有其他装备是这个装备的升级版本
+      for (const otherItemName of currentItems) {
+        if (itemName === otherItemName) continue;
+
+        // 获取 otherItemName 的所有前置装备
+        const prerequisites = GetItemPrerequisites(otherItemName);
+        if (prerequisites.includes(itemName)) {
+          // itemName 是 otherItemName 的下位装备，应该出售
+          print(
+            `[AI] SellLowTierItems ${hero.GetUnitName()} 出售下位装备: ${itemName} (已拥有上位装备: ${otherItemName})`,
+          );
+          return this.SellItem(hero, items, itemName, true);
+        }
+      }
+    }
+
+    // 优先级 2: 如果背包满了（总数>6），出售同槽位最低 tier 的装备
+    const totalItemCount = currentItems.length;
+    if (totalItemCount > 6) {
+      // 按槽位分组装备
+      const itemsBySlot = new Map<string, Array<{ name: string; tier: number }>>();
+
+      for (const itemName of currentItems) {
+        const itemConfig = getItemConfig(itemName);
+        if (!itemConfig) continue;
+
+        const slot = itemConfig.slot;
+        if (!itemsBySlot.has(slot)) {
+          itemsBySlot.set(slot, []);
+        }
+        itemsBySlot.get(slot)!.push({ name: itemName, tier: itemConfig.tier });
+      }
+
+      // 找到有多个装备的槽位
+      for (const [slot, slotItems] of itemsBySlot) {
+        if (slotItems.length > 1) {
+          // 按 tier 排序，找到最低 tier 的装备
+          slotItems.sort((a, b) => a.tier - b.tier);
+          const lowestTierItem = slotItems[0];
+
+          const items = itemsMap.get(lowestTierItem.name);
+          if (items) {
+            print(
+              `[AI] SellLowTierItems ${hero.GetUnitName()} 出售同槽位最低tier装备: ${lowestTierItem.name} (槽位: ${slot}, T${lowestTierItem.tier})`,
+            );
+            return this.SellItem(hero, items, lowestTierItem.name, true);
+          }
+        }
       }
     }
 
