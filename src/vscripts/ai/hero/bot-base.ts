@@ -9,6 +9,7 @@ import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-st
 import { HeroTemplate } from '../build-item/hero-template-config';
 import { SellItem } from '../build-item/sell-item';
 import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
+import { UseItem } from '../item/use-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
@@ -172,6 +173,12 @@ export class BotBaseAIModifier extends BaseModifier {
   // Item usage
   // ---------------------------------------------------------
   UseItemSelf(): boolean {
+    // 使用消耗品
+    if (UseItem.UseConsumeItems(this.hero)) {
+      return true;
+    }
+
+    // 使用点金手
     const creep = this.FindNearestEnemyCreep();
     if (
       ActionItem.UseItemOnTarget(this.hero, 'item_hand_of_group', creep, (target) => {

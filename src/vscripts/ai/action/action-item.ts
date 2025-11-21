@@ -73,6 +73,23 @@ export class ActionItem {
   }
 
   /**
+   * 使用无目标物品
+   * @param hero 英雄单位
+   * @param itemName 物品名称
+   * @returns 是否成功使用
+   */
+  static UseItemNoTarget(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {
+    const item = this.FindItemInInventoryUseable(hero, itemName);
+    if (!item) {
+      return false;
+    }
+
+    hero.CastAbilityNoTarget(item, hero.GetPlayerOwnerID());
+    print(`[AI] UseItemNoTarget ${itemName}`);
+    return true;
+  }
+
+  /**
    * 寻找可用的物品
    */
   static FindItemInInventoryUseable(
