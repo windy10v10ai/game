@@ -4,13 +4,13 @@ import { ActionFind } from '../action/action-find';
 import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
 import { BuildItemManager } from '../build-item/BuildItemManager';
+import { getHeroBuildConfig } from '../build-item/hero-build-config';
+import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
+import { HeroTemplate } from '../build-item/hero-template-config';
 import { SellItem } from '../build-item/sell-item';
 import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
-import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
-import { getHeroBuildConfig } from '../build-item/hero-build-config';
-import { HeroTemplate } from '../build-item/hero-template-config';
 
 @registerModifier()
 export class BotBaseAIModifier extends BaseModifier {
@@ -61,6 +61,8 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 出装状态
   public buildState: HeroBuildState | undefined;
+  // 是否使用新出装系统
+  public useNewBuildSystem: boolean = false;
 
   public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
@@ -72,12 +74,15 @@ export class BotBaseAIModifier extends BaseModifier {
     print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
 
     // 初始化出装状态
-    const config = getHeroBuildConfig(this.hero.GetUnitName());
-    if (config) {
-      this.buildState = InitializeHeroBuild(this.hero, config);
-    } else {
-      // 如果没有配置，使用默认 PhysicalCarry 模板
-      this.buildState = InitializeHeroBuild(this.hero, { template: HeroTemplate.PhysicalCarry });
+    // FIXME 待所有英雄使用新出装系统后删除
+    if (this.useNewBuildSystem) {
+      const config = getHeroBuildConfig(this.hero.GetUnitName());
+      if (config) {
+        this.buildState = InitializeHeroBuild(this.hero, config);
+      } else {
+        // 如果没有配置，使用默认 PhysicalCarry 模板
+        this.buildState = InitializeHeroBuild(this.hero, { template: HeroTemplate.PhysicalCarry });
+      }
     }
 
     // 初始化Think

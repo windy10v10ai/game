@@ -1,4 +1,5 @@
 import { BotBaseAIModifier } from './hero/bot-base';
+import { AbaddonAIModifier } from './hero/hero-abaddon';
 import { DrowRangerAIModifier } from './hero/hero-drow-ranger';
 import { LionAIModifier } from './hero/hero-lion';
 import { LunaAIModifier } from './hero/hero-luna';
@@ -21,6 +22,9 @@ export class AI {
   }
 
   private getModifierName(hero: CDOTA_BaseNPC_Hero): string {
+    if (hero.GetUnitName() === 'npc_dota_hero_abaddon') {
+      return AbaddonAIModifier.name;
+    }
     if (hero.GetUnitName() === 'npc_dota_hero_lion') {
       return LionAIModifier.name;
     }
