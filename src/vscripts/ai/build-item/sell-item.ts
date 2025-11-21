@@ -130,6 +130,13 @@ export class SellItem {
         print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售阿哈利姆神杖（已有真·神杖buff）`);
         return this.SellItem(hero, items, aghanimsScepter, true);
       }
+      // 出售真·阿哈利姆神杖
+      const ultimateScepter = 'item_ultimate_scepter_2';
+      if (itemsMap.has(ultimateScepter)) {
+        const items = itemsMap.get(ultimateScepter)!;
+        print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售真·阿哈利姆神杖`);
+        return this.SellItem(hero, items, ultimateScepter, true);
+      }
     }
     return false;
   }
