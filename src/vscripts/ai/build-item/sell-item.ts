@@ -122,7 +122,7 @@ export class SellItem {
     }
 
     // 出售真·阿哈利姆神杖相关物品 - 已消耗真·阿哈利姆神杖时出售相关物品
-    if (hero.HasModifier('modifier_item_ultimate_scepter_2')) {
+    if (hero.HasModifier('modifier_item_ultimate_scepter_2_consumed')) {
       // 出售普通阿哈利姆神杖
       const aghanimsScepter = 'item_ultimate_scepter';
       if (itemsMap.has(aghanimsScepter)) {
