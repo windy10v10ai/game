@@ -3,21 +3,8 @@
  * 负责决策购买哪些装备、何时出售旧装备
  */
 
-import { ActionItem } from '../action/action-item';
 import { HeroBuildState } from './hero-build-state';
 import { ItemSlot, ItemTier, getItemConfig } from './item-tier-config';
-
-/**
- * 装备购买决策结果
- */
-export interface PurchaseDecision {
-  /** 推荐购买的装备名称 */
-  itemName: string;
-  /** 装备槽位 */
-  slot: ItemSlot;
-  /** 装备等级 */
-  tier: ItemTier;
-}
 
 /**
  * 出装管理器
@@ -122,7 +109,7 @@ export class BuildItemManager {
 
     // 尝试购买第一个可用的消耗品
     for (const itemName of currentTierConsumables) {
-      const result = ActionItem.BuyItem(hero, itemName);
+      const result = this.BuyItem(hero, itemName);
       if (result) {
         // 从消耗品列表中移除
         const index = currentTierConsumables.indexOf(itemName);
@@ -155,7 +142,7 @@ export class BuildItemManager {
 
     // 尝试购买第一个可用的普通装备
     for (const itemName of currentTierItems) {
-      const result = ActionItem.BuyItem(hero, itemName);
+      const result = this.BuyItem(hero, itemName);
       if (result) {
         // 购买成功后，更新当前 tier（减少调用次数）
         buildState.currentTier = this.DetermineCurrentTier(hero, buildState, currentItems);
@@ -163,5 +150,27 @@ export class BuildItemManager {
       }
     }
     return false;
+  }
+
+  /**
+   * 购买物品
+   * @param hero 英雄单位
+   * @param itemName 物品名称
+   * @returns 是否成功购买
+   */
+  private static BuyItem(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {
+    const cost = GetItemCost(itemName);
+    if (cost > hero.GetGold()) {
+      print(`[AI] BuyItem ${itemName} failed, not enough gold`);
+      return false;
+    }
+
+    const addedItem = hero.AddItemByName(itemName);
+    if (!addedItem) {
+      print(`[AI] BuyItem ${itemName} failed`);
+      return false;
+    }
+    hero.SpendGold(cost, ModifyGoldReason.PURCHASE_ITEM);
+    return true;
   }
 }

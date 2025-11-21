@@ -2,25 +2,6 @@ import { ActionAbility } from './action-ability';
 
 export class ActionItem {
   // ---------------------------------------------------------
-  // Item build 购买物品
-  // ---------------------------------------------------------
-  static BuyItem(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {
-    const cost = GetItemCost(itemName);
-    if (cost > hero.GetGold()) {
-      print(`[AI] BuyItem ${itemName} failed, not enough gold`);
-      return false;
-    }
-
-    const addedItem = hero.AddItemByName(itemName);
-    if (!addedItem) {
-      print(`[AI] BuyItem ${itemName} failed`);
-      return false;
-    }
-    hero.SpendGold(cost, ModifyGoldReason.PURCHASE_ITEM);
-    return true;
-  }
-
-  // ---------------------------------------------------------
   // Item usage 使用物品
   // ---------------------------------------------------------
   static UseItemOnTarget(
