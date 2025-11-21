@@ -4,15 +4,7 @@ export class ActionItem {
   // ---------------------------------------------------------
   // Item build 购买物品
   // ---------------------------------------------------------
-  static BuyItem(hero: CDOTA_BaseNPC_Hero, itemName: string, checkSame: boolean = true): boolean {
-    if (checkSame) {
-      const item = hero.FindItemInInventory(itemName);
-
-      if (item) {
-        print(`[AI] BuyItem ${itemName} failed, already has`);
-        return false;
-      }
-    }
+  static BuyItem(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {
     const cost = GetItemCost(itemName);
     if (cost > hero.GetGold()) {
       print(`[AI] BuyItem ${itemName} failed, not enough gold`);

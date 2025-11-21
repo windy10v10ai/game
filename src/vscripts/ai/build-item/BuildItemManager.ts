@@ -3,6 +3,7 @@
  * 负责决策购买哪些装备、何时出售旧装备
  */
 
+import { ActionItem } from '../action/action-item';
 import { HeroBuildState } from './hero-build-state';
 import { ItemSlot, ItemTier, getItemConfig } from './item-tier-config';
 
@@ -26,11 +27,13 @@ export class BuildItemManager {
    * 获取英雄下一个应该购买的装备
    * @param hero 英雄单位
    * @param buildState 出装状态（来自 bot-base.ts）
+   * @param currentItems 当前拥有的装备列表
    * @returns 购买决策，如果没有需要购买的返回 undefined
    */
   public static GetNextItemToBuy(
     hero: CDOTA_BaseNPC_Hero,
     buildState: HeroBuildState,
+    currentItems: string[],
   ): PurchaseDecision | undefined {
     if (!buildState) {
       print(
@@ -39,48 +42,19 @@ export class BuildItemManager {
       return undefined;
     }
 
-    const gold = hero.GetGold();
-    const currentItems = this.GetHeroItems(hero);
-
-    // 更新当前 tier
-    buildState.currentTier = this.DetermineCurrentTier(hero, buildState, currentItems);
-
-    // 遍历当前 tier 的装备列表
-    const currentTierItems = buildState.resolvedItems[buildState.currentTier];
-
-    if (!currentTierItems || currentTierItems.length === 0) {
-      print(
-        `[AI] BuildItemManager.GetNextItemToBuy: No items in tier ${buildState.currentTier} for ${hero.GetUnitName()}`,
-      );
-      return undefined;
-    }
-
-    for (const itemName of currentTierItems) {
-      // 跳过已拥有的装备
-      if (currentItems.includes(itemName)) {
-        continue;
-      }
-
-      const itemConfig = getItemConfig(itemName);
-      if (!itemConfig) {
-        continue;
-      }
-
-      // 跳过已消耗的消耗品
-      if (itemConfig.slot === ItemSlot.Consumable) {
-        if (buildState.consumedItems.has(itemName)) {
+    // 然后处理当前 tier 的普通装备
+    const currentTierItems = buildState.resolvedItems[currentTier];
+    if (currentTierItems && currentTierItems.length > 0) {
+      for (const itemName of currentTierItems) {
+        // 跳过已拥有的装备
+        if (currentItems.includes(itemName)) {
           continue;
         }
-      }
 
-      // FIXME 去除重复检测
-      // 检查金币是否足够
-      if (itemConfig.cost <= gold) {
-        return {
-          itemName: itemName,
-          slot: itemConfig.slot,
-          tier: buildState.currentTier,
-        };
+        const itemConfig = getItemConfig(itemName);
+        if (!itemConfig) {
+          continue;
+        }
       }
     }
 
@@ -99,7 +73,6 @@ export class BuildItemManager {
     buildState: HeroBuildState,
     currentItems: string[],
   ): ItemTier {
-    const gold = hero.GetGold();
     const currentTier = buildState.currentTier;
 
     // 检查当前 tier 的装备是否都已购买（排除消耗品）
@@ -122,29 +95,14 @@ export class BuildItemManager {
       }
     }
 
-    // 如果都买完了（或消耗了），且金币足够，考虑升级 tier
+    // 如果都买完了（或消耗了）
     if (allBought && currentTier < ItemTier.T5) {
       const nextTier = (currentTier + 1) as ItemTier;
-      const nextTierItems = buildState.resolvedItems[nextTier];
 
-      if (nextTierItems && nextTierItems.length > 0) {
-        // 找到下一 tier 中最便宜的装备
-        let minCost = 999999;
-        for (const itemName of nextTierItems) {
-          const itemConfig = getItemConfig(itemName);
-          if (itemConfig && itemConfig.cost < minCost) {
-            minCost = itemConfig.cost;
-          }
-        }
-
-        // 如果金币达到最便宜装备的 50%，就升级 tier
-        if (gold >= minCost * 0.5) {
-          print(
-            `[AI] BuildItemManager.DetermineCurrentTier: ${hero.GetUnitName()} 升级到 T${nextTier} (金币: ${gold}, 最低消费: ${minCost})`,
-          );
-          return nextTier;
-        }
-      }
+      print(
+        `[AI] BuildItemManager.DetermineCurrentTier: ${hero.GetUnitName()} 升级到 T${nextTier}`,
+      );
+      return nextTier;
     }
 
     return currentTier;
@@ -166,14 +124,6 @@ export class BuildItemManager {
       }
     }
 
-    // 遍历仓库 (9-14)
-    for (let i = 9; i < 15; i++) {
-      const item = hero.GetItemInSlot(i);
-      if (item && !item.IsNull()) {
-        items.push(item.GetName());
-      }
-    }
-
     return items;
   }
 
@@ -185,40 +135,71 @@ export class BuildItemManager {
    */
   public static TryPurchaseItem(hero: CDOTA_BaseNPC_Hero, buildState: HeroBuildState): boolean {
     // 获取购买决策
-    const decision = this.GetNextItemToBuy(hero, buildState);
-    if (!decision) {
-      return false;
-    }
-
-    // 获取装备的实际价格
-    const itemCost = GetItemCost(decision.itemName);
-
-    // 再次检查金钱是否足够（防止并发问题）
-    const currentGold = hero.GetGold();
-    if (currentGold < itemCost) {
-      return false;
-    }
-
-    // 尝试购买推荐的装备
-    const result = hero.AddItemByName(decision.itemName);
-    if (result !== undefined) {
-      // 扣除金钱
-      hero.SpendGold(itemCost, ModifyGoldReason.PURCHASE_ITEM);
-
-      print(
-        `[AI] BuildItem ${hero.GetUnitName()} 购买装备: ${decision.itemName} (${decision.slot}, T${decision.tier}) 花费: ${itemCost}金`,
-      );
+    const currentItems = this.GetHeroItems(hero);
+    if (this.TryPurchaseConsumable(hero, buildState, currentItems)) {
       return true;
     }
-
+    if (this.TryPurchaseNormalItem(hero, buildState, currentItems)) {
+      return true;
+    }
     return false;
   }
 
-  /**
-   * 比较两个 tier 的大小
-   * @returns -1 if tierA < tierB, 0 if equal, 1 if tierA > tierB
-   */
-  public static CompareTier(tierA: ItemTier, tierB: ItemTier): number {
-    return tierA - tierB;
+  private static TryPurchaseConsumable(
+    hero: CDOTA_BaseNPC_Hero,
+    buildState: HeroBuildState,
+    currentItems: string[],
+  ): boolean {
+    const currentTier = buildState.currentTier;
+
+    // 优先处理当前 tier 的消耗品
+    const currentTierConsumables = buildState.consumables[currentTier];
+    if (!currentTierConsumables) {
+      return false;
+    }
+
+    // 尝试购买第一个可用的消耗品
+    for (const itemName of currentTierConsumables) {
+      const result = ActionItem.BuyItem(hero, itemName);
+      if (result) {
+        // 从消耗品列表中移除
+        const index = currentTierConsumables.indexOf(itemName);
+        if (index !== -1) {
+          currentTierConsumables.splice(index, 1);
+          print(
+            `[AI] BuildItem ${hero.GetUnitName()} 从消耗品列表移除: ${itemName} (T${currentTier})`,
+          );
+        }
+        // 购买成功后，更新当前 tier（减少调用次数）
+        buildState.currentTier = this.DetermineCurrentTier(hero, buildState, currentItems);
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static TryPurchaseNormalItem(
+    hero: CDOTA_BaseNPC_Hero,
+    buildState: HeroBuildState,
+    currentItems: string[],
+  ): boolean {
+    const currentTier = buildState.currentTier;
+
+    // 当前 tier 的普通装备
+    const currentTierItems = buildState.resolvedItems[currentTier];
+    if (!currentTierItems) {
+      return false;
+    }
+
+    // 尝试购买第一个可用的普通装备
+    for (const itemName of currentTierItems) {
+      const result = ActionItem.BuyItem(hero, itemName);
+      if (result) {
+        // 购买成功后，更新当前 tier（减少调用次数）
+        buildState.currentTier = this.DetermineCurrentTier(hero, buildState, currentItems);
+        return true;
+      }
+    }
+    return false;
   }
 }
