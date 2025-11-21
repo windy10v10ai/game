@@ -102,9 +102,6 @@ export class BuildItemManager {
 
     // 尝试购买第一个可用的消耗品
     for (const itemName of currentTierConsumables) {
-      print(
-        `[AI] TryPurchaseConsumable ${hero.GetUnitName()} 尝试购买: ${itemName} (T${currentTier})`,
-      );
       const result = this.BuyItem(hero, itemName, currentItems);
       if (result) {
         // 从消耗品列表中移除
@@ -138,9 +135,6 @@ export class BuildItemManager {
 
     // 尝试购买第一个可用的普通装备
     for (const itemName of currentTierItems) {
-      print(
-        `[AI] TryPurchaseNormalItem ${hero.GetUnitName()} 尝试购买: ${itemName} (T${currentTier})`,
-      );
       const result = this.BuyItem(hero, itemName, currentItems);
       if (result) {
         // 购买成功后，更新当前 tier（减少调用次数）
@@ -164,6 +158,10 @@ export class BuildItemManager {
     currentItems: string[],
   ): boolean {
     if (currentItems.includes(itemName)) {
+      return false;
+    }
+    // 拥有9件物品时，不购买
+    if (currentItems.length >= 9) {
       return false;
     }
     const cost = GetItemCost(itemName);

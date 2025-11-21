@@ -108,7 +108,6 @@ export class SellItem {
       const shardItems = itemsMap.get(aghanimsShardItem)!;
       return this.SellItem(hero, shardItems, aghanimsShardItem, true);
     }
-
     // 出售急速之翼的配方鞋子 - 已消耗急速之翼时出售其配方中的鞋子
     if (hero.HasModifier('modifier_item_wings_of_haste_consumed')) {
       // 急速之翼的配方鞋子：相位鞋、奥术鞋、静谧鞋
@@ -116,7 +115,7 @@ export class SellItem {
       for (const bootItem of bootsList) {
         if (itemsMap.has(bootItem)) {
           const items = itemsMap.get(bootItem)!;
-          print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售急速之翼配方鞋子: ${bootItem}`);
+          print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售急速之翼的配方鞋子: ${bootItem}`);
           return this.SellItem(hero, items, bootItem, true);
         }
       }
@@ -132,7 +131,6 @@ export class SellItem {
         return this.SellItem(hero, items, aghanimsScepter, true);
       }
     }
-
     return false;
   }
 
@@ -383,6 +381,7 @@ export class SellItem {
 
     // 按优先级尝试出售物品
     // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
+    print(`[AI] SellExtraItems start`);
     if (this.SellConsumedItems(hero, itemsMap)) {
       print(`[AI] SellExtraItems ${hero.GetUnitName()} 出售已消耗的物品`);
       return true;
