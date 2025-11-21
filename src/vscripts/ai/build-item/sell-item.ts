@@ -187,6 +187,7 @@ export class SellItem {
     return false;
   }
 
+  // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
   /**
    * 出售被升级替代的装备 - 当拥有高级装备时，出售低级装备
    * @param hero 英雄单位
