@@ -37,7 +37,7 @@ export class SellItem {
    */
   static GetItemsMapIncludeStash(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item[]> {
     const itemsMap = new Map<string, CDOTA_Item[]>();
-    for (let i = 0; i <= 14; i++) {
+    for (let i = 0; i < 15; i++) {
       const item = hero.GetItemInSlot(i);
       if (item) {
         const itemName = item.GetName();
@@ -388,15 +388,12 @@ export class SellItem {
 
     // 按优先级尝试出售物品
     // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
-    print(`[AI] SellExtraItems start`);
     if (this.SellConsumedItems(hero, itemsMap)) {
-      print(`[AI] SellExtraItems ${hero.GetUnitName()} 出售已消耗的物品`);
       return true;
     }
 
     // 优先使用智能出售系统
     if (this.SellLowTierItems(hero, itemsMap)) {
-      print(`[AI] SellExtraItems ${hero.GetUnitName()} 出售智能出售系统`);
       return true;
     }
 

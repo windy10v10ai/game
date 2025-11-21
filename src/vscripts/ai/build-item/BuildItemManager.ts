@@ -57,8 +57,8 @@ export class BuildItemManager {
   public static GetHeroItems(hero: CDOTA_BaseNPC_Hero): string[] {
     const items: string[] = [];
 
-    // 遍历背包 (0-8: 6个背包 + 3个背包栏)
-    for (let i = 0; i < 9; i++) {
+    // 遍历背包 (0-8: 6个背包 + 3个背包栏 + 6个仓库栏）
+    for (let i = 0; i < 15; i++) {
       const item = hero.GetItemInSlot(i);
       if (item && !item.IsNull()) {
         items.push(item.GetName());
