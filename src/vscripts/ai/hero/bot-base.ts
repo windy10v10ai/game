@@ -370,7 +370,7 @@ export class BotBaseAIModifier extends BaseModifier {
     // 使用消耗品
     UseItem.UseConsumeItems(this.hero);
     // SellItem.SellExtraItems 内部已包含智能出售系统
-    if (SellItem.SellExtraItems(this.hero)) {
+    if (SellItem.SellExtraItems(this.hero, this.buildState)) {
       return true;
     }
     if (this.PurchaseItem()) {

@@ -1,3 +1,4 @@
+import { HeroBuildState } from './hero-build-state';
 import { getItemConfig } from './item-tier-config';
 import { GetItemPrerequisites } from './item-upgrade-tree';
 import {
@@ -334,11 +335,30 @@ export class SellItem {
   }
 
   /**
+   * 从物品Map中移除英雄当前tier的物品
+   * @param itemsMap 物品Map
+   * @param buildState 出装状态
+   */
+  static RemoveCurrentTierItems(
+    itemsMap: Map<string, CDOTA_Item[]>,
+    buildState: HeroBuildState,
+  ): void {
+    const currentTier = buildState.currentTier;
+    const currentTierItems = buildState.resolvedItems[currentTier];
+
+    // 移除当前tier的普通装备
+    for (const itemName of currentTierItems) {
+      itemsMap.delete(itemName);
+    }
+  }
+
+  /**
    * 出售多余的物品
    * @param hero 英雄单位
+   * @param buildState 出装状态（可选）
    * @returns 是否出售了物品
    */
-  static SellExtraItems(hero: CDOTA_BaseNPC_Hero): boolean {
+  static SellExtraItems(hero: CDOTA_BaseNPC_Hero, buildState?: HeroBuildState): boolean {
     // 获取物品Map
     const itemsMap = this.GetItemsMapIncludeStash(hero);
 
@@ -356,14 +376,21 @@ export class SellItem {
       return false;
     }
 
+    // 如果提供了buildState，移除当前tier的物品，防止出售购买死循环
+    if (buildState) {
+      this.RemoveCurrentTierItems(itemsMap, buildState);
+    }
+
     // 按优先级尝试出售物品
     // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
     if (this.SellConsumedItems(hero, itemsMap)) {
+      print(`[AI] SellExtraItems ${hero.GetUnitName()} 出售已消耗的物品`);
       return true;
     }
 
     // 优先使用智能出售系统
     if (this.SellLowTierItems(hero, itemsMap)) {
+      print(`[AI] SellExtraItems ${hero.GetUnitName()} 出售智能出售系统`);
       return true;
     }
 
