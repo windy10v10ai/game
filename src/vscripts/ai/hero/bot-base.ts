@@ -173,11 +173,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // Item usage
   // ---------------------------------------------------------
   UseItemSelf(): boolean {
-    // 使用消耗品
-    if (UseItem.UseConsumeItems(this.hero)) {
-      return true;
-    }
-
     // 使用点金手
     const creep = this.FindNearestEnemyCreep();
     if (
@@ -372,9 +367,8 @@ export class BotBaseAIModifier extends BaseModifier {
   // Build Item
   // ---------------------------------------------------------
   BuildItem(): boolean {
-    if (this.ConsumeItem()) {
-      return true;
-    }
+    // 使用消耗品
+    UseItem.UseConsumeItems(this.hero);
     // SellItem.SellExtraItems 内部已包含智能出售系统
     if (SellItem.SellExtraItems(this.hero)) {
       return true;
@@ -435,10 +429,6 @@ export class BotBaseAIModifier extends BaseModifier {
     this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
     this.neutralItemTier = targetTier;
     return true;
-  }
-
-  ConsumeItem(): boolean {
-    return false;
   }
 
   // ---------------------------------------------------------

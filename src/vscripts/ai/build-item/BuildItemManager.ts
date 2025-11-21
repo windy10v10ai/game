@@ -4,7 +4,7 @@
  */
 
 import { HeroBuildState } from './hero-build-state';
-import { ItemSlot, ItemTier, getItemConfig } from './item-tier-config';
+import { ItemTier } from './item-tier-config';
 
 /**
  * 出装管理器
@@ -14,14 +14,14 @@ export class BuildItemManager {
    * 判断当前应该购买的 tier
    * @param hero 英雄单位
    * @param buildState 出装状态
-   * @param currentItems 当前拥有的装备列表
    * @returns 当前 tier
    */
   private static DetermineCurrentTier(
     hero: CDOTA_BaseNPC_Hero,
     buildState: HeroBuildState,
-    currentItems: string[],
   ): ItemTier {
+    // 购买后，重新获取当前拥有的装备列表
+    const currentItems = this.GetHeroItems(hero);
     const currentTier = buildState.currentTier;
 
     // 检查当前 tier 的装备是否都已购买（排除消耗品）
@@ -29,22 +29,14 @@ export class BuildItemManager {
     let allBought = true;
 
     for (const itemName of currentTierItems) {
-      const itemConfig = getItemConfig(itemName);
-      if (!itemConfig) continue;
-
-      // 消耗品不影响 tier 升级
-      if (itemConfig.slot === ItemSlot.Consumable) {
-        continue;
-      }
-
-      // 非消耗品：检查是否拥有
+      // 检查是否拥有
       if (!currentItems.includes(itemName)) {
         allBought = false;
         break;
       }
     }
 
-    // 如果都买完了（或消耗了）
+    // 如果都买完了
     if (allBought && currentTier < ItemTier.T5) {
       const nextTier = (currentTier + 1) as ItemTier;
 
@@ -85,6 +77,7 @@ export class BuildItemManager {
   public static TryPurchaseItem(hero: CDOTA_BaseNPC_Hero, buildState: HeroBuildState): boolean {
     // 获取购买决策
     const currentItems = this.GetHeroItems(hero);
+
     if (this.TryPurchaseConsumable(hero, buildState, currentItems)) {
       return true;
     }
@@ -109,7 +102,10 @@ export class BuildItemManager {
 
     // 尝试购买第一个可用的消耗品
     for (const itemName of currentTierConsumables) {
-      const result = this.BuyItem(hero, itemName);
+      print(
+        `[AI] TryPurchaseConsumable ${hero.GetUnitName()} 尝试购买: ${itemName} (T${currentTier})`,
+      );
+      const result = this.BuyItem(hero, itemName, currentItems);
       if (result) {
         // 从消耗品列表中移除
         const index = currentTierConsumables.indexOf(itemName);
@@ -120,7 +116,7 @@ export class BuildItemManager {
           );
         }
         // 购买成功后，更新当前 tier（减少调用次数）
-        buildState.currentTier = this.DetermineCurrentTier(hero, buildState, currentItems);
+        buildState.currentTier = this.DetermineCurrentTier(hero, buildState);
         return true;
       }
     }
@@ -142,10 +138,13 @@ export class BuildItemManager {
 
     // 尝试购买第一个可用的普通装备
     for (const itemName of currentTierItems) {
-      const result = this.BuyItem(hero, itemName);
+      print(
+        `[AI] TryPurchaseNormalItem ${hero.GetUnitName()} 尝试购买: ${itemName} (T${currentTier})`,
+      );
+      const result = this.BuyItem(hero, itemName, currentItems);
       if (result) {
         // 购买成功后，更新当前 tier（减少调用次数）
-        buildState.currentTier = this.DetermineCurrentTier(hero, buildState, currentItems);
+        buildState.currentTier = this.DetermineCurrentTier(hero, buildState);
         return true;
       }
     }
@@ -153,24 +152,32 @@ export class BuildItemManager {
   }
 
   /**
-   * 购买物品
+   * 购买物品, 如果已经拥有则返回 false
    * @param hero 英雄单位
    * @param itemName 物品名称
+   * @param currentItems 当前拥有的装备列表
    * @returns 是否成功购买
    */
-  private static BuyItem(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {
+  private static BuyItem(
+    hero: CDOTA_BaseNPC_Hero,
+    itemName: string,
+    currentItems: string[],
+  ): boolean {
+    if (currentItems.includes(itemName)) {
+      return false;
+    }
     const cost = GetItemCost(itemName);
     if (cost > hero.GetGold()) {
-      print(`[AI] BuyItem ${itemName} failed, not enough gold`);
       return false;
     }
 
     const addedItem = hero.AddItemByName(itemName);
     if (!addedItem) {
-      print(`[AI] BuyItem ${itemName} failed`);
+      print(`[AI] BuyItem ${hero.GetUnitName()} 购买失败: ${itemName} ${cost}金`);
       return false;
     }
     hero.SpendGold(cost, ModifyGoldReason.PURCHASE_ITEM);
+    print(`[AI] BuyItem ${hero.GetUnitName()} 成功购买: ${itemName} ${cost}金`);
     return true;
   }
 }

@@ -356,14 +356,14 @@ export class SellItem {
       return false;
     }
 
-    // 优先使用智能出售系统
-    if (this.SellLowTierItems(hero, itemsMap)) {
-      return true;
-    }
-
     // 按优先级尝试出售物品
     // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
     if (this.SellConsumedItems(hero, itemsMap)) {
+      return true;
+    }
+
+    // 优先使用智能出售系统
+    if (this.SellLowTierItems(hero, itemsMap)) {
       return true;
     }
 
