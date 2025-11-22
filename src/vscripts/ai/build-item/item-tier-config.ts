@@ -44,11 +44,17 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   // ===== T1: 早期装备 (<2000金) =====
 
   // 基础装备
-  item_boots: { name: 'item_boots', tier: ItemTier.T1, cost: 500 },
+  item_boots: {
+    name: 'item_boots',
+    tier: ItemTier.T1,
+    cost: 500,
+    upgrades: ['item_power_treads', 'item_phase_boots', 'item_arcane_boots', 'item_tranquil_boots'],
+  },
   item_magic_wand: {
     name: 'item_magic_wand',
     tier: ItemTier.T1,
     cost: 450,
+    upgrades: ['item_holy_locket'],
   },
   item_bracer: { name: 'item_bracer', tier: ItemTier.T1, cost: 500 },
   item_null_talisman: {
@@ -199,6 +205,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_holy_locket',
     tier: ItemTier.T2,
     cost: 2250,
+    upgrades: ['item_orb_of_the_brine'],
   },
   item_blink: {
     name: 'item_blink',
