@@ -56,6 +56,9 @@ declare global {
     point_info: {
       [steamAccountID: string]: PointInfoDto[];
     };
+    home_status: {
+      [steamAccountID: string]: HomeStatusDto;
+    };
     lottery_active_abilities: {
       [steamAccountID: string]: LotteryDto[];
     };
@@ -75,23 +78,6 @@ declare global {
         transferred_back_total: number; // 从虚拟金币库转回的总金额
       };
     };
-    home_status: {
-      [steamAccountID: string]: HomeStatusDto;
-    };
-  }
-
-  export interface GameOptions {
-    multiplier_radiant: number;
-    multiplier_dire: number;
-    player_number_radiant: number;
-    player_number_dire: number;
-    tower_power_pct: number;
-    respawn_time_pct: number;
-    starting_gold_player: number;
-    starting_gold_bot: number;
-    max_level: number;
-    force_random_hero: number;
-    enable_player_attribute: number;
     // Bot 被动技能表
     bot_passive_abilities: {
       [playerID: string]: {
@@ -99,4 +85,18 @@ declare global {
       };
     };
   }
+}
+
+export interface GameOptions {
+  multiplier_radiant: number;
+  multiplier_dire: number;
+  player_number_radiant: number;
+  player_number_dire: number;
+  tower_power_pct: number;
+  respawn_time_pct: number;
+  starting_gold_player: number;
+  starting_gold_bot: number;
+  max_level: number;
+  force_random_hero: number;
+  enable_player_attribute: number;
 }
