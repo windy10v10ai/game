@@ -81,7 +81,7 @@ export function InitializeHeroBuild(
 }
 
 /**
- * 第一步：填充用户配置的装备
+ * 填充用户配置的装备
  * @param config 英雄出装配置
  * @param resolvedItems 装备记录
  * @param consumables 消耗品列表（按tier分组）
@@ -112,7 +112,7 @@ function FillUserConfigItems(
 }
 
 /**
- * 第二步：为高 tier 装备补全前置装备
+ * 为高 tier 装备补全前置装备
  * @param resolvedItems 装备记录
  * @param _consumables 消耗品列表（按tier分组，消耗品不需要补全前置装备）
  */
@@ -143,7 +143,7 @@ function FillPrerequisiteItems(resolvedItems: Record<number, string[]>): void {
 }
 
 /**
- * 第三步：使用 template 填充空缺或稀疏的 tier
+ * 使用 template 填充空缺或稀疏的 tier
  * @param config 英雄出装配置
  * @param resolvedItems 装备记录
  * @param consumables 消耗品列表（按tier分组）
