@@ -217,7 +217,6 @@ const StrengthTankTemplate: HeroTemplateConfig = {
     [ItemTier.T5]: [
       'item_beast_shield', // 兽化盾
       'item_beast_armor', // 兽化甲
-      'item_time_gem', // 时间宝石
       'item_withered_spring', // 生命之心
     ],
   },

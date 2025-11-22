@@ -165,6 +165,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
       [ItemTier.T5]: [
         'item_magic_sword', // 魔渊剑
+        'item_time_gem', // 时间宝石
       ],
     },
   },
