@@ -157,6 +157,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_overwhelming_blink', // 力量跳刀
         'item_blade_mail_2', // 真·刃甲
         'item_vladmir_2', // 真·祭品
+        'item_orb_of_the_brine', // 苍洋魔珠
       ],
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 希瓦的守护2

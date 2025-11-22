@@ -209,6 +209,10 @@ const StrengthTankTemplate: HeroTemplateConfig = {
       'item_shivas_guard_2', // 希瓦的守护2
       'item_black_king_bar_2', // 黑皇杖2
     ],
+    [ItemTier.T5]: [
+      'item_beast_shield', // 兽化盾
+      'item_beast_armor', // 兽化甲
+    ],
   },
   consumablesByTier: {
     [ItemTier.T1]: [
@@ -249,6 +253,7 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_guardian_greaves', // 卫士胫甲
       'item_sheepstick', // 邪恶镰刀
       'item_aeon_pendant', // 永恒吊坠
+      'item_orb_of_the_brine', // 苍洋魔珠
     ],
     [ItemTier.T4]: [
       'item_necronomicon_staff', // 死灵书法杖
