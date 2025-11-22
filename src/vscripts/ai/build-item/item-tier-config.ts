@@ -540,7 +540,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_rapier',
     tier: ItemTier.T3,
     cost: 5600,
-    upgrades: ['item_excalibur', 'item_rapier_ultra'],
+    upgrades: ['item_excalibur'],
   },
   item_skadi: {
     name: 'item_skadi',
@@ -906,19 +906,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_excalibur',
     tier: ItemTier.T4,
     cost: 29800,
-    prerequisite: 'item_rapier',
-    upgrades: ['item_rapier_ultra'],
+    prerequisite: 'item_monkey_king_bar_2',
+    upgrades: ['item_rapier_ultra_bot_1'],
   },
 
   // ===== T5: 终极装备 (>30000金) =====
 
-  item_rapier_ultra: {
-    name: 'item_rapier_ultra',
-    tier: ItemTier.T5,
-    cost: 44000,
-    prerequisite: 'item_excalibur',
-    upgrades: ['item_rapier_ultra_bot'],
-  },
   item_hawkeye_fighter: {
     name: 'item_hawkeye_fighter',
     tier: ItemTier.T5,
@@ -934,13 +927,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T5,
     cost: 58449,
   },
-  item_rapier_ultra_bot: {
-    name: 'item_rapier_ultra_bot',
-    tier: ItemTier.T5,
-    cost: 60000,
-    prerequisite: 'item_rapier_ultra',
-    upgrades: ['item_rapier_ultra_bot_1'],
-  },
   item_tome_of_luoshu: {
     name: 'item_tome_of_luoshu',
     tier: ItemTier.T5,
@@ -950,7 +936,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_rapier_ultra_bot_1',
     tier: ItemTier.T5,
     cost: 60000,
-    prerequisite: 'item_rapier_ultra_bot',
+    prerequisite: 'item_excalibur',
   },
   item_swift_glove: {
     name: 'item_swift_glove',
