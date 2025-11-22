@@ -19,7 +19,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
-  protected continueActionEndTime: number = -1;
+  protected continueActionEndTime: number = -60;
 
   protected readonly FindHeroRadius: number = 1600;
   protected readonly FindRadius: number = 1600;
@@ -97,7 +97,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return; // 暂停AI思考
     }
 
-    this.gameTime = GameRules.GetDOTATime(false, false);
+    this.gameTime = GameRules.GetDOTATime(false, true);
     if (this.StopAction()) {
       return;
     }
