@@ -2,33 +2,6 @@ import { ActionAbility } from './action-ability';
 
 export class ActionItem {
   // ---------------------------------------------------------
-  // Item build 购买物品
-  // ---------------------------------------------------------
-  static BuyItem(hero: CDOTA_BaseNPC_Hero, itemName: string, checkSame: boolean = true): boolean {
-    if (checkSame) {
-      const item = hero.FindItemInInventory(itemName);
-
-      if (item) {
-        print(`[AI] BuyItem ${itemName} failed, already has`);
-        return false;
-      }
-    }
-    const cost = GetItemCost(itemName);
-    if (cost > hero.GetGold()) {
-      print(`[AI] BuyItem ${itemName} failed, not enough gold`);
-      return false;
-    }
-
-    const addedItem = hero.AddItemByName(itemName);
-    if (!addedItem) {
-      print(`[AI] BuyItem ${itemName} failed`);
-      return false;
-    }
-    hero.SpendGold(cost, ModifyGoldReason.PURCHASE_ITEM);
-    return true;
-  }
-
-  // ---------------------------------------------------------
   // Item usage 使用物品
   // ---------------------------------------------------------
   static UseItemOnTarget(
@@ -69,6 +42,23 @@ export class ActionItem {
 
     // TODO 检测是否在施法范围内
     hero.CastAbilityOnPosition(pos, item, hero.GetPlayerOwnerID());
+    return true;
+  }
+
+  /**
+   * 使用无目标物品
+   * @param hero 英雄单位
+   * @param itemName 物品名称
+   * @returns 是否成功使用
+   */
+  static UseItemNoTarget(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {
+    const item = this.FindItemInInventoryUseable(hero, itemName);
+    if (!item) {
+      return false;
+    }
+
+    hero.CastAbilityNoTarget(item, hero.GetPlayerOwnerID());
+    print(`[AI] UseItemNoTarget ${itemName}`);
     return true;
   }
 

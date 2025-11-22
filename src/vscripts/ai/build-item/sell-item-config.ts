@@ -62,6 +62,10 @@ export const SellItemCommonJunkList: string[] = [
   'item_blade_of_alacrity', // 欢欣之刃
   'item_staff_of_wizardry', // 魔力法杖
 
+  'item_meteor_hammer', // 陨星锤
+  'item_kaya', // 慧光
+  'item_sange', // 散华
+  'item_yasha', // 夜叉
   'item_blitz_knuckles', // 闪电指套
   'item_javelin', // 标枪
   'item_claymore', // 大剑
@@ -256,9 +260,8 @@ export const ItemUpgradeReplacements: Record<string, string[]> = {
   item_force_staff_3: ['item_force_staff_2', 'item_force_staff'],
   item_force_staff_2: ['item_force_staff'],
 
-  // 圣剑系列 - item_rapier_ultra_bot > item_rapier_ultra > item_excalibur > item_rapier
-  item_rapier_ultra_bot: ['item_rapier_ultra', 'item_excalibur', 'item_rapier'],
-  item_rapier_ultra: ['item_excalibur', 'item_rapier'],
+  // 圣剑系列 - item_rapier_ultra_bot_1 > item_excalibur > item_rapier
+  item_rapier_ultra_bot_1: ['item_excalibur', 'item_rapier'],
   item_excalibur: ['item_rapier', 'item_monkey_king_bar_2'],
 
   // 金箍棒系列 - item_monkey_king_bar_2 > item_monkey_king_bar

@@ -1,3 +1,5 @@
+import { HeroBuildState } from './hero-build-state';
+import { GetItemUpgradeChain, ItemTier } from './item-tier-config';
 import {
   ItemUpgradeReplacements,
   SellItemCommonJunkList,
@@ -34,7 +36,7 @@ export class SellItem {
    */
   static GetItemsMapIncludeStash(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item[]> {
     const itemsMap = new Map<string, CDOTA_Item[]>();
-    for (let i = 0; i <= 14; i++) {
+    for (let i = 0; i < 15; i++) {
       const item = hero.GetItemInSlot(i);
       if (item) {
         const itemName = item.GetName();
@@ -105,7 +107,6 @@ export class SellItem {
       const shardItems = itemsMap.get(aghanimsShardItem)!;
       return this.SellItem(hero, shardItems, aghanimsShardItem, true);
     }
-
     // 出售急速之翼的配方鞋子 - 已消耗急速之翼时出售其配方中的鞋子
     if (hero.HasModifier('modifier_item_wings_of_haste_consumed')) {
       // 急速之翼的配方鞋子：相位鞋、奥术鞋、静谧鞋
@@ -113,14 +114,14 @@ export class SellItem {
       for (const bootItem of bootsList) {
         if (itemsMap.has(bootItem)) {
           const items = itemsMap.get(bootItem)!;
-          print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售急速之翼配方鞋子: ${bootItem}`);
+          print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售急速之翼的配方鞋子: ${bootItem}`);
           return this.SellItem(hero, items, bootItem, true);
         }
       }
     }
 
     // 出售真·阿哈利姆神杖相关物品 - 已消耗真·阿哈利姆神杖时出售相关物品
-    if (hero.HasModifier('modifier_item_ultimate_scepter_2')) {
+    if (hero.HasModifier('modifier_item_ultimate_scepter_2_consumed')) {
       // 出售普通阿哈利姆神杖
       const aghanimsScepter = 'item_ultimate_scepter';
       if (itemsMap.has(aghanimsScepter)) {
@@ -128,8 +129,14 @@ export class SellItem {
         print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售阿哈利姆神杖（已有真·神杖buff）`);
         return this.SellItem(hero, items, aghanimsScepter, true);
       }
+      // 出售真·阿哈利姆神杖
+      const ultimateScepter = 'item_ultimate_scepter_2';
+      if (itemsMap.has(ultimateScepter)) {
+        const items = itemsMap.get(ultimateScepter)!;
+        print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售真·阿哈利姆神杖`);
+        return this.SellItem(hero, items, ultimateScepter, true);
+      }
     }
-
     return false;
   }
 
@@ -185,6 +192,7 @@ export class SellItem {
     return false;
   }
 
+  // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
   /**
    * 出售被升级替代的装备 - 当拥有高级装备时，出售低级装备
    * @param hero 英雄单位
@@ -256,11 +264,80 @@ export class SellItem {
   }
 
   /**
-   * 出售多余的物品
+   * 智能出售低等级装备 - 使用装备成长树系统
    * @param hero 英雄单位
+   * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
-  static SellExtraItems(hero: CDOTA_BaseNPC_Hero): boolean {
+  static SellLowTierItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item[]>,
+    buildState?: HeroBuildState,
+  ): boolean {
+    // 获取所有当前拥有的装备名
+    const currentItems = Array.from(itemsMap.keys());
+
+    // 优先级 1: 查找并出售被升级替代的装备
+    for (const itemName of currentItems) {
+      const items = itemsMap.get(itemName);
+      if (!items) continue;
+
+      // 检查是否有其他装备是这个装备的升级装备
+      const upgradeItems = GetItemUpgradeChain(itemName);
+      for (const upgradeItem of upgradeItems) {
+        const hasUpgradeItem = hero.HasItemInInventory(upgradeItem);
+        if (hasUpgradeItem) {
+          print(
+            `[AI] SellLowTierItems ${hero.GetUnitName()} 出售下位装备: ${itemName} (已拥有上位装备: ${upgradeItem})`,
+          );
+          return this.SellItem(hero, items, itemName, true);
+        }
+      }
+    }
+
+    // 优先级 2: 出售更低tier的装备
+    if (!buildState) {
+      return false;
+    }
+    // 对所有低于current tier的，从低到高遍历出售
+    for (let tier = ItemTier.T1; tier < buildState.currentTier; tier++) {
+      const tierItems = buildState.resolvedItems[tier];
+      for (const itemName of tierItems) {
+        if (itemsMap.has(itemName)) {
+          const items = itemsMap.get(itemName)!;
+          return this.SellItem(hero, items, itemName, true);
+        }
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * 从物品Map中移除英雄当前tier的物品
+   * @param itemsMap 物品Map
+   * @param buildState 出装状态
+   */
+  static RemoveCurrentTierItems(
+    itemsMap: Map<string, CDOTA_Item[]>,
+    buildState: HeroBuildState,
+  ): void {
+    const currentTier = buildState.currentTier;
+    const currentTierItems = buildState.resolvedItems[currentTier];
+
+    // 移除当前tier的普通装备
+    for (const itemName of currentTierItems) {
+      itemsMap.delete(itemName);
+    }
+  }
+
+  /**
+   * 出售多余的物品
+   * @param hero 英雄单位
+   * @param buildState 出装状态（可选）
+   * @returns 是否出售了物品
+   */
+  static SellExtraItems(hero: CDOTA_BaseNPC_Hero, buildState?: HeroBuildState): boolean {
     // 获取物品Map
     const itemsMap = this.GetItemsMapIncludeStash(hero);
 
@@ -278,7 +355,11 @@ export class SellItem {
       return false;
     }
 
-    // 按优先级尝试出售物品
+    // 如果提供了buildState，移除当前tier的物品，防止出售购买死循环
+    if (buildState) {
+      this.RemoveCurrentTierItems(itemsMap, buildState);
+    }
+
     // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
     if (this.SellConsumedItems(hero, itemsMap)) {
       return true;
@@ -299,8 +380,8 @@ export class SellItem {
       return true;
     }
 
-    // 出售被升级替代的装备
-    if (this.SellUpgradedItems(hero, itemsMap)) {
+    // 优先使用智能出售系统
+    if (this.SellLowTierItems(hero, itemsMap, buildState)) {
       return true;
     }
 
@@ -310,10 +391,14 @@ export class SellItem {
     }
 
     // 当物品数量过多时，按价值顺序出售物品（初级->中级->高级）
-    if (totalItemCount >= this.sellItemsByValueSellThreshold) {
-      if (this.SellItemsByValue(hero, itemsMap)) {
-        return true;
-      }
+    if (this.SellItemsByValue(hero, itemsMap)) {
+      return true;
+    }
+
+    // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
+    // 出售被升级替代的装备
+    if (this.SellUpgradedItems(hero, itemsMap)) {
+      return true;
     }
 
     return false;
