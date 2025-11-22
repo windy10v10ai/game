@@ -165,6 +165,9 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_saint_orb', // 圣球
         'item_jump_jump_jump', // 跳跳跳刀
       ],
+      [ItemTier.T5]: [
+        'item_magic_sword', // 魔渊剑
+      ],
     },
   },
 

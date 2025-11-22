@@ -749,6 +749,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 10800,
     prerequisite: 'item_abyssal_blade',
+    upgrades: ['item_shadow_judgment'],
   },
   item_saint_orb: {
     name: 'item_saint_orb',
@@ -767,6 +768,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 11600,
     prerequisite: 'item_black_king_bar',
+    upgrades: ['item_beast_shield'],
   },
   item_ethereal_blade_ultra: {
     name: 'item_ethereal_blade_ultra',
@@ -873,7 +875,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_refresh_core',
     tier: ItemTier.T4,
     cost: 19800,
-    prerequisite: 'item_refresher',
+    prerequisite: 'item_arcane_octarine_core',
   },
   item_guardian_greaves_artifact: {
     name: 'item_guardian_greaves_artifact',
@@ -962,6 +964,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_withered_spring',
     tier: ItemTier.T5,
     cost: 65649,
+    prerequisite: 'item_undying_heart',
   },
   item_magic_crit_blade: {
     name: 'item_magic_crit_blade',
@@ -977,6 +980,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_sword',
     tier: ItemTier.T5,
     cost: 69599,
+    prerequisite: 'item_bfury_ultra',
   },
   item_beast_shield: {
     name: 'item_beast_shield',
@@ -987,6 +991,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_time_gem',
     tier: ItemTier.T5,
     cost: 77799,
+    prerequisite: 'item_refresh_core',
   },
   item_switchable_crit_blade: {
     name: 'item_switchable_crit_blade',

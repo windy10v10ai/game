@@ -60,7 +60,10 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
       'item_satanic_2', // 撒旦之邪力2
       'item_black_king_bar_2', // 黑皇杖2
     ],
-    [ItemTier.T5]: ['item_rapier_ultra_bot_1'], // 圣剑终极版
+    [ItemTier.T5]: [
+      'item_rapier_ultra_bot_1', // 圣剑终极版
+      'item_magic_sword', // 魔渊剑
+    ],
   },
   consumablesByTier: {
     [ItemTier.T1]: [
@@ -204,6 +207,7 @@ const StrengthTankTemplate: HeroTemplateConfig = {
       'item_radiance_2', // 辉耀2
     ],
     [ItemTier.T4]: [
+      'item_abyssal_blade_v2', // 一闪
       'item_jump_jump_jump', // 跳跳跳刀
       'item_undying_heart', // 不朽之心
       'item_shivas_guard_2', // 希瓦的守护2
@@ -212,6 +216,8 @@ const StrengthTankTemplate: HeroTemplateConfig = {
     [ItemTier.T5]: [
       'item_beast_shield', // 兽化盾
       'item_beast_armor', // 兽化甲
+      'item_time_gem', // 时间宝石
+      'item_withered_spring', // 生命之心
     ],
   },
   consumablesByTier: {
