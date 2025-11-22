@@ -25,7 +25,7 @@ describe('InitializeHeroBuild', () => {
     } as CDOTA_BaseNPC_Hero;
 
     const lunaConfig = {
-      template: HeroTemplate.PhysicalCarry,
+      template: HeroTemplate.AgilityCarryRanged,
       targetItemsByTier: {
         [ItemTier.T3]: ['item_monkey_king_bar_2'],
         [ItemTier.T4]: [
@@ -99,19 +99,19 @@ describe('InitializeHeroBuild', () => {
     expect(result.resolvedItems[ItemTier.T3]).toContain('item_aeon_pendant');
   });
 
-  it('测试 3: 默认 PhysicalCarry 模板（无自定义配置）', () => {
+  it('测试 3: 默认 AgilityCarryRanged 模板（无自定义配置）', () => {
     const mockHero = {
       GetUnitName: () => 'npc_dota_hero_test',
     } as CDOTA_BaseNPC_Hero;
 
     const defaultConfig = {
-      template: HeroTemplate.PhysicalCarry,
+      template: HeroTemplate.AgilityCarryRanged,
     };
 
     const result = InitializeHeroBuild(mockHero, defaultConfig);
 
     // eslint-disable-next-line no-console
-    console.log('\n========== 默认 PhysicalCarry 配置结果 ==========');
+    console.log('\n========== 默认 AgilityCarryRanged 配置结果 ==========');
     // eslint-disable-next-line no-console
     console.log('currentTier:', result.currentTier);
     // eslint-disable-next-line no-console
@@ -130,13 +130,13 @@ describe('InitializeHeroBuild', () => {
     expect(result.resolvedItems[ItemTier.T1].length).toBeGreaterThan(0);
   });
 
-  it('测试 4: Axe 的坦克配置', () => {
+  it('测试 4: Axe 的力量坦克配置', () => {
     const mockHero = {
       GetUnitName: () => 'npc_dota_hero_axe',
     } as CDOTA_BaseNPC_Hero;
 
     const axeConfig = {
-      template: HeroTemplate.Tank,
+      template: HeroTemplate.StrengthTank,
       targetItemsByTier: {
         [ItemTier.T3]: ['item_blade_mail_2', 'item_radiance_2'],
         [ItemTier.T4]: [
@@ -176,7 +176,7 @@ describe('InitializeHeroBuild', () => {
     } as CDOTA_BaseNPC_Hero;
 
     const overflowConfig = {
-      template: HeroTemplate.PhysicalCarry,
+      template: HeroTemplate.AgilityCarryRanged,
       targetItemsByTier: {
         [ItemTier.T4]: [
           'item_1',

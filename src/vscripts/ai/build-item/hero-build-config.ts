@@ -21,13 +21,13 @@ export interface HeroBuildConfig {
 
 /**
  * 所有英雄的出装配置
- * 未配置的英雄将使用默认的 PhysicalCarry 模板
+ * 未配置的英雄将根据攻击类型自动使用 AgilityCarryMelee 或 AgilityCarryRanged 模板
  */
 export const HeroBuilds: Record<string, HeroBuildConfig> = {
-  // ===== 物理核心英雄 =====
+  // ===== 敏捷核心英雄(远程) =====
 
   npc_dota_hero_luna: {
-    template: HeroTemplate.PhysicalCarry,
+    template: HeroTemplate.AgilityCarryRanged,
     targetItemsByTier: {
       [ItemTier.T3]: [
         'item_monkey_king_bar_2', // 定海神针
@@ -42,7 +42,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
   },
 
   npc_dota_hero_drow_ranger: {
-    template: HeroTemplate.PhysicalCarry,
+    template: HeroTemplate.AgilityCarryRanged,
     targetItemsByTier: {
       [ItemTier.T3]: [
         'item_monkey_king_bar_2', // 定海神针
@@ -57,7 +57,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
   },
 
   npc_dota_hero_sniper: {
-    template: HeroTemplate.PhysicalCarry,
+    template: HeroTemplate.AgilityCarryRanged,
     targetItemsByTier: {
       [ItemTier.T3]: [
         'item_monkey_king_bar_2', // 定海神针
@@ -115,10 +115,10 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     },
   },
 
-  // ===== 坦克英雄 =====
+  // ===== 力量坦克英雄 =====
 
   npc_dota_hero_axe: {
-    template: HeroTemplate.Tank,
+    template: HeroTemplate.StrengthTank,
     targetItemsByTier: {
       [ItemTier.T3]: [
         'item_blade_mail_2', // 真·刃甲
@@ -134,7 +134,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
   },
 
   npc_dota_hero_pudge: {
-    template: HeroTemplate.Tank,
+    template: HeroTemplate.StrengthTank,
     targetItemsByTier: {
       [ItemTier.T3]: [
         'item_blade_mail_2', // 真·刃甲
@@ -150,7 +150,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
   },
 
   npc_dota_hero_abaddon: {
-    template: HeroTemplate.Tank,
+    template: HeroTemplate.StrengthTank,
     targetItemsByTier: {
       [ItemTier.T3]: [
         'item_radiance_2', // 大辉耀 圣焰之光
@@ -191,7 +191,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
 
 /**
  * 获取英雄的出装配置
- * 如果英雄没有配置，返回 undefined，将使用默认 PhysicalCarry 模板
+ * 如果英雄没有配置，返回 undefined，将根据攻击类型自动使用 AgilityCarryMelee 或 AgilityCarryRanged 模板
  */
 export function getHeroBuildConfig(heroName: string): HeroBuildConfig | undefined {
   return HeroBuilds[heroName];

@@ -7,6 +7,7 @@
 ### 核心特性
 
 1. **装备等级系统** (5个等级)
+
    - T1: <2000金币 - 前期装备
    - T2: 2000-5000金币 - 中期装备
    - T3: 5000-10,000金币 - 中后期装备
@@ -14,6 +15,7 @@
    - T5: >30,000金币 - 终极装备
 
 2. **装备槽位系统** (6个槽位)
+
    - Core: 核心输出装备
    - Defense: 防御装备
    - Mobility: 移动装备
@@ -21,13 +23,16 @@
    - Utility: 工具装备
    - Consumable: 消耗品
 
-3. **英雄模板系统** (4种模板)
-   - PhysicalCarry: 物理核心 (Luna, Drow, Sniper等)
+3. **英雄模板系统** (5种模板)
+
+   - AgilityCarryMelee: 敏捷核心(近战) (PA, Juggernaut, Riki等)
+   - AgilityCarryRanged: 敏捷核心(远程) (Luna, Drow, Sniper等)
    - MagicalCarry: 法师核心 (Lion, Lina, Zeus等)
-   - Tank: 坦克 (Axe, Pudge, Bristleback等)
+   - StrengthTank: 力量坦克 (Axe, Pudge, Bristleback等)
    - Support: 辅助 (Crystal Maiden, Dazzle等)
 
 4. **智能装备过渡**
+
    - 自动根据目标装备生成购买路径
    - 按照模板定义的装备链逐级购买
    - 无需手动配置每个过渡装备
@@ -51,7 +56,7 @@ src/vscripts/ai/build-item/
 
 ### 1. 简单配置 - 仅使用模板
 
-如果英雄完全符合某个模板,无需任何配置,系统会自动使用`PhysicalCarry`模板。
+如果英雄完全符合某个模板,无需任何配置,系统会根据英雄攻击类型自动使用`AgilityCarryMelee`或`AgilityCarryRanged`模板。
 
 ### 2. 基础配置 - 选择模板
 
@@ -66,7 +71,7 @@ npc_dota_hero_your_hero: {
 
 ```typescript
 npc_dota_hero_luna: {
-  template: HeroTemplate.PhysicalCarry,
+  template: HeroTemplate.AgilityCarryRanged,
   targetItems: {
     // 核心槽可以配置多个装备
     [ItemSlot.Core]: [
@@ -111,6 +116,7 @@ npc_dota_hero_luna: {
 在 `SellItem.SellExtraItems()` 中按以下优先级执行:
 
 1. **智能出售低级装备** (装备数量 > 6 时)
+
    - 使用 `BuildItemManager.ShouldSellItem()` 智能判断
    - 基于装备等级和槽位系统
    - 自动出售同槽位的低级装备
@@ -127,11 +133,13 @@ npc_dota_hero_luna: {
 ### 过渡路径生成
 
 假设Luna的Core槽配置:
+
 ```typescript
 [ItemSlot.Core]: 'item_excalibur'
 ```
 
-系统会从`PhysicalCarry`模板的Core装备链中提取:
+系统会从`AgilityCarryRanged`模板的Core装备链中提取:
+
 ```
 item_wraith_band (T1)
 → item_mask_of_madness (T1)
@@ -145,11 +153,11 @@ Bot会按顺序购买这些装备,直到达到目标。
 
 ## 示例配置
 
-### 物理核心 - Luna
+### 敏捷核心(远程) - Luna
 
 ```typescript
 npc_dota_hero_luna: {
-  template: HeroTemplate.PhysicalCarry,
+  template: HeroTemplate.AgilityCarryRanged,
   targetItems: {
     [ItemSlot.Core]: ['item_excalibur', 'item_monkey_king_bar_2', 'item_skadi_2'],
     [ItemSlot.Defense]: 'item_satanic_2',
@@ -183,11 +191,11 @@ npc_dota_hero_lion: {
 }
 ```
 
-### 坦克 - Axe
+### 力量坦克 - Axe
 
 ```typescript
 npc_dota_hero_axe: {
-  template: HeroTemplate.Tank,
+  template: HeroTemplate.StrengthTank,
   targetItems: {
     [ItemSlot.Defense]: [
       'item_blade_mail_2',
@@ -225,15 +233,15 @@ item_your_new_item: {
 在`hero-template-config.ts`中修改对应模板的`itemChains`:
 
 ```typescript
-const PhysicalCarryTemplate: HeroTemplateConfig = {
-  name: HeroTemplate.PhysicalCarry,
+const AgilityCarryRangedTemplate: HeroTemplateConfig = {
+  name: HeroTemplate.AgilityCarryRanged,
   itemChains: [
     {
       slot: ItemSlot.Core,
       items: [
-        'item_wraith_band',
-        'item_your_new_item',  // 添加到装备链
-        'item_excalibur',
+        "item_wraith_band",
+        "item_your_new_item", // 添加到装备链
+        "item_excalibur",
       ],
     },
     // ...
@@ -261,12 +269,12 @@ const PhysicalCarryTemplate: HeroTemplateConfig = {
 
 ## 与旧系统的对比
 
-| 特性 | 旧系统 (Lua) | 新系统 (TypeScript) |
-|------|-------------|-------------------|
-| 配置方式 | 每个装备手动配置 | 只配置目标装备 |
-| 装备过渡 | 手动定义每个过渡 | 自动生成路径 |
-| 出售逻辑 | 固定规则 | 基于等级和槽位智能判断 |
-| 英雄模板 | 无 | 4种预定义模板 |
-| 槽位系统 | 无 | 6种槽位类型 |
-| 可维护性 | 低 | 高 |
-| 类型安全 | 无 | TypeScript类型检查 |
+| 特性     | 旧系统 (Lua)     | 新系统 (TypeScript)    |
+| -------- | ---------------- | ---------------------- |
+| 配置方式 | 每个装备手动配置 | 只配置目标装备         |
+| 装备过渡 | 手动定义每个过渡 | 自动生成路径           |
+| 出售逻辑 | 固定规则         | 基于等级和槽位智能判断 |
+| 英雄模板 | 无               | 4种预定义模板          |
+| 槽位系统 | 无               | 6种槽位类型            |
+| 可维护性 | 低               | 高                     |
+| 类型安全 | 无               | TypeScript类型检查     |

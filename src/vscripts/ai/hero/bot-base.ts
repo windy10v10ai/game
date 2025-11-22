@@ -3,10 +3,9 @@ import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
 import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
-import { BuildItemManager } from '../build-item/BuildItemManager';
 import { getHeroBuildConfig } from '../build-item/hero-build-config';
+import { HeroBuildManager } from '../build-item/hero-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
-import { HeroTemplate } from '../build-item/hero-template-config';
 import { SellItem } from '../build-item/sell-item';
 import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { UseItem } from '../item/use-item';
@@ -80,9 +79,6 @@ export class BotBaseAIModifier extends BaseModifier {
       const config = getHeroBuildConfig(this.hero.GetUnitName());
       if (config) {
         this.buildState = InitializeHeroBuild(this.hero, config);
-      } else {
-        // 如果没有配置，使用默认 PhysicalCarry 模板
-        this.buildState = InitializeHeroBuild(this.hero, { template: HeroTemplate.PhysicalCarry });
       }
     }
 
@@ -386,7 +382,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!this.buildState) {
       return false;
     }
-    return BuildItemManager.TryPurchaseItem(this.hero, this.buildState);
+    return HeroBuildManager.TryPurchaseItem(this.hero, this.buildState);
   }
 
   PickNeutralItem(): boolean {

@@ -9,7 +9,7 @@ import { ItemTier } from './item-tier-config';
 /**
  * 出装管理器
  */
-export class BuildItemManager {
+export class HeroBuildManager {
   /**
    * 判断当前应该购买的 tier
    * @param hero 英雄单位

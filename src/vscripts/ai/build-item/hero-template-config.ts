@@ -9,12 +9,14 @@ import { ItemSlot } from './item-tier-config';
  * 英雄模板类型枚举
  */
 export enum HeroTemplate {
-  /** 物理核心 - 物理输出英雄 */
-  PhysicalCarry = 'PhysicalCarry',
+  /** 敏捷核心(近战) - 近战敏捷输出英雄 */
+  AgilityCarryMelee = 'AgilityCarryMelee',
+  /** 敏捷核心(远程) - 远程敏捷输出英雄 */
+  AgilityCarryRanged = 'AgilityCarryRanged',
   /** 法师核心 - 法术输出英雄 */
   MagicalCarry = 'MagicalCarry',
-  /** 坦克 - 前排坦克英雄 */
-  Tank = 'Tank',
+  /** 力量坦克 - 前排力量坦克英雄 */
+  StrengthTank = 'StrengthTank',
   /** 辅助 - 辅助英雄 */
   Support = 'Support',
 }
@@ -41,11 +43,64 @@ export interface HeroTemplateConfig {
 }
 
 /**
- * 物理核心模板
- * 适用于: Luna, Drow, Sniper, PA, Juggernaut等
+ * 敏捷核心模板(近战)
+ * 适用于: PA, Juggernaut, Riki等近战敏捷英雄
  */
-const PhysicalCarryTemplate: HeroTemplateConfig = {
-  name: HeroTemplate.PhysicalCarry,
+const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
+  name: HeroTemplate.AgilityCarryMelee,
+  itemChains: [
+    {
+      slot: ItemSlot.Mobility,
+      items: [
+        'item_boots', // T1: 草鞋
+        'item_power_treads', // T1: 动力鞋
+      ],
+    },
+    {
+      slot: ItemSlot.Core,
+      items: [
+        'item_wraith_band', // T1: 系带
+        'item_mask_of_madness', // T1: 疯脸
+        'item_sange_and_yasha', // T2: 散夜对剑
+        'item_monkey_king_bar', // T2: 金箍棒
+        'item_monkey_king_bar_2', // T3: 定海神针
+        'item_excalibur', // T4: 圣剑
+        'item_rapier_ultra_bot_1', // T5: 真·圣剑(Bot专用)
+      ],
+    },
+    {
+      slot: ItemSlot.Defense,
+      items: [
+        'item_vanguard', // T1: 先锋盾
+        'item_satanic', // T3: 撒旦
+        'item_satanic_2', // T4: 真·撒旦
+      ],
+    },
+    {
+      slot: ItemSlot.Utility,
+      items: [
+        'item_black_king_bar', // T2: BKB
+        'item_black_king_bar_2', // T4: 真·BKB
+      ],
+    },
+    {
+      slot: ItemSlot.Consumable,
+      items: [
+        'item_aghanims_shard', // T2: 魔晶
+        'item_wings_of_haste', // T2: 急速之翼
+        'item_ultimate_scepter_2', // T3: 真·阿哈利姆神杖
+        'item_moon_shard_datadriven', // T3: 月之晶
+      ],
+    },
+  ],
+};
+
+/**
+ * 敏捷核心模板(远程)
+ * 适用于: Luna, Drow, Sniper等远程敏捷英雄
+ */
+const AgilityCarryRangedTemplate: HeroTemplateConfig = {
+  name: HeroTemplate.AgilityCarryRanged,
   itemChains: [
     {
       slot: ItemSlot.Mobility,
@@ -156,11 +211,11 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
 };
 
 /**
- * 坦克模板
+ * 力量坦克模板
  * 适用于: Axe, Pudge, Bristleback, Centaur等
  */
-const TankTemplate: HeroTemplateConfig = {
-  name: HeroTemplate.Tank,
+const StrengthTankTemplate: HeroTemplateConfig = {
+  name: HeroTemplate.StrengthTank,
   itemChains: [
     {
       slot: ItemSlot.Mobility,
@@ -273,9 +328,10 @@ const SupportTemplate: HeroTemplateConfig = {
  * 所有英雄模板配置
  */
 export const HeroTemplates: Record<HeroTemplate, HeroTemplateConfig> = {
-  [HeroTemplate.PhysicalCarry]: PhysicalCarryTemplate,
+  [HeroTemplate.AgilityCarryMelee]: AgilityCarryMeleeTemplate,
+  [HeroTemplate.AgilityCarryRanged]: AgilityCarryRangedTemplate,
   [HeroTemplate.MagicalCarry]: MagicalCarryTemplate,
-  [HeroTemplate.Tank]: TankTemplate,
+  [HeroTemplate.StrengthTank]: StrengthTankTemplate,
   [HeroTemplate.Support]: SupportTemplate,
 };
 
