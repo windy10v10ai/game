@@ -208,8 +208,7 @@ const StrengthTankTemplate: HeroTemplateConfig = {
       'item_radiance_2', // 辉耀2
     ],
     [ItemTier.T4]: [
-      'item_overwhelming_blink_2', // 压倒性闪烁2
-      'item_jump_jump_jump', // 三连跳
+      'item_jump_jump_jump', // 跳跳跳刀
       'item_undying_heart', // 不朽之心
       'item_shivas_guard_2', // 希瓦的守护2
       'item_black_king_bar_2', // 黑皇杖2

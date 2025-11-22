@@ -5,7 +5,8 @@
 
 /**
  * 装备等级枚举
- * 基于实际金钱划分:
+ * 基于实际金钱划分
+ * 根据实际情况略作微调
  * T1: <2000金 - 早期装备
  * T2: 2000-5000金 - 中期过渡
  * T3: 5000-10000金 - 中期核心
@@ -609,6 +610,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_orb_of_the_brine',
     tier: ItemTier.T3,
     cost: 8000,
+    prerequisite: 'item_holy_locket',
   },
   item_magic_scepter: {
     name: 'item_magic_scepter',
@@ -1029,15 +1031,50 @@ export function getItemTier(itemName: string): ItemTier | undefined {
 /**
  * 初始化所有装备的 upgrades 字段（递归查找所有升级装备）
  * 基于直接升级关系递归查找所有间接升级装备，填充到 upgrades 中
+ * 对于没有直接升级的装备，检查它是否是其他装备的前置，并创建升级关系
  */
 export function InitializeItemUpgrades(): void {
   print('[AI] InitializeItemUpgrades 初始化装备升级关系');
-  // 遍历所有装备
+
+  // 第一步：查找所有以当前装备为前置的装备，添加到升级关系中
   for (const itemName in ItemTierConfig) {
     const config = ItemTierConfig[itemName];
     if (!config) continue;
 
-    // 如果该装备没有直接升级，跳过
+    // 查找所有以当前装备为前置的装备
+    const upgradesFromPrerequisite: string[] = [];
+    for (const otherItemName in ItemTierConfig) {
+      const otherConfig = ItemTierConfig[otherItemName];
+      if (!otherConfig) continue;
+
+      // 如果其他装备的前置是当前装备，则当前装备可以升级到该装备
+      if (otherConfig.prerequisite === itemName) {
+        upgradesFromPrerequisite.push(otherItemName);
+      }
+    }
+
+    // 合并已有的升级和从 prerequisite 找到的升级
+    if (upgradesFromPrerequisite.length > 0) {
+      if (config.upgrades && config.upgrades.length > 0) {
+        // 合并并去重
+        const existingUpgrades = new Set(config.upgrades);
+        for (const upgrade of upgradesFromPrerequisite) {
+          existingUpgrades.add(upgrade);
+        }
+        config.upgrades = Array.from(existingUpgrades);
+      } else {
+        // 如果没有已有升级，直接设置
+        config.upgrades = upgradesFromPrerequisite;
+      }
+    }
+  }
+
+  // 第二步：递归查找所有升级装备（包括间接升级）
+  for (const itemName in ItemTierConfig) {
+    const config = ItemTierConfig[itemName];
+    if (!config) continue;
+
+    // 如果该装备没有升级关系，跳过
     if (!config.upgrades || config.upgrades.length === 0) {
       continue;
     }

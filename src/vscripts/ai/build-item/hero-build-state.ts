@@ -128,6 +128,7 @@ function FillPrerequisiteItems(resolvedItems: Record<number, string[]>): void {
         if (!prereqConfig) continue;
 
         const prereqTier = prereqConfig.tier;
+        // 只添加更低 tier 的前置装备，同一级别或更高级别的不添加
         if (prereqTier < tier) {
           // 添加到对应 tier，去重，且不超过 6 个
           if (!resolvedItems[prereqTier].includes(prereq)) {
