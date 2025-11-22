@@ -109,8 +109,8 @@ function AIGameMode:OnNPCSpawned(keys)
         if not IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
             -- FIXME 用ts脚本替换
             if not hEntity:HasModifier("modifier_bot_think_strategy") then
-                -- 如果是亚巴顿，则不添加modifier_bot_think_strategy
-                if sName ~= "npc_dota_hero_abaddon" then
+                -- 如果是亚巴顿，或者斧王则不添加modifier_bot_think_strategy
+                if sName ~= "npc_dota_hero_abaddon" and sName ~= "npc_dota_hero_axe" then
                     hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
                 end
             end
