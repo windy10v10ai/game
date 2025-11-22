@@ -6914,7 +6914,7 @@
 			// 主动技能
 			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"350"
+			"active_movespeed"				"400"
 			// BKB
 			"magic_resist"					"100"
 
