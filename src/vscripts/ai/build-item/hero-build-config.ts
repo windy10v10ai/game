@@ -156,9 +156,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_radiance_2', // 大辉耀 圣焰之光
         'item_overwhelming_blink', // 力量跳刀
         'item_blade_mail_2', // 真·刃甲
-        'item_ultimate_scepter_2', // 真·阿哈利姆神杖
         'item_vladmir_2', // 真·祭品
-        'item_moon_shard_datadriven', // 月之晶
       ],
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 希瓦的守护2

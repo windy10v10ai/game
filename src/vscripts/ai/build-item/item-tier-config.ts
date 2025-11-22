@@ -90,7 +90,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_power_treads',
     tier: ItemTier.T1,
     cost: 1400,
-    upgrades: ['item_adi_king', 'item_adi_king_plus'],
+    upgrades: ['item_phase_boots'],
   },
   item_arcane_boots: {
     name: 'item_arcane_boots',

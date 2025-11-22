@@ -54,7 +54,7 @@ export function InitializeHeroBuild(
   FillUserConfigItems(config, resolvedItems, consumables);
 
   // 第二步：为高 tier 装备补全前置装备（每个 tier 最多 6 个）
-  FillPrerequisiteItems(resolvedItems, consumables);
+  FillPrerequisiteItems(resolvedItems);
 
   // 第三步：使用 template 填充空缺或稀疏的 tier
   FillTemplateItems(config, resolvedItems, consumables);
@@ -116,10 +116,7 @@ function FillUserConfigItems(
  * @param resolvedItems 装备记录
  * @param _consumables 消耗品列表（按tier分组，消耗品不需要补全前置装备）
  */
-function FillPrerequisiteItems(
-  resolvedItems: Record<number, string[]>,
-  _consumables: Record<number, string[]>,
-): void {
+function FillPrerequisiteItems(resolvedItems: Record<number, string[]>): void {
   for (let tier = ItemTier.T5; tier >= ItemTier.T1; tier--) {
     const tierItems = resolvedItems[tier];
 
