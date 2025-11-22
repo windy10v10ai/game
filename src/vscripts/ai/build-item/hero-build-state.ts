@@ -4,9 +4,8 @@
  */
 
 import { HeroBuildConfig } from './hero-build-config';
-import { HeroTemplate, getTemplateItemChain } from './hero-build-config-template';
-import { ItemSlot, ItemTier, getItemConfig } from './item-tier-config';
-import { GetItemPrerequisites } from './item-upgrade-tree';
+import { getTemplateConsumablesByTier, getTemplateItemsByTier } from './hero-build-config-template';
+import { getItemConfig, GetItemPrerequisites, ItemTier } from './item-tier-config';
 
 /**
  * 英雄出装运行时状态
@@ -90,7 +89,7 @@ export function InitializeHeroBuild(
 function FillUserConfigItems(
   config: HeroBuildConfig,
   resolvedItems: Record<number, string[]>,
-  consumables: Record<number, string[]>,
+  _consumables: Record<number, string[]>,
 ): void {
   if (!config.targetItemsByTier) {
     return;
@@ -102,18 +101,9 @@ function FillUserConfigItems(
     if (items !== undefined) {
       const regularItems: string[] = [];
       for (const itemName of items) {
-        const itemConfig = getItemConfig(itemName);
-        if (itemConfig && itemConfig.slot === ItemSlot.Consumable) {
-          // 消耗品添加到对应 tier，不设上限
-          const consumableTier = itemConfig.tier;
-          if (!consumables[consumableTier].includes(itemName)) {
-            consumables[consumableTier].push(itemName);
-          }
-        } else {
-          // 普通装备添加到对应 tier，最多 6 个
-          if (regularItems.length < 6) {
-            regularItems.push(itemName);
-          }
+        // 用户配置的装备都当作普通装备处理（消耗品通过模板的 consumablesByTier 配置）
+        if (regularItems.length < 6) {
+          regularItems.push(itemName);
         }
       }
       resolvedItems[tier] = regularItems;
@@ -139,11 +129,6 @@ function FillPrerequisiteItems(
       for (const prereq of prerequisites) {
         const prereqConfig = getItemConfig(prereq);
         if (!prereqConfig) continue;
-
-        // 消耗品不补全前置装备
-        if (prereqConfig.slot === ItemSlot.Consumable) {
-          continue;
-        }
 
         const prereqTier = prereqConfig.tier;
         if (prereqTier < tier) {
@@ -177,7 +162,7 @@ function FillTemplateItems(
   for (let tier = ItemTier.T1; tier <= ItemTier.T5; tier++) {
     // 如果该 tier 装备数量少于 6 个，从 template 补充
     if (resolvedItems[tier].length < 6) {
-      const templateItems = GetTemplateItemsAtTier(config.template, tier, false);
+      const templateItems = getTemplateItemsByTier(config.template, tier);
 
       for (const templateItem of templateItems) {
         // 避免重复添加
@@ -193,54 +178,11 @@ function FillTemplateItems(
     }
 
     // 从 template 中提取该 tier 的消耗品（不设上限）
-    const templateConsumables = GetTemplateItemsAtTier(config.template, tier, true);
+    const templateConsumables = getTemplateConsumablesByTier(config.template, tier);
     for (const consumable of templateConsumables) {
       if (!consumables[tier].includes(consumable)) {
         consumables[tier].push(consumable);
       }
     }
   }
-}
-
-/**
- * 从 template 获取指定 tier 的装备列表
- * @param template 模板类型
- * @param tier 目标 tier
- * @param consumableOnly 是否只返回消耗品
- * @returns 装备列表
- */
-function GetTemplateItemsAtTier(
-  template: HeroTemplate,
-  tier: ItemTier,
-  consumableOnly: boolean,
-): string[] {
-  const result: string[] = [];
-
-  // 遍历所有槽位
-  for (const slot of Object.values(ItemSlot)) {
-    // 如果只要消耗品，跳过非消耗品槽位
-    if (consumableOnly && slot !== ItemSlot.Consumable) {
-      continue;
-    }
-    // 如果不要消耗品，跳过消耗品槽位
-    if (!consumableOnly && slot === ItemSlot.Consumable) {
-      continue;
-    }
-
-    const itemChain = getTemplateItemChain(template, slot);
-    if (!itemChain || itemChain.length === 0) {
-      continue;
-    }
-
-    // 找到该槽位在目标 tier 的所有装备（不 break，收集所有匹配的装备）
-    for (const itemName of itemChain) {
-      const itemConfig = getItemConfig(itemName);
-      if (itemConfig && itemConfig.tier === tier) {
-        result.push(itemName);
-        // 不 break，继续查找该槽位的其他同 tier 装备
-      }
-    }
-  }
-
-  return result;
 }

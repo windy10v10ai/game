@@ -1,6 +1,5 @@
 import { HeroBuildState } from './hero-build-state';
-import { ItemTier } from './item-tier-config';
-import { GetItemUpgradeChain } from './item-upgrade-tree';
+import { GetItemUpgradeChain, ItemTier } from './item-tier-config';
 import {
   ItemUpgradeReplacements,
   SellItemCommonJunkList,

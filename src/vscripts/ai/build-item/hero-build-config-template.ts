@@ -3,7 +3,7 @@
  * 定义不同类型英雄的推荐装备链
  */
 
-import { ItemSlot } from './item-tier-config';
+import { ItemTier } from './item-tier-config';
 
 /**
  * 英雄模板类型枚举
@@ -22,24 +22,15 @@ export enum HeroTemplate {
 }
 
 /**
- * 装备槽位的推荐装备链
- * 从低tier到高tier的装备列表
- */
-export interface SlotItemChain {
-  /** 槽位类型 */
-  slot: ItemSlot;
-  /** 推荐装备链(从低tier到高tier) */
-  items: string[];
-}
-
-/**
  * 英雄模板配置接口
  */
 export interface HeroTemplateConfig {
   /** 模板名称 */
   name: HeroTemplate;
-  /** 各槽位的推荐装备链 */
-  itemChains: SlotItemChain[];
+  /** 按 tier 组织的装备列表 */
+  itemsByTier: Partial<Record<ItemTier, string[]>>;
+  /** 按 tier 组织的消耗品列表（可选） */
+  consumablesByTier?: Partial<Record<ItemTier, string[]>>;
 }
 
 /**
@@ -48,51 +39,23 @@ export interface HeroTemplateConfig {
  */
 const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
   name: HeroTemplate.AgilityCarryMelee,
-  itemChains: [
-    {
-      slot: ItemSlot.Mobility,
-      items: [
-        'item_boots', // T1: 草鞋
-        'item_power_treads', // T1: 动力鞋
-      ],
-    },
-    {
-      slot: ItemSlot.Core,
-      items: [
-        'item_wraith_band', // T1: 系带
-        'item_mask_of_madness', // T1: 疯脸
-        'item_sange_and_yasha', // T2: 散夜对剑
-        'item_monkey_king_bar', // T2: 金箍棒
-        'item_monkey_king_bar_2', // T3: 定海神针
-        'item_excalibur', // T4: 圣剑
-        'item_rapier_ultra_bot_1', // T5: 真·圣剑(Bot专用)
-      ],
-    },
-    {
-      slot: ItemSlot.Defense,
-      items: [
-        'item_vanguard', // T1: 先锋盾
-        'item_satanic', // T3: 撒旦
-        'item_satanic_2', // T4: 真·撒旦
-      ],
-    },
-    {
-      slot: ItemSlot.Utility,
-      items: [
-        'item_black_king_bar', // T2: BKB
-        'item_black_king_bar_2', // T4: 真·BKB
-      ],
-    },
-    {
-      slot: ItemSlot.Consumable,
-      items: [
-        'item_aghanims_shard', // T2: 魔晶
-        'item_wings_of_haste', // T2: 急速之翼
-        'item_ultimate_scepter_2', // T3: 真·阿哈利姆神杖
-        'item_moon_shard_datadriven', // T3: 月之晶
-      ],
-    },
-  ],
+  itemsByTier: {
+    [ItemTier.T1]: [
+      'item_boots',
+      'item_power_treads',
+      'item_wraith_band',
+      'item_mask_of_madness',
+      'item_vanguard',
+    ],
+    [ItemTier.T2]: ['item_sange_and_yasha', 'item_monkey_king_bar', 'item_black_king_bar'],
+    [ItemTier.T3]: ['item_monkey_king_bar_2', 'item_satanic'],
+    [ItemTier.T4]: ['item_excalibur', 'item_satanic_2', 'item_black_king_bar_2'],
+    [ItemTier.T5]: ['item_rapier_ultra_bot_1'],
+  },
+  consumablesByTier: {
+    [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
+    [ItemTier.T3]: ['item_ultimate_scepter_2', 'item_moon_shard_datadriven'],
+  },
 };
 
 /**
@@ -101,51 +64,23 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
  */
 const AgilityCarryRangedTemplate: HeroTemplateConfig = {
   name: HeroTemplate.AgilityCarryRanged,
-  itemChains: [
-    {
-      slot: ItemSlot.Mobility,
-      items: [
-        'item_boots', // T1: 草鞋
-        'item_power_treads', // T1: 动力鞋
-      ],
-    },
-    {
-      slot: ItemSlot.Core,
-      items: [
-        'item_wraith_band', // T1: 系带
-        'item_mask_of_madness', // T1: 疯脸
-        'item_sange_and_yasha', // T2: 散夜对剑
-        'item_monkey_king_bar', // T2: 金箍棒
-        'item_monkey_king_bar_2', // T3: 定海神针
-        'item_excalibur', // T4: 圣剑
-        'item_rapier_ultra_bot_1', // T5: 真·圣剑(Bot专用)
-      ],
-    },
-    {
-      slot: ItemSlot.Defense,
-      items: [
-        'item_vanguard', // T1: 先锋盾
-        'item_satanic', // T3: 撒旦
-        'item_satanic_2', // T4: 真·撒旦
-      ],
-    },
-    {
-      slot: ItemSlot.Utility,
-      items: [
-        'item_black_king_bar', // T2: BKB
-        'item_black_king_bar_2', // T4: 真·BKB
-      ],
-    },
-    {
-      slot: ItemSlot.Consumable,
-      items: [
-        'item_aghanims_shard', // T2: 魔晶
-        'item_wings_of_haste', // T2: 急速之翼
-        'item_ultimate_scepter_2', // T3: 真·阿哈利姆神杖
-        'item_moon_shard_datadriven', // T3: 月之晶
-      ],
-    },
-  ],
+  itemsByTier: {
+    [ItemTier.T1]: [
+      'item_boots',
+      'item_power_treads',
+      'item_wraith_band',
+      'item_mask_of_madness',
+      'item_vanguard',
+    ],
+    [ItemTier.T2]: ['item_sange_and_yasha', 'item_monkey_king_bar', 'item_black_king_bar'],
+    [ItemTier.T3]: ['item_monkey_king_bar_2', 'item_satanic'],
+    [ItemTier.T4]: ['item_excalibur', 'item_satanic_2', 'item_black_king_bar_2'],
+    [ItemTier.T5]: ['item_rapier_ultra_bot_1'],
+  },
+  consumablesByTier: {
+    [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
+    [ItemTier.T3]: ['item_ultimate_scepter_2', 'item_moon_shard_datadriven'],
+  },
 };
 
 /**
@@ -154,60 +89,36 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
  */
 const MagicalCarryTemplate: HeroTemplateConfig = {
   name: HeroTemplate.MagicalCarry,
-  itemChains: [
-    {
-      slot: ItemSlot.Mobility,
-      items: [
-        'item_boots', // T1: 草鞋
-        'item_arcane_boots', // T1: 秘法鞋
-        'item_blink', // T2: 跳刀
-        'item_arcane_blink_2', // T3: 智力跳刀
-        'item_arcane_blink', // T4: 大智力跳刀
-      ],
-    },
-    {
-      slot: ItemSlot.Core,
-      items: [
-        'item_null_talisman', // T1: 挂件
-        'item_kaya', // T2: 慧光
-        'item_octarine_core', // T2: 玲珑心
-        'item_magic_scepter', // T3: 魔法权杖
-        'item_hallowed_scepter', // T4: 神圣魔法权杖
-      ],
-    },
-    {
-      slot: ItemSlot.Control,
-      items: [
-        'item_rod_of_atos', // T2: 阿托斯之棍
-        'item_sheepstick', // T3: 羊刀
-        'item_necronomicon_staff', // T4: 死灵法师权杖
-      ],
-    },
-    {
-      slot: ItemSlot.Utility,
-      items: [
-        'item_glimmer_cape', // T2: 微光
-        'item_force_staff', // T2: 推推棒
-        'item_aether_lens_2', // T2: 以太透镜2
-        'item_refresher', // T3: 刷新球
-        'item_refresh_core', // T4: 熔火核心
-      ],
-    },
-    {
-      slot: ItemSlot.Defense,
-      items: [
-        'item_aeon_disk', // T2: 永恒之盘
-        'item_aeon_pendant', // T3: 永恒坠饰
-      ],
-    },
-    {
-      slot: ItemSlot.Consumable,
-      items: [
-        'item_aghanims_shard', // T2: 魔晶
-        'item_ultimate_scepter_2', // T3: 真·阿哈利姆神杖
-      ],
-    },
-  ],
+  itemsByTier: {
+    [ItemTier.T1]: ['item_boots', 'item_arcane_boots', 'item_null_talisman'],
+    [ItemTier.T2]: [
+      'item_blink',
+      'item_kaya',
+      'item_octarine_core',
+      'item_rod_of_atos',
+      'item_glimmer_cape',
+      'item_force_staff',
+      'item_aether_lens_2',
+      'item_aeon_disk',
+    ],
+    [ItemTier.T3]: [
+      'item_arcane_blink_2',
+      'item_magic_scepter',
+      'item_sheepstick',
+      'item_refresher',
+      'item_aeon_pendant',
+    ],
+    [ItemTier.T4]: [
+      'item_arcane_blink',
+      'item_hallowed_scepter',
+      'item_necronomicon_staff',
+      'item_refresh_core',
+    ],
+  },
+  consumablesByTier: {
+    [ItemTier.T2]: ['item_aghanims_shard'],
+    [ItemTier.T3]: ['item_ultimate_scepter_2'],
+  },
 };
 
 /**
@@ -216,55 +127,34 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
  */
 const StrengthTankTemplate: HeroTemplateConfig = {
   name: HeroTemplate.StrengthTank,
-  itemChains: [
-    {
-      slot: ItemSlot.Mobility,
-      items: [
-        'item_boots', // T1: 草鞋
-        'item_phase_boots', // T1: 相位鞋
-        'item_blink', // T2: 跳刀
-        'item_overwhelming_blink', // T3: 力量跳刀
-        'item_overwhelming_blink_2', // T4: 大力量跳刀
-        'item_jump_jump_jump', // T4: 跳跳跳刀
-      ],
-    },
-    {
-      slot: ItemSlot.Defense,
-      items: [
-        'item_bracer', // T1: 护腕
-        'item_vanguard', // T1: 先锋盾
-        'item_blade_mail', // T2: 刃甲
-        'item_blade_mail_2', // T3: 真·刃甲
-        'item_heart', // T3: 龙心
-        'item_undying_heart', // T4: 不朽之心
-        'item_shivas_guard_2', // T4: 希瓦的守护2
-      ],
-    },
-    {
-      slot: ItemSlot.Core,
-      items: [
-        'item_echo_sabre', // T2: 回音刃
-        'item_echo_sabre_2', // T2: 音速战刃
-        'item_radiance', // T2: 辉耀
-        'item_radiance_2', // T3: 大辉耀
-      ],
-    },
-    {
-      slot: ItemSlot.Utility,
-      items: [
-        'item_black_king_bar', // T2: BKB
-        'item_black_king_bar_2', // T4: 真·BKB
-      ],
-    },
-    {
-      slot: ItemSlot.Consumable,
-      items: [
-        'item_aghanims_shard', // T2: 魔晶
-        'item_wings_of_haste', // T2: 急速之翼
-        'item_ultimate_scepter_2', // T3: 真·阿哈利姆神杖
-      ],
-    },
-  ],
+  itemsByTier: {
+    [ItemTier.T1]: ['item_boots', 'item_phase_boots', 'item_bracer', 'item_vanguard'],
+    [ItemTier.T2]: [
+      'item_blink',
+      'item_blade_mail',
+      'item_echo_sabre',
+      'item_echo_sabre_2',
+      'item_radiance',
+      'item_black_king_bar',
+    ],
+    [ItemTier.T3]: [
+      'item_overwhelming_blink',
+      'item_blade_mail_2',
+      'item_heart',
+      'item_radiance_2',
+    ],
+    [ItemTier.T4]: [
+      'item_overwhelming_blink_2',
+      'item_jump_jump_jump',
+      'item_undying_heart',
+      'item_shivas_guard_2',
+      'item_black_king_bar_2',
+    ],
+  },
+  consumablesByTier: {
+    [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
+    [ItemTier.T3]: ['item_ultimate_scepter_2'],
+  },
 };
 
 /**
@@ -273,55 +163,29 @@ const StrengthTankTemplate: HeroTemplateConfig = {
  */
 const SupportTemplate: HeroTemplateConfig = {
   name: HeroTemplate.Support,
-  itemChains: [
-    {
-      slot: ItemSlot.Mobility,
-      items: [
-        'item_boots', // T1: 草鞋
-        'item_arcane_boots', // T1: 秘法鞋
-        'item_tranquil_boots', // T1: 绿鞋
-      ],
-    },
-    {
-      slot: ItemSlot.Utility,
-      items: [
-        'item_magic_wand', // T1: 魔杖
-        'item_glimmer_cape', // T2: 微光
-        'item_force_staff', // T2: 推推棒
-        'item_holy_locket', // T2: 圣洁吊坠
-        'item_aether_lens_2', // T2: 以太透镜2
-        'item_guardian_greaves', // T3: 卫士胫甲
-      ],
-    },
-    {
-      slot: ItemSlot.Control,
-      items: [
-        'item_rod_of_atos', // T2: 阿托斯之棍
-        'item_sheepstick', // T3: 羊刀
-      ],
-    },
-    {
-      slot: ItemSlot.Core,
-      items: [
-        'item_null_talisman', // T1: 挂件
-        'item_kaya', // T2: 慧光
-      ],
-    },
-    {
-      slot: ItemSlot.Defense,
-      items: [
-        'item_aeon_disk', // T2: 永恒之盘
-        'item_aeon_pendant', // T3: 永恒坠饰
-      ],
-    },
-    {
-      slot: ItemSlot.Consumable,
-      items: [
-        'item_aghanims_shard', // T2: 魔晶
-        'item_ultimate_scepter_2', // T3: 真·阿哈利姆神杖
-      ],
-    },
-  ],
+  itemsByTier: {
+    [ItemTier.T1]: [
+      'item_boots',
+      'item_arcane_boots',
+      'item_tranquil_boots',
+      'item_magic_wand',
+      'item_null_talisman',
+    ],
+    [ItemTier.T2]: [
+      'item_glimmer_cape',
+      'item_force_staff',
+      'item_holy_locket',
+      'item_aether_lens_2',
+      'item_rod_of_atos',
+      'item_kaya',
+      'item_aeon_disk',
+    ],
+    [ItemTier.T3]: ['item_guardian_greaves', 'item_sheepstick', 'item_aeon_pendant'],
+  },
+  consumablesByTier: {
+    [ItemTier.T2]: ['item_aghanims_shard'],
+    [ItemTier.T3]: ['item_ultimate_scepter_2'],
+  },
 };
 
 /**
@@ -343,14 +207,25 @@ export function getHeroTemplate(template: HeroTemplate): HeroTemplateConfig | un
 }
 
 /**
- * 根据模板和槽位获取推荐装备链
+ * 根据模板和 tier 获取推荐装备列表
  */
-export function getTemplateItemChain(template: HeroTemplate, slot: ItemSlot): string[] | undefined {
+export function getTemplateItemsByTier(template: HeroTemplate, tier: ItemTier): string[] {
   const templateConfig = HeroTemplates[template];
   if (!templateConfig) {
-    return undefined;
+    return [];
   }
 
-  const chain = templateConfig.itemChains.find((c) => c.slot === slot);
-  return chain?.items;
+  return templateConfig.itemsByTier[tier] || [];
+}
+
+/**
+ * 根据模板和 tier 获取消耗品列表
+ */
+export function getTemplateConsumablesByTier(template: HeroTemplate, tier: ItemTier): string[] {
+  const templateConfig = HeroTemplates[template];
+  if (!templateConfig || !templateConfig.consumablesByTier) {
+    return [];
+  }
+
+  return templateConfig.consumablesByTier[tier] || [];
 }
