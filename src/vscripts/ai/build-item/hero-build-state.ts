@@ -50,13 +50,13 @@ export function InitializeHeroBuild(
     [ItemTier.T5]: [],
   };
 
-  // 第一步：填充用户配置的装备（最多 6 个）
+  // 填充用户配置的装备（最多 6 个）
   FillUserConfigItems(config, resolvedItems, consumables);
 
-  // 第三步：使用 template 填充空缺或稀疏的 tier
+  // 使用 template 填充空缺或稀疏的 tier
   FillTemplateItems(config, resolvedItems, consumables);
 
-  // 第二步：为高 tier 装备补全前置装备（每个 tier 最多 6 个）
+  // 为高 tier 装备补全前置装备（每个 tier 最多 6 个）
   FillPrerequisiteItems(resolvedItems);
 
   print(
