@@ -286,7 +286,8 @@ export class SellItem {
       // 检查是否有其他装备是这个装备的升级装备
       const upgradeItems = GetItemUpgradeChain(itemName);
       for (const upgradeItem of upgradeItems) {
-        if (currentItems.includes(upgradeItem)) {
+        const hasUpgradeItem = hero.HasItemInInventory(upgradeItem);
+        if (hasUpgradeItem) {
           print(
             `[AI] SellLowTierItems ${hero.GetUnitName()} 出售下位装备: ${itemName} (已拥有上位装备: ${upgradeItem})`,
           );
@@ -355,15 +356,14 @@ export class SellItem {
       return false;
     }
 
-    // 优先使用智能出售系统
-    if (this.SellLowTierItems(hero, itemsMap, buildState)) {
-      return true;
-    }
-
-    // NOTE: 这一步必须放在优先使用智能出售系统之后
     // 如果提供了buildState，移除当前tier的物品，防止出售购买死循环
     if (buildState) {
       this.RemoveCurrentTierItems(itemsMap, buildState);
+    }
+
+    // 优先使用智能出售系统
+    if (this.SellLowTierItems(hero, itemsMap, buildState)) {
+      return true;
     }
 
     // 按优先级尝试出售物品
