@@ -385,22 +385,20 @@ export class SellItem {
       return true;
     }
 
-    // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
-    // 出售被升级替代的装备
-    if (this.SellUpgradedItems(hero, itemsMap)) {
-      return true;
-    }
-
     // 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
       return true;
     }
 
     // 当物品数量过多时，按价值顺序出售物品（初级->中级->高级）
-    if (totalItemCount >= this.sellItemsByValueSellThreshold) {
-      if (this.SellItemsByValue(hero, itemsMap)) {
-        return true;
-      }
+    if (this.SellItemsByValue(hero, itemsMap)) {
+      return true;
+    }
+
+    // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
+    // 出售被升级替代的装备
+    if (this.SellUpgradedItems(hero, itemsMap)) {
+      return true;
     }
 
     return false;
