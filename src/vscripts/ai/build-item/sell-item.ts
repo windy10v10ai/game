@@ -1,6 +1,6 @@
 import { HeroBuildState } from './hero-build-state';
-import { getItemConfig } from './item-tier-config';
-import { GetItemPrerequisites } from './item-upgrade-tree';
+import { ItemTier } from './item-tier-config';
+import { GetItemUpgradeChain } from './item-upgrade-tree';
 import {
   ItemUpgradeReplacements,
   SellItemCommonJunkList,
@@ -270,68 +270,42 @@ export class SellItem {
    * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
-  static SellLowTierItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+  static SellLowTierItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item[]>,
+    buildState?: HeroBuildState,
+  ): boolean {
     // 获取所有当前拥有的装备名
     const currentItems = Array.from(itemsMap.keys());
 
-    // 优先级 1: 查找并出售下位装备（同一装备链）
+    // 优先级 1: 查找并出售被升级替代的装备
     for (const itemName of currentItems) {
       const items = itemsMap.get(itemName);
       if (!items) continue;
 
-      // 检查是否有其他装备是这个装备的升级版本
-      for (const otherItemName of currentItems) {
-        if (itemName === otherItemName) continue;
-
-        // 获取 otherItemName 的所有前置装备
-        const prerequisites = GetItemPrerequisites(otherItemName);
-        if (prerequisites.includes(itemName)) {
-          // itemName 是 otherItemName 的下位装备，应该出售
+      // 检查是否有其他装备是这个装备的升级装备
+      const upgradeItems = GetItemUpgradeChain(itemName);
+      for (const upgradeItem of upgradeItems) {
+        if (currentItems.includes(upgradeItem)) {
           print(
-            `[AI] SellLowTierItems ${hero.GetUnitName()} 出售下位装备: ${itemName} (已拥有上位装备: ${otherItemName})`,
+            `[AI] SellLowTierItems ${hero.GetUnitName()} 出售下位装备: ${itemName} (已拥有上位装备: ${upgradeItem})`,
           );
           return this.SellItem(hero, items, itemName, true);
         }
       }
     }
 
-    // 优先级 2: 如果背包满了（总数>6），出售同槽位中有更高 tier 装备的低 tier 装备
-    const totalItemCount = currentItems.length;
-    if (totalItemCount > 6) {
-      // 按槽位分组装备
-      const itemsBySlot = new Map<string, Array<{ name: string; tier: number }>>();
-
-      for (const itemName of currentItems) {
-        const itemConfig = getItemConfig(itemName);
-        if (!itemConfig) continue;
-
-        const slot = itemConfig.slot;
-        if (!itemsBySlot.has(slot)) {
-          itemsBySlot.set(slot, []);
-        }
-        itemsBySlot.get(slot)!.push({ name: itemName, tier: itemConfig.tier });
-      }
-
-      // 找到有多个不同 tier 装备的槽位
-      for (const [slot, slotItems] of itemsBySlot) {
-        if (slotItems.length > 1) {
-          // 按 tier 排序
-          slotItems.sort((a, b) => a.tier - b.tier);
-
-          // 检查是否有不同 tier 的装备
-          const lowestTierItem = slotItems[0];
-          const highestTierItem = slotItems[slotItems.length - 1];
-
-          // 只有当最高 tier 和最低 tier 不同时，才出售低 tier 装备
-          if (lowestTierItem.tier < highestTierItem.tier) {
-            const items = itemsMap.get(lowestTierItem.name);
-            if (items) {
-              print(
-                `[AI] SellLowTierItems ${hero.GetUnitName()} 出售同槽位低tier装备: ${lowestTierItem.name} (槽位: ${slot}, T${lowestTierItem.tier}, 拥有高tier: T${highestTierItem.tier})`,
-              );
-              return this.SellItem(hero, items, lowestTierItem.name, true);
-            }
-          }
+    // 优先级 2: 出售更低tier的装备
+    if (!buildState) {
+      return false;
+    }
+    // 对所有低于current tier的，从低到高遍历出售
+    for (let tier = ItemTier.T1; tier < buildState.currentTier; tier++) {
+      const tierItems = buildState.resolvedItems[tier];
+      for (const itemName of tierItems) {
+        if (itemsMap.has(itemName)) {
+          const items = itemsMap.get(itemName)!;
+          return this.SellItem(hero, items, itemName, true);
         }
       }
     }
@@ -381,6 +355,12 @@ export class SellItem {
       return false;
     }
 
+    // 优先使用智能出售系统
+    if (this.SellLowTierItems(hero, itemsMap, buildState)) {
+      return true;
+    }
+
+    // NOTE: 这一步必须放在优先使用智能出售系统之后
     // 如果提供了buildState，移除当前tier的物品，防止出售购买死循环
     if (buildState) {
       this.RemoveCurrentTierItems(itemsMap, buildState);
@@ -389,11 +369,6 @@ export class SellItem {
     // 按优先级尝试出售物品
     // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
     if (this.SellConsumedItems(hero, itemsMap)) {
-      return true;
-    }
-
-    // 优先使用智能出售系统
-    if (this.SellLowTierItems(hero, itemsMap)) {
       return true;
     }
 

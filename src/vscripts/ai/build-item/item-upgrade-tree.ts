@@ -179,3 +179,20 @@ export function GetItemPrerequisites(itemName: string): string[] {
   // 返回该装备之前的所有装备
   return chain.slice(0, index);
 }
+
+/**
+ * 获取装备的升级装备
+ * @param itemName 装备名称
+ * @returns 升级装备列表（从低级到高级排序）
+ */
+export function GetItemUpgradeChain(itemName: string): string[] {
+  const chain = GetItemChain(itemName);
+  const index = chain.indexOf(itemName);
+
+  if (index >= chain.length - 1) {
+    return [];
+  }
+
+  // 返回该装备之后的所有装备
+  return chain.slice(index + 1);
+}
