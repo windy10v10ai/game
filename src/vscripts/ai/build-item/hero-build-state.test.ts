@@ -219,4 +219,15 @@ describe('InitializeHeroBuild', () => {
 
     console.log(result);
   });
+
+  it('测试 7: Axe 的实际测试', () => {
+    const mockHero = {
+      GetUnitName: () => 'npc_dota_hero_axe',
+    } as CDOTA_BaseNPC_Hero;
+
+    const axeConfig = HeroBuilds.npc_dota_hero_axe;
+    const result = InitializeHeroBuild(mockHero, axeConfig);
+
+    console.log(result);
+  });
 });
