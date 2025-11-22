@@ -4,7 +4,7 @@
  */
 
 import { HeroBuildConfig } from './hero-build-config';
-import { HeroTemplate, getTemplateItemChain } from './hero-template-config';
+import { HeroTemplate, getTemplateItemChain } from './hero-build-config-template';
 import { ItemSlot, ItemTier, getItemConfig } from './item-tier-config';
 import { GetItemPrerequisites } from './item-upgrade-tree';
 

@@ -2,8 +2,8 @@
  * 测试 InitializeHeroBuild 函数的输出
  */
 
+import { HeroTemplate } from './hero-build-config-template';
 import { InitializeHeroBuild } from './hero-build-state';
-import { HeroTemplate } from './hero-template-config';
 import { ItemTier } from './item-tier-config';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

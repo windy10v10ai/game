@@ -3,7 +3,7 @@
  * 基于 Tier 驱动的新系统
  */
 
-import { HeroTemplate } from './hero-template-config';
+import { HeroTemplate } from './hero-build-config-template';
 import { ItemTier } from './item-tier-config';
 
 /**
