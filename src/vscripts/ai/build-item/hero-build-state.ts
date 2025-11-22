@@ -175,8 +175,8 @@ function FillTemplateItems(
   }
 
   for (let tier = ItemTier.T1; tier <= ItemTier.T5; tier++) {
-    // 如果该 tier 装备数量少于 3 个，从 template 补充
-    if (resolvedItems[tier].length < 3) {
+    // 如果该 tier 装备数量少于 6 个，从 template 补充
+    if (resolvedItems[tier].length < 6) {
       const templateItems = GetTemplateItemsAtTier(config.template, tier, false);
 
       for (const templateItem of templateItems) {
@@ -232,12 +232,12 @@ function GetTemplateItemsAtTier(
       continue;
     }
 
-    // 找到该槽位在目标 tier 的装备
+    // 找到该槽位在目标 tier 的所有装备（不 break，收集所有匹配的装备）
     for (const itemName of itemChain) {
       const itemConfig = getItemConfig(itemName);
       if (itemConfig && itemConfig.tier === tier) {
         result.push(itemName);
-        break; // 每个槽位只取一个装备
+        // 不 break，继续查找该槽位的其他同 tier 装备
       }
     }
   }
