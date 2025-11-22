@@ -67,6 +67,43 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 600,
   },
 
+  // 消耗品
+  item_blood_grenade: {
+    name: 'item_blood_grenade',
+    tier: ItemTier.T1,
+    cost: 100,
+  },
+  item_clarity: {
+    name: 'item_clarity',
+    tier: ItemTier.T1,
+    cost: 50,
+  },
+  item_tango: {
+    name: 'item_tango',
+    tier: ItemTier.T1,
+    cost: 120,
+  },
+  item_flask: {
+    name: 'item_flask',
+    tier: ItemTier.T1,
+    cost: 110,
+  },
+  item_enchanted_mango: {
+    name: 'item_enchanted_mango',
+    tier: ItemTier.T1,
+    cost: 260,
+  },
+  item_faerie_fire: {
+    name: 'item_faerie_fire',
+    tier: ItemTier.T1,
+    cost: 260,
+  },
+  item_infused_raindrop: {
+    name: 'item_infused_raindrop',
+    tier: ItemTier.T1,
+    cost: 675,
+  },
+
   // 早期功能装备
   item_soul_ring: { name: 'item_soul_ring', tier: ItemTier.T1, cost: 805 },
   item_tranquil_boots: {

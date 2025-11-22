@@ -53,6 +53,7 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
     [ItemTier.T5]: ['item_rapier_ultra_bot_1'],
   },
   consumablesByTier: {
+    [ItemTier.T1]: ['item_blood_grenade', 'item_faerie_fire'],
     [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
     [ItemTier.T3]: ['item_ultimate_scepter_2', 'item_moon_shard_datadriven'],
     [ItemTier.T4]: ['item_tome_of_agility'],
@@ -80,6 +81,7 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
     [ItemTier.T5]: ['item_rapier_ultra_bot_1'],
   },
   consumablesByTier: {
+    [ItemTier.T1]: ['item_blood_grenade', 'item_faerie_fire'],
     [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
     [ItemTier.T3]: ['item_ultimate_scepter_2', 'item_moon_shard_datadriven'],
     [ItemTier.T4]: ['item_tome_of_agility'],
@@ -120,6 +122,7 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
     ],
   },
   consumablesByTier: {
+    [ItemTier.T1]: ['item_enchanted_mango', 'item_infused_raindrop'],
     [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
     [ItemTier.T3]: ['item_ultimate_scepter_2'],
     [ItemTier.T4]: ['item_tome_of_intelligence'],
@@ -158,6 +161,7 @@ const StrengthTankTemplate: HeroTemplateConfig = {
     ],
   },
   consumablesByTier: {
+    [ItemTier.T1]: ['item_blood_grenade', 'item_faerie_fire'],
     [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
     [ItemTier.T3]: ['item_ultimate_scepter_2'],
     [ItemTier.T4]: ['item_tome_of_strength'],
@@ -191,6 +195,7 @@ const SupportTemplate: HeroTemplateConfig = {
     [ItemTier.T3]: ['item_guardian_greaves', 'item_sheepstick', 'item_aeon_pendant'],
   },
   consumablesByTier: {
+    [ItemTier.T1]: ['item_enchanted_mango', 'item_infused_raindrop'],
     [ItemTier.T2]: ['item_aghanims_shard', 'item_wings_of_haste'],
     [ItemTier.T3]: ['item_ultimate_scepter_2'],
     [ItemTier.T5]: ['item_tome_of_luoshu'],
