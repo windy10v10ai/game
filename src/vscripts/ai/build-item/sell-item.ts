@@ -360,12 +360,6 @@ export class SellItem {
       this.RemoveCurrentTierItems(itemsMap, buildState);
     }
 
-    // 优先使用智能出售系统
-    if (this.SellLowTierItems(hero, itemsMap, buildState)) {
-      return true;
-    }
-
-    // 按优先级尝试出售物品
     // 出售已消耗的物品（魔晶、急速之翼、真·阿哈利姆神杖等）
     if (this.SellConsumedItems(hero, itemsMap)) {
       return true;
@@ -386,6 +380,12 @@ export class SellItem {
       return true;
     }
 
+    // 优先使用智能出售系统
+    if (this.SellLowTierItems(hero, itemsMap, buildState)) {
+      return true;
+    }
+
+    // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
     // 出售被升级替代的装备
     if (this.SellUpgradedItems(hero, itemsMap)) {
       return true;
