@@ -81,7 +81,7 @@ export class Debug {
       });
     }
 
-    if (cmd === CMD.T) {
+    if (cmd === CMD.TIME) {
       this.log(`Time: ${Time()}`);
       this.log(`GameTime: ${GameRules.GetGameTime()}`);
       this.log(`GetDOTATime: ${GameRules.GetDOTATime(false, true)}`);
@@ -146,8 +146,8 @@ export class Debug {
         hero.AddAbility(abilityName);
       });
     }
-    // ---- item ----
-    // add bkb to all
+
+    // ---- item 替换装备命令 ----
     if (cmd === CMD.ADD_BKB_ALL) {
       PlayerHelper.ForEachPlayer((playerId) => {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
@@ -205,6 +205,27 @@ export class Debug {
         }
       });
     }
+    if (cmd === CMD.REPLACE_ITEM_LIST) {
+      const itemNameList = [
+        'item_beast_shield',
+        'item_beast_shield',
+        'item_beast_shield',
+        'item_magic_crit_blade',
+        'item_magic_crit_blade',
+        'item_magic_crit_blade',
+      ];
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        for (let i = 0; i < 6; i++) {
+          const item = hero.GetItemInSlot(i);
+          if (item) {
+            UTIL_RemoveImmediate(item);
+          }
+          hero.AddItemByName(itemNameList[i]);
+        }
+      });
+    }
 
     if (cmd === CMD.REMOVE_ITEM_ALL) {
       PlayerHelper.ForEachPlayer((playerId) => {
@@ -224,6 +245,7 @@ export class Debug {
     }
 
     if (cmd === CMD.END) {
+      GameEnd.gameEndTriggered = false;
       GameEnd.OnGameEnd(2);
     }
 
@@ -352,6 +374,12 @@ export class Debug {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       hero.SetHealth(hero.GetHealth() * 0.1);
+    }
+    // 减少魔法值
+    if (cmd === CMD.MP_LOSS) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      hero.SetMana(hero.GetMana() * 0.1);
     }
     // 晕眩
     if (cmd === CMD.STUN) {

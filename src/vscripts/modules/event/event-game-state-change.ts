@@ -1,3 +1,5 @@
+import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
+import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4';
 import { Player } from '../../api/player';
 import { Ranking } from '../../api/ranking';
@@ -5,7 +7,9 @@ import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
+import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
 
 export class EventGameStateChange {
   constructor() {
@@ -36,11 +40,6 @@ export class EventGameStateChange {
     }
   }
 
-  private OnGameInProgress(): void {
-    // 记录游戏开始时间用于 GA4 统计
-    GA4.RecordGameStartTime();
-  }
-
   /**
    * 选择英雄时间
    */
@@ -67,6 +66,12 @@ export class EventGameStateChange {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
 
+    // 初始化小兵buff管理器
+    new CreepBuffManager();
+
+    // 初始化英雄买活金钱管理器
+    new HeroBuyback();
+
     // 防御塔BUFF
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     for (const tower of towers) {
@@ -92,14 +97,51 @@ export class EventGameStateChange {
       // 删除重复的技能添加代码
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
-    // ✅ 新增: 生成泉水守卫
+
+    // FIXME 泉水守卫windy实装未同步，暂时保留以缓解代码冲突
+    // ✅ 新增: 生成泉水守卫windy
     // this.SpawnFountainGuard();
+    //this.SpawnFountainGuardDire();
+
+    // 延迟为泉水设置技能等级
+    Timers.CreateTimer(1, () => {
+      const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
+      //print('[fountain] found', fountains.length, 'fountains');
+
+      for (const fountain of fountains) {
+        const towerPower = GameRules.Option.towerPower;
+        const towerLevel = this.getTowerLevel(towerPower);
+        //print('[fountain] level', towerLevel);
+
+        // 查找并设置技能等级
+        const furySwipes = fountain.FindAbilityByName('tower_ursa_fury_swipes');
+        if (furySwipes !== undefined) {
+          furySwipes.SetLevel(towerLevel);
+          //print('[fountain] furySwipes SetLevel', towerLevel);
+        }
+
+        const manaBreak = fountain.FindAbilityByName('tower_antimage_mana_break');
+        if (manaBreak !== undefined) {
+          manaBreak.SetLevel(towerLevel);
+          //print('[fountain] manaBreak SetLevel', towerLevel);
+        }
+      }
+    });
     this.setPlayerColor();
+  }
+
+  private OnGameInProgress(): void {
+    // 记录游戏开始时间用于 GA4 统计
+    GA4.RecordGameStartTime();
+    // 初始化融合符文
+    FusionRuneManager.InitializeFusion();
+    // 初始化Bot团队策略
+    new BotTeam();
   }
 
   private SpawnFountainGuard(): void {
     // 天辉泉水位置
-    const fountainPosition = Vector(-5400, -6800, 384) as Vector;
+    const fountainPosition = Vector(-5820, -6580, 384) as Vector;
 
     const guard = CreateUnitByName(
       'npc_windy',
@@ -112,9 +154,30 @@ export class EventGameStateChange {
 
     if (guard !== undefined && guard !== null) {
       guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
-      print('[Fountain Guard] 泉水守卫已生成');
+      // print('[Fountain Guard] 泉水守卫已生成');
     } else {
-      print('[Fountain Guard] ERROR: 生成失败');
+      //print('[Fountain Guard] ERROR: 生成失败');
+    }
+  }
+
+  private SpawnFountainGuardDire(): void {
+    // 天辉泉水位置
+    const fountainPosition = Vector(5820, 6580, 384) as Vector;
+
+    const guard = CreateUnitByName(
+      'npc_windy',
+      fountainPosition,
+      true,
+      undefined,
+      undefined,
+      DotaTeam.BADGUYS,
+    );
+
+    if (guard !== undefined && guard !== null) {
+      guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
+      // print('[Fountain Guard] 泉水守卫已生成');
+    } else {
+      //print('[Fountain Guard] ERROR: 生成失败');
     }
   }
 

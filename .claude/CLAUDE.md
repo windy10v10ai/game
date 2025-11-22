@@ -265,6 +265,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 4. 通过 `GameEvents.SendCustomGameEventToServer()` 发送事件
 5. 路径别名 `@utils/*` 映射到 `panorama/react/utils/*`
 6. Panorama UI 使用 React 16.14 配合函数式组件和 hooks
+7. **重要**: 直接修改 `content/panorama/` 下的文件（`.xml`, `.css`, `.js`）不需要运行 `npm run build`，Dota 2 会自动编译这些文件
 
 ### 添加新的共享类型时:
 
@@ -289,6 +290,25 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
 
+### 读取 Dota 2 官方说明:
+
+编写物品/技能说明时，应参考 Dota 2 官方文本以保持术语一致性。
+
+**参考文件位置**:
+
+- 中文: `docs/reference/7.39/abilities_schinese.txt`
+- 英文: `docs/reference/7.39/abilities_english.txt`
+
+**使用方法**:
+
+```bash
+# 搜索狂战斧的中文说明
+grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abilities_schinese.txt
+
+# 搜索狂战斧的英文说明
+grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abilities_english.txt
+```
+
 ## 开发文档索引
 
 `docs/development/` 目录包含详细的开发指南和最佳实践文档。在处理相关任务时,请参考这些文档:
@@ -308,24 +328,6 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - 现有 API 端点列表和参数结构
 
 **关键示例**: 游戏结束时发送技能选择数据、收集并发送玩家语言信息
-
-### DataDriven 实现指南 (`docs/development/data-driven-implementation-guide.md`)
-
-**适用场景**: 将传统 Lua modifier 迁移到 DataDriven 实现、优化 modifier 性能
-
-**主要内容**:
-
-- DataDriven vs Lua Modifier 对比和混合架构原则
-- 完整的迁移步骤 (以 item_magic_sword 为例)
-- DataDriven 配置结构详解 (AbilityValues, OnSpellStart, Modifiers 等)
-- Lua 函数实现最佳实践
-- 关键经验:
-  - 事件选择 (OnAttackLanded vs OnTakeDamage)
-  - 参数传递和 Modifier 管理
-  - 伤害计算优化和特效管理
-- 常见问题排查
-
-**核心原则**: DataDriven 处理简单属性和事件,Lua 处理复杂逻辑
 
 ### 优化 Lua 物品 (`docs/development/optimize-lua-item.md`)
 
@@ -371,6 +373,46 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - Modifier 说明补全: 必须包含的条目和格式
 
 **关键要点**: 使用两个 tab 缩进、注释使用中文、HTML 标签格式需同步、所有 modifier 必须完整
+
+### 物品性能优化 Meta Prompt (`docs/development/item-optimization-meta-prompt.md`)
+
+**适用场景**: 优化物品性能,将 Lua 物品迁移到 DataDriven 实现
+
+**使用方式**:
+
+- **命令方式**: 使用 `/optimize-item` 命令快速调用
+- **手动引用**: 在对话中引用该文档
+
+**主要内容**:
+
+- 完整的 meta prompt 指南,用于指导 AI 优化物品
+- 核心优化原则:
+  - BaseClass 从 `item_lua` 迁移到 `item_datadriven`
+  - 静态属性迁移到 DataDriven Properties
+  - 最小化 Lua 代码,仅保留特殊逻辑
+- 可使用 DataDriven 实现的属性完整列表
+- 必须保留在 Lua 中的功能列表 (ABSORB_SPELL 等)
+- 详细的优化实施步骤:
+  1. 分析现有 Lua 实现
+  2. 修改 npc_items_custom.txt (完整 KV 模板)
+  3. 重写 Lua 文件 (完整 Lua 模板)
+- 代码模式对比 (优化前后结构差异)
+- 参考示例: item_beast_armor (基于 PR #1695)
+- 完整的代码模板 (可直接使用)
+
+**优化效果**: 减少 Lua 代码量 60-80%,显著降低 CPU 占用,减少卡顿
+
+**使用示例**:
+
+```
+/optimize-item item_xxx
+```
+
+或
+
+```
+请按照 docs/development/item-optimization-meta-prompt.md 中的 Meta Prompt 优化 item_xxx
+```
 
 ## Git 工作流
 

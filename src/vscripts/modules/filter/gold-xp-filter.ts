@@ -107,9 +107,14 @@ export class GoldXPFilter {
   getPlayerGoldXpMultiplier(playerID: PlayerID): number {
     let mul = 1;
 
-    if (PlayerHelper.IsGoodTeamPlayer(playerID)) {
+    // 所有人类玩家都使用天辉倍率
+    if (PlayerHelper.IsHumanPlayerByPlayerId(playerID)) {
+      mul = GameRules.Option.radiantGoldXpMultiplier;
+    } else if (PlayerHelper.IsGoodTeamPlayer(playerID)) {
+      // Bot玩家在天辉队伍使用天辉倍率
       mul = GameRules.Option.radiantGoldXpMultiplier;
     } else {
+      // Bot玩家在夜魇队伍使用夜魇倍率
       mul = GameRules.Option.direGoldXpMultiplier;
     }
 
@@ -126,7 +131,7 @@ export class GoldXPFilter {
     if (mul <= 1) {
       return mul;
     }
-    const reduceRate = 0.5;
+    const reduceRate = 0.4;
     return 1 + (mul - 1) * reduceRate;
   }
 }

@@ -46,9 +46,11 @@ export class EventNpcSpawned {
     'npc_dota_hero_chaos_knight', // 混沌骑士 - 高爆发,幻象
     'npc_dota_hero_dragon_knight', // 龙骑士 - 高护甲,AOE输出
     'npc_dota_hero_pudge', // 帕吉 - 高生命,魔法伤害
+    'npc_dota_hero_omniknight', // 全能骑士
     'npc_dota_hero_sven', // 斯温 - 高爆发,AOE清场
     'npc_dota_hero_tiny', // 小小 - 高爆发,后期肉盾
     'npc_dota_hero_skeleton_king', // 骷髅王 - 重生,高输出
+    'npc_dota_hero_abaddon', // yabadun - 重生,高输出
 
     // === 敏捷型核心 (输出+一定生存) ===
     'npc_dota_hero_juggernaut', // 剑圣 - 魔免,高输出
@@ -201,12 +203,10 @@ export class EventNpcSpawned {
       });
 
       // bot在家待机一会在出门，防止出门在符点送人头
-      const moveTime = 35;
-      if (hero.GetTeam() === DotaTeam.BADGUYS) {
-        hero.AddNewModifier(hero, undefined, 'modifier_rooted', {
-          duration: GameConfig.PRE_GAME_TIME - moveTime,
-        });
-      }
+      const moveTime = 30;
+      hero.AddNewModifier(hero, undefined, 'modifier_rooted', {
+        duration: GameConfig.PRE_GAME_TIME - moveTime,
+      });
     }
   }
 
@@ -215,15 +215,19 @@ export class EventNpcSpawned {
     //print(`[BotBoss] Selected ${hero.GetUnitName()} as Boss`);
     hero.isBoss = true;
     // ✅ 新增: 向所有玩家发送Boss生成通知 mark bug
-    const heroName = hero.GetUnitName();
+    const [heroName] = string.gsub(hero.GetUnitName(), 'npc_dota_hero_', '');
     const localizedName = `#${heroName}`;
+
+    // 将 Boss 名字改为金色
+    const goldBossName = `<font color='#FFD700'>${localizedName}</font>`;
+
     GameRules.SendCustomMessage(
-      `<font color='#FF0000'>⚠️ 随机BotBoss: ${localizedName}。BotBoss拥有双倍经验金钱倍率，并有更高的进攻性，但击杀boss也会得到成倍的经验和金钱！</font>`,
+      `<font color='#FF0000'>⚠️ 随机BotBoss: ${goldBossName}。BotBoss拥有双倍经验金钱倍率，并有更高的进攻性，但击杀boss也会得到成倍的经验和金钱！</font>`,
       1,
       0,
     );
     GameRules.SendCustomMessage(
-      `<font color='#FF0000'>⚠️ Random BotBoss: ${localizedName}。BotBoss features double experience and money multipliers, with higher aggressiveness, yet defeating the boss will also grant you multiplied experience and money!</font>`,
+      `<font color='#FF0000'>⚠️ Random BotBoss: ${goldBossName}。BotBoss features double experience and money multipliers, with higher aggressiveness, yet defeating the boss will also grant you multiplied experience and money!</font>`,
       1,
       0,
     );

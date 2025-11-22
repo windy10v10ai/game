@@ -25,6 +25,16 @@ function _ScoreboardUpdater_SetTextSafe(panel, childName, textValue) {
 
 //=============================================================================
 //=============================================================================
+function _CreateAbilityImage(abilitiesContainer, abilityName) {
+  var abilityPanel = $.CreatePanel('DOTAAbilityImage', abilitiesContainer, '', {
+    abilityname: abilityName,
+    showtooltip: true,
+  });
+  abilityPanel.AddClass('AbilityImage');
+}
+
+//=============================================================================
+//=============================================================================
 function _ScoreboardUpdater_UpdatePlayerPanel(
   scoreboardConfig,
   playersContainer,
@@ -228,6 +238,44 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
   }
 
   _ScoreboardUpdater_SetTextSafe(playerPanel, 'PlayerGoldAmount', goldValue);
+
+  // 绘制选择的技能
+  var abilitiesContainer = playerPanel.FindChildInLayoutFile('AbilitiesContainer');
+  if (abilitiesContainer) {
+    // 清空现有技能
+    abilitiesContainer.RemoveAndDeleteChildren();
+
+    // 检查是否是bot
+    var isBot = playerInfo && playerInfo.player_steamid === '0';
+
+    if (isBot) {
+      // Bot: 显示bot的被动技能
+      var botAbilityData = CustomNetTables.GetTableValue(
+        'bot_passive_abilities',
+        playerId.toString(),
+      );
+      if (botAbilityData && botAbilityData.abilityName) {
+        _CreateAbilityImage(abilitiesContainer, botAbilityData.abilityName);
+      }
+    } else {
+      // 玩家: 显示抽选的技能
+      // 使用 ConvertSteamIdTo32Bit 转换 steamId
+      var steamAccountID = ConvertSteamIdTo32Bit(playerInfo.player_steamid);
+      if (steamAccountID) {
+        var lotteryStatus = CustomNetTables.GetTableValue('lottery_status', steamAccountID);
+        if (lotteryStatus) {
+          // 显示主动技能
+          _CreateAbilityImage(abilitiesContainer, lotteryStatus.activeAbilityName);
+
+          // 显示第一个被动技能
+          _CreateAbilityImage(abilitiesContainer, lotteryStatus.passiveAbilityName);
+
+          // 显示第二个被动技能
+          _CreateAbilityImage(abilitiesContainer, lotteryStatus.passiveAbilityName2);
+        }
+      }
+    }
+  }
 
   playerPanel.SetHasClass(
     'player_ultimate_ready',

@@ -1,5 +1,5 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v4.53';
+  public static readonly GAME_VERSION = 'v4.57';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -12,6 +12,9 @@ export class GameConfig {
   constructor() {
     SendToServerConsole('dota_max_physical_items_purchase_limit 9999'); // 用来解决物品数量限制问题
     SendToServerConsole('dota_pause_cooldown_time 0'); // 暂停冷却时间
+    // 设置bot模式
+    Convars.SetBool('dota_bot_mode', true);
+    Convars.SetBool('dota_bot_disable', false);
 
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.GOODGUYS, 10); // 设置天辉队伍人数上限
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限

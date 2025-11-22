@@ -1,4 +1,4 @@
-import { abilityTiersPassive } from '../lottery/lottery-abilities';
+import { abilityTiersPassiveBot } from '../lottery/lottery-abilities-bot';
 import { LotteryHelper } from '../lottery/lottery-helper';
 
 export class BotAbility {
@@ -121,7 +121,7 @@ export class BotAbility {
   private static AddPassiveAbilityForBot(currentHero: CDOTA_BaseNPC_Hero): void {
     const isHighTier = GameRules.Option.direGoldXpMultiplier >= 9;
     const results = LotteryHelper.getRandomAbilities(
-      abilityTiersPassive,
+      abilityTiersPassiveBot,
       1,
       currentHero,
       [],
@@ -136,6 +136,12 @@ export class BotAbility {
     // 记录bot的被动技能名称
     const heroIndex = currentHero.GetEntityIndex();
     this.botPassiveAbilities.set(heroIndex, abilityName);
+
+    // 将bot被动技能信息设置到net table，供结算界面显示
+    const playerId = currentHero.GetPlayerOwnerID();
+    CustomNetTables.SetTableValue('bot_passive_abilities', playerId.toString(), {
+      abilityName: abilityName,
+    });
   }
 
   /**

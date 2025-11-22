@@ -1,6 +1,21 @@
 import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
 
+// 全局游戏状态 - 记录塔摧毁情况
+export class TowerPushStatus {
+  // Good是天辉摧毁的，Bad是夜魇摧毁的
+  static tower1PushedBad = 0;
+  static tower1PushedGood = 0;
+  static tower2PushedBad = 0;
+  static tower2PushedGood = 0;
+  static tower3PushedBad = 0;
+  static tower3PushedGood = 0;
+  static tower4PushedBad = 0;
+  static tower4PushedGood = 0;
+  static barrackPushedBad = 0;
+  static barrackPushedGood = 0;
+}
+
 export class EventEntityKilled {
   constructor() {
     ListenToGameEvent('entity_killed', (keys) => this.OnEntityKilled(keys), this);
@@ -19,10 +34,132 @@ export class EventEntityKilled {
       this.onWindyKilled(killedUnit);
       return;
     }
-    if (killedUnit.IsRealHero() && !killedUnit.IsReincarnating()) {
+    // 检查是否为防御塔
+    if (killedUnit.IsTower()) {
+      this.onTowerKilled(killedUnit);
+    }
+    // 检查是否为兵营
+    else if (this.isBarrack(killedUnit)) {
+      this.onBarrackKilled(killedUnit);
+    }
+    // 检查是否为英雄
+    else if (killedUnit.IsRealHero() && !killedUnit.IsReincarnating()) {
       this.onHeroKilled(killedUnit as CDOTA_BaseNPC_Hero, attacker);
-    } else if (killedUnit.IsCreep()) {
+    }
+    // 检查是否为小兵
+    else if (killedUnit.IsCreep()) {
       this.onCreepKilled(killedUnit, attacker);
+    }
+  }
+
+  //--------------------------------------------------------------------------------------------------------
+  // 防御塔击杀
+  //--------------------------------------------------------------------------------------------------------
+
+  private onTowerKilled(tower: CDOTA_BaseNPC): void {
+    const team = tower.GetTeamNumber();
+    const unitName = tower.GetUnitName();
+
+    if (unitName.indexOf('tower1') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        TowerPushStatus.tower1PushedBad++;
+        print(`tower1PushedBad ${TowerPushStatus.tower1PushedBad}`);
+      } else if (team === DotaTeam.BADGUYS) {
+        TowerPushStatus.tower1PushedGood++;
+        print(`tower1PushedGood ${TowerPushStatus.tower1PushedGood}`);
+      }
+    } else if (unitName.indexOf('tower2') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        TowerPushStatus.tower2PushedBad++;
+        print(`tower2PushedBad ${TowerPushStatus.tower2PushedBad}`);
+      } else if (team === DotaTeam.BADGUYS) {
+        TowerPushStatus.tower2PushedGood++;
+        print(`tower2PushedGood ${TowerPushStatus.tower2PushedGood}`);
+      }
+    } else if (unitName.indexOf('tower3') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        TowerPushStatus.tower3PushedBad++;
+        print(`tower3PushedBad ${TowerPushStatus.tower3PushedBad}`);
+        // 破高地后 给4塔和基地添加分裂箭
+        if (TowerPushStatus.tower3PushedBad === 1) {
+          this.addSplitShotToTowersAndFort(
+            'npc_dota_goodguys_tower4',
+            'npc_dota_goodguys_fort',
+            1,
+            3,
+          );
+        }
+      } else if (team === DotaTeam.BADGUYS) {
+        TowerPushStatus.tower3PushedGood++;
+        print(`tower3PushedGood ${TowerPushStatus.tower3PushedGood}`);
+        // 破高地后 给4塔和基地添加分裂箭
+        if (TowerPushStatus.tower3PushedGood === 1) {
+          this.addSplitShotToTowersAndFort(
+            'npc_dota_badguys_tower4',
+            'npc_dota_badguys_fort',
+            1,
+            2,
+          );
+        }
+      }
+    } else if (unitName.indexOf('tower4') !== -1) {
+      if (team === DotaTeam.GOODGUYS) {
+        TowerPushStatus.tower4PushedBad++;
+        print(`tower4PushedBad ${TowerPushStatus.tower4PushedBad}`);
+      } else if (team === DotaTeam.BADGUYS) {
+        TowerPushStatus.tower4PushedGood++;
+        print(`tower4PushedGood ${TowerPushStatus.tower4PushedGood}`);
+      }
+    }
+  }
+
+  private addSplitShotToTowersAndFort(
+    towerName: string,
+    fortName: string,
+    towerLevel: number,
+    fortLevel: number,
+  ): void {
+    // 给4塔添加分裂箭
+    const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
+    for (const tower of towers) {
+      if (tower.GetUnitName().indexOf(towerName) !== -1) {
+        const splitShot = tower.AddAbility('tower_split_shot');
+        if (splitShot !== undefined) {
+          splitShot.SetLevel(towerLevel);
+          splitShot.ToggleAbility();
+        }
+      }
+    }
+
+    // 给基地添加分裂箭
+    const forts = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
+    for (const fort of forts) {
+      if (fort.GetUnitName().indexOf(fortName) !== -1) {
+        const splitShot = fort.AddAbility('tower_split_shot');
+        if (splitShot !== undefined) {
+          splitShot.SetLevel(fortLevel);
+          splitShot.ToggleAbility();
+        }
+      }
+    }
+  }
+
+  //--------------------------------------------------------------------------------------------------------
+  // 兵营击杀
+  //--------------------------------------------------------------------------------------------------------
+
+  private isBarrack(unit: CDOTA_BaseNPC): boolean {
+    return unit.GetClassname() === 'npc_dota_barracks';
+  }
+
+  private onBarrackKilled(barrack: CDOTA_BaseNPC): void {
+    const team = barrack.GetTeamNumber();
+    if (team === DotaTeam.GOODGUYS) {
+      TowerPushStatus.barrackPushedBad++;
+      print(`barrackPushedBad ${TowerPushStatus.barrackPushedBad}`);
+    } else if (team === DotaTeam.BADGUYS) {
+      TowerPushStatus.barrackPushedGood++;
+      print(`barrackPushedGood ${TowerPushStatus.barrackPushedGood}`);
     }
   }
 
@@ -116,8 +253,8 @@ export class EventEntityKilled {
   ];
 
   private dropItemChanceFusionRoshan = 100;
-  private dropItemChanceFusionAncient = 1.2;
-  private dropItemChanceFusionNeutral = 0.25;
+  private dropItemChanceFusionAncient = 1.0;
+  private dropItemChanceFusionNeutral = 0.2;
   private calculateDropChance(baseChance: number): number {
     // 获取游戏难度
 
@@ -128,25 +265,23 @@ export class EventEntityKilled {
     // 难度系数: 难度越高,掉落概率越高
     let difficultyMultiplier = 1;
     if (difficulty >= 60) {
-      difficultyMultiplier = 4.0; // 60难度: 3倍概率
+      difficultyMultiplier = 3.0;
+    } else if (difficulty >= 40) {
+      difficultyMultiplier = 2.5;
     } else if (difficulty >= 20) {
-      difficultyMultiplier = 2.0; // 20难度: 2倍概率
-    } else if (difficulty >= 12) {
-      difficultyMultiplier = 1.5; // 12难度: 1.4倍概率
+      difficultyMultiplier = 2.0;
+    } else if (difficulty >= 10) {
+      difficultyMultiplier = 1.5;
     } else if (difficulty >= 1) {
-      difficultyMultiplier = 1; // N2难度: 1.2倍概率
+      difficultyMultiplier = 1;
     }
 
-    // 人数系数: 人数越多概率越高
+    // 人数系数: 人数过多野怪分不过来时才调高概率
     let playerMultiplier = 1;
     if (playerCount >= 6) {
-      playerMultiplier = 1.8; // 6人: 1.8倍概率
-    } else if (playerCount >= 4) {
-      playerMultiplier = 1.5; // 4-5人: 1.5倍概率
-    } else if (playerCount >= 2) {
-      playerMultiplier = 1.0; // 2-3人: 1.0倍概率
-    } else if (playerCount <= 1) {
-      playerMultiplier = 1.5; // 1人: 1.2倍概率
+      playerMultiplier = 1.5;
+    } else if (playerCount >= 3) {
+      playerMultiplier = 1.2;
     }
 
     // 最终概率 = 基础概率 × 难度系数 × 人数系数
@@ -259,11 +394,10 @@ export class EventEntityKilled {
 
   // ✅ 新增: npc_windy复活处理
   private onWindyKilled(unit: CDOTA_BaseNPC): void {
-    const respawnTime = 30; // 30秒后复活
+    const respawnTime = 60; // 30秒后复活
     const unitName = unit.GetUnitName();
     const position = unit.GetAbsOrigin();
     const team = unit.GetTeam();
-
     //print(`[Windy] npc_windy被击杀,将在${respawnTime}秒后复活`);
 
     // ✅ 符文掉落 - 使用远古单位2倍的概率
@@ -277,7 +411,7 @@ export class EventEntityKilled {
     //print(`[Windy] Fusion rune drop chance: ${this.calculateDropChance(windyDropChance)}%`);
     const goldmultiplier = GameRules.Option.direGoldXpMultiplier || 2;
     // ✅ 新增: 10%概率掉落经验书
-    const baseChance = 10;
+    const baseChance = 30;
     // 线性插值公式: 在 goldmultiplier 10-100 之间，从 10% 增长到 20%
     // 公式: baseChance * (1 + (goldmultiplier - 10) / 90)
     const expBookDropChance = baseChance * (1 + Math.max(0, goldmultiplier - 10) / 90);
@@ -297,10 +431,6 @@ export class EventEntityKilled {
     }
     // ✅ 新增: 10%概率掉落金币包，数量基于难度动态计算概率
     const goldBagDropChance = baseChance * (1 + Math.max(0, goldmultiplier - 10) / 90);
-
-    // print(
-    //   `[Windy] Gold multiplier: ${goldmultiplier}, Drop chance: ${goldBagDropChance.toFixed(2)}%`,
-    // );
 
     if (RandomFloat(0, 100) <= goldBagDropChance) {
       let dropCount = 1; // 默认至少掉1个
@@ -341,6 +471,7 @@ export class EventEntityKilled {
 
       // print(`[Windy] npc_windy dropped ${dropCount} gold bags`);
     }
+
     Timers.CreateTimer(respawnTime, () => {
       const newUnit = CreateUnitByName(unitName, position, true, undefined, undefined, team);
 

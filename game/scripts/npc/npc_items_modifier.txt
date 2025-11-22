@@ -243,23 +243,6 @@
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"			"20"
 				}
 			}
-			// 鹰眼炮台
-			"modifier_item_hawkeye_turret_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				// 多个鹰眼炮台可叠加
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"120"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"80"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"		"30"
-					"MODIFIER_PROPERTY_ATTACK_RANGE_BONUS"			"250"
-				}
-			}
 			// 鹰眼战机
 			"modifier_item_hawkeye_fighter_stats"
 			{
@@ -385,28 +368,6 @@
 			}
 			// 魔剑
 
-			// 魔龙狂舞
-			"modifier_item_magic_crit_blade_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				// 多个魔龙狂舞可叠加
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"			"120"
-					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"		"50"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"			"300"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"100"
-				}
-
-				"States"
-				{
-					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
 			// 禁忌法锤
 			"modifier_item_forbidden_staff_stats"
 			{
@@ -482,26 +443,6 @@
 				}
 			}
 
-			// 兽化盾
-			"modifier_item_beast_shield_stats"
-			{
-				"Passive"				"1"
-				"IsHidden"				"1"
-				"RemoveOnDeath"			"0"
-
-				// 多个兽化盾可叠加
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"150"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"2500"
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"80"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "60"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"50"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"15"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "50"
-				}
-			}
 			// 洛书
 			"modifier_item_tome_of_luoshu_stats"
 			{

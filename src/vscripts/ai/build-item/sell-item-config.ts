@@ -192,6 +192,9 @@ export const ValueBasedSellItemsList: string[] = [
  * 格式: { 高级装备名称: [低级装备名称数组] }
  */
 export const ItemUpgradeReplacements: Record<string, string[]> = {
+  // 魔渊剑系列 - item_magic_sword
+  item_magic_sword: ['item_bfury_ultra', 'item_skadi_2', 'item_infernal_desolator'],
+
   // 阿迪王系列 - item_adi_king_plus > item_adi_king
   item_adi_king_plus: ['item_adi_king', 'item_phase_boots'],
   item_adi_king: ['item_phase_boots'],
@@ -324,9 +327,8 @@ export const ItemUpgradeReplacements: Record<string, string[]> = {
   // 撒旦系列 - item_satanic_2 > item_satanic
   item_satanic_2: ['item_satanic'],
 
-  // 狂战斧系列 - item_bfury_ultra > item_bfury_2 > item_bfury
-  item_bfury_ultra: ['item_bfury_2', 'item_bfury'],
-  item_bfury_2: ['item_bfury'],
+  // 狂战斧系列 - item_bfury_ultra > item_bfury
+  item_bfury_ultra: ['item_bfury'],
 
   // 臂章系列 - item_armlet_pro_max > item_armlet_plus > item_armlet
   item_armlet_pro_max: ['item_armlet_plus', 'item_armlet'],

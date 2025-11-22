@@ -2213,13 +2213,6 @@
 	{
 		"MaxLevel" "5"
 
-		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_UNRESTRICTED | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType" "DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"     "SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastPoint"      "0.01"
-		"AbilityCooldown"       "18"
-
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
@@ -2233,11 +2226,6 @@
 				"damage_per_hero"
 				{
 					"value"				"35 65 95 125 155"
-				}
-				"duel_damage_pct"
-				{
-					"value"                 "0"
-					"special_bonus_unique_legion_commander_4"	"+90"	// 40
 				}
 				"bonus_attack_speed"		"50 75 100 125 150"
 		}
@@ -2787,7 +2775,7 @@
 		"AbilityValues"
 		{
 			"charges_per_flurry"	"6 8 9 10"	//5
-			"flurry_bonus_attack_speed"	"700 975 1325 1600"
+			"flurry_bonus_attack_speed"	"700 925 1150 1375"
 			"time_between_flurries"	"1.0 0.9 0.8 0.7"	// 1.5
 			"pulse_damage"
 			{
@@ -3388,22 +3376,22 @@
 			}
 			"hook_speed"
 			{
-				"value"						"1600 1800 2000 2200 2500 3000 3500" // 1600 增长率与距离增长率同步
+				"value"						"1600 1800 2000 2200 2400 2600 2800" // 1600 增长率与距离增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+0"
 			}
 			"AbilityCastRange"
 			{
-				"value"						"1600 1800 2000 2200 2500 3000 3500" // 1300 增长率与钩子速度增长率同步
+				"value"						"1300 1500 1700 1900 2100 2300 2500" // 1300 增长率与钩子速度增长率同步
 				"special_bonus_facet_pudge_flayers_hook"	"+15%"
 			}
 			"AbilityCooldown"
 			{
-				"value"							"18 16 14 12 10 10 10"
+				"value"							"18 17 16 15 14 13 12"
 			}
 
 			"distance_to_damage"
 			{
-				"special_bonus_shard" "12 18 24 30 36 50 60"
+				"special_bonus_shard" "12 18 24 30 36 42 48"
 			}
 		}
 	}
@@ -5436,22 +5424,23 @@
 	// 忍术
 	"bounty_hunter_jinada"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
-				"value"			"70 105 140 175 210 245 280"
+				"value"			"70 105 140 175 210"
 				"special_bonus_unique_bounty_hunter_4"		"+200"	// 忍术攻击力
 			}
 			"gold_steal"
 			{
-				"value"			"5 10 15 20 25 30 35"
-				"special_bonus_unique_bounty_hunter"		"+20"	// 50 电脑钱太好偷了，削弱
+				"value"			"5 10 15 20 25"
+				"special_bonus_unique_bounty_hunter"		"+15"	// 50 电脑钱太好偷了，削弱
 			}
 			"AbilityCooldown"
 			{
-				"value"			"9 8 7 6 5 4 3"
+				"value"			"7 6 5 4 3"
+				"special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-70%"	// -100%，削弱 防止无限偷钱
 			}
 		}
 	}
@@ -6705,8 +6694,8 @@
 	{
 		"AbilityValues"
 		{
-			"damage_per_mana"						"3.0"	// 2.2
-			"damage_per_mana_per_level"				"0.2"	// 0.1
+			"damage_per_mana"						"5.0"	// 2.2
+			"damage_per_mana_per_level"				"0.3"	// 0.1
 		}
 	}
 	//=================================================================================================================
@@ -7250,7 +7239,7 @@
 	{
 		"AbilityValues"
 		{
-			"pull_strength"				"500" // 200 强制位移速度
+			"pull_strength"				"1000" // 200 强制位移速度
 		}
 	}
 	//=================================================================================================================
@@ -9118,7 +9107,7 @@
 		{
 			"cooldown_scepter"
 			{
-				"value" "30" // 同步第四级冷却
+				"value" "30 25 20 15"
 			}
 		}
 	}
@@ -9756,6 +9745,7 @@
 			"slow"
 			{
 				"value"							"-24 -27 -30 -33 -36"	// x1.5
+				"special_bonus_unique_dazzle_1"	"-30"					// 40
 			}
 			"duration"		"4 5 6 7 8"
 			"bonus_slow"			"-2 -2.5 -3 -3.5 -4.0"
@@ -11289,7 +11279,7 @@
 		{
 			"fiery_soul_attack_speed_bonus"
 			{
-				"value"								"8 16 24 32 40"
+				"value"								"10 20 30 40 50"	// 8 16 24 32
 			}
 			"fiery_soul_move_speed_bonus"
 			{
@@ -11299,7 +11289,7 @@
 			"target_crit_multiplier"
 			{
 				"value"												"0"
-				"special_bonus_unique_lina_crit_debuff"				"+175"	// 150
+				"special_bonus_unique_lina_crit_debuff"				"+250"	// 150
 			}
 		}
 	}
@@ -11309,7 +11299,7 @@
 		"AbilityValues"
 		{
 			"magic_resistance"					"50"	// 35
-			"spell_amp"							"50"	// 35
+			"spell_amp"							"70"	// 35
 		}
 	}
 	// 神灭斩
@@ -11356,7 +11346,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"damage_threshold"			"200"		// 175
+			"damage_threshold"			"400"		// 175
 			"damage"
 			{
 				"value"							"20 30 40 50 60"
@@ -12230,6 +12220,7 @@
 	// 力量与魔法 先天技能
 	"rubick_might_and_magus"
 	{
+
 		"AbilityValues"
 		{
 			"one_tooltip"					"1"
@@ -13786,12 +13777,12 @@
 			}
 			"damage_min"
 			{
-				"value"		"50 100 200 300 400"
+				"value"		"100 150 200 250 300"	// x2
 				"special_bonus_unique_ringmaster_whip_damage"	"+100"
 			}
 			"damage_max"
 			{
-				"value"		"200 400 800 1200 1600" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
+				"value"		"400 600 800 1000 1200" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
 				"special_bonus_unique_ringmaster_whip_damage"	"+400"
 			}
 			"fear_duration_min"				"0.2 0.4 0.6 0.8 1.0"	// x2

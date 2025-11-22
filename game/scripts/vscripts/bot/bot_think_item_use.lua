@@ -257,15 +257,15 @@ function BotItemThink:UseActiveItem(hHero)
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_scepter") then
         return true
     end
-
     -- item_hallowed_scepter 仙云法杖
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_hallowed_scepter") then
         return true
     end
-    -- item_magic_abyss_staff 魔渊法杖
-    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_abyss_staff") then
+    -- item_magic_crit_blade 魔龙狂舞
+    if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_crit_blade") then
         return true
     end
+
     -- item_magic_sword 魔渊剑
     if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_magic_sword") then
         return true
@@ -293,6 +293,13 @@ function BotItemThink:UseActiveItem(hHero)
     -- item_black_king_bar_2
     if hHero:GetHealthPercent() < 99 then
         if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_black_king_bar_2") then
+            return true
+        end
+    end
+
+    -- item_beast_shield 兽化盾
+    if hHero:GetHealthPercent() < 99 then
+        if BotItemThink:UseItemNoTarget(tUsableItems, hHero, "item_beast_shield") then
             return true
         end
     end

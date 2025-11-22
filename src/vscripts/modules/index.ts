@@ -20,6 +20,7 @@ declare global {
     Lottery: Lottery;
     Home: Home;
     Analytic: Analytics;
+    Event: Event;
   }
 }
 
@@ -33,8 +34,6 @@ export function ActivateModules() {
   if (GameRules.GameConfig == null) {
     // 如果某个模块不需要在其他地方使用，那么直接在这里使用即可
     new Debug();
-
-    new Event();
 
     new PropertyController();
 
@@ -56,4 +55,6 @@ export function ActivateModules() {
   if (GameRules.Home == null) GameRules.Home = new Home();
 
   if (GameRules.Analytic == null) GameRules.Analytic = new Analytics();
+
+  if (GameRules.Event == null) GameRules.Event = new Event();
 }

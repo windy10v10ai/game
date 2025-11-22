@@ -35,6 +35,7 @@ declare global {
     };
     ending_status: {
       ending_status: { status: number };
+      ending_data: { winner_team_id: number };
     };
     member_table: {
       [steamAccountID: string]: MemberDto;
@@ -91,5 +92,11 @@ declare global {
     max_level: number;
     force_random_hero: number;
     enable_player_attribute: number;
+    // Bot 被动技能表
+    bot_passive_abilities: {
+      [playerID: string]: {
+        abilityName: string; // Bot 的被动技能名称
+      };
+    };
   }
 }
