@@ -359,7 +359,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_echo_sabre_2',
     tier: ItemTier.T2,
     cost: 4325,
-    prerequisite: 'item_echo_sabre',
   },
   item_bloodstone_v2: {
     name: 'item_bloodstone_v2',

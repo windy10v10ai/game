@@ -195,13 +195,12 @@ const StrengthTankTemplate: HeroTemplateConfig = {
     [ItemTier.T2]: [
       'item_blink', // 闪烁匕首
       'item_blade_mail', // 刃甲
-      'item_echo_sabre', // 回音战刃
       'item_echo_sabre_2', // 回音战刃2
       'item_radiance', // 辉耀
       'item_black_king_bar', // 黑皇杖
     ],
     [ItemTier.T3]: [
-      'item_overwhelming_blink', // 压倒性闪烁
+      'item_overwhelming_blink', // 力量跳刀
       'item_blade_mail_2', // 刃甲2
       'item_heart', // 龙心
       'item_radiance_2', // 辉耀2
@@ -252,8 +251,8 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_glimmer_cape', // 微光披风
       'item_force_staff', // 原力法杖
       'item_holy_locket', // 圣洁吊坠
-      'item_aether_lens_2', // 以太透镜2
       'item_aeon_disk', // 永恒之盘
+      'item_hand_of_group', // 团队之手
     ],
     [ItemTier.T3]: [
       'item_guardian_greaves', // 卫士胫甲

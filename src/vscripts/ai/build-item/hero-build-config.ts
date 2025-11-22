@@ -152,6 +152,9 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
   npc_dota_hero_abaddon: {
     template: HeroTemplate.StrengthTank,
     targetItemsByTier: {
+      [ItemTier.T2]: [
+        'item_hand_of_group', // 团队之手
+      ],
       [ItemTier.T3]: [
         'item_radiance_2', // 大辉耀 圣焰之光
         'item_overwhelming_blink', // 力量跳刀
