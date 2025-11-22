@@ -1,3 +1,4 @@
+import { InitializeItemUpgrades } from '../../ai/build-item/item-tier-config';
 import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4';
@@ -137,6 +138,8 @@ export class EventGameStateChange {
     FusionRuneManager.InitializeFusion();
     // 初始化Bot团队策略
     new BotTeam();
+    // 初始化Bot出装系统
+    InitializeItemUpgrades();
   }
 
   private SpawnFountainGuard(): void {

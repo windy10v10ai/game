@@ -983,6 +983,51 @@ export function getItemTier(itemName: string): ItemTier | undefined {
 }
 
 /**
+ * 初始化所有装备的 upgrades 字段（递归查找所有升级装备）
+ * 基于直接升级关系递归查找所有间接升级装备，填充到 upgrades 中
+ */
+export function InitializeItemUpgrades(): void {
+  print('[AI] InitializeItemUpgrades 初始化装备升级关系');
+  // 遍历所有装备
+  for (const itemName in ItemTierConfig) {
+    const config = ItemTierConfig[itemName];
+    if (!config) continue;
+
+    // 如果该装备没有直接升级，跳过
+    if (!config.upgrades || config.upgrades.length === 0) {
+      continue;
+    }
+
+    // 递归查找所有升级装备（包括间接升级）
+    const allUpgrades = new Set<string>(config.upgrades);
+    const visited = new Set<string>();
+
+    function collectAllUpgrades(item: string) {
+      if (visited.has(item)) return;
+      visited.add(item);
+
+      const itemConfig = ItemTierConfig[item];
+      if (!itemConfig || !itemConfig.upgrades) return;
+
+      for (const upgrade of itemConfig.upgrades) {
+        if (!allUpgrades.has(upgrade)) {
+          allUpgrades.add(upgrade);
+          collectAllUpgrades(upgrade);
+        }
+      }
+    }
+
+    // 对每个直接升级装备，递归查找其所有升级装备
+    for (const directUpgrade of config.upgrades) {
+      collectAllUpgrades(directUpgrade);
+    }
+
+    // 将递归查找的结果更新到 config.upgrades
+    config.upgrades = Array.from(allUpgrades);
+  }
+}
+
+/**
  * 获取装备的所有前置装备（下位装备）
  * 基于 prerequisite 字段递归查找
  * @param itemName 装备名称
@@ -1011,35 +1056,11 @@ export function GetItemPrerequisites(itemName: string): string[] {
 
 /**
  * 获取装备的升级装备链
- * 基于 upgradesTo 字段递归查找所有升级装备
+ * 直接返回初始化时填充的 upgrades 字段
  * @param itemName 装备名称
  * @returns 升级装备列表（从直接升级到最终升级）
  */
 export function GetItemUpgradeChain(itemName: string): string[] {
   const config = ItemTierConfig[itemName];
-  if (!config || !config.upgrades) {
-    return [];
-  }
-
-  const upgradeChain: string[] = [];
-  const visited = new Set<string>();
-
-  // 递归查找所有升级装备
-  function collectUpgrades(item: string) {
-    if (visited.has(item)) return;
-    visited.add(item);
-
-    const itemConfig = ItemTierConfig[item];
-    if (!itemConfig || !itemConfig.upgrades) return;
-
-    for (const upgrade of itemConfig.upgrades) {
-      if (!upgradeChain.includes(upgrade)) {
-        upgradeChain.push(upgrade);
-        collectUpgrades(upgrade);
-      }
-    }
-  }
-
-  collectUpgrades(itemName);
-  return upgradeChain;
+  return config?.upgrades || [];
 }
