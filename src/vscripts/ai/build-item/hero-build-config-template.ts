@@ -41,7 +41,6 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
   name: HeroTemplate.AgilityCarryMelee,
   itemsByTier: {
     [ItemTier.T1]: [
-      'item_boots', // 鞋子
       'item_power_treads', // 动力鞋
       'item_wraith_band', // 怨灵细带
       'item_mask_of_madness', // 疯狂面具
@@ -89,7 +88,6 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
   name: HeroTemplate.AgilityCarryRanged,
   itemsByTier: {
     [ItemTier.T1]: [
-      'item_boots', // 鞋子
       'item_power_treads', // 动力鞋
       'item_wraith_band', // 怨灵细带
       'item_mask_of_madness', // 疯狂面具
@@ -137,7 +135,6 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
   name: HeroTemplate.MagicalCarry,
   itemsByTier: {
     [ItemTier.T1]: [
-      'item_boots', // 鞋子
       'item_arcane_boots', // 奥术鞋
       'item_null_talisman', // 空灵挂件
     ],
@@ -188,7 +185,6 @@ const StrengthTankTemplate: HeroTemplateConfig = {
   name: HeroTemplate.StrengthTank,
   itemsByTier: {
     [ItemTier.T1]: [
-      'item_boots', // 鞋子
       'item_phase_boots', // 相位鞋
       'item_bracer', // 护腕
       'item_vanguard', // 先锋盾
@@ -237,25 +233,26 @@ const SupportTemplate: HeroTemplateConfig = {
   name: HeroTemplate.Support,
   itemsByTier: {
     [ItemTier.T1]: [
-      'item_boots', // 鞋子
-      'item_arcane_boots', // 奥术鞋
       'item_tranquil_boots', // 静谧之鞋
       'item_magic_wand', // 魔棒
       'item_null_talisman', // 空灵挂件
     ],
     [ItemTier.T2]: [
+      'item_rod_of_atos', // 阿托斯之棍
       'item_glimmer_cape', // 微光披风
       'item_force_staff', // 原力法杖
       'item_holy_locket', // 圣洁吊坠
       'item_aether_lens_2', // 以太透镜2
-      'item_rod_of_atos', // 阿托斯之棍
-      'item_kaya', // 慧光
       'item_aeon_disk', // 永恒之盘
     ],
     [ItemTier.T3]: [
       'item_guardian_greaves', // 卫士胫甲
       'item_sheepstick', // 邪恶镰刀
       'item_aeon_pendant', // 永恒吊坠
+    ],
+    [ItemTier.T4]: [
+      'item_necronomicon_staff', // 死灵书法杖
+      'item_refresh_core', // 刷新核心
     ],
   },
   consumablesByTier: {
