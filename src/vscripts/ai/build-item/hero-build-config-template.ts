@@ -56,9 +56,10 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
       'item_satanic', // 撒旦之邪力
     ],
     [ItemTier.T4]: [
+      'item_black_king_bar_2', // 黑皇杖2
+      'item_abyssal_blade_v2', // 一闪
       'item_excalibur', // EX咖喱棒
       'item_satanic_2', // 撒旦之邪力2
-      'item_black_king_bar_2', // 黑皇杖2
     ],
     [ItemTier.T5]: [
       'item_rapier_ultra_bot_1', // 圣剑终极版
@@ -206,10 +207,11 @@ const StrengthTankTemplate: HeroTemplateConfig = {
       'item_radiance_2', // 辉耀2
     ],
     [ItemTier.T4]: [
-      'item_jump_jump_jump', // 跳跳跳刀
       'item_black_king_bar_2', // 黑皇杖2
       'item_insight_armor', // 洞察护甲
       'item_undying_heart', // 不朽之心
+      'item_abyssal_blade_v2', // 一闪
+      'item_jump_jump_jump', // 跳跳跳刀
       'item_shivas_guard_2', // 希瓦的守护2
     ],
     [ItemTier.T5]: [

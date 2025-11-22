@@ -162,7 +162,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 希瓦的守护2
         'item_saint_orb', // 圣女白莲
-        'item_abyssal_blade_v2', // 一闪
       ],
       [ItemTier.T5]: [
         'item_magic_sword', // 魔渊剑
