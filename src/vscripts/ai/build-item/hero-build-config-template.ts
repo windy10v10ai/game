@@ -206,7 +206,6 @@ const StrengthTankTemplate: HeroTemplateConfig = {
       'item_radiance_2', // 辉耀2
     ],
     [ItemTier.T4]: [
-      'item_abyssal_blade_v2', // 一闪
       'item_jump_jump_jump', // 跳跳跳刀
       'item_black_king_bar_2', // 黑皇杖2
       'item_insight_armor', // 洞察护甲
