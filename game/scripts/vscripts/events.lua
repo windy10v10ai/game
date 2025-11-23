@@ -113,6 +113,8 @@ function AIGameMode:OnNPCSpawned(keys)
                 local excludeHeroes = {
                     ["npc_dota_hero_abaddon"] = true,
                     ["npc_dota_hero_axe"] = true,
+                    ["npc_dota_hero_bane"] = true,
+                    ["npc_dota_hero_bounty_hunter"] = true,
                 }
                 if not excludeHeroes[sName] then
                     hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})
