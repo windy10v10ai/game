@@ -9,14 +9,14 @@ import { ItemTier } from './item-tier-config';
  * 英雄模板类型枚举
  */
 export enum HeroTemplate {
+  /** 力量坦克 - 前排力量坦克英雄 */
+  StrengthTank = 'StrengthTank',
   /** 敏捷核心(近战) - 近战敏捷输出英雄 */
   AgilityCarryMelee = 'AgilityCarryMelee',
   /** 敏捷核心(远程) - 远程敏捷输出英雄 */
   AgilityCarryRanged = 'AgilityCarryRanged',
   /** 法师核心 - 法术输出英雄 */
   MagicalCarry = 'MagicalCarry',
-  /** 力量坦克 - 前排力量坦克英雄 */
-  StrengthTank = 'StrengthTank',
   /** 辅助 - 辅助英雄 */
   Support = 'Support',
 }
@@ -32,6 +32,60 @@ export interface HeroTemplateConfig {
   /** 按 tier 组织的消耗品列表（可选） */
   consumablesByTier?: Partial<Record<ItemTier, string[]>>;
 }
+
+/**
+ * 力量坦克模板
+ * 适用于: Axe, Pudge, Bristleback, Centaur等
+ */
+const StrengthTankTemplate: HeroTemplateConfig = {
+  name: HeroTemplate.StrengthTank,
+  itemsByTier: {
+    [ItemTier.T1]: [
+      'item_phase_boots', // 相位鞋
+      'item_bracer', // 护腕
+      'item_vanguard', // 先锋盾
+    ],
+    [ItemTier.T2]: [
+      'item_blink', // 闪烁匕首
+      'item_blade_mail', // 刃甲
+      'item_echo_sabre_2', // 回音战刃2
+      'item_radiance', // 辉耀
+      'item_black_king_bar', // 黑皇杖
+    ],
+    [ItemTier.T3]: [
+      'item_overwhelming_blink', // 力量跳刀
+      'item_blade_mail_2', // 刃甲2
+      'item_heart', // 龙心
+      'item_radiance_2', // 辉耀2
+    ],
+    [ItemTier.T4]: [
+      'item_black_king_bar_2', // 黑皇杖2
+      'item_jump_jump_jump', // 跳跳跳刀
+      'item_insight_armor', // 洞察护甲
+      'item_undying_heart', // 不朽之心
+      'item_abyssal_blade_v2', // 一闪
+      'item_shivas_guard_2', // 希瓦的守护2
+    ],
+    [ItemTier.T5]: [
+      'item_beast_shield', // 兽化盾
+      'item_beast_armor', // 兽化甲
+      'item_withered_spring', // 生命之心
+    ],
+  },
+  consumablesByTier: {
+    [ItemTier.T1]: [
+      'item_blood_grenade', // 血腥榴弹
+      'item_faerie_fire', // 仙灵之火
+    ],
+    [ItemTier.T2]: [
+      'item_aghanims_shard', // 阿哈利姆魔晶
+      'item_wings_of_haste', // 急速之翼
+    ],
+    [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
+    [ItemTier.T4]: ['item_tome_of_strength'], // 力量之书
+    [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
+  },
+};
 
 /**
  * 敏捷核心模板(近战)
@@ -167,9 +221,13 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
     ],
     [ItemTier.T4]: [
       'item_arcane_blink', // 奥术闪烁
-      'item_hallowed_scepter', // 神圣权杖
-      'item_necronomicon_staff', // 死灵书法杖
+      'item_hallowed_scepter', // 仙云法杖
+      'item_necronomicon_staff', // 死灵法杖
       'item_refresh_core', // 刷新核心
+      'item_shivas_guard_2', // 希瓦的守护2
+    ],
+    [ItemTier.T5]: [
+      'item_time_gem', // 时间宝石
     ],
   },
   consumablesByTier: {
@@ -183,60 +241,6 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
     ],
     [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
     [ItemTier.T4]: ['item_tome_of_intelligence'], // 智力之书
-    [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
-  },
-};
-
-/**
- * 力量坦克模板
- * 适用于: Axe, Pudge, Bristleback, Centaur等
- */
-const StrengthTankTemplate: HeroTemplateConfig = {
-  name: HeroTemplate.StrengthTank,
-  itemsByTier: {
-    [ItemTier.T1]: [
-      'item_phase_boots', // 相位鞋
-      'item_bracer', // 护腕
-      'item_vanguard', // 先锋盾
-    ],
-    [ItemTier.T2]: [
-      'item_blink', // 闪烁匕首
-      'item_blade_mail', // 刃甲
-      'item_echo_sabre_2', // 回音战刃2
-      'item_radiance', // 辉耀
-      'item_black_king_bar', // 黑皇杖
-    ],
-    [ItemTier.T3]: [
-      'item_overwhelming_blink', // 力量跳刀
-      'item_blade_mail_2', // 刃甲2
-      'item_heart', // 龙心
-      'item_radiance_2', // 辉耀2
-    ],
-    [ItemTier.T4]: [
-      'item_black_king_bar_2', // 黑皇杖2
-      'item_jump_jump_jump', // 跳跳跳刀
-      'item_insight_armor', // 洞察护甲
-      'item_undying_heart', // 不朽之心
-      'item_abyssal_blade_v2', // 一闪
-      'item_shivas_guard_2', // 希瓦的守护2
-    ],
-    [ItemTier.T5]: [
-      'item_beast_shield', // 兽化盾
-      'item_beast_armor', // 兽化甲
-      'item_withered_spring', // 生命之心
-    ],
-  },
-  consumablesByTier: {
-    [ItemTier.T1]: [
-      'item_blood_grenade', // 血腥榴弹
-      'item_faerie_fire', // 仙灵之火
-    ],
-    [ItemTier.T2]: [
-      'item_aghanims_shard', // 阿哈利姆魔晶
-      'item_wings_of_haste', // 急速之翼
-    ],
-    [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
-    [ItemTier.T4]: ['item_tome_of_strength'], // 力量之书
     [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
   },
 };
@@ -269,11 +273,15 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_orb_of_the_brine', // 苍洋魔珠
     ],
     [ItemTier.T4]: [
-      'item_necronomicon_staff', // 死灵书法杖
+      'item_guardian_greaves_artifact', // 神器 卫士胫甲
+      'item_necronomicon_staff', // 死灵法杖
       'item_refresh_core', // 刷新核心
+      'item_shivas_guard_2', // 希瓦的守护2
+      'item_hallowed_scepter', // 仙云法杖
     ],
     [ItemTier.T5]: [
       'item_time_gem', // 时间宝石
+      'item_magic_crit_blade', // 魔龙狂舞
     ],
   },
   consumablesByTier: {

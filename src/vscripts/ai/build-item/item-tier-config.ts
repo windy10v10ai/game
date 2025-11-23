@@ -869,6 +869,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 16800,
     prerequisite: 'item_magic_scepter',
+    upgrades: ['item_magic_crit_blade'],
   },
   item_refresh_core: {
     name: 'item_refresh_core',
@@ -969,6 +970,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_crit_blade',
     tier: ItemTier.T5,
     cost: 65999,
+    prerequisite: 'item_hallowed_scepter',
   },
   item_beast_armor: {
     name: 'item_beast_armor',
