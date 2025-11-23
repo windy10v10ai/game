@@ -1346,18 +1346,18 @@ tBotItemData.sellItemCommonList = {
 }
 
 -- Consume items
-tBotItemData.itemConsumeList = {
-	'item_wings_of_haste',
-	'item_ultimate_scepter_2',
-	'item_moon_shard_datadriven',
-}
+-- tBotItemData.itemConsumeList = {
+-- 	'item_wings_of_haste',
+-- 	'item_ultimate_scepter_2',
+-- 	'item_moon_shard_datadriven',
+-- }
 
-tBotItemData.itemConsumeNoTargetList = {
-	'item_tome_of_agility',
-	'item_tome_of_strength',
-	'item_tome_of_intelligence',
-	'item_tome_of_luoshu',
-}
+-- tBotItemData.itemConsumeNoTargetList = {
+-- 	'item_tome_of_agility',
+-- 	'item_tome_of_strength',
+-- 	'item_tome_of_intelligence',
+-- 	'item_tome_of_luoshu',
+-- }
 -- ward setting
 tBotItemData.wardHeroList = Set {
 	'npc_dota_hero_bane',
