@@ -1,4 +1,5 @@
 import { ActionAbility } from './action-ability';
+import { CastCoindition, CheckUnitConditionFailure, IsAbilityBehavior } from './cast-condition';
 
 export class ActionItem {
   // ---------------------------------------------------------
@@ -8,20 +9,22 @@ export class ActionItem {
     hero: CDOTA_BaseNPC_Hero,
     itemName: string,
     target: CDOTA_BaseNPC | undefined,
-    condition?: (target: CDOTA_BaseNPC, item: CDOTA_Item) => boolean,
+    condition?: CastCoindition,
   ): boolean {
     if (target === undefined) {
       return false;
     }
+    // 寻找可用的物品，检测是否可以施法
     const item = this.FindItemInInventoryUseable(hero, itemName);
     if (!item) {
       return false;
     }
 
-    // 检测是否满足条件
-    if (condition && condition(target, item) === false) {
+    // 检查施法者 是否满足指定条件
+    if (CheckUnitConditionFailure(hero, condition?.self?.unitCondition)) {
       return false;
     }
+
     // 检测是否在施法范围内
     const distance = hero.GetRangeToUnit(target);
     const castRange = ActionAbility.GetFullCastRange(hero, item);
@@ -29,20 +32,28 @@ export class ActionItem {
       return false;
     }
 
-    hero.CastAbilityOnTarget(target, item, hero.GetPlayerOwnerID());
-    print(`[AI] UseItemOnTarget ${itemName} on ${target.GetUnitName()}`);
-    return true;
-  }
-
-  static UseItemOnPosition(hero: CDOTA_BaseNPC_Hero, itemName: string, pos: Vector): boolean {
-    const item = this.FindItemInInventoryUseable(hero, itemName);
-    if (!item) {
-      return false;
+    // 执行默认物品行为
+    if (IsAbilityBehavior(item, AbilityBehavior.UNIT_TARGET)) {
+      print(`[AI] UseItemOnTarget ${itemName} on target`);
+      hero.CastAbilityOnTarget(target, item, hero.GetPlayerOwnerID());
+      return true;
+    } else if (IsAbilityBehavior(item, AbilityBehavior.POINT)) {
+      print(`[AI] UseItemOnTarget ${itemName} on point`);
+      hero.CastAbilityOnPosition(target.GetAbsOrigin(), item, hero.GetPlayerOwnerID());
+      return true;
+    } else if (IsAbilityBehavior(item, AbilityBehavior.AOE)) {
+      print(`[AI] UseItemOnTarget ${itemName} on position`);
+      hero.CastAbilityOnPosition(target.GetAbsOrigin(), item, hero.GetPlayerOwnerID());
+      return true;
+    } else if (IsAbilityBehavior(item, AbilityBehavior.NO_TARGET)) {
+      print(`[AI] UseItemOnTarget ${itemName} no target`);
+      hero.CastAbilityNoTarget(item, hero.GetPlayerOwnerID());
+      return true;
+    } else {
+      print(`[AI] ERROR UseItemOnTarget ${itemName} not found behavior`);
     }
 
-    // TODO 检测是否在施法范围内
-    hero.CastAbilityOnPosition(pos, item, hero.GetPlayerOwnerID());
-    return true;
+    return false;
   }
 
   /**
@@ -63,7 +74,7 @@ export class ActionItem {
   }
 
   /**
-   * 寻找可用的物品
+   * 寻找可用的物品，检测是否可以施法
    */
   static FindItemInInventoryUseable(
     hero: CDOTA_BaseNPC_Hero,

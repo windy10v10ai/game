@@ -49,4 +49,32 @@ export class UseItem {
 
     return false;
   }
+
+  static UseItemEnemy(hero: CDOTA_BaseNPC_Hero, enemy?: CDOTA_BaseNPC): boolean {
+    if (!enemy) {
+      return false;
+    }
+
+    // 血腥榴弹
+    if (ActionItem.UseItemOnTarget(hero, 'item_blood_grenade', enemy)) {
+      return true;
+    }
+    return false;
+  }
+
+  static UseItemCreep(hero: CDOTA_BaseNPC_Hero, creep?: CDOTA_BaseNPC): boolean {
+    if (!creep) {
+      return false;
+    }
+    if (creep.IsAncient()) {
+      return false;
+    }
+
+    // 团队之手
+    if (ActionItem.UseItemOnTarget(hero, 'item_hand_of_group', creep)) {
+      return true;
+    }
+
+    return false;
+  }
 }

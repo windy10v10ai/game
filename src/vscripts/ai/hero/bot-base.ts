@@ -1,7 +1,6 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
-import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
 import { getHeroBuildConfig } from '../build-item/hero-build-config';
 import { HeroBuildManager } from '../build-item/hero-build-manager';
@@ -142,6 +141,9 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因敌人而进行的施法
    */
   CastEnemy(): boolean {
+    if (UseItem.UseItemEnemy(this.hero, this.FindNearestEnemyHero())) {
+      return true;
+    }
     if (this.UseAbilityEnemy()) {
       return true;
     }
@@ -159,6 +161,9 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因小兵而进行的施法
    */
   CastCreep(): boolean {
+    if (UseItem.UseItemCreep(this.hero, this.FindNearestEnemyCreep())) {
+      return true;
+    }
     if (this.UseAbilityCreep()) {
       return true;
     }
@@ -169,20 +174,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // Item usage
   // ---------------------------------------------------------
   UseItemSelf(): boolean {
-    // 使用点金手
-    const creep = this.FindNearestEnemyCreep();
-    if (
-      ActionItem.UseItemOnTarget(this.hero, 'item_hand_of_group', creep, (target) => {
-        // 点金手目标不能是远古
-        if (target.IsAncient()) {
-          return false;
-        }
-        return true;
-      })
-    ) {
-      return true;
-    }
-
     return false;
   }
 
