@@ -127,6 +127,7 @@ export const ValueBasedSellItemsList: string[] = [
   'item_oblivion_staff', // 空明杖
   'item_falcon_blade', // 猎鹰战刃
   'item_cloak', // 抗魔斗篷
+  'item_infused_raindrop', // 凝魂之露
 
   'item_ghost', // 幽魂权杖
   'item_mask_of_madness', // 疯狂面具
