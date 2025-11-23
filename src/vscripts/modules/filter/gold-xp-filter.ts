@@ -3,6 +3,10 @@ import { PlayerHelper } from '../helper/player-helper';
 
 @reloadable
 export class GoldXPFilter {
+  private readonly REDUCE_RATE_3_MIN = 0.6;
+  private readonly REDUCE_RATE_6_MIN = 0.8;
+  private readonly REDUCE_RATE_HERO_KILL = 0.4;
+
   constructor() {
     GameRules.GetGameModeEntity().SetModifyGoldFilter((args) => this.filterGold(args), this);
     GameRules.GetGameModeEntity().SetModifyExperienceFilter((args) => this.filterXP(args), this);
@@ -118,6 +122,14 @@ export class GoldXPFilter {
       mul = GameRules.Option.direGoldXpMultiplier;
     }
 
+    // 游戏前期降低倍率
+    const gameTime = GameRules.GetDOTATime(false, false);
+    if (gameTime < 180) {
+      mul = this.filterMultiplier(mul, this.REDUCE_RATE_3_MIN);
+    } else if (gameTime < 360) {
+      mul = this.filterMultiplier(mul, this.REDUCE_RATE_6_MIN);
+    }
+
     return mul;
   }
 
@@ -131,7 +143,20 @@ export class GoldXPFilter {
     if (mul <= 1) {
       return mul;
     }
-    const reduceRate = 0.4;
+    return this.filterMultiplier(mul, this.REDUCE_RATE_HERO_KILL);
+  }
+
+  /**
+   * 降低倍率，不低于1
+   *
+   * @param mul - The original gold multiplier.
+   * @param reduceRate - The reduce rate.
+   * @returns The adjusted multiplier.
+   */
+  filterMultiplier(mul: number, reduceRate: number): number {
+    if (mul <= 1) {
+      return mul;
+    }
     return 1 + (mul - 1) * reduceRate;
   }
 }
