@@ -24,7 +24,6 @@ function modifier_jack_surgery:OnIntervalThink()
     self:SetStackCount(count)
 end
 
-
 function modifier_jack_surgery:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_ATTACK_LANDED,
@@ -40,7 +39,7 @@ function modifier_jack_surgery:OnAttackLanded(keys)
     if keys.attacker == parent then
         local ability = self:GetAbility()
         local duration = ability:GetSpecialValueFor("duration")
-        local modi =  keys.target:AddNewModifier(parent, ability, "modifier_jack_surgery_target", {duration = duration})
+        local modi = keys.target:AddNewModifier(parent, ability, "modifier_jack_surgery_target", { duration = duration })
         if parent:HasModifier("modifier_jack_murderer_of_the_misty_night") and parent:HasModifier("modifier_jack_presence_concealment_invision") then
             for i = 1, ability:GetSpecialValueFor("max_count"), 1 do
                 modi:OnRefresh()
@@ -57,9 +56,6 @@ function modifier_jack_surgery:GetModifierHPRegenAmplify_Percentage()
     return self:GetStackCount() * self:GetAbility():GetSpecialValueFor("regen_down")
 end
 
-
-
-
 function modifier_jack_surgery_target:OnCreated(table)
     local ability = self:GetAbility()
     local caster = self:GetCaster()
@@ -73,9 +69,10 @@ function modifier_jack_surgery_target:OnCreated(table)
     end
 
     if self:GetStackCount() >= 5 and self.particle == nil then
-        self.particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_break.vpcf", PATTACH_OVERHEAD_FOLLOW, parent)
-        self:AddParticle(self.particle,false, false, -1, false, false )
-        parent:PlayVoice("npc_dota_hero_brewmaster.vo.Surgery.Cast")
+        self.particle = ParticleManager:CreateParticle("particles/generic_gameplay/generic_break.vpcf",
+            PATTACH_OVERHEAD_FOLLOW, parent)
+        self:AddParticle(self.particle, false, false, -1, false, false)
+        -- parent:PlayVoice("npc_dota_hero_brewmaster.vo.Surgery.Cast")
     end
 
     local modi_caster = caster:FindModifierByName("modifier_jack_surgery")
@@ -98,10 +95,9 @@ end
 
 function modifier_jack_surgery_target:CheckState()
     if self:GetStackCount() == self.maxcount then
-        return {[MODIFIER_STATE_PASSIVES_DISABLED] = true}
+        return { [MODIFIER_STATE_PASSIVES_DISABLED] = true }
     end
 end
-
 
 function modifier_jack_surgery_target:GetModifierHealAmplify_PercentageTarget()
     return self:GetStackCount() * self.heal_down
