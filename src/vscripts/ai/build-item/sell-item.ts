@@ -374,13 +374,18 @@ export class SellItem {
       return true;
     }
 
+    // 出售重复物品
+    if (this.SellDuplicateItems(hero, itemsMap)) {
+      return true;
+    }
+
     // 出售通用垃圾物品
     if (this.SellCommonJunkItems(hero, itemsMap)) {
       return true;
     }
 
-    // 出售重复物品
-    if (this.SellDuplicateItems(hero, itemsMap)) {
+    // 当物品数量过多时，按价值顺序出售物品（初级->中级->高级）
+    if (this.SellItemsByValue(hero, itemsMap)) {
       return true;
     }
 
@@ -391,11 +396,6 @@ export class SellItem {
 
     // 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
-      return true;
-    }
-
-    // 当物品数量过多时，按价值顺序出售物品（初级->中级->高级）
-    if (this.SellItemsByValue(hero, itemsMap)) {
       return true;
     }
 
