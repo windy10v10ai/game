@@ -162,10 +162,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blade_mail_2', // 真·刃甲
         'item_radiance_2', // 大辉耀
       ],
-      [ItemTier.T4]: [
-        'item_undying_heart', // 不朽之心
-        'item_shivas_guard_2', // 希瓦的守护2
-        'item_black_king_bar_2', // 真·BKB
+      [ItemTier.T4]: [],
+      [ItemTier.T5]: [
         'item_jump_jump_jump', // 跳跳跳刀
       ],
     },
