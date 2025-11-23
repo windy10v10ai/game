@@ -24,6 +24,20 @@ export interface HeroBuildConfig {
  * 未配置的英雄将根据攻击类型自动使用 AgilityCarryMelee 或 AgilityCarryRanged 模板
  */
 export const HeroBuilds: Record<string, HeroBuildConfig> = {
+  // ===== 敏捷核心英雄(近战) =====
+  // 赏金猎人
+  npc_dota_hero_bounty_hunter: {
+    template: HeroTemplate.AgilityCarryMelee,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_hand_of_midas', // 金手指
+      ],
+      [ItemTier.T4]: [
+        'item_blue_fantasy', // 苍蓝幻想
+        'item_sange_and_yasha_1', // 神器散夜
+      ],
+    },
+  },
   // ===== 敏捷核心英雄(远程) =====
 
   npc_dota_hero_luna: {
@@ -117,9 +131,33 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
 
   // ===== 力量坦克英雄 =====
 
+  npc_dota_hero_abaddon: {
+    template: HeroTemplate.StrengthTank,
+    targetItemsByTier: {
+      [ItemTier.T2]: [
+        'item_hand_of_group', // 团队之手
+      ],
+      [ItemTier.T3]: [
+        'item_radiance_2', // 大辉耀 圣焰之光
+        'item_orb_of_the_brine', // 苍洋魔珠
+      ],
+      [ItemTier.T4]: [
+        'item_shivas_guard_2', // 希瓦的守护2
+        'item_saint_orb', // 圣女白莲
+      ],
+      [ItemTier.T5]: [
+        'item_magic_sword', // 魔渊剑
+        'item_time_gem', // 时间宝石
+      ],
+    },
+  },
+
   npc_dota_hero_axe: {
     template: HeroTemplate.StrengthTank,
     targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_hand_of_midas', // 金手指
+      ],
       [ItemTier.T3]: [
         'item_blade_mail_2', // 真·刃甲
         'item_radiance_2', // 大辉耀
@@ -149,28 +187,17 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     },
   },
 
-  npc_dota_hero_abaddon: {
-    template: HeroTemplate.StrengthTank,
+  // ===== 辅助英雄 =====
+
+  // 霍乱之源
+  npc_dota_hero_bane: {
+    template: HeroTemplate.Support,
     targetItemsByTier: {
-      [ItemTier.T2]: [
-        'item_hand_of_group', // 团队之手
-      ],
-      [ItemTier.T3]: [
-        'item_radiance_2', // 大辉耀 圣焰之光
-        'item_orb_of_the_brine', // 苍洋魔珠
-      ],
-      [ItemTier.T4]: [
-        'item_shivas_guard_2', // 希瓦的守护2
-        'item_saint_orb', // 圣女白莲
-      ],
-      [ItemTier.T5]: [
-        'item_magic_sword', // 魔渊剑
-        'item_time_gem', // 时间宝石
+      [ItemTier.T1]: [
+        'item_hand_of_midas', // 金手指
       ],
     },
   },
-
-  // ===== 辅助英雄 =====
 
   npc_dota_hero_crystal_maiden: {
     template: HeroTemplate.Support,

@@ -43,7 +43,6 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
     [ItemTier.T1]: [
       'item_power_treads', // 动力鞋
       'item_wraith_band', // 怨灵细带
-      'item_mask_of_madness', // 疯狂面具
       'item_vanguard', // 先锋盾
     ],
     [ItemTier.T2]: [
@@ -53,17 +52,21 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
     ],
     [ItemTier.T3]: [
       'item_monkey_king_bar_2', // 金箍棒2
+      'item_wasp_callous', // 大核荣耀冷酷
       'item_satanic', // 撒旦之邪力
     ],
     [ItemTier.T4]: [
       'item_black_king_bar_2', // 黑皇杖2
-      'item_abyssal_blade_v2', // 一闪
+      'item_wasp_golden', // 黄金大核荣耀
+      'item_infernal_desolator', // 绝对破防之刃
       'item_excalibur', // EX咖喱棒
+      'item_abyssal_blade_v2', // 一闪
       'item_satanic_2', // 撒旦之邪力2
     ],
     [ItemTier.T5]: [
       'item_rapier_ultra_bot_1', // 圣剑终极版
       'item_magic_sword', // 魔渊剑
+      'item_switchable_crit_blade', // 归海一刀
     ],
   },
   consumablesByTier: {
@@ -95,7 +98,6 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
       'item_power_treads', // 动力鞋
       'item_wraith_band', // 怨灵细带
       'item_mask_of_madness', // 疯狂面具
-      'item_vanguard', // 先锋盾
     ],
     [ItemTier.T2]: [
       'item_sange_and_yasha', // 散夜对剑
@@ -111,7 +113,11 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
       'item_satanic_2', // 撒旦之邪力2
       'item_black_king_bar_2', // 黑皇杖2
     ],
-    [ItemTier.T5]: ['item_rapier_ultra_bot_1'], // 圣剑终极版
+    [ItemTier.T5]: [
+      'item_rapier_ultra_bot_1', // 圣剑终极版
+      'item_switchable_crit_blade', // 归海一刀
+      'item_hawkeye_turret', // 鹰眼炮台
+    ],
   },
   consumablesByTier: {
     [ItemTier.T1]: [
@@ -141,6 +147,7 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
     [ItemTier.T1]: [
       'item_arcane_boots', // 奥术鞋
       'item_null_talisman', // 空灵挂件
+      'item_hand_of_midas', // 金手指
     ],
     [ItemTier.T2]: [
       'item_blink', // 闪烁匕首
@@ -246,6 +253,7 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_tranquil_boots', // 静谧之鞋
       'item_magic_wand', // 魔棒
       'item_null_talisman', // 空灵挂件
+      'item_hand_of_midas', // 金手指
     ],
     [ItemTier.T2]: [
       'item_rod_of_atos', // 阿托斯之棍
@@ -264,6 +272,9 @@ const SupportTemplate: HeroTemplateConfig = {
     [ItemTier.T4]: [
       'item_necronomicon_staff', // 死灵书法杖
       'item_refresh_core', // 刷新核心
+    ],
+    [ItemTier.T5]: [
+      'item_time_gem', // 时间宝石
     ],
   },
   consumablesByTier: {

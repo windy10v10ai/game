@@ -689,8 +689,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     prerequisite: 'item_vladmir',
   },
 
-  // ===== T4: 后期装备 (10000-30000金) =====
-
   item_wasp_callous: {
     name: 'item_wasp_callous',
     tier: ItemTier.T4,
@@ -698,6 +696,8 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     prerequisite: 'item_butterfly',
     upgrades: ['item_wasp_golden'],
   },
+
+  // ===== T4: 后期装备 (10000-30000金) =====
   item_shotgun_v2: {
     name: 'item_shotgun_v2',
     tier: ItemTier.T4,
@@ -834,6 +834,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 15600,
     prerequisite: 'item_dodo_desolator',
+    upgrades: ['item_magic_sword'],
   },
   item_sacred_six_vein: {
     name: 'item_sacred_six_vein',
