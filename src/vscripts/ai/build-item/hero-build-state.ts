@@ -175,12 +175,10 @@ function FillTemplateItems(
       }
     }
 
-    // 从 template 中提取该 tier 的消耗品（不设上限）
+    // 从 template 从设置该 tier 的消耗品（复制模板中的消耗品，不能直接设置，否则使用时会被其他英雄影响）
     const templateConsumables = getTemplateConsumablesByTier(config.template, tier);
     for (const consumable of templateConsumables) {
-      if (!consumables[tier].includes(consumable)) {
-        consumables[tier].push(consumable);
-      }
+      consumables[tier].push(consumable);
     }
   }
 }
