@@ -12,20 +12,24 @@ import {
  * 出售物品功能类
  */
 export class SellItem {
-  static sellItemsByValueSellThreshold = 8;
   /**
-   * 获取出售物品的阈值
+   * 获取出售物品的阈值，物品数量达到阈值时开始出售物品
    * @param itemsMap 物品Map
-   * @returns 出售阈值，默认7，拥有特殊消耗物品时返回8
+   * @returns 出售阈值，默认7，拥有特殊消耗物品时最高9个
    */
   static GetSellThreshold(itemsMap: Map<string, CDOTA_Item[]>): number {
     // 检查是否拥有特殊消耗物品
-    for (const consumableItem of SpecialConsumableItems) {
-      if (itemsMap.has(consumableItem)) {
-        return 8;
+    // 消耗品数量
+    let consumableCount = 0;
+    for (const items of itemsMap.values()) {
+      for (const item of items) {
+        if (SpecialConsumableItems.includes(item.GetName())) {
+          consumableCount++;
+        }
       }
     }
-    return 7;
+    const threshold = 7;
+    return Math.min(threshold + consumableCount, 9);
   }
 
   /**

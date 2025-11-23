@@ -688,9 +688,15 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9800,
     prerequisite: 'item_vladmir',
   },
-
   item_wasp_callous: {
     name: 'item_wasp_callous',
+    tier: ItemTier.T4,
+    cost: 10000,
+    prerequisite: 'item_butterfly',
+    upgrades: ['item_wasp_golden'],
+  },
+  item_wasp_despotic: {
+    name: 'item_wasp_despotic',
     tier: ItemTier.T4,
     cost: 10000,
     prerequisite: 'item_butterfly',
@@ -703,13 +709,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 10000,
     prerequisite: 'item_shotgun',
-  },
-  item_wasp_despotic: {
-    name: 'item_wasp_despotic',
-    tier: ItemTier.T4,
-    cost: 10000,
-    prerequisite: 'item_butterfly',
-    upgrades: ['item_wasp_golden'],
   },
   item_arcane_blink: {
     name: 'item_arcane_blink',

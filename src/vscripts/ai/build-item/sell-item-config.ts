@@ -18,6 +18,8 @@ export const SpecialConsumableItems: string[] = [
   'item_moon_shard_datadriven', // 真·银月之晶
   'item_ward_observer', // 侦查守卫
   'item_ward_sentry', // 岗哨守卫
+  'item_dust', // 显隐之尘
+  'item_gem', // 真视宝石
 ];
 
 /**
