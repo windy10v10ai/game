@@ -13,10 +13,10 @@ function modifier_bot_think_item_use:OnCreated()
 	if IsClient() then return end
 	if not self then return end
 	-- start thinking after random time
-	local lagTime = RandomFloat(0.0, 0.4)
+	local lagTime = RandomFloat(0.0, 0.5)
 	Timers:CreateTimer(lagTime, function()
 		if not self then return end
-		self:StartIntervalThink(0.4)
+		self:StartIntervalThink(0.5)
 	end)
 end
 
@@ -47,6 +47,9 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	-- ability use
 	if hHero:IsSilenced() then return end
 	if BotAbilityThink:ThinkUseAbility(hHero) then return end
+
+	BotThink:PutWardObserver(hHero)
+	BotThink:PutWardSentry(hHero)
 end
 
 --------------------------------------------------------------------------------
@@ -78,10 +81,7 @@ function modifier_bot_think_strategy:OnIntervalThink()
 
 	BotThink:ThinkSell(hHero)
 	BotThink:ThinkPurchase(hHero)
-	BotThink:ThinkConsumeItem(hHero)
-
-	BotThink:PutWardObserver(hHero)
-	BotThink:PutWardSentry(hHero)
+	-- BotThink:ThinkConsumeItem(hHero)
 end
 
 --------------------------------------------------------------------------------

@@ -461,17 +461,17 @@ function BotThink:ThinkSell(hHero)
 end
 
 -- 物品消耗
-function BotThink:ThinkConsumeItem(hHero)
-  local itemConsumeList = tBotItemData.itemConsumeList
-  for i, vItemUseName in ipairs(itemConsumeList) do
-    BotThink:UseItemOnTarget(hHero, vItemUseName, hHero)
-  end
+-- function BotThink:ThinkConsumeItem(hHero)
+--   local itemConsumeList = tBotItemData.itemConsumeList
+--   for i, vItemUseName in ipairs(itemConsumeList) do
+--     BotThink:UseItemOnTarget(hHero, vItemUseName, hHero)
+--   end
 
-  local itemConsumeNoTargetList = tBotItemData.itemConsumeNoTargetList
-  for i, vItemUseName in ipairs(itemConsumeNoTargetList) do
-    BotThink:UseItem(hHero, vItemUseName)
-  end
-end
+--   local itemConsumeNoTargetList = tBotItemData.itemConsumeNoTargetList
+--   for i, vItemUseName in ipairs(itemConsumeNoTargetList) do
+--     BotThink:UseItem(hHero, vItemUseName)
+--   end
+-- end
 
 -- 插眼
 local wardItemTable = {
