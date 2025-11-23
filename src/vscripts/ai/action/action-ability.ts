@@ -6,6 +6,7 @@ import {
   CheckUnitConditionFailure,
   DeepMerge,
   FilterTargetWithCondition,
+  IsAbilityBehavior,
 } from './cast-condition';
 
 export class ActionAbility {
@@ -112,19 +113,19 @@ export class ActionAbility {
     }
 
     // 未指定技能行为时，执行默认技能行为
-    if (this.IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
+    if (IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} on target`);
       hero.CastAbilityOnTarget(target, ability, hero.GetPlayerOwnerID());
       return true;
-    } else if (this.IsAbilityBehavior(ability, AbilityBehavior.POINT)) {
+    } else if (IsAbilityBehavior(ability, AbilityBehavior.POINT)) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} on point`);
       hero.CastAbilityOnPosition(target.GetAbsOrigin(), ability, hero.GetPlayerOwnerID());
       return true;
-    } else if (this.IsAbilityBehavior(ability, AbilityBehavior.AOE)) {
+    } else if (IsAbilityBehavior(ability, AbilityBehavior.AOE)) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} on position`);
       hero.CastAbilityOnPosition(target.GetAbsOrigin(), ability, hero.GetPlayerOwnerID());
       return true;
-    } else if (this.IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {
+    } else if (IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} no target`);
       hero.CastAbilityNoTarget(ability, hero.GetPlayerOwnerID());
       return true;
@@ -158,13 +159,6 @@ export class ActionAbility {
       }
     }
     return undefined;
-  }
-
-  private static IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
-    const abilityBehavior = ability.GetBehavior() as number;
-    // check is behavior bit set in abilityBehavior
-    const isBitSet = (abilityBehavior & behavior) === behavior;
-    return !!isBitSet;
   }
 
   private static doAction(condition: CastCoindition, ability: CDOTABaseAbility): boolean {

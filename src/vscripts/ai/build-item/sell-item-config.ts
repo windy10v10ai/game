@@ -18,6 +18,8 @@ export const SpecialConsumableItems: string[] = [
   'item_moon_shard_datadriven', // 真·银月之晶
   'item_ward_observer', // 侦查守卫
   'item_ward_sentry', // 岗哨守卫
+  'item_dust', // 显隐之尘
+  'item_gem', // 真视宝石
 ];
 
 /**
@@ -62,6 +64,10 @@ export const SellItemCommonJunkList: string[] = [
   'item_blade_of_alacrity', // 欢欣之刃
   'item_staff_of_wizardry', // 魔力法杖
 
+  'item_meteor_hammer', // 陨星锤
+  'item_kaya', // 慧光
+  'item_sange', // 散华
+  'item_yasha', // 夜叉
   'item_blitz_knuckles', // 闪电指套
   'item_javelin', // 标枪
   'item_claymore', // 大剑
@@ -120,6 +126,8 @@ export const ValueBasedSellItemsList: string[] = [
   'item_tranquil_boots', // 绿鞋
   'item_oblivion_staff', // 空明杖
   'item_falcon_blade', // 猎鹰战刃
+  'item_cloak', // 抗魔斗篷
+  'item_infused_raindrop', // 凝魂之露
 
   'item_ghost', // 幽魂权杖
   'item_mask_of_madness', // 疯狂面具
@@ -256,9 +264,8 @@ export const ItemUpgradeReplacements: Record<string, string[]> = {
   item_force_staff_3: ['item_force_staff_2', 'item_force_staff'],
   item_force_staff_2: ['item_force_staff'],
 
-  // 圣剑系列 - item_rapier_ultra_bot > item_rapier_ultra > item_excalibur > item_rapier
-  item_rapier_ultra_bot: ['item_rapier_ultra', 'item_excalibur', 'item_rapier'],
-  item_rapier_ultra: ['item_excalibur', 'item_rapier'],
+  // 圣剑系列 - item_rapier_ultra_bot_1 > item_excalibur > item_rapier
+  item_rapier_ultra_bot_1: ['item_excalibur', 'item_rapier'],
   item_excalibur: ['item_rapier', 'item_monkey_king_bar_2'],
 
   // 金箍棒系列 - item_monkey_king_bar_2 > item_monkey_king_bar

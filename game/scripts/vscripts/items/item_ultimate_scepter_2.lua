@@ -30,9 +30,9 @@ function Scepter2OnDestroy(keys)
 				end
 			end
 		end
-		local consumedModifiers = keys.caster:FindAllModifiersByName("modifier_item_ultimate_scepter_2_consumed")
+		local hasConsumedModifier = keys.caster:HasModifier("modifier_item_ultimate_scepter_2_consumed")
 		--Remove the stock Aghanim's Scepter modifier if the player no longer has a Scepter in their inventory.
-		if num_scepters_in_inventory == 0 and keys.caster:HasModifier("modifier_item_ultimate_scepter") and #consumedModifiers == 0 then
+		if num_scepters_in_inventory == 0 and keys.caster:HasModifier("modifier_item_ultimate_scepter") and not hasConsumedModifier then
 			keys.caster:RemoveModifierByName("modifier_item_ultimate_scepter")
 		end
 	end)
@@ -44,8 +44,9 @@ function Scepter2OnSpell(keys)
 	local consumedModifierName = "modifier_item_ultimate_scepter_2_consumed"
 
 	-- 目标身上有消耗后的buff，则不消耗
-	local consumedModifiers = keys.target:FindAllModifiersByName(consumedModifierName)
-	if #consumedModifiers > 0 then
+	local hasConsumedModifier = keys.caster:HasModifier(consumedModifierName)
+	if hasConsumedModifier then
+		print("hasConsumedModifier: " .. tostring(hasConsumedModifier))
 		return
 	end
 
@@ -62,7 +63,8 @@ function Scepter2OnSpell(keys)
 			keys.target:RemoveModifierByName("modifier_item_ultimate_scepter")
 		end
 		keys.target:AddNewModifier(keys.caster, nil, "modifier_item_ultimate_scepter", { duration = -1 })
-		ApplyItemDataDrivenModifier(_, keys.caster, keys.target, consumedModifierName, {})
+		keys.ability:ApplyDataDrivenModifier(keys.caster, keys.target, consumedModifierName, {})
+		-- ApplyItemDataDrivenModifier(_, keys.caster, keys.target, consumedModifierName, {})
 
 		keys.target:EmitSound("Hero_Alchemist.Scepter.Cast")
 		-- keys.caster:RemoveItem(keys.ability)

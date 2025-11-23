@@ -187,10 +187,16 @@
 		"ItemStockTime"					"120"			// 180
 		"AbilityValues"
 		{
+			"speed"					"2200"				// 1100
+			"radius"
+			{
+				"value"		"450"						// 300
+			}
+			"movespeed_slow"		"-25"				// -15
 			"bonus_health"			"200"				// 50
 
-			"damage_over_time"		"45"				// 15
-			"impact_damage"			"150"				// 50
+			"damage_over_time"		"30"				// 15
+			"impact_damage"			"100"				// 50
 		}
 	}
 	"item_bottle" //魔瓶
