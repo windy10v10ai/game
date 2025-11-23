@@ -190,3 +190,10 @@ export function DeepMerge<T extends CastCoindition>(target: T, source?: Partial<
 function isObject(item: unknown): item is object {
   return item !== null && typeof item === 'object';
 }
+
+export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
+  const abilityBehavior = ability.GetBehavior() as number;
+  // check is behavior bit set in abilityBehavior
+  const isBitSet = (abilityBehavior & behavior) === behavior;
+  return !!isBitSet;
+}
