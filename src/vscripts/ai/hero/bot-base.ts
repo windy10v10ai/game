@@ -141,7 +141,7 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因敌人而进行的施法
    */
   CastEnemy(): boolean {
-    if (UseItem.UseItemEnemy(this.hero, this.FindNearestEnemyHero())) {
+    if (UseItem.UseItemEnemy(this.hero, this.aroundEnemyHeroes)) {
       return true;
     }
     if (this.UseAbilityEnemy()) {
@@ -161,7 +161,7 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因小兵而进行的施法
    */
   CastCreep(): boolean {
-    if (UseItem.UseItemCreep(this.hero, this.FindNearestEnemyCreep())) {
+    if (UseItem.UseItemCreep(this.hero, this.aroundEnemyCreeps)) {
       return true;
     }
     if (this.UseAbilityCreep()) {

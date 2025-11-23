@@ -50,10 +50,14 @@ export class UseItem {
     return false;
   }
 
-  static UseItemEnemy(hero: CDOTA_BaseNPC_Hero, enemy?: CDOTA_BaseNPC): boolean {
-    if (!enemy) {
+  static UseItemEnemy(hero: CDOTA_BaseNPC_Hero, enemys?: CDOTA_BaseNPC[]): boolean {
+    if (!enemys) {
       return false;
     }
+    if (enemys.length === 0) {
+      return false;
+    }
+    const enemy = enemys[0];
 
     // 血腥榴弹
     if (ActionItem.UseItemOnTarget(hero, 'item_blood_grenade', enemy)) {
@@ -62,10 +66,14 @@ export class UseItem {
     return false;
   }
 
-  static UseItemCreep(hero: CDOTA_BaseNPC_Hero, creep?: CDOTA_BaseNPC): boolean {
-    if (!creep) {
+  static UseItemCreep(hero: CDOTA_BaseNPC_Hero, creeps?: CDOTA_BaseNPC[]): boolean {
+    if (!creeps) {
       return false;
     }
+    if (creeps.length === 0) {
+      return false;
+    }
+    const creep = creeps[0];
     if (creep.IsAncient()) {
       return false;
     }
