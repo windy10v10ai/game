@@ -83,7 +83,13 @@ const StrengthTankTemplate: HeroTemplateConfig = {
     ],
     [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
     [ItemTier.T4]: ['item_tome_of_strength'], // 力量之书
-    [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
+    [ItemTier.T5]: [
+      'item_tome_of_luoshu', // 洛书
+      'item_tome_of_strength', // 力量之书
+      'item_tome_of_strength', // 力量之书
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_intelligence', // 智力之书
+    ],
   },
 };
 
@@ -137,7 +143,13 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
       'item_moon_shard_datadriven', // 真银月之晶
     ],
     [ItemTier.T4]: ['item_tome_of_agility'], // 敏捷之书
-    [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
+    [ItemTier.T5]: [
+      'item_tome_of_luoshu', // 洛书
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_strength', // 力量之书
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_intelligence', // 智力之书
+    ],
   },
 };
 
@@ -187,7 +199,13 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
       'item_moon_shard_datadriven', // 真银月之晶
     ],
     [ItemTier.T4]: ['item_tome_of_agility'], // 敏捷之书
-    [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
+    [ItemTier.T5]: [
+      'item_tome_of_luoshu', // 洛书
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_strength', // 力量之书
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_intelligence', // 智力之书
+    ],
   },
 };
 
@@ -223,7 +241,7 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
       'item_arcane_blink', // 奥术闪烁
       'item_hallowed_scepter', // 仙云法杖
       'item_necronomicon_staff', // 死灵法杖
-      'item_refresh_core', // 刷新核心
+      'item_refresh_core', // 熔火核心
       'item_shivas_guard_2', // 希瓦的守护2
     ],
     [ItemTier.T5]: [
@@ -241,7 +259,13 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
     ],
     [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
     [ItemTier.T4]: ['item_tome_of_intelligence'], // 智力之书
-    [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
+    [ItemTier.T5]: [
+      'item_tome_of_luoshu', // 洛书
+      'item_tome_of_intelligence', // 智力之书
+      'item_tome_of_strength', // 力量之书
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_intelligence', // 智力之书
+    ],
   },
 };
 
@@ -273,9 +297,10 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_orb_of_the_brine', // 苍洋魔珠
     ],
     [ItemTier.T4]: [
+      'item_gungir_2', // 风暴之锤
       'item_guardian_greaves_artifact', // 神器 卫士胫甲
       'item_necronomicon_staff', // 死灵法杖
-      'item_refresh_core', // 刷新核心
+      'item_refresh_core', // 熔火核心
       'item_shivas_guard_2', // 希瓦的守护2
       'item_hallowed_scepter', // 仙云法杖
     ],
@@ -294,7 +319,13 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_wings_of_haste', // 急速之翼
     ],
     [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
-    [ItemTier.T5]: ['item_tome_of_luoshu'], // 洛书
+    [ItemTier.T5]: [
+      'item_tome_of_luoshu', // 洛书
+      'item_tome_of_intelligence', // 智力之书
+      'item_tome_of_strength', // 力量之书
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_intelligence', // 智力之书
+    ],
   },
 };
 
