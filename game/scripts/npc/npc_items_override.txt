@@ -187,6 +187,8 @@
 		"ItemStockTime"					"120"			// 180
 		"AbilityValues"
 		{
+			"speed"					"1800"				// 1100
+			"movespeed_slow"		"-25"				// -15
 			"bonus_health"			"200"				// 50
 
 			"damage_over_time"		"45"				// 15
