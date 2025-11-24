@@ -69,7 +69,6 @@
 	// 美味护盾
 	"item_royale_with_cheese"
 	{
-		"ItemSellable"					"0"
 		"AbilityValues"
 		{
 				"shield"			"20000"
@@ -79,13 +78,13 @@
 	}
 	"item_cheese"
 	{
-		"AbilityCooldown"				"0"
-		"ItemCost"						"4000"		// 1000
-		"ItemStockInitial"				"1"
-		"ItemStockMax"					"1"
-		"ItemStockTime"					"300"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
+		// "AbilityCooldown"				"0"
+		// "ItemCost"						"4000"		// 1000
+		// "ItemStockInitial"				"1"
+		// "ItemStockMax"					"1"
+		// "ItemStockTime"					"300"
+		// "ItemPurchasable"				"1"
+		// "ItemSellable"					"1"
 		"AbilityValues"
 		{
 				"health_restore"		"10000"		// 2500
