@@ -5,7 +5,7 @@ import { PlayerHelper } from '../helper/player-helper';
 export class GoldXPFilter {
   private readonly REDUCE_RATE_3_MIN = 0.8;
   private readonly REDUCE_RATE_6_MIN = 0.9;
-  private readonly REDUCE_RATE_HERO_KILL = 0.4;
+  private readonly REDUCE_RATE_HERO_KILL = 0.3;
 
   constructor() {
     GameRules.GetGameModeEntity().SetModifyGoldFilter((args) => this.filterGold(args), this);
@@ -140,9 +140,6 @@ export class GoldXPFilter {
    * @returns The adjusted gold multiplier.
    */
   filterHeroKillGoldByMultiplier(mul: number): number {
-    if (mul <= 1) {
-      return mul;
-    }
     return this.filterMultiplier(mul, this.REDUCE_RATE_HERO_KILL);
   }
 
