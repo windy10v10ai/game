@@ -155,7 +155,7 @@
 		"data_panel_player_property_movespeed_bonus_constant"	"Movement Speed"
 		"data_panel_player_property_ignore_movespeed_limit"		"Unlimited Movement Speed"
 		"data_panel_player_property_cannot_miss"				"True Strike"
-		"data_panel_player_property_flying"						"Flying"
+		"data_panel_player_property_flying"						"Flying Status"
 		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
 
 		"data_panel_player_property_tooltip"					"This effect progressively activates every 2 hero levels, up to the maximum upgraded level."
