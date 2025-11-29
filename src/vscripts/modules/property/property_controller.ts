@@ -6,6 +6,7 @@ import {
   property_cast_range_bonus_stacking,
   property_cooldown_percentage,
   property_evasion_constant,
+  property_flying,
   property_health_regen_percentage,
   property_ignore_movespeed_limit,
   property_incoming_damage_percentage,
@@ -62,6 +63,7 @@ export class PropertyController {
     PropertyController.propertyLuaModiferMap.set(property_spell_lifesteal.name, 8);
     PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125); // FIXME 使用datadriven实现
     PropertyController.propertyLuaModiferMap.set(property_cannot_miss.name, 0.125); // FIXME 使用datadriven实现
+    PropertyController.propertyLuaModiferMap.set(property_flying.name, 0.125); // FIXME 使用datadriven实现
 
     // multi level property must end with '_level_'
     PropertyController.propertyDataDrivenModifierMap.set(
