@@ -12,7 +12,9 @@ export class BotTeam {
   private botPushMin: number = 15; // 电脑开始推进的分钟数
   private botPushLevel: number = 10; // 电脑推进等级
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
+  private addAmount: number = 0; // Bot发钱的基础金额
 
+  private readonly addAmountNeedLevel: number = 50; // 每多少级增加1的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -21,6 +23,8 @@ export class BotTeam {
   constructor() {
     // 计算电脑推进时间
     this.initBotPushTime();
+    // 计算Bot发钱的基础金额
+    this.initBaseAmount();
     // 每1秒刷新一次团队策略和给Bot发钱
     Timers.CreateTimer(this.refreshInterval, () => {
       this.refreshTeamStrategy();
@@ -94,15 +98,13 @@ export class BotTeam {
   private getTowerRequiredLevel(): number {
     const towerPower = GameRules.Option.towerPower;
     if (towerPower <= 200) {
-      return 10;
+      return 13;
     } else if (towerPower <= 300) {
-      return 12;
-    } else if (towerPower <= 400) {
       return 14;
-    } else if (towerPower <= 500) {
-      return 16;
+    } else if (towerPower <= 400) {
+      return 15;
     } else {
-      return 18;
+      return 16;
     }
   }
 
@@ -166,15 +168,36 @@ export class BotTeam {
   }
 
   /**
+   * 初始化Bot发钱的基础金额
+   * 根据玩家等级（seasonLevel + memberLevel）增加
+   */
+  private initBaseAmount(): void {
+    const playerNumber = Player.GetPlayerCount();
+
+    // 遍历所有玩家，计算总等级
+    let totalLevel = 0;
+    for (const player of Player.playerList) {
+      const seasonLevel = player.seasonLevel || 0;
+      const memberLevel = player.memberLevel || 0;
+      totalLevel += seasonLevel + memberLevel;
+    }
+
+    const levelBonus = Math.floor(totalLevel / this.addAmountNeedLevel);
+    const baseAmount = 5;
+
+    this.addAmount = baseAmount + levelBonus + playerNumber;
+    print(
+      `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumber}, levelBonus: ${levelBonus})`,
+    );
+  }
+
+  /**
    * 给Bot发钱
    * 每1秒调用一次(原Lua实现是2秒调用一次,现在金额减半以保持总量不变)
    */
   private addMoneyForBots(): void {
     const gameTime = GameRules.GetDOTATime(false, false);
     if (gameTime <= 0) return; // 避免除以0
-
-    const playerNumber = Player.GetPlayerCount();
-    const baseAmount = playerNumber + 6;
 
     // 遍历所有Bot玩家(天辉和夜魇)
     PlayerHelper.ForEachPlayer((playerId) => {
@@ -190,7 +213,7 @@ export class BotTeam {
         : GameRules.Option.direGoldXpMultiplier;
 
       // 1秒发一次,金额为金币上限的1/2
-      const originalAmount = Math.floor(multiplier * baseAmount);
+      const originalAmount = Math.floor(multiplier * this.addAmount);
       const addMoney = Math.floor(originalAmount / 2);
 
       if (addMoney <= 0) return;

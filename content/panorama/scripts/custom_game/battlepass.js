@@ -225,7 +225,8 @@ function AddPlayerProperty(player, property) {
   if (
     property.name === 'property_skill_points_bonus' ||
     property.name === 'property_ignore_movespeed_limit' ||
-    property.name === 'property_cannot_miss'
+    property.name === 'property_cannot_miss' ||
+    property.name === 'property_flying'
   ) {
     levelupText = $.Localize(`#data_panel_player_property_level_up_X`).replace(
       'X',
@@ -291,6 +292,7 @@ const Player_Propertys_Show_Tooltip_1 = [
   'property_mana_regen_total_percentage',
   'property_ignore_movespeed_limit',
   'property_cannot_miss',
+  'property_flying',
 ];
 
 const Player_Propertys_Show_Tooltip_2 = ['property_skill_points_bonus'];
@@ -425,7 +427,7 @@ const Player_Property_List = [
   {
     name: 'property_ignore_movespeed_limit',
     level: 0,
-    imageSrc: 's2r://panorama/images/cavern/icon_cc_wings_png.vtex',
+    imageSrc: 's2r://panorama/images/cavern/icon_cave_in_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
   },
@@ -433,6 +435,13 @@ const Player_Property_List = [
     name: 'property_cannot_miss',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_swap_png.vtex',
+    valuePerLevel: 0.125,
+    pointCostPerLevel: 8,
+  },
+  {
+    name: 'property_flying',
+    level: 0,
+    imageSrc: 's2r://panorama/images/cavern/icon_cc_wings_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
   },

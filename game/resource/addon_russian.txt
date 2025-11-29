@@ -123,6 +123,7 @@
 		"data_panel_player_property_movespeed_bonus_constant"	"Скорость передвижения"
 		"data_panel_player_property_ignore_movespeed_limit"		"Unlimited Movement Speed"
 		"data_panel_player_property_cannot_miss"				"True Strike"
+		"data_panel_player_property_flying"						"Статус полёта"
 		"data_panel_player_property_skill_points_bonus"			"Бонусные очки прокачки"
 
 		"data_panel_player_property_tooltip"					"Герой будет получать этот эффект каждые 2 уровня, вплоть до максимального уровня."

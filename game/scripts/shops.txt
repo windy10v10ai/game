@@ -20,7 +20,7 @@
 		"item"		"item_aghanims_shard"
 		"item"		"item_tome_of_knowledge"	// 知识之书
 		"item"		"item_consumable_gem"		// 幻影宝石
-		"item"		"item_cheese"
+		// "item"		"item_cheese"			// 奶酪
 	}
 	// 属性
 	"attributes"
