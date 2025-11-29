@@ -207,7 +207,7 @@ export class CreepBuffManager {
   private getCreepBuffByTowerPower(): number {
     // 前15分钟不计算防御塔buff等级
     const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 15 * 60) {
+    if (gameTime <= 25 * 60) {
       return 0;
     }
     const sumTowerPower = GameRules.Option.towerPower;

@@ -14,6 +14,7 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
+  private readonly addAmountNeedLevel: number = 50; // 每多少级增加1的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -97,15 +98,13 @@ export class BotTeam {
   private getTowerRequiredLevel(): number {
     const towerPower = GameRules.Option.towerPower;
     if (towerPower <= 200) {
-      return 10;
+      return 13;
     } else if (towerPower <= 300) {
-      return 12;
-    } else if (towerPower <= 400) {
       return 14;
-    } else if (towerPower <= 500) {
-      return 16;
+    } else if (towerPower <= 400) {
+      return 15;
     } else {
-      return 18;
+      return 16;
     }
   }
 
@@ -170,7 +169,7 @@ export class BotTeam {
 
   /**
    * 初始化Bot发钱的基础金额
-   * 根据玩家等级（seasonLevel + memberLevel）每100级加1
+   * 根据玩家等级（seasonLevel + memberLevel）增加
    */
   private initBaseAmount(): void {
     const playerNumber = Player.GetPlayerCount();
@@ -183,7 +182,7 @@ export class BotTeam {
       totalLevel += seasonLevel + memberLevel;
     }
 
-    const levelBonus = Math.floor(totalLevel / 100);
+    const levelBonus = Math.floor(totalLevel / this.addAmountNeedLevel);
     const baseAmount = 5;
 
     this.addAmount = baseAmount + levelBonus + playerNumber;
