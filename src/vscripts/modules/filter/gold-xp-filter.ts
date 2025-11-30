@@ -23,8 +23,8 @@ export class GoldXPFilter {
     ModifyGoldReason.ABILITY_COST,
     ModifyGoldReason.CHEAT_COMMAND,
     ModifyGoldReason.SELECTION_PENALTY,
-    ModifyGoldReason.GAME_TICK,
 
+    // ModifyGoldReason.GAME_TICK,
     // ModifyGoldReason.BUILDING,
     // ModifyGoldReason.HERO_KILL,
     // ModifyGoldReason.CREEP_KILL,
@@ -56,6 +56,11 @@ export class GoldXPFilter {
     }
 
     args.gold = Math.floor(gold * mul);
+
+    // log game tick
+    if (reason === ModifyGoldReason.GAME_TICK) {
+      print(`[GoldXPFilter] Game tick: ${gold} * ${mul} = ${args.gold}`);
+    }
 
     return true;
   }

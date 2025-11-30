@@ -212,21 +212,20 @@ export class BotTeam {
         ? GameRules.Option.radiantGoldXpMultiplier
         : GameRules.Option.direGoldXpMultiplier;
 
-      // 1秒发一次,金额为金币上限的1/2
-      const originalAmount = Math.floor(multiplier * this.addAmount);
-      const addMoney = Math.floor(originalAmount / 2);
-
-      if (addMoney <= 0) return;
+      // 金币上限的1/2
+      const maxAmountPerSec = Math.floor(multiplier * this.addAmount);
 
       // 检查金币上限
       const totalGold = PlayerResource.GetTotalEarnedGold(playerId);
       const goldPerSec = totalGold / gameTime;
 
       // 如果玩家平均每秒赚的钱 > 原来的上限,则不发钱
-      if (goldPerSec > originalAmount) return;
+      if (goldPerSec > maxAmountPerSec) return;
 
       // 发钱(死亡时也发钱)
-      hero.ModifyGold(addMoney, true, ModifyGoldReason.GAME_TICK);
+      const addMoney = Math.floor(this.addAmount / 2);
+      if (addMoney <= 0) return;
+      hero.ModifyGoldFiltered(addMoney, true, ModifyGoldReason.GAME_TICK);
     });
   }
 }
