@@ -1794,7 +1794,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6000"
+		"ItemCost"						"5000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1829,7 +1829,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"16800"
+		"ItemCost"						"15800"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"hallowed"
 		"ItemAliases"					"hallowed scepter"
@@ -5127,7 +5127,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
+		"ItemCost"						"5800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5136,7 +5136,7 @@
 		"ItemResult"					"item_devastator_2"
 		"ItemRequirements"
 		{
-			"01"						"item_devastator;item_devastator"
+			"01"						"item_devastator"
 		}
 	}
 
@@ -6303,7 +6303,7 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_2;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_ultra;item_fusion_brutal"
 		}
 	}
 
