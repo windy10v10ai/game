@@ -14,8 +14,8 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly baseAmount: number = 3; // Bot发钱的基础金额
-  private readonly addAmountNeedLevel: number = 75; // 每多少级增加1的金额
+  private readonly addAmountBase: number = 2; // Bot发钱的基础金额
+  private readonly addAmountNeedLevel: number = 150; // 每多少玩家等级增加1的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -173,7 +173,7 @@ export class BotTeam {
    * 根据玩家等级（seasonLevel + memberLevel）增加
    */
   private initAddAmount(): void {
-    const playerNumber = Player.GetPlayerCount();
+    const playerNumberBonus = Player.GetPlayerCount() / 2;
 
     // 遍历所有玩家，计算总等级
     let totalLevel = 0;
@@ -183,11 +183,11 @@ export class BotTeam {
       totalLevel += seasonLevel + memberLevel;
     }
 
-    const levelBonus = Math.floor(totalLevel / this.addAmountNeedLevel);
+    const levelBonus = totalLevel / this.addAmountNeedLevel;
 
-    this.addAmount = this.baseAmount + levelBonus + playerNumber;
+    this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
     print(
-      `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumber}, levelBonus: ${levelBonus})`,
+      `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumberBonus}, levelBonus: ${levelBonus})`,
     );
   }
 
@@ -212,8 +212,8 @@ export class BotTeam {
         ? GameRules.Option.radiantGoldXpMultiplier
         : GameRules.Option.direGoldXpMultiplier;
 
-      // 金币上限的1/2
-      const maxAmountPerSec = Math.floor(multiplier * this.addAmount);
+      // 金币上限是发钱速度的2倍
+      const maxAmountPerSec = Math.floor(multiplier * this.addAmount * 2);
 
       // 检查金币上限
       const totalGold = PlayerResource.GetTotalEarnedGold(playerId);
@@ -223,8 +223,8 @@ export class BotTeam {
       if (goldPerSec > maxAmountPerSec) return;
 
       // 发钱(死亡时也发钱)
-      const addMoney = Math.floor(this.addAmount / 2);
-      if (addMoney <= 0) return;
+      const addMoney = this.addAmount;
+      print(`[BotTeam] Add money: ${addMoney}`);
       hero.ModifyGoldFiltered(addMoney, true, ModifyGoldReason.GAME_TICK);
     });
   }
