@@ -316,6 +316,16 @@ export class EventEntityKilled {
           // 从符文列表中随机选择一个
           this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceFusionRoshan);
         }
+
+        // 神器组件掉落，掉落数量 1 ~ 3 的随机数
+        for (let i = 0; i < dropCount; i++) {
+          const isDaytime = GameRules.IsDaytime();
+          if (isDaytime) {
+            this.dropItem(creep, [this.itemLightPartName], this.dropItemChanceRoshanArtifactPart);
+          } else {
+            this.dropItem(creep, [this.itemDarkPartName], this.dropItemChanceRoshanArtifactPart);
+          }
+        }
       } else {
         //print(`[EventEntityKilled] OnCreepKilled attacker is not human player, skip drop item`);
       }
