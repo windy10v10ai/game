@@ -32,7 +32,7 @@ export class GameConfig {
     GameRules.SetSameHeroSelectionEnabled(true); // 是否允许选择相同英雄
     // GameRules.SetStartingGold(0); // 设置初始金钱
     GameRules.SetGoldTickTime(1); // 设置工资发放间隔
-    GameRules.SetGoldPerTick(1); // 设置工资发放数额
+    GameRules.SetGoldPerTick(3); // 设置工资发放数额
     // GameRules.SetHeroRespawnEnabled(false); // 是否允许英雄重生
     // GameRules.SetCustomGameAllowMusicAtGameStart(false); // 是否允许游戏开始时的音乐
     // GameRules.SetCustomGameAllowHeroPickMusic(false); // 是否允许英雄选择阶段的音乐
