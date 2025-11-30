@@ -208,9 +208,7 @@ export class BotTeam {
       if (!hero) return;
 
       // 根据队伍选择倍率
-      const multiplier = PlayerHelper.IsGoodTeamPlayer(playerId)
-        ? GameRules.Option.radiantGoldXpMultiplier
-        : GameRules.Option.direGoldXpMultiplier;
+      const multiplier = GameRules.GoldXPFilter.getPlayerGoldXpMultiplier(playerId);
 
       // 金币上限是发钱速度的2倍
       const addMoney = multiplier * this.addAmount;
@@ -223,7 +221,7 @@ export class BotTeam {
       // 如果玩家平均每秒赚的钱 > 原来的上限,则不发钱
       if (goldPerSec > maxAmountPerSec) return;
 
-      // 发钱(死亡时也发钱)
+      // 发钱
       print(`[BotTeam] Add money: ${addMoney}`);
       hero.ModifyGold(addMoney, true, ModifyGoldReason.GAME_TICK);
     });
