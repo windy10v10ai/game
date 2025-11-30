@@ -244,6 +244,7 @@ export class property_flying extends PropertyBaseModifier {
   CheckState(): Partial<Record<ModifierState, boolean>> {
     return {
       [ModifierState.FLYING]: true,
+      [ModifierState.FORCED_FLYING_VISION]: true,
     };
   }
 }
