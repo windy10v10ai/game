@@ -2471,15 +2471,7 @@
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"Ethereal Blade Slow"
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%."
 
-		// 大胸针&神器魔武双修
-		"DOTA_Tooltip_Ability_item_revenants_brooch_2"							"Platinum Revenant's Brooch"
-		"DOTA_Tooltip_Ability_item_revenants_brooch_2_Description"				"<h1>Passive: Phantom Critical</h1>Grants each attack a %crit_chance%%% chance to deal an additional %crit_multiplier%%% of the attack's damage as bonus magic damage."
-		"DOTA_Tooltip_Ability_item_revenants_brooch_2_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
-		"DOTA_Tooltip_Ability_item_revenants_brooch_2_Note1"						"Phantom Critical does not work against buildings."
-		"DOTA_Tooltip_ability_item_revenants_brooch_2_Lore"						"The cursed brooch of a fallen guardian who stalks forever between the veil of life and death."
-		"DOTA_Tooltip_ability_item_revenants_brooch_2_bonus_damage"				"+$damage"
-		"DOTA_Tooltip_ability_item_revenants_brooch_2_spell_lifesteal"		"%+$spell_lifesteal"
-
+		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"						"<font color='#e03e2e'>Artifact: Revenant's Brooch</font>"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>Passive: Phantom Critical</h1>Grants each attack a %crit_chance%%% chance to deal an additional %crit_multiplier%%% of the attack's damage as bonus magic damage."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
