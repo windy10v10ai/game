@@ -14,8 +14,8 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly baseAmount: number = 4; // Bot发钱的基础金额
-  private readonly addAmountNeedLevel: number = 60; // 每多少级增加1的金额
+  private readonly baseAmount: number = 3; // Bot发钱的基础金额
+  private readonly addAmountNeedLevel: number = 75; // 每多少级增加1的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
