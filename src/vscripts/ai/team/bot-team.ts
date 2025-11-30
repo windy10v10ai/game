@@ -222,7 +222,6 @@ export class BotTeam {
       if (goldPerSec > maxAmountPerSec) return;
 
       // 发钱
-      print(`[BotTeam] Add money: ${addMoney}`);
       hero.ModifyGold(addMoney, true, ModifyGoldReason.GAME_TICK);
     });
   }
