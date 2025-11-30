@@ -14,7 +14,8 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly addAmountNeedLevel: number = 50; // 每多少级增加1的金额
+  private readonly baseAmount: number = 4; // Bot发钱的基础金额
+  private readonly addAmountNeedLevel: number = 60; // 每多少级增加1的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -24,7 +25,7 @@ export class BotTeam {
     // 计算电脑推进时间
     this.initBotPushTime();
     // 计算Bot发钱的基础金额
-    this.initBaseAmount();
+    this.initAddAmount();
     // 每1秒刷新一次团队策略和给Bot发钱
     Timers.CreateTimer(this.refreshInterval, () => {
       this.refreshTeamStrategy();
@@ -171,7 +172,7 @@ export class BotTeam {
    * 初始化Bot发钱的基础金额
    * 根据玩家等级（seasonLevel + memberLevel）增加
    */
-  private initBaseAmount(): void {
+  private initAddAmount(): void {
     const playerNumber = Player.GetPlayerCount();
 
     // 遍历所有玩家，计算总等级
@@ -183,9 +184,8 @@ export class BotTeam {
     }
 
     const levelBonus = Math.floor(totalLevel / this.addAmountNeedLevel);
-    const baseAmount = 5;
 
-    this.addAmount = baseAmount + levelBonus + playerNumber;
+    this.addAmount = this.baseAmount + levelBonus + playerNumber;
     print(
       `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumber}, levelBonus: ${levelBonus})`,
     );
