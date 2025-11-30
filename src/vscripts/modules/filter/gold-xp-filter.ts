@@ -108,7 +108,7 @@ export class GoldXPFilter {
     return rewardMulti;
   }
 
-  getPlayerGoldXpMultiplier(playerID: PlayerID): number {
+  public getPlayerGoldXpMultiplier(playerID: PlayerID): number {
     let mul = 1;
 
     // 所有人类玩家都使用天辉倍率
