@@ -5,6 +5,7 @@ const { PanoramaTargetPlugin } = require('webpack-panorama-x');
 module.exports = {
   entry: {
     hud_lottery: { filename: 'hud_lottery/layout.xml', import: './hud_lottery/layout.xml' },
+    hud_home: { filename: 'hud_home/layout.xml', import: './hud_home/layout.xml' },
   },
   mode: 'development',
   context: path.resolve(__dirname, 'react'),
