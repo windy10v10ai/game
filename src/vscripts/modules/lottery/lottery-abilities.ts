@@ -36,6 +36,7 @@ export const abilityTiersActive: Tier[] = [
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
       'life_stealer_rage', // 狂暴
+      'warlock_fatal_bonds', // 致命连接
 
       // 自定义技能
       'imba_chaos_knight_phantasm', // 混沌之军
