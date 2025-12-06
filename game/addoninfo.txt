@@ -1,6 +1,6 @@
 "AddonInfo"
 {
-	"maps"					"dota n6 custom"
+	"maps"					"dota hard custom"
 	"PenaltiesEnabled"		"0"
 	"IsPlayable"			"1"
 	"HeroGuidesSupported"	"1"
@@ -10,7 +10,7 @@
 	{
 		"MaxPlayers"	"10"
 	}
-	"n6"
+	"hard"
 	{
 		"MaxPlayers"	"10"
 	}

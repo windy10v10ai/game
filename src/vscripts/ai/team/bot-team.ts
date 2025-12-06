@@ -14,7 +14,8 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly addAmountNeedLevel: number = 50; // 每多少级增加1的金额
+  private readonly addAmountBase: number = 2; // Bot发钱的基础金额
+  private readonly addAmountNeedLevel: number = 150; // 每多少玩家等级增加1的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -24,7 +25,7 @@ export class BotTeam {
     // 计算电脑推进时间
     this.initBotPushTime();
     // 计算Bot发钱的基础金额
-    this.initBaseAmount();
+    this.initAddAmount();
     // 每1秒刷新一次团队策略和给Bot发钱
     Timers.CreateTimer(this.refreshInterval, () => {
       this.refreshTeamStrategy();
@@ -171,8 +172,8 @@ export class BotTeam {
    * 初始化Bot发钱的基础金额
    * 根据玩家等级（seasonLevel + memberLevel）增加
    */
-  private initBaseAmount(): void {
-    const playerNumber = Player.GetPlayerCount();
+  private initAddAmount(): void {
+    const playerNumberBonus = Player.GetPlayerCount() / 2;
 
     // 遍历所有玩家，计算总等级
     let totalLevel = 0;
@@ -182,12 +183,11 @@ export class BotTeam {
       totalLevel += seasonLevel + memberLevel;
     }
 
-    const levelBonus = Math.floor(totalLevel / this.addAmountNeedLevel);
-    const baseAmount = 5;
+    const levelBonus = totalLevel / this.addAmountNeedLevel;
 
-    this.addAmount = baseAmount + levelBonus + playerNumber;
+    this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
     print(
-      `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumber}, levelBonus: ${levelBonus})`,
+      `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumberBonus}, levelBonus: ${levelBonus})`,
     );
   }
 
@@ -208,24 +208,20 @@ export class BotTeam {
       if (!hero) return;
 
       // 根据队伍选择倍率
-      const multiplier = PlayerHelper.IsGoodTeamPlayer(playerId)
-        ? GameRules.Option.radiantGoldXpMultiplier
-        : GameRules.Option.direGoldXpMultiplier;
+      const multiplier = GameRules.GoldXPFilter.getPlayerGoldXpMultiplier(playerId);
 
-      // 1秒发一次,金额为金币上限的1/2
-      const originalAmount = Math.floor(multiplier * this.addAmount);
-      const addMoney = Math.floor(originalAmount / 2);
-
-      if (addMoney <= 0) return;
+      // 金币上限是发钱速度的2倍
+      const addMoney = multiplier * this.addAmount;
+      const maxAmountPerSec = Math.floor(addMoney * 2);
 
       // 检查金币上限
       const totalGold = PlayerResource.GetTotalEarnedGold(playerId);
       const goldPerSec = totalGold / gameTime;
 
       // 如果玩家平均每秒赚的钱 > 原来的上限,则不发钱
-      if (goldPerSec > originalAmount) return;
+      if (goldPerSec > maxAmountPerSec) return;
 
-      // 发钱(死亡时也发钱)
+      // 发钱
       hero.ModifyGold(addMoney, true, ModifyGoldReason.GAME_TICK);
     });
   }
