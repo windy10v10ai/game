@@ -45,14 +45,17 @@
 				<Panel id="DifficultyContainer" class="flowDown">
 					<Label class="selectTitle" text="#game_difficulty_choice" />
 					<Panel id="DifficultyList" class="flowDown">
-						<Panel class="flowRight">
-							<Button id="DifficultyN0" class="difficultyChoice longer" onactivate="OnChooseDifficulty(0)">
-								<Label class="difficultyText" text="#game_difficulty_n0"/>
-							</Button>
-							<Button id="DifficultyN6" class="difficultyChoice longer" onactivate="OnChooseDifficulty(6)">
-								<Label class="difficultyText" text="#game_difficulty_n6" />
-							</Button>
-						</Panel>
+					<Panel class="flowRight">
+						<Button id="DifficultyN0" class="difficultyChoice longer" onactivate="OnChooseDifficulty(0)">
+							<Label class="difficultyText" text="#game_difficulty_n0"/>
+						</Button>
+						<Button id="DifficultyN6" class="difficultyChoice" onactivate="OnChooseDifficulty(6)">
+							<Label class="difficultyText" text="#game_difficulty_n6" />
+						</Button>
+						<Button id="DifficultyN7" class="difficultyChoice" onactivate="OnChooseDifficulty(7)">
+							<Label class="difficultyText" text="#game_difficulty_n7" />
+						</Button>
+					</Panel>
 						<Panel id="DifficultyN1-5" class="flowRight">
 							<Button id="DifficultyN1" class="difficultyChoice" onactivate="OnChooseDifficulty(1)">
 								<Label class="difficultyText" text="#game_difficulty_n1" />

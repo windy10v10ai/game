@@ -289,9 +289,11 @@ function SetDifficultyByMapName() {
     }
   }
 
-  if (mapDisplayName !== 'n6') {
-    const button = $('#DifficultyN6');
-    disableDifficultyButton(button, '#map_n6_warning');
+  if (mapDisplayName !== 'hard') {
+    for (let i = 6; i <= 7; i++) {
+      const button = $('#DifficultyN' + i);
+      disableDifficultyButton(button, '#map_hard_warning');
+    }
   }
 
   if (mapDisplayName !== 'custom') {
@@ -300,9 +302,7 @@ function SetDifficultyByMapName() {
   }
 
   // 根据地图名字，设置难度选择
-  if (mapDisplayName === 'n6') {
-    OnChooseDifficulty(6);
-  } else if (mapDisplayName === 'custom') {
+  if (mapDisplayName === 'custom') {
     OnChooseDifficulty(0);
   }
 }
@@ -328,7 +328,7 @@ function OnChooseDifficulty(difficulty) {
   // get map name
   const mapDisplayName = Game.GetMapInfo().map_display_name;
 
-  // 检测mapDisplayName 是否可以选择difficulty，custom 只能选择0 dota 只能选择1-5 n6 只能选择6
+  // 检测mapDisplayName 是否可以选择difficulty，custom 只能选择0 dota 只能选择1-5 hard 只能选择6或7
   if (mapDisplayName === 'custom' && difficulty !== 0) {
     $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
     return;
@@ -337,7 +337,7 @@ function OnChooseDifficulty(difficulty) {
     $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
     return;
   }
-  if (mapDisplayName === 'n6' && difficulty !== 6) {
+  if (mapDisplayName === 'hard' && difficulty !== 6 && difficulty !== 7) {
     $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
     return;
   }
@@ -346,8 +346,11 @@ function OnChooseDifficulty(difficulty) {
     return;
   }
   // remove all selected class
-  for (let i = 0; i <= 6; i++) {
-    $('#DifficultyN' + i).RemoveClass('selected');
+  for (let i = 0; i <= 7; i++) {
+    const button = $('#DifficultyN' + i);
+    if (button) {
+      button.RemoveClass('selected');
+    }
   }
   // get this button
   const button = $('#DifficultyN' + difficulty);
@@ -372,8 +375,9 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
     Game.SetRemainingSetupTime(10);
   }
 
-  for (let i = 0; i <= 6; i++) {
+  for (let i = 0; i <= 7; i++) {
     const button = $('#DifficultyN' + i);
+    if (!button) continue;
     button.enabled = false;
     button.AddClass('stopHover');
     if (i === difficulty) {
