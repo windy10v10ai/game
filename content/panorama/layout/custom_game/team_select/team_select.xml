@@ -17,7 +17,7 @@
 			<!--Game Info and Unassigned players, right hand panel-->
 			<Panel id="GameAndPlayersRoot">
 
-				<Panel id="GameInfoPanel" >
+				<Panel id="GameInfoPanel">
 
 					<!--Game mode and map-->
 					<Panel id="CustomGameModeName">
@@ -45,18 +45,7 @@
 				<Panel id="DifficultyContainer" class="flowDown">
 					<Label class="selectTitle" text="#game_difficulty_choice" />
 					<Panel id="DifficultyList" class="flowDown">
-					<Panel class="flowRight">
-						<Button id="DifficultyN0" class="difficultyChoice longer" onactivate="OnChooseDifficulty(0)">
-							<Label class="difficultyText" text="#game_difficulty_n0"/>
-						</Button>
-						<Button id="DifficultyN6" class="difficultyChoice" onactivate="OnChooseDifficulty(6)">
-							<Label class="difficultyText" text="#game_difficulty_n6" />
-						</Button>
-						<Button id="DifficultyN7" class="difficultyChoice" onactivate="OnChooseDifficulty(7)">
-							<Label class="difficultyText" text="#game_difficulty_n7" />
-						</Button>
-					</Panel>
-						<Panel id="DifficultyN1-5" class="flowRight">
+						<Panel id="DifficultyDota" class="flowRight">
 							<Button id="DifficultyN1" class="difficultyChoice" onactivate="OnChooseDifficulty(1)">
 								<Label class="difficultyText" text="#game_difficulty_n1" />
 							</Button>
@@ -71,6 +60,19 @@
 							</Button>
 							<Button id="DifficultyN5" class="difficultyChoice" onactivate="OnChooseDifficulty(5)">
 								<Label class="difficultyText" text="#game_difficulty_n5" />
+							</Button>
+						</Panel>
+						<Panel id="DifficultyHard" class="flowRight">
+							<Button id="DifficultyN6" class="difficultyChoice fullWidth" onactivate="OnChooseDifficulty(6)">
+								<Label class="difficultyText" text="#game_difficulty_n6" />
+							</Button>
+							<Button id="DifficultyN7" class="difficultyChoice fullWidth" onactivate="OnChooseDifficulty(7)">
+								<Label class="difficultyText" text="#game_difficulty_n7" />
+							</Button>
+						</Panel>
+						<Panel id="DifficultyCustom" class="flowRight">
+							<Button id="DifficultyN0" class="difficultyChoice longer" onactivate="OnChooseDifficulty(0)">
+								<Label class="difficultyText" text="#game_difficulty_n0"/>
 							</Button>
 						</Panel>
 					</Panel>
