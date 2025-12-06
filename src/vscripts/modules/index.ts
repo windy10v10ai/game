@@ -19,6 +19,7 @@ declare global {
     Lottery: Lottery;
     Analytic: Analytics;
     Event: Event;
+    GoldXPFilter: GoldXPFilter;
   }
 }
 
@@ -34,8 +35,6 @@ export function ActivateModules() {
     new Debug();
 
     new PropertyController();
-
-    new GoldXPFilter();
 
     new VirtualGoldBank();
 
@@ -53,4 +52,6 @@ export function ActivateModules() {
   if (GameRules.Analytic == null) GameRules.Analytic = new Analytics();
 
   if (GameRules.Event == null) GameRules.Event = new Event();
+
+  if (GameRules.GoldXPFilter == null) GameRules.GoldXPFilter = new GoldXPFilter();
 }

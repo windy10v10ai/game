@@ -36,6 +36,7 @@ export const abilityTiersActive: Tier[] = [
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
       'life_stealer_rage', // 狂暴
+      'warlock_fatal_bonds', // 致命连接
 
       // 自定义技能
       'imba_chaos_knight_phantasm', // 混沌之军
@@ -59,6 +60,7 @@ export const abilityTiersActive: Tier[] = [
       'tinker_rearm_lua', // 再装填
       // 'dragon_knight_elder_dragon_form', //变龙 近战选择有问题
       'puck_dream_coil', // 梦境缠绕
+      'elder_titan_earth_splitter', // 裂地沟壑
 
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
