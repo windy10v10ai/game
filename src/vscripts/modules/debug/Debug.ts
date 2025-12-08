@@ -77,6 +77,7 @@ export class Debug {
       PlayerHelper.ForEachPlayer((playerId) => {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
+        this.removeModifierList(hero);
         GameRules.AI.EnableAI(hero);
       });
     }
@@ -407,5 +408,19 @@ export class Debug {
   log(message: string) {
     print(`[Debug] ${message}`);
     Say(HeroList.GetHero(0), message, false);
+  }
+
+  removeModifierList(hero: CDOTA_BaseNPC_Hero) {
+    const modifierNames = [
+      'modifier_item_aghanims_shard',
+      'modifier_item_wings_of_haste_consumed',
+      'modifier_item_ultimate_scepter_2_consumed',
+    ];
+
+    for (const modifierName of modifierNames) {
+      if (hero.HasModifier(modifierName)) {
+        hero.RemoveModifierByName(modifierName);
+      }
+    }
   }
 }

@@ -113,10 +113,10 @@ export class FusionRuneManager {
     // 为每个符文设置额外的动态库存
     this.runeConfigs.forEach((rune) => {
       try {
-        print(`[FusionRune] ${rune.itemName}:`);
-        print(`  - Initial stock: ${rune.initialStock}, Max stock: ${rune.maxStock}`);
-        print(`  - Initial time: ${rune.initialStockTimeSeconds}s`);
-        print(`  - Stock interval: ${rune.stockTimeSeconds}s`);
+        // print(`[FusionRune] ${rune.itemName}:`);
+        // print(`  - Initial stock: ${rune.initialStock}, Max stock: ${rune.maxStock}`);
+        // print(`  - Initial time: ${rune.initialStockTimeSeconds}s`);
+        // print(`  - Stock interval: ${rune.stockTimeSeconds}s`);
 
         // 设置额外的动态库存补充
         this.SetupExtraStockRefresh(rune, difficultyConfig);
@@ -145,9 +145,9 @@ export class FusionRuneManager {
       kvTimeSequence.push(rune.initialStockTimeSeconds + i * rune.stockTimeSeconds);
     }
 
-    print(
-      `[FusionRune] ${rune.itemName}: KV time sequence: ${kvTimeSequence.slice(0, 5).join(', ')}...`,
-    );
+    // print(
+    //   `[FusionRune] ${rune.itemName}: KV time sequence: ${kvTimeSequence.slice(0, 5).join(', ')}...`,
+    // );
 
     // 如果是高难度,计算动态库存时间序列并设置额外刷新
     if (difficultyConfig.shouldAddExtra) {

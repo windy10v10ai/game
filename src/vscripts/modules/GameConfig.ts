@@ -1,5 +1,5 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v4.57';
+  public static readonly GAME_VERSION = 'v5.01';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -20,7 +20,7 @@ export class GameConfig {
     GameRules.SetCustomGameTeamMaxPlayers(DotaTeam.BADGUYS, 10); // 设置夜魇队伍人数上限
     GameRules.LockCustomGameSetupTeamAssignment(false); // 锁定队伍分配
     GameRules.EnableCustomGameSetupAutoLaunch(true); // 是否自动开始游戏
-    GameRules.SetCustomGameSetupAutoLaunchDelay(50); // 游戏设置时间
+    GameRules.SetCustomGameSetupAutoLaunchDelay(45); // 游戏设置时间 -30s 为投票时间
     GameRules.SetCustomGameSetupRemainingTime(3); // 游戏设置剩余时间
     // GameRules.SetCustomGameSetupTimeout(3); // 游戏设置阶段超时
     GameRules.SetHeroSelectionTime(50); // 选择英雄阶段的持续时间
@@ -77,7 +77,7 @@ export class GameConfig {
 
     if (IsInToolsMode()) {
       print('[GameConfig] 开发者模式快速开始游戏');
-      GameRules.SetCustomGameSetupAutoLaunchDelay(10);
+      // GameRules.SetCustomGameSetupAutoLaunchDelay(10);
       GameRules.SetHeroSelectionTime(5);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(3);

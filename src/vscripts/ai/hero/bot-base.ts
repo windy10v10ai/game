@@ -1,10 +1,13 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
-import { ActionItem } from '../action/action-item';
 import { ActionMove } from '../action/action-move';
+import { getHeroBuildConfig } from '../build-item/hero-build-config';
+import { HeroBuildManager } from '../build-item/hero-build-manager';
+import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
 import { SellItem } from '../build-item/sell-item';
 import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
+import { UseItem } from '../item/use-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
@@ -15,7 +18,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
-  protected continueActionEndTime: number = 0;
+  protected continueActionEndTime: number = -60;
 
   protected readonly FindHeroRadius: number = 1600;
   protected readonly FindRadius: number = 1600;
@@ -55,6 +58,11 @@ export class BotBaseAIModifier extends BaseModifier {
     currentLevel: 0,
   };
 
+  // 出装状态
+  public buildState: HeroBuildState | undefined;
+  // 是否使用新出装系统
+  public useNewBuildSystem: boolean = false;
+
   public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
@@ -63,6 +71,15 @@ export class BotBaseAIModifier extends BaseModifier {
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
     print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
+
+    // 初始化出装状态
+    // FIXME 待所有英雄使用新出装系统后删除
+    if (this.useNewBuildSystem) {
+      const config = getHeroBuildConfig(this.hero.GetUnitName());
+      if (config) {
+        this.buildState = InitializeHeroBuild(this.hero, config);
+      }
+    }
 
     // 初始化Think
     if (IsInToolsMode()) {
@@ -124,6 +141,9 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因敌人而进行的施法
    */
   CastEnemy(): boolean {
+    if (UseItem.UseItemEnemy(this.hero, this.aroundEnemyHeroes)) {
+      return true;
+    }
     if (this.UseAbilityEnemy()) {
       return true;
     }
@@ -141,6 +161,9 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因小兵而进行的施法
    */
   CastCreep(): boolean {
+    if (UseItem.UseItemCreep(this.hero, this.aroundEnemyCreeps)) {
+      return true;
+    }
     if (this.UseAbilityCreep()) {
       return true;
     }
@@ -151,19 +174,6 @@ export class BotBaseAIModifier extends BaseModifier {
   // Item usage
   // ---------------------------------------------------------
   UseItemSelf(): boolean {
-    const creep = this.FindNearestEnemyCreep();
-    if (
-      ActionItem.UseItemOnTarget(this.hero, 'item_hand_of_group', creep, (target) => {
-        // 点金手目标不能是远古
-        if (target.IsAncient()) {
-          return false;
-        }
-        return true;
-      })
-    ) {
-      return true;
-    }
-
     return false;
   }
 
@@ -344,10 +354,10 @@ export class BotBaseAIModifier extends BaseModifier {
   // Build Item
   // ---------------------------------------------------------
   BuildItem(): boolean {
-    if (this.ConsumeItem()) {
-      return true;
-    }
-    if (SellItem.SellExtraItems(this.hero)) {
+    // 使用消耗品
+    UseItem.UseConsumeItems(this.hero);
+    // SellItem.SellExtraItems 内部已包含智能出售系统
+    if (SellItem.SellExtraItems(this.hero, this.buildState)) {
       return true;
     }
     if (this.PurchaseItem()) {
@@ -360,7 +370,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   PurchaseItem(): boolean {
-    return false;
+    if (!this.buildState) {
+      return false;
+    }
+    return HeroBuildManager.TryPurchaseItem(this.hero, this.buildState);
   }
 
   PickNeutralItem(): boolean {
@@ -403,10 +416,6 @@ export class BotBaseAIModifier extends BaseModifier {
     this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
     this.neutralItemTier = targetTier;
     return true;
-  }
-
-  ConsumeItem(): boolean {
-    return false;
   }
 
   // ---------------------------------------------------------

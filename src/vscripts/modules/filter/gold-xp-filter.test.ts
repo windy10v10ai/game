@@ -22,10 +22,10 @@ describe('GoldFilter', () => {
     });
 
     it('should reduce the multiplier correctly when it is greater than 1', () => {
-      expect(goldFilter.filterHeroKillGoldByMultiplier(1.5)).toBe(1.2);
-      expect(goldFilter.filterHeroKillGoldByMultiplier(2)).toBe(1.4);
-      expect(goldFilter.filterHeroKillGoldByMultiplier(6)).toBe(3);
-      expect(goldFilter.filterHeroKillGoldByMultiplier(10)).toBeCloseTo(4.6, 1);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(1.5)).toBe(1.15);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(2)).toBe(1.3);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(6)).toBe(2.5);
+      expect(goldFilter.filterHeroKillGoldByMultiplier(10)).toBeCloseTo(3.7, 1);
     });
   });
 
@@ -38,6 +38,21 @@ describe('GoldFilter', () => {
       [6000, 1750],
     ])('should reduce the gold correctly when the multiplier is %f', (gold, expected) => {
       expect(goldFilter.filterHeroKillGold(gold)).toBe(expected);
+    });
+  });
+
+  describe('filterMultiplier', () => {
+    it('should return the same multiplier if it is less than or equal to 1', () => {
+      expect(goldFilter.filterMultiplier(0.5, 0.4)).toBe(0.5);
+      expect(goldFilter.filterMultiplier(1, 0.4)).toBe(1);
+    });
+
+    it('should reduce the multiplier correctly when it is greater than 1', () => {
+      expect(goldFilter.filterMultiplier(2, 0.4)).toBe(1.4);
+      expect(goldFilter.filterMultiplier(6, 0.4)).toBe(3);
+      expect(goldFilter.filterMultiplier(2, 0.5)).toBe(1.5);
+      expect(goldFilter.filterMultiplier(2, 0.0)).toBe(1);
+      expect(goldFilter.filterMultiplier(2, 1.0)).toBe(2);
     });
   });
 });

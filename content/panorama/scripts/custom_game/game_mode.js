@@ -188,9 +188,18 @@ function InitN5Setting() {
 }
 function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('9');
 
   $('#tower_power_dropdown').SetSelected('400');
+
+  $('#starting_gold_player_dropdown').SetSelected('3000');
+  $('#starting_gold_bot_dropdown').SetSelected('5000');
+}
+function InitN7Setting() {
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('11');
+
+  $('#tower_power_dropdown').SetSelected('500');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('5000');
@@ -298,6 +307,8 @@ function OnDifficultyDropDownChanged(difficulty) {
       InitN5Setting();
     } else if (optionId === 6) {
       InitN6Setting();
+    } else if (optionId === 7) {
+      InitN7Setting();
     }
     LockOption();
   }

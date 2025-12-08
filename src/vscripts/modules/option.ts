@@ -81,8 +81,8 @@ export class Option {
       }
     });
     if (playerChosen === 0) {
-      // 如果没有人选择难度，则默认选择1
-      averageDifficulty = 1;
+      // 如果没有人选择难度，根据地图名选择默认难度，Dota默认1，Hard默认6
+      averageDifficulty = this.GetDefaultDifficulty();
     } else {
       averageDifficulty = averageDifficulty / playerChosen;
       // 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
@@ -99,7 +99,18 @@ export class Option {
     if (CustomNetTables.GetTableValue('game_difficulty', 'all') === undefined) {
       print('[Option] SetDefaultDifficulty');
       CustomNetTables.SetTableValue('game_difficulty', 'all', { difficulty: 1 });
-      this.gameDifficulty = 1;
+      this.gameDifficulty = this.GetDefaultDifficulty();
     }
+  }
+
+  GetDefaultDifficulty() {
+    const mapDisplayName = GetMapName();
+    print(`[Option] mapDisplayName: ${mapDisplayName}`);
+    if (mapDisplayName === 'dota') {
+      return 1;
+    } else if (mapDisplayName === 'hard') {
+      return 6;
+    }
+    return 1;
   }
 }

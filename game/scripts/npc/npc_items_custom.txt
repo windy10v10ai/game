@@ -214,6 +214,31 @@
 					}
 				}
 			}
+
+			// 大阿哈利姆神杖消耗后的属性
+			"modifier_item_ultimate_scepter_2_consumed"
+			{
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"IsHidden"				"0"
+
+				"IsPermanent"			"1"
+				"RemoveOnDeath"			"0"
+
+				// 不可叠加
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_BONUS"				"600"
+					"MODIFIER_PROPERTY_MANA_BONUS"					"600"
+					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE"	"24"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"10"
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"10"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"10"
+				}
+
+				"TextureName"		"item_ultimate_regalia"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -1769,7 +1794,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"6000"
+		"ItemCost"						"5000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1804,7 +1829,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 
-		"ItemCost"						"16800"
+		"ItemCost"						"15800"
 		"ItemShopTags"					"int;mana"
 		"ItemQuality"					"hallowed"
 		"ItemAliases"					"hallowed scepter"
@@ -5102,7 +5127,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"200"
+		"ItemCost"						"5800"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5111,7 +5136,7 @@
 		"ItemResult"					"item_devastator_2"
 		"ItemRequirements"
 		{
-			"01"						"item_devastator;item_devastator"
+			"01"						"item_devastator"
 		}
 	}
 
@@ -6278,7 +6303,7 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_2;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_ultra;item_fusion_brutal"
 		}
 	}
 
@@ -6350,6 +6375,11 @@
 				"RemoveOnDeath"		"0"
 
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 
 				"OnCreated"
 				{
@@ -6889,7 +6919,7 @@
 			// 主动技能
 			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"350"
+			"active_movespeed"				"400"
 			// BKB
 			"magic_resist"					"100"
 

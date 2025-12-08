@@ -69,25 +69,22 @@
 	// 美味护盾
 	"item_royale_with_cheese"
 	{
-		"ItemCost"						"20000"
-		"ItemSellable"					"0"
 		"AbilityValues"
 		{
 				"shield"			"20000"
 				"regen"				"1000"
-				"idle"				"1"
 				"duration"			"30"			// 5
 		}
 	}
 	"item_cheese"
 	{
-		"AbilityCooldown"				"0"
-		"ItemCost"						"4000"		// 1000
-		"ItemStockInitial"				"1"
-		"ItemStockMax"					"1"
-		"ItemStockTime"					"300"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
+		// "AbilityCooldown"				"0"
+		// "ItemCost"						"4000"		// 1000
+		// "ItemStockInitial"				"1"
+		// "ItemStockMax"					"1"
+		// "ItemStockTime"					"300"
+		// "ItemPurchasable"				"1"
+		// "ItemSellable"					"1"
 		"AbilityValues"
 		{
 				"health_restore"		"10000"		// 2500
@@ -187,10 +184,16 @@
 		"ItemStockTime"					"120"			// 180
 		"AbilityValues"
 		{
+			"speed"					"2200"				// 1100
+			"radius"
+			{
+				"value"		"450"						// 300
+			}
+			"movespeed_slow"		"-25"				// -15
 			"bonus_health"			"200"				// 50
 
-			"damage_over_time"		"45"				// 15
-			"impact_damage"			"150"				// 50
+			"damage_over_time"		"30"				// 15
+			"impact_damage"			"100"				// 50
 		}
 	}
 	"item_bottle" //魔瓶

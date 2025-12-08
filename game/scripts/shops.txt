@@ -20,7 +20,7 @@
 		"item"		"item_aghanims_shard"
 		"item"		"item_tome_of_knowledge"	// 知识之书
 		"item"		"item_consumable_gem"		// 幻影宝石
-		"item"		"item_cheese"
+		// "item"		"item_cheese"			// 奶酪
 	}
 	// 属性
 	"attributes"
@@ -117,7 +117,7 @@
 		"item"		"item_recipe_greater_famango"
 		"item"		"item_armlet_light"			// 圣光臂章
 		"item"		"item_armlet_dark"			// 暗影臂章
-		"item"		"item_guardian_greaves_artifact"	// 光暗 卫士胫甲
+		"item"		"item_guardian_greaves_artifact"	// 神器 卫士胫甲
 		"item"		"item_force_field_ultra"	// 天地同寿甲
 		"item"		"item_universal_rune"		// 通用符文
 	}
@@ -244,7 +244,7 @@
 
 		"item"		"item_infernal_desolator"	// 绝对破防之刃
 		"item"		"item_blue_fantasy"			// 苍蓝幻想
-		"item"		"item_revenants_brooch_ultra"		// 神英灵胸针
+		"item"		"item_revenants_brooch_ultra"		// 神器魔武双修
 		"item"		"item_wasp_golden"			// 黄金大核荣耀
 
 		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
