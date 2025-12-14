@@ -79,6 +79,38 @@
   }
 }
 
+// Tier5 高级颜色循环动画 - 使用 tier 颜色
+@keyframes PremiumGlow {
+  0% {
+    box-shadow:
+      0 0 6px #ffd700,
+      0 0 10px #ffd700; // tier4 金色
+  }
+  33% {
+    box-shadow:
+      0 0 8px #ff4500,
+      0 0 12px #ff4500; // tier5 红色
+  }
+  66% {
+    box-shadow:
+      0 0 12px #a029af,
+      0 0 16px #a029af; // tier3 紫色
+  }
+  100% {
+    box-shadow:
+      0 0 6px #ffd700,
+      0 0 10px #ffd700; // tier4 金色
+  }
+}
+
+.rainbow-glow {
+  animation-name: PremiumGlow;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  border-radius: 5px;
+}
+
 .BindingRow:hover .BindingContainer {
   background-color: #393e3f;
 }
