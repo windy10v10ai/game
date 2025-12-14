@@ -197,7 +197,7 @@ function InitN6Setting() {
 }
 function InitN7Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
-  $('#bot_gold_xp_multiplier_dropdown').SetSelected('11');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('12');
 
   $('#tower_power_dropdown').SetSelected('500');
 
