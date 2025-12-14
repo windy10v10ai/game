@@ -36,10 +36,16 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
   type,
   pickedAbilityName,
 }) => {
-  const imageStyle = {
-    boxShadow: `0 0 5px ${getBoxColor(level)}`,
-    borderRadius: '5px',
-  };
+  // Tier5 使用彩虹色动画，不需要固定颜色的 box-shadow
+  const imageStyle =
+    level === 5
+      ? {
+          borderRadius: '5px',
+        }
+      : {
+          boxShadow: `0 0 5px ${getBoxColor(level)}`,
+          borderRadius: '5px',
+        };
 
   const handleClick = () => {
     GameEvents.SendCustomGameEventToServer('lottery_pick_ability', {
@@ -56,6 +62,11 @@ const LotteryAbilityItem: React.FC<LotteryAbilityItemProps> = ({
     className = 'Bright';
   } else if (pickedAbilityName) {
     className = 'Darker';
+  }
+
+  // Tier5 添加彩虹色动画类
+  if (level === 5) {
+    className = className ? `${className} rainbow-glow` : 'rainbow-glow';
   }
 
   return (

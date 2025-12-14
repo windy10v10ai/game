@@ -7115,7 +7115,6 @@
 	"naga_siren_mirror_image"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"60"					// 增加幻象持续时间和CD
 		"AbilityManaCost"				"75 90 105 120 135"
 		"AbilityValues"
 		{
@@ -7131,6 +7130,11 @@
 			"images_count"
 			{
 				"value"					"2"						// 3
+			}
+			"AbilityCooldown"
+			{
+				"value"								"40" // 增加幻象持续时间和CD
+				"special_bonus_unique_naga_siren_6"	"-10"
 			}
 		}
 	}
@@ -10332,7 +10336,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"						"120"
+				"value"						"90"
 				"special_bonus_scepter"		"-10"
 			}
 			"scepter_max_entangle_duration"
