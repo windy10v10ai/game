@@ -823,6 +823,7 @@
 	{
 		"AbilityCastRange"				"600"
 		"ItemSellable"					"0"
+		"ItemKillable"					"1"
 		"ItemStockTime"					"180.0"
 		"AllowedInBackpack"				"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
