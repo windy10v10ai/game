@@ -15,7 +15,7 @@ jobs:
       issues: read
     steps:
       - name: Check out base code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: develop
 
@@ -67,13 +67,13 @@ jobs:
             ```
             [b]游戏性更新 v5.00a[/b]
 
-            修正一些bug和平衡性改动。
+            - 修正一些bug和平衡性改动。
             ```
 
             ```
             [b]Gameplay update v5.00a[/b]
 
-            Fixed some bugs and balance.
+            - Fixed some bugs and balance.
             ```
           token: ${{ secrets.WINDY_PR_PAT }}
           draft: true

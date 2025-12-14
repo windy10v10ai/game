@@ -439,17 +439,17 @@ grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abil
 **中文更新日志**：
 
 ```
-[b]游戏性更新 v4.00[/b]
+[b]游戏性更新 v5.00[/b]
 
-修正一些bug和平衡性改动。
+- 修正一些bug和平衡性改动。
 ```
 
 **英文更新日志**：
 
 ```
-[b]Gameplay update v4.00[/b]
+[b]Gameplay update v5.00[/b]
 
-Fixed some bugs and balance.
+- Fixed some bugs and balance.
 ```
 
 **格式要点**：
