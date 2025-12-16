@@ -1735,10 +1735,10 @@
 
 		// 可消耗宝石
 		"DOTA_Tooltip_ability_item_consumable_gem"						"Phantom Gem"
-		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"<h1>Use: Consume</h1> Consume the Phantom Gem to grant yourself True Sight within %radius% range.<br>True Sight will last for %duration_minutes% minutes or on death, whichever comes first."
+		"DOTA_Tooltip_ability_item_consumable_gem_Description"			"<h1>Use: Consume</h1> Consume the Phantom Gem to grant yourself True Sight within %radius% range.<br>True Sight will last for %duration_minutes% minutes.<br>The buff has %charge_count% charges. Each death consumes 1 charge. The buff is removed when all charges are consumed."
 
 		"DOTA_Tooltip_modifier_consumable_gem_aura"						"True Sight"
-		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"Gained the ability to see invisible units and wards to any allied vision within 900 range."
+		"DOTA_Tooltip_modifier_consumable_gem_aura_Description"			"Gained the ability to see invisible units and wards to any allied vision within 900 range.<br>This buff has charges.  Each death consumes 1 charge. The buff is removed when all charges are consumed. Remaining charges are shown on the buff icon."
 
 		// wings_of_haste
 		"DOTA_Tooltip_modifier_item_wings_of_haste_consumed"							"Wings of Haste"
