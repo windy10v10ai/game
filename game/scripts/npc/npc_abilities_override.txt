@@ -14102,5 +14102,82 @@
 	//=================================================================================================================
 	// Largo: 朗戈
 	//=================================================================================================================
-	
+	// 动人之舐
+	"largo_catchy_lick"
+	{
+		"MaxLevel"	"5"
+		"AbilityCooldown"			"13 11 9 7 5"
+		"AbilityManaCost"				"80 85 90 95 100"
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"		"120 255 390 525 660"		// x1.5
+			}
+			"pull_distance"
+			{
+				"value"			"210 250 290 330 370"	// 210 240 270 300
+				"special_bonus_unique_largo_4"	"+80"	// 50
+			}
+			"pull_distance_ally"
+			{
+				"value"			"450"					// 375
+				"special_bonus_unique_largo_4"	"+80"	// 50
+			}
+			"dispel_hp_regen"
+			{
+				"value"			"10 15 20 25 30"			// x2.5
+			}
+		}
+	}
+	// 蛙力千钧
+	"largo_frogstomp"
+	{
+		"MaxLevel"	"5"
+		"AbilityManaCost"				"85 95 105 115 125"
+		"AbilityValues"
+		{
+			"AbilityCooldown"
+			{
+				"value"					"20 18 16 14 12"
+			}
+			"damage_per_stomp"
+			{
+				"value"					"50 75 100 125 150"	// x1.5
+				"special_bonus_unique_largo_1"	"+50"		// +15
+			}
+			"total_ticks"
+			{
+				"value"					"4 5 6 7 8"
+			}
+			"slow"
+			{
+				"value"					"12 18 24 30 36"
+			}
+			"stun_duration"
+			{
+				"value"			"0.1 0.15 0.2 0.25 0.3"		// 0.1
+			}
+		}
+	}
+
+	// 灵呱一闪
+	"largo_croak_of_genius"
+	{
+		"MaxLevel"	"5"
+		"AbilityManaCost"				"25 35 45 55 65"
+		"AbilityValues"
+		{
+			"damage_portion_pct"
+			{
+				"value"					"30 35 40 45 50"
+			}
+			"damage_hp_pct"
+			{
+				"value"					"0"
+				"special_bonus_unique_largo_3"	"=1.5"
+			}
+			"duration"					"14 18 22 26 30"
+		}
+	}
 }
