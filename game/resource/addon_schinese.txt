@@ -819,9 +819,9 @@
 
 		// 死亡先知
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"巫术精研"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"死亡先知的神秘学识随着经验积累而加深，每级获得%movement_speed_pct_per_level%%%移动速度和%cooldown_reduction_pct_per_level%%%技能冷却时间减少。"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%移动速度加成："
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%冷却时间减少："
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"死亡先知的神秘学识随着经验积累而加深，获得移动速度和技能冷却时间减少。"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_pct_per_level"	"%移动速度加成："
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_pct_per_level" "%冷却时间减少："
 
 		// 魔法盾
 		"DOTA_Tooltip_ability_medusa_mana_shield2"								"魔法盾"
