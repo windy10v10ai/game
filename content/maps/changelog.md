@@ -58,6 +58,9 @@ Pull Type从进到远
 ### 自定义模式地图
 
 - 重命名dota.vmap为custom.vmap
-- 第一次编译时，需要勾选Create minimap，build，根据需要修正content\materials\overviews\custom.png
+- 第一次编译时，需要勾选Create minimap，build
+- 移除编译生成的materials/overviews/custom.tga文件
+- 修正content/materials/overviews/custom.vmat中的Texture为materials/overviews/dota.png
+- dota.png文件从解包的materials/overviews/dota_psd.vtex中获取
 
 注意 由于内部路径名发生变化，无法替换地图特效
