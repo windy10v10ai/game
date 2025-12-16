@@ -332,13 +332,13 @@
 		"AttackAcquisitionRange"		"550"
 		"AttackRange"					"250"
 
-		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributePrimary"				"DOTA_ATTRIBUTE_ALL"
 		"AttributeBaseStrength"			"28"
-		"AttributeStrengthGain"			"3.3"
+		"AttributeStrengthGain"			"3.0"
 		"AttributeBaseAgility"			"22"
 		"AttributeAgilityGain"			"2.2"
-		"AttributeBaseIntelligence"		"20"
-		"AttributeIntelligenceGain"		"1.4"
+		"AttributeBaseIntelligence"		"24"
+		"AttributeIntelligenceGain"		"2.4"
 
 		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
 		"MovementSpeed"					"330"
