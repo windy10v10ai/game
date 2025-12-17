@@ -42,16 +42,15 @@
 
 		"AbilityValues"
 		{
-			"movement_speed_pct_per_level"		"0.5"	// 0.5
-			"cooldown_reduction_pct_per_level"	"1.0"	// 0.75
-
-			"movement_speed_tooltip"
+			"movement_speed_pct_per_level"
 			{
-				"dynamic_value"					"true"
+				"value"				"10"		// 0.75
+				"hero_levelup"		"+0.5"		// 0.75
 			}
-			"cooldown_reduction_tooltip"
+			"cooldown_reduction_pct_per_level"
 			{
-				"dynamic_value"					"true"
+				"value"				"10"		// 0.75
+				"hero_levelup"		"+0.5"		// 0.75
 			}
 		}
 	}
