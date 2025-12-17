@@ -826,9 +826,9 @@
 
 		// 死亡先知
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"Witchcraft"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"Gain %movement_speed_pct_per_level%%% movement speed and %cooldown_reduction_pct_per_level%%% spell cooldown reduction per hero level."
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_tooltip"				"%MOVEMENT SPEED:"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_tooltip"			"%COOLDOWN REDUCTION:"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"Death Prophet's occult knowledge deepens with experience, gaining movement speed and spell cooldown reduction."
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_pct_per_level"	"%MOVEMENT SPEED:"
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_pct_per_level" "%COOLDOWN REDUCTION:"
 
 		// 魔法盾
 		"DOTA_Tooltip_ability_medusa_mana_shield2"								"Mana Shield"
