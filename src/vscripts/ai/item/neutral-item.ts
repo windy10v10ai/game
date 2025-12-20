@@ -53,11 +53,9 @@ export class NeutralItemManager {
           { name: 'item_occult_bracelet', level: 1 },
           { name: 'item_polliwog_charm', level: 1 },
           { name: 'item_spark_of_courage', level: 1 },
-          // { name: 'item_rippers_lash', level: 1 },
           { name: 'item_safety_bubble', level: 1 },
           // { name: 'item_dormant_curio', level: 1 }, // 休眠珍品
           { name: 'item_kobold_cup', level: 1 }, // 狗头人酒杯
-          { name: 'item_sisters_shroud', level: 1 }, // 魅影之衣
           { name: 'item_royal_jelly', level: 1 },
         ],
         enhancements: [

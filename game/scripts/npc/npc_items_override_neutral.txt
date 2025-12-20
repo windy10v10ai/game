@@ -1168,10 +1168,14 @@
 	//行家阵列
 	"item_specialists_array"
 	{
+		"ItemIsNeutralActiveDrop"				"1"
+
 		"AbilityCooldown"				"0.5"		//8
 		"AbilityValues"
 		{
 			"count"							"3"		//2
+			"agility"						"0"		//10
+			"damage"						"0"		//18
 			"secondary_target_range_bonus"
 			{
 				"value"					"300"	//225

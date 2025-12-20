@@ -23,10 +23,8 @@
 				// "item_unstable_wand"				"1"		// 豚杆
 				"item_polliwog_charm"				"1"		// 蝌蚪护符
 				"item_spark_of_courage"				"1"		// 勇气之光
-				// "item_rippers_lash"					"1"		// 撕裂之鞭
 				"item_dormant_curio"				"1"		// 休眠珍品
 				"item_kobold_cup"					"1"		// 狗头人酒杯
-				"item_sisters_shroud"				"1"		// 魅影之衣
 
 				// 级别移动
 				// "item_iron_talon"					"1"		// 寒铁钢爪
