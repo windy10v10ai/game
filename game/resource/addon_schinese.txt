@@ -1136,7 +1136,7 @@
 		"DOTA_Tooltip_modifier_tinker_heat_seeking_missile_vision_Description" "你被发现了！"
 
 		// 树精卫士
-		"DOTA_Tooltip_ability_treant_overgrowth_scepter_description"					"增加疯狂生长作用范围"
+		"DOTA_Tooltip_ability_treant_overgrowth_shard_description"					"增加疯狂生长作用范围"
 
 		// 邪影芳灵
 		"DOTA_Tooltip_ability_dark_willow_bedlam_damage_reduction_pct"					"%伤害减免："

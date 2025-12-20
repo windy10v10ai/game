@@ -4788,6 +4788,11 @@
 			"duration"			"15"		// 20 缩短时间控制总治疗量
 		}
 	}
+	// 丛林之眼
+	"treant_eyes_in_the_forest"
+	{
+		"AbilityChargeRestoreTime"		"120.0"	// 55 太多会卡
+	}
 	// 疯狂生长
 	"treant_overgrowth"
 	{
@@ -4798,7 +4803,7 @@
 			"duration"						"3 4 5 6" // 3 4 5
 			"radius"
 			{
-				"special_bonus_scepter"		"+1200"
+				"special_bonus_scepter"		"+800"
 			}
 			"damage"
 			{
