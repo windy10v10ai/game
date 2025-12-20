@@ -241,8 +241,6 @@
 				"item_enhancement_evolved"			"3"		// 进化 主属性
 				"item_enhancement_boundless"		"2"		// 无边 攻击距离施法距离
 
-				// 级别移动
-
 				// 额外添加
 				"item_mysterious_hat"				"2"		// 仙灵饰品
 				"item_spell_prism"					"1"		// 法术棱镜
