@@ -165,8 +165,7 @@ export class EventNpcSpawned {
     // 近战buff
     if (
       hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
-      hero.GetName() === 'npc_dota_hero_troll_warlord' ||
-      hero.GetName() === 'npc_dota_hero_lone_druid'
+      hero.GetName() === 'npc_dota_hero_troll_warlord'
     ) {
       ModifierHelper.applyGlobalModifier(hero, 'modifier_global_melee_resistance');
     }

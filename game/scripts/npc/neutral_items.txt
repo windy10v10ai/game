@@ -18,22 +18,21 @@
 
 			"items"
 			{
-				// "item_trusty_shovel"				"1"		// 可靠铁铲
-				"item_occult_bracelet"				"1"		// 玄奥手镯
-				// "item_unstable_wand"				"1"		// 豚杆
+				// "item_occult_bracelet"				"1"		// 玄奥手镯
+				// "item_kobold_cup"					"1"		// 狗头人酒杯
+				"item_chipped_vest"					"1"		// 碎裂背心
 				"item_polliwog_charm"				"1"		// 蝌蚪护符
-				"item_spark_of_courage"				"1"		// 勇气之光
-				// "item_rippers_lash"					"1"		// 撕裂之鞭
 				"item_dormant_curio"				"1"		// 休眠珍品
-				"item_kobold_cup"					"1"		// 狗头人酒杯
-				"item_sisters_shroud"				"1"		// 魅影之衣
+				"item_duelist_gloves"				"1"		// 决斗家手套
 
-				// 级别移动
-				// "item_iron_talon"					"1"		// 寒铁钢爪
+				// 7.40新增
+				"item_ash_legion_shield"			"1"		// 余烬军团战盾
+				"item_weighted_dice"				"1"		// 加重骰子
+
 				// 额外添加
-				// "item_lance_of_pursuit"				"1"		// 追击矛
 				"item_safety_bubble"				"1"		// 安全泡泡
 				"item_royal_jelly"					"1"		// 蜂王浆
+
 			}
 
 			"enhancements"
@@ -61,21 +60,18 @@
 			"items"
 			{
 				"item_essence_ring"					"1"		// 精华指环
-				// "item_gossamer_cape"				"1"		// 蛛丝斗篷
-				"item_searing_signet"				"1"		// 炽热纹章
-				"item_misericorde"					"1"		// 飞贼之刃
-				// "item_pogo_stick"					"1"		// 杂技玩具
 				"item_mana_draught"					"1"		// 魔力药水
+				"item_poor_mans_shield"				"1"		// 穷鬼盾
+				"item_searing_signet"				"1"		// 炽热纹章
+				// "item_pogo_stick"					"1"		// 杂技玩具
 
-				// 级别移动
-				"item_orb_of_destruction"			"1"		// 毁灭灵球
+				// 7.40回归
+				"item_defiant_shell"				"1"		// 不羁甲壳
 
 				// 额外添加
+				"item_orb_of_destruction"			"1"		// 毁灭灵球
+				"item_misericorde"					"1"		// 飞贼之刃 7.40移除
 				"item_arcane_ring"					"1"		// 奥术指环
-				// "item_seeds_of_serenity"			"1"		// 宁静种籽
-				// "item_duelist_gloves"				"1"		// 决斗家手套
-				"item_poor_mans_shield"				"1"		// 穷鬼盾
-				"item_chipped_vest"					"1"		// 碎裂背心
 			}
 
 			"enhancements"
@@ -105,20 +101,22 @@
 
 			"items"
 			{
-				"item_gale_guard"					"1"		// 烈风护体
-				"item_whisper_of_the_dread"			"1"		// 邪道私语
-				// "item_ninja_gear"					"1"		// 忍者用具
+				"item_serrated_shiv"				"1"		// 锯齿短刀
+				"item_gunpowder_gauntlets"			"1"		// 火药手套
 				"item_jidi_pollen_bag"				"1"		// 基迪花粉袋
-				"item_psychic_headband"				"1"		// 通灵头带
-				"item_gunpowder_gauntlets"			"1"		// 火药手套 原本是3级
+				// "item_whisper_of_the_dread"			"1"		// 邪道私语
+				// "item_ninja_gear"					"1"		// 忍者用具
+				// "item_psychic_headband"				"1"		// 通灵头带
+				"item_unrelenting_eye"				"1"		// 不屈之眼
 
 				// 级别移动
-				// "item_ogre_seal_totem"				"1"		// 食人魔海豹图腾 原本是4级
 				"item_spider_legs"					"1"		// 网虫腿 原本是5级
 
 				// 额外添加
 				"item_trickster_cloak"				"1"		// 欺诈师斗篷
 				"item_penta_edged_sword"			"1"		// 五锋长剑
+				"item_gale_guard"					"1"		// 烈风护体
+				// "item_ogre_seal_totem"				"1"		// 食人魔海豹图腾 原本是4级
 			}
 
 			"enhancements"
@@ -148,24 +146,27 @@
 
 			"items"
 			{
-				// "item_mind_breaker"					"1"		// 智灭
 				"item_crippling_crossbow"			"1"		// 致残之弩
-				"item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
 				"item_giant_maul"					"1"		// 巨人之槌
-				"item_outworld_staff"				"1"		// 殁境法杖
+				"item_rattlecage"					"1"		// 回响之笼
+
+				"item_idol_of_screeauk"				"1"		// 丝奎奥克神像
+				"item_flayers_bota"					"1"		// 剥皮血囊
+				"item_metamorphic_mandible"			"1"		// 变态上颚
 
 				// 级别移动
-				"item_fallen_sky"					"1"		// 天崩 原本是5级
 				"item_panic_button"					"1"		// 神妙明灯 原本是5级
-				"item_serrated_shiv"				"1"		// 锯齿短刀 原本是3级
 				"item_havoc_hammer"					"1"		// 浩劫巨锤
 
 				// 额外添加
 				// "item_book_of_shadows"				"1"		// 暗影邪典
+				// "item_mind_breaker"					"1"		// 智灭
+				// "item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
 				"item_seer_stone"					"1"		// 先哲之石
 				"item_princes_knife"				"1"		// 亲王短刀
 				"item_stormcrafter"					"1"		// 风暴宝器
 				"item_repair_kit"					"1"		// 维修器具
+
 			}
 
 			"enhancements"
@@ -185,9 +186,10 @@
 				"item_enhancement_boundless"		"1"		// 无边 攻击距离施法距离
 				"item_enhancement_evolved"			"2"		// 进化 主属性
 
-
-				// 额外添加
-				// "item_neutral_tabi"					"1"		// 迷踪 闪避移速
+				"item_enhancement_fierce"			"1"		// 凶猛
+				"item_enhancement_dominant"			"1"		// 专横
+				"item_enhancement_restorative"		"1"		// 滋补
+				"item_enhancement_thick"				"1"		// 厚重
 			}
 		}
 
@@ -203,16 +205,17 @@
 			"items"
 			{
 				"item_desolator_2"					"1"		// 寂灭
+				"item_fallen_sky"					"1"		// 天崩
+				"item_demonicon"					"1"		// 死灵书
 				"item_minotaur_horn"				"1"		// 恶牛角
 				"item_divine_regalia"				"1"		// 天赐华冠
-				"item_helm_of_the_undying"			"1"		// 不朽尸王的头盔
+				"item_dezun_bloodrite"				"1"		// 德尊血式
 
+				"item_riftshadow_prism"				"1"		// 影墟棱晶
 				// 级别移动
 				"item_nemesis_curse"				"1"		// 天诛之咒 原本是3级
 				"item_ceremonial_robe"				"1"		// 祭礼长袍 原本是4级
 				"item_magnifying_monocle"			"1"		// 放大单片镜 原本是4级
-				"item_unrelenting_eye"				"1"		// 不屈之眼 原本是5级
-				"item_dezun_bloodrite"				"1"		// 德尊血式 原本是4级
 
 				// 额外添加
 				"item_mirror_shield"				"1"		// 神镜盾
@@ -222,6 +225,7 @@
 				"item_ex_machina"					"1"		// 机械之心
 
 				"item_specialists_array"			"1"		// 行家阵列
+				// "item_helm_of_the_undying"			"1"		// 不朽尸王的头盔 7.40移除
 
 			}
 
@@ -237,12 +241,16 @@
 				"item_enhancement_evolved"			"3"		// 进化 主属性
 				"item_enhancement_boundless"		"2"		// 无边 攻击距离施法距离
 
-				// 级别移动
-
 				// 额外添加
 				"item_mysterious_hat"				"2"		// 仙灵饰品
 				"item_spell_prism"					"1"		// 法术棱镜
 				"item_paladin_sword"				"1"		// 骑士剑
+
+				// 7.40新增
+				"item_enhancement_fierce"			"2"		// 凶猛
+				"item_enhancement_dominant"			"2"		// 专横
+				"item_enhancement_restorative"		"2"		// 滋补
+				"item_enhancement_thick"				"2"		// 厚重
 			}
 		}
 	}
