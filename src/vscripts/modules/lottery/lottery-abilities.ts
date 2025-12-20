@@ -90,6 +90,7 @@ export const abilityTiersActive: Tier[] = [
       'kunkka_ghostship', // 幽灵船
       'pangolier_gyroshell', // 地雷滚滚
       'void_spirit_astral_step', // 太虚之径
+      'treant_overgrowth', // 疯狂生长
 
       // 小技能
       'lion_impale', // 裂地尖刺
@@ -111,6 +112,8 @@ export const abilityTiersActive: Tier[] = [
       'antimage_blink', // 闪烁
       'ringmaster_tame_the_beasts', // 驯兽术
       'ringmaster_impalement', // 尖刀戏
+      'slark_saltwater_shiv', // 海浪短刀
+      'treant_natures_grasp', // 自然卷握
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
@@ -162,7 +165,8 @@ export const abilityTiersPassive: Tier[] = [
     names: [
       // 被动技能
       'muerta_gunslinger', // 神枪在手
-      'slark_essence_shift', // 能量转移
+      // FIXME 先天技能不显示，需要重做
+      // 'slark_essence_shift', // 能量转移
       'faceless_void_time_lock', // 时间锁定
 
       // 法球/开关技能

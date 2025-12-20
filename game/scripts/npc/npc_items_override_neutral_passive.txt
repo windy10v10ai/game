@@ -241,4 +241,50 @@
 			"movespeed"					"75"		// 25
 		}
 	}
+
+	// Dota 7.40新增
+	// 凶猛 移速夜视攻击
+	"item_enhancement_fierce"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"movement_speed"			"60 120"		// 30
+			"bonus_night_vision"		"400 800"	// 250
+			"bonus_damage"				"150 300"		// 15
+		}
+	}
+	// 专横 攻速魔抗血量
+	"item_enhancement_dominant"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"attack_speed"				"50 100"		// 25
+			"magic_resist"				"30 50"		// 15
+			"bonus_health"				"1000 2000"	// 205
+		}
+	}
+	// 滋补 蓝量回血治疗增强
+	"item_enhancement_restorative"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"bonus_mana"				"500 1000"	// 200
+			"bonus_hp_regen"			"20 40"		// 8
+			"heal_amp"					"25 50"		// 10
+		}
+	}
+	// 厚重 血量回蓝护甲
+	"item_enhancement_thick"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"bonus_health"				"1000 2000"	// 240
+			"bonus_mana_regen"			"10 20"		// 3
+			"bonus_armor"				"15 30"		// 7
+		}
+	}
 }
