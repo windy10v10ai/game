@@ -98,16 +98,6 @@
 			"max_mana"			"900"	//400
 		}
 	}
-	//不羁甲壳
-	"item_defiant_shell"
-	{
-		"AbilityValues"
-		{
-			"bonus_armor"				"14" //7
-			"all_stats"					"14" //7
-			"counter_cooldown"			"3.0" //5
-		}
-	}
 	//崎岖外衣
 	"item_craggy_coat"
 	{
@@ -264,22 +254,6 @@
 				"bonus_attack_speed""80"	//40
 				"bonus_armor"		"20"	//5
 				"demolish"			"30"	//25
-		}
-	}
-	//回响之笼
-	"item_rattlecage"
-	{
-		"AbilityValues"
-		{
-			"radius"					"800"	//600
-			"slow_duration"				"0.4"	//0.2
-			"damage_reset_interval"		"7"		//7
-			"damage_threshold"			"600"	//180
-			"slow"			    		"70"	//100
-			"projectile_speed"			"1000"	//1000
-			"projectile_damage"			"450"	//125
-			"target_count"				"3"		//2
-			"bonus_armor"				"24"	//12
 		}
 	}
 	//烈士鳞甲
@@ -479,12 +453,6 @@
 	{
 		"AbilityValues"
 		{
-			"damage_threshold"			"100"		//40
-			"burn_damage"
-			{
-				"value"					"200"		//72
-				"apply_curio_bonus"		"1"
-			}
 			"burn_duration"				"3"			//6
 		}
 	}
@@ -598,18 +566,10 @@
 			}
 		}
 	}
-	//不屈之眼
-	"item_unrelenting_eye"
+	//不羁甲壳
+	"item_defiant_shell"
 	{
-		"AbilityValues"
-		{
-			"hero_reduction"			"6"		//20
-			"status_res_pct_increase_per_hero"
-			{
-				"value"					"8"	//10
-				"apply_curio_bonus"		"1"
-			}
-		}
+		"AbilityCooldown"			"2"		// 5
 	}
 	//决斗家手套
 	"item_duelist_gloves"
@@ -1076,12 +1036,6 @@
 	{
 		"AbilityValues"
 		{
-			"health_pct"				"50"	// 35
-			"aoe_pct"
-			{
-				"value"					"16"		//12
-				"apply_curio_bonus"		"1"
-			}
 		}
 	}
 	//巨人之槌
@@ -1097,6 +1051,21 @@
 			"movespeed_slow"			"20"	// 10
 			"attack_slow"				"60"	// 15
 			"cast_slow"					"40"	// 20
+		}
+	}
+	//回响之笼
+	"item_rattlecage"
+	{
+		"AbilityValues"
+		{
+			"damage_reset_interval"		"7"		//7
+			"damage_threshold"			"600"	//180
+			"slow"						"70"	//100
+			"projectile_damage"
+			{
+				"value"						"400"	// 110
+				"apply_curio_bonus"			"1"
+			}
 		}
 	}
 	//=================================================================================================================
