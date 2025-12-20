@@ -55,7 +55,7 @@
 	"npc_dota_hero_life_stealer"		"1"
 	"npc_dota_hero_lina"				"1"
 	"npc_dota_hero_lion"				"1"
-	"npc_dota_hero_lone_druid"			"0"	// 小熊卡顿，禁用 德鲁伊
+	"npc_dota_hero_lone_druid"			"1"
 	"npc_dota_hero_luna"				"1"
 	"npc_dota_hero_lycan"				"1"
 	"npc_dota_hero_magnataur"			"1"

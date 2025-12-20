@@ -2407,11 +2407,6 @@
 			}
 		}
 	}
-	// 大树
-	"npc_dota_hero_treant"
-	{
-		"Ability4"		""	// 移除树眼
-	}
 	"npc_dota_hero_undying"
 	{
 		"Ability15"		"special_bonus_unique_undying"
