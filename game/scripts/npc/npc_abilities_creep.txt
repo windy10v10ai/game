@@ -8,7 +8,7 @@
 		"AbilityValues"
 		{
 			"max_level"				"60"	// 30
-			"increase_time"			"120"	// 450
+			"increase_time"			"180"	// 450
 			"increase_damage"		"6"		// 3
 			"increase_aspd"			"10"	// 5
 			"increase_health"		"60"	// 30
