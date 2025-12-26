@@ -1,0 +1,269 @@
+/* Home 模块样式文件 */
+/* 配色方案: #4E56C0 #9B5DE0 #D78FEE #FDCFFA */
+
+/* ========== 根容器 ========== */
+.root {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== 主容器 ========== */
+.home-container {
+  width: 80%;
+  height: 60%;
+  horizontal-align: center;
+  vertical-align: center;
+  background-color: #1a1a2eea;
+  border: 3px solid #9b5de0;
+  border-radius: 10px;
+  flow-children: down;
+  box-shadow: 0px 0px 25px 8px #4e56c088;
+}
+
+/* ========== 标题栏 ========== */
+.home-header {
+  width: 100%;
+  height: 60px;
+  background-color: #4e56c0;
+  // background-image: linear-gradient(to right, #4E56C0 0%, #9B5DE0 100%);
+  border-radius: 7px 7px 0 0;
+  flow-children: right;
+  padding: 15px 25px;
+  border-bottom: 2px solid #d78fee;
+}
+
+.home-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fdcffa;
+  text-shadow: 2px 2px 4px #00000088;
+  vertical-align: center;
+  letter-spacing: 1px;
+}
+
+/* ========== 内容区域 ========== */
+.content-area {
+  width: 100%;
+  height: 390px;
+  padding: 20px;
+  flow-children: down;
+  background-color: #0f0f0f22;
+}
+
+/* ========== StatsPage 样式 ========== */
+.stats-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 15px;
+  background-color: #00000033;
+  border-radius: 5px;
+}
+
+.stat-item {
+  width: 100%;
+  height: 35px;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  flow-children: right;
+  background-color: #00000044;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #9b5de0;
+  transition-property: background-color, border-left-color;
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: #00000066;
+    border-left-color: #d78fee;
+  }
+}
+
+.stat-label {
+  color: #d78fee;
+  font-weight: bold;
+  width: 150px;
+}
+
+.stat-value {
+  color: #fdcffa;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #4e56c088;
+  margin-left: 15px;
+}
+
+/* ========== 勇士积分排行榜样式 (AchievementsPage) ========== */
+.leaderboard-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 10px;
+  background-color: #00000033;
+  border-radius: 5px;
+}
+
+/* 排行榜标题和当前排名 */
+.leaderboard-header {
+  width: 100%;
+  height: 50px;
+  flow-children: right;
+  padding: 10px 15px;
+  background-color: #4e56c088;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 2px solid #9b5de0;
+}
+
+.leaderboard-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fdcffa;
+  text-shadow: 2px 2px 4px #00000088;
+  vertical-align: center;
+  width: 60%;
+}
+
+.current-rank-display {
+  width: 40%;
+  flow-children: right;
+  vertical-align: center;
+}
+
+.current-rank-label {
+  font-size: 14px;
+  color: #d78fee;
+  vertical-align: center;
+  margin-right: 5px;
+}
+
+.current-rank-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #fdcffa;
+  text-shadow: 1px 1px 3px #4e56c0;
+  vertical-align: center;
+}
+
+.leaderboard-col-rank {
+  width: 15%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9b5de0;
+  vertical-align: center;
+}
+
+.leaderboard-col-avatar {
+  width: 15%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9b5de0;
+  vertical-align: center;
+}
+
+.leaderboard-col-name {
+  width: 70%;
+  font-size: 14px;
+  font-weight: bold;
+  color: #9b5de0;
+  vertical-align: center;
+}
+
+.player-rank {
+  width: 15%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #d78fee;
+  vertical-align: center;
+}
+
+.player-avatar {
+  width: 40px;
+  height: 40px;
+  vertical-align: center;
+  margin-right: 8px;
+}
+
+.player-name {
+  width: 70%;
+  font-size: 14px;
+  color: #9b5de0;
+  vertical-align: center;
+}
+
+/* ========== SettingsPage 样式 ========== */
+.settings-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 15px;
+  background-color: #00000033;
+  border-radius: 5px;
+}
+
+.setting-item {
+  width: 100%;
+  height: 40px;
+  flow-children: right;
+  margin-bottom: 12px;
+  background-color: #00000044;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #4e56c0;
+
+  &:hover {
+    border-left-color: #d78fee;
+  }
+}
+
+.setting-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #d78fee;
+  vertical-align: center;
+  width: 200px;
+}
+
+.setting-button {
+  width: 100px;
+  height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: #2a2a3e;
+  border: 2px solid #4e56c0;
+  border-radius: 4px;
+  color: #d78fee;
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.2s;
+
+  &:hover {
+    background-color: #4e56c0;
+    border-color: #9b5de0;
+    color: #fdcffa;
+  }
+
+  &:active {
+    background-color: #9b5de0;
+    border-color: #fdcffa;
+    color: #ffffff;
+  }
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #d78fee;
+  text-shadow: 2px 2px 4px #4e56c088;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #9b5de044;
+}
+
+.setting-value {
+  font-size: 16px;
+  color: #9b5de0;
+  vertical-align: center;
+  margin-left: 10px;
+}
