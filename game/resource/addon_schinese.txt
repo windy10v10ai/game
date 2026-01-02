@@ -832,6 +832,27 @@
 		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"总魔法吸收系数："
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"尽管美杜莎生来没被赐以永恒的生命，但她所受的诅咒赋予了她独一无二的防御力量。"
 
+		// 能量转移
+		"DOTA_Tooltip_ability_slark_essence_shift2"								"能量转移"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Description"					"斯拉克的攻击会偷走敌方英雄的生命能量，每次吸取他们的%stat_loss%点全属性并转化成自身额外%agi_gain%点敏捷值。只要敌方英雄带着该效果在斯拉克%steal_radius%范围内阵亡，他将永久窃取%stat_loss%点敏捷。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_duration"						"持续时间："
+		"DOTA_Tooltip_ability_slark_essence_shift2_steal_radius"					"窃取范围："
+		"DOTA_Tooltip_ability_slark_essence_shift2_Lore"							"每攻击一次敌人，斯拉克对他们的弱点就多了解一分。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note0"						"属性值最少为1点。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note1"						"斯拉克或受到作用的单位死亡后，阵亡单位因能量转移变化的属性值将回归正常。但是两方的属性值相互独立，并无关联。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note2"						"斯拉克无需完成击杀就能永久窃取敏捷，只要敌方英雄身上拥有能量转移状态时在斯拉克的窃取范围内阵亡即可。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note3"						"破坏会使技能无法获得临时的叠加效果。依然可以获得永久的叠加效果。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note4"						"破坏不会使现有叠加效果提供的加成失效。"
+
+		"DOTA_Tooltip_modifier_slark_essence_shift2"							"能量转移"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_Description"				"偷取%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter"			"能量转移"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter_Description"	"每种属性丢失%dMODIFIER_PROPERTY_TOOLTIP%点。"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff"	"永久敏捷"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"已获得%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"永久获得敏捷。"
+
+		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"魔剑"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"每%one_tooltip%%%的技能增强获得%bonus_damage_pct_tooltip%%%的攻击力和%magic_resist_pct_tooltip%%%的魔抗"
 
