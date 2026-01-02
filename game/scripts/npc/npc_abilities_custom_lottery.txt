@@ -1,5 +1,40 @@
 "DOTAAbilities"
 {
+	// 能量转移
+	"slark_essence_shift2"
+	{
+		"MaxLevel"						"1"
+		"BaseClass"						"slark_essence_shift"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		// "AbilityTextureName"			"slark_essence_shift"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+			"agi_gain"
+			{
+				"value"					"3"
+				"special_bonus_unique_slark_5" "+1"
+			}
+			"stat_loss"					"1"
+			"duration"
+			{
+				"value"					"15"
+				"hero_levelup"			"+2.5"
+				"special_bonus_unique_slark_4"	"+35"
+			}
+			"steal_radius"
+			{
+				"value"		"1200"				// 300
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_stacks_per_hero"
+			{
+				"value"						"0"
+			}
+		}
+	}
 	// 魔法盾
 	"medusa_mana_shield2"
 	{
