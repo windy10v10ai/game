@@ -6,7 +6,7 @@
 		"MaxLevel"						"1"
 		"BaseClass"						"slark_essence_shift"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		// "AbilityTextureName"			"slark_essence_shift"
+		"AbilityTextureName"			"slark_essence_shift"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
 
@@ -20,13 +20,12 @@
 			"stat_loss"					"1"
 			"duration"
 			{
-				"value"					"15"
-				"hero_levelup"			"+2.5"
-				"special_bonus_unique_slark_4"	"+35"
+				"value"					"20"			// 15
+				"hero_levelup"			"+2"			// 2.5
 			}
 			"steal_radius"
 			{
-				"value"		"1200"				// 300
+				"value"		"1500"				// 300
 				"affected_by_aoe_increase"	"1"
 			}
 			"max_stacks_per_hero"
