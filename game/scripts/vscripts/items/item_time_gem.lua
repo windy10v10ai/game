@@ -15,14 +15,13 @@ function item_time_gem:OnSpellStart()
     local caster = self:GetCaster()
 
     -- 刷新所有技能
-    for i = 0, caster:GetAbilityCount() - 1 do
-        local ability = caster:GetAbilityByIndex(i)
-        if ability and not ability:IsItem() and not self:IsAbitilyException(ability) then
-            if ability:GetCooldownTimeRemaining() > 0 then
-                ability:EndCooldown()
-            end
-        end
-    end
+	for i = 0, caster:GetAbilityCount() - 1 do
+		local ability = caster:GetAbilityByIndex(i)
+		if ability and not ability:IsItem() and not self:IsAbitilyException(ability) then
+			ability:RefreshCharges() 
+			ability:EndCooldown()
+		end
+	end
 
     -- 刷新物品(除了刷新球系列)
     for i = 0, 8 do
