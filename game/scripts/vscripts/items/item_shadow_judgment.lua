@@ -110,10 +110,11 @@ function item_shadow_judgment:ApplyBlueFantasyEffect(target)
     if not IsServer() then return end
 
     local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("mute_duration") * (1 - target:GetStatusResistance())
 
     -- 驱散
     target:Purge(true, false, false, false, false)
+    
+    local duration = self:GetSpecialValueFor("mute_duration") * (1 - target:GetStatusResistance())
 
     -- 添加自定义苍蓝幻想debuff
     target:AddNewModifier(caster, self, "modifier_shadow_judgment_mute", { duration = duration })
