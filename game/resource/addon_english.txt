@@ -1798,7 +1798,7 @@
 
 		// item_radiance_2
 		"DOTA_Tooltip_Ability_item_radiance_2"				"<font color='#C84F07'>Fiery</font> Radiance"
-		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second and causes them to miss %blind_pct%%% of their attacks. Deals %illusion_multiplier_pct%%% damage to illusions. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>Toggle: Burn</h1> When active, scorches enemies for %aura_damage% magical damage per second. Illusions deal %aura_damage_illusions% magical damage per second.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"A divine weapon that causes damage and a bright burning effect that lays waste to nearby enemies."
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_radiance_2_evasion"							"%+$evasion"
@@ -1982,7 +1982,7 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"Athena's Guard"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>Active: Arctic Blast</h1> Emits a freezing wave that causes enemies to take %spell_amp%%% more damage from spells for %resist_debuff_duration% seconds, deals %blast_damage% magical damage and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds. Deals %illusion_multiplier_pct%%% damage to illusions.<br><br>Radius: %blast_radius%\n\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and Health Restoration and Incoming Heal Amplification by %restoration_reduction_aura%%%. <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>Active: Arctic Blast</h1> Emits a freezing wave that causes enemies to take %spell_amp%%% more damage from spells for %resist_debuff_duration% seconds, deals %blast_damage% magical damage and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.<br><br>Radius: %blast_radius%\n\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and Health Restoration and Incoming Heal Amplification by %restoration_reduction_aura%%%. <br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"Said to have belonged to a goddess, today it retains much of its former power."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"The wave extends at a speed of %blast_speed% to a max size of %blast_radius%."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"The Arctic Blast follows its caster."
@@ -2030,7 +2030,7 @@
 
 		// item_silver_edge_2 无敌之刃
 		"DOTA_Tooltip_Ability_item_silver_edge_2"			"Edge of Lothar"
-		"DOTA_Tooltip_ability_item_silver_edge_2_Description"				"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage and disable their passive abilities for %backstab_duration% seconds.\n\n"
+		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>Active: Shadow Walk</h1>Makes you invisible for %windwalk_duration% seconds, or until you attack or cast a spell.  While invisible, you move %windwalk_movement_speed%%% faster and can move through units.  <br><br>Attacking to end the invisibility will deal %windwalk_bonus_damage% bonus physical damage, disable their passive abilities for %backstab_duration% seconds, and cap their movement speed to %max_movement_speed%.\n\n"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"As close to the original as can be, this blade strikes foes to their very core, shaking their resolve."
@@ -2438,7 +2438,7 @@
 
 		// 神器除你武器
 		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>Artifact: Heaven's Halberd</font>"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"	"<h1>Active: Disarm</h1> Prevents the target unit from attacking for %disarm_range% seconds on ranged units or %disarm_melee% seconds on melee units.\n<h1>Passive: Damage Block</h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>Active: Disarm</h1>Prevents a target from attacking for %disarm_melee% seconds.\n\n<h1>Passive: Damage Block</h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"			"Meow Star: Now go!"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health"	"+$health"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health_regen"	"+$hp_regen"
@@ -2476,15 +2476,12 @@
 
 		// 神器永恒虚灵刀
 		"DOTA_Tooltip_Ability_item_ethereal_blade_ultra"				"<font color='#e03e2e'>Artifact: Eternal Ethereal Blade</font>"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>Active: Ethereal Shock</h1> Fires an energy wave, turning the target into an ethereal state, increasing the magic damage they take by %ethereal_damage_bonus%%, and making them unable to attack or be attacked.<br><br>If the target is an enemy, they are also slowed by %blast_movement_slow%% and take additional magic damage equal to %blast_agility_multiplier%x[the target's main attribute] + %blast_damage_base%.<br><br>Cast range: %abilitycastrange%<br>Duration: %duration% seconds"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>Active: Ether Blast</h1>Converts the target unit to ethereal form, rendering them immune to physical damage, but unable to attack and %ethereal_damage_bonus%%% more vulnerable to magic damage.<br><br>  Enemy targets are also slowed by %blast_movement_slow%%%, and take %blast_stat_multiplier%x the sum of all your attributes + %blast_damage_base% as magical damage.<br>Duration: %duration% seconds"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"Shares cooldown with Ghost Scepter."
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"Units in ethereal state take an additional %ethereal_damage_bonus%% magic damage."
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"For versatile heroes, their main attribute value is 60%% of the sum of all attributes."
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note3"						"Using Town Portal Scroll or Boots of Travel will not dispel ethereal state."
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_agility"				"+$all"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana"                      "+$mana"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana_regen"                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_cast_range"                "+$cast_range"
 
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_mana_regen_multiplier"		"%+Mana Regen Amplification"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Lore"						"A sinister blade that flickers in and out of existence, dealing damage in both the physical and magical realms."
