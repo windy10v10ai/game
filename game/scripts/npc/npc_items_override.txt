@@ -681,7 +681,7 @@
 			"bonus_agility"			"10"		// 5
 			"bonus_strength"		"4"			// 2
 			"bonus_intellect"		"4"			// 2
-			"bonus_attack_speed"	"10"		// 5
+			"bonus_attack_speed"	"12"		// 6
 			"bonus_armor"			"3.5"		// 1.75
 		}
 	}

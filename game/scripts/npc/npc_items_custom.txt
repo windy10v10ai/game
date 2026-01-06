@@ -3592,7 +3592,7 @@
 				}
 				"blast_speed"			"500"
 				"restoration_reduction_aura"	"40"	// 25
-				"illusion_multiplier_pct"	"150"
+				"illusion_multiplier_pct"	"100"
 				"spell_amp"			"40"
 				"resist_debuff_duration"	"16.0"
 		}
