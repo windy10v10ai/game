@@ -3922,7 +3922,7 @@
 				"burn_dps_units"		"150"	//50
 				"burn_slow"			"50"		//20
 				"burn_duration"		"6"			//6
-				"stun_duration"		"0.6"		//0.5
+				"stun_duration"		"1.0"		//0.75
 				"burn_interval"			"1.0"	//1.0
 				"land_time"				".5"	//0.5
 				"impact_radius"
@@ -4003,7 +4003,7 @@
 			// Fall down effect
 			"base_damage"			"100"
 			"str_damage"			"100"
-			"meteor_stun_duration"	"0.8"
+			"meteor_stun_duration"	"1.0"
 			"slow_duration"			"6.0"
 			"meteor_burn_duration"	"6.0"
 			"meteor_burn_dps"		"100"
