@@ -161,7 +161,7 @@ export const abilityTiersPassiveBot: Tier[] = [
     names: [
       // 被动技能
       'muerta_gunslinger', // 神枪在手
-      'slark_essence_shift', // 能量转移
+      'slark_essence_shift2', // 能量转移
       'faceless_void_time_lock', // 时间锁定
 
       // 法球/开关技能

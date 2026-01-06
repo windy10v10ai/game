@@ -832,6 +832,27 @@
 		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"总魔法吸收系数："
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"尽管美杜莎生来没被赐以永恒的生命，但她所受的诅咒赋予了她独一无二的防御力量。"
 
+		// 能量转移
+		"DOTA_Tooltip_ability_slark_essence_shift2"								"能量转移"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Description"					"斯拉克的攻击会偷走敌方英雄的生命能量，每次吸取他们的%stat_loss%点全属性并转化成自身额外%agi_gain%点敏捷值。只要敌方英雄带着该效果在斯拉克%steal_radius%范围内阵亡，他将永久窃取%stat_loss%点敏捷。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_duration"						"持续时间："
+		"DOTA_Tooltip_ability_slark_essence_shift2_steal_radius"					"窃取范围："
+		"DOTA_Tooltip_ability_slark_essence_shift2_Lore"							"每攻击一次敌人，斯拉克对他们的弱点就多了解一分。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note0"						"属性值最少为1点。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note1"						"斯拉克或受到作用的单位死亡后，阵亡单位因能量转移变化的属性值将回归正常。但是两方的属性值相互独立，并无关联。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note2"						"斯拉克无需完成击杀就能永久窃取敏捷，只要敌方英雄身上拥有能量转移状态时在斯拉克的窃取范围内阵亡即可。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note3"						"破坏会使技能无法获得临时的叠加效果。依然可以获得永久的叠加效果。"
+		"DOTA_Tooltip_ability_slark_essence_shift2_Note4"						"破坏不会使现有叠加效果提供的加成失效。"
+
+		"DOTA_Tooltip_modifier_slark_essence_shift2"							"能量转移"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_Description"				"偷取%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter"			"能量转移"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter_Description"	"每种属性丢失%dMODIFIER_PROPERTY_TOOLTIP%点。"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff"	"永久敏捷"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"已获得%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
+		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"永久获得敏捷。"
+
+		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"魔剑"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"每%one_tooltip%%%的技能增强获得%bonus_damage_pct_tooltip%%%的攻击力和%magic_resist_pct_tooltip%%%的魔抗"
 
@@ -1806,7 +1827,7 @@
 
 		// item_radiance_2
 		"DOTA_Tooltip_Ability_item_radiance_2"				"圣焰之光"
-		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害，并且使他们物理攻击有%blind_pct%%%几率不会命中。对幻象造成%illusion_multiplier_pct%%%伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"一把神圣的武器，剑身的耀眼光芒能将敌人化为灰烬。"
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_radiance_2_evasion"							"%+$evasion"
@@ -1991,7 +2012,7 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"雅典娜的守护"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。对幻象造成%illusion_multiplier_pct%%%伤害。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低所有敌人%aura_attack_speed%攻击速度，%restoration_reduction_aura%%%生命回复和获得的治疗效果。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低所有敌人%aura_attack_speed%攻击速度，%restoration_reduction_aura%%%生命回复和获得的治疗效果。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"据说曾经属于某位女神希瓦，但是被宙斯送给雅典娜当玩具的后保留至今。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"极寒冲击将以施放者为中心。"
@@ -2039,7 +2060,7 @@
 
 		// item_silver_edge_2 无敌之刃
 		"DOTA_Tooltip_Ability_item_silver_edge_2"			"无敌之刃"
-		"DOTA_Tooltip_ability_item_silver_edge_2_Description"				"<h1>主动：暗影步</h1>进入隐身直到%windwalk_duration%秒持续时间结束，或者在此之前攻击或施法。隐身时，移动速度将提升%windwalk_movement_speed%%%，而且可以穿越单位。<br><br>破隐一击将额外造成%windwalk_bonus_damage%点物理伤害，同时%backstab_duration%秒内目标的被动技能无效。\n\n"
+		"DOTA_Tooltip_ability_item_silver_edge_2_Description"						"<h1>主动：疾影步</h1>进入隐身直到%windwalk_duration%秒持续时间结束、或者在此之前攻击或施法。隐身时，移动速度将提升%windwalk_movement_speed%%%，而且可以穿越单位。<br><br>破隐一击将额外造成%windwalk_bonus_damage%点物理伤害，同时%backstab_duration%秒内目标的被动技能无效，移动速度不会超过%max_movement_speed%。\n\n"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_damage"				"+$damage"
 		"DOTA_Tooltip_ability_item_silver_edge_2_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_silver_edge_2_Lore"						"众所周知，隐身等于无敌。"
@@ -2435,7 +2456,7 @@
 
 		// 神器除你武器
 		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>神器·除你武器</font>"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>主动：单防</h1>阻止目标单位进行物理攻击，持续%disarm_range%/%disarm_melee%（远程/近战）秒。\n\n<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>主动：缴械</h1>阻止目标单位进行物理攻击，持续%disarm_melee%秒。\n\n<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"								"喵星人：现在上啊"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health_regen"					"+$hp_regen"
@@ -2473,15 +2494,12 @@
 
 		// 神器永恒虚灵刀
 		"DOTA_Tooltip_Ability_item_ethereal_blade_ultra"				"<font color='#e03e2e'>神器·永恒虚灵之刃</font>"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>主动：虚化冲击</h1>发射一道能量波，将目标转变为虚无状态，接下来受到的魔法伤害将会提升%ethereal_damage_bonus%%%，并且无法攻击或被攻击。<br><br>如果目标是敌人还将被减速%blast_movement_slow%%%，并额外受到%blast_agility_multiplier%x[目标的主属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%duration%秒"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>主动：虚化冲击</h1>发射一道能量波，将目标转变为虚无状态，接下来受到的魔法伤害将会提升%ethereal_damage_bonus%%%，并且无法攻击或被攻击。<br><br>如果目标是敌人还将被减速%blast_movement_slow%%%，并额外受到%blast_stat_multiplier%x[自身属性总和]+%blast_damage_base%点魔法伤害。<br>持续时间：%duration%秒"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"与幽魂权杖共享冷却时间。"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"虚无状态下的单位将额外受到%ethereal_damage_bonus%%%的魔法伤害。"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"对于全才英雄，他们的主属性数值是所有属性总和的60%%。"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note3"						"使用回城卷轴或远行鞋不会驱散虚无状态。"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_agility"				"+$all"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana"                      "+$mana"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_mana_regen"                "+$mana_regen"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_cast_range"                "+$cast_range"
 
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_mana_regen_multiplier"		"%+魔法恢复增强"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Lore"						"一把忽隐忽现的阴森刀刃，可以在物理和魔法两个位面造成伤害。"
