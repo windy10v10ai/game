@@ -1827,7 +1827,7 @@
 
 		// item_radiance_2
 		"DOTA_Tooltip_Ability_item_radiance_2"				"圣焰之光"
-		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害，并且使他们物理攻击有%blind_pct%%%几率不会命中。对幻象造成%illusion_multiplier_pct%%%伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_radiance_2_Description"						"<h1>开关：辉耀灼烧</h1>开启后，辉耀灼烧每秒对敌军造成%aura_damage%点魔法伤害。幻象每秒造成%aura_damage_illusions%点魔法伤害。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_radiance_2_Lore"								"一把神圣的武器，剑身的耀眼光芒能将敌人化为灰烬。"
 		"DOTA_Tooltip_ability_item_radiance_2_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_radiance_2_evasion"							"%+$evasion"

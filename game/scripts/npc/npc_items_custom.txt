@@ -590,18 +590,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"60"
+				"bonus_damage"			"55"
 				"aura_damage"			"120"
 				"aura_damage_illusions"	"60"
 				"upgrade_day_vision"	"400"
-				"evasion"				"17"
-				"blind_pct"				"17"
+				"evasion"				"25"
+				"blind_pct"				"0"
 				"aura_radius"
 				{
 					"value"		"750"
 					"affected_by_aoe_increase"	"1"
 				}
-				"illusion_multiplier_pct"	"150"
+				"illusion_multiplier_pct"	"100"
 		}
 	}
 
