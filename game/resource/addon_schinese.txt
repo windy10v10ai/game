@@ -2456,7 +2456,7 @@
 
 		// 神器除你武器
 		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>神器·除你武器</font>"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>主动：单防</h1>阻止目标单位进行物理攻击，持续%disarm_range%/%disarm_melee%（远程/近战）秒。\n\n<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>主动：缴械</h1>阻止目标单位进行物理攻击，持续%disarm_melee%秒。\n\n<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"								"喵星人：现在上啊"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health_regen"					"+$hp_regen"

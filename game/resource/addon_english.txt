@@ -2438,7 +2438,7 @@
 
 		// 神器除你武器
 		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>Artifact: Heaven's Halberd</font>"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"	"<h1>Active: Disarm</h1> Prevents the target unit from attacking for %disarm_range% seconds on ranged units or %disarm_melee% seconds on melee units.\n<h1>Passive: Damage Block</h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
+		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>Active: Disarm</h1>Prevents a target from attacking for %disarm_melee% seconds.\n\n<h1>Passive: Damage Block</h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"			"Meow Star: Now go!"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health"	"+$health"
 		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health_regen"	"+$hp_regen"
