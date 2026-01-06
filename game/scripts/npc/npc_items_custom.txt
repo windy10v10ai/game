@@ -5508,18 +5508,16 @@
 		"AbilityTextureName"			"ethereal_blade_ultra"
 		"AbilityValues"
 		{
-				"bonus_agility"			"20"	//8
-				"bonus_strength"		"20"	//8
-				"bonus_intellect"		"20"	//8
-				"bonus_mana"			"600"	//300
-				"bonus_cast_range"		"300"	//250
-				"bonus_mana_regen"		"6"		//3
+				"bonus_agility"			"50"	//24
+				"bonus_strength"		"50"	//24
+				"bonus_intellect"		"50"	//24
+
 				"blast_movement_slow"	"-100"	//-80
 				"duration"				"1.5"		//4
-				"blast_agility_multiplier"	"2.0"//1.5
+				"blast_stat_multiplier"		"1.5"	//1.0
 				"blast_damage_base"			"200"//50
-				"duration_ally"				"8"	//4.0
-				"ethereal_damage_bonus"	"-80"	//-40
+				"duration_ally"				"6"	//4.0
+				"ethereal_damage_bonus"	"-60"	//-30
 				"projectile_speed"	"2000"		//1400
 		}
 	}
