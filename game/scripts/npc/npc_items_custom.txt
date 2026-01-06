@@ -2149,8 +2149,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage" "20"// 随配方
-			"bonus_attack_speed"	"190"// 随配方
+			"bonus_damage"			"40"
+			"bonus_attack_speed"	"190"
 			"bonus_strength"		"0"
 			"bonus_intellect"			"0"
 			"bonus_mana_regen"		"0"
@@ -2158,7 +2158,8 @@
 			"windwalk_movement_speed"	"30"
 			"windwalk_fade_time"	"0.3"
 			"windwalk_bonus_damage"	"600"
-			"backstab_duration"		"8"
+			"backstab_duration"		"6"
+			"max_movement_speed"	"200"
 			"visibility_radius"		"1025"
 		}
 	}
@@ -4741,7 +4742,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"11800"
+		"ItemCost"						"4350"
         "ItemShopTags"					"regen_health;regen_mana;mana_pool;health_pool"
         "ItemQuality"					"epic"
         "ItemAliases"					"bs;bloodstone"
@@ -4753,13 +4754,13 @@
         //-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_aoe"				"75"
+			"bonus_aoe"				"60"
 			"bonus_health"			"500"
 			"bonus_mana"			"500"
 			"bonus_mp_regen"		"3"
 			// "spell_lifesteal"		"30"
-			"buff_duration"			"6"
-			"lifesteal_multiplier"	"2.5"
+			// "buff_duration"			"6"
+			// "lifesteal_multiplier"	"2.5"
 			"hp_cost"				"0"
 		}
     }
@@ -4825,8 +4826,8 @@
 			"cast_range_bonus"		"300"
 			"bonus_health"			"1500"
 			"bonus_mana"			"1500"
-			"bonus_health_regen"	"30.0"
-			"bonus_mana_regen"		"20.0"
+			"bonus_health_regen"	"20.0"
+			"bonus_mana_regen"		"15.0"
 		}
 	}
 
@@ -6874,8 +6875,8 @@
 			"bonus_all_stats"			"100"	// tooltip only - 全属性
 			"bonus_health"				"1500"	// tooltip only - 生命值
 			"bonus_mana"				"1500"	// tooltip only - 魔法值
-			"bonus_health_regen"		"30.0"	// tooltip only - 生命恢复
-			"bonus_mana_regen"			"20.0"	// tooltip only - 魔法恢复
+			"bonus_health_regen"		"20.0"	// tooltip only - 生命恢复
+			"bonus_mana_regen"			"15.0"	// tooltip only - 魔法恢复
 
 			// Lua 逻辑需要的参数
 			"manacost_reduction"		"50"	// 新增:减魔耗百分比
