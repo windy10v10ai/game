@@ -132,10 +132,12 @@ end
 
 
 function modifier_item_time_gem:GetModifierPercentageCooldown()
+	local parent = self:GetParent()
+	
 	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-		if self:GetParent():HasModifier("modifier_item_octarine_core")
-            or self:GetParent():HasModifier("modifier_item_arcane_octarine_core")
-            or self:GetParent():HasModifier("modifier_item_refresh_core") then
+		if parent:HasModifier("modifier_item_octarine_core")
+            or parent:HasModifier("modifier_item_arcane_octarine_core")
+            or parent:HasModifier("modifier_item_refresh_core") then
 			return self.bonus_cooldown_stack
 		else
 			return self.bonus_cooldown or 50
