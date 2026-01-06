@@ -6881,6 +6881,7 @@
 			"manacost_reduction"		"50"	// 新增:减魔耗百分比
 			"cast_speed_pct"			"50"	// 新增:施法速度加成百分比
 			"bonus_cooldown"			"50"
+			"bonus_cooldown_stack"		"25"	// new attribute
 			"cast_range_bonus"			"400"
 		}
 	}
