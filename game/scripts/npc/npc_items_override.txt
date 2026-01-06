@@ -222,8 +222,8 @@
 		"AbilityValues"
 		{
 			"duration"				"180"	// 120
-			"radius"				"750"	// 650
-			"health"				"60"	// 24
+			"health"				"40 80 120"
+			"health_tooltip"		"10 20 30"
 			"buff_linger_duration"		"15"// 0.1
 		}
 	}
@@ -294,15 +294,15 @@
 	//=================================================================================================================
 	"item_recipe_angels_demise"
 	{
-		"ItemCost"						"2000"
+		"ItemCost"						"1000"
 	}
 	"item_angels_demise"
 	{
 		"AbilityCooldown"				"3.0"	// 12
 		"AbilityValues"
 		{
-			"bonus_health"				"600"	// 200
-			"bonus_mana"				"600"	// 200
+			"bonus_health"				"600"	// 450
+			"bonus_mana"				"600"	// 450
 			"bonus_all_stats"			"25"	// 8
 			"slow"						"50"	// 30
 			"bonus_spell_damage"		"900"	// 250
@@ -483,11 +483,11 @@
 		"AbilityTextureName"			"item_bloodstone_v2"
 		"AbilityValues"
 		{
-			"bonus_aoe"				"120"	// 75
+			"bonus_aoe"				"120"	// 60
 			"bonus_health"			"1200"	// 450
 			"bonus_mana"			"1200"	// 450
 			"bonus_mp_regen"		"6"		// 3
-			"spell_lifesteal"		"30"	// 20
+			"spell_lifesteal"		"40"	// 25
 		}
 	}
 	// 以太卷轴
@@ -640,7 +640,7 @@
 		{
 				"heal_increase"			"25"	// 15
 				"max_charges"			"30"	// 20
-				"bonus_all_stats"		"15"	// 9
+				"bonus_all_stats"		"12"	// 7
 				"restore_per_charge"	"30"	// 17
 				"charge_gain_timer"		"5"		// 10
 				"use_cooldown"			"10"	// 13
@@ -681,7 +681,7 @@
 			"bonus_agility"			"10"		// 5
 			"bonus_strength"		"4"			// 2
 			"bonus_intellect"		"4"			// 2
-			"bonus_attack_speed"	"10"		// 5
+			"bonus_attack_speed"	"12"		// 6
 			"bonus_armor"			"3.5"		// 1.75
 		}
 	}
