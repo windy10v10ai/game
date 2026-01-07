@@ -4,110 +4,51 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Recipe: Moon Shard
-	//=================================================================================================================
-	"item_recipe_moon_shard_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9001"
-		"BaseClass"					"item_datadriven"
-		"Model"						"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"4000"
-		"ItemShopTags"				""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_moon_shard_datadriven"
-		"ItemRequirements"
-		{
-			"01"					"item_hyperstone;item_hyperstone"
-		}
-	}
-	//=================================================================================================================
-	// Moon Shard 银月
+	// Moon Shard (Custom Stackable)
 	//=================================================================================================================
 	"item_moon_shard_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9002"
-		"BaseClass"					"item_datadriven"
-		"AbilityTextureName" 		"item_moon_shard_datadriven"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+		"ID"                            "9002"
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/item_moon_shard"
+		"AbilityTextureName"            "item_moon_shard_datadriven"
 
-		"AbilityCastRange"			"0" // anywhere on the map
-		"IsTempestDoubleClonable"	"0"
+		// Behavior matches the Lua script logic
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityCastRange"              "0"
 
-		// Item Info
+		// Item Info (Stacking logic copied from Tome)
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"8000"
-		"ItemShopTags"				"attack_speed"
-		"ItemQuality"				"common"
-		"ItemAliases"				"moon shard"
-		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemCost"                      "8000"
+		"ItemShopTags"                  "attack_speed;consumable"
+		"ItemQuality"                   "common"
+		"ItemAliases"                   "moon shard"
 
-		// Special
+		"ItemStackable"                 "1"
+		"ItemPermanent"                 "0"
+		"ItemInitialCharges"            "1"
+		"IsTempestDoubleClonable"       "0"
+		"ItemSellable"                  "1"
+		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
+
+		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special Values (Used for tooltips primarily now, logic is in Lua)
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_attack_speed"			"200"
-				"bonus_night_vision"			"400"
-				"consumed_bonus_attack_speed"	"100"	// tooltip only
-				"consumed_bonus_night_vision"	"200"	// tooltip only
-				"consumed_bonus_day_vision"		"200"	// tooltip only
-		}
+			// Passive stats (while holding)
+			"bonus_attack_speed"            "200"
+			"bonus_night_vision"            "400"
 
-		// Data driven
-		// -------------------------------------------------------------------------------------------------------------
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"items/item_moon_shard"
-				"Function"			"MoonShardOnSpell"
-
-				"modifier"			"modifier_item_moon_shard_datadriven_consumed"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_item_moon_shard_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"%bonus_night_vision"
-				}
-			}
-			"modifier_item_moon_shard_datadriven_consumed"
-			{
-				"IsBuff"			"1"
-				"IsPurgable"		"0"
-
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"TextureName"		"item_moon_shard_datadriven"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"100"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"200"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"200"
-				}
-			}
+			// Consumed stats (per stack of the buff)
+			"consumed_bonus_attack_speed"   "100"
+			"consumed_bonus_night_vision"   "200"
+			"consumed_bonus_day_vision"     "200"
 		}
 	}
 	//=================================================================================================================
@@ -590,18 +531,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"55"
+				"bonus_damage"			"60"
 				"aura_damage"			"120"
 				"aura_damage_illusions"	"60"
 				"upgrade_day_vision"	"400"
-				"evasion"				"25"
-				"blind_pct"				"0"
+				"evasion"				"17"
+				"blind_pct"				"17"
 				"aura_radius"
 				{
 					"value"		"750"
 					"affected_by_aoe_increase"	"1"
 				}
-				"illusion_multiplier_pct"	"100"
+				"illusion_multiplier_pct"	"150"
 		}
 	}
 
@@ -1034,7 +975,7 @@
 		{
 				"bonus_strength"		"120"	// Tooltip, real value in item_undying_heart_bonus_strength
 				"bonus_health"			"1600"
-				"health_regen_pct"		"2"
+				"health_regen_pct"		"2.2"
 				"bonus_evasion"			"20"
 				"status_resistance"		"8"
 				"dur"					"5"
@@ -1915,8 +1856,8 @@
 		"ItemQuality"					"consumable"
 		"ItemStackable"					"1"
 		"ItemPermanent"					"0"
-		"ItemInitialCharges"				"1"
-		"IsTempestDoubleClonable"			"0"
+		"ItemInitialCharges"			"1"
+		"IsTempestDoubleClonable"		"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 		"AbilityValues"
@@ -2149,8 +2090,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"40"
-			"bonus_attack_speed"	"190"
+			"bonus_damage" "20"// 随配方
+			"bonus_attack_speed"	"190"// 随配方
 			"bonus_strength"		"0"
 			"bonus_intellect"			"0"
 			"bonus_mana_regen"		"0"
@@ -2158,8 +2099,7 @@
 			"windwalk_movement_speed"	"30"
 			"windwalk_fade_time"	"0.3"
 			"windwalk_bonus_damage"	"600"
-			"backstab_duration"		"6"
-			"max_movement_speed"	"200"
+			"backstab_duration"		"8"
 			"visibility_radius"		"1025"
 		}
 	}
@@ -3592,7 +3532,7 @@
 				}
 				"blast_speed"			"500"
 				"restoration_reduction_aura"	"40"	// 25
-				"illusion_multiplier_pct"	"100"
+				"illusion_multiplier_pct"	"150"
 				"spell_amp"			"40"
 				"resist_debuff_duration"	"16.0"
 		}
@@ -3922,7 +3862,7 @@
 				"burn_dps_units"		"150"	//50
 				"burn_slow"			"50"		//20
 				"burn_duration"		"6"			//6
-				"stun_duration"		"1.0"		//0.75
+				"stun_duration"		"0.6"		//0.5
 				"burn_interval"			"1.0"	//1.0
 				"land_time"				".5"	//0.5
 				"impact_radius"
@@ -4003,7 +3943,7 @@
 			// Fall down effect
 			"base_damage"			"100"
 			"str_damage"			"100"
-			"meteor_stun_duration"	"1.0"
+			"meteor_stun_duration"	"0.8"
 			"slow_duration"			"6.0"
 			"meteor_burn_duration"	"6.0"
 			"meteor_burn_dps"		"100"
@@ -4659,7 +4599,7 @@
 		// Charge
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"2"
-		"AbilityChargeRestoreTime"		"90"
+		"AbilityChargeRestoreTime"		"110"
 		"ItemInitialCharges"			"1"
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
@@ -4686,11 +4626,11 @@
 		"AbilityValues"
 		{
 			"attack_speed"		"100"	// tooltip, real value  in modifier_item_hand_of_group_stats
-			"self_xp"			"2"
+			"self_xp"			"3.6"
 			"self_gold"			"360"
 
 			"group_range"		"1800"
-			"group_xp"			"0.5"
+			"group_xp"			"0.8"
 			"group_gold"		"80"
 		}
 	}
@@ -4742,7 +4682,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4350"
+        "ItemCost"						"11800"
         "ItemShopTags"					"regen_health;regen_mana;mana_pool;health_pool"
         "ItemQuality"					"epic"
         "ItemAliases"					"bs;bloodstone"
@@ -4754,13 +4694,13 @@
         //-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_aoe"				"60"
+			"bonus_aoe"				"75"
 			"bonus_health"			"500"
 			"bonus_mana"			"500"
 			"bonus_mp_regen"		"3"
 			// "spell_lifesteal"		"30"
-			// "buff_duration"			"6"
-			// "lifesteal_multiplier"	"2.5"
+			"buff_duration"			"6"
+			"lifesteal_multiplier"	"2.5"
 			"hp_cost"				"0"
 		}
     }
@@ -4826,8 +4766,8 @@
 			"cast_range_bonus"		"300"
 			"bonus_health"			"1500"
 			"bonus_mana"			"1500"
-			"bonus_health_regen"	"20.0"
-			"bonus_mana_regen"		"15.0"
+			"bonus_health_regen"	"30.0"
+			"bonus_mana_regen"		"20.0"
 		}
 	}
 
@@ -5450,7 +5390,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"18"
 		"AbilityCastRange"				"900"	//650
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"150"
@@ -5466,13 +5406,12 @@
 		{
 				"bonus_health"				"1000"	//275
 				"bonus_health_regen"		"18"	//6
+				"bonus_all_stats"			"15"	//5
+				"disarm_range"				"8.0"	//4
+				"disarm_melee"				"6.0"	//3
+				"block_chance"				"90"	//60
 				"block_damage_melee"		"200"	//60
 				"block_damage_ranged"		"100"	//30
-				"block_chance"				"90"	//60
-				"bonus_all_stats"			"15"	//5
-
-				"disarm_range"				"6.0"	//3
-				"disarm_melee"				"6.0"	//3
 		}
 	}
 	//=================================================================================================================
@@ -5481,7 +5420,7 @@
 	"item_recipe_ethereal_blade_ultra"
 	{
 		"BaseClass"						"item_recipe_ethereal_blade"
-		"ItemCost"						"600"
+		"ItemCost"						"1100"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_ethereal_blade_ultra"
@@ -5509,16 +5448,18 @@
 		"AbilityTextureName"			"ethereal_blade_ultra"
 		"AbilityValues"
 		{
-				"bonus_agility"			"50"	//24
-				"bonus_strength"		"50"	//24
-				"bonus_intellect"		"50"	//24
-
+				"bonus_agility"			"20"	//8
+				"bonus_strength"		"20"	//8
+				"bonus_intellect"		"20"	//8
+				"bonus_mana"			"600"	//300
+				"bonus_cast_range"		"300"	//250
+				"bonus_mana_regen"		"6"		//3
 				"blast_movement_slow"	"-100"	//-80
 				"duration"				"1.5"		//4
-				"blast_stat_multiplier"		"1.5"	//1.0
+				"blast_agility_multiplier"	"2.0"//1.5
 				"blast_damage_base"			"200"//50
-				"duration_ally"				"6"	//4.0
-				"ethereal_damage_bonus"	"-60"	//-30
+				"duration_ally"				"8"	//4.0
+				"ethereal_damage_bonus"	"-80"	//-40
 				"projectile_speed"	"2000"		//1400
 		}
 	}
@@ -6874,8 +6815,8 @@
 			"bonus_all_stats"			"100"	// tooltip only - 全属性
 			"bonus_health"				"1500"	// tooltip only - 生命值
 			"bonus_mana"				"1500"	// tooltip only - 魔法值
-			"bonus_health_regen"		"20.0"	// tooltip only - 生命恢复
-			"bonus_mana_regen"			"15.0"	// tooltip only - 魔法恢复
+			"bonus_health_regen"		"30.0"	// tooltip only - 生命恢复
+			"bonus_mana_regen"			"20.0"	// tooltip only - 魔法恢复
 
 			// Lua 逻辑需要的参数
 			"manacost_reduction"		"50"	// 新增:减魔耗百分比
@@ -6885,6 +6826,7 @@
 			"cast_range_bonus"			"400"
 		}
 	}
+
 
 	//=================================================================================================================
 	// 兽化盾
