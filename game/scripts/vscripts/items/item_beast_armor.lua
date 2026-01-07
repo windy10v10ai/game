@@ -107,6 +107,9 @@ function OnSpellStart(keys)
             PATTACH_ABSORIGIN_FOLLOW, enemy)
         ParticleManager:ReleaseParticleIndex(particle)
     end
+
+    -- remove debuff
+	caster:Purge(false, true, false, false, false)
 end
 
 -- ========================================
