@@ -4,110 +4,51 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Recipe: Moon Shard
-	//=================================================================================================================
-	"item_recipe_moon_shard_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9001"
-		"BaseClass"					"item_datadriven"
-		"Model"						"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"4000"
-		"ItemShopTags"				""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_moon_shard_datadriven"
-		"ItemRequirements"
-		{
-			"01"					"item_hyperstone;item_hyperstone"
-		}
-	}
-	//=================================================================================================================
-	// Moon Shard 银月
+	// Moon Shard (Custom Stackable)
 	//=================================================================================================================
 	"item_moon_shard_datadriven"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9002"
-		"BaseClass"					"item_datadriven"
-		"AbilityTextureName" 		"item_moon_shard_datadriven"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+		"ID"                            "9002"
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/item_moon_shard"
+		"AbilityTextureName"            "item_moon_shard_datadriven"
 
-		"AbilityCastRange"			"0" // anywhere on the map
-		"IsTempestDoubleClonable"	"0"
+		// Behavior matches the Lua script logic
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CUSTOM"
+		"AbilityCastRange"              "0"
 
-		// Item Info
+		// Item Info (Stacking logic copied from Tome)
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"8000"
-		"ItemShopTags"				"attack_speed"
-		"ItemQuality"				"common"
-		"ItemAliases"				"moon shard"
-		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemCost"                      "8000"
+		"ItemShopTags"                  "attack_speed;consumable"
+		"ItemQuality"                   "common"
+		"ItemAliases"                   "moon shard"
 
-		// Special
+		"ItemStackable"                 "1"
+		"ItemPermanent"                 "0"
+		"ItemInitialCharges"            "1"
+		"IsTempestDoubleClonable"       "0"
+		"ItemSellable"                  "1"
+		"ItemShareability"              "ITEM_FULLY_SHAREABLE"
+
+		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Special Values (Used for tooltips primarily now, logic is in Lua)
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_attack_speed"			"200"
-				"bonus_night_vision"			"400"
-				"consumed_bonus_attack_speed"	"100"	// tooltip only
-				"consumed_bonus_night_vision"	"200"	// tooltip only
-				"consumed_bonus_day_vision"		"200"	// tooltip only
-		}
+			// Passive stats (while holding)
+			"bonus_attack_speed"            "200"
+			"bonus_night_vision"            "400"
 
-		// Data driven
-		// -------------------------------------------------------------------------------------------------------------
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"		"items/item_moon_shard"
-				"Function"			"MoonShardOnSpell"
-
-				"modifier"			"modifier_item_moon_shard_datadriven_consumed"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_item_moon_shard_datadriven"
-			{
-				"Passive"			"1"
-				"IsHidden"			"1"
-
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%bonus_attack_speed"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"%bonus_night_vision"
-				}
-			}
-			"modifier_item_moon_shard_datadriven_consumed"
-			{
-				"IsBuff"			"1"
-				"IsPurgable"		"0"
-
-				"Attributes" 		"MODIFIER_ATTRIBUTE_PERMANENT"
-
-				"TextureName"		"item_moon_shard_datadriven"
-
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"100"
-					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"				"200"
-					"MODIFIER_PROPERTY_BONUS_DAY_VISION"				"200"
-				}
-			}
+			// Consumed stats (per stack of the buff)
+			"consumed_bonus_attack_speed"   "100"
+			"consumed_bonus_night_vision"   "200"
+			"consumed_bonus_day_vision"     "200"
 		}
 	}
 	//=================================================================================================================
