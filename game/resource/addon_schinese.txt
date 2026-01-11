@@ -852,6 +852,15 @@
 		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"已获得%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
 		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"永久获得敏捷。"
 
+		// 荒芜
+		"DOTA_Tooltip_ability_spectre_desolate2"								"荒芜"
+		"DOTA_Tooltip_ability_spectre_desolate2_Description"					"幽鬼的攻击对敌人造成额外的纯粹伤害。"
+		"DOTA_Tooltip_ability_spectre_desolate2_bonus_damage"				"伤害："
+		"DOTA_Tooltip_ability_spectre_desolate2_Facet_spectre_forsaken"		"幽鬼自身的荒芜造成%bonus_damage_multiplier_tooltip%倍伤害，但是幽鬼的幻象不再触发荒芜。"
+		"DOTA_Tooltip_ability_spectre_desolate2_Lore"						"战士们常常发现自己落单后还能在身边看到墨丘利——不得不质疑，这是不是真正的幽鬼。"
+		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"伤害在幽鬼攻击前产生。"
+		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"幽鬼的幻象继承荒芜。"
+
 		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"魔剑"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"每%one_tooltip%%%的技能增强获得%bonus_damage_pct_tooltip%%%的攻击力和%magic_resist_pct_tooltip%%%的魔抗"

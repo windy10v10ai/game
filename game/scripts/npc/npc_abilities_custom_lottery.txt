@@ -1,5 +1,26 @@
 "DOTAAbilities"
 {
+	// 荒芜
+	"spectre_desolate2"
+	{
+		"MaxLevel"						"5"
+		"BaseClass"						"spectre_desolate"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"spectre_desolate"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+
+			"bonus_damage"
+			{
+				"value"									"25 40 55 70 85"
+				"hero_levelup"							"+2"
+			}
+			"radius"						"0"
+		}
+	}
 	// 能量转移
 	"slark_essence_shift2"
 	{
