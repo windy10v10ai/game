@@ -196,10 +196,10 @@ export class EventEntityKilled {
     }
 
     // NEC大招 每一级增加6秒
-    const necrolyteReapersScythe = hero.FindModifierByName('modifier_necrolyte_reapers_scythe');
-    if (necrolyteReapersScythe) {
-      respawnTime += (necrolyteReapersScythe.GetAbility()?.GetLevel() ?? 0) * 6;
-    }
+    //const necrolyteReapersScythe = hero.FindModifierByName('modifier_necrolyte_reapers_scythe');
+    //if (necrolyteReapersScythe) {
+    //  respawnTime += (necrolyteReapersScythe.GetAbility()?.GetLevel() ?? 0) * 6;
+    //}
 
     // 会员减少5s复活时间
     if (Player.IsMemberStatic(PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID()))) {
