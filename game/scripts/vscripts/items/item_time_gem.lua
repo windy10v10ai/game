@@ -15,22 +15,22 @@ function item_time_gem:OnSpellStart()
     local caster = self:GetCaster()
 
     -- 刷新所有技能
-	for i = 0, caster:GetAbilityCount() - 1 do
-		local ability = caster:GetAbilityByIndex(i)
-		if ability and ability:GetAbilityType() ~= ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException(ability) then
-			ability:RefreshCharges()
-			ability:EndCooldown()
-		end
-	end
+    for i = 0, caster:GetAbilityCount() - 1 do
+        local ability = caster:GetAbilityByIndex(i)
+        if ability and ability:GetAbilityType() ~= ABILITY_TYPE_ATTRIBUTES and not self:IsAbitilyException(ability) then
+            ability:RefreshCharges()
+            ability:EndCooldown()
+        end
+    end
 
     -- 刷新物品(除了刷新球系列)
     for i = 0, 8 do
         local item = caster:GetItemInSlot(i)
-        self:RefreshItem(item, caster)
+        RefreshItem(self, item, caster)
     end
 
     local itemTp = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-    self:RefreshItem(itemTp, caster)
+    RefreshItem(self, itemTp, caster)
 
     -- 音效和特效
     caster:EmitSound("DOTA_Item.Refresher.Activate")
@@ -41,24 +41,6 @@ function item_time_gem:OnSpellStart()
 
     -- 物品会自动进入冷却,因为定义文件中有 AbilityCooldown
 end
-
-function item_time_gem:RefreshItem(item, caster)
-    if item and item:GetPurchaser() == caster then
-        if item:IsRefreshable() then
-            item:EndCooldown()
-        end
-        if self.ItemShareCooldown[item:GetName()] then
-            item:StartCooldown(self:GetCooldownTimeRemaining())
-        end
-    end
-end
-
-item_time_gem.ItemShareCooldown = {
-    ["item_refresher"] = true,
-    ["item_refresher_shard"] = true,
-    ["item_refresh_core"] = true,
-    ["item_time_gem"] = true,
-}
 
 function item_time_gem:IsAbitilyException(ability)
     local exceptions = {
@@ -86,17 +68,17 @@ function modifier_item_time_gem:OnCreated()
     local ability = self:GetAbility()
     if ability then
         self.bonus_cooldown = ability:GetSpecialValueFor("bonus_cooldown")
-		self.bonus_cooldown_stack = ability:GetSpecialValueFor("bonus_cooldown_stack")
+        self.bonus_cooldown_stack = ability:GetSpecialValueFor("bonus_cooldown_stack")
         self.cast_range_bonus = ability:GetSpecialValueFor("cast_range_bonus")
         self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction")
         self.cast_speed_pct = ability:GetSpecialValueFor("cast_speed_pct")
     end
 
-	if IsServer() then
-		for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
-			mod:GetAbility():SetSecondaryCharges(_)
-		end
-	end
+    if IsServer() then
+        for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
+            mod:GetAbility():SetSecondaryCharges(_)
+        end
+    end
 end
 
 function modifier_item_time_gem:OnRefresh()
@@ -130,18 +112,17 @@ function modifier_item_time_gem:GetModifierPercentageCasttime()
     return self.cast_speed_pct or 0
 end
 
-
 function modifier_item_time_gem:GetModifierPercentageCooldown()
     local parent = self:GetParent()
-	if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
-		if parent:HasModifier("modifier_item_octarine_core")
+    if self:GetAbility() and self:GetAbility():GetSecondaryCharges() == 1 then
+        if parent:HasModifier("modifier_item_octarine_core")
             or parent:HasModifier("modifier_item_arcane_octarine_core")
             or parent:HasModifier("modifier_item_refresh_core") then
-			return self.bonus_cooldown_stack
-		else
-			return self.bonus_cooldown or 50
-		end
-	end
+            return self.bonus_cooldown_stack
+        else
+            return self.bonus_cooldown or 50
+        end
+    end
 end
 
 function modifier_item_time_gem:GetModifierCastRangeBonus()
