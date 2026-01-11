@@ -186,6 +186,7 @@ export const abilityTiersPassiveBot: Tier[] = [
       'shredder_reactive_armor', // 活性活甲
       // 'spectre_dispersion', // 幽鬼 折射
       'spectre_dispersion2', // 幽鬼 折射改
+
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
 
@@ -198,6 +199,7 @@ export const abilityTiersPassiveBot: Tier[] = [
       'tinker_eureka2', // 修补匠 尤里卡！
       'rubick_might_and_magus2', // 拉比克 力量与魔法 魔剑
       'death_prophet_witchcraft2', // 死亡先知 巫术精研
+      'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂
 
       // 'ability_trigger_learned_skills', //蓝蝴蝶
       // 'ability_trigger_on_spell_reflect', //绿蝴蝶

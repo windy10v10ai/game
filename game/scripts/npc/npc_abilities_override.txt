@@ -5658,16 +5658,12 @@
 			"creep_level"			"6 6 6 6 6"
 		}
 	}
-	// 骨头和箭头
-	"clinkz_bone_and_arrow"
+	// 先天 地狱之裂
+	"clinkz_infernal_shred"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"skeleton_duration"
-			{
-				"value"						"15 20 25 30 35"
-			}
+			"max_armor_piercing_pct"	"30"	// 20
 		}
 	}
 	//=================================================================================================================
