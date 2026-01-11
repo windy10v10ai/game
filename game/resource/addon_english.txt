@@ -1007,11 +1007,11 @@
 // 					Heroes Override 原版英雄技能
 
 		//墓碑改说明
-		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone·MK2(No Zombie)"
-		//骨隐步改说明
-		"DOTA_Tooltip_ability_clinkz_wind_walk"											"Skeleton Walk·MK2(No Skeleton Archers)"
+		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone (No Zombie)"
 		//死亡契约改说明
-		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact·MK2(No Skeleton Archers)"
+		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact (No Skeleton Archers)"
+		// 灼热之箭 伤害增加
+		"DOTA_Tooltip_ability_clinkz_searing_arrows_scepter_Description"	 					"Increases Searing Arrows damage."
 
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
