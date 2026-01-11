@@ -190,6 +190,8 @@ export const abilityTiersPassive: Tier[] = [
       'shredder_reactive_armor', // 活性活甲
       // 'spectre_dispersion', // 幽鬼 折射
       'spectre_dispersion2', // 幽鬼 折射改
+      'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂
+
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
 

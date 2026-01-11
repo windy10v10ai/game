@@ -869,6 +869,12 @@
 		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"Damage is dealt before Spectre's attack."
 		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"Spectre's illusions also have Desolate."
 
+		// 地狱之裂
+		"DOTA_Tooltip_ability_clinkz_infernal_shred2"					"Infernal Shred"
+		"DOTA_Tooltip_ability_clinkz_infernal_shred2_Description"		"Clinkz and his skeletons apply a stacking debuff that causes their attacks to pierce up to %max_armor_piercing_pct%%% of the target's total physical armor (does not reduce their armor).  Clinkz applies %hero_stacks%%% per attack, and skeletons apply %skeleton_stacks%%%. <br><br>Lasts %duration% seconds."
+		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"Infernal Shred"
+		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "Clinkz and his skeletons' attacks are piercing %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%% armor."
+
 		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"Magic Sword"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"For each %one_tooltip%%% of skill enhancement, gain %bonus_damage_pct_tooltip%%% attack and %magic_resist_pct_tooltip%%% magic resistance."
@@ -1001,11 +1007,12 @@
 // 					Heroes Override 原版英雄技能
 
 		//墓碑改说明
-		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone·MK2(No Zombie)"
-		//骨隐步改说明
-		"DOTA_Tooltip_ability_clinkz_wind_walk"											"Skeleton Walk·MK2(No Skeleton Archers)"
+		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone (No Zombie)"
+		// 克林克兹
 		//死亡契约改说明
-		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact·MK2(No Skeleton Archers)"
+		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact (No Skeleton Archers)"
+		// 地狱之裂 A杖效果
+		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"Increases Infernal Shred's maximum armor piercing to %max_armor_piercing_pct%%%."
 
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"
