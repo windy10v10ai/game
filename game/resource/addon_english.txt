@@ -1008,10 +1008,11 @@
 
 		//墓碑改说明
 		"DOTA_Tooltip_ability_undying_tombstone"						"Tombstone (No Zombie)"
+		// 克林克兹
 		//死亡契约改说明
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"Death Pact (No Skeleton Archers)"
-		// 灼热之箭 伤害增加
-		"DOTA_Tooltip_ability_clinkz_searing_arrows_scepter_Description"	 					"Increases Searing Arrows damage."
+		// 地狱之裂 A杖效果
+		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"Increases Infernal Shred's maximum armor piercing to %max_armor_piercing_pct%%%."
 
 		// 茶神
 		"npc_dota_hero_techies"					"hechahecha"

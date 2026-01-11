@@ -977,10 +977,11 @@
 
 		//墓碑改说明
 		"DOTA_Tooltip_ability_undying_tombstone"						"墓碑·改（不生成小僵尸）"
-		//死亡契约改说明
+		// 克林克兹
+		// 死亡契约改说明
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"死亡契约·改（无守卫）"
-		// 灼热之箭 伤害增加
-		"DOTA_Tooltip_ability_clinkz_searing_arrows_scepter_Description"	 					"提升灼热之箭的伤害。"
+		// 地狱之裂 A杖效果
+		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"提升先天 地狱之裂的最高护甲穿透至%max_armor_piercing_pct%%%。"
 
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"

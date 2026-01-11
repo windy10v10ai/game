@@ -5562,13 +5562,11 @@
 	{
 		"MaxLevel"						"5"
 
-		"HasScepterUpgrade"			"1"
 		"AbilityValues"
 		{
 			"damage_bonus"
 			{
 				"value" "20 35 50 65 80"
-				"special_bonus_scepter"			"+100%"
 			}
 		}
 	}
@@ -5651,9 +5649,14 @@
 	// 先天 地狱之裂
 	"clinkz_infernal_shred"
 	{
+		"HasScepterUpgrade"			"1"
 		"AbilityValues"
 		{
-			"max_armor_piercing_pct"	"30"	// 20
+			"max_armor_piercing_pct"
+			{
+				"value"					"20"
+				"special_bonus_scepter"			"+30"
+			}
 		}
 	}
 	//=================================================================================================================
