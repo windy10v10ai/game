@@ -860,6 +860,15 @@
 		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"Gained %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% permanent Agility."
 		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"Gained permanent Agility."
 
+		// 荒芜
+		"DOTA_Tooltip_ability_spectre_desolate2"								"Desolate"
+		"DOTA_Tooltip_ability_spectre_desolate2_Description"					"Deals bonus pure damage whenever Spectre attacks an enemy."
+		"DOTA_Tooltip_ability_spectre_desolate2_bonus_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_spectre_desolate2_Facet_spectre_forsaken"		"Spectre deals %bonus_damage_multiplier_tooltip%x damage with Desolate. Spectre's illusions no longer have Desolate."
+		"DOTA_Tooltip_ability_spectre_desolate2_Lore"						"Often times, warriors find themselves alone with a vision of Mercurial - the fated question is if it is the true Spectre."
+		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"Damage is dealt before Spectre's attack."
+		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"Spectre's illusions also have Desolate."
+
 		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"Magic Sword"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"For each %one_tooltip%%% of skill enhancement, gain %bonus_damage_pct_tooltip%%% attack and %magic_resist_pct_tooltip%%% magic resistance."

@@ -225,7 +225,7 @@ export const abilityTiersPassive: Tier[] = [
       'riki_permanent_invisibility', // 永久隐身（旧版）
       'necrolyte_heartstopper_aura', // 竭心光环
       'weaver_geminate_attack', // 连击
-      'spectre_desolate', // 荒芜
+      'spectre_desolate2', // 荒芜
       'brewmaster_fire_phase', // 永久相位
       'juggernaut_blade_dance', // 剑舞
       'tiny_grow', // 长大

@@ -60,6 +60,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["pudge_rot"] = true,                  -- 屠夫 腐肉（持续伤害自己）
     ["axe_culling_blade"] = true,          -- 斧王 淘汰之刃（斩杀技能）
     ["hoodwink_sharpshooter"] = true,
+    ["life_stealer_infest"] = true,        -- 噬魂鬼 感染
 
     -- ========================================
     -- 位移/冲刺类技能
