@@ -861,6 +861,12 @@
 		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"伤害在幽鬼攻击前产生。"
 		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"幽鬼的幻象继承荒芜。"
 
+		// 地狱之裂
+		"DOTA_Tooltip_ability_clinkz_infernal_shred2"					"地狱之裂"
+		"DOTA_Tooltip_ability_clinkz_infernal_shred2_Description"		"克林克兹和他的骷髅弓手会施加一个可叠加的负面效果，使他们的攻击可以穿透最高目标%max_armor_piercing_pct%%%总物理护甲（不会降低他们的护甲）。克林克兹每次攻击施加%hero_stacks%%%，骷髅弓手施加%skeleton_stacks%%%。<br><br>持续%duration%秒。"
+		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"地狱之裂"
+		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "克林克兹和他的骷髅弓手发动攻击时会穿透%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%%护甲。"
+
 		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"魔剑"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"每%one_tooltip%%%的技能增强获得%bonus_damage_pct_tooltip%%%的攻击力和%magic_resist_pct_tooltip%%%的魔抗"
@@ -971,10 +977,11 @@
 
 		//墓碑改说明
 		"DOTA_Tooltip_ability_undying_tombstone"						"墓碑·改（不生成小僵尸）"
-		//骨隐步改说明
-		"DOTA_Tooltip_ability_clinkz_wind_walk"											"骨隐步·改（无守卫）"
-		//死亡契约改说明
+		// 克林克兹
+		// 死亡契约改说明
 		"DOTA_Tooltip_ability_clinkz_death_pact"										"死亡契约·改（无守卫）"
+		// 地狱之裂 A杖效果
+		"DOTA_Tooltip_ability_clinkz_infernal_shred_scepter_Description"	 					"提升先天 地狱之裂的最高护甲穿透至%max_armor_piercing_pct%%%。"
 
 		// 茶神
 		"npc_dota_hero_techies"					"茶神"
