@@ -5557,71 +5557,17 @@
 			}
 		}
 	}
-	// 火箭
+	// 灼热之箭 火箭
 	"clinkz_searing_arrows"
 	{
 		"MaxLevel"						"5"
+
 		"AbilityValues"
 		{
 			"damage_bonus"
 			{
-				"value" "24 36 48 60 72"
+				"value" "20 35 50 65 80"
 			}
-		}
-	}
-	// 骨隐步
-	"clinkz_wind_walk" // 去掉骷髅兵
-	{
-		"AbilityValues"
-		{
-			"skeleton_count"
-			{
-				"value"					"0"
-			}
-			"AbilityCooldown"
-			{
-				"value"									"16 13 10"
-				"special_bonus_unique_clinkz_10"		"-4"
-			}
-		}
-	}
-	// 炽烈火雨
-	"clinkz_burning_barrage"
-	{
-		"AbilityCooldown"				"6"		// 17
-		"AbilityManaCost"				"90"
-		"AbilityValues"
-		{
-			"wave_count"		"9"
-			"damage_pct"			"90"
-		}
-	}
-	// 焦油
-	"clinkz_tar_bomb"
-	{
-		"MaxLevel"						"5"
-		"AbilityCastRange"				"1500"
-		"AbilityCooldown"				"7 6 5 4 3"
-		"AbilityManaCost"				"50 60 70 80 90"
-		"AbilityValues"
-		{
-
-			"radius"
-			{
-				"value"		"600"
-				"affected_by_aoe_increase"	"1"
-			}
-			"damage_bonus"
-			{
-				"value"					"20 30 40 50 60"
-			}
-			"slow_movement_speed"			"-15 -25 -35 -45 -55"
-			"impact_damage"
-			{
-				"value"				"40 60 80 100 120"
-				"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
-			}
-
 		}
 	}
 	// 死亡契约
@@ -5634,7 +5580,6 @@
 			"AbilityCharges"
 			{
 				"value"				"2 3 4 5 6"
-				"special_bonus_unique_clinkz_9"		"+1"
 			}
 			"health_gain"
 			{
@@ -5658,15 +5603,59 @@
 			"creep_level"			"6 6 6 6 6"
 		}
 	}
-	// 骨头和箭头
-	"clinkz_bone_and_arrow"
+	// 骨隐步
+	"clinkz_wind_walk"
 	{
-		"MaxLevel"						"5"
+		"HasScepterUpgrade"			"0"
 		"AbilityValues"
 		{
+			// 去掉骷髅兵
+			"skeleton_count"
+			{
+				"value"					"0"
+			}
 			"skeleton_duration"
 			{
-				"value"						"15 20 25 30 35"
+				"value"						"0"
+			}
+			"skeleton_health"
+			{
+				"value"					"0"
+				"special_bonus_scepter"			"+0"
+			}
+			"skeleton_health_tooltip"
+			{
+				"value"					"0"
+				"special_bonus_scepter"			"+0"
+			}
+			"attack_rate"			"0"
+			"damage_percent"
+			{
+				"value"					"0"
+			}
+		}
+	}
+	// 炽烈火雨
+	"clinkz_burning_barrage"
+	{
+		"AbilityCooldown"				"6"		// 17
+		"AbilityManaCost"				"90"
+		"AbilityValues"
+		{
+			"wave_count"		"9"
+			"damage_pct"			"90"
+		}
+	}
+	// 先天 地狱之裂
+	"clinkz_infernal_shred"
+	{
+		"HasScepterUpgrade"			"1"
+		"AbilityValues"
+		{
+			"max_armor_piercing_pct"
+			{
+				"value"					"20"
+				"special_bonus_scepter"			"+30"
 			}
 		}
 	}

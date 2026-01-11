@@ -1,5 +1,47 @@
 "DOTAAbilities"
 {
+	// 克林克兹先天 地狱之裂
+	"clinkz_infernal_shred2"
+	{
+		"BaseClass"						"clinkz_infernal_shred"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"clinkz/ti9_immortal_bow/clinkz_burning_army_immortal"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Clinkz.DeathPact"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+			"duration"					"5"
+			"hero_stacks"				"3"
+			"skeleton_stacks"			"1"
+			"max_armor_piercing_pct"	"20 30 40 50 60"
+		}
+	}
+
+	// 荒芜
+	"spectre_desolate2"
+	{
+		"BaseClass"						"spectre_desolate"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"spectre_desolate"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+
+			"bonus_damage"
+			{
+				"value"									"25 40 55 70 85"
+				"hero_levelup"							"+2"
+			}
+			"radius"						"0"
+		}
+	}
 	// 能量转移
 	"slark_essence_shift2"
 	{
