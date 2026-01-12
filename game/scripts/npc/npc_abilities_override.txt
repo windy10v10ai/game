@@ -786,7 +786,6 @@
 			"axe_damage"
 			{
 				"value"					"125 175 225 275 325 375 425"
-				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_amp"
 			{
@@ -878,8 +877,8 @@
 		{
 			"bonus_attack_speed"
 			{
-				"value"									"15 30 45 60 75"
-				"special_bonus_unique_beastmaster_4"		"+25"
+				"value"									"10 30 50 70 90"
+				"special_bonus_unique_beastmaster_4"		"+25"		// 15
 			}
 			"attack_speed_per_unit"
 			{
@@ -895,20 +894,6 @@
 			{
 				"value"								"0"
 				"special_bonus_facet_beastmaster_beast_mode"			"20 30 40 50 60"
-			}
-			"AbilityCooldown"
-			{
-				"value"				"0"
-				"special_bonus_facet_beastmaster_beast_mode"		"=20"
-			}
-			"AbilityManaCost"
-			{
-				"value"				"0"
-				"special_bonus_facet_beastmaster_beast_mode"		"=35"
-			}
-			"bonus_damage"
-			{
-				"special_bonus_unique_beastmaster_2"	"+30"
 			}
 		}
 	}
@@ -2274,7 +2259,7 @@
 	"legion_commander_moment_of_courage"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"1.2 1 0.8 0.5 0.3"
+		"AbilityCooldown"				"1.2 1 0.8 0.6 0.4"
 		"AbilityValues"
 		{
 			"hp_leech_percent"
@@ -3118,8 +3103,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"90"
-				"special_bonus_unique_omniknight_7"	"-10"	// -20
+				"value"								"80"
 			}
 		}
 	}
@@ -10878,7 +10862,7 @@
 				"magic_resistance"			"20 30 40 50"
 		}
 	}
-	// 查克拉
+	// 查克拉魔法
 	"keeper_of_the_light_chakra_magic"
 	{
 		"MaxLevel"						"5"
@@ -10888,8 +10872,7 @@
 		{
 			"mana_restore"
 			{
-				"value"			"75 150 225 300 375"
-				"special_bonus_unique_keeper_of_the_light_2"	"+200"
+				"value"			"90 160 230 300 370"
 			}
 			"cooldown_reduction"	"3 4 5 6 7"
 			"mana_leak_pct"	"4.5 5 5.5 6.0 6.5"
@@ -10965,10 +10948,12 @@
 				"radius"
 				{
 					"value"			"425 450 475 500 525"
-					"affected_by_aoe_increase"	"1"
 				}
 				"knockback_duration"	"0.6"
-				"damage"				"85 130 175 220 265"
+				"damage"
+				{
+					"value"											"90 140 190 240 290"
+				}
 				"AbilityCooldown"
 				{
 					"value"											"25 22 19 16 13"
@@ -10984,8 +10969,12 @@
 		"AbilityValues"
 		{
 				"on_count"					"6"			// 5
-				"hit_count"					"14"		// 7
-				"wisp_damage"				"225"		// 75
+				"hit_count"					"12"		// 7
+				"wisp_damage"
+				{
+					"value"									"155"	// 85
+					"hero_levelup"							"+5"
+				}
 				"off_duration"				"1.0"		// 1.85
 				"on_duration"				"1.0"
 				"off_duration_initial"		"1.0"
