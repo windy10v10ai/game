@@ -1660,16 +1660,16 @@
 	//=================================================================================================================
 	// Ability: Earth Spirit 大地之灵/土猫
 	//=================================================================================================================
-	// 踢
+	// 巨石冲击 踢
 	"earth_spirit_boulder_smash"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"AbilityCooldown"
+				"AbilityCooldown"
 				{
-					"value"									"16.0 14.0 12.0 10.0 8.0 6.0"
+					"value"									"16.0 14.0 12.0 10.0 8.0"
 				}
 				"radius"
 				{
@@ -1705,9 +1705,12 @@
 				}
 				"damage"
 				{
-					"value"		"60 120 180 240 300"	// +50/level
+					"value"		"60 120 180 240 300"	// 差值+50/level
 				}
-				"damage_str"			"150"			// 100
+				"damage_str"
+				{
+					"value"								"150"		// 100
+				}
 
 				"stun_duration"
 				{
@@ -1720,7 +1723,7 @@
 				}
 		}
 	}
-	// 拉
+	// 地磁之握 拉
 	"earth_spirit_geomagnetic_grip"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
@@ -1731,12 +1734,11 @@
 				{
 					"value"		"230"	// 180 NOTE: This radius must match the radius for boulder smash
 				}
-				"rock_damage"			"120 240 300 420 480"
-				"duration"			"2.5 3 3.5 4 5"
-				"AbilityCooldown"
+				"rock_damage"
 				{
-					"value"		"13"
+					"value"						"120 240 300 420 480"
 				}
+				"duration"			"2.5 3 3.5 4 5"
 		}
 	}
 	// 残岩 放石头
