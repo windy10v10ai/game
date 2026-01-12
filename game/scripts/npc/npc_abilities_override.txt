@@ -1718,16 +1718,6 @@
 				{
 					"value"				"16.0 13.0 10.0 7.0 4.0"
 				}
-				"allied_bonus_movespeed"
-				{
-					"value"											"0 0 0 0"
-					"special_bonus_facet_earth_spirit_ready_to_roll"	"15 20 25 30 35"
-				}
-				"allied_bonus_stun_duration"
-				{
-					"value"											"0"
-					"special_bonus_facet_earth_spirit_ready_to_roll"	"0.3 0.5 0.7 0.9 1.1"
-				}
 		}
 	}
 	// 拉
@@ -1757,18 +1747,14 @@
 			"duration"
 			{
 				"value"						"40.0"		// 2/3
-				"special_bonus_facet_earth_spirit_stepping_stone"	"=15.0"		// 3/4
-			}
-			"AbilityCharges"
-			{
-				"value"							"7 8 9 10 11 12 13 14 15 16 17"	// 50级为止
-				"special_bonus_facet_earth_spirit_stepping_stone"		"=0 =0 =0 =0 =0 =0 =0 =0 =0 =0 =0"
 			}
 			"AbilityChargeRestoreTime"
 			{
 				"value"							"12"	// 2/3
-				"special_bonus_facet_earth_spirit_stepping_stone"		"=3"	// 3/4
 			}
+			// 残岩攻击力加成百分比
+			"attack_damage_per_stone"			"5"		// 2.5
+			"attack_damage_per_stone_used"		"30"	// 7.5
 		}
 	}
 	// 磁化
