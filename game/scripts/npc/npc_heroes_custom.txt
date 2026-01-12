@@ -729,7 +729,6 @@
 	// 赏金猎人
 	"npc_dota_hero_bounty_hunter"
 	{
-		"Ability11"		"special_bonus_unique_bounty_hunter_4"
 		"Bot"
 		{
 			"Build"
@@ -741,10 +740,10 @@
 				"5"		"bounty_hunter_shuriken_toss"
 				"6"		"bounty_hunter_track"
 				"7"		"bounty_hunter_shuriken_toss"
-				"8"		"bounty_hunter_wind_walk"
+				"8"		"bounty_hunter_shuriken_toss"
 				"9"		"bounty_hunter_shuriken_toss"
 				"10"		"special_bonus_unique_bounty_hunter_5"
-				"11"		"bounty_hunter_wind_walk"
+				"11"		"bounty_hunter_shuriken_toss"
 				"12"		"bounty_hunter_track"
 				"13"		"bounty_hunter_jinada"
 				"14"		"bounty_hunter_jinada"
@@ -760,7 +759,7 @@
 				"24"		""
 				"25"		"special_bonus_unique_bounty_hunter_2"
 				"26"		""
-				"27"		"special_bonus_unique_bounty_hunter_4"
+				"27"		"special_bonus_attack_damage_25"
 				"28"		"special_bonus_unique_bounty_hunter_9"
 				"29"		"special_bonus_unique_bounty_hunter"
 				"30"		"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
@@ -768,6 +767,8 @@
 				"32"		"bounty_hunter_jinada"
 				"33"		"bounty_hunter_wind_walk"
 				"34"		"bounty_hunter_jinada"
+				"35"		"bounty_hunter_wind_walk"
+				"36"		"bounty_hunter_wind_walk"
 			}
 		}
 	}
