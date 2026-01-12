@@ -1873,14 +1873,11 @@
 			"damage_heroes"
 			{
 				"value"		"17 38 59 80 101"
-				"special_bonus_unique_elder_titan"	"+25"
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
 			}
 			"armor_heroes"					"2 3 4 5 6"
 			"scepter_magic_immune_per_hero"
 			{
-				"special_bonus_scepter"		"1.5"
+				"special_bonus_scepter"		"1.5"		// 2 BKB时间,敌人多相应缩短
 			}
 		}
 	}
@@ -1893,7 +1890,7 @@
 			"radius"
 			{
 				"value"		"350"
-				"special_bonus_unique_elder_titan_5"	"+250"
+				"special_bonus_unique_elder_titan_5"	"+250"	// 150
 			}
 			"armor_reduction_pct"		"40 50 60 80 90"
 			"magic_resistance_pct"		"40 50 60 80 90"
@@ -1916,7 +1913,7 @@
 			"radius"
 			{
 				"value"		"350"
-				"special_bonus_unique_elder_titan_5"	"+250"
+				"special_bonus_unique_elder_titan_5"	"+250"	// 150
 			}
 			"armor_reduction_pct"		"40 50 60 80 90"
 			"magic_resistance_pct"		"40 50 60 80 90"
@@ -4832,9 +4829,7 @@
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"650 750 850 950 1050"
-		"AbilityCooldown"				"8 7 6 5 4"
-		"AbilityCastPoint"				"0.1"		// 0.3
+		"AbilityCastRange"				"900"		// 650
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
@@ -4848,36 +4843,34 @@
 				"value"		"4"
 				"special_bonus_scepter" "+8"			// 4
 			}
-			"decay_duration"
-			{
-				"value"		"45" // 35
-			}
 			"radius"
 			{
 				"value"		"350"	// 325
 				"affected_by_aoe_increase"	"1"
 			}
-			"shard_buff_duration"		"50" // 不知道干嘛的，跟着上面+10
+			"AbilityCooldown"
+			{
+				"value"								"12 10 8 6 4"
+			}
 		}
 	}
 	// 噬魂
 	"undying_soul_rip"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16.0 12.0 8.0 6.0 4.0"
-		"AbilityManaCost"				"115 130 140 150 160"
+		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"damage_per_unit"
 			{
-				"value"		"14 26 38 50 62"
-				"special_bonus_unique_undying_6" "+60"
+				"value"		"28 52 76 100 124"			// x2
+				"special_bonus_unique_undying_6" "+30"	// 12
 			}
 			"max_units"					"30"
 			"radius"
 			{
-				"value"		"1800"
-				"affected_by_aoe_increase"	"1"
+				"value"		"1800"						// 1300
 			}
 			"tombstone_heal"			"4 8 12 16 20"
 			"strength_share_percent"
@@ -6197,13 +6190,12 @@
 	// 剑刃风暴
 	"juggernaut_blade_fury"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"105 110 115 120 125 130 135"
+		"MaxLevel"					"5"
 		"AbilityValues"
 		{
 			"blade_fury_damage"
 			{
-				"value"		"80 160 240 320 400 480 560"			// x1.5
+				"value"		"80 160 240 320 400"			// x1.5
 				"special_bonus_unique_juggernaut"	"+200"	// 90
 			}
 			"blade_fury_radius"
@@ -6212,7 +6204,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"					"33 30 27 24 21 18 17"
+				"value"					"33 30 27 24 21 "
 			}
 			"bonus_movespeed"
 			{
@@ -6226,13 +6218,13 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"AbilityCooldown"
-				{
-					"special_bonus_unique_juggernaut_5"		"-30"	// -12
-				}
 				"healing_ward_heal_amount"
 				{
 					"value"			"3 3.5 4 4.5 5"
+				}
+				"AbilityCooldown"
+				{
+					"special_bonus_unique_juggernaut_5"		"-30"	// -12
 				}
 				"healing_ward_aura_radius"
 				{
