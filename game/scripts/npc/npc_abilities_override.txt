@@ -7324,12 +7324,11 @@
 		{
 			"necromastery_damage_per_soul"
 			{
-				"value"					"0.2 0.4 0.6 0.8 1"
+				"value"					"0.5 1 1.5 1.5 2"
 			}
 			"necromastery_max_souls"
 			{
-				"value"						"100"	// 20
-				"special_bonus_scepter"		"+20"
+				"value"						"50"	// 26
 			}
 		}
 	}
