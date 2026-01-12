@@ -4418,11 +4418,10 @@
 		"AbilityCooldown"				"16 14 12 10"
 		"AbilityValues"
 		{
-				"bonus_damage"			"50 75 100 125"
+				"bonus_damage"			"60 90 120 150"
 				"crit_multiplier"
 				{
 					"value"				"200 250 300 350"
-				"special_bonus_unique_tusk" "+75"
 				}
 				"proc_chance"	// 普攻触发海象神拳 天赋
 				{
@@ -4676,7 +4675,7 @@
 				{
 					"value"					"100 350 600 850"		// 50 175 300 x2
 				}
-				"move_speed"		"30 60 90 120"		// 15 x2
+				"move_speed"		"20 40 60 80"		// x2
 		}
 	}
 	// 崎岖外表（先天随大招升级）
@@ -8463,7 +8462,7 @@
 			}
 			"bonus_armor"
 			{
-				"value"			"2 3 4 5 6"
+				"value"			"3 5 7 9 11"	// 加强
 			}
 			"ensnare_duration"		"0.8 1.2 1.6 2.0 2.4"
 			"maim_duration"			"0.8 1.2 1.6 2.0 2.4"
@@ -12887,7 +12886,7 @@
 		{
 				"damage"
 				{
-					"value"	"150 250 350 450 550"
+					"value"	"100 200 300 400 500"
 				}
 				"slow"					"25 35 45 55 65"
 				"secondary_slow"		"15 25 35 45 55"
@@ -13404,7 +13403,7 @@
 	//=================================================================================================================
 	// Ability: Winter Wyvern 寒冬飞龙/冰龙
 	//=================================================================================================================
-	// 严寒灼烧
+	// 严寒烧灼
 	"winter_wyvern_arctic_burn"
 	{
 		"MaxLevel"						"5"
@@ -13412,7 +13411,7 @@
 		"AbilityValues"
 		{
 				"duration"				"7 8 9 10 11"
-				"attack_range_bonus"	"275 300 325 350 375"
+				"attack_range_bonus"	"250 275 300 325 350"
 				"percent_damage"		"4 6 8 10 12"
 				"move_slow"
 				{
@@ -13482,7 +13481,7 @@
 				"bonus_attack_speed"
 				{
 					"value"		"130"	// 65
-					"special_bonus_unique_winter_wyvern_3"	"+110"	// 55
+					"special_bonus_unique_winter_wyvern_3"	"+110"	// 60
 				}
 				"max_duration"	"4 5 6 7"
 		}
