@@ -7655,8 +7655,9 @@
 	"phantom_assassin_phantom_strike"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"11 9 7 5 3"
 		"AbilityManaCost"				"35 40 45 50 55"
+		"AbilityChargeRestoreTime"		"21 18 15 12 9"
+
 		"AbilityValues"
 		{
 			"bonus_attack_speed"
@@ -7680,7 +7681,7 @@
 
 			"radius"				"625 550 475 400 325"
 			"fade_duration"			"0.4 0.6 0.8 1.0 1.2"
-			"active_movespeed_bonus"				"4 6 8 10 12"
+			"active_movespeed_bonus"				"6 9 12 15 18"
 		}
 	}
 	// 飘忽不定
@@ -8176,7 +8177,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"20 19 18 17 16"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
 				"damage"
@@ -8189,7 +8190,7 @@
 				}
 		}
 	}
-	// 荒芜
+	// 荒芜 先天
 	"spectre_desolate"
 	{
 		"MaxLevel"						"5"
@@ -8206,6 +8207,30 @@
 			"only_creep_allies_damage_pct"
 			{
 				"value"						"0"
+			}
+		}
+	}
+	// 如影随形
+	"spectre_shadow_step"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"30"		// 幻象卡顿 增加CD，耗蓝
+		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityValues"
+		{
+			"AbilityCastRange"
+			{
+				"value"					"1500"
+			}
+			"duration"
+			{
+				"value"							"3.0 3.5 4.0 4.5 5.0"
+				"special_bonus_unique_spectre_shadow_step_duration"	"+1.0"
+			}
+			"illusion_damage_incoming"	"100"
+			"illusion_outgoing_damage"
+			{
+				"value" 							"32 38 44 50 56"
 			}
 		}
 	}
@@ -8239,24 +8264,14 @@
 	// 鬼影重重
 	"spectre_haunt"
 	{
-		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"600"
 		"AbilityValues"
 		{
-				"duration"					"4.0"		// 6.0
-		}
-	}
-	// 如影随形 鬼影重重单体
-	"spectre_haunt_single"
-	{
-		"MaxLevel"						"4"
-		"AbilityCooldown"				"60 50 40 30"
-		"AbilityManaCost"				"150 250 350 450"
-		"AbilityValues"
-		{
-				"duration"					"5.0"		// 6.0
-				"illusion_damage_outgoing"	"-60 -40 -20 0"
-				"tooltip_outgoing"	"60 80 100 120"
+			"AbilityCooldown"
+			{
+				"value"											"180"	// 卡顿 削弱
+			}
+			"duration"					"4.0"		// 6.0
 		}
 	}
 	//=================================================================================================================
