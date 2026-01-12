@@ -12736,9 +12736,11 @@
 	{
 		"AbilityValues"
 		{
-			"damage_barrier_base"		"50"	// 10
-			"damage_barrier_per_level"	"2"		// 1
-			"barrier_duration"			"15"	// 12
+			"damage_barrier"
+			{
+				"value"					"100"	// 11
+				"hero_levelup"			"+10"	// 1
+			}
 		}
 	}
 	// 天裔之杖 命石2
@@ -12746,7 +12748,7 @@
 	{
 		"AbilityValues"
 		{
-			"cooldown_reduction"		"0.2"	// 0.1
+			// "cooldown_reduction"		"0.2"	// 0.1
 		}
 	}
 	//=================================================================================================================
