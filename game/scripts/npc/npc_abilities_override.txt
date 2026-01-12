@@ -421,26 +421,25 @@
 	//=================================================================================================================
 	// Ability: Abyssal Underlord 孽主/大屁股
 	//=================================================================================================================
-	// 火雨
+	// 火焰风暴 火雨
 	"abyssal_underlord_firestorm"
 	{
-		"MaxLevel" "7"
-		"AbilityManaCost"				"110 125 140 155 170 185 200"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"						"5"
+		"AbilityCastRange"				"900"	// 675
+		"AbilityManaCost"				"110 125 140 155 170"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"	"16 15 14 13 12 11 10"
+					"value"	"16 15 14 13 12"
 				}
 				"wave_damage"
 				{
-					"value"					"60 100 140 180 220 260 300"
+					"value"					"60 100 140 180 220"	// x2
 				}
 				"burn_damage"
 				{
-					"value"					"1.0 1.5 2.0 2.5 3.0 3.5 4.0"
-					"special_bonus_unique_underlord_4"	"+0.8"
+					"value"					"1.0 1.5 2.0 2.5 3.0"	// 百分比伤害，限制上限
 				}
 		}
 	}
@@ -448,7 +447,7 @@
 	"abyssal_underlord_pit_of_malice"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"975"	//675
+		"AbilityCastRange"				"900"	//675
 		"AbilityCooldown"				"23 21 19 17 15"
 		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilityValues"
@@ -5239,7 +5238,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"1200"		// 900
-		"AbilityManaCost"				"50 70 90 110 130"
+		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilityValues"
 		{
 			"knockback_enemies"
@@ -7194,7 +7193,7 @@
 			}
 			"damage"
 			{
-				"value"			"100 200 300 450 650"
+				"value"			"100 200 300 400 500"	// 30 40 50 60
 				"special_bonus_unique_naga_siren_2" "+50%" // 30% 和洪水一致
 			}
 			"radius"
@@ -7212,7 +7211,7 @@
 		{
 			"damage"
 			{
-				"value"					"180 350 520 790 960"
+				"value"					"160 280 400 520 640"	// x2
 				"special_bonus_unique_naga_siren_2" "+50%" // 30% 和激流一致
 			}
 			"duration"
@@ -7246,12 +7245,12 @@
 			}
 			"heal_pct"
 			{
-				"value"									"2 4 6 8"	// 2 3 4
-				"special_bonus_shard"					"+4"	// 3
+				"value"									"1 2 3 4"
+				"special_bonus_shard"					"+3"	// 1
 			}
 			"mana_pct"
 			{
-				"special_bonus_shard"					"+4"	// 3
+				"special_bonus_shard"					"+3"	// 1
 			}
 			"AbilityCooldown"
 			{
@@ -10477,15 +10476,15 @@
 		{
 			"images_take_damage_percent"
 			{
-				"value" "100"	// 250-50
+				"value" "100"	// 175
 			}
 			"images_take_damage_percent_tooltip"
 			{
-				"value" "200"	// 350-50
+				"value" "200"	// 275
 			}
 			"images_movespeed_bonus"
 			{
-				"value" "50"	// +20
+				"value" "50"	// 30
 			}
 		}
 	}
@@ -12738,8 +12737,8 @@
 		{
 			"damage_barrier"
 			{
-				"value"					"100"	// 11
-				"hero_levelup"			"+10"	// 1
+				"value"					"50"	// 11
+				"hero_levelup"			"+5"	// 1
 			}
 		}
 	}
