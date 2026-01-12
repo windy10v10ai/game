@@ -3710,7 +3710,6 @@
 				"duration"
 				{
 					"value"				"12 13 14 15 16"
-
 				}
 		}
 	}
@@ -3757,7 +3756,7 @@
 			}
 			"stack_limit"
 			{
-				"value"			"12 22 32 42 52"
+				"value"			"10 20 30 40 50"
 				"special_bonus_unique_timbersaw_2"			"+8"
 			}
 			"stack_duration"
@@ -3770,7 +3769,7 @@
 			}
 			"initial_shield"
 			{
-				"value"  		"400"// 200 不如安全泡泡
+				"value"  		"400"// 150
 			}
 			"shield_per_sec"
 			{

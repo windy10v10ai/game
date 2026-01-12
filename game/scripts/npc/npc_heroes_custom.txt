@@ -456,7 +456,7 @@
 				"7"		"tinker_laser"
 				"8"		"tinker_march_of_the_machines"
 				"9"		"tinker_laser"
-				"10"		"special_bonus_mana_reduction_8"
+				"10"		"special_bonus_mana_reduction_10"
 				"11"		"tinker_march_of_the_machines"
 				"12"		"tinker_rearm_lua"
 				"13"		"tinker_march_of_the_machines"
