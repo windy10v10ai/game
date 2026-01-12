@@ -1925,14 +1925,14 @@
 				"6"		"pudge_dismember"
 				"7"		"pudge_meat_hook"
 				"8"		"pudge_rot"
-				"9"		"pudge_rot"
+				"9"		"pudge_meat_hook"
 				"10"		"special_bonus_unique_pudge_4"
-				"11"		"pudge_rot"
+				"11"		"pudge_meat_hook"
 				"12"		"pudge_dismember"
 				"13"		"pudge_meat_hook"
-				"14"		"pudge_flesh_heap"
+				"14"		"pudge_rot"
 				"15"		"special_bonus_unique_pudge_7"
-				"16"		"pudge_flesh_heap"
+				"16"		"pudge_rot"
 				"17"		""
 				"18"		"pudge_dismember"
 				"19"		""
@@ -1951,6 +1951,8 @@
 				"32"		"pudge_flesh_heap"
 				"33"		"pudge_flesh_heap"
 				"34"		"pudge_flesh_heap"
+				"35"		"pudge_flesh_heap"
+				"36"		"pudge_flesh_heap"
 			}
 		}
 	}
