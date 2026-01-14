@@ -875,6 +875,17 @@
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"Infernal Shred"
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "Clinkz and his skeletons' attacks are piercing %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%% armor."
 
+		// 背刺
+		"DOTA_Tooltip_ability_riki_innate_backstab2"										"Backstab"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Description"							"Every time Riki strikes his enemy from behind, he deals additional bonus damage equal to a multiple of his Agility."
+		"DOTA_Tooltip_ability_riki_innate_backstab2_damage_multiplier"					"AGILITY MULTIPLIER:"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Facet_riki_contract_killer"			"Riki receives bonus experience for assists and kills."
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Note0"								"Works when denying friendly units at %ally_multiplier%%% effectiveness."
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Note1"								"Illusions of Riki will play Backstab animations, but not deal any bonus damage."
+		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_kill"						"BONUS XP HERO KILL:"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"BONUS XP ASSIST:"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"BONUS XP WARD/COURIER KILL:"
+
 		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"Magic Sword"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"For each %one_tooltip%%% of skill enhancement, gain %bonus_damage_pct_tooltip%%% attack and %magic_resist_pct_tooltip%%% magic resistance."
