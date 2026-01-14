@@ -2,72 +2,28 @@
 description: 处理 Dota 2 破坏性更新对自定义地图的影响
 ---
 
-# Dota 2 破坏性更新处理命令
+# Dota 2 破坏性更新处理
 
 处理 Dota 2 版本更新对自定义地图 override 技能的影响，逐个英雄更新技能数据。
 
-## 任务概述
+## 前置知识
 
-当 Dota 2 发生破坏性更新时，需要更新 `game/scripts/npc/npc_abilities_override.txt` 中的英雄技能数据。
+请先阅读 `.claude/skills/dota-override-rules.md` 了解 Override 规则。
 
-## Override 规则
-
-### 1. 等级提升规则
-
-- 小技能：MaxLevel 提升到 5 级
-- 大招：MaxLevel 提升到 4 级
-- 特殊技能：单独处理
-
-### 2. KV 格式规则
-
-- 只填写 override 的内容，不需要全部复制
-- KV 结构遵循 Dota 2 定义
-- 如果每级数值不同，需要适配修改后的最大等级
-
-### 3. 数值调整规则
-
-**基本原则**：
-- 通常采用等差数列扩展
-- 每级数值尽量保持整数或 5、10 的倍数
-- **最大等级数值与官方相同**（重要）
-
-**扩展到更高等级时**：
-- 计算官方数值的等差/等比规律
-- 按规律扩展到第 5 级（小技能）或第 4 级（大招）
-- 最大等级数值保持与官方最大等级相同
-
-**特殊情况保持最大等级数值不变**：
-- 过于短暂的 CD：小技能 5s 以内，大招 60s 以内
-- 百分比数值
-
-**示例**：
-```
-官方 4 级 radius: 150 170 190 210 (等差 20)
-扩展到 5 级: 150 165 180 195 210 (等差 15，最大值保持 210)
-```
-
-### 4. 注释规则
-
-- 在 value 后添加注释标注官方原数值
-- 格式：`"value" "150 165 180 195 210"  // 150 170 190 210`
-- 当官方数值更新时，同步更新注释
-
-### 5. 数值数量匹配规则
-
-- **数值个数必须与 MaxLevel 匹配**
-- 如 MaxLevel=4，则数值必须有 4 个
-- 发现不匹配时需要修正
+---
 
 ## 执行步骤
 
 ### 1. 准备工作
 
 请用户提供以下信息：
+
 - Dota 2 更新版本号（如：7.40）
 - GitHub Issue URL（用于追踪进度）
 - 需要处理的英雄（用户逐个提供）
 
-**验证参考数据存在**：
+验证参考数据存在：
+
 - `docs/reference/{version}/heroes/` 目录
 - `docs/reference/{version}/abilities_schinese.txt`
 
@@ -77,9 +33,8 @@ description: 处理 Dota 2 破坏性更新对自定义地图的影响
 
 #### 2.1 查找英雄在 override 文件中的位置
 
-使用 Grep 搜索英雄技能名：
-```
-Grep pattern="hero_name" path="game/scripts/npc/npc_abilities_override.txt"
+```bash
+grep -n "hero_name" game/scripts/npc/npc_abilities_override.txt
 ```
 
 #### 2.2 读取相关上下文
@@ -87,35 +42,35 @@ Grep pattern="hero_name" path="game/scripts/npc/npc_abilities_override.txt"
 - 从 override 文件中读取该英雄的技能定义（使用行号范围）
 - 从 `docs/reference/{version}/heroes/npc_dota_hero_{hero_name}.txt` 读取官方最新数据
 
-**重要**：override 文件很长，必须通过技能名精确定位，只读取相关部分
+**重要**：override 文件很长，必须通过技能名精确定位，只读取相关部分。
 
 #### 2.3 分析并展示给用户
 
-对比官方新数据和当前 override，向用户展示：
-- 官方哪些数值发生了变化
-- 当前 override 的配置
-- 建议的更新方案
+使用表格展示对比：
 
-**使用表格展示对比**：
-```
-| 属性 | 旧官方值 | 新官方值 | 当前 Override | 建议更新 |
-|-----|---------|---------|--------------|---------|
-| radius | 135 160 185 210 | 150 170 190 210 | 140 155 170 195 210 | 150 165 180 195 210 |
-```
+| 属性 | 旧官方值 | 新官方值 | 当前 Override | 差异 | 建议更新 |
+|-----|---------|---------|--------------|------|---------|
+| radius | 150 170 190 210 | 160 180 200 220 | 150 165 180 195 210 | -5 | 160 175 190 205 220 |
+
+**注意**：当 Override 与旧官方值有差异时，保持同样的差异应用到新官方值。
 
 #### 2.4 等待用户确认
 
-- 询问用户是否同意建议的更新方案
-- 如用户有不同意见，按用户要求调整
+询问用户是否同意建议的更新方案。如用户有不同意见，按用户要求调整。
 
 #### 2.5 更新 override 文件
 
-使用 Edit 工具更新：
-- 保持原有的缩进和格式
-- 更新数值和注释
-- 确保数值个数与 MaxLevel 匹配
+使用 Edit 工具更新，保持原有的缩进和格式。
 
-#### 2.6 向用户报告完成
+#### 2.6 提交更改
+
+直接 commit 本次更新：
+
+```bash
+git commit -m "update {hero_name} abilities for {version}"
+```
+
+#### 2.7 向用户报告完成
 
 ```
 ✅ 已更新: {hero_name}
@@ -123,51 +78,19 @@ Grep pattern="hero_name" path="game/scripts/npc/npc_abilities_override.txt"
   - {ability_2}: {改动说明}
 ```
 
-#### 2.7 继续下一个英雄
+#### 2.8 继续下一个英雄
 
 等待用户提供下一个需要处理的英雄名称。
 
 ### 3. 完成后
 
-所有英雄更新完成后：
-- 总结更新的英雄数量和主要改动
-- 询问用户是否需要提交 commit
+所有英雄更新完成后，输出总结。
 
-## 文件检索技巧
-
-由于文件较长，必须使用精确检索：
-
-1. **在 override 文件中查找**
-   ```
-   使用 Grep 搜索技能名（英文），output_mode: "content", -n 参数显示行号
-   ```
-
-2. **在英雄文件中查找**
-   ```
-   读取 docs/reference/{version}/heroes/npc_dota_hero_{hero_name}.txt
-   ```
-
-3. **在中文技能名文件中查找**
-   ```
-   使用 Grep 搜索 docs/reference/{version}/abilities_schinese.txt
-   ```
-
-## 注意事项
-
-- ✅ 每次只读取相关的技能定义，不要读取整个文件
-- ✅ 使用 Grep 精确定位技能位置
-- ✅ 保持原有的注释和格式
-- ✅ 数值计算要符合 override 规则
-- ✅ 最大等级数值与官方保持相同
-- ✅ 数值个数必须与 MaxLevel 匹配
-- ✅ 每个英雄改动后等待用户确认
-- ✅ 遇到预料外的情况向用户确认
-- ❌ 不要复制 Dota 2 官方的所有属性，只 override 必要的部分
-- ❌ 不要修改有意加强/削弱的特殊逻辑（除非用户要求）
+---
 
 ## 输出格式
 
-每个英雄处理完成后输出：
+### 每个英雄处理完成后
 
 ```
 ✅ 已更新: {hero_name}
@@ -175,11 +98,10 @@ Grep pattern="hero_name" path="game/scripts/npc/npc_abilities_override.txt"
   - {ability_2}: {主要改动说明}
 ```
 
-全部完成后输出总结：
+### 全部完成后
 
 ```
 Dota 2 {version} 更新处理完成
-
 共更新 {count} 个英雄：
 - {hero_1}
 - {hero_2}
