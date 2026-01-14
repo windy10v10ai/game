@@ -39,8 +39,7 @@ description: 处理 Dota 2 破坏性更新对自定义地图的影响
 
 请用户提供以下信息（如果未提供）：
 - Dota 2 更新日志 URL（如：https://www.dota2.com/patches/7.40）
-- 版本号（如：7.40）
-- 要更新的英雄列表（或从更新日志中提取）
+- GitHub Issue URL（如：https://github.com/windy10v10ai/game/issues/1849）
 
 ### 2. 验证准备条件
 
@@ -51,19 +50,20 @@ a) **更新日志**
    - 提取受影响的英雄列表
 
 b) **参考数据**
+   - 从更新日志 URL 中提取版本号（如从 `/patches/7.40` 提取 `7.40`）
    - 验证 `docs/reference/{version}/heroes/` 目录是否存在
    - 验证 `docs/reference/{version}/abilities_schinese.txt` 是否存在
 
-c) **GitHub Issue**
-   - 询问用户是否需要创建 GitHub Issue 来追踪进度
-   - 如需创建，使用 `gh` 命令创建 Issue，标题格式：`处理 Dota 2 {version} 更新`
-   - Issue 内容应包含受影响英雄的 checklist
+c) **GitHub Issue 状态**
+   - 使用 GitHub MCP 工具获取 Issue 的当前状态
+   - 识别哪些英雄已完成（勾选的项），哪些未完成
+   - 只处理未完成的英雄
 
-### 3. 创建工作分支
+### 3. 确认当前分支
 
-```bash
-git checkout -b feature/{issue-number}-dota-{version}-update
-```
+检查当前是否在正确的分支上：
+- 如果已经在 `feature/{issue-number}-dota-{version}-update` 分支，继续使用
+- 如果不是，询问用户是否需要创建或切换分支
 
 ### 4. 逐个处理英雄
 
@@ -122,8 +122,9 @@ Co-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>"
 
 #### 4.7 更新 Issue
 
-如果创建了 GitHub Issue，使用 `gh` 命令更新 checklist：
-- 标记该英雄为已完成
+使用 GitHub MCP 工具更新 Issue：
+- 在 Issue 的 checklist 中标记该英雄为已完成
+- 添加评论说明完成的改动（可选）
 
 ### 5. 完成后
 
@@ -193,6 +194,8 @@ AI:
 - ✅ 保持原有的注释和格式
 - ✅ 每个英雄单独 commit
 - ✅ 数值计算要符合 override 规则
+- ✅ 使用 GitHub MCP 工具获取和更新 Issue 状态
+- ✅ 遇到预料外的情况（如找不到技能、数值异常）时向用户确认
 - ❌ 不要复制 Dota 2 官方的所有属性，只 override 必要的部分
 - ❌ 不要修改特殊技能的特殊处理逻辑
 
