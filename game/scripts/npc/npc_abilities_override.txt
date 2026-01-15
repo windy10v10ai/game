@@ -8621,12 +8621,6 @@
 				"value"					"60 50 40 30"
 				"special_bonus_scepter"	"=30 =26 =22 =18"
 			}
-			"damage_reduction"			"55"		// 80
-			"status_resistance"
-			{
-				"value"							"60"		// 50
-				"special_bonus_unique_ursa_8"			"+35" 		// +25
-			}
 			"duration"
 			{
 				"value"							"4.25 4.5 4.75 5.0"	// 4 4.5 5.0
