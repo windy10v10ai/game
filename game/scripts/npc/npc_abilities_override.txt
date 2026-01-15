@@ -1518,8 +1518,8 @@
 			"stun_duration"				"0.6 0.8 1.0 1.2 1.4"
 			"fissure_damage"
 			{
-				"value"				"120 200 280 360 440"			// 110 160 210 260
-				"special_bonus_unique_earthshaker_4"		"+160"	// 90
+				"value"				"120 200 280 360 440"			// 100 160 220 280
+				"special_bonus_unique_earthshaker_4"		"+160"	// +75
 			}
 			"AbilityCooldown"
 			{
@@ -1589,7 +1589,7 @@
 		{
 				"echo_slam_echo_damage"
 				{
-					"value"				"90 120 150 180"
+					"value"				"70 100 130 160"	// 70 90 110
 				}
 				"echo_slam_initial_damage"		"200 280 360 440"	// x2
 				"AbilityCooldown"
@@ -5118,7 +5118,7 @@
 				"value"								"16 24 32 40 48"
 				"special_bonus_unique_antimage_4"	"+22"
 			}
-			"duration_illusion"				"0"		// 不产生幻象
+			"duration_illusion"				"0"		// 为了防止卡顿，禁用幻象
 			"mana_drain_percent"
 			{
 				"special_bonus_facet_antimage_magebanes_mirror"	"=150 =200 =250 =300 =350"
@@ -5131,14 +5131,6 @@
 			{
 				"value"						"15 12 9 6 3"
 			}
-		}
-	}
-	// 友军法术反制（魔晶）
-	"antimage_counterspell_ally"
-	{
-		"AbilityValues"
-		{
-			"duration_illusion"				"0" // 不产生幻象（假装）
 		}
 	}
 	// 法力虚空
