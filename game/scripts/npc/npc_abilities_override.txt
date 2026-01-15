@@ -1385,15 +1385,6 @@
 			}
 		}
 	}
-	// 恶魔的交易
-	"doom_bringer_devils_bargain"
-	{
-		"AbilityValues"
-		{
-			"buyback_penalty"	"0"		// 15
-			"item_sellback_percent"	"65"	// 90
-		}
-	}
 	//=================================================================================================================
 	// Ability: Dragon Knight 龙骑士
 	//=================================================================================================================
@@ -12411,7 +12402,7 @@
 			}
 			"total_damage"
 			{
-				"value"					"70 140 210 280 350"
+				"value"					"100 160 220 280 340"	// 100 160 220 280
 				"special_bonus_unique_shadow_shaman_6" "+170"
 			}
 			"channel_time"
@@ -12429,7 +12420,7 @@
 	"shadow_shaman_mass_serpent_ward"
 	{
 		"MaxLevel" "3"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"100"		// 110 105 100
 		"AbilityValues"
 		{
 			"ward_count"
