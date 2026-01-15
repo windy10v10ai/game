@@ -2120,7 +2120,7 @@
 			"slow_duration"				"1 1.75 2.5 3.25 4"
 			"torrent_damage"
 			{
-				"value"			"80 160 240 320 400"
+				"value"			"110 180 250 320 390"		// 110 180 250 320
 				"special_bonus_unique_kunkka_7"		"+25%"
 			}
 			"AbilityCooldown"
@@ -3994,7 +3994,7 @@
 		{
 			"bonus_damage"
 			{
-				"value"		"50 100 150 200 250"
+				"value"		"35 90 145 200 255"		// 35 90 145 200
 				"special_bonus_unique_slardar_2"	"+50"	// 40
 			}
 		}
@@ -4268,7 +4268,7 @@
 			}
 			"great_cleave_damage"
 			{
-				"value"				"50 60 70 80 90"
+				"value"				"60 70 80 90 100"		// 60 70 80 90
 			}
 		}
 	}
@@ -4276,7 +4276,7 @@
 	"sven_warcry"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"40 35 30 25 20"
+		"AbilityCooldown"				"36 32 28 24 20"		// 36 32 28 24
 		"AbilityManaCost"				"40 45 50 55 60"
 		"AbilityValues"
 		{
