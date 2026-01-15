@@ -162,3 +162,29 @@ grep "技能名" docs/reference/{version}/abilities_schinese.txt
 ```kv
 "duration_illusion"  "0"  // 为了防止卡顿，禁用幻象
 ```
+
+---
+
+## Bot Build 天赋检测
+
+Bot 天赋配置在 `game/scripts/npc/npc_heroes_custom.txt`，需与官方天赋定义匹配。
+
+### 天赋等级对应关系
+
+| 等级 | 官方 Ability |
+|-----|-------------|
+| 10级 | Ability10, Ability11 |
+| 15级 | Ability12, Ability13 |
+| 20级 | Ability14, Ability15 |
+| 25级 | Ability16, Ability17 |
+
+### Bot Build 加点顺序
+
+- 10/15/20/25 级：每个档位选一个天赋
+- 27/28/29/30 级：补全各档位另一侧天赋
+
+### 检测方法
+
+1. 读取 `docs/reference/{version}/npc_heroes.txt` 中英雄的 Ability10-17
+2. 读取 `game/scripts/npc/npc_heroes_custom.txt` 中英雄的 Bot Build
+3. 验证 10/15/20/25/27/28/29/30 级的天赋是否在对应档位的 Ability 中
