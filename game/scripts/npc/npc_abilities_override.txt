@@ -8557,13 +8557,9 @@
 		"AbilityValues"
 		{
 			"movement_slow"				"-22 -28 -34 -40 -50"
-			"shard_enrage_duration"
-			{
-				"special_bonus_shard"				"1.2"		// 1.4 削弱0.2
-			}
 			"fury_swipe_stacks_on_hit"
 			{
-				"special_bonus_unique_ursa_earthshock_furyswipes"			"+4"	// +2
+				"special_bonus_shard"			"+4"	// +3
 			}
 			"AbilityCooldown"
 			{
