@@ -136,3 +136,29 @@ grep "技能名" docs/reference/{version}/abilities_schinese.txt
 
 - 不要复制 Dota 2 官方的所有属性，只 override 必要的部分
 - 不要修改有意加强/削弱的特殊逻辑（除非用户要求）
+
+---
+
+## 技能重做处理
+
+- **属性删除**：官方删除某属性时，删除相关 override block
+- **技能移除**：官方移除整个技能时，删除对应 override block
+- **与官方值相同**：更新后若与官方值相同，移除该属性（无需 override）
+
+---
+
+## 不需要修改的情况
+
+- 当前 override 已是合理扩展且与新版本兼容
+- 机制变更不涉及已 override 的数值
+- 未 override 的天赋会自动使用官方新值
+
+---
+
+## 性能优化设计
+
+为防止卡顿，部分技能禁用幻象/召唤物：
+
+```kv
+"duration_illusion"  "0"  // 为了防止卡顿，禁用幻象
+```
