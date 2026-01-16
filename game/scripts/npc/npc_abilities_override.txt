@@ -8137,7 +8137,7 @@
 		{
 			"damage"
 			{
-				"value"								"300 400 500 650"
+				"value"								"300 550 650 800"
 				"special_bonus_unique_sniper_1"		"+250"		// +150
 			}
 			"scepter_stun_duration"
