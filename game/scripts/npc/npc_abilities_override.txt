@@ -12102,7 +12102,7 @@
 	{
 		"AbilityValues"
 		{
-			"spell_reflect_pct"			"25.0"			// 20.0
+			"spell_reflect_pct"			"21.0"			// 16.0
 			"radius"
 			{
 				"value"			"900"					// 1200
