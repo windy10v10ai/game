@@ -648,7 +648,6 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"22.0 21 20 19 18"
-		"AbilityManaCost"				"105 110 115 120 125"
 		"AbilityValues"
 		{
 			"radius"
