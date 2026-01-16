@@ -11506,7 +11506,7 @@
 		"AbilityValues"
 		{
 			"damage_per_health"			"0.7 0.8 0.9 1.0"
-			"hp_per_kill"				"4 8 12 16"
+			"hp_per_kill"				"2 4 6 8"		// 1 2 3 x2
 			"mana_per_kill"				"2 4 6 8"
 		}
 	}
