@@ -58,7 +58,7 @@ description: Dota 2 自定义地图 Override 技能规则。定义技能等级�
 以下情况保持最大等级数值不变：
 
 - 过于短暂的 CD：小技能最大等级 CD ≤ 5s，大招最大等级 CD ≤ 60s
-- 百分比数值已达上限
+- 百分比数值：如 slow_attack_speed_pct, slow_movement_speed_pct 等，burn_damage 数值看不出来，但是描述说明中是百分比
 - radius 等固定范围属性
 
 ### 示例
