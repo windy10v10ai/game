@@ -64,11 +64,10 @@ grep -n "hero_name" game/scripts/npc/npc_abilities_override.txt
 
 #### 2.6 提交更改
 
-直接 commit 本次更新：
+直接 commit 本次更新（不要使用 `cd && git add`，避免额外权限请求）：
 
 ```bash
-git add game/scripts/npc/npc_abilities_override.txt
-git commit -m "update {hero_name} abilities for {version}"
+git add game/scripts/npc/npc_abilities_override.txt && git commit -m "update {hero_name} abilities for {version}"
 ```
 
 #### 2.7 向用户报告完成
