@@ -9849,6 +9849,23 @@
 			}
 		}
 	}
+	// 巫术精研
+	"death_prophet_witchcraft"
+	{
+		"AbilityValues"
+		{
+			"movement_speed_pct_per_level"
+			{
+				"value"				"1"		// 0.75
+				"hero_levelup"		"+0.5"	// +0.75
+			}
+			"cooldown_reduction_pct_per_level"
+			{
+				"value"				"1"		// 0.75
+				"hero_levelup"		"+0.5"	// +0.75
+			}
+		}
+	}
 	// 吸魂巫术
 	"death_prophet_spirit_siphon"
 	{
@@ -9892,8 +9909,6 @@
 				"value"										"0"
 				"special_bonus_facet_death_prophet_ghosts"	"=200 =400 =600 =800"
 			}
-
-			"movement_bonus"				"4 8 12 16"
 		}
 	}
 	// 哀悼仪式 天命
