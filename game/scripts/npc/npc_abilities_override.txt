@@ -4465,7 +4465,7 @@
 		{
 				"gush_damage"
 				{
-					"value"		"110 160 210 260 310"
+					"value"		"100 160 220 280 330"
 				}
 				"negative_armor"
 				{
@@ -4504,8 +4504,7 @@
 		{
 			"attack_damage"
 			{
-				"value"										"45 90 135 180 225"
-				"special_bonus_unique_tidehunter_9"			"+80"	// 40
+				"value"										"50 100 150 200 250"
 			}
 			"damage_reduction"
 			{
@@ -4534,7 +4533,7 @@
 			"duration"
 			{
 				"value"					"2.0 2.4 2.8 3.2"	// 2.0 2.2 2.4
-				"special_bonus_unique_tidehunter_7"	"+1.2"	// 0.8
+				"special_bonus_unique_tidehunter_7"	"+1.4"	// 1.0
 			}
 		}
 	}
