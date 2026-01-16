@@ -12548,12 +12548,12 @@
 			}
 			"int_steal"
 			{
-				"value"		"1 1 2 2 3 3"
+				"value"		"1 2 2 3 3 4"
 				"special_bonus_shard"		"+1"
 			}
 			"int_steal_duration"
 			{
-				"value"			"15 20 25 30 35 40"
+				"value"			"10 20 30 40 50 50"
 			}
 			"bounce_range"
 			{
