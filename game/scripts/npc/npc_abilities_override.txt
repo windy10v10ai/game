@@ -2708,11 +2708,7 @@
 				{
 					"value"				"5"
 				}
-				"postjump_flurry_charges"
-				{
-					"special_bonus_facet_marci_fleeting_fury"		"=6"	// 3
-				}
-		}
+			}
 	}
 	// 健体术
 	"marci_guardian"
