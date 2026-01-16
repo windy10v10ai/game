@@ -165,6 +165,31 @@ grep "技能名" docs/reference/{version}/abilities_schinese.txt
 
 ---
 
+## 用户交互规则
+
+### 询问格式
+
+询问用户数值选择时，必须提供：
+
+1. **属性中文名称**（不用英文）
+2. **当前 override 值**
+3. **新官方值**
+4. **建议更新值**
+
+### 天赋注释更新
+
+- **天赋有加强**：保持 override 值，注释标注官方值
+  ```kv
+  "special_bonus_unique_xxx" "+50"  // 25
+  ```
+- **天赋无加强**：直接使用官方值，无需注释
+
+### 注释始终同步
+
+官方数值更新时，**始终更新注释为新官方值**，无需询问用户。
+
+---
+
 ## Bot Build 天赋检测
 
 Bot 天赋配置在 `game/scripts/npc/npc_heroes_custom.txt`，需与官方天赋定义匹配。
