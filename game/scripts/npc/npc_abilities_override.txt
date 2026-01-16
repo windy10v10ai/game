@@ -4033,7 +4033,6 @@
 	"snapfire_firesnap_cookie"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"85 90 95 100 105"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
@@ -13712,7 +13711,7 @@
 		"AbilityManaCost"				"135 150 165 180 195"
 		"AbilityValues"
 		{
-			"damage"						"145 190 235 280 425"
+			"damage"						"145 190 235 280 325"
 			"duration"						"4 5 6 7 8"
 			"silence_duration"				"1.5 2 2.5 3 3.5"
 		}
