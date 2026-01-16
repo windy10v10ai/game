@@ -13846,7 +13846,7 @@
 		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCooldown"				"70 60 50 40 35"
-		"AbilityManaCost"				"175 275 375 475 600"
+		"AbilityManaCost"				"150 225 300 375 450"
 		"AbilityValues"
 		{
 			"min_range"			"100"
