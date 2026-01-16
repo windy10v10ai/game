@@ -48,9 +48,9 @@ grep -n "hero_name" game/scripts/npc/npc_abilities_override.txt
 
 使用表格展示对比：
 
-| 属性 | 旧官方值 | 新官方值 | 当前 Override | 差异 | 建议更新 |
-|-----|---------|---------|--------------|------|---------|
-| radius | 150 170 190 210 | 160 180 200 220 | 150 165 180 195 210 | -5 | 160 175 190 205 220 |
+| 属性   | 旧官方值        | 新官方值        | 当前 Override       | 差异 | 建议更新            |
+| ------ | --------------- | --------------- | ------------------- | ---- | ------------------- |
+| radius | 150 170 190 210 | 160 180 200 220 | 150 165 180 195 210 | -5   | 160 175 190 205 220 |
 
 **注意**：当 Override 与旧官方值有差异时，保持同样的差异应用到新官方值。
 
@@ -67,6 +67,7 @@ grep -n "hero_name" game/scripts/npc/npc_abilities_override.txt
 直接 commit 本次更新：
 
 ```bash
+git add game/scripts/npc/npc_abilities_override.txt
 git commit -m "update {hero_name} abilities for {version}"
 ```
 
