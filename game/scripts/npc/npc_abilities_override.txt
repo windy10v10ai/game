@@ -6100,12 +6100,12 @@
 			"cast_range"
 			{
 				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"100 150 200 250 300"
+				"special_bonus_facet_hoodwink_hunter"	"50 100 150 200 250"	// 50 100 150 200
 			}
 			"attack_range"
 			{
 				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"100 150 200 250 300"
+				"special_bonus_facet_hoodwink_hunter"	"50 100 150 200 250"	// 50 100 150 200
 			}
 		}
 	}
