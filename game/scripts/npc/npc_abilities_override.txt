@@ -7491,7 +7491,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"				"20 18 16 14 12"
+					"value"				"20 17 14 11 8"		// 20 17 14 11
 				}
 				"dash_range"			"400 500 600 700 800"
 				"damage"
@@ -7513,21 +7513,20 @@
 	"pangolier_shield_crash"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"					"70 130 190 250 310"
+				"value"					"50 100 150 200 250"	// 50 100 150 200
 			}
 			"hero_shield"
 			{
-				"value"	"100 200 300 400 500"	// x2
-				"special_bonus_unique_pangolier_shield_crash_herostacks"		"+200"
+				"value"	"120 240 360 480 600"	// 60 120 180 240 x2
+				"special_bonus_unique_pangolier_shield_crash_herostacks"		"+250"	// +125 x2
 			}
 			"AbilityCooldown"
 			{
-				"value"					"18 16 14 12 10"
+				"value"					"19 16 13 10 7"		// 16 13 10 7
 			}
 			"jump_duration"			"0.2"
 			"jump_duration_gyroshell"	"0.4"
@@ -7562,21 +7561,9 @@
 					"value"			"90 80 70 60"
 					"special_bonus_unique_pangolier_5"	"-20"	// -15
 				}
-				"forward_move_speed"
-				{
-					"value"		"800"
-					"special_bonus_facet_pangolier_thunderbolt"	"+200" // 命石2
-				}
-				"turn_rate_boosted"
-				{
-					"value"			"360"
-					"special_bonus_facet_pangolier_thunderbolt"	"+40%" // 命石2
-				}
-				"turn_rate"
-				{
-					"value"		"270"
-					"special_bonus_facet_pangolier_thunderbolt"	"+40%" // 命石2
-				}
+				"forward_move_speed"		"800"		// 550
+				"turn_rate_boosted"			"360"		// 165
+				"turn_rate"					"270"		// 120
 				"radius"
 				{
 					"value"			"600"
@@ -7588,7 +7575,6 @@
 					"affected_by_aoe_increase"	"1"
 				}
 				"stun_duration"			"0.8 1.0 1.2 1.4"
-				"shield_crash_cooldown"			"8 6 4 2"
 		}
 	}
 	//=================================================================================================================
