@@ -2490,7 +2490,7 @@
 		{
 			"speed"				"800"	// 550
 			"crit_multiplier"		"160 200 240 280"
-			"health_bonus"		"500 700 900 1100" // x2
+			"health_bonus"		"450 650 850 1050" // 225 325 425 x2
 			"AbilityCooldown"
 			{
 				"value"							"90 80 70 60"
