@@ -1397,6 +1397,12 @@
 			"damage"
 			{
 				"value"			"80 160 240 320 400"
+				"special_bonus_unique_dragon_knight_9"				"+120%"	// +60%
+			}
+			"AbilityCastRange"
+			{
+				"value"						"600"
+				"special_bonus_unique_dragon_knight_9"				"+120%"	// +60%
 			}
 		}
 	}
@@ -1489,7 +1495,7 @@
 		"AbilityManaCost"				"50 100 150"
 		"AbilityValues"
 		{
-				"bonus_attack_damage"		"60 120 180 240"	// 20 60 100 140
+				"bonus_attack_damage"		"40 100 160 220"	// 20 50 80 110
 		}
 	}
 	//=================================================================================================================
