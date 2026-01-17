@@ -9060,7 +9060,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"						"60 50 40 30"	// 70 55 40
+				"value"						"70 60 50 40"	// 70 55 40
 				"special_bonus_scepter"		"-10"
 			}
 		}
