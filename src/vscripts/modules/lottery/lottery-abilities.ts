@@ -114,6 +114,7 @@ export const abilityTiersActive: Tier[] = [
       'ringmaster_impalement', // 尖刀戏
       'slark_saltwater_shiv', // 海浪短刀
       'treant_natures_grasp', // 自然卷握
+      'abyssal_underlord_firestorm', // 火焰风暴
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
@@ -224,7 +225,7 @@ export const abilityTiersPassive: Tier[] = [
       'centaur_return', // 人马 反伤
       'nevermore_dark_lord', // 魔王降临
       'kunkka_tidebringer', // 潮汐使者 水刀
-      'riki_permanent_invisibility', // 永久隐身（旧版）
+      'riki_backstab', // 刀光谍影
       'necrolyte_heartstopper_aura', // 竭心光环
       'weaver_geminate_attack', // 连击
       'spectre_desolate2', // 荒芜
