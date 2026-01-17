@@ -9597,7 +9597,7 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCastPoint"  			"0.4"	// 1.0
-		"AbilityCooldown"				"60"	// 100 90 80
+		"AbilityCooldown"				"75 70 65 60"	// 100 90 80
 		"AbilityValues"
 		{
 				"destination_radius"
@@ -9648,7 +9648,7 @@
 		{
 				"stun_duration"
 				{
-					"value"			"1.4 1.8 2.2 2.6 3.0"	// 1.2 1.6 2.0 2.4
+					"value"			"1.5 1.8 2.1 2.4 2.7"	// 1.5 1.8 2.1 2.4
 				}
 				"shard_bramble_amount"
 				{
