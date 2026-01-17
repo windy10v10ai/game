@@ -225,7 +225,6 @@ export const abilityTiersPassive: Tier[] = [
       'centaur_return', // 人马 反伤
       'nevermore_dark_lord', // 魔王降临
       'kunkka_tidebringer', // 潮汐使者 水刀
-      'riki_permanent_invisibility', // 永久隐身（旧版）
       'riki_backstab', // 刀光谍影
       'necrolyte_heartstopper_aura', // 竭心光环
       'weaver_geminate_attack', // 连击
