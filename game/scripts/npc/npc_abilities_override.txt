@@ -4940,16 +4940,16 @@
 	// 幽魂
 	"wisp_spirits"
 	{
-		"MaxLevel" "7"
+		"MaxLevel" "5"
 		"AbilityDuration"				"10.0"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"creep_damage"				"30 50 70 90 110 130 150"	// 12 18 24 30
+			"creep_damage"				"30 50 70 90 110"	// 12 18 24 30
 			"hero_damage"
 			{
-				"value"				"50 100 150 200 250 300 350"	// 30 50 70 90
-				"special_bonus_unique_wisp"		"+400"		// +60
+				"value"				"50 100 150 200 250"	// 30 50 70 90
+				"special_bonus_unique_wisp"		"+150%"		// +50%
 			}
 			"max_range"
 			{
@@ -4978,11 +4978,7 @@
 			}
 			"AbilityManaCost"
 			{
-				"value"							"100 110 120 130 140"
-			}
-			"AbilityCooldown"
-			{
-				"value"				"22 21 20 19 18"	// 22/21/20/19
+				"value"							"90 100 110 120 130"	// 90 100 110 120
 			}
 		}
 	}
