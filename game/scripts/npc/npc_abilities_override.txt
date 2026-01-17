@@ -2003,7 +2003,7 @@
 				"burn_damage"
 				{
 					"value"					"25 30 35 40 45 50 55"
-					"special_bonus_unique_huskar_2" "+30"
+					"special_bonus_unique_huskar_2" "+24"	// +12
 				}
 
 		}
@@ -2021,7 +2021,7 @@
 				"special_bonus_unique_huskar_6"			"+55"
 			}
 			"maximum_magic_resist"			"20 25 30 35 40"
-			"hp_threshold_max"				"24"
+			"hp_threshold_max"				"20"	// 10
 			"activation_healthcost_pct"
 			{
 				"value"									"0"
@@ -2057,12 +2057,12 @@
 			"health_damage"
 			{
 				"value"	"0.32 0.38 0.44 0.5"
-				"special_bonus_unique_huskar" "+0.2"
+				"special_bonus_unique_huskar" "+0.44"	// +0.22
 			}
 			"tooltip_health_damage"
 			{
 				"value"		"32 38 44 50"
-				"special_bonus_unique_huskar" "+20"
+				"special_bonus_unique_huskar" "+44"	// +22
 			}
 			"tooltip_health_cost_percent"
 			{
