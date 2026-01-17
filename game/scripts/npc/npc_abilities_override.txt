@@ -13038,7 +13038,7 @@
 				"damage"
 				{
 					"value"			"120 220 320 520 700"	// x2
-					"special_bonus_unique_void_spirit_4"	"+180"	// +40
+					"special_bonus_unique_void_spirit_4"	"+180"	// +65
 				}
 				"base_absorb_amount"
 				{
