@@ -2613,8 +2613,8 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"						"90"
-				"special_bonus_facet_magnataur_reverse_reverse_polarity"		"=60"
+				"value"						"90"		// 115
+				"special_bonus_facet_magnataur_reverse_reverse_polarity"		"=60"	// =100
 			}
 			"polarity_damage"
 			{
