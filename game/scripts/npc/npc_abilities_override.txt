@@ -11674,7 +11674,6 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"14 12 10 8 6"
-		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
 			"damage"
@@ -11683,12 +11682,12 @@
 			}
 		}
 	}
-	// 命运敕令
+	// 气运之末
 	"oracle_fates_edict"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 16 14 12 10"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityCooldown"				"15 13 11 9 7"	// 17 14 11 8
+		"AbilityManaCost"				"70 70 70 70 70"	// 70
 		"AbilityValues"
 		{
 			"duration"
