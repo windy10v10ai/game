@@ -10531,7 +10531,7 @@
 				"special_bonus_facet_invoker_wex_focus"
 				{
 					"value"						"0"
-					"special_bonus_shard"		"+350"
+					"special_bonus_shard"		"+300"	// +125
 				}
 			}
 		}
@@ -10546,13 +10546,13 @@
 			{
 				"value"					"20 44 68 92 116 140 164 188 212 236"	// x2
 				"levelkey"				"wexlevel"
-				"special_bonus_unique_invoker_5"	"+70"	// x2
+				"special_bonus_unique_invoker_5"	"+100"	// +50 x2
 			}
 			"bonus_damage"
 			{
 				"value"					"20 44 68 92 116 140 164 188 212 236"	// x2
 				"levelkey"				"exortlevel"
-				"special_bonus_unique_invoker_5"	"+70"	// x2
+				"special_bonus_unique_invoker_5"	"+100"	// +50 x2
 				"CalculateSpellDamageTooltip"	"0"
 			}
 		}
@@ -10651,7 +10651,7 @@
 		{
 			"damage_per_second"
 			{
-				"value"				"30 40 50 60 70 80 90 100 110 120"
+				"value"				"30 42 54 66 78 90 102 114 126 138"	// 30 36 42...84 等差6 x2
 			}
 		}
 	}
