@@ -6480,7 +6480,7 @@
 			}
 			"rotating_glaives_collision_damage"
 			{
-				"value"								"20 25 30 35 40"
+				"value"								"28 32 36 40 44"	// 28 32 36 40
 			}
 			"AbilityCooldown"
 			{
