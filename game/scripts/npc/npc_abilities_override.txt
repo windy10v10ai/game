@@ -12100,12 +12100,10 @@
 			"lift_duration"
 			{
 				"value"			"0.95 1.2 1.45 1.7 1.95"
-				"special_bonus_unique_rubick_7" "+0.5"
 			}
 			"stun_duration"
 			{
 				"value"		"0.9 1.1 1.3 1.5 1.7"
-				"special_bonus_unique_rubick_7" "+0.5"
 			}
 			"radius"
 			{
@@ -12129,6 +12127,7 @@
 			"attack_damage_reduction"
 			{
 				"value"			"7 14 21 28 35"
+				"special_bonus_unique_rubick_7" "+40"	// +20
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
