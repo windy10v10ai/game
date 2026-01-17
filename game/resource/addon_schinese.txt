@@ -867,6 +867,17 @@
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"地狱之裂"
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "克林克兹和他的骷髅弓手发动攻击时会穿透%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%%护甲。"
 
+		//背刺
+		"DOTA_Tooltip_ability_riki_innate_backstab2"										"背刺"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Description"							"力丸每次从背后攻击敌人时都会造成额外伤害，伤害量为自身敏捷的一定倍数。"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_damage_multiplier"					"敏捷值倍数："
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Facet_riki_contract_killer"			"力丸获得助攻和击杀时会获得额外经验。"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Note0"								"反补友方单位时具有%ally_multiplier%%%效果。"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_Note1"								"力丸的幻象也会有背刺的动作，但是不会造成额外伤害。"
+		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_kill"						"击杀英雄奖励经验："
+		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"助攻经验奖励："
+		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"击杀守卫/信使奖励经验："
+
 		// 魔剑
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"魔剑"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"每%one_tooltip%%%的技能增强获得%bonus_damage_pct_tooltip%%%的攻击力和%magic_resist_pct_tooltip%%%的魔抗"

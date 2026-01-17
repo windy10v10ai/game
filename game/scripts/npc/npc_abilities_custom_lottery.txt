@@ -1,5 +1,40 @@
 "DOTAAbilities"
 {
+	// 背刺
+	"riki_innate_backstab2"
+	{
+		"BaseClass"						"riki_innate_backstab"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"riki/haze_atrocity_icons/riki_backstab"
+		"MaxLevel"						"1"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+			"damage_multiplier"
+			{
+				"value"		"0.6"
+				"hero_levelup" "+0.04"	// +0.05
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
+			}
+			"ally_multiplier"				"25"
+			"backstab_angle"				"105"
+			"bonus_xp_kill"
+			{
+				"value"							"150"
+			}
+			"bonus_xp_assist"
+			{
+				"value"							"75"
+			}
+			"bonus_xp_assist_other"
+			{
+				"value"							"75"
+			}
+		}
+	}
 	// 克林克兹先天 地狱之裂
 	"clinkz_infernal_shred2"
 	{
@@ -27,7 +62,7 @@
 		"BaseClass"						"spectre_desolate"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"spectre_desolate"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
 
@@ -36,7 +71,7 @@
 
 			"bonus_damage"
 			{
-				"value"									"25 40 55 70 85"
+				"value"									"40"
 				"hero_levelup"							"+2"
 			}
 			"radius"						"0"
