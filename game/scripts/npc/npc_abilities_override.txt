@@ -12831,12 +12831,11 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"			"40 35 30 25"
-				"special_bonus_unique_techies_5"	"-15"
+				"value"			"40 35 30 25 20"
 			}
 			"radius"
 			{
-				"value"		"600"// 400
+				"value"		"600"	// 400
 				"affected_by_aoe_increase"	"1"
 			}
 			"damage"
@@ -12844,7 +12843,7 @@
 				"value"			"300 450 600 750 900"
 			}
 			"stun_duration"				"0.8 1 1.2 1.4 1.6"
-			"duration"				"0.5"// 0.75 似乎是飞行时间
+			"duration"				"0.5"	// 0.75 似乎是飞行时间
 		}
 	}
 	// 粘性炸弹
@@ -12880,24 +12879,23 @@
 	{
 		"AbilityValues"
 		{
-			"aura_radius"
-			{
-				"value"					"600"		// 500
-				"special_bonus_scepter"	"+600"		// +500
-				"affected_by_aoe_increase"	"1"
-			}
 
 			"AbilityCooldown"
 			{
-				"value"					"30.0"
+				"value"					"30.0"		// 60.0
 			}
 
-			"trigger_radius"
+			"scepter_move_damage"
 			{
-				"value"	"300"						// 200
-				"affected_by_aoe_increase"	"1"
+				"special_bonus_scepter"					"200"		// 300 削弱基础数值
+				"hero_levelup"							"+10"		// 额外添加英雄等级提升效果
 			}
-			"bonus_mine_damage_pct"		"30"
+
+			"scepter_move_amt"
+			{
+				"special_bonus_scepter"					"300"		// 200
+			}
+			"bonus_mine_damage_pct"		"30"		// 15
 		}
 	}
 	//=================================================================================================================
