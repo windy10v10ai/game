@@ -188,11 +188,18 @@ Bot 天赋配置在 `game/scripts/npc/npc_heroes_custom.txt`，需与官方天�
 
 ### Bot Build 加点顺序
 
-- 10/15/20/25 级：每个档位选一个天赋
-- 27/28/29/30 级：补全各档位另一侧天赋
+- **10/15/20/25 级**：每个档位选一个天赋（从对应的 Ability 中选择）
+- **27/28/29/30 级**：补全各档位另一侧天赋（选择该档位中未被 10/15/20/25 级选择的天赋）
+
+### 覆盖规则
+
+**重要**：如果 `game/scripts/npc/npc_heroes_custom.txt` 中定义了 `Ability10-17`，这些值会**覆盖**官方定义。检测时应优先使用自定义覆盖值，如果没有定义则使用官方值。
 
 ### 检测方法
 
-1. 读取 `docs/reference/{version}/npc_heroes.txt` 中英雄的 Ability10-17
-2. 读取 `game/scripts/npc/npc_heroes_custom.txt` 中英雄的 Bot Build
-3. 验证 10/15/20/25/27/28/29/30 级的天赋是否在对应档位的 Ability 中
+1. 读取 `docs/reference/{version}/npc_heroes.txt` 中英雄的 `Ability10-17`（官方定义）
+2. 读取 `game/scripts/npc/npc_heroes_custom.txt` 中英雄的 `Ability10-17`（自定义覆盖，如有）
+3. 读取 `game/scripts/npc/npc_heroes_custom.txt` 中英雄的 `Bot.Build` 配置
+4. 验证规则：
+   - 10/15/20/25 级的天赋必须在对应档位的 Ability 中
+   - 27/28/29/30 级的天赋必须在对应档位的 Ability 中，且不能与 10/15/20/25 级选择的天赋重复
