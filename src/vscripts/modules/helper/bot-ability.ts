@@ -10,6 +10,7 @@ export class BotAbility {
   // 存储每个bot的被动技能名称
   private static botPassiveAbilities: Map<number, string> = new Map();
 
+  // ----- 技能添加 -----
   /**
    * 为bot添加技能
    */
@@ -59,6 +60,7 @@ export class BotAbility {
     }
   }
 
+  // ----- 技能升级 -----
   /**
    * 升级bot所有技能
    */
@@ -72,14 +74,15 @@ export class BotAbility {
    * 通用的技能升级方法
    * @param ability 技能对象
    * @param targetLevel 目标等级
-   * @returns 是否成功升级
+   * @returns 升级次数
    */
   private static UpgradeAbilityToLevel(
+    hero: CDOTA_BaseNPC_Hero,
     ability: CDOTABaseAbility | undefined,
     targetLevel: number,
-  ): boolean {
+  ): number {
     if (ability === undefined) {
-      return false;
+      return 0;
     }
 
     const abilityLevel = ability.GetLevel();
@@ -87,18 +90,21 @@ export class BotAbility {
 
     // 如果技能已经达到最大等级，则不升级
     if (abilityLevel >= maxLevel) {
-      return false;
+      return 0;
     }
 
     // 确保不超过最大等级
     const finalTargetLevel = Math.min(targetLevel, maxLevel);
 
-    if (finalTargetLevel > abilityLevel) {
-      ability.SetLevel(finalTargetLevel);
-      return true;
+    // 使用 UpgradeAbility 逐级升级，避免 SetLevel 的叠加问题
+    const maxUpgrades = finalTargetLevel - abilityLevel;
+    let upgradeCount = 0;
+    while (ability.GetLevel() < finalTargetLevel && upgradeCount < maxUpgrades) {
+      hero.UpgradeAbility(ability);
+      upgradeCount++;
     }
 
-    return false;
+    return upgradeCount;
   }
 
   /**
@@ -110,6 +116,9 @@ export class BotAbility {
 
     // 如果该英雄没有配置build，则跳过
     if (!buildConfig) {
+      print(
+        `[BotAbility] ERROR: LevelUpBotBuildAbilities ${hero.GetName()}, buildConfig not found`,
+      );
       return;
     }
 
@@ -121,7 +130,7 @@ export class BotAbility {
     for (const [abilityName, targetLevel] of Object.entries(abilityTargetLevels)) {
       const ability = hero.FindAbilityByName(abilityName);
       if (ability) {
-        this.UpgradeAbilityToLevel(ability, targetLevel);
+        this.UpgradeAbilityToLevel(hero, ability, targetLevel);
       }
     }
   }
@@ -165,7 +174,7 @@ export class BotAbility {
 
     const ability = hero.FindAbilityByName(passiveAbilityName);
     const expectedLevel = Math.floor(hero.GetLevel() / this.upgradeIntervalBotPassive);
-    this.UpgradeAbilityToLevel(ability, expectedLevel);
+    this.UpgradeAbilityToLevel(hero, ability, expectedLevel);
   }
 
   /**
@@ -175,6 +184,6 @@ export class BotAbility {
     // find bot_power_n6
     const ability = hero.FindAbilityByName('bot_power_n6');
     const expectedLevel = Math.floor(hero.GetLevel() / this.upgradeIntervalBotPower);
-    this.UpgradeAbilityToLevel(ability, expectedLevel);
+    this.UpgradeAbilityToLevel(hero, ability, expectedLevel);
   }
 }

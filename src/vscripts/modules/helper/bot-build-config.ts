@@ -19,27 +19,35 @@ const botBuildCache: Map<string, BotBuildConfig | null> = new Map();
 export function GetBotBuildConfig(heroName: string): BotBuildConfig | null {
   // 检查缓存
   if (botBuildCache.has(heroName)) {
-    return botBuildCache.get(heroName) || null;
+    return botBuildCache.get(heroName) ?? null;
   }
 
   // 从KV文件读取
-  const heroesKV = LoadKeyValues('scripts/npc/npc_heroes_custom.txt') as {
-    DOTAHeroes?: {
-      [heroName: string]: {
-        Bot?: {
-          Build?: Record<string, string>;
-        };
-      };
+  // KV文件结构：{ heroName: {...} } (直接是英雄名称作为键，LoadKeyValues会跳过DOTAHeroes包装)
+  type HeroData = {
+    Bot?: {
+      Build?: Record<string, string>;
     };
-  } | null;
+  };
+  const heroesKV = LoadKeyValues('scripts/npc/npc_heroes_custom.txt') as Record<
+    string,
+    HeroData
+  > | null;
 
-  if (!heroesKV?.DOTAHeroes?.[heroName]?.Bot?.Build) {
-    // 缓存null值，表示该英雄没有配置
+  if (!heroesKV) {
+    print(`[BotBuildConfig] GetBotBuildConfig: Failed to load KV file`);
     botBuildCache.set(heroName, null);
     return null;
   }
 
-  const buildConfig = heroesKV.DOTAHeroes[heroName].Bot!.Build!;
+  const heroData = heroesKV[heroName];
+
+  if (!heroData?.Bot?.Build) {
+    botBuildCache.set(heroName, null);
+    return null;
+  }
+
+  const buildConfig = heroData.Bot.Build;
   // 缓存配置
   botBuildCache.set(heroName, buildConfig);
   return buildConfig;

@@ -119,7 +119,7 @@ export class Debug {
 
     if (cmd === CMD.L_ALL) {
       for (let i = 0; i < 30; i++) {
-        Timers.CreateTimer(i * 2, () => {
+        Timers.CreateTimer(i * 3, () => {
           PlayerHelper.ForEachPlayer((playerId) => {
             const hero = PlayerResource.GetSelectedHeroEntity(playerId);
             if (!hero) return;
