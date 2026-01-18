@@ -1,5 +1,6 @@
 import { abilityTiersPassiveBot } from '../lottery/lottery-abilities-bot';
 import { LotteryHelper } from '../lottery/lottery-helper';
+import { GetBotBuildConfig } from './bot-build-config';
 
 export class BotAbility {
   // 每5级升级一次
@@ -62,23 +63,25 @@ export class BotAbility {
    * 升级bot所有技能
    */
   public static LevelUpBotAbility(hero: CDOTA_BaseNPC_Hero): void {
+    this.LevelUpBotBuildAbilities(hero);
     this.LevelUpBotPassiveAbility(hero);
     this.LevelUpBotPower(hero);
   }
 
   /**
    * 通用的技能升级方法
+   * @param ability 技能对象
+   * @param targetLevel 目标等级
+   * @returns 是否成功升级
    */
   private static UpgradeAbilityToLevel(
     ability: CDOTABaseAbility | undefined,
-    heroLevel: number,
-    upgradeInterval: number,
+    targetLevel: number,
   ): boolean {
     if (ability === undefined) {
       return false;
     }
 
-    const expectedLevel = Math.floor(heroLevel / upgradeInterval);
     const abilityLevel = ability.GetLevel();
     const maxLevel = ability.GetMaxLevel();
 
@@ -87,14 +90,66 @@ export class BotAbility {
       return false;
     }
 
-    if (expectedLevel > abilityLevel) {
-      // 确保不超过最大等级
-      const targetLevel = Math.min(expectedLevel, maxLevel);
-      ability.SetLevel(targetLevel);
+    // 确保不超过最大等级
+    const finalTargetLevel = Math.min(targetLevel, maxLevel);
+
+    if (finalTargetLevel > abilityLevel) {
+      ability.SetLevel(finalTargetLevel);
       return true;
     }
 
     return false;
+  }
+
+  /**
+   * 根据bot build配置升级技能
+   */
+  private static LevelUpBotBuildAbilities(hero: CDOTA_BaseNPC_Hero): void {
+    const heroName = hero.GetName();
+    const buildConfig = GetBotBuildConfig(heroName);
+
+    // 如果该英雄没有配置build，则跳过
+    if (!buildConfig) {
+      return;
+    }
+
+    const heroLevel = hero.GetLevel();
+    // 计算每个技能的目标等级
+    const abilityTargetLevels = this.CalculateAbilityTargetLevels(buildConfig, heroLevel);
+
+    // 升级每个技能到目标等级
+    for (const [abilityName, targetLevel] of Object.entries(abilityTargetLevels)) {
+      const ability = hero.FindAbilityByName(abilityName);
+      if (ability) {
+        this.UpgradeAbilityToLevel(ability, targetLevel);
+      }
+    }
+  }
+
+  /**
+   * 根据build配置和英雄等级，计算每个技能的目标等级
+   * @param buildConfig bot build配置
+   * @param heroLevel 英雄当前等级
+   * @returns 技能名称到目标等级的映射
+   */
+  private static CalculateAbilityTargetLevels(
+    buildConfig: Record<string, string>,
+    heroLevel: number,
+  ): Record<string, number> {
+    const abilityLevels: Record<string, number> = {};
+
+    // 遍历build配置，统计每个技能在1到heroLevel之间的加点次数
+    for (let level = 1; level <= heroLevel; level++) {
+      const abilityName = buildConfig[level.toString()];
+      if (abilityName && abilityName !== '') {
+        if (!abilityLevels[abilityName]) {
+          abilityLevels[abilityName] = 0;
+        }
+        abilityLevels[abilityName]++;
+      }
+    }
+
+    return abilityLevels;
   }
 
   /**
@@ -109,7 +164,8 @@ export class BotAbility {
     }
 
     const ability = hero.FindAbilityByName(passiveAbilityName);
-    this.UpgradeAbilityToLevel(ability, hero.GetLevel(), this.upgradeIntervalBotPassive);
+    const expectedLevel = Math.floor(hero.GetLevel() / this.upgradeIntervalBotPassive);
+    this.UpgradeAbilityToLevel(ability, expectedLevel);
   }
 
   /**
@@ -118,6 +174,7 @@ export class BotAbility {
   private static LevelUpBotPower(hero: CDOTA_BaseNPC_Hero): void {
     // find bot_power_n6
     const ability = hero.FindAbilityByName('bot_power_n6');
-    this.UpgradeAbilityToLevel(ability, hero.GetLevel(), this.upgradeIntervalBotPower);
+    const expectedLevel = Math.floor(hero.GetLevel() / this.upgradeIntervalBotPower);
+    this.UpgradeAbilityToLevel(ability, expectedLevel);
   }
 }
