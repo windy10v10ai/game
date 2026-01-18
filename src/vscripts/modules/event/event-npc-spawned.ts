@@ -22,56 +22,6 @@ export class EventNpcSpawned {
     // "generic_season_point_bag_fountain",
   ];
 
-  // FIXME boss相关内容实装未同步，暂时保留以缓解代码冲突
-  private static supportHeroBlacklist = [
-    'npc_dota_hero_crystal_maiden', // 水晶室女
-    'npc_dota_hero_dazzle', // 戴泽
-    'npc_dota_hero_omniknight', // 全能骑士
-    'npc_dota_hero_warlock', // 术士
-    'npc_dota_hero_witch_doctor', // 巫医
-    'npc_dota_hero_shadow_shaman', // 暗影萨满
-    'npc_dota_hero_oracle', // 神谕者
-    'npc_dota_hero_jakiro', // 杰奇洛
-    'npc_dota_hero_bane', // 祸乱之源
-    'npc_dota_hero_lich', // 巫妖
-    'npc_dota_hero_lion', // lion
-  ];
-
-  // ✅ 修改: 严格基于Bot AI实际选择列表的Boss白名单
-  private static bossCandidateWhitelist = [
-    // === 力量型核心 (高生存+输出) ===
-    'npc_dota_hero_axe', // 斧王 - 反击螺旋,高护甲
-    'npc_dota_hero_bristleback', // 钢背兽 - 减伤被动,持续输出
-    'npc_dota_hero_chaos_knight', // 混沌骑士 - 高爆发,幻象
-    'npc_dota_hero_dragon_knight', // 龙骑士 - 高护甲,AOE输出
-    'npc_dota_hero_pudge', // 帕吉 - 高生命,魔法伤害
-    'npc_dota_hero_omniknight', // 全能骑士
-    'npc_dota_hero_sven', // 斯温 - 高爆发,AOE清场
-    'npc_dota_hero_tiny', // 小小 - 高爆发,后期肉盾
-    'npc_dota_hero_skeleton_king', // 骷髅王 - 重生,高输出
-    'npc_dota_hero_abaddon', // yabadun - 重生,高输出
-
-    // === 敏捷型核心 (输出+一定生存) ===
-    'npc_dota_hero_juggernaut', // 剑圣 - 魔免,高输出
-    'npc_dota_hero_phantom_assassin', // 幻影刺客 - 高爆发,闪避
-    'npc_dota_hero_luna', // 露娜 - AOE输出,月光
-    'npc_dota_hero_medusa', // 美杜莎 - 魔法盾,后期肉盾
-    'npc_dota_hero_spectre', // 幽鬼 - 折射,后期肉盾
-    'npc_dota_hero_kunkka', // 昆卡 - AOE控制+输出
-
-    // === 智力型核心 (高输出+控制) ===
-    'npc_dota_hero_death_prophet', // 死亡先知 - 持续输出,生存
-    'npc_dota_hero_necrolyte', // 瘟疫法师 - 回复+输出
-    'npc_dota_hero_tinker', // 修补匠 - 持续输出
-
-    // === 混合型 (输出+生存平衡) ===
-    'npc_dota_hero_bloodseeker', // 血魔 - 追杀能力,回复
-    'npc_dota_hero_bounty_hunter', // 赏金猎人 - 爆发+隐身
-    'npc_dota_hero_riki', // 力丸 - 持续输出+隐身
-    'npc_dota_hero_viper', // 冥界亚龙 - 持续输出,减速
-    'npc_dota_hero_windrunner', // 风行者 - 高输出,闪避
-  ];
-
   constructor() {
     ListenToGameEvent('npc_spawned', (keys) => this.OnNpcSpawned(keys), this);
   }
@@ -156,8 +106,6 @@ export class EventNpcSpawned {
     });
   }
 
-  // 在 event-npc-spawned.ts 中添加
-  private static bossSelected = false;
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
     this.SetHeroSpawnPoint(hero);
