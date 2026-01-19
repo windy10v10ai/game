@@ -4,32 +4,6 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
-	// Recipe: Moon Shard
-	//=================================================================================================================
-	"item_recipe_moon_shard_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"9001"
-		"BaseClass"					"item_datadriven"
-		"Model"						"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"4000"
-		"ItemShopTags"				""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_moon_shard_datadriven"
-		"ItemRequirements"
-		{
-			"01"					"item_hyperstone;item_hyperstone"
-		}
-	}
-	//=================================================================================================================
 	// Moon Shard 银月
 	//=================================================================================================================
 	"item_moon_shard_datadriven"
@@ -53,6 +27,12 @@
 		"ItemQuality"				"common"
 		"ItemAliases"				"moon shard"
 		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		// Item Stackable
+		"ItemStackable"				"1"
+		"ItemPermanent"				"0"
+		"ItemInitialCharges"		"1"
+		"IsTempestDoubleClonable"	"0"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------

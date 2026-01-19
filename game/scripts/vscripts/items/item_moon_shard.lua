@@ -7,7 +7,7 @@ function MoonShardOnSpell(keys)
 	if caster:IsRealHero() and target:IsRealHero() and not caster:HasModifier("modifier_arc_warden_tempest_double") and not target:HasModifier("modifier_arc_warden_tempest_double") then
 		AddStacks(ability, caster, target, modifier, 1, true)
 		EmitSoundOnClient("Item.MoonShard.Consume", target)
-		-- caster:RemoveItem(ability)
-		UTIL_RemoveImmediate(ability)
+		-- UTIL_RemoveImmediate(ability)
+		ability:SpendCharge(1)
 	end
 end
