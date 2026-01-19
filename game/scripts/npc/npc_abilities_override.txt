@@ -33,6 +33,7 @@
 	// TK 热导飞弹
 	"tinker_heat_seeking_missile"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"12"			// 18
 		"AbilityManaCost"				"95 105 115 125 135"
