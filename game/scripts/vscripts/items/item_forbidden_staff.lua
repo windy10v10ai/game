@@ -141,14 +141,14 @@ function modifier_item_forbidden_staff_sheep:GetTexture()
 end
 
 function modifier_item_forbidden_staff_sheep:OnCreated()
+    self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed")
+    self.blast_magic_resist = self:GetAbility():GetSpecialValueFor("blast_magic_resist")
+
     if not IsServer() then return end
 
     -- 随机选择模型(猪或羊)
     local model_list = { "models/props_gameplay/pig.vmdl", "models/props_gameplay/sheep01.vmdl" }
     self.model_file = model_list[RandomInt(1, #model_list)]
-
-    self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed")
-    self.blast_magic_resist = self:GetAbility():GetSpecialValueFor("blast_magic_resist")
 end
 
 function modifier_item_forbidden_staff_sheep:CheckState()

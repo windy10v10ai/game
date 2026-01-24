@@ -6093,7 +6093,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"sheep_duration"		"3.0"	// Lua 逻辑需要 - 变形持续时间
-			"sheep_movement_speed"	"0"		// Lua 逻辑需要 - 变形移动速度
+			"sheep_movement_speed"	"100"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
