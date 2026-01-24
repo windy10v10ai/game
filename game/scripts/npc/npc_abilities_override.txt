@@ -1507,7 +1507,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastPoint"				"0.3"	// 0.69
-		"AbilityManaCost"				"120 125 130 135 140"
+		"AbilityManaCost"				"115 120 125 130 135"
 		"AbilityValues"
 		{
 			"fissure_duration"			"6.5"
