@@ -6374,7 +6374,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"duration"				"0.8 1.2 1.6 2.0 2.4"
+				"duration"				"1.1 1.4 1.7 2.0 2.3"
 				"AbilityCooldown"
 				{
 					"value"				"36 32 28 24 20"	// 38 32 26 20
@@ -6387,7 +6387,7 @@
 		"AbilityCooldown"				"36 32 28 24 20"	// 38 32 26 20
 		"AbilityValues"
 		{
-				"duration"				"0.8 1.2 1.6 2.0 2.4"
+				"duration"				"1.1 1.4 1.7 2.0 2.3"
 		}
 	}
 	// 真熊形态
