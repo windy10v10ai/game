@@ -6024,8 +6024,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"	"90 80 70 60 60"
-					"special_bonus_unique_gyrocopter_5"	"-30"
+					"value"	"100 90 80 70 60"
 				}
 				"damage"
 				{
@@ -10407,25 +10406,25 @@
 		{
 				"AbilityCastRange"
 				{
-					"value"				"650 700 750 800 900"	// 650/700/750/800
+					"value"				"650 700 750 800 900"	// 650 700 750 800
 				}
 				"max_damage"
 				{
 					"value"		"180 270 360 450 540"	// +90
 				}
-				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6/2.0/2.4/2.8
+				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6 2.0 2.4 2.8
 				"damage_per_tick"		"12 18 24 30 36"	// x2
 				"tick_dps_tooltip"		"60 90 120 150 180"	// x2
 				"AbilityCooldown"
 				{
-					"value"				"27 24 21 18 15"	// 27/24/21/18
+					"value"				"27 24 21 18 15"	// 27 24 21 18
 				}
 		}
 	}
 	// 暗绘
 	"grimstroke_dark_portrait"
 	{
-		"AbilityCooldown"				"60"		// 幻想卡顿，增加CD
+		"AbilityCooldown"				"60"		// 幻象卡顿，增加CD
 		"AbilityValues"
 		{
 			"images_take_damage_percent"
