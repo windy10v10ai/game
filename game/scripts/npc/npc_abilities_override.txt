@@ -8906,7 +8906,7 @@
 			}
 			"damage"
 			{
-				"value"					"16 32 48 64 80"	// x2
+				"value"					"20 30 40 50 60"	// x2
 				"special_bonus_unique_viper_1"	"+40"
 			}
 		}
@@ -8921,7 +8921,7 @@
 			"damage"
 			{
 				"value"				"80 120 160 200"
-				"special_bonus_unique_viper_2"	"+120"
+				"special_bonus_unique_viper_2"	"+140"	// x2
 			}
 			"bonus_movement_speed"
 			{
