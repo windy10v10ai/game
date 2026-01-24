@@ -6094,6 +6094,7 @@
 			}
 			"sheep_duration"		"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"	"0"		// Lua 逻辑需要 - 变形移动速度
+			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_intellect"			"170"	// tooltip only - 智力
@@ -6669,6 +6670,7 @@
 			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"1.5"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
+			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
 			"ethereal_duration"			"4.0"	// Lua 逻辑需要 - 虚灵持续时间
 			"blast_agility_multiplier"	"2.5"	// Lua 逻辑需要 - 虚灵之刃主属性倍数
 			"blast_damage_base"			"300"	// Lua 逻辑需要 - 虚灵之刃基础伤害

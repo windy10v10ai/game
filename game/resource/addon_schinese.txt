@@ -2819,7 +2819,7 @@
 
 		// 禁忌法锤
 		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>禁忌法锤</font>"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>主动：禁忌领域</font></h1>在目标区域施放禁忌领域,对%radius%范围内所有敌人施放死灵冲击，闪电风暴和变羊术。<br><br>死灵冲击：造成%necrolyte_att_multiplier%x[你的全属性]点魔法伤害,并将目标变成小动物%sheep_duration%秒<br>闪电风暴：造成%lightning_damage%点魔法伤害<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>主动：禁忌领域</font></h1>在目标区域施放禁忌领域,对%radius%范围内所有敌人施放死灵冲击，闪电风暴和变羊术。<br><br>死灵冲击：降低敌人 %blast_magic_resist%%% 点的基础魔法抗性，造成%necrolyte_att_multiplier%x[你的全属性]点魔法伤害,并将目标变成小动物%sheep_duration%秒<br>闪电风暴：造成%lightning_damage%点魔法伤害<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"								"禁忌的力量,不可轻易触碰。"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Note0"								"死灵冲击会将目标变成无害的小动物,无法攻击，施法或使用物品。"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"						"+$int"
@@ -2833,7 +2833,7 @@
 		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+技能增强"
 
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"								"死灵冲击"
-		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"变成一只小动物。不能攻击，释放技能或使用物品。"
+		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"变成一只小动物。不能攻击，释放技能或使用物品。降低基础魔法抗性。"
 
 
 		// 禁忌战刃
@@ -2939,7 +2939,7 @@
 
 		// 暗影咒灭
 		"DOTA_Tooltip_Ability_item_shadow_impact"										"<font color='#18161aff'>暗影咒灭</font>"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"							"<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭。<br><br>纯粹伤害：%absolute_damage%点<br>魔法伤害：%dagon_damage%点<br>虚灵冲击：造成%blast_damage_base%+%blast_agility_multiplier%x[主属性]点魔法伤害,并使目标进入虚灵状态%ethereal_duration%秒,减速%blast_movement_slow%%%<br>死灵冲击：造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br><br>施法距离：%abilitycastrange%"
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"							"<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭。<br><br>纯粹伤害：%absolute_damage%点<br>魔法伤害：%dagon_damage%点<br>虚灵冲击：造成%blast_damage_base%+%blast_agility_multiplier%x[主属性]点魔法伤害,并使目标进入虚灵状态%ethereal_duration%秒,减速%blast_movement_slow%%%<br>死灵冲击：降低敌人 %blast_magic_resist%%% 点的基础魔法抗性，造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br><br>施法距离：%abilitycastrange%"
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"									"暗影的冲击,毁灭一切。"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"						"+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"						"+$str"
@@ -2954,7 +2954,7 @@
 		"DOTA_Tooltip_ability_item_shadow_impact_Note2"									"绝刃效果造成纯粹伤害,无视魔法免疫。"
 
 		"DOTA_Tooltip_modifier_shadow_impact_sheep"										"死灵冲击"
-		"DOTA_Tooltip_modifier_shadow_impact_sheep_Description"							"变成一只小动物。不能攻击，释放技能或使用物品。"
+		"DOTA_Tooltip_modifier_shadow_impact_sheep_Description"							"变成一只小动物。不能攻击，释放技能或使用物品。降低基础魔法抗性。"
 
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"无限手套"
