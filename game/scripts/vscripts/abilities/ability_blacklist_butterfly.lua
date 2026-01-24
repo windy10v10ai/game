@@ -48,8 +48,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     -- 原因：这些技能会改变英雄状态或打断攻击动作
     -- ========================================
     ["brewmaster_primal_split"] = true,    -- 酒仙 元素分离
-    ["morphling_morph_agi"] = true,        -- 水人 变体（敏捷）
-    ["morphling_morph_str"] = true,        -- 水人 变体（力量）
+
     ["kez_switch_weapons"] = true,         -- Kez 切换武器
     ["rubick_spell_steal"] = true,         -- 拉比克 法术窃取
     ["terrorblade_sunder"] = true,         -- 恐怖利刃 魂断
@@ -62,6 +61,12 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["hoodwink_sharpshooter"] = true,
     ["life_stealer_infest"] = true,        -- 噬魂鬼 感染
 
+    ["morphling_morph_agi"] = true,        -- 水人 变体（敏捷）
+    ["morphling_morph_str"] = true,        -- 水人 变体（力量）
+    ["morphling_morph_replicate"] = true,
+    ["generic_hidden"] = true,
+    ["morphling_accumulation"] = true,
+    ["morphling_flow"] = true,
     -- ========================================
     -- 位移/冲刺类技能
     -- 原因：位移技能会打断攻击并改变位置，可能导致战斗混乱
@@ -99,31 +104,32 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     -- 持续施法/引导类技能
     -- 原因：这些技能需要持续施法，被打断会浪费冷却时间
     -- ========================================
-    ["tiny_tree_channel"] = true,             -- 小小 树木连掷
-    ["shredder_chakram"] = true,              -- 伐木机 锯齿飞轮
-    ["shredder_twisted_chakram"] = true,      -- 伐木机 锯齿飞轮2
-    ["earthshaker_enchant_totem"] = true,     -- 撼地者 强化图腾
-    ["tiny_tree_grab"] = true,                -- 小小 抓树
-    ["enigma_black_hole"] = true,             -- 谜团 黑洞
-    ["bane_fiends_grip"] = true,              -- 祸乱之源 魔爪
-    ["crystal_maiden_freezing_field"] = true, -- 水晶室女 极寒领域
-    ["witch_doctor_death_ward"] = true,       -- 巫医 死亡守卫
-    ["pudge_dismember"] = true,               -- 屠夫 肢解
-    ["sand_king_epicenter"] = true,           -- 沙王 地震
-    ["storm_spirit_ball_lightning"] = true,   -- 风暴之灵 球状闪电
-    ["warlock_upheaval"] = true,              -- 术士 剧变
-    ["enigma_midnight_pulse"] = true,         -- 谜团 午夜凋零
-    ["goku_kamehameha"] = true,               -- 悟空 龟派气功
-    ["yukari_twin_trains"] = true,            -- 八云紫 无人废线车辆炸弹
-    ["yukari_moon_portal"] = true,            -- 八云紫 月之门
-    ["artoria_excalibur"] = true,             -- Artoria 誓约胜利之剑
-    ["miku_dance"] = true,                    -- 初音未来 舞蹈
-    ["miku_get_down"] = true,                 -- 初音未来 Get Down
-    ["tinker_rearm_lua"] = true,              -- 修补匠 重新装备
-    ["clinkz_burning_barrage"] = true,        -- 火枪手 燃烧弹幕
-    ["tiny_toss_tree"] = true,                -- 小小 丢树（注意有空格）
-    ["morphling_replicate"] = true,           -- 水人 复制
-    ["ancient_apparition_ice_blast"] = true,  -- 冰魂 寒冰爆破
+    ["tiny_tree_channel"] = true,                          -- 小小 树木连掷
+    ["shredder_chakram"] = true,                           -- 伐木机 锯齿飞轮
+    ["shredder_twisted_chakram"] = true,                   -- 伐木机 锯齿飞轮2
+    ["earthshaker_enchant_totem"] = true,                  -- 撼地者 强化图腾
+    ["tiny_tree_grab"] = true,                             -- 小小 抓树
+    ["enigma_black_hole"] = true,                          -- 谜团 黑洞
+    ["bane_fiends_grip"] = true,                           -- 祸乱之源 魔爪
+    ["crystal_maiden_freezing_field"] = true,              -- 水晶室女 极寒领域
+    ["witch_doctor_death_ward"] = true,                    -- 巫医 死亡守卫
+    ["pudge_dismember"] = true,                            -- 屠夫 肢解
+    ["sand_king_epicenter"] = true,                        -- 沙王 地震
+    ["storm_spirit_ball_lightning"] = true,                -- 风暴之灵 球状闪电
+    ["warlock_upheaval"] = true,                           -- 术士 剧变
+    ["enigma_midnight_pulse"] = true,                      -- 谜团 午夜凋零
+    ["goku_kamehameha"] = true,                            -- 悟空 龟派气功
+    ["yukari_twin_trains"] = true,                         -- 八云紫 无人废线车辆炸弹
+    ["yukari_moon_portal"] = true,                         -- 八云紫 月之门
+    ["artoria_excalibur"] = true,                          -- Artoria 誓约胜利之剑
+    ["miku_dance"] = true,                                 -- 初音未来 舞蹈
+    ["miku_get_down"] = true,                              -- 初音未来 Get Down
+    ["tinker_rearm_lua"] = true,                           -- 修补匠 重新装备
+    ["clinkz_burning_barrage"] = true,                     -- 火枪手 燃烧弹幕
+    ["tiny_toss_tree"] = true,                             -- 小小 丢树（注意有空格）
+    ["morphling_replicate"] = true,                        -- 水人 复制
+    ["ancient_apparition_ice_blast"] = true,               -- 冰魂 寒冰爆破
+    ["phantom_assassin_phantom_strike_datadriven"] = true, -- 幻刺b觉醒
 
     -- ========================================
     -- 取消/停止类技能
@@ -197,8 +203,6 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["phantom_lancer_doppelwalk"] = true,  -- 幻影长矛手 - 幻影突袭
     ["chaos_knight_phantasm"] = true,      -- 混沌骑士 - 幻象
     ["imba_chaos_knight_phantasm"] = true, -- 混沌骑士 - 幻象(增强版)
-    ["spectre_haunt"] = true,              -- 幽鬼 - 降临
-    ["spectre_haunt_single"] = true,       -- 幽鬼 - 单体降临
     ["dark_seer_wall_of_replica"] = true,  -- 黑贤 - 复制之墙
     ["skeleton_king_reincarnation"] = true,
     ["earthshaker_fissure"] = true,        --沟壑 避免影响队友游戏体验
@@ -222,7 +226,33 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["oracle_fortunes_end"] = true,
     ["phoenix_sun_ray"] = true,
     ["phoenix_sun_ray_stop"] = true,
-    ["hero_possession"] = true,
+    --["hero_possession"] = true,
+    ["bane_nightmare"] = true,
+    ["obsidian_destroyer_astral_imprisonment"] = true,
+    ["zuus_heavenly_jump"] = true,
+    ["pudge_meat_hook_lua"] = true,
+    ["centaur_mount"] = true,
+    ["techies_reactive_tazer"] = true,
+    --幽鬼
+    ["spectre_shadow_step"] = true,
+    ["spectre_reality"] = true,
+    ["spectre_desolate"] = true,
+    ["spectre_haunt"] = true,                  -- 幽鬼 - 降临
+    ["spectre_haunt_single"] = true,           -- 幽鬼 - 单体降临
+
+    ["primal_beast_onslaught"] = true,         -- 兽
+    ["primal_beast_onslaught_release"] = true, -- 兽
+
+    ["ringmaster_summon_unicycle"] = true,     -- 独轮车
+
+    --大圣
+    ["monkey_king_mischief"] = true,
+    ["monkey_king_untransform"] = true,
+    ["monkey_king_tree_dance"] = true,
+    ["monkey_king_primal_spring"] = true,
+    ["monkey_king_primal_spring_early"] = true,
+    ["monkey_king_transfiguration"] = true,
+
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题
@@ -295,4 +325,15 @@ EXCLUDED_ITEMS = {
     ["earth_spirit_stone_caller"] = true,
     ["muerta_gunslinger"] = true,
     ["troll_warlord_switch_stance"] = true,
+
+    ---圣器
+    ["item_qinglong"] = true,
+    ["item_qinglong_p"] = true,
+    ["item_xuanwu"] = true,
+    ["item_xuanwu_p"] = true,
+    ["item_zhuque"] = true,
+    ["item_zhuque_p"] = true,
+    ["item_baihu"] = true,
+    ["item_baihu_p"] = true,
+    ["item_flight_bar"] = true,
 }

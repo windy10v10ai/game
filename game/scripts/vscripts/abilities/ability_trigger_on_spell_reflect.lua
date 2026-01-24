@@ -47,7 +47,11 @@ function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
         --print("[SpellReflect] On cooldown, skipping")
         return
     end
-
+    -- 新增：如果施法来源是自己，跳过反弹
+    if attacker == parent then
+        --print("[SpellReflect] Attacker is self, skipping reflection")
+        return
+    end
     -- 确保是自己受到伤害
     if params.unit ~= parent then
         --print("[SpellReflect] Not parent unit, skipping")
@@ -72,6 +76,9 @@ function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
     local ability = params.inflictor
     local behavior = ability:GetBehavior()
 
+    if type(behavior) ~= "number" then
+        behavior = tonumber(tostring(behavior))
+    end
     if ability:IsItem() then
         --print("[SpellReflect] Checking item ability behavior")
         if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 then
@@ -170,6 +177,7 @@ function modifier_trigger_on_spell_reflect:TriggerRandomAbility(original_attacke
         local ability = parent:GetAbilityByIndex(i)
         if ability and ability:GetLevel() > 0
             and not ability:IsPassive()
+            and not ability:IsHidden()
             and ability ~= self:GetAbility()
             and not ability:IsItem()
             and not EXCLUDED_ABILITIES_ALLBUTTER[ability:GetAbilityName()] then

@@ -83,6 +83,7 @@ function modifier_trigger_on_cast:OnAbilityExecuted(params)
     end
     if executed_ability:IsItem() then return end
     if executed_ability:IsPassive() then return end
+    if executed_ability:IsHidden() then return end
     if EXCLUDED_IN_ABILITIES[executed_ability:GetAbilityName()] then
         return
     end
@@ -94,6 +95,9 @@ function modifier_trigger_on_cast:OnAbilityExecuted(params)
     --print("[trigger]", executed_ability:GetAbilityName())
     -- 检查是否为持续施法技能
     local behavior = executed_ability:GetBehavior()
+    if type(behavior) ~= "number" then
+        behavior = tonumber(tostring(behavior))
+    end
     local is_channeled = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_CHANNELLED) ~= 0
 
     local delay = 0.2 -- 默认延迟
@@ -211,6 +215,9 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
     -- 尝试从原始技能获取位置
     if params.ability then
         local ability_behavior = params.ability:GetBehavior()
+        if type(ability_behavior) ~= "number" then
+            ability_behavior = tonumber(tostring(ability_behavior))
+        end
         if bit.band(ability_behavior, DOTA_ABILITY_BEHAVIOR_POINT) ~= 0 or
             bit.band(ability_behavior, DOTA_ABILITY_BEHAVIOR_AOE) ~= 0 then
             original_position = params.ability:GetCursorPosition()
@@ -253,6 +260,10 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
         if random_ability then
             random_ability.butterfly_triggered = true
         end
+        -- 获取技能的抬手时间
+        local cast_point = random_ability:GetCastPoint()
+        random_ability:SetOverrideCastPoint(0)
+        --print(string.format("[Trigger Debug] Ability cast point: %.2fs", cast_point))
         random_ability:EndCooldown()
 
         if caster:IsStunned() or caster:IsSilenced() then
@@ -264,6 +275,9 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
 
         -- ✅ 修复: 重新获取技能属性
         local behavior = random_ability:GetBehavior()
+        if type(behavior) ~= "number" then
+            behavior = tonumber(tostring(behavior))
+        end
         local target_team = random_ability:GetAbilityTargetTeam()
 
         -- ✅ 修复: 智能目标选择
@@ -342,6 +356,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             --print("[cast_trigger] 无目标限制技能")
         end
 
+
         -- ✅ 施放技能
         local cast_success = false
         local ability_name = random_ability:GetAbilityName()
@@ -355,7 +370,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) == 0 and
             bit.band(behavior, DOTA_ABILITY_BEHAVIOR_POINT) == 0 then
             --print("[cast_trigger] 施放无目标技能")
-            cast_success = caster:CastAbilityNoTarget(random_ability, caster:GetPlayerOwnerID())
+            cast_success = caster:CastAbilityImmediately(random_ability, caster:GetPlayerOwnerID())
         elseif bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
             if cast_target and not cast_target:IsNull() then
                 --print("[cast_trigger] 施放单体技能,目标: " .. cast_target:GetUnitName())
@@ -372,6 +387,8 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
                 --print("[cast_trigger] 施放点目标/AOE技能到targetposition")
                 caster:SetCursorPosition(target_position)
                 cast_success = caster:CastAbilityImmediately(random_ability, caster:GetPlayerOwnerID())
+                ---------配合延迟恢复持续施法时间，可以使用黑洞
+                -- caster:CastAbilityOnPosition(target_position, random_ability, caster:GetPlayerOwnerID())
             else
                 --print("[cast_trigger] 施放点目标/AOE技能到target")
                 caster:SetCursorCastTarget(cast_target)
@@ -393,12 +410,11 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             ParticleManager:ReleaseParticleIndex(particle)
         end
 
-        -- 获取技能的抬手时间
-        local cast_point = random_ability:GetCastPoint()
-        --print(string.format("[Trigger Debug] Ability cast point: %.2fs", cast_point))
+        -- 【关键修复6】恢复原始施法前摇时间
+        random_ability:SetOverrideCastPoint(cast_point)
 
         -- 恢复原有冷却状态 - 加入抬手时间
-        local restore_delay = cast_point + 0.01
+        local restore_delay = FrameTime()
 
         -- 特殊技能的额外延迟
         if ability_name == "juggernaut_omni_slash" then
