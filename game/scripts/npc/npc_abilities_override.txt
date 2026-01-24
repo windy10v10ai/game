@@ -8379,7 +8379,7 @@
 			}
 			"AbilityManaCost"
 			{
-				"value"				"50 60 70 80 90"	// 7.40: 50/60/70/80
+				"value"				"50 60 70 80 90"	// 50/60/70/80
 			}
 			"illusion_incoming_damage"			"0.0"				// 150.0
 			"illusion_incoming_damage_total_tooltip"			"100.0"	// 250.0
@@ -8409,7 +8409,7 @@
 	"terrorblade_sunder"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60.0 50.0 40.0 30.0"	// 7.40 官方: 110/75/40; 此处为自定义平衡
+		"AbilityCooldown"				"60.0 50.0 40.0 30.0"	// 110/75/40
 		"AbilityManaCost"				"100 75 50 25"
 		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
@@ -12119,7 +12119,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"		"22 20 18 16 14"
+				"value"		"22 19 16 13 10"
 			}
 		}
 	}
