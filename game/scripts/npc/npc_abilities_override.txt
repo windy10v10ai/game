@@ -8564,7 +8564,7 @@
 			}
 			"damage_per_stack"
 			{
-				"value"					"13 21 29 37 45"
+				"value"					"12 20 28 36 44"
 				"special_bonus_unique_ursa" "+15"
 			}
 		}
