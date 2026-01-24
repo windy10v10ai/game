@@ -7491,7 +7491,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"				"20 17 14 11 8"		// 20 17 14 11
+					"value"				"22 19 16 13 10"		// 19 16 13 10
 				}
 				"dash_range"			"400 500 600 700 800"
 				"damage"
@@ -10247,7 +10247,7 @@
 			}
 		}
 	}
-	// 自然呼唤
+	// 自然的呼唤
 	"furion_force_of_nature"
 	{
 		"AbilityManaCost"				"100 140 180 220"
