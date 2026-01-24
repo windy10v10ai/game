@@ -5691,7 +5691,7 @@
 				}
 				"damage_per_second"
 				{
-					"value"				"100"	// 50 70 90 110
+					"value"				"200"	// 100
 				}
 				"unit_count"
 				{
