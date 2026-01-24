@@ -3342,7 +3342,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"20 19 18 17 16"
-		"AbilityManaCost"				"50 60 70 80 90"
+		"AbilityManaCost"				"65 70 75 80 85"
 		"AbilityValues"
 		{
 			"damage_block"
