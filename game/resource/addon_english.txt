@@ -2275,7 +2275,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter for %sheep_duration% seconds and deals magical damage equal to %blast_att_multiplier%%% your total combined attributes + %blast_damage_base% to it. The target has a base movement speed of %sheep_movement_speed% and will be silenced, muted, disarmed, and lose %blast_int_percent%%% intelligence if it is a hero.<br><br>Duration: %sheep_duration% seconds"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be silenced, muted, and disarmed.<br><br>Reduces enemy base magic resistance by %blast_magic_resist%%%.<br><br>Enemy will take magical damage equal to %blast_att_multiplier%x the sum of all your attributes + %blast_damage_base%.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
@@ -2284,7 +2284,7 @@
 		"DOTA_Tooltip_ability_item_necronomicon_staff_mp_regen_amp"					"%+Mana Regen Amplification"
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"						"Necronomicon Blast"
-		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"			"Your true self is revealed. Cannot attack, cast spells, or use items. Losing 60%% of your intelligence."
+		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"			"Your true self is revealed. Cannot attack, cast spells, or use items. Reduce base magic resistance."
 
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"										"Armlet of Mordiggian Plus"
@@ -2800,7 +2800,7 @@
 
 		// Forbidden Staff
 		"DOTA_Tooltip_Ability_item_forbidden_staff"                  "<font color='#8B008B'>Forbidden Staff</font>"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Description"      "<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Deals magical damage equal to %necrolyte_att_multiplier% your total combined attributes and hexes all targets for %sheep_duration% seconds.<br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Radius: %radius%"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Description"      "<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Deals magical damage equal to %necrolyte_att_multiplier%x the sum of all your attributes and hexes all targets for %sheep_duration% seconds.<br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Radius: %radius%"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"             "Forbidden power, not to be touched lightly."
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"  "+$int"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_strength"   "+$str"

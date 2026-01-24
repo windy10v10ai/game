@@ -4285,7 +4285,7 @@
 		"AbilityTextureName"			"item_recipe_necronomicon_staff"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5350"
+		"ItemCost"						"5600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4304,7 +4304,7 @@
 		"ID"							"3086"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"necronomicon_staff"
-		"ScriptFile"                    "items/item_necronomicon_staff"
+		"ScriptFile"					"items/item_necronomicon_staff"
 
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
@@ -4320,7 +4320,7 @@
 		"AbilityManaCost"				"480"
 		"AbilitySharedCooldown"			"item_sheepstick"
 
-		"ItemCost"						"16900"
+		"ItemCost"						"16000"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
@@ -4341,9 +4341,8 @@
 			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
-			"blast_att_multiplier"	"0.5"
-			"blast_damage_multiplier"	"-50"
-			"blast_int_percent"		"-60"
+			"blast_att_multiplier"	"1"
+			"blast_magic_resist"	"-50"
 		}
 	}
 	//=================================================================================================================

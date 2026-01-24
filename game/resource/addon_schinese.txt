@@ -2294,7 +2294,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"死灵法杖"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默，锁闭和缴械，并降低敌人 %blast_int_percent%%% 点的智力。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>主动：死灵冲击</h1>将一个单位变成无害的小动物。目标的基础移速变为%sheep_movement_speed%，并且被沉默，锁闭和缴械。<br><br>降低敌人 %blast_magic_resist%%% 点的基础魔法抗性。<br><br>敌人将会受到%blast_att_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br><br>施法距离：%abilitycastrange%<br>持续时间：%sheep_duration%秒"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
@@ -2303,7 +2303,7 @@
 		"DOTA_Tooltip_ability_item_necronomicon_staff_mp_regen_amp"				"%+魔法恢复增强"
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"				"死灵冲击"
-		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"变成一只羊。不能攻击，释放技能或使用物品。失去60%%的智力。"
+		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"	"变成一只羊。不能攻击，释放技能或使用物品。降低基础魔法抗性。"
 
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"				"小鸡臂章Plus"
@@ -2521,7 +2521,7 @@
 
 		// 神器永恒虚灵刀
 		"DOTA_Tooltip_Ability_item_ethereal_blade_ultra"				"<font color='#e03e2e'>神器·永恒虚灵之刃</font>"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>主动：虚化冲击</h1>发射一道能量波，将目标转变为虚无状态，接下来受到的魔法伤害将会提升%ethereal_damage_bonus%%%，并且无法攻击或被攻击。<br><br>如果目标是敌人还将被减速%blast_movement_slow%%%，并额外受到%blast_stat_multiplier%x[自身属性总和]+%blast_damage_base%点魔法伤害。<br>持续时间：%duration%秒"
+		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>主动：虚化冲击</h1>发射一道能量波，将目标转变为虚无状态，接下来受到的魔法伤害将会提升%ethereal_damage_bonus%%%，并且无法攻击或被攻击。<br><br>如果目标是敌人还将被减速%blast_movement_slow%%%，并额外受到%blast_stat_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br>持续时间：%duration%秒"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"与幽魂权杖共享冷却时间。"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"虚无状态下的单位将额外受到%ethereal_damage_bonus%%%的魔法伤害。"
 		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"对于全才英雄，他们的主属性数值是所有属性总和的60%%。"
