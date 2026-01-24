@@ -193,14 +193,15 @@ function modifier_shadow_impact_sheep:GetTexture()
 end
 
 function modifier_shadow_impact_sheep:OnCreated()
+    if self:GetAbility() then
+        self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed") or 140
+        self.blast_magic_resist = self:GetAbility():GetSpecialValueFor("blast_magic_resist")
+    end
+
     if not IsServer() then return end
 
     local model_list = { "models/props_gameplay/pig.vmdl", "models/props_gameplay/sheep01.vmdl" }
     self.model_file = model_list[RandomInt(1, #model_list)]
-
-    if self:GetAbility() then
-        self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed") or 140
-    end
 end
 
 function modifier_shadow_impact_sheep:CheckState()
@@ -216,6 +217,7 @@ function modifier_shadow_impact_sheep:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
         MODIFIER_PROPERTY_MODEL_CHANGE,
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION,
     }
 end
 
@@ -225,4 +227,8 @@ end
 
 function modifier_shadow_impact_sheep:GetModifierModelChange()
     return self.model_file
+end
+
+function modifier_shadow_impact_sheep:GetModifierMagicalResistanceDirectModification()
+    return self.blast_magic_resist
 end

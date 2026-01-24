@@ -87,6 +87,7 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
         local ability = attacker:GetAbilityByIndex(i)
         if ability and ability:GetLevel() > 0
             and not ability:IsPassive()
+            and not ability:IsHidden()
             and ability ~= self:GetAbility()
             and not ability:IsItem()
             and not EXCLUDED_ABILITIES[ability:GetAbilityName()]
@@ -164,6 +165,9 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     end
     -- 根据技能行为类型施放
     local cast_success = false
+    if type(behavior) ~= "number" then
+        behavior = tonumber(tostring(behavior))
+    end
     if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) ~= 0 then
         -- 单位目标技能
         attacker:SetCursorCastTarget(cast_target)
