@@ -4285,7 +4285,7 @@
 		"AbilityTextureName"			"item_recipe_necronomicon_staff"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5350"
+		"ItemCost"						"5600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4304,7 +4304,7 @@
 		"ID"							"3086"
 		"BaseClass"						"item_lua"
 		"AbilityTextureName"			"necronomicon_staff"
-		"ScriptFile"                    "items/item_necronomicon_staff"
+		"ScriptFile"					"items/item_necronomicon_staff"
 
 		"Model"							"models/props_gameplay/red_box.vmdl"
 
@@ -4320,7 +4320,7 @@
 		"AbilityManaCost"				"480"
 		"AbilitySharedCooldown"			"item_sheepstick"
 
-		"ItemCost"						"16900"
+		"ItemCost"						"16000"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
@@ -4341,9 +4341,8 @@
 			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
-			"blast_att_multiplier"	"0.5"
-			"blast_damage_multiplier"	"-50"
-			"blast_int_percent"		"-60"
+			"blast_att_multiplier"	"1"
+			"blast_magic_resist"	"-50"
 		}
 	}
 	//=================================================================================================================
@@ -6052,7 +6051,7 @@
 		"ItemResult"				"item_forbidden_staff"
 		"ItemRequirements"
 		{
-			"01"					"item_necronomicon_staff;item_gungir_2;item_dagon_5;item_fusion_forbidden"
+			"01"					"item_necronomicon_staff;item_gungir_2;item_fusion_forbidden"
 		}
 	}
 
@@ -6090,12 +6089,12 @@
 			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"lightning_damage"
 			{
-				"value"					"2000"
+				"value"					"1500"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"mute_duration"			"4.0"	// Lua 逻辑需要 - 沉默持续时间
 			"sheep_duration"		"3.0"	// Lua 逻辑需要 - 变形持续时间
-			"sheep_movement_speed"	"0"		// Lua 逻辑需要 - 变形移动速度
+			"sheep_movement_speed"	"100"	// Lua 逻辑需要 - 变形移动速度
+			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_intellect"			"170"	// tooltip only - 智力
@@ -6671,6 +6670,7 @@
 			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"1.5"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
+			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
 			"ethereal_duration"			"4.0"	// Lua 逻辑需要 - 虚灵持续时间
 			"blast_agility_multiplier"	"2.5"	// Lua 逻辑需要 - 虚灵之刃主属性倍数
 			"blast_damage_base"			"300"	// Lua 逻辑需要 - 虚灵之刃基础伤害
