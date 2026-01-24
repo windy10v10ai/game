@@ -137,7 +137,7 @@ function modifier_item_forbidden_staff_sheep:IsDebuff() return true end
 function modifier_item_forbidden_staff_sheep:IsPurgable() return true end
 
 function modifier_item_forbidden_staff_sheep:GetTexture()
-    return "jinjifachui"
+    return "item_jinjifachui"
 end
 
 function modifier_item_forbidden_staff_sheep:OnCreated()
@@ -147,10 +147,8 @@ function modifier_item_forbidden_staff_sheep:OnCreated()
     local model_list = { "models/props_gameplay/pig.vmdl", "models/props_gameplay/sheep01.vmdl" }
     self.model_file = model_list[RandomInt(1, #model_list)]
 
-    if self:GetAbility() then
-        self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed") or 140
-        self.blast_magic_resist = self:GetAbility():GetSpecialValueFor("blast_magic_resist")
-    end
+    self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed")
+    self.blast_magic_resist = self:GetAbility():GetSpecialValueFor("blast_magic_resist")
 end
 
 function modifier_item_forbidden_staff_sheep:CheckState()
@@ -171,7 +169,7 @@ function modifier_item_forbidden_staff_sheep:DeclareFunctions()
 end
 
 function modifier_item_forbidden_staff_sheep:GetModifierMoveSpeedOverride()
-    return self.sheep_movement_speed or 140
+    return self.sheep_movement_speed
 end
 
 function modifier_item_forbidden_staff_sheep:GetModifierModelChange()
