@@ -8379,7 +8379,7 @@
 			}
 			"AbilityManaCost"
 			{
-				"value"				"50 60 70 80 90"	// 50/60/70/80
+				"value"				"50 60 70 80 90"	// 50 60 70 80
 			}
 			"illusion_incoming_damage"			"0.0"				// 150.0
 			"illusion_incoming_damage_total_tooltip"			"100.0"	// 250.0
@@ -8409,7 +8409,7 @@
 	"terrorblade_sunder"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60.0 50.0 40.0 30.0"	// 110/75/40
+		"AbilityCooldown"				"60.0 50.0 40.0 30.0"	// 110 75 40
 		"AbilityManaCost"				"100 75 50 25"
 		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
@@ -12252,7 +12252,7 @@
 			"health_lost"
 			{
 				"value"							"0 0 0 0"
-				"special_bonus_facet_shadow_demon_promulgate"			"=9 =10 =11 =12 =13"	// 9/10/11/12
+				"special_bonus_facet_shadow_demon_promulgate"			"=9 =10 =11 =12 =13"	// 9 10 11 12
 			}
 			"damage_reflection_pct"
 			{
