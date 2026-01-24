@@ -7987,9 +7987,9 @@
 
 		"AbilityValues"
 		{
-			"health_rest_steal"				"3 4 5 6 7"		// 3 4 5 6
-			"regen_steal"					"2 3 4 5 6"		// 2 3 4 5
-			"ms_steal"						"2 3 4 5 6"		// 2 3 4 5
+			"health_rest_steal"				"2 4 6 8 10"		// 2 4 6 8
+			"regen_steal"					"2 4 6 8 10"		// 2 4 6 8
+			"ms_steal"						"2 4 6 8 10"		// 2 4 6 8
 		}
 	}
 	// 暗影之舞
