@@ -9783,6 +9783,7 @@
 	"dazzle_innate_weave"
 	{
 		"MaxLevel"						"5"
+		"DependentOnAbility"			"dazzle_bad_juju"
 		"AbilityValues"
 		{
 			"armor_change"
