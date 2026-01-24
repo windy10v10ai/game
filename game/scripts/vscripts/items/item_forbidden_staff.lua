@@ -137,7 +137,7 @@ function modifier_item_forbidden_staff_sheep:IsDebuff() return true end
 function modifier_item_forbidden_staff_sheep:IsPurgable() return true end
 
 function modifier_item_forbidden_staff_sheep:GetTexture()
-    return "item_forbidden_staff"
+    return "jinjifachui"
 end
 
 function modifier_item_forbidden_staff_sheep:OnCreated()
