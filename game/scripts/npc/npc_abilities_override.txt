@@ -2031,7 +2031,7 @@
 			"activation_cooldown"
 			{
 				"value"									"0 0 0 0"
-				"special_bonus_facet_huskar_cauterize"	"+50.0 +40.0 +30.0 +20.0 +10.0"
+				"special_bonus_facet_huskar_cauterize"	"+60.0 +50.0 +40.0 +30.0 +20.0"
 			}
 			"activation_delay"
 			{
@@ -5591,7 +5591,7 @@
 			"max_armor_piercing_pct"
 			{
 				"value"					"20"
-				"special_bonus_scepter"			"+30"
+				"special_bonus_scepter"			"+40"
 			}
 		}
 	}
