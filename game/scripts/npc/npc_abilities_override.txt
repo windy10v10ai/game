@@ -13880,7 +13880,7 @@
 			"leap_distance"			"600"						// 400
 			"fart_cloud_duration"					"4.5"		// 3
 			"fart_cloud_slow"						"-50.0"		// -30
-			"fart_cloud_radius"						"400"		// 200
+			"fart_cloud_radius"						"400"		// 250
 		}
 	}
 	// 强力水 命石1
