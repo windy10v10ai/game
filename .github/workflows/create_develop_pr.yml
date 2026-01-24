@@ -52,7 +52,7 @@ jobs:
       - name: Create Pull Request
         id: cpr
         if: steps.check_pr.outputs.pr_exists == null
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           title: ${{ steps.fetch_issue.outputs.title }}
           branch: ${{ github.ref_name }}
