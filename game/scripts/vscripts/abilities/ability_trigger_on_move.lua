@@ -95,6 +95,7 @@ function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
         local ability = parent:GetAbilityByIndex(i)
         if ability and ability:GetLevel() > 0
             and not ability:IsPassive()
+            and not ability:IsHidden()
             and ability ~= self:GetAbility()
             and not ability:IsItem()
             and not EXCLUDED_ABILITIES_ALLBUTTER[ability:GetAbilityName()] then
@@ -159,6 +160,9 @@ function modifier_trigger_on_move:TriggerRandomAbility(distance_multiplier)
 
     -- 施放技能 - 使用与 ability_trigger_on_cast 相同的目标选择逻辑
     local behavior = random_ability:GetBehavior()
+    if type(behavior) ~= "number" then
+        behavior = tonumber(tostring(behavior))
+    end
     local target_team = random_ability:GetAbilityTargetTeam()
 
     local cast_target = nil
