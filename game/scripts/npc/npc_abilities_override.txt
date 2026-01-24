@@ -14115,7 +14115,7 @@
 			}
 			"damage_per_stomp"
 			{
-				"value"					"50 75 100 125 150"	// x1.5
+				"value"					"54 72 90 108 126"	// x1.5
 				"special_bonus_unique_largo_1"	"+50"		// +15
 			}
 			"total_ticks"
