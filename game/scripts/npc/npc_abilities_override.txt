@@ -1507,7 +1507,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastPoint"				"0.3"	// 0.69
-		"AbilityManaCost"				"120 125 130 135 140"
+		"AbilityManaCost"				"115 120 125 130 135"
 		"AbilityValues"
 		{
 			"fissure_duration"			"6.5"
@@ -2031,7 +2031,7 @@
 			"activation_cooldown"
 			{
 				"value"									"0 0 0 0"
-				"special_bonus_facet_huskar_cauterize"	"+50.0 +40.0 +30.0 +20.0 +10.0"
+				"special_bonus_facet_huskar_cauterize"	"+60.0 +50.0 +40.0 +30.0 +20.0"
 			}
 			"activation_delay"
 			{
@@ -2191,13 +2191,13 @@
 	"kunkka_ghostship"
 	{
 		"MaxLevel" "4"
-		"AbilityDamage"					"400 500 600 700"
+		"AbilityDamage"					"350 475 600 725"
 		"AbilityManaCost"				"125 175 225 275"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"80 70 60 50"
+				"value"					"90 80 70 60"
 			}
 		}
 	}
@@ -3342,7 +3342,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"20 19 18 17 16"
-		"AbilityManaCost"				"50 60 70 80 90"
+		"AbilityManaCost"				"65 70 75 80 85"
 		"AbilityValues"
 		{
 			"damage_block"
@@ -3674,12 +3674,12 @@
 				"stat_loss_pct"
 				{
 					"value"			"13 13.5 14 14.5 15"
-					"special_bonus_unique_timbersaw_5"	"+5"
+					"special_bonus_unique_timbersaw_5"	"+4"
 				}
 				"stat_loss_univ"
 				{
 					"value"			"5 5.5 6 6.5 7"
-					"special_bonus_unique_timbersaw_5"	"+5"
+					"special_bonus_unique_timbersaw_5"	"+4"
 				}
 				"duration"
 				{
@@ -5591,7 +5591,7 @@
 			"max_armor_piercing_pct"
 			{
 				"value"					"20"
-				"special_bonus_scepter"			"+30"
+				"special_bonus_scepter"			"+40"
 			}
 		}
 	}
@@ -5659,7 +5659,7 @@
 			"chance"
 			{
 				"value"										"30 35 40 45"	// 30 35 40
-				"special_bonus_unique_drow_ranger_3"		"+15"			// 10
+				"special_bonus_unique_drow_ranger_3"		"+13"			// 8
 			}
 			"bonus_damage"									"40 60 80 100"
 			"disable_range"									"200" // 325
@@ -5682,16 +5682,16 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"14 13 12 11 10"
-		"AbilityManaCost"				"95 105 115 125 135"	// 95/105/115/125
+		"AbilityManaCost"				"95 105 115 125 135"	// 95 105 115 125
 		"AbilityValues"
 		{
 				"duration"
 				{
-					"value"		"1.5 2.0 2.5 3.0 3.5"
+					"value"		"1.25 1.75 2.25 2.75 3.25"	// 1.25 1.75 2.25 2.75
 				}
 				"damage_per_second"
 				{
-					"value"				"50 80 120 200 300"	// +10
+					"value"				"200"	// 100
 				}
 				"unit_count"
 				{
@@ -6024,8 +6024,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"	"90 80 70 60 60"
-					"special_bonus_unique_gyrocopter_5"	"-30"
+					"value"	"100 90 80 70 60"
 				}
 				"damage"
 				{
@@ -6374,7 +6373,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"duration"				"0.8 1.2 1.6 2.0 2.4"
+				"duration"				"1.1 1.4 1.7 2.0 2.3"
 				"AbilityCooldown"
 				{
 					"value"				"36 32 28 24 20"	// 38 32 26 20
@@ -6387,7 +6386,7 @@
 		"AbilityCooldown"				"36 32 28 24 20"	// 38 32 26 20
 		"AbilityValues"
 		{
-				"duration"				"0.8 1.2 1.6 2.0 2.4"
+				"duration"				"1.1 1.4 1.7 2.0 2.3"
 		}
 	}
 	// 真熊形态
@@ -6836,7 +6835,7 @@
 				}
 				"bonus_damage"
 				{
-					"value"						"60 120 180 240 300"
+					"value"						"60 160 260 360 460"	// x2
 				}
 				"lifesteal"					"20 40 60 80 100"
 		}
@@ -7492,7 +7491,7 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"				"20 17 14 11 8"		// 20 17 14 11
+					"value"				"18 16 14 12 10"		// 19 16 13 10
 				}
 				"dash_range"			"400 500 600 700 800"
 				"damage"
@@ -7987,9 +7986,9 @@
 
 		"AbilityValues"
 		{
-			"health_rest_steal"				"3 4 5 6 7"		// 3 4 5 6
-			"regen_steal"					"2 3 4 5 6"		// 2 3 4 5
-			"ms_steal"						"2 3 4 5 6"		// 2 3 4 5
+			"health_rest_steal"				"2 4 6 8 10"		// 2 4 6 8
+			"regen_steal"					"2 4 6 8 10"		// 2 4 6 8
+			"ms_steal"						"2 4 6 8 10"		// 2 4 6 8
 		}
 	}
 	// 暗影之舞
@@ -8379,7 +8378,7 @@
 			}
 			"AbilityManaCost"
 			{
-				"value"				"55 65 75 85 95"
+				"value"				"50 60 70 80 90"	// 50 60 70 80
 			}
 			"illusion_incoming_damage"			"0.0"				// 150.0
 			"illusion_incoming_damage_total_tooltip"			"100.0"	// 250.0
@@ -8409,7 +8408,7 @@
 	"terrorblade_sunder"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60.0 50.0 40.0 30.0"
+		"AbilityCooldown"				"60.0 50.0 40.0 30.0"	// 110 75 40
 		"AbilityManaCost"				"100 75 50 25"
 		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
@@ -8564,7 +8563,7 @@
 			}
 			"damage_per_stack"
 			{
-				"value"					"13 21 29 37 45"
+				"value"					"12 20 28 36 44"
 				"special_bonus_unique_ursa" "+15"
 			}
 		}
@@ -8906,7 +8905,7 @@
 			}
 			"damage"
 			{
-				"value"					"16 32 48 64 80"	// x2
+				"value"					"20 30 40 50 60"	// x2
 				"special_bonus_unique_viper_1"	"+40"
 			}
 		}
@@ -8921,7 +8920,7 @@
 			"damage"
 			{
 				"value"				"80 120 160 200"
-				"special_bonus_unique_viper_2"	"+120"
+				"special_bonus_unique_viper_2"	"+140"	// x2
 			}
 			"bonus_movement_speed"
 			{
@@ -10248,7 +10247,7 @@
 			}
 		}
 	}
-	// 自然呼唤
+	// 自然的呼唤
 	"furion_force_of_nature"
 	{
 		"AbilityManaCost"				"100 140 180 220"
@@ -10402,24 +10401,30 @@
 	"grimstroke_spirit_walk"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"27 24 21 18 15"
-		"AbilityCastRange"				"500 600 700 800 900"
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
+				"AbilityCastRange"
+				{
+					"value"				"650 700 750 800 900"	// 650 700 750 800
+				}
 				"max_damage"
 				{
 					"value"		"180 270 360 450 540"	// +90
 				}
-				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6/2.0/2.4/2.8
+				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6 2.0 2.4 2.8
 				"damage_per_tick"		"12 18 24 30 36"	// x2
 				"tick_dps_tooltip"		"60 90 120 150 180"	// x2
+				"AbilityCooldown"
+				{
+					"value"				"27 24 21 18 15"	// 27 24 21 18
+				}
 		}
 	}
 	// 暗绘
 	"grimstroke_dark_portrait"
 	{
-		"AbilityCooldown"				"60"		// 幻想卡顿，增加CD
+		"AbilityCooldown"				"60"		// 幻象卡顿，增加CD
 		"AbilityValues"
 		{
 			"images_take_damage_percent"
@@ -10713,7 +10718,7 @@
 			}
 			"path_duration"
 			{
-				"value"					"3 3.5 4 4.5 5"
+				"value"					"2.6 3.1 3.6 4.1 4.6"
 				"special_bonus_facet_jakiro_ice_breaker"				"=5 =5 =5 =5 =5"
 			}
 			"AbilityCooldown"
@@ -12113,7 +12118,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"		"22 20 18 16 14"
+				"value"		"22 19 16 13 10"
 			}
 		}
 	}
@@ -12246,7 +12251,7 @@
 			"health_lost"
 			{
 				"value"							"0 0 0 0"
-				"special_bonus_facet_shadow_demon_promulgate"			"=9 =11 =13 =15 =17"
+				"special_bonus_facet_shadow_demon_promulgate"			"=9 =10 =11 =12 =13"	// 9 10 11 12
 			}
 			"damage_reflection_pct"
 			{
@@ -13874,7 +13879,7 @@
 			"leap_distance"			"600"						// 400
 			"fart_cloud_duration"					"4.5"		// 3
 			"fart_cloud_slow"						"-50.0"		// -30
-			"fart_cloud_radius"						"400"		// 200
+			"fart_cloud_radius"						"400"		// 250
 		}
 	}
 	// 强力水 命石1
@@ -14109,7 +14114,7 @@
 			}
 			"damage_per_stomp"
 			{
-				"value"					"50 75 100 125 150"	// x1.5
+				"value"					"54 72 90 108 126"	// x1.5
 				"special_bonus_unique_largo_1"	"+50"		// +15
 			}
 			"total_ticks"
