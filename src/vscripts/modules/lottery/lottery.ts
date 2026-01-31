@@ -11,60 +11,6 @@ export class Lottery {
   readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
 
-  // FIXME 技能池配置未同步，暂时保留以缓解代码冲突 START
-  // 【新增】统一的技能池配置
-  private readonly ABILITY_POOLS = {
-    // 非随机模式(普通模式)
-    normal: {
-      passive: [
-        //{ name: 'rubick_might_and_magus2', level: 5 }, // 拉比克先天
-        { name: 'spectre_dispersion2', level: 4 }, //
-        { name: 'medusa_split_shot', level: 5 }, // 分裂箭
-        { name: 'winter_wyvern_arctic_burn', level: 5 }, // 严寒灼烧
-        { name: 'elder_titan_natural_order', level: 4 }, // 自然秩序
-        { name: 'omniknight_hammer_of_purity', level: 4 }, // 纯洁之锤
-        { name: 'ability_trigger_on_attacked', level: 4 }, // 金蝴蝶
-      ],
-      active: [
-        { name: 'ability_defection', level: 4 }, // 卧底
-        { name: 'faceless_void_time_zone', level: 5 }, // 逆转时空
-        { name: 'slark_shadow_dance', level: 3 }, // 暗影之舞
-        { name: 'abaddon_borrowed_time', level: 5 }, // 回光返照
-        { name: 'legion_commander_duel', level: 4 }, // 决斗
-        { name: 'clinkz_burning_barrage2', level: 3 }, // 炽烈火雨
-        { name: 'ability_mind_control', level: 4 }, // 夺舍
-      ],
-    },
-    // 全英雄随机模式
-    allHeroRandom: {
-      passive: [
-        { name: 'dazzle_good_juju', level: 5 }, // 善咒
-        { name: 'earthshaker_aftershock', level: 3 }, // 余震
-        { name: 'ability_charge_damage', level: 5 }, // 青蝴蝶
-        { name: 'ogre_magi_multicast_lua', level: 4 }, // 多重施法
-        { name: 'leshrac_defilement2', level: 4 }, // 大肆污染
-        { name: 'ability_trigger_learned_skills', level: 4 }, // 蓝蝴蝶
-        { name: 'ability_trigger_on_cast', level: 4 }, // 红蝴蝶
-        { name: 'ability_trigger_on_attacked', level: 4 }, // 金蝴蝶
-        { name: 'ability_trigger_on_move', level: 4 }, // 橙影蝴蝶
-      ],
-      active: [
-        { name: 'enigma_black_hole', level: 5 }, // 黑洞
-        { name: 'juggernaut_omni_slash', level: 4 }, // 无敌斩
-        { name: 'abaddon_borrowed_time', level: 5 }, // 回光返照
-        { name: 'alchemist_chemical_rage', level: 5 }, // 化学狂暴
-        { name: 'pudge_meat_hook', level: 1 }, // 肉钩
-        { name: 'gyrocopter_flak_cannon', level: 5 }, // 高射火炮
-        { name: 'ability_trigger_on_active', level: 5 }, // 紫蝴蝶
-        { name: 'marci_unleash', level: 4 }, // 怒拳破
-        { name: 'ability_mind_control', level: 4 }, // 夺舍
-        { name: 'tinker_rearm_lua', level: 3 }, // 再装填
-      ],
-    },
-  };
-
-  // FIXME 技能池配置未同步，暂时保留以缓解代码冲突 END
-
   constructor() {
     // 启动物品抽奖
     ListenToGameEvent(
@@ -202,6 +148,12 @@ export class Lottery {
           abilityLotteryResults[0] = specifiedAbility;
         } else if (!isActive && abilityType === 'abilityPassive') {
           abilityLotteryResults[0] = specifiedAbility;
+        }
+      }
+      if (IsInToolsMode()) {
+        // 开发测试用固定技能
+        if (abilityType === 'abilityActive') {
+          abilityLotteryResults[0] = { name: 'abyssal_underlord_firestorm', level: 2 };
         }
       }
     }
