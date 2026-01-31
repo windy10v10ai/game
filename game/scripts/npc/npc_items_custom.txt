@@ -1888,7 +1888,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_agility"
 		"AbilityTextureName"		"tome_of_agility"
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"agility tome;agi"
 		"ItemShopTags"					"consumable"
@@ -1915,7 +1915,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_intelligence"
 		"AbilityTextureName"		"tome_of_intelligence"
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"intelligence tome;int"
 		"ItemShopTags"					"consumable"
@@ -1942,7 +1942,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_strength"
 		"AbilityTextureName"		"tome_of_strength"
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"strength tome;str"
 		"ItemShopTags"					"consumable"
@@ -5609,7 +5609,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"240"
-		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 	}
 
 	// 禁忌符文
@@ -5621,7 +5621,7 @@
 		"AbilityTextureName"		"fusion_forbidden"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5721,7 +5721,7 @@
 		"AbilityTextureName"		"fusion_shadow"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -6081,7 +6081,7 @@
 		"AbilityValues"
 		{
 			// modifier_item_gungir 提供的属性
-			"bonus_aoe"					"225"			// 150
+			"bonus_aoe"					"250"			// 150
 			"bonus_hp"					"1200"			// 900
 			"bonus_intellect"			"180"			// 30 + 60
 			"bonus_mana"				"600"			// 400
@@ -6089,7 +6089,12 @@
 			// 主动技能参数（Lua 逻辑需要）
 			"radius"
 			{
-				"value"					"500"
+				"value"					"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"radius_tooltip"
+			{
+				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
 				"affected_by_aoe_increase"	"1"
 			}
 			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
