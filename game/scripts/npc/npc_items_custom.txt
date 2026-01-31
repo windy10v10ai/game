@@ -4285,7 +4285,7 @@
 		"AbilityTextureName"			"item_recipe_necronomicon_staff"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5600"
+		"ItemCost"						"2600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4320,7 +4320,7 @@
 		"AbilityManaCost"				"480"
 		"AbilitySharedCooldown"			"item_sheepstick"
 
-		"ItemCost"						"16000"
+		"ItemCost"						"13000"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
@@ -4332,11 +4332,11 @@
 		"AbilityValues"
 		{
 			"bonus_intellect"		"60"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
-			"bonus_strength"		"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
-			"bonus_agility"			"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
+			// "bonus_strength"		"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
+			// "bonus_agility"			"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
 			"bonus_mana_regen"		"12"
 			"spell_amp"				"24"
-			"mp_regen_amp"			"75"
+			// "mp_regen_amp"			"75"
 
 			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
@@ -6080,6 +6080,12 @@
 		"AOERadius"					"300"	// 添加固定的 AOE 指示器
 		"AbilityValues"
 		{
+			// modifier_item_gungir 提供的属性
+			"bonus_aoe"					"225"			// 150
+			"bonus_hp"					"1200"			// 900
+			"bonus_intellect"			"180"			// 30 + 60
+			"bonus_mana"				"600"			// 400
+
 			// 主动技能参数（Lua 逻辑需要）
 			"radius"
 			{
@@ -6097,13 +6103,8 @@
 			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_intellect"			"170"	// tooltip only - 智力
-			"bonus_strength"			"15"	// tooltip only - 力量
 			"bonus_mana_regen"			"15"	// tooltip only - 魔法回复
 			"spell_amp"					"30"	// tooltip only - 技能增强
-
-			// modifier_item_gungir 提供的属性
-			"bonus_aoe"					"225"	// 技能范围增加（通过 modifier_item_gungir 实现）
 		}
 		"precache"
 		{
