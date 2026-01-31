@@ -1,6 +1,9 @@
 import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 
 const notTargetAbilityNames = ['earthshaker_enchant_totem'];
+// 拥有unit target，但是只能对友军释放的技能
+const unitTargetOnlyFriendlyAbilityNames = ['abyssal_underlord_firestorm'];
+
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   const abilityID = Entities.GetAbilityByName(heroID, abilityname);
@@ -32,6 +35,18 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
   return (behavior & judge) === judge;
+}
+
+/**
+ * 判断两个单位是否是友军
+ * @param unit1 单位1的实体索引
+ * @param unit2 单位2的实体索引
+ * @returns 如果是友军返回true，否则返回false
+ */
+function IsFriendlyUnit(unit1: EntityIndex, unit2: EntityIndex): boolean {
+  const team1 = Entities.GetTeamNumber(unit1);
+  const team2 = Entities.GetTeamNumber(unit2);
+  return team1 === team2;
 }
 
 /**
@@ -128,6 +143,7 @@ function castUnitTargetAbility(
   const hasTree =
     (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
     DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
+  const abilityName = Abilities.GetAbilityName(abilityID);
   const target = GetCursorEntity(abilityID);
 
   if (target === undefined) {
@@ -140,6 +156,16 @@ function castUnitTargetAbility(
     }
     return false;
   }
+
+  // 检查是否是只能对友军释放的技能，如果目标不是友军，跳过处理
+  if (unitTargetOnlyFriendlyAbilityNames.includes(abilityName)) {
+    const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+    if (!IsFriendlyUnit(heroID, target.entityIndex)) {
+      // 目标不是友军，跳过处理
+      return false;
+    }
+  }
+
   Game.PrepareUnitOrders({
     OrderType: hasTree
       ? dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET_TREE
