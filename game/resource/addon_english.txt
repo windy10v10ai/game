@@ -2811,6 +2811,7 @@
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"     "+$health"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"       "+$mana"
 		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"        "%+Spell Damage"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"        "+$aoe Ability Radius"
 
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"           "Forbidden Domain"
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description" "You are weak. Cannot perform any actions except to try to run away. Reduce base magic resistance."

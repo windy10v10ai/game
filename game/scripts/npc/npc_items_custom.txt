@@ -6101,6 +6101,9 @@
 			"bonus_strength"			"15"	// tooltip only - 力量
 			"bonus_mana_regen"			"15"	// tooltip only - 魔法回复
 			"spell_amp"					"30"	// tooltip only - 技能增强
+
+			// modifier_item_gungir 提供的属性
+			"bonus_aoe"					"225"	// 技能范围增加（通过 modifier_item_gungir 实现）
 		}
 		"precache"
 		{
