@@ -114,12 +114,23 @@ function modifier_item_forbidden_staff:OnRefresh()
 
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+        -- 直接应用原生修饰器
+        local parent = self:GetParent()
+        local ability = self:GetAbility()
+
+        -- 移除旧的修饰器（如果存在）
+        parent:RemoveModifierByName("modifier_item_gungir")
+
+        -- 应用新的修饰器
+        parent:AddNewModifier(parent, ability, "modifier_item_gungir", {})
     end
 end
 
 function modifier_item_forbidden_staff:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+        -- 移除原生修饰器
+        self:GetParent():RemoveModifierByName("modifier_item_gungir")
     end
 end
 
