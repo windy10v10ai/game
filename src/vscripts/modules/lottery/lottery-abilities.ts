@@ -184,7 +184,7 @@ export const abilityTiersPassive: Tier[] = [
       'dazzle_good_juju', // 善咒
       'templar_assassin_psi_blades', // 灵能之刃
       'luna_moon_glaive', // 月刃
-      'elder_titan_natural_order', // 自然秩序
+      'elder_titan_natural_order', // 自然秩序 降低魔抗不生效
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'sven_great_cleave', // 巨力挥舞
       'slardar_bash', // 深海重击

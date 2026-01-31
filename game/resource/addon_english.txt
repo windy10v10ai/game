@@ -2246,14 +2246,6 @@
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"				"+$int"
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_hp"						"+$health"
 		"DOTA_Tooltip_Ability_item_gungir_2_bonus_mana"						"+$mana"
-		// item_gungir_3 大缚灵索
-		"DOTA_Tooltip_ability_item_gungir_3"								"<font color='#91EACE'>Advanced</font> Gleipnir Plus"
-		"DOTA_Tooltip_ability_item_gungir_3_Description"					"<h1>Active: Lightning Storm</h1>Roots all enemies in a target %radius_tooltip% radius for %duration% seconds and deals %active_damage% damage."
-		"DOTA_Tooltip_ability_item_gungir_3_Lore"							"WARNING: Weather control device detected. Lightning Storm Ready."
-		"DOTA_Tooltip_ability_item_gungir_3_bonus_aoe"						"+$aoe_bonus"
-		"DOTA_Tooltip_ability_item_gungir_3_bonus_intellect"				"+$int"
-		"DOTA_Tooltip_ability_item_gungir_3_bonus_hp"						"+$health"
-		"DOTA_Tooltip_Ability_item_gungir_3_bonus_mana"						"+$mana"
 
 		"DOTA_Tooltip_Ability_item_satanic_2"				"<font color='#FFE44D'>Upgraded</font> Satanic"
 		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n\n<h1>Passive: Lifesteal</h1>Heals the attacker for a percentage of attack damage dealt. Lifesteal from creeps is reduced by %creep_lifesteal_reduction_pct%%%."
@@ -2811,6 +2803,7 @@
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"     "+$health"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"       "+$mana"
 		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"        "%+Spell Damage"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"        "+$aoe_bonus"
 
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"           "Forbidden Domain"
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description" "You are weak. Cannot perform any actions except to try to run away. Reduce base magic resistance."
