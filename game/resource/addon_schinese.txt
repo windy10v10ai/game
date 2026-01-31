@@ -2809,21 +2809,17 @@
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"								"战机模式"
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"					"获得高空视野,移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,无视地形和单位碰撞。"
 
-		// 禁忌法锤
+		// 禁忌法锤 Forbidden Staff
 		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>禁忌法锤</font>"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>主动：禁忌领域</font></h1>在目标区域施放禁忌领域,对%radius%范围内所有敌人施放死灵冲击，闪电风暴和变羊术。<br><br>死灵冲击：降低敌人 %blast_magic_resist%%% 点的基础魔法抗性，造成%necrolyte_att_multiplier%x[你的全属性]点魔法伤害,并将目标变成小动物%sheep_duration%秒<br>闪电风暴：造成%lightning_damage%点魔法伤害<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>主动：禁忌领域</font></h1>在目标区域施放禁忌领域,对范围内所有敌人施放死灵冲击，闪电风暴和变羊术。<br><br>死灵冲击：降低敌人 %blast_magic_resist%%% 点的基础魔法抗性，造成%necrolyte_att_multiplier%x[你的全属性]点魔法伤害,并将目标变成小动物%sheep_duration%秒<br>闪电风暴：造成%lightning_damage%点魔法伤害<br><br>作用范围：%radius_tooltip%"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"								"禁忌的力量,不可轻易触碰。"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Note0"								"死灵冲击会将目标变成无害的小动物,无法攻击，施法或使用物品。"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"						"+$int"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_strength"						"+$str"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_agility"						"+$agi"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_damage"						"+$damage"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana_regen"					"+$mana_regen"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"						"+$health"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"							"+$mana"
-		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+技能增强"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"							"+$aoe_bonus"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_hp"							"+$health"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"						"+$int"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"							"+$mana"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana_regen"					"+$mana_regen"
+		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+技能增强"
 
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"								"死灵冲击"
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"变成一只小动物。不能攻击，释放技能或使用物品。降低基础魔法抗性。"
@@ -2831,7 +2827,7 @@
 
 		// 禁忌战刃
 		"DOTA_Tooltip_Ability_item_forbidden_blade"										"<font color='#8B008B'>禁忌战刃</font>"
-		"DOTA_Tooltip_ability_item_forbidden_blade_Description"							"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对%radius%范围内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>施法距离：%abilitycastrange%<br>作用范围：%radius%"
+		"DOTA_Tooltip_ability_item_forbidden_blade_Description"							"<h1><font color='#8B008B'>主动：忌炼杀狱</font></h1>在目标区域施放忌炼杀狱,对%radius%范围内所有敌人施放一闪，闪电风暴和毁灭终曲。<br><br>一闪眩晕时间：%stun_duration%秒<br>一闪伤害：%active_damage_base%+%active_damage_multi%x[你的主属性](纯粹伤害)<br>闪电风暴伤害：%lightning_damage%<br>毁灭终曲持续时间：%mute_duration%秒<br><br>作用范围：%radius%"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Lore"								"禁忌之刃,斩断一切。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_Note0"								"一闪效果造成纯粹伤害,无视魔法免疫。"
 		"DOTA_Tooltip_ability_item_forbidden_blade_bonus_strength"						"+$str"
