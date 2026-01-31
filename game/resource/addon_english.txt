@@ -2246,14 +2246,6 @@
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_intellect"				"+$int"
 		"DOTA_Tooltip_ability_item_gungir_2_bonus_hp"						"+$health"
 		"DOTA_Tooltip_Ability_item_gungir_2_bonus_mana"						"+$mana"
-		// item_gungir_3 大缚灵索
-		"DOTA_Tooltip_ability_item_gungir_3"								"<font color='#91EACE'>Advanced</font> Gleipnir Plus"
-		"DOTA_Tooltip_ability_item_gungir_3_Description"					"<h1>Active: Lightning Storm</h1>Roots all enemies in a target %radius_tooltip% radius for %duration% seconds and deals %active_damage% damage."
-		"DOTA_Tooltip_ability_item_gungir_3_Lore"							"WARNING: Weather control device detected. Lightning Storm Ready."
-		"DOTA_Tooltip_ability_item_gungir_3_bonus_aoe"						"+$aoe_bonus"
-		"DOTA_Tooltip_ability_item_gungir_3_bonus_intellect"				"+$int"
-		"DOTA_Tooltip_ability_item_gungir_3_bonus_hp"						"+$health"
-		"DOTA_Tooltip_Ability_item_gungir_3_bonus_mana"						"+$mana"
 
 		"DOTA_Tooltip_Ability_item_satanic_2"				"<font color='#FFE44D'>Upgraded</font> Satanic"
 		"DOTA_Tooltip_ability_item_satanic_2_Description"							"<h1>Active: Unholy Rage</h1>Increases Lifesteal percentage to %unholy_lifesteal_total_tooltip%%% for %unholy_duration% seconds. <br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n\n<h1>Passive: Lifesteal</h1>Heals the attacker for a percentage of attack damage dealt. Lifesteal from creeps is reduced by %creep_lifesteal_reduction_pct%%%."
@@ -2798,22 +2790,19 @@
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"          "Fighter Mode"
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."
 
-		// Forbidden Staff
-		"DOTA_Tooltip_Ability_item_forbidden_staff"                  "<font color='#8B008B'>Forbidden Staff</font>"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Description"      "<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Reduces enemy base magic resistance by %blast_magic_resist%%%. Deals magical damage equal to %necrolyte_att_multiplier%x the sum of all your attributes and hexes all targets for %sheep_duration% seconds.<br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Radius: %radius%"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"             "Forbidden power, not to be touched lightly."
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"  "+$int"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_strength"   "+$str"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_agility"    "+$agi"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_damage"     "+$damage"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_armor"      "+$armor"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana_regen" "+$mana_regen"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"     "+$health"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"       "+$mana"
-		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"        "%+Spell Damage"
+		// 禁忌法锤 Forbidden Staff
+		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>Forbidden Staff</font>"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Reduces enemy base magic resistance by %blast_magic_resist%%%. Deals magical damage equal to %necrolyte_att_multiplier%x the sum of all your attributes and hexes all targets for %sheep_duration% seconds.<br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Radius: %radius_tooltip%"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"								"Forbidden power, not to be touched lightly."
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"							"+$aoe_bonus"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_hp"							"+$health"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_intellect"						"+$int"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"							"+$mana"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana_regen"					"+$mana_regen"
+		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+Spell Amplification"
 
-		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"           "Forbidden Domain"
-		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description" "You are weak. Cannot perform any actions except to try to run away. Reduce base magic resistance."
+		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"								"Forbidden Domain"
+		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"You are weak. Cannot perform any actions except to try to run away. Reduce base magic resistance."
 
 		// Forbidden Blade
 		"DOTA_Tooltip_Ability_item_forbidden_blade"                  "<font color='#8B008B'>Forbidden Blade</font>"

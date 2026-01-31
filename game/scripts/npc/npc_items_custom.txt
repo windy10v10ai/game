@@ -1888,7 +1888,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_agility"
 		"AbilityTextureName"		"tome_of_agility"
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"agility tome;agi"
 		"ItemShopTags"					"consumable"
@@ -1915,7 +1915,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_intelligence"
 		"AbilityTextureName"		"tome_of_intelligence"
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"intelligence tome;int"
 		"ItemShopTags"					"consumable"
@@ -1942,7 +1942,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_strength"
 		"AbilityTextureName"		"tome_of_strength"
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"strength tome;str"
 		"ItemShopTags"					"consumable"
@@ -4003,7 +4003,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3000"
+		"ItemCost"						"3050"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4285,7 +4285,7 @@
 		"AbilityTextureName"			"item_recipe_necronomicon_staff"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"5600"
+		"ItemCost"						"2600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4320,7 +4320,7 @@
 		"AbilityManaCost"				"480"
 		"AbilitySharedCooldown"			"item_sheepstick"
 
-		"ItemCost"						"16000"
+		"ItemCost"						"13000"
 		"ItemAliases"					"hex;sheepstick;scythe of vyse;nec;staff"
 		"ItemShopTags"					"int;regen_mana;agi;hard_to_tag"
 		"ItemQuality"					"rare"
@@ -4332,11 +4332,11 @@
 		"AbilityValues"
 		{
 			"bonus_intellect"		"60"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
-			"bonus_strength"		"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
-			"bonus_agility"			"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
+			// "bonus_strength"		"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
+			// "bonus_agility"			"15"	// tooltip only, real value in modifier_item_necronomicon_staff_stats
 			"bonus_mana_regen"		"12"
 			"spell_amp"				"24"
-			"mp_regen_amp"			"75"
+			// "mp_regen_amp"			"75"
 
 			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
@@ -5609,7 +5609,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"240"
-		"ItemDisassembleRule"       "DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 	}
 
 	// 禁忌符文
@@ -5621,7 +5621,7 @@
 		"AbilityTextureName"		"fusion_forbidden"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5721,7 +5721,7 @@
 		"AbilityTextureName"		"fusion_shadow"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"19999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -6080,10 +6080,21 @@
 		"AOERadius"					"300"	// 添加固定的 AOE 指示器
 		"AbilityValues"
 		{
+			// modifier_item_gungir 提供的属性
+			"bonus_aoe"					"250"			// 150
+			"bonus_hp"					"1200"			// 900
+			"bonus_intellect"			"180"			// 30 + 60
+			"bonus_mana"				"600"			// 400
+
 			// 主动技能参数（Lua 逻辑需要）
 			"radius"
 			{
-				"value"					"500"
+				"value"					"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"radius_tooltip"
+			{
+				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
 				"affected_by_aoe_increase"	"1"
 			}
 			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
@@ -6097,8 +6108,6 @@
 			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_intellect"			"170"	// tooltip only - 智力
-			"bonus_strength"			"15"	// tooltip only - 力量
 			"bonus_mana_regen"			"15"	// tooltip only - 魔法回复
 			"spell_amp"					"30"	// tooltip only - 技能增强
 		}
@@ -7482,89 +7491,6 @@
 			// "SpendCharge"
 			// {
 			// }
-		}
-	}
-	//=================================================================================================================
-	// gungir_3 风灵之锤
-	//=================================================================================================================
-	"item_recipe_gungir_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"10329"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_recipe_gungir"
-		"AbilityTextureName" 			"item_recipe_gungir_2"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3000"
-		"ItemShopTags"					""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_gungir_3"
-		"ItemRequirements"
-		{
-			"01"						"item_gungir_2;item_fusion_agile"
-		}
-	}
-	"item_gungir_3"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"10330"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilitySharedCooldown"			"gungir"
-		"BaseClass"						"item_gungir"
-		"AbilityTextureName"			"item_gungir_3"
-
-		// Stats
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"27"
-		"AbilityCastRange"				"1000"	// 1100
-		"AbilityCastPoint"				"0.0"
-
-		"AbilityManaCost"				"600"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"46000"
-		"ItemShopTags"					"damage;attack_speed;unique"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"gleipnir;gliepnir;glaypnir"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_aoe"					"225"			// If changing this, change radius_tooltip
-			"bonus_hp"					"1800"			// 450
-			"bonus_intellect"			"60"			// 15
-			"bonus_mana"				"800"			// 200
-			"radius"
-			{
-				"value"						"375"		// NOTE: effective radius is 400 because the bonus_aoe applies to itself. If changing this, change radius_tooltip
-				"affected_by_aoe_increase"	"1"
-			}
-			"radius_tooltip"
-			{
-				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
-				"affected_by_aoe_increase"	"1"
-			}
-			"active_damage"
-			{
-				"value"							"1600"
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			"duration"				"2.0"
 		}
 	}
 	"item_skill_talisman"
