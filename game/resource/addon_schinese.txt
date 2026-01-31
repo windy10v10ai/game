@@ -2831,7 +2831,7 @@
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_mana"							"+$mana"
 		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+技能增强"
-		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"							"+$aoe 技能范围"
+		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"							"+$aoe_bonus"
 
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"								"死灵冲击"
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"变成一只小动物。不能攻击，释放技能或使用物品。降低基础魔法抗性。"
