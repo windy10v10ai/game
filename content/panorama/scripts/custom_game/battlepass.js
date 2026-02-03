@@ -208,7 +208,7 @@ function AddPlayerProperty(player, property) {
   // 数值
   const propertyLevelString =
     $.Localize(`#data_panel_player_property_level`) + ' ' + property.level + '/' + maxLevel;
-  let propertyValue = property.level * property.valuePerLevel;
+  let propertyValue = property.level * (property.valuePerLevel || 0);
   // 如果不为整数，小数点一位以内
   if (propertyValue % 1 !== 0) {
     propertyValue = propertyValue.toFixed(1);
@@ -217,7 +217,12 @@ function AddPlayerProperty(player, property) {
   panel.SetDialogVariable('PropertyLevel', propertyLevelString);
   panel.SetDialogVariable('PropertyValue', propertyValueString);
   panel.FindChildTraverse('PropertyLevel').style.color = '#2cba75';
+
   // 升级按钮
+  const levelupButton = panel.FindChildTraverse('Levelup');
+  levelupButton.name = property.name;
+
+  // 普通升级按钮（保持原有逻辑不变）
   let levelupText =
     $.Localize(`#data_panel_player_property_level_up`) + ` (+${property.valuePerLevel})`;
   let nextLevel = property.level + 1;
@@ -233,13 +238,56 @@ function AddPlayerProperty(player, property) {
       property.pointCostPerLevel,
     );
     nextLevel = property.level + property.pointCostPerLevel;
-    panel.FindChildTraverse('Levelup').SetHasClass('LevelupButtonLong', true);
+    levelupButton.SetHasClass('LevelupButtonLong', true);
   }
 
-  panel.FindChildTraverse('Levelup').name = property.name;
-  panel.FindChildTraverse('Levelup').nextLevel = nextLevel;
-  panel.FindChildTraverse('LevelupText').text = levelupText;
+  levelupButton.nextLevel = nextLevel;
+  levelupButton.FindChildTraverse('LevelupText').text = levelupText;
 
+  if (property.level < maxLevel && player.useableLevel >= nextLevel - property.level) {
+    levelupButton.SetHasClass('deactivated', false);
+    levelupButton.SetHasClass('activated', true);
+    levelupButton.SetPanelEvent('onactivate', () => {
+      OnLevelupActive(panel);
+    });
+  }
+
+  // 一键满级按钮（如果启用）
+  const maxLevelupButton = panel.FindChildTraverse('MaxLevelup');
+  maxLevelupButton.name = property.name;
+  const enableMaxLevelUpgrade = property.enableMaxLevelUpgrade === true;
+
+  if (enableMaxLevelUpgrade) {
+    // 显示一键满级按钮
+    maxLevelupButton.RemoveClass('hidden');
+
+    // 计算实际可以升级到的等级（当前等级 + 剩余点数，但不超过最大等级）
+    const targetLevel = Math.min(property.level + player.useableLevel, maxLevel);
+    const maxLevelText = $.Localize(`#data_panel_player_property_level_up_to_X`).replace(
+      'X',
+      targetLevel,
+    );
+    maxLevelupButton.nextLevel = targetLevel;
+    maxLevelupButton.FindChildTraverse('MaxLevelupText').text = maxLevelText;
+
+    // 检查是否可以升级（至少可以升1级）
+    if (property.level < targetLevel && player.useableLevel > 0) {
+      maxLevelupButton.SetHasClass('deactivated', false);
+      maxLevelupButton.SetHasClass('activated', true);
+      maxLevelupButton.SetPanelEvent('onactivate', () => {
+        OnLevelupToMaxActive(panel);
+      });
+    } else {
+      maxLevelupButton.SetHasClass('deactivated', true);
+      maxLevelupButton.SetHasClass('activated', false);
+      maxLevelupButton.SetPanelEvent('onactivate', () => {});
+    }
+  } else {
+    // 隐藏一键满级按钮
+    maxLevelupButton.AddClass('hidden');
+  }
+
+  // 设置提示信息
   if (Player_Propertys_Show_Tooltip_1.includes(property.name)) {
     panel.FindChildTraverse('PropertyTooltip1').SetHasClass('hidden', false);
   } else if (Player_Propertys_Show_Tooltip_2.includes(property.name)) {
@@ -247,13 +295,27 @@ function AddPlayerProperty(player, property) {
   } else {
     panel.FindChildTraverse('PropertyTooltip').SetHasClass('hidden', false);
   }
+}
 
-  if (property.level < maxLevel && player.useableLevel >= nextLevel - property.level) {
-    panel.FindChildTraverse('Levelup').SetHasClass('deactivated', false);
-    panel.FindChildTraverse('Levelup').SetHasClass('activated', true);
-    panel.FindChildTraverse('Levelup').SetPanelEvent('onactivate', () => {
-      OnLevelupActive(panel);
-    });
+function DisableAllUpgradeButtons() {
+  const container = $('#PropertyListContainer');
+  const children = container.Children();
+  for (let i = 0; i < children.length; i++) {
+    const panel = children[i];
+    const levelupButton = panel.FindChildTraverse('Levelup');
+    const maxLevelupButton = panel.FindChildTraverse('MaxLevelup');
+
+    if (levelupButton) {
+      levelupButton.SetHasClass('deactivated', true);
+      levelupButton.SetHasClass('activated', false);
+      levelupButton.SetPanelEvent('onactivate', () => {});
+    }
+
+    if (maxLevelupButton && !maxLevelupButton.BHasClass('hidden')) {
+      maxLevelupButton.SetHasClass('deactivated', true);
+      maxLevelupButton.SetHasClass('activated', false);
+      maxLevelupButton.SetPanelEvent('onactivate', () => {});
+    }
   }
 }
 
@@ -265,10 +327,34 @@ function OnLevelupActive(panel) {
   panel.FindChildTraverse('Levelup').SetHasClass('deactivated', true);
   panel.FindChildTraverse('Levelup').SetHasClass('activated', false);
   panel.FindChildTraverse('Levelup').SetPanelEvent('onactivate', () => {});
+
+  // 禁用所有其他升级按钮
+  DisableAllUpgradeButtons();
+
   // send request to server
   GameEvents.SendCustomGameEventToServer('player_property_levelup', {
     name: panel.FindChildTraverse('Levelup').name,
     level: panel.FindChildTraverse('Levelup').nextLevel,
+  });
+}
+
+function OnLevelupToMaxActive(panel) {
+  $.Msg('LevelupToMax');
+  const maxLevelupButton = panel.FindChildTraverse('MaxLevelup');
+  $.Msg(maxLevelupButton.name);
+  $.Msg(maxLevelupButton.nextLevel);
+  // disable button
+  maxLevelupButton.SetHasClass('deactivated', true);
+  maxLevelupButton.SetHasClass('activated', false);
+  maxLevelupButton.SetPanelEvent('onactivate', () => {});
+
+  // 禁用所有其他升级按钮
+  DisableAllUpgradeButtons();
+
+  // send request to server to upgrade to max level
+  GameEvents.SendCustomGameEventToServer('player_property_levelup', {
+    name: maxLevelupButton.name,
+    level: maxLevelupButton.nextLevel,
   });
 }
 
@@ -297,18 +383,25 @@ const Player_Propertys_Show_Tooltip_1 = [
 
 const Player_Propertys_Show_Tooltip_2 = ['property_skill_points_bonus'];
 
+// Player_Property_List 配置说明：
+// - enableMaxLevelUpgrade: 设置为 true 时，显示一键满级按钮（直接升级到8级）
+//   规则：如果属性没有设置 pointCostPerLevel，则设为 true；如果有 pointCostPerLevel，则设为 false
+// - valuePerLevel: 每级增加的数值
+// - pointCostPerLevel: 特殊属性每级消耗的点数（如 property_skill_points_bonus）
 const Player_Property_List = [
   {
     name: 'property_cooldown_percentage',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_shovel_png.vtex',
     valuePerLevel: 4,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_movespeed_bonus_constant',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_cc_steed_png.vtex',
     valuePerLevel: 25,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_skill_points_bonus',
@@ -316,30 +409,35 @@ const Player_Property_List = [
     imageSrc: 's2r://panorama/images/hud/reborn/levelup_plus_fill_psd.vtex',
     valuePerLevel: 0.5,
     pointCostPerLevel: 2,
+    enableMaxLevelUpgrade: false,
   },
   {
     name: 'property_cast_range_bonus_stacking',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_cc_aghs_png.vtex',
     valuePerLevel: 25,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_spell_amplify_percentage',
     level: 0,
     imageSrc: 's2r://panorama/images/challenges/icon_challenges_magicdamage_png.vtex',
     valuePerLevel: 5,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_status_resistance_stacking',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_cc_fuzzy_png.vtex',
     valuePerLevel: 4,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_evasion_constant',
     level: 0,
     imageSrc: 's2r://panorama/images/spellicons/blue_dragonspawn_overseer_evasion_png.vtex',
     valuePerLevel: 4,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_magical_resistance_bonus',
@@ -347,30 +445,35 @@ const Player_Property_List = [
     imageSrc:
       's2r://panorama/images/events/aghanim/blessing_icons/blessing_magic_resist_icon_png.vtex',
     valuePerLevel: 4,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_incoming_damage_percentage',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/map_unlock_support_psd.vtex',
     valuePerLevel: 4,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_attack_range_bonus',
     level: 0,
     imageSrc: 's2r://panorama/images/challenges/icon_challenges_spelldisjointed_png.vtex',
     valuePerLevel: 25,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_physical_armor_bonus',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_cc_ti2021final_png.vtex',
     valuePerLevel: 5,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_preattack_bonus_damage',
     level: 0,
     imageSrc: 's2r://panorama/images/challenges/icon_challenges_physicaldamage_png.vtex',
     valuePerLevel: 15,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_attackspeed_bonus_constant',
@@ -378,6 +481,7 @@ const Player_Property_List = [
     imageSrc:
       's2r://panorama/images/events/aghanim/blessing_icons/blessing_attack_speed_icon_dormant_png.vtex',
     valuePerLevel: 15,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_stats_strength_bonus',
@@ -385,6 +489,7 @@ const Player_Property_List = [
     imageSrc:
       's2r://panorama/images/primary_attribute_icons/primary_attribute_icon_strength_psd.vtex',
     valuePerLevel: 10,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_stats_agility_bonus',
@@ -392,6 +497,7 @@ const Player_Property_List = [
     imageSrc:
       's2r://panorama/images/primary_attribute_icons/primary_attribute_icon_agility_psd.vtex',
     valuePerLevel: 10,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_stats_intellect_bonus',
@@ -399,30 +505,35 @@ const Player_Property_List = [
     imageSrc:
       's2r://panorama/images/primary_attribute_icons/primary_attribute_icon_intelligence_psd.vtex',
     valuePerLevel: 15,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_lifesteal',
     level: 0,
     imageSrc: 's2r://panorama/images/challenges/icon_challenges_lifestolen_png.vtex',
     valuePerLevel: 10,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_spell_lifesteal',
     level: 0,
     imageSrc: 's2r://panorama/images/challenges/icon_challenges_creepkillswithabilities_png.vtex',
     valuePerLevel: 8,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_health_regen_percentage',
     level: 0,
     imageSrc: 's2r://panorama/images/challenges/icon_challenges_totalhealing_png.vtex',
     valuePerLevel: 0.3,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_mana_regen_total_percentage',
     level: 0,
     imageSrc: 's2r://panorama/images/challenges/icon_challenges_manareduction_png.vtex',
     valuePerLevel: 0.3,
+    enableMaxLevelUpgrade: true,
   },
   {
     name: 'property_ignore_movespeed_limit',
@@ -430,6 +541,7 @@ const Player_Property_List = [
     imageSrc: 's2r://panorama/images/cavern/icon_cave_in_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
+    enableMaxLevelUpgrade: false,
   },
   {
     name: 'property_cannot_miss',
@@ -437,6 +549,7 @@ const Player_Property_List = [
     imageSrc: 's2r://panorama/images/cavern/icon_swap_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
+    enableMaxLevelUpgrade: false,
   },
   {
     name: 'property_flying',
@@ -444,6 +557,7 @@ const Player_Property_List = [
     imageSrc: 's2r://panorama/images/cavern/icon_cc_wings_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
+    enableMaxLevelUpgrade: false,
   },
 ];
 
