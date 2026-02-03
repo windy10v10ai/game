@@ -297,6 +297,28 @@ function AddPlayerProperty(player, property) {
   }
 }
 
+function DisableAllUpgradeButtons() {
+  const container = $('#PropertyListContainer');
+  const children = container.Children();
+  for (let i = 0; i < children.length; i++) {
+    const panel = children[i];
+    const levelupButton = panel.FindChildTraverse('Levelup');
+    const maxLevelupButton = panel.FindChildTraverse('MaxLevelup');
+
+    if (levelupButton) {
+      levelupButton.SetHasClass('deactivated', true);
+      levelupButton.SetHasClass('activated', false);
+      levelupButton.SetPanelEvent('onactivate', () => {});
+    }
+
+    if (maxLevelupButton && !maxLevelupButton.BHasClass('hidden')) {
+      maxLevelupButton.SetHasClass('deactivated', true);
+      maxLevelupButton.SetHasClass('activated', false);
+      maxLevelupButton.SetPanelEvent('onactivate', () => {});
+    }
+  }
+}
+
 function OnLevelupActive(panel) {
   $.Msg('Levelup');
   $.Msg(panel.FindChildTraverse('Levelup').name);
@@ -305,6 +327,10 @@ function OnLevelupActive(panel) {
   panel.FindChildTraverse('Levelup').SetHasClass('deactivated', true);
   panel.FindChildTraverse('Levelup').SetHasClass('activated', false);
   panel.FindChildTraverse('Levelup').SetPanelEvent('onactivate', () => {});
+
+  // 禁用所有其他升级按钮
+  DisableAllUpgradeButtons();
+
   // send request to server
   GameEvents.SendCustomGameEventToServer('player_property_levelup', {
     name: panel.FindChildTraverse('Levelup').name,
@@ -321,6 +347,10 @@ function OnLevelupToMaxActive(panel) {
   maxLevelupButton.SetHasClass('deactivated', true);
   maxLevelupButton.SetHasClass('activated', false);
   maxLevelupButton.SetPanelEvent('onactivate', () => {});
+
+  // 禁用所有其他升级按钮
+  DisableAllUpgradeButtons();
+
   // send request to server to upgrade to max level
   GameEvents.SendCustomGameEventToServer('player_property_levelup', {
     name: maxLevelupButton.name,
