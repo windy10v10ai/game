@@ -62,6 +62,9 @@ export class PointInfoDto {
 }
 
 export class Player {
+  public static readonly ADD_PLAYER_PROPERTY_URL = '/player/property';
+  public static readonly RESET_PLAYER_PROPERTY_URL = '/player/property/reset';
+
   // 白名单 SteamID 列表
   private static readonly WHITELIST_STEAM_IDS: Set<number> = new Set([
     116431158, // 替换为实际的 SteamID
@@ -194,7 +197,7 @@ export class Player {
 
     const apiParameter = {
       method: HttpMethod.PUT,
-      path: ApiClient.ADD_PLAYER_PROPERTY_URL,
+      path: Player.ADD_PLAYER_PROPERTY_URL,
       body: {
         steamId,
         name: event.name,
@@ -226,7 +229,7 @@ export class Player {
 
     const apiParameter = {
       method: HttpMethod.POST,
-      path: ApiClient.RESET_PLAYER_PROPERTY_URL,
+      path: Player.RESET_PLAYER_PROPERTY_URL,
       body: {
         steamId,
         useMemberPoint: event.useMemberPoint,

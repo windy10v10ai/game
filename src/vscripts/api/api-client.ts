@@ -20,9 +20,6 @@ export interface ApiParameter {
 }
 
 export class ApiClient {
-  public static readonly ADD_PLAYER_PROPERTY_URL = '/player/property';
-  public static readonly RESET_PLAYER_PROPERTY_URL = '/player/property/reset';
-
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
 
