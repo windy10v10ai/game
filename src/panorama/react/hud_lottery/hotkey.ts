@@ -1,6 +1,9 @@
 import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 
 const notTargetAbilityNames = ['earthshaker_enchant_totem'];
+// 拥有unit target，但是只能对友军释放的技能（特殊情况）
+const unitTargetOnlyFriendlyAbilityNames = ['abyssal_underlord_firestorm'];
+
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
   const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   const abilityID = Entities.GetAbilityByName(heroID, abilityname);
@@ -32,6 +35,53 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {
   return (behavior & judge) === judge;
+}
+
+/**
+ * 判断两个单位是否是友军
+ * @param unit1 单位1的实体索引
+ * @param unit2 单位2的实体索引
+ * @returns 如果是友军返回true，否则返回false
+ */
+function IsFriendlyUnit(unit1: EntityIndex, unit2: EntityIndex): boolean {
+  const team1 = Entities.GetTeamNumber(unit1);
+  const team2 = Entities.GetTeamNumber(unit2);
+  return team1 === team2;
+}
+
+/**
+ * 检查目标是否符合技能的目标队伍要求
+ * @param abilityID 技能ID
+ * @param abilityName 技能名称
+ * @param targetEntityIndex 目标单位实体索引
+ * @param heroID 英雄实体索引
+ * @returns 如果目标符合要求返回true，否则返回false
+ */
+function isValidTargetTeam(
+  abilityID: AbilityEntityIndex,
+  abilityName: string,
+  targetEntityIndex: EntityIndex,
+  heroID: EntityIndex,
+): boolean {
+  const isTargetFriendly = IsFriendlyUnit(heroID, targetEntityIndex);
+
+  // 特殊情况：只能对友军释放的技能
+  if (unitTargetOnlyFriendlyAbilityNames.includes(abilityName)) {
+    return isTargetFriendly;
+  }
+
+  // 通用情况：根据技能的目标队伍要求检测
+  const targetTeam = Abilities.GetAbilityTargetTeam(abilityID);
+  // 如果技能只能对友军释放，但目标不是友军，不符合要求
+  if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_FRIENDLY && !isTargetFriendly) {
+    return false;
+  }
+  // 如果技能只能对敌军释放，但目标是友军，不符合要求
+  if (targetTeam === DOTA_UNIT_TARGET_TEAM.DOTA_UNIT_TARGET_TEAM_ENEMY && isTargetFriendly) {
+    return false;
+  }
+
+  return true;
 }
 
 /**
@@ -128,6 +178,7 @@ function castUnitTargetAbility(
   const hasTree =
     (targetType & DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE) ===
     DOTA_UNIT_TARGET_TYPE.DOTA_UNIT_TARGET_TREE;
+  const abilityName = Abilities.GetAbilityName(abilityID);
   const target = GetCursorEntity(abilityID);
 
   if (target === undefined) {
@@ -140,6 +191,13 @@ function castUnitTargetAbility(
     }
     return false;
   }
+
+  // 检测目标队伍，如果目标不符合技能的目标队伍要求，跳过处理
+  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  if (!isValidTargetTeam(abilityID, abilityName, target.entityIndex, heroID)) {
+    return false;
+  }
+
   Game.PrepareUnitOrders({
     OrderType: hasTree
       ? dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET_TREE

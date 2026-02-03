@@ -165,8 +165,9 @@
 
 		"data_panel_player_property_value"				"数值"
 		"data_panel_player_property_level"				"等级"
-		"data_panel_player_property_level_up"			"升级"
+		"data_panel_player_property_level_up"			"升1级"
 		"data_panel_player_property_level_up_X"			"使用X点属性点升级"
+		"data_panel_player_property_level_up_to_X"		"升至X级"
 
 		///////////////////////////////////////////////////
 		//

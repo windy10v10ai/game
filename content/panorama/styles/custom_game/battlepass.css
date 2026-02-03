@@ -433,7 +433,7 @@ TextEntry.MonoFont {
   color: #b28948;
   vertical-align: top;
   horizontal-align: right;
-  margin: 10px;
+  margin: 10px 5px;
   text-align: center;
   text-transform: uppercase;
   text-shadow: 2px 2px 4px 3 black;
@@ -444,14 +444,23 @@ TextEntry.MonoFont {
 }
 
 .LevelupButton {
-  width: 120px;
+  width: 100px;
   height: 30px;
   vertical-align: top;
   horizontal-align: right;
-  margin: 10px;
+  margin: 10px 5px;
 }
 .LevelupButtonLong {
   width: 180px;
+}
+
+/* 一键满级按钮样式 */
+#MaxLevelup {
+  width: 80px;
+  height: 30px;
+  vertical-align: top;
+  horizontal-align: right;
+  margin: 10px 5px;
 }
 .deactivated {
   background-color: gradient(linear, 0% 0%, 100% 0%, from(gray), to(black));

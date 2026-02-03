@@ -30,7 +30,7 @@ export class GameEnd {
     const gameEndDto = this.BuildGameEndDto(winnerTeamId);
 
     // send game end dto
-    Game.PostEndGame(gameEndDto);
+    Game.EndGame(gameEndDto);
     CustomNetTables.SetTableValue('ending_status', 'ending_data', { winner_team_id: winnerTeamId });
 
     this.SendAnalyticsEvent(gameEndDto);
