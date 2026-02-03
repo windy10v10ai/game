@@ -1,3 +1,5 @@
+import { Game } from './game';
+
 // enum http methods
 export enum HttpMethod {
   GET = 'GET',
@@ -18,7 +20,6 @@ export interface ApiParameter {
 }
 
 export class ApiClient {
-  public static readonly GAME_START_URL = '/game/start';
   public static readonly ADD_PLAYER_PROPERTY_URL = '/player/property';
   public static readonly RESET_PLAYER_PROPERTY_URL = '/player/property/reset';
 
@@ -61,7 +62,7 @@ export class ApiClient {
     const apiKey = this.GetServerAuthKey();
 
     // 本地主机只发送开局请求
-    if (this.IsLocalhost() && path !== ApiClient.GAME_START_URL) {
+    if (this.IsLocalhost() && path !== Game.GAME_START_URL) {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,

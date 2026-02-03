@@ -1,7 +1,5 @@
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { PropertyController } from '../modules/property/property_controller';
-import { GA4ConfigDto } from './analytics/dto/ga4-dto';
-import { GA4 } from './analytics/ga4';
 import { ApiClient, HttpMethod } from './api-client';
 
 export enum MemberLevel {
@@ -63,13 +61,6 @@ export class PointInfoDto {
   memberPoint?: number;
 }
 
-class GameStart {
-  members!: MemberDto[];
-  players!: PlayerDto[];
-  pointInfo!: PointInfoDto[];
-  ga4Config?: GA4ConfigDto; // Only present for official servers
-}
-
 export class Player {
   // 白名单 SteamID 列表
   private static readonly WHITELIST_STEAM_IDS: Set<number> = new Set([
@@ -92,7 +83,7 @@ export class Player {
   public static playerList: PlayerDto[] = [];
   // PointInfoDto
   public static pointInfoList: PointInfoDto[] = [];
-  private static playerCount = 0;
+  public static playerCount = 0;
   constructor() {
     // 监听JS事件
     // 玩家属性升级
@@ -114,67 +105,6 @@ export class Player {
 
   public static GetPlayerCount(): number {
     return Player.playerCount;
-  }
-
-  public static LoadPlayerInfo() {
-    CustomNetTables.SetTableValue('loading_status', 'loading_status', {
-      status: 1,
-    });
-    // get IsValidPlayer player's steamIds
-    const steamIds: number[] = [];
-    let playerCount = 0;
-    PlayerHelper.ForEachPlayer((playerId) => {
-      const steamId = PlayerResource.GetSteamAccountID(playerId);
-      steamIds.push(steamId);
-      playerCount++;
-    });
-    Player.playerCount = playerCount;
-
-    const matchId = GameRules.Script_GetMatchID().toString();
-    const apiParameter = {
-      method: HttpMethod.GET,
-      path: ApiClient.GAME_START_URL,
-      querys: { steamIds: steamIds.join(','), matchId },
-      successFunc: this.InitSuccess,
-      failureFunc: this.InitFailure,
-      retryTimes: 6,
-    };
-
-    ApiClient.sendWithRetry(apiParameter);
-  }
-
-  private static InitSuccess(data: string) {
-    const gameStart = json.decode(data)[0] as GameStart;
-    Player.memberList = gameStart.members;
-    Player.playerList = gameStart.players;
-    Player.pointInfoList = gameStart.pointInfo;
-
-    // Initialize GA4 if config is provided (only for official servers)
-    if (gameStart.ga4Config) {
-      GA4.Initialize(gameStart.ga4Config);
-      print(`[Player] GA4 initialized with measurementId: ${gameStart.ga4Config.measurementId}`);
-    } else {
-      print('[Player] GA4 config not provided (non-official server)');
-    }
-
-    // set member to member table
-    Player.savePlayerToNetTable();
-    Player.saveMemberToNetTable();
-    Player.savePointInfoToNetTable();
-
-    const status = Player.playerList.length > 0 ? 2 : 3;
-    CustomNetTables.SetTableValue('loading_status', 'loading_status', {
-      status,
-    });
-  }
-
-  private static InitFailure(_: string) {
-    if (IsInToolsMode()) {
-      Player.saveMemberToNetTable();
-    }
-    CustomNetTables.SetTableValue('loading_status', 'loading_status', {
-      status: 3,
-    });
   }
 
   // 英雄出生/升级时，设置玩家属性
