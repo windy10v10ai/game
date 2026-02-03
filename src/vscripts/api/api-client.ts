@@ -1,5 +1,3 @@
-import { Game } from './game';
-
 // enum http methods
 export enum HttpMethod {
   GET = 'GET',
@@ -59,7 +57,7 @@ export class ApiClient {
     const apiKey = this.GetServerAuthKey();
 
     // 本地主机只发送开局请求
-    if (this.IsLocalhost() && path !== Game.GAME_START_URL) {
+    if (this.IsLocalhost() && path !== '/game/start') {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,

@@ -212,7 +212,6 @@ export class Player {
 
   private PropertyLevelupSuccess(data: string) {
     const player = json.decode(data)[0] as PlayerDto;
-    DeepPrintTable(player);
 
     Player.UpsertPlayerData(player);
   }

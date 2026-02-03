@@ -14,7 +14,7 @@ class GameStart {
 
 export class Game {
   public static readonly GAME_START_URL = '/game/start';
-  public static POST_GAME_END_URL = '/game/end';
+  public static readonly GAME_END_URL = '/game/end';
 
   constructor() {}
 
@@ -82,14 +82,14 @@ export class Game {
     ApiClient.sendWithRetry(apiParameter);
   }
 
-  public static PostEndGame(gameEndDto: GameEndDto) {
+  public static EndGame(gameEndDto: GameEndDto) {
     CustomNetTables.SetTableValue('ending_status', 'ending_status', {
       status: 1,
     });
 
     const apiParameter = {
       method: HttpMethod.POST,
-      path: this.POST_GAME_END_URL,
+      path: Game.GAME_END_URL,
       body: gameEndDto,
       successFunc: (data: string) => {
         // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
