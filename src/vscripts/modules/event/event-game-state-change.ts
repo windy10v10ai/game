@@ -2,7 +2,7 @@ import { InitializeItemUpgrades } from '../../ai/build-item/item-tier-config';
 import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4';
-import { Player } from '../../api/player';
+import { Game } from '../../api/game';
 import { Ranking } from '../../api/ranking';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
@@ -22,7 +22,7 @@ export class EventGameStateChange {
     if (state === GameState.CUSTOM_GAME_SETUP) {
       Timers.CreateTimer(1, () => {
         // 加载开局信息
-        Player.LoadPlayerInfo();
+        Game.StartGame();
         // 设置玩家颜色
         this.setPlayerColor();
       });

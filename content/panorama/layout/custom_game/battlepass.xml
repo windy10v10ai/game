@@ -27,9 +27,14 @@
 					<Panel class="ItemContextValuePanel">
 						<Label id="PropertyLevel" class="ItemValue" text="{s:PropertyLevel}" />
 						<Label id="PropertyValue" class="ItemValue" text="{s:PropertyValue}" />
-						<Button id="Levelup" class="LevelupButton deactivated" name="">
-							<Label id="LevelupText" class="ButtonText" text="#data_panel_player_property_level_up" />
-						</Button>
+						<Panel class="flowRight" style="horizontal-align: right;">
+							<Button id="Levelup" class="LevelupButton deactivated" name="">
+								<Label id="LevelupText" class="ButtonText" text="#data_panel_player_property_level_up" />
+							</Button>
+							<Button id="MaxLevelup" class="LevelupButton LevelupButtonLong deactivated hidden" name="">
+								<Label id="MaxLevelupText" class="ButtonText" text="#data_panel_player_property_level_up_to_X" />
+							</Button>
+						</Panel>
 					</Panel>
 				</Panel>
 			</Panel>
