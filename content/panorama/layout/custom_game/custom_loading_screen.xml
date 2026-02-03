@@ -142,7 +142,7 @@
 							<Label text="#fixed_ability_ability_trigger_on_move_name" id="ability_trigger_on_move" />
 							<Label text="#DOTA_Tooltip_ability_spectre_dispersion2" id="spectre_dispersion2" />
 							<Label text="#fixed_ability_ability_charge_damage_name" id="ability_charge_damage" />
-							<Label text="#DOTA_Tooltip_ability_riki_permanent_invisibility" id="riki_permanent_invisibility" />
+							<Label text="#DOTA_Tooltip_ability_riki_backstab" id="riki_backstab" />
 							<Label text="#DOTA_Tooltip_ability_medusa_split_shot" id="medusa_split_shot" />
 							<Label text="#DOTA_Tooltip_ability_black_drake_magic_amplification_aura" id="black_drake_magic_amplification_aura" />
 							<Label text="#DOTA_Tooltip_ability_kobold_taskmaster_speed_aura" id="kobold_taskmaster_speed_aura" />
