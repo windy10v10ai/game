@@ -158,6 +158,7 @@
 		"data_panel_player_property_cannot_miss"				"True Strike"
 		"data_panel_player_property_flying"						"Flying Status"
 		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
+		"data_panel_player_property_bonus_vision"				"Bonus Vision"
 
 		"data_panel_player_property_tooltip"					"This effect progressively activates every 2 hero levels, up to the maximum upgraded level."
 		"data_panel_player_property_skill_points_bonus_tooltip"	"This effect progressively activates every 4 hero levels, up to the maximum upgraded level."
