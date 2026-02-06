@@ -1100,6 +1100,104 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"120"
 				}
 			}
+
+			// 额外视野
+			"modifier_player_property_bonus_vision_level_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"50"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"50"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"100"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"100"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"150"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"150"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"200"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"200"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"250"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"250"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"300"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"300"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"350"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"350"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_8"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"400"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"400"
+				}
+			}
 		}
 	}
 

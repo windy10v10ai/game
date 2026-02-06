@@ -126,6 +126,7 @@
 		"data_panel_player_property_cannot_miss"				"True Strike"
 		"data_panel_player_property_flying"						"Статус полёта"
 		"data_panel_player_property_skill_points_bonus"			"Бонусные очки прокачки"
+		"data_panel_player_property_bonus_vision"				"Бонусный обзор"
 
 		"data_panel_player_property_tooltip"					"Герой будет получать этот эффект каждые 2 уровня, вплоть до максимального уровня."
 		"data_panel_player_property_skill_points_bonus_tooltip"	"Герой будет получать этот эффект каждые 4 уровня, вплоть до максимального уровня."

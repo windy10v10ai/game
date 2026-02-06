@@ -248,3 +248,18 @@ export class property_flying extends PropertyBaseModifier {
     };
   }
 }
+
+@registerModifier()
+export class property_bonus_vision extends PropertyBaseModifier {
+  DeclareFunctions(): ModifierFunction[] {
+    return [ModifierFunction.BONUS_DAY_VISION, ModifierFunction.BONUS_NIGHT_VISION];
+  }
+
+  GetModifierBonusDayVision(): number {
+    return this.value;
+  }
+
+  GetModifierBonusNightVision(): number {
+    return this.value;
+  }
+}

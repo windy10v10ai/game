@@ -374,6 +374,7 @@ function OnPlayerPropertyResetActive(panel, useMemberPoint) {
 const Player_Propertys_Show_Tooltip_1 = [
   'property_cooldown_percentage',
   'property_movespeed_bonus_constant',
+  'property_bonus_vision',
   'property_health_regen_percentage',
   'property_mana_regen_total_percentage',
   'property_ignore_movespeed_limit',
@@ -401,6 +402,13 @@ const Player_Property_List = [
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_cc_steed_png.vtex',
     valuePerLevel: 25,
+    enableMaxLevelUpgrade: true,
+  },
+  {
+    name: 'property_bonus_vision',
+    level: 0,
+    imageSrc: 's2r://panorama/images/hud/facets/icons/vision_png.vtex',
+    valuePerLevel: 50,
     enableMaxLevelUpgrade: true,
   },
   {
