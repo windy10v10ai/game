@@ -1,7 +1,5 @@
 ---
-name: generate-changelog
 description: 生成 Steam Workshop 更新日志（中英文），支持从 GitHub PR 自动提取信息
-argument-hint: [版本号] [更新内容 或 #PR编号]
 ---
 
 # 生成更新日志
@@ -140,7 +138,7 @@ grep "DOTA_Tooltip_Ability_item_forbidden_staff\"" game/resource/addon_schinese.
 
 ## 执行任务
 
-参数：$ARGUMENTS
+当用户调用此命令时，按照以下步骤执行：
 
 ### 处理步骤
 
@@ -159,4 +157,4 @@ grep "DOTA_Tooltip_Ability_item_forbidden_staff\"" game/resource/addon_schinese.
 
 4. **输出**：中英文两个版本，用分隔线隔开
 
-如果信息不完整，先询问我。
+如果信息不完整，先询问用户。
