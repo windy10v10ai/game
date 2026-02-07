@@ -158,6 +158,7 @@
 		"data_panel_player_property_cannot_miss"				"克敌机先"
 		"data_panel_player_property_flying"						"飞行状态"
 		"data_panel_player_property_skill_points_bonus"			"额外技能点"
+		"data_panel_player_property_bonus_vision"				"额外视野"
 
 		"data_panel_player_property_tooltip"					"英雄每2级即可获得相应效果，直至该属性的最高等级。"
 		"data_panel_player_property_skill_points_bonus_tooltip"	"英雄每4级即可获得相应效果，直至该属性的最高等级。"

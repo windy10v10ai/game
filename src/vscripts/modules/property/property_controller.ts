@@ -2,6 +2,7 @@ import { type PlayerProperty } from '../../api/player';
 import {
   property_attack_range_bonus,
   property_attackspeed_bonus_constant,
+  property_bonus_vision,
   property_cannot_miss,
   property_cast_range_bonus_stacking,
   property_cooldown_percentage,
@@ -70,6 +71,10 @@ export class PropertyController {
       property_movespeed_bonus_constant.name,
       'modifier_player_property_movespeed_bonus_constant_level_',
     );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_bonus_vision.name,
+      'modifier_player_property_bonus_vision_level_',
+    );
 
     PropertyController.propertyDataDrivenModifierMap.set(
       property_physical_armor_bonus.name,
@@ -97,6 +102,9 @@ export class PropertyController {
     );
   }
 
+  /**
+   * 限制属性，只有达到特定等级后才生效，不限制的属性从1级开始生效
+   */
   private static limitPropertyNames = [
     'property_skill_points_bonus',
     'property_cast_range_bonus_stacking',
