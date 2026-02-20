@@ -23,7 +23,7 @@
     "@moddota/panorama-types": "^1.38.1",
     "@types/jest": "^30.0.0",
     "@types/react": "^17.0.82",
-    "@typescript-eslint/eslint-plugin": "^8.51.0",
+    "@typescript-eslint/eslint-plugin": "^8.56.0",
     "@typescript-eslint/parser": "^8.52.0",
     "babel-loader": "^10.0.0",
     "easy-keyvalues": "^1.2.7",
