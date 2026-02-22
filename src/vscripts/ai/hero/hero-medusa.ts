@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier()
+@registerModifier(undefined, 'ai/hero/hero-medusa')
 export class MedusaAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 秘术异蛇
