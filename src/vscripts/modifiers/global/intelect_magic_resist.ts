@@ -1,6 +1,6 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 
-@registerModifier()
+@registerModifier(undefined, 'modifiers/global/intelect_magic_resist')
 export class modifier_intelect_magic_resist extends BaseModifier {
   IsHidden(): boolean {
     return true;

@@ -78,7 +78,6 @@ export const registerAbility =
  */
 export function getCallerEnv(): any {
   const env = getfenv(2);
-  print('[getCallerEnv] level=2 env=' + (env == null ? 'nil' : 'table'));
   return env;
 }
 
@@ -96,34 +95,33 @@ export const registerModifier = (name?: string, scriptPath?: string, envOverride
     name = modifier.name;
   }
 
-  const env =
+  let env =
     envOverride !== undefined
       ? envOverride
       : scriptPath !== undefined
         ? (getfenv(3) ?? getfenv(1))
         : getFileScope()[0];
-  if (envOverride !== undefined && env == null) {
-    print('[test-ModifierReg] ERROR env is nil for name=' + name + ' path=' + (scriptPath ?? '?'));
+  // 如果 env 为 nil，使用 _G 作为 fallback 并继续执行
+  if (env == null) {
+    env = _G as any;
   }
   const [, source] = getFileScope();
   const pathForLink =
     scriptPath !== undefined
-      ? scriptPath
+      ? scriptPath + '.lua'  // LinkLuaModifier 需要 .lua 后缀
       : (() => {
           const [raw] = string.gsub(source, ".*scripts[\\/]vscripts[\\/]", "");
           const [noExt] = string.gsub(raw, "%.lua$", "");
-          return noExt;
+          return noExt + '.lua';
         })();
 
   env[name] = {};
 
   toDotaClassInstance(env[name], modifier);
 
-  // 传入 envOverride 时（玩家属性等）同时写入 _G，确保客户端无论从脚本 env 还是全局查找都能找到 modifier，从而正确执行 HandleCustomTransmitterData 并显示数值
-  if (envOverride !== undefined) {
+  // 如果使用了 _G 作为 fallback，或者传入了 envOverride，同时写入 _G，确保客户端无论从脚本 env 还是全局查找都能找到 modifier
+  if (env === (_G as any) || envOverride !== undefined) {
     (_G as any)[name] = env[name];
-    const side = typeof IsServer === 'function' && IsServer() ? 'server' : 'client';
-    print('[test-ModifierReg] side=' + side + ' name=' + name + ' path=' + pathForLink + ' _G set');
   }
 
   const originalOnCreated = (env[name] as CDOTA_Modifier_Lua).OnCreated;
@@ -151,9 +149,10 @@ export const registerModifier = (name?: string, scriptPath?: string, envOverride
     base = base.____super;
   }
 
-  LinkLuaModifier(name, pathForLink, type);
-  if (envOverride !== undefined) {
-    print('[test-ModifierReg] LinkLuaModifier done name=' + name + ' path=' + pathForLink);
+  // LinkLuaModifier 必须在服务器端调用，且必须在文件被 require 之后
+  // 装饰器在类定义时执行，此时文件已经被 require，所以可以安全调用
+  if (IsServer()) {
+    LinkLuaModifier(name, pathForLink, type);
   }
 };
 
@@ -165,7 +164,10 @@ function clearTable(table: object) {
 
 function getFileScope(): [any, string] {
   // 不再使用 debug.getinfo（Valve 已移除 debug 库）。路径由 tstl 在每文件首行设置 _G.__TS__currentFile，供 LinkLuaModifier 等使用。
-  return [getfenv(1), (_G as any).__TS__currentFile ?? "?"];
+  const env = getfenv(1);
+  // 如果 getfenv(1) 返回 nil，使用 _G 作为 fallback（在某些环境下可能发生）
+  const fallbackEnv = env ?? (_G as any);
+  return [fallbackEnv, (_G as any).__TS__currentFile ?? "?"];
 }
 
 function toDotaClassInstance(instance: any, table: new () => any) {
