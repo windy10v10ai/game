@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier()
+@registerModifier(undefined, 'ai/hero/hero-drow-ranger')
 export class DrowRangerAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     const attackRange = this.hero.Script_GetAttackRange();

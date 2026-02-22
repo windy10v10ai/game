@@ -1,6 +1,5 @@
-import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
+import { BaseModifier } from '../../utils/dota_ts_adapter';
 
-@registerModifier()
 export class PropertyBaseModifier extends BaseModifier {
   value!: number;
 
