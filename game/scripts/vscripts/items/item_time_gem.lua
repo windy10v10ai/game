@@ -62,8 +62,8 @@ function modifier_item_time_gem:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_time_gem:OnCreated()
-    self:OnRefresh()
+function modifier_item_time_gem:OnCreated(params)
+    self:OnRefresh(params)
 
     local ability = self:GetAbility()
     if ability then
@@ -81,7 +81,7 @@ function modifier_item_time_gem:OnCreated()
     end
 end
 
-function modifier_item_time_gem:OnRefresh()
+function modifier_item_time_gem:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_time_gem_stats"
 
     if IsServer() then

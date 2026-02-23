@@ -145,8 +145,8 @@ function modifier_item_shadow_impact:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_shadow_impact:OnCreated()
-    self:OnRefresh()
+function modifier_item_shadow_impact:OnCreated(params)
+    self:OnRefresh(params)
 
     if not self:GetAbility() then return end
     local ability = self:GetAbility()
@@ -155,7 +155,7 @@ function modifier_item_shadow_impact:OnCreated()
     self.bonus_cast_range = ability:GetSpecialValueFor("bonus_cast_range")
 end
 
-function modifier_item_shadow_impact:OnRefresh()
+function modifier_item_shadow_impact:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_shadow_impact_stats"
 
     if IsServer() then

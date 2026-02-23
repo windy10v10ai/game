@@ -46,8 +46,8 @@ function modifier_item_dracula_mask:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_dracula_mask:OnCreated()
-    self:OnRefresh()
+function modifier_item_dracula_mask:OnCreated(params)
+    self:OnRefresh(params)
 
     if not self:GetAbility() then return end
     local ability = self:GetAbility()
@@ -62,7 +62,7 @@ function modifier_item_dracula_mask:OnCreated()
     end
 end
 
-function modifier_item_dracula_mask:OnRefresh()
+function modifier_item_dracula_mask:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_dracula_mask_stats"
 
     if IsServer() then
