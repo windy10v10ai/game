@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier(undefined, 'ai/hero/hero-shadow-shaman')
+@registerModifier('ai/hero/hero-shadow-shaman')
 export class ShadowShamanAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 妖术

@@ -4,7 +4,7 @@ import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
 @reloadable
-@registerModifier(undefined, 'ai/hero/hero-skeleton')
+@registerModifier('ai/hero/hero-skeleton')
 export class SkeletonAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 冥火爆击

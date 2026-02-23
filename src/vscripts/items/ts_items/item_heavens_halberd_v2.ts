@@ -70,7 +70,7 @@ export class ItemHeavensHalberdV2 extends BaseItem {
   }
 }
 
-@registerModifier('modifier_item_heavens_halberd_v2', 'items/ts_items/item_heavens_halberd_v2')
+@registerModifier('items/ts_items/item_heavens_halberd_v2', 'modifier_item_heavens_halberd_v2')
 export class ModifierItemHeavensHalberdV2 extends BaseItemModifier {
   override statsModifierName: string = 'modifier_item_heavens_halberd_v2_stats';
 

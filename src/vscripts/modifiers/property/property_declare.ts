@@ -1,7 +1,7 @@
 import { registerModifier } from '../../utils/dota_ts_adapter';
 import { PropertyBaseModifier } from './property_base';
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_cooldown_percentage extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.COOLDOWN_PERCENTAGE];
@@ -12,7 +12,7 @@ export class property_cooldown_percentage extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_cast_range_bonus_stacking extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.CAST_RANGE_BONUS_STACKING];
@@ -23,7 +23,7 @@ export class property_cast_range_bonus_stacking extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_spell_amplify_percentage extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.SPELL_AMPLIFY_PERCENTAGE];
@@ -34,7 +34,7 @@ export class property_spell_amplify_percentage extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_status_resistance_stacking extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.STATUS_RESISTANCE_STACKING];
@@ -46,7 +46,7 @@ export class property_status_resistance_stacking extends PropertyBaseModifier {
 }
 
 // MODIFIER_PROPERTY_EVASION_CONSTANT
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_evasion_constant extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.EVASION_CONSTANT];
@@ -57,7 +57,7 @@ export class property_evasion_constant extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_magical_resistance_bonus extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.MAGICAL_RESISTANCE_BONUS];
@@ -68,7 +68,7 @@ export class property_magical_resistance_bonus extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_incoming_damage_percentage extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.INCOMING_DAMAGE_PERCENTAGE];
@@ -79,7 +79,7 @@ export class property_incoming_damage_percentage extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_attack_range_bonus extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.ATTACK_RANGE_BONUS];
@@ -94,7 +94,7 @@ export class property_attack_range_bonus extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_physical_armor_bonus extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.PHYSICAL_ARMOR_BONUS];
@@ -105,7 +105,7 @@ export class property_physical_armor_bonus extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_preattack_bonus_damage extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.PREATTACK_BONUS_DAMAGE];
@@ -116,7 +116,7 @@ export class property_preattack_bonus_damage extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_attackspeed_bonus_constant extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.ATTACKSPEED_BONUS_CONSTANT];
@@ -127,7 +127,7 @@ export class property_attackspeed_bonus_constant extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_stats_strength_bonus extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.STATS_STRENGTH_BONUS];
@@ -138,7 +138,7 @@ export class property_stats_strength_bonus extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_stats_agility_bonus extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.STATS_AGILITY_BONUS];
@@ -149,7 +149,7 @@ export class property_stats_agility_bonus extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_stats_intellect_bonus extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.STATS_INTELLECT_BONUS];
@@ -160,7 +160,7 @@ export class property_stats_intellect_bonus extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_health_regen_percentage extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.HEALTH_REGEN_PERCENTAGE];
@@ -171,7 +171,7 @@ export class property_health_regen_percentage extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_mana_regen_total_percentage extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.MANA_REGEN_TOTAL_PERCENTAGE];
@@ -182,7 +182,7 @@ export class property_mana_regen_total_percentage extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_lifesteal extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.ON_TAKEDAMAGE];
@@ -193,7 +193,7 @@ export class property_lifesteal extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_spell_lifesteal extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.ON_TAKEDAMAGE];
@@ -204,7 +204,7 @@ export class property_spell_lifesteal extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_movespeed_bonus_constant extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.MOVESPEED_BONUS_CONSTANT];
@@ -215,7 +215,7 @@ export class property_movespeed_bonus_constant extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_ignore_movespeed_limit extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.IGNORE_MOVESPEED_LIMIT]; // , ModifierFunction.MOVESPEED_LIMIT
@@ -230,7 +230,7 @@ export class property_ignore_movespeed_limit extends PropertyBaseModifier {
   // }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_cannot_miss extends PropertyBaseModifier {
   CheckState(): Partial<Record<ModifierState, boolean>> {
     return {
@@ -239,7 +239,7 @@ export class property_cannot_miss extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_flying extends PropertyBaseModifier {
   CheckState(): Partial<Record<ModifierState, boolean>> {
     return {
@@ -249,7 +249,7 @@ export class property_flying extends PropertyBaseModifier {
   }
 }
 
-@registerModifier(undefined, 'modifiers/property/property_declare')
+@registerModifier('modifiers/property/property_declare')
 export class property_bonus_vision extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.BONUS_DAY_VISION, ModifierFunction.BONUS_NIGHT_VISION];

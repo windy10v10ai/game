@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier(undefined, 'ai/hero/hero-sniper')
+@registerModifier('ai/hero/hero-sniper')
 export class SniperAIModifier extends BotBaseAIModifier {
   protected override FindHeroRadius: number = 3000;
 
