@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier('modifier_necrolyte_ai')
+@registerModifier('ai/hero/hero-necrolyte')
 export class NecrolyteAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 死亡脉冲

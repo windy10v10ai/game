@@ -11,7 +11,7 @@ import { UseItem } from '../item/use-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
-@registerModifier()
+@registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
   protected readonly ThinkInterval: number = 0.3;
   protected readonly ThinkIntervalTool: number = 0.3;

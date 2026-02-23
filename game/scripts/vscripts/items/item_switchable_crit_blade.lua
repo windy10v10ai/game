@@ -27,7 +27,10 @@ function item_switchable_crit_blade:OnSpellStart()
 end
 
 function item_switchable_crit_blade:GetCooldown(level)
-    local modifier = self:GetCaster():FindModifierByName("modifier_item_switchable_crit_blade")
+    local caster = self:GetCaster()
+    if not caster then return 0 end
+
+    local modifier = caster:FindModifierByName("modifier_item_switchable_crit_blade")
     if modifier then
         local mode = modifier:GetStackCount()
         if mode == 0 then mode = 1 end
@@ -60,13 +63,19 @@ function modifier_item_switchable_crit_blade:GetModifierPriority()
     return MODIFIER_PRIORITY_SUPER_ULTRA
 end
 
-function modifier_item_switchable_crit_blade:OnCreated()
-    self:OnRefresh()
+function modifier_item_switchable_crit_blade:OnCreated(params)
+    local ability = self:GetAbility()
+    if not ability then return end
+
+    -- 缓存被动属性值
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    self.bonus_spell_amp = ability:GetSpecialValueFor("bonus_spell_amp")
+    self.bonus_damage_percent = ability:GetSpecialValueFor("bonus_damage_percent")
+    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
+    self.bonus_evasion = ability:GetSpecialValueFor("bonus_evasion")
+    self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
 
     if IsServer() then
-        local ability = self:GetAbility()
-        if not ability then return end
-
         -- 从物品的secondary charges读取保存的模式
         local saved_mode = ability:GetSecondaryCharges()
         if saved_mode > 0 and saved_mode <= 3 then
@@ -90,18 +99,8 @@ function modifier_item_switchable_crit_blade:OnCreated()
     end
 end
 
-function modifier_item_switchable_crit_blade:OnRefresh()
-    self.stats_modifier_name = "modifier_item_switchable_crit_blade_stats"
-
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
-end
-
 function modifier_item_switchable_crit_blade:OnDestroy()
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
+    -- 属性已迁移到 Lua modifier 实现
 end
 
 function modifier_item_switchable_crit_blade:DeclareFunctions()
@@ -109,11 +108,45 @@ function modifier_item_switchable_crit_blade:DeclareFunctions()
         MODIFIER_EVENT_ON_ATTACK_LANDED,
         MODIFIER_PROPERTY_TOOLTIP,
         MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
+        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+        MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
+        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+        MODIFIER_PROPERTY_EVASION_CONSTANT,
+        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
     }
 end
 
 function modifier_item_switchable_crit_blade:OnTooltip()
     return self:GetStackCount()
+end
+
+-- ========================================
+-- 被动属性实现（Lua modifier）
+-- ========================================
+
+function modifier_item_switchable_crit_blade:GetModifierPreAttack_BonusDamage()
+    return self.bonus_damage or 0
+end
+
+function modifier_item_switchable_crit_blade:GetModifierSpellAmplify_Percentage()
+    return self.bonus_spell_amp or 0
+end
+
+function modifier_item_switchable_crit_blade:GetModifierBaseDamageOutgoing_Percentage()
+    return self.bonus_damage_percent or 0
+end
+
+function modifier_item_switchable_crit_blade:GetModifierBonusStats_Agility()
+    return self.bonus_agility or 0
+end
+
+function modifier_item_switchable_crit_blade:GetModifierEvasion_Constant()
+    return self.bonus_evasion or 0
+end
+
+function modifier_item_switchable_crit_blade:GetModifierAttackSpeedBonus_Constant()
+    return self.bonus_attack_speed or 0
 end
 
 function modifier_item_switchable_crit_blade:GetModifierPreAttack_CriticalStrike(params)

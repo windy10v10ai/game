@@ -11,7 +11,7 @@ function item_hawkeye_fighter:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration")
 
-    caster:AddNewModifier(caster, self, "modifier_item_hawkeye_fighter_active", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_item_hawkeye_fighter_active", { duration = duration })
     caster:Purge(false, true, false, false, false)
 
     EmitSoundOn("DOTA_Item.ForceStaff.Activate", caster)
@@ -21,39 +21,67 @@ end
 modifier_item_hawkeye_fighter = class({})
 
 function modifier_item_hawkeye_fighter:IsHidden() return true end
+
 function modifier_item_hawkeye_fighter:IsPurgable() return false end
+
 function modifier_item_hawkeye_fighter:RemoveOnDeath() return false end
+
 function modifier_item_hawkeye_fighter:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_hawkeye_fighter:OnCreated()
-    self:OnRefresh()
+function modifier_item_hawkeye_fighter:OnCreated(params)
+    local ability = self:GetAbility()
+    if not ability then return end
 
-    if self:GetAbility() then
-        -- 状态抗性不在可优化列表中，需要在 Lua 中实现
-        self.bonus_status_resistance = self:GetAbility():GetSpecialValueFor("bonus_status_resistance") or 30
-    end
-end
+    -- 缓存被动属性值
+    self.bonus_all_stats = ability:GetSpecialValueFor("bonus_all_stats")
+    self.bonus_movement_speed = ability:GetSpecialValueFor("bonus_movement_speed")
+    self.bonus_movement_speed_pct = ability:GetSpecialValueFor("bonus_movement_speed_pct")
+    self.bonus_turn_rate = ability:GetSpecialValueFor("bonus_turn_rate")
 
-function modifier_item_hawkeye_fighter:OnRefresh()
-    self.stats_modifier_name = "modifier_item_hawkeye_fighter_stats"
-
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
+    -- 状态抗性不在可优化列表中，需要在 Lua 中实现
+    self.bonus_status_resistance = ability:GetSpecialValueFor("bonus_status_resistance") or 30
 end
 
 function modifier_item_hawkeye_fighter:OnDestroy()
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
+    -- 属性已迁移到 Lua modifier 实现
 end
 
 function modifier_item_hawkeye_fighter:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+        MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
     }
+end
+
+function modifier_item_hawkeye_fighter:GetModifierBonusStats_Strength()
+    return self.bonus_all_stats or 0
+end
+
+function modifier_item_hawkeye_fighter:GetModifierBonusStats_Agility()
+    return self.bonus_all_stats or 0
+end
+
+function modifier_item_hawkeye_fighter:GetModifierBonusStats_Intellect()
+    return self.bonus_all_stats or 0
+end
+
+function modifier_item_hawkeye_fighter:GetModifierMoveSpeedBonus_Constant()
+    return self.bonus_movement_speed or 0
+end
+
+function modifier_item_hawkeye_fighter:GetModifierMoveSpeedBonus_Percentage()
+    return self.bonus_movement_speed_pct or 0
+end
+
+function modifier_item_hawkeye_fighter:GetModifierTurnRate_Percentage()
+    return self.bonus_turn_rate or 0
 end
 
 function modifier_item_hawkeye_fighter:GetModifierStatusResistanceStacking()
@@ -64,7 +92,9 @@ end
 modifier_item_hawkeye_fighter_active = class({})
 
 function modifier_item_hawkeye_fighter_active:IsHidden() return false end
+
 function modifier_item_hawkeye_fighter_active:IsPurgable() return true end
+
 function modifier_item_hawkeye_fighter_active:IsBuff() return true end
 
 function modifier_item_hawkeye_fighter_active:OnCreated()
@@ -142,7 +172,7 @@ end
 function modifier_item_hawkeye_fighter_active:CheckState()
     return {
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-        [MODIFIER_STATE_FLYING] = true,  -- 改为真正的飞行状态
+        [MODIFIER_STATE_FLYING] = true, -- 改为真正的飞行状态
     }
 end
 

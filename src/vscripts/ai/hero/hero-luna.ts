@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier()
+@registerModifier('ai/hero/hero-luna')
 export class LunaAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 环绕月刃

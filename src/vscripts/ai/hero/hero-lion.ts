@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier()
+@registerModifier('ai/hero/hero-lion')
 export class LionAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 变羊
