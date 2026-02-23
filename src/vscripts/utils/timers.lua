@@ -64,7 +64,7 @@ function BinaryHeap:Insert(item)
 	item.index = index
 	self[index] = item
 	while index > 1 do
-		local parent = math.floor(index/2)
+		local parent = math.floor(index / 2)
 		if self[parent][key] <= item[key] then
 			break
 		end
@@ -89,7 +89,7 @@ function BinaryHeap:Remove(item)
 	self[index].index = index
 	self[heap_size] = nil
 	while true do
-		local left = index*2
+		local left = index * 2
 		local right = left + 1
 		if not self[left] then break end
 		local newindex = right
@@ -108,7 +108,7 @@ function BinaryHeap:Remove(item)
 end
 
 function BinaryHeap:Find(name)
-	for i,v in ipairs(self) do
+	for i, v in ipairs(self) do
 		if v.name == name then
 			return v
 		end
@@ -116,20 +116,19 @@ function BinaryHeap:Find(name)
 	return nil
 end
 
-setmetatable(BinaryHeap, {__call = function(self, key) return setmetatable({key=key}, self) end})
+setmetatable(BinaryHeap, { __call = function(self, key) return setmetatable({ key = key }, self) end })
 
 function table.merge(input1, input2)
-	for i,v in pairs(input2) do
+	for i, v in pairs(input2) do
 		input1[i] = v
 	end
 	return input1
 end
 
-
 TIMERS_THINK = 0.01
 
 if _G.Timers == nil then
-	print ( '[Timers] creating Timers' )
+	print('[Timers] creating Timers')
 	_G.Timers = {}
 	setmetatable(Timers, {
 		__call = function(t, ...)
@@ -144,15 +143,16 @@ function Timers:start()
 	self:InitializeTimers()
 	self.nextTickCallbacks = {}
 
-	local ent = SpawnEntityFromTableSynchronous("info_target", {targetname="timers_lua_thinker"})
+	local ent = SpawnEntityFromTableSynchronous("info_target", { targetname = "timers_lua_thinker" })
 	ent:SetThink("Think", self, "timers", TIMERS_THINK)
 end
 
 function Timers:Think()
 	local nextTickCallbacks = table.merge({}, Timers.nextTickCallbacks)
 	Timers.nextTickCallbacks = {}
+	local errHandler = function(err) return tostring(err) end
 	for _, cb in ipairs(nextTickCallbacks) do
-		local status, result = xpcall(cb, debug.traceback)
+		local status, result = xpcall(cb, errHandler)
 		if not status then
 			Timers:HandleEventError(result)
 		end
@@ -188,11 +188,13 @@ function Timers:ExecuteTimers(timerList, now)
 		Timers.removeSelf = false
 
 		-- Run the callback
+		local errHandler = function(err) return tostring(err) end
 		local status, timerResult
 		if currentTimer.context then
-			status, timerResult = xpcall(function() return currentTimer.callback(currentTimer.context, currentTimer) end, debug.traceback)
+			status, timerResult = xpcall(function() return currentTimer.callback(currentTimer.context, currentTimer) end,
+				errHandler)
 		else
-			status, timerResult = xpcall(function() return currentTimer.callback(currentTimer) end, debug.traceback)
+			status, timerResult = xpcall(function() return currentTimer.callback(currentTimer) end, errHandler)
 		end
 
 		Timers.runningTimer = nil
@@ -229,31 +231,31 @@ end
 
 function Timers:CreateTimer(arg1, arg2, context)
 	local timer
-    
+
 	-- CreateTimer(callback: (this: void) => void | number): string;
-    -- CreateTimer<T>(callback: (this: T) => void | number, context: T): string;
+	-- CreateTimer<T>(callback: (this: T) => void | number, context: T): string;
 	if type(arg1) == "function" then
 		if arg2 ~= nil then
 			context = arg2
 		end
-		timer = {callback = arg1}
-	
-	-- CreateTimer(options: CreateTimerOptions): string;
-	-- CreateTimer<T>(options: CreateTimerOptionsContext<T>, context: T): string;
+		timer = { callback = arg1 }
+
+		-- CreateTimer(options: CreateTimerOptions): string;
+		-- CreateTimer<T>(options: CreateTimerOptionsContext<T>, context: T): string;
 	elseif type(arg1) == "table" then
 		timer = arg1
-	
-	-- CreateTimer(delay: number, callback: (this: void) => void | number): string;
-	-- CreateTimer<T>(delay: number, callback: (this: T) => void | number, context: T): string;
+
+		-- CreateTimer(delay: number, callback: (this: void) => void | number): string;
+		-- CreateTimer<T>(delay: number, callback: (this: T) => void | number, context: T): string;
 	elseif type(arg1) == "number" then
 		if arg1 ~= arg1 or arg1 == math.huge or arg1 == -math.huge then
 			error("Invalid timer duration: " .. arg1)
 			return
 		end
-		timer = {endTime = arg1, callback = arg2}
-	
-	-- CreateTimer(name: string, options: CreateTimerOptions): string;
-    -- CreateTimer<T>(name: string, options: CreateTimerOptionsContext<T>, context: T): string;
+		timer = { endTime = arg1, callback = arg2 }
+
+		-- CreateTimer(name: string, options: CreateTimerOptions): string;
+		-- CreateTimer<T>(name: string, options: CreateTimerOptionsContext<T>, context: T): string;
 	elseif type(arg1) == "string" then
 		timer = arg2
 		timer.name = arg1
@@ -295,7 +297,7 @@ function Timers:RemoveTimer(name)
 	local timerHeap = self.gameTimeHeap
 
 	local timer = self.gameTimeHeap:Find(name)
-	
+
 	if timer ~= nil then
 		timerHeap:Remove(timer)
 	else

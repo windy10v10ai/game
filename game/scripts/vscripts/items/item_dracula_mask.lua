@@ -46,11 +46,16 @@ function modifier_item_dracula_mask:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_dracula_mask:OnCreated()
-    self:OnRefresh()
-
-    if not self:GetAbility() then return end
+function modifier_item_dracula_mask:OnCreated(params)
     local ability = self:GetAbility()
+    if not ability then return end
+
+    -- 缓存被动属性值
+    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
+    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    self.bonus_movement_speed = ability:GetSpecialValueFor("bonus_movement_speed")
+    self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
 
     -- 只读取 Lua 逻辑需要的属性（客户端和服务器端都需要）
     self.lifesteal_percent = ability:GetSpecialValueFor("lifesteal_percent")
@@ -62,24 +67,39 @@ function modifier_item_dracula_mask:OnCreated()
     end
 end
 
-function modifier_item_dracula_mask:OnRefresh()
-    self.stats_modifier_name = "modifier_item_dracula_mask_stats"
-
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
+function modifier_item_dracula_mask:OnDestroy()
+    -- 属性已迁移到 Lua modifier 实现
 end
 
 function modifier_item_dracula_mask:DeclareFunctions()
     return {
         MODIFIER_EVENT_ON_TAKEDAMAGE,
+        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+        MODIFIER_PROPERTY_HEALTH_BONUS,
+        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
     }
 end
 
-function modifier_item_dracula_mask:OnDestroy()
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
+function modifier_item_dracula_mask:GetModifierBonusStats_Strength()
+    return self.bonus_strength or 0
+end
+
+function modifier_item_dracula_mask:GetModifierHealthBonus()
+    return self.bonus_health or 0
+end
+
+function modifier_item_dracula_mask:GetModifierPreAttack_BonusDamage()
+    return self.bonus_damage or 0
+end
+
+function modifier_item_dracula_mask:GetModifierMoveSpeedBonus_Constant()
+    return self.bonus_movement_speed or 0
+end
+
+function modifier_item_dracula_mask:GetModifierConstantHealthRegen()
+    return self.bonus_health_regen or 0
 end
 
 function modifier_item_dracula_mask:OnIntervalThink()
