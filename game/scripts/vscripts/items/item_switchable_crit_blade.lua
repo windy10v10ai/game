@@ -137,7 +137,7 @@ function modifier_item_switchable_crit_blade:GetModifierBaseDamageOutgoing_Perce
     return self.bonus_damage_percent or 0
 end
 
-function modifier_item_switchable_crit_blade:GetModifierAgilityBonus()
+function modifier_item_switchable_crit_blade:GetModifierBonusStats_Agility()
     return self.bonus_agility or 0
 end
 

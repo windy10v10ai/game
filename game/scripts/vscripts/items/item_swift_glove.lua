@@ -91,28 +91,6 @@ function modifier_item_swift_glove:GetModifierMoveSpeedBonus_Constant()
     return self.bonus_movement_speed or 0
 end
 
-function modifier_item_swift_glove:GetModifierAttackRangeBonus()
-    if self:GetParent():IsRangedAttacker() then
-        return self:GetAbility():GetSpecialValueFor("bonus_attack_range")
-    end
-    return 0
-end
-
-function modifier_item_swift_glove:GetModifierBaseAttackTimeConstant()
-    if self.bat_check ~= true then
-        self.bat_check = true
-        local parent = self:GetParent()
-        local current_bat = parent:GetBaseAttackTime()
-
-        -- 手动计算百分比减少
-        local bat_reduction_pct = self.bat_reduction_pct
-        local new_bat = current_bat * (1 - bat_reduction_pct / 100)
-
-        self.bat_check = false
-        return new_bat
-    end
-end
-
 -- 在 modifier_item_swift_glove 中添加
 function modifier_item_swift_glove:GetPriority()
     return MODIFIER_PRIORITY_HIGH -- 比鹰眼炮台更高的优先级
