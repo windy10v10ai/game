@@ -129,23 +129,59 @@ function modifier_item_forbidden_blade:GetAttributes()
 end
 
 function modifier_item_forbidden_blade:OnCreated(params)
-    self:OnRefresh(params)
-end
+    local ability = self:GetAbility()
+    if not ability then return end
 
-function modifier_item_forbidden_blade:OnRefresh(params)
-    self.stats_modifier_name = "modifier_item_forbidden_blade_stats"
-
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
+    -- 缓存被动属性值
+    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
+    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
+    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
+    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
+    self.bonus_attack_speed = ability:GetSpecialValueFor("bonus_attack_speed")
+    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
 end
 
 function modifier_item_forbidden_blade:OnDestroy()
-    if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
-    end
+    -- 属性已迁移到 Lua modifier 实现
 end
 
 function modifier_item_forbidden_blade:DeclareFunctions()
-    return {}
+    return {
+        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
+        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
+        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+        MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+        MODIFIER_PROPERTY_HEALTH_BONUS,
+        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    }
+end
+
+function modifier_item_forbidden_blade:GetModifierBonusStats_Strength()
+    return self.bonus_strength or 0
+end
+
+function modifier_item_forbidden_blade:GetModifierBonusStats_Agility()
+    return self.bonus_agility or 0
+end
+
+function modifier_item_forbidden_blade:GetModifierPreAttack_BonusDamage()
+    return self.bonus_damage or 0
+end
+
+function modifier_item_forbidden_blade:GetModifierPhysicalArmorBonus()
+    return self.bonus_armor or 0
+end
+
+function modifier_item_forbidden_blade:GetModifierAttackSpeedBonus_Constant()
+    return self.bonus_attack_speed or 0
+end
+
+function modifier_item_forbidden_blade:GetModifierHealthBonus()
+    return self.bonus_health or 0
+end
+
+function modifier_item_forbidden_blade:GetModifierSpellAmplify_Percentage()
+    return self.spell_amp or 0
 end
