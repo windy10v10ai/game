@@ -105,11 +105,11 @@ function modifier_item_forbidden_staff:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_forbidden_staff:OnCreated()
-    self:OnRefresh()
+function modifier_item_forbidden_staff:OnCreated(params)
+    self:OnRefresh(params)
 end
 
-function modifier_item_forbidden_staff:OnRefresh()
+function modifier_item_forbidden_staff:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_forbidden_staff_stats"
 
     if IsServer() then
