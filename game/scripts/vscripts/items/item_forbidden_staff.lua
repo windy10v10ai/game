@@ -106,17 +106,16 @@ function modifier_item_forbidden_staff:GetAttributes()
 end
 
 function modifier_item_forbidden_staff:OnCreated(params)
-    self:OnRefresh(params)
-end
+    local ability = self:GetAbility()
+    if not ability then return end
 
-function modifier_item_forbidden_staff:OnRefresh(params)
-    self.stats_modifier_name = "modifier_item_forbidden_staff_stats"
+    -- 缓存被动属性值
+    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
+    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
 
     if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
         -- 直接应用原生修饰器
         local parent = self:GetParent()
-        local ability = self:GetAbility()
 
         -- 移除旧的修饰器（如果存在）
         parent:RemoveModifierByName("modifier_item_gungir")
@@ -128,14 +127,24 @@ end
 
 function modifier_item_forbidden_staff:OnDestroy()
     if IsServer() then
-        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
         -- 移除原生修饰器
         self:GetParent():RemoveModifierByName("modifier_item_gungir")
     end
 end
 
 function modifier_item_forbidden_staff:DeclareFunctions()
-    return {}
+    return {
+        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
+    }
+end
+
+function modifier_item_forbidden_staff:GetModifierConstantManaRegen()
+    return self.bonus_mana_regen or 0
+end
+
+function modifier_item_forbidden_staff:GetModifierSpellAmplify_Percentage()
+    return self.spell_amp or 0
 end
 
 -- 死灵冲击变形debuff
