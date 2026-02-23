@@ -11,7 +11,7 @@ function item_hawkeye_fighter:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration")
 
-    caster:AddNewModifier(caster, self, "modifier_item_hawkeye_fighter_active", {duration = duration})
+    caster:AddNewModifier(caster, self, "modifier_item_hawkeye_fighter_active", { duration = duration })
     caster:Purge(false, true, false, false, false)
 
     EmitSoundOn("DOTA_Item.ForceStaff.Activate", caster)
@@ -21,14 +21,17 @@ end
 modifier_item_hawkeye_fighter = class({})
 
 function modifier_item_hawkeye_fighter:IsHidden() return true end
+
 function modifier_item_hawkeye_fighter:IsPurgable() return false end
+
 function modifier_item_hawkeye_fighter:RemoveOnDeath() return false end
+
 function modifier_item_hawkeye_fighter:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_hawkeye_fighter:OnCreated()
-    self:OnRefresh()
+function modifier_item_hawkeye_fighter:OnCreated(params)
+    self:OnRefresh(params)
 
     if self:GetAbility() then
         -- 状态抗性不在可优化列表中，需要在 Lua 中实现
@@ -36,7 +39,7 @@ function modifier_item_hawkeye_fighter:OnCreated()
     end
 end
 
-function modifier_item_hawkeye_fighter:OnRefresh()
+function modifier_item_hawkeye_fighter:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_hawkeye_fighter_stats"
 
     if IsServer() then
@@ -64,7 +67,9 @@ end
 modifier_item_hawkeye_fighter_active = class({})
 
 function modifier_item_hawkeye_fighter_active:IsHidden() return false end
+
 function modifier_item_hawkeye_fighter_active:IsPurgable() return true end
+
 function modifier_item_hawkeye_fighter_active:IsBuff() return true end
 
 function modifier_item_hawkeye_fighter_active:OnCreated()
@@ -142,7 +147,7 @@ end
 function modifier_item_hawkeye_fighter_active:CheckState()
     return {
         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-        [MODIFIER_STATE_FLYING] = true,  -- 改为真正的飞行状态
+        [MODIFIER_STATE_FLYING] = true, -- 改为真正的飞行状态
     }
 end
 

@@ -128,11 +128,11 @@ function modifier_item_forbidden_blade:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_forbidden_blade:OnCreated()
-    self:OnRefresh()
+function modifier_item_forbidden_blade:OnCreated(params)
+    self:OnRefresh(params)
 end
 
-function modifier_item_forbidden_blade:OnRefresh()
+function modifier_item_forbidden_blade:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_forbidden_blade_stats"
 
     if IsServer() then
