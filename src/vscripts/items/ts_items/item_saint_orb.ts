@@ -27,7 +27,7 @@ export class ItemSaintOrb extends BaseItem {
   }
 }
 
-@registerModifier('modifier_item_saint_orb_passive', 'items/ts_items/item_saint_orb')
+@registerModifier('items/ts_items/item_saint_orb', 'modifier_item_saint_orb_passive')
 export class ModifierItemSaintOrbPassive extends BaseItemModifier {
   override statsModifierName: string = 'modifier_item_saint_orb_stats';
 
@@ -109,7 +109,7 @@ export class ModifierItemSaintOrbPassive extends BaseItemModifier {
   // }
 }
 
-@registerModifier('modifier_item_saint_orb_buff', 'items/ts_items/item_saint_orb')
+@registerModifier('items/ts_items/item_saint_orb', 'modifier_item_saint_orb_buff')
 export class ModifierItemSaintOrbBuff extends BaseModifier {
   IsDebuff(): boolean {
     return false;
