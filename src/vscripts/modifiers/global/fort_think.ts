@@ -1,7 +1,7 @@
 import { GameEnd } from '../../modules/event/game-end/game-end';
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 
-@registerModifier(undefined, 'modifiers/global/fort_think')
+@registerModifier('modifiers/global/fort_think')
 export class modifier_fort_think extends BaseModifier {
   private gameEndTriggered: boolean = false;
   private gameEndTimer?: string;

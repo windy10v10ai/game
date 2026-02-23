@@ -16,7 +16,8 @@
   },
   "tstl": {
     "luaTarget": "JIT",
-    "sourceMapTraceback": true
+    // 是否在生成的 Lua 代码中包含源映射追踪代码，用于调试
+    "sourceMapTraceback": false
   },
   "include": ["**/*.ts", "../common/**/*.ts"]
 }
