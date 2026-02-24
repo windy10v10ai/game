@@ -162,23 +162,16 @@ export class Player {
     });
   }
 
-  private static GetMemberFromNetTable(steamId: number): NetworkedData<MemberDto> | undefined {
-    const member: NetworkedData<MemberDto> | undefined = CustomNetTables.GetTableValue(
-      'member_table',
-      steamId.toString(),
-    );
-    return member;
-  }
-
   public static IsMemberStatic(steamId: number) {
-    // const member = Player.memberList.find((m) => m.steamId === steamId);
-    // 从nettable中获取会员信息
-    const member = this.GetMemberFromNetTable(steamId);
-    return member ? member.enable : false;
+    const member = Player.memberList.find((m) => m.steamId === steamId);
+    if (member) {
+      return member.enable;
+    }
+    return false;
   }
 
   public static GetMemberLevel(steamId: number) {
-    const member = this.GetMemberFromNetTable(steamId);
+    const member = Player.memberList.find((m) => m.steamId === steamId);
     // 如果会员不存在，则返回0
     if (!member) {
       return 0;
