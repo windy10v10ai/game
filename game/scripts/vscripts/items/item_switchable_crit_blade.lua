@@ -10,6 +10,8 @@ end
 
 function item_switchable_crit_blade:OnSpellStart()
     local caster = self:GetCaster()
+    if not caster or not caster.FindModifierByName then return end
+
     local modifier = caster:FindModifierByName("modifier_item_switchable_crit_blade")
 
     if not modifier then return end
@@ -29,6 +31,7 @@ end
 function item_switchable_crit_blade:GetCooldown(level)
     local caster = self:GetCaster()
     if not caster then return 0 end
+    if not caster.FindModifierByName then return 0 end
 
     local modifier = caster:FindModifierByName("modifier_item_switchable_crit_blade")
     if modifier then
