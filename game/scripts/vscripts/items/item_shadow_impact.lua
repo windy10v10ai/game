@@ -146,69 +146,37 @@ function modifier_item_shadow_impact:GetAttributes()
 end
 
 function modifier_item_shadow_impact:OnCreated(params)
-    local ability = self:GetAbility()
-    if not ability then return end
+    self:OnRefresh(params)
 
-    -- 缓存被动属性值
-    self.bonus_intellect = ability:GetSpecialValueFor("bonus_intellect")
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_agility = ability:GetSpecialValueFor("bonus_agility")
-    self.bonus_damage = ability:GetSpecialValueFor("bonus_damage")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-    self.spell_amp = ability:GetSpecialValueFor("spell_amp")
+    if not self:GetAbility() then return end
+    local ability = self:GetAbility()
 
     -- bonus_cast_range 不在可优化列表中，需要在 Lua 中实现
     self.bonus_cast_range = ability:GetSpecialValueFor("bonus_cast_range")
 end
 
+function modifier_item_shadow_impact:OnRefresh(params)
+    self.stats_modifier_name = "modifier_item_shadow_impact_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
 function modifier_item_shadow_impact:OnDestroy()
-    -- 属性已迁移到 Lua modifier 实现
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
 end
 
 function modifier_item_shadow_impact:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_CAST_RANGE_BONUS,
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
-        MODIFIER_PROPERTY_MANA_BONUS,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
     }
 end
 
 function modifier_item_shadow_impact:GetModifierCastRangeBonus()
     return self.bonus_cast_range or 0
-end
-
-function modifier_item_shadow_impact:GetModifierBonusStats_Intellect()
-    return self.bonus_intellect or 0
-end
-
-function modifier_item_shadow_impact:GetModifierBonusStats_Strength()
-    return self.bonus_strength or 0
-end
-
-function modifier_item_shadow_impact:GetModifierBonusStats_Agility()
-    return self.bonus_agility or 0
-end
-
-function modifier_item_shadow_impact:GetModifierPreAttack_BonusDamage()
-    return self.bonus_damage or 0
-end
-
-function modifier_item_shadow_impact:GetModifierManaBonus()
-    return self.bonus_mana or 0
-end
-
-function modifier_item_shadow_impact:GetModifierConstantManaRegen()
-    return self.bonus_mana_regen or 0
-end
-
-function modifier_item_shadow_impact:GetModifierSpellAmplify_Percentage()
-    return self.spell_amp or 0
 end
 
 -- 变羊debuff
