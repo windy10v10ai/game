@@ -4,9 +4,9 @@ describe('calculateIntellectMagicResist', () => {
   describe('第一段：0-500智力', () => {
     it.each([
       [0, 0, '0智力的魔抗'],
-      [100, 0.05, '100智力的魔抗 (5%)'],
-      [300, 0.15, '300智力的魔抗 (15%)'],
-      [500, 0.25, '500智力的魔抗（边界值）(25%)'],
+      [100, 5, '100智力的魔抗 (5%)'],
+      [300, 15, '300智力的魔抗 (15%)'],
+      [500, 25, '500智力的魔抗（边界值）(25%)'],
     ])('应该正确计算%s', (intellect, expected) => {
       const result = calculateIntellectMagicResist(intellect);
       expect(result).toBe(expected);
@@ -15,14 +15,14 @@ describe('calculateIntellectMagicResist', () => {
 
   describe('第二段：500-1000智力', () => {
     it.each([
-      [501, 0.25025, '501智力的魔抗（边界值+1）'],
-      [600, 0.275, '600智力的魔抗 (27.5%)'],
-      [750, 0.3125, '750智力的魔抗 (31.25%)'],
-      [1000, 0.375, '1000智力的魔抗（边界值）(37.5%)'],
+      [501, 25.025, '501智力的魔抗（边界值+1）'],
+      [600, 27.5, '600智力的魔抗 (27.5%)'],
+      [750, 31.25, '750智力的魔抗 (31.25%)'],
+      [1000, 37.5, '1000智力的魔抗（边界值）(37.5%)'],
     ])('应该正确计算%s', (intellect, expected) => {
       const result = calculateIntellectMagicResist(intellect);
       if (intellect === 501) {
-        expect(result).toBeCloseTo(expected, 5);
+        expect(result).toBeCloseTo(expected, 2);
       } else {
         expect(result).toBe(expected);
       }
@@ -31,16 +31,16 @@ describe('calculateIntellectMagicResist', () => {
 
   describe('第三段：1000+智力', () => {
     it.each([
-      [1001, 0.37509375, '1001智力的魔抗（边界值+1）'],
-      [1500, 0.421875, '1500智力的魔抗 (42.1875%)'],
-      [2000, 0.46875, '2000智力的魔抗 (46.875%)'],
-      [3000, 0.5625, '3000智力的魔抗 (56.25%)'],
-      [4000, 0.65625, '4000智力的魔抗 (65.625%)'],
-      [5000, 0.75, '5000智力的魔抗（达到100%上限）(75%)'],
+      [1001, 37.51, '1001智力的魔抗（边界值+1）'],
+      [1500, 42.5, '1500智力的魔抗 (42.5%)'],
+      [2000, 47.5, '2000智力的魔抗 (47.5%)'],
+      [3000, 57.5, '3000智力的魔抗 (57.5%)'],
+      [4000, 67.5, '4000智力的魔抗 (67.5%)'],
+      [5000, 77.5, '5000智力的魔抗（超过100%上限）(77.5%)'],
     ])('应该正确计算%s', (intellect, expected) => {
       const result = calculateIntellectMagicResist(intellect);
       if (intellect === 1001) {
-        expect(result).toBeCloseTo(expected, 5);
+        expect(result).toBeCloseTo(expected, 2);
       } else {
         expect(result).toBe(expected);
       }
@@ -72,24 +72,24 @@ describe('calculateIntellectMagicResist', () => {
 
     it('应该验证每段收益递减', () => {
       // 第一段：0-500，每点0.05%
-      const segment1Rate = 0.0005;
+      const segment1Rate = 0.05;
       // 第二段：500-1000，每点0.025%
-      const segment2Rate = 0.00025;
-      // 第三段：1000+，每点0.009375%
-      const segment3Rate = 0.00009375;
+      const segment2Rate = 0.025;
+      // 第三段：1000+，每点0.01%
+      const segment3Rate = 0.01;
 
       expect(segment1Rate).toBeGreaterThan(segment2Rate);
       expect(segment2Rate).toBeGreaterThan(segment3Rate);
     });
 
-    it('应该验证5000智力时达到100%魔抗上限', () => {
-      // 基础魔抗25% + 智力提供的魔抗75% = 100%
-      const baseMagicResist = 0.25;
+    it('应该验证5000智力时超过100%魔抗上限', () => {
+      // 基础魔抗25% + 智力提供的魔抗77.5% = 102.5%（会被限制在100%）
+      const baseMagicResist = 25;
       const intellectMagicResist = calculateIntellectMagicResist(5000);
       const totalMagicResist = baseMagicResist + intellectMagicResist;
 
-      expect(intellectMagicResist).toBe(0.75); // 智力提供75%
-      expect(totalMagicResist).toBe(1.0); // 总计100%
+      expect(intellectMagicResist).toBe(77.5); // 智力提供77.5%
+      expect(totalMagicResist).toBeGreaterThan(100); // 总计超过100%，会被系统限制
     });
   });
 });

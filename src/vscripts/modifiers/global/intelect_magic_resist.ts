@@ -39,14 +39,16 @@ export class modifier_intelect_magic_resist extends BaseModifier {
     // 解决方案：使用简单的分段线性函数，避免复杂计算
     // 低智力时扣减少，高智力时扣减多，确保魔抗不会轻易达到上限
 
-    // 原版应该提供的魔抗（每点智力0.1%）
-    const originalMagicResist = intellect * 0.001;
+    // 原版应该提供的魔抗（每点智力0.1%，返回百分比形式）
+    const originalMagicResist = intellect * 0.1;
 
-    // 计算实际应该获得的魔抗
+    // 计算实际应该获得的魔抗（返回百分比形式）
     const actualMagicResist = calculateIntellectMagicResist(intellect);
 
     // 计算需要扣减的魔抗（原版魔抗 - 实际魔抗）
     // 返回负值，因为这是直接修改（扣减）
-    return -(originalMagicResist - actualMagicResist);
+    // 返回值是百分比形式（例如-10表示扣减10%）
+    const result = -(originalMagicResist - actualMagicResist);
+    return result;
   }
 }
