@@ -74,6 +74,8 @@ function AIGameMode:LinkLuaModifiers()
     --print("[Defection] Linking modifier_defection")
     LinkLuaModifier("modifier_defection", "modifiers/modifier_defection.lua", LUA_MODIFIER_MOTION_NONE)
     --print("[Defection] modifier_defection linked successfully")
+    -- 智力魔抗modifier
+    LinkLuaModifier("modifier_intelect_magic_resist", "modifiers/global/intelect_magic_resist", LUA_MODIFIER_MOTION_NONE)
 end
 
 function AIGameMode:PreGameOptions()
