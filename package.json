@@ -27,7 +27,7 @@
     "@typescript-eslint/parser": "^8.52.0",
     "babel-loader": "^10.0.0",
     "easy-keyvalues": "^1.2.7",
-    "eslint": "^8.55.0",
+    "eslint": "^10.0.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.5",
