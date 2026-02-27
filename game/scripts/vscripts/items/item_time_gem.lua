@@ -63,22 +63,16 @@ function modifier_item_time_gem:GetAttributes()
 end
 
 function modifier_item_time_gem:OnCreated(params)
+    self:OnRefresh(params)
+
     local ability = self:GetAbility()
-    if not ability then return end
-
-    -- 缓存被动属性值
-    self.bonus_all_stats = ability:GetSpecialValueFor("bonus_all_stats")
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_mana = ability:GetSpecialValueFor("bonus_mana")
-    self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.bonus_mana_regen = ability:GetSpecialValueFor("bonus_mana_regen")
-
-    -- Lua 逻辑需要的参数
-    self.bonus_cooldown = ability:GetSpecialValueFor("bonus_cooldown")
-    self.bonus_cooldown_stack = ability:GetSpecialValueFor("bonus_cooldown_stack")
-    self.cast_range_bonus = ability:GetSpecialValueFor("cast_range_bonus")
-    self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction")
-    self.cast_speed_pct = ability:GetSpecialValueFor("cast_speed_pct")
+    if ability then
+        self.bonus_cooldown = ability:GetSpecialValueFor("bonus_cooldown")
+        self.bonus_cooldown_stack = ability:GetSpecialValueFor("bonus_cooldown_stack")
+        self.cast_range_bonus = ability:GetSpecialValueFor("cast_range_bonus")
+        self.manacost_reduction = ability:GetSpecialValueFor("manacost_reduction")
+        self.cast_speed_pct = ability:GetSpecialValueFor("cast_speed_pct")
+    end
 
     if IsServer() then
         for _, mod in pairs(self:GetParent():FindAllModifiersByName(self:GetName())) do
@@ -87,8 +81,18 @@ function modifier_item_time_gem:OnCreated(params)
     end
 end
 
+function modifier_item_time_gem:OnRefresh(params)
+    self.stats_modifier_name = "modifier_item_time_gem_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
+end
+
 function modifier_item_time_gem:OnDestroy()
-    -- 属性已迁移到 Lua modifier 实现
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
 end
 
 function modifier_item_time_gem:DeclareFunctions()
@@ -97,42 +101,7 @@ function modifier_item_time_gem:DeclareFunctions()
         MODIFIER_PROPERTY_CAST_RANGE_BONUS,
         MODIFIER_PROPERTY_MANACOST_PERCENTAGE_STACKING,
         MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-        MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-        MODIFIER_PROPERTY_HEALTH_BONUS,
-        MODIFIER_PROPERTY_MANA_BONUS,
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     }
-end
-
-function modifier_item_time_gem:GetModifierBonusStats_Strength()
-    return self.bonus_all_stats or 0
-end
-
-function modifier_item_time_gem:GetModifierBonusStats_Agility()
-    return self.bonus_all_stats or 0
-end
-
-function modifier_item_time_gem:GetModifierBonusStats_Intellect()
-    return self.bonus_all_stats or 0
-end
-
-function modifier_item_time_gem:GetModifierHealthBonus()
-    return self.bonus_health or 0
-end
-
-function modifier_item_time_gem:GetModifierManaBonus()
-    return self.bonus_mana or 0
-end
-
-function modifier_item_time_gem:GetModifierConstantHealthRegen()
-    return self.bonus_health_regen or 0
-end
-
-function modifier_item_time_gem:GetModifierConstantManaRegen()
-    return self.bonus_mana_regen or 0
 end
 
 function modifier_item_time_gem:GetModifierPercentageManacostStacking()

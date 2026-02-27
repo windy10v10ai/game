@@ -6020,11 +6020,11 @@
 
 		"AbilityValues"
 		{
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_all_stats"			"30"	// 全属性
-			"bonus_movement_speed"		"160"	// 移动速度
-			"bonus_movement_speed_pct"	"50"	// 移动速度百分比
-			"bonus_turn_rate"			"50"	// 转身速率
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_all_stats"			"30"	// tooltip only - 全属性
+			"bonus_movement_speed"		"160"	// tooltip only - 移动速度
+			"bonus_movement_speed_pct"	"50"	// tooltip only - 移动速度百分比
+			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
 			// FIXME 继承配方物品，移除抗性
 			"bonus_status_resistance"	"30"	// Lua 逻辑需要 - 状态抗性
 
@@ -6107,9 +6107,9 @@
 			"sheep_movement_speed"	"100"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_mana_regen"			"15"	// 魔法回复
-			"spell_amp"					"30"	// 技能增强
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_mana_regen"			"15"	// tooltip only - 魔法回复
+			"spell_amp"					"30"	// tooltip only - 技能增强
 		}
 		"precache"
 		{
@@ -6183,14 +6183,14 @@
 			}
 			"mute_duration"			"4.0"
 
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_strength"			"35"	// 力量（一闪20 + 额外15）
-			"bonus_agility"				"65"	// 敏捷（苍蓝幻想50 + 额外15）
-			"bonus_damage"				"180"	// 攻击力（一闪80 + 苍蓝幻想80 + 额外20）
-			"bonus_armor"				"15"	// 护甲（一闪5 + 苍蓝幻想10）
-			"bonus_attack_speed"		"80"	// 攻击速度（风暴之锤）
-			"bonus_health"				"600"	// 生命值（一闪）
-			"spell_amp"					"20"	// 法术增强
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"			"35"	// tooltip only - 力量（一闪20 + 额外15）
+			"bonus_agility"				"65"	// tooltip only - 敏捷（苍蓝幻想50 + 额外15）
+			"bonus_damage"				"180"	// tooltip only - 攻击力（一闪80 + 苍蓝幻想80 + 额外20）
+			"bonus_armor"				"15"	// tooltip only - 护甲（一闪5 + 苍蓝幻想10）
+			"bonus_attack_speed"		"80"	// tooltip only - 攻击速度（风暴之锤）
+			"bonus_health"				"600"	// tooltip only - 生命值（一闪）
+			"spell_amp"					"20"	// tooltip only - 法术增强
 		}
 	}
 
@@ -6240,13 +6240,13 @@
 
 		"AbilityValues"
 		{
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_damage"				"800"	// 攻击力
-			"bonus_spell_amp"			"50"	// 法术增强
-			"bonus_damage_percent"		"100"	// 基础伤害加成
-			"bonus_agility"				"100"	// 敏捷
-			"bonus_evasion"				"35"	// 闪避
-			"bonus_attack_speed"		"100"	// 攻击速度
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_damage"				"800"	// tooltip only - 攻击力
+			"bonus_spell_amp"			"50"	// tooltip only - 法术增强
+			"bonus_damage_percent"		"100"	// tooltip only - 基础伤害加成
+			"bonus_agility"				"100"	// tooltip only - 敏捷
+			"bonus_evasion"				"35"	// tooltip only - 闪避
+			"bonus_attack_speed"		"100"	// tooltip only - 攻击速度
 
 			// 暴击参数（Lua 逻辑需要 - 动态暴击计算）
 			// 模式1:
@@ -6451,13 +6451,13 @@
 			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免
 			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
 
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_strength"			"150"	// 力量
-			"bonus_health"				"2500"	// 生命值
-			"bonus_health_regen"		"80"	// 生命回复
-			"bonus_armor"				"40"	// 护甲
-			"bonus_evasion"				"25"	// 闪避
-			"magic_resistance"			"20"	// 魔法抗性
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"			"150"	// tooltip only - 力量
+			"bonus_health"				"2500"	// tooltip only - 生命值
+			"bonus_health_regen"		"80"	// tooltip only - 生命回复
+			"bonus_armor"				"40"	// tooltip only - 护甲
+			"bonus_evasion"				"25"	// tooltip only - 闪避
+			"magic_resistance"			"20"	// tooltip only - 魔法抗性
 		}
 	}
 	//=================================================================================================================
@@ -6521,12 +6521,12 @@
 			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免
 			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
 
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_strength"			"80"	// 力量
-			"bonus_health"				"2000"	// 生命值
-			"bonus_damage"				"250"	// 攻击力
-			"bonus_movement_speed"		"20"	// 移动速度
-			"bonus_health_regen"		"0"		// 生命回复
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"			"80"	// tooltip only - 力量
+			"bonus_health"				"2000"	// tooltip only - 生命值
+			"bonus_damage"				"250"	// tooltip only - 攻击力
+			"bonus_movement_speed"		"20"	// tooltip only - 移动速度
+			"bonus_health_regen"		"0"		// tooltip only - 生命回复
 		}
 	}
 
@@ -6612,16 +6612,16 @@
 			"silence_duration"		"5.0"
 			"silence_damage_percent"	"30"
 
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_strength"		"55"	// 力量
-			"bonus_agility"			"115"	// 敏捷
-			"bonus_intellect"		"85"	// 智力
-			"bonus_damage"			"360"	// 攻击力
-			"bonus_armor"			"25"	// 护甲
-			"bonus_attack_speed"	"150"	// 攻击速度
-			"bonus_health"			"600"	// 生命值
-			"bonus_mana_regen"		"25"	// 魔法恢复
-			"spell_amp"				"50"	// 法术增强
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"		"55"	// tooltip only - 力量
+			"bonus_agility"			"115"	// tooltip only - 敏捷
+			"bonus_intellect"		"85"	// tooltip only - 智力
+			"bonus_damage"			"360"	// tooltip only - 攻击力
+			"bonus_armor"			"25"	// tooltip only - 护甲
+			"bonus_attack_speed"	"150"	// tooltip only - 攻击速度
+			"bonus_health"			"600"	// tooltip only - 生命值
+			"bonus_mana_regen"		"25"	// tooltip only - 魔法恢复
+			"spell_amp"				"50"	// tooltip only - 法术增强
 		}
 	}
 	//=================================================================================================================
@@ -6691,14 +6691,14 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_intellect"			"200"	// 智力
-			"bonus_strength"			"80"	// 力量
-			"bonus_agility"				"120"	// 敏捷
-			"bonus_damage"				"250"	// 攻击力
-			"bonus_mana"				"1500"	// 魔法值
-			"bonus_mana_regen"			"30"	// 魔法回复
-			"spell_amp"					"60"	// 技能增强
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_intellect"			"200"	// tooltip only - 智力
+			"bonus_strength"			"80"	// tooltip only - 力量
+			"bonus_agility"				"120"	// tooltip only - 敏捷
+			"bonus_damage"				"250"	// tooltip only - 攻击力
+			"bonus_mana"				"1500"	// tooltip only - 魔法值
+			"bonus_mana_regen"			"30"	// tooltip only - 魔法回复
+			"spell_amp"					"60"	// tooltip only - 技能增强
 
 			// Lua 逻辑需要 - 施法距离（不在可优化列表）
 			"bonus_cast_range"			"300"	// Lua 逻辑需要 - 施法距离加成
@@ -6744,13 +6744,13 @@
 
 		"AbilityValues"
 		{
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_strength"			"100"	// 力量
-			"bonus_agility"				"100"	// 敏捷
-			"bonus_intellect"			"100"	// 智力
-			"bonus_attack_speed"		"166"	// 攻击速度（66 + 100 额外）
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_strength"			"100"	// tooltip only - 力量
+			"bonus_agility"				"100"	// tooltip only - 敏捷
+			"bonus_intellect"			"100"	// tooltip only - 智力
+			"bonus_attack_speed"		"166"	// tooltip only - 攻击速度（66 + 100 额外）
 			// FIXME 继承配方，移除移动速度
-			"bonus_movement_speed"		"50"	// 移动速度
+			"bonus_movement_speed"		"50"	// tooltip only - 移动速度
 
 			// Lua 逻辑需要的参数
 			"bonus_attack_range"		"250"	// Lua 逻辑需要 - 有条件判断（仅远程英雄）
@@ -6859,12 +6859,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			// 被动属性（通过 Lua modifier 实现）
-			"bonus_all_stats"			"100"	// 全属性
-			"bonus_health"				"1500"	// 生命值
-			"bonus_mana"				"1500"	// 魔法值
-			"bonus_health_regen"		"20.0"	// 生命恢复
-			"bonus_mana_regen"			"15.0"	// 魔法恢复
+			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
+			"bonus_all_stats"			"100"	// tooltip only - 全属性
+			"bonus_health"				"1500"	// tooltip only - 生命值
+			"bonus_mana"				"1500"	// tooltip only - 魔法值
+			"bonus_health_regen"		"20.0"	// tooltip only - 生命恢复
+			"bonus_mana_regen"			"15.0"	// tooltip only - 魔法恢复
 
 			// Lua 逻辑需要的参数
 			"manacost_reduction"		"50"	// 新增:减魔耗百分比

@@ -54,16 +54,10 @@ function modifier_item_withered_spring:GetAttributes()
 end
 
 function modifier_item_withered_spring:OnCreated(params)
-    local ability = self:GetAbility()
-    if not ability then return end
+    self:OnRefresh(params)
 
-    -- 缓存被动属性值
-    self.bonus_strength = ability:GetSpecialValueFor("bonus_strength")
-    self.bonus_health = ability:GetSpecialValueFor("bonus_health")
-    self.bonus_health_regen = ability:GetSpecialValueFor("bonus_health_regen")
-    self.bonus_armor = ability:GetSpecialValueFor("bonus_armor")
-    self.bonus_evasion = ability:GetSpecialValueFor("bonus_evasion")
-    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance")
+    if not self:GetAbility() then return end
+    local ability = self:GetAbility()
 
     -- 只读取 Lua 逻辑需要的属性（客户端和服务器端都需要）
     self.health_regen_pct = ability:GetSpecialValueFor("health_regen_pct")
@@ -72,6 +66,14 @@ function modifier_item_withered_spring:OnCreated(params)
 
     if IsServer() then
         self:StartIntervalThink(0.1) -- 每0.1秒检查生命值
+    end
+end
+
+function modifier_item_withered_spring:OnRefresh(params)
+    self.stats_modifier_name = "modifier_item_withered_spring_stats"
+
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
 
@@ -93,44 +95,16 @@ function modifier_item_withered_spring:OnIntervalThink()
 end
 
 function modifier_item_withered_spring:OnDestroy()
-    -- 属性已迁移到 Lua modifier 实现
+    if IsServer() then
+        RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+    end
 end
 
 function modifier_item_withered_spring:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
-        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
-        MODIFIER_PROPERTY_HEALTH_BONUS,
-        MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-        MODIFIER_PROPERTY_EVASION_CONSTANT,
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     }
-end
-
-function modifier_item_withered_spring:GetModifierBonusStats_Strength()
-    return self.bonus_strength or 0
-end
-
-function modifier_item_withered_spring:GetModifierHealthBonus()
-    return self.bonus_health or 0
-end
-
-function modifier_item_withered_spring:GetModifierConstantHealthRegen()
-    return self.bonus_health_regen or 0
-end
-
-function modifier_item_withered_spring:GetModifierPhysicalArmorBonus()
-    return self.bonus_armor or 0
-end
-
-function modifier_item_withered_spring:GetModifierEvasion_Constant()
-    return self.bonus_evasion or 0
-end
-
-function modifier_item_withered_spring:GetModifierMagicalResistanceBonus()
-    return self.magic_resistance or 0
 end
 
 function modifier_item_withered_spring:GetModifierHealthRegenPercentageUnique()

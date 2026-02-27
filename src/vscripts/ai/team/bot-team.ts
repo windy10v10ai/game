@@ -15,7 +15,7 @@ export class BotTeam {
   private addAmount: number = 0; // Bot发钱的基础金额
 
   private readonly addAmountBase: number = 2; // Bot发钱的基础金额
-  private readonly addAmountNeedLevel: number = 150; // 每多少玩家等级增加1的金额
+  private readonly addAmountNeedLevel: number = 100; // 每多少玩家等级增加1的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
