@@ -132,8 +132,13 @@ function Snippet_Player(playerId, rootPanel, index) {
       'bot_passive_abilities',
       playerId.toString(),
     );
-    if (botAbilityData && botAbilityData.abilityName) {
-      CreateAbilityImage(abilitiesContainer, botAbilityData.abilityName);
+    if (botAbilityData) {
+      if (botAbilityData.passiveAbilityName1) {
+        CreateAbilityImage(abilitiesContainer, botAbilityData.passiveAbilityName1);
+      }
+      if (botAbilityData.passiveAbilityName2) {
+        CreateAbilityImage(abilitiesContainer, botAbilityData.passiveAbilityName2);
+      }
     }
   } else if (steamAccountID) {
     // 玩家: 显示抽选的技能
