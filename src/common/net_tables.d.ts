@@ -77,7 +77,8 @@ declare global {
     // Bot 被动技能表
     bot_passive_abilities: {
       [playerID: string]: {
-        abilityName: string; // Bot 的被动技能名称
+        passiveAbilityName1: string; // Bot 的第一个被动技能名称
+        passiveAbilityName2: string; // Bot 的第二个被动技能名称
       };
     };
   }

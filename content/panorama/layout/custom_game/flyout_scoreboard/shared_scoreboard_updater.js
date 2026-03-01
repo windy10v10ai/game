@@ -254,8 +254,13 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
         'bot_passive_abilities',
         playerId.toString(),
       );
-      if (botAbilityData && botAbilityData.abilityName) {
-        _CreateAbilityImage(abilitiesContainer, botAbilityData.abilityName);
+      if (botAbilityData) {
+        if (botAbilityData.passiveAbilityName1) {
+          _CreateAbilityImage(abilitiesContainer, botAbilityData.passiveAbilityName1);
+        }
+        if (botAbilityData.passiveAbilityName2) {
+          _CreateAbilityImage(abilitiesContainer, botAbilityData.passiveAbilityName2);
+        }
       }
     } else {
       // 玩家: 显示抽选的技能
