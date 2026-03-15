@@ -43,7 +43,7 @@
     "react": "^17.0.2",
     "react-panorama-x": "^0.5.0",
     "replace-in-file-webpack-plugin": "^1.0.6",
-    "terser-webpack-plugin": "^5.3.14",
+    "terser-webpack-plugin": "^5.3.16",
     "ts-jest": "^29.4.6",
     "ts-loader": "^9.5.4",
     "typescript": "^5.7.2",
