@@ -48,7 +48,7 @@ function PlayerDataLoaded(player) {
     $.DispatchEvent('ExternalBrowserGoToURL', $.Localize(`#data_panel_member_point_rule_url`));
   });
   // $('#ChargeLink').SetPanelEvent('onactivate', () => {
-  //   $.DispatchEvent('ExternalBrowserGoToURL', 'https://afdian.com/a/windy10v10?tab=shop');
+  //   $.DispatchEvent('ExternalBrowserGoToURL', 'https://ifdian.net/a/windy10v10?tab=shop');
   // });
 
   // 点数提示
