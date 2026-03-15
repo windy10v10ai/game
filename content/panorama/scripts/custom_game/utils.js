@@ -129,10 +129,8 @@ function SubscribePlayer(callbackFunction) {
 }
 
 function GetOpenMemberUrl() {
-  // const afdianUrlNormal =
-  //   'https://afdian.com/order/create?plan_id=6e27c8103bd011ed887852540025c377&product_type=0&remark=';
   const afdianUrlPremium =
-    'https://afdian.com/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
+    'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
   const kofiUrl = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
   if ($.Language() === 'schinese' || $.Language() === 'tchinese') {
     return afdianUrlPremium + GetSteamAccountID();
