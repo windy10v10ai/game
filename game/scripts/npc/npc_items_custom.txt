@@ -2559,7 +2559,7 @@
 		"ItemResult"							"item_heavens_halberd_v2"
 		"ItemRequirements"
 		{
-			"01"								"item_heavens_halberd;item_eternal_shroud"
+			"01"								"item_heavens_halberd_2"
 		}
 	}
 
@@ -5558,7 +5558,7 @@
 		"ItemResult"					"item_eternal_shroud_ultra"
 		"ItemRequirements"
 		{
-			"01"						"item_eternal_shroud;item_eternal_shroud"
+			"01"						"item_cloak;item_ogre_axe;item_vitality_booster"
 		}
 	}
 
@@ -5570,15 +5570,15 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-			"bonus_spell_resist"					"50"	//20
-			"bonus_strength"						"30"	//10
-			"bonus_health"							"1000"	//250
+			"bonus_spell_resist"					"40"	//20
+			"bonus_strength"						"20"	//10
+			"bonus_health"							"500"	//250
 			// 禁用被动防止炸房
 			"stack_threshold"						"99999"	//300
 			"stack_duration"						"0"		//5
 			"stack_resist"							"0.0"	//3.5
 
-			"mana_restore_pct"						"50"	//25
+			"mana_restore_pct"						"40"	//25
 			"max_stacks"							"8"		//6
 		}
 	}
@@ -6920,11 +6920,11 @@
 			"stack_duration"			"0"
 			"stack_resist"				"0"
 
-			"mana_restore_pct"			"50"
+			"mana_restore_pct"			"40"
 			"max_stacks"				"8"
 
 			// 被动属性
-			"passive_bonus_strength"			"120"
+			"passive_bonus_strength"			"100"
 			"passive_bonus_health"				"2000"
 			"passive_bonus_armor"				"50"
 			"passive_bonus_spell_resist"		"50"
