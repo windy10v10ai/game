@@ -7,42 +7,44 @@
 		"item"		"item_clarity"				// 净化药水
 		"item"		"item_faerie_fire"			// 仙灵之火
 		"item"		"item_smoke_of_deceit"		// 诡计之雾
+		"item"		"item_dust"					// 显影之尘
+
 		"item"		"item_ward_observer"		// 侦查守卫
 		"item"		"item_ward_sentry"			// 岗哨守卫
 		"item"		"item_enchanted_mango"		// 魔法芒果
 		"item"		"item_flask"				// 治疗药膏
-		"item"		"item_tango"				// 仙灵之火
-		"item"		"item_blood_grenade"
-		"item"		"item_dust"					// 显影之尘
-		"item"		"item_bottle"				// 魔瓶
-		"item"		"item_candy_candy"
 
-		"item"		"item_aghanims_shard"
+		"item"		"item_tango"				// 仙灵之火
+		"item"		"item_blood_grenade"		// 血腥榴弹
+		"item"		"item_bottle"				// 魔瓶
+
+		"item"		"item_candy_candy"			// 嘉心糖
+
+		"item"		"item_infused_raindrop"		// 凝液之滴
+		"item"		"item_aghanims_shard"		// 阿哈利姆魔晶
+
 		"item"		"item_tome_of_knowledge"	// 知识之书
 		"item"		"item_consumable_gem"		// 幻影宝石
-		// "item"		"item_cheese"			// 奶酪
 	}
 	// 属性
 	"attributes"
 	{
 		"item"		"item_branches"				// 铁树枝干
-
 		"item"		"item_gauntlets"			// 力量手套
 		"item"		"item_slippers"				// 敏捷便鞋
 		"item"		"item_mantle"				// 智力斗篷
 
 		"item"		"item_circlet"				// 圆环
-
 		"item"		"item_belt_of_strength"		// 力量腰带
-		"item"		"item_boots_of_elves"
+		"item"		"item_boots_of_elves"		// 精灵布带
 		"item"		"item_robe"					// 法师长袍
 
 		"item"		"item_crown"				// 王冠
-
 		"item"		"item_ogre_axe"				// 食人魔之斧
 		"item"		"item_blade_of_alacrity"	// 欢欣之刃
 		"item"		"item_staff_of_wizardry"	// 魔力法杖
-		"item"		"item_diadem"
+
+		"item"		"item_diadem"				// 宝冕
 		"item"		"item_travel_boots"			// 飞鞋 远行鞋
 		"item"		"item_light_part"			// 圣光组件
 		"item"		"item_dark_part"			// 暗影组件
@@ -51,60 +53,76 @@
 	"weapons_armor"
 	{
 		"item"		"item_quelling_blade"		// 压制之刃
-		"item"		"item_quelling_blade_2_datadriven" // 毒瘤之刃
 		"item"		"item_ring_of_protection"	// 护甲戒指
-		"item"		"item_infused_raindrop"		// 凝液之滴
-		"item"		"item_orb_of_venom"			// 淬毒之珠
-		"item"		"item_blight_stone"			// 枯萎之石
-		"item"		"item_orb_of_frost"			// 冰霜之珠
 		"item"		"item_blades_of_attack"		// 攻击之爪
-		"item"		"item_gloves"
+		"item"		"item_orb_of_frost"			// 冰霜之珠
+
+		"item"		"item_gloves"				// 加速手套
 		"item"		"item_chainmail"			// 锁子甲
-		"item"		"item_quarterstaff"			// 短棍
-		"item"		"item_helm_of_iron_will"	// 铁意头盔
 		"item"		"item_broadsword"			// 阔剑
-		"item"		"item_blitz_knuckles"
-		"item"		"item_javelin"				// 标枪
+		"item"		"item_blight_stone"			// 枯萎之石
+
+		"item"		"item_blitz_knuckles"		// 闪电指套
+		"item"		"item_splintmail"			// 片甲
 		"item"		"item_claymore"				// 大剑
+		"item"		"item_orb_of_venom"			// 淬毒之珠
+
+		"item"		"item_javelin"				// 标枪
+		"item"		"item_helm_of_iron_will"	// 铁意头盔
 		"item"		"item_mithril_hammer"		// 秘银锤
 
-		"item"		"item_ring_of_tarrasque"
-		"item"		"item_tiara_of_selemene"
-		"item"		"item_cornucopia"
-		"item"		"item_energy_booster"
-		"item"		"item_vitality_booster"
-		"item"		"item_point_booster"
-		"item"		"item_talisman_of_evasion"
-		"item"		"item_platemail"
+		"item"		"item_quelling_blade_2_datadriven" // 毒瘤之刃
+
+
+		"item"		"item_ring_of_health"		// 治疗指环
+		"item"		"item_void_stone"			// 虚无宝石
+		"item"		"item_talisman_of_evasion"	// 闪避护符
+		"item"		"item_platemail"			// 板甲
+
+		"item"		"item_ring_of_tarrasque"	// 恐鳌之戒
+		"item"		"item_tiara_of_selemene"	// 赛莉蒙妮之冠
+		"item"		"item_hyperstone"			// 振奋宝石
+		"item"		"item_demon_edge"			// 恶魔刀锋
+
+		"item"		"item_energy_booster"		// 能量之球
+		"item"		"item_vitality_booster"		// 活力之球
+		"item"		"item_point_booster"		// 精气之球
+		"item"		"item_relic"				// 圣者遗物
 
 	}
 	// 其他
 	"misc"
 	{
 		"item"		"item_ring_of_regen"		// 回复戒指
-		"item"		"item_sobi_mask"
-		"item"		"item_magic_stick"			// 魔棒
-		"item"		"item_fluffy_hat"
+		"item"		"item_sobi_mask"			// 贤者面罩
 		"item"		"item_wind_lace"			// 风灵之纹
-		"item"		"item_cloak"				// 抗魔斗篷
-		"item"		"item_boots"
+		"item"		"item_magic_stick"			// 魔棒
+
+		"item"		"item_fluffy_hat"			// 毛毛帽
+		"item"		"item_wizard_hat"			// 巫师帽
+		"item"		"item_boots"				// 速度之靴
+		"item"		"item_voodoo_mask"			// 巫毒面具
+
+		"item"		"item_shawl"				// 披巾
+		"item"		"item_shadow_amulet"		// 暗影护符
 		"item"		"item_gem"					// 真视宝石
 		"item"		"item_lifesteal"			// 吸血面具
-		"item"		"item_voodoo_mask"			// 巫毒面具
-		"item"		"item_shadow_amulet"		// 暗影护符
+
+		"item"		"item_cloak"				// 抗魔斗篷
+		"item"		"item_chasm_stone"			// 裂隙之石
 		"item"		"item_ghost"				// 幽魂权杖
 		"item"		"item_blink"				// 闪烁匕首
-		"item"		"item_ring_of_health"
-		"item"		"item_void_stone"			// 虚无宝石
 
-		"item"		"item_hyperstone"			// 振奋宝石
-		"item"		"item_ultimate_orb"
-		"item"		"item_demon_edge"
-		"item"		"item_mystic_staff"			// 神秘法杖
 		"item"		"item_reaver"				// 掠夺者之斧
 		"item"		"item_eagle"				// 鹰歌弓
-		"item"		"item_relic"				// 神秘法球
+		"item"		"item_mystic_staff"			// 神秘法杖
+		"item"		"item_ultimate_orb"			// 极限法球
+
 		"item"		"item_dragon_lance"			// 魔龙枪
+		"item"		"item_guardian_greaves_artifact"	// 神器 卫士胫甲
+		"item"		"item_armlet_light"			// 圣光臂章
+		"item"		"item_armlet_dark"			// 暗影臂章
+		"item"		"item_force_field_ultra"	// 天地同寿甲
 	}
 	// 神秘商店
 	"secretshop"
@@ -115,10 +133,6 @@
 		"item"		"item_wish_4"
 		"item"		"item_radar_of_dragon"
 		"item"		"item_recipe_greater_famango"
-		"item"		"item_armlet_light"			// 圣光臂章
-		"item"		"item_armlet_dark"			// 暗影臂章
-		"item"		"item_guardian_greaves_artifact"	// 神器 卫士胫甲
-		"item"		"item_force_field_ultra"	// 天地同寿甲
 		"item"		"item_universal_rune"		// 通用符文
 	}
 
@@ -150,44 +164,44 @@
 	// Level 2 - Blue Recipes 辅助
 	"support"
 	{
-		// "item"		"item_ring_of_basilius"		// 王者之戒
-		// "item"		"item_headdress"			// 回复头巾
-		// "item"		"item_buckler"				// 玄冥盾牌
-		// "item"		"item_urn_of_shadows"		// 影之灵龛
-		"item"		"item_tranquil_boots"		// 静谧之靴
-		"item"		"item_pavise"
 		"item"		"item_arcane_boots"			// 秘法鞋
-		"item"		"item_ancient_janggo"
 		"item"		"item_mekansm"				// 梅肯斯姆
+		"item"		"item_essence_distiller"	// 精之灵器
+		"item"		"item_ancient_janggo"		// 韧鼓
+
+		"item"		"item_pavise"				// 长盾
 		"item"		"item_holy_locket"			// 圣洁吊坠
 		"item"		"item_vladmir"				// 祭品
-		"item"		"item_wraith_pact"
-		"item"		"item_spirit_vessel"		// 魂之灵瓮
-		"item"		"item_meteor_hammer_2"		// 星落
-		"item"		"item_pipe"					// 洞察烟斗
+		"item"		"item_tranquil_boots"		// 静谧之靴
+
+		"item"		"item_solar_crest"			// 炎阳纹章
 		"item"		"item_guardian_greaves"		// 卫士胫甲
-		"item"		"item_boots_of_bearing_2"
-		"item"		"item_devastator_2"			// 神圣斧
-		"item"		"item_orb_of_the_brine"
-		"item"		"item_adi_king"
-		"item"		"item_adi_king_plus"
+		"item"		"item_spirit_vessel"		// 魂之灵瓮
+		"item"		"item_boots_of_bearing_2"	// 蹦迪之鞋
+
+		"item"		"item_glimmer_cape"			// 微光披风
+		"item"		"item_orb_of_the_brine"		// 苍洋魔珠
+		"item"		"item_pipe"					// 洞察烟斗
+		// "item"		"item_adi_king"				// 阿迪王
+		"item"		"item_adi_king_plus"		// 阿迪王plus
 	}
 	// Level 3 - 法器
 	"magics"
 	{
 		"item"		"item_veil_of_discord_2"	// 纷争面纱
-		"item"		"item_glimmer_cape"			// 微光披风
-		"item"		"item_force_staff_3"		// 原力法杖
-		"item"		"item_aether_lens_2"		// 以太透镜
-		"item"		"item_witch_blade"			// 巫师之刃
+		"item"		"item_rod_of_atos"			// 阿托斯之棍
 		"item"		"item_wind_waker"			// 风之杖
-		"item"		"item_rod_of_atos"			// 阿托斯之棒
-		"item"		"item_dagon_ultra"			// 达贡之神力 一瞬千击
-		// "item"		"item_orchid"				// 紫怨
-		"item"		"item_arcane_octarine_core"	// 奥术之心
+		"item"		"item_aether_lens_2"		// 以太透镜
+
+		"item"		"item_force_staff_3"		// 原力法杖
+		"item"		"item_crellas_crozier"		// 克莱拉牧杖
+		"item"		"item_meteor_hammer_2"		// 星落
 		"item"		"item_angels_demise"		// 绝刃
+
+		"item"		"item_bloodstone"			// 血精神石
+		"item"		"item_bloodthorn_ultra"		// 大血棘
 		"item"		"item_ultimate_scepter_2"	// 真·阿哈利姆神杖
-		"item"		"item_ethereal_blade_ultra"	// 永恒虚灵刀
+		"item"		"item_dagon_ultra"			// 达贡之神力 一瞬千击
 
 		"item"		"item_refresh_core"			// 刷新球
 		"item"		"item_gungir_2"				// 风暴之锤
@@ -203,78 +217,84 @@
 	// Level 4 - Purple Recipes 防具
 	"defense"
 	{
-		//"item"		"item_vanguard"			// 先锋盾
-		"item"		"item_heavens_halberd_v2"
-		"item"		"item_solar_crest"		// 炎阳纹章
-		"item"		"item_aeon_pendant"		// 大盘子（咸鱼之王）
-		"item"		"item_blade_mail_2"		// 刃甲2
+		"item"		"item_consecrated_wraps"	// 圣化护服
+		"item"		"item_crimson_guard"		// 赤红甲
+		"item"		"item_blade_mail_2"			// 刃甲2
+		"item"		"item_aeon_pendant"			// 大盘子（咸鱼之王）
+
+		"item"		"item_heavens_halberd_v2"	// 无锋战戟
 		"item"		"item_eternal_shroud_ultra"	// 永世法衣
-		"item"		"item_crimson_guard"	// 赤红甲
-		"item"		"item_insight_armor"
-		"item"		"item_saint_orb"
-		"item"		"item_black_king_bar_2"	// 天神杖
+		"item"		"item_armlet_pro_max"		// 小鸡臂章
+		"item"		"item_insight_armor"		// 洞察盔甲
+
 		"item"		"item_radiance_2"			// 圣焰之光 大辉耀
-		"item"		"item_manta_2"
-		"item"		"item_sphere_2"
-		"item"		"item_shivas_guard_2"	// 雅典娜的守护
-		"item"		"item_undying_heart"
-		"item"		"item_vladmir_2"
-		"item"		"item_bloodstone"		// 血精神石
-		"item"      "item_withered_spring"      // 枯木逢春
-		"item"      "item_dracula_mask"      // 德古拉面罩
-		"item"      "item_beast_armor"      // 兽化甲
-		"item"      "item_beast_shield"      // 兽化盾
+		"item"		"item_manta_2"				// 相位斧
+		"item"		"item_saint_orb"			// 圣女白莲
+		"item"		"item_black_king_bar_2"		// 天神杖
+
+		"item"		"item_shivas_guard_2"		// 雅典娜的守护
+		"item"		"item_sphere_2"				// 真林肯法球
+		"item"		"item_vladmir_2"			// 强袭祭品
+		"item"		"item_undying_heart"		// 不朽之心
+
+		"item"		"item_withered_spring"		// 枯木逢春
+		"item"		"item_dracula_mask"			// 德古拉面罩
+		"item"		"item_beast_armor"			// 兽化甲
+		"item"		"item_beast_shield"			// 兽化盾
 	}
 	// Level 5 - 兵刃
 	"weapons"
 	{
 		"item"		"item_lesser_crit"			// 水晶剑
+ 		"item"		"item_mage_slayer"			// 法师克星
 		"item"		"item_basher"				// 碎颅锤
-		"item"		"item_armlet_pro_max"		// 小鸡臂章
-		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
-		"item"		"item_echo_sabre_2"			// 音速战刃
-		"item"		"item_nullifier"			// 否决
-		"item"		"item_harpoon"				// 鱼叉
-		"item"		"item_disperser_chaos"		// 混沌散魂
+		"item"		"item_heavens_halberd_2"	// 除你武器
 
-		"item"		"item_bloodthorn_ultra"		// 大血棘
+		"item"		"item_nullifier"			// 否决
+ 		"item"		"item_mjollnir"				// 大电锤
+		"item"		"item_silver_edge_2"		// 无敌之刃 大隐刀
+
 		"item"		"item_abyssal_blade_v2"		// 一闪
 		"item"		"item_monkey_king_bar_2"	// 定海神针
 		"item"		"item_bfury_ultra"			// 救世狂战
 
 		"item"		"item_infernal_desolator"	// 绝对破防之刃
-		"item"		"item_blue_fantasy"			// 苍蓝幻想
 		"item"		"item_revenants_brooch_ultra"		// 神器魔武双修
 		"item"		"item_wasp_golden"			// 黄金大核荣耀
+ 		"item"		"item_satanic_2"			// 撒旦之邪力
 
 		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
 		"item"		"item_shotgun_v2"			// 霰弹枪
-
 		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
-		"item"      "item_switchable_crit_blade"      // 归海一刀
-		"item"      "item_forbidden_blade"      // 禁忌战刃
-		"item"      "item_hawkeye_turret"      // 鹰眼炮台
-		"item"      "item_magic_sword"      // 魔渊剑
+
+		"item"		"item_switchable_crit_blade"	// 归海一刀
+		"item"		"item_forbidden_blade"			// 禁忌战刃
+		"item"		"item_hawkeye_turret"		// 鹰眼炮台
+		"item"		"item_magic_sword"			// 魔渊剑
 	}
 
-	// Level 6 - Orange / Orb / Artifacts 宝物
+	// Level 6 - Orange / Orb / Artifacts 军备
 	"artifacts"
 	{
-		"item"		"item_sange"				// 散华
- 		"item"		"item_yasha"				// 夜叉
- 		"item"		"item_kaya"					// 慧光
- 		// "item"		"item_maelstrom"
- 		// "item"		"item_diffusal_blade"
- 		"item"		"item_mage_slayer"			// 法师克星
-		"item"		"item_heavens_halberd_2"	// 天堂之戟
- 		"item"		"item_mjollnir"				// 大电锤
- 		"item"		"item_satanic_2"			// 撒旦之邪力
+		// "item"		"item_sange"				// 散华
+ 		// "item"		"item_yasha"				// 夜叉
+ 		// "item"		"item_kaya"					// 慧光
+
+		"item"		"item_echo_sabre_2"			// 音速战刃
+		"item"		"item_harpoon"				// 鱼叉
+		"item"		"item_specialists_array"	// 行家阵列
+		"item"		"item_hydras_breath"		// 怪蛇之息
+
+		"item"		"item_devastator_2"			// 神圣斧
+		"item"		"item_disperser_chaos"		// 混沌散魂
+		"item"		"item_blue_fantasy"			// 苍蓝幻想
  		"item"		"item_skadi_2"				// 斯嘉蒂之眼
+
  		"item"		"item_kaya_and_sange_1"		// 散慧对剑
  		"item"		"item_sange_and_yasha_1"	// 散夜对剑
  		"item"		"item_yasha_and_kaya_1"		// 夜慧对剑
-		"item"		"item_sacred_six_vein"
+		"item"		"item_sacred_six_vein"		// 六脉神剑
 		"item"		"item_overwhelming_blink_2"
 		"item"		"item_swift_blink_2"
 		"item"		"item_arcane_blink"

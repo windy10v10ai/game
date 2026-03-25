@@ -179,7 +179,6 @@ export class NeutralItemManager {
           { name: 'item_imp_claw', level: 1 }, // 力量法则碎片
           { name: 'item_giants_ring', level: 1 }, // 巨人之戒
           { name: 'item_ex_machina', level: 1 }, // 机械之心
-          { name: 'item_specialists_array', level: 1 }, // 行家阵列
         ],
         enhancements: [
           { name: 'item_enhancement_timeless', level: 2 },

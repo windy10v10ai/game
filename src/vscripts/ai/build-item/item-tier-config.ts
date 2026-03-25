@@ -663,7 +663,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_eternal_shroud_ultra',
     tier: ItemTier.T3,
     cost: 9600,
-    prerequisite: 'item_eternal_shroud',
   },
   item_hurricane_pike_2: {
     name: 'item_hurricane_pike_2',
