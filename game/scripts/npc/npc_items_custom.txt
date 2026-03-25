@@ -829,7 +829,7 @@
 		"ItemResult"					"item_sphere_2"
 		"ItemRequirements"
 		{
-			"01"						"item_sphere;item_cornucopia"
+			"01"						"item_sphere;item_pers"
 		}
 	}
 
