@@ -217,3 +217,4 @@ public static async SendUserLanguageStatistics() {
 - 监听游戏状态变化 (`game_rules_state_change`) 确定发送时机
 - 发送前填充 `matchId` 和 `version` 等元数据
 - 日志中包含具体信息（如玩家数量）便于调试
+
