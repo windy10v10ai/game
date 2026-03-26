@@ -1,8 +1,10 @@
 ---
-description: 生成 Steam Workshop 更新日志（中英文），支持从 GitHub PR 自动提取信息
+name: generate-changelog
+description: 生成 Steam Workshop 更新日志（中英文）。支持手动提供更新点或从 GitHub PR 提取信息，并按项目规范同步 GAME_VERSION。
+disable-model-invocation: true
 ---
 
-# 生成更新日志
+# Generate Changelog
 
 为 Windy10v10AI Steam Workshop 生成中英文更新日志。
 
@@ -10,17 +12,21 @@ description: 生成 Steam Workshop 更新日志（中英文），支持从 GitHu
 
 ### 手动提供更新内容
 
+示例：
+
 ```
 /generate-changelog 5.11 修正猴子棒击、新增火焰风暴、同步7.40c
 ```
 
 ### 从 GitHub PR 生成
 
+示例：
+
 ```
 /generate-changelog 5.11 #1234
 ```
 
-使用 GitHub MCP 工具读取 PR 信息（标题、描述、commits），提取更新内容。
+从 PR 读取：标题、描述、commits，提取更新内容。
 
 ## 输出格式
 
@@ -49,27 +55,20 @@ description: 生成 Steam Workshop 更新日志（中英文），支持从 GitHu
 
 ## 撰写原则
 
-1. **简洁明了**：每条1-2句话
+1. **简洁明了**：每条 1-2 句话
 2. **重点突出**：最重要的更新写在前面
 3. **中文用全角标点**：，。；！
 4. **英文用半角标点**：, . ; !
 5. **英文表述要直接**：避免使用 “an issue where ...” 等冗余句式，优先用 “Fixed X not being Y.” / “Fixed X not working.” 等简洁写法
-6. **物品/技能名称必须准确**：从本地化文件查找
+6. **物品/技能名称必须准确**：从本地化文件查找，不能猜测
 
 ## 物品/技能名称查找
-
-**重要**：所有物品和技能名称必须从本地化文件查找，不能猜测。
 
 - **中文**：`game/resource/addon_schinese.txt`
 - **英文**：`game/resource/addon_english.txt`
 
-查找示例：
-```bash
-grep "DOTA_Tooltip_Ability_item_forbidden_staff\"" game/resource/addon_schinese.txt
-# 输出: "DOTA_Tooltip_Ability_item_forbidden_staff" "禁忌法锤"
-```
-
 命名规范：
+
 - 物品：`DOTA_Tooltip_Ability_item_xxx`
 - 技能：`DOTA_Tooltip_ability_xxx`
 
@@ -92,16 +91,18 @@ grep "DOTA_Tooltip_Ability_item_forbidden_staff\"" game/resource/addon_schinese.
 
 ### PR 标题识别版本号
 
-- `v5.10 - 同步Dota 7.40c` → 版本号: 5.10
-- `Release 5.10` → 版本号: 5.10
+- `v5.10 - 同步Dota 7.40c` → 版本号：5.10
+- `Release 5.10` → 版本号：5.10
 
 ### PR 描述解析
 
 优先查找：
+
 - 明确的更新列表（`-` 或 `*` 开头）
-- "更新内容" / "Changes" / "What's Changed" 章节
+- “更新内容” / “Changes” / “What's Changed” 章节
 
 如果描述中没有明确列表：
+
 - 从文件变更和 commits 信息推断
 - 总结为 3-5 条简洁的更新点
 
@@ -111,51 +112,31 @@ grep "DOTA_Tooltip_Ability_item_forbidden_staff\"" game/resource/addon_schinese.
 - 合并相似内容
 - 突出影响玩家体验的更新
 
-## 参考示例
-
-```
-[b]游戏性更新 v5.09[/b]
-
-- 为死灵法杖，禁忌法锤和暗影咒灭的debuff添加基础魔法抗性减少效果。
-- 修正符文图标，热飞导弹，戴泽编织升级
-- 银月在背包中可叠加
-- 轮换自定义模式自选技能
-```
-
 ## GAME_VERSION 同步规则
 
 文件位置：`src/vscripts/modules/GameConfig.ts`
 
-**规则**：GAME_VERSION 不包含 a/b/c 后缀
-- 更新日志 `5.11a` → GAME_VERSION `'v5.11'`
-- 更新日志 `5.12` → GAME_VERSION `'v5.12'`
+规则：`GAME_VERSION` 不包含 a/b/c 后缀
+
+- 更新日志 `5.11a` → `GAME_VERSION` 应为 `'v5.11'`
+- 更新日志 `5.12` → `GAME_VERSION` 应为 `'v5.12'`
 
 检查步骤：
-1. 读取 GameConfig.ts 中的 GAME_VERSION
+
+1. 读取 `GameConfig.ts` 中的 `GAME_VERSION`
 2. 去掉更新日志版本的 a/b/c 后缀比较
 3. 如果不一致，修改为正确的版本号
 
----
-
-## 执行任务
-
-当用户调用此命令时，按照以下步骤执行：
-
-### 处理步骤
+## 执行步骤（当用户调用本技能时）
 
 1. **判断参数类型**：
-   - 包含 `#` 或纯数字 → 使用 GitHub MCP 读取 PR
+   - 包含 `#` 或纯数字 → 从 PR 提取
    - 否则 → 视为手动提供的更新内容
-
 2. **生成更新日志**：
-   - PR：读取 PR 信息，提取关键更新内容
-   - 文本：直接使用提供的内容
-
-3. **同步 GAME_VERSION**：
-   - 读取 `src/vscripts/modules/GameConfig.ts`
-   - 检查版本号是否匹配（去掉 a/b/c 后缀比较）
-   - 如果不匹配，修改为正确的版本号
-
+   - PR：提取并归纳为 3-5 条（不足则按实际）
+   - 文本：直接按用户提供内容生成条目
+3. **同步 `GAME_VERSION`**（按上方规则）
 4. **输出**：中英文两个版本，用分隔线隔开
 
-如果信息不完整，先询问用户。
+信息不完整时先询问用户。
+
