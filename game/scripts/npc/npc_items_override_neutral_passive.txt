@@ -73,6 +73,15 @@
 			"max_mana"					"200 400 600 800"	// 0 100 160 220
 		}
 	}
+	// 活力 生命恢复
+	"item_enhancement_vital"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"health_regen"			"10 20"		// 2
+		}
+	}
 
 	// 吸血鬼 双吸血
 	"item_enhancement_vampiric"

@@ -2203,7 +2203,7 @@
 			"duration"				"12 11 10 9"
 			"max_level"				"4"
 			"model_scale"			"50"     // Percentage over model scale
-			"magic_resist"			"100"
+			"spell_reduce"			"100"
 		}
 	}
 
