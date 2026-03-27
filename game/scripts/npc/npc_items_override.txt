@@ -835,4 +835,11 @@
 	{
 		"AllowedInBackpack"				"1"
 	}
+
+	// 行家阵列
+	"item_recipe_specialists_array"
+	{
+		"ItemCost"						"1800"
+	}
+
 }
