@@ -116,7 +116,7 @@
 		// Armor
 		//----------------------------------------------------------------
 		"ArmorPhysical"				"20"			// 30
-		"MagicalResistance"			"75"			// 55
+		"MagicalResistance"			"50"			// 55
 
 		// Attack
 		//----------------------------------------------------------------
@@ -124,7 +124,7 @@
 		"AttackDamageMin"			"100"		// 75
 		"AttackDamageMax"			"100"		// 75
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.4"		// 2.0
+		"AttackRate"				"1.7"		// 2.0
 		// Movement
 		//----------------------------------------------------------------
 		"MovementSpeed"				"400"		// 270

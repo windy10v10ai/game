@@ -136,11 +136,11 @@
 			}
 			"damage"
 			{
-				"value" "300"	// 70
+				"value" "50"	// 70
 			}
 			"damage_growth"
 			{
-				"value" "20"	// 10
+				"value" "50"	// 10
 			}
 		}
 	}
