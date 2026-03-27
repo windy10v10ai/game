@@ -1,6 +1,6 @@
 ---
 name: create-pr
-description: Create a GitHub pull request from the current branch to the `develop` branch. Stages and commits all local changes, pushes the branch, then creates a PR using `.github/pull_request_template.md` and Release Note style from `content/maps/changelog.md`. Also auto-fills the related issue from branch name `feature/<issue-id>` and comments the issue with the branch name.
+description: Create a GitHub pull request from the current branch to the `develop` branch. Stages and commits all local changes, pushes the branch, then creates a PR using `.github/pull_request_template.md` and Release Note style from `content/maps/changelog.md`. Auto-fills the related issue from branch name `feature/<issue-id>`, but does not post comments to the issue.
 ---
 
 # /create-pr
@@ -70,18 +70,23 @@ Release Note 模板（直接放进 PR 正文）：
 ## Release Note
 
 ```
+
 [b]游戏性更新 v{版本号}[/b]
 
 - {中文条目1}
 - {中文条目2}
+
 ```
 
 ```
+
 [b]Gameplay update v{版本号}[/b]
 
 - {English item 1}
 - {English item 2}
+
 ```
+
 ```
 
 > 版本号来源：优先读取 `src/vscripts/modules/GameConfig.ts` 中的 `GAME_VERSION`（例如 `v5.17`）。
@@ -114,17 +119,12 @@ Release Note 模板（直接放进 PR 正文）：
 
 - `gh pr view --json number,url -q ".number,.url"`
 
-### 6) 自动回填 Issue（写入分支名）
+### 6) Issue 处理策略
 
-若最终拿到 `<issue-id>`（数字）（来自分支名提取或用户提供）：
-
-- 在该 issue 下评论，写入当前分支名（必须包含 `feature/<issue-id>`）与 PR 链接：
-  - `gh issue comment <issue-id> -b "Branch: <current-branch>\nPR: <pr-url>"`
-
-如果评论失败（无权限/issue 不存在/仓库非 GitHub 等），在输出里明确提示失败原因，但不要中断 PR 创建结果。
+- 不在关联 issue 下自动评论（默认禁用 `gh issue comment`）。
+- 仅在 PR 正文的 Issue 段中体现关联关系（如 `fix #<issue-id>`）。
 
 ## 输出给用户（完成后）
 
 - PR URL
 - 是否有 commit（以及 commit hash）
-- 是否成功评论 issue（成功/失败原因）
