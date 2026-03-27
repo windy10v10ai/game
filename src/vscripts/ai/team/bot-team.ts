@@ -47,7 +47,9 @@ export class BotTeam {
     } else if (botGoldXpMultiplier <= 8) {
       this.baseBotPushMin = RandomInt(11, 13);
     } else if (botGoldXpMultiplier <= 10) {
-      this.baseBotPushMin = RandomInt(8, 10);
+      this.baseBotPushMin = RandomInt(9, 11);
+    } else if (botGoldXpMultiplier <= 15) {
+      this.baseBotPushMin = RandomInt(7, 9);
     } else if (botGoldXpMultiplier <= 20) {
       this.baseBotPushMin = RandomInt(5, 7);
     } else {
@@ -60,7 +62,7 @@ export class BotTeam {
     print(`[BotTeam] Base bot push min: ${this.baseBotPushMin}`);
 
     // 根据难度计算电脑推进等级
-    const randomLevel = RandomInt(0, 2); // 随机额外增加0~2级
+    const randomLevel = RandomInt(0, 2); // 随机额外增等级
     this.botPushLevel = this.getTowerRequiredLevel() + randomLevel;
     print(`[BotTeam] Bot push level: ${this.botPushLevel}`);
   }
@@ -99,13 +101,13 @@ export class BotTeam {
   private getTowerRequiredLevel(): number {
     const towerPower = GameRules.Option.towerPower;
     if (towerPower <= 200) {
-      return 13;
+      return 12;
     } else if (towerPower <= 300) {
       return 14;
     } else if (towerPower <= 400) {
-      return 15;
-    } else {
       return 16;
+    } else {
+      return 18;
     }
   }
 
@@ -146,15 +148,15 @@ export class BotTeam {
     // 动态计算推进时间
     // 获取Bot团队平均等级
     const avgLevel = this.getBotTeamAverageLevel();
-    const isStartPushForce = avgLevel >= this.botPushLevel;
+    const isStartPushForce = avgLevel >= 50;
 
     const gameTime = GameRules.GetDOTATime(false, false);
     const gameModeEntity = GameRules.GetGameModeEntity();
 
-    if (gameTime >= this.botPushMin * 4 * 60) {
+    if (gameTime >= 10 * 60) {
       // LATEGAME - 无限制推进
       gameModeEntity.SetBotsMaxPushTier(-1);
-    } else if (gameTime >= this.botPushMin * 60 || isStartPushForce) {
+    } else if (gameTime >= 5 * 60 || isStartPushForce) {
       // MIDGAME - 开始推进 根据防御塔状态计算推进策略
       const pushTier = this.calculatePushTierByTowerStatus();
       gameModeEntity.SetBotsMaxPushTier(pushTier);
