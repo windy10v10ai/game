@@ -226,6 +226,7 @@ export class EventEntityKilled {
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
   private dropItemChanceNeutral = 0.2;
+  private roshanKillCount = 0;
   //符文
   private dropItemListFusionMaterial: string[] = [
     'item_fusion_hawkeye',
@@ -280,8 +281,9 @@ export class EventEntityKilled {
     const creepName = creep.GetName();
 
     if (creepName === 'npc_dota_roshan') {
-      // 击杀肉山
-      if (PlayerHelper.IsGoodTeamUnit(attacker)) {
+      this.roshanKillCount++;
+      // 击杀肉山奖励，第二次击杀开始掉落物品奖励
+      if (this.roshanKillCount > 1 && PlayerHelper.IsGoodTeamUnit(attacker)) {
         // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
@@ -290,15 +292,14 @@ export class EventEntityKilled {
           true,
         );
 
-        // 技能重置书，融合符文掉落 5人以上最多掉落2个
+        // 技能重置书掉落
+        this.dropItem(creep, [this.itemTomeOfAbilityReset], this.dropItemChanceRoshan);
+
+        // 融合符文掉落 - 使用神器组件的循环逻辑可重复
         const maxDropCount = Player.GetPlayerCount() >= 5 ? 2 : 1;
         const dropCount = RandomInt(1, maxDropCount);
         for (let i = 0; i < dropCount; i++) {
-          this.dropItem(
-            creep,
-            [...this.dropItemListFusionMaterial, this.itemTomeOfAbilityReset],
-            this.dropItemChanceRoshan,
-          );
+          this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceRoshan);
         }
       }
 
