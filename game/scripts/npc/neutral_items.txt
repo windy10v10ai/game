@@ -37,15 +37,39 @@
 
 			"enhancements"
 			{
-				"item_enhancement_mystical"			"1"		// 神秘 回蓝
-				"item_enhancement_brawny"			"1"		// 壮实 血量
-				"item_enhancement_alert"			"1"		// 警觉 攻速
-				"item_enhancement_tough"			"1"		// 坚强 攻击
-				"item_enhancement_quickened"		"1"		// 迅速 移速
+				"global"
+				{
+					"item_enhancement_quickened"	"1"		// 迅速 移速
+					"item_enhancement_vital"		"1"		// 活力 生命恢复
 
-				// 级别移动
-				"item_enhancement_greedy"			"1"		// 贪婪 工资蓝量减攻击
-				"item_enhancement_wise"				"1"		// 睿智 每分钟经验
+					// 额外添加
+					"item_enhancement_greedy"		"1"		// 贪婪 工资蓝量 -攻击
+					"item_enhancement_wise"			"1"		// 睿智 每分钟经验
+				}
+
+				"strength"
+				{
+					"item_enhancement_brawny"		"1"		// 壮实 血量
+					"item_enhancement_tough"		"1"		// 坚强 攻击
+				}
+
+				"agility"
+				{
+					"item_enhancement_alert"		"1"		// 警觉 攻速
+					"item_enhancement_brawny"		"1"		// 壮实 血量
+				}
+
+				"intelligence"
+				{
+					"item_enhancement_mystical"		"1"		// 神秘 回蓝
+					"item_enhancement_tough"		"1"		// 坚强 攻击
+				}
+
+				"universal"
+				{
+					"item_enhancement_alert"		"1"		// 警觉 攻速
+					"item_enhancement_mystical"		"1"		// 神秘 回蓝
+				}
 			}
 		}
 
@@ -76,18 +100,46 @@
 
 			"enhancements"
 			{
-				"item_enhancement_mystical"			"2"		// 神秘 回蓝魔抗
-				"item_enhancement_brawny"			"2"		// 壮实 血量回血
-				"item_enhancement_alert"			"2"		// 警觉 攻速夜视
-				"item_enhancement_tough"			"2"		// 坚强 攻击护甲
-				"item_enhancement_quickened"		"2"		// 迅速 移速蓝量
-				"item_enhancement_greedy"			"2"		// 贪婪 工资蓝量减攻击
-				// 级别移动
-				"item_enhancement_wise"				"2"		// 睿智 每分钟经验
+				"global"
+				{
+					"item_enhancement_quickened"	"2"		// 迅速 移速
+					"item_enhancement_greedy"		"2"		// 贪婪 工资蓝量 -攻击
 
-				"item_enhancement_keen_eyed"		"1"		// 犀利 施法距离回蓝最大魔法
-				"item_enhancement_vast"				"1"		// 高远 攻击距离
-				"item_enhancement_vampiric"			"1"		// 吸血鬼 双吸血
+					// 额外添加
+					"item_enhancement_vital"		"2"		// 活力 生命恢复
+					"item_enhancement_wise"			"1"		// 睿智 每分钟经验
+
+					"item_enhancement_vast"			"1"		// 高远 攻击距离
+					"item_enhancement_vampiric"		"1"		// 吸血鬼 双吸血
+				}
+
+				"strength"
+				{
+					"item_enhancement_brawny"		"2"		// 壮实 血量
+					"item_enhancement_tough"		"2"		// 坚强 攻击
+					"item_enhancement_crude"		"1"		// 粗暴 减速抗性攻击间隔 -智力
+				}
+
+				"agility"
+				{
+					"item_enhancement_alert"		"2"		// 警觉 攻速
+					"item_enhancement_brawny"		"2"		// 壮实 血量
+					"item_enhancement_nimble"		"1"		// 轻快 移速攻击力 -生命回复
+				}
+
+				"intelligence"
+				{
+					"item_enhancement_mystical"		"2"		// 神秘 回蓝魔抗
+					"item_enhancement_tough"		"2"		// 坚强 攻击护甲
+					"item_enhancement_keen_eyed"	"1"		// 犀利 施法距离回蓝 -最大魔法值
+				}
+
+				"universal"
+				{
+					"item_enhancement_alert"		"2"		// 警觉 攻速夜视
+					"item_enhancement_mystical"		"2"		// 神秘 回蓝魔抗
+					"item_enhancement_titanic"		"1"		// 巨神 基础攻击状态抗性 -攻击速度
+				}
 			}
 		}
 
@@ -121,18 +173,46 @@
 
 			"enhancements"
 			{
-				"item_enhancement_mystical"			"3"		// 神秘 回蓝魔抗
-				"item_enhancement_brawny"			"3"		// 壮实 血量回血
-				"item_enhancement_alert"			"3"		// 警觉 攻速夜视
-				"item_enhancement_tough"			"3"		// 坚强 攻击护甲
-				"item_enhancement_quickened"		"3"		// 迅速 移速蓝量
-				"item_enhancement_keen_eyed"		"2"		// 犀利 施法距离回蓝最大魔法
-				"item_enhancement_vast"				"2"		// 高远 攻击距离
-				"item_enhancement_vampiric"			"2"		// 吸血鬼 双吸血
 
-				// 级别移动
-				"item_enhancement_feverish"			"1"		// 狂热 冷却减少 蓝耗增加 原本是5级
-				"item_enhancement_evolved"			"1"		// 进化 主属性
+				"global"
+				{
+					"item_enhancement_quickened"	"3"		// 迅速 移速
+					"item_enhancement_greedy"		"2"		// 贪婪 工资蓝量 -攻击
+
+					// 额外添加
+					"item_enhancement_vast"			"2"		// 高远 攻击距离
+					"item_enhancement_vampiric"		"2"		// 吸血鬼 双吸血
+					"item_enhancement_feverish"		"1"		// 狂热 冷却减少 蓝耗增加
+					"item_enhancement_evolved"		"1"		// 进化 主属性
+				}
+
+				"strength"
+				{
+					"item_enhancement_brawny"		"3"		// 壮实 血量
+					"item_enhancement_tough"		"3"		// 坚强 攻击
+					"item_enhancement_crude"		"2"		// 粗暴 减速抗性攻击间隔 -智力
+				}
+
+				"agility"
+				{
+					"item_enhancement_alert"		"3"		// 警觉 攻速
+					"item_enhancement_brawny"		"3"		// 壮实 血量
+					"item_enhancement_nimble"		"2"		// 轻快 移速攻击力 -生命回复
+				}
+
+				"intelligence"
+				{
+					"item_enhancement_mystical"		"3"		// 神秘 回蓝魔抗
+					"item_enhancement_tough"		"3"		// 坚强 攻击护甲
+					"item_enhancement_keen_eyed"	"2"		// 犀利 施法距离回蓝 -最大魔法值
+				}
+
+				"universal"
+				{
+					"item_enhancement_alert"		"3"		// 警觉 攻速夜视
+					"item_enhancement_mystical"		"3"		// 神秘 回蓝魔抗
+					"item_enhancement_titanic"		"2"		// 巨神 基础攻击状态抗性 -攻击速度
+				}
 			}
 		}
 
@@ -171,25 +251,49 @@
 
 			"enhancements"
 			{
-				"item_enhancement_mystical"			"4"		// 神秘 回蓝魔抗
-				"item_enhancement_brawny"			"4"		// 壮实 血量回血
-				"item_enhancement_alert"			"4"		// 警觉 攻速夜视
-				"item_enhancement_tough"			"4"		// 坚强 攻击护甲
-				"item_enhancement_quickened"		"4"		// 迅速 移速蓝量
+				"global"
+				{
+					"item_enhancement_quickened"	"4"		// 迅速 移速
+					"item_enhancement_timeless"		"1"		// 永恒 负面时间技能增强
+					"item_enhancement_vampiric"		"3"		// 吸血鬼 双吸血
 
-				"item_enhancement_vampiric"			"3"		// 吸血鬼 双吸血
-				"item_enhancement_timeless"			"1"		// 永恒 负面时间技能增强
-				"item_enhancement_titanic"			"1"		// 巨神 基础攻击状态抗性
-				"item_enhancement_crude"			"1"		// 粗暴 减速抗性攻击间隔减智力
+					// 额外添加
+					"item_enhancement_boundless"	"1"		// 无边 攻击距离施法距离
+					"item_enhancement_evolved"		"2"		// 进化 主属性
 
-				// 级别移动
-				"item_enhancement_boundless"		"1"		// 无边 攻击距离施法距离
-				"item_enhancement_evolved"			"2"		// 进化 主属性
+					"item_enhancement_fierce"		"1"		// 凶猛
+					"item_enhancement_dominant"		"1"		// 专横
+					"item_enhancement_restorative"	"1"		// 滋补
+					"item_enhancement_thick"		"1"		// 厚重
+				}
 
-				"item_enhancement_fierce"			"1"		// 凶猛
-				"item_enhancement_dominant"			"1"		// 专横
-				"item_enhancement_restorative"		"1"		// 滋补
-				"item_enhancement_thick"				"1"		// 厚重
+				"strength"
+				{
+					"item_enhancement_brawny"		"4"		// 壮实 血量
+					"item_enhancement_tough"		"4"		// 坚强 攻击护甲
+					"item_enhancement_crude"		"3"		// 粗暴 减速抗性攻击间隔 -智力
+				}
+
+				"agility"
+				{
+					"item_enhancement_alert"		"4"		// 警觉 攻速夜视
+					"item_enhancement_brawny"		"4"		// 壮实 血量
+					"item_enhancement_nimble"		"3"		// 轻快 移速攻击力 -生命回复
+				}
+
+				"intelligence"
+				{
+					"item_enhancement_mystical"		"4"		// 神秘 回蓝魔抗
+					"item_enhancement_tough"		"4"		// 坚强 攻击护甲
+					"item_enhancement_keen_eyed"	"3"		// 犀利 施法距离回蓝 -最大魔法值
+				}
+
+				"universal"
+				{
+					"item_enhancement_alert"		"4"		// 警觉 攻速夜视
+					"item_enhancement_mystical"		"4"		// 神秘 回蓝魔抗
+					"item_enhancement_titanic"		"3"		// 巨神 基础攻击状态抗性 -攻击速度
+				}
 			}
 		}
 
@@ -224,33 +328,53 @@
 				"item_giants_ring"					"1"		// 巨人之戒
 				"item_ex_machina"					"1"		// 机械之心
 
-				"item_specialists_array"			"1"		// 行家阵列
 				// "item_helm_of_the_undying"			"1"		// 不朽尸王的头盔 7.40移除
 
 			}
 
 			"enhancements"
 			{
-				"item_enhancement_timeless"			"2"		// 永恒 负面时间技能增强
-				"item_enhancement_titanic"			"2"		// 巨神 基础攻击状态抗性
-				"item_enhancement_crude"			"2"		// 粗暴 减速抗性攻击间隔减智力
+				"global"
+				{
+					"item_enhancement_timeless"		"2"		// 永恒 负面时间技能增强
+					"item_enhancement_evolved"		"1"		// 进化 主属性
+					"item_enhancement_fleetfooted"	"1"		// 捷足 移速
+					"item_enhancement_vampiric"		"1"		// 吸血鬼 双吸血
 
+					// 额外添加
+					"item_enhancement_titanic"		"2"		// 巨神 基础攻击状态抗性 -攻击速度
+					"item_enhancement_crude"		"2"		// 粗暴 减速抗性攻击间隔 -智力
+					"item_enhancement_boundless"	"2"		// 无边 攻击距离施法距离
 
-				"item_enhancement_fleetfooted"		"1"		// 捷足 移速
-				"item_enhancement_audacious"		"1"		// 冒险 攻速魔法攻击伤害增加承伤
-				"item_enhancement_evolved"			"3"		// 进化 主属性
-				"item_enhancement_boundless"		"2"		// 无边 攻击距离施法距离
+					"item_enhancement_fierce"		"2"		// 凶猛
+					"item_enhancement_dominant"		"2"		// 专横
+					"item_enhancement_restorative"	"2"		// 滋补
+					"item_enhancement_thick"		"2"		// 厚重
 
-				// 额外添加
-				"item_mysterious_hat"				"2"		// 仙灵饰品
-				"item_spell_prism"					"1"		// 法术棱镜
-				"item_paladin_sword"				"1"		// 骑士剑
+					"item_mysterious_hat"			"2"		// 仙灵饰品
+					"item_spell_prism"				"1"		// 法术棱镜
+					"item_paladin_sword"			"1"		// 骑士剑
+				}
 
-				// 7.40新增
-				"item_enhancement_fierce"			"2"		// 凶猛
-				"item_enhancement_dominant"			"2"		// 专横
-				"item_enhancement_restorative"		"2"		// 滋补
-				"item_enhancement_thick"				"2"		// 厚重
+				"strength"
+				{
+					"item_enhancement_hulking"		"1"
+				}
+
+				"agility"
+				{
+					"item_enhancement_audacious"	"1"		// 冒险 攻速魔法攻击伤害增加承伤
+				}
+
+				"intelligence"
+				{
+					"item_enhancement_feverish"		"1"		// 狂热 冷却减少 蓝耗增加
+				}
+
+				"universal"
+				{
+					"item_enhancement_manic"		"1"
+				}
 			}
 		}
 	}
