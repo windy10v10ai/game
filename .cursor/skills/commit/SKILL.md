@@ -27,7 +27,10 @@ description: Use git commands to safely stage and commit changes in the current 
 
 4. **执行提交（顺序执行）**
    - `git add <files...>`（只 add 选定文件；除非用户明确要求，否则不要无脑 `git add .`）
-   - `git commit -m "<message>"`
+   - 提交命令（按终端选择其一）：
+     - **PowerShell / CMD（推荐）**：用多次 `-m` 生成标题 + 正文
+       - `git commit -m "<title>" -m "<body>"`
+     - **Bash（可选）**：可以用 heredoc / 多行字符串（仅在类 Unix shell 中可用）
    - `git status`（确认工作区/暂存区状态）
 
 5. **失败处理**

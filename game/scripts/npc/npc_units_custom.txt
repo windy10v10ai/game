@@ -115,7 +115,7 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"			// 30
+		"ArmorPhysical"				"20"			// 30
 		"MagicalResistance"			"75"			// 55
 
 		// Attack
