@@ -8,14 +8,4 @@
 
 ## Release Note
 
-```
-[b]游戏性更新 v5.00a[/b]
-
-- 修正一些bug和平衡性改动。
-```
-
-```
-[b]Gameplay update v5.00a[/b]
-
-- Fixed some bugs and balance.
-```
+（按 `.claude/skills/generate-changelog/SKILL.md` 生成中英文 Workshop 格式；勿在此粘贴与本次改动无关的占位示例。）

@@ -5,6 +5,7 @@ import { GameConfig } from '../GameConfig';
 import { BotAbility } from '../helper/bot-ability';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { EventEntityKilled } from './event-entity-killed';
 export class EventNpcSpawned {
   private roshanLevelBase = 0;
   private heroSpawnRetryCount = 0;
@@ -160,6 +161,12 @@ export class EventNpcSpawned {
     const creepName = creep.GetName();
 
     if (creepName === 'npc_dota_roshan') {
+      // kill
+      const killCount = EventEntityKilled.roshanKillCount;
+      if (killCount === 0) {
+        creep.Kill(undefined, undefined);
+        return;
+      }
       for (const abilityName of this.roshanLevelupBaseAbilities) {
         const ability = creep.FindAbilityByName(abilityName);
         if (ability) {
