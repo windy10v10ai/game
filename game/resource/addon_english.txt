@@ -49,10 +49,12 @@
 		"radiant_player_number_1"						"1  (Easy)"
 		"radiant_player_number_10"						"10 (Hard)"
 
+		"bot_gold_xp_multiplier_40"						"40 (Game crash prone)"
+
 		"respawn_time_percentage_slow"					"Slow"
 		"respawn_time_percentage_normal"				"Normal"
 		"respawn_time_percentage_fast"					"Fast"
-		"respawn_time_percentage_0"						"Near-instant"
+		"respawn_time_percentage_0"						"Instant (Game crash prone)"
 
 		"fixed_ability_none"							"None"
 		"fixed_ability_ability_trigger_on_attacked_name"	"Butterfly Effect - Gold"
@@ -888,9 +890,14 @@
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"BONUS XP ASSIST:"
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"BONUS XP WARD/COURIER KILL:"
 
-		// 魔剑
-		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"Magic Sword"
-		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"For each %one_tooltip%%% of skill enhancement, gain %bonus_damage_pct_tooltip%%% attack and %magic_resist_pct_tooltip%%% magic resistance."
+		// 力量与魔法
+		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"Might and Magus"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"Rubick gains stacking bonus area of effect when he casts a spell."
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"					"AOE BONUS:"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_magic_resist_bonus"		"%MAGIC RESIST BONUS:"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus_duration"		"BONUS DURATION:"
+		"DOTA_Tooltip_modifier_rubick_might_and_magus2"							"Might and Magus"
+		"DOTA_Tooltip_modifier_rubick_might_and_magus2_Description"				"Area of Effect of spells increased by %dMODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING%, Magic Resist increased by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
 		// 蝴蝶效应·蓝武（攻击触发）
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"							"<font color='#0096FF'>Butterfly Effect: Blue</font>"

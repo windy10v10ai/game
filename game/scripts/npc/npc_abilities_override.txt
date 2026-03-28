@@ -12193,35 +12193,6 @@
 			}
 		}
 	}
-	// 力量与魔法 先天技能
-	"rubick_might_and_magus"
-	{
-
-		"AbilityValues"
-		{
-			"one_tooltip"					"1"
-			"bonus_damage_pct"
-			{
-				"value"									"50"		// 75
-				"special_bonus_unique_rubick_2" 		"+25"
-			}
-			"bonus_damage_pct_tooltip"
-			{
-				"value"									"0.5"		// 0.75
-				"special_bonus_unique_rubick_2" 		"+0.25"
-			}
-			"magic_resist_pct"
-			{
-				"value"									"50"		// 75
-				"special_bonus_unique_rubick_2" 		"+25"
-			}
-			"magic_resist_pct_tooltip"
-			{
-				"value"									"0.5"		// 0.75
-				"special_bonus_unique_rubick_2" 		"+0.25"
-			}
-		}
-	}
 	//=================================================================================================================
 	// Ability: Shadow Demon 暗影恶魔/毒狗
 	//=================================================================================================================
