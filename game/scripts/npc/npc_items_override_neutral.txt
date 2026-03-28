@@ -423,6 +423,85 @@
 			"max_duration"				"10"	// 5
 		}
 	}
+	// 附魂面具
+	"item_possessed_mask"
+	{
+		"AbilityValues"
+		{
+			"primary_attribute"		"10"		// 0
+			"lifesteal"			"10"			// 5
+		}
+	}
+	// 余烬军团战盾
+	"item_ash_legion_shield"
+	{
+		"AbilityCooldown"				"30.0"	// 40
+		"AbilityValues"
+		{
+			"block_amount"				"400"	// 160
+		}
+	}
+	// 瑞斯图尔的匕首
+	"item_dagger_of_ristul"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage"					"50"	// 25
+		}
+	}
+
+	// 采菌套具
+	"item_foragers_kit"
+	{
+		"AbilityValues"
+		{
+			"gold_amount"				"300"
+		}
+	}
+	// 铁树坚果
+	"item_foragers_stats"
+	{
+		"AbilityValues"
+		{
+			// 主动：永久获得主属性
+			"bonus_stat"				"5"		// 1
+			"bonus_stat_uni"			"2"		// 0.4
+			// 被动：移动速度
+			"bonus_move_speed"			"15"		// 3
+		}
+	}
+	// 托莫干伞盖
+	"item_foragers_man"
+	{
+		"AbilityValues"
+		{
+			// 被动：智力
+			"bonus_int"				"10"		// 2
+			// 主动：法力回复
+			"replenish_amount"		"100"	// 50
+			"mana_pct"				"5"		// 5
+		}
+	}
+	// 活力伞菌
+	"item_foragers_health"
+	{
+		"AbilityValues"
+		{
+			// 主动：生命恢复
+			"buff_duration"			"5"			// 10
+			"health_regen_pct"		"5"			// 1
+			// 被动：攻击力
+			"bonus_damage"			"10"		// 10
+		}
+	}
+	// 石羽小包
+	"item_stonefeather_satchel"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage"			"10"		// 10
+		}
+	}
 	//=================================================================================================================
 	// level 2
 	//=================================================================================================================

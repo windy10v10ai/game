@@ -182,6 +182,36 @@
 			"status_resistance"			"15 20 25 30"				// 10 12 14
 		}
 	}
+	// 笨重 百分比 生命值 生命值回复 -攻击速度
+	"item_enhancement_hulking"
+	{
+		"AbilityValues"
+		{
+			"max_health"				"10"			// 5
+			"max_health_regen"			"2"				// 1.5
+			"attack_speed"				"-30"			// -30
+		}
+	}
+	// 狂热 冷却减少 蓝耗增加
+	"item_enhancement_feverish"
+	{
+		"MaxLevel"						"2"
+		"AbilityValues"
+		{
+			"cooldown_reduction"		"10 20"			// 15
+			"cost_increase"				"5 10"			// 7
+		}
+	}
+	// 癫狂 攻击间隔 施法速度 -视野
+	"item_enhancement_manic"
+	{
+		"AbilityValues"
+		{
+			"bat_reduce"				"24"			// 18
+			"cast_speed"				"40"			// 20
+			"vision_reduce"				"20"			// 20
+		}
+	}
 	//=================================================================================================================
 	// 额外添加
 	//=================================================================================================================

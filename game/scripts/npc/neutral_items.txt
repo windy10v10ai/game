@@ -19,15 +19,18 @@
 			"items"
 			{
 				// "item_occult_bracelet"				"1"		// 玄奥手镯
-				// "item_kobold_cup"					"1"		// 狗头人酒杯
+				"item_kobold_cup"					"1"		// 狗头人酒杯
 				"item_chipped_vest"					"1"		// 碎裂背心
 				"item_polliwog_charm"				"1"		// 蝌蚪护符
 				"item_dormant_curio"				"1"		// 休眠珍品
 				"item_duelist_gloves"				"1"		// 决斗家手套
-
-				// 7.40新增
-				"item_ash_legion_shield"			"1"		// 余烬军团战盾
 				"item_weighted_dice"				"1"		// 加重骰子
+				"item_ash_legion_shield"			"1"		// 余烬军团战盾
+				"item_possessed_mask"				"1"		// 附魂面具
+
+				"item_dagger_of_ristul"				"1"		// 瑞斯图尔的匕首
+				"item_foragers_kit"					"1"		// 采菌套具
+				"item_stonefeather_satchel"			"1"		// 石羽小包
 
 				// 额外添加
 				"item_safety_bubble"				"1"		// 安全泡泡
@@ -182,8 +185,8 @@
 					// 额外添加
 					"item_enhancement_vast"			"2"		// 高远 攻击距离
 					"item_enhancement_vampiric"		"2"		// 吸血鬼 双吸血
-					"item_enhancement_feverish"		"1"		// 狂热 冷却减少 蓝耗增加
 					"item_enhancement_evolved"		"1"		// 进化 主属性
+					"item_enhancement_feverish"		"1"		// 狂热 冷却减少 蓝耗增加
 				}
 
 				"strength"
@@ -358,7 +361,7 @@
 
 				"strength"
 				{
-					"item_enhancement_hulking"		"1"
+					"item_enhancement_hulking"		"1"		// 笨重 百分比 生命值 生命值回复 -攻击速度
 				}
 
 				"agility"
@@ -373,7 +376,7 @@
 
 				"universal"
 				{
-					"item_enhancement_manic"		"1"
+					"item_enhancement_manic"		"1"		// 癫狂 攻击间隔 施法速度 -视野
 				}
 			}
 		}
