@@ -1013,7 +1013,6 @@
 				"apply_curio_bonus"		"1"
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"			"9"				//6
 		}
 	}
 	//亲王短刀
