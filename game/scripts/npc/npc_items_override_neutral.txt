@@ -132,18 +132,6 @@
 				"movment"			"14"		//7
 		}
 	}
-	//火焰斗篷
-	"item_cloak_of_flames"
-	{
-		"AbilityValues"
-		{
-				"armor"				"15"  //4
-				"magic_resistance"	"30"  //10
-				"damage"			"120" //45
-				"radius"			"450" //375
-				"damage_illusions"	"80" //30
-		}
-	}
 	//双面币
 	"item_doubloon"
 	{
@@ -164,18 +152,6 @@
 			"bonus_damage"			"100"	//30
 			"bonus_armor"			"40"	//20
 			"bonus_slow_resist"		"70"	//20
-		}
-	}
-	//蒲公英护符
-	"item_dandelion_amulet"
-	{
-		"AbilityCooldown"				"6" //12
-		"AbilityValues"
-		{
-			"move_speed"			"50"	//25
-			"mana"					"600"	//300
-			"magic_block"			"1200"	//300
-			"min_damage"			"200"	//75
 		}
 	}
 	//原力鞋 推推鞋
@@ -285,6 +261,18 @@
 	"item_gossamer_cape"
 	{
 		"AbilityCooldown"				"1.0"		//6
+	}
+	//邪道私语
+	"item_whisper_of_the_dread"
+	{
+		"AbilityValues"
+		{
+			"bonus_spell_damage"
+			{
+				"value"				"30"		//10
+				"apply_curio_bonus"		"1"
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -544,10 +532,10 @@
 		{
 			"bonus_damage"
 			{
-				"value"				"6"			// 3
+				"value"				"6"				// 3
 				"apply_curio_bonus"		"1"
 			}
-			"missing_hp"			"3"				//7
+			"missing_hp"			"5"				// 7
 		}
 	}
 	//杂技玩具
@@ -749,33 +737,33 @@
 	//宁静种籽
 	"item_seeds_of_serenity"
 	{
-		"AbilityCastRange"				"700"	//350
+		"AbilityCastRange"				"700"	// 350
 		"AbilityValues"
 		{
-			"aura_health_regen"			"20"	//10
+			"aura_health_regen"			"20"	// 8
 			"radius"
 			{
-				"value"			"500"			//400
+				"value"			"500"			// 400
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"					"10"	//8
+			"duration"					"10"	// 8
 		}
 	}
 	//致残之弩
 	"item_crippling_crossbow"
 	{
-		"AbilityCooldown"				"6"			//12
-		"AbilityManaCost"				"150"		//50
-		"AbilityCastRange"				"1200"		//600
+		"AbilityCooldown"				"6"			// 30
+		"AbilityManaCost"				"150"		// 50
+		"AbilityCastRange"				"1200"		// 650
 		"AbilityValues"
 		{
 			"heal_reduce"
 			{
-				"value"					"60"		//40
+				"value"					"60"		// 40
 				"apply_curio_bonus"		"1"
 			}
-			"duration"					"6"			//4
-			"damage"					"300"		//75
+			"duration"					"6"			// 4
+			"damage"					"150"		// 25
 		}
 	}
 
@@ -813,18 +801,6 @@
 			"splash_pct"
 			{
 				"value"				"50"		//50
-				"apply_curio_bonus"		"1"
-			}
-		}
-	}
-	//邪道私语
-	"item_whisper_of_the_dread"
-	{
-		"AbilityValues"
-		{
-			"bonus_spell_damage"
-			{
-				"value"				"30"		//10
 				"apply_curio_bonus"		"1"
 			}
 		}
@@ -888,21 +864,20 @@
 	//风暴宝器
 	"item_stormcrafter"
 	{
-		"AbilityCooldown"				"1.5"	//3
+		"AbilityCooldown"				"2"	// 6
 		"AbilityValues"
 		{
-			"range"			"900"			//700
+			"range"			"900"			// 700
 			"damage"
 			{
-				"value"					"400"	//200
+				"value"					"300"	// 70
 				"apply_curio_bonus"		"1"
 			}
-			"interval"		"1.5"			//3
-			"slow"			"60"			//40
-			"slow_duration"			"0.6"	//0.4
-			"bonus_mana_regen"		"0"		//4
-			"max_targets"			"3"		//2
-			"passive_movement_bonus""0"		//35
+			"slow"			"60"			// 40
+			"slow_duration"			"0.6"	// 0.4
+			"bonus_mana_regen"		"0"		// 0
+			"max_targets"			"3"		// 2
+			"passive_movement_bonus"		"0"		// 0
 		}
 	}
 	//五锋长剑
@@ -941,7 +916,39 @@
 		"AbilityCooldown"				"30"		//45
 		"AbilityValues"
 		{
-			"health_regen_loss"			"50"		//30
+			"health_regen_loss"			"60"		//50
+		}
+	}
+	//火焰斗篷
+	"item_cloak_of_flames"
+	{
+		"AbilityValues"
+		{
+				"damage"			"120"	// 40
+				"radius"			"450"	// 375
+				"damage_illusions"	"80"	// 25
+		}
+	}
+	// 咏咒之坠
+	"item_spellslinger"
+	{
+		"AbilityValues"
+		{
+			"mana_pct"
+			{
+				"value"					"40"	// 20
+			}
+		}
+	}
+	// 天游烙印
+	"item_partisans_brand"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage_pct"
+			{
+				"value"				"12"	// 9
+			}
 		}
 	}
 
@@ -1139,16 +1146,93 @@
 	{
 		"AbilityValues"
 		{
-			"damage_reset_interval"		"7"		//7
-			"damage_threshold"			"600"	//180
-			"slow"						"70"	//100
+			"damage_reset_interval"		"7"		// 7
+			"damage_threshold"			"600"	// 220
+			"slow"						"70"	// 100
 			"projectile_damage"
 			{
-				"value"						"400"	// 110
+				"value"						"300"	// 110
 				"apply_curio_bonus"			"1"
 			}
 		}
 	}
+	//蒲公英护符
+	"item_dandelion_amulet"
+	{
+		"AbilityCooldown"				"4"		// 12
+		"AbilityValues"
+		{
+			"magic_block"			"1000"	// 300
+			"min_damage"			"200"	// 75
+		}
+	}
+
+	// 剥皮血囊
+	"item_flayers_bota"
+	{
+		"AbilityValues"
+		{
+			"base_damage"
+			{
+				"value"					"40"	// 15
+			}
+
+			"attack_speed"
+			{
+				"value"					"90"	// 30
+			}
+		}
+	}
+	// 变态上颚
+	"item_metamorphic_mandible"
+	{
+		"AbilityValues"
+		{
+			"bonus_movespeed"			"30"	// 15
+			"armor_decrease"			"30"	// 45
+		}
+	}
+	// 附魔师之椟
+	"item_enchanters_bauble"
+	{
+		"AbilityValues"
+		{
+			"enchantment_bonus_base"	"20"	// 15
+
+			"enchantment_bonus_growth"
+			{
+				"value"					"50"	// 40
+			}
+		}
+	}
+	// 先知灵摆
+	"item_prophets_pendulum"
+	{
+		"AbilityValues"
+		{
+			"delay_pct"
+			{
+				"value"					"40"	// 30
+			}
+		}
+	}
+	// 咒术师触媒
+	"item_conjurers_catalyst"
+	{
+		"AbilityValues"
+		{
+			"damage_threshold"				"200"	// 100
+			"damage"
+			{
+				"value"						"60"	// 40
+			}
+			"damage_creep"
+			{
+				"value"						"30"	// 15
+			}
+		}
+	}
+
 	//=================================================================================================================
 	// level 5
 	//=================================================================================================================

@@ -27,7 +27,6 @@
 				"item_weighted_dice"				"1"		// 加重骰子
 				"item_ash_legion_shield"			"1"		// 余烬军团战盾
 				"item_possessed_mask"				"1"		// 附魂面具
-
 				"item_dagger_of_ristul"				"1"		// 瑞斯图尔的匕首
 				"item_foragers_kit"					"1"		// 采菌套具
 				"item_stonefeather_satchel"			"1"		// 石羽小包
@@ -35,6 +34,7 @@
 				// 额外添加
 				"item_safety_bubble"				"1"		// 安全泡泡
 				"item_royal_jelly"					"1"		// 蜂王浆
+				"item_arcane_ring"					"1"		// 奥术指环
 
 			}
 
@@ -91,14 +91,13 @@
 				"item_poor_mans_shield"				"1"		// 穷鬼盾
 				"item_searing_signet"				"1"		// 炽热纹章
 				// "item_pogo_stick"					"1"		// 杂技玩具
-
-				// 7.40回归
 				"item_defiant_shell"				"1"		// 不羁甲壳
-
+				"item_crippling_crossbow"			"1"		// 致残之弩
+				"item_medallion_of_courage"			"1"		// 勇气勋章
+				"item_seeds_of_serenity"			"1"		// 宁静种籽
 				// 额外添加
 				"item_orb_of_destruction"			"1"		// 毁灭灵球
-				"item_misericorde"					"1"		// 飞贼之刃 7.40移除
-				"item_arcane_ring"					"1"		// 奥术指环
+				"item_misericorde"					"1"		// 飞贼之刃
 			}
 
 			"enhancements"
@@ -159,10 +158,12 @@
 				"item_serrated_shiv"				"1"		// 锯齿短刀
 				"item_gunpowder_gauntlets"			"1"		// 火药手套
 				"item_jidi_pollen_bag"				"1"		// 基迪花粉袋
-				// "item_whisper_of_the_dread"			"1"		// 邪道私语
-				// "item_ninja_gear"					"1"		// 忍者用具
 				// "item_psychic_headband"				"1"		// 通灵头带
 				"item_unrelenting_eye"				"1"		// 不屈之眼
+				"item_cloak_of_flames"				"1"		// 火焰斗篷
+				"item_spellslinger"					"1"		// 咏咒之坠
+				"item_stormcrafter"					"1"		// 风暴宝器
+				"item_partisans_brand"				"1"		// 天游烙印
 
 				// 级别移动
 				"item_spider_legs"					"1"		// 网虫腿 原本是5级
@@ -171,7 +172,6 @@
 				"item_trickster_cloak"				"1"		// 欺诈师斗篷
 				"item_penta_edged_sword"			"1"		// 五锋长剑
 				"item_gale_guard"					"1"		// 烈风护体
-				// "item_ogre_seal_totem"				"1"		// 食人魔海豹图腾 原本是4级
 			}
 
 			"enhancements"
@@ -229,13 +229,15 @@
 
 			"items"
 			{
-				"item_crippling_crossbow"			"1"		// 致残之弩
 				"item_giant_maul"					"1"		// 巨人之槌
 				"item_rattlecage"					"1"		// 回响之笼
-
 				"item_idol_of_screeauk"				"1"		// 丝奎奥克神像
 				"item_flayers_bota"					"1"		// 剥皮血囊
 				"item_metamorphic_mandible"			"1"		// 变态上颚
+				"item_dandelion_amulet"				"1"		// 蒲公英护符
+				"item_enchanters_bauble"			"1"		// 附魔师之椟
+				"item_prophets_pendulum"			"1"		// 先知灵摆
+				"item_conjurers_catalyst"			"1"		// 咒术师触媒
 
 				// 级别移动
 				"item_panic_button"					"1"		// 神妙明灯 原本是5级
@@ -247,7 +249,6 @@
 				// "item_pyrrhic_cloak"				"1"		// 皮洛士斗篷
 				"item_seer_stone"					"1"		// 先哲之石
 				"item_princes_knife"				"1"		// 亲王短刀
-				"item_stormcrafter"					"1"		// 风暴宝器
 				"item_repair_kit"					"1"		// 维修器具
 
 			}
@@ -315,8 +316,12 @@
 				"item_fallen_sky"					"1"		// 天崩
 				"item_demonicon"					"1"		// 死灵书
 				"item_minotaur_horn"				"1"		// 恶牛角
-				"item_divine_regalia"				"1"		// 天赐华冠
+				"item_spider_legs"					"1"
+				"item_riftshadow_prism"				"1"
 				"item_dezun_bloodrite"				"1"		// 德尊血式
+				"item_divine_regalia"				"1"		// 天赐华冠
+				"item_harmonizer"					"1"
+				"item_heavy_blade"					"1"
 
 				"item_riftshadow_prism"				"1"		// 影墟棱晶
 				// 级别移动
