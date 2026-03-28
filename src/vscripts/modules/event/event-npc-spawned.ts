@@ -7,7 +7,7 @@ import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { EventEntityKilled } from './event-entity-killed';
 export class EventNpcSpawned {
-  private roshanLevelBase = 0;
+  private roshanLevelBase = 1;
   private heroSpawnRetryCount = 0;
   private readonly MAX_SPAWN_RETRY = 100;
   // abiliti name list of roshan
