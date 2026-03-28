@@ -316,14 +316,13 @@
 				"item_fallen_sky"					"1"		// 天崩
 				"item_demonicon"					"1"		// 死灵书
 				"item_minotaur_horn"				"1"		// 恶牛角
-				"item_spider_legs"					"1"
-				"item_riftshadow_prism"				"1"
+				// "item_spider_legs"					"1"		// 网虫腿
+				"item_riftshadow_prism"				"1"		// 影墟棱晶
 				"item_dezun_bloodrite"				"1"		// 德尊血式
 				"item_divine_regalia"				"1"		// 天赐华冠
-				"item_harmonizer"					"1"
-				"item_heavy_blade"					"1"
+				"item_harmonizer"					"1"		// 协和
+				"item_heavy_blade"					"1"		// 行巫之祸
 
-				"item_riftshadow_prism"				"1"		// 影墟棱晶
 				// 级别移动
 				"item_nemesis_curse"				"1"		// 天诛之咒 原本是3级
 				"item_ceremonial_robe"				"1"		// 祭礼长袍 原本是4级
@@ -335,8 +334,6 @@
 				"item_imp_claw"						"1"		// 力量法则碎片
 				"item_giants_ring"					"1"		// 巨人之戒
 				"item_ex_machina"					"1"		// 机械之心
-
-				// "item_helm_of_the_undying"			"1"		// 不朽尸王的头盔 7.40移除
 
 			}
 

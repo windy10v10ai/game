@@ -1403,4 +1403,40 @@
 				}
 		}
 	}
+
+	// 影墟棱晶
+	"item_riftshadow_prism"
+	{
+		"AbilityValues"
+		{
+			"outgoing_damage"
+			{
+				"value"					"60"	// 50
+			}
+			"health_cost"				"12"	// 8
+		}
+	}
+	// 协和
+	"item_harmonizer"
+	{
+		"AbilityValues"
+		{
+			"manacost_reduction"
+			{
+				"value"					"6"	// 5
+			}
+
+			"spell_amp"
+			{
+				"value"					"12"	// 6
+			}
+		}
+	}
+	// 行巫之祸
+	"item_heavy_blade"
+	{
+		"AbilityValues"
+		{
+		}
+	}
 }
