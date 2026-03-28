@@ -107,7 +107,7 @@
 
 					// 额外添加
 					"item_enhancement_vital"		"2"		// 活力 生命恢复
-					"item_enhancement_wise"			"1"		// 睿智 每分钟经验
+					"item_enhancement_wise"			"2"		// 睿智 每分钟经验
 
 					"item_enhancement_vast"			"1"		// 高远 攻击距离
 					"item_enhancement_vampiric"		"1"		// 吸血鬼 双吸血
@@ -177,7 +177,7 @@
 				"global"
 				{
 					"item_enhancement_quickened"	"3"		// 迅速 移速
-					"item_enhancement_greedy"		"2"		// 贪婪 工资蓝量 -攻击
+					"item_enhancement_greedy"		"3"		// 贪婪 工资蓝量 -攻击
 
 					// 额外添加
 					"item_enhancement_vast"			"2"		// 高远 攻击距离
@@ -337,13 +337,13 @@
 				"global"
 				{
 					"item_enhancement_timeless"		"2"		// 永恒 负面时间技能增强
-					"item_enhancement_evolved"		"1"		// 进化 主属性
+					"item_enhancement_evolved"		"3"		// 进化 主属性
 					"item_enhancement_fleetfooted"	"1"		// 捷足 移速
-					"item_enhancement_vampiric"		"1"		// 吸血鬼 双吸血
+					"item_enhancement_vampiric"		"4"		// 吸血鬼 双吸血
 
 					// 额外添加
-					"item_enhancement_titanic"		"2"		// 巨神 基础攻击状态抗性 -攻击速度
-					"item_enhancement_crude"		"2"		// 粗暴 减速抗性攻击间隔 -智力
+					"item_enhancement_titanic"		"4"		// 巨神 基础攻击状态抗性 -攻击速度
+					"item_enhancement_crude"		"4"		// 粗暴 减速抗性攻击间隔 -智力
 					"item_enhancement_boundless"	"2"		// 无边 攻击距离施法距离
 
 					"item_enhancement_fierce"		"2"		// 凶猛
