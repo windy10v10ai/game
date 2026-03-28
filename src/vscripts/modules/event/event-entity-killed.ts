@@ -22,6 +22,12 @@ export class EventEntityKilled {
   }
 
   OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
+    if (!keys.entindex_killed) {
+      return;
+    }
+    if (!keys.entindex_attacker) {
+      return;
+    }
     const killedUnit = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
     const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
     if (!killedUnit) {
