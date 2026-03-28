@@ -9,8 +9,8 @@
 		"AbilityValues"
 		{
 			"mana_regen"				"3 6 9 12"		// 0.8 1.6 2.4 3.2
-			"magic_res"					"0 10 25 30"	// 0 10 16 22
-			"bonus_cast_range"			"25 50 75 100"	// 0 0 0 100
+			"magic_res"					"0 10 25 30"	// 0 10 13 16
+			"bonus_cast_range"			"25 50 75 100"	// 0 0 0 15
 		}
 	}
 	// 壮实 血量回血
@@ -28,7 +28,7 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"15 30 45 60"		// 10 17 24 31
+			"bonus_attack_speed"	"15 30 45 60"		// 7 15 23 31
 			"bonus_night_vision"	"75 150 225 300"	// 0 150 225 300
 			"bonus_attack_range"	"25 50 75 100"		// 0 0 0 100
 		}
@@ -39,7 +39,7 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_xpm"					"400 800"	// n-1级升到n级所需经验为150n+50，从1升到n总经验为200n+75n(n-1)=75n^2+125n,当前刷野最快纪录7分钟25级即7分钟5w（1.5倍率）
+			"bonus_xpm"					"400 800"	// 1000
 			"max_mana_pct"				"10 20"		// 15
 		}
 	}
@@ -89,9 +89,9 @@
 		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"attack_lifesteal"				"12 18 24 30"	// 12 14 16
-			"spell_lifesteal"				"8 12 16 20"	// 6 8 10
-			"bonus_night_vision"			"0 100 200 300"	// 0 0 200
+			"attack_lifesteal"				"12 18 24 30"	// 30
+			"spell_lifesteal"				"8 12 16 20"	// 20
+			"bonus_night_vision"			"0 100 200 300"	// 300
 		}
 	}
 
@@ -110,7 +110,7 @@
 	{
 		"AbilityValues"
 		{
-			"attack_range"						"80 120"	// 75 110
+			"attack_range"						"80 120"	// 60 90 120
 		}
 	}
 	// 犀利 施法距离回蓝最大魔法
@@ -119,9 +119,9 @@
 		"MaxLevel"						"3"
 		"AbilityValues"
 		{
-			"cast_range_bonus"					"125 175 225"	// 125 135
-			"bonus_mana_regen"					"3 6 9"		// 1 1.5
-			"mana_reduction_pct"				"10 15 20"		// 10
+			"cast_range_bonus"					"125 175 225"	// 125 135 145
+			"bonus_mana_regen"					"3 6 9"			// 1 1.5 2
+			"mana_reduction_pct"				"10 15 20"		// 10 12 14
 		}
 	}
 	// 冒险 攻速魔法攻击伤害增加承伤
@@ -148,9 +148,9 @@
 		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"health_restoration"		"35 60 85 110"				// 30 40
-			"bat_reduce"				"18 30 42 54"				// 12 18
-			"intelligence_pct"			"-5 -10 -15 -20"			// -5
+			"health_restoration"		"20 30 40 50"				// 10 15 20
+			"bat_reduce"				"9 18 27 36"				// 6 9 12
+			"intelligence_pct"			"-5 -10 -15 -20"			// -6
 		}
 	}
 	// 无边 攻击距离施法距离
@@ -160,7 +160,7 @@
 		"AbilityValues"
 		{
 			"bonus_attack_range"		"150 250"			// 150
-			"bonus_cast_range"			"300 450"			// 350
+			"bonus_cast_range"			"200 300"			// 275
 		}
 	}
 	// 永恒 负面时间技能增强
@@ -168,8 +168,8 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_amp"		"15 30"						// 10 15
-			"spell_amp"			"30 60"						// 8 16
+			"debuff_amp"		"15 30"						// 8 15
+			"spell_amp"			"30 60"						// 6 16
 		}
 	}
 	// 巨神 基础攻击状态抗性
@@ -178,8 +178,8 @@
 		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"base_attack_damage"		"20 40 60 80"				// 10 20
-			"status_resistance"			"15 30 45 60"				// 10 15
+			"base_attack_damage"		"20 40 60 80"				// 8 12 16
+			"status_resistance"			"15 20 25 30"				// 10 12 14
 		}
 	}
 	//=================================================================================================================
@@ -192,9 +192,9 @@
 		"ItemIsNeutralPassiveDrop"		"1"
 		"AbilityValues"
 		{
-				"melee_attack_range"			"50"	//50
-				"bonus_damage"		"10"				//8
-				"bonus_armor"		"5"					//4
+				"melee_attack_range"			"50"	// 50
+				"bonus_damage"		"10"				// 8
+				"bonus_armor"		"5"					// 4
 		}
 	}
 	// 加速护符 炸弹人天命bug暂时移除
@@ -204,8 +204,8 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_cooldown"			"6 12"			//10
-			"bonus_health_regen"		"6 12"			//10
+			"bonus_cooldown"			"6 12"			// 10
+			"bonus_health_regen"		"6 12"			// 10
 		}
 	}
 	//仙灵饰品
@@ -227,9 +227,9 @@
 		"MaxLevel"						"1"
 		"AbilityValues"
 		{
-				"bonus_cooldown"		"20"			//12
-				"bonus_all_stats"		"16"			//5
-				"mana_regen"			"8"				//2
+				"bonus_cooldown"		"20"			// 12
+				"bonus_all_stats"		"16"			// 5
+				"mana_regen"			"8"				// 2
 		}
 	}
 	//骑士剑
@@ -238,9 +238,9 @@
 		"ItemIsNeutralPassiveDrop"		"1"
 		"AbilityValues"
 		{
-			"bonus_damage"			"120"			//16
-			"bonus_lifesteal"		"40"			//16
-			"bonus_spell_lifesteal"	"30"			//8
+			"bonus_damage"			"120"			// 16
+			"bonus_lifesteal"		"40"			// 16
+			"bonus_spell_lifesteal"	"30"			// 8
 		}
 	}
 	// 迷踪 闪避移速
@@ -262,7 +262,7 @@
 		"AbilityValues"
 		{
 			"movement_speed"			"60 120"		// 30
-			"bonus_night_vision"		"400 800"	// 250
+			"bonus_night_vision"		"400 800"		// 250
 			"bonus_damage"				"150 300"		// 15
 		}
 	}
@@ -273,8 +273,8 @@
 		"AbilityValues"
 		{
 			"attack_speed"				"50 100"		// 25
-			"magic_resist"				"30 50"		// 15
-			"bonus_health"				"1000 2000"	// 205
+			"magic_resist"				"30 50"			// 15
+			"bonus_health"				"1000 2000"		// 205
 		}
 	}
 	// 滋补 蓝量回血治疗增强
@@ -283,9 +283,9 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_mana"				"500 1000"	// 200
-			"bonus_hp_regen"			"20 40"		// 8
-			"heal_amp"					"25 50"		// 10
+			"bonus_mana"				"500 1000"		// 200
+			"bonus_hp_regen"			"20 40"			// 8
+			"heal_amp"					"25 50"			// 10
 		}
 	}
 	// 厚重 血量回蓝护甲
@@ -294,9 +294,9 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_health"				"1000 2000"	// 240
-			"bonus_mana_regen"			"10 20"		// 3
-			"bonus_armor"				"15 30"		// 7
+			"bonus_health"				"1000 2000"		// 240
+			"bonus_mana_regen"			"10 20"			// 3
+			"bonus_armor"				"15 30"			// 7
 		}
 	}
 }
