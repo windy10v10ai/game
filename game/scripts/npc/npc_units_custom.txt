@@ -115,16 +115,16 @@
 
 		// Armor
 		//----------------------------------------------------------------
-		"ArmorPhysical"				"50"			// 30
-		"MagicalResistance"			"75"			// 55
+		"ArmorPhysical"				"10"			// 30
+		"MagicalResistance"			"50"			// 55
 
 		// Attack
 		//----------------------------------------------------------------
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"AttackDamageMin"			"200"		// 75
-		"AttackDamageMax"			"200"		// 75
+		"AttackDamageMin"			"50"		// 75
+		"AttackDamageMax"			"50"		// 75
 		"AttackDamageType"			"DAMAGE_TYPE_ArmorPhysical"
-		"AttackRate"				"1.4"		// 2.0
+		"AttackRate"				"1.7"		// 2.0
 		// Movement
 		//----------------------------------------------------------------
 		"MovementSpeed"				"400"		// 270

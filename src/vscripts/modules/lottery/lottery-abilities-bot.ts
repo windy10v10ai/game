@@ -197,7 +197,7 @@ export const abilityTiersPassiveBot: Tier[] = [
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
-      'rubick_might_and_magus2', // 拉比克 力量与魔法 魔剑
+      'rubick_might_and_magus2', // 拉比克 力量与魔法
       'death_prophet_witchcraft2', // 死亡先知 巫术精研
       'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂
 

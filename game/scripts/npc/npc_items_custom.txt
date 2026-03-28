@@ -3677,7 +3677,7 @@
 
 		"AbilityValues"
 		{
-				"bonus_gold"			"1000"
+				"bonus_gold"			"500"
 		}
 	}
 	// "item_bag_of_season_point"

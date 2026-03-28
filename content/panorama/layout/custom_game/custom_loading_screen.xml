@@ -29,15 +29,16 @@
 							<Label text="3" id="3"/>
 							<Label text="4" id="4"/>
 							<Label text="5" id="5"/>
+							<Label text="6" id="6"/>
 							<Label text="7" id="7"/>
+							<Label text="8" id="8"/>
 							<Label text="9" id="9"/>
 							<Label text="10" id="10"/>
 							<Label text="11" id="11"/>
 							<Label text="12" id="12"/>
 							<Label text="15" id="15"/>
 							<Label text="20" id="20"/>
-							<Label text="40" id="40"/>
-							<Label text="100" id="100"/>
+							<Label text="#bot_gold_xp_multiplier_40" id="40"/>
 						</DropDown>
 					</Panel>
 					<Panel id="RadiantPlayerNumberMultiplierPanel"	class="GameOptionsSubPanel">

@@ -136,11 +136,11 @@
 			}
 			"damage"
 			{
-				"value" "300"	// 70
+				"value" "50"	// 70
 			}
 			"damage_growth"
 			{
-				"value" "50"
+				"value" "50"	// 10
 			}
 		}
 	}
@@ -167,8 +167,8 @@
 		"AbilityValues"
 		{
 			"cast_range"				"600"		// 300
-			"damage"					"500"		// 200
-			"damage_per_combo"			"500"		// 100
+			"damage"					"400"		// 200
+			"damage_per_combo"			"400"		// 100
 			"damage_growth_curr_hp_pct"
 			{
 				"value"		"1"						// 0.5
