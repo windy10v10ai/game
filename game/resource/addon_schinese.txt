@@ -49,10 +49,12 @@
 		"radiant_player_number_1"						"1  (简单)"
 		"radiant_player_number_10"						"10 (困难)"
 
+		"bot_gold_xp_multiplier_40"						"40 (游戏容易崩溃)"
+
 		"respawn_time_percentage_slow"					"较慢"
 		"respawn_time_percentage_normal"				"普通"
 		"respawn_time_percentage_fast"					"快速"
-		"respawn_time_percentage_0"						"秒活 (可能卡顿)"
+		"respawn_time_percentage_0"						"秒活 (游戏容易崩溃)"
 
 		"fixed_ability_none"							"无"
 		"fixed_ability_ability_trigger_on_attacked_name"	"蝴蝶效应 · 金身"
@@ -880,9 +882,14 @@
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"助攻经验奖励："
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"击杀守卫/信使奖励经验："
 
-		// 魔剑
-		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"魔剑"
-		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"每%one_tooltip%%%的技能增强获得%bonus_damage_pct_tooltip%%%的攻击力和%magic_resist_pct_tooltip%%%的魔抗"
+		// 力量与魔法
+		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"力量与魔法"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"拉比克施放法术时获得可叠加的作用范围加成。"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"				"作用范围加成："
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_magic_resist_bonus"		"%魔法抗性加成："
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus_duration"		"额外持续时间："
+		"DOTA_Tooltip_modifier_rubick_might_and_magus2"							"力量与魔法"
+		"DOTA_Tooltip_modifier_rubick_might_and_magus2_Description"				"技能作用范围提升%dMODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING%，魔法抗性提升%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
 
 		// 蝴蝶效应·蓝武（攻击触发）
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills"							"<font color='#0096FF'>蝴蝶效应 · 蓝武</font>"
