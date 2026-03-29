@@ -563,11 +563,9 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"持续时间："
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"精准光环"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"根据当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"卓尔游侠根据她自身的当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%基础敏捷加成："
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%每级敏捷加成："
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%总敏捷加成："
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus"					"%敏捷加成："
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"作用范围："
 
 		//长角抛物
@@ -824,8 +822,8 @@
 		// 死亡先知
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"巫术精研"
 		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"死亡先知的神秘学识随着经验积累而加深，获得移动速度和技能冷却时间减少。"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_pct_per_level"	"%移动速度加成："
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_pct_per_level" "%冷却时间减少："
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_pct"				"%移动速度加成："
+		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_pct"			"%冷却时间减少："
 
 		// 魔法盾
 		"DOTA_Tooltip_ability_medusa_mana_shield2"								"魔法盾"
@@ -1206,6 +1204,9 @@
 		// 噬魂鬼 狂暴
 		"DOTA_Tooltip_ability_life_stealer_rage_status_resist"							"%状态抗性："
 		"DOTA_Tooltip_ability_life_stealer_rage_bonus_armor"							"护甲："
+
+		// 虚空假面 逆转时空
+		"DOTA_Tooltip_ability_faceless_void_time_zone_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
 
 
 "DOTA_Tooltip_ability_ability_mind_control"                     "夺舍"
