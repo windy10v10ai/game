@@ -232,7 +232,6 @@ export class EventEntityKilled {
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
   private dropItemChanceNeutral = 0.2;
-  public static roshanKillCount = 0;
   //符文
   private dropItemListFusionMaterial: string[] = [
     'item_fusion_hawkeye',
@@ -287,11 +286,17 @@ export class EventEntityKilled {
     const creepName = creep.GetName();
 
     if (creepName === 'npc_dota_roshan') {
-      EventEntityKilled.roshanKillCount++;
-      // 第一次击杀不掉落物品，return
-      if (EventEntityKilled.roshanKillCount < 2) {
-        return;
-      }
+      // 延迟移除无人捡取的金币袋
+      Timers.CreateTimer(this.removeGoldBagDelay, () => {
+        const goldBags = Entities.FindAllByClassname('dota_item_drop') as CDOTA_Item_Physical[];
+        for (const goldBag of goldBags) {
+          const itemName = goldBag.GetContainedItem().GetName();
+          if (itemName === 'item_bag_of_gold') {
+            goldBag.RemoveSelf();
+          }
+        }
+      });
+
       // 击杀肉山奖励
       if (PlayerHelper.IsGoodTeamUnit(attacker)) {
         // 龙珠掉落，不重复掉落
@@ -312,17 +317,6 @@ export class EventEntityKilled {
           this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceRoshan);
         }
       }
-
-      // 延迟移除无人捡取的金币袋
-      Timers.CreateTimer(this.removeGoldBagDelay, () => {
-        const goldBags = Entities.FindAllByClassname('dota_item_drop') as CDOTA_Item_Physical[];
-        for (const goldBag of goldBags) {
-          const itemName = goldBag.GetContainedItem().GetName();
-          if (itemName === 'item_bag_of_gold') {
-            goldBag.RemoveSelf();
-          }
-        }
-      });
     } else if (creep.IsAncient()) {
       // 击杀远古
       if (PlayerHelper.IsHumanPlayer(attacker)) {

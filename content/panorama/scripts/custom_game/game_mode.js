@@ -76,7 +76,7 @@ function InitCustomSetting() {
 
   $('#respawn_time_percentage_dropdown').SetSelected('50');
   $('#max_level_dropdown').SetSelected('200');
-  $('#tower_power_dropdown').SetSelected('400');
+  $('#tower_power_dropdown').SetSelected('300');
 
   $('#starting_gold_player_dropdown').SetSelected('5000');
   $('#starting_gold_bot_dropdown').SetSelected('3000');
@@ -190,7 +190,7 @@ function InitN6Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('9');
 
-  $('#tower_power_dropdown').SetSelected('400');
+  $('#tower_power_dropdown').SetSelected('350');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('5000');
@@ -199,7 +199,7 @@ function InitN7Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('11');
 
-  $('#tower_power_dropdown').SetSelected('500');
+  $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('5000');
