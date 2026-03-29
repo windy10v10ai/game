@@ -60,6 +60,7 @@ description: Create a GitHub pull request from the current branch to the `develo
   - 若没有关联 issue：保留模板默认 checklist（`I have tested the changes works well.`）。
 - **Release Note 段**：
   - 按 **`.claude/skills/generate-changelog/SKILL.md`** 生成（含 `[b]...[/b]`、中英两段、Workshop 版本号与 `GAME_VERSION` 对应关系等）；PR 模板中有 `## Release Note` 占位时，将生成结果填入该段即可。
+  - **版本号**：以 Steam 创意工坊 changelog **最新已发**一条为基准递增 `a/b/c`；**不要**在 Steam 仍为 `v5.18x` 时仅因存在 open 的 `v5.19` release PR 就写 `v5.19a`（详见该技能「Workshop 版本号」节）。
 
 ### 5) 创建 PR（当前分支 → develop）
 

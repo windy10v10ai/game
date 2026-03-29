@@ -55,29 +55,29 @@ disable-model-invocation: true
 
 ## Workshop 版本号：Steam 与 GitHub release PR
 
-生成或核对「下一版」更新日志标题中的版本号时，**同时**看两处：
+生成「下一版」**Workshop 标题**时：**必须先读 Steam 已发记录**，再参考 GitHub；**禁止**在 Steam 仍停留在某一 `v5.xx` 线时，仅因存在 open 的 `v5.(xx+1)` release PR 就写成 `v5.(xx+1)a`（例如 Steam 最新为 **v5.18b** 时，日常 PR 应用 **v5.18c**，而不是 **v5.19a**）。
 
-### 1) Steam 已发布版本（事实基准）
+### 1) Steam 已发布版本（最高优先级 / 事实基准）
 
 - 创意工坊更新记录：[Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570)
-- 取页面上**最新一条**更新的版本号（例如 `Gameplay update v5.17` → 已对外发布的大版本为 **5.17**）。
+- 取页面上**最新一条**标题里的版本号，**含补丁字母**（例如 `Gameplay update v5.18b` → 当前对外线为 **5.18**，补丁档为 **b**）。
 
-### 2) GitHub 待合并的 release PR（大版本锚点）
+### 2) 下一版小更新（最常见）
 
-- PR 列表：[windy10v10ai/game Pull requests](https://github.com/windy10v10ai/game/pulls)
-- 在 **Open** 的 PR 中，筛选带有 **`release`** 标签的 PR；**以大版本为准的版本号取自该 PR 的标题**（例如标题 `v5.17` → 大版本 **5.17**）。
-- 建议用 CLI 一次性列出（需已安装并登录 `gh`）：
+- 在 **Steam 最新同一大版本**下，补丁字母顺延：**`v5.18b` → `v5.18c`** → `v5.18d`…
+- 若 Steam 最新为**无字母**的 `v5.19`，则下一小更一般为 **`v5.19a`**。
 
-```bash
-gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url
-```
+### 3) GitHub open 的 release PR（仅作「即将发布的大版本」参考）
 
-- **多条 open 的 release PR**：以与当前发布流程一致的那条为准（通常只有一条；若不止一条，结合标题中的版本号与 Steam 已发版本人工判断，或询问维护者）。
+- 命令：`gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`
+- 标题如 `v5.19` 表示**准备中的下一大版本**；**只要 Steam 最新仍是 `v5.18x`，Workshop 文案就仍跟 5.18 线递增字母**，不要把本次改动标成 `v5.19a`。
+- **当** Steam 已出现新大版本、或维护者明确「本条随 release 首包上线」时，再按新大版本起标题（`v5.19` 或 `v5.19a` 等）。
+- 多条 open release PR 时：与维护者或 Steam 实况对齐后择一，不确定则**问用户**。
 
-### 3) 下一版文案用 `v5.xx` 还是 `v5.xxa/b/c`？
+### 4) 大版本切换（较少由单条 PR 决定）
 
-- **存在**带 `release` 标签且仍为 **Open** 的 PR，且其标题中的大版本与当前发布线一致时：**保持该大版本不变**，在 Workshop 上追加的补丁说明依次使用 **a、b、c**…（例如已发 Steam 为 `v5.17`，则下一条可写 **`v5.17a`**，再下一条 **`v5.17b`**）。
-- **不存在**上述 open 的 release PR 时：视为上一大版本已合完，**大版本号递增**（例如 `v5.17` → **`v5.18`**），新说明用新大版本，一般不再带 `a`（除非你们后续又约定在同一大版本下继续打补丁）。
+- Steam 上出现新的无后缀大版本（如 `v5.19`）后，后续小更再从 **`v5.19a`** 起。
+- **不要**把「仓库里 `GameConfig` / release PR 标题已写 5.19」自动等同于「Steam 已发 5.19」。
 
 > 与 `GAME_VERSION`（`GameConfig.ts`）的关系不变：代码里仍用无 a/b/c 的 `v5.xx`；只有 Workshop 文案里可出现 `v5.xx` / `v5.xxa`。
 
@@ -161,9 +161,8 @@ gh pr list --repo windy10v10ai/game --state open --label release --json number,t
    - 包含 `#` 或纯数字 → 从 PR 提取
    - 否则 → 视为手动提供的更新内容
 2. **确定版本号**（用户未明确写出 `v5.xx` / `v5.xxa` 时必做）：
-   - 查阅 Steam 创意工坊 [changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 最新已发布版本。
-   - 运行 `gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url`，从 **标题** 读取待发布大版本。
-   - 按上文「Workshop 版本号：Steam 与 GitHub release PR」决定本次标题用新大版本还是同一大版本下的 `a/b/c`。
+   - **先**查 Steam [changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 最新一条（含 `a/b/c`），在同一大版本下递增字母得到下一 Workshop 标题。
+   - **再**看 `gh pr list … --label release`：仅当 Steam 已跟上新大版本或用户明确随 release 首发时，才采用 release PR 上的新大版本号；**勿**在 Steam 仍为 `v5.18x` 时用 `v5.19a`。
 3. **生成更新日志**：
    - PR：提取并归纳为 3-5 条（不足则按实际）
    - 文本：直接按用户提供内容生成条目
