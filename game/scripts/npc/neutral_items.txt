@@ -236,7 +236,6 @@
 				"item_flayers_bota"					"1"		// 剥皮血囊
 				"item_metamorphic_mandible"			"1"		// 变态上颚
 				"item_dandelion_amulet"				"1"		// 蒲公英护符
-				"item_enchanters_bauble"			"1"		// 附魔师之椟
 				"item_prophets_pendulum"			"1"		// 先知灵摆
 				"item_conjurers_catalyst"			"1"		// 咒术师触媒
 
@@ -251,6 +250,7 @@
 				"item_seer_stone"					"1"		// 先哲之石
 				"item_repair_kit"					"1"		// 维修器具
 				"item_mirror_shield"				"1"		// 神镜盾
+				"item_magnifying_monocle"			"1"		// 放大单片镜
 
 			}
 
@@ -324,10 +324,12 @@
 				"item_harmonizer"					"1"		// 协和
 				"item_heavy_blade"					"1"		// 行巫之祸
 
+				// 级别移动
+				"item_enchanters_bauble"			"1"		// 附魔师之椟
+
 				// 额外添加
 				"item_nemesis_curse"				"1"		// 天诛之咒
 				"item_ceremonial_robe"				"1"		// 祭礼长袍
-				"item_magnifying_monocle"			"1"		// 放大单片镜
 				"item_ballista"						"1"		// 弩炮
 				"item_giants_ring"					"1"		// 巨人之戒
 				"item_ex_machina"					"1"		// 机械之心

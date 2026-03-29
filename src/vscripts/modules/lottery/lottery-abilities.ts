@@ -204,7 +204,6 @@ export const abilityTiersPassive: Tier[] = [
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
       'rubick_might_and_magus2', // 拉比克 力量与魔法
-      'death_prophet_witchcraft2', // 死亡先知 巫术精研
 
       'ability_trigger_learned_skills', //蓝蝴蝶
       'ability_trigger_on_spell_reflect', //绿蝴蝶
@@ -245,6 +244,7 @@ export const abilityTiersPassive: Tier[] = [
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
       'medusa_mana_shield2', // 魔法盾
+      'death_prophet_witchcraft2', // 死亡先知 巫术精研
     ],
   },
   {
@@ -260,7 +260,7 @@ export const abilityTiersPassive: Tier[] = [
       'huskar_berserkers_blood', // 狂战士之血
       'legion_commander_moment_of_courage', // 勇气之霎
       'abyssal_underlord_atrophy_aura', // 衰退光环
-      'obsidian_destroyer_equilibrium', // 精华变迁
+      // 'obsidian_destroyer_equilibrium', // 精华变迁
       'abaddon_frostmourne', // 魔霭诅咒
       'lycan_feral_impulse', // 野性驱使
 

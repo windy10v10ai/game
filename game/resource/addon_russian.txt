@@ -280,14 +280,6 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% шанс уклонения и нанести критический урон. После активации эффекта скорость передвижения увеличивается на 30%, а шанс уклонения и критической атаки утраивается"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Критический урон: "
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"Длительность： "
-		//精准光环
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Даёт владельцу дополнительную ловкость, зависящую от его уровня и от текущего показателя ловкости. Герои дальнего боя неподалёку получают %trueshot_agi_bonus_allies_pct%%% от бонуса."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"Коротая своё одиночество в бесконечных тренировках, Траксекс научилась передавать толику своего мастерства любому лучнику."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%БАЗОВЫЙ БОНУС К ЛОВКОСТИ:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%БОНУС К ЛОВКОСТИ ЗА УРОВЕНЬ:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%СУММАРНЫЙ БОНУС К ЛОВКОСТИ:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"РАДИУС:"
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"

@@ -3084,14 +3084,7 @@
 		{
 			"duration"
 			{
-				"value"				"5 6 7 8"
-				"special_bonus_unique_omniknight_guardian_angel_duration"			"+2"
-			}
-			"radius"
-			{
-				"value"						"250"
-				"affected_by_aoe_increase"	"1"
-				"special_bonus_scepter"		"+150"
+				"value"				"4.5 5 5.5 6"
 			}
 			"AbilityCooldown"
 			{
@@ -5671,7 +5664,11 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"trueshot_agi_bonus_base"			"4 8 12 16 20"
+				"trueshot_agi_bonus"
+				{
+					"value"				"10"
+					"hero_levelup"		"+0.5"
+				}
 		}
 	}
 	//=================================================================================================================
@@ -5881,6 +5878,7 @@
 	"faceless_void_time_zone"
 	{
 		"MaxLevel"						"4"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastRange"				"900"		// 500
 		"AbilityCooldown"				"120"	// 155/145/135 固定 120
 		"AbilityManaCost"				"125 200 275 350"
@@ -9832,14 +9830,13 @@
 	{
 		"AbilityValues"
 		{
-			"movement_speed_pct_per_level"
+			"movement_speed_pct"
 			{
-				"value"				"1"		// 0.75
+				"value"				"1"		// 0.5
 				"hero_levelup"		"+0.5"	// +0.75
 			}
-			"cooldown_reduction_pct_per_level"
+			"cooldown_reduction_pct"
 			{
-				"value"				"1"		// 0.75
 				"hero_levelup"		"+0.5"	// +0.75
 			}
 		}
