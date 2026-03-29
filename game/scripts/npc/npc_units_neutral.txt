@@ -400,13 +400,6 @@
 		"BountyGoldMax"					"33"		//25
 	}
 
-	// "npc_dota_wraith_ghost" // 怨灵
-	// {
-	// 	"BountyXP"						"20"		//14
-	// 	"BountyGoldMin"					"17"		//12
-	// 	"BountyGoldMax"					"18"		//13
-	// }
-
 	"npc_dota_neutral_fel_beast" // 魔能之魂
 	{
 		"BountyXP"						"34"		//26
