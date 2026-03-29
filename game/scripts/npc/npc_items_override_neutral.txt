@@ -465,7 +465,7 @@
 		}
 	}
 	// 托莫干伞盖
-	"item_foragers_man"
+	"item_foragers_mana"
 	{
 		"AbilityValues"
 		{
@@ -1196,11 +1196,11 @@
 	{
 		"AbilityValues"
 		{
-			"enchantment_bonus_base"	"20"	// 15
+			"enchantment_bonus_base"	"25"	// 15
 
 			"enchantment_bonus_growth"
 			{
-				"value"					"50"	// 40
+				"value"					"25"	// 40
 			}
 		}
 	}

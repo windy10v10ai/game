@@ -1,11 +1,11 @@
 ---
 name: create-pr
-description: Create a GitHub pull request from the current branch to the `develop` branch. Stages and commits all local changes, pushes the branch, then creates a PR using `.github/pull_request_template.md` and Release Note style from `content/maps/changelog.md`. Auto-fills the related issue from branch name `feature/<issue-id>`, but does not post comments to the issue.
+description: Create a GitHub pull request from the current branch to the `develop` branch. Stages and commits all local changes, pushes the branch, then creates a PR using `.github/pull_request_template.md`. Release Note wording follows `.claude/skills/generate-changelog/SKILL.md`. Auto-fills the related issue from branch name `feature/<issue-id>`, but does not post comments to the issue.
 ---
 
 # /create-pr
 
-从**当前分支**创建指向 **`develop`** 分支的 PR，并且**提交 + 推送当前所有改动**。PR 正文按 `.github/pull_request_template.md`，Release Note 的写法参照 `content/maps/changelog.md`。
+从**当前分支**创建指向 **`develop`** 分支的 PR，并且**提交 + 推送当前所有改动**。PR 正文按 `.github/pull_request_template.md`。**Release Note** 的格式、版本号与撰写规则一律参照 **`.claude/skills/generate-changelog/SKILL.md`**（本技能不展开示例正文）。
 
 ## 前置约束
 
@@ -61,35 +61,7 @@ description: Create a GitHub pull request from the current branch to the `develo
     - 若 issue 已包含任务列表（markdown checkbox），优先复用并按本次改动筛选。
   - 若没有关联 issue：保留模板默认 checklist（`I have tested the changes works well.`）。
 - **Release Note 段**：
-  - 生成**中英文各一段**，格式与模板一致（使用 `[b]...[/b]` 标题与 `- ` 列表）
-  - 写法参照 `content/maps/changelog.md`：简洁、面向玩家、合并相似项
-
-Release Note 模板（直接放进 PR 正文）：
-
-```text
-## Release Note
-
-```
-
-[b]游戏性更新 v{版本号}[/b]
-
-- {中文条目1}
-- {中文条目2}
-
-```
-
-```
-
-[b]Gameplay update v{版本号}[/b]
-
-- {English item 1}
-- {English item 2}
-
-```
-
-```
-
-> 版本号来源：优先读取 `src/vscripts/modules/GameConfig.ts` 中的 `GAME_VERSION`（例如 `v5.17`）。
+  - 按 **`.claude/skills/generate-changelog/SKILL.md`** 生成（含 `[b]...[/b]`、中英两段、Workshop 版本号与 `GAME_VERSION` 对应关系等）；PR 模板中有 `## Release Note` 占位时，将生成结果填入该段即可。
 
 ### 5) 创建 PR（当前分支 → develop）
 
