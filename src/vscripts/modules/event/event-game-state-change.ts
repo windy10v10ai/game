@@ -142,48 +142,6 @@ export class EventGameStateChange {
     InitializeItemUpgrades();
   }
 
-  private SpawnFountainGuard(): void {
-    // 天辉泉水位置
-    const fountainPosition = Vector(-5820, -6580, 384) as Vector;
-
-    const guard = CreateUnitByName(
-      'npc_windy',
-      fountainPosition,
-      true,
-      undefined,
-      undefined,
-      DotaTeam.BADGUYS,
-    );
-
-    if (guard !== undefined && guard !== null) {
-      guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
-      // print('[Fountain Guard] 泉水守卫已生成');
-    } else {
-      //print('[Fountain Guard] ERROR: 生成失败');
-    }
-  }
-
-  private SpawnFountainGuardDire(): void {
-    // 天辉泉水位置
-    const fountainPosition = Vector(5820, 6580, 384) as Vector;
-
-    const guard = CreateUnitByName(
-      'npc_windy',
-      fountainPosition,
-      true,
-      undefined,
-      undefined,
-      DotaTeam.BADGUYS,
-    );
-
-    if (guard !== undefined && guard !== null) {
-      guard.AddNewModifier(guard, undefined, 'modifier_rooted', {});
-      // print('[Fountain Guard] 泉水守卫已生成');
-    } else {
-      //print('[Fountain Guard] ERROR: 生成失败');
-    }
-  }
-
   /**
    * 设置玩家颜色（修正小地图不显示问题）
    */
