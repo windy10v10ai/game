@@ -14,8 +14,9 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly addAmountBase: number = 2; // Bot发钱的基础金额
-  private readonly addAmountNeedLevel: number = 100; // 每多少玩家等级增加1的金额
+  private readonly addAmountBase: number = 1; // Bot发钱的基础金额
+  private readonly addAmountPlayerNumberBonus: number = 0.2; // 每个玩家增加的金额
+  private readonly addAmountNeedLevel: number = 0.01; // 每玩家等级增加的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -41,19 +42,19 @@ export class BotTeam {
     const botGoldXpMultiplier = GameRules.Option.direGoldXpMultiplier || 1;
 
     if (botGoldXpMultiplier <= 3) {
-      this.baseBotPushMin = RandomInt(15, 18);
+      this.baseBotPushMin = RandomInt(16, 20);
     } else if (botGoldXpMultiplier <= 5) {
-      this.baseBotPushMin = RandomInt(12, 15);
+      this.baseBotPushMin = RandomInt(13, 16);
     } else if (botGoldXpMultiplier <= 8) {
-      this.baseBotPushMin = RandomInt(10, 12);
+      this.baseBotPushMin = RandomInt(11, 13);
     } else if (botGoldXpMultiplier <= 10) {
-      this.baseBotPushMin = RandomInt(7, 10);
+      this.baseBotPushMin = RandomInt(9, 11);
     } else if (botGoldXpMultiplier <= 15) {
-      this.baseBotPushMin = RandomInt(5, 7);
+      this.baseBotPushMin = RandomInt(7, 9);
     } else if (botGoldXpMultiplier <= 20) {
-      this.baseBotPushMin = RandomInt(4, 5);
+      this.baseBotPushMin = RandomInt(5, 7);
     } else {
-      this.baseBotPushMin = RandomInt(3, 4);
+      this.baseBotPushMin = RandomInt(4, 5);
     }
 
     // 初始化时，动态推进时间等于基础推进时间
@@ -103,11 +104,11 @@ export class BotTeam {
     if (towerPower <= 200) {
       return 12;
     } else if (towerPower <= 300) {
-      return 13;
-    } else if (towerPower <= 400) {
       return 14;
+    } else if (towerPower <= 400) {
+      return 16;
     } else {
-      return 15;
+      return 18;
     }
   }
 
@@ -175,7 +176,7 @@ export class BotTeam {
    * 根据玩家等级（seasonLevel + memberLevel）增加
    */
   private initAddAmount(): void {
-    const playerNumberBonus = Player.GetPlayerCount() / 2;
+    const playerNumberBonus = Player.GetPlayerCount() * this.addAmountPlayerNumberBonus;
 
     // 遍历所有玩家，计算总等级
     let totalLevel = 0;
@@ -185,7 +186,7 @@ export class BotTeam {
       totalLevel += seasonLevel + memberLevel;
     }
 
-    const levelBonus = totalLevel / this.addAmountNeedLevel;
+    const levelBonus = totalLevel * this.addAmountNeedLevel;
 
     this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
     print(
