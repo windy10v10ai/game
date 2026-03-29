@@ -83,8 +83,8 @@
 							<Label text="350%" id="350"/>
 							<Label text="400%" id="400"/>
 							<Label text="500%" id="500"/>
-							<Label text="600%" id="600"/>
-							<Label text="700%" id="700"/>
+							<!-- <Label text="600%" id="600"/>
+							<Label text="700%" id="700"/> -->
 						</DropDown>
 					</Panel>
 
