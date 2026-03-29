@@ -50,10 +50,8 @@ description: Create a GitHub pull request from the current branch to the `develo
 模板来源：`.github/pull_request_template.md`，需要生成的 PR body 满足以下规则：
 
 - **Issue 段**：
-  - 把 `fix #9999` 替换为 `fix #<issue-id>`（如果成功提取 `<issue-id>`）
-  - 如果提取失败：先询问用户是否要关联某个 `issue-id`
-    - 用户提供 `issue-id`：按 `fix #<issue-id>` 填入
-    - 用户明确表示不关联：**从 PR 正文中省略整个 Issue 段**（不保留 `fix #9999` 占位）
+  - **保留模板行格式**：`- [ ] fix #<issue-id>`（仅将 `9999` 换成 `<issue-id>`），**不要**改成单独一行 `fix #…`。
+  - 若提取失败：询问是否关联 `issue-id`；用户提供则同样写 `- [ ] fix #<issue-id>`；用户明确不关联则**整段删除**（含 `## Issue` 下内容）。
 - **Checklist 段**：
   - 若有关联 `issue-id`：先读取 issue 内容并生成**具体 checklist 条目**（按 issue 的验收标准/任务拆分），不要只保留通用句子。
     - 建议命令：`gh issue view <issue-id> --repo windy10v10ai/game --json title,body -q ".title + \"\\n\" + .body"`
@@ -78,7 +76,7 @@ description: Create a GitHub pull request from the current branch to the `develo
   - **中文标题也常见**：可直接中文描述（如“修复/优化/同步/新增...”），或中英混合（如 `Dota2 7.41 Sync ...`）。
   - **长度与内容**：建议 4-12 个词，聚焦一个主题；多改动可用逗号连接，不建议拆成很长句。
   - **标点**：可带句号但不强制；保持一致即可（仓库中有带句号与不带句号两种）。
-  - **Issue 关联**：标题一般不写 `#<issue-id>`，在 PR body 的 Issue 段写 `fix #<issue-id>`。
+  - **Issue 关联**：标题一般不写 `#<issue-id>`；正文 Issue 段用 `- [ ] fix #<issue-id>`。
   - **示例**：
     - Issue: “Roshan 过强” + Release Note 核心是削弱 Roshan → `Adjust Roshan durability and rewards`
     - Issue: “N7 过难” → `Reduce N7 difficulty`
@@ -94,7 +92,7 @@ description: Create a GitHub pull request from the current branch to the `develo
 ### 6) Issue 处理策略
 
 - 不在关联 issue 下自动评论（默认禁用 `gh issue comment`）。
-- 仅在 PR 正文的 Issue 段中体现关联关系（如 `fix #<issue-id>`）。
+- 仅在 PR 正文的 Issue 段中体现关联关系（`- [ ] fix #<issue-id>`）。
 
 ## 输出给用户（完成后）
 
