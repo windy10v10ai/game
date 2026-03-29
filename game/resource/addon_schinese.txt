@@ -1207,6 +1207,9 @@
 		"DOTA_Tooltip_ability_life_stealer_rage_status_resist"							"%状态抗性："
 		"DOTA_Tooltip_ability_life_stealer_rage_bonus_armor"							"护甲："
 
+		// 虚空假面 逆转时空
+		"DOTA_Tooltip_ability_faceless_void_time_zone_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
+
 
 "DOTA_Tooltip_ability_ability_mind_control"                     "夺舍"
 "DOTA_Tooltip_ability_ability_mind_control_Description"         "夺舍一个敌方AI英雄%duration%秒。你可以暂时操控该英雄的移动，攻击和施法。在控制期间,该英雄队伍转变，且击杀和被击杀都算到你头上。但AI残余的意识还可能与你争抢，拼手速的时候到了"

@@ -5881,6 +5881,7 @@
 	"faceless_void_time_zone"
 	{
 		"MaxLevel"						"4"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastRange"				"900"		// 500
 		"AbilityCooldown"				"120"	// 155/145/135 固定 120
 		"AbilityManaCost"				"125 200 275 350"
