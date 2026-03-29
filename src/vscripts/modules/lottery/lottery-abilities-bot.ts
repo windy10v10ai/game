@@ -254,7 +254,7 @@ export const abilityTiersPassiveBot: Tier[] = [
       'huskar_berserkers_blood', // 狂战士之血
       'legion_commander_moment_of_courage', // 勇气之霎
       'abyssal_underlord_atrophy_aura', // 衰退光环
-      'obsidian_destroyer_equilibrium', // 精华变迁
+      // 'obsidian_destroyer_equilibrium', // 精华变迁
       'abaddon_frostmourne', // 魔霭诅咒
       'lycan_feral_impulse', // 野性驱使
 
