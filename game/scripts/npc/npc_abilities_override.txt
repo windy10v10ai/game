@@ -3088,7 +3088,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"80"
+				"value"								"90"
 			}
 		}
 	}
