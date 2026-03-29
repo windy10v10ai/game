@@ -41,19 +41,19 @@ export class BotTeam {
     const botGoldXpMultiplier = GameRules.Option.direGoldXpMultiplier || 1;
 
     if (botGoldXpMultiplier <= 3) {
-      this.baseBotPushMin = RandomInt(16, 20);
+      this.baseBotPushMin = RandomInt(15, 18);
     } else if (botGoldXpMultiplier <= 5) {
-      this.baseBotPushMin = RandomInt(13, 16);
+      this.baseBotPushMin = RandomInt(12, 15);
     } else if (botGoldXpMultiplier <= 8) {
-      this.baseBotPushMin = RandomInt(11, 13);
+      this.baseBotPushMin = RandomInt(10, 12);
     } else if (botGoldXpMultiplier <= 10) {
-      this.baseBotPushMin = RandomInt(9, 11);
+      this.baseBotPushMin = RandomInt(7, 10);
     } else if (botGoldXpMultiplier <= 15) {
-      this.baseBotPushMin = RandomInt(7, 9);
-    } else if (botGoldXpMultiplier <= 20) {
       this.baseBotPushMin = RandomInt(5, 7);
-    } else {
+    } else if (botGoldXpMultiplier <= 20) {
       this.baseBotPushMin = RandomInt(4, 5);
+    } else {
+      this.baseBotPushMin = RandomInt(3, 4);
     }
 
     // 初始化时，动态推进时间等于基础推进时间
@@ -103,11 +103,11 @@ export class BotTeam {
     if (towerPower <= 200) {
       return 12;
     } else if (towerPower <= 300) {
-      return 14;
+      return 13;
     } else if (towerPower <= 400) {
-      return 16;
+      return 14;
     } else {
-      return 18;
+      return 15;
     }
   }
 
@@ -148,15 +148,15 @@ export class BotTeam {
     // 动态计算推进时间
     // 获取Bot团队平均等级
     const avgLevel = this.getBotTeamAverageLevel();
-    const isStartPushForce = avgLevel >= 50;
+    const isStartPushForce = avgLevel >= this.botPushLevel;
 
     const gameTime = GameRules.GetDOTATime(false, false);
     const gameModeEntity = GameRules.GetGameModeEntity();
 
-    if (gameTime >= 10 * 60) {
+    if (gameTime >= this.botPushMin * 4 * 60) {
       // LATEGAME - 无限制推进
       gameModeEntity.SetBotsMaxPushTier(-1);
-    } else if (gameTime >= 5 * 60 || isStartPushForce) {
+    } else if (gameTime >= this.botPushMin * 60 || isStartPushForce) {
       // MIDGAME - 开始推进 根据防御塔状态计算推进策略
       const pushTier = this.calculatePushTierByTowerStatus();
       gameModeEntity.SetBotsMaxPushTier(pushTier);

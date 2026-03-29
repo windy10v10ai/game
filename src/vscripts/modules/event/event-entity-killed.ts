@@ -22,6 +22,12 @@ export class EventEntityKilled {
   }
 
   OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
+    if (!keys.entindex_killed) {
+      return;
+    }
+    if (!keys.entindex_attacker) {
+      return;
+    }
     const killedUnit = EntIndexToHScript(keys.entindex_killed) as CDOTA_BaseNPC | undefined;
     const attacker = EntIndexToHScript(keys.entindex_attacker) as CDOTA_BaseNPC | undefined;
     if (!killedUnit) {
@@ -226,7 +232,7 @@ export class EventEntityKilled {
   private dropItemChanceRoshan = 100;
   private dropItemChanceAncient = 1.0;
   private dropItemChanceNeutral = 0.2;
-  private roshanKillCount = 0;
+  public static roshanKillCount = 0;
   //符文
   private dropItemListFusionMaterial: string[] = [
     'item_fusion_hawkeye',
@@ -281,9 +287,13 @@ export class EventEntityKilled {
     const creepName = creep.GetName();
 
     if (creepName === 'npc_dota_roshan') {
-      this.roshanKillCount++;
-      // 击杀肉山奖励，第二次击杀开始掉落物品奖励
-      if (this.roshanKillCount > 1 && PlayerHelper.IsGoodTeamUnit(attacker)) {
+      EventEntityKilled.roshanKillCount++;
+      // 第一次击杀不掉落物品，return
+      if (EventEntityKilled.roshanKillCount < 2) {
+        return;
+      }
+      // 击杀肉山奖励
+      if (PlayerHelper.IsGoodTeamUnit(attacker)) {
         // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
           creep,
