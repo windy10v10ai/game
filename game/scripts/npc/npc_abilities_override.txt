@@ -5671,7 +5671,11 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"trueshot_agi_bonus_base"			"4 8 12 16 20"
+				"trueshot_agi_bonus"
+				{
+					"value"				"10"
+					"hero_levelup"		"+0.5"
+				}
 		}
 	}
 	//=================================================================================================================
@@ -9833,14 +9837,13 @@
 	{
 		"AbilityValues"
 		{
-			"movement_speed_pct_per_level"
+			"movement_speed_pct"
 			{
-				"value"				"1"		// 0.75
+				"value"				"1"		// 0.5
 				"hero_levelup"		"+0.5"	// +0.75
 			}
-			"cooldown_reduction_pct_per_level"
+			"cooldown_reduction_pct"
 			{
-				"value"				"1"		// 0.75
 				"hero_levelup"		"+0.5"	// +0.75
 			}
 		}

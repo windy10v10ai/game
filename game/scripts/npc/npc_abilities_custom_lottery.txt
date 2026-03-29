@@ -221,13 +221,12 @@
 				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"trueshot_agi_bonus_base"			"4 8 12 16 18"
-			"trueshot_agi_bonus_per_level"		"1"
-			"trueshot_agi_bonus_allies_pct"		"50"
-			"agi_bonus_pct_tooltip"
+			"trueshot_agi_bonus"
 			{
-				"dynamic_value"						"true"
+				"value"				"10"
+				"hero_levelup"		"+0.5"
 			}
+			"trueshot_agi_bonus_allies_pct"		"50"
 		}
 
 	}
