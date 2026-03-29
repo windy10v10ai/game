@@ -563,11 +563,9 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"持续时间："
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"精准光环"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"根据当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"卓尔游侠根据她自身的当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%基础敏捷加成："
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%每级敏捷加成："
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%总敏捷加成："
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus"					"%敏捷加成："
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"作用范围："
 
 		//长角抛物

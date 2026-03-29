@@ -223,8 +223,8 @@
 			}
 			"trueshot_agi_bonus"
 			{
-				"value"				"10"
-				"hero_levelup"		"+0.5"
+				"value"				"25"		// 10
+				// "hero_levelup"		"+0.5"
 			}
 			"trueshot_agi_bonus_allies_pct"		"50"
 		}

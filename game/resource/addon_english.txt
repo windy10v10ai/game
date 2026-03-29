@@ -562,11 +562,9 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"duration："
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Grants bonus agility based on your current agility and the ability's level. Nearby ranged heroes receive %trueshot_agi_bonus_allies_pct%%% of the bonus."
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received %trueshot_agi_bonus_allies_pct%%% of the bonus agility."
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%AGILITY BASE BONUS:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%AGILITY BONUS PER LEVEL:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%TOTAL AGILITY BONUS:"
+		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus"					"%AGILITY BONUS:"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"RADIUS:"
 
 		//长角抛物
