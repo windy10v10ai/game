@@ -37,7 +37,32 @@ disable-model-invocation: true
 
 - 只填写 **override 的内容**，不需要全部复制官方 KV
 - KV 结构遵循 Dota 2 定义
-- 如果每级数值不同，需要适配修改后的最大等级（数值数量必须匹配 MaxLevel）
+- 若某字段为 **多级 `value`（空格分隔的多个数值）**：**数值个数必须与有效 `MaxLevel` 一致**（含 `AbilityManaCost`、`AbilityCooldown` 等同类多档字段，除非该字段在官方定义中明确为单值或特殊结构）。
+
+### MaxLevel 缺省时的有效等级（用于核对多级 value 个数）
+
+当 **override 与原版参考**（`docs/reference/{version}/heroes/...` 中该技能）**均未**写明 `MaxLevel` 时，用以下规则推断有效等级，用于检查多级 `value` 个数是否正确：
+
+| 条件                                     | 推断的有效 MaxLevel |
+| ---------------------------------------- | ------------------- |
+| `AbilityType` 为 `ABILITY_TYPE_ULTIMATE` | **3**               |
+| 其他                                     | **4**               |
+
+若 **任一侧**（override 或原版）已显式写出 `MaxLevel`，则以 **显式值**为准（本图另有大招 4 级、小技能 5 级等扩展规则时，仍以实际写入的 `MaxLevel` 与数组长度一致为准）。
+
+### 禁止重复原版（无差异不写）
+
+`npc_abilities_override.txt` 的目标是**只表达本图相对当前版本官方的差分**。同步 Dota 更新时，必须对照 `docs/reference/{version}/heroes/npc_dota_hero_{hero}.txt` 里同名技能的官方 KV：
+
+- **键与数值与官方完全一致**：不要写进 override（例如仅当本图需要与官方不同的耗蓝、伤害曲线时才覆盖 `AbilityManaCost`、`AbilityValues` 等）。
+- **`AbilityValues` 内子键**：若某字段（含 `special_bonus_*`、`RequiresShard` 等）与官方**逐字相同**，应从 override 中删除该行/该子块，避免无意义重复。
+- **整块与官方相同**：若某技能在 override 里已没有任意一条与官方不同的键，应**删除该技能的整个 override 块**。
+- **典型误写**（更新后常出现）：把官方已有的 `HasShardUpgrade`、`魔晶/天赋对应的 special_bonus_*` 再抄进 override——若与新版官方一致，**一律删除**。
+
+### 官方删除 / 重构字段时的清理
+
+- 官方在某版本中**删除**某键、或把效果从 **命石 `special_bonus_facet_*`** 改为 **魔晶 `special_bonus_shard`** 等：override 中旧结构必须同步删掉，**不得**保留已废弃的 facet 分支或仅存在于旧 Tooltip 里的键（例如某字段下的 `value` + 已不存在的 `special_bonus_facet_*` 组合）。
+- 清理后再次对比：override 中仅应保留「本图仍需要的差分」与「仍有效的扩展等级数组」等。
 
 ### 数值调整规则
 
@@ -81,13 +106,15 @@ disable-model-invocation: true
 
 - ✅ 应该做：
   - 使用精确检索定位技能位置，不要读取整个 override 文件
-  - 数值个数必须与 MaxLevel 匹配；不匹配时必须修正
+  - **多级 `value` 个数**必须与有效 `MaxLevel` 匹配；无 `MaxLevel` 时按上文「MaxLevel 缺省」规则推断后再核对；不匹配时必须修正
   - 有意加强/削弱时，保持加强方式
   - **属性删除**：官方删除某属性时，删除相关 override block
   - **技能移除**：官方移除整个技能时，删除对应 override block
-  - **与官方值相同**：更新后若与官方值相同，移除该属性
+  - **与官方值相同**：更新后若与官方值相同，移除该属性或整段技能块（见上文「禁止重复原版」）
+  - **同步官方重构**：命石/魔晶/天赋键名或结构变化时，删除 override 中过时键，避免双写或与官方重复
 - ❌ 不应该做：
   - 不要复制官方所有属性，只 override 必要的部分
+  - 不要把「与新版官方完全一致」的键抄进 override「方便对照」——对照应使用 `docs/reference/`，而不是重复进 override 文件
 
 ### 文件检索技巧
 
@@ -130,7 +157,7 @@ grep -n "hero_ability_name" game/scripts/npc/npc_abilities_override.txt
 ### 5) 应用修改
 
 - 修改 override 文件，保持原有缩进和格式
-- 修改后再次核对：数值数量与 MaxLevel 匹配、与官方相同的属性已移除、注释已同步
+- 修改后再次核对：**多级 `value` 个数**与有效 MaxLevel 匹配（无 `MaxLevel` 时按缺省规则推断）、**与新版官方重复的键已删除**、**官方已删除的 facet/旧键已从 override 移除**、注释已同步
 
 ### 6) 提交与汇报
 
@@ -152,4 +179,3 @@ Dota 2 {version} 更新处理完成
 - {hero_2}
 ...
 ```
-
