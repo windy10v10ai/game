@@ -292,7 +292,7 @@ export const abilityTiersPassiveBot: Tier[] = [
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'troll_warlord_fervor', // 热血战魂
       'visage_gravekeepers_cloak', // 陵卫斗篷
-      'life_stealer_ghoul_frenzy', // 尸鬼狂怒
+      // 'life_stealer_ghoul_frenzy', // 尸鬼狂怒
       'viper_corrosive_skin', // 腐蚀皮肤
       'rubick_null_field', // 失效立场
       'pangolier_lucky_shot', // 幸运一击
