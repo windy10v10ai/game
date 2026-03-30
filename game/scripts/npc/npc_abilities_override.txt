@@ -12447,6 +12447,12 @@
 				"value"					"1"
 				"special_bonus_shard"		"+1"	// .5
 			}
+			"total_chickens"
+			{
+				"value"				"1"
+				"hero_levelup"				"+1"
+				"levelup_interval"			"10"
+			}
 			"invuln_duration"
 			{
 				"special_bonus_shard"	"1"		// .1
