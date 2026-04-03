@@ -53,9 +53,20 @@ disable-model-invocation: true
 - **主要版本**：5.00, 5.10, 6.00（两位小数）
 - **Patch 版本**：5.00a, 5.00b（字母后缀）
 
-## Workshop 版本号：Steam 与 GitHub release PR
+## 特殊口令：`版本号+1`
 
-生成「下一版」**Workshop 标题**时：**必须先读 Steam 已发记录**，再参考 GitHub；**禁止**在 Steam 仍停留在某一 `v5.xx` 线时，仅因存在 open 的 `v5.(xx+1)` release PR 就写成 `v5.(xx+1)a`（例如 Steam 最新为 **v5.18b** 时，日常 PR 应用 **v5.18c**，而不是 **v5.19a**）。
+当用户明确输入 `版本号+1` 时，按**主版本递增**处理，而不是补丁字母递增：
+
+- 先读取 Steam 最新版本（如 `v5.18e`）。
+- 去掉字母后缀，仅取 `5.18`。
+- 版本号做 `+0.01` 得到下一主版本：`5.19`（展示为 `v5.19`）。
+- 该模式下**不**输出 `v5.18f`、`v5.19a` 这类补丁后缀，除非用户明确指定需要字母后缀。
+- 若存在 open release PR 且标题版本与计算结果一致（如 `v5.19`），可直接采用该版本；若不一致，先询问用户。
+
+## Workshop 版本号：Steam 与 GitHub release PR（默认规则）
+
+生成「下一版」**Workshop 标题**时：**必须先读 Steam 已发记录**，再参考 GitHub；**禁止**在 Steam 仍停留在某一 `v5.xx` 线时，仅因存在 open 的 `v5.(xx+1)` release PR 就写成 `v5.(xx+1)a`（例如 Steam 最新为 **v5.18b** 时，日常 PR 应用 **v5.18c**，而不是 **v5.19a**）。  
+注意：本节为**默认规则**，若用户明确输入 `版本号+1`，按上面的「特殊口令」执行。
 
 ### 1) Steam 已发布版本（最高优先级 / 事实基准）
 
@@ -170,6 +181,7 @@ disable-model-invocation: true
    - 包含 `#` 或纯数字 → 从 PR 提取
    - 否则 → 视为手动提供的更新内容
 2. **确定版本号**（用户未明确写出 `v5.xx` / `v5.xxa` 时必做）：
+   - 若用户参数包含 `版本号+1`：按「特殊口令：版本号+1」处理，输出下一主版本（如 `v5.19`）。
    - **先**查 Steam [changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 最新一条（含 `a/b/c`），在同一大版本下递增字母得到下一 Workshop 标题。
    - **再**看 `gh pr list … --label release`：仅当 Steam 已跟上新大版本或用户明确随 release 首发时，才采用 release PR 上的新大版本号；**勿**在 Steam 仍为 `v5.18x` 时用 `v5.19a`。
 3. **生成更新日志**：

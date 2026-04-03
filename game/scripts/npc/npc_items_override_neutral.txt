@@ -452,6 +452,7 @@
 	// 采菌套具
 	"item_foragers_kit"
 	{
+		"AbilityCooldown"				"30"		// 60
 		"AbilityValues"
 		{
 			"gold_amount"				"300"
