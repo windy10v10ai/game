@@ -218,7 +218,6 @@ export class Player {
 
   private PropertyLevelupFailure(_data: string) {
     // 刷新状态
-    // FIXME 有不必要的更新
     Player.savePlayerToNetTable();
   }
 
