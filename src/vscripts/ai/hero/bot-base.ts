@@ -392,6 +392,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const selectedEnhancement = NeutralItemManager.GetRandomTierEnhancements(
       targetTier,
       neutralItemConfig,
+      this.hero,
     );
     if (!selectedEnhancement) {
       print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
