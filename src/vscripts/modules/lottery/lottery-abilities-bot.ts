@@ -29,7 +29,6 @@ export const abilityTiersActiveBot: Tier[] = [
       'legion_commander_duel', // 决斗
       'mars_bulwark', // 护身甲盾
 
-      // 'ability_defection', //卧底
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
       'life_stealer_rage', // 狂暴

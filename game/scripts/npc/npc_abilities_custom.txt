@@ -89,21 +89,6 @@
             }
         }
 	}
-//卧底/叛变
-"ability_defection"
-{
-    "BaseClass"             "ability_lua"
-    "ScriptFile"            "abilities/ability_defection"
-    "AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"  // 改为 IMMEDIATE
-    "AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
-    "AbilityTextureName"    "defection"
-	"MaxLevel"              "3"
-    "RequiredLevel"         "6"
-    "LevelsBetweenUpgrades" "6"
-    "AbilityCastPoint"      "0.0"
-    "AbilityCooldown"       "3.0 1.5 0.0"  // 添加短冷却防止误触
-    "AbilityManaCost"       "200 100 0"
-}
 	//================================================
 	// dummy unit passive (collection of global modifiers)
 	//================================================
