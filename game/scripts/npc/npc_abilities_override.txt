@@ -8667,24 +8667,21 @@
 	// 毒刺
 	"venomancer_poison_sting"
 	{
-		"MaxLevel"					"7"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"duration"				"6 9 12 15 18 18 18"
 			"damage"
 			{
-				"value"				"50 80 110 140 170 210 240"
-				"special_bonus_unique_venomancer_201"		"+100"
+				"value"				"18"			// 9
+				"hero_levelup"		"+2"			// +1
 			}
 			"movement_speed"
 			{
-				"value"			"-8 -10 -12 -14 -16"
-				"special_bonus_unique_venomancer_2"		"-10"
+				"value"			"20"			// 10
+				"special_bonus_unique_venomancer_2"		"10"	// 7
 			}
 			"hp_regen_reduction"
 			{
-				"value"				"10"
+				"value"				"0"
 				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+25"	// +15
 			}
 		}

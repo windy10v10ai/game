@@ -288,7 +288,6 @@ export const abilityTiersPassiveBot: Tier[] = [
       'sniper_headshot', // 爆头
       'bounty_hunter_jinada', // 忍术
       'razor_storm_surge', // 风暴涌动
-      'venomancer_poison_sting', // 剧毒术士 毒刺
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'troll_warlord_fervor', // 热血战魂
       'visage_gravekeepers_cloak', // 陵卫斗篷
