@@ -594,7 +594,6 @@
 	{
 		"BaseClass"						"dragon_knight_dragon_blood"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"5"
 		"Innate"						"0"
 		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
 
