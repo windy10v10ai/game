@@ -329,12 +329,6 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
 
-
-		//神龙之血
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Текущая в жилах героя кровь дракона усиливает его восстановление здоровья и броню. Эти бонусы увеличиваются на %level_mult% за каждый уровень героя и умножаются в облике дракона."
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"			"ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ:"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"БРОНЯ:"
 		//才思敏捷
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2"				"Quick Wit"
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"	"Интеллект также увеличивает скорость атаки этого героя."

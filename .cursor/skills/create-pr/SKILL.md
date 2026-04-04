@@ -26,8 +26,9 @@ description: Create a PR from current branch to develop, committing all local ch
 3. 推送分支：`git push -u origin HEAD`。
 4. 组装 PR 正文（模板：`.github/pull_request_template.md`）：
    - Issue 段保留 `- [ ] fix #<issue-id>` 格式。
-   - 有 issue 时，基于 issue 生成 2-6 条可验证 checklist；无 issue 时保留模板默认 checklist。
+   - 有 issue 时基于 issue 内容，无 issue 时根据改动内容，生成数条可验证 checklist。
    - Release Note 必须遵循 `.claude/skills/generate-changelog/SKILL.md`（版本号与文案规则以该技能为准）。
+   - 必须先执行 `generate-changelog` 的版本推导步骤，再填写 Release Note 版本号：
 5. 创建 PR：`gh pr create --base develop --head <current-branch> --title "<title>" --body-file <temp-file>`。
 6. 回报结果：返回 PR URL、是否新建 commit（及 hash）。
 
