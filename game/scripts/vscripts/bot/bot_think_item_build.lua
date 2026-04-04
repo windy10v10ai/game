@@ -308,11 +308,6 @@ function BotThink:GetCooldownTotal(hHero)
       iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
     end
   end
-  -- TODO fix Parameter type mismatch GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  -- local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  -- if itemNeutral then
-  --   iCooldownTotal = iCooldownTotal + itemNeutral:GetCooldownTimeRemaining()
-  -- end
   return iCooldownTotal
 end
 

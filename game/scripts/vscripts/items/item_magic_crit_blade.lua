@@ -76,7 +76,6 @@ function MagicCritBladeOnSpellStart(keys)
     -- 添加主动效果 modifier，提供2倍法术增强
     caster:AddNewModifier(caster, ability, "modifier_item_magic_crit_blade_active", { duration = duration })
 
-    -- FIXME 寻找其他更合适的音效
     -- 播放音效和特效
     EmitSoundOn("Hero_DragonKnight.BreathFire", caster)
 

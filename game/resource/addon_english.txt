@@ -624,12 +624,11 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Steal gold when targeting enemy heroes with unit-target abilities or items."
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"GOLD STEAL:"
 
-		//神龙之血
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Lore"							"Slyrak's blood still courses through Davion's veins, giving him twice the vitality of an ordinary knight."
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Passively grants increased health regeneration and armor."
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"				"HP REGEN:"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"ARMOR:"
+		// 龙骑 龙族血统
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2"								"Dragon Blood"
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"The life blood of the Dragon improves Dragon Knight's health regeneration and armor.  <br><br>Regen and armor are increased by %regen_and_armor_multiplier_during_dragon_form%%% during Elder Dragon Form."
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"BONUS HP REGEN:"
 		//才思敏捷
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"Quick Wit"
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Every point of Intelligence also grants attack speed."
@@ -974,21 +973,6 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
-
-		"DOTA_Tooltip_ability_ability_mind_control"                     "Mind Control"
-		"DOTA_Tooltip_ability_ability_mind_control_Description"         "Take control of an enemy AI hero for %duration% seconds. You can temporarily control their movement, attacks, and spells. During the control period, the hero's team allegiance changes, and kills or deaths count towards you. However, the AI's residual consciousness may still compete with you for control."
-		"DOTA_Tooltip_ability_ability_mind_control_Lore"                "Invade the enemy's consciousness and briefly seize control of their body."
-		"DOTA_Tooltip_ability_ability_mind_control_duration"            "DURATION:"
-		"DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%STATUS RESISTANCE:"
-
-		"DOTA_Tooltip_ability_ability_defection"                     "Defection"
-		"DOTA_Tooltip_ability_ability_defection_Description"         "Switch freely between Radiant, Dire, and Neutral factions. Cannot attack human players on the Radiant side. 2 seconds delay before swith back to radiant. 20% damage decrease when in Neutral faction"
-		"DOTA_Tooltip_ability_ability_defection_Lore"                "Serve one master while your heart belongs to another, or simply betray them all?"
-
-		"DOTA_Tooltip_modifier_defection"                           "Defection"
-		"DOTA_Tooltip_modifier_defection_Description"               "1=Radiant, 2=Dire, 3=Neutral"
-
 		// Russian Roulette
 		"DOTA_Tooltip_ability_russian_roulette"                                 "Russian Roulette"
 		"DOTA_Tooltip_ability_russian_roulette_Description"                     "Challenges an enemy hero to a deadly game of Russian Roulette. Both the caster and target are rooted and unable to act. Over 6 seconds, damage is dealt alternately between the caster and target. One random shot deals fatal damage and kills the target instantly. If the enemy dies, cooldown is reduced by 100%%.\n\nDISPEL TYPE: Cannot be dispelled"
@@ -999,11 +983,6 @@
 		"DOTA_Tooltip_modifier_russian_roulette_root_Description"              "Locked in a deadly game. Cannot move, attack, cast spells, or use items."
 
 		// ---- bot技能 ----
-		// AI的复仇
-		"DOTA_Tooltip_ability_boss_death_power"						"AI's Revenge"
-		"DOTA_Tooltip_ability_boss_death_power_Description"			"Each time BotBoss is killed, it permanently gains damage reduction and damage output increase due to revenge. Each death increases damage reduction and damage output by 1%."
-		"DOTA_Tooltip_ability_boss_death_power_Lore"				"RN: Don't think just because it's a robot you can keep messing with it"
-
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."

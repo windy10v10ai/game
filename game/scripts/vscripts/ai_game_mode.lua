@@ -69,11 +69,6 @@ function AIGameMode:LinkLuaModifiers()
     LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     -- ✅ 新增: Boss行为modifier
     LinkLuaModifier("modifier_bot_boss_behavior", "bot/bot_boss_behavior", LUA_MODIFIER_MOTION_NONE)
-    -- 添加精神控制modifier
-    LinkLuaModifier("modifier_mind_control", "modifiers/modifier_mind_control.lua", LUA_MODIFIER_MOTION_NONE)
-    --print("[Defection] Linking modifier_defection")
-    LinkLuaModifier("modifier_defection", "modifiers/modifier_defection.lua", LUA_MODIFIER_MOTION_NONE)
-    --print("[Defection] modifier_defection linked successfully")
     -- 智力魔抗modifier
     LinkLuaModifier("modifier_intelect_magic_resist", "modifiers/global/intelect_magic_resist", LUA_MODIFIER_MOTION_NONE)
 end
