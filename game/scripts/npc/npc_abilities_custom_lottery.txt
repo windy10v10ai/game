@@ -589,33 +589,25 @@
 		}
 	}
 
-	//龙骑 先天 龙血
-	"dragon_knight_inherited_vigor2"
+	//龙骑 龙族血统
+	"dragon_knight_dragon_blood2"
 	{
-		"BaseClass"                     "dragon_knight_inherited_vigor"
+		"BaseClass"						"dragon_knight_dragon_blood"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"5"
 		"Innate"						"0"
-		"AbilityTextureName"    		"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
+		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
 
 		"AbilityValues"
 		{
-			"base_health_regen"
+			"health_regen"
 			{
-				"value"							"10 20 30 40 50"
-				"special_bonus_unique_dragon_knight" "+12"
-				"dynamic_value"					"true"
+				"value"							"5"				// 2
+				"hero_levelup"					"+1"			// +0.5
 			}
-			"base_armor"
+			"armor"
 			{
-				"value"							"3 6 9 12 15"
-				"special_bonus_unique_dragon_knight" "+12"
-				"dynamic_value"					"true"
-			}
-			"level_mult"					"1"
-			"regen_and_armor_multiplier_during_dragon_form"
-			{
-				"value"							"1.5"
+				"value"							"2"
+				"hero_levelup"					"+0.5"
 			}
 		}
 	}

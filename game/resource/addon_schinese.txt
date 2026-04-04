@@ -627,12 +627,11 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"金钱偷取："
 
 
-		//神龙之血
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"						"神龙之血"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Lore"					"斯莱克萨的血仍流淌在达维安的血管中，使他拥有普通骑士两倍的生命恢复和护甲。"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"			"神龙的生命之血提升了龙骑士的生命恢复和护甲。每升一级，两个数值都将提升%level_mult%，在古龙形态下还有倍数加成。"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"		"生命恢复："
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"				"护甲："
+		// 龙骑 龙族血统
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2"								"龙族血统"
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"神龙的生命之血提升了龙骑士的生命恢复和护甲。<br><br>在古龙形态下生命恢复和护甲均提升%regen_and_armor_multiplier_during_dragon_form%%%。"
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"护甲提升："
+		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"额外生命恢复："
 		//才思敏捷
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"才思敏捷"
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"黑暗贤者还能从智力中获得攻击速度。"
