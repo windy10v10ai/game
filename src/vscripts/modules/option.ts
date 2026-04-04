@@ -85,7 +85,7 @@ export class Option {
       averageDifficulty = this.GetDefaultDifficulty();
     } else {
       averageDifficulty = averageDifficulty / playerChosen;
-      // 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
+      // 四舍五入 通票时变成高难度
       averageDifficulty = Math.floor(averageDifficulty + 0.5);
     }
     if (force || playerChosen >= playerCount) {
