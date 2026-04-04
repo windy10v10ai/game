@@ -58,7 +58,7 @@ async function ensureThumbnailCachePlaceholders() {
         addonName,
         '+dota_launch_custom_game',
         addonName,
-        'custom',
+        'hard',
       ];
 
       const child = spawn(path.join(win64, 'dota2.exe'), args, {

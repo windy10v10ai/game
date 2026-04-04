@@ -39,7 +39,7 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_xpm"					"400 800"	// 1000
+			"bonus_xpm"					"300 600"	// 1000
 			"max_mana_pct"				"10 20"		// 15
 		}
 	}
@@ -49,7 +49,7 @@
 		"MaxLevel"						"3"
 		"AbilityValues"
 		{
-			"bonus_gpm"			"600 1000 1400"			// 75 100
+			"bonus_gpm"			"400 800 1200"			// 75 100
 			"bonus_mana"		"300 600 900"			// 200 250
 			"bonus_damage"		"-20 -40 -60"			// -30 -60
 		}
