@@ -199,7 +199,7 @@ export const abilityTiersPassive: Tier[] = [
       // 自定义技能
       'dark_seer_normal_punch2', // 普通一拳
       'ogre_magi_multicast_lua', // 多重施法
-      'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
+      'dragon_knight_dragon_blood2', // 龙骑 龙族血统
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！

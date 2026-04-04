@@ -1424,69 +1424,16 @@
 			"dragon_cast_range"			"600"		// 450
 		}
 	}
-	// 飞龙之怒
+	// 龙族血统
 	"dragon_knight_dragon_blood"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			// GREEN DRAGON
-			"corrosive_breath_damage"
+			"health_regen"
 			{
-				"special_bonus_facet_dragon_knight_corrosive_dragon"		"5 10 15 20 25"
+				"value"							"5"				// 2
+				"hero_levelup"					"+1"			// +0.5
 			}
-			"corrosive_breath_armor_reduction"
-			{
-				"special_bonus_facet_dragon_knight_corrosive_dragon"		"0 1 2 3 4"
-			}
-
-			// RED DRAGON
-			"magic_damage"
-			{
-				"special_bonus_facet_dragon_knight_fire_dragon"		"6 12 18 24 30"
-			}
-			"bonus_aoe"
-			{
-				"special_bonus_facet_dragon_knight_fire_dragon"		"25 50 75 100 125"
-			}
-
-
-			// BLUE DRAGON
-			"frost_bonus_movement_speed"
-			{
-				"special_bonus_facet_dragon_knight_frost_dragon"		"-14 -21 -28 -35 -42"
-			}
-			"frost_bonus_attack_speed"
-			{
-				"special_bonus_facet_dragon_knight_frost_dragon"		"-14 -21 -28 -35 -42"
-			}
-			"frost_duration"
-			{
-				"special_bonus_facet_dragon_knight_frost_dragon"		"3.0"
-			}
-			"frost_healing_reduction"
-			{
-				"special_bonus_facet_dragon_knight_frost_dragon"		"14 21 28 35 42"
-			}
-		}
-	}
-
-	// 先天神龙之血
-	"dragon_knight_inherited_vigor"
-	{
-		"AbilityValues"
-		{
-			"base_health_regen"
-			{
-				"value"							"4"				// 2
-				"special_bonus_unique_dragon_knight" "+30"		// +12
-			}
-			"base_armor"
-			{
-				"value"							"4"				// 2
-				"special_bonus_unique_dragon_knight" "+30"		// +12
-			}
-			"level_mult"					"1"					// 0.5
 		}
 	}
 

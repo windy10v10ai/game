@@ -165,7 +165,7 @@ export class BotTeam {
       gameModeEntity.SetBotsAlwaysPushWithHuman(true);
     } else {
       // EARLYGAME - 不推进
-      gameModeEntity.SetBotsInLateGame(false);
+      gameModeEntity.SetBotsInLateGame(true);
       gameModeEntity.SetBotsAlwaysPushWithHuman(false);
       gameModeEntity.SetBotsMaxPushTier(1);
     }
