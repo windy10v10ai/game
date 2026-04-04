@@ -628,15 +628,14 @@
 	{
 		"AbilityValues"
 		{
-			"hp_regen"				"0"			//4
 			"damage_return_hero"
 			{
-				"value"					"90"		//30
+				"value"					"60"		//30
 				"apply_curio_bonus"		"1"
 			}
 			"damage_return_creep"
 			{
-				"value"					"60"		//20
+				"value"					"30"		//15
 				"apply_curio_bonus"		"1"
 			}
 		}
@@ -759,7 +758,6 @@
 	"item_crippling_crossbow"
 	{
 		"AbilityCooldown"				"6"			// 30
-		"AbilityManaCost"				"150"		// 50
 		"AbilityCastRange"				"1200"		// 650
 		"AbilityValues"
 		{
@@ -769,7 +767,7 @@
 				"apply_curio_bonus"		"1"
 			}
 			"duration"					"6"			// 4
-			"damage"					"150"		// 25
+			"damage"					"180"		// 25
 		}
 	}
 

@@ -45,8 +45,8 @@ export class NeutralItemManager {
       //延后4分钟
       addTimeMin = [4, 5, 6, 7, 9];
     } else {
-      // 延后6分钟
-      addTimeMin = [6, 7, 8, 9, 12];
+      // 延后5分钟
+      addTimeMin = [5, 6, 7, 8, 10];
     }
 
     const baseTime = baseTimeMin.map((time, index) => time * 60 + addTimeMin[index] * 60);
