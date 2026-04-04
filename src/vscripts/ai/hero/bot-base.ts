@@ -6,7 +6,7 @@ import { getHeroBuildConfig } from '../build-item/hero-build-config';
 import { HeroBuildManager } from '../build-item/hero-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
 import { SellItem } from '../build-item/sell-item';
-import { NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
+import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { UseItem } from '../item/use-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
@@ -19,6 +19,14 @@ export class BotBaseAIModifier extends BaseModifier {
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
   protected continueActionEndTime: number = -60;
+
+  // 中立槽修复节奏：间隔与下次校验时间（gameTime）
+  protected readonly neutralItemRepairInterval: number = 5;
+  protected neutralItemRepairNextTime: number = -60;
+  // 中立槽状态
+  private neutralItemTier: number = 0;
+  private desiredNeutralActive: NeutralItemConfig | undefined;
+  private desiredNeutralPassive: NeutralItemConfig | undefined;
 
   protected readonly FindHeroRadius: number = 1600;
   protected readonly FindRadius: number = 1600;
@@ -44,8 +52,6 @@ export class BotBaseAIModifier extends BaseModifier {
   protected ability_5: CDOTABaseAbility | undefined;
   protected ability_utli: CDOTABaseAbility | undefined;
 
-  // 物品
-  private neutralItemTier: number = 0;
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
   }
@@ -366,6 +372,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.PickNeutralItem()) {
       return true;
     }
+    if (this.RepairNeutralSlotsIfStomped()) {
+      return true;
+    }
     return false;
   }
 
@@ -374,6 +383,45 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
     return HeroBuildManager.TryPurchaseItem(this.hero, this.buildState);
+  }
+
+  /** 按间隔校验并修复中立主动/强化槽 */
+  private RepairNeutralSlotsIfStomped(): boolean {
+    if (this.gameTime < this.neutralItemRepairNextTime) {
+      return false;
+    }
+    this.neutralItemRepairNextTime = this.gameTime + this.neutralItemRepairInterval;
+
+    const desiredActive = this.desiredNeutralActive;
+    const desiredPassive = this.desiredNeutralPassive;
+    if (this.neutralItemTier <= 0 || desiredActive === undefined || desiredPassive === undefined) {
+      return false;
+    }
+
+    const active = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+    const passive = this.hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+    const activeOk =
+      active !== undefined &&
+      active.GetAbilityName() === desiredActive.name &&
+      active.GetLevel() === desiredActive.level;
+    const passiveOk =
+      passive !== undefined &&
+      passive.GetAbilityName() === desiredPassive.name &&
+      passive.GetLevel() === desiredPassive.level;
+
+    if (activeOk && passiveOk) {
+      return false;
+    }
+
+    if (active !== undefined) {
+      UTIL_RemoveImmediate(active);
+    }
+    if (passive !== undefined) {
+      UTIL_RemoveImmediate(passive);
+    }
+    this.hero.AddItemByName(desiredActive.name).SetLevel(desiredActive.level);
+    this.hero.AddItemByName(desiredPassive.name).SetLevel(desiredPassive.level);
+    return true;
   }
 
   PickNeutralItem(): boolean {
@@ -392,6 +440,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const selectedEnhancement = NeutralItemManager.GetRandomTierEnhancements(
       targetTier,
       neutralItemConfig,
+      this.hero,
     );
     if (!selectedEnhancement) {
       print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
@@ -414,6 +463,12 @@ export class BotBaseAIModifier extends BaseModifier {
 
     this.hero.AddItemByName(selectedItem.name).SetLevel(selectedItem.level);
     this.hero.AddItemByName(selectedEnhancement.name).SetLevel(selectedEnhancement.level);
+    this.desiredNeutralActive = { name: selectedItem.name, level: selectedItem.level };
+    this.desiredNeutralPassive = {
+      name: selectedEnhancement.name,
+      level: selectedEnhancement.level,
+    };
+    this.neutralItemRepairNextTime = this.gameTime + this.neutralItemRepairInterval;
     this.neutralItemTier = targetTier;
     return true;
   }
