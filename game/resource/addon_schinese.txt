@@ -967,11 +967,6 @@
 
 
 		// ---- bot技能 ----
-		// AI的复仇
-		"DOTA_Tooltip_ability_boss_death_power"						"AI的复仇"
-		"DOTA_Tooltip_ability_boss_death_power_Description"			"BotBoss每次被击杀后，因复仇的驱动永久获得减伤和输出增强。每次死亡使减伤和输出增强各提升1%。"
-		"DOTA_Tooltip_ability_boss_death_power_Lore"				"RN: 不要以为人家是机器人就一直瞎搞啊焚旦"
-
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"机械救赎 N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"

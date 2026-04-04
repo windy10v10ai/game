@@ -335,12 +335,6 @@ local function HeroKilled(keys)
         local newScale = math.max(hHero.bossBaseScale * 0.5, hHero.bossBaseScale - scaleReduction)
         hHero:SetModelScale(newScale)
 
-        local newLevel = math.min(math.floor(hHero.bossDeathCount / 2), 30)
-        local bossAbility = hHero:FindAbilityByName("boss_death_power")
-        if bossAbility then
-            bossAbility:SetLevel(newLevel)
-        end
-
         -- 计算发言概率
         local speakProbability = math.min(30 + PlayerKillBossStreak * 10, 100)
         local randomValue = RandomInt(1, 100)

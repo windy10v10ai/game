@@ -983,11 +983,6 @@
 		"DOTA_Tooltip_modifier_russian_roulette_root_Description"              "Locked in a deadly game. Cannot move, attack, cast spells, or use items."
 
 		// ---- bot技能 ----
-		// AI的复仇
-		"DOTA_Tooltip_ability_boss_death_power"						"AI's Revenge"
-		"DOTA_Tooltip_ability_boss_death_power_Description"			"Each time BotBoss is killed, it permanently gains damage reduction and damage output increase due to revenge. Each death increases damage reduction and damage output by 1%."
-		"DOTA_Tooltip_ability_boss_death_power_Lore"				"RN: Don't think just because it's a robot you can keep messing with it"
-
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
