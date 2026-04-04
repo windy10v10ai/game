@@ -967,11 +967,6 @@
 
 
 		// ---- bot技能 ----
-		// AI的复仇
-		"DOTA_Tooltip_ability_boss_death_power"						"AI的复仇"
-		"DOTA_Tooltip_ability_boss_death_power_Description"			"BotBoss每次被击杀后，因复仇的驱动永久获得减伤和输出增强。每次死亡使减伤和输出增强各提升1%。"
-		"DOTA_Tooltip_ability_boss_death_power_Lore"				"RN: 不要以为人家是机器人就一直瞎搞啊焚旦"
-
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"机械救赎 N6"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"每当英雄升级5级时，技能会自动升级，为其提供攻击，防御，技能冷却缩减和移动速度等核心属性的增强。"
@@ -1207,21 +1202,6 @@
 		// 虚空假面 逆转时空
 		"DOTA_Tooltip_ability_faceless_void_time_zone_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
 
-
-"DOTA_Tooltip_ability_ability_mind_control"                     "夺舍"
-"DOTA_Tooltip_ability_ability_mind_control_Description"         "夺舍一个敌方AI英雄%duration%秒。你可以暂时操控该英雄的移动，攻击和施法。在控制期间,该英雄队伍转变，且击杀和被击杀都算到你头上。但AI残余的意识还可能与你争抢，拼手速的时候到了"
-"DOTA_Tooltip_ability_ability_mind_control_Lore"                "RN: 你是选择对他这样这样，还是那样那样？"
-"DOTA_Tooltip_ability_ability_mind_control_duration"            "持续时间:"
-"DOTA_Tooltip_ability_ability_mind_control_damage_reduction"    "%减伤:"
-"DOTA_Tooltip_ability_ability_mind_control_status_resistance"   "%状态抗性:"
-
-
-"DOTA_Tooltip_ability_ability_defection"                     "卧底？叛变"
-"DOTA_Tooltip_ability_ability_defection_Description"         "可以自由在天辉，夜魇和中立阵营之间切换，但无法攻击天辉阵营的人类玩家；切换回天辉阵营有2s延迟。当处于中立阵营时，危机感使玩家增加20%减伤"
-"DOTA_Tooltip_ability_ability_defection_Lore"                "RN: 我说，那边那个畜...兄弟，差不多是时候了，该出手了"
-
-"DOTA_Tooltip_modifier_defection"                           "叛变"
-"DOTA_Tooltip_modifier_defection_Description"               "1=天辉, 2=夜魇, 3=中立"
 // 俄罗斯轮盘赌
 "DOTA_Tooltip_ability_russian_roulette"                                 "赌命（隐藏）"
 "DOTA_Tooltip_ability_russian_roulette_Description"                     "掏出左轮,把你的手套扔到对方的脸上,向他发起俄罗斯轮盘赌。在6秒内,双方交替开枪,其中随机的一枪是致命的。<br><br>如果敌人死亡,冷却时间减少100%%。<br><br>技能生效期间双方被禁锢。<br><br>技能等级和双方等级可能影响赌局的公平。\n\n驱散类型:无法被驱散"
