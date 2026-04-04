@@ -1,0 +1,21 @@
+description: Use create-pr skill as a supporting PR checklist
+alwaysApply: true
+---
+
+# Create PR Skill As Supplement
+
+When the user asks to create a pull request (for example: "create PR", "创建PR", "提交PR"), keep Cursor's normal PR workflow as the default path, and use `.claude/skills/create-pr/SKILL.md` as a supplement:
+
+1. Check `.claude/skills/create-pr/SKILL.md` for extra guardrails and completeness checks.
+2. Use the skill to fill gaps (for example: release note wording, issue linking, branch naming conventions).
+3. Do not treat the skill as a hard replacement of the built-in flow unless the user explicitly asks to follow the skill workflow end-to-end.
+
+If there is any conflict between the skill and the user's explicit instruction:
+
+- Follow the user's explicit instruction first.
+- Keep the built-in PR flow intact, and only apply compatible parts from the skill.
+
+Examples:
+
+- If user says "创建 PR 到 develop", proceed with normal PR flow and consult `create-pr` skill for template/release-note quality checks.
+- If user says "严格按 create-pr skill 执行", switch to full skill-driven workflow.

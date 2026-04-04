@@ -6,7 +6,8 @@ import { BotAbility } from '../helper/bot-ability';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 export class EventNpcSpawned {
-  private roshanLevelBase = 0;
+  private roshanLevelBase = 1;
+  private isFirstRoshan = true;
   private heroSpawnRetryCount = 0;
   private readonly MAX_SPAWN_RETRY = 100;
   // abiliti name list of roshan
@@ -160,6 +161,12 @@ export class EventNpcSpawned {
     const creepName = creep.GetName();
 
     if (creepName === 'npc_dota_roshan') {
+      // kill
+      if (this.isFirstRoshan) {
+        creep.Kill(undefined, creep);
+        this.isFirstRoshan = false;
+        return;
+      }
       for (const abilityName of this.roshanLevelupBaseAbilities) {
         const ability = creep.FindAbilityByName(abilityName);
         if (ability) {

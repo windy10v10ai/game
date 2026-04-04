@@ -153,15 +153,15 @@
 
 		"AbilityValues"
 		{
-			"movement_speed_pct_per_level"
+			"movement_speed_pct"
 			{
-				"value"				"10"		// 0.75
-				"hero_levelup"		"+0.5"		// 0.75
+				"value"				"20"		// 0.5
+				// "hero_levelup"		"+0.5"		// +0.75
 			}
-			"cooldown_reduction_pct_per_level"
+			"cooldown_reduction_pct"
 			{
-				"value"				"10"		// 0.75
-				"hero_levelup"		"+0.5"		// 0.75
+				"value"				"20"
+				// "hero_levelup"		"+0.5"		// +0.75
 			}
 		}
 	}
@@ -221,13 +221,12 @@
 				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"trueshot_agi_bonus_base"			"4 8 12 16 18"
-			"trueshot_agi_bonus_per_level"		"1"
-			"trueshot_agi_bonus_allies_pct"		"50"
-			"agi_bonus_pct_tooltip"
+			"trueshot_agi_bonus"
 			{
-				"dynamic_value"						"true"
+				"value"				"10 15 20 25 30"		// 10
+				"hero_levelup"		"+0.5"
 			}
+			"trueshot_agi_bonus_allies_pct"		"50"
 		}
 
 	}

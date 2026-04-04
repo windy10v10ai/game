@@ -63,6 +63,10 @@ export const SellItemCommonJunkList: string[] = [
   'item_ogre_axe', // 食人魔之斧
   'item_blade_of_alacrity', // 欢欣之刃
   'item_staff_of_wizardry', // 魔力法杖
+  'item_wizard_hat', // 巫师帽
+  'item_shawl', // 披巾
+  'item_chasm_stone', // 裂隙之石
+  'item_splintmail', // 片甲
 
   'item_meteor_hammer', // 陨星锤
   'item_kaya', // 慧光

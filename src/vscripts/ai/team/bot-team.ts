@@ -14,8 +14,9 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly addAmountBase: number = 2; // Bot发钱的基础金额
-  private readonly addAmountNeedLevel: number = 100; // 每多少玩家等级增加1的金额
+  private readonly addAmountBase: number = 1; // Bot发钱的基础金额
+  private readonly addAmountPlayerNumberBonus: number = 0.2; // 每个玩家增加的金额
+  private readonly addAmountNeedLevel: number = 0.01; // 每玩家等级增加的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -148,15 +149,15 @@ export class BotTeam {
     // 动态计算推进时间
     // 获取Bot团队平均等级
     const avgLevel = this.getBotTeamAverageLevel();
-    const isStartPushForce = avgLevel >= 50;
+    const isStartPushForce = avgLevel >= this.botPushLevel;
 
     const gameTime = GameRules.GetDOTATime(false, false);
     const gameModeEntity = GameRules.GetGameModeEntity();
 
-    if (gameTime >= 10 * 60) {
+    if (gameTime >= this.botPushMin * 4 * 60) {
       // LATEGAME - 无限制推进
       gameModeEntity.SetBotsMaxPushTier(-1);
-    } else if (gameTime >= 5 * 60 || isStartPushForce) {
+    } else if (gameTime >= this.botPushMin * 60 || isStartPushForce) {
       // MIDGAME - 开始推进 根据防御塔状态计算推进策略
       const pushTier = this.calculatePushTierByTowerStatus();
       gameModeEntity.SetBotsMaxPushTier(pushTier);
@@ -175,7 +176,7 @@ export class BotTeam {
    * 根据玩家等级（seasonLevel + memberLevel）增加
    */
   private initAddAmount(): void {
-    const playerNumberBonus = Player.GetPlayerCount() / 2;
+    const playerNumberBonus = Player.GetPlayerCount() * this.addAmountPlayerNumberBonus;
 
     // 遍历所有玩家，计算总等级
     let totalLevel = 0;
@@ -185,7 +186,7 @@ export class BotTeam {
       totalLevel += seasonLevel + memberLevel;
     }
 
-    const levelBonus = totalLevel / this.addAmountNeedLevel;
+    const levelBonus = totalLevel * this.addAmountNeedLevel;
 
     this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
     print(
