@@ -1134,6 +1134,7 @@
 	//巨人之槌
 	"item_giant_maul"
 	{
+		"AbilityCooldown"				"8"		// 15
 		"AbilityValues"
 		{
 			"crit_multiplier"
@@ -1144,6 +1145,7 @@
 			"movespeed_slow"			"20"	// 10
 			"attack_slow"				"60"	// 15
 			"cast_slow"					"40"	// 20
+			"debuff_duration"			"2"		// 3
 		}
 	}
 	//回响之笼
