@@ -16,9 +16,6 @@ export const abilityTiersActive: Tier[] = [
       'alchemist_chemical_rage', // 化学狂暴
       // 小技能
       'gyrocopter_flak_cannon', // 高射火炮
-
-      // 自定义技能
-      // 'ability_mind_control', //夺舍
     ],
   },
   {
