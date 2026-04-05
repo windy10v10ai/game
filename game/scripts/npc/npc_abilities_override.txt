@@ -8031,6 +8031,11 @@
 			{
 				"value"									"100 150 200 250 300"	// 75 150 225 300
 			}
+			"passive_attack_range_bonus"
+			{
+				"value"									"160 240 320 400 480"	// 160 240 320 400
+				"special_bonus_unique_sniper_5"			"+50"	// +50
+			}
 			"bonus_vision"								"500 750 1000 1250 1500"	// 500 750 1000 1250
 		}
 	}
