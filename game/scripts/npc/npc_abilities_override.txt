@@ -338,7 +338,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"12 10 8 6 4"	// 12 10 8 6
+				"value"				"12 10 8 6 6"	// 12 10 8 6 第五档同末档
 			}
 			"damage_absorb"
 			{
