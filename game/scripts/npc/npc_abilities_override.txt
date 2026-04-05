@@ -6550,12 +6550,10 @@
 			"snake_jumps"
 			{
 				"value"							"4 5 6 7 8"	// 3 4 5 6
-				"special_bonus_unique_medusa_3"	"+3"
 			}
 			"snake_damage"
 			{
 				"value"			"90 140 190 240 290"	// 90 140 190 240
-				"special_bonus_unique_medusa_snake_damage"	"+40%"
 			}
 		}
 	}
@@ -6582,13 +6580,10 @@
 			"duration"
 			{
 				"value"							"5 5.5 6 6.5"	// 5 5.5 6
-				"special_bonus_unique_medusa"	"+2.5"
 			}
 			"bonus_physical_damage"
 			{
 				"value"							"35 45 55 65"	// 35 45 55
-				"DamageTypeTooltip"				"DAMAGE_TYPE_PHYSICAL"
-				"special_bonus_unique_medusa_8"	"+12"
 			}
 			"stone_duration"					"2 2.2 2.4 2.6"	// 2 2.2 2.4
 		}
