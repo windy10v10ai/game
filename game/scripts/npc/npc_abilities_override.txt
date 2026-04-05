@@ -384,7 +384,7 @@
 			"curse_dps"
 			{
 				"value" "30 40 50 60 70"	// 15 25 35 45 x2
-				"special_bonus_unique_abaddon_5"	"+80"	// 25 +55差值
+				"special_bonus_unique_abaddon_5"	"+50"	// 25 x2
 			}
 		}
 	}
@@ -396,14 +396,14 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"								"70 60 50 40"	// 85 75 65 +第四档
+				"value"								"70 60 55 50"	// 85 75 65 末档≥50
 				"special_bonus_unique_abaddon_borrowed_time_cd"		"-10"
 			}
 			"hp_threshold"							"1000 2000 3000 4000"	// 400
 			"duration"
 			{
 				"value"		"4.0 4.5 5.0 5.5"	// 4.0 5.0 6.0
-				"special_bonus_scepter"	"+1.5"	// +3
+				"special_bonus_scepter"	"+0.5"	// +3
 			}
 			"ally_threshold_scepter"
 			{
