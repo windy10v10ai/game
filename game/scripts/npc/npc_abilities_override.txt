@@ -396,8 +396,8 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"								"70 60 55 50"	// 85 75 65 末档≥50
-				"special_bonus_unique_abaddon_borrowed_time_cd"		"-10"
+				"value"								"80 70 60 60"	// 85 75 65 每档-5；末档60
+				"special_bonus_unique_abaddon_borrowed_time_cd"		"-5"	// -10
 			}
 			"hp_threshold"							"1000 2000 3000 4000"	// 400
 			"duration"
