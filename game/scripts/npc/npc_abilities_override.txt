@@ -727,25 +727,24 @@
 	{
 		"AbilityValues"
 		{
-			"duration"				"40"
-			"bonus_gold"		"2"
+			"bonus_gold"		"4"	// 2
 			"bonus_gold_tooltip"
 			{
-				"value"								"2"
+				"value"								"4"	// 2
 				"special_bonus_scepter"		"+0"
 				"dynamic_value"				"true"
 			}
-			"bonus_bonus_gold"		"2"
-			"bonus_gold_per_scepter"		"6"
-			"bounty_multiplier"		"2"
+			"bonus_bonus_gold"		"4"	// 2
+			"bonus_gold_per_scepter"		"12"	// 6
+			"bounty_multiplier"		"4"	// 2
 			"damage"
 			{
-				"special_bonus_unique_alchemist_7"	"+3"
+				"special_bonus_unique_alchemist_7"	"+6"	// +3
 			}
-			"bonus_gold_cap"		"20"	// 16
+			"bonus_gold_cap"		"40"	// 16
 			"bonus_gold_cap_tooltip"
 			{
-				"value"								"20"	// 16
+				"value"								"40"	// 16
 				"special_bonus_scepter"				"+0"
 				"dynamic_value"				"true"
 			}
