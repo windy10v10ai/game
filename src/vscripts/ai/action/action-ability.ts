@@ -91,7 +91,7 @@ export class ActionAbility {
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;
     }
-    const findRange = condition?.target?.range ?? this.GetFullCastRange(hero, ability);
+    const findRange = condition?.target?.range?.lte ?? this.GetFullCastRange(hero, ability);
     if (condition?.debug) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} findRange ${findRange}`);
     }
