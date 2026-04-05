@@ -2,12 +2,12 @@
 name: update-abilities-override
 description: >-
   Dota 版本更新时，以 docs/reference 中官方技能 KV 为骨架维护 game/scripts/npc/npc_abilities_override.txt：
-  键与参考对齐、与参考同值的键不保留、扩展 MaxLevel 与加强规律；未指定技能时从 npc_heroes.txt 定槽位范围；行尾注释格式见正文。
+  仅写差分；**同值（含多档每档与参考相同）优先于补全等级**：视同原版、删整键；再处理确有差分的多档与 MaxLevel；禁 facet（7.41+）；行尾注释见正文。
 ---
 
 # Update Abilities Override
 
-在 Dota 2 版本更新后，把**当前版本官方技能 KV**同步进 `game/scripts/npc/npc_abilities_override.txt`，并叠加本图规则（扩展等级、有意加强等）。以参考为底稿；**与参考相同的键不写进 override**（见「同值不保留」与下节行尾注释）。
+在 Dota 2 版本更新后，把**本图相对当前参考的差分**写进 `game/scripts/npc/npc_abilities_override.txt`（扩展等级、有意加强等）。**引擎会从原版合并缺失键**；override **只应出现与参考相比有改动的键**（见「同值不保留」）。
 
 ## 何时使用
 
@@ -37,7 +37,7 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 ## 未指定具体技能时：用 `npc_heroes.txt` 定范围
 
-用户**未列出**要改的技能名时，在 **`docs/reference/{version}/npc_heroes.txt`** 中定位该英雄块，读取槽位，并在 **`npc_abilities_override.txt`** 中确保**同名技能**均有对应 override 块（与参考拉齐骨架并维护本图数值）。
+用户**未列出**要改的技能名时，在 **`docs/reference/{version}/npc_heroes.txt`** 中定位该英雄块，读取槽位，并在 **`npc_abilities_override.txt`** 中**逐个核对**同名技能：仅保留**确有本图差分**的技能块；无差分的技能**不写整块**。
 
 ### 必看的四个槽位
 
@@ -70,12 +70,22 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 ## 核心原则
 
+**优先级（维护任一技能时按此顺序想，避免和下面各条打架）：**
+
+1. **先**做「同值」判定（含**同值多档**，见下表）：与参考**逐字相同**的单值、或多档中**每一档**与参考**对应档**数值相同（含参考只有 3 档、本图 `MaxLevel` 为 4 却把第 4 档写成与前几档相同的「凑档」，如 `20.0`×4 且参考为 `20.0`×3）——**一律视同与原版无差分，整键删除**，**不得**为对齐本图 `MaxLevel` 而在 override **补写或拉长**该键。
+2. **再**处理确有本图数值差分的键：固定加、倍数、延伸**且**新档相对官方有**实质变化**等。
+3. **最后**对「仍保留在 override 里的多档键」核对：档数须与本技能有效 `MaxLevel` 一致（见下「多级数值与 MaxLevel」）。**已按第 1 步删除的键，不要求在 override 里补档。**
+
 | 原则 | 说明 |
 | ---- | ---- |
-| **参考骨架** | 每个技能的键层级与参考中同名技能一致；官方已删的键从 override 移除。 |
-| **同值不保留** | 某键**数值与参考一致**且无单独说明需求时，**不要**在 override 写该键（含勿用行尾备忘）；**删除该行**。 |
+| **差分-only** | override **不是**「把参考里的技能再抄一遍」。凡在参考中**已存在且与参考逐字相同**的键（含子键），**一律不得**出现在 override 中；由原版 KV 提供即可。 |
+| **同值不保留（须严格执行）** | 含但不限于：`AbilityBehavior`、`AbilityUnitTargetTeam` / `Type`、`SpellImmunityType`、`SpellDispellableType`、`AbilityType`、`FightRecapLevel`、`AbilitySound`、`IsShardUpgrade`、`IsGrantedByShard`、`HasScepterUpgrade`、`Innate`、`AbilityCastAnimation`、**与参考相同的** `AbilityCastPoint` / `AbilityCastRange`、`AbilityChannelTime`、`CalculateSpellDamageTooltip`、`DamageTypeTooltip`、`affected_by_aoe_increase` 等——只要**值与参考完全一致**就**删除**，不要为了「看起来完整」而抄写。 |
+| **本图仍须写明的情形** | 仅当：**至少一档数值**与参考不同、`MaxLevel` 扩展且伴随**实质数值变化**、或**子树中某一枝**与参考不同时，才写对应键；**仅**比参考多一档但**各档数字与参考对应档仍相同**的，不算「须写明」，见「同值多档」。可只写变化的子键，**不要**顺带贴上同值的兄弟键。 |
+| **官方已删** | 参考中已删除的键，override 内不得再保留。 |
+| **7.41+ 命石 Facet 已废** | 自 7.41 起官方移除 Facet 玩法后，参考中不应再依赖 `special_bonus_facet_*`；override **禁止**再写任何 **`special_bonus_facet_…`**（含 `special_bonus_facet_<hero>_<facet>`）。原挂在 facet 下的本图数值，改为写在 **`value`**（或仍有效的 `special_bonus_unique_*` / 魔晶等）中，结构以当前参考为准。 |
+| **同值多档** | 多档 `value`（或同级结构）若**每一档与参考对应档的数值相同**，**视同单值与原版一致**：整键**不写入** override、已写入的**删除**，交给原版合并。**优先于**「本图 `MaxLevel` 更高所以要补全档数」——**禁止**为凑档而把 `125`×4 抄成 `125`×5，或把 `AbilityDuration` 参考 `20.0`×3 抄成 `20.0`×4（各档仍 20）。**仅当至少有一档与参考对应档不同**（本图加强或规则化延伸出**新数**）时，才在 override 写该键，并写满与有效 `MaxLevel` 一致的档数。 |
 | **键集合** | 原则上**不增加**参考里同名技能**没有的键**。若本图确需增键，在**该技能块上方**用 `//` **中文说明原因**即可。 |
-| **多级数值与 MaxLevel** | `value`、`AbilityCooldown`、`AbilityManaCost` 等分档个数须与**有效 MaxLevel**一致；无 `MaxLevel` 时按下文「缺省 MaxLevel」推断。 |
+| **多级数值与 MaxLevel** | **仅适用于**经「同值多档」判定后**仍须保留**在 override 中的多档字段：其档数须与本技能有效 `MaxLevel` 一致。若整键已因同值删除，**不要求**在 override 为该键补档。未出现在 override 的字段仍由原版提供。无 `MaxLevel` 时按下文「缺省 MaxLevel」推断。 |
 
 ---
 
@@ -131,7 +141,8 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 ### 1. 仅等级扩展（无加强）
 
-- 前若干档与官方相同；新档按官方等差（或明显规律）延伸。
+- **先做「同值多档」判定**：若延伸后各档仍与参考已有档**同数值**（例如官方三档全 `20`、本图第四档仍 `20`），属于**无实质差分**，**删整键**，不按本节补档（见核心原则优先级第 1 步）。
+- 仅当新档相对参考末档按**等差或其它规律得到新数**（与参考任一档不同）时：前若干档与官方相同；新档按官方等差（或明显规律）延伸。
 - 注释可写**新档对应的参考档**（空格分档数字），风格与邻行一致即可，例如扩展后整行后附 `// 80 110 140 170` 表示参考前四档。
 
 ### 2. 固定数值加强 / 差值
@@ -156,7 +167,8 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 ## 官方重构时的清理
 
 - 官方删除的键、命石/魔晶结构变化：override 中**删除**对应废弃内容。
-- 同步后检查：键与参考对齐、多档长度、行尾对照数与**当前参考**一致。
+- **Facet**：全文件 `grep special_bonus_facet_`，按上表「7.41+ 命石 Facet 已废」「同值多档」处理（不在这里重复条文）。
+- 同步后检查：无同值抄写、无废弃 facet 键；**仍保留在 override 内**的多档键长度与 `MaxLevel` 一致（同值已删的键不要求补档）；行尾对照数与**当前参考**一致。
 
 ---
 
@@ -164,16 +176,17 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 1. **定技能列表**：若用户未给具体技能名 → 从 `npc_heroes.txt`（及必要时 `npc_heroes_custom.txt` 槽位覆盖）读取 `Ability1`–`3`、`Ability6`，并按上节规则决定是否包含 `Ability4`–`5`。
 2. **定位**：在 override 与 `heroes/npc_dota_hero_*.txt` 中定位上述技能名。
-3. **拉骨架**：以参考内各技能块为准，对齐同名块键结构。
+3. **逐键对照参考**：对每个技能，只把**与参考不同**的键写入（或保留）override；**删除**与参考逐字相同的键（含 `AbilityBehavior` 等）。**同一轮内先删「同值 / 同值多档」整键**，再考虑为**确有差分**的键补全与 `MaxLevel` 对齐的档数。
 4. **分类**：无加强 / 固定差 / 倍数等。
 5. **改值 + 注释**：沿用**同文件、同英雄区段**已有注释风格。
-6. **校验**：多档个数、过时键、增键是否在块首有说明。
+6. **校验**：无「同值抄写」；**仅针对保留的多档键**核对与 `MaxLevel` 一致；过时键已删；增键是否在块首有说明。
 7. **汇报**：仅当用户明确要求时再 `git commit`。
 
 ---
 
 ## 不应做的事
 
+- **把参考里与原版一致的键抄进 override**（含 `AbilityBehavior`、免疫/目标类型、`AbilityCastAnimation` 等），无论是否为了「结构好看」——与上表「差分-only / 同值不保留」相反的做法一律避免（含 Facet、同值多档等，**以核心原则表为准**，此处不逐条复述）。
 - 引入与全文件、同英雄区段**割裂**的注释风格（应沿用邻行既有写法）。
 - **无说明**地增加参考中不存在的键。
 - 参考已更新后，仍不按行尾备注重算 `value`，或行尾对照数未与**当前参考**对齐。

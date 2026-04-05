@@ -7,9 +7,9 @@ disable-model-invocation: true
 
 # Handle Dota Update（路由）
 
-维护 Dota 版本更新相关 KV 时，**不要沿用旧的「只写差分、与官方相同就删键」**单一规则。当前仓库约定为：
+维护 Dota 版本更新相关 KV 时，**override 只保留与参考的差分**（与参考逐字相同的键不写入，含 `AbilityBehavior` 等）。当前约定为：
 
-1. **`npc_abilities_override.txt`**：以参考为底稿；与参考同值的键删除不抄；增键在技能块上用 `//` 中文说明；行尾注释格式见 `update-abilities-override`。
+1. **`npc_abilities_override.txt`**：**仅写差分**；**同值（含多档每档与参考相同）优先于补档**，整键删除；禁 `special_bonus_facet_*`（7.41+）；增键用 `//` 说明；详见 `update-abilities-override`。
 2. **`npc_heroes_custom.txt`**：Bot `Build` 与槽位合并、`MaxLevel`、天赋档见 `update-heroes-custom`。
 
 ## 应打开的 SKILL 路径
