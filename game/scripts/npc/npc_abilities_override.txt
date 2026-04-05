@@ -13258,10 +13258,14 @@
 	{
 		"AbilityValues"
 		{
+			"movespeed_bonus"
+			{
+				"value"						"30"	// 35
+			}
 			"max_movespeed"
 			{
 				"value"								"1000"	// 600
-				"special_bonus_unique_windranger_5"	"+200"	// +40
+				"special_bonus_unique_windranger_5"	"+400"	// +40
 			}
 		}
 	}
