@@ -47,6 +47,8 @@ export class PropertyController {
 
   // 每N级加点一次
   public static HERO_LEVEL_PER_POINT = 2;
+  /** 非 _level_ 后缀的 DataDriven 玩家属性，生效所需最低属性等级 */
+  private static readonly SINGLE_DATA_DRIVEN_PROPERTY_MIN_LEVEL = 8;
 
   constructor() {
     print('PropertyController init');
@@ -60,12 +62,10 @@ export class PropertyController {
     PropertyController.propertyLuaModiferMap.set(property_spell_lifesteal.name, 8);
     PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
-    PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125); // FIXME 使用datadriven实现
-    PropertyController.propertyLuaModiferMap.set(property_cannot_miss.name, 0.125); // FIXME 使用datadriven实现
-    PropertyController.propertyLuaModiferMap.set(property_flying.name, 0.125); // FIXME 使用datadriven实现
+    PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125);
 
     // data driven modifier
-    // multi level property must end with '_level_'
+    // 多档属性名须以 '_level_' 结尾；单档则为完整 modifier 名
     PropertyController.propertyDataDrivenModifierMap.set(
       property_cooldown_percentage.name,
       'modifier_player_property_cooldown_percentage_level_',
@@ -110,6 +110,14 @@ export class PropertyController {
       property_stats_intellect_bonus.name,
       'modifier_player_property_stats_intellect_bonus_level_',
     );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_cannot_miss.name,
+      'modifier_player_property_cannot_miss',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_flying.name,
+      'modifier_player_property_flying',
+    );
   }
 
   /**
@@ -150,10 +158,22 @@ export class PropertyController {
     for (const key of PropertyController.propertyDataDrivenModifierMap.keys()) {
       const value = PropertyController.propertyDataDrivenModifierMap.get(key);
       if (value) {
-        for (let i = 1; i <= 8; i++) {
-          hero.RemoveModifierByName(`${value}${i}`);
-        }
+        PropertyController.RemoveDataDrivenPlayerPropertyModifiers(hero, value);
       }
+    }
+  }
+
+  /** 按注册名卸下：多档卸 1–8，单档卸该名 */
+  private static RemoveDataDrivenPlayerPropertyModifiers(
+    hero: CDOTA_BaseNPC_Hero,
+    registeredModifierName: string,
+  ) {
+    if (registeredModifierName.endsWith('_level_')) {
+      for (let i = 1; i <= 8; i++) {
+        hero.RemoveModifierByName(`${registeredModifierName}${i}`);
+      }
+    } else {
+      hero.RemoveModifierByName(registeredModifierName);
     }
   }
 
@@ -219,7 +239,11 @@ export class PropertyController {
         property.name,
       );
       if (dataDrivenModifierName) {
-        this.RefreshDataDrivenPlayerProperty(hero, dataDrivenModifierName, activeLevel);
+        PropertyController.RefreshDataDrivenPlayerProperty(
+          hero,
+          dataDrivenModifierName,
+          activeLevel,
+        );
       }
     }
   }
@@ -246,18 +270,17 @@ export class PropertyController {
     modifierName: string,
     level: number,
   ) {
-    if (level === 0) {
-      return;
-    }
+    const registeredName = modifierName;
+    PropertyController.RemoveDataDrivenPlayerPropertyModifiers(hero, registeredName);
 
-    if (modifierName.endsWith('_level_')) {
-      // for 1-8 level
-      for (let i = 1; i <= 8; i++) {
-        hero.RemoveModifierByName(`${modifierName}${i}`);
+    let applyName = modifierName;
+    if (registeredName.endsWith('_level_')) {
+      if (level === 0) {
+        return;
       }
-      modifierName = modifierName + level;
-    } else {
-      hero.RemoveModifierByName(modifierName);
+      applyName = registeredName + level;
+    } else if (level < PropertyController.SINGLE_DATA_DRIVEN_PROPERTY_MIN_LEVEL) {
+      return;
     }
 
     if (!this.PLAYER_MODIFER_DATA_DRIVEN_ITEM) {
@@ -267,7 +290,7 @@ export class PropertyController {
         undefined,
       ) as CDOTA_Item_DataDriven;
     }
-    this.PLAYER_MODIFER_DATA_DRIVEN_ITEM.ApplyDataDrivenModifier(hero, hero, modifierName, {
+    this.PLAYER_MODIFER_DATA_DRIVEN_ITEM.ApplyDataDrivenModifier(hero, hero, applyName, {
       duration: -1,
     });
   }

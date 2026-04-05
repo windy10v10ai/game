@@ -1464,6 +1464,31 @@
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"120"
 				}
 			}
+			// 必中
+			"modifier_player_property_cannot_miss"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			// 飞行
+			"modifier_player_property_flying"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FORCED_FLYING_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 		}
 	}
 
