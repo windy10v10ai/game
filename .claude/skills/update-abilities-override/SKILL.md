@@ -82,7 +82,7 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 | **同值不保留（须严格执行）** | 含但不限于：`AbilityBehavior`、`AbilityUnitTargetTeam` / `Type`、`SpellImmunityType`、`SpellDispellableType`、`AbilityType`、`FightRecapLevel`、`AbilitySound`、`IsShardUpgrade`、`IsGrantedByShard`、`HasScepterUpgrade`、`Innate`、`AbilityCastAnimation`、**与参考相同的** `AbilityCastPoint` / `AbilityCastRange`、`AbilityChannelTime`、`CalculateSpellDamageTooltip`、`DamageTypeTooltip`、`affected_by_aoe_increase` 等——只要**值与参考完全一致**就**删除**，不要为了「看起来完整」而抄写。 |
 | **本图仍须写明的情形** | 仅当：**至少一档数值**与参考不同、`MaxLevel` 扩展且伴随**实质数值变化**、或**子树中某一枝**与参考不同时，才写对应键；**仅**比参考多一档但**各档数字与参考对应档仍相同**的，不算「须写明」，见「同值多档」。可只写变化的子键，**不要**顺带贴上同值的兄弟键。 |
 | **官方已删** | 参考中已删除的键，override 内不得再保留。 |
-| **7.41+ 命石 Facet 已废** | 自 7.41 起官方移除 Facet 玩法后，参考中不应再依赖 `special_bonus_facet_*`；override **禁止**再写任何 **`special_bonus_facet_…`**（含 `special_bonus_facet_<hero>_<facet>`）。原挂在 facet 下的本图数值，改为写在 **`value`**（或仍有效的 `special_bonus_unique_*` / 魔晶等）中，结构以当前参考为准。 |
+| **`special_bonus_facet_*` 已废（7.41+）** | override **禁止**再写。参考里若某 `AbilityValues` 子键**仅有**已废 facet、**没有**顶层 `value`**，视为官方当前无此数值通道——**不得**在 override **新造** `value` 续命；**删除** override 中该键整条。若官方把同一效果挪到别的键或天赋，再按新结构写差分。 |
 | **同值多档** | 多档 `value`（或同级结构）若**每一档与参考对应档的数值相同**，**视同单值与原版一致**：整键**不写入** override、已写入的**删除**，交给原版合并。**优先于**「本图 `MaxLevel` 更高所以要补全档数」——**禁止**为凑档而把 `125`×4 抄成 `125`×5，或把 `AbilityDuration` 参考 `20.0`×3 抄成 `20.0`×4（各档仍 20）。**仅当至少有一档与参考对应档不同**（本图加强或规则化延伸出**新数**）时，才在 override 写该键，并写满与有效 `MaxLevel` 一致的档数。 |
 | **键集合** | 原则上**不增加**参考里同名技能**没有的键**。若本图确需增键，在**该技能块上方**用 `//` **中文说明原因**即可。 |
 | **多级数值与 MaxLevel** | **仅适用于**经「同值多档」判定后**仍须保留**在 override 中的多档字段：其档数须与本技能有效 `MaxLevel` 一致。若整键已因同值删除，**不要求**在 override 为该键补档。未出现在 override 的字段仍由原版提供。无 `MaxLevel` 时按下文「缺省 MaxLevel」推断。 |
@@ -105,6 +105,7 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 - **与参考同值**：不要在 override 里留「仅备忘」行；**删除该键这一行**（不要用 `"30" // 30` 等形式占坑）。若删完后该技能块已与参考无任何本图差异，按项目习惯可整段去掉该技能 override。
 - **有改动、需对照或说明倍率/差值**的键行保留，并写行尾注释，便于下次版本同步时重算。
+- **`//` 后对照数**：只写 **当前参考里该键的官方数值**（单值或多档空格分隔）；参考里若**没有**顶层 `value`、仅在已废弃的 `special_bonus_facet_*` 下有过数，**只写那个数字作对照**，**不要**在注释里写「命石」「facet」或旧子键名。本图专有说明（如「五档」）可简短接在分号后。
 - **参考换新版本后**：仍保留的键上，行尾**对照数**须更新为**当前参考**里该键的官方值；本图 `value` 按备注中的**同一修改方式**（倍数、差值等）在**新参考官方数**上重算。
 
 ---
@@ -166,9 +167,8 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 ## 官方重构时的清理
 
-- 官方删除的键、命石/魔晶结构变化：override 中**删除**对应废弃内容。
-- **Facet**：全文件 `grep special_bonus_facet_`，按上表「7.41+ 命石 Facet 已废」「同值多档」处理（不在这里重复条文）。
-- 同步后检查：无同值抄写、无废弃 facet 键；**仍保留在 override 内**的多档键长度与 `MaxLevel` 一致（同值已删的键不要求补档）；行尾对照数与**当前参考**一致。
+- 官方删除的键与 KV 结构变化：override 中**删除**对应废弃内容；全文件 `grep special_bonus_facet_` 清理（规则见上表）。
+- 同步后检查：无同值抄写、无 `special_bonus_facet_*`；**仍保留在 override 内**的多档键长度与 `MaxLevel` 一致；行尾对照为**当前参考官方数**、注释无命石/facet 名。
 
 ---
 
@@ -186,7 +186,8 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 ## 不应做的事
 
-- **把参考里与原版一致的键抄进 override**（含 `AbilityBehavior`、免疫/目标类型、`AbilityCastAnimation` 等），无论是否为了「结构好看」——与上表「差分-only / 同值不保留」相反的做法一律避免（含 Facet、同值多档等，**以核心原则表为准**，此处不逐条复述）。
+- **把参考里与原版一致的键抄进 override**（含 `AbilityBehavior`、免疫/目标类型、`AbilityCastAnimation` 等），无论是否为了「结构好看」——与上表「差分-only / 同值不保留」相反的做法一律避免（**以核心原则表为准**）。
+- **行尾注释写命石、facet 名称或已删子键名**（对照只写官方数，见「行尾注释」惯例）。
 - 引入与全文件、同英雄区段**割裂**的注释风格（应沿用邻行既有写法）。
 - **无说明**地增加参考中不存在的键。
 - 参考已更新后，仍不按行尾备注重算 `value`，或行尾对照数未与**当前参考**对齐。
