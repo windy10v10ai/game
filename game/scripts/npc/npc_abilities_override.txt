@@ -342,7 +342,7 @@
 			}
 			"damage_absorb"
 			{
-				"value"			"120 165 210 255 300"	// 120 150 180 210
+				"value"			"120 180 240 300 360"	// 120 150 180 210
 				"special_bonus_unique_abaddon"		"+220"	// +80 +140差值
 			}
 			"regen"
