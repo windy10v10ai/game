@@ -311,28 +311,19 @@
 	"abaddon_death_coil"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"7.0 6.5 6.0 5.5 5.0"
+		"AbilityCooldown"				"7.0 6.5 6.0 5.5 5.0"	// 8 7 6 5
+		"AbilityManaCost"				"50 55 60 65 70"	// 50 55 60 65
 		"AbilityValues"
 		{
-			"target_damage"
+			"damage_heal"
 			{
 				"value"			"100 175 250 325 400"
-				"special_bonus_unique_abaddon_2"	"+100"
-			}
-			"heal_amount"
-			{
-				"value"			"100 175 250 325 400"
-				"special_bonus_unique_abaddon_2"	"+100"
+				"special_bonus_unique_abaddon_2"	"+100"	// 35 +65差值
 			}
 			"effect_radius"
 			{
 				"value"				"0"
-				"special_bonus_unique_abaddon_4"	"+500"
-			}
-			"damage_percentage_on_perform_attack"
-			{
-				"value"										"0"
-				"special_bonus_facet_abaddon_mists_of_fate"	"=40 =60 =80 =100 =120"
+				"special_bonus_unique_abaddon_4"	"+500"	// 350 +150差值
 			}
 		}
 	}
@@ -340,36 +331,38 @@
 	"abaddon_aphotic_shield"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"95 110 125 140 155"
+		"AbilityManaCost"				"95 110 125 140 155"	// 110 120 130 140
 		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"AbilityCastPoint"				"0.0"
+		"AbilityCastPoint"				"0.0"	// 0.3
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"				"12 10 8 6 4"
+				"value"				"12 10 8 6 4"	// 12 10 8 6
 			}
 			"damage_absorb"
 			{
 				"value"			"120 160 200 240 280"
-				"special_bonus_unique_abaddon"		"+220"
+				"special_bonus_unique_abaddon"		"+220"	// +80 +140差值
 			}
 			"regen"
 			{
 				"value"			"0"
-				"special_bonus_unique_abaddon_7"		"+30"	// 10 +20差值
+				"special_bonus_unique_abaddon_7"		"+30"	// 8 +22差值
 			}
 		}
 	}
 	// 凋零迷雾（先天）
+	// 较参考提高基础阈值与回复降低；天赋仍为地图加成
 	"abaddon_withering_mist"
 	{
 		"AbilityValues"
 		{
-			"hp_threshold_pct"		"60.0"
+			"hp_threshold_pct"		"60.0"	// 40.0
 			"heal_reduction_pct"
 			{
-				"value"				"40"
+				"value"				"40"	// 24.5
+				"hero_levelup"		"+0.5"
 				"special_bonus_unique_abaddon_6"		"+20"
 			}
 		}
@@ -382,17 +375,17 @@
 		{
 			"curse_slow"
 			{
-				"value"									"15 20 25 30 35"
+				"value"									"15 20 25 30 35"	// 10 15 20 25
 			}
 			"curse_attack_speed"
 			{
 				"value"				"20 40 60 80 100"	// x2
-				"special_bonus_unique_abaddon_3" "+130"	// x2
+				"special_bonus_unique_abaddon_3" "+130"	// 65 x2
 			}
 			"curse_dps"
 			{
-				"value" "30 40 50 60 70"
-				"special_bonus_unique_abaddon_5"	"+80"
+				"value" "30 40 50 60 70"	// 15 25 35 45 x2
+				"special_bonus_unique_abaddon_5"	"+80"	// 25 +55差值
 			}
 		}
 	}
@@ -404,18 +397,18 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"								"70"	//90 80 70
+				"value"								"70 60 50 40"	// 85 75 65 +第四档
+				"special_bonus_unique_abaddon_borrowed_time_cd"		"-10"
 			}
-			"hp_threshold"							"1000 2000 3000 4000"
+			"hp_threshold"							"1000 2000 3000 4000"	// 400
 			"duration"
 			{
-				"value"		"4.0 4.5 5.0 5.5"
-				"special_bonus_scepter"	"+1.5"
+				"value"		"4.0 4.5 5.0 5.5"	// 4.0 5.0 6.0
+				"special_bonus_scepter"	"+1.5"	// +3
 			}
 			"ally_threshold_scepter"
 			{
-				"value"								"750"
-				"RequiresScepter"					"1"
+				"special_bonus_scepter"				"750"	// 550
 			}
 		}
 	}
