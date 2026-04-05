@@ -342,7 +342,7 @@
 			}
 			"damage_absorb"
 			{
-				"value"			"120 160 200 240 280"
+				"value"			"120 165 210 255 300"	// 120 150 180 210
 				"special_bonus_unique_abaddon"		"+220"	// +80 +140差值
 			}
 			"regen"
@@ -353,7 +353,6 @@
 		}
 	}
 	// 凋零迷雾（先天）
-	// 较参考提高基础阈值与回复降低；天赋仍为地图加成
 	"abaddon_withering_mist"
 	{
 		"AbilityValues"
