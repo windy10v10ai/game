@@ -689,6 +689,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"Innate"						"0"
 		"AbilityTextureName"			"jakiro_dual_breath"
+		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{

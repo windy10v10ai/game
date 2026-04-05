@@ -1069,6 +1069,7 @@
 
 		// Alchemist 炼金术士
 		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_health"				"额外生命值："
+		"DOTA_Tooltip_ability_alchemist_chemical_rage_bonus_mana_regen"			"额外魔法恢复："
 
 		// Marci
 		"DOTA_Tooltip_ability_marci_guardian"								"健体术"
