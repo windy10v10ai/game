@@ -48,6 +48,26 @@ disable-model-invocation: true
 - {更新内容2}
 ```
 
+### 多英雄并列（Dota 版本同步类 PR / Release Note）
+
+当一条更新对应 **多名英雄**（例如 `npc_abilities_override` 相对 `docs/reference/7.xx` 逐项同步）时，**英雄名写在同一条 bullet 内**，中文用全角逗号 **，** 分隔，英文用半角 **, ** 分隔；**不要**为每名英雄再拆子列表或换行。
+
+示例（PR `Release Note` 与创意工坊 bullet 均可采用同一结构）：
+
+```
+[b]游戏性更新 v5.19c[/b]
+
+- 同步 Dota 2 7.41 对下列英雄的技能更新：亚巴顿，炼金术士，狙击手
+```
+
+```
+[b]Gameplay update v5.19c[/b]
+
+- Synced Dota 2 7.41 ability updates for the following heroes: Abaddon, Alchemist, Sniper
+```
+
+英雄中英文名称从 `game/resource/addon_schinese.txt` / `addon_english.txt` 或 Issue 清单核对；**本次批次未纳入的英雄不要写入**（例如早前已单独立项的改动不必重复塞进本条）。
+
 ## 版本号格式
 
 - **主要版本**：5.00, 5.10, 6.00（两位小数）
