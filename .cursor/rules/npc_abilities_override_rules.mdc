@@ -1,0 +1,54 @@
+---
+description: npc_abilities_override.txt 编辑格式；完整流程与注释惯例以 skill 为准
+globs:
+  - game/scripts/npc/npc_abilities_override.txt
+alwaysApply: false
+---
+
+# NPC Abilities Override（Cursor 规则）
+
+本规则仅在编辑匹配文件时辅助记忆**不可违背的约束**。**权威流程、加强类型、注释写法**见：
+
+`.claude/skills/update-abilities-override/SKILL.md`
+
+---
+
+## 与 skill 一致的核心约定
+
+1. **参考骨架**：键层级与 `docs/reference/{version}/heroes/npc_dota_hero_*.txt` 中同名技能对齐；官方已删的键不得保留。
+2. **同值不保留**：与参考数值一致的键**删除** override 中对应行，勿仅写备忘注释。
+3. **增键**：原则上不增加参考中没有的键；若必须增加，在**该技能块上方**用 `//` 中文说明。
+4. **行尾注释**：有改动的键行可写——`// 18`（单值对照）、`// 150 130 110`（多档对照）、`// 150 130 110 x2`（多档 + 倍率）、`"value" "300 500 700 900" // 200 400 600 800 +100`、`"+30" // 10 +20差值`、纯中文说明等。**与参考同值**的键**不要**只写备忘注释，应**删除该行**。
+5. **多档字段**：分档个数须与有效 `MaxLevel` 一致（无 `MaxLevel` 时按 skill 缺省表推断）。
+
+---
+
+## 编辑门禁（格式与边界）
+
+- **缩进**：Tab；与周边块一致。
+- **重复**：同一技能块内同一 key 只出现一次。
+- **顺序**：顶层键与 `AbilityValues` 子键顺序尽量与参考中同名技能一致。
+
+---
+
+## 参考与检索（`{version}` = 当前 `docs/reference/` 下目录名）
+
+| 用途                                   | 路径                                                       |
+| -------------------------------------- | ---------------------------------------------------------- |
+| 英雄槽位（Ability1–6，未定技能列表时） | `docs/reference/{version}/npc_heroes.txt`                  |
+| 官方技能块                             | `docs/reference/{version}/heroes/npc_dota_hero_<hero>.txt` |
+| 中文名 → 系统名                        | `docs/reference/{version}/abilities_schinese.txt`          |
+
+```bash
+grep -n "hero_ability_name" game/scripts/npc/npc_abilities_override.txt
+```
+
+---
+
+## 快速自检清单
+
+- [ ] 无官方已废弃结构残留。
+- [ ] 无「与参考同值却仍占一行」的键（应删行）。
+- [ ] 无「无块首说明」的随意增键。
+- [ ] 多档长度与 `MaxLevel`（或推断）一致。
+- [ ] 行尾对照数与**当前 `docs/reference` 版本**中的官方值一致（参考更新后已同步重算）。
