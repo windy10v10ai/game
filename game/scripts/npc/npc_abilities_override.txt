@@ -731,11 +731,9 @@
 			"bonus_gold_tooltip"
 			{
 				"value"								"4"	// 2
-				"special_bonus_scepter"		"+0"
-				"dynamic_value"				"true"
 			}
 			"bonus_bonus_gold"		"4"	// 2
-			"bonus_gold_per_scepter"		"12"	// 6
+			"bonus_gold_per_scepter"		"15"	// 6
 			"bounty_multiplier"		"4"	// 2
 			"damage"
 			{
@@ -745,21 +743,10 @@
 			"bonus_gold_cap_tooltip"
 			{
 				"value"								"40"	// 16
-				"special_bonus_scepter"				"+0"
-				"dynamic_value"				"true"
 			}
 			"scepter_bonus_damage"
 			{
-				"value"						"15"
-			}
-			"scepter_bonus_damage_tooltip"
-			{
-				"special_bonus_scepter"		"+0"
-				"dynamic_value"				"true"
-			}
-			"scepter_spell_amp"
-			{
-				"special_bonus_scepter"		"0"
+				"value"						"60"	// 15
 			}
 		}
 	}
@@ -8065,7 +8052,6 @@
 				"special_bonus_scepter"				"0.8 1.0 1.2 1.4"	// 0.8 1.0 1.2
 			}
 			"cooldown_reduction_on_kill"		"0 5 10 12"	// 0 5 10
-			"attack_factor"						"0 10 20 30"	// 0 0 0
 		}
 	}
 	//=================================================================================================================
