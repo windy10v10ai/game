@@ -30,9 +30,9 @@ import { PlayerHelper } from '../helper/player-helper';
 @reloadable
 export class PropertyController {
   /**
-   * DataDriven modifier Map
-   * key: property name (property_cooldown_percentage)
-   * value: value per level (4)
+   * Lua modifier Map
+   * key: property name
+   * value: value per level
    */
   private static propertyLuaModiferMap = new Map<string, number>();
   /**
@@ -51,7 +51,6 @@ export class PropertyController {
   constructor() {
     print('PropertyController init');
     // lua modifier
-    PropertyController.propertyLuaModiferMap.set(property_cooldown_percentage.name, 4);
     PropertyController.propertyLuaModiferMap.set(property_cast_range_bonus_stacking.name, 25);
     PropertyController.propertyLuaModiferMap.set(property_spell_amplify_percentage.name, 5);
     PropertyController.propertyLuaModiferMap.set(property_status_resistance_stacking.name, 4);
@@ -68,6 +67,10 @@ export class PropertyController {
 
     // data driven modifier
     // multi level property must end with '_level_'
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_cooldown_percentage.name,
+      'modifier_player_property_cooldown_percentage_level_',
+    );
     PropertyController.propertyDataDrivenModifierMap.set(
       property_movespeed_bonus_constant.name,
       'modifier_player_property_movespeed_bonus_constant_level_',
