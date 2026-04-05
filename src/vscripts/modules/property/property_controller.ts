@@ -50,22 +50,23 @@ export class PropertyController {
 
   constructor() {
     print('PropertyController init');
+    // lua modifier
     PropertyController.propertyLuaModiferMap.set(property_cooldown_percentage.name, 4);
     PropertyController.propertyLuaModiferMap.set(property_cast_range_bonus_stacking.name, 25);
     PropertyController.propertyLuaModiferMap.set(property_spell_amplify_percentage.name, 5);
     PropertyController.propertyLuaModiferMap.set(property_status_resistance_stacking.name, 4);
-    PropertyController.propertyLuaModiferMap.set(property_evasion_constant.name, 4); // FIXME 使用datadriven实现
     PropertyController.propertyLuaModiferMap.set(property_magical_resistance_bonus.name, 4); // FIXME 使用datadriven实现
     PropertyController.propertyLuaModiferMap.set(property_incoming_damage_percentage.name, -4);
     PropertyController.propertyLuaModiferMap.set(property_attack_range_bonus.name, 25);
-    PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
-    PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_lifesteal.name, 10);
     PropertyController.propertyLuaModiferMap.set(property_spell_lifesteal.name, 8);
+    PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
+    PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125); // FIXME 使用datadriven实现
     PropertyController.propertyLuaModiferMap.set(property_cannot_miss.name, 0.125); // FIXME 使用datadriven实现
     PropertyController.propertyLuaModiferMap.set(property_flying.name, 0.125); // FIXME 使用datadriven实现
 
+    // data driven modifier
     // multi level property must end with '_level_'
     PropertyController.propertyDataDrivenModifierMap.set(
       property_movespeed_bonus_constant.name,
@@ -75,7 +76,10 @@ export class PropertyController {
       property_bonus_vision.name,
       'modifier_player_property_bonus_vision_level_',
     );
-
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_evasion_constant.name,
+      'modifier_player_property_evasion_constant_level_',
+    );
     PropertyController.propertyDataDrivenModifierMap.set(
       property_physical_armor_bonus.name,
       'modifier_player_property_physical_armor_bonus_level_',
