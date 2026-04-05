@@ -54,7 +54,6 @@ export class PropertyController {
     PropertyController.propertyLuaModiferMap.set(property_cast_range_bonus_stacking.name, 25);
     PropertyController.propertyLuaModiferMap.set(property_spell_amplify_percentage.name, 5);
     PropertyController.propertyLuaModiferMap.set(property_status_resistance_stacking.name, 4);
-    PropertyController.propertyLuaModiferMap.set(property_magical_resistance_bonus.name, 4); // FIXME 使用datadriven实现
     PropertyController.propertyLuaModiferMap.set(property_incoming_damage_percentage.name, -4);
     PropertyController.propertyLuaModiferMap.set(property_attack_range_bonus.name, 25);
     PropertyController.propertyLuaModiferMap.set(property_lifesteal.name, 10);
@@ -82,6 +81,10 @@ export class PropertyController {
     PropertyController.propertyDataDrivenModifierMap.set(
       property_evasion_constant.name,
       'modifier_player_property_evasion_constant_level_',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_magical_resistance_bonus.name,
+      'modifier_player_property_magical_resistance_bonus_level_',
     );
     PropertyController.propertyDataDrivenModifierMap.set(
       property_physical_armor_bonus.name,
