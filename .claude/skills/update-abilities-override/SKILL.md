@@ -79,7 +79,9 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 | 原则 | 说明 |
 | ---- | ---- |
 | **差分-only** | override **不是**「把参考里的技能再抄一遍」。凡在参考中**已存在且与参考逐字相同**的键（含子键），**一律不得**出现在 override 中；由原版 KV 提供即可。 |
-| **同值不保留（须严格执行）** | 含但不限于：`AbilityBehavior`、`AbilityUnitTargetTeam` / `Type`、`SpellImmunityType`、`SpellDispellableType`、`AbilityType`、`FightRecapLevel`、`AbilitySound`、`IsShardUpgrade`、`IsGrantedByShard`、`HasScepterUpgrade`、`Innate`、`AbilityCastAnimation`、**与参考相同的** `AbilityCastPoint` / `AbilityCastRange`、`AbilityChannelTime`、`CalculateSpellDamageTooltip`、`DamageTypeTooltip`、`affected_by_aoe_increase` 等——只要**值与参考完全一致**就**删除**，不要为了「看起来完整」而抄写。 |
+| **同值不保留（须严格执行）** | 含但不限于：`AbilityBehavior`、`AbilityUnitTargetTeam` / `Type`、`SpellImmunityType`、`SpellDispellableType`、`AbilityType`、`FightRecapLevel`、`AbilitySound`、`IsShardUpgrade`、`IsGrantedByShard`、`HasScepterUpgrade`、`Innate`、`AbilityCastAnimation`、**与参考相同的** `AbilityCastPoint` / `AbilityCastRange`、`AbilityChannelTime`、`DamageTypeTooltip`、`affected_by_aoe_increase` 等——只要**值与参考完全一致**就**删除**，不要为了「看起来完整」而抄写。 |
+| **天赋 / 神杖等同路子键** | `AbilityValues` 内 `special_bonus_unique_*`、`special_bonus_scepter`、`special_bonus_shard` 等：**与当前参考逐字相同**的不得在 override 再写一行；本图只改同一父键下的 `value`（或其它确有差分的子键）时，**勿顺带抄写**未改动的天赋/神杖行。若本图对该天赋**确有不同数值**，只写该差分子键即可。 |
+| **`CalculateSpellDamageTooltip`** | override **禁止**出现此键，**不**因「怕合并丢 tooltip」而抄写；交给原版 KV。存量旧稿在维护到该技能时**删除**此行。 |
 | **本图仍须写明的情形** | 仅当：**至少一档数值**与参考不同、`MaxLevel` 扩展且伴随**实质数值变化**、或**子树中某一枝**与参考不同时，才写对应键；**仅**比参考多一档但**各档数字与参考对应档仍相同**的，不算「须写明」，见「同值多档」。可只写变化的子键，**不要**顺带贴上同值的兄弟键。 |
 | **官方已删** | 参考中已删除的键，override 内不得再保留。 |
 | **`special_bonus_facet_*` 已废（7.41+）** | override **禁止**再写。参考里若某 `AbilityValues` 子键**仅有**已废 facet、**没有**顶层 `value`**，视为官方当前无此数值通道——**不得**在 override **新造** `value` 续命；**删除** override 中该键整条。若官方把同一效果挪到别的键或天赋，再按新结构写差分。 |
@@ -169,6 +171,7 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 ## 官方重构时的清理
 
 - 官方删除的键与 KV 结构变化：override 中**删除**对应废弃内容；全文件 `grep special_bonus_facet_` 清理（规则见上表）。
+- 遇 `grep CalculateSpellDamageTooltip`：在 `npc_abilities_override.txt` 中**删除**匹配行（本文件不应出现该键）。
 - 同步后检查：无同值抄写、无 `special_bonus_facet_*`；**仍保留在 override 内**的多档键长度与 `MaxLevel` 一致；行尾对照为**当前参考官方数**、注释无命石/facet 名。
 
 ---
@@ -187,7 +190,8 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 
 ## 不应做的事
 
-- **把参考里与原版一致的键抄进 override**（含 `AbilityBehavior`、免疫/目标类型、`AbilityCastAnimation` 等），无论是否为了「结构好看」——与上表「差分-only / 同值不保留」相反的做法一律避免（**以核心原则表为准**）。
+- **把参考里与原版一致的键抄进 override**（含 `AbilityBehavior`、免疫/目标类型、`AbilityCastAnimation`、与参考相同的 `special_bonus_*` 天赋/神杖子键等），无论是否为了「结构好看」或「怕子块合并丢键」——与上表「差分-only / 同值不保留」相反的做法一律避免（**以核心原则表为准**）。
+- 在 override 中写 **`CalculateSpellDamageTooltip`**。
 - **行尾注释写命石、facet 名称或已删子键名**（对照只写官方数，见「行尾注释」惯例）。
 - 引入与全文件、同英雄区段**割裂**的注释风格（应沿用邻行既有写法）。
 - **无说明**地增加参考中不存在的键。

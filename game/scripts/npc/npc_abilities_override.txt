@@ -6523,17 +6523,16 @@
 				"damage_modifier"
 				{
 					"value"		"-50 -40 -30 -20 -10"	// -50 -40 -30 -20
-					"special_bonus_unique_medusa_2"	"+12"
+					"special_bonus_unique_medusa_2"	"+10"	// +12
 				}
 				"damage_modifier_tooltip"
 				{
 					"value"			"50 60 70 80 90"	// 50 60 70 80
-					"special_bonus_unique_medusa_2"	"+12"
+					"special_bonus_unique_medusa_2"	"+10"	// +12
 				}
 				"arrow_count"
 				{
 					"value"			"4 5 6 7 8"	// 4
-					"special_bonus_scepter"		"+1"
 				}
 		}
 	}
@@ -6546,7 +6545,6 @@
 			"AbilityCooldown"
 			{
 				"value"				"16 15 14 13 12"	// 15 14 13 12
-				"special_bonus_unique_medusa_5"	"-4"
 			}
 			"AbilityManaCost"					"80 100 120 140 160"	// 80 100 120 140
 			"snake_jumps"
@@ -6558,7 +6556,6 @@
 			{
 				"value"			"90 140 190 240 290"	// 90 140 190 240
 				"special_bonus_unique_medusa_snake_damage"	"+40%"
-				"CalculateSpellDamageTooltip" "1"
 			}
 		}
 	}
