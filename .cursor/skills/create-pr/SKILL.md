@@ -25,7 +25,7 @@ description: Create a PR from current branch to develop, committing all local ch
 2. 提交全部改动：`git add -A`；若有暂存内容则生成简洁 commit message 并提交，若无改动则跳过 commit。
 3. 推送分支：`git push -u origin HEAD`。
 4. 组装 PR 正文（模板：`.github/pull_request_template.md`）：
-   - Issue 段：合并后**应关闭** Issue 时用 `- [ ] fix #<issue-id>`（或 `Closes #<id>` 等 GitHub 关单关键词）；**分步/部分实现**、合并后不应关单时，用 **`Ref #<issue-id>`**（或正文内 `关联 #<id>`），**勿写** `fix`/`close`/`resolve`，避免误关未完成的大单。
+   - Issue 段：合并后**应关闭** Issue 时用 `- [ ] fix #<issue-id>`（或 `Closes #<id>` 等 GitHub 关单关键词）；**分步/部分实现**、合并后不应关单时，用 **`- Ref #<issue-id>`**（或正文内 `关联 #<id>`），**勿写** `fix`/`close`/`resolve`，避免误关未完成的大单。
    - 有 issue 时基于 issue 内容，无 issue 时根据改动内容，生成数条可验证 checklist。
    - Release Note：按 `.claude/skills/generate-changelog/SKILL.md` 执行。
 5. 创建 PR：`gh pr create --base develop --head <current-branch> --title "<title>" --body-file <temp-file>`。
