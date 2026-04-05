@@ -352,14 +352,6 @@
 			}
 		}
 	}
-	// 凋零迷雾（先天）
-	"abaddon_withering_mist"
-	{
-		"AbilityValues"
-		{
-			"hp_threshold_pct"		"60.0"	// 40.0
-		}
-	}
 	// 魔霭诅咒
 	"abaddon_frostmourne"
 	{
@@ -403,6 +395,14 @@
 			{
 				"special_bonus_scepter"				"750"	// 550
 			}
+		}
+	}
+	// 凋零迷雾（先天）
+	"abaddon_withering_mist"
+	{
+		"AbilityValues"
+		{
+			"hp_threshold_pct"		"60.0"	// 40.0
 		}
 	}
 	//=================================================================================================================
@@ -720,6 +720,48 @@
 			"attack_speed"		"100"	// 50
 			"hp_regen"		"100"	// 40
 			"move_speed"			"60"	// 30
+		}
+	}
+	// 贪魔的贪婪 先天
+	"alchemist_goblins_greed"
+	{
+		"AbilityValues"
+		{
+			"duration"				"40"
+			"bonus_gold"		"2"
+			"bonus_gold_tooltip"
+			{
+				"value"								"2"
+				"special_bonus_scepter"		"+0"
+				"dynamic_value"				"true"
+			}
+			"bonus_bonus_gold"		"2"
+			"bonus_gold_per_scepter"		"6"
+			"bounty_multiplier"		"2"
+			"damage"
+			{
+				"special_bonus_unique_alchemist_7"	"+3"
+			}
+			"bonus_gold_cap"		"20"	// 16
+			"bonus_gold_cap_tooltip"
+			{
+				"value"								"20"	// 16
+				"special_bonus_scepter"				"+0"
+				"dynamic_value"				"true"
+			}
+			"scepter_bonus_damage"
+			{
+				"value"						"15"
+			}
+			"scepter_bonus_damage_tooltip"
+			{
+				"special_bonus_scepter"		"+0"
+				"dynamic_value"				"true"
+			}
+			"scepter_spell_amp"
+			{
+				"special_bonus_scepter"		"0"
+			}
 		}
 	}
 	// 化学狂暴
