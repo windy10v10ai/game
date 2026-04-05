@@ -737,7 +737,7 @@
 				"24"		""
 				"25"		"special_bonus_unique_bounty_hunter_2"
 				"26"		""
-				"27"		"special_bonus_attack_damage_25"
+				"27"		"special_bonus_attack_damage_30"
 				"28"		"special_bonus_unique_bounty_hunter_9"
 				"29"		"special_bonus_unique_bounty_hunter"
 				"30"		"special_bonus_unique_bounty_hunter_jinada_no_cooldown"
