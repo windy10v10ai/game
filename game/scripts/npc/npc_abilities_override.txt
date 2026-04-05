@@ -374,6 +374,14 @@
 			}
 		}
 	}
+	// 凋零迷雾（先天）
+	"abaddon_withering_mist"
+	{
+		"AbilityValues"
+		{
+			"hp_threshold_pct"		"60.0"	// 40.0
+		}
+	}
 	// 回光返照
 	"abaddon_borrowed_time"
 	{
@@ -395,14 +403,6 @@
 			{
 				"special_bonus_scepter"				"750"	// 550
 			}
-		}
-	}
-	// 凋零迷雾（先天）
-	"abaddon_withering_mist"
-	{
-		"AbilityValues"
-		{
-			"hp_threshold_pct"		"60.0"	// 40.0
 		}
 	}
 	//=================================================================================================================

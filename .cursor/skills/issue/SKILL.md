@@ -32,8 +32,8 @@ description: >-
 ## 分支
 
 1. 取最新 `develop`：`git fetch origin` 后 `git checkout develop` 并 `git pull`（按团队习惯可与 `origin/develop` 对齐）。
-2. 新分支名：`feature/<issue_number>-<短 slug>`  
-   - `slug`：来自 Issue 标题：小写、空格与连续符号转为 `-`，去掉不安全字符，尽量短（例如 3～6 个词以内）。  
+2. 新分支名：`feature/<issue_number>-<短 slug>`
+   - `slug`：来自 Issue 标题：小写、空格与连续符号转为 `-`，去掉不安全字符，尽量短（例如 3～6 个词以内）。
    - 示例：`feature/42-fix-lobby-timeout`。
 3. `git checkout -b feature/<issue_number>-<slug>`。
 
@@ -44,8 +44,8 @@ description: >-
 
 ## 提交与 PR
 
-1. 工作完成后：阅读并**完整执行** [.cursor/skills/create-pr/SKILL.md](../create-pr/SKILL.md)（收集 diff、提交、推送、`gh pr create` 指向 `develop`、按模板写正文等）。  
-   - 分支名已含 issue 号时，create-pr 的 Issue 识别规则仍适用；正文关联 Issue 时按 create-pr：整单收尾可 `fix #<n>`，**分步 PR** 用 `- Ref #<n>` 以免误关未完成 Issue；checklist 与模板保持一致。
+1. 工作完成后：阅读并**完整执行** [.cursor/skills/create-pr/SKILL.md](../create-pr/SKILL.md)（收集 diff、提交、推送、`gh pr create` 指向 `develop`、按模板写正文等）。
+   - 分支名已含 issue 号时，create-pr 的 Issue 识别规则仍适用；正文关联 `fix #<n>` / checklist 与模板保持一致。
 2. 若 `gh` 不可用，可用 MCP 创建 PR，但正文与 checklist 仍应对齐 `.github/pull_request_template.md` 与 create-pr 中的 Release Note / changelog 规则。
 
 ## 回报
