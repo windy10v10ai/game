@@ -27,8 +27,7 @@ description: Create a PR from current branch to develop, committing all local ch
 4. 组装 PR 正文（模板：`.github/pull_request_template.md`）：
    - Issue 段：合并后**应关闭** Issue 时用 `- [ ] fix #<issue-id>`（或 `Closes #<id>` 等 GitHub 关单关键词）；**分步/部分实现**、合并后不应关单时，用 **`Ref #<issue-id>`**（或正文内 `关联 #<id>`），**勿写** `fix`/`close`/`resolve`，避免误关未完成的大单。
    - 有 issue 时基于 issue 内容，无 issue 时根据改动内容，生成数条可验证 checklist。
-   - Release Note 必须遵循 `.claude/skills/generate-changelog/SKILL.md`（版本号与文案规则以该技能为准）；其中 **Dota 版本同步多英雄** 的名单格式见该技能「多英雄并列」一节（同一条 bullet、逗号分隔、不换行）。
-   - 必须先执行 `generate-changelog` 的版本推导步骤，再填写 Release Note 版本号：
+   - Release Note：按 `.claude/skills/generate-changelog/SKILL.md` 执行。
 5. 创建 PR：`gh pr create --base develop --head <current-branch> --title "<title>" --body-file <temp-file>`。
 6. 回报结果：返回 PR URL、是否新建 commit（及 hash）。
 
