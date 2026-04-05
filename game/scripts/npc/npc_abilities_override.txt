@@ -338,7 +338,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"10 9 8 7 6"	// 12 10 8 6 相邻-1至末档6
+				"value"				"10 9 8 7 6"	// 12 10 8 6 相邻-1 最后一档同末档
 			}
 			"damage_absorb"
 			{
@@ -358,12 +358,6 @@
 		"AbilityValues"
 		{
 			"hp_threshold_pct"		"60.0"	// 40.0
-			"heal_reduction_pct"
-			{
-				"value"				"40"	// 24.5
-				"hero_levelup"		"+0.5"
-				"special_bonus_unique_abaddon_6"		"+20"
-			}
 		}
 	}
 	// 魔霭诅咒
@@ -7967,24 +7961,16 @@
 		{
 			"slow_movement_speed"
 			{
-				"value"		"-12 -18 -24 -30 -36"
-				"special_bonus_facet_sniper_scattershot"	"=-15 =-30 =-45 =-60 =-75"	// =-30 =-45 =-60 =-75
+				"value"		"-12 -18 -24 -30 -36"	// -12 -18 -24 -30
 			}
 			"radius"
 			{
-				"value"		"400 425 450 475 500"
-				"affected_by_aoe_increase"	"1"
+				"value"		"400 425 450 475 500"	// 400 425 450 475
 			}
 			"shrapnel_damage"
 			{
-				"value"			"30 45 60 75 90"
-				"special_bonus_facet_sniper_scattershot"	"=90 =160 =230 =300 =370"
+				"value"			"30 45 60 75 90"	// 30 45 60 75
 				"special_bonus_unique_sniper_shrapnel_damage"		"+50%"	// +30%
-			}
-			"duration"
-			{
-				"value"		"10.0"
-				"special_bonus_facet_sniper_scattershot"	"=3"	// 1
 			}
 		}
 	}
@@ -7999,15 +7985,14 @@
 				"value"	"50 80 110 140 170"		// 20 50 80 110
 				"special_bonus_unique_sniper_headshot_damage"	"+50"	// +30
 			}
-			"slow_duration"					"0.2 0.3 0.4 0.5 0.6"
+			"slow_duration"					"0.2 0.3 0.4 0.5 0.6"	// 0.2 0.3 0.4 0.5
 		}
 	}
 	// 瞄准
 	"sniper_take_aim"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"20 18 16 14 12"
-		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"20 18 16 14 12"	// 20 18 16 14
 		"AbilityValues"
 		{
 			"slow"
@@ -8016,18 +8001,9 @@
 			}
 			"active_attack_range_bonus"
 			{
-				"value"									"100 150 200 250 300"
+				"value"									"100 150 200 250 300"	// 75 150 225 300
 			}
-			"bonus_vision"								"500 750 1000 1250 1500"
-		}
-	}
-	// 基恩瞄准镜
-	"sniper_keen_scope"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"bonus_range"				"60 160 260 360 460"
+			"bonus_vision"								"500 750 1000 1250 1500"	// 500 750 1000 1250
 		}
 	}
 	// 暗杀
@@ -8035,7 +8011,7 @@
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "4"
-		"AbilityCooldown"				"18 16 14 12"
+		"AbilityCooldown"				"18 16 14 12"	// 20 15 10
 		"AbilityValues"
 		{
 			"damage"
@@ -8045,10 +8021,10 @@
 			}
 			"scepter_stun_duration"
 			{
-				"value" "0.8 1.0 1.2 1.4"
+				"special_bonus_scepter"				"0.8 1.0 1.2 1.4"	// 0.8 1.0 1.2
 			}
-			"cooldown_reduction_on_kill"		"0 5 10 12"
-			"attack_factor"						"0 10 20 30"	// 0 10 20
+			"cooldown_reduction_on_kill"		"0 5 10 12"	// 0 5 10
+			"attack_factor"						"0 10 20 30"	// 0 0 0
 		}
 	}
 	//=================================================================================================================
