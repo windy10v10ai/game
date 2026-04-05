@@ -8020,12 +8020,12 @@
 	"sniper_take_aim"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"20 18 16 14 12"	// 20 18 16 14
+		"AbilityCooldown"				"18 17 16 15 14"	// 20 18 16 14
 		"AbilityValues"
 		{
 			"slow"
 			{
-				"value"								"25"	// 65
+				"value"								"35"	// 65
 			}
 			"active_attack_range_bonus"
 			{
@@ -8033,8 +8033,7 @@
 			}
 			"passive_attack_range_bonus"
 			{
-				"value"									"160 240 320 400 480"	// 160 240 320 400
-				"special_bonus_unique_sniper_5"			"+50"	// +50
+				"value"									"160 220 280 340 400"	// 160 240 320 400
 			}
 			"bonus_vision"								"500 750 1000 1250 1500"	// 500 750 1000 1250
 		}
