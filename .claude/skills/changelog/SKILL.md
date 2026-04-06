@@ -142,10 +142,10 @@ release PR 存在且大版本高于 Steam（如 Steam `v5.19b`，release PR `v5.
 
 ## GAME_VERSION 同步
 
-文件：`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀。
+文件：`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀（`v5.20` 而非 `v5.20a`）。
 
-- Workshop 大版本相对 `GAME_VERSION` 变化且用户需发版时 → 修改
-- 仅 a/b/c 小更 → 不改，在输出末提醒核对
+- Workshop 大版本（去掉 a/b/c）与 `GAME_VERSION` 不同时 → **自动修改** `GameConfig.ts`
+- 仅 a/b/c 小更、大版本未变 → 不改
 
 ## 更新 open PR 的 Release Note
 
@@ -171,7 +171,7 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
    - 其他 → 手动
 2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行。
 3. **生成更新日志**：Issue+checklist 列已完成英雄并附 `x/总数`；PR 列全部英雄；手动按用户列点。
-4. **GAME_VERSION 对照**：按「GAME_VERSION 同步」处理。
+4. **GAME_VERSION 同步**：大版本变化时自动修改 `GameConfig.ts`。
 5. **输出**中英文两版，标题含具体版本号。
 6. **写入 PR**：须用户确认后执行。
 
