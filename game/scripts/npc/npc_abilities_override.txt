@@ -8971,48 +8971,42 @@
 	"ancient_apparition_cold_feet"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"700 800 900 1000 1100"
-		"AbilityCooldown"				"13 12 11 10 9"
-		"AbilityManaCost"				"110 115 120 125 130"
+		"AbilityCastRange"				"700 800 900 1000 1100"			// 700 800 900 1000
+		"AbilityCooldown"				"13 12 11 10 9"					// 15 13 11 9
+		"AbilityManaCost"				"110 115 120 125 130"			// 110 115 120 125
 		"AbilityValues"
 		{
-			"frost_stacks"
-			{
-				"value"		"2 4 6 8 10"
-			}
 			"break_distance"
 			{
-				"value"		"725 750 775 800 825"
+				"value"		"725 750 775 800 825"						// 725 750 775 800
 			}
-			"stun_duration"			"1.8 2.2 2.6 3.0 3.4"
+			"stun_duration"			"1.8 2.2 2.6 3.0 3.4"				// 1.8 2.2 2.6 3.0
 		}
 	}
 	// 冰霜漩涡
 	"ancient_apparition_ice_vortex"
 	{
 		"MaxLevel"						"5"
-		"AbilityDuration"				"6 8 10 12 14"
-		"AbilityManaCost"				"40 50 60 70 80"
+		"AbilityDuration"				"6 8 10 12 14"					// 6 8 10 12
+		"AbilityManaCost"				"40 55 70 85 100"				// 40 55 70 85
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"8 7 6 5 4"
-				"special_bonus_unique_ancient_apparition_3"			"-2"
+				"value"					"8 7 6 5 4"						// 10 8 6 4
 			}
-			"drag_speed"	"40 50 60 70 80"
+			"drag_speed"	"40 50 60 70 80"							// 40 50 60 70
 			"movement_speed_pct"
 			{
-				"value"	"-16 -19 -22 -25 -28"
+				"value"	"-16"										// -8 x2
 			}
 			"spell_resist_pct"
 			{
-				"value"		"-16 -19 -22 -25 -28"
+				"value"		"-16 -19 -22 -25 -28"					// -16 -19 -22 -25
 			}
-			"frost_stacks"	"1 2 3 4 5"
 			"vortex_duration"
 			{
-				"value"					"6 8 10 12 14"
+				"value"					"6 8 10 12 14"					// 6 8 10 12
 			}
 		}
 	}
@@ -9024,23 +9018,17 @@
 		{
 			"damage"
 			{
-				"value"				"40 80 120 160 200"	// 加强伤害，减少距离
+				"value"				"40 80 120 160 200"					// 30 60 90 120 加强伤害，减少距离
 			}
-			"slow_duration"		"0.7 0.8 0.9 1 1.1"
+			"slow_duration"		"0.7 0.8 0.9 1 1.1"					// 0.7 0.8 0.9 1
 			"attack_range_bonus"
 			{
-				"value"				"60 90 120 150 180"	// 加强伤害，减少距离
-				"special_bonus_unique_ancient_apparition_7"		"+120"
-			}
-			"AbilityManaCost"
-			{
-				"value"										"45 50 55 60 65"
-				"special_bonus_scepter"						"-35%"	// 保持蓝耗
+				"value"				"60 90 120 150 180"					// 60 90 120 150
+				"special_bonus_unique_ancient_apparition_7"		"+120"	// 300 加强伤害，减少距离
 			}
 			"AbilityCooldown"
 			{
-				"value"	"10 8 6 4 2"
-				"special_bonus_scepter"						"-100%"
+				"value"	"10 8 6 4 2"								// 12 9 6 3
 			}
 		}
 	}
@@ -9048,50 +9036,31 @@
 	"ancient_apparition_ice_blast"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"55 50 45 40"
-		"AbilityDamage"					"250 325 400 475"
+		"AbilityCooldown"				"55 50 45 40"					// 60 50 40
+		"AbilityDamage"					"250 325 400 475"				// 250 325 400
 		"AbilityValues"
 		{
 			"frostbite_duration"
 			{
-				"value"		"10 11 12 13"
-			}
-			"frost_stacks"
-			{
-				"value"													"1 2 3 4 5"
+				"value"		"10 11 12 13"							// 10 11 12
 			}
 			"kill_pct"
 			{
-				"value"				"12 13 14 15"
-				"special_bonus_unique_ancient_apparition_5"	"+5"
+				"value"				"12 13 14 15"						// 12 13 14
+				"special_bonus_unique_ancient_apparition_5"	"+5"	// +4
 			}
-			"cold_feet_aoe"
-			{
-				"special_bonus_facet_ancient_apparition_exposure"	"200 350 500 650"
-				"affected_by_aoe_increase"			"1"
-			}
+			"damage_per_second"			"12 24 36 48"					// 12 24 36
 		}
 	}
-	// 死亡雾霜
-	"ancient_apparition_death_rime"
+	// 刺骨严寒
+	"ancient_apparition_bone_chill"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"damage"
+			"str_reduction"
 			{
-				"value"						"20"
-				"special_bonus_unique_ancient_apparition_6"			"+50%"
-			}
-			"slow"
-			{
-				"value"						"4"
-				"special_bonus_unique_ancient_apparition_6"			"+50%"
-			}
-			"strength_decrease"
-			{
-				"value"						"0"
-				"special_bonus_facet_ancient_apparition_bone_chill"		"1.0 2.0 3.0 4.0 5.0"
+				"value"					"1"							// .2
+				"levelup_interval"		"2"							// 3
 			}
 		}
 	}
