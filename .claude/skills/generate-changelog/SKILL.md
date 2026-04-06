@@ -1,6 +1,7 @@
 ---
 name: generate-changelog
-description: 生成 Steam Workshop 更新日志（中英文）。支持手动提供更新点或从 GitHub PR 提取信息，并按项目规范同步 GAME_VERSION。
+description: >-
+  生成 Steam Workshop 更新日志（中英文）。支持手动提供更新点或从 GitHub PR 提取信息；若用户确认，可将 Release Note 写回当前分支对应的 open PR。按项目规范同步 GAME_VERSION。
 disable-model-invocation: true
 ---
 
@@ -28,6 +29,44 @@ disable-model-invocation: true
 
 从 PR 读取：标题、描述、commits，提取更新内容。
 
+## 更新 open PR 的 Release Note
+
+在**仓库根目录**执行，需已安装并登录 [`gh`](https://cli.github.com/)，远程为 `windy10v10ai/game`。
+
+### 何时写入
+
+- **必须先询问用户**，得到**明确肯定**（如「是」「好」「确认写入」「更新 PR」）后，才执行 `gh pr edit`。**禁止**在未获确认时擅自改 PR 描述。
+- 生成中英文 Workshop 文案并输出后：若存在可写入目标，向用户说明 PR 编号与链接，并询问是否将 **`## Release Note`** 段替换为刚生成的内容；用户拒绝或仅要文案则跳过写入。
+- 满足写入条件：**当前分支**在远端对应 open PR；**恰好一条**时默认指向该条；**多条**时先请用户指定 PR 编号，再就指定 PR 询问确认。
+- 没有 open PR、`gh` 不可用或未登录时，只输出文案并说明无法写入。
+
+### 定位 PR
+
+```bash
+# 分支名（示例）
+git branch --show-current
+
+# 当前分支对应的 open PR（JSON）
+gh pr list --repo windy10v10ai/game --head <当前分支名> --state open --json number,url
+```
+
+PowerShell 可把 `<当前分支名>` 换为 ``$(git branch --show-current)``；若 `gh pr list` 返回空数组则停止。
+
+### 替换 `## Release Note` 段
+
+PR 描述建议保留 **Issue**、**Checklist** 等 `## Release Note` **之上**的内容不动，只替换从 **`## Release Note`** 起到**文末**的整块（与 `.github/pull_request_template.md` 一致：一节标题 + 两个 workshop 代码块）。
+
+1. 取当前正文：`gh pr view <PR号> --repo windy10v10ai/game --json body -q .body`
+2. 拼接 `新ReleaseNote`：标题行 `## Release Note`，空行，**第一个** fenced 块（内容 = 本次生成的中文版 workshop 全文），空行，**第二个** fenced 块（内容 = 英文版全文）。两段均用 markdown 的 \`\`\` 围栏包裹，版式与 `.github/pull_request_template.md` 中 `## Release Note` 下一致。
+3. 若正文含子串 `## Release Note`：  
+   `新正文` = 从开头到 **`## Release Note` 行之前**的子串（去掉尾部多余空行） + `\n\n` + `新ReleaseNote`  
+4. 若正文**不含** `## Release Note`：  
+   `新正文` = 原正文去尾空白 + `\n\n` + `新ReleaseNote`
+5. 将 `新正文` 写入临时文件（UTF-8），执行：  
+   `gh pr edit <PR号> --repo windy10v10ai/game --body-file <临时文件路径>`
+
+编辑成功后向用户回报 PR 链接；**勿**把含 token 的命令输出写入仓库文件。
+
 ## 输出格式
 
 ### 中文版本
@@ -50,23 +89,25 @@ disable-model-invocation: true
 
 ### 多英雄并列（Dota 版本同步类 PR / Release Note）
 
-当一条更新对应 **多名英雄**（例如 `npc_abilities_override` 相对 `docs/reference/7.xx` 逐项同步）时，**英雄名写在同一条 bullet 内**，中文用全角逗号 **，** 分隔，英文用半角 **, ** 分隔；**不要**为每名英雄再拆子列表或换行。
+当一条更新对应 **多名英雄**（例如随官方版本对齐的本图技能调整）时：
 
-示例（PR `Release Note` 与创意工坊 bullet 均可采用同一结构）：
+- **同一条 bullet** 内用固定句式列出英雄；中文用全角逗号 **，** 分隔，英文用半角 **, ** 分隔；**不要**为每名英雄再拆子列表或换行。
+- **须列齐本批次全部涉及英雄**，勿漏写；名称以玩家熟知的官方常用译名为准，从 `game/resource/addon_schinese.txt` / `addon_english.txt` 或 Issue 清单核对。**未纳入本批次的英雄不要写入**。
+- **玩家向表述**：用「同步 Dota 2 7.xx 对下列英雄的技能更新：…」这类句式；**禁止**在同条或相邻 Workshop bullet 中写维护向用语（如「KV」「override」「对齐参考」「注释」「AbilityValues」、文件路径、纯内部流程描述）。
 
-```
-[b]游戏性更新 v5.19c[/b]
-
-- 同步 Dota 2 7.41 对下列英雄的技能更新：亚巴顿，炼金术士，狙击手
-```
+示例（PR `Release Note` 与创意工坊 bullet 均可采用同一结构；`{版本号}` 按上文版本规则填写）：
 
 ```
-[b]Gameplay update v5.19c[/b]
+[b]游戏性更新 v{版本号}[/b]
 
-- Synced Dota 2 7.41 ability updates for the following heroes: Abaddon, Alchemist, Sniper
+- 同步 Dota 2 7.41 对下列英雄的技能更新：亚巴顿，炼金术士，狙击手，美杜莎
 ```
 
-英雄中英文名称从 `game/resource/addon_schinese.txt` / `addon_english.txt` 或 Issue 清单核对；**本次批次未纳入的英雄不要写入**（例如早前已单独立项的改动不必重复塞进本条）。
+```
+[b]Gameplay update v{版本号}[/b]
+
+- Synced Dota 2 7.41 ability updates for the following heroes: Abaddon, Alchemist, Sniper, Medusa
+```
 
 ## 版本号格式
 
@@ -141,6 +182,7 @@ disable-model-invocation: true
 - **禁止**写对局内体验无影响的维护项：例如「同步 KV」「对齐 7.41 注释」「仅注释更新」「便于维护」等——**不要**出现在 Workshop 列表里。
 - **避免**过度技术化：文件路径、`npc_*.txt`、`AbilityValues`、具体倍率小数（如「1.3 改为 1.2」）等；除非用户明确要求保留数字。
 - **优先**写玩家能感知的结果：加强/削弱/修正谁、哪类玩法变了（例：「加强沼蛙系中立击杀奖励与远古中立属性」「普通中立击杀赏金有所降低」）。
+- **Dota 大版本技能跟进、且一批多名英雄**：优先用「多英雄并列」节的**单条列举全部英雄**句式，不写技术性过程描述。
 - **篇幅**：整次更新中英文各自通常 **2–5 条** bullet 即可；能合并的合并，忌堆砌。
 
 ## 物品/技能名称查找
@@ -190,6 +232,7 @@ disable-model-invocation: true
 ### 注意事项
 
 - **先过滤再写**：PR/commit 里的注释同步、KV 对照、纯文档/技能文件变更若无玩法影响，**不写入** Workshop 条目（见上文「玩家向」）。
+- **多名英雄随官方版本调整技能**：从 PR/Issue/变更范围归纳**完整英雄列表**，输出为一条玩家向 bullet（见「多英雄并列」），**不得**用「同步 override」「对齐参考」等内部说法代替。
 - 数值改动用**定性表述**（略为降低、提高、调整）代替具体倍率，除非用户指定要写明数字。
 - 合并相似内容；突出影响玩家体验的更新；中英文条目语义对齐，但不必逐字直译。
 
@@ -218,10 +261,11 @@ disable-model-invocation: true
    - **先**查 Steam [changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 最新一条（含 `a/b/c`），在同一大版本下递增字母得到下一 Workshop 标题。
    - **再**看 `gh pr list … --label release`：仅当 Steam 已跟上新大版本或用户明确随 release 首发时，才采用 release PR 上的新大版本号；**勿**在 Steam 仍为 `v5.18x` 时用 `v5.19a`。
 3. **生成更新日志**：
-   - PR：提取玩法相关改动，**去掉**纯维护/注释/KV 同步类条目后，归纳为 **2–5 条**玩家向 bullet（不足则按实际）
+   - PR：提取玩法相关改动，**去掉**纯维护/注释/KV 同步类条目后，归纳为 **2–5 条**玩家向 bullet（不足则按实际）。若实质为「随 Dota 7.xx 调整多名英雄技能」，则用「多英雄并列」模板，**列齐全部英雄**、**不写技术描述**。
    - 文本：直接按用户提供内容生成条目，仍遵守「玩家向」规则
 4. **同步 `GAME_VERSION`**（按 `GAME_VERSION 同步规则`）
 5. **输出**：中英文两个版本，用分隔线隔开
+6. **写入 open PR 的 Release Note**：**不得**自动执行。先按「更新 open PR 的 Release Note」检测当前分支的 open PR 情况并**询问用户**是否写入；**仅当用户明确确认后**再拼接 `新正文` 并 `gh pr edit --body-file`。用户表示不写、未回复确认、或 0 条 / 多条且未选定 PR 时均跳过。失败时说明原因（未登录、`gh` 不可用等）
 
 信息不完整时先询问用户。
 
