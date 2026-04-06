@@ -315,4 +315,4 @@ grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abil
 
 ### 更新日志格式
 
-参考 `.claude/skills/generate-changelog/SKILL.md` 文件
+参考 `.claude/skills/changelog/SKILL.md` 文件

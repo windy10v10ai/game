@@ -16,11 +16,12 @@ alwaysApply: false
 ## 与 skill 一致的核心约定
 
 1. **差分-only**：与参考**逐字相同**的键不得写入 override（含 `AbilityBehavior`、`SpellImmunityType`、`AbilityCastAnimation`、与参考相同的 `AbilityCastPoint`/`Range` 等）；引擎合并原版即可。
-2. **同值不保留**：数值/枚举与参考一致的键**删除**对应行，勿为「完整」抄写，勿仅写备忘注释。
+2. **同值不保留**：数值/枚举与参考一致的键**删除**对应行，勿为「完整」抄写，勿仅写备忘注释。`AbilityValues` 内与参考相同的 `special_bonus_unique_*` / `special_bonus_scepter` / `special_bonus_shard` 等**勿抄写**；**不得**写 `CalculateSpellDamageTooltip`（原版合并即可，维护时删旧稿）。
 3. **增键**：原则上不增加参考中没有的键；若必须增加，在**该技能块上方**用 `//` 中文说明。
 4. **行尾注释**：`//` 后为**当前参考官方数值**作对照；勿写命石、facet 名或已删子键名（详见 skill）。示例：`// 18`、`// 150 130 110`、`// 150 130 110 x2`、`// 200 400 600 800 +100`、`// 10 +20差值`。**与参考同值**的键应**删行**，勿只写备忘注释。
-5. **多档字段**：**先**按 skill「同值多档」删整键（优先于补档）；**仅对仍保留在 override 内的**多档键，分档个数须与有效 `MaxLevel` 一致（无 `MaxLevel` 时按 skill 缺省表推断）。
-6. **Facet**：不得写 `special_bonus_facet_*`（7.41+ 已废）；同档数值与参考完全一致时不要仅为多一档而写该键。
+5. **多档字段**：**先**按 skill「同值多档」删整键（优先于补档）。**恒定单值**：本图各等级同一数则只写**单 token**，禁止 `n n n` 凑档。**随等级变化**的多档、且经判定仍须保留者，分档个数须与有效 `MaxLevel` 一致。本图提高 `MaxLevel` 时须按 skill **「MaxLevel 扩展必扫」**：以**参考该技能整段为全集**（块顶多档 + `AbilityValues` 子块 `value` + 顶层平铺），**含「参考有而 override 无」的多档键**做差集，不得只扫 override 已有行；**勿**把参考里本为单档的键硬拉成多档。
+6. **行尾 `x2` 等**：为换算规则，换参考后须按规则重算引号内数值，勿只改注释。
+7. **Facet**：不得写 `special_bonus_facet_*`（7.41+ 已废）；同档数值与参考完全一致时不要仅为多一档而写该键。
 
 ---
 
@@ -49,8 +50,10 @@ grep -n "hero_ability_name" game/scripts/npc/npc_abilities_override.txt
 ## 快速自检清单
 
 - [ ] 无官方已废弃结构残留。
+- [ ] 无 `CalculateSpellDamageTooltip`；无与参考同值的 `special_bonus_unique_*` / `special_bonus_scepter` 等抄写。
 - [ ] 无「与参考同值却仍占一行」的键（应删行）；无与参考逐字相同的 `AbilityBehavior` / `AbilityCastAnimation` 等抄写。
-- [ ] 无 `special_bonus_facet_*`；无不必要的「每档同值」多档键。
+- [ ] 无 `special_bonus_facet_*`；无「全相同 token」的多档凑行；无不必要的「每档同值」多档键。
 - [ ] 无「无块首说明」的随意增键。
-- [ ] **保留在 override 内**的多档长度与 `MaxLevel`（或推断）一致；同值多档已整键删除的不补档。
-- [ ] 行尾对照数与**当前 `docs/reference` 版本**中的官方值一致（参考更新后已同步重算）。
+- [ ] **随等级变化**且仍保留在 override 内的多档，条数与 `MaxLevel`（或推断）一致；恒定单值用单 token；同值多档已整键删除的不补档。
+- [ ] 已按 skill「MaxLevel 扩展必扫」以**参考全文**为全集：块顶多档 + `AbilityValues` 内**所有**多档（含**无子块**平铺），含 **override 尚未写出**的键，无应延伸却漏写的项。
+- [ ] 行尾对照数与**当前 `docs/reference` 版本**中的官方值一致；含 `x2` 等与数值一致。
