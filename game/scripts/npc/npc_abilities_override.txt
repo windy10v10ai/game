@@ -2953,13 +2953,13 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"12 10 8 6 4"
+				"value"				"12 10 8 6 4"	// 13 10 7 4
 			}
 			"base_damage"
 			{
-				"value"		"55 70 85 100 115"
+				"value"		"55 70 85 100 115"	// 30 50 70 90
 			}
-			"bonus_damage"	"25 50 75 100 125"
+			"bonus_damage"	"25 50 75 100 125"	// 20 40 60 80
 			"attack_range_bonus"		"125"	// 75
 		}
 	}
@@ -2967,18 +2967,18 @@
 	"omniknight_purification"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 95 110 125 140"
+		"AbilityManaCost"				"80 95 110 125 140"	// 90 105 120 135
 		"AbilityCastRange"				"1200"
 		"AbilityValues"
 		{
 				"heal"
 				{
-					"value"		"90 160 230 300 370"
+					"value"		"90 160 230 300 370"	// 90 160 230 300
 				}
 				"AbilityCooldown"
 				{
-					"value"				"18 16 14 12 10"
-					"special_bonus_unique_omniknight_6"		"-4"
+					"value"				"18 16 14 12 10"	// 15 14 13 12
+					"special_bonus_unique_omniknight_6"		"-4"	// -3
 				}
 		}
 	}
@@ -2986,34 +2986,28 @@
 	"omniknight_martyr"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"28 26 24 22 20"
-		"AbilityManaCost"				"80 95 110 125 140"
+		"AbilityCooldown"				"28 26 24 22 20"	// 40 36 32 28
+		"AbilityManaCost"				"80 95 110 125 140"	// 90 105 120 135
 		"AbilityValues"
 		{
-				"base_strength"				"14 28 42 56 70"	// x2
-				"base_hpregen"				"16 24 32 40 48"	// x2
-				"strength_bonus"
-				{
-					"value"			"9 12 15 18 21"				// x3
-					"special_bonus_unique_omniknight_2" "+15"
-				}
+				"base_hpregen"				"16 24 32 40 48"	// 8 12 16 20 x2
 		}
 	}
 	// 守护天使
 	"omniknight_guardian_angel"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"125 175 225 275"
+		"AbilityManaCost"				"125 175 225 275"	// 125 175 225
 
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value"				"4.5 5 5.5 6"
+				"value"				"4.5 5 5.5 6"	// 4.0 4.5 5
 			}
 			"AbilityCooldown"
 			{
-				"value"								"90"
+				"value"								"90"	// 100 90 80
 			}
 		}
 	}
@@ -3024,26 +3018,16 @@
 		{
 			"duration"
 			{
-				"value" "6"
+				"value" "6"	// 5
 			}
 			"movement_speed"
 			{
-				"value" "25"
+				"value" "25"	// 20
 			}
 			"hp_regen"
 			{
-				"value" "30"
+				"value" "30"	// 25
 			}
-		}
-	}
-	// 退化光环 先天技能
-	"omniknight_degen_aura"
-	{
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"speed_bonus"			"10 20 30 40 50"
 		}
 	}
 	//=================================================================================================================
@@ -11016,7 +11000,7 @@
 			{
 				"value"							"90"	// 120
 			}
-			"initial_cooldown"					"10"	// 120
+			"initial_cooldown"					"90"	// 120
 		}
 	}
 	//=================================================================================================================

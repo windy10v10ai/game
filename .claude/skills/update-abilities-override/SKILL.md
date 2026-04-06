@@ -69,7 +69,9 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 ### `Ability4` / `Ability5`：仅在为实技能时处理
 
 - 若为 **`generic_hidden`**：视为**空槽**，**不必**为「占位」单独写 override。
-- 若**不是** `generic_hidden`：值为真实技能名时，该技能**同样**须按参考同步进 `npc_abilities_override.txt`（与 `Ability1`–`3`、`Ability6` 相同规则）。
+- 若**不是** `generic_hidden`：值为真实技能名时，需先查看参考中该技能是否含 **`"Innate" "1"`**：
+  - **先天技能**（`"Innate" "1"`）：**不做等级扩展**，不写 `MaxLevel`，不按小招/大招规则补档。仅当本图对该技能有**明确数值差分**时才在 override 写差分键。
+  - **非先天技能**：该技能**同样**须按参考同步进 `npc_abilities_override.txt`（与 `Ability1`–`3`、`Ability6` 相同规则）。
 
 > **自定义英雄**：若 `npc_heroes_custom.txt` 覆盖了某槽位技能名，以 **custom 槽位**为准再解析要维护的 override 技能列表（与 `update-heroes-custom` 槽位合并规则一致）。
 
@@ -160,6 +162,7 @@ grep -n '"npc_dota_hero_antimage"' docs/reference/{version}/npc_heroes.txt
 | ---- | ---------- |
 | 小招 | 5 |
 | 大招 | 4 |
+| 先天技能（`"Innate" "1"`） | 不扩展，保持参考原值 |
 | 特殊技能 | 单独与策划/注释约定 |
 
 ### 缺省 MaxLevel（仅当参考块与 override 均未写 `MaxLevel` 时，用于核对参考里多级 value 档位数）
