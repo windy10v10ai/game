@@ -2240,8 +2240,6 @@
 	}
 	"npc_dota_hero_sniper"
 	{
-		// "Ability5"		"sniper_assassinate_upgrade"
-		// "Ability7"		"sniper_keen_scope"
 		"Bot"
 		{
 			"Build"
