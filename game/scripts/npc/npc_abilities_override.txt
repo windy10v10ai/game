@@ -931,11 +931,10 @@
 	// 毛团
 	"bristleback_hairball"
 	{
-		"AbilityCooldown"				"8" // 13
 		"AbilityValues"
 		{
-				"quill_stacks"		"3" // 1
-				"goo_stacks"		"6" // 2
+				"quill_stacks"		"2" // 1
+				"goo_stacks"		"4" // 2
 		}
 	}
 	// 粘稠鼻液
@@ -972,20 +971,19 @@
 			"side_damage_reduction"
 			{
 				"value"													"8 12 16 20 24"
-				"special_bonus_unique_bristleback_6"					"+4"
 			}
 			"back_damage_reduction"
 			{
-				"value"			"16 23 30 37 44"				// 16 24 32 40 48
-				"special_bonus_unique_bristleback_6"						"+8"
+				"value"			"16 22 28 34 40"				// 16 24 32 40 48
 			}
 			"quill_release_threshold"
 			{
-				"value"		"400"
+				"value"		"450"	// 275 250 225 200
+				"special_bonus_unique_bristleback"	"-50"	// -25
 			}
-			"activation_spray_interval"				"0.15"
+			"activation_spray_interval"				"0.15"		// 0.4
 			"activation_cooldown"					"30"		// 24
-			"activation_manacost"					"150"		// 100
+			"activation_manacost"					"150"		// 125
 			"activation_num_quill_sprays"			"6"			// 5
 		}
 	}
@@ -993,44 +991,16 @@
 	"bristleback_warpath"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"55 65 75 85"
-		"AbilityCooldown"				"30.0"		// 45
 		"AbilityValues"
 		{
 			"damage_per_stack"
 			{
 				"value"					"15 20 25 30"
-				"special_bonus_facet_bristleback_berserk"	"=10" // 5
 				"special_bonus_unique_bristleback_3"	"+20" // 18
 			}
-			"aspd_per_stack"
-			{
-				"value"					"0"
-				"special_bonus_facet_bristleback_berserk"	"=10 =15 =20 =25"
-			}
-			"move_speed_per_stack"		"2 3 4 5"
+			"move_speed_per_stack"		"2 3 4 5"	// 2 2.5 3
 			"stack_duration"				"16.0 18.0 20.0 22.0"
 			"max_stacks"					"8 10 12 14"
-			"active_bonus_attack_percent"
-			{
-				"value"									"0"
-				"special_bonus_facet_bristleback_seeing_red"				"50 60 70 80"
-			}
-			"active_bonus_movement_percent"
-			{
-				"value"									"0"
-				"special_bonus_facet_bristleback_seeing_red"				"50 60 70 80"
-			}
-			"active_duration"
-			{
-				"value"				"0"
-				"special_bonus_facet_bristleback_seeing_red"				"4 5 6 7"
-			}
-			"active_view_angle_restriction"
-			{
-				"value"				"0"
-				"special_bonus_facet_bristleback_seeing_red"				"270"
-			}
 		}
 	}
 	//=================================================================================================================
