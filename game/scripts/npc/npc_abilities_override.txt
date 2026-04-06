@@ -4089,43 +4089,17 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"30 40 50 60 70"	// 30 40 50 60
-		"LinkedAbility"					"spirit_breaker_empowering_haste"
-		"AbilityDraftPreAbility"		"spirit_breaker_empowering_haste"
 		"AbilityValues"
 		{
 			"movement_speed"				"10 15 20 25 30"	// 8 12 16 20
 			"status_resistance"				"55 60 65 70 75"	// 40 50 60 70
 			"damage_barrier"
 			{
-				"value"						"200"	// 0
 				"special_bonus_unique_spirit_breaker_shield" "+750"	// +375
 			}
 			"AbilityCooldown"
 			{
 				"value"						"22 20 18 16 14"	// 22 20 18 16
-			}
-		}
-	}
-	// 神行太保
-	"spirit_breaker_empowering_haste"
-	{
-		"MaxLevel"						"5"
-		"AbilityCooldown"				"15"	// 20
-		"LinkedAbility"					"spirit_breaker_bulldoze"
-		"AbilityDraftPreAbility"		"spirit_breaker_bulldoze"
-		"AbilityValues"
-		{
-			"bonus_movespeed_pct_self"
-			{
-				"value" "8 12 16 20 24"	// 8 12 16 20
-			}
-			"bonus_movespeed_pct_allies"
-			{
-				"value" "4 6 8 10 12"	// 4 6 8 10
-			}
-			"bonus_movespeed_pct_extra"
-			{
-				"value" "4 6 8 10 12"	// 3 4 5 6
 			}
 		}
 	}
@@ -4157,13 +4131,21 @@
 			}
 		}
 	}
-	// 从众心理
-	"spirit_breaker_herd_mentality"
+	// 神行太保 先天
+	"spirit_breaker_bull_rush"
 	{
 		"AbilityValues"
 		{
-			// 己方队伍中等级最低的英雄会额外获得经验。
-			"xp_gain_rate"				"100"	// 50
+			"hero_movespeed_percent"
+			{
+				"value"		"10"	// 8
+				"special_bonus_unique_bull_rush_movement_increase"		"+10"	// +8
+			}
+			"creep_movespeed_percent"
+			{
+				"value" "5"	// 2
+				"special_bonus_unique_bull_rush_movement_increase"		"+5"	// +2
+			}
 		}
 	}
 	//=================================================================================================================

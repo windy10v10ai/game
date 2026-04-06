@@ -2280,11 +2280,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_spirit_breaker"
-	{
-		"Ability3"		"spirit_breaker_empowering_haste"
-		"Ability9"		"spirit_breaker_greater_bash"	// 巨力重击 被动不需要快捷键
-	}
 	// 斯温
 	"npc_dota_hero_sven"
 	{
