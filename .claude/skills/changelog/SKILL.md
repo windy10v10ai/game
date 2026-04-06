@@ -149,7 +149,7 @@ release PR 存在且大版本高于 Steam（如 Steam `v5.19b`，release PR `v5.
 
 ## 更新 open PR 的 Release Note
 
-**须用户确认后**再执行。
+生成文案后，用**选项菜单**让用户选择操作（写入 PR / 仅提交改动 / 全部执行 / 跳过），按所选执行。
 
 ```bash
 gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state open --json number,url
@@ -173,7 +173,7 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
 3. **生成更新日志**：Issue+checklist 列已完成英雄并附 `x/总数`；PR 列全部英雄；手动按用户列点。
 4. **GAME_VERSION 同步**：大版本变化时自动修改 `GameConfig.ts`。
 5. **输出**中英文两版，标题含具体版本号。
-6. **写入 PR**：须用户确认后执行。
+6. **写入 PR**：用选项菜单让用户选择操作后执行。
 
 ### 交付前自检
 
