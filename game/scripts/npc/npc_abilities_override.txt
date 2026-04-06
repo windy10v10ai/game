@@ -4990,31 +4990,38 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"mana_per_hit"			"25 60 70 80 100"
+			"mana_per_hit"			"25 60 70 80 100"	// 25 30 35 40
 			"mana_per_hit_pct"
 			{
-				"value"								"1.6 2.4 3.2 4 4.8"
+				"value"								"1.6 2.4 3.2 4.0 4.8"	// 1.6 2.4 3.2 4.0
 				"special_bonus_unique_antimage_7"	"+3.2"
 			}
+		}
+	}
+	// 绝人之路 先天
+	"antimage_persectur"
+	{
+		"AbilityValues"
+		{
+			"mana_threshold"		"75"		// 50
 		}
 	}
 	// 闪烁
 	"antimage_blink"
 	{
 		"MaxLevel"						"5"
+		"AbilityManaCost"				"65 60 55 50 45"				// 65 60 55 50
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"			"14 12 10 8 6"
-					"special_bonus_unique_antimage"	"-1"
+					"value"			"14 12 10 8 6"	// 10.5 9 7.5 6
 				}
 				"AbilityCastRange"
 				{
-					"value"					"750 900 1050 1200 1350"
-					"special_bonus_unique_antimage_3"	"+250"
+					"value"					"875 950 1025 1100 1175"	// 875 950 1025 1100
+					"special_bonus_unique_antimage_3"	"+250"	// +150 +100差值
 				}
-				"min_blink_range"		"200"
 		}
 	}
 	// 法术反制
@@ -5025,21 +5032,12 @@
 		{
 			"magic_resistance"
 			{
-				"value"								"16 24 32 40 48"
-				"special_bonus_unique_antimage_4"	"+22"
+				"value"								"16 24 32 40 48"	// 14 21 28 35
 			}
-			"duration_illusion"				"0"		// 为了防止卡顿，禁用幻象
-			"mana_drain_percent"
-			{
-				"special_bonus_facet_antimage_magebanes_mirror"	"=150 =200 =250 =300 =350"
-			}
-			"max_damage_from_mana_drain"
-			{
-				"special_bonus_facet_antimage_magebanes_mirror" "800"	// 400
-			}
+			"duration_illusion"				"0"		// 4 为了防止卡顿，禁用幻象
 			"AbilityCooldown"
 			{
-				"value"						"15 12 9 6 3"
+				"value"						"15 12 9 6 3"					// 15 11 7 3
 			}
 		}
 	}
@@ -5048,38 +5046,22 @@
 	{
 		"MaxLevel" "4"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityManaCost"				"100 200 300 400"
+		"AbilityManaCost"				"100 200 300 400"	// 100 150 200
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"			"60"
-				"special_bonus_unique_antimage_2"	"-40"
+				"value"			"60"							// 100 85 70
+				"special_bonus_unique_antimage_2"	"-40"	// -50 +10差值
 			}
 			"mana_void_damage_per_mana"
 			{
-				"value"				"0.8 0.95 1.1 1.25"
-				"special_bonus_unique_antimage_6"	"+1.25"
+				"value"				"0.8 0.95 1.1 1.25"	// 1.0
+				"special_bonus_unique_antimage_6"	"+1.25"	// +0.2 +1.05差值
 			}
-			"bonus_attack_damage"
+			"mana_void_aoe_radius"
 			{
-				"special_bonus_facet_antimage_mana_thirst"	"40 90 140 190"	// x2
-			}
-		}
-	}
-	// 绝人之路 先天技能
-	"antimage_persectur"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"move_slow_min"
-			{
-				"value"								"12.5 15.0 17.5 20 22.5"
-			}
-			"move_slow_max"
-			{
-				"value"								"25 30 35 40 45"
+				"value"					"400 450 500 550"				// 400 450 500
 			}
 		}
 	}
@@ -8976,6 +8958,10 @@
 		"AbilityManaCost"				"110 115 120 125 130"			// 110 115 120 125
 		"AbilityValues"
 		{
+			"damage_per_second"
+			{
+				"value"		"20 40 60 80 100"						// 20 40 60 80
+			}
 			"break_distance"
 			{
 				"value"		"725 750 775 800 825"						// 725 750 775 800
@@ -9004,6 +8990,14 @@
 			{
 				"value"		"-16 -19 -22 -25 -28"					// -16 -19 -22 -25
 			}
+			"vision_aoe"
+			{
+				"value"		"200 220 240 260 280"					// 200 220 240 260
+			}
+			"damage_per_second"
+			{
+				"value"		"10 20 30 40 50"						// 10 20 30 40
+			}
 			"vortex_duration"
 			{
 				"value"					"6 8 10 12 14"					// 6 8 10 12
@@ -9024,7 +9018,7 @@
 			"attack_range_bonus"
 			{
 				"value"				"60 90 120 150 180"					// 60 90 120 150
-				"special_bonus_unique_ancient_apparition_7"		"+120"	// 300 加强伤害，减少距离
+				"special_bonus_unique_ancient_apparition_7"		"+120"	// +300 加强伤害，减少距离
 			}
 			"AbilityCooldown"
 			{
@@ -9059,7 +9053,7 @@
 		{
 			"str_reduction"
 			{
-				"value"					"1"							// .2
+				"value"					"0.6"						// .2
 				"levelup_interval"		"2"							// 3
 			}
 		}
