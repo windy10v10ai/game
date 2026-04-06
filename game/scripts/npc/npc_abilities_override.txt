@@ -1369,12 +1369,11 @@
 			"damage"
 			{
 				"value"			"80 160 240 320 400"
-				"special_bonus_unique_dragon_knight_9"				"+120%"	// +60%
+				"special_bonus_unique_dragon_knight_9"				"+120%"	// +200
 			}
-			"AbilityCastRange"
+			"reduction"
 			{
-				"value"						"600"
-				"special_bonus_unique_dragon_knight_9"				"+120%"	// +60%
+				"value"			"20 24 28 32 36"
 			}
 		}
 	}
@@ -1387,12 +1386,28 @@
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
-			"stun_duration"
+		"stun_duration"
+		{
+			"value"				"1.8 2.0 2.2 2.4 2.6"
+		}
+		"damage"					"60 90 120 150 180"
+		"dragon_cast_range"			"600"		// 150
+		}
+	}
+	// 飞龙之怒
+	"dragon_knight_wyrms_wrath"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"magic_damage"
 			{
-				"value"				"1.6 1.8 2.0 2.2 2.4"
+				"value"				"10 20 30 40 50"
 			}
-			"damage"					"60 90 120 150 180"
-			"dragon_cast_range"			"600"		// 450
+			"bonus_aoe"
+			{
+				"value"				"25 50 75 100 125"
+			}
 		}
 	}
 	// 龙族血统
@@ -1416,10 +1431,10 @@
 	// 变龙
 	"dragon_knight_elder_dragon_form"
 	{
-		"AbilityManaCost"				"50 100 150"
+		"AbilityManaCost"				"50 100 150"	// 50
 		"AbilityValues"
 		{
-				"bonus_attack_damage"		"40 100 160 220"	// 20 50 80 110
+				"bonus_attack_damage"		"40 100 160 220"	// 0
 		}
 	}
 	//=================================================================================================================
@@ -6284,7 +6299,7 @@
 			"AbilityCooldown"
 			{
 				"value"					"9.0 8.0 7.0 6.0 5.0"
-				"special_bonus_unique_luna_2" "-3.0"
+				"special_bonus_unique_luna_2" "-3.0"	// -2
 			}
 			"AbilityManaCost"
 			{
@@ -6292,13 +6307,8 @@
 			}
 			"beam_damage"
 			{
-				"value"					"80 160 240 320 400"
-				"special_bonus_unique_luna_1"	"+150"	// 110
-			}
-			"damage_buff_per_beam"
-			{
-				"value"						"0"
-				"special_bonus_facet_luna_moonstorm"			"+5 8 11 14 17"
+				"value"					"80 160 240 320 400"	// 75 150 225 300
+				"special_bonus_unique_luna_1"	"+150"	// +80
 			}
 		}
 	}
@@ -6345,8 +6355,7 @@
 			}
 			"rotating_glaives_damage_reduction"
 			{
-				"value"									"0"
-				"special_bonus_facet_luna_moonshield"	"15 20 25 30 35"
+				"value"									"8 12 16 20 24"
 			}
 		}
 	}
@@ -6355,19 +6364,15 @@
 	{
 		"AbilityValues"
 		{
-				"bonus_night_vision_self"
+				"bonus_damage"
 				{
-					"value"			"400"			// 250
+					"hero_levelup"					"+2"		// +1 x2
+					"special_bonus_unique_luna_3"	"+50"		// +25 x2
 				}
-				"bonus_damage_per_level"
+				"self_bonus_damage"
 				{
-					"value"							"3"			// 1
-					"special_bonus_unique_luna_3"	"+3"		// +1
-				}
-				"self_bonus_damage_per_level"
-				{
-					"value"							"6"			// 2
-					"special_bonus_unique_luna_3"	"+6"		// +2
+					"hero_levelup"					"+4"		// +2 x2
+					"special_bonus_unique_luna_3"	"+100"		// +50 x2
 				}
 		}
 	}
@@ -6386,18 +6391,15 @@
 			"beam_interval"
 			{
 				"value"					"0.6 0.6 0.6 0.5"
-				"special_bonus_scepter"	"-0.3"
 			}
 			"beam_interval_scepter"		"0.2" // purely for the tooltip Note, since the scepter tooltip doesn't show this.
 			"hit_count"
 			{
-				"value"					"5"
 				"special_bonus_scepter"	"+1 +7 +13 +19"
 			}
 			"AbilityDuration"
 			{
 				"value"					"2.4 4.2 6.0 7.8"
-				"special_bonus_scepter"	"-0.6"
 			}
 			"AbilityCooldown"
 			{
@@ -7537,14 +7539,11 @@
 			}
 			"radius"
 			{
-				"value"			"700"
-				"affected_by_aoe_increase"	"1"
 				"special_bonus_unique_razor_101"	 "+300"
 			}
 			"slow_max"
 			{
-				"value" 															"40 45 50 55 60"	// 25 30 35 40
-				"special_bonus_unique_razor_plasmafield_max_slow"					"+20"
+				"value" 															"40 45 50 55 60"	// 25 30 35 40 +15
 			}
 		}
 	}
@@ -7559,19 +7558,19 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"52 44 36 28 20"
-		"AbilityManaCost"				"65 75 85 100 120"
+		"AbilityManaCost"				"65 75 85 100 120"	// 65
 		"AbilityValues"
 		{
 			"drain_duration"		"12 14 16 18 20"
 			"drain_rate"
 			{
-				"value"			"10 20 30 40 50"		// 5 10 15 20 x2
+				"value"			"12 24 36 48 60"		// 6 12 18 24 x2
 				"special_bonus_unique_razor"	"+10"	// +5 x2
 			}
-			"drain_range_buffer"	"1250"
+			"drain_range_buffer"	"1250"	// 250
 			"pull_speed"
 			{
-				"value"					"100"
+				"value"					"100"	// 0
 				"special_bonus_shard"		"150"
 			}
 		}
@@ -7586,22 +7585,17 @@
 			"strike_damage"
 			{
 				"value"													"50 90 130 170 210"
-				"special_bonus_unique_razor_storm_surge_damage_and_slow"			"+50%"
+				"special_bonus_unique_razor_storm_surge_damage_and_slow"			"+50%"	// +30%
 			}
 			"strike_move_slow_pct"
 			{
 				"value"				"25 30 35 40 45"
-				"special_bonus_unique_razor_storm_surge_damage_and_slow"			"+50"
+				"special_bonus_unique_razor_storm_surge_damage_and_slow"			"+50"	// +30
 			}
 			"strike_internal_cd"
 			{
 				"value"										"1.5"	// 2.5
 				//"special_bonus_unique_razor_3"				"-1"
-			}
-			"strike_cd_reduction_during_storm"
-			{
-				"value"										"0"
-				"special_bonus_facet_razor_thunderhead"			"=0.5"		// =2.0
 			}
 		}
 	}
@@ -7615,7 +7609,7 @@
 		{
 				"duration"
 				{
-					"value"			"35.0"
+					"value"			"35.0"	// 30
 					"special_bonus_unique_razor_401"	"+20" // 自定义天赋
 				}
 				"strike_interval"
