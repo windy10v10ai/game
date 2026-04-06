@@ -8,7 +8,7 @@ export class LunaAIModifier extends BotBaseAIModifier {
     // 环绕月刃
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'luna_lunar_orbit', {
-        target: { range: 200 },
+        target: { range: { lte: 200 } },
         self: { unitCondition: { healthPercent: { lte: 95 } } },
       })
     ) {

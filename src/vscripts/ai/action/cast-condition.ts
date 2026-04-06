@@ -7,11 +7,11 @@ export interface CastCoindition {
     /**
      * 敌人数量
      */
-    count?: NumberRange; // changed to optional
+    count?: NumberRange;
     /**
-     * 敌人搜索范围，不指定时，默认按照技能施法范围
+     * 敌人搜索距离（相对自身），不指定时默认按技能施法范围；可用 gte/lte 约束与目标的距离
      */
-    range?: number;
+    range?: NumberRange;
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -81,6 +81,11 @@ export function FilterTargetWithCondition(
     if (CheckUnitConditionFailure(unit, unitCondition)) {
       continue;
     }
+
+    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), condition?.target?.range)) {
+      continue;
+    }
+
     return unit;
   }
 

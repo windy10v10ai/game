@@ -9,7 +9,7 @@ export class NecrolyteAIModifier extends BotBaseAIModifier {
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'necrolyte_death_pulse', {
         target: {
-          range: 500,
+          range: { lte: 500 },
         },
       })
     ) {
@@ -48,7 +48,7 @@ export class NecrolyteAIModifier extends BotBaseAIModifier {
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'necrolyte_death_pulse', {
         target: {
-          range: 500,
+          range: { lte: 500 },
         },
       })
     ) {
