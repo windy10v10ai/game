@@ -1333,7 +1333,6 @@
 	}
 	"npc_dota_hero_lich"
 	{
-		"Ability7"		"lich_frost_aura"
 		"Bot"
 		{
 			"Build"

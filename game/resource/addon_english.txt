@@ -1071,7 +1071,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
 
 		// 巫妖
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} Chain Frost Bounces"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_5"								"+{s:bonus_jumps} Chain Frost Bounces"
 		"DOTA_Tooltip_ability_lich_frost_armor"											"Ice Armor"
 		"DOTA_Tooltip_ability_lich_frost_armor_Description"								"Creates a shield around the target friendly unit or building, which adds armor and slows attacking units. Lasts %abilityduration% seconds."
 		"DOTA_Tooltip_ability_lich_frost_armor_Lore"									"Originally crafted during his ambush for self-defense, the Lich is capable of enchanting others with a formidable defense of frost magic."

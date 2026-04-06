@@ -1055,7 +1055,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} 毒刺伤害"
 
 		// 巫妖
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_401"  "+{s:bonus_jumps} 连环霜冻弹跳次数"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_5"								"+{s:bonus_jumps} 连环霜冻弹跳次数"
 		"DOTA_Tooltip_ability_lich_frost_armor"											"霜冻护甲"
 		"DOTA_Tooltip_ability_lich_frost_armor_Description"								"为一个友方单位或建筑物制造一层寒冰护甲，增加护甲值并减速对其发动攻击的敌方单位。持续%abilityduration%秒。"
 		"DOTA_Tooltip_ability_lich_frost_armor_Lore"									"原本是为了在中埋伏自卫时打造的，现在巫妖也能为他人施加这个强力的冰霜护体魔咒。"

@@ -10904,29 +10904,14 @@
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"575 600 625 650 675"
 		"AbilityManaCost"				"110 120 130 140 150"
-		"LinkedAbility"					"lich_frost_aura"
-		"AbilityDraftPreAbility"		"lich_frost_aura"
 		"AbilityValues"
 		{
-			"slow_attack_speed_primary"		"-30 -40 -50 -60 -70"
-			"damage"			"80 120 160 200 240"
+			"slow_attack_speed_primary"		"-30 -40 -50 -60 -70"	// -30 -40 -50 -60
+			"damage"			"80 120 160 200 240"	// 40 80 120 160
 			"aoe_damage"
 			{
-				"value"			"80 120 160 200 240"
-				"special_bonus_unique_lich_6" "+125"
+				"value"			"80 120 160 200 240"	// 80 120 160 200
 			}
-		}
-	}
-	// 冰霜光环
-	"lich_frost_aura"
-	{
-		"MaxLevel"						"5"
-		"AbilityCastRange"				"1200"
-		"LinkedAbility"					"lich_frost_nova"
-		"AbilityDraftPreAbility"		"lich_frost_nova"
-		"AbilityValues"
-		{
-			"movespeed_slow"	"7 14 21 28 35"
 		}
 	}
 	// 阴邪凝视
@@ -10947,10 +10932,10 @@
 				"value" "1.10 1.4 1.7 2.0 2.3"
 				"special_bonus_unique_lich_2" "+0.4"	// +0.3
 			}
-			"destination"		"30 35 40 45 50"
+			"destination"		"30 35 40 45 50"	// 32 38 44 50
 			"damage"
 			{
-				"special_bonus_facet_lich_cryophobia"		"10 20 30 40 50"	// +5
+				"value"			"10 20 30 40 50"	// 0
 			}
 		}
 	}
@@ -10964,17 +10949,13 @@
 		{
 			"damage_reduction"
 			{
-				"value"	"30 40 50 60 70"
-				"CalculateSpellDamageTooltip"	"0"
-				"special_bonus_unique_lich_8"	"+10"
-				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+				"value"	"30 40 50 60 70"	// 45 50 55 60
 			}
-			"movement_slow"			"20 25 30 35 40"
+			"movement_slow"			"20 25 30 35 40"	// 20 25 30 35
 			"slow_duration"			"0.5"
 			"damage"
 			{
-				"value"			"18 32 46 60 74"
-				"CalculateSpellDamageTooltip" "1"
+				"value"			"18 32 46 60 74"	// 18 32 46 60
 			}
 			"duration"
 			{
@@ -10982,7 +10963,7 @@
 			}
 			"health_regen"
 			{
-				"special_bonus_unique_lich_1" "+150" // 50
+				"special_bonus_unique_lich_1" "+150"	// 50
 			}
 		}
 	}
@@ -10996,41 +10977,46 @@
 		{
 			"damage"
 			{
-				"value"		"250 400 550 700"
+				"value"		"250 400 550 700"	// 250 400 550
 			}
 			"bonus_jump_damage"
 			{
-				"value"			"30 50 75 100"
+				"value"			"30 50 75 100"	// 15 20 25
 			}
-			"jumps"					"10 15 20 25"
+			"jumps"
+			{
+				"value"			"10 15 20 25"	// 10 10 10
+				"special_bonus_unique_lich_5"	"+25"	// 原版不存在，手动修改
+			}
+			"has_unlimited_jumps"
+			{
+				"value"							"0"
+				"special_bonus_unique_lich_5"		"=0"	// =1 移除 连环霜冻无限弹跳天赋
+			}
 			"jump_range"
 			{
-				"value"			"800"			// 550
+				"value"			"800"	// 550
 			}
 			"bonus_jumps_per_hero_killed"
 			{
-				"value"					"0"
-				"special_bonus_facet_lich_growing_cold"			"+5" // 3
+				"value"					"5"	// 0
 			}
 			"bonus_jumps_per_creep_killed"
 			{
-				"value"											"0"
-				"special_bonus_facet_lich_growing_cold"			"+2" // 1
+				"value"					"2"	// 0
 			}
 		}
 	}
-	// 死亡充能 先天
+	// 献身 先天
 	"lich_death_charge"
 	{
-		"AbilityCastRange"				"2500"
 		"AbilityValues"
 		{
-			"radius"
+			"AbilityChargeRestoreTime"
 			{
-				"value"		"2000"				// 1500
+				"value"							"90"	// 120
 			}
-			"mana_restore_pct_from_creep"		"5"		// 2.5
-			"mana_restore_pct_from_hero"		"50"	// 25
+			"initial_cooldown"					"10"	// 120
 		}
 	}
 	//=================================================================================================================
