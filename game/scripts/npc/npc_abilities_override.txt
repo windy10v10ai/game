@@ -7861,15 +7861,17 @@
 	"slark_dark_pact"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"9 8 7 6 5"
 		"AbilityValues"
 		{
 				"total_damage"
 				{
-					"value"			"75 150 225 300 375"
-					"special_bonus_unique_slark_2" "+75"		// +75
+					"value"			"75 150 225 300 375"	// 75 150 225 300
 				}
 				"self_damage_pct"			"20"	// 30
+				"AbilityCooldown"
+				{
+					"value"							"9 8 7 6 5"	// 9 8 7 6
+				}
 		}
 	}
 	// 突袭 跳
@@ -7880,32 +7882,32 @@
 		{
 			"pounce_distance"
 			{
-				"value"					"1000"		// 原版 700，增强约43%
+				"value"					"1000"	// 700
 			}
 			"pounce_speed"
 			{
-				"value"					"1400"		// 原版 933.33，增强50%
+				"value"					"1400"	// 933.33
 			}
 			"pounce_acceleration"
 			{
-				"value"					"10000"		// 原版 7000，增强约43%
+				"value"					"10000"	// 7000
 			}
 			"leash_duration"
 			{
-				"value"			"2.5 2.75 3 3.25 3.5"
-				"special_bonus_unique_slark"	"+0.75"		// +0.5
+				"value"			"2.5 2.75 3 3.25 3.5"	// 2.5 2.75 3 3.25
+				"special_bonus_unique_slark"	"+0.75"	// +0.5
 			}
 			"pounce_distance_scepter"
 			{
-				"special_bonus_scepter"		"1200"		// 原版 900，增强约33%
+				"special_bonus_scepter"		"1200"	// 900
 			}
 			"essence_stacks"
 			{
-				"value"						"1 2 3 4 5"
+				"value"						"1 2 3 4 5"	// 1 2 3 4
 			}
 			"AbilityCooldown"
 			{
-				"value"							"20 18 16 14 12"
+				"value"							"20 18 16 14 12"	// 24 20 16 12
 			}
 		}
 	}
@@ -7913,30 +7915,30 @@
 	"slark_saltwater_shiv"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"10 8 6 4 2"
+		"AbilityCooldown"				"10 8 6 4 2"	// 14 12 10 8
 
 		"AbilityValues"
 		{
-			"health_rest_steal"				"2 4 6 8 10"		// 2 4 6 8
-			"regen_steal"					"2 4 6 8 10"		// 2 4 6 8
-			"ms_steal"						"2 4 6 8 10"		// 2 4 6 8
+			"health_rest_steal"				"2 4 6 8 10"	// 4 8 12 16
+			"regen_steal"					"2 4 6 8 10"	// 4 8 12 16
+			"ms_steal"						"2 4 6 8 10"	// 4 8 12 16
 		}
 	}
 	// 暗影之舞
 	"slark_shadow_dance"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60 50 40 30"
+		"AbilityCooldown"				"60 50 40 30"	// 50 40 30
 		"AbilityValues"
 		{
-			"bonus_movement_speed"		"24 36 48 60"
+			"bonus_movement_speed"		"24 36 48 60"	// 20 30 40
 			"bonus_regen"
 			{
-				"value"					"60 90 120 150"
+				"value"					"60 90 120 150"	// 60 90 120
 			}
 			"duration"
 			{
-				"value"			"4 4.25 4.5 4.75"
+				"value"			"4 4.25 4.5 4.75"	// 4 4.25 4.5
 			}
 		}
 	}
@@ -7948,17 +7950,16 @@
 	// 能量转移
 	"slark_essence_shift"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value"					"20"			// 15
-				"hero_levelup"			"+2"			// 2.5
+				"value"					"20"	// 12.5
+				"hero_levelup"			"+2"	// +2.5
 			}
 			"steal_radius"
 			{
-				"value"		"1500"							// 300
+				"value"		"1500"	// 300
 			}
 		}
 	}
