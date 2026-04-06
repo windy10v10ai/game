@@ -678,18 +678,15 @@
 				"20"		"special_bonus_movement_speed_30"
 				"21"		""
 				"22"		""
-				"23"		""
-				"24"		""
+				"23"		"bane_brain_sap"
+				"24"		"bane_fiends_grip"
 				"25"		"special_bonus_unique_bane_2"
-				"26"		""
+				"26"		"bane_nightmare"
 				"27"		"special_bonus_unique_bane_8"
 				"28"		"special_bonus_unique_bane_9"
 				"29"		"special_bonus_unique_bane_5"
 				"30"		"special_bonus_unique_bane_3"
-				"31"		"bane_fiends_grip"
-				"32"		"bane_brain_sap"
-				"33"		"bane_nightmare"
-				"34"		"bane_nightmare"
+				"31"		"bane_nightmare"
 			}
 		}
 	}
