@@ -546,19 +546,20 @@
 		{
 			"radius"
 			{
-				"value"							"350"
+				"value"							"350"	// 315
 			}
 			"bonus_armor"
 			{
-				"value"							"12 14 16 18 20"
-				"special_bonus_facet_axe_call_out"			"+5 +10 +15 +20 +25"	// +6
+				"value"							"12 14 16 18 20"	// 12 13 14 15
 				"special_bonus_unique_axe_7"	"+20"	// 10
 			}
-			"duration"				"1.8 2.1 2.4 2.7 3.0"
+			"duration"
+			{
+				"value"				"1.8 2.1 2.4 2.7 3.0"	// 2.1 2.4 2.7 3.0
+			}
 			"bonus_attack_speed"
 			{
-				"value"					"0"
-				"special_bonus_facet_axe_call_out"				"100"	//45
+				"value"					"100"	// 0
 			}
 		}
 	}
@@ -574,9 +575,13 @@
 		{
 				"slow"
 				{
-					"value"			"-18 -22 -26 -30 -34"
+					"value"			"18 22 26 30 34"	// 18 22 26 30
+					"display_type"	"kDebuffPercentage"
 				}
-				"damage_per_second"			"10 15 20 25 30"
+				"damage_per_second"
+				{
+					"value"			"10 15 20 25 30"	// 12 18 24 30
+				}
 		}
 	}
 	// 反击螺旋
@@ -591,40 +596,30 @@
 			}
 		}
 	}
-	// 淘汰之刃
+	// 淘汰之刃：击杀敌方英雄永久叠层，每层额外护甲随大招等级，见 armor_per_stack
 	"axe_culling_blade"
 	{
 		"MaxLevel" "4"
 		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"100 125 150 175"
-		"AbilityCastPoint"				"0.01"	// 0.5
+		"AbilityCastPoint"				"0.01"	// 0.3
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"			"275 375 475 575"
-				"special_bonus_unique_axe_5"	"+425"
+				"value"			"275 375 475 575"	// 275 375 475
+				"special_bonus_unique_axe_5"	"+425"	// 150
 			}
-			"speed_bonus"				"20 25 30 35"
-			"armor_bonus"				"10 15 20 25"
-		}
-	}
-	// 血色外衣
-	"axe_coat_of_blood"
-	{
-		"MaxLevel"			"5"
-		"AbilityValues"
-		{
-			"armor_per_kill"						"0.4 0.6 0.8 1.0 1.2"
-		}
-	}
-	// 一人之军（命石1）
-	"axe_one_man_army"
-	{
-		"AbilityValues"
-		{
-			"armor_pct_as_strength"			"80"	// 100
-			"radius"					"150"		// 700
+			"speed_bonus"
+			{
+				"value"			"20 25 30 35"	// 20 25 30
+				"display_type"	"kBuffPercentage"
+			}
+			"armor_bonus"				"10 15 20 25"	// 10 15 20
+			"armor_per_stack"
+			{
+				"value"					"1 1.5 2 2.5"	// 1 1.5 2
+			}
 		}
 	}
 	//=================================================================================================================
@@ -1465,7 +1460,7 @@
 		"AbilityValues"
 		{
 			"fissure_duration"			"6.5"
-			"stun_duration"				"0.6 0.8 1.0 1.2 1.4"
+			"stun_duration"				"1.0 1.2 1.4 1.6 1.8"	// 1.0 1.2 1.4 1.6
 			"fissure_damage"
 			{
 				"value"				"120 200 280 360 440"			// 100 160 220 280
@@ -1488,7 +1483,6 @@
 			"totem_damage_percentage"
 			{
 				"value"		"200 300 400 500 600"
-				"CalculateSpellDamageTooltip"	"0"
 				"special_bonus_unique_earthshaker_totem_damage"	"+150"
 			}
 			// A杖条约2倍速度
@@ -1502,15 +1496,6 @@
 				"RequiresScepter"		"1"
 			}
 			"bonus_attack_range"		"200"
-
-			"projectile_body_damage_creep"
-			{
-				"special_bonus_facet_earthshaker_slugger"		"=50 =80 =110 =140 =170"
-			}
-			"projectile_body_damage_hero"
-			{
-				"special_bonus_facet_earthshaker_slugger"		"=150 =250 =350 =450 =550"
-			}
 		}
 	}
 
@@ -1549,45 +1534,43 @@
 				}
 		}
 	}
-	// 强击图腾 命石2
+	// 强击图腾 Slugger：击杀投射物伤害为参考基础×2，仅随英雄等级成长，不与回音击等级挂钩
 	"earthshaker_slugger"
 	{
 		"AbilityValues"
 		{
 			"projectile_body_speed"
 			{
-				"special_bonus_facet_earthshaker_slugger"		"=2400"		// 1600
+				"value"		"2400"	// 1600
 			}
 			"projectile_body_distance"
 			{
-				"special_bonus_facet_earthshaker_slugger"		"=1800"		// 1200
+				"value"		"1800"	// 1200
 			}
 			"projectile_body_width_creep"
 			{
-				"special_bonus_facet_earthshaker_slugger"		"=350"		// 175
+				"value"		"350"	// 175
 				"affected_by_aoe_increase"	"1"
 			}
 			"projectile_body_width_hero"
 			{
-				"special_bonus_facet_earthshaker_slugger"		"=350"		// 175
+				"value"		"350"	// 175
 				"affected_by_aoe_increase"	"1"
 			}
 			"projectile_body_vision"
 			{
-				"special_bonus_facet_earthshaker_slugger"		"=350"		// 175
+				"value"		"350"	// 175
 				"affected_by_aoe_increase"	"1"
 			}
 			"projectile_body_damage_creep"
 			{
-				"special_bonus_facet_earthshaker_slugger"		"=120 =140 =160 =180 =200"
+				"value"			"54"	// 27 x2
+				"hero_levelup"	"6"		// 3 x2
 			}
 			"projectile_body_damage_hero"
 			{
-				"special_bonus_facet_earthshaker_slugger"		"=200 =400 =600 =800 =1000"
-			}
-			"projectile_body_damage_additional_percent_health"
-			{
-				"special_bonus_facet_earthshaker_slugger"		"=7 =9 =11 =13 =15"
+				"value"			"270"	// 135 x2
+				"hero_levelup"	"30"	// 15 x2
 			}
 		}
 	}
