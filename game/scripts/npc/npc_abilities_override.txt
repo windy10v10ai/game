@@ -7916,12 +7916,13 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"10 8 6 4 2"	// 14 12 10 8
+		"AbilityManaCost"				"25 30 35 40 45"	// 25 30 35 40
 
 		"AbilityValues"
 		{
-			"health_rest_steal"				"8 16 24 32 40"	// 4 8 12 16 x2
-			"regen_steal"					"8 16 24 32 40"	// 4 8 12 16 x2
-			"ms_steal"						"8 16 24 32 40"	// 4 8 12 16 x2
+			"health_rest_steal"				"4 8 12 16 20"	// 4 8 12 16
+			"regen_steal"					"4 8 12 16 20"	// 4 8 12 16
+			"ms_steal"						"4 8 12 16 20"	// 4 8 12 16
 		}
 	}
 	// 暗影之舞
