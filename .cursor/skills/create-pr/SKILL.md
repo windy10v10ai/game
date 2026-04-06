@@ -27,7 +27,7 @@ description: Create a PR from current branch to develop, committing all local ch
 4. 组装 PR 正文（模板：`.github/pull_request_template.md`）：
    - Issue 段保留 `- [ ] fix #<issue-id>` 格式；如有不关闭 Issue 需求，手动删除 `- [ ] fix` 改为 `- Ref #<issue-id>`。
    - 有 issue 时基于 issue 内容，无 issue 时根据改动内容，生成数条可验证 checklist。
-   - Release Note：按 `.claude/skills/generate-changelog/SKILL.md` 执行。
+   - Release Note：按 `.claude/skills/changelog/SKILL.md` 执行。
 5. 创建 PR：`gh pr create --base develop --head <current-branch> --title "<title>" --body-file <temp-file>`。
 6. 回报结果：返回 PR URL、是否新建 commit（及 hash）。
 

@@ -1,11 +1,11 @@
 ---
-name: generate-changelog
+name: changelog
 description: >-
-  生成 Steam Workshop 更新日志（中英文）。支持手动提供更新点或从 GitHub PR 提取信息；若用户确认，可将 Release Note 写回当前分支对应的 open PR。按项目规范同步 GAME_VERSION。
+  生成 Steam Workshop 更新日志（中英文）。支持手动、PR、Issue（含 7.41 checklist 进度 x/总数，无清单则玩家向摘要）；用户确认后可写回 open PR（body-file UTF-8 无 BOM）。须解析具体版本（用户指定优先，否则 WebFetch Steam changelog）；`GAME_VERSION` 对照检查，大版本对齐或需发版时再改。
 disable-model-invocation: true
 ---
 
-# Generate Changelog
+# Changelog
 
 为 Windy10v10AI Steam Workshop 生成中英文更新日志。
 
@@ -16,7 +16,7 @@ disable-model-invocation: true
 示例：
 
 ```
-/generate-changelog 5.11 修正猴子棒击、新增火焰风暴、同步7.40c
+/changelog 5.11 修正猴子棒击、新增火焰风暴、同步7.40c
 ```
 
 ### 从 GitHub PR 生成
@@ -24,10 +24,30 @@ disable-model-invocation: true
 示例：
 
 ```
-/generate-changelog 5.11 #1234
+/changelog 5.11 #1234
 ```
 
 从 PR 读取：标题、描述、commits，提取更新内容。
+
+### 从 GitHub Issue 与核对进度
+
+示例：
+
+```
+/changelog https://github.com/windy10v10ai/game/issues/1952
+```
+
+当用户给出 **Issue**（`github.com/.../issues/<N>` 或 `issues/<N>`，**不是** `pull/`）时，先拉取正文再分两种路径：
+
+**A. 标准路径**（正文含 **`### 7.41 同步核对`** 与清单行 **`- [x]` / `- [ ]`**）：
+
+1. 拉取正文：`gh issue view <N> --repo windy10v10ai/game --json body`（解析 URL 得 `N`）。
+2. 截取 **自 `### 7.41 同步核对` 起至首个 `**说明**`** 之前**的子串（勿计入上文其它列表里的 `-` 行）。
+3. 统计：`- [x]` 为 **已完成**，`- [ ]` 为未完成；**总数** = 二者之和（可与文内「CustomHeroList **120** 名」等互校）。
+4. 将 **已完成** 英雄的中文名按行内加粗名提取，用于「多英雄并列」；在同一条 bullet **末尾**缀 **`（Issue #N 英雄核对进度 x/总数）`** / **`(Issue #N hero checklist: x/total)`**。
+5. 解析 JSON 时去掉 UTF-8 **BOM**（`\uFEFF`）再 `JSON.parse`；PowerShell 重定向 JSON 时尽量 UTF-8 **无 BOM**。
+
+**B. 回退路径**（无 `### 7.41 同步核对` 或该段无 checklist）：**不要**编造 `x/总数`；据 Issue 标题与描述写 **2–5 条**玩家向 bullet，版本号仍走下文「执行步骤」第 2 步。
 
 ## 更新 open PR 的 Release Note
 
@@ -62,49 +82,62 @@ PR 描述建议保留 **Issue**、**Checklist** 等 `## Release Note` **之上**
    `新正文` = 从开头到 **`## Release Note` 行之前**的子串（去掉尾部多余空行） + `\n\n` + `新ReleaseNote`  
 4. 若正文**不含** `## Release Note`：  
    `新正文` = 原正文去尾空白 + `\n\n` + `新ReleaseNote`
-5. 将 `新正文` 写入临时文件（UTF-8），执行：  
+5. 将 `新正文` 写入临时文件（**UTF-8，无 BOM**），执行：  
    `gh pr edit <PR号> --repo windy10v10ai/game --body-file <临时文件路径>`
 
 编辑成功后向用户回报 PR 链接；**勿**把含 token 的命令输出写入仓库文件。
 
 ## 输出格式
 
+### 版本号须自动填入（禁止占位符）
+
+- 交给用户的**最终**中英文 Workshop 代码块里，标题行必须是**执行步骤第 2 步**已确定的**具体** `v…` 字符串。**禁止**写 `{版本号}`、`v{xx}` 等让用户自己替换。
+- **用户已写明版本时**：参数里出现 `v5.11a`、`5.11a`、`5.11` 等且意图为**本条 Workshop 标题**的，**直接**规范为 `v5.11a` / `v5.11` 用于标题，**不要**再在 Steam 最新版上递增（与「手动提供更新内容」示例一致）。
+- **用户未写版本时**：用 **WebFetch** 打开 [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570)，取**列表第一条**（第 1 页）条目标题中的已发版本（如 `Gameplay update v5.19b` → `v5.19b`），再按「下一版小更新」在**同一大版本**下**递增补丁字母**得到本次标题（例 `v5.19c`）。`v5.19` 无字母则下一档一般为 `v5.19a`。若页内无条目、无法匹配版本、或递增越界（如后缀已到 `z`），**说明原因并询问用户**；**不得**留占位符。
+- 上述逻辑须与「版本号决策优先级」一致：**用户指定**优先于 Steam 推算。
+
 ### 中文版本
 
+结构（`v…` 在交付物中须为**具体值**，来自**执行步骤第 2 步**）：
+
 ```
-[b]游戏性更新 v{版本号}[/b]
+[b]游戏性更新 v5.18c[/b]
 
 - {更新内容1}
 - {更新内容2}
 ```
+
+上例中 `{更新内容1}` 等仅为**结构示意**；交付给用户的正文里须为真实条目，**不得**保留 `{更新内容…}` 占位。
 
 ### 英文版本
 
 ```
-[b]Gameplay update v{版本号}[/b]
+[b]Gameplay update v5.18c[/b]
 
 - {更新内容1}
 - {更新内容2}
 ```
+
+`{更新内容…}` 同上，**交付时**须为真实英文 bullet，不得保留占位。
 
 ### 多英雄并列（Dota 版本同步类 PR / Release Note）
 
 当一条更新对应 **多名英雄**（例如随官方版本对齐的本图技能调整）时：
 
 - **同一条 bullet** 内用固定句式列出英雄；中文用全角逗号 **，** 分隔，英文用半角 **, ** 分隔；**不要**为每名英雄再拆子列表或换行。
-- **须列齐本批次全部涉及英雄**，勿漏写；名称以玩家熟知的官方常用译名为准，从 `game/resource/addon_schinese.txt` / `addon_english.txt` 或 Issue 清单核对。**未纳入本批次的英雄不要写入**。
+- **范围**：**Issue checklist** 路径只列 **`- [x]`** 已勾选英雄；**PR** 路径列**本 PR 涉及的全部**英雄（与改动一致）。名称以 `addon_schinese.txt` / `addon_english.txt` 或 Issue 行为准。**未纳入本批次的英雄不要写入**。
 - **玩家向表述**：用「同步 Dota 2 7.xx 对下列英雄的技能更新：…」这类句式；**禁止**在同条或相邻 Workshop bullet 中写维护向用语（如「KV」「override」「对齐参考」「注释」「AbilityValues」、文件路径、纯内部流程描述）。
 
-示例（PR `Release Note` 与创意工坊 bullet 均可采用同一结构；`{版本号}` 按上文版本规则填写）：
+示例（形状参考；**真实调用时 `v5.18c` 须换成本次执行步骤第 2 步结果**，勿照抄示例数字）：
 
 ```
-[b]游戏性更新 v{版本号}[/b]
+[b]游戏性更新 v5.18c[/b]
 
 - 同步 Dota 2 7.41 对下列英雄的技能更新：亚巴顿，炼金术士，狙击手，美杜莎
 ```
 
 ```
-[b]Gameplay update v{版本号}[/b]
+[b]Gameplay update v5.18c[/b]
 
 - Synced Dota 2 7.41 ability updates for the following heroes: Abaddon, Alchemist, Sniper, Medusa
 ```
@@ -146,6 +179,7 @@ PR 描述建议保留 **Issue**、**Checklist** 等 `## Release Note` **之上**
 
 - 创意工坊更新记录：[Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570)
 - 取页面上**最新一条**标题里的版本号，**含补丁字母**（例如 `Gameplay update v5.18b` → 当前对外线为 **5.18**，补丁档为 **b**）。
+- 调用本技能时**应主动抓取该页**（如 WebFetch）做解析，**不要**假定版本、也不要把「请用户自己去 Steam 看」当作完成**执行步骤第 2 步**。
 
 ### 2) 下一版小更新（最常见）
 
@@ -248,24 +282,36 @@ PR 描述建议保留 **Issue**、**Checklist** 等 `## Release Note` **之上**
 检查步骤：
 
 1. 读取 `GameConfig.ts` 中的 `GAME_VERSION`
-2. 去掉更新日志版本的 a/b/c 后缀比较
-3. 如果不一致，修改为正确的版本号
+2. 去掉 Workshop 标题版本的 a/b/c 后缀，与 `GAME_VERSION` 比较
+3. **是否改文件**以文末「执行步骤」第 4 条为准：大版本需对齐或用户要随本次发版改仓库时再写入；仅 `a/b/c` 小更时**通常不改**，在输出末提醒核对即可
 
 ## 执行步骤（当用户调用本技能时）
 
-1. **判断参数类型**：
-   - 包含 `#` 或纯数字 → 从 PR 提取
-   - 否则 → 视为手动提供的更新内容
-2. **确定版本号**（用户未明确写出 `v5.xx` / `v5.xxa` 时必做）：
-   - 若用户参数包含 `版本号+1`：按「特殊口令：版本号+1」处理，输出下一主版本（如 `v5.19`）。
-   - **先**查 Steam [changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 最新一条（含 `a/b/c`），在同一大版本下递增字母得到下一 Workshop 标题。
-   - **再**看 `gh pr list … --label release`：仅当 Steam 已跟上新大版本或用户明确随 release 首发时，才采用 release PR 上的新大版本号；**勿**在 Steam 仍为 `v5.18x` 时用 `v5.19a`。
+1. **判断参数类型**（**Issue #N 与 PR #N 编号空间独立**，勿混）：
+   - URL 含 **`/issues/`** 或参数显式 **`issues/<N>`** → **Issue**，走「从 GitHub Issue 与核对进度」：**有** `### 7.41 同步核对` checklist → 标准路径 A；**无**则回退路径 B。
+   - URL 含 **`/pull/`**，或 **`#<N>`**、**纯数字**且用户**未**标明为 Issue → 默认 **PR**，`gh pr view <N>`。
+   - 否则 → **手动**（首段可含 `5.11` / `v5.11a` 作版本，余下为更新点）。
+2. **确定 Workshop 标题版本**（须为具体 `v…`，禁止 `{版本号}`）：
+   - **优先**：参数中可识别的 **`v5.xxa` / `5.xxa` / `5.xx`**（本条创意工坊标题）→ **直接**规范为 `v…` 采用，**不再**对 Steam 末版做补丁递增。
+   - 否则若用户要求 **`版本号+1`** → 「特殊口令」（Steam 最新 → 主版本 +0.01）。
+   - 否则 → **WebFetch** changelog **第 1 页首条**解析已发版 → 同大版本下递增补丁字母；并核对 **「版本号决策优先级」** 与 **`gh pr list --label release`**，避免 Steam 未跟上时误用未发大版本。
+   - 无法解析或冲突 → **说明并询问用户**。
 3. **生成更新日志**：
-   - PR：提取玩法相关改动，**去掉**纯维护/注释/KV 同步类条目后，归纳为 **2–5 条**玩家向 bullet（不足则按实际）。若实质为「随 Dota 7.xx 调整多名英雄技能」，则用「多英雄并列」模板，**列齐全部英雄**、**不写技术描述**。
-   - 文本：直接按用户提供内容生成条目，仍遵守「玩家向」规则
-4. **同步 `GAME_VERSION`**（按 `GAME_VERSION 同步规则`）
-5. **输出**：中英文两个版本，用分隔线隔开
-6. **写入 open PR 的 Release Note**：**不得**自动执行。先按「更新 open PR 的 Release Note」检测当前分支的 open PR 情况并**询问用户**是否写入；**仅当用户明确确认后**再拼接 `新正文` 并 `gh pr edit --body-file`。用户表示不写、未回复确认、或 0 条 / 多条且未选定 PR 时均跳过。失败时说明原因（未登录、`gh` 不可用等）
+   - **Issue + checklist**：多英雄仅 **`- [x]`**；末尾 **`（Issue #N 英雄核对进度 x/总数）`** / **`(Issue #N hero checklist: x/total)`**。
+   - **Issue 无 checklist**：2–5 条玩家向 bullet，**不**写虚假 `x/总数`。
+   - **PR**：2–5 条；多英雄 Dota 跟进时列**本 PR 涉及全部**英雄。
+   - **手动**：按用户列点。
+4. **`GAME_VERSION`（`GameConfig.ts`）**：按「GAME_VERSION 同步规则」**对照**；**仅当** Workshop 主推**大版本**相对 `GAME_VERSION` 去后缀后变化、且用户需要改仓库发版时**修改**。仅递增 `a/b/c` 时**通常不改**。只要文案、或用户禁止改代码 → **跳过**并在输出末**一行提醒**核对 `GAME_VERSION`。
+5. **输出**：中英文两个版本，用分隔线隔开；两段标题行均嵌入步骤 2 的**具体** `v…`，与「版本号须自动填入」一致。
+6. **写入 open PR**：**须用户确认后**再 `gh pr edit --body-file`。**临时文件 UTF-8，无 BOM**（Windows 避免 PR 乱码）。多条 open PR 先让用户选号。
+
+
+### 交付前自检（完整性）
+
+- 中英文标题行版本一致，且为**已解析的具体**字符串，无 `{版本号}` 等占位符。
+- Issue 类：有 checklist 时 `x` / `total` 与勾选统计一致；未勾选英雄未写入「已同步」。**无** checklist 时**不得**写虚假 `x/总数`。
+- 多英雄 bullet：与 PR / Issue / 用户给定范围**同批同名**，中英文列表对应。
+- 玩家向：无 KV、override、文件路径、维护向套话（见「撰写原则 · Workshop 文案」）。
 
 信息不完整时先询问用户。
 
