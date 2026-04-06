@@ -4070,17 +4070,17 @@
 	"spirit_breaker_charge_of_darkness"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"90 100 110 120 130"
+		"AbilityManaCost"				"90 100 110 120 130"	// 90 100 110 120
 		"AbilityValues"
 		{
 			"movement_speed"
 			{
-				"value"			"275 325 375 425 475"
+				"value"			"275 325 375 425 475"	// 275 325 375 425
 			}
-			"stun_duration"			"1.3 1.6 1.9 2.2 2.5"
+			"stun_duration"			"1.3 1.6 1.9 2.2 2.5"	// 1.3 1.6 1.9 2.2
 			"AbilityCooldown"
 			{
-				"value"			"22 19 16 13 10"
+				"value"			"22 19 16 13 10"	// 22 19 16 13
 			}
 		}
 	}
@@ -4088,18 +4088,21 @@
 	"spirit_breaker_bulldoze"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"22 20 18 16 14"
-		"AbilityManaCost"				"30 40 50 60 70"
+		"AbilityManaCost"				"30 40 50 60 70"	// 30 40 50 60
 		"LinkedAbility"					"spirit_breaker_empowering_haste"
 		"AbilityDraftPreAbility"		"spirit_breaker_empowering_haste"
 		"AbilityValues"
 		{
-			"movement_speed"				"10 15 20 25 30"
-			"status_resistance"				"55 60 65 70 75"
+			"movement_speed"				"10 15 20 25 30"	// 8 12 16 20
+			"status_resistance"				"55 60 65 70 75"	// 40 50 60 70
 			"damage_barrier"
 			{
-				"value"						"200"
-				"special_bonus_unique_spirit_breaker_shield" "+750"
+				"value"						"200"	// 0
+				"special_bonus_unique_spirit_breaker_shield" "+750"	// +375
+			}
+			"AbilityCooldown"
+			{
+				"value"						"22 20 18 16 14"	// 22 20 18 16
 			}
 		}
 	}
@@ -4107,22 +4110,22 @@
 	"spirit_breaker_empowering_haste"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"15"	// 20
 		"LinkedAbility"					"spirit_breaker_bulldoze"
 		"AbilityDraftPreAbility"		"spirit_breaker_bulldoze"
 		"AbilityValues"
 		{
 			"bonus_movespeed_pct_self"
 			{
-				"value" "8 12 16 20 24"
+				"value" "8 12 16 20 24"	// 8 12 16 20
 			}
 			"bonus_movespeed_pct_allies"
 			{
-				"value" "4 6 8 10 12"
+				"value" "4 6 8 10 12"	// 4 6 8 10
 			}
 			"bonus_movespeed_pct_extra"
 			{
-				"value" "4 6 8 10 12"
+				"value" "4 6 8 10 12"	// 3 4 5 6
 			}
 		}
 	}
@@ -4134,18 +4137,18 @@
 		{
 				"damage"
 				{
-					"value"	"25 30 35 40 45"
+					"value"	"25 30 35 40 45"	// 25 30 35 40
 				}
-				"duration"				"0.9 1.1 1.3 1.5 1.7"
-				"knockback_distance"	"143 152 158 162 165"
+				"duration"				"0.9 1.1 1.3 1.5 1.7"	// 0.9 1.1 1.3 1.5
+				"knockback_distance"	"143 152 158 162 165"	// 143 152 158 162
 		}
 	}
 	// 幽冥一击
 	"spirit_breaker_nether_strike"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60 50 40 30"
-		"AbilityManaCost"				"125 150 175 200"
+		"AbilityCooldown"				"60 50 40 30"	// 75 55 35
+		"AbilityManaCost"				"125 150 175 200"	// 125 150 175
 		"AbilityValues"
 		{
 			"damage"
@@ -7915,7 +7918,7 @@
 	"slark_saltwater_shiv"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"10 8 6 4 2"	// 14 12 10 8
+		"AbilityCooldown"				"12 10 8 6 4"	// 14 12 10 8
 		"AbilityManaCost"				"25 30 35 40 45"	// 25 30 35 40
 
 		"AbilityValues"
