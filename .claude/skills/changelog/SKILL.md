@@ -63,11 +63,12 @@ Steam 最新去掉字母后缀 +0.01 得下一主版本（如 `v5.19b` → `v5.2
 gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url
 ```
 
-release PR 存在且大版本高于 Steam（如 Steam `v5.19b`，release PR `v5.20`）→ **采用 release PR 版本**（`v5.20`）。存在 open release PR 意味着正在为该大版本准备发行。多条 release PR 时问用户。
+release PR 存在且大版本**严格高于** Steam（如 Steam `v5.19b`，release PR `v5.20`）→ **采用 release PR 版本**（`v5.20`）。
+**Steam 已发布与 release PR 同大版本**（如 Steam `v5.20`，release PR `v5.20`）→ **不采用**，进入步骤 4。多条 release PR 时问用户。
 
 ### 4. 默认：Steam 同大版本递增补丁字母
 
-**WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本，在同一大版本下递增字母（`v5.19b` → `v5.19c`）。无字母则下一档为 `a`。无法解析时问用户。
+**WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本，在同一大版本下递增字母（`v5.19b` → `v5.19c`；`v5.20` → `v5.20a`）。无字母则下一档为 `a`。无法解析时问用户。
 
 > `GAME_VERSION`（`GameConfig.ts`）不含 a/b/c 后缀；只有 Workshop 文案可出现 `v5.xxa`。
 
@@ -93,17 +94,25 @@ release PR 存在且大版本高于 Steam（如 Steam `v5.19b`，release PR `v5.
 
 ### 多英雄并列
 
-同一条 bullet 列出所有英雄；中文用 **，** 分隔，英文用 **, ** 分隔。Issue checklist 只列已勾选英雄；PR 列本 PR 涉及的全部英雄。名称以 `addon_schinese.txt` / `addon_english.txt` 为准。
+同一条 bullet 列出所有英雄；中文用 **，** 分隔，英文用 **, ** 分隔。
 
-示例：
+**英雄范围确定规则：**
+- **PR**：通过 `gh pr diff <N>` 提取实际改动的技能前缀（如 `pudge_`、`silencer_` 等），只列**本 PR 实际涉及**的英雄，不得包含其他 PR 的英雄
+- **Issue checklist**：只列已勾选 `- [x]` 的英雄
 
+**进度标注（Issue + checklist 时必须）：**
+- 中文：`（x/总数）` 紧跟在「技能更新」之后，冒号前
+- 英文：`(x/total)` 同位置
+
+句式模板：
 ```
-- 同步 Dota 2 7.41 对下列英雄的技能更新：亚巴顿，炼金术士，狙击手
+- 同步 Dota 2 7.41 英雄的技能更新（x/总数）：英雄A，英雄B，英雄C
+```
+```
+- Synced Dota 2 7.41 ability updates (x/total): Hero A, Hero B, Hero C
 ```
 
-```
-- Synced Dota 2 7.41 ability updates for the following heroes: Abaddon, Alchemist, Sniper
-```
+名称以 `addon_schinese.txt` / `addon_english.txt` 为准；找不到则用官方中英文名。
 
 ## 撰写原则
 
