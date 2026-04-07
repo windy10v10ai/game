@@ -35,7 +35,7 @@ description: >-
 |------|--------------|---------|
 | 小招 | 5 | 4 |
 | 大招（`ABILITY_TYPE_ULTIMATE`） | 4 | 3 |
-| 先天技能（`"Innate" "1"`） | 不扩展 | — |
+| 先天技能（`"Innate" "1"`） | 不扩展；若参考显式写明 `MaxLevel "1"`，override 中不得写 `MaxLevel`（删除已有的） | — |
 
 若参考或 override 已显式写明 `MaxLevel`，以显式值为准。
 
