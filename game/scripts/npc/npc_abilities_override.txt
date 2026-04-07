@@ -12241,14 +12241,14 @@
 			}
 		}
 	}
-	// 智力外流 先天技能
+	// 默默受苦 先天技能
 	"silencer_brain_drain"
 	{
 		"AbilityValues"
 		{
 			"permanent_int_steal_range"
 			{
-				"value"		"450" // 925
+				"value"		"1200" // 925
 			}
 		}
 	}
