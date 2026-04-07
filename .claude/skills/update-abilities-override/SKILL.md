@@ -16,6 +16,13 @@ description: >-
 - `docs/reference/{version}/heroes/npc_dota_hero_{hero}.txt` — 技能 KV 参考
 - 用 `grep` / 片段读取定位，**禁止**一次读入整个 override 文件
 
+## 英雄名查找规则
+
+用户给出中文英雄名时：
+1. **优先**用用户给的原文（中文）直接在 `npc_heroes.txt` 或 override 文件中的注释里搜索（如 `grep -i "巫医"`）
+2. 找到则直接使用对应的英雄 ID，**不必确认**
+3. 找不到时，再尝试用其他关键词搜索；若仍不确定，将候选结果展示给用户确认
+
 ## 技能范围
 
 用户未指定技能时，从参考 `npc_heroes.txt` 读取槽位：
@@ -71,7 +78,7 @@ description: >-
 #### 读设计意图
 
 - **有行尾注释**（`x2`、`+N`、`差值N` 等） → 按该规则在**当前参考值**上重算 value；若重算结果与现有 value 不符，进入「旧版参考缺失处理」流程
-- **无行尾注释** → 默认仅等级扩展；value 必须与参考相同前几档 + 步长延伸。若与参考不符，视为遗漏，回退为官方值并补全新档（不加注释）
+- **无行尾注释** → 默认仅等级扩展；value 必须与参考相同前几档 + 步长延伸。若与参考不符，视为官方版本更新了数值，**直接同步为官方最新值并补全新档（不加注释，无需询问）**
 
 #### MaxLevel 扩展必扫（强制）
 
@@ -82,6 +89,8 @@ description: >-
 | 块顶多档 | `AbilityCooldown`、`AbilityManaCost`、`AbilityDuration`、`AbilityCastRange` 等 |
 | AbilityValues 子块 | `"键" { "value" "a b c" ... }` |
 | AbilityValues 顶层平铺（易漏） | 直接 `"键名" "a b c"` 无子块 |
+
+> **顶层 vs 子块冲突**：若参考将某键（如 `AbilityCooldown`）放在 `AbilityValues` 子块内，而 override 写成顶层，顶层写法**无效**（子块优先）。处理时：删除 override 中的顶层写法，在 `AbilityValues` 子块内按 P1/P2/P3 正常处理。**无需询问，直接处理**。
 
 对**参考全集**中每个多档键（含「参考有 override 无」的差集）依次判定：
 1. **同值多档** → 不写（即使 MaxLevel 更高，P1 优先）
@@ -105,15 +114,14 @@ description: >-
 处理任何已有 override 记录的技能时，**先逐一核对所有行尾注释的参考基数是否与当前版本一致**，再执行 P1/P2/P3：
 
 1. 注释有参考基数（如 `// 15 30 45 60 x2`）→ 直接按注释规则用当前版本参考值重算并写入，**无需询问**
-2. 注释无参考基数（仅 `// x2`）→ 进入「旧版参考缺失处理」流程
-3. 无注释但 value 与参考步长不符 → 进入「旧版参考缺失处理」流程
+2. 注释无参考基数（仅 `// x2`）→ 直接按最新版官方值 ×N 重算并补全注释基数，**无需询问**
+3. 无注释，且 value 是官方步长的延伸 → 自动按官方步长补全新档，**无需询问**
+4. 无注释，且 value 与参考步长不符 → **官方版本更新了数值，直接同步为官方最新值并补全新档，无需询问**（不保留旧值，不加注释）
 
 #### 旧版参考缺失时的处理
 
 触发条件（满足任一）：
-- override 有注释但找不到对应旧版参考文件，无法验证注释基数
-- 注释缺少参考基数（如仅 `// x1.5` 无原始数值）
-- 按注释规则重算后结果与现有 value 不符，且旧版参考不存在
+- 按注释规则重算后结果与现有 value 不符，且旧版参考不存在（无法确认规则是否变更）
 
 **必须使用 `AskUserQuestion` 工具以选项菜单形式询问用户**，不得用文字列出 A/B/C/D，不得自行假设。
 
@@ -127,9 +135,8 @@ description: >-
   - `纯等级扩展`：description 写出按步长延伸的结果值
   - `保留现有 value`：description 写出修正后的注释内容
 - 若倍数/差值需要二次确认（用户在第一轮选了「×N」但未指定 N），发起第二轮问题列出常见倍数选项
-- 技能中文名和属性中文名从 `docs/reference/{version}/abilities_schinese.txt` 查找：
-  - 技能名：`DOTA_Tooltip_ability_{ability_name}` 对应的值
-  - 属性名：`DOTA_Tooltip_ability_{ability_name}_{key_name}` 对应的值（去掉末尾冒号）；若查不到则用系统键名
+- 技能中文名：直接使用 override 文件中该技能块上方的注释（如 `// 诅咒`）；若 override 中无该技能块，再从 `docs/reference/{version}/abilities_schinese.txt` 查 `DOTA_Tooltip_ability_{ability_name}`
+- 属性中文名从 `docs/reference/{version}/abilities_schinese.txt` 查找：`DOTA_Tooltip_ability_{ability_name}_{key_name}` 对应的值（去掉末尾冒号）；若查不到则用系统键名
 - 用户选择后按其指示重算并更新 value 和注释
 
 ### P3 注释格式
