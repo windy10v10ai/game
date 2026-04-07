@@ -12173,22 +12173,21 @@
 	// 奥术诅咒
 	"silencer_curse_of_the_silent"
 	{
-		"MaxLevel" "7"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityManaCost"				"130 135 140 145 150 155 160"
-		"LevelsBetweenUpgrades"			"2"
+		"MaxLevel" "5"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
+		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"							"30 50 70 90 110 130 150"	// 16 24 32 40
+				"value"							"32 48 64 80 96"	// 16 24 32 40 x2
 			}
-			"application_damage"				"40 80 120 160 200 240 280"	// 20 40 60 80
+			"application_damage"				"40 80 120 160 200"	// 20 40 60 80 x2
 			"AbilityCooldown"
 			{
-				"value"						"20 17 15 15 15 15 15"
+				"value"						"22 20 18 16 14"
 			}
-			"movespeed"			"-10 -15 -20 -25 -30"
+			"movespeed"			"-16 -19 -22 -25 -28"
 		}
 	}
 	// 智慧之刃
@@ -12210,14 +12209,14 @@
 			{
 				"value"			"10 20 30 40 50"
 			}
+			"debuff_linger_duration"	"3 4 5 6 7"
 		}
 	}
 	// 遗言
 	"silencer_last_word"
 	{
 		"MaxLevel"						"5"
-		//"AbilityCooldown"				"18 16 14 12 10" //红蝴蝶削弱
-		"AbilityCooldown"				"18 18 18 18 18"
+		"AbilityCooldown"				"22 18 14 10 10"
 		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilityValues"
 		{
@@ -12233,23 +12232,12 @@
 	"silencer_global_silence"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120 110 100 90"
-		"AbilityManaCost"				"300 400 500 600"
+		"AbilityManaCost"				"300 450 600 750"
 		"AbilityValues"
 		{
 			"AbilityDuration"
 			{
 				"value"					"4.5 5.25 6.0 6.75"
-			}
-
-			"first_duration"
-			{
-				"special_bonus_facet_silencer_reverberating_silence" "3 3.5 4 4.5"
-			}
-
-			"second_duration"
-			{
-				"special_bonus_facet_silencer_reverberating_silence" "2.0 2.5 3.0 3.5"
 			}
 		}
 	}
@@ -12261,25 +12249,9 @@
 			"permanent_int_steal_range"
 			{
 				"value"		"450" // 925
-				"affected_by_aoe_increase"	"1"
-			}
-			"permanent_int_steal_amount"
-			{
-				"value"						"1"
-				"special_bonus_shard"		"+1"
 			}
 		}
 	}
-	// 默默受苦 命石
-	"silencer_oppressive_silence"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"damage_pct"				"8 12 16 20 24"
-		}
-	}
-
 	//=================================================================================================================
 	// Ability: Skywrath Mage 天怒法师
 	//=================================================================================================================
