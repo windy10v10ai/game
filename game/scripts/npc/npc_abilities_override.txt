@@ -1283,43 +1283,46 @@
 		{
 			"bonus_gold"
 			{
-				"value"				"35 70 105 140 175"	// 35/70/105/140
+				"value"				"35 70 105 140 175"
 			}
-			"creep_level"			"6"
 		}
 	}
 	// 焦土
 	"doom_bringer_scorched_earth"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"44 43 42 41 39 37 35"
-		"AbilityManaCost"				"60 70 80 90 100 110 120"
+		"MaxLevel" "5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
+				"AbilityCooldown"
+				{
+					"value"			"41 39 37 35 33"
+				}
 				"damage_per_second"
 				{
-					"value"			"50 90 130 170 210 250 290"
-					"special_bonus_unique_doom_4"	"+200"
+					"value"			"40 60 80 100 120"	// 20 30 40 50 x2
+				}
+				"bonus_health_regen"
+				{
+					"value"			"7 8 9 10 11"
 				}
 				"bonus_movement_speed_pct"
 				{
-					"value"			"7 8 9 10 11 11 11"
-					"special_bonus_unique_doom_6"	"+7"
+					"value"			"7 8 9 10 11"
 				}
-				"duration"				"10.0 12.0 14.0 16.0 18.0 18.0 18.0"
+				"duration"				"10.0 12.0 14.0 16.0 18.0"
 		}
 	}
 	// 阎刃
 	"doom_bringer_infernal_blade"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"15 13 10 7 4"
+		"AbilityCooldown"				"13 10 7 4 1"
 		"AbilityValues"
 		{
 			"burn_damage"
 			{
-				"value" "40 50 60 70 80"
+				"value" "30 60 90 120 150"	// 15 30 45 60 x2
 			}
 			"burn_damage_pct"
 			{
@@ -1330,27 +1333,21 @@
 	// 末日
 	"doom_bringer_doom"
 	{
-		"MaxLevel"						"5"
-		"AbilityManaCost"				"100 150 200 250 300"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value"								"12 12 14 16 18"
+				"value"								"12 14 16 18"
 			}
 			"damage"
 			{
-				"value"								"70 100 150 200 250"
+				"value"								"66 132 198 264"	// 22 44 66 x3
 			}
 			"AbilityCooldown"
 			{
-				"value"								"60"
-			}
-			"upgrade_interval"
-			{
-				"value"												"0.0"
-				"special_bonus_facet_doom_bringer_impending_doom"	"=3.33"	// 6.66
+				"value"								"60"	// 140 130 120
 			}
 		}
 	}
