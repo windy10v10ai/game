@@ -7837,15 +7837,15 @@
 		{
 			"slow_movement_speed"
 			{
-				"value"		"-12 -18 -24 -30 -36"	// -12 -18 -24 -30
+				"value"		"-12 -18 -24 -30 -36"
 			}
 			"radius"
 			{
-				"value"		"400 425 450 475 500"	// 400 425 450 475
+				"value"		"400 425 450 475 500"
 			}
 			"shrapnel_damage"
 			{
-				"value"			"30 45 60 75 90"	// 30 45 60 75
+				"value"			"30 45 60 75 90"
 				"special_bonus_unique_sniper_shrapnel_damage"		"+50%"	// +30%
 			}
 		}
@@ -7858,17 +7858,17 @@
 		{
 			"damage"
 			{
-				"value"	"20 50 80 110 140"		// 20 50 80 110
+				"value"	"20 50 80 110 140"
 				"special_bonus_unique_sniper_headshot_damage"	"+60"	// +30
 			}
-			"slow_duration"					"0.2 0.3 0.4 0.5 0.6"	// 0.2 0.3 0.4 0.5
+			"slow_duration"					"0.2 0.3 0.4 0.5 0.6"
 		}
 	}
 	// 瞄准
 	"sniper_take_aim"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 17 16 15 14"	// 20 18 16 14
+		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityValues"
 		{
 			"slow"
@@ -7877,13 +7877,13 @@
 			}
 			"active_attack_range_bonus"
 			{
-				"value"									"100 150 200 250 300"	// 75 150 225 300
+				"value"									"100 150 200 250 300"	// 75 150 225 300 保持最高等级距离和原版一致
 			}
 			"passive_attack_range_bonus"
 			{
-				"value"									"160 220 280 340 400"	// 160 240 320 400
+				"value"									"160 220 280 340 400"	// 160 240 320 400 保持最高等级距离和原版一致
 			}
-			"bonus_vision"								"500 750 1000 1250 1500"	// 500 750 1000 1250
+			"bonus_vision"								"500 750 1000 1250 1500"
 		}
 	}
 	// 暗杀
@@ -7891,19 +7891,31 @@
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel" "4"
-		"AbilityCooldown"				"18 16 14 12"	// 20 15 10
+		"AbilityCooldown"				"16 14 12 10"	// 20 15 10
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"								"300 450 600 750"		// 300 400 500
+				"value"								"450 600 750 900"	// 300 400 500 x1.5
 				"special_bonus_unique_sniper_1"		"+250"		// +150
 			}
 			"scepter_stun_duration"
 			{
-				"special_bonus_scepter"				"0.8 1.0 1.2 1.4"	// 0.8 1.0 1.2
+				"special_bonus_scepter"				"0.8 1.0 1.2 1.4"
 			}
-			"cooldown_reduction_on_kill"		"0 5 10 12"	// 0 5 10
+			"cooldown_reduction_on_kill"		"0 5 10 10"	// 0 5 10
+		}
+	}
+	// 基恩瞄准镜（先天）
+	"sniper_keen_scope"
+	{
+		"AbilityValues"
+		{
+			"bonus_damage_for_range"
+			{
+				"value"						"1.00"	// 1.50
+				"hero_levelup"				"+0.04"	// +0.05
+			}
 		}
 	}
 	//=================================================================================================================
