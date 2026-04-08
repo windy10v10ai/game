@@ -3219,10 +3219,6 @@
 	{
 		"AbilityValues"
 		{
-			"flesh_heap_strength_buff_amount"
-			{
-				"value"	"2"	// 1.6
-			}
 			"flesh_heap_range"
 			{
 				"value"		"600"	// 450
@@ -3265,7 +3261,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"							"18 17 16 15 14"
+				"value"							"18 16 14 12 10"
 			}
 
 			"distance_to_damage"
@@ -3287,7 +3283,7 @@
 				}
 				"rot_damage"
 				{
-					"value"			"50 110 170 230 300"	// 30 60 90 120
+					"value"			"60 120 180 240 300"	// 30 60 90 120 x2
 					"special_bonus_scepter"			"+150"	// +90
 				}
 		}
