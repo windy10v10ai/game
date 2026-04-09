@@ -1813,9 +1813,9 @@
 				"8"		"pudge_rot"
 				"9"		"pudge_meat_hook"
 				"10"		"special_bonus_unique_pudge_4"
-				"11"		"pudge_meat_hook"
+				"11"		"pudge_flesh_heap"
 				"12"		"pudge_dismember"
-				"13"		"pudge_meat_hook"
+				"13"		"pudge_flesh_heap"
 				"14"		"pudge_rot"
 				"15"		"special_bonus_unique_pudge_7"
 				"16"		"pudge_rot"
@@ -1834,8 +1834,6 @@
 				"29"		"special_bonus_unique_pudge_6"
 				"30"		"special_bonus_unique_pudge_3"
 				"31"		"pudge_flesh_heap"
-				"32"		"pudge_flesh_heap"
-				"33"		"pudge_flesh_heap"
 			}
 		}
 	}
