@@ -254,3 +254,13 @@ Release Note 段按照 `.claude/skills/changelog/SKILL.md` 文件的规则生成
 ### 提交
 
 创建 git commit 时，只写**简短的单行标题**，不写正文、不写 bullet、不写详细说明。标题控制在 72 字符以内。
+
+## Skill 交互规范
+
+执行 skill 时，**遇到不明确的决策点必须用 `AskUserQuestion` 工具以选项菜单形式询问用户**，不得自行假设。适用场景包括但不限于：
+
+- 目标文件有多个候选（如抽奖池 vs 单位专属）
+- 操作模式不明确（新建 vs 修正）
+- 原版技能信息无法确定（多个候选、版本差异等）
+
+每道问题单独一次 `AskUserQuestion` 调用，`options` 列出具体候选项并附简短说明。
