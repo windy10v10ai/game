@@ -9067,7 +9067,15 @@
 			{
 				"value"								"2.5 5 7.5 10 12.5"
 			}
-			"movement_speed_pct"					"-.75 -1.5 -2.25 -3 -3.75"
+			"max_stacks"	// 改变结构，value和原版max_stacks数值一致，额外添加shard
+			{
+				"value"					"20"
+				"special_bonus_shard"	"+30"	// 魔晶由无上限 改为最大50层
+			}
+			"movement_speed_pct"
+			{
+				"value"								"-.75 -1.5 -2.25 -3 -3.75"
+			}
 			"turn_rate_pct"						"-10 -30 -50 -70 -90"
 			"application_damage"				"5 10 15 20 25"
 			"unlimited_stacks"
@@ -9138,7 +9146,8 @@
 	// 燃烧枷锁
 	"batrider_flaming_lasso"
 	{
-		"MaxLevel" "4"
+		"MaxLevel"						"4"
+		"AbilityCastRange"				"400"	// 200	+200
 		"AbilityManaCost"				"125 150 175 200"
 		"AbilityValues"
 		{
