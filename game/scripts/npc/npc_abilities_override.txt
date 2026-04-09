@@ -8972,7 +8972,7 @@
 	"bane_enfeeble"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"800 900 1000 1100 1200"
+		"AbilityCastRange"				"700 800 900 1000 1100"
 		"AbilityCooldown"				"19 16 13 10 7"
 		"AbilityManaCost"				"100 110 120 130 140"
 
@@ -8981,8 +8981,8 @@
 			"damage_reduction"	"55 60 65 70 75"
 			"enfeeble_tick_damage"
 			{
-				"value"			"18 27 36 45 54"	// x1.5
-				"special_bonus_unique_bane_10"				"+20"	// x1.5
+				"value"			"18 27 36 45 54"	// 12 18 24 30 x1.5
+				"special_bonus_unique_bane_10"				"+20"	// +13 x1.5
 			}
 		}
 	}
@@ -8990,17 +8990,17 @@
 	"bane_brain_sap"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
 			"brain_sap_damage"
 			{
-				"value"									"90 180 270 360 450"
+				"value"									"90 160 230 300 370"
 				"special_bonus_unique_bane_2"			"+300"		// +275
 			}
 			"AbilityCooldown"
 			{
-				"value"	"15 14 13 12 11"
+				"value"	"14 13 12 11 10"
 			}
 			"shard_secondary_target_heal_pct"
 			{
@@ -9013,23 +9013,13 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"550 600 650 700 750"
-		"AbilityDuration"				"4.0 4.5 5.0 5.5 6.0"
+		"AbilityDuration"				"3.5 4.0 4.5 5.0 5.5"	// 3.5 4.5 5.5 6.5 差值0.5
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"	"22 20 18 16 14"
-			}
-			"bonus_attack_speed"
-			{
-				"value"						"0"
-				"special_bonus_facet_bane_dream_stalker"	"40 60 80 100 120"
-			}
-			"walk_speed"
-			{
-				"value"						"0"
-				"special_bonus_facet_bane_sleepwalk"	"+250"		// +110
+				"value"	"25 22 19 16 13"
 			}
 		}
 	}
@@ -9042,21 +9032,21 @@
 		{
 			"AbilityChannelTime"
 			{
-				"value"					"4.75 5.25 5.75 6.25"
-				"special_bonus_unique_bane_3"		"+2.75"
+				"value"					"4.75 5.00 5.25 5.50"	// 4.75 5.25 5.75 差值0.25
+				"special_bonus_unique_bane_3"		"+1.5"	// +3
 			}
 			"fiend_grip_damage"
 			{
-				"value"			"140 220 300 380"	// x2
+				"value"			"140 220 300 380"	// 70 110 150 x2
 			}
 			"AbilityCooldown"
 			{
-				"value"	"90 80 70 60"
-				"special_bonus_scepter"	"-30"
+				"value"	"90 80 70 60"	// 120 110 100 差值10 最大值60
+				"special_bonus_scepter"	"-30"	// -45
 			}
 			"illusion_count"
 			{
-				"special_bonus_scepter" "+0"
+				"special_bonus_scepter"	"=0"	// 有幻想卡顿，固定0
 			}
 		}
 	}
