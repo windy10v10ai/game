@@ -5104,20 +5104,21 @@
 	// 投掷飞镖
 	"bounty_hunter_shuriken_toss"
 	{
-		"MaxLevel"						"7"
+		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastPoint"				"0.1"	// 0.3
-		"AbilityManaCost"				"75 80 85 90 95 100 105"
+		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
-				"value"					"100 170 240 310 380 450 520"
+				"value"					"100 200 300 400 500"	// 100 170 240 310 差值100
 			}
-			"cast_range"				"600"
+			"cast_range"				"600"	// 375 425 475 525
 			"AbilityCastRange"
 			{
-				"value"					"375 425 475 525 575 625 675"
+				"value"					"600"	// 375 425 475 525
+				"special_bonus_scepter"	"=900"	// =600
 			}
 		}
 	}
@@ -5133,7 +5134,7 @@
 			}
 			"gold_steal"
 			{
-				"value"			"15 22 29 36 43"
+				"value"			"5 10 15 20 25"	// 15 22 29 36 削弱
 				"special_bonus_unique_bounty_hunter"		"+15"	// 50 电脑钱太好偷了，削弱
 			}
 			"AbilityCooldown"
@@ -5150,7 +5151,7 @@
 		"AbilityValues"
 		{
 				"duration"					"20.0 25.0 30.0 35.0 40.0"
-				"fade_time"					"1.0 0.75 0.5 0.25 0.0"
+				"fade_time"					"1.0 0.8 0.6 0.4 0.2"	// 1.0 0.75 0.5 0.25 差值0.2
 				"stun_duration"
 				{
 					"value"										"1.0 1.2 1.4 1.6 1.8"
