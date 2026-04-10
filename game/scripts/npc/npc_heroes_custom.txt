@@ -2255,11 +2255,6 @@
 			}
 		}
 	}
-	"npc_dota_hero_undying"
-	{
-		"Ability15"		"special_bonus_unique_undying"
-		"Ability12"		"special_bonus_unique_undying_2"
-	}
 	"npc_dota_hero_vengefulspirit"
 	{
 		"Bot"
