@@ -5106,16 +5106,19 @@
 	{
 		"MaxLevel"						"7"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"825 975 1025 1075 1125 1200 1275"
-		"AbilityCastPoint"				"0.1"	// 0.5
-		"AbilityManaCost"				"60 70 80 90 100 110 120"
+		"AbilityCastPoint"				"0.1"	// 0.3
+		"AbilityManaCost"				"75 80 85 90 95 100 105"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
-				"value"					"100 180 260 350 420 540 660"
+				"value"					"100 170 240 310 380 450 520"
 			}
-			"cast_range"			"825 975 1025 1075 1125 1200 1275"
+			"cast_range"				"600"
+			"AbilityCastRange"
+			{
+				"value"					"375 425 475 525 575 625 675"
+			}
 		}
 	}
 	// 忍术
@@ -5130,7 +5133,7 @@
 			}
 			"gold_steal"
 			{
-				"value"			"5 10 15 20 25"
+				"value"			"15 22 29 36 43"
 				"special_bonus_unique_bounty_hunter"		"+15"	// 50 电脑钱太好偷了，削弱
 			}
 			"AbilityCooldown"
@@ -5147,7 +5150,7 @@
 		"AbilityValues"
 		{
 				"duration"					"20.0 25.0 30.0 35.0 40.0"
-				"fade_time"					"1.0 0.8 0.6 0.4 0.2"
+				"fade_time"					"1.0 0.75 0.5 0.25 0.0"
 				"stun_duration"
 				{
 					"value"										"1.0 1.2 1.4 1.6 1.8"
@@ -5158,20 +5161,19 @@
 				}
 				"AbilityChargeRestoreTime"
 				{
-					"value"	"15 14 13 12 11"
-					"RequiresShard"		"1"
+					"special_bonus_shard"	"15 14 13 12 11"
 				}
 				"damage_reduction_pct"
 				{
-					"value"										"0"
 					"special_bonus_unique_bounty_hunter_9"		"+40"	// 30
 				}
+				"bonus_move_speed_pct"	"8 12 16 20 24"
 		}
 	}
 	// 友军暗影步
 	"bounty_hunter_wind_walk_ally"
 	{
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"1800"	// 650
 	}
 	// 追踪术
 	"bounty_hunter_track"
@@ -5179,31 +5181,27 @@
 		"MaxLevel" "4"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityCooldown"				"6 5 4 3"
-		"AbilityCastPoint"				"0.1"	// 0.5
+		"AbilityCastPoint"				"0.1"	// 0.3
 		"AbilityValues"
 		{
 				"target_damage_amp"	"8 12 16 20"
 				"bonus_gold_self"
 				{
-					"value"		"200 300 400 500"
-					"special_bonus_unique_bounty_hunter_3"	"+100"
+					"value"		"130 225 320 415"
 				}
 				"bonus_gold"
 				{
 					"value"		"100 150 200 250"	// 50/90/130 增强
-					"special_bonus_unique_bounty_hunter_3"	"+100"
 				}
 				"gold_steal"			"0.3 0.4 0.5 0.6"
-				"bonus_move_speed_pct"	"12 16 20 24"
 		}
 	}
-	// 妙手空空
-	"bounty_hunter_cutpurse"
+	// 大猎人（先天）
+	"bounty_hunter_big_game_hunter"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"gold_steal"					"4 8 12 16 20"
+			"kill_assist_gold_bonus_percent"	"30"	// 15
 		}
 	}
 	//=================================================================================================================
