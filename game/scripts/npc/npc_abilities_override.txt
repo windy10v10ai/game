@@ -8266,7 +8266,7 @@
 		"AbilityDamage"					"75 125 175 225 275"
 		"AbilityValues"
 		{
-			"movement_slow"				"-22 -28 -34 -40 -50"
+			"movement_slow"				"-22 -28 -34 -40 -46"
 			"fury_swipe_stacks_on_hit"
 			{
 				"special_bonus_shard"			"+4"	// +3
@@ -8274,12 +8274,6 @@
 			"AbilityCooldown"
 			{
 				"value"				"13 12 11 10 9"
-				"special_bonus_unique_ursa_3"	"=0.25"
-			}
-			"AbilityCharges"
-			{
-				"value"	"0"
-				"special_bonus_unique_ursa_3"	"+2"
 			}
 			"AbilityChargeRestoreTime"
 			{
@@ -8292,13 +8286,13 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"12 11 10 9 8"
-		"AbilityManaCost"				"20 30 40 50 60"
+		"AbilityManaCost"				"45 50 55 60 65"
 		"AbilityValues"
 		{
 			"max_attacks"
 			{
 				"value"			"3 5 7 9 11"
-				"special_bonus_unique_ursa_7" "+6"
+				"special_bonus_unique_ursa_7" "+6"	// +3
 			}
 		}
 	}
@@ -8315,7 +8309,7 @@
 			"damage_per_stack"
 			{
 				"value"					"12 20 28 36 44"
-				"special_bonus_unique_ursa" "+15"
+				"special_bonus_unique_ursa" "+15"	// +6
 			}
 		}
 	}
@@ -8323,7 +8317,6 @@
 	"ursa_enrage"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60 50 40 30"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -8333,28 +8326,8 @@
 			}
 			"duration"
 			{
-				"value"							"4.25 4.5 4.75 5.0"	// 4 4.5 5.0
+				"value"							"4.25 4.5 4.75 5.0"	// 4 4.5 5
 			}
-			// 命石1 伤害增加
-			"damage_increase"
-			{
-				"value"									"0"
-				"special_bonus_facet_ursa_grudge_bearer"	"=1"	// 5
-			}
-			"damage_increase_duration"
-			{
-				"value"									"0"
-				"special_bonus_facet_ursa_grudge_bearer"	"=1"	// 5
-			}
-		}
-	}
-	// 熊心勃勃 命石2 负面效果延长
-	"ursa_bear_down"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"debuff_amp"				"20 25 30 35 40"	// 14 16 18 20
 		}
 	}
 
