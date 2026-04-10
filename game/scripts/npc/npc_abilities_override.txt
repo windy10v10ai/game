@@ -2418,32 +2418,22 @@
 	// 震荡波
 	"magnataur_shockwave"
 	{
-		"AbilityCooldown"				"14 13 12 11 10 9"
-		"AbilityManaCost"				"80 90 100 110 120 130"	// 增加伤害和耗蓝
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityManaCost"				"80 90 100 110 120"	// 85 90 95 100 增加耗蓝
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityValues"
 		{
 			"shock_damage"
 			{
-				"value"			"105 220 440 660 885 1250"
+				"value"			"100 200 300 400 500"	// 75 150 225 300 增加伤害
 			}
 			"max_level"
 			{
 				"value"												"5"
-				"special_bonus_facet_magnataur_diminishing_return" "+1"
-			}
-			"max_level_tooltip"
-			{
-				"special_bonus_facet_magnataur_diminishing_return" "=6"
 			}
 			"basic_slow_duration"
 			{
-				"value"					"0.4 0.6 0.8 1.0 1.2 1.4"
-			}
-			"return_damage_pct"
-			{
-				"value"			"0"
-				"special_bonus_facet_magnataur_diminishing_return"		"=0 =0 =0 =0 =0 =90"
+				"value"					"0.4 0.6 0.8 1.0 1.2"
 			}
 		}
 	}
@@ -2466,7 +2456,9 @@
 			{
 				"value"						"16 24 32 40 48"
 			}
-			"self_multiplier"		"80"	// 50
+			"self_multiplier"		"60"	// 30 +30
+			"self_multiplier_bonus_max_stacks"		"25 30 35 40 45"
+			"self_multiplier_bonus_per_stack"		"5 6 7 8 9"
 		}
 	}
 	// 巨角冲撞
@@ -2481,7 +2473,7 @@
 				}
 				"range"
 				{
-					"value"			"1000 1300 1600 2000 2500"
+					"value"			"800 900 1000 1100 1200"
 				}
 				"slow_pct"
 				{
@@ -2490,15 +2482,7 @@
 				"skewer_damage"			"80 160 240 320 400"
 				"damage_distance_pct"
 				{
-					"value"			"60 90 120 150 180"
-				}
-				"tree_hit_damage"
-				{
-					"value"			"15 20 25 30 35"
-				}
-				"cliff_hit_damage"
-				{
-					"value"			"50 75 100 125 150"
+					"value"			"6 9 12 15 18"
 				}
 		}
 	}
@@ -2512,7 +2496,6 @@
 			"AbilityCooldown"
 			{
 				"value"						"90"		// 115
-				"special_bonus_facet_magnataur_reverse_reverse_polarity"		"=60"	// =100
 			}
 			"polarity_damage"
 			{
@@ -2522,15 +2505,6 @@
 			{
 				"value"					"2.5 3.0 3.5 4.0"
 			}
-		}
-	}
-	// 坚固核心
-	"magnataur_solid_core"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"slow_resistance"			"20 30 40 50 60"
 		}
 	}
 	//=================================================================================================================
