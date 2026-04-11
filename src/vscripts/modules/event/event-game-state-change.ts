@@ -306,11 +306,7 @@ export class EventGameStateChange {
       const steamId = PlayerResource.GetSteamAccountID(playerId);
       const playerLang = Analytics.PLAYER_LANGUAGES.players.find((p) => p.steamId === steamId);
       if (!playerLang) return;
-      if (
-        playerLang.language === 'schinese' ||
-        playerLang.language === 'tchinese' ||
-        playerLang.language === 'zh'
-      ) {
+      if (playerLang.language === 'schinese' || playerLang.language === 'tchinese') {
         hasChinese = true;
       } else {
         hasNonChinese = true;
