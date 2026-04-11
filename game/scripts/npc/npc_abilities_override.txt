@@ -2270,6 +2270,18 @@
 		}
 	}
 
+	// 尸鬼狂怒
+	"life_stealer_ghoul_frenzy"
+	{
+		"AbilityValues"
+		{
+			"attack_speed_bonus"
+			{
+				"hero_levelup"				"+6"	// +4
+			}
+		}
+	}
+
 	// 感染
 	"life_stealer_infest"
 	{
