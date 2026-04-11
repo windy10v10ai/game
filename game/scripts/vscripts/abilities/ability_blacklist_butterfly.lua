@@ -176,7 +176,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["obsidian_destroyer_essence_flux"] = true, -- 黑鸟 精华变迁
     ["viper_nethertoxin"] = true,               -- 冥界亚龙 剧毒攻击
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
-    ["tinker_keen_teleport"] = true,            -- 修补匠 传送  ✅ 新增
+    ["tinker_keen_teleport"] = true,            -- 修补匠 传送
+    ["lich_death_charge"] = true,               -- 巫妖 献身
     --精灵
     ["wisp_tether"] = true,
     ["wisp_tether_break"] = true,

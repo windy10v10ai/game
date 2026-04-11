@@ -329,12 +329,6 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
 
-
-		//神龙之血
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Текущая в жилах героя кровь дракона усиливает его восстановление здоровья и броню. Эти бонусы увеличиваются на %level_mult% за каждый уровень героя и умножаются в облике дракона."
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"			"ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ:"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"БРОНЯ:"
 		//才思敏捷
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2"				"Quick Wit"
 		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"	"Интеллект также увеличивает скорость атаки этого героя."
@@ -377,7 +371,7 @@
 		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
-		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Герой атакует обеими головами одновременно, но каждая атака наносит на %attack_damage_reduction%%% меньше урона."
+		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Атаки Джакиро запускают удар с каждой головы, но каждый наносит меньше урона."
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			" Атаки Batrider накладывают дебафф, который наносит %tick_attack_damage_pct%%% урон от атаки каждые %tick_rate% секунды"

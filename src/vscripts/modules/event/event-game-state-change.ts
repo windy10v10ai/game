@@ -99,11 +99,6 @@ export class EventGameStateChange {
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
 
-    // FIXME 泉水守卫windy实装未同步，暂时保留以缓解代码冲突
-    // ✅ 新增: 生成泉水守卫windy
-    // this.SpawnFountainGuard();
-    //this.SpawnFountainGuardDire();
-
     // 延迟为泉水设置技能等级
     Timers.CreateTimer(1, () => {
       const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];

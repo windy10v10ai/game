@@ -628,15 +628,14 @@
 	{
 		"AbilityValues"
 		{
-			"hp_regen"				"0"			//4
 			"damage_return_hero"
 			{
-				"value"					"90"		//30
+				"value"					"60"		//30
 				"apply_curio_bonus"		"1"
 			}
 			"damage_return_creep"
 			{
-				"value"					"60"		//20
+				"value"					"30"		//15
 				"apply_curio_bonus"		"1"
 			}
 		}
@@ -759,7 +758,6 @@
 	"item_crippling_crossbow"
 	{
 		"AbilityCooldown"				"6"			// 30
-		"AbilityManaCost"				"150"		// 50
 		"AbilityCastRange"				"1200"		// 650
 		"AbilityValues"
 		{
@@ -769,7 +767,7 @@
 				"apply_curio_bonus"		"1"
 			}
 			"duration"					"6"			// 4
-			"damage"					"150"		// 25
+			"damage"					"180"		// 25
 		}
 	}
 
@@ -1134,6 +1132,7 @@
 	//巨人之槌
 	"item_giant_maul"
 	{
+		"AbilityCooldown"				"8"		// 15
 		"AbilityValues"
 		{
 			"crit_multiplier"
@@ -1144,6 +1143,7 @@
 			"movespeed_slow"			"20"	// 10
 			"attack_slow"				"60"	// 15
 			"cast_slow"					"40"	// 20
+			"debuff_duration"			"2"		// 3
 		}
 	}
 	//回响之笼
@@ -1175,16 +1175,17 @@
 	// 剥皮血囊
 	"item_flayers_bota"
 	{
+		"AbilityCooldown"				"90"	// 65
 		"AbilityValues"
 		{
 			"base_damage"
 			{
-				"value"					"40"	// 15
+				"value"					"50"	// 15
 			}
 
 			"attack_speed"
 			{
-				"value"					"90"	// 30
+				"value"					"120"	// 30
 			}
 		}
 	}

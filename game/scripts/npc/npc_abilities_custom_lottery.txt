@@ -80,34 +80,38 @@
 	// 能量转移
 	"slark_essence_shift2"
 	{
-		"MaxLevel"						"1"
 		"BaseClass"						"slark_essence_shift"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"slark_essence_shift"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
 		"Innate"						"0"
+		"AbilityTextureName"			"slark_essence_shift"
 		"IsOnCastBar"					"1"
 
 		"AbilityValues"
 		{
 			"agi_gain"
 			{
-				"value"					"3"
-				"special_bonus_unique_slark_5" "+1"
+				"value"					"3"				// 3
+				"special_bonus_unique_slark_5" "+1"		// +1
 			}
-			"stat_loss"					"1"
+			"stat_loss"					"1"				// 1
 			"duration"
 			{
-				"value"					"20"			// 15
-				"hero_levelup"			"+2"			// 2.5
+				"value"					"20"			// 12.5
+				"hero_levelup"			"+2"			// +2.5
+				"special_bonus_unique_slark_4"	"+25"	// +25
 			}
 			"steal_radius"
 			{
-				"value"		"1500"				// 300
+				"value"					"1500"			// 300
 				"affected_by_aoe_increase"	"1"
 			}
 			"max_stacks_per_hero"
 			{
-				"value"						"0"
+				"value"					"0"				// 0
 			}
 		}
 	}
@@ -589,33 +593,25 @@
 		}
 	}
 
-	//龙骑 先天 龙血
-	"dragon_knight_inherited_vigor2"
+	//龙骑 龙族血统
+	"dragon_knight_dragon_blood2"
 	{
-		"BaseClass"                     "dragon_knight_inherited_vigor"
+		"BaseClass"						"dragon_knight_dragon_blood"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"5"
 		"Innate"						"0"
-		"AbilityTextureName"    		"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
+		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
 
 		"AbilityValues"
 		{
-			"base_health_regen"
+			"health_regen"
 			{
-				"value"							"10 20 30 40 50"
-				"special_bonus_unique_dragon_knight" "+12"
-				"dynamic_value"					"true"
+				"value"							"5"				// 2
+				"hero_levelup"					"+1"			// +0.5
 			}
-			"base_armor"
+			"armor"
 			{
-				"value"							"3 6 9 12 15"
-				"special_bonus_unique_dragon_knight" "+12"
-				"dynamic_value"					"true"
-			}
-			"level_mult"					"1"
-			"regen_and_armor_multiplier_during_dragon_form"
-			{
-				"value"							"1.5"
+				"value"							"2"
+				"hero_levelup"					"+0.5"
 			}
 		}
 	}
@@ -697,12 +693,16 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"Innate"						"0"
 		"AbilityTextureName"			"jakiro_dual_breath"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{
-			"second_attack_delay"			"0.2"
-			"attack_damage_reduction"		"50 45 40 35 30"
+			"second_attack_delay"			"0.2"				// 0.2
+			"attack_damage_reduction"
+			{
+				"value"							"51"			// 51
+				"hero_levelup"					"-1.0"			// -1.0
+			}
 		}
 	}
 	//斧王 一人成军
