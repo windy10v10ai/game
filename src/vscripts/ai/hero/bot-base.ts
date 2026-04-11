@@ -33,10 +33,7 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly NotAttactTowerHeroAttackRangeBuff: number = 400;
   protected readonly CastRange: number = 900;
 
-  // 中路模式缩短一半（与 BotTeam.botPushLevel 保持一致的逻辑）
-  public get PushLevel(): number {
-    return GameRules.Option.midOnlyMode ? 5 : 10;
-  }
+  public PushLevel: number = 10;
 
   protected hero: CDOTA_BaseNPC_Hero;
   public GetHero(): CDOTA_BaseNPC_Hero {
@@ -80,6 +77,11 @@ export class BotBaseAIModifier extends BaseModifier {
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
     print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
+
+    // 中路模式：推进所需等级缩短一半
+    if (GameRules.Option.midOnlyMode) {
+      this.PushLevel = Math.floor(this.PushLevel / 2);
+    }
 
     // 初始化出装状态
     // FIXME 待所有英雄使用新出装系统后删除
