@@ -7,6 +7,13 @@ import { TowerPushStatus } from '../event-entity-killed';
  */
 @reloadable
 export class CreepBuffManager {
+  /**
+   * 中路模式：小兵金钱经验加倍
+   */
+  private readonly MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER = 3;
+  /**
+   * 当前小兵buff等级
+   */
   private currentBuffLevels = {
     buffLevelGood: 0,
     buffLevelBad: 0,
@@ -51,10 +58,14 @@ export class CreepBuffManager {
           entity.ForceKill(false);
           return;
         }
-        // 中路小兵金钱经验3倍
-        entity.SetMaximumGoldBounty(entity.GetMaximumGoldBounty() * 3);
-        entity.SetMinimumGoldBounty(entity.GetMinimumGoldBounty() * 3);
-        entity.SetDeathXP(entity.GetDeathXP() * 3);
+        // 中路小兵金钱经验加倍
+        entity.SetMaximumGoldBounty(
+          entity.GetMaximumGoldBounty() * this.MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER,
+        );
+        entity.SetMinimumGoldBounty(
+          entity.GetMinimumGoldBounty() * this.MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER,
+        );
+        entity.SetDeathXP(entity.GetDeathXP() * this.MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER);
       }
       this.applyCreepBuff(entity);
     }
