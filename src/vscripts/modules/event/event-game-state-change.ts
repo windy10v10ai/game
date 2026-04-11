@@ -264,5 +264,4 @@ export class EventGameStateChange {
     }
     return 10;
   }
-
 }
