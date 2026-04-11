@@ -63,12 +63,13 @@ export class BotTeam {
     print(`[BotTeam] Base bot push min: ${this.baseBotPushMin}`);
 
     // 根据难度计算电脑推进等级
-    // 中路模式：仅需6级即开始推进（只有一条中路，更早推进）
+    const randomLevel = RandomInt(0, 2); // 随机额外增等级
+    const requiredLevel = this.getTowerRequiredLevel();
+    // 中路模式：推进所需等级缩短一半（更早推进）
     if (GameRules.Option.midOnlyMode) {
-      this.botPushLevel = 6;
+      this.botPushLevel = Math.floor(requiredLevel / 2) + randomLevel;
     } else {
-      const randomLevel = RandomInt(0, 2); // 随机额外增等级
-      this.botPushLevel = this.getTowerRequiredLevel() + randomLevel;
+      this.botPushLevel = requiredLevel + randomLevel;
     }
     print(`[BotTeam] Bot push level: ${this.botPushLevel}`);
   }
