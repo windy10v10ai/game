@@ -1,6 +1,7 @@
 import { InitializeItemUpgrades } from '../../ai/build-item/item-tier-config';
 import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
 import { BotTeam } from '../../ai/team/bot-team';
+import { Analytics } from '../../api/analytics/analytics';
 import { GA4 } from '../../api/analytics/ga4';
 import { Game } from '../../api/game';
 import { Ranking } from '../../api/ranking';
@@ -269,11 +270,7 @@ export class EventGameStateChange {
    */
   private applyMidOnlyMode(): void {
     print(`[EventGameStateChange] applyMidOnlyMode`);
-    GameRules.SendCustomMessage(
-      "<font color='#FFD700'>中路乱斗模式已启用：仅保留中路，Bot会更早推进</font>",
-      0,
-      0,
-    );
+    this.sendMidOnlyModeMessage();
 
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     for (const tower of towers) {
@@ -290,5 +287,27 @@ export class EventGameStateChange {
         barrack.ForceKill(false);
       }
     }
+  }
+
+  /**
+   * 根据玩家语言发送中路模式提示消息
+   */
+  private sendMidOnlyModeMessage(): void {
+    const msgChinese =
+      "<font color='#FFD700'>中路乱斗模式已启用：仅保留中路，小兵金钱经验×3</font>";
+    const msgEnglish =
+      "<font color='#FFD700'>Mid Only Mode enabled: only mid lane remains, creep gold/XP x3</font>";
+
+    PlayerHelper.ForEachPlayer((playerId) => {
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      const playerLang = Analytics.PLAYER_LANGUAGES.players.find((p) => p.steamId === steamId);
+      const isChinese =
+        !playerLang ||
+        playerLang.language === 'schinese' ||
+        playerLang.language === 'tchinese' ||
+        playerLang.language === 'zh';
+      const msg = isChinese ? msgChinese : msgEnglish;
+      GameRules.SendCustomMessage(msg, playerId, 0);
+    });
   }
 }
