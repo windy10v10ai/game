@@ -44,8 +44,37 @@ export class CreepBuffManager {
     const name = entity.GetName();
     // 检查是否为小兵或攻城单位
     if (name === 'npc_dota_creep_lane' || name === 'npc_dota_creep_siege') {
+      // 中路模式：只保留中路小兵
+      if (GameRules.Option.midOnlyMode) {
+        const lane = this.getCreepLane(entity.GetAbsOrigin());
+        if (lane !== 'mid') {
+          entity.ForceKill(false);
+          return;
+        }
+        // 中路小兵金钱经验3倍
+        entity.SetMaximumGoldBounty(entity.GetMaximumGoldBounty() * 3);
+        entity.SetMinimumGoldBounty(entity.GetMinimumGoldBounty() * 3);
+        entity.SetDeathXP(entity.GetDeathXP() * 3);
+      }
       this.applyCreepBuff(entity);
     }
+  }
+
+  /**
+   * 根据坐标判断小兵所在路线 中路模式专用
+   */
+  private getCreepLane(position: Vector): 'mid' | 'top' | 'bot' | 'unknown' {
+    const x = position.x;
+    const y = position.y;
+    const diff = Math.abs(Math.abs(x) - Math.abs(y));
+    if (diff < 1500) {
+      return 'mid';
+    } else if (x > 0 && y < 0) {
+      return 'bot';
+    } else if (x < 0 && y > 0) {
+      return 'top';
+    }
+    return 'unknown';
   }
 
   private applyCreepBuff(creep: CDOTA_BaseNPC): void {

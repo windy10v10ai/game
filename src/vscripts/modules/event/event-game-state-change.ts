@@ -67,6 +67,11 @@ export class EventGameStateChange {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
 
+    // 中路模式：移除上下路建筑
+    if (GameRules.Option.midOnlyMode) {
+      this.applyMidOnlyMode();
+    }
+
     // 初始化小兵buff管理器
     new CreepBuffManager();
 
@@ -257,5 +262,33 @@ export class EventGameStateChange {
       return 10;
     }
     return 10;
+  }
+
+  /**
+   * 中路模式：移除上路和下路的防御塔和兵营
+   */
+  private applyMidOnlyMode(): void {
+    print(`[EventGameStateChange] applyMidOnlyMode`);
+    GameRules.SendCustomMessage(
+      "<font color='#FFD700'>中路乱斗模式已启用：仅保留中路，Bot会更早推进</font>",
+      0,
+      0,
+    );
+
+    const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
+    for (const tower of towers) {
+      const unitName = tower.GetUnitName();
+      if (unitName.includes('top') || unitName.includes('bot')) {
+        tower.ForceKill(false);
+      }
+    }
+
+    const barracks = Entities.FindAllByClassname('npc_dota_barracks') as CDOTA_BaseNPC[];
+    for (const barrack of barracks) {
+      const unitName = barrack.GetUnitName();
+      if (unitName.includes('top') || unitName.includes('bot')) {
+        barrack.ForceKill(false);
+      }
+    }
   }
 }
