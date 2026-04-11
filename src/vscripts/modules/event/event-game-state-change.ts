@@ -290,7 +290,8 @@ export class EventGameStateChange {
   }
 
   /**
-   * 根据玩家语言发送中路模式提示消息
+   * 根据所有玩家的语言，全局发送中路模式提示消息
+   * 中文玩家存在时发送一次中文，英文（非中文）玩家存在时发送一次英文
    */
   private sendMidOnlyModeMessage(): void {
     const msgChinese =
@@ -298,16 +299,29 @@ export class EventGameStateChange {
     const msgEnglish =
       "<font color='#FFD700'>Mid Only Mode enabled: only mid lane remains, creep gold/XP x3</font>";
 
+    let hasChinese = false;
+    let hasNonChinese = false;
+
     PlayerHelper.ForEachPlayer((playerId) => {
       const steamId = PlayerResource.GetSteamAccountID(playerId);
       const playerLang = Analytics.PLAYER_LANGUAGES.players.find((p) => p.steamId === steamId);
-      const isChinese =
-        !playerLang ||
+      if (!playerLang) return;
+      if (
         playerLang.language === 'schinese' ||
         playerLang.language === 'tchinese' ||
-        playerLang.language === 'zh';
-      const msg = isChinese ? msgChinese : msgEnglish;
-      GameRules.SendCustomMessage(msg, playerId, 0);
+        playerLang.language === 'zh'
+      ) {
+        hasChinese = true;
+      } else {
+        hasNonChinese = true;
+      }
     });
+
+    if (hasChinese) {
+      GameRules.SendCustomMessage(msgChinese, 0, 0);
+    }
+    if (hasNonChinese) {
+      GameRules.SendCustomMessage(msgEnglish, 0, 0);
+    }
   }
 }
