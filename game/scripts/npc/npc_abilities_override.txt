@@ -11722,17 +11722,18 @@
 	"rubick_fade_bolt"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"14 13 12 11 10"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityManaCost"				"110 125 140 155 170"
 		"AbilityValues"
 		{
 			"damage"					"100 175 250 325 400"
-			"attack_damage_reduction"
+			"damage_reduction"
 			{
-				"value"			"7 14 21 28 35"
-				"special_bonus_unique_rubick_7" "+40"	// +20
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
+				"value"			"6 12 18 24 30"
+				"special_bonus_unique_rubick_fade_bolt_spell_reduction"	"+24"	// +12 x2
+			}
+			"AbilityCooldown"
+			{
+				"value"								"14 13 12 11 10"
 			}
 		}
 	}
@@ -11740,8 +11741,8 @@
 	"rubick_null_field"
 	{
 		"MaxLevel"						"5"
-		"LinkedAbility"					"rubick_arcane_supremacy"
-		"AbilityDraftPreAbility"		"rubick_arcane_supremacy"
+		"LinkedAbility"					"rubick_arcane_supremacy"	// 关联奥术至尊
+		"AbilityDraftPreAbility"		"rubick_arcane_supremacy"	// 关联奥术至尊
 		"AbilityValues"
 		{
 			"magic_damage_reduction_pct"
@@ -11754,38 +11755,33 @@
 	"rubick_arcane_supremacy"
 	{
 		"MaxLevel"						"5"
-		"LinkedAbility"					"rubick_null_field"
-		"AbilityDraftPreAbility"		"rubick_null_field"
+		"LinkedAbility"					"rubick_null_field"	// 关联失效立场
+		"AbilityDraftPreAbility"		"rubick_null_field"	// 关联失效立场
 		"AbilityValues"
 		{
 			"cast_range"				"60 120 180 240 300"
-			"spell_amp"					"11 16 21 26 31"
-
-			// 奥术积累
-			"aoe_bonus_duration"
+			"spell_amp"
 			{
-				"value"					"0"
-				"special_bonus_facet_rubick_arcane_accumulation"	"+10"		// +20
+				"value"					"11 16 21 26 31"
 			}
 		}
 	}
 	// 技能窃取
 	"rubick_spell_steal"
 	{
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"	// 可偷队友技能
 		"MaxLevel" "4"
 		"AbilityCooldown"				"16 12 8 4"
 		"AbilityValues"
 		{
-			"stolen_debuff_amp"				"15 20 25 30"
+			"stolen_debuff_amp"				"15 20 25 30"	// 0 负面效果增强
+			"stolen_spell_cooldown_percent"
+			{
+				"value"						"10 20 30 40"
+			}
 			"duration"
 			{
 				"value"						"180 240 300 360"
-			}
-			"stolen_mana_reduction"
-			{
-				"value"						"0"
-				"special_bonus_facet_rubick_frugal_filch"	"50 60 70 80"
 			}
 		}
 	}
