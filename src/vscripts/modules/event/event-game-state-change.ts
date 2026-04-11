@@ -1,7 +1,6 @@
 import { InitializeItemUpgrades } from '../../ai/build-item/item-tier-config';
 import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
 import { BotTeam } from '../../ai/team/bot-team';
-import { Analytics } from '../../api/analytics/analytics';
 import { GA4 } from '../../api/analytics/ga4';
 import { Game } from '../../api/game';
 import { Ranking } from '../../api/ranking';
@@ -12,6 +11,7 @@ import { PlayerHelper } from '../helper/player-helper';
 import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
+import { MidOnlyMode } from './pre-game/mid-only-mode';
 
 export class EventGameStateChange {
   constructor() {
@@ -70,7 +70,7 @@ export class EventGameStateChange {
 
     // 中路模式：移除上下路建筑
     if (GameRules.Option.midOnlyMode) {
-      this.applyMidOnlyMode();
+      MidOnlyMode.Apply();
     }
 
     // 初始化小兵buff管理器
@@ -265,59 +265,4 @@ export class EventGameStateChange {
     return 10;
   }
 
-  /**
-   * 中路模式：移除上路和下路的防御塔和兵营
-   */
-  private applyMidOnlyMode(): void {
-    print(`[EventGameStateChange] applyMidOnlyMode`);
-    this.sendMidOnlyModeMessage();
-
-    const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
-    for (const tower of towers) {
-      const unitName = tower.GetUnitName();
-      if (unitName.includes('top') || unitName.includes('bot')) {
-        tower.ForceKill(false);
-      }
-    }
-
-    const barracks = Entities.FindAllByClassname('npc_dota_barracks') as CDOTA_BaseNPC[];
-    for (const barrack of barracks) {
-      const unitName = barrack.GetUnitName();
-      if (unitName.includes('top') || unitName.includes('bot')) {
-        barrack.ForceKill(false);
-      }
-    }
-  }
-
-  /**
-   * 根据所有玩家的语言，全局发送中路模式提示消息
-   * 中文玩家存在时发送一次中文，英文（非中文）玩家存在时发送一次英文
-   */
-  private sendMidOnlyModeMessage(): void {
-    const msgChinese =
-      "<font color='#FFD700'>中路乱斗模式已启用：仅保留中路，小兵金钱经验×3</font>";
-    const msgEnglish =
-      "<font color='#FFD700'>Mid Only Mode enabled: only mid lane remains, creep gold/XP x3</font>";
-
-    let hasChinese = false;
-    let hasNonChinese = false;
-
-    PlayerHelper.ForEachPlayer((playerId) => {
-      const steamId = PlayerResource.GetSteamAccountID(playerId);
-      const playerLang = Analytics.PLAYER_LANGUAGES.players.find((p) => p.steamId === steamId);
-      if (!playerLang) return;
-      if (playerLang.language === 'schinese' || playerLang.language === 'tchinese') {
-        hasChinese = true;
-      } else {
-        hasNonChinese = true;
-      }
-    });
-
-    if (hasChinese) {
-      GameRules.SendCustomMessage(msgChinese, 0, 0);
-    }
-    if (hasNonChinese) {
-      GameRules.SendCustomMessage(msgEnglish, 0, 0);
-    }
-  }
 }
