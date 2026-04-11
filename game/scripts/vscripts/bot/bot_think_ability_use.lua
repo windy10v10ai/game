@@ -509,9 +509,9 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		end
 	end
 
-	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility3, 90, "modifier_tinker_defense_matrix") then
-		return true
-	end
+	-- if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility3, 90, "modifier_tinker_defense_matrix") then
+	-- 	return true
+	-- end
 
 	if hAbility5:IsFullyCastable() then
 		-- if mp less than 10% go back to fountain

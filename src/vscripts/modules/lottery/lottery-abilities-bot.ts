@@ -16,9 +16,6 @@ export const abilityTiersActiveBot: Tier[] = [
       'alchemist_chemical_rage', // 化学狂暴
       // 小技能
       'gyrocopter_flak_cannon', // 高射火炮
-
-      // 自定义技能
-      // 'ability_mind_control', //夺舍
     ],
   },
   {
@@ -32,7 +29,6 @@ export const abilityTiersActiveBot: Tier[] = [
       'legion_commander_duel', // 决斗
       'mars_bulwark', // 护身甲盾
 
-      // 'ability_defection', //卧底
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
       'life_stealer_rage', // 狂暴
@@ -193,7 +189,6 @@ export const abilityTiersPassiveBot: Tier[] = [
       // 自定义技能
       'dark_seer_normal_punch2', // 普通一拳
       'ogre_magi_multicast_lua', // 多重施法
-      'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
@@ -233,6 +228,7 @@ export const abilityTiersPassiveBot: Tier[] = [
       // 法球/开关技能
 
       // 自定义技能
+      'dragon_knight_dragon_blood2', // 龙骑 龙族血统
       'drow_ranger_trueshot2', // 精准光环
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
@@ -288,7 +284,6 @@ export const abilityTiersPassiveBot: Tier[] = [
       'sniper_headshot', // 爆头
       'bounty_hunter_jinada', // 忍术
       'razor_storm_surge', // 风暴涌动
-      'venomancer_poison_sting', // 剧毒术士 毒刺
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'troll_warlord_fervor', // 热血战魂
       'visage_gravekeepers_cloak', // 陵卫斗篷
