@@ -2222,81 +2222,62 @@
 			{
 				"value"				"3.0 4.0 5.0 6.0 7.0"
 			}
-			"magic_resist"
+			"movespeed_bonus"
 			{
-				"value"			"70 75 80 85 90"
+				"value"				"6 9 12 15 18"
 			}
 			"status_resist"
 			{
-				"value"			"5 10 15 20 25"
+				"value"				"20"		// 0
 			}
 			"bonus_armor"
 			{
-				"value"					"5 10 15 20 25"
+				"value"				"5 10 15 20 25"		// 0 差值5
 			}
 		}
 	}
 	// 盛宴 life_stealer_feast
 	"life_stealer_feast"
 	{
+		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"bonus_hp_per_hero"			// x3 击杀英雄获得生命上限
+			"hp_leech_percent"
 			{
-				"value"											"30 30 30 30"
-				"special_bonus_facet_life_stealer_fleshfeast"	"=45 =60 =75 =90"
+				"value"		"1.45 2.05 2.65 3.25 3.85"
 			}
-			"bonus_hp_per_creep"		"10"		// x10 击杀小兵获得生命上限
+			"hp_damage_percent"
+			{
+				"value"		"1.45 2.05 2.65 3.25 3.85"
+			}
+			"bonus_hp_per_hero"		"30"		// 10 x3 击杀英雄获得生命上限
+			"bonus_hp_per_creep"	"10"		// 1 x10 击杀小兵获得生命上限
 		}
 	}
 	// 撕裂伤口
 	"life_stealer_open_wounds"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"		// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
 		"MaxLevel"						"5"
-		"AbilityCastPoint"				"0.0"
 		"AbilityCastRange"				"300 400 500 600 700"
 		"AbilityCooldown"				"30 25 20 15 10"
-		"AbilityManaCost"				"100"
 		"AbilityValues"
 		{
-				"heal_percent"
-				{
-					"value"			"20 30 40 50 60"
-				}
-				"slow_step_pct_of_max"			"70 80 90 100 120"
-				"slow_tooltip"
-				{
-					"value"		"35 40 45 50 55"
-				}
+			"heal_percent"
+			{
+				"value"			"20 30 40 50 60"
+			}
 		}
 	}
 
-	// 尸鬼狂怒
-	"life_stealer_ghoul_frenzy"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"movement_speed_bonus"
-			{
-				"value"						"2 4 6 8 10"
-			}
-			"attack_speed_bonus"
-			{
-				"value"	"30 50 70 90 110"
-			}
-		}
-	}
 	// 感染
 	"life_stealer_infest"
 	{
-		"RequiredLevel"					"18"
+		"RequiredLevel"					"18"		// 原版不存在，手动修改 防止前期挂机
 		"AbilityValues"
 		{
 			"attack_rate_enemy"
 			{
-				"value"				"0"
 				"special_bonus_scepter"		"+0.4"		// 1.0
 			}
 		}
