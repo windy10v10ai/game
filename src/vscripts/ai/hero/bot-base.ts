@@ -33,7 +33,10 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly NotAttactTowerHeroAttackRangeBuff: number = 400;
   protected readonly CastRange: number = 900;
 
-  public readonly PushLevel: number = 10;
+  // 中路模式缩短一半（与 BotTeam.botPushLevel 保持一致的逻辑）
+  public get PushLevel(): number {
+    return GameRules.Option.midOnlyMode ? 5 : 10;
+  }
 
   protected hero: CDOTA_BaseNPC_Hero;
   public GetHero(): CDOTA_BaseNPC_Hero {
