@@ -11346,21 +11346,15 @@
 			"orb_speed"
 			{
 				"value"					"800"
-				"special_bonus_facet_puck_curveball"			"+400"
 			}
 			"damage"
 			{
 				"value"										"150 225 300 375 450"
-				"special_bonus_unique_puck_orb_damage"		"+100"
+				"special_bonus_unique_puck_orb_damage"		"+100"	// +40
 			}
 			"AbilityCooldown"
 			{
 				"value"								"10 9 8 7 6"
-			}
-			"vector_reticle_distance"
-			{
-				"value"								"0"
-				"special_bonus_facet_puck_curveball"			"400.0"
 			}
 		}
 	}
@@ -11379,18 +11373,8 @@
 				}
 				"damage"
 				{
-					"value"		"90 180 270 360 450"		// x1.5
-					"special_bonus_unique_puck_6"	"+120"	// x2
-				}
-				"knock_distance"
-				{
-					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+100 +150 +200 +250 +300"
-				}
-				"pull_distance"
-				{
-					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+100 +150 +200 +250 +300"
+					"value"		"90 180 270 360 450"		// 60 120 180 240 300 x1.5
+					"special_bonus_unique_puck_6"	"+120"	// +60 x2
 				}
 				"AbilityCooldown"
 				{
@@ -11408,7 +11392,7 @@
 				"duration"					"1 1.5 2.0 2.5 3.0"
 				"AbilityCooldown"
 				{
-					"value"				"7.7" // 6.7-8.8之间，cd点满出大刷新拿到法术棱镜可以永久
+					"value"				"7.7" // 8 7.5 7 6.5，自定义固定冷却 防止减CD后无限释放
 				}
 		}
 	}
@@ -11426,8 +11410,8 @@
 				"coil_duration"				"5 5.5 6 6.5"
 				"coil_initial_damage"
 				{
-					"value"					"350 500 650 800"				// x2
-					"special_bonus_unique_puck_coil_damage"			"+300"	// x2
+					"value"					"350 500 650 800"				// 175 250 325 400 x2
+					"special_bonus_unique_puck_coil_damage"			"+300"	// +200 x1.5
 				}
 				"coil_stun_duration"
 				{
@@ -11435,8 +11419,8 @@
 				}
 				"coil_break_damage"
 				{
-					"value"					"200 400 600 800"				// 200 300 400
-					"special_bonus_unique_puck_coil_damage"			"+200"	// 175
+					"value"					"200 400 600 800"				// 200 300 400 500
+					"special_bonus_unique_puck_coil_damage"			"+200"	// +200
 				}
 		}
 	}
@@ -11445,18 +11429,7 @@
 	{
 		"AbilityValues"
 		{
-			"mana_restore_base"				"100"		// 10
-			"hp_restore_base"				"100"		// 10
-
-			"mana_restore_pct"
-			{
-				"value"						"3"			// 2
-			}
-			"hp_restore_pct"
-			{
-				"value"						"3"			// 2
-			}
-			"dodged_spell_multiplier"		"6"			// 3.5
+			"dodged_spell_multiplier"		"6"			// 3
 
 		}
 	}
