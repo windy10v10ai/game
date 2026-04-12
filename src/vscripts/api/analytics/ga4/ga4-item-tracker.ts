@@ -7,7 +7,6 @@ export interface ItemSampleEntry {
   type: 'normal' | 'neutral_active' | 'neutral_passive';
   sampleCount: number;
   isCarriedAtEnd: boolean;
-  endPatchSeconds: number; // 上次采样到游戏结束的时间差，仅 isCarriedAtEnd 时有效
 }
 
 // key = `${playerId}:${itemName}`
@@ -18,12 +17,10 @@ export class GA4ItemTracker {
 
   private static samples = new Map<SampleKey, ItemSampleEntry & { playerId: PlayerID }>();
   private static isTracking = false;
-  private static lastSampleDotatime = 0;
 
   public static StartTracking(): void {
     if (this.isTracking) return;
     this.isTracking = true;
-    this.lastSampleDotatime = GameRules.GetGameTime();
     Timers.CreateTimer(this.SAMPLE_INTERVAL_SECONDS, () => {
       this.Sample();
       return this.SAMPLE_INTERVAL_SECONDS;
@@ -32,14 +29,12 @@ export class GA4ItemTracker {
   }
 
   private static Sample(): void {
-    this.lastSampleDotatime = GameRules.GetGameTime();
-    const sampleNumber = Math.round(this.lastSampleDotatime / this.SAMPLE_INTERVAL_SECONDS);
-    print(`[GA4ItemTracker] Sample #${sampleNumber} at ${this.lastSampleDotatime}s`);
+    const sampleNumber = Math.round(GameRules.GetGameTime() / this.SAMPLE_INTERVAL_SECONDS);
+    print(`[GA4ItemTracker] Sample #${sampleNumber} at ${GameRules.GetGameTime()}s`);
 
     PlayerHelper.ForEachPlayer((playerId) => {
       const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) return;
-
       this.SampleHeroItems(playerId, hero);
     });
   }
@@ -47,20 +42,15 @@ export class GA4ItemTracker {
   private static SampleHeroItems(playerId: PlayerID, hero: CDOTA_BaseNPC_Hero): void {
     for (let i = 0; i < 6; i++) {
       const item = hero.GetItemInSlot(i);
-      if (item) {
-        this.AddSample(playerId, item.GetAbilityName(), 'normal');
-      }
+      if (item) this.AddSample(playerId, item.GetAbilityName(), 'normal');
     }
 
     const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-    if (neutralActive) {
-      this.AddSample(playerId, neutralActive.GetAbilityName(), 'neutral_active');
-    }
+    if (neutralActive) this.AddSample(playerId, neutralActive.GetAbilityName(), 'neutral_active');
 
     const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-    if (neutralPassive) {
+    if (neutralPassive)
       this.AddSample(playerId, neutralPassive.GetAbilityName(), 'neutral_passive');
-    }
   }
 
   private static AddSample(
@@ -73,129 +63,76 @@ export class GA4ItemTracker {
     if (existing) {
       existing.sampleCount++;
     } else {
-      this.samples.set(key, {
-        playerId,
-        itemName,
-        type,
-        sampleCount: 1,
-        isCarriedAtEnd: false,
-        endPatchSeconds: 0,
-      });
+      this.samples.set(key, { playerId, itemName, type, sampleCount: 1, isCarriedAtEnd: false });
     }
   }
 
   /** 游戏结束时调用：收集物品数据并发送 GA4 事件 */
   public static SendAtGameEnd(gameEndDto: GameEndDto): void {
-    const trackedItems = this.CollectAtGameEnd();
-    const eventName = 'game_end_item_duration';
+    // 游戏结束时再采样一次，不足30s的部分也计为一次
+    PlayerHelper.ForEachPlayer((playerId) => {
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+      if (!hero) return;
+      this.SampleHeroItems(playerId, hero);
+    });
 
+    // 标记游戏结束时持有的物品
+    this.samples.forEach((entry) => {
+      const hero = PlayerResource.GetSelectedHeroEntity(entry.playerId);
+      if (!hero) return;
+      for (let i = 0; i < 6; i++) {
+        const item = hero.GetItemInSlot(i);
+        if (item && item.GetAbilityName() === entry.itemName) {
+          entry.isCarriedAtEnd = true;
+          return;
+        }
+      }
+      const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+      if (neutralActive && neutralActive.GetAbilityName() === entry.itemName) {
+        entry.isCarriedAtEnd = true;
+        return;
+      }
+      const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+      if (neutralPassive && neutralPassive.GetAbilityName() === entry.itemName) {
+        entry.isCarriedAtEnd = true;
+      }
+    });
+
+    // 按 playerId 聚合并发送
+    const byPlayer = new Map<PlayerID, ItemSampleEntry[]>();
+    this.samples.forEach((entry) => {
+      const { playerId, ...itemEntry } = entry;
+      const existing = byPlayer.get(playerId);
+      if (existing) {
+        existing.push(itemEntry);
+      } else {
+        byPlayer.set(playerId, [itemEntry]);
+      }
+    });
+
+    const eventName = 'game_end_item_duration';
     gameEndDto.players.forEach((player) => {
-      const playerItems = trackedItems.get(player.playerId);
+      const playerItems = byPlayer.get(player.playerId);
       if (!playerItems || playerItems.length === 0) return;
 
       const isBot = player.steamId <= 0;
       const steamId = isBot ? 0 : player.steamId;
 
-      const itemEvents = playerItems.map((entry) => {
-        const eventParams: { [key: string]: string | number | boolean } = {
+      const itemEvents = playerItems.map((entry) =>
+        GA4.BuildEvent(eventName, steamId, {
           hero_name: player.heroName,
           item_name: entry.itemName,
           type: entry.type,
+          sample_count: entry.sampleCount,
+          duration_seconds: entry.sampleCount * GA4ItemTracker.SAMPLE_INTERVAL_SECONDS,
           is_carried_at_end: entry.isCarriedAtEnd,
           is_bot: isBot,
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
-        };
-        return GA4.BuildEvent(eventName, steamId, eventParams);
-      });
+        }),
+      );
 
-      if (itemEvents.length > 0) {
-        GA4.SendEvents(steamId, itemEvents);
-      }
+      GA4.SendEvents(steamId, itemEvents);
     });
-  }
-
-  private static CollectAtGameEnd(): Map<PlayerID, ItemSampleEntry[]> {
-    const endDotatime = GameRules.GetGameTime();
-    const endPatchSeconds = endDotatime - this.lastSampleDotatime;
-
-    PlayerHelper.ForEachPlayer((playerId) => {
-      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-      if (!hero) return;
-
-      for (let i = 0; i < 6; i++) {
-        const item = hero.GetItemInSlot(i);
-        if (item) {
-          this.MarkCarriedAtEnd(playerId, item.GetAbilityName(), 'normal', endPatchSeconds);
-        }
-      }
-
-      const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-      if (neutralActive) {
-        this.MarkCarriedAtEnd(
-          playerId,
-          neutralActive.GetAbilityName(),
-          'neutral_active',
-          endPatchSeconds,
-        );
-      }
-
-      const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-      if (neutralPassive) {
-        this.MarkCarriedAtEnd(
-          playerId,
-          neutralPassive.GetAbilityName(),
-          'neutral_passive',
-          endPatchSeconds,
-        );
-      }
-    });
-
-    const result = new Map<PlayerID, ItemSampleEntry[]>();
-    this.samples.forEach((entry) => {
-      const itemEntry: ItemSampleEntry = {
-        itemName: entry.itemName,
-        type: entry.type,
-        sampleCount: entry.sampleCount,
-        isCarriedAtEnd: entry.isCarriedAtEnd,
-        endPatchSeconds: entry.endPatchSeconds,
-      };
-      const existing = result.get(entry.playerId);
-      if (existing) {
-        existing.push(itemEntry);
-      } else {
-        result.set(entry.playerId, [itemEntry]);
-      }
-    });
-
-    return result;
-  }
-
-  private static MarkCarriedAtEnd(
-    playerId: PlayerID,
-    itemName: string,
-    type: ItemSampleEntry['type'],
-    endPatchSeconds: number,
-  ): void {
-    const key: SampleKey = `${playerId}:${itemName}`;
-    const existing = this.samples.get(key);
-    if (existing) {
-      existing.isCarriedAtEnd = true;
-      existing.endPatchSeconds = endPatchSeconds;
-    } else {
-      this.samples.set(key, {
-        playerId,
-        itemName,
-        type,
-        sampleCount: 0,
-        isCarriedAtEnd: true,
-        endPatchSeconds,
-      });
-    }
-  }
-
-  public static GetDurationSeconds(entry: ItemSampleEntry): number {
-    const patch = entry.isCarriedAtEnd ? entry.endPatchSeconds : 0;
-    return entry.sampleCount * this.SAMPLE_INTERVAL_SECONDS + patch;
   }
 }
