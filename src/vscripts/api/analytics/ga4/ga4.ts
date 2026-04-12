@@ -1,5 +1,6 @@
-import { GameConfig } from '../../modules/GameConfig';
-import { reloadable } from '../../utils/tstl-utils';
+import { GameConfig } from '../../../modules/GameConfig';
+import { reloadable } from '../../../utils/tstl-utils';
+import { GameEndDto } from '../dto/game-end-dto';
 import {
   GA4ConfigDto,
   GA4Event,
@@ -7,7 +8,7 @@ import {
   GA4UserProperty,
   SERVER_TYPE,
 } from './dto/ga4-dto';
-import { GameEndDto, GameEndPlayerDto } from './dto/game-end-dto';
+import { GA4ItemTracker, ItemSampleEntry } from './ga4-item-tracker';
 
 // 重新导出 SERVER_TYPE 供外部使用
 export { SERVER_TYPE };
@@ -252,88 +253,83 @@ export class GA4 {
   }
 
   /**
-   * 发送玩家级别事件（内部方法）
-   * 为每个玩家发送数据事件
-   * @param players 游戏结束时的玩家数据
+   * 发送物品持有时长事件
+   * 整合游戏过程中的采样统计与游戏结束时的物品快照
+   * 每个物品发送一条事件，包含累计持有时长和是否结束时持有的标记
+   * @param gameEndDto 游戏结束数据
+   * @param trackedItems 按 playerId 聚合的物品采样数据
    * @param realDurationRatio 现实时间/游戏时间比例
    */
-  private static SendPlayerLevelEvents(gameEndDto: GameEndDto, realDurationRatio: number) {
-    gameEndDto.players.forEach((player) => {
-      // 只统计真实玩家
-      if (player.steamId <= 0) {
-        return;
-      }
-      const itemEvents: GA4Event[] = this.BuildItemEvents(player, gameEndDto, realDurationRatio);
+  private static SendItemDurationEvents(
+    gameEndDto: GameEndDto,
+    trackedItems: Map<PlayerID, (ItemSampleEntry & { endPatchSeconds?: number })[]>,
+    realDurationRatio: number,
+  ) {
+    const eventName = 'game_end_item_build';
 
-      this.SendEvents(player.steamId, itemEvents);
+    gameEndDto.players.forEach((player) => {
+      const playerItems = trackedItems.get(player.playerId);
+      if (!playerItems || playerItems.length === 0) return;
+
+      const isBot = player.steamId <= 0;
+      const steamId = isBot ? 0 : player.steamId;
+
+      // 判断该玩家所属阵营的 AI 倍率
+      const aiMultiplier =
+        player.teamId === DotaTeam.GOODGUYS
+          ? gameEndDto.gameOptions.multiplierRadiant
+          : gameEndDto.gameOptions.multiplierDire;
+
+      const itemEvents: GA4Event[] = [];
+      playerItems.forEach((entry) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(player.playerId);
+        const itemType = hero ? this.GetItemType(hero, entry.itemName) : 'normal';
+
+        const durationSeconds = GA4ItemTracker.GetDurationSeconds(entry);
+        const eventParams: { [key: string]: string | number | boolean } = {
+          hero_name: player.heroName,
+          item_name: entry.itemName,
+          type: itemType,
+          duration_seconds: durationSeconds,
+          is_carried_at_end: entry.isCarriedAtEnd,
+          is_bot: isBot,
+          difficulty: gameEndDto.difficulty,
+          team_id: player.teamId,
+          real_duration_ratio: realDurationRatio,
+          ai_multiplier: aiMultiplier,
+        };
+
+        itemEvents.push(this.BuildEvent(eventName, steamId, eventParams));
+      });
+
+      if (itemEvents.length > 0) {
+        this.SendEvents(steamId, itemEvents);
+      }
     });
   }
 
   /**
-   * 发送物品性能事件（内部方法）
-   * 为每个物品发送单独的事件，便于按物品维度统计
-   * @param players 游戏结束时的玩家数据
-   * @param gameEndDto 游戏结束数据
-   * @param realDurationRatio 现实时间/游戏时间比例
+   * 判断物品所属槽位类型
    */
-  private static BuildItemEvents(
-    player: GameEndPlayerDto,
-    gameEndDto: GameEndDto,
-    realDurationRatio: number,
-  ): GA4Event[] {
-    // 遍历每个玩家的物品数据
-    const eventName = 'game_end_item_build';
-    const itemSlots: { name: string; type: string }[] = [];
+  private static GetItemType(hero: CDOTA_BaseNPC_Hero, itemName: string): string {
+    const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
+    if (neutralActive && neutralActive.GetAbilityName() === itemName) return 'neutral_active';
 
-    const hero = PlayerResource.GetSelectedHeroEntity(player.playerId);
-    if (!hero) {
-      return [];
-    }
+    const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
+    if (neutralPassive && neutralPassive.GetAbilityName() === itemName) return 'neutral_passive';
 
-    for (let i = 0; i < 6; i++) {
-      const item = hero.GetItemInSlot(i);
-      if (item) {
-        itemSlots.push({ name: item.GetAbilityName(), type: 'normal' });
-      }
-    }
-
-    const neutralActiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-    if (neutralActiveItem) {
-      itemSlots.push({ name: neutralActiveItem.GetAbilityName(), type: 'neutral_active' });
-    }
-
-    const neutralPassiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-    if (neutralPassiveItem) {
-      itemSlots.push({ name: neutralPassiveItem.GetAbilityName(), type: 'neutral_passive' });
-    }
-
-    // 收集该玩家的所有物品事件
-    const itemEvents: GA4Event[] = [];
-    itemSlots.forEach((slot) => {
-      const eventParams: { [key: string]: string | number | boolean } = {
-        hero_name: player.heroName,
-        item_name: slot.name,
-        type: slot.type,
-        difficulty: gameEndDto.difficulty,
-        win_metrics: gameEndDto.isWin,
-        team_id: player.teamId,
-        real_duration_ratio: realDurationRatio,
-      };
-
-      const event = this.BuildEvent(eventName, player.steamId, eventParams);
-      itemEvents.push(event);
-    });
-
-    return itemEvents;
+    return 'normal';
   }
 
   /**
    * 发送游戏结束相关的所有事件
-   * 包括匹配时间事件和玩家性能事件
-   * @param players 游戏结束时的玩家数据
-   * @param items 玩家物品数据
+   * 包括匹配时间事件和物品持有时长事件
+   * @param gameEndDto 游戏结束数据
    */
   public static SendGameEndEvents(gameEndDto: GameEndDto) {
+    // 在发送前先收集物品数据（需要在 FetchCurrentTime 回调之前调用，确保游戏单位仍存在）
+    const trackedItems = GA4ItemTracker.CollectAtGameEnd();
+
     // 异步获取当前真实时间
     this.FetchCurrentTime((endRealTime) => {
       if (this.gameStartRealTime === null || this.gameStartDotatime === null) {
@@ -352,8 +348,8 @@ export class GA4 {
       // 发送匹配时间事件
       this.SendMatchTimingEvent(realDurationRatio, dotaDuration, realDuration);
 
-      // 发送玩家级别事件
-      this.SendPlayerLevelEvents(gameEndDto, realDurationRatio);
+      // 发送物品持有时长事件
+      this.SendItemDurationEvents(gameEndDto, trackedItems, realDurationRatio);
     });
   }
 }

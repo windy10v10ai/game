@@ -6,7 +6,7 @@ import {
 } from '../../../api/analytics/dto/game-end-dto';
 import { ItemBuildDto } from '../../../api/analytics/dto/item-build-dto';
 import { PickDto } from '../../../api/analytics/dto/pick-ability-dto';
-import { GA4 } from '../../../api/analytics/ga4';
+import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
