@@ -11,6 +11,7 @@ import { PlayerHelper } from '../helper/player-helper';
 import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
+import { MidOnlyMode } from './pre-game/mid-only-mode';
 
 export class EventGameStateChange {
   constructor() {
@@ -66,6 +67,11 @@ export class EventGameStateChange {
   private OnPreGame(): void {
     // 初始化游戏
     print(`[EventGameStateChange] OnPreGame`);
+
+    // 中路模式：移除上下路建筑
+    if (GameRules.Option.midOnlyMode) {
+      MidOnlyMode.Apply();
+    }
 
     // 初始化小兵buff管理器
     new CreepBuffManager();
