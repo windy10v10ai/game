@@ -54,7 +54,6 @@ no_support_abilitys = {
 	viper_viper_strike = 1,
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
-	ancient_apparition_frost_seal = 1,     -- 冰霜封印
 	terrorblade_reflection = 1,            -- 倒影
 	terrorblade_metamorphosis = 1,         -- 魔化
 	vengefulspirit_nether_swap = 1,        -- 移形换位

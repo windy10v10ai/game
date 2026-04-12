@@ -113,6 +113,7 @@ export const abilityTiersActive: Tier[] = [
       'abyssal_underlord_firestorm', // 火焰风暴
 
       // 自定义技能
+      'brewmaster_drunken_boxing', // 酒仙 醉拳
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
     ],
@@ -152,6 +153,7 @@ export const abilityTiersActive: Tier[] = [
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
+      'alchemist_berserk_potion2', // 炼金 狂暴药剂
     ],
   },
 ];
@@ -171,6 +173,7 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
+      'riki_innate_backstab2', // 力丸 背刺
     ],
   },
   {
