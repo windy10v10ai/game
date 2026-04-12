@@ -808,30 +808,6 @@
 		}
 
 	}
-	//魔法扰动 未使用
-	"antimage_mana_turbulence"
-	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/antimage_mana_turbulence"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"    		"sven/immortal/sven_great_cleave"
-
-		"AbilityManaCost"				"85 95 105 115"
-		"AbilityCooldown"				"20 18 16 14"
-
-		"AbilityValues"
-		{
-			"damage"			"80 120 160 200"
-			"slow_duration"		"1.5"
-			"duration"			"5"
-			"ad"				"0.7"
-
-			"spell_amp"			"30"
-			"mana_cost"			"100"
-			"cd"				"50"
-		}
-	}
 	//冰魂 先天 刺骨严寒
 	"ancient_apparition_bone_chill2"
 	{

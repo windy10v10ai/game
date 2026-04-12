@@ -698,16 +698,6 @@
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符，神符创建后20秒后会消失"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"创建的神符可以是力量神符，赏金神符，水神符，或者智慧神符。"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"智慧神符的效果类似于智慧神殿，但如果激活时间早于7:00，则不会获得经验。"
-		//魔法扰动
-		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"魔法扰动"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"对扇形区域的敌方单位造成伤害，并施加debuff，降低其技能伤害，增加其魔法消耗,增加其技能cd,并造成%slow_duration%秒减速"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"	"基础伤害："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"		"攻击力伤害加成倍率："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"持续时间："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%技能伤害降低："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%魔法消耗增加："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%cd增加："
-
 		// 冰魂 刺骨严寒
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2"						"刺骨严寒"
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"			"每当远古冰魄通过他的技能对敌人造成魔法伤害，敌人就会减速一段时间。如果目标是英雄，力量还会降低。多个本效果会叠加，并且持续时间相互独立。"

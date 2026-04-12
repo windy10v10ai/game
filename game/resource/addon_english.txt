@@ -695,15 +695,6 @@
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you. Runes created this way will despawn in 20 seconds if not activated."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"Resulting Rune be any Power Rune, as well as a Bounty Rune, Water Rune, or Rune of Wisdom."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"Runes of Wisdom function as if a Shrine of Wisdom was captured, but if activated before 7:00, no XP is given."
-		//魔法扰动
-		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Deals damage to enemy units in a fan-shaped area of effect while reducing their skill damage, increasing their mana costs and cooldowns, and slowing them."
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"		"BASE DAMAGE:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"			"BONUS DAMAGE PER ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"DEBUFF DURATION:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%SPELL AMP REDUCTION:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%MANACOST INCREASE:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%COOLDOWN INCREASE:"
 		// 冰魂 刺骨严寒
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2"						"Bone Chill"
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"			"When Ancient Apparition deals Magic damage to an enemy with his abilities, it is slowed for a short duration. If the target is a Hero, its Strength is also reduced. Multiple instances of this effect stack and have independent durations."
