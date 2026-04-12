@@ -556,11 +556,12 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood continuously in the area around him, losing health to damage and slow his enemies."
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%HP PER SECOND COST/DAMAGE:"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Radius:"
-		//醉拳
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"drunken_boxing"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% chance of dodge and critical hit. After active excitement, gain 30%% movement speed bonus, dodge and attack probability tripled"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Critical Damage:"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"duration："
+		// 酒仙 醉拳
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"Passive: Chance to dodge attacks and deal critical damage.<br><br>Active: Enter Drunken state, staggering left and right uncontrollably. Gain %move_speed_bonus%% movement speed and %crit_multiplier%x dodge and crit chance for %duration% seconds."
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss" 			"%DODGE/CRIT CHANCE:"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"ACTIVE DURATION:"
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received %trueshot_agi_bonus_allies_pct%%% of the bonus agility."
@@ -695,15 +696,6 @@
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Creates a random rune in front of you. Runes created this way will despawn in 20 seconds if not activated."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"Resulting Rune be any Power Rune, as well as a Bounty Rune, Water Rune, or Rune of Wisdom."
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"Runes of Wisdom function as if a Shrine of Wisdom was captured, but if activated before 7:00, no XP is given."
-		//魔法扰动
-		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Deals damage to enemy units in a fan-shaped area of effect while reducing their skill damage, increasing their mana costs and cooldowns, and slowing them."
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"		"BASE DAMAGE:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"			"BONUS DAMAGE PER ATTACK DAMAGE:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"DEBUFF DURATION:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%SPELL AMP REDUCTION:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%MANACOST INCREASE:"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%COOLDOWN INCREASE:"
 		// 冰魂 刺骨严寒
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2"						"Bone Chill"
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"			"When Ancient Apparition deals Magic damage to an enemy with his abilities, it is slowed for a short duration. If the target is a Hero, its Strength is also reduced. Multiple instances of this effect stack and have independent durations."
@@ -736,30 +728,6 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_damage_Description"	"Damaging and slowing the movement speed of nearby enemies. Closer enemies suffer stronger effects."
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"Bonechill Aura (Passive)"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"Healing and health restoration reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%. Health regeneration reduced by %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%"
-		//冰霜封印
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Seal of Frost"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Freeze yourself in place for %stun_duration% seconds, but during that time, gain %damage_reduction%%% damage reduction and heal yourself. Additionally, enemy units are slowed and pulled towards you. After the self-stun expires, deal damage and stun all nearby enemy units"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"BASE HP REGEN:"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%MAX HP REGEN:"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"EXPIRY DAMAGE:"
-		//"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Stun Duration:"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"				"DAMAGE RADIUS:"
-
-
-		//幻影冲锋
-		"DOTA_Tooltip_ability_abaddon_phantom_charge"					"Abaddon Phantom Charge"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"Increase movement speed, immune deceleration, and deal additional damage to silent targets in the next attack. Create two illusions during skill release"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_silence_duration"	"Silence Duration:"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_movespeed"			"%Movespeed:"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"			"Base Damage:"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"				"Attack Damage Addition Rate:"
-		//迷雾诅咒
-		"DOTA_Tooltip_ability_abaddon_death_coil2"				"Death Damnation"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_Description"	"Treat all units within the target range. Enemy units will apply a buff, which will deal twice the healing damage when the buff ends. When the target's health is lower than the buff's damage, it will immediately deal damage"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_heal"			"Heal:"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_radius"		"Radius:"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_ad"			"Attack Damage Addition Rate:"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_duration"		"Duration:"
 		//火雨降临
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"					"Firestorm Advent"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"		"Every %hit_count%th attack, summon a single instance of a Direstorm to deal damage to enemy units around the attacked target."
@@ -777,13 +745,6 @@
 		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff"		"Aura of Malice"
 		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_buff_Description"	"If within this aura for too long, you will be rooted and receive damage."
 		"DOTA_Tooltip_modifier_abyssal_underlord_malice_aura_root"		"Rooted"
-		//强化武器
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"					"Enhanced Weaponry"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"		"Passively increases the attack range of melee heroes. Activate to double the attack range bonus and add a slow to enemies you attack."
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_attack_range"		"MELEE RANGE BONUS:"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_duration"			"ACTIVE DURATION:"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_move_speed_slow"	"%MOVEMENT SLOW:"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_slow_duration"	"SLOW DURATION:"
 		//狂暴药剂
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2"							"Berserk Potion"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"				"Throws a potion at an ally or yourself, applying a basic dispel and granting attack speed, movement speed and HP regen.<br><br>DISPEL TYPE: Basic Dispel"

@@ -59,6 +59,8 @@ Steam 最新去掉字母后缀 +0.01 得下一主版本（如 `v5.19b` → `v5.2
 
 ### 3. Open release PR 大版本 > Steam
 
+**必须先 WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本作为当前 Steam 最新版——**每次执行步骤 2 时都必须重新 fetch，不得使用会话早期的缓存结果。**
+
 ```bash
 gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url
 ```
@@ -68,7 +70,7 @@ release PR 存在且大版本**严格高于** Steam（如 Steam `v5.19b`，relea
 
 ### 4. 默认：Steam 同大版本递增补丁字母
 
-**WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本，在同一大版本下递增字母（`v5.19b` → `v5.19c`；`v5.20` → `v5.20a`）。无字母则下一档为 `a`。无法解析时问用户。
+使用步骤 3 已 fetch 到的 Steam 最新版本，在同一大版本下递增字母（`v5.19b` → `v5.19c`；`v5.20` → `v5.20a`）。无字母则下一档为 `a`。无法解析时问用户。
 
 > `GAME_VERSION`（`GameConfig.ts`）不含 a/b/c 后缀；只有 Workshop 文案可出现 `v5.xxa`。
 

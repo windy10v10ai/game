@@ -557,11 +557,12 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%每秒生命消耗/伤害："
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"范围："
-		//醉拳
+		// 酒仙 醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"醉拳"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss%%%概率闪避和暴击,主动激动后，获得30%%移速加成,闪避和攻击概率翻3倍"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%暴击伤害:"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"持续时间："
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"被动：有概率闪避攻击并造成暴击。<br><br>主动：进入醉拳状态，英雄开始左右摇晃醉步，获得%move_speed_bonus%%%移动速度加成，闪避与暴击概率提升至%crit_multiplier%倍，持续%duration%秒。"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss" 			"%闪避/暴击概率："
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%暴击伤害："
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"激活持续时间："
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"精准光环"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"卓尔游侠根据她自身的当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
@@ -698,16 +699,6 @@
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"创建一个随机神符，神符创建后20秒后会消失"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note0"	"创建的神符可以是力量神符，赏金神符，水神符，或者智慧神符。"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Note1"	"智慧神符的效果类似于智慧神殿，但如果激活时间早于7:00，则不会获得经验。"
-		//魔法扰动
-		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"魔法扰动"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"对扇形区域的敌方单位造成伤害，并施加debuff，降低其技能伤害，增加其魔法消耗,增加其技能cd,并造成%slow_duration%秒减速"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"	"基础伤害："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"		"攻击力伤害加成倍率："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"持续时间："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%技能伤害降低："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%魔法消耗增加："
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%cd增加："
-
 		// 冰魂 刺骨严寒
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2"						"刺骨严寒"
 		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"			"每当远古冰魄通过他的技能对敌人造成魔法伤害，敌人就会减速一段时间。如果目标是英雄，力量还会降低。多个本效果会叠加，并且持续时间相互独立。"
@@ -734,29 +725,6 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"极寒光环(被动)"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"治疗和生命回复减少%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，生命恢复降低%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%"
 
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"		"冰霜封印"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得%damage_reduction%%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引。结束时对周围造成伤害和眩晕。"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"		"基础生命回复："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"		"%百分比生命回复："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"		"伤害："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"眩晕时间："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"		"范围："
-
-
-		"DOTA_Tooltip_ability_abaddon_phantom_charge"		"幻影冲锋"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"增加移速，免疫减速，下次攻击沉默目标并造成额外伤害。技能释放时制造两个幻象"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_silence_duration"	"沉默时间："
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_movespeed"		"%移速加成："
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"		"基础伤害："
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"			"攻击力伤害加成倍率："
-
-		"DOTA_Tooltip_ability_abaddon_death_coil2"		"迷雾诅咒"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_Description"		"治疗目标范围内的所有单位，敌方单位会施加一个buff，buff结束时会造成治疗量2倍的伤害，当目标生命值低于buff的伤害时会立即造成伤害"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_heal"		"治疗量："
-		"DOTA_Tooltip_ability_abaddon_death_coil2_radius"	"范围："
-		"DOTA_Tooltip_ability_abaddon_death_coil2_ad"		"攻击力伤害加成倍率："
-		"DOTA_Tooltip_ability_abaddon_death_coil2_duration"	"持续时间："
-
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"								"火雨降临"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"					"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"						"范围："
@@ -770,13 +738,6 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"触发间隔："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"缠绕时间："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"		"伤害："
-
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"								"强化武器"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"					"被动增加近战攻击距离，主动开启后，增加的近战攻击距离翻倍，且每次攻击减速敌人"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_attack_range"					"近战攻击距离："
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_duration"						"持续时间："
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_move_speed_slow"				"%移动速度减缓："
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_slow_duration"				"减速持续时间："
 
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2"								"狂暴药剂"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"					"炼金术士向友军目标扔出一瓶药剂，施加弱驱散效果，并提供攻击速度，移动速度和生命恢复。<br><br>驱散类型：弱驱散"
