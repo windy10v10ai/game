@@ -1,7 +1,7 @@
 import { PlayerHelper } from '../modules/helper/player-helper';
-import { GA4ConfigDto } from './analytics/dto/ga4-dto';
 import { GameEndDto } from './analytics/dto/game-end-dto';
-import { GA4 } from './analytics/ga4';
+import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
+import { GA4 } from './analytics/ga4/ga4';
 import { ApiClient, HttpMethod } from './api-client';
 import { MemberDto, Player, PlayerDto, PointInfoDto } from './player';
 

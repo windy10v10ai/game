@@ -1,6 +1,7 @@
 import { InitializeItemUpgrades } from '../../ai/build-item/item-tier-config';
 import { BotTeam } from '../../ai/team/bot-team';
-import { GA4 } from '../../api/analytics/ga4';
+import { GA4 } from '../../api/analytics/ga4/ga4';
+import { GA4ItemTracker } from '../../api/analytics/ga4/ga4-item-tracker';
 import { Game } from '../../api/game';
 import { Ranking } from '../../api/ranking';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
@@ -134,6 +135,8 @@ export class EventGameStateChange {
   private OnGameInProgress(): void {
     // 记录游戏开始时间用于 GA4 统计
     GA4.RecordGameStartTime();
+    // 启动物品持有时长采样
+    GA4ItemTracker.StartTracking();
     // FIXME 临时禁用融合符文额外刷新次数
     // FusionRuneManager.InitializeFusion();
     // 初始化Bot团队策略
