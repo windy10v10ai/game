@@ -512,6 +512,26 @@
 			"archers_use_barrage"		"0"
 		}
 	}
+	//冰女 先天 冰川护体
+	"crystal_maiden_glacial_guard2"
+	{
+		"BaseClass"						"crystal_maiden_glacial_guard"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"crystal_maiden_glacial_guard"
+
+		"AbilityValues"
+		{
+			"mana_multiplier"
+			{
+				"value"					"30"		// 30
+				"hero_levelup"			"+2"		// +2
+			}
+			"barrier_duration"			"8"			// 8
+		}
+	}
 	//冰女 冰暴
 	"crystal_maiden_ice_explosion"
 	{
@@ -810,6 +830,25 @@
 			"spell_amp"			"30"
 			"mana_cost"			"100"
 			"cd"				"50"
+		}
+	}
+	//冰魂 先天 刺骨严寒
+	"ancient_apparition_bone_chill2"
+	{
+		"BaseClass"						"ancient_apparition_bone_chill"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ancient_apparition_bone_chill"
+
+		"AbilityValues"
+		{
+			"str_reduction"
+			{
+				"value"					"0.6"		// .2
+				"hero_levelup"			"0.1"		// 0.1
+				"levelup_interval"		"2"			// 3
+			}
 		}
 	}
 	//极寒光环

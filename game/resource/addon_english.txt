@@ -643,6 +643,12 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"ARROWS FIRED:"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"									"RANGE:"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%DAMAGE PER ARROW:"
+		// 冰女 冰川护体
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2"						"Glacial Guard"
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_Description"			"A portion of the mana Crystal Maiden spends on her abilities is converted into a physical barrier."
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_barrier_duration"		"BARRIER DURATION:"
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_mana_multiplier"		"%MANA SPENT TO BARRIER:"
+
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"Ice Explosion"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"Each attack has a 35% chance to summon an icy blast to strike a random area around you, dealing damage and slowing enemies for 1 second. Passively grants attack speed."
@@ -698,6 +704,13 @@
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%SPELL AMP REDUCTION:"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%MANACOST INCREASE:"
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%COOLDOWN INCREASE:"
+		// 冰魂 刺骨严寒
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2"						"Bone Chill"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"			"When Ancient Apparition deals Magic damage to an enemy with his abilities, it is slowed for a short duration. If the target is a Hero, its Strength is also reduced. Multiple instances of this effect stack and have independent durations."
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction"			"STRENGTH REDUCTION:"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_movement_slow_pct"		"MOVEMENT SLOW:"
+
 		//冰霜法球
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost Orb"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Every %attack_count%th attack launches an orb of chilling frost, dealing extra AoE damage and greatly slowing the primary target's movement speed briefly."
