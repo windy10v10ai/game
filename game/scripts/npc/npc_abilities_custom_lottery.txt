@@ -5,7 +5,7 @@
 	{
 		"BaseClass"						"riki_innate_backstab"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"riki/haze_atrocity_icons/riki_backstab"
+		"AbilityTextureName"			"riki_innate_backstab"
 		"MaxLevel"						"1"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
@@ -14,8 +14,8 @@
 		{
 			"damage_multiplier"
 			{
-				"value"		"0.6"
-				"hero_levelup" "+0.04"	// +0.05
+				"value"		"0.55"
+				"hero_levelup" "+0.05"
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}

@@ -173,6 +173,7 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
+      'riki_innate_backstab2', // 力丸 背刺
     ],
   },
   {
