@@ -4351,12 +4351,12 @@
 		{
 				"AbilityCastRange"
 				{
-					"special_bonus_unique_tiny_4" "+400"	// 200
+					"special_bonus_unique_tiny_4" "+400"	// +150
 				}
 				"avalanche_damage"
 				{
-					"value"				"120 240 360 480"		// 100 190 280 370 加强
-					"special_bonus_unique_tiny"			"+220"	// 100
+					"value"				"120 240 360 480"		// 90 180 270 360 加强
+					"special_bonus_unique_tiny"			"+220"	// +90
 				}
 		}
 	}
@@ -4366,7 +4366,6 @@
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"800 900 1000 1100 1200"
 		"AbilityCooldown"				"18 16 14 12 10"
-		"AbilityManaCost"				"110 125 140 155 170"
 		"AbilityValues"
 		{
 			"duration"				"0.8"	// 1.25
@@ -4374,38 +4373,19 @@
 			{
 				"value"				"180 270 360 450 540"	// 90 180 270 360 +90
 			}
-			"radius"
-			{
-				"value"		"275"
-				"special_bonus_facet_tiny_crash_landing"				"=700"		// =400 +300
-			}
-			"land_movement_slow"
-			{
-				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"40 50 60 70 80"	// 20 25 30 35 x2
-			}
-			"land_attack_slow"
-			{
-				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"30 50 70 90 110"	// 15 25 35 45 x2
-			}
-			"bonus_land_damage_pct"
-			{
-				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"40"		// 20 x2
-			}
 		}
 	}
 	// 抓树
 	"tiny_tree_grab"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityCooldown"				"16 14 12 10 8"	// 15 12 9 6
 		"AbilityValues"
 		{
 			"attack_count"
 			{
-				"value"					"10 15 20 25 30"	// 5
+				"value"					"10 15 20 25 30"	// 5 6 7 8 9
+				"special_bonus_shard"			"+50"		// 额外添加魔晶效果
 			}
 			"bonus_damage"
 			{
@@ -4413,9 +4393,22 @@
 			}
 			"bonus_damage_buildings"
 			{
-				"value"							"20 30 40 50 60"
+				"value"							"20 30 40 50 60"	// 30 40 50 60 70
 			}
-			"splash_pct"				"60 70 80 90 100"
+			"splash_pct"				"60 70 80 90 100"	// 70 80 90 100 110
+		}
+	}
+	// 扔树
+	"tiny_toss_tree"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"bonus_damage"
+			{
+				"value"							"20 40 60 80 100"	// 10 20 30 40 x2
+				"special_bonus_shard"			"+100"		// 额外添加魔晶效果
+			}
 		}
 	}
 	// 树木连掷
@@ -4437,7 +4430,7 @@
 				"bonus_armor"				"10 20 30 40"		// 5 10 15 x2
 				"bonus_damage"
 				{
-					"value"					"110 220 330 440"		// 55 110 165 x2
+					"value"					"120 240 360 480"		// 60 120 180 x2
 				}
 				"attack_speed_reduction"
 				{
@@ -4448,16 +4441,7 @@
 				{
 					"value"					"100 350 600 850"		// 50 175 300 x2
 				}
-				"move_speed"		"20 40 60 80"		// x2
-		}
-	}
-	// 崎岖外表（先天随大招升级）
-	"tiny_craggy_exterior"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"damage_reduction_per_stack"					"2 3 4 5 6"
+				"move_speed"		"20 40 60 80"		// 10 20 30 x2
 		}
 	}
 	// 不可逾越 先天技能
@@ -12100,7 +12084,11 @@
 		"AbilityValues"
 		{
 				"bolt_speed"			"700"	// 500
-				"bolt_damage"			"60 90 120 150 180"
+				"bolt_damage"			"120 180 240 300 360"		// 60 90 120 150 x2
+				"int_multiplier"
+				{
+					"special_bonus_unique_skywrath_2"	"+0.5"	// +1.5
+				}
 		}
 	}
 	// 震荡光弹
@@ -12133,53 +12121,31 @@
 	"skywrath_mage_mystic_flare"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"50.0 40.0 30.0 20.0"
+		"AbilityCooldown"				"50.0 40.0 30.0 20.0"	// 60.0 40.0 20.0
 		"AbilityManaCost"				"300 550 800 1050"
 		"AbilityValues"
 		{
 				"radius"
 				{
 					"value"	"200"	// 170
-					"affected_by_aoe_increase"	"1"
 				}
 				"damage"
 				{
 					"value"			"800 1200 1600 2000"
-					"special_bonus_unique_skywrath_5" "+600"	// 400
+					"special_bonus_unique_skywrath_5" "+600"	// +400
 				}
 		}
 	}
-	// 拨乱反正（先天随大招升级）
-	"skywrath_mage_ruin_and_restoration"
-	{
-		"MaxLevel"		"5"
-		"AbilityValues"
-		{
-			"spell_lifesteal"
-			{
-				"value"		"25 30 35 40 45"
-				"special_bonus_unique_skywrath_arcane_bolt_lifesteal"			"+30"// 20
-			}
-		}
-	}
-	// 天裔之盾 命石1
+	// 天裔之盾 先天
 	"skywrath_mage_shield_of_the_scion"
 	{
 		"AbilityValues"
 		{
 			"damage_barrier"
 			{
-				"value"					"50"	// 11
-				"hero_levelup"			"+5"	// 1
+				"value"					"100"	// 13.5
+				"hero_levelup"			"+6"	// +1.5
 			}
-		}
-	}
-	// 天裔之杖 命石2
-	"skywrath_mage_staff_of_the_scion"
-	{
-		"AbilityValues"
-		{
-			// "cooldown_reduction"		"0.2"	// 0.1
 		}
 	}
 	//=================================================================================================================
