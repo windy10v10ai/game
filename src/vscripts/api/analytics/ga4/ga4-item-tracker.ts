@@ -1,5 +1,5 @@
-import { GameEndDto } from '../dto/game-end-dto';
 import { PlayerHelper } from '../../../modules/helper/player-helper';
+import { GameEndDto } from '../dto/game-end-dto';
 import { GA4 } from './ga4';
 
 export interface ItemSampleEntry {
@@ -104,12 +104,11 @@ export class GA4ItemTracker {
     const eventName = 'game_end_item_duration';
     gameEndDto.players.forEach((player) => {
       // 只统计真实玩家
-      if (player.steamId <= 0) return;
+      const steamId = player.steamId;
+      if (steamId <= 0) return;
 
       const playerItems = byPlayer.get(player.playerId);
       if (!playerItems || playerItems.length === 0) return;
-
-      const steamId = player.steamId;
 
       const itemEvents = playerItems.map((entry) =>
         GA4.BuildEvent(eventName, steamId, {
