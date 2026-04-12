@@ -198,7 +198,9 @@ export const abilityTiersPassive: Tier[] = [
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
+      'rubick_curiosity2', // 拉比克 先天 奇心
       'rubick_might_and_magus2', // 拉比克 力量与魔法
+      'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
 
       'ability_trigger_learned_skills', //蓝蝴蝶
       'ability_trigger_on_spell_reflect', //绿蝴蝶
@@ -269,6 +271,7 @@ export const abilityTiersPassive: Tier[] = [
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
 
       // 自定义技能
+      'crystal_maiden_glacial_guard2', // 冰女 先天 冰川护体
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'abyssal_underlord_firestorm2', // 火雨降临
       'ursa_maul2', // 拍拍 天生技能 +攻击

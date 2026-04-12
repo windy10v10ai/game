@@ -2226,14 +2226,6 @@
 			{
 				"value"				"6 9 12 15 18"
 			}
-			"status_resist"
-			{
-				"value"				"20"		// 0
-			}
-			"bonus_armor"
-			{
-				"value"				"5 10 15 20 25"		// 0 差值5
-			}
 		}
 	}
 	// 盛宴 life_stealer_feast
