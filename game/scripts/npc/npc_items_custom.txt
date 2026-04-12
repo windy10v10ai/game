@@ -875,7 +875,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8800"
+		"ItemCost"						"8700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2221,7 +2221,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1700"
+		"ItemCost"						"1100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2244,7 +2244,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8800"
+		"ItemCost"						"8000"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"dodo Desolator"
@@ -2257,8 +2257,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"150"
-				"corruption_armor"		"-15"
+				"bonus_damage"			"120"
+				"corruption_armor"		"-12"
 				"corruption_duration"	"7.0"
 				"bonus_damage_per_kill"	"3"
 				"bonus_damage_per_assist"	"2"
@@ -2315,12 +2315,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"			"300"
-			"corruption_armor"		"-30"
+			"bonus_damage"			"260"
+			"corruption_armor"		"-25"
 			"corruption_duration"	"7.0"
 			"bonus_damage_per_kill"	"5"
 			"bonus_damage_per_assist"	"2"
-			"max_damage"			"150"
+			"max_damage"			"120"
 		}
 	}
 
@@ -5018,7 +5018,7 @@
 
 		"AbilityValues"
 		{
-				"bonus_damage"			"200"
+				"bonus_damage"			"160"
 				"bonus_health_regen"	"20"
 				"bonus_mana_regen"		"8"
 				"cleave_damage_percent"	"80"
@@ -5878,7 +5878,7 @@
 
 			// Desolator 参数（从 item_infernal_desolator 继承）
 			"bonus_damage"				"300"	// 攻击力
-			"corruption_armor"			"-60"	// 护甲降低
+			"corruption_armor"			"-50"	// 护甲降低
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
 			"bonus_damage_per_kill"		"10"	// 每次击杀增加的攻击力
 			"bonus_damage_per_assist"	"2"		// 每次助攻增加的攻击力
@@ -6407,7 +6407,7 @@
 		"ItemResult"				"item_withered_spring"
 		"ItemRequirements"
 		{
-			"01"					"item_aeon_pendant;item_guardian_greaves;item_undying_heart;item_insight_armor;item_fusion_life"
+			"01"					"item_aeon_pendant;item_undying_heart;item_insight_armor;item_fusion_life"
 		}
 	}
 
@@ -6437,7 +6437,7 @@
 		"AbilityValues"
 		{
 			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
-			"health_regen_pct"			"4"		// Lua 逻辑需要 - 百分比生命回复
+			"health_regen_pct"			"3"		// Lua 逻辑需要 - 百分比生命回复
 			"status_resistance"			"30"	// Lua 逻辑需要 - 状态抗性
 
 			// Lua 逻辑需要 - 主动技能参数
@@ -6459,7 +6459,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 德古拉面罩
+	// 生命之盔 德古拉面罩
 	//=================================================================================================================
 	// 咸鱼之王+蹦迪鞋+item_satanic_2+大血精+item_fusion_life 主动：吸血盛宴：融合几个效果的主动，生命低于20%自动触发 被动：继承所有装备的被动
 	"item_recipe_dracula_mask"
@@ -6476,7 +6476,7 @@
 		"ItemResult"				"item_dracula_mask"
 		"ItemRequirements"
 		{
-			"01"					"item_aeon_pendant;item_guardian_greaves;item_satanic_2;item_bloodstone_v2;item_fusion_life"
+			"01"					"item_aeon_pendant;item_satanic_2;item_bloodstone;item_fusion_life"
 		}
 	}
 
@@ -6918,14 +6918,14 @@
 			"stack_duration"			"0"
 			"stack_resist"				"0"
 
-			"mana_restore_pct"			"40"
+			"mana_restore_pct"			"30"
 			"max_stacks"				"8"
 
 			// 被动属性
 			"passive_bonus_strength"			"100"
 			"passive_bonus_health"				"2000"
-			"passive_bonus_armor"				"50"
-			"passive_bonus_spell_resist"		"50"
+			"passive_bonus_armor"				"40"
+			"passive_bonus_spell_resist"		"40"
 			"passive_bonus_health_regen"		"50"
 			"passive_bonus_attack_speed"		"50"
 			"passive_bonus_damage"				"100"
@@ -7338,7 +7338,7 @@
 			"convert_pct"				"40"	// 物理转纯粹伤害百分比
 
 			// 被动属性
-			"bonus_damage_passive"		"500"	// 攻击力
+			"bonus_damage_passive"		"460"	// 攻击力
 			"bonus_all_stats"			"80"	// 全属性
 
 			// 狂战斧属性（modifier_item_battlefury）
@@ -7352,7 +7352,7 @@
 			"cleave_distance"				"1000"	// 溅射距离
 
 			// Desolator 参数（从 item_infernal_desolator 继承）
-			"corruption_armor"			"-60"	// 护甲降低
+			"corruption_armor"			"-50"	// 护甲降低
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
 			"bonus_damage_per_kill"		"0"		// 每次击杀增加的攻击力
 			"bonus_damage_per_assist"	"0"		// 每次助攻增加的攻击力
