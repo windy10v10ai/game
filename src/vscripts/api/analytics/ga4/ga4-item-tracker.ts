@@ -1,6 +1,6 @@
 import { GameEndDto } from '../dto/game-end-dto';
 import { PlayerHelper } from '../../../modules/helper/player-helper';
-import { GA4Event } from './dto/ga4-dto';
+import { GA4 } from './ga4';
 
 export interface ItemSampleEntry {
   itemName: string;
@@ -85,15 +85,7 @@ export class GA4ItemTracker {
   }
 
   /** 游戏结束时调用：收集物品数据并发送 GA4 事件 */
-  public static SendAtGameEnd(
-    gameEndDto: GameEndDto,
-    buildEvent: (
-      eventName: string,
-      steamId: number,
-      params: { [key: string]: string | number | boolean },
-    ) => GA4Event,
-    sendEvents: (steamId: number, events: GA4Event[]) => void,
-  ): void {
+  public static SendAtGameEnd(gameEndDto: GameEndDto): void {
     const trackedItems = this.CollectAtGameEnd();
     const eventName = 'game_end_item_duration';
 
@@ -104,8 +96,7 @@ export class GA4ItemTracker {
       const isBot = player.steamId <= 0;
       const steamId = isBot ? 0 : player.steamId;
 
-      const itemEvents: GA4Event[] = [];
-      playerItems.forEach((entry) => {
+      const itemEvents = playerItems.map((entry) => {
         const eventParams: { [key: string]: string | number | boolean } = {
           hero_name: player.heroName,
           item_name: entry.itemName,
@@ -115,12 +106,11 @@ export class GA4ItemTracker {
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
         };
-
-        itemEvents.push(buildEvent(eventName, steamId, eventParams));
+        return GA4.BuildEvent(eventName, steamId, eventParams);
       });
 
       if (itemEvents.length > 0) {
-        sendEvents(steamId, itemEvents);
+        GA4.SendEvents(steamId, itemEvents);
       }
     });
   }

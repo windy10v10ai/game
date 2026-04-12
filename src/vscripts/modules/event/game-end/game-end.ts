@@ -185,13 +185,9 @@ export class GameEnd {
     // }
 
     // 发送 GA4 物品持有时长事件
-    GA4ItemTracker.SendAtGameEnd(
-      gameEndDto,
-      (name, steamId, params) => GA4.BuildEvent(name, steamId, params),
-      (steamId, events) => GA4.SendEvents(steamId, events),
-    );
+    GA4ItemTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 匹配时间事件
-    GA4.SendGameEndEvents();
+    GA4.SendGameEndMatchTimeEvents();
   }
 
   /**
