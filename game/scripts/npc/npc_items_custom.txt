@@ -6050,7 +6050,7 @@
 		"ItemResult"				"item_forbidden_staff"
 		"ItemRequirements"
 		{
-			"01"					"item_necronomicon_staff;item_gungir_2;item_fusion_forbidden"
+			"01"					"item_necronomicon_staff;item_gungir_2;item_consumable_gem;item_fusion_forbidden"
 		}
 	}
 
