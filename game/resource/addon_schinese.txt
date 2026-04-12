@@ -734,15 +734,6 @@
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2"				"极寒光环(被动)"
 		"DOTA_Tooltip_modifier_ancient_apparition_freezing_aura2_Description"	"治疗和生命回复减少%dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%，生命恢复降低%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%"
 
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"		"冰霜封印"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"	"眩晕自己4秒，获得%damage_reduction%%%减伤，增加生命回复。期间对周围敌方单位造成20%%减速，并将其向自己牵引。结束时对周围造成伤害和眩晕。"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"		"基础生命回复："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"		"%百分比生命回复："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"		"伤害："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"眩晕时间："
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"		"范围："
-
-
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"								"火雨降临"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"					"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"						"范围："
@@ -756,13 +747,6 @@
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_interval"		"触发间隔："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_duration"		"缠绕时间："
 		"DOTA_Tooltip_ability_abyssal_underlord_malice_aura_damage"		"伤害："
-
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry"								"强化武器"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_Description"					"被动增加近战攻击距离，主动开启后，增加的近战攻击距离翻倍，且每次攻击减速敌人"
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_attack_range"					"近战攻击距离："
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_duration"						"持续时间："
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_move_speed_slow"				"%移动速度减缓："
-		"DOTA_Tooltip_ability_alchemist_enhanced_weaponry_slow_duration"				"减速持续时间："
 
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2"								"狂暴药剂"
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_Description"					"炼金术士向友军目标扔出一瓶药剂，施加弱驱散效果，并提供攻击速度，移动速度和生命恢复。<br><br>驱散类型：弱驱散"

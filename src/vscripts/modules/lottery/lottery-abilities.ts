@@ -152,6 +152,7 @@ export const abilityTiersActive: Tier[] = [
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
+      'alchemist_berserk_potion2', // 炼金 狂暴药剂
     ],
   },
 ];
