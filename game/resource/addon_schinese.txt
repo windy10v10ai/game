@@ -646,6 +646,12 @@
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_wave_count"								"发射箭矢数量："
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_range"										"距离："
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_damage_pct"								"%每支箭矢伤害："
+		// 冰女 冰川护体
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2"						"冰川护体"
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_Description"			"水晶室女消耗在她技能上的一部分魔法会转化为物理护盾。"
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_barrier_duration"		"护盾持续时间："
+		"DOTA_Tooltip_ability_crystal_maiden_glacial_guard2_mana_multiplier"		"%魔法转为护盾："
+
 		//冰爆
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion"				"冰爆"
 		"DOTA_Tooltip_ability_crystal_maiden_ice_explosion_Description"	"增加额外攻击速度，攻击有35%概率召唤一个冰爆打击随机区域，造成伤害和1秒减速"
@@ -701,6 +707,13 @@
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%技能伤害降低："
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%魔法消耗增加："
 		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%cd增加："
+
+		// 冰魂 刺骨严寒
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2"						"刺骨严寒"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_Description"			"每当远古冰魄通过他的技能对敌人造成魔法伤害，敌人就会减速一段时间。如果目标是英雄，力量还会降低。多个本效果会叠加，并且持续时间相互独立。"
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction_duration"	"持续时间："
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_str_reduction"			"力量降低："
+		"DOTA_Tooltip_ability_ancient_apparition_bone_chill2_movement_slow_pct"		"移动速度减缓：:"
 
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"冰霜法球"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"每%attack_count%次攻击发射一枚冰霜法球，造成范围伤害，并减速目标%slow_duration%秒"
@@ -881,7 +894,14 @@
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"助攻经验奖励："
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"击杀守卫/信使奖励经验："
 
-		// 力量与魔法
+		// 拉比克 奇心
+		"DOTA_Tooltip_ability_rubick_curiosity2"								"奇心"
+		"DOTA_Tooltip_ability_rubick_curiosity2_Description"					"拉比克现在每级获得%curiosity_per_level%层奇心的叠加效果，每层奇心提供%curiosity_attack_damage%点基础攻击力，%curiosity_modifier_amp%%%增益/减益增强，和%curiosity_aoe_bonus%作用范围加成。<br><br>如果拉比克看到%charge_radius%范围内有敌方英雄施放技能，他就会获得%curiosity_per_spell_cast%层奇心，持续%curiosity_duration%秒。如果当前提供临时奇心的敌人在受到来自拉比克的伤害后%grace_period%秒内阵亡，他就会永久获得%curiosity_per_kill%层奇心."
+		"DOTA_Tooltip_ability_rubick_curiosity2_curiosity_permanent_gain"		"奇心层数："
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_debuff_amp"				"%增益/减益增强："
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_aoe_bonus"				"%作用范围加成："
+
+		// 拉比克 力量与魔法
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"力量与魔法"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"拉比克施放法术时获得可叠加的作用范围加成。"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"				"作用范围加成："

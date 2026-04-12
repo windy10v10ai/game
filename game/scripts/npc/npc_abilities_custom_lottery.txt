@@ -512,6 +512,26 @@
 			"archers_use_barrage"		"0"
 		}
 	}
+	//冰女 先天 冰川护体
+	"crystal_maiden_glacial_guard2"
+	{
+		"BaseClass"						"crystal_maiden_glacial_guard"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"crystal_maiden_glacial_guard"
+
+		"AbilityValues"
+		{
+			"mana_multiplier"
+			{
+				"value"					"30"		// 30
+				"hero_levelup"			"+2"		// +2
+			}
+			"barrier_duration"			"8"			// 8
+		}
+	}
 	//冰女 冰暴
 	"crystal_maiden_ice_explosion"
 	{
@@ -633,6 +653,45 @@
 			"total_ticks"			"2"
 			"tick_rate"				"1"
 			"tick_attack_damage_pct"		"20 25 30 35 40"
+		}
+	}
+	//奇心 拉比克 先天
+	"rubick_curiosity2"
+	{
+		"BaseClass"						"rubick_curiosity"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"rubick_curiosity"
+
+		"AbilityValues"
+		{
+			"curiosity_per_spell_cast"			"2"				// 2
+			"curiosity_duration"				"20"			// 20
+			"curiosity_per_level"				"1"				// 1
+			"curiosity_attack_damage"			"1"				// 1
+			"curiosity_modifier_amp"			"0.3"			// 0.3
+			"curiosity_aoe_bonus"				"2"				// 2
+			"curiosity_per_kill"				"1"				// 1
+			"grace_period"						"3"				// 3
+			"charge_radius"
+			{
+				"value"						"1200"				// 1200
+				"affected_by_aoe_increase"	"1"
+			}
+			"curiosity_permanent_gain"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_debuff_amp"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_aoe_bonus"
+			{
+				"dynamic_value"				"true"
+			}
 		}
 	}
 	//力量与魔法 拉比克
@@ -771,6 +830,34 @@
 			"spell_amp"			"30"
 			"mana_cost"			"100"
 			"cd"				"50"
+		}
+	}
+	//冰魂 先天 刺骨严寒
+	"ancient_apparition_bone_chill2"
+	{
+		"BaseClass"						"ancient_apparition_bone_chill"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ancient_apparition_bone_chill"
+
+		"AbilityValues"
+		{
+			"str_reduction"
+			{
+				"value"					"1"			// .2 无法继承A杖，加强基础效果
+				"hero_levelup"			"0.1"		// 0.1
+				"levelup_interval"		"1"			// 3 多数英雄没有持续伤害，加强成长速度
+			}
+			"str_reduction_duration"
+			{
+				"value"							"4.0"
+			}
+			"movement_slow_pct"
+			{
+				"value"					"2"
+				"display_type"			"kDebuffPercentage"
+			}
 		}
 	}
 	//极寒光环
