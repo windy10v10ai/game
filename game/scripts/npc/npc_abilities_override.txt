@@ -715,9 +715,10 @@
 	{
 		"AbilityValues"
 		{
-			"attack_speed"		"100"	// 50
-			"hp_regen"		"100"	// 40
-			"move_speed"			"60"	// 30
+			"duration"					"10"		// 15
+			"attack_speed"				"150"		// 50
+			"hp_regen"					"120"		// 40
+			"move_speed"				"90"		// 30
 		}
 	}
 	// 贪魔的贪婪 先天
@@ -9122,6 +9123,19 @@
 			{
 				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6 11 14 15"
 			}
+		}
+	}
+	// 先天 冰川护体
+	"crystal_maiden_glacial_guard"
+	{
+		"AbilityValues"
+		{
+			"mana_multiplier"
+			{
+				"value"					"50"		// 30
+				"hero_levelup"			"+3"		// +2
+			}
+			"barrier_duration"			"12"		// 8
 		}
 	}
 	//=================================================================================================================
