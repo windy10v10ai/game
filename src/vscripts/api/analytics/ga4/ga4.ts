@@ -265,7 +265,7 @@ export class GA4 {
     trackedItems: Map<PlayerID, (ItemSampleEntry & { endPatchSeconds?: number })[]>,
     realDurationRatio: number,
   ) {
-    const eventName = 'game_end_item_build';
+    const eventName = 'game_end_item_duration';
 
     gameEndDto.players.forEach((player) => {
       const playerItems = trackedItems.get(player.playerId);
