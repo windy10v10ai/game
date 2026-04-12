@@ -120,7 +120,7 @@ export class GA4 {
   }
 
   /**
-   * 在单个请求中向 GA4 发送多个事件
+   * 向 GA4 发送多个事件，自动按 GA4 上限（25）分批
    * @param steamId Steam ID（非玩家单位时使用0）
    * @param events GA4 事件数组
    * @param userProperties 用户属性（可选）
@@ -131,19 +131,20 @@ export class GA4 {
       return;
     }
 
-    // 构建 payload
-    const payload: GA4EventPayload = {
-      client_id: steamId.toString(),
-      user_id: steamId.toString(),
-      events: events,
-    };
+    const BATCH_SIZE = 25;
+    for (let i = 0; i < events.length; i += BATCH_SIZE) {
+      const payload: GA4EventPayload = {
+        client_id: steamId.toString(),
+        user_id: steamId.toString(),
+        events: events.slice(i, i + BATCH_SIZE),
+      };
 
-    if (userProperties) {
-      payload.user_properties = userProperties;
+      if (userProperties) {
+        payload.user_properties = userProperties;
+      }
+
+      this.SendPayload(payload);
     }
-
-    // 发送到 GA4
-    this.SendPayload(payload);
   }
 
   /**
@@ -292,10 +293,8 @@ export class GA4 {
         itemEvents.push(this.BuildEvent(eventName, steamId, eventParams));
       });
 
-      // GA4 单次请求上限 25 个事件，分批发送
-      const BATCH_SIZE = 25;
-      for (let i = 0; i < itemEvents.length; i += BATCH_SIZE) {
-        this.SendEvents(steamId, itemEvents.slice(i, i + BATCH_SIZE));
+      if (itemEvents.length > 0) {
+        this.SendEvents(steamId, itemEvents);
       }
     });
   }
