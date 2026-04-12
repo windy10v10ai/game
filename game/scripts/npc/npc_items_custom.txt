@@ -1,5 +1,6 @@
 #base "npc_items_modifier.txt"
 #base "npc_items_artifact.txt"
+#base "npc_items_clone.txt"
 
 "DOTAAbilities"
 {
@@ -6163,7 +6164,7 @@
 			// 主动效果
 			"radius"
 			{
-				"value"					"500"
+				"value"					"450"
 				"affected_by_aoe_increase"	"1"
 			}
 			"active_damage_base"
@@ -6171,7 +6172,7 @@
 				"value"					"200"
 				"CalculateSpellDamageTooltip"	"1"	// 启用技能伤害计算
 			}
-			"active_damage_multi"		"1.0"
+			"active_damage_multi"		"0.6"
 			"stun_duration"			"2.0"
 			// 闪电风暴伤害
 			"lightning_damage"

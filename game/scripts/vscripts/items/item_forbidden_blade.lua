@@ -73,6 +73,8 @@ function item_forbidden_blade:ApplyAbyssalEffect(target)
         primary_stat = caster:GetAgility()
     elseif caster:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then
         primary_stat = caster:GetIntellect(false)
+    else
+        primary_stat = (caster:GetStrength() + caster:GetAgility() + caster:GetIntellect(false)) / 2
     end
 
     local damage = active_damage_base + primary_stat * active_damage_multi
