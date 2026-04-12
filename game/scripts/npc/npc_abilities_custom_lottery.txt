@@ -440,33 +440,6 @@
 			"starting_gold_bonus"	"250"
 		}
 	}
-	//普通一拳
-	"dark_seer_normal_punch2"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/dark_seer_normal_punch2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"IsGrantedByScepter"			"0"
-		"AbilityTextureName"			"dark_seer_normal_punch"
-
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"3"
-
-		"AbilityCooldown"				"9"
-
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf"
-		}
-		"AbilityValues"
-		{
-			"illusion_duration"			"3"
-			"max_stun"					"1.0"
-			"max_damage"				"100 200 300"
-			"ad" 						"1 1.5 2"
-		}
-	}
 	//赏金 妙手空空 技能偷钱
 	"bounty_hunter_cutpurse2"
 	{
@@ -533,32 +506,6 @@
 				"hero_levelup"			"+2"		// +2
 			}
 			"barrier_duration"			"8"			// 8
-		}
-	}
-	//冰女 冰暴
-	"crystal_maiden_ice_explosion"
-	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/crystal_maiden_ice_explosion"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"    		"crystal_maiden_freezing_field_alt1"
-		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"                      "5"
-
-
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion_2.vpcf"
-			"particle"					"particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_explosion_arcana1.vpcf"
-		}
-		"AbilityValues"
-		{
-			"attack_speed"	"30 60 90 120 150"
-			"damage"		"40 80 120 160 200"
-			"ad"			"1"
-
-			"random_radius"		"400"
-			"explosion_radius"	"200"
 		}
 	}
 	//才思敏捷
@@ -767,23 +714,6 @@
 			}
 		}
 	}
-	//斧王 一人成军
-	"axe_one_man_army2"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/axe_one_man_army2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
-
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"armor_pct_as_strength"		"60 70 80 90 100"
-			"radius"					"0"
-			"bonus_linger_duration"		"5"
-		}
-	}
 	//人工神符
 	"arc_warden_scepter2"
 	{
@@ -839,6 +769,102 @@
 			}
 		}
 	}
+
+	//狂暴药剂
+	"alchemist_berserk_potion2"
+	{
+		"BaseClass"						"alchemist_berserk_potion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"IsGrantedByShard"				"0"
+		"AbilityTextureName"			"alchemist_berserk_potion"
+
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"attack_speed"				"100"		// 50
+			"hp_regen"					"100"		// 40
+			"move_speed"				"60"		// 30
+		}
+	}
+
+//=================================================================================================================
+// lua 技能
+//=================================================================================================================
+
+	// FIXME 用原版技能替代
+	//斧王 一人成军
+	"axe_one_man_army2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/axe_one_man_army2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
+
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"armor_pct_as_strength"		"60 70 80 90 100"
+			"radius"					"0"
+			"bonus_linger_duration"		"5"
+		}
+	}
+
+	//普通一拳
+	"dark_seer_normal_punch2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/dark_seer_normal_punch2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"IsGrantedByScepter"			"0"
+		"AbilityTextureName"			"dark_seer_normal_punch"
+
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+
+		"AbilityCooldown"				"9"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_dark_seer/dark_seer_attack_normal_punch.vpcf"
+		}
+		"AbilityValues"
+		{
+			"illusion_duration"			"3"
+			"max_stun"					"1.0"
+			"max_damage"				"100 200 300"
+			"ad" 						"1 1.5 2"
+		}
+	}
+	//冰女 冰暴
+	"crystal_maiden_ice_explosion"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"				    "abilities/crystal_maiden_ice_explosion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"    		"crystal_maiden_freezing_field_alt1"
+		"AbilityUnitDamageType"         "DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"                      "5"
+
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_crystalmaiden/maiden_freezing_field_explosion_2.vpcf"
+			"particle"					"particles/econ/items/crystal_maiden/crystal_maiden_maiden_of_icewrack/maiden_freezing_field_explosion_arcana1.vpcf"
+		}
+		"AbilityValues"
+		{
+			"attack_speed"	"30 60 90 120 150"
+			"damage"		"40 80 120 160 200"
+			"ad"			"1"
+
+			"random_radius"		"400"
+			"explosion_radius"	"200"
+		}
+	}
+
 	//极寒光环
 	"ancient_apparition_freezing_aura"
 	{
@@ -946,21 +972,6 @@
 				"value"		"60 100 140 180 220"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-		}
-	}
-	//狂暴药剂
-	"alchemist_berserk_potion2"
-	{
-		"BaseClass"						"alchemist_berserk_potion"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"IsGrantedByShard"				"0"
-		"AbilityTextureName"			"alchemist_berserk_potion"
-
-		"AbilityValues"
-		{
-			"attack_speed"				"100"		// 50
-			"hp_regen"					"100"		// 40
-			"move_speed"				"60"		// 30
 		}
 	}
 	// 多重施法
