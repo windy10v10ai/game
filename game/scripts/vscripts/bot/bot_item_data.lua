@@ -138,7 +138,6 @@ tBotItemData.purchaseItemList = {
 		'item_wings_of_haste',
 		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_blade_mail_2',
-		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_aghanims_shard',
 		'item_heavens_halberd_v2',
 		'item_insight_armor',
@@ -630,7 +629,6 @@ tBotItemData.purchaseItemList = {
 		'item_radiance_2', -- 大辉耀 圣焰之光
 		'item_aether_lens_2',
 		'item_overwhelming_blink',
-		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_ultimate_scepter_2',
 		'item_saint_orb',
 		'item_black_king_bar_2',
@@ -1023,7 +1021,6 @@ tBotItemData.sellItemList = {
 	},
 	npc_dota_hero_bristleback = {
 		'item_echo_sabre_2',
-		'item_eternal_shroud', -- 大天堂 无锋战戟
 
 	},
 	npc_dota_hero_chaos_knight = {
@@ -1115,7 +1112,6 @@ tBotItemData.sellItemList = {
 		'item_echo_sabre_2',
 	},
 	npc_dota_hero_pudge = {
-		'item_eternal_shroud', -- 大天堂 无锋战戟
 		'item_overwhelming_blink',
 	},
 	npc_dota_hero_razor = {

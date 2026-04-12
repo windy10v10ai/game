@@ -41,6 +41,26 @@ function item_forbidden_staff:OnSpellStart()
         end
     end
 
+    -- 额外效果：清除范围内侦查守卫和岗哨守卫
+    local wards = FindUnitsInRadius(
+        caster:GetOpposingTeamNumber(),
+        target_point,
+        nil,
+        radius,
+        DOTA_UNIT_TARGET_TEAM_BOTH,
+        DOTA_UNIT_TARGET_ALL,
+        DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+        FIND_ANY_ORDER,
+        false
+    )
+
+    for _, ward in pairs(wards) do
+        local ward_name = ward:GetUnitName()
+        if ward_name == "npc_dota_observer_wards" or ward_name == "npc_dota_sentry_wards" then
+            ward:Kill(nil, caster)
+        end
+    end
+
     EmitSoundOn("DOTA_Item.MeteorHammer.Impact", caster)
 end
 

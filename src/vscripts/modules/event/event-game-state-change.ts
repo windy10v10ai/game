@@ -1,5 +1,4 @@
 import { InitializeItemUpgrades } from '../../ai/build-item/item-tier-config';
-import { FusionRuneManager } from '../../ai/item/fusion-rune-manager';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4';
 import { Game } from '../../api/game';
@@ -135,8 +134,8 @@ export class EventGameStateChange {
   private OnGameInProgress(): void {
     // 记录游戏开始时间用于 GA4 统计
     GA4.RecordGameStartTime();
-    // 初始化融合符文
-    FusionRuneManager.InitializeFusion();
+    // FIXME 临时禁用融合符文额外刷新次数
+    // FusionRuneManager.InitializeFusion();
     // 初始化Bot团队策略
     new BotTeam();
     // 初始化Bot出装系统

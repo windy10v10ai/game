@@ -1,5 +1,5 @@
 ---
-name: custom-ability-lottery
+name: clone-ability
 description: >-
   Create or fix a custom KV ability that inherits from a vanilla Dota ability
   (BaseClass = original ability name). Supports ability lookup by Chinese name

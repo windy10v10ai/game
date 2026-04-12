@@ -622,7 +622,7 @@
 			"curiosity_per_level"				"1"				// 1
 			"curiosity_attack_damage"			"1"				// 1
 			"curiosity_modifier_amp"			"0.3"			// 0.3
-			"curiosity_aoe_bonus"				"2"				// 2
+			"curiosity_aoe_bonus"				"1"				// 2
 			"curiosity_per_kill"				"1"				// 1
 			"grace_period"						"3"				// 3
 			"charge_radius"

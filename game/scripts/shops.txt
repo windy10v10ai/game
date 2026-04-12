@@ -172,7 +172,8 @@
 		"item"		"item_pavise"				// 长盾
 		"item"		"item_holy_locket"			// 圣洁吊坠
 		"item"		"item_vladmir"				// 祭品
-		"item"		"item_tranquil_boots"		// 静谧之靴
+		"item"		"item_essence_distiller"	// 精之灵器
+		// "item"		"item_tranquil_boots"		// 静谧之靴
 
 		"item"		"item_solar_crest"			// 炎阳纹章
 		"item"		"item_guardian_greaves"		// 卫士胫甲

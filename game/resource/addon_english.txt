@@ -2699,35 +2699,35 @@
 		// 融合符文系列
 		// 鹰眼符文
 		"DOTA_Tooltip_ability_item_fusion_hawkeye"										"Hawkeye Rune"
-		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 11 minutes, replenished every 4 minutes (11, 15, 19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 6.6, 9.0, 13.8, 18.6, 23.4, 28.2 minutes\n• Difficulty ≥20x: Additional refresh at 8.8, 17.6, 26.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// 禁忌符文
 		"DOTA_Tooltip_ability_item_fusion_forbidden"									"Forbidden Rune"
-		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 11 minutes, replenished every 4 minutes (11, 15, 19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 6.6, 9.0, 13.8, 18.6, 23.4, 28.2 minutes\n• Difficulty ≥20x: Additional refresh at 8.8, 17.6, 26.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// 暴虐符文
 		"DOTA_Tooltip_ability_item_fusion_brutal"										"Brutal Rune"
-		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 14 minutes, replenished every 4 minutes (14, 18, 22, 26, 30 minutes)\n• Difficulty ≥40x: Additional refresh at 8.4, 10.8, 13.2, 20.4, 25.2, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 11.2, 22.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// 兽化符文
 		"DOTA_Tooltip_ability_item_fusion_beast"										"Beast Rune"
-		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 9 minutes, replenished every 3 minutes (9, 12, 15, 18, 21, 24, 27, 30 minutes)\n• Difficulty ≥40x: Additional refresh at 5.4, 7.2, 10.8, 13.2, 16.2, 19.8, 22.8, 25.8, 28.8 minutes\n• Difficulty ≥20x: Additional refresh at 10.8, 14.4, 21.6, 28.8 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// 生命符文
 		"DOTA_Tooltip_ability_item_fusion_life"											"Life Rune"
-		"DOTA_Tooltip_ability_item_fusion_life_Description"								"A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 14 minutes, replenished every 4 minutes (14, 18, 22, 26, 30 minutes)\n• Difficulty ≥40x: Additional refresh at 8.4, 10.8, 13.2, 20.4, 25.2, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 11.2, 22.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_life_Description"								"A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// 暗影符文
 		"DOTA_Tooltip_ability_item_fusion_shadow"										"Shadow Rune"
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 11 minutes, replenished every 4 minutes (11, 15, 19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 6.6, 9.0, 13.8, 18.6, 23.4, 28.2 minutes\n• Difficulty ≥20x: Additional refresh at 8.8, 17.6, 26.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// 魔化符文
 		"DOTA_Tooltip_ability_item_fusion_magic"										"Magic Rune"
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Sword, Time Gem\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 19 minutes, replenished every 4 minutes (19, 23, 27, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 11.4, 13.8, 16.2, 18.6, 25.8, 30.6 minutes\n• Difficulty ≥20x: Additional refresh at 15.2, 26.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Sword, Time Gem\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords\n\n<font color='#70B0FF'>Stock Refresh Time:</font>\n<font color='#888888'>• Base: First at 15 minutes, replenished every 2 minutes (15, 17, 19, 21, 23, 25, 27, 29, 31 minutes)\n• Difficulty ≥40x: Additional refresh at 9.0, 10.2, 11.4, 12.6, 13.8, 20.4, 22.8, 25.2, 27.6, 30.0 minutes\n• Difficulty ≥20x: Additional refresh at 12.0, 13.6, 19.2, 20.8, 22.4, 24.0, 25.6, 27.2, 28.8, 30.4 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
@@ -2749,20 +2749,19 @@
 
 		// Hawkeye Fighter
 		"DOTA_Tooltip_Ability_item_hawkeye_fighter"                  "Hawkeye Fighter"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"      "<h1><font color='#FFFF00'>Active: Humanoid Fighter</font></h1>Take to the air and soar, gaining flying vision and movement for %active_duration% seconds with %active_movement_speed_pct%%% bonus movement speed and a removed movement speed cap. Applies a dispel on use.<br><br>Vision range dynamically adjusts based on hero's current night vision<br>Cooldown: %AbilityCooldown% seconds<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"      "<h1><font color='#FFFF00'>Active: Humanoid Fighter</font></h1>Take to the air and soar, gaining flying vision and movement for %active_duration% seconds with %active_movement_speed_pct%%% bonus movement speed and a removed movement speed cap. Applies a dispel on use.<br><br>Cooldown: %AbilityCooldown% seconds<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"             "Transform into a fighter, soaring through the skies, unmatched by anyone."
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"  "+$all"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct" "%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"  "%+Turn Rate"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_status_resistance" "%+Status Resistance"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"          "Fighter Mode"
-		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."
+		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining flying vision and unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."
 
 		// 禁忌法锤 Forbidden Staff
 		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>Forbidden Staff</font>"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Reduces enemy base magic resistance by %blast_magic_resist%%%. Deals magical damage equal to %necrolyte_att_multiplier%x the sum of all your attributes and hexes all targets for %sheep_duration% seconds.<br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Radius: %radius_tooltip%"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Reduces enemy base magic resistance by %blast_magic_resist%%%. Deals magical damage equal to %necrolyte_att_multiplier%x the sum of all your attributes and hexes all targets for %sheep_duration% seconds.<br><br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Additional Effect: Destroys enemy Observer and Sentry Wards in the area.<br><br>Radius: %radius_tooltip%"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"								"Forbidden power, not to be touched lightly."
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_hp"							"+$health"
@@ -2851,7 +2850,7 @@
 		"DOTA_Tooltip_ability_item_shadow_judgment_spell_amp"                  "%+$spell_amp"
 
 		// Shadow Impact (暗影咒灭)
-		"DOTA_Tooltip_Ability_item_shadow_impact"                              "Shadow Impact"
+		"DOTA_Tooltip_Ability_item_shadow_impact"                              "<font color='#C77DFF'>Shadow Impact</font>"
 		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy base magic resistance by %blast_magic_resist%%%. Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes plus %blast_damage_base% to it<br>- Applies ethereal form for %ethereal_duration% seconds, dealing %blast_agility_multiplier%%% of your agility as magical damage and slowing it by %blast_movement_slow%%%<br>- Increases magic damage taken by %ethereal_damage_bonus%%%<br>- Deals %absolute_damage% additional pure damage<br><br>Cast Range: %abilitycastrange%<br>Pierces debuff immunity."
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"                         "The shadow's curse brings annihilation."
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"              "+$int"
