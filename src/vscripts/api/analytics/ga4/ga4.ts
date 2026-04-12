@@ -253,18 +253,9 @@ export class GA4 {
     this.SendEvent(0, event);
   }
 
-  /**
-   * 发送物品持有时长事件
-   * 整合游戏过程中的采样统计与游戏结束时的物品快照
-   * 每个物品发送一条事件，包含累计持有时长和是否结束时持有的标记
-   * @param gameEndDto 游戏结束数据
-   * @param trackedItems 按 playerId 聚合的物品采样数据
-   * @param realDurationRatio 现实时间/游戏时间比例
-   */
   private static SendItemDurationEvents(
     gameEndDto: GameEndDto,
     trackedItems: Map<PlayerID, ItemSampleEntry[]>,
-    realDurationRatio: number,
   ) {
     const eventName = 'game_end_item_duration';
 
@@ -277,17 +268,14 @@ export class GA4 {
 
       const itemEvents: GA4Event[] = [];
       playerItems.forEach((entry) => {
-        const durationSeconds = GA4ItemTracker.GetDurationSeconds(entry);
         const eventParams: { [key: string]: string | number | boolean } = {
           hero_name: player.heroName,
           item_name: entry.itemName,
           type: entry.type,
-          duration_seconds: durationSeconds,
           is_carried_at_end: entry.isCarriedAtEnd,
           is_bot: isBot,
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
-          real_duration_ratio: realDurationRatio,
         };
 
         itemEvents.push(this.BuildEvent(eventName, steamId, eventParams));
@@ -305,10 +293,13 @@ export class GA4 {
    * @param gameEndDto 游戏结束数据
    */
   public static SendGameEndEvents(gameEndDto: GameEndDto) {
-    // 在发送前先收集物品数据（需要在 FetchCurrentTime 回调之前调用，确保游戏单位仍存在）
+    // 先收集物品数据，确保游戏单位仍存在
     const trackedItems = GA4ItemTracker.CollectAtGameEnd();
 
-    // 异步获取当前真实时间
+    // 物品持有时长事件不依赖真实时间，直接发送
+    this.SendItemDurationEvents(gameEndDto, trackedItems);
+
+    // 匹配时间事件需要异步获取真实时间
     this.FetchCurrentTime((endRealTime) => {
       if (this.gameStartRealTime === null || this.gameStartDotatime === null) {
         print('[GA4] Game start real time not recorded, skipping event send');
@@ -323,11 +314,7 @@ export class GA4 {
       const realDuration = endRealTime - this.gameStartRealTime;
       const realDurationRatio = realDuration / dotaDuration;
 
-      // 发送匹配时间事件
       this.SendMatchTimingEvent(realDurationRatio, dotaDuration, realDuration);
-
-      // 发送物品持有时长事件
-      this.SendItemDurationEvents(gameEndDto, trackedItems, realDurationRatio);
     });
   }
 }
