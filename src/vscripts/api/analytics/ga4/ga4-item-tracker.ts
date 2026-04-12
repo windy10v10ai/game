@@ -39,63 +39,54 @@ export class GA4ItemTracker {
     });
   }
 
-  private static SampleHeroItems(playerId: PlayerID, hero: CDOTA_BaseNPC_Hero): void {
+  private static SampleHeroItems(
+    playerId: PlayerID,
+    hero: CDOTA_BaseNPC_Hero,
+    isGameEnd = false,
+  ): void {
     for (let i = 0; i < 6; i++) {
       const item = hero.GetItemInSlot(i);
-      if (item) this.AddSample(playerId, item.GetAbilityName(), 'normal');
+      if (item) this.AddSample(playerId, item.GetAbilityName(), 'normal', isGameEnd);
     }
 
     const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-    if (neutralActive) this.AddSample(playerId, neutralActive.GetAbilityName(), 'neutral_active');
+    if (neutralActive)
+      this.AddSample(playerId, neutralActive.GetAbilityName(), 'neutral_active', isGameEnd);
 
     const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
     if (neutralPassive)
-      this.AddSample(playerId, neutralPassive.GetAbilityName(), 'neutral_passive');
+      this.AddSample(playerId, neutralPassive.GetAbilityName(), 'neutral_passive', isGameEnd);
   }
 
   private static AddSample(
     playerId: PlayerID,
     itemName: string,
     type: ItemSampleEntry['type'],
+    isGameEnd = false,
   ): void {
     const key: SampleKey = `${playerId}:${itemName}`;
     const existing = this.samples.get(key);
     if (existing) {
       existing.sampleCount++;
+      if (isGameEnd) existing.isCarriedAtEnd = true;
     } else {
-      this.samples.set(key, { playerId, itemName, type, sampleCount: 1, isCarriedAtEnd: false });
+      this.samples.set(key, {
+        playerId,
+        itemName,
+        type,
+        sampleCount: 1,
+        isCarriedAtEnd: isGameEnd,
+      });
     }
   }
 
   /** 游戏结束时调用：收集物品数据并发送 GA4 事件 */
   public static SendAtGameEnd(gameEndDto: GameEndDto): void {
-    // 游戏结束时再采样一次，不足30s的部分也计为一次
+    // 游戏结束时再采样一次（不足30s计为一次），同时标记 isCarriedAtEnd
     PlayerHelper.ForEachPlayer((playerId) => {
       const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) return;
-      this.SampleHeroItems(playerId, hero);
-    });
-
-    // 标记游戏结束时持有的物品
-    this.samples.forEach((entry) => {
-      const hero = PlayerResource.GetSelectedHeroEntity(entry.playerId);
-      if (!hero) return;
-      for (let i = 0; i < 6; i++) {
-        const item = hero.GetItemInSlot(i);
-        if (item && item.GetAbilityName() === entry.itemName) {
-          entry.isCarriedAtEnd = true;
-          return;
-        }
-      }
-      const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-      if (neutralActive && neutralActive.GetAbilityName() === entry.itemName) {
-        entry.isCarriedAtEnd = true;
-        return;
-      }
-      const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-      if (neutralPassive && neutralPassive.GetAbilityName() === entry.itemName) {
-        entry.isCarriedAtEnd = true;
-      }
+      this.SampleHeroItems(playerId, hero, true);
     });
 
     // 按 playerId 聚合并发送
