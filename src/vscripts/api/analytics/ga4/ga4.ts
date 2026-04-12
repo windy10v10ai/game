@@ -262,7 +262,7 @@ export class GA4 {
    */
   private static SendItemDurationEvents(
     gameEndDto: GameEndDto,
-    trackedItems: Map<PlayerID, (ItemSampleEntry & { endPatchSeconds?: number })[]>,
+    trackedItems: Map<PlayerID, ItemSampleEntry[]>,
     realDurationRatio: number,
   ) {
     const eventName = 'game_end_item_duration';
@@ -274,7 +274,6 @@ export class GA4 {
       const isBot = player.steamId <= 0;
       const steamId = isBot ? 0 : player.steamId;
 
-      // 判断该玩家所属阵营的 AI 倍率
       const aiMultiplier =
         player.teamId === DotaTeam.GOODGUYS
           ? gameEndDto.gameOptions.multiplierRadiant
@@ -282,14 +281,11 @@ export class GA4 {
 
       const itemEvents: GA4Event[] = [];
       playerItems.forEach((entry) => {
-        const hero = PlayerResource.GetSelectedHeroEntity(player.playerId);
-        const itemType = hero ? this.GetItemType(hero, entry.itemName) : 'normal';
-
         const durationSeconds = GA4ItemTracker.GetDurationSeconds(entry);
         const eventParams: { [key: string]: string | number | boolean } = {
           hero_name: player.heroName,
           item_name: entry.itemName,
-          type: itemType,
+          type: entry.type,
           duration_seconds: durationSeconds,
           is_carried_at_end: entry.isCarriedAtEnd,
           is_bot: isBot,
@@ -306,19 +302,6 @@ export class GA4 {
         this.SendEvents(steamId, itemEvents);
       }
     });
-  }
-
-  /**
-   * 判断物品所属槽位类型
-   */
-  private static GetItemType(hero: CDOTA_BaseNPC_Hero, itemName: string): string {
-    const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-    if (neutralActive && neutralActive.GetAbilityName() === itemName) return 'neutral_active';
-
-    const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-    if (neutralPassive && neutralPassive.GetAbilityName() === itemName) return 'neutral_passive';
-
-    return 'normal';
   }
 
   /**
