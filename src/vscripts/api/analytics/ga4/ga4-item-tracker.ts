@@ -84,12 +84,7 @@ export class GA4ItemTracker {
     }
   }
 
-  /**
-   * 游戏结束时调用：收集物品数据并发送 GA4 事件
-   * @param gameEndDto 游戏结束数据
-   * @param buildEvent GA4.BuildEvent 的引用，避免循环依赖
-   * @param sendEvents GA4.SendEvents 的引用，避免循环依赖
-   */
+  /** 游戏结束时调用：收集物品数据并发送 GA4 事件 */
   public static SendAtGameEnd(
     gameEndDto: GameEndDto,
     buildEvent: (
