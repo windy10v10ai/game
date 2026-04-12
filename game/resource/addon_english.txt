@@ -42,6 +42,7 @@
 		"fixed_ability"				"Fixed Ability"
 		"force_random_hero"			"Force Random Hero"
 		"enable_player_attribute"	"Enable Player Attribute"
+		"mid_only_mode"				"Mid Only Mode"
 		"hide_chat_team"			"Hide Chat and Team"
 		"show_chat_team"			"Show Chat and Team"
 

@@ -159,6 +159,11 @@
 						<Label id="PlayerAttributeTitle" class="GameOptionsLabel" text="#enable_player_attribute" />
 						<ToggleButton checked="true" class="GameOptionsToggle" id="enable_player_attribute" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
+					<!-- 中路乱斗模式 -->
+					<Panel id="MidOnlyModePanel" class="GameOptionsSubPanel">
+						<Label id="MidOnlyModeTitle" class="GameOptionsLabel" text="#mid_only_mode" />
+						<ToggleButton checked="false" class="GameOptionsToggle" id="mid_only_mode" onactivate="SendGameOptionsToServer()"/>
+					</Panel>
 				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 START-->
