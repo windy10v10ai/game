@@ -274,11 +274,6 @@ export class GA4 {
       const isBot = player.steamId <= 0;
       const steamId = isBot ? 0 : player.steamId;
 
-      const aiMultiplier =
-        player.teamId === DotaTeam.GOODGUYS
-          ? gameEndDto.gameOptions.multiplierRadiant
-          : gameEndDto.gameOptions.multiplierDire;
-
       const itemEvents: GA4Event[] = [];
       playerItems.forEach((entry) => {
         const durationSeconds = GA4ItemTracker.GetDurationSeconds(entry);
@@ -292,14 +287,15 @@ export class GA4 {
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
           real_duration_ratio: realDurationRatio,
-          ai_multiplier: aiMultiplier,
         };
 
         itemEvents.push(this.BuildEvent(eventName, steamId, eventParams));
       });
 
-      if (itemEvents.length > 0) {
-        this.SendEvents(steamId, itemEvents);
+      // GA4 单次请求上限 25 个事件，分批发送
+      const BATCH_SIZE = 25;
+      for (let i = 0; i < itemEvents.length; i += BATCH_SIZE) {
+        this.SendEvents(steamId, itemEvents.slice(i, i + BATCH_SIZE));
       }
     });
   }
