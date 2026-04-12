@@ -90,6 +90,8 @@ description: >-
 2. `"BaseClass"` → 填原版技能名。
 3. `"Innate"` → 改为 `"0"`（**必须**，否则引擎仍按先天处理）。
 4. `"AbilityBehavior"` → 去掉 `DOTA_ABILITY_BEHAVIOR_HIDDEN`；抽奖用被动时改为 `"DOTA_ABILITY_BEHAVIOR_PASSIVE"`；保留主动/开关时按原版行为裁剪，确保无 `NOT_LEARNABLE` 等阻止显示的标志。
+   - **若结果含 `UNIT_TARGET`**：必须在同一块内**显式写入** `AbilityUnitTargetTeam`、`AbilityUnitTargetType`、`AbilityCastRange`（不能依赖 BaseClass 继承，否则引擎无法选中目标）。同时显式写入 `SpellImmunityType`、`SpellDispellableType`、`AbilityCastPoint`、`AbilityCooldown`、`AbilityManaCost`。
+   - **若原版含 `IsGrantedByShard "1"` 或 `HasShardUpgrade "1"`**：自定义块须覆盖为 `"0"`，避免引擎误判需要碎晶才可用。
 5. `"AbilityValues"` → 复制字段与子键，但**排除以下项**（与 `update-abilities-override` P1 绝对禁止项保持一致）：
    - 子块内含 `special_bonus_unique_*` / `special_bonus_facet_*` 的行 → 直接删除该行（天赋引用原版技能名，对自定义技能无效）
    - 删除天赋行后，若子块的 `value` 为 `"0"` 且无其他有效子键 → 删除整个子块
@@ -105,6 +107,8 @@ description: >-
 2. `"BaseClass"` → 填原版技能名。
 3. `"Innate"` → 无需写（普通技能默认即为 0）。
 4. `"AbilityBehavior"` → 按需保留原版行为；若用于抽奖且为主动技能，确认无需调整 behavior。
+   - **若结果含 `UNIT_TARGET`**：同流程 A 第 4 步，必须显式写入目标队伍/类型/射程等施法属性。
+   - **若原版含 `IsGrantedByShard "1"` 或 `HasShardUpgrade "1"`**：同流程 A 第 4 步，自定义块须覆盖为 `"0"`。
 5. `"AbilityValues"` → 同流程 A 第 5 步。
 6. `"AbilityTextureName"` → 必填。
 7. 同流程 A 第 7 步。
@@ -118,7 +122,7 @@ description: >-
 1. 从 `docs/reference/<version>/npc_abilities.txt` 读取原版当前版本的完整键集合
 2. **删除**现有自定义块中已与原版**同值**的键（原版合并时会自动继承，无需重复写）
 3. **删除**原版已不存在的键（除非行尾明确注释 `// 原版不存在，手动修改`）
-4. **补充**原版新增但自定义块缺失的多档键（按 P2 差分/扩展规则填写）
+4. **补充**自定义块中缺失但技能正常运行所需的键（包括：多档数值键、`AbilityUnitTargetTeam`/`AbilityUnitTargetType`/`AbilityCastRange` 等施法属性、`SpellImmunityType`、`SpellDispellableType` 等）
 5. 结合 override 叠加逻辑：若原版键值已被 override 修改，同步使用 override 的值
 
 ---
@@ -160,6 +164,8 @@ description: >-
 - [ ] `AbilityValues` 已排除 `special_bonus_unique_*` / `special_bonus_facet_*` / `special_bonus_scepter` / `special_bonus_shard` 天赋引用行；删除天赋行后 value 为 "0" 的子块已整块删除
 - [ ] `AbilityValues` 所有覆盖项带 `//` 原版对照
 - [ ] `AbilityTextureName` 已填写
+- [ ] 若 `AbilityBehavior` 含 `UNIT_TARGET`：已显式写入 `AbilityUnitTargetTeam`、`AbilityUnitTargetType`、`AbilityCastRange`、`SpellImmunityType`、`SpellDispellableType`、`AbilityCastPoint`、`AbilityCooldown`、`AbilityManaCost`
+- [ ] 若原版含 `IsGrantedByShard "1"` 或 `HasShardUpgrade "1"`：自定义块已覆盖为 `"0"`
 - [ ] 修正模式：已按原版同步 K 键（删同值、删已废键、补新键）
 - [ ] `addon_english.txt` 与 `addon_schinese.txt` 键集合一致，占位符与原版一致
 - [ ] 若进抽奖池，已改 lottery TS 列表
