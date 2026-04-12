@@ -557,11 +557,11 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"血魔将自己的鲜血撒向一片区域，伤害自身的同时对敌人造成伤害"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%每秒生命消耗/伤害："
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"范围："
-		//醉拳
+		// 酒仙 醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"醉拳"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss%%%概率闪避和暴击,主动激动后，获得30%%移速加成,闪避和攻击概率翻3倍"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%暴击伤害:"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"持续时间："
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"被动：有%miss%%%概率闪避攻击并造成%damage%%%暴击。<br><br>主动：进入醉拳状态，英雄开始左右摇晃醉步，获得%move_speed_bonus%%%移动速度加成，闪避与暴击概率提升至%crit_multiplier%倍，持续%duration%秒。"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%暴击伤害："
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"激活持续时间："
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"精准光环"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"卓尔游侠根据她自身的当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"

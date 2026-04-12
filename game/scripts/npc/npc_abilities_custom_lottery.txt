@@ -234,23 +234,26 @@
 		}
 
 	}
-	//酒仙 醉拳 未使用
+	//酒仙 醉拳
 	"brewmaster_drunken_boxing"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/brewmaster_drunken_boxing"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/brewmaster_drunken_boxing"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityTextureName"    		"brewmaster_drunken_brawler_crit"
+		"AbilityTextureName"			"brewmaster_drunken_brawler_crit"
 		"MaxLevel"						"5"
 
-		"AbilityCooldown"			"22"
-		"AbilityManaCost"			"80"
+		"AbilityCooldown"			"30"
+		"AbilityManaCost"			"80 90 100 110 120"
 
 		"AbilityValues"
 		{
-			"miss"		"15 20 25 30 35"
-			"damage"	"200 230 250 270 300"
-			"duration"	"5"
+			"miss"					"15 20 25 30 35"
+			"damage"				"200 230 260 290 320"
+			"duration"				"5"
+			"move_speed_bonus"		"30"
+			"crit_multiplier"		"3"
+			"sway_speed"			"300"
 		}
 	}
 	//血魔 血雾

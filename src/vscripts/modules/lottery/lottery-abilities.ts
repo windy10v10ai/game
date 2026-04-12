@@ -113,6 +113,7 @@ export const abilityTiersActive: Tier[] = [
       'abyssal_underlord_firestorm', // 火焰风暴
 
       // 自定义技能
+      'brewmaster_drunken_boxing', // 酒仙 醉拳
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
     ],

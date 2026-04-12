@@ -3,7 +3,7 @@ brewmaster_drunken_boxing = class({})
 function brewmaster_drunken_boxing:OnSpellStart()
 	EmitSoundOn( "Hero_Brewmaster.Brawler.Cast", self:GetCaster() )
 	
-	self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_brewmaster_drunken_move",{duration=5})
+	self:GetCaster():AddNewModifier(self:GetCaster(),self,"modifier_brewmaster_drunken_move",{duration=self:GetSpecialValueFor("duration")})
 end
 --被动
 function brewmaster_drunken_boxing:GetIntrinsicModifierName()
@@ -26,7 +26,7 @@ function modifier_brewmaster_drunken_move:DeclareFunctions()
 end
 --移速
 function modifier_brewmaster_drunken_move:GetModifierMoveSpeedBonus_Percentage()
-	return 30
+	return self:GetAbility():GetSpecialValueFor("move_speed_bonus")
 end
 --当创建
 function modifier_brewmaster_drunken_move:OnCreated(keys)
@@ -47,21 +47,19 @@ end
 --think
 function  modifier_brewmaster_drunken_move:OnIntervalThink()
 	self.time = self.time + self.interval
-	if self.time>self.cycle then
+	if self.time > self.cycle then
 		self.time = 0
 		self.dir = not self.dir
-		self.cycle = RandomFloat(0.5,1.5)
+		self.cycle = RandomFloat(0.5, 1.5)
 	end
-	-- self:GetLeftVector()
-	local pos
 	local caster = self:GetCaster()
-	local move_speed = self:GetCaster():GetMoveSpeedModifier(self:GetCaster():GetBaseMoveSpeed(),false)
+	local sway_speed = self:GetAbility():GetSpecialValueFor("sway_speed")
+	local offset = caster:GetLeftVector() * sway_speed * self.interval
 	if self.dir then
-		pos = caster:GetOrigin()+self:GetCaster():GetLeftVector()*400*self.interval
+		caster:SetOrigin(caster:GetOrigin() + offset)
 	else
-		pos = caster:GetOrigin()-self:GetCaster():GetLeftVector()*400*self.interval
+		caster:SetOrigin(caster:GetOrigin() - offset)
 	end
-	self:GetCaster():SetOrigin(pos)
 end
 
 
@@ -85,10 +83,10 @@ function modifier_brewmaster_drunken_boxing:GetModifierEvasion_Constant()
     return 100
 end
 function modifier_brewmaster_drunken_boxing:GetModifierPreAttack_CriticalStrike()
-	--主动概率翻3倍
+	--主动概率翻倍
 	local number = self:GetAbility():GetSpecialValueFor("miss")
 	if self:GetCaster():HasModifier("modifier_brewmaster_drunken_move") then
-		number = number*3
+		number = number * self:GetAbility():GetSpecialValueFor("crit_multiplier")
 	end
 	
 	if RandomInt(1, 100) <= number then

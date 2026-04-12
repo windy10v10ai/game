@@ -556,11 +556,11 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_Description"				"Bloodseeker sprays his blood continuously in the area around him, losing health to damage and slow his enemies."
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_damage"					"%HP PER SECOND COST/DAMAGE:"
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Radius:"
-		//醉拳
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"drunken_boxing"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% chance of dodge and critical hit. After active excitement, gain 30%% movement speed bonus, dodge and attack probability tripled"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Critical Damage:"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"duration："
+		// 酒仙 醉拳
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"Passive: %miss%% chance to dodge attacks and deal %damage%% critical damage.<br><br>Active: Enter Drunken state, staggering left and right uncontrollably. Gain %move_speed_bonus%% movement speed and %crit_multiplier%x dodge and crit chance for %duration% seconds."
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"ACTIVE DURATION:"
 		//精准光环
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
 		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received %trueshot_agi_bonus_allies_pct%%% of the bonus agility."
