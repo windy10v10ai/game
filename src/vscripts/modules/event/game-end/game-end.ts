@@ -7,6 +7,7 @@ import {
 import { ItemBuildDto } from '../../../api/analytics/dto/item-build-dto';
 import { PickDto } from '../../../api/analytics/dto/pick-ability-dto';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
+import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
 import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
@@ -183,8 +184,14 @@ export class GameEnd {
     //   });
     // }
 
-    // 发送 GA4 游戏结束事件（包括匹配时间和玩家性能）
-    GA4.SendGameEndEvents(gameEndDto);
+    // 发送 GA4 物品持有时长事件
+    GA4ItemTracker.SendAtGameEnd(
+      gameEndDto,
+      (name, steamId, params) => GA4.BuildEvent(name, steamId, params),
+      (steamId, events) => GA4.SendEvents(steamId, events),
+    );
+    // 发送 GA4 匹配时间事件
+    GA4.SendGameEndEvents();
   }
 
   /**

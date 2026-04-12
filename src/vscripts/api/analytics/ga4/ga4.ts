@@ -1,6 +1,5 @@
 import { GameConfig } from '../../../modules/GameConfig';
 import { reloadable } from '../../../utils/tstl-utils';
-import { GameEndDto } from '../dto/game-end-dto';
 import {
   GA4ConfigDto,
   GA4Event,
@@ -8,7 +7,6 @@ import {
   GA4UserProperty,
   SERVER_TYPE,
 } from './dto/ga4-dto';
-import { GA4ItemTracker, ItemSampleEntry } from './ga4-item-tracker';
 
 // 重新导出 SERVER_TYPE 供外部使用
 export { SERVER_TYPE };
@@ -253,52 +251,11 @@ export class GA4 {
     this.SendEvent(0, event);
   }
 
-  private static SendItemDurationEvents(
-    gameEndDto: GameEndDto,
-    trackedItems: Map<PlayerID, ItemSampleEntry[]>,
-  ) {
-    const eventName = 'game_end_item_duration';
-
-    gameEndDto.players.forEach((player) => {
-      const playerItems = trackedItems.get(player.playerId);
-      if (!playerItems || playerItems.length === 0) return;
-
-      const isBot = player.steamId <= 0;
-      const steamId = isBot ? 0 : player.steamId;
-
-      const itemEvents: GA4Event[] = [];
-      playerItems.forEach((entry) => {
-        const eventParams: { [key: string]: string | number | boolean } = {
-          hero_name: player.heroName,
-          item_name: entry.itemName,
-          type: entry.type,
-          is_carried_at_end: entry.isCarriedAtEnd,
-          is_bot: isBot,
-          difficulty: gameEndDto.difficulty,
-          team_id: player.teamId,
-        };
-
-        itemEvents.push(this.BuildEvent(eventName, steamId, eventParams));
-      });
-
-      if (itemEvents.length > 0) {
-        this.SendEvents(steamId, itemEvents);
-      }
-    });
-  }
-
   /**
-   * 发送游戏结束相关的所有事件
-   * 包括匹配时间事件和物品持有时长事件
-   * @param gameEndDto 游戏结束数据
+   * 发送游戏结束匹配时间事件
+   * 物品持有时长事件由 GA4ItemTracker.SendAtGameEnd 负责
    */
-  public static SendGameEndEvents(gameEndDto: GameEndDto) {
-    // 先收集物品数据，确保游戏单位仍存在
-    const trackedItems = GA4ItemTracker.CollectAtGameEnd();
-
-    // 物品持有时长事件不依赖真实时间，直接发送
-    this.SendItemDurationEvents(gameEndDto, trackedItems);
-
+  public static SendGameEndEvents() {
     // 匹配时间事件需要异步获取真实时间
     this.FetchCurrentTime((endRealTime) => {
       if (this.gameStartRealTime === null || this.gameStartDotatime === null) {

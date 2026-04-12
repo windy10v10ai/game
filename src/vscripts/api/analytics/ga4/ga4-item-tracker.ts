@@ -1,4 +1,6 @@
+import { GameEndDto } from '../dto/game-end-dto';
 import { PlayerHelper } from '../../../modules/helper/player-helper';
+import { GA4Event } from './dto/ga4-dto';
 
 export interface ItemSampleEntry {
   itemName: string;
@@ -83,11 +85,52 @@ export class GA4ItemTracker {
   }
 
   /**
-   * 游戏结束时调用：
-   * - 对当前持有的物品标记 isCarriedAtEnd = true，并记录补丁时长
-   * - 返回按 playerId 聚合的 Map
+   * 游戏结束时调用：收集物品数据并发送 GA4 事件
+   * @param gameEndDto 游戏结束数据
+   * @param buildEvent GA4.BuildEvent 的引用，避免循环依赖
+   * @param sendEvents GA4.SendEvents 的引用，避免循环依赖
    */
-  public static CollectAtGameEnd(): Map<PlayerID, ItemSampleEntry[]> {
+  public static SendAtGameEnd(
+    gameEndDto: GameEndDto,
+    buildEvent: (
+      eventName: string,
+      steamId: number,
+      params: { [key: string]: string | number | boolean },
+    ) => GA4Event,
+    sendEvents: (steamId: number, events: GA4Event[]) => void,
+  ): void {
+    const trackedItems = this.CollectAtGameEnd();
+    const eventName = 'game_end_item_duration';
+
+    gameEndDto.players.forEach((player) => {
+      const playerItems = trackedItems.get(player.playerId);
+      if (!playerItems || playerItems.length === 0) return;
+
+      const isBot = player.steamId <= 0;
+      const steamId = isBot ? 0 : player.steamId;
+
+      const itemEvents: GA4Event[] = [];
+      playerItems.forEach((entry) => {
+        const eventParams: { [key: string]: string | number | boolean } = {
+          hero_name: player.heroName,
+          item_name: entry.itemName,
+          type: entry.type,
+          is_carried_at_end: entry.isCarriedAtEnd,
+          is_bot: isBot,
+          difficulty: gameEndDto.difficulty,
+          team_id: player.teamId,
+        };
+
+        itemEvents.push(buildEvent(eventName, steamId, eventParams));
+      });
+
+      if (itemEvents.length > 0) {
+        sendEvents(steamId, itemEvents);
+      }
+    });
+  }
+
+  private static CollectAtGameEnd(): Map<PlayerID, ItemSampleEntry[]> {
     const endDotatime = GameRules.GetGameTime();
     const endPatchSeconds = endDotatime - this.lastSampleDotatime;
 
@@ -123,7 +166,6 @@ export class GA4ItemTracker {
       }
     });
 
-    // 聚合为 Map<PlayerID, ItemSampleEntry[]>
     const result = new Map<PlayerID, ItemSampleEntry[]>();
     this.samples.forEach((entry) => {
       const itemEntry: ItemSampleEntry = {
@@ -156,7 +198,6 @@ export class GA4ItemTracker {
       existing.isCarriedAtEnd = true;
       existing.endPatchSeconds = endPatchSeconds;
     } else {
-      // 上次采样后才买的物品
       this.samples.set(key, {
         playerId,
         itemName,
@@ -168,9 +209,6 @@ export class GA4ItemTracker {
     }
   }
 
-  /**
-   * 获取某个 entry 的实际持有时长（秒）
-   */
   public static GetDurationSeconds(entry: ItemSampleEntry): number {
     const patch = entry.isCarriedAtEnd ? entry.endPatchSeconds : 0;
     return entry.sampleCount * this.SAMPLE_INTERVAL_SECONDS + patch;
