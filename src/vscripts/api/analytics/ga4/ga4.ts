@@ -253,9 +253,8 @@ export class GA4 {
 
   /**
    * 发送游戏结束匹配时间事件
-   * 物品持有时长事件由 GA4ItemTracker.SendAtGameEnd 负责
    */
-  public static SendGameEndEvents() {
+  public static SendGameEndMatchTimeEvents() {
     // 匹配时间事件需要异步获取真实时间
     this.FetchCurrentTime((endRealTime) => {
       if (this.gameStartRealTime === null || this.gameStartDotatime === null) {
