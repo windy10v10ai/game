@@ -558,7 +558,8 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"Radius:"
 		// 酒仙 醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"Drunken Boxing"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"Passive: %miss%% chance to dodge attacks and deal %damage%% critical damage.<br><br>Active: Enter Drunken state, staggering left and right uncontrollably. Gain %move_speed_bonus%% movement speed and %crit_multiplier%x dodge and crit chance for %duration% seconds."
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"Passive: Chance to dodge attacks and deal critical damage.<br><br>Active: Enter Drunken state, staggering left and right uncontrollably. Gain %move_speed_bonus%% movement speed and %crit_multiplier%x dodge and crit chance for %duration% seconds."
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss" 			"%DODGE/CRIT CHANCE:"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"ACTIVE DURATION:"
 		//精准光环

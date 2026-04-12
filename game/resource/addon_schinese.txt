@@ -559,7 +559,8 @@
 		"DOTA_Tooltip_ability_bloodseeker_blood_mist2_radius"					"范围："
 		// 酒仙 醉拳
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing" 				"醉拳"
-		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"被动：有%miss%%%概率闪避攻击并造成%damage%%%暴击。<br><br>主动：进入醉拳状态，英雄开始左右摇晃醉步，获得%move_speed_bonus%%%移动速度加成，闪避与暴击概率提升至%crit_multiplier%倍，持续%duration%秒。"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"被动：有概率闪避攻击并造成暴击。<br><br>主动：进入醉拳状态，英雄开始左右摇晃醉步，获得%move_speed_bonus%%%移动速度加成，闪避与暴击概率提升至%crit_multiplier%倍，持续%duration%秒。"
+		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss" 			"%闪避/暴击概率："
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%暴击伤害："
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"激活持续时间："
 		//精准光环
