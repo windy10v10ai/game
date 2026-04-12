@@ -948,31 +948,6 @@
 	}
 
 
-	//迷雾诅咒
-	"abaddon_death_coil2"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/abaddon_death_coil2"
-		"AbilityTextureName"			"abaddon_death_coil_alliance"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-
-		"MaxLevel"						"5"
-
-		"AbilityManaCost"				"70 80 90 100 110"
-		"AbilityCooldown"				"8 7.5 7 6.5 6"
-		"AbilityCastRange"				"700"
-
-		"AbilityValues"
-		{
-			"heal"			"80 120 160 200 240"
-			"radius"		"250"
-			"duration"		"10"
-			"ad"			"0.3"
-		}
-	}
 	//幻影冲锋  未使用
 	"abaddon_phantom_charge"
 	{

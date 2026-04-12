@@ -753,13 +753,6 @@
 		"DOTA_Tooltip_ability_abaddon_phantom_charge_movespeed"			"%Movespeed:"
 		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"			"Base Damage:"
 		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"				"Attack Damage Addition Rate:"
-		//迷雾诅咒
-		"DOTA_Tooltip_ability_abaddon_death_coil2"				"Death Damnation"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_Description"	"Treat all units within the target range. Enemy units will apply a buff, which will deal twice the healing damage when the buff ends. When the target's health is lower than the buff's damage, it will immediately deal damage"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_heal"			"Heal:"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_radius"		"Radius:"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_ad"			"Attack Damage Addition Rate:"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_duration"		"Duration:"
 		//火雨降临
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"					"Firestorm Advent"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"		"Every %hit_count%th attack, summon a single instance of a Direstorm to deal damage to enemy units around the attacked target."

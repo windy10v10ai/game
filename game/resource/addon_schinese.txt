@@ -750,13 +750,6 @@
 		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"		"基础伤害："
 		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"			"攻击力伤害加成倍率："
 
-		"DOTA_Tooltip_ability_abaddon_death_coil2"		"迷雾诅咒"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_Description"		"治疗目标范围内的所有单位，敌方单位会施加一个buff，buff结束时会造成治疗量2倍的伤害，当目标生命值低于buff的伤害时会立即造成伤害"
-		"DOTA_Tooltip_ability_abaddon_death_coil2_heal"		"治疗量："
-		"DOTA_Tooltip_ability_abaddon_death_coil2_radius"	"范围："
-		"DOTA_Tooltip_ability_abaddon_death_coil2_ad"		"攻击力伤害加成倍率："
-		"DOTA_Tooltip_ability_abaddon_death_coil2_duration"	"持续时间："
-
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"								"火雨降临"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"					"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"						"范围："
