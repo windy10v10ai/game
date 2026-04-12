@@ -103,12 +103,11 @@ export class GA4ItemTracker {
 
     const eventName = 'game_end_item_duration';
     gameEndDto.players.forEach((player) => {
-      // 只统计真实玩家
-      const steamId = player.steamId;
-      if (steamId <= 0) return;
-
       const playerItems = byPlayer.get(player.playerId);
       if (!playerItems || playerItems.length === 0) return;
+
+      const steamId = player.steamId;
+      const isBot = steamId <= 0;
 
       const itemEvents = playerItems.map((entry) =>
         GA4.BuildEvent(eventName, steamId, {
@@ -120,6 +119,7 @@ export class GA4ItemTracker {
           is_carried_at_end: entry.isCarriedAtEnd,
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
+          is_bot: isBot,
         }),
       );
 
