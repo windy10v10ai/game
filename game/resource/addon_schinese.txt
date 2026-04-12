@@ -2771,16 +2771,15 @@
 
 		// 鹰眼战机
 		"DOTA_Tooltip_Ability_item_hawkeye_fighter"										"鹰眼战机"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"							"<h1><font color='#FFFF00'>主动: 人形战斗机</font></h1>激活战机模式,获得高空视野和极高的机动性。持续%active_duration%秒内,获得%active_movement_speed_pct%%%移速加成,变为飞行单位,无视地形移动,无视单位碰撞,无视移速上限,并施加弱驱散效果。<br><br>视野范围:根据英雄当前夜间视野动态调整<br>冷却时间:%AbilityCooldown%秒<br><br>驱散类型:<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"							"<h1><font color='#FFFF00'>主动: 人形战斗机</font></h1>激活战机模式，获得高空视野和极高的机动性。持续%active_duration%秒内，获得%active_movement_speed_pct%%%移速加成，变为飞行单位，无视地形移动，无视单位碰撞，无视移速上限，并施加弱驱散效果。<br><br>冷却时间：%AbilityCooldown%秒<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"								"化身战机,翱翔天际,无人能及。"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"				"+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"						"%+转身速率"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_status_resistance"				"%+状态抗性"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"								"战机模式"
-		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"					"获得高空视野,移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%,无视地形和单位碰撞。"
+		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"					"获得高空视野，移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，无视地形和单位碰撞。"
 
 		// 禁忌法锤 Forbidden Staff
 		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>禁忌法锤</font>"

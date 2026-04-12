@@ -2749,16 +2749,15 @@
 
 		// Hawkeye Fighter
 		"DOTA_Tooltip_Ability_item_hawkeye_fighter"                  "Hawkeye Fighter"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"      "<h1><font color='#FFFF00'>Active: Humanoid Fighter</font></h1>Take to the air and soar, gaining flying vision and movement for %active_duration% seconds with %active_movement_speed_pct%%% bonus movement speed and a removed movement speed cap. Applies a dispel on use.<br><br>Vision range dynamically adjusts based on hero's current night vision<br>Cooldown: %AbilityCooldown% seconds<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"      "<h1><font color='#FFFF00'>Active: Humanoid Fighter</font></h1>Take to the air and soar, gaining flying vision and movement for %active_duration% seconds with %active_movement_speed_pct%%% bonus movement speed and a removed movement speed cap. Applies a dispel on use.<br><br>Cooldown: %AbilityCooldown% seconds<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"             "Transform into a fighter, soaring through the skies, unmatched by anyone."
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"  "+$all"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct" "%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"  "%+Turn Rate"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_status_resistance" "%+Status Resistance"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"          "Fighter Mode"
-		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."
+		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining flying vision and unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."
 
 		// 禁忌法锤 Forbidden Staff
 		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>Forbidden Staff</font>"
