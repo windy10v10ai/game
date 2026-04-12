@@ -948,28 +948,6 @@
 	}
 
 
-	//幻影冲锋  未使用
-	"abaddon_phantom_charge"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/abaddon_phantom_charge"
-		"AbilityTextureName"			"phantom_lancer_doppelwalk"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		"MaxLevel"						"5"
-
-		"AbilityManaCost"				"80 90 100 110 120"
-		"AbilityCooldown"				"19 18 17 16 15"
-
-		"AbilityValues"
-		{
-			"silence_duration"	"2.5 3 3.5 4"
-			"movespeed"			"50"
-			"damage"			"50 90 130 170"
-			"ad"				"1.5"
-		}
-	}
 	//被动火雨
 	"abyssal_underlord_firestorm2"
 	{

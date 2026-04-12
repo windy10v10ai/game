@@ -743,13 +743,6 @@
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"		"范围："
 
 
-		"DOTA_Tooltip_ability_abaddon_phantom_charge"		"幻影冲锋"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"增加移速，免疫减速，下次攻击沉默目标并造成额外伤害。技能释放时制造两个幻象"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_silence_duration"	"沉默时间："
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_movespeed"		"%移速加成："
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"		"基础伤害："
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"			"攻击力伤害加成倍率："
-
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"								"火雨降临"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"					"每攻击%hit_count%次，召唤火雨对目标周围的敌方单位造成伤害"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_radius"						"范围："

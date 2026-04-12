@@ -746,13 +746,6 @@
 		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"				"DAMAGE RADIUS:"
 
 
-		//幻影冲锋
-		"DOTA_Tooltip_ability_abaddon_phantom_charge"					"Abaddon Phantom Charge"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_Description"		"Increase movement speed, immune deceleration, and deal additional damage to silent targets in the next attack. Create two illusions during skill release"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_silence_duration"	"Silence Duration:"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_movespeed"			"%Movespeed:"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_damage"			"Base Damage:"
-		"DOTA_Tooltip_ability_abaddon_phantom_charge_ad"				"Attack Damage Addition Rate:"
 		//火雨降临
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2"					"Firestorm Advent"
 		"DOTA_Tooltip_ability_abyssal_underlord_firestorm2_Description"		"Every %hit_count%th attack, summon a single instance of a Direstorm to deal damage to enemy units around the attacked target."
