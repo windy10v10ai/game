@@ -889,7 +889,14 @@
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"BONUS XP ASSIST:"
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"BONUS XP WARD/COURIER KILL:"
 
-		// 力量与魔法
+		// 拉比克 奇心
+		"DOTA_Tooltip_ability_rubick_curiosity2"								"Curiosity"
+		"DOTA_Tooltip_ability_rubick_curiosity2_Description"					"Rubick gains %curiosity_per_level% stack of Curiosity per level that grants him %curiosity_attack_damage% base damage, %curiosity_modifier_amp%%% Buff/Debuff Duration, and %curiosity_aoe_bonus% AOE Bonus. <br><br>If Rubick sees an enemy Hero cast an ability within %charge_radius% distance of him, he gains %curiosity_per_spell_cast% Curiosity for %curiosity_duration% seconds.  If an enemy Hero dies while Rubick has Curiosity from them and he damaged them in the last %grace_period% seconds, he gains %curiosity_per_kill% Curiosity permanently."
+		"DOTA_Tooltip_ability_rubick_curiosity2_curiosity_permanent_gain"		"CURIOSITY GAINED:"
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_debuff_amp"				"%BUFF/DEBUFF AMP:"
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_aoe_bonus"				"AREA OF EFFECT BONUS:"
+
+		// 拉比克 力量与魔法
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"Might and Magus"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"Rubick gains stacking bonus area of effect when he casts a spell."
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"					"AOE BONUS:"

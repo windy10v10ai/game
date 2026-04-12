@@ -90,7 +90,12 @@ description: >-
 2. `"BaseClass"` → 填原版技能名。
 3. `"Innate"` → 改为 `"0"`（**必须**，否则引擎仍按先天处理）。
 4. `"AbilityBehavior"` → 去掉 `DOTA_ABILITY_BEHAVIOR_HIDDEN`；抽奖用被动时改为 `"DOTA_ABILITY_BEHAVIOR_PASSIVE"`；保留主动/开关时按原版行为裁剪，确保无 `NOT_LEARNABLE` 等阻止显示的标志。
-5. `"AbilityValues"` → 复制全部字段与子键；每个数值右侧用 `//` 标注原版数值（多档整串对照）。
+5. `"AbilityValues"` → 复制字段与子键，但**排除以下项**（与 `update-abilities-override` P1 绝对禁止项保持一致）：
+   - 子块内含 `special_bonus_unique_*` / `special_bonus_facet_*` 的行 → 直接删除该行（天赋引用原版技能名，对自定义技能无效）
+   - 删除天赋行后，若子块的 `value` 为 `"0"` 且无其他有效子键 → 删除整个子块
+   - 子块内含 `special_bonus_scepter` / `special_bonus_shard` → 同上处理
+   
+   其余每个数值右侧用 `//` 标注原版数值（多档整串对照）。
 6. `"AbilityTextureName"` → 必填；参考原版资源或同英雄 persona 路径。
 7. 仅机制需要时补其他键（`MaxLevel`、`AbilityUnitDamageType` 等）；不删减仍被 Lua 读取的键。
 
@@ -128,7 +133,7 @@ description: >-
    ```
 2. 将键名中的原版技能名替换为自定义技能名，值保持与原版一致。
 3. 至少包含：`DOTA_Tooltip_ability_<name>`、`_Description`，以及说明中 `%变量名%` 对应的 `_<suffix>` 行。
-4. 同步写入 `game/resource/addon_english.txt` 与 `addon_schinese.txt`，遵循 localization-format-guide 的缩进与 tab 规则。
+4. 同步写入 `game/resource/addon_english.txt` 与 `addon_schinese.txt`，遵循 localization-format-guide 的缩进与 tab 规则。每组技能条目前加 `// 英雄名 技能名` 注释，条目后留一个空行；两个文件的注释内容**完全相同**（均使用中文注释）。
 5. 不沿用原版 Facet 文案键时可跳过 `Facet_` 条目。
 
 ---
@@ -152,6 +157,7 @@ description: >-
 - [ ] 新建时已叠加 override 额外设定
 - [ ] 流程 A：`"Innate" "0"` 且 `AbilityBehavior` 无 `HIDDEN`
 - [ ] 流程 B：Innate 字段按需处理，Behavior 与原版一致
+- [ ] `AbilityValues` 已排除 `special_bonus_unique_*` / `special_bonus_facet_*` / `special_bonus_scepter` / `special_bonus_shard` 天赋引用行；删除天赋行后 value 为 "0" 的子块已整块删除
 - [ ] `AbilityValues` 所有覆盖项带 `//` 原版对照
 - [ ] `AbilityTextureName` 已填写
 - [ ] 修正模式：已按原版同步 K 键（删同值、删已废键、补新键）

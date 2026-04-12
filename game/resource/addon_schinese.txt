@@ -881,7 +881,14 @@
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"助攻经验奖励："
 		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"击杀守卫/信使奖励经验："
 
-		// 力量与魔法
+		// 拉比克 奇心
+		"DOTA_Tooltip_ability_rubick_curiosity2"								"奇心"
+		"DOTA_Tooltip_ability_rubick_curiosity2_Description"					"拉比克现在每级获得%curiosity_per_level%层奇心的叠加效果，每层奇心提供%curiosity_attack_damage%点基础攻击力，%curiosity_modifier_amp%%%增益/减益增强，和%curiosity_aoe_bonus%作用范围加成。<br><br>如果拉比克看到%charge_radius%范围内有敌方英雄施放技能，他就会获得%curiosity_per_spell_cast%层奇心，持续%curiosity_duration%秒。如果当前提供临时奇心的敌人在受到来自拉比克的伤害后%grace_period%秒内阵亡，他就会永久获得%curiosity_per_kill%层奇心."
+		"DOTA_Tooltip_ability_rubick_curiosity2_curiosity_permanent_gain"		"奇心层数："
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_debuff_amp"				"%增益/减益增强："
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_aoe_bonus"				"%作用范围加成："
+
+		// 拉比克 力量与魔法
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"力量与魔法"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_Description"				"拉比克施放法术时获得可叠加的作用范围加成。"
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"				"作用范围加成："

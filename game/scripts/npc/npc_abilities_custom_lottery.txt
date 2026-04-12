@@ -635,6 +635,45 @@
 			"tick_attack_damage_pct"		"20 25 30 35 40"
 		}
 	}
+	//奇心 拉比克 先天
+	"rubick_curiosity2"
+	{
+		"BaseClass"						"rubick_curiosity"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"rubick_curiosity"
+
+		"AbilityValues"
+		{
+			"curiosity_per_spell_cast"			"2"				// 2
+			"curiosity_duration"				"20"			// 20
+			"curiosity_per_level"				"1"				// 1
+			"curiosity_attack_damage"			"1"				// 1
+			"curiosity_modifier_amp"			"0.3"			// 0.3
+			"curiosity_aoe_bonus"				"2"				// 2
+			"curiosity_per_kill"				"1"				// 1
+			"grace_period"						"3"				// 3
+			"charge_radius"
+			{
+				"value"						"1200"				// 1200
+				"affected_by_aoe_increase"	"1"
+			}
+			"curiosity_permanent_gain"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_debuff_amp"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_aoe_bonus"
+			{
+				"dynamic_value"				"true"
+			}
+		}
+	}
 	//力量与魔法 拉比克
 	"rubick_might_and_magus2"
 	{

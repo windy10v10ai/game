@@ -198,6 +198,7 @@ export const abilityTiersPassive: Tier[] = [
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
+      'rubick_curiosity2', // 拉比克 先天 奇心
       'rubick_might_and_magus2', // 拉比克 力量与魔法
 
       'ability_trigger_learned_skills', //蓝蝴蝶
