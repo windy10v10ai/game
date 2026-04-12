@@ -5596,7 +5596,7 @@
 		"AbilityTextureName"		"fusion_hawkeye"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"29999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5605,10 +5605,10 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"720"	// 12分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"240"
+		"ItemStockTime"				"180"
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"  // 添加:不可拆解
 	}
 
@@ -5631,10 +5631,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"720"	// 12分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"240"
+		"ItemStockTime"				"180"
 	}
 
 	// 暴虐符文
@@ -5646,7 +5646,7 @@
 		"AbilityTextureName"		"fusion_brutal"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"29999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5656,10 +5656,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"900"	// 16分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"240"
+		"ItemStockTime"				"180"
 	}
 
 	// 兽化符文
@@ -5671,7 +5671,7 @@
 		"AbilityTextureName"		"fusion_beast"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"29999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5681,7 +5681,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 16分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5696,7 +5696,7 @@
 		"AbilityTextureName"		"fusion_life"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"29999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5706,10 +5706,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"900"	// 16分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"240"
+		"ItemStockTime"				"180"
 	}
 
 	// 暗影符文
@@ -5731,10 +5731,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"720"	// 16分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"240"
+		"ItemStockTime"				"180"
 	}
 
 	// 魔化符文
@@ -5746,7 +5746,7 @@
 		"AbilityTextureName"		"fusion_magic"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"29999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5756,10 +5756,10 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"1200"	// 16分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
-		"ItemStockTime"				"240"
+		"ItemStockTime"				"180"
 	}
 
 	// 灵动符文
@@ -5771,7 +5771,7 @@
 		"AbilityTextureName"		"fusion_agile"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"29999"
+		"ItemCost"					"20000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5781,11 +5781,12 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"960"	// 16分钟买
+		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"2"
-		"ItemStockTime"				"120"
+		"ItemStockTime"				"180"
 	}
+
 	//=================================================================================================================
 	// 通用符文 - 自动合成物品
 	//=================================================================================================================
@@ -5801,7 +5802,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"79999"
+		"ItemCost"					"39999"
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"
 		"ItemPermanent"				"0"
@@ -5813,7 +5814,7 @@
 		"ItemInitialStockTime"		"60"	// 0分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
-		"ItemStockTime"				"300"
+		"ItemStockTime"				"60"
 		"AbilityCooldown"			"1.0"
 	}
 
