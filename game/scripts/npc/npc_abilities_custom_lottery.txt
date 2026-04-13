@@ -202,6 +202,45 @@
 		}
 	}
 
+	//贪婪
+	"alchemist_goblins_greed2"
+	{
+		"BaseClass"						"alchemist_goblins_greed"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"alchemist_goblins_greed"
+		"Innate"						"0"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"duration"				"40"
+			"bonus_gold"			"2"
+			"bonus_bonus_gold"		"2"
+			"bounty_multiplier"		"2"
+			"bonus_gold_cap"		"16 18 20 22 24"
+			"damage"				"2"
+			"starting_gold_bonus"	"250"
+		}
+	}
+	//赏金 妙手空空 技能偷钱
+	"bounty_hunter_cutpurse2"
+	{
+		"BaseClass"						"bounty_hunter_cutpurse"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"DependentOnAbility"			""
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
+
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+
+		"AbilityValues"
+		{
+			"gold_steal"					"4 6 8 10 12"
+		}
+	}
+
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================
@@ -286,48 +325,9 @@
 
 		"AbilityValues"
 		{
-			"dodge_chance_pct"		"12 15 18 21 24"
+			"dodge_chance_pct"		"16 20 24 28 32"
 		}
 	}
-	//贪婪
-	"alchemist_goblins_greed2"
-	{
-		"BaseClass"						"alchemist_goblins_greed"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"alchemist_goblins_greed"
-		"Innate"						"0"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"duration"				"40"
-			"bonus_gold"			"2"
-			"bonus_bonus_gold"		"2"
-			"bounty_multiplier"		"2"
-			"bonus_gold_cap"		"16 18 20 22 24"
-			"damage"				"2"
-			"starting_gold_bonus"	"250"
-		}
-	}
-	//赏金 妙手空空 技能偷钱
-	"bounty_hunter_cutpurse2"
-	{
-		"BaseClass"						"bounty_hunter_cutpurse"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"DependentOnAbility"			""
-		"MaxLevel"						"5"
-		"Innate"						"0"
-		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
-
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-
-		"AbilityValues"
-		{
-			"gold_steal"					"4 6 8 10 12"
-		}
-	}
-
 
 	//炽烈火雨
 	"clinkz_burning_barrage2"
