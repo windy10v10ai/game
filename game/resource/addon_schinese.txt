@@ -611,8 +611,6 @@
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"			"额外金钱奖励："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"最高额外金钱："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"赏金神符奖励倍数："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"每层攻击力加成："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"升级金钱奖励："
 
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"普通一拳"
@@ -625,7 +623,7 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"攻击力伤害加成倍率："
 		//妙手空空
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"妙手空空"
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"赏金猎人以敌方英雄为目标施放技能和物品时会偷取金钱。"
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"赏金猎人以敌方英雄为目标施放技能和物品时会偷取%gold_steal%金钱。"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"金钱偷取："
 
 
