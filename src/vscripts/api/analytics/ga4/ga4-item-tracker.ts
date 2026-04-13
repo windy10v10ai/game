@@ -1,5 +1,5 @@
-import { GameEndDto } from '../dto/game-end-dto';
 import { PlayerHelper } from '../../../modules/helper/player-helper';
+import { GameEndDto } from '../dto/game-end-dto';
 import { GA4 } from './ga4';
 
 export interface ItemSampleEntry {
@@ -106,8 +106,8 @@ export class GA4ItemTracker {
       const playerItems = byPlayer.get(player.playerId);
       if (!playerItems || playerItems.length === 0) return;
 
-      const isBot = player.steamId <= 0;
-      const steamId = isBot ? 0 : player.steamId;
+      const steamId = player.steamId;
+      const isBot = steamId <= 0;
 
       const itemEvents = playerItems.map((entry) =>
         GA4.BuildEvent(eventName, steamId, {
@@ -117,9 +117,9 @@ export class GA4ItemTracker {
           sample_count: entry.sampleCount,
           duration_seconds: entry.sampleCount * GA4ItemTracker.SAMPLE_INTERVAL_SECONDS,
           is_carried_at_end: entry.isCarriedAtEnd,
-          is_bot: isBot,
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
+          is_bot: isBot,
         }),
       );
 
