@@ -193,65 +193,8 @@
 				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"trueshot_agi_bonus"
-			{
-				"value"				"10 15 20 25 30"		// 10
-				"hero_levelup"		"+0.5"
-			}
+			"trueshot_agi_bonus"				"7 14 21 28 35"		// 10 + hero_levelup +0.5, lv50 ≈ 35
 			"trueshot_agi_bonus_allies_pct"		"50"
-		}
-
-	}
-	//酒仙 醉拳
-	"brewmaster_drunken_boxing"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/brewmaster_drunken_boxing"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityTextureName"			"brewmaster_drunken_brawler_crit"
-		"MaxLevel"						"5"
-
-		"AbilityCooldown"			"30"
-		"AbilityManaCost"			"80 90 100 110 120"
-
-		"AbilityValues"
-		{
-			"miss"					"15 20 25 30 35"
-			"damage"				"200 230 260 290 320"
-			"duration"				"5"
-			"move_speed_bonus"		"30"
-			"crit_multiplier"		"3"
-			"sway_speed"			"300"
-		}
-	}
-	//血魔 血雾
-	"bloodseeker_blood_mist2"
-	{
-		"MaxLevel"							"5"
-		"BaseClass"							"ability_lua"
-		"AbilityTextureName"				"bloodseeker_blood_mist"
-		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
-
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityType"						"ABILITY_TYPE_BASIC"
-
-		"AbilityCastRange"					"450"
-
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
-		}
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"450"
-				"affected_by_aoe_increase"	"1"
-			}
-			"damage"					"4 5 6 7 8"
 		}
 	}
 	// 猛犸 长角抛物
@@ -772,6 +715,58 @@
 // lua 技能
 //=================================================================================================================
 
+	//酒仙 醉拳
+	"brewmaster_drunken_boxing"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/brewmaster_drunken_boxing"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"			"brewmaster_drunken_brawler_crit"
+		"MaxLevel"						"5"
+
+		"AbilityCooldown"			"30"
+		"AbilityManaCost"			"80 90 100 110 120"
+
+		"AbilityValues"
+		{
+			"miss"					"15 20 25 30 35"
+			"damage"				"200 230 260 290 320"
+			"duration"				"5"
+			"move_speed_bonus"		"30"
+			"crit_multiplier"		"3"
+			"sway_speed"			"300"
+		}
+	}
+	//血魔 血雾
+	"bloodseeker_blood_mist2"
+	{
+		"MaxLevel"							"5"
+		"BaseClass"							"ability_lua"
+		"AbilityTextureName"				"bloodseeker_blood_mist"
+		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
+
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"						"ABILITY_TYPE_BASIC"
+
+		"AbilityCastRange"					"450"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"450"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage"					"4 5 6 7 8"
+		}
+	}
 	// FIXME 用原版技能替代
 	//斧王 一人成军
 	"axe_one_man_army2"
