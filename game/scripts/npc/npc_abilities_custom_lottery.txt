@@ -235,6 +235,26 @@
 		}
 	}
 
+	//冰女 先天 冰川护体
+	"crystal_maiden_glacial_guard2"
+	{
+		"BaseClass"						"crystal_maiden_glacial_guard"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"crystal_maiden_glacial_guard"
+
+		"AbilityValues"
+		{
+			"mana_multiplier"
+			{
+				"value"					"50"		// 30
+				"hero_levelup"			"+3"		// +2
+			}
+			"barrier_duration"			"12"		// 8
+		}
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================
@@ -351,26 +371,7 @@
 			"archers_use_barrage"		"0"
 		}
 	}
-	//冰女 先天 冰川护体
-	"crystal_maiden_glacial_guard2"
-	{
-		"BaseClass"						"crystal_maiden_glacial_guard"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"MaxLevel"						"1"
-		"IsBreakable"					"1"
-		"AbilityTextureName"			"crystal_maiden_glacial_guard"
 
-		"AbilityValues"
-		{
-			"mana_multiplier"
-			{
-				"value"					"50"		// 30
-				"hero_levelup"			"+3"		// +2
-			}
-			"barrier_duration"			"12"		// 8
-		}
-	}
 	//才思敏捷
 	"dark_seer_quick_wit2"
 	{
@@ -457,7 +458,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
 		"Innate"						"0"
-		"AbilityTextureName"    		"clinkz_tar_bomb"
+		"AbilityTextureName"			"clinkz_tar_bomb"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"						"5"
 
