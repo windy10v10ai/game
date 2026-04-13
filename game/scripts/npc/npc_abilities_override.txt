@@ -9060,7 +9060,7 @@
 		{
 			"mana_multiplier"
 			{
-				"value"					"50"		// 30
+				"value"					"100"		// 30
 				"hero_levelup"			"+3"		// +2
 			}
 			"barrier_duration"			"12"		// 8

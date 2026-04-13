@@ -241,18 +241,14 @@
 		"BaseClass"						"crystal_maiden_glacial_guard"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
 		"IsBreakable"					"1"
 		"AbilityTextureName"			"crystal_maiden_glacial_guard"
 
 		"AbilityValues"
 		{
-			"mana_multiplier"
-			{
-				"value"					"50"		// 30
-				"hero_levelup"			"+3"		// +2
-			}
-			"barrier_duration"			"12"		// 8
+			"mana_multiplier"			"100 125 150 175 200"		// 30 + hero_levelup +2, lv50 ≈ 197
+			"barrier_duration"			"12"					// 8
 		}
 	}
 	//=================================================================================================================
