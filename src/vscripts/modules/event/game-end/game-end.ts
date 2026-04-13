@@ -4,7 +4,6 @@ import {
   GameEndGameOptionsDto,
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
-import { ItemBuildDto } from '../../../api/analytics/dto/item-build-dto';
 import { PickDto } from '../../../api/analytics/dto/pick-ability-dto';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
@@ -172,18 +171,6 @@ export class GameEnd {
       });
     }
 
-    // 收集并发送物品出装统计
-    // const items = this.CollectItemBuilds(gameEndDto.players);
-    // if (items.length > 0) {
-    //   Analytics.SendGameEndItemBuildsEvent({
-    //     matchId: gameEndDto.matchId,
-    //     version: gameEndDto.version,
-    //     difficulty: gameEndDto.difficulty,
-    //     items,
-    //     isWin,
-    //   });
-    // }
-
     // 发送 GA4 物品持有时长事件
     GA4ItemTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 匹配时间事件
@@ -237,58 +224,5 @@ export class GameEnd {
     });
 
     return picks;
-  }
-
-  /**
-   * 收集玩家的物品出装数据
-   */
-  private static CollectItemBuilds(players: GameEndPlayerDto[]): ItemBuildDto[] {
-    const items: ItemBuildDto[] = [];
-
-    players.forEach((player) => {
-      // 只统计真实玩家 (steamId > 0)
-      if (player.steamId <= 0) {
-        return;
-      }
-
-      const hero = PlayerResource.GetSelectedHeroEntity(player.playerId);
-      if (!hero) {
-        return;
-      }
-
-      const itemBuild: ItemBuildDto = {
-        steamId: player.steamId,
-      };
-
-      // 收集普通物品槽位 (slot 0-5)
-      for (let i = 0; i < 6; i++) {
-        const item = hero.GetItemInSlot(i);
-        if (item) {
-          const itemName = item.GetAbilityName();
-          // 根据槽位索引设置对应的 slot 字段
-          if (i === 0) itemBuild.slot1 = itemName;
-          else if (i === 1) itemBuild.slot2 = itemName;
-          else if (i === 2) itemBuild.slot3 = itemName;
-          else if (i === 3) itemBuild.slot4 = itemName;
-          else if (i === 4) itemBuild.slot5 = itemName;
-          else if (i === 5) itemBuild.slot6 = itemName;
-        }
-      }
-
-      // 收集中立物品槽位
-      const neutralActiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-      if (neutralActiveItem) {
-        itemBuild.neutralActiveSlot = neutralActiveItem.GetAbilityName();
-      }
-
-      const neutralPassiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-      if (neutralPassiveItem) {
-        itemBuild.neutralPassiveSlot = neutralPassiveItem.GetAbilityName();
-      }
-
-      items.push(itemBuild);
-    });
-
-    return items;
   }
 }
