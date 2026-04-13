@@ -21,6 +21,7 @@ const runeNames = {
   item_fusion_agile: { zh: '灵动符文', en: 'Agile Fusion' },
 };
 
+// FIXME 临时禁用融合符文额外刷新次数
 @reloadable
 export class FusionRuneManager {
   // 符文物品名称列表

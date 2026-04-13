@@ -1,5 +1,5 @@
-import { GameConfig } from '../../modules/GameConfig';
-import { reloadable } from '../../utils/tstl-utils';
+import { GameConfig } from '../../../modules/GameConfig';
+import { reloadable } from '../../../utils/tstl-utils';
 import {
   GA4ConfigDto,
   GA4Event,
@@ -7,7 +7,6 @@ import {
   GA4UserProperty,
   SERVER_TYPE,
 } from './dto/ga4-dto';
-import { GameEndDto, GameEndPlayerDto } from './dto/game-end-dto';
 
 // 重新导出 SERVER_TYPE 供外部使用
 export { SERVER_TYPE };
@@ -119,7 +118,7 @@ export class GA4 {
   }
 
   /**
-   * 在单个请求中向 GA4 发送多个事件
+   * 向 GA4 发送多个事件，自动按 GA4 上限（25）分批
    * @param steamId Steam ID（非玩家单位时使用0）
    * @param events GA4 事件数组
    * @param userProperties 用户属性（可选）
@@ -130,19 +129,20 @@ export class GA4 {
       return;
     }
 
-    // 构建 payload
-    const payload: GA4EventPayload = {
-      client_id: steamId.toString(),
-      user_id: steamId.toString(),
-      events: events,
-    };
+    const BATCH_SIZE = 25;
+    for (let i = 0; i < events.length; i += BATCH_SIZE) {
+      const payload: GA4EventPayload = {
+        client_id: steamId.toString(),
+        user_id: steamId.toString(),
+        events: events.slice(i, i + BATCH_SIZE),
+      };
 
-    if (userProperties) {
-      payload.user_properties = userProperties;
+      if (userProperties) {
+        payload.user_properties = userProperties;
+      }
+
+      this.SendPayload(payload);
     }
-
-    // 发送到 GA4
-    this.SendPayload(payload);
   }
 
   /**
@@ -252,89 +252,10 @@ export class GA4 {
   }
 
   /**
-   * 发送玩家级别事件（内部方法）
-   * 为每个玩家发送数据事件
-   * @param players 游戏结束时的玩家数据
-   * @param realDurationRatio 现实时间/游戏时间比例
+   * 发送游戏结束匹配时间事件
    */
-  private static SendPlayerLevelEvents(gameEndDto: GameEndDto, realDurationRatio: number) {
-    gameEndDto.players.forEach((player) => {
-      // 只统计真实玩家
-      if (player.steamId <= 0) {
-        return;
-      }
-      const itemEvents: GA4Event[] = this.BuildItemEvents(player, gameEndDto, realDurationRatio);
-
-      this.SendEvents(player.steamId, itemEvents);
-    });
-  }
-
-  /**
-   * 发送物品性能事件（内部方法）
-   * 为每个物品发送单独的事件，便于按物品维度统计
-   * @param players 游戏结束时的玩家数据
-   * @param gameEndDto 游戏结束数据
-   * @param realDurationRatio 现实时间/游戏时间比例
-   */
-  private static BuildItemEvents(
-    player: GameEndPlayerDto,
-    gameEndDto: GameEndDto,
-    realDurationRatio: number,
-  ): GA4Event[] {
-    // 遍历每个玩家的物品数据
-    const eventName = 'game_end_item_build';
-    const itemSlots: { name: string; type: string }[] = [];
-
-    const hero = PlayerResource.GetSelectedHeroEntity(player.playerId);
-    if (!hero) {
-      return [];
-    }
-
-    for (let i = 0; i < 6; i++) {
-      const item = hero.GetItemInSlot(i);
-      if (item) {
-        itemSlots.push({ name: item.GetAbilityName(), type: 'normal' });
-      }
-    }
-
-    const neutralActiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
-    if (neutralActiveItem) {
-      itemSlots.push({ name: neutralActiveItem.GetAbilityName(), type: 'neutral_active' });
-    }
-
-    const neutralPassiveItem = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
-    if (neutralPassiveItem) {
-      itemSlots.push({ name: neutralPassiveItem.GetAbilityName(), type: 'neutral_passive' });
-    }
-
-    // 收集该玩家的所有物品事件
-    const itemEvents: GA4Event[] = [];
-    itemSlots.forEach((slot) => {
-      const eventParams: { [key: string]: string | number | boolean } = {
-        hero_name: player.heroName,
-        item_name: slot.name,
-        type: slot.type,
-        difficulty: gameEndDto.difficulty,
-        win_metrics: gameEndDto.isWin,
-        team_id: player.teamId,
-        real_duration_ratio: realDurationRatio,
-      };
-
-      const event = this.BuildEvent(eventName, player.steamId, eventParams);
-      itemEvents.push(event);
-    });
-
-    return itemEvents;
-  }
-
-  /**
-   * 发送游戏结束相关的所有事件
-   * 包括匹配时间事件和玩家性能事件
-   * @param players 游戏结束时的玩家数据
-   * @param items 玩家物品数据
-   */
-  public static SendGameEndEvents(gameEndDto: GameEndDto) {
-    // 异步获取当前真实时间
+  public static SendGameEndMatchTimeEvents() {
+    // 匹配时间事件需要异步获取真实时间
     this.FetchCurrentTime((endRealTime) => {
       if (this.gameStartRealTime === null || this.gameStartDotatime === null) {
         print('[GA4] Game start real time not recorded, skipping event send');
@@ -349,11 +270,7 @@ export class GA4 {
       const realDuration = endRealTime - this.gameStartRealTime;
       const realDurationRatio = realDuration / dotaDuration;
 
-      // 发送匹配时间事件
       this.SendMatchTimingEvent(realDurationRatio, dotaDuration, realDuration);
-
-      // 发送玩家级别事件
-      this.SendPlayerLevelEvents(gameEndDto, realDurationRatio);
     });
   }
 }

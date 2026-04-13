@@ -715,9 +715,10 @@
 	{
 		"AbilityValues"
 		{
-			"attack_speed"		"100"	// 50
-			"hp_regen"		"100"	// 40
-			"move_speed"			"60"	// 30
+			"duration"					"10"		// 15
+			"attack_speed"				"150"		// 50
+			"hp_regen"					"120"		// 40
+			"move_speed"				"90"		// 30
 		}
 	}
 	// 贪魔的贪婪 先天
@@ -2225,14 +2226,6 @@
 			"movespeed_bonus"
 			{
 				"value"				"6 9 12 15 18"
-			}
-			"status_resist"
-			{
-				"value"				"20"		// 0
-			}
-			"bonus_armor"
-			{
-				"value"				"5 10 15 20 25"		// 0 差值5
 			}
 		}
 	}
@@ -4282,7 +4275,7 @@
 			{
 				"value"				"30 70 110 150 190"	// 15 35 55 75 x2
 			}
-			"damage_cleanse"							"600 550 500 450 400"
+			"damage_cleanse"							"600"	// 600 550 500 450 固定600
 			"active_duration"								"6.0"	// 4
 		}
 	}
@@ -4359,12 +4352,12 @@
 		{
 				"AbilityCastRange"
 				{
-					"special_bonus_unique_tiny_4" "+400"	// 200
+					"special_bonus_unique_tiny_4" "+400"	// +150
 				}
 				"avalanche_damage"
 				{
-					"value"				"120 240 360 480"		// 100 190 280 370 加强
-					"special_bonus_unique_tiny"			"+220"	// 100
+					"value"				"120 240 360 480"		// 90 180 270 360 加强
+					"special_bonus_unique_tiny"			"+220"	// +90
 				}
 		}
 	}
@@ -4374,7 +4367,6 @@
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"800 900 1000 1100 1200"
 		"AbilityCooldown"				"18 16 14 12 10"
-		"AbilityManaCost"				"110 125 140 155 170"
 		"AbilityValues"
 		{
 			"duration"				"0.8"	// 1.25
@@ -4382,38 +4374,19 @@
 			{
 				"value"				"180 270 360 450 540"	// 90 180 270 360 +90
 			}
-			"radius"
-			{
-				"value"		"275"
-				"special_bonus_facet_tiny_crash_landing"				"=700"		// =400 +300
-			}
-			"land_movement_slow"
-			{
-				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"40 50 60 70 80"	// 20 25 30 35 x2
-			}
-			"land_attack_slow"
-			{
-				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"30 50 70 90 110"	// 15 25 35 45 x2
-			}
-			"bonus_land_damage_pct"
-			{
-				"value"						"0"
-				"special_bonus_facet_tiny_crash_landing"				"40"		// 20 x2
-			}
 		}
 	}
 	// 抓树
 	"tiny_tree_grab"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityCooldown"				"16 14 12 10 8"	// 15 12 9 6
 		"AbilityValues"
 		{
 			"attack_count"
 			{
-				"value"					"10 15 20 25 30"	// 5
+				"value"					"10 15 20 25 30"	// 5 6 7 8 9
+				"special_bonus_shard"			"+50"		// 额外添加魔晶效果
 			}
 			"bonus_damage"
 			{
@@ -4421,9 +4394,22 @@
 			}
 			"bonus_damage_buildings"
 			{
-				"value"							"20 30 40 50 60"
+				"value"							"20 30 40 50 60"	// 30 40 50 60 70
 			}
-			"splash_pct"				"60 70 80 90 100"
+			"splash_pct"				"60 70 80 90 100"	// 70 80 90 100 110
+		}
+	}
+	// 扔树
+	"tiny_toss_tree"
+	{
+		"MaxLevel"						"5"
+		"AbilityValues"
+		{
+			"bonus_damage"
+			{
+				"value"							"20 40 60 80 100"	// 10 20 30 40 x2
+				"special_bonus_shard"			"+100"		// 额外添加魔晶效果
+			}
 		}
 	}
 	// 树木连掷
@@ -4445,7 +4431,7 @@
 				"bonus_armor"				"10 20 30 40"		// 5 10 15 x2
 				"bonus_damage"
 				{
-					"value"					"110 220 330 440"		// 55 110 165 x2
+					"value"					"120 240 360 480"		// 60 120 180 x2
 				}
 				"attack_speed_reduction"
 				{
@@ -4456,16 +4442,7 @@
 				{
 					"value"					"100 350 600 850"		// 50 175 300 x2
 				}
-				"move_speed"		"20 40 60 80"		// x2
-		}
-	}
-	// 崎岖外表（先天随大招升级）
-	"tiny_craggy_exterior"
-	{
-		"MaxLevel"						"5"
-		"AbilityValues"
-		{
-			"damage_reduction_per_stack"					"2 3 4 5 6"
+				"move_speed"		"20 40 60 80"		// 10 20 30 x2
 		}
 	}
 	// 不可逾越 先天技能
@@ -7934,8 +7911,8 @@
 		{
 			"instances"
 			{
-				"value"						"4 6 8 10 12"
-				"special_bonus_unique_templar_assassin"		"+8"	// +4
+				"value"						"6 8 10 12 14"	// 3 4 5 6 x2
+				"special_bonus_unique_templar_assassin"		"+8"	// +4 x2
 			}
 			"shield_per_instance"
 			{
@@ -7951,7 +7928,7 @@
 	"templar_assassin_meld"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"12 10 8 6 4"
+		"AbilityCooldown"				"11 9 7 5 3"
 		"AbilityManaCost"				"35 40 45 50 55"
 		"AbilityValues"
 		{
@@ -7965,16 +7942,7 @@
 			}
 			"bash_duration"
 			{
-				"value"				"0"
-				"special_bonus_unique_templar_assassin_7"			"=2.0"
-			}
-			"attack_range_increase_max"
-			{
-				"special_bonus_facet_templar_assassin_hidden_reach"			"800"
-			}
-			"attack_range_increase_time"
-			{
-				"special_bonus_facet_templar_assassin_hidden_reach"			"8"
+				"special_bonus_unique_templar_assassin_7"			"=2.0"	// =0.8
 			}
 		}
 	}
@@ -7986,20 +7954,20 @@
 		{
 				"bonus_attack_range"
 				{
-					"value"		"100 150 200 250 300"		// +50
+					"value"		"50 100 150 200 250"
 				}
 				"attack_spill_range"
 				{
 					"value"							"400 500 600 700 800"
 				}
-				"attack_spill_pct"			"60 70 80 90 100"
+				"attack_spill_pct"			"70 80 90 100 110"
 		}
 	}
 	// 灵能陷阱
 	"templar_assassin_psionic_trap"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"11.0 9.0 7.0 5.0"
+		"AbilityCooldown"				"11.0 9.0 7.0 5.0"		// 11.0 8.0 5.0 末档封底5.0差值-2
 		"AbilityValues"
 		{
 			"max_traps"
@@ -8020,7 +7988,29 @@
 	// 灵能投射
 	"templar_assassin_trap_teleport"
 	{
-		"MaxLevel" "4"
+		"MaxLevel" "4" // 保持和灵能陷阱一致
+	}
+	// 内心平静 先天技能
+	"templar_assassin_inner_peace"
+	{
+		"AbilityValues"
+		{
+			"max_hp_regen"
+			{
+				"value"						"27"	// 2.7
+				"hero_levelup"				"+3"	// +0.3
+			}
+			"max_mana_regen"
+			{
+				"value"						"22"	// 2.2
+				"hero_levelup"				"+2"	// +0.2
+			}
+			"time_until_max_bonus"
+			{
+				"value"						"0.5"	// 2.05
+				"hero_levelup"				"-0.00"		// -0.05 防止出现负数
+			}
+		}
 	}
 	//=================================================================================================================
 	// Ability: Terrorblade 恐怖利刃/TB
@@ -9146,6 +9136,19 @@
 			{
 				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6 11 14 15"
 			}
+		}
+	}
+	// 先天 冰川护体
+	"crystal_maiden_glacial_guard"
+	{
+		"AbilityValues"
+		{
+			"mana_multiplier"
+			{
+				"value"					"50"		// 30
+				"hero_levelup"			"+3"		// +2
+			}
+			"barrier_duration"			"12"		// 8
 		}
 	}
 	//=================================================================================================================
@@ -11370,21 +11373,15 @@
 			"orb_speed"
 			{
 				"value"					"800"
-				"special_bonus_facet_puck_curveball"			"+400"
 			}
 			"damage"
 			{
 				"value"										"150 225 300 375 450"
-				"special_bonus_unique_puck_orb_damage"		"+100"
+				"special_bonus_unique_puck_orb_damage"		"+100"	// +40
 			}
 			"AbilityCooldown"
 			{
 				"value"								"10 9 8 7 6"
-			}
-			"vector_reticle_distance"
-			{
-				"value"								"0"
-				"special_bonus_facet_puck_curveball"			"400.0"
 			}
 		}
 	}
@@ -11403,18 +11400,8 @@
 				}
 				"damage"
 				{
-					"value"		"90 180 270 360 450"		// x1.5
-					"special_bonus_unique_puck_6"	"+120"	// x2
-				}
-				"knock_distance"
-				{
-					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+100 +150 +200 +250 +300"
-				}
-				"pull_distance"
-				{
-					"affected_by_aoe_increase"	"1"
-					"special_bonus_facet_puck_jostling_rift"	"+100 +150 +200 +250 +300"
+					"value"		"90 180 270 360 450"		// 60 120 180 240 300 x1.5
+					"special_bonus_unique_puck_6"	"+120"	// +60 x2
 				}
 				"AbilityCooldown"
 				{
@@ -11432,7 +11419,7 @@
 				"duration"					"1 1.5 2.0 2.5 3.0"
 				"AbilityCooldown"
 				{
-					"value"				"7.7" // 6.7-8.8之间，cd点满出大刷新拿到法术棱镜可以永久
+					"value"				"7.7" // 8 7.5 7 6.5，自定义固定冷却 防止减CD后无限释放
 				}
 		}
 	}
@@ -11450,8 +11437,8 @@
 				"coil_duration"				"5 5.5 6 6.5"
 				"coil_initial_damage"
 				{
-					"value"					"350 500 650 800"				// x2
-					"special_bonus_unique_puck_coil_damage"			"+300"	// x2
+					"value"					"350 500 650 800"				// 175 250 325 400 x2
+					"special_bonus_unique_puck_coil_damage"			"+300"	// +200 x1.5
 				}
 				"coil_stun_duration"
 				{
@@ -11459,8 +11446,8 @@
 				}
 				"coil_break_damage"
 				{
-					"value"					"200 400 600 800"				// 200 300 400
-					"special_bonus_unique_puck_coil_damage"			"+200"	// 175
+					"value"					"200 400 600 800"				// 200 300 400 500
+					"special_bonus_unique_puck_coil_damage"			"+200"	// +200
 				}
 		}
 	}
@@ -11469,18 +11456,7 @@
 	{
 		"AbilityValues"
 		{
-			"mana_restore_base"				"100"		// 10
-			"hp_restore_base"				"100"		// 10
-
-			"mana_restore_pct"
-			{
-				"value"						"3"			// 2
-			}
-			"hp_restore_pct"
-			{
-				"value"						"3"			// 2
-			}
-			"dodged_spell_multiplier"		"6"			// 3.5
+			"dodged_spell_multiplier"		"6"			// 3
 
 		}
 	}
@@ -11770,6 +11746,15 @@
 			{
 				"value"						"180 240 300 360"
 			}
+		}
+	}
+	// 奇心 先天
+	"rubick_curiosity"
+	{
+
+		"AbilityValues"
+		{
+			"curiosity_aoe_bonus"				"1"				// 2
 		}
 	}
 	//=================================================================================================================
@@ -12108,7 +12093,11 @@
 		"AbilityValues"
 		{
 				"bolt_speed"			"700"	// 500
-				"bolt_damage"			"60 90 120 150 180"
+				"bolt_damage"			"120 180 240 300 360"		// 60 90 120 150 x2
+				"int_multiplier"
+				{
+					"special_bonus_unique_skywrath_2"	"+0.5"	// +1.5
+				}
 		}
 	}
 	// 震荡光弹
@@ -12141,53 +12130,31 @@
 	"skywrath_mage_mystic_flare"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"50.0 40.0 30.0 20.0"
+		"AbilityCooldown"				"50.0 40.0 30.0 20.0"	// 60.0 40.0 20.0
 		"AbilityManaCost"				"300 550 800 1050"
 		"AbilityValues"
 		{
 				"radius"
 				{
 					"value"	"200"	// 170
-					"affected_by_aoe_increase"	"1"
 				}
 				"damage"
 				{
 					"value"			"800 1200 1600 2000"
-					"special_bonus_unique_skywrath_5" "+600"	// 400
+					"special_bonus_unique_skywrath_5" "+600"	// +400
 				}
 		}
 	}
-	// 拨乱反正（先天随大招升级）
-	"skywrath_mage_ruin_and_restoration"
-	{
-		"MaxLevel"		"5"
-		"AbilityValues"
-		{
-			"spell_lifesteal"
-			{
-				"value"		"25 30 35 40 45"
-				"special_bonus_unique_skywrath_arcane_bolt_lifesteal"			"+30"// 20
-			}
-		}
-	}
-	// 天裔之盾 命石1
+	// 天裔之盾 先天
 	"skywrath_mage_shield_of_the_scion"
 	{
 		"AbilityValues"
 		{
 			"damage_barrier"
 			{
-				"value"					"50"	// 11
-				"hero_levelup"			"+5"	// 1
+				"value"					"100"	// 13.5
+				"hero_levelup"			"+6"	// +1.5
 			}
-		}
-	}
-	// 天裔之杖 命石2
-	"skywrath_mage_staff_of_the_scion"
-	{
-		"AbilityValues"
-		{
-			// "cooldown_reduction"		"0.2"	// 0.1
 		}
 	}
 	//=================================================================================================================

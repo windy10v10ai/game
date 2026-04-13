@@ -165,7 +165,6 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["ogre_magi_ignite"] = true,                -- 食人魔魔法师 引燃
     ["viper_viper_strike"] = true,              -- 冥界亚龙 毒性攻击（大招）
     ["death_prophet_carrion_swarm"] = true,     -- 死亡先知 腐尸群
-    ["ancient_apparition_frost_seal"] = true,   -- 冰魂 冰霜封印
     ["terrorblade_reflection"] = true,          -- 恐怖利刃 倒影
     ["goku_kaioken"] = true,                    -- 悟空 界王拳
     ["tusk_snowball"] = true,                   -- 巨牙海民 雪球

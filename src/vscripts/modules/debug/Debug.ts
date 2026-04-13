@@ -1,4 +1,4 @@
-import { GA4 } from '../../api/analytics/ga4';
+import { GA4 } from '../../api/analytics/ga4/ga4';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';

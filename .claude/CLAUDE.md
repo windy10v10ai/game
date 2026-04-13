@@ -212,24 +212,45 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
 
-### 读取 Dota 2 官方说明:
+### Dota 2 参考文件速查
+
+`<version>` 取 `docs/reference/` 下最新数字版本目录。
+
+| 用途 | 路径 |
+|------|------|
+| 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
+| 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
+| 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
+| 原版英文说明 | `docs/reference/<version>/abilities_english.txt` |
+| 原版中文说明 | `docs/reference/<version>/abilities_schinese.txt` |
+| Override KV | `game/scripts/npc/npc_abilities_override.txt` |
+| 抽奖技能 KV | `game/scripts/npc/npc_abilities_custom_lottery.txt` |
+| 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
+| addon 英文本地化 | `game/resource/addon_english.txt` |
+| addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
+
+#### 技能系统名查找
+
+用户给出**技能系统名**（如 `dragon_knight_dragon_blood`）时直接使用。
+
+用户给出**中文名**（如「龙血」「幻影之矛」）或**英雄名-技能名**（如「幻影刺客-幻影之矛」）时：
+1. 在 `abilities_schinese.txt` 中搜索中文技能名（匹配 `_Description` 行的上一行或 Tooltip 名称行）
+2. 提取匹配行的 key 中的技能系统名（`DOTA_Tooltip_ability_{系统名}` → `{系统名}`）
+3. 如有多个候选，用 `AskUserQuestion` 展示候选项让用户确认
+
+用户给出**英雄名**时，在 `npc_heroes.txt` 中用中/英文关键词搜索英雄 ID，再从对应英雄文件读取技能槽位。
+
+#### 读取 Dota 2 官方说明
 
 编写物品/技能说明时，应参考 Dota 2 官方文本以保持术语一致性。
-最新版本号：`docs/reference/` 目录下获取。
-
-**参考文件位置**:
-
-- 中文: `docs/reference/<version>/abilities_schinese.txt`
-- 英文: `docs/reference/<version>/abilities_english.txt`
-
-**使用方法**:
 
 ```bash
-# 搜索狂战斧的中文说明
-grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/<version>/abilities_schinese.txt
+# 搜索技能中文说明（先用中文名定位系统名）
+grep "龙血" docs/reference/<version>/abilities_schinese.txt
+grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_schinese.txt
 
-# 搜索狂战斧的英文说明
-grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/<version>/abilities_english.txt
+# 搜索英文说明
+grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_english.txt
 ```
 
 ### 查阅 Dota 2 VScript / 引擎 Lua API（函数签名、参数）
@@ -250,6 +271,7 @@ grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/<version>
 使用模板创建 PR，模板文件为 `.github/pull_request_template.md`。
 分支名匹配 `^feature/(\\d+)` 时，提取 `issue-id` 作为 Issue 段。
 Release Note 段按照 `.claude/skills/changelog/SKILL.md` 文件的规则生成。
+**PR 标题默认使用英文。**
 
 ### 提交
 

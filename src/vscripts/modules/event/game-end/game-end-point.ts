@@ -139,6 +139,10 @@ export class GameEndPoint {
     if (option.fixedAbility !== 'none') {
       multiplier -= 0.2;
     }
+    // 中路模式，降低倍率
+    if (option.midOnlyMode) {
+      multiplier -= 0.2;
+    }
 
     // ---- 以上使用加减法计算倍率 ----
 
