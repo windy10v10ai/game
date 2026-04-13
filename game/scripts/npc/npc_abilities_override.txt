@@ -9222,49 +9222,39 @@
 			"targets"					"2 4 6 8 10"
 			"damage"
 			{
-				"value"			"24 42 60 78 96"	// x1.5
+				"value"			"24 42 60 78 96"	// 16 28 40 52 x1.5
 			}
 			"slow"
 			{
-				"value"							"-24 -27 -30 -33 -36"	// x1.5
-				"special_bonus_unique_dazzle_1"	"-30"					// 40
+				"value"							"-14 -18 -22 -26 -30"	// -13 -16 -19 -22 差值-4
+				"special_bonus_unique_dazzle_1"	"-30"					// -40
 			}
-			"duration"		"4 5 6 7 8"
-			"bonus_slow"			"-2 -2.5 -3 -3.5 -4.0"
-			"split_damage"
-			{
-				"special_bonus_facet_dazzle_poison_bloom"
-				{
-					"value"								"=30 =60 =90 =120 =150"
-				}
-			}
+			"duration"		"4 4.5 5 5.5 6"	// 3.5 5 6.5 8 差值0.5
+			"bonus_slow"			"-2 -2.5 -3 -3.5 -4"
 		}
 	}
 	// 薄葬
 	"dazzle_shallow_grave"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"36 32 28 24 20"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value" "3 3.5 4 4.5 5.0"
+				"value" "3 3.5 4 4.5 5"	// 4 4.5 5.0 5.5 差值0.5
 			}
 			"fx_halo_height"
 			{
-				"value" "190 240 300 350 410"
+				"value" "190 240 300 350 400"
 			}
 			"heal_amplify"
 			{
-				"value" "2 4 6 8 10"
-				"special_bonus_unique_dazzle_shallow_grave_heal_amplify"		"+10"
+				"value" "3 5 7 9 11"
 			}
 			"AbilityCooldown"
 			{
-				"value"				"24 22 20 18 16"
-				"special_bonus_unique_dazzle_shallow_grave_cooldown"			"-4"
+				"value"				"30 26 22 18 14"
 			}
 		}
 	}
@@ -9275,8 +9265,8 @@
 		"AbilityCooldown"				"10 9 8 7 6"
 		"AbilityValues"
 		{
-			"max_targets"			"4 6 8 10 12"
-			"tooltip_max_targets_inc_dazzle"	"5 7 9 11 13"
+			"max_targets"			"5 6 7 8 9"	// 3 4 5 6 +2
+			"tooltip_max_targets_inc_dazzle"	"6 7 8 9 10"	// 4 5 6 7 +2
 			"damage"
 			{
 				"value"					"170 210 250 290 330"	// 85 105 125 145 x2
@@ -9288,36 +9278,36 @@
 	"dazzle_good_juju"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_bad_juju"
-		"AbilityDraftPreAbility"		"dazzle_bad_juju"
+		"LinkedAbility"					"dazzle_bad_juju"	// 关联邪能
+		"AbilityDraftPreAbility"		"dazzle_bad_juju"	// 关联邪能
 		"AbilityValues"
 		{
-				"cooldown_reduction"		"1 1.25 1.5 1.75"
+				"cooldown_reduction"		"1 1.25 1.5 1.75"	// 1 1.5 2 差值0.25
 		}
 	}
 	// 邪能
 	"dazzle_bad_juju"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"					"dazzle_good_juju"
-		"AbilityDraftPreAbility"		"dazzle_good_juju"
-		"AbilityCooldown"				"6"
-		"AbilityHealthCost"				"75 100 125 150"
+		"LinkedAbility"					"dazzle_good_juju"	// 关联善咒
+		"AbilityDraftPreAbility"		"dazzle_good_juju"	// 关联善咒
+		"AbilityCooldown"				"6"			// 3
+		"AbilityHealthCost"				"75 100 125 150"	// 75
 		"AbilityValues"
 		{
 			"cooldown_reduction"			"3 4 5 6"	// 4 5 6
 		}
 	}
-	// 编织
+	// nothl_projection 为 7.41 新大招，本图仍使用 good_juju/bad_juju，暂不启用
+	// "dazzle_nothl_projection" {}
+	// 编织（先天）
 	"dazzle_innate_weave"
 	{
-		"MaxLevel"						"5"
-		"DependentOnAbility"			"dazzle_bad_juju"
 		"AbilityValues"
 		{
-			"armor_change"
+			"ally_heal"
 			{
-				"value"									"0.5 0.75 1.0 1.25 1.5"
+				"special_bonus_shard"				"200"	// 60
 			}
 		}
 	}
