@@ -96,6 +96,11 @@ description: >-
    - 子块内含 `special_bonus_unique_*` / `special_bonus_facet_*` 的行 → 直接删除该行（天赋引用原版技能名，对自定义技能无效）
    - 删除天赋行后，若子块的 `value` 为 `"0"` 且无其他有效子键 → 删除整个子块
    - 子块内含 `special_bonus_scepter` / `special_bonus_shard` → 同上处理
+   - **子块内含 `hero_levelup` → 必须移除**（克隆先天技能后 `hero_levelup` 有时不生效）。移除后按以下规则将该数值扩展为多级：
+     1. 将 `MaxLevel` 设为 `"5"`
+     2. 计算第 5 级目标值 ≈ `base + 49 × hero_levelup步长`（对应原版 50 级时的数值）
+     3. 在 `[base, 目标值]` 之间取等差 5 档，取整使数列好看（优先 0.5 / 整数步长）
+     4. 其余字段**按判断**决定是否扩展：只有具备成长意义的数值才扩展为 5 级；固定机制值（角度、倍率系数等）保持单值。扩展原则：以**第 3 级 ≈ 原始单值**为锚点，向上下等差延伸，取整使数列好看
    
    其余每个数值右侧用 `//` 标注原版数值（多档整串对照）。
 6. `"AbilityTextureName"` → 必填；参考原版资源或同英雄 persona 路径。
@@ -162,6 +167,7 @@ description: >-
 - [ ] 流程 A：`"Innate" "0"` 且 `AbilityBehavior` 无 `HIDDEN`
 - [ ] 流程 B：Innate 字段按需处理，Behavior 与原版一致
 - [ ] `AbilityValues` 已排除 `special_bonus_unique_*` / `special_bonus_facet_*` / `special_bonus_scepter` / `special_bonus_shard` 天赋引用行；删除天赋行后 value 为 "0" 的子块已整块删除
+- [ ] 流程 A：若原版含 `hero_levelup`，已移除并扩展为 5 级多档（第 5 级 ≈ 原版 lv50 值，等差取整；其他适合成长的字段以第 3 级 ≈ 原始值为锚点向上下等差延伸，固定机制值保持单值）
 - [ ] `AbilityValues` 所有覆盖项带 `//` 原版对照
 - [ ] `AbilityTextureName` 已填写
 - [ ] 若 `AbilityBehavior` 含 `UNIT_TARGET`：已显式写入 `AbilityUnitTargetTeam`、`AbilityUnitTargetType`、`AbilityCastRange`、`SpellImmunityType`、`SpellDispellableType`、`AbilityCastPoint`、`AbilityCooldown`、`AbilityManaCost`

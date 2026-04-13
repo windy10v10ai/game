@@ -6,7 +6,7 @@
 		"BaseClass"						"riki_innate_backstab"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"riki_innate_backstab"
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
 
@@ -14,25 +14,15 @@
 		{
 			"damage_multiplier"
 			{
-				"value"		"0.55"
-				"hero_levelup" "+0.05"
+				"value"		"1.0 1.5 2.0 2.5 3.0"			// 0.55 + hero_levelup +0.05, lv50 ≈ 3.0
 				"CalculateSpellDamageTooltip"	"0"
 				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 			"ally_multiplier"				"25"
 			"backstab_angle"				"105"
-			"bonus_xp_kill"
-			{
-				"value"							"150"
-			}
-			"bonus_xp_assist"
-			{
-				"value"							"75"
-			}
-			"bonus_xp_assist_other"
-			{
-				"value"							"75"
-			}
+			"bonus_xp_kill"					"50 100 150 200 250"		// 150
+			"bonus_xp_assist"				"25 50 75 100 125"			// 75
+			"bonus_xp_assist_other"			"25 50 75 100 125"			// 75
 		}
 	}
 	// 克林克兹先天 地狱之裂
@@ -62,19 +52,15 @@
 		"BaseClass"						"spectre_desolate"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"spectre_desolate"
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
 		"Innate"						"0"
 		"IsOnCastBar"					"1"
 
 		"AbilityValues"
 		{
-
-			"bonus_damage"
-			{
-				"value"									"40"
-				"hero_levelup"							"+2"
-			}
-			"radius"						"0"
+			"bonus_damage"				"40 65 90 115 140"		// 40 + hero_levelup +2, lv50 ≈ 140
+			"radius"					"0"						// 350 触发范围，覆盖为全方向
+			"only_creep_allies_damage_pct"	"0"
 		}
 	}
 	// 能量转移
@@ -92,17 +78,12 @@
 
 		"AbilityValues"
 		{
-			"agi_gain"
-			{
-				"value"					"3"				// 3
-				"special_bonus_unique_slark_5" "+1"		// +1
-			}
+			"agi_gain"					"3"				// 3
 			"stat_loss"					"1"				// 1
 			"duration"
 			{
-				"value"					"20"			// 12.5
+				"value"					"20"			// 10 + hero_levelup +2.5(override: +2)
 				"hero_levelup"			"+2"			// +2.5
-				"special_bonus_unique_slark_4"	"+25"	// +25
 			}
 			"steal_radius"
 			{
@@ -134,15 +115,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage_per_mana"						"2 3 4 5 6"
-			"damage_per_mana_per_level"				"0.2 0.25 0.3 0.35 0.4"
+			"damage_per_mana"						"4 8 12 16 20"		// 5.0 + hero_levelup +0.3, lv50 ≈ 20
 			"illusion_percentage"					"60"
 
 			"absorption_pct"						"98"
-			"damage_per_mana_total"
-			{
-				"dynamic_value"			"true"
-			}
 		}
 	}
 	// 死亡先知 巫术精研
