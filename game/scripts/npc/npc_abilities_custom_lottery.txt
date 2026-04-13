@@ -1,5 +1,9 @@
 "DOTAAbilities"
 {
+
+	//=================================================================================================================
+// Innate 天赋 技能
+	//=================================================================================================================
 	// 背刺
 	"riki_innate_backstab2"
 	{
@@ -197,6 +201,10 @@
 			"trueshot_agi_bonus_allies_pct"		"50"
 		}
 	}
+
+	//=================================================================================================================
+// 普通升级 技能
+	//=================================================================================================================
 	// 猛犸 长角抛物
 	"magnataur_horn_toss2"
 	{
@@ -279,56 +287,6 @@
 		"AbilityValues"
 		{
 			"dodge_chance_pct"		"12 15 18 21 24"
-		}
-	}
-	//人马 不屈
-	"centaur_sturdy"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/centaur_sturdy"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"centaur/berserkers_edge/centaur_double_edge"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"status"					"10 15 20 25 30"
-			"strength"					"10 20 30 40 50"
-		}
-	}
-	//幽鬼 折射 旧版
-	"spectre_dispersion2"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/spectre_dispersion2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_PHYSICAL | DAMAGE_TYPE_PURE"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"spectre_dispersion2"
-		"IsBreakable"					"1"
-		"MaxLevel"						"5"
-		"HasShardUpgrade"				"1"
-
-		"precache"
-		{
-			"particle"					"particles/econ/items/faceless_void/faceless_void_bracers_of_aeons/fv_bracers_of_aeons_backtrack.vpcf"
-		}
-		"AbilityValues"
-		{
-			"damage_reduction"
-			{
-				"value"				"8 10 12 14 16"
-				"special_bonus_shard"				"+3"
-				"special_bonus_unique_spectre_5"		"+3"
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			// 伤害阈值
-			"threshold"
-			{
-				"value"				"10 20 30 40 50"
-			}
-			"radius"				"800"
 		}
 	}
 	//贪婪
@@ -650,7 +608,6 @@
 				"special_bonus_scepter" "100"
 			}
 		}
-
 	}
 	//冰魂 先天 刺骨严寒
 	"ancient_apparition_bone_chill2"
@@ -711,10 +668,60 @@
 		}
 	}
 
-//=================================================================================================================
+	//=================================================================================================================
 // lua 技能
-//=================================================================================================================
+	//=================================================================================================================
 
+	//人马 不屈
+	"centaur_sturdy"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/centaur_sturdy"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"centaur/berserkers_edge/centaur_double_edge"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"status"					"10 15 20 25 30"
+			"strength"					"10 20 30 40 50"
+		}
+	}
+	//幽鬼 折射 旧版
+	"spectre_dispersion2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/spectre_dispersion2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL | DAMAGE_TYPE_PHYSICAL | DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"spectre_dispersion2"
+		"IsBreakable"					"1"
+		"MaxLevel"						"5"
+		"HasShardUpgrade"				"1"
+
+		"precache"
+		{
+			"particle"					"particles/econ/items/faceless_void/faceless_void_bracers_of_aeons/fv_bracers_of_aeons_backtrack.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage_reduction"
+			{
+				"value"				"8 10 12 14 16"
+				"special_bonus_shard"				"+3"
+				"special_bonus_unique_spectre_5"		"+3"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			// 伤害阈值
+			"threshold"
+			{
+				"value"				"10 20 30 40 50"
+			}
+			"radius"				"800"
+		}
+	}
 	//酒仙 醉拳
 	"brewmaster_drunken_boxing"
 	{
