@@ -45,6 +45,7 @@ interface GameOptionsChangeEventData {
   fixed_ability: string;
   force_random_hero: number;
   enable_player_attribute: number;
+  mid_only_mode: number;
 }
 
 interface LoadingSetOptionsEventData {

@@ -384,15 +384,6 @@
 		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Создает случайную руну"
-		//魔法扰动
-		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Наносит урон вражеским юнитам в конусной области и накладывает дебафф, снижающий урон от заклинаний, увеличивающий расход маны, повышающий перезарядку умений и вызывающий замедление на %slow_duration% секунд"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"		"Баровый урон： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"			"Коэф. от урона героя： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"Длительность： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%Снижение урона заклинаний： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%Увеличение затрат маны： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%Увеличение перезарядки： "
 		//冰霜法球
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost orb"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Каждые %attack_count% запускает морозную сферу, наносящую урон по области и замедляющую цель на %slow_duration% секунд"
@@ -407,14 +398,5 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
-		//冰霜封印
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Frost Seal"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Оглушите себя на 4 секунды получив снижение урона на %damage_reduction%%% и увеличив восстановления здоровья. В течение этого времени замедляет врагов на 20%% и притягивает их к себе. В конце нанесит урон и оглушиает окружающих врагов"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"Восстановление здоровья： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%Востановление здоровья процент： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"Урон： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Длительность оглушения： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"				"Радиус： "
-
 	}
 }

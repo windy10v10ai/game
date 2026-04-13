@@ -12,16 +12,9 @@ description: >-
 
 ## 前置条件
 
-- `docs/reference/{version}/npc_heroes.txt` — 英雄槽位
-- `docs/reference/{version}/heroes/npc_dota_hero_{hero}.txt` — 技能 KV 参考
-- 用 `grep` / 片段读取定位，**禁止**一次读入整个 override 文件
+参考文件路径见 CLAUDE.md「Dota 2 参考文件速查」。英雄名 / 技能名查找规则见「技能系统名查找」章节。
 
-## 英雄名查找规则
-
-用户给出中文英雄名时：
-1. **优先**用用户给的原文（中文）直接在 `npc_heroes.txt` 或 override 文件中的注释里搜索（如 `grep -i "巫医"`）
-2. 找到则直接使用对应的英雄 ID，**不必确认**
-3. 找不到时，再尝试用其他关键词搜索；若仍不确定，将候选结果展示给用户确认
+用 `grep` / 片段读取定位，**禁止**一次读入整个 override 文件。
 
 ## 技能范围
 
