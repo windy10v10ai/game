@@ -124,7 +124,7 @@
 	// 死亡先知 巫术精研
 	"death_prophet_witchcraft2"
 	{
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
 		"BaseClass"						"death_prophet_witchcraft"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
@@ -133,16 +133,8 @@
 
 		"AbilityValues"
 		{
-			"movement_speed_pct"
-			{
-				"value"				"20"		// 0.5
-				// "hero_levelup"		"+0.5"		// +0.75
-			}
-			"cooldown_reduction_pct"
-			{
-				"value"				"20"
-				// "hero_levelup"		"+0.5"		// +0.75
-			}
+			"movement_speed_pct"		"10 15 20 25 30"		// 1 + hero_levelup +0.5, lv50 ≈ 25
+			"cooldown_reduction_pct"	"10 15 20 25 30"		// hero_levelup +0.5, lv50 ≈ 25
 		}
 	}
 	// 修补匠 尤里卡！
@@ -181,7 +173,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"aoe_per_int"				"0.5"
+			"aoe_per_int"				"0.4"
 		}
 	}
 	//精准光环
