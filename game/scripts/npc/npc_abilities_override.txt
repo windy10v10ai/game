@@ -7945,14 +7945,6 @@
 				"value"				"0"
 				"special_bonus_unique_templar_assassin_7"			"=2.0"
 			}
-			"attack_range_increase_max"
-			{
-				"special_bonus_facet_templar_assassin_hidden_reach"			"800"
-			}
-			"attack_range_increase_time"
-			{
-				"special_bonus_facet_templar_assassin_hidden_reach"			"8"
-			}
 		}
 	}
 	// 灵能之刃
@@ -7998,6 +7990,28 @@
 	"templar_assassin_trap_teleport"
 	{
 		"MaxLevel" "4"
+	}
+	// 内心平静 先天技能
+	"templar_assassin_inner_peace"
+	{
+		"AbilityValues"
+		{
+			"max_hp_regen"
+			{
+				"value"						"27"	// 2.7
+				"hero_levelup"				"+3"	// +0.3
+			}
+			"max_mana_regen"
+			{
+				"value"						"22"	// 2.2
+				"hero_levelup"				"+2"	// +0.2
+			}
+			"time_until_max_bonus"
+			{
+				"value"						"0.5"	// 2.05
+				"hero_levelup"				"-0.00"		// -0.05 防止出现负数
+			}
+		}
 	}
 	//=================================================================================================================
 	// Ability: Terrorblade 恐怖利刃/TB
