@@ -629,10 +629,10 @@
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"The life blood of the Dragon improves Dragon Knight's health regeneration and armor.  <br><br>Regen and armor are increased by %regen_and_armor_multiplier_during_dragon_form%%% during Elder Dragon Form."
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"BONUS ARMOR:"
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"BONUS HP REGEN:"
-		//才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"Quick Wit"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Every point of Intelligence also grants attack speed."
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"INT TO ATTACK SPEED:"
+		// 黑暗贤者 才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"Dark Seer gains %int_to_atkspd% Attack Speed from each point of Intelligence."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"BONUS ATTACK SPEED:"
 		//炽烈火雨
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"CHANNELED - Shoot multiple piercing arrows in the target direction that hit all enemy units dealing a percentage of attack damage and applying any attack modifiers."

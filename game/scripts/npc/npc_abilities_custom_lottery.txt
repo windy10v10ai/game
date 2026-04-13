@@ -251,6 +251,25 @@
 			"barrier_duration"			"12"					// 8
 		}
 	}
+
+	// 黑暗贤者 才思敏捷
+	"dark_seer_quick_wit2"
+	{
+		"BaseClass"						"dark_seer_quick_wit"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"5"
+		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
+
+		"AbilityValues"
+		{
+			"int_to_atkspd"				"0.6 0.8 1.0 1.2 1.4"	// 1.0
+			"attack_speed_tooltip"
+			{
+				"dynamic_value"						"true"
+			}
+		}
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================
@@ -368,19 +387,6 @@
 		}
 	}
 
-	//才思敏捷
-	"dark_seer_quick_wit2"
-	{
-		"BaseClass"						"dark_seer_quick_wit"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"5"
-		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
-
-		"AbilityValues"
-		{
-			"int_to_atkspd"				"0.5 0.8 1.1 1.4 1.7"
-		}
-	}
 	//诅咒之雨
 	"dazzle_rain_of_vermin"
 	{
@@ -445,7 +451,6 @@
 			}
 		}
 	}
-
 
 	//蝙蝠骑士 树脂
 	"batrider_smoldering_resin2"

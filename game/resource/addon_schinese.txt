@@ -632,10 +632,10 @@
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"神龙的生命之血提升了龙骑士的生命恢复和护甲。<br><br>在古龙形态下生命恢复和护甲均提升%regen_and_armor_multiplier_during_dragon_form%%%。"
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"护甲提升："
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"额外生命恢复："
-		//才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"才思敏捷"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"黑暗贤者还能从智力中获得攻击速度。"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"每点智力获得攻速："
+		// 黑暗贤者 才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"才思敏捷"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"黑暗贤者从每点智力获得%int_to_atkspd%攻击速度。"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"攻击速度加成："
 		//炽烈火雨
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"炽烈火雨"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"持续施法 - 克林克兹持续朝目标方向射出多支灼热的箭矢，击中所有敌人，造成克林克兹攻击伤害的一定百分比并施加攻击特效，同时敌人会受到焦油炸弹的减速效果。"
