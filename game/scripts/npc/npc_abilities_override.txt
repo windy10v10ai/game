@@ -1003,14 +1003,9 @@
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
-			"radius"
-			{
-				"value"		"325"
-				"affected_by_aoe_increase"	"1"
-			}
 			"stomp_damage"
 			{
-				"value"			"120 180 240 300 360"
+				"value"			"70 140 210 280 350"
 			}
 			"stun_duration"
 			{
@@ -1028,16 +1023,11 @@
 		{
 			"edge_damage"
 			{
-				"value"							"180 240 300 360 420"
+				"value"							"180 270 360 450 540"	// 120 180 240 300 x1.5
 			}
 			"strength_damage"
 			{
 				"value"				"60 90 120 150 180"
-			}
-			"max_damage_increase_pct"
-			{
-				"value"				"0"
-				"special_bonus_facet_centaur_counter_strike"		"=300"
 			}
 		}
 	}
@@ -1049,8 +1039,8 @@
 		{
 				"return_damage"
 				{
-					"value"	"30 50 70 90 110"
-					"special_bonus_unique_centaur_3"	"+90"
+					"value"	"30 50 70 90 110"				// 15 25 35 45 x2
+					"special_bonus_unique_centaur_3"	"+90"	// 45 x2
 				}
 				"return_damage_str"			"16 24 32 40 48"
 		}
@@ -1066,26 +1056,14 @@
 			{
 				"value"						"3.5 4 4.5 5.0"
 			}
-			"base_damage"		"200"
 			"strength_damage"
 			{
 				"value"							"2 2.5 3 3.5"
-				"CalculateSpellDamageTooltip"	"1"
 			}
 			"AbilityCooldown"
 			{
-				"value"					"80"
-				"special_bonus_unique_centaur_5"	"-20"
+				"value"					"100 95 90 85"
 			}
-		}
-	}
-	"centaur_horsepower"
-	{
-		"AbilityValues"
-		{
-			"strength_to_movement_pct"			"30"
-			"move_speed_limit"					"1600"
-			"base_move_speed_penalty"			"0"
 		}
 	}
 	//=================================================================================================================
@@ -1099,21 +1077,19 @@
 		{
 			"stun_min"
 			{
-				"value"					"1.2 1.4 1.6 1.8 2"
+				"value"					"1.25 1.5 1.75 2 2.25"
 			}
 			"stun_max"
 			{
-				"value"					"1.75 2.15 2.55 2.95 3.35"
+				"value"					"1.75 2.25 2.75 3.25 3.75"
 			}
-
 			"AbilityCastRange"
 			{
-				"value"							"600"
-				"special_bonus_shard"			"+300"
+				"special_bonus_shard"			"+300"	// 0
 			}
 			"AbilityCooldown"
 			{
-				"value"				"14 13 12 11 10"
+				"value"				"13 12 11 10 9"
 			}
 			"damage_min"
 			{
@@ -1129,7 +1105,7 @@
 	"chaos_knight_reality_rift"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 14 10 6 4"
+		"AbilityCooldown"				"15 12 9 6 3"
 		"AbilityValues"
 		{
 			"AbilityCastRange"				"600 650 700 750 800"
@@ -1148,25 +1124,17 @@
 		{
 			"chance"
 			{
-					"value"				"33.33"
 					"special_bonus_unique_chaos_knight_5"		"+16.67"	// 10
 			}
 			"crit_max"				"140 180 220 260 300"
 			"lifesteal"
 			{
-				"value"					"20 30 40 50 60"
+				"value"					"30 40 50 60 70"
 			}
 		}
 	}
-	// 基本法则锻造（命石2）
-	"chaos_knight_fundamental_forging"
-	{
-		"AbilityValues"
-		{
-			"trinket_options_current"	"1"	// 2
-			"trinket_options_next"		"4"	// 2
-		}
-	}
+	// 幻象已移除，无需 override
+	// "chaos_knight_phantasm" {}
 	//=================================================================================================================
 	// Ability: Dawnbreaker 破晓辰星/黄大锤
 	//=================================================================================================================
@@ -3269,8 +3237,7 @@
 		{
 			"damage"
 			{
-				"value"									"50 100 150 200 250"	// x2
-				"special_bonus_unique_clockwerk_3"		"+50"
+				"value"									"40 90 140 190 240"	// 20 45 70 95 x2
 			}
 		}
 	}
@@ -3283,19 +3250,13 @@
 			"duration"			"5.0 6.0 7.0 8.0 9.0"
 			"damage"
 			{
-				"value"			"100 250 400 550 700"	// x2
+				"value"			"100 250 400 550 700"	// 50 125 200 275 x2
 			}
 			"mana_burn"
 			{
-				"value"				"100 160 220 280 340"	// x2
-				"special_bonus_unique_clockwerk_2"	"+160"	// 70
+				"value"				"80 160 240 320 400"	// 40 80 120 160 x2
+				"special_bonus_unique_clockwerk_2"	"+160"	// 80 x2
 			}
-			"attacks_to_destroy"
-			{
-				"value"					"4"
-				"special_bonus_unique_clockwerk_5"		"+4"
-			}
-			"bonus_armor"		"10"
 			"AbilityCooldown"
 			{
 				"value"			"21 19 17 15 13"
@@ -3311,11 +3272,15 @@
 		{
 			"damage"
 			{
-				"value"		"160 240 320 400 480"	// x2
+				"value"		"160 240 320 400 480"	// 80 120 160 200 x2
 			}
 			"AbilityCooldown"
 			{
-				"value"				"17.0 16.0 15.0 14.0 13.0"
+				"value"				"20.0 18.0 16.0 14.0 12.0"
+			}
+			"AbilityChargeRestoreTime"
+			{
+				"value"				"20.0 18.0 16.0 14.0 12.0"
 			}
 		}
 	}
@@ -3324,20 +3289,19 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"2000 2500 3000 3500"
-		"AbilityCooldown"				"50.0 40.0 30.0 20.0"
-		"AbilityManaCost"				"100 150 200 250"
+		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
-				"allied_armor_bonus"
-				{
-					"special_bonus_facet_rattletrap_hookup"	"15 20 25 30"
-				}
-				"duration"			"1.5 2.0 2.5 3.0"	// 1.2 1.4 1.6
+				"duration"			"1.5 2.0 2.5 3.0"	// 1.2 1.4 1.6 差值0.5
 				"speed"				"4000 5000 6000 7000"
 				"damage"
 				{
-					"value"		"125 250 500 750"	// x2
-					"special_bonus_unique_clockwerk_hookshot_damage"		"+150"
+					"value"		"150 350 550 750"	// 75 175 275 x2
+				}
+				"AbilityCooldown"
+				{
+					"value"											"60.0 50.0 40.0 30.0"	// 60 45 30 差值-10
+					"special_bonus_unique_clockwerk_5"				"-15"	// 10
 				}
 		}
 	}
@@ -5185,17 +5149,15 @@
 		{
 			"attack_speed_bonus"
 			{
-				"value"									"100 140 180 220 260"
+				"value"									"120 160 200 240 280"
 			}
 			"duration"
 			{
-				"value"									"6.5"
-				"special_bonus_unique_clinkz_1"			"+2.5"
+				"special_bonus_unique_clinkz_1"			"+1.5"	// 1.0
 			}
 			"AbilityCooldown"
 			{
 				"value"								"30 25 20 15 10"
-				"special_bonus_unique_clinkz_4"		"-5"
 			}
 		}
 	}
@@ -5216,88 +5178,71 @@
 	"clinkz_death_pact"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"900"
 		"AbilityValues"
 		{
 			"AbilityCharges"
 			{
-				"value"				"2 3 4 5 6"
+				"value"				"1 1 2 2 2"
 			}
 			"health_gain"
 			{
-				"value"				"200 300 400 500 600"
-				"special_bonus_unique_clinkz_8"		"+400"
+				"value"				"175 250 325 400 475"
 			}
-			"AbilityChargeRestoreTime"
-			{
-				"value"				"30"
-				"special_bonus_facet_clinkz_engulfing_step"				"-15"
-			}
-			"skeletons_spawned"
-			{
-				"value"				"0"
-			}
-			"spawn_skeleton_on_origin"
-			{
-				"value"				"0"
-				"special_bonus_facet_clinkz_engulfing_step"				"0"
-			}
-			"creep_level"			"6 6 6 6 6"
+			"creep_level"			"4 5 6 6 6"
 		}
 	}
 	// 骨隐步
 	"clinkz_wind_walk"
 	{
-		"HasScepterUpgrade"			"0"
+		// 不额外升级
+		"HasScepterUpgrade"			"0"	// 去除A杖效果
 		"AbilityValues"
 		{
 			// 去掉骷髅兵
 			"skeleton_count"
 			{
-				"value"					"0"
+				"value"					"0"	// 2 3 4
 			}
 			"skeleton_duration"
 			{
-				"value"						"0"
+				"value"					"0"	// 20 25 30
 			}
 			"skeleton_health"
 			{
-				"value"					"0"
-				"special_bonus_scepter"			"+0"
+				"value"					"0"	// 8
 			}
 			"skeleton_health_tooltip"
 			{
-				"value"					"0"
-				"special_bonus_scepter"			"+0"
+				"value"					"0"	// 2
 			}
-			"attack_rate"			"0"
+			"attack_rate"				"0"	// 1.6
 			"damage_percent"
 			{
-				"value"					"0"
+				"value"					"0"	// 20
 			}
 		}
 	}
 	// 炽烈火雨
 	"clinkz_burning_barrage"
 	{
-		"AbilityCooldown"				"6"		// 17
-		"AbilityManaCost"				"90"
+		"AbilityCooldown"				"9"		// 17
+		"AbilityManaCost"				"90"	// 40
 		"AbilityValues"
 		{
-			"wave_count"		"9"
-			"damage_pct"			"90"
+			"wave_count"		"9"	// 6
+			"damage_pct"			"90"	// 75
 		}
 	}
 	// 先天 地狱之裂
 	"clinkz_infernal_shred"
 	{
-		"HasScepterUpgrade"			"1"
+		"HasScepterUpgrade"			"1"	// 额外添加A杖效果
 		"AbilityValues"
 		{
 			"max_armor_piercing_pct"
 			{
 				"value"					"20"
-				"special_bonus_scepter"			"+40"
+				"special_bonus_scepter"			"+40"	// 额外添加
 			}
 		}
 	}
@@ -9036,7 +8981,7 @@
 	"crystal_maiden_crystal_nova"
 	{
 		"MaxLevel"							"5"
-		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -9048,22 +8993,7 @@
 			"attackspeed_slow"				"-30 -45 -60 -75 -90"
 			"nova_damage"
 			{
-				"value"										"120 180 240 300 360"	// +10
-			}
-			"physical_barrier_amount"
-			{
-				"value"											"0"
-				"special_bonus_facet_crystal_maiden_glacial_guard"	"100 200 300 400 500"
-			}
-			"physical_barrier_self_amount"
-			{
-				"value"											"0"
-				"special_bonus_facet_crystal_maiden_glacial_guard"	"200 400 600 800 1000"
-			}
-			"physical_barrier_duration"
-			{
-				"value"											"0"
-				"special_bonus_facet_crystal_maiden_glacial_guard"	"+8.0"
+				"value"										"120 170 220 270 320"	// 110 160 210 260 +10
 			}
 		}
 	}
@@ -9073,11 +9003,6 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"AbilityCastRange"
-			{
-				"value"								"700"
-				"special_bonus_unique_crystal_maiden_frostbite_castrange" 		"+200"
-			}
 			"AbilityCooldown"				"9 8 7 6 5"
 			"AbilityManaCost"				"125 135 145 155 165"
 			"duration"
@@ -9094,47 +9019,37 @@
 		{
 			"base_mana_regen"
 			{
-				"value"					"1 1.5 2 2.5 3"		// 0.4 0.6 0.8 1.0
+				"value"					"1 1.5 2 2.5 3"		// 0.4 0.6 0.8 1.0 加强基础回蓝
 			}
 			"proximity_mana_regen_tooltip"
 			{
-				"value"										"3 4.5 6 7.5 9"
+				"value"										"3 4.5 6 7.5 9"	// 1.2 1.8 2.4 3.0 base_mana_regen x3
 			}
+			"mana_regen_amp"			"20 40 60 80 100"
 			"proximity_bonus_radius"
 			{
-				"value"		"8000"
+				"value"		"8000"		// 1200
 			}
 		}
 	}
 	// 极寒领域
 	"crystal_maiden_freezing_field"
 	{
-		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
 			"AbilityCooldown"				"75"	// 90
 			"AbilityManaCost"				"200 400 600 800"
+			"attack_slow"					"-80 -120 -160 -200"
 			"damage"
 			{
-				"value"										"165 270 375 500"	// 110 180 250 330（x1.5）
-				"special_bonus_unique_crystal_maiden_3"		"+100"				// （x2）
+				"value"										"165 270 375 480"	// 110 180 250 320 x1.5
+				"special_bonus_unique_crystal_maiden_3"		"+100"				// 50 x2
 			}
 			"shard_self_movement_speed_slow_pct"
 			{
-				"value"						"0"
-				"special_bonus_scepter"		"-5"// -75
-				"RequiresScepter"				"1"
-			}
-			// 命石1
-			"self_cast_range_bonus"
-			{
-				"special_bonus_facet_crystal_maiden_frozen_expanse"		"75 100 125 150"
-			}
-
-			"aoe_bonus"
-			{
-				"special_bonus_facet_crystal_maiden_frozen_expanse"		"6 11 14 15"
+				"special_bonus_scepter"		"-5"	// -75
 			}
 		}
 	}
