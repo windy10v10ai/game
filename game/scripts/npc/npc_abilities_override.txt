@@ -3979,11 +3979,17 @@
 	"sven_storm_bolt"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityDamage"					"80 160 240 320 400"
-		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilityValues"
 		{
+				"AbilityCooldown"
+				{
+					"value"						"24 21 18 15 12"
+				}
+				"AbilityManaCost"
+				{
+					"value"						"110 115 120 125 130"
+				}
 				"bolt_stun_duration"
 				{
 					"value"		"1.0 1.2 1.4 1.6 1.8"
@@ -4019,30 +4025,26 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"36 32 28 24 20"		// 36 32 28 24
-		"AbilityManaCost"				"40 45 50 55 60"
+		"AbilityManaCost"				"30 35 40 45 50"
 		"AbilityValues"
 		{
 			"movespeed"
 			{
-				"value"		"10 14 18 22 26"
-				"special_bonus_shard"	"+3"
+				"value"		"6 9 12 15 18"
+				"special_bonus_shard"	"+6"	// +3
 			}
 			"bonus_armor"
 			{
-				"value"		"6 9 12 15 18"
-				"special_bonus_unique_sven_7"		"+10"
+				"value"		"5 8 11 14 17"
+				"special_bonus_unique_sven_7"		"+10"		// +8
 			}
 			"shard_passive_armor"
 			{
-				"special_bonus_shard"		"12"
-			}
-			"shard_passive_movespeed"
-			{
-				"special_bonus_shard"		"0.76"
+				"special_bonus_shard"		"12"		// 0
 			}
 			"base_barrier_amount"
 			{
-				"special_bonus_facet_sven_heavy_plate"		"=1000 =2000 =3000 =4000 =5000"
+				"special_bonus_shard"		"3000"		// 300 x10
 			}
 		}
 	}
@@ -4050,21 +4052,18 @@
 	"sven_gods_strength"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"90"	// 100s刚好续不上，有真空期
-		"AbilityManaCost"				"150 200 250 300"
+		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"							"90"	// 110 105 100 固定90
+				"special_bonus_unique_sven_3"	"-12"
+			}
 			"gods_strength_damage"
 			{
-				"value"		"130 160 190 220"	// 110 150 190
+				"value"		"110 150 190 230"
 			}
-		}
-	}
-	// 神之愤怒 先天
-	"sven_wrath_of_god"
-	{
-		"AbilityValues"
-		{
 		}
 	}
 	//=================================================================================================================
