@@ -405,18 +405,15 @@
 	{
 		"BaseClass"						"jakiro_double_trouble"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"Innate"						"0"
 		"AbilityTextureName"			"jakiro_dual_breath"
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"second_attack_delay"			"0.2"				// 0.2
 			"attack_damage_reduction"
 			{
-				"value"							"51"			// 51
-				"hero_levelup"					"-1.0"			// -1.0
+				"value"							"50 40 30 20 10"	// 51 + hero_levelup -1.0/lv，lv50 ≈ 2；第3档≈原版51
 			}
 		}
 	}
