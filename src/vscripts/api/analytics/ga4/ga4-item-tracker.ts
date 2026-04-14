@@ -109,6 +109,8 @@ export class GA4ItemTracker {
       const steamId = player.steamId;
       const isBot = steamId <= 0;
 
+      const win_metrics = player.teamId === gameEndDto.winnerTeamId ? 1 : 0;
+
       const itemEvents = playerItems.map((entry) =>
         GA4.BuildEvent(eventName, steamId, {
           hero_name: player.heroName,
@@ -120,6 +122,7 @@ export class GA4ItemTracker {
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
           is_bot: isBot,
+          win_metrics,
         }),
       );
 
