@@ -10042,7 +10042,7 @@
 		{
 			"images_take_damage_percent"
 			{
-				"value" "0	// 175
+				"value" "0"	// 175
 			}
 			"images_take_damage_percent_tooltip"
 			{

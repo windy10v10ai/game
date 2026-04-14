@@ -11,5 +11,3 @@ export function calculateIntellectMagicResist(intellect: number): number {
 
   return maxCap * ((c * intellect) / (1 + c * intellect));
 }
-
-
