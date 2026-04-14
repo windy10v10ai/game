@@ -185,6 +185,8 @@
 		"item"		"item_pipe"					// 洞察烟斗
 		// "item"		"item_adi_king"				// 阿迪王
 		"item"		"item_adi_king_plus"		// 阿迪王plus
+		"item"      "item_kingmakers_crown" // 王权之冠
+		"item"      "item_chimeras_leash"   // 奇美拉之索
 	}
 	// Level 3 - 法器
 	"magics"
@@ -242,6 +244,7 @@
 		"item"		"item_dracula_mask"			// 德古拉面罩
 		"item"		"item_beast_armor"			// 兽化甲
 		"item"		"item_beast_shield"			// 兽化盾
+		"item"		"item_beast_helmet"			// 兽化盔
 	}
 	// Level 5 - 兵刃
 	"weapons"

@@ -1,0 +1,5 @@
+<root>
+  <Panel class="AddonLoadingRoot">
+    <Image id="gamemode" class="SeqImg" src="file://{images}/items/kingmakers_crown.png" />
+  </Panel>
+</root>

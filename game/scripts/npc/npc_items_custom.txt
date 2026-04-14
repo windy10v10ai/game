@@ -2065,11 +2065,11 @@
 				"bonus_attack_speed"	"60"	//15
 				"bonus_movement_speed"	"30"	//10
 				"images_count"			"1"		//2
-				"illusion_duration"			"30"	// 18
+				"illusion_duration"			"50"	// 18
 				"images_do_damage_percent_melee"	"+50"
 				"tooltip_damage_outgoing_melee"			"150"
 				"images_take_damage_percent"	"100"
-				"tooltip_damage_incoming_total_pct"			"200"
+				"tooltip_damage_incoming_total_pct"			"100"
 				"images_do_damage_percent_ranged"	"+20"
 				"tooltip_damage_outgoing_ranged"			"120"
 				"invuln_duration"		"0.5"	//0.1
@@ -7519,6 +7519,7 @@
 		{
 			"radius"                "100"  // 用于AOE指示器
 		}
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -7529,4 +7530,84 @@
 		}
 	}
 
+	//=================================================================================================================
+	// item_chimeras_leash
+	//=================================================================================================================
+	"item_recipe_chimeras_leash"
+	{
+		"BaseClass"                     "item_recipe_arcane_boots"
+		"ID"                            "11102"
+		"Model"                         "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"            "item_recipe_chimeras_leash"
+		"ItemCost"                      "0"
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_chimeras_leash"
+		"ItemRequirements"
+		{
+			"01"                        "item_manta;item_light_part;item_fusion_forbidden"
+		}
+	}
+
+	"item_chimeras_leash"
+	{
+		"BaseClass"                     "item_lua"
+		"ID"                            "11103"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_chimeras_leash"
+		"ScriptFile"                    "items/ts_items/item_chimeras_leash"
+		"ItemCost"                      "25000"
+		"ItemShopTags"                  "armor;attack_speed;damage;hard_to_tag"
+		"ItemQuality"                   "artifact"
+		"ItemAliases"                   "chimera;leash;chimeras"
+		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"AbilityValues"
+		{
+			"bonus_all_stats"           "30"
+			"bonus_health"				"500"
+			"bonus_mana"				"500"
+			"aura_radius"               "-1"
+		}
+	}
+
+	"item_recipe_beast_helmet"
+	{
+		"BaseClass"                     "item_recipe_arcane_boots"
+		"ID"                            "11104"
+		"Model"                         "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"            "item_recipe_beast_helmet"
+		"ItemCost"                      "0"
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_beast_helmet"
+		"ItemRequirements"
+		{
+			"01"                        "item_black_king_bar_2;item_hallowed_scepter;item_desolator;item_fusion_beast"
+		}
+	}
+
+	"item_beast_helmet"
+	{
+		"BaseClass"                     "item_lua"
+		"ID"                            "11105"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"            "item_beast_helmet"
+		"ScriptFile"                    "items/ts_items/item_beast_helmet"
+		"ItemCost"                      "30000"
+		"ItemShopTags"                  "int;str;hard_to_tag"
+		"ItemQuality"                   "artifact"
+		"ItemAliases"                   "beast;helmet;beast helmet"
+		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"AbilityCooldown"				"40.0"
+		"AbilityManaCost"				"500"
+
+		"AbilityValues"
+		{
+			"bonus_strength"			"80"
+			"bonus_intellect"			"160"
+			"spell_amp_per_int"			"0.2"
+			"active_duration"			"5.0"
+			"damage_reduction_pct"		"80"
+		}
+	}
 }

@@ -1,8 +1,8 @@
-"DOTAAbilities"
+﻿"DOTAAbilities"
 {
 
 	//=================================================================================================================
-	// 龙珠系列 dragon ball blessing of dragon
+	// é¾™ç ç³»åˆ— dragon ball blessing of dragon
 	//=================================================================================================================
 	"item_dragon_ball_1"
 	{
@@ -445,7 +445,7 @@
 			"bonus_all_stats"		"777"
 		}
 	}
-	// 神龙赐福·不死
+	// ç¥žé¾™èµç¦Â·ä¸æ­»
 	"item_recipe_blessing_of_dragon_1"
 	{
 		"BaseClass"						"item_datadriven"
@@ -480,7 +480,7 @@
 			"duration"			"3600"
 		}
 	}
-	// 神龙赐福·毁灭
+	// ç¥žé¾™èµç¦Â·æ¯ç­
 	"item_recipe_blessing_of_dragon_2"
 	{
 		"BaseClass"						"item_datadriven"
@@ -531,7 +531,7 @@
 			"debuff_duration"		"1"
 		}
 	}
-	// 神龙赐福·时间
+	// ç¥žé¾™èµç¦Â·æ—¶é—´
 	"item_recipe_blessing_of_dragon_3"
 	{
 		"BaseClass"						"item_datadriven"
@@ -569,7 +569,7 @@
 			"bonus_damage"			"0"
 		}
 	}
-	// 神龙赐福·空间
+	// ç¥žé¾™èµç¦Â·ç©ºé—´
 	"item_recipe_blessing_of_dragon_4"
 	{
 		"BaseClass"						"item_datadriven"
@@ -640,9 +640,9 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器2.0
+	// ç¥žå™¨2.0
 	//=================================================================================================================
-	//圣光组件
+	//åœ£å…‰ç»„ä»¶
 	"item_light_part"
 	{
 		"BaseClass"						"item_datadriven"
@@ -684,7 +684,7 @@
 		}
 	}
 
-	//暗影组件
+	//æš—å½±ç»„ä»¶
 	"item_dark_part"
 	{
 		"BaseClass"						"item_datadriven"
@@ -726,7 +726,7 @@
 		}
 	}
 
-	// 圣光臂章
+	// åœ£å…‰è‡‚ç« 
 	"item_recipe_armlet_light"
 	{
 		"BaseClass"						"item_datadriven"
@@ -763,7 +763,7 @@
 			"toggle_cooldown"		"0.036"
 		}
 	}
-	// 暗影臂章
+	// æš—å½±è‡‚ç« 
 	"item_recipe_armlet_dark"
 	{
 		"BaseClass"						"item_datadriven"
@@ -801,7 +801,7 @@
 		}
 	}
 
-	// 神器卫士径甲
+	// ç¥žå™¨å«å£«å¾„ç”²
 	"item_recipe_guardian_greaves_artifact"
 	{
 		"BaseClass"						"item_datadriven"
@@ -852,7 +852,7 @@
 		}
 	}
 
-	// 混沌散魂剑
+	// æ··æ²Œæ•£é­‚å‰‘
 	"item_recipe_disperser_chaos"
 	{
 		"BaseClass"						"item_datadriven"
@@ -909,7 +909,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 混沌魂戒 娱乐道具
+	// æ··æ²Œé­‚æˆ’ å¨±ä¹é“å…·
 	//=================================================================================================================
 	"item_recipe_soul_ring_1"
 	{
@@ -949,7 +949,7 @@
 	}
 
 	//=================================================================================================================
-	//  神刃甲 天地同寿甲
+	//  ç¥žåˆƒç”² å¤©åœ°åŒå¯¿ç”²
 	//=================================================================================================================
 	"item_recipe_force_field_ultra"
 	{
@@ -990,7 +990,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器 魔武双修 胸针
+	// ç¥žå™¨ é­”æ­¦åŒä¿® èƒ¸é’ˆ
 	//=================================================================================================================
 	"item_recipe_revenants_brooch_ultra"
 	{
@@ -1027,7 +1027,7 @@
 		}
 	}
 	//=================================================================================================================
-	// 神器一瞬千击
+	// ç¥žå™¨ä¸€çž¬åƒå‡»
 	//=================================================================================================================
 	"item_recipe_dagon_ultra"
 	{
@@ -1065,6 +1065,54 @@
 			"int_damage"		"0"
 			"passive_spell_lifesteal"			"40"
 			"dagon_spell_lifesteal"				"100"
+		}
+	}
+
+	//=================================================================================================================
+	// The Kingmaker's Crown ????
+	//=================================================================================================================
+	"item_recipe_kingmakers_crown"
+	{
+		"BaseClass"                     "item_recipe_arcane_boots"
+		"ID"                            "11100"
+		"Model"                         "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"            "item_recipe_kingmakers_crown"
+		"ItemCost"                      "0"
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_kingmakers_crown"
+		"ItemRequirements"
+		{
+			"01"                        "item_vladmir_2;item_light_part;item_fusion_forbidden"
+		}
+	}
+
+	"item_kingmakers_crown"
+	{
+		"BaseClass"                     "item_lua"
+		"ID"                            "11101"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"            "item_kingmakers_crown"
+		"ScriptFile"                    "items/ts_items/item_kingmakers_crown"
+		"ItemCost"                      "25000"
+		"ItemShopTags"                  "armor;attack_speed;damage;hard_to_tag"
+		"ItemQuality"                   "artifact"
+		"ItemAliases"                   "king;crown;kingmaker"
+		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+
+		"AbilityValues"
+		{
+			"bonus_all_stats"           "30"
+			"bonus_armor"               "25"
+			"bonus_attack_speed"        "60"
+			"bonus_damage"              "100"
+			"aura_armor"                "15"
+			"aura_negative_armor"       "-15"
+			"aura_attack_speed"         "80"
+			"damage_aura"               "30"
+			"vampiric_aura"             "30"
+			"mana_regen_aura"           "10"
+			"aura_radius"               "1200"
+			"stat_inheritance_percent"  "10"
 		}
 	}
 }
