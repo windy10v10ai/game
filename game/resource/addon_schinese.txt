@@ -671,7 +671,6 @@
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"神之愤怒"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"斯温从力量中获得额外攻击力，但是基础攻击力降低。"
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"基础攻击力降低："
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"每点力量额外攻击力："
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"暴烈之爪"

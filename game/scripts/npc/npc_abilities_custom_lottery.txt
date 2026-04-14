@@ -270,6 +270,156 @@
 			}
 		}
 	}
+
+	//龙骑 龙族血统
+	"dragon_knight_dragon_blood2"
+	{
+		"BaseClass"						"dragon_knight_dragon_blood"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"health_regen"
+			{
+				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
+			}
+			"armor"
+			{
+				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
+			}
+		}
+	}
+
+	//蝙蝠骑士 树脂
+	"batrider_smoldering_resin2"
+	{
+		"BaseClass"						"batrider_smoldering_resin"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
+		"Innate"						"0"
+		"AbilityTextureName"			"clinkz_tar_bomb"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"total_ticks"			"2"
+			"tick_rate"				"1"
+			"tick_attack_damage_pct"		"20 25 30 35 40"
+		}
+	}
+	//奇心 拉比克 先天
+	"rubick_curiosity2"
+	{
+		"BaseClass"						"rubick_curiosity"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"rubick_curiosity"
+
+		"AbilityValues"
+		{
+			"curiosity_per_spell_cast"			"2"				// 2
+			"curiosity_duration"				"20"			// 20
+			"curiosity_per_level"				"1"				// 1
+			"curiosity_attack_damage"			"1"				// 1
+			"curiosity_modifier_amp"			"0.3"			// 0.3
+			"curiosity_aoe_bonus"				"1"				// 2
+			"curiosity_per_kill"				"1"				// 1
+			"grace_period"						"3"				// 3
+			"charge_radius"
+			{
+				"value"						"1200"				// 1200
+				"affected_by_aoe_increase"	"1"
+			}
+			"curiosity_permanent_gain"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_debuff_amp"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_aoe_bonus"
+			{
+				"dynamic_value"				"true"
+			}
+		}
+	}
+	//力量与魔法 拉比克
+	"rubick_might_and_magus2"
+	{
+		"BaseClass"						"rubick_might_and_magus"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"rubick/ti8_immortal_shoulder/rubick_fade_bolt_immortal"
+		"MaxLevel"						"1"
+
+
+		"AbilityValues"
+		{
+			"aoe_bonus"					"10"
+			"magic_resist_bonus"		"10"
+			"aoe_bonus_duration"		"10"
+		}
+	}
+	//斯温 神之愤怒
+	"sven_wrath_of_god2"
+	{
+		"BaseClass"						"sven_wrath_of_god"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"DependentOnAbility"			""
+		"AbilityTextureName"			"sven_storm_bolt_secondary"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"bonus_damage_per_str"				"0.4 0.5 0.6 0.7 0.8"
+		}
+	}
+	//拍拍 天生技能 +攻击
+	"ursa_maul2"
+	{
+		"BaseClass"						"ursa_maul"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
+		"MaxLevel"						"5"
+
+
+		"AbilityValues"
+		{
+			"health_as_damage_pct"
+			{
+				"value"	"1 1.5 2 2.5 3"
+			}
+		}
+	}
+	//双头龙 天生一对
+	"jakiro_double_trouble2"
+	{
+		"BaseClass"						"jakiro_double_trouble"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"Innate"						"0"
+		"AbilityTextureName"			"jakiro_dual_breath"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"second_attack_delay"			"0.2"				// 0.2
+			"attack_damage_reduction"
+			{
+				"value"							"51"			// 51
+				"hero_levelup"					"-1.0"			// -1.0
+			}
+		}
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================
@@ -429,155 +579,6 @@
 		}
 	}
 
-	//龙骑 龙族血统
-	"dragon_knight_dragon_blood2"
-	{
-		"BaseClass"						"dragon_knight_dragon_blood"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"health_regen"
-			{
-				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
-			}
-			"armor"
-			{
-				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
-			}
-		}
-	}
-
-	//蝙蝠骑士 树脂
-	"batrider_smoldering_resin2"
-	{
-		"BaseClass"						"batrider_smoldering_resin"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
-		"Innate"						"0"
-		"AbilityTextureName"			"clinkz_tar_bomb"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"total_ticks"			"2"
-			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"20 25 30 35 40"
-		}
-	}
-	//奇心 拉比克 先天
-	"rubick_curiosity2"
-	{
-		"BaseClass"						"rubick_curiosity"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"MaxLevel"						"1"
-		"IsBreakable"					"1"
-		"AbilityTextureName"			"rubick_curiosity"
-
-		"AbilityValues"
-		{
-			"curiosity_per_spell_cast"			"2"				// 2
-			"curiosity_duration"				"20"			// 20
-			"curiosity_per_level"				"1"				// 1
-			"curiosity_attack_damage"			"1"				// 1
-			"curiosity_modifier_amp"			"0.3"			// 0.3
-			"curiosity_aoe_bonus"				"1"				// 2
-			"curiosity_per_kill"				"1"				// 1
-			"grace_period"						"3"				// 3
-			"charge_radius"
-			{
-				"value"						"1200"				// 1200
-				"affected_by_aoe_increase"	"1"
-			}
-			"curiosity_permanent_gain"
-			{
-				"dynamic_value"				"true"
-			}
-			"current_debuff_amp"
-			{
-				"dynamic_value"				"true"
-			}
-			"current_aoe_bonus"
-			{
-				"dynamic_value"				"true"
-			}
-		}
-	}
-	//力量与魔法 拉比克
-	"rubick_might_and_magus2"
-	{
-		"BaseClass"						"rubick_might_and_magus"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"AbilityTextureName"			"rubick/ti8_immortal_shoulder/rubick_fade_bolt_immortal"
-		"MaxLevel"						"1"
-
-
-		"AbilityValues"
-		{
-			"aoe_bonus"					"10"
-			"magic_resist_bonus"		"10"
-			"aoe_bonus_duration"		"10"
-		}
-	}
-	//斯温 神之愤怒
-	"sven_wrath_of_god2"
-	{
-		"BaseClass"						"sven_wrath_of_god"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"DependentOnAbility"			""
-		"AbilityTextureName"			"sven_storm_bolt_secondary"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"bonus_damage_per_str"				"0.6 0.7 0.8 0.9 1"
-			"base_damage_reduction"				"10 20 30 40 50"
-		}
-	}
-	//拍拍 天生技能 +攻击
-	"ursa_maul2"
-	{
-		"BaseClass"						"ursa_maul"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
-		"MaxLevel"						"5"
-
-
-		"AbilityValues"
-		{
-			"health_as_damage_pct"
-			{
-				"value"	"1 2 3 4 5"
-			}
-		}
-	}
-	//双头龙 天生一对
-	"jakiro_double_trouble2"
-	{
-		"BaseClass"						"jakiro_double_trouble"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"Innate"						"0"
-		"AbilityTextureName"			"jakiro_dual_breath"
-		"MaxLevel"						"1"
-
-		"AbilityValues"
-		{
-			"second_attack_delay"			"0.2"				// 0.2
-			"attack_damage_reduction"
-			{
-				"value"							"51"			// 51
-				"hero_levelup"					"-1.0"			// -1.0
-			}
-		}
-	}
 	//人工神符
 	"arc_warden_scepter2"
 	{
