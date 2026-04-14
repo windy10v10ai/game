@@ -436,18 +436,17 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
 			"health_regen"
 			{
-				"value"							"5"				// 2
-				"hero_levelup"					"+1"			// +0.5
+				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
 			}
 			"armor"
 			{
-				"value"							"2"
-				"hero_levelup"					"+0.5"
+				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
 			}
 		}
 	}
