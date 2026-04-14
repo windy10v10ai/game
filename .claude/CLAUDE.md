@@ -227,7 +227,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 | 抽奖技能 KV | `game/scripts/npc/npc_abilities_custom_lottery.txt` |
 | 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
 | 原版物品参考 | `docs/reference/<version>/items.txt` |
-| 克隆升级物品 KV | `game/scripts/npc/npc_item_clone.txt` |
+| 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 

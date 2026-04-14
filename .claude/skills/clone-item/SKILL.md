@@ -2,7 +2,7 @@
 name: clone-item
 description: >-
   Create or update a custom upgraded clone of a vanilla Dota item. Copies item
-  KV from docs/reference items.txt into npc_item_clone.txt, creates recipe,
+  KV from docs/reference items.txt into npc_items_clone.txt, creates recipe,
   boosts stats ~x2, and writes localization. Supports lookup by Chinese name or
   system name. Interactive menus for ambiguous decisions.
 ---
@@ -10,7 +10,7 @@ description: >-
 # 自定义升级物品（新建 / 更新）
 
 将原版 Dota 物品克隆为升级版（如 `item_shivas_guard` → `item_shivas_guard_2`），写入
-`game/scripts/npc/npc_item_clone.txt` 并补全本地化。
+`game/scripts/npc/npc_items_clone.txt` 并补全本地化。
 
 > 参考文件路径见 CLAUDE.md「Dota 2 参考文件速查」章节。
 
@@ -35,7 +35,7 @@ description: >-
 
 ```
 Grep pattern: "item_shivas_guard_2"
-file: game/scripts/npc/npc_item_clone.txt
+file: game/scripts/npc/npc_items_clone.txt
 ```
 
 同时搜索以下旧版存放位置：
@@ -44,8 +44,8 @@ file: game/scripts/npc/npc_item_clone.txt
 
 | 情况 | 处理 |
 |------|------|
-| **仅在 npc_item_clone.txt 中找到** | 目标文件 = npc_item_clone.txt；模式 = **更新** |
-| **仅在旧文件中找到**（npc_items_custom.txt 或 npc_items_artifact.txt） | 提示用户：已在旧文件中找到，将迁移到 npc_item_clone.txt；模式 = **更新** |
+| **仅在 npc_items_clone.txt 中找到** | 目标文件 = npc_items_clone.txt；模式 = **更新** |
+| **仅在旧文件中找到**（npc_items_custom.txt 或 npc_items_artifact.txt） | 提示用户：已在旧文件中找到，将迁移到 npc_items_clone.txt；模式 = **更新** |
 | **所有文件均未找到** | 模式 = **新建** |
 
 ---
@@ -99,7 +99,7 @@ file: game/scripts/npc/npc_item_clone.txt
 
 **ID 分配规则**：
 
-`npc_item_clone.txt` 专属 ID 段从 **6001** 开始，按以下规则分配：
+`npc_items_clone.txt` 专属 ID 段从 **6001** 开始，按以下规则分配：
 
 **同系列物品**（`_2`、`_3` 等升级版本）：ID 连续 +1
 ```
@@ -120,7 +120,7 @@ item_zzz_2         →  6022
 ```
 
 分配步骤：
-1. 读取 `npc_item_clone.txt` 中已有的所有 ID，确定当前最大已用系列编号
+1. 读取 `npc_items_clone.txt` 中已有的所有 ID，确定当前最大已用系列编号
 2. 新系列起始 ID = `6001 + 已有系列数 × 10`
 3. 同系列内每增加一个物品对（recipe + 物品），在当前系列段内 +2
 
@@ -158,13 +158,18 @@ item_zzz_2         →  6022
 
 ---
 
-## 第七步：更新模式 — 同步原版
+## 第七步：更新模式 — 同步原版 KV
 
-更新现有克隆物品时：
-1. 从 `docs/reference/<version>/items.txt` 读取当前原版 KV
-2. 删除克隆块中与原版**同值**的字段（BaseClass 会继承）
-3. 补充原版新增但克隆块缺失的字段
-4. 重新按加强规则校验 `AbilityValues`
+更新现有克隆物品时，以最新版本的 `docs/reference/<version>/items.txt` 为基准：
+
+1. 读取当前原版物品块的完整字段列表
+2. **删除**克隆块中原版已不存在的字段（已废弃的键）
+3. **补充**原版新增但克隆块缺失的字段（加强规则同第六步）
+4. **保留**仅克隆物品有、原版没有的字段（如 `ItemAliases`、`AbilitySharedCooldown`、`AbilityTextureName`、`ID` 等克隆专属字段）
+5. 重新按加强规则校验所有 `AbilityValues`，对照原版当前值 ×2（可成长属性），固定机制值与原版保持一致
+6. **顶层字段**（`AbilityBehavior`、`AbilityCooldown`、`AbilityManaCost`、`FightRecapLevel`、`SpellDispellableType` 等）与原版保持一致
+
+同时执行**第九步本地化更新**（见下方）。
 
 ---
 
@@ -177,7 +182,7 @@ game/resource/flash3/images/items/<name>_2.png
 （注意：文件名去掉 `item_` 前缀，如 `shivas_guard_2.png`）
 
 - 若**不存在** → 提醒用户：「请在 `game/resource/flash3/images/items/` 目录下创建 `<name>_2.png` 图片文件。`AbilityTextureName` 已设置为 `item_<name>_2`。」
-- 若**已存在** → 无需提醒
+- 若**已存在** → 无需任何提醒，直接跳过此步
 
 ---
 
@@ -185,15 +190,22 @@ game/resource/flash3/images/items/<name>_2.png
 
 ### 9-A 定位原版本地化键
 
-在 Dota 官方本地化文件中搜索原版物品的 Tooltip（如果存在）：
-- `docs/reference/<version>/abilities_english.txt`（若含物品本地化）
-- 或通过 Valve 物品 key 规则推断：`DOTA_Tooltip_Ability_item_<name>`
-
-在项目本地化文件中搜索是否已有原版或克隆键：
+从 `docs/reference/<version>/abilities_english.txt` 和 `abilities_schinese.txt` 读取原版物品的所有 Tooltip 键：
 ```
-Grep pattern: "item_<name>"
+Grep pattern: DOTA_Tooltip_ability_item_<name>
+```
+
+同时在项目本地化文件中检查克隆键是否已存在：
+```
+Grep pattern: item_<name>_2
 files: game/resource/addon_english.txt, game/resource/addon_schinese.txt
 ```
+
+**更新模式**下，必须将克隆物品的中英文说明与原版当前版本对齐：
+- **Description**：以原版当前 Description 为模板，将键名替换为克隆名，内容与原版保持一致（不添加旧版中已删除的占位符）
+- **Note\***：同步原版当前的所有 Note 条目（新增的补上，原版已删除的从克隆中移除）
+- **属性行**（`_bonus_xxx`）：与原版当前 `AbilityValues` 中的键名保持一致（原版删除的属性行也从克隆本地化中删除，原版新增的补上）
+- **Lore**：保留克隆版本的自定义 Lore，不跟随原版更新
 
 ### 9-B 复制并改写键名
 
@@ -248,7 +260,7 @@ Glob: game/scripts/npc/shops*.txt
 
 ## 第十一步：写入目标文件
 
-目标文件：`game/scripts/npc/npc_item_clone.txt`
+目标文件：`game/scripts/npc/npc_items_clone.txt`
 
 若文件不存在，创建并写入文件头：
 ```kv
@@ -264,7 +276,7 @@ Glob: game/scripts/npc/shops*.txt
 在文件中追加（或更新）recipe 块和物品块，格式对照 `item_recipe_shivas_guard_2` /
 `item_shivas_guard_2` 在 `npc_items_custom.txt` 中的写法。
 
-同时在 `npc_items_custom.txt` 的顶层（若该文件用 `#include` 或引用机制）确认 `npc_item_clone.txt`
+同时在 `npc_items_custom.txt` 的顶层（若该文件用 `#include` 或引用机制）确认 `npc_items_clone.txt`
 已被包含（若项目中有 `#include` 机制则添加；若无则跳过，后续手动配置）。
 
 ---
@@ -280,4 +292,4 @@ Glob: game/scripts/npc/shops*.txt
 - [ ] 图片文件存在或已提醒用户创建
 - [ ] addon_english.txt 和 addon_schinese.txt 已同步写入本地化键
 - [ ] 本地化键名前缀与物品系统名完全匹配
-- [ ] npc_item_clone.txt 格式正确（有文件头/尾，KV 块正确嵌套）
+- [ ] npc_items_clone.txt 格式正确（有文件头/尾，KV 块正确嵌套）

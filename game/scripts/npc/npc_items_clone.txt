@@ -1,3 +1,65 @@
+// DO NOT EDIT MANUALLY. Managed by clone-item skill.
 "DOTAAbilities"
 {
+	//=================================================================================================================
+	// Shiva's Guard 2 雅典娜的守护
+	//=================================================================================================================
+	"item_recipe_shivas_guard_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"6001"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"BaseClass"						"item_recipe_shivas_guard"
+		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
+		"ItemCost"						"1125"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_shivas_guard_2"
+		"ItemRequirements"
+		{
+			"01"						"item_shivas_guard;item_veil_of_discord_2;item_platemail"
+		}
+	}
+
+	"item_shivas_guard_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"6002"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
+		"BaseClass"						"item_shivas_guard"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCooldown"				"27"
+
+		"AbilityManaCost"				"300"
+		"ItemCost"						"13000"
+		"ItemAliases"				"shiva's guard;shivas guard;shiva guard;athena's guard;athenas guard;athena guard"
+		"AbilitySharedCooldown"			"shivas_guard"
+		"AbilityTextureName"			"item_shivas_guard_2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_hp_regen"		"0"
+				"bonus_armor"			"34"	// 17
+				"bonus_aoe"				"150"	// 75
+				"aura_radius"
+				{
+					"value"	"1200"
+					"affected_by_aoe_increase"	"1"
+				}
+				"aura_attack_speed"		"-90"	// -45
+				"blast_damage"			"600"	// 260
+				"blast_movement_speed"	"-60"	// -40
+				"blast_debuff_duration"	"4.0"
+				"blast_radius"
+				{
+					"value"		"900"	// 825
+					"affected_by_aoe_increase"	"1"
+				}
+				"blast_speed"			"400"
+		}
+	}
 }
