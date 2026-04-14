@@ -9296,16 +9296,16 @@
 	"death_prophet_carrion_swarm"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityManaCost"				"80 90 100 110 120"	// 80 90 100 110
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"													"100 175 250 325 400"
+				"value"													"100 175 250 325 400"	// 100 175 250 325
 			}
 			"AbilityCooldown"
 			{
-				"value"									"10 9 8 7 6"
+				"value"									"10 9 8 7 6"	// 9 8 7 6 +1
 			}
 		}
 	}
@@ -9313,17 +9313,9 @@
 	"death_prophet_silence"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"15 14 13 12 11"
-		"AbilityDuration"				"3.5 4.0 4.5 5.0 5.5"
-		"AbilityManaCost"				"80 90 100 110 120"
-		"AbilityValues"
-		{
-			"movement_slow"
-			{
-				"value"							"0"
-				"special_bonus_facet_death_prophet_suppress"		"15 20 25 30 35"
-			}
-		}
+		"AbilityCooldown"				"15 14 13 12 11"	// 15 14 13 12
+		"AbilityDuration"				"3.5 4.0 4.5 5.0 5.5"	// 3.5 4.0 4.5 5.0
+		"AbilityManaCost"				"80 90 100 110 120"	// 80 90 100 110
 	}
 	// 巫术精研
 	"death_prophet_witchcraft"
@@ -9332,12 +9324,12 @@
 		{
 			"movement_speed_pct"
 			{
-				"value"				"1"		// 0.5
-				"hero_levelup"		"+0.5"	// +0.75
+				"value"				"1"		// 0.5 x2
+				"hero_levelup"		"+0.5"	// +0.75 差值-0.25
 			}
 			"cooldown_reduction_pct"
 			{
-				"hero_levelup"		"+0.5"	// +0.75
+				"hero_levelup"		"+0.5"	// +0.75 差值-0.25
 			}
 		}
 	}
@@ -9345,55 +9337,32 @@
 	"death_prophet_spirit_siphon"
 	{
 		"MaxLevel"						"5"
-		"AbilityCharges"				"1 2 3 4 5"
-		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityCharges"				"1 2 3 4 5"	// 1 2 3 4
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"				"25 50 75 100 125"
-				"special_bonus_unique_death_prophet_3"	"+75"
+				"value"				"25 50 75 100 125"	// 25 50 75 100
+				"special_bonus_unique_death_prophet_3"	"+75"	// +30
 			}
 		}
 	}
-	// 巫术精研 先天技能
 	// 驱使恶灵
 	"death_prophet_exorcism"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"150"
-		"AbilityManaCost"				"200 300 400 500"
+		"AbilityManaCost"				"200 300 400 500"	// 200 300 400
 		"AbilityValues"
 		{
 			// 减少恶灵数量 增加伤害 缓解卡顿
 			"spirits"
 			{
-				"value"					"4"
-				"special_bonus_unique_death_prophet"	"+4"
+				"value"					"4"	// 10 18 26
+				"special_bonus_unique_death_prophet"	"+4"	// +6
 			}
-			"min_damage"			"100 200 300 400"
-			"max_damage"			"100 200 300 400"
-			"average_damage"		"100 200 300 400"
-			"hero_spirit_min_damage"
-			{
-				"value"										"0"
-				"special_bonus_facet_death_prophet_ghosts"	"=200 =400 =600 =800"
-			}
-			"hero_spirit_max_damage"
-			{
-				"value"										"0"
-				"special_bonus_facet_death_prophet_ghosts"	"=200 =400 =600 =800"
-			}
-		}
-	}
-	// 哀悼仪式 天命
-	"death_prophet_mourning_ritual"
-	{
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"delay_pct"					"20 30 40 50 60"
+			"min_damage"			"100 200 300 400"	// 62 65 68
+			"max_damage"			"100 200 300 400"	// 68 71 74
+			"average_damage"		"100 200 300 400"	// 65 68 71
 		}
 	}
 	//=================================================================================================================
