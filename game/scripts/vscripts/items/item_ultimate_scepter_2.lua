@@ -44,7 +44,7 @@ function Scepter2OnSpell(keys)
 	local consumedModifierName = "modifier_item_ultimate_scepter_2_consumed"
 
 	-- 目标身上有消耗后的buff，则不消耗
-	local hasConsumedModifier = keys.caster:HasModifier(consumedModifierName)
+	local hasConsumedModifier = keys.target:HasModifier(consumedModifierName)
 	if hasConsumedModifier then
 		print("hasConsumedModifier: " .. tostring(hasConsumedModifier))
 		return

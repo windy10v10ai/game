@@ -91,8 +91,7 @@ export class ActionAbility {
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;
     }
-    const findRange = condition?.target?.range ?? this.GetFullCastRange(hero, ability);
-    // FIXME debug
+    const findRange = condition?.target?.range?.lte ?? this.GetFullCastRange(hero, ability);
     if (condition?.debug) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} findRange ${findRange}`);
     }
@@ -100,7 +99,6 @@ export class ActionAbility {
     const target = FilterTargetWithCondition(condition, enemies, hero);
 
     if (!target) {
-      // FIXME debug
       if (condition?.debug) {
         print(`[AI] CastAbilityOnEnemy ${abilityName} target not found`);
       }

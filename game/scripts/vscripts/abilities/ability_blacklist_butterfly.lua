@@ -165,7 +165,6 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["ogre_magi_ignite"] = true,                -- 食人魔魔法师 引燃
     ["viper_viper_strike"] = true,              -- 冥界亚龙 毒性攻击（大招）
     ["death_prophet_carrion_swarm"] = true,     -- 死亡先知 腐尸群
-    ["ancient_apparition_frost_seal"] = true,   -- 冰魂 冰霜封印
     ["terrorblade_reflection"] = true,          -- 恐怖利刃 倒影
     ["goku_kaioken"] = true,                    -- 悟空 界王拳
     ["tusk_snowball"] = true,                   -- 巨牙海民 雪球
@@ -176,7 +175,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["obsidian_destroyer_essence_flux"] = true, -- 黑鸟 精华变迁
     ["viper_nethertoxin"] = true,               -- 冥界亚龙 剧毒攻击
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
-    ["tinker_keen_teleport"] = true,            -- 修补匠 传送  ✅ 新增
+    ["tinker_keen_teleport"] = true,            -- 修补匠 传送
+    ["lich_death_charge"] = true,               -- 巫妖 献身
     --精灵
     ["wisp_tether"] = true,
     ["wisp_tether_break"] = true,

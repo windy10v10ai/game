@@ -7,6 +7,13 @@ import { TowerPushStatus } from '../event-entity-killed';
  */
 @reloadable
 export class CreepBuffManager {
+  /**
+   * 中路模式：小兵金钱经验加倍
+   */
+  private readonly MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER = 3;
+  /**
+   * 当前小兵buff等级
+   */
   private currentBuffLevels = {
     buffLevelGood: 0,
     buffLevelBad: 0,
@@ -44,8 +51,41 @@ export class CreepBuffManager {
     const name = entity.GetName();
     // 检查是否为小兵或攻城单位
     if (name === 'npc_dota_creep_lane' || name === 'npc_dota_creep_siege') {
+      // 中路模式：只保留中路小兵
+      if (GameRules.Option.midOnlyMode) {
+        const lane = this.getCreepLane(entity.GetAbsOrigin());
+        if (lane !== 'mid') {
+          entity.ForceKill(false);
+          return;
+        }
+        // 中路小兵金钱经验加倍
+        entity.SetMaximumGoldBounty(
+          entity.GetMaximumGoldBounty() * this.MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER,
+        );
+        entity.SetMinimumGoldBounty(
+          entity.GetMinimumGoldBounty() * this.MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER,
+        );
+        entity.SetDeathXP(entity.GetDeathXP() * this.MID_ONLY_MODE_CREEP_BOUNTY_MULTIPLIER);
+      }
       this.applyCreepBuff(entity);
     }
+  }
+
+  /**
+   * 根据坐标判断小兵所在路线 中路模式专用
+   */
+  private getCreepLane(position: Vector): 'mid' | 'top' | 'bot' | 'unknown' {
+    const x = position.x;
+    const y = position.y;
+    const diff = Math.abs(Math.abs(x) - Math.abs(y));
+    if (diff < 1500) {
+      return 'mid';
+    } else if (x > 0 && y < 0) {
+      return 'bot';
+    } else if (x < 0 && y > 0) {
+      return 'top';
+    }
+    return 'unknown';
   }
 
   private applyCreepBuff(creep: CDOTA_BaseNPC): void {

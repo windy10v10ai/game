@@ -16,9 +16,6 @@ export const abilityTiersActive: Tier[] = [
       'alchemist_chemical_rage', // 化学狂暴
       // 小技能
       'gyrocopter_flak_cannon', // 高射火炮
-
-      // 自定义技能
-      // 'ability_mind_control', //夺舍
     ],
   },
   {
@@ -32,7 +29,6 @@ export const abilityTiersActive: Tier[] = [
       'legion_commander_duel', // 决斗
       'mars_bulwark', // 护身甲盾
 
-      // 'ability_defection', //卧底
       // 小技能
       'ember_spirit_sleight_of_fist', // 无影拳
       'life_stealer_rage', // 狂暴
@@ -117,6 +113,7 @@ export const abilityTiersActive: Tier[] = [
       'abyssal_underlord_firestorm', // 火焰风暴
 
       // 自定义技能
+      'brewmaster_drunken_boxing', // 酒仙 醉拳
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
     ],
@@ -156,6 +153,7 @@ export const abilityTiersActive: Tier[] = [
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
+      'alchemist_berserk_potion2', // 炼金 狂暴药剂
     ],
   },
 ];
@@ -175,6 +173,7 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
+      'riki_innate_backstab2', // 力丸 背刺
     ],
   },
   {
@@ -199,11 +198,12 @@ export const abilityTiersPassive: Tier[] = [
       // 自定义技能
       'dark_seer_normal_punch2', // 普通一拳
       'ogre_magi_multicast_lua', // 多重施法
-      'dragon_knight_inherited_vigor2', // 龙骑 先天 龙血
       'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
+      'rubick_curiosity2', // 拉比克 先天 奇心
       'rubick_might_and_magus2', // 拉比克 力量与魔法
+      'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
 
       'ability_trigger_learned_skills', //蓝蝴蝶
       'ability_trigger_on_spell_reflect', //绿蝴蝶
@@ -239,6 +239,7 @@ export const abilityTiersPassive: Tier[] = [
       'tusk_walrus_punch', //海象神拳
 
       // 自定义技能
+      'dragon_knight_dragon_blood2', // 龙骑 龙族血统
       'drow_ranger_trueshot2', // 精准光环
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
@@ -273,6 +274,7 @@ export const abilityTiersPassive: Tier[] = [
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
 
       // 自定义技能
+      'crystal_maiden_glacial_guard2', // 冰女 先天 冰川护体
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'abyssal_underlord_firestorm2', // 火雨降临
       'ursa_maul2', // 拍拍 天生技能 +攻击
@@ -294,7 +296,6 @@ export const abilityTiersPassive: Tier[] = [
       'sniper_headshot', // 爆头
       'bounty_hunter_jinada', // 忍术
       'razor_storm_surge', // 风暴涌动
-      'venomancer_poison_sting', // 剧毒术士 毒刺
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'troll_warlord_fervor', // 热血战魂
       'visage_gravekeepers_cloak', // 陵卫斗篷

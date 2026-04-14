@@ -161,7 +161,7 @@
 		"AbilityValues"
 		{
 				"hp_regen"				"3.2"	// 0.4
-				"replenish_amount"		"600"	// 100
+				"replenish_amount"		"400"	// 100
 		}
 	}
 	"item_faerie_fire" //仙灵之火
@@ -169,8 +169,8 @@
 		"ItemCost"						"260"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"16"			// 2
-				"hp_restore"			"680"			// 85
+				"bonus_damage"			"12"			// 2
+				"hp_restore"			"520"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹

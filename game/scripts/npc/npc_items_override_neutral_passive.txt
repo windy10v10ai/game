@@ -110,7 +110,8 @@
 	{
 		"AbilityValues"
 		{
-			"attack_range"						"80 120"	// 60 90 120
+			"attack_range"						"60 100"	// 60 90 120
+			"bonus_damage"						"10 20"		// 6 10 14
 		}
 	}
 	// 犀利 施法距离回蓝最大魔法
@@ -149,7 +150,7 @@
 		"AbilityValues"
 		{
 			"health_restoration"		"20 30 40 50"				// 10 15 20
-			"bat_reduce"				"9 18 27 36"				// 6 9 12
+			"bat_reduce"				"9 15 21 27"				// 6 9 12
 			"intelligence_pct"			"-5 -10 -15 -20"			// -6
 		}
 	}

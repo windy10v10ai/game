@@ -96,4 +96,5 @@ export interface GameOptions {
   max_level: number;
   force_random_hero: number;
   enable_player_attribute: number;
+  mid_only_mode: number;
 }
