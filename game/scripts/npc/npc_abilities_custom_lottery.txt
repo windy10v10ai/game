@@ -417,6 +417,35 @@
 			}
 		}
 	}
+
+	//冰魂 先天 刺骨严寒
+	"ancient_apparition_bone_chill2"
+	{
+		"BaseClass"						"ancient_apparition_bone_chill"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"ancient_apparition_bone_chill"
+
+		"AbilityValues"
+		{
+			"str_reduction"
+			{
+				"value"					"1 2 3 4 5"	// .2 + hero_levelup +0.1/lv，lv50 ≈ 5
+				"special_bonus_scepter"	"+0.8"  // tooltip_scepter_bonus
+			}
+			"tooltip_scepter_bonus"				"0.8"
+			"str_reduction_duration"
+			{
+				"value"							"4.0"
+			}
+			"movement_slow_pct"
+			{
+				"value"					"2"
+				"display_type"			"kDebuffPercentage"
+			}
+		}
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================
@@ -602,34 +631,6 @@
 			}
 		}
 	}
-	//冰魂 先天 刺骨严寒
-	"ancient_apparition_bone_chill2"
-	{
-		"BaseClass"						"ancient_apparition_bone_chill"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"MaxLevel"						"1"
-		"AbilityTextureName"			"ancient_apparition_bone_chill"
-
-		"AbilityValues"
-		{
-			"str_reduction"
-			{
-				"value"					"1"			// .2 无法继承A杖，加强基础效果
-				"hero_levelup"			"0.1"		// 0.1
-				"levelup_interval"		"1"			// 3 多数英雄没有持续伤害，加强成长速度
-			}
-			"str_reduction_duration"
-			{
-				"value"							"4.0"
-			}
-			"movement_slow_pct"
-			{
-				"value"					"2"
-				"display_type"			"kDebuffPercentage"
-			}
-		}
-	}
 
 	//狂暴药剂
 	"alchemist_berserk_potion2"
@@ -767,7 +768,6 @@
 			"damage"					"4 5 6 7 8"
 		}
 	}
-	// FIXME 用原版技能替代
 	//斧王 一人成军
 	"axe_one_man_army2"
 	{
