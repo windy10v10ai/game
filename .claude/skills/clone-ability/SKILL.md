@@ -22,7 +22,30 @@ description: >-
 
 ---
 
-## 第二步：前置交互
+## 第一步 B：存在性检测（自动决定模式与目标文件）
+
+解析出自定义技能名（如 `xxx2`）后，**立即**在两个目标文件中搜索该技能名：
+
+```
+Grep pattern: "crystal_maiden_glacial_guard2"  (替换为实际技能名)
+files:
+  - game/scripts/npc/npc_abilities_custom_lottery.txt
+  - game/scripts/npc/npc_abilities_custom.txt
+```
+
+根据搜索结果：
+
+| 情况 | 处理 |
+|------|------|
+| **仅在一个文件中找到** | 自动确定目标文件 = 该文件；操作模式 = **修正**；跳过第二步直接进入第三步 |
+| **在两个文件中都找到** | 用 `AskUserQuestion` 询问用户选择哪个文件；操作模式 = **修正** |
+| **两个文件中都未找到** | 继续执行第二步前置交互（询问目标文件；操作模式默认**新建**） |
+
+> 发现技能已存在时，告知用户：「已在 `<文件名>` 中找到 `<技能名>`，进入修正模式。」
+
+---
+
+## 第二步：前置交互（仅在技能不存在时执行）
 
 ### 2-A 目标文件（用户未指定时询问）
 
@@ -33,14 +56,9 @@ description: >-
 | 抽奖池技能 | `game/scripts/npc/npc_abilities_custom_lottery.txt` | 随机抽奖系统 |
 | 单位 / 英雄专属技能 | `game/scripts/npc/npc_abilities_custom.txt` | 特定单位或自定义英雄 |
 
-### 2-B 操作模式（用户未明确时询问）
+### 2-B 操作模式
 
-> 「请选择操作」
-
-| 选项 | 说明 |
-|------|------|
-| 新建技能 | 从原版技能克隆，写入目标文件 |
-| 修正现有技能 | 比对原版，修正已有自定义块的错误或缺失 |
+新建模式（技能不存在时默认）；若用户在命令中明确指定「修正」则改为修正模式。
 
 ---
 
@@ -96,6 +114,11 @@ description: >-
    - 子块内含 `special_bonus_unique_*` / `special_bonus_facet_*` 的行 → 直接删除该行（天赋引用原版技能名，对自定义技能无效）
    - 删除天赋行后，若子块的 `value` 为 `"0"` 且无其他有效子键 → 删除整个子块
    - 子块内含 `special_bonus_scepter` / `special_bonus_shard` → 同上处理
+   - **子块内含 `hero_levelup` → 必须移除**（克隆先天技能后 `hero_levelup` 有时不生效）。移除后按以下规则将该数值扩展为多级：
+     1. 将 `MaxLevel` 设为 `"5"`
+     2. 计算第 5 级目标值 ≈ `base + 49 × hero_levelup步长`（对应原版 50 级时的数值）
+     3. 在 `[base, 目标值]` 之间取等差 5 档，取整使数列好看（优先 0.5 / 整数步长）
+     4. 其余字段**按判断**决定是否扩展：只有具备成长意义的数值才扩展为 5 级；固定机制值（角度、倍率系数等）保持单值。扩展原则：以**第 3 级 ≈ 原始单值**为锚点，向上下等差延伸，取整使数列好看
    
    其余每个数值右侧用 `//` 标注原版数值（多档整串对照）。
 6. `"AbilityTextureName"` → 必填；参考原版资源或同英雄 persona 路径。
@@ -162,6 +185,7 @@ description: >-
 - [ ] 流程 A：`"Innate" "0"` 且 `AbilityBehavior` 无 `HIDDEN`
 - [ ] 流程 B：Innate 字段按需处理，Behavior 与原版一致
 - [ ] `AbilityValues` 已排除 `special_bonus_unique_*` / `special_bonus_facet_*` / `special_bonus_scepter` / `special_bonus_shard` 天赋引用行；删除天赋行后 value 为 "0" 的子块已整块删除
+- [ ] 流程 A：若原版含 `hero_levelup`，已移除并扩展为 5 级多档（第 5 级 ≈ 原版 lv50 值，等差取整；其他适合成长的字段以第 3 级 ≈ 原始值为锚点向上下等差延伸，固定机制值保持单值）
 - [ ] `AbilityValues` 所有覆盖项带 `//` 原版对照
 - [ ] `AbilityTextureName` 已填写
 - [ ] 若 `AbilityBehavior` 含 `UNIT_TARGET`：已显式写入 `AbilityUnitTargetTeam`、`AbilityUnitTargetType`、`AbilityCastRange`、`SpellImmunityType`、`SpellDispellableType`、`AbilityCastPoint`、`AbilityCooldown`、`AbilityManaCost`
