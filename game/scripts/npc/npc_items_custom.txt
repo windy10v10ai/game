@@ -3511,71 +3511,7 @@
 				"slow_duration"			"0.8"
 		}
 	}
-	//=================================================================================================================
-	// Recipe: Veil of Discord 赫拉的神秘面纱图纸
-	//=================================================================================================================
-	"item_recipe_veil_of_discord_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3064"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"BaseClass"						"item_recipe_veil_of_discord"
-		"AbilityTextureName" 			"item_recipe_veil_of_discord_2"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1475"
-		"ItemShopTags"					""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_veil_of_discord_2"
-		"ItemRequirements"
-		{
-			"01"						"item_veil_of_discord;item_ultimate_orb"
-		}
-	}
-
-	//=================================================================================================================
-	// Veil of discord 赫拉的神秘面纱
-	//=================================================================================================================
-	"item_veil_of_discord_2"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3065"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCooldown"				"16"
-		"AbilityCastRange"				"1200"
-		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"200"
-		"ItemCost"						"7200"
-		"ItemShopTags"					"int;armor;regen_health;hard_to_tag"
-		"ItemQuality"					"rare"
-		"ItemAliases"					"vod;veil of discord"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"AbilitySharedCooldown"			"veil_of_discord"
-		"BaseClass"						"item_veil_of_discord"
-		"AbilityTextureName"			"item_veil_of_discord_2"
-
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"20"
-			"bonus_armor"			"6"
-			"bonus_hp_regen"		"5"
-			"spell_amp"			"20"
-			"debuff_radius"
-			{
-				"value"		"900"
-				"affected_by_aoe_increase"	"1"
-			}
-			"resist_debuff_duration"	"16.0"
-		}
-	}
 
 	//=================================================================================================================
 	// Bag of Gold
