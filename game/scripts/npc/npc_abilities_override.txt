@@ -5510,11 +5510,13 @@
 		"AbilityValues"
 		{
 				"duration"				"3.75 4.25 4.75 5.25"
+				"radius"
+				{
+					"special_bonus_unique_faceless_void_2" "+200"	// +140
+				}
 				"vision_radius"
 				{
 					"value"	"600"	// 475
-					"special_bonus_unique_faceless_void_2" "+200"	// +140
-
 				}
 				"bonus_attack_speed"
 				{
