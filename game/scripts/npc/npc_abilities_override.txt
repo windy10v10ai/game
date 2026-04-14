@@ -5442,7 +5442,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"										"22 19 16 13 10 6"	// 21 16 11 6
+				"value"										"18 15 12 9 6"	// 21 16 11 6
 			}
 		}
 	}
@@ -5481,7 +5481,7 @@
 			{
 				"value"								"4 5 6 7 8"
 			}
-			"cooldown_percentage"	"30 40 50 60 70"	// 30 40 50 60
+			"cooldown_percentage"	"30 40 50 60 70"
 			"damage_per_stack"
 			{
 				"value"				"8 12 16 20 24"	// 4 6 8 10 x2
@@ -5571,7 +5571,7 @@
 			}
 			"cooldown_acceleration"
 			{
-				"value"				"200"	// 200
+				"value"				"200"
 			}
 		}
 	}
