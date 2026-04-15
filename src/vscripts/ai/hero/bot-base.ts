@@ -9,6 +9,7 @@ import { SellItem } from '../build-item/sell-item';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { UseItem } from '../item/use-item';
 import { ModeEnum } from '../mode/mode-enum';
+import { TeamCommander } from '../team/team-commander';
 import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
@@ -109,6 +110,7 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     this.FindAround();
+    TeamCommander.getInstance().UpdateGameState([this]);
     // update state
     this.mode = GameRules.AI.FSA.GetMode(this);
     if (this.gameTime < this.continueActionEndTime) {

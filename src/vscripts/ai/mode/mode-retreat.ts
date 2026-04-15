@@ -2,24 +2,57 @@ import { BotBaseAIModifier } from '../hero/bot-base';
 import { HeroUtil } from '../hero/hero-util';
 import { ModeBase } from './mode-base';
 import { ModeEnum } from './mode-enum';
+import { TeamCommander } from '../team/team-commander';
+import { UtilityMath } from './utility-math';
+
+// Exact unit names for tier 3 towers and barracks (avoids .includes() in tight loop)
+const TIER3_AND_RAX_NAMES: string[] = [
+  'npc_dota_goodguys_tower3_top',
+  'npc_dota_goodguys_tower3_mid',
+  'npc_dota_goodguys_tower3_bot',
+  'npc_dota_badguys_tower3_top',
+  'npc_dota_badguys_tower3_mid',
+  'npc_dota_badguys_tower3_bot',
+  'npc_dota_goodguys_melee_rax_top',
+  'npc_dota_goodguys_melee_rax_mid',
+  'npc_dota_goodguys_melee_rax_bot',
+  'npc_dota_goodguys_range_rax_top',
+  'npc_dota_goodguys_range_rax_mid',
+  'npc_dota_goodguys_range_rax_bot',
+  'npc_dota_badguys_melee_rax_top',
+  'npc_dota_badguys_melee_rax_mid',
+  'npc_dota_badguys_melee_rax_bot',
+  'npc_dota_badguys_range_rax_top',
+  'npc_dota_badguys_range_rax_mid',
+  'npc_dota_badguys_range_rax_bot',
+];
+
+const FORT_AND_TOWER4_NAMES: string[] = [
+  'npc_dota_goodguys_fort',
+  'npc_dota_badguys_fort',
+  'npc_dota_goodguys_tower4',
+  'npc_dota_badguys_tower4',
+];
 
 export class ModeRetreat extends ModeBase {
   mode: ModeEnum = ModeEnum.RETREAT;
 
   GetDesire(heroAI: BotBaseAIModifier): number {
     let desire = 0;
-    if (heroAI.mode === ModeEnum.RETREAT) {
-      desire += 0.4;
-    }
 
-    // 血量小于60%时，desire从0开始递增至1，直到10%
-    const curretHealthPercentage = heroAI.GetHero().GetHealthPercent();
-    if (curretHealthPercentage < 60) {
-      desire += 0.02 * (60 - curretHealthPercentage);
+    // Panic curve: quadratic scaling from 60% HP down to 0%
+    const currentHealthPercentage = heroAI.GetHero().GetHealthPercent();
+    desire += UtilityMath.Quadratic(currentHealthPercentage, 60, 0);
+
+    // Blackboard: add 0.05 per missing enemy above 2
+    const missingCount = TeamCommander.getInstance().GetEnemyMissingCount(
+      heroAI.GetHero().GetTeamNumber(),
+    );
+    if (missingCount > 2) {
+      desire += (missingCount - 2) * 0.05;
     }
 
     // FIXME 修改成被塔攻击
-    // 在防御塔攻击范围内
     const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
     if (nearestTower) {
       const distanceThanTowerAttackRange = HeroUtil.GetDistanceToAttackRange(
@@ -29,32 +62,41 @@ export class ModeRetreat extends ModeBase {
       if (distanceThanTowerAttackRange <= 0) {
         desire += 0.2;
       }
-    }
-    // 英雄小于推进等级，在防御塔攻击范围内，desire为1
-    if (heroAI.GetHero().GetLevel() < heroAI.PushLevel) {
-      const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
-      if (nearestTower) {
+      // 英雄小于推进等级，在防御塔攻击范围内，desire为1
+      if (heroAI.GetHero().GetLevel() < heroAI.PushLevel) {
         desire += this.GetIncreaseDesireNearTower(heroAI, nearestTower);
       }
     }
 
     // 3塔和兵营在的情况下，不冲4塔
-    // if build name contains npc_dota_goodguys_melee_rax or npc_dota_goodguys_range_rax or npc_dota_goodguys_tower3
     let isNear3Tower = false;
     const buildings = heroAI.aroundEnemyBuildingsInvulnerable;
     for (const building of buildings) {
-      if (
-        building.GetUnitName().includes('rax') ||
-        building.GetUnitName().includes('npc_dota_goodguys_tower3')
-      ) {
+      const name = building.GetUnitName();
+      let isTier3OrRax = false;
+      for (const tier3Name of TIER3_AND_RAX_NAMES) {
+        if (name === tier3Name) {
+          isTier3OrRax = true;
+          break;
+        }
+      }
+      if (isTier3OrRax) {
         isNear3Tower = true;
         break;
       }
     }
     if (isNear3Tower) {
-      // is In tower4 attack range
+      // is In tower4/fort attack range
       for (const building of buildings) {
-        if (building.GetUnitName().includes('fort') || building.GetUnitName().includes('tower4')) {
+        const name = building.GetUnitName();
+        let isFortOrTower4 = false;
+        for (const fortName of FORT_AND_TOWER4_NAMES) {
+          if (name === fortName) {
+            isFortOrTower4 = true;
+            break;
+          }
+        }
+        if (isFortOrTower4) {
           desire += this.GetIncreaseDesireNearTower(heroAI, building);
         }
       }
