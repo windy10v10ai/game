@@ -154,11 +154,8 @@
 	// 神器卫士径甲
 	"item_recipe_guardian_greaves_artifact"
 	{
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"BaseClass"						"item_datadriven"
-		"ID"							"13051"
+		"BaseClass"						"item_recipe_guardian_greaves"
 		"ItemCost"						"6850"
-		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_guardian_greaves_artifact"
 		"AbilityTextureName"			"item_recipe_guardian_greaves_artifact"
