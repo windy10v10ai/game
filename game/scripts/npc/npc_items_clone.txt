@@ -171,34 +171,35 @@
 		"BaseClass"						"item_guardian_greaves"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"20"
+		"AbilityCooldown"				"25"		// 45
 		"AbilityManaCost"				"0"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemAlertable"					"1"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"SuggestLategame"				"1"
 		"AbilityTextureName"			"item_guardian_greaves_artifact"
 		"AbilityValues"
 		{
-			"bonus_movement"		"200"
-			"bonus_armor"			"40"
-			"mana_regen"			"20"
-			"aura_health_regen"		"50"
-			"aura_armor"			"20"
-			"aura_mana_regen"		"30"
-			"aura_radius"			"1800"
-			"aura_health_regen_bonus"	"200"
-			"aura_mana_regen_bonus"	"60"
-			"aura_armor_bonus"		"40"
-			"aura_bonus_threshold"	"75"
-			"replenish_health"		"3000"
-			"replenish_mana"		"1500"
-			"replenish_radius"
+			"bonus_movement"			"200"		// 50
+			"bonus_armor"				"40"		// 5
+			"bonus_mana"				"1200"		// 150
+			"mana_regen"				"20"		// 1.0
+			"aura_health_regen"			"50"		// 2.5
+			"aura_mana_regen"			"30"		// 1.5
+			"aura_radius"
 			{
-				"value"		"1800"
+				"value"						"1800"	// 1200
 				"affected_by_aoe_increase"	"1"
 			}
-			"max_health_pct_heal_amount"		"8"
+			"aura_health_regen_bonus"	"200"		// 14.5
+			"aura_bonus_threshold"		"75"		// 25
+			"replenish_health"			"3000"		// 325
+			"replenish_mana"			"1500"		// 200
+			"replenish_radius"
+			{
+				"value"						"1800"	// 1200
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_health_pct_heal_amount"	"8"		// 0
 		}
 	}
 

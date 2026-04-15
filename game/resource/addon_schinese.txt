@@ -2674,14 +2674,13 @@
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>神器·卫士胫甲</font>"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命 <font color='#00FF00'>+ %max_health_pct_heal_amount%%% 最大生命值</font> 和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命 <font color='#00FF00'>+ %max_health_pct_heal_amount%%% 最大生命值</font> 和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复和%aura_mana_regen%点/秒魔法恢复。如果友方英雄的生命值低于%aura_bonus_threshold%%%，生命恢复将提升至%aura_health_regen_bonus%点/秒。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"光环效果仅对英雄有效。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"卫士胫甲的冷却时间内回复不能作用于已经被修复或梅肯斯姆的回复作用过的单位。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mres"				"%+$spell_resist"
 
 		// 神器刃甲（秘术师铠甲）（天地同寿）
 		"DOTA_Tooltip_Ability_item_force_field_ultra"						"<font color='#FFFF00'>神器·天地同寿甲</font>"
