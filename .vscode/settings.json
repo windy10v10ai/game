@@ -45,5 +45,8 @@
     "editor.defaultFormatter": "sumneko.lua"
   },
   "githubPullRequests.ignoredPullRequestBranches": ["develop"],
-  "editor.wordWrap": "on"
+  "editor.wordWrap": "on",
+  "[vdf]": {
+    "editor.defaultFormatter": "pfwobcke.vscode-vdf"
+  }
 }

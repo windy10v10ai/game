@@ -2299,6 +2299,16 @@
 	    "DOTA_Tooltip_ability_item_hand_of_group_Lore" 									"A wise choice and scientific investment."
 	    "DOTA_Tooltip_ability_item_hand_of_group_Note0"  								"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 
+		// 繁荣之手
+	    "DOTA_Tooltip_ability_item_hand_of_prosperity"									"Hand of Prosperity"
+	    "DOTA_Tooltip_ability_item_hand_of_prosperity_description"						"<h1>Active: Transmute</h1>Transmutes a target encounter unit for %self_gold% bonus gold and %self_xp%x experience. Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Cannot be used on Ancient Creeps.<br><br><h1>Passive: Prosperity</h1>Passively grants +%hero_kill_gold_bonus_pct%%% of all hero kill and assist gold.<br><br>Range: %abilitycastrange%"
+	    "DOTA_Tooltip_ability_item_hand_of_prosperity_bonus_all_stats"	"+$all"
+	    "DOTA_Tooltip_ability_item_hand_of_prosperity_attack_speed"						"+$attack"
+	    "DOTA_Tooltip_ability_item_hand_of_prosperity_hero_kill_gold_bonus_pct"			"HERO KILL GOLD BONUS:"
+	    "DOTA_Tooltip_ability_item_hand_of_prosperity_Lore"								"Fortune favours those who share it."
+	    "DOTA_Tooltip_ability_item_hand_of_prosperity_Note0"							"The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
+	    "DOTA_Tooltip_ability_item_recipe_hand_of_prosperity"							"Hand of Prosperity Recipe"
+
 		// item_bloodstone_v2 血精神石
 		"DOTA_Tooltip_ability_item_bloodstone"										"Godly Bloodstone"
 		"DOTA_Tooltip_ability_item_bloodstone_bonus_aoe"							"+$aoe_bonus"

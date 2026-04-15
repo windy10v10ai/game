@@ -1,16 +1,16 @@
 "DOTAAbilities"
 {
-	//=================================================================================================================
+	// =================================================================================================================
 	// Neutral item passive Override 中立物品附魔
-	//=================================================================================================================
+	// =================================================================================================================
 	// 神秘 回蓝魔抗
 	"item_enhancement_mystical"
 	{
 		"AbilityValues"
 		{
-			"mana_regen"				"3 6 9 12"		// 0.8 1.6 2.4 3.2
-			"magic_res"					"0 10 25 30"	// 0 10 13 16
-			"bonus_cast_range"			"25 50 75 100"	// 0 0 0 15
+			"mana_regen"			"36 9 12"	// 0.8 1.6 2.4 3.2
+			"magic_res"				"0 10 25 30"	// 0 10 13 16
+			"bonus_cast_range"		"25 50 75 100"	// 0 0 0 15
 		}
 	}
 	// 壮实 血量回血
@@ -18,9 +18,9 @@
 	{
 		"AbilityValues"
 		{
-			"health_bonus"			"200 400 600 800"	// 110 150 190 230
-			"health_regen"			"5 10 15 20"		// 0 3 6 9
-			"slow_resist"			"0 10 20 30"		// 0 0 0 25
+			"health_bonus"		"200 400 600 800/ 110 150 190 230"
+			"health_regen"		"5 10 15 20"	// 0 3 6 9
+			"slow_resist"		"0 10 20 30"	// 0 0 0 25
 		}
 	}
 	// 警觉 攻速夜视
@@ -28,30 +28,30 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"15 30 45 60"		// 7 15 23 31
-			"bonus_night_vision"	"75 150 225 300"	// 0 150 225 300
-			"bonus_attack_range"	"25 50 75 100"		// 0 0 0 100
+			"bonus_attack_speed"		"15 30 45 60"	// 7 15 23 31
+			"bonus_night_vision"		"75 150 225 300"	// 0 150 225 300
+			"bonus_attack_range"		"25 50 75 100"	// 0 0 0 100
 		}
 	}
 	// 睿智 每分钟经验
 	"item_enhancement_wise"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"bonus_xpm"					"300 600"	// 1000
-			"max_mana_pct"				"10 20"		// 15
+			"bonus_xpm"			"300 600"// 1000
+			"max_mana_pct"		"10 20"// 15
 		}
 	}
 	// 贪婪 工资蓝量减攻击
 	"item_enhancement_greedy"
 	{
-		"MaxLevel"						"3"
+		"MaxLevel"		"3"
 		"AbilityValues"
 		{
-			"bonus_gpm"			"400 800 1200"			// 75 100
-			"bonus_mana"		"300 600 900"			// 200 250
-			"bonus_damage"		"-20 -40 -60"			// -30 -60
+			"bonus_gpm"			"400 800 1200"	// 75 100
+			"bonus_mana"		"300 600 900"	// 200 250
+			"bonus_damage"		"-20 -40 -60"	// -30 -60
 		}
 	}
 	// 坚强 攻击护甲
@@ -59,9 +59,9 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_damage"				"10 20 30 40"	// 7 10 13 16
-			"armor"						"5 10 15 20"	// 0 4 6 8
-			"knockback_resist"			"10 20 30 40"	// 0 0 0 40
+			"bonus_damage"			"10 20 30 40"	// 7 10 13 16
+			"armor"					"5 10 15 20"	// 0 4 6 8
+			"knockback_resist"		"10 20 30 40"	// 0 0 0 40
 		}
 	}
 	// 迅速 移速（可叠加）蓝量
@@ -69,40 +69,38 @@
 	{
 		"AbilityValues"
 		{
-			"movement_speed"			"30 50 70 90"		// 15 20 25 30
-			"max_mana"					"200 400 600 800"	// 0 100 160 220
+			"movement_speed"		"30 50 70 90"	// 15 20 25 30
+			"max_mana"				"200 400 600 800"	// 0 100 160 220
 		}
 	}
 	// 活力 生命恢复
 	"item_enhancement_vital"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"health_regen"			"10 20"		// 2
+			"health_regen"		"10 20"	// 2
 		}
 	}
-
 	// 吸血鬼 双吸血
 	"item_enhancement_vampiric"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel"		"4"
 		"AbilityValues"
 		{
-			"attack_lifesteal"				"12 18 24 30"	// 30
-			"spell_lifesteal"				"8 12 16 20"	// 20
-			"bonus_night_vision"			"0 100 200 300"	// 300
+			"attack_lifesteal"			"12 18 24 30"	// 30
+			"spell_lifesteal"			"8 12 16 20"	// 20
+			"bonus_night_vision"		"0 100 200 300"	// 300
 		}
 	}
-
 	// 进化 主属性
 	"item_enhancement_evolved"
 	{
-		"MaxLevel"						"3"
+		"MaxLevel"		"3"
 		"AbilityValues"
 		{
-			"primary_stat"			 	"40 80 160"			// 40
-			"primary_stat_universal"	"24 48 96"			// 24
+			"primary_stat"					"40 80 160"	// 40
+			"primary_stat_universal"		"24 48 96"	// 24
 		}
 	}
 	// 高远 所有攻击距离
@@ -110,19 +108,19 @@
 	{
 		"AbilityValues"
 		{
-			"attack_range"						"60 100"	// 60 90 120
-			"bonus_damage"						"10 20"		// 6 10 14
+			"attack_range"		"60 100"	// 60 90 120
+			"bonus_damage"		"10 20"	// 6 10 14
 		}
 	}
 	// 犀利 施法距离回蓝最大魔法
 	"item_enhancement_keen_eyed"
 	{
-		"MaxLevel"						"3"
+		"MaxLevel"		"3"
 		"AbilityValues"
 		{
-			"cast_range_bonus"					"125 175 225"	// 125 135 145
-			"bonus_mana_regen"					"3 6 9"			// 1 1.5 2
-			"mana_reduction_pct"				"10 15 20"		// 10 12 14
+			"cast_range_bonus"			"125 175 225"	// 125 135 145
+			"bonus_mana_regen"			"3 6 9"	// 1 1.5 2
+			"mana_reduction_pct"		"10 15 20"	// 10 12 14
 		}
 	}
 	// 冒险 攻速魔法攻击伤害增加承伤
@@ -130,9 +128,9 @@
 	{
 		"AbilityValues"
 		{
-			"attack_speed"				"300"				// 100
-			"magic_damage"				"240"				// 80
-			"incoming_damage"			"15"				// 10
+			"attack_speed"			"300"	// 100
+			"magic_damage"			"240"	// 80
+			"incoming_damage"		"15"	// 10
 		}
 	}
 	// 捷足 移速（可叠加）
@@ -140,28 +138,28 @@
 	{
 		"AbilityValues"
 		{
-			"movespeed"					"230"				// 115
+			"movespeed"		"230"	// 115
 		}
 	}
 	// 粗暴 减速抗性攻击间隔减智力
 	"item_enhancement_crude"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel"		"4"
 		"AbilityValues"
 		{
-			"health_restoration"		"20 30 40 50"				// 10 15 20
-			"bat_reduce"				"9 15 21 27"				// 6 9 12
-			"intelligence_pct"			"-5 -10 -15 -20"			// -6
+			"health_restoration"		"20 30 40 50"	// 10 15 20
+			"bat_reduce"				"9 15 21 27"	// 6 9 12
+			"intelligence_pct"			"-5 -10 -15 -20"	// -6
 		}
 	}
 	// 无边 攻击距离施法距离
 	"item_enhancement_boundless"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"bonus_attack_range"		"150 250"			// 150
-			"bonus_cast_range"			"200 300"			// 275
+			"bonus_attack_range"		"150 250"	// 150
+			"bonus_cast_range"			"200 300"	// 275
 		}
 	}
 	// 永恒 负面时间技能增强
@@ -169,18 +167,18 @@
 	{
 		"AbilityValues"
 		{
-			"debuff_amp"		"15 30"						// 8 15
-			"spell_amp"			"30 60"						// 6 16
+			"debuff_amp"		"15 30"	// 8 15
+			"spell_amp"			"30 60"	// 6 16
 		}
 	}
 	// 巨神 基础攻击状态抗性
 	"item_enhancement_titanic"
 	{
-		"MaxLevel"						"4"
+		"MaxLevel"		"4"
 		"AbilityValues"
 		{
-			"base_attack_damage"		"20 40 60 80"				// 8 12 16
-			"status_resistance"			"15 20 25 30"				// 10 12 14
+			"base_attack_damage"		"20 40 60 80"	// 8 12 16
+			"status_resistance"			"15 20 25 30"	// 10 12 14
 		}
 	}
 	// 笨重 百分比 生命值 生命值回复 -攻击速度
@@ -188,19 +186,19 @@
 	{
 		"AbilityValues"
 		{
-			"max_health"				"10"			// 5
-			"max_health_regen"			"2"				// 1.5
-			"attack_speed"				"-30"			// -30
+			"max_health"			"10"	// 5
+			"max_health_regen"		"2"	// 1.5
+			"attack_speed"			"-30"	// -30
 		}
 	}
 	// 狂热 冷却减少 蓝耗增加
 	"item_enhancement_feverish"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"cooldown_reduction"		"10 20"			// 15
-			"cost_increase"				"5 10"			// 7
+			"cooldown_reduction"		"10 20"	// 15
+			"cost_increase"				"5 10"	// 7
 		}
 	}
 	// 癫狂 攻击间隔 施法速度 -视野
@@ -208,24 +206,23 @@
 	{
 		"AbilityValues"
 		{
-			"bat_reduce"				"24"			// 18
-			"cast_speed"				"40"			// 20
-			"vision_reduce"				"20"			// 20
+			"bat_reduce"		"24"	// 18
+			"cast_speed"		"40"	// 20
+			"vision_reduce"		"20"	// 20
 		}
 	}
-	//=================================================================================================================
+	// =================================================================================================================
 	// 额外添加
-	//=================================================================================================================
-
-	//扫帚柄
+	// =================================================================================================================
+	// 扫帚柄
 	"item_broom_handle"
 	{
 		"ItemIsNeutralPassiveDrop"		"1"
 		"AbilityValues"
 		{
-				"melee_attack_range"			"50"	// 50
-				"bonus_damage"		"10"				// 8
-				"bonus_armor"		"5"					// 4
+			"melee_attack_range"		"50"	// 50
+			"bonus_damage"				"10"	// 8
+			"bonus_armor"				"5"	// 4
 		}
 	}
 	// 加速护符 炸弹人天命bug暂时移除
@@ -235,43 +232,43 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_cooldown"			"6 12"			// 10
-			"bonus_health_regen"		"6 12"			// 10
+			"bonus_cooldown"			"6 12"	// 10
+			"bonus_health_regen"		"6 12"	// 10
 		}
 	}
-	//仙灵饰品
+	// 仙灵饰品
 	"item_mysterious_hat"
 	{
 		"ItemIsNeutralPassiveDrop"		"1"
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-				"bonus_health"			"300 600"		// 50
-				"spell_amp"				"20 40"			// 5
-				"manacost_reduction"	"10 20"			// 5
+			"bonus_health"				"300 600"	// 50
+			"spell_amp"					"20 40"	// 5
+			"manacost_reduction"		"10 20"	// 5
 		}
 	}
-	//法术棱镜
+	// 法术棱镜
 	"item_spell_prism"
 	{
 		"ItemIsNeutralPassiveDrop"		"1"
 		"MaxLevel"						"1"
 		"AbilityValues"
 		{
-				"bonus_cooldown"		"20"			// 12
-				"bonus_all_stats"		"16"			// 5
-				"mana_regen"			"8"				// 2
+			"bonus_cooldown"		"20"	// 12
+			"bonus_all_stats"		"16"	// 5
+			"mana_regen"			"8"	// 2
 		}
 	}
-	//骑士剑
+	// 骑士剑
 	"item_paladin_sword"
 	{
 		"ItemIsNeutralPassiveDrop"		"1"
 		"AbilityValues"
 		{
-			"bonus_damage"			"120"			// 16
-			"bonus_lifesteal"		"40"			// 16
-			"bonus_spell_lifesteal"	"30"			// 8
+			"bonus_damage"				"120"	// 16
+			"bonus_lifesteal"			"40"	// 16
+			"bonus_spell_lifesteal"		"30"	// 8
 		}
 	}
 	// 迷踪 闪避移速
@@ -279,55 +276,54 @@
 	{
 		"AbilityValues"
 		{
-			"attack_speed"				"0"			// 0
-			"evasion"					"40"		// 35
-			"movespeed"					"75"		// 25
+			"attack_speed"		"0"	// 0
+			"evasion"			"40"	// 35
+			"movespeed"			"75"	// 25
 		}
 	}
-
 	// Dota 7.40新增
 	// 凶猛 移速夜视攻击
 	"item_enhancement_fierce"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"movement_speed"			"60 120"		// 30
-			"bonus_night_vision"		"400 800"		// 250
-			"bonus_damage"				"150 300"		// 15
+			"movement_speed"			"60 120"	// 30
+			"bonus_night_vision"		"400 800"	// 250
+			"bonus_damage"				"150 300"	// 15
 		}
 	}
 	// 专横 攻速魔抗血量
 	"item_enhancement_dominant"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"attack_speed"				"50 100"		// 25
-			"magic_resist"				"30 50"			// 15
-			"bonus_health"				"1000 2000"		// 205
+			"attack_speed"		"50 100"	// 25
+			"magic_resist"		"30 50"	// 15
+			"bonus_health"		"1000 2000"	// 205
 		}
 	}
 	// 滋补 蓝量回血治疗增强
 	"item_enhancement_restorative"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"bonus_mana"				"500 1000"		// 200
-			"bonus_hp_regen"			"20 40"			// 8
-			"heal_amp"					"25 50"			// 10
+			"bonus_mana"			"500 1000"	// 200
+			"bonus_hp_regen"		"20 40"	// 8
+			"heal_amp"				"25 50"	// 10
 		}
 	}
 	// 厚重 血量回蓝护甲
 	"item_enhancement_thick"
 	{
-		"MaxLevel"						"2"
+		"MaxLevel"		"2"
 		"AbilityValues"
 		{
-			"bonus_health"				"1000 2000"		// 240
-			"bonus_mana_regen"			"10 20"			// 3
-			"bonus_armor"				"15 30"			// 7
+			"bonus_health"			"1000 2000"	// 240
+			"bonus_mana_regen"		"10 20"	// 3
+			"bonus_armor"			"15 30"	// 7
 		}
 	}
 }

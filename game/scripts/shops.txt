@@ -154,6 +154,7 @@
 		// "item"		"item_pers"					// 坚韧球
  		"item"		"item_mask_of_madness"
 		"item"		"item_hand_of_group"
+		"item"		"item_hand_of_prosperity"
 		"item"		"item_candy_candy"
 		"item"		"item_wings_of_haste"
 		"item"		"item_moon_shard_datadriven"
