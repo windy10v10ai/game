@@ -4044,7 +4044,7 @@
 			}
 			"base_barrier_amount"
 			{
-				"special_bonus_shard"		"3000"		// 300 x10
+				"special_bonus_shard"		"1800"		// 300 6
 			}
 		}
 	}
