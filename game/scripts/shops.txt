@@ -186,7 +186,6 @@
 		// "item"		"item_adi_king"				// 阿迪王
 		"item"		"item_adi_king_plus"		// 阿迪王plus
 		"item"      "item_kingmakers_crown" // 王权之冠
-		"item"      "item_chimeras_leash"   // 奇美拉之索
 	}
 	// Level 3 - 法器
 	"magics"
