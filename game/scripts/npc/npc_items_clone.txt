@@ -6,20 +6,9 @@
 	//=================================================================================================================
 	"item_recipe_veil_of_discord_2"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"6001"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_recipe_veil_of_discord"
 		"AbilityTextureName" 			"item_recipe_veil_of_discord_2"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"						"1475"
-		"ItemShopTags"					""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_veil_of_discord_2"
 		"ItemRequirements"
@@ -32,7 +21,6 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"6002"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCooldown"				"16"
@@ -68,10 +56,6 @@
 	//=================================================================================================================
 	"item_recipe_shivas_guard_2"
 	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"6011"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_recipe_shivas_guard"
 		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
 		"ItemCost"						"1125"
@@ -87,7 +71,6 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"6012"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_shivas_guard"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"FightRecapLevel"				"1"
@@ -171,6 +154,7 @@
 	// 神器卫士径甲
 	"item_recipe_guardian_greaves_artifact"
 	{
+		"Model"							"models/props_gameplay/recipe.vmdl"
 		"BaseClass"						"item_datadriven"
 		"ID"							"13051"
 		"ItemCost"						"6850"
@@ -225,6 +209,7 @@
 	"item_recipe_heavens_halberd_2"
 	{
 		"BaseClass"						"item_recipe_heavens_halberd"
+		"AbilityTextureName"			"item_recipe_heavens_halberd_2"
 		"ItemCost"						"1300"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_heavens_halberd_2"
@@ -251,7 +236,7 @@
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"SuggestLategame"				"1"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"heavens_halberd_2"
+		"AbilityTextureName"			"item_heavens_halberd_2"
 		"AbilityValues"
 		{
 				"bonus_health"				"1000"	//275
@@ -271,7 +256,6 @@
 	"item_recipe_boots_of_bearing_2"
 	{
 		"BaseClass"						"item_recipe_boots_of_bearing"
-		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"5725"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_boots_of_bearing_2"

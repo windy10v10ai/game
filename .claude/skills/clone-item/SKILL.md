@@ -83,7 +83,6 @@ file: game/scripts/npc/npc_items_clone.txt
 {
     // General
     //-------------------------------------------------------------------------------------------------------------
-    "ID"                            "<新ID>"
     "Model"                         "models/props_gameplay/recipe.vmdl"
     "BaseClass"                     "item_recipe_<name>"
     "AbilityTextureName"            "item_recipe_<name>_2"
@@ -97,34 +96,7 @@ file: game/scripts/npc/npc_items_clone.txt
 }
 ```
 
-**ID 分配规则**：
-
-`npc_items_clone.txt` 专属 ID 段从 **6001** 开始，按以下规则分配：
-
-**同系列物品**（`_2`、`_3` 等升级版本）：ID 连续 +1
-```
-item_recipe_xxx_2  →  6001
-item_xxx_2         →  6002
-item_recipe_xxx_3  →  6003
-item_xxx_3         →  6004
-```
-
-**不同系列物品**：每个新系列从下一个 **×10 对齐** 的值开始（预留空间供同系列扩展）
-```
-item_recipe_xxx_2  →  6001   （第 1 个系列）
-item_xxx_2         →  6002
-item_recipe_yyy_2  →  6011   （第 2 个系列，从 6011 开始）
-item_yyy_2         →  6012
-item_recipe_zzz_2  →  6021   （第 3 个系列，从 6021 开始）
-item_zzz_2         →  6022
-```
-
-分配步骤：
-1. 读取 `npc_items_clone.txt` 中已有的所有 ID，确定当前最大已用系列编号
-2. 新系列起始 ID = `6001 + 已有系列数 × 10`
-3. 同系列内每增加一个物品对（recipe + 物品），在当前系列段内 +2
-
-> 新建前 Grep 确认所选 ID 在所有 `npc_item*.txt` 文件中均未出现。已有其他文件占用的范围（3021–3099、9002–10335 等）均不与 6000 段冲突。
+> `npc_items_clone.txt` 中的克隆物品**不需要 `ID` 字段**，引擎会自动分配。
 
 ---
 
@@ -133,7 +105,6 @@ item_zzz_2         →  6022
 格式严格对照原版，**保持缩进格式完全一致**（tab 宽度、换行位置）。
 
 必填字段：
-- `"ID"` → 新分配 ID
 - `"BaseClass"` → 原版物品名（如 `"item_shivas_guard"`）
 - `"AbilityBehavior"` → 复制原版
 - `"AbilityTextureName"` → `"item_<name>_2"`
@@ -284,9 +255,8 @@ Glob: game/scripts/npc/shops*.txt
 ## 自检清单
 
 - [ ] 原版物品 KV 已读取（recipe + 物品主块）
-- [ ] ID 唯一，无冲突（4000+ 范围）
-- [ ] Recipe 块：BaseClass = `item_recipe_<name>`，ItemResult = `item_<name>_2`，材料含原版物品
-- [ ] 物品块：BaseClass = `item_<name>`，AbilityTextureName = `item_<name>_2`
+- [ ] Recipe 块：无 `ID` 字段，BaseClass = `item_recipe_<name>`，ItemResult = `item_<name>_2`，材料含原版物品
+- [ ] 物品块：无 `ID` 字段，BaseClass = `item_<name>`，AbilityTextureName = `item_<name>_2`
 - [ ] AbilityValues：可成长属性 × 2，固定机制值不变，每项附原版值注释
 - [ ] ItemCost = 原版 + 额外材料 + 配方费之和
 - [ ] 图片文件存在或已提醒用户创建

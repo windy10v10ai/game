@@ -176,7 +176,7 @@
 		// "item"		"item_tranquil_boots"		// 静谧之靴
 
 		"item"		"item_solar_crest"			// 炎阳纹章
-		"item"		"item_guardian_greaves"		// 卫士胫甲
+		"item"		"item_guardian_greaves_artifact"		// 神器 卫士胫甲
 		"item"		"item_spirit_vessel"		// 魂之灵瓮
 		"item"		"item_boots_of_bearing_2"	// 蹦迪之鞋
 

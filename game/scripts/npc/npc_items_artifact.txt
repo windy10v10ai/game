@@ -903,7 +903,7 @@
 	"item_recipe_force_field_ultra"
 	{
 		"ID"							"19031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_datadriven"
+		"BaseClass"						"item_recipe_force_field"
 		"AbilityTextureName"			"item_recipe_force_field_ultra"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"3000"
