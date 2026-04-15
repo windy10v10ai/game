@@ -48,5 +48,8 @@
   "editor.wordWrap": "on",
   "[vdf]": {
     "editor.defaultFormatter": "pfwobcke.vscode-vdf"
+  },
+  "[xml]": {
+    "editor.defaultFormatter": "redhat.vscode-xml"
   }
 }

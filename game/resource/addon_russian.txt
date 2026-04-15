@@ -21,6 +21,9 @@
 		"game_difficulty_n5"	"N5"
 		"game_difficulty_n6"	"N6"
 		"game_difficulty_n7"	"N7"
+		"game_difficulty_n8"	"N8"
+		"game_difficulty_n9"	"N9"
+		"game_difficulty_n10"	"N10"
 
 		"player_gold_xp_multiplier"	"Золото/уровня Мульти Radiant"
 		"bot_gold_xp_multiplier"	"Золото/уровня Мульти Dire"

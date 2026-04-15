@@ -208,6 +208,35 @@ function InitN7Setting() {
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('5000');
 }
+function InitN8Setting() {
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('14');
+
+  $('#tower_power_dropdown').SetSelected('450');
+
+  $('#starting_gold_player_dropdown').SetSelected('3000');
+  $('#starting_gold_bot_dropdown').SetSelected('5000');
+}
+
+function InitN9Setting() {
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('17');
+
+  $('#tower_power_dropdown').SetSelected('500');
+
+  $('#starting_gold_player_dropdown').SetSelected('3000');
+  $('#starting_gold_bot_dropdown').SetSelected('7000');
+}
+
+function InitN10Setting() {
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('20');
+
+  $('#tower_power_dropdown').SetSelected('550');
+
+  $('#starting_gold_player_dropdown').SetSelected('3000');
+  $('#starting_gold_bot_dropdown').SetSelected('7000');
+}
 // -------- send to server --------
 function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
@@ -315,6 +344,12 @@ function OnDifficultyDropDownChanged(difficulty) {
       InitN6Setting();
     } else if (optionId === 7) {
       InitN7Setting();
+    } else if (optionId === 8) {
+      InitN8Setting();
+    } else if (optionId === 9) {
+      InitN9Setting();
+    } else if (optionId === 10) {
+      InitN10Setting();
     }
     LockOption();
   }
