@@ -6,7 +6,8 @@
 	//=================================================================================================================
 	"item_recipe_veil_of_discord_2"
 	{
-		"BaseClass"						"item_recipe_veil_of_discord"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_veil_of_discord_2"
 		"ItemCost"						"1475"
 		"ItemRecipe"					"1"
@@ -56,7 +57,8 @@
 	//=================================================================================================================
 	"item_recipe_shivas_guard_2"
 	{
-		"BaseClass"						"item_recipe_shivas_guard"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
 		"ItemCost"						"1125"
 		"ItemRecipe"					"1"
@@ -113,7 +115,8 @@
 	//=================================================================================================================
 	"item_recipe_dagon_ultra"
 	{
-		"BaseClass"						"item_recipe_dagon_5"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_dagon_ultra"
 		"ItemCost"						"550"
 		"ItemRecipe"					"1"
@@ -127,26 +130,24 @@
 	{
 		"BaseClass"						"item_dagon_5"
 		"AbilityTextureName"			"item_dagon_ultra"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"FightRecapLevel"				"1"
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1"
-		"AbilityManaCost"				"1600"
+		"AbilityManaCost"				"1600"	// 400 x4
 		"AbilityValues"
 		{
-			"bonus_int"		"60"
-			"bonus_str"		"60"
-			"bonus_agi"		"60"
-			"damage"				"1600"
+			"bonus_all_stats"			"60"	// 10 x6
+			"bonus_health"				"480"	// 240 x2
+			"bonus_mana"				"900"	// 450 x2
+			"damage"					"1600"	// 800 x2
 			"damage_delay"				"0"
-			"mana_cost_tooltip"		"1600"
-			"int_damage"		"0"
-			"passive_spell_lifesteal"			"40"
-			"dagon_spell_lifesteal"				"100"
+			"mana_cost_tooltip"			"1600"	// 400 x4
+			"cast_range_bonus"			"360"	// 180
 		}
 	}
 
@@ -154,11 +155,12 @@
 	// 神器卫士径甲
 	"item_recipe_guardian_greaves_artifact"
 	{
-		"BaseClass"						"item_recipe_guardian_greaves"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_guardian_greaves_artifact"
 		"ItemCost"						"6850"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_guardian_greaves_artifact"
-		"AbilityTextureName"			"item_recipe_guardian_greaves_artifact"
 		"ItemRequirements"
 		{
 			"01"						"item_guardian_greaves;item_light_part"
@@ -205,7 +207,8 @@
 	//=================================================================================================================
 	"item_recipe_heavens_halberd_2"
 	{
-		"BaseClass"						"item_recipe_heavens_halberd"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_heavens_halberd_2"
 		"ItemCost"						"1300"
 		"ItemRecipe"					"1"
@@ -252,7 +255,8 @@
 	//=================================================================================================================
 	"item_recipe_boots_of_bearing_2"
 	{
-		"BaseClass"						"item_recipe_boots_of_bearing"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"5725"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_boots_of_bearing_2"

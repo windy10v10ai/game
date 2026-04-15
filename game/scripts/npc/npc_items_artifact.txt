@@ -646,7 +646,6 @@
 	"item_light_part"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"10999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"item_light_part"
 		"ItemCost"						"8000"
@@ -688,7 +687,6 @@
 	"item_dark_part"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"11000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"item_dark_part"
 		"ItemCost"						"8000"
@@ -730,7 +728,6 @@
 	"item_recipe_armlet_light"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "11045"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
@@ -767,7 +764,6 @@
 	"item_recipe_armlet_dark"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"						    "11046"
 		"ItemCost"                      "0"
 		"ItemShopTags"					""
 		"ItemRecipe"                    "1"
@@ -805,7 +801,6 @@
 	"item_recipe_disperser_chaos"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"11047"
 		"ItemCost"						"0"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemShopTags"					""
@@ -902,8 +897,7 @@
 	//=================================================================================================================
 	"item_recipe_force_field_ultra"
 	{
-		"ID"							"19031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
-		"BaseClass"						"item_recipe_force_field"
+		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe_force_field_ultra"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemCost"						"3000"

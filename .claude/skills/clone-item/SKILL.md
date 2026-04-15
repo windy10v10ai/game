@@ -81,10 +81,8 @@ file: game/scripts/npc/npc_items_clone.txt
 ```kv
 "item_recipe_<name>_2"
 {
-    // General
-    //-------------------------------------------------------------------------------------------------------------
+    "BaseClass"                     "item_datadriven"
     "Model"                         "models/props_gameplay/recipe.vmdl"
-    "BaseClass"                     "item_recipe_<name>"
     "AbilityTextureName"            "item_recipe_<name>_2"
     "ItemCost"                      "<配方费用>"
     "ItemRecipe"                    "1"
@@ -96,7 +94,8 @@ file: game/scripts/npc/npc_items_clone.txt
 }
 ```
 
-> `npc_items_clone.txt` 中的克隆物品**不需要 `ID` 字段**，引擎会自动分配。
+> - `BaseClass` 统一使用 `"item_datadriven"`，避免原版 recipe 不存在的风险
+> - 不需要 `ID` 字段，引擎会自动分配
 
 ---
 
