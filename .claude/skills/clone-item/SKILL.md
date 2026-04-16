@@ -79,20 +79,31 @@ file: game/scripts/npc/npc_items_clone.txt
 格式参考 `item_recipe_shivas_guard_2`：
 
 ```kv
-"item_recipe_<name>_2"
-{
-    "BaseClass"                     "item_datadriven"
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"            "item_recipe_<name>_2"
-    "ItemCost"                      "<配方费用>"
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_<name>_2"
-    "ItemRequirements"
-    {
-        "01"                        "item_<name>;<extra_items>"
-    }
-}
+	//=================================================================================================================
+	// <物品英文名> <物品中文名>
+	//=================================================================================================================
+	"item_recipe_<name>_2"
+	{
+	    "BaseClass"                     "item_datadriven"
+	    "Model"                         "models/props_gameplay/recipe.vmdl"
+	    "AbilityTextureName"            "item_recipe_<name>_2"
+	    "ItemCost"                      "<配方费用>"
+	    "ItemRecipe"                    "1"
+	    "ItemResult"                    "item_<name>_2"
+	    "ItemRequirements"
+	    {
+	        "01"                        "item_<name>;<extra_items>"
+	    }
+	}
+
+	"item_<name>_2"
+	{
+	    ...
+	}
 ```
+
+> - recipe 块上方加 `//===...===` 分隔注释，格式：`// <物品中文名>`
+> - recipe 与物品本体之间**不加**注释，直接相邻
 
 > - `BaseClass` 统一使用 `"item_datadriven"`，避免原版 recipe 不存在的风险
 > - 不需要 `ID` 字段，引擎会自动分配
