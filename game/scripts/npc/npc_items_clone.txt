@@ -402,7 +402,7 @@
 		{
 			// x3
 			"bonus_damage"						"135"
-			"bonus_attack_speed"				"90"
+			"bonus_attack_speed"				"135"
 			"bonus_armor"						"54"
 			"bonus_health_regen"				"45"
 			// x4
