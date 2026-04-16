@@ -1,5 +1,5 @@
 ---
-name: changelog
+name: release-note
 description: >-
   生成 Steam Workshop 中英文更新日志。支持手动、PR、Issue（含 checklist 进度）。
   版本号：用户指定 > release PR 大版本 > Steam 递增补丁字母。

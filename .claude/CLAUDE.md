@@ -272,7 +272,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 使用模板创建 PR，模板文件为 `.github/pull_request_template.md`。
 分支名匹配 `^feature/(\\d+)` 时，提取 `issue-id` 作为 Issue 段。
-Release Note 段按照 `.claude/skills/changelog/SKILL.md` 文件的规则生成。
+Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生成。
 **PR 标题默认使用英文。**
 
 ### 提交
