@@ -18,43 +18,55 @@ description: >-
 
 ## 第一步：解析物品输入
 
-用户可给出：
-- **系统名**（如 `item_shivas_guard`）→ 直接使用
-- **中文名**（如「西瓦的守护」「晶化之刃」）→ 在 `docs/reference/<version>/items_schinese.txt`（若存在）或
-  `game/resource/addon_schinese.txt` 中搜索中文名，提取对应系统名
+用户给出的名字**即为克隆物品系统名**，可能是：
+- **克隆物品系统名**（如 `item_armlet_light`、`item_shivas_guard_2`）→ 直接使用
+- **中文名**（如「圣光臂章」）→ 在 `game/resource/addon_schinese.txt` 中搜索，提取对应系统名
 - 若有多个候选，用 `AskUserQuestion` 让用户确认
 
-克隆物品系统名默认为原版名加后缀 `_2`（如 `item_shivas_guard_2`）。
-若用户指定不同后缀，按用户指定。
+克隆物品的命名规则：通常为原版名加后缀（如 `_2`、`_light`、`_dark` 等），**不强制要求 `_2` 结尾**。
+
+**判断「克隆物品」的关键标准**：物品块的 `BaseClass` 不是 `item_datadriven` 也不是 `item_lua`，即继承自某个原版物品（如 `"BaseClass" "item_armlet"`）。
+
+若用户给出的是**原版物品名**（在 `docs/reference/<version>/items.txt` 中能找到，且该名字本身就是顶层 key），则需询问用户克隆版的命名后缀（如 `_2`、`_light` 等）。
 
 ---
 
 ## 第二步：存在性检测（决定模式）
 
-解析出克隆物品名后，搜索目标文件：
+解析出克隆物品名后，搜索所有可能的文件：
 
 ```
-Grep pattern: "item_shivas_guard_2"
-file: game/scripts/npc/npc_items_clone.txt
+Grep pattern: "<克隆物品名>"
+files: game/scripts/npc/npc_items_clone.txt
+       game/scripts/npc/npc_items_custom.txt
+       game/scripts/npc/npc_items_artifact.txt
 ```
 
-同时搜索以下旧版存放位置：
-- `game/scripts/npc/npc_items_custom.txt`
-- `game/scripts/npc/npc_items_artifact.txt`
+**判断是否为克隆版**：在搜索结果中，找到物品块（`"<克隆物品名>"\n{`），读取其 `BaseClass`：
+- `BaseClass` = `item_datadriven` 或 `item_lua` → **不是克隆版**（是自制物品，不属于本 skill 处理范围）
+- `BaseClass` = 其他原版物品名（如 `item_armlet`）→ **是克隆版**
 
 | 情况 | 处理 |
 |------|------|
-| **仅在 npc_items_clone.txt 中找到** | 目标文件 = npc_items_clone.txt；模式 = **更新** |
-| **仅在旧文件中找到**（npc_items_custom.txt 或 npc_items_artifact.txt） | 提示用户：已在旧文件中找到，将迁移到 npc_items_clone.txt；模式 = **更新** |
+| **在 npc_items_clone.txt 中找到且是克隆版** | 目标文件 = npc_items_clone.txt；模式 = **更新** |
+| **在旧文件中找到且是克隆版**（npc_items_custom.txt 或 npc_items_artifact.txt） | 提示用户：已在旧文件中找到，将迁移到 npc_items_clone.txt；模式 = **更新** |
 | **所有文件均未找到** | 模式 = **新建** |
+| **找到但 BaseClass 是 item_datadriven/item_lua** | 告知用户该物品是自制物品，不是克隆版，询问是否重新输入 |
 
 ---
 
-## 第三步：读取原版物品 KV
+## 第三步：确定原版物品名并读取 KV
+
+**原版物品名的确定方式**：
+
+- **更新模式**：从现有克隆块的 `BaseClass` 字段直接读取（如 `"BaseClass" "item_armlet"` → 原版名 = `item_armlet`）
+- **新建模式**：
+  - 若用户给出的克隆名形如 `item_<base>_<suffix>`，尝试在 `docs/reference/<version>/items.txt` 中搜索 `"item_<base>"`
+  - 若找到唯一匹配，使用之；若找不到或有歧义，用 `AskUserQuestion` 询问用户「该克隆物品的原版 BaseClass 是什么？」
 
 从 `docs/reference/<version>/items.txt` 搜索：
-1. 原版 recipe 块：`"item_recipe_<name>"`
-2. 原版物品块：`"item_<name>"`
+1. 原版 recipe 块：`"item_recipe_<原版名去掉item_前缀>"`
+2. 原版物品块：`"<原版物品名>"`
 
 完整读取两个块的所有字段（`ItemCost`、`AbilityValues`、`AbilityBehavior` 等）。
 
@@ -63,12 +75,12 @@ file: game/scripts/npc/npc_items_clone.txt
 ## 第四步：询问配方材料（新建模式）
 
 新建时，配方需要包含：
-- **原版物品本身**（必须，如 `item_shivas_guard`）
+- **原版物品本身**（必须，即 `BaseClass` 对应的原版物品名，如 `item_armlet`）
 - **其他额外材料**（需问用户）
 
-> 用 `AskUserQuestion` 询问：「额外配件有哪些？（输入物品系统名，多个用分号分隔，如 `item_platemail;item_vitality_booster`）」
+> 用 `AskUserQuestion` 询问：「额外配件有哪些？（输入物品系统名，多个用分号分隔，如 `item_platemail;item_vitality_booster`；若无额外材料输入"无"）」
 
-若用户提供了 `_2` 版本的物品（如 `item_veil_of_discord_2`），保留；否则使用原版。
+若用户提供了克隆版的物品（如 `item_veil_of_discord_2`），保留该名称；否则使用原版名。
 
 配方费用：询问用户，或默认计算公式 ≈ 克隆物品目标总价 - 原版物品价格 - 额外材料原版价格之和。
 
@@ -79,20 +91,31 @@ file: game/scripts/npc/npc_items_clone.txt
 格式参考 `item_recipe_shivas_guard_2`：
 
 ```kv
-"item_recipe_<name>_2"
-{
-    "BaseClass"                     "item_datadriven"
-    "Model"                         "models/props_gameplay/recipe.vmdl"
-    "AbilityTextureName"            "item_recipe_<name>_2"
-    "ItemCost"                      "<配方费用>"
-    "ItemRecipe"                    "1"
-    "ItemResult"                    "item_<name>_2"
-    "ItemRequirements"
-    {
-        "01"                        "item_<name>;<extra_items>"
-    }
-}
+	//=================================================================================================================
+	// <物品英文名> <物品中文名>
+	//=================================================================================================================
+	"item_recipe_<name>_2"
+	{
+	    "BaseClass"                     "item_datadriven"
+	    "Model"                         "models/props_gameplay/recipe.vmdl"
+	    "AbilityTextureName"            "item_recipe_<name>_2"
+	    "ItemCost"                      "<配方费用>"
+	    "ItemRecipe"                    "1"
+	    "ItemResult"                    "item_<name>_2"
+	    "ItemRequirements"
+	    {
+	        "01"                        "<原版物品名>;<extra_items>"
+	    }
+	}
+
+	"item_<name>_2"
+	{
+	    ...
+	}
 ```
+
+> - recipe 块上方加 `//===...===` 分隔注释，格式：`// <物品中文名>`
+> - recipe 与物品本体之间**不加**注释，直接相邻
 
 > - `BaseClass` 统一使用 `"item_datadriven"`，避免原版 recipe 不存在的风险
 > - 不需要 `ID` 字段，引擎会自动分配
@@ -112,10 +135,15 @@ file: game/scripts/npc/npc_items_clone.txt
   `SpellDispellableType`、`AbilityCastRange`、`AbilityCastPoint`、
   `ItemShopTags`、`ItemQuality`、`ItemAliases`、`AbilitySharedCooldown` 等）→ 复制原版
 
+**数值倍率确定**：
+- 倍率 = 克隆物品总价 ÷ 原版物品价格（保留一位小数，如 2.0×、1.5× 等）
+- 若总价已知（用户在第四步给出配方材料和价格）则自动计算
+- **若无法确定倍率，用 `AskUserQuestion` 询问用户**：「该克隆物品的属性倍率是多少？（如 2.0、1.5）」
+
 **AbilityValues 数值加强规则**：
-- **可成长属性**（伤害、护甲、属性加成、法力/生命回复、施法范围、范围等）→ × 2（取整，优先整数）
+- **可成长属性**（伤害、护甲、属性加成、法力/生命回复、施法范围、范围等）→ × 倍率（取整，优先整数）
 - **固定机制值**（冷却时间、施法时间、移速、减速百分比、持续时间、速度等）→ **不变**，复制原版
-- 每个值右侧用 `//` 注释原版值（例：`"bonus_armor"   "30"   // 15`）
+- 每个值右侧用 `//` 注释原版值（例：`"bonus_armor"   "30"   // 15`，倍率 2.0×）
 
 对于含子块的值（如 `aura_radius`），保留子块结构：
 ```kv
@@ -136,7 +164,7 @@ file: game/scripts/npc/npc_items_clone.txt
 2. **删除**克隆块中原版已不存在的字段（已废弃的键）
 3. **补充**原版新增但克隆块缺失的字段（加强规则同第六步）
 4. **保留**仅克隆物品有、原版没有的字段（如 `ItemAliases`、`AbilitySharedCooldown`、`AbilityTextureName`、`ID` 等克隆专属字段）
-5. 重新按加强规则校验所有 `AbilityValues`，对照原版当前值 ×2（可成长属性），固定机制值与原版保持一致
+5. 重新按加强规则校验所有 `AbilityValues`，对照原版当前值 × 当前倍率（可成长属性，倍率 = 克隆物品总价 ÷ 原版价格，无法确定时询问用户），固定机制值与原版保持一致
 6. **顶层字段**（`AbilityBehavior`、`AbilityCooldown`、`AbilityManaCost`、`FightRecapLevel`、`SpellDispellableType` 等）与原版保持一致
 
 同时执行**第九步本地化更新**（见下方）。
@@ -254,8 +282,8 @@ Glob: game/scripts/npc/shops*.txt
 ## 自检清单
 
 - [ ] 原版物品 KV 已读取（recipe + 物品主块）
-- [ ] Recipe 块：无 `ID` 字段，BaseClass = `item_recipe_<name>`，ItemResult = `item_<name>_2`，材料含原版物品
-- [ ] 物品块：无 `ID` 字段，BaseClass = `item_<name>`，AbilityTextureName = `item_<name>_2`
+- [ ] Recipe 块：无 `ID` 字段，BaseClass = `item_datadriven`，ItemResult = `<克隆物品名>`，材料含原版物品（来自 BaseClass）
+- [ ] 物品块：无 `ID` 字段，BaseClass = `<原版物品名>`（非 item_datadriven/item_lua），AbilityTextureName = `<克隆物品名>`
 - [ ] AbilityValues：可成长属性 × 2，固定机制值不变，每项附原版值注释
 - [ ] ItemCost = 原版 + 额外材料 + 配方费之和
 - [ ] 图片文件存在或已提醒用户创建

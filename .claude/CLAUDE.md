@@ -211,6 +211,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **Net Table 类型不匹配**: 布尔值以 0/1 传输,使用辅助转换
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
+- **KV 文件格式**: `game/scripts/npc/` 目录下所有 `.txt` 文件必须全程使用 **tab**，包括行首缩进以及 key 与 value 之间的对齐间距，不得使用空格
 
 ### Dota 2 参考文件速查
 
