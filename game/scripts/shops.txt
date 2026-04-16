@@ -119,7 +119,6 @@
 		"item"		"item_ultimate_orb"			// 极限法球
 
 		"item"		"item_dragon_lance"			// 魔龙枪
-		"item"		"item_guardian_greaves_artifact"	// 神器 卫士胫甲
 		"item"		"item_armlet_light"			// 圣光臂章
 		"item"		"item_armlet_dark"			// 暗影臂章
 		"item"		"item_force_field_ultra"	// 天地同寿甲
@@ -176,15 +175,15 @@
 		// "item"		"item_tranquil_boots"		// 静谧之靴
 
 		"item"		"item_solar_crest"			// 炎阳纹章
-		"item"		"item_guardian_greaves"		// 卫士胫甲
+		"item"		"item_pipe"					// 洞察烟斗
 		"item"		"item_spirit_vessel"		// 魂之灵瓮
 		"item"		"item_boots_of_bearing_2"	// 蹦迪之鞋
 
 		"item"		"item_glimmer_cape"			// 微光披风
 		"item"		"item_orb_of_the_brine"		// 苍洋魔珠
-		"item"		"item_pipe"					// 洞察烟斗
 		// "item"		"item_adi_king"				// 阿迪王
 		"item"		"item_adi_king_plus"		// 阿迪王plus
+		"item"		"item_guardian_greaves_artifact"		// 神器 卫士胫甲
 	}
 	// Level 3 - 法器
 	"magics"

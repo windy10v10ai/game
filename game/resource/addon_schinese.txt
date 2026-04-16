@@ -2007,25 +2007,27 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"雅典娜的守护"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低所有敌人%aura_attack_speed%攻击速度，%restoration_reduction_aura%%%生命回复和获得的治疗效果。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低所有敌人%aura_attack_speed%攻击速度。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"据说曾经属于某位女神希瓦，但是被宙斯送给雅典娜当玩具的后保留至今。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"极寒冲击将以施放者为中心。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"多个霜冷光环效果不会叠加。"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$all"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note3"							"多个裂隙之石或升级物品的作用范围加成不会叠加。"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_aoe"					"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"				"+$hp_regen"
 
-		// item_veil_of_discord_2 纷争2
-		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"赫拉的神秘面纱"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>主动：魔法虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>持续时间：%resist_debuff_duration%秒。"
+		// veil_of_discord_2
+		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"赫拉的神秘面纱"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>主动：法术虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>可以在持续施法期间施放。<br><br>持续时间：%resist_debuff_duration%秒。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"一个堕落法师的头饰。"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_hp_regen"			"+$hp_regen"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_armor"			"+$armor"
-
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"魔法虚弱"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Note0"					"法术虚弱不与血精石的法术虚弱光环叠加。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"法术虚弱"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
 		// item_manta_1 幻身斧
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>幻身斧</font>"
@@ -2672,14 +2674,13 @@
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>神器·卫士胫甲</font>"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命 <font color='#00FF00'>+ %max_health_pct_heal_amount%%% 最大生命值</font> 和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命 <font color='#00FF00'>+ %max_health_pct_heal_amount%%% 最大生命值</font> 和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复和%aura_mana_regen%点/秒魔法恢复。如果友方英雄的生命值低于%aura_bonus_threshold%%%，生命恢复将提升至%aura_health_regen_bonus%点/秒。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"光环效果仅对英雄有效。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"卫士胫甲的冷却时间内回复不能作用于已经被修复或梅肯斯姆的回复作用过的单位。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mres"				"%+$spell_resist"
 
 		// 神器刃甲（秘术师铠甲）（天地同寿）
 		"DOTA_Tooltip_Ability_item_force_field_ultra"						"<font color='#FFFF00'>神器·天地同寿甲</font>"
@@ -2693,7 +2694,7 @@
 		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>主动：看我手速</h1> 释放爆发性的魔法伤害冲击敌方目标单位。造成伤害的%dagon_spell_lifesteal%%%可以治疗施法者。<br><br>伤害：%damage%<br>魔法消耗：%mana_cost_tooltip%"
 		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"手速越快，伤害越高，只要你有蓝"
 		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"立刻消灭幻象。"
-		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$passive_spell_lifesteal"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"
