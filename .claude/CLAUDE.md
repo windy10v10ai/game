@@ -226,6 +226,8 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 | Override KV | `game/scripts/npc/npc_abilities_override.txt` |
 | 抽奖技能 KV | `game/scripts/npc/npc_abilities_custom_lottery.txt` |
 | 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
+| 原版物品参考 | `docs/reference/<version>/items.txt` |
+| 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 
@@ -270,7 +272,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 使用模板创建 PR，模板文件为 `.github/pull_request_template.md`。
 分支名匹配 `^feature/(\\d+)` 时，提取 `issue-id` 作为 Issue 段。
-Release Note 段按照 `.claude/skills/changelog/SKILL.md` 文件的规则生成。
+Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生成。
 **PR 标题默认使用英文。**
 
 ### 提交
