@@ -1,39 +1,58 @@
 import { ModeAttack } from './mode-attack';
 import { ActionFind } from '../action/action-find';
+import { TeamCommander } from '../team/team-commander';
 import { ModeEnum } from './mode-enum';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare let global: any;
 
+global.print = jest.fn(); // Dota Lua global not available in Jest
 global.UnitTargetTeam = { FRIENDLY: 2, ENEMY: 4 };
 global.UnitTargetType = { HERO: 1, CREEP: 2, BUILDING: 4 };
 global.UnitTargetFlags = { NONE: 0, NOT_ILLUSIONS: 8, FOW_VISIBLE: 256, NO_INVIS: 512, INVULNERABLE: 128 };
 global.FindOrder = { CLOSEST: 0 };
 
 function makeHero(healthPercent: number, level: number): any {
+  const maxHp = 1000;
   return {
     GetHealthPercent: () => healthPercent,
+    GetHealth: () => Math.round(maxHp * healthPercent / 100),
     GetLevel: () => level,
+    GetMana: () => 500,
+    GetMaxMana: () => 500,
+    GetAbilityByIndex: () => undefined,
   };
 }
 
 function makeHeroAI(mana: number, maxMana: number): any {
   return {
     mode: ModeEnum.LANING,
+    gameTime: 0,
+    aggressionBias: 1.0,
     GetHero: () => ({
       GetMana: () => mana,
       GetMaxMana: () => maxMana,
       GetTeamNumber: () => 2,
       GetHealthPercent: () => 100,
+      GetHealth: () => 1000,
       GetLevel: () => 10,
-      GetAbsOrigin: () => ({}),
+      GetAbsOrigin: () => ({ x: 0, y: 0, z: 0 }),
+      GetBaseAttackRange: () => 150,
     }),
     FindNearestEnemyTowerInvulnerable: () => undefined,
+    aroundEnemyHeroes: [],
     aroundEnemyBuildingsInvulnerable: [],
   };
 }
 
 beforeEach(() => {
+  (TeamCommander as any).instance = undefined;
+  jest.spyOn(TeamCommander, 'getInstance').mockReturnValue({
+    GetEnemyMissingCount: () => 0,
+    GetGhostEnemyPower: () => 0,
+    GetTargetClaimCount: () => 0,
+    ClaimTarget: jest.fn(),
+  } as any);
   jest.spyOn(ActionFind, 'Find').mockReturnValue([]);
   jest.spyOn(ActionFind, 'FindEnemyHeroes').mockReturnValue([]);
   jest.spyOn(ActionFind, 'FindTeamBuildingsInvulnerable').mockReturnValue([]);
@@ -147,6 +166,61 @@ describe('ModeAttack.GetDesire', () => {
       const withoutEnemyTower = attack.GetDesire(makeHeroAI(500, 500));
 
       expect(withEnemyTower).toBeLessThan(withoutEnemyTower);
+    });
+  });
+
+  describe('tower dive suppression', () => {
+    function makeTowerInRange(): any {
+      return {
+        // GetDistanceToAttackRange returns distanceToRange <= 0 means in range
+        // We mock HeroUtil via the heroAI's FindNearestEnemyTowerInvulnerable
+      };
+    }
+
+    it('suppresses desire to near 0 when standing inside enemy tower range', () => {
+      jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 20), makeHero(100, 20)]);
+      jest.spyOn(ActionFind, 'FindEnemyHeroes').mockReturnValue([makeHero(100, 5)]);
+
+      // heroAI returns a tower where HeroUtil.GetDistanceToAttackRange <= 0
+      const heroAI = {
+        mode: ModeEnum.LANING,
+        gameTime: 0,
+        aggressionBias: 1.0,
+        GetHero: () => ({
+          GetMana: () => 500,
+          GetMaxMana: () => 500,
+          GetTeamNumber: () => 2,
+          GetHealthPercent: () => 100,
+          GetHealth: () => 1000,
+          GetLevel: () => 10,
+          GetAbsOrigin: () => ({ x: 0, y: 0, z: 0 }),
+          GetBaseAttackRange: () => 150,
+          GetUnitName: () => 'npc_dota_hero_test',
+        }),
+        FindNearestEnemyTowerInvulnerable: () => ({
+          GetAttackRange: () => 700,
+          GetAbsOrigin: () => ({ __sub: () => ({ Length: () => 0 }) }),
+        }),
+        aroundEnemyHeroes: [],
+        aroundEnemyBuildingsInvulnerable: [],
+      };
+
+      // Spy on HeroUtil to simulate being inside tower range
+      const { HeroUtil } = require('../hero/hero-util');
+      jest.spyOn(HeroUtil, 'GetDistanceToAttackRange').mockReturnValue(-100);
+
+      const desire = attack.GetDesire(heroAI as any);
+      expect(desire).toBeLessThan(0.1); // suppressed to ~8% max
+    });
+
+    it('does not suppress desire when bot is outside tower range', () => {
+      jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 10)]);
+      jest.spyOn(ActionFind, 'FindEnemyHeroes').mockReturnValue([makeHero(100, 10)]);
+
+      // No nearby tower — FindNearestEnemyTowerInvulnerable returns undefined (default mock)
+      const desireOutside = attack.GetDesire(makeHeroAI(500, 500));
+      // Equal forces → ratio=1.0 → Logistic(1.0, 1.2, 5) ≈ 0.27, unmodified by tower
+      expect(desireOutside).toBeGreaterThan(0.2);
     });
   });
 

@@ -1,7 +1,9 @@
+import { ActionFind } from '../action/action-find';
 import { BotBaseAIModifier } from '../hero/bot-base';
 import { HeroUtil } from '../hero/hero-util';
 import { ModeBase } from './mode-base';
 import { ModeEnum } from './mode-enum';
+import { PowerUtil } from './power-util';
 import { TeamCommander } from '../team/team-commander';
 import { UtilityMath } from './utility-math';
 
@@ -36,13 +38,16 @@ const FORT_AND_TOWER4_NAMES: string[] = [
 
 export class ModeRetreat extends ModeBase {
   mode: ModeEnum = ModeEnum.RETREAT;
+  hysteresisBonus: number = 0.2;
 
   GetDesire(heroAI: BotBaseAIModifier): number {
     let desire = 0;
 
-    // Panic curve: quadratic scaling from 60% HP down to 0%
+    // Health panic: linear from 70% HP down to 0% — gives a strong, early signal
+    // that outcompetes push desire (0.75 × healthRatio) before the bot is nearly dead.
+    // cautionBias > 1 makes the bot panic sooner; < 1 makes it fight through low HP.
     const currentHealthPercentage = heroAI.GetHero().GetHealthPercent();
-    desire += UtilityMath.Quadratic(currentHealthPercentage, 60, 0);
+    desire += UtilityMath.Linear(currentHealthPercentage, 70, 0) * heroAI.cautionBias;
 
     // Blackboard: add 0.05 per missing enemy above 2
     const missingCount = TeamCommander.getInstance().GetEnemyMissingCount(
@@ -52,9 +57,44 @@ export class ModeRetreat extends ModeBase {
       desire += (missingCount - 2) * 0.05;
     }
 
-    // FIXME 修改成被塔攻击
+    // Outnumbered panic: retreat desire scales linearly with how badly we're losing
+    // the local power comparison — 0 at even fight, 0.5 at 1v2, 1.0 alone vs enemies.
+    // Ghost power from recently-disappeared enemies is included so the bot stays
+    // cautious after an enemy jukes a tree rather than instantly relaxing.
+    const enemyHeroes = heroAI.aroundEnemyHeroes;
+    const hero = heroAI.GetHero();
+    const heroPos = hero.GetAbsOrigin();
+    const ghostPower = TeamCommander.getInstance().GetGhostEnemyPower(
+      hero.GetTeamNumber(),
+      heroPos.x,
+      heroPos.y,
+      1200,
+      heroAI.gameTime,
+    );
+    if (enemyHeroes.length > 0 || ghostPower > 0) {
+      const allyHeroes = ActionFind.Find(
+        hero,
+        1200,
+        UnitTargetTeam.FRIENDLY,
+        UnitTargetType.HERO,
+        UnitTargetFlags.NONE,
+      );
+      let allyPower = 0;
+      for (const ally of allyHeroes) {
+        allyPower += PowerUtil.CalculatePowerUnit(ally);
+      }
+      let enemyPower = ghostPower;
+      for (const enemy of enemyHeroes) {
+        enemyPower += PowerUtil.CalculatePowerUnit(enemy);
+      }
+      const ratio = allyPower / (enemyPower || 1);
+      desire += UtilityMath.Linear(ratio, 1.0, 0) * heroAI.cautionBias;
+    }
+
+    // Tower retreat: only meaningful when enemies are nearby — a bot at 100% HP
+    // walking past a tower with no opponents shouldn't retreat back to base.
     const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
-    if (nearestTower) {
+    if (nearestTower && (enemyHeroes.length > 0 || ghostPower > 0)) {
       const distanceThanTowerAttackRange = HeroUtil.GetDistanceToAttackRange(
         nearestTower,
         heroAI.GetHero(),

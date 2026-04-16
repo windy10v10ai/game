@@ -32,7 +32,12 @@ function setupGlobals(
     GetSelectedHeroEntity: (id: number) => {
       const p = players.find((player) => player.id === id);
       if (!p) return undefined;
-      return { IsAlive: () => p.alive, GetAbsOrigin: () => ({}) };
+      return {
+        IsAlive: () => p.alive,
+        GetAbsOrigin: () => ({ x: 0, y: 0, z: 0 }),
+        GetHealthPercent: () => 100,
+        GetLevel: () => 10,
+      };
     },
   };
 
@@ -168,6 +173,110 @@ describe('TeamCommander (per-team state)', () => {
       // Each team has independent count
       expect(tc.GetEnemyMissingCount(DIRE)).toBe(1);
       expect(tc.GetEnemyMissingCount(RADIANT)).toBe(2);
+    });
+
+    it('creates a ghost when an enemy transitions from visible to hidden', () => {
+      const players = [
+        { id: 0, team: DIRE, alive: true, visible: true },
+        { id: 1, team: RADIANT, alive: true, visible: true }, // visible first
+      ];
+      setupGlobals(players, 0);
+      global.IsLocationVisible = jest.fn().mockReturnValue(true);
+
+      const tc = TeamCommander.getInstance();
+      tc.UpdateGameState([makeHeroAI(DIRE)]); // tick 1: enemy is visible → lastKnown set
+
+      // tick 2: enemy goes invisible → ghost should be created
+      global.GameRules.GetDOTATime = jest.fn().mockReturnValue(1.5);
+      global.IsLocationVisible = jest.fn().mockReturnValue(false);
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      // Ghost power at origin with radius 1 should be > 0
+      const power = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 1.5);
+      expect(power).toBeGreaterThan(0);
+    });
+
+    it('ghost power decays over time', () => {
+      const players = [
+        { id: 0, team: DIRE, alive: true, visible: true },
+        { id: 1, team: RADIANT, alive: true, visible: true },
+      ];
+      setupGlobals(players, 0);
+      global.IsLocationVisible = jest.fn().mockReturnValue(true);
+
+      const tc = TeamCommander.getInstance();
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      global.GameRules.GetDOTATime = jest.fn().mockReturnValue(1.5);
+      global.IsLocationVisible = jest.fn().mockReturnValue(false);
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      const powerAt0 = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 1.5);  // elapsed = 0
+      const powerAt2 = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 3.5);  // elapsed = 2
+      expect(powerAt0).toBeGreaterThan(powerAt2);
+    });
+
+    it('ghost is cleared when the enemy reappears', () => {
+      const players = [
+        { id: 0, team: DIRE, alive: true, visible: true },
+        { id: 1, team: RADIANT, alive: true, visible: true },
+      ];
+      setupGlobals(players, 0);
+      global.IsLocationVisible = jest.fn().mockReturnValue(true);
+
+      const tc = TeamCommander.getInstance();
+      tc.UpdateGameState([makeHeroAI(DIRE)]); // visible
+
+      global.GameRules.GetDOTATime = jest.fn().mockReturnValue(1.5);
+      global.IsLocationVisible = jest.fn().mockReturnValue(false);
+      tc.UpdateGameState([makeHeroAI(DIRE)]); // goes invisible → ghost created
+
+      global.GameRules.GetDOTATime = jest.fn().mockReturnValue(2.5);
+      global.IsLocationVisible = jest.fn().mockReturnValue(true);
+      tc.UpdateGameState([makeHeroAI(DIRE)]); // reappears → ghost cleared
+
+      const power = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 2.5);
+      expect(power).toBe(0);
+    });
+
+    it('ghost is cleared when the enemy dies', () => {
+      const players = [
+        { id: 0, team: DIRE, alive: true, visible: true },
+        { id: 1, team: RADIANT, alive: true, visible: true },
+      ];
+      setupGlobals(players, 0);
+      global.IsLocationVisible = jest.fn().mockReturnValue(true);
+      const tc = TeamCommander.getInstance();
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      global.GameRules.GetDOTATime = jest.fn().mockReturnValue(1.5);
+      global.IsLocationVisible = jest.fn().mockReturnValue(false);
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      // Enemy dies
+      players[1].alive = false;
+      global.GameRules.GetDOTATime = jest.fn().mockReturnValue(2.5);
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      expect(tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 2.5)).toBe(0);
+    });
+
+    it('returns 0 ghost power when enemy is outside the query radius', () => {
+      const players = [
+        { id: 0, team: DIRE, alive: true, visible: true },
+        { id: 1, team: RADIANT, alive: true, visible: true },
+      ];
+      setupGlobals(players, 0);
+      global.IsLocationVisible = jest.fn().mockReturnValue(true);
+      const tc = TeamCommander.getInstance();
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      global.GameRules.GetDOTATime = jest.fn().mockReturnValue(1.5);
+      global.IsLocationVisible = jest.fn().mockReturnValue(false);
+      tc.UpdateGameState([makeHeroAI(DIRE)]);
+
+      // Ghost is at (0,0), query far away
+      expect(tc.GetGhostEnemyPower(DIRE, 5000, 5000, 100, 1.5)).toBe(0);
     });
 
     it('DIRE cooldown does not block RADIANT update', () => {

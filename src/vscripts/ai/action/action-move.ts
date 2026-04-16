@@ -1,4 +1,5 @@
 import { HeroUtil } from '../hero/hero-util';
+import { BotBehaviorUtil } from '../mode/bot-behavior-util';
 
 export class ActionMove {
   static readonly posRadiantBase: Vector = Vector(-7050, -6550, 384);
@@ -43,11 +44,53 @@ export class ActionMove {
     });
   }
 
-  static GetAwayFromTower(hero: CDOTA_BaseNPC_Hero, enemyTower: CDOTA_BaseNPC): boolean {
-    // 如果英雄残血，return false
-    if (hero.GetHealthPercent() < 0.2) {
-      return false;
+  /**
+   * Flee from a group of enemies toward safety.
+   *
+   * Uses the centroid of all visible enemies (rather than just the nearest) and
+   * the centroid of all nearby allies to compute the escape vector, so the bot
+   * threads between multiple threats instead of running into a cluster that
+   * happens to lie in the direction of the nearest ally.
+   *
+   * When allies are present the direction blends 60% toward ally centroid and
+   * 40% away from enemy centroid. Without allies the hero runs straight to base.
+   */
+  static FleeTowardSafety(
+    hero: CDOTA_BaseNPC_Hero,
+    enemies: CDOTA_BaseNPC[],
+    allies: CDOTA_BaseNPC[],
+  ): void {
+    if (enemies.length === 0) return;
+
+    const heroPos = hero.GetAbsOrigin();
+
+    const enemyPositions = enemies.map((e) => {
+      const p = e.GetAbsOrigin();
+      return { x: p.x, y: p.y };
+    });
+    const allyPositions = allies.map((a) => {
+      const p = a.GetAbsOrigin();
+      return { x: p.x, y: p.y };
+    });
+
+    if (allyPositions.length > 0) {
+      const dir = BotBehaviorUtil.CalculateFleeCentroidDirection(
+        heroPos.x, heroPos.y,
+        enemyPositions,
+        allyPositions,
+      );
+      ActionMove.MoveHeroToDirection(hero, Vector(dir.x, dir.y, 0) as Vector, 600);
+    } else {
+      // No allies nearby — run straight to base
+      const basePos =
+        hero.GetTeamNumber() === DotaTeam.GOODGUYS
+          ? ActionMove.posRadiantBase
+          : ActionMove.posDireBase;
+      ActionMove.MoveHero(hero, basePos);
     }
+  }
+
+  static GetAwayFromTower(hero: CDOTA_BaseNPC_Hero, enemyTower: CDOTA_BaseNPC): boolean {
     // const direction = hero
     //   .GetAbsOrigin()
     //   // 远离天辉泉水方向

@@ -1,6 +1,10 @@
 import { FSA } from './FSA';
 import { ModeEnum } from './mode-enum';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+declare let global: any;
+global.print = jest.fn(); // Dota Lua global not available in Jest
+
 // Mock all mode classes so FSA can be instantiated without Dota globals
 jest.mock('./mode-laning', () => ({
   ModeLaning: jest.fn().mockImplementation(() => ({ mode: ModeEnum.LANING, hysteresisBonus: 0.1, GetDesire: jest.fn().mockReturnValue(0) })),
@@ -16,7 +20,10 @@ jest.mock('./mode-push', () => ({
 }));
 
 function makeHeroAI(currentMode: ModeEnum): any {
-  return { mode: currentMode };
+  return {
+    mode: currentMode,
+    GetHero: () => ({ GetUnitName: () => 'npc_dota_hero_test' }),
+  };
 }
 
 function setDesires(fsa: FSA, desires: Partial<Record<ModeEnum, number>>): void {
@@ -31,6 +38,13 @@ describe('FSA.GetMode', () => {
 
   beforeEach(() => {
     fsa = new FSA();
+    // Neutralise the micro-jitter so desire comparisons are deterministic.
+    // Math.random() = 0.5 → jitter = (0.5 - 0.5) * 0.06 = 0.
+    jest.spyOn(Math, 'random').mockReturnValue(0.5);
+  });
+
+  afterEach(() => {
+    jest.restoreAllMocks();
   });
 
   describe('basic switching', () => {

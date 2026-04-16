@@ -25,9 +25,11 @@ export class FSA {
     let maxScore = 0;
     let maxRawDesire = 0;
     let desireMode: ModeEnum | undefined;
+
     for (const mode of this.ModeList) {
       const rawDesire = mode.GetDesire(heroAI);
-      const score = rawDesire + (mode.mode === currentMode ? mode.hysteresisBonus : 0);
+      const jitter = (Math.random() - 0.5) * 0.06;
+      const score = rawDesire + jitter + (mode.mode === currentMode ? mode.hysteresisBonus : 0);
       if (score > maxScore) {
         maxScore = score;
         maxRawDesire = rawDesire;
@@ -36,9 +38,6 @@ export class FSA {
     }
 
     if (maxRawDesire >= FSA.MODE_SWITCH_THRESHOLD) {
-      if (desireMode !== currentMode) {
-        // print(`[AI] hero ${heroAI.GetHero().GetUnitName()} desire to switch mode to ${desireMode}`);
-      }
       return desireMode!;
     } else {
       return currentMode;
