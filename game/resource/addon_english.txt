@@ -2629,9 +2629,7 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_light_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
-
 
 		// item_armlet_dark 暗影·臂章
 		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Dark</font> Armlet of Mordiggian"
@@ -2643,7 +2641,6 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
