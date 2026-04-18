@@ -2217,7 +2217,7 @@
 		}
 	}
 
-	// 尸鬼狂怒
+	// 尸鬼狂怒 先天
 	"life_stealer_ghoul_frenzy"
 	{
 		"AbilityValues"
@@ -4278,15 +4278,14 @@
 		"AbilityCastRange"				"650"	// 350
 		"AbilityCooldown"				"25"	// 35
 	}
-	// 鲸脂（先天）
-	"tidehunter_blubber"
+	// 利维坦的渔获（先天）
+	"tidehunter_leviathans_catch"
 	{
 		"AbilityValues"
 		{
-			"damage_cleanse"
-			{
-				"value"		"900"	// 450
-			}
+			"fish_attack_range"				"4"		// 2 x2
+			"fish_damage_block"				"4"		// 1 x4
+			"fish_health_bonus"				"60"	// 3 x20
 		}
 	}
 	//=================================================================================================================
