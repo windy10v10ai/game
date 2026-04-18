@@ -46,8 +46,8 @@
 
 		"item"		"item_diadem"				// 宝冕
 		"item"		"item_travel_boots"			// 飞鞋 远行鞋
-		"item"		"item_light_part"			// 圣光组件
-		"item"		"item_dark_part"			// 暗影组件
+		"item"		"item_radar_of_dragon"
+		"item"		"item_recipe_greater_famango" // 巨大疗伤莲花配方
 	}
 	// 装备
 	"weapons_armor"
@@ -119,9 +119,12 @@
 		"item"		"item_ultimate_orb"			// 极限法球
 
 		"item"		"item_dragon_lance"			// 魔龙枪
+		"item"		"item_force_field_ultra"	// 天地同寿甲
+		"item"		"item_light_part"			// 圣光组件
+		"item"		"item_dark_part"			// 暗影组件
+
 		"item"		"item_armlet_light"			// 圣光臂章
 		"item"		"item_armlet_dark"			// 暗影臂章
-		"item"		"item_force_field_ultra"	// 天地同寿甲
 	}
 	// 神秘商店
 	"secretshop"
@@ -130,8 +133,8 @@
 		"item"		"item_wish_2"
 		"item"		"item_wish_3"
 		"item"		"item_wish_4"
-		"item"		"item_radar_of_dragon"
-		"item"		"item_recipe_greater_famango"
+		"item"		"item_rune_transmuter_random"		// 洗炼石
+		"item"		"item_rune_transmuter_advanced"		// 转化石
 		"item"		"item_universal_rune"		// 通用符文
 	}
 
