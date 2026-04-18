@@ -211,6 +211,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **Net Table 类型不匹配**: 布尔值以 0/1 传输,使用辅助转换
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
+- **KV 文件格式**: `game/scripts/npc/` 目录下所有 `.txt` 文件必须全程使用 **tab**，包括行首缩进以及 key 与 value 之间的对齐间距，不得使用空格
 
 ### Dota 2 参考文件速查
 
@@ -226,6 +227,8 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 | Override KV | `game/scripts/npc/npc_abilities_override.txt` |
 | 抽奖技能 KV | `game/scripts/npc/npc_abilities_custom_lottery.txt` |
 | 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
+| 原版物品参考 | `docs/reference/<version>/items.txt` |
+| 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 
@@ -270,7 +273,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 使用模板创建 PR，模板文件为 `.github/pull_request_template.md`。
 分支名匹配 `^feature/(\\d+)` 时，提取 `issue-id` 作为 Issue 段。
-Release Note 段按照 `.claude/skills/changelog/SKILL.md` 文件的规则生成。
+Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生成。
 **PR 标题默认使用英文。**
 
 ### 提交

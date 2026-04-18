@@ -5,6 +5,7 @@ import { GA4 } from './ga4';
 export interface ItemSampleEntry {
   itemName: string;
   type: 'normal' | 'neutral_active' | 'neutral_passive';
+  cost: number;
   sampleCount: number;
   isCarriedAtEnd: boolean;
 }
@@ -46,22 +47,36 @@ export class GA4ItemTracker {
   ): void {
     for (let i = 0; i < 6; i++) {
       const item = hero.GetItemInSlot(i);
-      if (item) this.AddSample(playerId, item.GetAbilityName(), 'normal', isGameEnd);
+      if (item)
+        this.AddSample(playerId, item.GetAbilityName(), 'normal', item.GetCost(), isGameEnd);
     }
 
     const neutralActive = hero.GetItemInSlot(InventorySlot.NEUTRAL_ACTIVE_SLOT);
     if (neutralActive)
-      this.AddSample(playerId, neutralActive.GetAbilityName(), 'neutral_active', isGameEnd);
+      this.AddSample(
+        playerId,
+        neutralActive.GetAbilityName(),
+        'neutral_active',
+        neutralActive.GetCost(),
+        isGameEnd,
+      );
 
     const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
     if (neutralPassive)
-      this.AddSample(playerId, neutralPassive.GetAbilityName(), 'neutral_passive', isGameEnd);
+      this.AddSample(
+        playerId,
+        neutralPassive.GetAbilityName(),
+        'neutral_passive',
+        neutralPassive.GetCost(),
+        isGameEnd,
+      );
   }
 
   private static AddSample(
     playerId: PlayerID,
     itemName: string,
     type: ItemSampleEntry['type'],
+    cost: number,
     isGameEnd = false,
   ): void {
     const key: SampleKey = `${playerId}:${itemName}`;
@@ -74,6 +89,7 @@ export class GA4ItemTracker {
         playerId,
         itemName,
         type,
+        cost,
         sampleCount: 1,
         isCarriedAtEnd: isGameEnd,
       });
@@ -109,17 +125,21 @@ export class GA4ItemTracker {
       const steamId = player.steamId;
       const isBot = steamId <= 0;
 
+      const win_metrics = player.teamId === gameEndDto.winnerTeamId ? 1 : 0;
+
       const itemEvents = playerItems.map((entry) =>
         GA4.BuildEvent(eventName, steamId, {
           hero_name: player.heroName,
           item_name: entry.itemName,
           type: entry.type,
+          cost: entry.cost,
           sample_count: entry.sampleCount,
           duration_seconds: entry.sampleCount * GA4ItemTracker.SAMPLE_INTERVAL_SECONDS,
           is_carried_at_end: entry.isCarriedAtEnd,
           difficulty: gameEndDto.difficulty,
           team_id: player.teamId,
           is_bot: isBot,
+          win_metrics,
         }),
       );
 

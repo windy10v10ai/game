@@ -646,10 +646,9 @@
 	"item_light_part"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"10999"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"item_light_part"
-		"ItemCost"						"8000"
+		"ItemCost"						"6000"
 		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
@@ -688,10 +687,9 @@
 	"item_dark_part"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"11000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"item_dark_part"
-		"ItemCost"						"8000"
+		"ItemCost"						"6000"
 		"ItemIsNeutralDrop"				"0"
 		"ItemShopTags"					""
 		"ItemQuality"					""
@@ -726,137 +724,11 @@
 		}
 	}
 
-	// 圣光臂章
-	"item_recipe_armlet_light"
-	{
-		"BaseClass"						"item_datadriven"
-		"ID"						    "11045"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_armlet_light"
-		"ItemRequirements"
-		{
-			"01"                        "item_armlet_pro_max;item_light_part"
-		}
-	}
-	"item_armlet_light"
-	{
-		"BaseClass" 					"item_armlet"
-		"AbilityCooldown"				"0.0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_armlet_light"
-		"AbilityValues"
-		{
-			"bonus_damage"			"90"
-			"bonus_attack_speed"	"90"
-			"bonus_armor"			"36"
-			"bonus_health_regen"	"30"
-			"unholy_bonus_damage"	"100"
-			"unholy_bonus_strength"	"150"
-			"unholy_bonus_armor"	"24"
-			"unholy_bonus_slow_resistance"	"60"
-			"unholy_health_drain_per_second"	"5"
-			"toggle_cooldown"		"0.036"
-		}
-	}
-	// 暗影臂章
-	"item_recipe_armlet_dark"
-	{
-		"BaseClass"						"item_datadriven"
-		"ID"						    "11046"
-		"ItemCost"                      "0"
-		"ItemShopTags"					""
-		"ItemRecipe"                    "1"
-		"ItemResult"                    "item_armlet_dark"
-		"ItemRequirements"
-		{
-			"01"                        "item_armlet_pro_max;item_dark_part"
-		}
-	}
-	"item_armlet_dark"
-	{
-		"BaseClass" 					"item_armlet"
-		"AbilityCooldown"				"0.0"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_armlet_dark"
-		"AbilityValues"
-		{
-			"bonus_damage"			"120"
-			"bonus_attack_speed"	"120"
-			"bonus_armor"			"48"
-			"bonus_health_regen"	"10"
-			"unholy_bonus_damage"	"200"
-			"unholy_bonus_strength"	"300"
-			"unholy_bonus_armor"	"48"
-			"unholy_bonus_slow_resistance"	"90"
-			"unholy_health_drain_per_second"	"1500"
-			"toggle_cooldown"		"0.036"
-		}
-	}
-
-	// 神器卫士径甲
-	"item_recipe_guardian_greaves_artifact"
-	{
-		"BaseClass"						"item_datadriven"
-		"ID"							"13051"
-		"ItemCost"						"6850"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_guardian_greaves_artifact"
-		"AbilityTextureName"			"item_recipe_guardian_greaves_artifact"
-		"ItemRequirements"
-		{
-			"01"						"item_guardian_greaves;item_light_part"
-		}
-	}
-	"item_guardian_greaves_artifact"
-	{
-		"BaseClass"						"item_guardian_greaves"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"0"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ItemAlertable"					"1"
-		"ShouldBeSuggested"				"1"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"AbilityTextureName"			"item_guardian_greaves_artifact"
-		"AbilityValues"
-		{
-			"bonus_movement"		"200"
-			"bonus_armor"			"40"
-			"mana_regen"			"20"
-			"aura_health_regen"		"50"
-			"aura_armor"			"20"
-			"aura_mana_regen"		"30"
-			"aura_radius"			"1800"
-			"aura_health_regen_bonus"	"200"
-			"aura_mana_regen_bonus"	"60"
-			"aura_armor_bonus"		"40"
-			"aura_bonus_threshold"	"75"
-			"replenish_health"		"3000"
-			"replenish_mana"		"1500"
-			"replenish_radius"
-			{
-				"value"		"1800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_health_pct_heal_amount"		"8"
-		}
-	}
 
 	// 混沌散魂剑
 	"item_recipe_disperser_chaos"
 	{
 		"BaseClass"						"item_datadriven"
-		"ID"							"11047"
 		"ItemCost"						"0"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"ItemShopTags"					""
@@ -953,7 +825,6 @@
 	//=================================================================================================================
 	"item_recipe_force_field_ultra"
 	{
-		"ID"							"19031"														// unique ID number for this item.  Do not change this once established or it will invalidate collected stats.
 		"BaseClass"						"item_datadriven"
 		"AbilityTextureName"			"item_recipe_force_field_ultra"
 		"Model"							"models/props_gameplay/recipe.vmdl"
@@ -1026,45 +897,5 @@
 			"crit_multiplier"		"220"
 		}
 	}
-	//=================================================================================================================
-	// 神器一瞬千击
-	//=================================================================================================================
-	"item_recipe_dagon_ultra"
-	{
-		"BaseClass"						"item_recipe_dagon_5"
-		"AbilityTextureName"			"item_recipe_dagon_ultra"
-		"ItemCost"						"550"
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_dagon_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_dagon_5;item_dark_part"
-		}
-	}
-	"item_dagon_ultra"
-	{
-		"BaseClass"						"item_dagon_5"
-		"AbilityTextureName"			"item_dagon_ultra"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"1"
-		"AbilityManaCost"				"1600"
-		"AbilityValues"
-		{
-			"bonus_int"		"60"
-			"bonus_str"		"60"
-			"bonus_agi"		"60"
-			"damage"				"1600"
-			"damage_delay"				"0"
-			"mana_cost_tooltip"		"1600"
-			"int_damage"		"0"
-			"passive_spell_lifesteal"			"40"
-			"dagon_spell_lifesteal"				"100"
-		}
-	}
+
 }

@@ -602,15 +602,13 @@
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Gain extra gold from enemies you last hit, and multiplied gold from bounty runes. Additionally, gain an instant gold bonus when leveling this ability, and passively gain bonus attack damage based on the amount of extra gold your next last hit will grant."
+		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Description"					"Alchemist synthesizes additional gold from his enemies and bounty runes. With each kill, Alchemist earns base bonus gold and extra bonus gold. If Alchemist kills another unit which yields gold within the next %duration% seconds, an additional instance of Extra Bonus Gold is added to the total. Additionally, causes bounty runes to yield more gold."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_Lore"							"While it is not a mountain, Razzil has mastered the conversion of smaller compounds to line his pockets."
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_duration"						"RECENT KILL WINDOW:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold"					"BASE BONUS GOLD:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"				"EXTRA BONUS GOLD:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"MAX BONUS GOLD PER KILL:"
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"BOUNTY RUNE MULTIPLIER:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"DAMAGE PER STACK:"
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"GOLD GRANTED UPON LEVELING:"
 
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"Normal Punch"
@@ -623,7 +621,7 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"BONUS DAMAGE PER ATTACK DAMAGE:"
 		//妙手空空
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"Cutpurse"
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Steal gold when targeting enemy heroes with unit-target abilities or items."
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Bounty Hunter steals %gold_steal% gold when targeting enemy heroes with his abilities or items."
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"GOLD STEAL:"
 
 		// 龙骑 龙族血统
@@ -631,10 +629,10 @@
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"The life blood of the Dragon improves Dragon Knight's health regeneration and armor.  <br><br>Regen and armor are increased by %regen_and_armor_multiplier_during_dragon_form%%% during Elder Dragon Form."
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"BONUS ARMOR:"
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"BONUS HP REGEN:"
-		//才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"Quick Wit"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"Every point of Intelligence also grants attack speed."
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"INT TO ATTACK SPEED:"
+		// 黑暗贤者 才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"Dark Seer gains %int_to_atkspd% Attack Speed from each point of Intelligence."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"BONUS ATTACK SPEED:"
 		//炽烈火雨
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"CHANNELED - Shoot multiple piercing arrows in the target direction that hit all enemy units dealing a percentage of attack damage and applying any attack modifiers."
@@ -670,7 +668,6 @@
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"Wrath of God"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"Gain additional attack damage from Strength, at the cost of decreased base damage."
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"BASE DAMAGE LOSS:"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"BONUS DAMAGE PER STR:"
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
@@ -809,11 +806,9 @@
 
 		// 魔法盾
 		"DOTA_Tooltip_ability_medusa_mana_shield2"								"Mana Shield"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"Creates a shield that absorbs %absorption_pct%%% of incoming damage in exchange for Medusa's mana that increases with each level of Medusa. Illusions absorb %illusion_percentage%%% less damage per point of mana."
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"Creates a shield that absorbs %absorption_pct%%% of incoming damage in exchange for Medusa's mana. Illusions absorb %illusion_percentage%%% less damage per point of mana."
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"Absorbs damage before any damage reduction takes place, meaning that armor will not reduce the amount of mana needed to absorb damage."
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"BASE DAMAGE PER MANA:"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_per_level"		"DAMAGE PER MANA PER LEVEL:"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"TOTAL DAMAGE PER MANA:"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"DAMAGE PER MANA:"
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
 
 		// 能量转移
@@ -1979,25 +1974,27 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"Athena's Guard"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>Active: Arctic Blast</h1> Emits a freezing wave that causes enemies to take %spell_amp%%% more damage from spells for %resist_debuff_duration% seconds, deals %blast_damage% magical damage and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.<br><br>Radius: %blast_radius%\n\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed% and Health Restoration and Incoming Heal Amplification by %restoration_reduction_aura%%%. <br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>Active: Arctic Blast</h1> Emits a freezing wave that deals %blast_damage% magical damage to enemies and slows their movement by %blast_movement_speed%%% for %blast_debuff_duration% seconds.<br><br>Radius: %blast_radius%\n\n<h1>Passive: Freezing Aura</h1> Reduces the attack speed of all enemies by %aura_attack_speed%. <br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"Said to have belonged to a goddess, today it retains much of its former power."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"The wave extends at a speed of %blast_speed% to a max size of %blast_radius%."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"The Arctic Blast follows its caster."
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"Multiple instances of Freezing Aura do not stack."
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$all"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note3"							"AoE bonuses from multiple Chasm Stones or its upgrades do not stack."
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_aoe"					"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"				"+$hp_regen"
 
-		//  veil_of_discord_2 纷争2
-		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"<font color='#941852'>Upgraded</font> Veil of Discord"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>Active: Magic Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Duration: %resist_debuff_duration% seconds."
+		// veil_of_discord_2
+		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"<font color='#941852'>Upgraded</font> Veil of Discord"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>Active: Spell Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Can be cast while channeling.<br><br>Duration: %resist_debuff_duration% seconds."
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"The headwear of corrupt magi."
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_hp_regen"			"+$hp_regen"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_armor"			"+$armor"
-
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"Magic Weakness"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Note0"					"Spell Weakness does not stack with Bloodstone's Spell Weakness Aura."
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"Spell Weakness"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
 		// item_manta_1 分身2
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>Upgraded Manta Style</font>"
@@ -2632,9 +2629,7 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_light_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
-
 
 		// item_armlet_dark 暗影·臂章
 		"DOTA_Tooltip_ability_item_armlet_dark"				"<font color='#8A2BE2'>Dark</font> Armlet of Mordiggian"
@@ -2646,22 +2641,32 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
+
+		// item_armlet_artifact 神器·光暗臂章
+		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>Artifact</font> Armlet of Mordiggian"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>Toggle: Unholy Strength</h1>When active, Unholy Strength grants +%unholy_bonus_damage% damage, +%unholy_bonus_strength% strength, +%unholy_bonus_slow_resistance%%% slow resistance and +%unholy_bonus_armor% armor, but drains %unholy_health_drain_per_second% health per second.<br><br> You cannot die from the health drain when Unholy Strength is activated, nor from the strength loss when Unholy Strength is deactivated."
+		"DOTA_Tooltip_ability_item_armlet_artifact_Lore"								"Light and darkness, perfectly fused — the bearer gains the best of both worlds."
+		"DOTA_Tooltip_ability_item_armlet_artifact_Note0"							"The strength change will affect both maximum and current HP, but you cannot die from the change."
+		"DOTA_Tooltip_ability_item_armlet_artifact_Note1"							"The strength change occurs over 0.6 seconds."
+		"DOTA_Tooltip_ability_item_armlet_artifact_Note2"							"Activating or deactivating Unholy Strength does not interrupt channeling."
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_health_regen"				"+$hp_regen"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%.\nStrength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%.\nArmor increased by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%.\nSlow resistance increased by %dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%.\nLosing %dMODIFIER_PROPERTY_TOOLTIP% health per second."
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>Artifact</font> Guardian Greaves"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration, %aura_mana_regen% mana regeneration and %aura_armor% armor to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, this is increased to %aura_health_regen_bonus% health regeneration, %aura_mana_regen_bonus% mana regeneration and %aura_armor_bonus% armor. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>Active: Mend</h1>Restores %replenish_health% health <font color='#00FF00'>+ %max_health_pct_heal_amount%%% of max health</font> and %replenish_mana% mana to nearby allies, and removes most negative effects from the caster.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>\n\n<h1>Passive: Guardian Aura</h1> Grants %aura_health_regen% health regeneration and %aura_mana_regen% mana regeneration to allied units. If an allied hero's health falls below %aura_bonus_threshold%%%, their health regeneration is increased to %aura_health_regen_bonus%. <br><br>Radius: %aura_radius% \nMovement speed bonuses from multiple pairs of boots do not stack."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"The aura boost only applies to heroes."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"Mend does not affect units that have been affected by Mend or Mekansm Restore within Guardian Greaves' cooldown."
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mres"				"%+$spell_resist"
 
 		// 神器刃甲（秘术师铠甲）（天地同寿）
 		"DOTA_Tooltip_Ability_item_force_field_ultra"						"<font color='#FFFF00'>Artifact: Arcanist's Armor</font>"
@@ -2675,7 +2680,7 @@
 		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>Active: Watch My Speed</h1> Unleashes a burst of magical damage at an enemy target unit. Heals the caster for %dagon_spell_lifesteal%%% of the damage dealt.<br><br>Damage: %damage%<br>Mana Cost: %mana_cost_tooltip%"
 		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"The faster your hands, the higher the damage, as long as you have mana."
 		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"Instantly destroys illusions."
-		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$passive_spell_lifesteal"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"

@@ -722,81 +722,61 @@
 	//=================================================================================================================
 	"item_dagon"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_2"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_3"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_4"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_5"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
