@@ -611,8 +611,6 @@
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_bonus_gold"			"额外金钱奖励："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bonus_gold_cap"				"最高额外金钱："
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2_bounty_multiplier"			"赏金神符奖励倍数："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_damage"						"每层攻击力加成："
-		"DOTA_Tooltip_ability_alchemist_goblins_greed2_starting_gold_bonus"			"升级金钱奖励："
 
 		//普通一拳
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2"									"普通一拳"
@@ -625,7 +623,7 @@
 		"DOTA_Tooltip_ability_dark_seer_normal_punch2_ad"								"攻击力伤害加成倍率："
 		//妙手空空
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2"										"妙手空空"
-		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"赏金猎人以敌方英雄为目标施放技能和物品时会偷取金钱。"
+		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"赏金猎人以敌方英雄为目标施放技能和物品时会偷取%gold_steal%金钱。"
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"金钱偷取："
 
 
@@ -634,10 +632,10 @@
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_Description"					"神龙的生命之血提升了龙骑士的生命恢复和护甲。<br><br>在古龙形态下生命恢复和护甲均提升%regen_and_armor_multiplier_during_dragon_form%%%。"
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_armor"							"护甲提升："
 		"DOTA_Tooltip_ability_dragon_knight_dragon_blood2_health_regen"					"额外生命恢复："
-		//才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"					"才思敏捷"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"		"黑暗贤者还能从智力中获得攻击速度。"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_int_to_atkspd"	"每点智力获得攻速："
+		// 黑暗贤者 才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"才思敏捷"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"黑暗贤者从每点智力获得%int_to_atkspd%攻击速度。"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"攻击速度加成："
 		//炽烈火雨
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"炽烈火雨"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"持续施法 - 克林克兹持续朝目标方向射出多支灼热的箭矢，击中所有敌人，造成克林克兹攻击伤害的一定百分比并施加攻击特效，同时敌人会受到焦油炸弹的减速效果。"
@@ -673,7 +671,6 @@
 		//神之愤怒
 		"DOTA_Tooltip_ability_sven_wrath_of_god2"						"神之愤怒"
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_Description"			"斯温从力量中获得额外攻击力，但是基础攻击力降低。"
-		"DOTA_Tooltip_ability_sven_wrath_of_god2_base_damage_reduction"	"基础攻击力降低："
 		"DOTA_Tooltip_ability_sven_wrath_of_god2_bonus_damage_per_str"	"每点力量额外攻击力："
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"暴烈之爪"
@@ -802,11 +799,9 @@
 
 		// 魔法盾
 		"DOTA_Tooltip_ability_medusa_mana_shield2"								"魔法盾"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"创造一个魔法护盾，消耗美杜莎的魔法值以吸收%absorption_pct%%%的伤害，美杜莎每次升级都会使伤害吸收系数提升。幻象的伤害吸收系数减少%illusion_percentage%%%。"
+		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"创造一个魔法护盾，消耗美杜莎的魔法值以吸收%absorption_pct%%%的伤害。幻象的伤害吸收系数减少%illusion_percentage%%%。"
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"伤害的吸收先于任何伤害减免机制，所以提高物理护甲，物理格挡和魔法抗性都不能减少吸收相同伤害所需的魔法。"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"基础魔法吸收系数："
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_per_level"		"每级魔法吸收系数："
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana_total"			"总魔法吸收系数："
+		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"魔法吸收系数："
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"尽管美杜莎生来没被赐以永恒的生命，但她所受的诅咒赋予了她独一无二的防御力量。"
 
 		// 能量转移
@@ -860,7 +855,7 @@
 		"DOTA_Tooltip_ability_rubick_curiosity2_Description"					"拉比克现在每级获得%curiosity_per_level%层奇心的叠加效果，每层奇心提供%curiosity_attack_damage%点基础攻击力，%curiosity_modifier_amp%%%增益/减益增强，和%curiosity_aoe_bonus%作用范围加成。<br><br>如果拉比克看到%charge_radius%范围内有敌方英雄施放技能，他就会获得%curiosity_per_spell_cast%层奇心，持续%curiosity_duration%秒。如果当前提供临时奇心的敌人在受到来自拉比克的伤害后%grace_period%秒内阵亡，他就会永久获得%curiosity_per_kill%层奇心."
 		"DOTA_Tooltip_ability_rubick_curiosity2_curiosity_permanent_gain"		"奇心层数："
 		"DOTA_Tooltip_ability_rubick_curiosity2_current_debuff_amp"				"%增益/减益增强："
-		"DOTA_Tooltip_ability_rubick_curiosity2_current_aoe_bonus"				"%作用范围加成："
+		"DOTA_Tooltip_ability_rubick_curiosity2_current_aoe_bonus"				"作用范围加成："
 
 		// 拉比克 力量与魔法
 		"DOTA_Tooltip_ability_rubick_might_and_magus2"							"力量与魔法"
@@ -2012,25 +2007,27 @@
 
 		//  shivas_guard_2 西瓦2
 		"DOTA_Tooltip_Ability_item_shivas_guard_2"				"雅典娜的守护"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，使敌人受到的技能伤害增加%spell_amp%%%，持续%resist_debuff_duration%秒，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低所有敌人%aura_attack_speed%攻击速度，%restoration_reduction_aura%%%生命回复和获得的治疗效果。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Description"					"<h1>主动：极寒冲击</h1>发出一道寒冷的波动，对敌人造成%blast_damage%点魔法伤害并减速%blast_movement_speed%%%，持续%blast_debuff_duration%秒。<br><br>作用范围：%blast_radius%\n\n<h1>被动：霜冷光环</h1>降低所有敌人%aura_attack_speed%攻击速度。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Lore"							"据说曾经属于某位女神希瓦，但是被宙斯送给雅典娜当玩具的后保留至今。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note0"							"极寒冲击的扩张速度为%blast_speed%，最大半径为%blast_radius%。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note1"							"极寒冲击将以施放者为中心。"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_Note2" 							"多个霜冷光环效果不会叠加。"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_intellect"				"+$all"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_Note3"							"多个裂隙之石或升级物品的作用范围加成不会叠加。"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_aoe"					"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
-		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"				"+$hp_regen"
 
-		// item_veil_of_discord_2 纷争2
-		"DOTA_Tooltip_Ability_item_veil_of_discord_2"				"赫拉的神秘面纱"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"					"<h1>主动：魔法虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>持续时间：%resist_debuff_duration%秒。"
+		// veil_of_discord_2
+		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"赫拉的神秘面纱"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>主动：法术虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>可以在持续施法期间施放。<br><br>持续时间：%resist_debuff_duration%秒。"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Lore"						"一个堕落法师的头饰。"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_all_stats"			"+$all"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_hp_regen"			"+$hp_regen"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_armor"			"+$armor"
-
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"				"魔法虚弱"
-		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"	"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_Note0"					"法术虚弱不与血精石的法术虚弱光环叠加。"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"法术虚弱"
+		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
 		// item_manta_1 幻身斧
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>幻身斧</font>"
@@ -2656,7 +2653,6 @@
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_light_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_light_bonus_health_regen"					"+$hp_regen"
 
 		// item_armlet_dark 暗影·臂章
@@ -2669,22 +2665,32 @@
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_armor"							"+$armor"
-		"DOTA_Tooltip_ability_item_armlet_dark_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_dark_bonus_health_regen"					"+$hp_regen"
+
+		// item_armlet_artifact 神器·光暗臂章
+		"DOTA_Tooltip_ability_item_armlet_artifact"									"<font color='#e03e2e'>神器·光暗臂章</font>"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Description"						"<h1>开关：邪恶之力</h1>开启后邪恶之力将提供+%unholy_bonus_damage%点攻击力，+%unholy_bonus_strength%点力量，+%unholy_bonus_slow_resistance%%%减速抗性和+%unholy_bonus_armor%点护甲，但每秒失去%unholy_health_drain_per_second%点生命值。<br><br>开启邪恶之力后生命流失并不会导致死亡，关闭邪恶之力后力量降低也不会导致死亡。"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Lore"								"光明与黑暗，完美融合——持有者同时掌握两者之巅。"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Note0"							"力量值的变化会影响血量上限和当前生命值，但是不会致死。"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Note1"							"力量的增加将在0.6秒内完成。"
+		"DOTA_Tooltip_ability_item_armlet_artifact_Note2"							"开启或关闭邪恶之力并不会打断持续施法。"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_damage"						"+$damage"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_attack_speed"				"+$attack"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_armor"						"+$armor"
+		"DOTA_Tooltip_ability_item_armlet_artifact_bonus_health_regen"				"+$hp_regen"
 
 		// Updated Armlet tooltip (now shows slow resist on active)
 		"DOTA_Tooltip_modifier_item_armlet_unholy_strength_Description"	"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。\n力量增加%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点。\n护甲提升%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。\n减速抗性提升%dMODIFIER_PROPERTY_SLOW_RESISTANCE_STACKING%%%。\n每秒损失%dMODIFIER_PROPERTY_TOOLTIP%点生命值"
 
 		// item_guardian_greaves_artifact 神器·卫士胫甲
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact"						"<font color='#FFFF00'>神器·卫士胫甲</font>"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命 <font color='#00FF00'>+ %max_health_pct_heal_amount%%% 最大生命值</font> 和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复，%aura_mana_regen%点/秒魔法恢复和%aura_armor%点护甲。如果友方英雄的生命值低于%aura_bonus_threshold%%%，光环效果将提升至%aura_health_regen_bonus%点/秒生命恢复，%aura_mana_regen_bonus%点/秒魔法恢复和%aura_armor_bonus%点护甲。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Description"			"<h1>主动：修复</h1>使周围友军回复%replenish_health%点生命 <font color='#00FF00'>+ %max_health_pct_heal_amount%%% 最大生命值</font> 和%replenish_mana%点魔法，并移除施法者身上大部分的负面效果。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>\n\n<h1>被动：卫士光环</h1> 为周围友军提供%aura_health_regen%点/秒生命恢复和%aura_mana_regen%点/秒魔法恢复。如果友方英雄的生命值低于%aura_bonus_threshold%%%，生命恢复将提升至%aura_health_regen_bonus%点/秒。<br><br>作用范围：%aura_radius%\n多个鞋类物品提供的移动速度加成不叠加。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note0"					"光环效果仅对英雄有效。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_Note1"					"卫士胫甲的冷却时间内回复不能作用于已经被修复或梅肯斯姆的回复作用过的单位。"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_movement"			"+$move_speed"
+		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mana"				"+$mana"
 		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_mana_regen"				"+$mana_regen"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_armor"			"+$armor"
-		"DOTA_Tooltip_ability_item_guardian_greaves_artifact_bonus_mres"				"%+$spell_resist"
 
 		// 神器刃甲（秘术师铠甲）（天地同寿）
 		"DOTA_Tooltip_Ability_item_force_field_ultra"						"<font color='#FFFF00'>神器·天地同寿甲</font>"
@@ -2698,7 +2704,7 @@
 		"DOTA_Tooltip_ability_item_dagon_ultra_Description"							"<h1>主动：看我手速</h1> 释放爆发性的魔法伤害冲击敌方目标单位。造成伤害的%dagon_spell_lifesteal%%%可以治疗施法者。<br><br>伤害：%damage%<br>魔法消耗：%mana_cost_tooltip%"
 		"DOTA_Tooltip_ability_item_dagon_ultra_Lore"									"手速越快，伤害越高，只要你有蓝"
 		"DOTA_Tooltip_ability_item_dagon_ultra_Note0"									"立刻消灭幻象。"
-		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$spell_lifesteal"
+		"DOTA_Tooltip_ability_item_dagon_ultra_passive_spell_lifesteal"				"%+$passive_spell_lifesteal"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_int"						"+$int"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_str"						"+$str"
 		"DOTA_Tooltip_ability_item_dagon_ultra_bonus_agi"						"+$agi"

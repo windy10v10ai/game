@@ -1,3 +1,417 @@
+// DO NOT EDIT MANUALLY. Managed by clone-item skill.
 "DOTAAbilities"
 {
+	//=================================================================================================================
+	// Veil of discord 赫拉的神秘面纱
+	//=================================================================================================================
+	"item_recipe_veil_of_discord_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName" 			"item_recipe_veil_of_discord_2"
+		"ItemCost"						"1475"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_veil_of_discord_2"
+		"ItemRequirements"
+		{
+			"01"						"item_veil_of_discord;item_ultimate_orb"
+		}
+	}
+
+	"item_veil_of_discord_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_CANCEL_MOVEMENT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCooldown"				"16"
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"200"
+		"ItemCost"						"7200"
+		"ItemShopTags"					"int;regen_health;hard_to_tag;spell_amp"
+		"ItemQuality"					"rare"
+		"ItemAliases"					"vod;veil of discord"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"AbilitySharedCooldown"			"veil_of_discord"
+		"BaseClass"						"item_veil_of_discord"
+		"AbilityTextureName"			"item_veil_of_discord_2"
+
+		"AbilityValues"
+		{
+			"bonus_health"			"350"	// 175
+			"bonus_intellect"		"20"	// 10
+			"spell_lifesteal"		"36"	// 18
+			"spell_amp"				"20"	// 10
+			"debuff_radius"
+			{
+				"value"						"900"	// 900
+				"affected_by_aoe_increase"	"1"
+			}
+			"resist_debuff_duration"	"16.0"	// 16.0
+		}
+	}
+	//=================================================================================================================
+	// Shiva's Guard 2 雅典娜的守护
+	//=================================================================================================================
+	"item_recipe_shivas_guard_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
+		"ItemCost"						"1125"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_shivas_guard_2"
+		"ItemRequirements"
+		{
+			"01"						"item_shivas_guard;item_veil_of_discord_2;item_platemail"
+		}
+	}
+
+	"item_shivas_guard_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_shivas_guard"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"FightRecapLevel"				"1"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilityCooldown"				"27"
+
+		"AbilityManaCost"				"300"
+		"ItemCost"						"13000"
+		"ItemAliases"				"shiva's guard;shivas guard;shiva guard;athena's guard;athenas guard;athena guard"
+		"AbilitySharedCooldown"			"shivas_guard"
+		"AbilityTextureName"			"item_shivas_guard_2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_hp_regen"		"0"
+				"bonus_armor"			"34"	// 17
+				"bonus_aoe"				"150"	// 75
+				"aura_radius"
+				{
+					"value"	"1200"
+					"affected_by_aoe_increase"	"1"
+				}
+				"aura_attack_speed"		"-90"	// -45
+				"blast_damage"			"600"	// 260
+				"blast_movement_speed"	"-60"	// -40
+				"blast_debuff_duration"	"4.0"
+				"blast_radius"
+				{
+					"value"		"900"	// 825
+					"affected_by_aoe_increase"	"1"
+				}
+				"blast_speed"			"400"
+		}
+	}
+
+	//=================================================================================================================
+	// Dagon 神器一瞬千击
+	//=================================================================================================================
+	"item_recipe_dagon_ultra"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_dagon_ultra"
+		"ItemCost"						"550"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_dagon_ultra"
+		"ItemRequirements"
+		{
+			"01"						"item_dagon_5;item_dark_part"
+		}
+	}
+	"item_dagon_ultra"
+	{
+		"BaseClass"						"item_dagon_5"
+		"AbilityTextureName"			"item_dagon_ultra"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"1600"	// 400 x4
+		"AbilityValues"
+		{
+			"bonus_all_stats"			"60"	// 10 x6
+			"bonus_health"				"480"	// 240 x2
+			"bonus_mana"				"900"	// 450 x2
+			"damage"					"1600"	// 800 x2
+			"damage_delay"				"0"
+			"mana_cost_tooltip"			"1600"	// 400 x4
+			"cast_range_bonus"			"360"	// 180
+		}
+	}
+
+
+	//=================================================================================================================
+	// 神器卫士径甲
+	//=================================================================================================================
+	"item_recipe_guardian_greaves_artifact"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_guardian_greaves_artifact"
+		"ItemCost"						"6350"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_guardian_greaves_artifact"
+		"ItemRequirements"
+		{
+			"01"						"item_guardian_greaves;item_light_part"
+		}
+	}
+	"item_guardian_greaves_artifact"
+	{
+		"BaseClass"						"item_guardian_greaves"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"FightRecapLevel"				"1"
+		"AbilityCooldown"				"25"		// 45
+		"AbilityManaCost"				"0"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemAlertable"					"1"
+		"SuggestLategame"				"1"
+		"AbilityTextureName"			"item_guardian_greaves_artifact"
+		"AbilityValues"
+		{
+			"bonus_movement"			"200"		// 50
+			"bonus_armor"				"40"		// 5
+			"bonus_mana"				"1200"		// 150
+			"mana_regen"				"20"		// 1.0
+			"aura_health_regen"			"50"		// 2.5
+			"aura_mana_regen"			"30"		// 1.5
+			"aura_radius"
+			{
+				"value"						"1800"	// 1200
+				"affected_by_aoe_increase"	"1"
+			}
+			"aura_health_regen_bonus"	"100"		// 14.5
+			"aura_bonus_threshold"		"75"		// 25
+			"replenish_health"			"2000"		// 325
+			"replenish_mana"			"1500"		// 200
+			"replenish_radius"
+			{
+				"value"						"1800"	// 1200
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_health_pct_heal_amount"	"8"		// 0
+		}
+	}
+
+	//=================================================================================================================
+	// 神器除你武器
+	//=================================================================================================================
+	"item_recipe_heavens_halberd_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_heavens_halberd_2"
+		"ItemCost"						"1300"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_heavens_halberd_2"
+		"ItemRequirements"
+		{
+			"01"						"item_heavens_halberd;item_heavens_halberd"
+		}
+	}
+	"item_heavens_halberd_2"
+	{
+		"BaseClass"						"item_heavens_halberd"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"FightRecapLevel"				"1"
+		"AbilityCooldown"				"20"
+		"AbilityCastRange"				"900"	//650
+		"AbilityCastPoint"				"0.0"
+		"AbilityManaCost"				"150"
+		"ItemShopTags"					"str;damage;evasion"
+		"ItemQuality"					"artifact"
+		"ItemAliases"					"heaven\'s halberd"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"item_heavens_halberd_2"
+		"AbilityValues"
+		{
+				"bonus_health"				"1000"	//275
+				"bonus_health_regen"		"18"	//6
+				"block_damage_melee"		"200"	//60
+				"block_damage_ranged"		"100"	//30
+				"block_chance"				"90"	//60
+				"bonus_all_stats"			"15"	//5
+
+				"disarm_range"				"6.0"	//3
+				"disarm_melee"				"6.0"	//3
+		}
+	}
+	//=================================================================================================================
+	// 神器蹦迪之鞋
+	//=================================================================================================================
+	"item_recipe_boots_of_bearing_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"ItemCost"						"5725"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_boots_of_bearing_2"
+		"ItemRequirements"
+		{
+			"01"						"item_boots_of_bearing"
+		}
+	}
+	"item_boots_of_bearing_2"
+	{
+		"BaseClass"						"item_boots_of_bearing"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemPermanent"					"1"
+		"FightRecapLevel"				"1"
+		"AbilityCooldown"				"15.0"	//30
+		//"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"AbilityTextureName"			"boots_of_bearing_2"
+		"AbilityValues"
+		{
+			"aura_movement_speed"	"50"	//20
+			"bonus_str"				"20"	//8
+			"bonus_int"				"20"	//8
+			"bonus_attack_speed_pct"	"100"	//50
+			"bonus_movement_speed_pct"	"30"	//15
+			"duration"				"6"		//6
+			"radius"
+			{
+				"value"				"1800"	//1200
+				"affected_by_aoe_increase"	"1"
+			}
+			"bonus_movement_speed"	"120"	//65
+			"bonus_health_regen"	"50"	//15
+			"bonus_ms_duration"		"3"		//1.5
+		}
+	}
+
+	// 圣光臂章
+	"item_recipe_armlet_light"
+	{
+		"BaseClass"						"item_datadriven"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_armlet_light"
+		"ItemRequirements"
+		{
+			"01"                        "item_armlet_pro_max;item_light_part"
+		}
+	}
+	"item_armlet_light"
+	{
+		"BaseClass" 					"item_armlet"
+		"AbilityCooldown"				"0.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_armlet_light"
+		"AbilityValues"
+		{
+			// x2
+			"bonus_damage"			"90"
+			"bonus_attack_speed"	"90"
+			"bonus_armor"			"36"
+			"bonus_health_regen"	"30"
+			// x1
+			"unholy_bonus_damage"	"55"
+			"unholy_bonus_strength"	"75"
+			"unholy_bonus_armor"	"12"
+			"unholy_bonus_slow_resistance"	"45"
+			"unholy_health_drain_per_second"	"5"
+			"toggle_cooldown"		"0.036"
+		}
+	}
+	// 暗影臂章
+	"item_recipe_armlet_dark"
+	{
+		"BaseClass"						"item_datadriven"
+		"ItemCost"                      "0"
+		"ItemShopTags"					""
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_armlet_dark"
+		"ItemRequirements"
+		{
+			"01"                        "item_armlet_pro_max;item_dark_part"
+		}
+	}
+	"item_armlet_dark"
+	{
+		"BaseClass" 					"item_armlet"
+		"AbilityCooldown"				"0.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_armlet_dark"
+		"AbilityValues"
+		{
+			// x1
+			"bonus_damage"			"45"
+			"bonus_attack_speed"	"45"
+			"bonus_armor"			"18"
+			"bonus_health_regen"	"15"
+			// x4
+			"unholy_bonus_damage"	"220"
+			"unholy_bonus_strength"	"300"
+			"unholy_bonus_armor"	"48"
+			"unholy_bonus_slow_resistance"	"90"	// x2 不能超过100
+			"unholy_health_drain_per_second"	"900"
+			"toggle_cooldown"		"0.036"
+		}
+	}
+
+	// 光暗臂章
+	"item_recipe_armlet_artifact"
+	{
+		"BaseClass"						"item_datadriven"
+		"ItemCost"						"0"
+		"ItemShopTags"					""
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_armlet_artifact"
+		"ItemRequirements"
+		{
+			"01"						"item_armlet_light;item_dark_part"
+			"02"						"item_armlet_dark;item_light_part"
+		}
+	}
+	"item_armlet_artifact"
+	{
+		"BaseClass" 					"item_armlet"
+		"AbilityCooldown"				"0.0"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
+		"AbilityTextureName"			"item_armlet_artifact"
+		"AbilityValues"
+		{
+			// x3
+			"bonus_damage"						"135"
+			"bonus_attack_speed"				"135"
+			"bonus_armor"						"54"
+			"bonus_health_regen"				"45"
+			// x4
+			"unholy_bonus_damage"				"220"
+			"unholy_bonus_strength"				"300"
+			"unholy_bonus_armor"				"48"
+			"unholy_bonus_slow_resistance"		"90"	// x2 不能超过100
+			"unholy_health_drain_per_second"	"450"
+			"toggle_cooldown"					"0.036"
+		}
+	}
 }
