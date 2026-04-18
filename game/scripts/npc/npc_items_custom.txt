@@ -5568,36 +5568,8 @@
 	}
 
 	//=================================================================================================================
-	// 通用符文 - 自动合成物品
+	// 洗炼石/转化石
 	//=================================================================================================================
-	"item_universal_rune"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"10335"
-		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_universal_rune"
-		"AbilityTextureName"		"universal_rune"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"39999"
-		"ItemShopTags"				"consumable"
-		"ItemQuality"				"consumable"
-		"ItemPermanent"				"0"
-		"ItemStackable"				"0"
-		"ItemPurchasable"			"1"
-		"ItemKillable"				"0"
-		"ItemSellable"				"0"
-		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"		"60"	// 0分钟买
-		"ItemStockInitial"			"0"
-		"ItemStockMax"				"1"
-		"ItemStockTime"				"60"
-		"AbilityCooldown"			"1.0"
-	}
-
 	// 洗炼石
 	"item_rune_transmuter_random"
 	{
@@ -5657,6 +5629,39 @@
 
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"rare"
+		"IsTempestDoubleClonable"	"0"
+	}
+
+	//=================================================================================================================
+	// 通用符文 - 自动合成物品
+	//=================================================================================================================
+	"item_universal_rune"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"						"10335"
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/item_universal_rune"
+		"AbilityTextureName"		"universal_rune"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					"39999"
+		"ItemPermanent"				"0"
+		"ItemStackable"				"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemInitialStockTime"		"60"	// 0分钟买
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"60"
+		"AbilityCooldown"			"1.0"
+
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"artifact"
 		"IsTempestDoubleClonable"	"0"
 	}
 
