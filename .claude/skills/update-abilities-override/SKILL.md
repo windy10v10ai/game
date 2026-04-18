@@ -54,7 +54,7 @@ description: >-
 - 多档每档与参考对应档相同，包括为凑 MaxLevel 而重复末档（如参考 `20.0`×3，本图写 `20.0`×4 仍属同值）
 - `AbilityBehavior`、`SpellImmunityType`、`AbilityCastPoint` 等属性键
 - 与参考相同的 `special_bonus_unique_*` / `special_bonus_scepter` / `special_bonus_shard`
-- **子块内** value 与参考相同 → 删该 value 行，保留有差分的兄弟键；若子块全无差分则删整块
+- **子块内任意键**（`value`、`affected_by_aoe_increase`、`special_bonus_scepter` 等）与参考相同 → 删该行，保留有差分的兄弟键；若子块全无差分则删整块
 
 **绝对禁止项：**
 - `CalculateSpellDamageTooltip`（交给原版）
@@ -86,7 +86,7 @@ description: >-
 > **顶层 vs 子块冲突**：若参考将某键（如 `AbilityCooldown`）放在 `AbilityValues` 子块内，而 override 写成顶层，顶层写法**无效**（子块优先）。处理时：删除 override 中的顶层写法，在 `AbilityValues` 子块内按 P1/P2/P3 正常处理。**无需询问，直接处理**。
 
 对**参考全集**中每个多档键（含「参考有 override 无」的差集）依次判定：
-1. **同值多档** → 不写（即使 MaxLevel 更高，P1 优先）
+1. **同值多档** → 不写（P1 优先）。判定标准：参考各档与本图各档逐一对应且相同，**或**参考档数不足时末档重复延伸后与本图各档相同（如参考 `20 20 20`，本图 MaxLevel=5 补成 `20 20 20 20 20`，仍属同值）。**注意**：若参考只有 N 档而本图 MaxLevel > N，且按差值延伸后新档的值与参考末档不同，则属于需要写入 override 的扩展，**不是同值**。
 2. **恒定单值**（本图各级同数）→ **单 token**，禁止 `n n n`
 3. **随等级变化** → 档数 = 有效 MaxLevel；新档按相邻差延伸
 

@@ -5319,12 +5319,12 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"14 13 12 11 10"
-		"AbilityManaCost"				"95 105 115 125 135"	// 95 105 115 125
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 				"duration"
 				{
-					"value"		"1.25 1.75 2.25 2.75 3.25"	// 1.25 1.75 2.25 2.75
+					"value"		"1.25 1.75 2.25 2.75 3.25"
 				}
 				"damage_per_second"
 				{
@@ -5332,8 +5332,7 @@
 				}
 				"unit_count"
 				{
-					"value"			"3"
-					"special_bonus_facet_ember_spirit_chain_gang"		"+3"		// +2
+					"value"			"3"	// 2
 				}
 		}
 	}
@@ -5341,7 +5340,7 @@
 	"ember_spirit_sleight_of_fist"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"60 65 70 75 80"
+		"AbilityManaCost"				"60 65 70 75 80"	// 75
 		"AbilityValues"
 		{
 			"radius"
@@ -5350,7 +5349,7 @@
 			}
 			"bonus_hero_damage"
 			{
-				"value"		"40 80 120 160 200"
+				"value"		"50 90 130 170 210"
 			}
 			"AbilityCooldown"
 			{
@@ -5372,11 +5371,11 @@
 				"duration"						"12 14 16 18 20"
 				"damage_per_second"
 				{
-					"value"			"100 200 300 400 500"	// +5
+					"value"			"100 150 200 250 300"	// 20 30 40 50 x5
 				}
 				"absorb_amount"
 				{
-					"value"						"500 800 1100 1500 2000"	// x2
+					"value"						"300 700 1100 1500 1900"	// 60 140 220 300 x5
 					"special_bonus_unique_ember_spirit_1"			"+1000"	// 165
 				}
 		}
@@ -5387,34 +5386,32 @@
 		"MaxLevel" "4"
 		"AbilityValues"
 		{
-				"AbilityChargeRestoreTime"
-				{
-					"value"			"30.0"
-					"special_bonus_unique_ember_spirit_5"	"-8"
-				}
 				"damage"
 				{
-					"value"			"400 800 1200 1600"
+					"value"			"300 600 900 1200"	// 100 200 300 x3
 				}
 		}
 	}
+	// 激活飞魂
 	"ember_spirit_activate_fire_remnant"
 	{
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
-				"damage"				"500 1000 1500 2000"
+				"damage"				"300 600 900 1200"	// 100 200 300 x3
 		}
 	}
 	// 献祭心
 	"ember_spirit_immolation"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"			"30 80 130 190 250"
-					"special_bonus_shard"			"+100"
+					"value"			"50"	// 10 原版不存在，手动修改
+					"hero_levelup"				"2"	// 1 原版不存在，手动修改
+					"special_bonus_shard"			"+100"	// +10
 				}
 		}
 	}
@@ -9432,8 +9429,8 @@
 		{
 			"slow_attack_speed"
 			{
-				"value" "-110 -200 -290 -380"
-				"special_bonus_unique_enchantress_3" "-140"		// -70
+				"value" "-110 -160 -210 -260"
+				"special_bonus_unique_enchantress_3" "-140"		// -70 x2
 			}
 		}
 	}
@@ -9443,16 +9440,15 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"heal_duration"			"10 11 12 13 14"
+			"heal_duration"			"7 9 11 13 15"
 			"heal"
 			{
-				"value"				"8 16 24 32 40"				// x2
-				"special_bonus_unique_enchantress_5"	"+16"	// x2
+				"value"				"8 16 24 32 40"				// 4 8 12 16 x2
+				"special_bonus_unique_enchantress_5"	"+16"	// +8 x2
 			}
 			"movespeed"
 			{
-				"value"			"30"
-				"special_bonus_unique_enchantress_6"	"+60"	// +30
+				"special_bonus_unique_enchantress_6"	"+60"	// +30 x2
 			}
 		}
 	}
@@ -9461,29 +9457,18 @@
 	{
 		"AbilityValues"
 		{
-			"AbilityCastRange"
-			{
-				"value"						"800"				// 500 550 600 650
-				"special_bonus_facet_enchantress_spellbound"	"50 100 150 200"
-			}
-			"attack_range_bonus"
-			{
-				"special_bonus_facet_enchantress_spellbound"	"100 200 300 400"	// 100 150 200 250
-			}
-
 			"enchant_health"
 			{
-				"value" 					"500 1000 1500 2000"	// 150 250 350 450
+				"value" 					"600 1000 1400 1800"	// 150 250 350 450 x4
 			}
-
-			"enchant_armor"
+			"bonus_armor"
 			{
-				"value" 				"0"
-				"special_bonus_unique_enchantress_enchant_armor"		"+10"	// +5
+				"value"												"0"
+				"special_bonus_unique_enchantress_enchant_armor"	"+10"	// +5 x2
 			}
 			"enchant_damage"
 			{
-				"value" 					"0 40 80 120"	// 0 20 40 60
+				"value" 					"0 40 80 120"	// 0 20 40 60 x2
 			}
 		}
 	}
@@ -9497,10 +9482,10 @@
 		{
 			"distance_damage_pct"
 			{
-				"value"			"14 18 22 26 30"	// 5 10 15 20
-				"special_bonus_unique_enchantress_4"	"+10"	// +6.5
+				"value"			"14 18 22 26 30"	// 5 10 15 20 差值+9
+				"special_bonus_unique_enchantress_4"	"+10"	// +6.5 差值+3.5
 			}
-			"distance_cap"			"3500"
+			"distance_cap"			"3500"	// 1750 x2
 		}
 	}
 	//=================================================================================================================
@@ -9516,71 +9501,68 @@
 		{
 			"stun_duration"
 			{
-				"value" 							"0.3 0.5 0.7 0.9 1.1"
+				"value"							"0.3 0.5 0.7 0.9 1.1"
 			}
 			"damage"
 			{
-				"value"								"55 70 85 100 115"
+				"value"							"55 70 85 100 115"
 			}
 			"eidolon_spawns_per_tick"
 			{
-				"value"										"0"
-				"special_bonus_shard"						"+0"
+				"special_bonus_shard"						"+0"	// =+1 不产生小谜团 防止卡顿
 			}
 		}
 	}
-	// 恶魔召唤 等级不变
+	// 恶魔召唤
 	"enigma_demonic_conversion"
 	{
-		"AbilityCooldown"				"60"
-		"AbilityDuration"				"60.0"
+		"AbilityCooldown"				"60"	// 40 38 36 34 固定CD
+		"AbilityDuration"				"60.0"	// 40.0
 		"AbilityValues"
 		{
 			"spawn_count"
 			{
-				"value"			"1"
-				"special_bonus_unique_enigma"	"+1"
+				"value"			"1"	// 3 削弱召唤数
+				"special_bonus_unique_enigma"	"+1"	// +4 削弱
 			}
 			"eidelon_max_health"
 			{
-				"value"			"900 1000 1100 1200"
+				"value"			"900 1000 1100 1200"	// 180 200 220 240 x5
 			}
 			"eidolon_bonus_damage"
 			{
-				"value"			"0"
-				"special_bonus_unique_enigma_3"	"+200"
+				"special_bonus_unique_enigma_3"	"+200"	// +40 x5
 			}
 			"eidolon_bonus_attack_speed"
 			{
-				"value"			"0"
-				"special_bonus_unique_enigma_4"		"+50"
+				"special_bonus_unique_enigma_4"		"+50"	// +10 x5
 			}
-			"eidelon_base_damage"		"100 140 190 240"
-			"eidelon_base_movespeed"			"550"
-			"eidolon_attack_range"		"500 550 600 650"
+			"eidelon_base_damage"		"80 140 200 260"	// 16 28 40 52 x5
+			"eidelon_base_movespeed"	"550"	// 280 310 340 370
+			"eidolon_attack_range"		"500 550 600 650"	// 425 450 475 500 差值+50
 		}
 	}
 	// 午夜凋零
 	"enigma_midnight_pulse"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"45 40 35 30 25"
+		"AbilityCooldown"				"41 37 33 29 25"
 		"AbilityManaCost"				"65 90 115 140 165"
 		"AbilityValues"
 		{
-				"damage_percent"			"6 8 10 12 14"
+				"damage_percent"			"4 6 8 10 12"
 				"duration"
 				{
-					"value"			"10"
+					"value"			"10"	// 9 10 11 12 固定持续时间
 				}
-				"base_damage"				"60 120 170 210 250"	// x2
+				"base_damage"				"40 80 120 160 200"	// 5 10 15 20 x8
 		}
 	}
 	// 黑洞
 	"enigma_black_hole"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"120"	// 180 170 160 固定CD
 		"AbilityManaCost"				"300 400 500 600"
 		"AbilityValues"
 		{
@@ -9588,30 +9570,22 @@
 			{
 				"value"		"100 150 200 250"
 			}
-			"scepter_pct_damage"
-			{
-				"special_bonus_scepter"			"4"
-			}
 		}
 	}
-	// 重力井 先天技能
-	"enigma_gravity_well"
-	{
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"damage_reduction"	"9 11 13 15 17"
-		}
-	}
-	// 事件视界
+	// 事件视界 先天技能
 	"enigma_event_horizon"
 	{
-		"MaxLevel"						"5"
-
 		"AbilityValues"
 		{
-			"speed_bonus"		"8 12 16 20 24"
+			"radius"
+			{
+				"value"								"1200"	// 600 x2
+			}
+			"speed_bonus"
+			{
+				"value"			"10"	// 5
+				"hero_levelup"	"0.5"	// +1
+			}
 		}
 	}
 	//=================================================================================================================
@@ -9759,18 +9733,18 @@
 	"grimstroke_dark_artistry"
 	{
 		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityCooldown"				"13 11 9 7 5"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"		"100 180 260 340 420"	// 100 160 220 280
+				"value"		"100 160 220 280 340"
 			}
 			"bonus_damage_per_hero"
 			{
-				"value"		"40 80 120 160 200"
+				"value"		"40 80 120 160 200"	// 20 40 60 80 x2
 			}
 			"bonus_damage_per_creep"
 			{
@@ -9791,8 +9765,8 @@
 	"grimstroke_ink_creature"
 	{
 		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCooldown"				"36 30 24 18 12"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
+		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityManaCost"				"80 100 120 140 160"
 		"AbilityValues"
 		{
@@ -9820,11 +9794,11 @@
 				}
 				"max_damage"
 				{
-					"value"		"180 270 360 450 540"	// +90
+					"value"		"180 270 360 450 540"	// 90 180 270 360 +90
 				}
 				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6 2.0 2.4 2.8
-				"damage_per_tick"		"12 18 24 30 36"	// x2
-				"tick_dps_tooltip"		"60 90 120 150 180"	// x2
+				"damage_per_tick"		"12 18 24 30 36"	// 6 9 12 15 x2
+				"tick_dps_tooltip"		"60 90 120 150 180"	// 30 45 60 75 x2
 				"AbilityCooldown"
 				{
 					"value"				"27 24 21 18 15"	// 27 24 21 18
@@ -9855,16 +9829,16 @@
 	"grimstroke_soul_chain"
 	{
 		"MaxLevel"						"4"
-		"AbilityCooldown"				"70 65 60 55"
+		"AbilityCooldown"				"60"	// 70 65 60
 		"AbilityCastRange"				"700 800 900 1000"
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-			"chain_duration"		"6.0 8.0 10.0 12.0" // 6.0 7.0 8.0
+			"chain_duration"		"6.0 7.0 8.0 9.0"
 			"bonus_reflected_spell_damage"
 			{
 				"value"							"0"
-				"special_bonus_unique_grimstroke_soul_chain_reflect_damage"		"+50.0"	// x2
+				"special_bonus_unique_grimstroke_soul_chain_reflect_damage"		"+50.0"	// 25.0 x2
 			}
 		}
 	}
