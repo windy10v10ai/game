@@ -10869,7 +10869,7 @@
 		{
 			"mana_pool_damage_pct"
 			{
-				"value"										"9 10 11 12 13"
+				"value"										"10 11 12 13 14"
 			}
 			"mana_cost_percentage"							"30"	// 20
 		}
@@ -10882,11 +10882,11 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"20 18 16 14 12"
+				"value"				"18 16 14 12 10"
 			}
 			"prison_duration"
 			{
-				"value"				"2 2.5 3 3.5 4"
+				"value"				"2 2.5 3 3.5 4"	// 1.75 2.5 3.25 4 差值0.5
 			}
 			"damage"
 			{
@@ -10895,22 +10895,51 @@
 			"mana_capacity_steal"
 			{
 				"value"										"11 11 12 13 15"	// 16 19 22 25
-				"special_bonus_unique_outworld_devourer_2"	"+5"				// +8
+				"special_bonus_unique_outworld_devourer_4"	"+5"				// +10
+			}
+			"mana_capacity_duration"
+			{
+				"value"				"30 40 50 60 70"
 			}
 		}
 	}
-	// 精华变迁
-	"obsidian_destroyer_equilibrium"
+	// 责难
+	"obsidian_destroyer_objurgation"
 	{
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"proc_chance"	"22 24 26 28 30"		// 30
-			"mana_restore"	"35"
-			"mana_increase"
+			"AbilityCooldown"
 			{
-				"value"		"0"
-				"special_bonus_facet_obsidian_destroyer_obsidian_decimator"	"3"		// 5
+				"value"				"38 36 34 32 30"
+			}
+			"barrier_flat"			"240 360 480 600 720"	// 120 180 240 300 x2
+			"mana_to_barrier"
+			{
+				"value"					"15"	// 12
+				"special_bonus_scepter"	"+5"	// +4
+			}
+			"bonus_mana"			"160 320 480 640 800"	// 80 160 240 320 x2
+			"barrier_duration"			"12"	// 10
+			"automatic_trigger_cd"
+			{
+				"special_bonus_scepter"	"60"	// 80
+			}
+		}
+	}
+	// 精华变迁（先天）
+	"obsidian_destroyer_equilibrium"
+	{
+		"AbilityValues"
+		{
+			"proc_chance"	"25"	// 30
+			"mana_restore"
+			{
+				"hero_levelup"	"+3"	// +5
+			}
+			"mana_restore_attack"
+			{
+				"hero_levelup"	"+2"	// +5
 			}
 		}
 	}
@@ -10918,15 +10947,19 @@
 	"obsidian_destroyer_sanity_eclipse"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"150 140 130 120"
 		"AbilityManaCost"				"200 300 400 500"
 		"AbilityValues"
 		{
 			"base_damage"				"200 300 400 500"
 			"radius"
 			{
-				"value"			"450 525 600 675"
+				"value"			"450 500 550 600"
 				"affected_by_aoe_increase"	"1"
+			}
+			"AbilityCooldown"
+			{
+				"value"										"150 140 130 120"
+				"special_bonus_unique_outworld_devourer_5"	"-30"	// -60
 			}
 		}
 	}
@@ -11034,7 +11067,7 @@
 	"oracle_fortunes_end"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilityCooldown"				"18 15 12 9 6"	// 18 14 10 6 差值-3
 		"AbilityValues"
 		{
 			"damage"
@@ -11043,11 +11076,11 @@
 			}
 		}
 	}
-	// 气运之末
+	// 命运之令
 	"oracle_fates_edict"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"15 13 11 9 7"	// 17 14 11 8
+		"AbilityCooldown"				"16 14 12 10 8"	// 17 14 11 8 差值-2
 		"AbilityValues"
 		{
 			"duration"
@@ -11077,27 +11110,22 @@
 		{
 			"duration"
 			{
-				"value"				"7 8 9 10"
-				"special_bonus_unique_oracle"	"+1.5"
+				"value"				"7 8 9 10"	// 7 8.5 10 差值1
 			}
 			"AbilityCooldown"
 			{
-				"value"								"90 80 70 60"
+				"value"								"90 80 70 60"	// 110 85 60 差值-10
 			}
 			"bonus_armor"
 			{
-				"special_bonus_unique_oracle_9"		"+30"
-			}
-			"heal_amp_pct"
-			{
-				"value"							"100 125 150 175"
+				"special_bonus_unique_oracle_9"		"+30"	// +8
 			}
 		}
 	}
 	// 天命之雨
 	"oracle_rain_of_destiny"
 	{
-		"AbilityCooldown"				"30"
+		"AbilityCooldown"				"30"	// 40
 		"AbilityValues"
 		{
 			"radius"
@@ -11125,6 +11153,17 @@
 		"AbilityValues"
 		{
 			"heal_amplification"		"1.5"		// 0.75
+		}
+	}
+	// 占卜师牌组
+	"oracle_diviners_deck"
+	{
+		"AbilityValues"
+		{
+			"spell_amplification"	"80"	// 40 x2
+			"int_bonus_pct"			"100"	// 150
+			"heal_amplification"	"80"	// 40 x2
+			"barrier_amount"		"2000"	// 400 x5
 		}
 	}
 	//=================================================================================================================
