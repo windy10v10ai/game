@@ -31,7 +31,7 @@ local function IsOwnRune(item, caster)
     end
 
     local caster_player_id = caster:GetPlayerOwnerID()
-    local purchaser_player_id = purchaser:GetPlayerOwnerID and purchaser:GetPlayerOwnerID() or -1
+    local purchaser_player_id = purchaser.GetPlayerOwnerID and purchaser:GetPlayerOwnerID() or -1
     if caster_player_id ~= nil and purchaser_player_id ~= nil and caster_player_id == purchaser_player_id then
         return true
     end
