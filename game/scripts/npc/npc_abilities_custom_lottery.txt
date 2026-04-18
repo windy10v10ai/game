@@ -308,7 +308,7 @@
 		{
 			"total_ticks"			"2"
 			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"20 25 30 35 40"
+			"tick_attack_damage_pct"		"16 20 24 28 32"	// 20
 		}
 	}
 	//奇心 拉比克 先天
