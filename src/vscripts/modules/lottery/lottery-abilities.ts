@@ -111,6 +111,7 @@ export const abilityTiersActive: Tier[] = [
       'slark_saltwater_shiv', // 海浪短刀
       'treant_natures_grasp', // 自然卷握
       'abyssal_underlord_firestorm', // 火焰风暴
+      'obsidian_destroyer_objurgation', // 责难
 
       // 自定义技能
       'brewmaster_drunken_boxing', // 酒仙 醉拳
