@@ -1798,27 +1798,19 @@
 	"huskar_inner_vitality"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityCooldown"				"22 19 16 13 10"
 		"AbilityManaCost"				"140 150 160 170 180"
-		"LinkedAbility"					"huskar_inner_fire"
-		"AbilityDraftPreAbility"		"huskar_inner_fire"
+		"LinkedAbility"					"huskar_inner_fire"		// 原版不存在，手动修改
+		"AbilityDraftPreAbility"		"huskar_inner_fire"		// 原版不存在，手动修改
 		"AbilityValues"
 		{
-			"heal"
-			{
-				"value" "24"
-			}
 			"attrib_bonus"
 			{
-				"value" "0.10 0.15 0.20 0.25 0.3"
+				"value" "0.10 0.20 0.30 0.40 0.50"	// 0.05 0.1 0.15 0.20 x2
 			}
 			"hurt_attrib_bonus"
 			{
 				"value" "0.2 0.4 0.6 0.8 1.0"
-			}
-			"hurt_percent"
-			{
-				"value" "0.35"
 			}
 			"tooltip_attrib_bonus"
 			{
@@ -1833,58 +1825,38 @@
 	// 心炎
 	"huskar_inner_fire"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"MaxLevel"						"5"
-		"LinkedAbility"					"huskar_inner_vitality"
-		"AbilityDraftPreAbility"		"huskar_inner_vitality"
+		"LinkedAbility"					"huskar_inner_vitality"		// 原版不存在，手动修改
+		"AbilityDraftPreAbility"		"huskar_inner_vitality"		// 原版不存在，手动修改
 		"AbilityValues"
 		{
-			"health_cost"				"75 100 125 150 175"
 			"damage"
 			{
-				"value"			"120 180 240 300 360"
-				"CalculateSpellDamageTooltip" "1"
+				"value"			"110 180 250 320 390"
 			}
 			"disarm_duration"
 			{
-				"value"		"1.5 2 2.5 3 3.5"
-				"special_bonus_unique_huskar_3"			"+1.0"
+				"special_bonus_unique_huskar_3"			"+1.0"	// +0.75
 			}
 			"AbilityCooldown"
 			{
 				"value"					"19 17 15 13 11"
-				"special_bonus_shard"	"-3"
-			}
-			"hero_damage_heal_pct"
-			{
-				"special_bonus_shard"		"+100" // 50
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
-			"creep_damage_heal_pct"
-			{
-				"special_bonus_shard"			"+20" // 10
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
 			}
 		}
 	}
 	// 火矛
 	"huskar_burning_spear"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"MaxLevel" "7"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
+		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-				"health_cost"
-				{
-					"value"			"2"	// 4
-					"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
-				}
-				"burn_damage"
-				{
-					"value"					"25 30 35 40 45 50 55"
-					"special_bonus_unique_huskar_2" "+24"	// +12
-				}
-
+			"burn_damage"
+			{
+				"value"					"10 20 30 40 50"	// 5 10 15 20 25 x2
+				"special_bonus_unique_huskar_2"	"+10"	// +5 x2
+			}
 		}
 	}
 	// 狂战士之血 狂血
@@ -1893,77 +1865,47 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"maximum_attack_speed"			"160 200 240 280 320"
+			"maximum_attack_speed"			"170 220 270 320 370"
 			"maximum_health_regen"
 			{
 				"value"						"25 40 55 70 85"
-				"special_bonus_unique_huskar_6"			"+55"
+				"special_bonus_unique_huskar_6"			"+55"	// +30
 			}
-			"maximum_magic_resist"			"20 25 30 35 40"
+			"maximum_magic_resist"			"15 20 25 30 35"
 			"hp_threshold_max"				"20"	// 10
-			"activation_healthcost_pct"
-			{
-				"value"									"0"
-				"special_bonus_facet_huskar_cauterize"	"+30.0 +25.0 +20.0 +15.0 +10.0"
-			}
-			"activation_cooldown"
-			{
-				"value"									"0 0 0 0"
-				"special_bonus_facet_huskar_cauterize"	"+60.0 +50.0 +40.0 +30.0 +20.0"
-			}
-			"activation_delay"
-			{
-				"value"									"0"
-				"special_bonus_facet_huskar_cauterize"	"+1.5"
-			}
-			"activation_heal_pct_per_debuff"
-			{
-				"value"									"0"
-				"special_bonus_facet_huskar_cauterize"	"+8.0"
-			}
-
 		}
 	}
 	// 牺牲
 	"huskar_life_break"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"16 14 12 10"
-		"AbilityDuration"				"3 4 5 6"
+		"MaxLevel"						"4"
 		"AbilityValues"
 		{
-			"health_cost_percent"		"0.32 0.38 0.44 0.5"
+			"health_cost_percent"		"0.32 0.38 0.44 0.50"
 			"health_damage"
 			{
-				"value"	"0.32 0.38 0.44 0.5"
-				"special_bonus_unique_huskar" "+0.44"	// +0.22
+				"value"		"0.32 0.38 0.44 0.50"
 			}
 			"tooltip_health_damage"
 			{
 				"value"		"32 38 44 50"
-				"special_bonus_unique_huskar" "+44"	// +22
 			}
 			"tooltip_health_cost_percent"
 			{
-				"value"			"32 38 44 50"
-				"CalculateSpellDamageTooltip"		"1"
-				"DamageTypeTooltip"					"DAMAGE_TYPE_MAGICAL"
+				"value"		"32 38 44 50"
 			}
-			"attack_speed"				"80 160 240 320"
+			"attack_speed"				"90 150 210 270"	// 60 100 140 180 x1.5
+			"AbilityDuration"
+			{
+				"value"					"3 4 5 6"
+			}
 			"slow_duration_tooltip"
 			{
-				"value"				"3 4 5 6"
-				"special_bonus_unique_huskar_4" "+2"
+				"value"					"3 4 5 6"
 			}
-			"splash_radius"
+			"AbilityCooldown"
 			{
-				"special_bonus_facet_huskar_bloodbath"	"=800"
-				"affected_by_aoe_increase"	"1"
-			}
-			"life_break_heal_radius"
-			{
-				"special_bonus_facet_huskar_nothl_transfusion"		"=800"
-				"affected_by_aoe_increase"	"1"
+				"value"					"15 14 13 12"
 			}
 		}
 	}
@@ -9781,7 +9723,7 @@
 	{
 		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
-		"AbilityCooldown"				"13 11 9 7 5"
+		"AbilityCooldown"				"9 8 7 6 5"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
@@ -9832,30 +9774,27 @@
 	"grimstroke_spirit_walk"
 	{
 		"MaxLevel"						"5"
+		"AbilityCastRange"				"650 700 750 800 900"
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
-				"AbilityCastRange"
-				{
-					"value"				"650 700 750 800 900"	// 650 700 750 800
-				}
 				"max_damage"
 				{
 					"value"		"180 270 360 450 540"	// 90 180 270 360 +90
 				}
-				"max_stun"				"1.6 2.0 2.4 2.8 3.2"	// 1.6 2.0 2.4 2.8
+				"max_stun"				"1.6 2.0 2.4 2.8 3.2"
 				"damage_per_tick"		"12 18 24 30 36"	// 6 9 12 15 x2
 				"tick_dps_tooltip"		"60 90 120 150 180"	// 30 45 60 75 x2
 				"AbilityCooldown"
 				{
-					"value"				"27 24 21 18 15"	// 27 24 21 18
+					"value"				"27 24 21 18 15"
 				}
 		}
 	}
 	// 暗绘
 	"grimstroke_dark_portrait"
 	{
-		"AbilityCooldown"				"60"		// 幻象卡顿，增加CD
+		"AbilityCooldown"				"60"		// 35 幻象卡顿，增加CD
 		"AbilityValues"
 		{
 			"images_take_damage_percent"
@@ -9884,8 +9823,18 @@
 			"chain_duration"		"6.0 7.0 8.0 9.0"
 			"bonus_reflected_spell_damage"
 			{
-				"value"							"0"
 				"special_bonus_unique_grimstroke_soul_chain_reflect_damage"		"+50.0"	// 25.0 x2
+			}
+		}
+	}
+	// 墨痕
+	"grimstroke_ink_trail"
+	{
+		"AbilityValues"
+		{
+			"damage_reduction"
+			{
+				"value"								"25"	// 5
 			}
 		}
 	}
