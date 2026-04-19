@@ -1090,6 +1090,9 @@
 		// 暗影萨满
 		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% 守卫攻击力"
 
+		// 巫医
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_voodoo_restoration_heal"	"+{s:bonus_heal} 巫毒疗法治疗量"
+
 		// 骷髅王
 		"DOTA_Tooltip_ability_special_bonus_unique_skeleton_king_spectral_blade_damage"			"+{s:bonus_cursed_damage}/{s:bonus_cursed_damage_pct}% 幽魂之剑基础伤害/诅咒伤害"
 

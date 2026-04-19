@@ -1108,6 +1108,9 @@
 		// 暗影萨满
 		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_mass_serpent_ward_bonus_damage"	"+{s:bonus_bonus_damage}% Serpent Ward Attack Damage"
 
+		// 巫医
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_voodoo_restoration_heal"	"+{s:bonus_heal} Voodoo Restoration Heal"
+
 		// 骷髅王
 		"DOTA_Tooltip_ability_special_bonus_unique_skeleton_king_spectral_blade_damage"			"+{s:bonus_cursed_damage}/{s:bonus_cursed_damage_pct}% Spectral Blade Base Damage/Curse Damage"
 
