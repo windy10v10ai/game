@@ -9014,7 +9014,8 @@
 			}
 			"duration"
 			{
-				"value"										"1.5 2 2.5 3 3.5"
+				"value"										"1.5 1.75 2 2.25 2.5"
+				"special_bonus_unique_crystal_maiden_1"		"+0.5"	// +1.0
 			}
 		}
 	}
