@@ -28,7 +28,7 @@
 	{
 		"AbilityValues"
 		{
-			"bonus_attack_speed"	"15 30 45 60"		// 7 15 23 31
+			"bonus_attack_speed"	"10 20 30 40"		// 7 15 23 31
 			"bonus_night_vision"	"75 150 225 300"	// 0 150 225 300
 			"bonus_attack_range"	"25 50 75 100"		// 0 0 0 100
 		}
@@ -110,7 +110,7 @@
 	{
 		"AbilityValues"
 		{
-			"attack_range"						"60 100"	// 60 90 120
+			"attack_range"						"60 90"	// 60 90 120
 			"bonus_damage"						"10 20"		// 6 10 14
 		}
 	}
@@ -150,7 +150,7 @@
 		"AbilityValues"
 		{
 			"health_restoration"		"20 30 40 50"				// 10 15 20
-			"bat_reduce"				"9 15 21 27"				// 6 9 12
+			"bat_reduce"				"9 12 15 18"				// 6 9 12
 			"intelligence_pct"			"-5 -10 -15 -20"			// -6
 		}
 	}
@@ -160,7 +160,7 @@
 		"MaxLevel"						"2"
 		"AbilityValues"
 		{
-			"bonus_attack_range"		"150 250"			// 150
+			"bonus_attack_range"		"150 200"			// 150
 			"bonus_cast_range"			"200 300"			// 275
 		}
 	}
@@ -248,7 +248,7 @@
 		{
 				"bonus_health"			"300 600"		// 50
 				"spell_amp"				"20 40"			// 5
-				"manacost_reduction"	"10 20"			// 5
+				"manacost_reduction"	"8 16"			// 5
 		}
 	}
 	//法术棱镜
@@ -269,9 +269,9 @@
 		"ItemIsNeutralPassiveDrop"		"1"
 		"AbilityValues"
 		{
-			"bonus_damage"			"120"			// 16
-			"bonus_lifesteal"		"40"			// 16
-			"bonus_spell_lifesteal"	"30"			// 8
+			"bonus_damage"			"100"			// 16
+			"bonus_lifesteal"		"36"			// 16
+			"bonus_spell_lifesteal"	"24"			// 8
 		}
 	}
 	// 迷踪 闪避移速

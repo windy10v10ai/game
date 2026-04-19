@@ -48,6 +48,7 @@
 					// 额外添加
 					"item_enhancement_greedy"		"1"		// 贪婪 工资蓝量 -攻击
 					"item_enhancement_wise"			"1"		// 睿智 每分钟经验
+					"item_broom_handle"				"1"		// 扫帚柄 近战攻击范围
 				}
 
 				"strength"
@@ -270,6 +271,8 @@
 					"item_enhancement_dominant"		"1"		// 专横
 					"item_enhancement_restorative"	"1"		// 滋补
 					"item_enhancement_thick"		"1"		// 厚重
+
+					"item_mysterious_hat"			"1"		// 仙灵饰品
 				}
 
 				"strength"
