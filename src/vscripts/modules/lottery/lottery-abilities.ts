@@ -120,6 +120,7 @@ export const abilityTiersActive: Tier[] = [
       'batrider_flamebreak', // 燃烧弹
       'batrider_firefly', // 火焰飞行
       'pugna_nether_blast', // 幽冥爆轰
+      'undying_decay', // 不朽尸王 腐朽
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷

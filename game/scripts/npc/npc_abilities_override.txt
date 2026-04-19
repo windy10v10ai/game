@@ -4523,7 +4523,7 @@
 	//=================================================================================================================
 	// Ability: Undying 不朽尸王
 	//=================================================================================================================
-	// 抽力量
+	// 腐朽 抽力量
 	"undying_decay"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
@@ -4533,8 +4533,8 @@
 		{
 			"decay_damage"
 			{
-				"value"		"40 80 120 160 200"			// 20 60 100 140 +20
-				"special_bonus_unique_undying_8" "+70"	// +30 +40差值
+				"value"		"40 120 200 280 360"			// 20 60 100 140 x2
+				"special_bonus_unique_undying_8" "+60"	// +30 x2
 			}
 			"str_steal"
 			{
@@ -4554,19 +4554,22 @@
 	"undying_soul_rip"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"14 12 10 8 6"	// 15 12 9 6
+		"AbilityCastRange"				"900"		// 750
+		"AbilityCooldown"				"6"	// 15 12 9 6 加强固定CD
+		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"damage_per_unit"
 			{
-				"value"		"28 52 76 100 124"			// 14 26 38 50 x2
-				"special_bonus_unique_undying_6" "+30"	// +12
+				"value"		"28 52 76 100 124"			// 14 26 38 50 62 x2
+				"special_bonus_unique_undying_6" "+36"	// +12 x3
 			}
 			"max_units"					"30"			// 10
 			"radius"
 			{
 				"value"		"1800"						// 1300
 			}
+			"tombstone_heal"			"4 8 12 16 20"
 		}
 	}
 	// 墓碑
@@ -4598,6 +4601,7 @@
 	"undying_flesh_golem"
 	{
 		"MaxLevel" "4"
+		"AbilityManaCost"				"100 125 150 175"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -4605,6 +4609,14 @@
 				"value"					"100"		// 140
 			}
 			"slow"						"30 40 50 60"	// 30 35 40 差值10
+			"damage_amp"
+			{
+				"value"					"25 30 35 40"
+			}
+			"str_percentage"
+			{
+				"value"					"40 50 60 70"
+			}
 			"spawn_zombie_on_attack"
 			{
 				"value"						"0"		// 1 僵尸卡顿，不再产生僵尸
@@ -4619,7 +4631,7 @@
 	// 挽歌犹唱 复活
 	"undying_ceaseless_dirge"
 	{
-		"AbilityCooldown"				"120"	// 480
+		"AbilityCooldown"				"90"	// 480
 	}
 	//=================================================================================================================
 	// Ability: Wisp 艾欧/小精灵
@@ -9030,6 +9042,7 @@
 	// 冰晶克隆
 	"crystal_maiden_crystal_clone"
 	{
+		"AbilityCooldown"				"10"	// 12
 		"AbilityValues"
 		{
 			"hop_distance"				"550"	// 275 x2
@@ -9073,7 +9086,7 @@
 			"mana_multiplier"
 			{
 				"value"					"100"		// 30
-				"hero_levelup"			"+3"		// +2
+				"hero_levelup"			"+4"		// +2
 			}
 			"barrier_duration"			"12"		// 8
 		}
@@ -10927,7 +10940,7 @@
 			}
 			"mana_capacity_steal"
 			{
-				"value"										"11 11 12 13 15"	// 16 19 22 25
+				"value"										"12 14 16 18 20"	// 16 19 22 25 削弱
 				"special_bonus_unique_outworld_devourer_4"	"+5"				// +10
 			}
 			"mana_capacity_duration"
@@ -10949,14 +10962,14 @@
 			"barrier_flat"			"240 360 480 600 720"	// 120 180 240 300 x2
 			"mana_to_barrier"
 			{
-				"value"					"15"	// 12
-				"special_bonus_scepter"	"+5"	// +4
+				"value"					"20"	// 12
+				"special_bonus_scepter"	"+10"	// +4
 			}
 			"bonus_mana"			"160 320 480 640 800"	// 80 160 240 320 x2
 			"barrier_duration"			"12"	// 10
 			"automatic_trigger_cd"
 			{
-				"special_bonus_scepter"	"60"	// 80
+				"special_bonus_scepter"	"40"	// 80 /2
 			}
 		}
 	}
@@ -10968,11 +10981,11 @@
 			"proc_chance"	"25"	// 30
 			"mana_restore"
 			{
-				"hero_levelup"	"+3"	// +5
+				"hero_levelup"	"+4"	// +5
 			}
 			"mana_restore_attack"
 			{
-				"hero_levelup"	"+2"	// +5
+				"hero_levelup"	"+3"	// +5
 			}
 		}
 	}
@@ -10987,11 +11000,10 @@
 			"radius"
 			{
 				"value"			"450 500 550 600"
-				"affected_by_aoe_increase"	"1"
 			}
 			"AbilityCooldown"
 			{
-				"value"										"150 140 130 120"
+				"value"										"90"	// 140 130 120 固定CD
 				"special_bonus_unique_outworld_devourer_5"	"-30"	// -60
 			}
 		}
