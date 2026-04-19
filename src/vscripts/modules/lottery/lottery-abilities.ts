@@ -88,6 +88,8 @@ export const abilityTiersActive: Tier[] = [
       'treant_overgrowth', // 疯狂生长
       'tinker_rearm_lua', // 再装填
       'ringmaster_wheel', // 奇观轮
+      'axe_culling_blade', // 淘汰之刃
+      'batrider_flaming_lasso', // 燃烧枷锁
 
       // 小技能
       'lion_impale', // 裂地尖刺
@@ -114,6 +116,11 @@ export const abilityTiersActive: Tier[] = [
       'obsidian_destroyer_objurgation', // 责难
       'magnataur_reverse_polarity', // 两级反转
       'bloodseeker_bloodrage', // 血怒
+      'axe_battle_hunger', // 战斗饥渴
+      'batrider_flamebreak', // 燃烧弹
+      'batrider_firefly', // 火焰飞行
+      'pugna_nether_blast', // 幽冥爆轰
+      'undying_decay', // 不朽尸王 腐朽
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
@@ -131,6 +138,7 @@ export const abilityTiersActive: Tier[] = [
       'witch_doctor_death_ward', // 死亡守卫
       'slardar_amplify_damage', // 侵蚀雾霭 点灯
       'medusa_stone_gaze', // 石化凝视
+      'crystal_maiden_freezing_field', // 极寒领域
 
       // 小技能
       'dazzle_shadow_wave', // 暗影波
@@ -151,6 +159,8 @@ export const abilityTiersActive: Tier[] = [
       'ancient_apparition_ice_vortex', // 冰霜漩涡
       'shadow_shaman_voodoo', // 妖术
       'lich_frost_armor', // 霜冻护甲
+      'crystal_maiden_crystal_nova', // 冰霜新星
+      'crystal_maiden_frostbite', // 冰封禁制
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
@@ -298,6 +308,7 @@ export const abilityTiersPassive: Tier[] = [
       'rubick_null_field', // 失效立场
       'pangolier_lucky_shot', // 幸运一击
       'faceless_void_backtrack2', // 虚空 回到过去
+      'crystal_maiden_brilliance_aura', // 奥术光环 冰女
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭

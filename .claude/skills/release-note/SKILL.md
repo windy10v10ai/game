@@ -114,7 +114,20 @@ release PR 存在且大版本**严格高于** Steam（如 Steam `v5.19b`，relea
 - Synced Dota 2 7.41 ability updates (x/total): Hero A, Hero B, Hero C
 ```
 
-名称以 `addon_schinese.txt` / `addon_english.txt` 为准；找不到则用官方中英文名。
+英雄名称**必须**从本地化文件查找，**禁止**从 `abilities_schinese.txt` / `abilities_english.txt` 猜测：
+
+```bash
+# 查英雄中文名（以 pugna 为例）
+grep -i "npc_dota_hero_pugna" game/resource/addon_schinese.txt
+# 若无结果，从 docs 参考文件查
+grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_schinese.txt
+
+# 查英雄英文名
+grep -i "npc_dota_hero_pugna" game/resource/addon_english.txt
+grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
+```
+
+找不到时用 `docs/reference/<version>/abilities_schinese.txt` 中 `npc_dota_hero_<id>:n` 行的值。
 
 ## 撰写原则
 
