@@ -251,7 +251,8 @@
 		"Ability4" 		"miku_dance"
 		"Ability5" 		"get_down"
 		"Ability6" 		"chibi_monster"
-		"Ability7" 		"generic_hidden"
+		"Ability7" 		"generic_hidden"	// 移除米波技能
+		"Ability8"		"generic_hidden"	// 移除米波技能
 		"Ability22"		"chibi_hit"
 
 		"Ability10" 				"special_bonus_unique_miku_101"
