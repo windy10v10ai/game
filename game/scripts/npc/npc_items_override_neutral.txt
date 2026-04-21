@@ -437,7 +437,7 @@
 		"AbilityCooldown"				"30.0"	// 40
 		"AbilityValues"
 		{
-			"block_amount"				"400"	// 160
+			"block_amount"				"800"	// 160 x5
 		}
 	}
 	// 瑞斯图尔的匕首
@@ -446,6 +446,15 @@
 		"AbilityValues"
 		{
 			"bonus_damage"					"50"	// 25
+		}
+	}
+	//决斗家手套
+	"item_duelist_gloves"
+	{
+		"AbilityValues"
+		{
+			"bonus_attack_speed"	"80"		//20
+			"bonus_damage"			"0"			//12
 		}
 	}
 
@@ -645,25 +654,6 @@
 	{
 		"AbilityCooldown"			"2"		// 5
 	}
-	//决斗家手套
-	"item_duelist_gloves"
-	{
-		"AbilityValues"
-		{
-			"bonus_attack_speed"	"80"		//20
-			"bonus_damage"			"0"			//12
-		}
-	}
-	//齐维尔之眼
-	"item_eye_of_the_vizier"
-	{
-		"AbilityValues"
-		{
-			"cast_range_bonus"					"175"  //125
-			"mana_reduction_pct"				"30"   //15
-			"bonus_mana_regen"					"3.0" //1.25
-		}
-	}
 	//集光器
 	"item_light_collector"
 	{
@@ -681,40 +671,16 @@
 			"miss_rate"					"50"		//30
 		}
 	}
-	//贤者石
-	"item_philosophers_stone"
-	{
-		"ItemInitialCharges"			"1200"
-		"AbilityValues"
-		{
-				"bonus_gpm"			"600"	//75
-				"bonus_mana"		"300"	//200
-				"bonus_damage"		"-90"	//-30
-				"gold_on_expire"		"1000"	// 收金钱倍率影响
-				"charges_tooltip"		"1200"	// 2分钟
-		}
-	}
-	//吸血鬼獠牙
-	"item_vampire_fangs"
-	{
-		"AbilityValues"
-		{
-			"attack_lifesteal"			"30"		// 15
-			"spell_lifesteal"			"20"		// 10
-			"night_vision"			"450"			// 300
-			"creep_lifesteal_reduction_pct"	"40"
-		}
-	}
 	//臂甲
 	"item_vambrace"
 	{
 		"AbilityValues"
 		{
-				"bonus_primary_stat"		"16"	//10
-				"bonus_secondary_stat"		"6"		//4
-				"bonus_spell_amp"			"16"	//8
-				"bonus_magic_resistance"	"16"	//10
-				"bonus_attack_speed"		"30"	//15
+				"bonus_primary_stat"		"20"	// 10
+				"bonus_secondary_stat"		"8"		// 4
+				"bonus_spell_amp"			"0"		// 8
+				"bonus_magic_resistance"	"0"		// 10
+				"bonus_attack_speed"		"0"		// 15
 		}
 	}
 	//林野长弓
@@ -745,13 +711,20 @@
 		"AbilityCastRange"				"700"	// 350
 		"AbilityValues"
 		{
-			"aura_health_regen"			"20"	// 8
+			"aura_health_regen"
+			{
+				"value"					"40"	// 8
+			}
+			"aura_health_regen_pct"
+			{
+				"value"					"50"	// 25
+			}
 			"radius"
 			{
-				"value"			"500"			// 400
+				"value"			"600"			// 400
 				"affected_by_aoe_increase"	"1"
 			}
-			"duration"					"10"	// 8
+			"duration"					"5"		// 8
 		}
 	}
 	//致残之弩
@@ -768,6 +741,15 @@
 			}
 			"duration"					"6"			// 4
 			"damage"					"180"		// 25
+		}
+	}
+	// 勇士勋章
+	"item_medallion_of_courage"
+	{
+		"AbilityValues"
+		{
+			"ally_armor"			"14"		// 7 x2
+			"enemy_armor"			"-8"		// -4 x2
 		}
 	}
 
@@ -920,7 +902,12 @@
 		"AbilityCooldown"				"30"		//45
 		"AbilityValues"
 		{
-			"health_regen_loss"			"60"		//50
+			"health_regen_loss"			"80"		//50
+			"hp_damage"
+			{
+				"value"					"30"		// 9
+			}
+			"debuff_radius"				"1200"		// 900
 		}
 	}
 	//火焰斗篷
@@ -1104,19 +1091,18 @@
 	//维修器具
 	"item_repair_kit"
 	{
-		"ItemInitialCharges"			"5"		//3
+		"ItemInitialCharges"			"6"		//3
 		"AbilityCastRange"				"900"	//600
 		"AbilityValues"
 		{
-				"duration"		"20"	//30
 				"heal_percent"
 				{
-					"value"					"50"	//40
+					"value"					"60"	//40
 					"apply_curio_bonus"		"1"
 				}
 				"armor_bonus"
 				{
-					"value"					"50"	//10
+					"value"					"80"	//10
 					"apply_curio_bonus"		"1"
 				}
 				"hp_regen"		"0"		//25

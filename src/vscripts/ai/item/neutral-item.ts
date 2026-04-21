@@ -79,6 +79,7 @@ export class NeutralItemManager {
             { name: 'item_enhancement_vital', level: 1 }, // 活力 生命恢复
             { name: 'item_enhancement_greedy', level: 1 }, // 贪婪 工资蓝量 -攻击
             { name: 'item_enhancement_wise', level: 1 }, // 睿智 每分钟经验
+            { name: 'item_broom_handle', level: 1 }, // 扫帚柄 近战攻击范围
           ],
           strength: [
             { name: 'item_enhancement_brawny', level: 1 }, // 壮实 血量
@@ -218,6 +219,7 @@ export class NeutralItemManager {
             { name: 'item_enhancement_dominant', level: 1 }, // 专横
             { name: 'item_enhancement_restorative', level: 1 }, // 滋补
             { name: 'item_enhancement_thick', level: 1 }, // 厚重
+            { name: 'item_mysterious_hat', level: 1 }, // 仙灵饰品
           ],
           strength: [
             { name: 'item_enhancement_brawny', level: 4 }, // 壮实 血量
@@ -343,6 +345,30 @@ export class NeutralItemManager {
     if (combined.length === 0) return undefined;
 
     return this.SelectRandomItem(combined);
+  }
+
+  private static neutralTierMap: Map<string, number> | undefined;
+
+  private static BuildNeutralTierMap(): Map<string, number> {
+    const map = new Map<string, number>();
+    for (const [tier, tierConfig] of Object.entries(this.GetDefaultConfig())) {
+      const t = Number(tier);
+      for (const item of tierConfig.items) {
+        map.set(`${item.name}:${item.level}`, t);
+      }
+      for (const pool of Object.values(tierConfig.enhancements)) {
+        for (const item of pool) {
+          map.set(`${item.name}:${item.level}`, t);
+        }
+      }
+    }
+    return map;
+  }
+
+  // 根据物品名和 level 查找所在 tier（1-5），未找到返回 undefined
+  public static GetNeutralItemTier(itemName: string, level: number): number | undefined {
+    if (!this.neutralTierMap) this.neutralTierMap = this.BuildNeutralTierMap();
+    return this.neutralTierMap.get(`${itemName}:${level}`);
   }
 
   // 根据权重随机选择物品
