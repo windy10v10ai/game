@@ -997,6 +997,9 @@
 		// 谜团
 		"DOTA_Tooltip_ability_enigma_malefice_shard_description"						"Increases Malefice stun duration by %shard_bonus_stun_duration_tooltip%s."
 
+		// 祈求者/卡尔
+		"DOTA_Tooltip_ability_invoker_sun_strike_shard_description"						"Reduces Sun Strike's delay by 0.7 seconds."
+
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
 
