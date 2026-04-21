@@ -9885,17 +9885,17 @@
 			}
 			"self_slow"
 			{
-				"value"					"-5 0 5 10 15 20 25 30 35 40"
+				"value"					"-10 -5 0 5 10 15 20 25 30 35 40"	// -20 -15 -10 -5 0 5 10 15 20 25 30 +10
 				"levelkey"				"wexlevel"
 			}
 			"health_regen"
 			{
-				"value"					"20 30 40 50 60 70 80 90 100 110"
+				"value"					"10 20 30 40 50 60 70 80 90 100 110"	// 2 4 6 8 10 12 14 16 18 20 22 x5
 				"levelkey"				"quaslevel"
 			}
 			"mana_regen"
 			{
-				"value"					"5 10 15 20 25 30 35 40 45 50"
+				"value"					"5 10 15 20 25 30 35 40 45 50 55"	// 2 4 6 8 10 12 14 16 18 20 22 x2.5
 				"levelkey"				"wexlevel"
 			}
 		}
@@ -9907,7 +9907,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"23"	// 30
+				"value"					"23"	// 27
 			}
 			"vision_distance"
 			{
@@ -9917,7 +9917,6 @@
 			"base_damage"
 			{
 				"value"							"200"	// 50
-				"CalculateSpellDamageTooltip"	"1"
 			}
 		}
 	}
@@ -9929,17 +9928,8 @@
 		{
 			"mana_burned"
 			{
-				"value"			"250 400 550 700 850 1000 1150 1300 1450 1600"
+				"value"			"200 350 500 650 800 950 1100 1250 1400 1550 1700"	// 100 175 250 325 400 475 550 625 700 775 850 x2
 				"levelkey"				"wexlevel"
-			}
-			"drag_speed"
-			{
-				"value"					"0"
-				"special_bonus_facet_invoker_wex_focus"
-				{
-					"value"						"0"
-					"special_bonus_shard"		"+300"	// +125
-				}
 			}
 		}
 	}
@@ -9951,16 +9941,15 @@
 		{
 			"bonus_attack_speed"
 			{
-				"value"					"20 44 68 92 116 140 164 188 212 236"	// x2
+				"value"					"20 44 68 92 116 140 164 188 212 236 260"	// 10 22 34 46 58 70 82 94 106 118 130 x2
 				"levelkey"				"wexlevel"
-				"special_bonus_unique_invoker_5"	"+100"	// +50 x2
+				"special_bonus_unique_invoker_5"	"+50"	// +25 x2
 			}
 			"bonus_damage"
 			{
-				"value"					"20 44 68 92 116 140 164 188 212 236"	// x2
+				"value"					"20 44 68 92 116 140 164 188 212 236 260"	// 10 22 34 46 58 70 82 94 106 118 130 x2
 				"levelkey"				"exortlevel"
-				"special_bonus_unique_invoker_5"	"+100"	// +50 x2
-				"CalculateSpellDamageTooltip"	"0"
+				"special_bonus_unique_invoker_5"	"+50"	// +25 x2
 			}
 		}
 	}
@@ -9978,14 +9967,9 @@
 			{
 				"value"		"300"	// 275
 			}
-			"main_damage"
-			{
-				"value"					"60 90 120 150 180 210 240 270 300 330"	// +5
-				"levelkey"				"exortlevel"
-			}
 			"burn_dps"
 			{
-				"value"					"20 30 40 50 60 70 80 90 100 110"		// x2
+				"value"					"20 30 40 50 60 70 80 90 100 110 120"	// 10 15 20 25 30 35 40 45 50 55 60 x2
 			}
 		}
 	}
@@ -9994,6 +9978,11 @@
 	{
 		"AbilityValues"
 		{
+			"delay"
+			{
+				"value"							"1.7"
+				"special_bonus_shard_3"			"-0.7"	// 额外添加魔晶效果
+			}
 			"area_of_effect"
 			{
 					"value"			"200"	// 175
@@ -10005,16 +9994,11 @@
 			}
 			"cataclysm_cooldown"
 			{
-				"value"					"60"	// 75
+				"value"					"60"	// 90
 			}
 			"create_forged_spirit_on_hero_damage"
 			{
-				"value"											"0"
-				"special_bonus_facet_invoker_exort_focus"
-				{
-					"value"						"0"
-					"special_bonus_shard"		"+0"	// 移除魔晶产生熔炉精灵的效果
-				}
+				"special_bonus_shard_3"							"0"	// 1 移除产生熔炉精灵，防止卡顿
 			}
 		}
 	}
@@ -10025,28 +10009,23 @@
 		{
 			"spirit_damage"
 			{
-				"value"			"40 80 120 160 200 240 280 320 360 400"
-				"levelkey"		"exortlevel"
+				"value"			"40 60 80 100 120 140 160 180 200 220 240"	// 20 30 40 50 60 70 80 90 100 110 120 x2
 			}
 			"spirit_armor"
 			{
-				"value"			"2 4 6 8 10 12 14 16 18 20"
-				"levelkey"		"exortlevel"
+				"value"			"0 2 4 6 8 10 12 14 16 18"	// 0 1 2 3 4 5 6 7 8 9 x2
 			}
 			"spirit_hp"
-			{	"value"			"400 800 1200 1600 2000 2400 2800 3200 3600 4000"
-				"levelkey"		"quaslevel"
+			{
+				"value"			"600 800 1000 1200 1400 1600 1800 2000 2200 2400 2600"	// 300 400 500 600 700 800 900 1000 1100 1200 1300 x2
 			}
-			// 减少数量 缓解卡顿
 			"extra_spirit_count_quas"
 			{
-				"value" 				"1"
-				"levelkey"		"quaslevel"
+				"value" 				"1"	// 1 1 1 2 2 2 2 3 3 3 3 减少数量 缓解卡顿
 			}
 			"extra_spirit_count_exort"
 			{
-				"value" 				"1"
-				"levelkey"		"exortlevel"
+				"value" 				"1"	// 1 1 1 2 2 2 2 3 3 3 3 减少数量 缓解卡顿
 			}
 		}
 	}
@@ -10058,7 +10037,7 @@
 		{
 			"damage_per_second"
 			{
-				"value"				"30 42 54 66 78 90 102 114 126 138"	// 30 36 42...84 等差6 x2
+				"value"				"30 42 54 66 78 90 102 114 126 138"	// 30 36 42 48 54 60 66 72 78 84 差值12
 			}
 		}
 	}
@@ -10066,23 +10045,11 @@
 	"invoker_deafening_blast"
 	{
 		"AbilityCooldown"				"12"	// 36
-		"AbilityValues"
-		{
-			"damage"
-			{
-				"value"					"100 150 200 250 300 350 400 450 500 550"
-				"levelkey"				"exortlevel"
-			}
-		}
 	}
 	// 元素祈唤
 	"invoker_invoke"
 	{
 		"AbilityCooldown"				"1.7"	// 7
-		"AbilityValues"
-		{
-			"cooldown_reduction_per_orb"	"0.5"
-		}
 	}
 	//=================================================================================================================
 	// Ability: Jakiro 杰奇洛/双头龙
