@@ -1154,7 +1154,6 @@
 	"dawnbreaker_fire_wreath"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastPoint"				"0.1"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
@@ -1163,32 +1162,38 @@
 			}
 			"swipe_damage"
 			{
-				"value"											"50 70 90 110 130"	// 25 40 55 70
-				"special_bonus_unique_dawnbreaker_fire_wreath_swipe"		"+30"
+				"value"											"50 80 110 140 170"	// 25 40 55 70 85 x2
 			}
 			"smash_damage"
 			{
-				"value"				"50 70 90 110 130"	// 25 40 55 70
-				"special_bonus_unique_dawnbreaker_fire_wreath_swipe"			"+30"
+				"value"				"50 80 110 140 170"	// 25 40 55 70 85 x2
 			}
-			"smash_stun_duration"			"0.9 1 1.1 1.2 1.3"
+			"smash_stun_duration"
+			{
+				"value"					"0.6 0.8 1 1.2 1.4"
+			}
 		}
 	}
 	// 上界重锤
 	"dawnbreaker_celestial_hammer"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 16 14 12 10"	// 18 16 14 12
-		"AbilityManaCost"				"100 110 120 130 140"	// 100 110 120 130
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
-			"hammer_damage"			"50 80 110 140 170"	// 50 80 110 140
+			"hammer_damage"
+			{
+				"value"				"100 160 220 280 340"	// 50 80 110 140 170 x2
+			}
 			"move_slow"
 			{
-				"value"							"24 28 32 36 40"	// 24 28 32 36
-				"special_bonus_unique_dawnbreaker_celestial_hammer_slow"		"+15"
+				"value"							"24 28 32 36 40"
 			}
-			"burn_damage"						"20 30 40 50 60"	// 20 30 40 50
+			"burn_damage"
+			{
+				"value"						"40 60 80 100 120"	// 20 30 40 50 60 x2
+			}
 		}
 	}
 	// 熠熠生辉
@@ -1200,45 +1205,50 @@
 			"attack_count"
 			{
 				"value"		"2"	// 3
-				"special_bonus_unique_dawnbreaker_luminosity_attack_count"		"-1"
 			}
 			"heal_pct"					"35 40 45 50 55"
 			"bonus_damage"
 			{
 				"value"		"125 150 175 200 225"
 			}
-			"cooldown_reduction"
+		}
+	}
+	// 辰星破晓（先天）
+	"dawnbreaker_break_of_dawn"
+	{
+		"AbilityValues"
+		{
+			"max_dmg_pct"
 			{
-				"value"									"0"
-				"special_bonus_facet_dawnbreaker_solar_charged"		"1.6"	// 0.8 (x2)
+				"value"						"40"	// 8 x5
 			}
+			"max_vision_pct"				"40"	// 20 x2
 		}
 	}
 	// 天光现世
 	"dawnbreaker_solar_guardian"
 	{
-		"MaxLevel" "4"
-		"AbilityManaCost"				"150 200 250 300"	// 150 200 250
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"				"90 80 70 60"
+				"value"				"90 80 70 60"	// 110 100 90 80 -20
 			}
 			"base_damage"
 			{
-				"value"			"60 100 140 180"	// x2
+				"value"			"60 100 140 180"	// 30 50 70 90 x2
 			}
 			"base_heal"
 			{
-				"value"				"90 140 190 240"	// x2
-				"special_bonus_scepter"	"+30 40 50 60"	// x2
+				"value"				"90 140 190 240"	// 45 70 95 120 x2
 			}
 			"land_damage"
 			{
-				"value"			"130 190 250 310"	// 130 160 190
+				"value"			"130 190 250 310"	// 130 160 190 220
 			}
-			"land_stun_duration"			"1.2 1.4 1.6 1.8"
+			"land_stun_duration"			"1.4 1.6 1.8 2.0"
 		}
 	}
 	//=================================================================================================================
