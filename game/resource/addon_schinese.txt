@@ -46,6 +46,7 @@
 		"force_random_hero"			"强制随机英雄"
 		"enable_player_attribute"	"启用玩家属性"
 		"mid_only_mode"				"中路乱斗模式"
+		"turbo_mode"				"加速模式"
 		"hide_chat_team"			"隐藏聊天框"
 		"show_chat_team"			"显示聊天框"
 
@@ -3057,6 +3058,101 @@
 		"DOTA_Tooltip_Ability_item_beast_helmet_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_modifier_item_beast_helmet_active"								"Primal Surge"
 		"DOTA_Tooltip_modifier_item_beast_helmet_active_Description"					"Magic immune, 80%% damage reduction, and all damage is converted to Pure damage."
+
+		// ─── Reaper Soul ───────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_reaper_soul"                              "死神之魂"
+		"DOTA_Tooltip_Ability_item_reaper_soul_Description"                  "<h1>主动：死刑</h1>标记一名敌方英雄 %condemn_duration% 秒，死亡时回购禁止 %condemn_buyback_deny% 秒并额外获得 %condemn_gold_bonus% 金币。\n<h1>被动：死亡宣判</h1>你击杀的英雄无法在 %buyback_deny_duration% 秒内回购。"
+		"DOTA_Tooltip_Ability_item_reaper_soul_Lore"                         "摆渡人从未收到回报的铜币。"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_strength"               "+$str"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_agility"                "+$agi"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_intellect"              "+$int"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_damage"                 "+$damage"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_armor"                  "+$armor"
+		"DOTA_Tooltip_Ability_item_reaper_soul_buyback_deny_duration"        "回购禁止时长："
+		"DOTA_Tooltip_Ability_item_reaper_soul_condemn_duration"             "死刑持续时间："
+		"DOTA_Tooltip_modifier_item_reaper_soul_condemned"                   "死刑"
+		"DOTA_Tooltip_modifier_item_reaper_soul_condemned_Description"       "死亡将禁止你的回购。"
+
+		// ─── Curse of Ages ─────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_curse_of_ages"                            "岁月诅咒"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_Description"                "<h1>主动：古老凋零</h1>立即对目标施加 %active_instant_stacks% 层侵蚀。\n<h1>被动：侵蚀</h1>每次攻击永久降低目标最大生命值 %hp_reduction_per_stack%。每10层额外降低护甲 %armor_reduction_per_10%。每20层额外降低魔法抗性 %magic_resist_per_20%%%。目标死亡后重置。"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_Lore"                       "时间夺走一切，你只是加速了这个过程。"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_intellect"            "+$int"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_strength"             "+$str"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_agility"              "+$agi"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_damage"               "+$damage"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_spell_amp"            "+$spell_amp%%"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_hp_reduction_per_stack"     "每层生命值削减："
+		"DOTA_Tooltip_modifier_item_curse_of_ages_stack"                     "岁月诅咒"
+		"DOTA_Tooltip_modifier_item_curse_of_ages_stack_Description"         "最大生命值、护甲和魔法抗性正在被侵蚀。"
+
+		// ─── Chaos Engine ──────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_chaos_engine"                             "混沌引擎"
+		"DOTA_Tooltip_Ability_item_chaos_engine_Description"                 "<h1>主动：掷骰</h1>将混沌魔法循环前进一步。\n<h1>被动：混沌魔法</h1>每次施放技能循环触发8种随机效果之一：AOE伤害、AOE眩晕、变羊、全图沉默、陨石、群体减速、魔法抗性削减或技能冷却刷新。"
+		"DOTA_Tooltip_Ability_item_chaos_engine_Lore"                       "魔法没有规则，只有后果。"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_intellect"             "+$int"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_strength"              "+$str"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_agility"               "+$agi"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_damage"                "+$damage"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_spell_amp"             "+$spell_amp%%"
+		"DOTA_Tooltip_modifier_chaos_engine_indicator"                       "混沌魔法：下一个"
+		"DOTA_Tooltip_modifier_chaos_engine_indicator_Description"           "0:AOE伤害 | 1:AOE眩晕 | 2:变羊 | 3:全图沉默 | 4:陨石 | 5:群体减速 | 6:魔抗削减 | 7:技能刷新"
+
+		// ─── Void Paradox ──────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_void_paradox"                             "虚空悖论"
+		"DOTA_Tooltip_Ability_item_void_paradox_Description"                 "<h1>主动：悖论转移</h1>在 %active_duration% 秒内，当前死亡层数效果翻倍。\n<h1>被动：悖论增长</h1>每次死亡，永久获得 +%stats_per_death% 全属性、+%damage_per_death% 伤害和 +%spell_amp_per_death%%% 法术加成。无上限。"
+		"DOTA_Tooltip_Ability_item_void_paradox_Lore"                        "每一个结束都是开始。他已死过足够多次，深谙此道。"
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_strength"              "+$str"
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_health"                "+$health"
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_armor"                 "+$armor"
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_spell_amp"             "+$spell_amp%%"
+		"DOTA_Tooltip_Ability_item_void_paradox_stats_per_death"             "每次死亡全属性加成："
+		"DOTA_Tooltip_Ability_item_void_paradox_damage_per_death"            "每次死亡伤害加成："
+		"DOTA_Tooltip_modifier_item_void_paradox"                            "悖论增长"
+		"DOTA_Tooltip_modifier_item_void_paradox_Description"                "层数=死亡次数。每次死亡：+10全属性、+30伤害、+6%%法术加成。"
+		"DOTA_Tooltip_modifier_item_void_paradox_active"                     "悖论转移"
+		"DOTA_Tooltip_modifier_item_void_paradox_active_Description"         "死亡层数效果翻倍。"
+
+		// ─── Primordial Mandate ────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_primordial_mandate"                       "原初天命"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_Description"           "<h1>开关：血色狂乱</h1>每秒消耗 %toggle_hp_drain% 生命，获得 +%toggle_attack_speed%%% 攻速、+%toggle_lifesteal%%% 生命偷取和 +%toggle_armor% 护甲。\n<h1>被动：原始狂怒</h1>每缺失1%%最大生命值，获得 +%rage_damage_per_pct%%% 伤害和 +%rage_as_per_pct%%% 攻速（上限 +%rage_max_bonus%%）。\n<h1>被动：不死意志</h1>每 %undying_will_cd% 秒一次：在致命一击时以1点生命存活，%undying_will_invis_dur% 秒内无敌，并在 %undying_will_radius% 范围内造成 %undying_will_damage% 纯粹伤害。"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_Lore"                  "流血越多，饥渴越甚。"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_strength"        "+$str"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_agility"         "+$agi"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_damage"          "+$damage"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_health"          "+$health"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_rage_max_bonus"        "最大狂怒加成："
+		"DOTA_Tooltip_modifier_item_primordial_mandate_frenzy"               "血色狂乱"
+		"DOTA_Tooltip_modifier_item_primordial_mandate_frenzy_Description"   "消耗生命值以获得攻速、生命偷取和护甲加成。"
+		"DOTA_Tooltip_modifier_item_primordial_mandate_invuln"               "不死意志"
+		"DOTA_Tooltip_modifier_item_primordial_mandate_invuln_Description"   "从死亡边缘重生。"
+
+		// ─── Thousand Cuts ─────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_thousand_cuts"                            "千刃"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_Description"                "<h1>主动：暴风</h1>%active_duration% 秒内，每次攻击最多击打 %active_targets% 名敌人，额外获得 +%active_attack_speed%%% 攻速，每次命中施加 %active_ministun% 秒定身。\n<h1>被动：刀刃风暴</h1>每次攻击同时击打附近最多 %passive_targets% 名额外敌人，范围 %passive_target_radius%。每次攻击均为真实攻击，触发击打效果、暴击和生命偷取。"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_Lore"                       "赢得战争的不是一击，而是处处同时的每一击。"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_agility"              "+$agi"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_strength"             "+$str"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_damage"               "+$damage"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_attack_speed"         "+$attack_speed"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_attack_range"         "+$range"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_passive_targets"            "额外攻击目标："
+		"DOTA_Tooltip_Ability_item_thousand_cuts_passive_damage_pct"         "%%额外目标伤害："
+		"DOTA_Tooltip_modifier_item_thousand_cuts_active"                    "刀刃暴风"
+		"DOTA_Tooltip_modifier_item_thousand_cuts_active_Description"        "每次攻击击打附近所有敌人。"
+
+		// 神符强化效果
+		"DOTA_Tooltip_modifier_rune_overdrive"						"极速超载"
+		"DOTA_Tooltip_modifier_rune_overdrive_Description"			"移动速度提升至900，攻击速度大幅提升。"
+
+		"DOTA_Tooltip_modifier_rune_critical_storm"					"暴击风暴"
+		"DOTA_Tooltip_modifier_rune_critical_storm_Description"		"每次攻击造成5倍伤害。"
+
+		"DOTA_Tooltip_modifier_rune_surge_of_life"					"生命涌动"
+		"DOTA_Tooltip_modifier_rune_surge_of_life_Description"		"受到的伤害减少50%，持续回复生命值并为附近友军提供治疗光环。"
+
+		"DOTA_Tooltip_modifier_rune_spell_frenzy"					"法术狂热"
+		"DOTA_Tooltip_modifier_rune_spell_frenzy_Description"		"所有技能冷却时间减少80%。"
 
 	}
 }

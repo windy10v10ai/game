@@ -8,16 +8,23 @@ declare let global: any;
 
 global.UnitTargetTeam = { FRIENDLY: 2, ENEMY: 4 };
 global.UnitTargetType = { HERO: 1, CREEP: 2, BUILDING: 4 };
-global.UnitTargetFlags = { NONE: 0, NOT_ILLUSIONS: 8, FOW_VISIBLE: 256, NO_INVIS: 512, INVULNERABLE: 128 };
+global.UnitTargetFlags = {
+  NONE: 0,
+  NOT_ILLUSIONS: 8,
+  FOW_VISIBLE: 256,
+  NO_INVIS: 512,
+  INVULNERABLE: 128,
+};
 global.FindOrder = { CLOSEST: 0 };
 
-function makeHero(healthPercent: number, level: number): any {
+function makeHero(healthPercent: number, level: number, distanceToHero = 500): any {
   return {
     GetHealthPercent: () => healthPercent,
     GetLevel: () => level,
     GetMana: () => 500,
     GetMaxMana: () => 500,
     GetAbilityByIndex: () => undefined,
+    GetRangeToUnit: () => distanceToHero,
   };
 }
 
@@ -52,6 +59,7 @@ function makeMockHeroAI(overrides: {
       GetLevel: () => level,
       GetTeamNumber: () => teamNumber,
       GetAbsOrigin: () => ({ x: 0, y: 0, z: 0 }),
+      GetRangeToUnit: () => 500, // default distance used by HeroUtil.GetDistanceToHero
     }),
     FindNearestEnemyTowerInvulnerable: () => nearestTower,
   };
@@ -65,6 +73,7 @@ beforeEach(() => {
     UpdateGameState: jest.fn(),
   } as any);
   jest.spyOn(ActionFind, 'Find').mockReturnValue([]);
+  jest.spyOn(ActionFind, 'FindTeamBuildingsInvulnerable').mockReturnValue([]);
 });
 
 afterEach(() => {
@@ -116,57 +125,69 @@ describe('ModeRetreat.GetDesire', () => {
 
   describe('outnumbered panic', () => {
     it('adds no desire when no enemies are visible', () => {
-      expect(retreat.GetDesire(makeMockHeroAI({ healthPercent: 100, enemyHeroes: [] }))).toBeCloseTo(0);
+      expect(
+        retreat.GetDesire(makeMockHeroAI({ healthPercent: 100, enemyHeroes: [] })),
+      ).toBeCloseTo(0);
     });
 
     it('adds 0 in an even fight (1v1, equal level/health)', () => {
       jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 10)]); // 1 ally
-      const desire = retreat.GetDesire(makeMockHeroAI({
-        healthPercent: 100,
-        enemyHeroes: [makeHero(100, 10)], // 1 enemy
-      }));
+      const desire = retreat.GetDesire(
+        makeMockHeroAI({
+          healthPercent: 100,
+          enemyHeroes: [makeHero(100, 10)], // 1 enemy
+        }),
+      );
       // ratio = 1.0 → Linear(1.0, 1.0, 0) = 0
       expect(desire).toBeCloseTo(0);
     });
 
     it('adds 0.5 in a 1v2 situation (ratio ≈ 0.5)', () => {
       jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 10)]); // 1 ally
-      const desire = retreat.GetDesire(makeMockHeroAI({
-        healthPercent: 100,
-        enemyHeroes: [makeHero(100, 10), makeHero(100, 10)], // 2 enemies
-      }));
+      const desire = retreat.GetDesire(
+        makeMockHeroAI({
+          healthPercent: 100,
+          enemyHeroes: [makeHero(100, 10), makeHero(100, 10)], // 2 enemies
+        }),
+      );
       // ratio = 10/20 = 0.5 → Linear(0.5, 1.0, 0) = 0.5
       expect(desire).toBeCloseTo(0.5, 1);
     });
 
     it('adds ~0.67 in a 1v3 situation — clearly above FSA threshold', () => {
       jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 10)]);
-      const desire = retreat.GetDesire(makeMockHeroAI({
-        healthPercent: 100,
-        enemyHeroes: [makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)],
-      }));
+      const desire = retreat.GetDesire(
+        makeMockHeroAI({
+          healthPercent: 100,
+          enemyHeroes: [makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)],
+        }),
+      );
       // ratio = 10/30 ≈ 0.33 → Linear(0.33, 1.0, 0) ≈ 0.67
       expect(desire).toBeGreaterThan(0.5);
     });
 
     it('adds 0 when overnumbered (ratio >= 1.0)', () => {
-      jest.spyOn(ActionFind, 'Find').mockReturnValue([
-        makeHero(100, 10), makeHero(100, 10), makeHero(100, 10),
-      ]);
-      const desire = retreat.GetDesire(makeMockHeroAI({
-        healthPercent: 100,
-        enemyHeroes: [makeHero(100, 10)], // 1 enemy vs 3 allies
-      }));
+      jest
+        .spyOn(ActionFind, 'Find')
+        .mockReturnValue([makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)]);
+      const desire = retreat.GetDesire(
+        makeMockHeroAI({
+          healthPercent: 100,
+          enemyHeroes: [makeHero(100, 10)], // 1 enemy vs 3 allies
+        }),
+      );
       // ratio = 30/10 = 3.0 → Linear(3.0, 1.0, 0) clamped to 0
       expect(desire).toBeCloseTo(0);
     });
 
     it('stacks with health panic — low HP + outnumbered = high desire', () => {
       jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 10)]);
-      const desire = retreat.GetDesire(makeMockHeroAI({
-        healthPercent: 40,
-        enemyHeroes: [makeHero(100, 10), makeHero(100, 10)], // 1v2
-      }));
+      const desire = retreat.GetDesire(
+        makeMockHeroAI({
+          healthPercent: 40,
+          enemyHeroes: [makeHero(100, 10), makeHero(100, 10)], // 1v2
+        }),
+      );
       // health: Linear(40, 70, 0) = 30/70 ≈ 0.429
       // outnumbered: Linear(0.5, 1.0, 0) = 0.5
       // total ≈ 0.929
@@ -187,16 +208,24 @@ describe('ModeRetreat.GetDesire', () => {
     }
 
     it('adds nothing when 0 or 2 enemies are missing', () => {
-      expect(makeWithMissingCount(0).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(0);
-      expect(makeWithMissingCount(2).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(0);
+      expect(makeWithMissingCount(0).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(
+        0,
+      );
+      expect(makeWithMissingCount(2).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(
+        0,
+      );
     });
 
     it('adds 0.05 when 3 enemies are missing', () => {
-      expect(makeWithMissingCount(3).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(0.05);
+      expect(makeWithMissingCount(3).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(
+        0.05,
+      );
     });
 
     it('adds 0.25 when 7 enemies are missing', () => {
-      expect(makeWithMissingCount(7).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(0.25);
+      expect(makeWithMissingCount(7).GetDesire(makeMockHeroAI({ healthPercent: 100 }))).toBeCloseTo(
+        0.25,
+      );
     });
   });
 
@@ -210,10 +239,12 @@ describe('ModeRetreat.GetDesire', () => {
   describe('scenario: 1v3, full HP', () => {
     it('retreat triggers even at full health when badly outnumbered', () => {
       jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 10)]);
-      const desire = retreat.GetDesire(makeMockHeroAI({
-        healthPercent: 100,
-        enemyHeroes: [makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)],
-      }));
+      const desire = retreat.GetDesire(
+        makeMockHeroAI({
+          healthPercent: 100,
+          enemyHeroes: [makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)],
+        }),
+      );
       expect(desire).toBeGreaterThan(0.5);
     });
   });
@@ -228,10 +259,12 @@ describe('ModeRetreat.GetDesire', () => {
       } as any);
       jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(100, 10)]);
       const r = new ModeRetreat();
-      const desire = r.GetDesire(makeMockHeroAI({
-        healthPercent: 0,
-        enemyHeroes: [makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)],
-      }));
+      const desire = r.GetDesire(
+        makeMockHeroAI({
+          healthPercent: 0,
+          enemyHeroes: [makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)],
+        }),
+      );
       expect(desire).toBe(1.0);
     });
   });

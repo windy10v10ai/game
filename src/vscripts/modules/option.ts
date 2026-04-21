@@ -19,6 +19,7 @@ export class Option {
 
   gameDifficulty = 0;
   midOnlyMode = false;
+  turboMode = false;
 
   constructor() {
     CustomGameEventManager.RegisterListener('game_options_change', (_, keys) => {
@@ -48,6 +49,7 @@ export class Option {
     this.forceRandomHero = keys.force_random_hero === 1;
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
     this.midOnlyMode = keys.mid_only_mode === 1;
+    this.turboMode = keys.turbo_mode === 1;
     CustomNetTables.SetTableValue('game_options', 'game_options', keys);
     CustomNetTables.SetTableValue('game_options', 'point_multiplier', {
       point_multiplier: GameEndPoint.GetDifficultyMultiplier(

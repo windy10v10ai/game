@@ -9,14 +9,20 @@ declare let global: any;
 global.print = jest.fn(); // Dota Lua global not available in Jest
 global.UnitTargetTeam = { FRIENDLY: 2, ENEMY: 4 };
 global.UnitTargetType = { HERO: 1, CREEP: 2, BUILDING: 4 };
-global.UnitTargetFlags = { NONE: 0, NOT_ILLUSIONS: 8, FOW_VISIBLE: 256, NO_INVIS: 512, INVULNERABLE: 128 };
+global.UnitTargetFlags = {
+  NONE: 0,
+  NOT_ILLUSIONS: 8,
+  FOW_VISIBLE: 256,
+  NO_INVIS: 512,
+  INVULNERABLE: 128,
+};
 global.FindOrder = { CLOSEST: 0 };
 
 function makeHero(healthPercent: number, level: number): any {
   const maxHp = 1000;
   return {
     GetHealthPercent: () => healthPercent,
-    GetHealth: () => Math.round(maxHp * healthPercent / 100),
+    GetHealth: () => Math.round((maxHp * healthPercent) / 100),
     GetLevel: () => level,
     GetMana: () => 500,
     GetMaxMana: () => 500,
@@ -81,11 +87,9 @@ describe('ModeAttack.GetDesire', () => {
   describe('superiority ratio → desire', () => {
     it('returns high desire when allies are clearly stronger', () => {
       // 3 allies at full health level 10 vs 1 enemy at 50% health level 5
-      jest.spyOn(ActionFind, 'Find').mockReturnValue([
-        makeHero(100, 10),
-        makeHero(100, 10),
-        makeHero(100, 10),
-      ]);
+      jest
+        .spyOn(ActionFind, 'Find')
+        .mockReturnValue([makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)]);
       jest.spyOn(ActionFind, 'FindEnemyHeroes').mockReturnValue([makeHero(50, 5)]);
 
       const desire = attack.GetDesire(makeHeroAI(500, 500));
@@ -95,11 +99,9 @@ describe('ModeAttack.GetDesire', () => {
     it('returns low desire when enemies are clearly stronger', () => {
       // 1 ally at 30% health level 5 vs 3 enemies at full health level 10
       jest.spyOn(ActionFind, 'Find').mockReturnValue([makeHero(30, 5)]);
-      jest.spyOn(ActionFind, 'FindEnemyHeroes').mockReturnValue([
-        makeHero(100, 10),
-        makeHero(100, 10),
-        makeHero(100, 10),
-      ]);
+      jest
+        .spyOn(ActionFind, 'FindEnemyHeroes')
+        .mockReturnValue([makeHero(100, 10), makeHero(100, 10), makeHero(100, 10)]);
 
       const desire = attack.GetDesire(makeHeroAI(500, 500));
       expect(desire).toBeLessThan(0.15);
@@ -227,9 +229,9 @@ describe('ModeAttack.GetDesire', () => {
   describe('desire cap', () => {
     it('is capped at 0.8', () => {
       // Overwhelming ally superiority
-      jest.spyOn(ActionFind, 'Find').mockReturnValue([
-        makeHero(100, 25), makeHero(100, 25), makeHero(100, 25),
-      ]);
+      jest
+        .spyOn(ActionFind, 'Find')
+        .mockReturnValue([makeHero(100, 25), makeHero(100, 25), makeHero(100, 25)]);
       jest.spyOn(ActionFind, 'FindEnemyHeroes').mockReturnValue([makeHero(1, 1)]);
 
       const desire = attack.GetDesire(makeHeroAI(500, 500));

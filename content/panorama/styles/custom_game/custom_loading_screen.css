@@ -80,7 +80,7 @@
 }
 
 #QQDiscordContainer {
-  width: 500px;
+  width: 300px;
   vertical-align: bottom;
   margin-bottom: 60px;
 }
@@ -94,8 +94,8 @@
 
 #QQQRCodeImage,
 #DiscordQRCodeImage {
-  width: 200px;
-  height: 260px;
+  width: 120px;
+  height: 156px;
 }
 
 #LinkButtonContainer {

@@ -11,7 +11,7 @@ describe('BotBehaviorUtil.ScoreAttackTarget', () => {
 
   it('prefers high-level low-HP enemy over low-level near-dead enemy', () => {
     const highValue = BotBehaviorUtil.ScoreAttackTarget(20, 25); // 0.8 * 25 = 20
-    const lowValue = BotBehaviorUtil.ScoreAttackTarget(5, 3);   // 0.95 * 3  = 2.85
+    const lowValue = BotBehaviorUtil.ScoreAttackTarget(5, 3); // 0.95 * 3  = 2.85
     expect(highValue).toBeGreaterThan(lowValue);
   });
 
@@ -193,8 +193,12 @@ describe('BotBehaviorUtil.CalculateFleeCentroidDirection', () => {
   it('flees away from enemy centroid of multiple enemies', () => {
     // Hero at (0,0), enemies at (-100,0) and (-100,10) → centroid ~(-100,5)
     const dir = BotBehaviorUtil.CalculateFleeCentroidDirection(
-      0, 0,
-      [{ x: -100, y: 0 }, { x: -100, y: 10 }],
+      0,
+      0,
+      [
+        { x: -100, y: 0 },
+        { x: -100, y: 10 },
+      ],
       [],
     );
     expect(dir.x).toBeGreaterThan(0); // flees in +x direction
@@ -203,7 +207,8 @@ describe('BotBehaviorUtil.CalculateFleeCentroidDirection', () => {
   it('blends toward ally centroid when allies are present', () => {
     // Hero at (0,0), enemy at (-100,0), ally at (0,100)
     const dir = BotBehaviorUtil.CalculateFleeCentroidDirection(
-      0, 0,
+      0,
+      0,
       [{ x: -100, y: 0 }],
       [{ x: 0, y: 100 }],
     );
@@ -214,7 +219,8 @@ describe('BotBehaviorUtil.CalculateFleeCentroidDirection', () => {
 
   it('returns a unit vector when allies are present', () => {
     const dir = BotBehaviorUtil.CalculateFleeCentroidDirection(
-      0, 0,
+      0,
+      0,
       [{ x: -100, y: 0 }],
       [{ x: 0, y: 100 }],
     );
@@ -225,13 +231,18 @@ describe('BotBehaviorUtil.CalculateFleeCentroidDirection', () => {
   it('uses centroid of multiple allies', () => {
     // Hero at (0,0), enemy at (-100,0), two allies at (0,50) and (0,150) → ally centroid (0,100)
     const dir = BotBehaviorUtil.CalculateFleeCentroidDirection(
-      0, 0,
+      0,
+      0,
       [{ x: -100, y: 0 }],
-      [{ x: 0, y: 50 }, { x: 0, y: 150 }],
+      [
+        { x: 0, y: 50 },
+        { x: 0, y: 150 },
+      ],
     );
     // Same result as single ally at centroid (0,100)
     const dirSingle = BotBehaviorUtil.CalculateFleeCentroidDirection(
-      0, 0,
+      0,
+      0,
       [{ x: -100, y: 0 }],
       [{ x: 0, y: 100 }],
     );
@@ -251,8 +262,12 @@ describe('BotBehaviorUtil.CalculateFleeCentroidDirection', () => {
     // Away from enemy centroid = negative x. Ally in enemy direction.
     // Expected: blended direction should still have -x component despite ally pull.
     const dir = BotBehaviorUtil.CalculateFleeCentroidDirection(
-      0, 0,
-      [{ x: 100, y: 0 }, { x: 80, y: 20 }],
+      0,
+      0,
+      [
+        { x: 100, y: 0 },
+        { x: 80, y: 20 },
+      ],
       [{ x: 200, y: 0 }],
     );
     // away-from-enemy = (-1, ~0); toward-ally = (+1, 0)

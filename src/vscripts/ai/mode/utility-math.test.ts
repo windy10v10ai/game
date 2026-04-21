@@ -23,7 +23,7 @@ describe('UtilityMath.Linear', () => {
 
   it('works with inverted range (retreat HP curve: min=60, max=0)', () => {
     expect(UtilityMath.Linear(60, 60, 0)).toBe(0); // full health → 0
-    expect(UtilityMath.Linear(0, 60, 0)).toBe(1);  // 0% HP → 1
+    expect(UtilityMath.Linear(0, 60, 0)).toBe(1); // 0% HP → 1
     expect(UtilityMath.Linear(30, 60, 0)).toBe(0.5);
   });
 

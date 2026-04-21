@@ -75,7 +75,8 @@ export class ActionMove {
 
     if (allyPositions.length > 0) {
       const dir = BotBehaviorUtil.CalculateFleeCentroidDirection(
-        heroPos.x, heroPos.y,
+        heroPos.x,
+        heroPos.y,
         enemyPositions,
         allyPositions,
       );

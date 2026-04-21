@@ -130,6 +130,10 @@ export class GoldXPFilter {
       mul = this.filterMultiplier(mul, this.REDUCE_RATE_6_MIN);
     }
 
+    if (GameRules.Option.turboMode) {
+      mul = mul * 2;
+    }
+
     return mul;
   }
 

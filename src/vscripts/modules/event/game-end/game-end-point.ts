@@ -78,6 +78,12 @@ export class GameEndPoint {
         return 2.1;
       case 7:
         return 2.2;
+      case 8:
+        return 2.3;
+      case 9:
+        return 2.4;
+      case 10:
+        return 2.5;
       default:
         // 自定义模式
         return this.GetCustomModeMultiplier(option);
@@ -141,6 +147,10 @@ export class GameEndPoint {
     }
     // 中路模式，降低倍率
     if (option.midOnlyMode) {
+      multiplier -= 0.2;
+    }
+    // 加速模式，降低倍率
+    if (option.turboMode) {
       multiplier -= 0.2;
     }
 

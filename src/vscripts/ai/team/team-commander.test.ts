@@ -50,6 +50,13 @@ function setupGlobals(
 
 beforeEach(() => {
   resetSingleton();
+  // Dota globals used by the macro-goal scanning added to UpdateGameState
+  global.FindUnitsInRadius = jest.fn().mockReturnValue([]);
+  global.Vector = jest.fn((x: number, y: number, z: number) => ({ x, y, z }));
+  global.UnitTargetTeam = { FRIENDLY: 2, ENEMY: 4 };
+  global.UnitTargetType = { HERO: 1, CREEP: 2, BUILDING: 4 };
+  global.UnitTargetFlags = { NONE: 0, NOT_ILLUSIONS: 8, INVULNERABLE: 128 };
+  global.FindOrder = { CLOSEST: 0 };
 });
 
 describe('TeamCommander (per-team state)', () => {
@@ -71,9 +78,9 @@ describe('TeamCommander (per-team state)', () => {
 
     it('counts enemies not visible to the calling team', () => {
       const players = [
-        { id: 0, team: DIRE, alive: true, visible: true },   // bot — skip (same team)
+        { id: 0, team: DIRE, alive: true, visible: true }, // bot — skip (same team)
         { id: 1, team: RADIANT, alive: true, visible: false }, // enemy, NOT visible → missing
-        { id: 2, team: RADIANT, alive: true, visible: true },  // enemy, visible → not missing
+        { id: 2, team: RADIANT, alive: true, visible: true }, // enemy, visible → not missing
         { id: 3, team: RADIANT, alive: false, visible: false }, // enemy, dead → skip
       ];
       setupGlobals(players, 0);
@@ -150,7 +157,7 @@ describe('TeamCommander (per-team state)', () => {
         { id: 0, team: DIRE, alive: true, visible: true },
         { id: 1, team: RADIANT, alive: true, visible: true },
         { id: 2, team: RADIANT, alive: true, visible: false }, // missing from DIRE's view
-        { id: 3, team: DIRE, alive: true, visible: false },    // missing from RADIANT's view
+        { id: 3, team: DIRE, alive: true, visible: false }, // missing from RADIANT's view
       ];
       setupGlobals(players, 0);
 
@@ -211,8 +218,8 @@ describe('TeamCommander (per-team state)', () => {
       global.IsLocationVisible = jest.fn().mockReturnValue(false);
       tc.UpdateGameState([makeHeroAI(DIRE)]);
 
-      const powerAt0 = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 1.5);  // elapsed = 0
-      const powerAt2 = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 3.5);  // elapsed = 2
+      const powerAt0 = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 1.5); // elapsed = 0
+      const powerAt2 = tc.GetGhostEnemyPower(DIRE, 0, 0, 100, 3.5); // elapsed = 2
       expect(powerAt0).toBeGreaterThan(powerAt2);
     });
 
@@ -280,12 +287,15 @@ describe('TeamCommander (per-team state)', () => {
     });
 
     it('DIRE cooldown does not block RADIANT update', () => {
-      setupGlobals([
-        { id: 0, team: DIRE, alive: true, visible: true },
-        { id: 1, team: RADIANT, alive: true, visible: true },
-        { id: 2, team: RADIANT, alive: true, visible: false },
-        { id: 3, team: DIRE, alive: true, visible: false },
-      ], 0);
+      setupGlobals(
+        [
+          { id: 0, team: DIRE, alive: true, visible: true },
+          { id: 1, team: RADIANT, alive: true, visible: true },
+          { id: 2, team: RADIANT, alive: true, visible: false },
+          { id: 3, team: DIRE, alive: true, visible: false },
+        ],
+        0,
+      );
       global.IsLocationVisible = jest.fn().mockReturnValue(false);
 
       const tc = TeamCommander.getInstance();

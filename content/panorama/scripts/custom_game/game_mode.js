@@ -70,6 +70,7 @@ function InitCustomSetting() {
   $('#force_random_hero').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
   $('#mid_only_mode').checked = false;
+  $('#turbo_mode').checked = false;
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
   $('#radiant_player_number_dropdown').SetSelected('1');
@@ -111,6 +112,7 @@ function LockOption() {
   $('#force_random_hero').enabled = false;
   $('#enable_player_attribute').enabled = false;
   $('#mid_only_mode').enabled = false;
+  $('#turbo_mode').enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -129,6 +131,7 @@ function UnLockOptionAll() {
   $('#force_random_hero').enabled = true;
   $('#enable_player_attribute').enabled = true;
   $('#mid_only_mode').enabled = true;
+  $('#turbo_mode').enabled = true;
 }
 
 // N1-N6 通用设置
@@ -143,6 +146,7 @@ function InitDifficultyCommonSetting() {
   $('#force_random_hero').checked = false;
   $('#enable_player_attribute').checked = true;
   $('#mid_only_mode').checked = false;
+  $('#turbo_mode').checked = false;
 }
 
 function InitN1Setting() {
@@ -212,7 +216,7 @@ function InitN8Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('14');
 
-  $('#tower_power_dropdown').SetSelected('450');
+  $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('5000');
@@ -222,7 +226,7 @@ function InitN9Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('17');
 
-  $('#tower_power_dropdown').SetSelected('500');
+  $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('7000');
@@ -232,7 +236,7 @@ function InitN10Setting() {
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('20');
 
-  $('#tower_power_dropdown').SetSelected('550');
+  $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('7000');
@@ -284,6 +288,7 @@ function SendGameOptionsToServer() {
   const forceRandomHero = $('#force_random_hero').checked;
   const enablePlayerAttribute = $('#enable_player_attribute').checked;
   const midOnlyMode = $('#mid_only_mode').checked;
+  const turboMode = $('#turbo_mode').checked;
 
   GameEvents.SendCustomGameEventToServer('game_options_change', {
     multiplier_radiant: Number(playerGoldXpMultiplier),
@@ -299,6 +304,7 @@ function SendGameOptionsToServer() {
     force_random_hero: forceRandomHero,
     enable_player_attribute: enablePlayerAttribute,
     mid_only_mode: midOnlyMode,
+    turbo_mode: turboMode,
   });
 }
 

@@ -51,5 +51,8 @@
   },
   "[xml]": {
     "editor.defaultFormatter": "redhat.vscode-xml"
+  },
+  "[valve-kv]": {
+    "editor.defaultFormatter": "Sarrus.sourcepawn-vscode"
   }
 }

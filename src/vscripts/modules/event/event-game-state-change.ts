@@ -12,6 +12,7 @@ import { HeroBuyback } from '../hero/hero-buyback';
 import { HeroPick } from '../hero/hero-pick';
 import { CreepBuffManager } from './game-in-progress/creep-buff-manager';
 import { MidOnlyMode } from './pre-game/mid-only-mode';
+import { RuneSpawnManager } from '../rune/rune-spawn-manager';
 
 export class EventGameStateChange {
   constructor() {
@@ -143,6 +144,8 @@ export class EventGameStateChange {
     new BotTeam();
     // 初始化Bot出装系统
     InitializeItemUpgrades();
+    // 自定义神符生成（替代默认逻辑）
+    new RuneSpawnManager();
   }
 
   /**

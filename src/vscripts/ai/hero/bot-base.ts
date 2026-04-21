@@ -9,7 +9,8 @@ import { SellItem } from '../build-item/sell-item';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { UseItem } from '../item/use-item';
 import { BotBehaviorUtil } from '../mode/bot-behavior-util';
-import { ModeEnum } from '../mode/mode-enum';
+import { MacroGoal, ModeEnum } from '../mode/mode-enum';
+import { MacroGoalManager } from '../mode/macro-goal';
 import { TeamCommander } from '../team/team-commander';
 import { HeroUtil } from './hero-util';
 
@@ -30,14 +31,13 @@ export class BotBaseAIModifier extends BaseModifier {
   private lastClumpDodgeTime: number = -60;
   private static readonly CLUMP_DODGE_COOLDOWN = 5;
 
-
   /**
    * Rolling buffer of the last SUSTAINED_HP_WINDOW HP percent samples (one per 0.3s tick).
    * Used to detect slow DoT sources (e.g. Underlord Firestorm) that each tick is below the
    * spike threshold but whose cumulative damage over ~1.5s is significant.
    */
   private hpHistory: number[] = [];
-  private static readonly SUSTAINED_HP_WINDOW = 5;     // ticks (5 × 0.3s = 1.5s)
+  private static readonly SUSTAINED_HP_WINDOW = 5; // ticks (5 × 0.3s = 1.5s)
   private static readonly SUSTAINED_HP_THRESHOLD = 20; // % drop over the window → dodge
 
   // 中立槽修复节奏：间隔与下次校验时间（gameTime）
@@ -72,6 +72,7 @@ export class BotBaseAIModifier extends BaseModifier {
   // 当前状态
   public gameTime: number = 0;
   public mode: ModeEnum = ModeEnum.LANING;
+  public macroGoal: MacroGoal = MacroGoal.FARM;
 
   // 技能
   protected ability_1: CDOTABaseAbility | undefined;
@@ -109,8 +110,8 @@ export class BotBaseAIModifier extends BaseModifier {
 
     // Personality: each bot rolls its own aggression/caution scalars at spawn so
     // five bots of the same hero play noticeably differently.
-    this.aggressionBias = 0.85 + RandomFloat(0, 0.30); // [0.85, 1.15]
-    this.cautionBias    = 0.85 + RandomFloat(0, 0.30);
+    this.aggressionBias = 0.85 + RandomFloat(0, 0.3); // [0.85, 1.15]
+    this.cautionBias = 0.85 + RandomFloat(0, 0.3);
 
     // 中路模式：推进所需等级缩短一半
     if (GameRules.Option.midOnlyMode) {
@@ -155,18 +156,24 @@ export class BotBaseAIModifier extends BaseModifier {
 
     this.FindAround();
     TeamCommander.getInstance().UpdateGameState([this]);
-    // update state
+    // Macro goal: high-level directive (HEAL, DEFEND, GROUP, FARM)
+    this.macroGoal = MacroGoalManager.Evaluate(this);
+    // FSA: reactive combat mode (LANING, ATTACK, RETREAT, PUSH)
     this.mode = GameRules.AI.FSA.GetMode(this);
     if (this.gameTime < this.continueActionEndTime) {
-      // print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
       return;
     }
     if (this.IsInAbilityPhase()) {
-      // print(`[AI] HeroBase Think break 正在施法中 ${this.hero.GetUnitName()}`);
       return;
     }
     // Damage evasion: check before normal mode actions so dodge takes priority
     if (this.mode !== ModeEnum.RETREAT && this.ActionDodge()) {
+      return;
+    }
+    // HEAL overrides FSA mode actions (except RETREAT, which already handles
+    // emergency flight; let it do its job if enemies are chasing).
+    if (this.macroGoal === MacroGoal.HEAL && this.mode !== ModeEnum.RETREAT) {
+      this.ActionHeal();
       return;
     }
     if (this.ActionMode()) {
@@ -287,9 +294,9 @@ export class BotBaseAIModifier extends BaseModifier {
    *           but still react to spikes and sustained damage.
    * FULL    → suppress all non-channeling dodges; the bot should stand its ground.
    */
-  private static readonly REWARD_NONE    = 0;
+  private static readonly REWARD_NONE = 0;
   private static readonly REWARD_PARTIAL = 1;
-  private static readonly REWARD_FULL    = 2;
+  private static readonly REWARD_FULL = 2;
 
   /**
    * Evaluates how valuable the bot's current action is to determine whether
@@ -321,10 +328,10 @@ export class BotBaseAIModifier extends BaseModifier {
       UnitTargetType.HERO,
       UnitTargetFlags.NONE,
     );
-    let teamHp  = this.hero.GetHealth();
+    let teamHp = this.hero.GetHealth();
     let teamDps = this.hero.GetLevel() * 10;
     for (const ally of allyHeroes) {
-      teamHp  += ally.GetHealth();
+      teamHp += ally.GetHealth();
       teamDps += ally.GetLevel() * 10;
     }
 
@@ -438,7 +445,10 @@ export class BotBaseAIModifier extends BaseModifier {
     //      special units (wards, golems, ancients) justify a dodge step.
     if (this.aroundEnemyHeroes.length > 0) {
       for (const creep of this.aroundEnemyCreeps) {
-        if (HeroUtil.GetDistanceToHero(this.hero, creep) > BotBaseAIModifier.DODGE_RANGED_ATTACKER_RADIUS) {
+        if (
+          HeroUtil.GetDistanceToHero(this.hero, creep) >
+          BotBaseAIModifier.DODGE_RANGED_ATTACKER_RADIUS
+        ) {
           continue;
         }
         if (creep.GetUnitName().indexOf('npc_dota_creep_') === 0) {
@@ -501,9 +511,7 @@ export class BotBaseAIModifier extends BaseModifier {
         ay += p.y;
       }
       this.lastClumpDodgeTime = this.gameTime;
-      this.IssueDodgeFromPos(
-        Vector(ax / nearAllies.length, ay / nearAllies.length, 0) as Vector,
-      );
+      this.IssueDodgeFromPos(Vector(ax / nearAllies.length, ay / nearAllies.length, 0) as Vector);
       return true;
     }
 
@@ -570,7 +578,97 @@ export class BotBaseAIModifier extends BaseModifier {
       this.MaybeScheduleAggroDrop();
       return true;
     }
-    return false;
+
+    // Passive pressure defence: when an enemy hero is nearby but the bot has
+    // nothing productive to do (no kill, no last-hit, no cast), step back toward
+    // the nearest allied tower. Prevents stuttering in place while being zoned.
+    const nearestEnemy = this.FindNearestEnemyHero();
+    if (nearestEnemy) {
+      const distToEnemy = HeroUtil.GetDistanceToHero(this.hero, nearestEnemy);
+      if (distToEnemy <= this.FindHeroRadius) {
+        const alliedTower = ActionFind.FindTeamBuildingsInvulnerable(this.hero, 2000);
+        const destination =
+          alliedTower.length > 0
+            ? alliedTower[0].GetAbsOrigin()
+            : this.hero.GetTeamNumber() === DotaTeam.GOODGUYS
+              ? ActionMove.posRadiantBase
+              : ActionMove.posDireBase;
+        ActionMove.MoveHero(this.hero, destination);
+        this.continueActionEndTime = this.gameTime + 1.5;
+        return true;
+      }
+    }
+
+    // No enemies nearby: use macro goal to direct idle movement so the bot
+    // never stands still in the jungle or near Roshan with nothing to do.
+    return this.ActionLaningIdle();
+  }
+
+  /**
+   * Idle movement for LANING mode when there are no enemies visible and nothing
+   * to cast or last-hit. Priority:
+   *   1. DEFEND goal → move toward the threatened allied tower.
+   *   2. GROUP goal  → move toward the team cluster.
+   *   3. Follow the nearest allied creep wave (pulls the bot into a lane).
+   *   4. Push toward the nearest visible enemy building.
+   *   5. Walk toward the enemy base — always apply pressure.
+   */
+  private ActionLaningIdle(): boolean {
+    const commander = TeamCommander.getInstance();
+    const team = this.hero.GetTeamNumber();
+
+    if (this.macroGoal === MacroGoal.DEFEND) {
+      const target = commander.GetDefendTarget(
+        team,
+        this.hero.GetEntityIndex() as unknown as number,
+      );
+      if (target) {
+        ActionMove.MoveHero(this.hero, target);
+        this.continueActionEndTime = this.gameTime + 3;
+        return true;
+      }
+    }
+
+    if (this.macroGoal === MacroGoal.GROUP) {
+      const target = commander.GetGroupTarget(team);
+      if (target) {
+        ActionMove.MoveHero(this.hero, target);
+        this.continueActionEndTime = this.gameTime + 3;
+        return true;
+      }
+    }
+
+    // Follow the nearest allied creep wave — creeps are always in lanes so
+    // this naturally pulls the bot out of the jungle and toward objectives.
+    const alliedCreeps = ActionFind.Find(
+      this.hero,
+      4000,
+      UnitTargetTeam.FRIENDLY,
+      UnitTargetType.CREEP,
+      UnitTargetFlags.NONE,
+    );
+    if (alliedCreeps.length > 0) {
+      ActionMove.MoveHero(this.hero, alliedCreeps[0].GetAbsOrigin());
+      this.continueActionEndTime = this.gameTime + 2;
+      return true;
+    }
+
+    // No creep wave in range: push the nearest visible enemy building.
+    const enemyBuilding = this.FindNearestEnemyBuildings();
+    if (enemyBuilding) {
+      ActionMove.MoveHero(this.hero, enemyBuilding.GetAbsOrigin());
+      this.continueActionEndTime = this.gameTime + 3;
+      return true;
+    }
+
+    // Ultimate fallback: walk toward the enemy base.
+    // Ensures the bot always has a direction even in the late game when
+    // all nearby buildings are gone and there are no creep waves.
+    const enemyBase =
+      team === DotaTeam.GOODGUYS ? ActionMove.posDireBase : ActionMove.posRadiantBase;
+    ActionMove.MoveHero(this.hero, enemyBase);
+    this.continueActionEndTime = this.gameTime + 5;
+    return true;
   }
 
   /**
@@ -649,7 +747,9 @@ export class BotBaseAIModifier extends BaseModifier {
     for (const enemy of this.aroundEnemyHeroes) {
       const dist = HeroUtil.GetDistanceToHero(this.hero, enemy);
       if (dist <= attackRange) {
-        const claimCount = commander.GetTargetClaimCount(enemy.GetEntityIndex() as unknown as number);
+        const claimCount = commander.GetTargetClaimCount(
+          enemy.GetEntityIndex() as unknown as number,
+        );
         // Soft penalty: each prior claim reduces score by 30%, floored at 10%
         const claimMultiplier = Math.max(0.1, 1 - 0.3 * claimCount);
         const score =
@@ -680,6 +780,19 @@ export class BotBaseAIModifier extends BaseModifier {
       const dir = heroPos.__sub(targetPos).Normalized();
       ActionMove.MoveHeroToDirection(this.hero, dir, attackRange - dist, 50);
     }
+  }
+
+  /**
+   * Macro goal HEAL: walk to the friendly fountain to recover HP and mana.
+   * Does not use continueActionEndTime so the bot re-evaluates every tick and
+   * can immediately switch to RETREAT/ATTACK if enemies appear.
+   */
+  ActionHeal(): void {
+    const basePos =
+      this.hero.GetTeamNumber() === DotaTeam.GOODGUYS
+        ? ActionMove.posRadiantBase
+        : ActionMove.posDireBase;
+    ActionMove.MoveHero(this.hero, basePos);
   }
 
   ActionRetreat(): boolean {
@@ -992,10 +1105,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   /** True when the hero has enough mana to spend on combat abilities. */
   protected HasManaForCombat(): boolean {
-    return BotBehaviorUtil.HasManaForCombat(
-      this.hero.GetMana(),
-      this.hero.GetMaxMana(),
-    );
+    return BotBehaviorUtil.HasManaForCombat(this.hero.GetMana(), this.hero.GetMaxMana());
   }
 
   /** Max distance the bot will chase a killable enemy without disengaging. */

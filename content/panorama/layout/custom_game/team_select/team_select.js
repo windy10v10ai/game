@@ -290,9 +290,11 @@ function SetDifficultyByMapName() {
   }
 
   if (mapDisplayName !== 'hard') {
-    for (let i = 6; i <= 7; i++) {
+    for (let i = 6; i <= 10; i++) {
       const button = $('#DifficultyN' + i);
-      disableDifficultyButton(button, '#map_hard_warning');
+      if (button) {
+        disableDifficultyButton(button, '#map_hard_warning');
+      }
     }
   }
 
@@ -337,7 +339,7 @@ function OnChooseDifficulty(difficulty) {
     $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
     return;
   }
-  if (mapDisplayName === 'hard' && difficulty !== 6 && difficulty !== 7) {
+  if (mapDisplayName === 'hard' && (difficulty < 6 || difficulty > 10)) {
     $.Msg(`Map ${mapDisplayName} cannot choose difficulty ${difficulty}`);
     return;
   }
@@ -346,7 +348,7 @@ function OnChooseDifficulty(difficulty) {
     return;
   }
   // remove all selected class
-  for (let i = 0; i <= 7; i++) {
+  for (let i = 0; i <= 10; i++) {
     const button = $('#DifficultyN' + i);
     if (button) {
       button.RemoveClass('selected');
@@ -375,7 +377,7 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
     Game.SetRemainingSetupTime(10);
   }
 
-  for (let i = 0; i <= 7; i++) {
+  for (let i = 0; i <= 10; i++) {
     const button = $('#DifficultyN' + i);
     if (!button) continue;
     button.enabled = false;

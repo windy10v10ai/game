@@ -1,3 +1,10 @@
+// Fix for incorrect moddota type: OnSpellTargetReady does receive an event in the Dota 2 Lua engine
+declare global {
+  interface CDOTA_Modifier_Lua {
+    OnSpellTargetReady?(event?: ModifierAbilityEvent): void;
+  }
+}
+
 export interface BaseAbility extends CDOTA_Ability_Lua {}
 export class BaseAbility {}
 

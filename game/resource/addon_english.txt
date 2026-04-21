@@ -46,6 +46,7 @@
 		"force_random_hero"			"Force Random Hero"
 		"enable_player_attribute"	"Enable Player Attribute"
 		"mid_only_mode"				"Mid Only Mode"
+		"turbo_mode"				"Turbo Mode"
 		"hide_chat_team"			"Hide Chat and Team"
 		"show_chat_team"			"Show Chat and Team"
 
@@ -3038,5 +3039,104 @@
 		"DOTA_Tooltip_Ability_item_beast_helmet_bonus_intellect"					"+$int"
 		"DOTA_Tooltip_modifier_item_beast_helmet_active"								"Primal Surge"
 		"DOTA_Tooltip_modifier_item_beast_helmet_active_Description"					"Magic immune, 80%% damage reduction, and all damage is converted to Pure damage."
+
+		// ─── Reaper Soul ───────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_reaper_soul"                              "Reaper's Soul"
+		"DOTA_Tooltip_Ability_item_reaper_soul_Description"                  "<h1>Active: Condemn</h1>Mark a target hero for %condemn_duration% seconds. If they die while marked, their buyback is denied for %condemn_buyback_deny% seconds and you gain %condemn_gold_bonus% gold.\n<h1>Passive: Death Sentence</h1>Heroes you kill cannot buy back for %buyback_deny_duration% seconds."
+		"DOTA_Tooltip_Ability_item_reaper_soul_Lore"                         "The coin for the ferryman was never paid back."
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_strength"               "+$str"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_agility"                "+$agi"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_intellect"              "+$int"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_damage"                 "+$damage"
+		"DOTA_Tooltip_Ability_item_reaper_soul_bonus_armor"                  "+$armor"
+		"DOTA_Tooltip_Ability_item_reaper_soul_buyback_deny_duration"        "BUYBACK DENY DURATION:"
+		"DOTA_Tooltip_Ability_item_reaper_soul_condemn_duration"             "CONDEMN DURATION:"
+		"DOTA_Tooltip_modifier_item_reaper_soul_condemned"                   "Condemned"
+		"DOTA_Tooltip_modifier_item_reaper_soul_condemned_Description"       "Death will deny your buyback."
+
+		// ─── Curse of Ages ─────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_curse_of_ages"                            "Curse of Ages"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_Description"                "<h1>Active: Ancient Wither</h1>Instantly apply %active_instant_stacks% erosion stacks to the target.\n<h1>Passive: Erosion</h1>Attacks permanently reduce target's maximum HP by %hp_reduction_per_stack%. Every 10 stacks also reduces armor by %armor_reduction_per_10%. Every 20 stacks also reduces magic resistance by %magic_resist_per_20%%%. Resets on target death."
+		"DOTA_Tooltip_Ability_item_curse_of_ages_Lore"                       "Time claims all things. You merely accelerate the process."
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_intellect"            "+$int"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_strength"             "+$str"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_agility"              "+$agi"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_damage"               "+$damage"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_bonus_spell_amp"            "+$spell_amp%%"
+		"DOTA_Tooltip_Ability_item_curse_of_ages_hp_reduction_per_stack"     "HP REDUCTION PER STACK:"
+		"DOTA_Tooltip_modifier_item_curse_of_ages_stack"                     "Curse of Ages"
+		"DOTA_Tooltip_modifier_item_curse_of_ages_stack_Description"         "Maximum HP, armor, and magic resistance are being eroded."
+
+		// ─── Chaos Engine ──────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_chaos_engine"                             "Chaos Engine"
+		"DOTA_Tooltip_Ability_item_chaos_engine_Description"                 "<h1>Active: Load the Dice</h1>Advance the Wild Magic cycle by one step.\n<h1>Passive: Wild Magic</h1>Every spell cast triggers a bonus effect cycling through 8 outcomes: AOE nuke, AOE stun, polymorph, global silence, meteor, mass slow, spell resist shred, or ability refresh."
+		"DOTA_Tooltip_Ability_item_chaos_engine_Lore"                        "Magic has no rules. It only has consequences."
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_intellect"             "+$int"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_strength"              "+$str"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_agility"               "+$agi"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_damage"                "+$damage"
+		"DOTA_Tooltip_Ability_item_chaos_engine_bonus_spell_amp"             "+$spell_amp%%"
+		"DOTA_Tooltip_modifier_chaos_engine_indicator"                       "Wild Magic: Next"
+		"DOTA_Tooltip_modifier_chaos_engine_indicator_Description"           "0: AOE Nuke  |  1: AOE Stun  |  2: Polymorph  |  3: Global Silence  |  4: Meteor  |  5: Mass Slow  |  6: Spell Shred  |  7: Ability Refresh"
+
+		// ─── Void Paradox ──────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_void_paradox"                             "Void Paradox"
+		"DOTA_Tooltip_Ability_item_void_paradox_Description"                 "<h1>Active: Paradox Shift</h1>For %active_duration% seconds, your current death stacks are doubled.\n<h1>Passive: Paradox Growth</h1>Each time you die, permanently gain +%stats_per_death% all stats, +%damage_per_death% damage, and +%spell_amp_per_death%%% spell amp. No limit."
+		"DOTA_Tooltip_Ability_item_void_paradox_Lore"                        "Every ending is a beginning. He had died enough times to know."
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_strength"              "+$str"
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_health"                "+$health"
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_armor"                 "+$armor"
+		"DOTA_Tooltip_Ability_item_void_paradox_bonus_spell_amp"             "+$spell_amp%%"
+		"DOTA_Tooltip_Ability_item_void_paradox_stats_per_death"             "ALL STATS PER DEATH:"
+		"DOTA_Tooltip_Ability_item_void_paradox_damage_per_death"            "DAMAGE PER DEATH:"
+		"DOTA_Tooltip_modifier_item_void_paradox"                            "Paradox Growth"
+		"DOTA_Tooltip_modifier_item_void_paradox_Description"                "Stack count = deaths. Each death: +10 all stats, +30 damage, +6%% spell amp."
+		"DOTA_Tooltip_modifier_item_void_paradox_active"                     "Paradox Shift"
+		"DOTA_Tooltip_modifier_item_void_paradox_active_Description"         "Death stacks are doubled."
+
+		// ─── Primordial Mandate ────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_primordial_mandate"                       "Primordial Mandate"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_Description"           "<h1>Toggle: Blood Frenzy</h1>Drain %toggle_hp_drain% HP/s to gain +%toggle_attack_speed%%% attack speed, +%toggle_lifesteal%%% lifesteal, and +%toggle_armor% armor.\n<h1>Passive: Primal Fury</h1>For each 1%% of max HP missing, gain +%rage_damage_per_pct%%% damage and +%rage_as_per_pct%%% attack speed (max +%rage_max_bonus%%).\n<h1>Passive: Undying Will</h1>Once per %undying_will_cd%s: survive a killing blow at 1 HP, become untargetable for %undying_will_invis_dur%s, deal %undying_will_damage% pure damage in %undying_will_radius% AoE."
+		"DOTA_Tooltip_Ability_item_primordial_mandate_Lore"                  "The more it bleeds, the more it hungers."
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_strength"        "+$str"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_agility"         "+$agi"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_damage"          "+$damage"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_bonus_health"          "+$health"
+		"DOTA_Tooltip_Ability_item_primordial_mandate_rage_max_bonus"        "MAX RAGE BONUS:"
+		"DOTA_Tooltip_modifier_item_primordial_mandate_frenzy"               "Blood Frenzy"
+		"DOTA_Tooltip_modifier_item_primordial_mandate_frenzy_Description"   "Draining HP for increased attack speed, lifesteal, and armor."
+		"DOTA_Tooltip_modifier_item_primordial_mandate_invuln"               "Undying Will"
+		"DOTA_Tooltip_modifier_item_primordial_mandate_invuln_Description"   "Risen from the brink."
+
+		// ─── Thousand Cuts ─────────────────────────────────────────────────────────
+		"DOTA_Tooltip_Ability_item_thousand_cuts"                            "Thousand Cuts"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_Description"                "<h1>Active: Tempest</h1>For %active_duration%s, strike up to %active_targets% enemies per attack, gain +%active_attack_speed%%% attack speed, and each hit applies a %active_ministun%s ministun.\n<h1>Passive: Blade Storm</h1>Each attack simultaneously strikes up to %passive_targets% additional nearby enemies within %passive_target_radius% range. Each hit is a real attack — triggers on-hit effects, crits, and lifesteal."
+		"DOTA_Tooltip_Ability_item_thousand_cuts_Lore"                       "It was not one strike that won the war. It was every strike, everywhere, at once."
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_agility"              "+$agi"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_strength"             "+$str"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_damage"               "+$damage"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_attack_speed"         "+$attack_speed"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_bonus_attack_range"         "+$range"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_passive_targets"            "EXTRA TARGETS:"
+		"DOTA_Tooltip_Ability_item_thousand_cuts_passive_damage_pct"         "%%DAMAGE PER EXTRA TARGET:"
+		"DOTA_Tooltip_modifier_item_thousand_cuts_active"                    "Blade Tempest"
+		"DOTA_Tooltip_modifier_item_thousand_cuts_active_Description"        "Striking all nearby enemies with every attack."
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Rune Power-ups
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"DOTA_Tooltip_modifier_rune_overdrive"						"Overdrive"
+		"DOTA_Tooltip_modifier_rune_overdrive_Description"			"Moving at 900 speed and attacking at lightning pace."
+
+		"DOTA_Tooltip_modifier_rune_critical_storm"					"Critical Storm"
+		"DOTA_Tooltip_modifier_rune_critical_storm_Description"		"Every attack strikes for 5x damage."
+
+		"DOTA_Tooltip_modifier_rune_surge_of_life"					"Surge of Life"
+		"DOTA_Tooltip_modifier_rune_surge_of_life_Description"		"Incoming damage reduced by 50%. Regenerating HP and healing nearby allies."
+
+		"DOTA_Tooltip_modifier_rune_spell_frenzy"					"Spell Frenzy"
+		"DOTA_Tooltip_modifier_rune_spell_frenzy_Description"		"All ability cooldowns reduced by 80%."
 	}
 }

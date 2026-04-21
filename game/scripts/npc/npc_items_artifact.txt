@@ -1115,4 +1115,291 @@
 			"stat_inheritance_percent"  "10"
 		}
 	}
+
+	// ============================================================
+	// NEW CUSTOM ITEMS — Reaper Soul, Curse of Ages, Chaos Engine,
+	//                    Void Paradox, Primordial Mandate, Thousand Cuts
+	// ============================================================
+
+	"item_recipe_reaper_soul"
+	{
+		"BaseClass"             "item_recipe_arcane_boots"
+		"ID"                    "11200"
+		"Model"                 "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"    "item_recipe_reaper_soul"
+		"ItemCost"              "5000"
+		"ItemRecipe"            "1"
+		"ItemResult"            "item_reaper_soul"
+		"ItemRequirements"
+		{
+			"01"    "item_forbidden_blade;item_consumable_gem"
+		}
+	}
+
+	"item_reaper_soul"
+	{
+		"BaseClass"             "item_lua"
+		"ID"                    "11201"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+		"AbilityCastRange"      "700"
+		"AbilityCooldown"       "30.0"
+		"AbilityManaCost"       "400"
+		"AbilityTextureName"    "item_reaper_soul"
+		"ScriptFile"            "items/ts_items/item_reaper_soul"
+		"ItemCost"              "45000"
+		"ItemShopTags"          "damage;str;agi;hard_to_tag"
+		"ItemQuality"           "artifact"
+		"ItemAliases"           "reaper;soul;buyback"
+		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityValues"
+		{
+			"bonus_strength"        "80"
+			"bonus_agility"         "100"
+			"bonus_intellect"       "100"
+			"bonus_damage"          "250"
+			"bonus_armor"           "25"
+			"buyback_deny_duration" "120"
+			"condemn_duration"      "12"
+			"condemn_buyback_deny"  "300"
+			"condemn_gold_bonus"    "500"
+		}
+	}
+
+	"item_recipe_curse_of_ages"
+	{
+		"BaseClass"             "item_recipe_arcane_boots"
+		"ID"                    "11202"
+		"Model"                 "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"    "item_recipe_curse_of_ages"
+		"ItemCost"              "3000"
+		"ItemRecipe"            "1"
+		"ItemResult"            "item_curse_of_ages"
+		"ItemRequirements"
+		{
+			"01"    "item_shadow_impact;item_light_part"
+		}
+	}
+
+	"item_curse_of_ages"
+	{
+		"BaseClass"             "item_lua"
+		"ID"                    "11203"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType" "DOTA_UNIT_TARGET_HERO"
+		"AbilityCastRange"      "600"
+		"AbilityCooldown"       "30.0"
+		"AbilityManaCost"       "500"
+		"AbilityTextureName"    "item_curse_of_ages"
+		"ScriptFile"            "items/ts_items/item_curse_of_ages"
+		"ItemCost"              "50000"
+		"ItemShopTags"          "int;str;damage;hard_to_tag"
+		"ItemQuality"           "artifact"
+		"ItemAliases"           "curse;ages;erosion"
+		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityValues"
+		{
+			"bonus_intellect"           "100"
+			"bonus_strength"            "80"
+			"bonus_agility"             "80"
+			"bonus_spell_amp"           "50"
+			"bonus_damage"              "250"
+			"bonus_mana"                "1500"
+			"hp_reduction_per_stack"    "80"
+			"armor_reduction_per_10"    "3"
+			"magic_resist_per_20"       "15"
+			"active_instant_stacks"     "15"
+		}
+	}
+
+	"item_recipe_chaos_engine"
+	{
+		"BaseClass"             "item_recipe_arcane_boots"
+		"ID"                    "11204"
+		"Model"                 "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"    "item_recipe_chaos_engine"
+		"ItemCost"              "2000"
+		"ItemRecipe"            "1"
+		"ItemResult"            "item_chaos_engine"
+		"ItemRequirements"
+		{
+			"01"    "item_dagon_ultra;item_hallowed_scepter;item_dark_part"
+		}
+	}
+
+	"item_chaos_engine"
+	{
+		"BaseClass"             "item_lua"
+		"ID"                    "11205"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"       "25.0"
+		"AbilityManaCost"       "600"
+		"AbilityTextureName"    "item_chaos_engine"
+		"ScriptFile"            "items/ts_items/item_chaos_engine"
+		"ItemCost"              "50000"
+		"ItemShopTags"          "int;str;damage;hard_to_tag"
+		"ItemQuality"           "artifact"
+		"ItemAliases"           "chaos;engine;random;wild magic"
+		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityValues"
+		{
+			"bonus_intellect"           "120"
+			"bonus_strength"            "80"
+			"bonus_agility"             "80"
+			"bonus_damage"              "200"
+			"bonus_spell_amp"           "80"
+			"bonus_mana"                "1500"
+			"nuke_damage"               "900"
+			"nuke_radius"               "700"
+			"stun_duration"             "1.5"
+			"polymorph_duration"        "2.0"
+			"silence_duration"          "4.0"
+			"meteor_damage"             "800"
+			"slow_pct"                  "80"
+			"slow_duration"             "3.0"
+			"spell_resist_reduction"    "50"
+			"spell_resist_duration"     "6.0"
+		}
+	}
+
+	"item_recipe_void_paradox"
+	{
+		"BaseClass"             "item_recipe_arcane_boots"
+		"ID"                    "11206"
+		"Model"                 "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"    "item_recipe_void_paradox"
+		"ItemCost"              "4000"
+		"ItemRecipe"            "1"
+		"ItemResult"            "item_void_paradox"
+		"ItemRequirements"
+		{
+			"01"    "item_withered_spring;item_dark_part"
+		}
+	}
+
+	"item_void_paradox"
+	{
+		"BaseClass"             "item_lua"
+		"ID"                    "11207"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"       "180.0"
+		"AbilityManaCost"       "800"
+		"AbilityTextureName"    "item_void_paradox"
+		"ScriptFile"            "items/ts_items/item_void_paradox"
+		"ItemCost"              "50000"
+		"ItemShopTags"          "str;health_pool;regen_health;hard_to_tag"
+		"ItemQuality"           "artifact"
+		"ItemAliases"           "void;paradox;death;stacks"
+		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityValues"
+		{
+			"bonus_strength"            "180"
+			"bonus_health"              "2500"
+			"bonus_health_regen"        "80"
+			"bonus_armor"               "40"
+			"bonus_spell_amp"           "60"
+			"stats_per_death"           "10"
+			"damage_per_death"          "30"
+			"spell_amp_per_death"       "6"
+			"active_duration"           "20"
+		}
+	}
+
+	"item_recipe_primordial_mandate"
+	{
+		"BaseClass"             "item_recipe_arcane_boots"
+		"ID"                    "11208"
+		"Model"                 "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"    "item_recipe_primordial_mandate"
+		"ItemCost"              "5000"
+		"ItemRecipe"            "1"
+		"ItemResult"            "item_primordial_mandate"
+		"ItemRequirements"
+		{
+			"01"    "item_dracula_mask;item_light_part"
+		}
+	}
+
+	"item_primordial_mandate"
+	{
+		"BaseClass"             "item_lua"
+		"ID"                    "11209"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_TOGGLE"
+		"AbilityTextureName"    "item_primordial_mandate"
+		"ScriptFile"            "items/ts_items/item_primordial_mandate"
+		"ItemCost"              "52000"
+		"ItemShopTags"          "str;agi;damage;hard_to_tag"
+		"ItemQuality"           "artifact"
+		"ItemAliases"           "primordial;mandate;berserker;frenzy"
+		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityValues"
+		{
+			"bonus_strength"            "130"
+			"bonus_agility"             "100"
+			"bonus_intellect"           "100"
+			"bonus_damage"              "250"
+			"bonus_health"              "2500"
+			"bonus_lifesteal"           "60"
+			"rage_damage_per_pct"       "0.8"
+			"rage_as_per_pct"           "0.8"
+			"rage_max_bonus"            "80"
+			"undying_will_cd"           "120"
+			"undying_will_damage"       "2500"
+			"undying_will_radius"       "700"
+			"undying_will_invis_dur"    "2.5"
+			"toggle_hp_drain"           "400"
+			"toggle_attack_speed"       "200"
+			"toggle_lifesteal"          "200"
+			"toggle_armor"              "50"
+		}
+	}
+
+	"item_recipe_thousand_cuts"
+	{
+		"BaseClass"             "item_recipe_arcane_boots"
+		"ID"                    "11210"
+		"Model"                 "models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"    "item_recipe_thousand_cuts"
+		"ItemCost"              "0"
+		"ItemRecipe"            "1"
+		"ItemResult"            "item_thousand_cuts"
+		"ItemRequirements"
+		{
+			"01"    "item_sacred_trident;item_echo_sabre_2;item_hurricane_pike_2;item_fusion_agile"
+		}
+	}
+
+	"item_thousand_cuts"
+	{
+		"BaseClass"             "item_lua"
+		"ID"                    "11211"
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCooldown"       "20.0"
+		"AbilityManaCost"       "300"
+		"AbilityTextureName"    "item_thousand_cuts"
+		"ScriptFile"            "items/ts_items/item_thousand_cuts"
+		"ItemCost"              "40000"
+		"ItemShopTags"          "agi;str;damage;attack_speed;hard_to_tag"
+		"ItemQuality"           "artifact"
+		"ItemAliases"           "thousand;cuts;multi;attack"
+		"ItemDeclarations"      "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"AbilityValues"
+		{
+			"bonus_agility"             "100"
+			"bonus_strength"            "80"
+			"bonus_damage"              "200"
+			"bonus_attack_speed"        "200"
+			"bonus_attack_range"        "300"
+			"bat_reduction"             "0.3"
+			"passive_targets"           "4"
+			"passive_target_radius"     "550"
+			"passive_damage_pct"        "70"
+			"active_targets"            "10"
+			"active_attack_speed"       "200"
+			"active_ministun"           "0.3"
+			"active_duration"           "8"
+		}
+	}
 }

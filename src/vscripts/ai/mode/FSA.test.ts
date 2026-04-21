@@ -7,16 +7,32 @@ global.print = jest.fn(); // Dota Lua global not available in Jest
 
 // Mock all mode classes so FSA can be instantiated without Dota globals
 jest.mock('./mode-laning', () => ({
-  ModeLaning: jest.fn().mockImplementation(() => ({ mode: ModeEnum.LANING, hysteresisBonus: 0.1, GetDesire: jest.fn().mockReturnValue(0) })),
+  ModeLaning: jest.fn().mockImplementation(() => ({
+    mode: ModeEnum.LANING,
+    hysteresisBonus: 0.1,
+    GetDesire: jest.fn().mockReturnValue(0),
+  })),
 }));
 jest.mock('./mode-attack', () => ({
-  ModeAttack: jest.fn().mockImplementation(() => ({ mode: ModeEnum.ATTACK, hysteresisBonus: 0.1, GetDesire: jest.fn().mockReturnValue(0) })),
+  ModeAttack: jest.fn().mockImplementation(() => ({
+    mode: ModeEnum.ATTACK,
+    hysteresisBonus: 0.1,
+    GetDesire: jest.fn().mockReturnValue(0),
+  })),
 }));
 jest.mock('./mode-retreat', () => ({
-  ModeRetreat: jest.fn().mockImplementation(() => ({ mode: ModeEnum.RETREAT, hysteresisBonus: 0.1, GetDesire: jest.fn().mockReturnValue(0) })),
+  ModeRetreat: jest.fn().mockImplementation(() => ({
+    mode: ModeEnum.RETREAT,
+    hysteresisBonus: 0.1,
+    GetDesire: jest.fn().mockReturnValue(0),
+  })),
 }));
 jest.mock('./mode-push', () => ({
-  ModePush: jest.fn().mockImplementation(() => ({ mode: ModeEnum.PUSH, hysteresisBonus: 0.1, GetDesire: jest.fn().mockReturnValue(0) })),
+  ModePush: jest.fn().mockImplementation(() => ({
+    mode: ModeEnum.PUSH,
+    hysteresisBonus: 0.1,
+    GetDesire: jest.fn().mockReturnValue(0),
+  })),
 }));
 
 function makeHeroAI(currentMode: ModeEnum): any {
@@ -70,7 +86,7 @@ describe('FSA.GetMode', () => {
       // ATTACK: raw=0.50, score=0.50 (no hysteresis)
       // LANING wins score selection (0.55 > 0.50)
       // maxRawDesire for LANING = 0.45 < 0.5 threshold → returns currentMode (LANING)
-      setDesires(fsa, { [ModeEnum.LANING]: 0.45, [ModeEnum.ATTACK]: 0.50 });
+      setDesires(fsa, { [ModeEnum.LANING]: 0.45, [ModeEnum.ATTACK]: 0.5 });
       expect(fsa.GetMode(makeHeroAI(ModeEnum.LANING))).toBe(ModeEnum.LANING);
     });
 
@@ -79,7 +95,7 @@ describe('FSA.GetMode', () => {
       // ATTACK: raw=0.50, score=0.50
       // RETREAT score(0.55) > ATTACK score(0.50) → RETREAT wins winner selection
       // But maxRawDesire=0.45 < 0.5 threshold → stays in currentMode (RETREAT)
-      setDesires(fsa, { [ModeEnum.RETREAT]: 0.45, [ModeEnum.ATTACK]: 0.50 });
+      setDesires(fsa, { [ModeEnum.RETREAT]: 0.45, [ModeEnum.ATTACK]: 0.5 });
       // ATTACK score=0.50 > RETREAT score=0.55? No, 0.50 < 0.55, so RETREAT wins selection
       // maxRawDesire from RETREAT = 0.45 < 0.5, returns currentMode
       expect(fsa.GetMode(makeHeroAI(ModeEnum.RETREAT))).toBe(ModeEnum.RETREAT);

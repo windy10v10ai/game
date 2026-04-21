@@ -1,3 +1,10 @@
+export enum MacroGoal {
+  FARM = 'FARM', // Default — operate normally through FSA
+  HEAL = 'HEAL', // Go to fountain to recover HP/mana
+  DEFEND = 'DEFEND', // Move toward a threatened allied tower
+  GROUP = 'GROUP', // Join a team cluster forming up for a fight
+}
+
 export enum ModeEnum {
   /**
    * 对线

@@ -5,6 +5,11 @@ import { abilityModelNameList, heroNameListParticles, heroNameListSound } from '
 // 导出的预载入方法，用来给addon_game_mode.ts调用
 export default function Precache(context: CScriptPrecacheContext) {
   print(`[Precache] Start precache...`);
+  // Register rune modifiers early so Dota adds them to the networked string table
+  LinkLuaModifier('modifier_rune_overdrive', 'modifiers/rune/modifier_rune_overdrive', LuaModifierMotionType.NONE);
+  LinkLuaModifier('modifier_rune_critical_storm', 'modifiers/rune/modifier_rune_critical_storm', LuaModifierMotionType.NONE);
+  LinkLuaModifier('modifier_rune_surge_of_life', 'modifiers/rune/modifier_rune_surge_of_life', LuaModifierMotionType.NONE);
+  LinkLuaModifier('modifier_rune_spell_frenzy', 'modifiers/rune/modifier_rune_spell_frenzy', LuaModifierMotionType.NONE);
   // 需要预载的所有资源
   precacheResource(
     [

@@ -44,10 +44,10 @@ export class ModeAttack extends ModeBase {
           UnitTargetType.HERO,
           UnitTargetFlags.NONE,
         );
-        let teamHp  = hero.GetHealth();
+        let teamHp = hero.GetHealth();
         let teamDps = hero.GetLevel() * 10;
         for (const ally of allyHeroes) {
-          teamHp  += ally.GetHealth();
+          teamHp += ally.GetHealth();
           teamDps += ally.GetLevel() * 10;
         }
 

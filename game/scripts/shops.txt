@@ -312,6 +312,12 @@
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
+		"item"      "item_reaper_soul"          // 死神之魂
+		"item"      "item_curse_of_ages"        // 岁月诅咒
+		"item"      "item_chaos_engine"         // 混沌引擎
+		"item"      "item_void_paradox"         // 虚空悖论
+		"item"      "item_primordial_mandate"   // 原初天命
+		"item"      "item_thousand_cuts"        // 千刃
 	}
 
 	"sideshop1"

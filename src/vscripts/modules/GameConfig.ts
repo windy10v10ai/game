@@ -44,7 +44,7 @@ export class GameConfig {
     GameRules.SetTimeOfDay(0.25); // 设置天亮时间与Dota2一致
 
     const game: CDOTABaseGameMode = GameRules.GetGameModeEntity();
-    game.SetUseDefaultDOTARuneSpawnLogic(true); // 是否使用默认的神符生成逻辑
+    game.SetUseDefaultDOTARuneSpawnLogic(false); // custom rune spawning via RuneSpawnManager
     // game.SetRemoveIllusionsOnDeath(true); // 是否在英雄死亡的时候移除幻象
     game.SetFreeCourierModeEnabled(true); // 是否启用免费信使模式
     game.SetSelectionGoldPenaltyEnabled(true); // 是否启用选择英雄时的金钱惩罚（超时每秒扣钱）

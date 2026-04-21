@@ -142,6 +142,30 @@ export class ModeRetreat extends ModeBase {
       }
     }
 
+    // Isolation: an enemy hero is within 900 units but the bot has no creep wave
+    // or allied tower nearby for support. In lane, friendly creeps provide zoning;
+    // near a tower, the tower deters pursuit. In the jungle or deep in enemy territory
+    // with neither, the bot is exposed and should fall back even at full HP.
+    // This beats the LANING floor (0.55) so the bot actually retreats instead of
+    // hovering aimlessly. ATTACK desire (capped 0.8) still wins when the bot has
+    // clear superiority, so a strong bot will still fight in the jungle.
+    if (enemyHeroes.length > 0) {
+      const closeEnemy = enemyHeroes.some((e) => HeroUtil.GetDistanceToHero(hero, e) <= 900);
+      if (closeEnemy) {
+        const alliedCreeps = ActionFind.Find(
+          hero,
+          1200,
+          UnitTargetTeam.FRIENDLY,
+          UnitTargetType.CREEP,
+          UnitTargetFlags.NONE,
+        );
+        const alliedTowers = ActionFind.FindTeamBuildingsInvulnerable(hero, 1200);
+        if (alliedCreeps.length === 0 && alliedTowers.length === 0) {
+          desire += 0.6;
+        }
+      }
+    }
+
     desire = Math.min(desire, 1);
     return desire;
   }

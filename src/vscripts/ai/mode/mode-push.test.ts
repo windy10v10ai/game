@@ -7,7 +7,13 @@ declare let global: any;
 
 global.UnitTargetTeam = { FRIENDLY: 2, ENEMY: 4 };
 global.UnitTargetType = { HERO: 1, CREEP: 2, BUILDING: 4 };
-global.UnitTargetFlags = { NONE: 0, NOT_ILLUSIONS: 8, FOW_VISIBLE: 256, NO_INVIS: 512, INVULNERABLE: 128 };
+global.UnitTargetFlags = {
+  NONE: 0,
+  NOT_ILLUSIONS: 8,
+  FOW_VISIBLE: 256,
+  NO_INVIS: 512,
+  INVULNERABLE: 128,
+};
 global.FindOrder = { CLOSEST: 0 };
 
 function makeHero(healthPercent: number, level: number): any {
@@ -27,7 +33,13 @@ function makeHeroAI(opts: {
   gameTime?: number;
   enemyHeroes?: any[];
 }): any {
-  const { healthPercent = 100, level = 12, pushLevel = 10, gameTime = 900, enemyHeroes = [] } = opts;
+  const {
+    healthPercent = 100,
+    level = 12,
+    pushLevel = 10,
+    gameTime = 900,
+    enemyHeroes = [],
+  } = opts;
   return {
     mode: ModeEnum.LANING,
     PushLevel: pushLevel,
@@ -65,8 +77,12 @@ describe('ModePush.GetDesire', () => {
     });
 
     it('jumps significantly when hero reaches push level', () => {
-      const before = push.GetDesire(makeHeroAI({ level: 9, pushLevel: 10, gameTime: 0, healthPercent: 100 }));
-      const after = push.GetDesire(makeHeroAI({ level: 10, pushLevel: 10, gameTime: 0, healthPercent: 100 }));
+      const before = push.GetDesire(
+        makeHeroAI({ level: 9, pushLevel: 10, gameTime: 0, healthPercent: 100 }),
+      );
+      const after = push.GetDesire(
+        makeHeroAI({ level: 10, pushLevel: 10, gameTime: 0, healthPercent: 100 }),
+      );
       expect(after).toBeGreaterThan(before + 0.4);
     });
   });
@@ -103,9 +119,9 @@ describe('ModePush.GetDesire', () => {
     });
 
     it('suppresses lightly when overnumbered (3v1)', () => {
-      jest.spyOn(ActionFind, 'Find').mockReturnValue([
-        makeHero(100, 12), makeHero(100, 12), makeHero(100, 12),
-      ]);
+      jest
+        .spyOn(ActionFind, 'Find')
+        .mockReturnValue([makeHero(100, 12), makeHero(100, 12), makeHero(100, 12)]);
       const enemies = [makeHero(100, 12)];
       const desire = push.GetDesire(makeHeroAI({ enemyHeroes: enemies }));
       expect(desire).toBeGreaterThan(0.6); // mostly unaffected when winning
@@ -115,7 +131,9 @@ describe('ModePush.GetDesire', () => {
   describe('scenario: overnumbered (3v1, full HP, late game)', () => {
     it('attack desire wins — push is high but attack should be higher', () => {
       // Verifying push doesn't incorrectly dominate when attack is clearly better
-      const desire = push.GetDesire(makeHeroAI({ healthPercent: 100, enemyHeroes: [makeHero(100, 12)] }));
+      const desire = push.GetDesire(
+        makeHeroAI({ healthPercent: 100, enemyHeroes: [makeHero(100, 12)] }),
+      );
       // With suppression from ~equal fight, push is moderate
       expect(desire).toBeLessThan(0.75);
     });
