@@ -1944,7 +1944,6 @@
 				"radius"
 				{
 					"value"		"900"
-					"affected_by_aoe_increase"	"1"
 				}
 				"duration"		"2.5"
 				"knockback_distance"		"800"
@@ -1956,26 +1955,20 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"slow_duration"				"1 1.75 2.5 3.25 4"
+			"slow_duration"				"1 2 3 4 5"
 			"torrent_damage"
 			{
-				"value"			"110 180 250 320 390"		// 110 180 250 320
-				"special_bonus_unique_kunkka_7"		"+25%"
+				"value"			"110 180 250 320 390"
 			}
 			"AbilityCooldown"
 			{
-				"value"						"16 15 14 13 12"
+				"value"						"14 13 12 11 10"
 			}
 			"stun_duration"
 			{
 				"value"								"1"		// 1.4
 			}
 		}
-	}
-	// 洪流浪潮（已移除）
-	"kunkka_torrent_storm"
-	{
-		"AbilityCooldown"				"60"
 	}
 	// 潮汐使者 水刀
 	"kunkka_tidebringer"
@@ -1986,26 +1979,18 @@
 			"cleave_ending_width"
 			{
 				"value"		"500 550 600 650 700"
-				"affected_by_aoe_increase"	"1"
 			}
 			"cleave_distance"
 			{
-				"value"			"650 775 900 1025 1150"	// 650/775/900/1025
-				"affected_by_aoe_increase"	"1"
+				"value"			"650 775 900 1025 1150"
 			}
 			"damage_bonus"
 			{
 				"value"			"35 70 105 140 175"
-				"special_bonus_unique_kunkka_2"		"+75"
 			}
 			"AbilityCooldown"
 			{
 				"value"					"12.0 10.0 8.0 6.0 4.0"
-			}
-			"cooldown_reduction_per_hero_hit"
-			{
-				"value"												"0.0"
-				"special_bonus_facet_kunkka_high_tide"		"+0.6"		// 0.8
 			}
 		}
 	}
@@ -2014,20 +1999,23 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"550 700 850 1000 1150"
-		"AbilityCooldown"				"24 20 16 12 8"
+		"AbilityCooldown"				"20 18 16 14 12"
+	}
+	// 统帅朗姆酒 先天
+	"kunkka_admirals_rum"
+	{
 		"AbilityValues"
 		{
-				"rum_allies_radius"
-				{
-					"value"						"0"
-					"special_bonus_facet_kunkka_grog"	"+600"
-					"affected_by_aoe_increase"	"1"
-				}
-				"buff_duration"					// rum buff, must be named buff_duration
-				{
-					"value"						"0"
-					"special_bonus_facet_kunkka_grog"	"+4.5"
-				}
+			"movespeed_bonus"
+			{
+				"value"					"15.5"		// 7.75 x2
+				"hero_levelup"			"+0.5"		// +0.25 x2
+			}
+			"AbilityCooldown"
+			{
+				"value"					"30.25"		// 60.5 x0.5
+				"hero_levelup"			"-0.25"		// -0.5 x0.5
+			}
 		}
 	}
 	// 幽灵船
