@@ -1,3 +1,4 @@
+import { NeutralItemManager } from '../../../ai/item/neutral-item';
 import { PlayerHelper } from '../../../modules/helper/player-helper';
 import { GameEndDto } from '../dto/game-end-dto';
 import { GA4 } from './ga4';
@@ -8,6 +9,7 @@ export interface ItemSampleEntry {
   cost: number;
   sampleCount: number;
   isCarriedAtEnd: boolean;
+  tier?: number;
 }
 
 // key = `${playerId}:${itemName}`
@@ -59,6 +61,10 @@ export class GA4ItemTracker {
         'neutral_active',
         neutralActive.GetCost(),
         isGameEnd,
+        NeutralItemManager.GetNeutralItemTier(
+          neutralActive.GetAbilityName(),
+          neutralActive.GetLevel(),
+        ),
       );
 
     const neutralPassive = hero.GetItemInSlot(InventorySlot.NEUTRAL_PASSIVE_SLOT);
@@ -69,6 +75,10 @@ export class GA4ItemTracker {
         'neutral_passive',
         neutralPassive.GetCost(),
         isGameEnd,
+        NeutralItemManager.GetNeutralItemTier(
+          neutralPassive.GetAbilityName(),
+          neutralPassive.GetLevel(),
+        ),
       );
   }
 
@@ -78,6 +88,7 @@ export class GA4ItemTracker {
     type: ItemSampleEntry['type'],
     cost: number,
     isGameEnd = false,
+    tier?: number,
   ): void {
     const key: SampleKey = `${playerId}:${itemName}`;
     const existing = this.samples.get(key);
@@ -90,6 +101,7 @@ export class GA4ItemTracker {
         itemName,
         type,
         cost,
+        tier,
         sampleCount: 1,
         isCarriedAtEnd: isGameEnd,
       });
@@ -133,6 +145,7 @@ export class GA4ItemTracker {
           item_name: entry.itemName,
           type: entry.type,
           cost: entry.cost,
+          tier: entry.tier ?? 0,
           sample_count: entry.sampleCount,
           duration_seconds: entry.sampleCount * GA4ItemTracker.SAMPLE_INTERVAL_SECONDS,
           is_carried_at_end: entry.isCarriedAtEnd,

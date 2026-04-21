@@ -5568,6 +5568,71 @@
 	}
 
 	//=================================================================================================================
+	// 洗炼石/转化石
+	//=================================================================================================================
+	// 洗炼石
+	"item_rune_transmuter_random"
+	{
+		"BaseClass"					"item_lua"
+		"ID"						"10109"
+		"ScriptFile"				"items/item_rune_transmuter_random"
+		"AbilityTextureName"		"rune_transmuter_random"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"ItemCost"					"1000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"0"
+		"ItemDroppable"				"1"
+		"ItemStackable"				"1"
+		"ItemInitialCharges"		"1"
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"ItemInitialStockTime"		"360"	// 5分钟开卖（含-60秒准备期）
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"300"	// 5分钟补货CD
+
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+		"IsTempestDoubleClonable"	"0"
+	}
+
+	// 转化石
+	"item_rune_transmuter_advanced"
+	{
+		"BaseClass"					"item_lua"
+		"ID"						"10110"
+		"ScriptFile"				"items/item_rune_transmuter_advanced"
+		"AbilityTextureName"		"rune_transmuter_advanced"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"ItemCost"					"5000"
+		"ItemIsNeutralDrop"			"0"
+		"ItemPurchasable"			"1"
+		"ItemKillable"				"0"
+		"ItemSellable"				"1"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemPermanent"				"0"
+		"ItemDroppable"				"1"
+		"ItemStackable"				"1"
+		"ItemInitialCharges"		"1"
+		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"
+
+		"ItemInitialStockTime"		"360"	// 5分钟开卖（含-60秒准备期）
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"300"	// 5分钟补货CD
+
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"rare"
+		"IsTempestDoubleClonable"	"0"
+	}
+
+	//=================================================================================================================
 	// 通用符文 - 自动合成物品
 	//=================================================================================================================
 	"item_universal_rune"
@@ -5583,8 +5648,6 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"					"39999"
-		"ItemShopTags"				"consumable"
-		"ItemQuality"				"consumable"
 		"ItemPermanent"				"0"
 		"ItemStackable"				"0"
 		"ItemPurchasable"			"1"
@@ -5596,6 +5659,10 @@
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"60"
 		"AbilityCooldown"			"1.0"
+
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"artifact"
+		"IsTempestDoubleClonable"	"0"
 	}
 
 	//=================================================================================================================

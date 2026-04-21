@@ -251,7 +251,8 @@
 		"Ability4" 		"miku_dance"
 		"Ability5" 		"get_down"
 		"Ability6" 		"chibi_monster"
-		"Ability7" 		"generic_hidden"
+		"Ability7" 		"generic_hidden"	// 移除米波技能
+		"Ability8"		"generic_hidden"	// 移除米波技能
 		"Ability22"		"chibi_hit"
 
 		"Ability10" 				"special_bonus_unique_miku_101"
@@ -2421,6 +2422,7 @@
 	"npc_dota_hero_witch_doctor"
 	{
 		"Ability5"		"generic_hidden"	// 移除 驱邪护符
+		"Ability11"		"special_bonus_unique_witch_doctor_voodoo_restoration_heal"	// 替换治疗天赋
 		"Bot"
 		{
 			"Build"
@@ -2451,7 +2453,7 @@
 				"24"		"witch_doctor_death_ward"
 				"25"		"special_bonus_unique_witch_doctor_5"
 				"26"		"witch_doctor_maledict"
-				"27"		"special_bonus_hp_200"
+				"27"		"special_bonus_unique_witch_doctor_voodoo_restoration_heal"
 				"28"		"special_bonus_unique_witch_doctor_6"
 				"29"		"special_bonus_unique_witch_doctor_maledict_spread"
 				"30"		"special_bonus_unique_witch_doctor_3"
