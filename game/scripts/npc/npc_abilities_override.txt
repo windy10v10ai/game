@@ -10149,17 +10149,16 @@
 	// 冲击波
 	"keeper_of_the_light_illuminate"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"// 无视魔免
-		"MaxLevel" "7"
-		"AbilityManaCost"				"100 125 150 175 200 225 250"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
+		"MaxLevel"						"5"
+		"AbilityManaCost"				"100 125 150 175 200"
 		"AbilityValues"
 		{
 			"total_damage"
 			{
-				"value"				"300 400 500 600 700 800 900"
-				"special_bonus_unique_keeper_of_the_light"		"+200"
+				"value"				"185 290 395 500 605"
 			}
-			"channel_vision_step"		"150 180 210 240 270 300 330"
+			"channel_vision_step"		"150 180 210 240 270"
 		}
 	}
 	// 法力流失
@@ -10173,71 +10172,45 @@
 		{
 			"duration"
 			{
-				"value" "4.0 5.0 6.0 7.0 8.0"
+				"value"			"4.0 5.0 6.0 7.0 8.0"
 			}
 			"stun_duration"
 			{
-				"value" "1.5 2.0 2.5 3.0 3.5"
+				"value"			"1.5 2.0 2.5 3.0 3.5"
 			}
-		}
-	}
-	// 炎阳之缚
-	"keeper_of_the_light_radiant_bind"
-	{
-		"MaxLevel"						"4"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"// 无视魔免
-		"AbilityCastRange"				"1000"
-		"AbilityValues"
-		{
-				"magic_resistance"			"20 30 40 50"
 		}
 	}
 	// 查克拉魔法
 	"keeper_of_the_light_chakra_magic"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"900 1000 1100 1200 1300"
-		"AbilityCastPoint"				"0.3 0.2 0.1 0.1 0.0"
 		"AbilityValues"
 		{
 			"mana_restore"
 			{
-				"value"			"90 160 230 300 370"
+				"value"			"210 340 470 600 730"	// 105 170 235 300 365 x2
 			}
 			"cooldown_reduction"	"3 4 5 6 7"
 			"mana_leak_pct"	"4.5 5 5.5 6.0 6.5"
-			"duration"	"5"
 			"AbilityCooldown"
 			{
-				"value"			"18 16 14 12 10"
+				"value"			"19 16 13 10 7"
 			}
-			"self_bonus"				"25"
 		}
 	}
 	// 灵魂形态
 	"keeper_of_the_light_spirit_form"
 	{
-		"MaxLevel" "4"
+		"MaxLevel"						"4"
 		"AbilityCooldown"				"85 80 75 70"
 		"AbilityManaCost"				"75 125 175 225"
 		"AbilityValues"
 		{
 			"duration"
 			{
-				"value"				"40.0 45.0 50.0 55"
-
+				"value"				"40.0 45.0 50.0 55.0"
 			}
-			"movement_speed"
-			{
-				"value"				"10 15 20 25"
-				"special_bonus_unique_keeper_of_the_light_11"	"+15"
-			}
-			"cast_range"			"100 200 300 400"
-			"illuminate_heal"
-			{
-				"value"					"50 60 70 80"
-				"special_bonus_shard"		"+30"
-			}
+			"cast_range"			"100 175 250 325"
 		}
 	}
 	// 召回
@@ -10270,8 +10243,8 @@
 	"keeper_of_the_light_blinding_light"
 	{
 		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"400 500 600 700 800"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
+		"AbilityCastRange"				"500 575 650 725 800"
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
@@ -10282,20 +10255,30 @@
 				"knockback_duration"	"0.6"
 				"damage"
 				{
-					"value"											"90 140 190 240 290"
+					"value"											"180 280 380 480 580"	// 90 140 190 240 290 x2
 				}
 				"AbilityCooldown"
 				{
-					"value"											"25 22 19 16 13"
-					"special_bonus_unique_keeper_of_the_light_5"	"-5"
+					"value"											"24 21 18 15 12"
 				}
+		}
+	}
+	// 炎阳之缚
+	"keeper_of_the_light_radiant_bind"
+	{
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
+		"AbilityValues"
+		{
+			"magic_resistance"
+			{
+				"value"				"20 30 40 50"
+			}
 		}
 	}
 	//灵光
 	"keeper_of_the_light_will_o_wisp"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCooldown"				"40"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
 		"AbilityValues"
 		{
 				"on_count"					"6"			// 5
@@ -10303,11 +10286,9 @@
 				"wisp_damage"
 				{
 					"value"									"155"	// 85
-					"hero_levelup"							"+5"
+					"hero_levelup"							"+5"	// 额外添加
 				}
 				"off_duration"				"1.0"		// 1.85
-				"on_duration"				"1.0"
-				"off_duration_initial"		"1.0"
 				"fixed_movement_speed"		"150"		// 60
 		}
 	}
