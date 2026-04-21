@@ -22,20 +22,22 @@ export class FSA {
 
   GetMode(heroAI: BotBaseAIModifier): ModeEnum {
     const currentMode = heroAI.mode;
-    let maxDesire = 0;
+    let maxScore = 0;
+    let maxRawDesire = 0;
     let desireMode: ModeEnum | undefined;
+
     for (const mode of this.ModeList) {
-      const desire = mode.GetDesire(heroAI);
-      if (desire > maxDesire) {
-        maxDesire = desire;
+      const rawDesire = mode.GetDesire(heroAI);
+      const jitter = (Math.random() - 0.5) * 0.06;
+      const score = rawDesire + jitter + (mode.mode === currentMode ? mode.hysteresisBonus : 0);
+      if (score > maxScore) {
+        maxScore = score;
+        maxRawDesire = rawDesire;
         desireMode = mode.mode;
       }
     }
 
-    if (maxDesire >= FSA.MODE_SWITCH_THRESHOLD) {
-      if (desireMode !== currentMode) {
-        // print(`[AI] hero ${heroAI.GetHero().GetUnitName()} desire to switch mode to ${desireMode}`);
-      }
+    if (maxRawDesire >= FSA.MODE_SWITCH_THRESHOLD) {
       return desireMode!;
     } else {
       return currentMode;

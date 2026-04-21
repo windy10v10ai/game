@@ -332,10 +332,10 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
 
-		//才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"				"Quick Wit"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"	"Интеллект также увеличивает скорость атаки этого героя."
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Note0"		"Каждая единица интеллекта увеличивает скорость атаки героя на %int_to_atkspd%."
+		// 黑暗贤者 才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"За каждую единицу Интеллекта Dark Seer получает %int_to_atkspd% скорости атаки."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"БОНУС К СКОРОСТИ АТАКИ:"
 		//炽烈火雨
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"ПРЕРЫВАЕМАЯ — герой выпускает залп стрел в выбранном направлении. Они пролетают сквозь всех врагов на пути, нанося им долю от обычного урона, а также накладывая эффекты атаки и замедление от способности Tar Bomb."
