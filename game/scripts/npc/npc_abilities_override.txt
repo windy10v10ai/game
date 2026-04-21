@@ -2006,6 +2006,10 @@
 	{
 		"AbilityValues"
 		{
+			"ghostship_absorb"
+			{
+				"value"					"50"		// 18
+			}
 			"movespeed_bonus"
 			{
 				"value"					"15.5"		// 7.75 x2
