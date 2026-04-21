@@ -8945,14 +8945,13 @@
 	"crystal_maiden_frostbite"
 	{
 		"MaxLevel"						"5"
-		"SpellImmunityType"					"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityValues"
 		{
 			"AbilityCooldown"				"9 8 7 6 5"
 			"AbilityManaCost"				"125 135 145 155 165"
 			"damage_per_second"
 			{
-				"value"			"100 120 140 160 180"	// 100
+				"value"			"100 150 200 250 300"	// 100
 			}
 			"duration"
 			{
@@ -12058,26 +12057,21 @@
 	// 感应地雷
 	"techies_land_mines"
 	{
-		"MaxLevel"						"5"
-		"AbilityManaCost"				"140 270 420 500 600"
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"110 140 170 200"
 		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"			"800 1200 1800 3000 5000"	// 400 575 750
+					"value"			"800 1100 1400 1700"	// 400 550 700 850 x2
 				}
-				"AbilityChargeRestoreTime"
-				{
-					"value"		"36 32 28 24 20"
-					"special_bonus_unique_techies_3"	"-2"
-				}
-				"mres_reduction"			"30 40 50 60 70"	// 15 20 25
+				"mres_reduction"			"30 40 50 60"	// 15 20 25 30
 		}
 	}
 	// 爆破起飞！
 	"techies_suicide"
 	{
-		"SpellImmunityType"			 "SPELL_IMMUNITY_ENEMIES_YES"// 晕魔免
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 晕魔免
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"100 125 150 175 200"
 		"AbilityCastPoint"				"0.5"	// 1.0 前摇
@@ -12090,11 +12084,10 @@
 			"radius"
 			{
 				"value"		"600"	// 400
-				"affected_by_aoe_increase"	"1"
 			}
 			"damage"
 			{
-				"value"			"300 450 600 750 900"
+				"value"			"200 300 400 500 600"
 			}
 			"stun_duration"				"0.8 1 1.2 1.4 1.6"
 			"duration"				"0.5"	// 0.75 似乎是飞行时间
@@ -12104,13 +12097,13 @@
 	"techies_sticky_bomb"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"15 13 11 9 7"
 		"AbilityManaCost"				"100 115 130 145 160"
 		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"	"100 200 300 400 500"
+					"value"	"95 170 245 320 395"
 				}
 				"slow"					"25 35 45 55 65"
 				"secondary_slow"		"15 25 35 45 55"
@@ -12119,36 +12112,26 @@
 	// 活性电击
 	"techies_reactive_tazer"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityValues"
 		{
 			"disarm_duration"		"2.4 2.7 3 3.3 3.6"
-			"bonus_ms"				"15 20 25 30 35"
+			"bonus_ms"				"18 22 26 30 34"
 		}
 	}
 	// 雷区标识
 	"techies_minefield_sign"
 	{
+		"AbilityCooldown"				"30.0"		// 60.0
 		"AbilityValues"
 		{
-
-			"AbilityCooldown"
-			{
-				"value"					"30.0"		// 60.0
-			}
-
 			"scepter_move_damage"
 			{
-				"special_bonus_scepter"					"200"		// 300 削弱基础数值
-				"hero_levelup"							"+10"		// 额外添加英雄等级提升效果
+				"value"									"200"		// 300 削弱基础数值
 			}
 
-			"scepter_move_amt"
-			{
-				"special_bonus_scepter"					"300"		// 200
-			}
+			"scepter_move_amt"			"300"		// 200
 			"bonus_mine_damage_pct"		"30"		// 15
 		}
 	}
