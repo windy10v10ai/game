@@ -1164,10 +1164,15 @@
 			{
 				"value"											"50 80 110 140 170"	// 25 40 55 70 85 x2
 			}
+			"smash_radius"
+			{
+				"value"		"450"	// 300 x1.5
+			}
 			"smash_damage"
 			{
 				"value"				"50 80 110 140 170"	// 25 40 55 70 85 x2
 			}
+			"movement_speed"				"350"	// 215
 			"smash_stun_duration"
 			{
 				"value"					"0.6 0.8 1 1.2 1.4"
