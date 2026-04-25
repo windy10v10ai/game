@@ -89,6 +89,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
     ["phantom_assassin_phantom_strike"] = true,
+    ["pangolier_gyroshell"] = true, -- 石鳞剑士 地雷滚滚
 
 
     ["elder_titan_ancestral_spirit"] = true,
