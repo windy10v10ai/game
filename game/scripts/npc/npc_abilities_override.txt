@@ -6768,8 +6768,8 @@
 	"nyx_assassin_impale"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 17 16 15 14"
-		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
 		{
 				"duration"
@@ -6786,20 +6786,20 @@
 	"nyx_assassin_jolt"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 100 120 140 160"
+		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"			"9 8.5 8 7.5 7 6.5"
+				"value"			"9 8.5 8 7.5 7 6.5"	// 11 9.5 8 6.5
 			}
 			"max_mana_as_damage_pct"
 			{
-				"value"		"20 25 30 35 40"
+				"value"		"25 30 35 40 45"
 			}
 			"mana_burn_pct"
 			{
-				"special_bonus_facet_nyx_assassin_burn_mana" 				"=16 =19 =22 =25 =28"
+				"value" 				"9 12 15 18 21"
 			}
 		}
 	}
@@ -6808,7 +6808,6 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"16 14 12 10 8"
-		"AbilityManaCost"				"40 60 80 100 120"
 		"AbilityValues"
 		{
 			"stun_duration"
@@ -6825,11 +6824,15 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"		"80 70 60 50"
+				"value"		"75 70 65 60"
 			}
 			"AbilityManaCost"
 			{
 				"value"				"180 240 300 360"
+			}
+			"duration"
+			{
+				"value"				"45 50 55 60"
 			}
 			"movement_speed"
 			{
@@ -6837,24 +6840,16 @@
 			}
 			"bonus_damage"
 			{
-				"value"					"300 500 700 900"	// 300 400 500
-			}
-			"free_pathing_duration"
-			{
-				"value" 			"0"
-				"special_bonus_facet_nyx_assassin_scuttle" "=60"
+				"value"					"300 600 900 1200"	// 300 400 500 差值 x3
 			}
 		}
 	}
 	// 钻地
 	"nyx_assassin_burrow"
 	{
-		"AbilityCooldown"				"5.0"
+		"AbilityCooldown"				"5.0"	// 防止无限钻地
 		"AbilityValues"
 		{
-			"health_regen_rate"		"1"
-			"mana_regen_rate"		"1"
-			"damage_reduction"			"40"
 			"cast_range"			"600"			// 500
 			"cooldown_reduction"			"40"	// 25
 		}
