@@ -2623,54 +2623,25 @@
 	"night_stalker_void"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"110 120 130 140 150"
+		"AbilityManaCost"				"90 95 100 105 110"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"			"11 10 9 8 7 6"
-				"special_bonus_unique_night_stalker_4"	"-1"
+				"value"			"11 10 9 8 7"
 			}
 			"damage"
 			{
-				"value"		"120 240 360 480 600 720" // x1.5
+				"value"		"120 240 360 480 600" // 80 160 240 320 400 x1.5
 			}
 			"duration_night"
 			{
-				"value"											"1.6 2.2 2.8 3.4 4.0 4.6"
+				"value"											"1.6 2.2 2.8 3.4 4.0"
 			}
-			"movespeed_slow"
-			{
-				"value"					"50"
-				"special_bonus_facet_night_stalker_voidbringer" "=50 =50 =50 =50 =60 =70"
-			}
-			"attackspeed_slow"
-			{
-				"value"					"50"
-				"special_bonus_facet_night_stalker_voidbringer" "=50 =50 =50 =50 =60 =70"
-			}
-
 			"max_level"
 			{
-				"value"					"5"
-				"special_bonus_facet_night_stalker_voidbringer" "+1"
-			}
-			"max_level_tooltip"
-			{
-				"special_bonus_facet_night_stalker_voidbringer" "=6"
-			}
-			"cast_radius"
-			{
-				"value"					"0"
-				"special_bonus_facet_night_stalker_voidbringer" "=0 =0 =0 =0 =300 =600"
-				"affected_by_aoe_increase"			"1"
-			}
-			"cast_radius_tooltip"
-			{
-				"value"	"0"
-				"special_bonus_facet_night_stalker_voidbringer" "=350 =600"
-				"affected_by_aoe_increase"			"1"
+				"value"					"5" // 4
 			}
 		}
 	}
@@ -2682,8 +2653,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"23 21 19 17 15"
-				"special_bonus_scepter"	"-5"
+				"value"				"30 25 20 15 10"
 			}
 			"duration_night"
 			{
@@ -2691,82 +2661,53 @@
 			}
 			"dps"
 			{
-				"value"			"50 60 70 80 90" // x2
-				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"+30" // x1.5
+				"value"			"50 60 70 80 90" // 25 30 35 40 45 x2
+				"special_bonus_unique_night_stalker_crippling_fear_damage" 	"+15" // +10 x1.5
 			}
+		}
+	}
+	// 午夜盛宴
+	"night_stalker_midnight_feast"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"39 36 33 30 27"
+		"AbilityValues"
+		{
+			"attack_heal"
+			{
+				"value"				"30 45 60 75 90"	// 12 16 20 24 x2.5
+			}
+			"hp_restore"			"10 15 20 25 30"
+			"mp_restore"			"10 12 14 16 18"
 		}
 	}
 	// 暗夜猎影
 	"night_stalker_hunter_in_the_night"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"bonus_movement_speed_pct_night"
-			{
-				"value"			"22 28 34 40 46 46"
-				"special_bonus_facet_night_stalker_dayswap"				"=25 =30 =35 =40 =45 =50"
-				"special_bonus_unique_night_stalker_301"	"+20"
-			}
-			"bonus_attack_speed_night"
-			{
-				"value"			"20 40 60 80 100 100"
-				"special_bonus_facet_night_stalker_dayswap"				"=20 =50 =80 =110 =140 =170"
-			}
 			"bonus_status_resist_night"
 			{
-				"value"			"0"
-				"special_bonus_unique_night_stalker_hunter_status_resist"	"+50" // x1.5
-			}
-			"shard_cooldown"
-			{
-				"value"				"20" // 35
-				"RequiresShard"		"1"
-			}
-			"shard_cast_range"
-			{
-				"value"				"1250" // x10
-				"RequiresShard"		"1"
-			}
-			"max_level"
-			{
-				"value"				"5"
-				"special_bonus_facet_night_stalker_dayswap"				"+1"
-			}
-			"max_level_tooltip"
-			{
-				"special_bonus_facet_night_stalker_dayswap"				"=6"
+				"special_bonus_unique_night_stalker_hunter_status_resist"	"+30" // +20 x1.5
 			}
 		}
-	}
-	// 暗夜猎影 移动速度
-	"special_bonus_unique_night_stalker_301"
-	{
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass"						"special_bonus_base"
 	}
 	// 黑暗飞升
 	"night_stalker_darkness"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"140 130 120 110"
 		"AbilityManaCost"				"125 175 225 275"
 		"AbilityValues"
 		{
 			"bonus_damage"
 			{
 				"value"			"50 100 150 200"
-				"special_bonus_unique_night_stalker_3"	"+50"	// 25
+				"special_bonus_unique_night_stalker_3"	"+50"	// +25 x2
 			}
-		}
-	}
-	// 黑暗之心 先天技能
-	"night_stalker_heart_of_darkness"
-	{
-		"AbilityValues"
-		{
-			"hp_regen_during_night_pct"				"60" // 40
+			"AbilityCooldown"
+			{
+				"value"									"140 135 130 125"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -6279,7 +6220,7 @@
 			}
 		}
 	}
-	// 星落
+	// 群星风暴 星落
 	"mirana_starfall"
 	{
 		"MaxLevel"						"5"

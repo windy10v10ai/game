@@ -1068,9 +1068,6 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_max_jump_distance} 回身踢施法/跳跃距离和落地范围"
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} 过肩摔伤害/摔扔距离"
 
-		// 夜魔
-		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% 暗夜猎影移动速度"
-
 		// 酒仙
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"元素分离·改"
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua_Lore"							"没有人清楚曼吉克斯是否注意到自己和自然之间强大的连结，因为这总是发生在他醉得不省人事之时。"
