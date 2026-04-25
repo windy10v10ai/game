@@ -2008,7 +2008,7 @@
 		{
 			"ghostship_absorb"
 			{
-				"value"					"50"		// 18
+				"value"					"40"		// 18 大招有双倍效果，必须小于50
 			}
 			"movespeed_bonus"
 			{
