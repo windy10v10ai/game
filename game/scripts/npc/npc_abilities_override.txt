@@ -6529,11 +6529,11 @@
 			"illusion_duration"			"40"				// 26
 			"outgoing_damage"
 			{
-				"value"					"-75 -65 -55 -45 -35"	// 增加幻象攻击，减少幻象数量
+				"value"					"-75 -65 -55 -45 -35"	// -75 -70 -65 -60 增加幻象攻击，减少幻象数量
 			}
 			"outgoing_damage_tooltip"
 			{
-				"value"					"25 35 45 55 65"		// 增加幻象攻击，减少幻象数量
+				"value"					"25 35 45 55 65"		// 25 30 35 40 增加幻象攻击，减少幻象数量
 			}
 			"images_count"
 			{
@@ -6541,22 +6541,21 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"40" // 增加幻象持续时间和CD
-				"special_bonus_unique_naga_siren_6"	"-10"
+				"value"								"40" // 40 35 30 25 20 增加幻象持续时间和CD
 			}
 		}
 	}
-	// 网
+	// 诱捕 网
 	"naga_siren_ensnare"
 	{
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
-			"duration"					"3 3.5 4 4.5 5"
+			"duration"					"2.75 3.5 4.25 5 5.75"
 			"AbilityCooldown"
 			{
-				"value"					"21 19 17 15 13"
+				"value"					"20 18 16 14 12"
 			}
 			"AbilityCastRange"
 			{
@@ -6565,7 +6564,7 @@
 			}
 		}
 	}
-	// 激流（命石1）
+	// 激流
 	"naga_siren_rip_tide"
 	{
 		"MaxLevel"						"5"
@@ -6577,16 +6576,16 @@
 			}
 			"armor_reduction"
 			{
-				"value"					"-3 -6 -9 -12 -15"	// x1.5
+				"value"					"-3 -6 -9 -12 -15"	// -2 -4 -6 -8 x1.5
 			}
 			"damage"
 			{
 				"value"			"100 200 300 400 500"	// 30 40 50 60
-				"special_bonus_unique_naga_siren_2" "+50%" // 30% 和洪水一致
+				"special_bonus_unique_naga_siren_2" "+50%" // +30% 和洪水一致
 			}
 			"radius"
 			{
-				"value"						"450"// x1.5
+				"value"						"450" // 300 x1.5
 			}
 		}
 	}
@@ -6625,24 +6624,25 @@
 	{
 		"MaxLevel"						"4"
 		"AbilityManaCost"				"150 250 350 450"
+		"AbilityCastRange"				"900 1150 1400 1650"
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value"			"900 1150 1400 1650"	// 900/1150/1400 扩展4级
+				"value"			"900 1150 1400 1650"
 			}
 			"heal_pct"
 			{
 				"value"									"1 2 3 4"
-				"special_bonus_shard"					"+3"	// 1
+				"special_bonus_shard"					"+3"	// +1
 			}
 			"mana_pct"
 			{
-				"special_bonus_shard"					"+3"	// 1
+				"special_bonus_shard"					"+3"	// +4
 			}
 			"AbilityCooldown"
 			{
-				"value"									"110 100 90 80"
+				"value"									"100 90 80 70"	// 160 130 100
 			}
 		}
 	}
@@ -6651,7 +6651,10 @@
 	{
 		"AbilityValues"
 		{
-			"pull_strength"				"1000" // 200 强制位移速度
+			"pull_strength"
+			{
+				"value"					"1000" // 200 强制位移速度
+			}
 		}
 	}
 	//=================================================================================================================
@@ -9468,15 +9471,10 @@
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
-			"duration"						"2.0 2.5 3 3.5 4"
+			"duration"						"2.5 3 3.5 4 4.5"
 			"sprout_damage"
 			{
-				"value"															"70 130 190 250 310"	// 70/130/190/250
-			}
-			"sprout_heal_per_second"
-			{
-				"value"						"0"
-				"special_bonus_facet_furion_soothing_saplings"	"=30 =45 =60 =75 =90"	// 10/15/20/25 (x3)
+				"value"															"70 130 190 250 310"
 			}
 		}
 	}
@@ -9484,114 +9482,93 @@
 	"furion_teleportation"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"50 75 100 125 150"
+		"AbilityCastPoint"				"3 2.5 2 1.5 1"	// 3 3 3 3 3
+		"AbilityManaCost"				"50 60 70 80 90"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"										"70 65 50 35 20"
-				"special_bonus_unique_furion_3"				"-100%"
+				"value"										"60 50 40 30 20"
 			}
 			"barrier"
 			{
-				"value"					"200 300 400 500 600"	// x2
-				"special_bonus_unique_furion_teleportation_barrier"				"+400"
+				"value"					"350 650 950 1250 1550"	// 70 130 190 250 310 x5
+				"special_bonus_unique_furion_teleportation_barrier"				"+450"	// +100
 			}
 		}
 	}
 	// 自然的呼唤
 	"furion_force_of_nature"
 	{
-		"AbilityManaCost"				"100 140 180 220"
+		"AbilityManaCost"				"100 140 180 220"	// 100
 		"AbilityValues"
 		{
-			"max_treants"
-			{
-				"value"							"2"
-				"special_bonus_facet_furion_ironwood_treant"			"=1 =1 =1 =1"
-			}
-			"treant_duration"				"40"
+			"max_treants"					"2"		// 2 3 4 5
+			"treant_duration"				"40"	// 50
 			"treant_health"
 			{
-				"value"								"1000 1500 2000 2500"
-				"special_bonus_facet_furion_ironwood_treant"				"+50%"
+				"value"						"1000 1500 2000 2500"	// 450
 			}
-			"treant_damage_min"
+			"treant_damage"
 			{
-				"value"					"32 64 96 128"
-				"special_bonus_facet_furion_ironwood_treant"				"+50%"
-			}
-			"treant_damage_max"
-			{
-				"value"					"40 80 120 160"
-				"special_bonus_facet_furion_ironwood_treant"				"+50%"
+				"value"						"48 75 102 129"	// 16 25 34 43 x3
 			}
 			"treant_movespeed"
 			{
-				"value"						"300 320 340 360"
-				"special_bonus_facet_furion_ironwood_treant"				"+50"
+				"value"						"300 320 340 360"	// 300 315 330 345
 			}
 			"AbilityCooldown"
 			{
-				"value"				"60"
-				"special_bonus_unique_furion_6"		"-10"
+				"value"						"60"	// 45 40 35 30
+			}
+		}
+	}
+	// 青森诅咒
+	"furion_curse_of_the_forest"
+	{
+		"AbilityValues"
+		{
+			"damage_per_tree"		"30"	// 15 x2
+			"radius"
+			{
+				"value"				"350"	// 250
+			}
+			"range"
+			{
+				"value"				"1200"	// 900
 			}
 		}
 	}
 	// 自然之怒
 	"furion_wrath_of_nature"
 	{
-		"MaxLevel"						"5"
-		"AbilityManaCost"				"130 190 250 310 500"
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"130 160 190 220"
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"				"80 150 210 280 350"	// 削弱防止全图刷怪
-				"special_bonus_unique_furion_5"			"+100"
-			}
-			"AbilityCooldown"
-			{
-				"value"						"90"
-				"special_bonus_scepter"		"-10"
+				"value"				"80 150 210 280"	// 100 140 180 220 削弱防止全图刷怪
 			}
 			"scepter_max_entangle_duration"
 			{
-				"value"					"5.0"	// 3.0
-				"RequiresScepter"		"1"
+				"special_bonus_scepter"	"5.0"	// 3.0
 			}
 		}
 	}
-	// 丛林之魂 先天随大招
+	// 丛林之魂（先天）
 	"furion_spirit_of_the_forest"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"radius"
+			"radius_base"
 			{
-				"value"		"600 700 800 900 1000"
-				"affected_by_aoe_increase"	"1"
+				"value"					"600"	// 300 x2
 			}
-		}
-	}
-	// 自然先富
-	"furion_natures_profit"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_INNATE_UI | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"IsBreakable"					"1"
-
-		"AbilityValues"
-		{
-			"tree_duration"					"5"
-			"min_throw_range"				"200"
-			"max_throw_range"				"300"
-			"hero_level_gold_multiplier"			"5.0"	// 2.0
+			"multiplier"
+			{
+				"value"					"4"	// 2
+			}
 		}
 	}
 	//=================================================================================================================
