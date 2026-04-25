@@ -252,6 +252,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["monkey_king_tree_dance"] = true,
     ["monkey_king_primal_spring"] = true,
     ["monkey_king_primal_spring_early"] = true,
+    ["monkey_king_wukongs_command"] = true,
     ["monkey_king_transfiguration"] = true,
 
 }
