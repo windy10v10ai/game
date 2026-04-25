@@ -1,16 +1,15 @@
+import { AbilityItemType } from '../../../../common/dto/lottery';
 import { NetTableHelper } from '../../../modules/helper/net-table-helper';
+import { AbilityItemTypes } from '../../../modules/lottery/ability-item-type';
 import { abilityTiersPassive } from '../../../modules/lottery/lottery-abilities';
 import { Tier } from '../../../modules/lottery/tier';
 import { GameEndDto, GameEndPlayerDto } from '../dto/game-end-dto';
 import { GA4 } from './ga4';
 import { GA4Event } from './dto/ga4-dto';
 
-const ABILITY_TYPE_ACTIVE = 'abilityActive';
-const ABILITY_TYPE_PASSIVE = 'abilityPassive';
-
 interface PickEntry {
   name: string;
-  type: typeof ABILITY_TYPE_ACTIVE | typeof ABILITY_TYPE_PASSIVE;
+  type: AbilityItemType;
   tier: number;
 }
 
@@ -63,17 +62,17 @@ export class GA4PickAbilityTracker {
 
       addPick(
         lotteryStatus.activeAbilityName,
-        ABILITY_TYPE_ACTIVE,
+        AbilityItemTypes.Active,
         lotteryStatus.activeAbilityLevel,
       );
       addPick(
         lotteryStatus.passiveAbilityName,
-        ABILITY_TYPE_PASSIVE,
+        AbilityItemTypes.Passive,
         lotteryStatus.passiveAbilityLevel,
       );
       addPick(
         lotteryStatus.passiveAbilityName2,
-        ABILITY_TYPE_PASSIVE,
+        AbilityItemTypes.Passive,
         lotteryStatus.passiveAbilityLevel2,
       );
     } else {
@@ -86,12 +85,12 @@ export class GA4PickAbilityTracker {
 
       addPick(
         botAbilities.passiveAbilityName1,
-        ABILITY_TYPE_PASSIVE,
+        AbilityItemTypes.Passive,
         this.GetAbilityTier(botAbilities.passiveAbilityName1, abilityTiersPassive),
       );
       addPick(
         botAbilities.passiveAbilityName2,
-        ABILITY_TYPE_PASSIVE,
+        AbilityItemTypes.Passive,
         this.GetAbilityTier(botAbilities.passiveAbilityName2, abilityTiersPassive),
       );
     }
