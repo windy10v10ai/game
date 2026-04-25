@@ -10664,7 +10664,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"								"11 10 9 8 7"
+				"value"								"12 11 10 9 8"
 			}
 			"fireblast_damage"
 			{
@@ -10693,7 +10693,7 @@
 			"burn_damage"
 			{
 				"value"				"20 30 40 50 60"
-				"special_bonus_unique_ogre_magi_4" "+20"	// 12
+				"special_bonus_unique_ogre_magi_4" "+20"	// +10
 			}
 		}
 	}
@@ -10705,11 +10705,11 @@
 		"AbilityManaCost"				"40 50 60 70 80"
 		"AbilityValues"
 		{
-			"bonus_movement_speed"		"7 10 13 16 19"	// 7 9 11 13
+			"bonus_movement_speed"		"7 10 13 16 19"	// 6 8 10 12
 			"bonus_attack_speed"
 			{
 				"value"					"30 45 60 75 90"
-				"special_bonus_unique_ogre_magi" "+70"	// +35
+				"special_bonus_unique_ogre_magi" "+70"	// +20
 			}
 			"self_bonus"
 			{
