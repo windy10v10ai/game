@@ -10654,6 +10654,7 @@
 				"value"					"800 1000 1200 1400"	// 600 725 850 975
 				"special_bonus_scepter"	"+400"	// +100
 			}
+			"punch_bonus_movespeed"			"60"	// 30 x2
 			"punch_bonus_damage_base"
 			{
 				"value"					"40 60 80 100"	// 20 30 40 50 x2
