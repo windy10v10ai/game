@@ -6213,12 +6213,22 @@
 	//=================================================================================================================
 	// Ability: Mirana 米拉娜/白虎POM
 	//=================================================================================================================
-	// 赛莉蒙妮的信徒 先天技能
-	"mirana_selemenes_faithful"
+	// 天界箭袋 先天技能
+	"mirana_celestial_quiver"
 	{
+		"AbilityChargeRestoreTime"		"3.0"	// 6.0 x0.5
 		"AbilityValues"
 		{
-			"bonus_lotus"	"200"	// 50
+			"bonus_damage"
+			{
+				"value"											"30"	// 5 x6
+				"hero_levelup"									"+6"	// +3 x2
+				"special_bonus_unique_mirana_quiver_damage"		"+80"	// +40 x2
+			}
+			"quiver_restore"
+			{
+				"special_bonus_shard"	"+6"	// +3 x2
+			}
 		}
 	}
 	// 月神之箭 射箭
@@ -6232,30 +6242,15 @@
 		{
 				"AbilityCooldown"
 				{
-					"value"						"17 14 12 10 8"	// -2
+					"value"						"17 16 15 14 13"	// 19 18 17 16 -2
 				}
 				"arrow_speed"		"1200.0"		// 900
 				"arrow_min_stun"	"1.0"			// 0.01
-				"arrow_max_stun"	"4.0 4.5 5.0 5.5 6.0"	// 2.6 3.4 4.2 5.0
-				"arrow_damage"
-				{
-					"value"				"60 150 240 330 420"
-				}
+				"arrow_max_stun"	"2.6 3.4 4.2 5.0 5.8"
 				"arrow_bonus_damage"
 				{
-					"value"				"360"	// 180 (x2)
+					"value"				"360"	// 180 x2
 				}
-				"attack_damage_bonus_pct"
-				{
-					"value"                              "0"
-					"special_bonus_unique_mirana_7"      "+60"
-				}
-				"arrow_count"
-				{
-					"value"                              "1"
-					"special_bonus_unique_mirana_arrow_multishot"  "+2"
-				}
-				"arrow_spread_angle"  "30"  // 每支箭之间的角度
 		}
 	}
 	// 月之暗面
@@ -6266,11 +6261,10 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"			"85.0"
-				"special_bonus_unique_mirana_4"			"-25"
+				"value"			"120 100 80 60"
 			}
 				"fade_delay"			"2.5 2.0 1.5 1.0"
-				"bonus_movement_speed"		"12 16 20 24"
+				"bonus_movement_speed"		"9 12 15 18"
 				"bonus_outgoing_damage_pct"				"9.0 12.0 15.0 18.0"
 		}
 	}
@@ -6278,24 +6272,14 @@
 	"mirana_leap"
 	{
 		"MaxLevel"						"5"
-		"AbilityChargeRestoreTime"		"24 21 18 15 12"
+		"AbilityChargeRestoreTime"		"30 25 20 15 10"	// 45 35 25 15 差值-5
 		"AbilityValues"
 		{
-			"leap_speedbonus"	"8 16 24 32 40"
+			"leap_speedbonus"	"6 12 18 24 30"
 			"leap_speedbonus_as"
 			{
 				"value"				"25 50 75 100 125"
 				"special_bonus_unique_mirana_1"	"+125"	// +90
-			}
-			"root_radius"
-			{
-				"value"											"0"
-				"special_bonus_facet_mirana_leaps_and_bounds"	"+450"		// +250
-			}
-			"root_duration"
-			{
-				"value"											"0"
-				"special_bonus_facet_mirana_leaps_and_bounds"	"=1.5 =1.75 =2.0 =2.25 =2.5"
 			}
 		}
 	}
@@ -6304,24 +6288,17 @@
 	{
 		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastPoint"				"0.05"		// 0.4
+		"AbilityCastPoint"				"0.1"		// 0.4
 		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"										"12.0"
-				"special_bonus_unique_mirana_3"				"-4"
+				"special_bonus_unique_mirana_3"				"-4"	// -2
 			}
 			"damage"
 			{
-				"value"			"150 300 450 600 750"
-			}
-			"attack_damage_bonus_pct"
-			{
-				"value"                              "0"
-				"special_bonus_unique_mirana_7"      "+600"
-				//"special_bonus_unique_mirana_7"      "+60"
+				"value"			"150 300 450 600 750"	// 75 150 225 300 x2
 			}
 			"starfall_radius"
 			{
@@ -12055,37 +12032,19 @@
 	// 部署炮台
 	"tinker_deploy_turrets"
 	{
-		"MaxLevel"						"5"
-		"AbilityManaCost"				"100 120 140 160 180"	// 100 120 140 160
 		"AbilityValues"
 		{
-			"AbilityCooldown"
-			{
-				"value"			"24 22 20 18 16"	// 24 22 20 18
-			}
-			"drop_damage"
-			{
-				"value"			"40 80 120 160 200"	// 40 80 120 160
-			}
 			"missile_damage"
 			{
-				"value"			"20 40 60 80 100"	// 20 40 60 80
+				"value"			"40 80 120 160"	// 20 40 60 80 x2
 			}
 			"turret_hp"
 			{
-				"value"			"80 160 240 320 400"	// 40 80 120 160 x2
+				"value"			"80 160 240 320"	// 40 80 120 160 x2
 			}
 			"turret_duration"
 			{
 				"value"			"6"	// 4.5
-			}
-			"missile_target_range"
-			{
-				"value"		"650 700 750 800 850"	// 650 700 750 800
-			}
-			"missile_range"
-			{
-				"value"		"750 800 850 900 950"	// 750 800 850 900
 			}
 		}
 	}
