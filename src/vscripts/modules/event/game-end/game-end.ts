@@ -1,11 +1,10 @@
-import { Analytics } from '../../../api/analytics/analytics';
 import {
   GameEndDto,
   GameEndGameOptionsDto,
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
-import { PickDto } from '../../../api/analytics/dto/pick-ability-dto';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
+import { GA4Event } from '../../../api/analytics/ga4/dto/ga4-dto';
 import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
 import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
@@ -159,20 +158,8 @@ export class GameEnd {
   }
 
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
-    const isWin = gameEndDto.winnerTeamId === DotaTeam.GOODGUYS;
-
-    // 收集并发送技能选择统计
-    const picks = this.CollectAbilityPicks(gameEndDto.players);
-    if (picks.length > 0) {
-      Analytics.SendGameEndPickAbilitiesEvent({
-        matchId: gameEndDto.matchId,
-        version: gameEndDto.version,
-        difficulty: gameEndDto.difficulty,
-        picks,
-        isWin,
-      });
-    }
-
+    // 发送 GA4 游戏结束技能选择事件
+    this.SendGameEndPickAbilityEvents(gameEndDto);
     // 发送 GA4 物品持有时长事件
     GA4ItemTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 匹配时间事件
@@ -180,77 +167,96 @@ export class GameEnd {
   }
 
   /**
-   * 收集玩家的技能选择数据
+   * 收集每个玩家选择的技能并按玩家批量发送 GA4 事件
    */
-  private static CollectAbilityPicks(players: GameEndPlayerDto[]): PickDto[] {
-    const picks: PickDto[] = [];
+  private static SendGameEndPickAbilityEvents(gameEndDto: GameEndDto) {
+    const eventName = 'game_end_pick_ability';
 
-    players.forEach((player) => {
-      if (player.steamId > 0) {
-        // 真实玩家：从 lottery_status net table 读取
-        const steamAccountID = player.steamId.toString();
-        const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-
-        if (LotteryStatus.activeAbilityName) {
-          picks.push({
-            steamId: player.steamId,
-            heroName: player.heroName,
-            name: LotteryStatus.activeAbilityName,
-            type: 'abilityActive',
-            tier: LotteryStatus.activeAbilityLevel ?? 0,
-          });
-        }
-
-        if (LotteryStatus.passiveAbilityName) {
-          picks.push({
-            steamId: player.steamId,
-            heroName: player.heroName,
-            name: LotteryStatus.passiveAbilityName,
-            type: 'abilityPassive',
-            tier: LotteryStatus.passiveAbilityLevel ?? 0,
-          });
-        }
-
-        if (LotteryStatus.passiveAbilityName2) {
-          picks.push({
-            steamId: player.steamId,
-            heroName: player.heroName,
-            name: LotteryStatus.passiveAbilityName2,
-            type: 'abilityPassive',
-            tier: LotteryStatus.passiveAbilityLevel2 ?? 0,
-          });
-        }
-      } else {
-        // 电脑：从 bot_passive_abilities net table 读取
-        const botAbilities = CustomNetTables.GetTableValue(
-          'bot_passive_abilities',
-          player.playerId.toString(),
-        );
-        if (!botAbilities) {
-          return;
-        }
-
-        if (botAbilities.passiveAbilityName1) {
-          picks.push({
-            steamId: 0,
-            heroName: player.heroName,
-            name: botAbilities.passiveAbilityName1,
-            type: 'abilityPassive',
-            tier: GameEnd.GetAbilityTier(botAbilities.passiveAbilityName1, abilityTiersPassive),
-          });
-        }
-
-        if (botAbilities.passiveAbilityName2) {
-          picks.push({
-            steamId: 0,
-            heroName: player.heroName,
-            name: botAbilities.passiveAbilityName2,
-            type: 'abilityPassive',
-            tier: GameEnd.GetAbilityTier(botAbilities.passiveAbilityName2, abilityTiersPassive),
-          });
-        }
+    gameEndDto.players.forEach((player) => {
+      const picks = GameEnd.CollectPlayerPicks(player);
+      if (picks.length === 0) {
+        return;
       }
+
+      const isBot = player.steamId <= 0;
+      const winMetrics = player.teamId === gameEndDto.winnerTeamId;
+
+      const events: GA4Event[] = picks.map((pick) =>
+        GA4.BuildEvent(eventName, player.steamId, {
+          steam_id: player.steamId,
+          ability_name: pick.name,
+          type: pick.type,
+          tier: pick.tier,
+          difficulty: gameEndDto.difficulty,
+          win_metrics: winMetrics,
+          hero_name: player.heroName,
+          team_id: player.teamId,
+          is_bot: isBot,
+        }),
+      );
+
+      GA4.SendEvents(player.steamId, events);
     });
+  }
+
+  /**
+   * 收集单个玩家或电脑的技能选择
+   */
+  private static CollectPlayerPicks(
+    player: GameEndPlayerDto,
+  ): { name: string; type: string; tier: number }[] {
+    const picks: { name: string; type: string; tier: number }[] = [];
+
+    if (player.steamId > 0) {
+      // 真实玩家：从 lottery_status net table 读取
+      const steamAccountID = player.steamId.toString();
+      const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+
+      if (lotteryStatus.activeAbilityName) {
+        picks.push({
+          name: lotteryStatus.activeAbilityName,
+          type: 'abilityActive',
+          tier: lotteryStatus.activeAbilityLevel ?? 0,
+        });
+      }
+      if (lotteryStatus.passiveAbilityName) {
+        picks.push({
+          name: lotteryStatus.passiveAbilityName,
+          type: 'abilityPassive',
+          tier: lotteryStatus.passiveAbilityLevel ?? 0,
+        });
+      }
+      if (lotteryStatus.passiveAbilityName2) {
+        picks.push({
+          name: lotteryStatus.passiveAbilityName2,
+          type: 'abilityPassive',
+          tier: lotteryStatus.passiveAbilityLevel2 ?? 0,
+        });
+      }
+    } else {
+      // 电脑：从 bot_passive_abilities net table 读取
+      const botAbilities = CustomNetTables.GetTableValue(
+        'bot_passive_abilities',
+        player.playerId.toString(),
+      );
+      if (!botAbilities) {
+        return picks;
+      }
+      if (botAbilities.passiveAbilityName1) {
+        picks.push({
+          name: botAbilities.passiveAbilityName1,
+          type: 'abilityPassive',
+          tier: GameEnd.GetAbilityTier(botAbilities.passiveAbilityName1, abilityTiersPassive),
+        });
+      }
+      if (botAbilities.passiveAbilityName2) {
+        picks.push({
+          name: botAbilities.passiveAbilityName2,
+          type: 'abilityPassive',
+          tier: GameEnd.GetAbilityTier(botAbilities.passiveAbilityName2, abilityTiersPassive),
+        });
+      }
+    }
 
     return picks;
   }
