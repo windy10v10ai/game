@@ -1,9 +1,11 @@
 export class PickDto {
   steamId: number;
 
+  heroName: string;
+
   name: string;
 
   type: string;
 
-  level: number;
+  tier: number;
 }

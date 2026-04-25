@@ -13,6 +13,8 @@ import { reloadable } from '../../../utils/tstl-utils';
 import { GameConfig } from '../../GameConfig';
 import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
+import { abilityTiersPassive } from '../../lottery/lottery-abilities';
+import { Tier } from '../../lottery/tier';
 import { GameEndPoint } from './game-end-point';
 
 @reloadable
@@ -184,45 +186,81 @@ export class GameEnd {
     const picks: PickDto[] = [];
 
     players.forEach((player) => {
-      // 只统计真实玩家 (steamId > 0)
-      if (player.steamId <= 0) {
-        return;
-      }
+      if (player.steamId > 0) {
+        // 真实玩家：从 lottery_status net table 读取
+        const steamAccountID = player.steamId.toString();
+        const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
 
-      const steamAccountID = player.steamId.toString();
-      const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+        if (LotteryStatus.activeAbilityName) {
+          picks.push({
+            steamId: player.steamId,
+            heroName: player.heroName,
+            name: LotteryStatus.activeAbilityName,
+            type: 'abilityActive',
+            tier: LotteryStatus.activeAbilityLevel ?? 0,
+          });
+        }
 
-      // 收集主动技能选择
-      if (LotteryStatus.activeAbilityName) {
-        picks.push({
-          steamId: player.steamId,
-          name: LotteryStatus.activeAbilityName,
-          type: 'abilityActive',
-          level: LotteryStatus.activeAbilityLevel ?? 0,
-        });
-      }
+        if (LotteryStatus.passiveAbilityName) {
+          picks.push({
+            steamId: player.steamId,
+            heroName: player.heroName,
+            name: LotteryStatus.passiveAbilityName,
+            type: 'abilityPassive',
+            tier: LotteryStatus.passiveAbilityLevel ?? 0,
+          });
+        }
 
-      // 收集第一个被动技能选择
-      if (LotteryStatus.passiveAbilityName) {
-        picks.push({
-          steamId: player.steamId,
-          name: LotteryStatus.passiveAbilityName,
-          type: 'abilityPassive',
-          level: LotteryStatus.passiveAbilityLevel ?? 0,
-        });
-      }
+        if (LotteryStatus.passiveAbilityName2) {
+          picks.push({
+            steamId: player.steamId,
+            heroName: player.heroName,
+            name: LotteryStatus.passiveAbilityName2,
+            type: 'abilityPassive',
+            tier: LotteryStatus.passiveAbilityLevel2 ?? 0,
+          });
+        }
+      } else {
+        // 电脑：从 bot_passive_abilities net table 读取
+        const botAbilities = CustomNetTables.GetTableValue(
+          'bot_passive_abilities',
+          player.playerId.toString(),
+        );
+        if (!botAbilities) {
+          return;
+        }
 
-      // 收集第二个被动技能选择
-      if (LotteryStatus.passiveAbilityName2) {
-        picks.push({
-          steamId: player.steamId,
-          name: LotteryStatus.passiveAbilityName2,
-          type: 'abilityPassive', // 统计时不区分第一和第二被动
-          level: LotteryStatus.passiveAbilityLevel2 ?? 0,
-        });
+        if (botAbilities.passiveAbilityName1) {
+          picks.push({
+            steamId: 0,
+            heroName: player.heroName,
+            name: botAbilities.passiveAbilityName1,
+            type: 'abilityPassive',
+            tier: GameEnd.GetAbilityTier(botAbilities.passiveAbilityName1, abilityTiersPassive),
+          });
+        }
+
+        if (botAbilities.passiveAbilityName2) {
+          picks.push({
+            steamId: 0,
+            heroName: player.heroName,
+            name: botAbilities.passiveAbilityName2,
+            type: 'abilityPassive',
+            tier: GameEnd.GetAbilityTier(botAbilities.passiveAbilityName2, abilityTiersPassive),
+          });
+        }
       }
     });
 
     return picks;
+  }
+
+  private static GetAbilityTier(abilityName: string, tiers: Tier[]): number {
+    for (const tier of tiers) {
+      if (tier.names.includes(abilityName)) {
+        return tier.level;
+      }
+    }
+    return 0;
   }
 }
