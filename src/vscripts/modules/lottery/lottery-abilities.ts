@@ -59,6 +59,7 @@ export const abilityTiersActive: Tier[] = [
       'marci_bodyguard', // 护卫术
       'void_spirit_astral_step', // 太虚之径
       'lich_chain_frost', // 连环霜冻
+      'jakiro_macropyre', // 烈焰焚身
 
       // 小技能
       'dark_seer_vacuum', // 真空
@@ -125,6 +126,8 @@ export const abilityTiersActive: Tier[] = [
       'furion_teleportation', // 自然传送
       'mirana_starfall', // 群星风暴
       'magnataur_empower', // 授予力量
+      'jakiro_dual_breath', // 冰火交加
+      'jakiro_ice_path', // 冰封路径
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
