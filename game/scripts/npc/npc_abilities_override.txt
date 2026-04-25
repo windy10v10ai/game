@@ -5874,7 +5874,7 @@
 	{
 		"AbilityValues"
 		{
-			"bear_armor"				"15"
+			"bear_armor"				"15"	// 0
 			"bear_attack_leash_range"
 			{
 				"value"					"1800"		// 1100
@@ -5890,18 +5890,13 @@
 				// active
 				"AbilityCooldown"
 				{
-					"value"											"24 22 20 18 16"
+					"value"											"20 19 18 17 16"
 				}
 				// root
 				"entangle_duration"
 				{
 					"value"												"1.2 1.6 2.0 2.4 2.8"
 					"special_bonus_unique_lone_druid_entangle_duration"	"+1.2"	// +0.6
-				}
-				"damage"
-				{
-					"value"								"60 70 80 90 100"
-					"special_bonus_unique_lone_druid_1"	"+30"		// +15
 				}
 		}
 	}
@@ -5916,11 +5911,6 @@
 				{
 					"value"												"1.2 1.6 2.0 2.4 2.8"
 					"special_bonus_unique_lone_druid_entangle_duration"	"+1.2"	// +0.6
-				}
-				"damage"
-				{
-					"value"												"60 70 80 90 100"
-					"special_bonus_unique_lone_druid_1"					"+30"		// +20
 				}
 		}
 	}
@@ -5973,7 +5963,7 @@
 				"duration"				"1.1 1.4 1.7 2.0 2.3"
 				"AbilityCooldown"
 				{
-					"value"				"36 32 28 24 20"	// 38 32 26 20
+					"value"				"29 26 23 20 17"
 				}
 		}
 	}
@@ -5994,11 +5984,11 @@
 		{
 			"bonus_armor"
 			{
-				"value"				"10 20 30 40"	// 10 15 20
+				"value"				"10 20 30 40"	// 10 15 20 差值x2
 			}
 			"bonus_hp"
 			{
-				"value"					"1000 2000 3000 4000" // 500 1000 1500
+				"value"					"1000 2000 3000 4000"	// 500 1000 1500 x2
 			}
 			"bonus_attack_damage"
 			{
@@ -6010,7 +6000,7 @@
 			}
 		}
 	}
-	// 粉碎击
+	// 粉碎击 小熊 先天
 	"lone_druid_spirit_bear_demolish"
 	{
 		"AbilityValues"
@@ -10606,32 +10596,29 @@
 		"AbilityManaCost"				"90 110 130 150 170"
 		"AbilityValues"
 		{
-			"AbilityCooldown"	"14 13 12 11 10"
+			"AbilityCooldown"			"14 13 12 11 10"
 			"AbilityCastRange"
 			{
-				"value"			"750"	// 650
-				"special_bonus_unique_lion_2"	"+600"
+				"value"					"750"	// 650
 			}
 			"damage"
 			{
-				"value"			"105 170 235 300 365"
-				"special_bonus_unique_lion_3"	"+130"	// 65
+				"value"					"120 200 280 360 440"	// 105 170 235 300 365 差值80
 			}
-			"duration"			"1.3 1.6 1.9 2.2 2.5"
+			"duration"					"1.3 1.6 1.9 2.2 2.5"
 		}
 	}
 	// 变羊
 	"lion_voodoo"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"750"	// 加强
-		"AbilityManaCost"				"100 125 150 175 200"
+		"AbilityCastRange"				"750"	// 575 600 625 650 加强
+		"AbilityManaCost"				"110 140 170 200 230"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"				"20 18 16 14 12"
-				"special_bonus_unique_lion_5"	"-4"
+				"value"					"24 20 16 12 8"
 			}
 			"duration"					"2 2.4 2.8 3.2 3.6"
 		}
@@ -10640,38 +10627,36 @@
 	"lion_mana_drain"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"14 12 8 6 4"
+		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilityValues"
 		{
-				"mana_per_second"
-				{
-					"value"		"50 100 150 300 450"	// x2.5
-				}
-				"movespeed"
-				{
-					"value"				"15 20 25 30 35"
-					"special_bonus_unique_lion_6"	"+15"
-				}
+			"mana_per_second"
+			{
+				"value"					"50 100 150 300 450"	// 20 40 60 120 180 x2.5
+			}
+			"movespeed"
+			{
+				"value"					"15 20 25 30 35"
+			}
 		}
 	}
 	// 死亡一指
 	"lion_finger_of_death"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"100.0 80.0 60.0 40.0"
+		"MaxLevel"						"4"
+		"AbilityCooldown"				"90 70 50 30"
 		"AbilityManaCost"				"200 400 600 800"
 
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"		"800 1000 1200 1400"	// 600 725 850 975
-				"special_bonus_scepter"		"+400"	// 100
+				"value"					"800 1000 1200 1400"	// 600 725 850 975
+				"special_bonus_scepter"	"+400"	// +100
 			}
-			"grace_period"				"5"
-			"cooldown_scepter"
+			"punch_bonus_damage_base"
 			{
-				"special_bonus_scepter"	"50.0 40.0 30.0 20.0"
+				"value"					"40 60 80 100"	// 20 30 40 50 x2
 			}
 		}
 	}
@@ -10681,8 +10666,14 @@
 		"AbilityValues"
 		{
 			"duration"					"150"	// 90
-			"spell_amp"					"40"	// 20
-			"debuff_amp"				"30"	// 20
+			"spell_amp"
+			{
+				"value"					"100"	// 20
+			}
+			"debuff_amp"
+			{
+				"value"					"30"	// 20
+			}
 		}
 	}
 	//=================================================================================================================
