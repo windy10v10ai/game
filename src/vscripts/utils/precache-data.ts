@@ -37,7 +37,7 @@ export const heroNameListParticles = [
   'hero_gyrocopter', // 矮人直升机
   'hero_huskar', // 哈斯卡
   'hero_invoker', // 祈求者
-  // 'hero_jakiro', // 杰奇洛
+  'hero_jakiro', // 杰奇洛
   'hero_juggernaut', // 主宰
   // 'hero_keeper_of_the_light', // 光之守卫
   'hero_kunkka', // 昆卡

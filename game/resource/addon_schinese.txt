@@ -1032,7 +1032,7 @@
 		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害减少和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
 
 		// 剧毒
-		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} 毒刺伤害"
+		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} 恶性瘟疫伤害"
 
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_5"								"+{s:bonus_jumps} 连环霜冻弹跳次数"
@@ -1065,11 +1065,6 @@
 
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"	"+{s:bonus_bonus_damage}% 护卫术/健体术攻击力"
     	"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_lifesteal"	"+{s:bonus_lifesteal_pct}% 护卫术/健体术吸血"
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_max_jump_distance} 回身踢施法/跳跃距离和落地范围"
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} 过肩摔伤害/摔扔距离"
-
-		// 夜魔
-		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% 暗夜猎影移动速度"
 
 		// 酒仙
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"元素分离·改"

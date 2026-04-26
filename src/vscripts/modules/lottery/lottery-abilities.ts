@@ -58,6 +58,8 @@ export const abilityTiersActive: Tier[] = [
       'elder_titan_earth_splitter', // 裂地沟壑
       'marci_bodyguard', // 护卫术
       'void_spirit_astral_step', // 太虚之径
+      'lich_chain_frost', // 连环霜冻
+      'jakiro_macropyre', // 烈焰焚身
 
       // 小技能
       'dark_seer_vacuum', // 真空
@@ -121,6 +123,12 @@ export const abilityTiersActive: Tier[] = [
       'batrider_firefly', // 火焰飞行
       'pugna_nether_blast', // 幽冥爆轰
       'undying_decay', // 不朽尸王 腐朽
+      'furion_teleportation', // 自然传送
+      'mirana_starfall', // 群星风暴
+      'magnataur_empower', // 授予力量
+      'jakiro_dual_breath', // 冰火交加
+      'jakiro_ice_path', // 冰封路径
+      'phantom_assassin_blur', // 魅影无形
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
@@ -161,6 +169,9 @@ export const abilityTiersActive: Tier[] = [
       'lich_frost_armor', // 霜冻护甲
       'crystal_maiden_crystal_nova', // 冰霜新星
       'crystal_maiden_frostbite', // 冰封禁制
+      'luna_lucent_beam', // 月光
+      'monkey_king_boundless_strike', // 棒击大地
+      'magnataur_shockwave', // 震荡波
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
