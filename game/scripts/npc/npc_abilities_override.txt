@@ -12439,23 +12439,23 @@
 	"kez_grappling_claw"
 	{
 		"MaxLevel"	"5"
+		"AbilityCooldown"				"11 10 9 8 7"
+		"AbilityCastRange"				"650 750 850 950 1050"
 		"AbilityValues"
 		{
-			"AbilityCooldown"			"14 12 10 8 6"
-			"AbilityCastRange"			"700 800 900 1000 1100"
-			"bonus_flat_lifesteal"			"50 100 150 200 250"
-			"lifesteal_pct"					"65 85 105 125 145"
+			"debuff_duration"							"0.7 0.8 0.9 1.0 1.1"
 		}
 	}
 	// 影武长刀
 	"kez_kazurai_katana"
 	{
 		"MaxLevel"	"5"
+		"AbilityCooldown"				"20 16 12 8 4"	// 20 15 10 5
 		"AbilityValues"
 		{
 			"katana_bleed_attack_damage_pct"
 			{
-				"value"															"4 6 8 10 12"
+				"value"															"3 6 9 12 15"
 			}
 		}
 	}
@@ -12468,16 +12468,15 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"		"45 40 35 30"
+				"value"		"42 38 34 30"
 			}
-
 			"base_damage"
 			{
-				"value" 				"30 60 90 120"
+				"value" 				"40 70 100 130"
 			}
 			"max_health_damage_pct"
 			{
-				"value"				 "4"	// 3
+				"value"				"4"	// 2.5 +1.5
 			}
 		}
 	}
@@ -12509,7 +12508,7 @@
 		{
 			"damage"
 			{
-				"value"					"75 150 225 300 375"	// 75 125 175 225
+				"value"					"60 120 180 240 300"
 			}
 			"silence_duration"			"2.0 2.25 2.5 2.75 3.0"
 		}
@@ -12518,18 +12517,14 @@
 	"kez_shodo_sai"
 	{
 		"MaxLevel"	"5"
-		"AbilityManaCost"				"30 20 10 0 0"
-		"AbilityCooldown"				"20 16 12 8 4"
+		"AbilityCooldown"				"17 14 11 8 5"
 		"AbilityValues"
 		{
 			"base_crit_pct"
 			{
-				"value"												"140 160 180 200 220"
+				"value"												"125 150 175 200 225"
 			}
-			"parry_bonus_crit"
-			{
-				"value"												"10"	//4
-			}
+			"stun_duration"											"0.5 0.6 0.7 0.8 0.9"
 		}
 	}
 	// 渡鸦之纱
@@ -12541,11 +12536,11 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"		"40 35 30 25"
+				"value"		"42 38 34 30"
 			}
 			"buff_duration"
 			{
-				"value"												"7 8 9 10"
+				"value"												"8 10 12 14"
 			}
 			"bonus_ms"												"15 25 35 45"
 		}
