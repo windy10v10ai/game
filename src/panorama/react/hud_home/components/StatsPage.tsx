@@ -1,14 +1,9 @@
 import React from 'react';
-import { HomeStatusDto } from '../../../../common/dto/home-status';
-
-interface StatsPageProps {
-  homeStatus: HomeStatusDto | null;
-}
 
 /**
  * 统计页面组件
  */
-export function StatsPage({ homeStatus }: StatsPageProps) {
+export function StatsPage() {
   return (
     <Panel className="stats-container">
       <Panel className="stat-item">

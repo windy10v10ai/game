@@ -17,11 +17,6 @@ export class Home {
       },
       undefined,
     );
-
-    // 注册自定义事件监听器
-    // CustomGameEventManager.RegisterListener('home_example_event', (userId, event) => {
-    //   this.handleExampleEvent(userId, event);
-    // });
   }
 
   /**
@@ -51,14 +46,4 @@ export class Home {
 
     print(`Home initialized for player ${playerId} (${steamAccountID})`);
   }
-
-  /**
-   * 示例事件处理方法
-   */
-  // handleExampleEvent(userId: EntityIndex, event: HomeExampleEventData & CustomGameEventDataBase) {
-  //   const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
-  //   print(`Home event received from player ${event.PlayerID}`);
-  //
-  //   // 在这里处理事件逻辑
-  // }
 }
