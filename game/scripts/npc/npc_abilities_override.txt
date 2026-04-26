@@ -12213,9 +12213,9 @@
 		{
 			"damage"
 			{
-				"value"						"200 350 500 650 800"
+				"value"						"100 200 300 400 500"	// 100 175 250 325 差值100
 			}
-			"ricochet_fear_duration"		"2.8 2.95 2.1 2.25 2.4"
+			"ricochet_fear_duration"		"0.8 1.15 1.5 1.85 2.2"	// 0.8 0.95 1.1 1.25 差值0.2
 		}
 	}
 	// 唤魂
@@ -12225,8 +12225,8 @@
 		"AbilityManaCost"				"135 150 165 180 195"
 		"AbilityValues"
 		{
-			"damage"						"145 190 235 280 325"
-			"duration"						"4 5 6 7 8"
+			"damage"						"90 180 270 360 450"	// 45 90 135 180 x2
+			"duration"					"5 6 7 8 9"
 			"silence_duration"				"1.5 2 2.5 3 3.5"
 		}
 	}
@@ -12246,17 +12246,23 @@
 	"muerta_pierce_the_veil"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60 55 50 45"
+		"AbilityCooldown"				"75 65 55 45"
 		"AbilityManaCost"				"150 250 350 450"
 		"AbilityValues"
 		{
-			"bonus_damage"				"70 100 130 160"
+			"base_damage_percent"		"70 85 100 115"
 		}
 	}
-	// 临别一枪
-	"muerta_parting_shot"
+	// 超自然（先天）
+	"muerta_supernatural"
 	{
-		"AbilityCooldown"				"180"
+		"AbilityValues"
+		{
+			"max_stacks_tooltip"
+			{
+				"hero_levelup"			"+2"	// 1 x2
+			}
+		}
 	}
 	//=================================================================================================================
 	// Ringmaster: 百戏大王
@@ -12265,36 +12271,31 @@
 	"ringmaster_tame_the_beasts"
 	{
 		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
- 		"AbilityCastRange"				"1200"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
+		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityManaCost"				"90 105 120 135 150"
 		"AbilityValues"
 		{
 			"start_width"
 			{
-				"value"		"600"
+				"value"		"600"	// 450 +150
 				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_ringmaster_whip_radius"	"+150"
 			}
 			"end_width"
 			{
-				"value"		"300"
+				"value"		"300"	// 200 +150
 				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_ringmaster_whip_radius"	"+150"
 			}
 			"damage_min"
 			{
-				"value"		"100 150 200 250 300"	// x2
-				"special_bonus_unique_ringmaster_whip_damage"	"+100"
+				"value"		"100 150 200 250 300"	// 50 75 100 125 x2
 			}
 			"damage_max"
 			{
 				"value"		"400 600 800 1000 1200" // Real max damage is 4x damage min. Adjusting this only affects tooltips.
-				"special_bonus_unique_ringmaster_whip_damage"	"+400"
 			}
-			"fear_duration_min"				"0.2 0.4 0.6 0.8 1.0"	// x2
-			"fear_duration_max"				"1.2 1.6 2.0 2.4 2.8"	// x2
+			"fear_duration_min"				"0.2 0.4 0.6 0.8 1.0"	// 0.1 0.2 0.3 0.4 x2
+			"fear_duration_max"				"1.2 1.6 2.0 2.4 2.8"	// 0.6 0.8 1.0 1.2 x2
 		}
 	}
 	// 逃生技
@@ -12305,21 +12306,21 @@
 		{
 			"AbilityCastRange"
 			{
-				"value"			"900"		// 600
+				"value"			"900"	// 600
 			}
 			"invis_duration"			"2.0 2.4 2.8 3.2 3.6"
-			"move_speed"				"10 15 20 25 30"	// +10
+			"move_speed"				"10 18 26 34 42"	// 0 8 16 24 +10
 			"magic_resist"				"50 60 70 80 90"
 			"leash_radius"				"1200"	// 500
 			"AbilityCooldown"
 			{
-				"value"								"32 28 24 20 16"
+				"value"								"38 32 26 20 14"
 				"special_bonus_scepter"				"-100%"
 			}
 			"AbilityChargeRestoreTime"
 			{
-				"value"								"0 0 0 0"
-				"special_bonus_scepter"				"=32 =28 =16 =20 =16"
+				"value"								"0 0 0 0 0"
+				"special_bonus_scepter"				"=38 =32 =26 =20 =14"
 			}
 		}
 	}
@@ -12327,80 +12328,62 @@
 	"ringmaster_impalement"
 	{
 		"MaxLevel"						"5"
-		"AbilityCharges"				"1 2 3 4 5"
 		"AbilityChargeRestoreTime"		"17 16 15 14 13"
-		"AbilityManaCost"				"80 90 100 110 120"
 		"AbilityValues"
 		{
 			"damage_impact"
 			{
-				"value"													"50 100 150 200 250"	// 50
-				"special_bonus_unique_ringmaster_dagger_impact_damage"	"+100"					// 75
+				"value"		"20 35 50 65 80"
 			}
-			"bleed_health_pct"			"5.0 8.0 11.0 14.0 18.0"
-			"bleed_creep_dps"			"100 150 200 250 300"
+			"bleed_health_pct"			"3 4 5 6 7"
+			"bleed_creep_dps"			"85 90 95 100 105"
 			"dagger_width"				"150"	// 130
 			"dagger_vision"				"300"	// 200
-			"bleed_duration"
-			{
-				"value"		"3.5"
-				"special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"	"+2.5"
-			}
 			"slow_duration"
 			{
-				"value"		"1.0"
-				"special_bonus_unique_ringmaster_dagger_bleed_and_slow_duration"	"+2.5"
-			}
-			"dagger_pass_through"
-			{
-				"value"		"1"
-				"special_bonus_unique_ringmaster_dagger_penetrates"	"+2"
+				"value"		"0.5 0.6 0.7 0.8 0.9"
 			}
 		}
 	}
 	// 奇观轮
 	"ringmaster_wheel"
 	{
-		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCooldown"				"70 60 50 40 35"
-		"AbilityManaCost"				"150 225 300 375 450"
+		"MaxLevel"						"4"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
+		"AbilityCooldown"				"90 80 70 60"
+		"AbilityManaCost"				"150 225 300 375"
 		"AbilityValues"
 		{
-			"min_range"			"100"
+			"min_range"			"100"	// 700
 			"mesmerize_radius"
 			{
-				"value"		"700"
-				"affected_by_aoe_increase"	"1"
-				"special_bonus_unique_ringmaster_wheel_radius" "+200"
+				"value"		"700"	// 500
 			}
-			"projectile_speed"		"1800"
+			"projectile_speed"		"1800"	// 1200
 			"AbilityCastRange"
 			{
-				"value"		"2000"
-				"special_bonus_unique_ringmaster_wheel_radius" "+200"
+				"value"		"2000"		// 1400
+				"special_bonus_unique_ringmaster_wheel_radius" "+200"	// +100 x2
 			}
-			"trap_duration"				"8"
-			"vision_radius"			"600"
-			"wheel_stun"			"2.75 3.0 3.25 3.5 3.75"
-			"aura_damage"			"100 150 200 250 400"	// x2
-			"explosion_damage"		"400 800 1200 1800 3000"
-			"knockback_radius"			"200"
+			"trap_duration"				"6"	// 4 x1.5
+			"wheel_stun"			"2.5 2.75 3.0 3.25"
+			"aura_damage"			"100 150 200 250"	// 50 75 100 x2
+			"explosion_damage"		"300 450 600 750"
 		}
 	}
 	// 聚光灯 魔晶技能
 	"ringmaster_spotlight"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityCastPoint"				"0.2"	// 0.5
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"2000"	// 1500
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value"		"600"		// 275
+				"value"		"500"	// 275
 			}
-			"miss_chance"					"80"		// 30
+			"miss_chance"					"80"	// 30
 		}
 	}
 	// 整蛊垫 命石1
@@ -12408,54 +12391,28 @@
 	{
 		"AbilityValues"
 		{
-			"leap_distance"			"600"						// 400
-			"fart_cloud_duration"					"4.5"		// 3
-			"fart_cloud_slow"						"-50.0"		// -30
-			"fart_cloud_radius"						"400"		// 250
+			"leap_distance"			"600"	// 400
+			"fart_cloud_duration"	"4.5"	// 3.0
+			"fart_cloud_slow"		"-50.0"	// -30.0
+			"fart_cloud_radius"		"400"	// 250
 		}
 	}
 	// 强力水 命石1
 	"ringmaster_strongman_tonic"
 	{
-		"AbilityCastRange"				"1200"
 		"AbilityValues"
 		{
-			"strength_bonus_base"		"50.0"				// 5
-			"strength_bonus_per_level"	"5.0"				// 1
+			"strength_bonus_base"		"50.0"	// 5.0
+			"strength_bonus_per_level"	"5.0"	// 1.0
 		}
 	}
 	// 独轮车 命石2
 	"ringmaster_summon_unicycle"
 	{
-		"AbilityValues"
-		{
-			"mount_cast_point"			"0.0"
-			"mount_duration"			"15.0"
-			"tree_impact_speed_divisor" "4.0"
-			"max_speed"					"900"
-			"acceleration"				"600"
-			"turn_rate_min"				"90"
-			"turn_rate_max"				"130"
-			"impact_radius"				"75"
-			"knockback_distance"		"50"
-			"damage_grace_period"		"2.5"
-			"damage_threshold"			"2000"
-		}
 	}
 	// 超重派 命石2
 	"ringmaster_weighted_pie"
 	{
-		"AbilityCastRange"				"1200"
-		"AbilityValues"
-		{
-			"projectile_speed"		"1400"
-			"duration"				"3.0"
-			"push_length"			"400"
-			"push_duration"			"0.3"
-			"blind_duration"			"6.0"
-			"vision_radius"				"50"
-			"max_slow_pct"				"75"
-		}
 	}
 	//=================================================================================================================
 	// Kez: Echo Slash 凯
