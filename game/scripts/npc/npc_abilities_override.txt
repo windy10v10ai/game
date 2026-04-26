@@ -421,11 +421,11 @@
 				}
 				"wave_damage"
 				{
-					"value"					"60 100 140 180 220"	// x2
+					"value"					"60 110 160 210 260"	// 30 55 80 105 x2
 				}
 				"burn_damage"
 				{
-					"value"					"1.0 1.5 2.0 2.5 3.0"	// 百分比伤害，限制上限
+					"value"					"1.5 2.0 2.5 3.0 3.5"
 				}
 		}
 	}
@@ -433,8 +433,8 @@
 	"abyssal_underlord_pit_of_malice"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"900"	//675
-		"AbilityCooldown"				"23 21 19 17 15"
+		"AbilityCastRange"				"900"	// 675
+		"AbilityCooldown"				"30 25 20 15 10"
 		"AbilityManaCost"				"110 120 130 140 150"
 		"AbilityValues"
 		{
@@ -442,12 +442,11 @@
 			"ensnare_duration"
 			{
 				"value"	"1.5 1.6 1.7 1.8 1.9"
-				"special_bonus_unique_underlord" "+0.65"	//0.5
+				"special_bonus_unique_underlord" "+0.6"	// +0.4
 			}
 			"speed_bonus"
 			{
-				"value"						"0"
-				"special_bonus_unique_underlord_6" "+40"	//25
+				"special_bonus_unique_underlord_6" "+40"	// +20 x2
 			}
 		}
 	}
@@ -459,78 +458,54 @@
 		{
 			"damage_reduction_pct"
 			{
-				"value"		"6 14 22 30 38"
-				"special_bonus_unique_underlord_3"	"+12"
+				"value"		"8 16 24 32 40"
 			}
 			"bonus_damage_from_creep"
 			{
 				"value"							"2 4 6 8 10"
-				"special_bonus_unique_underlord_3"	"+12%"
 			}
 			"bonus_damage_from_hero"
 			{
 				"value"							"30 35 40 45 50"
-				"special_bonus_unique_underlord_3"	"+12%"
 			}
 			"bonus_damage_duration"
 			{
-				"value"							"30 45 60 75 90"	//30 40 50 60
+				"value"							"30 40 50 60 70"
 			}
 		}
 	}
-	// 恶魔之扉
+	// 恶魔之扉 不扩展等级
 	"abyssal_underlord_dark_portal"
 	{
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
-					"value"			"90 80 70"
-					"special_bonus_scepter"	"-10"
+					"value"			"90 80 70"	// 110 105 100
 				}
-				"warp_channel_duration"			"2.0"	//3.5
+				"warp_channel_duration"			"2.0"	// 3.5
 				"dps"
 				{
-					"special_bonus_unique_underlord_9"	"+400"
-				}
-				"radius"
-				{
-					"special_bonus_unique_underlord_9"	"+450"
-					"affected_by_aoe_increase"	"1"
+					"special_bonus_unique_underlord_9"	"+400"	// 160
 				}
 		}
 	}
-	// 黑暗之门
+	// 黑暗之门 不扩展等级
 	"abyssal_underlord_dark_rift"
 	{
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"60"		// 110 100 90
 		"AbilityValues"
 		{
-			"radius"						"300"
-			"teleport_delay"				"3.0 2.5 2.0"
+			"teleport_delay"				"4.0 3.0 2.0"	// 6.0 5.0 4.0 -2
 		}
 	}
 	"abyssal_underlord_portal_warp"
 	{
-		"AbilityChannelTime"			"2.0"
+		"AbilityChannelTime"			"2.0"	// 同步 abyssal_underlord_dark_portal warp_channel_duration
 	}
 	// 侵略大军 先天技能
 	"abyssal_underlord_raid_boss"
 	{
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"damage_reduction"
-			{
-				"value"		"4 6 8 10 12"
-			}
-			"bonus_ms"
-			{
-				"value"			"11 14 17 20 23"
-			}
-			"buff_duration"			"20.0"
-		}
 	}
 	//=================================================================================================================
 	// Ability: Axe 斧王
@@ -3903,16 +3878,17 @@
 	"tusk_ice_shards"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"2100"
-		"AbilityCooldown"				"22 20 18 16 14"
 		"AbilityValues"
 		{
 				"shard_damage"
 				{
-					"value"					"150 225 300 375 450"	// 75 150 225 300 375
+					"value"					"150 225 300 375 450"	// 75 150 225 300 +75
 				}
-				"shard_speed"				"1800.0"
 				"shard_duration"			"4 5 6 7 8"
+				"AbilityCooldown"
+				{
+					"value"				"22 19 16 13 10"	// 23 20 17 14
+				}
 		}
 	}
 	// 雪球
@@ -3920,17 +3896,20 @@
 	{
 		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCooldown"				"21 19 17 15 13"
 		"AbilityValues"
 		{
 				"snowball_damage"
 				{
 					"value"		"80 140 200 260 320"
-					"special_bonus_unique_tusk_2" "+180"		// +120
+					"special_bonus_unique_tusk_2" "+180"		// 120
 				}
 				"snowball_speed"			"575 600 625 650 675"
 				"snowball_damage_bonus"		"40 65 90 115 140"
 				"stun_duration"				"0.6 0.8 1.0 1.2 1.4"
+				"AbilityCooldown"
+				{
+					"value"				"21 19 17 15 13"
+				}
 		}
 	}
 	// 摔角行家
@@ -3943,7 +3922,7 @@
 		{
 			"bonus_damage"
 			{
-				"value"						"20 45 70 95 120"
+				"value"						"25 50 75 100 125"
 			}
 			"radius"
 			{
@@ -3951,32 +3930,33 @@
 			}
 		}
 	}
-	// 酒友（命石2）
+	// 酒友（碎片）
 	"tusk_drinking_buddies"
 	{
-		"MaxLevel"						"5"
-		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityValues"
 		{
-			"movespeed_bonus"			"11 14 17 20 23"
-			"attackdamage_bonus"
+			"movespeed_bonus"			"50"	// 25 x2
+			"armor_bonus"
 			{
-				"value"								"20 45 70 95 120"
+				"value"					"21"	// 7 x3
 			}
 		}
 	}
-	// 严寒（先天）跟随大招等级
+	// 严寒（先天）
 	"tusk_bitter_chill"
 	{
-		"MaxLevel"			"5"
 		"AbilityValues"
 		{
 			"radius"
 			{
-				"value"	"450" // 350
+				"value"				"450"	// 350
 				"affected_by_aoe_increase"	"1"
 			}
-			"attack_speed_slow"		"60 120 180 240 300" // 10 20 30 40 50
+			"attack_speed_slow"
+			{
+				"value"				"60"	// 12 x5
+				"hero_levelup"		"15"	// 3 x5
+			}
 		}
 	}
 	// 海象神拳！
@@ -3997,41 +3977,10 @@
 				}
 		}
 	}
-	// 海象飞踢
+	// 海象飞踢（神杖）
 	"tusk_walrus_kick"
 	{
 		"AbilityCooldown"				"16"	// 12
-		"AbilityValues"
-		{
-				"push_length"				"1200"	// 1200
-		}
-	}
-	// 寒冰符印
-	"tusk_frozen_sigil"
-	{
-		"IsGrantedByShard"				"1"
-		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"30.0"
-		"AbilityManaCost"				"70"
-		"AbilityValues"
-		{
-			"sigil_radius"
-			{
-				"value" "650"
-			}
-			"sigil_duration"
-			{
-				"value" "25"
-			}
-			"move_slow"
-			{
-				"value" "40"
-			}
-			"attack_slow"
-			{
-				"value" "0"
-			}
-		}
 	}
 	//=================================================================================================================
 	// Ability: Tidehunter 潮汐猎人
@@ -7651,6 +7600,14 @@
 	//=================================================================================================================
 	// Ability: Troll Warlord 巨魔战将
 	//=================================================================================================================
+	// 切换姿态（先天）
+	"troll_warlord_switch_stance"
+	{
+		"AbilityValues"
+		{
+			"armor_per_interval"		"3.0"	// 1.0 x3
+		}
+	}
 	// 狂战士之怒
 	"troll_warlord_berserkers_rage"
 	{
@@ -7661,10 +7618,6 @@
 			{
 				"value"		"15 25 35 45 55"
 
-			}
-			"bonus_armor"
-			{
-				"value"			"3 5 7 9 11"	// 加强
 			}
 			"ensnare_duration"		"0.8 1.2 1.6 2.0 2.4"
 			"maim_duration"			"0.8 1.2 1.6 2.0 2.4"
@@ -7690,7 +7643,6 @@
 			"axe_slow_duration"
 			{
 				"value"						"2.5 3 3.5 4 4.5"
-				"special_bonus_unique_troll_warlord_whirling_axes_debuff_duration"				"+2"
 			}
 		}
 	}
@@ -7715,7 +7667,6 @@
 			"attack_speed"
 			{
 				"value"		"15 20 25 30 35"
-				"special_bonus_unique_troll_warlord_5"		"+5"
 			}
 		}
 	}
@@ -7852,13 +7803,13 @@
 	"vengefulspirit_wave_of_terror"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityValues"
 		{
 			"damage"			"60 80 100 120 140"
 			"armor_reduction"
 			{
-				"value"			"-6 -8 -10 -12 -14"	// x2
+				"value"			"-6 -8 -10 -12 -14"	// -3 -4 -5 -6 x2
 			}
 			"attack_reduction"
 			{
@@ -7871,13 +7822,16 @@
 	{
 		"MaxLevel" "4"
 		"AbilityCastRange"				"850 975 1100 1250"
-		"AbilityCooldown"				"54 46 38 30"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
 		{
 			"damage"
 			{
 				"value"							"150 300 450 600"
+			}
+			"AbilityCooldown"
+			{
+				"value"										"54 46 38 30"
 			}
 		}
 	}
