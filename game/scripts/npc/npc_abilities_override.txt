@@ -6968,22 +6968,18 @@
 	"phantom_assassin_stifling_dagger"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"700 850 1000 1150 1300"
-		"AbilityManaCost"				"30 40 50 60 70"
+		"AbilityCastRange"				"700 850 1000 1150 1300"		// 700 850 1000 1150
 		"AbilityValues"
 		{
-			"duration"			"2.2 2.8 3.4 4 4.6"
+			"duration"			"2.1 2.4 2.7 3 3.3"
 			"base_damage"			"65 70 75 80 85"
 			"attack_factor"
 			{
 				"value"				"-70 -55 -40 -25 -10"
-				"special_bonus_unique_phantom_assassin_5"	"+20"
 			}
 			"attack_factor_tooltip"
 			{
 				"value"				"30 45 60 75 90"
-				"special_bonus_unique_phantom_assassin_5"	"+20"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_PHYSICAL"
 			}
 		}
 	}
@@ -6998,27 +6994,17 @@
 		{
 			"bonus_attack_speed"
 			{
-				"value"													"100 130 160 190 220"
-				"special_bonus_unique_phantom_assassin_strike_aspd"		"+60"
+				"value"				"80 120 160 200 240"
 			}
 			"AbilityCastRange"
 			{
-				"value"											"650 750 850 950 1050"
+				"value"				"650 750 850 950 1050"
 			}
 		}
 	}
 	// 魅影无形
 	"phantom_assassin_blur"
 	{
-		"MaxLevel"						"5"
-		"AbilityCastRange"				"625 550 475 400 325"
-		"AbilityValues"
-		{
-
-			"radius"				"625 550 475 400 325"
-			"fade_duration"			"0.4 0.6 0.8 1.0 1.2"
-			"active_movespeed_bonus"				"6 9 12 15 18"
-		}
 	}
 	// 飘忽不定
 	"phantom_assassin_immaterial"
@@ -7029,7 +7015,7 @@
 		{
 			"evasion"
 			{
-				"value"				"20 30 40 50 60"
+				"value"				"25 35 45 55 65"
 			}
 		}
 	}
@@ -7045,19 +7031,7 @@
 			}
 			"crit_bonus"
 			{
-				"value"		"200 325 450 550"
-			}
-			"attacks_to_proc"
-			{
-				"special_bonus_facet_phantom_assassin_methodical"		"+4"
-				"special_bonus_unique_phantom_assassin_2"	"-1"
-				"RequiresFacet"				"phantom_assassin_methodical"
-			}
-			"attacks_to_proc_creeps"
-			{
-				"special_bonus_facet_phantom_assassin_methodical"		"+2"
-				"special_bonus_unique_phantom_assassin_2"	"-1"
-				"RequiresFacet"				"phantom_assassin_methodical"
+				"value"		"200 325 450 575"
 			}
 			"duration"				"6 8 10 12"
 		}
