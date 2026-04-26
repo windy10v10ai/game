@@ -25,11 +25,11 @@ function item_refresh_core:OnSpellStart()
 	-- find all refreshable items
 	for i = 0, 8 do
 		local item = caster:GetItemInSlot(i)
-		self:RefreshItem(item, caster)
+		RefreshItem(self, item, caster)
 	end
 
 	local itemTp = caster:GetItemInSlot(DOTA_ITEM_TP_SCROLL)
-	self:RefreshItem(itemTp, caster)
+	RefreshItem(self, itemTp, caster)
 	-- local itemNeutral = caster:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT )
 	-- self:RefreshItem( itemNeutral, caster )
 
@@ -50,22 +50,6 @@ item_refresh_core.AbitilyException = {
 	["dazzle_good_juju"] = true,
 }
 
-function item_refresh_core:RefreshItem(item, caster)
-	if item and item:GetPurchaser() == caster then
-		if item:IsRefreshable() then
-			item:EndCooldown()
-		end
-		if self.ItemShareCooldown[item:GetName()] then
-			item:StartCooldown(self:GetCooldownTimeRemaining())
-		end
-	end
-end
-
-item_refresh_core.ItemShareCooldown = {
-	["item_refresher"] = true,
-	["item_refresher_shard"] = true,
-	["item_refresh_core"] = true,
-}
 ---------------------------------------------------------------------
 --Modifiers
 if modifier_item_refresh_core == nil then
@@ -77,8 +61,10 @@ function modifier_item_refresh_core:IsPurgable() return false end
 
 function modifier_item_refresh_core:RemoveOnDeath() return false end
 
-function modifier_item_refresh_core:GetAttributes() return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE +
-	MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_item_refresh_core:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE +
+		MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
 
 function modifier_item_refresh_core:OnCreated()
 	local ability = self:GetAbility()

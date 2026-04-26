@@ -7,6 +7,7 @@ content/panorama/layout/custom_game/react
 
 # development output
 game/*.bin
+game/tools_thumbnail_cache.*
 game/resource/custom_game_whitelist.txt
 
 # panorama auto compiled output

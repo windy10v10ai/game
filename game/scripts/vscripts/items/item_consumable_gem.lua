@@ -1,6 +1,6 @@
 item_consumable_gem = class({})
-LinkLuaModifier( "modifier_consumable_gem", 'items/item_consumable_gem', LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_consumable_gem_aura", 'items/item_consumable_gem', LUA_MODIFIER_MOTION_NONE )
+LinkLuaModifier("modifier_consumable_gem", 'items/item_consumable_gem', LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_consumable_gem_aura", 'items/item_consumable_gem', LUA_MODIFIER_MOTION_NONE)
 
 --------------------------------------------------------------------------------
 
@@ -9,7 +9,8 @@ function item_consumable_gem:OnSpellStart()
 	local caster = self:GetCaster()
 	caster:AddNewModifier(caster, nil, "modifier_consumable_gem_aura", {
 		radius = self:GetSpecialValueFor("radius"),
-		duration = self:GetSpecialValueFor("duration_minutes") * 60
+		duration = self:GetSpecialValueFor("duration_minutes") * 60,
+		charge_count = self:GetSpecialValueFor("charge_count")
 	})
 	self:Destroy()
 end
@@ -43,9 +44,11 @@ if modifier_consumable_gem_aura == nil then modifier_consumable_gem_aura = class
 
 function modifier_consumable_gem_aura:OnCreated(kv)
 	self.radius = kv.radius or 900
+	self.charge_count = kv.charge_count or 3
 
 	if IsServer() then
 		self:StartIntervalThink(0.1)
+		self:SetStackCount(self.charge_count)
 	end
 end
 
@@ -97,14 +100,21 @@ function modifier_consumable_gem_aura:GetTexture()
 	return "item_consumable_gem"
 end
 
-function modifier_consumable_gem_aura:OnDeath( keys )
+function modifier_consumable_gem_aura:OnDeath(keys)
 	if IsServer() then
 		local dead_hero = keys.unit
 
 		if dead_hero ~= self:GetParent() then return end
 		if dead_hero.IsReincarnating and dead_hero:IsReincarnating() then return end
 
-		self:Destroy()
+		-- 消耗1点charge
+		self.charge_count = self.charge_count - 1
+		self:SetStackCount(self.charge_count)
+
+		-- 当charge为0时销毁buff
+		if self.charge_count <= 0 then
+			self:Destroy()
+		end
 	end
 end
 
@@ -119,13 +129,13 @@ function modifier_consumable_gem_aura:OnIntervalThink()
 		self.radius,
 		DOTA_UNIT_TARGET_TEAM_BOTH,
 		DOTA_UNIT_TARGET_OTHER,
-		DOTA_UNIT_TARGET_FLAG_NONE+DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+		DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
 		FIND_ANY_ORDER,
 		false)
 
 	for _, tree in pairs(enemyUnits) do
 		if tree:GetClassname() == "npc_dota_treant_eyes" then
-			tree:AddNewModifier(hero, self:GetAbility(), "modifier_truesight", {duration = 0.11})
+			tree:AddNewModifier(hero, self:GetAbility(), "modifier_truesight", { duration = 0.11 })
 		end
 	end
 end

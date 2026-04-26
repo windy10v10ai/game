@@ -41,6 +41,26 @@ function item_forbidden_staff:OnSpellStart()
         end
     end
 
+    -- 额外效果：清除范围内侦查守卫和岗哨守卫
+    local wards = FindUnitsInRadius(
+        caster:GetOpposingTeamNumber(),
+        target_point,
+        nil,
+        radius,
+        DOTA_UNIT_TARGET_TEAM_BOTH,
+        DOTA_UNIT_TARGET_ALL,
+        DOTA_UNIT_TARGET_FLAG_NONE + DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+        FIND_ANY_ORDER,
+        false
+    )
+
+    for _, ward in pairs(wards) do
+        local ward_name = ward:GetUnitName()
+        if ward_name == "npc_dota_observer_wards" or ward_name == "npc_dota_sentry_wards" then
+            ward:Kill(nil, caster)
+        end
+    end
+
     EmitSoundOn("DOTA_Item.MeteorHammer.Impact", caster)
 end
 
@@ -105,21 +125,32 @@ function modifier_item_forbidden_staff:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_forbidden_staff:OnCreated()
-    self:OnRefresh()
+function modifier_item_forbidden_staff:OnCreated(params)
+    self:OnRefresh(params)
 end
 
-function modifier_item_forbidden_staff:OnRefresh()
+function modifier_item_forbidden_staff:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_forbidden_staff_stats"
 
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+        -- 直接应用原生修饰器
+        local parent = self:GetParent()
+        local ability = self:GetAbility()
+
+        -- 移除旧的修饰器（如果存在）
+        parent:RemoveModifierByName("modifier_item_gungir")
+
+        -- 应用新的修饰器
+        parent:AddNewModifier(parent, ability, "modifier_item_gungir", {})
     end
 end
 
 function modifier_item_forbidden_staff:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+        -- 移除原生修饰器
+        self:GetParent():RemoveModifierByName("modifier_item_gungir")
     end
 end
 
@@ -137,19 +168,18 @@ function modifier_item_forbidden_staff_sheep:IsDebuff() return true end
 function modifier_item_forbidden_staff_sheep:IsPurgable() return true end
 
 function modifier_item_forbidden_staff_sheep:GetTexture()
-    return "item_forbidden_staff"
+    return "item_jinjifachui"
 end
 
 function modifier_item_forbidden_staff_sheep:OnCreated()
+    self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed")
+    self.blast_magic_resist = self:GetAbility():GetSpecialValueFor("blast_magic_resist")
+
     if not IsServer() then return end
 
     -- 随机选择模型(猪或羊)
     local model_list = { "models/props_gameplay/pig.vmdl", "models/props_gameplay/sheep01.vmdl" }
     self.model_file = model_list[RandomInt(1, #model_list)]
-
-    if self:GetAbility() then
-        self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed") or 140
-    end
 end
 
 function modifier_item_forbidden_staff_sheep:CheckState()
@@ -165,13 +195,18 @@ function modifier_item_forbidden_staff_sheep:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
         MODIFIER_PROPERTY_MODEL_CHANGE,
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION,
     }
 end
 
 function modifier_item_forbidden_staff_sheep:GetModifierMoveSpeedOverride()
-    return self.sheep_movement_speed or 140
+    return self.sheep_movement_speed
 end
 
 function modifier_item_forbidden_staff_sheep:GetModifierModelChange()
     return self.model_file
+end
+
+function modifier_item_forbidden_staff_sheep:GetModifierMagicalResistanceDirectModification()
+    return self.blast_magic_resist
 end

@@ -223,3 +223,48 @@ function IsAbilityBehavior(behavior, judge)
 
 	return bit.band(behavior, judge) == judge
 end
+
+-- Refresher
+RefreshItemShareCooldown = {
+	["item_refresher"] = true,
+	["item_refresher_shard"] = true,
+	["item_refresh_core"] = true,
+	["item_time_gem"] = true,
+}
+
+-- 需要特殊充能刷新处理的自定义物品（RefreshCharges() 对这些物品不起作用）
+-- 对这些物品使用 SetCurrentCharges() 代替
+CustomChargeItems = {
+	["item_hand_of_group"] = true,
+}
+
+-- refreshItem: 刷新物品实例（self）
+-- item: 要刷新的物品
+-- caster: 施法者/所有者
+function RefreshItem(refreshItem, item, caster)
+	if not item or item:GetPurchaser() ~= caster then
+		return
+	end
+
+	-- 跳过刷新物品，并设置共享冷却时间
+	if RefreshItemShareCooldown[item:GetName()] then
+		item:StartCooldown(refreshItem:GetCooldownTimeRemaining())
+		return
+	end
+
+	if not item:IsRefreshable() then
+		return
+	end
+
+	item:EndCooldown()
+	-- 刷新物品充能点数
+	if item:GetAbilityChargeRestoreTime(-1) > 0 then
+		item:RefreshCharges()
+		-- 对自定义物品使用 SetCurrentCharges() 代替 RefreshCharges()
+		local item_name = item:GetName()
+		if CustomChargeItems[item_name] then
+			local max_charges = item:GetMaxAbilityCharges(item:GetLevel())
+			item:SetCurrentCharges(max_charges)
+		end
+	end
+end

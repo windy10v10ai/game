@@ -76,6 +76,7 @@ function modifier_trigger_on_attacked:OnAttacked(params)
         local ability = parent:GetAbilityByIndex(i)
         if ability and ability:GetLevel() > 0
             and not ability:IsPassive()
+            and not ability:IsHidden()
             and ability ~= self:GetAbility()
             and not ability:IsItem()
             and not EXCLUDED_ABILITIES_ALLBUTTER[ability:GetAbilityName()] then
@@ -124,6 +125,9 @@ function modifier_trigger_on_attacked:OnAttacked(params)
     -- 施放技能
     local target = attacker -- 对攻击者释放技能
     local behavior = random_ability:GetBehavior()
+    if type(behavior) ~= "number" then
+        behavior = tonumber(tostring(behavior))
+    end
     local target_team = random_ability:GetAbilityTargetTeam()
 
     local cast_target = target

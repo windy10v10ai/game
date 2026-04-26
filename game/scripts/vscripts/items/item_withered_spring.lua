@@ -53,8 +53,8 @@ function modifier_item_withered_spring:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_withered_spring:OnCreated()
-    self:OnRefresh()
+function modifier_item_withered_spring:OnCreated(params)
+    self:OnRefresh(params)
 
     if not self:GetAbility() then return end
     local ability = self:GetAbility()
@@ -69,7 +69,7 @@ function modifier_item_withered_spring:OnCreated()
     end
 end
 
-function modifier_item_withered_spring:OnRefresh()
+function modifier_item_withered_spring:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_withered_spring_stats"
 
     if IsServer() then

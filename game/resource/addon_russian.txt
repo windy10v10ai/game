@@ -126,6 +126,7 @@
 		"data_panel_player_property_cannot_miss"				"True Strike"
 		"data_panel_player_property_flying"						"Статус полёта"
 		"data_panel_player_property_skill_points_bonus"			"Бонусные очки прокачки"
+		"data_panel_player_property_bonus_vision"				"Бонусный обзор"
 
 		"data_panel_player_property_tooltip"					"Герой будет получать этот эффект каждые 2 уровня, вплоть до максимального уровня."
 		"data_panel_player_property_skill_points_bonus_tooltip"	"Герой будет получать этот эффект каждые 4 уровня, вплоть до максимального уровня."
@@ -279,14 +280,6 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_Description" 	"%miss% %% шанс уклонения и нанести критический урон. После активации эффекта скорость передвижения увеличивается на 30%, а шанс уклонения и критической атаки утраивается"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%Критический урон: "
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"Длительность： "
-		//精准光环
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Даёт владельцу дополнительную ловкость, зависящую от его уровня и от текущего показателя ловкости. Герои дальнего боя неподалёку получают %trueshot_agi_bonus_allies_pct%%% от бонуса."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"Коротая своё одиночество в бесконечных тренировках, Траксекс научилась передавать толику своего мастерства любому лучнику."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_base"				"%БАЗОВЫЙ БОНУС К ЛОВКОСТИ:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus_per_level"		"%БОНУС К ЛОВКОСТИ ЗА УРОВЕНЬ:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_agi_bonus_pct_tooltip"				"%СУММАРНЫЙ БОНУС К ЛОВКОСТИ:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"РАДИУС:"
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
@@ -336,16 +329,10 @@
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_Description"							"Герой крадёт золото у вражеских героев, ставших целью его способности или предмета."
 		"DOTA_Tooltip_ability_bounty_hunter_cutpurse2_gold_steal"							"ПОХИЩЕНИЕ ЗОЛОТА:"
 
-
-		//神龙之血
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2"								"Dragon Blood"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_Description"					"Текущая в жилах героя кровь дракона усиливает его восстановление здоровья и броню. Эти бонусы увеличиваются на %level_mult% за каждый уровень героя и умножаются в облике дракона."
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_health_regen"			"ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ:"
-		"DOTA_Tooltip_ability_dragon_knight_inherited_vigor2_base_armor"					"БРОНЯ:"
-		//才思敏捷
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2"				"Quick Wit"
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"	"Интеллект также увеличивает скорость атаки этого героя."
-		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Note0"		"Каждая единица интеллекта увеличивает скорость атаки героя на %int_to_atkspd%."
+		// 黑暗贤者 才思敏捷
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2"								"Quick Wit"
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_Description"					"За каждую единицу Интеллекта Dark Seer получает %int_to_atkspd% скорости атаки."
+		"DOTA_Tooltip_ability_dark_seer_quick_wit2_attack_speed_tooltip"			"БОНУС К СКОРОСТИ АТАКИ:"
 		//炽烈火雨
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2"											"Burning Barrage"
 		"DOTA_Tooltip_ability_clinkz_burning_barrage2_Description"								"ПРЕРЫВАЕМАЯ — герой выпускает залп стрел в выбранном направлении. Они пролетают сквозь всех врагов на пути, нанося им долю от обычного урона, а также накладывая эффекты атаки и замедление от способности Tar Bomb."
@@ -384,7 +371,7 @@
 		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Урон увеличен на %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
-		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Герой атакует обеими головами одновременно, но каждая атака наносит на %attack_damage_reduction%%% меньше урона."
+		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Атаки Джакиро запускают удар с каждой головы, но каждый наносит меньше урона."
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			" Атаки Batrider накладывают дебафф, который наносит %tick_attack_damage_pct%%% урон от атаки каждые %tick_rate% секунды"
@@ -397,15 +384,6 @@
 		//人工神符
 		"DOTA_Tooltip_ability_arc_warden_scepter2"	"Artificial Rune"
 		"DOTA_Tooltip_ability_arc_warden_scepter2_Description"	"Создает случайную руну"
-		//魔法扰动
-		"DOTA_Tooltip_ability_antimage_mana_turbulence"	"Mana Turbulence"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_Description"	"Наносит урон вражеским юнитам в конусной области и накладывает дебафф, снижающий урон от заклинаний, увеличивающий расход маны, повышающий перезарядку умений и вызывающий замедление на %slow_duration% секунд"
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_damage"		"Баровый урон： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_ad"			"Коэф. от урона героя： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_duration"	"Длительность： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_spell_amp"	"%Снижение урона заклинаний： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_mana_cost"	"%Увеличение затрат маны： "
-		"DOTA_Tooltip_ability_antimage_mana_turbulence_cd"			"%Увеличение перезарядки： "
 		//冰霜法球
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb"		"Frost orb"
 		"DOTA_Tooltip_ability_ancient_apparition_frost_orb_Description"		"Каждые %attack_count% запускает морозную сферу, наносящую урон по области и замедляющую цель на %slow_duration% секунд"
@@ -420,14 +398,5 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
-		//冰霜封印
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal"				"Frost Seal"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_Description"			"Оглушите себя на 4 секунды получив снижение урона на %damage_reduction%%% и увеличив восстановления здоровья. В течение этого времени замедляет врагов на 20%% и притягивает их к себе. В конце нанесит урон и оглушиает окружающих врагов"
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen"				"Восстановление здоровья： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_hp_regen_percentage"	"%Востановление здоровья процент： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_damage"				"Урон： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_stun_duration"		"Длительность оглушения： "
-		"DOTA_Tooltip_ability_ancient_apparition_frost_seal_radius"				"Радиус： "
-
 	}
 }

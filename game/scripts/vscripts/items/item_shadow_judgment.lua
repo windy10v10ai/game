@@ -110,10 +110,11 @@ function item_shadow_judgment:ApplyBlueFantasyEffect(target)
     if not IsServer() then return end
 
     local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("mute_duration") * (1 - target:GetStatusResistance())
 
     -- 驱散
     target:Purge(true, false, false, false, false)
+
+    local duration = self:GetSpecialValueFor("mute_duration") * (1 - target:GetStatusResistance())
 
     -- 添加自定义苍蓝幻想debuff
     target:AddNewModifier(caster, self, "modifier_shadow_judgment_mute", { duration = duration })
@@ -146,11 +147,11 @@ function modifier_item_shadow_judgment:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_shadow_judgment:OnCreated()
-    self:OnRefresh()
+function modifier_item_shadow_judgment:OnCreated(params)
+    self:OnRefresh(params)
 end
 
-function modifier_item_shadow_judgment:OnRefresh()
+function modifier_item_shadow_judgment:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_shadow_judgment_stats"
 
     if IsServer() then

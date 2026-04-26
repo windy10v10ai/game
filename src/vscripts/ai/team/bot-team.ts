@@ -14,8 +14,9 @@ export class BotTeam {
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly addAmountBase: number = 2; // Bot发钱的基础金额
-  private readonly addAmountNeedLevel: number = 150; // 每多少玩家等级增加1的金额
+  private readonly addAmountBase: number = 1; // Bot发钱的基础金额
+  private readonly addAmountPlayerNumberBonus: number = 0.2; // 每个玩家增加的金额
+  private readonly addAmountNeedLevel: number = 0.01; // 每玩家等级增加的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**
@@ -47,7 +48,9 @@ export class BotTeam {
     } else if (botGoldXpMultiplier <= 8) {
       this.baseBotPushMin = RandomInt(11, 13);
     } else if (botGoldXpMultiplier <= 10) {
-      this.baseBotPushMin = RandomInt(8, 10);
+      this.baseBotPushMin = RandomInt(9, 11);
+    } else if (botGoldXpMultiplier <= 15) {
+      this.baseBotPushMin = RandomInt(7, 9);
     } else if (botGoldXpMultiplier <= 20) {
       this.baseBotPushMin = RandomInt(5, 7);
     } else {
@@ -60,8 +63,14 @@ export class BotTeam {
     print(`[BotTeam] Base bot push min: ${this.baseBotPushMin}`);
 
     // 根据难度计算电脑推进等级
-    const randomLevel = RandomInt(0, 2); // 随机额外增加0~2级
-    this.botPushLevel = this.getTowerRequiredLevel() + randomLevel;
+    const randomLevel = RandomInt(0, 2); // 随机额外增等级
+    const requiredLevel = this.getTowerRequiredLevel();
+    // 中路模式：推进所需等级缩短一半（更早推进）
+    if (GameRules.Option.midOnlyMode) {
+      this.botPushLevel = Math.floor(requiredLevel / 2) + randomLevel;
+    } else {
+      this.botPushLevel = requiredLevel + randomLevel;
+    }
     print(`[BotTeam] Bot push level: ${this.botPushLevel}`);
   }
 
@@ -99,40 +108,69 @@ export class BotTeam {
   private getTowerRequiredLevel(): number {
     const towerPower = GameRules.Option.towerPower;
     if (towerPower <= 200) {
-      return 13;
+      return 12;
     } else if (towerPower <= 300) {
       return 14;
     } else if (towerPower <= 400) {
-      return 15;
-    } else {
       return 16;
+    } else {
+      return 18;
     }
   }
 
   /**
    * 根据防御塔状态计算推进层级
-   * @returns 推进层级
+   * 中路模式与普通模式阈值不同，分开处理
    */
   private calculatePushTierByTowerStatus(): number {
-    // 优先检查兵营状态（优先级更高）
+    if (GameRules.Option.midOnlyMode) {
+      return this.calculatePushTierMidOnly();
+    }
+    return this.calculatePushTierNormal();
+  }
+
+  /**
+   * 普通模式推进层级计算
+   * 每队每层有3座塔（上中下），阈值>=2表示超过一半路被推
+   */
+  private calculatePushTierNormal(): number {
+    // 优先检查兵营状态
     if (TowerPushStatus.barrackPushedGood > 5 || TowerPushStatus.barrackPushedBad > 5) {
       return -1; // 无限制推进
     } else if (TowerPushStatus.barrackPushedGood > 2 || TowerPushStatus.barrackPushedBad > 2) {
       return 5;
     }
 
-    // 检查三塔状态
     if (TowerPushStatus.tower3PushedGood >= 2 || TowerPushStatus.tower3PushedBad >= 2) {
       return 4;
     }
-
-    // 检查二塔状态
     if (TowerPushStatus.tower2PushedGood >= 2 || TowerPushStatus.tower2PushedBad >= 2) {
       return 3;
     }
-
-    // 检查一塔状态
     if (TowerPushStatus.tower1PushedGood >= 2 || TowerPushStatus.tower1PushedBad >= 2) {
+      return 2;
+    }
+
+    return 1;
+  }
+
+  /**
+   * 中路模式推进层级计算
+   * 每队每层只有1座塔（mid），阈值>=1即升层
+   */
+  private calculatePushTierMidOnly(): number {
+    // 优先检查兵营状态
+    if (TowerPushStatus.barrackPushedGood >= 1 || TowerPushStatus.barrackPushedBad >= 1) {
+      return -1; // 无限制推进
+    }
+
+    if (TowerPushStatus.tower3PushedGood >= 1 || TowerPushStatus.tower3PushedBad >= 1) {
+      return 4;
+    }
+    if (TowerPushStatus.tower2PushedGood >= 1 || TowerPushStatus.tower2PushedBad >= 1) {
+      return 3;
+    }
+    if (TowerPushStatus.tower1PushedGood >= 1 || TowerPushStatus.tower1PushedBad >= 1) {
       return 2;
     }
 
@@ -162,7 +200,7 @@ export class BotTeam {
       gameModeEntity.SetBotsAlwaysPushWithHuman(true);
     } else {
       // EARLYGAME - 不推进
-      gameModeEntity.SetBotsInLateGame(false);
+      gameModeEntity.SetBotsInLateGame(true);
       gameModeEntity.SetBotsAlwaysPushWithHuman(false);
       gameModeEntity.SetBotsMaxPushTier(1);
     }
@@ -173,7 +211,7 @@ export class BotTeam {
    * 根据玩家等级（seasonLevel + memberLevel）增加
    */
   private initAddAmount(): void {
-    const playerNumberBonus = Player.GetPlayerCount() / 2;
+    const playerNumberBonus = Player.GetPlayerCount() * this.addAmountPlayerNumberBonus;
 
     // 遍历所有玩家，计算总等级
     let totalLevel = 0;
@@ -183,7 +221,7 @@ export class BotTeam {
       totalLevel += seasonLevel + memberLevel;
     }
 
-    const levelBonus = totalLevel / this.addAmountNeedLevel;
+    const levelBonus = totalLevel * this.addAmountNeedLevel;
 
     this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
     print(

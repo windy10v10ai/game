@@ -359,14 +359,13 @@
 				{
 					"MODIFIER_PROPERTY_HEALTH_BONUS"				"1500"
 					"MODIFIER_PROPERTY_MANA_BONUS"					"1500"
-					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"30"
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"20"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"20"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"			"15"
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"100"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"100"
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"		"100"
 				}
 			}
-			// 魔剑
 
 			// 禁忌法锤
 			"modifier_item_forbidden_staff_stats"
@@ -379,8 +378,6 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"170"
-					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"15"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"15"
 					"MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE" "30"
 				}
@@ -475,6 +472,95 @@
 		"ItemSellable"					"0"
 		"Modifiers"
 		{
+			// 冷却
+			"modifier_player_property_cooldown_percentage_level_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"4"
+				}
+			}
+			"modifier_player_property_cooldown_percentage_level_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"8"
+				}
+			}
+			"modifier_player_property_cooldown_percentage_level_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"12"
+				}
+			}
+			"modifier_player_property_cooldown_percentage_level_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"16"
+				}
+			}
+			"modifier_player_property_cooldown_percentage_level_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"20"
+				}
+			}
+			"modifier_player_property_cooldown_percentage_level_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"24"
+				}
+			}
+			"modifier_player_property_cooldown_percentage_level_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"28"
+				}
+			}
+			"modifier_player_property_cooldown_percentage_level_8"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE"	"32"
+				}
+			}
 			"modifier_player_property_movespeed_bonus_constant_level_1"
 			{
 				"Passive"				"1"
@@ -563,7 +649,282 @@
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"	"200"
 				}
 			}
+			// 额外视野
+			"modifier_player_property_bonus_vision_level_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"50"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"50"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"100"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"100"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"150"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"150"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"200"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"200"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"250"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"250"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"300"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"300"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"350"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"350"
+				}
+			}
+			"modifier_player_property_bonus_vision_level_8"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_BONUS_DAY_VISION"		"400"
+					"MODIFIER_PROPERTY_BONUS_NIGHT_VISION"	"400"
+				}
+			}
 
+			// 闪避
+			"modifier_player_property_evasion_constant_level_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"4"
+				}
+			}
+			"modifier_player_property_evasion_constant_level_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"8"
+				}
+			}
+			"modifier_player_property_evasion_constant_level_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"12"
+				}
+			}
+			"modifier_player_property_evasion_constant_level_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"16"
+				}
+			}
+			"modifier_player_property_evasion_constant_level_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"20"
+				}
+			}
+			"modifier_player_property_evasion_constant_level_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"24"
+				}
+			}
+			"modifier_player_property_evasion_constant_level_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"28"
+				}
+			}
+			"modifier_player_property_evasion_constant_level_8"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_EVASION_CONSTANT"	"32"
+				}
+			}
+			// 魔抗
+			"modifier_player_property_magical_resistance_bonus_level_1"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"4"
+				}
+			}
+			"modifier_player_property_magical_resistance_bonus_level_2"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"8"
+				}
+			}
+			"modifier_player_property_magical_resistance_bonus_level_3"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"12"
+				}
+			}
+			"modifier_player_property_magical_resistance_bonus_level_4"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"16"
+				}
+			}
+			"modifier_player_property_magical_resistance_bonus_level_5"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"20"
+				}
+			}
+			"modifier_player_property_magical_resistance_bonus_level_6"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"24"
+				}
+			}
+			"modifier_player_property_magical_resistance_bonus_level_7"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"28"
+				}
+			}
+			"modifier_player_property_magical_resistance_bonus_level_8"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"32"
+				}
+			}
 			// 护甲
 			"modifier_player_property_physical_armor_bonus_level_1"
 			{
@@ -1101,6 +1462,31 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"120"
+				}
+			}
+			// 必中
+			"modifier_player_property_cannot_miss"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_CANNOT_MISS"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			// 飞行
+			"modifier_player_property_flying"
+			{
+				"Passive"				"1"
+				"IsHidden"				"1"
+				"RemoveOnDeath"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+				"States"
+				{
+					"MODIFIER_STATE_FLYING"					"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_FORCED_FLYING_VISION"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
 		}

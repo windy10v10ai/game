@@ -171,10 +171,7 @@ local function addTome(k, v)
   for i = 1, amount do
     table.insert(v, "item_tome_of_strength")
     table.insert(v, "item_tome_of_agility")
-    -- 最大吃N本智力书，防止魔抗溢出
-    if i < 8 then
-      table.insert(v, "item_tome_of_intelligence")
-    end
+    table.insert(v, "item_tome_of_intelligence")
   end
 end
 --------------------
@@ -311,11 +308,6 @@ function BotThink:GetCooldownTotal(hHero)
       iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
     end
   end
-  -- TODO fix Parameter type mismatch GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  -- local itemNeutral = hHero:GetItemInSlot(DOTA_ITEM_NEUTRAL_SLOT)
-  -- if itemNeutral then
-  --   iCooldownTotal = iCooldownTotal + itemNeutral:GetCooldownTimeRemaining()
-  -- end
   return iCooldownTotal
 end
 

@@ -36,16 +36,6 @@ npm install
 ```bash
 # Start Dota 2 Tools and watch mode (most common command)
 npm run start
-
-# Build everything (panorama + vscripts)
-npm run build
-
-# Watch mode only (without launching Dota 2)
-npm run dev
-
-# Build individual components
-npm run build:panorama  # Webpack build for UI
-npm run build:vscripts  # TSTL compilation to Lua
 ```
 
 ### 测试与质量检查
@@ -57,28 +47,6 @@ npm test
 # Lint TypeScript files
 npm run lint
 npm run lint:fix
-
-# Check code formatting
-npm run prettier-check
-```
-
-### Dota 2 控制台命令
-
-这些命令在开发期间在 Dota 2 控制台中运行:
-
-```bash
-# Launch/relaunch the custom game
-dota_launch_custom_game windy10v10ai dota
-dota_launch_custom_game windy10v10ai custom
-
-# Reload Lua scripts (hot reload)
-script_reload
-
-# Speed up game for testing
-host_timescale 2.0
-
-# Show game end panel
-dota_custom_ui_debug_panel 7
 ```
 
 ## 代码架构
@@ -137,7 +105,7 @@ src/
 
 ### 关键架构模式
 
-#### 1. 模块系统 (VScripts)
+#### 模块系统 (VScripts)
 
 核心系统实现为注册在 `GameRules` 上的单例类:
 
@@ -157,27 +125,7 @@ export function ActivateModules() {
 - `GameRules.Event` - 事件分发器
 - `GameRules.GoldXPFilter` - 金币/经验修改
 
-#### 2. 基于装饰器的注册
-
-使用 `utils/dota_ts_adapter.ts` 中的装饰器来注册 modifiers 和 abilities:
-
-```typescript
-@registerModifier()
-export class MyCustomModifier extends BaseModifier {
-  // Modifier implementation
-}
-
-@registerAbility()
-export class MyAbility extends BaseAbility {
-  // Ability implementation
-}
-```
-
-#### 3. AI 状态机 (FSA)
-
-Bot AI 使用基于欲望值的有限状态机: 模式 (Laning/Attack/Retreat/Push) 位于 `ai/mode/`,动作 (Attack/Move/Cast) 位于 `ai/action/`,每 0.3 秒思考一次。
-
-#### 4. 数据流
+#### 数据流
 
 **服务器 → 客户端 (Net Tables)**:
 
@@ -201,29 +149,6 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
   // Handle ability pick
 });
 ```
-
-### 抽奖系统
-
-技能抽奖是核心功能,玩家可以随机选择技能:
-
-1. **生成** (`modules/lottery/`):
-
-   - 在 PRE_GAME 期间,为每个玩家生成 4 个基础 + 2 个额外的随机技能
-   - 分为 1-5 档,不同档位有不同的技能池(定义在 `lottery-abilities.ts` 中)
-   - 排除重复的英雄技能和刷新前已选择的技能
-   - 发布到 Net Tables: `lottery_active_abilities`, `lottery_passive_abilities`, `lottery_status`
-
-2. **UI** (`panorama/react/hud_lottery/`):
-
-   - 订阅 Net Tables 以响应式更新
-   - 显示带有档位颜色的技能卡片
-   - 通过 `lottery_pick_ability` 自定义事件处理选择
-   - 支持折叠/展开和热键绑定
-
-3. **应用**:
-   - 服务器接收选择事件,为玩家应用 modifier
-   - 更新 `lottery_status` Net Table
-   - UI 自动更新以显示已选择状态
 
 ### 测试
 
@@ -265,7 +190,6 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 4. 通过 `GameEvents.SendCustomGameEventToServer()` 发送事件
 5. 路径别名 `@utils/*` 映射到 `panorama/react/utils/*`
 6. Panorama UI 使用 React 16.14 配合函数式组件和 hooks
-7. **重要**: 直接修改 `content/panorama/` 下的文件（`.xml`, `.css`, `.js`）不需要运行 `npm run build`，Dota 2 会自动编译这些文件
 
 ### 添加新的共享类型时:
 
@@ -284,135 +208,59 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 ### 常见陷阱:
 
-- **符号链接在错误的分区**: 代码必须与 Dota 2 在同一硬盘分区
-- **缺少 Lua 重载**: VScript 更改后在 VConsole 中使用 `script_reload`
 - **Net Table 类型不匹配**: 布尔值以 0/1 传输,使用辅助转换
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
+- **KV 文件格式**: `game/scripts/npc/` 目录下所有 `.txt` 文件必须全程使用 **tab**，包括行首缩进以及 key 与 value 之间的对齐间距，不得使用空格
 
-### 读取 Dota 2 官方说明:
+### Dota 2 参考文件速查
+
+`<version>` 取 `docs/reference/` 下最新数字版本目录。
+
+| 用途 | 路径 |
+|------|------|
+| 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
+| 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
+| 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
+| 原版英文说明 | `docs/reference/<version>/abilities_english.txt` |
+| 原版中文说明 | `docs/reference/<version>/abilities_schinese.txt` |
+| Override KV | `game/scripts/npc/npc_abilities_override.txt` |
+| 抽奖技能 KV | `game/scripts/npc/npc_abilities_custom_lottery.txt` |
+| 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
+| 原版物品参考 | `docs/reference/<version>/items.txt` |
+| 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
+| addon 英文本地化 | `game/resource/addon_english.txt` |
+| addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
+
+#### 技能系统名查找
+
+用户给出**技能系统名**（如 `dragon_knight_dragon_blood`）时直接使用。
+
+用户给出**中文名**（如「龙血」「幻影之矛」）或**英雄名-技能名**（如「幻影刺客-幻影之矛」）时：
+1. 在 `abilities_schinese.txt` 中搜索中文技能名（匹配 `_Description` 行的上一行或 Tooltip 名称行）
+2. 提取匹配行的 key 中的技能系统名（`DOTA_Tooltip_ability_{系统名}` → `{系统名}`）
+3. 如有多个候选，用 `AskUserQuestion` 展示候选项让用户确认
+
+用户给出**英雄名**时，在 `npc_heroes.txt` 中用中/英文关键词搜索英雄 ID，再从对应英雄文件读取技能槽位。
+
+#### 读取 Dota 2 官方说明
 
 编写物品/技能说明时，应参考 Dota 2 官方文本以保持术语一致性。
 
-**参考文件位置**:
-
-- 中文: `docs/reference/7.39/abilities_schinese.txt`
-- 英文: `docs/reference/7.39/abilities_english.txt`
-
-**使用方法**:
-
 ```bash
-# 搜索狂战斧的中文说明
-grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abilities_schinese.txt
+# 搜索技能中文说明（先用中文名定位系统名）
+grep "龙血" docs/reference/<version>/abilities_schinese.txt
+grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_schinese.txt
 
-# 搜索狂战斧的英文说明
-grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abilities_english.txt
+# 搜索英文说明
+grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/abilities_english.txt
 ```
 
-## 开发文档索引
+### 查阅 Dota 2 VScript / 引擎 Lua API（函数签名、参数）
 
-`docs/development/` 目录包含详细的开发指南和最佳实践文档。在处理相关任务时,请参考这些文档:
+**适用场景**: 编写或修改 `game/scripts/vscripts/` 下的纯 Lua、或任意调用 `GameRules` / 单位 / 技能等引擎绑定 API 的代码；出现「参数个数/类型不符」等运行时错误时，应优先对照在线 API，而不是只猜 TypeScript 类型。
 
-### API 使用文档 (`docs/development/api-usage.md`)
-
-**适用场景**: 实现 API 调用、与后端集成、添加分析事件
-
-**主要内容**:
-
-- API 架构概览和目录结构
-- ApiClient 核心组件使用方法
-- 认证机制 (API Key 方式)
-- 两种 API 调用模式:
-  - 模式 1: 静态方法调用 (一次性数据发送)
-  - 模式 2: 事件监听 + 数据收集 + 延迟发送 (批量数据发送)
-- 现有 API 端点列表和参数结构
-
-**关键示例**: 游戏结束时发送技能选择数据、收集并发送玩家语言信息
-
-### 优化 Lua 物品 (`docs/development/optimize-lua-item.md`)
-
-**适用场景**: 减少游戏卡顿、优化物品性能、处理大量物品属性
-
-**主要内容**:
-
-- 核心思路: 将静态属性从 Lua 迁移到 DataDriven
-- 详细示例: 阿迪王 (item_adi_king) 的优化过程
-- 可优化的属性类型完整列表:
-  - 基础属性 (力量、敏捷、智力)
-  - 攻击相关 (攻击力、攻击速度、攻击距离)
-  - 防御相关 (护甲、魔抗、闪避)
-  - 移动相关 (移动速度、转身速率)
-  - 生命/魔法相关 (生命值、魔法值、恢复)
-  - 法术相关 (法术增强)
-- 标准优化步骤:
-  1. 识别需要优化的属性
-  2. 在 npc_items_modifier.txt 中添加 DataDriven modifier
-  3. 修改 Lua 代码 (清空 DeclareFunctions、添加 OnRefresh 逻辑)
-  4. 清理不必要的属性读取
-- 适合/不适合优化的场景判断标准
-- 优化原则: 静态用 DataDriven,动态用 Lua
-
-**重要提示**: 只优化列表中的属性,保持代码简洁,不保留已删除函数的注释
-
-### 本地化文件格式指南 (`docs/development/localization-format-guide.md`)
-
-**适用场景**: 维护本地化文件、添加新翻译、同步中英文版本格式
-
-**主要内容**:
-
-- **中文 (`addon_schinese.txt`)**: 必须维护 - 添加所有新键
-- **英文 (`addon_english.txt`)**: 必须维护 - 添加所有新键
-- **俄文 (`addon_russian.txt`)**: 仅维护现有键 - 不要添加新键
-- 格式要求: 缩进和对齐、注释格式、HTML 标签同步
-- 语言文件维护策略: 中文、英文、俄文的维护要求
-- 添加新的本地化键: 完整的工作流程
-- 中文标点符号规范: 全角标点使用规则
-- 查找 Dota 2 官方技能名称: 使用参考文件的方法
-- 本地化通用规则: 标准变量翻译列表和使用方法
-- 中英文版本同步要求: 格式一致性和内容完整性
-- Modifier 说明补全: 必须包含的条目和格式
-
-**关键要点**: 使用两个 tab 缩进、注释使用中文、HTML 标签格式需同步、所有 modifier 必须完整
-
-### 物品性能优化 Meta Prompt (`docs/development/item-optimization-meta-prompt.md`)
-
-**适用场景**: 优化物品性能,将 Lua 物品迁移到 DataDriven 实现
-
-**使用方式**:
-
-- **命令方式**: 使用 `/optimize-item` 命令快速调用
-- **手动引用**: 在对话中引用该文档
-
-**主要内容**:
-
-- 完整的 meta prompt 指南,用于指导 AI 优化物品
-- 核心优化原则:
-  - BaseClass 从 `item_lua` 迁移到 `item_datadriven`
-  - 静态属性迁移到 DataDriven Properties
-  - 最小化 Lua 代码,仅保留特殊逻辑
-- 可使用 DataDriven 实现的属性完整列表
-- 必须保留在 Lua 中的功能列表 (ABSORB_SPELL 等)
-- 详细的优化实施步骤:
-  1. 分析现有 Lua 实现
-  2. 修改 npc_items_custom.txt (完整 KV 模板)
-  3. 重写 Lua 文件 (完整 Lua 模板)
-- 代码模式对比 (优化前后结构差异)
-- 参考示例: item_beast_armor (基于 PR #1695)
-- 完整的代码模板 (可直接使用)
-
-**优化效果**: 减少 Lua 代码量 60-80%,显著降低 CPU 占用,减少卡顿
-
-**使用示例**:
-
-```
-/optimize-item item_xxx
-```
-
-或
-
-```
-请按照 docs/development/item-optimization-meta-prompt.md 中的 Meta Prompt 优化 item_xxx
-```
+**主文档（检索入口）**: [ModDota API · vscripts](https://moddota.com/api/#/vscripts)
 
 ## Git 工作流
 
@@ -423,52 +271,21 @@ grep -A 5 "DOTA_Tooltip_ability_item_bfury_Description" docs/reference/7.39/abil
 
 ### Pull Request
 
-- 从功能分支创建 PR 到 `develop` 分支(不是 `main`)
-- CI 在 PR 上运行：linting → tests → build (参见 `.github/workflows/test.yml`)
-- 存在所有者 PR 的自动批准工作流
+使用模板创建 PR，模板文件为 `.github/pull_request_template.md`。
+分支名匹配 `^feature/(\\d+)` 时，提取 `issue-id` 作为 Issue 段。
+Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生成。
+**PR 标题默认使用英文。**
 
 ### 提交
 
-- 遵循现有的提交风格(参见 `git log` 示例)
-- PR 会被 squash 合并，因此单个提交消息不如 PR 描述重要
+创建 git commit 时，只写**简短的单行标题**，不写正文、不写 bullet、不写详细说明。标题控制在 72 字符以内。
 
-### 更新日志格式
+## Skill 交互规范
 
-发布新版本时，需要提供中英文更新日志，格式如下：
+执行 skill 时，**遇到不明确的决策点必须用 `AskUserQuestion` 工具以选项菜单形式询问用户**，不得自行假设。适用场景包括但不限于：
 
-**中文更新日志**：
+- 目标文件有多个候选（如抽奖池 vs 单位专属）
+- 操作模式不明确（新建 vs 修正）
+- 原版技能信息无法确定（多个候选、版本差异等）
 
-```
-[b]游戏性更新 v4.00[/b]
-
-修正一些bug和平衡性改动。
-```
-
-**英文更新日志**：
-
-```
-[b]Gameplay update v4.00[/b]
-
-Fixed some bugs and balance.
-```
-
-**格式要点**：
-
-- 使用 BBCode 标签 `[b]...[/b]` 加粗标题
-- 标题格式：`游戏性更新 v版本号` (中文) / `Gameplay update v版本号` (英文)
-- 版本号格式：
-  - 主要版本：`v4.00`, `v5.00` (两位小数)
-  - Patch 更新：`v4.00a`, `v4.00b`, `v4.00c` (使用字母后缀)
-- 标题与内容之间空一行
-- 内容简明扼要，描述主要更新内容
-- 中文使用全角标点符号，英文使用半角标点符号
-
-**更新类型**：
-
-- 游戏性更新 / Gameplay update - 平衡性改动、功能调整、bug 修复
-- 内容更新 / Content update - 新英雄、新物品、新功能
-- 重大更新 / Major update - 大型功能更新或重构
-
-**相关文件**：
-
-- 自动化 PR 创建：`.github/workflows/create_release_pr.yml`
+每道问题单独一次 `AskUserQuestion` 调用，`options` 列出具体候选项并附简短说明。

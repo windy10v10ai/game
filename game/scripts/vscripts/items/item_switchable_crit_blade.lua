@@ -10,6 +10,8 @@ end
 
 function item_switchable_crit_blade:OnSpellStart()
     local caster = self:GetCaster()
+    if not caster or not caster.FindModifierByName then return end
+
     local modifier = caster:FindModifierByName("modifier_item_switchable_crit_blade")
 
     if not modifier then return end
@@ -27,7 +29,11 @@ function item_switchable_crit_blade:OnSpellStart()
 end
 
 function item_switchable_crit_blade:GetCooldown(level)
-    local modifier = self:GetCaster():FindModifierByName("modifier_item_switchable_crit_blade")
+    local caster = self:GetCaster()
+    if not caster then return 0 end
+    if not caster.FindModifierByName then return 0 end
+
+    local modifier = caster:FindModifierByName("modifier_item_switchable_crit_blade")
     if modifier then
         local mode = modifier:GetStackCount()
         if mode == 0 then mode = 1 end
@@ -60,8 +66,8 @@ function modifier_item_switchable_crit_blade:GetModifierPriority()
     return MODIFIER_PRIORITY_SUPER_ULTRA
 end
 
-function modifier_item_switchable_crit_blade:OnCreated()
-    self:OnRefresh()
+function modifier_item_switchable_crit_blade:OnCreated(params)
+    self:OnRefresh(params)
 
     if IsServer() then
         local ability = self:GetAbility()
@@ -90,7 +96,7 @@ function modifier_item_switchable_crit_blade:OnCreated()
     end
 end
 
-function modifier_item_switchable_crit_blade:OnRefresh()
+function modifier_item_switchable_crit_blade:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_switchable_crit_blade_stats"
 
     if IsServer() then

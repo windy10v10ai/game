@@ -17,14 +17,14 @@ function modifier_item_swift_glove:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
-function modifier_item_swift_glove:OnCreated()
-    self:OnRefresh()
+function modifier_item_swift_glove:OnCreated(params)
+    self:OnRefresh(params)
 
     local ability = self:GetAbility()
     self.bat_reduction_pct = ability:GetSpecialValueFor("bat_reduction_pct")
 end
 
-function modifier_item_swift_glove:OnRefresh()
+function modifier_item_swift_glove:OnRefresh(params)
     self.stats_modifier_name = "modifier_item_swift_glove_stats"
 
     if IsServer() then

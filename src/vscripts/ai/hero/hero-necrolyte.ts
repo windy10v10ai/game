@@ -2,14 +2,14 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier('modifier_necrolyte_ai')
+@registerModifier('ai/hero/hero-necrolyte')
 export class NecrolyteAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 死亡脉冲
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'necrolyte_death_pulse', {
         target: {
-          range: 500,
+          range: { lte: 500 },
         },
       })
     ) {
@@ -48,7 +48,7 @@ export class NecrolyteAIModifier extends BotBaseAIModifier {
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'necrolyte_death_pulse', {
         target: {
-          range: 500,
+          range: { lte: 500 },
         },
       })
     ) {

@@ -2,6 +2,7 @@ import { type PlayerProperty } from '../../api/player';
 import {
   property_attack_range_bonus,
   property_attackspeed_bonus_constant,
+  property_bonus_vision,
   property_cannot_miss,
   property_cast_range_bonus_stacking,
   property_cooldown_percentage,
@@ -29,9 +30,9 @@ import { PlayerHelper } from '../helper/player-helper';
 @reloadable
 export class PropertyController {
   /**
-   * DataDriven modifier Map
-   * key: property name (property_cooldown_percentage)
-   * value: value per level (4)
+   * Lua modifier Map
+   * key: property name
+   * value: value per level
    */
   private static propertyLuaModiferMap = new Map<string, number>();
   /**
@@ -46,31 +47,45 @@ export class PropertyController {
 
   // 每N级加点一次
   public static HERO_LEVEL_PER_POINT = 2;
+  /** 非 _level_ 后缀的 DataDriven 玩家属性，生效所需最低属性等级 */
+  private static readonly SINGLE_DATA_DRIVEN_PROPERTY_MIN_LEVEL = 8;
 
   constructor() {
     print('PropertyController init');
-    PropertyController.propertyLuaModiferMap.set(property_cooldown_percentage.name, 4);
+    // lua modifier
     PropertyController.propertyLuaModiferMap.set(property_cast_range_bonus_stacking.name, 25);
     PropertyController.propertyLuaModiferMap.set(property_spell_amplify_percentage.name, 5);
     PropertyController.propertyLuaModiferMap.set(property_status_resistance_stacking.name, 4);
-    PropertyController.propertyLuaModiferMap.set(property_evasion_constant.name, 4); // FIXME 使用datadriven实现
-    PropertyController.propertyLuaModiferMap.set(property_magical_resistance_bonus.name, 4); // FIXME 使用datadriven实现
     PropertyController.propertyLuaModiferMap.set(property_incoming_damage_percentage.name, -4);
     PropertyController.propertyLuaModiferMap.set(property_attack_range_bonus.name, 25);
-    PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
-    PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_lifesteal.name, 10);
     PropertyController.propertyLuaModiferMap.set(property_spell_lifesteal.name, 8);
-    PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125); // FIXME 使用datadriven实现
-    PropertyController.propertyLuaModiferMap.set(property_cannot_miss.name, 0.125); // FIXME 使用datadriven实现
-    PropertyController.propertyLuaModiferMap.set(property_flying.name, 0.125); // FIXME 使用datadriven实现
+    PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
+    PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
+    PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125);
 
-    // multi level property must end with '_level_'
+    // data driven modifier
+    // 多档属性名须以 '_level_' 结尾；单档则为完整 modifier 名
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_cooldown_percentage.name,
+      'modifier_player_property_cooldown_percentage_level_',
+    );
     PropertyController.propertyDataDrivenModifierMap.set(
       property_movespeed_bonus_constant.name,
       'modifier_player_property_movespeed_bonus_constant_level_',
     );
-
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_bonus_vision.name,
+      'modifier_player_property_bonus_vision_level_',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_evasion_constant.name,
+      'modifier_player_property_evasion_constant_level_',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_magical_resistance_bonus.name,
+      'modifier_player_property_magical_resistance_bonus_level_',
+    );
     PropertyController.propertyDataDrivenModifierMap.set(
       property_physical_armor_bonus.name,
       'modifier_player_property_physical_armor_bonus_level_',
@@ -95,8 +110,19 @@ export class PropertyController {
       property_stats_intellect_bonus.name,
       'modifier_player_property_stats_intellect_bonus_level_',
     );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_cannot_miss.name,
+      'modifier_player_property_cannot_miss',
+    );
+    PropertyController.propertyDataDrivenModifierMap.set(
+      property_flying.name,
+      'modifier_player_property_flying',
+    );
   }
 
+  /**
+   * 限制属性，只有达到特定等级后才生效，不限制的属性从1级开始生效
+   */
   private static limitPropertyNames = [
     'property_skill_points_bonus',
     'property_cast_range_bonus_stacking',
@@ -132,10 +158,22 @@ export class PropertyController {
     for (const key of PropertyController.propertyDataDrivenModifierMap.keys()) {
       const value = PropertyController.propertyDataDrivenModifierMap.get(key);
       if (value) {
-        for (let i = 1; i <= 8; i++) {
-          hero.RemoveModifierByName(`${value}${i}`);
-        }
+        PropertyController.RemoveDataDrivenPlayerPropertyModifiers(hero, value);
       }
+    }
+  }
+
+  /** 按注册名卸下：多档卸 1–8，单档卸该名 */
+  private static RemoveDataDrivenPlayerPropertyModifiers(
+    hero: CDOTA_BaseNPC_Hero,
+    registeredModifierName: string,
+  ) {
+    if (registeredModifierName.endsWith('_level_')) {
+      for (let i = 1; i <= 8; i++) {
+        hero.RemoveModifierByName(`${registeredModifierName}${i}`);
+      }
+    } else {
+      hero.RemoveModifierByName(registeredModifierName);
     }
   }
 
@@ -201,7 +239,11 @@ export class PropertyController {
         property.name,
       );
       if (dataDrivenModifierName) {
-        this.RefreshDataDrivenPlayerProperty(hero, dataDrivenModifierName, activeLevel);
+        PropertyController.RefreshDataDrivenPlayerProperty(
+          hero,
+          dataDrivenModifierName,
+          activeLevel,
+        );
       }
     }
   }
@@ -228,18 +270,17 @@ export class PropertyController {
     modifierName: string,
     level: number,
   ) {
-    if (level === 0) {
-      return;
-    }
+    const registeredName = modifierName;
+    PropertyController.RemoveDataDrivenPlayerPropertyModifiers(hero, registeredName);
 
-    if (modifierName.endsWith('_level_')) {
-      // for 1-8 level
-      for (let i = 1; i <= 8; i++) {
-        hero.RemoveModifierByName(`${modifierName}${i}`);
+    let applyName = modifierName;
+    if (registeredName.endsWith('_level_')) {
+      if (level === 0) {
+        return;
       }
-      modifierName = modifierName + level;
-    } else {
-      hero.RemoveModifierByName(modifierName);
+      applyName = registeredName + level;
+    } else if (level < PropertyController.SINGLE_DATA_DRIVEN_PROPERTY_MIN_LEVEL) {
+      return;
     }
 
     if (!this.PLAYER_MODIFER_DATA_DRIVEN_ITEM) {
@@ -249,7 +290,7 @@ export class PropertyController {
         undefined,
       ) as CDOTA_Item_DataDriven;
     }
-    this.PLAYER_MODIFER_DATA_DRIVEN_ITEM.ApplyDataDrivenModifier(hero, hero, modifierName, {
+    this.PLAYER_MODIFER_DATA_DRIVEN_ITEM.ApplyDataDrivenModifier(hero, hero, applyName, {
       duration: -1,
     });
   }

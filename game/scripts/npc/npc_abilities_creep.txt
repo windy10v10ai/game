@@ -8,7 +8,7 @@
 		"AbilityValues"
 		{
 			"max_level"				"60"	// 30
-			"increase_time"			"120"	// 450
+			"increase_time"			"240"	// 450
 			"increase_damage"		"6"		// 3
 			"increase_aspd"			"10"	// 5
 			"increase_health"		"60"	// 30
@@ -136,11 +136,11 @@
 			}
 			"damage"
 			{
-				"value" "300"	// 70
+				"value" "50"	// 70
 			}
 			"damage_growth"
 			{
-				"value" "50"
+				"value" "50"	// 10
 			}
 		}
 	}
@@ -167,8 +167,8 @@
 		"AbilityValues"
 		{
 			"cast_range"				"600"		// 300
-			"damage"					"500"		// 200
-			"damage_per_combo"			"500"		// 100
+			"damage"					"400"		// 200
+			"damage_per_combo"			"400"		// 100
 			"damage_growth_curr_hp_pct"
 			{
 				"value"		"1"						// 0.5
@@ -206,7 +206,7 @@
 		{
 			"gpm_aura"
 			{
-				"value" "240 320 400 480"	// 20 25 30 40
+				"value" "240 360 480 600"	// 20 25 30 40
 			}
 		}
 	}

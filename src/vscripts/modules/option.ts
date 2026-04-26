@@ -18,6 +18,7 @@ export class Option {
   enablePlayerAttribute = true;
 
   gameDifficulty = 0;
+  midOnlyMode = false;
 
   constructor() {
     CustomGameEventManager.RegisterListener('game_options_change', (_, keys) => {
@@ -46,6 +47,7 @@ export class Option {
     this.fixedAbility = keys.fixed_ability;
     this.forceRandomHero = keys.force_random_hero === 1;
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
+    this.midOnlyMode = keys.mid_only_mode === 1;
     CustomNetTables.SetTableValue('game_options', 'game_options', keys);
     CustomNetTables.SetTableValue('game_options', 'point_multiplier', {
       point_multiplier: GameEndPoint.GetDifficultyMultiplier(
@@ -85,7 +87,7 @@ export class Option {
       averageDifficulty = this.GetDefaultDifficulty();
     } else {
       averageDifficulty = averageDifficulty / playerChosen;
-      // 四舍五入 FIXME 如果难度偏高 改成人数相同时优先选择低难度 + 0.4
+      // 四舍五入
       averageDifficulty = Math.floor(averageDifficulty + 0.5);
     }
     if (force || playerChosen >= playerCount) {

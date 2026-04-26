@@ -71,7 +71,7 @@ export const registerAbility =
     };
   };
 
-export const registerModifier = (name?: string) => (modifier: new () => CDOTA_Modifier_Lua) => {
+export const registerModifier = (scriptPath: string, name?: string, envOverride?: any) => (modifier: new () => CDOTA_Modifier_Lua) => {
   if (name !== undefined) {
     // @ts-ignore
     modifier.name = name;
@@ -79,12 +79,17 @@ export const registerModifier = (name?: string) => (modifier: new () => CDOTA_Mo
     name = modifier.name;
   }
 
-  const [env, source] = getFileScope();
-  const [fileName] = string.gsub(source, ".*scripts[\\/]vscripts[\\/]", "");
+  // 确定环境（使用 _G 作为默认环境）
+  const env = _G as any;
 
   env[name] = {};
 
   toDotaClassInstance(env[name], modifier);
+
+  // 如果使用了 _G 作为 fallback，或者传入了 envOverride，同时写入 _G，确保客户端无论从脚本 env 还是全局查找都能找到 modifier
+  if (env === (_G as any) || envOverride !== undefined) {
+    (_G as any)[name] = env[name];
+  }
 
   const originalOnCreated = (env[name] as CDOTA_Modifier_Lua).OnCreated;
   env[name].OnCreated = function (parameters: any) {
@@ -111,7 +116,13 @@ export const registerModifier = (name?: string) => (modifier: new () => CDOTA_Mo
     base = base.____super;
   }
 
-  LinkLuaModifier(name, fileName, type);
+  // 如果scriptPath中不包含.lua，则添加
+  if (!scriptPath.endsWith('.lua')) {
+    scriptPath = scriptPath + '.lua';
+  }
+
+  LinkLuaModifier(name, scriptPath, type);
+  print('LinkLuaModifier', name, scriptPath, type);
 };
 
 function clearTable(table: object) {
@@ -121,15 +132,8 @@ function clearTable(table: object) {
 }
 
 function getFileScope(): [any, string] {
-  let level = 1;
-  while (true) {
-    const info = debug.getinfo(level, "S");
-    if (info && info.what === "main") {
-      return [getfenv(level), info.source!];
-    }
-
-    level += 1;
-  }
+  const env = getfenv(4);
+  return [env, "=[no_debug]"];
 }
 
 function toDotaClassInstance(instance: any, table: new () => any) {

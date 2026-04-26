@@ -1,5 +1,4 @@
 import { PlayerHelper } from '../helper/player-helper';
-import { HeroFacetConfig } from './hero-facet-config';
 
 export class HeroPick {
   static PickRandomHeroes() {
@@ -46,35 +45,39 @@ export class HeroPick {
       }
     });
 
-    const player = PlayerResource.GetPlayer(0) as CDOTAPlayerController;
+    // const player = PlayerResource.GetPlayer(0) as CDOTAPlayerController;
     for (let i = 0; i < direBotNumberNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
-      const facetId = HeroFacetConfig.getRandomFacetId(heroName);
-      DebugCreateHeroWithVariant(
-        player,
-        heroName,
-        facetId,
-        DotaTeam.BADGUYS,
-        false,
-        (_hero: CDOTA_BaseNPC_Hero) => {},
-      );
+      Tutorial.AddBot(heroName, '', 'unfair', false);
+
+      // const facetId = HeroFacetConfig.getRandomFacetId(heroName);
+      // DebugCreateHeroWithVariant(
+      //   player,
+      //   heroName,
+      //   facetId,
+      //   DotaTeam.BADGUYS,
+      //   false,
+      //   (_hero: CDOTA_BaseNPC_Hero) => {},
+      // );
     }
 
     for (let i = 0; i < radiantBotNumber; i++) {
       const heroName = HeroPick.GetHeroName(nameList);
-      const facetId = HeroFacetConfig.getRandomFacetId(heroName);
+      Tutorial.AddBot(heroName, '', 'unfair', true);
 
-      DebugCreateHeroWithVariant(
-        player,
-        heroName,
-        facetId,
-        DotaTeam.GOODGUYS,
-        false,
-        (_hero: CDOTA_BaseNPC_Hero) => {},
-      );
+      // const facetId = HeroFacetConfig.getRandomFacetId(heroName);
+      // DebugCreateHeroWithVariant(
+      //   player,
+      //   heroName,
+      //   facetId,
+      //   DotaTeam.GOODGUYS,
+      //   false,
+      //   (_hero: CDOTA_BaseNPC_Hero) => {},
+      // );
     }
 
     GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
+    Tutorial.StartTutorialMode();
 
     // 添加初始金钱 bot
     PlayerHelper.ForEachPlayer((playerId) => {

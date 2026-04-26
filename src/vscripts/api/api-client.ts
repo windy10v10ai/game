@@ -18,10 +18,6 @@ export interface ApiParameter {
 }
 
 export class ApiClient {
-  public static readonly GAME_START_URL = '/game/start';
-  public static readonly ADD_PLAYER_PROPERTY_URL = '/game/addPlayerProperty';
-  public static readonly RESET_PLAYER_PROPERTY_URL = '/game/resetPlayerProperty';
-
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
 
@@ -61,7 +57,7 @@ export class ApiClient {
     const apiKey = this.GetServerAuthKey();
 
     // 本地主机只发送开局请求
-    if (this.IsLocalhost() && path !== ApiClient.GAME_START_URL) {
+    if (this.IsLocalhost() && path !== '/game/start') {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,

@@ -161,7 +161,7 @@
 		"AbilityValues"
 		{
 				"hp_regen"				"3.2"	// 0.4
-				"replenish_amount"		"600"	// 100
+				"replenish_amount"		"400"	// 100
 		}
 	}
 	"item_faerie_fire" //仙灵之火
@@ -169,8 +169,8 @@
 		"ItemCost"						"260"			// 65
 		"AbilityValues"
 		{
-				"bonus_damage"			"16"			// 2
-				"hp_restore"			"680"			// 85
+				"bonus_damage"			"12"			// 2
+				"hp_restore"			"520"			// 85
 		}
 	}
 	"item_blood_grenade" //血腥榴弹
@@ -222,8 +222,8 @@
 		"AbilityValues"
 		{
 			"duration"				"180"	// 120
-			"radius"				"750"	// 650
-			"health"				"60"	// 24
+			"health"				"40 80 120"
+			"health_tooltip"		"10 20 30"
 			"buff_linger_duration"		"15"// 0.1
 		}
 	}
@@ -250,6 +250,7 @@
 	{
 		"AbilityManaCost"				"450"	// 350
 		"AbilityCooldown"				"180.0"	// 180.0
+		"AbilitySharedCooldown"			"refresh"
 	}
 	//=================================================================================================================
 	//微光披风 Glimmer Cape
@@ -294,15 +295,15 @@
 	//=================================================================================================================
 	"item_recipe_angels_demise"
 	{
-		"ItemCost"						"2000"
+		"ItemCost"						"1000"
 	}
 	"item_angels_demise"
 	{
 		"AbilityCooldown"				"3.0"	// 12
 		"AbilityValues"
 		{
-			"bonus_health"				"600"	// 200
-			"bonus_mana"				"600"	// 200
+			"bonus_health"				"600"	// 450
+			"bonus_mana"				"600"	// 450
 			"bonus_all_stats"			"25"	// 8
 			"slow"						"50"	// 30
 			"bonus_spell_damage"		"900"	// 250
@@ -483,11 +484,11 @@
 		"AbilityTextureName"			"item_bloodstone_v2"
 		"AbilityValues"
 		{
-			"bonus_aoe"				"120"	// 75
+			"bonus_aoe"				"120"	// 60
 			"bonus_health"			"1200"	// 450
 			"bonus_mana"			"1200"	// 450
 			"bonus_mp_regen"		"6"		// 3
-			"spell_lifesteal"		"30"	// 20
+			"spell_lifesteal"		"40"	// 25
 		}
 	}
 	// 以太卷轴
@@ -640,7 +641,7 @@
 		{
 				"heal_increase"			"25"	// 15
 				"max_charges"			"30"	// 20
-				"bonus_all_stats"		"15"	// 9
+				"bonus_all_stats"		"12"	// 7
 				"restore_per_charge"	"30"	// 17
 				"charge_gain_timer"		"5"		// 10
 				"use_cooldown"			"10"	// 13
@@ -681,7 +682,7 @@
 			"bonus_agility"			"10"		// 5
 			"bonus_strength"		"4"			// 2
 			"bonus_intellect"		"4"			// 2
-			"bonus_attack_speed"	"10"		// 5
+			"bonus_attack_speed"	"12"		// 6
 			"bonus_armor"			"3.5"		// 1.75
 		}
 	}
@@ -721,81 +722,61 @@
 	//=================================================================================================================
 	"item_dagon"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_2"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_3"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_4"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
 	"item_dagon_5"
 	{
-		"AbilityCooldown"				"22 19 16 13 10"
-		"AbilityManaCost"				"100 200 300 400 500"
+		"AbilityCooldown"				"22 19 16 13 10"		// 27 24 21 18 15 -5
+		"AbilityManaCost"				"240 280 320 360 400"	// 120 140 160 180 200 x2
 		"AbilityValues"
 		{
-			"bonus_int"		"15 20 25 30 35"
-			"bonus_str"		"15 20 25 30 35"
-			"bonus_agi"		"15 20 25 30 35"
-			"damage"				"600 750 900 1050 1200"
-			"mana_cost_tooltip"		"100 200 300 400 500"
-			"passive_spell_lifesteal"			"20 25 30 35 40"
-			"dagon_spell_lifesteal"				"100"
+			"bonus_all_stats"			"12 14 16 18 20"		// 6 7 8 9 10 x2
+			"damage"					"600 750 900 1050 1200"	// 400 500 600 700 800 +200
+			"mana_cost_tooltip"			"240 280 320 360 400"	// 120 140 160 180 200 x2
 		}
 	}
 
@@ -823,6 +804,7 @@
 	{
 		"AbilityCastRange"				"600"
 		"ItemSellable"					"0"
+		"ItemKillable"					"1"
 		"ItemStockTime"					"180.0"
 		"AllowedInBackpack"				"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
@@ -833,4 +815,11 @@
 	{
 		"AllowedInBackpack"				"1"
 	}
+
+	// 行家阵列
+	"item_recipe_specialists_array"
+	{
+		"ItemCost"						"1800"
+	}
+
 }

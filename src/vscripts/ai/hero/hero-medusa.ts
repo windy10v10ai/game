@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier()
+@registerModifier('ai/hero/hero-medusa')
 export class MedusaAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     // 秘术异蛇
@@ -27,7 +27,7 @@ export class MedusaAIModifier extends BotBaseAIModifier {
     // 分裂箭 开启
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'medusa_split_shot', {
-        target: { count: { gte: 2 }, range: 900 },
+        target: { count: { gte: 2 }, range: { lte: 900 } },
         action: { toggleOn: true },
       })
     ) {
@@ -36,7 +36,7 @@ export class MedusaAIModifier extends BotBaseAIModifier {
     // 分裂箭 关闭
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'medusa_split_shot', {
-        target: { count: { lte: 1 }, range: 900 },
+        target: { count: { lte: 1 }, range: { lte: 900 } },
         ability: { level: { lte: 3 } },
         action: { toggleOff: true },
       })
@@ -69,7 +69,7 @@ export class MedusaAIModifier extends BotBaseAIModifier {
     // 分裂箭 开启
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'medusa_split_shot', {
-        target: { count: { gte: 2 }, range: 900 },
+        target: { count: { gte: 2 }, range: { lte: 900 } },
         action: { toggleOn: true },
       })
     ) {
@@ -78,7 +78,7 @@ export class MedusaAIModifier extends BotBaseAIModifier {
     // 分裂箭 关闭
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'medusa_split_shot', {
-        target: { count: { lte: 1 }, range: 900 },
+        target: { count: { lte: 1 }, range: { lte: 900 } },
         ability: { level: { lte: 3 } },
         action: { toggleOff: true },
       })

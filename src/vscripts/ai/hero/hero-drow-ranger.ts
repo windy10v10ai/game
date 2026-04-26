@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionAbility } from '../action/action-ability';
 import { BotBaseAIModifier } from './bot-base';
 
-@registerModifier()
+@registerModifier('ai/hero/hero-drow-ranger')
 export class DrowRangerAIModifier extends BotBaseAIModifier {
   override UseAbilityEnemy(): boolean {
     const attackRange = this.hero.Script_GetAttackRange();
@@ -14,7 +14,7 @@ export class DrowRangerAIModifier extends BotBaseAIModifier {
     // 冰川
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'drow_ranger_glacier', {
-        target: { range: attackRange + 200 },
+        target: { range: { lte: attackRange + 200 } },
       })
     ) {
       return true;
@@ -22,7 +22,7 @@ export class DrowRangerAIModifier extends BotBaseAIModifier {
     // 数箭齐发
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'drow_ranger_multishot', {
-        target: { range: attackRange * 1.75 - 200 },
+        target: { range: { lte: attackRange * 1.75 - 200 } },
       })
     ) {
       return true;
@@ -36,7 +36,7 @@ export class DrowRangerAIModifier extends BotBaseAIModifier {
     // 数箭齐发
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'drow_ranger_multishot', {
-        target: { range: attackRange * 1.75 - 200, count: { gte: 3 } },
+        target: { range: { lte: attackRange * 1.75 - 200 }, count: { gte: 3 } },
       })
     ) {
       return true;

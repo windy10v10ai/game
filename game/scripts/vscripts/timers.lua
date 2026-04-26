@@ -2,7 +2,7 @@ TIMERS_VERSION = "1.05"
 TIMERS_THINK = 0.01
 
 if Timers == nil then
-  print ( '[Timers] creating Timers' )
+  print('[Timers] creating Timers')
   Timers = {}
   setmetatable(Timers, {
     __call = function(t, ...)
@@ -17,20 +17,20 @@ function Timers:start()
   self.timers = {}
 
   --local ent = Entities:CreateByClassname("info_target") -- Entities:FindByClassname(nil, 'CWorld')
-  local ent = SpawnEntityFromTableSynchronous("info_target", {targetname="timers_lua_thinker"})
+  local ent = SpawnEntityFromTableSynchronous("info_target", { targetname = "timers_lua_thinker" })
   ent:SetThink("Think", self, "timers", TIMERS_THINK)
 end
 
 function Timers:Think()
   --if GameRules:State_Get() >= DOTA_GAMERULES_STATE_POST_GAME then
-    --return
+  --return
   --end
 
   -- Track game time, since the dt passed in to think is actually wall-clock time not simulation time.
   local now = GameRules:GetGameTime()
 
   -- Process timers
-  for k,v in pairs(Timers.timers) do
+  for k, v in pairs(Timers.timers) do
     local bUseGameTime = true
     if v.useGameTime ~= nil and v.useGameTime == false then
       bUseGameTime = false
@@ -57,15 +57,12 @@ function Timers:Think()
       Timers.removeSelf = false
 
       -- Run the callback
+      local errHandler = function(msg) return tostring(msg) end
       local status, nextCall
       if v.context then
-        status, nextCall = xpcall(function() return v.callback(v.context, v) end, function (msg)
-                                    return msg..'\n'..debug.traceback()..'\n'
-                                  end)
+        status, nextCall = xpcall(function() return v.callback(v.context, v) end, errHandler)
       else
-        status, nextCall = xpcall(function() return v.callback(v) end, function (msg)
-                                    return msg..'\n'..debug.traceback()..'\n'
-                                  end)
+        status, nextCall = xpcall(function() return v.callback(v) end, errHandler)
       end
 
       Timers.runningTimer = nil
@@ -121,17 +118,17 @@ function Timers:CreateTimer(name, args, context)
     if args ~= nil then
       context = args
     end
-    args = {callback = name}
+    args = { callback = name }
     name = DoUniqueString("timer")
   elseif type(name) == "table" then
     args = name
     name = DoUniqueString("timer")
   elseif type(name) == "number" then
-    args = {endTime = name, callback = args}
+    args = { endTime = name, callback = args }
     name = DoUniqueString("timer")
   end
   if not args.callback then
-    print("Invalid timer created: "..name)
+    print("Invalid timer created: " .. name)
     return
   end
 
@@ -166,7 +163,7 @@ function Timers:RemoveTimers(killAll)
   Timers.removeSelf = true
 
   if not killAll then
-    for k,v in pairs(Timers.timers) do
+    for k, v in pairs(Timers.timers) do
       if v.persist then
         timers[k] = v
       end

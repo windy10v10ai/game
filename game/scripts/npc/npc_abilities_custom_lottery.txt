@@ -1,5 +1,105 @@
 "DOTAAbilities"
 {
+
+	//=================================================================================================================
+// Innate 天赋 技能
+	//=================================================================================================================
+	// 背刺
+	"riki_innate_backstab2"
+	{
+		"BaseClass"						"riki_innate_backstab"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"riki_innate_backstab"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+			"damage_multiplier"
+			{
+				"value"		"1.0 1.5 2.0 2.5 3.0"			// 0.55 + hero_levelup +0.05, lv50 ≈ 3.0
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
+			}
+			"ally_multiplier"				"25"
+			"backstab_angle"				"105"
+			"bonus_xp_kill"					"50 100 150 200 250"		// 150
+			"bonus_xp_assist"				"25 50 75 100 125"			// 75
+			"bonus_xp_assist_other"			"25 50 75 100 125"			// 75
+		}
+	}
+	// 克林克兹先天 地狱之裂
+	"clinkz_infernal_shred2"
+	{
+		"BaseClass"						"clinkz_infernal_shred"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"clinkz/ti9_immortal_bow/clinkz_burning_army_immortal"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_Clinkz.DeathPact"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+			"duration"					"5"
+			"hero_stacks"				"3"
+			"skeleton_stacks"			"1"
+			"max_armor_piercing_pct"	"20 30 40 50 60"
+		}
+	}
+
+	// 荒芜
+	"spectre_desolate2"
+	{
+		"BaseClass"						"spectre_desolate"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"spectre_desolate"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+			"bonus_damage"				"40 65 90 115 140"		// 40 + hero_levelup +2, lv50 ≈ 140
+			"radius"					"0"						// 350 触发范围，覆盖为全方向
+			"only_creep_allies_damage_pct"	"0"
+		}
+	}
+	// 能量转移
+	"slark_essence_shift2"
+	{
+		"BaseClass"						"slark_essence_shift"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"Innate"						"0"
+		"AbilityTextureName"			"slark_essence_shift"
+		"IsOnCastBar"					"1"
+
+		"AbilityValues"
+		{
+			"agi_gain"					"3"				// 3
+			"stat_loss"					"1"				// 1
+			"duration"
+			{
+				"value"					"20"			// 10 + hero_levelup +2.5(override: +2)
+				"hero_levelup"			"+2"			// +2.5
+			}
+			"steal_radius"
+			{
+				"value"					"1500"			// 300
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_stacks_per_hero"
+			{
+				"value"					"0"				// 0
+			}
+		}
+	}
 	// 魔法盾
 	"medusa_mana_shield2"
 	{
@@ -19,21 +119,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"damage_per_mana"						"2 3 4 5 6"
-			"damage_per_mana_per_level"				"0.2 0.25 0.3 0.35 0.4"
+			"damage_per_mana"						"4 8 12 16 20"		// 5.0 + hero_levelup +0.3, lv50 ≈ 20
 			"illusion_percentage"					"60"
 
 			"absorption_pct"						"98"
-			"damage_per_mana_total"
-			{
-				"dynamic_value"			"true"
-			}
 		}
 	}
 	// 死亡先知 巫术精研
 	"death_prophet_witchcraft2"
 	{
-		"MaxLevel"						"1"
+		"MaxLevel"						"5"
 		"BaseClass"						"death_prophet_witchcraft"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
@@ -42,17 +137,8 @@
 
 		"AbilityValues"
 		{
-			"movement_speed_pct_per_level"		"0.5"	// 0.5
-			"cooldown_reduction_pct_per_level"	"1.0"	// 0.75
-
-			"movement_speed_tooltip"
-			{
-				"dynamic_value"					"true"
-			}
-			"cooldown_reduction_tooltip"
-			{
-				"dynamic_value"					"true"
-			}
+			"movement_speed_pct"		"10 15 20 25 30"		// 1 + hero_levelup +0.5, lv50 ≈ 25
+			"cooldown_reduction_pct"	"10 15 20 25 30"		// hero_levelup +0.5, lv50 ≈ 25
 		}
 	}
 	// 修补匠 尤里卡！
@@ -91,7 +177,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"aoe_per_int"				"0.5"
+			"aoe_per_int"				"0.4"
 		}
 	}
 	//精准光环
@@ -111,65 +197,258 @@
 				"value"			"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"trueshot_agi_bonus_base"			"4 8 12 16 18"
-			"trueshot_agi_bonus_per_level"		"1"
+			"trueshot_agi_bonus"				"7 14 21 28 35"		// 10 + hero_levelup +0.5, lv50 ≈ 35
 			"trueshot_agi_bonus_allies_pct"		"50"
-			"agi_bonus_pct_tooltip"
+		}
+	}
+
+	//贪婪
+	"alchemist_goblins_greed2"
+	{
+		"BaseClass"						"alchemist_goblins_greed"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"alchemist_goblins_greed"
+		"Innate"						"0"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"duration"				"40"				// 40
+			"bonus_gold"			"4 8 12 16 20"		// 2
+			"bonus_bonus_gold"		"2 3 4 5 6"			// 2
+			"bounty_multiplier"		"4"					// 2
+			"bonus_gold_cap"		"32 40 48 56 64"	// 16
+		}
+	}
+	//赏金 妙手空空 技能偷钱
+	"bounty_hunter_cutpurse2"
+	{
+		"BaseClass"						"bounty_hunter_cutpurse"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"						"5"
+		"Innate"						"0"
+		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
+
+		"AbilityValues"
+		{
+			"gold_steal"				"4 6 8 10 12"		// 4 +1/lv 适当削弱
+		}
+	}
+
+	//冰女 先天 冰川护体
+	"crystal_maiden_glacial_guard2"
+	{
+		"BaseClass"						"crystal_maiden_glacial_guard"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"5"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"crystal_maiden_glacial_guard"
+
+		"AbilityValues"
+		{
+			"mana_multiplier"			"100 125 150 175 200"		// 30 + hero_levelup +2, lv50 ≈ 197
+			"barrier_duration"			"12"					// 8
+		}
+	}
+
+	// 黑暗贤者 才思敏捷
+	"dark_seer_quick_wit2"
+	{
+		"BaseClass"						"dark_seer_quick_wit"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"5"
+		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
+
+		"AbilityValues"
+		{
+			"int_to_atkspd"				"0.6 0.8 1.0 1.2 1.4"	// 1.0
+			"attack_speed_tooltip"
 			{
 				"dynamic_value"						"true"
 			}
 		}
-
 	}
-	//酒仙 醉拳 未使用
-	"brewmaster_drunken_boxing"
+
+	//龙骑 龙族血统
+	"dragon_knight_dragon_blood2"
 	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/brewmaster_drunken_boxing"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityTextureName"    		"brewmaster_drunken_brawler_crit"
+		"BaseClass"						"dragon_knight_dragon_blood"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
 		"MaxLevel"						"5"
 
-		"AbilityCooldown"			"22"
-		"AbilityManaCost"			"80"
-
 		"AbilityValues"
 		{
-			"miss"		"15 20 25 30 35"
-			"damage"	"200 230 250 270 300"
-			"duration"	"5"
+			"health_regen"
+			{
+				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
+			}
+			"armor"
+			{
+				"value"							"5 17 29 41 53"	// 5 +1(英雄等级成长)
+			}
 		}
 	}
-	//血魔 血雾
-	"bloodseeker_blood_mist2"
+
+	//蝙蝠骑士 树脂
+	"batrider_smoldering_resin2"
 	{
-		"MaxLevel"							"5"
-		"BaseClass"							"ability_lua"
-		"AbilityTextureName"				"bloodseeker_blood_mist"
-		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
-
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
-		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityType"						"ABILITY_TYPE_BASIC"
-
-		"AbilityCastRange"					"450"
-
-		"precache"
-		{
-			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
-		}
+		"BaseClass"						"batrider_smoldering_resin"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
+		"Innate"						"0"
+		"AbilityTextureName"			"clinkz_tar_bomb"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"radius"
+			"total_ticks"			"2"
+			"tick_rate"				"1"
+			"tick_attack_damage_pct"		"16 20 24 28 32"	// 20
+		}
+	}
+	//奇心 拉比克 先天
+	"rubick_curiosity2"
+	{
+		"BaseClass"						"rubick_curiosity"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"rubick_curiosity"
+
+		"AbilityValues"
+		{
+			"curiosity_per_spell_cast"			"2"				// 2
+			"curiosity_duration"				"20"			// 20
+			"curiosity_per_level"				"1"				// 1
+			"curiosity_attack_damage"			"1"				// 1
+			"curiosity_modifier_amp"			"0.3"			// 0.3
+			"curiosity_aoe_bonus"				"1"				// 2
+			"curiosity_per_kill"				"1"				// 1
+			"grace_period"						"3"				// 3
+			"charge_radius"
 			{
-				"value"		"450"
+				"value"						"1200"				// 1200
 				"affected_by_aoe_increase"	"1"
 			}
-			"damage"					"4 5 6 7 8"
+			"curiosity_permanent_gain"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_debuff_amp"
+			{
+				"dynamic_value"				"true"
+			}
+			"current_aoe_bonus"
+			{
+				"dynamic_value"				"true"
+			}
 		}
 	}
+	//力量与魔法 拉比克
+	"rubick_might_and_magus2"
+	{
+		"BaseClass"						"rubick_might_and_magus"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"rubick/ti8_immortal_shoulder/rubick_fade_bolt_immortal"
+		"MaxLevel"						"1"
+
+
+		"AbilityValues"
+		{
+			"aoe_bonus"					"10"
+			"magic_resist_bonus"		"10"
+			"aoe_bonus_duration"		"10"
+		}
+	}
+	//斯温 神之愤怒
+	"sven_wrath_of_god2"
+	{
+		"BaseClass"						"sven_wrath_of_god"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"DependentOnAbility"			""
+		"AbilityTextureName"			"sven_storm_bolt_secondary"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"bonus_damage_per_str"				"0.4 0.5 0.6 0.7 0.8"
+		}
+	}
+	//拍拍 天生技能 +攻击
+	"ursa_maul2"
+	{
+		"BaseClass"						"ursa_maul"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
+		"MaxLevel"						"5"
+
+
+		"AbilityValues"
+		{
+			"health_as_damage_pct"
+			{
+				"value"	"1 1.5 2 2.5 3"
+			}
+		}
+	}
+	//双头龙 天生一对
+	"jakiro_double_trouble2"
+	{
+		"BaseClass"						"jakiro_double_trouble"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"jakiro_dual_breath"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"attack_damage_reduction"
+			{
+				"value"							"50 40 30 20 10"	// 51 + hero_levelup -1.0/lv，lv50 ≈ 2；第3档≈原版51
+			}
+		}
+	}
+
+	//冰魂 先天 刺骨严寒
+	"ancient_apparition_bone_chill2"
+	{
+		"BaseClass"						"ancient_apparition_bone_chill"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"MaxLevel"						"5"
+		"AbilityTextureName"			"ancient_apparition_bone_chill"
+
+		"AbilityValues"
+		{
+			"str_reduction"
+			{
+				"value"							"1 2 3 4 5"	// .2 + hero_levelup +0.1/lv，lv50 ≈ 5
+				"special_bonus_scepter"			"+1"  // +0.8
+			}
+			"tooltip_scepter_bonus"				"1"	// 0.8
+			"str_reduction_duration"
+			{
+				"value"							"4.0"
+			}
+			"movement_slow_pct"
+			{
+				"value"					"2"
+				"display_type"			"kDebuffPercentage"
+			}
+		}
+	}
+	//=================================================================================================================
+// 普通升级 技能
+	//=================================================================================================================
 	// 猛犸 长角抛物
 	"magnataur_horn_toss2"
 	{
@@ -251,9 +530,142 @@
 
 		"AbilityValues"
 		{
-			"dodge_chance_pct"		"12 15 18 21 24"
+			"dodge_chance_pct"		"16 20 24 28 32"
 		}
 	}
+
+	//炽烈火雨
+	"clinkz_burning_barrage2"
+	{
+		"BaseClass"						"clinkz_burning_barrage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"IsGrantedByShard"				"0"
+		"MaxLevel"						"5"
+
+		"AbilityCooldown"				"17"
+		"AbilityCastPoint"				"0.2"
+		"AbilityChannelTime"			"2.0"
+		"AbilityManaCost"				"80"
+
+		"AbilityValues"
+		{
+			"range"					"800 850 900 950 1000"
+			"damage_pct"			"75 85 95 105 115"
+
+			"wave_count"			"6"
+			"projectile_width"
+			{
+				"value"		"200"
+				"affected_by_aoe_increase"	"1"
+			}
+			"archers_use_barrage"		"0"
+		}
+	}
+
+	//诅咒之雨
+	"dazzle_rain_of_vermin"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"IsGrantedByScepter"			"0"
+		"AbilityTextureName"			"rain_of_vermin"
+		"MaxLevel"						"5"
+
+		"AbilityCastRange"				"800"
+		"AbilityCooldown"				"20 19 18 17 16"		// 30
+		"AbilityManaCost"				"110 120 130 140 150"		// 150
+
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value" "5"		// 7
+			}
+			"interval"
+			{
+				"value" "1"		// 0.5
+			}
+			"radius"
+			{
+				"value" "500"	// 650
+				"affected_by_aoe_increase"	"1"
+			}
+			"hex_chance"
+			{
+				"value" "20 24 28 32 36"		// 12
+			}
+			"hex_duration"
+			{
+				"value" "1.2 1.4 1.6 1.8 2"		// 1
+			}
+			"damage"
+			{
+				"value" "50 75 100 125 150"	// 125
+			}
+		}
+	}
+
+	//人工神符
+	"arc_warden_scepter2"
+	{
+		"BaseClass"						"arc_warden_scepter"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"3"
+
+		"AbilityCastPoint"				"0.15"
+		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
+		"AbilityCastGestureSlot"		"DEFAULT"
+
+		"AbilityCooldown"				"40 35 30"
+		"AbilityManaCost"				"100"
+		"AbilityValues"
+		{
+			"tooltip_scepter_cooldown"
+			{
+				"special_bonus_scepter"	"60"
+			}
+			"tooltip_scepter_manacost"
+			{
+				"special_bonus_scepter" "100"
+			}
+		}
+	}
+
+	//狂暴药剂
+	"alchemist_berserk_potion2"
+	{
+		"BaseClass"						"alchemist_berserk_potion"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"IsGrantedByShard"				"0"
+		"HasShardUpgrade"				"0"
+		"AbilityTextureName"			"alchemist_berserk_potion"
+
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"35"
+		"AbilityManaCost"				"100"
+
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"duration"					"10"		// 15
+			"attack_speed"				"150"		// 50
+			"hp_regen"					"120"		// 40
+			"move_speed"				"90"		// 30
+			"projectile_speed"			"900"		// 900
+		}
+	}
+
+	//=================================================================================================================
+// lua 技能
+	//=================================================================================================================
+
 	//人马 不屈
 	"centaur_sturdy"
 	{
@@ -304,26 +716,76 @@
 			"radius"				"800"
 		}
 	}
-	//贪婪
-	"alchemist_goblins_greed2"
+	//酒仙 醉拳
+	"brewmaster_drunken_boxing"
 	{
-		"BaseClass"						"alchemist_goblins_greed"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/brewmaster_drunken_boxing"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"			"brewmaster_drunken_brawler_crit"
+		"MaxLevel"						"5"
+
+		"AbilityCooldown"			"30"
+		"AbilityManaCost"			"80 90 100 110 120"
+
+		"AbilityValues"
+		{
+			"miss"					"15 20 25 30 35"
+			"damage"				"200 230 260 290 320"
+			"duration"				"5"
+			"move_speed_bonus"		"30"
+			"crit_multiplier"		"3"
+			"sway_speed"			"300"
+		}
+	}
+	//血魔 血雾
+	"bloodseeker_blood_mist2"
+	{
+		"MaxLevel"							"5"
+		"BaseClass"							"ability_lua"
+		"AbilityTextureName"				"bloodseeker_blood_mist"
+		"ScriptFile"						"abilities/bloodseeker_blood_mist2"
+
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityType"						"ABILITY_TYPE_BASIC"
+
+		"AbilityCastRange"					"450"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_bloodseeker/bloodseeker_scepter_blood_mist_aoe.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"		"450"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage"					"4 5 6 7 8"
+		}
+	}
+	//斧王 一人成军
+	"axe_one_man_army2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/axe_one_man_army2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"alchemist_goblins_greed"
-		"Innate"						"0"
+		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
+
 		"MaxLevel"						"5"
 
 		"AbilityValues"
 		{
-			"duration"				"40"
-			"bonus_gold"			"2"
-			"bonus_bonus_gold"		"2"
-			"bounty_multiplier"		"2"
-			"bonus_gold_cap"		"16 18 20 22 24"
-			"damage"				"2"
-			"starting_gold_bonus"	"250"
+			"armor_pct_as_strength"		"60 70 80 90 100"
+			"radius"					"0"
+			"bonus_linger_duration"		"5"
 		}
 	}
+
 	//普通一拳
 	"dark_seer_normal_punch2"
 	{
@@ -349,54 +811,6 @@
 			"max_stun"					"1.0"
 			"max_damage"				"100 200 300"
 			"ad" 						"1 1.5 2"
-		}
-	}
-	//赏金 妙手空空 技能偷钱
-	"bounty_hunter_cutpurse2"
-	{
-		"BaseClass"						"bounty_hunter_cutpurse"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"DependentOnAbility"			""
-		"MaxLevel"						"5"
-		"Innate"						"0"
-		"AbilityTextureName"			"bounty_hunter/hunters_hoard/bounty_hunter_track"
-
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
-
-		"AbilityValues"
-		{
-			"gold_steal"					"4 6 8 10 12"
-		}
-	}
-
-
-	//炽烈火雨
-	"clinkz_burning_barrage2"
-	{
-		"BaseClass"						"clinkz_burning_barrage"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"IsGrantedByShard"				"0"
-		"MaxLevel"						"5"
-
-		"AbilityCooldown"				"17"
-		"AbilityCastPoint"				"0.2"
-		"AbilityChannelTime"			"2.0"
-		"AbilityManaCost"				"80"
-
-		"AbilityValues"
-		{
-			"range"					"800 850 900 950 1000"
-			"damage_pct"			"75 85 95 105 115"
-
-			"wave_count"			"6"
-			"projectile_width"
-			{
-				"value"		"200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"archers_use_barrage"		"0"
 		}
 	}
 	//冰女 冰暴
@@ -425,263 +839,7 @@
 			"explosion_radius"	"200"
 		}
 	}
-	//才思敏捷
-	"dark_seer_quick_wit2"
-	{
-		"BaseClass"						"dark_seer_quick_wit"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"5"
-		"AbilityTextureName"			"obsidian_destroyer/lucent_gate_icons/obsidian_destroyer_arcane_orb"
 
-		"AbilityValues"
-		{
-			"int_to_atkspd"				"0.5 0.8 1.1 1.4 1.7"
-		}
-	}
-	//诅咒之雨
-	"dazzle_rain_of_vermin"
-	{
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"IsGrantedByScepter"			"0"
-		"AbilityTextureName"			"rain_of_vermin"
-		"MaxLevel"						"5"
-
-		"AbilityCastRange"				"800"
-		"AbilityCooldown"				"20 19 18 17 16"		// 30
-		"AbilityManaCost"				"110 120 130 140 150"		// 150
-
-		"AbilityValues"
-		{
-			"duration"
-			{
-				"value" "5"		// 7
-			}
-			"interval"
-			{
-				"value" "1"		// 0.5
-			}
-			"radius"
-			{
-				"value" "500"	// 650
-				"affected_by_aoe_increase"	"1"
-			}
-			"hex_chance"
-			{
-				"value" "20 24 28 32 36"		// 12
-			}
-			"hex_duration"
-			{
-				"value" "1.2 1.4 1.6 1.8 2"		// 1
-			}
-			"damage"
-			{
-				"value" "50 75 100 125 150"	// 125
-			}
-		}
-	}
-
-	//龙骑 先天 龙血
-	"dragon_knight_inherited_vigor2"
-	{
-		"BaseClass"                     "dragon_knight_inherited_vigor"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"						"5"
-		"Innate"						"0"
-		"AbilityTextureName"    		"dragon_knight/dk_persona/dragon_knight_dragon_blood_persona1"
-
-		"AbilityValues"
-		{
-			"base_health_regen"
-			{
-				"value"							"10 20 30 40 50"
-				"special_bonus_unique_dragon_knight" "+12"
-				"dynamic_value"					"true"
-			}
-			"base_armor"
-			{
-				"value"							"3 6 9 12 15"
-				"special_bonus_unique_dragon_knight" "+12"
-				"dynamic_value"					"true"
-			}
-			"level_mult"					"1"
-			"regen_and_armor_multiplier_during_dragon_form"
-			{
-				"value"							"1.5"
-			}
-		}
-	}
-
-
-	//蝙蝠骑士 树脂
-	"batrider_smoldering_resin2"
-	{
-		"BaseClass"						"batrider_smoldering_resin"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilitySound"					"Hero_Batrider.StickyNapalm.Impact"
-		"Innate"						"0"
-		"AbilityTextureName"    		"clinkz_tar_bomb"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"total_ticks"			"2"
-			"tick_rate"				"1"
-			"tick_attack_damage_pct"		"20 25 30 35 40"
-		}
-	}
-	//力量与魔法 拉比克
-	"rubick_might_and_magus2"
-	{
-		"BaseClass"						"rubick_might_and_magus"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"AbilityTextureName"			"rubick"
-		"MaxLevel"						"1"
-
-
-		"AbilityValues"
-		{
-			"one_tooltip"					"1"
-			"bonus_damage_pct"
-			{
-				"value"									"50"		// 75
-				"special_bonus_unique_rubick_2" 		"+25"
-			}
-			"bonus_damage_pct_tooltip"
-			{
-				"value"									"0.5"		// 0.75
-				"special_bonus_unique_rubick_2" 		"+0.25"
-			}
-			"magic_resist_pct"
-			{
-				"value"									"50"		// 75
-				"special_bonus_unique_rubick_2" 		"+25"
-			}
-			"magic_resist_pct_tooltip"
-			{
-				"value"									"0.5"		// 0.75
-				"special_bonus_unique_rubick_2" 		"+0.25"
-			}
-		}
-	}
-	//斯温 神之愤怒
-	"sven_wrath_of_god2"
-	{
-		"BaseClass"						"sven_wrath_of_god"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"DependentOnAbility"			""
-		"AbilityTextureName"			"sven_storm_bolt_secondary"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"bonus_damage_per_str"				"0.6 0.7 0.8 0.9 1"
-			"base_damage_reduction"				"10 20 30 40 50"
-		}
-	}
-	//拍拍 天生技能 +攻击
-	"ursa_maul2"
-	{
-		"BaseClass"						"ursa_maul"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
-		"MaxLevel"						"5"
-
-
-		"AbilityValues"
-		{
-			"health_as_damage_pct"
-			{
-				"value"	"1 2 3 4 5"
-			}
-		}
-	}
-	//双头龙 天生一对
-	"jakiro_double_trouble2"
-	{
-		"BaseClass"						"jakiro_double_trouble"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"Innate"						"0"
-		"AbilityTextureName"			"jakiro_dual_breath"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"second_attack_delay"			"0.2"
-			"attack_damage_reduction"		"50 45 40 35 30"
-		}
-	}
-	//斧王 一人成军
-	"axe_one_man_army2"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/axe_one_man_army2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"ancient_rock_golem_weakening_aura"
-
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"armor_pct_as_strength"		"60 70 80 90 100"
-			"radius"					"0"
-			"bonus_linger_duration"		"5"
-		}
-	}
-	//人工神符
-	"arc_warden_scepter2"
-	{
-		"BaseClass"						"arc_warden_scepter"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"3"
-
-		"AbilityCastPoint"				"0.15"
-		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_4"
-		"AbilityCastGestureSlot"		"DEFAULT"
-
-		"AbilityCooldown"				"40 35 30"
-		"AbilityManaCost"				"100"
-		"AbilityValues"
-		{
-			"tooltip_scepter_cooldown"
-			{
-				"special_bonus_scepter"	"60"
-			}
-			"tooltip_scepter_manacost"
-			{
-				"special_bonus_scepter" "100"
-			}
-		}
-
-	}
-	//魔法扰动 未使用
-	"antimage_mana_turbulence"
-	{
-		"BaseClass"                     "ability_lua"
-		"ScriptFile"				    "abilities/antimage_mana_turbulence"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"    		"sven/immortal/sven_great_cleave"
-
-		"AbilityManaCost"				"85 95 105 115"
-		"AbilityCooldown"				"20 18 16 14"
-
-		"AbilityValues"
-		{
-			"damage"			"80 120 160 200"
-			"slow_duration"		"1.5"
-			"duration"			"5"
-			"ad"				"0.7"
-
-			"spell_amp"			"30"
-			"mana_cost"			"100"
-			"cd"				"50"
-		}
-	}
 	//极寒光环
 	"ancient_apparition_freezing_aura"
 	{
@@ -707,47 +865,6 @@
 			"ad"		"0.15"
 		}
 	}
-	//冰霜封印 减伤效果可能有问题 暂时移除
-	"ancient_apparition_frost_seal"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/ancient_apparition_frost_seal"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityTextureName"			"winter_wyvern/immortal/winter_wyvern_cold_embrace"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		"MaxLevel"						"5"
-
-		"AbilityCastRange"				"600"
-		"AbilityManaCost"				"100 110 120 130"
-		"AbilityCooldown"				"25 24 23 22"
-
-		"precache"
-		{
-			"particle"					"particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf"
-			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_debuff.vpcf"
-			"particle"					"particles/units/heroes/hero_lich/lich_ice_spire_victimb_2.vpcf"
-			"particle"					"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
-		}
-		"AbilityValues"
-		{
-			"hp_regen"				"20 30 40 50 60"
-			"hp_regen_percentage"	"2 3 4 5 6"
-			"damage"
-			{
-				"value"				"120 180 240 300 360"
-				"CalculateSpellDamageTooltip"	"1"
-			}
-			"stun_duration"			"2"
-			"radius"
-			{
-				"value"				"600"
-				"affected_by_aoe_increase"	"1"
-			}
-			"damage_reduction"			"80"
-		}
-	}
 	//冰霜法球
 	"ancient_apparition_frost_orb"
 	{
@@ -770,53 +887,6 @@
 	}
 
 
-	//迷雾诅咒
-	"abaddon_death_coil2"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/abaddon_death_coil2"
-		"AbilityTextureName"			"abaddon_death_coil_alliance"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC | DOTA_UNIT_TARGET_HERO"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
-
-		"MaxLevel"						"5"
-
-		"AbilityManaCost"				"70 80 90 100 110"
-		"AbilityCooldown"				"8 7.5 7 6.5 6"
-		"AbilityCastRange"				"700"
-
-		"AbilityValues"
-		{
-			"heal"			"80 120 160 200 240"
-			"radius"		"250"
-			"duration"		"10"
-			"ad"			"0.3"
-		}
-	}
-	//幻影冲锋  未使用
-	"abaddon_phantom_charge"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/abaddon_phantom_charge"
-		"AbilityTextureName"			"phantom_lancer_doppelwalk"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-
-		"MaxLevel"						"5"
-
-		"AbilityManaCost"				"80 90 100 110 120"
-		"AbilityCooldown"				"19 18 17 16 15"
-
-		"AbilityValues"
-		{
-			"silence_duration"	"2.5 3 3.5 4"
-			"movespeed"			"50"
-			"damage"			"50 90 130 170"
-			"ad"				"1.5"
-		}
-	}
 	//被动火雨
 	"abyssal_underlord_firestorm2"
 	{
@@ -879,63 +949,6 @@
 			}
 		}
 	}
-	//狂暴药剂
-	"alchemist_berserk_potion2"
-	{
-		"BaseClass"						"alchemist_berserk_potion"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"IsGrantedByShard"  			"0"
-		"IsOnCastBar"					"1"
-
-		"MaxLevel"						"5"
-
-		"AbilityCastRange"				"800"
-		"AbilityCastPoint"				"0.2"
-
-		"AbilityCooldown"				"35"
-		"AbilityManaCost"				"100"
-
-		"AbilityValues"
-		{
-			"duration"		"15"
-			"attack_speed"	"40 50 60 70 80"
-			"hp_regen"		"20 40 60 80 100"
-			"projectile_speed"			"900"
-			"move_speed"			"20 30 40 50 60"
-			"chemical_rage_cooldown_reduction_pct"
-			{
-				"value"					"0"
-				"special_bonus_facet_alchemist_mixologist"				"=50"
-			}
-		}
-	}
-	//炼金 强化武器 选择率过低暂时移除
-	"alchemist_enhanced_weaponry"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/alchemist_enhanced_weaponry"
-		"AbilityTextureName"			"alchemist_enhanced_weaponry"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-
-		"MaxLevel"						"5"
-
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"50 60 70 80 90"
-
-		"AbilityValues"
-		{
-			"attack_range"	"50 75 100 125 150"
-			"duration"		"6"
-			// 降低移速
-			"move_speed_slow"	"20 30 40 50 60"
-			"slow_duration"		"0.5"
-		}
-	}
-
 	// 多重施法
 	"ogre_magi_multicast_lua"
 	{

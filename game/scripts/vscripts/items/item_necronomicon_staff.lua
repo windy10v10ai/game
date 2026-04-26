@@ -76,7 +76,7 @@ function modifier_item_necronomicon_staff:OnCreated(params)
 	self.ability = self:GetAbility()
 	self.bonus_mana_regen = self.ability:GetSpecialValueFor("bonus_mana_regen")
 	self.spell_amp = self.ability:GetSpecialValueFor("spell_amp")
-	self.mp_regen_amp = self.ability:GetSpecialValueFor("mp_regen_amp")
+	-- self.mp_regen_amp = self.ability:GetSpecialValueFor("mp_regen_amp")
 
 	self.sheep_duration = self.ability:GetSpecialValueFor("sheep_duration")
 	self.tooltip_range = self.ability:GetSpecialValueFor("tooltip_range")
@@ -95,7 +95,7 @@ function modifier_item_necronomicon_staff:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE,
-		MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
+		-- MODIFIER_PROPERTY_MP_REGEN_AMPLIFY_PERCENTAGE,
 	}
 end
 
@@ -107,9 +107,9 @@ function modifier_item_necronomicon_staff:GetModifierSpellAmplify_Percentage(par
 	return self.spell_amp
 end
 
-function modifier_item_necronomicon_staff:GetModifierMPRegenAmplify_Percentage(params)
-	return self.mp_regen_amp
-end
+-- function modifier_item_necronomicon_staff:GetModifierMPRegenAmplify_Percentage(params)
+-- 	return self.mp_regen_amp
+-- end
 
 ---------------------------------------------------------------------
 if modifier_item_necronomicon_staff_debuff == nil then
@@ -141,13 +141,7 @@ end
 
 function modifier_item_necronomicon_staff_debuff:OnCreated(params)
 	self.sheep_movement_speed = self:GetAbility():GetSpecialValueFor("sheep_movement_speed")
-	-- self.blast_damage_multiplier = self:GetAbility():GetSpecialValueFor("blast_damage_multiplier")
-
-	self.blast_int_bonus = 0
-	self.blast_int_percent = self:GetAbility():GetSpecialValueFor("blast_int_percent")
-	if self:GetParent():IsHero() then
-		self.blast_int_bonus = self:GetParent():GetIntellect(true) * self.blast_int_percent * 0.01
-	end
+	self.blast_magic_resist = self:GetAbility():GetSpecialValueFor("blast_magic_resist")
 
 	local model_list = { "models/props_gameplay/pig.vmdl", "models/props_gameplay/sheep01.vmdl" }
 	self.model_file = model_list[RandomInt(1, #model_list)]
@@ -166,8 +160,7 @@ function modifier_item_necronomicon_staff_debuff:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BASE_OVERRIDE,
 		MODIFIER_PROPERTY_MODEL_CHANGE,
-		-- MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION,
 	}
 end
 
@@ -179,9 +172,6 @@ function modifier_item_necronomicon_staff_debuff:GetModifierModelChange(params)
 	return self.model_file
 end
 
--- function modifier_item_necronomicon_staff_debuff:GetModifierMagicalResistanceDecrepifyUnique(params)
---     return self.blast_damage_multiplier
--- end
-function modifier_item_necronomicon_staff_debuff:GetModifierBonusStats_Intellect(params)
-	return self.blast_int_bonus
+function modifier_item_necronomicon_staff_debuff:GetModifierMagicalResistanceDirectModification(params)
+	return self.blast_magic_resist
 end
