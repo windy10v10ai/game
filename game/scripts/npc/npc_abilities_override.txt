@@ -2803,30 +2803,23 @@
 	// 凤凰冲击
 	"phoenix_icarus_dive"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"36 32 28 24 20"
+		"AbilityCooldown"				"36 32 28 24 20"	// 40 35 30 25
 		"AbilityValues"
 		{
-			"hp_cost_perc"			"8"
+			"hp_cost_perc"			"8"	// 15
 			"dash_length"
 			{
 				"value"	"1100 1200 1300 1400 1500"
 			}
-			"hit_radius"
-			{
-				"value"			"200"
-				"affected_by_aoe_increase"	"1"
-			}
 			"damage_per_second"
 			{
-				"value"				"40 80 120 160 200"			// x2
+				"value"				"40 80 120 160 200"			// 20 40 60 80 x2
 			}
-			"burn_tick_interval"	"0.2"
 			"slow_movement_speed_pct"
 			{
 				"value"		"10 15 20 25 30"
-				"special_bonus_unique_phoenix_6" "+25"
 			}
 		}
 	}
@@ -2834,16 +2827,16 @@
 	"phoenix_fire_spirits"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"32 29 26 23 20"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCooldown"				"25 20 15 10 5"	// 50 40 30 20
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityValues"
 		{
-			"hp_cost_perc"		"10"
-			"attackspeed_slow"	"-100 -200 -300 -350 -400"
+			"hp_cost_perc"		"10"	// 20
+			"attackspeed_slow"	"-100 -160 -220 -280 -340"	// -50 -80 -110 -140 x2
 			"damage_per_second"
 			{
-				"value"		"40 80 120 160 200"	// x2
-				"special_bonus_unique_phoenix_3" "+40"	// x2
+				"value"		"40 80 120 160 200"	// 20 40 60 80 x2
+				"special_bonus_unique_phoenix_3" "+40"	// 20 x2
 			}
 		}
 	}
@@ -2851,15 +2844,15 @@
 	"phoenix_launch_fire_spirit"
 	{
 		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityValues"
 		{
-			"hp_cost_perc"		"10"
-			"attackspeed_slow"	"-100 -200 -300 -350 -400"
+			"hp_cost_perc"		"10"	// 20
+			"attackspeed_slow"	"-100 -160 -220 -280 -340"	// -50 -80 -110 -140 x2
 			"damage_per_second"
 			{
-				"value"		"40 80 120 160 200"	// x2
-				"special_bonus_unique_phoenix_3" "+40"	// x2
+				"value"		"40 80 120 160 200"	// 20 40 60 80 x2
+				"special_bonus_unique_phoenix_3" "+40"	// 20 x2
 			}
 		}
 	}
@@ -2867,28 +2860,26 @@
 	"phoenix_sun_ray"
 	{
 		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
-			"hp_cost_perc_per_second"		"3"
-			"base_damage"			"30 40 50 60 70"
+			"hp_cost_perc_per_second"		"3"	// 5
+			"base_damage"			"30 40 50 60 70"	// 15 20 25 30
 			"hp_perc_damage"
 			{
-				"value"			"1 2.75 4.5 6.25 8"
-				"special_bonus_unique_phoenix_5" "+1.5"
+				"value"			"1 2.75 4.5 6.25 8"	// 1.5 3 4.5 6.0
 			}
-			"base_heal"			"20 30 40 50 60"
-			"hp_perc_heal"			"1.0 1.5 2.0 2.5 3.0"
+			"base_heal"			"20 30 40 50 60"	// 7 10 13 16
+			"hp_perc_heal"			"1.0 1.5 2.0 2.5 3.0"	// 0.5 1.0 1.5 2.0
 			"radius"
 			{
-				"value"	"160"
-				"affected_by_aoe_increase"	"1"
+				"value"	"160"	// 130
 			}
-			"forward_move_speed"	"350"
+			"forward_move_speed"	"350"	// 250
 			"shard_move_slow_pct"
 			{
-				"value"				"25"
+				"value"				"25"	// 0
 			}
 		}
 	}
@@ -2896,24 +2887,24 @@
 	"phoenix_supernova"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"60"
+		"AbilityCooldown"				"60"	// 120
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-			"damage_per_sec"	"60 120 180 240"
+			"damage_per_sec"	"60 120 180 240"	// 60 90 120
 			"stun_duration"
 			{
 				"value"			"1.6 2 2.4 2.8"
 			}
 			"max_hero_attacks"
 			{
-				"value"			"12 16 20 24"		// x2
-				"special_bonus_unique_phoenix_1" "+8"	// 2
+				"value"			"12 16 20 24"		// 6 8 10 x2
+				"special_bonus_unique_phoenix_1" "+8"	// 2 x4
 			}
 			"max_hero_attacks_scepter"
 			{
-				"value"	"14 20 26 32"				// x2
-				"special_bonus_unique_phoenix_1" "+8"	// 2
+				"special_bonus_scepter"	"14 20 26 32"		// 7 10 13 x2
+				"special_bonus_unique_phoenix_1" "+8"	// 2 x4
 			}
 		}
 	}
@@ -6872,6 +6863,7 @@
 	"pangolier_swashbuckle"
 	{
 		"MaxLevel"						"5"
+		"AbilityCastRange"				"575 650 725 800 875"
 		"AbilityManaCost"				"75 80 85 90 95"
 		"AbilityValues"
 		{
@@ -6879,19 +6871,18 @@
 				{
 					"value"				"18 16 14 12 10"		// 19 16 13 10
 				}
-				"dash_range"			"400 500 600 700 800"
+				"dash_range"			"575 650 725 800 875"
 				"damage"
 				{
-					"value"		"30 60 90 120 150"
+					"value"		"35 65 95 125 155"
 				}
 				"attack_damage"
 				{
-					"value"				"0"
-					"special_bonus_unique_pangolier_3"	"+75"
+					"special_bonus_unique_pangolier_3"	"+75"	// +20
 				}
 				"strikes"
 				{
-					"value"			"5"
+					"value"			"5"			// 3
 				}
 		}
 	}
@@ -6903,7 +6894,7 @@
 		{
 			"damage"
 			{
-				"value"					"50 100 150 200 250"	// 50 100 150 200
+				"value"					"60 120 180 240 300"
 			}
 			"hero_shield"
 			{
@@ -6912,10 +6903,10 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"					"19 16 13 10 7"		// 16 13 10 7
+				"value"					"14 12 10 8 6"
 			}
-			"jump_duration"			"0.2"
-			"jump_duration_gyroshell"	"0.4"
+			"jump_duration"			"0.2"	// 0.4
+			"jump_duration_gyroshell"	"0.4"	// 0.75
 		}
 	}
 	// 幸运一击
@@ -6924,13 +6915,12 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"chance_pct"			"17"
 			"duration"				"3.5 4 4.5 5 5.5"
-			"attack_slow"			"40 80 120 160 200"
+			"attack_slow"			"35 70 105 140 175"
 			"armor"
 			{
-				"value"					"3 6 9 12 15"	// 3 5 7 9
-				"special_bonus_unique_pangolier_luckyshot_armor"			"+4"	// 3
+				"value"					"2 4 6 8 10"
+				"special_bonus_unique_pangolier_luckyshot_armor"			"+6"	// +3 x2
 			}
 		}
 	}
@@ -6938,29 +6928,29 @@
 	"pangolier_gyroshell"
 	{
 		"MaxLevel" "4"
-		"AbilityManaCost"				"100 150 200 250"
-		"AbilityDamage"					"100 200 300 400"	// 75 150 225
+		"AbilityManaCost"				"100 125 150 175"
+		"AbilityDamage"					"100 200 300 400"
 		"AbilityValues"
 		{
-				"AbilityCooldown"
-				{
-					"value"			"90 80 70 60"
-					"special_bonus_unique_pangolier_5"	"-20"	// -15
-				}
-				"forward_move_speed"		"800"		// 550
-				"turn_rate_boosted"			"360"		// 165
-				"turn_rate"					"270"		// 120
-				"radius"
-				{
-					"value"			"600"
-					"affected_by_aoe_increase"	"1"
-				}
-				"hit_radius"
-				{
-					"value"		"300"	// 150
-					"affected_by_aoe_increase"	"1"
-				}
-				"stun_duration"			"0.8 1.0 1.2 1.4"
+			"AbilityCooldown"
+			{
+				"value"			"100 90 80 70"
+			}
+			"forward_move_speed"		"800"		// 550
+			"turn_rate_boosted"			"360"		// 165
+			"turn_rate"					"270"		// 120
+			"radius"
+			{
+				"value"			"500"		// 400
+			}
+			"hit_radius"
+			{
+				"value"		"300"	// 150
+			}
+			"duration"
+			{
+				"value"		"10 11 12 13"
+			}
 		}
 	}
 	//=================================================================================================================
