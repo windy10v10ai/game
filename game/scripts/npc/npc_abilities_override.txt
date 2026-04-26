@@ -3408,24 +3408,25 @@
 	"skeleton_king_hellfire_blast"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCooldown"				"12 11 10 9 8"
 		"AbilityManaCost"				"95 110 125 140 155"
 		"AbilityValues"
 		{
 			"blast_stun_duration"
 			{
-				"value"					"1.2 1.3 1.4 1.5 1.6"
+				"value"					"1.0 1.2 1.4 1.6 1.8"
 			}
 			"damage"
 			{
 				"value"		"80 100 120 140 160"
-				"special_bonus_unique_wraith_king_3"	"+50%"
+				"special_bonus_unique_wraith_king_3"	"+50%"	// 原版不存在，手动修改
 			}
 			"blast_dot_damage"
 			{
 				"value"					"20 40 60 80 100"
-				"special_bonus_unique_wraith_king_3"	"+50%"
+				"special_bonus_unique_wraith_king_3"	"+50%"	// 原版不存在，手动修改
 			}
+			"blast_slow"				"-20 -30 -40 -50 -60"	// -20 差值10
 		}
 	}
 	// 幽魂之剑
@@ -3434,15 +3435,9 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"cursed_damage_pct"
-			{
-				"value"										"50"
-				"special_bonus_unique_skeleton_king_spectral_blade_damage"	"+15"
-			}
 			"cursed_damage"
 			{
-				"value"									"15 30 45 60 75"
-				"special_bonus_unique_skeleton_king_spectral_blade_damage"	"+25"
+				"value"									"20 50 80 110 140"	// 10 25 40 55 x2
 			}
 			"curse_cooldown"
 			{
@@ -3451,23 +3446,17 @@
 			"curse_delay"								"2"					// 3
 		}
 	}
-	// 自定义天赋 幽魂之剑伤害
-	"special_bonus_unique_skeleton_king_spectral_blade_damage"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"BaseClass" "special_bonus_base"
-	}
 	// 本命一击
 	"skeleton_king_mortal_strike"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"5 4.5 4 3.5 3"
 		"AbilityValues"
 		{
-			"crit_mult"					"150 200 250 300 350"
+			"crit_mult"					"160 200 240 280 320"
+			"AbilityCooldown"
+			{
+				"value"				"5 4.5 4 3.5 3"	// 5 差值0.5
+			}
 		}
 	}
 	// 绝冥再生
@@ -3479,38 +3468,33 @@
 			"AbilityCooldown"
 			{
 				"value"							"120 100 80 60"		// 180 150 120
-				"special_bonus_scepter"			"-15"
 			}
 			"shard_skeleton_count"
 			{
-				"value"							"0"
-				// 命石：绝冥再生时为每名英雄产生的骷髅兵数量
-				"special_bonus_facet_skeleton_king_facet_bone_guard"			"0"
+				"value"							"2 3 4 5"
 			}
 		}
 	}
-	// 先天技能 吸血灵魂
+	// 吸血灵魂（先天）
 	"skeleton_king_vampiric_spirit"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 			"vampiric_aura"
 			{
-				"value"									"10 20 30 40 50"
+				"value"									"10"	// 14
 			}
 			"duration"
 			{
-				"value"							"3.0"
-				"special_bonus_scepter"			"+1"
+				"value"							"3.0"	// 4.25
 			}
 			"scepter_attack_speed"
 			{
-				"value"							"30 45 60 75 90"
+				"value"							"30"	// 55
 			}
 			"scepter_move_speed_pct"
 			{
-				"value"							"10 15 20 25 30"
+				"value"							"10"	// 20
 			}
 		}
 	}
@@ -5459,14 +5443,13 @@
 	// 爆栗出击 大头爆栗子
 	"hoodwink_acorn_shot"
 	{
-		"MaxLevel" "7"
-		"AbilityCooldown"				"18 16 14 12 10 10 10"
-		"AbilityManaCost"				"70 80 90 100 110 110 110"
+		"MaxLevel" "5"
+		"AbilityCooldown"				"14 13 12 11 10"
 		"AbilityValues"
 		{
 			"acorn_shot_damage"
 			{
-				"value"		"50 100 150 200 250 300 350"	// +10
+				"value"		"90 180 270 360 450"	// 45 90 135 180 x2
 			}
 			"base_damage_pct"
 			{
@@ -5474,8 +5457,8 @@
 			}
 			"bounce_count"
 			{
-				"value"			"3 4 5 6 7 8 9" // 2 3 4 5
-				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+5"	// +1
+				"value"			"3 4 5 6 7"	// 2 3 4 5 +1
+				"special_bonus_unique_hoodwink_acorn_shot_bounces" "+5"	// +2 +3
 			}
 		}
 	}
@@ -5483,7 +5466,6 @@
 	"hoodwink_bushwhack"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
 		{
 			"trap_radius"
@@ -5495,7 +5477,11 @@
 			"total_damage"
 			{
 				"value"							"90 180 270 360 450"
-				"special_bonus_unique_hoodwink_bushwhack_damage" "+150"	// 60
+				"special_bonus_unique_hoodwink_bushwhack_damage"	"+100"	// +50 x2
+			}
+			"AbilityCooldown"
+			{
+				"value"				"15 14 13 12 11"
 			}
 		}
 	}
@@ -5511,59 +5497,40 @@
 			{
 				"value"						"3.5 4.0 4.5 5.0 5.5"
 			}
-			"cast_range"
-			{
-				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"50 100 150 200 250"	// 50 100 150 200
-			}
-			"attack_range"
-			{
-				"value"							"0"
-				"special_bonus_facet_hoodwink_hunter"	"50 100 150 200 250"	// 50 100 150 200
-			}
 		}
 	}
 	// 一箭穿心
 	"hoodwink_sharpshooter"
 	{
-		"MaxLevel"						"5"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"3500"
-		"AbilityManaCost"				"100 150 200 250 300"
+		"MaxLevel"						"4"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
+		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
 		{
 			"arrow_width"
 			{
 				"value"	"150"	// 125
 			}
-			"arrow_speed"
-			{
-				"value"			"4000"
-				"special_bonus_scepter"		"+50%"
-			}
 			"max_damage"
 			{
-				"value"				"1000 2000 3000 4000 5000"	// 550 900 1250
-				"special_bonus_unique_hoodwink_sharpshooter_damage"		"+5000"	// 125
+				"value"				"1200 1950 2700 3450"	// 600 975 1350 x2
 			}
 			"slow_move_pct"
 			{
-				"value"					"30 40 50 60 70"
+				"value"					"30 40 50 60"
 			}
 		}
 	}
-	// 林渊旅人
+	// 林渊旅人 Innate
 	"hoodwink_mistwoods_wayfarer"
 	{
- 		"MaxLevel"						"5"
- 		"AbilityValues"
- 		{
- 			"radius"
+		"AbilityValues"
+		{
+			"radius"
 			{
-				"value"		"350"		// 275
+				"value"		"350"	// 275
 			}
-			"redirect_chance"	"20 25 30 35 40"
- 		}
+		}
 	}
 	//=================================================================================================================
 	// Ability: Juggernaut 主宰/剑圣/奶棒人

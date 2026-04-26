@@ -2049,10 +2049,9 @@
 	}
 	"npc_dota_hero_skeleton_king"
 	{
-		"Ability2"		"skeleton_king_spectral_blade"
+		"Ability2"		"skeleton_king_spectral_blade"	// 替换骷髅兵
 
-		"Ability11"		"special_bonus_unique_skeleton_king_spectral_blade_damage"	// 替换命石天赋
-		"Ability15"		"special_bonus_unique_wraith_king_3"						// 替换命石天赋
+		"Ability15"		"special_bonus_unique_wraith_king_3"						// 替换骷髅兵天赋
 		"Facets"  ""
 		"Bot"
 		{
@@ -2067,7 +2066,7 @@
 				"7"		"skeleton_king_hellfire_blast"
 				"8"		"skeleton_king_spectral_blade"
 				"9"		"skeleton_king_hellfire_blast"
-				"10"		"special_bonus_unique_skeleton_king_spectral_blade_damage"
+				"10"		"special_bonus_unique_wraith_king_facet_1"
 				"11"		"skeleton_king_mortal_strike"
 				"12"		"skeleton_king_reincarnation"
 				"13"		"skeleton_king_mortal_strike"
