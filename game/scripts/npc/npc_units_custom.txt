@@ -370,8 +370,8 @@
 
         // Attack
         //----------------------------------------------------------------
-        "AttackDamageMin"			"20"		// Damage range min.
-        "AttackDamageMax"			"20"		// Damage range max.
+        "AttackDamageMin"			"30"		// Damage range min.
+        "AttackDamageMax"			"30"		// Damage range max.
         "AttackRate"				"1.0"
 
         // Bounty
@@ -395,8 +395,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"30"		// Damage range min.
-		"AttackDamageMax"			"30"		// Damage range max.
+		"AttackDamageMin"			"50"		// Damage range min.
+		"AttackDamageMax"			"50"		// Damage range max.
 		"AttackRate"				"1.0"
 
 		// Bounty
@@ -420,8 +420,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"40"		// Damage range min.
-		"AttackDamageMax"			"40"		// Damage range max.
+		"AttackDamageMin"			"70"		// Damage range min.
+		"AttackDamageMax"			"70"		// Damage range max.
 		"AttackRate"				"1.0"
 
 		// Bounty
@@ -445,8 +445,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"50"		// Damage range min.
-		"AttackDamageMax"			"50"		// Damage range max.
+		"AttackDamageMin"			"90"		// Damage range min.
+		"AttackDamageMax"			"90"		// Damage range max.
 		"AttackRate"				"1.0"
 
 		// Bounty
@@ -470,8 +470,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"60"
-        "AttackDamageMax"			"60"
+		"AttackDamageMin"			"110"		// Damage range min.
+		"AttackDamageMax"			"110"		// Damage range max.
 		"AttackRate"				"1.0"
 
 		// Bounty

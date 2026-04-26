@@ -7847,13 +7847,11 @@
 		{
 			"strike_damage"
 			{
-				"value"					"50 75 100 125 150"	// 25 50 75 100
-				"CalculateSpellDamageTooltip"	"1"
+				"value"					"25 50 75 100 125"
 			}
 			"tick_damage"
 			{
-				"value"					"40 70 100 130 160"	// 10 40 70 100
-				"CalculateSpellDamageTooltip"	"1"
+				"value"					"10 40 70 100 130"
 			}
 			"movement_slow"			"-35 -40 -45 -50 -55"
 			"radius"
@@ -7864,39 +7862,46 @@
 			"create_wards"
 			{
 				"value"					"0"
-				"special_bonus_facet_venomancer_plague_carrier"		"+0"	// 卡顿 移除
+				"special_bonus_shard"	"+0"	// 防止卡顿，原版不存在，手动修改
 			}
 			"num_created_wards_tooltip"
 			{
-				"value"												"0"
-				"special_bonus_facet_venomancer_plague_carrier"		"+0"	// 卡顿 移除
+				"value"					"0"
+				"special_bonus_shard"	"+0"	// 防止卡顿，原版不存在，手动修改
 			}
 			"AbilityCooldown"
 			{
 				"value"									"21 20 19 18 17"
-				"special_bonus_unique_venomancer_3"					"-5"
 			}
 		}
 	}
-	// 毒刺
+	// 毒蛇撕咬 蛇咬
+	"venomancer_snakebite"
+	{
+		"MaxLevel"						"5"
+		"AbilityCooldown"				"18 16 14 12 10"	// 20 18 16 14
+		"AbilityManaCost"				"70 80 90 100 110"
+		"AbilityValues"
+		{
+			"base_damage"
+			{
+				"value"					"40 60 80 100 120"
+			}
+			"tick_damage"
+			{
+				"value"					"20 25 30 35 40"
+			}
+		}
+	}
+	// 毒刺 先天
 	"venomancer_poison_sting"
 	{
 		"AbilityValues"
 		{
 			"damage"
 			{
-				"value"				"18"			// 9
-				"hero_levelup"		"+2"			// +1
-			}
-			"movement_speed"
-			{
-				"value"			"20"			// 10
-				"special_bonus_unique_venomancer_2"		"10"	// 7
-			}
-			"hp_regen_reduction"
-			{
-				"value"				"0"
-				"special_bonus_unique_venomancer_poisonsting_regen_reduction"	"+25"	// +15
+				"value"			"18"	// 9 x2
+				"hero_levelup"	"+2"	// +1 x2
 			}
 		}
 	}
@@ -7910,91 +7915,51 @@
 	"venomancer_plague_ward"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 100 120 140 160"
-		"LevelsBetweenUpgrades"			"4"
+		"AbilityManaCost"				"24 26 28 30 32"
+		"LevelsBetweenUpgrades"			"4"	// 额外添加
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"			"30"
-				"special_bonus_unique_venomancer_8"			"-5"
+				"value"			"30"	// 5 手动修改，防止卡顿
 			}
 			"duration"
 			{
-				"value"			"60.0"
+				"value"			"60.0"	// 40 手动修改，防止卡顿
 			}
-
 			"ward_hp_tooltip"
 			{
-				"value"							"300 450 600 750 900"
-				"special_bonus_unique_venomancer" "x2.5"
+				"value"							"300 450 600 750 900"	// 150 250 350 450，改动需同步 npc_units_custom.txt StatusHealth
 			}
 			"ward_damage_tooltip"
 			{
-				"value"							"30 50 70 90 110"
-				"special_bonus_unique_venomancer" "x2.5"
+				"value"							"30 50 70 90 110"	// 16 24 32 40，改动需同步 npc_units_custom.txt AttackDamageMin/Max
 			}
-			// "threshold"
-			// {
-			// 	"value"							"300 450 600 750 900"
-			// 	"special_bonus_unique_venomancer" "x2.5"
-			// }
-			// "threshold_max_hp_pct"
-			// {
-			// 	"special_bonus_facet_venomancer_plague_carrier"
-			// 	{
-			// 		"value"							"1.5 2 2.5 3 3.5"
-			// 		"special_bonus_unique_venomancer" "x2.5"
-			// 	}
-			// }
 		}
 	}
 	// 恶性瘟疫
 	"venomancer_noxious_plague"
 	{
-		"MaxLevel" "4"
-		"AbilityCooldown"				"100 80 60 40"
-		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.15"
-		"AbilityManaCost"				"200 300 400 500"
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"200 250 300 350"
 		"AbilityValues"
 		{
-			"debuff_duration"			"10" // 5
-			"impact_damage"				"200 300 400 500"
-			"health_damage"
+			"AbilityCooldown"
 			{
-				"value"							"3 4 5 6"
-				"special_bonus_unique_venomancer_4"	"+1"
+				"value"					"100 90 80 70"
 			}
-			"movement_slow_max"			"75" // 50
-			"attack_slow"
+			"debuff_duration"			"8"	// 4 x2
+			"impact_damage"
 			{
-				"value"					"0"
-				"special_bonus_unique_venomancer_5"	"+500" // 200
+				"value"								"150 200 250 300"
+				"special_bonus_unique_venomancer_201"	"+200"
 			}
-			"impact_damage_reduce"
-			{
-				"special_bonus_facet_venomancer_patient_zero" "50"
-			}
+			"damage_per_second"			"2 3 4 5"
 		}
 	}
 	// 剧毒新星
 	"venomancer_poison_nova"
 	{
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"start_radius"				"255"
-			"duration"					"10"
-			"damage"					"5"
-			"magic_resist"				"-25"
-			"speed"						"550"
-			"trigger_cd"				"5"
-		}
 	}
 	//=================================================================================================================
 	// Ability: Viper 冥界亚龙/毒龙
@@ -8008,21 +7973,18 @@
 				"damage"
 				{
 					"value"					"4 8 12 16 20"
-					"special_bonus_unique_viper_7"	"+25%"
+					"special_bonus_unique_viper_7"	"+25%"	// +15%
 				}
 
 				"movement_speed"
 				{
-					"value"					"6 8 10 12 14"
-					"special_bonus_unique_viper_7"	"+25%"
+					"value"					"3 6 9 12 15"
+					"special_bonus_unique_viper_7"	"+25%"	// +15%
 				}
 				"magic_resistance"
 				{
 					"value"			"4 6 8 10 12"
-					"special_bonus_unique_viper_4"	"+5"
 				}
-				"max_stacks"			"6"
-				"bonus_range"			"25 65 105 145 185"
 		}
 	}
 	// 幽冥剧毒
@@ -8053,7 +8015,7 @@
 		{
 			"bonus_attack_speed"
 			{
-				"value"								"8 16 24 32 40"
+				"value"								"9 18 27 36 45"
 			}
 			"bonus_magic_resistance"
 			{
@@ -8061,8 +8023,8 @@
 			}
 			"damage"
 			{
-				"value"					"20 30 40 50 60"	// x2
-				"special_bonus_unique_viper_1"	"+40"
+				"value"					"20 30 40 50 60"	// 10 15 20 25 x2
+				"special_bonus_unique_viper_1"	"+30"	// 15 x2
 			}
 		}
 	}
@@ -8075,8 +8037,8 @@
 
 			"damage"
 			{
-				"value"				"80 120 160 200"
-				"special_bonus_unique_viper_2"	"+140"	// x2
+				"value"				"70 110 150 190"
+				"special_bonus_unique_viper_2"	"+140"	// 70 x2
 			}
 			"bonus_movement_speed"
 			{
@@ -8088,7 +8050,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"				"45 40 35 30"
+				"value"				"60 50 40 30"
 			}
 			"AbilityManaCost"
 			{
@@ -8109,6 +8071,18 @@
 			"dive_speed"
 			{
 				"value"			"1500"	// 700
+			}
+		}
+	}
+	// 掠食（先天）
+	"viper_predator"
+	{
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"					"0.5"	// 0.25 x2
+				"hero_levelup"			"+0.1"	// 0.05 x2
 			}
 		}
 	}
@@ -11675,7 +11649,7 @@
 			"impact_damage"
 			{
 				"value"			"90 140 190 240 290"
-				"special_bonus_unique_void_spirit_2"	"+110"	// +60
+				"special_bonus_unique_void_spirit_2"	"+110"	// +65
 			}
 			"pull_duration"			"1.0 1.2 1.4 1.6 1.8"
 			"pull_destination"		"44 50 56 62 68"
@@ -11690,9 +11664,8 @@
 	{
 		"MaxLevel"						"5"
 		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" //限时强化用
-		"AbilityCooldown"				"20 17 14 11 9"
-		"AbilityDamage"					"100 200 300 500 700"
-		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityCooldown"				"23 20 17 14 11"	// 20 17 14 11
+		"AbilityDamage"					"105 185 265 345 425"
 	}
 	// 共鸣脉冲
 	"void_spirit_resonant_pulse"
@@ -11701,34 +11674,19 @@
 		"AbilityManaCost"				"115 120 125 130 135"
 		"AbilityValues"
 		{
-				"radius"
-				{
-					"value"	"600 700 800 900 1000"
-					"affected_by_aoe_increase"	"1"
-				}
-				"buff_duration"
-				{
-					"value"			"10 12 14 16 18"
-				}
 				"damage"
 				{
-					"value"			"120 220 320 520 700"	// x2
-					"special_bonus_unique_void_spirit_4"	"+180"	// +65
+					"value"			"120 220 320 420 520"	// 60 110 160 210 x2
 				}
 				"base_absorb_amount"
 				{
-					"value"			"100 200 300 400 500"	// x4
+					"value"			"100 200 300 400 500"	// 25 50 75 100 x4
 					"special_bonus_unique_void_spirit_resonant_pulse_barrier"			"+50%"	// +20%
 				}
 				"absorb_per_hero_hit"
 				{
-					"value"												"70 100 130 160 190"	// x2
-					"special_bonus_facet_void_spirit_sanctuary"			"+30 +40 +50 +60 +70"
+					"value"												"100 140 180 220 260"	// 50 70 90 110 x2
 					"special_bonus_unique_void_spirit_resonant_pulse_barrier"			"+50%"	// +20%
-				}
-				"max_charges"
-				{
-					"special_bonus_scepter"		"2 2 2 2 3" // 2
 				}
 		}
 	}
@@ -11747,12 +11705,12 @@
 			{
 				"value"			"24 21 18 15"
 			}
-			"max_travel_distance"	"1200 1600 2000 2400"
+			"max_travel_distance"	"800 900 1000 1100"
 			"pop_damage"
 			{
-				"value"					"250 350 450 550"
+				"value"					"130 230 330 430"
 			}
-			"movement_slow_pct"		"50 60 70 80"
+			"movement_slow_pct"		"40 60 80 100"
 			"crit_damage"
 			{
 				"special_bonus_unique_void_spirit_8"	"240"	// 140
@@ -11764,7 +11722,7 @@
 	{
 		"AbilityValues"
 		{
-			"secondary_stat_bonus_pct"	"50"			// 25
+			"secondary_stat_bonus_pct"	"50"			// 30
 		}
 	}
 	//=================================================================================================================

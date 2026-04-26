@@ -1048,7 +1048,7 @@
 		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
 
 		// 剧毒
-		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
+		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} Noxious Plague Damage"
 
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_5"								"+{s:bonus_jumps} Chain Frost Bounces"

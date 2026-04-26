@@ -559,7 +559,7 @@
 	}
 
 	"npc_dota_hero_venomancer"
-    {
+	{
 		"Ability15"		"special_bonus_unique_venomancer_201"
 	}
 
