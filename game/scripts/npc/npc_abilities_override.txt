@@ -3293,28 +3293,25 @@
 	"shredder_whirling_death"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"6"
+		"AbilityCooldown"				"7.5 7 6.5 6 5.5"
 		"AbilityValues"
 		{
-				"whirling_damage"			"120 160 200 260 320"
+				"whirling_damage"			"60 120 180 240 300"
 				"tree_damage_scale"
 				{
-					"value"								"15 25 35 45 55"
-					"special_bonus_unique_timbersaw"	"+100"
+					"value"								"9 16 23 30 37"
 				}
 				"stat_loss_pct"
 				{
-					"value"			"13 13.5 14 14.5 15"
-					"special_bonus_unique_timbersaw_5"	"+4"
+					"special_bonus_unique_timbersaw_5"	"+4"	// 2
 				}
 				"stat_loss_univ"
 				{
-					"value"			"5 5.5 6 6.5 7"
-					"special_bonus_unique_timbersaw_5"	"+4"
+					"special_bonus_unique_timbersaw_5"	"+4"	// 2
 				}
 				"duration"
 				{
-					"value"				"12 13 14 15 16"
+					"value"				"11 12 13 14 15"
 				}
 		}
 	}
@@ -3322,7 +3319,6 @@
 	"shredder_timber_chain"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"800 950 1100 1250 1400"
 		"AbilityManaCost"				"60 70 80 90 100"
 		"AbilityValues"
 		{
@@ -3336,15 +3332,7 @@
 					"value"			"2200 2400 2600 2800 3000"
 					"special_bonus_unique_timbersaw_3"	"+75%"
 				}
-				"damage"			"50 95 140 185 230"
-				"tree_splinter_damage"
-				{
-					"special_bonus_facet_shredder_shredder"				"20 40 60 80"
-				}
-				"tree_splinter_slow_pct"
-				{
-					"special_bonus_facet_shredder_shredder"				"30 40 50 60"
-				}
+				"damage"			"45 105 165 225 285"
 		}
 	}
 	// 活性活甲
@@ -3353,16 +3341,15 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"bonus_armor"						"0.8 1.0 1.2 1.4 1.6"	// 0.4 0.5 0.6 0.7
+			"bonus_armor"						"0.8 1.0 1.2 1.4 1.6"	// 0.4 0.5 0.6 0.7 x2
 			"bonus_hp_regen"
 			{
-				"value"																	"1.5 2 2.5 3 3.5"
-				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.5"
+				"value"																	"0.8 1.0 1.2 1.4 1.6"	// 0.4 0.5 0.6 0.7 x2
+				"special_bonus_unique_timbersaw_reactive_armor_regen_per_stack"			"+0.5"	// 0.25 x2
 			}
 			"stack_limit"
 			{
 				"value"			"10 20 30 40 50"
-				"special_bonus_unique_timbersaw_2"			"+8"
 			}
 			"stack_duration"
 			{
@@ -3370,62 +3357,72 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"  		"30"// 45
+				"special_bonus_scepter"		"30"	// 45
 			}
 			"initial_shield"
 			{
-				"value"  		"400"// 150
+				"special_bonus_scepter"		"600"	// 150 x4
 			}
 			"shield_per_sec"
 			{
-				"value"  		"200"// 100
+				"special_bonus_scepter"		"200"	// 100 x2
 			}
 			"shield_per_sec_per_enemy"
 			{
-				"value"  		"150"// 75
+				"special_bonus_scepter"		"150"	// 75 x2
 			}
 			"max_shield"
 			{
-				"value"		"2400"// 800
-
+				"special_bonus_scepter"		"1600"	// 800 x2
 			}
+		}
+	}
+	// 喷火装置（魔晶）
+	"shredder_flamethrower"
+	{
+		"AbilityManaCost"				"200"	// 100 x2
+		"AbilityValues"
+		{
+				"damage_per_second"		"140"	// 70 x2
+				"duration"				"6"		// 8
+				"move_slow_pct"			"60"	// 30 x2
 		}
 	}
 	// 锯齿飞轮
 	"shredder_chakram"
 	{
-		// "MaxLevel" "4" 疑似4级有贴图bug
-		"AbilityManaCost"				"140 180 220"
+		// "MaxLevel" "4" 4级有贴图bug，不扩展
 		"AbilityValues"
 		{
 				"pass_damage"
 				{
-					"value"						"300 450 600"
+					"value"						"150 300 450"	// 75 150 225 x2
 				}
 				"damage_per_second"
 				{
-					"value"						"100 200 300"
+					"value"						"100 150 200"	// 50 75 100 x2
 				}
-				"mana_per_second"		"22 30 38"
 		}
 	}
-	// 锯齿旋轮
+	// 锯齿旋轮（跟随锯齿飞轮）
 	"shredder_twisted_chakram"
 	{
-		// "MaxLevel" "4" 疑似4级有贴图bug
-		"AbilityCooldown"				"16 12 8"
-		"AbilityManaCost"				"140 180 220"
+		// "MaxLevel" "4" 4级有贴图bug，不扩展
 		"AbilityValues"
 		{
-				"damage"				"300 450 600"
+				"damage"				"200 300 400"	// 100 150 200 x2
 		}
 	}
-	// 暴露疗法 跟随大招等级
+	// 暴露疗法（先天）
 	"shredder_exposure_therapy"
 	{
 		"AbilityValues"
 		{
-			"mana_restore"					"8 12 16 20"
+			"mana_restore"
+			{
+				"value"			"8"			// 4 x2
+				"hero_levelup"	"1.0"		// 0.5 x2
+			}
 		}
 	}
 
