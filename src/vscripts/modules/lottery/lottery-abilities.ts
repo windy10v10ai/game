@@ -128,6 +128,7 @@ export const abilityTiersActive: Tier[] = [
       'magnataur_empower', // 授予力量
       'jakiro_dual_breath', // 冰火交加
       'jakiro_ice_path', // 冰封路径
+      'phantom_assassin_blur', // 魅影无形
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
