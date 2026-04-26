@@ -511,8 +511,6 @@
 
 	"npc_dota_hero_winter_wyvern"
 	{
-		// 禁用先天 道具有bug
-		// "Ability4"		"winter_wyvern_eldwurms_edda"
 	}
 	"npc_dota_hero_monkey_king"
 	{
