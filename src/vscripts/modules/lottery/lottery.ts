@@ -3,6 +3,7 @@ import { MemberLevel } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
+import { AbilityItemTypes } from './ability-item-type';
 import { abilityTiersActive, abilityTiersPassive } from './lottery-abilities';
 import { LotteryHelper } from './lottery-helper';
 
@@ -51,9 +52,9 @@ export class Lottery {
   }
 
   initLottery(playerId: PlayerID) {
-    this.randomAbilityForPlayer(playerId, 'abilityActive');
-    this.randomAbilityForPlayer(playerId, 'abilityPassive');
-    this.randomAbilityForPlayer(playerId, 'abilityPassive2');
+    this.randomAbilityForPlayer(playerId, AbilityItemTypes.Active);
+    this.randomAbilityForPlayer(playerId, AbilityItemTypes.Passive);
+    this.randomAbilityForPlayer(playerId, AbilityItemTypes.Passive2);
 
     CustomNetTables.SetTableValue(
       'lottery_status',
@@ -74,8 +75,8 @@ export class Lottery {
   private getAbilityTableName(
     abilityType: AbilityItemType,
   ): 'lottery_active_abilities' | 'lottery_passive_abilities' | 'lottery_passive_abilities_2' {
-    if (abilityType === 'abilityActive') return 'lottery_active_abilities';
-    if (abilityType === 'abilityPassive') return 'lottery_passive_abilities';
+    if (abilityType === AbilityItemTypes.Active) return 'lottery_active_abilities';
+    if (abilityType === AbilityItemTypes.Passive) return 'lottery_passive_abilities';
     return 'lottery_passive_abilities_2';
   }
 
@@ -92,9 +93,9 @@ export class Lottery {
         : [];
 
     // 如果是被动技能，排除另一组被动技能
-    if (abilityType === 'abilityPassive' || abilityType === 'abilityPassive2') {
+    if (abilityType === AbilityItemTypes.Passive || abilityType === AbilityItemTypes.Passive2) {
       const otherTable =
-        abilityType === 'abilityPassive'
+        abilityType === AbilityItemTypes.Passive
           ? 'lottery_passive_abilities_2'
           : 'lottery_passive_abilities';
       const otherAbilitiesRaw = CustomNetTables.GetTableValue(otherTable, steamAccountID);
@@ -110,7 +111,8 @@ export class Lottery {
   randomAbilityForPlayer(playerId: PlayerID, abilityType: AbilityItemType) {
     // 获取基本配置
     const abilityTable = this.getAbilityTableName(abilityType);
-    const abilityTiers = abilityType === 'abilityActive' ? abilityTiersActive : abilityTiersPassive;
+    const abilityTiers =
+      abilityType === AbilityItemTypes.Active ? abilityTiersActive : abilityTiersPassive;
     const steamAccountID = PlayerResource.GetSteamAccountID(playerId).toString();
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
 
@@ -144,15 +146,15 @@ export class Lottery {
       if (specifiedAbilityInfo) {
         // 固定技能逻辑
         const { ability: specifiedAbility, isActive } = specifiedAbilityInfo;
-        if (isActive && abilityType === 'abilityActive') {
+        if (isActive && abilityType === AbilityItemTypes.Active) {
           abilityLotteryResults[0] = specifiedAbility;
-        } else if (!isActive && abilityType === 'abilityPassive') {
+        } else if (!isActive && abilityType === AbilityItemTypes.Passive) {
           abilityLotteryResults[0] = specifiedAbility;
         }
       }
       if (IsInToolsMode()) {
         // 开发测试用固定技能
-        if (abilityType === 'abilityActive') {
+        if (abilityType === AbilityItemTypes.Active) {
           abilityLotteryResults[0] = { name: 'abyssal_underlord_firestorm', level: 2 };
         }
       }
@@ -193,15 +195,15 @@ export class Lottery {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     const abilityType = event.type;
-    if (abilityType === 'abilityActive' && lotteryStatus.activeAbilityName) {
+    if (abilityType === AbilityItemTypes.Active && lotteryStatus.activeAbilityName) {
       print('已经抽取过主动技能');
       return;
     }
-    if (abilityType === 'abilityPassive' && lotteryStatus.passiveAbilityName) {
+    if (abilityType === AbilityItemTypes.Passive && lotteryStatus.passiveAbilityName) {
       print('已经抽取过被动技能');
       return;
     }
-    if (abilityType === 'abilityPassive2' && lotteryStatus.passiveAbilityName2) {
+    if (abilityType === AbilityItemTypes.Passive2 && lotteryStatus.passiveAbilityName2) {
       print('已经抽取过第二个被动技能');
       return;
     }
@@ -213,14 +215,14 @@ export class Lottery {
     hero.AddAbility(event.name);
 
     // 记录选择的技能
-    if (abilityType === 'abilityActive') {
+    if (abilityType === AbilityItemTypes.Active) {
       lotteryStatus.activeAbilityName = event.name;
       lotteryStatus.activeAbilityLevel = event.level;
-    } else if (abilityType === 'abilityPassive') {
+    } else if (abilityType === AbilityItemTypes.Passive) {
       lotteryStatus.passiveAbilityName = event.name;
       lotteryStatus.passiveAbilityLevel = event.level;
       // 增加被动技能选择计数
-    } else if (abilityType === 'abilityPassive2') {
+    } else if (abilityType === AbilityItemTypes.Passive2) {
       lotteryStatus.passiveAbilityName2 = event.name;
       lotteryStatus.passiveAbilityLevel2 = event.level;
     }
@@ -232,28 +234,28 @@ export class Lottery {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
     if (
-      event.type !== 'abilityActive' &&
-      event.type !== 'abilityPassive' &&
-      event.type !== 'abilityPassive2'
+      event.type !== AbilityItemTypes.Active &&
+      event.type !== AbilityItemTypes.Passive &&
+      event.type !== AbilityItemTypes.Passive2
     ) {
       print('刷新技能类型错误');
       return;
     }
-    if (event.type === 'abilityActive') {
+    if (event.type === AbilityItemTypes.Active) {
       if (lotteryStatus.isActiveAbilityRefreshed || lotteryStatus.activeAbilityName) {
         print('已经刷新/抽取过主动技能');
         return;
       }
     }
     // 将被动技能刷新检查改为：
-    if (event.type === 'abilityPassive') {
+    if (event.type === AbilityItemTypes.Passive) {
       if (lotteryStatus.isPassiveAbilityRefreshed || lotteryStatus.passiveAbilityName) {
         print('已经刷新/抽取过被动技能');
         return;
       }
     }
     // 检查第二个被动技能槽位刷新
-    if (event.type === 'abilityPassive2') {
+    if (event.type === AbilityItemTypes.Passive2) {
       if (lotteryStatus.isPassiveAbilityRefreshed2 || lotteryStatus.passiveAbilityName2) {
         print('已经刷新/抽取过第二个被动技能');
         return;
@@ -270,11 +272,11 @@ export class Lottery {
     this.randomAbilityForPlayer(event.PlayerID, event.type);
 
     // 记录刷新状态
-    if (event.type === 'abilityActive') {
+    if (event.type === AbilityItemTypes.Active) {
       lotteryStatus.isActiveAbilityRefreshed = true;
-    } else if (event.type === 'abilityPassive') {
+    } else if (event.type === AbilityItemTypes.Passive) {
       lotteryStatus.isPassiveAbilityRefreshed = true;
-    } else if (event.type === 'abilityPassive2') {
+    } else if (event.type === AbilityItemTypes.Passive2) {
       lotteryStatus.isPassiveAbilityRefreshed2 = true;
     }
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
@@ -316,11 +318,11 @@ export class Lottery {
 
     // 获取已选择的技能名称
     let pickedAbilityName: string | undefined;
-    if (abilityType === 'abilityActive') {
+    if (abilityType === AbilityItemTypes.Active) {
       pickedAbilityName = lotteryStatus.activeAbilityName;
-    } else if (abilityType === 'abilityPassive') {
+    } else if (abilityType === AbilityItemTypes.Passive) {
       pickedAbilityName = lotteryStatus.passiveAbilityName;
-    } else if (abilityType === 'abilityPassive2') {
+    } else if (abilityType === AbilityItemTypes.Passive2) {
       pickedAbilityName = lotteryStatus.passiveAbilityName2;
     } else {
       print('[Lottery] Ability type error');
@@ -355,15 +357,15 @@ export class Lottery {
     }
 
     // 清除对应的技能名称和等级
-    if (abilityType === 'abilityActive') {
+    if (abilityType === AbilityItemTypes.Active) {
       lotteryStatus.activeAbilityName = undefined;
       lotteryStatus.activeAbilityLevel = undefined;
       lotteryStatus.isActiveAbilityRefreshed = false;
-    } else if (abilityType === 'abilityPassive') {
+    } else if (abilityType === AbilityItemTypes.Passive) {
       lotteryStatus.passiveAbilityName = undefined;
       lotteryStatus.passiveAbilityLevel = undefined;
       lotteryStatus.isPassiveAbilityRefreshed = false;
-    } else if (abilityType === 'abilityPassive2') {
+    } else if (abilityType === AbilityItemTypes.Passive2) {
       lotteryStatus.passiveAbilityName2 = undefined;
       lotteryStatus.passiveAbilityLevel2 = undefined;
       lotteryStatus.isPassiveAbilityRefreshed2 = false;

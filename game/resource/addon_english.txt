@@ -997,6 +997,9 @@
 		// 谜团
 		"DOTA_Tooltip_ability_enigma_malefice_shard_description"						"Increases Malefice stun duration by %shard_bonus_stun_duration_tooltip%s."
 
+		// 祈求者/卡尔
+		"DOTA_Tooltip_ability_invoker_sun_strike_shard_description"						"Reduces Sun Strike's delay by 0.7 seconds."
+
 		// 电炎绝手/老奶奶
 		"DOTA_Tooltip_ability_snapfire_firesnap_cookie_target_heal"	"COOKIE HEAL:"
 
@@ -1045,7 +1048,7 @@
 		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
 
 		// 剧毒
-		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_damage} Poison Sting Damage"
+		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} Noxious Plague Damage"
 
 		// 巫妖
 		"DOTA_Tooltip_ability_special_bonus_unique_lich_5"								"+{s:bonus_jumps} Chain Frost Bounces"
@@ -1078,12 +1081,6 @@
 
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_damage"	"+{s:bonus_bonus_damage}% Bodyguard/Sidekick Bonus Damage"
 		"DOTA_Tooltip_ability_special_bonus_unique_marci_guardian_lifesteal" "+{s:bonus_lifesteal_pct}% Bodyguard/Sidekick Lifesteal"
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_lunge_range"		"+{s:bonus_max_jump_distance} Rebound Cast/Jump Range/Landing Radius"
-		"DOTA_Tooltip_ability_special_bonus_unique_marci_grapple_damage"	"+{s:bonus_impact_damage} Dispose Damage/Throw Distance"
-
-		// 夜魔
-		"DOTA_Tooltip_ability_special_bonus_unique_night_stalker_301"	"+{s:bonus_bonus_movement_speed_pct_night}% Hunter In The Night Movement Speed"
-
 
 		// 酒仙
 		"DOTA_Tooltip_ability_brewmaster_primal_split_lua"								"Primal Split MK2"
@@ -2237,7 +2234,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be silenced, muted, and disarmed.<br><br>Reduces enemy base magic resistance by %blast_magic_resist%%%.<br><br>Enemy will take magical damage equal to %blast_att_multiplier%x the sum of all your attributes + %blast_damage_base%.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be silenced, muted, and disarmed.<br><br>Reduces enemy magic resistance by %blast_magic_resist%%% (flat).<br><br>Enemy will take magical damage equal to %blast_att_multiplier%x the sum of all your attributes + %blast_damage_base%.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
@@ -2246,7 +2243,7 @@
 		"DOTA_Tooltip_ability_item_necronomicon_staff_mp_regen_amp"					"%+Mana Regen Amplification"
 
 		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff"						"Necronomicon Blast"
-		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"			"Your true self is revealed. Cannot attack, cast spells, or use items. Reduce base magic resistance."
+		"DOTA_Tooltip_modifier_item_necronomicon_staff_debuff_Description"			"Your true self is revealed. Cannot attack, cast spells, or use items. Reduce magic resistance (flat)."
 
 		// 小鸡臂章
 		"DOTA_Tooltip_Ability_item_armlet_plus"										"Armlet of Mordiggian Plus"
@@ -2769,7 +2766,7 @@
 
 		// 禁忌法锤 Forbidden Staff
 		"DOTA_Tooltip_Ability_item_forbidden_staff"										"<font color='#8B008B'>Forbidden Staff</font>"
-		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Reduces enemy base magic resistance by %blast_magic_resist%%%. Deals magical damage equal to %necrolyte_att_multiplier%x the sum of all your attributes and hexes all targets for %sheep_duration% seconds.<br><br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Additional Effect: Destroys enemy Observer and Sentry Wards in the area.<br><br>Radius: %radius_tooltip%"
+		"DOTA_Tooltip_ability_item_forbidden_staff_Description"							"<h1><font color='#8B008B'>Active: Forbidden Domain</font></h1>Enemy units in the target area are subject to Necronomicon Blast and Lightning Storm.<br><br>Necro Blast: Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Deals magical damage equal to %necrolyte_att_multiplier%x the sum of all your attributes and hexes all targets for %sheep_duration% seconds.<br><br>Lightning Storm: Deals %lightning_damage% magical damage to all targets.<br><br>Additional Effect: Destroys enemy Observer and Sentry Wards in the area.<br><br>Radius: %radius_tooltip%"
 		"DOTA_Tooltip_ability_item_forbidden_staff_Lore"								"Forbidden power, not to be touched lightly."
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_forbidden_staff_bonus_hp"							"+$health"
@@ -2779,7 +2776,7 @@
 		"DOTA_Tooltip_ability_item_forbidden_staff_spell_amp"							"%+Spell Amplification"
 
 		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep"								"Forbidden Domain"
-		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"You are weak. Cannot perform any actions except to try to run away. Reduce base magic resistance."
+		"DOTA_Tooltip_modifier_item_forbidden_staff_sheep_Description"					"You are weak. Cannot perform any actions except to try to run away. Reduce magic resistance (flat)."
 
 		// Forbidden Blade
 		"DOTA_Tooltip_Ability_item_forbidden_blade"                  "<font color='#8B008B'>Forbidden Blade</font>"
@@ -2859,7 +2856,7 @@
 
 		// Shadow Impact (暗影咒灭)
 		"DOTA_Tooltip_Ability_item_shadow_impact"                              "<font color='#C77DFF'>Shadow Impact</font>"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy base magic resistance by %blast_magic_resist%%%. Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes plus %blast_damage_base% to it<br>- Applies ethereal form for %ethereal_duration% seconds, dealing %blast_agility_multiplier%%% of your agility as magical damage and slowing it by %blast_movement_slow%%%<br>- Increases magic damage taken by %ethereal_damage_bonus%%%<br>- Deals %absolute_damage% additional pure damage<br><br>Cast Range: %abilitycastrange%<br>Pierces debuff immunity."
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes plus %blast_damage_base% to it<br>- Applies ethereal form for %ethereal_duration% seconds, dealing %blast_agility_multiplier%%% of your agility as magical damage and slowing it by %blast_movement_slow%%%<br>- Increases magic damage taken by %ethereal_damage_bonus%%%<br>- Deals %absolute_damage% additional pure damage<br><br>Cast Range: %abilitycastrange%<br>Pierces debuff immunity."
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"                         "The shadow's curse brings annihilation."
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"              "+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"               "+$str"
@@ -2869,6 +2866,9 @@
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana_regen"             "+$mana_regen"
 		"DOTA_Tooltip_ability_item_shadow_impact_spell_amp"                    "%+$spell_amp"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_cast_range"             "+$cast_range"
+
+		"DOTA_Tooltip_modifier_shadow_impact_sheep"									"Necronomicon Blast"
+		"DOTA_Tooltip_modifier_shadow_impact_sheep_Description"						"Transformed into a critter. Cannot attack, cast spells, or use items. Reduce magic resistance (flat)."
 
 		// Swift Glove (无限手套)
 		"DOTA_Tooltip_Ability_item_swift_glove"                                "Swift Glove"

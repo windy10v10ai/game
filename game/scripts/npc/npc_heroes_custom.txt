@@ -502,7 +502,6 @@
 	{
 		"VisionDaytimeRange"		"1200"// 800
 		"VisionNighttimeRange"		"2400"// 1800 电灯泡就要有电灯泡的样子，现在上限是全图
-		"Ability17"		"special_bonus_unique_night_stalker_301"	// // 暗夜猎影 移动速度 替代大招减CD
 	}
 
 	"npc_dota_hero_rubick"
@@ -510,11 +509,16 @@
 		"Ability20"		"rubick_null_field"
 	}
 
+	"npc_dota_hero_winter_wyvern"
+	{
+		// 禁用先天 道具有bug
+		// "Ability4"		"winter_wyvern_eldwurms_edda"
+	}
 	"npc_dota_hero_monkey_king"
 	{
-		// 禁用猴子猴孙，存在卡顿，开局多次抽奖的问题
-		"Ability6"		"spectre_ursa_enrage"
-		"Ability17"		"special_bonus_unique_spectre_401"
+		// 禁用猴子猴孙，存在卡顿的问题
+		// "Ability6"		"spectre_ursa_enrage"
+		// "Ability17"		"special_bonus_unique_spectre_401"
 	}
 
 	// 幽鬼
@@ -560,7 +564,7 @@
 	}
 
 	"npc_dota_hero_venomancer"
-    {
+	{
 		"Ability15"		"special_bonus_unique_venomancer_201"
 	}
 
@@ -2045,10 +2049,9 @@
 	}
 	"npc_dota_hero_skeleton_king"
 	{
-		"Ability2"		"skeleton_king_spectral_blade"
+		"Ability2"		"skeleton_king_spectral_blade"	// 替换骷髅兵
 
-		"Ability11"		"special_bonus_unique_skeleton_king_spectral_blade_damage"	// 替换命石天赋
-		"Ability15"		"special_bonus_unique_wraith_king_3"						// 替换命石天赋
+		"Ability15"		"special_bonus_unique_wraith_king_3"						// 替换骷髅兵天赋
 		"Facets"  ""
 		"Bot"
 		{
@@ -2063,7 +2066,7 @@
 				"7"		"skeleton_king_hellfire_blast"
 				"8"		"skeleton_king_spectral_blade"
 				"9"		"skeleton_king_hellfire_blast"
-				"10"		"special_bonus_unique_skeleton_king_spectral_blade_damage"
+				"10"		"special_bonus_unique_wraith_king_facet_1"
 				"11"		"skeleton_king_mortal_strike"
 				"12"		"skeleton_king_reincarnation"
 				"13"		"skeleton_king_mortal_strike"
