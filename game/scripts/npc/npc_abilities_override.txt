@@ -7827,7 +7827,7 @@
 		{
 			"damage"
 			{
-				"value"							"150 300 450 600"
+				"value"							"300 600 900 1200"	// 150 300 450 x2
 			}
 			"AbilityCooldown"
 			{
