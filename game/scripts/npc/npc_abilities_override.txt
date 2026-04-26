@@ -10997,14 +10997,14 @@
 	"queenofpain_shadow_strike"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"500 550 600 650 700"
+		"AbilityCastRange"				"450 500 550 600 650"
 		"AbilityCooldown"				"16 13 10 7 4"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
 			"strike_damage"
 			{
-				"value"								"30 60 90 120 150"
+				"value"								"50 80 110 140 170"
 			}
 			"duration_damage"		"20 40 60 80 100"
 			"movement_slow"			"-25 -35 -45 -55 -65"
@@ -11015,23 +11015,15 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"1075 1150 1225 1300 1375"
-		"AbilityCastPoint"				"0.33 0.33 0.22 0.22 0.11"
-		"AbilityCooldown"				"12.0 10.0 8.0 6.0 4.0"
 		"AbilityValues"
 		{
 				"shard_damage"
 				{
-					"special_bonus_shard"		"250"
+					"special_bonus_shard"		"250"		// 125 x2
 				}
-
-				"shard_duration"
+				"AbilityCooldown"
 				{
-					"special_bonus_shard"		"2.0"
-				}
-				"shard_aoe"
-				{
-					"special_bonus_shard"		"350"
-					"affected_by_aoe_increase"	"1"
+					"value"									"10 9 8 7 6"
 				}
 		}
 	}
@@ -11039,15 +11031,16 @@
 	"queenofpain_scream_of_pain"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"100 110 120 130 140"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES" // 给一条大招流以外的路
-		"AbilityCooldown"				"7.5 7 6.5 6 5.5"
 		"AbilityValues"
 		{
+			"AbilityCooldown"
+			{
+				"value"									"8 7.5 7 6.5 6"
+			}
 			"damage"
 			{
-				"value"											"100 200 300 400 500"
-				"special_bonus_unique_queen_of_pain_2" 			"+150"
+				"value"											"90 175 260 345 430"
 			}
 		}
 	}
@@ -11065,13 +11058,11 @@
 				}
 				"damage"
 				{
-					"value"											"350 500 650 800"
-					"special_bonus_unique_queen_of_pain_7"			"+250"
+					"value"											"325 475 625 775"
 				}
 				"AbilityCooldown"
 				{
-					"value"											"90 80 70 60"
-					"special_bonus_unique_queen_of_pain_3"			"-40"
+					"value"											"90 80 70 60"		// 110 100 90 -20
 				}
 		}
 	}
@@ -11080,29 +11071,8 @@
 	{
 		"AbilityValues"
 		{
-			"spell_lifesteal"			"5.0"		// 2.0
-			"spell_lifesteal_close"		"30.0"		// 14.0
-		}
-	}
-	// 受虐成狂 命石1
-	"queenofpain_masochist"
-	{
-		"AbilityValues"
-		{
-			"spell_amplification"			"70"		// 14
-			"damage_reflected_to_self"		"35.0"		// 27.0
-		}
-	}
-	// 束手束脚 命石2
-	"queenofpain_bondage"
-	{
-		"AbilityValues"
-		{
-			"spell_reflect_pct"			"21.0"			// 16.0
-			"radius"
-			{
-				"value"			"900"					// 1200
-			}
+			"spell_lifesteal"			"10.0"		// 2.0 x5
+			"spell_lifesteal_close"		"70.0"		// 14.0 x5
 		}
 	}
 	//=================================================================================================================
