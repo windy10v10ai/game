@@ -3548,27 +3548,17 @@
 	// 汪洋前哨 先天技能
 	"slardar_seaborn_sentinel"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 			"puddle_regen"
 			{
-				"value"						"5 10 15 20 25"	// x2
-				"special_bonus_scepter"		"+50"
+				"value"						"3.5"		// 1.75 x2
+				"hero_levelup"				"+0.5"		// +0.25 x2
 			}
 			"puddle_armor"
 			{
-				"value"						"3 6 9 12 15"
-				"special_bonus_scepter"		"+25"
-			}
-			"river_damage"
-			{
-				"value"								"10 20 30 40 50"
-				"special_bonus_unique_slardar_6"	"+25"
-			}
-			"puddle_status_resistance"
-			{
-				"special_bonus_scepter"		"50"
+				"value"						"3.6"		// 1.8 x2
+				"hero_levelup"				"+0.4"		// +0.2 x2
 			}
 		}
 	}
@@ -3580,9 +3570,9 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"									"25 23 21 19 17"
+				"value"									"34 30 26 22 18"
 			}
-			"bonus_speed"					"10 20 30 40 50"
+			"bonus_speed"					"10 18 26 34 42"
 		}
 	}
 	// 鱼人碎击
@@ -3594,14 +3584,12 @@
 				"crush_extra_slow"
 				{
 					"value"	"-20 -25 -30 -35 -40"
-					"LinkedSpecialBonusOperation"	"SPECIAL_BONUS_SUBTRACT"
 				}
-				"crush_attack_slow_tooltip"		"-40 -50 -60 -70 -80"	// x2
+				"crush_attack_slow_tooltip"		"-40 -50 -60 -70 -80"		// -20 -25 -30 -35 x2
 				"crush_extra_slow_duration"		"3 4 5 6 7"
 				"stun_duration"
 				{
-					"value"															"1.2"	// 0.8
-					"special_bonus_unique_slardar_slithereen_crush_stun"			"+0.3"
+					"value"															"1.2"		// 0.8
 				}
 				"crush_damage"
 				{
@@ -3618,7 +3606,7 @@
 			"bonus_damage"
 			{
 				"value"		"35 90 145 200 255"		// 35 90 145 200
-				"special_bonus_unique_slardar_2"	"+50"	// 40
+				"special_bonus_unique_slardar_2"	"+50"		// +30
 			}
 		}
 	}
@@ -3630,17 +3618,11 @@
 		{
 			"armor_reduction"
 			{
-				"value"				"-15 -20 -25 -30"
-				"special_bonus_unique_slardar_5"	"-10"
+				"value"				"-10 -15 -20 -25"
 			}
-			"puddle_radius"	// 水迹范围
+			"puddle_radius"
 			{
-				"value"			"200"	// 100
-			}
-			"armor_pct"
-			{
-				"value"			"0"
-				"special_bonus_facet_slardar_brineguard"		"+100"
+				"value"			"200"		// 100
 			}
 		}
 	}
@@ -3652,12 +3634,11 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"16 14 12 10 8"
-		"AbilityManaCost"				"85 90 95 100 105"
 		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"		"100 180 260 340 420"			// 100 160 220 280
+					"value"		"150 240 330 420 510"	// 100 160 220 280 x1.5
 					"special_bonus_unique_snapfire_7" "+120"	// 70
 				}
 		}
@@ -3676,7 +3657,7 @@
 				"projectile_speed"		"1800"						// 1200
 				"impact_damage"
 				{
-					"value"					"70 145 220 295 370"
+					"value"					"75 150 225 300 375"
 				}
 				"impact_stun_duration"
 				{
@@ -3684,7 +3665,6 @@
 				}
 				"target_heal"
 				{
-					"value"			"300"
 					"special_bonus_shard"	"+800"	// 200
 				}
 		}
@@ -3697,7 +3677,7 @@
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
-				"damage"					"20 45 70 95 120"
+				"damage"					"20 35 50 65 80"
 				"attack_range_bonus"		"160 240 320 400 480"
 		}
 	}
@@ -3705,52 +3685,40 @@
 	"snapfire_mortimer_kisses"
 	{
 		"MaxLevel" "4"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCooldown"				"90 80 70 60"
+		"AbilityCooldown"				"90 80 70 60"		// 120 110 100
 		"AbilityManaCost"				"125 150 175 200"
 		"AbilityValues"
 		{
 			"projectile_count"
 			{
-				"value"		"12" // x1.5
-				"special_bonus_unique_snapfire_1"	"+12" // x1.5
+				"value"		"12"	// 8 x1.5
+				"special_bonus_unique_snapfire_1"	"+12"	// +8 x1.5
 			}
-			"projectile_speed"		"1950" // x1.5
+			"projectile_speed"		"1950"	// 1300 x1.5
 			"damage_per_impact"
 			{
-				"value"		"280 470 660 850"
+				"value"		"180 270 360 450"
 			}
 			"burn_damage"
 			{
 				"value"					"160 200 240 280"	// 60 80 100
-				"special_bonus_unique_snapfire_5"	"+60"
+				"special_bonus_unique_snapfire_5"	"+70"	// +35 x2
 			}
 			"move_slow_pct"
 			{
-				"value"			"20 25 30 35"
+				"value"			"15 20 25 30"
 			}
 		}
 	}
 	// a杖吃队友
 	"snapfire_gobble_up"
 	{
-		"AbilityCastRange"				"600"// 150 作为救人手段
-		"AbilityCooldown"				"20"// 40
+		"AbilityCastRange"				"600"	// 150 作为救人手段
 	}
 	// a杖吐出
 	"snapfire_spit_creep"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"4500"
-		"AbilityValues"
-		{
-			"projectile_speed"		"2100"
-			"impact_radius"
-			{
-				"value"	"600"
-				"affected_by_aoe_increase"	"1"
-			}
-		}
+		"AbilityCastRange"				"1200"	// 3000 防止坑队友
 	}
 	//=================================================================================================================
 	// Ability: Spirit Breaker 裂魂人/白牛
@@ -6591,12 +6559,11 @@
 	"nevermore_shadowraze1"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 85 90 95 100"
 		"AbilityValues"
 		{
 				"shadowraze_damage"
 				{
-					"value"				"90 180 270 360 450"
+					"value"				"90 180 270 360 450"		// 85 150 215 280 差值90
 				}
 				"shadowraze_radius"
 				{
@@ -6606,11 +6573,6 @@
 				"stack_bonus_damage"
 				{
 					"value"				"35 50 65 80 95"
-				}
-				"movement_speed_debuff"
-				{
-					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=6 =8 =10 =12 =14"
 				}
 		}
 	}
@@ -6618,12 +6580,11 @@
 	"nevermore_shadowraze2"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 85 90 95 100"
 		"AbilityValues"
 		{
 				"shadowraze_damage"
 				{
-					"value"				"90 180 270 360 450"
+					"value"				"90 180 270 360 450"		// 85 150 215 280 差值90
 				}
 				"shadowraze_radius"
 				{
@@ -6633,11 +6594,6 @@
 				"stack_bonus_damage"
 				{
 					"value"				"35 50 65 80 95"
-				}
-				"movement_speed_debuff"
-				{
-					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=6 =8 =10 =12 =14"
 				}
 		}
 	}
@@ -6645,12 +6601,11 @@
 	"nevermore_shadowraze3"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"80 85 90 95 100"
 		"AbilityValues"
 		{
 				"shadowraze_damage"
 				{
-					"value"				"90 180 270 360 450"
+					"value"				"90 180 270 360 450"		// 85 150 215 280 差值90
 				}
 				"shadowraze_radius"
 				{
@@ -6661,26 +6616,16 @@
 				{
 					"value"				"35 50 65 80 95"
 				}
-				"movement_speed_debuff"
-				{
-					"value"											"0 0 0 0 0"
-					"special_bonus_facet_nevermore_shadowmire"		"=6 =8 =10 =12 =14"
-				}
 		}
 	}
-	// 支配死灵（先天随大招升级）
+	// 支配死灵（先天）
 	"nevermore_necromastery"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"necromastery_damage_per_soul"
-			{
-				"value"					"0.5 1 1.5 1.5 2"
-			}
 			"necromastery_max_souls"
 			{
-				"value"						"50"	// 26
+				"value"						"50"		// 20
 			}
 		}
 	}
@@ -6692,13 +6637,7 @@
 		{
 			"presence_armor_reduction"
 			{
-				"value"		"-3 -5 -7 -9 -11"	// -3/-4/-5/-6 增强
-			}
-			// 天命 经久不衰
-			"bonus_armor_per_stack"
-			{
-				"value"						"0"
-				"special_bonus_facet_nevermore_lasting_presence"	"+1" // 2
+				"value"		"-3 -5 -7 -9 -11"		// -3 -4 -5 -6 增强
 			}
 		}
 	}
@@ -6711,23 +6650,12 @@
 		{
 			"bonus_attack_speed"
 			{
-				"value"			"40 55 70 85 100"
+				"value"			"35 50 65 80 95"
 			}
 			"bonus_move_speed"
 			{
-				"value"			"5 7 9 11 13"
+				"value"			"4 6 8 10 12"
 			}
-			"cast_speed_pct"
-			{
-				"value"													"100"
-				"special_bonus_unique_nevermore_frenzy_castspeed"		"+50" // 30
-			}
-			"cast_speed_pct_tooltip"
-			{
-				"value"													"0"
-				"special_bonus_unique_nevermore_frenzy_castspeed"		"=160" // =140
-			}
-			"soul_cost"				"5 5 4 4 3"		// 5
 		}
 	}
 	// 魂之挽歌
@@ -6735,15 +6663,14 @@
 	{
 		"MaxLevel" "4"
 		"AbilityDamage"					"80 120 160 200"
-		"AbilityManaCost"				"175 200 225 250"
+		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
 				"AbilityCooldown"
 				{
 					"value"		"120 110 100 90"
-					"special_bonus_scepter"	"-30"
 				}
-				"requiem_reduction_ms"	"-25 -30 -35 -40"
+				"requiem_reduction_ms"	"-20 -25 -30 -35"
 				"requiem_reduction_mres"	"-5 -10 -15 -20"
 		}
 	}
@@ -7442,37 +7369,31 @@
 	"spectre_spectral_dagger"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityManaCost"				"100 110 120 130 140"
 		"AbilityValues"
 		{
 				"damage"
 				{
-					"value"			"80 140 200 260 320"	// +10
+					"value"			"90 130 170 210 250"	// 80 120 160 200 +10
 				}
 				"bonus_movespeed"
 				{
-					"value"			"14 16 18 20 22"
+					"value"			"10 14 18 22 26"
+				}
+				"AbilityCooldown"
+				{
+					"value"				"22 20 18 16 14"
 				}
 		}
 	}
 	// 荒芜 先天
 	"spectre_desolate"
 	{
-		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"bonus_damage"
-			{
-				"value"									"40"
-			}
 			"radius"
 			{
 				"value"				"0"						// 350 触发范围
-			}
-			"only_creep_allies_damage_pct"
-			{
-				"value"						"0"
 			}
 		}
 	}
@@ -7480,23 +7401,22 @@
 	"spectre_shadow_step"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"30"		// 幻象卡顿 增加CD，耗蓝
-		"AbilityManaCost"				"60 70 80 90 100"
+		"AbilityCooldown"				"30"		// 24 21 18 15 增加CD，耗蓝
+		"AbilityManaCost"				"60 65 70 75 80"
 		"AbilityValues"
 		{
 			"AbilityCastRange"
 			{
-				"value"					"1500"
+				"value"					"825 950 1075 1200 1325"
 			}
 			"duration"
 			{
-				"value"							"3.0 3.5 4.0 4.5 5.0"
-				"special_bonus_unique_spectre_shadow_step_duration"	"+1.0"
+				"value"							"3.5 4.0 4.5 5.0 5.5"
 			}
-			"illusion_damage_incoming"	"100"
+			"illusion_damage_incoming"	"100 85 70 55 40"
 			"illusion_outgoing_damage"
 			{
-				"value" 							"32 38 44 50 56"
+				"value" 							"35 40 45 50 55"
 			}
 		}
 	}
@@ -7508,21 +7428,18 @@
 		{
 			"damage_reflection_pct"
 			{
-				"value"		"7 10 13 16 19"
-				"special_bonus_unique_spectre_5"		"+3"
+				"value"		"8 12 16 20 24"
 			}
 			"min_radius"
 			{
-				"value"		"100"				// 300
+				"value"		"100"				// 350 触发范围
 			}
 			"activation_cooldown"
 			{
-				"value"				"0"
-				"special_bonus_shard"				"+50"		// 25
+				"special_bonus_shard"				"+50"		// 25 x2
 			}
 			"activation_bonus_pct"
 			{
-				"value"				"0"
 				"special_bonus_shard"				"+30"		// 50
 			}
 		}
@@ -7530,12 +7447,13 @@
 	// 鬼影重重
 	"spectre_haunt"
 	{
-		"AbilityManaCost"				"600"
+		"MaxLevel"						"4"
+		"AbilityManaCost"				"125 150 175 200"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"											"180"	// 卡顿 削弱
+				"value"											"180"	// 160 150 140 卡顿 削弱
 			}
 			"duration"					"4.0"		// 6.0
 		}
