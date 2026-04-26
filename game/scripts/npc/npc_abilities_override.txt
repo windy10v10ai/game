@@ -2378,19 +2378,15 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"14 13 12 11 10"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
 		"AbilityValues"
 		{
-				"throw_distance_behind"
-				{
-					"special_bonus_unique_marci_grapple_damage"	"+150"
-				}
-				"impact_damage"
-				{
-					"value"			"60 150 240 330 420"
-					"special_bonus_unique_marci_grapple_damage"	"+150"
-				}
-				"movement_slow_pct"		"20 30 40 50 60"
+			"impact_damage"
+			{
+				"value"			"60 150 240 330 420"
+				"special_bonus_unique_marci_grapple_damage"	"+150"	// +100 x1.5
+			}
+			"movement_slow_pct"		"20 30 40 50 60"
 		}
 	}
 	// 回身踢
@@ -2399,50 +2395,33 @@
 		"AbilityManaCost"				"70 80 90 100 110"
 		"AbilityValues"
 		{
-				"AbilityCooldown"
-				{
-					"value"		"16 15 14 13 12"
-				}
-				"move_speed"			"3000"		// 1700
-				"max_jump_distance"
-				{
-					"value"										"550 625 700 775 850"
-					"special_bonus_unique_marci_lunge_range"	"+150"
-				}
-				"AbilityCastRange"
-				{
-					"value"										"550 625 700 775 850"
-					"special_bonus_unique_marci_lunge_range"	"+150"
-				}
-				"landing_radius"
-				{
-					"special_bonus_unique_marci_lunge_range"	"+150"
-					"affected_by_aoe_increase"	"1"
-				}
-				"impact_damage"
-				{
-					"value"							"80 160 240 320 400"
-					"special_bonus_shard"			"+25%"
-				}
-				"debuff_duration"
-				{
-					"value"			"0.9 1.1 1.3 1.5 1.7"
-				}
-				"ally_buff_duration"	"4.0 4.5 5.0 5.5 6.0"		// 4.0
-				"ally_movespeed_pct"
-				{
-					"value"				"25 30 35 40 45"
-					"special_bonus_unique_marci_lunge_movespeed" "+15"
-				}
-				"ally_impact_damage_pct"
-				{
-					"special_bonus_facet_marci_pickmeup"	"=60"	// 35
-				}
-				"max_level"
-				{
-					"value"				"5"
-				}
+			"AbilityCooldown"
+			{
+				"value"		"22 19 16 13 10"
 			}
+			"move_speed"			"3000"	// 1700
+			"max_jump_distance"
+			{
+				"value"										"450 550 650 750 850"
+			}
+			"AbilityCastRange"
+			{
+				"value"										"450 550 650 750 850"
+			}
+			"impact_damage"
+			{
+				"value"							"75 150 225 300 375"
+			}
+			"debuff_duration"
+			{
+				"value"			"0.8 1.1 1.4 1.7 2.0"
+			}
+			"ally_buff_duration"	"4.0 4.5 5.0 5.5 6.0"	// 4.0
+			"ally_movespeed_pct"
+			{
+				"value"				"15 20 25 30 35"
+			}
+		}
 	}
 	// 健体术
 	"marci_guardian"
@@ -2457,11 +2436,11 @@
 		{
 			"lifesteal_pct"
 			{
-				"value"				"20 25 30 35 40"
+				"value"				"12 18 24 30 36"
 			}
 			"bonus_damage"
 			{
-				"value"				"20 25 30 35 40"
+				"value"				"10 15 20 25 30"
 			}
 			"max_partner_distance"
 			{
@@ -2474,15 +2453,21 @@
 	"marci_bodyguard"
 	{
 		"MaxLevel"						"5"
+		"AbilityManaCost"				"60 65 70 75 80"
 		"AbilityValues"
 		{
-			"lifesteal_pct"
+			"lifesteal_pct"	// 同步 健体术
 			{
-				"value"											"20 30 40 50 60"
+				"value"											"12 18 24 30 36"
 			}
-			"bonus_damage"
+			"bonus_damage"	// 同步 健体术
 			{
-				"value"											"20 30 40 50 60"
+				"value"											"10 15 20 25 30"
+				"special_bonus_unique_marci_guardian_damage"			"+20"
+			}
+			"shared_barrier"
+			{
+				"value"											"90 160 230 300 370"
 			}
 		}
 	}
@@ -2494,26 +2479,26 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityValues"
 		{
-			"charges_per_flurry"	"6 8 9 10"	//5
+			"charges_per_flurry"	"6 8 9 10"	// 5
 			"flurry_bonus_attack_speed"	"700 925 1150 1375"
 			"time_between_flurries"	"1.0 0.9 0.8 0.7"	// 1.5
 			"pulse_damage"
 			{
-				"value"			"100 200 300 400"
+				"value"			"100 200 300 400"	// 50 100 150 x2
 			}
-			"pulse_move_slow_pct"	"30.0 40.0 50.0 60.0"		// 30.0
-			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 2x
+			"pulse_move_slow_pct"	"30.0 40.0 50.0 60.0"	// 30.0
+			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 60.0 80.0 100.0 x2
 			"pulse_silence_duration"
 			{
 				"special_bonus_scepter"	"+2"	// +1
 			}
-			"extend_duration"	// 击杀后延长
+			"extend_duration"
 			{
 				"special_bonus_unique_marci_unleash_extend_duration" 		"3"	// 6
 			}
 			"AbilityCooldown"
 			{
-				"value"										"60"	// 90 75 60
+				"value"										"60"	// 80 70 60
 			}
 			"AbilityManaCost"
 			{
@@ -3495,6 +3480,10 @@
 			"scepter_move_speed_pct"
 			{
 				"value"							"10"	// 20
+			}
+			"scepter_aura_radius"
+			{
+				"special_bonus_scepter"			"+900"	// +1200
 			}
 		}
 	}
