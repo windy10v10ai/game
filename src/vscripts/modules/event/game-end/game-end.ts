@@ -1,17 +1,15 @@
-import { Analytics } from '../../../api/analytics/analytics';
 import {
   GameEndDto,
   GameEndGameOptionsDto,
   GameEndPlayerDto,
 } from '../../../api/analytics/dto/game-end-dto';
-import { PickDto } from '../../../api/analytics/dto/pick-ability-dto';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
+import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
 import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { GameConfig } from '../../GameConfig';
-import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
 import { GameEndPoint } from './game-end-point';
 
@@ -157,72 +155,11 @@ export class GameEnd {
   }
 
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
-    const isWin = gameEndDto.winnerTeamId === DotaTeam.GOODGUYS;
-
-    // 收集并发送技能选择统计
-    const picks = this.CollectAbilityPicks(gameEndDto.players);
-    if (picks.length > 0) {
-      Analytics.SendGameEndPickAbilitiesEvent({
-        matchId: gameEndDto.matchId,
-        version: gameEndDto.version,
-        difficulty: gameEndDto.difficulty,
-        picks,
-        isWin,
-      });
-    }
-
+    // 发送 GA4 游戏结束技能选择事件
+    GA4PickAbilityTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 物品持有时长事件
     GA4ItemTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 匹配时间事件
     GA4.SendGameEndMatchTimeEvents();
-  }
-
-  /**
-   * 收集玩家的技能选择数据
-   */
-  private static CollectAbilityPicks(players: GameEndPlayerDto[]): PickDto[] {
-    const picks: PickDto[] = [];
-
-    players.forEach((player) => {
-      // 只统计真实玩家 (steamId > 0)
-      if (player.steamId <= 0) {
-        return;
-      }
-
-      const steamAccountID = player.steamId.toString();
-      const LotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-
-      // 收集主动技能选择
-      if (LotteryStatus.activeAbilityName) {
-        picks.push({
-          steamId: player.steamId,
-          name: LotteryStatus.activeAbilityName,
-          type: 'abilityActive',
-          level: LotteryStatus.activeAbilityLevel ?? 0,
-        });
-      }
-
-      // 收集第一个被动技能选择
-      if (LotteryStatus.passiveAbilityName) {
-        picks.push({
-          steamId: player.steamId,
-          name: LotteryStatus.passiveAbilityName,
-          type: 'abilityPassive',
-          level: LotteryStatus.passiveAbilityLevel ?? 0,
-        });
-      }
-
-      // 收集第二个被动技能选择
-      if (LotteryStatus.passiveAbilityName2) {
-        picks.push({
-          steamId: player.steamId,
-          name: LotteryStatus.passiveAbilityName2,
-          type: 'abilityPassive', // 统计时不区分第一和第二被动
-          level: LotteryStatus.passiveAbilityLevel2 ?? 0,
-        });
-      }
-    });
-
-    return picks;
   }
 }
