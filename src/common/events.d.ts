@@ -25,7 +25,6 @@ interface CustomGameEventDeclarations {
 
   // 跨 entry UI 事件（仅在客户端 SendEventClientSide 使用，不发送到服务器）
   hud_open_page: HudOpenPageEventData;
-  hud_close_page: HudClosePageEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -100,11 +99,6 @@ type HudPageId = 'profile' | 'shop' | 'leaderboard';
 
 interface HudOpenPageEventData {
   page: HudPageId;
-  // 可选页面参数，例如 home 内的子 tab。Panorama 事件序列化要求扁平结构。
+  // 可选页面参数，例如 profile 内的子 tab。Panorama 事件序列化要求扁平结构。
   param?: string;
-}
-
-interface HudClosePageEventData {
-  // 预留：未来可指定关闭哪一页或重置历史栈。当前实现只读取 closeAll。
-  closeAll?: boolean;
 }

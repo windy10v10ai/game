@@ -7,7 +7,6 @@ import { Debug } from './debug/Debug';
 import { Event } from './event/event';
 import { GoldXPFilter } from './filter/gold-xp-filter';
 import { Lottery } from './lottery/lottery';
-import { Home } from './home/home';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
 
@@ -18,7 +17,6 @@ declare global {
     GameConfig: GameConfig;
     Option: Option;
     Lottery: Lottery;
-    Home: Home;
     Analytic: Analytics;
     Event: Event;
     GoldXPFilter: GoldXPFilter;
@@ -50,8 +48,6 @@ export function ActivateModules() {
   if (GameRules.Option == null) GameRules.Option = new Option();
 
   if (GameRules.Lottery == null) GameRules.Lottery = new Lottery();
-
-  if (GameRules.Home == null) GameRules.Home = new Home();
 
   if (GameRules.Analytic == null) GameRules.Analytic = new Analytics();
 

@@ -64,10 +64,6 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
     openPage(data.page as PageId, data.param);
   });
 
-  useClientEvent('hud_close_page', () => {
-    closePage();
-  });
-
   return (
     <NavigationContext.Provider
       value={{

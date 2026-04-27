@@ -35,7 +35,7 @@ export function LeaderboardPage() {
 
   return (
     <Panel className="modal-backdrop">
-      <Panel className="modal-panel">
+      <Panel className="modal-panel" hittest={true}>
         <Panel className="modal-header">
           <Label className="modal-title" text="排行榜" />
           <Button className="btn-close" onactivate={closePage} />

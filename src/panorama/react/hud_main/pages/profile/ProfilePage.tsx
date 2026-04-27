@@ -29,7 +29,7 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
 
   return (
     <Panel className="modal-backdrop">
-      <Panel className="modal-panel">
+      <Panel className="modal-panel" hittest={true}>
         <Panel className="modal-header">
           <Label className="modal-title" text="个人中心" />
           <Button className="btn-close" onactivate={closePage} />

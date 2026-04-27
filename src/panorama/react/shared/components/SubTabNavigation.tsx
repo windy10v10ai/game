@@ -54,6 +54,8 @@ const subTabLabelActiveStyle: Partial<VCSSStyleDeclaration> = {
 
 /**
  * 通用竖向 Sub Tab 导航栏。
+ *
+ * 用 <Button> 而非 <RadioButton>，避免 Panorama 内置 radio 圆形选中标记。
  */
 export function SubTabNavigation<T extends string = string>({
   tabs,
@@ -65,14 +67,13 @@ export function SubTabNavigation<T extends string = string>({
       {tabs.map((tab) => {
         const isActive = currentTab === tab.id;
         return (
-          <RadioButton
+          <Button
             key={tab.id}
             style={isActive ? subTabButtonActiveStyle : subTabButtonStyle}
-            selected={isActive}
             onactivate={() => onTabChange(tab.id)}
           >
             <Label style={isActive ? subTabLabelActiveStyle : subTabLabelStyle} text={tab.label} />
-          </RadioButton>
+          </Button>
         );
       })}
     </Panel>

@@ -1,5 +1,4 @@
 import { MemberDto, PlayerDto, PointInfoDto } from '../vscripts/api/player';
-import { HomeStatusDto } from './dto/home-status';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -55,9 +54,6 @@ declare global {
     };
     point_info: {
       [steamAccountID: string]: PointInfoDto[];
-    };
-    home_status: {
-      [steamAccountID: string]: HomeStatusDto;
     };
     lottery_active_abilities: {
       [steamAccountID: string]: LotteryDto[];

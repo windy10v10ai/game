@@ -1,22 +1,21 @@
 // Profile 页面专属样式（容器外壳由 shared/styles/dialog.less 提供）
 
 /* ========== 内容区域 ========== */
+/* 不再叠半透明黑底；modal-panel 渐变背景已足够。 */
 .content-area {
   width: 100%;
   height: 390px;
   padding: 20px;
   flow-children: down;
-  background-color: #0f0f0f22;
 }
 
 /* ========== Stats Tab ========== */
+/* tab 内容透明，避免和 modal-panel 渐变叠色变浑浊。 */
 .stats-container {
   width: 100%;
   height: 100%;
   flow-children: down;
   padding: 15px;
-  background-color: #00000033;
-  border-radius: 5px;
 }
 
 .stat-item {
@@ -59,8 +58,6 @@
   height: 100%;
   flow-children: down;
   padding: 15px;
-  background-color: #00000033;
-  border-radius: 5px;
   vertical-align: center;
   horizontal-align: center;
 }

@@ -4,17 +4,19 @@
 // 对话框 / 模态通用样式（对齐 point_info.css 风格）
 // ============================================================
 
-// 全屏遮罩
+// 全屏遮罩定位容器（不变暗背景）。
+// 仅用于把 modal-panel 居中。hittest=false 让外部点击穿透到 Dota HUD，
+// 由 modal-panel 自己再开 hittest 来吃住交互。
 .modal-backdrop {
   width: 100%;
   height: 100%;
-  background-color: #00000099;
   horizontal-align: center;
   vertical-align: center;
 }
 
 // 模态主体（用于全屏页面容器）
-// 暗紫蓝渐变背景 + 深色细描边 + 暗色阴影，避免霓虹感
+// 暗紫蓝渐变背景 + 深色细描边 + 暗色阴影，避免霓虹感。
+// 显式 hittest=true，挡住点击，避免穿透到下面的 Dota HUD。
 .modal-panel {
   width: 80%;
   height: 60%;
