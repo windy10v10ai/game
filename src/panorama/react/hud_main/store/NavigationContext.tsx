@@ -1,6 +1,5 @@
 import React, { createContext, useCallback, useContext, useState, ReactNode } from 'react';
 import { PageId, PageHistoryEntry } from '../router/types';
-import { useClientEvent } from '../../shared/hooks/useClientEvent';
 
 interface NavigationState {
   currentPage: PageId | null;
@@ -58,11 +57,6 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
       };
     });
   }, []);
-
-  // 监听跨 entry 事件：其他 entry（如 hud_lottery）通过 SendEventClientSide 触发
-  useClientEvent('hud_open_page', (data) => {
-    openPage(data.page as PageId, data.param);
-  });
 
   return (
     <NavigationContext.Provider

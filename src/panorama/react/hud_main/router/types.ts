@@ -1,6 +1,6 @@
-// HudPageId 在 src/common/events.d.ts 中作为全局类型声明。
-// 这里再 re-export 一个本地别名方便业务代码引用。
-export type PageId = HudPageId;
+// hud_main 路由可达的页面 ID。
+// 新增页面时在此追加，并在 PageRouter.tsx 中实现对应 Page 组件。
+export type PageId = 'profile' | 'shop' | 'leaderboard';
 
 export interface PageHistoryEntry {
   page: PageId;

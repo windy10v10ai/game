@@ -24,8 +24,7 @@ const ACHIEVEMENTS_COLUMNS = [
 /**
  * 排行榜独立页面。
  *
- * 当前没有显式入口（需要外部 SendEventClientSide('hud_open_page', { page: 'leaderboard' })
- * 或其他 UI 触发）。后续接入入口（个人中心入口旁第二个按钮、点击勇士等级跳转、等等）。
+ * 当前没有显式入口；后续可在个人中心旁加按钮、或点击勇士等级跳转等。
  */
 export function LeaderboardPage() {
   const [currentSubTab, setCurrentSubTab] = useState<LeaderboardSubTabId>('bravery');

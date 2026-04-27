@@ -12,7 +12,7 @@ const TOOLTIP_TEXT = '打开个人中心';
  * 因此用 imperative 方式：useEffect 中通过 $.CreatePanel 挂到 ButtonBar，组件卸载时 DeleteAsync。
  *
  * 行为：
- *   - 点击：若当前未打开 home，则 openPage('home')；若已打开任何 hud_main 页面，则 closePage()。
+ *   - 点击：若当前未打开 profile，则 openPage('profile')；若已打开任何 hud_main 页面，则 closePage()。
  *   - 按钮自身始终常驻，不随页面状态隐藏。
  */
 export function HudEntryButton() {

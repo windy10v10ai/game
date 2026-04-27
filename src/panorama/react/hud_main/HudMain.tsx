@@ -13,7 +13,6 @@ import { HudEntryButton } from './components/HudEntryButton';
  *   </NavigationProvider>
  *
  * 默认 currentPage = null，仅 ButtonBar 上的入口按钮可见。
- * 其他 entry 也可通过 SendEventClientSide('hud_open_page', { page: 'profile' }) 唤起。
  */
 function HudMain() {
   return (

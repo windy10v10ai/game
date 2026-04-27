@@ -22,9 +22,6 @@ interface CustomGameEventDeclarations {
   lottery_refresh_ability: LotteryRefreshEventData;
   save_bind_ability_key: SaveBindAbilityKeyEventData;
   lottery_reset_ability: LotteryRefreshEventData;
-
-  // 跨 entry UI 事件（仅在客户端 SendEventClientSide 使用，不发送到服务器）
-  hud_open_page: HudOpenPageEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -93,12 +90,3 @@ interface SaveBindAbilityKeyEventData {
   passiveAbilityQuickCast2?: boolean;
 }
 
-// hud_main 路由可达的页面 ID。
-// 新增页面时在此追加，并在 hud_main/router/routes.ts 中实现对应 Page 组件。
-type HudPageId = 'profile' | 'shop' | 'leaderboard';
-
-interface HudOpenPageEventData {
-  page: HudPageId;
-  // 可选页面参数，例如 profile 内的子 tab。Panorama 事件序列化要求扁平结构。
-  param?: string;
-}
