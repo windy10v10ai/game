@@ -6,6 +6,7 @@
 			<Image id="lotteryContentBg" class="SeqImg" src="file://{images}/custom_game/lottery/container_bg.png" />
 			<Image id="lotteryContentBg" class="SeqImg" src="file://{images}/custom_game/lottery/icon_rerolltoken.png" />
 			<Image id="lotteryContentBg" class="SeqImg" src="file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png" />
+			<Image id="profileIcon" class="SeqImg" src="file://{images}/custom_game/profile/icon_profile.png" />
 		</Panel>
 	</Panel>
 </root>

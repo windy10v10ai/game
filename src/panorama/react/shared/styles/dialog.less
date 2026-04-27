@@ -1,0 +1,99 @@
+@import "./tokens.less";
+
+// ============================================================
+// 对话框 / 模态通用样式（对齐 point_info.css 风格）
+// ============================================================
+
+// 全屏遮罩
+.modal-backdrop {
+  width: 100%;
+  height: 100%;
+  background-color: #00000099;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+// 模态主体（用于全屏页面容器）
+// 暗紫蓝渐变背景 + 深色细描边 + 暗色阴影，避免霓虹感
+.modal-panel {
+  width: 80%;
+  height: 60%;
+  horizontal-align: center;
+  vertical-align: center;
+  border: 2px solid @color-bg-deep;
+  border-radius: @radius-xl;
+  flow-children: down;
+  box-shadow: @shadow-soft;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#1c112eee),
+    color-stop(0.3, #1c112edd),
+    color-stop(0.7, #1a0836ee),
+    to(#1a0836ee)
+  );
+}
+
+// 模态头部：与主体融为一体，仅靠底部一条金色高光线区分。
+// padding 留足余量，让 .btn-close 在 hover 放大（32→38）时不被挤压。
+.modal-header {
+  width: 100%;
+  height: 60px;
+  flow-children: right;
+  padding: 8px 20px;
+  border-bottom: 1px solid @color-gold-soft;
+}
+
+.modal-title {
+  font-size: @font-size-xxl;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: @text-shadow-soft;
+  vertical-align: center;
+  letter-spacing: 1px;
+  width: fill-parent-flow(1);
+}
+
+// 对话框（小尺寸，居中）
+.dialog-panel {
+  width: 480px;
+  border: 2px solid @color-bg-deep;
+  border-radius: @radius-lg;
+  flow-children: down;
+  padding: @spacing-lg;
+  horizontal-align: center;
+  vertical-align: center;
+  box-shadow: @shadow-soft;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#1c112eee),
+    to(#1a0836ee)
+  );
+}
+
+.dialog-title {
+  font-size: @font-size-xl;
+  font-weight: bold;
+  color: @color-gold;
+  margin-bottom: @spacing-md;
+}
+
+.dialog-body {
+  width: 100%;
+  font-size: @font-size-md;
+  color: @color-text-muted;
+  margin-bottom: @spacing-lg;
+}
+
+.dialog-actions {
+  width: 100%;
+  flow-children: right;
+  horizontal-align: right;
+}
+
+.dialog-actions Button {
+  margin-left: @spacing-sm;
+}

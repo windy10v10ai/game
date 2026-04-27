@@ -5,8 +5,10 @@
     <styles>
         <include src="s2r://panorama/styles/dotastyles.vcss_c" />
         <include src="../styles/utils.less" />
+        <include src="../shared/styles/index.less" />
         <include src="./styles.less" />
-        <include src="./components/AchievementsPage.less" />
+        <include src="./pages/profile/styles.less" />
+        <include src="./pages/leaderboard/styles.less" />
     </styles>
     <Panel class="root" hittest="false" />
 </root>

@@ -9,17 +9,14 @@ interface TabNavigationProps<T = string> {
   onTabChange: (tabId: T) => void;
 }
 
-// 容器样式
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   width: '100%',
   height: '60px',
   flowChildren: 'right',
   backgroundColor: '#1a1a2e',
   padding: '8px 15px',
-  // visibility: 'collapse',
 };
 
-// 按钮基础样式
 const buttonBaseStyle: Partial<VCSSStyleDeclaration> = {
   width: '33.33%',
   height: '100%',
@@ -28,13 +25,11 @@ const buttonBaseStyle: Partial<VCSSStyleDeclaration> = {
   padding: '8px 15px',
 };
 
-// 激活状态按钮样式
 const buttonActiveStyle: Partial<VCSSStyleDeclaration> = {
   ...buttonBaseStyle,
   backgroundColor: '#9b5de0',
 };
 
-// Label 样式
 const labelStyle: Partial<VCSSStyleDeclaration> = {
   width: '100%',
   height: '100%',
@@ -44,7 +39,7 @@ const labelStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 /**
- * 可复用的横向主 Tab 导航栏组件
+ * 通用横向主 Tab 导航栏。
  */
 export function TabNavigation<T extends string = string>({
   tabs,

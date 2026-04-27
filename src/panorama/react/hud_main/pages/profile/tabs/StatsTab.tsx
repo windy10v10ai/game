@@ -1,9 +1,10 @@
 import React from 'react';
 
 /**
- * 统计页面组件
+ * 战绩 Tab：场次 / 胜率 / KDA 等累计数据。
+ * 当前为占位静态数据，后续由 player_table 等 net table 注入。
  */
-export function StatsPage() {
+export function StatsTab() {
   return (
     <Panel className="stats-container">
       <Panel className="stat-item">

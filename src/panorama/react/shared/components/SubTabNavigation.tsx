@@ -1,12 +1,12 @@
-interface Tab {
-  id: string;
+interface Tab<T = string> {
+  id: T;
   label: string;
 }
 
-interface SubTabNavigationProps {
-  tabs: Tab[];
-  currentTab: string;
-  onTabChange: (tabId: string) => void;
+interface SubTabNavigationProps<T = string> {
+  tabs: Tab<T>[];
+  currentTab: T;
+  onTabChange: (tabId: T) => void;
 }
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
@@ -53,9 +53,13 @@ const subTabLabelActiveStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 /**
- * 可复用的竖向 Sub Tab 导航栏组件
+ * 通用竖向 Sub Tab 导航栏。
  */
-export function SubTabNavigation({ tabs, currentTab, onTabChange }: SubTabNavigationProps) {
+export function SubTabNavigation<T extends string = string>({
+  tabs,
+  currentTab,
+  onTabChange,
+}: SubTabNavigationProps<T>) {
   return (
     <Panel style={containerStyle}>
       {tabs.map((tab) => {

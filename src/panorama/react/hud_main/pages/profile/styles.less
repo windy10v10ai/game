@@ -1,0 +1,75 @@
+// Profile 页面专属样式（容器外壳由 shared/styles/dialog.less 提供）
+
+/* ========== 内容区域 ========== */
+.content-area {
+  width: 100%;
+  height: 390px;
+  padding: 20px;
+  flow-children: down;
+  background-color: #0f0f0f22;
+}
+
+/* ========== Stats Tab ========== */
+.stats-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 15px;
+  background-color: #00000033;
+  border-radius: 5px;
+}
+
+.stat-item {
+  width: 100%;
+  height: 35px;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  flow-children: right;
+  background-color: #00000044;
+  padding: 8px 15px;
+  border-radius: 4px;
+  border-left: 3px solid #9b5de0;
+  transition-property: background-color, border-left-color;
+  transition-duration: 0.15s;
+
+  &:hover {
+    background-color: #00000066;
+    border-left-color: #d78fee;
+  }
+}
+
+.stat-label {
+  color: #d78fee;
+  font-weight: bold;
+  width: 150px;
+}
+
+.stat-value {
+  color: #fdcffa;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #4e56c088;
+  margin-left: 15px;
+}
+
+/* ========== 占位 Tab（Levels / Attributes） ========== */
+.placeholder-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 15px;
+  background-color: #00000033;
+  border-radius: 5px;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.placeholder-text {
+  width: 100%;
+  font-size: 22px;
+  color: #fdcffa;
+  text-align: center;
+  vertical-align: center;
+  text-shadow: 2px 2px 4px #4e56c088;
+}

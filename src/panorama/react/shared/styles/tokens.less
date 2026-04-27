@@ -1,0 +1,61 @@
+// ============================================================
+// Design tokens shared across all hud entries.
+//
+// 配色方案对齐 point_info.css 风格：暗紫蓝压底 + 金色高亮 + 极细深色描边。
+// 老版的霓虹紫粉色（#9B5DE0 / #D78FEE / #FDCFFA）仅保留为辅助强调色，
+// 不再用作大面积的描边/标题色。
+// ============================================================
+
+// ---------- Colors ----------
+// 深色主色（暗紫蓝），用于背景渐变与近似隐形的细描边
+@color-bg-deep: #1a0836;
+@color-bg-mid: #1c112e;
+@color-bg-soft: #1c112e88;
+
+// 强调色（金色，用于标题、关键数值），对齐 point_info.pointHeaderText
+@color-gold: #daa520;
+@color-gold-soft: #daa52055;
+
+// 文本
+@color-text: #ffffff;
+@color-text-muted: #ffffff99;
+@color-text-strong: #ffffff;
+
+// 关闭按钮 wash-color（点击/悬停时的"洗色"高亮）
+@color-close-tint: #d94848;
+
+// 旧紫粉系（保留作辅助高亮，例如 hover 边框点缀；不再用作主描边）
+@color-primary: #4e56c0;
+@color-accent: #9b5de0;
+@color-secondary: #d78fee;
+
+// 通用半透明黑（用于嵌入式面板背景层）
+@color-bg-panel: #2a2a3e;
+@color-bg-tint: #00000044;
+@color-bg-tint-strong: #00000066;
+
+// ---------- Sizing ----------
+@radius-sm: 3px;
+@radius-md: 5px;
+@radius-lg: 8px;
+@radius-xl: 10px;
+
+@spacing-xs: 4px;
+@spacing-sm: 8px;
+@spacing-md: 12px;
+@spacing-lg: 16px;
+@spacing-xl: 24px;
+
+// ---------- Typography ----------
+@font-size-sm: 14px;
+@font-size-md: 16px;
+@font-size-lg: 18px;
+@font-size-xl: 20px;
+@font-size-xxl: 26px;
+
+// ---------- Effects ----------
+// 暗色柔和阴影（替代之前的紫色光晕）
+@shadow-soft: 0px 0px 20px 4px #00000088;
+@text-shadow-soft: 2px 2px 8px #000000aa;
+@transition-fast: 0.15s;
+@transition-base: 0.25s;
