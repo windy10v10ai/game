@@ -47,6 +47,10 @@ npm test
 # Lint TypeScript files
 npm run lint
 npm run lint:fix
+
+# Build checks (run before committing to catch compile errors)
+npm run build:panorama   # Webpack build for Panorama UI
+npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 ```
 
 ## 代码架构
