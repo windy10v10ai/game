@@ -42,10 +42,10 @@ export function HudEntryButton() {
     const button = existing ?? $.CreatePanel('Button', buttonBar, BUTTON_ID);
 
     // 显式放大按钮尺寸（默认 ButtonBar 子按钮偏小），并把图标作为整面背景。
-    button.style.width = '52px';
-    button.style.height = '52px';
-    button.style.marginLeft = '4px';
-    button.style.marginRight = '4px';
+    button.style.width = '50px';
+    button.style.height = '50px';
+    button.style.marginLeft = '2px';
+    button.style.marginRight = '2px';
     button.style.backgroundImage = "url('file://{images}/custom_game/profile/icon_profile.png')";
     button.style.backgroundSize = '100% 100%';
     button.style.backgroundRepeat = 'no-repeat';
