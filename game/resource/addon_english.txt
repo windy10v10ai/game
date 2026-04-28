@@ -229,6 +229,19 @@
 
 		///////////////////////////////////////////////////
 		//
+		//			profile
+		//
+		///////////////////////////////////////////////////
+		"profile_title"					"Profile"
+		"profile_tab_stats"				"Stats"
+		"profile_stat_games"			"Games"
+		"profile_stat_winrate"			"Win Rate"
+		"profile_stat_kills"			"Kills"
+		"profile_stat_deaths"			"Deaths"
+		"profile_stat_assists"			"Assists"
+
+		///////////////////////////////////////////////////
+		//
 		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////

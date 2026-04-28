@@ -1,31 +1,43 @@
 import React from 'react';
 
 /**
- * 战绩 Tab：场次 / 胜率 / KDA 等累计数据。
- * 当前为占位静态数据，后续由 player_table 等 net table 注入。
+ * 战绩 Tab：左侧头像/昵称面板 + 右侧数据卡片。
  */
 export function StatsTab() {
   return (
-    <Panel className="stats-container">
-      <Panel className="stat-item">
-        <Label className="stat-label" text="游戏场次：" />
-        <Label className="stat-value" text="0" />
+    <Panel className="stats-layout">
+      <Panel className="stats-player-card">
+        <Panel className="stats-avatar-wrap">
+          <DOTAAvatarImage
+            className="stats-avatar"
+            steamid="local"
+            style={{ width: '112px', height: '112px' }}
+          />
+        </Panel>
+        <DOTAUserName className="stats-username" steamid="local" />
       </Panel>
-      <Panel className="stat-item">
-        <Label className="stat-label" text="胜率：" />
-        <Label className="stat-value" text="0%" />
-      </Panel>
-      <Panel className="stat-item">
-        <Label className="stat-label" text="击杀数：" />
-        <Label className="stat-value" text="0" />
-      </Panel>
-      <Panel className="stat-item">
-        <Label className="stat-label" text="死亡数：" />
-        <Label className="stat-value" text="0" />
-      </Panel>
-      <Panel className="stat-item">
-        <Label className="stat-label" text="助攻数：" />
-        <Label className="stat-value" text="0" />
+
+      <Panel className="stats-container">
+        <Panel className="stat-item">
+          <Label className="stat-label" text={$.Localize('#profile_stat_games')} />
+          <Label className="stat-value" text="0" />
+        </Panel>
+        <Panel className="stat-item">
+          <Label className="stat-label" text={$.Localize('#profile_stat_winrate')} />
+          <Label className="stat-value" text="0%" />
+        </Panel>
+        <Panel className="stat-item">
+          <Label className="stat-label" text={$.Localize('#profile_stat_kills')} />
+          <Label className="stat-value" text="0" />
+        </Panel>
+        <Panel className="stat-item">
+          <Label className="stat-label" text={$.Localize('#profile_stat_deaths')} />
+          <Label className="stat-value" text="0" />
+        </Panel>
+        <Panel className="stat-item">
+          <Label className="stat-label" text={$.Localize('#profile_stat_assists')} />
+          <Label className="stat-value" text="0" />
+        </Panel>
       </Panel>
     </Panel>
   );
