@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '@utils/colors';
+import { colors } from '../colors';
 import { AbilityItemType } from '../../../../common/dto/lottery';
 interface LotteryAbilityItemProps {
   level: number;
