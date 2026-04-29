@@ -236,9 +236,8 @@
 		"profile_tab_stats"				"Stats"
 		"profile_stat_games"			"Games"
 		"profile_stat_winrate"			"Win Rate"
-		"profile_stat_kills"			"Kills"
-		"profile_stat_deaths"			"Deaths"
-		"profile_stat_assists"			"Assists"
+		"profile_stat_conduct"			"Conduct Score"
+		"profile_stat_conduct_tooltip"	"Conduct Score is out of 100 and reflects your in-game behavior.\n• Normal game completion: +1\n• Early disconnect: -5\n\nThe following do NOT count as early disconnect:\n• Solo games\n• All players leave before the results screen appears\n\nCurrently tracked only — penalties for low scores may be introduced in the future."
 
 		///////////////////////////////////////////////////
 		//

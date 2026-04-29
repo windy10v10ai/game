@@ -236,9 +236,8 @@
 		"profile_tab_stats"				"战绩"
 		"profile_stat_games"			"游戏场次"
 		"profile_stat_winrate"			"胜率"
-		"profile_stat_kills"			"击杀数"
-		"profile_stat_deaths"			"死亡数"
-		"profile_stat_assists"			"助攻数"
+		"profile_stat_conduct"			"行为分"
+		"profile_stat_conduct_tooltip"	"行为分满分 100 分，反映你的游戏行为。\n• 正常完成一局 +1 分\n• 秒退一局 -5 分\n\n以下情况不计为秒退：\n• 单人游戏\n• 全体玩家同时退出（无人进入结算界面）\n\n目前仅做统计，未来行为分过低可能触发惩罚机制。"
 
 		///////////////////////////////////////////////////
 		//

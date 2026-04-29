@@ -14,8 +14,14 @@ const AVATAR_BORDER_NORMAL =
 export function StatsTab() {
   const steamId = GetLocalPlayerSteamAccountID();
   const member = useNetTable('member_table', steamId);
+  const player = useNetTable('player_table', steamId);
   const isMember = member?.enable === true;
   const borderUrl = isMember ? AVATAR_BORDER_GOLD : AVATAR_BORDER_NORMAL;
+
+  const matchCount = player?.matchCount ?? 0;
+  const winRate =
+    matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
+  const conductPoint = player?.conductPoint ?? 0;
 
   return (
     <Panel className="stats-layout">
@@ -33,23 +39,27 @@ export function StatsTab() {
       <Panel className="stats-container">
         <Panel className="stat-item">
           <Label className="stat-label" text={$.Localize('#profile_stat_games')} />
-          <Label className="stat-value" text="0" />
+          <Label className="stat-value" text={String(matchCount)} />
         </Panel>
         <Panel className="stat-item">
           <Label className="stat-label" text={$.Localize('#profile_stat_winrate')} />
-          <Label className="stat-value" text="0%" />
+          <Label className="stat-value" text={winRate} />
         </Panel>
         <Panel className="stat-item">
-          <Label className="stat-label" text={$.Localize('#profile_stat_kills')} />
-          <Label className="stat-value" text="0" />
-        </Panel>
-        <Panel className="stat-item">
-          <Label className="stat-label" text={$.Localize('#profile_stat_deaths')} />
-          <Label className="stat-value" text="0" />
-        </Panel>
-        <Panel className="stat-item">
-          <Label className="stat-label" text={$.Localize('#profile_stat_assists')} />
-          <Label className="stat-value" text="0" />
+          <Label className="stat-label" text={$.Localize('#profile_stat_conduct')} />
+          <Label className="stat-value" text={String(conductPoint)} />
+          <Image
+            className="stat-tip-icon"
+            src="s2r://panorama/images/status_icons/information_psd.vtex"
+            onmouseover={() =>
+              $.DispatchEvent(
+                'DOTAShowTextTooltip',
+                $.GetContextPanel(),
+                $.Localize('#profile_stat_conduct_tooltip'),
+              )
+            }
+            onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+          />
         </Panel>
       </Panel>
     </Panel>
