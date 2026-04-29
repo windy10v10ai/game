@@ -19,6 +19,7 @@ function TransLotteryData(data: NetworkedData<LotteryStatusDto>): LotteryStatusD
     showAbilityResetButton: Boolean(data.showAbilityResetButton),
   };
 }
+/** @deprecated 在 React 组件中请使用 `useNetTable('lottery_status', steamAccountID)` 代替 */
 export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | null {
   const data = CustomNetTables.GetTableValue(lotteryStatusTable, steamAccountID);
   if (!data) {
@@ -27,6 +28,7 @@ export function GetLotteryStatus(steamAccountID: string): LotteryStatusDto | nul
 
   return TransLotteryData(data);
 }
+/** @deprecated 在 React 组件中请使用 `useNetTable('lottery_status', steamAccountID)` 代替 */
 export function SubscribeLotteryStatus(
   steamAccountID: string,
   callback: (data: LotteryStatusDto) => void,
@@ -47,6 +49,7 @@ function TransMemberData(data: NetworkedData<MemberDto>): MemberDto {
     level: data.level,
   };
 }
+/** @deprecated 在 React 组件中请使用 `useNetTable('member_table', steamAccountID)` 代替 */
 export function GetMember(steamAccountID: string): MemberDto | null {
   const memberData = CustomNetTables.GetTableValue(memberTable, steamAccountID);
   if (!memberData) {
@@ -63,6 +66,7 @@ function TransPlayerData(data: NetworkedData<PlayerDto>): PlayerDto {
     matchCount: data.matchCount,
     winCount: data.winCount,
     disconnectCount: data.disconnectCount,
+    conductPoint: data.conductPoint,
     seasonPointTotal: data.seasonPointTotal,
     seasonLevel: data.seasonLevel,
     seasonCurrrentLevelPoint: data.seasonCurrrentLevelPoint,
@@ -86,6 +90,7 @@ function TransPlayerData(data: NetworkedData<PlayerDto>): PlayerDto {
     },
   };
 }
+/** @deprecated 在 React 组件中请使用 `useNetTable('player_table', steamAccountID)` 代替 */
 export function GetPlayer(steamAccountID: string): PlayerDto | null {
   const playerData = CustomNetTables.GetTableValue(playerTable, steamAccountID);
   if (!playerData) {
@@ -94,6 +99,7 @@ export function GetPlayer(steamAccountID: string): PlayerDto | null {
   return TransPlayerData(playerData);
 }
 
+/** @deprecated 在 React 组件中请使用 `useNetTable('member_table', steamAccountID)` 代替 */
 export function SubscribeMember(steamAccountID: string, callback: (data: MemberDto) => void) {
   return CustomNetTables.SubscribeNetTableListener(memberTable, (_tableName, key, value) => {
     if (key === steamAccountID && value) {
