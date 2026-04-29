@@ -273,6 +273,7 @@ GameEvents.SendEventClientSide('hud_open_page', { page: 'home' });
 | 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
+| addon 俄文本地化 | `game/resource/addon_russian.txt` |
 
 #### 技能系统名查找
 

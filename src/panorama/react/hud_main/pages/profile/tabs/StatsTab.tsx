@@ -1,4 +1,4 @@
-import React from 'react';
+import { useRef } from 'react';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 
@@ -22,6 +22,8 @@ export function StatsTab() {
   const winRate =
     matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
   const conductPoint = player?.conductPoint ?? 0;
+
+  const conductTipRef = useRef<ImagePanel | null>(null);
 
   return (
     <Panel className="stats-layout">
@@ -49,12 +51,14 @@ export function StatsTab() {
           <Label className="stat-label" text={$.Localize('#profile_stat_conduct')} />
           <Label className="stat-value" text={String(conductPoint)} />
           <Image
+            ref={conductTipRef}
             className="stat-tip-icon"
             src="s2r://panorama/images/status_icons/information_psd.vtex"
             onmouseover={() =>
+              conductTipRef.current &&
               $.DispatchEvent(
                 'DOTAShowTextTooltip',
-                $.GetContextPanel(),
+                conductTipRef.current,
                 $.Localize('#profile_stat_conduct_tooltip'),
               )
             }
