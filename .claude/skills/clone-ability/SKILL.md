@@ -100,6 +100,8 @@ files:
 
 > **`dynamic_value` 处理规则**：含 `hero_levelup` 的子块（克隆后 `hero_levelup` 不再生效）需整块移除并将数值扩展为多级。但用于 **tooltip 动态显示**的字段（如 `current_slow_resistance`、`current_aoe`、`attack_speed_tooltip` 等）须保留其 `dynamic_value` 子块，引擎依赖它们计算并显示实时数值。
 
+> **`affected_by_aoe_increase` 处理规则**：原版子块内含 `affected_by_aoe_increase "1"` 的字段（如 `radius`），**不能**写成单值形式，必须保留为子块并显式写入 `affected_by_aoe_increase "1"`，否则 AOE 增益对该字段无效。
+
 ---
 
 ## 第五步：识别原版技能类型
