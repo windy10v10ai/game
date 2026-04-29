@@ -446,6 +446,27 @@
 			}
 		}
 	}
+
+	//军团指挥官 迎难而战
+	"legion_commander_outfight_them2"
+	{
+		"BaseClass"						"legion_commander_outfight_them"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"legion_commander_outfight_them"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"radius"					"1200"
+			"duration"					"6.0"
+			"armor"
+			{
+				"value"					"5 8 11 14 17"	// 5 (+0.2/level, override)
+			}
+			"ally_factor"				"50"
+		}
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================

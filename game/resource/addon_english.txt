@@ -692,6 +692,11 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal less damage each."
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%ATTACK DAMAGE REDUCTION:"
+		// 军团指挥官 迎难而战
+		"DOTA_Tooltip_ability_legion_commander_outfight_them2"					"Outfight Them!"
+		"DOTA_Tooltip_ability_legion_commander_outfight_them2_Description"		"When Legion Commander or an allied Hero within %radius% range casts an ability, they gain bonus armor for %duration%s; allies gain %ally_factor%%% of the value.  This bonus stacks independently."
+		"DOTA_Tooltip_ability_legion_commander_outfight_them2_armor"			"ARMOR:"
+
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Attacks apply a debuff that deals %tick_attack_damage_pct%%% of the initial attack damage every %tick_rate%s for %total_ticks%s."

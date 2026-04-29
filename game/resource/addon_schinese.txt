@@ -695,6 +695,11 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"天生一对"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"杰奇洛攻击时两个头都会发动攻击，不过每个头造成的伤害减少。"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%攻击力降低："
+		// 军团指挥官 迎难而战
+		"DOTA_Tooltip_ability_legion_commander_outfight_them2"					"迎难而战！"
+		"DOTA_Tooltip_ability_legion_commander_outfight_them2_Description"		"如果军团指挥官或附近%radius%范围内的友方英雄施放技能，他们会获得%duration%秒的护甲加成；其中友军获得的数值为%ally_factor%%%。这个加成效果独立叠加。"
+		"DOTA_Tooltip_ability_legion_commander_outfight_them2_armor"			"护甲："
+
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"闷烧树脂"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"蝙蝠骑士的攻击会施加一个负面效果，每%tick_rate%秒造成%tick_attack_damage_pct%%%攻击伤害，持续%total_ticks%秒。"

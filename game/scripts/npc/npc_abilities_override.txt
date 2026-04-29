@@ -2100,7 +2100,7 @@
 		{
 			"armor"
 			{
-				"value"					"3"	// 1
+				"value"					"5"	// 1
 				"hero_levelup"			"+0.2"	// +0.1
 				"special_bonus_unique_legion_commander_outfight_them_armor"		"+2"	// +1
 			}
