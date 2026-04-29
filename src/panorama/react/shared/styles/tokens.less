@@ -1,0 +1,78 @@
+// ============================================================
+// Design tokens — 对齐 battle pass / point_info 风格
+// 金色系：标题/描边用米金 @color-gold，数值用铜金 @color-gold-value
+// 紫蓝系：背景压底，辅助强调
+// 状态色：绿色正向，红色危险
+// ============================================================
+
+// ---------- Background ----------
+// 暗紫蓝，用于大面积背景渐变压底（同 BPWindow）
+@color-bg-deep: #1a0836;
+@color-bg-mid:  #1c112e;
+// 深灰横渐变，用于卡片背景（同 battle pass .pointParent / .WindowPlayerStats）
+@color-bg-card: gradient(linear, 0% 0%, 80% 0%, from(#2a2a2a), to(#111111));
+// 通用半透明黑叠层
+@color-bg-tint:        #00000044;
+@color-bg-tint-strong: #00000088;
+// 嵌入式面板背景（旧 panel 色，保留兼容）
+@color-bg-panel: #2a2a3e;
+
+// ---------- Gold ----------
+// 亮金：标题、数值、激活线（原版 #daa520）
+@color-gold:      #daa520;
+@color-gold-soft: #daa52055;
+// 米金：描边（#e0caa5，battle pass #BPWindow border，比亮金柔和）
+@color-gold-muted:      #e0caa5;
+@color-gold-muted-soft: #e0caa555;
+// 铜金：次级数值（#b28948，battle pass .ItemValue）
+@color-gold-value:      #b28948;
+@color-gold-value-soft: #b2894855;
+
+// ---------- Accent ----------
+// 蓝紫：激活按钮、进度条（battle pass .activated）
+@color-primary: #4f48b2;
+@color-primary-deep: #0f033a;
+// 辅助紫粉（旧强调色，按需点缀）
+@color-accent:     #9b5de0;
+@color-secondary:  #d78fee;
+
+// ---------- Status ----------
+// 正向/安全（battle pass .reequip 绿，更鲜亮）
+@color-safe:      #2CBA75;
+@color-safe-soft: #2CBA7555;
+// 危险/警告
+@color-danger:      #d94848;
+@color-danger-soft: #d9484855;
+// 关闭按钮 wash-color
+@color-close-tint: #d94848;
+
+// ---------- Text ----------
+@color-text:        #ffffff;
+@color-text-strong: #ffffff;
+@color-text-muted:  #ffffff90;  // battle pass .ItemName / .LevelNextRemainingText
+
+// ---------- Sizing ----------
+@radius-sm: 3px;
+@radius-md: 5px;
+@radius-lg: 8px;
+@radius-xl: 10px;
+
+@spacing-xs: 4px;
+@spacing-sm: 8px;
+@spacing-md: 12px;
+@spacing-lg: 16px;
+@spacing-xl: 24px;
+
+// ---------- Typography ----------
+@font-size-sm:  14px;
+@font-size-md:  16px;
+@font-size-lg:  18px;
+@font-size-xl:  20px;
+@font-size-xxl: 26px;
+
+// ---------- Effects ----------
+@shadow-soft:      0px 0px 20px 4px #00000088;
+@shadow-gold:      0px 0px 4px 1px #e0caa533;  // battle pass 米金光晕
+@text-shadow-soft: 2px 2px 8px #000000aa;
+@transition-fast: 0.15s;
+@transition-base: 0.25s;

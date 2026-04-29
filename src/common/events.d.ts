@@ -89,3 +89,4 @@ interface SaveBindAbilityKeyEventData {
   passiveAbilityQuickCast: boolean;
   passiveAbilityQuickCast2?: boolean;
 }
+

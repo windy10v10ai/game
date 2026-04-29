@@ -1,0 +1,86 @@
+@import "./tokens.less";
+
+// ============================================================
+// 通用按钮样式
+// ============================================================
+
+.btn-base {
+  height: 40px;
+  padding: 8px 16px;
+  border-radius: @radius-md;
+  font-size: @font-size-md;
+  font-weight: bold;
+  vertical-align: center;
+  horizontal-align: center;
+  transition-property: background-color, border-color, color, brightness;
+  transition-duration: @transition-fast;
+  transition-timing-function: ease-in-out;
+}
+
+// 主操作按钮
+.btn-primary {
+  .btn-base;
+  background-color: @color-primary;
+  border: 1px solid @color-bg-deep;
+  color: @color-text;
+
+  &:hover {
+    background-color: @color-accent;
+    color: @color-text-strong;
+  }
+
+  &:active {
+    background-color: @color-secondary;
+    color: @color-text-strong;
+  }
+}
+
+// 次级 / 镂空按钮
+.btn-ghost {
+  .btn-base;
+  background-color: @color-bg-panel;
+  border: 1px solid @color-bg-deep;
+  color: @color-text-muted;
+
+  &:hover {
+    background-color: @color-primary;
+    color: @color-text;
+  }
+}
+
+// 禁用按钮
+.btn-disabled {
+  .btn-base;
+  background-color: @color-bg-panel;
+  border: 1px solid #333;
+  color: #888;
+}
+
+// 关闭按钮：参考 board/boards.css 的 #CloseLB
+// 使用 Dota 内置关闭图标 + wash-color 着色，hover 时变大并提亮。
+.btn-close {
+  width: 32px;
+  height: 32px;
+  background-image: url("s2r://panorama/images/x_close_png.vtex");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: center;
+  horizontal-align: right;
+  wash-color: @color-close-tint;
+  opacity: 0.6;
+  z-index: 2;
+  transition-property: opacity, width, height;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    opacity: 1;
+    width: 38px;
+    height: 38px;
+  }
+
+  &:active {
+    opacity: 0.85;
+  }
+}
