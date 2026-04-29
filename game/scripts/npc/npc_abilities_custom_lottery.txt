@@ -512,7 +512,60 @@
 		}
 	}
 
+	//全能骑士 退化光环
+	"omniknight_degen_aura2"
+	{
+		"BaseClass"						"omniknight_degen_aura"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"Innate"						"0"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"omniknight_degen_aura"
+		"MaxLevel"						"5"
 
+		"AbilityValues"
+		{
+			"speed_bonus"
+			{
+				"value"					"12 24 36 48 60"	// 11 (+1/level, lv50 ≈ 60)
+			}
+			"radius"
+			{
+				"value"						"325"
+				"affected_by_aoe_increase"	"1"
+			}
+			"linger_duration"			"1"
+		}
+	}
+
+	// 露娜 月之祝福
+	"luna_lunar_blessing2"
+	{
+		"BaseClass"						"luna_lunar_blessing"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ALLIES_YES"
+		"Innate"						"0"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"luna_lunar_blessing"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"						"1200"
+				"affected_by_aoe_increase"	"1"
+			}
+
+			"bonus_damage"				"20 40 60 80 100"	// hero_levelup +2 (override), lv50 ≈ 100
+
+			"self_bonus_damage"			"40 80 120 160 200"	// hero_levelup +4 (override), lv50 ≈ 200
+
+			"bonus_night_vision"		"225 525 825 1125 1425"	// 225 base + hero_levelup +25, lv50 ≈ 1450
+		}
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================

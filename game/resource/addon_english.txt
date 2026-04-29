@@ -692,6 +692,19 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal less damage each."
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%ATTACK DAMAGE REDUCTION:"
+		// 全能骑士 退化光环
+		"DOTA_Tooltip_ability_omniknight_degen_aura2"								"Degen Aura"
+		"DOTA_Tooltip_ability_omniknight_degen_aura2_Description"					"Degenerates the movement capabilities of enemy units that stray too near, slowing their movement speed."
+		"DOTA_Tooltip_ability_omniknight_degen_aura2_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_omniknight_degen_aura2_speed_bonus"					"%MOVEMENT SLOW:"
+
+		// 露娜 月之祝福
+		"DOTA_Tooltip_ability_luna_lunar_blessing2"										"Lunar Blessing"
+		"DOTA_Tooltip_ability_luna_lunar_blessing2_Description"							"Grants attack damage to Luna and nearby allied heroes within %radius% range, with Luna receiving double the attack damage bonuses. At night, Lunar Blessing is global, and Luna is blessed with bonus night vision."
+		"DOTA_Tooltip_ability_luna_lunar_blessing2_self_bonus_damage"					"BONUS DAMAGE (SELF):"
+		"DOTA_Tooltip_ability_luna_lunar_blessing2_bonus_damage"						"BONUS DAMAGE (ALLIES):"
+		"DOTA_Tooltip_ability_luna_lunar_blessing2_bonus_night_vision"					"BONUS NIGHT VISION:"
+
 		// 獸 庞
 		"DOTA_Tooltip_ability_primal_beast_colossal2"								"Colossal"
 		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"Primal Beast has %base_slow_resist%%% base Slow Resistance and gains %aoe_per_threshold%%% bonus Area of Effect and %slow_resistance_per_threshold%%% Slow Resistance for every %hp_per_threshold% Max Health."

@@ -301,6 +301,7 @@ export const abilityTiersPassive: Tier[] = [
       'axe_one_man_army2', // 斧王 一人成军
       'medusa_mana_shield2', // 魔法盾
       'dark_seer_quick_wit2', // 才思敏捷
+      'luna_lunar_blessing2', // 露娜 月之祝福
     ],
   },
   {
@@ -337,6 +338,7 @@ export const abilityTiersPassive: Tier[] = [
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'abyssal_underlord_malice_aura', // 怨念光环
       'crystal_maiden_glacial_guard2', // 冰女 先天 冰川护体
+      'omniknight_degen_aura2', // 全能骑士 退化光环
     ],
   },
 ];
