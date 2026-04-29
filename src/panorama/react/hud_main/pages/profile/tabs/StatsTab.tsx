@@ -65,6 +65,7 @@ export function StatsTab() {
             onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
           />
         </Panel>
+        <Label className="stat-coming-soon" text={$.Localize('#profile_stat_coming_soon')} />
       </Panel>
     </Panel>
   );
