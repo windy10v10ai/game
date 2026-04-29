@@ -14,7 +14,7 @@ const AVATAR_BORDER_NORMAL =
 export function StatsTab() {
   const steamId = GetLocalPlayerSteamAccountID();
   const member = useNetTable('member_table', steamId);
-  const isMember = member != null && (member.enable as unknown as number) === 1;
+  const isMember = member?.enable === true;
   const borderUrl = isMember ? AVATAR_BORDER_GOLD : AVATAR_BORDER_NORMAL;
 
   return (
