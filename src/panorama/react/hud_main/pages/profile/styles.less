@@ -46,14 +46,16 @@
 }
 
 .stats-card {
-  background-color: gradient(
-    linear,
-    0% 0%,
-    0% 100%,
-    from(#000000cc),
-    color-stop(0.6, #00000099),
-    to(#1c112e88)
-  );
+  // 透明材质
+  // background-color: gradient(
+  //   linear,
+  //   0% 0%,
+  //   0% 100%,
+  //   from(#000000cc),
+  //   color-stop(0.6, #00000099),
+  //   to(#1c112e88)
+  // );
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#2a2a2a), to(#111111));
   border: 1px solid @color-gold-soft;
   border-radius: @radius-lg;
 }
@@ -145,7 +147,6 @@
   vertical-align: center;
   opacity: 0.6;
   tooltip-position: top;
-  tooltip-body-position: 50%;
   &:hover {
     opacity: 1;
   }

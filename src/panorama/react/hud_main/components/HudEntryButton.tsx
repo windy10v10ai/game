@@ -3,7 +3,7 @@ import { FindDotaHudElement } from '@utils/utils';
 import { useNavigation } from '../store/NavigationContext';
 
 const BUTTON_ID = 'OpenProfileButton';
-const TOOLTIP_TEXT = '打开个人中心';
+const TOOLTIP_TEXT = $.Localize('#profile_title');
 
 /**
  * hud_main 常驻入口按钮（生涯入口）。
