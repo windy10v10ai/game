@@ -257,7 +257,6 @@ export const abilityTiersPassive: Tier[] = [
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
       'primal_beast_colossal2', // 獸 庞
       'silencer_brain_drain2', // 沉默术士 默默受苦
-      'magnataur_solid_core2', // 马格纳斯 坚固核心
       'drow_ranger_trueshot2', // 精准光环
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
@@ -304,6 +303,7 @@ export const abilityTiersPassive: Tier[] = [
       'medusa_mana_shield2', // 魔法盾
       'dark_seer_quick_wit2', // 才思敏捷
       'luna_lunar_blessing2', // 露娜 月之祝福
+      'magnataur_solid_core2', // 马格纳斯 坚固核心
     ],
   },
   {
