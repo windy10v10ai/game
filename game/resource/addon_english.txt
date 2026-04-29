@@ -692,6 +692,11 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal less damage each."
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%ATTACK DAMAGE REDUCTION:"
+		// 狙击手 基恩瞄准镜
+		"DOTA_Tooltip_ability_sniper_keen_scope2"								"Keen Scope"
+		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Sniper's attacks deal bonus damage for every %bonus_damage_distance% units of distance Sniper is from the target."
+		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%BONUS DAMAGE:"
+
 		// 军团指挥官 迎难而战
 		"DOTA_Tooltip_ability_legion_commander_outfight_them2"					"Outfight Them!"
 		"DOTA_Tooltip_ability_legion_commander_outfight_them2_Description"		"When Legion Commander or an allied Hero within %radius% range casts an ability, they gain bonus armor for %duration%s; allies gain %ally_factor%%% of the value.  This bonus stacks independently."
