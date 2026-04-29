@@ -33,40 +33,38 @@ export function LeaderboardPage() {
   const { closePage } = useNavigation();
 
   return (
-    <Panel className="modal-backdrop">
-      <Panel className="modal-panel" hittest={true}>
-        <Panel className="modal-header">
-          <Label className="modal-title" text="排行榜" />
-          <Button className="btn-close" onactivate={closePage} />
-        </Panel>
+    <Panel className="modal-panel" hittest={true}>
+      <Panel className="modal-header">
+        <Label className="modal-title" text="排行榜" />
+        <Button className="btn-close" onactivate={closePage} />
+      </Panel>
 
-        <Panel className="content-area">
-          <Panel className="leaderboard-container">
-            <Panel className="leaderboard-main-layout">
-              <SubTabNavigation
-                tabs={SUB_TABS}
-                currentTab={currentSubTab}
-                onTabChange={setCurrentSubTab}
+      <Panel className="content-area">
+        <Panel className="leaderboard-container">
+          <Panel className="leaderboard-main-layout">
+            <SubTabNavigation
+              tabs={SUB_TABS}
+              currentTab={currentSubTab}
+              onTabChange={setCurrentSubTab}
+            />
+
+            {currentSubTab === 'bravery' && (
+              <LeaderboardView
+                title="勇士积分排行榜"
+                currentRank="N/A"
+                columns={BRAVERY_COLUMNS}
+                listRef={braveryListRef}
               />
+            )}
 
-              {currentSubTab === 'bravery' && (
-                <LeaderboardView
-                  title="勇士积分排行榜"
-                  currentRank="N/A"
-                  columns={BRAVERY_COLUMNS}
-                  listRef={braveryListRef}
-                />
-              )}
-
-              {currentSubTab === 'achievements' && (
-                <LeaderboardView
-                  title="成就排行榜"
-                  currentRank="N/A"
-                  columns={ACHIEVEMENTS_COLUMNS}
-                  listRef={achievementsListRef}
-                />
-              )}
-            </Panel>
+            {currentSubTab === 'achievements' && (
+              <LeaderboardView
+                title="成就排行榜"
+                currentRank="N/A"
+                columns={ACHIEVEMENTS_COLUMNS}
+                listRef={achievementsListRef}
+              />
+            )}
           </Panel>
         </Panel>
       </Panel>

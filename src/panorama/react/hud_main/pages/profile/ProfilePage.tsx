@@ -18,19 +18,17 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
   const { closePage } = useNavigation();
 
   return (
-    <Panel className="modal-backdrop">
-      <Panel className="modal-panel profile-modal" hittest={true}>
-        <Panel className="modal-header">
-          <Label className="modal-title" text={$.Localize('#profile_title')} />
-          <Button className="btn-close" onactivate={closePage} />
-        </Panel>
-
-        <Panel className="tab-nav-wrapper">
-          <TabNavigation tabs={PROFILE_TABS} currentTab={currentTab} onTabChange={setCurrentTab} />
-        </Panel>
-
-        <Panel className="content-area">{currentTab === 'stats' && <StatsTab />}</Panel>
+    <Panel className="modal-panel profile-modal" hittest={true}>
+      <Panel className="modal-header">
+        <Label className="modal-title" text={$.Localize('#profile_title')} />
+        <Button className="btn-close" onactivate={closePage} />
       </Panel>
+
+      <Panel className="tab-nav-wrapper">
+        <TabNavigation tabs={PROFILE_TABS} currentTab={currentTab} onTabChange={setCurrentTab} />
+      </Panel>
+
+      <Panel className="content-area">{currentTab === 'stats' && <StatsTab />}</Panel>
     </Panel>
   );
 }
