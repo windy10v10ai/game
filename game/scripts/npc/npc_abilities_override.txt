@@ -6140,6 +6140,10 @@
 		"AbilityValues"
 		{
 				"counter_duration"			"5.5 7.0 8.5 10.0 11.5"
+				"required_hits"
+				{
+					"value"			"3"		// 4
+				}
 				"bonus_damage"
 				{
 					"value"						"60 160 260 360 460"	// 30 80 130 180 x2
@@ -6158,7 +6162,7 @@
 				{
 					"value"			"15 20 25 30"
 				}
-				"attack_speed"						"1.15 1.1 1.05 1.0"	// 1.1
+				"attack_speed"						"1.1 1.0 0.9 0.8"	// 1.1
 				"cooldown_scepter"
 				{
 					"special_bonus_scepter"		"120"	// 90 70 50

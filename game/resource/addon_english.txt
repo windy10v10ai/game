@@ -229,6 +229,19 @@
 
 		///////////////////////////////////////////////////
 		//
+		//			profile
+		//
+		///////////////////////////////////////////////////
+		"profile_title"					"Profile"
+		"profile_tab_stats"				"Stats"
+		"profile_stat_games"			"Games"
+		"profile_stat_winrate"			"Win Rate"
+		"profile_stat_conduct"			"Conduct Score"
+		"profile_stat_coming_soon"		"More features coming soon"
+		"profile_stat_conduct_tooltip"	"Conduct Score is out of <font color='#E8C07D'>100</font> and reflects your in-game behavior.<br>• Normal game completion: <font color='#7FD47F'>+1</font><br>• Early disconnect: <font color='#E87D7D'>-5</font><br>The following do NOT count as early disconnect:<br>• Solo games<br>• All players quit early with no one reaching end screen<br>Currently tracked only — penalties for low scores may be introduced in the future."
+
+		///////////////////////////////////////////////////
+		//
 		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////
