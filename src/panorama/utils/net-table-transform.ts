@@ -10,19 +10,27 @@ type TransformSchema<T> = {
   [K in keyof T]?: FieldSchema;
 };
 
-function applySchema(raw: any, schema: Record<string, FieldSchema>): any {
+function applySchema(
+  raw: Record<string, unknown>,
+  schema: Record<string, FieldSchema>,
+): Record<string, unknown> {
   const result = { ...raw };
   for (const key of Object.keys(schema)) {
     const rule = schema[key];
     if (rule.type === 'boolean') result[key] = raw[key] === 1;
-    else if (rule.type === 'array') result[key] = Object.values(raw[key]);
-    else if (rule.type === 'nested') result[key] = applySchema(raw[key], rule.fields);
+    else if (rule.type === 'array')
+      result[key] = Object.values(raw[key] as Record<string, unknown>);
+    else if (rule.type === 'nested')
+      result[key] = applySchema(raw[key] as Record<string, unknown>, rule.fields);
   }
   return result;
 }
 
-export function createTransform<T>(schema: TransformSchema<T>): (raw: any) => T {
-  return (raw: any) => applySchema(raw, schema as Record<string, FieldSchema>) as T;
+export function createTransform<T>(
+  schema: TransformSchema<T>,
+): (raw: Record<string, unknown>) => T {
+  return (raw: Record<string, unknown>) =>
+    applySchema(raw, schema as Record<string, FieldSchema>) as T;
 }
 
 export const transformMember = createTransform<MemberDto>({
