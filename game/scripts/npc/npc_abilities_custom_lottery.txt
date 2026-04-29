@@ -566,6 +566,46 @@
 		}
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 	}
+	//沉默术士 默默受苦
+	"silencer_brain_drain2"
+	{
+		"BaseClass"						"silencer_brain_drain"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"silencer/bts_silencer_ability/silencer_global_silence"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"permanent_int_steal_range"
+			{
+				"value"						"1200"				// 925 (override)
+				"affected_by_aoe_increase"	"1"
+			}
+			"permanent_int_steal_amount"		"1"
+			"silenced_bonus_int_steal_amount"	"1"
+			"damage_pct"					"20"			// 5 (+0.5/level)
+		}
+	}
+	//马格纳斯 坚固核心
+	"magnataur_solid_core2"
+	{
+		"BaseClass"						"magnataur_solid_core"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"magnataur_solid_core"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"knockback_reduction"		"50"
+			"slow_resistance"
+			{
+				"value"					"25 35 45 55 65"	// 24 (+1/level, lv50 ≈ 73)
+			}
+		}
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================

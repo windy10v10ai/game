@@ -256,6 +256,8 @@ export const abilityTiersPassive: Tier[] = [
       'legion_commander_outfight_them2', // 军团指挥官 迎难而战
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
       'primal_beast_colossal2', // 獸 庞
+      'silencer_brain_drain2', // 沉默术士 默默受苦
+      'magnataur_solid_core2', // 马格纳斯 坚固核心
       'drow_ranger_trueshot2', // 精准光环
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
