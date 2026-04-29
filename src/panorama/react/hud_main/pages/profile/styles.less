@@ -1,26 +1,33 @@
 // Profile 页面专属样式（容器外壳由 shared/styles/dialog.less 提供）
 @import "../../../shared/styles/tokens.less";
 
-/* ========== 个人中心背景（更通透） ========== */
-/* alpha 88/77，比上一档更通透，仍保证文字可读。 */
+/* ========== 个人中心外框 ========== */
 .profile-modal {
   width: 60%;
   margin-top: -60px;
-
-  // background-image: url("s2r://panorama/images/backgrounds/gallery_background_png.vtex");
-  // background-size: cover;
-  // background-position: center;
-  // background-repeat: no-repeat;
-
   background-color: gradient(
     linear,
-    0% 0%,
     0% 100%,
-    from(#1c112e88),
-    color-stop(0.3, #1c112e77),
-    color-stop(0.7, #1a083688),
-    to(#1a083688)
+    0% 10%,
+    from(#1c112ecc),
+    color-stop(0.3, #1c112e55),
+    color-stop(0.6, #000000bb),
+    to(#000000ee)
   );
+  border: 2px solid @color-gold-soft;
+  box-shadow: 0px 8px 32px 0px #00000088;
+}
+
+/* ========== Tab 导航栏 ========== */
+.profile-modal .tab-nav-wrapper {
+  width: 100%;
+  flow-children: right;
+  border-bottom: 1px solid @color-gold-soft;
+}
+
+.profile-modal .tab-nav-container {
+  max-width: 400px;
+  border-bottom: 0px solid #00000000;
 }
 
 /* ========== 内容区域 ========== */
@@ -29,18 +36,6 @@
   height: 390px;
   padding: 20px;
   flow-children: down;
-}
-
-/* ========== Tab 导航栏宽度限制 ========== */
-/* 去掉容器自带底线，改由 modal-header 下方的全宽线替代 */
-.profile-modal .tab-nav-container {
-  max-width: 400px;
-  border-bottom: 0px solid #00000000;
-}
-
-.profile-modal .tab-nav-wrapper {
-  width: 100%;
-  border-bottom: 1px solid @color-gold-soft;
 }
 
 /* ========== Stats Tab ========== */
@@ -55,9 +50,9 @@
     linear,
     0% 0%,
     0% 100%,
-    from(#1c112e88),
-    color-stop(0.4, #00000099),
-    to(#000000cc)
+    from(#000000cc),
+    color-stop(0.6, #00000099),
+    to(#1c112e88)
   );
   border: 1px solid @color-gold-soft;
   border-radius: @radius-lg;
@@ -80,7 +75,6 @@
   horizontal-align: center;
   margin-bottom: 14px;
   padding: 4px;
-  background-image: url("s2r://panorama/images/custom_game/profile/avatar-square-normal-border.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -100,7 +94,6 @@
   font-weight: bold;
 }
 
-/* 整体一块深紫金边卡片，扁平：无 box-shadow、无高光线、无浮雕。 */
 .stats-container {
   .stats-card;
   width: fill-parent-flow(1);
@@ -137,7 +130,7 @@
   vertical-align: center;
 }
 
-/* ========== 占位 Tab（Levels / Attributes） ========== */
+/* ========== 占位 Tab ========== */
 .placeholder-container {
   width: 100%;
   height: 100%;
