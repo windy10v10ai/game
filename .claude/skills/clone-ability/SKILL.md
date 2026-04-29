@@ -98,6 +98,8 @@ files:
 
 **修正现有技能**时，跳过此步，直接进入第六步 K 键同步。
 
+> **`dynamic_value` 处理规则**：含 `hero_levelup` 的子块（克隆后 `hero_levelup` 不再生效）需整块移除并将数值扩展为多级。但用于 **tooltip 动态显示**的字段（如 `current_slow_resistance`、`current_aoe`、`attack_speed_tooltip` 等）须保留其 `dynamic_value` 子块，引擎依赖它们计算并显示实时数值。
+
 ---
 
 ## 第五步：识别原版技能类型
