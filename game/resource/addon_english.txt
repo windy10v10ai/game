@@ -692,6 +692,11 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal less damage each."
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%ATTACK DAMAGE REDUCTION:"
+		// 獸 庞
+		"DOTA_Tooltip_ability_primal_beast_colossal2"								"Colossal"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"Primal Beast has %base_slow_resist%%% base Slow Resistance and gains %aoe_per_threshold%%% bonus Area of Effect and %slow_resistance_per_threshold%%% Slow Resistance for every %hp_per_threshold% Max Health."
+		"DOTA_Tooltip_ability_primal_beast_colossal2_slow_resistance_per_threshold"	"%SLOW RESISTANCE PER THRESHOLD:"
+
 		// 狙击手 基恩瞄准镜
 		"DOTA_Tooltip_ability_sniper_keen_scope2"								"Keen Scope"
 		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Sniper's attacks deal bonus damage for every %bonus_damage_distance% units of distance Sniper is from the target."

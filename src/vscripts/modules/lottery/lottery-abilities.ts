@@ -255,6 +255,7 @@ export const abilityTiersPassive: Tier[] = [
       'dragon_knight_dragon_blood2', // 龙骑 龙族血统
       'legion_commander_outfight_them2', // 军团指挥官 迎难而战
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
+      'primal_beast_colossal2', // 獸 庞
       'drow_ranger_trueshot2', // 精准光环
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈

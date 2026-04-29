@@ -695,6 +695,11 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"天生一对"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"杰奇洛攻击时两个头都会发动攻击，不过每个头造成的伤害减少。"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%攻击力降低："
+		// 獸 庞
+		"DOTA_Tooltip_ability_primal_beast_colossal2"								"庞"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"獸拥有%base_slow_resist%%%基础减速抗性，每拥有%hp_per_threshold%点生命上限就获得+%aoe_per_threshold%%%作用范围加成和+%slow_resistance_per_threshold%%%减速抗性。"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_slow_resistance_per_threshold"	"%减速抗性/阈值："
+
 		// 狙击手 基恩瞄准镜
 		"DOTA_Tooltip_ability_sniper_keen_scope2"								"基恩瞄准镜"
 		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"狙击手和目标相距每%bonus_damage_distance%距离，他的攻击都会造成额外伤害。"

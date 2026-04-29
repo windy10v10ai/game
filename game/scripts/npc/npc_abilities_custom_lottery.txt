@@ -485,6 +485,24 @@
 			"bonus_damage_distance"		"100"
 		}
 	}
+	//獸 庞
+	"primal_beast_colossal2"
+	{
+		"BaseClass"						"primal_beast_colossal"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"brewmaster_primal_companion"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"hp_per_threshold"				"250"				// 100 (override)
+			"base_slow_resist"				"10"
+			"slow_resistance_per_threshold"	"1"
+			"aoe_per_threshold"				"0.5"
+			"model_scale_per_stack"			"1.1"
+		}
+	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================
