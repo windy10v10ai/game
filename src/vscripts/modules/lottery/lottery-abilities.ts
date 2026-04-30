@@ -249,6 +249,8 @@ export const abilityTiersPassive: Tier[] = [
       'silencer_glaives_of_wisdom', // 智慧之刃
       'tiny_insurmountable', // 小小 不可逾越
       'chaos_knight_fundamental_forging', // 混沌骑士 基本法则锻造
+      'drow_ranger_trueshot', // 精准光环
+      'death_prophet_witchcraft', // 死亡先知 巫术精研
 
       // 单位技能
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
@@ -262,11 +264,9 @@ export const abilityTiersPassive: Tier[] = [
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
       'primal_beast_colossal2', // 獸 庞
       'silencer_brain_drain2', // 沉默术士 默默受苦
-      'drow_ranger_trueshot', // 精准光环
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
-      'death_prophet_witchcraft', // 死亡先知 巫术精研
       'rubick_might_and_magus2', // 拉比克 力量与魔法
       'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
       'crystal_maiden_ice_explosion', // 冰女 冰暴
