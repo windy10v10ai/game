@@ -600,7 +600,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"Innate"						"0"
 		"MaxLevel"						"1"
-		"AbilityTextureName"			"chaos_knight_fundamental_forging"
+		"AbilityTextureName"			"copy_item"
 
 		"AbilityValues"
 		{
@@ -670,13 +670,14 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
 		"AbilityTextureName"			"gyrocopter_afterburner"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{
-			"bonus_movespeed_duration"			"4.0 5.0 6.0 7.0 8.0"	// 3.9 + hero_levelup +0.1, lv50 ≈ 8.8
-			"bonus_movement_speed_per_hit"		"2"						// 1 (override: 2)
-			"bonus_movement_speed_per_hit_creep"	"1"					// 0.5 (override: 1)
+			"bonus_movespeed_duration"			"8.0"	// 3.9 + hero_levelup +0.1, lv50 ≈ 8.8
+			// 多数英雄伤害次数较少，加强
+			"bonus_movement_speed_per_hit"		"4"						// 1 (override: 2)
+			"bonus_movement_speed_per_hit_creep"	"2"					// 0.5 (override: 1)
 		}
 	}
 	//=================================================================================================================
