@@ -298,7 +298,7 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'abyssal_underlord_firestorm2', // 火雨降临
-      'ursa_maul2', // 拍拍 天生技能 +攻击
+      'ursa_maul2', // 拍拍 暴烈之爪 +攻击
       'axe_one_man_army2', // 斧王 一人成军
       'medusa_mana_shield2', // 魔法盾
       'dark_seer_quick_wit2', // 才思敏捷

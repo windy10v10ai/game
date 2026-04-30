@@ -685,7 +685,7 @@
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
 		"DOTA_Tooltip_ability_ursa_maul2_Description"			"Gain bonus damage equal to a percentage of current health."
-		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%HP AS DAMAGE:"
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%HEALTH AS DAMAGE:"
 		"DOTA_Tooltip_modifier_ursa_maul2"						"Maul"
 		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
 		//天生一对

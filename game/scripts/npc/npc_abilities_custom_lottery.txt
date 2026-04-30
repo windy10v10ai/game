@@ -388,16 +388,14 @@
 		"BaseClass"						"ursa_maul"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"Innate"						"0"
+		"IsBreakable"					"1"
 		"AbilityTextureName"			"life_stealer/bloody_ripper_abilityicons/life_stealer_consume"
 		"MaxLevel"						"5"
 
 
 		"AbilityValues"
 		{
-			"health_as_damage_pct"
-			{
-				"value"	"1 1.5 2 2.5 3"
-			}
+			"health_as_damage_pct"		"1 1.5 2 2.5 3"				// 1.25 (vanilla)
 		}
 	}
 	//双头龙 天生一对

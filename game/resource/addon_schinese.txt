@@ -688,7 +688,7 @@
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"暴烈之爪"
 		"DOTA_Tooltip_ability_ursa_maul2_Description"			"熊战士获得攻击力加成，数值为当前生命值的一定百分比。"
-		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%生命值伤害："
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%生命值转为攻击力："
 		"DOTA_Tooltip_modifier_ursa_maul2"						"暴烈之爪"
 		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。"
 		//天生一对
