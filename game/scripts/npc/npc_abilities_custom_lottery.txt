@@ -580,7 +580,7 @@
 		{
 			"base_heal"					"10 20 30 40 50"	// 30 (固定值，以第3级≈原版为锚点扩展)
 
-			"heal_hp_pct"				"15 30 45 60 75"	// hero_levelup +1.5, lv50 ≈ 75
+			"heal_hp_pct"				"20 30 40 50 60"	// hero_levelup +1.5, lv50 ≈ 75
 
 			"creep_lifesteal_reduction_pct"		"40"
 			"deny_lifesteal_reduction_pct"		"0"
@@ -630,6 +630,23 @@
 			{
 				"value"					"25 35 45 55 65"	// 24 (+1/level, lv50 ≈ 73)
 			}
+		}
+	}
+	//小小 不可逾越
+	"tiny_insurmountable2"
+	{
+		"BaseClass"						"tiny_insurmountable"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"Innate"						"0"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"tiny_craggy_exterior"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"str_to_slow_resist_pct"		"12"	// 20 (vanilla, override: 12)
+			"str_to_status_resist_pct"		"8"		// 10 (vanilla, override: 8)
 		}
 	}
 	//=================================================================================================================

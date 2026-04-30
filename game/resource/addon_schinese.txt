@@ -701,6 +701,12 @@
 		"DOTA_Tooltip_ability_magnataur_solid_core2_slow_resistance"				"%减速抗性："
 		"DOTA_Tooltip_ability_magnataur_solid_core2_knockback_reduction"			"%击退抗性："
 
+		// 小小 不可逾越
+		"DOTA_Tooltip_ability_tiny_insurmountable2"								"不可逾越"
+		"DOTA_Tooltip_ability_tiny_insurmountable2_Description"					"小小从力量中获得状态和减速抗性。减速抗性还会降低攻击速度减少的影响。"
+		"DOTA_Tooltip_ability_tiny_insurmountable2_str_to_status_resist_pct"	"%状态抗性的力量值系数："
+		"DOTA_Tooltip_ability_tiny_insurmountable2_str_to_slow_resist_pct"		"%减速抗性的力量值系数："
+
 		// 沉默术士 默默受苦
 		"DOTA_Tooltip_ability_silencer_brain_drain2"								"默默受苦"
 		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"沉默术士对被沉默的目标造成更多伤害，受到来自他们的伤害减少。<br><br>沉默术士无需完成击杀就能永久窃取%permanent_int_steal_amount%点智力，只要敌方英雄在沉默术士附近%permanent_int_steal_range%范围内阵亡或者死亡时带有沉默术士的负面效果即可。如果阵亡时被沉默，将额外窃取%silenced_bonus_int_steal_amount%点智力。"

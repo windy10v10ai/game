@@ -698,6 +698,12 @@
 		"DOTA_Tooltip_ability_magnataur_solid_core2_slow_resistance"				"%SLOW RESISTANCE:"
 		"DOTA_Tooltip_ability_magnataur_solid_core2_knockback_reduction"			"%KNOCKBACK RESISTANCE:"
 
+		// 小小 不可逾越
+		"DOTA_Tooltip_ability_tiny_insurmountable2"								"Insurmountable"
+		"DOTA_Tooltip_ability_tiny_insurmountable2_Description"					"Tiny gains Status and Slow Resistance from Strength. Slow Resistance also reduces the impact of Attack Speed slows."
+		"DOTA_Tooltip_ability_tiny_insurmountable2_str_to_status_resist_pct"	"%STRENGTH TO STATUS RESIST:"
+		"DOTA_Tooltip_ability_tiny_insurmountable2_str_to_slow_resist_pct"		"%STRENGTH TO SLOW RESIST:"
+
 		// 沉默术士 默默受苦
 		"DOTA_Tooltip_ability_silencer_brain_drain2"								"Suffer In Silence"
 		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"Silencer takes less damage from and deals more damage to silenced targets.<br><br>If an enemy Hero dies within %permanent_int_steal_range% range of Silencer or was debuffed by Silencer at the time of death, Silencer permanently steals %permanent_int_steal_amount% Intelligence from them.  If the victim was silenced, steal an extra %silenced_bonus_int_steal_amount% Intelligence."
