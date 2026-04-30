@@ -632,22 +632,6 @@
 			}
 		}
 	}
-	//不朽尸王 挽歌犹唱
-	"undying_ceaseless_dirge2"
-	{
-		"BaseClass"						"undying_ceaseless_dirge"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"Innate"						"0"
-		"AbilityTextureName"			"undying_ceaseless_dirge"
-		"MaxLevel"						"1"
-		"AbilityCooldown"				"90"		// 480 (vanilla)
-
-		"AbilityValues"
-		{
-			"respawn_delay"				"2.0"
-		}
-	}
 	//=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================

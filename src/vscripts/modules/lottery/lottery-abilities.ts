@@ -123,6 +123,7 @@ export const abilityTiersActive: Tier[] = [
       'batrider_firefly', // 火焰飞行
       'pugna_nether_blast', // 幽冥爆轰
       'undying_decay', // 不朽尸王 腐朽
+      'undying_ceaseless_dirge', // 不朽尸王 挽歌犹唱
       'furion_teleportation', // 自然传送
       'mirana_starfall', // 群星风暴
       'magnataur_empower', // 授予力量
@@ -305,7 +306,6 @@ export const abilityTiersPassive: Tier[] = [
       'luna_lunar_blessing2', // 露娜 月之祝福
       'bloodseeker_sanguivore2', // 血魔 食血动物
       'magnataur_solid_core2', // 马格纳斯 坚固核心
-      'undying_ceaseless_dirge2', // 不朽尸王 挽歌犹唱
     ],
   },
   {
