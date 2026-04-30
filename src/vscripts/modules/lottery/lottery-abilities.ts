@@ -303,6 +303,8 @@ export const abilityTiersPassive: Tier[] = [
       'furion_spirit_of_the_forest', // 先知 丛林之魂
       'magnataur_solid_core', // 马格纳斯 坚固核心
       'medusa_mana_shield', // 魔法盾
+      'luna_lunar_blessing', // 露娜 月之祝福
+      'bloodseeker_sanguivore', // 血魔 食血动物
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
@@ -316,8 +318,6 @@ export const abilityTiersPassive: Tier[] = [
       'ursa_maul2', // 拍拍 暴烈之爪 +攻击
       'axe_one_man_army2', // 斧王 一人成军
       'dark_seer_quick_wit2', // 才思敏捷
-      'luna_lunar_blessing', // 露娜 月之祝福
-      'bloodseeker_sanguivore', // 血魔 食血动物
     ],
   },
   {
@@ -342,6 +342,7 @@ export const abilityTiersPassive: Tier[] = [
       'faceless_void_backtrack2', // 虚空 回到过去
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'gyrocopter_afterburner', // 矮人直升机 加力燃烧器
+      'omniknight_degen_aura', // 全能骑士 退化光环
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
@@ -356,7 +357,6 @@ export const abilityTiersPassive: Tier[] = [
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'abyssal_underlord_malice_aura', // 怨念光环
       'crystal_maiden_glacial_guard2', // 冰女 先天 冰川护体
-      'omniknight_degen_aura', // 全能骑士 退化光环
     ],
   },
 ];

@@ -686,7 +686,12 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal less damage each."
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%ATTACK DAMAGE REDUCTION:"
-// 獸 庞
+		// 沉默术士 默默受苦
+		"DOTA_Tooltip_ability_silencer_brain_drain2"								"Suffer In Silence"
+		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"Silencer takes less damage from and deals more damage to silenced targets.<br><br>If an enemy Hero dies within %permanent_int_steal_range% range of Silencer or was debuffed by Silencer at the time of death, Silencer permanently steals %permanent_int_steal_amount% Intelligence from them.  If the victim was silenced, steal an extra %silenced_bonus_int_steal_amount% Intelligence."
+		"DOTA_Tooltip_ability_silencer_brain_drain2_damage_pct"					"%SILENCED TARGET DAMAGE:"
+
+		// 獸 庞
 		"DOTA_Tooltip_ability_primal_beast_colossal2"								"Colossal"
 		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"Primal Beast has %base_slow_resist%%% base Slow Resistance and gains %aoe_per_threshold%%% bonus Area of Effect and %slow_resistance_per_threshold%%% Slow Resistance for every %hp_per_threshold% Max Health."
 		"DOTA_Tooltip_ability_primal_beast_colossal2_current_slow_resistance"		"%SLOW RESISTANCE:"
@@ -697,7 +702,7 @@
 		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Sniper's attacks deal bonus damage for every %bonus_damage_distance% units of distance Sniper is from the target."
 		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%BONUS DAMAGE:"
 
-//闷烧树脂
+		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Attacks apply a debuff that deals %tick_attack_damage_pct%%% of the initial attack damage every %tick_rate%s for %total_ticks%s."
 		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"Smoldering Resin"
