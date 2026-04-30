@@ -294,6 +294,7 @@ export const abilityTiersPassive: Tier[] = [
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'undying_ceaseless_dirge', // 不朽尸王 挽歌犹唱
       'nyx_assassin_neuro_sting', // 司夜刺客 法力燃烧
+      'furion_spirit_of_the_forest', // 先知 丛林之魂
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
