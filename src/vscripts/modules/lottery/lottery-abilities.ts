@@ -245,6 +245,7 @@ export const abilityTiersPassive: Tier[] = [
       'sven_great_cleave', // 巨力挥舞
       'shredder_reactive_armor', // 活性活甲
       'silencer_glaives_of_wisdom', // 智慧之刃
+      'tiny_insurmountable', // 小小 不可逾越
 
       // 单位技能
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
@@ -267,7 +268,6 @@ export const abilityTiersPassive: Tier[] = [
       'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
-      'tiny_insurmountable', // 小小 不可逾越
       'chaos_knight_fundamental_forging2', // 混沌骑士 基本法则锻造
     ],
   },
@@ -313,7 +313,6 @@ export const abilityTiersPassive: Tier[] = [
       'luna_lunar_blessing', // 露娜 月之祝福
       'bloodseeker_sanguivore', // 血魔 食血动物
       'magnataur_solid_core2', // 马格纳斯 坚固核心
-      'gyrocopter_afterburner', // 矮人直升机 加力燃烧器
     ],
   },
   {
@@ -336,6 +335,7 @@ export const abilityTiersPassive: Tier[] = [
       'pangolier_lucky_shot', // 幸运一击
       'faceless_void_backtrack2', // 虚空 回到过去
       'crystal_maiden_brilliance_aura', // 奥术光环 冰女
+      'gyrocopter_afterburner', // 矮人直升机 加力燃烧器
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
