@@ -165,7 +165,9 @@ files:
 
 适用条件：原版技能含 `DOTA_ABILITY_BEHAVIOR_HIDDEN`，去掉该标志后即可正常显示与生效，无需改数值或行为。
 
-1. 在 `game/scripts/npc/npc_abilities_override.txt` 中为原版技能名添加（或更新）一个块，仅覆盖 `AbilityBehavior`，去掉 `DOTA_ABILITY_BEHAVIOR_HIDDEN`，其余 behavior 标志原封不动保留。
+1. 在 `game/scripts/npc/npc_abilities_override.txt` 中为原版技能名添加（或更新）一个块，写入以下两个键：
+   - `AbilityBehavior`：去掉 `DOTA_ABILITY_BEHAVIOR_HIDDEN`，其余 behavior 标志原封不动保留。
+   - `IsOnCastBar "1"`：确保技能显示在施法栏上。
 2. **不**在 `npc_abilities_custom_lottery.txt` 中新建任何 KV 块。
 3. **不**在本地化文件中新增任何条目（原版本地化已覆盖）。
 4. 在 `lottery-abilities.ts` 中以**原版技能名**直接加入对应 tier 的 `// 被动技能` 区域（非「自定义技能」区域）。
@@ -227,4 +229,4 @@ files:
 - [ ] 修正模式：已按原版同步 K 键（删同值、删已废键、补新键）
 - [ ] `addon_english.txt` 与 `addon_schinese.txt` 键集合一致，占位符与原版一致
 - [ ] 若进抽奖池，已改 lottery TS 列表
-- [ ] 流程 C：仅在 override 中去掉 `HIDDEN`，其余 behavior 保留；原版名直接写入 lottery TS `// 被动技能` 区域；无需新建 KV 块或本地化条目
+- [ ] 流程 C：在 override 中去掉 `HIDDEN`（其余 behavior 保留）并加 `IsOnCastBar "1"`；原版名直接写入 lottery TS `// 被动技能` 区域；无需新建 KV 块或本地化条目
