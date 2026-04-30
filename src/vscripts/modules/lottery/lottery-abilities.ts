@@ -254,7 +254,7 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'dragon_knight_dragon_blood2', // 龙骑 龙族血统
-      'legion_commander_outfight_them2', // 军团指挥官 迎难而战
+      'legion_commander_outfight_them', // 军团指挥官 迎难而战
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
       'primal_beast_colossal2', // 獸 庞
       'silencer_brain_drain2', // 沉默术士 默默受苦
@@ -294,6 +294,7 @@ export const abilityTiersPassive: Tier[] = [
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'undying_ceaseless_dirge', // 不朽尸王 挽歌犹唱
       'nyx_assassin_neuro_sting', // 司夜刺客 法力燃烧
+      'zuus_static_field', // 宙斯 静电场
       'furion_spirit_of_the_forest', // 先知 丛林之魂
 
       // 法球/开关技能
@@ -309,8 +310,8 @@ export const abilityTiersPassive: Tier[] = [
       'axe_one_man_army2', // 斧王 一人成军
       'medusa_mana_shield2', // 魔法盾
       'dark_seer_quick_wit2', // 才思敏捷
-      'luna_lunar_blessing2', // 露娜 月之祝福
-      'bloodseeker_sanguivore2', // 血魔 食血动物
+      'luna_lunar_blessing', // 露娜 月之祝福
+      'bloodseeker_sanguivore', // 血魔 食血动物
       'magnataur_solid_core2', // 马格纳斯 坚固核心
       'gyrocopter_afterburner2', // 矮人直升机 加力燃烧器
     ],
@@ -349,7 +350,7 @@ export const abilityTiersPassive: Tier[] = [
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'abyssal_underlord_malice_aura', // 怨念光环
       'crystal_maiden_glacial_guard2', // 冰女 先天 冰川护体
-      'omniknight_degen_aura2', // 全能骑士 退化光环
+      'omniknight_degen_aura', // 全能骑士 退化光环
     ],
   },
 ];

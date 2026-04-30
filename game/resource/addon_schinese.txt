@@ -723,26 +723,7 @@
 		"DOTA_Tooltip_ability_chaos_knight_fundamental_forging2"						"基本法则锻造"
 		"DOTA_Tooltip_ability_chaos_knight_fundamental_forging2_Description"			"混沌骑士的中立物品额外获得一个随机附魔。"
 
-		// 血魔 食血动物
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2"									"食血动物"
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2_Description"						"血魔每杀死一个单位都会回复部分生命，回复量为基础%base_heal%点加上该单位最大生命值的一定百分比。<br><br>友军击杀了附近的敌方英雄时会回复半额数值。"
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2_heal_hp_pct"						"%最大生命值治疗："
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2_half_bonus_aoe"					"半额治疗作用范围："
-
-		// 全能骑士 退化光环
-		"DOTA_Tooltip_ability_omniknight_degen_aura2"								"退化光环"
-		"DOTA_Tooltip_ability_omniknight_degen_aura2_Description"					"削弱过于靠近的敌方单位的移动能力，降低其移动速度。"
-		"DOTA_Tooltip_ability_omniknight_degen_aura2_radius"						"作用范围："
-		"DOTA_Tooltip_ability_omniknight_degen_aura2_speed_bonus"					"%移动速度减缓："
-
-		// 露娜 月之祝福
-		"DOTA_Tooltip_ability_luna_lunar_blessing2"										"月之祝福"
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_Description"							"提升露娜和附近%radius%范围内友方英雄的攻击力，露娜获得双倍的攻击力加成。夜晚期间月之祝福为全地图生效，并且露娜受到福佑后夜间视野提升。"
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_self_bonus_damage"					"攻击力加成（自身）："
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_bonus_damage"						"攻击力加成（友军）："
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_bonus_night_vision"					"额外夜间视野："
-
-		// 獸 庞
+// 獸 庞
 		"DOTA_Tooltip_ability_primal_beast_colossal2"								"庞"
 		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"獸拥有%base_slow_resist%%%基础减速抗性，每拥有%hp_per_threshold%点生命上限就获得+%aoe_per_threshold%%%作用范围加成和+%slow_resistance_per_threshold%%%减速抗性。"
 		"DOTA_Tooltip_ability_primal_beast_colossal2_current_slow_resistance"		"%减速抗性："
@@ -753,12 +734,7 @@
 		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"狙击手和目标相距每%bonus_damage_distance%距离，他的攻击都会造成额外伤害。"
 		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%额外伤害："
 
-		// 军团指挥官 迎难而战
-		"DOTA_Tooltip_ability_legion_commander_outfight_them2"					"迎难而战！"
-		"DOTA_Tooltip_ability_legion_commander_outfight_them2_Description"		"如果军团指挥官或附近%radius%范围内的友方英雄施放技能，他们会获得%duration%秒的护甲加成；其中友军获得的数值为%ally_factor%%%。这个加成效果独立叠加。"
-		"DOTA_Tooltip_ability_legion_commander_outfight_them2_armor"			"护甲："
-
-		//闷烧树脂
+//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"闷烧树脂"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"蝙蝠骑士的攻击会施加一个负面效果，每%tick_rate%秒造成%tick_attack_damage_pct%%%攻击伤害，持续%total_ticks%秒。"
 		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"闷烧树脂"

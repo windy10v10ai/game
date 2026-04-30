@@ -720,26 +720,7 @@
 		"DOTA_Tooltip_ability_chaos_knight_fundamental_forging2"						"Fundamental Forging"
 		"DOTA_Tooltip_ability_chaos_knight_fundamental_forging2_Description"			"Chaos Knight's Neutral Items get an additional random enchantment."
 
-		// 血魔 食血动物
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2"									"Sanguivore"
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2_Description"						"Bloodseeker restores some life when he kills a unit, equal to %base_heal% health plus a percentage of the units max health.<br><br>Restores for half values if an ally kills a nearby enemy hero."
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2_heal_hp_pct"						"%MAX HEALTH HEAL:"
-		"DOTA_Tooltip_ability_bloodseeker_sanguivore2_half_bonus_aoe"					"HALF HEAL RADIUS:"
-
-		// 全能骑士 退化光环
-		"DOTA_Tooltip_ability_omniknight_degen_aura2"								"Degen Aura"
-		"DOTA_Tooltip_ability_omniknight_degen_aura2_Description"					"Degenerates the movement capabilities of enemy units that stray too near, slowing their movement speed."
-		"DOTA_Tooltip_ability_omniknight_degen_aura2_radius"						"RADIUS:"
-		"DOTA_Tooltip_ability_omniknight_degen_aura2_speed_bonus"					"%MOVEMENT SLOW:"
-
-		// 露娜 月之祝福
-		"DOTA_Tooltip_ability_luna_lunar_blessing2"										"Lunar Blessing"
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_Description"							"Grants attack damage to Luna and nearby allied heroes within %radius% range, with Luna receiving double the attack damage bonuses. At night, Lunar Blessing is global, and Luna is blessed with bonus night vision."
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_self_bonus_damage"					"BONUS DAMAGE (SELF):"
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_bonus_damage"						"BONUS DAMAGE (ALLIES):"
-		"DOTA_Tooltip_ability_luna_lunar_blessing2_bonus_night_vision"					"BONUS NIGHT VISION:"
-
-		// 獸 庞
+// 獸 庞
 		"DOTA_Tooltip_ability_primal_beast_colossal2"								"Colossal"
 		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"Primal Beast has %base_slow_resist%%% base Slow Resistance and gains %aoe_per_threshold%%% bonus Area of Effect and %slow_resistance_per_threshold%%% Slow Resistance for every %hp_per_threshold% Max Health."
 		"DOTA_Tooltip_ability_primal_beast_colossal2_current_slow_resistance"		"%SLOW RESISTANCE:"
@@ -750,12 +731,7 @@
 		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Sniper's attacks deal bonus damage for every %bonus_damage_distance% units of distance Sniper is from the target."
 		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%BONUS DAMAGE:"
 
-		// 军团指挥官 迎难而战
-		"DOTA_Tooltip_ability_legion_commander_outfight_them2"					"Outfight Them!"
-		"DOTA_Tooltip_ability_legion_commander_outfight_them2_Description"		"When Legion Commander or an allied Hero within %radius% range casts an ability, they gain bonus armor for %duration%s; allies gain %ally_factor%%% of the value.  This bonus stacks independently."
-		"DOTA_Tooltip_ability_legion_commander_outfight_them2_armor"			"ARMOR:"
-
-		//闷烧树脂
+//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Attacks apply a debuff that deals %tick_attack_damage_pct%%% of the initial attack damage every %tick_rate%s for %total_ticks%s."
 		"DOTA_Tooltip_modifier_batrider_smoldering_resin2_debuff"				"Smoldering Resin"

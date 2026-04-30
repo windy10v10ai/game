@@ -2096,6 +2096,7 @@
 	// 迎难而战
 	"legion_commander_outfight_them"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"armor"
@@ -2756,6 +2757,12 @@
 				"value" "30"	// 25
 			}
 		}
+	}
+	// 退化光环 先天技能
+	"omniknight_degen_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+		"MaxLevel"						"1"
 	}
 	//=================================================================================================================
 	// Ability: Phoenix 凤凰
@@ -4783,6 +4790,11 @@
 			}
 		}
 	}
+	// 食血动物 先天技能
+	"bloodseeker_sanguivore"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+	}
 	//=================================================================================================================
 	// Ability: Bounty Hunter 赏金猎人/BH
 	//=================================================================================================================
@@ -5863,6 +5875,7 @@
 	// 月之祝福（先天）
 	"luna_lunar_blessing"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 				"bonus_damage"
@@ -12198,6 +12211,11 @@
 				"special_bonus_unique_zeus_4"		"+175"	// 75
 			}
 		}
+	}
+	// 静电场 先天技能
+	"zuus_static_field"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 	}
 	//=================================================================================================================
 	// MUERTA: 琼英碧灵/奶绿
