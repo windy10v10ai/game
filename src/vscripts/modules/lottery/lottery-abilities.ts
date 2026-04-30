@@ -303,7 +303,9 @@ export const abilityTiersPassive: Tier[] = [
       'medusa_mana_shield2', // 魔法盾
       'dark_seer_quick_wit2', // 才思敏捷
       'luna_lunar_blessing2', // 露娜 月之祝福
+      'bloodseeker_sanguivore2', // 血魔 食血动物
       'magnataur_solid_core2', // 马格纳斯 坚固核心
+      'undying_ceaseless_dirge2', // 不朽尸王 挽歌犹唱
     ],
   },
   {

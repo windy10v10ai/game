@@ -564,6 +564,34 @@
 		}
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
 	}
+
+	// 血魔 食血动物
+	"bloodseeker_sanguivore2"
+	{
+		"BaseClass"						"bloodseeker_sanguivore"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"Innate"						"0"
+		"IsBreakable"					"1"
+		"AbilityTextureName"			"bloodseeker_sanguivore"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"base_heal"					"10 20 30 40 50"	// 30 (固定值，以第3级≈原版为锚点扩展)
+
+			"heal_hp_pct"				"15 30 45 60 75"	// hero_levelup +1.5, lv50 ≈ 75
+
+			"creep_lifesteal_reduction_pct"		"40"
+			"deny_lifesteal_reduction_pct"		"0"
+
+			"half_bonus_aoe"
+			{
+				"value"					"300"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
 	//沉默术士 默默受苦
 	"silencer_brain_drain2"
 	{
@@ -602,6 +630,22 @@
 			{
 				"value"					"25 35 45 55 65"	// 24 (+1/level, lv50 ≈ 73)
 			}
+		}
+	}
+	//不朽尸王 挽歌犹唱
+	"undying_ceaseless_dirge2"
+	{
+		"BaseClass"						"undying_ceaseless_dirge"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"Innate"						"0"
+		"AbilityTextureName"			"undying_ceaseless_dirge"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"90"		// 480 (vanilla)
+
+		"AbilityValues"
+		{
+			"respawn_delay"				"2.0"
 		}
 	}
 	//=================================================================================================================
