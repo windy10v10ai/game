@@ -25,47 +25,6 @@
 		}
 	}
 
-	// 魔法盾
-	"medusa_mana_shield2"
-	{
-
-		"BaseClass"						"medusa_mana_shield"
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"AbilitySound"					"Hero_Medusa.ManaShield.On"
-		"MaxLevel"						"5"
-		"Innate"						"0"
-		"IsOnCastBar"					"1"
-		"AbilityTextureName"			"medusa_mana_shield"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"damage_per_mana"						"4 8 12 16 20"		// 5.0 + hero_levelup +0.3, lv50 ≈ 20
-			"illusion_percentage"					"60"
-
-			"absorption_pct"						"98"
-		}
-	}
-	// 死亡先知 巫术精研
-	"death_prophet_witchcraft2"
-	{
-		"MaxLevel"						"5"
-		"BaseClass"						"death_prophet_witchcraft"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"IsOnCastBar"					"1"
-		"AbilityTextureName"			"death_prophet_witchcraft2"
-
-		"AbilityValues"
-		{
-			"movement_speed_pct"		"10 15 20 25 30"		// 1 + hero_levelup +0.5, lv50 ≈ 25
-			"cooldown_reduction_pct"	"10 15 20 25 30"		// hero_levelup +0.5, lv50 ≈ 25
-		}
-	}
 	// 修补匠 尤里卡！
 	"tinker_eureka2"
 	{
@@ -86,44 +45,6 @@
 			{
 				"dynamic_value"				"true"
 			}
-		}
-	}
-	// 大肆污染 拉席克
-	"leshrac_defilement2"
-	{
-		"BaseClass"						"leshrac_defilement"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"IsOnCastBar"					"1"
-		"AbilityTextureName"			"twin_gate_portal_warp"
-		"MaxLevel"						"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"aoe_per_int"				"0.4"
-		}
-	}
-	//精准光环
-	"drow_ranger_trueshot2"
-	{
-		"BaseClass"						"drow_ranger_trueshot"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"IsOnCastBar"					"1"
-		"AbilityTextureName"			"drow_ranger_trueshot"
-		"MaxLevel"						"5"
-
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"			"1200"
-				"affected_by_aoe_increase"	"1"
-			}
-			"trueshot_agi_bonus"				"7 14 21 28 35"		// 10 + hero_levelup +0.5, lv50 ≈ 35
-			"trueshot_agi_bonus_allies_pct"		"50"
 		}
 	}
 

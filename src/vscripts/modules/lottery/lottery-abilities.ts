@@ -217,7 +217,7 @@ export const abilityTiersPassive: Tier[] = [
       'dark_seer_normal_punch2', // 普通一拳
       'ogre_magi_multicast_lua', // 多重施法
       'jakiro_double_trouble2', // 双头龙 天生一对
-      'leshrac_defilement2', // 大肆污染 拉席克
+      'leshrac_defilement', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
       'rubick_curiosity2', // 拉比克 先天 奇心
 
@@ -262,11 +262,11 @@ export const abilityTiersPassive: Tier[] = [
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
       'primal_beast_colossal2', // 獸 庞
       'silencer_brain_drain2', // 沉默术士 默默受苦
-      'drow_ranger_trueshot2', // 精准光环
+      'drow_ranger_trueshot', // 精准光环
       'sven_wrath_of_god2', // 斯文 神之愤怒
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
-      'death_prophet_witchcraft2', // 死亡先知 巫术精研
+      'death_prophet_witchcraft', // 死亡先知 巫术精研
       'rubick_might_and_magus2', // 拉比克 力量与魔法
       'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
       'crystal_maiden_ice_explosion', // 冰女 冰暴
@@ -302,6 +302,7 @@ export const abilityTiersPassive: Tier[] = [
       'zuus_static_field', // 宙斯 静电场
       'furion_spirit_of_the_forest', // 先知 丛林之魂
       'magnataur_solid_core', // 马格纳斯 坚固核心
+      'medusa_mana_shield', // 魔法盾
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
@@ -314,7 +315,6 @@ export const abilityTiersPassive: Tier[] = [
       'abyssal_underlord_firestorm2', // 火雨降临
       'ursa_maul2', // 拍拍 暴烈之爪 +攻击
       'axe_one_man_army2', // 斧王 一人成军
-      'medusa_mana_shield2', // 魔法盾
       'dark_seer_quick_wit2', // 才思敏捷
       'luna_lunar_blessing', // 露娜 月之祝福
       'bloodseeker_sanguivore', // 血魔 食血动物

@@ -5101,6 +5101,7 @@
 	// 精准光环（先天 随大招等级）
 	"drow_ranger_trueshot"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"AbilityValues"
 		{
 				"trueshot_agi_bonus"
@@ -6019,6 +6020,7 @@
 	// 魔法盾 先天
 	"medusa_mana_shield"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"damage_per_mana"
@@ -8845,6 +8847,7 @@
 	// 巫术精研
 	"death_prophet_witchcraft"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"movement_speed_pct"
