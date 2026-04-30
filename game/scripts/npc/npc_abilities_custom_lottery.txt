@@ -48,6 +48,24 @@
 		}
 	}
 
+	// 大肆污染 拉席克
+	"leshrac_defilement2"
+	{
+		"BaseClass"						"leshrac_defilement"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"twin_gate_portal_warp"
+		"MaxLevel"						"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"aoe_per_int"				"0.4"
+		}
+	}
+
 	//贪婪
 	"alchemist_goblins_greed2"
 	{

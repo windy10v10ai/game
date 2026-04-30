@@ -217,7 +217,7 @@ export const abilityTiersPassive: Tier[] = [
       'dark_seer_normal_punch2', // 普通一拳
       'ogre_magi_multicast_lua', // 多重施法
       'jakiro_double_trouble2', // 双头龙 天生一对
-      'leshrac_defilement', // 大肆污染 拉席克
+      'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
       'rubick_curiosity2', // 拉比克 先天 奇心
 
