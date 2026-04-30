@@ -291,12 +291,14 @@ export const abilityTiersPassive: Tier[] = [
       'necrolyte_heartstopper_aura', // 竭心光环
       'drow_ranger_marksmanship', // 射手天赋
       'night_stalker_hunter_in_the_night', // 暗夜猎影
+      'undying_ceaseless_dirge', // 不朽尸王 挽歌犹唱
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
       'viper_poison_attack', // 毒性攻击
       'tusk_walrus_punch', //海象神拳
       'kunkka_tidebringer', // 潮汐使者 水刀
+      'mirana_celestial_quiver', // 米拉娜 天界箭袋
 
       // 自定义技能
       'abyssal_underlord_firestorm2', // 火雨降临
@@ -307,7 +309,6 @@ export const abilityTiersPassive: Tier[] = [
       'luna_lunar_blessing2', // 露娜 月之祝福
       'bloodseeker_sanguivore2', // 血魔 食血动物
       'magnataur_solid_core2', // 马格纳斯 坚固核心
-      'undying_ceaseless_dirge', // 不朽尸王 挽歌犹唱
       'gyrocopter_afterburner2', // 矮人直升机 加力燃烧器
     ],
   },

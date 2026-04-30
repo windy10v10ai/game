@@ -711,7 +711,7 @@
 		"DOTA_Tooltip_ability_gyrocopter_afterburner2_bonus_movement_speed_per_hit_creep"		"MOVESPEED (CREEPS):"
 		"DOTA_Tooltip_ability_gyrocopter_afterburner2_bonus_movespeed_duration"					"DURATION:"
 
-		// 沉默术士 默默受苦
+// 沉默术士 默默受苦
 		"DOTA_Tooltip_ability_silencer_brain_drain2"								"Suffer In Silence"
 		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"Silencer takes less damage from and deals more damage to silenced targets.<br><br>If an enemy Hero dies within %permanent_int_steal_range% range of Silencer or was debuffed by Silencer at the time of death, Silencer permanently steals %permanent_int_steal_amount% Intelligence from them.  If the victim was silenced, steal an extra %silenced_bonus_int_steal_amount% Intelligence."
 		"DOTA_Tooltip_ability_silencer_brain_drain2_damage_pct"					"%SILENCED TARGET DAMAGE:"

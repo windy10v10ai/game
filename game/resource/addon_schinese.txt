@@ -714,7 +714,7 @@
 		"DOTA_Tooltip_ability_gyrocopter_afterburner2_bonus_movement_speed_per_hit_creep"		"移动速度（非英雄）："
 		"DOTA_Tooltip_ability_gyrocopter_afterburner2_bonus_movespeed_duration"					"持续时间："
 
-		// 沉默术士 默默受苦
+// 沉默术士 默默受苦
 		"DOTA_Tooltip_ability_silencer_brain_drain2"								"默默受苦"
 		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"沉默术士对被沉默的目标造成更多伤害，受到来自他们的伤害减少。<br><br>沉默术士无需完成击杀就能永久窃取%permanent_int_steal_amount%点智力，只要敌方英雄在沉默术士附近%permanent_int_steal_range%范围内阵亡或者死亡时带有沉默术士的负面效果即可。如果阵亡时被沉默，将额外窃取%silenced_bonus_int_steal_amount%点智力。"
 		"DOTA_Tooltip_ability_silencer_brain_drain2_damage_pct"					"%沉默单位伤害："
