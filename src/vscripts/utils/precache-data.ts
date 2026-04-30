@@ -111,7 +111,7 @@ export const heroNameListParticles = [
   'hero_winter_wyvern', // 寒冬飞龙
   // 'hero_wisp', // 艾欧
   'hero_witchdoctor', // 巫医
-  // 'hero_zuus', // 宙斯
+  'hero_zuus', // 宙斯
   // 'hero_primal_beast', // 獸
   'hero_mars', // 玛尔斯
   // 'hero_marci', // 玛西

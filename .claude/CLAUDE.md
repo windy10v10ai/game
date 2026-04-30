@@ -319,9 +319,6 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生成。
 **PR 标题默认使用英文。**
 
-### 提交
-
-创建 git commit 时，只写**简短的单行标题**，不写正文、不写 bullet、不写详细说明。标题控制在 72 字符以内。
 
 ## Skill 交互规范
 
