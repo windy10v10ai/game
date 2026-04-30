@@ -172,6 +172,7 @@ export const abilityTiersActive: Tier[] = [
       'luna_lucent_beam', // 月光
       'monkey_king_boundless_strike', // 棒击大地
       'magnataur_shockwave', // 震荡波
+      'lich_death_charge', // 献身
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
@@ -292,6 +293,7 @@ export const abilityTiersPassive: Tier[] = [
       'drow_ranger_marksmanship', // 射手天赋
       'night_stalker_hunter_in_the_night', // 暗夜猎影
       'undying_ceaseless_dirge', // 不朽尸王 挽歌犹唱
+      'nyx_assassin_neuro_sting', // 司夜刺客 法力燃烧
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃

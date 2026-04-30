@@ -6674,16 +6674,10 @@
 			"cooldown_reduction"			"40"	// 25
 		}
 	}
-	// 夜之感知 先天技能
-	"nyx_assassin_nyxth_sense"
+	// 法力燃烧 先天技能
+	"nyx_assassin_neuro_sting"
 	{
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"600"	// 400
-			}
-		}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 	}
 	//=================================================================================================================
 	// Ability: Pangolier 石鳞剑士/滚滚
@@ -9206,6 +9200,7 @@
 	// 丛林之魂（先天）
 	"furion_spirit_of_the_forest"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"radius_base"
