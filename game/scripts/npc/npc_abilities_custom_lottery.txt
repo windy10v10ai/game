@@ -592,6 +592,20 @@
 			}
 		}
 	}
+
+	// 混沌骑士 基本法则锻造
+	"chaos_knight_fundamental_forging2"
+	{
+		"BaseClass"						"chaos_knight_fundamental_forging"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"Innate"						"0"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"chaos_knight_fundamental_forging"
+
+		"AbilityValues"
+		{
+		}
+	}
 	//沉默术士 默默受苦
 	"silencer_brain_drain2"
 	{
@@ -647,6 +661,22 @@
 		{
 			"str_to_slow_resist_pct"		"12"	// 20 (vanilla, override: 12)
 			"str_to_status_resist_pct"		"8"		// 10 (vanilla, override: 8)
+		}
+	}
+	//矮人直升机 加力燃烧器
+	"gyrocopter_afterburner2"
+	{
+		"BaseClass"						"gyrocopter_afterburner"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"Innate"						"0"
+		"AbilityTextureName"			"gyrocopter_afterburner"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"bonus_movespeed_duration"			"4.0 5.0 6.0 7.0 8.0"	// 3.9 + hero_levelup +0.1, lv50 ≈ 8.8
+			"bonus_movement_speed_per_hit"		"2"						// 1 (override: 2)
+			"bonus_movement_speed_per_hit_creep"	"1"					// 0.5 (override: 1)
 		}
 	}
 	//=================================================================================================================
