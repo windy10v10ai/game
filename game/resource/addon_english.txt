@@ -575,12 +575,6 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss" 			"%DODGE/CRIT CHANCE:"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"ACTIVE DURATION:"
-		//精准光环
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received %trueshot_agi_bonus_allies_pct%%% of the bonus agility."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus"					"%AGILITY BONUS:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"RADIUS:"
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
@@ -822,18 +816,6 @@
 		"DOTA_Tooltip_ability_tinker_eureka2_Description"	"Gain %one_percent_tooltip%%% item cooldown reduction per %int_per_one_cdr% Intelligence, up to a maximum of %max_cdr%%%."
 		"DOTA_Tooltip_ability_tinker_eureka2_item_cooldown_tooltip"		"%ITEM COOLDOWN REDUCTION:"
 
-		// 死亡先知
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"Witchcraft"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"Death Prophet's occult knowledge deepens with experience, gaining movement speed and spell cooldown reduction."
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_pct"				"%MOVEMENT SPEED:"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_pct"			"%COOLDOWN REDUCTION:"
-
-		// 魔法盾
-		"DOTA_Tooltip_ability_medusa_mana_shield2"								"Mana Shield"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"Creates a shield that absorbs %absorption_pct%%% of incoming damage in exchange for Medusa's mana. Illusions absorb %illusion_percentage%%% less damage per point of mana."
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"Absorbs damage before any damage reduction takes place, meaning that armor will not reduce the amount of mana needed to absorb damage."
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"DAMAGE PER MANA:"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
 
 
 		// 地狱之裂
