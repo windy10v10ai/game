@@ -695,21 +695,6 @@
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"天生一对"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"杰奇洛攻击时两个头都会发动攻击，不过每个头造成的伤害减少。"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%攻击力降低："
-		// 马格纳斯 坚固核心
-		"DOTA_Tooltip_ability_magnataur_solid_core2"								"坚固核心"
-		"DOTA_Tooltip_ability_magnataur_solid_core2_Description"					"马格纳斯的减速抗性得到提升，并且受到敌人技能和物品的击退效果减少。"
-		"DOTA_Tooltip_ability_magnataur_solid_core2_slow_resistance"				"%减速抗性："
-		"DOTA_Tooltip_ability_magnataur_solid_core2_knockback_reduction"			"%击退抗性："
-
-// 沉默术士 默默受苦
-		"DOTA_Tooltip_ability_silencer_brain_drain2"								"默默受苦"
-		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"沉默术士对被沉默的目标造成更多伤害，受到来自他们的伤害减少。<br><br>沉默术士无需完成击杀就能永久窃取%permanent_int_steal_amount%点智力，只要敌方英雄在沉默术士附近%permanent_int_steal_range%范围内阵亡或者死亡时带有沉默术士的负面效果即可。如果阵亡时被沉默，将额外窃取%silenced_bonus_int_steal_amount%点智力。"
-		"DOTA_Tooltip_ability_silencer_brain_drain2_damage_pct"					"%沉默单位伤害："
-
-		// 混沌骑士 基本法则锻造
-		"DOTA_Tooltip_ability_chaos_knight_fundamental_forging2"						"基本法则锻造"
-		"DOTA_Tooltip_ability_chaos_knight_fundamental_forging2_Description"			"混沌骑士的中立物品额外获得一个随机附魔。"
-
 // 獸 庞
 		"DOTA_Tooltip_ability_primal_beast_colossal2"								"庞"
 		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"獸拥有%base_slow_resist%%%基础减速抗性，每拥有%hp_per_threshold%点生命上限就获得+%aoe_per_threshold%%%作用范围加成和+%slow_resistance_per_threshold%%%减速抗性。"

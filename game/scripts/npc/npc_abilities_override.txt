@@ -1122,6 +1122,13 @@
 	}
 	// 幻象已移除，无需 override
 	// "chaos_knight_phantasm" {}
+	// 基本法则锻造 先天技能
+	"chaos_knight_fundamental_forging"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"copy_item"
+	}
 	//=================================================================================================================
 	// Ability: Dawnbreaker 破晓辰星/黄大锤
 	//=================================================================================================================
@@ -2370,6 +2377,11 @@
 				"value"					"2.5 3.0 3.5 4.0"
 			}
 		}
+	}
+	// 坚固核心
+	"magnataur_solid_core"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 	}
 	//=================================================================================================================
 	// Ability: Marci 玛西
@@ -3925,6 +3937,7 @@
 	// 严寒（先天）
 	"tusk_bitter_chill"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"radius"
@@ -6543,6 +6556,7 @@
 	// 支配死灵（先天）
 	"nevermore_necromastery"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"necromastery_max_souls"
@@ -11024,6 +11038,7 @@
 	// 威胁 先天
 	"shadow_demon_menace"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"stack"
@@ -11226,6 +11241,8 @@
 	// 默默受苦 先天技能
 	"silencer_brain_drain"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsOnCastBar"					"1"
 		"AbilityValues"
 		{
 			"permanent_int_steal_range"
@@ -12275,6 +12292,7 @@
 	// 超自然（先天）
 	"muerta_supernatural"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"max_stacks_tooltip"
@@ -12731,4 +12749,15 @@
 			}
 		}
 	}
+	// 凤凰 消逝之光 先天
+	"phoenix_dying_light"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+	}
+	// 滚滚 天佑勇者 先天
+	"pangolier_fortune_favors_the_bold"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+	}
+
 }

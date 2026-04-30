@@ -488,22 +488,6 @@
 			}
 		}
 	}
-
-
-
-	// 混沌骑士 基本法则锻造
-	"chaos_knight_fundamental_forging2"
-	{
-		"BaseClass"						"chaos_knight_fundamental_forging"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
-		"Innate"						"0"
-		"MaxLevel"						"1"
-		"AbilityTextureName"			"copy_item"
-
-		"AbilityValues"
-		{
-		}
-	}
 	//沉默术士 默默受苦
 	"silencer_brain_drain2"
 	{
@@ -525,25 +509,7 @@
 			"damage_pct"					"20"			// 5 (+0.5/level)
 		}
 	}
-	//马格纳斯 坚固核心
-	"magnataur_solid_core2"
-	{
-		"BaseClass"						"magnataur_solid_core"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"Innate"						"0"
-		"IsBreakable"					"1"
-		"AbilityTextureName"			"magnataur_solid_core"
-		"MaxLevel"						"5"
 
-		"AbilityValues"
-		{
-			"knockback_reduction"		"50"
-			"slow_resistance"
-			{
-				"value"					"25 35 45 55 65"	// 24 (+1/level, lv50 ≈ 73)
-			}
-		}
-	}
 //=================================================================================================================
 // 普通升级 技能
 	//=================================================================================================================

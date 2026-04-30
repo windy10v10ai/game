@@ -232,6 +232,8 @@ export const abilityTiersPassive: Tier[] = [
     level: 3,
     names: [
       // 被动技能
+      'shadow_demon_menace', // 暗影恶魔 威胁
+      'muerta_supernatural', // 琼英碧灵 超自然
       'dawnbreaker_luminosity', // 熠熠生辉
       'earthshaker_aftershock', // 余震
       'chaos_knight_chaos_strike', // 混沌一击
@@ -246,6 +248,7 @@ export const abilityTiersPassive: Tier[] = [
       'shredder_reactive_armor', // 活性活甲
       'silencer_glaives_of_wisdom', // 智慧之刃
       'tiny_insurmountable', // 小小 不可逾越
+      'chaos_knight_fundamental_forging', // 混沌骑士 基本法则锻造
 
       // 单位技能
       'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
@@ -268,13 +271,15 @@ export const abilityTiersPassive: Tier[] = [
       'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
-      'chaos_knight_fundamental_forging2', // 混沌骑士 基本法则锻造
     ],
   },
   {
     level: 2,
     names: [
       // 被动技能
+      'phoenix_dying_light', // 凤凰 消逝之光
+      'nevermore_necromastery', // 影魔 支配死灵
+      'tusk_bitter_chill', // 巨牙 严寒
       'ursa_fury_swipes', // 怒意狂击
       'vengefulspirit_command_aura', // 复仇光环
       'bloodseeker_thirst', // 焦渴
@@ -296,6 +301,7 @@ export const abilityTiersPassive: Tier[] = [
       'nyx_assassin_neuro_sting', // 司夜刺客 法力燃烧
       'zuus_static_field', // 宙斯 静电场
       'furion_spirit_of_the_forest', // 先知 丛林之魂
+      'magnataur_solid_core', // 马格纳斯 坚固核心
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
@@ -312,13 +318,13 @@ export const abilityTiersPassive: Tier[] = [
       'dark_seer_quick_wit2', // 才思敏捷
       'luna_lunar_blessing', // 露娜 月之祝福
       'bloodseeker_sanguivore', // 血魔 食血动物
-      'magnataur_solid_core2', // 马格纳斯 坚固核心
     ],
   },
   {
     level: 1,
     names: [
       // 被动技能
+      'pangolier_fortune_favors_the_bold', // 滚滚 天佑勇者
       'lina_fiery_soul', // 炽魂
       'enchantress_untouchable', // 不可侵犯
       'alchemist_goblins_greed2', // 贪婪
