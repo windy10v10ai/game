@@ -267,7 +267,7 @@ export const abilityTiersPassive: Tier[] = [
       'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
-      'tiny_insurmountable2', // 小小 不可逾越
+      'tiny_insurmountable', // 小小 不可逾越
       'chaos_knight_fundamental_forging2', // 混沌骑士 基本法则锻造
     ],
   },
@@ -313,7 +313,7 @@ export const abilityTiersPassive: Tier[] = [
       'luna_lunar_blessing', // 露娜 月之祝福
       'bloodseeker_sanguivore', // 血魔 食血动物
       'magnataur_solid_core2', // 马格纳斯 坚固核心
-      'gyrocopter_afterburner2', // 矮人直升机 加力燃烧器
+      'gyrocopter_afterburner', // 矮人直升机 加力燃烧器
     ],
   },
   {

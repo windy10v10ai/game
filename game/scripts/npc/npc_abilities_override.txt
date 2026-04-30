@@ -4163,6 +4163,7 @@
 	// 不可逾越 先天技能
 	"tiny_insurmountable"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"str_to_slow_resist_pct"			"12"	// 20 -8
@@ -5432,6 +5433,7 @@
 	// 加力燃烧器（先天）
 	"gyrocopter_afterburner"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"bonus_movement_speed_per_hit"			"2"		// 1 x2
