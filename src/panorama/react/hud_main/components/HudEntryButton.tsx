@@ -6,6 +6,7 @@ const BUTTON_ID = 'OpenProfileButton';
 const TOOLTIP_TEXT = $.Localize('#profile_title');
 
 /**
+ *
  * hud_main 常驻入口按钮（生涯入口）。
  *
  * 渲染目标不是 React tree，而是 Dota HUD 的 ButtonBar（爱发电/Patreon 按钮所在容器），

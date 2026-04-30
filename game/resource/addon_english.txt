@@ -575,12 +575,6 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss" 			"%DODGE/CRIT CHANCE:"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"ACTIVE DURATION:"
-		//精准光环
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"Precision Aura"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"Grants Drow bonus agility based on Drow's current agility and level. Nearby ranged heroes received %trueshot_agi_bonus_allies_pct%%% of the bonus agility."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"Traxex' time spent alone in the forests of her Drow home has allowed her to teach other archers how to improve their bow skills."
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus"					"%AGILITY BONUS:"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"RADIUS:"
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "Horn Toss"
@@ -685,13 +679,29 @@
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"Maul"
 		"DOTA_Tooltip_ability_ursa_maul2_Description"			"Gain bonus damage equal to a percentage of current health."
-		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%HP AS DAMAGE:"
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%HEALTH AS DAMAGE:"
 		"DOTA_Tooltip_modifier_ursa_maul2"						"Maul"
 		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"Damage increased by %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%."
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"Double Trouble"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"	"Jakiro's attacks launch an attack from each head, but deal less damage each."
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%ATTACK DAMAGE REDUCTION:"
+		// 沉默术士 默默受苦
+		"DOTA_Tooltip_ability_silencer_brain_drain2"								"Suffer In Silence"
+		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"Silencer takes less damage from and deals more damage to silenced targets.<br><br>If an enemy Hero dies within %permanent_int_steal_range% range of Silencer or was debuffed by Silencer at the time of death, Silencer permanently steals %permanent_int_steal_amount% Intelligence from them.  If the victim was silenced, steal an extra %silenced_bonus_int_steal_amount% Intelligence."
+		"DOTA_Tooltip_ability_silencer_brain_drain2_damage_pct"					"%SILENCED TARGET DAMAGE:"
+
+		// 獸 庞
+		"DOTA_Tooltip_ability_primal_beast_colossal2"								"Colossal"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"Primal Beast has %base_slow_resist%%% base Slow Resistance and gains %aoe_per_threshold%%% bonus Area of Effect and %slow_resistance_per_threshold%%% Slow Resistance for every %hp_per_threshold% Max Health."
+		"DOTA_Tooltip_ability_primal_beast_colossal2_current_slow_resistance"		"%SLOW RESISTANCE:"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_current_aoe"					"%AREA OF EFFECT BONUS:"
+
+		// 狙击手 基恩瞄准镜
+		"DOTA_Tooltip_ability_sniper_keen_scope2"								"Keen Scope"
+		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"Sniper's attacks deal bonus damage for every %bonus_damage_distance% units of distance Sniper is from the target."
+		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%BONUS DAMAGE:"
+
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"Smoldering Resin"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"Attacks apply a debuff that deals %tick_attack_damage_pct%%% of the initial attack damage every %tick_rate%s for %total_ticks%s."
@@ -811,48 +821,7 @@
 		"DOTA_Tooltip_ability_tinker_eureka2_Description"	"Gain %one_percent_tooltip%%% item cooldown reduction per %int_per_one_cdr% Intelligence, up to a maximum of %max_cdr%%%."
 		"DOTA_Tooltip_ability_tinker_eureka2_item_cooldown_tooltip"		"%ITEM COOLDOWN REDUCTION:"
 
-		// 死亡先知
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"Witchcraft"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"Death Prophet's occult knowledge deepens with experience, gaining movement speed and spell cooldown reduction."
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_pct"				"%MOVEMENT SPEED:"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_pct"			"%COOLDOWN REDUCTION:"
 
-		// 魔法盾
-		"DOTA_Tooltip_ability_medusa_mana_shield2"								"Mana Shield"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"Creates a shield that absorbs %absorption_pct%%% of incoming damage in exchange for Medusa's mana. Illusions absorb %illusion_percentage%%% less damage per point of mana."
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"Absorbs damage before any damage reduction takes place, meaning that armor will not reduce the amount of mana needed to absorb damage."
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"DAMAGE PER MANA:"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
-
-		// 能量转移
-		"DOTA_Tooltip_ability_slark_essence_shift2"								"Essence Shift"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Description"					"Slark steals the life essence of enemy heroes with his attacks, draining %stat_loss% of each of their attributes and converting them to bonus %agi_gain% Agility. If Slark kills an affected enemy hero, he permanently steals %stat_loss% Agility."
-		"DOTA_Tooltip_ability_slark_essence_shift2_duration"						"DURATION:"
-		"DOTA_Tooltip_ability_slark_essence_shift2_steal_radius"					"STEAL RADIUS:"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Lore"							"With each strike at his adversaries, Slark's knowledge of their weaknesses improves."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note0"						"Attributes cannot be dropped below 1."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note1"						"Essence Shifted stats are returned to normal on death. The stat return for Slark and for the affected hero are separate."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note2"						"To permanently steal Agility, Slark doesn't need to land the killing blow, as long as the enemy hero is killed within Slark's Steal Radius while having the Essence Shift debuff."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note3"						"Break disables the gaining of temporary stacks. Does not disable the gaining of permanent stacks."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note4"						"Break does not disable the bonuses of existing stacks."
-
-		"DOTA_Tooltip_modifier_slark_essence_shift2"							"Essence Shift"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_Description"				"Stealing %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility."
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter"			"Essence Shift"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter_Description"	"Losing %dMODIFIER_PROPERTY_TOOLTIP% of each attribute."
-
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff"	"Permanent Agility"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"Gained %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% permanent Agility."
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"Gained permanent Agility."
-
-		// 荒芜
-		"DOTA_Tooltip_ability_spectre_desolate2"								"Desolate"
-		"DOTA_Tooltip_ability_spectre_desolate2_Description"					"Deals bonus pure damage whenever Spectre attacks an enemy."
-		"DOTA_Tooltip_ability_spectre_desolate2_bonus_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_spectre_desolate2_Facet_spectre_forsaken"		"Spectre deals %bonus_damage_multiplier_tooltip%x damage with Desolate. Spectre's illusions no longer have Desolate."
-		"DOTA_Tooltip_ability_spectre_desolate2_Lore"						"Often times, warriors find themselves alone with a vision of Mercurial - the fated question is if it is the true Spectre."
-		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"Damage is dealt before Spectre's attack."
-		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"Spectre's illusions also have Desolate."
 
 		// 地狱之裂
 		"DOTA_Tooltip_ability_clinkz_infernal_shred2"					"Infernal Shred"
@@ -860,16 +829,6 @@
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"Infernal Shred"
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "Clinkz and his skeletons' attacks are piercing %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%% armor."
 
-		// 背刺
-		"DOTA_Tooltip_ability_riki_innate_backstab2"										"Backstab"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Description"							"Every time Riki strikes his enemy from behind, he deals additional bonus damage equal to a multiple of his Agility."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_damage_multiplier"					"AGILITY MULTIPLIER:"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Facet_riki_contract_killer"			"Riki receives bonus experience for assists and kills."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note0"								"Works when denying friendly units at %ally_multiplier%%% effectiveness."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note1"								"Illusions of Riki will play Backstab animations, but not deal any bonus damage."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_kill"						"BONUS XP HERO KILL:"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"BONUS XP ASSIST:"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"BONUS XP WARD/COURIER KILL:"
 
 		// 拉比克 奇心
 		"DOTA_Tooltip_ability_rubick_curiosity2"								"Curiosity"
