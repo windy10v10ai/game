@@ -828,34 +828,6 @@
 		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"魔法吸收系数："
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"尽管美杜莎生来没被赐以永恒的生命，但她所受的诅咒赋予了她独一无二的防御力量。"
 
-		// 能量转移
-		"DOTA_Tooltip_ability_slark_essence_shift2"								"能量转移"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Description"					"斯拉克的攻击会偷走敌方英雄的生命能量，每次吸取他们的%stat_loss%点全属性并转化成自身额外%agi_gain%点敏捷值。只要敌方英雄带着该效果在斯拉克%steal_radius%范围内阵亡，他将永久窃取%stat_loss%点敏捷。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_duration"						"持续时间："
-		"DOTA_Tooltip_ability_slark_essence_shift2_steal_radius"					"窃取范围："
-		"DOTA_Tooltip_ability_slark_essence_shift2_Lore"							"每攻击一次敌人，斯拉克对他们的弱点就多了解一分。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note0"						"属性值最少为1点。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note1"						"斯拉克或受到作用的单位死亡后，阵亡单位因能量转移变化的属性值将回归正常。但是两方的属性值相互独立，并无关联。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note2"						"斯拉克无需完成击杀就能永久窃取敏捷，只要敌方英雄身上拥有能量转移状态时在斯拉克的窃取范围内阵亡即可。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note3"						"破坏会使技能无法获得临时的叠加效果。依然可以获得永久的叠加效果。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note4"						"破坏不会使现有叠加效果提供的加成失效。"
-
-		"DOTA_Tooltip_modifier_slark_essence_shift2"							"能量转移"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_Description"				"偷取%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter"			"能量转移"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter_Description"	"每种属性丢失%dMODIFIER_PROPERTY_TOOLTIP%点。"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff"	"永久敏捷"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"已获得%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"永久获得敏捷。"
-
-		// 荒芜
-		"DOTA_Tooltip_ability_spectre_desolate2"								"荒芜"
-		"DOTA_Tooltip_ability_spectre_desolate2_Description"					"幽鬼的攻击对敌人造成额外的纯粹伤害。"
-		"DOTA_Tooltip_ability_spectre_desolate2_bonus_damage"				"伤害："
-		"DOTA_Tooltip_ability_spectre_desolate2_Facet_spectre_forsaken"		"幽鬼自身的荒芜造成%bonus_damage_multiplier_tooltip%倍伤害，但是幽鬼的幻象不再触发荒芜。"
-		"DOTA_Tooltip_ability_spectre_desolate2_Lore"						"战士们常常发现自己落单后还能在身边看到墨丘利——不得不质疑，这是不是真正的幽鬼。"
-		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"伤害在幽鬼攻击前产生。"
-		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"幽鬼的幻象继承荒芜。"
 
 		// 地狱之裂
 		"DOTA_Tooltip_ability_clinkz_infernal_shred2"					"地狱之裂"
@@ -863,16 +835,6 @@
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"地狱之裂"
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "克林克兹和他的骷髅弓手发动攻击时会穿透%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%%护甲。"
 
-		//背刺
-		"DOTA_Tooltip_ability_riki_innate_backstab2"										"背刺"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Description"							"力丸每次从背后攻击敌人时都会造成额外伤害，伤害量为自身敏捷的一定倍数。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_damage_multiplier"					"敏捷值倍数："
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Facet_riki_contract_killer"			"力丸获得助攻和击杀时会获得额外经验。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note0"								"反补友方单位时具有%ally_multiplier%%%效果。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note1"								"力丸的幻象也会有背刺的动作，但是不会造成额外伤害。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_kill"						"击杀英雄奖励经验："
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"助攻经验奖励："
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"击杀守卫/信使奖励经验："
 
 		// 拉比克 奇心
 		"DOTA_Tooltip_ability_rubick_curiosity2"								"奇心"

@@ -4,31 +4,6 @@
 	//=================================================================================================================
 // Innate 天赋 技能
 	//=================================================================================================================
-	// 背刺
-	"riki_innate_backstab2"
-	{
-		"BaseClass"						"riki_innate_backstab"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"riki_innate_backstab"
-		"MaxLevel"						"5"
-		"Innate"						"0"
-		"IsOnCastBar"					"1"
-
-		"AbilityValues"
-		{
-			"damage_multiplier"
-			{
-				"value"		"1.0 1.5 2.0 2.5 3.0"			// 0.55 + hero_levelup +0.05, lv50 ≈ 3.0
-				"CalculateSpellDamageTooltip"	"0"
-				"DamageTypeTooltip"			"DAMAGE_TYPE_NONE"
-			}
-			"ally_multiplier"				"25"
-			"backstab_angle"				"105"
-			"bonus_xp_kill"					"50 100 150 200 250"		// 150
-			"bonus_xp_assist"				"25 50 75 100 125"			// 75
-			"bonus_xp_assist_other"			"25 50 75 100 125"			// 75
-		}
-	}
 	// 克林克兹先天 地狱之裂
 	"clinkz_infernal_shred2"
 	{
@@ -50,56 +25,6 @@
 		}
 	}
 
-	// 荒芜
-	"spectre_desolate2"
-	{
-		"BaseClass"						"spectre_desolate"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"spectre_desolate"
-		"MaxLevel"						"5"
-		"Innate"						"0"
-		"IsOnCastBar"					"1"
-
-		"AbilityValues"
-		{
-			"bonus_damage"				"40 65 90 115 140"		// 40 + hero_levelup +2, lv50 ≈ 140
-			"radius"					"0"						// 350 触发范围，覆盖为全方向
-			"only_creep_allies_damage_pct"	"0"
-		}
-	}
-	// 能量转移
-	"slark_essence_shift2"
-	{
-		"BaseClass"						"slark_essence_shift"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"IsBreakable"					"1"
-		"Innate"						"0"
-		"AbilityTextureName"			"slark_essence_shift"
-		"IsOnCastBar"					"1"
-
-		"AbilityValues"
-		{
-			"agi_gain"					"3"				// 3
-			"stat_loss"					"1"				// 1
-			"duration"
-			{
-				"value"					"20"			// 10 + hero_levelup +2.5(override: +2)
-				"hero_levelup"			"+2"			// +2.5
-			}
-			"steal_radius"
-			{
-				"value"					"1500"			// 300
-				"affected_by_aoe_increase"	"1"
-			}
-			"max_stacks_per_hero"
-			{
-				"value"					"0"				// 0
-			}
-		}
-	}
 	// 魔法盾
 	"medusa_mana_shield2"
 	{

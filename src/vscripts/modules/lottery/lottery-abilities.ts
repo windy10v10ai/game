@@ -187,7 +187,7 @@ export const abilityTiersPassive: Tier[] = [
     names: [
       // 被动技能
       'muerta_gunslinger', // 神枪在手
-      'slark_essence_shift2', // 能量转移
+      'slark_essence_shift', // 能量转移
       'faceless_void_time_lock', // 时间锁定
 
       // 法球/开关技能
@@ -211,6 +211,7 @@ export const abilityTiersPassive: Tier[] = [
       // 'spectre_dispersion', // 幽鬼 折射
       'spectre_dispersion2', // 幽鬼 折射改
       'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂
+      'riki_innate_backstab', // 力丸 背刺
 
       // 自定义技能
       'dark_seer_normal_punch2', // 普通一拳
@@ -219,7 +220,6 @@ export const abilityTiersPassive: Tier[] = [
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
       'rubick_curiosity2', // 拉比克 先天 奇心
-      'riki_innate_backstab2', // 力丸 背刺
 
       'ability_trigger_learned_skills', //蓝蝴蝶
       'ability_trigger_on_spell_reflect', //绿蝴蝶
@@ -240,7 +240,7 @@ export const abilityTiersPassive: Tier[] = [
       'nevermore_dark_lord', // 魔王降临
       'riki_backstab', // 刀光谍影
       'weaver_geminate_attack', // 连击
-      'spectre_desolate2', // 荒芜
+      'spectre_desolate', // 荒芜
       'brewmaster_fire_phase', // 永久相位
       'juggernaut_blade_dance', // 剑舞
       'tiny_grow', // 长大

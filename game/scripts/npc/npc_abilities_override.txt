@@ -7082,6 +7082,7 @@
 	// 背刺 先天技能
 	"riki_innate_backstab"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"damage_multiplier"
@@ -7187,6 +7188,7 @@
 	// 能量转移
 	"slark_essence_shift"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"duration"
@@ -7197,6 +7199,7 @@
 			"steal_radius"
 			{
 				"value"		"1500"	// 300
+				"affected_by_aoe_increase"	"1"
 			}
 		}
 	}
@@ -7319,6 +7322,7 @@
 	// 荒芜 先天
 	"spectre_desolate"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"radius"

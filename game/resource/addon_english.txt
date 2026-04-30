@@ -835,35 +835,6 @@
 		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"DAMAGE PER MANA:"
 		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"While Medusa was not gifted with eternal life upon birth, her curse bestowed her with impressive defensive powers."
 
-		// 能量转移
-		"DOTA_Tooltip_ability_slark_essence_shift2"								"Essence Shift"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Description"					"Slark steals the life essence of enemy heroes with his attacks, draining %stat_loss% of each of their attributes and converting them to bonus %agi_gain% Agility. If Slark kills an affected enemy hero, he permanently steals %stat_loss% Agility."
-		"DOTA_Tooltip_ability_slark_essence_shift2_duration"						"DURATION:"
-		"DOTA_Tooltip_ability_slark_essence_shift2_steal_radius"					"STEAL RADIUS:"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Lore"							"With each strike at his adversaries, Slark's knowledge of their weaknesses improves."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note0"						"Attributes cannot be dropped below 1."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note1"						"Essence Shifted stats are returned to normal on death. The stat return for Slark and for the affected hero are separate."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note2"						"To permanently steal Agility, Slark doesn't need to land the killing blow, as long as the enemy hero is killed within Slark's Steal Radius while having the Essence Shift debuff."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note3"						"Break disables the gaining of temporary stacks. Does not disable the gaining of permanent stacks."
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note4"						"Break does not disable the bonuses of existing stacks."
-
-		"DOTA_Tooltip_modifier_slark_essence_shift2"							"Essence Shift"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_Description"				"Stealing %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility."
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter"			"Essence Shift"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter_Description"	"Losing %dMODIFIER_PROPERTY_TOOLTIP% of each attribute."
-
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff"	"Permanent Agility"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"Gained %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% permanent Agility."
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"Gained permanent Agility."
-
-		// 荒芜
-		"DOTA_Tooltip_ability_spectre_desolate2"								"Desolate"
-		"DOTA_Tooltip_ability_spectre_desolate2_Description"					"Deals bonus pure damage whenever Spectre attacks an enemy."
-		"DOTA_Tooltip_ability_spectre_desolate2_bonus_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_spectre_desolate2_Facet_spectre_forsaken"		"Spectre deals %bonus_damage_multiplier_tooltip%x damage with Desolate. Spectre's illusions no longer have Desolate."
-		"DOTA_Tooltip_ability_spectre_desolate2_Lore"						"Often times, warriors find themselves alone with a vision of Mercurial - the fated question is if it is the true Spectre."
-		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"Damage is dealt before Spectre's attack."
-		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"Spectre's illusions also have Desolate."
 
 		// 地狱之裂
 		"DOTA_Tooltip_ability_clinkz_infernal_shred2"					"Infernal Shred"
@@ -871,16 +842,6 @@
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"Infernal Shred"
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "Clinkz and his skeletons' attacks are piercing %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%% armor."
 
-		// 背刺
-		"DOTA_Tooltip_ability_riki_innate_backstab2"										"Backstab"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Description"							"Every time Riki strikes his enemy from behind, he deals additional bonus damage equal to a multiple of his Agility."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_damage_multiplier"					"AGILITY MULTIPLIER:"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Facet_riki_contract_killer"			"Riki receives bonus experience for assists and kills."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note0"								"Works when denying friendly units at %ally_multiplier%%% effectiveness."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note1"								"Illusions of Riki will play Backstab animations, but not deal any bonus damage."
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_kill"						"BONUS XP HERO KILL:"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"BONUS XP ASSIST:"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"BONUS XP WARD/COURIER KILL:"
 
 		// 拉比克 奇心
 		"DOTA_Tooltip_ability_rubick_curiosity2"								"Curiosity"
