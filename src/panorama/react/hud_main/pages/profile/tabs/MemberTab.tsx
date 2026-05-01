@@ -299,7 +299,10 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
         <Panel className="member-platform-card member-platform-card-afdian">
           <Image className="member-platform-logo" src={AFDIAN_ICON} />
           <Label className="member-platform-name" text={$.Localize('#member_platform_afdian')} />
-          <Label className="member-platform-desc member-platform-desc-cn" text={$.Localize('#member_platform_afdian_desc')} />
+          <Label
+            className="member-platform-desc member-platform-desc-cn"
+            text={$.Localize('#member_platform_afdian_desc')}
+          />
           <Button
             className="member-platform-btn member-platform-btn-subscribe"
             onactivate={openUrl(GetAfdianSubscribeUrl())}
@@ -310,13 +313,19 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
             />
           </Button>
           <Panel className="member-platform-divider">
-            <Label className="member-platform-divider-label" text={$.Localize('#member_shop_divider')} />
+            <Label
+              className="member-platform-divider-label"
+              text={$.Localize('#member_shop_divider')}
+            />
           </Panel>
           <Button
             className="member-platform-btn member-platform-btn-shop"
             onactivate={openUrl(AFDIAN_SHOP_URL)}
           >
-            <Label className="member-platform-btn-label member-platform-btn-label-ghost" text={$.Localize('#member_shop_title')} />
+            <Label
+              className="member-platform-btn-label member-platform-btn-label-ghost"
+              text={$.Localize('#member_shop_title')}
+            />
           </Button>
           <ActivateRow activateUrl={AFDIAN_ACTIVATE_URL} />
         </Panel>
@@ -325,7 +334,10 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
         <Panel className="member-platform-card member-platform-card-kofi">
           <Image className="member-platform-logo" src={KOFI_LOGO} />
           <Label className="member-platform-name" text={$.Localize('#member_platform_kofi')} />
-          <Label className="member-platform-desc member-platform-desc-intl" text={$.Localize('#member_platform_kofi_desc')} />
+          <Label
+            className="member-platform-desc member-platform-desc-intl"
+            text={$.Localize('#member_platform_kofi_desc')}
+          />
           <Button
             className="member-platform-btn member-platform-btn-subscribe"
             onactivate={openUrl(KOFI_SUBSCRIBE_URL)}
@@ -336,13 +348,19 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
             />
           </Button>
           <Panel className="member-platform-divider">
-            <Label className="member-platform-divider-label" text={$.Localize('#member_shop_divider')} />
+            <Label
+              className="member-platform-divider-label"
+              text={$.Localize('#member_shop_divider')}
+            />
           </Panel>
           <Button
             className="member-platform-btn member-platform-btn-shop"
             onactivate={openUrl(KOFI_SHOP_URL)}
           >
-            <Label className="member-platform-btn-label member-platform-btn-label-ghost" text={$.Localize('#member_shop_title')} />
+            <Label
+              className="member-platform-btn-label member-platform-btn-label-ghost"
+              text={$.Localize('#member_shop_title')}
+            />
           </Button>
           <ActivateRow activateUrl={KOFI_ACTIVATE_URL} />
         </Panel>

@@ -240,8 +240,8 @@
 		"member_platform_afdian_desc"			"Recommended for CN Users · Pay in CNY"
 		"member_platform_kofi"					"Ko-fi"
 		"member_platform_kofi_desc"				"Recommended for Global Users · Pay in USD"
-		"member_shop_divider"					"Already a member? Buy points to level up faster"
-		"member_shop_title"						"Buy Member Points"
+		"member_shop_divider"					"Already a member? Buy Experience to level up faster"
+		"member_shop_title"						"Buy Member Experience"
 		"member_activate"						"Manual Activate"
 		"member_activate_tooltip"				"Activation is automatic after filling in your Friend ID. Second purchases also activate automatically."
 

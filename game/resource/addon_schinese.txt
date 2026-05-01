@@ -269,8 +269,8 @@
 		"member_platform_afdian_desc"			"国内用户推荐 · 人民币支付"
 		"member_platform_kofi"					"Ko-fi"
 		"member_platform_kofi_desc"				"海外用户推荐 · 美元支付"
-		"member_shop_divider"			"已有会员？快速提升会员等级"
-		"member_shop_title"				"购买会员积分"
+		"member_shop_divider"			"已有会员？购买会员经验快速升级"
+		"member_shop_title"				"购买会员经验"
 		"member_activate"				"手动激活"
 		"member_activate_tooltip"		"填写好友ID后将自动激活，第二次购买也将自动激活，无需手动操作"
 
