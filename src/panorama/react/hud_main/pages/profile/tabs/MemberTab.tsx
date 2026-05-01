@@ -332,7 +332,7 @@ export function MemberTab() {
   const expireDate = member?.expireDateString ?? '';
 
   const hasBaseBenefit = enable && level >= MemberLevel.NORMAL; // 普通或高级会员
-  const isPremium = false;
+  const isPremium = enable && level >= MemberLevel.PREMIUM; // 仅高级会员
   const isNormalOnly = hasBaseBenefit && !isPremium; // 仅普通会员
 
   const statusText = isPremium
