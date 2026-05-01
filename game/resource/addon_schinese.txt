@@ -264,6 +264,7 @@
 		"member_subscribe_normal_upgrade_hint"	"您当前为普通会员，购买高级会员后，剩余时长将按 0.6 倍折算为高级会员时长。"
 		"member_subscribe_afdian"		"爱发电订阅"
 		"member_subscribe_kofi"			"Ko-fi 订阅"
+		"member_subscribe_go"			"前往订阅"
 
 		///////////////////////////////////////////////////
 		//

@@ -231,24 +231,38 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
 
   return (
     <Panel className="member-subpage member-subscribe-page">
-      <Panel className="member-subscribe-area">
-        <Label className="member-subscribe-title" text={$.Localize('#member_subscribe_title')} />
-        {isNormalOnly && (
+      <Label className="member-subscribe-title" text={$.Localize('#member_subscribe_title')} />
+      {isNormalOnly && (
+        <Label
+          className="member-subscribe-upgrade-hint"
+          text={$.Localize('#member_subscribe_normal_upgrade_hint')}
+        />
+      )}
+      <Panel className="member-platform-cards">
+        {/* 爱发电 card */}
+        <Panel className="member-platform-card member-platform-card-afdian">
+          <Image className="member-platform-logo member-platform-logo-afdian" src={AFDIAN_ICON} />
           <Label
-            className="member-subscribe-upgrade-hint"
-            text={$.Localize('#member_subscribe_normal_upgrade_hint')}
+            className="member-platform-name"
+            text={$.Localize('#member_subscribe_afdian')}
           />
-        )}
-        <Panel className="member-subscribe-buttons">
-          <Button className="member-subscribe-btn member-subscribe-btn-afdian" onactivate={openUrl}>
-            <Image className="member-subscribe-icon" src={AFDIAN_ICON} />
+          <Button className="member-platform-btn" onactivate={openUrl}>
             <Label
-              className="member-subscribe-btn-label"
-              text={$.Localize('#member_subscribe_afdian')}
+              className="member-platform-btn-label"
+              text={$.Localize('#member_subscribe_go')}
             />
           </Button>
-          <Button className="member-subscribe-btn member-subscribe-btn-kofi" onactivate={openUrl}>
-            <Image className="member-subscribe-kofi-logo" src={KOFI_LOGO} />
+        </Panel>
+
+        {/* Ko-fi card */}
+        <Panel className="member-platform-card member-platform-card-kofi">
+          <Image className="member-platform-logo member-platform-logo-kofi" src={KOFI_LOGO} />
+          <Label className="member-platform-name" text={$.Localize('#member_subscribe_kofi')} />
+          <Button className="member-platform-btn" onactivate={openUrl}>
+            <Label
+              className="member-platform-btn-label"
+              text={$.Localize('#member_subscribe_go')}
+            />
           </Button>
         </Panel>
       </Panel>
