@@ -45,13 +45,19 @@ function BenefitItem({ textKey, active, isPremium }: BenefitItemProps) {
 
 interface StatusPageProps {
   enable: boolean;
-  hasBaseBenefit: boolean;  // 拥有基础权益（普通或高级会员均满足）
-  isPremium: boolean;       // 高级会员专属权益是否解锁
+  hasBaseBenefit: boolean; // 拥有基础权益（普通或高级会员均满足）
+  isPremium: boolean; // 高级会员专属权益是否解锁
   statusText: string;
   expireText: string;
 }
 
-function StatusPage({ enable, hasBaseBenefit, isPremium, statusText, expireText }: StatusPageProps) {
+function StatusPage({
+  enable,
+  hasBaseBenefit,
+  isPremium,
+  statusText,
+  expireText,
+}: StatusPageProps) {
   const crownSrc = enable ? CROWN_GOLD : CROWN_GREY;
   const statusCardClass = enable
     ? 'member-status-card member-status-card-active'
@@ -88,7 +94,7 @@ function StatusPage({ enable, hasBaseBenefit, isPremium, statusText, expireText 
 // ---------- 子页2：开通会员 ----------
 
 interface SubscribePageProps {
-  isNormalOnly: boolean;  // 仅普通会员（非高级），显示折算说明
+  isNormalOnly: boolean; // 仅普通会员（非高级），显示折算说明
 }
 
 function SubscribePage({ isNormalOnly }: SubscribePageProps) {
@@ -105,20 +111,14 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
           />
         )}
         <Panel className="member-subscribe-buttons">
-          <Button
-            className="member-subscribe-btn member-subscribe-btn-afdian"
-            onactivate={openUrl}
-          >
+          <Button className="member-subscribe-btn member-subscribe-btn-afdian" onactivate={openUrl}>
             <Image className="member-subscribe-icon" src={AFDIAN_ICON} />
             <Label
               className="member-subscribe-btn-label"
               text={$.Localize('#member_subscribe_afdian')}
             />
           </Button>
-          <Button
-            className="member-subscribe-btn member-subscribe-btn-kofi"
-            onactivate={openUrl}
-          >
+          <Button className="member-subscribe-btn member-subscribe-btn-kofi" onactivate={openUrl}>
             <Image className="member-subscribe-kofi-logo" src={KOFI_LOGO} />
           </Button>
         </Panel>
@@ -139,9 +139,9 @@ export function MemberTab() {
   const level = Number(member?.level ?? 0);
   const expireDate = member?.expireDateString ?? '';
 
-  const hasBaseBenefit = enable && level >= MemberLevel.NORMAL;  // 普通或高级会员
-  const isPremium = enable && level >= MemberLevel.PREMIUM;       // 仅高级会员
-  const isNormalOnly = hasBaseBenefit && !isPremium;              // 仅普通会员
+  const hasBaseBenefit = enable && level >= MemberLevel.NORMAL; // 普通或高级会员
+  const isPremium = enable && level >= MemberLevel.PREMIUM; // 仅高级会员
+  const isNormalOnly = hasBaseBenefit && !isPremium; // 仅普通会员
 
   const statusText = isPremium
     ? $.Localize('#member_status_premium')
