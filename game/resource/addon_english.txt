@@ -231,6 +231,8 @@
 		"member_benefit_daily_exp"				"Earn 100 Member Experience daily"
 		"member_benefit_8pick"					"Ability draft expanded to 8 choices (higher chance of top-tier abilities)"
 		"member_benefit_gold_cap"				"Unlock gold cap"
+		"member_benefit_exp_normal"				"Earn 300 Member Experience on Normal membership purchase"
+		"member_benefit_exp_premium"			"Earn 1000 Member Experience on Premium membership purchase"
 		"member_steam_id"						"Dota2 Friend ID: "
 		"member_steam_id_select_hint"			"(select to copy)"
 		"member_subscribe_hint"					"First-time purchase: add your Friend ID in the note — activation is automatic. Takes effect next game."

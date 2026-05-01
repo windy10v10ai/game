@@ -260,6 +260,8 @@
 		"member_benefit_daily_exp"		"每日登录获得 100 会员经验"
 		"member_benefit_8pick"			"开局技能升级为 8 选 1（高级技能概率提升）"
 		"member_benefit_gold_cap"		"解锁金钱上限"
+		"member_benefit_exp_normal"		"购买普通会员时获得 300 会员经验"
+		"member_benefit_exp_premium"	"购买高级会员时获得 1000 会员经验"
 		"member_steam_id"				"Dota2好友ID："
 		"member_steam_id_select_hint"	"（可以选择复制）"
 		"member_subscribe_hint"			"首次购买请在备注中填写上方好友ID，将自动激活，购买后下一局生效"
