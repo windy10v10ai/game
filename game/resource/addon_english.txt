@@ -241,6 +241,7 @@
 		"profile_stat_conduct_tooltip"	"Conduct Score is out of <font color='#E8C07D'>100</font> and reflects your in-game behavior.<br>• Normal game completion: <font color='#7FD47F'>+1</font><br>• Early disconnect: <font color='#E87D7D'>-5</font><br>The following do NOT count as early disconnect:<br>• Solo games<br>• All players quit early with no one reaching end screen<br>Currently tracked only — penalties for low scores may be introduced in the future."
 
 		// Member Tab UI
+		"profile_tab_member"					"Member"
 		"member_subtab_status"					"Member Status"
 		"member_subtab_subscribe"				"Subscribe"
 		"member_status_premium"					"Premium Member"
@@ -265,7 +266,7 @@
 		"member_benefit_buff"					"Member exclusive stats: +10 Attack Damage, +5% Ability Amplification, +300 HP, +200 MP"
 		"member_steam_id"						"Dota2 Friend ID: "
 		"member_steam_id_select_hint"			"(select to copy)"
-		"member_subscribe_hint"					"Enter your Friend ID in the subscription remark — activation is automatic and takes effect next game. No need to re-enter for future subscriptions."
+		"member_subscribe_hint"					"Enter your Friend ID in the subscription remark - activation is automatic and takes effect next game. No need to re-enter for future subscriptions."
 		"member_subscribe_title"				"Subscribe Premium"
 		"member_subscribe_normal_upgrade_hint"	"You are a Normal Member. Remaining time will be converted at 0.6x when upgrading to Premium."
 		"member_platform_afdian"				"Afdian"
