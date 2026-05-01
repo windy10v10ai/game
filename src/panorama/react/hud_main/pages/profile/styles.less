@@ -376,7 +376,7 @@
 .member-subscribe-steam-id-value {
   vertical-align: center;
   font-size: @font-size-md;
-  color: @color-text-muted;
+  color: @color-gold-muted;
   background-color: #00000000;
   border: 0px solid #00000000;
   padding: 0px;
@@ -445,7 +445,23 @@
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
+}
+
+/* 平台描述行 */
+.member-platform-desc {
+  horizontal-align: center;
+  text-align: center;
+  font-size: @font-size-sm;
+  margin-bottom: 10px;
+}
+
+.member-platform-desc-cn {
+  color: #946ce6;
+}
+
+.member-platform-desc-intl {
+  color: #29abe0;
 }
 
 /* 按钮通用 */
@@ -453,10 +469,10 @@
   horizontal-align: center;
   width: fit-children;
   min-width: 200px;
-  height: 34px;
+  height: 42px;
   padding: 0px 16px;
   border-radius: @radius-md;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   transition-property: brightness;
   transition-duration: @transition-fast;
   transition-timing-function: ease-out;
@@ -487,8 +503,8 @@
 /* 手动激活行（链接 + ? 图标） */
 .member-platform-activate-row {
   flow-children: right;
-  horizontal-align: center;
-  margin-top: 6px;
+  horizontal-align: right;
+  margin-top: 12px;
   height: fit-children;
 }
 

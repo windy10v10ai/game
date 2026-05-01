@@ -285,10 +285,6 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
           />
         </Panel>
         <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
-        <Label
-          className="member-subscribe-hint"
-          text={$.Localize('#member_subscribe_effect_hint')}
-        />
         {isNormalOnly && (
           <Label
             className="member-subscribe-upgrade-hint"
@@ -303,6 +299,7 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
         <Panel className="member-platform-card member-platform-card-afdian">
           <Image className="member-platform-logo" src={AFDIAN_ICON} />
           <Label className="member-platform-name" text={$.Localize('#member_platform_afdian')} />
+          <Label className="member-platform-desc member-platform-desc-cn" text={$.Localize('#member_platform_afdian_desc')} />
           <Button
             className="member-platform-btn member-platform-btn-subscribe"
             onactivate={openUrl(GetAfdianSubscribeUrl())}
@@ -325,6 +322,7 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
         <Panel className="member-platform-card member-platform-card-kofi">
           <Image className="member-platform-logo" src={KOFI_LOGO} />
           <Label className="member-platform-name" text={$.Localize('#member_platform_kofi')} />
+          <Label className="member-platform-desc member-platform-desc-intl" text={$.Localize('#member_platform_kofi_desc')} />
           <Button
             className="member-platform-btn member-platform-btn-subscribe"
             onactivate={openUrl(KOFI_SUBSCRIBE_URL)}
