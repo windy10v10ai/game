@@ -129,6 +129,7 @@ interface StatusPageProps {
   enable: boolean;
   hasBaseBenefit: boolean; // 普通或高级会员
   isPremium: boolean; // 仅高级会员
+  isNormalOnly: boolean; // 仅普通会员
   statusText: string;
   expireText: string;
   onOpenSubscribe: () => void;
@@ -138,6 +139,7 @@ function StatusPage({
   enable,
   hasBaseBenefit,
   isPremium,
+  isNormalOnly,
   statusText,
   expireText,
   onOpenSubscribe,
@@ -163,26 +165,52 @@ function StatusPage({
       </ClickablePanel>
 
       <Panel className="member-benefits-container">
-        <BenefitSection
-          titleKey="#member_benefit_title_base"
-          active={hasBaseBenefit}
-          onActivate={onOpenSubscribe}
-        >
-          <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
-          <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
-          <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
-          <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
-        </BenefitSection>
+        {isNormalOnly ? (
+          <>
+            <BenefitSection
+              titleKey="#member_benefit_title_base"
+              active={hasBaseBenefit}
+              onActivate={onOpenSubscribe}
+            >
+              <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
+              <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
+              <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
+              <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
+            </BenefitSection>
 
-        <BenefitSection
-          titleKey="#member_benefit_title_premium"
-          active={isPremium}
-          isPremium
-          onActivate={onOpenSubscribe}
-        >
-          <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
-          <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
-        </BenefitSection>
+            <BenefitSection
+              titleKey="#member_benefit_title_premium"
+              active={isPremium}
+              isPremium
+              onActivate={onOpenSubscribe}
+            >
+              <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
+              <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
+            </BenefitSection>
+          </>
+        ) : (
+          <ClickablePanel
+            className={
+              hasBaseBenefit
+                ? 'member-benefit-section'
+                : 'member-benefit-section member-benefit-section-clickable'
+            }
+            clickable={!hasBaseBenefit}
+            tooltipKey="#member_benefit_click_hint_base"
+            onActivate={onOpenSubscribe}
+          >
+            <Label
+              className="member-section-title"
+              text={$.Localize('#member_benefit_title_all')}
+            />
+            <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
+            <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
+            <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
+            <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
+            <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
+            <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
+          </ClickablePanel>
+        )}
       </Panel>
     </Panel>
   );
@@ -263,6 +291,7 @@ export function MemberTab() {
             enable={enable}
             hasBaseBenefit={hasBaseBenefit}
             isPremium={isPremium}
+            isNormalOnly={isNormalOnly}
             statusText={statusText}
             expireText={expireText}
             onOpenSubscribe={() => setSubTab('subscribe')}
