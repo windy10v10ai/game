@@ -264,7 +264,7 @@ export function MemberTab() {
   const steamId = GetLocalPlayerSteamAccountID();
   const member = useNetTable('member_table', steamId);
 
-  const enable = member?.enable === false;
+  const enable = member?.enable === true;
   const level = Number(member?.level ?? 0);
   const expireDate = member?.expireDateString ?? '';
 
