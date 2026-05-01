@@ -203,7 +203,7 @@ function StatusPage({
               className={
                 isPremium
                   ? 'member-section-title member-section-title-premium'
-                  : 'member-section-title'
+                  : 'member-section-title member-section-title-inactive'
               }
               text={$.Localize('#member_benefit_title_all')}
             />
