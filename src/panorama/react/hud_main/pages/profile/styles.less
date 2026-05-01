@@ -364,72 +364,63 @@
   max-width: 90%;
 }
 
-/* 平台 card 容器：横向排列 */
-.member-platform-cards {
-  flow-children: right;
-  width: 100%;
-  height: fit-children;
-}
-
-/* 单个平台 card */
-.member-platform-card {
+/* 订阅大容器（复用 stats-card 背景） */
+.member-subscribe-area {
   .stats-card;
-  width: fill-parent-flow(1);
-  height: fit-children;
+  width: 100%;
   flow-children: down;
-  padding: 16px;
-  margin-right: 12px;
-  horizontal-align: center;
-  transition-property: brightness;
-  transition-duration: @transition-fast;
-  transition-timing-function: ease-out;
+  padding: 12px 16px;
+}
+
+/* 平台行容器：两行竖向排列 */
+.member-platform-cards {
+  width: 100%;
+  flow-children: down;
+  height: fit-children;
+}
+
+/* 单行：图标 + 平台名 + 按钮，横向排列 */
+.member-platform-row {
+  width: 100%;
+  height: 44px;
+  flow-children: right;
+  vertical-align: center;
+  border-bottom: 1px solid #ffffff11;
   &:last-child {
-    margin-right: 0px;
-  }
-  &:hover {
-    brightness: 1.15;
+    border-bottom: 0px solid #00000000;
   }
 }
 
-.member-platform-card-afdian {
-  border-color: @color-primary;
+.member-platform-row-afdian {
+  // 爱发电紫色调（无需额外覆盖，行内图标色已区分）
 }
 
-.member-platform-card-kofi {
-  border-color: #29abe0;
+.member-platform-row-kofi {
+  // Ko-fi 蓝色调
 }
 
-/* logo */
-.member-platform-logo {
-  horizontal-align: center;
-  margin-bottom: 10px;
-}
-
-.member-platform-logo-afdian {
-  width: 48px;
-  height: 48px;
-}
-
-.member-platform-logo-kofi {
-  height: 32px;
-  width: fit-children;
+/* 平台小图标 */
+.member-platform-icon {
+  width: 28px;
+  height: 28px;
+  vertical-align: center;
+  margin-right: 10px;
 }
 
 /* 平台名 */
 .member-platform-name {
-  horizontal-align: center;
-  text-align: center;
+  vertical-align: center;
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
-  margin-bottom: 12px;
+  width: fill-parent-flow(1);
 }
 
 /* 跳转按钮 */
 .member-platform-btn {
-  horizontal-align: center;
-  height: 32px;
-  padding: 0px 20px;
+  vertical-align: center;
+  height: 28px;
+  padding: 0px 16px;
   border-radius: @radius-md;
   background-color: #ffffff22;
   border: 1px solid #ffffff44;
@@ -442,8 +433,8 @@
 }
 
 .member-platform-btn-label {
-  horizontal-align: center;
   vertical-align: center;
+  horizontal-align: center;
   color: @color-text;
   font-size: @font-size-md;
   font-weight: bold;
