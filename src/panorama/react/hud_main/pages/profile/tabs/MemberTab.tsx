@@ -183,6 +183,7 @@ function StatusPage({
               <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
               <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
               <BenefitItem textKey="#member_benefit_exp_normal" active={hasBaseBenefit} />
+              <BenefitItem textKey="#member_benefit_buff" active={hasBaseBenefit} />
             </BenefitSection>
 
             <BenefitSection
@@ -219,6 +220,7 @@ function StatusPage({
             <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
             <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
             <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
+            <BenefitItem textKey="#member_benefit_buff" active={hasBaseBenefit} />
             <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
             <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
             <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
