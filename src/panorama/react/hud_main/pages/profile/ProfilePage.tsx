@@ -4,7 +4,7 @@ import { useNavigation } from '../../store/NavigationContext';
 import { StatsTab } from './tabs/StatsTab';
 import { MemberTab } from './tabs/member';
 
-type ProfileTabId = 'stats' | 'member';
+export type ProfileTabId = 'stats' | 'member';
 
 interface ProfilePageProps {
   initialTab?: ProfileTabId;
