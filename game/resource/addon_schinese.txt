@@ -240,6 +240,28 @@
 		"profile_stat_coming_soon"		"更多功能开发中"
 		"profile_stat_conduct_tooltip"	"行为分满分 <font color='#E8C07D'>100</font> 分，反映你的游戏行为。<br>• 正常完成一局 <font color='#7FD47F'>+1</font> 分<br>• 秒退一局 <font color='#E87D7D'>-5</font> 分<br>以下情况不计为秒退：<br>• 单人游戏<br>• 全体玩家均提前退出且无人进入结算<br>目前仅做统计，未来行为分过低可能触发惩罚机制。"
 
+		"profile_tab_member"			"会员"
+		"member_subtab_status"			"会员状态"
+		"member_subtab_subscribe"		"开通会员"
+		"member_status_premium"			"高级会员"
+		"member_status_normal"			"普通会员"
+		"member_status_none"			"未开通"
+		"member_status_expired"			"已过期"
+		"member_expire_date"			"有效期至：{expireDate}"
+		"member_expired_date"			"已于 {expireDate} 到期"
+		"member_benefit_title_base"		"基础会员权益"
+		"member_benefit_title_premium"	"高级会员专属权益"
+		"member_benefit_revive"			"复活时间减少 5 秒"
+		"member_benefit_buyback"		"买活 CD 降至 2 分钟"
+		"member_benefit_reroll"			"开局抽选的主动/被动技能各可刷新一次"
+		"member_benefit_daily_exp"		"每日登录获得 100 会员经验"
+		"member_benefit_8pick"			"开局技能升级为 8 选 1（高级技能概率提升）"
+		"member_benefit_gold_cap"		"解锁金钱上限"
+		"member_subscribe_title"		"开通高级会员"
+		"member_subscribe_normal_upgrade_hint"	"您当前为普通会员，购买高级会员后，剩余时长将按 0.6 倍折算为高级会员时长。"
+		"member_subscribe_afdian"		"爱发电订阅"
+		"member_subscribe_kofi"			"Ko-fi 订阅"
+
 		///////////////////////////////////////////////////
 		//
 		//			Creep / Tower

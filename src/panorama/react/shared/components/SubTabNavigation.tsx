@@ -10,46 +10,46 @@ interface SubTabNavigationProps<T = string> {
 }
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
-  width: '30%',
+  width: '18%',
   flowChildren: 'down',
-  marginRight: '10px',
-  borderRadius: '8px',
+  marginRight: '12px',
   verticalAlign: 'top',
-  padding: '8px',
+  padding: '4px',
 };
 
 const subTabButtonStyle: Partial<VCSSStyleDeclaration> = {
   width: '100%',
-  height: '50px',
-  backgroundColor: '#2a2a3e',
-  borderRadius: '8px',
-  margin: '4px 0px',
-  flowChildren: 'down',
-  transitionDuration: '0.25s',
-  transitionTimingFunction: 'ease-in-out',
+  height: '44px',
+  backgroundColor: '#00000000',
+  border: '1px solid #e0caa522',
+  borderRadius: '6px',
+  marginBottom: '6px',
+  transitionProperty: 'background-color, border-color',
+  transitionDuration: '0.15s',
+  transitionTimingFunction: 'ease-out',
   backgroundImage: 'none',
 };
 
 const subTabLabelStyle: Partial<VCSSStyleDeclaration> = {
-  width: '100%',
-  height: '100%',
-  padding: '15px 0px',
-  fontSize: '20px',
-  fontWeight: 'bold',
-  color: '#80A1BA',
-  textAlign: 'center',
+  horizontalAlign: 'center',
   verticalAlign: 'center',
+  textAlign: 'center',
+  fontSize: '18px',
+  fontWeight: 'bold',
+  color: '#ffffff90',
+  textOverflow: 'shrink',
 };
 
 const subTabButtonActiveStyle: Partial<VCSSStyleDeclaration> = {
   ...subTabButtonStyle,
-  backgroundColor: '#80A1BA',
-  transform: 'translateX(4px)',
+  backgroundColor: '#daa52022',
+  border: '1px solid #daa520',
 };
 
 const subTabLabelActiveStyle: Partial<VCSSStyleDeclaration> = {
   ...subTabLabelStyle,
-  color: '#ffffff',
+  color: '#daa520',
+  textShadow: '2px 2px 8px #000000aa',
 };
 
 /**

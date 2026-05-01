@@ -26,14 +26,15 @@
 }
 
 .profile-modal .tab-nav-container {
-  max-width: 400px;
+  max-width: 600px;
   border-bottom: 0px solid #00000000;
 }
 
 /* ========== 内容区域 ========== */
 .content-area {
   width: 100%;
-  height: 390px;
+  height: fit-children;
+  min-height: 420px;
   padding: 20px;
   flow-children: down;
 }
@@ -55,7 +56,8 @@
   //   color-stop(0.6, #00000099),
   //   to(#1c112e88)
   // );
-  background-color: gradient(linear, 0% 0%, 80% 0%, from(#2a2a2a), to(#111111));
+  // background-color: gradient(linear, 0% 0%, 80% 0%, from(#2a2a2a), to(#111111));
+  background-image: url("s2r://panorama/images/backgrounds/gallery_background_png.vtex");
   border: 1px solid @color-gold-soft;
   border-radius: @radius-lg;
 }
@@ -167,5 +169,222 @@
   font-size: 22px;
   color: @color-text-muted;
   text-align: center;
+  vertical-align: center;
+}
+
+/* ========== Member Tab ========== */
+
+.member-layout {
+  width: 100%;
+  height: fit-children;
+  flow-children: right;
+}
+
+/* 右侧内容区 */
+.member-content {
+  width: fill-parent-flow(1);
+  height: fit-children;
+  flow-children: down;
+}
+
+/* 子页公共容器 */
+.member-subpage {
+  width: 100%;
+  height: fit-children;
+  flow-children: down;
+}
+
+/* Section A: 状态卡 */
+.member-status-card {
+  width: 100%;
+  height: 76px;
+  flow-children: right;
+  padding: 12px 16px;
+  border-radius: @radius-lg;
+  border: 1px solid @color-gold-soft;
+  margin-bottom: 14px;
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#2a2a2a), to(#111111));
+}
+
+.member-status-card-active {
+  border-color: @color-gold-muted;
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#3a2800), to(#1a1400));
+}
+
+.member-status-card-inactive {
+  opacity: 0.7;
+}
+
+.member-crown-icon {
+  width: 48px;
+  height: 48px;
+  vertical-align: center;
+  margin-right: 16px;
+}
+
+.member-status-info {
+  flow-children: down;
+  vertical-align: center;
+}
+
+.member-status-title {
+  font-size: @font-size-xl;
+  font-weight: bold;
+  color: @color-gold;
+}
+
+.member-expire-label {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  margin-top: 4px;
+}
+
+/* Section B: 权益列表 */
+.member-benefits-container {
+  .stats-card;
+  width: 100%;
+  flow-children: down;
+  padding: 8px 16px;
+  margin-bottom: 10px;
+}
+
+.member-section-title {
+  font-size: @font-size-sm;
+  font-weight: bold;
+  color: @color-gold-muted;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+
+.member-section-title-premium {
+  color: @color-gold;
+}
+
+.member-benefit-item {
+  width: 100%;
+  height: 28px;
+  flow-children: right;
+  padding: 0px 4px;
+  border-bottom: 1px solid #ffffff0a;
+}
+
+.member-benefit-item-inactive {
+  opacity: 0.35;
+}
+
+.benefit-icon-active {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background-color: @color-gold;
+  vertical-align: center;
+  margin-right: 10px;
+}
+
+.benefit-icon-inactive {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background-color: #555555;
+  vertical-align: center;
+  margin-right: 10px;
+}
+
+.benefit-text {
+  font-size: @font-size-md;
+  color: @color-text;
+  vertical-align: center;
+  width: fill-parent-flow(1);
+}
+
+.benefit-premium-badge {
+  font-size: @font-size-sm;
+  color: @color-gold;
+  background-color: #3a280088;
+  border: 1px solid @color-gold-soft;
+  border-radius: @radius-sm;
+  padding: 1px 6px;
+  vertical-align: center;
+  margin-left: 8px;
+}
+
+/* 订阅子页 */
+.member-subscribe-page {
+  vertical-align: center;
+}
+
+/* Section C: 订阅区 */
+.member-subscribe-area {
+  width: 100%;
+  flow-children: down;
+  padding: 12px 16px;
+  border-radius: @radius-lg;
+  border: 1px solid @color-primary;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#0f033a44), to(#1a083622));
+}
+
+.member-subscribe-title {
+  font-size: @font-size-lg;
+  font-weight: bold;
+  color: @color-gold;
+  margin-bottom: 10px;
+}
+
+.member-subscribe-upgrade-hint {
+  font-size: @font-size-sm;
+  color: @color-gold-value;
+  margin-bottom: 12px;
+  max-width: 480px;
+}
+
+.member-subscribe-buttons {
+  flow-children: right;
+  width: 100%;
+}
+
+.member-subscribe-btn {
+  height: 40px;
+  padding: 0px 18px;
+  border-radius: @radius-md;
+  flow-children: right;
+  margin-right: 12px;
+  vertical-align: center;
+  horizontal-align: center;
+  transition-property: brightness;
+  transition-duration: @transition-fast;
+  transition-timing-function: ease-out;
+  &:hover {
+    brightness: 1.25;
+  }
+}
+
+.member-subscribe-btn-afdian {
+  background-color: @color-primary;
+  border: 1px solid #7a6fd0;
+}
+
+.member-subscribe-btn-kofi {
+  background-color: #29abe0;
+  border: 1px solid #1a8ab8;
+}
+
+.member-subscribe-icon {
+  width: 22px;
+  height: 22px;
+  vertical-align: center;
+  margin-right: 8px;
+}
+
+.member-subscribe-kofi-logo {
+  height: 24px;
+  width: fit-children;
+  vertical-align: center;
+}
+
+.member-subscribe-btn-label {
+  color: @color-text;
+  font-size: @font-size-md;
+  font-weight: bold;
   vertical-align: center;
 }

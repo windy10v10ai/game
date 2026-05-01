@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { TabNavigation } from '../../../shared/components';
 import { useNavigation } from '../../store/NavigationContext';
 import { StatsTab } from './tabs/StatsTab';
+import { MemberTab } from './tabs/MemberTab';
 
-type ProfileTabId = 'stats';
+type ProfileTabId = 'stats' | 'member';
 
 interface ProfilePageProps {
   initialTab?: ProfileTabId;
@@ -11,6 +12,7 @@ interface ProfilePageProps {
 
 const PROFILE_TABS: { id: ProfileTabId; label: string }[] = [
   { id: 'stats', label: $.Localize('#profile_tab_stats') },
+  { id: 'member', label: $.Localize('#profile_tab_member') },
 ];
 
 export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
@@ -28,7 +30,10 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
         <TabNavigation tabs={PROFILE_TABS} currentTab={currentTab} onTabChange={setCurrentTab} />
       </Panel>
 
-      <Panel className="content-area">{currentTab === 'stats' && <StatsTab />}</Panel>
+      <Panel className="content-area">
+        {currentTab === 'stats' && <StatsTab />}
+        {currentTab === 'member' && <MemberTab />}
+      </Panel>
     </Panel>
   );
 }
