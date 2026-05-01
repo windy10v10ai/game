@@ -74,14 +74,25 @@ function StatusPage({
       </Panel>
 
       <Panel className="member-benefits-container">
-        <Label className="member-section-title" text={$.Localize('#member_benefit_title_base')} />
+        <Label
+          className={
+            hasBaseBenefit
+              ? 'member-section-title'
+              : 'member-section-title member-section-title-inactive'
+          }
+          text={$.Localize('#member_benefit_title_base')}
+        />
         <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
         <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
         <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
         <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
 
         <Label
-          className="member-section-title member-section-title-premium"
+          className={
+            isPremium
+              ? 'member-section-title member-section-title-premium'
+              : 'member-section-title member-section-title-premium member-section-title-inactive'
+          }
           text={$.Localize('#member_benefit_title_premium')}
         />
         <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
