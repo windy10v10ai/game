@@ -3006,8 +3006,8 @@
 		{
 			"damage"
 			{
-				"value"									"150 220 290 360 430"
-				"special_bonus_unique_pudge_7"			"+170"	// +150
+				"value"									"160 240 320 400 480"	// 150 220 290 360 加强
+				"special_bonus_unique_pudge_7"			"+220"	// +150
 			}
 			"hook_speed"
 			{
