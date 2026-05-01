@@ -20,8 +20,8 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
 const subTabButtonStyle: Partial<VCSSStyleDeclaration> = {
   width: '100%',
   height: '44px',
-  backgroundColor: '#00000000',
-  border: '1px solid #e0caa522',
+  backgroundColor: '#00000055',
+  border: '1px solid #e0caa544',
   borderRadius: '6px',
   marginBottom: '6px',
   transitionProperty: 'background-color, border-color',
@@ -36,7 +36,7 @@ const subTabLabelStyle: Partial<VCSSStyleDeclaration> = {
   textAlign: 'center',
   fontSize: '18px',
   fontWeight: 'bold',
-  color: '#ffffff90',
+  color: '#ffffffcc',
   textOverflow: 'shrink',
 };
 
