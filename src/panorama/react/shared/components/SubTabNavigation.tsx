@@ -14,7 +14,7 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   flowChildren: 'down',
   marginRight: '12px',
   verticalAlign: 'top',
-  padding: '4px',
+  padding: '0px',
 };
 
 const subTabButtonStyle: Partial<VCSSStyleDeclaration> = {
