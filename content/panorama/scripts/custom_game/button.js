@@ -4,34 +4,6 @@
     Thanks to Angel Arena Black Star.
  */
 
-function LoadPatreonButton() {
-  $.Msg('button.js LoadPatreonButton');
-  const hContainer = FindDotaHudElement('ButtonBar');
-  let sString = 'Support the game on Patreon!';
-  sString = sString + '<br/>Unlock new heroes, and more benefit!';
-  // let sString = bSupporter ? 'Support the game and enjoy Patreon\'s perks!' : '<font color="#ffa1f4">Thank you for your support ♥!</font><br><br>&#9;&#160;&#160;&#160;&#160;&#160;Status: <font color="'+tiers[hStats.donator][1]+'">'+hStats.donator+'</font>';
-
-  if (hContainer) {
-    const hPatreonButton =
-      hContainer.FindChild('JoinPatreon') || $.CreatePanel('Button', hContainer, 'JoinPatreon');
-
-    hPatreonButton.style.backgroundImage = `url('file://{images}/custom_game/patreon_small.png')`;
-    hPatreonButton.style.backgroundSize = '100% 100%';
-
-    hPatreonButton.SetPanelEvent('onactivate', () => {
-      $.DispatchEvent('ExternalBrowserGoToURL', 'https://www.patreon.com/windy10v10');
-    });
-
-    hPatreonButton.SetPanelEvent('onmouseover', () => {
-      $.DispatchEvent('DOTAShowTextTooltip', hPatreonButton, sString);
-    });
-
-    hPatreonButton.SetPanelEvent('onmouseout', () => {
-      $.DispatchEvent('DOTAHideTextTooltip');
-    });
-  }
-}
-
 function LoadAfdianButton() {
   $.Msg('button.js LoadAfdianButton');
   const hContainer = FindDotaHudElement('ButtonBar');
@@ -66,16 +38,6 @@ function LoadMemberButton(member) {
   const hContainer = FindDotaHudElement('ButtonBar');
 
   if (hContainer) {
-    // let hAfdianButton = hContainer.FindChild('JoinAfdian')
-    // let hPatreonButton = hContainer.FindChild('JoinPatreon')
-    // remove hAfidianButton if hPatreonButton is found
-    // if (hAfdianButton) {
-    //     hAfdianButton.DeleteAsync(0)
-    // }
-    // if (hPatreonButton) {
-    //     hPatreonButton.DeleteAsync(0)
-    // }
-
     const hMemberButton =
       hContainer.FindChild('memberButton') || $.CreatePanel('Button', hContainer, 'memberButton');
 
@@ -115,6 +77,7 @@ function LoadMemberButton(member) {
   }
 }
 
+// TODO 迁移到React
 function LoadDiscordButton() {
   $.Msg('button.js LoadDiscordButton');
   const hContainer = FindDotaHudElement('ButtonBar');
@@ -147,7 +110,7 @@ function LoadDiscordButton() {
 (function () {
   $.Msg('button.js loaded');
 
-  $.Schedule(1, () => {
-    LoadMemberButton(CustomNetTables.GetTableValue('member_table', GetSteamAccountID()));
-  });
+  // $.Schedule(1, () => {
+  //   LoadMemberButton(CustomNetTables.GetTableValue('member_table', GetSteamAccountID()));
+  // });
 })();
