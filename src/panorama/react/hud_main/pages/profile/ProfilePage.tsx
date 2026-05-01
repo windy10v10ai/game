@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { TabNavigation } from '../../../shared/components';
 import { useNavigation } from '../../store/NavigationContext';
 import { StatsTab } from './tabs/StatsTab';
-import { MemberTab } from './tabs/MemberTab';
+import { MemberTab } from './tabs/member';
 
 type ProfileTabId = 'stats' | 'member';
 

@@ -96,7 +96,22 @@ src/
 │   │       ├── router/           # PageRouter + PageId 类型
 │   │       ├── store/            # NavigationContext / DialogContext
 │   │       ├── components/       # 常驻入口按钮等容器级组件
-│   │       ├── pages/{home,shop} # 各页面（home 含 Stats/Achievements/Settings）
+│   │       ├── pages/            # 各页面（home / shop / profile / ...）
+│   │       │   └── profile/      # 页面 = 文件夹；样式与拥有者同级
+│   │       │       ├── ProfilePage.tsx
+│   │       │       ├── styles.less        # 聚合入口（layout.xml 引用此文件）
+│   │       │       ├── layout.less        # 页面外框 / Tab 导航 / 内容区
+│   │       │       ├── stats.less         # Stats Tab + 占位样式
+│   │       │       └── tabs/
+│   │       │           ├── StatsTab.tsx   # 单文件 tab 直接放 tabs/
+│   │       │           └── member/        # 复杂 tab 拆为子目录，自带 styles.less
+│   │       │               ├── index.ts
+│   │       │               ├── MemberTab.tsx
+│   │       │               ├── StatusPage.tsx
+│   │       │               ├── SubscribePage.tsx
+│   │       │               ├── ClickablePanel.tsx
+│   │       │               ├── constants.ts
+│   │       │               └── styles.less
 │   │       └── dialogs/          # ConfirmDialog + useConfirm
 │   ├── utils/             # 全局 utils（@utils/* 别名指向这里）
 │   └── webpack.{dev,prod}.js
@@ -213,6 +228,14 @@ GameEvents.SendEventClientSide('hud_open_page', { page: 'home' });
 - 通用 hooks（net table 订阅、客户端事件订阅）：`src/panorama/react/shared/hooks/`
 - 设计 token / 通用 class（`.btn-primary` `.modal-panel` 等）：`src/panorama/react/shared/styles/`，通过 `<include src="../shared/styles/index.less" />` 引入到任意 entry 的 layout.xml
 - 路径别名 `@utils/*` 指向 `src/panorama/utils/`（**不是** `react/utils`）
+
+**hud_main 页面拆分约定**（避免单文件膨胀）：
+
+- 每个页面是 `pages/<name>/` 一个文件夹，至少包含 `<Name>Page.tsx` 和 `styles.less`（聚合入口）
+- 简单 tab：`tabs/<TabName>.tsx` 单文件，样式归并到页面级 less 中（如 `pages/profile/stats.less`）
+- 复杂 tab（>200 行 / 含多个子页 / 多个内部组件）：拆为 `tabs/<tabName>/` 子目录，按职责分文件（顶层 `Tab.tsx` + 各 `*Page.tsx` + 共享 `*.tsx` + `constants.ts` + 自带 `styles.less`），通过 `index.ts` 重新导出
+- **样式与拥有者同级**：页面级样式（外框/导航/单文件 tab）直接放页面根目录；复杂 tab 的样式跟随其子目录。页面根 `styles.less` 仅用 `@import` 聚合，layout.xml 仍只引用此一个文件
+- 仅当前 tab 用到的子组件留在该 tab 文件夹内（不下沉到 `shared/`）；跨 tab 复用才考虑提到 `shared/`
 
 ### 修改 Panorama UI 时:
 
