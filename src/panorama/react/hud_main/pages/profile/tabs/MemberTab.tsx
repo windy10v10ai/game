@@ -242,10 +242,7 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
         {/* 爱发电 card */}
         <Panel className="member-platform-card member-platform-card-afdian">
           <Image className="member-platform-logo member-platform-logo-afdian" src={AFDIAN_ICON} />
-          <Label
-            className="member-platform-name"
-            text={$.Localize('#member_subscribe_afdian')}
-          />
+          <Label className="member-platform-name" text={$.Localize('#member_subscribe_afdian')} />
           <Button className="member-platform-btn" onactivate={openUrl}>
             <Label
               className="member-platform-btn-label"
