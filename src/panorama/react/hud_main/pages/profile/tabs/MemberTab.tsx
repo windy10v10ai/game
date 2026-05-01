@@ -234,66 +234,85 @@ interface SubscribePageProps {
 
 const openUrl = (url: string) => () => $.DispatchEvent('ExternalBrowserGoToURL', url);
 
+const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
+const KOFI_ACTIVATE_URL = 'https://windy10v10ai.com/regist/kofi';
+
 function SubscribePage({ isNormalOnly }: SubscribePageProps) {
+  const steamId = GetLocalPlayerSteamAccountID();
+
   return (
     <Panel className="member-subpage member-subscribe-page">
-      <Label className="member-subscribe-title" text={$.Localize('#member_subscribe_title')} />
-      {isNormalOnly && (
+      {/* 共同提示区 */}
+      <Panel className="member-subscribe-info">
         <Label
-          className="member-subscribe-upgrade-hint"
-          text={$.Localize('#member_subscribe_normal_upgrade_hint')}
+          className="member-subscribe-steam-id"
+          text={$.Localize('#member_steam_id').replace('{steamId}', String(steamId))}
         />
-      )}
-      <Panel className="member-subscribe-area">
-        <Panel className="member-platform-cards">
-          <Panel className="member-platform-row">
-            <Image className="member-platform-icon" src={AFDIAN_ICON} />
-            <Label className="member-platform-name" text={$.Localize('#member_subscribe_afdian')} />
-            <Button className="member-platform-btn" onactivate={openUrl(GetAfdianSubscribeUrl())}>
-              <Label
-                className="member-platform-btn-label"
-                text={$.Localize('#member_subscribe_go')}
-              />
-            </Button>
-          </Panel>
-
-          <Panel className="member-platform-row">
-            <Image className="member-platform-icon" src={KOFI_LOGO} />
-            <Label className="member-platform-name" text={$.Localize('#member_subscribe_kofi')} />
-            <Button className="member-platform-btn" onactivate={openUrl(KOFI_SUBSCRIBE_URL)}>
-              <Label
-                className="member-platform-btn-label"
-                text={$.Localize('#member_subscribe_go')}
-              />
-            </Button>
-          </Panel>
-        </Panel>
+        <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
+        <Label
+          className="member-subscribe-hint"
+          text={$.Localize('#member_subscribe_effect_hint')}
+        />
+        {isNormalOnly && (
+          <Label
+            className="member-subscribe-upgrade-hint"
+            text={$.Localize('#member_subscribe_normal_upgrade_hint')}
+          />
+        )}
       </Panel>
 
-      <Label className="member-subscribe-title" text={$.Localize('#member_shop_title')} />
-      <Panel className="member-subscribe-area">
-        <Panel className="member-platform-cards">
-          <Panel className="member-platform-row">
-            <Image className="member-platform-icon" src={AFDIAN_ICON} />
-            <Label className="member-platform-name" text={$.Localize('#member_shop_afdian')} />
-            <Button className="member-platform-btn" onactivate={openUrl(AFDIAN_SHOP_URL)}>
-              <Label
-                className="member-platform-btn-label"
-                text={$.Localize('#member_subscribe_go')}
-              />
-            </Button>
-          </Panel>
+      {/* 两平台并排 */}
+      <Panel className="member-platform-cards">
+        {/* 爱发电 */}
+        <Panel className="member-platform-card member-platform-card-afdian">
+          <Image className="member-platform-logo" src={AFDIAN_ICON} />
+          <Label className="member-platform-name" text={$.Localize('#member_platform_afdian')} />
+          <Button
+            className="member-platform-btn member-platform-btn-subscribe"
+            onactivate={openUrl(GetAfdianSubscribeUrl())}
+          >
+            <Label
+              className="member-platform-btn-label"
+              text={$.Localize('#member_subscribe_title')}
+            />
+          </Button>
+          <Button
+            className="member-platform-btn member-platform-btn-shop"
+            onactivate={openUrl(AFDIAN_SHOP_URL)}
+          >
+            <Label className="member-platform-btn-label" text={$.Localize('#member_shop_title')} />
+          </Button>
+          <Label
+            className="member-platform-activate"
+            text={$.Localize('#member_activate')}
+            onactivate={openUrl(AFDIAN_ACTIVATE_URL)}
+          />
+        </Panel>
 
-          <Panel className="member-platform-row">
-            <Image className="member-platform-icon" src={KOFI_LOGO} />
-            <Label className="member-platform-name" text={$.Localize('#member_shop_kofi')} />
-            <Button className="member-platform-btn" onactivate={openUrl(KOFI_SHOP_URL)}>
-              <Label
-                className="member-platform-btn-label"
-                text={$.Localize('#member_subscribe_go')}
-              />
-            </Button>
-          </Panel>
+        {/* Ko-fi */}
+        <Panel className="member-platform-card member-platform-card-kofi">
+          <Image className="member-platform-logo" src={KOFI_LOGO} />
+          <Label className="member-platform-name" text={$.Localize('#member_platform_kofi')} />
+          <Button
+            className="member-platform-btn member-platform-btn-subscribe"
+            onactivate={openUrl(KOFI_SUBSCRIBE_URL)}
+          >
+            <Label
+              className="member-platform-btn-label"
+              text={$.Localize('#member_subscribe_title')}
+            />
+          </Button>
+          <Button
+            className="member-platform-btn member-platform-btn-shop"
+            onactivate={openUrl(KOFI_SHOP_URL)}
+          >
+            <Label className="member-platform-btn-label" text={$.Localize('#member_shop_title')} />
+          </Button>
+          <Label
+            className="member-platform-activate"
+            text={$.Localize('#member_activate')}
+            onactivate={openUrl(KOFI_ACTIVATE_URL)}
+          />
         </Panel>
       </Panel>
     </Panel>
@@ -313,7 +332,7 @@ export function MemberTab() {
   const expireDate = member?.expireDateString ?? '';
 
   const hasBaseBenefit = enable && level >= MemberLevel.NORMAL; // 普通或高级会员
-  const isPremium = enable && level >= MemberLevel.PREMIUM; // 仅高级会员
+  const isPremium = false;
   const isNormalOnly = hasBaseBenefit && !isPremium; // 仅普通会员
 
   const statusText = isPremium

@@ -350,96 +350,122 @@
   flow-children: down;
 }
 
-.member-subscribe-title {
-  font-size: @font-size-lg;
-  font-weight: bold;
-  color: @color-gold;
-  margin-top: 14px;
-  margin-bottom: 10px;
-  &:first-child {
-    margin-top: 0px;
-  }
-}
-
-.member-subscribe-upgrade-hint {
-  font-size: @font-size-md;
-  color: @color-safe;
-  margin-bottom: 12px;
-  max-width: 90%;
-}
-
-/* 订阅大容器（复用 stats-card 背景） */
-.member-subscribe-area {
+/* 共同提示区 */
+.member-subscribe-info {
   .stats-card;
   width: 100%;
   flow-children: down;
-  padding: 12px 16px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
 }
 
-/* 平台行容器：两行竖向排列 */
+.member-subscribe-steam-id {
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-gold;
+  margin-bottom: 4px;
+}
+
+.member-subscribe-hint {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  margin-bottom: 2px;
+}
+
+.member-subscribe-upgrade-hint {
+  font-size: @font-size-sm;
+  color: @color-safe;
+  margin-top: 4px;
+}
+
+/* 两平台并排容器 */
 .member-platform-cards {
   width: 100%;
-  flow-children: down;
+  flow-children: right;
   height: fit-children;
 }
 
-/* 单行：图标 + 平台名 + 按钮，横向排列 */
-.member-platform-row {
-  width: 100%;
-  height: 44px;
-  flow-children: right;
-  vertical-align: center;
-  border-bottom: 1px solid #ffffff11;
-  &:last-child {
-    border-bottom: 0px solid #00000000;
+/* 单个平台 card */
+.member-platform-card {
+  .stats-card;
+  width: fill-parent-flow(1);
+  height: fit-children;
+  flow-children: down;
+  padding: 16px 14px;
+  horizontal-align: center;
+  &:first-child {
+    margin-right: 10px;
   }
 }
 
-.member-platform-row-afdian {
-  // 爱发电紫色调（无需额外覆盖，行内图标色已区分）
+.member-platform-card-afdian {
+  border-color: @color-primary;
 }
 
-.member-platform-row-kofi {
-  // Ko-fi 蓝色调
+.member-platform-card-kofi {
+  border-color: #29abe0;
 }
 
-/* 平台小图标 */
-.member-platform-icon {
-  width: 28px;
-  height: 28px;
-  vertical-align: center;
-  margin-right: 10px;
+/* 平台图标 */
+.member-platform-logo {
+  width: 40px;
+  height: 40px;
+  horizontal-align: center;
+  margin-bottom: 8px;
 }
 
 /* 平台名 */
 .member-platform-name {
-  vertical-align: center;
+  horizontal-align: center;
+  text-align: center;
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
-  width: fill-parent-flow(1);
+  margin-bottom: 12px;
 }
 
-/* 跳转按钮 */
+/* 按钮通用 */
 .member-platform-btn {
-  vertical-align: center;
-  height: 28px;
-  padding: 0px 16px;
+  horizontal-align: center;
+  width: 100%;
+  height: 32px;
   border-radius: @radius-md;
-  background-color: #ffffff22;
-  border: 1px solid #ffffff44;
-  transition-property: background-color;
+  margin-bottom: 6px;
+  transition-property: brightness;
   transition-duration: @transition-fast;
   transition-timing-function: ease-out;
   &:hover {
-    background-color: #ffffff44;
+    brightness: 1.2;
   }
 }
 
+.member-platform-btn-subscribe {
+  background-color: @color-primary;
+  border: 1px solid #7a6fd0;
+}
+
+.member-platform-btn-shop {
+  background-color: #ffffff22;
+  border: 1px solid #ffffff44;
+}
+
 .member-platform-btn-label {
-  vertical-align: center;
   horizontal-align: center;
+  vertical-align: center;
   color: @color-text;
-  font-size: @font-size-md;
+  font-size: @font-size-sm;
   font-weight: bold;
+}
+
+/* 手动激活链接 */
+.member-platform-activate {
+  horizontal-align: center;
+  text-align: center;
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  margin-top: 6px;
+  text-decoration: underline;
+  &:hover {
+    color: @color-gold-muted;
+  }
 }
