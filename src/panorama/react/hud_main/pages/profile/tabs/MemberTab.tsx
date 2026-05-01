@@ -238,7 +238,7 @@ const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
 const KOFI_ACTIVATE_URL = 'https://windy10v10ai.com/regist/kofi';
 
 function ActivateRow({ activateUrl }: { activateUrl: string }) {
-  const tipRef = useRef<Panel | null>(null);
+  const tipRef = useRef<Image | null>(null);
   const tooltipText = $.Localize('#member_activate_tooltip');
   return (
     <Panel className="member-platform-activate-row">
@@ -247,10 +247,10 @@ function ActivateRow({ activateUrl }: { activateUrl: string }) {
         text={$.Localize('#member_activate')}
         onactivate={openUrl(activateUrl)}
       />
-      <Label
+      <Image
         ref={tipRef}
         className="member-activate-tip-icon"
-        text="?"
+        src="s2r://panorama/images/status_icons/information_psd.vtex"
         onmouseover={() =>
           tipRef.current && $.DispatchEvent('DOTAShowTextTooltip', tipRef.current, tooltipText)
         }
@@ -267,10 +267,17 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
     <Panel className="member-subpage member-subscribe-page">
       {/* 共同提示区 */}
       <Panel className="member-subscribe-info">
-        <Label
-          className="member-subscribe-steam-id"
-          text={$.Localize('#member_steam_id').replace('{steamId}', String(steamId))}
-        />
+        <Panel className="member-subscribe-steam-id-row">
+          <Label
+            className="member-subscribe-steam-id-label"
+            text={$.Localize('#member_steam_id')}
+          />
+          <TextEntry
+            className="member-subscribe-steam-id-value"
+            text={String(steamId)}
+            enabled={false}
+          />
+        </Panel>
         <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
         <Label
           className="member-subscribe-hint"

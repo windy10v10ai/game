@@ -359,11 +359,26 @@
   margin-bottom: 10px;
 }
 
-.member-subscribe-steam-id {
+.member-subscribe-steam-id-row {
+  flow-children: right;
+  margin-bottom: 4px;
+}
+
+.member-subscribe-steam-id-label {
+  vertical-align: center;
   font-size: @font-size-md;
   font-weight: bold;
-  color: @color-gold;
-  margin-bottom: 4px;
+  color: @color-text;
+}
+
+.member-subscribe-steam-id-value {
+  vertical-align: center;
+  font-size: @font-size-md;
+  color: @color-text-muted;
+  background-color: #00000000;
+  border: 0px solid #00000000;
+  padding: 0px;
+  width: fit-children;
 }
 
 .member-subscribe-hint {
@@ -427,8 +442,9 @@
 /* 按钮通用 */
 .member-platform-btn {
   horizontal-align: center;
-  width: 100%;
-  height: 32px;
+  width: fit-children;
+  height: 34px;
+  padding: 0px 16px;
   border-radius: @radius-md;
   margin-bottom: 6px;
   transition-property: brightness;
@@ -453,7 +469,7 @@
   horizontal-align: center;
   vertical-align: center;
   color: @color-text;
-  font-size: @font-size-sm;
+  font-size: @font-size-md;
   font-weight: bold;
 }
 
@@ -480,15 +496,8 @@
   margin-left: 4px;
   width: 14px;
   height: 14px;
-  font-size: 11px;
-  font-weight: bold;
-  color: @color-text-muted;
-  background-color: #ffffff22;
-  border: 1px solid #ffffff33;
-  border-radius: 7px;
-  text-align: center;
+  opacity: 0.5;
   &:hover {
-    color: @color-text;
-    background-color: #ffffff44;
+    opacity: 1;
   }
 }

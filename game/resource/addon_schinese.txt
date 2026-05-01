@@ -260,7 +260,7 @@
 		"member_benefit_daily_exp"		"每日登录获得 100 会员经验"
 		"member_benefit_8pick"			"开局技能升级为 8 选 1（高级技能概率提升）"
 		"member_benefit_gold_cap"		"解锁金钱上限"
-		"member_steam_id"				"Dota2好友ID：{steamId}"
+		"member_steam_id"				"Dota2好友ID："
 		"member_subscribe_hint"			"首次购买请在备注中填写上方好友ID，将自动激活"
 		"member_subscribe_effect_hint"	"购买后将在下一局游戏生效"
 		"member_subscribe_title"		"开通高级会员"
@@ -268,7 +268,7 @@
 		"member_platform_afdian"		"爱发电"
 		"member_platform_kofi"			"Ko-fi"
 		"member_shop_title"				"购买会员积分"
-		"member_activate"				"自动激活失败？点此手动激活"
+		"member_activate"				"手动激活"
 		"member_activate_tooltip"		"填写好友ID后将自动激活，第二次购买也将自动激活，无需手动操作"
 
 		///////////////////////////////////////////////////
