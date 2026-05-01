@@ -43,12 +43,55 @@ function BenefitItem({ textKey, active, isPremium }: BenefitItemProps) {
   );
 }
 
+interface BenefitSectionProps {
+  titleKey: string;
+  titleClass: string;
+  clickable: boolean;
+  tooltipKey: string;
+  onActivate: () => void;
+  children: React.ReactNode;
+}
+
+function BenefitSection({
+  titleKey,
+  titleClass,
+  clickable,
+  tooltipKey,
+  onActivate,
+  children,
+}: BenefitSectionProps) {
+  const sectionRef = React.useRef<Panel | null>(null);
+  return (
+    <Panel
+      ref={sectionRef}
+      className={
+        clickable
+          ? 'member-benefit-section member-benefit-section-clickable'
+          : 'member-benefit-section'
+      }
+      onactivate={clickable ? onActivate : undefined}
+      onmouseover={
+        clickable
+          ? () =>
+              sectionRef.current &&
+              $.DispatchEvent('DOTAShowTextTooltip', sectionRef.current, $.Localize(tooltipKey))
+          : undefined
+      }
+      onmouseout={clickable ? () => $.DispatchEvent('DOTAHideTextTooltip') : undefined}
+    >
+      <Label className={titleClass} text={$.Localize(titleKey)} />
+      {children}
+    </Panel>
+  );
+}
+
 interface StatusPageProps {
   enable: boolean;
   hasBaseBenefit: boolean; // 拥有基础权益（普通或高级会员均满足）
   isPremium: boolean; // 高级会员专属权益是否解锁
   statusText: string;
   expireText: string;
+  onOpenSubscribe: () => void;
 }
 
 function StatusPage({
@@ -57,15 +100,34 @@ function StatusPage({
   isPremium,
   statusText,
   expireText,
+  onOpenSubscribe,
 }: StatusPageProps) {
   const crownSrc = enable ? CROWN_GOLD : CROWN_GREY;
   const statusCardClass = enable
     ? 'member-status-card member-status-card-active'
-    : 'member-status-card member-status-card-inactive';
+    : 'member-status-card member-status-card-inactive member-status-card-clickable';
+
+  const cardRef = React.useRef<Panel | null>(null);
 
   return (
     <Panel className="member-subpage">
-      <Panel className={statusCardClass}>
+      <Panel
+        ref={cardRef}
+        className={statusCardClass}
+        onactivate={!enable ? onOpenSubscribe : undefined}
+        onmouseover={
+          !enable
+            ? () =>
+                cardRef.current &&
+                $.DispatchEvent(
+                  'DOTAShowTextTooltip',
+                  cardRef.current,
+                  $.Localize('#member_status_card_click_hint'),
+                )
+            : undefined
+        }
+        onmouseout={!enable ? () => $.DispatchEvent('DOTAHideTextTooltip') : undefined}
+      >
         <Image className="member-crown-icon" src={crownSrc} />
         <Panel className="member-status-info">
           <Label className="member-status-title" text={statusText} />
@@ -74,29 +136,37 @@ function StatusPage({
       </Panel>
 
       <Panel className="member-benefits-container">
-        <Label
-          className={
+        <BenefitSection
+          titleKey="#member_benefit_title_base"
+          titleClass={
             hasBaseBenefit
               ? 'member-section-title'
               : 'member-section-title member-section-title-inactive'
           }
-          text={$.Localize('#member_benefit_title_base')}
-        />
-        <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
-        <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
-        <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
-        <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
+          clickable={!hasBaseBenefit}
+          tooltipKey="#member_benefit_click_hint_base"
+          onActivate={onOpenSubscribe}
+        >
+          <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
+          <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
+          <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
+          <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
+        </BenefitSection>
 
-        <Label
-          className={
+        <BenefitSection
+          titleKey="#member_benefit_title_premium"
+          titleClass={
             isPremium
               ? 'member-section-title member-section-title-premium'
               : 'member-section-title member-section-title-premium member-section-title-inactive'
           }
-          text={$.Localize('#member_benefit_title_premium')}
-        />
-        <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
-        <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
+          clickable={!isPremium}
+          tooltipKey="#member_benefit_click_hint_premium"
+          onActivate={onOpenSubscribe}
+        >
+          <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
+          <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
+        </BenefitSection>
       </Panel>
     </Panel>
   );
@@ -179,6 +249,7 @@ export function MemberTab() {
             isPremium={isPremium}
             statusText={statusText}
             expireText={expireText}
+            onOpenSubscribe={() => setSubTab('subscribe')}
           />
         )}
         {subTab === 'subscribe' && <SubscribePage isNormalOnly={isNormalOnly} />}
