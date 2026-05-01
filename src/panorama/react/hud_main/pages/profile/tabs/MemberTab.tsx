@@ -30,7 +30,13 @@ interface ClickablePanelProps {
   children: React.ReactNode;
 }
 
-function ClickablePanel({ className, clickable, tooltipKey, onActivate, children }: ClickablePanelProps) {
+function ClickablePanel({
+  className,
+  clickable,
+  tooltipKey,
+  onActivate,
+  children,
+}: ClickablePanelProps) {
   const ref = useRef<Panel | null>(null);
   return (
     <Panel
@@ -39,7 +45,9 @@ function ClickablePanel({ className, clickable, tooltipKey, onActivate, children
       onactivate={clickable ? onActivate : undefined}
       onmouseover={
         clickable
-          ? () => ref.current && $.DispatchEvent('DOTAShowTextTooltip', ref.current, $.Localize(tooltipKey))
+          ? () =>
+              ref.current &&
+              $.DispatchEvent('DOTAShowTextTooltip', ref.current, $.Localize(tooltipKey))
           : undefined
       }
       onmouseout={clickable ? () => $.DispatchEvent('DOTAHideTextTooltip') : undefined}
@@ -59,7 +67,11 @@ interface BenefitItemProps {
 
 function BenefitItem({ textKey, active, isPremium }: BenefitItemProps) {
   return (
-    <Panel className={active ? 'member-benefit-item' : 'member-benefit-item member-benefit-item-inactive'}>
+    <Panel
+      className={
+        active ? 'member-benefit-item' : 'member-benefit-item member-benefit-item-inactive'
+      }
+    >
       <Panel className={active ? 'benefit-icon-active' : 'benefit-icon-inactive'} />
       <Label className="benefit-text" text={$.Localize(textKey)} />
       {isPremium && (
@@ -71,22 +83,38 @@ function BenefitItem({ textKey, active, isPremium }: BenefitItemProps) {
 
 interface BenefitSectionProps {
   titleKey: string;
-  active: boolean;       // 权益是否已解锁（决定标题颜色和可点击性）
-  isPremium?: boolean;   // 是否高级专属区块（标题用金色）
+  active: boolean; // 权益是否已解锁（决定标题颜色和可点击性）
+  isPremium?: boolean; // 是否高级专属区块（标题用金色）
   onActivate: () => void;
   children: React.ReactNode;
 }
 
-function BenefitSection({ titleKey, active, isPremium, onActivate, children }: BenefitSectionProps) {
+function BenefitSection({
+  titleKey,
+  active,
+  isPremium,
+  onActivate,
+  children,
+}: BenefitSectionProps) {
   const titleClass = active
-    ? isPremium ? 'member-section-title member-section-title-premium' : 'member-section-title'
-    : isPremium ? 'member-section-title member-section-title-premium member-section-title-inactive' : 'member-section-title member-section-title-inactive';
+    ? isPremium
+      ? 'member-section-title member-section-title-premium'
+      : 'member-section-title'
+    : isPremium
+      ? 'member-section-title member-section-title-premium member-section-title-inactive'
+      : 'member-section-title member-section-title-inactive';
 
-  const tooltipKey = isPremium ? '#member_benefit_click_hint_premium' : '#member_benefit_click_hint_base';
+  const tooltipKey = isPremium
+    ? '#member_benefit_click_hint_premium'
+    : '#member_benefit_click_hint_base';
 
   return (
     <ClickablePanel
-      className={active ? 'member-benefit-section' : 'member-benefit-section member-benefit-section-clickable'}
+      className={
+        active
+          ? 'member-benefit-section'
+          : 'member-benefit-section member-benefit-section-clickable'
+      }
       clickable={!active}
       tooltipKey={tooltipKey}
       onActivate={onActivate}
@@ -100,13 +128,20 @@ function BenefitSection({ titleKey, active, isPremium, onActivate, children }: B
 interface StatusPageProps {
   enable: boolean;
   hasBaseBenefit: boolean; // 普通或高级会员
-  isPremium: boolean;      // 仅高级会员
+  isPremium: boolean; // 仅高级会员
   statusText: string;
   expireText: string;
   onOpenSubscribe: () => void;
 }
 
-function StatusPage({ enable, hasBaseBenefit, isPremium, statusText, expireText, onOpenSubscribe }: StatusPageProps) {
+function StatusPage({
+  enable,
+  hasBaseBenefit,
+  isPremium,
+  statusText,
+  expireText,
+  onOpenSubscribe,
+}: StatusPageProps) {
   const crownSrc = enable ? CROWN_GOLD : CROWN_GREY;
   const cardClass = enable
     ? 'member-status-card member-status-card-active'
@@ -175,7 +210,10 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
         <Panel className="member-subscribe-buttons">
           <Button className="member-subscribe-btn member-subscribe-btn-afdian" onactivate={openUrl}>
             <Image className="member-subscribe-icon" src={AFDIAN_ICON} />
-            <Label className="member-subscribe-btn-label" text={$.Localize('#member_subscribe_afdian')} />
+            <Label
+              className="member-subscribe-btn-label"
+              text={$.Localize('#member_subscribe_afdian')}
+            />
           </Button>
           <Button className="member-subscribe-btn member-subscribe-btn-kofi" onactivate={openUrl}>
             <Image className="member-subscribe-kofi-logo" src={KOFI_LOGO} />
@@ -199,8 +237,8 @@ export function MemberTab() {
   const expireDate = member?.expireDateString ?? '';
 
   const hasBaseBenefit = enable && level >= MemberLevel.NORMAL; // 普通或高级会员
-  const isPremium = enable && level >= MemberLevel.PREMIUM;     // 仅高级会员
-  const isNormalOnly = hasBaseBenefit && !isPremium;            // 仅普通会员
+  const isPremium = enable && level >= MemberLevel.PREMIUM; // 仅高级会员
+  const isNormalOnly = hasBaseBenefit && !isPremium; // 仅普通会员
 
   const statusText = isPremium
     ? $.Localize('#member_status_premium')
