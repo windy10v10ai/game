@@ -457,15 +457,38 @@
   font-weight: bold;
 }
 
-/* 手动激活链接 */
-.member-platform-activate {
+/* 手动激活行（链接 + ? 图标） */
+.member-platform-activate-row {
+  flow-children: right;
   horizontal-align: center;
-  text-align: center;
+  margin-top: 6px;
+  height: fit-children;
+}
+
+.member-platform-activate {
+  vertical-align: center;
   font-size: @font-size-sm;
   color: @color-text-muted;
-  margin-top: 6px;
   text-decoration: underline;
   &:hover {
     color: @color-gold-muted;
+  }
+}
+
+.member-activate-tip-icon {
+  vertical-align: center;
+  margin-left: 4px;
+  width: 14px;
+  height: 14px;
+  font-size: 11px;
+  font-weight: bold;
+  color: @color-text-muted;
+  background-color: #ffffff22;
+  border: 1px solid #ffffff33;
+  border-radius: 7px;
+  text-align: center;
+  &:hover {
+    color: @color-text;
+    background-color: #ffffff44;
   }
 }

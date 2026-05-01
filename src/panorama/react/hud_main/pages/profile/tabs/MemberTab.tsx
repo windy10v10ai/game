@@ -237,6 +237,29 @@ const openUrl = (url: string) => () => $.DispatchEvent('ExternalBrowserGoToURL',
 const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
 const KOFI_ACTIVATE_URL = 'https://windy10v10ai.com/regist/kofi';
 
+function ActivateRow({ activateUrl }: { activateUrl: string }) {
+  const tipRef = useRef<Panel | null>(null);
+  const tooltipText = $.Localize('#member_activate_tooltip');
+  return (
+    <Panel className="member-platform-activate-row">
+      <Label
+        className="member-platform-activate"
+        text={$.Localize('#member_activate')}
+        onactivate={openUrl(activateUrl)}
+      />
+      <Label
+        ref={tipRef}
+        className="member-activate-tip-icon"
+        text="?"
+        onmouseover={() =>
+          tipRef.current && $.DispatchEvent('DOTAShowTextTooltip', tipRef.current, tooltipText)
+        }
+        onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+      />
+    </Panel>
+  );
+}
+
 function SubscribePage({ isNormalOnly }: SubscribePageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
 
@@ -282,11 +305,7 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
           >
             <Label className="member-platform-btn-label" text={$.Localize('#member_shop_title')} />
           </Button>
-          <Label
-            className="member-platform-activate"
-            text={$.Localize('#member_activate')}
-            onactivate={openUrl(AFDIAN_ACTIVATE_URL)}
-          />
+          <ActivateRow activateUrl={AFDIAN_ACTIVATE_URL} />
         </Panel>
 
         {/* Ko-fi */}
@@ -308,11 +327,7 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
           >
             <Label className="member-platform-btn-label" text={$.Localize('#member_shop_title')} />
           </Button>
-          <Label
-            className="member-platform-activate"
-            text={$.Localize('#member_activate')}
-            onactivate={openUrl(KOFI_ACTIVATE_URL)}
-          />
+          <ActivateRow activateUrl={KOFI_ACTIVATE_URL} />
         </Panel>
       </Panel>
     </Panel>
@@ -332,7 +347,7 @@ export function MemberTab() {
   const expireDate = member?.expireDateString ?? '';
 
   const hasBaseBenefit = enable && level >= MemberLevel.NORMAL; // 普通或高级会员
-  const isPremium = enable && level >= MemberLevel.PREMIUM; // 仅高级会员
+  const isPremium = false; // 仅高级会员
   const isNormalOnly = hasBaseBenefit && !isPremium; // 仅普通会员
 
   const statusText = isPremium
