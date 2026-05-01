@@ -249,10 +249,7 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
           <Panel className="member-platform-row">
             <Image className="member-platform-icon" src={AFDIAN_ICON} />
             <Label className="member-platform-name" text={$.Localize('#member_subscribe_afdian')} />
-            <Button
-              className="member-platform-btn"
-              onactivate={openUrl(GetAfdianSubscribeUrl())}
-            >
+            <Button className="member-platform-btn" onactivate={openUrl(GetAfdianSubscribeUrl())}>
               <Label
                 className="member-platform-btn-label"
                 text={$.Localize('#member_subscribe_go')}
