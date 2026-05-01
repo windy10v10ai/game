@@ -252,7 +252,7 @@
 		"member_status_expired"			"已过期"
 		"member_expire_date"			"有效期至：{expireDate}"
 		"member_expired_date"			"已于 {expireDate} 到期"
-		"member_benefit_title_all"		"会员权益"
+		"member_benefit_title_all"		"高级会员权益"
 		"member_benefit_title_base"		"基础会员权益"
 		"member_benefit_title_premium"	"高级会员专属权益"
 		"member_benefit_revive"			"复活时间减少 5 秒"
