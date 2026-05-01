@@ -272,6 +272,7 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
     <Panel className="member-subpage member-subscribe-page">
       {/* 共同提示区 */}
       <Panel className="member-subscribe-info">
+        <Label className="member-subscribe-title-cta" text={$.Localize('#member_subscribe_title')} />
         <Panel className="member-subscribe-steam-id-row">
           <Label
             className="member-subscribe-steam-id-label"
