@@ -200,7 +200,11 @@ function StatusPage({
             onActivate={onOpenSubscribe}
           >
             <Label
-              className="member-section-title"
+              className={
+                isPremium
+                  ? 'member-section-title member-section-title-premium'
+                  : 'member-section-title'
+              }
               text={$.Localize('#member_benefit_title_all')}
             />
             <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
