@@ -279,6 +279,10 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
             acceptsfocus={true}
             allowtextselection={true}
           />
+          <Label
+            className="member-subscribe-steam-id-hint"
+            text={$.Localize('#member_steam_id_select_hint')}
+          />
         </Panel>
         <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
         <Label
@@ -356,7 +360,7 @@ export function MemberTab() {
   const expireDate = member?.expireDateString ?? '';
 
   const hasBaseBenefit = enable && level >= MemberLevel.NORMAL; // 普通或高级会员
-  const isPremium = false; // 仅高级会员
+  const isPremium = enable && level >= MemberLevel.PREMIUM; // 仅高级会员
   const isNormalOnly = hasBaseBenefit && !isPremium; // 仅普通会员
 
   const statusText = isPremium

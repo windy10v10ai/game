@@ -261,6 +261,7 @@
 		"member_benefit_8pick"			"开局技能升级为 8 选 1（高级技能概率提升）"
 		"member_benefit_gold_cap"		"解锁金钱上限"
 		"member_steam_id"				"Dota2好友ID："
+		"member_steam_id_select_hint"	"（可以选择复制）"
 		"member_subscribe_hint"			"首次购买请在备注中填写上方好友ID，将自动激活"
 		"member_subscribe_effect_hint"	"购买后将在下一局游戏生效"
 		"member_subscribe_title"		"开通高级会员"
