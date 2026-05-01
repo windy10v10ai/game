@@ -178,11 +178,11 @@ function StatusPage({
               active={hasBaseBenefit}
               onActivate={onOpenSubscribe}
             >
+              <BenefitItem textKey="#member_benefit_exp_normal" active={hasBaseBenefit} />
               <BenefitItem textKey="#member_benefit_revive" active={hasBaseBenefit} />
               <BenefitItem textKey="#member_benefit_buyback" active={hasBaseBenefit} />
               <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
               <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
-              <BenefitItem textKey="#member_benefit_exp_normal" active={hasBaseBenefit} />
               <BenefitItem textKey="#member_benefit_buff" active={hasBaseBenefit} />
             </BenefitSection>
 
@@ -192,9 +192,9 @@ function StatusPage({
               isPremium
               onActivate={onOpenSubscribe}
             >
+              <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
               <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
               <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
-              <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
             </BenefitSection>
           </>
         ) : (
@@ -221,9 +221,9 @@ function StatusPage({
             <BenefitItem textKey="#member_benefit_reroll" active={hasBaseBenefit} />
             <BenefitItem textKey="#member_benefit_daily_exp" active={hasBaseBenefit} />
             <BenefitItem textKey="#member_benefit_buff" active={hasBaseBenefit} />
+            <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
             <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
             <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
-            <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
           </ClickablePanel>
         )}
       </Panel>
@@ -272,7 +272,10 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
     <Panel className="member-subpage member-subscribe-page">
       {/* 共同提示区 */}
       <Panel className="member-subscribe-info">
-        <Label className="member-subscribe-title-cta" text={$.Localize('#member_subscribe_title')} />
+        <Label
+          className="member-subscribe-title-cta"
+          text={$.Localize('#member_subscribe_title')}
+        />
         <Panel className="member-subscribe-steam-id-row">
           <Label
             className="member-subscribe-steam-id-label"
