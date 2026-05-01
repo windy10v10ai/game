@@ -309,11 +309,14 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
               text={$.Localize('#member_subscribe_title')}
             />
           </Button>
+          <Panel className="member-platform-divider">
+            <Label className="member-platform-divider-label" text={$.Localize('#member_shop_divider')} />
+          </Panel>
           <Button
             className="member-platform-btn member-platform-btn-shop"
             onactivate={openUrl(AFDIAN_SHOP_URL)}
           >
-            <Label className="member-platform-btn-label" text={$.Localize('#member_shop_title')} />
+            <Label className="member-platform-btn-label member-platform-btn-label-ghost" text={$.Localize('#member_shop_title')} />
           </Button>
           <ActivateRow activateUrl={AFDIAN_ACTIVATE_URL} />
         </Panel>
@@ -332,11 +335,14 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
               text={$.Localize('#member_subscribe_title')}
             />
           </Button>
+          <Panel className="member-platform-divider">
+            <Label className="member-platform-divider-label" text={$.Localize('#member_shop_divider')} />
+          </Panel>
           <Button
             className="member-platform-btn member-platform-btn-shop"
             onactivate={openUrl(KOFI_SHOP_URL)}
           >
-            <Label className="member-platform-btn-label" text={$.Localize('#member_shop_title')} />
+            <Label className="member-platform-btn-label member-platform-btn-label-ghost" text={$.Localize('#member_shop_title')} />
           </Button>
           <ActivateRow activateUrl={KOFI_ACTIVATE_URL} />
         </Panel>
