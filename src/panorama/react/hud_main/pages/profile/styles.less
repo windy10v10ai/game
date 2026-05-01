@@ -214,8 +214,8 @@
 }
 
 .member-status-card-active {
-  border-color: @color-gold-muted;
-  background-color: gradient(linear, 0% 0%, 80% 0%, from(#3a2800), to(#1a1400));
+  border-color: @color-gold;
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#5a3c00bb), color-stop(0.5, #3d2600aa), to(#2a1a0022));
 }
 
 .member-status-card-inactive {
@@ -237,6 +237,7 @@
   height: 60px;
   vertical-align: center;
   margin-right: 16px;
+  img-shadow: 0px 2px 8px 4 255 180 0 160;
 }
 
 .member-status-info {
@@ -248,6 +249,7 @@
   font-size: @font-size-xl;
   font-weight: bold;
   color: @color-gold;
+  text-shadow: 0px 2px 6px #000000aa;
 }
 
 .member-expire-label {
@@ -479,6 +481,7 @@
   color: @color-text;
   font-size: @font-size-md;
   font-weight: bold;
+  text-shadow: 0px 1px 4px #00000088;
 }
 
 /* 手动激活行（链接 + ? 图标） */
