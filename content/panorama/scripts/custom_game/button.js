@@ -31,51 +31,51 @@ function LoadAfdianButton() {
   }
 }
 
-function LoadMemberButton(member) {
-  if (!member) {
-    return;
-  }
-  const hContainer = FindDotaHudElement('ButtonBar');
+// function LoadMemberButton(member) {
+//   if (!member) {
+//     return;
+//   }
+//   const hContainer = FindDotaHudElement('ButtonBar');
 
-  if (hContainer) {
-    const hMemberButton =
-      hContainer.FindChild('memberButton') || $.CreatePanel('Button', hContainer, 'memberButton');
+//   if (hContainer) {
+//     const hMemberButton =
+//       hContainer.FindChild('memberButton') || $.CreatePanel('Button', hContainer, 'memberButton');
 
-    hMemberButton.SetPanelEvent('onactivate', () => {
-      $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
-    });
+//     hMemberButton.SetPanelEvent('onactivate', () => {
+//       $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
+//     });
 
-    let sString = $.Localize('#player_member_button_normal');
-    if (member.enable) {
-      if (member.level === 1) {
-        sString = $.Localize('#player_member_button_normal');
-      } else {
-        sString = $.Localize('#player_member_button_premium');
-      }
-      hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown.png')`;
-    } else {
-      sString = $.Localize('#player_member_button_expire');
-      hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown_grey.png')`;
+//     let sString = $.Localize('#player_member_button_normal');
+//     if (member.enable) {
+//       if (member.level === 1) {
+//         sString = $.Localize('#player_member_button_normal');
+//       } else {
+//         sString = $.Localize('#player_member_button_premium');
+//       }
+//       hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown.png')`;
+//     } else {
+//       sString = $.Localize('#player_member_button_expire');
+//       hMemberButton.style.backgroundImage = `url('file://{images}/custom_game/golden_crown_grey.png')`;
 
-      hMemberButton.style.backgroundSize = '100% 100%';
+//       hMemberButton.style.backgroundSize = '100% 100%';
 
-      hMemberButton.SetPanelEvent('onmouseout', () => {
-        $.DispatchEvent('DOTAHideTextTooltip');
-      });
-    }
-    sString = sString.replace('{expireDate}', member.expireDateString);
+//       hMemberButton.SetPanelEvent('onmouseout', () => {
+//         $.DispatchEvent('DOTAHideTextTooltip');
+//       });
+//     }
+//     sString = sString.replace('{expireDate}', member.expireDateString);
 
-    hMemberButton.style.backgroundSize = '100% 100%';
+//     hMemberButton.style.backgroundSize = '100% 100%';
 
-    hMemberButton.SetPanelEvent('onmouseover', () => {
-      $.DispatchEvent('DOTAShowTextTooltip', hMemberButton, sString);
-    });
+//     hMemberButton.SetPanelEvent('onmouseover', () => {
+//       $.DispatchEvent('DOTAShowTextTooltip', hMemberButton, sString);
+//     });
 
-    hMemberButton.SetPanelEvent('onmouseout', () => {
-      $.DispatchEvent('DOTAHideTextTooltip');
-    });
-  }
-}
+//     hMemberButton.SetPanelEvent('onmouseout', () => {
+//       $.DispatchEvent('DOTAHideTextTooltip');
+//     });
+//   }
+// }
 
 // TODO 迁移到React
 function LoadDiscordButton() {

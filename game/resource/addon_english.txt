@@ -205,9 +205,6 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button_normal"		"Thank you for your support! You are <font color='#FFCC66'>Normal Member</font><br/>Normal Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/> Membership is valid until {expireDate}."
-		"player_member_button_premium"		"Thank you for your support! You are <font color='#FFCC66'>Premium Member</font><br/>Premium Member Benefits:<br/>- Respawn time reduced by 5 seconds<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your draft active/passive abilities once at game start.<br/>- Gain 100 Member Experience for playing every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.<br/>- Unlock the maximum amount of gold.</font><br/> Membership is valid until {expireDate}."
-		"player_member_button_expire"		"Thank you for your membership!<br/>Your membership has expired as of {expireDate}. Click this button to renew."
 		"player_member_ship"				"Click to enable your membership."
 		"player_member_null"				"Membership information failed to load. Please reload a new game."
 

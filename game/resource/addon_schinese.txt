@@ -205,9 +205,6 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button_normal"			"感谢您的支持！您现在是 <font color='#FFCC66'>普通会员</font><br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/> 会员有效期：{expireDate}"
-		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 8选1，新增的 2 个技能中有更高概率出现 高级技能<br/> - 解锁金钱上限</font><br/> 会员有效期：{expireDate}"
-		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
 		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
 
