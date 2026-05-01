@@ -265,6 +265,9 @@
 		"member_subscribe_afdian"		"爱发电订阅"
 		"member_subscribe_kofi"			"Ko-fi 订阅"
 		"member_subscribe_go"			"前往订阅"
+		"member_shop_title"				"购买会员积分"
+		"member_shop_afdian"			"爱发电积分商店"
+		"member_shop_kofi"				"Ko-fi 积分商店"
 
 		///////////////////////////////////////////////////
 		//

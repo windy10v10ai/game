@@ -1,7 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { SubTabNavigation } from '../../../../shared/components';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
-import { GetLocalPlayerSteamAccountID, GetOpenMemberUrl } from '@utils/utils';
+import {
+  GetLocalPlayerSteamAccountID,
+  GetAfdianSubscribeUrl,
+  KOFI_SUBSCRIBE_URL,
+  AFDIAN_SHOP_URL,
+  KOFI_SHOP_URL,
+} from '@utils/utils';
 
 const enum MemberLevel {
   NORMAL = 1,
@@ -226,9 +232,9 @@ interface SubscribePageProps {
   isNormalOnly: boolean; // 仅普通会员（非高级），显示折算说明
 }
 
-function SubscribePage({ isNormalOnly }: SubscribePageProps) {
-  const openUrl = () => $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
+const openUrl = (url: string) => () => $.DispatchEvent('ExternalBrowserGoToURL', url);
 
+function SubscribePage({ isNormalOnly }: SubscribePageProps) {
   return (
     <Panel className="member-subpage member-subscribe-page">
       <Label className="member-subscribe-title" text={$.Localize('#member_subscribe_title')} />
@@ -240,11 +246,13 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
       )}
       <Panel className="member-subscribe-area">
         <Panel className="member-platform-cards">
-          {/* 爱发电 */}
-          <Panel className="member-platform-row member-platform-row-afdian">
+          <Panel className="member-platform-row">
             <Image className="member-platform-icon" src={AFDIAN_ICON} />
             <Label className="member-platform-name" text={$.Localize('#member_subscribe_afdian')} />
-            <Button className="member-platform-btn" onactivate={openUrl}>
+            <Button
+              className="member-platform-btn"
+              onactivate={openUrl(GetAfdianSubscribeUrl())}
+            >
               <Label
                 className="member-platform-btn-label"
                 text={$.Localize('#member_subscribe_go')}
@@ -252,11 +260,37 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
             </Button>
           </Panel>
 
-          {/* Ko-fi */}
-          <Panel className="member-platform-row member-platform-row-kofi">
+          <Panel className="member-platform-row">
             <Image className="member-platform-icon" src={KOFI_LOGO} />
             <Label className="member-platform-name" text={$.Localize('#member_subscribe_kofi')} />
-            <Button className="member-platform-btn" onactivate={openUrl}>
+            <Button className="member-platform-btn" onactivate={openUrl(KOFI_SUBSCRIBE_URL)}>
+              <Label
+                className="member-platform-btn-label"
+                text={$.Localize('#member_subscribe_go')}
+              />
+            </Button>
+          </Panel>
+        </Panel>
+      </Panel>
+
+      <Label className="member-subscribe-title" text={$.Localize('#member_shop_title')} />
+      <Panel className="member-subscribe-area">
+        <Panel className="member-platform-cards">
+          <Panel className="member-platform-row">
+            <Image className="member-platform-icon" src={AFDIAN_ICON} />
+            <Label className="member-platform-name" text={$.Localize('#member_shop_afdian')} />
+            <Button className="member-platform-btn" onactivate={openUrl(AFDIAN_SHOP_URL)}>
+              <Label
+                className="member-platform-btn-label"
+                text={$.Localize('#member_subscribe_go')}
+              />
+            </Button>
+          </Panel>
+
+          <Panel className="member-platform-row">
+            <Image className="member-platform-icon" src={KOFI_LOGO} />
+            <Label className="member-platform-name" text={$.Localize('#member_shop_kofi')} />
+            <Button className="member-platform-btn" onactivate={openUrl(KOFI_SHOP_URL)}>
               <Label
                 className="member-platform-btn-label"
                 text={$.Localize('#member_subscribe_go')}
