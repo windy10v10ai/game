@@ -238,7 +238,7 @@ const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
 const KOFI_ACTIVATE_URL = 'https://windy10v10ai.com/regist/kofi';
 
 function ActivateRow({ activateUrl }: { activateUrl: string }) {
-  const tipRef = useRef<Image | null>(null);
+  const tipRef = useRef<ImagePanel | null>(null);
   const tooltipText = $.Localize('#member_activate_tooltip');
   return (
     <Panel className="member-platform-activate-row">
@@ -272,10 +272,12 @@ function SubscribePage({ isNormalOnly }: SubscribePageProps) {
             className="member-subscribe-steam-id-label"
             text={$.Localize('#member_steam_id')}
           />
-          <TextEntry
+          <Label
             className="member-subscribe-steam-id-value"
             text={String(steamId)}
-            enabled={false}
+            enabled={true}
+            acceptsfocus={true}
+            allowtextselection={true}
           />
         </Panel>
         <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
