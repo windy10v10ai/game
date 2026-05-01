@@ -106,7 +106,7 @@ function BenefitSection({
 
   const tooltipKey = isPremium
     ? '#member_benefit_click_hint_premium'
-    : '#member_benefit_click_hint_base';
+    : '#member_status_card_click_hint';
 
   return (
     <ClickablePanel
@@ -196,7 +196,7 @@ function StatusPage({
                 : 'member-benefit-section member-benefit-section-clickable'
             }
             clickable={!hasBaseBenefit}
-            tooltipKey="#member_benefit_click_hint_base"
+            tooltipKey="#member_status_card_click_hint"
             onActivate={onOpenSubscribe}
           >
             <Label
@@ -264,7 +264,7 @@ export function MemberTab() {
   const steamId = GetLocalPlayerSteamAccountID();
   const member = useNetTable('member_table', steamId);
 
-  const enable = member?.enable === true;
+  const enable = member?.enable === false;
   const level = Number(member?.level ?? 0);
   const expireDate = member?.expireDateString ?? '';
 

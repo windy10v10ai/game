@@ -247,7 +247,6 @@
 		"member_status_normal"			"普通会员"
 		"member_status_none"			"未开通会员"
 		"member_status_card_click_hint"		"点击开通高级会员"
-		"member_benefit_click_hint_base"	"点击开通高级会员"
 		"member_benefit_click_hint_premium"	"点击开通高级会员以解锁专属权益"
 		"member_status_expired"			"已过期"
 		"member_expire_date"			"有效期至：{expireDate}"
