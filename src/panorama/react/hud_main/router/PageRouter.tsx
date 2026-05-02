@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigation } from '../store/NavigationContext';
 import { ProfilePage } from '../pages/profile';
+import { ProfileTabId } from '../pages/profile/ProfilePage';
 import { ShopPage } from '../pages/shop';
 import { LeaderboardPage } from '../pages/leaderboard';
 
@@ -9,12 +10,12 @@ import { LeaderboardPage } from '../pages/leaderboard';
  * currentPage 为 null 时返回 null（hud_main 整体不可见）。
  */
 export function PageRouter() {
-  const { currentPage } = useNavigation();
+  const { currentPage, currentParam } = useNavigation();
   if (!currentPage) return null;
 
   switch (currentPage) {
     case 'profile':
-      return <ProfilePage />;
+      return <ProfilePage initialTab={currentParam as ProfileTabId | undefined} />;
     case 'shop':
       return <ShopPage />;
     case 'leaderboard':

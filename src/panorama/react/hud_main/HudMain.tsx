@@ -1,14 +1,16 @@
 import React from 'react';
 import { NavigationProvider } from './store/NavigationContext';
 import { PageRouter } from './router/PageRouter';
-import { HudEntryButton } from './components/HudEntryButton';
+import { ProfileEntryButton } from './components/ProfileEntryButton';
+import { MemberEntryButton } from './components/MemberEntryButton';
 
 /**
  * hud_main 入口组件。
  *
  * 结构：
  *   <NavigationProvider>     // 当前页面 / 历史栈 / 跨 entry 事件监听
- *     <HudEntryButton />     // 个人中心入口（imperative 挂到 Dota HUD 的 ButtonBar）
+ *     <ProfileEntryButton /> // 个人中心入口（imperative 挂到 Dota HUD 的 ButtonBar）
+ *     <MemberEntryButton />  // 会员入口（imperative 挂到 ButtonBar）
  *     <PageRouter />         // 根据 currentPage 渲染对应页面
  *   </NavigationProvider>
  *
@@ -17,7 +19,8 @@ import { HudEntryButton } from './components/HudEntryButton';
 function HudMain() {
   return (
     <NavigationProvider>
-      <HudEntryButton />
+      <ProfileEntryButton />
+      <MemberEntryButton />
       <PageRouter />
     </NavigationProvider>
   );

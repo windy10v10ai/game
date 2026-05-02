@@ -27,11 +27,16 @@
 // 铜金：次级数值（#b28948，battle pass .ItemValue）
 @color-gold-value:      #b28948;
 @color-gold-value-soft: #b2894855;
+// 金色按钮渐变（battle pass .activated-gold）
+@color-gold-btn: gradient(linear, 0% 0%, 100% 0%, from(#ca9b3c), to(#a87820));
 
 // ---------- Accent ----------
 // 蓝紫：激活按钮、进度条（battle pass .activated）
-@color-primary: #4f48b2;
-@color-primary-deep: #0f033a;
+@color-primary:        #4f48b2;
+@color-primary-border: #7a6fd0;  // 按钮描边（比 primary 亮一阶）
+@color-primary-deep:   #0f033a;
+// 蓝紫按钮渐变（battle pass .activated）
+@color-primary-btn: gradient(linear, 0% 0%, 100% 0%, from(@color-primary), to(@color-primary-deep));
 // 辅助紫粉（旧强调色，按需点缀）
 @color-accent:     #9b5de0;
 @color-secondary:  #d78fee;

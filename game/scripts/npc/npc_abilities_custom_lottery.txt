@@ -350,6 +350,7 @@
 			{
 				"dynamic_value"				"true"
 			}
+			"model_scale_per_stack"						"1.05"		// 1.1
 		}
 	}
 	//沉默术士 默默受苦

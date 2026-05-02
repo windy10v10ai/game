@@ -9,14 +9,14 @@ const TOOLTIP_TEXT = $.Localize('#profile_title');
  *
  * hud_main 常驻入口按钮（生涯入口）。
  *
- * 渲染目标不是 React tree，而是 Dota HUD 的 ButtonBar（爱发电/Patreon 按钮所在容器），
+ * 渲染目标不是 React tree，而是 Dota HUD 的 ButtonBar（爱发电/Kofi 按钮所在容器），
  * 因此用 imperative 方式：useEffect 中通过 $.CreatePanel 挂到 ButtonBar，组件卸载时 DeleteAsync。
  *
  * 行为：
  *   - 点击：若当前未打开 profile，则 openPage('profile')；若已打开任何 hud_main 页面，则 closePage()。
  *   - 按钮自身始终常驻，不随页面状态隐藏。
  */
-export function HudEntryButton() {
+export function ProfileEntryButton() {
   const { currentPage, openPage, closePage } = useNavigation();
 
   // 用 ref 同步最新 navigation 状态，避免 onactivate 闭包捕获过期值

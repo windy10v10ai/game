@@ -33,6 +33,17 @@ export function GetOpenMemberUrl(): string {
   }
 }
 
+export function GetAfdianSubscribeUrl(): string {
+  return (
+    'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=' +
+    GetLocalPlayerSteamAccountID()
+  );
+}
+
+export const KOFI_SUBSCRIBE_URL = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
+export const AFDIAN_SHOP_URL = 'https://ifdian.net/a/windy10v10ai?tab=shop';
+export const KOFI_SHOP_URL = 'https://ko-fi.com/windy10v10ai/shop';
+
 /**
  * 添加自定义键位绑定
  * @param keyName 键位名称
