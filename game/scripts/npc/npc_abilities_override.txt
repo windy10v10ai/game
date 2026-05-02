@@ -2967,6 +2967,7 @@
 		"AbilityValues"
 		{
 			"hp_per_threshold"				"250"					// 100
+			"model_scale_per_stack"						"1.05"		// 1.1
 		}
 	}
 	//=================================================================================================================
@@ -3006,8 +3007,8 @@
 		{
 			"damage"
 			{
-				"value"									"150 220 290 360 430"
-				"special_bonus_unique_pudge_7"			"+170"	// +150
+				"value"									"160 240 320 400 480"	// 150 220 290 360 加强
+				"special_bonus_unique_pudge_7"			"+220"	// +150
 			}
 			"hook_speed"
 			{
@@ -9996,7 +9997,7 @@
 			"jumps"
 			{
 				"value"			"10 15 20 25"	// 10 10 10
-				"special_bonus_unique_lich_5"	"+25"	// 原版不存在，手动修改
+				"special_bonus_unique_lich_5"	"+75"	// 原版不存在，手动修改
 			}
 			"has_unlimited_jumps"
 			{

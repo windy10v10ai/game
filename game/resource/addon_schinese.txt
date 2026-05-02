@@ -205,9 +205,6 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button_normal"			"感谢您的支持！您现在是 <font color='#FFCC66'>普通会员</font><br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/> 会员有效期：{expireDate}"
-		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 8选1，新增的 2 个技能中有更高概率出现 高级技能<br/> - 解锁金钱上限</font><br/> 会员有效期：{expireDate}"
-		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
 		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
 
@@ -234,11 +231,53 @@
 		///////////////////////////////////////////////////
 		"profile_title"					"个人中心"
 		"profile_tab_stats"				"战绩"
+		"profile_tab_member"			"会员"
+
+		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
 		"profile_stat_winrate"			"胜率"
 		"profile_stat_conduct"			"行为分"
 		"profile_stat_coming_soon"		"更多功能开发中"
 		"profile_stat_conduct_tooltip"	"行为分满分 <font color='#E8C07D'>100</font> 分，反映你的游戏行为。<br>• 正常完成一局 <font color='#7FD47F'>+1</font> 分<br>• 秒退一局 <font color='#E87D7D'>-5</font> 分<br>以下情况不计为秒退：<br>• 单人游戏<br>• 全体玩家均提前退出且无人进入结算<br>目前仅做统计，未来行为分过低可能触发惩罚机制。"
+
+		// Member Tab UI
+		"member_button_tooltip_active"		"会员激活中，点击查看详情"
+		"member_button_tooltip_inactive"	"会员未激活，点击查看详情"
+		"member_subtab_status"			"会员状态"
+		"member_subtab_subscribe"		"开通会员"
+		"member_status_premium"			"高级会员"
+		"member_status_normal"			"普通会员"
+		"member_status_none"			"未开通会员"
+		"member_status_card_click_hint"		"点击开通高级会员"
+		"member_benefit_click_hint_premium"	"点击开通高级会员以解锁专属权益"
+		"member_status_expired"			"已过期"
+		"member_expire_date"			"有效期至：{expireDate}"
+		"member_expired_date"			"已于 {expireDate} 到期"
+		"member_benefit_title_all"		"高级会员权益"
+		"member_benefit_title_base"		"基础会员权益"
+		"member_benefit_title_premium"	"高级会员专属权益"
+		"member_benefit_revive"			"复活时间减少 5 秒"
+		"member_benefit_buyback"		"买活 CD 缩短至 2 分钟"
+		"member_benefit_reroll"			"开局抽选的主动/被动技能各可刷新一次"
+		"member_benefit_daily_exp"		"每日首次登录获得 100 会员经验（每日8:00 北京时间重置）"
+		"member_benefit_8pick"			"开局技能抽选升级为 8 选 1，新增 2 个技能有更高概率出现高级技能"
+		"member_benefit_gold_cap"		"突破游戏内 99999 金钱上限"
+		"member_benefit_exp_normal"		"每次订阅立即获得 300 会员经验"
+		"member_benefit_exp_premium"	"每次订阅立即获得 1000 会员经验"
+		"member_benefit_buff"			"会员专属属性加成：+10 攻击力、+5% 技能增强、+300 HP、+200 MP"
+		"member_steam_id"				"Dota2好友ID："
+		"member_steam_id_select_hint"	"（可以选择复制）"
+		"member_subscribe_hint"			"订阅时请在备注中填写上方好友ID，系统将自动激活，下一局生效。再次订阅无需填写。"
+		"member_subscribe_title"		"开通高级会员"
+		"member_subscribe_normal_upgrade_hint"	"您当前为普通会员，购买高级会员后，剩余时长将按 0.6 倍折算为高级会员时长。"
+		"member_platform_afdian"				"爱发电"
+		"member_platform_afdian_desc"			"国内用户推荐 · 人民币支付"
+		"member_platform_kofi"					"Ko-fi"
+		"member_platform_kofi_desc"				"海外用户推荐 · 美元支付"
+		"member_shop_divider"			"已有会员？购买会员经验快速升级"
+		"member_shop_title"				"购买会员经验"
+		"member_activate"				"手动激活"
+		"member_activate_tooltip"		"若订阅时忘记填写好友ID或填写有误，可在此手动激活。激活成功后系统将记录您的账号，之后订阅无需再次填写。"
 
 		///////////////////////////////////////////////////
 		//

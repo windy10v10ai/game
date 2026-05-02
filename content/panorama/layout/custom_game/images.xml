@@ -9,6 +9,8 @@
 			<Image id="profileIcon" class="SeqImg" src="file://{images}/custom_game/profile/icon_profile.png" />
 			<Image id="profileAvatarBorderGold" class="SeqImg" src="file://{images}/custom_game/profile/avatar-square-gold-border.png" />
 			<Image id="profileAvatarBorderNormal" class="SeqImg" src="file://{images}/custom_game/profile/avatar-square-normal-border.png" />
+			<Image id="memberKofiLogoLong" class="SeqImg" src="file://{images}/custom_game/member/ko-fi-logo-long.png" />
+			<Image id="memberKofiLogoSmall" class="SeqImg" src="file://{images}/custom_game/member/ko-fi-logo-small.png" />
 		</Panel>
 	</Panel>
 </root>
