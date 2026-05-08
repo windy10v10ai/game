@@ -1,5 +1,5 @@
 import { AbilityItemType, LotteryDto } from '../../../common/dto/lottery';
-import { MemberLevel } from '../../api/player';
+import { MemberLevel, Player } from '../../api/player';
 import { reloadable } from '../../utils/tstl-utils';
 import { NetTableHelper } from '../helper/net-table-helper';
 import { PlayerHelper } from '../helper/player-helper';
@@ -128,8 +128,8 @@ export class Lottery {
     );
 
     // 添加会员额外技能
-    const member = NetTableHelper.GetMember(steamAccountID);
-    if (member.enable && member.level >= MemberLevel.PREMIUM) {
+    const memberLevel = Player.GetMemberLevel(Number(steamAccountID));
+    if (memberLevel >= MemberLevel.PREMIUM) {
       const extraAbilities = LotteryHelper.getRandomAbilities(
         abilityTiers,
         this.randomCountExtra,
@@ -262,8 +262,7 @@ export class Lottery {
       }
     }
 
-    const member = NetTableHelper.GetMember(steamAccountID);
-    if (!member.enable) {
+    if (!Player.IsMemberStatic(Number(steamAccountID))) {
       print('非会员不能刷新');
       return;
     }

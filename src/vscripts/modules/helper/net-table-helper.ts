@@ -1,7 +1,6 @@
 // 实现通过dto对net table 的存储和读取
 
 import { LotteryStatusDto } from '../../../common/dto/lottery-status';
-import { MemberDto, MemberLevel } from '../../api/player';
 
 function Boolean(value: number): boolean {
   return value === 1;
@@ -32,20 +31,6 @@ export class NetTableHelper {
       isPassiveAbilityRefreshed2: Boolean(lotteryStatusData.isPassiveAbilityRefreshed2),
       abilityResettableCount: lotteryStatusData.abilityResettableCount,
       showAbilityResetButton: Boolean(lotteryStatusData.showAbilityResetButton),
-    };
-  }
-
-  public static GetMember(steamAccountID: string): MemberDto {
-    const memberData = CustomNetTables.GetTableValue('member_table', steamAccountID);
-    if (!memberData) {
-      return { steamId: 0, enable: false, expireDateString: '', level: MemberLevel.NORMAL };
-    }
-
-    return {
-      steamId: memberData.steamId,
-      enable: Boolean(memberData.enable),
-      expireDateString: memberData.expireDateString,
-      level: memberData.level,
     };
   }
 }

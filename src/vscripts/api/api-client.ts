@@ -21,10 +21,10 @@ export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
 
-  // private static HOST_NAME: string = (() => {
-  //   return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
-  // })();
-  private static HOST_NAME: string = 'https://windy10v10ai.com/api';
+  private static HOST_NAME: string = (() => {
+    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
+  })();
+  // private static HOST_NAME: string = 'https://windy10v10ai.com/api';
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   // dont change this version, it is used to identify the server
@@ -48,12 +48,21 @@ export class ApiClient {
     const body = apiParameter.body;
     const timeoutSeconds = apiParameter.timeoutSeconds || ApiClient.TIMEOUT_SECONDS;
 
-    print(
-      `[ApiClient] ${method} ${ApiClient.HOST_NAME}${path} with querys ${json.encode(
-        querys,
-      )} body ${json.encode(body)}`,
-    );
-    const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + path);
+    // 引擎的 SetHTTPRequestGetOrPostParameter 只对 GET/POST 行为可预期，
+    // 对 DELETE 等方法不会拼到 URL；统一在这里手动拼 query string，所有方法行为一致。
+    let fullPath = path;
+    if (querys) {
+      const parts: string[] = [];
+      for (const key in querys) {
+        parts.push(`${key}=${querys[key]}`);
+      }
+      if (parts.length > 0) {
+        fullPath += (path.indexOf('?') >= 0 ? '&' : '?') + parts.join('&');
+      }
+    }
+
+    print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${fullPath} body ${json.encode(body)}`);
+    const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + fullPath);
     const apiKey = this.GetServerAuthKey();
 
     // 本地主机只发送开局请求
@@ -66,11 +75,6 @@ export class ApiClient {
       return;
     }
 
-    if (querys) {
-      for (const key in querys) {
-        request.SetHTTPRequestGetOrPostParameter(key, querys[key]);
-      }
-    }
     request.SetHTTPRequestNetworkActivityTimeout(timeoutSeconds);
     request.SetHTTPRequestHeaderValue('x-api-key', apiKey);
     if (body) {

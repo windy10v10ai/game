@@ -215,7 +215,7 @@ export class BotTeam {
 
     // 遍历所有玩家，计算总等级
     let totalLevel = 0;
-    for (const player of Player.playerList) {
+    for (const player of Player.playerInfoMap.values()) {
       const seasonLevel = player.seasonLevel || 0;
       const memberLevel = player.memberLevel || 0;
       totalLevel += seasonLevel + memberLevel;

@@ -5563,7 +5563,7 @@
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
 		"ItemInitialStockTime"		"600"	// 9分钟买
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"2"
+		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
 	}
 

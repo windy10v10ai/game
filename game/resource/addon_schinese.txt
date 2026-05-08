@@ -241,7 +241,7 @@
 		"profile_stat_conduct_tooltip"	"行为分满分 <font color='#E8C07D'>100</font> 分，反映你的游戏行为。<br>• 正常完成一局 <font color='#7FD47F'>+1</font> 分<br>• 秒退一局 <font color='#E87D7D'>-5</font> 分<br>以下情况不计为秒退：<br>• 单人游戏<br>• 全体玩家均提前退出且无人进入结算<br>目前仅做统计，未来行为分过低可能触发惩罚机制。"
 
 		// Member Tab UI
-		"member_button_tooltip_active"		"会员激活中，点击查看详情"
+		"member_button_tooltip_active"		"会员已生效，点击查看详情"
 		"member_button_tooltip_inactive"	"会员未激活，点击查看详情"
 		"member_subtab_status"			"会员状态"
 		"member_subtab_subscribe"		"开通会员"

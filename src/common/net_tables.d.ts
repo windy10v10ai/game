@@ -1,4 +1,4 @@
-import { MemberDto, PlayerDto, PointInfoDto } from '../vscripts/api/player';
+import { PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -36,11 +36,8 @@ declare global {
       ending_status: { status: number };
       ending_data: { winner_team_id: number };
     };
-    member_table: {
-      [steamAccountID: string]: MemberDto;
-    };
     player_table: {
-      [steamAccountID: string]: PlayerDto;
+      [steamAccountID: string]: PlayerInfoDto;
     };
     ranking_table: {
       topSteamIds: string[];
