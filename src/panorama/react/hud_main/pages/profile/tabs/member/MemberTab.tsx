@@ -1,0 +1,56 @@
+import React, { useState } from 'react';
+import { SubTabNavigation } from '../../../../../shared/components';
+import { useNetTable } from '../../../../../shared/hooks/useNetTable';
+import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { MemberLevel, MemberSubTab, MEMBER_SUB_TABS } from './constants';
+import { StatusPage } from './StatusPage';
+import { SubscribePage } from './SubscribePage';
+
+export function MemberTab() {
+  const [subTab, setSubTab] = useState<MemberSubTab>('status');
+
+  const steamId = GetLocalPlayerSteamAccountID();
+  const member = useNetTable('member_table', steamId);
+
+  const enable = member?.enable === true;
+  const level = Number(member?.level ?? 0);
+  const expireDate = member?.expireDateString ?? '';
+
+  const hasBaseBenefit = enable && level >= MemberLevel.NORMAL; // 普通或高级会员
+  const isPremium = enable && level >= MemberLevel.PREMIUM; // 仅高级会员
+  const isNormalOnly = hasBaseBenefit && !isPremium; // 仅普通会员
+
+  const statusText = isPremium
+    ? $.Localize('#member_status_premium')
+    : hasBaseBenefit
+      ? $.Localize('#member_status_normal')
+      : expireDate
+        ? $.Localize('#member_status_expired')
+        : $.Localize('#member_status_none');
+
+  const expireText = expireDate
+    ? enable
+      ? $.Localize('#member_expire_date').replace('{expireDate}', expireDate)
+      : $.Localize('#member_expired_date').replace('{expireDate}', expireDate)
+    : '';
+
+  return (
+    <Panel className="member-layout">
+      <SubTabNavigation tabs={MEMBER_SUB_TABS} currentTab={subTab} onTabChange={setSubTab} />
+      <Panel className="member-content">
+        {subTab === 'status' && (
+          <StatusPage
+            enable={enable}
+            hasBaseBenefit={hasBaseBenefit}
+            isPremium={isPremium}
+            isNormalOnly={isNormalOnly}
+            statusText={statusText}
+            expireText={expireText}
+            onOpenSubscribe={() => setSubTab('subscribe')}
+          />
+        )}
+        {subTab === 'subscribe' && <SubscribePage isNormalOnly={isNormalOnly} />}
+      </Panel>
+    </Panel>
+  );
+}

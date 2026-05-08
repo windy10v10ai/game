@@ -96,7 +96,7 @@ release PR 存在且大版本**严格高于** Steam（如 Steam `v5.19b`，relea
 
 ### 多英雄并列
 
-同一条 bullet 列出所有英雄；中文用 **，** 分隔，英文用 **, ** 分隔。
+同一条 bullet 列出所有英雄；中文用 **，**（全角逗号）分隔，**禁止**用顿号 **、**；英文用 **, ** 分隔。
 
 **英雄范围确定规则：**
 - **PR**：通过 `gh pr diff <N>` 提取实际改动的技能前缀（如 `pudge_`、`silencer_` 等），只列**本 PR 实际涉及**的英雄，不得包含其他 PR 的英雄
@@ -168,7 +168,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 
 文件：`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀（`v5.20` 而非 `v5.20a`）。
 
-- Workshop 大版本（去掉 a/b/c）与 `GAME_VERSION` 不同时 → **自动修改** `GameConfig.ts`
+- Workshop 大版本（去掉 a/b/c）与 `GAME_VERSION` 不同时 → **必须自动修改** `GameConfig.ts`，**不得遗漏**
 - 仅 a/b/c 小更、大版本未变 → 不改
 
 ## 更新 open PR 的 Release Note
@@ -195,7 +195,7 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
    - 其他 → 手动
 2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行。
 3. **生成更新日志**：Issue+checklist 列已完成英雄并附 `x/总数`；PR 列全部英雄；手动按用户列点。
-4. **GAME_VERSION 同步**：大版本变化时自动修改 `GameConfig.ts`。
+4. **GAME_VERSION 同步**：大版本变化时**必须立即**修改 `GameConfig.ts`，不得等用户提醒。
 5. **输出**中英文两版，标题含具体版本号。
 6. **写入 PR**：用选项菜单让用户选择操作后执行。
 

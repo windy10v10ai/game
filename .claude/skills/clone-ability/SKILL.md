@@ -56,6 +56,18 @@ files:
 | 抽奖池技能 | `game/scripts/npc/npc_abilities_custom_lottery.txt` | 随机抽奖系统 |
 | 单位 / 英雄专属技能 | `game/scripts/npc/npc_abilities_custom.txt` | 特定单位或自定义英雄 |
 
+### 2-B-extra KV 插入位置（`npc_abilities_custom_lottery.txt`）
+
+该文件内有三个区域，新技能块须插入到对应区域的**末尾**（紧接下一区域的分隔注释之前）：
+
+| 区域 | 位置标志 | 适用技能 |
+|------|----------|----------|
+| Innate 天赋技能 | `// Innate 天赋 技能`（第 5 行）至 `// 普通升级 技能` 分隔线之前 | 所有从先天技能克隆的自定义技能（流程 A） |
+| 普通升级技能 | `// 普通升级 技能` 至 `// lua 技能` 分隔线之前 | 从普通技能克隆的自定义技能（流程 B） |
+| lua 技能 | `// lua 技能` 至文件末尾 `}` 之前 | 纯 lua 实现的自定义技能 |
+
+> 用 `grep -n "^//"` 快速定位三个区域的行号。
+
 ### 2-B 操作模式
 
 新建模式（技能不存在时默认）；若用户在命令中明确指定「修正」则改为修正模式。
@@ -86,6 +98,10 @@ files:
 
 **修正现有技能**时，跳过此步，直接进入第六步 K 键同步。
 
+> **`dynamic_value` 处理规则**：含 `hero_levelup` 的子块（克隆后 `hero_levelup` 不再生效）需整块移除并将数值扩展为多级。但用于 **tooltip 动态显示**的字段（如 `current_slow_resistance`、`current_aoe`、`attack_speed_tooltip` 等）须保留其 `dynamic_value` 子块，引擎依赖它们计算并显示实时数值。
+
+> **`affected_by_aoe_increase` 处理规则**：原版子块内含 `affected_by_aoe_increase "1"` 的字段（如 `radius`），**不能**写成单值形式，必须保留为子块并显式写入 `affected_by_aoe_increase "1"`，否则 AOE 增益对该字段无效。
+
 ---
 
 ## 第五步：识别原版技能类型
@@ -94,9 +110,18 @@ files:
 
 | 字段 | 判定结果 |
 |----------|---------|
-| `"Innate" "1"` | **先天技能**，走 A 流程 |
+| `"Innate" "1"` | **先天技能**，走 A 流程或 C 流程（见下） |
 | `"Innate" "0"` 或无 Innate 字段 | **普通技能**，走 B 流程 |
 | 无法确定 | 用 `AskUserQuestion` 询问用户 |
+
+### 先天技能：选择 A 流程还是 C 流程
+
+对于先天技能，**优先考虑流程 C**（直接用原版名加入抽奖池）：
+
+| 条件 | 推荐流程 |
+|------|----------|
+| 原版 `AbilityBehavior` 仅含 `HIDDEN`（去掉后即可正常显示和生效） | **流程 C** — override 去 HIDDEN，原版名直接入池 |
+| 需要改数值 / 多级成长 / 行为调整（如去掉 `NOT_LEARNABLE`、补 `UNIT_TARGET` 属性等） | **流程 A** — 克隆为自定义技能名 |
 
 ---
 
@@ -135,6 +160,17 @@ files:
 5. `"AbilityValues"` → 同流程 A 第 5 步。
 6. `"AbilityTextureName"` → 必填。
 7. 同流程 A 第 7 步。
+
+### 流程 C — 原版先天技能直接入池（去 HIDDEN override）
+
+适用条件：原版技能含 `DOTA_ABILITY_BEHAVIOR_HIDDEN`，去掉该标志后即可正常显示与生效，无需改数值或行为。
+
+1. 在 `game/scripts/npc/npc_abilities_override.txt` 中为原版技能名添加（或更新）一个块，写入以下两个键：
+   - `AbilityBehavior`：去掉 `DOTA_ABILITY_BEHAVIOR_HIDDEN`，其余 behavior 标志原封不动保留。
+   - `IsOnCastBar "1"`：确保技能显示在施法栏上。
+2. **不**在 `npc_abilities_custom_lottery.txt` 中新建任何 KV 块。
+3. **不**在本地化文件中新增任何条目（原版本地化已覆盖）。
+4. 在 `lottery-abilities.ts` 中以**原版技能名**直接加入对应 tier 的 `// 被动技能` 区域（非「自定义技能」区域）。
 
 ---
 
@@ -193,3 +229,4 @@ files:
 - [ ] 修正模式：已按原版同步 K 键（删同值、删已废键、补新键）
 - [ ] `addon_english.txt` 与 `addon_schinese.txt` 键集合一致，占位符与原版一致
 - [ ] 若进抽奖池，已改 lottery TS 列表
+- [ ] 流程 C：在 override 中去掉 `HIDDEN`（其余 behavior 保留）并加 `IsOnCastBar "1"`；原版名直接写入 lottery TS `// 被动技能` 区域；无需新建 KV 块或本地化条目

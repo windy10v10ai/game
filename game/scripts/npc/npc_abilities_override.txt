@@ -1122,6 +1122,13 @@
 	}
 	// 幻象已移除，无需 override
 	// "chaos_knight_phantasm" {}
+	// 基本法则锻造 先天技能
+	"chaos_knight_fundamental_forging"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+		"IsOnCastBar"					"1"
+		"AbilityTextureName"			"copy_item"
+	}
 	//=================================================================================================================
 	// Ability: Dawnbreaker 破晓辰星/黄大锤
 	//=================================================================================================================
@@ -2096,11 +2103,12 @@
 	// 迎难而战
 	"legion_commander_outfight_them"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"armor"
 			{
-				"value"					"3"	// 1
+				"value"					"5"	// 1
 				"hero_levelup"			"+0.2"	// +0.1
 				"special_bonus_unique_legion_commander_outfight_them_armor"		"+2"	// +1
 			}
@@ -2369,6 +2377,11 @@
 				"value"					"2.5 3.0 3.5 4.0"
 			}
 		}
+	}
+	// 坚固核心
+	"magnataur_solid_core"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 	}
 	//=================================================================================================================
 	// Ability: Marci 玛西
@@ -2757,6 +2770,12 @@
 			}
 		}
 	}
+	// 退化光环 先天技能
+	"omniknight_degen_aura"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+		"MaxLevel"						"1"
+	}
 	//=================================================================================================================
 	// Ability: Phoenix 凤凰
 	//=================================================================================================================
@@ -2948,6 +2967,7 @@
 		"AbilityValues"
 		{
 			"hp_per_threshold"				"250"					// 100
+			"model_scale_per_stack"						"1.05"		// 1.1
 		}
 	}
 	//=================================================================================================================
@@ -2987,8 +3007,8 @@
 		{
 			"damage"
 			{
-				"value"									"150 220 290 360 430"
-				"special_bonus_unique_pudge_7"			"+170"	// +150
+				"value"									"160 240 320 400 480"	// 150 220 290 360 加强
+				"special_bonus_unique_pudge_7"			"+220"	// +150
 			}
 			"hook_speed"
 			{
@@ -3918,6 +3938,7 @@
 	// 严寒（先天）
 	"tusk_bitter_chill"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"radius"
@@ -4156,6 +4177,7 @@
 	// 不可逾越 先天技能
 	"tiny_insurmountable"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"str_to_slow_resist_pct"			"12"	// 20 -8
@@ -4783,6 +4805,11 @@
 			}
 		}
 	}
+	// 食血动物 先天技能
+	"bloodseeker_sanguivore"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+	}
 	//=================================================================================================================
 	// Ability: Bounty Hunter 赏金猎人/BH
 	//=================================================================================================================
@@ -5075,6 +5102,7 @@
 	// 精准光环（先天 随大招等级）
 	"drow_ranger_trueshot"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
 		"AbilityValues"
 		{
 				"trueshot_agi_bonus"
@@ -5420,6 +5448,7 @@
 	// 加力燃烧器（先天）
 	"gyrocopter_afterburner"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"bonus_movement_speed_per_hit"			"2"		// 1 x2
@@ -5863,6 +5892,7 @@
 	// 月之祝福（先天）
 	"luna_lunar_blessing"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 				"bonus_damage"
@@ -5991,6 +6021,7 @@
 	// 魔法盾 先天
 	"medusa_mana_shield"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"damage_per_mana"
@@ -6140,6 +6171,10 @@
 		"AbilityValues"
 		{
 				"counter_duration"			"5.5 7.0 8.5 10.0 11.5"
+				"required_hits"
+				{
+					"value"			"3"		// 4
+				}
 				"bonus_damage"
 				{
 					"value"						"60 160 260 360 460"	// 30 80 130 180 x2
@@ -6158,7 +6193,7 @@
 				{
 					"value"			"15 20 25 30"
 				}
-				"attack_speed"						"1.15 1.1 1.05 1.0"	// 1.1
+				"attack_speed"						"1.1 1.0 0.9 0.8"	// 1.1
 				"cooldown_scepter"
 				{
 					"special_bonus_scepter"		"120"	// 90 70 50
@@ -6524,6 +6559,7 @@
 	// 支配死灵（先天）
 	"nevermore_necromastery"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"necromastery_max_souls"
@@ -6670,16 +6706,10 @@
 			"cooldown_reduction"			"40"	// 25
 		}
 	}
-	// 夜之感知 先天技能
-	"nyx_assassin_nyxth_sense"
+	// 法力燃烧 先天技能
+	"nyx_assassin_neuro_sting"
 	{
-		"AbilityValues"
-		{
-			"radius"
-			{
-				"value"		"600"	// 400
-			}
-		}
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 	}
 	//=================================================================================================================
 	// Ability: Pangolier 石鳞剑士/滚滚
@@ -7055,6 +7085,7 @@
 	// 背刺 先天技能
 	"riki_innate_backstab"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"damage_multiplier"
@@ -7160,6 +7191,7 @@
 	// 能量转移
 	"slark_essence_shift"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"duration"
@@ -7170,6 +7202,7 @@
 			"steal_radius"
 			{
 				"value"		"1500"	// 300
+				"affected_by_aoe_increase"	"1"
 			}
 		}
 	}
@@ -7292,6 +7325,7 @@
 	// 荒芜 先天
 	"spectre_desolate"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"radius"
@@ -8814,6 +8848,7 @@
 	// 巫术精研
 	"death_prophet_witchcraft"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"movement_speed_pct"
@@ -9202,6 +9237,7 @@
 	// 丛林之魂（先天）
 	"furion_spirit_of_the_forest"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"radius_base"
@@ -9961,7 +9997,7 @@
 			"jumps"
 			{
 				"value"			"10 15 20 25"	// 10 10 10
-				"special_bonus_unique_lich_5"	"+25"	// 原版不存在，手动修改
+				"special_bonus_unique_lich_5"	"+75"	// 原版不存在，手动修改
 			}
 			"has_unlimited_jumps"
 			{
@@ -11010,6 +11046,7 @@
 	// 威胁 先天
 	"shadow_demon_menace"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"stack"
@@ -11212,6 +11249,8 @@
 	// 默默受苦 先天技能
 	"silencer_brain_drain"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"IsOnCastBar"					"1"
 		"AbilityValues"
 		{
 			"permanent_int_steal_range"
@@ -12200,6 +12239,11 @@
 			}
 		}
 	}
+	// 静电场 先天技能
+	"zuus_static_field"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+	}
 	//=================================================================================================================
 	// MUERTA: 琼英碧灵/奶绿
 	//=================================================================================================================
@@ -12256,6 +12300,7 @@
 	// 超自然（先天）
 	"muerta_supernatural"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"max_stacks_tooltip"
@@ -12712,4 +12757,15 @@
 			}
 		}
 	}
+	// 凤凰 消逝之光 先天
+	"phoenix_dying_light"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+	}
+	// 滚滚 天佑勇者 先天
+	"pangolier_fortune_favors_the_bold"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+	}
+
 }

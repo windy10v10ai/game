@@ -47,6 +47,10 @@ npm test
 # Lint TypeScript files
 npm run lint
 npm run lint:fix
+
+# Build checks (run before committing to catch compile errors)
+npm run build:panorama   # Webpack build for Panorama UI
+npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 ```
 
 ## 代码架构
@@ -82,15 +86,35 @@ src/
 │
 ├── panorama/              # UI (React + TypeScript → JavaScript)
 │   ├── react/
-│   │   ├── hud_lottery/   # Ability lottery UI
-│   │   │   ├── Lottery.tsx        # Main container with state management
-│   │   │   ├── LotteryContainer.tsx
-│   │   │   ├── LotteryRow.tsx
-│   │   │   ├── LotteryAbilityItem.tsx  # Individual ability cards
-│   │   │   └── KeyBind.tsx        # Hotkey binding UI
-│   │   └── utils/         # Net table helpers, color definitions
-│   ├── tsconfig.json
-│   └── webpack.*.js       # Build configurations
+│   │   ├── shared/        # 跨 entry 共享：通用组件 / hooks / 设计 token
+│   │   │   ├── components/  # AppButton, Dialog, Modal, TabNavigation, ...
+│   │   │   ├── hooks/       # useNetTable, useClientEvent
+│   │   │   └── styles/      # tokens.less, buttons.less, dialog.less
+│   │   ├── hud_lottery/   # 常驻 HUD 浮窗：技能抽奖
+│   │   └── hud_main/      # 中心化界面容器（home/shop/achievements 等）
+│   │       ├── HudMain.tsx       # 顶层 Provider 组合
+│   │       ├── router/           # PageRouter + PageId 类型
+│   │       ├── store/            # NavigationContext / DialogContext
+│   │       ├── components/       # 常驻入口按钮等容器级组件
+│   │       ├── pages/            # 各页面（home / shop / profile / ...）
+│   │       │   └── profile/      # 页面 = 文件夹；样式与拥有者同级
+│   │       │       ├── ProfilePage.tsx
+│   │       │       ├── styles.less        # 聚合入口（layout.xml 引用此文件）
+│   │       │       ├── layout.less        # 页面外框 / Tab 导航 / 内容区
+│   │       │       ├── stats.less         # Stats Tab + 占位样式
+│   │       │       └── tabs/
+│   │       │           ├── StatsTab.tsx   # 单文件 tab 直接放 tabs/
+│   │       │           └── member/        # 复杂 tab 拆为子目录，自带 styles.less
+│   │       │               ├── index.ts
+│   │       │               ├── MemberTab.tsx
+│   │       │               ├── StatusPage.tsx
+│   │       │               ├── SubscribePage.tsx
+│   │       │               ├── ClickablePanel.tsx
+│   │       │               ├── constants.ts
+│   │       │               └── styles.less
+│   │       └── dialogs/          # ConfirmDialog + useConfirm
+│   ├── utils/             # 全局 utils（@utils/* 别名指向这里）
+│   └── webpack.{dev,prod}.js
 │
 ├── common/                # Shared TypeScript types
 │   ├── net_tables.d.ts    # CustomNetTableDeclarations interface
@@ -182,14 +206,43 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 5. 开发期间在 VConsole 中使用 `script_reload` 进行热重载
 6. 在 `*.test.ts` 文件中使用 Jest 编写测试(根据需要模拟 Dota 全局变量)
 
+### Panorama UI 架构
+
+**两类 entry 的边界**：
+
+- **常驻 HUD 浮窗**（`hud_lottery` 等）：独立 webpack entry + layout.xml，常驻屏幕一角，与游戏 HUD 并存。
+- **中心化界面**（`hud_main`）：单一 entry，内部用 `PageRouter` 切换 home / shop / achievements 等页面。新增"模态/中心化界面"应作为 hud_main 的页面，**不开新 entry**。
+
+**跨 entry 通信**：
+
+```ts
+// 任意 entry → 唤起 hud_main 的某个页面
+GameEvents.SendEventClientSide('hud_open_page', { page: 'home' });
+```
+
+`hud_main` 的 `NavigationProvider` 监听该事件并切换 currentPage。事件类型在 `src/common/events.d.ts` 中声明。
+
+**通用资源位置**：
+
+- 通用组件 / 对话框骨架：`src/panorama/react/shared/components/`
+- 通用 hooks（net table 订阅、客户端事件订阅）：`src/panorama/react/shared/hooks/`
+- 设计 token / 通用 class（`.btn-primary` `.modal-panel` 等）：`src/panorama/react/shared/styles/`，通过 `<include src="../shared/styles/index.less" />` 引入到任意 entry 的 layout.xml
+- 路径别名 `@utils/*` 指向 `src/panorama/utils/`（**不是** `react/utils`）
+
+**hud_main 页面拆分约定**（避免单文件膨胀）：
+
+- 每个页面是 `pages/<name>/` 一个文件夹，至少包含 `<Name>Page.tsx` 和 `styles.less`（聚合入口）
+- 简单 tab：`tabs/<TabName>.tsx` 单文件，样式归并到页面级 less 中（如 `pages/profile/stats.less`）
+- 复杂 tab（>200 行 / 含多个子页 / 多个内部组件）：拆为 `tabs/<tabName>/` 子目录，按职责分文件（顶层 `Tab.tsx` + 各 `*Page.tsx` + 共享 `*.tsx` + `constants.ts` + 自带 `styles.less`），通过 `index.ts` 重新导出
+- **样式与拥有者同级**：页面级样式（外框/导航/单文件 tab）直接放页面根目录；复杂 tab 的样式跟随其子目录。页面根 `styles.less` 仅用 `@import` 聚合，layout.xml 仍只引用此一个文件
+- 仅当前 tab 用到的子组件留在该 tab 文件夹内（不下沉到 `shared/`）；跨 tab 复用才考虑提到 `shared/`
+
 ### 修改 Panorama UI 时:
 
 1. React 组件位于 `src/panorama/react/`
-2. 使用 `panorama/react/utils/net-table.ts` 中的 Net Table 辅助函数
-3. 订阅 Net Tables 以响应式更新数据
-4. 通过 `GameEvents.SendCustomGameEventToServer()` 发送事件
-5. 路径别名 `@utils/*` 映射到 `panorama/react/utils/*`
-6. Panorama UI 使用 React 16.14 配合函数式组件和 hooks
+2. 使用 `src/panorama/utils/net-table.ts` 或 `shared/hooks/useNetTable` 处理 Net Table 订阅
+3. 通过 `GameEvents.SendCustomGameEventToServer()` 发送服务端事件；UI 间通信用 `GameEvents.SendEventClientSide()`
+4. Panorama UI 使用 React 16.14 配合函数式组件和 hooks
 
 ### 添加新的共享类型时:
 
@@ -213,6 +266,18 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
 - **KV 文件格式**: `game/scripts/npc/` 目录下所有 `.txt` 文件必须全程使用 **tab**，包括行首缩进以及 key 与 value 之间的对齐间距，不得使用空格
 
+### 图片资源管理
+
+图片放在 `content/panorama/images/custom_game/<module>/`，按功能模块分二级目录（如 `lottery/`、`profile/`、`battlepass/` 等）。
+
+**新增图片步骤**：
+
+1. 文件放到对应二级目录，命名小写下划线，前缀按类型（`icon_` `bg_` `frame_` `decor_`）
+2. 在 `content/panorama/layout/custom_game/images.xml` 隐藏 Panel 内加一行 `<Image>` 声明（id 在该文件内唯一），用于触发 `.vtex_c` 编译
+3. **不再**为每张图创建单独的 `<name>.xml` 编译壳
+
+**引用方式**：在 React 或 less 中用 `file://{images}/custom_game/<module>/<file>.png`。
+
 ### Dota 2 参考文件速查
 
 `<version>` 取 `docs/reference/` 下最新数字版本目录。
@@ -231,6 +296,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 | 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
+| addon 俄文本地化 | `game/resource/addon_russian.txt` |
 
 #### 技能系统名查找
 
@@ -276,9 +342,6 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生成。
 **PR 标题默认使用英文。**
 
-### 提交
-
-创建 git commit 时，只写**简短的单行标题**，不写正文、不写 bullet、不写详细说明。标题控制在 72 字符以内。
 
 ## Skill 交互规范
 
