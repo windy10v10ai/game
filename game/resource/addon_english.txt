@@ -5,7 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI by Windy"
 		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
-		"DOTA_SHARD"			"Battle Experience"
+		"DOTA_SHARD"			"Battle Points"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -114,7 +114,7 @@
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Home"
 		"data_panel_member_point"		"Member Points"
-		"data_panel_season_point"		"Battle Experience"
+		"data_panel_season_point"		"Battle Points"
 		"data_panel_property_point"		"Attribute Points (Available/Total)"
 
 		"data_panel_data_button"		"Data"
@@ -123,14 +123,14 @@
 		"data_panel_property_reset"		"Reset"
 
 		"data_panel_season_level"		"Battle Level"
-		"data_panel_season_level_tooltip"		"Level up with Battle Experience. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
+		"data_panel_season_level_tooltip"		"Level up with Battle Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
 		"data_panel_member_level"		"Member Level"
 		"data_panel_member_level_tooltip"		"Level up with Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
 		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
-		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Experience"
+		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
 		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Points"
 
 		"data_panel_player_property_label"		"Spend Attribute Points to upgrade your hero. Upgrades are permanent and persist between games."
@@ -278,7 +278,7 @@
 		"member_shop_title"						"Buy Member Points"
 		"member_activate"						"Manual Activate"
 		"member_activate_tooltip"				"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
-		"member_refresh"						"Refresh Member Status"
+		"member_refresh"						"Refresh Membership & Points"
 
 		///////////////////////////////////////////////////
 		//
@@ -1708,7 +1708,7 @@
 // 				Items 自定义物品
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
-		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Experience"
+		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Points"
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"
