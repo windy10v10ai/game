@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { SubTabNavigation } from '../../../../../shared/components';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
@@ -8,10 +8,35 @@ import { SubscribePage } from './SubscribePage';
 
 export function MemberTab() {
   const [subTab, setSubTab] = useState<MemberSubTab>('status');
+  const [refreshing, setRefreshing] = useState(false);
+  const refreshingRef = useRef(false);
 
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
   const member = player?.member;
+
+  // net table 更新后立即恢复按钮，并跳回状态页
+  useEffect(() => {
+    if (refreshingRef.current) {
+      refreshingRef.current = false;
+      setRefreshing(false);
+      setSubTab('status');
+    }
+  }, [player]);
+
+  const handleRefresh = () => {
+    if (refreshing) return;
+    refreshingRef.current = true;
+    setRefreshing(true);
+    GameEvents.SendCustomGameEventToServer('player_info_refresh', {});
+    // 兜底：5 秒后无论成功失败都恢复按钮（本地环境 API 返回 401 不会更新 net table）
+    $.Schedule(5, () => {
+      if (refreshingRef.current) {
+        refreshingRef.current = false;
+        setRefreshing(false);
+      }
+    });
+  };
 
   const enable = member?.enable === true;
   const level = Number(member?.level ?? 0);
@@ -48,9 +73,17 @@ export function MemberTab() {
             statusText={statusText}
             expireText={expireText}
             onOpenSubscribe={() => setSubTab('subscribe')}
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
           />
         )}
-        {subTab === 'subscribe' && <SubscribePage isNormalOnly={isNormalOnly} />}
+        {subTab === 'subscribe' && (
+          <SubscribePage
+            isNormalOnly={isNormalOnly}
+            refreshing={refreshing}
+            onRefresh={handleRefresh}
+          />
+        )}
       </Panel>
     </Panel>
   );

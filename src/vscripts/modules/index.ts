@@ -1,5 +1,6 @@
 import { AI } from '../ai/AI';
 import { Analytics } from '../api/analytics/analytics';
+import { PlayerInfoApi } from '../api/player-info';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
@@ -39,7 +40,8 @@ export function ActivateModules() {
 
     new VirtualGoldBank();
 
-    // 玩家相关事件监听：property 升级/重置 + setting 保存
+    // 玩家相关事件监听：property 升级/重置 + setting 保存 + player info 刷新
+    new PlayerInfoApi();
     new PlayerPropertyApi();
     new PlayerSettingApi();
   }

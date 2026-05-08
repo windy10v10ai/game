@@ -278,6 +278,7 @@
 		"member_shop_title"						"Buy Member Experience"
 		"member_activate"						"Manual Activate"
 		"member_activate_tooltip"				"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
+		"member_refresh"						"Refresh Member Status"
 
 		///////////////////////////////////////////////////
 		//

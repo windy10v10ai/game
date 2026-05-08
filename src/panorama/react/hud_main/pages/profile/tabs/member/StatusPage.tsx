@@ -76,6 +76,8 @@ interface StatusPageProps {
   statusText: string;
   expireText: string;
   onOpenSubscribe: () => void;
+  refreshing: boolean;
+  onRefresh: () => void;
 }
 
 export function StatusPage({
@@ -86,6 +88,8 @@ export function StatusPage({
   statusText,
   expireText,
   onOpenSubscribe,
+  refreshing,
+  onRefresh,
 }: StatusPageProps) {
   const crownSrc = enable ? CROWN_GOLD : CROWN_GREY;
   const cardClass = enable
@@ -94,18 +98,28 @@ export function StatusPage({
 
   return (
     <Panel className="member-subpage">
-      <ClickablePanel
-        className={cardClass}
-        clickable={!enable}
-        tooltipKey="#member_status_card_click_hint"
-        onActivate={onOpenSubscribe}
-      >
-        <Image className="member-crown-icon" src={crownSrc} />
-        <Panel className="member-status-info">
-          <Label className="member-status-title" text={statusText} />
-          {expireText !== '' && <Label className="member-expire-label" text={expireText} />}
-        </Panel>
-      </ClickablePanel>
+      <Panel className="member-status-row">
+        <ClickablePanel
+          className={cardClass}
+          clickable={!enable}
+          tooltipKey="#member_status_card_click_hint"
+          onActivate={onOpenSubscribe}
+        >
+          <Image className="member-crown-icon" src={crownSrc} />
+          <Panel className="member-status-info">
+            <Label className="member-status-title" text={statusText} />
+            {expireText !== '' && <Label className="member-expire-label" text={expireText} />}
+          </Panel>
+        </ClickablePanel>
+        <Button
+          className={
+            refreshing ? 'member-refresh-btn member-refresh-btn-loading' : 'member-refresh-btn'
+          }
+          onactivate={onRefresh}
+        >
+          <Label className="member-refresh-label" text={$.Localize('#member_refresh')} />
+        </Button>
+      </Panel>
 
       <Panel className="member-benefits-container">
         {isNormalOnly ? (
