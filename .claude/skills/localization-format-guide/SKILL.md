@@ -24,16 +24,19 @@ disable-model-invocation: true
 - **注释使用中文**，且**中英文注释完全一致**
 - **HTML 标签与换行规则**（`\n` 分段、`<br><br>` 段内换行）中英文必须一致
 - **颜色代码必须大写**
-- 新增/删除条目必须同时改中文与英文；俄文只维护现有键，不新增
+- 新增/删除条目必须同时改中文与英文
+- **UI 相关键**（Panorama 界面文本，如按钮、标签、提示等）必须同时维护俄文
+- 技能/物品/游戏逻辑类键不翻译俄文
 
 ## 执行步骤（建议）
 
-1. 明确要新增/修改的 key 列表与对应文本
+1. 明确要新增/修改的 key 列表与对应文本，判断是否为 UI 相关键
 2. 同时在 `addon_schinese.txt` 与 `addon_english.txt` 增删相同 key
-3. 对齐检查：
+3. UI 相关键同步添加/更新到 `addon_russian.txt`
+4. 对齐检查：
    - 缩进、tab 对齐、空行位置一致
    - HTML 标签位置一致（包括 `\n` 与 `<br>`）
    - 占位符（如 `%duration%`、`%dMODIFIER_PROPERTY_XXX%`）一致
-4. 若涉及 modifier：补齐 `Name` 与 `Description` 必需条目
-5. 中文标点使用全角；数字/英文/HTML/占位符保持原样
+5. 若涉及 modifier：补齐 `Name` 与 `Description` 必需条目
+6. 中文标点使用全角；数字/英文/HTML/占位符保持原样
 

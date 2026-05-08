@@ -1,0 +1,1 @@
+export { ShopPage } from './ShopPage';

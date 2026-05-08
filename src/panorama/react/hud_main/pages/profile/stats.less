@@ -1,0 +1,142 @@
+// Stats Tab 样式 + 通用卡片 mixin + 占位 Tab
+@import "../../../shared/styles/tokens.less";
+
+/* ========== Stats Tab ========== */
+.stats-layout {
+  width: 100%;
+  height: 100%;
+  flow-children: right;
+}
+
+.stats-card {
+  // 透明材质
+  // background-color: gradient(
+  //   linear,
+  //   0% 0%,
+  //   0% 100%,
+  //   from(#000000cc),
+  //   color-stop(0.6, #00000099),
+  //   to(#1c112e88)
+  // );
+  // background-color: gradient(linear, 0% 0%, 80% 0%, from(#2a2a2a), to(#111111));
+  background-image: url("s2r://panorama/images/backgrounds/gallery_background_png.vtex");
+  border: 1px solid @color-gold-soft;
+  border-radius: @radius-lg;
+}
+
+// 深紫色渐变卡片（方案A）
+.purple-card {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#1a0855cc), to(#0f033aaa));
+  border: 1px solid @color-primary;
+  border-radius: @radius-lg;
+}
+
+.stats-player-card {
+  .stats-card;
+  width: 200px;
+  height: 100%;
+  flow-children: down;
+  padding: 24px 16px;
+  margin-right: 16px;
+  horizontal-align: center;
+}
+
+/* 头像容器：边框图作 background-image，padding 4px 留出边框空间 */
+.stats-avatar-wrap {
+  width: 120px;
+  height: 120px;
+  horizontal-align: center;
+  margin-bottom: 14px;
+  padding: 4px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.stats-avatar {
+  width: 112px;
+  height: 112px;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.stats-username {
+  horizontal-align: center;
+  text-align: center;
+  color: @color-text;
+  font-size: @font-size-lg;
+  font-weight: bold;
+}
+
+.stats-container {
+  .stats-card;
+  width: fill-parent-flow(1);
+  height: 100%;
+  flow-children: down;
+  padding: 24px 28px;
+  vertical-align: center;
+}
+
+.stat-item {
+  width: 100%;
+  height: 36px;
+  flow-children: right;
+  padding: 0px 4px;
+  border-bottom: 1px solid #ffffff11;
+}
+
+.stats-container .stat-item:last-child {
+  border-bottom: 0px solid #00000000;
+}
+
+.stat-label {
+  color: @color-text-muted;
+  font-weight: normal;
+  width: 160px;
+  vertical-align: center;
+}
+
+.stat-value {
+  color: @color-gold;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 15px;
+  vertical-align: center;
+}
+
+.stat-coming-soon {
+  width: 100%;
+  text-align: center;
+  color: @color-text-muted;
+  font-size: @font-size-sm;
+  margin-top: 60px;
+}
+
+.stat-tip-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 6px;
+  vertical-align: center;
+  opacity: 0.6;
+  tooltip-position: top;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/* ========== 占位 Tab ========== */
+.placeholder-container {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 15px;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.placeholder-text {
+  width: 100%;
+  font-size: 22px;
+  color: @color-text-muted;
+  text-align: center;
+  vertical-align: center;
+}

@@ -205,9 +205,6 @@
 		//			Member
 		//
 		///////////////////////////////////////////////////
-		"player_member_button_normal"			"感谢您的支持！您现在是 <font color='#FFCC66'>普通会员</font><br/>会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/> 会员有效期：{expireDate}"
-		"player_member_button_premium"			"感谢您的支持！您现在是 <font color='#FFCC66'>高级会员</font><br/>高级会员权益<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员经验<br/><font color='#FFCC66'> - 开局技能升级为 8选1，新增的 2 个技能中有更高概率出现 高级技能<br/> - 解锁金钱上限</font><br/> 会员有效期：{expireDate}"
-		"player_member_button_expire"	"感谢您的支持！<br/>会员已于{expireDate}到期，点击按钮续订。"
 		"player_member_ship"			"点击开通会员"
 		"player_member_null"			"会员信息获取失败，请重新加载游戏。"
 
@@ -226,6 +223,61 @@
 		//
 		///////////////////////////////////////////////////
 		"point_header_text"				"通知"
+
+		///////////////////////////////////////////////////
+		//
+		//			profile
+		//
+		///////////////////////////////////////////////////
+		"profile_title"					"个人中心"
+		"profile_tab_stats"				"战绩"
+		"profile_tab_member"			"会员"
+
+		// Stat Tab UI
+		"profile_stat_games"			"游戏场次"
+		"profile_stat_winrate"			"胜率"
+		"profile_stat_conduct"			"行为分"
+		"profile_stat_coming_soon"		"更多功能开发中"
+		"profile_stat_conduct_tooltip"	"行为分满分 <font color='#E8C07D'>100</font> 分，反映你的游戏行为。<br>• 正常完成一局 <font color='#7FD47F'>+1</font> 分<br>• 秒退一局 <font color='#E87D7D'>-5</font> 分<br>以下情况不计为秒退：<br>• 单人游戏<br>• 全体玩家均提前退出且无人进入结算<br>目前仅做统计，未来行为分过低可能触发惩罚机制。"
+
+		// Member Tab UI
+		"member_button_tooltip_active"		"会员激活中，点击查看详情"
+		"member_button_tooltip_inactive"	"会员未激活，点击查看详情"
+		"member_subtab_status"			"会员状态"
+		"member_subtab_subscribe"		"开通会员"
+		"member_status_premium"			"高级会员"
+		"member_status_normal"			"普通会员"
+		"member_status_none"			"未开通会员"
+		"member_status_card_click_hint"		"点击开通高级会员"
+		"member_benefit_click_hint_premium"	"点击开通高级会员以解锁专属权益"
+		"member_status_expired"			"已过期"
+		"member_expire_date"			"有效期至：{expireDate}"
+		"member_expired_date"			"已于 {expireDate} 到期"
+		"member_benefit_title_all"		"高级会员权益"
+		"member_benefit_title_base"		"基础会员权益"
+		"member_benefit_title_premium"	"高级会员专属权益"
+		"member_benefit_revive"			"复活时间减少 5 秒"
+		"member_benefit_buyback"		"买活 CD 缩短至 2 分钟"
+		"member_benefit_reroll"			"开局抽选的主动/被动技能各可刷新一次"
+		"member_benefit_daily_exp"		"每日首次登录获得 100 会员经验（每日8:00 北京时间重置）"
+		"member_benefit_8pick"			"开局技能抽选升级为 8 选 1，新增 2 个技能有更高概率出现高级技能"
+		"member_benefit_gold_cap"		"突破游戏内 99999 金钱上限"
+		"member_benefit_exp_normal"		"每次订阅立即获得 300 会员经验"
+		"member_benefit_exp_premium"	"每次订阅立即获得 1000 会员经验"
+		"member_benefit_buff"			"会员专属属性加成：+10 攻击力、+5% 技能增强、+300 HP、+200 MP"
+		"member_steam_id"				"Dota2好友ID："
+		"member_steam_id_select_hint"	"（可以选择复制）"
+		"member_subscribe_hint"			"订阅时请在备注中填写上方好友ID，系统将自动激活，下一局生效。再次订阅无需填写。"
+		"member_subscribe_title"		"开通高级会员"
+		"member_subscribe_normal_upgrade_hint"	"您当前为普通会员，购买高级会员后，剩余时长将按 0.6 倍折算为高级会员时长。"
+		"member_platform_afdian"				"爱发电"
+		"member_platform_afdian_desc"			"国内用户推荐 · 人民币支付"
+		"member_platform_kofi"					"Ko-fi"
+		"member_platform_kofi_desc"				"海外用户推荐 · 美元支付"
+		"member_shop_divider"			"已有会员？购买会员经验快速升级"
+		"member_shop_title"				"购买会员经验"
+		"member_activate"				"手动激活"
+		"member_activate_tooltip"		"若订阅时忘记填写好友ID或填写有误，可在此手动激活。激活成功后系统将记录您的账号，之后订阅无需再次填写。"
 
 		///////////////////////////////////////////////////
 		//
@@ -563,12 +615,6 @@
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_miss" 			"%闪避/暴击概率："
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_damage" 		"%暴击伤害："
 		"DOTA_Tooltip_ability_brewmaster_drunken_boxing_duration" 		"激活持续时间："
-		//精准光环
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2"										"精准光环"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Description"							"卓尔游侠根据她自身的当前敏捷和英雄等级获得敏捷加成。附近远程英雄获得%trueshot_agi_bonus_allies_pct%%%敏捷加成。"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_Lore"								"崔希丝在卓尔族森林中独处的时光让她有时间教导其他弓箭手如何提高弓技。"
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_trueshot_agi_bonus"					"%敏捷加成："
-		"DOTA_Tooltip_ability_drow_ranger_trueshot2_radius"								"作用范围："
 
 		//长角抛物
 		"DOTA_Tooltip_ability_magnataur_horn_toss2"						        "长角抛物"
@@ -675,13 +721,29 @@
 		//暴烈之爪
 		"DOTA_Tooltip_ability_ursa_maul2"						"暴烈之爪"
 		"DOTA_Tooltip_ability_ursa_maul2_Description"			"熊战士获得攻击力加成，数值为当前生命值的一定百分比。"
-		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%生命值伤害："
+		"DOTA_Tooltip_ability_ursa_maul2_health_as_damage_pct"	"%生命值转为攻击力："
 		"DOTA_Tooltip_modifier_ursa_maul2"						"暴烈之爪"
 		"DOTA_Tooltip_modifier_ursa_maul2_Description"			"攻击力提升%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点。"
 		//天生一对
 		"DOTA_Tooltip_ability_jakiro_double_trouble2"				"天生一对"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_Description"				"杰奇洛攻击时两个头都会发动攻击，不过每个头造成的伤害减少。"
 		"DOTA_Tooltip_ability_jakiro_double_trouble2_attack_damage_reduction"	"%攻击力降低："
+		// 沉默术士 默默受苦
+		"DOTA_Tooltip_ability_silencer_brain_drain2"								"默默受苦"
+		"DOTA_Tooltip_ability_silencer_brain_drain2_Description"					"沉默术士对被沉默的目标造成更多伤害，受到来自他们的伤害减少。<br><br>沉默术士无需完成击杀就能永久窃取%permanent_int_steal_amount%点智力，只要敌方英雄在沉默术士附近%permanent_int_steal_range%范围内阵亡或者死亡时带有沉默术士的负面效果即可。如果阵亡时被沉默，将额外窃取%silenced_bonus_int_steal_amount%点智力。"
+		"DOTA_Tooltip_ability_silencer_brain_drain2_damage_pct"					"%沉默单位伤害："
+
+		// 獸 庞
+		"DOTA_Tooltip_ability_primal_beast_colossal2"								"庞"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_Description"					"獸拥有%base_slow_resist%%%基础减速抗性，每拥有%hp_per_threshold%点生命上限就获得+%aoe_per_threshold%%%作用范围加成和+%slow_resistance_per_threshold%%%减速抗性。"
+		"DOTA_Tooltip_ability_primal_beast_colossal2_current_slow_resistance"		"%减速抗性："
+		"DOTA_Tooltip_ability_primal_beast_colossal2_current_aoe"					"%作用范围加成："
+
+		// 狙击手 基恩瞄准镜
+		"DOTA_Tooltip_ability_sniper_keen_scope2"								"基恩瞄准镜"
+		"DOTA_Tooltip_ability_sniper_keen_scope2_Description"					"狙击手和目标相距每%bonus_damage_distance%距离，他的攻击都会造成额外伤害。"
+		"DOTA_Tooltip_ability_sniper_keen_scope2_bonus_damage_for_range"		"%额外伤害："
+
 		//闷烧树脂
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2"						"闷烧树脂"
 		"DOTA_Tooltip_ability_batrider_smoldering_resin2_Description"			"蝙蝠骑士的攻击会施加一个负面效果，每%tick_rate%秒造成%tick_attack_damage_pct%%%攻击伤害，持续%total_ticks%秒。"
@@ -791,47 +853,7 @@
 		"DOTA_Tooltip_ability_tinker_eureka2_Description"				"修补匠的每%int_per_one_cdr%点智力提供%one_percent_tooltip%%%物品冷却时间减少，最多为%max_cdr%%%。"
 		"DOTA_Tooltip_ability_tinker_eureka2_item_cooldown_tooltip"		"%物品冷却时间减少："
 
-		// 死亡先知
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2"									"巫术精研"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_Description"						"死亡先知的神秘学识随着经验积累而加深，获得移动速度和技能冷却时间减少。"
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_movement_speed_pct"				"%移动速度加成："
-		"DOTA_Tooltip_Ability_death_prophet_witchcraft2_cooldown_reduction_pct"			"%冷却时间减少："
 
-		// 魔法盾
-		"DOTA_Tooltip_ability_medusa_mana_shield2"								"魔法盾"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Description"					"创造一个魔法护盾，消耗美杜莎的魔法值以吸收%absorption_pct%%%的伤害。幻象的伤害吸收系数减少%illusion_percentage%%%。"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Note0"							"伤害的吸收先于任何伤害减免机制，所以提高物理护甲，物理格挡和魔法抗性都不能减少吸收相同伤害所需的魔法。"
-		"DOTA_Tooltip_ability_medusa_mana_shield2_damage_per_mana"				"魔法吸收系数："
-		"DOTA_Tooltip_ability_medusa_mana_shield2_Lore"							"尽管美杜莎生来没被赐以永恒的生命，但她所受的诅咒赋予了她独一无二的防御力量。"
-
-		// 能量转移
-		"DOTA_Tooltip_ability_slark_essence_shift2"								"能量转移"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Description"					"斯拉克的攻击会偷走敌方英雄的生命能量，每次吸取他们的%stat_loss%点全属性并转化成自身额外%agi_gain%点敏捷值。只要敌方英雄带着该效果在斯拉克%steal_radius%范围内阵亡，他将永久窃取%stat_loss%点敏捷。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_duration"						"持续时间："
-		"DOTA_Tooltip_ability_slark_essence_shift2_steal_radius"					"窃取范围："
-		"DOTA_Tooltip_ability_slark_essence_shift2_Lore"							"每攻击一次敌人，斯拉克对他们的弱点就多了解一分。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note0"						"属性值最少为1点。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note1"						"斯拉克或受到作用的单位死亡后，阵亡单位因能量转移变化的属性值将回归正常。但是两方的属性值相互独立，并无关联。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note2"						"斯拉克无需完成击杀就能永久窃取敏捷，只要敌方英雄身上拥有能量转移状态时在斯拉克的窃取范围内阵亡即可。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note3"						"破坏会使技能无法获得临时的叠加效果。依然可以获得永久的叠加效果。"
-		"DOTA_Tooltip_ability_slark_essence_shift2_Note4"						"破坏不会使现有叠加效果提供的加成失效。"
-
-		"DOTA_Tooltip_modifier_slark_essence_shift2"							"能量转移"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_Description"				"偷取%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter"			"能量转移"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_debuff_counter_Description"	"每种属性丢失%dMODIFIER_PROPERTY_TOOLTIP%点。"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff"	"永久敏捷"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_Description"	"已获得%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS%点敏捷。"
-		"DOTA_Tooltip_modifier_slark_essence_shift2_permanent_buff_PostGame"		"永久获得敏捷。"
-
-		// 荒芜
-		"DOTA_Tooltip_ability_spectre_desolate2"								"荒芜"
-		"DOTA_Tooltip_ability_spectre_desolate2_Description"					"幽鬼的攻击对敌人造成额外的纯粹伤害。"
-		"DOTA_Tooltip_ability_spectre_desolate2_bonus_damage"				"伤害："
-		"DOTA_Tooltip_ability_spectre_desolate2_Facet_spectre_forsaken"		"幽鬼自身的荒芜造成%bonus_damage_multiplier_tooltip%倍伤害，但是幽鬼的幻象不再触发荒芜。"
-		"DOTA_Tooltip_ability_spectre_desolate2_Lore"						"战士们常常发现自己落单后还能在身边看到墨丘利——不得不质疑，这是不是真正的幽鬼。"
-		"DOTA_Tooltip_ability_spectre_desolate2_Note0"						"伤害在幽鬼攻击前产生。"
-		"DOTA_Tooltip_ability_spectre_desolate2_Note1"						"幽鬼的幻象继承荒芜。"
 
 		// 地狱之裂
 		"DOTA_Tooltip_ability_clinkz_infernal_shred2"					"地狱之裂"
@@ -839,16 +861,6 @@
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing"	"地狱之裂"
 		"DOTA_Tooltip_modifier_clinkz_infernal_shred2_armor_piercing_Description"	 "克林克兹和他的骷髅弓手发动攻击时会穿透%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_PIERCING_PERCENTAGE_TARGET%%%护甲。"
 
-		//背刺
-		"DOTA_Tooltip_ability_riki_innate_backstab2"										"背刺"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Description"							"力丸每次从背后攻击敌人时都会造成额外伤害，伤害量为自身敏捷的一定倍数。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_damage_multiplier"					"敏捷值倍数："
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Facet_riki_contract_killer"			"力丸获得助攻和击杀时会获得额外经验。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note0"								"反补友方单位时具有%ally_multiplier%%%效果。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_Note1"								"力丸的幻象也会有背刺的动作，但是不会造成额外伤害。"
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_kill"						"击杀英雄奖励经验："
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist"						"助攻经验奖励："
-		"DOTA_Tooltip_ability_riki_innate_backstab2_bonus_xp_assist_other"				"击杀守卫/信使奖励经验："
 
 		// 拉比克 奇心
 		"DOTA_Tooltip_ability_rubick_curiosity2"								"奇心"
