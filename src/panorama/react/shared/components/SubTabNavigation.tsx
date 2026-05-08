@@ -71,6 +71,14 @@ export function SubTabNavigation<T extends string = string>({
             key={tab.id}
             style={isActive ? subTabButtonActiveStyle : subTabButtonStyle}
             onactivate={() => onTabChange(tab.id)}
+            onmouseover={(panel) => {
+              panel.style.brightness = '1.3';
+              panel.style.borderColor = '#e0caa5aa';
+            }}
+            onmouseout={(panel) => {
+              panel.style.brightness = '1.0';
+              panel.style.borderColor = isActive ? '#daa520' : '#e0caa544';
+            }}
           >
             <Label style={isActive ? subTabLabelActiveStyle : subTabLabelStyle} text={tab.label} />
           </Button>

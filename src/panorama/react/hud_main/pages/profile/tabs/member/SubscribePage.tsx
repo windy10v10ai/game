@@ -37,43 +37,55 @@ function ActivateRow({ activateUrl }: { activateUrl: string }) {
 
 interface SubscribePageProps {
   isNormalOnly: boolean; // 仅普通会员（非高级），显示折算说明
+  refreshing: boolean;
+  onRefresh: () => void;
 }
 
-export function SubscribePage({ isNormalOnly }: SubscribePageProps) {
+export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: SubscribePageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
 
   return (
     <Panel className="member-subpage member-subscribe-page">
-      {/* 共同提示区 */}
-      <Panel className="member-subscribe-info">
-        <Label
-          className="member-subscribe-title-cta"
-          text={$.Localize('#member_subscribe_title')}
-        />
-        <Panel className="member-subscribe-steam-id-row">
+      {/* 共同提示区 + 刷新按钮 */}
+      <Panel className="member-status-row">
+        <Panel className="member-subscribe-info">
           <Label
-            className="member-subscribe-steam-id-label"
-            text={$.Localize('#member_steam_id')}
+            className="member-subscribe-title-cta"
+            text={$.Localize('#member_subscribe_title')}
           />
-          <Label
-            className="member-subscribe-steam-id-value"
-            text={String(steamId)}
-            enabled={true}
-            acceptsfocus={true}
-            allowtextselection={true}
-          />
-          <Label
-            className="member-subscribe-steam-id-hint"
-            text={$.Localize('#member_steam_id_select_hint')}
-          />
+          <Panel className="member-subscribe-steam-id-row">
+            <Label
+              className="member-subscribe-steam-id-label"
+              text={$.Localize('#member_steam_id')}
+            />
+            <Label
+              className="member-subscribe-steam-id-value"
+              text={String(steamId)}
+              enabled={true}
+              acceptsfocus={true}
+              allowtextselection={true}
+            />
+            <Label
+              className="member-subscribe-steam-id-hint"
+              text={$.Localize('#member_steam_id_select_hint')}
+            />
+          </Panel>
+          <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
+          {isNormalOnly && (
+            <Label
+              className="member-subscribe-upgrade-hint"
+              text={$.Localize('#member_subscribe_normal_upgrade_hint')}
+            />
+          )}
         </Panel>
-        <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
-        {isNormalOnly && (
-          <Label
-            className="member-subscribe-upgrade-hint"
-            text={$.Localize('#member_subscribe_normal_upgrade_hint')}
-          />
-        )}
+        <Button
+          className={
+            refreshing ? 'member-refresh-btn member-refresh-btn-loading' : 'member-refresh-btn'
+          }
+          onactivate={onRefresh}
+        >
+          <Label className="member-refresh-label" text={$.Localize('#member_refresh')} />
+        </Button>
       </Panel>
 
       {/* 两平台并排 */}
