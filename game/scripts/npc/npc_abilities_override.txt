@@ -12305,6 +12305,7 @@
 		{
 			"max_stacks_tooltip"
 			{
+				"value"					"10"	// 5 x2
 				"hero_levelup"			"+2"	// 1 x2
 			}
 		}

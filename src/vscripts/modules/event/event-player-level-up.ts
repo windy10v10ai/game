@@ -1,4 +1,4 @@
-import { Player } from '../../api/player';
+import { PlayerPropertyApi } from '../../api/player-property';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameConfig } from '../GameConfig';
 import { BotAbility } from '../helper/bot-ability';
@@ -28,7 +28,7 @@ export class EventPlayerLevelUp {
   private UpdatePlayerAndBot(hero: CDOTA_BaseNPC_Hero): void {
     if (PlayerHelper.IsHumanPlayer(hero)) {
       print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
-      Player.SetPlayerProperty(hero);
+      PlayerPropertyApi.SetPlayerProperty(hero);
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       BotAbility.LevelUpBotAbility(hero);

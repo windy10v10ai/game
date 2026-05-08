@@ -1,5 +1,6 @@
 import { ActionMove } from '../../ai/action/action-move';
 import { MemberLevel, Player } from '../../api/player';
+import { PlayerPropertyApi } from '../../api/player-property';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { GameConfig } from '../GameConfig';
 import { BotAbility } from '../helper/bot-ability';
@@ -137,7 +138,7 @@ export class EventNpcSpawned {
         ModifierHelper.applyGlobalModifier(hero, 'modifier_global_newbie_2');
       }
       // 设置玩家属性
-      Player.SetPlayerProperty(hero);
+      PlayerPropertyApi.SetPlayerProperty(hero);
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       // 机器人

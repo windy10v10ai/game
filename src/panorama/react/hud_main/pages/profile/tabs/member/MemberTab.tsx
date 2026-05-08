@@ -10,7 +10,8 @@ export function MemberTab() {
   const [subTab, setSubTab] = useState<MemberSubTab>('status');
 
   const steamId = GetLocalPlayerSteamAccountID();
-  const member = useNetTable('member_table', steamId);
+  const player = useNetTable('player_table', steamId);
+  const member = player?.member;
 
   const enable = member?.enable === true;
   const level = Number(member?.level ?? 0);

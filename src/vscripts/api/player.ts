@@ -1,7 +1,3 @@
-import { PlayerHelper } from '../modules/helper/player-helper';
-import { PropertyController } from '../modules/property/property_controller';
-import { ApiClient, HttpMethod } from './api-client';
-
 export enum MemberLevel {
   NORMAL = 1,
   PREMIUM = 2,
@@ -28,7 +24,7 @@ export class PlayerSetting {
   passiveAbilityQuickCast2?: boolean;
 }
 
-export class PlayerDto {
+export class PlayerInfoDto {
   id!: string;
   matchCount!: number;
   winCount!: number;
@@ -45,11 +41,19 @@ export class PlayerDto {
   memberCurrentLevelPoint!: number;
   memberNextLevelPoint!: number;
 
-  totalLevel: number;
-  useableLevel: number;
-  properties: PlayerProperty[];
-  playerSetting: PlayerSetting;
+  totalLevel!: number;
+  useableLevel!: number;
+
+  // partial 响应可能不带，按 endpoint 不同可缺失
+  properties?: PlayerProperty[];
+  playerSetting?: PlayerSetting;
+  member?: MemberDto;
 }
+
+// Backward-compatible alias for existing imports.
+export type PlayerDto = PlayerInfoDto;
+export const PlayerDto = PlayerInfoDto;
+
 export class PointInfoDto {
   steamId!: number;
   title!: {
@@ -61,243 +65,54 @@ export class PointInfoDto {
   memberPoint?: number;
 }
 
+/**
+ * Player 数据层：只负责 PlayerInfoDto 的存储、合并写入、以及只读 getter。
+ * Property / Setting 相关的事件监听与 API 调用拆到 player-property.ts / player-setting.ts。
+ */
 export class Player {
-  public static readonly ADD_PLAYER_PROPERTY_URL = '/player/property';
-  public static readonly RESET_PLAYER_PROPERTY_URL = '/player/property/reset';
-
-  // 白名单 SteamID 列表
-  private static readonly WHITELIST_STEAM_IDS: Set<number> = new Set([
-    116431158, // 替换为实际的 SteamID
-    436804590,
-    295351477,
-    180074451,
-    92159660,
-    370099556,
-    // 添加更多白名单 SteamID
-  ]);
-
-  //高玩自然要经历更多的考验，游戏里面每隔15s会发一个暗影裁决+暗影咒灭                     的debuf
-  private static readonly GAO_WAN_STEAM_IDS: Set<number> = new Set([
-    171404072, 335880293, 121373743, 256116833,
-    // 添加更多的 SteamID
-  ]);
-
-  public static memberList: MemberDto[] = [];
-  public static playerList: PlayerDto[] = [];
-  // PointInfoDto
-  public static pointInfoList: PointInfoDto[] = [];
+  // 单一数据源：steamId -> PlayerInfoDto，会员、属性、setting 全部嵌套于此。
+  public static playerInfoMap: Map<string, PlayerInfoDto> = new Map();
   public static playerCount = 0;
-  constructor() {
-    // 监听JS事件
-    // 玩家属性升级
-    CustomGameEventManager.RegisterListener<{ name: string; level: string }>(
-      'player_property_levelup',
-      (_, event) => this.onPlayerPropertyLevelup(event),
-    );
-    // 玩家属性重置
-    CustomGameEventManager.RegisterListener<{ useMemberPoint: number }>(
-      'player_property_reset',
-      (_, event) => this.onPlayerPropertyReset(event),
-    );
-    // 发送快捷键设置
-    CustomGameEventManager.RegisterListener<SaveBindAbilityKeyEventData>(
-      'save_bind_ability_key',
-      (_, event) => this.SendBindAbilityKey(event),
-    );
-  }
 
   public static GetPlayerCount(): number {
     return Player.playerCount;
   }
 
-  // 英雄出生/升级时，设置玩家属性
-  public static SetPlayerProperty(hero: CDOTA_BaseNPC_Hero) {
-    if (!hero) {
+  /**
+   * 字段级浅 merge：
+   * - partial 中未出现的 key 保留 existing 的值（不同 endpoint 字段集合不同时不会被清空）
+   * - partial 中出现的 key（包括空数组 []、null）覆盖 existing
+   * 例：reset 回包 properties:[] 会清空属性；levelup 不带 member 会保留 member。
+   * 所有写入只走此入口，class map 与 net table 通过同一份 merged 数据保证一致。
+   */
+  public static MergePlayerInfo(partial: Partial<PlayerInfoDto>) {
+    if (!partial.id) {
+      print('[Player] MergePlayerInfo: missing id, skipped');
       return;
     }
-
-    const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
-    const playerInfo = Player.playerList.find((player) => player.id === steamId.toString());
-
-    if (playerInfo?.properties) {
-      for (const property of playerInfo.properties) {
-        PropertyController.LevelupHeroProperty(hero, property);
-      }
-    }
-  }
-
-  public static saveMemberToNetTable() {
-    PlayerHelper.ForEachPlayer((playerId) => {
-      // 32bit steamId
-      const steamId = PlayerResource.GetSteamAccountID(playerId);
-      const member = Player.memberList.find((m) => m.steamId === steamId);
-      if (member) {
-        // set key as short dotaId
-        CustomNetTables.SetTableValue('member_table', steamId.toString(), member);
-      }
-    });
-  }
-
-  public static savePointInfoToNetTable() {
-    PlayerHelper.ForEachPlayer((playerId) => {
-      // 32bit steamId
-      const steamId = PlayerResource.GetSteamAccountID(playerId);
-      const steamIdPointInfoList = Player.pointInfoList.filter((p) => p.steamId === steamId);
-      if (steamIdPointInfoList.length > 0) {
-        // set key as short dotaId
-        CustomNetTables.SetTableValue('point_info', steamId.toString(), steamIdPointInfoList);
-      }
-    });
-  }
-
-  public static savePlayerToNetTable() {
-    PlayerHelper.ForEachPlayer((playerId) => {
-      // 32bit steamId
-      const steamId = PlayerResource.GetSteamAccountID(playerId);
-      const player = Player.playerList.find((p) => p.id === steamId.toString());
-      if (player) {
-        // set key as short dotaId
-        CustomNetTables.SetTableValue('player_table', steamId.toString(), player);
-      }
-    });
+    const id = partial.id;
+    // fallback 占位仅在 game/start 之前的异常调用路径出现；正常路径首次写入即为完整 PlayerInfoDto
+    const existing = Player.playerInfoMap.get(id) ?? ({ id } as PlayerInfoDto);
+    const merged: PlayerInfoDto = { ...existing, ...partial };
+    Player.playerInfoMap.set(id, merged);
+    CustomNetTables.SetTableValue('player_table', id, merged);
   }
 
   public static IsMemberStatic(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId === steamId);
-    if (member) {
-      return member.enable;
-    }
-    return false;
+    const player = Player.playerInfoMap.get(steamId.toString());
+    return player?.member?.enable ?? false;
   }
 
   public static GetMemberLevel(steamId: number) {
-    const member = Player.memberList.find((m) => m.steamId === steamId);
-    // 如果会员不存在，则返回0
-    if (!member) {
+    const player = Player.playerInfoMap.get(steamId.toString());
+    if (!player?.member?.enable) {
       return 0;
     }
-    // 如果会员失效，则返回0
-    if (!member.enable) {
-      return 0;
-    }
-    // 如果会员有效，则返回会员等级
-    return member.level;
+    return player.member.level;
   }
 
   public static GetSeasonLevel(steamId: number) {
-    const player = Player.playerList.find((p) => p.id === steamId.toString());
-    if (player) {
-      return player.seasonLevel;
-    }
-    return 0;
-  }
-
-  public onPlayerPropertyLevelup(event: { PlayerID: PlayerID; name: string; level: string }) {
-    const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
-
-    const apiParameter = {
-      method: HttpMethod.PUT,
-      path: Player.ADD_PLAYER_PROPERTY_URL,
-      body: {
-        steamId,
-        name: event.name,
-        level: +event.level,
-      },
-      successFunc: this.PropertyLevelupSuccess,
-      failureFunc: this.PropertyLevelupFailure,
-    };
-
-    ApiClient.sendWithRetry(apiParameter);
-  }
-
-  private PropertyLevelupSuccess(data: string) {
-    const player = json.decode(data)[0] as PlayerDto;
-
-    Player.UpsertPlayerData(player);
-  }
-
-  private PropertyLevelupFailure(_data: string) {
-    // 刷新状态
-    Player.savePlayerToNetTable();
-  }
-
-  // 初始化属性，洗点
-  public onPlayerPropertyReset(event: { PlayerID: PlayerID; useMemberPoint: number }) {
-    const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
-
-    const apiParameter = {
-      method: HttpMethod.POST,
-      path: Player.RESET_PLAYER_PROPERTY_URL,
-      body: {
-        steamId,
-        useMemberPoint: event.useMemberPoint,
-      },
-      successFunc: this.PropertyResetSuccess,
-      failureFunc: this.PropertyResetFailure,
-    };
-
-    ApiClient.sendWithRetry(apiParameter);
-  }
-
-  // 洗点成功
-  private PropertyResetSuccess(data: string) {
-    print(`[Player] Property Reset Success data ${data}`);
-    const player = json.decode(data)[0] as PlayerDto;
-
-    PropertyController.RemoveAllPlayerProperty(Number(player.id));
-    Player.UpsertPlayerData(player);
-  }
-
-  private PropertyResetFailure(data: string) {
-    print(`[Player] Property Reset Failure data ${data}`);
-    Player.savePlayerToNetTable();
-  }
-
-  /**
-   * 更新玩家数据，属性，nettable
-   */
-  private static UpsertPlayerData(player: PlayerDto) {
-    for (const property of player.properties) {
-      PropertyController.LevelupPlayerProperty(property);
-    }
-
-    const index = Player.playerList.findIndex((p) => p.id === player.id);
-    if (index > -1) {
-      Player.playerList[index] = player;
-    } else {
-      Player.playerList.push(player);
-    }
-    CustomNetTables.SetTableValue('player_table', player.id, player);
-  }
-
-  // 发送快捷键设置
-  private SendBindAbilityKey(
-    event: NetworkedData<SaveBindAbilityKeyEventData & { PlayerID: PlayerID }>,
-  ) {
-    const steamId = PlayerResource.GetSteamAccountID(event.PlayerID);
-    const playerSetting: PlayerSetting = {
-      isRememberAbilityKey: event.isRememberAbilityKey === 1,
-      activeAbilityKey: event.activeAbilityKey,
-      passiveAbilityKey: event.passiveAbilityKey,
-      passiveAbilityKey2: event.passiveAbilityKey2,
-      activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
-      passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
-      passiveAbilityQuickCast2: event.passiveAbilityQuickCast2 === 1,
-    };
-
-    ApiClient.sendWithRetry({
-      method: HttpMethod.PUT,
-      path: `/player/${steamId}/setting`,
-      body: playerSetting,
-      successFunc: (data: string) => {
-        const playerSetting = json.decode(data)[0] as PlayerSetting;
-        // update Player
-        const player = Player.playerList.find((p) => p.id === steamId.toString());
-        if (player) {
-          player.playerSetting = playerSetting;
-        }
-        Player.savePlayerToNetTable();
-      },
-    });
+    const player = Player.playerInfoMap.get(steamId.toString());
+    return player?.seasonLevel ?? 0;
   }
 }
