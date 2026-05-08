@@ -22,6 +22,7 @@ interface CustomGameEventDeclarations {
   lottery_refresh_ability: LotteryRefreshEventData;
   save_bind_ability_key: SaveBindAbilityKeyEventData;
   lottery_reset_ability: LotteryRefreshEventData;
+  player_info_refresh: Record<string, never>;
 }
 
 interface CustomGameEventDataBase {
