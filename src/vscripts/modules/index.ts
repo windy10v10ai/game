@@ -1,6 +1,7 @@
 import { AI } from '../ai/AI';
 import { Analytics } from '../api/analytics/analytics';
-import { Player } from '../api/player';
+import { PlayerPropertyApi } from '../api/player-property';
+import { PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
 import { Debug } from './debug/Debug';
@@ -38,7 +39,9 @@ export function ActivateModules() {
 
     new VirtualGoldBank();
 
-    new Player();
+    // 玩家相关事件监听：property 升级/重置 + setting 保存
+    new PlayerPropertyApi();
+    new PlayerSettingApi();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();

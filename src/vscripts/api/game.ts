@@ -3,11 +3,10 @@ import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
 import { GA4 } from './analytics/ga4/ga4';
 import { ApiClient, HttpMethod } from './api-client';
-import { MemberDto, Player, PlayerDto, PointInfoDto } from './player';
+import { Player, PlayerInfoDto, PointInfoDto } from './player';
 
 class GameStart {
-  members!: MemberDto[];
-  players!: PlayerDto[];
+  players!: PlayerInfoDto[];
   pointInfo!: PointInfoDto[];
   ga4Config?: GA4ConfigDto; // Only present for official servers
 }
@@ -37,9 +36,6 @@ export class Game {
     // 定义成功回调
     const onSuccess = (data: string) => {
       const gameStart = json.decode(data)[0] as GameStart;
-      Player.memberList = gameStart.members;
-      Player.playerList = gameStart.players;
-      Player.pointInfoList = gameStart.pointInfo;
 
       // Initialize GA4 if config is provided (only for official servers)
       if (gameStart.ga4Config) {
@@ -49,12 +45,23 @@ export class Game {
         print('[Game] GA4 config not provided (non-official server)');
       }
 
-      // set member to member table
-      Player.savePlayerToNetTable();
-      Player.saveMemberToNetTable();
-      Player.savePointInfoToNetTable();
+      // 走 MergePlayerInfo 统一写入入口；首次 existing 为空，merge 等价覆盖
+      for (const player of gameStart.players) {
+        Player.MergePlayerInfo(player);
+      }
 
-      const status = Player.playerList.length > 0 ? 2 : 3;
+      // pointInfo 仅在开局一次性下发到 net table，无需保留在 class 中
+      const pointInfoBySteamId = new Map<number, PointInfoDto[]>();
+      for (const info of gameStart.pointInfo) {
+        const list = pointInfoBySteamId.get(info.steamId) ?? [];
+        list.push(info);
+        pointInfoBySteamId.set(info.steamId, list);
+      }
+      pointInfoBySteamId.forEach((list, steamId) => {
+        CustomNetTables.SetTableValue('point_info', steamId.toString(), list);
+      });
+
+      const status = gameStart.players.length > 0 ? 2 : 3;
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
         status,
       });
@@ -62,9 +69,6 @@ export class Game {
 
     // 定义失败回调
     const onFailure = (_: string) => {
-      if (IsInToolsMode()) {
-        Player.saveMemberToNetTable();
-      }
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
         status: 3,
       });

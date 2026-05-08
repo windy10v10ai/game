@@ -95,7 +95,8 @@ function IsMemberByPlayerId(playerId) {
   }
 
   const steamAccountId = ConvertSteamIdTo32Bit(playerInfo.player_steamid);
-  const member = CustomNetTables.GetTableValue('member_table', steamAccountId);
+  const player = CustomNetTables.GetTableValue('player_table', steamAccountId);
+  const member = player && player.member;
   if (member && member.enable) {
     return true;
   } else {
@@ -113,7 +114,8 @@ function IsMember() {
 }
 
 function GetMember() {
-  return CustomNetTables.GetTableValue('member_table', GetSteamAccountID());
+  const player = CustomNetTables.GetTableValue('player_table', GetSteamAccountID());
+  return player && player.member ? player.member : null;
 }
 
 function GetPlayer() {
