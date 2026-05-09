@@ -9,9 +9,10 @@ import { reloadable } from '../../utils/tstl-utils';
  */
 @reloadable
 export class BotTeam {
-  private botPushMin: number = 15; // 电脑开始推进的分钟数
-  private botPushLevel: number = 10; // 电脑推进等级
+  private botPushMin: number = 15; // 电脑开始推进的分钟数（动态，随游戏进度可能调整）
+  botPushLevel: number = 10; // 电脑推进等级（供 BotBase 初始化读取）
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
+  private pushStarted: boolean = false; // 是否已进入推进阶段
   private addAmount: number = 0; // Bot发钱的基础金额
 
   private readonly addAmountBase: number = 1; // Bot发钱的基础金额
@@ -110,11 +111,11 @@ export class BotTeam {
     if (towerPower <= 200) {
       return 12;
     } else if (towerPower <= 300) {
-      return 14;
+      return 13;
     } else if (towerPower <= 400) {
-      return 16;
+      return 14;
     } else {
-      return 18;
+      return 15;
     }
   }
 
@@ -191,9 +192,11 @@ export class BotTeam {
 
     if (gameTime >= this.botPushMin * 4 * 60) {
       // LATEGAME - 无限制推进
+      this.pushStarted = true;
       gameModeEntity.SetBotsMaxPushTier(-1);
     } else if (gameTime >= this.botPushMin * 60 || isStartPushForce) {
       // MIDGAME - 开始推进 根据防御塔状态计算推进策略
+      this.pushStarted = true;
       const pushTier = this.calculatePushTierByTowerStatus();
       gameModeEntity.SetBotsMaxPushTier(pushTier);
       gameModeEntity.SetBotsInLateGame(true);
@@ -227,6 +230,13 @@ export class BotTeam {
     print(
       `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumberBonus}, levelBonus: ${levelBonus})`,
     );
+  }
+
+  /**
+   * FSA 侧查询：是否已进入集体推进阶段（由 refreshTeamStrategy 每秒更新）
+   */
+  isAfterPhaseStart(): boolean {
+    return this.pushStarted;
   }
 
   /**
