@@ -1,9 +1,10 @@
 import { ActionMove } from '../../ai/action/action-move';
-import { MemberLevel, Player } from '../../api/player';
+import { Player } from '../../api/player';
 import { PlayerPropertyApi } from '../../api/player-property';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { GameConfig } from '../GameConfig';
 import { BotAbility } from '../helper/bot-ability';
+import { MemberHelper } from '../helper/member-helper';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 export class EventNpcSpawned {
@@ -123,13 +124,8 @@ export class EventNpcSpawned {
 
     if (PlayerHelper.IsHumanPlayer(hero)) {
       // 设置会员
+      MemberHelper.ApplyMemberModifier(hero);
       const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
-      const memberLevel = Player.GetMemberLevel(steamAccountId);
-      if (memberLevel === MemberLevel.NORMAL) {
-        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member_normal');
-      } else if (memberLevel === MemberLevel.PREMIUM) {
-        ModifierHelper.applyGlobalModifier(hero, 'modifier_global_member_premium');
-      }
       // 设置新手BUFF
       const playerSeasonLevel = Player.GetSeasonLevel(steamAccountId);
       if (playerSeasonLevel <= 5) {

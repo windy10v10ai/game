@@ -26,5 +26,6 @@
     "lottery_status",
 	  "player_virtual_gold",
 	  "bot_passive_abilities",  // Bot 被动技能表
+	  "alipay_order",  // 支付宝订单状态
   ]
 }

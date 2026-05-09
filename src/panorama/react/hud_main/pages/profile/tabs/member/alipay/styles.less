@@ -1,0 +1,151 @@
+@import "../../../../../../shared/styles/tokens.less";
+
+/* 所有 alipay 卡片相关样式都嵌套在 .member-platform-card-alipay 下，
+   利用 specificity 0,0,2,0 自动覆盖 .member-platform-card / .member-platform-btn 等基类
+   样式，无需依赖声明顺序，import 可以放在文件顶部满足 CSS 规范。 */
+.member-platform-card-alipay {
+  /* 支付宝卡片边框色（覆盖 .stats-card mixin 在 .member-platform-card 中的 border） */
+  border: 1px solid #1677ff;
+
+  /* ============================================================
+     卡内支付状态（二维码 / 状态文字 / 操作按钮）
+     ============================================================ */
+
+  .alipay-card-placeholder {
+    width: 206px;
+    height: 206px;
+    horizontal-align: center;
+    background-color: #ffffff10;
+    border-radius: @radius-md;
+    margin: 8px 0px;
+  }
+
+  /* ============================================================
+     支付成功展示（绿色对勾 + 标题 + 关闭按钮）
+     ============================================================ */
+
+  .alipay-card-success-icon {
+    width: 64px;
+    height: 64px;
+    horizontal-align: center;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .alipay-card-success-title {
+    horizontal-align: center;
+    text-align: center;
+    font-size: @font-size-lg;
+    font-weight: bold;
+    color: @color-safe;
+    margin-bottom: 24px;
+  }
+
+  .alipay-card-info-row {
+    flow-children: right;
+    horizontal-align: center;
+    margin-top: 4px;
+  }
+
+  .alipay-card-subject {
+    font-size: @font-size-md;
+    color: @color-text-muted;
+    vertical-align: center;
+    margin-right: 8px;
+  }
+
+  .alipay-card-amount {
+    font-size: @font-size-md;
+    color: @color-gold;
+    font-weight: bold;
+    vertical-align: center;
+  }
+
+  .alipay-card-status {
+    font-size: @font-size-sm;
+    color: @color-gold-muted;
+    text-align: center;
+    horizontal-align: center;
+    margin-top: 6px;
+    margin-bottom: 10px;
+  }
+
+  .alipay-card-actions {
+    flow-children: right;
+    horizontal-align: center;
+    margin-top: 4px;
+  }
+
+  /* 卡内紧凑按钮：覆盖基类的 min-width: 200px; height: 42px */
+  .alipay-card-btn-retry,
+  .alipay-card-btn-cancel,
+  .alipay-card-btn-close {
+    min-width: 0px;
+    width: 90px;
+    height: 30px;
+    padding: 0px 10px;
+    margin-bottom: 0px;
+    margin-right: 6px;
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  .alipay-card-btn-retry,
+  .alipay-card-btn-close {
+    background-color: @color-primary-btn;
+    border: 1px solid @color-primary-border;
+  }
+
+  .alipay-card-btn-cancel {
+    background-color: #00000000;
+    border: 1px solid @color-text-muted;
+  }
+
+  /* 紧凑按钮内的 Label 字号小一些 */
+  .alipay-card-btn-retry .member-platform-btn-label,
+  .alipay-card-btn-cancel .member-platform-btn-label,
+  .alipay-card-btn-close .member-platform-btn-label {
+    font-size: @font-size-sm;
+  }
+
+  /* 冷却（disabled）灰态：覆盖所有支付宝相关按钮（含 idle 的订阅按钮） */
+  .member-platform-btn-subscribe:disabled,
+  .alipay-card-btn-retry:disabled,
+  .alipay-card-btn-cancel:disabled,
+  .alipay-card-btn-close:disabled {
+    saturation: 0.3;
+    brightness: 0.6;
+    wash-color: #00000044;
+  }
+
+  /* ============================================================
+     二维码网格（虽然只在卡内出现，仍嵌套在卡片选择器下保持一致性）
+     ============================================================ */
+
+  .qr-code-grid {
+    flow-children: down;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 4px;
+    horizontal-align: center;
+    margin: 8px 0px;
+  }
+
+  .qr-code-row {
+    flow-children: right;
+  }
+
+  .qr-code-cell-dark {
+    background-color: #000000;
+  }
+
+  .qr-code-cell-light {
+    background-color: #ffffff;
+  }
+}
+
+/* 支付宝卡片头部描述的主题色（在 .platform-card-header-desc 之后定义即可，不需要嵌套） */
+.platform-card-header-desc-alipay {
+  color: #1677ff;
+}
