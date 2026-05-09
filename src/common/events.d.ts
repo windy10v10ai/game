@@ -23,6 +23,10 @@ interface CustomGameEventDeclarations {
   save_bind_ability_key: SaveBindAbilityKeyEventData;
   lottery_reset_ability: LotteryRefreshEventData;
   player_info_refresh: Record<string, never>;
+
+  alipay_order_create: AlipayOrderCreateEventData;
+  alipay_order_query: AlipayOrderQueryEventData;
+  alipay_order_clear: Record<string, never>;
 }
 
 interface CustomGameEventDataBase {
@@ -79,6 +83,16 @@ interface LotteryPickEventData {
 
 interface LotteryRefreshEventData {
   type: string;
+}
+
+interface AlipayOrderCreateEventData {
+  productCode: string;
+  quantity: number;
+  clientEpoch: number;
+}
+
+interface AlipayOrderQueryEventData {
+  outTradeNo: string;
 }
 
 interface SaveBindAbilityKeyEventData {

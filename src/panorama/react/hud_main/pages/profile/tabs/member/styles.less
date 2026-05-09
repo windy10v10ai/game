@@ -1,5 +1,6 @@
 // Member Tab 样式（状态子页 + 订阅子页）
 @import "../../../../../shared/styles/tokens.less";
+@import "./alipay/styles.less";
 
 .member-layout {
   width: 100%;
@@ -227,7 +228,6 @@
   width: fill-parent-flow(1);
   flow-children: down;
   padding: 10px 14px;
-  margin-bottom: 10px;
 }
 
 .member-subscribe-title-cta {
@@ -290,11 +290,13 @@
   .stats-card;
   width: fill-parent-flow(1);
   height: fit-children;
+  min-height: 60%;
   flow-children: down;
   padding: 16px 14px;
   horizontal-align: center;
-  &:first-child {
-    margin-right: 10px;
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0px;
   }
 }
 
@@ -306,12 +308,48 @@
   border-color: #29abe0;
 }
 
-/* 平台图标 */
+/* 平台图标（旧样式，保留兼容） */
 .member-platform-logo {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   horizontal-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   平台卡片头部（Afdian / Ko-fi / Alipay 三卡共用）
+   logo 在左，名称 + 描述（两行）在右
+   ============================================================ */
+.platform-card-header {
+  flow-children: right;
+  horizontal-align: center;
+  margin-bottom: 10px;
+}
+
+.platform-card-header-logo {
+  width: 46px;
+  height: 46px;
+  vertical-align: center;
+  margin-right: 10px;
+}
+
+.platform-card-header-text {
+  flow-children: down;
+  vertical-align: center;
+}
+
+.platform-card-header-name {
+  horizontal-align: left;
+  text-align: left;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+}
+
+.platform-card-header-desc {
+  horizontal-align: left;
+  text-align: left;
+  font-size: @font-size-sm;
 }
 
 /* 平台名 */
@@ -348,6 +386,7 @@
   height: 42px;
   padding: 0px 16px;
   border-radius: @radius-md;
+  margin-top: 8px;
   margin-bottom: 8px;
   transition-property: brightness;
   transition-duration: @transition-fast;
@@ -386,7 +425,7 @@
 .member-platform-divider {
   width: 100%;
   flow-children: right;
-  margin: 6px 0px 4px;
+  margin: 12px 0px 8px;
   border-top: 1px solid #ffffff11;
   padding-top: 6px;
 }

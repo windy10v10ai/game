@@ -11,6 +11,8 @@
 			<Image id="profileAvatarBorderNormal" class="SeqImg" src="file://{images}/custom_game/profile/avatar-square-normal-border.png" />
 			<Image id="memberKofiLogoLong" class="SeqImg" src="file://{images}/custom_game/member/ko-fi-logo-long.png" />
 			<Image id="memberKofiLogoSmall" class="SeqImg" src="file://{images}/custom_game/member/ko-fi-logo-small.png" />
+			<Image id="memberAlipayLogo" class="SeqImg" src="file://{images}/custom_game/member/alipay-logo.png" />
+			<Image id="memberReceiveIcon" class="SeqImg" src="file://{images}/custom_game/member/receive_icon.png" />
 		</Panel>
 	</Panel>
 </root>

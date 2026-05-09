@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { AlipaySubscribeCard } from './alipay';
 import {
   AFDIAN_ACTIVATE_URL,
   AFDIAN_ICON,
@@ -9,37 +10,35 @@ import {
   KOFI_LOGO,
   KOFI_SHOP_URL,
   KOFI_SUBSCRIBE_URL,
-  openUrl,
+  MembershipPlanTier,
+  MembershipPlatform,
+  MEMBERSHIP_PLATFORMS,
 } from './constants';
-
-function ActivateRow({ activateUrl }: { activateUrl: string }) {
-  const tipRef = useRef<ImagePanel | null>(null);
-  const tooltipText = $.Localize('#member_activate_tooltip');
-  return (
-    <Panel className="member-platform-activate-row">
-      <Label
-        className="member-platform-activate"
-        text={$.Localize('#member_activate')}
-        onactivate={openUrl(activateUrl)}
-      />
-      <Image
-        ref={tipRef}
-        className="member-activate-tip-icon"
-        src="s2r://panorama/images/status_icons/information_psd.vtex"
-        onmouseover={() =>
-          tipRef.current && $.DispatchEvent('DOTAShowTextTooltip', tipRef.current, tooltipText)
-        }
-        onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
-      />
-    </Panel>
-  );
-}
+import { ExternalPlatformCard } from './ExternalPlatformCard';
 
 interface SubscribePageProps {
   isNormalOnly: boolean; // 仅普通会员（非高级），显示折算说明
   refreshing: boolean;
   onRefresh: () => void;
 }
+
+/**
+ * 生成单档位的订阅按钮文案，例：
+ *   alipay tier{quantity:1,price:'28.00'}  → "订阅会员 ¥28.00/月"
+ * 未来若需"3 个月套餐"则在文案中体现 quantity；当前只取 quantity=1 简化展示。
+ */
+function getSubscribeButtonText(platform: MembershipPlatform, tier: MembershipPlanTier) {
+  const { currency } = MEMBERSHIP_PLATFORMS[platform];
+  const currencyText = currency === 'cny' ? `¥${tier.price}` : `$${tier.price}`;
+  return (
+    $.Localize('#member_platform_subscribe_btn') +
+    currencyText +
+    $.Localize('#member_platform_subscribe_month')
+  );
+}
+
+/** 取平台默认档位（首期一档；未来可在卡片内做档位切换） */
+const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platform].tiers[0];
 
 export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: SubscribePageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
@@ -88,77 +87,39 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         </Button>
       </Panel>
 
-      {/* 两平台并排 */}
+      {/* 三平台并排 */}
       <Panel className="member-platform-cards">
+        {/* 支付宝 */}
+        <AlipaySubscribeCard
+          tier={defaultTier('alipay')}
+          subscribeButtonText={getSubscribeButtonText('alipay', defaultTier('alipay'))}
+        />
+
         {/* 爱发电 */}
-        <Panel className="member-platform-card member-platform-card-afdian">
-          <Image className="member-platform-logo" src={AFDIAN_ICON} />
-          <Label className="member-platform-name" text={$.Localize('#member_platform_afdian')} />
-          <Label
-            className="member-platform-desc member-platform-desc-cn"
-            text={$.Localize('#member_platform_afdian_desc')}
-          />
-          <Button
-            className="member-platform-btn member-platform-btn-subscribe"
-            onactivate={openUrl(GetAfdianSubscribeUrl())}
-          >
-            <Label
-              className="member-platform-btn-label"
-              text={$.Localize('#member_subscribe_title')}
-            />
-          </Button>
-          <Panel className="member-platform-divider">
-            <Label
-              className="member-platform-divider-label"
-              text={$.Localize('#member_shop_divider')}
-            />
-          </Panel>
-          <Button
-            className="member-platform-btn member-platform-btn-shop"
-            onactivate={openUrl(AFDIAN_SHOP_URL)}
-          >
-            <Label
-              className="member-platform-btn-label member-platform-btn-label-ghost"
-              text={$.Localize('#member_shop_title')}
-            />
-          </Button>
-          <ActivateRow activateUrl={AFDIAN_ACTIVATE_URL} />
-        </Panel>
+        <ExternalPlatformCard
+          variantClassName="member-platform-card-afdian"
+          descClassName="member-platform-desc-cn"
+          logoSrc={AFDIAN_ICON}
+          name={$.Localize('#member_platform_afdian')}
+          desc={$.Localize('#member_platform_afdian_desc')}
+          subscribeUrl={GetAfdianSubscribeUrl()}
+          subscribeButtonText={getSubscribeButtonText('afdian', defaultTier('afdian'))}
+          shopUrl={AFDIAN_SHOP_URL}
+          activateUrl={AFDIAN_ACTIVATE_URL}
+        />
 
         {/* Ko-fi */}
-        <Panel className="member-platform-card member-platform-card-kofi">
-          <Image className="member-platform-logo" src={KOFI_LOGO} />
-          <Label className="member-platform-name" text={$.Localize('#member_platform_kofi')} />
-          <Label
-            className="member-platform-desc member-platform-desc-intl"
-            text={$.Localize('#member_platform_kofi_desc')}
-          />
-          <Button
-            className="member-platform-btn member-platform-btn-subscribe"
-            onactivate={openUrl(KOFI_SUBSCRIBE_URL)}
-          >
-            <Label
-              className="member-platform-btn-label"
-              text={$.Localize('#member_subscribe_title')}
-            />
-          </Button>
-          <Panel className="member-platform-divider">
-            <Label
-              className="member-platform-divider-label"
-              text={$.Localize('#member_shop_divider')}
-            />
-          </Panel>
-          <Button
-            className="member-platform-btn member-platform-btn-shop"
-            onactivate={openUrl(KOFI_SHOP_URL)}
-          >
-            <Label
-              className="member-platform-btn-label member-platform-btn-label-ghost"
-              text={$.Localize('#member_shop_title')}
-            />
-          </Button>
-          <ActivateRow activateUrl={KOFI_ACTIVATE_URL} />
-        </Panel>
+        <ExternalPlatformCard
+          variantClassName="member-platform-card-kofi"
+          descClassName="member-platform-desc-intl"
+          logoSrc={KOFI_LOGO}
+          name={$.Localize('#member_platform_kofi')}
+          desc={$.Localize('#member_platform_kofi_desc')}
+          subscribeUrl={KOFI_SUBSCRIBE_URL}
+          subscribeButtonText={getSubscribeButtonText('kofi', defaultTier('kofi'))}
+          shopUrl={KOFI_SHOP_URL}
+          activateUrl={KOFI_ACTIVATE_URL}
+        />
       </Panel>
     </Panel>
   );
