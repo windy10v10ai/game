@@ -288,7 +288,6 @@
 		"member_alipay_status_waiting"			"Scan with Alipay to pay"
 		"member_alipay_status_success"			"Payment successful! Membership activated"
 		"member_alipay_status_paid_title"		"Membership Activated"
-		"member_alipay_refresh_qr"				"New Order"
 		"member_alipay_status_closed"			"Order closed, please retry"
 		"member_alipay_status_failed"			"Order failed, please retry"
 		"member_alipay_status_error"			"Network error, please try again"

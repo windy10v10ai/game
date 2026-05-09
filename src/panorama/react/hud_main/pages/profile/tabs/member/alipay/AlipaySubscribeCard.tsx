@@ -162,7 +162,7 @@ function AlipayPayingContent({
       <Label className="alipay-card-status" text={$.Localize(statusKey)} />
 
       <Panel className="alipay-card-actions">
-        {showRetry ? (
+        {showRetry && (
           <Button
             className="member-platform-btn alipay-card-btn-retry"
             onactivate={onRetry}
@@ -173,18 +173,7 @@ function AlipayPayingContent({
               text={$.Localize('#member_alipay_retry')}
             />
           </Button>
-        ) : status === 'WAITING' ? (
-          <Button
-            className="member-platform-btn alipay-card-btn-refresh"
-            onactivate={onRetry}
-            enabled={!cooling}
-          >
-            <Label
-              className="member-platform-btn-label member-platform-btn-label-ghost"
-              text={$.Localize('#member_alipay_refresh_qr')}
-            />
-          </Button>
-        ) : null}
+        )}
         <Button className="member-platform-btn alipay-card-btn-cancel" onactivate={onClose}>
           <Label
             className="member-platform-btn-label member-platform-btn-label-ghost"

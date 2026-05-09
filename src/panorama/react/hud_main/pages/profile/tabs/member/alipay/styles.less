@@ -78,7 +78,6 @@
 
   /* 卡内紧凑按钮：覆盖基类的 min-width: 200px; height: 42px */
   .alipay-card-btn-retry,
-  .alipay-card-btn-refresh,
   .alipay-card-btn-cancel,
   .alipay-card-btn-close {
     min-width: 0px;
@@ -98,7 +97,6 @@
     border: 1px solid @color-primary-border;
   }
 
-  .alipay-card-btn-refresh,
   .alipay-card-btn-cancel {
     background-color: #00000000;
     border: 1px solid @color-text-muted;
@@ -106,7 +104,6 @@
 
   /* 紧凑按钮内的 Label 字号小一些 */
   .alipay-card-btn-retry .member-platform-btn-label,
-  .alipay-card-btn-refresh .member-platform-btn-label,
   .alipay-card-btn-cancel .member-platform-btn-label,
   .alipay-card-btn-close .member-platform-btn-label {
     font-size: @font-size-sm;
@@ -115,7 +112,6 @@
   /* 冷却（disabled）灰态：覆盖所有支付宝相关按钮（含 idle 的订阅按钮） */
   .member-platform-btn-subscribe:disabled,
   .alipay-card-btn-retry:disabled,
-  .alipay-card-btn-refresh:disabled,
   .alipay-card-btn-cancel:disabled,
   .alipay-card-btn-close:disabled {
     saturation: 0.3;
