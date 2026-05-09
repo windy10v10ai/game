@@ -13,8 +13,9 @@ export const abilityTiersActive: Tier[] = [
       'abaddon_borrowed_time', // 回光返照
       'alchemist_chemical_rage', // 化学狂暴
       'life_stealer_rage', // 狂暴
+      'marci_unleash', // 怒拳破
       // 小技能
-      'gyrocopter_flak_cannon', // 高射火炮
+      'dark_willow_shadow_realm', // 暗影之境
     ],
   },
   {
@@ -22,22 +23,23 @@ export const abilityTiersActive: Tier[] = [
     names: [
       // 主动技能
       // 大招
-      'marci_unleash', // 怒拳破
       'juggernaut_omni_slash', // 无敌斩
       'sven_gods_strength', // 神之力量
       'legion_commander_duel', // 决斗
       'mars_bulwark', // 护身甲盾
       'enigma_black_hole', // 黑洞
       'faceless_void_time_zone', // 逆转时空
+      'doom_bringer_doom', // 末日
 
       // 小技能
-      'dark_willow_shadow_realm', // 暗影之境
       'antimage_counterspell', // 法术反制
+      'marci_bodyguard', // 护卫术
 
       // 自定义技能
       'imba_chaos_knight_phantasm', // 混沌之军
       'bloodseeker_blood_mist2', // 血魔 血雾
       'ability_trigger_on_active', //紫蝴蝶
+      'brewmaster_drunken_boxing', // 酒仙 醉拳
     ],
   },
   {
@@ -45,33 +47,34 @@ export const abilityTiersActive: Tier[] = [
     names: [
       // 主动技能
       // 大招
-      'doom_bringer_doom', // 末日
       'shadow_shaman_mass_serpent_ward', // 群蛇守卫
       'necrolyte_reapers_scythe', // 死神镰刀
       'storm_spirit_ball_lightning', // 球状闪电
       'slark_shadow_dance', // 暗影之舞
       'brewmaster_primal_split_lua', // 元素分离 改
-      'tidehunter_ravage', // 毁灭
-      'dazzle_bad_juju', // 邪能
       // 'dragon_knight_elder_dragon_form', //变龙 近战选择有问题
       'puck_dream_coil', // 梦境缠绕
-      'elder_titan_earth_splitter', // 裂地沟壑
-      'marci_bodyguard', // 护卫术
+      'elder_titan_earth_splitter', // 上古巨神 裂地沟壑
       'void_spirit_astral_step', // 太虚之径
       'lich_chain_frost', // 连环霜冻
       'jakiro_macropyre', // 烈焰焚身
+      'axe_culling_blade', // 淘汰之刃
+      'treant_overgrowth', // 疯狂生长
+      'zuus_thundergods_wrath', // 雷神之怒
+      'crystal_maiden_freezing_field', // 极寒领域
 
       // 小技能
-      'dark_seer_vacuum', // 真空
-      'mars_bulwark', // 护身甲盾
+      'gyrocopter_flak_cannon', // 高射火炮
       'dark_willow_bramble_maze', // 荆棘迷宫
       'ember_spirit_sleight_of_fist', // 无影拳
-      'warlock_fatal_bonds', // 致命连接
+      'shredder_whirling_death', // 死亡旋风
+      'magnataur_empower', // 授予力量
+      'tidehunter_kraken_shell', // 海妖外壳
+      'earthshaker_enchant_totem', // 强化图腾
 
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
-      'brewmaster_drunken_boxing', // 酒仙 醉拳
     ],
   },
   {
@@ -79,60 +82,52 @@ export const abilityTiersActive: Tier[] = [
     names: [
       // 主动技能
       // 大招
+      'tidehunter_ravage', // 毁灭
       'bounty_hunter_track', // 追踪术
       'lion_finger_of_death', // 死亡一指
       'silencer_global_silence', // 全领域禁默
-      'bloodseeker_rupture', // 割裂
-      'centaur_stampede', // 奔袭冲撞
       'winter_wyvern_winters_curse', // 寒冬诅咒
       'kunkka_ghostship', // 幽灵船
       'pangolier_gyroshell', // 地雷滚滚
-      'treant_overgrowth', // 疯狂生长
       'tinker_rearm_lua', // 再装填
       'ringmaster_wheel', // 奇观轮
-      'axe_culling_blade', // 淘汰之刃
       'batrider_flaming_lasso', // 燃烧枷锁
+      'dazzle_bad_juju', // 邪能
 
       // 小技能
+      'warlock_fatal_bonds', // 致命连接
       'lion_impale', // 裂地尖刺
       'sven_storm_bolt', // 风暴之拳 斯温
-      'lina_light_strike_array', // 光击阵
       'omniknight_repel', // 咸鱼恩赐
-      'earthshaker_enchant_totem', // 强化图腾
       'templar_assassin_refraction', // 圣堂刺客 折光
       'centaur_double_edge', // 双刃剑
-      'zuus_thundergods_wrath', // 雷神之怒
       'axe_berserkers_call', // 狂战士之吼
       'faceless_void_chronosphere', // 时间结界
-      'shredder_whirling_death', // 死亡旋风
       'tidehunter_anchor_smash', // 锚击
       'primal_beast_trample', // 踏
       'mars_gods_rebuke', // 神之遣戒
-      'tidehunter_kraken_shell', // 海妖外壳
       'antimage_blink', // 闪烁
       'ringmaster_tame_the_beasts', // 驯兽术
-      'ringmaster_impalement', // 尖刀戏
       'slark_saltwater_shiv', // 海浪短刀
       'treant_natures_grasp', // 自然卷握
       'abyssal_underlord_firestorm', // 火焰风暴
       'obsidian_destroyer_objurgation', // 责难
       'magnataur_reverse_polarity', // 两级反转
       'bloodseeker_bloodrage', // 血怒
-      'axe_battle_hunger', // 战斗饥渴
-      'batrider_flamebreak', // 燃烧弹
       'batrider_firefly', // 火焰飞行
       'pugna_nether_blast', // 幽冥爆轰
       'undying_decay', // 不朽尸王 腐朽
       'furion_teleportation', // 自然传送
       'mirana_starfall', // 群星风暴
-      'magnataur_empower', // 授予力量
       'jakiro_dual_breath', // 冰火交加
       'jakiro_ice_path', // 冰封路径
       'phantom_assassin_blur', // 魅影无形
+      'monkey_king_boundless_strike', // 棒击大地
 
       // 自定义技能
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
+      'alchemist_berserk_potion2', // 炼金 狂暴药剂
     ],
   },
   {
@@ -140,15 +135,18 @@ export const abilityTiersActive: Tier[] = [
     names: [
       // 主动技能
       // 大招
+      'centaur_stampede', // 奔袭冲撞
+      'bloodseeker_rupture', // 割裂
       'queenofpain_sonic_wave', // 超声冲击波
       'omniknight_guardian_angel', // 守护天使
       'earthshaker_echo_slam', // 回音击
       'witch_doctor_death_ward', // 死亡守卫
       'slardar_amplify_damage', // 侵蚀雾霭 点灯
       'medusa_stone_gaze', // 石化凝视
-      'crystal_maiden_freezing_field', // 极寒领域
 
       // 小技能
+      'lina_light_strike_array', // 光击阵
+      'ringmaster_impalement', // 尖刀戏
       'dazzle_shadow_wave', // 暗影波
       'skywrath_mage_arcane_bolt', // 天怒奥法鹰隼
       'kunkka_torrent', // 洪流
@@ -170,13 +168,12 @@ export const abilityTiersActive: Tier[] = [
       'crystal_maiden_crystal_nova', // 冰霜新星
       'crystal_maiden_frostbite', // 冰封禁制
       'luna_lucent_beam', // 月光
-      'monkey_king_boundless_strike', // 棒击大地
       'magnataur_shockwave', // 震荡波
       'lich_death_charge', // 献身
+      'dark_seer_vacuum', // 真空
 
       // 自定义技能
       'arc_warden_scepter2', // 人工神符
-      'alchemist_berserk_potion2', // 炼金 狂暴药剂
     ],
   },
 ];

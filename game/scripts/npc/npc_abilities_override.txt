@@ -3007,7 +3007,7 @@
 		{
 			"damage"
 			{
-				"value"									"160 240 320 400 480"	// 150 220 290 360 加强
+				"value"									"220 330 440 550 660"	// 150 220 290 360 x1.5
 				"special_bonus_unique_pudge_7"			"+220"	// +150
 			}
 			"hook_speed"
@@ -10025,9 +10025,9 @@
 		{
 			"AbilityChargeRestoreTime"
 			{
-				"value"							"90"	// 120
+				"value"							"60"	// 120
 			}
-			"initial_cooldown"					"90"	// 120
+			"initial_cooldown"					"60"	// 120
 		}
 	}
 	//=================================================================================================================
@@ -11712,7 +11712,7 @@
 		{
 			"damage_share_percentage"
 			{
-				"value"						"12 14 16 18 20"	// 15 18 21 24 差值+2 末档≤20
+				"value"						"16 18 20 20 24"	// 15 18 21 24 差值+2 末档≤24
 			}
 			"duration"						"15"	// 18
 		}
@@ -12017,19 +12017,20 @@
 	"winter_wyvern_winters_curse"
 	{
 		"MaxLevel" "4"
+		"AbilityCastRange"				"1200"	// 800
 		"AbilityCooldown"				"60"	// 100 90 80 减少CD
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-				"damage_reduction"	"60"	// 100 不会收到敌人伤害 改成伤害降低
+				"damage_reduction"	"50"	// 100 不会收到敌人伤害 改成伤害降低
 				"bonus_attack_speed"
 				{
 					"value"		"130"	// 50 65 80
-					"special_bonus_unique_winter_wyvern_3"	"+110"	// 60
+					"special_bonus_unique_winter_wyvern_3"	"+120"	// 60
 				}
 		}
 	}
-	// 古龙诗集（先天）有bug
+	// 古龙诗集（先天）
 	"winter_wyvern_eldwurms_edda"
 	{
 		"AbilityValues"
@@ -12038,7 +12039,7 @@
 			"tooltip_int_pct"		"100"	// 25
 		}
 	}
-	// 有bug 物品无法使用
+	// 古龙诗集 物品 右键使用
 	"item_eldwurms_edda"
 	{
 		"AbilityCooldown"				"60"	// 600
@@ -12107,11 +12108,16 @@
 	"witch_doctor_maledict"
 	{
 		"MaxLevel"						"5"
+		"AbilityCastRange"				"900"				// 600 +300
 		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityDamage"					"54 66 78 90 102"	// 18 22 26 30 x3
 		"AbilityManaCost"				"105 110 115 120 125"
 		"AbilityValues"
 		{
+				"radius"
+				{
+					"value"			"250"				// 200 +50
+				}
 				"bonus_damage"
 				{
 					"value"			"16 22 28 34 40"	// 16 24 32 40 百分比伤害 最大值不变
