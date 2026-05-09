@@ -2108,8 +2108,8 @@
 		{
 			"armor"
 			{
-				"value"					"5"	// 1
-				"hero_levelup"			"+0.2"	// +0.1
+				"value"					"10"	// 1
+				"hero_levelup"			"+0.4"	// +0.1
 				"special_bonus_unique_legion_commander_outfight_them_armor"		"+2"	// +1
 			}
 		}
@@ -6576,7 +6576,7 @@
 		{
 			"presence_armor_reduction"
 			{
-				"value"		"-3 -5 -7 -9 -11"		// -3 -4 -5 -6 增强
+				"value"		"-6 -8 -10 -12 -14"		// -3 -4 -5 -6 x2
 			}
 		}
 	}
