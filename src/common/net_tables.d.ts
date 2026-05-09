@@ -78,7 +78,32 @@ declare global {
         passiveAbilityName2: string; // Bot 的第二个被动技能名称
       };
     };
+    alipay_order: {
+      [steamAccountID: string]: AlipayOrderState;
+    };
   }
+}
+
+export type AlipayOrderStatus =
+  | 'IDLE'
+  | 'CREATING'
+  | 'WAITING'
+  | 'SUCCESS'
+  | 'CLOSED'
+  | 'FAILED'
+  | 'ERROR'
+  | 'RATE_LIMITED';
+
+export interface AlipayOrderState {
+  status: AlipayOrderStatus;
+  outTradeNo?: string;
+  qrCode?: string;
+  totalAmount?: string;
+  subject?: string;
+  expiresAt?: string;
+  errorMessage?: string;
+  updatedAt: number;
+  clientEpoch: number; // 客户端为本次订阅生成的递增编号；前端用它过滤旧订单残留
 }
 
 export interface GameOptions {

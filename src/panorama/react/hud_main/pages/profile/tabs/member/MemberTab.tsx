@@ -6,8 +6,15 @@ import { MemberLevel, MemberSubTab, MEMBER_SUB_TABS } from './constants';
 import { StatusPage } from './StatusPage';
 import { SubscribePage } from './SubscribePage';
 
+// 模块级缓存：MemberTab unmount/remount 之间保留上一次的 sub tab 选择
+let lastMemberSubTab: MemberSubTab = 'status';
+
 export function MemberTab() {
-  const [subTab, setSubTab] = useState<MemberSubTab>('status');
+  const [subTab, setSubTabRaw] = useState<MemberSubTab>(lastMemberSubTab);
+  const setSubTab = (next: MemberSubTab) => {
+    lastMemberSubTab = next;
+    setSubTabRaw(next);
+  };
   const [refreshing, setRefreshing] = useState(false);
   const refreshingRef = useRef(false);
 
@@ -15,12 +22,11 @@ export function MemberTab() {
   const player = useNetTable('player_table', steamId);
   const member = player?.member;
 
-  // net table 更新后立即恢复按钮，并跳回状态页
+  // net table 更新后立即恢复按钮
   useEffect(() => {
     if (refreshingRef.current) {
       refreshingRef.current = false;
       setRefreshing(false);
-      setSubTab('status');
     }
   }, [player]);
 

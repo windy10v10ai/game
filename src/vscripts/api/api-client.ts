@@ -29,7 +29,7 @@ export class ApiClient {
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   // dont change this version, it is used to identify the server
   public static GetServerAuthKey() {
-    const keyVersion = 'v2';
+    const keyVersion = 'v3';
     return GetDedicatedServerKeyV3(keyVersion);
   }
 

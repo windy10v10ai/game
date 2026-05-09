@@ -13,7 +13,8 @@
     "jsxImportSource": "react",
     "baseUrl": ".",
     "paths": {
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "qrcode-generator": ["types/qrcode-generator.d.ts"]
     }
   },
   "include": [".", "../common/**/*.ts"]
