@@ -28,10 +28,14 @@ export class BotBaseAIModifier extends BaseModifier {
   private desiredNeutralActive: NeutralItemConfig | undefined;
   private desiredNeutralPassive: NeutralItemConfig | undefined;
 
-  protected readonly FindHeroRadius: number = 1600;
-  protected readonly FindRadius: number = 1600;
+  protected readonly FindRadius: number = 1800;
   protected readonly NotAttactTowerHeroAttackRangeBuff: number = 400;
   protected readonly CastRange: number = 900;
+
+  protected readonly AttackRangeLaning: number = 600;
+  protected readonly AttackRangeAttack: number = 1800;
+  protected readonly AttackRangePushTower: number = 600;
+  protected readonly AttackRangePushHero: number = 1200;
 
   public PushLevel: number = 10;
 
@@ -78,9 +82,8 @@ export class BotBaseAIModifier extends BaseModifier {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
     print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
 
-    // 中路模式：推进所需等级缩短一半
-    if (GameRules.Option.midOnlyMode) {
-      this.PushLevel = Math.floor(this.PushLevel / 2);
+    if (GameRules.AI.BotTeam) {
+      this.PushLevel = GameRules.AI.BotTeam.botPushLevel;
     }
 
     // 初始化出装状态
@@ -231,6 +234,10 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.CastCreep()) {
       return true;
     }
+    const enemy = this.FindNearestEnemyHero();
+    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeLaning)) {
+      return true;
+    }
     return false;
   }
 
@@ -245,6 +252,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     if (this.CastCreep()) {
+      return true;
+    }
+    const enemy = this.FindNearestEnemyHero();
+    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeAttack)) {
       return true;
     }
     return false;
@@ -269,6 +280,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.CastEnemy()) {
       return true;
     }
+
     return false;
   }
 
@@ -304,11 +316,16 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.CastTeam()) {
       return true;
     }
+    if (this.CastCreep()) {
+      return true;
+    }
     // 推塔
     if (this.ForceAttackTower()) {
       return true;
     }
-    if (this.CastCreep()) {
+    // 攻击附近敌方英雄
+    const enemy = this.FindNearestEnemyHero();
+    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangePushHero)) {
       return true;
     }
     return false;
@@ -343,7 +360,7 @@ export class BotBaseAIModifier extends BaseModifier {
       }
     }
 
-    if (ActionAttack.Attack(this.hero, enemyBuild)) {
+    if (ActionAttack.MoveToAttack(this.hero, enemyBuild, this.AttackRangePushTower)) {
       return true;
     }
     return false;
@@ -520,7 +537,7 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
 
   private FindAround(): void {
-    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindHeroRadius);
+    this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
     this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
     this.aroundEnemyBuildings = ActionFind.FindEnemyBuildings(this.hero, this.FindRadius);
     this.aroundEnemyBuildingsInvulnerable = ActionFind.FindEnemyBuildingsInvulnerable(

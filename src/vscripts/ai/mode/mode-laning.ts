@@ -13,6 +13,12 @@ export class ModeLaning extends ModeBase {
       // 不增加
     }
 
+    // 推进阶段后，Bot 大幅压低对线欲望
+    if (GameRules.AI.BotTeam?.isAfterPhaseStart()) {
+      desire *= 0.08;
+      desire = Math.min(desire, 0.08);
+    }
+
     desire = Math.min(desire, 0.7);
     desire = Math.max(desire, 0);
     return desire;

@@ -4,8 +4,6 @@ import { BotBaseAIModifier } from './bot-base';
 
 @registerModifier('ai/hero/hero-sniper')
 export class SniperAIModifier extends BotBaseAIModifier {
-  protected override FindHeroRadius: number = 3000;
-
   override UseAbilityEnemy(): boolean {
     // 瞄准
     if (

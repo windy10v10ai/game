@@ -9,8 +9,8 @@ import { ModeRetreat } from './mode-retreat';
 
 @reloadable
 export class FSA {
-  // 切换模式的阈值
   public static readonly MODE_SWITCH_THRESHOLD = 0.5;
+  private static readonly RETREAT_HP_THRESHOLD = 25;
 
   ModeList: ModeBase[] = [];
   constructor() {
@@ -22,6 +22,17 @@ export class FSA {
 
   GetMode(heroAI: BotBaseAIModifier): ModeEnum {
     const currentMode = heroAI.mode;
+
+    const hero = heroAI.GetHero();
+    const pid = hero.GetPlayerOwnerID();
+    if (
+      PlayerResource.IsValidPlayerID(pid) &&
+      PlayerResource.IsFakeClient(pid) &&
+      hero.GetHealthPercent() < FSA.RETREAT_HP_THRESHOLD
+    ) {
+      return ModeEnum.RETREAT;
+    }
+
     let maxDesire = 0;
     let desireMode: ModeEnum | undefined;
     for (const mode of this.ModeList) {
@@ -34,7 +45,9 @@ export class FSA {
 
     if (maxDesire >= FSA.MODE_SWITCH_THRESHOLD) {
       if (desireMode !== currentMode) {
-        // print(`[AI] hero ${heroAI.GetHero().GetUnitName()} desire to switch mode to ${desireMode}`);
+        print(
+          `[AI] ${heroAI.GetHero().GetUnitName()} mode ${currentMode} → ${desireMode} (desire=${maxDesire})`,
+        );
       }
       return desireMode!;
     } else {

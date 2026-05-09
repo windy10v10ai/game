@@ -1,8 +1,15 @@
 import { HeroUtil } from '../hero/hero-util';
 
 export class ActionAttack {
-  static Attack(hero: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC): boolean {
+  static MoveToAttack(
+    hero: CDOTA_BaseNPC_Hero,
+    target: CDOTA_BaseNPC,
+    maxRange: number = 300,
+  ): boolean {
     if (!target) {
+      return false;
+    }
+    if (hero.GetRangeToUnit(target) > maxRange) {
       return false;
     }
     // if target in attack range perform attack order
@@ -17,11 +24,7 @@ export class ActionAttack {
       });
       return true;
     } else {
-      const distanceToTarget = hero.GetRangeToUnit(target);
-      if (distanceToTarget > 300) {
-        return false;
-      }
-      // 300 range内，移动到目标处攻击
+      // maxRange内，移动到目标处攻击
       print(`[AI] MoveToTargetToAttack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
       ExecuteOrderFromTable({
         OrderType: UnitOrder.ATTACK_MOVE,

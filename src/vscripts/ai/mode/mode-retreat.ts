@@ -30,7 +30,7 @@ export class ModeRetreat extends ModeBase {
         desire += 0.2;
       }
     }
-    // 英雄小于推进等级，在防御塔攻击范围内，desire为1
+    // 英雄小于推进等级，在防御塔攻击范围内，撤退
     if (heroAI.GetHero().GetLevel() < heroAI.PushLevel) {
       const nearestTower = heroAI.FindNearestEnemyTowerInvulnerable();
       if (nearestTower) {
@@ -68,9 +68,11 @@ export class ModeRetreat extends ModeBase {
     let desire = 0;
     const distanceThanRange = HeroUtil.GetDistanceToAttackRange(tower, heroAI.GetHero());
 
-    const towerBufferRange = 300;
+    // 缓冲带200距离，英雄升级后距离减少
+    const heroLevel = heroAI.GetHero().GetLevel();
+    const towerBufferRange = 200 - heroLevel * 20;
     const distanceThanRangeWithBuffer = distanceThanRange - towerBufferRange;
-    // 靠近防御塔攻击范围+300以内时，每减少100，desire增加0.1
+    // 靠近防御塔攻击范围时，每减少100，desire增加0.1
     if (distanceThanRangeWithBuffer <= 0) {
       desire += (-distanceThanRangeWithBuffer / 100) * 0.1;
     }
