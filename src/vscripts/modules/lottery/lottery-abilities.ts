@@ -185,35 +185,35 @@ export const abilityTiersPassive: Tier[] = [
       // 被动技能
       'muerta_gunslinger', // 神枪在手
       'slark_essence_shift', // 能量转移
-      'faceless_void_time_lock', // 时间锁定
 
       // 法球/开关技能
-      'medusa_split_shot', // 分裂箭
       'winter_wyvern_arctic_burn', // 严寒灼烧
 
       // 自定义技能
+      'spectre_dispersion2', // 幽鬼 折射改
       'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
+      'jakiro_double_trouble2', // 双头龙 天生一对
     ],
   },
   {
     level: 4,
     names: [
       // 被动技能
+      'faceless_void_time_lock', // 时间锁定
       'dazzle_good_juju', // 善咒
       'templar_assassin_psi_blades', // 灵能之刃
       'luna_moon_glaive', // 月刃
-      'elder_titan_natural_order', // 自然秩序 降低魔抗不生效
       'phantom_assassin_coup_de_grace', // 恩赐解脱
       'slardar_bash', // 深海重击
-      // 'spectre_dispersion', // 幽鬼 折射
-      'spectre_dispersion2', // 幽鬼 折射改
       'clinkz_infernal_shred2', // 克林克兹先天 地狱之裂
-      'riki_innate_backstab', // 力丸 背刺
+      'shadow_demon_menace', // 暗影恶魔 威胁
+
+      // 法球/开关技能
+      'medusa_split_shot', // 分裂箭
 
       // 自定义技能
       'dark_seer_normal_punch2', // 普通一拳
       'ogre_magi_multicast_lua', // 多重施法
-      'jakiro_double_trouble2', // 双头龙 天生一对
       'leshrac_defilement2', // 大肆污染 拉席克
       'tinker_eureka2', // 修补匠 尤里卡！
       'rubick_curiosity2', // 拉比克 先天 奇心
@@ -229,12 +229,12 @@ export const abilityTiersPassive: Tier[] = [
     level: 3,
     names: [
       // 被动技能
-      'shadow_demon_menace', // 暗影恶魔 威胁
+      'riki_innate_backstab', // 力丸 背刺
+      'elder_titan_natural_order', // 自然秩序 降低魔抗不生效
       'muerta_supernatural', // 琼英碧灵 超自然
       'dawnbreaker_luminosity', // 熠熠生辉
       'earthshaker_aftershock', // 余震
       'chaos_knight_chaos_strike', // 混沌一击
-      'nevermore_dark_lord', // 魔王降临
       'riki_backstab', // 刀光谍影
       'weaver_geminate_attack', // 连击
       'spectre_desolate', // 荒芜
@@ -242,10 +242,8 @@ export const abilityTiersPassive: Tier[] = [
       'juggernaut_blade_dance', // 剑舞
       'tiny_grow', // 长大
       'sven_great_cleave', // 巨力挥舞
-      'shredder_reactive_armor', // 活性活甲
       'silencer_glaives_of_wisdom', // 智慧之刃
       'tiny_insurmountable', // 小小 不可逾越
-      'chaos_knight_fundamental_forging', // 混沌骑士 基本法则锻造
       'drow_ranger_trueshot', // 精准光环
       'death_prophet_witchcraft', // 死亡先知 巫术精研
 
@@ -257,7 +255,6 @@ export const abilityTiersPassive: Tier[] = [
 
       // 自定义技能
       'dragon_knight_dragon_blood2', // 龙骑 龙族血统
-      'legion_commander_outfight_them', // 军团指挥官 迎难而战
       'sniper_keen_scope2', // 狙击手 基恩瞄准镜
       'primal_beast_colossal2', // 獸 庞
       'silencer_brain_drain2', // 沉默术士 默默受苦
@@ -265,7 +262,6 @@ export const abilityTiersPassive: Tier[] = [
       'centaur_sturdy', // 人马 不屈
       'ancient_apparition_frost_orb', // 冰霜法球
       'rubick_might_and_magus2', // 拉比克 力量与魔法
-      'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
     ],
@@ -274,7 +270,10 @@ export const abilityTiersPassive: Tier[] = [
     level: 2,
     names: [
       // 被动技能
-      'phoenix_dying_light', // 凤凰 消逝之光
+      'shredder_reactive_armor', // 活性活甲
+      'chaos_knight_fundamental_forging', // 混沌骑士 基本法则锻造
+      'ancient_apparition_bone_chill2', // 冰魂 先天 刺骨严寒
+      'nevermore_dark_lord', // 魔王降临
       'nevermore_necromastery', // 影魔 支配死灵
       'tusk_bitter_chill', // 巨牙 严寒
       'ursa_fury_swipes', // 怒意狂击
@@ -283,8 +282,6 @@ export const abilityTiersPassive: Tier[] = [
       'rubick_arcane_supremacy', // 奥术至尊
       'monkey_king_jingu_mastery', // 如意棒法
       'skeleton_king_mortal_strike', // 本命一击
-      'huskar_berserkers_blood', // 狂战士之血
-      'legion_commander_moment_of_courage', // 勇气之霎
       'abyssal_underlord_atrophy_aura', // 衰退光环
       // 'obsidian_destroyer_equilibrium', // 精华变迁
       'abaddon_frostmourne', // 魔霭诅咒
@@ -293,7 +290,6 @@ export const abilityTiersPassive: Tier[] = [
       'centaur_return', // 人马 反伤
       'necrolyte_heartstopper_aura', // 竭心光环
       'drow_ranger_marksmanship', // 射手天赋
-      'night_stalker_hunter_in_the_night', // 暗夜猎影
       'undying_ceaseless_dirge', // 不朽尸王 挽歌犹唱
       'nyx_assassin_neuro_sting', // 司夜刺客 法力燃烧
       'zuus_static_field', // 宙斯 静电场
@@ -302,6 +298,10 @@ export const abilityTiersPassive: Tier[] = [
       'medusa_mana_shield', // 魔法盾
       'luna_lunar_blessing', // 露娜 月之祝福
       'bloodseeker_sanguivore', // 血魔 食血动物
+      'bounty_hunter_jinada', // 忍术
+      'antimage_mana_break', // 法力损毁
+      'lina_fiery_soul', // 炽魂
+      'alchemist_goblins_greed2', // 贪婪
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
@@ -311,7 +311,6 @@ export const abilityTiersPassive: Tier[] = [
       'mirana_celestial_quiver', // 米拉娜 天界箭袋
 
       // 自定义技能
-      'abyssal_underlord_firestorm2', // 火雨降临
       'ursa_maul2', // 拍拍 暴烈之爪 +攻击
       'axe_one_man_army2', // 斧王 一人成军
       'dark_seer_quick_wit2', // 才思敏捷
@@ -321,14 +320,14 @@ export const abilityTiersPassive: Tier[] = [
     level: 1,
     names: [
       // 被动技能
+      'huskar_berserkers_blood', // 狂战士之血
+      'night_stalker_hunter_in_the_night', // 暗夜猎影
+      'legion_commander_moment_of_courage', // 勇气之霎
+      'phoenix_dying_light', // 凤凰 消逝之光
       'pangolier_fortune_favors_the_bold', // 滚滚 天佑勇者
-      'lina_fiery_soul', // 炽魂
       'enchantress_untouchable', // 不可侵犯
-      'alchemist_goblins_greed2', // 贪婪
       'spirit_breaker_greater_bash', // 巨力重击
-      'antimage_mana_break', // 法力损毁
       'sniper_headshot', // 爆头
-      'bounty_hunter_jinada', // 忍术
       'razor_storm_surge', // 风暴涌动
       'troll_warlord_fervor', // 热血战魂
       'visage_gravekeepers_cloak', // 陵卫斗篷
@@ -337,9 +336,10 @@ export const abilityTiersPassive: Tier[] = [
       'rubick_null_field', // 失效立场
       'pangolier_lucky_shot', // 幸运一击
       'faceless_void_backtrack2', // 虚空 回到过去
-      'crystal_maiden_brilliance_aura', // 奥术光环 冰女
       'gyrocopter_afterburner', // 矮人直升机 加力燃烧器
       'omniknight_degen_aura', // 全能骑士 退化光环
+      'legion_commander_outfight_them', // 军团指挥官 迎难而战
+      'crystal_maiden_brilliance_aura', // 奥术光环 冰女
 
       // 法球/开关技能
       'drow_ranger_frost_arrows', // 霜冻之箭
@@ -351,6 +351,7 @@ export const abilityTiersPassive: Tier[] = [
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
 
       // 自定义技能
+      'abyssal_underlord_firestorm2', // 火雨降临
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'abyssal_underlord_malice_aura', // 怨念光环
       'crystal_maiden_glacial_guard2', // 冰女 先天 冰川护体

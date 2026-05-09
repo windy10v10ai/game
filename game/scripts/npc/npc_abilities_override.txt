@@ -2657,6 +2657,7 @@
 	// 暗夜猎影
 	"night_stalker_hunter_in_the_night"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"bonus_status_resist_night"
