@@ -10,7 +10,6 @@ import {
   KOFI_LOGO,
   KOFI_SHOP_URL,
   KOFI_SUBSCRIBE_URL,
-  MembershipPlanTier,
   MembershipPlatform,
   MEMBERSHIP_PLATFORMS,
 } from './constants';
@@ -22,22 +21,6 @@ interface SubscribePageProps {
   onRefresh: () => void;
 }
 
-/**
- * 生成单档位的订阅按钮文案，例：
- *   alipay tier{quantity:1,price:'28.00'}  → "订阅会员 ¥28.00/月"
- * 未来若需"3 个月套餐"则在文案中体现 quantity；当前只取 quantity=1 简化展示。
- */
-function getSubscribeButtonText(platform: MembershipPlatform, tier: MembershipPlanTier) {
-  const { currency } = MEMBERSHIP_PLATFORMS[platform];
-  const currencyText = currency === 'cny' ? `¥${tier.price}` : `$${tier.price}`;
-  return (
-    $.Localize('#member_platform_subscribe_btn') +
-    currencyText +
-    $.Localize('#member_platform_subscribe_month')
-  );
-}
-
-/** 取平台默认档位（首期一档；未来可在卡片内做档位切换） */
 const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platform].tiers[0];
 
 export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: SubscribePageProps) {
@@ -90,10 +73,7 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
       {/* 三平台并排 */}
       <Panel className="member-platform-cards">
         {/* 支付宝 */}
-        <AlipaySubscribeCard
-          tier={defaultTier('alipay')}
-          subscribeButtonText={getSubscribeButtonText('alipay', defaultTier('alipay'))}
-        />
+        <AlipaySubscribeCard tiers={MEMBERSHIP_PLATFORMS.alipay.tiers} />
 
         {/* 爱发电 */}
         <ExternalPlatformCard
@@ -103,7 +83,8 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
           name={$.Localize('#member_platform_afdian')}
           desc={$.Localize('#member_platform_afdian_desc')}
           subscribeUrl={GetAfdianSubscribeUrl()}
-          subscribeButtonText={getSubscribeButtonText('afdian', defaultTier('afdian'))}
+          subscribePrice={`¥${defaultTier('afdian').price}`}
+          subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
           shopUrl={AFDIAN_SHOP_URL}
           activateUrl={AFDIAN_ACTIVATE_URL}
         />
@@ -116,7 +97,8 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
           name={$.Localize('#member_platform_kofi')}
           desc={$.Localize('#member_platform_kofi_desc')}
           subscribeUrl={KOFI_SUBSCRIBE_URL}
-          subscribeButtonText={getSubscribeButtonText('kofi', defaultTier('kofi'))}
+          subscribePrice={`$${defaultTier('kofi').price}`}
+          subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
           shopUrl={KOFI_SHOP_URL}
           activateUrl={KOFI_ACTIVATE_URL}
         />

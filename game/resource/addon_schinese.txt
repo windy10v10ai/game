@@ -297,6 +297,9 @@
 		"member_alipay_retry"				"重试"
 		"member_alipay_close"				"关闭"
 		"member_alipay_cancel"				"取消"
+		"member_alipay_discount_fmt"		"省{n}%"
+		"member_alipay_tier_month_fmt"		"{n}个月"
+		"member_alipay_tier_year_fmt"		"{n}年"
 
 		///////////////////////////////////////////////////
 		//
