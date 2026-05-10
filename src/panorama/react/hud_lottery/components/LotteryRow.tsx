@@ -77,7 +77,12 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type, onOpenMember }) => {
           ))}
         </>
       )}
-      <RefreshButton type={type} lotteryStatus={lotteryStatus} member={member} onOpenMember={onOpenMember} />
+      <RefreshButton
+        type={type}
+        lotteryStatus={lotteryStatus}
+        member={member}
+        onOpenMember={onOpenMember}
+      />
     </Panel>
   );
 };
