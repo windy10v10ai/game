@@ -22,14 +22,13 @@ interface SubscribePageProps {
   onRefresh: () => void;
 }
 
-function getSubscribeButtonText(platform: MembershipPlatform, tier: MembershipPlanTier) {
+function getSubscribeButtonParts(platform: MembershipPlatform, tier: MembershipPlanTier) {
   const { currency } = MEMBERSHIP_PLATFORMS[platform];
   const currencyText = currency === 'cny' ? `¥${tier.price}` : `$${tier.price}`;
-  return (
-    $.Localize('#member_platform_subscribe_btn') +
-    currencyText +
-    $.Localize('#member_platform_subscribe_month')
-  );
+  return {
+    main: $.Localize('#member_platform_subscribe_btn') + currencyText,
+    unit: $.Localize('#member_platform_subscribe_month'),
+  };
 }
 
 const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platform].tiers[0];
@@ -94,7 +93,8 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
           name={$.Localize('#member_platform_afdian')}
           desc={$.Localize('#member_platform_afdian_desc')}
           subscribeUrl={GetAfdianSubscribeUrl()}
-          subscribeButtonText={getSubscribeButtonText('afdian', defaultTier('afdian'))}
+          subscribeMainText={getSubscribeButtonParts('afdian', defaultTier('afdian')).main}
+          subscribeUnitText={getSubscribeButtonParts('afdian', defaultTier('afdian')).unit}
           shopUrl={AFDIAN_SHOP_URL}
           activateUrl={AFDIAN_ACTIVATE_URL}
         />
@@ -107,7 +107,8 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
           name={$.Localize('#member_platform_kofi')}
           desc={$.Localize('#member_platform_kofi_desc')}
           subscribeUrl={KOFI_SUBSCRIBE_URL}
-          subscribeButtonText={getSubscribeButtonText('kofi', defaultTier('kofi'))}
+          subscribeMainText={getSubscribeButtonParts('kofi', defaultTier('kofi')).main}
+          subscribeUnitText={getSubscribeButtonParts('kofi', defaultTier('kofi')).unit}
           shopUrl={KOFI_SHOP_URL}
           activateUrl={KOFI_ACTIVATE_URL}
         />

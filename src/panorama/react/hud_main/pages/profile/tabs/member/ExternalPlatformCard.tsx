@@ -11,7 +11,8 @@ interface ExternalPlatformCardProps {
   name: string;
   desc: string;
   subscribeUrl: string;
-  subscribeButtonText: string;
+  subscribeMainText: string;
+  subscribeUnitText: string;
   shopUrl: string;
   activateUrl: string;
 }
@@ -27,7 +28,8 @@ export function ExternalPlatformCard({
   name,
   desc,
   subscribeUrl,
-  subscribeButtonText,
+  subscribeMainText,
+  subscribeUnitText,
   shopUrl,
   activateUrl,
 }: ExternalPlatformCardProps) {
@@ -38,7 +40,10 @@ export function ExternalPlatformCard({
         className="member-platform-btn member-platform-btn-subscribe"
         onactivate={openUrl(subscribeUrl)}
       >
-        <Label className="member-platform-btn-label" text={subscribeButtonText} />
+        <Panel className="external-subscribe-btn-content">
+          <Label className="member-platform-btn-label" text={subscribeMainText} />
+          <Label className="external-subscribe-unit" text={subscribeUnitText} />
+        </Panel>
       </Button>
       <Panel className="member-platform-divider">
         <Label

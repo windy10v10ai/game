@@ -3,8 +3,8 @@
 /* 所有 alipay 卡片相关样式都嵌套在 .member-platform-card-alipay 下，
    利用 specificity 0,0,2,0 自动覆盖 .member-platform-card / .member-platform-btn 等基类
    样式，无需依赖声明顺序，import 可以放在文件顶部满足 CSS 规范。 */
-.member-platform-card-alipay {
-  /* 支付宝卡片边框色（覆盖 .stats-card mixin 在 .member-platform-card 中的 border） */
+.member-platform-card.member-platform-card-alipay {
+  /* 支付宝卡片边框色（双 class 特异度 0,0,2,0 覆盖 .member-platform-card 的 .stats-card 金色边框） */
   border: 1px solid #1677ff;
 
   /* ============================================================
@@ -127,14 +127,24 @@
     vertical-align: center;
   }
 
-  /* 主行：单价大字居中 */
+  /* 主行：单价大字居中，/月 小字灰色 */
+  .alipay-tier-price-row {
+    flow-children: right;
+    horizontal-align: center;
+  }
+
   .alipay-tier-price {
     font-size: @font-size-md;
     font-weight: bold;
     color: @color-text;
     text-shadow: 0px 1px 4px #00000088;
-    horizontal-align: center;
-    text-align: center;
+    vertical-align: center;
+  }
+
+  .alipay-tier-price-unit {
+    font-size: @font-size-sm;
+    color: @color-text-muted;
+    vertical-align: center;
   }
 
   /* 副行容器：月份 + 折扣横排居中 */

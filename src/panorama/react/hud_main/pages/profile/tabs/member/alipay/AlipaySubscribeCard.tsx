@@ -101,7 +101,13 @@ function AlipayIdleContent({
           enabled={!disabled}
         >
           <Panel className="alipay-tier-btn-content">
-            <Label className="alipay-tier-price" text={`¥${tier.pricePerMonth}/月`} />
+            <Panel className="alipay-tier-price-row">
+              <Label className="alipay-tier-price" text={`¥${tier.pricePerMonth}`} />
+              <Label
+                className="alipay-tier-price-unit"
+                text={$.Localize('#member_platform_subscribe_month')}
+              />
+            </Panel>
             <Panel className="alipay-tier-sub-row">
               <Label className="alipay-tier-month" text={formatMonthLabel(tier.quantity)} />
               {tier.discountPercent > 0 && (
