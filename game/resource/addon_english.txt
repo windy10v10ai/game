@@ -297,6 +297,9 @@
 		"member_alipay_retry"					"Retry"
 		"member_alipay_close"					"Close"
 		"member_alipay_cancel"					"Cancel"
+		"member_alipay_discount_fmt"			"Save {n}%"
+		"member_alipay_tier_month_fmt"			"{n} Months"
+		"member_alipay_tier_year_fmt"			"{n} Years"
 
 		///////////////////////////////////////////////////
 		//

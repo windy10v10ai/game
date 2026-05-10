@@ -6,17 +6,13 @@ import { QrCodeView } from './QrCodeView';
 import { useAlipayOrder } from './useAlipayOrder';
 
 interface AlipaySubscribeCardProps {
-  tier: MembershipPlanTier;
-  subscribeButtonText: string;
+  tiers: MembershipPlanTier[];
 }
 
-export function AlipaySubscribeCard({ tier, subscribeButtonText }: AlipaySubscribeCardProps) {
+export function AlipaySubscribeCard({ tiers }: AlipaySubscribeCardProps) {
   // alipay 平台的 productCode 一定存在（constants 中已配置）
   const productCode = MEMBERSHIP_PLATFORMS.alipay.productCode!;
-  const { order, start, retry, clear, cooling } = useAlipayOrder({
-    productCode,
-    quantity: tier.quantity,
-  });
+  const { order, start, retry, clear, cooling } = useAlipayOrder({ productCode });
   const status = order?.status;
 
   // paying 完全由 net table 推导：有活动订单（非 IDLE）就显示支付画面
@@ -39,9 +35,9 @@ export function AlipaySubscribeCard({ tier, subscribeButtonText }: AlipaySubscri
     }
   }, [status]);
 
-  const handleSubscribe = () => {
+  const handleSubscribe = (quantity: number) => {
     // net table 空 → 发新单；已有订单（很少出现，比如另一个 sub tab 同步触发）→ 仅切到 paying
-    start();
+    start(quantity);
   };
 
   const handleClose = () => {
@@ -59,11 +55,7 @@ export function AlipaySubscribeCard({ tier, subscribeButtonText }: AlipaySubscri
       />
 
       {!paying ? (
-        <AlipayIdleContent
-          subscribeButtonText={subscribeButtonText}
-          onStart={handleSubscribe}
-          disabled={cooling}
-        />
+        <AlipayIdleContent tiers={tiers} onStart={handleSubscribe} disabled={cooling} />
       ) : (
         <AlipayPayingContent
           status={status}
@@ -79,23 +71,50 @@ export function AlipaySubscribeCard({ tier, subscribeButtonText }: AlipaySubscri
   );
 }
 
+function formatDiscountLabel(discountPercent: number): string {
+  return $.Localize('#member_alipay_discount_fmt').replace('{n}', String(discountPercent));
+}
+
+function formatMonthLabel(quantity: number): string {
+  if (quantity % 12 === 0) {
+    return $.Localize('#member_alipay_tier_year_fmt').replace('{n}', String(quantity / 12));
+  }
+  return $.Localize('#member_alipay_tier_month_fmt').replace('{n}', String(quantity));
+}
+
 function AlipayIdleContent({
-  subscribeButtonText,
+  tiers,
   onStart,
   disabled,
 }: {
-  subscribeButtonText: string;
-  onStart: () => void;
+  tiers: MembershipPlanTier[];
+  onStart: (quantity: number) => void;
   disabled: boolean;
 }) {
   return (
-    <Button
-      className="member-platform-btn member-platform-btn-subscribe"
-      onactivate={onStart}
-      enabled={!disabled}
-    >
-      <Label className="member-platform-btn-label" text={subscribeButtonText} />
-    </Button>
+    <Panel className="alipay-tier-list">
+      {tiers.map((tier) => (
+        <Button
+          key={tier.quantity}
+          className="member-platform-btn member-platform-btn-subscribe alipay-tier-btn"
+          onactivate={() => onStart(tier.quantity)}
+          enabled={!disabled}
+        >
+          <Panel className="alipay-tier-btn-content">
+            <Label className="alipay-tier-price" text={`¥${tier.pricePerMonth}/月`} />
+            <Panel className="alipay-tier-sub-row">
+              <Label className="alipay-tier-month" text={formatMonthLabel(tier.quantity)} />
+              {tier.discountPercent > 0 && (
+                <Label
+                  className="alipay-tier-discount"
+                  text={formatDiscountLabel(tier.discountPercent)}
+                />
+              )}
+            </Panel>
+          </Panel>
+        </Button>
+      ))}
+    </Panel>
   );
 }
 

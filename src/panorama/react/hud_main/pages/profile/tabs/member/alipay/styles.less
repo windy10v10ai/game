@@ -73,7 +73,6 @@
   .alipay-card-actions {
     flow-children: right;
     horizontal-align: center;
-    margin-top: 4px;
   }
 
   /* 卡内紧凑按钮：覆盖基类的 min-width: 200px; height: 42px */
@@ -107,6 +106,57 @@
   .alipay-card-btn-cancel .member-platform-btn-label,
   .alipay-card-btn-close .member-platform-btn-label {
     font-size: @font-size-sm;
+  }
+
+  /* 档位按钮列表（垂直排列） */
+  .alipay-tier-list {
+    flow-children: down;
+    width: 100%;
+  }
+
+  /* 档位按钮：适度宽度容纳两行内容，不撑满卡片 */
+  .alipay-tier-btn {
+    height: 48px;
+    width: fit-children;
+  }
+
+  /* 按钮内部：垂直两行（价格主行 + 月份/折扣副行） */
+  .alipay-tier-btn-content {
+    flow-children: down;
+    horizontal-align: center;
+    vertical-align: center;
+  }
+
+  /* 主行：单价大字居中 */
+  .alipay-tier-price {
+    font-size: @font-size-md;
+    font-weight: bold;
+    color: @color-text;
+    text-shadow: 0px 1px 4px #00000088;
+    horizontal-align: center;
+    text-align: center;
+  }
+
+  /* 副行容器：月份 + 折扣横排居中 */
+  .alipay-tier-sub-row {
+    flow-children: right;
+    horizontal-align: center;
+    margin-top: 2px;
+  }
+
+  /* 副行：月份小字灰色 */
+  .alipay-tier-month {
+    font-size: @font-size-sm;
+    color: @color-text-muted;
+    vertical-align: center;
+  }
+
+  /* 副行：折扣小字暖橙红，有月份时加左边距 */
+  .alipay-tier-discount {
+    font-size: @font-size-sm;
+    color: #ff7043;
+    vertical-align: center;
+    margin-left: 6px;
   }
 
   /* 冷却（disabled）灰态：覆盖所有支付宝相关按钮（含 idle 的订阅按钮） */
