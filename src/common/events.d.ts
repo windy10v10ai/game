@@ -27,6 +27,8 @@ interface CustomGameEventDeclarations {
   alipay_order_create: AlipayOrderCreateEventData;
   alipay_order_query: AlipayOrderQueryEventData;
   alipay_order_clear: Record<string, never>;
+
+  hud_open_page: HudOpenPageEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -93,6 +95,12 @@ interface AlipayOrderCreateEventData {
 
 interface AlipayOrderQueryEventData {
   outTradeNo: string;
+}
+
+interface HudOpenPageEventData {
+  page: string;
+  param?: string;
+  playerId: PlayerID;
 }
 
 interface SaveBindAbilityKeyEventData {

@@ -50,7 +50,6 @@ function Snippet_Player(playerId, rootPanel, index) {
   if (IsMemberByPlayerId(playerId)) {
     panel.AddClass('IsMemberShip');
     const membershipString = $.Localize('#player_member_ship');
-    const membershipUrl = GetOpenMemberUrl();
 
     const membershipIcon = panel.FindChildTraverse('PlayerMemberShip');
 
@@ -62,7 +61,11 @@ function Snippet_Player(playerId, rootPanel, index) {
     });
 
     membershipIcon.SetPanelEvent('onactivate', () => {
-      $.DispatchEvent('ExternalBrowserGoToURL', membershipUrl);
+      GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
+        page: 'profile',
+        param: 'member',
+        playerId: Game.GetLocalPlayerID(),
+      });
     });
   }
 
