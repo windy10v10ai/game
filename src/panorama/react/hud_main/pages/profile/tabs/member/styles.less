@@ -386,8 +386,6 @@
   height: 42px;
   padding: 0px 16px;
   border-radius: @radius-md;
-  margin-top: 8px;
-  margin-bottom: 8px;
   transition-property: brightness;
   transition-duration: @transition-fast;
   transition-timing-function: ease-out;
@@ -397,11 +395,36 @@
 }
 
 .member-platform-btn-subscribe {
+  margin-top: 8px;
+  margin-bottom: 8px;
   background-color: @color-primary-btn;
   border: 1px solid @color-primary-border;
 }
 
+/* 价格行：大字价格 + 小字单位 */
+.subscribe-price-row {
+  flow-children: right;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.subscribe-price-main {
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+  text-shadow: 0px 1px 4px #00000088;
+  vertical-align: center;
+}
+
+.subscribe-price-unit {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  vertical-align: center;
+}
+
 .member-platform-btn-shop {
+  margin-top: 8px;
+  margin-bottom: 8px;
   background-color: #00000000;
   border: 1px solid @color-text-muted;
 }

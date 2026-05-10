@@ -11,7 +11,8 @@ interface ExternalPlatformCardProps {
   name: string;
   desc: string;
   subscribeUrl: string;
-  subscribeButtonText: string;
+  subscribePrice: string;
+  subscribeUnitText: string;
   shopUrl: string;
   activateUrl: string;
 }
@@ -27,7 +28,8 @@ export function ExternalPlatformCard({
   name,
   desc,
   subscribeUrl,
-  subscribeButtonText,
+  subscribePrice,
+  subscribeUnitText,
   shopUrl,
   activateUrl,
 }: ExternalPlatformCardProps) {
@@ -38,7 +40,13 @@ export function ExternalPlatformCard({
         className="member-platform-btn member-platform-btn-subscribe"
         onactivate={openUrl(subscribeUrl)}
       >
-        <Label className="member-platform-btn-label" text={subscribeButtonText} />
+        <Panel className="subscribe-price-row">
+          <Label
+            className="subscribe-price-main"
+            text={$.Localize('#member_platform_subscribe_btn') + subscribePrice}
+          />
+          <Label className="subscribe-price-unit" text={subscribeUnitText} />
+        </Panel>
       </Button>
       <Panel className="member-platform-divider">
         <Label
