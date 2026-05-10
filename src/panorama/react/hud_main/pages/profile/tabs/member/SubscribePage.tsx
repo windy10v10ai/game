@@ -10,7 +10,6 @@ import {
   KOFI_LOGO,
   KOFI_SHOP_URL,
   KOFI_SUBSCRIBE_URL,
-  MembershipPlanTier,
   MembershipPlatform,
   MEMBERSHIP_PLATFORMS,
 } from './constants';
@@ -20,15 +19,6 @@ interface SubscribePageProps {
   isNormalOnly: boolean; // 仅普通会员（非高级），显示折算说明
   refreshing: boolean;
   onRefresh: () => void;
-}
-
-function getSubscribeButtonParts(platform: MembershipPlatform, tier: MembershipPlanTier) {
-  const { currency } = MEMBERSHIP_PLATFORMS[platform];
-  const currencyText = currency === 'cny' ? `¥${tier.price}` : `$${tier.price}`;
-  return {
-    main: $.Localize('#member_platform_subscribe_btn') + currencyText,
-    unit: $.Localize('#member_platform_subscribe_month'),
-  };
 }
 
 const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platform].tiers[0];
@@ -93,8 +83,8 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
           name={$.Localize('#member_platform_afdian')}
           desc={$.Localize('#member_platform_afdian_desc')}
           subscribeUrl={GetAfdianSubscribeUrl()}
-          subscribeMainText={getSubscribeButtonParts('afdian', defaultTier('afdian')).main}
-          subscribeUnitText={getSubscribeButtonParts('afdian', defaultTier('afdian')).unit}
+          subscribePrice={`¥${defaultTier('afdian').price}`}
+          subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
           shopUrl={AFDIAN_SHOP_URL}
           activateUrl={AFDIAN_ACTIVATE_URL}
         />
@@ -107,8 +97,8 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
           name={$.Localize('#member_platform_kofi')}
           desc={$.Localize('#member_platform_kofi_desc')}
           subscribeUrl={KOFI_SUBSCRIBE_URL}
-          subscribeMainText={getSubscribeButtonParts('kofi', defaultTier('kofi')).main}
-          subscribeUnitText={getSubscribeButtonParts('kofi', defaultTier('kofi')).unit}
+          subscribePrice={`$${defaultTier('kofi').price}`}
+          subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
           shopUrl={KOFI_SHOP_URL}
           activateUrl={KOFI_ACTIVATE_URL}
         />

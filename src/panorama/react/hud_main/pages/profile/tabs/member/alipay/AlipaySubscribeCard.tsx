@@ -101,10 +101,10 @@ function AlipayIdleContent({
           enabled={!disabled}
         >
           <Panel className="alipay-tier-btn-content">
-            <Panel className="alipay-tier-price-row">
-              <Label className="alipay-tier-price" text={`¥${tier.pricePerMonth}`} />
+            <Panel className="subscribe-price-row">
+              <Label className="subscribe-price-main" text={`¥${tier.pricePerMonth}`} />
               <Label
-                className="alipay-tier-price-unit"
+                className="subscribe-price-unit"
                 text={$.Localize('#member_platform_subscribe_month')}
               />
             </Panel>

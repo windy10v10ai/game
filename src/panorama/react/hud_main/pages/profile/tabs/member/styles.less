@@ -401,14 +401,22 @@
   border: 1px solid @color-primary-border;
 }
 
-/* 外链平台按钮内部：主文字 + /月 小字灰色 */
-.external-subscribe-btn-content {
+/* 价格行：大字价格 + 小字单位 */
+.subscribe-price-row {
   flow-children: right;
   horizontal-align: center;
   vertical-align: center;
 }
 
-.external-subscribe-unit {
+.subscribe-price-main {
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+  text-shadow: 0px 1px 4px #00000088;
+  vertical-align: center;
+}
+
+.subscribe-price-unit {
   font-size: @font-size-sm;
   color: @color-text-muted;
   vertical-align: center;
