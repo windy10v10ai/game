@@ -22,17 +22,6 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
   return steamId32;
 }
 
-export function GetOpenMemberUrl(): string {
-  const afdianUrlPremium =
-    'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
-  const kofiUrl = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
-  if ($.Language() === 'schinese' || $.Language() === 'tchinese') {
-    return afdianUrlPremium + GetLocalPlayerSteamAccountID();
-  } else {
-    return kofiUrl;
-  }
-}
-
 export function GetAfdianSubscribeUrl(): string {
   return (
     'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=' +

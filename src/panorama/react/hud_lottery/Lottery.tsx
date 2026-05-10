@@ -101,7 +101,7 @@ function Lottery() {
           toggleCollapse={toggleCollapse}
         />
       </Panel>
-      <LotteryContainer isCollapsed={isCollapsed} />
+      <LotteryContainer isCollapsed={isCollapsed} onOpenMember={() => setIsCollapsed(true)} />
     </Panel>
   );
 }

@@ -1,13 +1,13 @@
 import React from 'react';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import { MemberDto } from '../../../../vscripts/api/player';
-import { GetOpenMemberUrl } from '@utils/utils';
 import { AbilityItemType } from '../../../../common/dto/lottery';
 
 interface RefreshButtonProps {
   type: AbilityItemType;
   lotteryStatus: LotteryStatusDto | null;
   member: MemberDto | null;
+  onOpenMember?: () => void;
 }
 
 const buttonStyle: Partial<VCSSStyleDeclaration> = {
@@ -65,7 +65,12 @@ const getPickedName = (type: AbilityItemType, lotteryStatus: LotteryStatusDto | 
   return undefined;
 };
 
-const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, member }) => {
+const RefreshButton: React.FC<RefreshButtonProps> = ({
+  type,
+  lotteryStatus,
+  member,
+  onOpenMember,
+}) => {
   // 根据会员 抽选状态判断是否禁用
   const isMember = member?.enable;
   const isRefreshed = getIsRefreshed(type, lotteryStatus);
@@ -87,7 +92,12 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({ type, lotteryStatus, memb
 
   const handleButtonClick = () => {
     if (!isMember) {
-      $.DispatchEvent('ExternalBrowserGoToURL', GetOpenMemberUrl());
+      GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
+        page: 'profile',
+        param: 'member',
+        playerId: Game.GetLocalPlayerID(),
+      });
+      onOpenMember?.();
       return;
     }
 

@@ -218,7 +218,6 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
     if (isMember) {
       playerPanel.AddClass('IsMemberShip');
       const membershipString = $.Localize('#player_member_ship');
-      const membershipUrl = GetOpenMemberUrl();
 
       const membershipIcon = playerPanel.FindChildTraverse('PlayerMemberShip');
 
@@ -230,7 +229,11 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
       });
 
       membershipIcon.SetPanelEvent('onactivate', () => {
-        $.DispatchEvent('ExternalBrowserGoToURL', membershipUrl);
+        GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
+          page: 'profile',
+          param: 'member',
+          playerId: Game.GetLocalPlayerID(),
+        });
       });
     } else {
       playerPanel.RemoveClass('IsMemberShip');

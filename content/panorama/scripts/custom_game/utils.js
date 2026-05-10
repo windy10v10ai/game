@@ -130,17 +130,6 @@ function SubscribePlayer(callbackFunction) {
   });
 }
 
-function GetOpenMemberUrl() {
-  const afdianUrlPremium =
-    'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
-  const kofiUrl = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
-  if ($.Language() === 'schinese' || $.Language() === 'tchinese') {
-    return afdianUrlPremium + GetSteamAccountID();
-  } else {
-    return kofiUrl;
-  }
-}
-
 var useChineseDateFormat = $.Language() === 'schinese' || $.Language() === 'tchinese';
 /** @param {Date} date */
 function formatDate(date) {

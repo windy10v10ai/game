@@ -8,6 +8,7 @@ import { useNetTable } from '../../shared/hooks/useNetTable';
 
 interface LotteryRowProps {
   type: AbilityItemType;
+  onOpenMember?: () => void;
 }
 
 // lotteryDataTableName function
@@ -21,7 +22,7 @@ const getLotteryDataTableName = (type: AbilityItemType) => {
   }
 };
 
-const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
+const LotteryRow: React.FC<LotteryRowProps> = ({ type, onOpenMember }) => {
   // 初始化 从nettable中获取数据
   const lotteryDataTableName = getLotteryDataTableName(type);
   const steamAccountId = GetLocalPlayerSteamAccountID();
@@ -76,7 +77,12 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
           ))}
         </>
       )}
-      <RefreshButton type={type} lotteryStatus={lotteryStatus} member={member} />
+      <RefreshButton
+        type={type}
+        lotteryStatus={lotteryStatus}
+        member={member}
+        onOpenMember={onOpenMember}
+      />
     </Panel>
   );
 };

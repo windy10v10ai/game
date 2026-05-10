@@ -2979,6 +2979,10 @@
 	{
 		"AbilityValues"
 		{
+			"flesh_heap_strength_buff_amount"
+			{
+				"value"							"3.0"	// 2.0 +1
+			}
 			"flesh_heap_range"
 			{
 				"value"		"600"	// 450
