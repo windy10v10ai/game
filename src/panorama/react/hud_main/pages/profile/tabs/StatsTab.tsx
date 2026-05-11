@@ -21,6 +21,8 @@ export function StatsTab() {
   const winRate =
     matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
   const conductPoint = player?.conductPoint ?? 0;
+  const conductColor =
+    conductPoint < 60 ? '#E87D7D' : conductPoint < 80 ? '#F5A623' : undefined;
 
   const conductTipRef = useRef<ImagePanel | null>(null);
 
@@ -48,7 +50,11 @@ export function StatsTab() {
         </Panel>
         <Panel className="stat-item">
           <Label className="stat-label" text={$.Localize('#profile_stat_conduct')} />
-          <Label className="stat-value" text={String(conductPoint)} />
+          <Label
+            className="stat-value"
+            text={String(conductPoint)}
+            style={conductColor ? { color: conductColor } : undefined}
+          />
           <Image
             ref={conductTipRef}
             className="stat-tip-icon"

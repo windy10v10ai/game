@@ -53,6 +53,14 @@ export class GameEnd {
     );
 
     const players: GameEndPlayerDto[] = [];
+    // Pre-collect steamIds to determine real player count for team game check
+    const allSteamIds: number[] = [];
+    PlayerHelper.ForEachPlayer((playerId) => {
+      allSteamIds.push(PlayerResource.GetSteamAccountID(playerId));
+    });
+    const realPlayerCount = allSteamIds.filter((id) => id > 0).length;
+    const isTeamGame = realPlayerCount >= 2;
+
     PlayerHelper.ForEachPlayer((playerId) => {
       const player = PlayerResource.GetPlayer(playerId);
       if (!player) {
@@ -104,6 +112,17 @@ export class GameEnd {
       );
       players.push(playerDto);
 
+      const playerInfo = CustomNetTables.GetTableValue(
+        'player_table',
+        playerDto.steamId.toString(),
+      );
+      const conductPoint = playerInfo?.conductPoint ?? 100;
+      const pointModifier = this.CalculatePointModifier(
+        playerDto.battlePoints,
+        conductPoint,
+        isTeamGame,
+      );
+
       // 结算界面数据
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
@@ -111,6 +130,8 @@ export class GameEnd {
         damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,
+        pointModifier,
+        conductPoint,
         str: hero.GetStrength(),
         agi: hero.GetAgility(),
         int: hero.GetIntellect(false),
@@ -152,6 +173,16 @@ export class GameEnd {
     const winMultiplier = player.teamId === winnerTeamId ? 1 : 0.5;
     // 积分为整数，且不会为负数
     return Math.max(0, Math.round(points * winMultiplier));
+  }
+
+  static CalculatePointModifier(
+    battlePoints: number,
+    conductPoint: number,
+    isTeamGame: boolean,
+  ): number {
+    if (!isTeamGame || conductPoint >= 80) return 0;
+    const multiplier = conductPoint >= 60 ? 0.8 : 0.5;
+    return -Math.round(battlePoints * (1 - multiplier));
   }
 
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {

@@ -104,6 +104,8 @@
 
 		"custom_end_screen_tower_kills"		"推塔"
 
+		"conduct_point_modifier_tooltip"	"行为分({0})低，积分已打折扣"
+
 		"ending_status_1"				"游戏数据上传中，请勿结束游戏。"
 		"ending_status_2"				"游戏数据上传成功！"
 		"ending_status_3"				"很遗憾由于网络波动，游戏数据上传失败。请尝试更换服务器主机重新进行游戏。"
@@ -238,7 +240,7 @@
 		"profile_stat_winrate"			"胜率"
 		"profile_stat_conduct"			"行为分"
 		"profile_stat_coming_soon"		"更多功能开发中"
-		"profile_stat_conduct_tooltip"	"行为分满分 <font color='#E8C07D'>100</font> 分，反映你的游戏行为。<br>• 正常完成一局 <font color='#7FD47F'>+1</font> 分<br>• 秒退一局 <font color='#E87D7D'>-5</font> 分<br>以下情况不计为秒退：<br>• 单人游戏<br>• 全体玩家均提前退出且无人进入结算<br>目前仅做统计，未来行为分过低可能触发惩罚机制。"
+		"profile_stat_conduct_tooltip"	"行为分满分 <font color='#E8C07D'>100</font> 分，反映你的游戏行为。<br>• 正常完成一局 <font color='#7FD47F'>+1</font> 分<br>• 秒退一局 <font color='#E87D7D'>-10</font> 分<br>以下情况不计为秒退：<br>• 单人游戏<br>• 全体玩家均提前退出且无人进入结算<br><br><font color='#E8C07D'>组队局</font>积分惩罚（行为分不足时）：<br>• 行为分 <font color='#F5A623'>60–79</font>：结算积分 ×0.8<br>• 行为分 <font color='#E87D7D'>&lt;60</font>：结算积分 ×0.5"
 
 		// Member Tab UI
 		"member_button_tooltip_active"		"会员已生效，点击查看详情"
