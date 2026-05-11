@@ -7338,6 +7338,34 @@
 			// }
 		}
 	}
+	// 洗点书
+	"item_skill_reset"
+	{
+		"ID"						"10337"
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/item_skill_reset"
+		"AbilityTextureName"		"skill_remover"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityCastPoint"			"0.0"
+
+		"ItemCost"					"2000"
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"0"
+		"ItemDroppable"				"1"
+		"ItemKillable"				"0"
+		"ItemStackable"				"1"
+		"ItemInitialCharges"		"1"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+		"ItemPermanent"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		// 库存设置
+		"ItemInitialStockTime"		"180"	// 2分钟买（开局准备1分钟）
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"120"
+	}
+
 	"item_skill_talisman"
 	{
 		"ID"                        "10331"

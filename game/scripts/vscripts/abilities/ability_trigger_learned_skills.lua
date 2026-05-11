@@ -64,12 +64,10 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
         return
     end
     -- 获取触发概率
-    local passive_level = self:GetAbility():GetLevel()
-    if passive_level <= 0 then passive_level = 1 end
+    if self:GetAbility():GetLevel() <= 0 then return end
 
-    local basic_trigger_chance = self:GetAbility():GetLevelSpecialValueFor("basic_trigger_chance", passive_level - 1)
-    local ultimate_trigger_chance = self:GetAbility():GetLevelSpecialValueFor("ultimate_trigger_chance",
-        passive_level - 1)
+    local basic_trigger_chance = self:GetAbility():GetSpecialValueFor("basic_trigger_chance")
+    local ultimate_trigger_chance = self:GetAbility():GetSpecialValueFor("ultimate_trigger_chance")
 
     -- 分别判断终极技能和普通技能的触发
     local trigger_ultimate = RollPseudoRandomPercentage(ultimate_trigger_chance, DOTA_PSEUDO_RANDOM_CUSTOM_GAME_1, parent)

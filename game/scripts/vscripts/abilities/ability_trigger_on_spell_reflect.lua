@@ -96,13 +96,11 @@ function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
     --print("[SpellReflect] Passed unit target check")
 
     -- 获取触发概率
-    local passive_level = self:GetAbility():GetLevel()
-    if passive_level <= 0 then passive_level = 1 end
+    if self:GetAbility():GetLevel() <= 0 then return end
 
-    local reflect_chance = self:GetAbility():GetLevelSpecialValueFor("reflect_chance", passive_level - 1)
-    local basic_trigger_chance = self:GetAbility():GetLevelSpecialValueFor("basic_trigger_chance", passive_level - 1)
-    local ultimate_trigger_chance = self:GetAbility():GetLevelSpecialValueFor("ultimate_trigger_chance",
-        passive_level - 1)
+    local reflect_chance = self:GetAbility():GetSpecialValueFor("reflect_chance")
+    local basic_trigger_chance = self:GetAbility():GetSpecialValueFor("basic_trigger_chance")
+    local ultimate_trigger_chance = self:GetAbility():GetSpecialValueFor("ultimate_trigger_chance")
 
     --print("[SpellReflect] Reflect chance:", reflect_chance, "Basic trigger chance:", basic_trigger_chance,"Ultimate trigger chance:", ultimate_trigger_chance)
 
@@ -113,7 +111,7 @@ function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
 
     if should_reflect then
         -- 反弹伤害
-        local reflect_pct = self:GetAbility():GetLevelSpecialValueFor("reflect_damage_pct", passive_level - 1)
+        local reflect_pct = self:GetAbility():GetSpecialValueFor("reflect_damage_pct")
         local reflect_damage = params.original_damage * (reflect_pct / 100)
 
         --print("[SpellReflect] Reflecting", reflect_damage, "damage (", reflect_pct, "% of", params.original_damage, ")")
