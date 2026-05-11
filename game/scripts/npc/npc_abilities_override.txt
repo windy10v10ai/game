@@ -2108,8 +2108,8 @@
 		{
 			"armor"
 			{
-				"value"					"5"	// 1
-				"hero_levelup"			"+0.2"	// +0.1
+				"value"					"10"	// 1
+				"hero_levelup"			"+0.4"	// +0.1
 				"special_bonus_unique_legion_commander_outfight_them_armor"		"+2"	// +1
 			}
 		}
@@ -2657,6 +2657,7 @@
 	// 暗夜猎影
 	"night_stalker_hunter_in_the_night"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
 			"bonus_status_resist_night"
@@ -2978,6 +2979,10 @@
 	{
 		"AbilityValues"
 		{
+			"flesh_heap_strength_buff_amount"
+			{
+				"value"							"3.0"	// 2.0 +1
+			}
 			"flesh_heap_range"
 			{
 				"value"		"600"	// 450
@@ -3007,7 +3012,7 @@
 		{
 			"damage"
 			{
-				"value"									"160 240 320 400 480"	// 150 220 290 360 加强
+				"value"									"220 330 440 550 660"	// 150 220 290 360 x1.5
 				"special_bonus_unique_pudge_7"			"+220"	// +150
 			}
 			"hook_speed"
@@ -3948,8 +3953,8 @@
 			}
 			"attack_speed_slow"
 			{
-				"value"				"60"	// 12 x5
-				"hero_levelup"		"15"	// 3 x5
+				"value"				"48"	// 12 x4
+				"hero_levelup"		"12"	// 3 x4
 			}
 		}
 	}
@@ -6576,7 +6581,7 @@
 		{
 			"presence_armor_reduction"
 			{
-				"value"		"-3 -5 -7 -9 -11"		// -3 -4 -5 -6 增强
+				"value"		"-6 -8 -10 -12 -14"		// -3 -4 -5 -6 x2
 			}
 		}
 	}
@@ -9385,6 +9390,10 @@
 			{
 				"value"					"10"	// 18
 			}
+			"freeze_damage"
+			{
+				"value"					"56 72 88 104 120 136 152 168 184 200 216"	// 28 36 44 52 60 68 76 84 92 100 108 x2
+			}
 		}
 	}
 	// 幽灵漫步
@@ -9430,6 +9439,10 @@
 			"base_damage"
 			{
 				"value"							"200"	// 50
+			}
+			"wex_damage"
+			{
+				"value"				"60 120 180 240 300 360 420 480 540 600 660"	// 45 90 135 180 225 270 315 360 405 450 495
 			}
 		}
 	}
@@ -9550,7 +9563,7 @@
 		{
 			"damage_per_second"
 			{
-				"value"				"30 42 54 66 78 90 102 114 126 138"	// 30 36 42 48 54 60 66 72 78 84 差值12
+				"value"				"60 72 84 96 108 120 132 144 156 168"	// 30 36 42 48 54 60 66 72 78 84 x2
 			}
 		}
 	}
@@ -9558,6 +9571,13 @@
 	"invoker_deafening_blast"
 	{
 		"AbilityCooldown"				"12"	// 36
+		"AbilityValues"
+		{
+			"damage"
+			{
+				"value"					"120 180 240 300 360 420 480 540 600 660 720"	// 70 110 150 190 230 270 310 350 390 430 470
+			}
+		}
 	}
 	// 元素祈唤
 	"invoker_invoke"
@@ -10025,9 +10045,9 @@
 		{
 			"AbilityChargeRestoreTime"
 			{
-				"value"							"90"	// 120
+				"value"							"60"	// 120
 			}
-			"initial_cooldown"					"90"	// 120
+			"initial_cooldown"					"60"	// 120
 		}
 	}
 	//=================================================================================================================
@@ -10952,10 +10972,8 @@
 	// 奇心 先天
 	"rubick_curiosity"
 	{
-
 		"AbilityValues"
 		{
-			"curiosity_aoe_bonus"				"1"				// 2
 		}
 	}
 	//=================================================================================================================
@@ -11559,19 +11577,33 @@
 	// 部署炮台
 	"tinker_deploy_turrets"
 	{
+		"AbilityCastRange"				"900"	// 600
 		"AbilityValues"
 		{
 			"missile_damage"
 			{
-				"value"			"40 80 120 160"	// 20 40 60 80 x2
+				"value"			"80 160 240 320"	// 20 40 60 80 x4
 			}
 			"turret_hp"
 			{
 				"value"			"80 160 240 320"	// 40 80 120 160 x2
 			}
+
+			"missile_target_range"
+			{
+				"value"		"1100"		// 650 700 750 800
+			}
+			"missile_range"
+			{
+				"value"		"1200"		// 750 800 850 900
+			}
 			"turret_duration"
 			{
 				"value"			"6"	// 4.5
+			}
+			"missile_spawn_interval"
+			{
+				"value"		"1.3"	// 1.5
 			}
 		}
 	}
@@ -11714,7 +11746,7 @@
 		{
 			"damage_share_percentage"
 			{
-				"value"						"12 14 16 18 20"	// 15 18 21 24 差值+2 末档≤20
+				"value"						"16 18 20 20 24"	// 15 18 21 24 差值+2 末档≤24
 			}
 			"duration"						"15"	// 18
 		}
@@ -11788,8 +11820,8 @@
 				"value"					"1500 3000 4500 6000"	// 1500 2250 3000 差值x2
 			}
 			"golem_dmg"					"100 200 300 400"	// 100 150 200 差值x2
-			"golem_armor"				"16 24 28 32"	// 8 12 14 x2
-			"golem_movement_speed"		"320 360 400 440"	// 320 340 360 差值x2
+			"golem_armor"				"20 30 40 50"	// 8 12 14
+			"golem_movement_speed"		"350 400 450 500"	// 320 340 360
 			"golem_health_regen"		"50 100 150 200"	// 25 50 75 x2
 			"golem_gold_bounty"			"100 200 300 400"	// 100 150 200 差值x2
 			"golem_hp_scepter"
@@ -11810,12 +11842,12 @@
 			}
 			"bonus_armor"
 			{
-				"special_bonus_unique_warlock_2"		"+80"	// +20
+				"special_bonus_unique_warlock_2"		"+100"	// +20
 			}
 			"tooltip_golem_armor"
 			{
-				"value"			"16 24 28 32"	// 8 12 14 x2
-				"special_bonus_unique_warlock_2"		"+80"	// +20
+				"value"			"20 30 40 50"	// 8 12 14
+				"special_bonus_unique_warlock_2"		"+100"	// +20
 			}
 		}
 	}
@@ -12019,19 +12051,20 @@
 	"winter_wyvern_winters_curse"
 	{
 		"MaxLevel" "4"
+		"AbilityCastRange"				"1200"	// 800
 		"AbilityCooldown"				"60"	// 100 90 80 减少CD
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-				"damage_reduction"	"60"	// 100 不会收到敌人伤害 改成伤害降低
+				"damage_reduction"	"50"	// 100 不会收到敌人伤害 改成伤害降低
 				"bonus_attack_speed"
 				{
 					"value"		"130"	// 50 65 80
-					"special_bonus_unique_winter_wyvern_3"	"+110"	// 60
+					"special_bonus_unique_winter_wyvern_3"	"+120"	// 60
 				}
 		}
 	}
-	// 古龙诗集（先天）有bug
+	// 古龙诗集（先天）
 	"winter_wyvern_eldwurms_edda"
 	{
 		"AbilityValues"
@@ -12040,7 +12073,7 @@
 			"tooltip_int_pct"		"100"	// 25
 		}
 	}
-	// 有bug 物品无法使用
+	// 古龙诗集 物品 右键使用
 	"item_eldwurms_edda"
 	{
 		"AbilityCooldown"				"60"	// 600
@@ -12109,11 +12142,16 @@
 	"witch_doctor_maledict"
 	{
 		"MaxLevel"						"5"
+		"AbilityCastRange"				"900"				// 600 +300
 		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityDamage"					"54 66 78 90 102"	// 18 22 26 30 x3
 		"AbilityManaCost"				"105 110 115 120 125"
 		"AbilityValues"
 		{
+				"radius"
+				{
+					"value"			"250"				// 200 +50
+				}
 				"bonus_damage"
 				{
 					"value"			"16 22 28 34 40"	// 16 24 32 40 百分比伤害 最大值不变
@@ -12305,6 +12343,7 @@
 		{
 			"max_stacks_tooltip"
 			{
+				"value"					"10"	// 5 x2
 				"hero_levelup"			"+2"	// 1 x2
 			}
 		}

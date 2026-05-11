@@ -18,6 +18,11 @@ export class ModePush extends ModeBase {
       desire += 0.01 * (heroLevel - heroAI.PushLevel);
     }
 
+    // 进入推进阶段后大幅提升 push 欲望
+    if (GameRules.AI.BotTeam?.isAfterPhaseStart()) {
+      desire += 0.6;
+    }
+
     desire = Math.min(desire, 0.75);
 
     return desire;

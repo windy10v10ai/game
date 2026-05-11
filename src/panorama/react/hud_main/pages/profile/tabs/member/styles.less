@@ -1,5 +1,6 @@
 // Member Tab 样式（状态子页 + 订阅子页）
 @import "../../../../../shared/styles/tokens.less";
+@import "./alipay/styles.less";
 
 .member-layout {
   width: 100%;
@@ -23,13 +24,12 @@
 
 /* Section A: 状态卡 */
 .member-status-card {
-  width: 100%;
+  width: fill-parent-flow(1);
   height: 84px;
   flow-children: right;
   padding: 12px 16px;
   border-radius: @radius-lg;
   border: 1px solid @color-gold-soft;
-  margin-bottom: 14px;
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#2a2a2a), to(#111111));
 }
 
@@ -178,6 +178,45 @@
   margin-left: 8px;
 }
 
+/* 状态卡 + 刷新按钮横向行 */
+.member-status-row {
+  width: 100%;
+  flow-children: right;
+  margin-bottom: 14px;
+}
+
+/* 刷新按钮（状态卡右侧） */
+.member-refresh-btn {
+  width: fit-children;
+  min-width: 80px;
+  height: 44px;
+  padding: 0px 14px;
+  border-radius: @radius-sm;
+  border: 1px solid #e0caa544;
+  background-color: #000000aa;
+  vertical-align: center;
+  margin-left: 8px;
+  transition-property: brightness, border-color;
+  transition-duration: @transition-fast;
+  transition-timing-function: ease-out;
+  &:hover {
+    brightness: 1.3;
+    border-color: @color-gold-soft;
+  }
+}
+
+.member-refresh-btn-loading {
+  opacity: 0.4;
+}
+
+.member-refresh-label {
+  vertical-align: center;
+  horizontal-align: center;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: #ffffffcc;
+}
+
 /* 订阅子页 */
 .member-subscribe-page {
   flow-children: down;
@@ -186,10 +225,9 @@
 /* 共同提示区 */
 .member-subscribe-info {
   .stats-card;
-  width: 100%;
+  width: fill-parent-flow(1);
   flow-children: down;
   padding: 10px 14px;
-  margin-bottom: 10px;
 }
 
 .member-subscribe-title-cta {
@@ -252,11 +290,13 @@
   .stats-card;
   width: fill-parent-flow(1);
   height: fit-children;
+  min-height: 60%;
   flow-children: down;
   padding: 16px 14px;
   horizontal-align: center;
-  &:first-child {
-    margin-right: 10px;
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0px;
   }
 }
 
@@ -268,12 +308,48 @@
   border-color: #29abe0;
 }
 
-/* 平台图标 */
+/* 平台图标（旧样式，保留兼容） */
 .member-platform-logo {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   horizontal-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   平台卡片头部（Afdian / Ko-fi / Alipay 三卡共用）
+   logo 在左，名称 + 描述（两行）在右
+   ============================================================ */
+.platform-card-header {
+  flow-children: right;
+  horizontal-align: center;
+  margin-bottom: 10px;
+}
+
+.platform-card-header-logo {
+  width: 46px;
+  height: 46px;
+  vertical-align: center;
+  margin-right: 10px;
+}
+
+.platform-card-header-text {
+  flow-children: down;
+  vertical-align: center;
+}
+
+.platform-card-header-name {
+  horizontal-align: left;
+  text-align: left;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+}
+
+.platform-card-header-desc {
+  horizontal-align: left;
+  text-align: left;
+  font-size: @font-size-sm;
 }
 
 /* 平台名 */
@@ -310,7 +386,6 @@
   height: 42px;
   padding: 0px 16px;
   border-radius: @radius-md;
-  margin-bottom: 8px;
   transition-property: brightness;
   transition-duration: @transition-fast;
   transition-timing-function: ease-out;
@@ -320,11 +395,36 @@
 }
 
 .member-platform-btn-subscribe {
+  margin-top: 8px;
+  margin-bottom: 8px;
   background-color: @color-primary-btn;
   border: 1px solid @color-primary-border;
 }
 
+/* 价格行：大字价格 + 小字单位 */
+.subscribe-price-row {
+  flow-children: right;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.subscribe-price-main {
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+  text-shadow: 0px 1px 4px #00000088;
+  vertical-align: center;
+}
+
+.subscribe-price-unit {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  vertical-align: center;
+}
+
 .member-platform-btn-shop {
+  margin-top: 8px;
+  margin-bottom: 8px;
   background-color: #00000000;
   border: 1px solid @color-text-muted;
 }
@@ -348,7 +448,7 @@
 .member-platform-divider {
   width: 100%;
   flow-children: right;
-  margin: 6px 0px 4px;
+  margin: 12px 0px 8px;
   border-top: 1px solid #ffffff11;
   padding-top: 6px;
 }

@@ -1,13 +1,8 @@
-import {
-  transformLotteryStatus,
-  transformMember,
-  transformPlayer,
-} from '@utils/net-table-transform';
+import { transformLotteryStatus, transformPlayer } from '@utils/net-table-transform';
 import { useEffect, useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const transformers: Partial<Record<keyof CustomNetTableDeclarations, (raw: any) => any>> = {
-  member_table: transformMember,
   player_table: transformPlayer,
   lottery_status: transformLotteryStatus,
 };
@@ -15,7 +10,7 @@ const transformers: Partial<Record<keyof CustomNetTableDeclarations, (raw: any) 
 /**
  * 通用 net table 订阅 hook。
  * 自动处理初始读取、订阅、过滤 key、卸载时取消订阅。
- * member_table / player_table / lottery_status 会自动进行类型转换（0/1 → boolean 等）。
+ * player_table / lottery_status 会自动进行类型转换（0/1 → boolean、嵌套 member 解包等）。
  *
  * @param tableName Net table 名称（必须是 CustomNetTableDeclarations 中已声明的 key）
  * @param key 行 key（如 steamAccountID）。传 null 时表示尚未就绪，hook 不会订阅。

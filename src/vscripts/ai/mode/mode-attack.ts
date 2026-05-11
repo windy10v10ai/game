@@ -22,12 +22,15 @@ export class ModeAttack extends ModeBase {
       desire += 0.1;
     }
 
-    // if (heroAI.gameTime < 180) {
-    //   if (this.HasEnemyNotNearTower(heroAI)) {
-    //     desire += 0.7;
-    //   }
-    // }
-    desire = Math.min(desire, 0.8);
+    // 推进阶段后，Bot 大幅提升攻击欲望
+    if (GameRules.AI.BotTeam?.isAfterPhaseStart()) {
+      desire += 0.52;
+      if (heroAI.aroundEnemyHeroes.length > 0) {
+        desire += 0.26;
+      }
+    }
+
+    desire = Math.min(desire, 0.88);
     return desire;
   }
 

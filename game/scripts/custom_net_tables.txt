@@ -16,7 +16,6 @@
     // TS tables
     "loading_status",
     "ending_status",
-    "member_table",
     "player_table",
     "ranking_table",  // 排行榜
     "point_info",   // 游戏加载时获取积分信息
@@ -27,5 +26,6 @@
     "lottery_status",
 	  "player_virtual_gold",
 	  "bot_passive_abilities",  // Bot 被动技能表
+	  "alipay_order",  // 支付宝订单状态
   ]
 }

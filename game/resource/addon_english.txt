@@ -5,7 +5,7 @@
 	{
 		"addon_game_name"		"Dota 10v10 AI by Windy"
 		"DOTA_GameMode_15"		"Dota 10v10 AI by Windy"
-		"DOTA_SHARD"			"Battle Experience"
+		"DOTA_SHARD"			"Battle Points"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
@@ -113,8 +113,8 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Home"
-		"data_panel_member_point"		"Member Experience"
-		"data_panel_season_point"		"Battle Experience"
+		"data_panel_member_point"		"Member Points"
+		"data_panel_season_point"		"Battle Points"
 		"data_panel_property_point"		"Attribute Points (Available/Total)"
 
 		"data_panel_data_button"		"Data"
@@ -123,15 +123,15 @@
 		"data_panel_property_reset"		"Reset"
 
 		"data_panel_season_level"		"Battle Level"
-		"data_panel_season_level_tooltip"		"Level up with Battle Experience. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
+		"data_panel_season_level_tooltip"		"Level up with Battle Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
 		"data_panel_member_level"		"Member Level"
-		"data_panel_member_level_tooltip"		"Level up with Member Experience. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
+		"data_panel_member_level_tooltip"		"Level up with Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
 		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
-		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Experience"
-		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Experience"
+		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
+		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Points"
 
 		"data_panel_player_property_label"		"Spend Attribute Points to upgrade your hero. Upgrades are permanent and persist between games."
 		"data_panel_player_property_label_2"		"Points cannot be spent on locally hosted games. Please play on a dedicated server to spend points."
@@ -241,7 +241,7 @@
 		"profile_stat_conduct_tooltip"	"Conduct Score is out of <font color='#E8C07D'>100</font> and reflects your in-game behavior.<br>• Normal game completion: <font color='#7FD47F'>+1</font><br>• Early disconnect: <font color='#E87D7D'>-5</font><br>The following do NOT count as early disconnect:<br>• Solo games<br>• All players quit early with no one reaching end screen<br>Currently tracked only — penalties for low scores may be introduced in the future."
 
 		// Member Tab UI
-		"member_button_tooltip_active"			"Membership active. Click to view details."
+		"member_button_tooltip_active"			"Membership enable. Click to view details."
 		"member_button_tooltip_inactive"		"Membership inactive. Click to view details."
 		"member_subtab_status"					"Member Status"
 		"member_subtab_subscribe"				"Subscribe"
@@ -259,25 +259,47 @@
 		"member_benefit_revive"					"Respawn time reduced by 5 seconds"
 		"member_benefit_buyback"				"Buyback cooldown reduced to 2 minutes"
 		"member_benefit_reroll"					"Reroll active/passive abilities once at game start"
-		"member_benefit_daily_exp"				"Earn 100 Member Experience on first login each day (resets at 00:00 UTC)"
+		"member_benefit_daily_exp"				"Earn 100 Member Points on first login each day (resets at 00:00 UTC)"
 		"member_benefit_8pick"					"Ability draft expanded to 8 choices; 2 extra abilities have a higher chance of being high-tier"
 		"member_benefit_gold_cap"				"Unlock the 99999 in-game gold cap"
-		"member_benefit_exp_normal"				"Instantly earn 300 Member Experience per subscription"
-		"member_benefit_exp_premium"			"Instantly earn 1000 Member Experience per subscription"
+		"member_benefit_exp_normal"				"Instantly earn 300 Member Points per subscription"
+		"member_benefit_exp_premium"			"Instantly earn 1000 Member Points per subscription"
 		"member_benefit_buff"					"Member exclusive stats: +10 Attack Damage, +5% Ability Amplification, +300 HP, +200 MP"
 		"member_steam_id"						"Dota2 Friend ID: "
 		"member_steam_id_select_hint"			"(select to copy)"
-		"member_subscribe_hint"					"Enter your Friend ID in the subscription remark - activation is automatic and takes effect next game. No need to re-enter for future subscriptions."
+		"member_subscribe_hint"					"For Afdian and Ko-fi, fill in your Friend ID above in the order remark. Not required for Alipay."
 		"member_subscribe_title"				"Subscribe Premium"
 		"member_subscribe_normal_upgrade_hint"	"You are a Normal Member. Remaining time will be converted at 0.6x when upgrading to Premium."
+		"member_platform_alipay"				"Alipay"
+		"member_platform_alipay_desc"			"Recommended for CN Users\nScan to Pay"
 		"member_platform_afdian"				"Afdian"
-		"member_platform_afdian_desc"			"Recommended for CN Users · Pay in CNY"
+		"member_platform_afdian_desc"			"Recommended for CN Users\nPay in CNY"
 		"member_platform_kofi"					"Ko-fi"
-		"member_platform_kofi_desc"				"Recommended for Global Users · Pay in USD"
+		"member_platform_kofi_desc"				"Recommended for Global Users\nPay in USD"
+		"member_platform_subscribe_btn"			"Subscribe "
+		"member_platform_subscribe_month"		"/Month"
 		"member_shop_divider"					"Already a member? Buy Experience to level up faster"
-		"member_shop_title"						"Buy Member Experience"
+		"member_shop_title"						"Buy Member Points"
 		"member_activate"						"Manual Activate"
 		"member_activate_tooltip"				"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
+		"member_refresh"						"Refresh Membership & Points"
+		"member_alipay_dialog_title"			"Alipay QR Payment"
+		"member_alipay_status_creating"			"Creating order..."
+		"member_alipay_status_waiting"			"Scan with Alipay to pay"
+		"member_alipay_status_success"			"Payment successful! Membership activated"
+		"member_alipay_status_paid_title"		"Membership Activated"
+		"member_alipay_status_closed"			"Order closed, please retry"
+		"member_alipay_status_failed"			"Order failed, please retry"
+		"member_alipay_status_error"			"Network error, please try again"
+		"member_alipay_status_rate_limited"		"Too many requests, please try again next match"
+		"member_alipay_amount_label"			"Amount"
+		"member_alipay_subject_label"			"Item"
+		"member_alipay_retry"					"Retry"
+		"member_alipay_close"					"Close"
+		"member_alipay_cancel"					"Cancel"
+		"member_alipay_discount_fmt"			"Save {n}%"
+		"member_alipay_tier_month_fmt"			"{n} Months"
+		"member_alipay_tier_year_fmt"			"{n} Years"
 
 		///////////////////////////////////////////////////
 		//
@@ -373,9 +395,9 @@
 		"DOTA_Tooltip_modifier_global_newbie_2"					"<font color='#87CEEB'>Newbie Protection ★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"This player's battle level is below level 8<br/>Their hero gains:<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health<br>+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed<br>+%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magical resistance<br>+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
 		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/>"
+		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Points every day.<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
-		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Experience every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.<br/>- Unlock the maximum amount of gold.</font><br/>"
+		"DOTA_Tooltip_modifier_global_member_premium_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Points every day.<br/><font color='#FFCC66'>- Ability draft expands to 1 out of 8 choices, with the 2 extra abilities having a higher chance of being high-tier.<br/>- Unlock the maximum amount of gold.</font><br/>"
 		// 定制BUFF
 		"DOTA_Tooltip_modifier_player_lumao"					"<font color='#fc8eac'>★ 大师级撸猫玩家 ★</font>"
 		"DOTA_Tooltip_modifier_player_lumao_Description"		"<font color='#fc8eac'>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
@@ -1707,7 +1729,7 @@
 // 				Items 自定义物品
 		// bag_of_gold
 		"DOTA_Tooltip_ability_item_bag_of_gold"					"Bag of Gold"
-		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Experience"
+		// "DOTA_Tooltip_ability_item_bag_of_season_point"			"Battle Points"
 
 		// Tomes
 		"DOTA_Tooltip_Ability_item_tome_of_strength"					"Tome of Strength"

@@ -4,17 +4,11 @@ import LotteryAbilityItem from './LotteryAbilityItem';
 import { AbilityItemType, LotteryDto } from '../../../../common/dto/lottery';
 import RefreshButton from './RefreshButton';
 import AbilityResetButton from './AbilityResetButton';
-import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
-import {
-  GetLotteryStatus,
-  GetMember,
-  SubscribeLotteryStatus,
-  SubscribeMember,
-} from '@utils/net-table';
-import { MemberDto } from '../../../../vscripts/api/player';
+import { useNetTable } from '../../shared/hooks/useNetTable';
 
 interface LotteryRowProps {
   type: AbilityItemType;
+  onOpenMember?: () => void;
 }
 
 // lotteryDataTableName function
@@ -28,7 +22,7 @@ const getLotteryDataTableName = (type: AbilityItemType) => {
   }
 };
 
-const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
+const LotteryRow: React.FC<LotteryRowProps> = ({ type, onOpenMember }) => {
   // 初始化 从nettable中获取数据
   const lotteryDataTableName = getLotteryDataTableName(type);
   const steamAccountId = GetLocalPlayerSteamAccountID();
@@ -41,12 +35,11 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
   };
 
   const [lotteryData, setLotteryData] = useState<LotteryDto[] | null>(getLotteryData());
-  const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
-    GetLotteryStatus(steamAccountId),
-  );
-  const [member, setMember] = useState<MemberDto | null>(GetMember(steamAccountId));
+  const lotteryStatus = useNetTable('lottery_status', steamAccountId);
+  const player = useNetTable('player_table', steamAccountId);
+  const member = player?.member ?? null;
 
-  // 监听nettable数据变化
+  // 监听抽奖数据变化（lotteryDataTableName 为动态 key，无法直接走 useNetTable）
   useEffect(() => {
     const dataListenerId = CustomNetTables.SubscribeNetTableListener(
       lotteryDataTableName,
@@ -56,18 +49,8 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
         }
       },
     );
-
-    const statusListenerId = SubscribeLotteryStatus(steamAccountId, (data) => {
-      setLotteryStatus(data);
-    });
-    const memberListenerId = SubscribeMember(steamAccountId, (data) => {
-      setMember(data);
-    });
-
     return () => {
       CustomNetTables.UnsubscribeNetTableListener(dataListenerId);
-      CustomNetTables.UnsubscribeNetTableListener(statusListenerId);
-      CustomNetTables.UnsubscribeNetTableListener(memberListenerId);
     };
   }, [lotteryDataTableName, steamAccountId]);
 
@@ -94,7 +77,12 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type }) => {
           ))}
         </>
       )}
-      <RefreshButton type={type} lotteryStatus={lotteryStatus} member={member} />
+      <RefreshButton
+        type={type}
+        lotteryStatus={lotteryStatus}
+        member={member}
+        onOpenMember={onOpenMember}
+      />
     </Panel>
   );
 };

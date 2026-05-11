@@ -95,7 +95,8 @@ function IsMemberByPlayerId(playerId) {
   }
 
   const steamAccountId = ConvertSteamIdTo32Bit(playerInfo.player_steamid);
-  const member = CustomNetTables.GetTableValue('member_table', steamAccountId);
+  const player = CustomNetTables.GetTableValue('player_table', steamAccountId);
+  const member = player && player.member;
   if (member && member.enable) {
     return true;
   } else {
@@ -113,7 +114,8 @@ function IsMember() {
 }
 
 function GetMember() {
-  return CustomNetTables.GetTableValue('member_table', GetSteamAccountID());
+  const player = CustomNetTables.GetTableValue('player_table', GetSteamAccountID());
+  return player && player.member ? player.member : null;
 }
 
 function GetPlayer() {
@@ -126,17 +128,6 @@ function SubscribePlayer(callbackFunction) {
       callbackFunction(data);
     }
   });
-}
-
-function GetOpenMemberUrl() {
-  const afdianUrlPremium =
-    'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=';
-  const kofiUrl = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU';
-  if ($.Language() === 'schinese' || $.Language() === 'tchinese') {
-    return afdianUrlPremium + GetSteamAccountID();
-  } else {
-    return kofiUrl;
-  }
 }
 
 var useChineseDateFormat = $.Language() === 'schinese' || $.Language() === 'tchinese';
