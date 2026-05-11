@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import ExpandButton from './components/ExpandButton';
 import KeyBindContainer from './components/KeyBindContainer';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
-import { GetPlayer } from '@utils/net-table';
+import { useNetTable } from '../shared/hooks/useNetTable';
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   flowChildren: 'down',
@@ -20,7 +20,9 @@ function KeyBind() {
     setIsCollapsed(!isCollapsed);
   };
 
-  const playerSetting = GetPlayer(GetLocalPlayerSteamAccountID())?.playerSetting ?? {
+  const steamAccountId = GetLocalPlayerSteamAccountID();
+  const player = useNetTable('player_table', steamAccountId);
+  const playerSetting = player?.playerSetting ?? {
     isRememberAbilityKey: false,
     activeAbilityKey: '',
     passiveAbilityKey: '',
@@ -46,7 +48,6 @@ function KeyBind() {
   ]);
 
   // 获取玩家steamId，如果获取失败，则为观战，不显示
-  const steamAccountId = GetLocalPlayerSteamAccountID();
   if (!steamAccountId) {
     return null;
   }

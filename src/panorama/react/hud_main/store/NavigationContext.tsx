@@ -1,4 +1,11 @@
-import React, { createContext, useCallback, useContext, useState, ReactNode } from 'react';
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
 import { PageId, PageHistoryEntry } from '../router/types';
 
 interface NavigationState {
@@ -57,6 +64,18 @@ export function NavigationProvider({ children }: { children: ReactNode }) {
       };
     });
   }, []);
+
+  useEffect(() => {
+    const listener = GameEvents.Subscribe('hud_open_page', (data) => {
+      const d = data as { page?: string; param?: string; playerId?: PlayerID };
+      if (d.page && d.playerId === Game.GetLocalPlayerID()) {
+        openPage(d.page as PageId, d.param);
+      }
+    });
+    return () => {
+      GameEvents.Unsubscribe(listener);
+    };
+  }, [openPage]);
 
   return (
     <NavigationContext.Provider

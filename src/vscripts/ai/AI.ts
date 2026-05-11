@@ -12,10 +12,12 @@ import { ShadowShamanAIModifier } from './hero/hero-shadow-shaman';
 import { SkeletonAIModifier } from './hero/hero-skeleton';
 import { SniperAIModifier } from './hero/hero-sniper';
 import { ViperAIModifier } from './hero/hero-viper';
-import { FSA } from './mode/FSA';
+import { FSA } from './mode/fsa';
+import { BotTeam } from './team/bot-team';
 
 export class AI {
   FSA: FSA;
+  BotTeam: BotTeam | undefined;
   constructor() {
     this.FSA = new FSA();
   }

@@ -217,10 +217,11 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 ```ts
 // 任意 entry → 唤起 hud_main 的某个页面
-GameEvents.SendEventClientSide('hud_open_page', { page: 'home' });
+// 通过服务端广播给所有客户端，接收端用 playerId 过滤只响应本地玩家
+GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', playerId: Game.GetLocalPlayerID() });
 ```
 
-`hud_main` 的 `NavigationProvider` 监听该事件并切换 currentPage。事件类型在 `src/common/events.d.ts` 中声明。
+`hud_main` 的 `NavigationProvider` 通过 `GameEvents.Subscribe('hud_open_page', ...)` 监听，过滤 `playerId === Game.GetLocalPlayerID()` 后切换 currentPage。事件类型在 `src/common/events.d.ts` 的 `CustomGameEventDeclarations` 中声明。
 
 **通用资源位置**：
 

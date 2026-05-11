@@ -642,7 +642,11 @@
 			{
 				"value"				"10 20 30 40 50"
 			}
-			"radius"				"800"
+			"radius"
+			{
+				"value"				"700"
+				"affected_by_aoe_increase"	"1"
+			}
 		}
 	}
 	//酒仙 醉拳

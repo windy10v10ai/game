@@ -1,0 +1,1 @@
+export { AlipaySubscribeCard } from './AlipaySubscribeCard';

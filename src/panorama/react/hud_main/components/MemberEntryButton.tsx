@@ -8,7 +8,8 @@ const MEMBER_BUTTON_ID = 'memberButton';
 export function MemberEntryButton() {
   const { currentPage, currentParam, openPage, closePage } = useNavigation();
   const steamId = GetLocalPlayerSteamAccountID();
-  const member = useNetTable('member_table', steamId);
+  const player = useNetTable('player_table', steamId);
+  const member = player?.member ?? null;
 
   const memberRef = useRef(member);
   useEffect(() => {

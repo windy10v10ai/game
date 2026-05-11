@@ -1,5 +1,5 @@
 import { LotteryStatusDto } from '../../common/dto/lottery-status';
-import { MemberDto, PlayerDto } from '../../vscripts/api/player';
+import { PlayerInfoDto } from '../../vscripts/api/player';
 
 const lotteryStatusTable = 'lottery_status';
 function TransLotteryData(data: NetworkedData<LotteryStatusDto>): LotteryStatusDto {
@@ -40,28 +40,9 @@ export function SubscribeLotteryStatus(
   });
 }
 
-const memberTable = 'member_table';
-function TransMemberData(data: NetworkedData<MemberDto>): MemberDto {
-  return {
-    steamId: data.steamId,
-    enable: Boolean(data.enable),
-    expireDateString: data.expireDateString,
-    level: data.level,
-  };
-}
-/** @deprecated 在 React 组件中请使用 `useNetTable('member_table', steamAccountID)` 代替 */
-export function GetMember(steamAccountID: string): MemberDto | null {
-  const memberData = CustomNetTables.GetTableValue(memberTable, steamAccountID);
-  if (!memberData) {
-    return null;
-  }
-
-  return TransMemberData(memberData);
-}
-
 const playerTable = 'player_table';
-function TransPlayerData(data: NetworkedData<PlayerDto>): PlayerDto {
-  return {
+function TransPlayerData(data: NetworkedData<PlayerInfoDto>): PlayerInfoDto {
+  const result: PlayerInfoDto = {
     id: data.id,
     matchCount: data.matchCount,
     winCount: data.winCount,
@@ -77,35 +58,39 @@ function TransPlayerData(data: NetworkedData<PlayerDto>): PlayerDto {
     memberNextLevelPoint: data.memberNextLevelPoint,
     totalLevel: data.totalLevel,
     useableLevel: data.useableLevel,
-    properties: Object.values(data.properties),
-    playerSetting: {
+  };
+  if (data.properties != null) {
+    result.properties = Object.values(data.properties);
+  }
+  if (data.playerSetting != null) {
+    result.playerSetting = {
       isRememberAbilityKey: Boolean(data.playerSetting.isRememberAbilityKey),
       activeAbilityKey: data.playerSetting.activeAbilityKey,
       passiveAbilityKey: data.playerSetting.passiveAbilityKey,
-
       activeAbilityQuickCast: Boolean(data.playerSetting.activeAbilityQuickCast),
       passiveAbilityQuickCast: Boolean(data.playerSetting.passiveAbilityQuickCast),
       passiveAbilityKey2: data.playerSetting.passiveAbilityKey2,
       passiveAbilityQuickCast2: Boolean(data.playerSetting.passiveAbilityQuickCast2 ?? 0),
-    },
-  };
+    };
+  }
+  if (data.member != null) {
+    result.member = {
+      steamId: data.member.steamId,
+      enable: Boolean(data.member.enable),
+      expireDateString: data.member.expireDateString,
+      level: data.member.level,
+    };
+  }
+  return result;
 }
+
 /** @deprecated 在 React 组件中请使用 `useNetTable('player_table', steamAccountID)` 代替 */
-export function GetPlayer(steamAccountID: string): PlayerDto | null {
+export function GetPlayer(steamAccountID: string): PlayerInfoDto | null {
   const playerData = CustomNetTables.GetTableValue(playerTable, steamAccountID);
   if (!playerData) {
     return null;
   }
   return TransPlayerData(playerData);
-}
-
-/** @deprecated 在 React 组件中请使用 `useNetTable('member_table', steamAccountID)` 代替 */
-export function SubscribeMember(steamAccountID: string, callback: (data: MemberDto) => void) {
-  return CustomNetTables.SubscribeNetTableListener(memberTable, (_tableName, key, value) => {
-    if (key === steamAccountID && value) {
-      callback(TransMemberData(value));
-    }
-  });
 }
 
 function Boolean(value: number): boolean {

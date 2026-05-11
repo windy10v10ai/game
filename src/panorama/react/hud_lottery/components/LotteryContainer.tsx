@@ -3,6 +3,7 @@ import LotteryRow from './LotteryRow';
 
 interface ContentPanelProps {
   isCollapsed: boolean;
+  onOpenMember?: () => void;
 }
 
 const rowStyle: Partial<VCSSStyleDeclaration> = {
@@ -23,7 +24,7 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
   fontWeight: 'bold', // 粗体
 };
 
-const LotteryContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
+const LotteryContainer: React.FC<ContentPanelProps> = ({ isCollapsed, onOpenMember }) => {
   const containerStyle: Partial<VCSSStyleDeclaration> = {
     // 位置
     marginTop: '120px',
@@ -43,12 +44,12 @@ const LotteryContainer: React.FC<ContentPanelProps> = ({ isCollapsed }) => {
     <Panel style={containerStyle} className="content-container">
       <Panel style={rowStyle}>
         <Label style={titleStyle} text={$.Localize('#lottery_active_ability_title')} />
-        <LotteryRow type="abilityActive" />
+        <LotteryRow type="abilityActive" onOpenMember={onOpenMember} />
       </Panel>
       <Panel style={rowStyle}>
         <Label style={titleStyle} text={$.Localize('#lottery_passive_ability_title')} />
-        <LotteryRow type="abilityPassive" />
-        <LotteryRow type="abilityPassive2" />
+        <LotteryRow type="abilityPassive" onOpenMember={onOpenMember} />
+        <LotteryRow type="abilityPassive2" onOpenMember={onOpenMember} />
       </Panel>
     </Panel>
   );

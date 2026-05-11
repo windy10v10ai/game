@@ -9,13 +9,12 @@ const AVATAR_BORDER_NORMAL =
 
 /**
  * 战绩 Tab：左侧头像/昵称面板 + 右侧数据卡片。
- * 头像边框根据 member_table.enable 切换 gold / normal。
+ * 头像边框根据 player.member.enable 切换 gold / normal。
  */
 export function StatsTab() {
   const steamId = GetLocalPlayerSteamAccountID();
-  const member = useNetTable('member_table', steamId);
   const player = useNetTable('player_table', steamId);
-  const isMember = member?.enable === true;
+  const isMember = player?.member?.enable === true;
   const borderUrl = isMember ? AVATAR_BORDER_GOLD : AVATAR_BORDER_NORMAL;
 
   const matchCount = player?.matchCount ?? 0;
