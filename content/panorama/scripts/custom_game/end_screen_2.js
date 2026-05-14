@@ -103,28 +103,28 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
-  panel.SetDialogVariableInt('points', playerData?.points ?? 0);
-
   const pointModifier = playerData?.pointModifier ?? 0;
   const conductPoint = playerData?.conductPoint ?? 100;
-  const pointModifierLabel = panel.FindChildTraverse('PointModifierLabel');
-  if (pointModifierLabel) {
+  const pointsLabel = panel.FindChildTraverse('PointsLabel');
+  if (pointsLabel) {
+    const points = playerData?.points ?? 0;
     if (pointModifier !== 0) {
       const sign = pointModifier > 0 ? '+' : '';
-      pointModifierLabel.text = '(' + sign + pointModifier + ')';
-      pointModifierLabel.visible = true;
-      pointModifierLabel.SetPanelEvent('onmouseover', () => {
+      pointsLabel.text = points + '(' + sign + pointModifier + ')';
+      pointsLabel.SetPanelEvent('onmouseover', () => {
         $.DispatchEvent(
           'DOTAShowTextTooltip',
-          pointModifierLabel,
+          pointsLabel,
           $.Localize('#conduct_point_modifier_tooltip').replace('{0}', conductPoint),
         );
       });
-      pointModifierLabel.SetPanelEvent('onmouseout', () => {
+      pointsLabel.SetPanelEvent('onmouseout', () => {
         $.DispatchEvent('DOTAHideTextTooltip');
       });
     } else {
-      pointModifierLabel.visible = false;
+      pointsLabel.text = String(points);
+      pointsLabel.ClearPanelEvent('onmouseover');
+      pointsLabel.ClearPanelEvent('onmouseout');
     }
   }
 
