@@ -20,7 +20,7 @@ export function StatsTab() {
   const matchCount = player?.matchCount ?? 0;
   const winRate =
     matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
-  const conductPoint = player?.conductPoint ?? 0;
+  const conductPoint = player?.conductPoint ?? 100;
   const conductColor = conductPoint < 60 ? '#E87D7D' : conductPoint < 80 ? '#F5A623' : undefined;
 
   const conductTipRef = useRef<ImagePanel | null>(null);
