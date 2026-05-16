@@ -94,6 +94,8 @@
 		"scoreboard_tool_tip_share_hero"	"共享英雄"
 		"scoreboard_tool_tip_disable_help"	"禁用帮助"
 		"scoreboard_tool_tip_actived"		" 已激活"
+		"scoreboard_commend_tooltip"		"点赞"
+		"scoreboard_report_tooltip"			"举报"
 
 		"custom_end_screen_victory_message"	"天辉获胜"
 		"custom_end_screen_lose_message"	"夜魇获胜"
@@ -103,6 +105,10 @@
 		"bot_multiplier"		"电脑倍率"
 
 		"custom_end_screen_tower_kills"		"推塔"
+
+		"conduct_point_bonus_tooltip"			"行为分 <font color='#FFD700'>{0}</font> 奖励，积分 ×1.1"
+		"conduct_point_light_penalty_tooltip"	"行为分 <font color='#FFA726'>{0}</font> 惩罚，积分 ×0.8"
+		"conduct_point_heavy_penalty_tooltip"	"行为分 <font color='#E87D7D'>{0}</font> 惩罚，积分 ×0.5"
 
 		"ending_status_1"				"游戏数据上传中，请勿结束游戏。"
 		"ending_status_2"				"游戏数据上传成功！"
@@ -123,9 +129,9 @@
 		"data_panel_property_reset"		"重置属性"
 
 		"data_panel_season_level"		"勇士等级"
-		"data_panel_season_level_tooltip"		"通过勇士积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#E8C07D'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#E8C07D'>100</font>点。"
+		"data_panel_season_level_tooltip"		"通过勇士积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#FFD700'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#FFD700'>100</font>点。"
 		"data_panel_member_level"		"会员等级"
-		"data_panel_member_level_tooltip"		"通过会员积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#E8C07D'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#E8C07D'>50</font>点。"
+		"data_panel_member_level_tooltip"		"通过会员积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#FFD700'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#FFD700'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
 		"data_panel_link_rule"			"经验属性规则说明"
 		"data_panel_member_point_rule_url"		"https://ifdian.net/p/24140a48680511ed9d3852540025c377"
@@ -238,7 +244,7 @@
 		"profile_stat_winrate"			"胜率"
 		"profile_stat_conduct"			"行为分"
 		"profile_stat_coming_soon"		"更多功能开发中"
-		"profile_stat_conduct_tooltip"	"行为分满分 <font color='#E8C07D'>100</font> 分，反映你的游戏行为。<br>• 正常完成一局 <font color='#7FD47F'>+1</font> 分<br>• 秒退一局 <font color='#E87D7D'>-5</font> 分<br>以下情况不计为秒退：<br>• 单人游戏<br>• 全体玩家均提前退出且无人进入结算<br>目前仅做统计，未来行为分过低可能触发惩罚机制。"
+		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 <font color='#7FD47F'>100</font> 分，上限 <font color='#FFD700'>120</font> 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#FFD700'>≥110</font>：×1.1<br>• <font color='#7FD47F'>80–109</font>：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
 
 		// Member Tab UI
 		"member_button_tooltip_active"		"会员已生效，点击查看详情"
@@ -414,8 +420,8 @@
 		"DOTA_Tooltip_modifier_player_76_Description"			"<font color='#FFCC66'> 如果你看到这个B玩小骷髅，那你可以躺了，记得给点控制哦~<br/>开服玩家限定称号，无属性加成，已绝版。</font>"
 		"DOTA_Tooltip_modifier_player_hunzhuo"					"<font color='#A85CF9'>★ 我的口袋只剩玫瑰一片，此行又山高路远 ★</font>"
 		"DOTA_Tooltip_modifier_player_hunzhuo_Description"		"<font color='#A85CF9'>蹉跎错，消磨过，最是光阴化浮沫。<br/>开服玩家限定称号，无属性加成，已绝版。</font>"
-		"DOTA_Tooltip_modifier_player_chashaobao"				"<font color='#E8C07D'>★ 叉烧包之王 ★</font>"
-		"DOTA_Tooltip_modifier_player_chashaobao_Description"	"<font color='#E8C07D'>开服玩家限定称号，无属性加成，已绝版。</font>"
+		"DOTA_Tooltip_modifier_player_chashaobao"				"<font color='#FFD700'>★ 叉烧包之王 ★</font>"
+		"DOTA_Tooltip_modifier_player_chashaobao_Description"	"<font color='#FFD700'>开服玩家限定称号，无属性加成，已绝版。</font>"
 		"DOTA_Tooltip_modifier_player_menglihua"				"<font color='#A85CF9'>★ 我不做人了！！！！！ ★</font>"
 		"DOTA_Tooltip_modifier_player_menglihua_Description"	"<font color='#A85CF9'>人类是有极限的！所以我不做人了！JOJO！！！<br/>开服玩家限定称号，无属性加成，已绝版。</font>"
 		"DOTA_Tooltip_modifier_player_dabuguo"					"<font color='#FFCC66'>★ 天龙人 ★</font>"
@@ -3063,6 +3069,11 @@
 		"DOTA_Tooltip_Ability_item_tome_of_ability_reset"								"能力重置书"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>使用：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。<br><br>一本书只能选择一个技能进行重置。\n\n<h1>击杀肉山时掉落</h1>可以分享给队友"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
+
+		"DOTA_Tooltip_ability_item_skill_reset"											"技能洗点书"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：洗点</h1>将英雄所有技能等级重置为0，返还全部已花费的技能点。"
+		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药，人手一颗。"
+		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"最高等级只有1级的先天技能不受影响。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"

@@ -329,6 +329,14 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 **主文档（检索入口）**: [ModDota API · vscripts](https://moddota.com/api/#/vscripts)
 
+## Plan 规范
+
+Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节：
+
+- **先设计，后细节**：Plan 应包含：背景/目标、设计决策（为什么这样做）、数据流（谁读谁写、字段名、经过哪些层）、修改文件列表（一行描述）、验证方式。
+- **不写代码**：Plan 中不应出现具体函数签名、完整代码块、参数列表。这些留给实现阶段。
+- **文件列表简洁**：每个文件一行，说明"改什么"即可，不说"怎么改"。
+
 ## Git 工作流
 
 ### 分支命名

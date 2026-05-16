@@ -20,7 +20,17 @@ export function StatsTab() {
   const matchCount = player?.matchCount ?? 0;
   const winRate =
     matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
-  const conductPoint = player?.conductPoint ?? 0;
+  const conductPoint = player?.conductPoint ?? 100;
+  const conductColor =
+    conductPoint < 60
+      ? '#E87D7D'
+      : conductPoint < 80
+        ? '#FFA726'
+        : conductPoint >= 110
+          ? '#FFD700'
+          : '#7FD47F';
+  const commendCount = player?.commendCount ?? 0;
+  const reportCount = player?.reportCount ?? 0;
 
   const conductTipRef = useRef<ImagePanel | null>(null);
 
@@ -35,6 +45,22 @@ export function StatsTab() {
           />
         </Panel>
         <DOTAUserName className="stats-username" steamid="local" />
+        <Panel className="stats-conduct-counts">
+          <Panel className="stats-conduct-count commend">
+            <Image
+              className="stats-conduct-icon"
+              src="s2r://panorama/images/custom_game/conduct/thumb_up_fill_png.vtex"
+            />
+            <Label className="stats-conduct-count-text" text={String(commendCount)} />
+          </Panel>
+          <Panel className="stats-conduct-count report">
+            <Image
+              className="stats-conduct-icon"
+              src="s2r://panorama/images/custom_game/conduct/thumb_down_fill_png.vtex"
+            />
+            <Label className="stats-conduct-count-text" text={String(reportCount)} />
+          </Panel>
+        </Panel>
       </Panel>
 
       <Panel className="stats-container">
@@ -48,7 +74,11 @@ export function StatsTab() {
         </Panel>
         <Panel className="stat-item">
           <Label className="stat-label" text={$.Localize('#profile_stat_conduct')} />
-          <Label className="stat-value" text={String(conductPoint)} />
+          <Label
+            className="stat-value"
+            text={String(conductPoint)}
+            style={conductColor ? { color: conductColor } : undefined}
+          />
           <Image
             ref={conductTipRef}
             className="stat-tip-icon"
