@@ -53,6 +53,17 @@ export class GameEnd {
     );
 
     const players: GameEndPlayerDto[] = [];
+    // Pre-collect steamIds to determine real player count for team game check
+    const allSteamIds: number[] = [];
+    PlayerHelper.ForEachPlayer((playerId) => {
+      allSteamIds.push(PlayerResource.GetSteamAccountID(playerId));
+    });
+    const realPlayerCount = allSteamIds.filter((id) => id > 0).length;
+    const isTeamGame = realPlayerCount >= 2;
+    print(
+      `[GameEnd] realPlayerCount=${realPlayerCount} isTeamGame=${isTeamGame} steamIds=${json.encode(allSteamIds)}`,
+    );
+
     PlayerHelper.ForEachPlayer((playerId) => {
       const player = PlayerResource.GetPlayer(playerId);
       if (!player) {
@@ -97,20 +108,40 @@ export class GameEnd {
         facetId: hero.GetHeroFacetID(),
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
-      playerDto.battlePoints = this.CalculatePlayerBattlePoints(
+      const rawBattlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
         difficultyMultiplier,
         winnerTeamId,
       );
+
+      const playerInfo = CustomNetTables.GetTableValue(
+        'player_table',
+        playerDto.steamId.toString(),
+      );
+      const conductPoint = playerInfo?.conductPoint ?? 100;
+      const conductMultiplier = this.GetConductMultiplier(conductPoint, isTeamGame);
+      // 最终积分 = 原始积分 × 行为分倍率（向上取整 0）
+      const finalBattlePoints = Math.max(0, Math.round(rawBattlePoints * conductMultiplier));
+      // 修正量（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
+      const pointModifier = finalBattlePoints - rawBattlePoints;
+      playerDto.battlePoints = finalBattlePoints;
       players.push(playerDto);
 
-      // 结算界面数据
+      print(
+        `[GameEnd] player ${playerId} steamId=${playerDto.steamId} ` +
+          `raw=${rawBattlePoints} conductPoint=${conductPoint} ` +
+          `multiplier=${conductMultiplier} final=${finalBattlePoints} modifier=${pointModifier}`,
+      );
+
+      // 结算界面数据：points 是最终积分，pointModifier 仅用于括号展示
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
         damage: playerDto.damage,
         damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,
+        pointModifier,
+        conductPoint,
         str: hero.GetStrength(),
         agi: hero.GetAgility(),
         int: hero.GetIntellect(false),
@@ -152,6 +183,18 @@ export class GameEnd {
     const winMultiplier = player.teamId === winnerTeamId ? 1 : 0.5;
     // 积分为整数，且不会为负数
     return Math.max(0, Math.round(points * winMultiplier));
+  }
+
+  /**
+   * 根据行为分返回积分倍率。非组队局或 80-109 分时返回 1.0（无影响）。
+   * ≥110 → 1.1 加成 / 60-79 → 0.8 惩罚 / <60 → 0.5 重惩罚
+   */
+  static GetConductMultiplier(conductPoint: number, isTeamGame: boolean): number {
+    if (!isTeamGame) return 1;
+    if (conductPoint >= 110) return 1.1;
+    if (conductPoint >= 80) return 1;
+    if (conductPoint >= 60) return 0.8;
+    return 0.5;
   }
 
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {

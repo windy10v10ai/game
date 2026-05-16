@@ -30,6 +30,8 @@ export class PlayerInfoDto {
   winCount!: number;
   disconnectCount!: number;
   conductPoint!: number;
+  commendCount!: number;
+  reportCount!: number;
 
   seasonPointTotal!: number;
   seasonLevel!: number;
