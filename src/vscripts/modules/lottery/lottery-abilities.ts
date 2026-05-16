@@ -265,6 +265,7 @@ export const abilityTiersPassive: Tier[] = [
       'rubick_might_and_magus2', // 拉比克 力量与魔法
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
+      'break_speed_limit', // 斯拉克 刮痧之王
     ],
   },
   {
@@ -352,7 +353,6 @@ export const abilityTiersPassive: Tier[] = [
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
 
       // 自定义技能
-      'break_speed_limit', // 斯拉克 刮痧之王
       'abyssal_underlord_firestorm2', // 火雨降临
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'abyssal_underlord_malice_aura', // 怨念光环
