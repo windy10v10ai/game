@@ -474,8 +474,10 @@
   background-image: url("s2r://panorama/images/custom_game/conduct/thumb_down_png.vtex");
 }
 #BtnCommend.Activated {
+  background-image: url("s2r://panorama/images/custom_game/conduct/thumb_up_fill_png.vtex");
   wash-color: #7fd47f;
 }
 #BtnReport.Activated {
+  background-image: url("s2r://panorama/images/custom_game/conduct/thumb_down_fill_png.vtex");
   wash-color: #e87d7d;
 }

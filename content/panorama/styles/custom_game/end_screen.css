@@ -345,13 +345,51 @@
 }
 
 .PtsColumn {
-  width: 50px;
+  width: 65px;
   margin-left: 5px;
   margin-right: 5px;
 }
 
+.Player .PtsColumn {
+  height: 100%;
+}
+
+.PointsInner {
+  flow-children: right;
+  width: fit-children;
+  height: fit-children;
+  align: center center;
+}
+
 .AspectRatio4x3 .PtsColumn {
-  width: 45px;
+  width: 58px;
+}
+
+.PointsValue,
+.PointsModifier {
+  font-size: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 3px 3 #000;
+  brightness: 2;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.PointsModifier {
+  font-size: 14px;
+  margin-left: 2px;
+}
+
+.AspectRatio4x3 .PointsValue,
+.AspectRatio4x3 .PointsModifier {
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.8);
+  brightness: 1.2;
+  text-shadow: 1px 1px 5px 3 rgba(0, 0, 0, 0.5);
+}
+
+.AspectRatio4x3 .PointsModifier {
+  font-size: 14px;
 }
 
 .AspectRatio4x3 .PtsColumn > Image {

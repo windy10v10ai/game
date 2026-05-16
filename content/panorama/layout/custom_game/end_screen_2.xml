@@ -72,7 +72,12 @@
 				<Label class="TotalDamageReceivedColumn" text="{d:damagereceived}" />
 				<Label class="HeroHealingColumn" text="{d:heroHealing}" />
 				<Label class="TowerKillsColumn" text="{d:towerKills}" />
-				<Label id="PointsLabel" class="PtsColumn" text="" />
+				<Panel id="PointsLabel" class="PtsColumn">
+					<Panel class="PointsInner">
+						<Label id="PointsValue" class="PointsValue" text="" />
+						<Label id="PointsModifier" class="PointsModifier" text="" visible="false" />
+					</Panel>
+				</Panel>
 				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />
 				<Panel id="NeutralItemContainer" class="NeutralColumn" />
 				<Panel id="NeutralItemPassiveContainer" class="NeutralColumn" />

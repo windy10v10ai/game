@@ -105,26 +105,35 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
   const pointModifier = playerData?.pointModifier ?? 0;
   const conductPoint = playerData?.conductPoint ?? 100;
-  const pointsLabel = panel.FindChildTraverse('PointsLabel');
-  if (pointsLabel) {
-    const points = playerData?.points ?? 0;
+  const points = playerData?.points ?? 0;
+  const pointsContainer = panel.FindChildTraverse('PointsLabel');
+  const pointsValueLabel = panel.FindChildTraverse('PointsValue');
+  const pointsModifierLabel = panel.FindChildTraverse('PointsModifier');
+  if (pointsValueLabel) pointsValueLabel.text = String(points);
+  if (pointsModifierLabel && pointsContainer) {
     if (pointModifier !== 0) {
-      const sign = pointModifier > 0 ? '+' : '';
-      pointsLabel.text = points + '(' + sign + pointModifier + ')';
-      pointsLabel.SetPanelEvent('onmouseover', () => {
-        $.DispatchEvent(
-          'DOTAShowTextTooltip',
-          pointsLabel,
-          $.Localize('#conduct_point_modifier_tooltip').replace('{0}', conductPoint),
-        );
+      const sign = pointModifier > 0 ? '+' : '-';
+      pointsModifierLabel.text = '(' + sign + Math.abs(pointModifier) + ')';
+      pointsModifierLabel.visible = true;
+      pointsContainer.SetPanelEvent('onmouseover', () => {
+        let tooltipKey;
+        if (pointModifier > 0) {
+          tooltipKey = '#conduct_point_bonus_tooltip';
+        } else if (conductPoint < 60) {
+          tooltipKey = '#conduct_point_heavy_penalty_tooltip';
+        } else {
+          tooltipKey = '#conduct_point_light_penalty_tooltip';
+        }
+        const tooltipText = $.Localize(tooltipKey).replace('{0}', conductPoint);
+        $.DispatchEvent('DOTAShowTextTooltip', pointsContainer, tooltipText);
       });
-      pointsLabel.SetPanelEvent('onmouseout', () => {
+      pointsContainer.SetPanelEvent('onmouseout', () => {
         $.DispatchEvent('DOTAHideTextTooltip');
       });
     } else {
-      pointsLabel.text = String(points);
-      pointsLabel.ClearPanelEvent('onmouseover');
-      pointsLabel.ClearPanelEvent('onmouseout');
+      pointsModifierLabel.visible = false;
+      pointsContainer.ClearPanelEvent('onmouseover');
+      pointsContainer.ClearPanelEvent('onmouseout');
     }
   }
 

@@ -74,15 +74,36 @@
 }
 
 .stats-conduct-count {
-  font-size: @font-size-sm;
-  font-weight: bold;
+  flow-children: right;
   margin: 0 6px;
-  &.commend {
+  vertical-align: center;
+  &.commend .stats-conduct-icon {
+    wash-color: #7FD47F;
+  }
+  &.commend .stats-conduct-count-text {
     color: #7FD47F;
   }
-  &.report {
+  &.report .stats-conduct-icon {
+    wash-color: #E87D7D;
+  }
+  &.report .stats-conduct-count-text {
     color: #E87D7D;
   }
+}
+
+.stats-conduct-icon {
+  width: 22px;
+  height: 22px;
+  margin-right: 6px;
+  vertical-align: center;
+  img-shadow: 1px 1px 2px 0.8 #000000;
+}
+
+.stats-conduct-count-text {
+  font-size: @font-size-md;
+  font-weight: bold;
+  vertical-align: center;
+  text-shadow: 1px 1px 2px #000000cc, 0 0 4px #00000080;
 }
 
 .stats-container {

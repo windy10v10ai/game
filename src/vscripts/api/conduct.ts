@@ -35,7 +35,7 @@ export class ConductApi {
   }
 
   private static onSuccess(data: string) {
-    const targetPlayer = json.decode(data) as unknown as PlayerInfoDto;
+    const targetPlayer = json.decode(data)[0] as PlayerInfoDto;
     Player.MergePlayerInfo(targetPlayer);
     print(`[ConductApi] Success, updated conductPoint=${targetPlayer.conductPoint}`);
   }

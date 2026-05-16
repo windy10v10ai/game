@@ -25,9 +25,9 @@ export function StatsTab() {
     conductPoint < 60
       ? '#E87D7D'
       : conductPoint < 80
-        ? '#F5A623'
+        ? '#FFA726'
         : conductPoint >= 110
-          ? '#E8C07D'
+          ? '#FFD700'
           : '#7FD47F';
   const commendCount = player?.commendCount ?? 0;
   const reportCount = player?.reportCount ?? 0;
@@ -46,8 +46,20 @@ export function StatsTab() {
         </Panel>
         <DOTAUserName className="stats-username" steamid="local" />
         <Panel className="stats-conduct-counts">
-          <Label className="stats-conduct-count commend" text={'👍 ' + commendCount} />
-          <Label className="stats-conduct-count report" text={'👎 ' + reportCount} />
+          <Panel className="stats-conduct-count commend">
+            <Image
+              className="stats-conduct-icon"
+              src="s2r://panorama/images/custom_game/conduct/thumb_up_fill_png.vtex"
+            />
+            <Label className="stats-conduct-count-text" text={String(commendCount)} />
+          </Panel>
+          <Panel className="stats-conduct-count report">
+            <Image
+              className="stats-conduct-icon"
+              src="s2r://panorama/images/custom_game/conduct/thumb_down_fill_png.vtex"
+            />
+            <Label className="stats-conduct-count-text" text={String(reportCount)} />
+          </Panel>
         </Panel>
       </Panel>
 

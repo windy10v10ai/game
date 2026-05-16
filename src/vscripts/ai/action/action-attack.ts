@@ -12,6 +12,10 @@ export class ActionAttack {
     if (hero.GetRangeToUnit(target) > maxRange) {
       return false;
     }
+    // 正在攻击时不重复下指令
+    if (hero.IsAttacking()) {
+      return true;
+    }
     // if target in attack range perform attack order
     if (HeroUtil.IsInAttackRange(hero, target)) {
       // print(`[AI] Attack ${hero.GetUnitName()} to ${target.GetUnitName()}`);

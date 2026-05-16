@@ -163,10 +163,11 @@ function SendConductEvent(type) {
   var steamId = playerInfo.player_steamid;
   if (!steamId) return;
 
-  // Update local session cache for immediate UI feedback
+  // Skip if already same type (avoid redundant server request)
   if (!GameUI.CustomUIConfig().conductState) {
     GameUI.CustomUIConfig().conductState = {};
   }
+  if (GameUI.CustomUIConfig().conductState[steamId] === type) return;
   GameUI.CustomUIConfig().conductState[steamId] = type;
 
   // Update button state immediately (mutually exclusive)
