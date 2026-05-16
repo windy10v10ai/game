@@ -94,6 +94,8 @@
 		"scoreboard_tool_tip_share_hero"	"Share Hero"
 		"scoreboard_tool_tip_disable_help"	"Disable Help"
 		"scoreboard_tool_tip_actived"		"Active"
+		"scoreboard_commend_tooltip"		"Commend"
+		"scoreboard_report_tooltip"			"Report"
 
 		"custom_end_screen_victory_message"	"Radiant Victory!"
 		"custom_end_screen_lose_message"	"Dire Victory!"
@@ -103,6 +105,10 @@
 
 		"custom_end_screen_tower_kills"		"Towers"
 		"custom_end_screen_abilities"		"Abilities"
+
+		"conduct_point_bonus_tooltip"			"Conduct <font color='#FFD700'>{0}</font> bonus, points ×1.1"
+		"conduct_point_light_penalty_tooltip"	"Conduct <font color='#FFA726'>{0}</font> penalty, points ×0.8"
+		"conduct_point_heavy_penalty_tooltip"	"Conduct <font color='#E87D7D'>{0}</font> penalty, points ×0.5"
 
 		"ending_status_1"				"Please do not end the game while game data is uploading."
 		"ending_status_2"				"Game data uploaded successfully!"
@@ -123,9 +129,9 @@
 		"data_panel_property_reset"		"Reset"
 
 		"data_panel_season_level"		"Battle Level"
-		"data_panel_season_level_tooltip"		"Level up with Battle Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>100</font> for each level up."
+		"data_panel_season_level_tooltip"		"Level up with Battle Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#FFD700'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#FFD700'>100</font> for each level up."
 		"data_panel_member_level"		"Member Level"
-		"data_panel_member_level_tooltip"		"Level up with Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#E8C07D'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#E8C07D'>50</font> for each level up."
+		"data_panel_member_level_tooltip"		"Level up with Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#FFD700'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#FFD700'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
 		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
@@ -238,7 +244,7 @@
 		"profile_stat_winrate"			"Win Rate"
 		"profile_stat_conduct"			"Conduct Score"
 		"profile_stat_coming_soon"		"More features coming soon"
-		"profile_stat_conduct_tooltip"	"Conduct Score is out of <font color='#E8C07D'>100</font> and reflects your in-game behavior.<br>• Normal game completion: <font color='#7FD47F'>+1</font><br>• Early disconnect: <font color='#E87D7D'>-5</font><br>The following do NOT count as early disconnect:<br>• Solo games<br>• All players quit early with no one reaching end screen<br>Currently tracked only — penalties for low scores may be introduced in the future."
+		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default <font color='#7FD47F'>100</font>, cap <font color='#FFD700'>120</font>.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#FFD700'>≥110</font>: ×1.1<br>• <font color='#7FD47F'>80–109</font>: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
 
 		// Member Tab UI
 		"member_button_tooltip_active"			"Membership enable. Click to view details."
@@ -413,8 +419,8 @@
 		"DOTA_Tooltip_modifier_player_76_Description"			"<font color='#FFCC66'> 如果你看到这个B玩小骷髅，那你可以躺了，记得给点控制哦~<br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
 		"DOTA_Tooltip_modifier_player_hunzhuo"					"<font color='#A85CF9'>★ 我的口袋只剩玫瑰一片，此行又山高路远 ★</font>"
 		"DOTA_Tooltip_modifier_player_hunzhuo_Description"		"<font color='#A85CF9'>蹉跎错，消磨过，最是光阴化浮沫。<br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
-		"DOTA_Tooltip_modifier_player_chashaobao"				"<font color='#E8C07D'>★ 叉烧包之王 ★</font>"
-		"DOTA_Tooltip_modifier_player_chashaobao_Description"	"<font color='#E8C07D'>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
+		"DOTA_Tooltip_modifier_player_chashaobao"				"<font color='#FFD700'>★ 叉烧包之王 ★</font>"
+		"DOTA_Tooltip_modifier_player_chashaobao_Description"	"<font color='#FFD700'>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
 		"DOTA_Tooltip_modifier_player_menglihua"				"<font color='#A85CF9'>★ 我不做人了！！！！！ ★</font>"
 		"DOTA_Tooltip_modifier_player_menglihua_Description"	"<font color='#A85CF9'>人类是有极限的！所以我不做人了！JOJO！！！<br/>Early player limited badge. Cosmetic only, no stat bonus, no longer obtainable.</font>"
 		"DOTA_Tooltip_modifier_player_dabuguo"					"<font color='#FFCC66'>★ 天龙人 ★</font>"

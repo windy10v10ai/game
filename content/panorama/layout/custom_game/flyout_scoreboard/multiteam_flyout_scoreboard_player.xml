@@ -41,6 +41,10 @@
 				<Button id="BtnShareHero" onactivate="ToggleShareHero();" onmouseover="ShowToolTipShareHero();" onmouseout="HideToolTips();"/>
 				<Button id="BtnDisableHelp" onactivate="ToggleDisableHelp();" onmouseover="ShowToolTipDisableHelp();" onmouseout="HideToolTips();"/>
 			</Panel>
+			<Panel class="ScoreCol_Conduct ScoreboardPanel">
+				<Button id="BtnCommend" class="BtnConduct" onactivate="Commend();" onmouseover="ShowToolTipCommend();" onmouseout="HideToolTips();"/>
+				<Button id="BtnReport" class="BtnConduct" onactivate="Report();" onmouseover="ShowToolTipReport();" onmouseout="HideToolTips();"/>
+			</Panel>
 		</Panel>
 	</Panel>
 </root>

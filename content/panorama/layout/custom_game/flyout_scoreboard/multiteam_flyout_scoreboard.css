@@ -396,7 +396,8 @@
 .ScoreCol_Buttons Button {
   width: 15px;
   height: 15px;
-  margin-right: 5px;
+  margin-left: 2px;
+  margin-right: 2px;
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: contain;
@@ -440,4 +441,43 @@
 
 #BtnDisableHelp.Activated {
   background-image: url("s2r://panorama/images/custom_game/disable_help_on_png.vtex");
+}
+
+/* Conduct column: visible for all other real players (not self, not bot) */
+.ScoreCol_Conduct {
+  width: 44px;
+  vertical-align: center;
+  flow-children: right;
+}
+.ScoreCol_Conduct Button {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: middle;
+  visibility: collapse;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  wash-color: #ffffffaa;
+}
+.ScoreCol_Conduct Button:hover {
+  wash-color: #ffffff;
+}
+.can_conduct .ScoreCol_Conduct Button {
+  visibility: visible;
+}
+
+#BtnCommend {
+  background-image: url("s2r://panorama/images/custom_game/conduct/thumb_up_png.vtex");
+}
+#BtnReport {
+  background-image: url("s2r://panorama/images/custom_game/conduct/thumb_down_png.vtex");
+}
+#BtnCommend.Activated {
+  background-image: url("s2r://panorama/images/custom_game/conduct/thumb_up_fill_png.vtex");
+  wash-color: #7fd47f;
+}
+#BtnReport.Activated {
+  background-image: url("s2r://panorama/images/custom_game/conduct/thumb_down_fill_png.vtex");
+  wash-color: #e87d7d;
 }
