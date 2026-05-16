@@ -1,0 +1,114 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// 觉醒技能
+	// 英雄专属强化/替换技能，通过抽奖池获得
+	//=================================================================================================================
+
+	// 屠夫 觉醒肉钩
+	// 施法距离随力量值增加，可切换是否钩友方单位
+	"pudge_meat_hook_lua"
+	{
+		"BaseClass"						"ability_lua"
+		"AbilityTextureName"			"pudge_meat_hook"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"FightRecapLevel"				"1"
+		"ScriptFile"					"abilities/pudge_meat_hook_lua"
+		"MaxLevel"						"5"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_pudge.vsndevts"
+			"particle"		"particles/units/heroes/hero_pudge/pudge_meathook_chain.vpcf"
+			"particle"		"particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf"
+			"particle"		"particles/units/heroes/hero_pudge/pudge_meathook.vpcf"
+		}
+
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
+		"AbilityManaCost"				"110 120 130 140 150"
+
+		"AbilityValues"
+		{
+			"hook_speed"							"1300 1800 2500 3000 5000"
+			"hook_width"							"100"
+			"hook_base_distance"					"1000 1500 2000 2500 3000"
+			"hook_distance_per_strength"			"3"
+			"distance_to_damage"
+			{
+				"value"					"0"
+				"special_bonus_shard"	"100"
+			}
+			"vision_radius"							"500"
+			"vision_duration"						"4"
+			"hook_followthrough_constant"			"0.1"
+			"hook_damage"
+			{
+				"value"								"150 220 290 360 430"
+				"special_bonus_unique_pudge_7"		"+170"
+			}
+			"AbilityCooldown"
+			{
+				"value"							"14 13 12 11 10"
+				"special_bonus_unique_pudge_5"	"-4"
+			}
+		}
+	}
+
+	// 剑圣 觉醒剑刃风暴
+	// 通道期间持续对周围敌人造成基础伤害+攻击力的魔法伤害，免疫魔法和减益
+	"juggernaut_blade_fury_custom"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/juggernaut_blade_fury_custom"
+		"AbilityTextureName"			"juggernaut_blade_fury"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"MaxLevel"						"5"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+		}
+
+		"AbilityValues"
+		{
+			"radius"					"400"
+			"damage"
+			{
+				"value"								"40 80 120 160 200"
+				"special_bonus_unique_juggernaut"	"+200"
+			}
+			"duration"					"5"
+			"AbilityCooldown"			"20 19 18 17 16"
+			"AbilityManaCost"			"100 110 120"
+			"damage_reduction_pct"		"70 65 60 65 50"
+			"talent_bonus_movespeed"
+			{
+				"value"		"0"
+				"special_bonus_unique_juggernaut_blade_fury_movespeed"	"+100"
+			}
+			"magic_resistance_bonus"	"80"
+		}
+	}
+
+	// 斯拉克 刮痧之王
+	// 被动 +100 攻速；攻速满时击杀英雄可突破攻速上限，每次 +50，持续 20 秒
+	"break_speed_limit"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/break_speed_limit"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"slark"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"bonus_attack_speed"		"100"
+			"speed_limit_per_stack"		"50"
+			"duration"					"20"
+			"max_stacks"				"100"
+		}
+	}
+}

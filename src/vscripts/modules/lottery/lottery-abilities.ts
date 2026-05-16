@@ -125,6 +125,7 @@ export const abilityTiersActive: Tier[] = [
       'monkey_king_boundless_strike', // 棒击大地
 
       // 自定义技能
+      'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
       'alchemist_berserk_potion2', // 炼金 狂暴药剂
@@ -153,7 +154,7 @@ export const abilityTiersActive: Tier[] = [
       'leshrac_split_earth', // 撕裂大地
       'witch_doctor_paralyzing_cask', // 麻痹药剂
       'templar_assassin_meld', // 圣堂刺客 隐匿
-      'pudge_meat_hook', // 肉钩
+      'pudge_meat_hook_lua', // 屠夫 觉醒肉钩
       'bounty_hunter_wind_walk', // 暗影步
       'earthshaker_fissure', // 沟壑
       'alchemist_acid_spray', // 酸雾
@@ -351,6 +352,7 @@ export const abilityTiersPassive: Tier[] = [
       'black_drake_magic_amplification_aura', // 黑蜉蝣 魔法增强光环
 
       // 自定义技能
+      'break_speed_limit', // 斯拉克 刮痧之王
       'abyssal_underlord_firestorm2', // 火雨降临
       'bounty_hunter_cutpurse2', // 赏金 妙手空空 技能偷钱
       'abyssal_underlord_malice_aura', // 怨念光环
