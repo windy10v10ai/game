@@ -13,6 +13,8 @@
 			<Image id="memberKofiLogoSmall" class="SeqImg" src="file://{images}/custom_game/member/ko-fi-logo-small.png" />
 			<Image id="memberAlipayLogo" class="SeqImg" src="file://{images}/custom_game/member/alipay-logo.png" />
 			<Image id="memberReceiveIcon" class="SeqImg" src="file://{images}/custom_game/member/receive_icon.png" />
+			<Image id="conductThumbUp" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_up.png" />
+			<Image id="conductThumbDown" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_down.png" />
 		</Panel>
 	</Panel>
 </root>

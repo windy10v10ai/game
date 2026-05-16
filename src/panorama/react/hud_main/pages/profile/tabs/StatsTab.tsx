@@ -21,7 +21,16 @@ export function StatsTab() {
   const winRate =
     matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
   const conductPoint = player?.conductPoint ?? 100;
-  const conductColor = conductPoint < 60 ? '#E87D7D' : conductPoint < 80 ? '#F5A623' : undefined;
+  const conductColor =
+    conductPoint < 60
+      ? '#E87D7D'
+      : conductPoint < 80
+        ? '#F5A623'
+        : conductPoint >= 110
+          ? '#E8C07D'
+          : '#7FD47F';
+  const commendCount = player?.commendCount ?? 0;
+  const reportCount = player?.reportCount ?? 0;
 
   const conductTipRef = useRef<ImagePanel | null>(null);
 
@@ -36,6 +45,10 @@ export function StatsTab() {
           />
         </Panel>
         <DOTAUserName className="stats-username" steamid="local" />
+        <Panel className="stats-conduct-counts">
+          <Label className="stats-conduct-count commend" text={'👍 ' + commendCount} />
+          <Label className="stats-conduct-count report" text={'👎 ' + reportCount} />
+        </Panel>
       </Panel>
 
       <Panel className="stats-container">

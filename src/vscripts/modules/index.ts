@@ -1,6 +1,7 @@
 import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
 import { Analytics } from '../api/analytics/analytics';
+import { ConductApi } from '../api/conduct';
 import { PlayerInfoApi } from '../api/player-info';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerSettingApi } from '../api/player-setting';
@@ -46,6 +47,7 @@ export function ActivateModules() {
     new PlayerPropertyApi();
     new PlayerSettingApi();
     new AlipayApi();
+    new ConductApi();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();

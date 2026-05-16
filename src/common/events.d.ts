@@ -29,6 +29,8 @@ interface CustomGameEventDeclarations {
   alipay_order_clear: Record<string, never>;
 
   hud_open_page: HudOpenPageEventData;
+
+  player_conduct: PlayerConductEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -101,6 +103,11 @@ interface HudOpenPageEventData {
   page: string;
   param?: string;
   playerId: PlayerID;
+}
+
+interface PlayerConductEventData {
+  toPlayerId: PlayerID;
+  type: string; // 'commend' | 'report'
 }
 
 interface SaveBindAbilityKeyEventData {

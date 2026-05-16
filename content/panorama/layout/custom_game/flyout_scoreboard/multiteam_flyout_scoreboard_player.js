@@ -143,3 +143,54 @@ function ToggleDisableHelp() {
     ShowToolTipDisableHelp();
   }
 }
+
+function ShowToolTipCommend() {
+  DelayedShowToolTipHelper('#BtnCommend', '#scoreboard_commend_tooltip', '');
+}
+
+function ShowToolTipReport() {
+  DelayedShowToolTipHelper('#BtnReport', '#scoreboard_report_tooltip', '');
+}
+
+function SendConductEvent(type) {
+  HideToolTips();
+  var playerId = $.GetContextPanel().GetAttributeInt('player_id', -1);
+  if (!Players.IsValidPlayerID(playerId)) return;
+
+  var playerInfo = Game.GetPlayerInfo(playerId);
+  if (!playerInfo || playerInfo.player_steamid === '0') return;
+
+  var steamId = playerInfo.player_steamid;
+  if (!steamId) return;
+
+  // Update local session cache for immediate UI feedback
+  if (!GameUI.CustomUIConfig().conductState) {
+    GameUI.CustomUIConfig().conductState = {};
+  }
+  GameUI.CustomUIConfig().conductState[steamId] = type;
+
+  // Update button state immediately (mutually exclusive)
+  var btnCommend = $.FindChildInContext('#BtnCommend');
+  var btnReport = $.FindChildInContext('#BtnReport');
+  if (btnCommend) {
+    btnCommend.RemoveClass('Activated');
+    if (type === 'commend') btnCommend.AddClass('Activated');
+  }
+  if (btnReport) {
+    btnReport.RemoveClass('Activated');
+    if (type === 'report') btnReport.AddClass('Activated');
+  }
+
+  GameEvents.SendCustomGameEventToServer('player_conduct', {
+    toPlayerId: playerId,
+    type: type,
+  });
+}
+
+function Commend() {
+  SendConductEvent('commend');
+}
+
+function Report() {
+  SendConductEvent('report');
+}

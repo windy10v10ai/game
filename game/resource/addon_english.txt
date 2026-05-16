@@ -94,6 +94,8 @@
 		"scoreboard_tool_tip_share_hero"	"Share Hero"
 		"scoreboard_tool_tip_disable_help"	"Disable Help"
 		"scoreboard_tool_tip_actived"		"Active"
+		"scoreboard_commend_tooltip"		"Commend"
+		"scoreboard_report_tooltip"			"Report"
 
 		"custom_end_screen_victory_message"	"Radiant Victory!"
 		"custom_end_screen_lose_message"	"Dire Victory!"
@@ -240,7 +242,7 @@
 		"profile_stat_winrate"			"Win Rate"
 		"profile_stat_conduct"			"Conduct Score"
 		"profile_stat_coming_soon"		"More features coming soon"
-		"profile_stat_conduct_tooltip"	"Conduct Score is out of <font color='#E8C07D'>100</font> and reflects your in-game behavior.<br>• Normal game completion: <font color='#7FD47F'>+1</font><br>• Early disconnect: <font color='#E87D7D'>-5</font><br>The following do NOT count as early disconnect:<br>• Solo games<br>• All players quit early with no one reaching end screen<br>Currently tracked only — penalties for low scores may be introduced in the future."
+		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default <font color='#7FD47F'>100</font>, cap <font color='#E8C07D'>120</font>.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#E8C07D'>≥110</font>: ×1.1<br>• <font color='#7FD47F'>80–109</font>: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
 
 		// Member Tab UI
 		"member_button_tooltip_active"			"Membership enable. Click to view details."
