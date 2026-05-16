@@ -37,12 +37,12 @@ export class ActionItem {
       print(`[AI] UseItemOnTarget ${itemName} on target`);
       hero.CastAbilityOnTarget(target, item, hero.GetPlayerOwnerID());
       return true;
-    } else if (IsAbilityBehavior(item, AbilityBehavior.AOE)) {
-      print(`[AI] UseItemOnTarget ${itemName} on position`);
-      hero.CastAbilityOnPosition(target.GetAbsOrigin(), item, hero.GetPlayerOwnerID());
-      return true;
     } else if (IsAbilityBehavior(item, AbilityBehavior.POINT)) {
       print(`[AI] UseItemOnTarget ${itemName} on point`);
+      hero.CastAbilityOnPosition(target.GetAbsOrigin(), item, hero.GetPlayerOwnerID());
+      return true;
+    } else if (IsAbilityBehavior(item, AbilityBehavior.AOE)) {
+      print(`[AI] UseItemOnTarget ${itemName} on position`);
       hero.CastAbilityOnPosition(target.GetAbsOrigin(), item, hero.GetPlayerOwnerID());
       return true;
     } else if (IsAbilityBehavior(item, AbilityBehavior.NO_TARGET)) {

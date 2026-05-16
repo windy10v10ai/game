@@ -113,7 +113,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   if (pointsModifierLabel && pointsContainer) {
     if (pointModifier !== 0) {
       const sign = pointModifier > 0 ? '+' : '-';
-      pointsModifierLabel.text = '(' + sign + Math.abs(pointModifier) + ')';
+      pointsModifierLabel.text = sign + Math.abs(pointModifier);
       pointsModifierLabel.visible = true;
       pointsContainer.SetPanelEvent('onmouseover', () => {
         let tooltipKey;

@@ -13,8 +13,8 @@ import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.3;
-  protected readonly ThinkIntervalTool: number = 0.3;
+  protected readonly ThinkInterval: number = 0.2;
+  protected readonly ThinkIntervalTool: number = 0.2;
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
