@@ -13,8 +13,8 @@ import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.3;
-  protected readonly ThinkIntervalTool: number = 0.3;
+  protected readonly ThinkInterval: number = 0.2;
+  protected readonly ThinkIntervalTool: number = 0.2;
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
@@ -32,10 +32,10 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly NotAttactTowerHeroAttackRangeBuff: number = 400;
   protected readonly CastRange: number = 900;
 
-  protected readonly AttackRangeLaning: number = 600;
-  protected readonly AttackRangeAttack: number = 1800;
+  protected readonly AttackRangeLaning: number = 300;
+  protected readonly AttackRangeAttack: number = 1200;
   protected readonly AttackRangePushTower: number = 600;
-  protected readonly AttackRangePushHero: number = 1200;
+  protected readonly AttackRangePushHero: number = 900;
 
   public PushLevel: number = 10;
 

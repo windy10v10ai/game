@@ -303,6 +303,23 @@ function _ScoreboardUpdater_UpdatePlayerPanel(
   );
   playerPanel.SetHasClass('player_ultimate_cooldown', ultStateOrTime > 0);
   _ScoreboardUpdater_SetTextSafe(playerPanel, 'PlayerUltimateCooldown', ultStateOrTime);
+
+  // Commend / Report buttons: visible for other real players (not self, not bot)
+  var isBotPlayer = playerInfo && playerInfo.player_steamid === '0';
+  var isSelfPlayer = playerId === Game.GetLocalPlayerID();
+  var canConduct = !isBotPlayer && !isSelfPlayer;
+  playerPanel.SetHasClass('can_conduct', canConduct);
+
+  if (canConduct && playerInfo && playerInfo.player_steamid) {
+    // Mark Activated if local player already commended/reported this player this session
+    var conductState = GameUI.CustomUIConfig().conductState || {};
+    var state = conductState[playerInfo.player_steamid]; // 'commend' | 'report' | undefined
+
+    var btnCommend = playerPanel.FindChildInLayoutFile('BtnCommend');
+    var btnReport = playerPanel.FindChildInLayoutFile('BtnReport');
+    if (btnCommend) btnCommend.SetHasClass('Activated', state === 'commend');
+    if (btnReport) btnReport.SetHasClass('Activated', state === 'report');
+  }
 }
 
 //=============================================================================
