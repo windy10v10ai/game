@@ -1,3 +1,4 @@
+import { CastAbilityOnTargetByBehavior, GetFullCastRange } from '../ability/ability-cast';
 import { BotBaseAIModifier } from '../hero/bot-base';
 import { ActionFind } from './action-find';
 import {
@@ -6,7 +7,6 @@ import {
   CheckUnitConditionFailure,
   DeepMerge,
   FilterTargetWithCondition,
-  IsAbilityBehavior,
 } from './cast-condition';
 
 export class ActionAbility {
@@ -91,7 +91,7 @@ export class ActionAbility {
     if (flagFilterExtra) {
       flagFilter = flagFilter + flagFilterExtra;
     }
-    const findRange = condition?.target?.range?.lte ?? this.GetFullCastRange(hero, ability);
+    const findRange = condition?.target?.range?.lte ?? GetFullCastRange(hero, ability);
     if (condition?.debug) {
       print(`[AI] CastAbilityOnEnemy ${abilityName} findRange ${findRange}`);
     }
@@ -110,37 +110,8 @@ export class ActionAbility {
       return this.doAction(condition, ability);
     }
 
-    // 未指定技能行为时，执行默认技能行为
-    if (IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
-      print(`[AI] CastAbilityOnEnemy ${abilityName} on target`);
-      hero.CastAbilityOnTarget(target, ability, hero.GetPlayerOwnerID());
-      return true;
-    } else if (IsAbilityBehavior(ability, AbilityBehavior.POINT)) {
-      print(`[AI] CastAbilityOnEnemy ${abilityName} on point`);
-      hero.CastAbilityOnPosition(target.GetAbsOrigin(), ability, hero.GetPlayerOwnerID());
-      return true;
-    } else if (IsAbilityBehavior(ability, AbilityBehavior.AOE)) {
-      print(`[AI] CastAbilityOnEnemy ${abilityName} on position`);
-      hero.CastAbilityOnPosition(target.GetAbsOrigin(), ability, hero.GetPlayerOwnerID());
-      return true;
-    } else if (IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {
-      print(`[AI] CastAbilityOnEnemy ${abilityName} no target`);
-      hero.CastAbilityNoTarget(ability, hero.GetPlayerOwnerID());
-      return true;
-    } else {
-      print(`[AI] ERROR CastAbilityOnEnemy ${abilityName} not found behavior`);
-    }
-
-    return false;
-  }
-
-  /**
-   * @return 施法距离 + 施法距离加成
-   */
-  public static GetFullCastRange(self: CDOTA_BaseNPC_Hero, ability: CDOTABaseAbility): number {
-    const range = ability.GetCastRange(self.GetAbsOrigin(), undefined);
-    const castRangeIncrease = self.GetCastRangeBonus();
-    return range + castRangeIncrease;
+    // 未指定技能行为时，执行默认技能行为（按 ability.behavior 自动派发）
+    return CastAbilityOnTargetByBehavior(hero, ability, target);
   }
 
   /**

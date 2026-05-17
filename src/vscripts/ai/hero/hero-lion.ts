@@ -14,15 +14,6 @@ export class LionAIModifier extends BotBaseAIModifier {
       return true;
     }
 
-    // 死亡一指
-    if (
-      ActionAbility.CastAbilityOnFindEnemyHero(this, 'lion_finger_of_death', {
-        target: { unitCondition: { healthPercent: { lte: 95 } } },
-      })
-    ) {
-      return true;
-    }
-
     // 法力吸取
     if (ActionAbility.CastAbilityOnFindEnemyHero(this, 'lion_mana_drain')) {
       return true;

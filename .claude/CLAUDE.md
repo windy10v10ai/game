@@ -268,6 +268,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **KV 文件格式**: `game/scripts/npc/` 目录下所有 `.txt` 文件必须全程使用 **tab**，包括行首缩进以及 key 与 value 之间的对齐间距，不得使用空格
 - **新建 KV 文件**: 在 `game/scripts/npc/` 下新建任何 `.txt` 文件后，必须在 `npc_abilities_custom.txt`（或对应的主入口文件）顶部添加 `#base "<filename>.txt"` 引入，否则引擎不会加载该文件
 - **本地化文件模块顺序**: `addon_english.txt` / `addon_schinese.txt` 中各模块的排列顺序为：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）
+- **TSTL 对象 spread 不可传 undefined**: 在 `src/vscripts/` 中**禁止**对可能为 `undefined` 的对象使用 spread（`{ ...maybeUndefined }` 或 `{ ...obj?.maybeUndefined }`）。TSTL 把对象 spread 编成 `__TS__ObjectAssign`，内部用 `pairs(...)` 遍历每个参数，传到 `nil` 会运行时 crash `bad argument #1 to 'pairs' (table expected, got nil)`。改用显式 if 判断 + 手动赋值，或用 `?? {}` 兜底后再 spread。jest 测试不会暴露此问题，必须在 Dota tools 实跑验证
 
 ### 图片资源管理
 
