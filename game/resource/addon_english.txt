@@ -1015,6 +1015,44 @@
 
 		///////////////////////////////////////////////////
 		//
+		// 					Awaken Abilities 觉醒技能
+		//
+		///////////////////////////////////////////////////
+// 					Awaken Abilities 觉醒技能
+
+		// Pudge - Meat Hook Awakened
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>Meat Hook - Awakened"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range increases with Pudge's strength, up to 12000 bonus range.</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"HOOK SPEED:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_width"							"HOOK WIDTH:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"BASE CAST RANGE:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance_per_strength"			"<font color='#00ff00'>RANGE PER STRENGTH (AWAKENED):</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"When Meat Hook hits an enemy, it deals bonus pure damage based on the hook distance."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
+
+		// Juggernaut - Blade Fury Awakened
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>Blade Fury - Awakened"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, dealing magic damage equal to base damage + 100%% of current attack power to surrounding enemies. Grants debuff immunity and 80%% magic resistance.<br>Can attack normally, but attack power is reduced."
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"% ATTACK POWER REDUCTION:"
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
+
+		// Slark - Scraper King Awakened
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>Scraper King - Awakened"
+		"DOTA_Tooltip_ability_break_speed_limit_Description"							"Passively gains attack speed bonus.<br><br>When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
+		"DOTA_Tooltip_ability_break_speed_limit_bonus_attack_speed"						"PASSIVE ATTACK SPEED BONUS:"
+		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
+		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"Each stack increases the attack speed cap by 50."
+
+		///////////////////////////////////////////////////
+		//
 		// 					Heroes Override 原版英雄技能
 		//
 		///////////////////////////////////////////////////
@@ -3036,34 +3074,6 @@
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
 
-		// Awaken abilities
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>Meat Hook - Awakened"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range increases with Pudge's strength, up to 12000 bonus range.</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"HOOK SPEED:"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_width"							"HOOK WIDTH:"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"BASE CAST RANGE:"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance_per_strength"			"<font color='#00ff00'>RANGE PER STRENGTH (AWAKENED):</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"When Meat Hook hits an enemy, it deals bonus pure damage based on the hook distance."
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
-
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>Blade Fury - Awakened"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, dealing magic damage equal to base damage + 100%% of current attack power to surrounding enemies. Grants debuff immunity and 80%% magic resistance.<br>Can attack normally, but attack power is reduced."
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"% ATTACK POWER REDUCTION:"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
-
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>Scraper King - Awakened"
-		"DOTA_Tooltip_ability_break_speed_limit_Description"							"Passively gains attack speed bonus.<br><br>When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
-		"DOTA_Tooltip_ability_break_speed_limit_bonus_attack_speed"						"PASSIVE ATTACK SPEED BONUS:"
-		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
-		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"Each stack increases the attack speed cap by 50."
 
 	}
 }

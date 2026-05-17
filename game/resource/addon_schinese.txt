@@ -1000,6 +1000,44 @@
 
 		///////////////////////////////////////////////////
 		//
+		// 					Awaken Abilities 觉醒技能
+		//
+		///////////////////////////////////////////////////
+// 					Awaken Abilities 觉醒技能
+
+		// 屠夫 肉钩-觉醒
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>肉钩-觉醒"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离随帕吉的力量值增加，额外距离上限12000。</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_width"							"钩子宽度："
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"基础施法距离："
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance_per_strength"			"<font color='#00ff00'>每点力量增加距离（觉醒）：</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"肉钩击中敌人时，根据钩中时的距离造成额外纯粹伤害。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
+
+		// 剑圣 剑刃风暴-觉醒
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>剑刃风暴-觉醒"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力100%%的魔法伤害。期间获得减益免疫和80%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"%攻击力降低："
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
+
+		// 斯拉克 刮痧之王-觉醒
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>刮痧之王-觉醒"
+		"DOTA_Tooltip_ability_break_speed_limit_Description"							"被动获得攻击速度加成。<br><br>当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
+		"DOTA_Tooltip_ability_break_speed_limit_bonus_attack_speed"						"被动攻击速度加成："
+		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"每次击杀突破攻速上限："
+		"DOTA_Tooltip_ability_break_speed_limit_duration"								"持续时间："
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"刮痧之王"
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"每层提高攻速上限50点。"
+
+		///////////////////////////////////////////////////
+		//
 		// 					Heroes Override 原版英雄技能
 		//
 		///////////////////////////////////////////////////
@@ -3084,34 +3122,6 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 
-		// 觉醒技能
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>肉钩-觉醒"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离随帕吉的力量值增加，额外距离上限12000。</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_width"							"钩子宽度："
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"基础施法距离："
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance_per_strength"			"<font color='#00ff00'>每点力量增加距离（觉醒）：</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"肉钩击中敌人时，根据钩中时的距离造成额外纯粹伤害。"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
-
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>剑刃风暴-觉醒"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力100%%的魔法伤害。期间获得减益免疫和80%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"%攻击力降低："
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
-		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
-
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>刮痧之王-觉醒"
-		"DOTA_Tooltip_ability_break_speed_limit_Description"							"被动获得攻击速度加成。<br><br>当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
-		"DOTA_Tooltip_ability_break_speed_limit_bonus_attack_speed"						"被动攻击速度加成："
-		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"每次击杀突破攻速上限："
-		"DOTA_Tooltip_ability_break_speed_limit_duration"								"持续时间："
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"刮痧之王"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"每层提高攻速上限50点。"
 
 	}
 }
