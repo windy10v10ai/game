@@ -30,8 +30,14 @@ export function StatsTab() {
           ? '#FFD700'
           : '#7FD47F';
   const commendCount = player?.commendCount ?? 0;
-
+  const reportCount = player?.reportCount ?? 0;
+  const conductNet = commendCount - reportCount;
+  const isPositive = conductNet >= 0;
+  const conductIcon = isPositive
+    ? 's2r://panorama/images/custom_game/conduct/thumb_up_fill_png.vtex'
+    : 's2r://panorama/images/custom_game/conduct/thumb_down_fill_png.vtex';
   const conductTipRef = useRef<ImagePanel | null>(null);
+  const conductNetRef = useRef<Panel | null>(null);
 
   return (
     <Panel className="stats-layout">
@@ -45,12 +51,21 @@ export function StatsTab() {
         </Panel>
         <DOTAUserName className="stats-username" steamid="local" />
         <Panel className="stats-conduct-counts">
-          <Panel className="stats-conduct-count commend">
-            <Image
-              className="stats-conduct-icon"
-              src="s2r://panorama/images/custom_game/conduct/thumb_up_fill_png.vtex"
-            />
-            <Label className="stats-conduct-count-text" text={String(commendCount)} />
+          <Panel
+            ref={conductNetRef}
+            className={`stats-conduct-count ${isPositive ? 'commend' : 'report'}`}
+            onmouseover={() =>
+              conductNetRef.current &&
+              $.DispatchEvent(
+                'DOTAShowTextTooltip',
+                conductNetRef.current,
+                $.Localize('#profile_stat_conduct_net_tooltip'),
+              )
+            }
+            onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+          >
+            <Image className="stats-conduct-icon" src={conductIcon} />
+            <Label className="stats-conduct-count-text" text={String(Math.abs(conductNet))} />
           </Panel>
         </Panel>
       </Panel>
