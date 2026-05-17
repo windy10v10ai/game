@@ -1,10 +1,9 @@
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
- * 淘汰之刃：UNIT_TARGET / ENEMY / HERO，血量低于阈值时直接斩杀。
+ * 淘汰之刃：UNIT_TARGET / ENEMY / HERO，可无视魔法免疫（KV 含 MAGIC_IMMUNE_ENEMIES）。
  *
- * Lottery 池 T3 主动技能。
- * 仅对低血量敌方英雄使用（残血斩杀），避免浪费在满血目标上。
+ * 仅在敌方英雄血量 ≤ 当前等级 damage（含天赋 + 法术强度加成）时施放，确保一击必杀。
  */
 export const SPECS: AbilitySpec[] = [
   {
@@ -12,7 +11,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: {
-        unitCondition: { healthPercent: { lte: 25 } },
+        unitCondition: { healthAbilityValue: { key: 'damage', lte: true, includeSpellAmp: true } },
       },
     },
   },

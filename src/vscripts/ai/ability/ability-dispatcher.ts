@@ -95,7 +95,7 @@ export class AbilityDispatcher {
 
     const candidates = this.candidatesFor(ai, spec.targetSide);
     const condition = this.fillRangeFromCastRange(spec.condition, hero, ability);
-    return FilterTargetWithCondition(condition, candidates, hero);
+    return FilterTargetWithCondition(condition, candidates, hero, ability);
   }
 
   /**
