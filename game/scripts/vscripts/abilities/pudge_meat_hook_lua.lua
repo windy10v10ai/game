@@ -127,14 +127,10 @@ function pudge_meat_hook_lua:OnSpellStart()
         self.hVictim:InterruptMotionControllers(true)
     end
 
-    local base_distance = self:GetSpecialValueFor("hook_base_distance")
-    local distance_per_strength = self:GetSpecialValueFor("hook_distance_per_strength")
-    local strength = self:GetCaster():GetStrength()
-
     self.hook_damage = self:GetSpecialValueFor("hook_damage")
     self.hook_speed = self:GetSpecialValueFor("hook_speed")
     self.hook_width = self:GetSpecialValueFor("hook_width")
-    self.hook_distance = base_distance + math.min(distance_per_strength * strength, 12000)
+    self.hook_distance = self:GetCastRange()  -- 复用 GetCastRange，避免重复计算
     self.hook_followthrough_constant = self:GetSpecialValueFor("hook_followthrough_constant")
     self.vision_radius = self:GetSpecialValueFor("vision_radius")
     self.vision_duration = self:GetSpecialValueFor("vision_duration")
@@ -147,10 +143,10 @@ function pudge_meat_hook_lua:OnSpellStart()
     self.vStartPosition = self:GetCaster():GetOrigin()
     self.vProjectileLocation = self.vStartPosition
 
-    local vDirection = self:GetCursorPosition() - self.vStartPosition
-    vDirection.z = 0.0
-    vDirection = vDirection:Normalized() * self.hook_distance
-    self.vTargetPosition = self.vStartPosition + vDirection
+    local vDir = self:GetCursorPosition() - self.vStartPosition
+    vDir.z = 0.0
+    local vDirNorm = vDir:Normalized()  -- 单位方向向量，后续复用
+    self.vTargetPosition = self.vStartPosition + vDirNorm * self.hook_distance
 
     local flFollowthroughDuration = self.hook_distance / self.hook_speed * self.hook_followthrough_constant
     self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_meat_hook_followthrough_lua",
@@ -181,7 +177,7 @@ function pudge_meat_hook_lua:OnSpellStart()
     ProjectileManager:CreateLinearProjectile({
         Ability = self,
         vSpawnOrigin = self:GetCaster():GetOrigin(),
-        vVelocity = (vDirection:Normalized()) * self.hook_speed,
+        vVelocity = vDirNorm * self.hook_speed,  -- 直接用单位方向向量，无需再 Normalized
         fDistance = self.hook_distance,
         fStartRadius = self.hook_width,
         fEndRadius = self.hook_width,
@@ -194,7 +190,6 @@ function pudge_meat_hook_lua:OnSpellStart()
 
     self.bRetracting = false
     self.hVictim = nil
-    self.bDiedInHook = false
 end
 
 function pudge_meat_hook_lua:OnProjectileHit(hTarget, vLocation)
@@ -221,7 +216,6 @@ function pudge_meat_hook_lua:OnProjectileHit(hTarget, vLocation)
                     damage_type = DAMAGE_TYPE_PURE,
                     ability = self
                 })
-                if not hTarget:IsAlive() then self.bDiedInHook = true end
                 if not hTarget:IsMagicImmune() then hTarget:Interrupt() end
                 local nFXIndex = ParticleManager:CreateParticle(
                     "particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
@@ -265,7 +259,8 @@ function pudge_meat_hook_lua:OnProjectileHit(hTarget, vLocation)
                 "attach_weapon_chain_rt", self:GetCaster():GetOrigin() + self.vHookOffset, true)
         end
 
-        EmitSoundOn("Hero_Pudge.AttackHookRetract", hTarget)
+        -- hTarget 可能为 nil（钩空时），fallback 到 caster 避免崩溃
+        EmitSoundOn("Hero_Pudge.AttackHookRetract", hTarget or self:GetCaster())
         if self:GetCaster():IsAlive() then
             self:GetCaster():RemoveGesture(ACT_DOTA_OVERRIDE_ABILITY_1)
             self:GetCaster():StartGesture(ACT_DOTA_CHANNEL_ABILITY_1)
@@ -278,10 +273,9 @@ function pudge_meat_hook_lua:OnProjectileHit(hTarget, vLocation)
         end
 
         if self.hVictim ~= nil then
-            local vFinalHookPos = vLocation
             self.hVictim:InterruptMotionControllers(true)
             self.hVictim:RemoveModifierByName("modifier_meat_hook_lua")
-            local vVictimPosCheck = self.hVictim:GetOrigin() - vFinalHookPos
+            local vVictimPosCheck = self.hVictim:GetOrigin() - vLocation
             local flPad = self:GetCaster():GetPaddedCollisionRadius() + self.hVictim:GetPaddedCollisionRadius()
             if vVictimPosCheck:Length2D() > flPad then
                 FindClearSpaceForUnit(self.hVictim, self.vStartPosition, false)

@@ -45,7 +45,6 @@ function modifier_juggernaut_blade_fury_custom:OnDestroy()
     if self.particle then
         ParticleManager:DestroyParticle(self.particle, false)
     end
-    caster:StopSound("Hero_Juggernaut.BladeFuryStart")
     StopSoundOn("Hero_Juggernaut.BladeFuryStart", caster)
 end
 
