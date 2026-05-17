@@ -3093,7 +3093,8 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_width"							"钩子宽度："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"基础施法距离："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance_per_strength"			"<font color='#00ff00'>每点力量增加距离（觉醒）：</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"击中敌人时，造成拖拽距离等量的纯粹伤害"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"肉钩击中敌人时，根据钩中时的距离造成额外纯粹伤害。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
 
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>剑刃风暴-觉醒"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力100%%的魔法伤害。期间获得减益免疫和80%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
