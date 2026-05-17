@@ -83,8 +83,9 @@ end
 function pudge_meat_hook_lua:GetCastRange()
     local base_distance = self:GetSpecialValueFor("hook_base_distance")
     local distance_per_strength = self:GetSpecialValueFor("hook_distance_per_strength")
+    local max_bonus = self:GetSpecialValueFor("hook_max_distance_bonus")
     local strength = self:GetCaster():GetStrength()
-    return base_distance + math.min(distance_per_strength * strength, 12000)
+    return base_distance + math.min(distance_per_strength * strength, max_bonus)
 end
 
 function pudge_meat_hook_lua:OnSpellStart()
@@ -95,7 +96,9 @@ function pudge_meat_hook_lua:OnSpellStart()
     end
 
     self.hook_damage = self:GetSpecialValueFor("hook_damage")
-    self.hook_speed = self:GetSpecialValueFor("hook_speed")
+    local distance_per_strength = self:GetSpecialValueFor("hook_distance_per_strength")
+    local strength = self:GetCaster():GetStrength()
+    self.hook_speed = self:GetSpecialValueFor("hook_speed") + distance_per_strength * strength
     self.hook_width = self:GetSpecialValueFor("hook_width")
     self.hook_distance = self:GetCastRange()  -- 复用 GetCastRange，避免重复计算
     self.hook_followthrough_constant = self:GetSpecialValueFor("hook_followthrough_constant")

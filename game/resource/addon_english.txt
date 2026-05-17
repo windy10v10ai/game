@@ -1022,12 +1022,11 @@
 
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>Meat Hook - Awakened"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range increases with Pudge's strength, up to 12000 bonus range.</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range and hook speed increase with Pudge's strength, granting %hook_distance_per_strength% per point of strength, up to %hook_max_distance_bonus% bonus range.</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"HOOK SPEED:"
 "DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"BASE CAST RANGE:"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance_per_strength"			"<font color='#00ff00'>RANGE PER STRENGTH (AWAKENED):</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"When Meat Hook hits an enemy, it deals bonus pure damage based on the hook distance."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
 
@@ -1043,8 +1042,7 @@
 
 		// Slark - Scraper King Awakened
 		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>Scraper King - Awakened"
-		"DOTA_Tooltip_ability_break_speed_limit_Description"							"Passively gains attack speed bonus.<br><br>When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
-		"DOTA_Tooltip_ability_break_speed_limit_bonus_attack_speed"						"PASSIVE ATTACK SPEED BONUS:"
+		"DOTA_Tooltip_ability_break_speed_limit_Description"							"When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
 		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
 		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"

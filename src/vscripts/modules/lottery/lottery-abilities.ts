@@ -75,6 +75,8 @@ export const abilityTiersActive: Tier[] = [
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
+      'pudge_meat_hook_lua', // 屠夫 觉醒肉钩
+      'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
     ],
   },
   {
@@ -125,8 +127,6 @@ export const abilityTiersActive: Tier[] = [
       'monkey_king_boundless_strike', // 棒击大地
 
       // 自定义技能
-      'pudge_meat_hook_lua', // 屠夫 觉醒肉钩
-      'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
       'lina_flame_cloak2', // 火女 腾焰斗篷
       'dazzle_rain_of_vermin', // 诅咒之雨
       'alchemist_berserk_potion2', // 炼金 狂暴药剂

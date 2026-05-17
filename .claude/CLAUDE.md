@@ -271,7 +271,21 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 
 ### 图片资源管理
 
-图片放在 `content/panorama/images/custom_game/<module>/`，按功能模块分二级目录（如 `lottery/`、`profile/`、`battlepass/` 等）。
+**两类图片，存放位置不同：**
+
+#### 技能图标（`AbilityTextureName`）
+
+放在 `game/resource/flash3/images/spellicons/<name>.png`，KV 中直接用文件名引用：
+
+```
+"AbilityTextureName"    "break_speed_limit"
+```
+
+引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。
+
+#### Panorama UI 图片
+
+放在 `content/panorama/images/custom_game/<module>/`，按功能模块分二级目录（如 `lottery/`、`profile/`、`battlepass/` 等）。
 
 **新增图片步骤**：
 

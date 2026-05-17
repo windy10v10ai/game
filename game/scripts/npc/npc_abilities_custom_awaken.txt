@@ -45,6 +45,7 @@
 			"hook_width"							"100"
 			"hook_base_distance"					"1300 1500 1700 1900 2100"
 			"hook_distance_per_strength"			"3"
+			"hook_max_distance_bonus"				"5000"
 			"vision_radius"							"500"
 			"vision_duration"						"4"
 			"hook_followthrough_constant"			"0.1"
@@ -62,7 +63,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/juggernaut_blade_fury_custom"
-		"AbilityTextureName"			"juggernaut_blade_fury"
+		"AbilityTextureName"			"juggernaut_blade_fury_immortal_crimson"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"MaxLevel"						"5"
 
@@ -94,13 +95,13 @@
 	}
 
 	// 斯拉克 刮痧之王
-	// 被动 +100 攻速；攻速满时击杀英雄可突破攻速上限，每次 +50，持续 20 秒
+	// 攻速满时击杀英雄可突破攻速上限，每次 +50，持续 20 秒
 	"break_speed_limit"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/break_speed_limit"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"slark"
+		"AbilityTextureName"			"break_speed_limit"
 		"MaxLevel"						"1"
 
 		"AbilityValues"

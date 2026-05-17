@@ -1007,12 +1007,11 @@
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>肉钩-觉醒"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离随帕吉的力量值增加，额外距离上限12000。</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离和钩子速度随帕吉的力量值增加，每点力量增加%hook_distance_per_strength%，额外距离上限%hook_max_distance_bonus%。</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
 "DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"基础施法距离："
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_distance_per_strength"			"<font color='#00ff00'>每点力量增加距离（觉醒）：</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"肉钩击中敌人时，根据钩中时的距离造成额外纯粹伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
 
@@ -1028,8 +1027,7 @@
 
 		// 斯拉克 刮痧之王-觉醒
 		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>刮痧之王-觉醒"
-		"DOTA_Tooltip_ability_break_speed_limit_Description"							"被动获得攻击速度加成。<br><br>当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
-		"DOTA_Tooltip_ability_break_speed_limit_bonus_attack_speed"						"被动攻击速度加成："
+		"DOTA_Tooltip_ability_break_speed_limit_Description"							"当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
 		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"每次击杀突破攻速上限："
 		"DOTA_Tooltip_ability_break_speed_limit_duration"								"持续时间："
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"刮痧之王"
