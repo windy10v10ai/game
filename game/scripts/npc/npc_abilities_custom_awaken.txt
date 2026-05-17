@@ -38,7 +38,7 @@
 			"distance_to_damage"
 			{
 				"value"					"0"
-				"special_bonus_shard"	"100"
+				"special_bonus_shard"	"50"
 			}
 			"vision_radius"							"500"
 			"vision_duration"						"4"
