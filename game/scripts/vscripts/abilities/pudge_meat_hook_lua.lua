@@ -12,41 +12,8 @@ function modifier_meat_hook_lua:RemoveOnDeath() return false end
 
 function modifier_meat_hook_lua:OnCreated(kv)
     if IsServer() then
-        self.vStartPos = self:GetParent():GetOrigin()
-        self.flTotalDistance = 0
-        self.flDistanceToDamagePct = self:GetAbility():GetSpecialValueFor("distance_to_damage") or 0
-        self:StartIntervalThink(0.1)
         if self:ApplyHorizontalMotionController() == false then
             self:Destroy()
-        end
-    end
-end
-
-function modifier_meat_hook_lua:OnIntervalThink()
-    if IsServer() then
-        if self:GetAbility().hVictim ~= nil and self.flDistanceToDamagePct > 0 then
-            if self:GetCaster() ~= nil and self:GetParent() ~= nil then
-                if self:GetCaster():GetTeamNumber() == self:GetParent():GetTeamNumber() then
-                    return
-                end
-            end
-            local vCurrentPos = self:GetParent():GetOrigin()
-            local flDistance = (vCurrentPos - self.vStartPos):Length2D()
-            local flNewDistance = flDistance - self.flTotalDistance
-            if flNewDistance > 0 then
-                local flDamagePct = (flNewDistance / 100) * self.flDistanceToDamagePct
-                if flDamagePct > 0 then
-                    local actualDamage = ApplyDamage({
-                        victim = self:GetParent(),
-                        attacker = self:GetCaster(),
-                        damage = flDamagePct,
-                        damage_type = DAMAGE_TYPE_PURE,
-                        ability = self:GetAbility()
-                    })
-                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DAMAGE, self:GetParent(), math.floor(actualDamage), nil)
-                end
-                self.flTotalDistance = flDistance
-            end
         end
     end
 end
@@ -216,6 +183,18 @@ function pudge_meat_hook_lua:OnProjectileHit(hTarget, vLocation)
                     damage_type = DAMAGE_TYPE_PURE,
                     ability = self
                 })
+                -- 魔晶效果：按钩中时目标与屠夫的距离造成额外纯粹伤害
+                local distanceToDamage = self:GetSpecialValueFor("distance_to_damage")
+                if distanceToDamage > 0 then
+                    local hookDistance = (hTarget:GetOrigin() - self:GetCaster():GetOrigin()):Length2D()
+                    ApplyDamage({
+                        victim = hTarget,
+                        attacker = self:GetCaster(),
+                        damage = hookDistance / 100 * distanceToDamage,
+                        damage_type = DAMAGE_TYPE_PURE,
+                        ability = self
+                    })
+                end
                 if not hTarget:IsMagicImmune() then hTarget:Interrupt() end
                 local nFXIndex = ParticleManager:CreateParticle(
                     "particles/units/heroes/hero_pudge/pudge_meathook_impact.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
