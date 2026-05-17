@@ -75,6 +75,8 @@ export const abilityTiersActive: Tier[] = [
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
+      'pudge_meat_hook_lua', // 屠夫 觉醒肉钩
+      'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
     ],
   },
   {
@@ -153,7 +155,6 @@ export const abilityTiersActive: Tier[] = [
       'leshrac_split_earth', // 撕裂大地
       'witch_doctor_paralyzing_cask', // 麻痹药剂
       'templar_assassin_meld', // 圣堂刺客 隐匿
-      'pudge_meat_hook', // 肉钩
       'bounty_hunter_wind_walk', // 暗影步
       'earthshaker_fissure', // 沟壑
       'alchemist_acid_spray', // 酸雾
@@ -264,6 +265,7 @@ export const abilityTiersPassive: Tier[] = [
       'rubick_might_and_magus2', // 拉比克 力量与魔法
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
+      'break_speed_limit', // 斯拉克 刮痧之王
     ],
   },
   {

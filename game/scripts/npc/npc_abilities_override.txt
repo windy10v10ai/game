@@ -12341,6 +12341,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
+			"spell_amp_per_stack"		"2.0"	// 1.0 x2
 			"max_stacks_tooltip"
 			{
 				"value"					"10"	// 5 x2

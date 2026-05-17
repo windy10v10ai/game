@@ -163,6 +163,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 | 技能抽选池 | Ability draft pool |
 | 金钱/经验倍率 | Gold/XP multiplier |
 | 中立物品 | Neutral items |
+| 勇士积分 | Battle point |
 
 ## GAME_VERSION 同步
 
