@@ -266,10 +266,26 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **Webpack 缓存**: 如果构建输出看起来过时,删除 `node_modules/.cache`
 - **行尾符**: TypeScript 文件使用 LF (Unix) 而不是 CRLF (Windows)
 - **KV 文件格式**: `game/scripts/npc/` 目录下所有 `.txt` 文件必须全程使用 **tab**，包括行首缩进以及 key 与 value 之间的对齐间距，不得使用空格
+- **新建 KV 文件**: 在 `game/scripts/npc/` 下新建任何 `.txt` 文件后，必须在 `npc_abilities_custom.txt`（或对应的主入口文件）顶部添加 `#base "<filename>.txt"` 引入，否则引擎不会加载该文件
+- **本地化文件模块顺序**: `addon_english.txt` / `addon_schinese.txt` 中各模块的排列顺序为：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）
 
 ### 图片资源管理
 
-图片放在 `content/panorama/images/custom_game/<module>/`，按功能模块分二级目录（如 `lottery/`、`profile/`、`battlepass/` 等）。
+**两类图片，存放位置不同：**
+
+#### 技能图标（`AbilityTextureName`）
+
+放在 `game/resource/flash3/images/spellicons/<name>.png`，KV 中直接用文件名引用：
+
+```
+"AbilityTextureName"    "break_speed_limit"
+```
+
+引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。
+
+#### Panorama UI 图片
+
+放在 `content/panorama/images/custom_game/<module>/`，按功能模块分二级目录（如 `lottery/`、`profile/`、`battlepass/` 等）。
 
 **新增图片步骤**：
 
@@ -295,6 +311,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 | 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
 | 原版物品参考 | `docs/reference/<version>/items.txt` |
 | 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
+| 觉醒技能 KV | `game/scripts/npc/npc_abilities_custom_awaken.txt` |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 | addon 俄文本地化 | `game/resource/addon_russian.txt` |

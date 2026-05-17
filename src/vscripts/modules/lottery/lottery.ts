@@ -155,7 +155,7 @@ export class Lottery {
       if (IsInToolsMode()) {
         // 开发测试用固定技能
         if (abilityType === AbilityItemTypes.Active) {
-          abilityLotteryResults[0] = { name: 'abyssal_underlord_firestorm', level: 2 };
+          abilityLotteryResults[0] = { name: 'pudge_meat_hook_lua', level: 2 };
         }
       }
     }
