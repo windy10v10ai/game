@@ -30,7 +30,6 @@ export function StatsTab() {
           ? '#FFD700'
           : '#7FD47F';
   const commendCount = player?.commendCount ?? 0;
-  const reportCount = player?.reportCount ?? 0;
 
   const conductTipRef = useRef<ImagePanel | null>(null);
 
@@ -52,13 +51,6 @@ export function StatsTab() {
               src="s2r://panorama/images/custom_game/conduct/thumb_up_fill_png.vtex"
             />
             <Label className="stats-conduct-count-text" text={String(commendCount)} />
-          </Panel>
-          <Panel className="stats-conduct-count report">
-            <Image
-              className="stats-conduct-icon"
-              src="s2r://panorama/images/custom_game/conduct/thumb_down_fill_png.vtex"
-            />
-            <Label className="stats-conduct-count-text" text={String(reportCount)} />
           </Panel>
         </Panel>
       </Panel>
