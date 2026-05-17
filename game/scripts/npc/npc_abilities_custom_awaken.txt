@@ -31,9 +31,9 @@
 
 		"AbilityValues"
 		{
-			"hook_speed"							"1300 1800 2500 3000 5000"
+			"hook_speed"							"1600 1800 2000 2200 2400"
 			"hook_width"							"100"
-			"hook_base_distance"					"1000 1500 2000 2500 3000"
+			"hook_base_distance"					"1300 1500 1700 1900 2100"
 			"hook_distance_per_strength"			"3"
 			"distance_to_damage"
 			{
