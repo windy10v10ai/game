@@ -28,10 +28,6 @@ export class HeroUtil {
     if (hero.IsFrozen()) {
       return true;
     }
-    // FIXME 禁用物品，修改成可以采取其他行动
-    if (hero.IsMuted()) {
-      return true;
-    }
     // is hero has stun modifier
     for (const modifier of this.stunModifiers) {
       if (hero.HasModifier(modifier)) {

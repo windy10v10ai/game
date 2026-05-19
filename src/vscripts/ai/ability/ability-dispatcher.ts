@@ -36,6 +36,7 @@ const CREEP_DEFAULT_CONDITION: CastCoindition = {
       manaPercent: { gte: 50 },
       healthPercent: { gte: 50 },
     },
+    noEnemyHeroInRange: 900,
   },
   ability: { level: { gte: 3 } },
 };
@@ -85,6 +86,15 @@ export class AbilityDispatcher {
     }
     if (CheckAbilityConditionFailure(ability, condition?.ability)) {
       return false;
+    }
+
+    const noHeroRange = condition?.self?.noEnemyHeroInRange;
+    if (noHeroRange !== undefined) {
+      for (const enemy of ai.aroundEnemyHeroes) {
+        if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= noHeroRange) {
+          return false;
+        }
+      }
     }
 
     const target = this.pickTarget(ai, ability, spec.targetSide, condition);

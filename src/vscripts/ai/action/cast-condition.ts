@@ -1,3 +1,5 @@
+import { HeroUtil } from '../hero/hero-util';
+
 /**
  * 施法条件，必须满足所有条件才能施法
  */
@@ -21,6 +23,11 @@ export interface CastCoindition {
   };
   self?: {
     unitCondition?: UnitCondition;
+    /**
+     * 若 self 周围该距离内存在存活的敌方英雄，则跳过施法。
+     * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyHeroes 缓存）。
+     */
+    noEnemyHeroInRange?: number;
   };
   ability?: AbilityCoindition;
   action?: {
@@ -58,6 +65,7 @@ export interface UnitCondition {
   hasScepter?: boolean;
   hasShard?: boolean;
   noModifier?: string;
+  notActionable?: boolean;
   /**
    * 比较目标绝对 HP 与技能的 special value（已含天赋加成）。
    * lte: true → target.HP ≤ effectiveDamage（技能可击杀目标）
@@ -168,6 +176,9 @@ export function CheckUnitConditionFailure(
   if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
     return true;
   }
+  if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
+    return true;
+  }
 
   return false;
 }
@@ -225,10 +236,14 @@ export function DeepMerge<T extends CastCoindition>(target: T, source?: Partial<
     if (sourceValue === undefined) return;
 
     if (isObject(targetValue) && isObject(sourceValue)) {
-      result[key as keyof T] = DeepMerge(
-        targetValue as object,
-        sourceValue as object,
-      ) as T[keyof T];
+      if (isNumberRange(sourceValue as object)) {
+        result[key as keyof T] = sourceValue as T[keyof T];
+      } else {
+        result[key as keyof T] = DeepMerge(
+          targetValue as object,
+          sourceValue as object,
+        ) as T[keyof T];
+      }
     } else {
       result[key as keyof T] = sourceValue as T[keyof T];
     }
@@ -239,6 +254,11 @@ export function DeepMerge<T extends CastCoindition>(target: T, source?: Partial<
 
 function isObject(item: unknown): item is object {
   return item !== null && typeof item === 'object';
+}
+
+function isNumberRange(item: object): boolean {
+  const keys = Object.keys(item);
+  return keys.length > 0 && keys.every((k) => k === 'gte' || k === 'lte');
 }
 
 export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
