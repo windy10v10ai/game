@@ -1,4 +1,4 @@
-import { ActionAbility } from './action-ability';
+import { GetFullCastRange } from '../ability/ability-cast';
 import { CastCoindition, CheckUnitConditionFailure, IsAbilityBehavior } from './cast-condition';
 
 export class ActionItem {
@@ -27,7 +27,7 @@ export class ActionItem {
 
     // 检测是否在施法范围内
     const distance = hero.GetRangeToUnit(target);
-    const castRange = ActionAbility.GetFullCastRange(hero, item);
+    const castRange = GetFullCastRange(hero, item);
     if (distance > castRange) {
       return false;
     }
