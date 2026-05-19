@@ -5,13 +5,13 @@ import { Option } from '../../option';
 @reloadable
 export class GameEndPoint {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
-    const killScore = Math.sqrt(player.kills) * 1.5;
+    const killScore = Math.sqrt(player.kills) * 1.6;
     const deathScore = -Math.sqrt(player.deaths) * 0.6;
-    const assistScore = Math.sqrt(player.assists) * 1.5;
+    const assistScore = Math.sqrt(player.assists) * 1.8;
     const damageScore = Math.min(40, Math.sqrt(player.damage) / 200);
     const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 100);
     const healingScore = Math.min(40, Math.sqrt(player.healing) / 50);
-    const towerKillScore = Math.sqrt(player.towerKills) * 3.5;
+    const towerKillScore = Math.sqrt(player.towerKills) * 3;
 
     const totalScore =
       killScore +

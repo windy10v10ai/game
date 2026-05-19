@@ -5,7 +5,6 @@ import { AxeAIModifier } from './hero/hero-axe';
 import { BaneAIModifier } from './hero/hero-bane';
 import { BountyHunterAIModifier } from './hero/hero-bounty-hunter';
 import { DrowRangerAIModifier } from './hero/hero-drow-ranger';
-import { LionAIModifier } from './hero/hero-lion';
 import { LunaAIModifier } from './hero/hero-luna';
 import { MedusaAIModifier } from './hero/hero-medusa';
 import { NecrolyteAIModifier } from './hero/hero-necrolyte';
@@ -41,10 +40,7 @@ export class AI {
     if (hero.GetUnitName() === 'npc_dota_hero_bounty_hunter') {
       return BountyHunterAIModifier.name;
     }
-    if (hero.GetUnitName() === 'npc_dota_hero_lion') {
-      return LionAIModifier.name;
-    }
-    if (hero.GetUnitName() === 'npc_dota_hero_viper') {
+if (hero.GetUnitName() === 'npc_dota_hero_viper') {
       return ViperAIModifier.name;
     }
     if (hero.GetUnitName() === 'npc_dota_hero_luna') {

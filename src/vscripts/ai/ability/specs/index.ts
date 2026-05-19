@@ -1,6 +1,9 @@
 import { AbilityRegistry } from '../ability-registry';
 import { SPECS as axeCullingBlade } from './axe_culling_blade';
 import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
+import { SPECS as lionImpale } from './lion_impale';
+import { SPECS as lionManaDrain } from './lion_mana_drain';
+import { SPECS as lionVoodoo } from './lion_voodoo';
 import { SPECS as omniknightPurification } from './omniknight_purification';
 
 /**
@@ -17,6 +20,11 @@ import { SPECS as omniknightPurification } from './omniknight_purification';
 export function registerAbilitySpecs(): void {
   // 治疗/护盾类（friendly target）
   AbilityRegistry.registerAll(omniknightPurification);
+
+  // Lion 技能组
+  AbilityRegistry.registerAll(lionVoodoo);
+  AbilityRegistry.registerAll(lionImpale);
+  AbilityRegistry.registerAll(lionManaDrain);
 
   // 高伤大招（enemy hero target）
   AbilityRegistry.registerAll(lionFingerOfDeath);

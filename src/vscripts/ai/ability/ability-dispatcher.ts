@@ -2,6 +2,7 @@ import {
   CastCoindition,
   CheckAbilityConditionFailure,
   CheckUnitConditionFailure,
+  DeepMerge,
   FilterTargetWithCondition,
   NumberRange,
 } from '../action/cast-condition';
@@ -25,6 +26,20 @@ import { AbilitySpec, TargetSide } from './ability-spec';
  * 关键性能优化：候选目标全部读自 ai.aroundEnemyHeroes / aroundEnemyCreeps / aroundFriendlyHeroes，
  * 整轮 dispatch 不再发起任何 FindUnitsInRadius 调用。
  */
+/**
+ * 对小兵施法时自动套用的默认条件（等同旧 CastAbilityOnFindEnemyCreep 的 defaultCondition）。
+ * spec 中显式指定的同路径值会通过 DeepMerge 覆盖这里的默认值。
+ */
+const CREEP_DEFAULT_CONDITION: CastCoindition = {
+  self: {
+    unitCondition: {
+      manaPercent: { gte: 50 },
+      healthPercent: { gte: 50 },
+    },
+  },
+  ability: { level: { gte: 3 } },
+};
+
 export class AbilityDispatcher {
   static Run(ai: BotBaseAIModifier): boolean {
     const hero = ai.GetHero();
@@ -60,7 +75,10 @@ export class AbilityDispatcher {
     spec: AbilitySpec,
   ): boolean {
     const hero = ai.GetHero();
-    const condition = spec.condition;
+    const condition =
+      spec.targetSide === TargetSide.EnemyCreep
+        ? DeepMerge(CREEP_DEFAULT_CONDITION, spec.condition)
+        : spec.condition;
 
     if (CheckUnitConditionFailure(hero, condition?.self?.unitCondition)) {
       return false;
@@ -69,7 +87,7 @@ export class AbilityDispatcher {
       return false;
     }
 
-    const target = this.pickTarget(ai, ability, spec);
+    const target = this.pickTarget(ai, ability, spec.targetSide, condition);
     if (!target) {
       return false;
     }
@@ -84,18 +102,19 @@ export class AbilityDispatcher {
   private static pickTarget(
     ai: BotBaseAIModifier,
     ability: CDOTABaseAbility,
-    spec: AbilitySpec,
+    targetSide: TargetSide,
+    condition: CastCoindition | undefined,
   ): CDOTA_BaseNPC | undefined {
     const hero = ai.GetHero();
 
-    if (spec.targetSide === TargetSide.Self) {
+    if (targetSide === TargetSide.Self) {
       // 自身条件已在 tryCast 顶部检查
       return hero;
     }
 
-    const candidates = this.candidatesFor(ai, spec.targetSide);
-    const condition = this.fillRangeFromCastRange(spec.condition, hero, ability);
-    return FilterTargetWithCondition(condition, candidates, hero, ability);
+    const candidates = this.candidatesFor(ai, targetSide);
+    const filledCondition = this.fillRangeFromCastRange(condition, hero, ability);
+    return FilterTargetWithCondition(filledCondition, candidates, hero, ability);
   }
 
   /**
