@@ -12,6 +12,7 @@ export const SPECS: AbilitySpec[] = [
     condition: {
       self: {
         noEnemyHeroInRange: 300,
+        unitCondition: { manaPercent: { lte: 40 } },
       },
       target: {
         unitCondition: { manaPercent: { gte: 30 } },
@@ -23,7 +24,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyCreep,
     condition: {
       self: {
-        unitCondition: { manaPercent: { lte: 50 } },
+        unitCondition: { manaPercent: { lte: 60 } },
       },
       target: {
         unitCondition: { manaPercent: { gte: 50 } },

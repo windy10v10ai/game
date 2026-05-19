@@ -68,7 +68,17 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 3. **施法者条件**：例如"蓝量够才用"`self.unitCondition.manaPercent.gte: 50`，或"血量低才用某保命技能"。
 4. **技能等级 / 充能条件**：`ability.level.gte: 3`、`ability.charges.gte: 1`。
 5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff。
-6. **同名多条 spec**：若英雄/小兵 两种目标条件不同（如 Medusa 分裂箭），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+6. **跳过已被控目标**：`target.unitCondition.notActionable: true`，目标处于眩晕/变羊/噩梦/虚空大等硬控状态则跳过，对已被控的目标使用控制技能通常是浪费。
+7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
+8. **同名多条 spec**：若英雄/小兵 两种目标条件不同（如 Medusa 分裂箭），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+
+> **EnemyCreep 默认条件**（`CREEP_DEFAULT_CONDITION`，由 dispatcher 自动套用，无需在 spec 中重复写）：
+> - `self.unitCondition.manaPercent.gte: 50`
+> - `self.unitCondition.healthPercent.gte: 50`
+> - `ability.level.gte: 3`
+> - `self.noEnemyHeroInRange: 900`
+>
+> spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 50 }` 会替换默认的 `gte: 50`。
 
 > 现有条件结构见 [cast-condition.ts](src/vscripts/ai/action/cast-condition.ts) 的 `UnitCondition / AbilityCoindition / NumberRange`。
 
