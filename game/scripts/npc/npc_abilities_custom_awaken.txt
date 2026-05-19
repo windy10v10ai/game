@@ -75,7 +75,11 @@
 
 		"AbilityValues"
 		{
-			"radius"					"400"
+			"radius"
+			{
+				"value"						"350"	// 260
+				"affected_by_aoe_increase"	"1"
+			}
 			"damage"
 			{
 				"value"								"40 80 120 160 200"
