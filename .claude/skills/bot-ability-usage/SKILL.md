@@ -1,5 +1,5 @@
 ---
-name: write-ability-spec
+name: bot-ability-usage
 description: >-
   为指定 Dota 技能编写 bot AI 施法规则（AbilitySpec），让 bot 在合适时机自动施放该技能。
   无论是原版技能、自定义技能还是 lottery 抽到的技能，统一在 src/vscripts/ai/ability/specs/
