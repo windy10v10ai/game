@@ -117,6 +117,16 @@ export class Debug {
       });
     }
 
+    if (cmd === CMD.L) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        // 升级 加钱
+        hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
+        hero.AddExperience(5000, ModifyXpReason.UNSPECIFIED, false, true);
+      });
+    }
+
     if (cmd === CMD.L_ALL) {
       for (let i = 0; i < 30; i++) {
         Timers.CreateTimer(i * 3, () => {
