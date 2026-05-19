@@ -1,0 +1,24 @@
+import { AbilityRegistry } from '../ability-registry';
+import { SPECS as axeCullingBlade } from './axe_culling_blade';
+import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
+import { SPECS as omniknightPurification } from './omniknight_purification';
+
+/**
+ * 技能 AI spec 聚合注册入口。
+ *
+ * 一个技能一个文件，不区分原生/lottery —— 技能就是技能，spec 跟着技能走。
+ * 注册顺序即同一 tick 内多个技能可用时的尝试顺序：
+ *   - 同一英雄的多个有 spec 的技能，dispatcher 按 hero.GetAbilityByIndex 槽位顺序遍历，
+ *     spec 优先级实际由"该技能在该英雄上挂在第几槽"决定
+ *   - 同名技能多条 spec 仍按各 SPECS 数组内顺序逐条尝试
+ *
+ * 当未来 spec 之间出现真正需要"全局优先级"的取舍时，再扩展机制。当前保持简单。
+ */
+export function registerAbilitySpecs(): void {
+  // 治疗/护盾类（friendly target）
+  AbilityRegistry.registerAll(omniknightPurification);
+
+  // 高伤大招（enemy hero target）
+  AbilityRegistry.registerAll(lionFingerOfDeath);
+  AbilityRegistry.registerAll(axeCullingBlade);
+}

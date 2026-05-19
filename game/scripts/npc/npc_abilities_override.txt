@@ -583,7 +583,8 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"100 125 150 175"
-		"AbilityCastPoint"				"0.01"	// 0.3
+		"AbilityCastPoint"				"0.1"	// 0.3
+		"AbilityCastRange"				"250"	// 175
 		"AbilityValues"
 		{
 			"damage"
@@ -608,7 +609,7 @@
 	{
 		"AbilityValues"
 		{
-			"armor_pct_as_strength"			"200"	// 50 x4
+			"armor_pct_as_strength"			"150"	// 50 x4
 			"radius"					"0"	// 700
 		}
 	}

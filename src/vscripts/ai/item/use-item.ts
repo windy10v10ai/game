@@ -57,12 +57,12 @@ export class UseItem {
     if (enemys.length === 0) {
       return false;
     }
-    const enemy = enemys[0];
+    const _enemy = enemys[0];
 
-    // 血腥榴弹
-    if (ActionItem.UseItemOnTarget(hero, 'item_blood_grenade', enemy)) {
-      return true;
-    }
+    // 血腥榴弹 有bug施法会卡主
+    // if (ActionItem.UseItemOnTarget(hero, 'item_blood_grenade', enemy)) {
+    //   return true;
+    // }
     return false;
   }
 

@@ -1,3 +1,4 @@
+import { registerAbilitySpecs } from './ability/specs';
 import { BotBaseAIModifier } from './hero/bot-base';
 import { AbaddonAIModifier } from './hero/hero-abaddon';
 import { AxeAIModifier } from './hero/hero-axe';
@@ -20,6 +21,7 @@ export class AI {
   BotTeam: BotTeam | undefined;
   constructor() {
     this.FSA = new FSA();
+    registerAbilitySpecs();
   }
 
   public EnableAI(hero: CDOTA_BaseNPC_Hero) {

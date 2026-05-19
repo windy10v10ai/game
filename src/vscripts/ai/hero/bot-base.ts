@@ -1,4 +1,5 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
+import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
 import { ActionMove } from '../action/action-move';
@@ -48,14 +49,6 @@ export class BotBaseAIModifier extends BaseModifier {
   public gameTime: number = 0;
   public mode: ModeEnum = ModeEnum.LANING;
 
-  // 技能
-  protected ability_1: CDOTABaseAbility | undefined;
-  protected ability_2: CDOTABaseAbility | undefined;
-  protected ability_3: CDOTABaseAbility | undefined;
-  protected ability_4: CDOTABaseAbility | undefined;
-  protected ability_5: CDOTABaseAbility | undefined;
-  protected ability_utli: CDOTABaseAbility | undefined;
-
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
   }
@@ -77,6 +70,7 @@ export class BotBaseAIModifier extends BaseModifier {
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
+  public aroundFriendlyHeroes: CDOTA_BaseNPC[] = [];
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
@@ -222,6 +216,9 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionLaning(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -242,6 +239,9 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionAttack(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -262,6 +262,9 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionRetreat(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -307,6 +310,9 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionPush(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -499,30 +505,18 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
 
-    this.ability_1 = this.hero.GetAbilityByIndex(0);
-    this.ability_2 = this.hero.GetAbilityByIndex(1);
-    this.ability_3 = this.hero.GetAbilityByIndex(2);
-    this.ability_4 = this.hero.GetAbilityByIndex(3);
-    this.ability_5 = this.hero.GetAbilityByIndex(4);
-    this.ability_utli = this.hero.GetAbilityByIndex(5);
+    // 已下达但未完成的施法命令（含 cast point 阶段、命令下发到执行之间的间隙）也算施法中，
+    // 避免下个 tick 又下新命令打断自己。
+    // if (this.hero.GetCurrentActiveAbility() !== undefined) {
+    //   return true;
+    // }
 
-    if (this.ability_1 && this.ability_1.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_2 && this.ability_2.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_3 && this.ability_3.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_4 && this.ability_4.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_5 && this.ability_5.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_utli && this.ability_utli.IsInAbilityPhase()) {
-      return true;
+    const abilityCount = this.hero.GetAbilityCount();
+    for (let i = 0; i < abilityCount; i++) {
+      const ability = this.hero.GetAbilityByIndex(i);
+      if (ability && ability.IsInAbilityPhase()) {
+        return true;
+      }
     }
 
     return false;
@@ -544,6 +538,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.hero,
       this.FindRadius,
     );
+    this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
   }
 
   public FindNearestEnemyHero(): CDOTA_BaseNPC | undefined {
