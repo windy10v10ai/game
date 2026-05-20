@@ -39,7 +39,7 @@ export class AI {
     if (hero.GetUnitName() === 'npc_dota_hero_bounty_hunter') {
       return BountyHunterAIModifier.name;
     }
-if (hero.GetUnitName() === 'npc_dota_hero_viper') {
+    if (hero.GetUnitName() === 'npc_dota_hero_viper') {
       return ViperAIModifier.name;
     }
     if (hero.GetUnitName() === 'npc_dota_hero_luna') {
