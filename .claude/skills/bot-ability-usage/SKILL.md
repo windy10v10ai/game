@@ -51,8 +51,8 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 | KV 字段 | 用途 | 取值映射 |
 |---|---|---|
 | `AbilityBehavior` | 决定 cast 调用方式 | dispatcher 自动按 `UNIT_TARGET / POINT / AOE / NO_TARGET` 派发，**spec 不用关心** |
-| `AbilityUnitTargetTeam` | 决定 `TargetSide` | `ENEMY` → `EnemyHero/EnemyCreep`；`FRIENDLY` → `FriendlyHero`；技能仅作用施法者 → `Self` |
-| `AbilityUnitTargetType` | 当 team=ENEMY 时区分英雄/小兵 | 含 `HERO` 用 `EnemyHero`；仅 `BASIC/CREEP` 用 `EnemyCreep`；同时含两者并且语义合理时**注册多条 spec** |
+| `AbilityUnitTargetTeam` | 决定 `TargetSide` | `ENEMY` → `EnemyHero/EnemyCreep/EnemyBuilding`；`FRIENDLY` → `FriendlyHero`；技能仅作用施法者 → `Self` |
+| `AbilityUnitTargetType` | 当 team=ENEMY 时区分英雄/小兵/建筑 | 含 `HERO` 用 `EnemyHero`；仅 `BASIC/CREEP` 用 `EnemyCreep`；含 `BUILDING` 用 `EnemyBuilding`；同时含两者并且语义合理时**注册多条 spec** |
 | `AbilityCastRange` | 施法距离 | **dispatcher 会自动按 cast range + 施法距离加成过滤目标**，spec 通常**不要**手写 `range.lte` |
 
 如该技能是 `PASSIVE` 或纯 `NO_TARGET` 自身 buff 不需要选目标 → `TargetSide.Self`。
@@ -69,8 +69,9 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 4. **技能等级 / 充能条件**：`ability.level.gte: 3`、`ability.charges.gte: 1`。
 5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff。
 6. **跳过已被控目标**：`target.unitCondition.notActionable: true`，目标处于眩晕/变羊/噩梦/虚空大等硬控状态则跳过，对已被控的目标使用控制技能通常是浪费。
-7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
-8. **同名多条 spec**：若英雄/小兵 两种目标条件不同（如 Medusa 分裂箭），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵或建筑施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
+8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。
+9. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 
 > **EnemyCreep 默认条件**（`CREEP_DEFAULT_CONDITION`，由 dispatcher 自动套用，无需在 spec 中重复写）：
 > - `self.unitCondition.manaPercent.gte: 50`
@@ -103,7 +104,7 @@ import { AbilitySpec, TargetSide } from '../ability-spec';
 export const SPECS: AbilitySpec[] = [
   {
     abilityName: '<abilityName>',
-    targetSide: TargetSide.<EnemyHero | EnemyCreep | FriendlyHero | Self>,
+    targetSide: TargetSide.<EnemyHero | EnemyCreep | EnemyBuilding | FriendlyHero | Self>,
     condition: {
       target: {
         unitCondition: { healthPercent: { lte: 25 } },

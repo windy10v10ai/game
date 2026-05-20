@@ -1,6 +1,7 @@
 import {
   CastCoindition,
   CheckAbilityConditionFailure,
+  CheckNumberRangeFailure,
   CheckUnitConditionFailure,
   DeepMerge,
   FilterTargetWithCondition,
@@ -97,6 +98,25 @@ export class AbilityDispatcher {
       }
     }
 
+    const friendlyCreepNearby = condition?.self?.friendlyCreepNearby;
+    if (friendlyCreepNearby !== undefined) {
+      const range = friendlyCreepNearby.range ?? 900;
+      const creeps = FindUnitsInRadius(
+        hero.GetTeamNumber(),
+        hero.GetAbsOrigin(),
+        undefined,
+        range,
+        UnitTargetTeam.FRIENDLY,
+        UnitTargetType.BASIC,
+        UnitTargetFlags.NONE,
+        FindOrder.ANY,
+        false,
+      );
+      if (CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count)) {
+        return false;
+      }
+    }
+
     const target = this.pickTarget(ai, ability, spec.targetSide, condition);
     if (!target) {
       return false;
@@ -173,6 +193,9 @@ export class AbilityDispatcher {
     }
     if (side === TargetSide.EnemyCreep) {
       return ai.aroundEnemyCreeps;
+    }
+    if (side === TargetSide.EnemyBuilding) {
+      return ai.aroundEnemyBuildings;
     }
     if (side === TargetSide.FriendlyHero) {
       return ai.aroundFriendlyHeroes;

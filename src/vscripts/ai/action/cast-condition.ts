@@ -33,6 +33,14 @@ export interface CastCoindition {
      * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyHeroes 缓存）。
      */
     noEnemyHeroInRange?: number;
+    /**
+     * 要求 self 周围存在至少指定数量的友方小兵才施法。
+     * range 不填时默认 900。由 dispatcher 在 tryCast 层 inline FindUnitsInRadius 检查。
+     */
+    friendlyCreepNearby?: {
+      count?: NumberRange;
+      range?: number;
+    };
   };
   ability?: AbilityCoindition;
   action?: {
@@ -213,7 +221,7 @@ export function CheckAbilityConditionFailure(
   return false;
 }
 
-function CheckNumberRangeFailure(value: number, range?: NumberRange): boolean {
+export function CheckNumberRangeFailure(value: number, range?: NumberRange): boolean {
   if (range?.gte !== undefined && value < range.gte) {
     return true;
   }

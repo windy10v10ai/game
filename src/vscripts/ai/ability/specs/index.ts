@@ -7,6 +7,10 @@ import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
 import { SPECS as lionVoodoo } from './lion_voodoo';
 import { SPECS as omniknightPurification } from './omniknight_purification';
+import { SPECS as shadowShamanEtherShock } from './shadow_shaman_ether_shock';
+import { SPECS as shadowShamanMassSerpentWard } from './shadow_shaman_mass_serpent_ward';
+import { SPECS as shadowShamanShackles } from './shadow_shaman_shackles';
+import { SPECS as shadowShamanVoodoo } from './shadow_shaman_voodoo';
 
 /**
  * 技能 AI spec 聚合注册入口。
@@ -33,4 +37,10 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(axeBerserkerSCall);
   AbilityRegistry.registerAll(axeBattleHunger);
   AbilityRegistry.registerAll(axeCullingBlade);
+
+  // Shadow Shaman 暗影萨满
+  AbilityRegistry.registerAll(shadowShamanVoodoo);
+  AbilityRegistry.registerAll(shadowShamanEtherShock);
+  AbilityRegistry.registerAll(shadowShamanShackles);
+  AbilityRegistry.registerAll(shadowShamanMassSerpentWard);
 }
