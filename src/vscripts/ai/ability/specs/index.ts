@@ -10,6 +10,7 @@ import { SPECS as omniknightPurification } from './omniknight_purification';
 import { SPECS as shadowShamanEtherShock } from './shadow_shaman_ether_shock';
 import { SPECS as shadowShamanMassSerpentWard } from './shadow_shaman_mass_serpent_ward';
 import { SPECS as shadowShamanShackles } from './shadow_shaman_shackles';
+import { SPECS as shadowShamanUrnaconda } from './shadow_shaman_urnaconda';
 import { SPECS as shadowShamanVoodoo } from './shadow_shaman_voodoo';
 
 /**
@@ -42,5 +43,6 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(shadowShamanVoodoo);
   AbilityRegistry.registerAll(shadowShamanEtherShock);
   AbilityRegistry.registerAll(shadowShamanShackles);
+  AbilityRegistry.registerAll(shadowShamanUrnaconda);
   AbilityRegistry.registerAll(shadowShamanMassSerpentWard);
 }
