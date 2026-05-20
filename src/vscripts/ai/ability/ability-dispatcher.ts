@@ -128,9 +128,10 @@ export class AbilityDispatcher {
   }
 
   /**
-   * 当 spec 未显式指定 target.range.lte 时，自动补上技能的有效施法距离 ——
-   * 让大多数 spec 不必关心半径，dispatcher 用 KV 中的 AbilityCastRange + 施法距离加成。
-   * 仅在 spec 想要"超出施法距离也算合法目标"等特殊场景才需要显式覆盖。
+   * 当 spec 未显式指定 target.range.lte 时，自动补上技能的有效搜索距离：
+   * - 若 spec 设置了 target.rangeFromAbilityValue，则读取 ability.GetSpecialValueFor(key) 作为上限
+   *   （适用于 NO_TARGET AoE 技能，如 axe_berserkers_call，cast range = 0 但实际作用域由 KV AbilityValues 定义）
+   * - 否则使用 AbilityCastRange + 施法距离加成
    */
   private static fillRangeFromCastRange(
     condition: CastCoindition | undefined,
@@ -142,7 +143,10 @@ export class AbilityDispatcher {
       return condition!;
     }
     // 避免使用对象 spread —— TSTL 的 __TS__ObjectAssign 接到 nil 会崩。
-    const castRange = GetFullCastRange(hero, ability);
+    const specialValueKey = condition?.target?.rangeFromAbilityValue;
+    const castRange = specialValueKey
+      ? ability.GetSpecialValueFor(specialValueKey)
+      : GetFullCastRange(hero, ability);
     const range: NumberRange = { lte: castRange };
     if (existing?.gte !== undefined) {
       range.gte = existing.gte;

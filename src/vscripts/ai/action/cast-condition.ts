@@ -20,6 +20,11 @@ export interface CastCoindition {
      * 用途：美杜莎分裂箭等靠攻击生效的技能，KV 无 MAGIC_IMMUNE_ENEMIES 但攻击可命中魔免目标。
      */
     ignoresMagicImmune?: boolean;
+    /**
+     * 以技能的 AbilityValue 作为搜索半径上限，取代默认的 AbilityCastRange。
+     * 适用于 NO_TARGET AoE 技能（如 axe_berserkers_call），其施法距离为 0 但实际作用半径由 KV AbilityValues 定义。
+     */
+    rangeFromAbilityValue?: string;
   };
   self?: {
     unitCondition?: UnitCondition;

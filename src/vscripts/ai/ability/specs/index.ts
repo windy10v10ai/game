@@ -1,4 +1,6 @@
 import { AbilityRegistry } from '../ability-registry';
+import { SPECS as axeBattleHunger } from './axe_battle_hunger';
+import { SPECS as axeBerserkerSCall } from './axe_berserkers_call';
 import { SPECS as axeCullingBlade } from './axe_culling_blade';
 import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
 import { SPECS as lionImpale } from './lion_impale';
@@ -28,5 +30,7 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(lionFingerOfDeath);
 
   // Axe 斧王
+  AbilityRegistry.registerAll(axeBerserkerSCall);
+  AbilityRegistry.registerAll(axeBattleHunger);
   AbilityRegistry.registerAll(axeCullingBlade);
 }
