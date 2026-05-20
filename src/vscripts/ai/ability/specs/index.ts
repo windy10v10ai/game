@@ -40,8 +40,8 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(axeCullingBlade);
 
   // Shadow Shaman 暗影萨满
-  AbilityRegistry.registerAll(shadowShamanVoodoo);
   AbilityRegistry.registerAll(shadowShamanEtherShock);
+  AbilityRegistry.registerAll(shadowShamanVoodoo);
   AbilityRegistry.registerAll(shadowShamanShackles);
   AbilityRegistry.registerAll(shadowShamanUrnaconda);
   AbilityRegistry.registerAll(shadowShamanMassSerpentWard);
