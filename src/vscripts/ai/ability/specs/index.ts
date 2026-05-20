@@ -18,15 +18,15 @@ import { SPECS as omniknightPurification } from './omniknight_purification';
  * 当未来 spec 之间出现真正需要"全局优先级"的取舍时，再扩展机制。当前保持简单。
  */
 export function registerAbilitySpecs(): void {
-  // 治疗/护盾类（friendly target）
+  // Omniknight 全能骑士
   AbilityRegistry.registerAll(omniknightPurification);
 
-  // Lion 技能组
+  // Lion 莱恩
   AbilityRegistry.registerAll(lionVoodoo);
   AbilityRegistry.registerAll(lionImpale);
   AbilityRegistry.registerAll(lionManaDrain);
-
-  // 高伤大招（enemy hero target）
   AbilityRegistry.registerAll(lionFingerOfDeath);
+
+  // Axe 斧王
   AbilityRegistry.registerAll(axeCullingBlade);
 }
