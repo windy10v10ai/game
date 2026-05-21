@@ -113,6 +113,35 @@
 		"ending_status_1"				"游戏数据上传中，请勿结束游戏。"
 		"ending_status_2"				"游戏数据上传成功！"
 		"ending_status_3"				"很遗憾由于网络波动，游戏数据上传失败。请尝试更换服务器主机重新进行游戏。"
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Hero Debug Panel 英雄调试面板
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"SpawnUnits_ButtonCategory"					"召唤"
+		"EditUnits_ButtonCategory"					"编辑所选单位"
+		"Global_ButtonCategory"						"全局设置"
+		"AHD_SpawnToTeam_2"							"到队伍：1"
+		"AHD_SpawnToTeam_3"							"到队伍：2"
+		"DummyTarget_Button"						"+ 假人目标"
+		"LevelUpSelectedHeroes_Button"				"升级加钱"
+		"MaxLevelUpSelectedHeroes_Button"			"满级加钱"
+		"ScepterSelectedHeroes_Button"				"神杖"
+		"ShardSelectedHeroes_Button"				"魔晶"
+		"InvulnOn_Button"							"开启无敌"
+		"InvulnOff_Button"							"关闭无敌"
+		"Reset_Button"								"重置"
+		"RemoveSpawns_Button"						"移除"
+		"AddToUnit_Placeholder"						"输入物品/技能名"
+		"AddItem_Button"							"添加物品"
+		"AddAbility_Button"							"添加技能"
+		"FreeSpells_Button"							"免费技能"
+		"Refresh_Button"							"刷新"
+		"ToggleDayNight_Button"						"切换昼夜"
+		"PauseDemo_Button"							"暂停"
+		"QuitDemo_Button"							"退出"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel

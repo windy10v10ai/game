@@ -29,6 +29,7 @@ game/scripts/vscripts/api/
 game/scripts/vscripts/items/ts_items
 game/scripts/vscripts/modifiers/property
 game/scripts/vscripts/modifiers/global
+game/scripts/vscripts/modifiers/debug
 game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/

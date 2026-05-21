@@ -1,12 +1,19 @@
 import { ActionMove } from '../../ai/action/action-move';
 import { Player } from '../../api/player';
 import { PlayerPropertyApi } from '../../api/player-property';
+import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { GameConfig } from '../GameConfig';
 import { BotAbility } from '../helper/bot-ability';
 import { MemberHelper } from '../helper/member-helper';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+
+function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero): boolean {
+  // 调试面板生成的英雄需停留在指定位置，出生点重置逻辑应跳过它（其余 bot 流程照常）。
+  return hero.HasModifier(modifier_debug_manual_control.name);
+}
+
 export class EventNpcSpawned {
   private roshanLevelBase = 1;
   private isFirstRoshan = true;
@@ -60,6 +67,11 @@ export class EventNpcSpawned {
 
   // 设置英雄出生点，DebugCreateHeroWithVariant创造的 bot出生点在地图中央，需要移动到泉水
   private SetHeroSpawnPoint(hero: CDOTA_BaseNPC_Hero): void {
+    // 调试面板生成的英雄应停留在用户指定位置，不能被自动拉回基地。
+    if (IsHeroDemoDebugHero(hero)) {
+      return;
+    }
+
     if (PlayerHelper.IsHumanPlayer(hero)) {
       //print(`[EventNpcSpawned] SetHeroSpawnPoint human player ${hero.GetName()}`);
       return;
@@ -81,6 +93,11 @@ export class EventNpcSpawned {
     hero.SetAbsOrigin(pos);
 
     Timers.CreateTimer(0.1, () => {
+      // DebugCreateUnit 回调可能晚于 npc_spawned，因此重试基地落点前需要再次检查调试标记。
+      if (IsHeroDemoDebugHero(hero)) {
+        return;
+      }
+
       // 检验英雄是否在基地，否则重新设置
       const posBase =
         hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;

@@ -8,6 +8,7 @@ import { PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
 import { Debug } from './debug/Debug';
+import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
 import { Event } from './event/event';
 import { GoldXPFilter } from './filter/gold-xp-filter';
 import { Lottery } from './lottery/lottery';
@@ -37,6 +38,9 @@ export function ActivateModules() {
   if (GameRules.GameConfig == null) {
     // 如果某个模块不需要在其他地方使用，那么直接在这里使用即可
     new Debug();
+
+    // 英雄调试面板，内部自带 IsInToolsMode 守卫，正式环境不注册任何监听
+    new HeroDebugPanel();
 
     new PropertyController();
 
