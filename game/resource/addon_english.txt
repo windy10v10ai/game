@@ -113,6 +113,40 @@
 		"ending_status_1"				"Please do not end the game while game data is uploading."
 		"ending_status_2"				"Game data uploaded successfully!"
 		"ending_status_3"				"Game data upload failed! This could be because cheats were enabled, or the game was not on a dedicated server."
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Hero Debug Panel
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"SpawnUnits_ButtonCategory"					"Spawn"
+		"EditUnits_ButtonCategory"					"Edit Selected Units"
+		"Global_ButtonCategory"						"Global"
+		"AHD_SpawnToTeam_2"							"To Team: 1"
+		"AHD_SpawnToTeam_3"							"To Team: 2"
+		"AHD_SpawnToTeam_6"							"To Team: 3"
+		"AHD_SpawnToTeam_7"							"To Team: 4"
+		"AHD_SpawnToTeam_8"							"To Team: 5"
+		"AHD_SpawnToTeam_9"							"To Team: 6"
+		"AHD_SpawnToTeam_10"						"To Team: 7"
+		"AHD_SpawnToTeam_11"						"To Team: 8"
+		"AHD_SpawnToTeam_12"						"To Team: 9"
+		"AHD_SpawnToTeam_13"						"To Team: 10"
+		"DummyTarget_Button"						"+ Dummy Target"
+		"LevelUpSelectedHeroes_Button"				"Level Up"
+		"MaxLevelUpSelectedHeroes_Button"			"Max Level"
+		"ScepterSelectedHeroes_Button"				"Scepter"
+		"ShardSelectedHeroes_Button"				"Shard"
+		"InvulnOn_Button"							"Invuln On"
+		"InvulnOff_Button"							"Invuln Off"
+		"Reset_Button"								"Reset"
+		"RemoveSpawns_Button"						"Remove"
+		"FreeSpells_Button"							"Free Spells"
+		"Refresh_Button"							"Refresh"
+		"ToggleDayNight_Button"						"Toggle Day/Night"
+		"PauseDemo_Button"							"Pause"
+		"QuitDemo_Button"							"Quit"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel

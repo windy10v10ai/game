@@ -1,6 +1,7 @@
 import { ActionMove } from '../../ai/action/action-move';
 import { Player } from '../../api/player';
 import { PlayerPropertyApi } from '../../api/player-property';
+import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { GameConfig } from '../GameConfig';
 import { BotAbility } from '../helper/bot-ability';
@@ -8,14 +9,9 @@ import { MemberHelper } from '../helper/member-helper';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 
-// Lua 英雄调试面板创建手动控制英雄时会写入这个全局标记表。
-const global = globalThis as typeof globalThis & {
-  HeroDemoDebugSpawnedHeroes?: Record<number, true>;
-};
-
-function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero | undefined): boolean {
+function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero): boolean {
   // 调试面板生成的英雄由调试玩家手动控制，常规 bot 出生和 AI 初始化逻辑必须跳过。
-  return hero !== undefined && global.HeroDemoDebugSpawnedHeroes?.[hero.GetEntityIndex()] === true;
+  return hero.HasModifier(modifier_debug_manual_control.name);
 }
 
 export class EventNpcSpawned {
@@ -132,7 +128,7 @@ export class EventNpcSpawned {
 
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
-    // 调试面板英雄由 eyeherodemo/demo_core.lua 单独配置，跳过常规出生 buff 和 bot AI 初始化。
+    // 调试面板英雄由 HeroDebugPanel 单独配置，跳过常规出生 buff 和 bot AI 初始化。
     if (IsHeroDemoDebugHero(hero)) {
       return;
     }

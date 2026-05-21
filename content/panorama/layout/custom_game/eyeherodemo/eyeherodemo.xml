@@ -1,4 +1,3 @@
-<!-- xml reconstructed by Source 2 Viewer 19.1.0.0 - https://valveresourceformat.github.io -->
 <root>
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
@@ -145,7 +144,7 @@
 						</Panel>
 						<Panel class="Row">
 							<ToggleButton id="ToggleDayNight" class="DemoToggleButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( ToggleDayNight )">
-								<Label text="Toggle Day Night" />
+								<Label text="#ToggleDayNight_Button" />
 							</ToggleButton>
 						</Panel>
 					</Panel>

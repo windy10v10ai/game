@@ -1,421 +1,171 @@
-function Init()
-{
-    var contextPanel = $.GetContextPanel();
-    var parent = contextPanel.GetParent();
-    var customRoot = parent.GetParent();
-    var hudRoot = customRoot && customRoot.GetParent() ? customRoot.GetParent().FindChild( 'HUDElements' ) : null;
-    var menuButtons = hudRoot ? hudRoot.FindChild( 'MenuButtons' ) : null;
-	if ( menuButtons )
-	{
-		menuButtons.AddClass( "HeroDemo" );
-	}
+'use strict';
 
-	$.RegisterEventHandler( 'DOTAUIHeroPickerHeroSelected', $( '#SelectHeroContainer' ), SwitchToNewHero );
+function GetLocalPlayerID() {
+  return Game.GetLocalPlayerID();
+}
 
-    var UiDefaults = CustomNetTables.GetTableValue( "game_global", "ui_defaults" );
+function GetSelectedEntities() {
+  return Players.GetSelectedEntities(GetLocalPlayerID());
+}
 
-    if( UiDefaults )
-    {
-		$( '#FreeSpellsButton' ).SetSelected( UiDefaults["WTFEnabled"] == 1 );
-		//$( '#SpawnCreepsButton' ).SetSelected( UiDefaults["SpawnCreepsEnabled"] );
-		//$( '#TowersEnabledButton' ).SetSelected( UiDefaults["TowersEnabled"] );
+// 对所有选中单位逐个派发同名按钮事件，payload 为 entindex。
+function DispatchForSelectedEntities(eventName) {
+  var entities = GetSelectedEntities();
+  var numEntities = Object.keys(entities).length;
+  var dispatched = false;
+
+  for (var i = 0; i < numEntities; i++) {
+    var entindex = entities[i];
+    if (entindex === -1) {
+      continue;
     }
+    dispatched = true;
+    $.DispatchEvent('FireCustomGameEvent_Str', eventName, String(entindex));
+  }
 
-	$.DispatchEvent( 'FireCustomGameEvent_Str', 'RequestInitialSpawnHeroID', null );
-
-	$.Msg($.GetContextPanel());
-}
-Init();
-
-function GetLocalPlayerID()
-{
-	return Game.GetLocalPlayerID();
+  Game.EmitSound(dispatched ? 'UI.Button.Pressed' : 'General.Cancel');
 }
 
-function GetSelectedEntities()
-{
-	return Players.GetSelectedEntities( GetLocalPlayerID() );
+function Init() {
+  $.RegisterEventHandler(
+    'DOTAUIHeroPickerHeroSelected',
+    $('#SelectHeroContainer'),
+    SwitchToNewHero,
+  );
+  $.DispatchEvent('FireCustomGameEvent_Str', 'RequestInitialSpawnHeroID', null);
 }
 
 var bHeroPickerVisible = false;
 
-function ToggleHeroPicker( bMainHero )
-{
-	Game.EmitSound( "UI.Button.Pressed" );
-
-	$( '#SelectHeroContainer' ).SetHasClass( 'PickMainHero', bMainHero );
-
-	SetHeroPickerVisible( !bHeroPickerVisible );
+function ToggleHeroPicker(bMainHero) {
+  Game.EmitSound('UI.Button.Pressed');
+  $('#SelectHeroContainer').SetHasClass('PickMainHero', bMainHero);
+  SetHeroPickerVisible(!bHeroPickerVisible);
 }
 
-function EscapeHeroPickerSearch()
-{
-	//if ( $( "#SelectHeroContainer" ).FindChildTraverse( "HeroSearchTextEntry" ).BHasKeyFocus() )
-	//{
-	//	$( "#SelectHeroContainer" ).SetFocus();
-	//}
-	//else
-	//{
-		SetHeroPickerVisible( false );
-	//}
+function EscapeHeroPickerSearch() {
+  SetHeroPickerVisible(false);
 }
 
-function CloseHeroPicker()
-{
-	SetHeroPickerVisible( false );
+function CloseHeroPicker() {
+  SetHeroPickerVisible(false);
 }
 
-function SetHeroPickerVisible( bVisible )
-{
-	if ( bHeroPickerVisible )
-	{
-		if ( !bVisible )
-		{
-			$( '#SelectHeroContainer' ).RemoveClass( 'HeroPickerVisible' );
-			$( "#SelectHeroContainer" ).FindChildTraverse( "HeroSearchTextEntry" ).text = "";
-		}
-	}
-	else
-	{
-		if ( bVisible )
-		{
-			$( '#SelectHeroContainer' ).AddClass( 'HeroPickerVisible' );
-			$( "#SelectHeroContainer" ).FindChildTraverse( "HeroSearchTextEntry" ).SetFocus();
-		}
-	}
-	bHeroPickerVisible = bVisible;
+function SetHeroPickerVisible(bVisible) {
+  if (bHeroPickerVisible && !bVisible) {
+    $('#SelectHeroContainer').RemoveClass('HeroPickerVisible');
+    $('#SelectHeroContainer').FindChildTraverse('HeroSearchTextEntry').text = '';
+  } else if (!bHeroPickerVisible && bVisible) {
+    $('#SelectHeroContainer').AddClass('HeroPickerVisible');
+    $('#SelectHeroContainer').FindChildTraverse('HeroSearchTextEntry').SetFocus();
+  }
+  bHeroPickerVisible = bVisible;
 }
 
-function SwitchToNewHero( nHeroID )
-{
-	Game.EmitSound( "UI.Button.Pressed" );
+function SwitchToNewHero(nHeroID) {
+  Game.EmitSound('UI.Button.Pressed');
 
-	$.Msg( 'Hero = ' + nHeroID );
+  if ($('#SelectHeroContainer').BHasClass('PickMainHero')) {
+    $.DispatchEvent('FireCustomGameEvent_Str', 'SelectMainHeroButtonPressed', String(nHeroID));
+  } else {
+    $.DispatchEvent('FireCustomGameEvent_Str', 'SelectSpawnHeroButtonPressed', String(nHeroID));
+  }
 
-	if ( $( '#SelectHeroContainer' ).BHasClass( 'PickMainHero' ) )
-	{
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'SelectMainHeroButtonPressed', String( nHeroID ) );
-	}
-	else
-	{
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'SelectSpawnHeroButtonPressed', String( nHeroID ) );
-	}
-
-	$( '#SelectHeroContainer' ).RemoveClass( 'PickMainHero' );
-
-	SetHeroPickerVisible( false );
+  $('#SelectHeroContainer').RemoveClass('PickMainHero');
+  SetHeroPickerVisible(false);
 }
 
-function OnSetPlayerHeroID( event_data )
-{
-	$.Msg( "OnSetPlayerHeroID: ", event_data );
+function OnSetSpawnHeroID(event_data) {
+  var heroPickerImage = $('#HeroPickerImage');
+  if (heroPickerImage != null) {
+    heroPickerImage.heroid = event_data.hero_id;
+  }
 
-	var HeroDemoButton = $( '#HeroDemoHeroName' );
-	if ( HeroDemoButton != null )
-	{
-		var heroName = Players.GetPlayerSelectedHero( GetLocalPlayerID() );
-		$.Msg( 'HERO NAME = ' + heroName );
-		HeroDemoButton.SetDialogVariable( "hero_name", $.Localize( '#'+heroName ) );
-	}
+  var spawnHeroButton = $('#SpawnHeroButton');
+  if (spawnHeroButton != null) {
+    spawnHeroButton.SetDialogVariable('hero_name', $.Localize('#' + event_data.hero_name));
+  }
 }
-GameEvents.Subscribe( "set_player_hero_id", OnSetPlayerHeroID );
+GameEvents.Subscribe('set_spawn_hero_id', OnSetSpawnHeroID);
 
-function OnSetMainHeroID( event_data )
-{
-	$.Msg( "OnSetMainHeroID: ", event_data );
+function RemoveSelectedHeroes() {
+  var entities = GetSelectedEntities();
+  var numEntities = Object.keys(entities).length;
+  var dispatched = false;
 
-	$.DispatchEvent( "DOTADemoHeroEquippedItems", event_data.hero_name );
-}
-GameEvents.Subscribe( "set_main_hero_id", OnSetMainHeroID );
+  for (var i = 0; i < numEntities; i++) {
+    var entindex = entities[i];
+    if (entindex === -1) {
+      continue;
+    }
+    // 不删除本地玩家自己的英雄
+    if (
+      Entities.GetPlayerOwnerID(entindex) === GetLocalPlayerID() &&
+      Entities.IsRealHero(entindex)
+    ) {
+      continue;
+    }
+    dispatched = true;
+    $.DispatchEvent('FireCustomGameEvent_Str', 'RemoveHeroButtonPressed', String(entindex));
+  }
 
-function OnSetSpawnHeroID( event_data )
-{
-	$.Msg( "OnSetSpawnHeroID: ", event_data );
-	var HeroPickerImage = $( '#HeroPickerImage' );
-	if ( HeroPickerImage != null )
-	{
-		HeroPickerImage.heroid = event_data.hero_id;
-	}
-
-	var SpawnHeroButton = $( '#SpawnHeroButton' );
-	if ( SpawnHeroButton != null )
-	{
-		$.Msg( 'HERO NAME = ' + event_data.hero_name );
-		SpawnHeroButton.SetDialogVariable( "hero_name", $.Localize( '#'+event_data.hero_name ) );
-	}
-}
-GameEvents.Subscribe( "set_spawn_hero_id", OnSetSpawnHeroID );
-
-function ToggleCategoryVisibility( str )
-{
-    //$.Msg( "^^^ToggleCategoryVisibility() - " + str )
-    $( str ).ToggleClass( 'CollapseCategory' )
+  Game.EmitSound(dispatched ? 'UI.Button.Pressed' : 'General.Cancel');
 }
 
-
-function OnAddNewHeroEntry( event_data )
-{
-	$.Msg( "OnAddNewHeroEntry: ", event_data );
-
-	// disabling experiment to add the spawned hero to your selection set
-	//GameUI.SelectUnit( event_data.entindex, true );
-}
-GameEvents.Subscribe( "add_new_hero_entry", OnAddNewHeroEntry );
-
-function RemoveSelectedHeroes()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-	var bDeletionAttempted = false;
-    for ( var i = 0; i < numEntities; i++ )
-    {
-        var entindex = entities[ i ];
-        if ( entindex == -1 )
-            continue;
-
-		var PlayerOwnerID = Entities.GetPlayerOwnerID( entindex );
-		var bIsRealHero = Entities.IsRealHero( entindex );
-		if ( PlayerOwnerID == GetLocalPlayerID() && bIsRealHero )
-		{
-			$.Msg( 'Skipping ent! ' + entindex );
-			continue;	// don't delete the player!
-		}
-
-		bDeletionAttempted = true;
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'RemoveHeroButtonPressed', String( entindex ) );
-	}
-
-	if ( bDeletionAttempted )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
-	else
-	{
-		Game.EmitSound( "General.Cancel" );
-	}
+function ToggleInvulnerability() {
+  DispatchForSelectedEntities('ToggleInvulnerabilityHero');
 }
 
-function ToggleInvulnerability()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-    for ( var i = 0; i < numEntities; i++ )
-    {
-        var entindex = entities[ i ];
-        if ( entindex == -1 )
-            continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'ToggleInvulnerabilityHero', String( entindex ) );
-	}
+function InvulnerableOn() {
+  DispatchForSelectedEntities('InvulnOnHero');
 }
 
-function InvulnerableOn()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-	for ( var i = 0; i < numEntities; i++ )
-	{
-		var entindex = entities[i];
-		if ( entindex == -1 )
-			continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'InvulnOnHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+function InvulnerableOff() {
+  DispatchForSelectedEntities('InvulnOffHero');
 }
 
-function InvulnerableOff()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-	for ( var i = 0; i < numEntities; i++ )
-	{
-		var entindex = entities[i];
-		if ( entindex == -1 )
-			continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'InvulnOffHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+function LevelUpSelectedHeroes() {
+  DispatchForSelectedEntities('LevelUpHero');
 }
 
-function LevelUpSelectedHeroes()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-    for ( var i = 0; i < numEntities; i++ )
-    {
-        var entindex = entities[ i ];
-        if ( entindex == -1 )
-            continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'LevelUpHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+function MaxLevelUpSelectedHeroes() {
+  DispatchForSelectedEntities('MaxLevelUpHero');
 }
 
-function MaxLevelUpSelectedHeroes()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-    for ( var i = 0; i < numEntities; i++ )
-    {
-        var entindex = entities[ i ];
-        if ( entindex == -1 )
-            continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'MaxLevelUpHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+function ResetSelectedHeroes() {
+  DispatchForSelectedEntities('ResetHero');
 }
 
-function ResetSelectedHeroes()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-	for ( var i = 0; i < numEntities; i++ )
-	{
-		var entindex = entities[i];
-		if ( entindex == -1 )
-			continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'ResetHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+function ShardSelectedHeroes() {
+  DispatchForSelectedEntities('ShardHero');
 }
 
-function ShardSelectedHeroes()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-    for ( var i = 0; i < numEntities; i++ )
-    {
-        var entindex = entities[ i ];
-        if ( entindex == -1 )
-            continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'ShardHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+function ScepterSelectedHeroes() {
+  DispatchForSelectedEntities('ScepterHero');
 }
 
-function ScepterSelectedHeroes()
-{
-	var entities = GetSelectedEntities();
-	$.Msg( "Entities = " + entities );
-
-	var numEntities = Object.keys( entities ).length;
-	$.Msg( "Num entities = " + numEntities );
-
-    for ( var i = 0; i < numEntities; i++ )
-    {
-        var entindex = entities[ i ];
-        if ( entindex == -1 )
-            continue;
-
-		$.DispatchEvent( 'FireCustomGameEvent_Str', 'ScepterHero', String( entindex ) );
-	}
-
-	if ( numEntities > 0 )
-	{
-		Game.EmitSound( "UI.Button.Pressed" );
-	}
+function MouseOverRune(strRuneID, strRuneTooltip) {
+  var runePanel = $('#' + strRuneID);
+  runePanel.StartAnimating();
+  $.DispatchEvent('UIShowTextTooltip', runePanel, strRuneTooltip);
 }
 
-function ToggleHeroActive()
-{
-	$.Msg( 'ToggleHeroActive()' )
+function MouseOutRune(strRuneID) {
+  var runePanel = $('#' + strRuneID);
+  runePanel.StopAnimating();
+  $.DispatchEvent('UIHideTextTooltip', runePanel);
 }
 
-function MouseOverRune( strRuneID, strRuneTooltip )
-{
-	var runePanel = $( '#' + strRuneID );
-	runePanel.StartAnimating();
-	$.DispatchEvent( 'UIShowTextTooltip', runePanel, strRuneTooltip );
+function SlideThumbActivate() {
+  var slideThumb = $.GetContextPanel();
+  Game.EmitSound(
+    slideThumb.BHasClass('Minimized') ? 'ui_settings_slide_out' : 'ui_settings_slide_in',
+  );
+  slideThumb.ToggleClass('Minimized');
 }
 
-function MouseOutRune( strRuneID )
-{
-	var runePanel = $( '#' + strRuneID );
-	runePanel.StopAnimating();
-	$.DispatchEvent( 'UIHideTextTooltip', runePanel );
+function SpawnToTeam(iTeamNumber) {
+  $.DispatchEvent('FireCustomGameEvent_Str', 'SpawnToTeamButtonPressed', String(iTeamNumber));
 }
 
-function SlideThumbActivate()
-{
-	var slideThumb = $.GetContextPanel();
-	var bMinimized = slideThumb.BHasClass( 'Minimized' );
-
-	if ( bMinimized )
-	{
-		Game.EmitSound( "ui_settings_slide_out" );
-	}
-	else
-	{
-		Game.EmitSound( "ui_settings_slide_in" );
-	}
-
-	slideThumb.ToggleClass( 'Minimized' );
-}
-
-
-function SpawnToTeam(iTeamNumber)
-{
-	$.DispatchEvent( 'FireCustomGameEvent_Str', 'SpawnToTeamButtonPressed', String(iTeamNumber) );
-}
+Init();

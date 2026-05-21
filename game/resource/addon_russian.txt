@@ -77,6 +77,40 @@
 		"ending_status_1"				"Пожалуйста, не завершайте игру во время загрузки игровых данных."
 		"ending_status_2"				"Игровые данные успешно загружены!"
 		"ending_status_3"				"Ошибка загрузки игровых данных! Возможные причины: включены читы или игра запущена на локальном сервере."
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Hero Debug Panel
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"SpawnUnits_ButtonCategory"					"Создать"
+		"EditUnits_ButtonCategory"					"Редактировать выбранных"
+		"Global_ButtonCategory"						"Глобально"
+		"AHD_SpawnToTeam_2"							"В команду: 1"
+		"AHD_SpawnToTeam_3"							"В команду: 2"
+		"AHD_SpawnToTeam_6"							"В команду: 3"
+		"AHD_SpawnToTeam_7"							"В команду: 4"
+		"AHD_SpawnToTeam_8"							"В команду: 5"
+		"AHD_SpawnToTeam_9"							"В команду: 6"
+		"AHD_SpawnToTeam_10"						"В команду: 7"
+		"AHD_SpawnToTeam_11"						"В команду: 8"
+		"AHD_SpawnToTeam_12"						"В команду: 9"
+		"AHD_SpawnToTeam_13"						"В команду: 10"
+		"DummyTarget_Button"						"+ Манекен"
+		"LevelUpSelectedHeroes_Button"				"Повысить уровень"
+		"MaxLevelUpSelectedHeroes_Button"			"Макс. уровень"
+		"ScepterSelectedHeroes_Button"				"Аганим"
+		"ShardSelectedHeroes_Button"				"Осколок"
+		"InvulnOn_Button"							"Неуязвимость вкл."
+		"InvulnOff_Button"							"Неуязвимость выкл."
+		"Reset_Button"								"Сбросить"
+		"RemoveSpawns_Button"						"Удалить"
+		"FreeSpells_Button"							"Бесплатные заклинания"
+		"Refresh_Button"							"Обновить"
+		"ToggleDayNight_Button"						"День/Ночь"
+		"PauseDemo_Button"							"Пауза"
+		"QuitDemo_Button"							"Выход"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
