@@ -29,38 +29,6 @@
 								<Label text="#AHD_SpawnToTeam_3" />
 							</Button>
 						</Panel>
-						<Panel class="Row">
-							<Button id="SpawnToTeamButton6" class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(6)">
-								<Label text="#AHD_SpawnToTeam_6" />
-							</Button>
-							<Button id="SpawnToTeamButton7" class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(7)">
-								<Label text="#AHD_SpawnToTeam_7" />
-							</Button>
-						</Panel>
-						<Panel class="Row">
-							<Button id="SpawnToTeamButton8" class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(8)">
-								<Label text="#AHD_SpawnToTeam_8" />
-							</Button>
-							<Button id="SpawnToTeamButton9" class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(9)">
-								<Label text="#AHD_SpawnToTeam_9" />
-							</Button>
-						</Panel>
-						<Panel class="Row">
-							<Button id="SpawnToTeamButton10" class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(10)">
-								<Label text="#AHD_SpawnToTeam_10" />
-							</Button>
-							<Button id="SpawnToTeamButton11" class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(11)">
-								<Label text="#AHD_SpawnToTeam_11" />
-							</Button>
-						</Panel>
-						<Panel class="Row">
-							<Button id="SpawnToTeamButton12" class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(12)">
-								<Label text="#AHD_SpawnToTeam_12" />
-							</Button>
-							<Button id="SpawnToTeamButton13" class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="SpawnToTeam(13)">
-								<Label text="#AHD_SpawnToTeam_13" />
-							</Button>
-						</Panel>
 						<Panel class="HorizontalRule" />
 						<Panel class="Row">
 							<Button class="DemoButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( DummyTargetButtonPressed )">

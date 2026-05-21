@@ -220,10 +220,39 @@ export class HeroDebugPanel {
     }
   }
 
+  // 重置选中单位：满血满魔、清除冷却与负面状态。
+  // 注意：调试生成的英雄与操作者共享 PlayerID，不能用 ReplaceHeroWithNoTransfer
+  // （那会按 PlayerID 替换，误伤操作者自己的主英雄），必须直接对英雄实体操作。
   private resetHero(hero: CDOTA_BaseNPC_Hero): void {
-    GameRules.SetSpeechUseSpawnInsteadOfRespawnConcept(true);
-    PlayerResource.ReplaceHeroWithNoTransfer(hero.GetPlayerOwnerID(), hero.GetUnitName(), -1, 0);
-    GameRules.SetSpeechUseSpawnInsteadOfRespawnConcept(false);
+    hero.SetHealth(hero.GetMaxHealth());
+    hero.GiveMana(hero.GetMaxMana());
+
+    for (const modifier of hero.FindAllModifiers()) {
+      const modifierName = modifier.GetName();
+      // 保留调试面板自身挂的标记/无敌 modifier
+      if (
+        modifierName === modifier_debug_manual_control.name ||
+        modifierName === modifier_debug_invulnerable.name
+      ) {
+        continue;
+      }
+      if (modifier.GetDuration() > 0) {
+        hero.RemoveModifierByName(modifierName);
+      }
+    }
+
+    for (let i = 0; i < DOTA_MAX_ABILITIES; i++) {
+      const ability = hero.GetAbilityByIndex(i);
+      if (ability) {
+        ability.EndCooldown();
+      }
+    }
+    for (let slot = 0; slot < 9; slot++) {
+      const item = hero.GetItemInSlot(slot);
+      if (item) {
+        item.EndCooldown();
+      }
+    }
   }
 
   private setInvulnerable(hero: CDOTA_BaseNPC_Hero, invulnerable: boolean): void {
@@ -252,13 +281,10 @@ export class HeroDebugPanel {
       return;
     }
 
-    const owner = hero.GetPlayerOwner();
-    if (owner && hero.GetPlayerOwnerID() !== 0) {
-      GameRules.ResetPlayer(hero.GetPlayerID());
-      DisconnectClient(hero.GetPlayerID(), true);
-    } else {
-      hero.Destroy();
-    }
+    // 调试面板生成的英雄都是 DebugCreateUnit 创建的额外单位，直接销毁实体即可。
+    // 不能用 ResetPlayer/DisconnectClient：调试英雄与操作者共享 PlayerID，
+    // 那会把操作者本人踢出游戏。
+    hero.Destroy();
     CustomGameEventManager.Send_ServerToAllClients<{ entindex: number }>('remove_hero_entry', {
       entindex: entIndex,
     });
