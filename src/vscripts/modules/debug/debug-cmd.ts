@@ -10,7 +10,6 @@ export enum CMD {
 
   KILL = '-k',
   KILL_ALL = '-kall',
-  SHARD = '-shard', // 给自己碎片
   G = '-g', // 加钱升级
   G_ALL = '-gall', // 所有人升级加钱
   L = '-l', // 所有人略微升级加钱
