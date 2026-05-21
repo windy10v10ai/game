@@ -1047,7 +1047,7 @@
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>剑刃风暴-觉醒"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力100%%的魔法伤害。期间获得减益免疫和80%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力%attack_damage_pct%%%的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
