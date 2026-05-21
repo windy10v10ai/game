@@ -51,7 +51,7 @@ export class HeroDebugPanel {
     this.onStr('RequestInitialSpawnHeroID', () => this.sendSpawnHeroId(DEFAULT_SPAWN_HERO_ID));
 
     // 编辑所选单位（payload.str 为目标 entindex）
-    this.onStr('LevelUpHero', (e) => this.withHero(e, (h) => h.HeroLevelUp(true)));
+    this.onStr('LevelUpHero', (e) => this.withHero(e, (h) => this.levelUpHero(h)));
     this.onStr('MaxLevelUpHero', (e) => this.withHero(e, (h) => this.maxLevelHero(h)));
     this.onStr('ScepterHero', (e) => this.withHero(e, (h) => this.grantScepter(h)));
     this.onStr('ShardHero', (e) => this.withHero(e, (h) => this.grantShard(h)));
@@ -214,7 +214,13 @@ export class HeroDebugPanel {
   // 编辑所选单位
   // -------------------------------------------------------------------------
 
+  private levelUpHero(hero: CDOTA_BaseNPC_Hero): void {
+    hero.HeroLevelUp(true);
+    hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
+  }
+
   private maxLevelHero(hero: CDOTA_BaseNPC_Hero): void {
+    hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
     hero.AddExperience(59900, ModifyXpReason.UNSPECIFIED, false, false);
     for (let i = 0; i < DOTA_MAX_ABILITIES; i++) {
       const ability = hero.GetAbilityByIndex(i);
