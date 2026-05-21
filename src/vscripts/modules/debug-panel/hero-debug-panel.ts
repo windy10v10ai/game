@@ -37,7 +37,6 @@ export class HeroDebugPanel {
 
     ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
     ListenToGameEvent('dota_on_hero_finish_spawn', (keys) => this.onHeroFinishSpawn(keys), this);
-    ListenToGameEvent('dota_item_purchased', (keys) => this.onItemPurchased(keys), this);
   }
 
   private registerButtonListeners(): void {
@@ -222,7 +221,8 @@ export class HeroDebugPanel {
   private maxLevelHero(hero: CDOTA_BaseNPC_Hero): void {
     hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
     hero.AddExperience(59900, ModifyXpReason.UNSPECIFIED, false, false);
-    for (let i = 0; i < DOTA_MAX_ABILITIES; i++) {
+    const abilityCount = hero.GetAbilityCount();
+    for (let i = 0; i < abilityCount; i++) {
       const ability = hero.GetAbilityByIndex(i);
       if (ability && !ability.IsAttributeBonus()) {
         while (
@@ -411,14 +411,6 @@ export class HeroDebugPanel {
       CustomGameEventManager.Send_ServerToAllClients<{ entindex: number }>('add_new_hero_entry', {
         entindex: keys.entindex,
       });
-    }
-  }
-
-  private onItemPurchased(keys: GameEventProvidedProperties & DotaItemPurchasedEvent): void {
-    const hero = this.getSelectedHero(keys.PlayerID);
-    if (hero) {
-      // 调试模式下返还购买金额
-      hero.ModifyGold(keys.itemcost, true, ModifyGoldReason.UNSPECIFIED);
     }
   }
 }
