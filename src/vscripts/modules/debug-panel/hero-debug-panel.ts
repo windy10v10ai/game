@@ -254,9 +254,7 @@ export class HeroDebugPanel {
     if (name === undefined || name === '') {
       return;
     }
-    const hero = EntIndexToHScript(event.entindex as EntityIndex) as
-      | CDOTA_BaseNPC_Hero
-      | undefined;
+    const hero = EntIndexToHScript(event.entindex as EntityIndex) as CDOTA_BaseNPC_Hero | undefined;
     if (!hero || hero.IsNull() || !hero.IsHero()) {
       return;
     }
