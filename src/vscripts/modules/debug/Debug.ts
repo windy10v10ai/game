@@ -91,12 +91,6 @@ export class Debug {
       });
     }
 
-    if (cmd === CMD.SHARD) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      hero.AddItemByName('item_aghanims_shard');
-    }
-
     if (cmd === CMD.G) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
