@@ -2,6 +2,9 @@ import { AbilityRegistry } from '../ability-registry';
 import { SPECS as axeBattleHunger } from './axe_battle_hunger';
 import { SPECS as axeBerserkerSCall } from './axe_berserkers_call';
 import { SPECS as axeCullingBlade } from './axe_culling_blade';
+import { SPECS as dragonKnightBreatheFire } from './dragon_knight_breathe_fire';
+import { SPECS as dragonKnightDragonTail } from './dragon_knight_dragon_tail';
+import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
 import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
 import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
@@ -25,6 +28,11 @@ import { SPECS as shadowShamanVoodoo } from './shadow_shaman_voodoo';
  * 当未来 spec 之间出现真正需要"全局优先级"的取舍时，再扩展机制。当前保持简单。
  */
 export function registerAbilitySpecs(): void {
+  // Dragon Knight 龙骑士
+  AbilityRegistry.registerAll(dragonKnightBreatheFire);
+  AbilityRegistry.registerAll(dragonKnightDragonTail);
+  AbilityRegistry.registerAll(dragonKnightFireball);
+
   // Omniknight 全能骑士
   AbilityRegistry.registerAll(omniknightPurification);
 
