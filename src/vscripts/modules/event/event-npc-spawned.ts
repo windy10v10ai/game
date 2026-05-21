@@ -7,6 +7,17 @@ import { BotAbility } from '../helper/bot-ability';
 import { MemberHelper } from '../helper/member-helper';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
+
+// Lua 英雄调试面板创建手动控制英雄时会写入这个全局标记表。
+const global = globalThis as typeof globalThis & {
+  HeroDemoDebugSpawnedHeroes?: Record<number, true>;
+};
+
+function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero | undefined): boolean {
+  // 调试面板生成的英雄由调试玩家手动控制，常规 bot 出生和 AI 初始化逻辑必须跳过。
+  return hero !== undefined && global.HeroDemoDebugSpawnedHeroes?.[hero.GetEntityIndex()] === true;
+}
+
 export class EventNpcSpawned {
   private roshanLevelBase = 1;
   private isFirstRoshan = true;
@@ -60,6 +71,11 @@ export class EventNpcSpawned {
 
   // 设置英雄出生点，DebugCreateHeroWithVariant创造的 bot出生点在地图中央，需要移动到泉水
   private SetHeroSpawnPoint(hero: CDOTA_BaseNPC_Hero): void {
+    // 调试面板生成的英雄应停留在用户指定位置，不能被自动拉回基地。
+    if (IsHeroDemoDebugHero(hero)) {
+      return;
+    }
+
     if (PlayerHelper.IsHumanPlayer(hero)) {
       //print(`[EventNpcSpawned] SetHeroSpawnPoint human player ${hero.GetName()}`);
       return;
@@ -81,6 +97,11 @@ export class EventNpcSpawned {
     hero.SetAbsOrigin(pos);
 
     Timers.CreateTimer(0.1, () => {
+      // DebugCreateUnit 回调可能晚于 npc_spawned，因此重试基地落点前需要再次检查调试标记。
+      if (IsHeroDemoDebugHero(hero)) {
+        return;
+      }
+
       // 检验英雄是否在基地，否则重新设置
       const posBase =
         hero.GetTeam() === DotaTeam.GOODGUYS ? ActionMove.posRadiantBase : ActionMove.posDireBase;
@@ -111,6 +132,11 @@ export class EventNpcSpawned {
 
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
+    // 调试面板英雄由 eyeherodemo/demo_core.lua 单独配置，跳过常规出生 buff 和 bot AI 初始化。
+    if (IsHeroDemoDebugHero(hero)) {
+      return;
+    }
+
     this.SetHeroSpawnPoint(hero);
     // 近战buff
     if (
@@ -140,6 +166,11 @@ export class EventNpcSpawned {
       // 机器人
       // delay 1s 后启用AI
       Timers.CreateTimer(1, () => {
+        // 该定时器入队后才可能写入调试标记，因此启用 bot AI 前再检查一次。
+        if (IsHeroDemoDebugHero(hero)) {
+          return;
+        }
+
         // 设置bot难度 0~4
         hero.SetBotDifficulty(4);
         GameRules.AI.EnableAI(hero);
