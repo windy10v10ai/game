@@ -29,6 +29,12 @@ export class HeroDebugPanel {
 
     this.registerButtonListeners();
 
+    // 结构化事件：添加物品/技能到指定单位
+    CustomGameEventManager.RegisterListener<DebugPanelAddToUnitEventData>(
+      'debug_panel_add_to_unit',
+      (_userId, event) => this.onAddToUnit(event),
+    );
+
     ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
     ListenToGameEvent('dota_on_hero_finish_spawn', (keys) => this.onHeroFinishSpawn(keys), this);
     ListenToGameEvent('dota_item_purchased', (keys) => this.onItemPurchased(keys), this);
@@ -136,6 +142,12 @@ export class HeroDebugPanel {
       // 标记为调试面板英雄：跳过出生点重置、bot AI 初始化与出装。
       hero.AddNewModifier(hero, undefined, modifier_debug_manual_control.name, {});
 
+      // DebugCreateUnit 回调晚于 npc_spawned，events.lua 已在同步阶段挂上
+      // bot AI/出装 modifier，标记拦不住，这里必须主动清除。
+      // hero.RemoveModifierByName('modifier_bot_think_strategy');
+      // hero.RemoveModifierByName('modifier_bot_think_item_use');
+      // hero.RemoveModifierByName('modifier_bot_think_ward');
+
       FindClearSpaceForUnit(hero, spawnLoc, false);
       hero.SetRespawnPosition(spawnLoc);
       // 绑定到操作者，使其手动控制、不被 bot AI 接管。
@@ -227,6 +239,25 @@ export class HeroDebugPanel {
   private grantShard(hero: CDOTA_BaseNPC_Hero): void {
     if (!hero.HasModifier('modifier_item_aghanims_shard')) {
       hero.AddItemByName('item_aghanims_shard');
+    }
+  }
+
+  // 添加物品/技能到指定单位。名字合法性不校验，由调试面板使用者自负责。
+  private onAddToUnit(event: DebugPanelAddToUnitEventData): void {
+    const name = event.name;
+    if (name === undefined || name === '') {
+      return;
+    }
+    const hero = EntIndexToHScript(event.entindex as EntityIndex) as
+      | CDOTA_BaseNPC_Hero
+      | undefined;
+    if (!hero || hero.IsNull() || !hero.IsHero()) {
+      return;
+    }
+    if (event.kind === 'item') {
+      hero.AddItemByName(name);
+    } else if (event.kind === 'ability') {
+      hero.AddAbility(name);
     }
   }
 

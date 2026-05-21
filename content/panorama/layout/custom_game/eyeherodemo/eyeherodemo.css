@@ -186,7 +186,7 @@
     to(hsv-transform(#2d2f31, 0, 1, 0.4))
   );
   box-shadow: fill #00000011 1px 1px 8px 1px;
-  margin: 12px 12px 0px 12px;
+  margin: 12px 12px 0px;
 }
 
 .CategoryHeader {
@@ -195,13 +195,13 @@
   color: #fff;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 6px 6px 0px 6px;
+  padding: 6px 6px 0px;
 }
 
 .CategoryButtonContainer {
   flow-children: down;
   width: 100%;
-  padding: 3px 6px 3px 6px;
+  padding: 3px 6px;
 }
 
 .Row {
@@ -234,6 +234,16 @@
   font-weight: normal;
   text-overflow: shrink;
   letter-spacing: 1px;
+}
+
+.DemoTextEntry {
+  height: 30px;
+  width: 100%;
+  background-color: #2a2c2e;
+  border: 1px solid #4e5155;
+  color: #d8dade;
+  font-size: 14px;
+  padding: 0px 6px;
 }
 
 #SingleCreepWaveButton {

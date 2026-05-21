@@ -125,6 +125,42 @@ function ScepterSelectedHeroes() {
   DispatchForSelectedEntities('ScepterHero');
 }
 
+// 对所有选中单位添加物品/技能。kind: 'item' | 'ability'
+function DispatchAddToSelectedEntities(kind) {
+  var name = $('#AddToUnitInput').text;
+  if (!name) {
+    Game.EmitSound('General.Cancel');
+    return;
+  }
+
+  var entities = GetSelectedEntities();
+  var numEntities = Object.keys(entities).length;
+  var dispatched = false;
+
+  for (var i = 0; i < numEntities; i++) {
+    var entindex = entities[i];
+    if (entindex === -1) {
+      continue;
+    }
+    dispatched = true;
+    GameEvents.SendCustomGameEventToServer('debug_panel_add_to_unit', {
+      entindex: entindex,
+      kind: kind,
+      name: name,
+    });
+  }
+
+  Game.EmitSound(dispatched ? 'UI.Button.Pressed' : 'General.Cancel');
+}
+
+function AddItemToSelected() {
+  DispatchAddToSelectedEntities('item');
+}
+
+function AddAbilityToSelected() {
+  DispatchAddToSelectedEntities('ability');
+}
+
 function MouseOverRune(strRuneID, strRuneTooltip) {
   var runePanel = $('#' + strRuneID);
   runePanel.StartAnimating();

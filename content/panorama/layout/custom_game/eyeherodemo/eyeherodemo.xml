@@ -97,6 +97,17 @@
 								<Label text="#RemoveSpawns_Button" />
 							</Button>
 						</Panel>
+						<Panel class="Row">
+							<TextEntry id="AddToUnitInput" class="DemoTextEntry" placeholder="#AddToUnit_Placeholder" />
+						</Panel>
+						<Panel class="Row">
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="AddItemToSelected()">
+								<Label text="#AddItem_Button" />
+							</Button>
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="AddAbilityToSelected()">
+								<Label text="#AddAbility_Button" />
+							</Button>
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel id="GlobalCategory" class="Category">
