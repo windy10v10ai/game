@@ -119,8 +119,18 @@ export class HeroDebugPanel {
     if (heroName === undefined) {
       return;
     }
-    const spawnLoc = selectedHero.GetAbsOrigin();
 
+    this.spawnDebugHero(player, playerId, heroName, team, selectedHero.GetAbsOrigin());
+  }
+
+  // 在指定位置创建一个由调试玩家手动控制的英雄。
+  private spawnDebugHero(
+    player: CDOTAPlayerController,
+    playerId: PlayerID,
+    heroName: string,
+    team: DotaTeam,
+    spawnLoc: Vector,
+  ): void {
     DebugCreateUnit(player, heroName, team, false, (spawned) => {
       const hero = spawned as CDOTA_BaseNPC_Hero;
       // 标记为手动控制英雄，使 EventNpcSpawned 跳过出生点重置与 bot AI。
@@ -220,39 +230,25 @@ export class HeroDebugPanel {
     }
   }
 
-  // 重置选中单位：满血满魔、清除冷却与负面状态。
-  // 注意：调试生成的英雄与操作者共享 PlayerID，不能用 ReplaceHeroWithNoTransfer
-  // （那会按 PlayerID 替换，误伤操作者自己的主英雄），必须直接对英雄实体操作。
+  // 重置选中单位：回到初始状态（1 级、技能加点清零、属性归零）。
+  // 调试英雄与操作者共享 PlayerID，无法用 ReplaceHeroWithNoTransfer（会误伤操作者主英雄），
+  // 且引擎无降级 API，因此采用销毁原英雄后在原位重建一个全新 1 级英雄的方式。
   private resetHero(hero: CDOTA_BaseNPC_Hero): void {
-    hero.SetHealth(hero.GetMaxHealth());
-    hero.GiveMana(hero.GetMaxMana());
+    // 仅处理调试面板生成的英雄，避免误销毁玩家自己的主英雄。
+    if (!hero.HasModifier(modifier_debug_manual_control.name)) {
+      return;
+    }
+    const player = hero.GetPlayerOwner();
+    if (!player) {
+      return;
+    }
+    const playerId = hero.GetPlayerID();
+    const heroName = hero.GetUnitName();
+    const team = hero.GetTeamNumber();
+    const spawnLoc = hero.GetAbsOrigin();
 
-    for (const modifier of hero.FindAllModifiers()) {
-      const modifierName = modifier.GetName();
-      // 保留调试面板自身挂的标记/无敌 modifier
-      if (
-        modifierName === modifier_debug_manual_control.name ||
-        modifierName === modifier_debug_invulnerable.name
-      ) {
-        continue;
-      }
-      if (modifier.GetDuration() > 0) {
-        hero.RemoveModifierByName(modifierName);
-      }
-    }
-
-    for (let i = 0; i < DOTA_MAX_ABILITIES; i++) {
-      const ability = hero.GetAbilityByIndex(i);
-      if (ability) {
-        ability.EndCooldown();
-      }
-    }
-    for (let slot = 0; slot < 9; slot++) {
-      const item = hero.GetItemInSlot(slot);
-      if (item) {
-        item.EndCooldown();
-      }
-    }
+    hero.Destroy();
+    this.spawnDebugHero(player, playerId, heroName, team, spawnLoc);
   }
 
   private setInvulnerable(hero: CDOTA_BaseNPC_Hero, invulnerable: boolean): void {
