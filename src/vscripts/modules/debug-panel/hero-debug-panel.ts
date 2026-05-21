@@ -133,17 +133,17 @@ export class HeroDebugPanel {
   ): void {
     DebugCreateUnit(player, heroName, team, false, (spawned) => {
       const hero = spawned as CDOTA_BaseNPC_Hero;
-      // 标记为手动控制英雄，使 EventNpcSpawned 跳过出生点重置与 bot AI。
+      // 标记为调试面板英雄：跳过出生点重置、bot AI 初始化与出装。
       hero.AddNewModifier(hero, undefined, modifier_debug_manual_control.name, {});
 
       FindClearSpaceForUnit(hero, spawnLoc, false);
       hero.SetRespawnPosition(spawnLoc);
-      // 重新绑定到按钮玩家
+      // 绑定到操作者，使其手动控制、不被 bot AI 接管。
       hero.SetOwner(player);
       hero.SetPlayerID(playerId);
       hero.SetControllableByPlayer(playerId, false);
       hero.RemoveModifierByName('modifier_rooted');
-      // 关闭自动索敌并立刻 Hold，保证生成后保持静止等待玩家操作。
+      // 关闭自动索敌并立刻 Hold，保持静止等待玩家操作。
       hero.SetAcquisitionRange(0);
       hero.SetIdleAcquire(false);
       hero.Hold();
@@ -231,8 +231,7 @@ export class HeroDebugPanel {
   }
 
   // 重置选中单位：回到初始状态（1 级、技能加点清零、属性归零）。
-  // 调试英雄与操作者共享 PlayerID，无法用 ReplaceHeroWithNoTransfer（会误伤操作者主英雄），
-  // 且引擎无降级 API，因此采用销毁原英雄后在原位重建一个全新 1 级英雄的方式。
+  // 引擎无英雄降级 API，因此采用销毁原英雄后在原位重建一个全新 1 级英雄的方式。
   private resetHero(hero: CDOTA_BaseNPC_Hero): void {
     // 仅处理调试面板生成的英雄，避免误销毁玩家自己的主英雄。
     if (!hero.HasModifier(modifier_debug_manual_control.name)) {
@@ -272,14 +271,13 @@ export class HeroDebugPanel {
     if (!hero || hero.IsNull() || !hero.IsHero()) {
       return;
     }
-    // 不允许移除操作者自己的主英雄
-    if (hero === this.getSelectedHero(event.PlayerID)) {
+    // 仅移除调试面板生成的英雄。玩家自己的主英雄没有该标记，自然被拒绝，
+    // 避免误删（客户端无法可靠判断，由服务端用 modifier 标记统一把关）。
+    if (!hero.HasModifier(modifier_debug_manual_control.name)) {
       return;
     }
 
-    // 调试面板生成的英雄都是 DebugCreateUnit 创建的额外单位，直接销毁实体即可。
-    // 不能用 ResetPlayer/DisconnectClient：调试英雄与操作者共享 PlayerID，
-    // 那会把操作者本人踢出游戏。
+    // 调试英雄是 DebugCreateUnit 创建的额外单位，直接销毁实体即可。
     hero.Destroy();
     CustomGameEventManager.Send_ServerToAllClients<{ entindex: number }>('remove_hero_entry', {
       entindex: entIndex,
@@ -351,6 +349,13 @@ export class HeroDebugPanel {
     if (!isRealHero || isClone || isTempestDouble) {
       return;
     }
+
+    // 调试面板生成的英雄虽与操作者共享 PlayerID，但不是玩家主英雄，
+    // 不应进入面板顶部的“玩家英雄”栏，也不进编辑列表。
+    if (hero.HasModifier(modifier_debug_manual_control.name)) {
+      return;
+    }
+
     const playerId = hero.GetPlayerOwnerID();
 
     if (playerId >= 0 && !PlayerResource.IsFakeClient(playerId)) {

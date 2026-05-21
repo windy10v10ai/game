@@ -106,9 +106,7 @@ function AIGameMode:OnNPCSpawned(keys)
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
         -- Bots modifier 机器人AI脚本
-        -- Debug panel spawned heroes are controlled by the requester, not by the legacy bot modifier stack.
-        local bHeroDemoDebugHero = hEntity:HasModifier("modifier_debug_manual_control")
-        if not bHeroDemoDebugHero and not IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
+        if not IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
             -- FIXME 用ts脚本替换
             if not hEntity:HasModifier("modifier_bot_think_strategy") then
                 -- 排除列表：不添加 modifier_bot_think_strategy 的英雄

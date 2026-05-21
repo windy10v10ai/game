@@ -89,27 +89,8 @@ function OnSetSpawnHeroID(event_data) {
 GameEvents.Subscribe('set_spawn_hero_id', OnSetSpawnHeroID);
 
 function RemoveSelectedHeroes() {
-  var entities = GetSelectedEntities();
-  var numEntities = Object.keys(entities).length;
-  var dispatched = false;
-
-  for (var i = 0; i < numEntities; i++) {
-    var entindex = entities[i];
-    if (entindex === -1) {
-      continue;
-    }
-    // 不删除本地玩家自己的英雄
-    if (
-      Entities.GetPlayerOwnerID(entindex) === GetLocalPlayerID() &&
-      Entities.IsRealHero(entindex)
-    ) {
-      continue;
-    }
-    dispatched = true;
-    $.DispatchEvent('FireCustomGameEvent_Str', 'RemoveHeroButtonPressed', String(entindex));
-  }
-
-  Game.EmitSound(dispatched ? 'UI.Button.Pressed' : 'General.Cancel');
+  // 是否为调试英雄、是否误删玩家主英雄，由服务端用 modifier 标记判断。
+  DispatchForSelectedEntities('RemoveHeroButtonPressed');
 }
 
 function ToggleInvulnerability() {
