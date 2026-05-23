@@ -35,7 +35,7 @@ export class GA4TreasureTracker {
       // 与 treasure.ts 中点位定义文本对齐，便于统计每个点被开次数
       point: `Vector(${point.x}, ${point.y}, ${point.z})`,
       tier,
-      game_time: Math.floor(GameRules.GetDOTATime(false, true)),
+      dota_duration: Math.floor(GameRules.GetDOTATime(false, true)),
     });
 
     GA4.SendEvent(steamId, event);
