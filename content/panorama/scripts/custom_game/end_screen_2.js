@@ -99,7 +99,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   const adjustedGold = Math.max(0, totalEarnedGold - transferredBackTotal);
   panel.SetDialogVariableInt('money', adjustedGold);
 
-  panel.SetDialogVariableInt('damage', playerData?.damage ?? 0);
+  panel.SetDialogVariableInt('heroDamage', playerData?.heroDamage ?? 0);
   panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
