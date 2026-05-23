@@ -401,15 +401,8 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 
 
-	if hAbility4:IsFullyCastable() then
-		-- 折跃范围
-		local iRange = 300
-		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if hTarget then
-			hHero:CastAbilityOnTarget(hTarget, hAbility4, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
+	-- hAbility1 ~ 4 由 ability spec 系统接管，详见
+	-- src/vscripts/ai/ability/specs/tinker_xxx.ts
 
 	-- if hAbility6 is Channel
 	if hAbility6:IsChanneling() then
@@ -451,21 +444,6 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		end
 	end
 
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
-		return true
-	end
-	if hAbility2:IsFullyCastable() then
-		local iRange = hAbility2:GetCastRange()
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityNoTarget(hAbility2, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-
-	-- if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility3, 90, "modifier_tinker_defense_matrix") then
-	-- 	return true
-	-- end
 
 	if hAbility5:IsFullyCastable() then
 		-- if mp less than 10% go back to fountain

@@ -5,6 +5,7 @@ import { SPECS as axeCullingBlade } from './axe_culling_blade';
 import { SPECS as dragonKnightBreatheFire } from './dragon_knight_breathe_fire';
 import { SPECS as dragonKnightDragonTail } from './dragon_knight_dragon_tail';
 import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
+import { SPECS as jakiroDualBreath } from './jakiro_dual_breath';
 import { SPECS as lichFrostNova } from './lich_frost_nova';
 import { SPECS as lichFrostShield } from './lich_frost_shield';
 import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
@@ -20,6 +21,10 @@ import { SPECS as shadowShamanMassSerpentWard } from './shadow_shaman_mass_serpe
 import { SPECS as shadowShamanShackles } from './shadow_shaman_shackles';
 import { SPECS as shadowShamanUrnaconda } from './shadow_shaman_urnaconda';
 import { SPECS as shadowShamanVoodoo } from './shadow_shaman_voodoo';
+import { SPECS as tinkerDeployTurrets } from './tinker_deploy_turrets';
+import { SPECS as tinkerLaser } from './tinker_laser';
+import { SPECS as tinkerMarchOfTheMachines } from './tinker_march_of_the_machines';
+import { SPECS as tinkerWarpGrenade } from './tinker_warp_grenade';
 
 /**
  * 技能 AI spec 聚合注册入口。
@@ -40,6 +45,9 @@ export function registerAbilitySpecs(): void {
 
   // Omniknight 全能骑士
   AbilityRegistry.registerAll(omniknightPurification);
+
+  // Jakiro 杰奇洛
+  AbilityRegistry.registerAll(jakiroDualBreath);
 
   // Lich 巫妖
   AbilityRegistry.registerAll(lichFrostNova);
@@ -67,4 +75,10 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(shadowShamanShackles);
   AbilityRegistry.registerAll(shadowShamanUrnaconda);
   AbilityRegistry.registerAll(shadowShamanMassSerpentWard);
+
+  // Tinker 修补匠
+  AbilityRegistry.registerAll(tinkerLaser);
+  AbilityRegistry.registerAll(tinkerMarchOfTheMachines);
+  AbilityRegistry.registerAll(tinkerWarpGrenade);
+  AbilityRegistry.registerAll(tinkerDeployTurrets);
 }
