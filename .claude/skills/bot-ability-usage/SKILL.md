@@ -1,5 +1,5 @@
 ---
-name: write-ability-spec
+name: bot-ability-usage
 description: >-
   为指定 Dota 技能编写 bot AI 施法规则（AbilitySpec），让 bot 在合适时机自动施放该技能。
   无论是原版技能、自定义技能还是 lottery 抽到的技能，统一在 src/vscripts/ai/ability/specs/
@@ -51,8 +51,9 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 | KV 字段 | 用途 | 取值映射 |
 |---|---|---|
 | `AbilityBehavior` | 决定 cast 调用方式 | dispatcher 自动按 `UNIT_TARGET / POINT / AOE / NO_TARGET` 派发，**spec 不用关心** |
-| `AbilityUnitTargetTeam` | 决定 `TargetSide` | `ENEMY` → `EnemyHero/EnemyCreep`；`FRIENDLY` → `FriendlyHero`；技能仅作用施法者 → `Self` |
-| `AbilityUnitTargetType` | 当 team=ENEMY 时区分英雄/小兵 | 含 `HERO` 用 `EnemyHero`；仅 `BASIC/CREEP` 用 `EnemyCreep`；同时含两者并且语义合理时**注册多条 spec** |
+| `AbilityUnitTargetTeam` | 决定 `TargetSide` | `ENEMY` → `EnemyHero/EnemyCreep/EnemyBuilding`；`FRIENDLY` → `FriendlyHero/FriendlyBuilding`；技能仅作用施法者 → `Self` |
+| `AbilityUnitTargetType` | 区分英雄/小兵/建筑 | 含 `HERO` 用 `*Hero`；仅 `BASIC/CREEP` 用 `EnemyCreep`；含 `BUILDING` 用 `*Building`；同一技能多种合法目标且语义合理时**注册多条 spec**（如冰霜魔盾对友方英雄 + 友方建筑） |
+| `AbilityUnitTargetFlags` 含 `INVULNERABLE` | 友方建筑通常带无敌（未暴露的塔），`aroundFriendlyBuildings` 已包含无敌目标 | 对友方建筑的技能（如 `lich_frost_shield`）天然可用 |
 | `AbilityCastRange` | 施法距离 | **dispatcher 会自动按 cast range + 施法距离加成过滤目标**，spec 通常**不要**手写 `range.lte` |
 
 如该技能是 `PASSIVE` 或纯 `NO_TARGET` 自身 buff 不需要选目标 → `TargetSide.Self`。
@@ -67,8 +68,19 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 2. **目标数量条件**：群体技能要求"周围至少 N 个敌人才出手"`target.count.gte: 3`。
 3. **施法者条件**：例如"蓝量够才用"`self.unitCondition.manaPercent.gte: 50`，或"血量低才用某保命技能"。
 4. **技能等级 / 充能条件**：`ability.level.gte: 3`、`ability.charges.gte: 1`。
-5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff。
-6. **同名多条 spec**：若英雄/小兵 两种目标条件不同（如 Medusa 分裂箭），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff/buff。Modifier 名从 `abilities_schinese.txt`（或英文版）中搜 `DOTA_Tooltip_modifier_<name>` 取 `<name>`。例：寒霜魔盾 = `modifier_lich_frost_shield`。
+6. **跳过已被控目标**：`target.unitCondition.notActionable: true`，目标处于眩晕/变羊/噩梦/虚空大等硬控状态则跳过，对已被控的目标使用控制技能通常是浪费。
+7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵或建筑施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
+8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。
+9. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+
+> **EnemyCreep 默认条件**（`CREEP_DEFAULT_CONDITION`，由 dispatcher 自动套用，无需在 spec 中重复写）：
+> - `self.unitCondition.manaPercent.gte: 50`
+> - `self.unitCondition.healthPercent.gte: 50`
+> - `ability.level.gte: 3`
+> - `self.noEnemyHeroInRange: 900`
+>
+> spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 50 }` 会替换默认的 `gte: 50`。
 
 > 现有条件结构见 [cast-condition.ts](src/vscripts/ai/action/cast-condition.ts) 的 `UnitCondition / AbilityCoindition / NumberRange`。
 
@@ -93,7 +105,7 @@ import { AbilitySpec, TargetSide } from '../ability-spec';
 export const SPECS: AbilitySpec[] = [
   {
     abilityName: '<abilityName>',
-    targetSide: TargetSide.<EnemyHero | EnemyCreep | FriendlyHero | Self>,
+    targetSide: TargetSide.<EnemyHero | EnemyCreep | EnemyBuilding | FriendlyHero | Self>,
     condition: {
       target: {
         unitCondition: { healthPercent: { lte: 25 } },
@@ -140,3 +152,4 @@ export const SPECS: AbilitySpec[] = [
 - **不要往英雄文件 `UseAbilityXxx` 加新技能**：新技能一律走 spec。旧英雄文件保留是为了不破坏现有逻辑，**不是**新技能的入口。
 - **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / autoCastOn` 表达。这条路径目前只在老 `ActionAbility.doAction` 中实现，dispatcher 暂未串接 —— 遇到这类技能告知用户「该开关类目前需要走老链路或扩展 dispatcher」，不要自行硬塞。
 - **TSTL 对象 spread 陷阱**：见 CLAUDE.md「常见陷阱」末条；spec 文件本身用不到 spread，但若需要扩展 dispatcher / cast-condition，**绝对**不能写 `{ ...maybeUndefined }`。
+- **KV 数值字段术语**：Dota 2 现行 KV 中数值字段块名为 `AbilityValues`（旧版 `AbilitySpecial` 已废弃）。在注释、字段命名、文档中统一使用 `AbilityValue` 表述；引擎 API `GetSpecialValueFor(key)` 仍可调用，但变量名和注释应写 `abilityValue` / `rangeFromAbilityValue`，不用 `specialValue`。

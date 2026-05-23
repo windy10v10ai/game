@@ -1,3 +1,5 @@
+import { HeroUtil } from '../hero/hero-util';
+
 /**
  * 施法条件，必须满足所有条件才能施法
  */
@@ -18,9 +20,40 @@ export interface CastCoindition {
      * 用途：美杜莎分裂箭等靠攻击生效的技能，KV 无 MAGIC_IMMUNE_ENEMIES 但攻击可命中魔免目标。
      */
     ignoresMagicImmune?: boolean;
+    /**
+     * 以技能的 AbilityValue 作为搜索半径上限，取代默认的 AbilityCastRange。
+     * 适用于 NO_TARGET AoE 技能（如 axe_berserkers_call），其施法距离为 0 但实际作用半径由 KV AbilityValues 定义。
+     */
+    rangeFromAbilityValue?: string;
+    /**
+     * 决定 POINT 技能的释放位置：
+     * - 'targetPosition'（默认）：释放点 = 目标位置
+     * - 'projectedOnCastRange'：
+     *     - 目标距离 ≤ cast range → 释放点 = 目标位置（精准命中）
+     *     - 目标距离 > cast range → 释放点 = 沿"施法者→目标"方向投影到 cast range 边缘
+     *   适用于 AoE 作用半径远大于 cast range 的技能（如 tinker_march_of_the_machines、
+     *   tinker_deploy_turrets），允许在更大范围搜索目标，超出 cast range 时压到边缘，
+     *   让 AoE 边缘仍能扫到目标。spec 必须显式提供 target.range.lte（通常 > cast range），
+     *   否则 fillRangeFromCastRange 会把搜索半径限制为 cast range，失去意义。
+     * 仅对 POINT behavior 的 ability 生效；UNIT_TARGET / NO_TARGET 忽略此字段。
+     */
+    castMode?: 'targetPosition' | 'projectedOnCastRange';
   };
   self?: {
     unitCondition?: UnitCondition;
+    /**
+     * 若 self 周围该距离内存在存活的敌方英雄，则跳过施法。
+     * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyHeroes 缓存）。
+     */
+    noEnemyHeroInRange?: number;
+    /**
+     * 要求 self 周围存在至少指定数量的友方小兵才施法。
+     * range 不填时默认 900。由 dispatcher 在 tryCast 层 inline FindUnitsInRadius 检查。
+     */
+    friendlyCreepNearby?: {
+      count?: NumberRange;
+      range?: number;
+    };
   };
   ability?: AbilityCoindition;
   action?: {
@@ -58,6 +91,7 @@ export interface UnitCondition {
   hasScepter?: boolean;
   hasShard?: boolean;
   noModifier?: string;
+  notActionable?: boolean;
   /**
    * 比较目标绝对 HP 与技能的 special value（已含天赋加成）。
    * lte: true → target.HP ≤ effectiveDamage（技能可击杀目标）
@@ -89,9 +123,6 @@ export function FilterTargetWithCondition(
 
   for (const unit of units) {
     if (!unit.IsAlive()) {
-      continue;
-    }
-    if (!unit.CanEntityBeSeenByMyTeam(self)) {
       continue;
     }
 
@@ -168,6 +199,9 @@ export function CheckUnitConditionFailure(
   if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
     return true;
   }
+  if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
+    return true;
+  }
 
   return false;
 }
@@ -197,7 +231,7 @@ export function CheckAbilityConditionFailure(
   return false;
 }
 
-function CheckNumberRangeFailure(value: number, range?: NumberRange): boolean {
+export function CheckNumberRangeFailure(value: number, range?: NumberRange): boolean {
   if (range?.gte !== undefined && value < range.gte) {
     return true;
   }
@@ -225,10 +259,14 @@ export function DeepMerge<T extends CastCoindition>(target: T, source?: Partial<
     if (sourceValue === undefined) return;
 
     if (isObject(targetValue) && isObject(sourceValue)) {
-      result[key as keyof T] = DeepMerge(
-        targetValue as object,
-        sourceValue as object,
-      ) as T[keyof T];
+      if (isNumberRange(sourceValue as object)) {
+        result[key as keyof T] = sourceValue as T[keyof T];
+      } else {
+        result[key as keyof T] = DeepMerge(
+          targetValue as object,
+          sourceValue as object,
+        ) as T[keyof T];
+      }
     } else {
       result[key as keyof T] = sourceValue as T[keyof T];
     }
@@ -239,6 +277,11 @@ export function DeepMerge<T extends CastCoindition>(target: T, source?: Partial<
 
 function isObject(item: unknown): item is object {
   return item !== null && typeof item === 'object';
+}
+
+function isNumberRange(item: object): boolean {
+  const keys = Object.keys(item);
+  return keys.length > 0 && keys.every((k) => k === 'gte' || k === 'lte');
 }
 
 export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
