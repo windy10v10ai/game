@@ -3101,6 +3101,8 @@
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
 
+		// 藏宝箱
+		"npc_treasure_chest"											"Treasure Chest"
 
 	}
 }

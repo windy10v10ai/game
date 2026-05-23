@@ -3149,6 +3149,8 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 
+		// 藏宝箱
+		"npc_treasure_chest"															"藏宝箱"
 
 	}
 }

@@ -11,6 +11,8 @@ export default function Precache(context: CScriptPrecacheContext) {
       // '***.vpcf',
       // 'soundevents/game_sounds_heroes/game_sounds_queenofpain.vsndevts',
       // '***.vmdl',
+      'models/props_gameplay/treasure_chest_gold.vmdl',
+      'models/props_gameplay/dummy/dummy_large.vmdl',
     ],
     context,
   );
