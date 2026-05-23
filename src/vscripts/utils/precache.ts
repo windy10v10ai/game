@@ -13,6 +13,7 @@ export default function Precache(context: CScriptPrecacheContext) {
       // '***.vmdl',
       'models/props_gameplay/treasure_chest_gold.vmdl',
       'models/props_gameplay/dummy/dummy_large.vmdl',
+      'particles/items2_fx/hand_of_midas.vpcf',
     ],
     context,
   );
