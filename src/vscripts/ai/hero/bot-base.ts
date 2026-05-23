@@ -1,4 +1,5 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
+import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind } from '../action/action-find';
 import { ActionMove } from '../action/action-move';
@@ -13,8 +14,8 @@ import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.2;
-  protected readonly ThinkIntervalTool: number = 0.2;
+  protected readonly ThinkInterval: number = 0.3;
+  protected readonly ThinkIntervalTool: number = 0.3;
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
@@ -48,14 +49,6 @@ export class BotBaseAIModifier extends BaseModifier {
   public gameTime: number = 0;
   public mode: ModeEnum = ModeEnum.LANING;
 
-  // 技能
-  protected ability_1: CDOTABaseAbility | undefined;
-  protected ability_2: CDOTABaseAbility | undefined;
-  protected ability_3: CDOTABaseAbility | undefined;
-  protected ability_4: CDOTABaseAbility | undefined;
-  protected ability_5: CDOTABaseAbility | undefined;
-  protected ability_utli: CDOTABaseAbility | undefined;
-
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
   }
@@ -77,6 +70,11 @@ export class BotBaseAIModifier extends BaseModifier {
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
+  public aroundFriendlyHeroes: CDOTA_BaseNPC[] = [];
+  public aroundFriendlyCreeps: CDOTA_BaseNPC[] = [];
+  public aroundFriendlyBuildings: CDOTA_BaseNPC[] = [];
+
+  protected isIntHero: boolean = false;
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
@@ -85,6 +83,8 @@ export class BotBaseAIModifier extends BaseModifier {
     if (GameRules.AI.BotTeam) {
       this.PushLevel = GameRules.AI.BotTeam.botPushLevel;
     }
+
+    this.isIntHero = this.hero.GetPrimaryAttribute() === Attributes.INTELLECT;
 
     // 初始化出装状态
     // FIXME 待所有英雄使用新出装系统后删除
@@ -222,6 +222,9 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionLaning(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -234,14 +237,19 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.CastCreep()) {
       return true;
     }
-    const enemy = this.FindNearestEnemyHero();
-    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeLaning)) {
-      return true;
+    if (this.aroundFriendlyCreeps.length > 0) {
+      const enemy = this.FindNearestEnemyHero();
+      if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeLaning)) {
+        return true;
+      }
     }
     return false;
   }
 
   ActionAttack(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -254,14 +262,19 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.CastCreep()) {
       return true;
     }
-    const enemy = this.FindNearestEnemyHero();
-    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeAttack)) {
-      return true;
+    if (!this.isIntHero) {
+      const enemy = this.FindNearestEnemyHero();
+      if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeAttack)) {
+        return true;
+      }
     }
     return false;
   }
 
   ActionRetreat(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -307,6 +320,9 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionPush(): boolean {
+    if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -318,6 +334,10 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     if (this.CastCreep()) {
       return true;
+    }
+    // INT 英雄不强制推塔，攻击
+    if (this.isIntHero) {
+      return false;
     }
     // 推塔
     if (this.ForceAttackTower()) {
@@ -342,7 +362,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
 
-    if (this.IsInAttackPhase()) {
+    if (this.hero.IsAttacking()) {
       // print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
       return false;
     }
@@ -499,37 +519,21 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
 
-    this.ability_1 = this.hero.GetAbilityByIndex(0);
-    this.ability_2 = this.hero.GetAbilityByIndex(1);
-    this.ability_3 = this.hero.GetAbilityByIndex(2);
-    this.ability_4 = this.hero.GetAbilityByIndex(3);
-    this.ability_5 = this.hero.GetAbilityByIndex(4);
-    this.ability_utli = this.hero.GetAbilityByIndex(5);
+    // 已下达但未完成的施法命令（含 cast point 阶段、命令下发到执行之间的间隙）也算施法中，
+    // 避免下个 tick 又下新命令打断自己。
+    // if (this.hero.GetCurrentActiveAbility() !== undefined) {
+    //   return true;
+    // }
 
-    if (this.ability_1 && this.ability_1.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_2 && this.ability_2.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_3 && this.ability_3.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_4 && this.ability_4.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_5 && this.ability_5.IsInAbilityPhase()) {
-      return true;
-    }
-    if (this.ability_utli && this.ability_utli.IsInAbilityPhase()) {
-      return true;
+    const abilityCount = this.hero.GetAbilityCount();
+    for (let i = 0; i < abilityCount; i++) {
+      const ability = this.hero.GetAbilityByIndex(i);
+      if (ability && ability.IsInAbilityPhase()) {
+        return true;
+      }
     }
 
     return false;
-  }
-
-  IsInAttackPhase(): boolean {
-    return this.hero.IsAttacking();
   }
 
   // ---------------------------------------------------------
@@ -544,6 +548,9 @@ export class BotBaseAIModifier extends BaseModifier {
       this.hero,
       this.FindRadius,
     );
+    this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
+    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(this.hero, 900);
+    this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);
   }
 
   public FindNearestEnemyHero(): CDOTA_BaseNPC | undefined {

@@ -113,6 +113,35 @@
 		"ending_status_1"				"游戏数据上传中，请勿结束游戏。"
 		"ending_status_2"				"游戏数据上传成功！"
 		"ending_status_3"				"很遗憾由于网络波动，游戏数据上传失败。请尝试更换服务器主机重新进行游戏。"
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Hero Debug Panel 英雄调试面板
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"SpawnUnits_ButtonCategory"					"召唤"
+		"EditUnits_ButtonCategory"					"编辑所选单位"
+		"Global_ButtonCategory"						"全局设置"
+		"AHD_SpawnToTeam_2"							"到队伍：1"
+		"AHD_SpawnToTeam_3"							"到队伍：2"
+		"DummyTarget_Button"						"+ 假人目标"
+		"LevelUpSelectedHeroes_Button"				"升级加钱"
+		"MaxLevelUpSelectedHeroes_Button"			"满级加钱"
+		"ScepterSelectedHeroes_Button"				"神杖"
+		"ShardSelectedHeroes_Button"				"魔晶"
+		"InvulnOn_Button"							"开启无敌"
+		"InvulnOff_Button"							"关闭无敌"
+		"Reset_Button"								"重置"
+		"RemoveSpawns_Button"						"移除"
+		"AddToUnit_Placeholder"						"输入物品/技能名"
+		"AddItem_Button"							"添加物品"
+		"AddAbility_Button"							"添加技能"
+		"FreeSpells_Button"							"免费技能"
+		"Refresh_Button"							"刷新"
+		"ToggleDayNight_Button"						"切换昼夜"
+		"PauseDemo_Button"							"暂停"
+		"QuitDemo_Button"							"退出"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -245,6 +274,7 @@
 		"profile_stat_conduct"			"行为分"
 		"profile_stat_coming_soon"		"更多功能开发中"
 		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 <font color='#7FD47F'>100</font> 分，上限 <font color='#FFD700'>120</font> 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#FFD700'>≥110</font>：×1.1<br>• <font color='#7FD47F'>80–109</font>：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
+		"profile_stat_conduct_net_tooltip"	"累计点赞 减 累计举报"
 
 		// Member Tab UI
 		"member_button_tooltip_active"		"会员已生效，点击查看详情"
@@ -997,6 +1027,41 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"护甲："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"魔抗："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"全属性："
+
+		///////////////////////////////////////////////////
+		//
+		// 					Awaken Abilities 觉醒技能
+		//
+		///////////////////////////////////////////////////
+// 					Awaken Abilities 觉醒技能
+
+		// 屠夫 肉钩-觉醒
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>肉钩-觉醒"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离和钩子速度随帕吉的力量值增加，每点力量增加%hook_distance_per_strength%，额外距离上限%hook_max_distance_bonus%。</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
+"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"基础施法距离："
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"肉钩击中敌人时，根据钩中时的距离造成额外纯粹伤害。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
+
+		// 剑圣 剑刃风暴-觉醒
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>剑刃风暴-觉醒"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力%attack_damage_pct%%%的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"%攻击力降低："
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
+
+		// 斯拉克 刮痧之王-觉醒
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>刮痧之王-觉醒"
+		"DOTA_Tooltip_ability_break_speed_limit_Description"							"当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
+		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"每次击杀突破攻速上限："
+		"DOTA_Tooltip_ability_break_speed_limit_duration"								"持续时间："
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"刮痧之王"
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"每层提高攻速上限50点。"
 
 		///////////////////////////////////////////////////
 		//
@@ -3083,6 +3148,7 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Description"				"<h1>使用：转化</h1>熔炼背包中的所有符文，转化为随机的类型，无视原有者<br><br><font color='#4CAF50'>不会失败，且优先转化为背包中没有的符文类型</font>"
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
+
 
 	}
 }

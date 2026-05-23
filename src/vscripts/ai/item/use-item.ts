@@ -33,6 +33,7 @@ export class UseItem {
    * @returns 是否使用了任何物品
    */
   static UseConsumeItems(hero: CDOTA_BaseNPC_Hero): boolean {
+    if (hero.IsMuted()) return false;
     // 1. 使用需要目标的消耗品（目标为自己）
     for (const itemName of CONSUME_ITEMS_WITH_TARGET) {
       if (ActionItem.UseItemOnTarget(hero, itemName, hero)) {
@@ -51,22 +52,24 @@ export class UseItem {
   }
 
   static UseItemEnemy(hero: CDOTA_BaseNPC_Hero, enemys?: CDOTA_BaseNPC[]): boolean {
+    if (hero.IsMuted()) return false;
     if (!enemys) {
       return false;
     }
     if (enemys.length === 0) {
       return false;
     }
-    const enemy = enemys[0];
+    const _enemy = enemys[0];
 
-    // 血腥榴弹
-    if (ActionItem.UseItemOnTarget(hero, 'item_blood_grenade', enemy)) {
-      return true;
-    }
+    // 血腥榴弹 有bug施法会卡主
+    // if (ActionItem.UseItemOnTarget(hero, 'item_blood_grenade', enemy)) {
+    //   return true;
+    // }
     return false;
   }
 
   static UseItemCreep(hero: CDOTA_BaseNPC_Hero, creeps?: CDOTA_BaseNPC[]): boolean {
+    if (hero.IsMuted()) return false;
     if (!creeps) {
       return false;
     }

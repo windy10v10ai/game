@@ -66,9 +66,9 @@ export class BotTeam {
     // 根据难度计算电脑推进等级
     const randomLevel = RandomInt(0, 2); // 随机额外增等级
     const requiredLevel = this.getTowerRequiredLevel();
-    // 中路模式：推进所需等级缩短一半（更早推进）
+    // 中路模式：推进所需等级缩短（更早推进）
     if (GameRules.Option.midOnlyMode) {
-      this.botPushLevel = Math.floor(requiredLevel / 2) + randomLevel;
+      this.botPushLevel = Math.floor(requiredLevel / 3) + randomLevel;
     } else {
       this.botPushLevel = requiredLevel + randomLevel;
     }

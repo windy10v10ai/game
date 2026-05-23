@@ -1,7 +1,8 @@
 ---
 name: localization-format-guide
-description: 本地化文件（addon_schinese/addon_english）格式与同步规范。用于新增/维护本地化键、对齐、注释、HTML 标签与变量占位符一致性检查。
-disable-model-invocation: true
+description: >-
+  本地化文件（addon_schinese/addon_english）格式与同步规范。用于新增/维护本地化键、对齐、注释、HTML 标签与变量占位符一致性检查。
+  Use when adding or modifying entries in addon_schinese.txt or addon_english.txt.
 ---
 
 # Localization Format Guide

@@ -1,3 +1,5 @@
+import { HeroUtil } from '../hero/hero-util';
+
 /**
  * 施法条件，必须满足所有条件才能施法
  */
@@ -12,9 +14,46 @@ export interface CastCoindition {
      * 敌人搜索距离（相对自身），不指定时默认按技能施法范围；可用 gte/lte 约束与目标的距离
      */
     range?: NumberRange;
+    /**
+     * 强制允许对魔法免疫单位施法。
+     * 未设置时自动读取技能 KV 的 AbilityUnitTargetFlags 判断。
+     * 用途：美杜莎分裂箭等靠攻击生效的技能，KV 无 MAGIC_IMMUNE_ENEMIES 但攻击可命中魔免目标。
+     */
+    ignoresMagicImmune?: boolean;
+    /**
+     * 以技能的 AbilityValue 作为搜索半径上限，取代默认的 AbilityCastRange。
+     * 适用于 NO_TARGET AoE 技能（如 axe_berserkers_call），其施法距离为 0 但实际作用半径由 KV AbilityValues 定义。
+     */
+    rangeFromAbilityValue?: string;
+    /**
+     * 决定 POINT 技能的释放位置：
+     * - 'targetPosition'（默认）：释放点 = 目标位置
+     * - 'projectedOnCastRange'：
+     *     - 目标距离 ≤ cast range → 释放点 = 目标位置（精准命中）
+     *     - 目标距离 > cast range → 释放点 = 沿"施法者→目标"方向投影到 cast range 边缘
+     *   适用于 AoE 作用半径远大于 cast range 的技能（如 tinker_march_of_the_machines、
+     *   tinker_deploy_turrets），允许在更大范围搜索目标，超出 cast range 时压到边缘，
+     *   让 AoE 边缘仍能扫到目标。spec 必须显式提供 target.range.lte（通常 > cast range），
+     *   否则 fillRangeFromCastRange 会把搜索半径限制为 cast range，失去意义。
+     * 仅对 POINT behavior 的 ability 生效；UNIT_TARGET / NO_TARGET 忽略此字段。
+     */
+    castMode?: 'targetPosition' | 'projectedOnCastRange';
   };
   self?: {
     unitCondition?: UnitCondition;
+    /**
+     * 若 self 周围该距离内存在存活的敌方英雄，则跳过施法。
+     * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyHeroes 缓存）。
+     */
+    noEnemyHeroInRange?: number;
+    /**
+     * 要求 self 周围存在至少指定数量的友方小兵才施法。
+     * range 不填时默认 900。由 dispatcher 在 tryCast 层 inline FindUnitsInRadius 检查。
+     */
+    friendlyCreepNearby?: {
+      count?: NumberRange;
+      range?: number;
+    };
   };
   ability?: AbilityCoindition;
   action?: {
@@ -52,6 +91,19 @@ export interface UnitCondition {
   hasScepter?: boolean;
   hasShard?: boolean;
   noModifier?: string;
+  notActionable?: boolean;
+  /**
+   * 比较目标绝对 HP 与技能的 special value（已含天赋加成）。
+   * lte: true → target.HP ≤ effectiveDamage（技能可击杀目标）
+   * gte: true → target.HP ≥ effectiveDamage（目标血量超过技能伤害）
+   * includeSpellAmp: true → 有效值乘以施法者法术强度（GetSpellAmplification(false) 返回增量，需 +1 得乘数）
+   */
+  healthAbilityValue?: {
+    key: string;
+    lte?: boolean;
+    gte?: boolean;
+    includeSpellAmp?: boolean;
+  };
 }
 
 export interface NumberRange {
@@ -63,6 +115,7 @@ export function FilterTargetWithCondition(
   condition: CastCoindition | undefined,
   units: CDOTA_BaseNPC[],
   self: CDOTA_BaseNPC_Hero,
+  ability?: CDOTABaseAbility,
 ): CDOTA_BaseNPC | undefined {
   if (CheckNumberRangeFailure(units.length, condition?.target?.count)) {
     return undefined;
@@ -72,14 +125,37 @@ export function FilterTargetWithCondition(
     if (!unit.IsAlive()) {
       continue;
     }
-    if (!unit.CanEntityBeSeenByMyTeam(self)) {
-      continue;
+
+    // 魔法免疫过滤：有 ability 时才检查，避免影响非 dispatcher 调用路径
+    if (ability && unit.IsMagicImmune()) {
+      const canPierce =
+        condition?.target?.ignoresMagicImmune ||
+        (ability.GetAbilityTargetFlags() & UnitTargetFlags.MAGIC_IMMUNE_ENEMIES) !== 0;
+      if (!canPierce) {
+        continue;
+      }
     }
 
     const unitCondition = condition?.target?.unitCondition;
 
     if (CheckUnitConditionFailure(unit, unitCondition)) {
       continue;
+    }
+
+    // healthAbilityValue：比较目标绝对 HP 与技能的 special value
+    if (ability && unitCondition?.healthAbilityValue) {
+      const cond = unitCondition.healthAbilityValue;
+      const baseValue = ability.GetSpecialValueFor(cond.key);
+      // GetSpellAmplification 返回增量（如 0.15 表示 +15%），+1 得完整乘数
+      const effectiveValue = cond.includeSpellAmp
+        ? baseValue * (1 + self.GetSpellAmplification(false))
+        : baseValue;
+      if (cond.lte && unit.GetHealth() > effectiveValue) {
+        continue;
+      }
+      if (cond.gte && unit.GetHealth() < effectiveValue) {
+        continue;
+      }
     }
 
     if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), condition?.target?.range)) {
@@ -123,6 +199,9 @@ export function CheckUnitConditionFailure(
   if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
     return true;
   }
+  if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
+    return true;
+  }
 
   return false;
 }
@@ -152,7 +231,7 @@ export function CheckAbilityConditionFailure(
   return false;
 }
 
-function CheckNumberRangeFailure(value: number, range?: NumberRange): boolean {
+export function CheckNumberRangeFailure(value: number, range?: NumberRange): boolean {
   if (range?.gte !== undefined && value < range.gte) {
     return true;
   }
@@ -180,10 +259,14 @@ export function DeepMerge<T extends CastCoindition>(target: T, source?: Partial<
     if (sourceValue === undefined) return;
 
     if (isObject(targetValue) && isObject(sourceValue)) {
-      result[key as keyof T] = DeepMerge(
-        targetValue as object,
-        sourceValue as object,
-      ) as T[keyof T];
+      if (isNumberRange(sourceValue as object)) {
+        result[key as keyof T] = sourceValue as T[keyof T];
+      } else {
+        result[key as keyof T] = DeepMerge(
+          targetValue as object,
+          sourceValue as object,
+        ) as T[keyof T];
+      }
     } else {
       result[key as keyof T] = sourceValue as T[keyof T];
     }
@@ -194,6 +277,11 @@ export function DeepMerge<T extends CastCoindition>(target: T, source?: Partial<
 
 function isObject(item: unknown): item is object {
   return item !== null && typeof item === 'object';
+}
+
+function isNumberRange(item: object): boolean {
+  const keys = Object.keys(item);
+  return keys.length > 0 && keys.every((k) => k === 'gte' || k === 'lte');
 }
 
 export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {

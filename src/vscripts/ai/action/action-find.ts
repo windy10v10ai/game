@@ -7,9 +7,7 @@ export class ActionFind {
   }
 
   static FindEnemyCreeps(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
-    const enemies = this.FindEnemies(self, radius, UnitTargetType.CREEP);
-
-    return enemies;
+    return this.FindEnemies(self, radius, UnitTargetType.CREEP, UnitTargetFlags.NOT_ANCIENTS);
   }
 
   static FindEnemyBuildings(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
@@ -49,6 +47,18 @@ export class ActionFind {
   }
 
   // Find Team
+  static FindFriendlyHeroes(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
+    return this.FindTeams(self, radius, UnitTargetType.HERO);
+  }
+
+  static FindFriendlyCreeps(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
+    return this.FindTeams(self, radius, UnitTargetType.CREEP);
+  }
+
+  static FindFriendlyBuildings(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
+    return this.FindTeams(self, radius, UnitTargetType.BUILDING, UnitTargetFlags.INVULNERABLE);
+  }
+
   static FindTeamBuildingsInvulnerable(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
     const teams = this.FindTeams(
       self,
