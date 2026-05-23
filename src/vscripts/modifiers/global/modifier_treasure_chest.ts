@@ -2,7 +2,7 @@ import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 
 @registerModifier('modifiers/global/modifier_treasure_chest')
 export class modifier_treasure_chest extends BaseModifier {
-  static readonly PROXIMITY_RADIUS = 200;
+  static readonly PROXIMITY_RADIUS = 150;
   static readonly PROXIMITY_INTERVAL = 0.2;
 
   IsHidden(): boolean {
