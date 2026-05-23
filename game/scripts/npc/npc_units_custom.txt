@@ -310,8 +310,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"400"			// 85
-		"AttackDamageMax"			"400"			// 85
+		"AttackDamageMin"			"300"			// 85
+		"AttackDamageMax"			"300"			// 85
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -321,8 +321,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"600"			// 120
-		"AttackDamageMax"			"600"			// 120
+		"AttackDamageMin"			"400"			// 120
+		"AttackDamageMax"			"400"			// 120
 		"AttackRate"				"1.0"			// 1.5
 	}
 
