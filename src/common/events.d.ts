@@ -31,6 +31,8 @@ interface CustomGameEventDeclarations {
   hud_open_page: HudOpenPageEventData;
 
   player_conduct: PlayerConductEventData;
+
+  debug_panel_add_to_unit: DebugPanelAddToUnitEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -108,6 +110,13 @@ interface HudOpenPageEventData {
 interface PlayerConductEventData {
   toPlayerId: PlayerID;
   type: string; // 'commend' | 'report'
+}
+
+// 调试面板「添加物品/技能」：对指定单位添加物品或技能。kind 预留 'modifier' 扩展。
+interface DebugPanelAddToUnitEventData {
+  entindex: number;
+  kind: string; // 'item' | 'ability'
+  name: string;
 }
 
 interface SaveBindAbilityKeyEventData {

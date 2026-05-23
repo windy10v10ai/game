@@ -113,6 +113,35 @@
 		"ending_status_1"				"Please do not end the game while game data is uploading."
 		"ending_status_2"				"Game data uploaded successfully!"
 		"ending_status_3"				"Game data upload failed! This could be because cheats were enabled, or the game was not on a dedicated server."
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Hero Debug Panel
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"SpawnUnits_ButtonCategory"					"Spawn"
+		"EditUnits_ButtonCategory"					"Edit Selected Units"
+		"Global_ButtonCategory"						"Global"
+		"AHD_SpawnToTeam_2"							"To Team: 1"
+		"AHD_SpawnToTeam_3"							"To Team: 2"
+		"DummyTarget_Button"						"+ Dummy Target"
+		"LevelUpSelectedHeroes_Button"				"Up+Gold"
+		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
+		"ScepterSelectedHeroes_Button"				"Scepter"
+		"ShardSelectedHeroes_Button"				"Shard"
+		"InvulnOn_Button"							"Invuln On"
+		"InvulnOff_Button"							"Invuln Off"
+		"Reset_Button"								"Reset"
+		"RemoveSpawns_Button"						"Remove"
+		"AddToUnit_Placeholder"						"Item / ability name"
+		"AddItem_Button"							"Add Item"
+		"AddAbility_Button"							"Add Ability"
+		"FreeSpells_Button"							"Free Spells"
+		"Refresh_Button"							"Refresh"
+		"ToggleDayNight_Button"						"Toggle Day/Night"
+		"PauseDemo_Button"							"Pause"
+		"QuitDemo_Button"							"Quit"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -245,6 +274,7 @@
 		"profile_stat_conduct"			"Conduct Score"
 		"profile_stat_coming_soon"		"More features coming soon"
 		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default <font color='#7FD47F'>100</font>, cap <font color='#FFD700'>120</font>.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#FFD700'>≥110</font>: ×1.1<br>• <font color='#7FD47F'>80–109</font>: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
+		"profile_stat_conduct_net_tooltip"	"Total Commends minus Total Reports"
 
 		// Member Tab UI
 		"member_button_tooltip_active"			"Membership enable. Click to view details."
@@ -1012,6 +1042,41 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"ARMOR:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
+
+		///////////////////////////////////////////////////
+		//
+		// 					Awaken Abilities 觉醒技能
+		//
+		///////////////////////////////////////////////////
+// 					Awaken Abilities 觉醒技能
+
+		// Pudge - Meat Hook Awakened
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>Meat Hook - Awakened"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range and hook speed increase with Pudge's strength, granting %hook_distance_per_strength% per point of strength, up to %hook_max_distance_bonus% bonus range.</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"HOOK SPEED:"
+"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"BASE CAST RANGE:"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"When Meat Hook hits an enemy, it deals bonus pure damage based on the hook distance."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
+
+		// Juggernaut - Blade Fury Awakened
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>Blade Fury - Awakened"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, dealing magic damage equal to base damage + %attack_damage_pct%%% of current attack power to surrounding enemies. Grants debuff immunity and %magic_resistance_bonus%%% magic resistance.<br>Can attack normally, but attack power is reduced."
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"% ATTACK POWER REDUCTION:"
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
+		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
+
+		// Slark - Scraper King Awakened
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>Scraper King - Awakened"
+		"DOTA_Tooltip_ability_break_speed_limit_Description"							"When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
+		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
+		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"
+		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"Each stack increases the attack speed cap by 50."
 
 		///////////////////////////////////////////////////
 		//
@@ -3035,6 +3100,7 @@
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note5"    "• Summoning skills"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
+
 
 	}
 }

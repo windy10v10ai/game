@@ -83,7 +83,6 @@ export class EventGameStateChange {
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     for (const tower of towers) {
       this.addModifierToTowers(tower);
-      // 删除重复的技能添加代码
     }
 
     // 兵营BUFF
@@ -101,7 +100,7 @@ export class EventGameStateChange {
     const bases = Entities.FindAllByClassname('npc_dota_fort') as CDOTA_BaseNPC[];
     for (const base of bases) {
       this.addModifierToTowers(base);
-      // 删除重复的技能添加代码
+      // 监听游戏结束
       base.AddNewModifier(base, undefined, modifier_fort_think.name, {});
     }
 

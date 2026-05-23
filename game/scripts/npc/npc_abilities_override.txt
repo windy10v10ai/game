@@ -514,6 +514,7 @@
 	"axe_berserkers_call"
 	{
 		"MaxLevel"						"5"
+		"AbilityCastPoint"				"0.1"					// 0.3
 		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
@@ -583,7 +584,8 @@
 		"MaxLevel" "4"
 		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"100 125 150 175"
-		"AbilityCastPoint"				"0.01"	// 0.3
+		"AbilityCastPoint"				"0.1"	// 0.3
+		"AbilityCastRange"				"250"	// 175
 		"AbilityValues"
 		{
 			"damage"
@@ -608,7 +610,7 @@
 	{
 		"AbilityValues"
 		{
-			"armor_pct_as_strength"			"200"	// 50 x4
+			"armor_pct_as_strength"			"150"	// 50 x4
 			"radius"					"0"	// 700
 		}
 	}
@@ -3953,8 +3955,8 @@
 			}
 			"attack_speed_slow"
 			{
-				"value"				"48"	// 12 x4
-				"hero_levelup"		"12"	// 3 x4
+				"value"				"60"	// 12 x5
+				"hero_levelup"		"9"		// 3 x3
 			}
 		}
 	}
@@ -12341,6 +12343,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
 		"AbilityValues"
 		{
+			"spell_amp_per_stack"		"2.0"	// 1.0 x2
 			"max_stacks_tooltip"
 			{
 				"value"					"10"	// 5 x2

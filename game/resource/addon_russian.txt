@@ -77,6 +77,35 @@
 		"ending_status_1"				"Пожалуйста, не завершайте игру во время загрузки игровых данных."
 		"ending_status_2"				"Игровые данные успешно загружены!"
 		"ending_status_3"				"Ошибка загрузки игровых данных! Возможные причины: включены читы или игра запущена на локальном сервере."
+
+		// /////////////////////////////////////////////////////////////////////////////
+		//
+		//            Hero Debug Panel
+		//
+		// /////////////////////////////////////////////////////////////////////////////
+		"SpawnUnits_ButtonCategory"					"Создать"
+		"EditUnits_ButtonCategory"					"Редактировать выбранных"
+		"Global_ButtonCategory"						"Глобально"
+		"AHD_SpawnToTeam_2"							"В команду: 1"
+		"AHD_SpawnToTeam_3"							"В команду: 2"
+		"DummyTarget_Button"						"+ Манекен"
+		"LevelUpSelectedHeroes_Button"				"Up+Gold"
+		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
+		"ScepterSelectedHeroes_Button"				"Аганим"
+		"ShardSelectedHeroes_Button"				"Осколок"
+		"InvulnOn_Button"							"Неуязвимость вкл."
+		"InvulnOff_Button"							"Неуязвимость выкл."
+		"Reset_Button"								"Сбросить"
+		"RemoveSpawns_Button"						"Удалить"
+		"AddToUnit_Placeholder"						"Название предмета / способности"
+		"AddItem_Button"							"Добавить предмет"
+		"AddAbility_Button"							"Добавить способность"
+		"FreeSpells_Button"							"Бесплатные заклинания"
+		"Refresh_Button"							"Обновить"
+		"ToggleDayNight_Button"						"День/Ночь"
+		"PauseDemo_Button"							"Пауза"
+		"QuitDemo_Button"							"Выход"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -194,6 +223,7 @@
 		"profile_stat_conduct"			"Очки поведения"
 		"profile_stat_coming_soon"		"Больше функций в разработке"
 		"profile_stat_conduct_tooltip"	"Очки поведения — максимум <font color='#E8C07D'>100</font>, отражают ваше поведение в игре.<br>• Нормальное завершение игры: <font color='#7FD47F'>+1</font><br>• Ранний выход: <font color='#E87D7D'>-5</font><br>Следующее НЕ считается ранним выходом:<br>• Одиночная игра<br>• Все игроки вышли досрочно без экрана результатов<br>Пока только отслеживается — штрафы за низкие очки могут появиться в будущем."
+		"profile_stat_conduct_net_tooltip"	"Всего похвал минус всего жалоб"
 
 		///////////////////////////////////////////////////
 		//

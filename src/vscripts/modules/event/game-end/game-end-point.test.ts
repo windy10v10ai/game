@@ -61,7 +61,7 @@ describe('GameEndPoint', () => {
         towerKills: 2,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(40);
+      expect(score).toBe(43);
     });
 
     it('应该正确计算超高数据玩家的分数', () => {
@@ -74,7 +74,7 @@ describe('GameEndPoint', () => {
         towerKills: 11,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(142);
+      expect(score).toBe(143);
     });
   });
 

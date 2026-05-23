@@ -4,7 +4,7 @@ description: >-
   生成 Steam Workshop 中英文更新日志。支持手动、PR、Issue（含 checklist 进度）。
   版本号：用户指定 > release PR 大版本 > Steam 递增补丁字母。
   用户确认后可写回 open PR（UTF-8 无 BOM）。
-disable-model-invocation: true
+  Use when creating a pull request to generate Steam Workshop release notes.
 ---
 
 # Changelog
@@ -163,6 +163,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 | 技能抽选池 | Ability draft pool |
 | 金钱/经验倍率 | Gold/XP multiplier |
 | 中立物品 | Neutral items |
+| 勇士积分 | Battle point |
 
 ## GAME_VERSION 同步
 
