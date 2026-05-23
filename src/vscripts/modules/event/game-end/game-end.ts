@@ -98,14 +98,13 @@ export class GameEnd {
         kills: PlayerResource.GetKills(playerId),
         deaths: PlayerResource.GetDeaths(playerId),
         assists: PlayerResource.GetAssists(playerId),
-        damage: PlayerResource.GetRawPlayerDamage(playerId),
+        heroDamage: PlayerResource.GetRawPlayerDamage(playerId),
         damageTaken,
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
         score: 0,
         battlePoints: 0,
-        facetId: hero.GetHeroFacetID(),
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
       const rawBattlePoints = this.CalculatePlayerBattlePoints(
@@ -136,7 +135,7 @@ export class GameEnd {
       // 结算界面数据：points 是最终积分，pointModifier 仅用于括号展示
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
-        damage: playerDto.damage,
+        heroDamage: playerDto.heroDamage,
         damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,

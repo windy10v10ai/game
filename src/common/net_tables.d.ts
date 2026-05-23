@@ -19,7 +19,7 @@ declare global {
     player_stats: {
       [playerId: string]: {
         steamId: string;
-        damage: number;
+        heroDamage: number;
         damagereceived: number;
         healing: number;
         points: number;

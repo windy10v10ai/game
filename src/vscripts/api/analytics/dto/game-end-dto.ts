@@ -23,12 +23,11 @@ export class GameEndPlayerDto {
   battlePoints: number;
 
   // 追加项目
-  damage: number;
+  heroDamage: number;
   damageTaken: number;
   lastHits: number;
   healing: number;
   towerKills: number;
-  facetId: number;
 }
 
 export class GameEndDto extends EventBaseDto {
