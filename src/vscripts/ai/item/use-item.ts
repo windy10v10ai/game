@@ -33,6 +33,7 @@ export class UseItem {
    * @returns 是否使用了任何物品
    */
   static UseConsumeItems(hero: CDOTA_BaseNPC_Hero): boolean {
+    if (hero.IsMuted()) return false;
     // 1. 使用需要目标的消耗品（目标为自己）
     for (const itemName of CONSUME_ITEMS_WITH_TARGET) {
       if (ActionItem.UseItemOnTarget(hero, itemName, hero)) {
@@ -51,6 +52,7 @@ export class UseItem {
   }
 
   static UseItemEnemy(hero: CDOTA_BaseNPC_Hero, enemys?: CDOTA_BaseNPC[]): boolean {
+    if (hero.IsMuted()) return false;
     if (!enemys) {
       return false;
     }
@@ -67,6 +69,7 @@ export class UseItem {
   }
 
   static UseItemCreep(hero: CDOTA_BaseNPC_Hero, creeps?: CDOTA_BaseNPC[]): boolean {
+    if (hero.IsMuted()) return false;
     if (!creeps) {
       return false;
     }

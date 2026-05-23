@@ -4,9 +4,9 @@ description: >-
   Routes Dota 2 custom game documentation: prefer ModDota (community-maintained,
   searchable API indexes) for vscripts, game events, Panorama JS API, and Panorama
   events; fall back to Valve Developer Wiki when ModDota is insufficient (concepts,
-  DataDriven KV depth, modifier Actions). Use when implementing or debugging VScripts,
-  Panorama, game/panorama events, npc_abilities KV, or verifying bindings; when
-  the user asks where to look up Dota modding docs.
+  DataDriven KV depth, modifier Actions). Use when you need to look up a specific
+  Dota 2 API, event name, or modifier binding, or when the user asks where to find
+  modding documentation.
 ---
 
 # Dota 2 文档查阅路由

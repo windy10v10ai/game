@@ -10,7 +10,7 @@ import { ModeRetreat } from './mode-retreat';
 @reloadable
 export class FSA {
   public static readonly MODE_SWITCH_THRESHOLD = 0.5;
-  private static readonly RETREAT_HP_THRESHOLD = 25;
+  private static readonly RETREAT_HP_THRESHOLD = 35;
 
   ModeList: ModeBase[] = [];
   constructor() {

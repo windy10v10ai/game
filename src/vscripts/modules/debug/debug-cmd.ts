@@ -12,6 +12,7 @@ export enum CMD {
   KILL_ALL = '-kall',
   G = '-g', // 加钱升级
   G_ALL = '-gall', // 所有人升级加钱
+  L = '-l', // 所有人略微升级加钱
   L_ALL = '-lall', // 所有人逐级升级
 
   LOTTERY = '-lottery', // 抽奖
