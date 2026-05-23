@@ -17,14 +17,32 @@ export class Treasure {
     Vector(-4367, -7499, 262), // 高地右远
   ];
 
-  // 后续点位：天辉野区
+  // 中期点位：天辉野区
+  // 这些点位都在空旷位置，很容易找到
+  static readonly SPAWN_POINTS_RADIANT_EASY: Vector[] = [
+    // 天辉左侧外野区
+    Vector(-8590, 1771, 0),
+  ];
+
+  // 中期点位：天辉野区
   // 这些点位都在树丛里，视觉上更隐蔽一些
   static readonly SPAWN_POINTS_RADIANT_JUNGLE: Vector[] = [
-    // 天辉左侧野区
+    // 天辉左侧外野区
     Vector(-8345, -2464, 256),
+    Vector(-7424, -421, 256),
+    Vector(-7219, 1041, 128),
+    Vector(-6837, 2328, 128),
     Vector(-5400, -2000, 384), // 天辉远古野区
     Vector(-3000, 3500, 384), // 天辉上路野区
     Vector(-2400, -2400, 256), // 天辉肉山方向
+  ];
+
+  // 后期点位：天辉野区
+  // 这些点位都在阴间位置，很难找到
+  static readonly SPAWN_POINTS_RADIANT_HARD: Vector[] = [
+    // 天辉左侧外野区
+    Vector(-8672, -2592, 256),
+    Vector(-8416, 96, 256),
   ];
 
   private activeChests: Set<EntityIndex> = new Set();
@@ -58,12 +76,7 @@ export class Treasure {
   /** 调试用 */
   debugSpawnInitial(): void {
     // 按照正常逻辑刷新下一个
-    // this.spawnOne();
-
-    // 强制在开局点位池中刷一个，绕过场上唯一性
-    const pool = Treasure.SPAWN_POINTS_INITIAL;
-    const point = pool[RandomInt(0, pool.length - 1)];
-    this.spawnAt(point);
+    this.spawnOne();
   }
 
   private spawnAt(point: Vector): void {
@@ -107,10 +120,17 @@ export class Treasure {
   }
 
   getRandomSpawnPoint(): Vector {
-    const pool =
-      this.spawnCount === 0 ? Treasure.SPAWN_POINTS_INITIAL : Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
+    const pool = this.pickPool();
     const index = RandomInt(0, pool.length - 1);
     return pool[index];
+  }
+
+  // spawnCount = 0 开局 → 1-3 EASY → 4-6 JUNGLE → 7+ JUNGLE+HARD 合并（HARD 主导，JUNGLE 兜底防重复）
+  private pickPool(): Vector[] {
+    if (this.spawnCount === 0) return Treasure.SPAWN_POINTS_INITIAL;
+    if (this.spawnCount <= 3) return Treasure.SPAWN_POINTS_RADIANT_EASY;
+    if (this.spawnCount <= 6) return Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
+    return [...Treasure.SPAWN_POINTS_RADIANT_JUNGLE, ...Treasure.SPAWN_POINTS_RADIANT_HARD];
   }
 
   getActiveChestCount(): number {

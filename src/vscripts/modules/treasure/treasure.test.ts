@@ -107,16 +107,39 @@ describe('Treasure', () => {
   });
 
   describe('点位池切换', () => {
-    it('首次 spawn 用 INITIAL 池', () => {
+    // 每次 spawn 后立刻 open，让 activeChests 清空 + spawnCount 递增
+    const advance = (n: number) => {
+      for (let i = 0; i < n; i++) {
+        treasure.spawnOne();
+        treasure.openChest(createdUnits[createdUnits.length - 1], fakeOpener);
+      }
+    };
+
+    it('spawnCount === 0 用 INITIAL 池', () => {
       const point = treasure.getRandomSpawnPoint();
       expect(Treasure.SPAWN_POINTS_INITIAL).toContain(point);
     });
 
-    it('首次 spawn 后切到 RADIANT_JUNGLE 池', () => {
-      treasure.spawnOne();
-      treasure.openChest(createdUnits[0], fakeOpener);
+    it('spawnCount === 1 切到 EASY 池', () => {
+      advance(1);
+      const point = treasure.getRandomSpawnPoint();
+      expect(Treasure.SPAWN_POINTS_RADIANT_EASY).toContain(point);
+    });
+
+    it('spawnCount === 4 切到 JUNGLE 池', () => {
+      advance(4);
       const point = treasure.getRandomSpawnPoint();
       expect(Treasure.SPAWN_POINTS_RADIANT_JUNGLE).toContain(point);
+    });
+
+    it('spawnCount === 7 进入 JUNGLE+HARD 合并池', () => {
+      advance(7);
+      const point = treasure.getRandomSpawnPoint();
+      const merged = [
+        ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE,
+        ...Treasure.SPAWN_POINTS_RADIANT_HARD,
+      ];
+      expect(merged).toContain(point);
     });
   });
 
