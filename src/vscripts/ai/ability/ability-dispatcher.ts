@@ -34,8 +34,8 @@ import { AbilitySpec, TargetSide } from './ability-spec';
 const CREEP_DEFAULT_CONDITION: CastCoindition = {
   self: {
     unitCondition: {
-      manaPercent: { gte: 50 },
-      healthPercent: { gte: 50 },
+      manaPercent: { gte: 40 },
+      healthPercent: { gte: 40 },
     },
     noEnemyHeroInRange: 900,
   },
@@ -126,7 +126,43 @@ export class AbilityDispatcher {
       print(`[AI] Dispatcher hit ${ability.GetName()} side=${spec.targetSide}`);
     }
 
-    return CastAbilityOnTargetByBehavior(hero, ability, target);
+    const castPosition = this.resolveCastPosition(hero, ability, target, condition);
+    return CastAbilityOnTargetByBehavior(hero, ability, target, castPosition);
+  }
+
+  /**
+   * 计算 POINT 技能的释放位置。
+   * - castMode 未设或 'targetPosition' → 返回 undefined（CastAbilityOnTargetByBehavior 默认用 target 位置）
+   * - 'projectedOnCastRange'：
+   *     - 目标距离 ≤ cast range → 直接用目标位置（精准命中）
+   *     - 目标距离 > cast range → 沿"施法者→目标"方向投影到 cast range 边缘
+   *   此模式要求 spec 显式设置 target.range.lte（> cast range），否则会被 fillRangeFromCastRange
+   *   限制为 cast range，失去意义。
+   */
+  private static resolveCastPosition(
+    hero: CDOTA_BaseNPC_Hero,
+    ability: CDOTABaseAbility,
+    target: CDOTA_BaseNPC,
+    condition: CastCoindition | undefined,
+  ): Vector | undefined {
+    if (condition?.target?.castMode !== 'projectedOnCastRange') {
+      return undefined;
+    }
+    const heroPos = hero.GetAbsOrigin();
+    const targetPos = target.GetAbsOrigin();
+    const delta = targetPos.__sub(heroPos);
+    const len = delta.Length2D();
+    if (len < 1) {
+      return targetPos;
+    }
+    const castRange = GetFullCastRange(hero, ability);
+    if (len <= castRange) {
+      // 目标在 cast range 内：精准命中
+      return targetPos;
+    }
+    // 目标在 cast range 外：投影到 cast range 边缘（朝目标方向），让 AoE 边缘扫到目标
+    const direction = delta.__mul(1 / len);
+    return heroPos.__add(direction.__mul(castRange));
   }
 
   private static pickTarget(

@@ -349,7 +349,7 @@ export class BotBaseAIModifier extends BaseModifier {
       return false;
     }
 
-    if (this.IsInAttackPhase()) {
+    if (this.hero.IsAttacking()) {
       // print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
       return false;
     }
@@ -521,10 +521,6 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     return false;
-  }
-
-  IsInAttackPhase(): boolean {
-    return this.hero.IsAttacking();
   }
 
   // ---------------------------------------------------------

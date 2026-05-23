@@ -25,6 +25,19 @@ export interface CastCoindition {
      * 适用于 NO_TARGET AoE 技能（如 axe_berserkers_call），其施法距离为 0 但实际作用半径由 KV AbilityValues 定义。
      */
     rangeFromAbilityValue?: string;
+    /**
+     * 决定 POINT 技能的释放位置：
+     * - 'targetPosition'（默认）：释放点 = 目标位置
+     * - 'projectedOnCastRange'：
+     *     - 目标距离 ≤ cast range → 释放点 = 目标位置（精准命中）
+     *     - 目标距离 > cast range → 释放点 = 沿"施法者→目标"方向投影到 cast range 边缘
+     *   适用于 AoE 作用半径远大于 cast range 的技能（如 tinker_march_of_the_machines、
+     *   tinker_deploy_turrets），允许在更大范围搜索目标，超出 cast range 时压到边缘，
+     *   让 AoE 边缘仍能扫到目标。spec 必须显式提供 target.range.lte（通常 > cast range），
+     *   否则 fillRangeFromCastRange 会把搜索半径限制为 cast range，失去意义。
+     * 仅对 POINT behavior 的 ability 生效；UNIT_TARGET / NO_TARGET 忽略此字段。
+     */
+    castMode?: 'targetPosition' | 'projectedOnCastRange';
   };
   self?: {
     unitCondition?: UnitCondition;

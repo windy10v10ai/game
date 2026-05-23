@@ -481,7 +481,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 	end
 
 	if hAbility6:IsFullyCastable() then
-		local refreshAbilityCoolDownTotal = 15
+		local refreshAbilityCoolDownTotal = 35
 		local refreshItemCoolDownTotal = 30
 
 		local iAbilityCoolDownTotal = 0
