@@ -14,8 +14,8 @@ import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.2;
-  protected readonly ThinkIntervalTool: number = 0.2;
+  protected readonly ThinkInterval: number = 0.3;
+  protected readonly ThinkIntervalTool: number = 0.3;
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
@@ -71,7 +71,10 @@ export class BotBaseAIModifier extends BaseModifier {
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
   public aroundFriendlyHeroes: CDOTA_BaseNPC[] = [];
+  public aroundFriendlyCreeps: CDOTA_BaseNPC[] = [];
   public aroundFriendlyBuildings: CDOTA_BaseNPC[] = [];
+
+  protected isIntHero: boolean = false;
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
@@ -80,6 +83,8 @@ export class BotBaseAIModifier extends BaseModifier {
     if (GameRules.AI.BotTeam) {
       this.PushLevel = GameRules.AI.BotTeam.botPushLevel;
     }
+
+    this.isIntHero = this.hero.GetPrimaryAttribute() === Attributes.INTELLECT;
 
     // 初始化出装状态
     // FIXME 待所有英雄使用新出装系统后删除
@@ -232,9 +237,11 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.CastCreep()) {
       return true;
     }
-    const enemy = this.FindNearestEnemyHero();
-    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeLaning)) {
-      return true;
+    if (this.aroundFriendlyCreeps.length > 0) {
+      const enemy = this.FindNearestEnemyHero();
+      if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeLaning)) {
+        return true;
+      }
     }
     return false;
   }
@@ -255,9 +262,11 @@ export class BotBaseAIModifier extends BaseModifier {
     if (this.CastCreep()) {
       return true;
     }
-    const enemy = this.FindNearestEnemyHero();
-    if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeAttack)) {
-      return true;
+    if (!this.isIntHero) {
+      const enemy = this.FindNearestEnemyHero();
+      if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeAttack)) {
+        return true;
+      }
     }
     return false;
   }
@@ -325,6 +334,10 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     if (this.CastCreep()) {
       return true;
+    }
+    // INT 英雄不强制推塔，攻击
+    if (this.isIntHero) {
+      return false;
     }
     // 推塔
     if (this.ForceAttackTower()) {
@@ -536,6 +549,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.FindRadius,
     );
     this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
+    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(this.hero, 900);
     this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);
   }
 
