@@ -5,11 +5,16 @@ import { SPECS as axeCullingBlade } from './axe_culling_blade';
 import { SPECS as dragonKnightBreatheFire } from './dragon_knight_breathe_fire';
 import { SPECS as dragonKnightDragonTail } from './dragon_knight_dragon_tail';
 import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
+import { SPECS as lichFrostNova } from './lich_frost_nova';
+import { SPECS as lichFrostShield } from './lich_frost_shield';
 import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
 import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
 import { SPECS as lionVoodoo } from './lion_voodoo';
 import { SPECS as omniknightPurification } from './omniknight_purification';
+import { SPECS as sandkingBurrowstrike } from './sandking_burrowstrike';
+import { SPECS as sandkingScorpionStrike } from './sandking_scorpion_strike';
+import { SPECS as sandkingSandStorm } from './sandking_sand_storm';
 import { SPECS as shadowShamanEtherShock } from './shadow_shaman_ether_shock';
 import { SPECS as shadowShamanMassSerpentWard } from './shadow_shaman_mass_serpent_ward';
 import { SPECS as shadowShamanShackles } from './shadow_shaman_shackles';
@@ -36,6 +41,10 @@ export function registerAbilitySpecs(): void {
   // Omniknight 全能骑士
   AbilityRegistry.registerAll(omniknightPurification);
 
+  // Lich 巫妖
+  AbilityRegistry.registerAll(lichFrostNova);
+  AbilityRegistry.registerAll(lichFrostShield);
+
   // Lion 莱恩
   AbilityRegistry.registerAll(lionVoodoo);
   AbilityRegistry.registerAll(lionImpale);
@@ -46,6 +55,11 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(axeBerserkerSCall);
   AbilityRegistry.registerAll(axeBattleHunger);
   AbilityRegistry.registerAll(axeCullingBlade);
+
+  // Sand King 沙王
+  AbilityRegistry.registerAll(sandkingBurrowstrike);
+  AbilityRegistry.registerAll(sandkingSandStorm);
+  AbilityRegistry.registerAll(sandkingScorpionStrike);
 
   // Shadow Shaman 暗影萨满
   AbilityRegistry.registerAll(shadowShamanEtherShock);

@@ -71,6 +71,7 @@ export class BotBaseAIModifier extends BaseModifier {
   public aroundEnemyBuildings: CDOTA_BaseNPC[] = [];
   public aroundEnemyBuildingsInvulnerable: CDOTA_BaseNPC[] = [];
   public aroundFriendlyHeroes: CDOTA_BaseNPC[] = [];
+  public aroundFriendlyBuildings: CDOTA_BaseNPC[] = [];
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
@@ -539,6 +540,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.FindRadius,
     );
     this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
+    this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);
   }
 
   public FindNearestEnemyHero(): CDOTA_BaseNPC | undefined {

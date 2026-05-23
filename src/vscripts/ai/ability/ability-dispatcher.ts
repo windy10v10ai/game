@@ -200,6 +200,9 @@ export class AbilityDispatcher {
     if (side === TargetSide.FriendlyHero) {
       return ai.aroundFriendlyHeroes;
     }
+    if (side === TargetSide.FriendlyBuilding) {
+      return ai.aroundFriendlyBuildings;
+    }
     return [];
   }
 }
