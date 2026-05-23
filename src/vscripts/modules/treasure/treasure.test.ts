@@ -7,6 +7,7 @@ jest.mock('../../modifiers/global/modifier_treasure_chest', () => ({
 
 jest.mock('../../api/analytics/ga4/ga4-treasure-tracker', () => ({
   GA4TreasureTracker: { SendOpen: jest.fn() },
+  TreasureTier: { UNKNOWN: 0, INITIAL: 1, EASY: 2, JUNGLE: 3, HARD: 4 },
 }));
 
 global.print = jest.fn();
