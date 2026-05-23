@@ -125,9 +125,6 @@ export function FilterTargetWithCondition(
     if (!unit.IsAlive()) {
       continue;
     }
-    if (!unit.CanEntityBeSeenByMyTeam(self)) {
-      continue;
-    }
 
     // 魔法免疫过滤：有 ability 时才检查，避免影响非 dispatcher 调用路径
     if (ability && unit.IsMagicImmune()) {
