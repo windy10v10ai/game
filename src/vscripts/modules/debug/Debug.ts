@@ -1,3 +1,4 @@
+import { registerAbilitySpecs } from '../../ai/ability/specs';
 import { GA4 } from '../../api/analytics/ga4/ga4';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameEnd } from '../event/game-end/game-end';
@@ -74,6 +75,7 @@ export class Debug {
 
     if (cmd === CMD.REFRESH_AI) {
       this.log(`REFRESH_AI`);
+      registerAbilitySpecs();
       PlayerHelper.ForEachPlayer((playerId) => {
         const hero = PlayerResource.GetSelectedHeroEntity(playerId);
         if (!hero) return;
@@ -108,6 +110,16 @@ export class Debug {
         // 获得金钱经验技能升满
         hero.ModifyGold(50000, false, ModifyGoldReason.UNSPECIFIED);
         hero.AddExperience(50000, ModifyXpReason.UNSPECIFIED, false, true);
+      });
+    }
+
+    if (cmd === CMD.L) {
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+        if (!hero) return;
+        // 升级 加钱
+        hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
+        hero.AddExperience(5000, ModifyXpReason.UNSPECIFIED, false, true);
       });
     }
 

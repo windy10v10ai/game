@@ -13,8 +13,11 @@ export function GetFullCastRange(self: CDOTA_BaseNPC_Hero, ability: CDOTABaseAbi
  * 给定一个已选定的 target，按 ability 的 behavior 位掩码自动派发到对应的 CastAbility 调用。
  *
  *  - UNIT_TARGET   → CastAbilityOnTarget(target)
- *  - POINT / AOE   → CastAbilityOnPosition(target.GetAbsOrigin())
+ *  - POINT / AOE   → CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin())
  *  - NO_TARGET     → CastAbilityNoTarget()
+ *
+ * castPosition 可选：当 spec 配置了 castMode='projectedOnCastRange' 时，dispatcher 会
+ * 算出投影点并传入，覆盖默认的"释放点 = 目标位置"。
  *
  * 抽自 ActionAbility.CastAbilityOnFindEnemy 内部分支，供 dispatcher 与现有 ActionAbility 共用。
  */
@@ -22,6 +25,7 @@ export function CastAbilityOnTargetByBehavior(
   hero: CDOTA_BaseNPC_Hero,
   ability: CDOTABaseAbility,
   target: CDOTA_BaseNPC,
+  castPosition?: Vector,
 ): boolean {
   const playerId = hero.GetPlayerOwnerID();
   const abilityName = ability.GetName();
@@ -33,12 +37,12 @@ export function CastAbilityOnTargetByBehavior(
   }
   if (IsAbilityBehavior(ability, AbilityBehavior.POINT)) {
     print(`[AI] CastByBehavior ${abilityName} on point`);
-    hero.CastAbilityOnPosition(target.GetAbsOrigin(), ability, playerId);
+    hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
   if (IsAbilityBehavior(ability, AbilityBehavior.AOE)) {
     print(`[AI] CastByBehavior ${abilityName} on position`);
-    hero.CastAbilityOnPosition(target.GetAbsOrigin(), ability, playerId);
+    hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
   if (IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {

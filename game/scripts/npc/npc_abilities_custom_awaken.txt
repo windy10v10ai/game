@@ -65,6 +65,9 @@
 		"ScriptFile"					"abilities/juggernaut_blade_fury_custom"
 		"AbilityTextureName"			"juggernaut_blade_fury_immortal_crimson"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"MaxLevel"						"5"
 
 		"precache"
@@ -88,6 +91,7 @@
 			"duration"					"5"
 			"AbilityCooldown"			"20 19 18 17 16"
 			"AbilityManaCost"			"100 105 110 115 120"
+			"attack_damage_pct"			"80"
 			"damage_reduction_pct"		"70 65 60 55 50"
 			"talent_bonus_movespeed"
 			{

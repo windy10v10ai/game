@@ -14,7 +14,7 @@ describe('DeepMerge', () => {
     expect(result).toEqual({ debug: false });
   });
 
-  it('should deeply merge nested objects', () => {
+  it('should deeply merge nested objects but replace NumberRange entirely', () => {
     const target: CastCoindition = {
       target: {
         count: { gte: 1, lte: 5 },
@@ -28,12 +28,37 @@ describe('DeepMerge', () => {
     const result = DeepMerge(target, source);
     expect(result).toEqual({
       target: {
-        count: { gte: 2, lte: 5 },
+        count: { gte: 2 },
       },
     });
   });
 
-  it('should override non-object properties', () => {
+  it('should replace NumberRange entirely when source specifies a different bound', () => {
+    const target: CastCoindition = {
+      self: {
+        unitCondition: {
+          manaPercent: { gte: 50 },
+        },
+      },
+    };
+    const source: Partial<CastCoindition> = {
+      self: {
+        unitCondition: {
+          manaPercent: { lte: 50 },
+        },
+      },
+    };
+    const result = DeepMerge(target, source);
+    expect(result).toEqual({
+      self: {
+        unitCondition: {
+          manaPercent: { lte: 50 },
+        },
+      },
+    });
+  });
+
+  it('should replace NumberRange entirely when source overrides gte', () => {
     const target: CastCoindition = {
       ability: {
         charges: { gte: 3, lte: 3 },
@@ -47,7 +72,7 @@ describe('DeepMerge', () => {
     const result = DeepMerge(target, source);
     expect(result).toEqual({
       ability: {
-        charges: { gte: 5, lte: 3 },
+        charges: { gte: 5 },
       },
     });
   });

@@ -81,8 +81,6 @@ export class ActionAbility {
     } else if (typeFilter === UnitTargetType.CREEP) {
       if (ai.FindNearestEnemyCreep() === undefined) {
         return false;
-      } else if (ai.FindNearestEnemyCreep()!.IsAncient()) {
-        return false;
       }
     }
 

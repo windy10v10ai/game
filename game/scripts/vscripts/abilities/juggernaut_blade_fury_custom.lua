@@ -15,19 +15,25 @@ end
 function modifier_juggernaut_blade_fury_custom:IsPurgable() return false end
 
 function modifier_juggernaut_blade_fury_custom:OnCreated(kv)
+    local ability = self:GetAbility()
+    self.movespeed_bonus = ability:GetSpecialValueFor("talent_bonus_movespeed")
+    self.magic_resistance = ability:GetSpecialValueFor("magic_resistance_bonus")
+    self.radius = ability:GetSpecialValueFor("radius")
+
     if not IsServer() then return end
 
     local caster = self:GetCaster()
-    local ability = self:GetAbility()
-    local damage_reduction_pct = ability:GetSpecialValueFor("damage_reduction_pct") or 50
-    local total_attack_damage = caster:GetAverageTrueAttackDamage(nil) or 1000
-    self.damage_reduction = -total_attack_damage * damage_reduction_pct / 100
+    local attack_damage = caster:GetAverageTrueAttackDamage(nil)
+    local damage_reduction_pct = ability:GetSpecialValueFor("damage_reduction_pct")
+    local attack_damage_pct = ability:GetSpecialValueFor("attack_damage_pct") / 100
+    local base_damage = ability:GetSpecialValueFor("damage")
+    self.damage_reduction = -attack_damage * damage_reduction_pct / 100
+    self.tick_damage = (attack_damage * attack_damage_pct + base_damage) * 0.5
 
     self:SetHasCustomTransmitterData(true)
-    local radius = ability:GetSpecialValueFor("radius")
     self.particle = ParticleManager:CreateParticle(
         "particles/units/heroes/hero_juggernaut/juggernaut_blade_fury.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-    ParticleManager:SetParticleControl(self.particle, 5, Vector(radius, 0, 0))
+    ParticleManager:SetParticleControl(self.particle, 5, Vector(self.radius, 0, 0))
     self:StartIntervalThink(0.5)
 end
 
@@ -53,12 +59,9 @@ function modifier_juggernaut_blade_fury_custom:OnIntervalThink()
 
     local caster = self:GetCaster()
     local ability = self:GetAbility()
-    local radius = ability:GetSpecialValueFor("radius")
-    local base_damage = ability:GetSpecialValueFor("damage")
-    local attack_damage = caster:GetAverageTrueAttackDamage(nil)
 
     local enemies = FindUnitsInRadius(
-        caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, radius,
+        caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self.radius,
         DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
@@ -66,7 +69,7 @@ function modifier_juggernaut_blade_fury_custom:OnIntervalThink()
         ApplyDamage({
             victim = enemy,
             attacker = caster,
-            damage = attack_damage + base_damage * 0.5,
+            damage = self.tick_damage,
             damage_type = DAMAGE_TYPE_MAGICAL,
             ability = ability
         })
@@ -82,11 +85,11 @@ function modifier_juggernaut_blade_fury_custom:DeclareFunctions()
 end
 
 function modifier_juggernaut_blade_fury_custom:GetModifierMoveSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("talent_bonus_movespeed") or 0
+    return self.movespeed_bonus or 0
 end
 
 function modifier_juggernaut_blade_fury_custom:GetModifierMagicalResistanceBonus()
-    return self:GetAbility():GetSpecialValueFor("magic_resistance_bonus") or 0
+    return self.magic_resistance or 0
 end
 
 function modifier_juggernaut_blade_fury_custom:GetTexture()

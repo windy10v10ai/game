@@ -514,6 +514,7 @@
 	"axe_berserkers_call"
 	{
 		"MaxLevel"						"5"
+		"AbilityCastPoint"				"0.1"					// 0.3
 		"AbilityCooldown"				"19 17 15 13 11"
 		"AbilityManaCost"				"90 100 110 120 130"
 		"AbilityValues"
@@ -3954,8 +3955,8 @@
 			}
 			"attack_speed_slow"
 			{
-				"value"				"48"	// 12 x4
-				"hero_levelup"		"12"	// 3 x4
+				"value"				"60"	// 12 x5
+				"hero_levelup"		"9"		// 3 x3
 			}
 		}
 	}

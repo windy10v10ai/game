@@ -347,6 +347,23 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 **主文档（检索入口）**: [ModDota API · vscripts](https://moddota.com/api/#/vscripts)
 
+## 注释规约
+
+代码注释只写**为什么这样做**，不写**这行代码做了什么**。读者能从代码本身读懂的，就不要再用注释复述一遍。
+
+不写：
+- KV 字段、behavior、cast range 等可以直接查 KV 文件得到的事实
+- "移植自 xxx.lua 的 yyy 函数"之类来源说明（git 历史会保留）
+- 单行字段含义的复述（`// 覆盖默认 level >= 3` 跟在 `ability: { level: { gte: 2 } }` 后面就是冗余）
+- 段落式罗列"对英雄做什么 / 对小兵做什么"，代码已经表达得很清楚
+
+写：
+- 选择某个数值/方案的**原因**（"1 级伤害太低、蓝耗占比高，2 级起才用"）
+- 与默认/约定不一致的**特殊处理**（"AoE 半径远大于 cast range，需要 castMode 投影到边缘"）
+- 一两句话点出技能中文名 / 设计目的
+
+整个文件一个 `/** 一两行 */` JSDoc 即可，不需要分段、不需要 bullet 列表。
+
 ## Plan 规范
 
 Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节：
@@ -374,6 +391,10 @@ Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生
 简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`，不写其他正文、不写 bullet 说明。
 详细说明由 PR description 承担，commit message 保持简洁。
 
+
+## 文档自维护规范
+
+当用户纠正 Claude 的做法、发现文档与实际代码矛盾、或用户补充了新约定时，触发 `doc-update` skill 将有价值的内容沉淀到文档中。执行流程见 `.claude/skills/doc-update/SKILL.md`。
 
 ## Skill 交互规范
 

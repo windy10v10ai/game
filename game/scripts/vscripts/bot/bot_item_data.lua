@@ -418,12 +418,10 @@ tBotItemData.purchaseItemList = {
 		'item_magic_wand',
 		'item_boots',
 		'item_null_talisman',
-		'item_rod_of_atos', -- 阿托斯之棍
-		'item_arcane_boots',
-		'item_glimmer_cape',
-		'item_force_staff',
 		'item_hand_of_group', -- 团队之手
+		'item_glimmer_cape',
 		'item_wings_of_haste',
+		'item_force_staff',
 		'item_blink',
 		'item_aghanims_shard',
 		'item_aether_lens_2', -- 以太之镜2

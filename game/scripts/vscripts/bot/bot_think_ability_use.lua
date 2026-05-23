@@ -91,9 +91,7 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 	-- Get hero name
 	local sHeroName = hHero:GetName()
 
-	if sHeroName == "npc_dota_hero_axe" then
-		self:ThinkUseAbility_Axe(hHero)
-	elseif sHeroName == "npc_dota_hero_phantom_assassin" then
+	if sHeroName == "npc_dota_hero_phantom_assassin" then
 		self:ThinkUseAbility_PhantomAssassin(hHero)
 	elseif sHeroName == "npc_dota_hero_zuus" then
 		self:ThinkUseAbility_Zuus(hHero)
@@ -121,33 +119,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_WitchDoctor(hHero)
 	elseif sHeroName == "npc_dota_hero_tinker" then
 		self:ThinkUseAbility_Tinker(hHero)
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Axe(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-
-	if hAbility1:IsFullyCastable() then
-		local iRange = hAbility1:GetSpecialValueFor("radius") - 10
-		local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange, DOTA_UNIT_TARGET_TEAM_ENEMY,
-			DOTA_UNIT_TARGET_HERO,
-			DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE +
-			DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_ANY_ORDER, false)
-		local iCount = #tAllHeroes
-		for i = 1, iCount do
-			if tAllHeroes[iCount + 1 - i]:IsStunned() or tAllHeroes[iCount + 1 - i]:IsHexed() or tAllHeroes[iCount + 1 - i]:IsInvisible() then
-				table.remove(tAllHeroes, iCount + 1 - i)
-			end
-		end
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityNoTarget(hAbility1, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility2) then
-		return true
 	end
 end
 
@@ -430,15 +401,8 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 	local hAbility6 = hHero:GetAbilityByIndex(5)
 
 
-	if hAbility4:IsFullyCastable() then
-		-- 折跃范围
-		local iRange = 300
-		local hTarget = BotThink:FindNearestEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if hTarget then
-			hHero:CastAbilityOnTarget(hTarget, hAbility4, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
+	-- hAbility1 ~ 4 由 ability spec 系统接管，详见
+	-- src/vscripts/ai/ability/specs/tinker_xxx.ts
 
 	-- if hAbility6 is Channel
 	if hAbility6:IsChanneling() then
@@ -480,21 +444,6 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 		end
 	end
 
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility1) then
-		return true
-	end
-	if hAbility2:IsFullyCastable() then
-		local iRange = hAbility2:GetCastRange()
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityNoTarget(hAbility2, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-
-	-- if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility3, 90, "modifier_tinker_defense_matrix") then
-	-- 	return true
-	-- end
 
 	if hAbility5:IsFullyCastable() then
 		-- if mp less than 10% go back to fountain
@@ -532,7 +481,7 @@ function BotAbilityThink:ThinkUseAbility_Tinker(hHero)
 	end
 
 	if hAbility6:IsFullyCastable() then
-		local refreshAbilityCoolDownTotal = 15
+		local refreshAbilityCoolDownTotal = 30
 		local refreshItemCoolDownTotal = 30
 
 		local iAbilityCoolDownTotal = 0
