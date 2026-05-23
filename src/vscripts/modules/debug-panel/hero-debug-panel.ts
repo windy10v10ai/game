@@ -35,7 +35,6 @@ export class HeroDebugPanel {
       (_userId, event) => this.onAddToUnit(event),
     );
 
-
     ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
     ListenToGameEvent('dota_on_hero_finish_spawn', (keys) => this.onHeroFinishSpawn(keys), this);
   }

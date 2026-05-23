@@ -1,3 +1,4 @@
+import { GA4TreasureTracker, TreasureTier } from '../../api/analytics/ga4/ga4-treasure-tracker';
 import { modifier_treasure_chest } from '../../modifiers/global/modifier_treasure_chest';
 import { reloadable } from '../../utils/tstl-utils';
 
@@ -25,6 +26,7 @@ export class Treasure {
 
     // 天辉远古野区
     Vector(-5235, -726, 256),
+    Vector(-5491, 167, 128),
 
     // 天辉下路主野区
 
@@ -52,7 +54,8 @@ export class Treasure {
     Vector(-8416, 96, 256),
   ];
 
-  private activeChests: Set<EntityIndex> = new Set();
+  // value 是 spawn 时使用的原始 Vector 引用，open 时回查 tier 用
+  private activeChests: Map<EntityIndex, Vector> = new Map();
   private spawnCount = 0;
 
   constructor() {
@@ -108,14 +111,15 @@ export class Treasure {
     // 绕过 CreateUnitByName 的地面 snap，让模型整体下降避免悬空
     const origin = chest.GetAbsOrigin();
     chest.SetAbsOrigin(Vector(origin.x, origin.y, origin.z - Treasure.Z_SINK));
-    this.activeChests.add(chest.GetEntityIndex());
+    this.activeChests.set(chest.GetEntityIndex(), point);
     this.spawnCount++;
     print(`[Treasure] #${this.spawnCount} spawned at (${point.x}, ${point.y}, ${point.z})`);
   }
 
   openChest(chest: CDOTA_BaseNPC, opener: CDOTA_BaseNPC): void {
     const entIndex = chest.GetEntityIndex();
-    if (!this.activeChests.has(entIndex)) return;
+    const point = this.activeChests.get(entIndex);
+    if (point === undefined) return;
     this.activeChests.delete(entIndex);
 
     const fx = ParticleManager.CreateParticle(
@@ -127,6 +131,8 @@ export class Treasure {
     EmitSoundOn(Treasure.OPEN_SOUND, chest);
     UTIL_Remove(chest);
     print(`[Treasure] opened by ${opener.GetUnitName()}`);
+
+    GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, Treasure.getPointTier(point));
     // TODO P2: GameRules.Lottery.openItemLottery(opener)
   }
 
@@ -142,6 +148,15 @@ export class Treasure {
     if (this.spawnCount <= 3) return Treasure.SPAWN_POINTS_RADIANT_EASY;
     if (this.spawnCount <= 6) return Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
     return [...Treasure.SPAWN_POINTS_RADIANT_JUNGLE, ...Treasure.SPAWN_POINTS_RADIANT_HARD];
+  }
+
+  /** 反查点位属于哪个 tier，用于 GA 统计 */
+  static getPointTier(point: Vector): TreasureTier {
+    if (Treasure.SPAWN_POINTS_INITIAL.includes(point)) return TreasureTier.INITIAL;
+    if (Treasure.SPAWN_POINTS_RADIANT_EASY.includes(point)) return TreasureTier.EASY;
+    if (Treasure.SPAWN_POINTS_RADIANT_JUNGLE.includes(point)) return TreasureTier.JUNGLE;
+    if (Treasure.SPAWN_POINTS_RADIANT_HARD.includes(point)) return TreasureTier.HARD;
+    return TreasureTier.UNKNOWN;
   }
 
   getActiveChestCount(): number {

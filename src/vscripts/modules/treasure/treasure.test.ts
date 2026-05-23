@@ -5,6 +5,10 @@ jest.mock('../../modifiers/global/modifier_treasure_chest', () => ({
   modifier_treasure_chest: { name: 'modifier_treasure_chest' },
 }));
 
+jest.mock('../../api/analytics/ga4/ga4-treasure-tracker', () => ({
+  GA4TreasureTracker: { SendOpen: jest.fn() },
+}));
+
 global.print = jest.fn();
 
 const listeners: Record<string, (keys: any) => void> = {};
