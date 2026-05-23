@@ -136,6 +136,8 @@
 		"AddToUnit_Placeholder"						"Item / ability name"
 		"AddItem_Button"							"Add Item"
 		"AddAbility_Button"							"Add Ability"
+		"MoveToCoord_Button"						"Move to Coord"
+		"SpawnTreasure_Button"						"Spawn Chest"
 		"FreeSpells_Button"							"Free Spells"
 		"Refresh_Button"							"Refresh"
 		"ToggleDayNight_Button"						"Toggle Day/Night"

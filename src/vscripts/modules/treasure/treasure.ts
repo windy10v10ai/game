@@ -20,8 +20,15 @@ export class Treasure {
   // 中期点位：天辉野区
   // 这些点位都在空旷位置，很容易找到
   static readonly SPAWN_POINTS_RADIANT_EASY: Vector[] = [
-    // 天辉左侧外野区
+    // 天辉上路外野区
     Vector(-8590, 1771, 0),
+
+    // 天辉远古野区
+    Vector(-5235, -726, 256),
+
+    // 天辉下路主野区
+
+    // 天辉下路外野区
   ];
 
   // 中期点位：天辉野区
@@ -30,7 +37,7 @@ export class Treasure {
     // 天辉左侧外野区
     Vector(-8345, -2464, 256),
     Vector(-7424, -421, 256),
-    Vector(-7219, 1041, 128),
+    Vector(-7157, 1058, 128),
     Vector(-6837, 2328, 128),
     Vector(-5400, -2000, 384), // 天辉远古野区
     Vector(-3000, 3500, 384), // 天辉上路野区
@@ -71,6 +78,10 @@ export class Treasure {
       return;
     }
     this.spawnAt(this.getRandomSpawnPoint());
+  }
+
+  debugSpawnAt(point: Vector): void {
+    this.spawnAt(point);
   }
 
   /** 调试用 */
