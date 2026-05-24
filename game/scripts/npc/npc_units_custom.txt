@@ -726,6 +726,11 @@
 		"VisionDaytimeRange"		"400"
 		"VisionNighttimeRange"		"400"
 
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_miscbuilding"
+		"MinimapIconSize"			"400"
+
 		// Bots
 		//----------------------------------------------------------------
 		"WakesNeutrals"				"0"

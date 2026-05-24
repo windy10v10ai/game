@@ -6,7 +6,7 @@ import { ItemLotteryTier } from '../lottery/item/item-lottery-helper';
 @reloadable
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
-  static readonly RESPAWN_INTERVAL = 180;
+  static readonly RESPAWN_INTERVAL = 120;
   static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;
   static readonly OPEN_PARTICLE = 'particles/items2_fx/hand_of_midas.vpcf';
@@ -23,33 +23,35 @@ export class Treasure {
   // 这些点位都在空旷位置，很容易找到
   static readonly SPAWN_POINTS_RADIANT_EASY: Vector[] = [
     // 天辉上路外野区
-    Vector(-8590, 1771, 0),
+    Vector(-7887, 753, 0),
 
     // 天辉远古野区
     Vector(-5235, -726, 256),
     Vector(-5491, 167, 128),
     Vector(-5301, 1588, 128),
+    Vector(-3159, 434, 256),
 
     // 天辉下路主野区
+    Vector(-89, -3109, 136),
     Vector(-1829, -2422, 128),
     Vector(-2488, -4818, 128),
     Vector(-2208, -4192, 128),
     Vector(4761, -4554, 128),
+    Vector(3073, -5553, 128),
 
     // 天辉下路外野区
-    Vector(2039, -7166, 128),
+    Vector(-110, -7129, 128),
     Vector(-1927, -8665, 128),
     Vector(-3, -8447, 128),
     Vector(6368, -8416, 0),
-
-    // 夜魇上路外野区
-    Vector(-7497, 3299, 128),
   ];
 
   // 中期点位：天辉野区
   // 这些点位都在树丛里，视觉上更隐蔽一些
   static readonly SPAWN_POINTS_RADIANT_JUNGLE: Vector[] = [
-    // 天辉左侧外野区
+    // 天辉上路外野区
+    Vector(-8590, 1771, 0),
+
     Vector(-8345, -2464, 256),
     Vector(-7424, -421, 256),
     Vector(-7157, 1058, 128),
@@ -61,17 +63,19 @@ export class Treasure {
     Vector(-2061, -847, 128),
 
     // 天辉下路主野区
+    Vector(747, -2375, 256),
     Vector(-3597, -4776, 128),
     Vector(1866, -3496, 256),
     Vector(3033, -4200, 256),
     Vector(2573, -5352, 256),
 
     // 天辉下路外野区
+    Vector(2039, -7166, 128),
     Vector(-360, -8686, 128),
     Vector(7692, -7822, 256),
 
     // 夜魇上路外野区
-    Vector(-7456, 3552, 128),
+    Vector(-7497, 3299, 128),
   ];
 
   // 后期点位：天辉野区
@@ -91,6 +95,7 @@ export class Treasure {
     Vector(8472, -4897, 128),
 
     // 夜魇上路外野区
+    Vector(-7456, 3552, 128),
     Vector(-6720, 8310, 256),
     Vector(1041, 8227, 128),
 
@@ -201,11 +206,13 @@ export class Treasure {
     return finalPool[index];
   }
 
-  // spawnCount = 0 开局 → 1-3 EASY → 4-6 JUNGLE → 7+ JUNGLE+HARD 合并（HARD 主导，JUNGLE 兜底防重复）
+  // spawnCount = 0 开局 → 1-3 EASY → 4-5 EASY+JUNGLE 过渡 → 6-7 JUNGLE → 8+ JUNGLE+HARD
   private pickPool(): Vector[] {
     if (this.spawnCount === 0) return Treasure.SPAWN_POINTS_INITIAL;
     if (this.spawnCount <= 3) return Treasure.SPAWN_POINTS_RADIANT_EASY;
-    if (this.spawnCount <= 6) return Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
+    if (this.spawnCount <= 5)
+      return [...Treasure.SPAWN_POINTS_RADIANT_EASY, ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE];
+    if (this.spawnCount <= 7) return Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
     return [...Treasure.SPAWN_POINTS_RADIANT_JUNGLE, ...Treasure.SPAWN_POINTS_RADIANT_HARD];
   }
 
