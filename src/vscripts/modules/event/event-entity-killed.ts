@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
+import { ItemLotteryTier } from '../lottery/item/item-lottery-helper';
 
 // 全局游戏状态 - 记录塔摧毁情况
 export class TowerPushStatus {
@@ -316,6 +317,16 @@ export class EventEntityKilled {
         for (let i = 0; i < dropCount; i++) {
           this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceRoshan);
         }
+      }
+
+      // 人类玩家击杀肉山：全体人类玩家各获得一次 PREMIUM 物品抽奖
+      if (PlayerHelper.IsHumanPlayer(attacker)) {
+        PlayerHelper.ForEachPlayer((playerId) => {
+          if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
+          const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+          if (!hero) return;
+          GameRules.Lottery.Item.onTriggered(hero, ItemLotteryTier.PREMIUM);
+        });
       }
     } else if (creep.IsAncient()) {
       // 击杀远古

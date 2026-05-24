@@ -23,12 +23,13 @@ export class Treasure {
   // 这些点位都在空旷位置，很容易找到
   static readonly SPAWN_POINTS_RADIANT_EASY: Vector[] = [
     // 天辉上路外野区
-    Vector(-8590, 1771, 0),
+    Vector(-7887, 753, 0),
 
     // 天辉远古野区
     Vector(-5235, -726, 256),
     Vector(-5491, 167, 128),
     Vector(-5301, 1588, 128),
+    Vector(-3159, 434, 256),
 
     // 天辉下路主野区
     Vector(-1829, -2422, 128),
@@ -37,19 +38,17 @@ export class Treasure {
     Vector(4761, -4554, 128),
 
     // 天辉下路外野区
-    Vector(2039, -7166, 128),
     Vector(-1927, -8665, 128),
     Vector(-3, -8447, 128),
     Vector(6368, -8416, 0),
-
-    // 夜魇上路外野区
-    Vector(-7497, 3299, 128),
   ];
 
   // 中期点位：天辉野区
   // 这些点位都在树丛里，视觉上更隐蔽一些
   static readonly SPAWN_POINTS_RADIANT_JUNGLE: Vector[] = [
-    // 天辉左侧外野区
+    // 天辉上路外野区
+    Vector(-8590, 1771, 0),
+
     Vector(-8345, -2464, 256),
     Vector(-7424, -421, 256),
     Vector(-7157, 1058, 128),
@@ -67,11 +66,12 @@ export class Treasure {
     Vector(2573, -5352, 256),
 
     // 天辉下路外野区
+    Vector(2039, -7166, 128),
     Vector(-360, -8686, 128),
     Vector(7692, -7822, 256),
 
     // 夜魇上路外野区
-    Vector(-7456, 3552, 128),
+    Vector(-7497, 3299, 128),
   ];
 
   // 后期点位：天辉野区
@@ -91,6 +91,7 @@ export class Treasure {
     Vector(8472, -4897, 128),
 
     // 夜魇上路外野区
+    Vector(-7456, 3552, 128),
     Vector(-6720, 8310, 256),
     Vector(1041, 8227, 128),
 
