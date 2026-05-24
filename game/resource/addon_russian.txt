@@ -439,5 +439,8 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
+
+		// Сундук с сокровищами
+		"npc_treasure_chest"													"Сундук с сокровищами"
 	}
 }

@@ -136,6 +136,8 @@
 		"AddToUnit_Placeholder"						"输入物品/技能名"
 		"AddItem_Button"							"添加物品"
 		"AddAbility_Button"							"添加技能"
+		"MoveToCoord_Button"						"移动到坐标"
+		"SpawnTreasure_Button"						"生成宝箱"
 		"FreeSpells_Button"							"免费技能"
 		"Refresh_Button"							"刷新"
 		"ToggleDayNight_Button"						"切换昼夜"
@@ -3149,6 +3151,8 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 
+		// 藏宝箱
+		"npc_treasure_chest"															"藏宝箱"
 
 	}
 }

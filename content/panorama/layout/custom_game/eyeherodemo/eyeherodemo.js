@@ -161,6 +161,16 @@ function AddAbilityToSelected() {
   DispatchAddToSelectedEntities('ability');
 }
 
+function MoveHeroToCoord() {
+  var raw = $('#CoordInput').text;
+  $.DispatchEvent('FireCustomGameEvent_Str', 'MoveToCoordPressed', raw || '');
+}
+
+function SpawnTreasureAtCoord() {
+  var raw = $('#CoordInput').text;
+  $.DispatchEvent('FireCustomGameEvent_Str', 'SpawnTreasureAtCoordPressed', raw || '');
+}
+
 function MouseOverRune(strRuneID, strRuneTooltip) {
   var runePanel = $('#' + strRuneID);
   runePanel.StartAnimating();

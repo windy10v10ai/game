@@ -256,6 +256,10 @@ export class Debug {
       GameEnd.OnGameEnd(2);
     }
 
+    if (cmd === CMD.TREASURE) {
+      GameRules.Treasure.debugSpawnInitial();
+    }
+
     if (cmd === CMD.KILL) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
