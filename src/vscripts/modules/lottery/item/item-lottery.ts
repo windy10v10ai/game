@@ -58,8 +58,9 @@ export class ItemLottery {
     }
     print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
 
-    // 清行，客户端 hook 收到 nil 自动隐藏 UI
-    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), undefined as never);
+    // 清空候选（写空数组，客户端 Object.values 长度 0 → UI collapse）。
+    // 不能传 nil：Dota 引擎对 SetTableValue 传 nil 是 noop，不会删除行。
+    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), []);
 
     GA4PickItemTracker.SendPick(playerId, matched.name, matched.level);
   }

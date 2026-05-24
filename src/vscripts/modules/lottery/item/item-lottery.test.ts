@@ -102,7 +102,8 @@ describe('ItemLottery', () => {
         } as any,
       );
       expect(mockHero.AddItemByName).toHaveBeenCalledWith(target.name);
-      expect(netTable['lottery_item']['3']).toBeUndefined();
+      // 选完后写空数组清行
+      expect(netTable['lottery_item']['3']).toEqual([]);
     });
 
     it('无 pending 抽奖时 noop', () => {
