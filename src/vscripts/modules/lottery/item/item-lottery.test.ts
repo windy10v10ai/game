@@ -27,7 +27,7 @@ global.CustomNetTables = {
 global.GameRules = { GetGameTime: () => 100, GetDOTATime: () => 100 };
 
 const mockHero = {
-  AddItemByName: jest.fn(() => ({ SetSellable: jest.fn() })),
+  AddItem: jest.fn(),
   GetUnitName: () => 'npc_dota_hero_axe',
   GetTeamNumber: () => 2,
 };
@@ -36,6 +36,9 @@ global.PlayerResource = {
   GetPlayer: jest.fn(() => ({})),
   GetSteamAccountID: jest.fn(() => 12345),
 };
+
+// CreateItem 全局函数 mock：返回一个带 name 字段的伪 item 用于断言
+global.CreateItem = jest.fn((name: string) => ({ name }));
 
 jest.mock('../../helper/player-helper', () => ({
   PlayerHelper: {
@@ -57,7 +60,7 @@ describe('ItemLottery', () => {
 
   beforeEach(() => {
     for (const k of Object.keys(netTable)) delete netTable[k];
-    mockHero.AddItemByName.mockClear();
+    mockHero.AddItem.mockClear();
     lottery = new ItemLottery();
   });
 
@@ -101,14 +104,15 @@ describe('ItemLottery', () => {
           level: target.level,
         } as any,
       );
-      expect(mockHero.AddItemByName).toHaveBeenCalledWith(target.name);
+      expect(global.CreateItem).toHaveBeenCalledWith(target.name, undefined, undefined);
+      expect(mockHero.AddItem).toHaveBeenCalledWith({ name: target.name });
       // 选完后写空数组清行
       expect(netTable['lottery_item']['3']).toEqual([]);
     });
 
     it('无 pending 抽奖时 noop', () => {
       lottery.pickItem(3 as PlayerID, { PlayerID: 3, name: 'item_anything', level: 1 } as any);
-      expect(mockHero.AddItemByName).not.toHaveBeenCalled();
+      expect(mockHero.AddItem).not.toHaveBeenCalled();
     });
 
     it('伪造非候选物品时 noop（防客户端伪造）', () => {
@@ -121,7 +125,7 @@ describe('ItemLottery', () => {
           level: 99,
         } as any,
       );
-      expect(mockHero.AddItemByName).not.toHaveBeenCalled();
+      expect(mockHero.AddItem).not.toHaveBeenCalled();
       // net table 未清空，玩家可以再次选合法候选
       expect(netTable['lottery_item']['3']).toBeDefined();
     });
@@ -137,7 +141,7 @@ describe('ItemLottery', () => {
           level: candidate.level + 99,
         } as any,
       );
-      expect(mockHero.AddItemByName).not.toHaveBeenCalled();
+      expect(mockHero.AddItem).not.toHaveBeenCalled();
     });
   });
 

@@ -52,10 +52,11 @@ export class ItemLottery {
       return;
     }
 
-    const item = hero.AddItemByName(matched.name);
+    // 用 CreateItem 提前指定 purchaser=undefined 再加进 inventory，
+    // 让引擎从一开始就不把它当作"刚购买的"——既能立即使用，又按半价出售。
+    const item = CreateItem(matched.name, undefined, undefined);
     if (item !== undefined) {
-      // 不可出售
-      item.SetSellable(false);
+      hero.AddItem(item);
     }
     print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
 
