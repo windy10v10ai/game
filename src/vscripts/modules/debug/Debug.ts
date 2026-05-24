@@ -248,7 +248,7 @@ export class Debug {
     }
 
     if (cmd === CMD.LOTTERY) {
-      GameRules.Lottery.initLotteryAll();
+      GameRules.Lottery.Ability.initLotteryAll();
     }
 
     if (cmd === CMD.END) {
@@ -258,6 +258,12 @@ export class Debug {
 
     if (cmd === CMD.TREASURE) {
       GameRules.Treasure.debugSpawnInitial();
+    }
+
+    if (cmd === CMD.PICK_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      GameRules.Lottery.Item.onTriggered(hero);
     }
 
     if (cmd === CMD.KILL) {

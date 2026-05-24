@@ -185,6 +185,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["wisp_relocate"] = true,
     ["wisp_spirits_in"] = true,
     ["wisp_spirits_out"] = true,
+    ["warlock_fatal_bonds"] = true, -- 术士 致命连接（计算量大可能导致游戏崩溃）
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招

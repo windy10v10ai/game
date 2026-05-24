@@ -22,6 +22,8 @@ interface CustomGameEventDeclarations {
   lottery_refresh_ability: LotteryRefreshEventData;
   save_bind_ability_key: SaveBindAbilityKeyEventData;
   lottery_reset_ability: LotteryRefreshEventData;
+  lottery_pick_item: LotteryPickItemEventData;
+  lottery_refresh_item: Record<string, never>;
   player_info_refresh: Record<string, never>;
 
   alipay_order_create: AlipayOrderCreateEventData;
@@ -89,6 +91,11 @@ interface LotteryPickEventData {
 
 interface LotteryRefreshEventData {
   type: string;
+}
+
+interface LotteryPickItemEventData {
+  name: string;
+  level: number;
 }
 
 interface AlipayOrderCreateEventData {

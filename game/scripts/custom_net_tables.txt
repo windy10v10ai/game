@@ -24,6 +24,7 @@
     "lottery_passive_abilities",
     "lottery_passive_abilities_2",
     "lottery_status",
+    "lottery_item",  // 藏宝箱触发物品抽奖
 	  "player_virtual_gold",
 	  "bot_passive_abilities",  // Bot 被动技能表
 	  "alipay_order",  // 支付宝订单状态

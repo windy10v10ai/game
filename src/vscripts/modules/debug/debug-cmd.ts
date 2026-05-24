@@ -18,6 +18,7 @@ export enum CMD {
   LOTTERY = '-lottery', // 抽奖
   END = '-end', // 游戏结算
   TREASURE = '-treasure', // 在 SPAWN_POINTS_INITIAL 刷新一个藏宝箱
+  PICK_ITEM = '-pickitem', // 强制触发物品抽奖 UI（跳过宝箱）
 
   // ---- 当前英雄相关 ----
   REPLACE_HERO = '-rh', // 替换当前英雄

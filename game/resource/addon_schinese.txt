@@ -237,6 +237,8 @@
 		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
 		"key_bind_quick_cast"									"快速施法"
 		"key_bind_remember"										"记忆改键"
+
+		"lottery_item_header"									"宝箱开启！选择你的奖励"
 		///////////////////////////////////////////////////
 		//
 		//			Member

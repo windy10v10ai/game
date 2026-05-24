@@ -155,9 +155,9 @@
 		// "item"		"item_oblivion_staff"		// 空明杖
 		// "item"		"item_pers"					// 坚韧球
  		"item"		"item_mask_of_madness"
-		"item"		"item_hand_of_group"
+		"item"		"item_hand_of_group"		// 团队之手
 		"item"		"item_candy_candy"
-		"item"		"item_wings_of_haste"
+		"item"		"item_wings_of_haste"		// 急速之翼
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
 		"item"		"item_tome_of_ability_reset"	// 技能重选书
@@ -167,15 +167,14 @@
 	"support"
 	{
 		"item"		"item_arcane_boots"			// 秘法鞋
+		"item"		"item_tranquil_boots"		// 静谧之靴
 		"item"		"item_mekansm"				// 梅肯斯姆
-		"item"		"item_essence_distiller"	// 精之灵器
 		"item"		"item_ancient_janggo"		// 韧鼓
 
 		"item"		"item_pavise"				// 长盾
 		"item"		"item_holy_locket"			// 圣洁吊坠
 		"item"		"item_vladmir"				// 祭品
 		"item"		"item_essence_distiller"	// 精之灵器
-		// "item"		"item_tranquil_boots"		// 静谧之靴
 
 		"item"		"item_solar_crest"			// 炎阳纹章
 		"item"		"item_pipe"					// 洞察烟斗
