@@ -118,8 +118,7 @@ export class Treasure {
         if (state === GameState.PRE_GAME) {
           this.spawnOne();
         } else if (state === GameState.GAME_IN_PROGRESS) {
-          this.spawnOne();
-          Timers.CreateTimer(Treasure.RESPAWN_INTERVAL, () => {
+          Timers.CreateTimer(0, () => {
             this.spawnOne();
             return Treasure.RESPAWN_INTERVAL;
           });
