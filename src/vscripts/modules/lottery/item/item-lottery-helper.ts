@@ -1,4 +1,4 @@
-import { LotteryItemCandidate } from '../../../../common/dto/lottery-item';
+import { LotteryDto } from '../../../../common/dto/lottery';
 import { pickRandomTierByRate } from '../shared/random-tier';
 import { Tier } from '../shared/tier';
 import { itemTiers } from './lottery-items';
@@ -10,12 +10,12 @@ export class ItemLotteryHelper {
   /**
    * 抽 count 个不重复物品候选。重复 10 次仍重复时直接保留（容忍小池子重叠）。
    */
-  static getRandomItems(count: number, tiers: Tier[] = itemTiers): LotteryItemCandidate[] {
-    const results: LotteryItemCandidate[] = [];
+  static getRandomItems(count: number, tiers: Tier[] = itemTiers): LotteryDto[] {
+    const results: LotteryDto[] = [];
     const picked = new Set<string>();
     const maxAttempts = 10;
     for (let i = 0; i < count; i++) {
-      let candidate: LotteryItemCandidate = { name: 'item_branches', level: 1 };
+      let candidate: LotteryDto = { name: 'item_branches', level: 1 };
       let attempts = 0;
       do {
         const tier = pickRandomTierByRate(tiers, this.TIER_RATES);

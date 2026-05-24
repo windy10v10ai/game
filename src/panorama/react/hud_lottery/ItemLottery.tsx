@@ -1,10 +1,12 @@
 import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
 import React, { useEffect, useState } from 'react';
+import { LotteryDto } from '../../../common/dto/lottery';
 import { useNetTable } from '../shared/hooks/useNetTable';
 import { colors } from './colors';
 
-const TICK_INTERVAL = 0.1; // 秒
+const EXPIRE_SECONDS = 12;
+const TICK_INTERVAL_MS = 100;
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
@@ -38,13 +40,18 @@ const itemStyle: Partial<VCSSStyleDeclaration> = {
   borderRadius: '4px',
 };
 
-const progressStyle: Partial<VCSSStyleDeclaration> = {
+const progressTrackStyle: Partial<VCSSStyleDeclaration> = {
   width: '100%',
   height: '10px',
   marginTop: '10px',
   borderRadius: '5px',
-  backgroundColor:
-    'gradient( linear, 0% 100%, 0% 0%, from( #000000FF ), color-stop(0.1, #0A4088ff ), to( #609AE0ff ) )',
+  backgroundColor: '#000000aa',
+};
+
+const progressFillStyle: Partial<VCSSStyleDeclaration> = {
+  height: '100%',
+  borderRadius: '5px',
+  backgroundColor: 'gradient( linear, 0% 0%, 100% 0%, from( #0A4088ff ), to( #609AE0ff ) )',
 };
 
 const getBoxShadow = (level: number): string => {
@@ -58,45 +65,44 @@ const getBoxShadow = (level: number): string => {
   return `0 0 8px ${map[level] ?? colors.tier1}`;
 };
 
+function pickItem(candidate: LotteryDto) {
+  GameEvents.SendCustomGameEventToServer('lottery_pick_item', {
+    name: candidate.name,
+    level: candidate.level,
+  });
+}
+
 function ItemLottery() {
   const playerId = Game.GetLocalPlayerID().toString();
-  const dto = useNetTable('item_lottery', playerId);
+  const raw = useNetTable('item_lottery', playerId);
+  // TSTL array 经 net 同步为 object，转回数组
+  const candidates: LotteryDto[] = raw ? (Object.values(raw) as LotteryDto[]) : [];
 
-  const candidates = dto?.candidates
-    ? (Object.values(dto.candidates) as { name: string; level: number }[])
-    : [];
-  const expireAt = (dto?.expireAt as number) ?? 0;
-  const pickedIndex = (dto?.pickedIndex as number) ?? -1;
+  const [remaining, setRemaining] = useState(EXPIRE_SECONDS);
 
-  const [remaining, setRemaining] = useState(0);
-  const isOpen = !!dto && pickedIndex < 0 && candidates.length > 0;
-
-  // 倒计时 tick：到 0 自动随机选 1 个
+  // 新一组 candidates 出现 → 重置倒计时
   useEffect(() => {
-    if (!isOpen) {
-      return undefined;
-    }
-    const tick = () => {
-      const left = Math.max(0, expireAt - Game.GetGameTime());
+    if (candidates.length === 0) return undefined;
+    setRemaining(EXPIRE_SECONDS);
+    const startTime = Game.GetGameTime();
+    const id = setInterval(() => {
+      const left = Math.max(0, EXPIRE_SECONDS - (Game.GetGameTime() - startTime));
       setRemaining(left);
       if (left <= 0) {
+        clearInterval(id);
         const randIndex = Math.floor(Math.random() * candidates.length);
-        GameEvents.SendCustomGameEventToServer('lottery_pick_item', { index: randIndex });
+        pickItem(candidates[randIndex]);
       }
-    };
-    tick();
-    const id = setInterval(tick, TICK_INTERVAL * 1000);
+    }, TICK_INTERVAL_MS);
     return () => clearInterval(id);
-    // candidates 长度稳定（4），不必入依赖
+    // 依赖 raw 引用变化（新一轮抽奖）
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isOpen, expireAt]);
+  }, [raw]);
 
-  if (!isOpen) {
+  if (candidates.length === 0) {
     return <Panel style={{ visibility: 'collapse' }} />;
   }
 
-  // 与 server 的 ItemLottery.EXPIRE_SECONDS 保持一致
-  const EXPIRE_SECONDS = 12;
   const progressPct = Math.max(0, Math.min(100, (remaining / EXPIRE_SECONDS) * 100));
 
   return (
@@ -105,14 +111,12 @@ function ItemLottery() {
       <Panel style={rowStyle}>
         {candidates.map((c, i) => (
           <Panel
-            key={`item-lottery-${i}`}
+            key={`item-lottery-${i}-${c.name}`}
             style={{
               ...itemStyle,
               boxShadow: getBoxShadow(c.level),
             }}
-            onactivate={() => {
-              GameEvents.SendCustomGameEventToServer('lottery_pick_item', { index: i });
-            }}
+            onactivate={() => pickItem(c)}
             className="BrightHover"
           >
             <DOTAItemImage
@@ -123,12 +127,9 @@ function ItemLottery() {
           </Panel>
         ))}
       </Panel>
-      <Panel
-        style={{
-          ...progressStyle,
-          width: `${progressPct}%`,
-        }}
-      />
+      <Panel style={progressTrackStyle}>
+        <Panel style={{ ...progressFillStyle, width: `${progressPct}%` }} />
+      </Panel>
     </Panel>
   );
 }

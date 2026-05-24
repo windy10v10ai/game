@@ -1,20 +1,20 @@
-import { ItemLotteryDto } from '../../../../common/dto/lottery-item';
+import { LotteryDto } from '../../../../common/dto/lottery';
+import { GA4PickItemTracker } from '../../../api/analytics/ga4/ga4-pick-item-tracker';
 import { reloadable } from '../../../utils/tstl-utils';
 import { PlayerHelper } from '../../helper/player-helper';
 import { ItemLotteryHelper } from './item-lottery-helper';
 
 /**
- * 物品抽奖：触发后弹 4 选 1，倒计时未选自动随机选 1。
+ * 物品抽奖：触发后弹 4 选 1，倒计时由客户端驱动，归零自动随机选 1。
  * 触发源（藏宝箱 / 未来 boss / 商店开箱）调 onTriggered 即可，本模块不关心来源。
  */
 @reloadable
 export class ItemLottery {
   static readonly CANDIDATE_COUNT = 4;
-  static readonly EXPIRE_SECONDS = 12;
 
   constructor() {
     CustomGameEventManager.RegisterListener('lottery_pick_item', (_userId, event) => {
-      this.pickItem(event.PlayerID, event.index);
+      this.pickItem(event.PlayerID, event);
     });
   }
 
@@ -29,28 +29,20 @@ export class ItemLottery {
     if (playerId < 0) return;
 
     const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT);
-    const dto: ItemLotteryDto = {
-      candidates,
-      expireAt: GameRules.GetGameTime() + ItemLottery.EXPIRE_SECONDS,
-      pickedIndex: -1,
-    };
-    CustomNetTables.SetTableValue('item_lottery', playerId.toString(), dto);
+    CustomNetTables.SetTableValue('item_lottery', playerId.toString(), candidates);
   }
 
-  pickItem(playerId: PlayerID, index: number): void {
-    const dto = CustomNetTables.GetTableValue('item_lottery', playerId.toString());
-    if (!dto || !dto.candidates) {
+  pickItem(playerId: PlayerID, event: LotteryPickItemEventData): void {
+    const raw = CustomNetTables.GetTableValue('item_lottery', playerId.toString());
+    if (!raw) {
       print('[ItemLottery] no pending lottery for player ' + playerId);
       return;
     }
-    if (dto.pickedIndex >= 0) {
-      print('[ItemLottery] already picked for player ' + playerId);
-      return;
-    }
-    const candidates = dto.candidates as unknown as Record<string, { name: string; level: number }>;
-    const candidate = candidates[index.toString()];
-    if (!candidate) {
-      print('[ItemLottery] invalid index ' + index + ' for player ' + playerId);
+    // TSTL 把 array 编码成 object 同步给客户端，读回时也是 object，按值列出
+    const candidates = Object.values(raw) as unknown as LotteryDto[];
+    const matched = candidates.find((c) => c.name === event.name && c.level === event.level);
+    if (!matched) {
+      print('[ItemLottery] candidate not found for player ' + playerId + ': ' + event.name);
       return;
     }
 
@@ -60,19 +52,15 @@ export class ItemLottery {
       return;
     }
 
-    const item = hero.AddItemByName(candidate.name);
+    const item = hero.AddItemByName(matched.name);
     if (item !== undefined) {
-      // 抽到的物品不可出售，防卖钱
       item.SetSellable(false);
     }
-    print('[ItemLottery] player ' + playerId + ' picked ' + candidate.name);
+    print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
 
-    // 写回 pickedIndex 让客户端隐藏 UI，下次触发时被新数据覆盖
-    const next: ItemLotteryDto = {
-      candidates: dto.candidates as unknown as { name: string; level: number }[],
-      expireAt: dto.expireAt as number,
-      pickedIndex: index,
-    };
-    CustomNetTables.SetTableValue('item_lottery', playerId.toString(), next);
+    // 清行，客户端 hook 收到 nil 自动隐藏 UI
+    CustomNetTables.SetTableValue('item_lottery', playerId.toString(), undefined as never);
+
+    GA4PickItemTracker.SendPick(playerId, matched.name, matched.level);
   }
 }

@@ -1,6 +1,5 @@
 import { PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
 import { LotteryDto } from './dto/lottery';
-import { ItemLotteryDto } from './dto/lottery-item';
 import { LotteryStatusDto } from './dto/lottery-status';
 
 declare global {
@@ -69,7 +68,7 @@ declare global {
     };
     // 物品抽奖（藏宝箱触发，瞬时事件，key = playerId）
     item_lottery: {
-      [playerId: string]: ItemLotteryDto;
+      [playerId: string]: LotteryDto[];
     };
     // 添加虚拟金币表定义
     player_virtual_gold: {

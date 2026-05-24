@@ -94,7 +94,8 @@ interface LotteryRefreshEventData {
 }
 
 interface LotteryPickItemEventData {
-  index: number;
+  name: string;
+  level: number;
 }
 
 interface AlipayOrderCreateEventData {
