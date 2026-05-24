@@ -74,7 +74,7 @@ function pickItem(candidate: LotteryDto) {
 
 function ItemLottery() {
   const playerId = Game.GetLocalPlayerID().toString();
-  const raw = useNetTable('item_lottery', playerId);
+  const raw = useNetTable('lottery_item', playerId);
   // TSTL array 经 net 同步为 object，转回数组
   const candidates: LotteryDto[] = raw ? (Object.values(raw) as LotteryDto[]) : [];
 
@@ -107,7 +107,7 @@ function ItemLottery() {
 
   return (
     <Panel style={containerStyle}>
-      <Label style={titleStyle} text={$.Localize('#item_lottery_header')} />
+      <Label style={titleStyle} text={$.Localize('#lottery_item_header')} />
       <Panel style={rowStyle}>
         {candidates.map((c, i) => (
           <Panel

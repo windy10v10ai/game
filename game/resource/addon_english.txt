@@ -230,7 +230,7 @@
 		"lottery_tooltip_ability_reset_no_count"				"No ability reset charges available"
 		"lottery_tooltip_ability_reset_not_picked"				"No ability picked for this row"
 
-		"item_lottery_header"									"Choose an Item"
+		"lottery_item_header"									"Choose an Item"
 
 		"key_bind"												"Key Bind"
 		"key_bind_collapsed"									"Collapse"

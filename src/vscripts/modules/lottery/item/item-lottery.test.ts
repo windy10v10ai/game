@@ -64,7 +64,7 @@ describe('ItemLottery', () => {
   describe('onTriggered', () => {
     it('人类玩家触发时直接写 LotteryDto[] 到 net table', () => {
       lottery.onTriggered(humanOpener);
-      const candidates = netTable['item_lottery']?.['3'];
+      const candidates = netTable['lottery_item']?.['3'];
       expect(candidates).toBeDefined();
       expect(candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
       expect(candidates[0]).toMatchObject({ name: expect.any(String), level: expect.any(Number) });
@@ -72,17 +72,17 @@ describe('ItemLottery', () => {
 
     it('bot/中立触发直接 noop，不写表', () => {
       lottery.onTriggered(botOpener);
-      expect(netTable['item_lottery']).toBeUndefined();
+      expect(netTable['lottery_item']).toBeUndefined();
     });
 
     it('opener 为 undefined 直接 noop', () => {
       lottery.onTriggered(undefined);
-      expect(netTable['item_lottery']).toBeUndefined();
+      expect(netTable['lottery_item']).toBeUndefined();
     });
 
     it('候选无重复', () => {
       lottery.onTriggered(humanOpener);
-      const candidates = netTable['item_lottery']['3'] as { name: string }[];
+      const candidates = netTable['lottery_item']['3'] as { name: string }[];
       const names = candidates.map((c) => c.name);
       expect(new Set(names).size).toBe(names.length);
     });
@@ -91,7 +91,7 @@ describe('ItemLottery', () => {
   describe('pickItem', () => {
     it('正常选择：候选匹配则发奖 + 清行', () => {
       lottery.onTriggered(humanOpener);
-      const candidates = netTable['item_lottery']['3'] as { name: string; level: number }[];
+      const candidates = netTable['lottery_item']['3'] as { name: string; level: number }[];
       const target = candidates[1];
       lottery.pickItem(
         3 as PlayerID,
@@ -102,7 +102,7 @@ describe('ItemLottery', () => {
         } as any,
       );
       expect(mockHero.AddItemByName).toHaveBeenCalledWith(target.name);
-      expect(netTable['item_lottery']['3']).toBeUndefined();
+      expect(netTable['lottery_item']['3']).toBeUndefined();
     });
 
     it('无 pending 抽奖时 noop', () => {
@@ -122,12 +122,12 @@ describe('ItemLottery', () => {
       );
       expect(mockHero.AddItemByName).not.toHaveBeenCalled();
       // net table 未清空，玩家可以再次选合法候选
-      expect(netTable['item_lottery']['3']).toBeDefined();
+      expect(netTable['lottery_item']['3']).toBeDefined();
     });
 
     it('正确名字但 level 不匹配时 noop', () => {
       lottery.onTriggered(humanOpener);
-      const candidate = (netTable['item_lottery']['3'] as { name: string; level: number }[])[0];
+      const candidate = (netTable['lottery_item']['3'] as { name: string; level: number }[])[0];
       lottery.pickItem(
         3 as PlayerID,
         {

@@ -29,11 +29,11 @@ export class ItemLottery {
     if (playerId < 0) return;
 
     const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT);
-    CustomNetTables.SetTableValue('item_lottery', playerId.toString(), candidates);
+    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), candidates);
   }
 
   pickItem(playerId: PlayerID, event: LotteryPickItemEventData): void {
-    const raw = CustomNetTables.GetTableValue('item_lottery', playerId.toString());
+    const raw = CustomNetTables.GetTableValue('lottery_item', playerId.toString());
     if (!raw) {
       print('[ItemLottery] no pending lottery for player ' + playerId);
       return;
@@ -59,7 +59,7 @@ export class ItemLottery {
     print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
 
     // 清行，客户端 hook 收到 nil 自动隐藏 UI
-    CustomNetTables.SetTableValue('item_lottery', playerId.toString(), undefined as never);
+    CustomNetTables.SetTableValue('lottery_item', playerId.toString(), undefined as never);
 
     GA4PickItemTracker.SendPick(playerId, matched.name, matched.level);
   }
