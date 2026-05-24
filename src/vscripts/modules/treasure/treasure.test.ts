@@ -88,18 +88,26 @@ describe('Treasure', () => {
     treasure = new Treasure();
   });
 
-  describe('spawn 唯一性与计数', () => {
+  describe('spawn 上限与计数', () => {
     it('场上无宝箱时正常 spawn', () => {
       treasure.spawnOne();
       expect(treasure.getActiveChestCount()).toBe(1);
       expect(treasure.getSpawnCount()).toBe(1);
     });
 
-    it('场上已有宝箱时跳过，且 spawnCount 不增', () => {
+    it('场上未达到上限时仍可再刷 1 只（救济兜底），spawnCount 继续累加', () => {
       treasure.spawnOne();
       treasure.spawnOne();
-      expect(treasure.getActiveChestCount()).toBe(1);
-      expect(treasure.getSpawnCount()).toBe(1);
+      expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+      expect(treasure.getSpawnCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+    });
+
+    it('场上达到上限时跳过，且 spawnCount 不增', () => {
+      treasure.spawnOne();
+      treasure.spawnOne();
+      treasure.spawnOne();
+      expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+      expect(treasure.getSpawnCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
     });
 
     it('开启后允许下次 spawn', () => {

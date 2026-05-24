@@ -6,6 +6,7 @@ import { reloadable } from '../../utils/tstl-utils';
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
   static readonly RESPAWN_INTERVAL = 180;
+  static readonly MAX_ACTIVE_CHESTS = 1;
   static readonly Z_SINK = 64;
   static readonly OPEN_PARTICLE = 'particles/items2_fx/hand_of_midas.vpcf';
   static readonly OPEN_SOUND = 'ui.treasure_01';
@@ -125,7 +126,8 @@ export class Treasure {
   }
 
   spawnOne(): void {
-    if (this.activeChests.size > 0) {
+    // 增加场上同时存在的最大个数兜底，避免玩家完全找不到第一只
+    if (this.activeChests.size >= Treasure.MAX_ACTIVE_CHESTS) {
       return;
     }
     this.spawnAt(this.getRandomSpawnPoint());
@@ -186,8 +188,12 @@ export class Treasure {
 
   getRandomSpawnPoint(): Vector {
     const pool = this.pickPool();
-    const index = RandomInt(0, pool.length - 1);
-    return pool[index];
+    // 避开场上已有 treasure 占用的点位；过滤后为空时回退到原池
+    const occupied = new Set(this.activeChests.values());
+    const candidates = pool.filter((p) => !occupied.has(p));
+    const finalPool = candidates.length > 0 ? candidates : pool;
+    const index = RandomInt(0, finalPool.length - 1);
+    return finalPool[index];
   }
 
   // spawnCount = 0 开局 → 1-3 EASY → 4-6 JUNGLE → 7+ JUNGLE+HARD 合并（HARD 主导，JUNGLE 兜底防重复）
