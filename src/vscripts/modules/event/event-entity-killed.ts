@@ -311,12 +311,8 @@ export class EventEntityKilled {
         // 技能重置书掉落
         this.dropItem(creep, [this.itemTomeOfAbilityReset], this.dropItemChanceRoshan);
 
-        // 融合符文掉落 - 使用神器组件的循环逻辑可重复
-        const maxDropCount = Player.GetPlayerCount() >= 5 ? 2 : 1;
-        const dropCount = RandomInt(1, maxDropCount);
-        for (let i = 0; i < dropCount; i++) {
-          this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceRoshan);
-        }
+        // 融合符文掉落 - 固定 1 个
+        this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceRoshan);
       }
 
       // 人类玩家击杀肉山：全体人类玩家各获得一次 PREMIUM 物品抽奖
