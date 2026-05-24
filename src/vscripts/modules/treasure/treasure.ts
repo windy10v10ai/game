@@ -1,23 +1,22 @@
 import { GA4TreasureTracker, TreasureTier } from '../../api/analytics/ga4/ga4-treasure-tracker';
-import { ItemLotteryTier } from '../lottery/item/item-lottery-helper';
 import { modifier_treasure_chest } from '../../modifiers/global/modifier_treasure_chest';
 import { reloadable } from '../../utils/tstl-utils';
+import { ItemLotteryTier } from '../lottery/item/item-lottery-helper';
 
 @reloadable
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
   static readonly RESPAWN_INTERVAL = 180;
-  static readonly MAX_ACTIVE_CHESTS = 1;
+  static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;
   static readonly OPEN_PARTICLE = 'particles/items2_fx/hand_of_midas.vpcf';
   static readonly OPEN_SOUND = 'ui.treasure_01';
 
   // 开局点位：仅天辉高地附近，开局走两步就能看到
   static readonly SPAWN_POINTS_INITIAL: Vector[] = [
-    Vector(-7343, -5279, 256), // 高低左近
+    Vector(-7314, -5346, 256), // 高低左近
     Vector(-7492, -3646, 256), // 高地左远
-    Vector(-5527, -6858, 256), // 高地右近
-    Vector(-4367, -7499, 262), // 高地右远
+    Vector(-4317, -7208, 263), // 高地右远
   ];
 
   // 中期点位：天辉野区
@@ -78,6 +77,8 @@ export class Treasure {
   // 后期点位：天辉野区
   // 这些点位都在阴间位置，很难找到
   static readonly SPAWN_POINTS_RADIANT_HARD: Vector[] = [
+    Vector(-5527, -6858, 256), // 高地右近
+
     // 天辉左侧外野区
     Vector(-8672, -2592, 256),
     Vector(-8416, 96, 256),
