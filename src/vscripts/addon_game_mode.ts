@@ -1,5 +1,4 @@
 import 'utils/index';
-require('@NoResolution:eyeherodemo.demo_core');
 // import './ai_game_mode';
 import { ActivateModules } from './modules';
 import './utils/lifesteal';
