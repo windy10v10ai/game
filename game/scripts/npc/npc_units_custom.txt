@@ -728,8 +728,8 @@
 
 		// Minimap
 		//----------------------------------------------------------------
-		"MinimapIcon"				"minimap_runeicon"
-		"MinimapIconSize"			"600"
+		"MinimapIcon"				"minimap_miscbuilding"
+		"MinimapIconSize"			"500"
 
 		// Bots
 		//----------------------------------------------------------------

@@ -15,7 +15,7 @@ describe('GameEndPoint', () => {
     teamId: 2,
     isDisconnected: false,
     level: 1,
-    gold: 0,
+    totalGoldEarned: 0,
     kills: 0,
     deaths: 0,
     assists: 0,
