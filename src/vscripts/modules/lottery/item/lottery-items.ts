@@ -76,6 +76,9 @@ export const itemTiers: Tier[] = [
       'item_infused_raindrop', // 凝魂之露
       'item_magic_wand', // 魔棒
       'item_bottle', // 魔瓶
+      'item_foragers_stats', // 铁树坚果
+      'item_foragers_mana', // 托莫干伞盖
+      'item_foragers_health', // 活力伞菌
     ],
   },
 ];
