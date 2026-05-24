@@ -185,11 +185,12 @@ describe('Treasure', () => {
       expect(treasure.getActiveChestCount()).toBe(1);
     });
 
-    it('GAME_IN_PROGRESS 时挂上周期 timer', () => {
+    it('GAME_IN_PROGRESS 时立即刷新一次并挂上周期 timer', () => {
       mockState = global.GameState.GAME_IN_PROGRESS;
       listeners['game_rules_state_change']?.({});
-      const [interval] = (global.Timers.CreateTimer as jest.Mock).mock.calls[0];
-      expect(interval).toBe(Treasure.RESPAWN_INTERVAL);
+      const [delay, callback] = (global.Timers.CreateTimer as jest.Mock).mock.calls[0];
+      expect(delay).toBe(0);
+      expect(callback()).toBe(Treasure.RESPAWN_INTERVAL);
     });
   });
 });
