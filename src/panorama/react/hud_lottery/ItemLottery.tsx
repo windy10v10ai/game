@@ -8,15 +8,11 @@ import { colors } from './colors';
 const EXPIRE_SECONDS = 12;
 const TICK_INTERVAL_MS = 100;
 
-// 旧版 item_choice 的容器风格：黑底渐变 + 向上偏移黑阴影
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
   verticalAlign: 'bottom',
   marginBottom: '250px',
   flowChildren: 'down',
-  borderRadius: '8px',
-  backgroundColor: 'gradient( linear, 0% 0%, 0% 100%, from( #000000b0 ), to( #000000d0 ) )',
-  boxShadow: '#000000ff -5px 0px 5px 10px',
 };
 
 const titleStyle: Partial<VCSSStyleDeclaration> = {
@@ -40,9 +36,8 @@ const rowStyle: Partial<VCSSStyleDeclaration> = {
 
 const itemStyle: Partial<VCSSStyleDeclaration> = {
   // DOTAItemImage 原生 88x64 比例，只设 height 让宽度自适应避免上下黑边
-  height: '64px',
-  marginLeft: '4px',
-  marginRight: '4px',
+  height: '56px',
+  margin: '2px 6px',
 };
 
 const progressTrackStyle: Partial<VCSSStyleDeclaration> = {
@@ -114,6 +109,7 @@ function ItemLottery() {
 
   return (
     <Panel
+      className="item-lottery-container"
       style={{ ...containerStyle, visibility: isOpen ? 'visible' : 'collapse' }}
       hittest={true}
     >

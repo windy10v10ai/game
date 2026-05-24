@@ -54,6 +54,7 @@ export class ItemLottery {
 
     const item = hero.AddItemByName(matched.name);
     if (item !== undefined) {
+      // 不可出售
       item.SetSellable(false);
     }
     print('[ItemLottery] player ' + playerId + ' picked ' + matched.name);
