@@ -168,9 +168,6 @@ export class Treasure {
     this.activeChests.set(chest.GetEntityIndex(), point);
     this.spawnCount++;
     print(`[Treasure] #${this.spawnCount} spawned at (${point.x}, ${point.y}, ${point.z})`);
-
-    // 刷新提示：在该点位对人类阵营 ping 一下小地图，让玩家知道宝箱来了
-    MinimapEvent(DotaTeam.GOODGUYS, chest, point.x, point.y, MinimapEventType.HINT_LOCATION, 5);
   }
 
   openChest(chest: CDOTA_BaseNPC, opener: CDOTA_BaseNPC): void {

@@ -34,10 +34,8 @@ global.GameState = {
   DISCONNECT: 12,
 };
 
-global.DotaTeam = { NEUTRALS: 5, GOODGUYS: 2 };
+global.DotaTeam = { NEUTRALS: 5 };
 global.ParticleAttachment = { ABSORIGIN: 0 };
-global.MinimapEventType = { HINT_LOCATION: 512 };
-global.MinimapEvent = jest.fn();
 
 global.Vector = jest.fn((x: number, y: number, z: number) => ({ x, y, z }));
 global.RandomInt = jest.fn((min: number, _max: number) => min);
