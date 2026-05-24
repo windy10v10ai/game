@@ -32,12 +32,15 @@ export class Treasure {
     Vector(-3159, 434, 256),
 
     // 天辉下路主野区
+    Vector(-89, -3109, 136),
     Vector(-1829, -2422, 128),
     Vector(-2488, -4818, 128),
     Vector(-2208, -4192, 128),
     Vector(4761, -4554, 128),
+    Vector(3073, -5553, 128),
 
     // 天辉下路外野区
+    Vector(-110, -7129, 128),
     Vector(-1927, -8665, 128),
     Vector(-3, -8447, 128),
     Vector(6368, -8416, 0),
@@ -60,6 +63,7 @@ export class Treasure {
     Vector(-2061, -847, 128),
 
     // 天辉下路主野区
+    Vector(747, -2375, 256),
     Vector(-3597, -4776, 128),
     Vector(1866, -3496, 256),
     Vector(3033, -4200, 256),
@@ -202,11 +206,13 @@ export class Treasure {
     return finalPool[index];
   }
 
-  // spawnCount = 0 开局 → 1-3 EASY → 4-6 JUNGLE → 7+ JUNGLE+HARD 合并（HARD 主导，JUNGLE 兜底防重复）
+  // spawnCount = 0 开局 → 1-3 EASY → 4-5 EASY+JUNGLE 过渡 → 6-7 JUNGLE → 8+ JUNGLE+HARD
   private pickPool(): Vector[] {
     if (this.spawnCount === 0) return Treasure.SPAWN_POINTS_INITIAL;
     if (this.spawnCount <= 3) return Treasure.SPAWN_POINTS_RADIANT_EASY;
-    if (this.spawnCount <= 6) return Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
+    if (this.spawnCount <= 5)
+      return [...Treasure.SPAWN_POINTS_RADIANT_EASY, ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE];
+    if (this.spawnCount <= 7) return Treasure.SPAWN_POINTS_RADIANT_JUNGLE;
     return [...Treasure.SPAWN_POINTS_RADIANT_JUNGLE, ...Treasure.SPAWN_POINTS_RADIANT_HARD];
   }
 
