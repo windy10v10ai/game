@@ -180,6 +180,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **测试文件**: 与源代码同位置的 `*.test.ts` 文件(例如 `gold-xp-filter.test.ts`)
 - **模拟**: 在测试中通过 `global.GameRules = { ... }` 模拟 Dota 全局变量
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
+- **测试范围**: 只验证自己写的状态/分支逻辑。Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）mock 作为占位防崩，不要用 `toHaveBeenCalledWith` 断言它们的参数——那是在测引擎契约不是自己的代码
 
 ### 构建系统
 

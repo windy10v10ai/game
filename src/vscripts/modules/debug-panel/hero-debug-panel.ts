@@ -71,6 +71,9 @@ export class HeroDebugPanel {
     this.onStr('PauseButtonPressed', () => SendToServerConsole('dota_pause'));
     this.onStr('LeaveButtonPressed', () => SendToServerConsole('disconnect'));
 
+    this.onStr('MoveToCoordPressed', (e) => this.onMoveToCoord(e));
+    this.onStr('SpawnTreasureAtCoordPressed', (e) => this.onSpawnTreasure(e));
+
     // 生成符文
     this.onStr('SpawnRuneDoubleDamagePressed', (e) => this.spawnRune(e, RuneType.DOUBLEDAMAGE));
     this.onStr('SpawnRuneHastePressed', (e) => this.spawnRune(e, RuneType.HASTE));
@@ -333,6 +336,34 @@ export class HeroDebugPanel {
 
   private toggleDayNight(): void {
     GameRules.SetTimeOfDay(GameRules.IsDaytime() ? 0.751 : 0.251);
+  }
+
+  // 解析 "Vector(-8345, -2464, 256)" 或 "-8345, -2464, 256" 格式的坐标字符串
+  private parseVectorStr(str: string): Vector | undefined {
+    const start = str.indexOf('(');
+    const end = str.indexOf(')');
+    const inner = start >= 0 && end > start ? str.substring(start + 1, end) : str;
+    const parts = inner.split(',');
+    if (parts.length < 3) return undefined;
+    const x = tonumber(parts[0].trim());
+    const y = tonumber(parts[1].trim());
+    const z = tonumber(parts[2].trim());
+    if (x === undefined || y === undefined || z === undefined) return undefined;
+    return Vector(x, y, z);
+  }
+
+  private onMoveToCoord(event: StrEventData): void {
+    const hero = this.getSelectedHero(event.PlayerID);
+    if (!hero) return;
+    const target = this.parseVectorStr(event.str);
+    if (!target) return;
+    FindClearSpaceForUnit(hero, target, false);
+  }
+
+  private onSpawnTreasure(event: StrEventData): void {
+    const point = this.parseVectorStr(event.str);
+    if (!point) return;
+    GameRules.Treasure.debugSpawnAt(point);
   }
 
   private spawnRune(event: StrEventData, runeType: RuneType): void {
