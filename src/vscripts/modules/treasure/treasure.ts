@@ -182,8 +182,9 @@ export class Treasure {
     UTIL_Remove(chest);
     print(`[Treasure] opened by ${opener.GetUnitName()}`);
 
-    GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, Treasure.getPointTier(point));
-    GameRules.Lottery.Item.onTriggered(opener);
+    const pointTier = Treasure.getPointTier(point);
+    GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, pointTier);
+    GameRules.Lottery.Item.onTriggered(opener, pointTier === TreasureTier.INITIAL);
   }
 
   getRandomSpawnPoint(): Vector {

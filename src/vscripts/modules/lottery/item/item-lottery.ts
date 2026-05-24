@@ -21,14 +21,14 @@ export class ItemLottery {
   /**
    * 触发一次抽奖。opener 非人类（bot/中立）直接返回，奖励丢失。
    */
-  onTriggered(opener: CDOTA_BaseNPC | undefined): void {
+  onTriggered(opener: CDOTA_BaseNPC | undefined, isInitial = false): void {
     if (!PlayerHelper.IsHumanPlayer(opener)) {
       return;
     }
     const playerId = opener!.GetPlayerOwnerID();
     if (playerId < 0) return;
 
-    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT);
+    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, isInitial);
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), candidates);
   }
 

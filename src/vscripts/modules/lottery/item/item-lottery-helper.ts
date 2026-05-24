@@ -1,16 +1,15 @@
 import { LotteryDto } from '../../../../common/dto/lottery';
 import { pickRandomTierByRate } from '../shared/random-tier';
-import { Tier } from '../shared/tier';
 import { itemTiers } from './lottery-items';
 
 export class ItemLotteryHelper {
-  // 与 ability 共用同一组阈值，保持珍稀度感观一致
-  private static readonly TIER_RATES = [1, 5, 20, 60, 100];
+  // 累计阈值 [T5, T4, T3, T2, T1]
+  private static readonly TIER_RATES_DEFAULT = [1, 5, 20, 60, 100];
+  // INITIAL 点位屏蔽 T5/T4，避开引擎开局 30s 全价卖出窗口
+  private static readonly TIER_RATES_INITIAL = [0, 0, 20, 60, 100];
 
-  /**
-   * 抽 count 个不重复物品候选。重复 10 次仍重复时直接保留（容忍小池子重叠）。
-   */
-  static getRandomItems(count: number, tiers: Tier[] = itemTiers): LotteryDto[] {
+  static getRandomItems(count: number, isInitial = false): LotteryDto[] {
+    const rates = isInitial ? this.TIER_RATES_INITIAL : this.TIER_RATES_DEFAULT;
     const results: LotteryDto[] = [];
     const picked = new Set<string>();
     const maxAttempts = 10;
@@ -18,7 +17,7 @@ export class ItemLotteryHelper {
       let candidate: LotteryDto = { name: 'item_branches', level: 1 };
       let attempts = 0;
       do {
-        const tier = pickRandomTierByRate(tiers, this.TIER_RATES);
+        const tier = pickRandomTierByRate(itemTiers, rates);
         const name = tier.names[Math.floor(Math.random() * tier.names.length)];
         candidate = { name, level: tier.level };
         attempts++;

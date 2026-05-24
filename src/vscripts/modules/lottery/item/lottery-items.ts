@@ -53,8 +53,6 @@ export const itemTiers: Tier[] = [
       'item_null_talisman', // 挂件
       'item_infused_raindrop', // 凝魂之露
       'item_magic_stick', // 魔杖
-      'item_ring_of_health', // 治疗指环
-      'item_void_stone', // 虚无之石
     ],
   },
 ];
