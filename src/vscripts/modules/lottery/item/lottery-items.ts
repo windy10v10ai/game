@@ -8,7 +8,15 @@ export const itemTiers: Tier[] = [
   {
     level: 5,
     names: [
-      'item_fusion_rune', // 融合符文
+      'item_fusion_hawkeye', // 鹰眼符文
+      'item_fusion_forbidden', // 禁忌符文
+      'item_fusion_brutal', // 暴虐符文
+      'item_fusion_beast', // 兽化符文
+      'item_fusion_life', // 生命符文
+      'item_fusion_shadow', // 暗影符文
+      'item_fusion_magic', // 魔化符文
+      'item_fusion_agile', // 灵动符文
+      'item_tome_of_ability_reset', // 技能重选书
       'item_tome_of_agility', // 敏捷之书
       'item_tome_of_intelligence', // 智力之书
       'item_tome_of_strength', // 力量之书
@@ -19,16 +27,18 @@ export const itemTiers: Tier[] = [
     names: [
       'item_light_part', // 圣光组件
       'item_dark_part', // 暗影组件
-      'item_hand_of_midas', // 点金手
-      'item_holy_locket', // 圣洁吊坠
+      'item_ultimate_scepter_2', // 真·阿哈利姆神杖
+      'item_consumable_gem', // 幻影宝石
     ],
   },
   {
     level: 3,
     names: [
+      'item_hand_of_midas', // 点金手
+      'item_holy_locket', // 圣洁吊坠
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_great_famango', // 大疗伤莲花
-      'item_aether_lens', // 以太之镜
+      'item_aether_lens_2', // 以太之镜
       'item_glimmer_cape', // 微光披风
       'item_force_staff', // 原力法杖
     ],
@@ -38,11 +48,9 @@ export const itemTiers: Tier[] = [
     names: [
       'item_tome_of_knowledge', // 知识之书
       'item_bottle', // 魔瓶
-      'item_magic_wand', // 魔棒
       'item_arcane_boots', // 秘法鞋
       'item_phase_boots', // 相位鞋
       'item_power_treads', // 动力鞋
-      'item_tranquil_boots', // 净魂之刃
     ],
   },
   {
@@ -52,7 +60,7 @@ export const itemTiers: Tier[] = [
       'item_wraith_band', // 系带
       'item_null_talisman', // 挂件
       'item_infused_raindrop', // 凝魂之露
-      'item_magic_stick', // 魔杖
+      'item_magic_wand', // 魔棒
     ],
   },
 ];

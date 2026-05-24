@@ -260,6 +260,12 @@ export class Debug {
       GameRules.Treasure.debugSpawnInitial();
     }
 
+    if (cmd === CMD.PICK_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      GameRules.Lottery.Item.onTriggered(hero);
+    }
+
     if (cmd === CMD.KILL) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
