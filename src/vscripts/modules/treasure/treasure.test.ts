@@ -142,14 +142,24 @@ describe('Treasure', () => {
       expect(Treasure.SPAWN_POINTS_RADIANT_EASY).toContain(point);
     });
 
-    it('spawnCount === 4 切到 JUNGLE 池', () => {
+    it('spawnCount === 4 进入 EASY+JUNGLE 过渡池', () => {
       advance(4);
+      const point = treasure.getRandomSpawnPoint();
+      const merged = [
+        ...Treasure.SPAWN_POINTS_RADIANT_EASY,
+        ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE,
+      ];
+      expect(merged).toContain(point);
+    });
+
+    it('spawnCount === 6 切到 JUNGLE 池', () => {
+      advance(6);
       const point = treasure.getRandomSpawnPoint();
       expect(Treasure.SPAWN_POINTS_RADIANT_JUNGLE).toContain(point);
     });
 
-    it('spawnCount === 7 进入 JUNGLE+HARD 合并池', () => {
-      advance(7);
+    it('spawnCount === 8 进入 JUNGLE+HARD 合并池', () => {
+      advance(8);
       const point = treasure.getRandomSpawnPoint();
       const merged = [
         ...Treasure.SPAWN_POINTS_RADIANT_JUNGLE,

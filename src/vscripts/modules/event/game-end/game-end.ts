@@ -87,6 +87,17 @@ export class GameEnd {
         }
       }
 
+      // 本局累计获得金币，扣除从虚拟金币库转回的金额，与 end_screen_2.js money 列保持一致
+      const virtualGoldData = CustomNetTables.GetTableValue(
+        'player_virtual_gold',
+        playerId.toString(),
+      );
+      const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
+      const totalGoldEarned = Math.max(
+        0,
+        PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
+      );
+
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
         steamId: PlayerResource.GetSteamAccountID(playerId),
@@ -94,7 +105,7 @@ export class GameEnd {
         teamId: PlayerResource.GetTeam(playerId),
         isDisconnected: PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
         level: PlayerResource.GetLevel(playerId),
-        gold: PlayerResource.GetGold(playerId),
+        totalGoldEarned,
         kills: PlayerResource.GetKills(playerId),
         deaths: PlayerResource.GetDeaths(playerId),
         assists: PlayerResource.GetAssists(playerId),

@@ -40,8 +40,6 @@ export const itemTiers: Tier[] = [
   {
     level: 3,
     names: [
-      'item_tome_of_knowledge', // 知识之书
-      'item_aghanims_shard', // 阿哈利姆魔晶
       'item_solar_crest', // 炎阳纹章
       'item_aether_lens_2', // 以太之镜
       'item_wings_of_haste', // 急速之翼
@@ -50,14 +48,13 @@ export const itemTiers: Tier[] = [
       'item_hand_of_group', // 团队之手
     ],
   },
-  // 1~2k
+  // 2k
   {
     level: 2,
     names: [
+      'item_tome_of_knowledge', // 知识之书
+      'item_aghanims_shard', // 阿哈利姆魔晶
       'item_great_famango', // 大疗伤莲花
-      'item_arcane_boots', // 秘法鞋
-      'item_phase_boots', // 相位鞋
-      'item_power_treads', // 动力鞋
       'item_hand_of_midas', // 点金手
       'item_force_staff', // 原力法杖
       'item_glimmer_cape', // 微光披风
@@ -66,19 +63,22 @@ export const itemTiers: Tier[] = [
       'item_holy_locket', // 圣洁吊坠
     ],
   },
-  // <1k
+  // 1k
   {
     level: 1,
     names: [
+      'item_foragers_stats', // 铁树坚果
+      'item_foragers_mana', // 托莫干伞盖
+      'item_foragers_health', // 活力伞菌
       'item_bracer', // 护腕
       'item_wraith_band', // 系带
       'item_null_talisman', // 挂件
       'item_infused_raindrop', // 凝魂之露
       'item_magic_wand', // 魔棒
       'item_bottle', // 魔瓶
-      'item_foragers_stats', // 铁树坚果
-      'item_foragers_mana', // 托莫干伞盖
-      'item_foragers_health', // 活力伞菌
+      'item_arcane_boots', // 秘法鞋
+      'item_phase_boots', // 相位鞋
+      'item_power_treads', // 动力鞋
     ],
   },
 ];

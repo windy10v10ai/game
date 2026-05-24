@@ -15,7 +15,7 @@ export class GameEndPlayerDto {
   teamId: number;
   isDisconnected: boolean;
   level: number;
-  gold: number;
+  totalGoldEarned: number;
   kills: number;
   deaths: number;
   assists: number;
