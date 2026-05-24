@@ -230,8 +230,6 @@
 		"lottery_tooltip_ability_reset_no_count"				"No ability reset charges available"
 		"lottery_tooltip_ability_reset_not_picked"				"No ability picked for this row"
 
-		"lottery_item_header"									"Choose an Item"
-
 		"key_bind"												"Key Bind"
 		"key_bind_collapsed"									"Collapse"
 		"key_bind_placeholder"									"Hotkey"
@@ -239,6 +237,8 @@
 		"key_bind_input_err"									"Invalid input - Try another key"
 		"key_bind_quick_cast"									"Quick Cast"
 		"key_bind_remember"										"Save Key"
+
+		"lottery_item_header"									"Choose an Item"
 		///////////////////////////////////////////////////
 		//
 		//			Member

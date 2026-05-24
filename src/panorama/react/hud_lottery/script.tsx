@@ -9,9 +9,9 @@ import ItemLottery from './ItemLottery';
 function Root() {
   return (
     <Panel style={{ width: '100%', height: '100%' }} hittest={false}>
+      <ItemLottery />
       <Lottery />
       <KeyBind />
-      <ItemLottery />
     </Panel>
   );
 }

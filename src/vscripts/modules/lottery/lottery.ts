@@ -4,7 +4,7 @@ import { ItemLottery } from './item/item-lottery';
 
 /**
  * 抽奖系统聚合入口。
- * Ability：开局一次性的技能抽奖（整局存在）。
+ * Ability：开局一次性的技能抽奖。
  * Item：藏宝箱触发的瞬时 4 选 1 物品抽奖。
  */
 @reloadable

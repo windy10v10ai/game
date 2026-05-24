@@ -9,6 +9,7 @@ const EXPIRE_SECONDS = 12;
 const TICK_INTERVAL_MS = 100;
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
+  width: '360px',
   horizontalAlign: 'center',
   verticalAlign: 'bottom',
   marginBottom: '250px',
@@ -99,14 +100,14 @@ function ItemLottery() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [raw]);
 
-  if (candidates.length === 0) {
-    return <Panel style={{ visibility: 'collapse' }} />;
-  }
-
   const progressPct = Math.max(0, Math.min(100, (remaining / EXPIRE_SECONDS) * 100));
+  const isOpen = candidates.length > 0;
 
   return (
-    <Panel style={containerStyle}>
+    <Panel
+      style={{ ...containerStyle, visibility: isOpen ? 'visible' : 'collapse' }}
+      hittest={true}
+    >
       <Label style={titleStyle} text={$.Localize('#lottery_item_header')} />
       <Panel style={rowStyle}>
         {candidates.map((c, i) => (

@@ -230,8 +230,6 @@
 		"lottery_tooltip_ability_reset_no_count"				"没有可用的技能重选次数"
 		"lottery_tooltip_ability_reset_not_picked"				"技能尚未选择"
 
-		"lottery_item_header"									"选择物品"
-
 		"key_bind"												"改键"
 		"key_bind_collapsed"									"折叠"
 		"key_bind_placeholder"									"快捷键"
@@ -239,6 +237,8 @@
 		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
 		"key_bind_quick_cast"									"快速施法"
 		"key_bind_remember"										"记忆改键"
+
+		"lottery_item_header"									"选择物品"
 		///////////////////////////////////////////////////
 		//
 		//			Member
