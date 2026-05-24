@@ -5,6 +5,7 @@ import { Tier } from '../shared/tier';
  * 单格出现概率：T5 1% / T4 4% / T3 15% / T2 40% / T1 40%
  */
 export const itemTiers: Tier[] = [
+  // 20k
   {
     level: 5,
     names: [
@@ -22,6 +23,7 @@ export const itemTiers: Tier[] = [
       'item_tome_of_strength', // 力量之书
     ],
   },
+  // 5k
   {
     level: 4,
     names: [
@@ -29,8 +31,11 @@ export const itemTiers: Tier[] = [
       'item_dark_part', // 暗影组件
       'item_ultimate_scepter_2', // 真·阿哈利姆神杖
       'item_consumable_gem', // 幻影宝石
+      'item_rune_transmuter_advanced', // 转化石
+      'item_candy_candy', // 嘉心糖
     ],
   },
+  // 3k
   {
     level: 3,
     names: [
@@ -43,6 +48,7 @@ export const itemTiers: Tier[] = [
       'item_force_staff', // 原力法杖
     ],
   },
+  // 2k
   {
     level: 2,
     names: [
@@ -53,6 +59,7 @@ export const itemTiers: Tier[] = [
       'item_power_treads', // 动力鞋
     ],
   },
+  // 1k
   {
     level: 1,
     names: [

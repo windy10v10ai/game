@@ -2,7 +2,7 @@ import { LotteryDto } from '../../../../common/dto/lottery';
 import { GA4PickItemTracker } from '../../../api/analytics/ga4/ga4-pick-item-tracker';
 import { reloadable } from '../../../utils/tstl-utils';
 import { PlayerHelper } from '../../helper/player-helper';
-import { ItemLotteryHelper } from './item-lottery-helper';
+import { ItemLotteryHelper, ItemLotteryTier } from './item-lottery-helper';
 
 /**
  * 物品抽奖：触发后弹 4 选 1，倒计时由客户端驱动，归零自动随机选 1。
@@ -21,14 +21,17 @@ export class ItemLottery {
   /**
    * 触发一次抽奖。opener 非人类（bot/中立）直接返回，奖励丢失。
    */
-  onTriggered(opener: CDOTA_BaseNPC | undefined, isInitial = false): void {
+  onTriggered(
+    opener: CDOTA_BaseNPC | undefined,
+    tier: ItemLotteryTier = ItemLotteryTier.DEFAULT,
+  ): void {
     if (!PlayerHelper.IsHumanPlayer(opener)) {
       return;
     }
     const playerId = opener!.GetPlayerOwnerID();
     if (playerId < 0) return;
 
-    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, isInitial);
+    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, tier);
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), candidates);
   }
 
