@@ -1,43 +1,16 @@
-import { LotteryDto } from '../../../common/dto/lottery';
-import { Tier } from './tier';
+import { LotteryDto } from '../../../../common/dto/lottery';
+import { pickRandomTierByRate } from '../shared/random-tier';
+import { Tier } from '../shared/tier';
 
-export class LotteryHelper {
-  // 基础概率设置（5-1级）
+export class AbilityLotteryHelper {
   private static readonly BASE_TIER_RATES = [1, 5, 20, 60, 100];
-
-  // 高级会员概率设置（5-1级）
   private static readonly PREMIUM_TIER_RATES = [5, 25, 60, 100, 100];
 
-  private static getRandomTier(tiers: Tier[]): Tier {
-    const random = RandomInt(1, 100);
-
-    // 根据概率选择等级
-    for (let i = 0; i < this.BASE_TIER_RATES.length; i++) {
-      if (random <= this.BASE_TIER_RATES[i]) {
-        return tiers[i];
-      }
-    }
-
-    return tiers[tiers.length - 1];
-  }
-
-  private static getRandomHighTier(tiers: Tier[]): Tier {
-    const random = RandomInt(1, 100);
-    // 根据概率选择等级
-    for (let i = 0; i < this.PREMIUM_TIER_RATES.length; i++) {
-      if (random <= this.PREMIUM_TIER_RATES[i]) {
-        return tiers[i];
-      }
-    }
-
-    return tiers[tiers.length - 1];
-  }
-
   private static getRandomLotteryDto(tiers: Tier[], isHighTier: boolean = false): LotteryDto {
-    const tier = isHighTier ? this.getRandomHighTier(tiers) : this.getRandomTier(tiers);
+    const rates = isHighTier ? this.PREMIUM_TIER_RATES : this.BASE_TIER_RATES;
+    const tier = pickRandomTierByRate(tiers, rates);
     const name = tier.names[Math.floor(Math.random() * tier.names.length)];
-    const level = tier.level;
-    return { name, level };
+    return { name, level: tier.level };
   }
 
   static getRandomAbilities(
@@ -58,7 +31,7 @@ export class LotteryHelper {
     }
 
     const lotteryResults: LotteryDto[] = [];
-    const maxAttempts = 10; // 最大尝试次数，避免无限循环
+    const maxAttempts = 10;
     for (let i = 0; i < count; i++) {
       let lotteryDto = { name: 'earthshaker_aftershock', level: 1 };
       let attempts = 0;

@@ -248,7 +248,7 @@ export class Debug {
     }
 
     if (cmd === CMD.LOTTERY) {
-      GameRules.Lottery.initLotteryAll();
+      GameRules.Lottery.Ability.initLotteryAll();
     }
 
     if (cmd === CMD.END) {

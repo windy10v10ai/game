@@ -1,4 +1,4 @@
-import { Tier } from './tier';
+import { Tier } from '../shared/tier';
 
 /**
  * 技能列表，Tier 5-1

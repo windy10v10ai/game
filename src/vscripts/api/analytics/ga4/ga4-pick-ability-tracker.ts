@@ -1,8 +1,8 @@
 import { AbilityItemType } from '../../../../common/dto/lottery';
 import { NetTableHelper } from '../../../modules/helper/net-table-helper';
-import { AbilityItemTypes } from '../../../modules/lottery/ability-item-type';
-import { abilityTiersPassive } from '../../../modules/lottery/lottery-abilities';
-import { Tier } from '../../../modules/lottery/tier';
+import { AbilityItemTypes } from '../../../modules/lottery/ability/ability-item-type';
+import { abilityTiersPassive } from '../../../modules/lottery/ability/lottery-abilities';
+import { Tier } from '../../../modules/lottery/shared/tier';
 import { GameEndDto, GameEndPlayerDto } from '../dto/game-end-dto';
 import { GA4 } from './ga4';
 import { GA4Event } from './dto/ga4-dto';
