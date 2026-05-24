@@ -1,96 +1,60 @@
 import { Tier } from '../shared/tier';
 
 /**
- * 物品抽奖池，Tier 5-1。配合 ITEM_TIER_RATES 累计阈值使用。
+ * 物品抽奖池，Tier 5-1。配合 ITEM_TIER_RATES [1,5,20,60,100] 累计阈值使用。
+ * 单格出现概率：T5 1% / T4 4% / T3 15% / T2 40% / T1 40%
  */
 export const itemTiers: Tier[] = [
   {
     level: 5,
     names: [
-      'item_tome_of_agility',
-      'item_tome_of_intelligence',
-      'item_tome_of_strength',
-
-      // ---- 中立物品 lv5 ----
-      'item_fallen_sky',
-      'item_desolator_2',
-      'item_mirror_shield',
-      'item_ballista',
-      'item_seer_stone',
-      'item_ex_machina',
-      'item_pirate_hat',
+      'item_fusion_rune', // 融合符文
+      'item_tome_of_agility', // 敏捷之书
+      'item_tome_of_intelligence', // 智力之书
+      'item_tome_of_strength', // 力量之书
     ],
   },
   {
     level: 4,
     names: [
-      'item_light_part',
-      'item_dark_part',
-
-      // ---- 中立物品 lv4 ----
-      'item_penta_edged_sword',
-      'item_panic_button',
-      'item_minotaur_horn',
-      'item_spell_prism',
-      'item_helm_of_the_undying',
-      'item_woodland_striders',
-      'item_princes_knife',
-      'item_repair_kit',
+      'item_light_part', // 圣光组件
+      'item_dark_part', // 暗影组件
+      'item_hand_of_midas', // 点金手
+      'item_holy_locket', // 圣洁吊坠
     ],
   },
   {
     level: 3,
     names: [
-      // ---- 中立物品 lv3 ----
-      'item_titan_sliver',
-      'item_quickening_charm',
-      'item_spider_legs',
-      'item_horizon',
-      'item_witless_shako',
-      'item_third_eye',
-      'item_the_leveller',
-      'item_paladin_sword',
+      'item_aghanims_shard', // 阿哈利姆魔晶
+      'item_great_famango', // 大疗伤莲花
+      'item_aether_lens', // 以太之镜
+      'item_glimmer_cape', // 微光披风
+      'item_force_staff', // 原力法杖
     ],
   },
   {
     level: 2,
     names: [
-      'item_hand_of_midas',
-      'item_holy_locket',
-      'item_aghanims_shard',
-      'item_great_famango',
-      'item_tome_of_knowledge',
-
-      // ---- 中立物品 lv2 ----
-      'item_imp_claw',
-      'item_vampire_fangs',
-      'item_mysterious_hat',
-      'item_vambrace',
-      'item_grove_bow',
-      'item_orb_of_destruction',
-      'item_philosophers_stone',
-      'item_essence_ring',
+      'item_tome_of_knowledge', // 知识之书
+      'item_bottle', // 魔瓶
+      'item_magic_wand', // 魔棒
+      'item_arcane_boots', // 秘法鞋
+      'item_phase_boots', // 相位鞋
+      'item_power_treads', // 动力鞋
+      'item_tranquil_boots', // 净魂之刃
     ],
   },
   {
     level: 1,
     names: [
-      'item_tome_of_knowledge',
-      'item_bottle',
-      'item_bracer',
-      'item_wraith_band',
-      'item_null_talisman',
-      'item_infused_raindrop',
-
-      // ---- 中立物品 lv1 ----
-      'item_chipped_vest',
-      'item_ironwood_tree',
-      'item_iron_talon',
-      'item_keen_optic',
-      'item_possessed_mask',
-      'item_ring_of_aquila',
-      'item_poor_mans_shield',
-      'item_broom_handle',
+      'item_bracer', // 护腕
+      'item_wraith_band', // 系带
+      'item_null_talisman', // 挂件
+      'item_infused_raindrop', // 凝魂之露
+      'item_magic_stick', // 魔杖
+      'item_ring_of_health', // 治疗指环
+      'item_void_stone', // 虚无之石
     ],
   },
 ];
