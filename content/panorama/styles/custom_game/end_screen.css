@@ -644,7 +644,7 @@
   color: #e7d291;
   text-align: center;
   text-overflow: shrink;
-  vertical-align: bottom;
+  vertical-align: center;
   border: 1px solid rgba(231, 210, 145, 0.533);
   border-radius: 50%;
   box-shadow: fill 0 0 12px #000;
