@@ -97,7 +97,7 @@ export const abilityTiersActive: Tier[] = [
       'dazzle_bad_juju', // 邪能
 
       // 小技能
-      // 'warlock_fatal_bonds', // 致命连接 计算量大可能导致游戏崩溃
+      // 'warlock_fatal_bonds', // 致命连接（计算量大可能导致游戏崩溃）
       'lion_impale', // 裂地尖刺
       'sven_storm_bolt', // 风暴之拳 斯温
       'omniknight_repel', // 咸鱼恩赐
