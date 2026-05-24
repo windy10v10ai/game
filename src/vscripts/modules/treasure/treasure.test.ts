@@ -67,7 +67,10 @@ global.CreateUnitByName = jest.fn(() => {
 });
 
 let mockState: number = global.GameState.CUSTOM_GAME_SETUP;
-global.GameRules = { State_Get: () => mockState };
+global.GameRules = {
+  State_Get: () => mockState,
+  Lottery: { Item: { onTriggered: jest.fn() } },
+};
 
 import { Treasure } from './treasure';
 

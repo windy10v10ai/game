@@ -66,6 +66,10 @@ declare global {
     lottery_status: {
       [steamAccountID: string]: LotteryStatusDto;
     };
+    // 物品抽奖（藏宝箱触发，瞬时事件，key = playerId）
+    lottery_item: {
+      [playerId: string]: LotteryDto[];
+    };
     // 添加虚拟金币表定义
     player_virtual_gold: {
       [playerID: string]: {

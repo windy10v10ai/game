@@ -1,4 +1,5 @@
 import { GA4TreasureTracker, TreasureTier } from '../../api/analytics/ga4/ga4-treasure-tracker';
+import { ItemLotteryTier } from '../lottery/item/item-lottery-helper';
 import { modifier_treasure_chest } from '../../modifiers/global/modifier_treasure_chest';
 import { reloadable } from '../../utils/tstl-utils';
 
@@ -106,6 +107,7 @@ export class Treasure {
   // value 是 spawn 时使用的原始 Vector 引用，open 时回查 tier 用
   private activeChests: Map<EntityIndex, Vector> = new Map();
   private spawnCount = 0;
+  private openCount = 0;
 
   constructor() {
     ListenToGameEvent(
@@ -182,8 +184,10 @@ export class Treasure {
     UTIL_Remove(chest);
     print(`[Treasure] opened by ${opener.GetUnitName()}`);
 
-    GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, Treasure.getPointTier(point));
-    // TODO P2: GameRules.Lottery.openItemLottery(opener)
+    this.openCount++;
+    const pointTier = Treasure.getPointTier(point);
+    GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, pointTier);
+    GameRules.Lottery.Item.onTriggered(opener, Treasure.mapToLotteryTier(this.openCount));
   }
 
   getRandomSpawnPoint(): Vector {
@@ -211,6 +215,12 @@ export class Treasure {
     if (Treasure.SPAWN_POINTS_RADIANT_JUNGLE.includes(point)) return TreasureTier.JUNGLE;
     if (Treasure.SPAWN_POINTS_RADIANT_HARD.includes(point)) return TreasureTier.HARD;
     return TreasureTier.UNKNOWN;
+  }
+
+  static mapToLotteryTier(openCount: number): ItemLotteryTier {
+    if (openCount <= 1) return ItemLotteryTier.INITIAL;
+    if (openCount >= 7) return ItemLotteryTier.PREMIUM;
+    return ItemLotteryTier.DEFAULT;
   }
 
   getActiveChestCount(): number {
