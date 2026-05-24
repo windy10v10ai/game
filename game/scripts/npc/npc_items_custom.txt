@@ -5579,7 +5579,7 @@
 		"AbilityTextureName"		"rune_transmuter_random"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
-		"ItemCost"					"1000"
+		"ItemCost"					"2000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -7399,6 +7399,41 @@
 			{
 				"var_type"              "FIELD_INTEGER"
 				"stored_ability"        "0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// item_collector 收纳符
+	//=================================================================================================================
+	"item_collector"
+	{
+		"ID"						"10338"
+		"BaseClass"					"item_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"		"collector"
+		"ItemCost"					"1000"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+		"ItemAliases"				""
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"1"
+		"ItemInitialCharges"		"3"
+		"ItemDisposable"			"1"
+		"ItemStackable"				"1"
+		"ItemPermanent"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemInitialStockTime"		"60"
+		"ItemStockInitial"			"1"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"300"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_collector"
+				"Function"			"OnSpellStart"
 			}
 		}
 	}

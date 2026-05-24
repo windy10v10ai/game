@@ -1844,6 +1844,10 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
 
+		// item_collector
+		"DOTA_Tooltip_ability_item_collector"										"Item Collector"
+		"DOTA_Tooltip_ability_item_collector_Description"							"Instantly gathers items dropped on the ground, arranging them by owner and category in a fixed area, and clears trees in that area."
+
 		// item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"Aghanim's Regalia"
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted Aghanim's Regalia benefits, %dMODIFIER_PROPERTY_HEALTH_BONUS% health, %dMODIFIER_PROPERTY_MANA_BONUS% mana, and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% all attributes."
