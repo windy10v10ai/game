@@ -32,17 +32,15 @@ export const itemTiers: Tier[] = [
       'item_light_part', // 圣光组件
       'item_dark_part', // 暗影组件
       'item_ultimate_scepter_2', // 真·阿哈利姆神杖
-      'item_consumable_gem', // 幻影宝石
-      'item_rune_transmuter_advanced', // 转化石
-      'item_candy_candy', // 嘉心糖
-      'item_meteor_hammer_2', // 星落
     ],
   },
   // 3~5k
   {
     level: 3,
     names: [
-      'item_rune_transmuter_random', // 洗炼石
+      'item_rune_transmuter_advanced', // 转化石
+      'item_consumable_gem', // 幻影宝石
+      'item_candy_candy', // 嘉心糖
       'item_solar_crest', // 炎阳纹章
       'item_aether_lens_2', // 以太之镜
       'item_wings_of_haste', // 急速之翼
@@ -55,6 +53,7 @@ export const itemTiers: Tier[] = [
   {
     level: 2,
     names: [
+      'item_rune_transmuter_random', // 洗炼石
       'item_collector', // 收纳符
       'item_tome_of_knowledge', // 知识之书
       'item_aghanims_shard', // 阿哈利姆魔晶

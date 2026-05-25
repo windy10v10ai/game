@@ -264,6 +264,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"					"5000"
+		"ItemSellable"				"0"
 		"ItemShopTags"				"see_invis"
 		"ItemQuality"				"component"
 		"ItemAliases"				"gem of true sight"
@@ -1889,6 +1890,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_agility"
 		"AbilityTextureName"		"tome_of_agility"
+		"Model"						"models/gameplay/attrib_tome_agi.vmdl"
 		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"agility tome;agi"
@@ -1916,6 +1918,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_intelligence"
 		"AbilityTextureName"		"tome_of_intelligence"
+		"Model"						"models/gameplay/attrib_tome_int.vmdl"
 		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"intelligence tome;int"
@@ -1943,6 +1946,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_strength"
 		"AbilityTextureName"		"tome_of_strength"
+		"Model"						"models/gameplay/attrib_tome_str.vmdl"
 		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"strength tome;str"
@@ -7346,6 +7350,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_skill_reset"
 		"AbilityTextureName"		"skill_remover"
+		"Model"						"models/gameplay/attrib_tome_xp.vmdl"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityCastPoint"			"0.0"
 
