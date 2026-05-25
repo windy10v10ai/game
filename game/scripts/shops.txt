@@ -17,14 +17,12 @@
 		"item"		"item_tango"				// 仙灵之火
 		"item"		"item_blood_grenade"		// 血腥榴弹
 		"item"		"item_bottle"				// 魔瓶
+		"item"		"item_infused_raindrop"		// 凝魂之露
 
-		"item"		"item_candy_candy"			// 嘉心糖
-
-		"item"		"item_infused_raindrop"		// 凝液之滴
 		"item"		"item_aghanims_shard"		// 阿哈利姆魔晶
-
 		"item"		"item_tome_of_knowledge"	// 知识之书
 		"item"		"item_skill_reset"			// 遗忘技能书
+		"item"		"item_collector"			// 收纳符
 	}
 	// 属性
 	"attributes"
@@ -305,7 +303,7 @@
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
-		"item"		"item_tome_of_luoshu"
+		"item"		"item_tome_of_luoshu"		// 洛书
 		//"item"		"item_skill_talisman" //测试成功，暂不实装
 		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_ten_thousand_swords"      // 万剑归宗

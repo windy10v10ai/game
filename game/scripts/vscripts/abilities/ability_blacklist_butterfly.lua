@@ -100,6 +100,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["invoker_forge_spirit"] = true,      -- 卡尔 熔炉精灵
     ["enigma_demonic_conversion"] = true, -- 谜团 恶魔转化
     ["furion_force_of_nature"] = true,    -- 先知 自然之力
+    ["zuus_cloud"] = true,                -- 宙斯 雷云
 
     -- ========================================
     -- 持续施法/引导类技能

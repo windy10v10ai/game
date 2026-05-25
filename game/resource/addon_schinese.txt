@@ -1878,6 +1878,10 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"据说这是月亮女神塞莉墨涅的眼泪。"
 
+		// item_collector 收纳符
+		"DOTA_Tooltip_ability_item_collector"										"收纳符"
+		"DOTA_Tooltip_ability_item_collector_Description"							"<h1>主动：收纳</h1>使用后立即整理地面上掉落的物品，按归属与类别集中摆放到基地下方树林区域，并清理摆放区的树木。"
+
 		// item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"真·阿哈利姆神杖"
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"永久获得阿哈利姆神杖加成, 获得%dMODIFIER_PROPERTY_HEALTH_BONUS%生命, %dMODIFIER_PROPERTY_MANA_BONUS%魔法, %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能伤害, %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%全属性。"
