@@ -68,7 +68,11 @@ declare global {
     };
     // 物品抽奖（藏宝箱触发，瞬时事件，key = playerId）
     lottery_item: {
-      [playerId: string]: LotteryDto[];
+      [playerId: string]: {
+        candidates: LotteryDto[];
+        isRefreshed: boolean;
+        tier: string;
+      };
     };
     // 添加虚拟金币表定义
     player_virtual_gold: {

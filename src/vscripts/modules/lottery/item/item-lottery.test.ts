@@ -51,6 +51,14 @@ jest.mock('../../../api/analytics/ga4/ga4-pick-item-tracker', () => ({
   GA4PickItemTracker: { SendPick: jest.fn() },
 }));
 
+const mockGetMemberLevel = jest.fn((_steamId: number) => 1); // 默认 NORMAL
+jest.mock('../../../api/player', () => ({
+  MemberLevel: { NORMAL: 1, PREMIUM: 2 },
+  Player: {
+    GetMemberLevel: (steamId: number) => mockGetMemberLevel(steamId),
+  },
+}));
+
 import { ItemLottery } from './item-lottery';
 
 describe('ItemLottery', () => {
@@ -61,16 +69,22 @@ describe('ItemLottery', () => {
   beforeEach(() => {
     for (const k of Object.keys(netTable)) delete netTable[k];
     mockHero.AddItem.mockClear();
+    mockGetMemberLevel.mockReturnValue(1); // 默认 NORMAL
     lottery = new ItemLottery();
   });
 
   describe('onTriggered', () => {
-    it('人类玩家触发时直接写 LotteryDto[] 到 net table', () => {
+    it('人类玩家触发时写入 { candidates, isRefreshed, tier } 到 net table', () => {
       lottery.onTriggered(humanOpener);
-      const candidates = netTable['lottery_item']?.['3'];
-      expect(candidates).toBeDefined();
-      expect(candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
-      expect(candidates[0]).toMatchObject({ name: expect.any(String), level: expect.any(Number) });
+      const entry = netTable['lottery_item']?.['3'];
+      expect(entry).toBeDefined();
+      expect(entry.isRefreshed).toBe(false);
+      expect(entry.tier).toBeDefined();
+      expect(entry.candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
+      expect(entry.candidates[0]).toMatchObject({
+        name: expect.any(String),
+        level: expect.any(Number),
+      });
     });
 
     it('bot/中立触发直接 noop，不写表', () => {
@@ -85,8 +99,8 @@ describe('ItemLottery', () => {
 
     it('候选无重复', () => {
       lottery.onTriggered(humanOpener);
-      const candidates = netTable['lottery_item']['3'] as { name: string }[];
-      const names = candidates.map((c) => c.name);
+      const entry = netTable['lottery_item']['3'] as { candidates: { name: string }[] };
+      const names = entry.candidates.map((c) => c.name);
       expect(new Set(names).size).toBe(names.length);
     });
   });
@@ -94,8 +108,10 @@ describe('ItemLottery', () => {
   describe('pickItem', () => {
     it('正常选择：候选匹配则发奖 + 清行', () => {
       lottery.onTriggered(humanOpener);
-      const candidates = netTable['lottery_item']['3'] as { name: string; level: number }[];
-      const target = candidates[1];
+      const entry = netTable['lottery_item']['3'] as {
+        candidates: { name: string; level: number }[];
+      };
+      const target = entry.candidates[1];
       lottery.pickItem(
         3 as PlayerID,
         {
@@ -106,8 +122,9 @@ describe('ItemLottery', () => {
       );
       expect(global.CreateItem).toHaveBeenCalledWith(target.name, undefined, undefined);
       expect(mockHero.AddItem).toHaveBeenCalledWith({ name: target.name });
-      // 选完后写空数组清行
-      expect(netTable['lottery_item']['3']).toEqual([]);
+      // 选完后写空 candidates 清行
+      expect(netTable['lottery_item']['3'].candidates).toEqual([]);
+      expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
     });
 
     it('无 pending 抽奖时 noop', () => {
@@ -132,7 +149,10 @@ describe('ItemLottery', () => {
 
     it('正确名字但 level 不匹配时 noop', () => {
       lottery.onTriggered(humanOpener);
-      const candidate = (netTable['lottery_item']['3'] as { name: string; level: number }[])[0];
+      const entry = netTable['lottery_item']['3'] as {
+        candidates: { name: string; level: number }[];
+      };
+      const candidate = entry.candidates[0];
       lottery.pickItem(
         3 as PlayerID,
         {
@@ -145,9 +165,63 @@ describe('ItemLottery', () => {
     });
   });
 
+  describe('refreshItem', () => {
+    it('PREMIUM 首次刷新：重写候选并把 isRefreshed 置 true', () => {
+      mockGetMemberLevel.mockReturnValue(2); // PREMIUM
+      lottery.onTriggered(humanOpener);
+      const before = netTable['lottery_item']['3'];
+      expect(before.isRefreshed).toBe(false);
+
+      lottery.refreshItem(3 as PlayerID);
+
+      const after = netTable['lottery_item']['3'];
+      expect(after.isRefreshed).toBe(true);
+      expect(after.candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
+    });
+
+    it('NORMAL 会员刷新被拒绝', () => {
+      mockGetMemberLevel.mockReturnValue(1); // NORMAL
+      lottery.onTriggered(humanOpener);
+      lottery.refreshItem(3 as PlayerID);
+      expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
+    });
+
+    it('已刷新过则二次刷新被拒绝', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      lottery.onTriggered(humanOpener);
+      lottery.refreshItem(3 as PlayerID);
+      const afterFirst = netTable['lottery_item']['3'].candidates;
+      lottery.refreshItem(3 as PlayerID);
+      // 候选未再次替换（引用相同的 candidates）
+      expect(netTable['lottery_item']['3'].candidates).toBe(afterFirst);
+    });
+
+    it('已 pick 完（candidates 空）则刷新被拒绝', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      lottery.onTriggered(humanOpener);
+      const target = netTable['lottery_item']['3'].candidates[0];
+      lottery.pickItem(
+        3 as PlayerID,
+        { PlayerID: 3, name: target.name, level: target.level } as any,
+      );
+      lottery.refreshItem(3 as PlayerID);
+      expect(netTable['lottery_item']['3'].candidates).toEqual([]);
+    });
+
+    it('无 pending 抽奖时 noop', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      lottery.refreshItem(3 as PlayerID);
+      expect(netTable['lottery_item']?.['3']).toBeUndefined();
+    });
+  });
+
   describe('event listener', () => {
     it('lottery_pick_item 注册到 CustomGameEventManager', () => {
       expect(eventListeners['lottery_pick_item']).toBeDefined();
+    });
+
+    it('lottery_refresh_item 注册到 CustomGameEventManager', () => {
+      expect(eventListeners['lottery_refresh_item']).toBeDefined();
     });
   });
 });
