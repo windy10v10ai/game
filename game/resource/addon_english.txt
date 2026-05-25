@@ -1846,7 +1846,7 @@
 
 		// item_collector
 		"DOTA_Tooltip_ability_item_collector"										"Item Collector"
-		"DOTA_Tooltip_ability_item_collector_Description"							"Instantly gathers items dropped on the ground, arranging them by owner and category in a fixed area, and clears trees in that area."
+		"DOTA_Tooltip_ability_item_collector_Description"							"<h1>Active: Collect</h1>Instantly gathers items dropped on the ground, arranging them by owner and category in the forest area below the base, and clears trees in that area."
 
 		// item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"Aghanim's Regalia"

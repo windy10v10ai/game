@@ -1880,7 +1880,7 @@
 
 		// item_collector 收纳符
 		"DOTA_Tooltip_ability_item_collector"										"收纳符"
-		"DOTA_Tooltip_ability_item_collector_Description"							"使用后立即整理地面上掉落的物品，按归属与类别集中摆放，并清理摆放区的树木。"
+		"DOTA_Tooltip_ability_item_collector_Description"							"<h1>主动：收纳</h1>使用后立即整理地面上掉落的物品，按归属与类别集中摆放到基地下方树林区域，并清理摆放区的树木。"
 
 		// item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"真·阿哈利姆神杖"
