@@ -256,16 +256,10 @@ export class EventEntityKilled {
 
     // 难度系数: 难度越高,掉落概率越高
     let difficultyMultiplier = 1;
-    if (difficulty >= 60) {
-      difficultyMultiplier = 3.0;
-    } else if (difficulty >= 40) {
-      difficultyMultiplier = 2.5;
-    } else if (difficulty >= 20) {
-      difficultyMultiplier = 2.0;
-    } else if (difficulty >= 10) {
+    if (difficulty >= 20) {
       difficultyMultiplier = 1.5;
-    } else if (difficulty >= 1) {
-      difficultyMultiplier = 1;
+    } else if (difficulty >= 10) {
+      difficultyMultiplier = 1.2;
     }
 
     // 人数系数: 人数过多野怪分不过来时才调高概率
@@ -339,7 +333,6 @@ export class EventEntityKilled {
           this.dropItemListFusionMaterial,
           this.calculateDropChance(this.dropItemChanceFusionAncient),
         );
-        this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
       // 击杀中立单位
@@ -357,21 +350,7 @@ export class EventEntityKilled {
           this.dropItemListFusionMaterial,
           this.calculateDropChance(this.dropItemChanceFusionNeutral),
         );
-        //神器组件
-        this.dropParts(creep, this.dropItemChanceNeutral);
       }
-    }
-  }
-
-  private dropParts(creep: CDOTA_BaseNPC, chance = 1): void {
-    // 获取白天夜晚
-    const isDaytime = GameRules.IsDaytime();
-    if (isDaytime) {
-      // 白天掉落圣光组件
-      this.dropItem(creep, [this.itemLightPartName], chance);
-    } else {
-      // 夜晚掉落暗影组件
-      this.dropItem(creep, [this.itemDarkPartName], chance);
     }
   }
 
