@@ -7587,7 +7587,11 @@
 		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
 		{
-			"hit_point_minimum_pct"		"35 30 25 20"
+			"hit_point_minimum_pct"
+			{
+				"value"					"35 30 25 20"
+				"special_bonus_unique_terrorblade_sunder_hp_threshold" "-20"	// -25
+			}
 			"AbilityCooldown"
 			{
 				"value"				"60.0 50.0 40.0 30.0"	// 110.0 75.0 40.0
