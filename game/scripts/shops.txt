@@ -303,7 +303,7 @@
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
-		"item"		"item_tome_of_luoshu"
+		"item"		"item_tome_of_luoshu"		// 洛书
 		//"item"		"item_skill_talisman" //测试成功，暂不实装
 		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
