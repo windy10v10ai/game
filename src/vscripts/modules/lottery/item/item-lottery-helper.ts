@@ -10,7 +10,7 @@ export enum ItemLotteryTier {
 
 const TIER_RATES: Record<ItemLotteryTier, number[]> = {
   // 累计阈值 [T5, T4, T3, T2, T1]
-  [ItemLotteryTier.INITIAL]: [0, 0, 20, 60, 100],
+  [ItemLotteryTier.INITIAL]: [0, 0, 10, 50, 100],
   [ItemLotteryTier.DEFAULT]: [1, 5, 20, 60, 100],
   [ItemLotteryTier.PREMIUM]: [5, 25, 60, 100, 100],
 };

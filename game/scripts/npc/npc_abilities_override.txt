@@ -9909,7 +9909,7 @@
 		"AbilityManaCost"				"50 60 70 80"
 		"AbilityValues"
 		{
-				"mana_cost_per_second"	"50 90 130 170"	// 25 45 65 x2
+				"mana_cost_per_second"	"25 45 65 85"	// 25 45 65
 				"radius"
 				{
 					"value"		"500 600 700 800"	// 500
