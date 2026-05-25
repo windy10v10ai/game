@@ -14,7 +14,6 @@ function OnSpellStart(event)
     if item then
         item:SpendCharge(1)
     end
-    GameRules:SendCustomMessage("<font color='#00FF00'>[收纳符] 已整理地面物品</font>", 0, 0)
 end
 
 function CollectItems()
