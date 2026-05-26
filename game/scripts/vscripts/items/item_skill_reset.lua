@@ -6,6 +6,11 @@ local SKILL_RESET_BLACKLIST = {
     morphling_morph_replicate = true,
 }
 
+-- 主动技能但 level=0 会破坏机制，强制保留至 1 级
+local SKILL_RESET_KEEP_LEVEL_1 = {
+    winter_wyvern_arctic_burn = true,
+}
+
 local PASSIVE_MASK = DOTA_ABILITY_BEHAVIOR_PASSIVE + DOTA_ABILITY_BEHAVIOR_ATTACK
 
 local function hasFlag(behavior, mask)
@@ -24,7 +29,9 @@ local function resetAbility(ability)
     if SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then return 0 end
 
     -- 被动/攻击触发类技能 level=0 时会出现冷却异常（如智慧之刃、海象神拳 0CD），保留 1 级
-    if hasFlag(behavior, PASSIVE_MASK) then
+    local keepLevel1 = hasFlag(behavior, PASSIVE_MASK)
+        or SKILL_RESET_KEEP_LEVEL_1[ability:GetAbilityName()]
+    if keepLevel1 then
         if level <= 1 then return 0 end
         ability:SetLevel(1)
         return level - 1
