@@ -1,7 +1,7 @@
 import { GA4TreasureTracker, TreasureTier } from '../../api/analytics/ga4/ga4-treasure-tracker';
 import { modifier_treasure_chest } from '../../modifiers/global/modifier_treasure_chest';
 import { reloadable } from '../../utils/tstl-utils';
-import { ItemLotteryTier } from '../lottery/item/item-lottery-helper';
+import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 
 @reloadable
 export class Treasure {
@@ -193,7 +193,7 @@ export class Treasure {
     this.openCount++;
     const pointTier = Treasure.getPointTier(point);
     GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, pointTier);
-    GameRules.Lottery.Item.onTriggered(opener, Treasure.mapToLotteryTier(this.openCount));
+    GameRules.Lottery.Item.onTriggered(opener, Treasure.mapToLotteryPool(this.openCount));
   }
 
   getRandomSpawnPoint(): Vector {
@@ -225,10 +225,10 @@ export class Treasure {
     return TreasureTier.UNKNOWN;
   }
 
-  static mapToLotteryTier(openCount: number): ItemLotteryTier {
-    if (openCount <= 1) return ItemLotteryTier.INITIAL;
-    if (openCount >= 7) return ItemLotteryTier.PREMIUM;
-    return ItemLotteryTier.DEFAULT;
+  static mapToLotteryPool(openCount: number): ItemLotteryPool {
+    if (openCount <= 1) return ItemLotteryPool.INITIAL;
+    if (openCount >= 7) return ItemLotteryPool.PREMIUM;
+    return ItemLotteryPool.DEFAULT;
   }
 
   getActiveChestCount(): number {

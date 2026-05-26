@@ -3,6 +3,8 @@ import 'panorama-polyfill-x/lib/timers';
 import React, { useEffect, useState } from 'react';
 import { LotteryDto } from '../../../common/dto/lottery';
 import { useNetTable } from '../shared/hooks/useNetTable';
+import { isPremiumMember } from '../shared/utils/member';
+import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { colors } from './colors';
 
 const EXPIRE_SECONDS = 12;
@@ -28,10 +30,11 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
 
 const rowStyle: Partial<VCSSStyleDeclaration> = {
   marginTop: '8px',
-  marginLeft: '6px',
-  marginRight: '6px',
+  marginLeft: '10px',
+  marginRight: '10px',
   flowChildren: 'right',
   horizontalAlign: 'center',
+  verticalAlign: 'center',
 };
 
 const itemStyle: Partial<VCSSStyleDeclaration> = {
@@ -40,13 +43,24 @@ const itemStyle: Partial<VCSSStyleDeclaration> = {
   margin: '2px 6px',
 };
 
+const refreshButtonStyle: Partial<VCSSStyleDeclaration> = {
+  marginLeft: '5px',
+  marginRight: '5px',
+  verticalAlign: 'center',
+};
+
+const refreshImageStyle: Partial<VCSSStyleDeclaration> = {
+  width: '40px',
+  height: '40px',
+};
+
 const progressTrackStyle: Partial<VCSSStyleDeclaration> = {
-  width: '300px',
+  width: '100%',
   height: '10px',
   marginTop: '8px',
   marginBottom: '8px',
-  marginLeft: '8px',
-  marginRight: '8px',
+  marginLeft: '12px',
+  marginRight: '12px',
   borderRadius: '5px',
   horizontalAlign: 'center',
   backgroundColor: '#000000aa',
@@ -77,11 +91,66 @@ function pickItem(candidate: LotteryDto) {
   });
 }
 
+interface RefreshIconButtonProps {
+  isPremium: boolean;
+  isRefreshed: boolean;
+}
+
+function RefreshIconButton({ isPremium, isRefreshed }: RefreshIconButtonProps) {
+  const enabled = isPremium && !isRefreshed;
+  const imageSrc = enabled
+    ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
+    : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
+
+  const tooltipText = $.Localize(
+    !isPremium
+      ? '#lottery_tooltip_item_refresh_not_premium'
+      : isRefreshed
+        ? '#lottery_tooltip_item_refresh_used'
+        : '#lottery_tooltip_item_refresh',
+  );
+
+  const handleClick = () => {
+    if (!isPremium) {
+      GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
+        page: 'profile',
+        param: 'member',
+        playerId: Game.GetLocalPlayerID(),
+      });
+      return;
+    }
+    if (isRefreshed) {
+      return;
+    }
+    GameEvents.SendCustomGameEventToServer('lottery_refresh_item', {});
+  };
+
+  return (
+    <Button
+      onactivate={handleClick}
+      style={refreshButtonStyle}
+      onmouseover={(panel) => $.DispatchEvent('DOTAShowTextTooltip', panel, tooltipText)}
+      onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+    >
+      <Image src={imageSrc} style={refreshImageStyle} />
+    </Button>
+  );
+}
+
 function ItemLottery() {
   const playerId = Game.GetLocalPlayerID().toString();
+  const steamAccountId = GetLocalPlayerSteamAccountID();
   const raw = useNetTable('lottery_item', playerId);
+  const player = useNetTable('player_table', steamAccountId);
+
   // TSTL array 经 net 同步为 object，转回数组
-  const candidates: LotteryDto[] = raw ? (Object.values(raw) as LotteryDto[]) : [];
+  const candidates: LotteryDto[] = raw?.candidates
+    ? (Object.values(raw.candidates) as LotteryDto[])
+    : [];
+  // 引擎把 boolean 同步为 0/1
+  const isRefreshed = Boolean(raw?.isRefreshed);
+
+  const isPremium = isPremiumMember(player?.member);
 
   const [remaining, setRemaining] = useState(EXPIRE_SECONDS);
 
@@ -100,7 +169,7 @@ function ItemLottery() {
       }
     }, TICK_INTERVAL_MS);
     return () => clearInterval(id);
-    // 依赖 raw 引用变化（新一轮抽奖）
+    // 依赖 raw 引用变化（新一轮抽奖 / 刷新换组）
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [raw]);
 
@@ -128,6 +197,7 @@ function ItemLottery() {
             }}
           />
         ))}
+        <RefreshIconButton isPremium={isPremium} isRefreshed={isRefreshed} />
       </Panel>
       <Panel style={progressTrackStyle}>
         <Panel style={{ ...progressFillStyle, width: `${progressPct}%` }} />
