@@ -11,7 +11,9 @@ local SKILL_RESET_KEEP_LEVEL_1 = {
     winter_wyvern_arctic_burn = true,
 }
 
-local PASSIVE_MASK = DOTA_ABILITY_BEHAVIOR_PASSIVE + DOTA_ABILITY_BEHAVIOR_ATTACK
+local KEEP_LEVEL_1_MASK = DOTA_ABILITY_BEHAVIOR_PASSIVE
+    + DOTA_ABILITY_BEHAVIOR_ATTACK
+    + DOTA_ABILITY_BEHAVIOR_TOGGLE
 
 local function hasFlag(behavior, mask)
     if type(behavior) ~= "number" then behavior = tonumber(tostring(behavior)) or 0 end
@@ -28,8 +30,8 @@ local function resetAbility(ability)
     if hasFlag(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) then return 0 end
     if SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then return 0 end
 
-    -- 被动/攻击触发类技能 level=0 时会出现冷却异常（如智慧之刃、海象神拳 0CD），保留 1 级
-    local keepLevel1 = hasFlag(behavior, PASSIVE_MASK)
+    -- 被动/攻击触发/开关型技能 level=0 时会出现冷却异常或状态错乱（如智慧之刃 0CD），保留 1 级
+    local keepLevel1 = hasFlag(behavior, KEEP_LEVEL_1_MASK)
         or SKILL_RESET_KEEP_LEVEL_1[ability:GetAbilityName()]
     if keepLevel1 then
         if level <= 1 then return 0 end
