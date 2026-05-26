@@ -3,7 +3,7 @@ import { GA4PickItemTracker } from '../../../api/analytics/ga4/ga4-pick-item-tra
 import { MemberLevel, Player } from '../../../api/player';
 import { reloadable } from '../../../utils/tstl-utils';
 import { PlayerHelper } from '../../helper/player-helper';
-import { ItemLotteryHelper, ItemLotteryTier } from './item-lottery-helper';
+import { ItemLotteryHelper, ItemLotteryPool } from './item-lottery-helper';
 
 /**
  * 物品抽奖：触发后弹 4 选 1，倒计时由客户端驱动，归零自动随机选 1。
@@ -27,7 +27,7 @@ export class ItemLottery {
    */
   onTriggered(
     opener: CDOTA_BaseNPC | undefined,
-    tier: ItemLotteryTier = ItemLotteryTier.DEFAULT,
+    pool: ItemLotteryPool = ItemLotteryPool.DEFAULT,
   ): void {
     if (!PlayerHelper.IsHumanPlayer(opener)) {
       return;
@@ -35,11 +35,11 @@ export class ItemLottery {
     const playerId = opener!.GetPlayerOwnerID();
     if (playerId < 0) return;
 
-    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, tier);
+    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, pool);
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
       candidates,
       isRefreshed: false,
-      tier,
+      poolType: pool,
     });
   }
 
@@ -76,7 +76,7 @@ export class ItemLottery {
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
       candidates: [],
       isRefreshed: false,
-      tier: ItemLotteryTier.DEFAULT,
+      poolType: ItemLotteryPool.DEFAULT,
     });
 
     GA4PickItemTracker.SendPick(playerId, matched.name, matched.level);
@@ -105,12 +105,12 @@ export class ItemLottery {
       return;
     }
 
-    const tier = (raw.tier as ItemLotteryTier) ?? ItemLotteryTier.DEFAULT;
-    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, tier);
+    const pool = (raw.poolType as ItemLotteryPool) ?? ItemLotteryPool.DEFAULT;
+    const candidates = ItemLotteryHelper.getRandomItems(ItemLottery.CANDIDATE_COUNT, pool);
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
       candidates,
       isRefreshed: true,
-      tier,
+      poolType: pool,
     });
     print('[ItemLottery] refreshed for player ' + playerId);
   }

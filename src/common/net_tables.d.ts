@@ -71,7 +71,8 @@ declare global {
       [playerId: string]: {
         candidates: LotteryDto[];
         isRefreshed: boolean;
-        tier: string;
+        // 奖池档位（initial/default/premium）。命名为 poolType 而非 tier，避免与物品自身的 1~5 级 tier 混淆。
+        poolType: string;
       };
     };
     // 添加虚拟金币表定义

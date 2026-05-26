@@ -74,12 +74,12 @@ describe('ItemLottery', () => {
   });
 
   describe('onTriggered', () => {
-    it('人类玩家触发时写入 { candidates, isRefreshed, tier } 到 net table', () => {
+    it('人类玩家触发时写入 { candidates, isRefreshed, poolType } 到 net table', () => {
       lottery.onTriggered(humanOpener);
       const entry = netTable['lottery_item']?.['3'];
       expect(entry).toBeDefined();
       expect(entry.isRefreshed).toBe(false);
-      expect(entry.tier).toBeDefined();
+      expect(entry.poolType).toBeDefined();
       expect(entry.candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
       expect(entry.candidates[0]).toMatchObject({
         name: expect.any(String),
