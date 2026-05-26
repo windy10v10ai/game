@@ -3,13 +3,12 @@ import 'panorama-polyfill-x/lib/timers';
 import React, { useEffect, useState } from 'react';
 import { LotteryDto } from '../../../common/dto/lottery';
 import { useNetTable } from '../shared/hooks/useNetTable';
+import { isPremiumMember } from '../shared/utils/member';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { colors } from './colors';
 
 const EXPIRE_SECONDS = 12;
 const TICK_INTERVAL_MS = 100;
-// 与 src/vscripts/api/player.ts MemberLevel 保持一致；不跨模块 import 以避免 hud_lottery 反向依赖 hud_main。
-const MEMBER_LEVEL_PREMIUM = 2;
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
@@ -151,9 +150,7 @@ function ItemLottery() {
   // 引擎把 boolean 同步为 0/1
   const isRefreshed = Boolean(raw?.isRefreshed);
 
-  const isPremium = Boolean(
-    player?.member?.enable && (player?.member?.level ?? 0) >= MEMBER_LEVEL_PREMIUM,
-  );
+  const isPremium = isPremiumMember(player);
 
   const [remaining, setRemaining] = useState(EXPIRE_SECONDS);
 
