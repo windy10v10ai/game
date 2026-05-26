@@ -4859,7 +4859,7 @@
 			"AbilityCooldown"
 			{
 				"value"			"7 6 5 4 3"
-				"special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-70%"	// -100%，削弱 防止无限偷钱
+				"special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-80%"	// -100%，削弱 防止无限偷钱
 			}
 		}
 	}
