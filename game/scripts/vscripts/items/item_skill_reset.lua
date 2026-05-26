@@ -1,6 +1,6 @@
 item_skill_reset = class({})
 
--- 完全跳过洗点的技能：会破坏机制（如水人变身后的形态切换依赖原大招等级）
+-- 完全跳过洗点的技能：变身中改动等级可能破坏形态切换机制
 local SKILL_RESET_BLACKLIST = {
     morphling_replicate = true,
     morphling_morph_replicate = true,
