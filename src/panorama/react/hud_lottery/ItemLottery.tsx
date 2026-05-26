@@ -31,8 +31,8 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
 
 const rowStyle: Partial<VCSSStyleDeclaration> = {
   marginTop: '8px',
-  marginLeft: '6px',
-  marginRight: '6px',
+  marginLeft: '8px',
+  marginRight: '8px',
   flowChildren: 'right',
   horizontalAlign: 'center',
   verticalAlign: 'center',
@@ -45,8 +45,8 @@ const itemStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 const refreshButtonStyle: Partial<VCSSStyleDeclaration> = {
-  marginLeft: '10px',
-  marginRight: '10px',
+  marginLeft: '5px',
+  marginRight: '5px',
   verticalAlign: 'center',
 };
 
@@ -56,12 +56,12 @@ const refreshImageStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 const progressTrackStyle: Partial<VCSSStyleDeclaration> = {
-  width: '300px',
+  width: '100%',
   height: '10px',
   marginTop: '8px',
   marginBottom: '8px',
-  marginLeft: '8px',
-  marginRight: '8px',
+  marginLeft: '10px',
+  marginRight: '10px',
   borderRadius: '5px',
   horizontalAlign: 'center',
   backgroundColor: '#000000aa',
