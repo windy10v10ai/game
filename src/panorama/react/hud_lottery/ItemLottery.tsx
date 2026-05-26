@@ -46,6 +46,7 @@ const itemStyle: Partial<VCSSStyleDeclaration> = {
 
 const refreshButtonStyle: Partial<VCSSStyleDeclaration> = {
   marginLeft: '10px',
+  marginRight: '10px',
   verticalAlign: 'center',
 };
 
