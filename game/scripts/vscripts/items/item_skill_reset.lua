@@ -1,5 +1,11 @@
 item_skill_reset = class({})
 
+-- 完全跳过洗点的技能：会破坏机制（如水人变身后的形态切换依赖原大招等级）
+local SKILL_RESET_BLACKLIST = {
+    morphling_replicate = true,
+    morphling_morph_replicate = true,
+}
+
 function item_skill_reset:OnSpellStart()
     if not IsServer() then return end
 
@@ -35,9 +41,18 @@ function item_skill_reset:OnSpellStart()
             local maxLevel = ability:GetMaxLevel()
             local behavior = ability:GetBehavior()
             if type(behavior) ~= "number" then behavior = tonumber(tostring(behavior)) or 0 end
-            if level > 0 and maxLevel > 1 and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) == 0 then
-                totalPoints = totalPoints + level
-                ability:SetLevel(0)
+            if level > 0 and maxLevel > 1 and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) == 0
+                and not SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then
+                -- 含 ATTACK behavior 的攻击替代型技能在 level=0 时会出现 0CD bug，保留 1 级
+                if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0 then
+                    if level > 1 then
+                        totalPoints = totalPoints + level - 1
+                        ability:SetLevel(1)
+                    end
+                else
+                    totalPoints = totalPoints + level
+                    ability:SetLevel(0)
+                end
             end
         end
     end

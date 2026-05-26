@@ -3097,6 +3097,7 @@
 		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Respec</h1>Resets all hero ability levels to 0 and refunds all spent skill points."
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"Everyone deserves a second chance."
 		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"Innate abilities with a max level of 1 are not affected."
+		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"Attack-modifier abilities (e.g. Glaives of Wisdom, Walrus Punch, Jinada, Geminate Attack, Hammer of Purity) are kept at level 1 to avoid cooldown bugs."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"Rune Signer"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Use: Re-sign</h1>Re-signs the owner mark on all runes and sacred beast sigils in your inventory.<br><br>Only affects runes and sacred beast sigils not owned by you; has no effect on your own runes."
