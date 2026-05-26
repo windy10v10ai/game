@@ -110,7 +110,6 @@ export const abilityTiersActive: Tier[] = [
       'mars_gods_rebuke', // 神之遣戒
       'antimage_blink', // 闪烁
       'ringmaster_tame_the_beasts', // 驯兽术
-      'slark_saltwater_shiv', // 海浪短刀
       'treant_natures_grasp', // 自然卷握
       'abyssal_underlord_firestorm', // 火焰风暴
       'obsidian_destroyer_objurgation', // 责难
@@ -311,6 +310,7 @@ export const abilityTiersPassive: Tier[] = [
       'tusk_walrus_punch', //海象神拳
       'kunkka_tidebringer', // 潮汐使者 水刀
       'mirana_celestial_quiver', // 米拉娜 天界箭袋
+      'slark_saltwater_shiv', // 海浪短刀
 
       // 自定义技能
       'ursa_maul2', // 拍拍 暴烈之爪 +攻击
