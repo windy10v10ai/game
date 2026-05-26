@@ -150,7 +150,7 @@ function ItemLottery() {
   // 引擎把 boolean 同步为 0/1
   const isRefreshed = Boolean(raw?.isRefreshed);
 
-  const isPremium = isPremiumMember(player);
+  const isPremium = isPremiumMember(player?.member);
 
   const [remaining, setRemaining] = useState(EXPIRE_SECONDS);
 
