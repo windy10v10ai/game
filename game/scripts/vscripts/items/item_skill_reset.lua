@@ -13,6 +13,27 @@ local function hasFlag(behavior, mask)
     return bit.band(behavior, mask) ~= 0
 end
 
+-- 返回应退还的技能点数；同时按规则把 ability 等级降到 0 或 1
+local function resetAbility(ability)
+    if not ability then return 0 end
+    local level = ability:GetLevel()
+    if level <= 0 then return 0 end
+    if ability:GetMaxLevel() <= 1 then return 0 end
+    local behavior = ability:GetBehavior()
+    if hasFlag(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) then return 0 end
+    if SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then return 0 end
+
+    -- 被动/攻击触发类技能 level=0 时会出现冷却异常（如智慧之刃、海象神拳 0CD），保留 1 级
+    if hasFlag(behavior, PASSIVE_MASK) then
+        if level <= 1 then return 0 end
+        ability:SetLevel(1)
+        return level - 1
+    end
+
+    ability:SetLevel(0)
+    return level
+end
+
 function item_skill_reset:OnSpellStart()
     if not IsServer() then return end
 
@@ -43,26 +64,7 @@ function item_skill_reset:OnSpellStart()
 
     local totalPoints = 0
     for _, ability in ipairs(abilities) do
-        repeat
-            if not ability then break end
-            local level = ability:GetLevel()
-            if level <= 0 then break end
-            if ability:GetMaxLevel() <= 1 then break end
-            local behavior = ability:GetBehavior()
-            if hasFlag(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) then break end
-            if SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then break end
-
-            -- 被动/攻击触发类技能 level=0 时会出现冷却异常（如智慧之刃、海象神拳 0CD），保留 1 级
-            if hasFlag(behavior, PASSIVE_MASK) then
-                if level > 1 then
-                    totalPoints = totalPoints + level - 1
-                    ability:SetLevel(1)
-                end
-            else
-                totalPoints = totalPoints + level
-                ability:SetLevel(0)
-            end
-        until true
+        totalPoints = totalPoints + resetAbility(ability)
     end
 
     if totalPoints > 0 then
