@@ -3149,10 +3149,10 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"技能洗点书"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：洗点</h1>将英雄所有技能等级重置为0，返还全部已花费的技能点。"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：洗点</h1>重置英雄技能等级并返还已花费的技能点。主动技能清零，被动及攻击替代类技能保留至1级。"
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药，人手一颗。"
 		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"最高等级只有1级的先天技能不受影响。"
-		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"攻击替代或攻击触发类技能（如智慧之刃、海象神拳、忍术、连击、纯洁之锤、天生一对、时间锁定等）会保留至1级，避免出现冷却异常。"
+		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"被动及攻击替代类技能会保留至1级（不清零），避免出现冷却异常等问题。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"
