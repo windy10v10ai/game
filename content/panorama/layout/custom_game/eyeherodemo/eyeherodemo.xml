@@ -108,6 +108,17 @@
 								<Label text="#AddAbility_Button" />
 							</Button>
 						</Panel>
+						<Panel class="Row">
+							<TextEntry id="CoordInput" class="DemoTextEntry" placeholder="Vector(x, y, z)" />
+						</Panel>
+						<Panel class="Row">
+							<Button class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="MoveHeroToCoord()">
+								<Label text="#MoveToCoord_Button" />
+							</Button>
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="SpawnTreasureAtCoord()">
+								<Label text="#SpawnTreasure_Button" />
+							</Button>
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel id="GlobalCategory" class="Category">

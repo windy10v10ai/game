@@ -248,12 +248,22 @@ export class Debug {
     }
 
     if (cmd === CMD.LOTTERY) {
-      GameRules.Lottery.initLotteryAll();
+      GameRules.Lottery.Ability.initLotteryAll();
     }
 
     if (cmd === CMD.END) {
       GameEnd.gameEndTriggered = false;
       GameEnd.OnGameEnd(2);
+    }
+
+    if (cmd === CMD.TREASURE) {
+      GameRules.Treasure.debugSpawnInitial();
+    }
+
+    if (cmd === CMD.PICK_ITEM) {
+      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
+      if (!hero) return;
+      GameRules.Lottery.Item.onTriggered(hero);
     }
 
     if (cmd === CMD.KILL) {

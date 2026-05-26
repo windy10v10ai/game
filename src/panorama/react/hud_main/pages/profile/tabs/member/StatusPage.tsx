@@ -146,6 +146,7 @@ export function StatusPage({
               <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
               <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
               <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
+              <BenefitItem textKey="#member_benefit_item_refresh" active={isPremium} isPremium />
             </BenefitSection>
           </>
         ) : (
@@ -175,6 +176,7 @@ export function StatusPage({
             <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
             <BenefitItem textKey="#member_benefit_8pick" active={isPremium} isPremium />
             <BenefitItem textKey="#member_benefit_gold_cap" active={isPremium} isPremium />
+            <BenefitItem textKey="#member_benefit_item_refresh" active={isPremium} isPremium />
           </ClickablePanel>
         )}
       </Panel>

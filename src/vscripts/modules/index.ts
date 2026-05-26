@@ -14,6 +14,7 @@ import { GoldXPFilter } from './filter/gold-xp-filter';
 import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
+import { Treasure } from './treasure/treasure';
 
 declare global {
   interface CDOTAGameRules {
@@ -25,6 +26,7 @@ declare global {
     Analytic: Analytics;
     Event: Event;
     GoldXPFilter: GoldXPFilter;
+    Treasure: Treasure;
   }
 }
 
@@ -67,4 +69,6 @@ export function ActivateModules() {
   if (GameRules.Event == null) GameRules.Event = new Event();
 
   if (GameRules.GoldXPFilter == null) GameRules.GoldXPFilter = new GoldXPFilter();
+
+  if (GameRules.Treasure == null) GameRules.Treasure = new Treasure();
 }

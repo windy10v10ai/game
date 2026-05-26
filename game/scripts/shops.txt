@@ -17,14 +17,12 @@
 		"item"		"item_tango"				// 仙灵之火
 		"item"		"item_blood_grenade"		// 血腥榴弹
 		"item"		"item_bottle"				// 魔瓶
+		"item"		"item_infused_raindrop"		// 凝魂之露
 
-		"item"		"item_candy_candy"			// 嘉心糖
-
-		"item"		"item_infused_raindrop"		// 凝液之滴
 		"item"		"item_aghanims_shard"		// 阿哈利姆魔晶
-
 		"item"		"item_tome_of_knowledge"	// 知识之书
 		"item"		"item_skill_reset"			// 遗忘技能书
+		"item"		"item_collector"			// 收纳符
 	}
 	// 属性
 	"attributes"
@@ -155,9 +153,9 @@
 		// "item"		"item_oblivion_staff"		// 空明杖
 		// "item"		"item_pers"					// 坚韧球
  		"item"		"item_mask_of_madness"
-		"item"		"item_hand_of_group"
+		"item"		"item_hand_of_group"		// 团队之手
 		"item"		"item_candy_candy"
-		"item"		"item_wings_of_haste"
+		"item"		"item_wings_of_haste"		// 急速之翼
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
 		"item"		"item_tome_of_ability_reset"	// 技能重选书
@@ -167,15 +165,14 @@
 	"support"
 	{
 		"item"		"item_arcane_boots"			// 秘法鞋
+		"item"		"item_tranquil_boots"		// 静谧之靴
 		"item"		"item_mekansm"				// 梅肯斯姆
-		"item"		"item_essence_distiller"	// 精之灵器
 		"item"		"item_ancient_janggo"		// 韧鼓
 
 		"item"		"item_pavise"				// 长盾
 		"item"		"item_holy_locket"			// 圣洁吊坠
 		"item"		"item_vladmir"				// 祭品
 		"item"		"item_essence_distiller"	// 精之灵器
-		// "item"		"item_tranquil_boots"		// 静谧之靴
 
 		"item"		"item_solar_crest"			// 炎阳纹章
 		"item"		"item_pipe"					// 洞察烟斗
@@ -306,7 +303,7 @@
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
-		"item"		"item_tome_of_luoshu"
+		"item"		"item_tome_of_luoshu"		// 洛书
 		//"item"		"item_skill_talisman" //测试成功，暂不实装
 		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_ten_thousand_swords"      // 万剑归宗

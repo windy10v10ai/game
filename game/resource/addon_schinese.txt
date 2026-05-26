@@ -136,6 +136,8 @@
 		"AddToUnit_Placeholder"						"输入物品/技能名"
 		"AddItem_Button"							"添加物品"
 		"AddAbility_Button"							"添加技能"
+		"MoveToCoord_Button"						"移动到坐标"
+		"SpawnTreasure_Button"						"生成宝箱"
 		"FreeSpells_Button"							"免费技能"
 		"Refresh_Button"							"刷新"
 		"ToggleDayNight_Button"						"切换昼夜"
@@ -223,6 +225,10 @@
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
 		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
 
+		"lottery_tooltip_item_refresh"							"点击刷新物品"
+		"lottery_tooltip_item_refresh_used"						"物品已刷新"
+		"lottery_tooltip_item_refresh_not_premium"				"高级会员可刷新一次物品，点击开通会员"
+
 		"lottery_button_ability_reset"							"重置"
 		"lottery_tooltip_ability_reset_enable"					"移除已选择的技能，并重新抽选一组新技能"
 		"lottery_tooltip_ability_reset_no_count"				"没有可用的技能重选次数"
@@ -235,6 +241,8 @@
 		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
 		"key_bind_quick_cast"									"快速施法"
 		"key_bind_remember"										"记忆改键"
+
+		"lottery_item_header"									"宝箱开启！选择你的奖励"
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -298,6 +306,7 @@
 		"member_benefit_daily_exp"		"每日首次登录获得 100 会员积分（每日8:00 北京时间重置）"
 		"member_benefit_8pick"			"开局技能抽选升级为 8 选 1，新增 2 个技能有更高概率出现高级技能"
 		"member_benefit_gold_cap"		"突破游戏内 99999 金钱上限"
+		"member_benefit_item_refresh"	"藏宝箱抽选的物品可刷新一次"
 		"member_benefit_exp_normal"		"每次订阅立即获得 300 会员积分"
 		"member_benefit_exp_premium"	"每次订阅立即获得 1000 会员积分"
 		"member_benefit_buff"			"会员专属属性加成：+10 攻击力、+5% 技能增强、+300 HP、+200 MP"
@@ -1874,6 +1883,10 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"据说这是月亮女神塞莉墨涅的眼泪。"
 
+		// item_collector 收纳符
+		"DOTA_Tooltip_ability_item_collector"										"收纳符"
+		"DOTA_Tooltip_ability_item_collector_Description"							"<h1>主动：收纳</h1>使用后立即整理地面上掉落的物品，按归属与类别集中摆放到基地下方树林区域，并清理摆放区的树木。"
+
 		// item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"真·阿哈利姆神杖"
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"永久获得阿哈利姆神杖加成, 获得%dMODIFIER_PROPERTY_HEALTH_BONUS%生命, %dMODIFIER_PROPERTY_MANA_BONUS%魔法, %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%技能伤害, %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%全属性。"
@@ -3136,9 +3149,10 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"技能洗点书"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：洗点</h1>将英雄所有技能等级重置为0，返还全部已花费的技能点。"
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>使用：洗点</h1>重置英雄技能等级并返还已花费的技能点。主动技能清零，被动、攻击触发及开关型技能保留至1级。"
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"后悔药，人手一颗。"
 		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"最高等级只有1级的先天技能不受影响。"
+		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"被动、攻击触发及开关型技能会保留至1级（不清零），避免出现冷却异常等问题。"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"
@@ -3149,6 +3163,8 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 
+		// 藏宝箱
+		"npc_treasure_chest"															"藏宝箱"
 
 	}
 }

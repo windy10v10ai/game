@@ -1,5 +1,5 @@
-import { abilityTiersPassive } from '../lottery/lottery-abilities';
-import { LotteryHelper } from '../lottery/lottery-helper';
+import { abilityTiersPassive } from '../lottery/ability/lottery-abilities';
+import { AbilityLotteryHelper } from '../lottery/ability/ability-lottery-helper';
 import { GetBotBuildConfig } from './bot-build-config';
 
 export class BotAbility {
@@ -25,7 +25,7 @@ export class BotAbility {
    */
   private static AddPassiveAbilityForBot(currentHero: CDOTA_BaseNPC_Hero): void {
     const isHighTier = GameRules.Option.direGoldXpMultiplier >= 9;
-    const results = LotteryHelper.getRandomAbilities(
+    const results = AbilityLotteryHelper.getRandomAbilities(
       abilityTiersPassive,
       2,
       currentHero,

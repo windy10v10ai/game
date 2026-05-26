@@ -1,4 +1,4 @@
-import { Tier } from './tier';
+import { Tier } from '../shared/tier';
 
 /**
  * 技能列表，Tier 5-1
@@ -97,7 +97,7 @@ export const abilityTiersActive: Tier[] = [
       'dazzle_bad_juju', // 邪能
 
       // 小技能
-      'warlock_fatal_bonds', // 致命连接
+      // 'warlock_fatal_bonds', // 致命连接（计算量大可能导致游戏崩溃）
       'lion_impale', // 裂地尖刺
       'sven_storm_bolt', // 风暴之拳 斯温
       'omniknight_repel', // 咸鱼恩赐
@@ -110,7 +110,6 @@ export const abilityTiersActive: Tier[] = [
       'mars_gods_rebuke', // 神之遣戒
       'antimage_blink', // 闪烁
       'ringmaster_tame_the_beasts', // 驯兽术
-      'slark_saltwater_shiv', // 海浪短刀
       'treant_natures_grasp', // 自然卷握
       'abyssal_underlord_firestorm', // 火焰风暴
       'obsidian_destroyer_objurgation', // 责难
@@ -311,6 +310,7 @@ export const abilityTiersPassive: Tier[] = [
       'tusk_walrus_punch', //海象神拳
       'kunkka_tidebringer', // 潮汐使者 水刀
       'mirana_celestial_quiver', // 米拉娜 天界箭袋
+      'slark_saltwater_shiv', // 海浪短刀
 
       // 自定义技能
       'ursa_maul2', // 拍拍 暴烈之爪 +攻击

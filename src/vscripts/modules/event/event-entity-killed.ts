@@ -1,5 +1,6 @@
 import { Player } from '../../api/player';
 import { PlayerHelper } from '../helper/player-helper';
+import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 
 // 全局游戏状态 - 记录塔摧毁情况
 export class TowerPushStatus {
@@ -255,16 +256,10 @@ export class EventEntityKilled {
 
     // 难度系数: 难度越高,掉落概率越高
     let difficultyMultiplier = 1;
-    if (difficulty >= 60) {
-      difficultyMultiplier = 3.0;
-    } else if (difficulty >= 40) {
-      difficultyMultiplier = 2.5;
-    } else if (difficulty >= 20) {
-      difficultyMultiplier = 2.0;
-    } else if (difficulty >= 10) {
+    if (difficulty >= 20) {
       difficultyMultiplier = 1.5;
-    } else if (difficulty >= 1) {
-      difficultyMultiplier = 1;
+    } else if (difficulty >= 10) {
+      difficultyMultiplier = 1.2;
     }
 
     // 人数系数: 人数过多野怪分不过来时才调高概率
@@ -297,7 +292,7 @@ export class EventEntityKilled {
         }
       });
 
-      // 击杀肉山奖励
+      // 击杀肉山奖励 确保召唤物 幻想击杀也触发 用队伍判断
       if (PlayerHelper.IsGoodTeamUnit(attacker)) {
         // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
@@ -307,15 +302,20 @@ export class EventEntityKilled {
           true,
         );
 
-        // 技能重置书掉落
-        this.dropItem(creep, [this.itemTomeOfAbilityReset], this.dropItemChanceRoshan);
+        // 技能重置书 / 融合符文 二选一掉落，两类等权（各 50%）
+        const roshanBonusPool =
+          RandomFloat(0, 1) < 0.5 ? [this.itemTomeOfAbilityReset] : this.dropItemListFusionMaterial;
+        this.dropItem(creep, roshanBonusPool, this.dropItemChanceRoshan);
+      }
 
-        // 融合符文掉落 - 使用神器组件的循环逻辑可重复
-        const maxDropCount = Player.GetPlayerCount() >= 5 ? 2 : 1;
-        const dropCount = RandomInt(1, maxDropCount);
-        for (let i = 0; i < dropCount; i++) {
-          this.dropItem(creep, this.dropItemListFusionMaterial, this.dropItemChanceRoshan);
-        }
+      // 人类玩家击杀肉山：全体人类玩家各获得一次 PREMIUM 物品抽奖
+      if (PlayerHelper.IsHumanPlayer(attacker)) {
+        PlayerHelper.ForEachPlayer((playerId) => {
+          if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
+          const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+          if (!hero) return;
+          GameRules.Lottery.Item.onTriggered(hero, ItemLotteryPool.PREMIUM);
+        });
       }
     } else if (creep.IsAncient()) {
       // 击杀远古
@@ -333,7 +333,6 @@ export class EventEntityKilled {
           this.dropItemListFusionMaterial,
           this.calculateDropChance(this.dropItemChanceFusionAncient),
         );
-        this.dropParts(creep, this.dropItemChanceAncient);
       }
     } else if (creep.IsNeutralUnitType()) {
       // 击杀中立单位
@@ -351,21 +350,7 @@ export class EventEntityKilled {
           this.dropItemListFusionMaterial,
           this.calculateDropChance(this.dropItemChanceFusionNeutral),
         );
-        //神器组件
-        this.dropParts(creep, this.dropItemChanceNeutral);
       }
-    }
-  }
-
-  private dropParts(creep: CDOTA_BaseNPC, chance = 1): void {
-    // 获取白天夜晚
-    const isDaytime = GameRules.IsDaytime();
-    if (isDaytime) {
-      // 白天掉落圣光组件
-      this.dropItem(creep, [this.itemLightPartName], chance);
-    } else {
-      // 夜晚掉落暗影组件
-      this.dropItem(creep, [this.itemDarkPartName], chance);
     }
   }
 

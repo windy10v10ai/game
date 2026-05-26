@@ -1,5 +1,48 @@
 item_skill_reset = class({})
 
+-- 完全跳过洗点的技能：变身中改动等级可能破坏形态切换机制
+local SKILL_RESET_BLACKLIST = {
+    morphling_replicate = true,
+    morphling_morph_replicate = true,
+}
+
+-- 主动技能但 level=0 会破坏机制，强制保留至 1 级
+local SKILL_RESET_KEEP_LEVEL_1 = {
+    winter_wyvern_arctic_burn = true,
+}
+
+local KEEP_LEVEL_1_MASK = DOTA_ABILITY_BEHAVIOR_PASSIVE
+    + DOTA_ABILITY_BEHAVIOR_ATTACK
+    + DOTA_ABILITY_BEHAVIOR_TOGGLE
+
+local function hasFlag(behavior, mask)
+    if type(behavior) ~= "number" then behavior = tonumber(tostring(behavior)) or 0 end
+    return bit.band(behavior, mask) ~= 0
+end
+
+-- 返回应退还的技能点数；同时按规则把 ability 等级降到 0 或 1
+local function resetAbility(ability)
+    if not ability then return 0 end
+    local level = ability:GetLevel()
+    if level <= 0 then return 0 end
+    if ability:GetMaxLevel() <= 1 then return 0 end
+    local behavior = ability:GetBehavior()
+    if hasFlag(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) then return 0 end
+    if SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then return 0 end
+
+    -- 被动/攻击触发/开关型技能 level=0 时会出现冷却异常或状态错乱（如智慧之刃 0CD），保留 1 级
+    local keepLevel1 = hasFlag(behavior, KEEP_LEVEL_1_MASK)
+        or SKILL_RESET_KEEP_LEVEL_1[ability:GetAbilityName()]
+    if keepLevel1 then
+        if level <= 1 then return 0 end
+        ability:SetLevel(1)
+        return level - 1
+    end
+
+    ability:SetLevel(0)
+    return level
+end
+
 function item_skill_reset:OnSpellStart()
     if not IsServer() then return end
 
@@ -30,16 +73,7 @@ function item_skill_reset:OnSpellStart()
 
     local totalPoints = 0
     for _, ability in ipairs(abilities) do
-        if ability then
-            local level = ability:GetLevel()
-            local maxLevel = ability:GetMaxLevel()
-            local behavior = ability:GetBehavior()
-            if type(behavior) ~= "number" then behavior = tonumber(tostring(behavior)) or 0 end
-            if level > 0 and maxLevel > 1 and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) == 0 then
-                totalPoints = totalPoints + level
-                ability:SetLevel(0)
-            end
-        end
+        totalPoints = totalPoints + resetAbility(ability)
     end
 
     if totalPoints > 0 then

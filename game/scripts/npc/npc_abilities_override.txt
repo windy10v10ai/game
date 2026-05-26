@@ -3956,7 +3956,7 @@
 			"attack_speed_slow"
 			{
 				"value"				"60"	// 12 x5
-				"hero_levelup"		"9"		// 3 x3
+				"hero_levelup"		"6"		// 3 x3
 			}
 		}
 	}
@@ -4859,7 +4859,7 @@
 			"AbilityCooldown"
 			{
 				"value"			"7 6 5 4 3"
-				"special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-70%"	// -100%，削弱 防止无限偷钱
+				"special_bonus_unique_bounty_hunter_jinada_no_cooldown"			"-80%"	// -100%，削弱 防止无限偷钱
 			}
 		}
 	}
@@ -7587,7 +7587,11 @@
 		"AbilityCastRange"				"900 1100 1300 1500"	// 475
 		"AbilityValues"
 		{
-			"hit_point_minimum_pct"		"35 30 25 20"
+			"hit_point_minimum_pct"
+			{
+				"value"					"35 30 25 20"
+				"special_bonus_unique_terrorblade_sunder_hp_threshold" "-20"	// -25
+			}
 			"AbilityCooldown"
 			{
 				"value"				"60.0 50.0 40.0 30.0"	// 110.0 75.0 40.0
@@ -8985,7 +8989,7 @@
 		{
 			"slow_attack_speed"
 			{
-				"value" "-110 -160 -210 -260"
+				"value" "-165 -240 -315 -390"	// -110 -160 -210 x1.5
 				"special_bonus_unique_enchantress_3" "-140"		// -70 x2
 			}
 		}
@@ -9909,7 +9913,7 @@
 		"AbilityManaCost"				"50 60 70 80"
 		"AbilityValues"
 		{
-				"mana_cost_per_second"	"50 90 130 170"	// 25 45 65 x2
+				"mana_cost_per_second"	"25 45 65 85"	// 25 45 65
 				"radius"
 				{
 					"value"		"500 600 700 800"	// 500
@@ -11094,7 +11098,7 @@
 				}
 				"damage"
 				{
-					"value"		"100 200 300 400 500"	// 125 190 255 320
+					"value"		"150 250 350 450 550"	// 125 190 255 320
 				}
 		}
 	}
@@ -11130,7 +11134,7 @@
 			}
 			"channel_time"
 			{
-				"value"									"2.4 3.0 3.6 4.2 4.8"	// 2.4 3.0 3.6 4.2
+				"value"									"2.4 2.8 3.2 3.6 4.0"	// 2.4 3.0 3.6 4.2
 				"special_bonus_unique_shadow_shaman_2"	"+1.0"	// +1.5
 			}
 			"scepter_shock_interval"
@@ -11139,6 +11143,15 @@
 			}
 		}
 	}
+	// 巨蟒之瓮
+	"shadow_shaman_urnaconda"
+	{
+		"AbilityValues"
+		{
+				"megaward_multiplier_tooltip"			"3" //TOOLTIP ONLY. CHANGE IN MASS SERPENT WARDS IF VALUES CHANGE
+		}
+	}
+
 	// 群蛇守卫
 	"shadow_shaman_mass_serpent_ward"
 	{
@@ -11164,7 +11177,12 @@
 			}
 			"ward_damage_tooltip"
 			{
-				"value"		"200 400 600"	// 50 85 120
+				"value"		"200 300 400"	// 50 85 120
+			}
+			"mega_ward_multiplier_damage"
+			{
+				"value"				"0"
+				"special_bonus_shard"		"3"
 			}
 		}
 	}

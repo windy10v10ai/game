@@ -136,6 +136,8 @@
 		"AddToUnit_Placeholder"						"Item / ability name"
 		"AddItem_Button"							"Add Item"
 		"AddAbility_Button"							"Add Ability"
+		"MoveToCoord_Button"						"Move to Coord"
+		"SpawnTreasure_Button"						"Spawn Chest"
 		"FreeSpells_Button"							"Free Spells"
 		"Refresh_Button"							"Refresh"
 		"ToggleDayNight_Button"						"Toggle Day/Night"
@@ -223,6 +225,10 @@
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
 
+		"lottery_tooltip_item_refresh"							"Click to reroll items."
+		"lottery_tooltip_item_refresh_used"						"Items have been rerolled."
+		"lottery_tooltip_item_refresh_not_premium"				"Premium members can reroll items once per box. Click to open the membership page."
+
 		"lottery_button_ability_reset"							"Reset"
 		"lottery_tooltip_ability_reset_enable"					"Remove the selected ability and reroll a new set of abilities"
 		"lottery_tooltip_ability_reset_no_count"				"No ability reset charges available"
@@ -235,6 +241,8 @@
 		"key_bind_input_err"									"Invalid input - Try another key"
 		"key_bind_quick_cast"									"Quick Cast"
 		"key_bind_remember"										"Save Key"
+
+		"lottery_item_header"									"Pick Your Treasure"
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -298,6 +306,7 @@
 		"member_benefit_daily_exp"				"Earn 100 Member Points on first login each day (resets at 00:00 UTC)"
 		"member_benefit_8pick"					"Ability draft expanded to 8 choices; 2 extra abilities have a higher chance of being high-tier"
 		"member_benefit_gold_cap"				"Unlock the 99999 in-game gold cap"
+		"member_benefit_item_refresh"			"Reroll treasure box item lottery once per box"
 		"member_benefit_exp_normal"				"Instantly earn 300 Member Points per subscription"
 		"member_benefit_exp_premium"			"Instantly earn 1000 Member Points per subscription"
 		"member_benefit_buff"					"Member exclusive stats: +10 Attack Damage, +5% Ability Amplification, +300 HP, +200 MP"
@@ -1840,6 +1849,10 @@
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_bonus_attack_speed"		"+$attack"
 		"DOTA_Tooltip_ability_item_moon_shard_datadriven_Lore"						"Said to be a tear from the lunar goddess Selemene."
 
+		// item_collector
+		"DOTA_Tooltip_ability_item_collector"										"Item Collector"
+		"DOTA_Tooltip_ability_item_collector_Description"							"<h1>Active: Collect</h1>Instantly gathers items dropped on the ground, arranging them by owner and category in the forest area below the base, and clears trees in that area."
+
 		// item_ultimate_scepter_2
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed"					"Aghanim's Regalia"
 		"DOTA_Tooltip_modifier_item_ultimate_scepter_2_consumed_Description"		"Permanently granted Aghanim's Regalia benefits, %dMODIFIER_PROPERTY_HEALTH_BONUS% health, %dMODIFIER_PROPERTY_MANA_BONUS% mana, and %dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage and %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% all attributes."
@@ -3081,9 +3094,10 @@
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"Redesign your ability path."
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"Respec Tome"
-		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Respec</h1>Resets all hero ability levels to 0 and refunds all spent skill points."
+		"DOTA_Tooltip_ability_item_skill_reset_Description"								"<h1>Use: Respec</h1>Resets hero ability levels and refunds spent skill points. Active abilities reset to 0; passive, attack-triggered and toggle abilities are kept at level 1."
 		"DOTA_Tooltip_ability_item_skill_reset_Lore"									"Everyone deserves a second chance."
 		"DOTA_Tooltip_ability_item_skill_reset_Note0"									"Innate abilities with a max level of 1 are not affected."
+		"DOTA_Tooltip_ability_item_skill_reset_Note1"									"Passive, attack-triggered and toggle abilities are kept at level 1 (not reset to 0) to avoid cooldown bugs."
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"Rune Signer"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>Use: Re-sign</h1>Re-signs the owner mark on all runes and sacred beast sigils in your inventory.<br><br>Only affects runes and sacred beast sigils not owned by you; has no effect on your own runes."
@@ -3101,6 +3115,8 @@
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
 
+		// 藏宝箱
+		"npc_treasure_chest"											"Treasure Chest"
 
 	}
 }
