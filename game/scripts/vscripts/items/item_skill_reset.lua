@@ -6,6 +6,13 @@ local SKILL_RESET_BLACKLIST = {
     morphling_morph_replicate = true,
 }
 
+local PASSIVE_MASK = DOTA_ABILITY_BEHAVIOR_PASSIVE + DOTA_ABILITY_BEHAVIOR_ATTACK
+
+local function hasFlag(behavior, mask)
+    if type(behavior) ~= "number" then behavior = tonumber(tostring(behavior)) or 0 end
+    return bit.band(behavior, mask) ~= 0
+end
+
 function item_skill_reset:OnSpellStart()
     if not IsServer() then return end
 
@@ -36,28 +43,26 @@ function item_skill_reset:OnSpellStart()
 
     local totalPoints = 0
     for _, ability in ipairs(abilities) do
-        if ability then
+        repeat
+            if not ability then break end
             local level = ability:GetLevel()
-            local maxLevel = ability:GetMaxLevel()
+            if level <= 0 then break end
+            if ability:GetMaxLevel() <= 1 then break end
             local behavior = ability:GetBehavior()
-            if type(behavior) ~= "number" then behavior = tonumber(tostring(behavior)) or 0 end
-            local name = ability:GetAbilityName()
-            if level > 0 and maxLevel > 1 and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) == 0
-                and not SKILL_RESET_BLACKLIST[name] then
-                -- 被动技能 level=0 时会出现冷却异常等 bug（如智慧之刃、海象神拳 0CD），保留 1 级
-                local isPassive = bit.band(behavior, DOTA_ABILITY_BEHAVIOR_PASSIVE) ~= 0
-                    or bit.band(behavior, DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0
-                if isPassive then
-                    if level > 1 then
-                        totalPoints = totalPoints + level - 1
-                        ability:SetLevel(1)
-                    end
-                else
-                    totalPoints = totalPoints + level
-                    ability:SetLevel(0)
+            if hasFlag(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) then break end
+            if SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then break end
+
+            -- 被动/攻击触发类技能 level=0 时会出现冷却异常（如智慧之刃、海象神拳 0CD），保留 1 级
+            if hasFlag(behavior, PASSIVE_MASK) then
+                if level > 1 then
+                    totalPoints = totalPoints + level - 1
+                    ability:SetLevel(1)
                 end
+            else
+                totalPoints = totalPoints + level
+                ability:SetLevel(0)
             end
-        end
+        until true
     end
 
     if totalPoints > 0 then
