@@ -30,8 +30,8 @@ const titleStyle: Partial<VCSSStyleDeclaration> = {
 
 const rowStyle: Partial<VCSSStyleDeclaration> = {
   marginTop: '8px',
-  marginLeft: '8px',
-  marginRight: '8px',
+  marginLeft: '10px',
+  marginRight: '10px',
   flowChildren: 'right',
   horizontalAlign: 'center',
   verticalAlign: 'center',
@@ -59,8 +59,8 @@ const progressTrackStyle: Partial<VCSSStyleDeclaration> = {
   height: '10px',
   marginTop: '8px',
   marginBottom: '8px',
-  marginLeft: '10px',
-  marginRight: '10px',
+  marginLeft: '12px',
+  marginRight: '12px',
   borderRadius: '5px',
   horizontalAlign: 'center',
   backgroundColor: '#000000aa',
