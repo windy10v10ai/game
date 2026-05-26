@@ -1,4 +1,4 @@
-import { AbilityItemType } from '../../../common/dto/lottery';
+import { AbilityItemType } from '../../../../common/dto/lottery';
 
 /**
  * AbilityItemType 字面量的运行时常量。

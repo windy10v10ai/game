@@ -310,8 +310,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"400"			// 85
-		"AttackDamageMax"			"400"			// 85
+		"AttackDamageMin"			"300"			// 85
+		"AttackDamageMax"			"300"			// 85
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -321,8 +321,8 @@
 
 		// Attack
 		//----------------------------------------------------------------
-		"AttackDamageMin"			"600"			// 120
-		"AttackDamageMax"			"600"			// 120
+		"AttackDamageMin"			"400"			// 120
+		"AttackDamageMax"			"400"			// 120
 		"AttackRate"				"1.0"			// 1.5
 	}
 
@@ -665,4 +665,74 @@
 
         "StatusHealth"				"800"		// Base health.
     }
+
+	// 藏宝箱
+	"npc_treasure_chest"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_creep_neutral"
+		"Model"						"models/props_gameplay/treasure_chest_gold.vmdl"
+		"SoundSet"					""
+		"Level"						"1"
+		"ModelScale"				"2.0"
+		"UnitLabel"					"treasure_chest"
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"HealthBarOffset"			"100"
+		"RingRadius"				"40"
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"0"
+		"BountyGoldMin"				"100"
+		"BountyGoldMax"				"100"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"1"
+		"StatusHealthRegen"			"0"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"400"
+		"VisionNighttimeRange"		"400"
+
+		// Minimap
+		//----------------------------------------------------------------
+		"MinimapIcon"				"minimap_miscbuilding"
+		"MinimapIconSize"			"400"
+
+		// Bots
+		//----------------------------------------------------------------
+		"WakesNeutrals"				"0"
+	}
 }

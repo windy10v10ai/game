@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
+import { isMemberActive } from '../../../../shared/utils/member';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 
 const AVATAR_BORDER_GOLD =
@@ -14,7 +15,7 @@ const AVATAR_BORDER_NORMAL =
 export function StatsTab() {
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
-  const isMember = player?.member?.enable === true;
+  const isMember = isMemberActive(player?.member);
   const borderUrl = isMember ? AVATAR_BORDER_GOLD : AVATAR_BORDER_NORMAL;
 
   const matchCount = player?.matchCount ?? 0;

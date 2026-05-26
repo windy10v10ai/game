@@ -87,6 +87,17 @@ export class GameEnd {
         }
       }
 
+      // 本局累计获得金币，扣除从虚拟金币库转回的金额，与 end_screen_2.js money 列保持一致
+      const virtualGoldData = CustomNetTables.GetTableValue(
+        'player_virtual_gold',
+        playerId.toString(),
+      );
+      const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
+      const totalGoldEarned = Math.max(
+        0,
+        PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
+      );
+
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
         steamId: PlayerResource.GetSteamAccountID(playerId),
@@ -94,18 +105,17 @@ export class GameEnd {
         teamId: PlayerResource.GetTeam(playerId),
         isDisconnected: PlayerResource.GetConnectionState(playerId) !== ConnectionState.CONNECTED,
         level: PlayerResource.GetLevel(playerId),
-        gold: PlayerResource.GetGold(playerId),
+        totalGoldEarned,
         kills: PlayerResource.GetKills(playerId),
         deaths: PlayerResource.GetDeaths(playerId),
         assists: PlayerResource.GetAssists(playerId),
-        damage: PlayerResource.GetRawPlayerDamage(playerId),
+        heroDamage: PlayerResource.GetRawPlayerDamage(playerId),
         damageTaken,
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
         score: 0,
         battlePoints: 0,
-        facetId: hero.GetHeroFacetID(),
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
       const rawBattlePoints = this.CalculatePlayerBattlePoints(
@@ -136,7 +146,7 @@ export class GameEnd {
       // 结算界面数据：points 是最终积分，pointModifier 仅用于括号展示
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
-        damage: playerDto.damage,
+        heroDamage: playerDto.heroDamage,
         damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,

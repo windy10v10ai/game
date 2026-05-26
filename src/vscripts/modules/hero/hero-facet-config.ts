@@ -1,3 +1,6 @@
+/**
+ * @deprecated facet系统已废弃
+ */
 export class HeroFacetConfig {
   // 英雄名称到facetID列表的映射
   private static readonly heroFacetMap: Map<string, number[]> = new Map([
@@ -48,12 +51,18 @@ export class HeroFacetConfig {
     ['npc_dota_hero_zuus', [1, 2]],
   ]);
 
-  // 获取英雄可用的facetID列表
+  /**
+   * 获取英雄可用的facetID列表
+   * @deprecated facet系统已废弃
+   */
   static getHeroFacetIds(heroName: string): number[] {
     return this.heroFacetMap.get(heroName) || [1]; // 默认返回[1]如果英雄没有配置
   }
 
-  // 随机获取一个英雄的facetID
+  /**
+   * 随机获取一个英雄的facetID
+   * @deprecated facet系统已废弃
+   */
   static getRandomFacetId(heroName: string): number {
     const facetIds = this.getHeroFacetIds(heroName);
     const randomIndex = Math.floor(Math.random() * facetIds.length);

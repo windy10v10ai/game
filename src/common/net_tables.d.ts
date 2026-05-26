@@ -19,7 +19,7 @@ declare global {
     player_stats: {
       [playerId: string]: {
         steamId: string;
-        damage: number;
+        heroDamage: number;
         damagereceived: number;
         healing: number;
         points: number;
@@ -65,6 +65,15 @@ declare global {
     };
     lottery_status: {
       [steamAccountID: string]: LotteryStatusDto;
+    };
+    // 物品抽奖（藏宝箱触发，瞬时事件，key = playerId）
+    lottery_item: {
+      [playerId: string]: {
+        candidates: LotteryDto[];
+        isRefreshed: boolean;
+        // 奖池档位（initial/default/premium）。命名为 poolType 而非 tier，避免与物品自身的 1~5 级 tier 混淆。
+        poolType: string;
+      };
     };
     // 添加虚拟金币表定义
     player_virtual_gold: {

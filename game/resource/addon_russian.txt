@@ -181,6 +181,10 @@
 		"lottery_tooltip_ability_refresh_picked"				"Способность выбрана"
 		"lottery_tooltip_ability_refresh_not_member"			"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
 
+		"lottery_tooltip_item_refresh"							"Нажмите, чтобы изменить предметы"
+		"lottery_tooltip_item_refresh_used"						"Предметы изменены"
+		"lottery_tooltip_item_refresh_not_premium"				"Premium-подписчики могут изменить предметы один раз. Нажмите, чтобы открыть страницу подписки"
+
 		"key_bind"												"Бинды"
 		"key_bind_collapsed"									"Закрыть"
 		"key_bind_placeholder"									"Клавиша"
@@ -439,5 +443,8 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
+
+		// Сундук с сокровищами
+		"npc_treasure_chest"													"Сундук с сокровищами"
 	}
 }

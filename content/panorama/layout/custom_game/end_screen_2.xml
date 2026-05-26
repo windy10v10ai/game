@@ -68,7 +68,7 @@
 				<Label class="KdaColumn" text="{d:assists}" />
 				<Label class="LastHitColumn" text="{d:lasthits}" />
 				<Label class="TotalMoneyColumn" text="{d:money}" />
-				<Label class="TotalDamageColumn" text="{d:damage}" />
+				<Label class="TotalDamageColumn" text="{d:heroDamage}" />
 				<Label class="TotalDamageReceivedColumn" text="{d:damagereceived}" />
 				<Label class="HeroHealingColumn" text="{d:heroHealing}" />
 				<Label class="TowerKillsColumn" text="{d:towerKills}" />

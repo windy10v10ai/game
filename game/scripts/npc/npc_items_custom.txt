@@ -264,6 +264,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"ItemCost"					"5000"
+		"ItemSellable"				"0"
 		"ItemShopTags"				"see_invis"
 		"ItemQuality"				"component"
 		"ItemAliases"				"gem of true sight"
@@ -1889,6 +1890,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_agility"
 		"AbilityTextureName"		"tome_of_agility"
+		"Model"						"models/gameplay/attrib_tome_agi.vmdl"
 		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"agility tome;agi"
@@ -1916,6 +1918,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_intelligence"
 		"AbilityTextureName"		"tome_of_intelligence"
+		"Model"						"models/gameplay/attrib_tome_int.vmdl"
 		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"intelligence tome;int"
@@ -1943,6 +1946,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_tome_of_strength"
 		"AbilityTextureName"		"tome_of_strength"
+		"Model"						"models/gameplay/attrib_tome_str.vmdl"
 		"ItemCost"					"20000"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"ItemAliases"					"strength tome;str"
@@ -5579,11 +5583,11 @@
 		"AbilityTextureName"		"rune_transmuter_random"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 
-		"ItemCost"					"1000"
+		"ItemCost"					"2000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
-		"ItemSellable"				"1"
+		"ItemSellable"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"				"0"
 		"ItemDroppable"				"1"
@@ -5614,7 +5618,7 @@
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
-		"ItemSellable"				"1"
+		"ItemSellable"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemPermanent"				"0"
 		"ItemDroppable"				"1"
@@ -7306,6 +7310,7 @@
 		"BaseClass"						"item_datadriven"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"item_tome_of_aghanim"
+		"Model"							"models/gameplay/attrib_tome_xp.vmdl"
 		"IsTempestDoubleClonable"		"0"
 
 		"ItemCost"						"20000"
@@ -7345,6 +7350,7 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_skill_reset"
 		"AbilityTextureName"		"skill_remover"
+		"Model"						"models/gameplay/attrib_tome_xp.vmdl"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityCastPoint"			"0.0"
 
@@ -7399,6 +7405,41 @@
 			{
 				"var_type"              "FIELD_INTEGER"
 				"stored_ability"        "0"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// item_collector 收纳符
+	//=================================================================================================================
+	"item_collector"
+	{
+		"ID"						"10338"
+		"BaseClass"					"item_datadriven"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"		"collector"
+		"ItemCost"					"2000"
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+		"ItemAliases"				""
+		"ItemPurchasable"			"1"
+		"ItemSellable"				"1"
+		"ItemInitialCharges"		"3"
+		"ItemDisposable"			"1"
+		"ItemStackable"				"1"
+		"ItemPermanent"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemInitialStockTime"		"360"
+		"ItemStockInitial"			"1"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"300"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"items/item_collector"
+				"Function"			"OnSpellStart"
 			}
 		}
 	}

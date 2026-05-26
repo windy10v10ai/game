@@ -100,6 +100,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["invoker_forge_spirit"] = true,      -- 卡尔 熔炉精灵
     ["enigma_demonic_conversion"] = true, -- 谜团 恶魔转化
     ["furion_force_of_nature"] = true,    -- 先知 自然之力
+    ["zuus_cloud"] = true,                -- 宙斯 雷云
 
     -- ========================================
     -- 持续施法/引导类技能
@@ -185,6 +186,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["wisp_relocate"] = true,
     ["wisp_spirits_in"] = true,
     ["wisp_spirits_out"] = true,
+    ["warlock_fatal_bonds"] = true, -- 术士 致命连接（计算量大可能导致游戏崩溃）
+    ["lich_chain_frost"] = true,    -- 巫妖 连环霜冻
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招
