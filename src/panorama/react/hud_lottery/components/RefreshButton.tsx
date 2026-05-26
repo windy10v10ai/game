@@ -2,6 +2,7 @@ import React from 'react';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import { MemberDto } from '../../../../vscripts/api/player';
 import { AbilityItemType } from '../../../../common/dto/lottery';
+import { isMemberActive } from '../../shared/utils/member';
 
 interface RefreshButtonProps {
   type: AbilityItemType;
@@ -72,7 +73,7 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
   onOpenMember,
 }) => {
   // 根据会员 抽选状态判断是否禁用
-  const isMember = member?.enable;
+  const isMember = isMemberActive(member);
   const isRefreshed = getIsRefreshed(type, lotteryStatus);
   const pickedName = getPickedName(type, lotteryStatus);
 

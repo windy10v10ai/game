@@ -225,6 +225,10 @@
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
 		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
 
+		"lottery_tooltip_item_refresh"							"点击刷新物品"
+		"lottery_tooltip_item_refresh_used"						"物品已刷新"
+		"lottery_tooltip_item_refresh_not_premium"				"高级会员可刷新一次物品，点击开通会员"
+
 		"lottery_button_ability_reset"							"重置"
 		"lottery_tooltip_ability_reset_enable"					"移除已选择的技能，并重新抽选一组新技能"
 		"lottery_tooltip_ability_reset_no_count"				"没有可用的技能重选次数"
@@ -302,6 +306,7 @@
 		"member_benefit_daily_exp"		"每日首次登录获得 100 会员积分（每日8:00 北京时间重置）"
 		"member_benefit_8pick"			"开局技能抽选升级为 8 选 1，新增 2 个技能有更高概率出现高级技能"
 		"member_benefit_gold_cap"		"突破游戏内 99999 金钱上限"
+		"member_benefit_item_refresh"	"藏宝箱抽选的物品可刷新一次"
 		"member_benefit_exp_normal"		"每次订阅立即获得 300 会员积分"
 		"member_benefit_exp_premium"	"每次订阅立即获得 1000 会员积分"
 		"member_benefit_buff"			"会员专属属性加成：+10 攻击力、+5% 技能增强、+300 HP、+200 MP"
