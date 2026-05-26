@@ -6,6 +6,13 @@ local SKILL_RESET_BLACKLIST = {
     morphling_morph_replicate = true,
 }
 
+-- 强制保留 1 级而非清零的技能：level=0 时会出现冷却异常的攻击触发型被动
+-- （ATTACK behavior 的技能由代码自动识别，这里只列被动型例外）
+local SKILL_RESET_KEEP_LEVEL_1 = {
+    faceless_void_time_lock = true,
+    jakiro_double_trouble2 = true,
+}
+
 function item_skill_reset:OnSpellStart()
     if not IsServer() then return end
 
@@ -41,10 +48,13 @@ function item_skill_reset:OnSpellStart()
             local maxLevel = ability:GetMaxLevel()
             local behavior = ability:GetBehavior()
             if type(behavior) ~= "number" then behavior = tonumber(tostring(behavior)) or 0 end
+            local name = ability:GetAbilityName()
             if level > 0 and maxLevel > 1 and bit.band(behavior, DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE) == 0
-                and not SKILL_RESET_BLACKLIST[ability:GetAbilityName()] then
-                -- 含 ATTACK behavior 的攻击替代型技能在 level=0 时会出现 0CD bug，保留 1 级
-                if bit.band(behavior, DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0 then
+                and not SKILL_RESET_BLACKLIST[name] then
+                -- 攻击替代/攻击触发型技能在 level=0 时会出现 0CD bug，保留 1 级
+                local keepLevel1 = SKILL_RESET_KEEP_LEVEL_1[name]
+                    or bit.band(behavior, DOTA_ABILITY_BEHAVIOR_ATTACK) ~= 0
+                if keepLevel1 then
                     if level > 1 then
                         totalPoints = totalPoints + level - 1
                         ability:SetLevel(1)
