@@ -351,6 +351,22 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 **主文档（检索入口）**: [ModDota API · vscripts](https://moddota.com/api/#/vscripts)
 
+## KV Configuration
+
+技能射程、伤害值及其他可调参数一律从 KV 文件**动态读取**，不要硬编码已存在于 KV 中的数值。
+
+## Repo Context
+
+当引用的 GitHub issue 或路径可能属于其他仓库或本地参考目录（如 `tenvten`）时，先确认其归属位置，再去 GitHub 搜索或动手实现。
+
+## Implementation Style
+
+代码改动保持最小化，优先用最简单的机制实现：
+
+- 把 timer 延迟设为 0，而不是另加一次冗余调用
+- 复用一个字符串事件，而不是新增自定义事件
+- 避免过度还原、过度分析
+
 ## 注释规约
 
 代码注释只写**为什么这样做**，不写**这行代码做了什么**。读者能从代码本身读懂的，就不要再用注释复述一遍。
@@ -395,10 +411,16 @@ Release Note 段按照 `.claude/skills/release-note/SKILL.md` 文件的规则生
 简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`，不写其他正文、不写 bullet 说明。
 详细说明由 PR description 承担，commit message 保持简洁。
 
+### Git & Commits
+
+只 stage 与本次请求明确相关的文件，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
+
 
 ## 文档自维护规范
 
 当用户纠正 Claude 的做法、发现文档与实际代码矛盾、或用户补充了新约定时，触发 `doc-update` skill 将有价值的内容沉淀到文档中。执行流程见 `.claude/skills/doc-update/SKILL.md`。
+
+文档与 skill 专属规则应写入对应的 `SKILL.md`，**不要**放进 CLAUDE.md；CLAUDE.md 只保留项目级通用规则。文档更新应作为完成一次改动的一部分（自维护），不要等用户催促。
 
 ## Skill 交互规范
 
