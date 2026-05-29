@@ -355,10 +355,6 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 技能射程、伤害值及其他可调参数一律从 KV 文件**动态读取**，不要硬编码已存在于 KV 中的数值。
 
-## Repo Context
-
-当引用的 GitHub issue 或路径可能属于其他仓库或本地参考目录（如 `tenvten`）时，先确认其归属位置，再去 GitHub 搜索或动手实现。
-
 ## Implementation Style
 
 代码改动保持最小化，优先用最简单的机制实现：
