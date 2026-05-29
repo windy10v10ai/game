@@ -6,14 +6,19 @@
         "hooks": [
           {
             "type": "command",
-            "shell": "bash",
-            "if": "Bash(git commit*)",
             "command": "files=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^src/'); if [ -z \"$files\" ]; then exit 0; fi; echo 'Staged src files detected, running lint:fix...' >&2; npm run lint:fix || exit 2; echo \"$files\" | tr '\\n' '\\0' | xargs -0 git add",
-            "statusMessage": "Linting staged src files before commit...",
-            "timeout": 180
+            "if": "Bash(git commit*)",
+            "shell": "bash",
+            "timeout": 180,
+            "statusMessage": "Linting staged src files before commit..."
           }
         ]
       }
     ]
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "context7@claude-plugins-official": true
   }
 }
