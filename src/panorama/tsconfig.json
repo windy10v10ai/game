@@ -4,7 +4,7 @@
     "lib": ["es2020"],
     "resolveJsonModule": true,
     "types": ["@moddota/panorama-types"],
-    "moduleResolution": "node10",
+    "moduleResolution": "bundler",
     "strict": true,
     "preserveSymlinks": false,
     "allowSyntheticDefaultImports": true,
