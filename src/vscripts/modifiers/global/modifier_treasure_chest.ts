@@ -67,7 +67,7 @@ export class modifier_treasure_chest extends BaseModifier {
       modifier_treasure_chest.PROXIMITY_RADIUS,
       UnitTargetTeam.BOTH,
       UnitTargetType.HERO,
-      UnitTargetFlags.NONE,
+      UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,
       FindOrder.CLOSEST,
       false,
     );

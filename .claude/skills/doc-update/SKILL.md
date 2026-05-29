@@ -1,12 +1,15 @@
 ---
 name: doc-update
 description: >-
-  Capture valuable learnings from the current conversation into CLAUDE.md or skill
-  files to improve future sessions. Reviews conversation for corrections, new
-  conventions, and doc-reality mismatches; proposes targeted updates confirmed by
-  user before writing. Use when user corrects Claude's approach, when a discrepancy
-  between docs and actual code is discovered, or when user provides new conventions
-  not yet in current docs.
+  Capture-correction workflow: record valuable learnings from the current
+  conversation into CLAUDE.md or the relevant SKILL.md so the same mistake never
+  recurs. Reviews conversation for corrections, new conventions, and doc-reality
+  mismatches; proposes targeted updates confirmed by user before writing. TRIGGER
+  whenever the user corrects Claude's approach or rejects an action — signals like
+  "不对", "不要这样", "应该是", "错了", "其实是", "no, do X instead", "that's wrong" —
+  and the correction reflects a reusable convention rather than a one-off. Also use
+  when a doc-vs-code discrepancy is found, or the user supplies a convention Claude
+  could not infer.
 ---
 
 # doc-update
