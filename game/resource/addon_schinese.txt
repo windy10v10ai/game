@@ -289,6 +289,7 @@
 		"member_button_tooltip_inactive"	"会员未激活，点击查看详情"
 		"member_subtab_status"			"会员状态"
 		"member_subtab_subscribe"		"开通会员"
+		"member_subtab_points"			"购买积分"
 		"member_status_premium"			"高级会员"
 		"member_status_normal"			"普通会员"
 		"member_status_none"			"未开通会员"
@@ -345,6 +346,12 @@
 		"member_alipay_discount_fmt"		"省{n}%"
 		"member_alipay_tier_month_fmt"		"{n}个月"
 		"member_alipay_tier_year_fmt"		"{n}年"
+		"member_points_title"			"购买会员积分"
+		"member_points_hint"			"会员积分可用于刷新技能、抽奖等。支付宝扫码即付且最优惠；爱发电/Ko-fi 购买后请在备注填写好友ID或手动激活。"
+		"member_points_amount_fmt"		"{n} 积分"
+		"member_points_alipay_desc"		"最优惠 · 扫码即付"
+		"member_points_afdian_desc"		"国内用户 · 人民币支付"
+		"member_points_kofi_desc"		"海外用户 · 美元支付"
 
 		///////////////////////////////////////////////////
 		//

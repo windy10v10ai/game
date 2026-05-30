@@ -289,6 +289,7 @@
 		"member_button_tooltip_inactive"		"Membership inactive. Click to view details."
 		"member_subtab_status"					"Member Status"
 		"member_subtab_subscribe"				"Subscribe"
+		"member_subtab_points"					"Buy Points"
 		"member_status_premium"					"Premium Member"
 		"member_status_normal"					"Normal Member"
 		"member_status_none"					"Not a Member"
@@ -345,6 +346,12 @@
 		"member_alipay_discount_fmt"			"Save {n}%"
 		"member_alipay_tier_month_fmt"			"{n} Months"
 		"member_alipay_tier_year_fmt"			"{n} Years"
+		"member_points_title"				"Buy Membership Points"
+		"member_points_hint"				"Points are used for reroll, lottery, etc. Alipay is the cheapest and pays instantly; for Afdian/Ko-fi fill your friend ID in the note or activate manually after purchase."
+		"member_points_amount_fmt"			"{n} Points"
+		"member_points_alipay_desc"			"Best price · Scan to pay"
+		"member_points_afdian_desc"			"CN users · CNY"
+		"member_points_kofi_desc"			"Intl users · USD"
 
 		///////////////////////////////////////////////////
 		//
