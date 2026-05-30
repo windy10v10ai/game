@@ -15,11 +15,12 @@ export const CROWN_GREY = 'file://{images}/custom_game/golden_crown_grey.png';
 export const AFDIAN_ICON = 'file://{images}/custom_game/afdian.png';
 export const KOFI_LOGO = 'file://{images}/custom_game/member/ko-fi-logo-small.png';
 
-export type MemberSubTab = 'status' | 'subscribe';
+export type MemberSubTab = 'status' | 'subscribe' | 'points';
 
 export const MEMBER_SUB_TABS: { id: MemberSubTab; label: string }[] = [
   { id: 'status', label: $.Localize('#member_subtab_status') },
   { id: 'subscribe', label: $.Localize('#member_subtab_subscribe') },
+  { id: 'points', label: $.Localize('#member_subtab_points') },
 ];
 
 export const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
@@ -80,5 +81,22 @@ export const MEMBERSHIP_PLATFORMS: Record<MembershipPlatform, MembershipPlatform
     tiers: [{ quantity: 1, price: '4.00', discountPercent: 0, pricePerMonth: '4.00' }],
   },
 };
+
+/**
+ * 支付宝积分档位（点击直接二维码下单）。
+ * 不显示折扣：积分单价随档位增大而降低（T3 最划算），但「对比外链原价的折扣率」
+ * 因爱发电 T1 定价偏高会出现 T1 折扣反而最大的倒挂，故只显示积分数 + 价格，避免误导。
+ */
+export interface AlipayPointsTier {
+  productCode: AlipayProductCode;
+  points: number;
+  price: string;
+}
+
+export const ALIPAY_POINTS_TIERS: AlipayPointsTier[] = [
+  { productCode: AlipayProductCode.POINTS_TIER1, points: 3500, price: '78.00' },
+  { productCode: AlipayProductCode.POINTS_TIER2, points: 11000, price: '238.00' },
+  { productCode: AlipayProductCode.POINTS_TIER3, points: 28000, price: '568.00' },
+];
 
 export { AFDIAN_SHOP_URL, GetAfdianSubscribeUrl, KOFI_SHOP_URL, KOFI_SUBSCRIBE_URL };
