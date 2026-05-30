@@ -1,6 +1,7 @@
 import React from 'react';
 import { GetLocalPlayerSteamAccountID, GetAfdianPointsUrl, KOFI_POINTS_URLS } from '@utils/utils';
 import { AlipaySubscribeCard, AlipayCardItem } from './alipay';
+import { MEMBER_POINTS_ICONS } from './alipay/constants';
 import { ExternalPointsCard } from './ExternalPointsCard';
 import {
   AFDIAN_ACTIVATE_URL,
@@ -24,7 +25,7 @@ const POINTS_AMOUNTS = [3500, 11000, 28000];
 export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
 
-  const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier) => ({
+  const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier, i) => ({
     productCode: tier.productCode,
     quantity: 1,
     priceMain: $.Localize('#member_points_amount_fmt').replace('{n}', String(tier.points)),
@@ -33,6 +34,8 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
       tier.savedAmount > 0
         ? $.Localize('#member_points_save_fmt').replace('{n}', String(tier.savedAmount))
         : undefined,
+    points: tier.points,
+    successIconSrc: MEMBER_POINTS_ICONS[i],
   }));
 
   const pointsLabel = (i: number) =>

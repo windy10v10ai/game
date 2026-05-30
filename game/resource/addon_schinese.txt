@@ -334,6 +334,8 @@
 		"member_alipay_status_waiting"		"请使用支付宝扫码支付"
 		"member_alipay_status_success"		"支付成功！会员已开通"
 		"member_alipay_status_paid_title"	"会员已开通"
+		"member_subscribe_paid_title"		"已开通 {duration} 会员"
+		"member_points_paid_title"			"{n} 会员积分已到账"
 		"member_alipay_status_closed"		"订单已关闭，请重试"
 		"member_alipay_status_failed"		"订单失败，请重试"
 		"member_alipay_status_error"		"网络错误，请稍后再试"

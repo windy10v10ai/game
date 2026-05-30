@@ -5,6 +5,7 @@ import {
   AFDIAN_ACTIVATE_URL,
   AFDIAN_ICON,
   AFDIAN_SHOP_URL,
+  CROWN_GOLD,
   GetAfdianSubscribeUrl,
   KOFI_ACTIVATE_URL,
   KOFI_LOGO,
@@ -39,6 +40,7 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
       tier.discountPercent > 0
         ? $.Localize('#member_alipay_discount_fmt').replace('{n}', String(tier.discountPercent))
         : undefined,
+    successIconSrc: CROWN_GOLD,
   }));
 
   return (

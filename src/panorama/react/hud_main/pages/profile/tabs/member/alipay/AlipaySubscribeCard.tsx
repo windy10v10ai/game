@@ -13,6 +13,10 @@ export interface AlipayCardItem {
   unitText?: string;
   subLabel: string;
   discountLabel?: string;
+  /** 积分档位：购买的积分数量（用于成功提示） */
+  points?: number;
+  /** 成功提示图标（覆盖默认的对勾图标） */
+  successIconSrc?: string;
 }
 
 interface AlipaySubscribeCardProps {
@@ -51,7 +55,6 @@ export function AlipaySubscribeCard({ items, nameKey, descKey }: AlipaySubscribe
   }, [status]);
 
   const handleSubscribe = (productCode: AlipayProductCode, quantity: number) => {
-    // net table 空 → 发新单；已有订单（很少出现，比如另一个 sub tab 同步触发）→ 仅切到 paying
     start(productCode, quantity);
   };
 
@@ -59,6 +62,23 @@ export function AlipaySubscribeCard({ items, nameKey, descKey }: AlipaySubscribe
     // 关闭：任何状态统一清空 net table —— 下次点订阅一定是全新订单
     clear();
   };
+
+  // 从 net table 里的 productCode + quantity 反查 item，用于成功提示
+  const activeItem =
+    order?.productCode && order.quantity != null
+      ? items.find((it) => it.productCode === order.productCode && it.quantity === order.quantity)
+      : items.find((it) => it.productCode === order?.productCode);
+  const isPoints = activeItem?.points != null;
+  const successIconSrc = activeItem?.successIconSrc ?? ALIPAY_RECEIVE_ICON;
+  const successTitle = (() => {
+    if (activeItem?.points != null) {
+      return $.Localize('#member_points_paid_title').replace('{n}', String(activeItem.points));
+    }
+    if (activeItem?.subLabel) {
+      return $.Localize('#member_subscribe_paid_title').replace('{duration}', activeItem.subLabel);
+    }
+    return $.Localize('#member_alipay_status_paid_title');
+  })();
 
   return (
     <Panel className="member-platform-card member-platform-card-alipay">
@@ -80,6 +100,9 @@ export function AlipaySubscribeCard({ items, nameKey, descKey }: AlipaySubscribe
           onClose={handleClose}
           onRetry={retry}
           cooling={cooling}
+          successIconSrc={successIconSrc}
+          successTitle={successTitle}
+          isPoints={isPoints}
         />
       )}
     </Panel>
@@ -130,6 +153,9 @@ function AlipayPayingContent({
   onClose,
   onRetry,
   cooling,
+  successIconSrc,
+  successTitle,
+  isPoints,
 }: {
   status: string | undefined;
   qrCode: string | undefined;
@@ -138,10 +164,20 @@ function AlipayPayingContent({
   onClose: () => void;
   onRetry: () => void;
   cooling: boolean;
+  successIconSrc: string;
+  successTitle: string;
+  isPoints: boolean;
 }) {
   // SUCCESS 单独走专用展示
   if (status === 'SUCCESS') {
-    return <AlipaySuccessContent onClose={onClose} />;
+    return (
+      <AlipaySuccessContent
+        iconSrc={successIconSrc}
+        title={successTitle}
+        isPoints={isPoints}
+        onClose={onClose}
+      />
+    );
   }
 
   const showQr = status === 'WAITING' && !!qrCode;
@@ -208,14 +244,24 @@ function AlipayPayingContent({
   );
 }
 
-function AlipaySuccessContent({ onClose }: { onClose: () => void }) {
+function AlipaySuccessContent({
+  iconSrc,
+  title,
+  isPoints,
+  onClose,
+}: {
+  iconSrc: string;
+  title: string;
+  isPoints: boolean;
+  onClose: () => void;
+}) {
+  const iconClass = isPoints
+    ? 'alipay-card-success-icon alipay-card-success-icon-points'
+    : 'alipay-card-success-icon alipay-card-success-icon-member';
   return (
     <React.Fragment>
-      <Image className="alipay-card-success-icon" src={ALIPAY_RECEIVE_ICON} />
-      <Label
-        className="alipay-card-success-title"
-        text={$.Localize('#member_alipay_status_paid_title')}
-      />
+      <Image className={iconClass} src={iconSrc} />
+      <Label className="alipay-card-success-title" text={title} />
       <Panel className="alipay-card-actions">
         <Button className="member-platform-btn alipay-card-btn-close" onactivate={onClose}>
           <Label className="member-platform-btn-label" text={$.Localize('#member_alipay_close')} />

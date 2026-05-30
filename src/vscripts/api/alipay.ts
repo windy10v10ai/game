@@ -57,6 +57,7 @@ export class AlipayApi {
     AlipayApi.ResetNetTable(steamId, {
       status: 'CREATING',
       productCode: event.productCode,
+      quantity: event.quantity,
       clientEpoch,
       updatedAt: GameRules.GetGameTime(),
     });
