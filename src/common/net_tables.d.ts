@@ -111,6 +111,7 @@ export interface AlipayOrderState {
   qrCode?: string;
   totalAmount?: string;
   subject?: string;
+  productCode?: string; // 区分活动订单归属（会员/各积分档位），前端据此判定本卡是否显示支付画面
   expiresAt?: string;
   errorMessage?: string;
   updatedAt: number;
