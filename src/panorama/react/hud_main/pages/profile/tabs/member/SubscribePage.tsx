@@ -1,6 +1,6 @@
 import React from 'react';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
-import { AlipaySubscribeCard } from './alipay';
+import { AlipayCardItem, AlipaySubscribeCard } from './alipay';
 import {
   AFDIAN_ACTIVATE_URL,
   AFDIAN_ICON,
@@ -25,6 +25,21 @@ const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platf
 
 export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: SubscribePageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
+
+  const alipayItems: AlipayCardItem[] = MEMBERSHIP_PLATFORMS.alipay.tiers.map((tier) => ({
+    productCode: MEMBERSHIP_PLATFORMS.alipay.productCode!,
+    quantity: tier.quantity,
+    priceMain: `¥${tier.pricePerMonth}`,
+    unitText: $.Localize('#member_platform_subscribe_month'),
+    subLabel:
+      tier.quantity % 12 === 0
+        ? $.Localize('#member_alipay_tier_year_fmt').replace('{n}', String(tier.quantity / 12))
+        : $.Localize('#member_alipay_tier_month_fmt').replace('{n}', String(tier.quantity)),
+    discountLabel:
+      tier.discountPercent > 0
+        ? $.Localize('#member_alipay_discount_fmt').replace('{n}', String(tier.discountPercent))
+        : undefined,
+  }));
 
   return (
     <Panel className="member-subpage member-subscribe-page">
@@ -73,7 +88,11 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
       {/* 三平台并排 */}
       <Panel className="member-platform-cards">
         {/* 支付宝 */}
-        <AlipaySubscribeCard tiers={MEMBERSHIP_PLATFORMS.alipay.tiers} />
+        <AlipaySubscribeCard
+          items={alipayItems}
+          nameKey="#member_platform_alipay"
+          descKey="#member_platform_alipay_desc"
+        />
 
         {/* 爱发电 */}
         <ExternalPlatformCard

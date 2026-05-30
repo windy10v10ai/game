@@ -20,11 +20,7 @@ let epochCounter = 0;
  *
  * WAITING 状态下自动轮询 query；非 WAITING 自动停止。
  */
-interface UseAlipayOrderArgs {
-  productCode: AlipayProductCode;
-}
-
-export function useAlipayOrder({ productCode }: UseAlipayOrderArgs) {
+export function useAlipayOrder() {
   const steamId = GetLocalPlayerSteamAccountID();
   const order = useNetTable('alipay_order', steamId || null);
 
@@ -34,13 +30,16 @@ export function useAlipayOrder({ productCode }: UseAlipayOrderArgs) {
   const [cooling, setCooling] = useState(false);
   // 记录最近一次下单的 quantity，供 retry 复用
   const lastQuantityRef = useRef(0);
+  // 记录最近一次下单的 productCode，供 retry 复用
+  const lastProductCodeRef = useRef<AlipayProductCode | null>(null);
 
   const sendCreate = useCallback(
-    (quantity: number) => {
+    (productCode: AlipayProductCode, quantity: number) => {
       if (cooling) return; // 冷却期内忽略，按钮已 disable，理论上不会触发
       setCooling(true);
       $.Schedule(ALIPAY_SEND_COOLDOWN_S, () => setCooling(false));
       lastQuantityRef.current = quantity;
+      lastProductCodeRef.current = productCode;
       // 模块级递增 epoch：跨组件 mount 单调递增；后端用它丢弃旧响应
       epochCounter += 1;
       const clientEpoch = epochCounter;
@@ -50,7 +49,7 @@ export function useAlipayOrder({ productCode }: UseAlipayOrderArgs) {
         clientEpoch,
       });
     },
-    [cooling, productCode],
+    [cooling],
   );
 
   const sendQuery = useCallback((outTradeNo: string) => {
@@ -59,18 +58,20 @@ export function useAlipayOrder({ productCode }: UseAlipayOrderArgs) {
 
   /** 用户点订阅按钮：若已有活动订单则不重发，仅让 UI 切到 paying */
   const start = useCallback(
-    (quantity: number) => {
+    (productCode: AlipayProductCode, quantity: number) => {
       if (!order || !order.status || order.status === 'IDLE') {
-        sendCreate(quantity);
+        sendCreate(productCode, quantity);
       }
       // 若 order 已存在活动状态（CREATING / WAITING / SUCCESS / 终态），不发新单 —— UI 直接展示当前状态
     },
     [order, sendCreate],
   );
 
-  /** 用户点重试 / 刷新：强制发新单（沿用上次 quantity） */
+  /** 用户点重试 / 刷新：强制发新单（沿用上次 productCode + quantity） */
   const retry = useCallback(() => {
-    sendCreate(lastQuantityRef.current);
+    if (lastProductCodeRef.current) {
+      sendCreate(lastProductCodeRef.current, lastQuantityRef.current);
+    }
   }, [sendCreate]);
 
   /** 用户点关闭：清空 net table（任何状态都直接清空，不复用旧订单） */
