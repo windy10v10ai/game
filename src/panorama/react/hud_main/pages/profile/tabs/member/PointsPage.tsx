@@ -24,12 +24,18 @@ const POINTS_AMOUNTS = [3500, 11000, 28000];
 export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
 
-  const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier) => ({
-    productCode: tier.productCode,
-    quantity: 1,
-    priceMain: `¥${tier.price}`,
-    subLabel: $.Localize('#member_points_amount_fmt').replace('{n}', String(tier.points)),
-  }));
+  // 差价 = 爱发电原价 − 支付宝价（按档位 index 对齐）
+  const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier, i) => {
+    const saved = Math.round(Number(AFDIAN_POINTS_PRICES[i]) - Number(tier.price));
+    return {
+      productCode: tier.productCode,
+      quantity: 1,
+      priceMain: $.Localize('#member_points_amount_fmt').replace('{n}', String(tier.points)),
+      subLabel: `¥${tier.price}`,
+      discountLabel:
+        saved > 0 ? $.Localize('#member_points_save_fmt').replace('{n}', String(saved)) : undefined,
+    };
+  });
 
   const pointsLabel = (i: number) =>
     $.Localize('#member_points_amount_fmt').replace('{n}', String(POINTS_AMOUNTS[i]));
@@ -56,7 +62,8 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
               text={$.Localize('#member_steam_id_select_hint')}
             />
           </Panel>
-          <Label className="member-subscribe-hint" text={$.Localize('#member_points_hint')} />
+          <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
+          <Label className="member-subscribe-hint" text={$.Localize('#member_points_usage_hint')} />
         </Panel>
         <Button
           className={
@@ -72,7 +79,7 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
         <AlipaySubscribeCard
           items={alipayItems}
           nameKey="#member_platform_alipay"
-          descKey="#member_points_alipay_desc"
+          descKey="#member_platform_alipay_desc"
         />
 
         <ExternalPointsCard
@@ -80,7 +87,7 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
           descClassName="member-platform-desc-cn"
           logoSrc={AFDIAN_ICON}
           name={$.Localize('#member_platform_afdian')}
-          desc={$.Localize('#member_points_afdian_desc')}
+          desc={$.Localize('#member_platform_afdian_desc')}
           buttons={POINTS_AMOUNTS.map((_, i) => ({
             label: pointsLabel(i),
             price: `¥${AFDIAN_POINTS_PRICES[i]}`,
@@ -94,7 +101,7 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
           descClassName="member-platform-desc-intl"
           logoSrc={KOFI_LOGO}
           name={$.Localize('#member_platform_kofi')}
-          desc={$.Localize('#member_points_kofi_desc')}
+          desc={$.Localize('#member_platform_kofi_desc')}
           buttons={POINTS_AMOUNTS.map((_, i) => ({
             label: pointsLabel(i),
             price: `$${KOFI_POINTS_PRICES[i]}`,

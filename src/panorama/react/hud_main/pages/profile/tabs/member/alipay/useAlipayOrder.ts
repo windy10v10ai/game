@@ -56,13 +56,17 @@ export function useAlipayOrder() {
     GameEvents.SendCustomGameEventToServer('alipay_order_query', { outTradeNo });
   }, []);
 
-  /** 用户点订阅按钮：若已有活动订单则不重发，仅让 UI 切到 paying */
+  /**
+   * 用户点订阅按钮。仅当已有「同一 productCode」的活动订单时不重发（UI 直接展示当前状态）；
+   * 若活动订单属于其他商品（在另一 subtab/档位下的残留单），直接发新单覆盖 ——
+   * sendCreate 会重置整张 net table，否则切卡点击会因旧订单存在而静默无响应。
+   */
   const start = useCallback(
     (productCode: AlipayProductCode, quantity: number) => {
-      if (!order || !order.status || order.status === 'IDLE') {
+      const hasActiveOrder = order && order.status && order.status !== 'IDLE';
+      if (!hasActiveOrder || order.productCode !== productCode) {
         sendCreate(productCode, quantity);
       }
-      // 若 order 已存在活动状态（CREATING / WAITING / SUCCESS / 终态），不发新单 —— UI 直接展示当前状态
     },
     [order, sendCreate],
   );
