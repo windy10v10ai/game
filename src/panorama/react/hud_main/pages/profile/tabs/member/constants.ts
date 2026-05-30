@@ -84,19 +84,20 @@ export const MEMBERSHIP_PLATFORMS: Record<MembershipPlatform, MembershipPlatform
 
 /**
  * 支付宝积分档位（点击直接二维码下单）。
- * 不显示折扣：积分单价随档位增大而降低（T3 最划算），但「对比外链原价的折扣率」
- * 因爱发电 T1 定价偏高会出现 T1 折扣反而最大的倒挂，故只显示积分数 + 价格，避免误导。
+ * savedAmount 是相对爱发电原价的差价（营销展示用，非精算），直接写在档位上随价格一起改，
+ * 避免与爱发电原价数组靠 index 隐式对齐而出错。
  */
 export interface AlipayPointsTier {
   productCode: AlipayProductCode;
   points: number;
   price: string;
+  savedAmount: number;
 }
 
 export const ALIPAY_POINTS_TIERS: AlipayPointsTier[] = [
-  { productCode: AlipayProductCode.POINTS_TIER1, points: 3500, price: '78.00' },
-  { productCode: AlipayProductCode.POINTS_TIER2, points: 11000, price: '238.00' },
-  { productCode: AlipayProductCode.POINTS_TIER3, points: 28000, price: '568.00' },
+  { productCode: AlipayProductCode.POINTS_TIER1, points: 3500, price: '78.00', savedAmount: 20 },
+  { productCode: AlipayProductCode.POINTS_TIER2, points: 11000, price: '238.00', savedAmount: 42 },
+  { productCode: AlipayProductCode.POINTS_TIER3, points: 28000, price: '568.00', savedAmount: 80 },
 ];
 
 export { AFDIAN_SHOP_URL, GetAfdianSubscribeUrl, KOFI_SHOP_URL, KOFI_SUBSCRIBE_URL };

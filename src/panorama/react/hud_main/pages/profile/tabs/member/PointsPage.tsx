@@ -24,18 +24,16 @@ const POINTS_AMOUNTS = [3500, 11000, 28000];
 export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
 
-  // 差价 = 爱发电原价 − 支付宝价（按档位 index 对齐）
-  const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier, i) => {
-    const saved = Math.round(Number(AFDIAN_POINTS_PRICES[i]) - Number(tier.price));
-    return {
-      productCode: tier.productCode,
-      quantity: 1,
-      priceMain: $.Localize('#member_points_amount_fmt').replace('{n}', String(tier.points)),
-      subLabel: `¥${tier.price}`,
-      discountLabel:
-        saved > 0 ? $.Localize('#member_points_save_fmt').replace('{n}', String(saved)) : undefined,
-    };
-  });
+  const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier) => ({
+    productCode: tier.productCode,
+    quantity: 1,
+    priceMain: $.Localize('#member_points_amount_fmt').replace('{n}', String(tier.points)),
+    subLabel: `¥${tier.price}`,
+    discountLabel:
+      tier.savedAmount > 0
+        ? $.Localize('#member_points_save_fmt').replace('{n}', String(tier.savedAmount))
+        : undefined,
+  }));
 
   const pointsLabel = (i: number) =>
     $.Localize('#member_points_amount_fmt').replace('{n}', String(POINTS_AMOUNTS[i]));
