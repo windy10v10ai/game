@@ -56,6 +56,7 @@ export class AlipayApi {
     // 重置整张 net table，避免旧订单字段（qrCode / SUCCESS 等）残留影响新一轮
     AlipayApi.ResetNetTable(steamId, {
       status: 'CREATING',
+      productCode: event.productCode,
       clientEpoch,
       updatedAt: GameRules.GetGameTime(),
     });
@@ -67,6 +68,7 @@ export class AlipayApi {
         const dto = json.decode(data)[0] as AlipayOrderCreateResponseDto;
         AlipayApi.WriteNetTableIfEpoch(steamId, clientEpoch, {
           status: 'WAITING',
+          productCode: event.productCode,
           outTradeNo: dto.outTradeNo,
           qrCode: dto.qrCode,
           totalAmount: dto.totalAmount,
