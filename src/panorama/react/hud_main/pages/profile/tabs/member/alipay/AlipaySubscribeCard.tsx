@@ -107,9 +107,7 @@ function AlipayIdleContent({
           <Panel className="alipay-tier-btn-content">
             <Panel className="subscribe-price-row">
               <Label className="subscribe-price-main" text={item.priceMain} />
-              {item.unitText && (
-                <Label className="subscribe-price-unit" text={item.unitText} />
-              )}
+              {item.unitText && <Label className="subscribe-price-unit" text={item.unitText} />}
             </Panel>
             <Panel className="alipay-tier-sub-row">
               <Label className="alipay-tier-month" text={item.subLabel} />
