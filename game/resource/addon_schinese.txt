@@ -319,7 +319,7 @@
 		"member_platform_alipay"				"支付宝"
 		"member_platform_alipay_desc"			"最优惠 · 扫码即付"
 		"member_platform_afdian"				"爱发电"
-		"member_platform_afdian_desc"			"国内用户 · 人民币支付"
+		"member_platform_afdian_desc"			"更多支付方式 · 人民币支付"
 		"member_platform_kofi"					"Ko-fi"
 		"member_platform_kofi_desc"				"海外用户 · 美元支付"
 		"member_platform_subscribe_btn"			"订阅会员 "
