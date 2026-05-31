@@ -43,6 +43,7 @@ export class GameEnd {
       playerNumberRadiant: gameOptionsData.player_number_radiant,
       playerNumberDire: gameOptionsData.player_number_dire,
       towerPowerPct: gameOptionsData.tower_power_pct,
+      respawnTimePct: gameOptionsData.respawn_time_pct,
     };
 
     const gameTime = GameRules.GetGameTime();

@@ -6,6 +6,7 @@ export class GameEndGameOptionsDto {
   playerNumberRadiant: number;
   playerNumberDire: number;
   towerPowerPct: number;
+  respawnTimePct: number;
 }
 
 export class GameEndPlayerDto {
