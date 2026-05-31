@@ -19,6 +19,52 @@
   box-shadow: 0px 8px 32px 0px #00000088;
 }
 
+/* ========== 标题栏积分 ========== */
+.profile-header-points {
+  flow-children: right;
+  vertical-align: center;
+  margin-right: 16px;
+}
+
+.profile-header-point-item {
+  flow-children: right;
+  vertical-align: center;
+  margin-left: 12px;
+  padding: 0px 10px;
+  height: 36px;
+  background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#222222));
+  border-radius: 15px;
+  border: 1px solid #e0caa5;
+  box-shadow: 0px 0px 1px #e0caa5;
+}
+
+.profile-header-point-icon {
+  width: 24px;
+  height: 28px;
+  vertical-align: center;
+  margin-right: 6px;
+}
+
+.profile-header-point-value {
+  font-size: @font-size-xl;
+  font-weight: bold;
+  color: @color-gold;
+  vertical-align: center;
+  text-shadow: @text-shadow-soft;
+}
+
+.profile-header-point-value-season {
+  .profile-header-point-value;
+  color: @color-accent;
+}
+
+.profile-header-point-total {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  vertical-align: center;
+  margin-left: 2px;
+}
+
 /* ========== Tab 导航栏 ========== */
 .profile-modal .tab-nav-wrapper {
   width: 100%;
@@ -35,7 +81,7 @@
 .content-area {
   width: 100%;
   height: fit-children;
-  min-height: 420px;
+  min-height: 480px;
   padding: 20px;
   flow-children: down;
 }

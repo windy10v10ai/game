@@ -52,10 +52,12 @@ function TransPlayerData(data: NetworkedData<PlayerInfoDto>): PlayerInfoDto {
     seasonLevel: data.seasonLevel,
     seasonCurrrentLevelPoint: data.seasonCurrrentLevelPoint,
     seasonNextLevelPoint: data.seasonNextLevelPoint,
+    useableSeasonPoint: data.useableSeasonPoint,
     memberPointTotal: data.memberPointTotal,
     memberLevel: data.memberLevel,
     memberCurrentLevelPoint: data.memberCurrentLevelPoint,
     memberNextLevelPoint: data.memberNextLevelPoint,
+    useableMemberPoint: data.useableMemberPoint,
     totalLevel: data.totalLevel,
     useableLevel: data.useableLevel,
   };

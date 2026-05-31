@@ -65,4 +65,9 @@ export const transformPlayer = createTransform<PlayerInfoDto>({
       enable: { type: 'boolean' },
     },
   },
+  // 全为数字、可缺失；optional-nested 在 undefined 时不塞入残缺对象
+  statsLifetime: {
+    type: 'optional-nested',
+    fields: {},
+  },
 });
