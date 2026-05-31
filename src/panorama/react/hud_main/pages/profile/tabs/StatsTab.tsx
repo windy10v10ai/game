@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
+import { formatStatNumber } from '../../../../shared/utils/format-stat-number';
 import { isMemberActive } from '../../../../shared/utils/member';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 
@@ -7,6 +8,18 @@ const AVATAR_BORDER_GOLD =
   'url("s2r://panorama/images/custom_game/profile/avatar-square-gold-border.png")';
 const AVATAR_BORDER_NORMAL =
   'url("s2r://panorama/images/custom_game/profile/avatar-square-normal-border.png")';
+
+const LIFETIME_STATS = [
+  { key: 'kills', label: '#profile_stat_lifetime_kills', tone: 'good' },
+  { key: 'deaths', label: '#profile_stat_lifetime_deaths', tone: 'bad' },
+  { key: 'assists', label: '#profile_stat_lifetime_assists', tone: 'good' },
+  { key: 'lastHits', label: '#profile_stat_lifetime_last_hits', tone: 'neutral' },
+  { key: 'heroDamage', label: '#profile_stat_lifetime_hero_damage', tone: 'damage' },
+  { key: 'damageTaken', label: '#profile_stat_lifetime_damage_taken', tone: 'bad' },
+  { key: 'healing', label: '#profile_stat_lifetime_healing', tone: 'good' },
+  { key: 'towerKills', label: '#profile_stat_lifetime_tower_kills', tone: 'neutral' },
+  { key: 'totalGoldEarned', label: '#profile_stat_lifetime_total_gold', tone: 'gold' },
+] as const;
 
 /**
  * 战绩 Tab：左侧头像/昵称面板 + 右侧数据卡片。
@@ -39,6 +52,8 @@ export function StatsTab() {
     : 's2r://panorama/images/custom_game/conduct/thumb_down_fill_png.vtex';
   const conductTipRef = useRef<ImagePanel | null>(null);
   const conductNetRef = useRef<Panel | null>(null);
+  const lifetimeStats = player?.statsLifetime;
+  const isChinese = $.Language() === 'schinese';
 
   return (
     <Panel className="stats-layout">
@@ -72,37 +87,56 @@ export function StatsTab() {
       </Panel>
 
       <Panel className="stats-container">
-        <Panel className="stat-item">
-          <Label className="stat-label" text={$.Localize('#profile_stat_games')} />
-          <Label className="stat-value" text={String(matchCount)} />
+        <Panel className="stats-summary-column">
+          <Panel className="stat-item">
+            <Label className="stat-label" text={$.Localize('#profile_stat_games')} />
+            <Label className="stat-value" text={String(matchCount)} />
+          </Panel>
+          <Panel className="stat-item">
+            <Label className="stat-label" text={$.Localize('#profile_stat_winrate')} />
+            <Label className="stat-value" text={winRate} />
+          </Panel>
+          <Panel className="stat-item">
+            <Label className="stat-label" text={$.Localize('#profile_stat_conduct')} />
+            <Label
+              className="stat-value"
+              text={String(conductPoint)}
+              style={conductColor ? { color: conductColor } : undefined}
+            />
+            <Image
+              ref={conductTipRef}
+              className="stat-tip-icon"
+              src="s2r://panorama/images/status_icons/information_psd.vtex"
+              onmouseover={() =>
+                conductTipRef.current &&
+                $.DispatchEvent(
+                  'DOTAShowTextTooltip',
+                  conductTipRef.current,
+                  $.Localize('#profile_stat_conduct_tooltip'),
+                )
+              }
+              onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+            />
+          </Panel>
         </Panel>
-        <Panel className="stat-item">
-          <Label className="stat-label" text={$.Localize('#profile_stat_winrate')} />
-          <Label className="stat-value" text={winRate} />
-        </Panel>
-        <Panel className="stat-item">
-          <Label className="stat-label" text={$.Localize('#profile_stat_conduct')} />
+
+        <Panel className="stats-lifetime-column">
           <Label
-            className="stat-value"
-            text={String(conductPoint)}
-            style={conductColor ? { color: conductColor } : undefined}
+            className="stats-section-title"
+            text={$.Localize('#profile_stat_lifetime_title')}
           />
-          <Image
-            ref={conductTipRef}
-            className="stat-tip-icon"
-            src="s2r://panorama/images/status_icons/information_psd.vtex"
-            onmouseover={() =>
-              conductTipRef.current &&
-              $.DispatchEvent(
-                'DOTAShowTextTooltip',
-                conductTipRef.current,
-                $.Localize('#profile_stat_conduct_tooltip'),
-              )
-            }
-            onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
-          />
+          <Panel className="stats-lifetime-list">
+            {LIFETIME_STATS.map(({ key, label, tone }) => (
+              <Panel key={key} className={`lifetime-stat-item lifetime-${tone}`}>
+                <Label className="lifetime-stat-label" text={$.Localize(label)} />
+                <Label
+                  className="lifetime-stat-value"
+                  text={formatStatNumber(lifetimeStats?.[key] ?? 0, isChinese)}
+                />
+              </Panel>
+            ))}
+          </Panel>
         </Panel>
-        <Label className="stat-coming-soon" text={$.Localize('#profile_stat_coming_soon')} />
       </Panel>
     </Panel>
   );
