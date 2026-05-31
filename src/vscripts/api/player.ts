@@ -24,6 +24,21 @@ export class PlayerSetting {
   passiveAbilityQuickCast2?: boolean;
 }
 
+export class PlayerStatsLifetimeDto {
+  id!: string;
+  kills!: number;
+  deaths!: number;
+  assists!: number;
+  lastHits!: number;
+  heroDamage!: number;
+  damageTaken!: number;
+  healing!: number;
+  towerKills!: number;
+  totalGoldEarned!: number;
+  // API 返回 Date，net table 传输后为字符串；UI 暂不展示，仅占位保持契约完整
+  updatedAt?: string;
+}
+
 export class PlayerInfoDto {
   id!: string;
   matchCount!: number;
@@ -52,6 +67,8 @@ export class PlayerInfoDto {
   properties?: PlayerProperty[];
   playerSetting?: PlayerSetting;
   member?: MemberDto;
+  // game/start 首场结算前不下发，可缺失
+  statsLifetime?: PlayerStatsLifetimeDto;
 }
 
 // Backward-compatible alias for existing imports.
