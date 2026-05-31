@@ -120,8 +120,6 @@ export function StatsTab() {
           </Panel>
         </Panel>
 
-        <Panel className="stats-column-divider" />
-
         <Panel className="stats-lifetime-column">
           <Panel className="stats-lifetime-list">
             {LIFETIME_STATS.map(({ key, label, tone }) => (
