@@ -35,11 +35,13 @@ export class PlayerInfoDto {
 
   seasonPointTotal!: number;
   seasonLevel!: number;
+  seasonCurrrentLevelPoint!: number;
   seasonNextLevelPoint!: number;
   useableSeasonPoint!: number;
 
   memberPointTotal!: number;
   memberLevel!: number;
+  memberCurrentLevelPoint!: number;
   memberNextLevelPoint!: number;
   useableMemberPoint!: number;
 
