@@ -70,14 +70,14 @@
   wash-color: @color-close-tint;
   opacity: 0.6;
   z-index: 2;
-  transition-property: opacity, width, height;
+  transform: scale3d(1, 1, 1);
+  transition-property: opacity, transform;
   transition-duration: 0.2s;
   transition-timing-function: ease-out;
 
   &:hover {
     opacity: 1;
-    width: 38px;
-    height: 38px;
+    transform: scale3d(1.2, 1.2, 1);
   }
 
   &:active {

@@ -78,16 +78,16 @@
   margin: 0 6px;
   vertical-align: center;
   &.commend .stats-conduct-icon {
-    wash-color: #7FD47F;
+    wash-color: #7fd47f;
   }
   &.commend .stats-conduct-count-text {
-    color: #7FD47F;
+    color: #7fd47f;
   }
   &.report .stats-conduct-icon {
-    wash-color: #E87D7D;
+    wash-color: #e87d7d;
   }
   &.report .stats-conduct-count-text {
-    color: #E87D7D;
+    color: #e87d7d;
   }
 }
 
@@ -103,44 +103,93 @@
   font-size: @font-size-md;
   font-weight: bold;
   vertical-align: center;
-  text-shadow: 1px 1px 2px #000000cc, 0 0 4px #00000080;
+  text-shadow:
+    1px 1px 2px #000000cc,
+    0 0 4px #00000080;
 }
 
 .stats-container {
   .stats-card;
   width: fill-parent-flow(1);
   height: 100%;
-  flow-children: down;
-  padding: 24px 28px;
+  flow-children: right;
+  padding: 22px;
   vertical-align: center;
 }
 
-.stat-item {
-  width: 100%;
-  height: 36px;
-  flow-children: right;
-  padding: 0px 4px;
-  border-bottom: 1px solid #ffffff11;
+.stats-summary-column {
+  width: fill-parent-flow(1);
+  height: 100%;
+  flow-children: down;
+  margin-right: 36px;
 }
 
-.stats-container .stat-item:last-child {
-  border-bottom: 0px solid #00000000;
+.stats-lifetime-column {
+  width: fill-parent-flow(1);
+  height: 100%;
+  flow-children: down;
+}
+
+.stat-row {
+  width: 100%;
+  height: 34px;
+  flow-children: right;
+  padding: 0px 8px;
+  margin-bottom: 4px;
+  background-color: #00000024;
+  border-left: 2px solid @color-gold-soft;
 }
 
 .stat-label {
-  color: @color-text-muted;
+  color: @color-text;
   font-weight: normal;
-  width: 160px;
+  width: fill-parent-flow(1);
+  font-size: @font-size-lg;
   vertical-align: center;
 }
 
 .stat-value {
+  width: 144px;
   color: @color-text;
   font-size: 20px;
   font-weight: bold;
-  margin-left: 15px;
+  text-align: right;
   vertical-align: center;
-  text-shadow: 1px 1px 2px #000000cc, 0 0 4px #00000080;
+  text-shadow:
+    1px 1px 2px #000000cc,
+    0 0 4px #00000080;
+}
+
+.stat-value-parts {
+  width: 170px;
+  height: 100%;
+  flow-children: right;
+  vertical-align: center;
+}
+
+.stat-value-number {
+  width: fill-parent-flow(1);
+  color: @color-text;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: right;
+  vertical-align: center;
+  text-shadow:
+    1px 1px 2px #000000cc,
+    0 0 4px #00000080;
+}
+
+.stat-value-unit {
+  width: 20px;
+  color: @color-text-muted;
+  font-size: @font-size-sm;
+  font-weight: bold;
+  text-align: left;
+  vertical-align: center;
+  margin-left: 3px;
+  text-shadow:
+    1px 1px 2px #000000cc,
+    0 0 4px #00000080;
 }
 
 .stat-coming-soon {
@@ -161,6 +210,28 @@
   &:hover {
     opacity: 1;
   }
+}
+
+.stats-lifetime-list {
+  width: 100%;
+  height: fill-parent-flow(1);
+  flow-children: down;
+}
+
+.lifetime-good {
+  border-left-color: @color-safe-soft;
+}
+
+.lifetime-bad {
+  border-left-color: @color-danger-soft;
+}
+
+.lifetime-damage {
+  border-left-color: @color-accent;
+}
+
+.lifetime-gold {
+  border-left-color: @color-gold;
 }
 
 /* ========== 占位 Tab ========== */
