@@ -291,7 +291,7 @@
 		"profile_stat_lifetime_damage_taken"	"承受伤害"
 		"profile_stat_lifetime_healing"		"治疗"
 		"profile_stat_lifetime_tower_kills"	"推塔数"
-		"profile_stat_lifetime_total_gold"	"财产"
+		"profile_stat_lifetime_total_gold"	"金钱"
 		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 <font color='#7FD47F'>100</font> 分，上限 <font color='#FFD700'>120</font> 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#FFD700'>≥110</font>：×1.1<br>• <font color='#7FD47F'>80–109</font>：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
 		"profile_stat_conduct_net_tooltip"	"累计点赞 减 累计举报"
 
