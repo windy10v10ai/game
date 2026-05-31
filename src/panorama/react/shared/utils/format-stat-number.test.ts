@@ -33,12 +33,17 @@ describe('formatStatNumber', () => {
       expect(formatStatNumber(100000000, true)).toBe('1亿');
       expect(formatStatNumber(125000000, true)).toBe('1.25亿');
     });
+    it('支持 NetTable 传来的大数字字符串', () => {
+      expect(formatStatNumber('12345678901234568', true)).toBe('123456789亿');
+      expect(formatStatNumber('12345678901234568', false)).toBe('12345678901M');
+    });
   });
 
   describe('防御', () => {
     it('负数与非有限数按 0', () => {
       expect(formatStatNumber(-5, false)).toBe('0');
       expect(formatStatNumber(NaN, true)).toBe('0');
+      expect(formatStatNumber('not-a-number', true)).toBe('0');
     });
   });
 });

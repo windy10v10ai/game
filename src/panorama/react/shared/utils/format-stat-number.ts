@@ -1,21 +1,22 @@
 /** 大数缩写：英文 K/M、中文 万/亿，保留约 3 位有效数字并去尾零。负数/非有限数按 0。 */
-export function formatStatNumber(value: number, isChinese: boolean): string {
-  if (!Number.isFinite(value) || value < 0) {
+export function formatStatNumber(value: number | string, isChinese: boolean): string {
+  const numericValue = typeof value === 'string' ? Number(value) : value;
+  if (!Number.isFinite(numericValue) || numericValue < 0) {
     return '0';
   }
-  if (value < 10000) {
-    return String(value);
+  if (numericValue < 10000) {
+    return String(numericValue);
   }
 
   const unit = isChinese
-    ? value >= 1e8
+    ? numericValue >= 1e8
       ? { divisor: 1e8, suffix: '亿' }
       : { divisor: 1e4, suffix: '万' }
-    : value >= 1e6
+    : numericValue >= 1e6
       ? { divisor: 1e6, suffix: 'M' }
       : { divisor: 1e3, suffix: 'K' };
 
-  const scaled = value / unit.divisor;
+  const scaled = numericValue / unit.divisor;
   return trimToThreeSignificant(scaled) + unit.suffix;
 }
 
