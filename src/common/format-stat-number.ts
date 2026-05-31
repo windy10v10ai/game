@@ -13,7 +13,7 @@ export function formatStatNumber(value: number, isChinese: boolean): string {
       : { divisor: 1e4, suffix: '万' }
     : value >= 1e6
       ? { divisor: 1e6, suffix: 'M' }
-      : { divisor: 1e4, suffix: 'K' };
+      : { divisor: 1e3, suffix: 'K' };
 
   const scaled = value / unit.divisor;
   return trimToThreeSignificant(scaled) + unit.suffix;
@@ -23,7 +23,6 @@ export function formatStatNumber(value: number, isChinese: boolean): string {
 function trimToThreeSignificant(n: number): string {
   const intDigits = Math.floor(n).toString().length;
   const decimals = Math.max(0, 3 - intDigits);
-  const fixed = n.toFixed(decimals);
-  // 去尾零与多余小数点：12.0 → 12，1.20 → 1.2
-  return fixed.replace(/\.?0+$/, '');
+  // parseFloat 去尾零且不误伤整数尾零：10.0 → 10、1.20 → 1.2、123 → 123
+  return parseFloat(n.toFixed(decimals)).toString();
 }
