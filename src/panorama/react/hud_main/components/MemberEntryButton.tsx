@@ -85,8 +85,8 @@ export function MemberEntryButton() {
     const button = buttonBar.FindChild(MEMBER_BUTTON_ID);
     if (!button) return;
     button.style.backgroundImage = member?.enable
-      ? "url('file://{images}/custom_game/golden_crown.png')"
-      : "url('file://{images}/custom_game/golden_crown_grey.png')";
+      ? "url('file://{images}/custom_game/member/golden_crown.png')"
+      : "url('file://{images}/custom_game/member/golden_crown_grey.png')";
   }, [member]);
 
   return null;

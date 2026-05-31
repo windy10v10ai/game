@@ -5,6 +5,7 @@ import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { MemberLevel, MemberSubTab, MEMBER_SUB_TABS } from './constants';
 import { StatusPage } from './StatusPage';
 import { SubscribePage } from './SubscribePage';
+import { PointsPage } from './PointsPage';
 
 // 模块级缓存：MemberTab unmount/remount 之间保留上一次的 sub tab 选择
 let lastMemberSubTab: MemberSubTab = 'status';
@@ -90,6 +91,7 @@ export function MemberTab() {
             onRefresh={handleRefresh}
           />
         )}
+        {subTab === 'points' && <PointsPage refreshing={refreshing} onRefresh={handleRefresh} />}
       </Panel>
     </Panel>
   );

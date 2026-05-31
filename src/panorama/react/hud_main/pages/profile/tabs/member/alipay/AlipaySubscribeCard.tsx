@@ -1,22 +1,41 @@
 import React, { useEffect, useRef } from 'react';
-import { MembershipPlanTier, MEMBERSHIP_PLATFORMS } from '../constants';
+import { AlipayProductCode } from '../constants';
 import { PlatformCardHeader } from '../PlatformCardHeader';
 import { ALIPAY_LOGO, ALIPAY_RECEIVE_ICON } from './constants';
 import { QrCodeView } from './QrCodeView';
 import { useAlipayOrder } from './useAlipayOrder';
 
-interface AlipaySubscribeCardProps {
-  tiers: MembershipPlanTier[];
+/** 会员档位与积分档位统一归一到此形状，喂给同一张卡片 */
+export interface AlipayCardItem {
+  productCode: AlipayProductCode;
+  quantity: number;
+  priceMain: string;
+  unitText?: string;
+  subLabel: string;
+  discountLabel?: string;
+  /** 积分档位：购买的积分数量（用于成功提示） */
+  points?: number;
+  /** 成功提示图标（覆盖默认的对勾图标） */
+  successIconSrc?: string;
 }
 
-export function AlipaySubscribeCard({ tiers }: AlipaySubscribeCardProps) {
-  // alipay 平台的 productCode 一定存在（constants 中已配置）
-  const productCode = MEMBERSHIP_PLATFORMS.alipay.productCode!;
-  const { order, start, retry, clear, cooling } = useAlipayOrder({ productCode });
+interface AlipaySubscribeCardProps {
+  items: AlipayCardItem[];
+  nameKey: string;
+  descKey: string;
+}
+
+export function AlipaySubscribeCard({ items, nameKey, descKey }: AlipaySubscribeCardProps) {
+  const { order, start, retry, clear, cooling } = useAlipayOrder();
   const status = order?.status;
 
-  // paying 完全由 net table 推导：有活动订单（非 IDLE）就显示支付画面
-  const paying = !!status && status !== 'IDLE';
+  const productCodes = items.map((it) => it.productCode);
+  // 会员卡与积分卡共用一张 alipay_order net table，按 productCode 区分本卡是否在支付，避免串码
+  const paying =
+    !!status &&
+    status !== 'IDLE' &&
+    !!order?.productCode &&
+    productCodes.includes(order.productCode as AlipayProductCode);
 
   // 支付成功：仅在状态由非 SUCCESS 变为 SUCCESS 的那一刻刷新会员信息一次。
   // 注意：组件 unmount/remount（切走再切回 sub tab）prevStatus 会重置为 undefined，
@@ -35,9 +54,8 @@ export function AlipaySubscribeCard({ tiers }: AlipaySubscribeCardProps) {
     }
   }, [status]);
 
-  const handleSubscribe = (quantity: number) => {
-    // net table 空 → 发新单；已有订单（很少出现，比如另一个 sub tab 同步触发）→ 仅切到 paying
-    start(quantity);
+  const handleSubscribe = (productCode: AlipayProductCode, quantity: number) => {
+    start(productCode, quantity);
   };
 
   const handleClose = () => {
@@ -45,17 +63,34 @@ export function AlipaySubscribeCard({ tiers }: AlipaySubscribeCardProps) {
     clear();
   };
 
+  // 从 net table 里的 productCode + quantity 反查 item，用于成功提示
+  const activeItem =
+    order?.productCode && order.quantity != null
+      ? items.find((it) => it.productCode === order.productCode && it.quantity === order.quantity)
+      : items.find((it) => it.productCode === order?.productCode);
+  const isPoints = activeItem?.points != null;
+  const successIconSrc = activeItem?.successIconSrc ?? ALIPAY_RECEIVE_ICON;
+  const successTitle = (() => {
+    if (activeItem?.points != null) {
+      return $.Localize('#member_points_paid_title').replace('{n}', String(activeItem.points));
+    }
+    if (activeItem?.subLabel) {
+      return $.Localize('#member_subscribe_paid_title').replace('{duration}', activeItem.subLabel);
+    }
+    return $.Localize('#member_alipay_status_paid_title');
+  })();
+
   return (
     <Panel className="member-platform-card member-platform-card-alipay">
       <PlatformCardHeader
         logoSrc={ALIPAY_LOGO}
-        name={$.Localize('#member_platform_alipay')}
-        desc={$.Localize('#member_platform_alipay_desc')}
+        name={$.Localize(nameKey)}
+        desc={$.Localize(descKey)}
         descClassName="platform-card-header-desc-alipay"
       />
 
       {!paying ? (
-        <AlipayIdleContent tiers={tiers} onStart={handleSubscribe} disabled={cooling} />
+        <AlipayIdleContent items={items} onStart={handleSubscribe} disabled={cooling} />
       ) : (
         <AlipayPayingContent
           status={status}
@@ -65,56 +100,42 @@ export function AlipaySubscribeCard({ tiers }: AlipaySubscribeCardProps) {
           onClose={handleClose}
           onRetry={retry}
           cooling={cooling}
+          successIconSrc={successIconSrc}
+          successTitle={successTitle}
+          isPoints={isPoints}
         />
       )}
     </Panel>
   );
 }
 
-function formatDiscountLabel(discountPercent: number): string {
-  return $.Localize('#member_alipay_discount_fmt').replace('{n}', String(discountPercent));
-}
-
-function formatMonthLabel(quantity: number): string {
-  if (quantity % 12 === 0) {
-    return $.Localize('#member_alipay_tier_year_fmt').replace('{n}', String(quantity / 12));
-  }
-  return $.Localize('#member_alipay_tier_month_fmt').replace('{n}', String(quantity));
-}
-
 function AlipayIdleContent({
-  tiers,
+  items,
   onStart,
   disabled,
 }: {
-  tiers: MembershipPlanTier[];
-  onStart: (quantity: number) => void;
+  items: AlipayCardItem[];
+  onStart: (productCode: AlipayProductCode, quantity: number) => void;
   disabled: boolean;
 }) {
   return (
     <Panel className="alipay-tier-list">
-      {tiers.map((tier) => (
+      {items.map((item) => (
         <Button
-          key={tier.quantity}
+          key={item.productCode + ':' + item.quantity}
           className="member-platform-btn member-platform-btn-subscribe alipay-tier-btn"
-          onactivate={() => onStart(tier.quantity)}
+          onactivate={() => onStart(item.productCode, item.quantity)}
           enabled={!disabled}
         >
           <Panel className="alipay-tier-btn-content">
             <Panel className="subscribe-price-row">
-              <Label className="subscribe-price-main" text={`¥${tier.pricePerMonth}`} />
-              <Label
-                className="subscribe-price-unit"
-                text={$.Localize('#member_platform_subscribe_month')}
-              />
+              <Label className="subscribe-price-main" text={item.priceMain} />
+              {item.unitText && <Label className="subscribe-price-unit" text={item.unitText} />}
             </Panel>
             <Panel className="alipay-tier-sub-row">
-              <Label className="alipay-tier-month" text={formatMonthLabel(tier.quantity)} />
-              {tier.discountPercent > 0 && (
-                <Label
-                  className="alipay-tier-discount"
-                  text={formatDiscountLabel(tier.discountPercent)}
-                />
+              <Label className="alipay-tier-month" text={item.subLabel} />
+              {item.discountLabel && (
+                <Label className="alipay-tier-discount" text={item.discountLabel} />
               )}
             </Panel>
           </Panel>
@@ -132,6 +153,9 @@ function AlipayPayingContent({
   onClose,
   onRetry,
   cooling,
+  successIconSrc,
+  successTitle,
+  isPoints,
 }: {
   status: string | undefined;
   qrCode: string | undefined;
@@ -140,10 +164,20 @@ function AlipayPayingContent({
   onClose: () => void;
   onRetry: () => void;
   cooling: boolean;
+  successIconSrc: string;
+  successTitle: string;
+  isPoints: boolean;
 }) {
   // SUCCESS 单独走专用展示
   if (status === 'SUCCESS') {
-    return <AlipaySuccessContent onClose={onClose} />;
+    return (
+      <AlipaySuccessContent
+        iconSrc={successIconSrc}
+        title={successTitle}
+        isPoints={isPoints}
+        onClose={onClose}
+      />
+    );
   }
 
   const showQr = status === 'WAITING' && !!qrCode;
@@ -210,14 +244,24 @@ function AlipayPayingContent({
   );
 }
 
-function AlipaySuccessContent({ onClose }: { onClose: () => void }) {
+function AlipaySuccessContent({
+  iconSrc,
+  title,
+  isPoints,
+  onClose,
+}: {
+  iconSrc: string;
+  title: string;
+  isPoints: boolean;
+  onClose: () => void;
+}) {
+  const iconClass = isPoints
+    ? 'alipay-card-success-icon alipay-card-success-icon-points'
+    : 'alipay-card-success-icon alipay-card-success-icon-member';
   return (
     <React.Fragment>
-      <Image className="alipay-card-success-icon" src={ALIPAY_RECEIVE_ICON} />
-      <Label
-        className="alipay-card-success-title"
-        text={$.Localize('#member_alipay_status_paid_title')}
-      />
+      <Image className={iconClass} src={iconSrc} />
+      <Label className="alipay-card-success-title" text={title} />
       <Panel className="alipay-card-actions">
         <Button className="member-platform-btn alipay-card-btn-close" onactivate={onClose}>
           <Label className="member-platform-btn-label" text={$.Localize('#member_alipay_close')} />
