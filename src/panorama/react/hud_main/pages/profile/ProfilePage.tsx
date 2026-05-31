@@ -24,6 +24,8 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
   const player = useNetTable('player_table', steamId);
   const seasonPointTotal = player?.seasonPointTotal ?? 0;
   const memberPointTotal = player?.memberPointTotal ?? 0;
+  const useableSeasonPoint = player?.useableSeasonPoint ?? 0;
+  const useableMemberPoint = player?.useableMemberPoint ?? 0;
   const seasonPointRef = useRef<Panel | null>(null);
   const memberPointRef = useRef<Panel | null>(null);
 
@@ -49,7 +51,8 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
               className="profile-header-point-icon"
               src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
             />
-            <Label className="profile-header-point-value" text={String(seasonPointTotal)} />
+            <Label className="profile-header-point-value" text={String(useableSeasonPoint)} />
+            <Label className="profile-header-point-total" text={` / ${seasonPointTotal}`} />
           </Panel>
           <Panel
             ref={memberPointRef}
@@ -68,7 +71,8 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
               className="profile-header-point-icon"
               src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
             />
-            <Label className="profile-header-point-value" text={String(memberPointTotal)} />
+            <Label className="profile-header-point-value" text={String(useableMemberPoint)} />
+            <Label className="profile-header-point-total" text={` / ${memberPointTotal}`} />
           </Panel>
         </Panel>
         <Button className="btn-close" onactivate={closePage} />
