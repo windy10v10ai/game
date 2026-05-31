@@ -150,9 +150,11 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Home"
-		"data_panel_member_point"		"Member Points"
-		"data_panel_season_point"		"Battle Points"
-		"data_panel_property_point"		"Attribute Points (Available/Total)"
+		"data_panel_member_point_total"	"Member Points (Total)"
+		"data_panel_season_point_total"	"Battle Points (Total)"
+		"data_panel_member_point"		"Member Points (Usable/Total)"
+		"data_panel_season_point"		"Battle Points (Usable/Total)"
+		"data_panel_property_point"		"Attribute Points (Usable/Total)"
 
 		"data_panel_data_button"		"Data"
 		"data_panel_property_button"	"Attributes"

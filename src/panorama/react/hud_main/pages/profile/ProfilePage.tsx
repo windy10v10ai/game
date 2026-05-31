@@ -51,7 +51,10 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
               className="profile-header-point-icon"
               src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
             />
-            <Label className="profile-header-point-value" text={String(useableSeasonPoint)} />
+            <Label
+              className="profile-header-point-value-season"
+              text={String(useableSeasonPoint)}
+            />
             <Label className="profile-header-point-total" text={` / ${seasonPointTotal}`} />
           </Panel>
           <Panel

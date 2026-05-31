@@ -150,8 +150,10 @@
 		//
 		///////////////////////////////////////////////////
 		"data_panel_button"				"主页"
-		"data_panel_member_point"		"会员积分"
-		"data_panel_season_point"		"勇士积分"
+		"data_panel_member_point_total"	"会员积分 (总数)"
+		"data_panel_season_point_total"	"勇士积分 (总数)"
+		"data_panel_member_point"		"会员积分 (可用/总数)"
+		"data_panel_season_point"		"勇士积分 (可用/总数)"
 		"data_panel_property_point"		"属性点 (可用/总数)"
 
 		"data_panel_data_button"		"数据"
