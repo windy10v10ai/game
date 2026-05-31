@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { TabNavigation } from '../../../shared/components';
+import { useNetTable } from '../../../shared/hooks/useNetTable';
+import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { useNavigation } from '../../store/NavigationContext';
 import { StatsTab } from './tabs/StatsTab';
 import { MemberTab } from './tabs/member';
@@ -18,11 +20,64 @@ const PROFILE_TABS: { id: ProfileTabId; label: string }[] = [
 export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
   const [currentTab, setCurrentTab] = useState<ProfileTabId>(initialTab);
   const { closePage } = useNavigation();
+  const steamId = GetLocalPlayerSteamAccountID();
+  const player = useNetTable('player_table', steamId);
+  const seasonPointTotal = player?.seasonPointTotal ?? 0;
+  const memberPointTotal = player?.memberPointTotal ?? 0;
+  const useableSeasonPoint = player?.useableSeasonPoint ?? 0;
+  const useableMemberPoint = player?.useableMemberPoint ?? 0;
+  const seasonPointRef = useRef<Panel | null>(null);
+  const memberPointRef = useRef<Panel | null>(null);
 
   return (
     <Panel className="modal-panel profile-modal" hittest={true}>
       <Panel className="modal-header">
         <Label className="modal-title" text={$.Localize('#profile_title')} />
+        <Panel className="profile-header-points">
+          <Panel
+            ref={seasonPointRef}
+            className="profile-header-point-item"
+            onmouseover={() =>
+              seasonPointRef.current &&
+              $.DispatchEvent(
+                'DOTAShowTextTooltip',
+                seasonPointRef.current,
+                $.Localize('#data_panel_season_point'),
+              )
+            }
+            onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+          >
+            <Image
+              className="profile-header-point-icon"
+              src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
+            />
+            <Label
+              className="profile-header-point-value-season"
+              text={String(useableSeasonPoint)}
+            />
+            <Label className="profile-header-point-total" text={` / ${seasonPointTotal}`} />
+          </Panel>
+          <Panel
+            ref={memberPointRef}
+            className="profile-header-point-item"
+            onmouseover={() =>
+              memberPointRef.current &&
+              $.DispatchEvent(
+                'DOTAShowTextTooltip',
+                memberPointRef.current,
+                $.Localize('#data_panel_member_point'),
+              )
+            }
+            onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+          >
+            <Image
+              className="profile-header-point-icon"
+              src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
+            />
+            <Label className="profile-header-point-value" text={String(useableMemberPoint)} />
+            <Label className="profile-header-point-total" text={` / ${memberPointTotal}`} />
+          </Panel>
+        </Panel>
         <Button className="btn-close" onactivate={closePage} />
       </Panel>
 

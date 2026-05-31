@@ -111,6 +111,8 @@ export interface AlipayOrderState {
   qrCode?: string;
   totalAmount?: string;
   subject?: string;
+  productCode?: string;
+  quantity?: number;
   expiresAt?: string;
   errorMessage?: string;
   updatedAt: number;

@@ -10,16 +10,17 @@ export const enum MemberLevel {
   PREMIUM = 2,
 }
 
-export const CROWN_GOLD = 'file://{images}/custom_game/golden_crown.png';
-export const CROWN_GREY = 'file://{images}/custom_game/golden_crown_grey.png';
+export const CROWN_GOLD = 'file://{images}/custom_game/member/golden_crown.png';
+export const CROWN_GREY = 'file://{images}/custom_game/member/golden_crown_grey.png';
 export const AFDIAN_ICON = 'file://{images}/custom_game/afdian.png';
 export const KOFI_LOGO = 'file://{images}/custom_game/member/ko-fi-logo-small.png';
 
-export type MemberSubTab = 'status' | 'subscribe';
+export type MemberSubTab = 'status' | 'subscribe' | 'points';
 
 export const MEMBER_SUB_TABS: { id: MemberSubTab; label: string }[] = [
   { id: 'status', label: $.Localize('#member_subtab_status') },
   { id: 'subscribe', label: $.Localize('#member_subtab_subscribe') },
+  { id: 'points', label: $.Localize('#member_subtab_points') },
 ];
 
 export const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
@@ -80,5 +81,23 @@ export const MEMBERSHIP_PLATFORMS: Record<MembershipPlatform, MembershipPlatform
     tiers: [{ quantity: 1, price: '4.00', discountPercent: 0, pricePerMonth: '4.00' }],
   },
 };
+
+/**
+ * 支付宝积分档位（点击直接二维码下单）。
+ * savedAmount 是相对爱发电原价的差价（营销展示用，非精算），直接写在档位上随价格一起改，
+ * 避免与爱发电原价数组靠 index 隐式对齐而出错。
+ */
+export interface AlipayPointsTier {
+  productCode: AlipayProductCode;
+  points: number;
+  price: string;
+  savedAmount: number;
+}
+
+export const ALIPAY_POINTS_TIERS: AlipayPointsTier[] = [
+  { productCode: AlipayProductCode.POINTS_TIER1, points: 3500, price: '78.00', savedAmount: 20 },
+  { productCode: AlipayProductCode.POINTS_TIER2, points: 11000, price: '238.00', savedAmount: 42 },
+  { productCode: AlipayProductCode.POINTS_TIER3, points: 28000, price: '568.00', savedAmount: 80 },
+];
 
 export { AFDIAN_SHOP_URL, GetAfdianSubscribeUrl, KOFI_SHOP_URL, KOFI_SUBSCRIBE_URL };

@@ -1,3 +1,4 @@
+import { PlayerHelper } from '../../modules/helper/player-helper';
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 
 @registerModifier('modifiers/global/modifier_treasure_chest')
@@ -71,7 +72,9 @@ export class modifier_treasure_chest extends BaseModifier {
       FindOrder.CLOSEST,
       false,
     );
-    if (heroes.length === 0) return;
-    GameRules.Treasure.openChest(chest, heroes[0]);
+    // 只有人类玩家能触发开箱，避免 bot 路过白白消耗掉宝箱
+    const opener = heroes.find((hero) => PlayerHelper.IsHumanPlayer(hero));
+    if (!opener) return;
+    GameRules.Treasure.openChest(chest, opener);
   }
 }

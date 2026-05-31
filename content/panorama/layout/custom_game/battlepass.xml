@@ -77,12 +77,12 @@
 			<Panel id="PlayerPointStats">
 				<Panel id="SeasonPointContainer" class="pointParent">
 					<Image id="SeasonPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
-						onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+						onmouseover="UIShowTextTooltipStyled( #data_panel_season_point_total, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 					<Label id="SeasonPoint" class="pointNumber" text="18888" />
 				</Panel>
 				<Panel id="MemberPointContainer" class="pointParent">
 					<Image id="MemberPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
-						onmouseover="UIShowTextTooltipStyled( #data_panel_member_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+						onmouseover="UIShowTextTooltipStyled( #data_panel_member_point_total, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
 					<Label id="MemberPoint" class="pointNumber" text="18888" />
 				</Panel>
 				<Panel id="PropertyPointContainer" class="pointParent">
