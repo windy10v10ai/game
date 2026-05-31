@@ -1,4 +1,4 @@
-import { formatStatNumber } from './format-stat-number';
+import { formatStatNumber, formatStatNumberParts } from './format-stat-number';
 
 describe('formatStatNumber', () => {
   describe('英文 (isChinese=false)', () => {
@@ -34,8 +34,16 @@ describe('formatStatNumber', () => {
       expect(formatStatNumber(125000000, true)).toBe('1.25亿');
     });
     it('支持 NetTable 传来的大数字字符串', () => {
-      expect(formatStatNumber('12345678901234568', true)).toBe('123456789亿');
-      expect(formatStatNumber('12345678901234568', false)).toBe('12345678901M');
+      expect(formatStatNumber('12345678901234568', true)).toBe('123,456,789亿');
+      expect(formatStatNumber('12345678901234568', false)).toBe('12,345,678,901M');
+    });
+    it('拆分数字和单位，空单位也保留结构', () => {
+      expect(formatStatNumberParts(233, true)).toEqual({ value: '233', unit: '' });
+      expect(formatStatNumberParts(32400, true)).toEqual({ value: '3.24', unit: '万' });
+      expect(formatStatNumberParts('12345678901234568', true)).toEqual({
+        value: '123,456,789',
+        unit: '亿',
+      });
     });
   });
 

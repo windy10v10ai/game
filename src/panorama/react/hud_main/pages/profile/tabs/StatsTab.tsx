@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
-import { formatStatNumber } from '../../../../shared/utils/format-stat-number';
+import { formatStatNumberParts } from '../../../../shared/utils/format-stat-number';
 import { isMemberActive } from '../../../../shared/utils/member';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 
@@ -122,15 +122,18 @@ export function StatsTab() {
 
         <Panel className="stats-lifetime-column">
           <Panel className="stats-lifetime-list">
-            {LIFETIME_STATS.map(({ key, label, tone }) => (
-              <Panel key={key} className={`stat-row lifetime-${tone}`}>
-                <Label className="stat-label" text={$.Localize(label)} />
-                <Label
-                  className="stat-value"
-                  text={formatStatNumber(lifetimeStats?.[key] ?? 0, isChinese)}
-                />
-              </Panel>
-            ))}
+            {LIFETIME_STATS.map(({ key, label, tone }) => {
+              const formatted = formatStatNumberParts(lifetimeStats?.[key] ?? 0, isChinese);
+              return (
+                <Panel key={key} className={`stat-row lifetime-${tone}`}>
+                  <Label className="stat-label" text={$.Localize(label)} />
+                  <Panel className="stat-value-parts">
+                    <Label className="stat-value-number" text={formatted.value} />
+                    <Label className="stat-value-unit" text={formatted.unit} />
+                  </Panel>
+                </Panel>
+              );
+            })}
           </Panel>
         </Panel>
       </Panel>
