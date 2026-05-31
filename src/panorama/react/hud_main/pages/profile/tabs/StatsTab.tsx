@@ -14,11 +14,11 @@ const LIFETIME_STATS = [
   { key: 'deaths', label: '#profile_stat_lifetime_deaths', tone: 'bad' },
   { key: 'assists', label: '#profile_stat_lifetime_assists', tone: 'good' },
   { key: 'lastHits', label: '#profile_stat_lifetime_last_hits', tone: 'neutral' },
+  { key: 'totalGoldEarned', label: '#profile_stat_lifetime_total_gold', tone: 'gold' },
   { key: 'heroDamage', label: '#profile_stat_lifetime_hero_damage', tone: 'damage' },
   { key: 'damageTaken', label: '#profile_stat_lifetime_damage_taken', tone: 'bad' },
   { key: 'healing', label: '#profile_stat_lifetime_healing', tone: 'good' },
   { key: 'towerKills', label: '#profile_stat_lifetime_tower_kills', tone: 'neutral' },
-  { key: 'totalGoldEarned', label: '#profile_stat_lifetime_total_gold', tone: 'gold' },
 ] as const;
 
 /**
