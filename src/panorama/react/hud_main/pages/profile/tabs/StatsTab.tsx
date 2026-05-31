@@ -88,15 +88,15 @@ export function StatsTab() {
 
       <Panel className="stats-container">
         <Panel className="stats-summary-column">
-          <Panel className="stat-item">
+          <Panel className="stat-row">
             <Label className="stat-label" text={$.Localize('#profile_stat_games')} />
             <Label className="stat-value" text={String(matchCount)} />
           </Panel>
-          <Panel className="stat-item">
+          <Panel className="stat-row">
             <Label className="stat-label" text={$.Localize('#profile_stat_winrate')} />
             <Label className="stat-value" text={winRate} />
           </Panel>
-          <Panel className="stat-item">
+          <Panel className="stat-row">
             <Label className="stat-label" text={$.Localize('#profile_stat_conduct')} />
             <Label
               className="stat-value"
@@ -120,17 +120,15 @@ export function StatsTab() {
           </Panel>
         </Panel>
 
+        <Panel className="stats-column-divider" />
+
         <Panel className="stats-lifetime-column">
-          <Label
-            className="stats-section-title"
-            text={$.Localize('#profile_stat_lifetime_title')}
-          />
           <Panel className="stats-lifetime-list">
             {LIFETIME_STATS.map(({ key, label, tone }) => (
-              <Panel key={key} className={`lifetime-stat-item lifetime-${tone}`}>
-                <Label className="lifetime-stat-label" text={$.Localize(label)} />
+              <Panel key={key} className={`stat-row lifetime-${tone}`}>
+                <Label className="stat-label" text={$.Localize(label)} />
                 <Label
-                  className="lifetime-stat-value"
+                  className="stat-value"
                   text={formatStatNumber(lifetimeStats?.[key] ?? 0, isChinese)}
                 />
               </Panel>

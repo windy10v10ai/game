@@ -283,7 +283,6 @@
 		"profile_stat_winrate"			"胜率"
 		"profile_stat_conduct"			"行为分"
 		"profile_stat_coming_soon"		"更多功能开发中"
-		"profile_stat_lifetime_title"		"累计战绩"
 		"profile_stat_lifetime_kills"		"击杀"
 		"profile_stat_lifetime_deaths"		"死亡"
 		"profile_stat_lifetime_assists"		"助攻"

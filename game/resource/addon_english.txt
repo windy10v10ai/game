@@ -283,7 +283,6 @@
 		"profile_stat_winrate"			"Win Rate"
 		"profile_stat_conduct"			"Conduct Score"
 		"profile_stat_coming_soon"		"More features coming soon"
-		"profile_stat_lifetime_title"		"Lifetime Stats"
 		"profile_stat_lifetime_kills"		"Kills"
 		"profile_stat_lifetime_deaths"		"Deaths"
 		"profile_stat_lifetime_assists"		"Assists"
