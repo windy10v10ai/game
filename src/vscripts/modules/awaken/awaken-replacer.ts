@@ -1,0 +1,82 @@
+/** 觉醒替换算法：新增 / 替换 / 插入三分支。物品觉醒与数据觉醒共用此入口 */
+
+import { ABILITY_REPLACEMENTS, AbilityReplacement } from './awaken-config';
+
+/** 返回是否实际执行了觉醒；英雄已拥有 newAbility 时跳过并返回 false（幂等，供重复使用判定） */
+export function executeReplacement(
+  hero: CDOTA_BaseNPC_Hero,
+  replacement: AbilityReplacement,
+): boolean {
+  // 已觉醒则跳过：避免重复使用觉醒石时再次 AddAbility 叠加同名技能
+  if (hero.FindAbilityByName(replacement.newAbility) !== undefined) {
+    return false;
+  }
+
+  // 分支1：纯新增
+  if (replacement.targetAbility === undefined && replacement.targetSlot === undefined) {
+    const added = hero.AddAbility(replacement.newAbility);
+    if (added !== undefined) {
+      added.SetLevel(replacement.newLevel);
+    }
+    return true;
+  }
+
+  let targetAbilityName: string | undefined = replacement.targetAbility;
+  const isTargetSlot = replacement.targetSlot !== undefined;
+  if (targetAbilityName === undefined && isTargetSlot) {
+    const ability = hero.GetAbilityByIndex(replacement.targetSlot!);
+    if (ability !== undefined) {
+      targetAbilityName = ability.GetAbilityName();
+    }
+  }
+
+  // 分支2：插入（保存原技能等级 → 移除 → 退点数 → 加新技能 → 加回原技能并恢复等级）
+  if (isTargetSlot && targetAbilityName !== undefined && targetAbilityName !== 'generic_hidden') {
+    const oldAbility = hero.FindAbilityByName(targetAbilityName);
+    if (oldAbility !== undefined) {
+      const savedLevel = oldAbility.GetLevel();
+      hero.RemoveAbility(targetAbilityName);
+      hero.SetAbilityPoints(hero.GetAbilityPoints() + savedLevel);
+      const newAb = hero.AddAbility(replacement.newAbility);
+      if (newAb !== undefined) {
+        newAb.SetLevel(replacement.newLevel);
+      }
+      const reAdded = hero.AddAbility(targetAbilityName);
+      if (reAdded !== undefined) {
+        reAdded.SetLevel(savedLevel);
+      }
+      return true;
+    }
+    return false;
+  }
+
+  // 分支3：替换（移除旧技能并退回点数，再加新技能）
+  if (targetAbilityName !== undefined) {
+    const oldAbility = hero.FindAbilityByName(targetAbilityName);
+    if (oldAbility !== undefined) {
+      const level = oldAbility.GetLevel();
+      hero.RemoveAbility(targetAbilityName);
+      hero.SetAbilityPoints(hero.GetAbilityPoints() + level);
+    }
+  }
+  const added = hero.AddAbility(replacement.newAbility);
+  if (added !== undefined) {
+    added.SetLevel(replacement.newLevel);
+  }
+  return true;
+}
+
+/** 对英雄应用所有匹配的觉醒替换，返回是否实际执行了觉醒（已觉醒/未命中均返回 false，供调用方决定是否消耗道具） */
+export function applyAwakenByHero(hero: CDOTA_BaseNPC_Hero): boolean {
+  const heroName = hero.GetUnitName();
+  let applied = false;
+  for (const replacement of ABILITY_REPLACEMENTS) {
+    if (heroName !== replacement.heroName) {
+      continue;
+    }
+    if (executeReplacement(hero, replacement)) {
+      applied = true;
+    }
+  }
+  return applied;
+}

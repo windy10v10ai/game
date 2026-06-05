@@ -276,9 +276,11 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 
 ### 图片资源管理
 
-**两类图片，存放位置不同：**
+**三类图片，存放位置不同：**
 
-#### 技能图标（`AbilityTextureName`）
+> **先判断是否需要放 png**：若 `AbilityTextureName` 引用的是 **Dota2 已有的原版 texture**（原版技能/物品名），直接写名字引用即可，**无需**放任何 png；只有**自定义图标**才需把 png 放进下面的目录。自定义图标来源是从 Dota2 自带 texture 资源（解包 `.vtex_c`）提取或自制的同名 `.png`。
+
+#### 技能图标（`AbilityTextureName`，技能 `ability_xxx`）
 
 放在 `game/resource/flash3/images/spellicons/<name>.png`，KV 中直接用文件名引用：
 
@@ -287,6 +289,16 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 ```
 
 引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。
+
+#### 物品图标（`AbilityTextureName`，物品 `item_xxx`）
+
+放在 `game/resource/flash3/images/items/<name>.png`，机制与技能图标相同：
+
+```
+"AbilityTextureName"    "awaken_stone"
+```
+
+引擎自动在 `items/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。图标名建议与物品名去掉 `item_` 前缀保持一致。
 
 #### Panorama UI 图片
 

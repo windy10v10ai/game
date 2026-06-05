@@ -1,0 +1,151 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { applyAwakenByHero, executeReplacement } from './awaken-replacer';
+
+/** 构造一个记录技能槽状态的假英雄，用于验证三分支的增删与退点数逻辑 */
+function createFakeHero(opts: {
+  unitName?: string;
+  abilities?: { name: string; level: number }[];
+  abilityPoints?: number;
+}) {
+  const abilities: { name: string; level: number }[] = opts.abilities ?? [];
+  let abilityPoints = opts.abilityPoints ?? 0;
+  const addOrder: string[] = [];
+
+  const makeAbility = (entry: { name: string; level: number }) => ({
+    GetAbilityName: () => entry.name,
+    GetLevel: () => entry.level,
+    SetLevel: (lvl: number) => {
+      entry.level = lvl;
+    },
+  });
+
+  const hero: any = {
+    GetUnitName: () => opts.unitName ?? 'npc_dota_hero_pudge',
+    IsHero: () => true,
+    GetAbilityPoints: () => abilityPoints,
+    SetAbilityPoints: (p: number) => {
+      abilityPoints = p;
+    },
+    GetAbilityByIndex: (i: number) => {
+      const entry = abilities[i];
+      return entry !== undefined ? makeAbility(entry) : undefined;
+    },
+    FindAbilityByName: (name: string) => {
+      const entry = abilities.find((a) => a.name === name);
+      return entry !== undefined ? makeAbility(entry) : undefined;
+    },
+    RemoveAbility: (name: string) => {
+      const idx = abilities.findIndex((a) => a.name === name);
+      if (idx >= 0) abilities.splice(idx, 1);
+    },
+    AddAbility: (name: string) => {
+      const entry = { name, level: 0 };
+      abilities.push(entry);
+      addOrder.push(name);
+      return makeAbility(entry);
+    },
+  };
+
+  return { hero, abilities, addOrder, getPoints: () => abilityPoints };
+}
+
+describe('executeReplacement', () => {
+  it('分支1 纯新增：直接加技能不动原有技能', () => {
+    const f = createFakeHero({ abilities: [{ name: 'foo', level: 2 }] });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_pudge',
+      newAbility: 'break_speed_limit',
+      newLevel: 0,
+    });
+    expect(f.abilities.map((a) => a.name)).toEqual(['foo', 'break_speed_limit']);
+  });
+
+  it('分支3 替换：移除旧技能、退回点数、加新技能', () => {
+    const f = createFakeHero({
+      abilities: [{ name: 'pudge_meat_hook', level: 3 }],
+      abilityPoints: 1,
+    });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_pudge',
+      targetAbility: 'pudge_meat_hook',
+      newAbility: 'pudge_meat_hook_lua',
+      newLevel: 0,
+    });
+    expect(f.abilities.map((a) => a.name)).toEqual(['pudge_meat_hook_lua']);
+    // 退回原技能的 3 级点数
+    expect(f.getPoints()).toBe(4);
+  });
+
+  it('分支2 插入：原技能被移除后以原等级加回，新技能先入槽', () => {
+    const f = createFakeHero({
+      abilities: [
+        { name: 'slot0', level: 1 },
+        { name: 'slot1', level: 1 },
+        { name: 'slot2', level: 1 },
+        { name: 'oldUlt', level: 2 },
+      ],
+      abilityPoints: 0,
+    });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_pudge',
+      targetSlot: 3,
+      newAbility: 'newInserted',
+      newLevel: 0,
+    });
+    // 新技能先加回、原技能后加回（实现插入顺序）
+    expect(f.addOrder).toEqual(['newInserted', 'oldUlt']);
+    // 原技能等级恢复为 2，并退回 2 点
+    expect(f.abilities.find((a) => a.name === 'oldUlt')?.level).toBe(2);
+    expect(f.getPoints()).toBe(2);
+  });
+
+  it('分支2 跳过 generic_hidden 空槽，走替换逻辑直接加新技能', () => {
+    const f = createFakeHero({
+      abilities: [{ name: 'generic_hidden', level: 0 }],
+      abilityPoints: 0,
+    });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_pudge',
+      targetSlot: 0,
+      newAbility: 'newInserted',
+      newLevel: 0,
+    });
+    expect(f.abilities.some((a) => a.name === 'newInserted')).toBe(true);
+  });
+});
+
+describe('applyAwakenByHero', () => {
+  it('命中配置的英雄返回 true 并应用替换', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_pudge',
+      abilities: [{ name: 'pudge_meat_hook', level: 1 }],
+    });
+    const result = applyAwakenByHero(f.hero);
+    expect(result).toBe(true);
+    expect(f.abilities.some((a) => a.name === 'pudge_meat_hook_lua')).toBe(true);
+  });
+
+  it('未配置的英雄返回 false 且不改动技能', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_axe',
+      abilities: [{ name: 'axe_culling_blade', level: 1 }],
+    });
+    const result = applyAwakenByHero(f.hero);
+    expect(result).toBe(false);
+    expect(f.abilities.map((a) => a.name)).toEqual(['axe_culling_blade']);
+  });
+
+  it('已觉醒的英雄重复使用：返回 false 且不重复添加技能', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_pudge',
+      abilities: [{ name: 'pudge_meat_hook', level: 1 }],
+    });
+    // 第一次觉醒
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    const afterFirst = f.abilities.map((a) => a.name);
+    // 第二次：已有 newAbility，应跳过且不消耗
+    expect(applyAwakenByHero(f.hero)).toBe(false);
+    expect(f.abilities.map((a) => a.name)).toEqual(afterFirst);
+    expect(f.abilities.filter((a) => a.name === 'pudge_meat_hook_lua').length).toBe(1);
+  });
+});

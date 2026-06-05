@@ -2429,6 +2429,11 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
+		// 觉醒石
+		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。<br><br>支持的英雄：<br>屠夫"
+		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
+
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
 		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>主动：白莲护盾</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal_percent%%%的血量，护盾持续%duration%秒。<br><br>释放时附加弱驱散效果。\n<h1>被动：白莲花</h1>每 %block_cooldown% 秒抵挡一次指向性技能，并且恢复%heal_percent%%%的血量。被动格挡独立计时，不占用技能冷却。<br><br>免疫减速效果。"

@@ -32,6 +32,7 @@ export const itemTiers: Tier[] = [
       'item_light_part', // 圣光组件
       'item_dark_part', // 暗影组件
       'item_ultimate_scepter_2', // 真·阿哈利姆神杖
+      'item_awaken_stone', // 觉醒石
     ],
   },
   // 3~5k
