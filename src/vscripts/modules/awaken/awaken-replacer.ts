@@ -2,6 +2,68 @@
 
 import { ABILITY_REPLACEMENTS, AbilityReplacement } from './awaken-config';
 
+/** 加新技能并设等级（不超过其 MaxLevel） */
+function addAbilityAtLevel(hero: CDOTA_BaseNPC_Hero, abilityName: string, level: number): void {
+  const added = hero.AddAbility(abilityName);
+  if (added !== undefined) {
+    added.SetLevel(Math.min(level, added.GetMaxLevel()));
+  }
+}
+
+/** 解析替换目标技能名：优先 targetAbility，其次 targetSlot 当前占用的技能 */
+function resolveTargetAbility(
+  hero: CDOTA_BaseNPC_Hero,
+  replacement: AbilityReplacement,
+): string | undefined {
+  if (replacement.targetAbility !== undefined) {
+    return replacement.targetAbility;
+  }
+  if (replacement.targetSlot !== undefined) {
+    return hero.GetAbilityByIndex(replacement.targetSlot)?.GetAbilityName();
+  }
+  return undefined;
+}
+
+/** 插入：保存原技能等级 → 移除 → 退点数 → 加新技能 → 加回原技能并恢复等级 */
+function insertAbility(
+  hero: CDOTA_BaseNPC_Hero,
+  replacement: AbilityReplacement,
+  targetAbilityName: string,
+): boolean {
+  const oldAbility = hero.FindAbilityByName(targetAbilityName);
+  if (oldAbility === undefined) {
+    return false;
+  }
+  const savedLevel = oldAbility.GetLevel();
+  hero.RemoveAbility(targetAbilityName);
+  hero.SetAbilityPoints(hero.GetAbilityPoints() + savedLevel);
+  addAbilityAtLevel(hero, replacement.newAbility, replacement.newLevel);
+  addAbilityAtLevel(hero, targetAbilityName, savedLevel);
+  return true;
+}
+
+/** 替换：移除旧技能 → 加新技能，newLevel>0 用配置等级，否则同步原已学等级（不退点数） */
+function replaceAbility(
+  hero: CDOTA_BaseNPC_Hero,
+  replacement: AbilityReplacement,
+  targetAbilityName: string | undefined,
+): boolean {
+  let savedLevel = 0;
+  if (targetAbilityName !== undefined) {
+    const oldAbility = hero.FindAbilityByName(targetAbilityName);
+    if (oldAbility !== undefined) {
+      savedLevel = oldAbility.GetLevel();
+      hero.RemoveAbility(targetAbilityName);
+    }
+  }
+  addAbilityAtLevel(
+    hero,
+    replacement.newAbility,
+    replacement.newLevel > 0 ? replacement.newLevel : savedLevel,
+  );
+  return true;
+}
+
 /** 返回是否实际执行了觉醒；英雄已拥有 newAbility 时跳过并返回 false（幂等，供重复使用判定） */
 export function executeReplacement(
   hero: CDOTA_BaseNPC_Hero,
@@ -12,60 +74,24 @@ export function executeReplacement(
     return false;
   }
 
-  // 分支1：纯新增
+  // 纯新增
   if (replacement.targetAbility === undefined && replacement.targetSlot === undefined) {
-    const added = hero.AddAbility(replacement.newAbility);
-    if (added !== undefined) {
-      added.SetLevel(replacement.newLevel);
-    }
+    addAbilityAtLevel(hero, replacement.newAbility, replacement.newLevel);
     return true;
   }
 
-  let targetAbilityName: string | undefined = replacement.targetAbility;
-  const isTargetSlot = replacement.targetSlot !== undefined;
-  if (targetAbilityName === undefined && isTargetSlot) {
-    const ability = hero.GetAbilityByIndex(replacement.targetSlot!);
-    if (ability !== undefined) {
-      targetAbilityName = ability.GetAbilityName();
-    }
+  const targetAbilityName = resolveTargetAbility(hero, replacement);
+
+  // 插入：targetSlot 命中非空槽位时把原技能挤进来重新加回；空槽/generic_hidden 走替换
+  if (
+    replacement.targetSlot !== undefined &&
+    targetAbilityName !== undefined &&
+    targetAbilityName !== 'generic_hidden'
+  ) {
+    return insertAbility(hero, replacement, targetAbilityName);
   }
 
-  // 分支2：插入（保存原技能等级 → 移除 → 退点数 → 加新技能 → 加回原技能并恢复等级）
-  if (isTargetSlot && targetAbilityName !== undefined && targetAbilityName !== 'generic_hidden') {
-    const oldAbility = hero.FindAbilityByName(targetAbilityName);
-    if (oldAbility !== undefined) {
-      const savedLevel = oldAbility.GetLevel();
-      hero.RemoveAbility(targetAbilityName);
-      hero.SetAbilityPoints(hero.GetAbilityPoints() + savedLevel);
-      const newAb = hero.AddAbility(replacement.newAbility);
-      if (newAb !== undefined) {
-        newAb.SetLevel(replacement.newLevel);
-      }
-      const reAdded = hero.AddAbility(targetAbilityName);
-      if (reAdded !== undefined) {
-        reAdded.SetLevel(savedLevel);
-      }
-      return true;
-    }
-    return false;
-  }
-
-  // 分支3：替换（移除旧技能，加新技能后把原已学等级同步到新技能，不退点数）
-  let savedLevel = 0;
-  if (targetAbilityName !== undefined) {
-    const oldAbility = hero.FindAbilityByName(targetAbilityName);
-    if (oldAbility !== undefined) {
-      savedLevel = oldAbility.GetLevel();
-      hero.RemoveAbility(targetAbilityName);
-    }
-  }
-  const added = hero.AddAbility(replacement.newAbility);
-  if (added !== undefined) {
-    // newLevel > 0 时优先用配置等级；否则同步旧技能已学等级，均不超过新技能 MaxLevel
-    const desiredLevel = replacement.newLevel > 0 ? replacement.newLevel : savedLevel;
-    added.SetLevel(Math.min(desiredLevel, added.GetMaxLevel()));
-  }
-  return true;
+  return replaceAbility(hero, replacement, targetAbilityName);
 }
 
 /** 英雄是否在觉醒支持列表内（用于施法前校验，不支持则拒绝施法并提示） */
