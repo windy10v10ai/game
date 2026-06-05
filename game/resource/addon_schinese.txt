@@ -2431,7 +2431,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。<br><br>支持的英雄：<br>屠夫"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 圣女白莲
@@ -3185,6 +3185,8 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Description"				"<h1>使用：转化</h1>熔炼背包中的所有符文，转化为随机的类型，无视原有者<br><br><font color='#4CAF50'>不会失败，且优先转化为背包中没有的符文类型</font>"
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
+		"dota_hud_error_awaken_stone_unsupported"										"该英雄暂未拥有可觉醒的技能"
+		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"

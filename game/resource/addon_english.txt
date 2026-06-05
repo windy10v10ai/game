@@ -2407,7 +2407,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.<br><br>Supported heroes:<br>Pudge"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge\nShareable with teammates."
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
 
 		// 圣女白莲
@@ -3128,6 +3128,8 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Description"				"<h1>Use: Transmute</h1>Smelts all runes in your inventory and transforms them into random types, ignoring original owner.<br><br><font color='#4CAF50'>Cannot fail, and prioritizes transforming into rune types not currently in your inventory.</font>"
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"A carefully refined transmuter stone capable of stably altering rune properties."
 		"dota_hud_error_no_runes"														"No runes available to transmute in inventory!"
+		"dota_hud_error_awaken_stone_unsupported"										"This hero has no ability to awaken"
+		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
 
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"

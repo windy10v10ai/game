@@ -66,6 +66,22 @@ export function executeReplacement(
   return true;
 }
 
+/** 英雄是否在觉醒支持列表内（用于施法前校验，不支持则拒绝施法并提示） */
+export function canAwaken(hero: CDOTA_BaseNPC_Hero): boolean {
+  const heroName = hero.GetUnitName();
+  return ABILITY_REPLACEMENTS.some((r) => r.heroName === heroName);
+}
+
+/** 支持觉醒的英雄是否已觉醒完毕（所有匹配条目的 newAbility 均已存在，无可执行的觉醒） */
+export function isAwakened(hero: CDOTA_BaseNPC_Hero): boolean {
+  const heroName = hero.GetUnitName();
+  const matched = ABILITY_REPLACEMENTS.filter((r) => r.heroName === heroName);
+  if (matched.length === 0) {
+    return false;
+  }
+  return matched.every((r) => hero.FindAbilityByName(r.newAbility) !== undefined);
+}
+
 /** 对英雄应用所有匹配的觉醒替换，返回是否实际执行了觉醒（已觉醒/未命中均返回 false，供调用方决定是否消耗道具） */
 export function applyAwakenByHero(hero: CDOTA_BaseNPC_Hero): boolean {
   const heroName = hero.GetUnitName();

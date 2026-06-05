@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { applyAwakenByHero, executeReplacement } from './awaken-replacer';
+import { applyAwakenByHero, canAwaken, executeReplacement, isAwakened } from './awaken-replacer';
 
 /** 构造一个记录技能槽状态的假英雄，用于验证三分支的增删与退点数逻辑 */
 function createFakeHero(opts: {
@@ -147,5 +147,41 @@ describe('applyAwakenByHero', () => {
     expect(applyAwakenByHero(f.hero)).toBe(false);
     expect(f.abilities.map((a) => a.name)).toEqual(afterFirst);
     expect(f.abilities.filter((a) => a.name === 'pudge_meat_hook_lua').length).toBe(1);
+  });
+});
+
+describe('canAwaken', () => {
+  it('配置表内的英雄返回 true', () => {
+    const f = createFakeHero({ unitName: 'npc_dota_hero_pudge' });
+    expect(canAwaken(f.hero)).toBe(true);
+  });
+
+  it('未配置的英雄返回 false', () => {
+    const f = createFakeHero({ unitName: 'npc_dota_hero_axe' });
+    expect(canAwaken(f.hero)).toBe(false);
+  });
+});
+
+describe('isAwakened', () => {
+  it('未配置的英雄返回 false', () => {
+    const f = createFakeHero({ unitName: 'npc_dota_hero_axe' });
+    expect(isAwakened(f.hero)).toBe(false);
+  });
+
+  it('支持但未觉醒返回 false', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_pudge',
+      abilities: [{ name: 'pudge_meat_hook', level: 1 }],
+    });
+    expect(isAwakened(f.hero)).toBe(false);
+  });
+
+  it('觉醒后返回 true', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_pudge',
+      abilities: [{ name: 'pudge_meat_hook', level: 1 }],
+    });
+    applyAwakenByHero(f.hero);
+    expect(isAwakened(f.hero)).toBe(true);
   });
 });
