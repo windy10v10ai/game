@@ -899,15 +899,16 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
 
-		// 火枪暗杀（群体）
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"暗杀（群体）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的地方英雄，在%total_cast_time_tooltip%秒后，发射毁灭性的子弹，在远距离造成伤害，并对目标造成短暂眩晕。只影响可见的英雄。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"为了实现预言并返回家乡，卡尔德必须再次完成一次如同当年古老测试时那样完美的射击。"
+		// 狙击手 暗杀-觉醒
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>暗杀-觉醒</font>"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击。<br><br>普通攻击有一定概率触发该技能。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"打断引导法术，包括对魔法免疫单位。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_radius"			"暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"暗杀范围:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%攻击触发暗杀概率:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"狙击手正在瞄准你的头部！"
 
@@ -1081,6 +1082,16 @@
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"%攻击力降低："
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
+
+		// 斧王 无情铁手-觉醒
+		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#00ff00'>无情铁手-觉醒"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"激活后，斧王会自动斩杀施法范围内血量低于斩杀线的敌方英雄。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>开启自动施法后，斩杀时会突进到敌人身边。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"持续时间："
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"斩杀间隔："
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_increase_damage_per_kill"			"每次斩杀提升伤害："
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"无情铁手"
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"已斩杀 %dMODIFIER_PROPERTY_STACKS_COUNT% 次敌人，淘汰之刃伤害获得永久提升。"
 
 		// 斯拉克 刮痧之王-觉醒
 		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>刮痧之王-觉醒"
@@ -2431,7 +2442,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫\n可以分享给队友"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、斯拉克、狙击手、斧王\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 圣女白莲

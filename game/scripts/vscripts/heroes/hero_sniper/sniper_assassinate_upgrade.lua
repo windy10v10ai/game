@@ -2,52 +2,213 @@ LinkLuaModifier("modifier_sniper_assassinate_target", "heroes/hero_sniper/sniper
 	LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_assassinate_caster_crit", "heroes/hero_sniper/sniper_assassinate_upgrade",
 	LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sniper_assassinate_upgrade_auto", "heroes/hero_sniper/sniper_assassinate_upgrade",
+	LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sniper_assassinate_upgrade_auto_cooldown", "heroes/hero_sniper/sniper_assassinate_upgrade",
+	LUA_MODIFIER_MOTION_NONE)
 
-function AssassinateAcquireTargets(keys)
-	keys.ability.tTargets = keys.target_entities
-	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_assassinate_caster_datadriven", {})
-	for i, v in pairs(keys.ability.tTargets) do
-		v:AddNewModifier(keys.caster, keys.ability, "modifier_sniper_assassinate_target", { Duration = 4 })
+
+sniper_assassinate_upgrade = class({})
+-- 添加这个函数来显示AOE范围指示器
+function sniper_assassinate_upgrade:GetIntrinsicModifierName()
+	return "modifier_sniper_assassinate_upgrade_auto"
+end
+
+function sniper_assassinate_upgrade:GetAOERadius()
+	return self:GetSpecialValueFor("scepter_radius")
+end
+
+function sniper_assassinate_upgrade:OnUpgrade()
+	local caster = self:GetCaster()
+	local keen_scope = caster:FindAbilityByName("sniper_keen_scope")
+
+	if keen_scope then
+		keen_scope:SetLevel(self:GetLevel())
 	end
 end
 
-function AssassinateStart(keys)
-	keys.caster:RemoveModifierByName("modifier_assassinate_caster_datadriven")
-	ProcsAroundMagicStick(keys.caster)
-	for i, v in pairs(keys.ability.tTargets) do
-		keys.caster:EmitSound("Hero_Sniper.AssassinateProjectile")
+function sniper_assassinate_upgrade:OnSpellStart()
+	local caster = self:GetCaster()
+	local target_point = self:GetCursorPosition()
+	local radius = self:GetSpecialValueFor("scepter_radius")
+
+	-- 直接查找目标，不依赖数据驱动系统
+	local targets = FindUnitsInRadius(
+		caster:GetTeamNumber(),
+		target_point,
+		nil,
+		radius,
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE +
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+		FIND_ANY_ORDER,
+		false
+	)
+
+	if #targets == 0 then
+		return
+	end
+
+	-- 存储目标并发射弹道
+	self.tTargets = targets
+	-- self:FireAssassinateProjectiles()
+
+
+	--EmitSoundOn("Hero_Sniper.AssassinateDamage", target)
+	EmitSoundOn("Ability.Assassinate", caster)
+	-- 动态计算延迟时间
+	local projectile_speed = self:GetSpecialValueFor("projectile_speed") or 3000
+	local first_target = targets[1]
+	local distance = (first_target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
+	local travel_time = (distance / projectile_speed) or 0.6
+
+	-- 添加小缓冲时间确保弹道到达
+	-- local delay = travel_time + 0.05
+	-- print("delay", delay)
+	-- Timers:CreateTimer(delay, function()
+	-- 添加暴击修饰符并执行攻击
+	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
+
+	for _, target in pairs(self.tTargets) do
+		caster:PerformAttack(target, true, true, true, false, true, false, true)
+	end
+	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
+	-- end)
+end
+
+function sniper_assassinate_upgrade:FireAssassinateProjectiles()
+	local caster = self:GetCaster()
+	-- 获取施法者的攻击弹道粒子效果
+	local attack_particle = caster:GetRangedProjectileName()
+
+	-- 如果没有攻击弹道，使用默认的
+	if not attack_particle or attack_particle == "" then
+		attack_particle = "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
+	end
+	for _, target in pairs(self.tTargets) do
+		caster:EmitSound("Hero_Sniper.AssassinateProjectile")
 		ProjectileManager:CreateTrackingProjectile({
-			Target = v,
-			Source = keys.caster,
-			Ability = keys.ability,
-			EffectName = "particles/econ/items/sniper/sniper_charlie/sniper_assassinate_charlie.vpcf",
-			iMoveSpeed = 2500,
-			vSourceLoc = keys.caster:GetAbsOrigin(), -- Optional (HOW)
-			bDrawsOnMinimap = false,            -- Optional
-			bDodgeable = true,                  -- Optional
-			bIsAttack = true,                   -- Optional
-			bVisibleToEnemies = true,           -- Optional
-			bReplaceExisting = false,           -- Optional
-			flExpireTime = GameRules:GetGameTime() + 10, -- Optional but recommended
-			bProvidesVision = false,            -- Optional
+			Target = target,
+			Source = caster,
+			Ability = self,
+			EffectName = attack_particle,
+			iMoveSpeed = self:GetSpecialValueFor("projectile_speed"),
+			vSourceLoc = caster:GetAbsOrigin(),
+			bDrawsOnMinimap = false,
+			bDodgeable = true,
+			bIsAttack = true,
+			bVisibleToEnemies = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 10,
+			bProvidesVision = false,
 		})
+
+		-- 添加目标标记
+		target:AddNewModifier(caster, self, "modifier_sniper_assassinate_target", { Duration = 0.6 })
 	end
-	keys.ability.tTargets = nil
 end
 
-function AssassinateRemoveTarget(keys)
-	for i, v in pairs(keys.ability.tTargets) do
-		v:RemoveModifierByName("modifier_sniper_assassinate_target")
-	end
-	keys.ability.tTargets = nil
+-- function sniper_assassinate_upgrade:OnProjectileHit(target, location)
+-- 	if not target then return end
+
+-- 	local caster = self:GetCaster()
+
+-- 	-- 添加暴击修饰符并执行攻击
+-- 	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
+-- 	caster:PerformAttack(target, true, true, true, true, false, false, true)
+-- 	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
+
+-- 	EmitSoundOn("Hero_Sniper.AssassinateDamage", target)
+-- 	-- 移除目标标记
+-- 	target:RemoveModifierByName("modifier_sniper_assassinate_target")
+-- end
+
+-- New intrinsic modifier for auto-trigger
+modifier_sniper_assassinate_upgrade_auto = class({})
+
+function modifier_sniper_assassinate_upgrade_auto:IsHidden() return true end
+
+function modifier_sniper_assassinate_upgrade_auto:IsPurgable() return false end
+
+function modifier_sniper_assassinate_upgrade_auto:RemoveOnDeath() return false end
+
+function modifier_sniper_assassinate_upgrade_auto:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_ATTACK_LANDED
+	}
 end
 
-function AssassinateHit(keys)
-	keys.caster:AddNewModifier(keys.caster, keys.ability, "modifier_assassinate_caster_crit", {})
-	keys.caster:PerformAttack(keys.target, true, true, true, true, false, false, true)
-	keys.caster:RemoveModifierByName("modifier_assassinate_caster_crit")
-	keys.target:RemoveModifierByName("modifier_sniper_assassinate_target")
+function modifier_sniper_assassinate_upgrade_auto:OnAttackLanded(keys)
+	local parent = self:GetParent()
+
+	-- Debug output
+	-- print("[Sniper Auto] OnAttackLanded triggered")
+	-- print("[Sniper Auto] Attacker: " .. (keys.attacker and keys.attacker:GetUnitName() or "nil"))
+	-- print("[Sniper Auto] Parent: " .. parent:GetUnitName())
+
+	if keys.attacker ~= parent then
+		-- print("[Sniper Auto] Attacker is not parent, returning")
+		return
+	end
+	local ability = self:GetAbility()
+	if not parent:IsRealHero() then
+		-- print("[Sniper Auto] Parent is not real hero, returning")
+		return
+	end
+	if not keys.target:IsRealHero() then
+		-- print("[Sniper Auto] Target is building, returning")
+		return
+	end
+	if parent:PassivesDisabled() then
+		-- print("[Sniper Auto] Passives disabled, returning")
+		return
+	end
+	if keys.inflictor and keys.inflictor:GetAbilityName() == "sniper_assassinate_upgrade" then
+		-- print("[butter] puck_dream_coil detected")
+		return
+	end
+	-- if not ability:IsCooldownReady() then
+	-- 	-- print("[Sniper Auto] Ability not ready, returning")
+	-- 	return
+	-- end
+	local crit_chance = 10 -- Default value if ability is nil
+	if self:GetAbility() then
+		crit_chance = self:GetAbility():GetSpecialValueFor("trigger_chance")
+	end
+	local roll = RandomFloat(0, 100)
+
+	-- 【新增】调试输出 - 概率判定
+	-- print(string.format("[MagicCritBlade] 概率暴击判定: %.1f%% vs %.1f%%", roll, crit_chance))
+
+	if roll <= crit_chance then
+		-- print(string.format("[MagicCritBlade] 概率暴击判定: %.1f%% vs %.1f%%", roll, crit_chance))
+		if parent:HasModifier("modifier_sniper_assassinate_upgrade_auto_cooldown") then
+			-- print("[Sniper Auto] On internal cooldown, returning")
+			return
+		end
+
+		--local mana_cost = ability:GetManaCost(ability:GetLevel() - 1)
+		-- print("[Sniper Auto] Triggering ability on " .. keys.target:GetUnitName())
+		ability:EndCooldown()
+		--parent:GiveMana(mana_cost - current_mana)
+		local target_point = keys.target:GetAbsOrigin() -- 修复后的调用方式
+		--parent:CastAbilityOnPosition(target_point, ability, parent:GetPlayerOwnerID())
+		-- -- 点目标或AOE技能,使用目标位置
+		parent:SetCursorPosition(target_point)
+		cast_success = parent:CastAbilityImmediately(ability, parent:GetPlayerOwnerID())
+		parent:AddNewModifier(parent, ability, "modifier_sniper_assassinate_upgrade_auto_cooldown", { duration = 0.3 })
+	end
 end
+
+-- Internal cooldown modifier
+modifier_sniper_assassinate_upgrade_auto_cooldown = class({})
+
+function modifier_sniper_assassinate_upgrade_auto_cooldown:IsHidden() return true end
+
+function modifier_sniper_assassinate_upgrade_auto_cooldown:IsPurgable() return false end
+
+function modifier_sniper_assassinate_upgrade_auto_cooldown:RemoveOnDeath() return false end
 
 modifier_sniper_assassinate_target = class({})
 

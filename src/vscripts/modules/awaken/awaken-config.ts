@@ -18,4 +18,31 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'pudge_meat_hook_lua',
     newLevel: 0,
   },
+  // 剑圣 觉醒剑刃风暴
+  {
+    heroName: 'npc_dota_hero_juggernaut',
+    targetAbility: 'juggernaut_blade_fury',
+    newAbility: 'juggernaut_blade_fury_custom',
+    newLevel: 0,
+  },
+  // 斯拉克 刮痧之王（新增被动）
+  {
+    heroName: 'npc_dota_hero_slark',
+    newAbility: 'break_speed_limit',
+    newLevel: 0,
+  },
+  // 狙击手 觉醒刺杀
+  {
+    heroName: 'npc_dota_hero_sniper',
+    targetAbility: 'sniper_assassinate',
+    newAbility: 'sniper_assassinate_upgrade',
+    newLevel: 0,
+  },
+  // 斧王 自动淘汰之刃（插入 slot 3）
+  {
+    heroName: 'npc_dota_hero_axe',
+    targetSlot: 3,
+    newAbility: 'axe_auto_culling_blade',
+    newLevel: 0,
+  },
 ];

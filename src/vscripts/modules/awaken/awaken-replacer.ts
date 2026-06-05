@@ -50,18 +50,20 @@ export function executeReplacement(
     return false;
   }
 
-  // 分支3：替换（移除旧技能并退回点数，再加新技能）
+  // 分支3：替换（移除旧技能，加新技能后把原已学等级同步到新技能，不退点数）
+  let savedLevel = 0;
   if (targetAbilityName !== undefined) {
     const oldAbility = hero.FindAbilityByName(targetAbilityName);
     if (oldAbility !== undefined) {
-      const level = oldAbility.GetLevel();
+      savedLevel = oldAbility.GetLevel();
       hero.RemoveAbility(targetAbilityName);
-      hero.SetAbilityPoints(hero.GetAbilityPoints() + level);
     }
   }
   const added = hero.AddAbility(replacement.newAbility);
   if (added !== undefined) {
-    added.SetLevel(replacement.newLevel);
+    // newLevel > 0 时优先用配置等级；否则同步旧技能已学等级，均不超过新技能 MaxLevel
+    const desiredLevel = replacement.newLevel > 0 ? replacement.newLevel : savedLevel;
+    added.SetLevel(Math.min(desiredLevel, added.GetMaxLevel()));
   }
   return true;
 }

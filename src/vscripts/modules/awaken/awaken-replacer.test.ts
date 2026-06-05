@@ -14,6 +14,8 @@ function createFakeHero(opts: {
   const makeAbility = (entry: { name: string; level: number }) => ({
     GetAbilityName: () => entry.name,
     GetLevel: () => entry.level,
+    // 占位防崩：替换分支实现会调用 GetMaxLevel，运行时由引擎提供真实值
+    GetMaxLevel: () => 25,
     SetLevel: (lvl: number) => {
       entry.level = lvl;
     },
@@ -60,10 +62,9 @@ describe('executeReplacement', () => {
     expect(f.abilities.map((a) => a.name)).toEqual(['foo', 'break_speed_limit']);
   });
 
-  it('分支3 替换：移除旧技能、退回点数、加新技能', () => {
+  it('分支3 替换：移除旧技能、加新技能', () => {
     const f = createFakeHero({
       abilities: [{ name: 'pudge_meat_hook', level: 3 }],
-      abilityPoints: 1,
     });
     executeReplacement(f.hero, {
       heroName: 'npc_dota_hero_pudge',
@@ -72,8 +73,6 @@ describe('executeReplacement', () => {
       newLevel: 0,
     });
     expect(f.abilities.map((a) => a.name)).toEqual(['pudge_meat_hook_lua']);
-    // 退回原技能的 3 级点数
-    expect(f.getPoints()).toBe(4);
   });
 
   it('分支2 插入：原技能被移除后以原等级加回，新技能先入槽', () => {
@@ -127,12 +126,12 @@ describe('applyAwakenByHero', () => {
 
   it('未配置的英雄返回 false 且不改动技能', () => {
     const f = createFakeHero({
-      unitName: 'npc_dota_hero_axe',
-      abilities: [{ name: 'axe_culling_blade', level: 1 }],
+      unitName: 'npc_dota_hero_tinker',
+      abilities: [{ name: 'tinker_laser', level: 1 }],
     });
     const result = applyAwakenByHero(f.hero);
     expect(result).toBe(false);
-    expect(f.abilities.map((a) => a.name)).toEqual(['axe_culling_blade']);
+    expect(f.abilities.map((a) => a.name)).toEqual(['tinker_laser']);
   });
 
   it('已觉醒的英雄重复使用：返回 false 且不重复添加技能', () => {
@@ -157,14 +156,14 @@ describe('canAwaken', () => {
   });
 
   it('未配置的英雄返回 false', () => {
-    const f = createFakeHero({ unitName: 'npc_dota_hero_axe' });
+    const f = createFakeHero({ unitName: 'npc_dota_hero_tinker' });
     expect(canAwaken(f.hero)).toBe(false);
   });
 });
 
 describe('isAwakened', () => {
   it('未配置的英雄返回 false', () => {
-    const f = createFakeHero({ unitName: 'npc_dota_hero_axe' });
+    const f = createFakeHero({ unitName: 'npc_dota_hero_tinker' });
     expect(isAwakened(f.hero)).toBe(false);
   });
 

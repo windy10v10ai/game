@@ -119,4 +119,66 @@
 			"max_stacks"				"100"
 		}
 	}
+
+	// 狙击手 觉醒刺杀
+	// 改为可主动施放的群体暗杀，附带暴击；自动施法被动按几率触发
+	"sniper_assassinate_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"heroes/hero_sniper/sniper_assassinate_upgrade"
+		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilityCastPoint"				"0.03"
+		"AbilityCooldown"				"10.0"
+		"AbilityManaCost"				"200 250 300 350"
+		"AbilityCastRange"				"3000"
+		"AoERadius"						"%scepter_radius"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
+			"particle"		"particles/econ/items/sniper/sniper_charlie/sniper_crosshair_charlie.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
+		}
+
+		"AbilityValues"
+		{
+			"scepter_radius"			"300 350 400 450 500"
+			"scepter_crit_bonus"		"150 180 210 240 280"
+			"trigger_chance"			"4 5 6 7 8"
+			"projectile_speed"			"3000"
+		}
+	}
+
+	// 斧王 自动淘汰之刃
+	// 开启后持续时间内自动对低血量敌人施放淘汰之刃，每次击杀叠加增伤与护甲
+	"axe_auto_culling_blade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/axe_auto_culling_blade"
+		"AbilityTextureName"			"axe_auto_culling_blade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilityCooldown"				"50 45 40 35"
+		"AbilityManaCost"				"50"
+
+		"AbilityValues"
+		{
+			"duration"					"6 7 8 9"
+			"check_interval"			"1 0.8 0.6 0.4"
+			"increase_damage_per_kill"	"3"
+			"armor_per_stack"
+			{
+				"value"					"1 2 3 4"
+			}
+		}
+	}
 }
