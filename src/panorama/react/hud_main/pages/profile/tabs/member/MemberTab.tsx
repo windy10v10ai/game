@@ -10,8 +10,13 @@ import { PointsPage } from './PointsPage';
 // 模块级缓存：MemberTab unmount/remount 之间保留上一次的 sub tab 选择
 let lastMemberSubTab: MemberSubTab = 'status';
 
-export function MemberTab() {
-  const [subTab, setSubTabRaw] = useState<MemberSubTab>(lastMemberSubTab);
+interface MemberTabProps {
+  // 外部跳转指定的初始子页（如积分不足跳转 'points'），优先于模块级缓存
+  initialSubTab?: MemberSubTab;
+}
+
+export function MemberTab({ initialSubTab }: MemberTabProps) {
+  const [subTab, setSubTabRaw] = useState<MemberSubTab>(initialSubTab ?? lastMemberSubTab);
   const setSubTab = (next: MemberSubTab) => {
     lastMemberSubTab = next;
     setSubTabRaw(next);

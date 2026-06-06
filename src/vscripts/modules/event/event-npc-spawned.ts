@@ -140,6 +140,12 @@ export class EventNpcSpawned {
     hero.AddNewModifier(hero, undefined, modifier_intelect_magic_resist.name, {});
 
     if (PlayerHelper.IsHumanPlayer(hero)) {
+      // 中路乱斗模式：玩家出门 3 级，节奏更快
+      if (GameRules.Option.midOnlyMode) {
+        while (hero.GetLevel() < 3) {
+          hero.HeroLevelUp(false);
+        }
+      }
       // 设置会员
       MemberHelper.ApplyMemberModifier(hero);
       const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());

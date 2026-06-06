@@ -16,7 +16,7 @@ export class GA4TreasureTracker {
   public static SendOpen(
     opener: CDOTA_BaseNPC,
     spawnCount: number,
-    point: Vector,
+    vector: Vector,
     tier: TreasureTier,
   ): void {
     const playerId = opener.GetPlayerOwnerID();
@@ -33,7 +33,7 @@ export class GA4TreasureTracker {
       is_bot: isBot,
       level: spawnCount,
       // 与 treasure.ts 中点位定义文本对齐，便于统计每个点被开次数
-      point: `Vector(${point.x}, ${point.y}, ${point.z})`,
+      vector: `Vector(${vector.x}, ${vector.y}, ${vector.z})`,
       tier,
       dota_duration: Math.floor(GameRules.GetDOTATime(false, true)),
     });

@@ -38,6 +38,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type, onOpenMember }) => {
   const lotteryStatus = useNetTable('lottery_status', steamAccountId);
   const player = useNetTable('player_table', steamAccountId);
   const member = player?.member ?? null;
+  const useableMemberPoint = player?.useableMemberPoint ?? 0;
 
   // 监听抽奖数据变化（lotteryDataTableName 为动态 key，无法直接走 useNetTable）
   useEffect(() => {
@@ -81,6 +82,7 @@ const LotteryRow: React.FC<LotteryRowProps> = ({ type, onOpenMember }) => {
         type={type}
         lotteryStatus={lotteryStatus}
         member={member}
+        useableMemberPoint={useableMemberPoint}
         onOpenMember={onOpenMember}
       />
     </Panel>
