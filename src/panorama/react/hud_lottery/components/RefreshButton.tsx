@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
 import { MemberDto } from '../../../../vscripts/api/player';
 import { AbilityItemType } from '../../../../common/dto/lottery';
@@ -118,6 +118,17 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
     );
   };
 
+  const tooltipText = getTooltipText();
+
+  // DOTAShowTextTooltip 是快照式：悬停期间数据变化（点击付费刷新后 cost 进档、积分减少）
+  // 不会自动更新已显示的文本，需在仍悬停时主动重新 dispatch。
+  const hoverPanelRef = useRef<Panel | null>(null);
+  useEffect(() => {
+    if (hoverPanelRef.current) {
+      $.DispatchEvent('DOTAShowTextTooltip', hoverPanelRef.current, tooltipText);
+    }
+  }, [tooltipText]);
+
   const handleButtonClick = () => {
     if (guideToMember) {
       GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
@@ -145,8 +156,14 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
       onactivate={handleButtonClick}
       style={buttonStyle}
       enabled={enabled}
-      onmouseover={(panel) => $.DispatchEvent('DOTAShowTextTooltip', panel, getTooltipText())}
-      onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+      onmouseover={(panel) => {
+        hoverPanelRef.current = panel;
+        $.DispatchEvent('DOTAShowTextTooltip', panel, tooltipText);
+      }}
+      onmouseout={() => {
+        hoverPanelRef.current = null;
+        $.DispatchEvent('DOTAHideTextTooltip');
+      }}
     >
       <Image src={imageSrc} style={imageStyle} />
     </Button>
