@@ -128,9 +128,11 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
 
   const handleButtonClick = () => {
     if (guideToMember) {
+      // 积分不足直达购买积分子页；非会员到会员页
+      const param = isMember && !canAfford ? 'member:points' : 'member';
       GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
         page: 'profile',
-        param: 'member',
+        param,
         playerId: Game.GetLocalPlayerID(),
       });
       onOpenMember?.();
