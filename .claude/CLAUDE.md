@@ -225,6 +225,8 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 
 `hud_main` 的 `NavigationProvider` 通过 `GameEvents.Subscribe('hud_open_page', ...)` 监听，过滤 `playerId === Game.GetLocalPlayerID()` 后切换 currentPage。事件类型在 `src/common/events.d.ts` 的 `CustomGameEventDeclarations` 中声明。
 
+`param` 支持 `'tab:subTab'` 复合格式定位一级 tab 内的子页：页面组件用 `split(':')` 拆解，将 subTab 透传给 tab 组件（如 `ProfilePage` 把 `'member:points'` 拆出后传给 `MemberTab` 的 `initialSubTab`）。
+
 **通用资源位置**：
 
 - 通用组件 / 对话框骨架：`src/panorama/react/shared/components/`
