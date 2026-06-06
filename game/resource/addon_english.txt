@@ -222,10 +222,12 @@
 		"lottery_active_ability_title"							"Select active ability"
 		"lottery_passive_ability_title"							"Select passive ability"
 
-		"lottery_tooltip_ability_refresh"						"Click to reroll bonus abilities."
+		"lottery_tooltip_ability_refresh"						"Click to reroll abilities for free."
 		"lottery_tooltip_ability_refresh_used"					"Ability has been rerolled."
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
+		"lottery_tooltip_ability_refresh_paid"					"Spend <font color='#FFD700'>{cost}</font> useable points to reroll (membership level unchanged)."
+		"lottery_tooltip_ability_refresh_insufficient"			"Not enough useable points. Click to open the membership page."
 
 		"lottery_tooltip_item_refresh"							"Click to reroll items."
 		"lottery_tooltip_item_refresh_used"						"Items have been rerolled."
@@ -906,15 +908,16 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
-		// 火枪暗杀（群体）
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate Upgrade"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Lock onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal a critical strike and mini-stuns all targets. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		// 狙击手 暗杀-觉醒
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>Assassinate - Awakened</font>"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range.<br><br>Normal attacks have a chance to trigger this ability."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spells, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%ATTACK TRIGGER CHANCE:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
@@ -1096,6 +1099,16 @@
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"% ATTACK POWER REDUCTION:"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
+
+		// Axe - Ruthless Hand Awakened
+		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#00ff00'>Ruthless Hand - Awakened"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Active: Auto Cull</font><br>During the duration, Axe automatically casts Culling Blade on enemy heroes within cast range whose health is below the cull threshold.<br><br>Cull threshold = Culling Blade's threshold + Axe's bonus armor<br><br>With autocast enabled, Axe blinks to the target when culling."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"Duration:"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"Kill Interval:"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_increase_damage_per_kill"			"Damage Increase Per Kill:"
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"Ruthless Hand"
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"Has culled %dMODIFIER_PROPERTY_STACKS_COUNT% enemies, permanently increasing Culling Blade's damage."
 
 		// Slark - Scraper King Awakened
 		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>Scraper King - Awakened"
@@ -2405,6 +2418,11 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
+		// 觉醒石
+		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
+
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
 		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>Active: Lotus Shield</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target will heal for %heal_percent%%% of their max HP. The shield lasts for %duration% seconds.<br><br>Applies a basic dispel.\n<h1>Passive: Saint Lotus</h1>Every %block_cooldown% seconds, blocks one targeted spell and heals for %heal_percent%%% of hero max HP. Passive block has independent cooldown and does not use the active cooldown. <br><br>Immune to slow effects."
@@ -3123,6 +3141,8 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Description"				"<h1>Use: Transmute</h1>Smelts all runes in your inventory and transforms them into random types, ignoring original owner.<br><br><font color='#4CAF50'>Cannot fail, and prioritizes transforming into rune types not currently in your inventory.</font>"
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"A carefully refined transmuter stone capable of stably altering rune properties."
 		"dota_hud_error_no_runes"														"No runes available to transmute in inventory!"
+		"dota_hud_error_awaken_stone_unsupported"										"This hero has no ability to awaken"
+		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
 
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"
