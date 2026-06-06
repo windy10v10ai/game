@@ -1,5 +1,8 @@
-import { abilityTiersPassive } from '../lottery/ability/lottery-abilities';
 import { AbilityLotteryHelper } from '../lottery/ability/ability-lottery-helper';
+import {
+  abilityTiersPassive,
+  butterflyPassiveAbilities,
+} from '../lottery/ability/lottery-abilities';
 import { GetBotBuildConfig } from './bot-build-config';
 
 export class BotAbility {
@@ -29,7 +32,7 @@ export class BotAbility {
       abilityTiersPassive,
       2,
       currentHero,
-      [],
+      [...butterflyPassiveAbilities],
       isHighTier,
     );
     const abilityName1 = results[0].name;
