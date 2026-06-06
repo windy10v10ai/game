@@ -180,7 +180,7 @@
 		"lottery_tooltip_ability_refresh_used"					"Способности изменены"
 		"lottery_tooltip_ability_refresh_picked"				"Способность выбрана"
 		"lottery_tooltip_ability_refresh_not_member"			"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
-		"lottery_tooltip_ability_refresh_paid"					"{cost} доступных очков для изменения (уровень поддержки не меняется)"
+		"lottery_tooltip_ability_refresh_paid"					"Потратить {cost} доступных очков на изменение (уровень поддержки не меняется)"
 		"lottery_tooltip_ability_refresh_insufficient"			"Недостаточно доступных очков (нужно {cost}). Нажмите, чтобы открыть страницу поддержки"
 
 		"lottery_tooltip_item_refresh"							"Нажмите, чтобы изменить предметы"
