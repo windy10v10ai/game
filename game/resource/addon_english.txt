@@ -226,8 +226,8 @@
 		"lottery_tooltip_ability_refresh_used"					"Ability has been rerolled."
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
-		"lottery_tooltip_ability_refresh_paid"					"Reroll for {cost} member points."
-		"lottery_tooltip_ability_refresh_insufficient"			"Not enough member points (need {cost}). Click to open the membership page."
+		"lottery_tooltip_ability_refresh_paid"					"{cost} useable points to reroll (membership level unchanged)."
+		"lottery_tooltip_ability_refresh_insufficient"			"Not enough useable points (need {cost}). Click to open the membership page."
 
 		"lottery_tooltip_item_refresh"							"Click to reroll items."
 		"lottery_tooltip_item_refresh_used"						"Items have been rerolled."

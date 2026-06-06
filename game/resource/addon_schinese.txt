@@ -226,8 +226,8 @@
 		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
 		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
-		"lottery_tooltip_ability_refresh_paid"					"消耗 {cost} 会员积分刷新技能"
-		"lottery_tooltip_ability_refresh_insufficient"			"会员积分不足（需 {cost}），点击前往会员页"
+		"lottery_tooltip_ability_refresh_paid"					"{cost} 可用积分刷新技能（不降低会员等级）"
+		"lottery_tooltip_ability_refresh_insufficient"			"可用积分不足（需 {cost}），点击前往会员页"
 
 		"lottery_tooltip_item_refresh"							"点击刷新物品"
 		"lottery_tooltip_item_refresh_used"						"物品已刷新"
