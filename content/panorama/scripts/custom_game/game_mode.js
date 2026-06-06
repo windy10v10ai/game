@@ -335,8 +335,8 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
   const random = Math.random();
-  const chanceSurvivor = 0.2;
-  const chanceOMGAI = 0.4;
+  const chanceSurvivor = 0.5;
+  const chanceOMGAI = 1;
   if (random < chanceSurvivor) {
     $('#DotaSurvivorPanel').visible = true;
     $('#OMGAIPanel').visible = false;

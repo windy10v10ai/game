@@ -362,3 +362,14 @@ export const abilityTiersPassive: Tier[] = [
     ],
   },
 ];
+
+// 蝴蝶系列被动过强，bot 抽到会严重影响玩家体验，需从 bot 抽取池中排除
+export const butterflyPassiveAbilities = [
+  'ability_trigger_on_active', // 紫蝴蝶
+  'ability_trigger_learned_skills', // 蓝蝴蝶
+  'ability_trigger_on_spell_reflect', // 绿蝴蝶
+  'ability_charge_damage', // 青蝴蝶
+  'ability_trigger_on_cast', // 红蝴蝶
+  'ability_trigger_on_attacked', // 金蝴蝶
+  'ability_trigger_on_move', // 橙影蝴蝶
+];
