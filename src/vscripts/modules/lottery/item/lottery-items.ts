@@ -19,6 +19,7 @@ export const itemTiers: Tier[] = [
       'item_fusion_agile', // 灵动符文
       'item_universal_rune', // 通用符文
       'item_tome_of_luoshu', // 洛书
+      'item_awaken_stone', // 觉醒石
     ],
   },
   // 特殊物品

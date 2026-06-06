@@ -4,7 +4,8 @@
   "scripts": {
     "postinstall": "patch-package && node src/scripts/install.js",
     "launch": "node src/scripts/launch.js",
-    "predeploy": "node src/scripts/deploy.js",
+    "predeploy": "npm run build && node src/scripts/deploy.js",
+    "deploy": "node src/scripts/publish.js",
     "build": "run-p build:*",
     "build:panorama": "node --preserve-symlinks node_modules/webpack/bin/webpack.js --config src/panorama/webpack.prod.js",
     "build:vscripts": "tstl --project src/vscripts/tsconfig.json",

@@ -292,7 +292,7 @@ export class EventEntityKilled {
         }
       });
 
-      // 击杀肉山奖励 确保召唤物 幻想击杀也触发 用队伍判断
+      // 击杀肉山奖励，用队伍判断 确保召唤物/幻象召击杀也触发
       if (PlayerHelper.IsGoodTeamUnit(attacker)) {
         // 龙珠掉落，不重复掉落
         this.dropItemListDragonBall = this.dropItem(
@@ -306,10 +306,8 @@ export class EventEntityKilled {
         const roshanBonusPool =
           RandomFloat(0, 1) < 0.5 ? [this.itemTomeOfAbilityReset] : this.dropItemListFusionMaterial;
         this.dropItem(creep, roshanBonusPool, this.dropItemChanceRoshan);
-      }
 
-      // 人类玩家击杀肉山：全体人类玩家各获得一次 PREMIUM 物品抽奖
-      if (PlayerHelper.IsHumanPlayer(attacker)) {
+        // 击杀肉山：全体人类玩家各获得一次 PREMIUM 物品抽奖
         PlayerHelper.ForEachPlayer((playerId) => {
           if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
           const hero = PlayerResource.GetSelectedHeroEntity(playerId);

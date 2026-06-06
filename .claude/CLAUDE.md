@@ -181,6 +181,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **模拟**: 在测试中通过 `global.GameRules = { ... }` 模拟 Dota 全局变量
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
 - **测试范围**: 只验证自己写的状态/分支逻辑。Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）mock 作为占位防崩，不要用 `toHaveBeenCalledWith` 断言它们的参数——那是在测引擎契约不是自己的代码
+- **不为强依赖引擎 API 的逻辑过度搭 mock**: 当一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，**不要**为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）去测引擎行为。这类运行时行为由作者手动在 Dota tools 确认。mock 只保留占位防崩（返回个固定值不崩即可）
 
 ### 构建系统
 
@@ -270,15 +271,20 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **新建 KV 文件**: 在 `game/scripts/npc/` 下新建任何 `.txt` 文件后，必须在 `npc_abilities_custom.txt`（或对应的主入口文件）顶部添加 `#base "<filename>.txt"` 引入，否则引擎不会加载该文件
 - **本地化文件模块顺序**: `addon_english.txt` / `addon_schinese.txt` 中各模块的排列顺序为：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）
 - **TSTL 对象 spread 不可传 undefined**: 在 `src/vscripts/` 中**禁止**对可能为 `undefined` 的对象使用 spread（`{ ...maybeUndefined }` 或 `{ ...obj?.maybeUndefined }`）。TSTL 把对象 spread 编成 `__TS__ObjectAssign`，内部用 `pairs(...)` 遍历每个参数，传到 `nil` 会运行时 crash `bad argument #1 to 'pairs' (table expected, got nil)`。改用显式 if 判断 + 手动赋值，或用 `?? {}` 兜底后再 spread。jest 测试不会暴露此问题，必须在 Dota tools 实跑验证
+- **改完 vscripts 只需 TS 编译通过**: 修改 `src/vscripts/` 后用 `npm run build:vscripts` 验证，**只要不报错即可，不要去读 `game/scripts/vscripts/` 下编译生成的 `.lua` 产物**对照（浪费时间，产物是 TSTL 自动生成的）。运行时行为靠 jest（自己的分支逻辑）+ Dota tools 实跑验证
+- **TSTL 枚举用 normalized 成员名**: `src/vscripts/` 中引用 Dota 枚举成员时去掉原生前缀（`UF_` / `DOTA_` 等），如 `UnitFilterResult.FAIL_CUSTOM`（**不是** `UF_FAIL_CUSTOM`）、`UnitFilterResult.SUCCESS`。TSTL 编译时会自动内联回 Lua 原生名（`UF_FAIL_CUSTOM`）。用带前缀的名字 TS 会报 `Property 'UF_XXX' does not exist`
+- **施法错误飘字须 CastFilterResult + GetCustomCastError 配套**: 自定义物品/技能要在施法前拦截并飘字提示时，仅实现 `GetCustomCastError()` 无效——引擎只在 `CastFilterResult()` 返回 `UnitFilterResult.FAIL_CUSTOM` 时才去取错误文本。两者须配套（用同一判据）。错误文本 key 在本地化文件中**定义不带 `#`**（如 `dota_hud_error_xxx`），代码返回时**带 `#`**（`#dota_hud_error_xxx`）
 - **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
 - **Net Table 清行不能传 nil**: `CustomNetTables.SetTableValue(table, key, nil)` 在 Dota 引擎下是 **noop**，不会删除或同步空值给客户端。如需清行，传**空 table**（数组类用 `[]`、对象类用 `{}`），客户端 `Object.values(value).length === 0` 即可识别为空
 - **React Panorama 条件返回不同 panel 结构会渲染失败**: 在 React 组件中根据状态返回**完全不同的 JSX 结构**（例如 `if (empty) return <Panel collapse />; return <Panel>...复杂子树...</Panel>;`）会导致 panel 在 Panorama DOM 中始终缺失。改为**始终渲染同一 panel 树**，用 `style={{ visibility: cond ? 'visible' : 'collapse' }}` 切换显隐
 
 ### 图片资源管理
 
-**两类图片，存放位置不同：**
+**三类图片，存放位置不同：**
 
-#### 技能图标（`AbilityTextureName`）
+> **先判断是否需要放 png**：若 `AbilityTextureName` 引用的是 **Dota2 已有的原版 texture**（原版技能/物品名），直接写名字引用即可，**无需**放任何 png；只有**自定义图标**才需把 png 放进下面的目录。自定义图标来源是从 Dota2 自带 texture 资源（解包 `.vtex_c`）提取或自制的同名 `.png`。
+
+#### 技能图标（`AbilityTextureName`，技能 `ability_xxx`）
 
 放在 `game/resource/flash3/images/spellicons/<name>.png`，KV 中直接用文件名引用：
 
@@ -287,6 +293,16 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 ```
 
 引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。
+
+#### 物品图标（`AbilityTextureName`，物品 `item_xxx`）
+
+放在 `game/resource/flash3/images/items/<name>.png`，机制与技能图标相同：
+
+```
+"AbilityTextureName"    "awaken_stone"
+```
+
+引擎自动在 `items/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。图标名建议与物品名去掉 `item_` 前缀保持一致。
 
 #### Panorama UI 图片
 
