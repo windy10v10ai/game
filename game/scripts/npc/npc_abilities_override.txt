@@ -2979,6 +2979,8 @@
 	// 腐肉堆积
 	"pudge_innate_graft_flesh"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+		"IsOnCastBar"					"1"
 		"AbilityValues"
 		{
 			"flesh_heap_strength_buff_amount"

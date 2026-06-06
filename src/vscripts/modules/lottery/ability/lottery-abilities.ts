@@ -301,6 +301,7 @@ export const abilityTiersPassive: Tier[] = [
       'antimage_mana_break', // 法力损毁
       'lina_fiery_soul', // 炽魂
       'alchemist_goblins_greed2', // 贪婪
+      'pudge_innate_graft_flesh', // 腐肉堆积
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃
