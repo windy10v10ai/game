@@ -128,14 +128,16 @@
 		"ScriptFile"					"heroes/hero_sniper/sniper_assassinate_upgrade"
 		"AbilityTextureName"			"sniper_assassinate_muh_keen_gun"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
-		"MaxLevel"						"5"
+		"MaxLevel"						"4"
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
-		"AbilityCastPoint"				"0.03"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"10.0"
-		"AbilityManaCost"				"200 250 300 350"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityCastRange"				"3000"
 		"AoERadius"						"%scepter_radius"
 
@@ -148,9 +150,13 @@
 
 		"AbilityValues"
 		{
-			"scepter_radius"			"300 350 400 450 500"
-			"scepter_crit_bonus"		"150 180 210 240 280"
-			"trigger_chance"			"4 5 6 7 8"
+			"scepter_radius"
+			{
+				"value"						"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"scepter_crit_bonus"		"180 210 240 270"
+			"trigger_chance"			"4 5 6 7"
 			"projectile_speed"			"3000"
 		}
 	}

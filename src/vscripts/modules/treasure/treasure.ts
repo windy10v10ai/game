@@ -30,6 +30,7 @@ export class Treasure {
     Vector(-5491, 167, 128),
     Vector(-5301, 1588, 128),
     Vector(-3159, 434, 256),
+    Vector(-4449, -1329, 256),
 
     // 天辉下路主野区
     Vector(-89, -3109, 136),
@@ -40,10 +41,8 @@ export class Treasure {
     Vector(3073, -5553, 128),
 
     // 天辉下路外野区
-    Vector(-110, -7129, 128),
-    Vector(-1927, -8665, 128),
     Vector(-3, -8447, 128),
-    Vector(6368, -8416, 0),
+    Vector(4640, -7205, 128),
   ];
 
   // 中期点位：天辉野区
@@ -70,9 +69,12 @@ export class Treasure {
     Vector(2573, -5352, 256),
 
     // 天辉下路外野区
+    Vector(-110, -7129, 128),
     Vector(2039, -7166, 128),
     Vector(-360, -8686, 128),
     Vector(7692, -7822, 256),
+    Vector(-1927, -8665, 128),
+    Vector(6368, -8416, 0),
 
     // 夜魇上路外野区
     Vector(-7497, 3299, 128),
@@ -227,7 +229,7 @@ export class Treasure {
 
   static mapToLotteryPool(openCount: number): ItemLotteryPool {
     if (openCount <= 1) return ItemLotteryPool.INITIAL;
-    if (openCount >= 7) return ItemLotteryPool.PREMIUM;
+    if (openCount >= 5) return ItemLotteryPool.PREMIUM;
     return ItemLotteryPool.DEFAULT;
   }
 
