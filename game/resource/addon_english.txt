@@ -222,10 +222,12 @@
 		"lottery_active_ability_title"							"Select active ability"
 		"lottery_passive_ability_title"							"Select passive ability"
 
-		"lottery_tooltip_ability_refresh"						"Click to reroll bonus abilities."
+		"lottery_tooltip_ability_refresh"						"Click to reroll abilities for free."
 		"lottery_tooltip_ability_refresh_used"					"Ability has been rerolled."
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
+		"lottery_tooltip_ability_refresh_paid"					"Spend <font color='#FFD700'>{cost}</font> useable points to reroll (membership level unchanged)."
+		"lottery_tooltip_ability_refresh_insufficient"			"Not enough useable points. Click to open the membership page."
 
 		"lottery_tooltip_item_refresh"							"Click to reroll items."
 		"lottery_tooltip_item_refresh_used"						"Items have been rerolled."

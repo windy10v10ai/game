@@ -136,4 +136,24 @@ export class Player {
     const player = Player.playerInfoMap.get(steamId.toString());
     return player?.seasonLevel ?? 0;
   }
+
+  public static GetUseableMemberPoint(steamId: number) {
+    const player = Player.playerInfoMap.get(steamId.toString());
+    return player?.useableMemberPoint ?? 0;
+  }
+
+  /**
+   * 本地预扣可用会员积分（乐观更新），同步到 net table。
+   * 服务端真实扣分以 member-points/use 回包 merge 为准，此处仅消除回包前的显示延迟。
+   */
+  public static DeductUseableMemberPoint(steamId: number, point: number) {
+    const player = Player.playerInfoMap.get(steamId.toString());
+    if (!player) {
+      return;
+    }
+    Player.MergePlayerInfo({
+      id: player.id,
+      useableMemberPoint: Math.max(0, player.useableMemberPoint - point),
+    });
+  }
 }
