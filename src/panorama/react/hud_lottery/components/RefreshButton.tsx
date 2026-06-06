@@ -107,10 +107,7 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
       return $.Localize('#lottery_tooltip_ability_refresh');
     }
     if (!canAfford) {
-      return $.Localize('#lottery_tooltip_ability_refresh_insufficient').replace(
-        '{cost}',
-        nextCost.toString(),
-      );
+      return $.Localize('#lottery_tooltip_ability_refresh_insufficient');
     }
     return $.Localize('#lottery_tooltip_ability_refresh_paid').replace(
       '{cost}',
