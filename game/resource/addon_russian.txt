@@ -93,6 +93,7 @@
 		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
 		"ScepterSelectedHeroes_Button"				"Аганим"
 		"ShardSelectedHeroes_Button"				"Осколок"
+		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
 		"InvulnOn_Button"							"Неуязвимость вкл."
 		"InvulnOff_Button"							"Неуязвимость выкл."
 		"Reset_Button"								"Сбросить"

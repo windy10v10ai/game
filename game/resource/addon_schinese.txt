@@ -129,6 +129,7 @@
 		"MaxLevelUpSelectedHeroes_Button"			"满级加钱"
 		"ScepterSelectedHeroes_Button"				"神杖"
 		"ShardSelectedHeroes_Button"				"魔晶"
+		"AwakenStoneSelectedHeroes_Button"			"觉醒石"
 		"InvulnOn_Button"							"开启无敌"
 		"InvulnOff_Button"							"关闭无敌"
 		"Reset_Button"								"重置"
@@ -1066,7 +1067,7 @@
 // 					Awaken Abilities 觉醒技能
 
 		// 屠夫 肉钩-觉醒
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>肉钩-觉醒"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离和钩子速度随帕吉的力量值增加，每点力量增加%hook_distance_per_strength%，额外距离上限%hook_max_distance_bonus%。</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
@@ -1076,7 +1077,7 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
 
 		// 剑圣 剑刃风暴-觉醒
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>剑刃风暴-觉醒"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力%attack_damage_pct%%%的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
@@ -1086,7 +1087,7 @@
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
 
 		// 斧王 无情铁手-觉醒
-		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#00ff00'>无情铁手-觉醒"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>主动释放：自动斩杀</font><br>持续时间内，斧王会自动斩杀施法范围内血量低于斩杀线的敌方英雄。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>开启自动施法后，斩杀时会突进到敌人身边。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"持续时间："
@@ -1096,12 +1097,48 @@
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"已斩杀 %dMODIFIER_PROPERTY_STACKS_COUNT% 次敌人，淘汰之刃伤害获得永久提升。"
 
 		// 斯拉克 刮痧之王-觉醒
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>刮痧之王-觉醒"
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#d000ff'>刮痧之王 觉醒</font>"
 		"DOTA_Tooltip_ability_break_speed_limit_Description"							"当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
 		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"每次击杀突破攻速上限："
 		"DOTA_Tooltip_ability_break_speed_limit_duration"								"持续时间："
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"刮痧之王"
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"每层提高攻速上限50点。"
+
+		// 死灵法师 竭心光环-觉醒
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"死灵法师让敌人的心脏停跳，使附近敌方单位按最大生命值一定百分比持续流失生命。<br><br><font color='#d000ff'>造成的伤害可以被技能增强。</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>神杖升级：将死灵法师的生命恢复值的%heal_regen_to_damage%%%转化为额外伤害</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"将死灵法师的生命恢复值的%heal_regen_to_damage%%%转化为额外伤害"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"作用范围："
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"%每秒最大生命值伤害："
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"治疗降低："
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"%生命恢复转化为伤害（神杖）："
+
+		// 卓尔游侠 数箭连发-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>数箭连发 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"向单个敌人连续发射多支箭矢，每箭造成一次普通攻击。<br><br>与数箭齐发共享冷却、同步升级。"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_shots"			"箭矢数："
+
+		// 宙斯 神王-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯会自动普攻弧形闪电和雷击命中的目标。"
+
+		// 幻影刺客 幻影突袭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>魔法免疫</font>，并自动发起攻击。"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"攻击速度加成："
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"持续时间："
+
+		// 巫医 神语-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医的死亡守卫额外继承本体%damage_percentage%%%的攻击力。<br><br>巫医智慧突破极限，可以沟通神明召唤更多的死亡守卫（上限%max_ward_num%个），但额外守卫无基础攻击力。"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"%守卫继承攻击力："
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"额外1个死亡守卫所需智力："
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"额外守卫上限："
+
+		// 影魔 安魂曲护体-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得10个灵魂，击杀小兵获得3个灵魂。"
 
 		///////////////////////////////////////////////////
 		//
@@ -2444,7 +2481,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、斯拉克、狙击手、斧王\n可以分享给队友"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、斯拉克、狙击手、斧王、死灵法师、卓尔游侠、宙斯、幻影刺客、巫医、影魔\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 圣女白莲

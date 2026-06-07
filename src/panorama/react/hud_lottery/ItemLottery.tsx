@@ -80,6 +80,7 @@ const getTierGlow = (level: number): string => {
     3: colors.tier3,
     4: colors.tier4,
     5: colors.tier5,
+    6: colors.tier5, // T6 沿用 T5 颜色
   };
   return `0 0 2px 1px ${map[level] ?? colors.tier1}`;
 };

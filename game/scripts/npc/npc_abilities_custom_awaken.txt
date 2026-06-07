@@ -187,4 +187,306 @@
 			}
 		}
 	}
+
+	// 死灵法师 竭心光环-觉醒
+	// 重写为 DataDriven 脚本伤害，可吃技能增强；伤害削弱，aura_damage 为每秒最大生命百分比
+	"necrolyte_heartstopper_aura_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura"
+		"HasScepterUpgrade"				"1"
+		"IsBreakable"					"1"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"aura_radius"
+			{
+				"value"						"700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"aura_damage"
+			{
+				"value"							"0.6 0.9 1.2 1.5 1.8"
+				"special_bonus_unique_necrophos_2"	"+0.5"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
+				"display_type"					"kMagicalDamagePercentage"
+			}
+			"aura_damage_interval"		"0.5"
+			"heal_reduction_pct"
+			{
+				"value"					"0"
+				"special_bonus_unique_necrophos_5"	"-20"
+			}
+			"heal_regen_to_damage"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"+40"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_heartstopper_aura_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"0"
+				"Aura"			"modifier_heartstopper_debuff_datadriven"
+				"Aura_Radius"	"%aura_radius"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+
+			"modifier_heartstopper_debuff_datadriven"
+			{
+				"IsDebuff"		"1"
+				"IsHidden"		"0"
+				"IsPurgable"	"0"
+				"ThinkInterval"	"%aura_damage_interval"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET"	"%heal_reduction_pct"
+					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%heal_reduction_pct"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/heartstopper_aura"
+						"Function"		"HeartstopperAura"
+					}
+				}
+			}
+		}
+	}
+
+	// 卓尔游侠 数箭连发-觉醒
+	// 对单体连续普攻，箭数=数箭齐发等级+shots；与数箭齐发同步升级、共享冷却
+	"special_bonus_unique_drow_ranger_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"ScriptFile"					"abilities/special_bonus_unique_drow_ranger_upgrade"
+		"AbilityTextureName"			"drow_ranger/immortal/drow_ranger_wave_of_silence"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityCastRange"				"1000"
+		"AbilitySharedCooldown"			"drow_ranger_multishot"
+		"MaxLevel"						"5"
+		"LinkedAbility"					"drow_ranger_multishot"
+		"AbilityManaCost"				"100"
+		"AbilityCastPoint"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		"AbilityValues"
+		{
+			"shots"
+			{
+				"value"							"3 4 5 6 7"
+				"special_bonus_unique_drow_ranger_8"	"+2"
+			}
+			"AbilityCooldown"
+			{
+				"value"							"22 20 18 16 14"
+				"special_bonus_unique_drow_ranger_6"	"-6"
+			}
+			"interval"	"0.2"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/special_bonus_unique_drow_ranger_upgrade"
+				"Function"		"OnSpellStart"
+				"Target"		"TARGET"
+				"Caster"		"CASTER"
+				"shots"			"%shots"
+				"interval"		"%interval"
+			}
+		}
+	}
+
+	// 宙斯 神王-觉醒
+	// 新增被动：开启自动施法后，弧形闪电/雷击命中目标会触发宙斯自动普攻
+	"special_bonus_unique_zuus_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"ScriptFile"					"abilities/special_bonus_unique_zuus_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityTextureName"			"zuus_static_field_alt1"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"aoe_radius"
+			{
+				"value"						"325"
+				"special_bonus_unique_zeus_5"	"325"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_zuus_upgrade"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"RemoveOnDeath"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_zuus_upgrade"
+						"Function"		"OnAbilityExecuted"
+						"aoe_radius"	"%aoe_radius"
+					}
+				}
+			}
+		}
+	}
+
+	// 幻影刺客 幻影突袭-觉醒
+	// 闪烁到目标身旁，获得短暂攻速加成与魔法免疫后自动攻击
+	"special_bonus_unique_phantom_assassin_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"ScriptFile"					"abilities/special_bonus_unique_phantom_assassin_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"phantom_assassin_arcana_phantom_strike"
+		"MaxLevel"						"5"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+		}
+
+		"AbilityCastPoint"				"0.3"
+		"AbilityManaCost"				"50"
+
+		"AbilityValues"
+		{
+			"bonus_attack_speed"
+			{
+				"value"											"80 120 160 200 240"
+				"special_bonus_unique_phantom_assassin_strike_aspd"	"+60"
+			}
+			"untargetable_duration"
+			{
+				"value"						"2.0"
+				"special_bonus_unique_phantom_assassin_4"	"+0.8"
+			}
+			"AbilityCastRange"
+			{
+				"value"											"650 750 850 950 1050"
+				"special_bonus_unique_phantom_assassin_6"	"+200"
+			}
+			"AbilityCooldown"				"14 12 10 8 6"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/special_bonus_unique_phantom_assassin_upgrade"
+				"Function"		"OnSpellStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_phantom_strike_datadriven"
+			{
+				"IsBuff"	"1"
+				"Duration"	"%untargetable_duration"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+				}
+			}
+		}
+	}
+
+	// 巫医 神语-觉醒
+	// 死亡守卫继承本体攻击力，并按智力额外召唤死亡守卫（无基础攻击力）
+	"special_bonus_unique_witch_doctor_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"witch_doctor/ribbitar_icon/witch_doctor_death_ward"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"damage_percentage"	"5"
+			"search_radius"		"300"
+			"intvalve"			"500"
+			"max_ward_num"		"4"
+			"spawn_radius"		"500"
+		}
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_witch_doctor_upgrade"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"RemoveOnDeath"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_witch_doctor_upgrade"
+						"Function"		"OnAbilityExecuted"
+						"damage_percentage"	"%damage_percentage"
+						"search_radius"		"%search_radius"
+						"intvalve"			"%intvalve"
+						"max_ward_num"		"%max_ward_num"
+						"spawn_radius"		"%spawn_radius"
+					}
+				}
+			}
+		}
+	}
+
+	// 影魔 魂之挽歌护体-觉醒
+	// 新增被动：释放魂之挽歌前摇期间获得魔法免疫；并提升支配死灵击杀英雄灵魂=10、小兵=3（见 override 联动）
+	"special_bonus_unique_nevermore_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/special_bonus_unique_nevermore_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"nevermore_dark_lord_demon"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"invulnerability_duration"	"1.67"
+		}
+	}
 }

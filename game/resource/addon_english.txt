@@ -129,6 +129,7 @@
 		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
 		"ScepterSelectedHeroes_Button"				"Scepter"
 		"ShardSelectedHeroes_Button"				"Shard"
+		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
 		"InvulnOn_Button"							"Invuln On"
 		"InvulnOff_Button"							"Invuln Off"
 		"Reset_Button"								"Reset"
@@ -909,7 +910,7 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
 		// 狙击手 暗杀-觉醒
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>Assassinate - Awakened</font>"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>Assassinate Awakened</font>"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range.<br><br>Normal attacks have a chance to trigger this ability."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
@@ -1081,7 +1082,7 @@
 // 					Awaken Abilities 觉醒技能
 
 		// Pudge - Meat Hook Awakened
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>Meat Hook - Awakened"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range and hook speed increase with Pudge's strength, granting %hook_distance_per_strength% per point of strength, up to %hook_max_distance_bonus% bonus range.</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
@@ -1091,7 +1092,7 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
 
 		// Juggernaut - Blade Fury Awakened
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>Blade Fury - Awakened"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, dealing magic damage equal to base damage + %attack_damage_pct%%% of current attack power to surrounding enemies. Grants debuff immunity and %magic_resistance_bonus%%% magic resistance.<br>Can attack normally, but attack power is reduced."
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
@@ -1101,7 +1102,7 @@
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
 
 		// Axe - Ruthless Hand Awakened
-		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#00ff00'>Ruthless Hand - Awakened"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Active: Auto Cull</font><br>During the duration, Axe automatically casts Culling Blade on enemy heroes within cast range whose health is below the cull threshold.<br><br>Cull threshold = Culling Blade's threshold + Axe's bonus armor<br><br>With autocast enabled, Axe blinks to the target when culling."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"Duration:"
@@ -1111,12 +1112,48 @@
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"Has culled %dMODIFIER_PROPERTY_STACKS_COUNT% enemies, permanently increasing Culling Blade's damage."
 
 		// Slark - Scraper King Awakened
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>Scraper King - Awakened"
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#d000ff'>Scraper King Awakened</font>"
 		"DOTA_Tooltip_ability_break_speed_limit_Description"							"When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
 		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
 		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"Each stack increases the attack speed cap by 50."
+
+		// Necrophos Heartstopper Aura - Awakened
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time.<br><br><font color='#d000ff'>The damage can be amplified by abilities.</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>Scepter Upgrade: Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"Radius:"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"% Max Health Damage per Second:"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"Healing Reduction:"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
+
+		// Drow Ranger Multishot Barrage - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Multishot Barrage Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Fires multiple arrows at a single enemy in rapid succession, each dealing one attack.<br><br>Shares cooldown and levels up with Multishot."
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_shots"			"Arrows:"
+
+		// Zeus God King - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When auto-cast is enabled, Zeus attacks the targets hit by Arc Lightning and Thundergod's Wrath."
+
+		// Phantom Assassin Phantom Strike - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>Phantom Strike Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and <font color='#FFCC66'>magic immunity</font> briefly, then automatically attacks."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"Bonus Attack Speed:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"Duration:"
+
+		// Witch Doctor Divine Words - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"Witch Doctor's Death Wards inherit an additional %damage_percentage%%% of his attack damage.<br><br>His wisdom breaks the limit, summoning additional Death Wards (up to %max_ward_num%) by communing with the gods, though the extra wards have no base attack damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"% Ward Inherited Damage:"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"Intelligence per Extra Death Ward:"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"Max Extra Wards:"
+
+		// Shadow Fiend Requiem Guard - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants 10 souls per hero kill and 3 souls per unit kill."
 
 		///////////////////////////////////////////////////
 		//
@@ -2420,7 +2457,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe, Necrophos, Drow Ranger, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
 
 		// 圣女白莲
