@@ -16,6 +16,7 @@ export const itemTiers: Tier[] = [
     names: [
       'item_tome_of_luoshu', // 洛书
       'item_universal_rune', // 通用符文
+      'item_passive_skill_tome', // 被动技能书
     ],
   },
   // 终极物品
