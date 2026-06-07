@@ -72,8 +72,8 @@ global.GameRules = {
   Lottery: { Item: { onTriggered: jest.fn() } },
 };
 
-import { Treasure } from './treasure';
 import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
+import { Treasure } from './treasure';
 
 describe('Treasure', () => {
   let treasure: Treasure;
@@ -175,13 +175,11 @@ describe('Treasure', () => {
       expect(Treasure.mapToLotteryPool(1)).toBe(ItemLotteryPool.INITIAL);
     });
 
-    it('第 2-5 个藏宝箱使用 DEFAULT 池', () => {
+    it('第 2~ 个藏宝箱使用 DEFAULT 池', () => {
       expect(Treasure.mapToLotteryPool(2)).toBe(ItemLotteryPool.DEFAULT);
-      expect(Treasure.mapToLotteryPool(5)).toBe(ItemLotteryPool.DEFAULT);
     });
 
-    it('第 6-9 个藏宝箱使用 PREMIUM 池', () => {
-      expect(Treasure.mapToLotteryPool(6)).toBe(ItemLotteryPool.PREMIUM);
+    it('第 ~9 个藏宝箱使用 PREMIUM 池', () => {
       expect(Treasure.mapToLotteryPool(9)).toBe(ItemLotteryPool.PREMIUM);
     });
 

@@ -10,17 +10,6 @@ jest.mock('../../api/player', () => ({
   },
 }));
 
-jest.mock('../../api/analytics/analytics', () => ({
-  Analytics: {
-    PLAYER_LANGUAGES: {
-      players: [],
-      matchId: '',
-      version: '',
-    },
-  },
-}));
-
-import { Analytics } from '../../api/analytics/analytics';
 import { MemberLevel } from '../../api/player';
 import { VirtualGoldBank } from './virtual-gold-bank';
 
@@ -102,13 +91,6 @@ describe('VirtualGoldBank', () => {
       SendCustomMessage: jest.fn(),
     };
     (global as GlobalMocks).GameRules = mockGameRules;
-
-    // Mock Analytics
-    Analytics.PLAYER_LANGUAGES = {
-      players: [],
-      matchId: '',
-      version: '',
-    };
 
     // Mock print
     (global as GlobalMocks).print = jest.fn();

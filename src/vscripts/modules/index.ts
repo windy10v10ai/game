@@ -1,6 +1,6 @@
 import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
-import { Analytics } from '../api/analytics/analytics';
+import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-language-tracker';
 import { ConductApi } from '../api/conduct';
 import { PlayerInfoApi } from '../api/player-info';
 import { PlayerPropertyApi } from '../api/player-property';
@@ -23,7 +23,6 @@ declare global {
     GameConfig: GameConfig;
     Option: Option;
     Lottery: Lottery;
-    Analytic: Analytics;
     Event: Event;
     GoldXPFilter: GoldXPFilter;
     Treasure: Treasure;
@@ -54,6 +53,9 @@ export function ActivateModules() {
     new PlayerSettingApi();
     new AlipayApi();
     new ConductApi();
+
+    // 玩家语言统计：监听 player_language 事件，收到即发 GA4 并缓存供 mid-only-mode 查询
+    new GA4PlayerLanguageTracker();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();
@@ -63,8 +65,6 @@ export function ActivateModules() {
   if (GameRules.Option == null) GameRules.Option = new Option();
 
   if (GameRules.Lottery == null) GameRules.Lottery = new Lottery();
-
-  if (GameRules.Analytic == null) GameRules.Analytic = new Analytics();
 
   if (GameRules.Event == null) GameRules.Event = new Event();
 
