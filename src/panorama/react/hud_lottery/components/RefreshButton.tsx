@@ -6,6 +6,7 @@ import { isMemberActive } from '../../shared/utils/member';
 
 // 与后端 ability-lottery.ts paidRefreshCosts 保持一致
 const PAID_REFRESH_COSTS = [10, 20, 30, 50];
+const MAX_PAID_REFRESH_COUNT = 5;
 
 interface RefreshButtonProps {
   type: AbilityItemType;
@@ -79,16 +80,18 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
   const isRefreshed = getIsRefreshed(type, lotteryStatus);
   const pickedName = getPickedName(type, lotteryStatus);
   const paidCount = getPaidCount(type, lotteryStatus);
+  const remainingPaidRefreshCount = Math.max(0, MAX_PAID_REFRESH_COUNT - paidCount);
+  const isPaidRefreshLimitReached = isRefreshed && remainingPaidRefreshCount <= 0;
 
-  // 付费阶段（免费已用过）下次消耗，免费阶段为 0
+  // 会员积分刷新阶段（免费已用过）下次消耗，免费阶段为 0
   const nextCost = isRefreshed ? getPaidRefreshCost(paidCount) : 0;
   const canAfford = useableMemberPoint >= nextCost;
 
-  // 引导态：非会员、或会员付费但积分不足，按钮可点但点击跳转会员/充值页
-  const guideToMember = !isMember || (isRefreshed && !canAfford);
+  // 引导态：非会员、或会员积分不足，按钮可点但点击跳转会员/充值页
+  const guideToMember = !isMember || (isRefreshed && !isPaidRefreshLimitReached && !canAfford);
 
   // 已选技能锁定该行，禁用；其余情况按钮都可点（引导态点击跳转）
-  const enabled = !pickedName;
+  const enabled = !pickedName && !isPaidRefreshLimitReached;
 
   // 仅可正常刷新时显示亮色 token，引导态/禁用态用灰显图标
   const imageSrc =
@@ -106,18 +109,20 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
     if (!isRefreshed) {
       return $.Localize('#lottery_tooltip_ability_refresh');
     }
+    if (isPaidRefreshLimitReached) {
+      return $.Localize('#lottery_tooltip_ability_refresh_limit');
+    }
     if (!canAfford) {
       return $.Localize('#lottery_tooltip_ability_refresh_insufficient');
     }
-    return $.Localize('#lottery_tooltip_ability_refresh_paid').replace(
-      '{cost}',
-      nextCost.toString(),
-    );
+    return $.Localize('#lottery_tooltip_ability_refresh_paid')
+      .replace('{cost}', nextCost.toString())
+      .replace('{remaining}', remainingPaidRefreshCount.toString());
   };
 
   const tooltipText = getTooltipText();
 
-  // DOTAShowTextTooltip 是快照式：悬停期间数据变化（点击付费刷新后 cost 进档、积分减少）
+  // DOTAShowTextTooltip 是快照式：悬停期间数据变化（点击会员积分刷新后 cost 进档、积分减少）
   // 不会自动更新已显示的文本，需在仍悬停时主动重新 dispatch。
   const hoverPanelRef = useRef<Panel | null>(null);
   useEffect(() => {
@@ -141,6 +146,10 @@ const RefreshButton: React.FC<RefreshButtonProps> = ({
 
     if (pickedName) {
       $.Msg('[RefreshButton] Already picked, ignoring click');
+      return;
+    }
+    if (isPaidRefreshLimitReached) {
+      $.Msg('[RefreshButton] Paid refresh limit reached, ignoring click');
       return;
     }
 

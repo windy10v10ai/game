@@ -71,7 +71,9 @@ declare global {
       [playerId: string]: {
         candidates: LotteryDto[];
         isRefreshed: boolean;
-        // 奖池档位（initial/default/premium）。命名为 poolType 而非 tier，避免与物品自身的 1~5 级 tier 混淆。
+        // 已使用会员积分刷新的次数；每个藏宝箱单独计算，新藏宝箱从 0 开始。
+        paidRefreshCount: number;
+        // 奖池档位（initial/default/premium/ultra）。命名为 poolType 而非 tier，避免与物品自身的 1~7 级 tier 混淆。
         poolType: string;
       };
     };
