@@ -7469,4 +7469,29 @@
 		"ItemQuality"				"consumable"
 	}
 
+	// 被动技能书：一次性消耗品，使用后按 premium 概率随机学一个被动技能，每名玩家整局最多 3 次
+	"item_passive_skill_tome"
+	{
+		"ID"						"10339"
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/ts_items/item_passive_skill_tome"
+		"AbilityTextureName"		"passive_skill_tome"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+		"ItemCost"					"0"
+		"ItemPurchasable"			"0"
+		"ItemSellable"				"0"
+		"ItemDroppable"				"1"
+		"ItemKillable"				"0"
+		"ItemPermanent"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"0"
+
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	}
+
 }
