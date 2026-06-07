@@ -1,5 +1,7 @@
 import { LotteryDto } from '../../../../common/dto/lottery';
+import { ApiClient } from '../../../api/api-client';
 import { GA4PickItemTracker } from '../../../api/analytics/ga4/ga4-pick-item-tracker';
+import { PlayerMemberPointApi } from '../../../api/player-member-point';
 import { MemberLevel, Player } from '../../../api/player';
 import { reloadable } from '../../../utils/tstl-utils';
 import { PlayerHelper } from '../../helper/player-helper';
@@ -12,6 +14,8 @@ import { ItemLotteryHelper, ItemLotteryPool } from './item-lottery-helper';
 @reloadable
 export class ItemLottery {
   static readonly CANDIDATE_COUNT = 4;
+  readonly paidRefreshCosts = [10, 20, 30, 50];
+  readonly maxPaidRefreshCount = 5;
 
   constructor() {
     CustomGameEventManager.RegisterListener('lottery_pick_item', (_userId, event) => {
@@ -39,6 +43,7 @@ export class ItemLottery {
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
       candidates,
       isRefreshed: false,
+      paidRefreshCount: 0,
       poolType: pool,
     });
   }
@@ -76,6 +81,7 @@ export class ItemLottery {
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
       candidates: [],
       isRefreshed: false,
+      paidRefreshCount: 0,
       poolType: ItemLotteryPool.DEFAULT,
     });
 
@@ -95,14 +101,30 @@ export class ItemLottery {
     }
     // 同 lottery_status：boolean 写入后引擎可能同步为 0/1，宽松匹配两种值
     const refreshed = raw.isRefreshed as unknown as boolean | number;
-    if (refreshed === true || refreshed === 1) {
-      print('[ItemLottery] refresh denied, already refreshed, player ' + playerId);
-      return;
-    }
     const currentCandidates = Object.values(raw.candidates ?? {}) as unknown as LotteryDto[];
     if (currentCandidates.length === 0) {
       print('[ItemLottery] refresh denied, already picked or empty, player ' + playerId);
       return;
+    }
+
+    if (refreshed === true || refreshed === 1) {
+      if (ApiClient.IsLocalhost()) {
+        print('[ItemLottery] paid refresh denied on localhost, player ' + playerId);
+        return;
+      }
+
+      const paidRefreshCount = raw.paidRefreshCount ?? 0;
+      if (paidRefreshCount >= this.maxPaidRefreshCount) {
+        print('[ItemLottery] paid refresh denied, refresh limit reached, player ' + playerId);
+        return;
+      }
+      const cost = this.getPaidRefreshCost(paidRefreshCount);
+      if (Player.GetUseableMemberPoint(steamAccountID) < cost) {
+        print('[ItemLottery] paid refresh denied, insufficient member points, player ' + playerId);
+        return;
+      }
+      Player.DeductUseableMemberPoint(steamAccountID, cost);
+      PlayerMemberPointApi.UseMemberPoint(steamAccountID, cost, 'lottery_refresh_item');
     }
 
     const pool = (raw.poolType as ItemLotteryPool) ?? ItemLotteryPool.DEFAULT;
@@ -110,8 +132,14 @@ export class ItemLottery {
     CustomNetTables.SetTableValue('lottery_item', playerId.toString(), {
       candidates,
       isRefreshed: true,
+      paidRefreshCount: refreshed === true || refreshed === 1 ? (raw.paidRefreshCount ?? 0) + 1 : 0,
       poolType: pool,
     });
     print('[ItemLottery] refreshed for player ' + playerId);
+  }
+
+  private getPaidRefreshCost(paidCount: number): number {
+    const index = Math.min(paidCount, this.paidRefreshCosts.length - 1);
+    return this.paidRefreshCosts[index];
   }
 }

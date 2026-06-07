@@ -1,6 +1,6 @@
 import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { LotteryDto } from '../../../common/dto/lottery';
 import { useNetTable } from '../shared/hooks/useNetTable';
 import { isPremiumMember } from '../shared/utils/member';
@@ -9,6 +9,8 @@ import { colors } from './colors';
 
 const EXPIRE_SECONDS = 12;
 const TICK_INTERVAL_MS = 100;
+const PAID_REFRESH_COSTS = [10, 20, 30, 50];
+const MAX_PAID_REFRESH_COUNT = 5;
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'center',
@@ -80,10 +82,14 @@ const getTierGlow = (level: number): string => {
     3: colors.tier3,
     4: colors.tier4,
     5: colors.tier5,
-    6: colors.tier5, // T6 沿用 T5 颜色
+    6: colors.tier5,
+    7: colors.tier5,
   };
   return `0 0 2px 1px ${map[level] ?? colors.tier1}`;
 };
+
+const getPaidRefreshCost = (paidCount: number) =>
+  PAID_REFRESH_COSTS[Math.min(paidCount, PAID_REFRESH_COSTS.length - 1)];
 
 function pickItem(candidate: LotteryDto) {
   GameEvents.SendCustomGameEventToServer('lottery_pick_item', {
@@ -95,32 +101,64 @@ function pickItem(candidate: LotteryDto) {
 interface RefreshIconButtonProps {
   isPremium: boolean;
   isRefreshed: boolean;
+  paidRefreshCount: number;
+  useableMemberPoint: number;
 }
 
-function RefreshIconButton({ isPremium, isRefreshed }: RefreshIconButtonProps) {
-  const enabled = isPremium && !isRefreshed;
-  const imageSrc = enabled
+function RefreshIconButton({
+  isPremium,
+  isRefreshed,
+  paidRefreshCount,
+  useableMemberPoint,
+}: RefreshIconButtonProps) {
+  const remainingPaidRefreshCount = Math.max(0, MAX_PAID_REFRESH_COUNT - paidRefreshCount);
+  const isPaidRefreshLimitReached = isRefreshed && remainingPaidRefreshCount <= 0;
+  const nextCost = isRefreshed ? getPaidRefreshCost(paidRefreshCount) : 0;
+  const canAfford = useableMemberPoint >= nextCost;
+  const guideToMember = !isPremium || (isRefreshed && !isPaidRefreshLimitReached && !canAfford);
+  const canRefresh = isPremium && canAfford && !isPaidRefreshLimitReached;
+  const imageSrc = canRefresh
     ? 'file://{images}/custom_game/lottery/icon_rerolltoken.png'
     : 'file://{images}/custom_game/lottery/icon_rerolltoken_disabled.png';
 
-  const tooltipText = $.Localize(
-    !isPremium
-      ? '#lottery_tooltip_item_refresh_not_premium'
-      : isRefreshed
-        ? '#lottery_tooltip_item_refresh_used'
-        : '#lottery_tooltip_item_refresh',
-  );
+  const getTooltipText = () => {
+    if (!isPremium) {
+      return $.Localize('#lottery_tooltip_item_refresh_not_premium');
+    }
+    if (!isRefreshed) {
+      return $.Localize('#lottery_tooltip_item_refresh');
+    }
+    if (isPaidRefreshLimitReached) {
+      return $.Localize('#lottery_tooltip_item_refresh_limit');
+    }
+    if (!canAfford) {
+      return $.Localize('#lottery_tooltip_item_refresh_insufficient');
+    }
+    return $.Localize('#lottery_tooltip_item_refresh_paid')
+      .replace('{cost}', nextCost.toString())
+      .replace('{remaining}', remainingPaidRefreshCount.toString());
+  };
+
+  const tooltipText = getTooltipText();
+  const hoverPanelRef = useRef<Panel | null>(null);
+
+  useEffect(() => {
+    if (hoverPanelRef.current) {
+      $.DispatchEvent('DOTAShowTextTooltip', hoverPanelRef.current, tooltipText);
+    }
+  }, [tooltipText]);
 
   const handleClick = () => {
-    if (!isPremium) {
+    if (guideToMember) {
+      const param = isPremium && !canAfford ? 'member:points' : 'member';
       GameEvents.SendCustomGameEventToAllClients('hud_open_page', {
         page: 'profile',
-        param: 'member',
+        param,
         playerId: Game.GetLocalPlayerID(),
       });
       return;
     }
-    if (isRefreshed) {
+    if (isPaidRefreshLimitReached) {
       return;
     }
     GameEvents.SendCustomGameEventToServer('lottery_refresh_item', {});
@@ -130,8 +168,14 @@ function RefreshIconButton({ isPremium, isRefreshed }: RefreshIconButtonProps) {
     <Button
       onactivate={handleClick}
       style={refreshButtonStyle}
-      onmouseover={(panel) => $.DispatchEvent('DOTAShowTextTooltip', panel, tooltipText)}
-      onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+      onmouseover={(panel) => {
+        hoverPanelRef.current = panel;
+        $.DispatchEvent('DOTAShowTextTooltip', panel, tooltipText);
+      }}
+      onmouseout={() => {
+        hoverPanelRef.current = null;
+        $.DispatchEvent('DOTAHideTextTooltip');
+      }}
     >
       <Image src={imageSrc} style={refreshImageStyle} />
     </Button>
@@ -150,8 +194,10 @@ function ItemLottery() {
     : [];
   // 引擎把 boolean 同步为 0/1
   const isRefreshed = Boolean(raw?.isRefreshed);
+  const paidRefreshCount = raw?.paidRefreshCount ?? 0;
 
   const isPremium = isPremiumMember(player?.member);
+  const useableMemberPoint = player?.useableMemberPoint ?? 0;
 
   const [remaining, setRemaining] = useState(EXPIRE_SECONDS);
 
@@ -198,7 +244,12 @@ function ItemLottery() {
             }}
           />
         ))}
-        <RefreshIconButton isPremium={isPremium} isRefreshed={isRefreshed} />
+        <RefreshIconButton
+          isPremium={isPremium}
+          isRefreshed={isRefreshed}
+          paidRefreshCount={paidRefreshCount}
+          useableMemberPoint={useableMemberPoint}
+        />
       </Panel>
       <Panel style={progressTrackStyle}>
         <Panel style={{ ...progressFillStyle, width: `${progressPct}%` }} />
