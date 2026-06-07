@@ -1153,7 +1153,7 @@
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery's max souls is increased to 100, and killing a hero grants 10 souls."
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants 10 souls per hero kill and 3 souls per unit kill."
 
 		///////////////////////////////////////////////////
 		//
@@ -2457,7 +2457,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe, Necrophos, Drow Ranger, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe, Necrophos, Drow Ranger, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
 
 		// 圣女白莲

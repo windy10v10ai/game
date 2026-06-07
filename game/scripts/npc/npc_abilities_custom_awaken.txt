@@ -475,7 +475,7 @@
 	}
 
 	// 影魔 魂之挽歌护体-觉醒
-	// 新增被动：释放魂之挽歌前摇期间获得魔法免疫；并提升支配死灵灵魂上限+50、击杀英雄灵魂=6（见 override 联动）
+	// 新增被动：释放魂之挽歌前摇期间获得魔法免疫；并提升支配死灵击杀英雄灵魂=10、小兵=3（见 override 联动）
 	"special_bonus_unique_nevermore_upgrade"
 	{
 		"BaseClass"						"ability_lua"
