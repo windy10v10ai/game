@@ -129,6 +129,7 @@
 		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
 		"ScepterSelectedHeroes_Button"				"Scepter"
 		"ShardSelectedHeroes_Button"				"Shard"
+		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
 		"InvulnOn_Button"							"Invuln On"
 		"InvulnOff_Button"							"Invuln Off"
 		"Reset_Button"								"Reset"
