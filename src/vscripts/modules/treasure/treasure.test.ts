@@ -73,6 +73,7 @@ global.GameRules = {
 };
 
 import { Treasure } from './treasure';
+import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 
 describe('Treasure', () => {
   let treasure: Treasure;
@@ -166,6 +167,26 @@ describe('Treasure', () => {
         ...Treasure.SPAWN_POINTS_RADIANT_HARD,
       ];
       expect(merged).toContain(point);
+    });
+  });
+
+  describe('物品抽奖池映射', () => {
+    it('第 1 个藏宝箱使用 INITIAL 池', () => {
+      expect(Treasure.mapToLotteryPool(1)).toBe(ItemLotteryPool.INITIAL);
+    });
+
+    it('第 2-5 个藏宝箱使用 DEFAULT 池', () => {
+      expect(Treasure.mapToLotteryPool(2)).toBe(ItemLotteryPool.DEFAULT);
+      expect(Treasure.mapToLotteryPool(5)).toBe(ItemLotteryPool.DEFAULT);
+    });
+
+    it('第 6-9 个藏宝箱使用 PREMIUM 池', () => {
+      expect(Treasure.mapToLotteryPool(6)).toBe(ItemLotteryPool.PREMIUM);
+      expect(Treasure.mapToLotteryPool(9)).toBe(ItemLotteryPool.PREMIUM);
+    });
+
+    it('第 10 个起使用 ULTRA 池', () => {
+      expect(Treasure.mapToLotteryPool(10)).toBe(ItemLotteryPool.ULTRA);
     });
   });
 
