@@ -344,6 +344,7 @@
 		"member_platform_subscribe_month"		"/Month"
 		"member_shop_divider"					"Already a member? Buy Experience to level up faster"
 		"member_shop_title"						"Buy Member Points"
+		"member_other_payment"					"Other Payment Methods"
 		"member_activate"						"Manual Activate"
 		"member_activate_tooltip"				"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
 		"member_refresh"						"Refresh Membership & Points"

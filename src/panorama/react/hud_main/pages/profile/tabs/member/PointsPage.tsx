@@ -1,5 +1,11 @@
-import React from 'react';
-import { GetLocalPlayerSteamAccountID, GetAfdianPointsUrl, KOFI_POINTS_URLS } from '@utils/utils';
+import React, { useState } from 'react';
+import {
+  GetLocalPlayerSteamAccountID,
+  GetAfdianPointsUrl,
+  GetPaymentPlatformOrder,
+  PaymentPlatform,
+  KOFI_POINTS_URLS,
+} from '@utils/utils';
 import { AlipaySubscribeCard, AlipayCardItem } from './alipay';
 import { MEMBER_POINTS_ICONS } from './alipay/constants';
 import { ExternalPointsCard } from './ExternalPointsCard';
@@ -24,6 +30,8 @@ const POINTS_AMOUNTS = [3500, 11000, 28000];
 
 export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
+  const order = GetPaymentPlatformOrder();
+  const [expanded, setExpanded] = useState(false);
 
   const alipayItems: AlipayCardItem[] = ALIPAY_POINTS_TIERS.map((tier, i) => ({
     productCode: tier.productCode,
@@ -40,6 +48,46 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
 
   const pointsLabel = (i: number) =>
     $.Localize('#member_points_amount_fmt').replace('{n}', String(POINTS_AMOUNTS[i]));
+
+  const cards: Record<PaymentPlatform, React.ReactNode> = {
+    alipay: (
+      <AlipaySubscribeCard
+        items={alipayItems}
+        nameKey="#member_platform_alipay"
+        descKey="#member_platform_alipay_desc"
+      />
+    ),
+    afdian: (
+      <ExternalPointsCard
+        variantClassName="member-platform-card-afdian"
+        descClassName="member-platform-desc-cn"
+        logoSrc={AFDIAN_ICON}
+        name={$.Localize('#member_platform_afdian')}
+        desc={$.Localize('#member_platform_afdian_desc')}
+        buttons={POINTS_AMOUNTS.map((_, i) => ({
+          label: pointsLabel(i),
+          price: `¥${AFDIAN_POINTS_PRICES[i]}`,
+          onClick: openUrl(GetAfdianPointsUrl(i)),
+        }))}
+        activateUrl={AFDIAN_ACTIVATE_URL}
+      />
+    ),
+    kofi: (
+      <ExternalPointsCard
+        variantClassName="member-platform-card-kofi"
+        descClassName="member-platform-desc-intl"
+        logoSrc={KOFI_LOGO}
+        name={$.Localize('#member_platform_kofi')}
+        desc={$.Localize('#member_platform_kofi_desc')}
+        buttons={POINTS_AMOUNTS.map((_, i) => ({
+          label: pointsLabel(i),
+          price: `$${KOFI_POINTS_PRICES[i]}`,
+          onClick: openUrl(KOFI_POINTS_URLS[i]),
+        }))}
+        activateUrl={KOFI_ACTIVATE_URL}
+      />
+    ),
+  };
 
   return (
     <Panel className="member-subpage member-points-page">
@@ -77,39 +125,27 @@ export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
       </Panel>
 
       <Panel className="member-platform-cards">
-        <AlipaySubscribeCard
-          items={alipayItems}
-          nameKey="#member_platform_alipay"
-          descKey="#member_platform_alipay_desc"
-        />
+        {order.map((key, i) => (
+          <Panel
+            key={key}
+            className="member-platform-slot"
+            style={{ visibility: i < 2 || expanded ? 'visible' : 'collapse' }}
+          >
+            {cards[key]}
+          </Panel>
+        ))}
+      </Panel>
 
-        <ExternalPointsCard
-          variantClassName="member-platform-card-afdian"
-          descClassName="member-platform-desc-cn"
-          logoSrc={AFDIAN_ICON}
-          name={$.Localize('#member_platform_afdian')}
-          desc={$.Localize('#member_platform_afdian_desc')}
-          buttons={POINTS_AMOUNTS.map((_, i) => ({
-            label: pointsLabel(i),
-            price: `¥${AFDIAN_POINTS_PRICES[i]}`,
-            onClick: openUrl(GetAfdianPointsUrl(i)),
-          }))}
-          activateUrl={AFDIAN_ACTIVATE_URL}
-        />
-
-        <ExternalPointsCard
-          variantClassName="member-platform-card-kofi"
-          descClassName="member-platform-desc-intl"
-          logoSrc={KOFI_LOGO}
-          name={$.Localize('#member_platform_kofi')}
-          desc={$.Localize('#member_platform_kofi_desc')}
-          buttons={POINTS_AMOUNTS.map((_, i) => ({
-            label: pointsLabel(i),
-            price: `$${KOFI_POINTS_PRICES[i]}`,
-            onClick: openUrl(KOFI_POINTS_URLS[i]),
-          }))}
-          activateUrl={KOFI_ACTIVATE_URL}
-        />
+      <Panel
+        className="member-other-payment-row"
+        style={{ visibility: expanded ? 'collapse' : 'visible' }}
+      >
+        <Button className="member-other-payment-btn" onactivate={() => setExpanded(true)}>
+          <Label
+            className="member-other-payment-label"
+            text={$.Localize('#member_other_payment')}
+          />
+        </Button>
       </Panel>
     </Panel>
   );

@@ -344,6 +344,7 @@
 		"member_platform_subscribe_month"		"/月"
 		"member_shop_divider"			"已有会员？购买会员积分快速升级"
 		"member_shop_title"				"购买会员积分"
+		"member_other_payment"			"其他支付方式"
 		"member_activate"				"手动激活"
 		"member_activate_tooltip"		"若订阅时忘记填写好友ID或填写有误，可在此手动激活。激活成功后系统将记录您的账号，之后订阅无需再次填写。"
 		"member_refresh"				"刷新会员状态和积分"

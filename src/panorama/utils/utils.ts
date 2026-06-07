@@ -55,6 +55,19 @@ export const KOFI_SUBSCRIBE_URL = 'https://ko-fi.com/post/Membership-Z8Z01CDJLU'
 export const AFDIAN_SHOP_URL = 'https://ifdian.net/a/windy10v10ai?tab=shop';
 export const KOFI_SHOP_URL = 'https://ko-fi.com/windy10v10ai/shop';
 
+export type PaymentPlatform = 'alipay' | 'afdian' | 'kofi';
+
+/**
+ * 支付方式展示顺序：简体中文玩家优先支付宝（折扣最大且仅限国内），
+ * 其他语言优先 Ko-fi。数组首两项默认展示，第 3 项折叠。
+ */
+export function GetPaymentPlatformOrder(): PaymentPlatform[] {
+  if ($.Language() === 'schinese') {
+    return ['alipay', 'afdian', 'kofi'];
+  }
+  return ['kofi', 'afdian', 'alipay'];
+}
+
 /**
  * 添加自定义键位绑定
  * @param keyName 键位名称

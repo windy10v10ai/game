@@ -286,19 +286,55 @@
   height: fit-children;
 }
 
+/* 卡片外层 slot：承载 fill-parent-flow 均分与右边距，
+   collapse 时脱流让剩余两张各占一半 */
+.member-platform-slot {
+  width: fill-parent-flow(1);
+  height: fit-children;
+  flow-children: down;
+  margin-right: 10px;
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
 /* 单个平台 card */
 .member-platform-card {
   .stats-card;
-  width: fill-parent-flow(1);
+  width: 100%;
   height: fit-children;
   min-height: 60%;
   flow-children: down;
   padding: 16px 14px;
   horizontal-align: center;
-  margin-right: 10px;
-  &:last-child {
-    margin-right: 0px;
-  }
+}
+
+/* 「其他支付方式」按钮：卡片容器下方独立一行，右对齐 */
+.member-other-payment-row {
+  width: 100%;
+  height: fit-children;
+  margin-top: 10px;
+}
+
+.member-other-payment-btn {
+  horizontal-align: right;
+  height: 32px;
+  padding: 0 16px;
+  border: 1px solid #ffffff40;
+  border-radius: @radius-md;
+  flow-children: right;
+  vertical-align: center;
+}
+
+.member-other-payment-btn:hover {
+  border-color: #ffffff80;
+  background-color: #ffffff10;
+}
+
+.member-other-payment-label {
+  vertical-align: center;
+  color: #ffffffcc;
+  font-size: 16px;
 }
 
 .member-platform-card-afdian {
