@@ -7480,8 +7480,8 @@
 
 		"AbilityCooldown"			"1.0"
 		"AbilityManaCost"			"0"
-		"ItemCost"					"999999"
-		"ItemPurchasable"			"1"
+		"ItemCost"					"0"
+		"ItemPurchasable"			"0"
 		"ItemSellable"				"0"
 		"ItemDroppable"				"1"
 		"ItemKillable"				"0"
