@@ -2489,6 +2489,11 @@
 		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、斯拉克、狙击手、斧王、死灵法师、卓尔游侠、宙斯、幻影刺客、巫医、影魔\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
+		// 被动技能书
+		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 随机获得一个被动技能，会员有更高概率获得稀有技能。\n每名玩家整局最多使用 3 次\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
+
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
 		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>主动：白莲护盾</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal_percent%%%的血量，护盾持续%duration%秒。<br><br>释放时附加弱驱散效果。\n<h1>被动：白莲花</h1>每 %block_cooldown% 秒抵挡一次指向性技能，并且恢复%heal_percent%%%的血量。被动格挡独立计时，不占用技能冷却。<br><br>免疫减速效果。"
@@ -3242,6 +3247,7 @@
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 		"dota_hud_error_awaken_stone_unsupported"										"该英雄暂未拥有可觉醒的技能"
 		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
+		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"
