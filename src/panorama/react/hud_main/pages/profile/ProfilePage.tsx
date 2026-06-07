@@ -5,11 +5,13 @@ import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { useNavigation } from '../../store/NavigationContext';
 import { StatsTab } from './tabs/StatsTab';
 import { MemberTab } from './tabs/member';
+import { MemberSubTab } from './tabs/member/constants';
 
 export type ProfileTabId = 'stats' | 'member';
 
 interface ProfilePageProps {
-  initialTab?: ProfileTabId;
+  // 支持 'tab' 或 'tab:subTab'（如 'member:points'）定位到一级 tab 内的子页
+  initialTab?: string;
 }
 
 const PROFILE_TABS: { id: ProfileTabId; label: string }[] = [
@@ -18,7 +20,8 @@ const PROFILE_TABS: { id: ProfileTabId; label: string }[] = [
 ];
 
 export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
-  const [currentTab, setCurrentTab] = useState<ProfileTabId>(initialTab);
+  const [tab, subTab] = initialTab.split(':');
+  const [currentTab, setCurrentTab] = useState<ProfileTabId>(tab as ProfileTabId);
   const { closePage } = useNavigation();
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
@@ -87,7 +90,9 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
 
       <Panel className="content-area">
         {currentTab === 'stats' && <StatsTab />}
-        {currentTab === 'member' && <MemberTab />}
+        {currentTab === 'member' && (
+          <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
+        )}
       </Panel>
     </Panel>
   );

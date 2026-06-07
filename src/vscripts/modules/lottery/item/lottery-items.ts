@@ -1,10 +1,24 @@
 import { Tier } from '../shared/tier';
 
 /**
- * 物品抽奖池，Tier 5-1。配合 ITEM_TIER_RATES [1,5,20,60,100] 累计阈值使用。
- * 单格出现概率：T5 1% / T4 4% / T3 15% / T2 40% / T1 40%
+ * 物品抽奖池，Tier 7-1。配合 POOL_RATES 累计阈值使用（见 item-lottery-helper）。
  */
 export const itemTiers: Tier[] = [
+  {
+    level: 7,
+    names: [
+      'item_awaken_stone', // 觉醒石
+    ],
+  },
+  // 超高价值成长/通用资源
+  {
+    level: 6,
+    names: [
+      'item_tome_of_luoshu', // 洛书
+      'item_universal_rune', // 通用符文
+      'item_passive_skill_tome', // 被动技能书
+    ],
+  },
   // 终极物品
   {
     level: 5,
@@ -17,8 +31,6 @@ export const itemTiers: Tier[] = [
       'item_fusion_shadow', // 暗影符文
       'item_fusion_magic', // 魔化符文
       'item_fusion_agile', // 灵动符文
-      'item_universal_rune', // 通用符文
-      'item_tome_of_luoshu', // 洛书
     ],
   },
   // 特殊物品

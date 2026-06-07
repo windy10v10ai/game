@@ -634,8 +634,8 @@
 			}
 			"armor_reduction"
 			{
-				"value"						"3 5 7 9 11"	// 3 4 5 6 +1差值
-				"special_bonus_unique_alchemist_5"		"+2"	// 1 +1差值
+				"value"						"3 8 10 12 14"	// 3 4 5 6 x2
+				"special_bonus_unique_alchemist_5"		"+2"	// 1 x2
 			}
 		}
 	}
@@ -2129,7 +2129,7 @@
 		{
 			"duration"
 			{
-				"value"				"3.0 4.0 5.0 6.0 7.0"
+				"value"				"4.0 4.5 5.0 5.5 6.0"	// 3.0 4.0 5.0 6.0
 			}
 			"movespeed_bonus"
 			{
@@ -2494,12 +2494,12 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityValues"
 		{
-			"charges_per_flurry"	"6 8 9 10"	// 5
+			"charges_per_flurry"	"5 6 8 9"	// 5
 			"flurry_bonus_attack_speed"	"700 925 1150 1375"
 			"time_between_flurries"	"1.0 0.9 0.8 0.7"	// 1.5
 			"pulse_damage"
 			{
-				"value"			"100 200 300 400"	// 50 100 150 x2
+				"value"			"75 150 225 300"	// 50 100 150 x1.5
 			}
 			"pulse_move_slow_pct"	"30.0 40.0 50.0 60.0"	// 30.0
 			"pulse_attack_slow_pct"		"120.0 160.0 200.0 240.0"	// 60.0 80.0 100.0 x2
@@ -2979,6 +2979,8 @@
 	// 腐肉堆积
 	"pudge_innate_graft_flesh"
 	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_FORCE_NO_INNATE_UI"
+		"IsOnCastBar"					"1"
 		"AbilityValues"
 		{
 			"flesh_heap_strength_buff_amount"
@@ -5076,6 +5078,7 @@
 	"drow_ranger_multishot"
 	{
 		"MaxLevel"						"5"
+		"LinkedAbility"					"special_bonus_unique_drow_ranger_upgrade"	// 原版不存在，手动修改：与数箭连发觉醒双向联动同步升级
 		"AbilityManaCost"				"50 70 90 110 130"	// 50 70 90 110
 		"AbilityValues"
 		{
@@ -6571,7 +6574,18 @@
 		{
 			"necromastery_max_souls"
 			{
-				"value"						"50"		// 20
+				"value"										"50"		// 20
+				"special_bonus_unique_nevermore_1"			"+20"		// +5
+			}
+			"souls_per_hero_kill"
+			{
+				"value"										"4"
+				"special_bonus_unique_nevermore_upgrade"	"=10"	// 原版不存在，手动修改：觉醒后击杀英雄获得10灵魂
+			}
+			"souls_per_kill"
+			{
+				"value"										"1"
+				"special_bonus_unique_nevermore_upgrade"	"=3"	// 原版不存在，手动修改：觉醒后击杀小兵获得3灵魂
 			}
 		}
 	}

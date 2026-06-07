@@ -129,6 +129,7 @@
 		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
 		"ScepterSelectedHeroes_Button"				"Scepter"
 		"ShardSelectedHeroes_Button"				"Shard"
+		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
 		"InvulnOn_Button"							"Invuln On"
 		"InvulnOff_Button"							"Invuln Off"
 		"Reset_Button"								"Reset"
@@ -222,14 +223,20 @@
 		"lottery_active_ability_title"							"Select active ability"
 		"lottery_passive_ability_title"							"Select passive ability"
 
-		"lottery_tooltip_ability_refresh"						"Click to reroll bonus abilities."
+		"lottery_tooltip_ability_refresh"						"Members can reroll abilities once for free."
 		"lottery_tooltip_ability_refresh_used"					"Ability has been rerolled."
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
+		"lottery_tooltip_ability_refresh_paid"					"Spend <font color='#FFD700'>{cost}</font> useable points to reroll<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
+		"lottery_tooltip_ability_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
+		"lottery_tooltip_ability_refresh_insufficient"			"Not enough useable points. Click to open the membership page."
 
-		"lottery_tooltip_item_refresh"							"Click to reroll items."
+		"lottery_tooltip_item_refresh"							"Premium members can reroll items once for free."
 		"lottery_tooltip_item_refresh_used"						"Items have been rerolled."
-		"lottery_tooltip_item_refresh_not_premium"				"Premium members can reroll items once per box. Click to open the membership page."
+		"lottery_tooltip_item_refresh_not_premium"				"Premium members can reroll items. Click to open the membership page."
+		"lottery_tooltip_item_refresh_paid"						"Spend <font color='#FFD700'>{cost}</font> useable points to reroll items<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
+		"lottery_tooltip_item_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
+		"lottery_tooltip_item_refresh_insufficient"				"Not enough useable points. Click to open the membership page."
 
 		"lottery_button_ability_reset"							"Reset"
 		"lottery_tooltip_ability_reset_enable"					"Remove the selected ability and reroll a new set of abilities"
@@ -337,6 +344,7 @@
 		"member_platform_subscribe_month"		"/Month"
 		"member_shop_divider"					"Already a member? Buy Experience to level up faster"
 		"member_shop_title"						"Buy Member Points"
+		"member_other_payment"					"Other Payment Methods"
 		"member_activate"						"Manual Activate"
 		"member_activate_tooltip"				"Only needed if you forgot to enter your Friend ID or entered it incorrectly. Once activated, your account is saved and future subscriptions activate automatically."
 		"member_refresh"						"Refresh Membership & Points"
@@ -906,15 +914,16 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
-		// 火枪暗杀（群体）
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"Assassinate Upgrade"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Lock onto enemy heroes within the target area and, after %total_cast_time_tooltip% seconds, fires devastating shots that deal a critical strike and mini-stuns all targets. Only affects visible heroes."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"In order to fulfill the prophecy and return to his home town, Kardel must make another shot as perfect as the one on the day of his ancient test."
+		// 狙击手 暗杀-觉醒
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>Assassinate Awakened</font>"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range.<br><br>Normal attacks have a chance to trigger this ability."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spells, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%ATTACK TRIGGER CHANCE:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
@@ -1078,7 +1087,7 @@
 // 					Awaken Abilities 觉醒技能
 
 		// Pudge - Meat Hook Awakened
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>Meat Hook - Awakened"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range and hook speed increase with Pudge's strength, granting %hook_distance_per_strength% per point of strength, up to %hook_max_distance_bonus% bonus range.</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
@@ -1088,7 +1097,7 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%DISTANCE AS DAMAGE:"
 
 		// Juggernaut - Blade Fury Awakened
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>Blade Fury - Awakened"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, dealing magic damage equal to base damage + %attack_damage_pct%%% of current attack power to surrounding enemies. Grants debuff immunity and %magic_resistance_bonus%%% magic resistance.<br>Can attack normally, but attack power is reduced."
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
@@ -1097,13 +1106,59 @@
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
 
+		// Axe - Ruthless Hand Awakened
+		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Active: Auto Cull</font><br>During the duration, Axe automatically casts Culling Blade on enemy heroes within cast range whose health is below the cull threshold.<br><br>Cull threshold = Culling Blade's threshold + Axe's bonus armor<br><br>With autocast enabled, Axe blinks to the target when culling."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"Duration:"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"Kill Interval:"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_increase_damage_per_kill"			"Damage Increase Per Kill:"
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"Ruthless Hand"
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"Has culled %dMODIFIER_PROPERTY_STACKS_COUNT% enemies, permanently increasing Culling Blade's damage."
+
 		// Slark - Scraper King Awakened
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>Scraper King - Awakened"
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#d000ff'>Scraper King Awakened</font>"
 		"DOTA_Tooltip_ability_break_speed_limit_Description"							"When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
 		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
 		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"Each stack increases the attack speed cap by 50."
+
+		// Necrophos Heartstopper Aura - Awakened
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time.<br><br><font color='#d000ff'>The damage can be amplified by abilities.</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>Scepter Upgrade: Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"Converts %heal_regen_to_damage%%% of Necrophos's health regeneration into additional damage"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"Radius:"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"% Max Health Damage per Second:"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"Healing Reduction:"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
+
+		// Drow Ranger Multishot Barrage - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Multishot Barrage Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Fires multiple arrows at a single enemy in rapid succession, each dealing one attack.<br><br>Shares cooldown and levels up with Multishot."
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_shots"			"Arrows:"
+
+		// Zeus God King - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When auto-cast is enabled, Zeus attacks the targets hit by Arc Lightning and Thundergod's Wrath."
+
+		// Phantom Assassin Phantom Strike - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>Phantom Strike Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and <font color='#FFCC66'>magic immunity</font> briefly, then automatically attacks."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"Bonus Attack Speed:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"Duration:"
+
+		// Witch Doctor Divine Words - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"Witch Doctor's Death Wards inherit an additional %damage_percentage%%% of his attack damage.<br><br>His wisdom breaks the limit, summoning additional Death Wards (up to %max_ward_num%) by communing with the gods, though the extra wards have no base attack damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"% Ward Inherited Damage:"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"Intelligence per Extra Death Ward:"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"Max Extra Wards:"
+
+		// Shadow Fiend Requiem Guard - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants 10 souls per hero kill and 3 souls per unit kill."
 
 		///////////////////////////////////////////////////
 		//
@@ -2405,6 +2460,16 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
+		// 觉醒石
+		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe, Necrophos, Drow Ranger, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
+
+		// 被动技能书
+		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Gain a random passive ability.\nEach player can use this up to 3 times per game.\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
+
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"Saint White Lotus"
 		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>Active: Lotus Shield</font></h1>Gives a shield to the target, reflecting all targeted spells for the duration. They will still be affected by the spell, however the first targeted spell will also be blocked in addition to being reflected, and upon blocking the spell, the target will heal for %heal_percent%%% of their max HP. The shield lasts for %duration% seconds.<br><br>Applies a basic dispel.\n<h1>Passive: Saint Lotus</h1>Every %block_cooldown% seconds, blocks one targeted spell and heals for %heal_percent%%% of hero max HP. Passive block has independent cooldown and does not use the active cooldown. <br><br>Immune to slow effects."
@@ -3108,7 +3173,7 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_debuff"									"Demonic Corruption"
 		"DOTA_Tooltip_modifier_item_magic_sword_debuff_Description"						"Armor reduced by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%, movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, health regeneration reduced by %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset"								"Ability Reset Tome"
-		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>Use: Ability Reset</h1>Opens the ability draft interface, allowing you to remove selected abilities and learn new ones.<br>Skill points are refunded when removing abilities.<br><br>One tome can only be used to reset one ability.\n\n<h1>Dropped by Roshan</h1>Can be shared with teammates."
+		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>Use: Ability Reset</h1>Opens the ability draft interface, allowing you to remove selected abilities and learn new ones.<br>Skill points are refunded when removing abilities.<br><br>One tome can only be used to reset one ability.\n\nCan be shared with teammates."
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"Redesign your ability path."
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"Respec Tome"
@@ -3123,6 +3188,9 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Description"				"<h1>Use: Transmute</h1>Smelts all runes in your inventory and transforms them into random types, ignoring original owner.<br><br><font color='#4CAF50'>Cannot fail, and prioritizes transforming into rune types not currently in your inventory.</font>"
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"A carefully refined transmuter stone capable of stably altering rune properties."
 		"dota_hud_error_no_runes"														"No runes available to transmute in inventory!"
+		"dota_hud_error_awaken_stone_unsupported"										"This hero has no ability to awaken"
+		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
+		"dota_hud_error_passive_skill_tome_max_usage"									"Passive Skill Tome usage limit reached"
 
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"

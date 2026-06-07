@@ -1,4 +1,7 @@
 import { AbilityItemType, LotteryDto } from '../../../../common/dto/lottery';
+import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
+import { ApiClient } from '../../../api/api-client';
+import { PlayerMemberPointApi } from '../../../api/player-member-point';
 import { MemberLevel, Player } from '../../../api/player';
 import { reloadable } from '../../../utils/tstl-utils';
 import { NetTableHelper } from '../../helper/net-table-helper';
@@ -11,6 +14,10 @@ import { abilityTiersActive, abilityTiersPassive } from './lottery-abilities';
 export class AbilityLottery {
   readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
+
+  // 会员积分刷新累进消耗：首次免费后，第 n 次积分刷新(n 从 0)取此表，封顶 50
+  readonly paidRefreshCosts = [10, 20, 30, 50];
+  readonly maxPaidRefreshCount = 5;
 
   constructor() {
     // 启动物品抽奖
@@ -63,6 +70,9 @@ export class AbilityLottery {
         isActiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed: false,
         isPassiveAbilityRefreshed2: false,
+        activePaidRefreshCount: 0,
+        passivePaidRefreshCount: 0,
+        passivePaidRefreshCount2: 0,
         abilityResettableCount: 0,
         showAbilityResetButton: false,
       },
@@ -233,33 +243,21 @@ export class AbilityLottery {
   refreshAbility(userId: EntityIndex, event: LotteryRefreshEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
+    const abilityType = event.type;
     if (
-      event.type !== AbilityItemTypes.Active &&
-      event.type !== AbilityItemTypes.Passive &&
-      event.type !== AbilityItemTypes.Passive2
+      abilityType !== AbilityItemTypes.Active &&
+      abilityType !== AbilityItemTypes.Passive &&
+      abilityType !== AbilityItemTypes.Passive2
     ) {
       print('刷新技能类型错误');
       return;
     }
-    if (event.type === AbilityItemTypes.Active) {
-      if (lotteryStatus.isActiveAbilityRefreshed || lotteryStatus.activeAbilityName) {
-        print('已经刷新/抽取过主动技能');
-        return;
-      }
-    }
-    // 将被动技能刷新检查改为：
-    if (event.type === AbilityItemTypes.Passive) {
-      if (lotteryStatus.isPassiveAbilityRefreshed || lotteryStatus.passiveAbilityName) {
-        print('已经刷新/抽取过被动技能');
-        return;
-      }
-    }
-    // 检查第二个被动技能槽位刷新
-    if (event.type === AbilityItemTypes.Passive2) {
-      if (lotteryStatus.isPassiveAbilityRefreshed2 || lotteryStatus.passiveAbilityName2) {
-        print('已经刷新/抽取过第二个被动技能');
-        return;
-      }
+
+    // 已选技能的槽位锁定，不可再刷新
+    const pickedName = this.getPickedName(lotteryStatus, abilityType);
+    if (pickedName) {
+      print('已经抽取过技能，不能刷新');
+      return;
     }
 
     if (!Player.IsMemberStatic(Number(steamAccountID))) {
@@ -267,18 +265,95 @@ export class AbilityLottery {
       return;
     }
 
-    // 刷新技能
-    this.randomAbilityForPlayer(event.PlayerID, event.type);
-
-    // 记录刷新状态
-    if (event.type === AbilityItemTypes.Active) {
-      lotteryStatus.isActiveAbilityRefreshed = true;
-    } else if (event.type === AbilityItemTypes.Passive) {
-      lotteryStatus.isPassiveAbilityRefreshed = true;
-    } else if (event.type === AbilityItemTypes.Passive2) {
-      lotteryStatus.isPassiveAbilityRefreshed2 = true;
+    const isRefreshed = this.isSlotRefreshed(lotteryStatus, abilityType);
+    if (!isRefreshed) {
+      // 免费刷新：首次不消耗积分
+      this.randomAbilityForPlayer(event.PlayerID, abilityType);
+      this.setSlotRefreshed(lotteryStatus, abilityType, true);
+      CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+      return;
     }
+
+    // 会员积分刷新仅限官方服务器
+    if (ApiClient.IsLocalhost()) {
+      print('非官方服务器不能付费刷新');
+      return;
+    }
+
+    const paidCount = this.getSlotPaidCount(lotteryStatus, abilityType);
+    if (paidCount >= this.maxPaidRefreshCount) {
+      print('付费刷新次数已用完');
+      return;
+    }
+    const cost = this.getPaidRefreshCost(paidCount);
+
+    // 乐观更新：不等 API 回包，直接重抽并本地预扣积分；回包再以服务端真实积分纠正
+    const steamId = Number(steamAccountID);
+    if (Player.GetUseableMemberPoint(steamId) < cost) {
+      print('会员积分不足，无法付费刷新');
+      return;
+    }
+    Player.DeductUseableMemberPoint(steamId, cost);
+    PlayerMemberPointApi.UseMemberPoint(steamId, cost, 'lottery_refresh_ability');
+
+    this.randomAbilityForPlayer(event.PlayerID, abilityType);
+    this.setSlotPaidCount(lotteryStatus, abilityType, paidCount + 1);
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
+  }
+
+  /** 第 paidCount 次会员积分刷新(从 0 起)的积分消耗，封顶为表内最后一档 */
+  private getPaidRefreshCost(paidCount: number): number {
+    const index = Math.min(paidCount, this.paidRefreshCosts.length - 1);
+    return this.paidRefreshCosts[index];
+  }
+
+  private getPickedName(
+    lotteryStatus: LotteryStatusDto,
+    abilityType: AbilityItemType,
+  ): string | undefined {
+    if (abilityType === AbilityItemTypes.Active) return lotteryStatus.activeAbilityName;
+    if (abilityType === AbilityItemTypes.Passive) return lotteryStatus.passiveAbilityName;
+    return lotteryStatus.passiveAbilityName2;
+  }
+
+  private isSlotRefreshed(lotteryStatus: LotteryStatusDto, abilityType: AbilityItemType): boolean {
+    if (abilityType === AbilityItemTypes.Active) return lotteryStatus.isActiveAbilityRefreshed;
+    if (abilityType === AbilityItemTypes.Passive) return lotteryStatus.isPassiveAbilityRefreshed;
+    return lotteryStatus.isPassiveAbilityRefreshed2;
+  }
+
+  private setSlotRefreshed(
+    lotteryStatus: LotteryStatusDto,
+    abilityType: AbilityItemType,
+    value: boolean,
+  ) {
+    if (abilityType === AbilityItemTypes.Active) {
+      lotteryStatus.isActiveAbilityRefreshed = value;
+    } else if (abilityType === AbilityItemTypes.Passive) {
+      lotteryStatus.isPassiveAbilityRefreshed = value;
+    } else {
+      lotteryStatus.isPassiveAbilityRefreshed2 = value;
+    }
+  }
+
+  private getSlotPaidCount(lotteryStatus: LotteryStatusDto, abilityType: AbilityItemType): number {
+    if (abilityType === AbilityItemTypes.Active) return lotteryStatus.activePaidRefreshCount;
+    if (abilityType === AbilityItemTypes.Passive) return lotteryStatus.passivePaidRefreshCount;
+    return lotteryStatus.passivePaidRefreshCount2;
+  }
+
+  private setSlotPaidCount(
+    lotteryStatus: LotteryStatusDto,
+    abilityType: AbilityItemType,
+    value: number,
+  ) {
+    if (abilityType === AbilityItemTypes.Active) {
+      lotteryStatus.activePaidRefreshCount = value;
+    } else if (abilityType === AbilityItemTypes.Passive) {
+      lotteryStatus.passivePaidRefreshCount = value;
+    } else {
+      lotteryStatus.passivePaidRefreshCount2 = value;
+    }
   }
 
   /**
@@ -355,19 +430,22 @@ export class AbilityLottery {
       );
     }
 
-    // 清除对应的技能名称和等级
+    // 清除对应的技能名称和等级，会员积分刷新计数一并归零（消耗梯度回到第一档）
     if (abilityType === AbilityItemTypes.Active) {
       lotteryStatus.activeAbilityName = undefined;
       lotteryStatus.activeAbilityLevel = undefined;
       lotteryStatus.isActiveAbilityRefreshed = false;
+      lotteryStatus.activePaidRefreshCount = 0;
     } else if (abilityType === AbilityItemTypes.Passive) {
       lotteryStatus.passiveAbilityName = undefined;
       lotteryStatus.passiveAbilityLevel = undefined;
       lotteryStatus.isPassiveAbilityRefreshed = false;
+      lotteryStatus.passivePaidRefreshCount = 0;
     } else if (abilityType === AbilityItemTypes.Passive2) {
       lotteryStatus.passiveAbilityName2 = undefined;
       lotteryStatus.passiveAbilityLevel2 = undefined;
       lotteryStatus.isPassiveAbilityRefreshed2 = false;
+      lotteryStatus.passivePaidRefreshCount2 = 0;
     }
 
     // 重新生成该行的技能

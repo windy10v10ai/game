@@ -1,5 +1,9 @@
-import React from 'react';
-import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import React, { useState } from 'react';
+import {
+  GetLocalPlayerSteamAccountID,
+  GetPaymentPlatformOrder,
+  PaymentPlatform,
+} from '@utils/utils';
 import { AlipayCardItem, AlipaySubscribeCard } from './alipay';
 import {
   AFDIAN_ACTIVATE_URL,
@@ -26,6 +30,8 @@ const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platf
 
 export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: SubscribePageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
+  const order = GetPaymentPlatformOrder();
+  const [expanded, setExpanded] = useState(false);
 
   const alipayItems: AlipayCardItem[] = MEMBERSHIP_PLATFORMS.alipay.tiers.map((tier) => ({
     productCode: MEMBERSHIP_PLATFORMS.alipay.productCode!,
@@ -42,6 +48,44 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         : undefined,
     successIconSrc: CROWN_GOLD,
   }));
+
+  const cards: Record<PaymentPlatform, React.ReactNode> = {
+    alipay: (
+      <AlipaySubscribeCard
+        items={alipayItems}
+        nameKey="#member_platform_alipay"
+        descKey="#member_platform_alipay_desc"
+      />
+    ),
+    afdian: (
+      <ExternalPlatformCard
+        variantClassName="member-platform-card-afdian"
+        descClassName="member-platform-desc-cn"
+        logoSrc={AFDIAN_ICON}
+        name={$.Localize('#member_platform_afdian')}
+        desc={$.Localize('#member_platform_afdian_desc')}
+        subscribeUrl={GetAfdianSubscribeUrl()}
+        subscribePrice={`¥${defaultTier('afdian').price}`}
+        subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
+        shopUrl={AFDIAN_SHOP_URL}
+        activateUrl={AFDIAN_ACTIVATE_URL}
+      />
+    ),
+    kofi: (
+      <ExternalPlatformCard
+        variantClassName="member-platform-card-kofi"
+        descClassName="member-platform-desc-intl"
+        logoSrc={KOFI_LOGO}
+        name={$.Localize('#member_platform_kofi')}
+        desc={$.Localize('#member_platform_kofi_desc')}
+        subscribeUrl={KOFI_SUBSCRIBE_URL}
+        subscribePrice={`$${defaultTier('kofi').price}`}
+        subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
+        shopUrl={KOFI_SHOP_URL}
+        activateUrl={KOFI_ACTIVATE_URL}
+      />
+    ),
+  };
 
   return (
     <Panel className="member-subpage member-subscribe-page">
@@ -87,42 +131,30 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
         </Button>
       </Panel>
 
-      {/* 三平台并排 */}
+      {/* 按语言顺序渲染三张卡，第 3 张默认折叠 */}
       <Panel className="member-platform-cards">
-        {/* 支付宝 */}
-        <AlipaySubscribeCard
-          items={alipayItems}
-          nameKey="#member_platform_alipay"
-          descKey="#member_platform_alipay_desc"
-        />
+        {order.map((key, i) => (
+          <Panel
+            key={key}
+            className="member-platform-slot"
+            style={{ visibility: i < 2 || expanded ? 'visible' : 'collapse' }}
+          >
+            {cards[key]}
+          </Panel>
+        ))}
+      </Panel>
 
-        {/* 爱发电 */}
-        <ExternalPlatformCard
-          variantClassName="member-platform-card-afdian"
-          descClassName="member-platform-desc-cn"
-          logoSrc={AFDIAN_ICON}
-          name={$.Localize('#member_platform_afdian')}
-          desc={$.Localize('#member_platform_afdian_desc')}
-          subscribeUrl={GetAfdianSubscribeUrl()}
-          subscribePrice={`¥${defaultTier('afdian').price}`}
-          subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
-          shopUrl={AFDIAN_SHOP_URL}
-          activateUrl={AFDIAN_ACTIVATE_URL}
-        />
-
-        {/* Ko-fi */}
-        <ExternalPlatformCard
-          variantClassName="member-platform-card-kofi"
-          descClassName="member-platform-desc-intl"
-          logoSrc={KOFI_LOGO}
-          name={$.Localize('#member_platform_kofi')}
-          desc={$.Localize('#member_platform_kofi_desc')}
-          subscribeUrl={KOFI_SUBSCRIBE_URL}
-          subscribePrice={`$${defaultTier('kofi').price}`}
-          subscribeUnitText={$.Localize('#member_platform_subscribe_month')}
-          shopUrl={KOFI_SHOP_URL}
-          activateUrl={KOFI_ACTIVATE_URL}
-        />
+      {/* 其他支付方式：展开第 3 张，展开后按钮消失 */}
+      <Panel
+        className="member-other-payment-row"
+        style={{ visibility: expanded ? 'collapse' : 'visible' }}
+      >
+        <Button className="member-other-payment-btn" onactivate={() => setExpanded(true)}>
+          <Label
+            className="member-other-payment-label"
+            text={$.Localize('#member_other_payment')}
+          />
+        </Button>
       </Panel>
     </Panel>
   );

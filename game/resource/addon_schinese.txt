@@ -129,6 +129,7 @@
 		"MaxLevelUpSelectedHeroes_Button"			"满级加钱"
 		"ScepterSelectedHeroes_Button"				"神杖"
 		"ShardSelectedHeroes_Button"				"魔晶"
+		"AwakenStoneSelectedHeroes_Button"			"觉醒石"
 		"InvulnOn_Button"							"开启无敌"
 		"InvulnOff_Button"							"关闭无敌"
 		"Reset_Button"								"重置"
@@ -222,14 +223,20 @@
 		"lottery_active_ability_title"							"选择主动技能"
 		"lottery_passive_ability_title"							"选择被动技能"
 
-		"lottery_tooltip_ability_refresh"						"点击刷新技能"
+		"lottery_tooltip_ability_refresh"						"会员可以免费刷新一次技能"
 		"lottery_tooltip_ability_refresh_used"					"技能已刷新"
 		"lottery_tooltip_ability_refresh_picked"				"技能已选择"
 		"lottery_tooltip_ability_refresh_not_member"			"会员可刷新一次技能，点击开通会员"
+		"lottery_tooltip_ability_refresh_paid"					"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新技能<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
+		"lottery_tooltip_ability_refresh_limit"					"可用刷新次数已用完<br>剩余可用刷新次数：0"
+		"lottery_tooltip_ability_refresh_insufficient"			"可用积分不足，点击前往会员页"
 
-		"lottery_tooltip_item_refresh"							"点击刷新物品"
+		"lottery_tooltip_item_refresh"							"会员可以免费刷新一次物品"
 		"lottery_tooltip_item_refresh_used"						"物品已刷新"
-		"lottery_tooltip_item_refresh_not_premium"				"高级会员可刷新一次物品，点击开通会员"
+		"lottery_tooltip_item_refresh_not_premium"				"高级会员可刷新物品，点击开通会员"
+		"lottery_tooltip_item_refresh_paid"						"消耗 <font color='#FFD700'>{cost}</font> 可用积分刷新物品<br>剩余可用刷新次数：{remaining}<br>（不降低总会员积分及会员等级）"
+		"lottery_tooltip_item_refresh_limit"					"可用刷新次数已用完<br>剩余可用刷新次数：0"
+		"lottery_tooltip_item_refresh_insufficient"				"可用积分不足，点击前往会员页"
 
 		"lottery_button_ability_reset"							"重置"
 		"lottery_tooltip_ability_reset_enable"					"移除已选择的技能，并重新抽选一组新技能"
@@ -337,6 +344,7 @@
 		"member_platform_subscribe_month"		"/月"
 		"member_shop_divider"			"已有会员？购买会员积分快速升级"
 		"member_shop_title"				"购买会员积分"
+		"member_other_payment"			"其他支付方式"
 		"member_activate"				"手动激活"
 		"member_activate_tooltip"		"若订阅时忘记填写好友ID或填写有误，可在此手动激活。激活成功后系统将记录您的账号，之后订阅无需再次填写。"
 		"member_refresh"				"刷新会员状态和积分"
@@ -899,15 +907,16 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
 
-		// 火枪暗杀（群体）
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"暗杀（群体）"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的地方英雄，在%total_cast_time_tooltip%秒后，发射毁灭性的子弹，在远距离造成伤害，并对目标造成短暂眩晕。只影响可见的英雄。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"为了实现预言并返回家乡，卡尔德必须再次完成一次如同当年古老测试时那样完美的射击。"
+		// 狙击手 暗杀-觉醒
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>暗杀-觉醒</font>"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击。<br><br>普通攻击有一定概率触发该技能。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"打断引导法术，包括对魔法免疫单位。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_radius"			"暗杀范围:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"暗杀范围:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%攻击触发暗杀概率:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"狙击手正在瞄准你的头部！"
 
@@ -1063,7 +1072,7 @@
 // 					Awaken Abilities 觉醒技能
 
 		// 屠夫 肉钩-觉醒
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#00ff00'>肉钩-觉醒"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离和钩子速度随帕吉的力量值增加，每点力量增加%hook_distance_per_strength%，额外距离上限%hook_max_distance_bonus%。</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
@@ -1073,7 +1082,7 @@
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
 
 		// 剑圣 剑刃风暴-觉醒
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#00ff00'>剑刃风暴-觉醒"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力%attack_damage_pct%%%的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
@@ -1082,13 +1091,59 @@
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
 
+		// 斧王 无情铁手-觉醒
+		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>主动释放：自动斩杀</font><br>持续时间内，斧王会自动斩杀施法范围内血量低于斩杀线的敌方英雄。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>开启自动施法后，斩杀时会突进到敌人身边。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"持续时间："
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"斩杀间隔："
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_increase_damage_per_kill"			"每次斩杀提升伤害："
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"无情铁手"
+		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"已斩杀 %dMODIFIER_PROPERTY_STACKS_COUNT% 次敌人，淘汰之刃伤害获得永久提升。"
+
 		// 斯拉克 刮痧之王-觉醒
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#00ff00'>刮痧之王-觉醒"
+		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#d000ff'>刮痧之王 觉醒</font>"
 		"DOTA_Tooltip_ability_break_speed_limit_Description"							"当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
 		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"每次击杀突破攻速上限："
 		"DOTA_Tooltip_ability_break_speed_limit_duration"								"持续时间："
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"刮痧之王"
 		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"每层提高攻速上限50点。"
+
+		// 死灵法师 竭心光环-觉醒
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"死灵法师让敌人的心脏停跳，使附近敌方单位按最大生命值一定百分比持续流失生命。<br><br><font color='#d000ff'>造成的伤害可以被技能增强。</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Note0"				"<font color='#FFFFFF'>神杖升级：将死灵法师的生命恢复值的%heal_regen_to_damage%%%转化为额外伤害</font>"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_scepter_description"	"将死灵法师的生命恢复值的%heal_regen_to_damage%%%转化为额外伤害"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_radius"		"作用范围："
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"%每秒最大生命值伤害："
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"治疗降低："
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"%生命恢复转化为伤害（神杖）："
+
+		// 卓尔游侠 数箭连发-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>数箭连发 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"向单个敌人连续发射多支箭矢，每箭造成一次普通攻击。<br><br>与数箭齐发共享冷却、同步升级。"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_shots"			"箭矢数："
+
+		// 宙斯 神王-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯会自动普攻弧形闪电和雷击命中的目标。"
+
+		// 幻影刺客 幻影突袭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>魔法免疫</font>，并自动发起攻击。"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"攻击速度加成："
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"持续时间："
+
+		// 巫医 神语-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医的死亡守卫额外继承本体%damage_percentage%%%的攻击力。<br><br>巫医智慧突破极限，可以沟通神明召唤更多的死亡守卫（上限%max_ward_num%个），但额外守卫无基础攻击力。"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"%守卫继承攻击力："
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"额外1个死亡守卫所需智力："
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"额外守卫上限："
+
+		// 影魔 安魂曲护体-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得10个灵魂，击杀小兵获得3个灵魂。"
 
 		///////////////////////////////////////////////////
 		//
@@ -2429,6 +2484,16 @@
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_magical_armor"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_armlet_pro_max_bonus_health_regen"					"+$hp_regen"
 
+		// 觉醒石
+		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、斯拉克、狙击手、斧王、死灵法师、卓尔游侠、宙斯、幻影刺客、巫医、影魔\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
+
+		// 被动技能书
+		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 随机获得一个被动技能。\n每名玩家整局最多使用 3 次\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
+
 		// 圣女白莲
 		"DOTA_Tooltip_Ability_item_saint_orb"							"圣女白莲"
 		"DOTA_Tooltip_ability_item_saint_orb_Description"				"<h1><font color='#FFFF00'>主动：白莲护盾</font></h1>给予目标一个护盾，持续时间内反弹所有指向性法术(自身依然受到效果影响)，护盾施加后会免疫第一次触发的法术，并且恢复目标%heal_percent%%%的血量，护盾持续%duration%秒。<br><br>释放时附加弱驱散效果。\n<h1>被动：白莲花</h1>每 %block_cooldown% 秒抵挡一次指向性技能，并且恢复%heal_percent%%%的血量。被动格挡独立计时，不占用技能冷却。<br><br>免疫减速效果。"
@@ -3163,7 +3228,7 @@
 		"DOTA_Tooltip_modifier_item_magic_sword_debuff_Description"						"护甲降低 %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%，攻击速度降低 %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%，移动速度降低 %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，生命回复降低 %dMODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_Ability_item_tome_of_ability_reset"								"能力重置书"
-		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>使用：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。<br><br>一本书只能选择一个技能进行重置。\n\n<h1>击杀肉山时掉落</h1>可以分享给队友"
+		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Description"					"<h1>使用：能力重置</h1>打开能力重置界面，可以移除已学习的技能并学习新技能。<br>移除技能时会返还技能点。<br><br>一本书只能选择一个技能进行重置。\n\n可以分享给队友"
 		"DOTA_Tooltip_ability_item_tome_of_ability_reset_Lore"							"重新规划你的能力路线。"
 
 		"DOTA_Tooltip_ability_item_skill_reset"											"技能洗点书"
@@ -3180,6 +3245,9 @@
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Description"				"<h1>使用：转化</h1>熔炼背包中的所有符文，转化为随机的类型，无视原有者<br><br><font color='#4CAF50'>不会失败，且优先转化为背包中没有的符文类型</font>"
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
+		"dota_hud_error_awaken_stone_unsupported"										"该英雄暂未拥有可觉醒的技能"
+		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
+		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"
