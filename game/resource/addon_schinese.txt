@@ -2491,7 +2491,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 随机获得一个被动技能，会员有更高概率获得稀有技能。\n每名玩家整局最多使用 3 次\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 随机获得一个被动技能，有较高概率获得稀有技能。\n每名玩家整局最多使用 3 次\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
 
 		// 圣女白莲
