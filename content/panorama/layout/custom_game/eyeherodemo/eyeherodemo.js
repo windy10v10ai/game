@@ -125,9 +125,12 @@ function ScepterSelectedHeroes() {
   DispatchForSelectedEntities('ScepterHero');
 }
 
+function AwakenStoneSelectedHeroes() {
+  DispatchAddToSelectedEntitiesWithName('item', 'item_awaken_stone');
+}
+
 // 对所有选中单位添加物品/技能。kind: 'item' | 'ability'
-function DispatchAddToSelectedEntities(kind) {
-  var name = $('#AddToUnitInput').text;
+function DispatchAddToSelectedEntitiesWithName(kind, name) {
   if (!name) {
     Game.EmitSound('General.Cancel');
     return;
@@ -154,11 +157,11 @@ function DispatchAddToSelectedEntities(kind) {
 }
 
 function AddItemToSelected() {
-  DispatchAddToSelectedEntities('item');
+  DispatchAddToSelectedEntitiesWithName('item', $('#AddToUnitInput').text);
 }
 
 function AddAbilityToSelected() {
-  DispatchAddToSelectedEntities('ability');
+  DispatchAddToSelectedEntitiesWithName('ability', $('#AddToUnitInput').text);
 }
 
 function MoveHeroToCoord() {

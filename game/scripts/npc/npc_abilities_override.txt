@@ -5078,6 +5078,7 @@
 	"drow_ranger_multishot"
 	{
 		"MaxLevel"						"5"
+		"LinkedAbility"					"special_bonus_unique_drow_ranger_upgrade"	// 原版不存在，手动修改：与数箭连发觉醒双向联动同步升级
 		"AbilityManaCost"				"50 70 90 110 130"	// 50 70 90 110
 		"AbilityValues"
 		{
@@ -6573,7 +6574,18 @@
 		{
 			"necromastery_max_souls"
 			{
-				"value"						"50"		// 20
+				"value"										"50"		// 20
+				"special_bonus_unique_nevermore_1"			"+20"		// +5
+			}
+			"souls_per_hero_kill"
+			{
+				"value"										"4"
+				"special_bonus_unique_nevermore_upgrade"	"=10"	// 原版不存在，手动修改：觉醒后击杀英雄获得10灵魂
+			}
+			"souls_per_kill"
+			{
+				"value"										"1"
+				"special_bonus_unique_nevermore_upgrade"	"=3"	// 原版不存在，手动修改：觉醒后击杀小兵获得3灵魂
 			}
 		}
 	}

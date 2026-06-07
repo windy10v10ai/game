@@ -70,6 +70,7 @@ describe('ItemLottery', () => {
     for (const k of Object.keys(netTable)) delete netTable[k];
     mockHero.AddItem.mockClear();
     mockGetMemberLevel.mockReturnValue(1); // 默认 NORMAL
+    global.RandomInt = jest.fn((min: number, _max: number) => min);
     lottery = new ItemLottery();
   });
 
@@ -98,6 +99,8 @@ describe('ItemLottery', () => {
     });
 
     it('候选无重复', () => {
+      // 落到含多个物品的档（DEFAULT 下 50 命中 T2），去重逻辑才有验证意义
+      global.RandomInt = jest.fn(() => 50);
       lottery.onTriggered(humanOpener);
       const entry = netTable['lottery_item']['3'] as { candidates: { name: string }[] };
       const names = entry.candidates.map((c) => c.name);

@@ -9,10 +9,10 @@ export enum ItemLotteryPool {
 }
 
 const POOL_RATES: Record<ItemLotteryPool, number[]> = {
-  // 累计阈值 [T5, T4, T3, T2, T1]
-  [ItemLotteryPool.INITIAL]: [0, 0, 10, 50, 100],
-  [ItemLotteryPool.DEFAULT]: [1, 5, 20, 60, 100],
-  [ItemLotteryPool.PREMIUM]: [5, 25, 60, 100, 100],
+  // 累计阈值 [T6, T5, T4, T3, T2, T1]
+  [ItemLotteryPool.INITIAL]: [0, 0, 0, 10, 50, 100],
+  [ItemLotteryPool.DEFAULT]: [1, 2, 7, 25, 60, 100],
+  [ItemLotteryPool.PREMIUM]: [2, 7, 25, 60, 100, 100],
 };
 
 export class ItemLotteryHelper {

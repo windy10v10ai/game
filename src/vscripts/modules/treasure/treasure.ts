@@ -229,7 +229,7 @@ export class Treasure {
 
   static mapToLotteryPool(openCount: number): ItemLotteryPool {
     if (openCount <= 1) return ItemLotteryPool.INITIAL;
-    if (openCount >= 5) return ItemLotteryPool.PREMIUM;
+    if (openCount >= 6) return ItemLotteryPool.PREMIUM;
     return ItemLotteryPool.DEFAULT;
   }
 

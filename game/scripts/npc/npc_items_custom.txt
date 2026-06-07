@@ -7430,7 +7430,7 @@
 		"ItemPermanent"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemInitialStockTime"		"360"
-		"ItemStockInitial"			"1"
+		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"300"
 
@@ -7455,13 +7455,16 @@
 
 		"AbilityCooldown"			"1.0"
 		"AbilityManaCost"			"0"
-		"ItemCost"					"0"
-		"ItemPurchasable"			"0"
+		"ItemCost"					"999999"
+		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 		"ItemDroppable"				"1"
 		"ItemKillable"				"0"
 		"ItemPermanent"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"0"
+
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"
 	}
