@@ -8,8 +8,6 @@ export const itemTiers: Tier[] = [
     level: 6,
     names: [
       'item_awaken_stone', // 觉醒石
-      'item_universal_rune', // 通用符文
-      'item_tome_of_luoshu', // 洛书
     ],
   },
   // 终极物品
@@ -24,6 +22,8 @@ export const itemTiers: Tier[] = [
       'item_fusion_shadow', // 暗影符文
       'item_fusion_magic', // 魔化符文
       'item_fusion_agile', // 灵动符文
+      'item_universal_rune', // 通用符文
+      'item_tome_of_luoshu', // 洛书
     ],
   },
   // 特殊物品
