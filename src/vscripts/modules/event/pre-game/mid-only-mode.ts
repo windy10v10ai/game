@@ -1,4 +1,4 @@
-import { Analytics } from '../../../api/analytics/analytics';
+import { GA4PlayerLanguageTracker } from '../../../api/analytics/ga4/ga4-player-language-tracker';
 import { PlayerHelper } from '../../helper/player-helper';
 
 /**
@@ -47,9 +47,9 @@ export class MidOnlyMode {
 
     PlayerHelper.ForEachPlayer((playerId) => {
       const steamId = PlayerResource.GetSteamAccountID(playerId);
-      const playerLang = Analytics.PLAYER_LANGUAGES.players.find((p) => p.steamId === steamId);
-      if (!playerLang) return;
-      if (playerLang.language === 'schinese' || playerLang.language === 'tchinese') {
+      const language = GA4PlayerLanguageTracker.GetLanguage(steamId);
+      if (!language) return;
+      if (language === 'schinese' || language === 'tchinese') {
         hasChinese = true;
       } else {
         hasNonChinese = true;
