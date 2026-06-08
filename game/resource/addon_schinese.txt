@@ -908,7 +908,7 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
 
 		// 狙击手 暗杀-觉醒
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>暗杀-觉醒</font>"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br>普通攻击有一定概率触发该技能。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
