@@ -67,7 +67,7 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 - **`ScriptFile` 实现** → 纯 Lua 放 `game/scripts/vscripts/abilities/<name>.lua`（`class({})` + `LinkLuaModifier`，不经 TSTL）；TSTL 写法放 `src/vscripts/abilities/`。被动觉醒标准写法：`GetIntrinsicModifierName()` 返回一个隐藏内置 modifier，无需学习即生效，所有可调值从 KV `AbilityValues` 读取。
 
-- **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。
+- **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
 - **本地化** → 在两个 addon 文件的 `Awaken Abilities 觉醒技能` 模块补条目（中英同步）。标题格式见下。
 
