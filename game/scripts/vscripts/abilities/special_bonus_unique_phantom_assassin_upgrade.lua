@@ -1,3 +1,18 @@
+-- 觉醒后施放窒碍短匕获得短暂魔免（不顶替真BKB）
+function OnDaggerCast(keys)
+    local castedAbility = keys.event_ability
+    if not castedAbility or castedAbility:GetAbilityName() ~= "phantom_assassin_stifling_dagger" then
+        return
+    end
+    local caster = keys.caster
+    local awaken = caster:FindAbilityByName("special_bonus_unique_phantom_assassin_upgrade")
+    if not awaken then
+        return
+    end
+    local duration = awaken:GetSpecialValueFor("dagger_immune_duration")
+    ApplyAwakenMagicImmunity(caster, awaken, duration)
+end
+
 function OnSpellStart(keys)
     local caster = keys.caster
     local target = keys.target
@@ -11,10 +26,9 @@ function OnSpellStart(keys)
     -- Apply fresh modifier
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_phantom_strike_datadriven", {})
 
-    -- 觉醒护身：魔法免疫（复用闪烁的持续时间）
+    -- 觉醒护身：魔法免疫（复用闪烁的持续时间），不顶替已有的更长魔免
     local immune_duration = ability:GetSpecialValueFor("untargetable_duration")
-    caster:AddNewModifier(caster, ability, "modifier_black_king_bar_immune", { duration = immune_duration })
-    caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
+    ApplyAwakenMagicImmunity(caster, ability, immune_duration)
 
     local blink_start_pfx = ParticleManager:CreateParticle(
         "particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf", PATTACH_ABSORIGIN,

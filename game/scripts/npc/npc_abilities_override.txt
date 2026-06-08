@@ -582,6 +582,7 @@
 	"axe_culling_blade"
 	{
 		"MaxLevel" "4"
+		"LinkedAbility"					"axe_auto_culling_blade"	// 原版不存在，手动修改：与自动淘汰之刃觉醒双向联动同步升级
 		"AbilityCooldown"				"90 80 70 60"
 		"AbilityManaCost"				"100 125 150 175"
 		"AbilityCastPoint"				"0.1"	// 0.3
@@ -6856,6 +6857,11 @@
 			"attack_factor_tooltip"
 			{
 				"value"				"30 45 60 75 90"
+			}
+			"dagger_speed"
+			{
+				"value"											"1200"
+				"special_bonus_unique_phantom_assassin_upgrade"	"=2100"	// 原版不存在，手动修改：觉醒后匕首弹道速度提升至2100
 			}
 		}
 	}

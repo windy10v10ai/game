@@ -4607,7 +4607,6 @@
         //-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_aoe"				"60"
 			"bonus_health"			"500"
 			"bonus_mana"			"500"
 			"bonus_mp_regen"		"3"
@@ -7455,15 +7454,17 @@
 
 		"AbilityCooldown"			"1.0"
 		"AbilityManaCost"			"0"
-		"ItemCost"					"999999"
+		"ItemCost"					"0"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 		"ItemDroppable"				"1"
 		"ItemKillable"				"0"
 		"ItemPermanent"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemInitialStockTime"		"6060"
 		"ItemStockInitial"			"0"
-		"ItemStockMax"				"0"
+		"ItemStockMax"				"1"
+		"ItemStockTime"				"6000"
 
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"
