@@ -2500,14 +2500,11 @@
 
 		// item_bloodstone_v2 血精神石
 		"DOTA_Tooltip_ability_item_bloodstone"										"Godly Bloodstone"
-		"DOTA_Tooltip_ability_item_bloodstone_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_Note0"									"Using Godly Bloodstone leaves you drained, preventing you from benefitting from its multiplied spell lifesteal again during that time. Drained's duration is dependent on the item's cooldown."
 		"DOTA_Tooltip_modifier_item_bloodstone_active_Description"							"Bloodstone's Spell Lifesteal is multiplied."
-		"DOTA_Tooltip_ability_item_bloodstone_Note1"									"Godly Bloodstone's AoE bonus does not stack with the AoE bonus from Gleipnir or Advanced Gleipnir, but will stack with AoE bonuses from other sources."
 		"DOTA_Tooltip_ability_item_bloodstone_v2"									"Mini Bloodstone"
 		// "DOTA_Tooltip_ability_item_bloodstone_v2_Description"						"<h1>Active: Bloodpact</h1> Increases Godness Bloodstone's Spell Lifesteal by %lifesteal_multiplier%x and also converts the same percentage of damage dealt to mana. Lasts %buff_duration% seconds."
 		"DOTA_Tooltip_ability_item_bloodstone_v2_Lore"								"It's like a Bloodstone, except one-eighth the size!"
-		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_aoe"							"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_health"						"+$health"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mana"						"+$mana"
 		"DOTA_Tooltip_ability_item_bloodstone_v2_bonus_mp_regen"					"+$mana_regen"
