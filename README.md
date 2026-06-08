@@ -56,7 +56,43 @@ nvm install $(Get-Content .nvmrc)
 nvm use $(Get-Content .nvmrc)
 ```
 
-3. Clone this repository to local. Run `npm install` in the repository root directory. Content and game folder will be linked to dota2 dota_addons directory.
+3. Clone this repository to local. **It must be on the same hard drive partition as Dota2.** 仓库必须和 Dota2 在同一块硬盘分区上。
+4. Run `npm install` in the repository root directory. Content and game folder will be linked to dota2 dota_addons directory.
+
+```bash
+npm install
+```
+
+## Claude Code (Optional)
+
+This project ships with Claude Code configuration (`.claude/`) for AI-assisted development. Two ways to use it:
+
+1. **Official subscription** — install [Claude Code](https://claude.com/claude-code) and sign in.
+2. **Third-party API** — install the [Claude Code VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code), then set the endpoint and key in [`.claude/settings.local.json`](.claude/settings.local.json) (git-ignored):
+
+```json
+{
+  "env": {
+    "ANTHROPIC_BASE_URL": "https://your-api-endpoint",
+    "ANTHROPIC_AUTH_TOKEN": "your-api-key"
+  }
+}
+```
+
+Recommend installing the [GitHub CLI](https://cli.github.com/) and running `gh auth login`, so Claude Code can create pull requests and manage issues for you.
+
+本项目自带 Claude Code 配置（`.claude/`）用于 AI 辅助开发，有两种使用方式：
+
+1. **官网订阅** — 安装 [Claude Code](https://claude.com/claude-code) 并登录。
+2. **第三方 API** — 安装 [Claude Code VS Code 插件](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code)，在 [`.claude/settings.local.json`](.claude/settings.local.json)（已被 git 忽略）中配置上面的 API 地址与密钥。
+
+建议安装 [GitHub CLI](https://cli.github.com/) 并运行 `gh auth login`，以便 Claude Code 帮你创建 PR、管理 issue。
+
+## Dota2 Reference Files (Optional)
+
+Some development tasks (editing ability/item KV, localization, AI tuning) reference the vanilla Dota 2 files under `docs/reference/<version>/`. This directory is git-ignored, so you need to build it yourself with [Source 2 Viewer](https://valveresourceformat.github.io/): open `dota 2 beta/game/dota/pak01_dir.vpk` and extract the `scripts/npc/` folder together with the two localization files `abilities_english.txt` and `abilities_schinese.txt` into `docs/reference/<version>/`.
+
+部分开发任务（编辑技能/物品 KV、本地化、AI 调参）需要参考 `docs/reference/<version>/` 下的原版 Dota2 文件。该目录已被 git 忽略，需用 [Source 2 Viewer](https://valveresourceformat.github.io/) 自行解压：打开 `dota 2 beta/game/dota/pak01_dir.vpk`，将 `scripts/npc/` 目录以及 `abilities_english.txt`、`abilities_schinese.txt` 两个本地化文件解压到 `docs/reference/<版本>/` 下。
 
 # Develop
 
@@ -97,9 +133,9 @@ png will be compiled to vtex_c automatically when you run `npm run start`.
 ## Troubleshooting
 
 This code needs to be on the same hard drive partition as dota2.<br>
-代码需要和dota2在同一块硬盘分区上。
-
 Reinstall solve most of the problems.<br>
+
+代码需要和dota2在同一块硬盘分区上。<br>
 重新安装可以解决大部分问题。
 
 ```bash
