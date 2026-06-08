@@ -1,5 +1,6 @@
 #base "npc_abilities_custom_lottery.txt"
 #base "npc_abilities_custom_awaken.txt"
+#base "npc_abilities_custom_ward.txt"
 
 "DOTAAbilities"
 {

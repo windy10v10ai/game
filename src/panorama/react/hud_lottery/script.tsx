@@ -5,6 +5,7 @@ import { render } from 'react-panorama-x';
 import Lottery from './Lottery';
 import KeyBind from './KeyBind';
 import ItemLottery from './ItemLottery';
+import WardSlot from './WardSlot';
 
 function Root() {
   return (
@@ -12,6 +13,7 @@ function Root() {
       <ItemLottery />
       <Lottery />
       <KeyBind />
+      <WardSlot />
     </Panel>
   );
 }
