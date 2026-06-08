@@ -34,12 +34,7 @@ function modifier_special_bonus_unique_nevermore_upgrade:OnAbilityStart(keys)
 
 	if abilityName == "nevermore_requiem" then
 		-- 魂之挽歌前摇期间获得魔法免疫（防控制打断），靠 duration 自然到期
-		-- 已有更长魔免（如真 BKB）时跳过，避免短时觉醒魔免缩短/替代它
 		local duration = self:GetAbility():GetSpecialValueFor("invulnerability_duration") or 1.67
-		local existing = parent:FindModifierByName("modifier_black_king_bar_immune")
-		if not existing or existing:GetRemainingTime() < duration then
-			parent:AddNewModifier(parent, self:GetAbility(), "modifier_black_king_bar_immune", { duration = duration })
-			parent:EmitSound("DOTA_Item.BlackKingBar.Activate")
-		end
+		ApplyAwakenMagicImmunity(parent, self:GetAbility(), duration)
 	end
 end

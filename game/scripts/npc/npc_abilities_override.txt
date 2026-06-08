@@ -6858,6 +6858,11 @@
 			{
 				"value"				"30 45 60 75 90"
 			}
+			"dagger_speed"
+			{
+				"value"											"1200"
+				"special_bonus_unique_phantom_assassin_upgrade"	"=2100"	// 原版不存在，手动修改：觉醒后匕首弹道速度提升至2100
+			}
 		}
 	}
 	// 幻影突袭

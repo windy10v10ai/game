@@ -1132,7 +1132,7 @@
 
 		// 幻影刺客 幻影突袭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>魔法免疫</font>，并自动发起攻击。"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>魔法免疫</font>，并自动发起攻击。<br><br>窒碍短匕弹道速度提升。施放窒碍短匕后获得短暂<font color='#FFCC66'>魔法免疫</font>。"
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"攻击速度加成："
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"持续时间："
 

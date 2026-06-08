@@ -1147,7 +1147,7 @@
 
 		// Phantom Assassin Phantom Strike - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>Phantom Strike Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and <font color='#FFCC66'>magic immunity</font> briefly, then automatically attacks."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and <font color='#FFCC66'>magic immunity</font> briefly, then automatically attacks.<br><br>Stifling Dagger's projectile speed is increased. Casting Stifling Dagger grants brief <font color='#FFCC66'>magic immunity</font>."
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"Bonus Attack Speed:"
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"Duration:"
 
