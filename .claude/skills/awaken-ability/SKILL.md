@@ -155,13 +155,13 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 觉醒要在「英雄施放某个特定技能后」附带效果（如施法后加魔免）：
 
 - **Lua intrinsic modifier**（`ability_lua`）：`GetIntrinsicModifierName` 返回一个 Lua modifier，其 `DeclareFunctions` 返回 `MODIFIER_EVENT_ON_ABILITY_START`，`OnAbilityStart(keys)` 里判断 `keys.unit == parent` 且 `keys.ability:GetAbilityName() == "目标技能名"`。不依赖技能 behavior，最通用。
-- **DataDriven modifier**（`ability_datadriven`）：在 KV `Modifiers` 加 `"Passive" "1"` 的常驻 modifier（加 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。函数里被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者是 `keys.caster`。
+- **DataDriven modifier**（`ability_datadriven`）：在 KV `Modifiers` 加 `"Passive" "1"` 的常驻 modifier（加 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。函数里被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者是 `keys.caster`。这个 listener 在主动型觉醒（如 `UNIT_TARGET`）上也会常驻并触发，无需技能是 passive。
 
-> **关键坑**：DataDriven 的 `"Passive" "1"` modifier **只有当技能 `AbilityBehavior` 含 `DOTA_ABILITY_BEHAVIOR_PASSIVE` 时才会自动常驻**。若觉醒是主动技（如 `UNIT_TARGET`），需在 behavior 上**叠加** `| DOTA_ABILITY_BEHAVIOR_PASSIVE`，否则 listener 永不挂载、回调永不触发。
+> **关键坑**：不要为了让 listener 常驻而给主动技 `AbilityBehavior` 叠加 `DOTA_ABILITY_BEHAVIOR_PASSIVE`——实测会使该主动技**无法施放**。DataDriven 的 `Passive` modifier 不依赖技能 behavior 即可常驻，保持原主动 behavior 即可。
 
 施法后的附带魔免配合进阶 4 的工具函数。
 
-> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（behavior 叠加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted` 监听 `phantom_assassin_stifling_dagger`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听的纯净范例。
+> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（`UNIT_TARGET`，未加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted` 监听 `phantom_assassin_stifling_dagger`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听的范例。
 
 ---
 
