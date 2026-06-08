@@ -19,7 +19,7 @@
     "lint:fix": "eslint --ext .js,.ts,.tsx --fix  \"./src/**/*.{js,ts,tsx}\""
   },
   "devDependencies": {
-    "@moddota/dota-lua-types": "^4.37.0",
+    "@moddota/dota-lua-types": "^4.38.2",
     "@moddota/find-steam-app": "^1.1.0",
     "@moddota/panorama-types": "^1.38.1",
     "@types/jest": "^30.0.0",

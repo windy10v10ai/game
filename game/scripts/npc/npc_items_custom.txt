@@ -7461,10 +7461,10 @@
 		"ItemKillable"				"0"
 		"ItemPermanent"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"		"6060"
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
-		"ItemStockTime"				"6000"
+		"ItemStockTime"				"0"
 
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"
