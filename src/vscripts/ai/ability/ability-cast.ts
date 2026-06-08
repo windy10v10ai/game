@@ -1,4 +1,4 @@
-import { IsAbilityBehavior } from '../action/cast-condition';
+import { CastCoindition, IsAbilityBehavior } from '../action/cast-condition';
 
 /**
  * 技能的有效施法距离 = KV 中 AbilityCastRange + 施法者的施法距离加成。
@@ -52,5 +52,37 @@ export function CastAbilityOnTargetByBehavior(
   }
 
   print(`[AI] ERROR CastByBehavior ${abilityName} behavior not supported`);
+  return false;
+}
+
+/**
+ * 执行 spec 中声明的开关动作（toggle / autocast）。仅切换状态，不走正常施法派发。
+ *
+ * 用于 bot 主动开启抽奖抽到的法球/开关类被动技能（默认关闭，不开启永不生效）：
+ *  - toggleOn / toggleOff：切换 TOGGLE 技能开关（如分裂箭、严寒烧灼有 A 杖时）
+ *  - autoCastOn：开启自动施法（毒性攻击、霜冻之箭等攻击型法球）
+ *
+ * 仅当目标状态与当前状态不一致时才切换并返回 true（命中本 tick），避免反复点击。
+ * dispatcher 与老链路 ActionAbility.doAction 共用。
+ */
+export function ApplyAbilityAction(
+  ability: CDOTABaseAbility,
+  action: NonNullable<CastCoindition['action']>,
+): boolean {
+  if (action.toggleOn && !ability.GetToggleState()) {
+    print(`[AI] toggleOn ${ability.GetName()}`);
+    ability.ToggleAbility();
+    return true;
+  }
+  if (action.toggleOff && ability.GetToggleState()) {
+    print(`[AI] toggleOff ${ability.GetName()}`);
+    ability.ToggleAbility();
+    return true;
+  }
+  if (action.autoCastOn && !ability.GetAutoCastState()) {
+    print(`[AI] autoCastOn ${ability.GetName()}`);
+    ability.ToggleAutoCast();
+    return true;
+  }
   return false;
 }
