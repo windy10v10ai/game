@@ -70,8 +70,16 @@ function sniper_assassinate_upgrade:OnSpellStart()
 	-- 添加暴击修饰符并执行攻击
 	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
 
+	local bonus_physical_damage = self:GetSpecialValueFor("bonus_physical_damage")
 	for _, target in pairs(self.tTargets) do
 		caster:PerformAttack(target, true, true, true, false, true, false, true)
+		ApplyDamage({
+			victim = target,
+			attacker = caster,
+			damage = bonus_physical_damage,
+			damage_type = DAMAGE_TYPE_PHYSICAL,
+			ability = self,
+		})
 	end
 	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
 	-- end)

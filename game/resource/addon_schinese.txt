@@ -909,13 +909,14 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>暗杀-觉醒</font>"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击。<br><br>普通攻击有一定概率触发该技能。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br>普通攻击有一定概率触发该技能。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"打断引导法术，包括对魔法免疫单位。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"暗杀范围:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_bonus_physical_damage"	"额外物理伤害:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%攻击触发暗杀概率:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"狙击手正在瞄准你的头部！"
