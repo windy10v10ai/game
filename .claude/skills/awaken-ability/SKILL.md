@@ -146,9 +146,16 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 ApplyAwakenMagicImmunity(unit, ability, duration)
 ```
 
-它在已有相等或更长的 `modifier_black_king_bar_immune` 时跳过，否则加魔免 + 播 BKB 音效。**所有觉醒加魔免一律走它**，不要各自手写比较逻辑。
+它在已有相等或更长的 `modifier_black_king_bar_immune` 时跳过，否则加魔免 + 播 BKB 音效，**返回是否实际施加**。**所有觉醒加魔免一律走它**，不要各自手写比较逻辑。
 
 > 参考：影魔魂之挽歌前摇魔免、PA 闪烁魔免、PA 匕首施法魔免均复用此函数。
+
+**前摇加魔免要防取消刷新**：若魔免绑在 `ON_ABILITY_START`（前摇开始）触发，玩家可在前摇结束前取消施法、再施法反复刷新魔免（取消不进 CD、不耗蓝）。防法：
+- 用 `ApplyAwakenMagicImmunity` 的返回值——**仅当返回 true（真加了觉醒魔免）才启动取消检测**，否则（被更长 BKB 跳过）根本不该碰魔免。
+- `StartIntervalThink` 轮询该技能 `IsInAbilityPhase()`；前摇结束后若 `GetCooldownTimeRemaining() <= 0`（没进 CD）即被取消，移除这次魔免。
+- **移除前按剩余时间判据**：仅当 `modifier_black_king_bar_immune` 剩余 ≤ 觉醒魔免时长（无更长 BKB 接管）才 `Destroy()`，否则交给 BKB 自然到期。**绝不无条件 `RemoveModifierByName("modifier_black_king_bar_immune")`**——同名 modifier 无法区分来源，会误删玩家的真 BKB。
+
+> 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测。
 
 ### 进阶 5：监听某技能施法后触发效果
 
