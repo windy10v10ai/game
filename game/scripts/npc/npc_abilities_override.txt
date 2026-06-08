@@ -13,6 +13,7 @@
 	"lich_frost_armor"
 	{
 		"MaxLevel"						"5"
+		"AbilityDuration"				"60.0"		// 40.0
 		"AbilityValues"
 		{
 			"armor_bonus"			"8 12 16 20 24"	// x2
