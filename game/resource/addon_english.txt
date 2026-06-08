@@ -915,7 +915,7 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
 		// 狙击手 暗杀-觉醒
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#8B008B'>Assassinate Awakened</font>"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br>Normal attacks have a chance to trigger this ability."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
@@ -1110,7 +1110,7 @@
 
 		// Axe - Ruthless Hand Awakened
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Active: Auto Cull</font><br>During the duration, Axe automatically casts Culling Blade on enemy heroes within cast range whose health is below the cull threshold.<br><br>Cull threshold = Culling Blade's threshold + Axe's bonus armor<br><br>With autocast enabled, Axe blinks to the target when culling."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br>With autocast enabled, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts immediately; it keeps auto-culling for the duration after triggering.<br><br>Cull threshold = Culling Blade's threshold + Axe's bonus armor<br><br>Axe blinks to the target when culling."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"Duration:"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"Kill Interval:"
@@ -1147,7 +1147,7 @@
 
 		// Phantom Assassin Phantom Strike - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>Phantom Strike Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and <font color='#FFCC66'>magic immunity</font> briefly, then automatically attacks."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and <font color='#FFCC66'>magic immunity</font> briefly, then automatically attacks.<br><br>Stifling Dagger's projectile speed is increased. Casting Stifling Dagger grants brief <font color='#FFCC66'>magic immunity</font>."
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"Bonus Attack Speed:"
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"Duration:"
 
