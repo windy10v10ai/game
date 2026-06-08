@@ -2211,6 +2211,19 @@
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"				"+$hp_regen"
 
+		// mjollnir_2
+		"DOTA_Tooltip_Ability_item_mjollnir_2"				"<font color='#FFD700'>万雷天锤</font>"
+		"DOTA_Tooltip_ability_item_mjollnir_2_Description"		"<h1>主动：静电冲击</h1>对目标单位施加一个静电护盾，持续%static_duration%秒。护盾有%static_chance%%%几率对附近攻击护盾的目标及其周围%static_strikes%个敌方单位释放闪电冲击，造成%static_damage%点魔法伤害。
+
+<h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。"
+		"DOTA_Tooltip_ability_item_mjollnir_2_Lore"				"索尔的魔法之锤，在恒星核心中重铸而成。"
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note0"				"静电冲击的触发间隔大于1秒。"
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note1"				"静电冲击的闪电伤害范围以拥有甲盾的英雄为圆心。静电冲击只会对%static_seconary_radius%范围以内的目标发出闪电冲击。"
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note2"				"静电冲击不会弹跳至处于隐身状态下或战争迷雾内的英雄。"
+		"DOTA_Tooltip_ability_item_mjollnir_2_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_item_mjollnir_2_bonus_attack_speed"		"+$attack"
+
+
 		// veil_of_discord_2
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"赫拉的神秘面纱"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>主动：法术虚弱</h1>发出一波弱化冲击，使%debuff_radius%范围内敌方英雄受到的技能伤害增加%spell_amp%%%。<br><br>可以在持续施法期间施放。<br><br>持续时间：%resist_debuff_duration%秒。"
