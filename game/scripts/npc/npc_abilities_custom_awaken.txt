@@ -179,6 +179,7 @@
 		"MaxLevel"						"4"
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
+		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
 		"AbilityCooldown"				"50 45 40 35"
 		"AbilityManaCost"				"50"
 

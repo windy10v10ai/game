@@ -1095,7 +1095,7 @@
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>主动释放：自动斩杀</font><br>持续时间内，斧王会自动斩杀施法范围内血量低于斩杀线的敌方英雄。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>开启自动施法后，斩杀时会突进到敌人身边。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，斧王会自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放；触发后的持续时间内持续自动斩杀。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>斩杀时会突进到敌人身边。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"持续时间："
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"斩杀间隔："
