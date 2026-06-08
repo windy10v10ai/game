@@ -1,7 +1,76 @@
 LinkLuaModifier("modifier_axe_auto_culling_blade", "abilities/axe_auto_culling_blade", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_axe_auto_culling_blade_passive", "abilities/axe_auto_culling_blade", LUA_MODIFIER_MOTION_NONE)
 
 axe_auto_culling_blade = axe_auto_culling_blade or class({})
 modifier_axe_auto_culling_blade = modifier_axe_auto_culling_blade or class({})
+modifier_axe_auto_culling_blade_passive = modifier_axe_auto_culling_blade_passive or class({})
+
+function axe_auto_culling_blade:GetIntrinsicModifierName()
+    return "modifier_axe_auto_culling_blade_passive"
+end
+
+-- 常驻被动：开启自动施法且不在CD时，检测到周围有可斩英雄即自动开启（走原主动逻辑）
+modifier_axe_auto_culling_blade_passive = class({})
+
+function modifier_axe_auto_culling_blade_passive:IsHidden() return true end
+
+function modifier_axe_auto_culling_blade_passive:IsPurgable() return false end
+
+function modifier_axe_auto_culling_blade_passive:RemoveOnDeath() return false end
+
+function modifier_axe_auto_culling_blade_passive:OnCreated()
+    if not IsServer() then return end
+    self:StartIntervalThink(0.3)
+end
+
+function modifier_axe_auto_culling_blade_passive:OnIntervalThink()
+    if not IsServer() then return end
+    local ability = self:GetAbility()
+    local caster = self:GetCaster()
+    if not ability:GetAutoCastState() then return end
+    if not ability:IsCooldownReady() then return end
+    if caster:HasModifier("modifier_axe_auto_culling_blade") then return end
+    if not ability:FindCullableEnemy() then return end
+
+    caster:SetCursorPosition(caster:GetAbsOrigin())
+    caster:CastAbilityImmediately(ability, caster:GetPlayerOwnerID())
+end
+
+-- 查找范围内第一个血量低于斩杀阈值的敌方英雄，无则返回 nil（自动触发判定与窗口斩杀共用）
+function axe_auto_culling_blade:FindCullableEnemy()
+    local caster = self:GetCaster()
+    local culling_blade = caster:FindAbilityByName("axe_culling_blade")
+    if not culling_blade then return nil end
+
+    local enemies = FindUnitsInRadius(
+        caster:GetTeam(),
+        caster:GetOrigin(),
+        nil,
+        GetFullCastRange(caster, culling_blade),
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_HERO,
+        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES +
+        DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE +
+        DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+        FIND_ANY_ORDER,
+        false
+    )
+    if #enemies == 0 then return nil end
+
+    local kill_modifier = caster:FindModifierByName("modifier_axe_culling_blade_permanent")
+    local armor_damage = kill_modifier
+        and kill_modifier:GetStackCount() * self:GetSpecialValueFor("armor_per_stack")
+        or 0
+    local base_damage = culling_blade:GetSpecialValueFor("damage")
+    local threshold_damage = (base_damage + armor_damage) * (1 + caster:GetSpellAmplification(false))
+
+    for _, enemy in pairs(enemies) do
+        if enemy and not enemy:IsNull() and enemy:IsAlive() and enemy:GetHealth() <= threshold_damage then
+            return enemy
+        end
+    end
+    return nil
+end
 
 function axe_auto_culling_blade:OnSpellStart()
     local caster = self:GetCaster()
@@ -41,7 +110,7 @@ function modifier_axe_auto_culling_blade:OnCreated()
     -- 从英雄身上读取永久斩杀计数，如果没有则初始化为0
     local caster = self:GetCaster()
     self.check_interval = ability:GetSpecialValueFor("check_interval")
-    self.kill_modifier = caster:FindModifierByName("modifier_lion_finger_of_death_kill_counter")
+    self.kill_modifier = caster:FindModifierByName("modifier_axe_culling_blade_permanent")
     self.has_autocast = ability:GetAutoCastState()
     --print("[Axe Auto Culling] Modifier创建 - check_interval:", self.check_interval)
 
@@ -61,137 +130,47 @@ function modifier_axe_auto_culling_blade:CheckAndExecuteCulling()
     local caster = self:GetCaster()
     local ability = self:GetAbility()
 
-    -- 获取淘汰之刃技能
+    local enemy = ability:FindCullableEnemy()
+    if not enemy then return end
+
     local culling_blade = caster:FindAbilityByName("axe_culling_blade")
-    if not culling_blade then
-        --print("[Axe Auto Culling] ERROR: 未找到 axe_culling_blade 技能")
-        return
-    end
 
-    -- 检查技能是否可以施放
-    -- if not culling_blade:IsFullyCastable() then
-    --     return
-    -- end
-    -- if not culling_blade:IsCooldownReady() then
-    --     return
-    -- end
-
-    -- 获取施法范围
-
-    local culling_range = GetFullCastRange(caster, culling_blade)
-    local search_range = culling_range
-
-    -- 查找范围内的敌方英雄
-    local enemies = FindUnitsInRadius(
-        caster:GetTeam(),
-        caster:GetOrigin(),
-        nil,
-        search_range,
-        DOTA_UNIT_TARGET_TEAM_ENEMY,
-        DOTA_UNIT_TARGET_HERO,
-        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES +
-        DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE +
-        DOTA_UNIT_TARGET_FLAG_NO_INVIS,
-        FIND_ANY_ORDER,
-        false
+    local fx = ParticleManager:CreateParticle(
+        "particles/items3_fx/blink_overwhelming_burst.vpcf",
+        PATTACH_ABSORIGIN_FOLLOW,
+        enemy
     )
+    self:AddParticle(fx, false, false, -1, false, false)
+    enemy:EmitSound("Hero_Axe.Culling_Blade_Success")
 
-    -- 获取淘汰阈值伤害
-    local increase_damage_per_kill = ability:GetSpecialValueFor("armor_per_stack")
-    local base_damage = culling_blade:GetSpecialValueFor("damage")
-    local armor_damage = 0
-    if self.kill_modifier then
-        armor_damage = self.kill_modifier:GetStackCount() * increase_damage_per_kill
+    if self.has_autocast then
+        -- 闪到目标身侧再斩
+        local targetOrigin = enemy:GetAbsOrigin()
+        local direction = (caster:GetAbsOrigin() - targetOrigin)
+        direction.z = 0
+        direction = direction:Normalized()
+        FindClearSpaceForUnit(caster, targetOrigin + direction * 100, true)
     end
-    local spell_amp = caster:GetSpellAmplification(false)
-    local threshold_damage = (base_damage + armor_damage) * (1 + spell_amp)
 
-    -- print("[Axe Auto Culling] 基础伤害:", base_damage, "法术增强:", spell_amp, "实际阈值:", threshold_damage, "armor_damage:",
-    --     armor_damage)
+    enemy:Kill(ability, caster)
 
-    -- 检查每个敌人的血量
-    for _, enemy in pairs(enemies) do
-        if enemy and not enemy:IsNull() and enemy:IsAlive() then
-            local enemy_health = enemy:GetHealth()
+    if enemy:IsAlive() then
+        culling_blade:EndCooldown()
+        -- 立即施放绕过前摇
+        caster:SetCursorCastTarget(enemy)
+        caster:CastAbilityImmediately(culling_blade, caster:GetPlayerOwnerID())
+        caster:SetCursorCastTarget(nil)
+    end
 
-            -- 使用安全阈值进行判断
-            if enemy_health <= threshold_damage then
-                local fx = ParticleManager:CreateParticle(
-                    "particles/items3_fx/blink_overwhelming_burst.vpcf",
-                    PATTACH_ABSORIGIN_FOLLOW,
-                    enemy
-                )
-                self:AddParticle(fx, false, false, -1, false, false)
-                enemy:EmitSound("Hero_Axe.Culling_Blade_Success")
-                if self.has_autocast then
-                    local targetOrigin = enemy:GetAbsOrigin()
-                    local casterOrigin = caster:GetAbsOrigin()
-
-                    -- 计算从目标指向施法者的方向
-                    local direction = casterOrigin - targetOrigin
-                    direction.z = 0
-                    direction = direction:Normalized()
-
-                    -- 设置闪烁距离（攻击距离内）
-                    local blinkDistance = 100
-
-                    -- 计算最终位置
-                    local blinkPosition = targetOrigin + direction * blinkDistance
-
-                    -- 执行闪烁
-                    -- caster:SetAbsOrigin(blinkPosition)
-                    FindClearSpaceForUnit(caster, blinkPosition, true)
-                end
-                enemy:Kill(ability, caster)
-                -- 获取kill counter叠加层数
-
-                -- -- ✅ 在释放淘汰之刃前,先施加 100 点纯粹伤害
-                -- local damage_table = {
-                --     victim = enemy,
-                --     attacker = caster,
-                --     damage = enemy_health - 100,
-                --     damage_type = DAMAGE_TYPE_PURE,
-                --     damage_flags = DOTA_DAMAGE_FLAG_REFLECTION,
-                --     ability = ability
-                -- }
-                -- ApplyDamage(damage_table)
-                -- -- 添加特效
-                -- -- local fx = ParticleManager:CreateParticle(
-                -- --     "particles/items3_fx/blink_overwhelming_burst.vpcf",
-                -- --     PATTACH_ABSORIGIN_FOLLOW,
-                -- --     enemy
-                -- -- )
-                -- -- self:AddParticle(fx, false, false, -1, false, false)
-                -- -- --print("[Axe Auto Culling] 执行斩杀! 目标:", enemy:GetUnitName(), "血量:", enemy_health, "安全阈值:", safe_threshold)
-                if enemy:IsAlive() then
-                    culling_blade:EndCooldown()
-                    -- 设置施法目标并立即施放(绕过施法前摇)
-                    caster:SetCursorCastTarget(enemy)
-                    caster:CastAbilityImmediately(culling_blade, caster:GetPlayerOwnerID())
-                    caster:SetCursorCastTarget(nil)
-                end
-                -- 监听斩杀成功事件
-                Timers:CreateTimer(0.1, function()
-                    if not enemy:IsAlive() then
-                        if not self.kill_modifier then
-                            self.kill_modifier = caster:AddNewModifier(caster, ability,
-                                "modifier_axe_culling_blade_permanent",
-                                { duration = -1 })
-                        end
-                        self.kill_modifier:SetStackCount(self.kill_modifier:GetStackCount() + 1)
-                    end
-                end)
-                -- Timers:CreateTimer(0.05, function()
-                --     -- 获取基础冷却时间并应用冷却缩减
-                --     local base_cooldown = culling_blade:GetCooldown(culling_blade:GetLevel() - 1)
-                --     local cooldown_reduction = caster:GetCooldownReduction()
-                --     local final_cooldown = base_cooldown * cooldown_reduction
-                --     culling_blade:StartCooldown(final_cooldown)
-                -- end)
-                return
+    Timers:CreateTimer(0.1, function()
+        if not enemy:IsAlive() then
+            if not self.kill_modifier then
+                self.kill_modifier = caster:AddNewModifier(caster, ability,
+                    "modifier_axe_culling_blade_permanent", { duration = -1 })
             end
+            self.kill_modifier:SetStackCount(self.kill_modifier:GetStackCount() + 1)
         end
-    end
+    end)
 end
 
 function modifier_axe_auto_culling_blade:GetModifierModelScale()

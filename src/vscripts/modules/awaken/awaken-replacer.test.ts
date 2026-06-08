@@ -111,6 +111,41 @@ describe('executeReplacement', () => {
     });
     expect(f.abilities.some((a) => a.name === 'newInserted')).toBe(true);
   });
+
+  it('inheritLevelFrom：插入到关联技能所在槽位时，新技能继承该技能当前等级', () => {
+    const f = createFakeHero({
+      abilities: [
+        { name: 'slot0', level: 1 },
+        { name: 'slot1', level: 1 },
+        { name: 'slot2', level: 1 },
+        { name: 'axe_culling_blade', level: 3 },
+      ],
+    });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_axe',
+      targetSlot: 3,
+      newAbility: 'axe_auto_culling_blade',
+      newLevel: 0,
+      inheritLevelFrom: 'axe_culling_blade',
+    });
+    // newLevel=0 但继承大招等级 3
+    expect(f.abilities.find((a) => a.name === 'axe_auto_culling_blade')?.level).toBe(3);
+    // 大招仍被恢复到原等级
+    expect(f.abilities.find((a) => a.name === 'axe_culling_blade')?.level).toBe(3);
+  });
+
+  it('inheritLevelFrom：纯新增分支继承关联技能等级', () => {
+    const f = createFakeHero({
+      abilities: [{ name: 'linkedUlt', level: 4 }],
+    });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_pudge',
+      newAbility: 'newPassive',
+      newLevel: 0,
+      inheritLevelFrom: 'linkedUlt',
+    });
+    expect(f.abilities.find((a) => a.name === 'newPassive')?.level).toBe(4);
+  });
 });
 
 describe('applyAwakenByHero', () => {
