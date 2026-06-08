@@ -57,32 +57,32 @@ function sniper_assassinate_upgrade:OnSpellStart()
 
 	--EmitSoundOn("Hero_Sniper.AssassinateDamage", target)
 	EmitSoundOn("Ability.Assassinate", caster)
-	-- 动态计算延迟时间
+
 	local projectile_speed = self:GetSpecialValueFor("projectile_speed") or 3000
-	local first_target = targets[1]
-	local distance = (first_target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
-	local travel_time = (distance / projectile_speed) or 0.6
-
-	-- 添加小缓冲时间确保弹道到达
-	-- local delay = travel_time + 0.05
-	-- print("delay", delay)
-	-- Timers:CreateTimer(delay, function()
-	-- 添加暴击修饰符并执行攻击
-	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
-
 	local bonus_physical_damage = self:GetSpecialValueFor("bonus_physical_damage")
+	-- special_bonus_scepter 控制是否生效，无A杖时引擎返回0
+	local stun_duration = self:GetSpecialValueFor("scepter_stun_duration")
+
+	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
 	for _, target in pairs(self.tTargets) do
 		caster:PerformAttack(target, true, true, true, false, true, false, true)
-		ApplyDamage({
-			victim = target,
-			attacker = caster,
-			damage = bonus_physical_damage,
-			damage_type = DAMAGE_TYPE_PHYSICAL,
-			ability = self,
-		})
+		-- 额外伤害与眩晕随弹道命中结算，避免瞬发先于子弹到达
+		local travel_time = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() / projectile_speed
+		Timers:CreateTimer(travel_time, function()
+			if target:IsNull() or not target:IsAlive() then return end
+			ApplyDamage({
+				victim = target,
+				attacker = caster,
+				damage = bonus_physical_damage,
+				damage_type = DAMAGE_TYPE_PHYSICAL,
+				ability = self,
+			})
+			if stun_duration > 0 then
+				target:AddNewModifier(caster, self, "modifier_stunned", { duration = stun_duration })
+			end
+		end)
 	end
 	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
-	-- end)
 end
 
 function sniper_assassinate_upgrade:FireAssassinateProjectiles()

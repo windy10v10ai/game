@@ -156,9 +156,14 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"scepter_crit_bonus"		"180 210 240 270"
-			"bonus_physical_damage"		"200 300 400 500"
+			"bonus_physical_damage"		"300 400 500 600"
 			"trigger_chance"			"4 5 6 7"
 			"projectile_speed"			"3000"
+			"scepter_stun_duration"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"0.8 1.0 1.2 1.4"
+			}
 		}
 	}
 

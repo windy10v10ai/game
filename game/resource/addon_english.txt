@@ -924,6 +924,7 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_bonus_physical_damage"	"BONUS PHYSICAL DAMAGE:"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_stun_duration"	"STUN DURATION:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%ATTACK TRIGGER CHANCE:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
