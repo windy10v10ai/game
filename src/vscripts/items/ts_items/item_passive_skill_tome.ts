@@ -2,6 +2,11 @@ import { AbilityLotteryHelper } from '../../modules/lottery/ability/ability-lott
 import { abilityTiersPassive } from '../../modules/lottery/ability/lottery-abilities';
 import { BaseItem, registerAbility } from '../../utils/dota_ts_adapter';
 
+// 技能书抽奖排除列表,以后可按需扩充
+const PASSIVE_TOME_BLACKLIST = [
+  'medusa_mana_shield', // 魔法盾
+];
+
 /** 被动技能书:使用后按 premium 概率随机抽 1 个被动技能学到英雄身上,每名玩家整局最多 3 次 */
 @registerAbility('item_passive_skill_tome')
 export class ItemPassiveSkillTome extends BaseItem {
@@ -42,7 +47,7 @@ export class ItemPassiveSkillTome extends BaseItem {
       abilityTiersPassive,
       1,
       hero,
-      [],
+      PASSIVE_TOME_BLACKLIST.slice(),
       true,
     );
     if (!result) {
