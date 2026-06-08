@@ -12,9 +12,13 @@ function OnSpellStart(keys)
     ability:ApplyDataDrivenModifier(caster, caster, "modifier_phantom_strike_datadriven", {})
 
     -- 觉醒护身：魔法免疫（复用闪烁的持续时间）
+    -- 已有更长魔免（如真 BKB）时跳过，避免短时觉醒魔免缩短/替代它
     local immune_duration = ability:GetSpecialValueFor("untargetable_duration")
-    caster:AddNewModifier(caster, ability, "modifier_black_king_bar_immune", { duration = immune_duration })
-    caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
+    local existing = caster:FindModifierByName("modifier_black_king_bar_immune")
+    if not existing or existing:GetRemainingTime() < immune_duration then
+        caster:AddNewModifier(caster, ability, "modifier_black_king_bar_immune", { duration = immune_duration })
+        caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
+    end
 
     local blink_start_pfx = ParticleManager:CreateParticle(
         "particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_start.vpcf", PATTACH_ABSORIGIN,
