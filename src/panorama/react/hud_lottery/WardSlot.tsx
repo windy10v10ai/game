@@ -21,15 +21,12 @@ const SLOTS = [
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'right',
   verticalAlign: 'bottom',
-  marginRight: '72px',
-  marginBottom: '14px',
   flowChildren: 'down',
 };
 
 const slotStyle: Partial<VCSSStyleDeclaration> = {
   width: '55px',
   height: '50px',
-  marginTop: '2px',
   backgroundColor: '#0B0D10ee',
   border: '1px solid #393939',
   borderRadius: '3px',
