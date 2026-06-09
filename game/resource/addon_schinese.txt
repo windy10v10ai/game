@@ -2212,7 +2212,7 @@
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"				"+$hp_regen"
 
 		// mjollnir_2
-		"DOTA_Tooltip_Ability_item_mjollnir_2"				"<font color='#FFD700'>万雷天锤</font>"
+		"DOTA_Tooltip_Ability_item_mjollnir_2"				"<font color='#e03e2e'>神器·神雷锤</font>"
 		"DOTA_Tooltip_ability_item_mjollnir_2_Description"		"<h1>主动：静电冲击</h1>对目标单位施加一个静电护盾，持续%static_duration%秒。护盾有%static_chance%%%几率对附近攻击护盾的目标及其周围%static_strikes%个敌方单位释放闪电冲击，造成%static_damage%点魔法伤害。
 
 <h1>被动：连环闪电</h1>攻击有%chain_chance%%%几率释放一道连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避。"
@@ -2235,6 +2235,49 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"法术虚弱"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+
+		// crellas_crozier_2 克莱拉的圣辉权杖
+		"DOTA_Tooltip_Ability_item_crellas_crozier_2"				"<font color='#e03e2e'>神器·克莱拉的神化牧杖</font>"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Description"					"<h1>主动：鲁姆斯克仪式</h1>进入鬼魂形态，持续%duration%秒，对物理伤害免疫，但是无法攻击，并且承受的魔法伤害增加%extra_spell_damage_percent%%%。<br><br>每秒从%active_radius%范围内的敌方英雄窃取%movespeed_steal_pct%%%移动速度。移动速度的窃取效果持续%stack_duration%秒。<br><br>腐化光环效果提升至%active_health_steal%%%。每秒所有减少的生命回复都会转移到身上。\n\n<h1>被动：腐化光环</h1>附近敌方英雄的生命回复减少%health_steal%%%。<br><br>作用范围：%radius%"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note0"						"如果在开启期间进入减益免疫状态，幽魂效果将会中止。如果在减益免疫状态下开启权杖将不会拥有幽魂效果。"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note1"						"和幽魂权杖以及升级物品共享冷却时间。"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note2"						"腐化光环不会转移满血敌方英雄的生命回复。"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_health"				"+$health"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_mana"					"+$mana"
+
+		// consecrated_wraps_2 炽天使的圣化圣衣
+		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>神器·急支糖衣</font>"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>被动：神圣化</h1>每%stack_gain_time%秒获得一层叠加效果，最多为%max_stacks%层。获得一层叠加效果时，移动速度提升%movement_speed_pct_on_stack_gain%%%，持续%duration%秒。<br><br>只要受到来自玩家控制单位或肉山的伤害，所有叠加效果都会被消耗，并获得全伤害护盾，持续%duration%秒，每层叠加效果可以吸收%barrier_per_stack%点伤害（最高为%max_barrier_tooltip%点）。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"受到来自玩家控制单位或肉山的伤害后%stack_gain_time%秒内无法获得叠加效果。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"对自身的伤害和生命流失伤害无法移除叠加效果。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"移动速度加成效果不会叠加。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"只有在装备了这件物品后至少达到过一次最高叠加层数才会提供移动速度加成。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"	"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"			"+$health"
+
+		// essence_distiller_2 不朽精魂圣器
+		"DOTA_Tooltip_Ability_item_essence_distiller_2"				"<font color='#e03e2e'>神器·精灵圣宝</font>"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Description"			"<h1>主动：灵魂释放</h1>对友方单位施放时提供%soul_heal_amount%点/秒生命恢复。<br><br>可以对地面施放，使其潜伏最多%ground_duration%秒并附着在第一个进入%latch_range%范围的敌人。对敌方单位施放时造成%soul_damage_amount%点每秒伤害，并且提供敌人的真实视域，与佩戴者全队共享他们的视野。<br><br>持续%duration%秒。<br><br>每次%soul_radius%范围内有敌方英雄阵亡时获得能量。"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note0"					"点数为0的灵器将获得2点能量。"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note1"					"只有距离阵亡英雄最近的精之灵器才会获得一点能量。"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note2"					"如果友方单位被敌方英雄或肉山攻击，效果将会消失。"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note3"					"不会触发法术抵抗或法术反弹。"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note4"					"潜伏时提供%latch_vision%范围的视野。附着后视野还会粘滞%linger_after_latch_duration%秒。"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_mana_regen"			"+$mana_regen"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
+
+		// hydras_breath_2 九头蛇神之息
+		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>神器·千年毒蛟之息</font>"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_agility"				"+$agi"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_2_base_attack_range"		"+$attack_range"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_Description"			"<h1>被动：瘴毒</h1>攻击会使目标中毒，每秒造成目标%poison_damage_per_second%%%最大生命值的魔法伤害，持续%poison_duration%秒。\n\n<h1>被动：多头一体</h1>远程攻击有%proc_chance%%%的概率向非原攻击目标的前方%secondary_target_angle%度角内、攻击距离+%secondary_target_range_bonus%距离内的最多%count%个附近敌人发射额外弹道。额外弹道造成%base_proc_dmg% + %proc_dmg_pct%%%普通攻击伤害，并且不会触发瘴毒除外的击中效果。主攻击造成%base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%%普通攻击伤害。"
+		"DOTA_Tooltip_ability_item_hydras_breath_2_Note0"                  "来自金箍棒、魔龙枪和升级物品的攻击距离加成不会叠加。"
 
 		// item_manta_1 幻身斧
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>幻身斧</font>"

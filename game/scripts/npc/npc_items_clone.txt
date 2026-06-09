@@ -415,19 +415,19 @@
 		}
 	}
 	//=================================================================================================================
-	// Mjollnir 2 万雷天锤
+	// Mjollnir 2 神器·神雷锤
 	//=================================================================================================================
 	"item_recipe_mjollnir_2"
 	{
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_mjollnir_2"
-		"ItemCost"						"1000"
+		"ItemCost"						"1100"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_mjollnir_2"
 		"ItemRequirements"
 		{
-			"01"						"item_mjollnir;item_demon_edge;item_hyperstone"
+			"01"						"item_mjollnir;item_relic;item_hyperstone;item_hyperstone"
 		}
 	}
 
@@ -440,11 +440,11 @@
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"800"
+		"AbilityCastRange"				"1200"//800
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"35.0"
+		"AbilityCooldown"				"20.0"//30
 		"AbilityManaCost"				"50"
-		"ItemCost"						"10700"
+		"ItemCost"						"14000"
 		"ItemShopTags"					"damage;attack_speed;unique;farming;dps"
 		"ItemQuality"					"artifact"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -455,24 +455,293 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"				"48"	// 25
-			"bonus_attack_speed"		"171"	// 90
+			"bonus_damage"				"160"	// 120
+			"bonus_attack_speed"		"240"	// 210
 			"static_duration"			"15.0"
-			"static_chance"			"20"
-			"static_strikes"			"4"
-			"static_damage"			"428"	// 225
-			"static_primary_radius"	"1140"	// 600
-			"static_seconary_radius"	"1710"	// 900
-			"static_radius"			"1710"	// 900
-			"static_cooldown"			"1.0"
-			"chain_chance"				"25"
-			"chain_damage"				"342"	// 180
+			"static_chance"			"40"
+			"static_strikes"			"5"
+			"static_damage"			"675"	// 450
+			"static_primary_radius"	"900"	// 750
+			"static_seconary_radius"	"1200"	// 1000
+			"static_radius"			"1200"	// 1000
+			"static_cooldown"			"0.33"//0.66
+			"chain_chance"				"50"
+			"chain_damage"				"540"	// 360
 			"chain_strikes"			"12"
-			"chain_radius"				"1235"	// 650
+			"chain_radius"				"1200"	// 1000
 			"chain_delay"				"0.25"
-			"chain_cooldown"			"0.2"
+			"chain_cooldown"			"0.1"
 			"max_charges"				"0"
 			"illusion_multiplier_pct"	"100"
+		}
+	}
+
+	//=================================================================================================================
+	// Crella's Crozier·2 神器·克莱拉的神化牧杖
+	//=================================================================================================================
+	"item_recipe_crellas_crozier_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_crellas_crozier_2"
+		"ItemCost"						"100"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_crellas_crozier_2"
+		"ItemRequirements"
+		{
+			"01"						"item_crellas_crozier;item_ultimate_orb;item_ultimate_orb;item_soul_booster"
+		}
+	}
+
+	"item_crellas_crozier_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"FightRecapLevel"				"1"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15.0"
+		"AbilitySharedCooldown"			"ethereal"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"13500"
+		"ItemShopTags"					"int;agi;str;hard_to_tag;escape"
+		"ItemQuality"					"artifact"
+		"SuggestLategame"				"1"
+
+		"BaseClass"						"item_crellas_crozier"
+		"AbilityTextureName"			"item_crellas_crozier_2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"bonus_all_stats"				"50"	// 40
+				"bonus_health"					"3000"	// 2000
+				"bonus_mana"					"3000"	// 2000
+
+				"duration"						"6.0"
+				"extra_spell_damage_percent"	"-20"//-30
+
+				"radius"
+				{
+					"value"						"1500"	// 1200
+					"affected_by_aoe_increase"	"1"
+				}
+				"health_steal"					"50"	// 40
+
+				"interval"						"0.5"//1.0
+				"active_radius"
+				{
+					"value"						"1500"	// 1200
+					"affected_by_aoe_increase"	"1"
+				}
+				"movespeed_steal_pct"			"12"//9
+				"active_health_steal"			"100"	// 90
+				"stack_duration"				"3"//2
+		}
+	}
+
+	//=================================================================================================================
+	// Consecrated Wraps 2 神器·急支糖衣
+	//=================================================================================================================
+	"item_recipe_consecrated_wraps_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_consecrated_wraps_2"
+		"ItemCost"						"100"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_consecrated_wraps_2"
+		"ItemRequirements"
+		{
+			"01"						"item_consecrated_wraps;item_ultimate_orb;item_ultimate_orb;item_cloak;item_cloak"
+		}
+	}
+
+	"item_consecrated_wraps_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"10100"
+		"ItemShopTags"					"magic_resist;move_speed;health_pool"
+		"ItemQuality"					"artifact"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
+		"EnableChargeDisplayOverride"	"1"
+
+		"ItemInitialCharges"			"3"//5
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"AbilityCharges"				"6"//5
+		"AbilityChargeRestoreTime"		"2"//3.5
+		"AbilityCooldown"				"0"
+		"ItemPermanent"					"1"
+
+		"BaseClass"						"item_consecrated_wraps"
+		"AbilityTextureName"			"item_consecrated_wraps_2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_spell_resist"					"50"	// 40 配方减个斗篷给卷轴加价保持总价
+			"bonus_all_stats"						"40"	// 5
+			"bonus_health"							"500"	// 250
+
+			"movement_speed_pct_on_stack_gain"		"25"//20
+
+			"stack_threshold_damage"				"0"
+			"duration"								"20"//10
+			"barrier_per_stack"						"2000"	// 120
+			"max_barrier_tooltip"					"12000"	// 360
+		}
+	}
+
+	//=================================================================================================================
+	// Essence Distiller 2·神器·精灵圣宝
+	//=================================================================================================================
+	"item_recipe_essence_distiller_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_essence_distiller_2"
+		"ItemCost"						"1000"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_essence_distiller_2"
+		"ItemRequirements"
+		{
+			"01"						"item_essence_distiller;item_platemail;item_platemail;item_platemail;item_ultimate_orb"
+		}
+	}
+
+	"item_essence_distiller_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_DONT_PROC_OTHER_ABILITIES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"2000"//1500
+		"AbilityCooldown"				"5.0"//8
+		"AbilitySharedCooldown"			"urn"
+
+		// Items
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemStackable"					"0"
+		"ItemPermanent"					"1"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"9775"
+		"ItemShopTags"					"teamfight"
+		"ItemQuality"					"artifact"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+
+		"BaseClass"						"item_essence_distiller"
+		"AbilityTextureName"			"item_essence_distiller_2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"mana_regen"			"10"	// 5
+			"bonus_all_stats"		"25"	// 20
+			"bonus_armor"			"50"	// 6
+			"bonus_mana"			"1000"	// 500
+			"soul_radius"
+			{
+				"value"	"2000"	// 1500
+				"affected_by_aoe_increase"	"1"
+			}
+			"soul_initial_charge"	"4"//3
+			"soul_additional_charges"	"2"
+			"soul_heal_amount"		"500"	// 400
+			"soul_damage_amount"	"300"	// 250
+			"duration"				"25.0"	//15
+			"ground_duration"		"25.0"	//20
+			"latch_range"			"650"
+			"latch_vision"			"650"
+			"linger_after_latch_duration"	"0.5"
+		}
+	}
+
+	//=================================================================================================================
+	// Hydra's Breath 2·神器·千年毒蛟之息
+	//=================================================================================================================
+	"item_recipe_hydras_breath_2"
+	{
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_hydras_breath_2"
+		"ItemCost"						"500"
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_hydras_breath_2"
+		"ItemRequirements"
+		{
+			"01"						"item_hydras_breath;item_reaver;item_eagle;item_relic;item_dragon_lance"
+		}
+	}
+
+	"item_hydras_breath_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityCastRange"				"0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"ItemCost"						"17300"
+		"ItemShopTags"					"agi;damage;attack_speed;hard_to_tag;"
+		"ItemQuality"					"artifact"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"SuggestLategame"				"1"
+
+		"BaseClass"						"item_hydras_breath"
+		"AbilityTextureName"			"item_hydras_breath_2"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"strength"						"80"	// 60
+			"agility"						"100"	// 80
+			"damage"						"150"	// 100
+			"base_count"					"0"
+			"count"							"9"		//6
+			"secondary_target_range_bonus"	"400"	//250
+			"secondary_target_angle"		"180"	//120
+			"proc_chance"					"75"	//50
+			"proc_dmg_pct"					"150"	// 75
+			"proc_dmg_pct_primary_tooltip"	"175"	// 100
+			"base_proc_dmg"					"100"	// 50
+			"base_attack_range"				"300"	// 250
+
+			"poison_duration"				"3"
+			"poison_base_damage"			"0"
+			"poison_damage_per_second"		"10"	// 6
 		}
 	}
 
