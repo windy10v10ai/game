@@ -97,17 +97,19 @@ export class WardSlot {
         return;
       }
 
+      // 一个 item entity 可能因为堆叠含有多层充能，按其真实 charge 数累加。
+      const charges = Math.max(1, item.GetCurrentCharges());
       if (isDispenser) {
         for (const dispAbility of WardSlot.DISPENSER_ABILITIES) {
           const disp = hero.FindAbilityByName(dispAbility);
           if (disp) {
-            disp.SetCurrentAbilityCharges(disp.GetCurrentAbilityCharges() + 1);
+            disp.SetCurrentAbilityCharges(disp.GetCurrentAbilityCharges() + charges);
           }
         }
       } else if (abilityName) {
         const ability = hero.FindAbilityByName(abilityName);
         if (ability) {
-          ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + 1);
+          ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + charges);
         }
       }
 
