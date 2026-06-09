@@ -15,8 +15,9 @@ export class AbilityLottery {
   readonly randomCountBase = 6;
   readonly randomCountExtra = 2;
 
-  // 付费刷新累进消耗：首次免费后，第 n 次付费(n 从 0)取此表，封顶 50
+  // 会员积分刷新累进消耗：首次免费后，第 n 次积分刷新(n 从 0)取此表，封顶 50
   readonly paidRefreshCosts = [10, 20, 30, 50];
+  readonly maxPaidRefreshCount = 5;
 
   constructor() {
     // 启动物品抽奖
@@ -273,13 +274,17 @@ export class AbilityLottery {
       return;
     }
 
-    // 付费刷新仅限官方服务器
+    // 会员积分刷新仅限官方服务器
     if (ApiClient.IsLocalhost()) {
       print('非官方服务器不能付费刷新');
       return;
     }
 
     const paidCount = this.getSlotPaidCount(lotteryStatus, abilityType);
+    if (paidCount >= this.maxPaidRefreshCount) {
+      print('付费刷新次数已用完');
+      return;
+    }
     const cost = this.getPaidRefreshCost(paidCount);
 
     // 乐观更新：不等 API 回包，直接重抽并本地预扣积分；回包再以服务端真实积分纠正
@@ -296,7 +301,7 @@ export class AbilityLottery {
     CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
   }
 
-  /** 第 paidCount 次付费(从 0 起)的积分消耗，封顶为表内最后一档 */
+  /** 第 paidCount 次会员积分刷新(从 0 起)的积分消耗，封顶为表内最后一档 */
   private getPaidRefreshCost(paidCount: number): number {
     const index = Math.min(paidCount, this.paidRefreshCosts.length - 1);
     return this.paidRefreshCosts[index];
@@ -425,7 +430,7 @@ export class AbilityLottery {
       );
     }
 
-    // 清除对应的技能名称和等级，付费刷新计数一并归零（消耗梯度回到第一档）
+    // 清除对应的技能名称和等级，会员积分刷新计数一并归零（消耗梯度回到第一档）
     if (abilityType === AbilityItemTypes.Active) {
       lotteryStatus.activeAbilityName = undefined;
       lotteryStatus.activeAbilityLevel = undefined;

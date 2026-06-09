@@ -10,9 +10,15 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    # Wait for newly published versions to age before opening a PR, so a malicious
+    # release pulled within days never reaches the lockfile.
+    cooldown:
+      default-days: 5
 
   - package-ecosystem: "github-actions"
     # Workflow files stored in the default location of `.github/workflows`. (You don't need to specify `/.github/workflows` for `directory`. You can use `directory: "/"`.)
     directory: "/"
     schedule:
       interval: "monthly"
+    cooldown:
+      default-days: 5

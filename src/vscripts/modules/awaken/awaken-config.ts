@@ -8,6 +8,8 @@ export interface AbilityReplacement {
   targetSlot?: number;
   newAbility: string;
   newLevel: number;
+  /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），优先级高于 newLevel */
+  inheritLevelFrom?: string;
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
@@ -38,11 +40,52 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'sniper_assassinate_upgrade',
     newLevel: 0,
   },
-  // 斧王 自动淘汰之刃（插入 slot 3）
+  // 斧王 自动淘汰之刃（插入 slot 3，与大招淘汰之刃 LinkedAbility 同步升级，初始等级继承大招）
   {
     heroName: 'npc_dota_hero_axe',
     targetSlot: 3,
     newAbility: 'axe_auto_culling_blade',
     newLevel: 0,
+    inheritLevelFrom: 'axe_culling_blade',
+  },
+  // 死灵法师 竭心光环觉醒：替换原版竭心光环为 DataDriven 脚本伤害版
+  {
+    heroName: 'npc_dota_hero_necrolyte',
+    targetAbility: 'necrolyte_heartstopper_aura',
+    newAbility: 'necrolyte_heartstopper_aura_datadriven',
+    newLevel: 0,
+  },
+  // 卓尔游侠 数箭连发（插入 slot 4，与数箭齐发共享 CD、LinkedAbility 同步升级，初始等级继承大招）
+  {
+    heroName: 'npc_dota_hero_drow_ranger',
+    targetSlot: 4,
+    newAbility: 'special_bonus_unique_drow_ranger_upgrade',
+    newLevel: 0,
+    inheritLevelFrom: 'drow_ranger_multishot',
+  },
+  // 宙斯 神王（新增被动）
+  {
+    heroName: 'npc_dota_hero_zuus',
+    newAbility: 'special_bonus_unique_zuus_upgrade',
+    newLevel: 1,
+  },
+  // 幻影刺客 幻影突袭（替换幻影突袭闪烁）
+  {
+    heroName: 'npc_dota_hero_phantom_assassin',
+    targetAbility: 'phantom_assassin_phantom_strike',
+    newAbility: 'special_bonus_unique_phantom_assassin_upgrade',
+    newLevel: 0,
+  },
+  // 巫医 神语（新增被动）
+  {
+    heroName: 'npc_dota_hero_witch_doctor',
+    newAbility: 'special_bonus_unique_witch_doctor_upgrade',
+    newLevel: 1,
+  },
+  // 影魔 魂之挽歌护体（新增被动）
+  {
+    heroName: 'npc_dota_hero_nevermore',
+    newAbility: 'special_bonus_unique_nevermore_upgrade',
+    newLevel: 1,
   },
 ];

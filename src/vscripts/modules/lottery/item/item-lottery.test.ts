@@ -52,10 +52,30 @@ jest.mock('../../../api/analytics/ga4/ga4-pick-item-tracker', () => ({
 }));
 
 const mockGetMemberLevel = jest.fn((_steamId: number) => 1); // 默认 NORMAL
+const mockGetUseableMemberPoint = jest.fn((_steamId: number) => 0);
+const mockDeductUseableMemberPoint = jest.fn();
 jest.mock('../../../api/player', () => ({
   MemberLevel: { NORMAL: 1, PREMIUM: 2 },
   Player: {
     GetMemberLevel: (steamId: number) => mockGetMemberLevel(steamId),
+    GetUseableMemberPoint: (steamId: number) => mockGetUseableMemberPoint(steamId),
+    DeductUseableMemberPoint: (steamId: number, point: number) =>
+      mockDeductUseableMemberPoint(steamId, point),
+  },
+}));
+
+const mockIsLocalhost = jest.fn(() => true);
+jest.mock('../../../api/api-client', () => ({
+  ApiClient: {
+    IsLocalhost: () => mockIsLocalhost(),
+  },
+}));
+
+const mockUseMemberPoint = jest.fn();
+jest.mock('../../../api/player-member-point', () => ({
+  PlayerMemberPointApi: {
+    UseMemberPoint: (steamId: number, memberPoint: number, reason: string) =>
+      mockUseMemberPoint(steamId, memberPoint, reason),
   },
 }));
 
@@ -70,15 +90,21 @@ describe('ItemLottery', () => {
     for (const k of Object.keys(netTable)) delete netTable[k];
     mockHero.AddItem.mockClear();
     mockGetMemberLevel.mockReturnValue(1); // 默认 NORMAL
+    mockGetUseableMemberPoint.mockReturnValue(0);
+    mockDeductUseableMemberPoint.mockClear();
+    mockIsLocalhost.mockReturnValue(true);
+    mockUseMemberPoint.mockClear();
+    global.RandomInt = jest.fn((min: number, _max: number) => min);
     lottery = new ItemLottery();
   });
 
   describe('onTriggered', () => {
-    it('人类玩家触发时写入 { candidates, isRefreshed, poolType } 到 net table', () => {
+    it('人类玩家触发时写入 { candidates, isRefreshed, paidRefreshCount, poolType } 到 net table', () => {
       lottery.onTriggered(humanOpener);
       const entry = netTable['lottery_item']?.['3'];
       expect(entry).toBeDefined();
       expect(entry.isRefreshed).toBe(false);
+      expect(entry.paidRefreshCount).toBe(0);
       expect(entry.poolType).toBeDefined();
       expect(entry.candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
       expect(entry.candidates[0]).toMatchObject({
@@ -98,6 +124,8 @@ describe('ItemLottery', () => {
     });
 
     it('候选无重复', () => {
+      // 落到含多个物品的档（DEFAULT 下 50 命中 T2），去重逻辑才有验证意义
+      global.RandomInt = jest.fn(() => 50);
       lottery.onTriggered(humanOpener);
       const entry = netTable['lottery_item']['3'] as { candidates: { name: string }[] };
       const names = entry.candidates.map((c) => c.name);
@@ -125,6 +153,7 @@ describe('ItemLottery', () => {
       // 选完后写空 candidates 清行
       expect(netTable['lottery_item']['3'].candidates).toEqual([]);
       expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
+      expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(0);
     });
 
     it('无 pending 抽奖时 noop', () => {
@@ -176,6 +205,7 @@ describe('ItemLottery', () => {
 
       const after = netTable['lottery_item']['3'];
       expect(after.isRefreshed).toBe(true);
+      expect(after.paidRefreshCount).toBe(0);
       expect(after.candidates).toHaveLength(ItemLottery.CANDIDATE_COUNT);
     });
 
@@ -186,7 +216,7 @@ describe('ItemLottery', () => {
       expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
     });
 
-    it('已刷新过则二次刷新被拒绝', () => {
+    it('localhost 中已免费刷新过则二次刷新被拒绝', () => {
       mockGetMemberLevel.mockReturnValue(2);
       lottery.onTriggered(humanOpener);
       lottery.refreshItem(3 as PlayerID);
@@ -194,6 +224,70 @@ describe('ItemLottery', () => {
       lottery.refreshItem(3 as PlayerID);
       // 候选未再次替换（引用相同的 candidates）
       expect(netTable['lottery_item']['3'].candidates).toBe(afterFirst);
+    });
+
+    it('官方服务器中已免费刷新过可消耗会员积分继续刷新', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      mockIsLocalhost.mockReturnValue(false);
+      mockGetUseableMemberPoint.mockReturnValue(10);
+      lottery.onTriggered(humanOpener);
+      lottery.refreshItem(3 as PlayerID);
+      const afterFirst = netTable['lottery_item']['3'].candidates;
+
+      lottery.refreshItem(3 as PlayerID);
+
+      expect(netTable['lottery_item']['3'].candidates).not.toBe(afterFirst);
+      expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(1);
+      expect(mockDeductUseableMemberPoint).toHaveBeenCalledWith(12345, 10);
+      expect(mockUseMemberPoint).toHaveBeenCalledWith(12345, 10, 'lottery_refresh_item');
+    });
+
+    it('付费刷新积分不足时拒绝刷新', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      mockIsLocalhost.mockReturnValue(false);
+      mockGetUseableMemberPoint.mockReturnValue(9);
+      lottery.onTriggered(humanOpener);
+      lottery.refreshItem(3 as PlayerID);
+      const afterFirst = netTable['lottery_item']['3'].candidates;
+
+      lottery.refreshItem(3 as PlayerID);
+
+      expect(netTable['lottery_item']['3'].candidates).toBe(afterFirst);
+      expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(0);
+      expect(mockDeductUseableMemberPoint).not.toHaveBeenCalled();
+      expect(mockUseMemberPoint).not.toHaveBeenCalled();
+    });
+
+    it('付费刷新达到 5 次上限后拒绝刷新', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      mockIsLocalhost.mockReturnValue(false);
+      mockGetUseableMemberPoint.mockReturnValue(999);
+      lottery.onTriggered(humanOpener);
+      lottery.refreshItem(3 as PlayerID);
+      netTable['lottery_item']['3'].paidRefreshCount = 5;
+      const afterFirst = netTable['lottery_item']['3'].candidates;
+
+      lottery.refreshItem(3 as PlayerID);
+
+      expect(netTable['lottery_item']['3'].candidates).toBe(afterFirst);
+      expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(5);
+      expect(mockDeductUseableMemberPoint).not.toHaveBeenCalled();
+      expect(mockUseMemberPoint).not.toHaveBeenCalled();
+    });
+
+    it('新藏宝箱会重置已付费刷新次数', () => {
+      mockGetMemberLevel.mockReturnValue(2);
+      mockIsLocalhost.mockReturnValue(false);
+      mockGetUseableMemberPoint.mockReturnValue(10);
+      lottery.onTriggered(humanOpener);
+      lottery.refreshItem(3 as PlayerID);
+      lottery.refreshItem(3 as PlayerID);
+      expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(1);
+
+      lottery.onTriggered(humanOpener);
+
+      expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
+      expect(netTable['lottery_item']['3'].paidRefreshCount).toBe(0);
     });
 
     it('已 pick 完（candidates 空）则刷新被拒绝', () => {

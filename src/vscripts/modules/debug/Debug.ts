@@ -98,7 +98,7 @@ export class Debug {
       if (!hero) return;
       // 获得金钱经验技能升满
       hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
-      hero.AddExperience(99999, ModifyXpReason.UNSPECIFIED, false, true);
+      hero.AddExperience(99999, ModifyXpReason.UNSPECIFIED, false, true, 0);
       // refresh teleport
       hero.GetItemInSlot(15)?.EndCooldown();
     }
@@ -109,7 +109,7 @@ export class Debug {
         if (!hero) return;
         // 获得金钱经验技能升满
         hero.ModifyGold(50000, false, ModifyGoldReason.UNSPECIFIED);
-        hero.AddExperience(50000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.AddExperience(50000, ModifyXpReason.UNSPECIFIED, false, true, 0);
       });
     }
 
@@ -119,7 +119,7 @@ export class Debug {
         if (!hero) return;
         // 升级 加钱
         hero.ModifyGold(5000, false, ModifyGoldReason.UNSPECIFIED);
-        hero.AddExperience(5000, ModifyXpReason.UNSPECIFIED, false, true);
+        hero.AddExperience(5000, ModifyXpReason.UNSPECIFIED, false, true, 0);
       });
     }
 

@@ -30,12 +30,12 @@ export class BotBaseAIModifier extends BaseModifier {
   private desiredNeutralPassive: NeutralItemConfig | undefined;
 
   protected readonly FindRadius: number = 1800;
-  protected readonly NotAttactTowerHeroAttackRangeBuff: number = 400;
   protected readonly CastRange: number = 900;
 
   protected readonly AttackRangeLaning: number = 300;
   protected readonly AttackRangeAttack: number = 1200;
-  protected readonly AttackRangePushTower: number = 600;
+  // 推塔时贴上去的最小距离：近战在此距离内才走过去A，远程则用自身攻击范围
+  protected readonly MinPushTowerRange: number = 300;
   protected readonly AttackRangePushHero: number = 900;
 
   public PushLevel: number = 10;
@@ -366,21 +366,15 @@ export class BotBaseAIModifier extends BaseModifier {
       // print(`[AI] HeroBase Think break 正在攻击中 ${this.hero.GetUnitName()}`);
       return false;
     }
+    // 敌方英雄进入施法范围则不优先A塔
     const enemyHero = this.FindNearestEnemyHero();
-    if (enemyHero) {
-      // if hero in attack range
-      const distanceToAttackHero = HeroUtil.GetDistanceToAttackRange(this.hero, enemyHero);
-      if (distanceToAttackHero <= this.NotAttactTowerHeroAttackRangeBuff) {
-        return false;
-      }
-
-      const distanceToHero = HeroUtil.GetDistanceToHero(this.hero, enemyHero);
-      if (distanceToHero <= this.CastRange) {
-        return false;
-      }
+    if (enemyHero && HeroUtil.GetDistanceToHero(this.hero, enemyHero) <= this.CastRange) {
+      return false;
     }
 
-    if (ActionAttack.MoveToAttack(this.hero, enemyBuild, this.AttackRangePushTower)) {
+    // 近战只在300内走过去A，远程在自身攻击范围内继续A，超出则放弃（允许离开）
+    const pushRange = Math.max(this.MinPushTowerRange, this.hero.GetBaseAttackRange());
+    if (ActionAttack.MoveToAttack(this.hero, enemyBuild, pushRange)) {
       return true;
     }
     return false;
