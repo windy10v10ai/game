@@ -1,6 +1,7 @@
 {
   "name": "windy10v10ai",
   "private": true,
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "postinstall": "patch-package && node src/scripts/install.js",
     "launch": "node src/scripts/launch.js",
