@@ -27,32 +27,49 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 const slotStyle: Partial<VCSSStyleDeclaration> = {
-  width: '48px',
-  height: '36px',
+  width: '55px',
+  height: '50px',
   marginTop: '2px',
+  backgroundColor: '#0B0D10ee',
+  border: '1px solid #393939',
+  borderRadius: '3px',
+  boxShadow: 'inset #000000cc 0px 0px 8px 0px',
+};
+
+const iconBaseStyle: Partial<VCSSStyleDeclaration> = {
+  width: '45px',
+  height: '45px',
+  horizontalAlign: 'center',
+  verticalAlign: 'bottom',
+  borderRadius: '50%',
+  border: '1px solid #393939',
+  boxShadow: 'inset #000000aa 0px 0px 6px 0px',
 };
 
 const chargeStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'right',
   verticalAlign: 'bottom',
   marginRight: '2px',
-  fontSize: '16px',
+  fontSize: '18px',
   color: '#FFFFFF',
   fontWeight: 'bold',
-  textShadow: '1px 1px 4px 2.0 #000000FF',
+  textShadow: '0px 0px 5px 3.0 #8B0000FF',
 };
 
 const hotkeyStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'left',
   verticalAlign: 'top',
-  width: '14px',
+  minWidth: '14px',
   height: '14px',
   backgroundColor: '#000000cc',
+  border: '1px solid #000000',
+  borderRadius: '2px',
   color: '#FFFFFF',
-  fontSize: '11px',
+  fontSize: '10px',
   fontWeight: 'bold',
   textAlign: 'center',
   textShadow: '1px 1px 2px 2.0 #000000FF',
+  zIndex: 1,
 };
 
 interface SlotState {
@@ -121,31 +138,24 @@ function WardSlot() {
     return () => clearInterval(id);
   }, []);
 
-  const hasAny = states.some((s) => s.charges > 0);
-
   return (
-    <Panel
-      ref={containerRef}
-      style={{ ...containerStyle, visibility: hasAny ? 'visible' : 'collapse' }}
-      hittest={false}
-    >
-      {SLOTS.map(({ ability, item }, i) => (
-        <Panel
-          key={ability}
-          style={{ ...slotStyle, visibility: states[i].charges > 0 ? 'visible' : 'collapse' }}
-          hittest={true}
-        >
-          <DOTAItemImage
-            itemname={item}
-            showtooltip={true}
-            onactivate={() => placeWard(ability)}
-            className="BrightHover"
-            style={{ width: '100%', height: '100%' }}
-          />
-          {states[i].hotkey !== '' && <Label style={hotkeyStyle} text={states[i].hotkey} />}
-          <Label style={chargeStyle} text={states[i].charges.toString()} />
-        </Panel>
-      ))}
+    <Panel ref={containerRef} style={containerStyle} hittest={false}>
+      {SLOTS.map(({ ability, item }, i) => {
+        const charges = states[i].charges;
+        return (
+          <Panel key={ability} style={slotStyle} hittest={true}>
+            <DOTAItemImage
+              itemname={item}
+              showtooltip={true}
+              onactivate={() => placeWard(ability)}
+              className="BrightHover"
+              style={{ ...iconBaseStyle, opacity: charges > 0 ? '1' : '0.32' }}
+            />
+            {states[i].hotkey !== '' && <Label style={hotkeyStyle} text={states[i].hotkey} />}
+            <Label style={chargeStyle} text={charges.toString()} />
+          </Panel>
+        );
+      })}
     </Panel>
   );
 }

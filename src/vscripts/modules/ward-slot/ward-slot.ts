@@ -2,9 +2,8 @@ import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
 
 /**
- * 真假眼额外槽位（issue #1812）：人类玩家在商店购买真假眼时，物品经 filter 拦截不进背包，
- * 转为英雄身上隐藏 slot ability 的一层充能。点击 HUD 槽位由客户端 ExecuteAbility 放置，
- * 充能/冷却走 ability 自带 charge 系统，本模块不维护任何 net table。
+ * 真假眼额外槽位（issue #1812）：人类玩家成功获得商店真假眼后，删除入包物品，
+ * 转为英雄身上隐藏 slot ability 的一层充能。充能/冷却走 ability 自带 charge 系统。
  */
 @reloadable
 export class WardSlot {
@@ -15,10 +14,7 @@ export class WardSlot {
 
   constructor() {
     ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
-    GameRules.GetGameModeEntity().SetItemAddedToInventoryFilter(
-      (event) => this.filterItemAdded(event),
-      this,
-    );
+    ListenToGameEvent('dota_inventory_item_added', (keys) => this.onInventoryItemAdded(keys), this);
   }
 
   private onNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
@@ -48,36 +44,39 @@ export class WardSlot {
     }
   }
 
-  /**
-   * return false 阻止 ward 物品进背包；此时购买的扣金币、扣库存已发生，
-   * 改为给对应 slot ability 加一层充能。仅拦截人类玩家，bot 照常入背包。
-   */
-  private filterItemAdded(event: ItemAddedToInventoryFilterEvent): boolean {
-    const item = EntIndexToHScript(event.item_entindex_const) as CDOTA_Item | undefined;
-    const hero = EntIndexToHScript(event.inventory_parent_entindex_const) as
+  private onInventoryItemAdded(
+    event: GameEventProvidedProperties & DotaInventoryItemAddedEvent,
+  ): void {
+    if (event.is_courier === 1) {
+      return;
+    }
+
+    const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[event.itemname];
+    if (!abilityName) {
+      return;
+    }
+
+    const hero = EntIndexToHScript(event.inventory_parent_entindex) as
       | CDOTA_BaseNPC_Hero
       | undefined;
-    if (!item || !hero) {
-      return true;
+    if (!hero || !hero.IsRealHero() || !PlayerHelper.IsHumanPlayer(hero)) {
+      return;
     }
 
-    const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[item.GetAbilityName()];
-    if (!abilityName) {
-      return true;
-    }
-    if (!PlayerHelper.IsHumanPlayer(hero)) {
-      return true;
-    }
+    this.ensureSlotAbilities(hero);
 
-    const ability = hero.FindAbilityByName(abilityName);
-    if (!ability) {
-      return true;
-    }
+    // 购买必须先成功入包，商店库存/金币才会被原生系统正确结算。
+    // 下一帧再删除物品，避免在 inventory 事件回调中修改刚加入的 item。
+    Timers.CreateTimer(0, () => {
+      const item = EntIndexToHScript(event.item_entindex) as CDOTA_Item | undefined;
+      const ability = hero.FindAbilityByName(abilityName);
+      if (!item || !ability) {
+        return;
+      }
 
-    // 物品自身可能携带多层充能（堆叠购买），按其充能数累加。
-    const charges = Math.max(1, item.GetCurrentCharges());
-    ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + charges);
-    UTIL_Remove(item);
-    return false;
+      const charges = Math.max(1, item.GetCurrentCharges());
+      ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + charges);
+      hero.RemoveItem(item);
+    });
   }
 }
