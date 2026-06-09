@@ -6,9 +6,9 @@
 	"ability_ward_observer_slot"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/ward_slot/ability_ward_observer_slot"
+		"ScriptFile"					"abilities/ts_abilities/ward_slot/ability_ward_observer_slot"
 		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
@@ -25,9 +25,9 @@
 	"ability_ward_sentry_slot"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/ward_slot/ability_ward_sentry_slot"
+		"ScriptFile"					"abilities/ts_abilities/ward_slot/ability_ward_sentry_slot"
 		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET"
 		"AbilityCastRange"				"500"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"

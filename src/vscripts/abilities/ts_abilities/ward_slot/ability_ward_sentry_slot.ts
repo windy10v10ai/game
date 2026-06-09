@@ -1,7 +1,7 @@
-import { BaseAbility, registerAbility } from '../../utils/dota_ts_adapter';
+import { BaseAbility, registerAbility } from '../../../utils/dota_ts_adapter';
 
 /** 假眼额外槽位：充能由商店购买假眼经 WardSlot filter 注入，放置时消耗一层充能。 */
-@registerAbility('abilities/ward_slot/ability_ward_sentry_slot')
+@registerAbility('abilities/ts_abilities/ward_slot/ability_ward_sentry_slot')
 export class AbilityWardSentrySlot extends BaseAbility {
   OnSpellStart(): void {
     const caster = this.GetCaster();

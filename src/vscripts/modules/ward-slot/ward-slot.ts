@@ -34,14 +34,17 @@ export class WardSlot {
 
   private ensureSlotAbilities(hero: CDOTA_BaseNPC_Hero): void {
     for (const abilityName of Object.values(WardSlot.WARD_ITEM_TO_ABILITY)) {
-      if (hero.HasAbility(abilityName)) {
-        continue;
+      let ability = hero.FindAbilityByName(abilityName);
+      const isNewAbility = ability == null;
+      if (!ability) {
+        ability = hero.AddAbility(abilityName);
       }
-      const ability = hero.AddAbility(abilityName);
       ability.SetLevel(1);
-      ability.SetHidden(true);
-      // KV 无 ability 初始充能字段，引擎默认值不确定，显式归零保证开局无充能。
-      ability.SetCurrentAbilityCharges(0);
+      ability.SetActivated(true);
+      if (isNewAbility) {
+        // KV 无 ability 初始充能字段，引擎默认值不确定，显式归零保证开局无充能。
+        ability.SetCurrentAbilityCharges(0);
+      }
     }
   }
 
