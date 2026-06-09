@@ -8,7 +8,11 @@ import {
   NumberRange,
 } from '../action/cast-condition';
 import type { BotBaseAIModifier } from '../hero/bot-base';
-import { CastAbilityOnTargetByBehavior, GetFullCastRange } from './ability-cast';
+import {
+  ApplyAbilityAction,
+  CastAbilityOnTargetByBehavior,
+  GetFullCastRange,
+} from './ability-cast';
 import { AbilityRegistry } from './ability-registry';
 import { AbilitySpec, TargetSide } from './ability-spec';
 
@@ -124,6 +128,11 @@ export class AbilityDispatcher {
 
     if (condition?.debug) {
       print(`[AI] Dispatcher hit ${ability.GetName()} side=${spec.targetSide}`);
+    }
+
+    // 开关/法球类：找到目标（= 满足开启条件）后只切换状态，不走正常施法派发。
+    if (condition?.action) {
+      return ApplyAbilityAction(ability, condition.action);
     }
 
     const castPosition = this.resolveCastPosition(hero, ability, target, condition);

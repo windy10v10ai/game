@@ -133,7 +133,8 @@
 		"item"		"item_wish_4"
 		"item"		"item_rune_transmuter_random"		// 洗炼石
 		"item"		"item_rune_transmuter_advanced"		// 转化石
-		"item"		"item_universal_rune"		// 通用符文
+		"item"		"item_universal_rune"				// 通用符文
+		"item"		"item_awaken_stone"					// 觉醒石
 	}
 
 	// ------------------------------------------

@@ -68,7 +68,7 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 2. **目标数量条件**：群体技能要求"周围至少 N 个敌人才出手"`target.count.gte: 3`。
 3. **施法者条件**：例如"蓝量够才用"`self.unitCondition.manaPercent.gte: 50`，或"血量低才用某保命技能"。
 4. **技能等级 / 充能条件**：`ability.level.gte: 3`、`ability.charges.gte: 1`。
-5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff/buff。Modifier 名从 `abilities_schinese.txt`（或英文版）中搜 `DOTA_Tooltip_modifier_<name>` 取 `<name>`。例：寒霜魔盾 = `modifier_lich_frost_shield`。
+5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff/buff。Modifier 名查 `DOTA_Tooltip_modifier_<name>` 取 `<name>`：**优先查项目 `game/resource/addon_schinese.txt`**（自定义/克隆/override 技能以项目本地化为准）；项目搜不到再查 reference 最新版本 `docs/reference/<version>/abilities_schinese.txt`（原版技能兜底）。例：寒霜魔盾 = `modifier_lich_frost_shield`；`lich_frost_armor` 是项目把奥术法师寒冰盔甲克隆给巫妖，原版 lich 无此技能，modifier 名 = `modifier_lich_frost_armor`，仅在项目本地化有定义。
 6. **跳过已被控目标**：`target.unitCondition.notActionable: true`，目标处于眩晕/变羊/噩梦/虚空大等硬控状态则跳过，对已被控的目标使用控制技能通常是浪费。
 7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵或建筑施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
 8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。

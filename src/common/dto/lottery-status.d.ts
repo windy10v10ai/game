@@ -14,7 +14,7 @@ export interface LotteryStatusDto {
   passiveAbilityLevel2?: number;
   isPassiveAbilityRefreshed2: boolean;
 
-  // 各槽位已付费刷新的次数，决定下次累进消耗；洗技能(reset)后归零
+  // 各槽位已使用会员积分刷新的次数，决定下次累进消耗；洗技能(reset)后归零
   activePaidRefreshCount: number;
   passivePaidRefreshCount: number;
   passivePaidRefreshCount2: number;

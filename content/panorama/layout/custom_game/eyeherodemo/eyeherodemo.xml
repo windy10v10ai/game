@@ -31,11 +31,6 @@
 						</Panel>
 						<Panel class="HorizontalRule" />
 						<Panel class="Row">
-							<Button class="DemoButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( DummyTargetButtonPressed )">
-								<Label text="#DummyTarget_Button" />
-							</Button>
-						</Panel>
-						<Panel class="Row">
 							<Button class="RuneButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( SpawnRuneDoubleDamagePressed )" onmouseover="MouseOverRune( &apos;RuneEmoticonDoubleDamage&apos;, &apos;#DOTA_HUD_Rune_DoubleDamage&apos; )" onmouseout="MouseOutRune( &apos;RuneEmoticonDoubleDamage&apos; )">
 								<DOTAEmoticon id="RuneEmoticonDoubleDamage" alias="doubledamage" animating="false" />
 							</Button>
@@ -79,6 +74,11 @@
 							</Button>
 							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="ShardSelectedHeroes()">
 								<Label text="#ShardSelectedHeroes_Button" />
+							</Button>
+						</Panel>
+						<Panel class="Row">
+							<Button id="AwakenStoneSelectedHeroesButton" class="DemoButton" acceptsjoyfocus="true" onactivate="AwakenStoneSelectedHeroes()">
+								<Label text="#AwakenStoneSelectedHeroes_Button" />
 							</Button>
 						</Panel>
 						<Panel class="Row">

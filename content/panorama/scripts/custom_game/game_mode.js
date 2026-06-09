@@ -213,9 +213,9 @@ function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
     // 游戏选项显示（全体玩家）
     $('#display_options_container').style.visibility = 'visible';
+  } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     // 统计玩家语言
     SendPlayerLanguage();
-  } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     GameEvents.SendCustomGameEventToServer('loading_set_options', {
       host_privilege: CheckForHostPrivileges(),
       game_options: {

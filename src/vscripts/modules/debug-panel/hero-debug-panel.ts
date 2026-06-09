@@ -223,7 +223,7 @@ export class HeroDebugPanel {
 
   private maxLevelHero(hero: CDOTA_BaseNPC_Hero): void {
     hero.ModifyGold(99999, false, ModifyGoldReason.UNSPECIFIED);
-    hero.AddExperience(59900, ModifyXpReason.UNSPECIFIED, false, false);
+    hero.AddExperience(59900, ModifyXpReason.UNSPECIFIED, false, false, 0);
     const abilityCount = hero.GetAbilityCount();
     for (let i = 0; i < abilityCount; i++) {
       const ability = hero.GetAbilityByIndex(i);

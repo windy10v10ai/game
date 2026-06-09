@@ -24,6 +24,21 @@ function resolveTargetAbility(
   return undefined;
 }
 
+/** 新技能初始等级：配了 inheritLevelFrom 则继承该关联技能当前等级，否则用 fallback */
+function resolveNewLevel(
+  hero: CDOTA_BaseNPC_Hero,
+  replacement: AbilityReplacement,
+  fallbackLevel: number,
+): number {
+  if (replacement.inheritLevelFrom !== undefined) {
+    const linked = hero.FindAbilityByName(replacement.inheritLevelFrom);
+    if (linked !== undefined) {
+      return linked.GetLevel();
+    }
+  }
+  return fallbackLevel;
+}
+
 /** 插入：保存原技能等级 → 移除 → 退点数 → 加新技能 → 加回原技能并恢复等级 */
 function insertAbility(
   hero: CDOTA_BaseNPC_Hero,
@@ -35,14 +50,16 @@ function insertAbility(
     return false;
   }
   const savedLevel = oldAbility.GetLevel();
+  // 继承等级须在移除关联技能前求值（inheritLevelFrom 可能正是被插入槽位的技能）
+  const newAbilityLevel = resolveNewLevel(hero, replacement, replacement.newLevel);
   hero.RemoveAbility(targetAbilityName);
   hero.SetAbilityPoints(hero.GetAbilityPoints() + savedLevel);
-  addAbilityAtLevel(hero, replacement.newAbility, replacement.newLevel);
+  addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
   addAbilityAtLevel(hero, targetAbilityName, savedLevel);
   return true;
 }
 
-/** 替换：移除旧技能 → 加新技能，newLevel>0 用配置等级，否则同步原已学等级（不退点数） */
+/** 替换：移除旧技能 → 加新技能，inheritLevelFrom > newLevel(>0) > 原已学等级（不退点数） */
 function replaceAbility(
   hero: CDOTA_BaseNPC_Hero,
   replacement: AbilityReplacement,
@@ -53,14 +70,14 @@ function replaceAbility(
     const oldAbility = hero.FindAbilityByName(targetAbilityName);
     if (oldAbility !== undefined) {
       savedLevel = oldAbility.GetLevel();
-      hero.RemoveAbility(targetAbilityName);
     }
   }
-  addAbilityAtLevel(
-    hero,
-    replacement.newAbility,
-    replacement.newLevel > 0 ? replacement.newLevel : savedLevel,
-  );
+  const fallbackLevel = replacement.newLevel > 0 ? replacement.newLevel : savedLevel;
+  const newAbilityLevel = resolveNewLevel(hero, replacement, fallbackLevel);
+  if (targetAbilityName !== undefined && hero.FindAbilityByName(targetAbilityName) !== undefined) {
+    hero.RemoveAbility(targetAbilityName);
+  }
+  addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
   return true;
 }
 
@@ -76,7 +93,11 @@ export function executeReplacement(
 
   // 纯新增
   if (replacement.targetAbility === undefined && replacement.targetSlot === undefined) {
-    addAbilityAtLevel(hero, replacement.newAbility, replacement.newLevel);
+    addAbilityAtLevel(
+      hero,
+      replacement.newAbility,
+      resolveNewLevel(hero, replacement, replacement.newLevel),
+    );
     return true;
   }
 

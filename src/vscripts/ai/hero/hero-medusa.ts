@@ -24,25 +24,7 @@ export class MedusaAIModifier extends BotBaseAIModifier {
       return true;
     }
 
-    // 分裂箭 开启
-    if (
-      ActionAbility.CastAbilityOnFindEnemyHero(this, 'medusa_split_shot', {
-        target: { count: { gte: 2 }, range: { lte: 900 } },
-        action: { toggleOn: true },
-      })
-    ) {
-      return true;
-    }
-    // 分裂箭 关闭
-    if (
-      ActionAbility.CastAbilityOnFindEnemyHero(this, 'medusa_split_shot', {
-        target: { count: { lte: 1 }, range: { lte: 900 } },
-        ability: { level: { lte: 3 } },
-        action: { toggleOff: true },
-      })
-    ) {
-      return true;
-    }
+    // 分裂箭已迁移至 specs/medusa_split_shot.ts（dispatcher 自动处理）
 
     return false;
   }
@@ -61,26 +43,6 @@ export class MedusaAIModifier extends BotBaseAIModifier {
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'medusa_gorgon_grasp', {
         target: { count: { gte: 2 } },
-      })
-    ) {
-      return true;
-    }
-
-    // 分裂箭 开启
-    if (
-      ActionAbility.CastAbilityOnFindEnemyCreep(this, 'medusa_split_shot', {
-        target: { count: { gte: 2 }, range: { lte: 900 } },
-        action: { toggleOn: true },
-      })
-    ) {
-      return true;
-    }
-    // 分裂箭 关闭
-    if (
-      ActionAbility.CastAbilityOnFindEnemyCreep(this, 'medusa_split_shot', {
-        target: { count: { lte: 1 }, range: { lte: 900 } },
-        ability: { level: { lte: 3 } },
-        action: { toggleOff: true },
       })
     ) {
       return true;
