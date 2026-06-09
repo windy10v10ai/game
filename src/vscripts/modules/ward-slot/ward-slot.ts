@@ -1,18 +1,29 @@
 import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
 
+const global = globalThis as typeof globalThis & {
+  wardSlotProcessedItemEntIndexes?: Set<EntityIndex>;
+};
+
+if (!global.wardSlotProcessedItemEntIndexes) {
+  global.wardSlotProcessedItemEntIndexes = new Set<EntityIndex>();
+}
+
 /**
  * 真假眼额外槽位（issue #1812）：人类玩家成功获得商店真假眼后，删除入包物品，
  * 转为英雄身上隐藏 slot ability 的一层充能。充能/冷却走 ability 自带 charge 系统。
  */
 @reloadable
 export class WardSlot {
+  private readonly processedItemEntIndexes = global.wardSlotProcessedItemEntIndexes!;
+
   private static readonly WARD_ITEM_TO_ABILITY: Record<string, string> = {
     item_ward_observer: 'ability_ward_observer_slot',
     item_ward_sentry: 'ability_ward_sentry_slot',
   };
 
   constructor() {
+    GameRules.GetGameModeEntity().ClearItemAddedToInventoryFilter();
     ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
     ListenToGameEvent('dota_inventory_item_added', (keys) => this.onInventoryItemAdded(keys), this);
   }
@@ -52,9 +63,10 @@ export class WardSlot {
     }
 
     const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[event.itemname];
-    if (!abilityName) {
+    if (!abilityName || this.processedItemEntIndexes.has(event.item_entindex)) {
       return;
     }
+    this.processedItemEntIndexes.add(event.item_entindex);
 
     const hero = EntIndexToHScript(event.inventory_parent_entindex) as
       | CDOTA_BaseNPC_Hero
@@ -74,8 +86,7 @@ export class WardSlot {
         return;
       }
 
-      const charges = Math.max(1, item.GetCurrentCharges());
-      ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + charges);
+      ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + 1);
       hero.RemoveItem(item);
     });
   }

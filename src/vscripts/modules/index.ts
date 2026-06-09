@@ -74,5 +74,5 @@ export function ActivateModules() {
 
   if (GameRules.Treasure == null) GameRules.Treasure = new Treasure();
 
-  if (GameRules.WardSlot == null) GameRules.WardSlot = new WardSlot();
+  GameRules.WardSlot = new WardSlot();
 }
