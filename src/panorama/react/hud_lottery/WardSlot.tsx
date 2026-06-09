@@ -139,16 +139,19 @@ function WardSlot() {
   }, []);
 
   return (
-    <Panel ref={containerRef} style={containerStyle} hittest={false}>
+    <Panel hittest={false} ref={containerRef} style={containerStyle}>
       {SLOTS.map(({ ability, item }, i) => {
         const charges = states[i].charges;
         return (
-          <Panel key={ability} style={slotStyle} hittest={true}>
+          <Panel
+            key={ability}
+            hittest={true}
+            style={slotStyle}
+            onactivate={() => placeWard(ability)}
+          >
             <DOTAItemImage
               itemname={item}
               showtooltip={true}
-              onactivate={() => placeWard(ability)}
-              className="BrightHover"
               style={{ ...iconBaseStyle, opacity: charges > 0 ? '1' : '0.32' }}
             />
             {states[i].hotkey !== '' && <Label style={hotkeyStyle} text={states[i].hotkey} />}
