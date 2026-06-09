@@ -22,6 +22,16 @@ export class WardSlot {
     item_ward_sentry: 'ability_ward_sentry_slot',
   };
 
+  /**
+   * dispenser（同时购买真假眼合成）进包时拆为真眼+假眼各 +1 charge，
+   * 然后删除 dispenser 物品。key 同时也是 processed 标记，
+   * 防止同一次物品转换被重复处理。
+   */
+  private static readonly DISPENSER_ABILITIES = [
+    'ability_ward_observer_slot',
+    'ability_ward_sentry_slot',
+  ] as const;
+
   constructor() {
     GameRules.GetGameModeEntity().ClearItemAddedToInventoryFilter();
     ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
@@ -61,12 +71,16 @@ export class WardSlot {
     if (event.is_courier === 1) {
       return;
     }
-
-    const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[event.itemname];
-    if (!abilityName || this.processedItemEntIndexes.has(event.item_entindex)) {
+    if (this.processedItemEntIndexes.has(event.item_entindex)) {
       return;
     }
     this.processedItemEntIndexes.add(event.item_entindex);
+
+    const isDispenser = event.itemname === 'item_ward_dispenser';
+    const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[event.itemname];
+    if (!abilityName && !isDispenser) {
+      return;
+    }
 
     const hero = EntIndexToHScript(event.inventory_parent_entindex) as
       | CDOTA_BaseNPC_Hero
@@ -77,16 +91,26 @@ export class WardSlot {
 
     this.ensureSlotAbilities(hero);
 
-    // 购买必须先成功入包，商店库存/金币才会被原生系统正确结算。
-    // 下一帧再删除物品，避免在 inventory 事件回调中修改刚加入的 item。
     Timers.CreateTimer(0, () => {
       const item = EntIndexToHScript(event.item_entindex) as CDOTA_Item | undefined;
-      const ability = hero.FindAbilityByName(abilityName);
-      if (!item || !ability) {
+      if (!item) {
         return;
       }
 
-      ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + 1);
+      if (isDispenser) {
+        for (const dispAbility of WardSlot.DISPENSER_ABILITIES) {
+          const disp = hero.FindAbilityByName(dispAbility);
+          if (disp) {
+            disp.SetCurrentAbilityCharges(disp.GetCurrentAbilityCharges() + 1);
+          }
+        }
+      } else if (abilityName) {
+        const ability = hero.FindAbilityByName(abilityName);
+        if (ability) {
+          ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + 1);
+        }
+      }
+
       hero.RemoveItem(item);
     });
   }
