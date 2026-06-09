@@ -1,6 +1,6 @@
 import { BaseAbility, registerAbility } from '../../../utils/dota_ts_adapter';
 
-/** 假眼额外槽位：充能由商店购买假眼经 WardSlot filter 注入，放置时消耗一层充能。 */
+/** 参考 1x6 abilities/ui/sentry.lua */
 @registerAbility('abilities/ts_abilities/ward_slot/ability_ward_sentry_slot')
 export class AbilityWardSentrySlot extends BaseAbility {
   OnSpellStart(): void {
@@ -11,12 +11,11 @@ export class AbilityWardSentrySlot extends BaseAbility {
     const ward = CreateUnitByName(
       'npc_dota_sentry_wards',
       point,
-      false,
+      true,
       caster,
       caster,
       caster.GetTeamNumber(),
     );
-    ward.SetControllableByPlayer(caster.GetPlayerOwnerID(), true);
     ward.AddNewModifier(caster, this, 'modifier_kill', { duration: lifetime });
   }
 }
