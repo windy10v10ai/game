@@ -22,15 +22,12 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'right',
   verticalAlign: 'bottom',
   flowChildren: 'down',
+  transform: 'translateX(-42px)',
 };
 
 const slotStyle: Partial<VCSSStyleDeclaration> = {
   width: '55px',
   height: '50px',
-  backgroundColor: '#0B0D10ee',
-  border: '1px solid #393939',
-  borderRadius: '3px',
-  boxShadow: 'inset #000000cc 0px 0px 8px 0px',
 };
 
 const iconBaseStyle: Partial<VCSSStyleDeclaration> = {

@@ -107,11 +107,7 @@ export class WardSlot {
     });
   }
 
-  private addAbilityCharges(
-    hero: CDOTA_BaseNPC_Hero,
-    abilityName: string,
-    charges: number,
-  ): void {
+  private addAbilityCharges(hero: CDOTA_BaseNPC_Hero, abilityName: string, charges: number): void {
     if (charges <= 0) {
       return;
     }
