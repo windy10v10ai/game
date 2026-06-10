@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 
 const POLL_INTERVAL_MS = 200;
+const RIGHT_FLARE_WIDTH = '122px';
+const RIGHT_FLARE_MARGIN_RIGHT = '-29px';
 
 const SLOTS = [
   {
@@ -101,6 +103,12 @@ function WardSlot() {
     const centerWithStats = FindDotaHudElement('center_with_stats');
     if (centerWithStats && containerRef.current) {
       containerRef.current.SetParent(centerWithStats);
+    }
+
+    const rightFlare = FindDotaHudElement('right_flare');
+    if (rightFlare) {
+      rightFlare.style.width = RIGHT_FLARE_WIDTH;
+      rightFlare.style.marginRight = RIGHT_FLARE_MARGIN_RIGHT;
     }
   }, []);
 
