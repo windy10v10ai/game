@@ -1,7 +1,7 @@
 import { BaseAbility, registerAbility } from '../../../utils/dota_ts_adapter';
 
 /** 参考 1x6 abilities/ui/observer.lua */
-@registerAbility('abilities/ts_abilities/ward_slot/ability_ward_observer_slot')
+@registerAbility('ability_ward_observer_slot')
 export class AbilityWardObserverSlot extends BaseAbility {
   OnSpellStart(): void {
     print('[ward-slot] observer OnSpellStart');

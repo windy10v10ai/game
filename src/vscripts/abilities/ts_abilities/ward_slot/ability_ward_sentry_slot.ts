@@ -1,7 +1,7 @@
 import { BaseAbility, registerAbility } from '../../../utils/dota_ts_adapter';
 
 /** 参考 1x6 abilities/ui/sentry.lua */
-@registerAbility('abilities/ts_abilities/ward_slot/ability_ward_sentry_slot')
+@registerAbility('ability_ward_sentry_slot')
 export class AbilityWardSentrySlot extends BaseAbility {
   OnSpellStart(): void {
     print('[ward-slot] sentry OnSpellStart');

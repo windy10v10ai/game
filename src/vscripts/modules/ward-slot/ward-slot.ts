@@ -22,16 +22,6 @@ export class WardSlot {
     item_ward_sentry: 'ability_ward_sentry_slot',
   };
 
-  /**
-   * dispenser（同时购买真假眼合成）进包时拆为真眼+假眼各 +1 charge，
-   * 然后删除 dispenser 物品。key 同时也是 processed 标记，
-   * 防止同一次物品转换被重复处理。
-   */
-  private static readonly DISPENSER_ABILITIES = [
-    'ability_ward_observer_slot',
-    'ability_ward_sentry_slot',
-  ] as const;
-
   constructor() {
     GameRules.GetGameModeEntity().ClearItemAddedToInventoryFilter();
     ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
@@ -97,23 +87,37 @@ export class WardSlot {
         return;
       }
 
-      // 一个 item entity 可能因为堆叠含有多层充能，按其真实 charge 数累加。
-      const charges = Math.max(1, item.GetCurrentCharges());
       if (isDispenser) {
-        for (const dispAbility of WardSlot.DISPENSER_ABILITIES) {
-          const disp = hero.FindAbilityByName(dispAbility);
-          if (disp) {
-            disp.SetCurrentAbilityCharges(disp.GetCurrentAbilityCharges() + charges);
-          }
-        }
-      } else if (abilityName) {
-        const ability = hero.FindAbilityByName(abilityName);
-        if (ability) {
-          ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + charges);
-        }
+        this.addAbilityCharges(
+          hero,
+          'ability_ward_observer_slot',
+          Math.max(0, item.GetCurrentCharges()),
+        );
+        this.addAbilityCharges(
+          hero,
+          'ability_ward_sentry_slot',
+          Math.max(0, item.GetSecondaryCharges()),
+        );
+      } else if (abilityName !== undefined) {
+        // 一个 item entity 可能因为堆叠含有多层充能，按其真实 charge 数累加。
+        this.addAbilityCharges(hero, abilityName, Math.max(1, item.GetCurrentCharges()));
       }
 
       hero.RemoveItem(item);
     });
+  }
+
+  private addAbilityCharges(
+    hero: CDOTA_BaseNPC_Hero,
+    abilityName: string,
+    charges: number,
+  ): void {
+    if (charges <= 0) {
+      return;
+    }
+    const ability = hero.FindAbilityByName(abilityName);
+    if (ability !== undefined) {
+      ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + charges);
+    }
   }
 }

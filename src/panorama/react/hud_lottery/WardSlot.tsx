@@ -91,7 +91,7 @@ function placeWard(abilityName: string) {
   if (abilityId === -1 || Abilities.GetCurrentAbilityCharges(abilityId) <= 0) {
     return;
   }
-  Abilities.ExecuteAbility(abilityId, heroId, true);
+  Abilities.ExecuteAbility(abilityId, heroId, false);
 }
 
 function WardSlot() {
