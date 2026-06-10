@@ -4,8 +4,11 @@ import React, { useEffect, useRef, useState } from 'react';
 import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 
 const POLL_INTERVAL_MS = 200;
-const RIGHT_FLARE_WIDTH = '122px';
-const RIGHT_FLARE_MARGIN_RIGHT = '-29px';
+const RIGHT_FLARE_WIDTH = '125px';
+const RIGHT_FLARE_MARGIN_RIGHT = '-25px';
+const INVENTORY_COMPOSITION_MARGIN_RIGHT = '27px';
+const INVENTORY_MARGIN_RIGHT = '100px';
+const ABILITY_INSET_SHADOW_RIGHT_MARGIN_RIGHT = '302px';
 
 const SLOTS = [
   {
@@ -24,17 +27,18 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'right',
   verticalAlign: 'bottom',
   flowChildren: 'down',
-  transform: 'translateX(-42px)',
+  marginBottom: '8px',
+  transform: 'translateX(-55px)',
 };
 
 const slotStyle: Partial<VCSSStyleDeclaration> = {
-  width: '55px',
-  height: '50px',
+  width: '52px',
+  height: '48px',
 };
 
 const iconBaseStyle: Partial<VCSSStyleDeclaration> = {
-  width: '45px',
-  height: '45px',
+  width: '42px',
+  height: '42px',
   horizontalAlign: 'center',
   verticalAlign: 'bottom',
   borderRadius: '50%',
@@ -110,6 +114,22 @@ function WardSlot() {
       rightFlare.style.width = RIGHT_FLARE_WIDTH;
       rightFlare.style.marginRight = RIGHT_FLARE_MARGIN_RIGHT;
     }
+
+    const inventoryComposition = FindDotaHudElement('inventory_composition_layer_container');
+    if (inventoryComposition) {
+      inventoryComposition.style.marginRight = INVENTORY_COMPOSITION_MARGIN_RIGHT;
+    }
+
+    const inventory = FindDotaHudElement('inventory');
+    if (inventory) {
+      inventory.style.marginRight = INVENTORY_MARGIN_RIGHT;
+    }
+
+    const centerBlock = FindDotaHudElement('center_block');
+    const abilityInsetShadowRight = centerBlock?.FindChildTraverse('AbilityInsetShadowRight');
+    if (abilityInsetShadowRight) {
+      abilityInsetShadowRight.style.marginRight = ABILITY_INSET_SHADOW_RIGHT_MARGIN_RIGHT;
+    }
   }, []);
 
   useEffect(() => {
@@ -154,7 +174,7 @@ function WardSlot() {
             <DOTAItemImage
               itemname={item}
               showtooltip={true}
-              style={{ ...iconBaseStyle, opacity: charges > 0 ? '1' : '0.32' }}
+              style={{ ...iconBaseStyle, opacity: charges > 0 ? '1' : '0.5' }}
             />
             {states[i].hotkey !== '' && <Label style={hotkeyStyle} text={states[i].hotkey} />}
             <Label style={chargeStyle} text={charges.toString()} />
