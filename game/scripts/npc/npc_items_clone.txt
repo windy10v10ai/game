@@ -554,12 +554,12 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_consecrated_wraps_2"
-		"ItemCost"						"100"
+		"ItemCost"						"300"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_consecrated_wraps_2"
 		"ItemRequirements"
 		{
-			"01"						"item_consecrated_wraps;item_ultimate_orb;item_ultimate_orb;item_cloak;item_cloak"
+			"01"						"item_consecrated_wraps;item_ultimate_orb;item_cloak;item_cloak"
 		}
 	}
 
@@ -572,7 +572,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10100"
+		"ItemCost"						"7500"
 		"ItemShopTags"					"magic_resist;move_speed;health_pool"
 		"ItemQuality"					"artifact"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -596,15 +596,15 @@
 		"AbilityValues"
 		{
 			"bonus_spell_resist"					"50"	// 40 配方减个斗篷给卷轴加价保持总价
-			"bonus_all_stats"						"40"	// 5
+			"bonus_all_stats"						"40"	// 30
 			"bonus_health"							"500"	// 250
 
 			"movement_speed_pct_on_stack_gain"		"25"//20
 
 			"stack_threshold_damage"				"0"
 			"duration"								"20"//10
-			"barrier_per_stack"						"2000"	// 120
-			"max_barrier_tooltip"					"12000"	// 360
+			"barrier_per_stack"						"2000"	// 1200
+			"max_barrier_tooltip"					"12000"	// 6000
 		}
 	}
 
@@ -616,12 +616,12 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_essence_distiller_2"
-		"ItemCost"						"1000"
+		"ItemCost"						"125"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_essence_distiller_2"
 		"ItemRequirements"
 		{
-			"01"						"item_essence_distiller;item_platemail;item_platemail;item_platemail;item_ultimate_orb"
+			"01"						"item_essence_distiller;item_platemail;item_platemail;item_ultimate_orb"
 		}
 	}
 
@@ -636,7 +636,7 @@
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"2000"//1500
-		"AbilityCooldown"				"5.0"//8
+		"AbilityCooldown"				"3.0"//8
 		"AbilitySharedCooldown"			"urn"
 
 		// Items
@@ -648,7 +648,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9775"
+		"ItemCost"						"7500"
 		"ItemShopTags"					"teamfight"
 		"ItemQuality"					"artifact"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -663,7 +663,7 @@
 		{
 			"mana_regen"			"10"	// 5
 			"bonus_all_stats"		"25"	// 20
-			"bonus_armor"			"50"	// 6
+			"bonus_armor"			"50"	// 40
 			"bonus_mana"			"1000"	// 500
 			"soul_radius"
 			{
@@ -672,10 +672,10 @@
 			}
 			"soul_initial_charge"	"4"//3
 			"soul_additional_charges"	"2"
-			"soul_heal_amount"		"500"	// 400
-			"soul_damage_amount"	"300"	// 250
-			"duration"				"25.0"	//15
-			"ground_duration"		"25.0"	//20
+			"soul_heal_amount"		"600"	// 400
+			"soul_damage_amount"	"350"	// 250
+			"duration"				"20.0"	//15
+			"ground_duration"		"15.0"	//10
 			"latch_range"			"650"
 			"latch_vision"			"650"
 			"linger_after_latch_duration"	"0.5"
@@ -690,7 +690,7 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_hydras_breath_2"
-		"ItemCost"						"500"
+		"ItemCost"						"2000"//1000
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_hydras_breath_2"
 		"ItemRequirements"
@@ -733,7 +733,7 @@
 			"count"							"9"		//6
 			"secondary_target_range_bonus"	"400"	//250
 			"secondary_target_angle"		"180"	//120
-			"proc_chance"					"75"	//50
+			"proc_chance"					"66.7"	//50
 			"proc_dmg_pct"					"150"	// 75
 			"proc_dmg_pct_primary_tooltip"	"175"	// 100
 			"base_proc_dmg"					"100"	// 50
