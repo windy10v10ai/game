@@ -88,6 +88,7 @@ no_support_abilitys = {
 	primal_beast_onslaught = 1,            -- 獸 突
 	hoodwink_sharpshooter = 1,             -- 一箭穿心
 	hoodwink_sharpshooter_release = 1,     -- 一箭穿心
+	legion_commander_duel = 1,             -- 军团指挥官 决斗
 }
 no_support_items = {
 	-- 消耗品

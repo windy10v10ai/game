@@ -692,6 +692,12 @@
 		///////////////////////////////////////////////////
 // 					Custom Abilities 自定义技能
 
+		// 真假眼额外槽位
+		"DOTA_Tooltip_ability_ward_observer_slot"					"Place Observer Ward"
+		"DOTA_Tooltip_ability_ward_observer_slot_Description"		"Places an Observer Ward that provides vision. Charges come from purchasing Observer Wards at the shop and do not occupy an inventory slot."
+		"DOTA_Tooltip_ability_ward_sentry_slot"						"Place Sentry Ward"
+		"DOTA_Tooltip_ability_ward_sentry_slot_Description"			"Places a Sentry Ward that provides True Sight. Charges come from purchasing Sentry Wards at the shop and do not occupy an inventory slot."
+
 		// 大肆污染
 		"DOTA_Tooltip_ability_leshrac_defilement2"										"Defilement"
 		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"Gain AoE per intelligence. Affects both abilities and items."

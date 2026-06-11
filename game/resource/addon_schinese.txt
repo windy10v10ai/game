@@ -693,6 +693,12 @@
 		///////////////////////////////////////////////////
 // 					Custom Abilities 自定义技能
 
+		// 真假眼额外槽位
+		"DOTA_Tooltip_ability_ward_observer_slot"					"放置侦察守卫"
+		"DOTA_Tooltip_ability_ward_observer_slot_Description"		"放置一个侦察守卫，提供视野。充能来自在商店购买侦察守卫，不占用物品栏。"
+		"DOTA_Tooltip_ability_ward_sentry_slot"						"放置岗哨守卫"
+		"DOTA_Tooltip_ability_ward_sentry_slot_Description"			"放置一个岗哨守卫，提供真视。充能来自在商店购买岗哨守卫，不占用物品栏。"
+
 		// 大肆污染
 		"DOTA_Tooltip_ability_leshrac_defilement2"										"大肆污染"
 		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"每点智力都会提供作用范围加成，影响技能和物品。"

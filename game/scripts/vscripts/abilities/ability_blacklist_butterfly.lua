@@ -89,7 +89,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
     ["phantom_assassin_phantom_strike"] = true,
-    ["pangolier_gyroshell"] = true, -- 石鳞剑士 地雷滚滚
+    ["pangolier_gyroshell"] = true,   -- 石鳞剑士 地雷滚滚
+    ["legion_commander_duel"] = true, -- 军团指挥官 决斗
 
 
     ["elder_titan_ancestral_spirit"] = true,
