@@ -20,6 +20,7 @@ game/panorama/images/custom_game/lottery
 game/panorama/images/custom_game/profile
 game/panorama/images/custom_game/member
 game/panorama/images/custom_game/conduct
+game/panorama/images/custom_game/hud
 
 # tstl output
 game/scripts/vscripts/lualib_bundle.lua

@@ -6,6 +6,7 @@ import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 const POLL_INTERVAL_MS = 200;
 const RIGHT_FLARE_WIDTH = '125px';
 const RIGHT_FLARE_MARGIN_RIGHT = '-25px';
+const RIGHT_FLARE_BACKGROUND_IMAGE = "url('file://{images}/custom_game/hud/right_flare_bg.png')";
 const INVENTORY_COMPOSITION_MARGIN_RIGHT = '27px';
 const INVENTORY_MARGIN_RIGHT = '100px';
 const ABILITY_INSET_SHADOW_RIGHT_MARGIN_RIGHT = '302px';
@@ -113,6 +114,7 @@ function WardSlot() {
     if (rightFlare) {
       rightFlare.style.width = RIGHT_FLARE_WIDTH;
       rightFlare.style.marginRight = RIGHT_FLARE_MARGIN_RIGHT;
+      rightFlare.style.backgroundImage = RIGHT_FLARE_BACKGROUND_IMAGE;
     }
 
     const inventoryComposition = FindDotaHudElement('inventory_composition_layer_container');

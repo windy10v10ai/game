@@ -58,26 +58,28 @@ export class WardSlot {
   private onInventoryItemAdded(
     event: GameEventProvidedProperties & DotaInventoryItemAddedEvent,
   ): void {
-    if (event.is_courier === 1) {
-      return;
-    }
-    if (this.processedItemEntIndexes.has(event.item_entindex)) {
-      return;
-    }
-    this.processedItemEntIndexes.add(event.item_entindex);
-
     const isDispenser = event.itemname === 'item_ward_dispenser';
     const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[event.itemname];
     if (!abilityName && !isDispenser) {
       return;
     }
 
-    const hero = EntIndexToHScript(event.inventory_parent_entindex) as
-      | CDOTA_BaseNPC_Hero
-      | undefined;
-    if (!hero || !hero.IsRealHero() || !PlayerHelper.IsHumanPlayer(hero)) {
+    const playerId = event.inventory_player_id;
+    if (
+      !PlayerResource.IsValidPlayerID(playerId) ||
+      !PlayerHelper.IsHumanPlayerByPlayerId(playerId)
+    ) {
       return;
     }
+
+    const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+    if (!hero || !hero.IsRealHero()) {
+      return;
+    }
+    if (this.processedItemEntIndexes.has(event.item_entindex)) {
+      return;
+    }
+    this.processedItemEntIndexes.add(event.item_entindex);
 
     this.ensureSlotAbilities(hero);
 
@@ -103,8 +105,21 @@ export class WardSlot {
         this.addAbilityCharges(hero, abilityName, Math.max(1, item.GetCurrentCharges()));
       }
 
-      hero.RemoveItem(item);
+      this.removeInventoryItem(event.inventory_parent_entindex, hero, item);
     });
+  }
+
+  private removeInventoryItem(
+    inventoryParentEntIndex: EntityIndex,
+    hero: CDOTA_BaseNPC_Hero,
+    item: CDOTA_Item,
+  ): void {
+    const inventoryParent = EntIndexToHScript(inventoryParentEntIndex) as CBaseEntity | undefined;
+    if (inventoryParent?.IsBaseNPC()) {
+      inventoryParent.RemoveItem(item);
+      return;
+    }
+    hero.RemoveItem(item);
   }
 
   private addAbilityCharges(hero: CDOTA_BaseNPC_Hero, abilityName: string, charges: number): void {
