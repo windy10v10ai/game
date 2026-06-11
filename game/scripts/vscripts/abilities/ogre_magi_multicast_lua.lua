@@ -65,6 +65,7 @@ no_support_abilitys = {
 	faceless_void_time_walk_reverse = 1,   -- 反时间漫游
 	rubick_spell_steal = 1,                -- 技能窃取
 	magnataur_skewer = 1,                  -- 巨角冲撞
+	magnataur_empower = 1,                 -- 授予力量 多重会顶掉自己的 buff
 	ember_spirit_sleight_of_fist = 1,      -- 无影拳
 	goku_kaioken = 1,                      -- 界王拳
 	doom_bringer_doom = 1,                 -- 末日
@@ -87,6 +88,7 @@ no_support_abilitys = {
 	primal_beast_onslaught = 1,            -- 獸 突
 	hoodwink_sharpshooter = 1,             -- 一箭穿心
 	hoodwink_sharpshooter_release = 1,     -- 一箭穿心
+	legion_commander_duel = 1,             -- 军团指挥官 决斗
 }
 no_support_items = {
 	-- 消耗品
