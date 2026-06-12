@@ -2182,6 +2182,19 @@
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"				"+$hp_regen"
 
+		// mjollnir_2
+		"DOTA_Tooltip_Ability_item_mjollnir_2"				"<font color='#e03e2e'>Artifact: Divine Thunder Hammer</font>"
+		"DOTA_Tooltip_ability_item_mjollnir_2_Description"		"<h1>Active: Static Charge</h1>Places a charged shield on a target unit for %static_duration% seconds which has a %static_chance%%% chance to release a %static_damage% magical damage shocking bolt at a nearby attacker and %static_strikes% additional enemies.
+
+<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Lore"				"Thor's magical hammer, reforged in the heart of a dying star."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note0"				"Static Charge cannot trigger more than once per second."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note1"				"Static Charge's shock deals magical damage centered on hero with the Static Charge. Static Charge's targets cannot be more than %static_seconary_radius% range away."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note2"				"Static Charge procs will not bounce to heroes that are invisible or hidden by Fog of War."
+		"DOTA_Tooltip_ability_item_mjollnir_2_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_item_mjollnir_2_bonus_attack_speed"		"+$attack"
+
+
 		// veil_of_discord_2
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"<font color='#941852'>Upgraded</font> Veil of Discord"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>Active: Spell Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Can be cast while channeling.<br><br>Duration: %resist_debuff_duration% seconds."
@@ -2193,6 +2206,49 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"Spell Weakness"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+
+		// crellas_crozier_2
+		"DOTA_Tooltip_Ability_item_crellas_crozier_2"				"<font color='#e03e2e'>Artifact: Crella's Divine Crozier</font>"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Description"					"<h1>Active: Rite of Rumusque</h1> You enter ghost form for %duration% seconds, becoming immune to physical damage, but are unable to attack and %extra_spell_damage_percent%%% more vulnerable to magic damage.<br><br>Steal %movespeed_steal_pct%%% movement speed from enemy heroes in %active_radius% range every second. Movement speed steal lasts %stack_duration%s.<br><br>Putrefaction Aura's effect is increased to %active_health_steal%%%. All of the lost Health Restoration is redirected to you every second.\n\n<h1>Passive: Putrefaction Aura</h1>Reduces nearby enemy heroes' Health Restoration by %health_steal%%%.<br><br>Radius: %radius%"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note0"						"Ghost form ends if you become Debuff Immune and will have no effect if you are already Debuff Immune."
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note1"						"Shares cooldown with Ghost Scepter and its upgrades."
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note2"						"Putrefaction Aura does not redirect Health Restoration from enemy heroes that are at full health."
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_health"				"+$health"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_mana"					"+$mana"
+
+		// consecrated_wraps_2
+		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %stack_gain_time%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %stack_gain_time%s after you take damage from a player-controlled unit or Roshan."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"Self-damage and HP Loss damage cannot remove stacks."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"Movement speed buff does not stack."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"Movement speed buff is only provided if you have reached maximum stacks at least once while the item is equipped."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"	"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"			"+$health"
+
+		// essence_distiller_2
+		"DOTA_Tooltip_Ability_item_essence_distiller_2"				"<font color='#e03e2e'>Artifact: Sacred Spirit Distiller</font>"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Description"			"<h1>Active: Soul Release</h1> Provides %soul_heal_amount% health regeneration when cast on allies.<br><br>Can be ground targeted to lie dormant for up to %ground_duration%s and attach to the first enemy that comes within %latch_range% radius. When on enemies, deals %soul_damage_amount% damage per second and provides True Sight over them and shares their vision with the wearer's team.<br><br>Lasts %duration% seconds.<br><br>Gains charges every time an enemy hero dies within %soul_radius% units."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note0"					"Empty distillers gain 2 charges."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note1"					"Only the closest Essence Distiller to the dying hero will gain a charge."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note2"					"If the allied unit is attacked by an enemy hero or Roshan, the effect is lost."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note3"					"Does not trigger spell block or spell reflect."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note4"					"While dormant, provides vision in %latch_vision% radius. Vision lingers for %linger_after_latch_duration%s after latching."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_mana_regen"			"+$mana_regen"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
+
+		// hydras_breath_2
+		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>Artifact: Millennial Hydra's Breath</font>"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_agility"				"+$agi"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_2_base_attack_range"		"+$attack_range"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_Description"			"<h1>Passive: Miasma</h1>Attacks poison enemies, dealing %poison_damage_per_second%%% of the target's Max HP as Magical Damage per second for %poison_duration% seconds.\n\n<h1>Passive: Polycephaly</h1>Ranged attacks have a %proc_chance%%% chance to fire additional projectiles at up to %count% nearby enemies with %secondary_target_range_bonus% extra range and within a %secondary_target_angle% degree angle in front of the attacker. The additional projectiles deal %base_proc_dmg% + %proc_dmg_pct%%% damage of a normal attack and do not trigger on hit effects except for Miasma. The primary attack deals %base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%% damage of a normal attack."
+		"DOTA_Tooltip_ability_item_hydras_breath_2_Note0"                  "Attack Range bonuses from Monkey King Bar and Dragon Lance and its upgrades do not stack."
 
 		// item_manta_1 分身2
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>Upgraded Manta Style</font>"
