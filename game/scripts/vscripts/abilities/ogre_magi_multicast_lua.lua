@@ -89,6 +89,8 @@ no_support_abilitys = {
 	hoodwink_sharpshooter = 1,             -- 一箭穿心
 	hoodwink_sharpshooter_release = 1,     -- 一箭穿心
 	legion_commander_duel = 1,             -- 军团指挥官 决斗
+	ability_ward_observer_slot = 1,        -- 额外假眼槽位
+	ability_ward_sentry_slot = 1,          -- 额外真眼槽位
 }
 no_support_items = {
 	-- 消耗品

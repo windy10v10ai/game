@@ -22,6 +22,7 @@
 		"AbilityValues"
 		{
 			"lifetime"					"480"
+			"vision_range_tooltip"		"1600"
 		}
 	}
 
@@ -42,6 +43,8 @@
 		"AbilityValues"
 		{
 			"lifetime"					"480"
+			"vision_range"				"0"
+			"true_sight_range"			"1050"
 		}
 	}
 

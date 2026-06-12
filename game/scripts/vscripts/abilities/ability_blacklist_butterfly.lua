@@ -12,6 +12,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["teleport"] = true,                      -- 传送
     ["courier_burst"] = true,                 -- 信使加速
     ["courier_shield"] = true,                -- 信使护盾
+    ["ability_ward_observer_slot"] = true,    -- 额外假眼槽位
+    ["ability_ward_sentry_slot"] = true,      -- 额外真眼槽位
 
     -- ========================================
     -- 隐身技能
