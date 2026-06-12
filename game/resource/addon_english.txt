@@ -922,7 +922,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br>Normal attacks have a chance to trigger this ability."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
@@ -931,7 +931,6 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_bonus_physical_damage"	"BONUS PHYSICAL DAMAGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_stun_duration"	"STUN DURATION:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%ATTACK TRIGGER CHANCE:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
@@ -1124,14 +1123,6 @@
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"Ruthless Hand"
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"Has culled %dMODIFIER_PROPERTY_STACKS_COUNT% enemies, permanently increasing Culling Blade's damage."
 
-		// Slark - Scraper King Awakened
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#d000ff'>Scraper King Awakened</font>"
-		"DOTA_Tooltip_ability_break_speed_limit_Description"							"When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
-		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
-		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"Each stack increases the attack speed cap by 50."
-
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time.<br><br><font color='#d000ff'>The damage can be amplified by abilities.</font>"
@@ -1141,11 +1132,6 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"% Max Health Damage per Second:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"Healing Reduction:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
-
-		// Drow Ranger Multishot Barrage - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Multishot Barrage Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Fires multiple arrows at a single enemy in rapid succession, each dealing one attack.<br><br>Shares cooldown and levels up with Multishot."
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_shots"			"Arrows:"
 
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
@@ -2526,7 +2512,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe, Necrophos, Drow Ranger, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Sniper, Axe, Necrophos, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
 
 		// 被动技能书

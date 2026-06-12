@@ -109,7 +109,7 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
    ```
    `resolveNewLevel` 会在加新技能时取该关联技能当前等级作初始等级（在移除任何技能前求值，故 `inheritLevelFrom` 可以正是被插入槽位的技能）。
 
-> 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`，卓尔 `special_bonus_unique_drow_ranger_upgrade` ↔ `drow_ranger_multishot`。
+> 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`。
 
 ### 进阶 2：自动触发（开启自动施法后自动检测施放）
 

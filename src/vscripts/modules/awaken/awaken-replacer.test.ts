@@ -56,10 +56,10 @@ describe('executeReplacement', () => {
     const f = createFakeHero({ abilities: [{ name: 'foo', level: 2 }] });
     executeReplacement(f.hero, {
       heroName: 'npc_dota_hero_pudge',
-      newAbility: 'break_speed_limit',
-      newLevel: 0,
+      newAbility: 'special_bonus_unique_zuus_upgrade',
+      newLevel: 1,
     });
-    expect(f.abilities.map((a) => a.name)).toEqual(['foo', 'break_speed_limit']);
+    expect(f.abilities.map((a) => a.name)).toEqual(['foo', 'special_bonus_unique_zuus_upgrade']);
   });
 
   it('分支3 替换：移除旧技能、加新技能', () => {

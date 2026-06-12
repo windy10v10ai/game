@@ -2,17 +2,9 @@ LinkLuaModifier("modifier_sniper_assassinate_target", "heroes/hero_sniper/sniper
 	LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_assassinate_caster_crit", "heroes/hero_sniper/sniper_assassinate_upgrade",
 	LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_sniper_assassinate_upgrade_auto", "heroes/hero_sniper/sniper_assassinate_upgrade",
-	LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_sniper_assassinate_upgrade_auto_cooldown", "heroes/hero_sniper/sniper_assassinate_upgrade",
-	LUA_MODIFIER_MOTION_NONE)
 
 
 sniper_assassinate_upgrade = class({})
--- 添加这个函数来显示AOE范围指示器
-function sniper_assassinate_upgrade:GetIntrinsicModifierName()
-	return "modifier_sniper_assassinate_upgrade_auto"
-end
 
 function sniper_assassinate_upgrade:GetAOERadius()
 	return self:GetSpecialValueFor("scepter_radius")
@@ -131,92 +123,6 @@ end
 -- 	-- 移除目标标记
 -- 	target:RemoveModifierByName("modifier_sniper_assassinate_target")
 -- end
-
--- New intrinsic modifier for auto-trigger
-modifier_sniper_assassinate_upgrade_auto = class({})
-
-function modifier_sniper_assassinate_upgrade_auto:IsHidden() return true end
-
-function modifier_sniper_assassinate_upgrade_auto:IsPurgable() return false end
-
-function modifier_sniper_assassinate_upgrade_auto:RemoveOnDeath() return false end
-
-function modifier_sniper_assassinate_upgrade_auto:DeclareFunctions()
-	return {
-		MODIFIER_EVENT_ON_ATTACK_LANDED
-	}
-end
-
-function modifier_sniper_assassinate_upgrade_auto:OnAttackLanded(keys)
-	local parent = self:GetParent()
-
-	-- Debug output
-	-- print("[Sniper Auto] OnAttackLanded triggered")
-	-- print("[Sniper Auto] Attacker: " .. (keys.attacker and keys.attacker:GetUnitName() or "nil"))
-	-- print("[Sniper Auto] Parent: " .. parent:GetUnitName())
-
-	if keys.attacker ~= parent then
-		-- print("[Sniper Auto] Attacker is not parent, returning")
-		return
-	end
-	local ability = self:GetAbility()
-	if not parent:IsRealHero() then
-		-- print("[Sniper Auto] Parent is not real hero, returning")
-		return
-	end
-	if not keys.target:IsRealHero() then
-		-- print("[Sniper Auto] Target is building, returning")
-		return
-	end
-	if parent:PassivesDisabled() then
-		-- print("[Sniper Auto] Passives disabled, returning")
-		return
-	end
-	if keys.inflictor and keys.inflictor:GetAbilityName() == "sniper_assassinate_upgrade" then
-		-- print("[butter] puck_dream_coil detected")
-		return
-	end
-	-- if not ability:IsCooldownReady() then
-	-- 	-- print("[Sniper Auto] Ability not ready, returning")
-	-- 	return
-	-- end
-	local crit_chance = 10 -- Default value if ability is nil
-	if self:GetAbility() then
-		crit_chance = self:GetAbility():GetSpecialValueFor("trigger_chance")
-	end
-	local roll = RandomFloat(0, 100)
-
-	-- 【新增】调试输出 - 概率判定
-	-- print(string.format("[MagicCritBlade] 概率暴击判定: %.1f%% vs %.1f%%", roll, crit_chance))
-
-	if roll <= crit_chance then
-		-- print(string.format("[MagicCritBlade] 概率暴击判定: %.1f%% vs %.1f%%", roll, crit_chance))
-		if parent:HasModifier("modifier_sniper_assassinate_upgrade_auto_cooldown") then
-			-- print("[Sniper Auto] On internal cooldown, returning")
-			return
-		end
-
-		--local mana_cost = ability:GetManaCost(ability:GetLevel() - 1)
-		-- print("[Sniper Auto] Triggering ability on " .. keys.target:GetUnitName())
-		ability:EndCooldown()
-		--parent:GiveMana(mana_cost - current_mana)
-		local target_point = keys.target:GetAbsOrigin() -- 修复后的调用方式
-		--parent:CastAbilityOnPosition(target_point, ability, parent:GetPlayerOwnerID())
-		-- -- 点目标或AOE技能,使用目标位置
-		parent:SetCursorPosition(target_point)
-		cast_success = parent:CastAbilityImmediately(ability, parent:GetPlayerOwnerID())
-		parent:AddNewModifier(parent, ability, "modifier_sniper_assassinate_upgrade_auto_cooldown", { duration = 0.3 })
-	end
-end
-
--- Internal cooldown modifier
-modifier_sniper_assassinate_upgrade_auto_cooldown = class({})
-
-function modifier_sniper_assassinate_upgrade_auto_cooldown:IsHidden() return true end
-
-function modifier_sniper_assassinate_upgrade_auto_cooldown:IsPurgable() return false end
-
-function modifier_sniper_assassinate_upgrade_auto_cooldown:RemoveOnDeath() return false end
 
 modifier_sniper_assassinate_target = class({})
 
