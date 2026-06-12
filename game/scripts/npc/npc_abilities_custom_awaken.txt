@@ -103,7 +103,7 @@
 	}
 
 	// 狙击手 觉醒刺杀
-	// 改为可主动施放的群体暗杀，附带暴击；自动施法被动按几率触发
+	// 改为可主动施放的群体暗杀，附带暴击
 	"sniper_assassinate_upgrade"
 	{
 		"BaseClass"						"ability_lua"
@@ -139,7 +139,6 @@
 			}
 			"scepter_crit_bonus"		"180 210 240 270"
 			"bonus_physical_damage"		"300 400 500 600"
-			"trigger_chance"			"4 5 6 7"
 			"projectile_speed"			"3000"
 			"scepter_stun_duration"
 			{
