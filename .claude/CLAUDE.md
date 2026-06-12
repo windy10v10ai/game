@@ -291,7 +291,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 放在 `game/resource/flash3/images/spellicons/<name>.png`，KV 中直接用文件名引用：
 
 ```
-"AbilityTextureName"    "break_speed_limit"
+"AbilityTextureName"    "axe_auto_culling_blade"
 ```
 
 引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。

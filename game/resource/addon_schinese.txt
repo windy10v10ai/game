@@ -915,7 +915,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br>普通攻击有一定概率触发该技能。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。 — by RN"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
@@ -924,7 +924,6 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_bonus_physical_damage"	"额外物理伤害:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_stun_duration"	"眩晕时间:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%攻击触发暗杀概率:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"狙击手正在瞄准你的头部！"
 
@@ -1111,15 +1110,6 @@
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"无情铁手"
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"已斩杀 %dMODIFIER_PROPERTY_STACKS_COUNT% 次敌人，淘汰之刃伤害获得永久提升。"
 
-		// 斯拉克 刮痧之王-觉醒
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#d000ff'>刮痧之王 觉醒</font>"
-		"DOTA_Tooltip_ability_break_speed_limit_Description"							"当攻速达到上限后，每击杀一名英雄提高攻速上限%speed_limit_per_stack%点，持续%duration%秒。"
-		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"每次击杀突破攻速上限："
-		"DOTA_Tooltip_ability_break_speed_limit_duration"								"持续时间："
-		"DOTA_Tooltip_ability_break_speed_limit_Lore"						"-RN: 刮的越快，就刮得越快"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"刮痧之王"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"每层提高攻速上限50点。"
-
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"死灵法师让敌人的心脏停跳，使附近敌方单位按最大生命值一定百分比持续流失生命。<br><br><font color='#d000ff'>造成的伤害可以被技能增强。</font>"
@@ -1130,12 +1120,6 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"治疗降低："
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"%生命恢复转化为伤害（神杖）："
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Lore"						"RN: 竭心感染有救了"
-
-		// 卓尔游侠 数箭连发-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>数箭连发 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"向单个敌人连续发射多支箭矢，每箭造成一次普通攻击。<br><br>与数箭齐发共享冷却、同步升级。"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_shots"			"箭矢数："
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Lore"						"RN: 诸葛连弩"
 
 		// 宙斯 神王-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
@@ -2556,7 +2540,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、斯拉克、狙击手、斧王、死灵法师、卓尔游侠、宙斯、幻影刺客、巫医、影魔\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 被动技能书

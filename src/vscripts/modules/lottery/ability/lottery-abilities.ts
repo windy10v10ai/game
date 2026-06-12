@@ -263,7 +263,6 @@ export const abilityTiersPassive: Tier[] = [
       'ancient_apparition_frost_orb', // 冰霜法球
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
-      'break_speed_limit', // 斯拉克 刮痧之王
     ],
   },
   {
