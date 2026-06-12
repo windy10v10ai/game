@@ -36,7 +36,9 @@ export class WardSlot {
     if (!PlayerHelper.IsHumanPlayer(npc)) {
       return;
     }
-    this.ensureSlotAbilities(npc as CDOTA_BaseNPC_Hero);
+    const hero = npc as CDOTA_BaseNPC_Hero;
+    this.ensureSlotAbilities(hero);
+    Timers.CreateTimer(0, () => this.convertExistingWardItems(hero));
   }
 
   private ensureSlotAbilities(hero: CDOTA_BaseNPC_Hero): void {
@@ -89,24 +91,57 @@ export class WardSlot {
         return;
       }
 
-      if (isDispenser) {
-        this.addAbilityCharges(
-          hero,
-          'ability_ward_observer_slot',
-          Math.max(0, item.GetCurrentCharges()),
-        );
-        this.addAbilityCharges(
-          hero,
-          'ability_ward_sentry_slot',
-          Math.max(0, item.GetSecondaryCharges()),
-        );
-      } else if (abilityName !== undefined) {
-        // 一个 item entity 可能因为堆叠含有多层充能，按其真实 charge 数累加。
-        this.addAbilityCharges(hero, abilityName, Math.max(1, item.GetCurrentCharges()));
-      }
-
+      this.addWardItemCharges(hero, item, isDispenser, abilityName);
       this.removeInventoryItem(event.inventory_parent_entindex, hero, item);
     });
+  }
+
+  private convertExistingWardItems(hero: CDOTA_BaseNPC_Hero): void {
+    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.STASH_6; slot++) {
+      const item = hero.GetItemInSlot(slot);
+      if (!item) {
+        continue;
+      }
+
+      const itemName = item.GetAbilityName();
+      const isDispenser = itemName === 'item_ward_dispenser';
+      const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[itemName];
+      if (!abilityName && !isDispenser) {
+        continue;
+      }
+
+      const itemEntIndex = item.GetEntityIndex();
+      if (this.processedItemEntIndexes.has(itemEntIndex)) {
+        continue;
+      }
+      this.processedItemEntIndexes.add(itemEntIndex);
+
+      this.addWardItemCharges(hero, item, isDispenser, abilityName);
+      hero.RemoveItem(item);
+    }
+  }
+
+  private addWardItemCharges(
+    hero: CDOTA_BaseNPC_Hero,
+    item: CDOTA_Item,
+    isDispenser: boolean,
+    abilityName: string | undefined,
+  ): void {
+    if (isDispenser) {
+      this.addAbilityCharges(
+        hero,
+        'ability_ward_observer_slot',
+        Math.max(0, item.GetCurrentCharges()),
+      );
+      this.addAbilityCharges(
+        hero,
+        'ability_ward_sentry_slot',
+        Math.max(0, item.GetSecondaryCharges()),
+      );
+    } else if (abilityName !== undefined) {
+      // 一个 item entity 可能因为堆叠含有多层充能，按其真实 charge 数累加。
+      this.addAbilityCharges(hero, abilityName, Math.max(1, item.GetCurrentCharges()));
+    }
   }
 
   private removeInventoryItem(

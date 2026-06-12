@@ -48,6 +48,8 @@ end
 
 item_refresh_core.AbitilyException = {
 	["dazzle_good_juju"] = true,
+	["ability_ward_observer_slot"] = true,
+	["ability_ward_sentry_slot"] = true,
 }
 
 ---------------------------------------------------------------------
