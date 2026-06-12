@@ -27,12 +27,6 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'juggernaut_blade_fury_custom',
     newLevel: 0,
   },
-  // 斯拉克 刮痧之王（新增被动）
-  {
-    heroName: 'npc_dota_hero_slark',
-    newAbility: 'break_speed_limit',
-    newLevel: 0,
-  },
   // 狙击手 觉醒刺杀
   {
     heroName: 'npc_dota_hero_sniper',
@@ -54,14 +48,6 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     targetAbility: 'necrolyte_heartstopper_aura',
     newAbility: 'necrolyte_heartstopper_aura_datadriven',
     newLevel: 0,
-  },
-  // 卓尔游侠 数箭连发（插入 slot 4，与数箭齐发共享 CD、LinkedAbility 同步升级，初始等级继承大招）
-  {
-    heroName: 'npc_dota_hero_drow_ranger',
-    targetSlot: 4,
-    newAbility: 'special_bonus_unique_drow_ranger_upgrade',
-    newLevel: 0,
-    inheritLevelFrom: 'drow_ranger_multishot',
   },
   // 宙斯 神王（新增被动）
   {

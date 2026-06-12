@@ -5081,7 +5081,6 @@
 	"drow_ranger_multishot"
 	{
 		"MaxLevel"						"5"
-		"LinkedAbility"					"special_bonus_unique_drow_ranger_upgrade"	// 原版不存在，手动修改：与数箭连发觉醒双向联动同步升级
 		"AbilityManaCost"				"50 70 90 110 130"	// 50 70 90 110
 		"AbilityValues"
 		{

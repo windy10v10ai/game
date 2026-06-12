@@ -102,24 +102,6 @@
 		}
 	}
 
-	// 斯拉克 刮痧之王
-	// 攻速满时击杀英雄可突破攻速上限，每次 +50，持续 20 秒
-	"break_speed_limit"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/break_speed_limit"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"break_speed_limit"
-		"MaxLevel"						"1"
-
-		"AbilityValues"
-		{
-			"speed_limit_per_stack"		"50"
-			"duration"					"20"
-			"max_stacks"				"100"
-		}
-	}
-
 	// 狙击手 觉醒刺杀
 	// 改为可主动施放的群体暗杀，附带暴击；自动施法被动按几率触发
 	"sniper_assassinate_upgrade"
@@ -269,55 +251,6 @@
 						"Function"		"HeartstopperAura"
 					}
 				}
-			}
-		}
-	}
-
-	// 卓尔游侠 数箭连发-觉醒
-	// 对单体连续普攻，箭数=数箭齐发等级+shots；与数箭齐发同步升级、共享冷却
-	"special_bonus_unique_drow_ranger_upgrade"
-	{
-		"BaseClass"						"ability_datadriven"
-		"ScriptFile"					"abilities/special_bonus_unique_drow_ranger_upgrade"
-		"AbilityTextureName"			"drow_ranger/immortal/drow_ranger_wave_of_silence"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityCastRange"				"1000"
-		"AbilitySharedCooldown"			"drow_ranger_multishot"
-		"MaxLevel"						"5"
-		"LinkedAbility"					"drow_ranger_multishot"
-		"AbilityManaCost"				"100"
-		"AbilityCastPoint"				"0"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
-
-		"AbilityValues"
-		{
-			"shots"
-			{
-				"value"							"3 4 5 6 7"
-				"special_bonus_unique_drow_ranger_8"	"+2"
-			}
-			"AbilityCooldown"
-			{
-				"value"							"22 20 18 16 14"
-				"special_bonus_unique_drow_ranger_6"	"-6"
-			}
-			"interval"	"0.2"
-		}
-
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"abilities/special_bonus_unique_drow_ranger_upgrade"
-				"Function"		"OnSpellStart"
-				"Target"		"TARGET"
-				"Caster"		"CASTER"
-				"shots"			"%shots"
-				"interval"		"%interval"
 			}
 		}
 	}
