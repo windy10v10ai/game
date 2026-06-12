@@ -2741,6 +2741,7 @@
 	// 守护天使
 	"omniknight_guardian_angel"
 	{
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"MaxLevel" "4"
 		"AbilityManaCost"				"125 175 225 275"	// 125 175 225
 

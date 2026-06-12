@@ -176,7 +176,7 @@ function WardSlot() {
             <DOTAItemImage
               itemname={item}
               showtooltip={true}
-              style={{ ...iconBaseStyle, opacity: charges > 0 ? '1' : '0.5' }}
+              style={{ ...iconBaseStyle, opacity: charges > 0 ? '1' : '0.4' }}
             />
             {states[i].hotkey !== '' && <Label style={hotkeyStyle} text={states[i].hotkey} />}
             <Label style={chargeStyle} text={charges.toString()} />
