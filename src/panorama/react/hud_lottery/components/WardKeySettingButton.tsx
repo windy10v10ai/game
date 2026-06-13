@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { bindAbilityKey } from '../hotkey';
+import { bindWardSlotKey } from '../hotkey';
 import KeyCaptureBox from './KeyCaptureBox';
 
 interface WardKeySettingButtonProps {
@@ -48,7 +48,7 @@ const quickCastToggleStyle: Partial<VCSSStyleDeclaration> = {
 /**
  * 真假眼额外槛位的改键设置，单行紧凑布局：图标 + 按键框 + 快速施法开关。
  * ability_ward_observer_slot / ability_ward_sentry_slot 为 POINT 目标技能，
- * bindAbilityKey 的 QuickCastAbility 已原生支持光标位置快速施法。
+ * bindWardSlotKey 的 QuickCastAbility 已原生支持光标位置快速施法。
  */
 const WardKeySettingButton = ({
   itemname,
@@ -62,7 +62,7 @@ const WardKeySettingButton = ({
     if (bindKeyText === '') {
       return;
     }
-    bindAbilityKey(abilityname, bindKeyText, quickCast);
+    bindWardSlotKey(abilityname, bindKeyText, quickCast);
   }, [abilityname, bindKeyText, quickCast]);
 
   return (

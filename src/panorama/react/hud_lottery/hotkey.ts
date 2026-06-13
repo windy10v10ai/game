@@ -5,33 +5,57 @@ const notTargetAbilityNames = ['earthshaker_enchant_totem'];
 const unitTargetOnlyFriendlyAbilityNames = ['abyssal_underlord_firestorm'];
 
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
+  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const abilityID = Entities.GetAbilityByName(heroID, abilityname);
   // 绑定施法
   AddKeyBind(
     key,
+    () => executeAbilityCast(heroID, abilityID, isQuickCast),
+    () => {},
+  );
+}
+
+/**
+ * 真假眼额外槛位的改键：按键时重新获取 abilityID（绑定时技能可能尚未挂载到英雄身上，
+ * 如重新加载游戏后），且充能为 0 时表现为「物品没有反应」而非技能的「冷却中」提示。
+ */
+export function bindWardSlotKey(abilityname: string, key: string, isQuickCast: boolean) {
+  AddKeyBind(
+    key,
     () => {
-      // 每次按键时重新获取，避免绑定时技能尚未挂载到英雄身上导致 abilityID 失效（如重新加载游戏后）
       const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
       const abilityID = Entities.GetAbilityByName(heroID, abilityname);
-      if (GameUI.IsControlDown() === true) {
-        // ctrl升级
-        Abilities.AttemptToUpgrade(abilityID);
+      if (Abilities.GetCurrentAbilityCharges(abilityID) === 0) {
         return;
       }
-      if (GameUI.IsAltDown() === true) {
-        // alt切换自动施法
-        const castSuccess = castAbilityWhenAltDown(abilityID, Abilities.GetBehavior(abilityID));
-        if (castSuccess) {
-          return;
-        }
-      }
-      if (isQuickCast) {
-        QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
-      } else {
-        Abilities.ExecuteAbility(abilityID, heroID, true);
-      }
+      executeAbilityCast(heroID, abilityID, isQuickCast);
     },
     () => {},
   );
+}
+
+function executeAbilityCast(
+  heroID: EntityIndex,
+  abilityID: AbilityEntityIndex,
+  isQuickCast: boolean,
+) {
+  if (GameUI.IsControlDown() === true) {
+    // ctrl升级
+    Abilities.AttemptToUpgrade(abilityID);
+    return;
+  }
+  if (GameUI.IsAltDown() === true) {
+    // alt切换自动施法
+    const castSuccess = castAbilityWhenAltDown(abilityID, Abilities.GetBehavior(abilityID));
+    if (castSuccess) {
+      return;
+    }
+  }
+  if (isQuickCast) {
+    QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
+  } else {
+    Abilities.ExecuteAbility(abilityID, heroID, true);
+  }
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {

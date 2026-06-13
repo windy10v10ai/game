@@ -23,6 +23,9 @@ export class AbilityWardSentrySlot extends BaseAbility {
     );
     ward.SetControllableByPlayer(caster.GetPlayerOwnerID(), true);
     ward.SetOwner(caster);
+    // npc_dota_sentry_wards 与 observer 共用同一模型，靠 skin 1 区分外观；
+    // CreateUnitByName 不会自动应用 KV 中的 skin 字段，需手动设置
+    ward.SetSkin(1);
     ward.AddNewModifier(caster, undefined, 'modifier_item_buff_ward', { duration: lifetime });
     ward.AddNewModifier(caster, undefined, 'modifier_item_ward_true_sight', {
       duration: lifetime,
