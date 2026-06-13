@@ -5,12 +5,13 @@ const notTargetAbilityNames = ['earthshaker_enchant_totem'];
 const unitTargetOnlyFriendlyAbilityNames = ['abyssal_underlord_firestorm'];
 
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
-  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
-  const abilityID = Entities.GetAbilityByName(heroID, abilityname);
   // 绑定施法
   AddKeyBind(
     key,
     () => {
+      // 每次按键时重新获取，避免绑定时技能尚未挂载到英雄身上导致 abilityID 失效（如重新加载游戏后）
+      const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+      const abilityID = Entities.GetAbilityByName(heroID, abilityname);
       if (GameUI.IsControlDown() === true) {
         // ctrl升级
         Abilities.AttemptToUpgrade(abilityID);

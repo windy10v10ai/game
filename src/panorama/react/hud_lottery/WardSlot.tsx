@@ -32,6 +32,7 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   flowChildren: 'down',
   marginBottom: '8px',
   transform: 'translateX(-55px)',
+  zIndex: 100,
 };
 
 const slotStyle: Partial<VCSSStyleDeclaration> = {
