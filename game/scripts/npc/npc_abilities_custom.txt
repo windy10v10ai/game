@@ -3,7 +3,6 @@
 
 "DOTAAbilities"
 {
-	// 真假眼额外槽位（issue #1812）
 	// 充能来自商店成功购买后的物品转换，放置消耗一层充能。
 	"ability_ward_observer_slot"
 	{
@@ -15,7 +14,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
-		"AbilityCharges"				"99"
+		"AbilityCharges"				"20"
 		"AbilityChargeRestoreTime"		"999999"	// 充能只来自购买，禁止自动恢复
 		"AbilityTextureName"			"item_ward_observer"
 
@@ -36,7 +35,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
-		"AbilityCharges"				"99"
+		"AbilityCharges"				"20"
 		"AbilityChargeRestoreTime"		"999999"	// 充能只来自购买，禁止自动恢复
 		"AbilityTextureName"			"item_ward_sentry"
 
