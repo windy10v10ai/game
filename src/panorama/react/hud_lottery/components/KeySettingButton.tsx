@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { bindAbilityKey } from '../hotkey';
+import KeyCaptureBox from './KeyCaptureBox';
 
 interface KeySettingButtonProps {
   abilityname?: string;
@@ -23,41 +24,6 @@ const KeySettingButton = ({
   quickCast,
   setQuickCast,
 }: KeySettingButtonProps): React.ReactElement => {
-  const [isActive, setIsActive] = useState(false);
-  // 移除A,S
-  const validKeys = " BCDEFGHIJKLMNOPQRTUVWXYZ0123456789`-=[]\\;',./";
-
-  const activeKeySetting = (e: Panel) => {
-    $.DispatchEvent('DOTAHideTextTooltip');
-    if (isActive) {
-      return;
-    }
-    setIsActive(true);
-
-    const textEntry = e.FindChildTraverse('keyBindTextEntry') as TextEntry | null;
-    if (textEntry) {
-      textEntry.text = '';
-      textEntry.SetFocus();
-    }
-  };
-
-  const onTextEntryChange = (textEntry: TextEntry) => {
-    const key = textEntry.text.toUpperCase();
-    if (key === '') {
-      return;
-    }
-    if (validKeys.indexOf(key) === -1) {
-      textEntry.text = '';
-      $.DispatchEvent('DOTAShowTextTooltip', textEntry, $.Localize('#key_bind_input_err'));
-      $.Schedule(2, () => {
-        $.DispatchEvent('DOTAHideTextTooltip');
-      });
-    } else {
-      setBindKeyText(key);
-      setIsActive(false);
-    }
-  };
-
   const onQuickCastChange = () => {
     const quickCastChanged = !quickCast;
     setQuickCast(quickCastChanged);
@@ -77,35 +43,7 @@ const KeySettingButton = ({
   return (
     <Panel style={rootPanelStyle} className="BindingRow">
       <DOTAAbilityImage abilityname={abilityname} showtooltip={true} />
-      <Panel
-        className="BindingContainer"
-        onmouseactivate={activeKeySetting}
-        // on mouse over, show the tooltip
-        onmouseover={(e) => {
-          if (isActive) {
-            return;
-          }
-          $.DispatchEvent('DOTAShowTextTooltip', e, $.Localize('#key_bind_mouseover_tooltop'));
-        }}
-        // on mouse out, hide the tooltip
-        onmouseout={() => {
-          $.DispatchEvent('DOTAHideTextTooltip');
-        }}
-      >
-        <Label
-          style={{ visibility: isActive ? 'collapse' : 'visible' }}
-          className="BindingText"
-          text={bindKeyText}
-        />
-        <TextEntry
-          id="keyBindTextEntry"
-          style={{ visibility: isActive ? 'visible' : 'collapse' }}
-          className={`TextEntryArea ${isActive ? 'Actived' : ''}`}
-          placeholder={$.Localize('#key_bind_placeholder')}
-          maxchars={1}
-          ontextentrychange={onTextEntryChange}
-        />
-      </Panel>
+      <KeyCaptureBox bindKeyText={bindKeyText} setBindKeyText={setBindKeyText} />
       <Panel
         style={{
           flowChildren: 'right',

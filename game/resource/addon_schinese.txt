@@ -3300,6 +3300,7 @@
 		"dota_hud_error_awaken_stone_unsupported"										"该英雄暂未拥有可觉醒的技能"
 		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
 		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
+		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"

@@ -1,7 +1,9 @@
 import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
 import React, { useEffect, useRef, useState } from 'react';
-import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
+import { FindDotaHudElement, GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { useNetTable } from '../shared/hooks/useNetTable';
+import { PlayerSetting } from '../../../vscripts/api/player';
 
 const POLL_INTERVAL_MS = 200;
 const RIGHT_FLARE_WIDTH = '125px';
@@ -15,14 +17,14 @@ const SLOTS = [
   {
     ability: 'ability_ward_observer_slot',
     item: 'item_ward_observer',
-    keybind: DOTAKeybindCommand_t.DOTA_KEYBIND_CONTROL_GROUP5,
+    settingKey: 'wardObserverKey',
   },
   {
     ability: 'ability_ward_sentry_slot',
     item: 'item_ward_sentry',
-    keybind: DOTAKeybindCommand_t.DOTA_KEYBIND_CONTROL_GROUP6,
+    settingKey: 'wardSentryKey',
   },
-] as const;
+] as const satisfies readonly { ability: string; item: string; settingKey: keyof PlayerSetting }[];
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'right',
@@ -30,6 +32,7 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   flowChildren: 'down',
   marginBottom: '8px',
   transform: 'translateX(-55px)',
+  zIndex: 100,
 };
 
 const slotStyle: Partial<VCSSStyleDeclaration> = {
@@ -73,11 +76,6 @@ const hotkeyStyle: Partial<VCSSStyleDeclaration> = {
   zIndex: 1,
 };
 
-interface SlotState {
-  charges: number;
-  hotkey: string;
-}
-
 function getHeroSlotAbility(abilityName: string): AbilityEntityIndex | -1 {
   const heroId = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   if (heroId === -1) {
@@ -100,9 +98,10 @@ function placeWard(abilityName: string) {
 
 function WardSlot() {
   const containerRef = useRef<Panel | null>(null);
-  const [states, setStates] = useState<SlotState[]>(() =>
-    SLOTS.map(({ keybind }) => ({ charges: 0, hotkey: Game.GetKeybindForCommand(keybind) })),
-  );
+  const [charges, setCharges] = useState<number[]>(() => SLOTS.map(() => 0));
+  const steamAccountId = GetLocalPlayerSteamAccountID();
+  const player = useNetTable('player_table', steamAccountId);
+  const playerSetting = player?.playerSetting;
 
   useEffect(() => {
     const centerWithStats = FindDotaHudElement('center_with_stats');
@@ -135,27 +134,11 @@ function WardSlot() {
   }, []);
 
   useEffect(() => {
-    for (const { ability, keybind } of SLOTS) {
-      const keyName = Game.GetKeybindForCommand(keybind);
-      if (keyName !== '') {
-        AddKeyBind(
-          keyName,
-          () => placeWard(ability),
-          () => {},
-        );
-      }
-    }
-  }, []);
-
-  useEffect(() => {
     const id = setInterval(() => {
-      setStates(
-        SLOTS.map(({ ability, keybind }) => {
+      setCharges(
+        SLOTS.map(({ ability }) => {
           const abilityId = getHeroSlotAbility(ability);
-          return {
-            charges: abilityId === -1 ? 0 : Abilities.GetCurrentAbilityCharges(abilityId),
-            hotkey: Game.GetKeybindForCommand(keybind),
-          };
+          return abilityId === -1 ? 0 : Abilities.GetCurrentAbilityCharges(abilityId);
         }),
       );
     }, POLL_INTERVAL_MS);
@@ -164,8 +147,9 @@ function WardSlot() {
 
   return (
     <Panel hittest={false} ref={containerRef} style={containerStyle}>
-      {SLOTS.map(({ ability, item }, i) => {
-        const charges = states[i].charges;
+      {SLOTS.map(({ ability, item, settingKey }, i) => {
+        const chargeCount = charges[i];
+        const hotkey = playerSetting?.[settingKey] ?? '';
         return (
           <Panel
             key={ability}
@@ -176,10 +160,10 @@ function WardSlot() {
             <DOTAItemImage
               itemname={item}
               showtooltip={true}
-              style={{ ...iconBaseStyle, opacity: charges > 0 ? '1' : '0.4' }}
+              style={{ ...iconBaseStyle, opacity: chargeCount > 0 ? '1' : '0.4' }}
             />
-            {states[i].hotkey !== '' && <Label style={hotkeyStyle} text={states[i].hotkey} />}
-            <Label style={chargeStyle} text={charges.toString()} />
+            {hotkey !== '' && <Label style={hotkeyStyle} text={hotkey} />}
+            <Label style={chargeStyle} text={chargeCount.toString()} />
           </Panel>
         );
       })}

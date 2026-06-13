@@ -44,6 +44,7 @@ export const itemTiers: Tier[] = [
       'item_light_part', // 圣光组件
       'item_dark_part', // 暗影组件
       'item_ultimate_scepter_2', // 真·阿哈利姆神杖
+      'item_hydras_breath', // 怪蛇之息
     ],
   },
   // 3~5k
@@ -76,6 +77,7 @@ export const itemTiers: Tier[] = [
       'item_essence_distiller', // 精之灵器
       'item_ancient_janggo', // 韧鼓
       'item_holy_locket', // 圣洁吊坠
+      'item_consecrated_wraps', // 圣化护服
     ],
   },
   // 1k

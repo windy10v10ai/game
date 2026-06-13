@@ -10,27 +10,52 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
   // 绑定施法
   AddKeyBind(
     key,
+    () => executeAbilityCast(heroID, abilityID, isQuickCast),
+    () => {},
+  );
+}
+
+/**
+ * 真假眼额外槛位的改键：按键时重新获取 abilityID（绑定时技能可能尚未挂载到英雄身上，
+ * 如重新加载游戏后），且充能为 0 时表现为「物品没有反应」而非技能的「冷却中」提示。
+ */
+export function bindWardSlotKey(abilityname: string, key: string, isQuickCast: boolean) {
+  AddKeyBind(
+    key,
     () => {
-      if (GameUI.IsControlDown() === true) {
-        // ctrl升级
-        Abilities.AttemptToUpgrade(abilityID);
+      const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+      const abilityID = Entities.GetAbilityByName(heroID, abilityname);
+      if (Abilities.GetCurrentAbilityCharges(abilityID) === 0) {
         return;
       }
-      if (GameUI.IsAltDown() === true) {
-        // alt切换自动施法
-        const castSuccess = castAbilityWhenAltDown(abilityID, Abilities.GetBehavior(abilityID));
-        if (castSuccess) {
-          return;
-        }
-      }
-      if (isQuickCast) {
-        QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
-      } else {
-        Abilities.ExecuteAbility(abilityID, heroID, true);
-      }
+      executeAbilityCast(heroID, abilityID, isQuickCast);
     },
     () => {},
   );
+}
+
+function executeAbilityCast(
+  heroID: EntityIndex,
+  abilityID: AbilityEntityIndex,
+  isQuickCast: boolean,
+) {
+  if (GameUI.IsControlDown() === true) {
+    // ctrl升级
+    Abilities.AttemptToUpgrade(abilityID);
+    return;
+  }
+  if (GameUI.IsAltDown() === true) {
+    // alt切换自动施法
+    const castSuccess = castAbilityWhenAltDown(abilityID, Abilities.GetBehavior(abilityID));
+    if (castSuccess) {
+      return;
+    }
+  }
+  if (isQuickCast) {
+    QuickCastAbility(abilityID, Abilities.GetBehavior(abilityID));
+  } else {
+    Abilities.ExecuteAbility(abilityID, heroID, true);
+  }
 }
 
 function IsAbilityBehavior(behavior: DOTA_ABILITY_BEHAVIOR, judge: DOTA_ABILITY_BEHAVIOR) {

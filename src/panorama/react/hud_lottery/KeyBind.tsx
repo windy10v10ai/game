@@ -37,7 +37,9 @@ function KeyBind() {
     if (
       playerSetting.activeAbilityKey ||
       playerSetting.passiveAbilityKey ||
-      playerSetting.passiveAbilityKey2
+      playerSetting.passiveAbilityKey2 ||
+      playerSetting.wardObserverKey ||
+      playerSetting.wardSentryKey
     ) {
       setIsCollapsed(true);
     }
@@ -45,6 +47,8 @@ function KeyBind() {
     playerSetting.activeAbilityKey,
     playerSetting.passiveAbilityKey,
     playerSetting.passiveAbilityKey2,
+    playerSetting.wardObserverKey,
+    playerSetting.wardSentryKey,
   ]);
 
   // 获取玩家steamId，如果获取失败，则为观战，不显示
