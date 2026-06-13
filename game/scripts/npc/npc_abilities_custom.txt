@@ -15,7 +15,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
 		"AbilityCharges"				"20"
-		"AbilityChargeRestoreTime"		"999999"	// 充能只来自购买，禁止自动恢复
+		"AbilityChargeRestoreTime"		"99999"	// 充能只来自购买，禁止自动恢复
 		"AbilityTextureName"			"item_ward_observer"
 
 		"AbilityValues"
@@ -36,7 +36,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
 		"AbilityCharges"				"20"
-		"AbilityChargeRestoreTime"		"999999"	// 充能只来自购买，禁止自动恢复
+		"AbilityChargeRestoreTime"		"99999"	// 充能只来自购买，禁止自动恢复
 		"AbilityTextureName"			"item_ward_sentry"
 
 		"AbilityValues"
