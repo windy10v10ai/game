@@ -22,6 +22,10 @@ export class PlayerSetting {
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
   passiveAbilityQuickCast2?: boolean;
+  wardObserverKey?: string;
+  wardObserverQuickCast?: boolean;
+  wardSentryKey?: string;
+  wardSentryQuickCast?: boolean;
 }
 
 export class PlayerStatsLifetimeDto {

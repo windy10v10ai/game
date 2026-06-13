@@ -273,7 +273,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **新建 KV 文件**: 在 `game/scripts/npc/` 下新建任何 `.txt` 文件后，必须在 `npc_abilities_custom.txt`（或对应的主入口文件）顶部添加 `#base "<filename>.txt"` 引入，否则引擎不会加载该文件
 - **本地化文件模块顺序**: `addon_english.txt` / `addon_schinese.txt` 中各模块的排列顺序为：Custom Abilities（自定义技能）→ Awaken Abilities（觉醒技能）→ Heroes Override（原版英雄技能）
 - **TSTL 对象 spread 不可传 undefined**: 在 `src/vscripts/` 中**禁止**对可能为 `undefined` 的对象使用 spread（`{ ...maybeUndefined }` 或 `{ ...obj?.maybeUndefined }`）。TSTL 把对象 spread 编成 `__TS__ObjectAssign`，内部用 `pairs(...)` 遍历每个参数，传到 `nil` 会运行时 crash `bad argument #1 to 'pairs' (table expected, got nil)`。改用显式 if 判断 + 手动赋值，或用 `?? {}` 兜底后再 spread。jest 测试不会暴露此问题，必须在 Dota tools 实跑验证
-- **改完 vscripts 只需 TS 编译通过**: 修改 `src/vscripts/` 后用 `npm run build:vscripts` 验证，**只要不报错即可，不要去读 `game/scripts/vscripts/` 下编译生成的 `.lua` 产物**对照（浪费时间，产物是 TSTL 自动生成的）。运行时行为靠 jest（自己的分支逻辑）+ Dota tools 实跑验证
+- **VScripts 验证时机**: 不要在每次修改 `src/vscripts/` 后都自动运行 `npm run build:vscripts`；用户的开发环境会自动编译。仅在创建 PR 前、最终完成前，或用户明确要求验证时统一运行一次。验证时只看 TS/TSTL 是否报错，**不要去读 `game/scripts/vscripts/` 下编译生成的 `.lua` 产物**对照（浪费时间，产物是 TSTL 自动生成的）。运行时行为靠 jest（自己的分支逻辑）+ Dota tools 实跑验证
 - **TSTL 枚举用 normalized 成员名**: `src/vscripts/` 中引用 Dota 枚举成员时去掉原生前缀（`UF_` / `DOTA_` 等），如 `UnitFilterResult.FAIL_CUSTOM`（**不是** `UF_FAIL_CUSTOM`）、`UnitFilterResult.SUCCESS`。TSTL 编译时会自动内联回 Lua 原生名（`UF_FAIL_CUSTOM`）。用带前缀的名字 TS 会报 `Property 'UF_XXX' does not exist`
 - **施法错误飘字须 CastFilterResult + GetCustomCastError 配套**: 自定义物品/技能要在施法前拦截并飘字提示时，仅实现 `GetCustomCastError()` 无效——引擎只在 `CastFilterResult()` 返回 `UnitFilterResult.FAIL_CUSTOM` 时才去取错误文本。两者须配套（用同一判据）。错误文本 key 在本地化文件中**定义不带 `#`**（如 `dota_hud_error_xxx`），代码返回时**带 `#`**（`#dota_hud_error_xxx`）
 - **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
@@ -291,7 +291,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 放在 `game/resource/flash3/images/spellicons/<name>.png`，KV 中直接用文件名引用：
 
 ```
-"AbilityTextureName"    "break_speed_limit"
+"AbilityTextureName"    "axe_auto_culling_blade"
 ```
 
 引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。

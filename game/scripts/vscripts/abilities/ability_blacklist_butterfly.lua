@@ -12,6 +12,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["teleport"] = true,                      -- 传送
     ["courier_burst"] = true,                 -- 信使加速
     ["courier_shield"] = true,                -- 信使护盾
+    ["ability_ward_observer_slot"] = true,    -- 额外假眼槽位
+    ["ability_ward_sentry_slot"] = true,      -- 额外真眼槽位
 
     -- ========================================
     -- 隐身技能
@@ -89,7 +91,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
     ["phantom_assassin_phantom_strike"] = true,
-    ["pangolier_gyroshell"] = true, -- 石鳞剑士 地雷滚滚
+    ["pangolier_gyroshell"] = true,   -- 石鳞剑士 地雷滚滚
+    ["legion_commander_duel"] = true, -- 军团指挥官 决斗
 
 
     ["elder_titan_ancestral_spirit"] = true,

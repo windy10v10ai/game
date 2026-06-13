@@ -1,0 +1,169 @@
+import { reloadable } from '../../utils/tstl-utils';
+import { PlayerHelper } from '../helper/player-helper';
+
+const global = globalThis as typeof globalThis & {
+  wardSlotProcessedItemEntIndexes?: Set<EntityIndex>;
+};
+
+if (!global.wardSlotProcessedItemEntIndexes) {
+  global.wardSlotProcessedItemEntIndexes = new Set<EntityIndex>();
+}
+
+/**
+ * 真假眼额外槽位（issue #1812）：人类玩家成功获得商店真假眼后，删除入包物品，
+ * 转为英雄身上隐藏 slot ability 的一层充能。充能/冷却走 ability 自带 charge 系统。
+ */
+@reloadable
+export class WardSlot {
+  private readonly processedItemEntIndexes = global.wardSlotProcessedItemEntIndexes!;
+
+  private static readonly WARD_ITEM_TO_ABILITY: Record<string, string> = {
+    item_ward_observer: 'ability_ward_observer_slot',
+    item_ward_sentry: 'ability_ward_sentry_slot',
+  };
+
+  constructor() {
+    GameRules.GetGameModeEntity().ClearItemAddedToInventoryFilter();
+    ListenToGameEvent('npc_spawned', (keys) => this.onNpcSpawned(keys), this);
+    ListenToGameEvent('dota_inventory_item_added', (keys) => this.onInventoryItemAdded(keys), this);
+  }
+
+  private onNpcSpawned(keys: GameEventProvidedProperties & NpcSpawnedEvent): void {
+    const npc = EntIndexToHScript(keys.entindex) as CDOTA_BaseNPC | undefined;
+    if (!npc || !npc.IsRealHero() || keys.is_respawn === 1) {
+      return;
+    }
+    if (!PlayerHelper.IsHumanPlayer(npc)) {
+      return;
+    }
+    const hero = npc as CDOTA_BaseNPC_Hero;
+    this.ensureSlotAbilities(hero);
+    Timers.CreateTimer(0, () => this.convertExistingWardItems(hero));
+  }
+
+  private ensureSlotAbilities(hero: CDOTA_BaseNPC_Hero): void {
+    for (const abilityName of Object.values(WardSlot.WARD_ITEM_TO_ABILITY)) {
+      let ability = hero.FindAbilityByName(abilityName);
+      const isNewAbility = ability == null;
+      if (!ability) {
+        ability = hero.AddAbility(abilityName);
+      }
+      ability.SetLevel(1);
+      ability.SetActivated(true);
+      if (isNewAbility) {
+        // KV 无 ability 初始充能字段，引擎默认值不确定，显式归零保证开局无充能。
+        ability.SetCurrentAbilityCharges(0);
+      }
+    }
+  }
+
+  private onInventoryItemAdded(
+    event: GameEventProvidedProperties & DotaInventoryItemAddedEvent,
+  ): void {
+    const isDispenser = event.itemname === 'item_ward_dispenser';
+    const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[event.itemname];
+    if (!abilityName && !isDispenser) {
+      return;
+    }
+
+    const playerId = event.inventory_player_id;
+    if (
+      !PlayerResource.IsValidPlayerID(playerId) ||
+      !PlayerHelper.IsHumanPlayerByPlayerId(playerId)
+    ) {
+      return;
+    }
+
+    const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+    if (!hero || !hero.IsRealHero()) {
+      return;
+    }
+    if (this.processedItemEntIndexes.has(event.item_entindex)) {
+      return;
+    }
+    this.processedItemEntIndexes.add(event.item_entindex);
+
+    this.ensureSlotAbilities(hero);
+
+    Timers.CreateTimer(0, () => {
+      const item = EntIndexToHScript(event.item_entindex) as CDOTA_Item | undefined;
+      if (!item) {
+        return;
+      }
+
+      this.addWardItemCharges(hero, item, isDispenser, abilityName);
+      this.removeInventoryItem(event.inventory_parent_entindex, hero, item);
+    });
+  }
+
+  private convertExistingWardItems(hero: CDOTA_BaseNPC_Hero): void {
+    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.STASH_6; slot++) {
+      const item = hero.GetItemInSlot(slot);
+      if (!item) {
+        continue;
+      }
+
+      const itemName = item.GetAbilityName();
+      const isDispenser = itemName === 'item_ward_dispenser';
+      const abilityName = WardSlot.WARD_ITEM_TO_ABILITY[itemName];
+      if (!abilityName && !isDispenser) {
+        continue;
+      }
+
+      const itemEntIndex = item.GetEntityIndex();
+      if (this.processedItemEntIndexes.has(itemEntIndex)) {
+        continue;
+      }
+      this.processedItemEntIndexes.add(itemEntIndex);
+
+      this.addWardItemCharges(hero, item, isDispenser, abilityName);
+      hero.RemoveItem(item);
+    }
+  }
+
+  private addWardItemCharges(
+    hero: CDOTA_BaseNPC_Hero,
+    item: CDOTA_Item,
+    isDispenser: boolean,
+    abilityName: string | undefined,
+  ): void {
+    if (isDispenser) {
+      this.addAbilityCharges(
+        hero,
+        'ability_ward_observer_slot',
+        Math.max(0, item.GetCurrentCharges()),
+      );
+      this.addAbilityCharges(
+        hero,
+        'ability_ward_sentry_slot',
+        Math.max(0, item.GetSecondaryCharges()),
+      );
+    } else if (abilityName !== undefined) {
+      // 一个 item entity 可能因为堆叠含有多层充能，按其真实 charge 数累加。
+      this.addAbilityCharges(hero, abilityName, Math.max(1, item.GetCurrentCharges()));
+    }
+  }
+
+  private removeInventoryItem(
+    inventoryParentEntIndex: EntityIndex,
+    hero: CDOTA_BaseNPC_Hero,
+    item: CDOTA_Item,
+  ): void {
+    const inventoryParent = EntIndexToHScript(inventoryParentEntIndex) as CBaseEntity | undefined;
+    if (inventoryParent?.IsBaseNPC()) {
+      inventoryParent.RemoveItem(item);
+      return;
+    }
+    hero.RemoveItem(item);
+  }
+
+  private addAbilityCharges(hero: CDOTA_BaseNPC_Hero, abilityName: string, charges: number): void {
+    if (charges <= 0) {
+      return;
+    }
+    const ability = hero.FindAbilityByName(abilityName);
+    if (ability !== undefined) {
+      ability.SetCurrentAbilityCharges(ability.GetCurrentAbilityCharges() + charges);
+    }
+  }
+}

@@ -20,6 +20,7 @@ game/panorama/images/custom_game/lottery
 game/panorama/images/custom_game/profile
 game/panorama/images/custom_game/member
 game/panorama/images/custom_game/conduct
+game/panorama/images/custom_game/hud
 
 # tstl output
 game/scripts/vscripts/lualib_bundle.lua
@@ -27,6 +28,7 @@ game/scripts/vscripts/addon_game_mode.lua
 game/scripts/vscripts/ai/
 game/scripts/vscripts/api/
 game/scripts/vscripts/items/ts_items
+game/scripts/vscripts/abilities/ts_abilities
 game/scripts/vscripts/modifiers/property
 game/scripts/vscripts/modifiers/global
 game/scripts/vscripts/modifiers/debug

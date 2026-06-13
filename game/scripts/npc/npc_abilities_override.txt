@@ -2741,6 +2741,7 @@
 	// 守护天使
 	"omniknight_guardian_angel"
 	{
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"MaxLevel" "4"
 		"AbilityManaCost"				"125 175 225 275"	// 125 175 225
 
@@ -5080,7 +5081,6 @@
 	"drow_ranger_multishot"
 	{
 		"MaxLevel"						"5"
-		"LinkedAbility"					"special_bonus_unique_drow_ranger_upgrade"	// 原版不存在，手动修改：与数箭连发觉醒双向联动同步升级
 		"AbilityManaCost"				"50 70 90 110 130"	// 50 70 90 110
 		"AbilityValues"
 		{

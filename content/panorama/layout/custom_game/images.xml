@@ -24,6 +24,7 @@
 			<Image id="conductThumbDown" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_down.png" />
 			<Image id="conductThumbUpFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_up_fill.png" />
 			<Image id="conductThumbDownFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_down_fill.png" />
+			<Image id="rightFlareBg" class="SeqImg" src="file://{images}/custom_game/hud/right_flare_bg.png" />
 		</Panel>
 	</Panel>
 </root>
