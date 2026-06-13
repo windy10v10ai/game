@@ -692,6 +692,12 @@
 		///////////////////////////////////////////////////
 // 					Custom Abilities 自定义技能
 
+		// 真假眼额外槽位
+		"DOTA_Tooltip_ability_ward_observer_slot"					"Place Observer Ward"
+		"DOTA_Tooltip_ability_ward_observer_slot_Description"		"Places an Observer Ward that provides vision. Charges come from purchasing Observer Wards at the shop and do not occupy an inventory slot."
+		"DOTA_Tooltip_ability_ward_sentry_slot"						"Place Sentry Ward"
+		"DOTA_Tooltip_ability_ward_sentry_slot_Description"			"Places a Sentry Ward that provides True Sight. Charges come from purchasing Sentry Wards at the shop and do not occupy an inventory slot."
+
 		// 大肆污染
 		"DOTA_Tooltip_ability_leshrac_defilement2"										"Defilement"
 		"DOTA_Tooltip_ability_leshrac_defilement2_description"							"Gain AoE per intelligence. Affects both abilities and items."
@@ -916,7 +922,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br>Normal attacks have a chance to trigger this ability."
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
@@ -925,7 +931,6 @@
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_bonus_physical_damage"	"BONUS PHYSICAL DAMAGE:"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_stun_duration"	"STUN DURATION:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_trigger_chance"			"%ATTACK TRIGGER CHANCE:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
@@ -1118,14 +1123,6 @@
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"Ruthless Hand"
 		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"Has culled %dMODIFIER_PROPERTY_STACKS_COUNT% enemies, permanently increasing Culling Blade's damage."
 
-		// Slark - Scraper King Awakened
-		"DOTA_Tooltip_ability_break_speed_limit"										"<font color='#d000ff'>Scraper King Awakened</font>"
-		"DOTA_Tooltip_ability_break_speed_limit_Description"							"When attack speed reaches the cap, each hero kill increases the attack speed cap by %speed_limit_per_stack%, lasting %duration% seconds."
-		"DOTA_Tooltip_ability_break_speed_limit_speed_limit_per_stack"					"ATTACK SPEED CAP INCREASE PER KILL:"
-		"DOTA_Tooltip_ability_break_speed_limit_duration"								"DURATION:"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks"								"Scraper King"
-		"DOTA_Tooltip_modifier_break_speed_limit_stacks_Description"					"Each stack increases the attack speed cap by 50."
-
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time.<br><br><font color='#d000ff'>The damage can be amplified by abilities.</font>"
@@ -1135,11 +1132,6 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"% Max Health Damage per Second:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"Healing Reduction:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
-
-		// Drow Ranger Multishot Barrage - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Multishot Barrage Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Fires multiple arrows at a single enemy in rapid succession, each dealing one attack.<br><br>Shares cooldown and levels up with Multishot."
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_shots"			"Arrows:"
 
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
@@ -2176,6 +2168,19 @@
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_armor"					"+$armor"
 		"DOTA_Tooltip_ability_item_shivas_guard_2_bonus_hp_regen"				"+$hp_regen"
 
+		// mjollnir_2
+		"DOTA_Tooltip_Ability_item_mjollnir_2"				"<font color='#e03e2e'>Artifact: Divine Thunder Hammer</font>"
+		"DOTA_Tooltip_ability_item_mjollnir_2_Description"		"<h1>Active: Static Charge</h1>Places a charged shield on a target unit for %static_duration% seconds which has a %static_chance%%% chance to release a %static_damage% magical damage shocking bolt at a nearby attacker and %static_strikes% additional enemies.
+
+<h1>Passive: Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release a bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Lore"				"Thor's magical hammer, reforged in the heart of a dying star."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note0"				"Static Charge cannot trigger more than once per second."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note1"				"Static Charge's shock deals magical damage centered on hero with the Static Charge. Static Charge's targets cannot be more than %static_seconary_radius% range away."
+		"DOTA_Tooltip_ability_item_mjollnir_2_Note2"				"Static Charge procs will not bounce to heroes that are invisible or hidden by Fog of War."
+		"DOTA_Tooltip_ability_item_mjollnir_2_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_item_mjollnir_2_bonus_attack_speed"		"+$attack"
+
+
 		// veil_of_discord_2
 		"DOTA_Tooltip_Ability_item_veil_of_discord_2"							"<font color='#941852'>Upgraded</font> Veil of Discord"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_Description"				"<h1>Active: Spell Weakness</h1> Cast a %debuff_radius% radius blast that causes enemy heroes to take %spell_amp%%% increased damage from spells.<br><br>Can be cast while channeling.<br><br>Duration: %resist_debuff_duration% seconds."
@@ -2187,6 +2192,49 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"Spell Weakness"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+
+		// crellas_crozier_2
+		"DOTA_Tooltip_Ability_item_crellas_crozier_2"				"<font color='#e03e2e'>Artifact: Crella's Divine Crozier</font>"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Description"					"<h1>Active: Rite of Rumusque</h1> You enter ghost form for %duration% seconds, becoming immune to physical damage, but are unable to attack and %extra_spell_damage_percent%%% more vulnerable to magic damage.<br><br>Steal %movespeed_steal_pct%%% movement speed from enemy heroes in %active_radius% range every second. Movement speed steal lasts %stack_duration%s.<br><br>Putrefaction Aura's effect is increased to %active_health_steal%%%. All of the lost Health Restoration is redirected to you every second.\n\n<h1>Passive: Putrefaction Aura</h1>Reduces nearby enemy heroes' Health Restoration by %health_steal%%%.<br><br>Radius: %radius%"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note0"						"Ghost form ends if you become Debuff Immune and will have no effect if you are already Debuff Immune."
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note1"						"Shares cooldown with Ghost Scepter and its upgrades."
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_Note2"						"Putrefaction Aura does not redirect Health Restoration from enemy heroes that are at full health."
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_all_stats"				"+$all"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_health"				"+$health"
+		"DOTA_Tooltip_ability_item_crellas_crozier_2_bonus_mana"					"+$mana"
+
+		// consecrated_wraps_2
+		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %stack_gain_time%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %stack_gain_time%s after you take damage from a player-controlled unit or Roshan."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"Self-damage and HP Loss damage cannot remove stacks."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"Movement speed buff does not stack."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"Movement speed buff is only provided if you have reached maximum stacks at least once while the item is equipped."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_spell_resist"	"%+$spell_resist"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_bonus_health"			"+$health"
+
+		// essence_distiller_2
+		"DOTA_Tooltip_Ability_item_essence_distiller_2"				"<font color='#e03e2e'>Artifact: Sacred Spirit Distiller</font>"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Description"			"<h1>Active: Soul Release</h1> Provides %soul_heal_amount% health regeneration when cast on allies.<br><br>Can be ground targeted to lie dormant for up to %ground_duration%s and attach to the first enemy that comes within %latch_range% radius. When on enemies, deals %soul_damage_amount% damage per second and provides True Sight over them and shares their vision with the wearer's team.<br><br>Lasts %duration% seconds.<br><br>Gains charges every time an enemy hero dies within %soul_radius% units."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note0"					"Empty distillers gain 2 charges."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note1"					"Only the closest Essence Distiller to the dying hero will gain a charge."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note2"					"If the allied unit is attacked by an enemy hero or Roshan, the effect is lost."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note3"					"Does not trigger spell block or spell reflect."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_Note4"					"While dormant, provides vision in %latch_vision% radius. Vision lingers for %linger_after_latch_duration%s after latching."
+		"DOTA_Tooltip_ability_item_essence_distiller_2_mana_regen"			"+$mana_regen"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_armor"			"+$armor"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_all_stats"		"+$all"
+		"DOTA_Tooltip_ability_item_essence_distiller_2_bonus_mana"			"+$mana"
+
+		// hydras_breath_2
+		"DOTA_Tooltip_Ability_item_hydras_breath_2"				"<font color='#e03e2e'>Artifact: Millennial Hydra's Breath</font>"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_strength"				"+$str"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_agility"				"+$agi"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_damage"				"+$damage"
+		"DOTA_Tooltip_ability_item_hydras_breath_2_base_attack_range"		"+$attack_range"
+		"DOTA_Tooltip_Ability_item_hydras_breath_2_Description"			"<h1>Passive: Miasma</h1>Attacks poison enemies, dealing %poison_damage_per_second%%% of the target's Max HP as Magical Damage per second for %poison_duration% seconds.\n\n<h1>Passive: Polycephaly</h1>Ranged attacks have a %proc_chance%%% chance to fire additional projectiles at up to %count% nearby enemies with %secondary_target_range_bonus% extra range and within a %secondary_target_angle% degree angle in front of the attacker. The additional projectiles deal %base_proc_dmg% + %proc_dmg_pct%%% damage of a normal attack and do not trigger on hit effects except for Miasma. The primary attack deals %base_proc_dmg% + %proc_dmg_pct_primary_tooltip%%% damage of a normal attack."
+		"DOTA_Tooltip_ability_item_hydras_breath_2_Note0"                  "Attack Range bonuses from Monkey King Bar and Dragon Lance and its upgrades do not stack."
 
 		// item_manta_1 分身2
 		"DOTA_Tooltip_Ability_item_manta_1"										"<font color='#2ed0e0'>Upgraded Manta Style</font>"
@@ -2464,7 +2512,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Slark, Sniper, Axe, Necrophos, Drow Ranger, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Sniper, Axe, Necrophos, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
 
 		// 被动技能书
@@ -3190,6 +3238,7 @@
 		"dota_hud_error_awaken_stone_unsupported"										"This hero has no ability to awaken"
 		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
 		"dota_hud_error_passive_skill_tome_max_usage"									"Passive Skill Tome usage limit reached"
+		"dota_hud_error_ward_no_cast_zone"												"Cannot place wards near Roshan's pit"
 
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"

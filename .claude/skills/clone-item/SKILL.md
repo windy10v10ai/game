@@ -84,6 +84,19 @@ files: game/scripts/npc/npc_items_clone.txt
 
 配方费用：询问用户，或默认计算公式 ≈ 克隆物品目标总价 - 原版物品价格 - 额外材料原版价格之和。
 
+### 4-A：核实所有材料价格（强制）
+
+**每项材料（含原版物品本身 + 所有额外材料）的价格必须从 `docs/reference/<version>/items.txt` 逐项读取 `ItemCost` 字段核实**，不得凭记忆或训练数据中的价格计算。
+
+执行方式：
+```
+对每个材料物品名，在 docs/reference/<version>/items.txt 中搜索该物品块，读取其 ItemCost。
+```
+
+记录每项价格后汇总：材料总价 = 原版物品价格 + Σ 各额外材料价格。图纸费 = 用户目标总价 - 材料总价。
+
+> **常见陷阱**：物品价格会随版本变动（如 `item_ultimate_orb` 在 7.41 为 2800，而非旧版的 2100），切勿依赖训练数据中的记忆值。
+
 ---
 
 ## 第五步：构建 Recipe KV
@@ -284,6 +297,7 @@ Glob: game/scripts/npc/shops*.txt
 - [ ] 原版物品 KV 已读取（recipe + 物品主块）
 - [ ] Recipe 块：无 `ID` 字段，BaseClass = `item_datadriven`，ItemResult = `<克隆物品名>`，材料含原版物品（来自 BaseClass）
 - [ ] 物品块：无 `ID` 字段，BaseClass = `<原版物品名>`（非 item_datadriven/item_lua），AbilityTextureName = `<克隆物品名>`
+- [ ] 所有材料价格已从 `docs/reference/<version>/items.txt` 逐项读取 ItemCost 核实（非凭记忆）
 - [ ] AbilityValues：可成长属性 × 2，固定机制值不变，每项附原版值注释
 - [ ] ItemCost = 原版 + 额外材料 + 配方费之和
 - [ ] 图片文件存在或已提醒用户创建
