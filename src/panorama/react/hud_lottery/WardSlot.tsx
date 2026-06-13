@@ -104,33 +104,41 @@ function WardSlot() {
   const playerSetting = player?.playerSetting;
 
   useEffect(() => {
-    const centerWithStats = FindDotaHudElement('center_with_stats');
-    if (centerWithStats && containerRef.current) {
+    // center_with_stats 等 HUD 元素可能在本组件挂载时尚未构建完成（部分玩家加载较慢/重连时），
+    // 一次性查找会失败导致 SetParent 被跳过，面板停留在屏幕右下角（买活按钮附近）。轮询直到出现为止
+    const id = setInterval(() => {
+      const centerWithStats = FindDotaHudElement('center_with_stats');
+      if (!centerWithStats || !containerRef.current) {
+        return;
+      }
       containerRef.current.SetParent(centerWithStats);
-    }
 
-    const rightFlare = FindDotaHudElement('right_flare');
-    if (rightFlare) {
-      rightFlare.style.width = RIGHT_FLARE_WIDTH;
-      rightFlare.style.marginRight = RIGHT_FLARE_MARGIN_RIGHT;
-      rightFlare.style.backgroundImage = RIGHT_FLARE_BACKGROUND_IMAGE;
-    }
+      const rightFlare = FindDotaHudElement('right_flare');
+      if (rightFlare) {
+        rightFlare.style.width = RIGHT_FLARE_WIDTH;
+        rightFlare.style.marginRight = RIGHT_FLARE_MARGIN_RIGHT;
+        rightFlare.style.backgroundImage = RIGHT_FLARE_BACKGROUND_IMAGE;
+      }
 
-    const inventoryComposition = FindDotaHudElement('inventory_composition_layer_container');
-    if (inventoryComposition) {
-      inventoryComposition.style.marginRight = INVENTORY_COMPOSITION_MARGIN_RIGHT;
-    }
+      const inventoryComposition = FindDotaHudElement('inventory_composition_layer_container');
+      if (inventoryComposition) {
+        inventoryComposition.style.marginRight = INVENTORY_COMPOSITION_MARGIN_RIGHT;
+      }
 
-    const inventory = FindDotaHudElement('inventory');
-    if (inventory) {
-      inventory.style.marginRight = INVENTORY_MARGIN_RIGHT;
-    }
+      const inventory = FindDotaHudElement('inventory');
+      if (inventory) {
+        inventory.style.marginRight = INVENTORY_MARGIN_RIGHT;
+      }
 
-    const centerBlock = FindDotaHudElement('center_block');
-    const abilityInsetShadowRight = centerBlock?.FindChildTraverse('AbilityInsetShadowRight');
-    if (abilityInsetShadowRight) {
-      abilityInsetShadowRight.style.marginRight = ABILITY_INSET_SHADOW_RIGHT_MARGIN_RIGHT;
-    }
+      const centerBlock = FindDotaHudElement('center_block');
+      const abilityInsetShadowRight = centerBlock?.FindChildTraverse('AbilityInsetShadowRight');
+      if (abilityInsetShadowRight) {
+        abilityInsetShadowRight.style.marginRight = ABILITY_INSET_SHADOW_RIGHT_MARGIN_RIGHT;
+      }
+
+      clearInterval(id);
+    }, 100);
+    return () => clearInterval(id);
   }, []);
 
   useEffect(() => {
