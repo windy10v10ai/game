@@ -22,6 +22,10 @@ export class PlayerSettingApi {
       activeAbilityQuickCast: event.activeAbilityQuickCast === 1,
       passiveAbilityQuickCast: event.passiveAbilityQuickCast === 1,
       passiveAbilityQuickCast2: event.passiveAbilityQuickCast2 === 1,
+      wardObserverKey: event.wardObserverKey,
+      wardObserverQuickCast: event.wardObserverQuickCast === 1,
+      wardSentryKey: event.wardSentryKey,
+      wardSentryQuickCast: event.wardSentryQuickCast === 1,
     };
 
     ApiClient.sendWithRetry({
