@@ -149,7 +149,7 @@
 	}
 
 	// 斧王 自动淘汰之刃
-	// 开启后持续时间内自动对低血量敌人施放淘汰之刃，每次击杀叠加增伤与护甲
+	// 开启自动施法后，只要淘汰之刃冷却就绪，自动对斩杀线内的低血敌人施放原版淘汰之刃
 	"axe_auto_culling_blade"
 	{
 		"BaseClass"						"ability_lua"
@@ -161,19 +161,6 @@
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
 		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
-		"AbilityCooldown"				"50 45 40 35"
-		"AbilityManaCost"				"50"
-
-		"AbilityValues"
-		{
-			"duration"					"6 7 8 9"
-			"check_interval"			"1 0.8 0.6 0.4"
-			"increase_damage_per_kill"	"3"
-			"armor_per_stack"
-			{
-				"value"					"1 2 3 4"
-			}
-		}
 	}
 
 	// 死灵法师 竭心光环-觉醒

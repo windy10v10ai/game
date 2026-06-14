@@ -1102,13 +1102,8 @@
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，斧王会自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放；触发后的持续时间内持续自动斩杀。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>斩杀时会突进到敌人身边。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。 — by RN"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"持续时间："
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"斩杀间隔："
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_increase_damage_per_kill"			"每次斩杀提升伤害："
-		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"无情铁手"
-		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"已斩杀 %dMODIFIER_PROPERTY_STACKS_COUNT% 次敌人，淘汰之刃伤害获得永久提升。"
 
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
