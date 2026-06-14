@@ -200,6 +200,7 @@
 		"data_panel_player_property_ignore_movespeed_limit"		"Unlimited Movement Speed"
 		"data_panel_player_property_cannot_miss"				"True Strike"
 		"data_panel_player_property_flying"						"Flying Status"
+		"data_panel_player_property_slow_immune"				"Slow Immunity"
 		"data_panel_player_property_skill_points_bonus"			"Bonus Skill Points"
 		"data_panel_player_property_bonus_vision"				"Bonus Vision"
 
