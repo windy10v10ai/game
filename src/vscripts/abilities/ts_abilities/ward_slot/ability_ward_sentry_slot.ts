@@ -17,6 +17,11 @@ export class AbilityWardSentrySlot extends BaseAbility {
     return '#dota_hud_error_ward_no_cast_zone';
   }
 
+  // 充能只能来自购买转换；引擎在 OnStolen 后才写入偷取充能，延迟一帧清零才生效
+  OnStolen(): void {
+    Timers.CreateTimer(0, () => this.SetCurrentAbilityCharges(0));
+  }
+
   OnSpellStart(): void {
     const caster = this.GetCaster();
     const point = this.GetCursorPosition();
