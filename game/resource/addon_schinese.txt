@@ -1081,7 +1081,7 @@
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离和钩子速度随帕吉的力量值增加，每点力量增加%hook_distance_per_strength%，额外距离上限%hook_max_distance_bonus%。</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br>大幅提升施法距离与钩子速度。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
@@ -1092,23 +1092,18 @@
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力%attack_damage_pct%%%的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"%攻击力降低："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_health_damage_pct"			"%每秒最大生命伤害："
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，斧王会自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放；触发后的持续时间内持续自动斩杀。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>斩杀时会突进到敌人身边。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。 — by RN"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"持续时间："
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"斩杀间隔："
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_increase_damage_per_kill"			"每次斩杀提升伤害："
-		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"无情铁手"
-		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"已斩杀 %dMODIFIER_PROPERTY_STACKS_COUNT% 次敌人，淘汰之刃伤害获得永久提升。"
 
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
@@ -1123,7 +1118,7 @@
 
 		// 宙斯 神王-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯会自动普攻弧形闪电和雷击命中的目标。"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯自动对施法距离内的敌人施放弧形闪电与雷击。<br><br>优先对英雄施法，范围内只有小兵时仅施放弧形闪电。"
 
 		// 幻影刺客 幻影突袭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
@@ -1134,10 +1129,7 @@
 
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医的死亡守卫额外继承本体%damage_percentage%%%的攻击力。<br><br>巫医智慧突破极限，可以沟通神明召唤更多的死亡守卫（上限%max_ward_num%个），但额外守卫无基础攻击力。"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"%守卫继承攻击力："
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"额外1个死亡守卫所需智力："
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"额外守卫上限："
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前的技能增强等比提升。"
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
