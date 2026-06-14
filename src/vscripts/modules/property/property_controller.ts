@@ -17,6 +17,7 @@ import {
   property_movespeed_bonus_constant,
   property_physical_armor_bonus,
   property_preattack_bonus_damage,
+  property_slow_immune,
   property_spell_amplify_percentage,
   property_spell_lifesteal,
   property_stats_agility_bonus,
@@ -63,6 +64,7 @@ export class PropertyController {
     PropertyController.propertyLuaModiferMap.set(property_health_regen_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125);
+    PropertyController.propertyLuaModiferMap.set(property_slow_immune.name, 0.125);
 
     // data driven modifier
     // 多档属性名须以 '_level_' 结尾；单档则为完整 modifier 名
