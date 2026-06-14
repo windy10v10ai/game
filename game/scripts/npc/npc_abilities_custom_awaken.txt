@@ -6,7 +6,7 @@
 	//=================================================================================================================
 
 	// 屠夫 觉醒肉钩
-	// 施法距离随力量值增加，可切换是否钩友方单位
+	// 大幅强化的施法距离与钩速（固定值，不再随力量增长），可切换是否钩友方单位
 	"pudge_meat_hook_lua"
 	{
 		"BaseClass"						"ability_lua"
@@ -41,11 +41,9 @@
 				"value"					"0"
 				"special_bonus_shard"	"50"
 			}
-			"hook_speed"							"1600 1800 2000 2200 2400"
+			"hook_speed"							"2100 2400 2700 3000 3300"
 			"hook_width"							"100"
-			"hook_base_distance"					"1300 1500 1700 1900 2100"
-			"hook_distance_per_strength"			"3"
-			"hook_max_distance_bonus"				"5000"
+			"hook_base_distance"					"1800 2100 2400 2700 3000"
 			"vision_radius"							"500"
 			"vision_duration"						"4"
 			"hook_followthrough_constant"			"0.1"
@@ -342,7 +340,7 @@
 	}
 
 	// 巫医 神语-觉醒
-	// 死亡守卫继承本体攻击力，并按智力额外召唤死亡守卫（无基础攻击力）
+	// 死亡守卫/变身术守卫被召唤时，攻击力按巫医当前技能增强% 提升
 	"special_bonus_unique_witch_doctor_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
@@ -353,11 +351,7 @@
 
 		"AbilityValues"
 		{
-			"damage_percentage"	"5"
 			"search_radius"		"300"
-			"intvalve"			"500"
-			"max_ward_num"		"4"
-			"spawn_radius"		"500"
 		}
 
 		"Modifiers"
@@ -376,11 +370,7 @@
 					{
 						"ScriptFile"	"abilities/special_bonus_unique_witch_doctor_upgrade"
 						"Function"		"OnAbilityExecuted"
-						"damage_percentage"	"%damage_percentage"
 						"search_radius"		"%search_radius"
-						"intvalve"			"%intvalve"
-						"max_ward_num"		"%max_ward_num"
-						"spawn_radius"		"%spawn_radius"
 					}
 				}
 			}

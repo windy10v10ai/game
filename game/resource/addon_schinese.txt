@@ -1081,7 +1081,7 @@
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离和钩子速度随帕吉的力量值增加，每点力量增加%hook_distance_per_strength%，额外距离上限%hook_max_distance_bonus%。</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br>大幅提升施法距离与钩子速度。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
@@ -1129,10 +1129,7 @@
 
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医的死亡守卫额外继承本体%damage_percentage%%%的攻击力。<br><br>巫医智慧突破极限，可以沟通神明召唤更多的死亡守卫（上限%max_ward_num%个），但额外守卫无基础攻击力。"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"%守卫继承攻击力："
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"额外1个死亡守卫所需智力："
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"额外守卫上限："
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前的技能增强等比提升。"
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"

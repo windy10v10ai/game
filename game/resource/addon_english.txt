@@ -1086,7 +1086,7 @@
 
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br><font color='#00ff00'>Awakened: Cast range and hook speed increase with Pudge's strength, granting %hook_distance_per_strength% per point of strength, up to %hook_max_distance_bonus% bonus range.</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br>Greatly increased cast range and hook speed."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"HOOK SPEED:"
@@ -1131,10 +1131,7 @@
 
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"Witch Doctor's Death Wards inherit an additional %damage_percentage%%% of his attack damage.<br><br>His wisdom breaks the limit, summoning additional Death Wards (up to %max_ward_num%) by communing with the gods, though the extra wards have no base attack damage."
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"% Ward Inherited Damage:"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"Intelligence per Extra Death Ward:"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"Max Extra Wards:"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
