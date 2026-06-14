@@ -375,6 +375,19 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 - **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）。
 
+## 本地化文案规约
+
+改 `addon_schinese.txt` / `addon_english.txt`（及 UI 的 `addon_russian.txt`）时**必须**遵守（几乎每个任务都涉及，勿遗漏）：
+
+- 中英文**同时**增删，内容与格式完全一致
+- 两个 tab 缩进，键值多 tab 对齐；颜色代码**大写**
+- 注释用**中文**且中英一致；HTML 标签与换行（`\n` 分段、`<br><br>` 段内换行）中英一致
+- **文案不用分号**（`；`/`;`），句间用逗号或句号
+- `_Description` **不复述已单独成行的数值**：若已有 `_xxx`（带冒号的数值标签行）单独条目，正文就不再写 `%xxx%` 复述；仅当该数值无单独条目时才内联 `%xxx%`
+- **UI 键**（按钮/标签/提示等 Panorama 文本）需同步**俄文**；技能/物品/游戏逻辑类键不译俄文
+
+> 完整规则、对齐示例见 `.claude/skills/localization-format-guide/references/localization-format-guide.md`。
+
 ## Implementation Style
 
 代码改动保持最小化，优先用最简单的机制实现：

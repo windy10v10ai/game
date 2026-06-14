@@ -1118,7 +1118,7 @@
 
 		// 宙斯 神王-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯会自动普攻弧形闪电和雷击命中的目标。"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯自动对施法距离内的敌人施放弧形闪电与雷击。<br><br>优先对英雄施法，范围内只有小兵时仅施放弧形闪电。"
 
 		// 幻影刺客 幻影突袭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
