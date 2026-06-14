@@ -231,7 +231,8 @@ function AddPlayerProperty(player, property) {
     property.name === 'property_skill_points_bonus' ||
     property.name === 'property_ignore_movespeed_limit' ||
     property.name === 'property_cannot_miss' ||
-    property.name === 'property_flying'
+    property.name === 'property_flying' ||
+    property.name === 'property_slow_immune'
   ) {
     levelupText = $.Localize(`#data_panel_player_property_level_up_X`).replace(
       'X',
@@ -380,6 +381,7 @@ const Player_Propertys_Show_Tooltip_1 = [
   'property_ignore_movespeed_limit',
   'property_cannot_miss',
   'property_flying',
+  'property_slow_immune',
 ];
 
 const Player_Propertys_Show_Tooltip_2 = ['property_skill_points_bonus'];
@@ -563,6 +565,14 @@ const Player_Property_List = [
     name: 'property_flying',
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_cc_wings_png.vtex',
+    valuePerLevel: 0.125,
+    pointCostPerLevel: 8,
+    enableMaxLevelUpgrade: false,
+  },
+  {
+    name: 'property_slow_immune',
+    level: 0,
+    imageSrc: 's2r://panorama/images/cavern/icon_winged_boots_png.vtex',
     valuePerLevel: 0.125,
     pointCostPerLevel: 8,
     enableMaxLevelUpgrade: false,
