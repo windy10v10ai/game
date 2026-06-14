@@ -30,13 +30,13 @@ const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'right',
   verticalAlign: 'bottom',
   flowChildren: 'down',
-  marginBottom: '8px',
-  transform: 'translateX(-55px)',
+  marginBottom: '10px',
+  transform: 'translateX(-8px)',
   zIndex: 100,
 };
 
 const slotStyle: Partial<VCSSStyleDeclaration> = {
-  width: '52px',
+  width: '48px',
   height: '48px',
 };
 
@@ -104,11 +104,6 @@ function WardSlot() {
   const playerSetting = player?.playerSetting;
 
   useEffect(() => {
-    const centerWithStats = FindDotaHudElement('center_with_stats');
-    if (centerWithStats && containerRef.current) {
-      containerRef.current.SetParent(centerWithStats);
-    }
-
     const rightFlare = FindDotaHudElement('right_flare');
     if (rightFlare) {
       rightFlare.style.width = RIGHT_FLARE_WIDTH;
@@ -130,6 +125,10 @@ function WardSlot() {
     const abilityInsetShadowRight = centerBlock?.FindChildTraverse('AbilityInsetShadowRight');
     if (abilityInsetShadowRight) {
       abilityInsetShadowRight.style.marginRight = ABILITY_INSET_SHADOW_RIGHT_MARGIN_RIGHT;
+    }
+    // const centerWithStats = FindDotaHudElement('center_with_stats');
+    if (centerBlock && containerRef.current) {
+      containerRef.current.SetParent(centerBlock);
     }
   }, []);
 
