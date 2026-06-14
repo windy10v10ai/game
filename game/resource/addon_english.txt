@@ -1063,15 +1063,6 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
-		// Russian Roulette
-		"DOTA_Tooltip_ability_russian_roulette"                                 "Russian Roulette"
-		"DOTA_Tooltip_ability_russian_roulette_Description"                     "Challenges an enemy hero to a deadly game of Russian Roulette. Both the caster and target are rooted and unable to act. Over 6 seconds, damage is dealt alternately between the caster and target. One random shot deals fatal damage and kills the target instantly. If the enemy dies, cooldown is reduced by 100%%.\n\nDISPEL TYPE: Cannot be dispelled"
-		"DOTA_Tooltip_ability_russian_roulette_Lore"                           "A game of chance where only one survives."
-		"DOTA_Tooltip_ability_russian_roulette_interval"                       "SHOT INTERVAL:"
-		"DOTA_Tooltip_ability_russian_roulette_AbilityCastRange"               "CAST RANGE:"
-		"DOTA_Tooltip_modifier_russian_roulette_root"                          "Russian Roulette"
-		"DOTA_Tooltip_modifier_russian_roulette_root_Description"              "Locked in a deadly game. Cannot move, attack, cast spells, or use items."
-
 		// ---- bot技能 ----
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
