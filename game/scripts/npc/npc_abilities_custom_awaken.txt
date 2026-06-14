@@ -56,7 +56,7 @@
 	}
 
 	// 剑圣 觉醒剑刃风暴
-	// 通道期间持续对周围敌人造成基础伤害+攻击力的魔法伤害，免疫魔法和减益
+	// 通道期间每秒对周围敌人造成 基础伤害 + 目标最大生命% 的魔法伤害，魔免+减益免疫，结束时自我强效驱散
 	"juggernaut_blade_fury_custom"
 	{
 		"BaseClass"						"ability_lua"
@@ -81,16 +81,22 @@
 				"value"						"350"	// 260
 				"affected_by_aoe_increase"	"1"
 			}
+			"duration"					"5"
 			"damage"
 			{
-				"value"								"40 80 120 160 200"
-				"special_bonus_unique_juggernaut"	"+200"
+				"value"								"80 160 240 320 400"
+				"special_bonus_unique_juggernaut"	"+240"
 			}
-			"duration"					"5"
 			"AbilityCooldown"			"20 19 18 17 16"
 			"AbilityManaCost"			"100 105 110 115 120"
-			"attack_damage_pct"			"50"
-			"damage_reduction_pct"		"70 65 60 55 50"
+			"health_damage_pct"
+			{
+				"value"							"2"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
+				"display_type"					"kMagicalDamagePercentage"
+			}
+			"damage_reduction_pct"		"50"
 			"talent_bonus_movespeed"
 			{
 				"value"		"0"

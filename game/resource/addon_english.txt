@@ -1096,11 +1096,11 @@
 
 		// Juggernaut - Blade Fury Awakened
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, dealing magic damage equal to base damage + %attack_damage_pct%%% of current attack power to surrounding enemies. Grants debuff immunity and %magic_resistance_bonus%%% magic resistance.<br>Can attack normally, but attack power is reduced."
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, each second dealing magic damage to surrounding enemies equal to base damage plus a percentage of each enemy's max health. Grants debuff immunity and %magic_resistance_bonus%%% magic resistance, and can attack normally but with attack power reduced by %damage_reduction_pct%%%. Performs a strong dispel on himself when the spin ends."
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"% ATTACK POWER REDUCTION:"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_health_damage_pct"			"%MAX HEALTH DAMAGE PER SECOND:"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"Blade Fury"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"Magic resistance increased, debuff immune, dealing damage to surrounding enemies."
 
