@@ -14,10 +14,16 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
     if (!culling || !culling.IsFullyCastable()) return;
 
     // 淘汰之刃可对魔免单位施放
-    const enemies = findEnemiesInRange(caster, getFullCastRange(caster, culling), UnitTargetType.HERO, true);
+    const enemies = findEnemiesInRange(
+      caster,
+      getFullCastRange(caster, culling),
+      UnitTargetType.HERO,
+      true,
+    );
 
     // 斩杀线 = 原版固定阈值，吃技能增强
-    const threshold = culling.GetSpecialValueFor('damage') * (1 + caster.GetSpellAmplification(false));
+    const threshold =
+      culling.GetSpecialValueFor('damage') * (1 + caster.GetSpellAmplification(false));
     for (const enemy of enemies) {
       if (!enemy.IsNull() && enemy.IsAlive() && enemy.GetHealth() <= threshold) {
         castImmediatelyOnTarget(caster, culling, enemy);

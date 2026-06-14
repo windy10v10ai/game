@@ -38,7 +38,11 @@ export class SpecialBonusUniqueZuusUpgrade extends AutoCastAbility {
     ability: CDOTABaseAbility,
   ): [CDOTA_BaseNPC | undefined, boolean] {
     // 宙斯不可对魔免单位施放，allowMagicImmune 用默认 false
-    const enemies = findEnemiesInRange(caster, getFullCastRange(caster, ability), UnitTargetType.HERO + UnitTargetType.BASIC);
+    const enemies = findEnemiesInRange(
+      caster,
+      getFullCastRange(caster, ability),
+      UnitTargetType.HERO + UnitTargetType.BASIC,
+    );
     let creep: CDOTA_BaseNPC | undefined;
     for (const enemy of enemies) {
       if (!enemy.IsNull() && enemy.IsAlive()) {
