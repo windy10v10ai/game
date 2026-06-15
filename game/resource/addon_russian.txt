@@ -114,6 +114,8 @@
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Меню"
 		"data_panel_property_point"		"Attribute Points (Доступно/Всего)"
+		"data_panel_season_point_tooltip"	"Battle Experience (Доступно/Всего: {useable}/{total})"
+		"data_panel_member_point_tooltip"	"Member Experience (Доступно/Всего: {useable}/{total})"
 
 		"data_panel_data_button"		"Инфо"
 		"data_panel_property_button"	"Атрибуты"
@@ -127,8 +129,8 @@
 		"data_panel_level_progress"		"Уровень"
 		"data_panel_link_rule"			"Правила опыта и атрибутов"
 
-		"reset_property_use_season_point"		"Сбросить Attribute Points за {seasonPoint} Battle Experience"
-		"reset_property_use_member_point"		"Сбросить Attribute Points за 1000 Member Experience"
+		"reset_property_use_season_point"		"Сбросить за {seasonPoint} Battle Experience<br>(уровень не снизится)"
+		"reset_property_use_member_point"		"Сбросить за 1000 Member Experience<br>(уровень не снизится)"
 
 		"data_panel_player_property_label"		"Тратьте Attribute Points для улучшения героя — улучшения постоянные и сохраняются из игры в игру."
 		"data_panel_player_property_label_2"		"Очки нельзя тратить на локальном сервере — играйте на выделенном сервере от Valve, чтобы использовать и получать бонусы от улучшений."

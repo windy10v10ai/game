@@ -1,5 +1,5 @@
 ---
-name: create-custom-talent
+name: custom-talent
 description: 在 Dota 自定义平衡中新增或替换英雄天赋（尤其是把通用天赋改为技能联动天赋）时使用。处理范围包括 game/scripts/npc/npc_abilities_override.txt 的天赋定义与技能挂接、game/scripts/npc/npc_heroes_custom.txt 的 Ability10-17 与 Bot.Build 档位联动、以及 game/resource/addon_schinese.txt 和 addon_english.txt 的天赋文案同步。
 ---
 

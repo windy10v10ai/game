@@ -279,6 +279,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
 - **Net Table 清行不能传 nil**: `CustomNetTables.SetTableValue(table, key, nil)` 在 Dota 引擎下是 **noop**，不会删除或同步空值给客户端。如需清行，传**空 table**（数组类用 `[]`、对象类用 `{}`），客户端 `Object.values(value).length === 0` 即可识别为空
 - **React Panorama 条件返回不同 panel 结构会渲染失败**: 在 React 组件中根据状态返回**完全不同的 JSX 结构**（例如 `if (empty) return <Panel collapse />; return <Panel>...复杂子树...</Panel>;`）会导致 panel 在 Panorama DOM 中始终缺失。改为**始终渲染同一 panel 树**，用 `style={{ visibility: cond ? 'visible' : 'collapse' }}` 切换显隐
+- **不吃技能增强须显式标 flag，不靠物理类型**: 自定义技能用 `ApplyDamage` 造成物理伤害时，**不要**依赖「物理类型隐式不吃 spell amp」这条经验来确保不被技能增强放大。引擎判定是否吃技能增强的真正开关是伤害标志位，要明确排除时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`（本项目技能增强是自定义属性 `property_spell_amplify_percentage` 实现，更不应靠隐式行为）
 
 ### 图片资源管理
 
@@ -374,6 +375,19 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 技能射程、伤害值及其他可调参数一律从 KV 文件**动态读取**，不要硬编码已存在于 KV 中的数值。
 
 - **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）。
+
+## 本地化文案规约
+
+改 `addon_schinese.txt` / `addon_english.txt`（及 UI 的 `addon_russian.txt`）时**必须**遵守（几乎每个任务都涉及，勿遗漏）：
+
+- 中英文**同时**增删，内容与格式完全一致
+- 两个 tab 缩进，键值多 tab 对齐；颜色代码**大写**
+- 注释用**中文**且中英一致；HTML 标签与换行（`\n` 分段、`<br><br>` 段内换行）中英一致
+- **文案不用分号**（`；`/`;`），句间用逗号或句号
+- `_Description` **不复述已单独成行的数值**：若已有 `_xxx`（带冒号的数值标签行）单独条目，正文就不再写 `%xxx%` 复述；仅当该数值无单独条目时才内联 `%xxx%`
+- **UI 键**（按钮/标签/提示等 Panorama 文本）需同步**俄文**；技能/物品/游戏逻辑类键不译俄文
+
+> 完整规则、对齐示例见 `.claude/skills/localization-format-guide/references/localization-format-guide.md`。
 
 ## Implementation Style
 

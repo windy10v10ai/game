@@ -233,7 +233,6 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["oracle_fortunes_end"] = true,
     ["phoenix_sun_ray"] = true,
     ["phoenix_sun_ray_stop"] = true,
-    --["hero_possession"] = true,
     ["bane_nightmare"] = true,
     ["obsidian_destroyer_astral_imprisonment"] = true,
     ["zuus_heavenly_jump"] = true,
