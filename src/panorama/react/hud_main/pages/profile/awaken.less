@@ -1,8 +1,6 @@
 // 觉醒 Tab 样式：觉醒技能预览网格
 @import "../../../shared/styles/tokens.less";
 
-@awaken-purple: #d000ff;
-
 .awaken-layout {
   width: 100%;
   height: 100%;
@@ -18,9 +16,9 @@
 
 /* 子元素不走 flow，全部叠加在立绘上；卡片宽高比贴近 portrait 立绘(235:272)避免拉伸 */
 .awaken-card {
-  width: 150px;
-  height: 174px;
-  margin: 8px;
+  width: 124px;
+  height: 144px;
+  margin: 14px;
   border: 1px solid @color-gold-soft;
   border-radius: @radius-lg;
 }
@@ -35,7 +33,7 @@
 /* 底部深色渐变压暗，保证图标与英雄名清晰 */
 .awaken-scrim {
   width: 100%;
-  height: 78px;
+  height: 66px;
   vertical-align: bottom;
   background-color: gradient(linear, 0% 0%, 0% 100%, from(#0f033a00), to(#0f033af2));
   border-bottom-left-radius: @radius-lg;
@@ -44,22 +42,24 @@
 
 /* 觉醒图标叠在立绘下部，紫色描边标识觉醒，无光晕 */
 .awaken-ability-icon {
-  width: 52px;
-  height: 52px;
+  width: 44px;
+  height: 44px;
   horizontal-align: center;
   vertical-align: bottom;
-  margin-bottom: 30px;
-  border: 2px solid @awaken-purple;
+  margin-bottom: 26px;
+  border: 2px solid @color-gold;
   border-radius: 6px;
 }
 
 .awaken-hero-name {
   width: 100%;
   vertical-align: bottom;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   text-align: center;
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
-  text-shadow: @text-shadow-soft;
+  text-shadow:
+    2px 2px 4px #000000ee,
+    0 0 6px #000000cc;
 }
