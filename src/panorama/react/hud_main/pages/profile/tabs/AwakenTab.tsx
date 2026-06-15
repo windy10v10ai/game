@@ -33,7 +33,8 @@ export function AwakenTab() {
       <Panel className="awaken-grid">
         {AWAKEN_ABILITIES.map(({ heroName, abilityName }) => (
           <Panel key={abilityName} className="awaken-card">
-            <DOTAHeroImage className="awaken-hero" heroname={heroName} heroimagestyle="landscape" />
+            <DOTAHeroImage className="awaken-hero" heroname={heroName} heroimagestyle="portrait" />
+            <Panel className="awaken-scrim" />
             <DOTAAbilityImage
               className="awaken-ability-icon"
               abilityname={abilityName}

@@ -16,39 +16,47 @@
   horizontal-align: center;
 }
 
+/* 子元素不走 flow，全部叠加在立绘上；卡片宽高比贴近 portrait 立绘(235:272)避免拉伸 */
 .awaken-card {
   width: 150px;
-  height: fit-children;
-  flow-children: down;
+  height: 174px;
   margin: 8px;
-  padding-bottom: 12px;
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#1a0855cc), to(#0f033aaa));
   border: 1px solid @color-gold-soft;
   border-radius: @radius-lg;
-  overflow: noclip;
 }
 
-/* 英雄横版立绘作卡片顶部 banner，宽度铺满按 16:9 取高 */
+/* 英雄竖版立绘铺满整张卡片作背景 */
 .awaken-hero {
   width: 100%;
-  height: 84px;
-  border-top-left-radius: @radius-lg;
-  border-top-right-radius: @radius-lg;
+  height: 100%;
+  border-radius: @radius-lg;
 }
 
-/* 觉醒图标压在 banner 底边，紫色描边标识觉醒，无光晕 */
+/* 底部深色渐变压暗，保证图标与英雄名清晰 */
+.awaken-scrim {
+  width: 100%;
+  height: 78px;
+  vertical-align: bottom;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#0f033a00), to(#0f033af2));
+  border-bottom-left-radius: @radius-lg;
+  border-bottom-right-radius: @radius-lg;
+}
+
+/* 觉醒图标叠在立绘下部，紫色描边标识觉醒，无光晕 */
 .awaken-ability-icon {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   horizontal-align: center;
-  margin-top: -28px;
+  vertical-align: bottom;
+  margin-bottom: 30px;
   border: 2px solid @awaken-purple;
   border-radius: 6px;
 }
 
 .awaken-hero-name {
   width: 100%;
-  margin-top: 8px;
+  vertical-align: bottom;
+  margin-bottom: 8px;
   text-align: center;
   font-size: @font-size-md;
   font-weight: bold;
