@@ -156,6 +156,8 @@
 		"data_panel_member_point"		"Member Points (Usable/Total)"
 		"data_panel_season_point"		"Battle Points (Usable/Total)"
 		"data_panel_property_point"		"Attribute Points (Usable/Total)"
+		"data_panel_season_point_tooltip"	"Battle Points (Usable/Total: {useable}/{total})"
+		"data_panel_member_point_tooltip"	"Member Points (Usable/Total: {useable}/{total})"
 
 		"data_panel_data_button"		"Data"
 		"data_panel_property_button"	"Attributes"
@@ -170,8 +172,8 @@
 		"data_panel_link_rule"			"Points and Attribute Rule"
 		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
 
-		"reset_property_use_season_point"		"Reset Attribute Points for {seasonPoint} Battle Points"
-		"reset_property_use_member_point"		"Reset Attribute Points for 1000 Member Points"
+		"reset_property_use_season_point"		"Reset for {seasonPoint} usable Battle Points<br>(level unaffected)"
+		"reset_property_use_member_point"		"Reset for 1000 usable Member Points<br>(level unaffected)"
 
 		"data_panel_player_property_label"		"Spend Attribute Points to upgrade your hero. Upgrades are permanent and persist between games."
 		"data_panel_player_property_label_2"		"Points cannot be spent on locally hosted games. Please play on a dedicated server to spend points."

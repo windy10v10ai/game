@@ -130,6 +130,33 @@ function SetTopStatus(player) {
   $('#MemberPoint').text = player.memberPointTotal;
   $('#SeasonPoint').text = player.seasonPointTotal;
   $('#PropertyPoint').text = `${player.useableLevel} / ${player.totalLevel}`;
+
+  // 顶部 pill 只显总额，可用积分放进 hover tooltip
+  SetPointTooltip(
+    '#SeasonPointContainer',
+    '#data_panel_season_point_tooltip',
+    player.useableSeasonPoint,
+    player.seasonPointTotal,
+  );
+  SetPointTooltip(
+    '#MemberPointContainer',
+    '#data_panel_member_point_tooltip',
+    player.useableMemberPoint,
+    player.memberPointTotal,
+  );
+}
+
+function SetPointTooltip(panelId, locKey, useable, total) {
+  const panel = $(panelId);
+  const text = $.Localize(locKey)
+    .replace('{useable}', useable)
+    .replace('{total}', total);
+  panel.SetPanelEvent('onmouseover', () => {
+    $.DispatchEvent('DOTAShowTextTooltip', panel, text);
+  });
+  panel.SetPanelEvent('onmouseout', () => {
+    $.DispatchEvent('DOTAHideTextTooltip');
+  });
 }
 
 // 属性
@@ -154,7 +181,7 @@ function SetResetPropertyButton(player) {
   const resetUseSeasonPointButton = $('#ResetUseSeasonPoint');
   const text = $.Localize(`#reset_property_use_season_point`);
   $('#ResetUseSeasonPointText').text = text.replace('{seasonPoint}', player.seasonNextLevelPoint);
-  if (player.seasonPointTotal >= player.seasonNextLevelPoint) {
+  if (player.useableSeasonPoint >= player.seasonNextLevelPoint) {
     resetUseSeasonPointButton.SetHasClass('deactivated', false);
     resetUseSeasonPointButton.SetHasClass('activated', true);
     resetUseSeasonPointButton.SetPanelEvent('onactivate', () => {
@@ -168,7 +195,7 @@ function SetResetPropertyButton(player) {
 
   // 会员积分重置
   const resetUseMemberPointButton = $('#ResetUseMemberPoint');
-  if (player.memberPointTotal >= 1000) {
+  if (player.useableMemberPoint >= 1000) {
     resetUseMemberPointButton.SetHasClass('deactivated', false);
     resetUseMemberPointButton.SetHasClass('activated-gold', true);
     resetUseMemberPointButton.SetPanelEvent('onactivate', () => {
