@@ -156,6 +156,8 @@
 		"data_panel_member_point"		"会员积分 (可用/总数)"
 		"data_panel_season_point"		"勇士积分 (可用/总数)"
 		"data_panel_property_point"		"属性点 (可用/总数)"
+		"data_panel_season_point_tooltip"	"勇士积分（可用/总分：{useable}/{total}）"
+		"data_panel_member_point_tooltip"	"会员积分（可用/总分：{useable}/{total}）"
 
 		"data_panel_data_button"		"数据"
 		"data_panel_property_button"	"属性"
@@ -170,8 +172,8 @@
 		"data_panel_link_rule"			"经验属性规则说明"
 		"data_panel_member_point_rule_url"		"https://ifdian.net/p/24140a48680511ed9d3852540025c377"
 
-		"reset_property_use_season_point"		"消耗{seasonPoint}勇士积分重置"
-		"reset_property_use_member_point"		"消耗1000会员积分重置"
+		"reset_property_use_season_point"		"消耗{seasonPoint}可用勇士积分重置<br>(不会降低等级)"
+		"reset_property_use_member_point"		"消耗1000可用会员积分重置<br>(不会降低等级)"
 
 		"data_panel_player_property_label"		"使用属性点增强英雄，升级后属性及时生效。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
