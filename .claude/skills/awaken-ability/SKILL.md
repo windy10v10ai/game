@@ -58,14 +58,14 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
   "special_bonus_unique_xxx_upgrade"
   {
       "BaseClass"             "ability_lua"
-      "ScriptFile"            "abilities/special_bonus_unique_xxx_upgrade"
+      "ScriptFile"            "abilities/ts_abilities/special_bonus_unique_xxx_upgrade"
       "AbilityTextureName"    "xxx_some_icon"
       "MaxLevel"              "5"
       "AbilityValues" { ... }
   }
   ```
 
-- **`ScriptFile` 实现** → 纯 Lua 放 `game/scripts/vscripts/abilities/<name>.lua`（`class({})` + `LinkLuaModifier`，不经 TSTL）；TSTL 写法放 `src/vscripts/abilities/`。被动觉醒标准写法：`GetIntrinsicModifierName()` 返回一个隐藏内置 modifier，无需学习即生效，所有可调值从 KV `AbilityValues` 读取。
+- **`ScriptFile` 实现选型** → 与 `custom-ability` skill 同一优先级：① 含被动属性加成（攻速/护甲/移速/属性…）走 **DataDriven**（KV `Modifiers`→`Properties`，引擎原生求值最省，允许其中 `RunScript` 调少量 Lua 补动态值）→ ② 逻辑技能走 **TS（TSTL）**，源码放 `src/vscripts/abilities/`，KV `ScriptFile` 指向编译产物 `abilities/ts_abilities/<name>`（`@registerAbility`/`@registerModifier`，参考斧王 `axe_auto_culling_blade`、宙斯 `special_bonus_unique_zuus_upgrade`）→ ③ **纯 Lua 仅用于维护已有技能，不从零新写**。被动觉醒标准写法：`GetIntrinsicModifierName()` 返回一个隐藏内置 modifier，无需学习即生效，所有可调值从 KV `AbilityValues` 读取。
 
 - **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
