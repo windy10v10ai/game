@@ -340,12 +340,13 @@ TextEntry.MonoFont {
 }
 
 .LinkButton {
-  width: 60%;
-  height: 40px;
+  width: 65%;
+  height: fit-children;
+  padding: 6px 10px;
   vertical-align: center;
   horizontal-align: center;
-  margin: 20px;
-  /* 文字自动换行 */
+  margin: 10px;
+  /* 文字自动换行，按钮高度随行数自适应 */
   white-space: normal;
 }
 
@@ -499,6 +500,7 @@ TextEntry.MonoFont {
 }
 
 .ButtonText {
+  width: 100%;
   color: white;
   vertical-align: center;
   horizontal-align: center;
@@ -507,6 +509,7 @@ TextEntry.MonoFont {
   letter-spacing: 0px;
   font-size: 16px;
   text-shadow: 1px 1px 3px 3 black;
+  white-space: normal;
 }
 
 #BpPropertiesButtons {

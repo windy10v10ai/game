@@ -76,13 +76,11 @@
 			<!-- 顶部积分 -->
 			<Panel id="PlayerPointStats">
 				<Panel id="SeasonPointContainer" class="pointParent">
-					<Image id="SeasonPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
-						onmouseover="UIShowTextTooltipStyled( #data_panel_season_point_total, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+					<Image id="SeasonPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"/>
 					<Label id="SeasonPoint" class="pointNumber" text="18888" />
 				</Panel>
 				<Panel id="MemberPointContainer" class="pointParent">
-					<Image id="MemberPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
-						onmouseover="UIShowTextTooltipStyled( #data_panel_member_point_total, ShortTextTooltip )" onmouseout="UIHideTextTooltip()"/>
+					<Image id="MemberPointImage" class="pointIcon" src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"/>
 					<Label id="MemberPoint" class="pointNumber" text="18888" />
 				</Panel>
 				<Panel id="PropertyPointContainer" class="pointParent">
@@ -165,10 +163,10 @@
 					<Panel id="PropertyListContainer" class="SubContainer" />
 					<Panel id="PropertyResetContainer" class="SubContainer">
 						<Button id="ResetUseSeasonPoint" class="LinkButton">
-							<Label id="ResetUseSeasonPointText" class="ButtonText" text="#reset_property_use_season_point" />
+							<Label id="ResetUseSeasonPointText" class="ButtonText" html="true" text="#reset_property_use_season_point" />
 						</Button>
 						<Button id="ResetUseMemberPoint" class="LinkButton">
-							<Label id="ResetUseMemberPointText" class="ButtonText" text="#reset_property_use_member_point" />
+							<Label id="ResetUseMemberPointText" class="ButtonText" html="true" text="#reset_property_use_member_point" />
 						</Button>
 					</Panel>
 				</Panel>
