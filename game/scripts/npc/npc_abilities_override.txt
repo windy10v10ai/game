@@ -997,7 +997,7 @@
 			"max_stacks"
 			{
 				"value"					"8 10 12 14"
-				"special_bonus_unique_bristleback_upgrade"	"+6"	// 觉醒后战意上限提升
+				"special_bonus_unique_bristleback_upgrade"	"=20"	// 觉醒后战意上限固定提升至 20 层
 			}
 		}
 	}

@@ -1147,7 +1147,7 @@
 
 		// 钢背兽 自动喷刺
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>自动喷刺 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>自动施放</font><br><br>开启自动施法后，当范围内有敌方英雄时，钢背兽自动施放刺针扫射，并对最近的敌方英雄施放粘稠鼻液。<br><br><font color='#FFFFFF'>觉醒强化</font><br>粘稠鼻液：基础降甲提升至<font color='#FFFFFF'><b>10</b></font>点，每层降甲提升至<font color='#FFFFFF'><b>6</b></font>点，叠加上限提升至<font color='#FFFFFF'><b>10</b></font>层<br>刺针扫射：伤害上限提升至<font color='#FFFFFF'><b>1000</b></font><br>战意：叠加上限提升<font color='#FFFFFF'><b>6</b></font>层"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>自动施放</font><br><br>开启自动施法后，当范围内有敌方英雄时，钢背兽自动施放刺针扫射，并对最近的敌方英雄施放粘稠鼻液。<br><br><font color='#FFFFFF'>觉醒强化</font><br>粘稠鼻液：基础降甲提升至<font color='#FFFFFF'><b>10</b></font>点，每层降甲提升至<font color='#FFFFFF'><b>6</b></font>点，叠加上限提升至<font color='#FFFFFF'><b>10</b></font>层<br>刺针扫射：伤害上限提升至<font color='#FFFFFF'><b>1000</b></font><br>战意：叠加上限提升至<font color='#FFFFFF'><b>20</b></font>层"
 
 		///////////////////////////////////////////////////
 		//

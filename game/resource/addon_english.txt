@@ -1149,7 +1149,7 @@
 
 		// Bristleback Auto Quill
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>Auto Quill Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>Autocast</font><br><br>With autocast enabled, whenever enemy heroes are in range, Bristleback automatically fires Quill Spray and casts Viscous Nasal Goo on the nearest enemy hero.<br><br><font color='#FFFFFF'>Awakening Bonuses</font><br>Viscous Nasal Goo: base armor reduction raised to <font color='#FFFFFF'><b>10</b></font>, per-stack to <font color='#FFFFFF'><b>6</b></font>, stack limit raised to <font color='#FFFFFF'><b>10</b></font><br>Quill Spray: damage cap raised to <font color='#FFFFFF'><b>1000</b></font><br>Warpath: max stacks increased by <font color='#FFFFFF'><b>6</b></font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>Autocast</font><br><br>With autocast enabled, whenever enemy heroes are in range, Bristleback automatically fires Quill Spray and casts Viscous Nasal Goo on the nearest enemy hero.<br><br><font color='#FFFFFF'>Awakening Bonuses</font><br>Viscous Nasal Goo: base armor reduction raised to <font color='#FFFFFF'><b>10</b></font>, per-stack to <font color='#FFFFFF'><b>6</b></font>, stack limit raised to <font color='#FFFFFF'><b>10</b></font><br>Quill Spray: damage cap raised to <font color='#FFFFFF'><b>1000</b></font><br>Warpath: max stacks raised to <font color='#FFFFFF'><b>20</b></font>"
 
 		///////////////////////////////////////////////////
 		//
