@@ -83,7 +83,11 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 在觉醒石 `_Description` 的「支持的英雄」列表里加上该英雄名（中英同步）。
 
-### 5) 验证
+### 5) 觉醒预览页
+
+在 `src/panorama/react/hud_main/pages/profile/tabs/AwakenTab.tsx` 的 `AWAKEN_ABILITIES` 加一条 `{ heroName, abilityName }`。该列表是配置表的展示副本，需手动同步，否则新觉醒不会出现在个人中心「觉醒」页。
+
+### 6) 验证
 
 `npm run build:vscripts` 不报错 + `npx jest awaken-replacer` 过。槽位顺序 / 点数退还 / 飘字 / 运行时行为须 Dota tools 实跑确认。改完 vscripts 只看编译是否通过，不读编译产物 `.lua`。
 

@@ -1,4 +1,7 @@
-/** 觉醒替换配置：物品觉醒（路线 A）与未来数据觉醒（路线 B）共用同一张表 */
+/**
+ * 觉醒替换配置：物品觉醒（路线 A）与未来数据觉醒（路线 B）共用同一张表。
+ * 增删觉醒英雄后，记得同步更新觉醒预览页 AwakenTab.tsx 的 AWAKEN_ABILITIES。
+ */
 
 export interface AbilityReplacement {
   heroName: string;

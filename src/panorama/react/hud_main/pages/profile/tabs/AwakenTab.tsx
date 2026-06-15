@@ -30,6 +30,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
 export function AwakenTab() {
   return (
     <Panel className="awaken-layout">
+      <Panel className="awaken-intro">
+        <DOTAItemImage className="awaken-intro-icon" itemname="item_awaken_stone" />
+        <Label className="awaken-intro-text" html={true} text={$.Localize('#awaken_intro_desc')} />
+      </Panel>
       <Panel className="awaken-grid">
         {AWAKEN_ABILITIES.map(({ heroName, abilityName }) => (
           <Panel key={abilityName} className="awaken-card">
