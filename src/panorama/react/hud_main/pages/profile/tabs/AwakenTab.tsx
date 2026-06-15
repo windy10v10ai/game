@@ -25,6 +25,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     heroName: 'npc_dota_hero_drow_ranger',
     abilityName: 'special_bonus_unique_drow_ranger_upgrade',
   },
+  { heroName: 'npc_dota_hero_bristleback', abilityName: 'special_bonus_unique_bristleback_upgrade' },
 ];
 
 export function AwakenTab() {
@@ -39,12 +40,14 @@ export function AwakenTab() {
           <Panel key={abilityName} className="awaken-card">
             <DOTAHeroImage className="awaken-hero" heroname={heroName} heroimagestyle="portrait" />
             <Panel className="awaken-scrim" />
-            <DOTAAbilityImage
-              className="awaken-ability-icon"
-              abilityname={abilityName}
-              showtooltip={true}
-            />
-            <Label className="awaken-hero-name" text={$.Localize('#' + heroName)} />
+            <Panel className="awaken-bottom">
+              <DOTAAbilityImage
+                className="awaken-ability-icon"
+                abilityname={abilityName}
+                showtooltip={true}
+              />
+              <Label className="awaken-hero-name" text={$.Localize('#' + heroName)} />
+            </Panel>
           </Panel>
         ))}
       </Panel>

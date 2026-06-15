@@ -68,22 +68,26 @@
   border-bottom-right-radius: @radius-lg;
 }
 
+/* 图标+名字底部对齐的纵向 flow，名字永远在图标下方；两行名字只把图标上顶不会重叠 */
+.awaken-bottom {
+  width: 100%;
+  vertical-align: bottom;
+  flow-children: down;
+  padding-bottom: 8px;
+}
+
 /* 觉醒图标叠在立绘下部，深色阴影环绕与英雄底图分离 */
 .awaken-ability-icon {
   width: 44px;
   height: 44px;
   horizontal-align: center;
-  vertical-align: bottom;
-  margin-bottom: 26px;
+  margin-bottom: 6px;
   border-radius: 6px;
   box-shadow: 1px 2px 5px 2px #000000ee;
 }
 
 .awaken-hero-name {
   width: 100%;
-  vertical-align: bottom;
-  margin-top: 3px;
-  margin-bottom: 3px;
   text-align: center;
   font-size: @font-size-md;
   font-weight: bold;

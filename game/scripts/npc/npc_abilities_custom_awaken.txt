@@ -434,4 +434,15 @@
 			"projectile_speed"			"1250"
 		}
 	}
+
+	// 钢背兽 自动喷刺-觉醒
+	// 开启自动施法后，仅在范围内有敌方英雄时自动施放倒刺喷射与黏液（黏液锁最近英雄）
+	"special_bonus_unique_bristleback_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_bristleback_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"			"bristleback/bb_2022_immortal_ability_icon/bb_2022_immortal_bristleback"
+		"MaxLevel"						"1"
+	}
 }
