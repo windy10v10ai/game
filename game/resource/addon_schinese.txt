@@ -1097,7 +1097,7 @@
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得<font color='#FFCC66'>减益免疫</font>和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
@@ -1107,7 +1107,7 @@
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。 — by RN"
 
 		// 死灵法师 竭心光环-觉醒

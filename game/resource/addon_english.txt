@@ -1101,7 +1101,7 @@
 
 		// Juggernaut - Blade Fury Awakened
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, each second dealing magic damage to surrounding enemies equal to base damage plus a percentage of each enemy's max health. Grants debuff immunity and %magic_resistance_bonus%%% magic resistance, and can attack normally but with attack power reduced by %damage_reduction_pct%%%. Performs a strong dispel on himself when the spin ends."
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, each second dealing magic damage to surrounding enemies equal to base damage plus a percentage of each enemy's max health. Grants <font color='#FFCC66'>debuff immunity</font> and %magic_resistance_bonus%%% magic resistance, and can attack normally but with attack power reduced by %damage_reduction_pct%%%. Performs a strong dispel on himself when the spin ends."
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
@@ -1111,7 +1111,7 @@
 
 		// Axe - Ruthless Hand Awakened
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 
 		// Necrophos Heartstopper Aura - Awakened
