@@ -41,6 +41,8 @@ export class modifier_autocast_think extends BaseModifier {
     if (!IsServer()) return;
     const caster = this.GetParent();
     if (!caster.IsAlive()) return;
+    // 玩家正在持续释放（TP 等）时不抢操作，避免打断
+    if (caster.IsChanneling()) return;
     const ability = this.GetAbility() as unknown as AutoCastAbility;
     if (!ability.GetAutoCastState()) return;
     ability.OnAutoCastThink(caster as CDOTA_BaseNPC_Hero);
