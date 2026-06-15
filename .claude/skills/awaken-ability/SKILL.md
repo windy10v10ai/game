@@ -58,14 +58,14 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
   "special_bonus_unique_xxx_upgrade"
   {
       "BaseClass"             "ability_lua"
-      "ScriptFile"            "abilities/special_bonus_unique_xxx_upgrade"
+      "ScriptFile"            "abilities/ts_abilities/special_bonus_unique_xxx_upgrade"
       "AbilityTextureName"    "xxx_some_icon"
       "MaxLevel"              "5"
       "AbilityValues" { ... }
   }
   ```
 
-- **`ScriptFile` 实现** → 纯 Lua 放 `game/scripts/vscripts/abilities/<name>.lua`（`class({})` + `LinkLuaModifier`，不经 TSTL）；TSTL 写法放 `src/vscripts/abilities/`。被动觉醒标准写法：`GetIntrinsicModifierName()` 返回一个隐藏内置 modifier，无需学习即生效，所有可调值从 KV `AbilityValues` 读取。
+- **`ScriptFile` 实现选型** → 与 `custom-ability` skill 同一优先级：① 含被动属性加成（攻速/护甲/移速/属性…）走 **DataDriven**（KV `Modifiers`→`Properties`，引擎原生求值最省，允许其中 `RunScript` 调少量 Lua 补动态值）→ ② 逻辑技能走 **TS（TSTL）**，源码放 `src/vscripts/abilities/`，KV `ScriptFile` 指向编译产物 `abilities/ts_abilities/<name>`（`@registerAbility`/`@registerModifier`，参考斧王 `axe_auto_culling_blade`、宙斯 `special_bonus_unique_zuus_upgrade`）→ ③ **纯 Lua 仅用于维护已有技能，不从零新写**。被动觉醒标准写法：`GetIntrinsicModifierName()` 返回一个隐藏内置 modifier，无需学习即生效，所有可调值从 KV `AbilityValues` 读取。
 
 - **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
@@ -111,64 +111,57 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`。
 
-### 进阶 2：自动触发（开启自动施法后自动检测施放）
+### 进阶 2：autocast 自动触发（自动施放）
 
-主动型觉醒若手动按键违和，可改为「开启 autocast 后自动检测并施放」，保留技能原有的窗口/CD 逻辑：
+「开 autocast 后自动检测施放」类觉醒，**已有共享基类 `AutoCastAbility`（`src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts`），直接继承，不要重复造轮子**：
 
-- 技能 KV `AbilityBehavior` 含 `DOTA_ABILITY_BEHAVIOR_AUTOCAST`。
-- 给技能加常驻被动 modifier（`GetIntrinsicModifierName`），低频 `StartIntervalThink`。think 内判断：`GetAutoCastState()` 开启 + `IsCooldownReady()` + 当前没在执行窗口 + 检测到符合条件目标 → `SetCursorPosition(...)` + `CastAbilityImmediately(...)` 走原 `OnSpellStart`。
-- `CastAbilityImmediately` 会正常进 CD，`IsCooldownReady` 守卫防重复触发。
-- 检测目标的判定逻辑抽成技能层一个方法（如 `FindXxxTarget()`），被动 think 与原主动逻辑共用，避免重复。
+- KV：`BaseClass ability_lua`、`AbilityBehavior` = `NO_TARGET | IMMEDIATE | AUTOCAST`、`ScriptFile` 指向 `abilities/ts_abilities/...` 编译产物，**不写 `Modifiers`**（intrinsic modifier 由基类提供）。
+- 继承 `AutoCastAbility`，只实现 `OnAutoCastThink(caster)`；需要时覆写 `getThinkInterval()`（默认 0.3）。共享 `modifier_autocast_think` 负责 `IsServer / IsAlive / GetAutoCastState` 守卫后回调。
+- 基类 helper：`getFullCastRange`（含施法距离增强）、`findEnemiesInRange(caster, range, targetType, allowMagicImmune?)`（始终排除迷雾/隐身，可选命中魔免）、`castImmediatelyOnTarget`。
+- 施放用 **`CastAbilityImmediately`**：玩家英雄的背景自动施放**不能**用 order 式（`CastAbilityOnTarget` 等会打断玩家移动/攻击）。新基类/helper 统一放 `ts_abilities/shared/`。
 
-> 参考：斧王 `game/scripts/vscripts/abilities/axe_auto_culling_blade.lua`（autocast 自动斩杀 + `FindCullableEnemy` 共用）。
+> 参考：斧王 `ts_abilities/axe_auto_culling_blade.ts`（斩杀线阈值 + 可打魔免）、宙斯 `ts_abilities/special_bonus_unique_zuus_upgrade.ts`（英雄优先、雷击仅英雄、不打魔免）。
 
-### 进阶 3：数值仅觉醒后生效（special_bonus 关联）
+### 进阶 3：监听某技能施法后触发效果
 
-想让原技能的某个 KV 数值「仅在该英雄拥有觉醒技能时改变」（运行时无法干净改的固定值，如投射物速度），用觉醒技能名作为 `special_bonus` key：
+要在「英雄施放某个特定技能后」附带效果：
+
+- **Lua/TS intrinsic modifier**：modifier `DeclareFunctions` 返回 `MODIFIER_EVENT_ON_ABILITY_START`，`OnAbilityStart(keys)` 判断 `keys.unit == parent` 且 `keys.ability:GetAbilityName() == "目标技能名"`。不依赖技能 behavior，最通用。
+- **DataDriven modifier**：KV `Modifiers` 加 `"Passive" "1"` 常驻 modifier（配 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者 `keys.caster`。主动技（如 `UNIT_TARGET`）上也会常驻触发。
+
+> **关键坑**：不要为了让 listener 常驻而给主动技 `AbilityBehavior` 叠加 `DOTA_ABILITY_BEHAVIOR_PASSIVE`——实测会使该主动技**无法施放**。DataDriven 的 `Passive` modifier 不依赖技能 behavior 即可常驻，保持原主动 behavior 即可。
+
+> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（`UNIT_TARGET`，未加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听范例。
+
+### 进阶 4：数值仅觉醒后生效（special_bonus 关联）
+
+想让原技能某个 KV 数值「仅在该英雄拥有觉醒技能时改变」（运行时无法干净改的固定值，如投射物速度），用**觉醒技能名**作 `special_bonus` key 写进原技能 override KV：
 
 ```
 "dagger_speed"
 {
     "value"                                         "1200"
-    "special_bonus_unique_phantom_assassin_upgrade" "=2100"   // 觉醒后覆盖为2100
+    "special_bonus_unique_phantom_assassin_upgrade" "=2100"   // 觉醒后覆盖
 }
 ```
 
-引擎检测英雄拥有该 key 同名技能时自动应用。`=值` 覆盖、`+值` 增加。写在原技能的 override KV 里。
+`=值` 覆盖、`+值` 增加。引擎检测英雄拥有该 key 同名技能时自动应用。
 
 > 参考：PA 觉醒后潜匿之刺 `dagger_speed` 1200→2100。
 
-### 进阶 4：加魔免但不顶替真 BKB（工具函数）
+### 进阶 5：加魔免但不顶替真 BKB
 
-觉醒给英雄加魔法免疫时，若直接 `AddNewModifier("modifier_black_king_bar_immune")` 会缩短/顶掉玩家自己开的 BKB。用工具函数（`game/scripts/vscripts/util.lua`，全局可用）：
+给英雄加魔免时，直接 `AddNewModifier("modifier_black_king_bar_immune")` 会缩短/顶掉玩家自己的 BKB。一律走全局工具函数（`game/scripts/vscripts/util.lua`）：
 
 ```lua
 ApplyAwakenMagicImmunity(unit, ability, duration)
 ```
 
-它在已有相等或更长的 `modifier_black_king_bar_immune` 时跳过，否则加魔免 + 播 BKB 音效，**返回是否实际施加**。**所有觉醒加魔免一律走它**，不要各自手写比较逻辑。
+已有相等或更长的 BKB 时跳过，否则加魔免 + 播音效，**返回是否实际施加**。
 
-> 参考：影魔魂之挽歌前摇魔免、PA 闪烁魔免、PA 匕首施法魔免均复用此函数。
+**前摇加魔免要防取消刷新**：魔免绑在 `ON_ABILITY_START`（前摇开始）触发时，玩家可在前摇结束前取消再施法反复刷新（取消不进 CD、不耗蓝）。防法：仅当 `ApplyAwakenMagicImmunity` 返回 true 才启动取消检测；`StartIntervalThink` 轮询 `IsInAbilityPhase()`，前摇结束后若 `GetCooldownTimeRemaining() <= 0`（被取消）则移除；**移除前判据**——仅当 `modifier_black_king_bar_immune` 剩余 ≤ 本次魔免时长才 `Destroy()`，**绝不无条件 `RemoveModifierByName`**（同名 modifier 区分不了来源，会误删真 BKB）。
 
-**前摇加魔免要防取消刷新**：若魔免绑在 `ON_ABILITY_START`（前摇开始）触发，玩家可在前摇结束前取消施法、再施法反复刷新魔免（取消不进 CD、不耗蓝）。防法：
-- 用 `ApplyAwakenMagicImmunity` 的返回值——**仅当返回 true（真加了觉醒魔免）才启动取消检测**，否则（被更长 BKB 跳过）根本不该碰魔免。
-- `StartIntervalThink` 轮询该技能 `IsInAbilityPhase()`；前摇结束后若 `GetCooldownTimeRemaining() <= 0`（没进 CD）即被取消，移除这次魔免。
-- **移除前按剩余时间判据**：仅当 `modifier_black_king_bar_immune` 剩余 ≤ 觉醒魔免时长（无更长 BKB 接管）才 `Destroy()`，否则交给 BKB 自然到期。**绝不无条件 `RemoveModifierByName("modifier_black_king_bar_immune")`**——同名 modifier 无法区分来源，会误删玩家的真 BKB。
-
-> 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测。
-
-### 进阶 5：监听某技能施法后触发效果
-
-觉醒要在「英雄施放某个特定技能后」附带效果（如施法后加魔免）：
-
-- **Lua intrinsic modifier**（`ability_lua`）：`GetIntrinsicModifierName` 返回一个 Lua modifier，其 `DeclareFunctions` 返回 `MODIFIER_EVENT_ON_ABILITY_START`，`OnAbilityStart(keys)` 里判断 `keys.unit == parent` 且 `keys.ability:GetAbilityName() == "目标技能名"`。不依赖技能 behavior，最通用。
-- **DataDriven modifier**（`ability_datadriven`）：在 KV `Modifiers` 加 `"Passive" "1"` 的常驻 modifier（加 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。函数里被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者是 `keys.caster`。这个 listener 在主动型觉醒（如 `UNIT_TARGET`）上也会常驻并触发，无需技能是 passive。
-
-> **关键坑**：不要为了让 listener 常驻而给主动技 `AbilityBehavior` 叠加 `DOTA_ABILITY_BEHAVIOR_PASSIVE`——实测会使该主动技**无法施放**。DataDriven 的 `Passive` modifier 不依赖技能 behavior 即可常驻，保持原主动 behavior 即可。
-
-施法后的附带魔免配合进阶 4 的工具函数。
-
-> 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（`UNIT_TARGET`，未加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted` 监听 `phantom_assassin_stifling_dagger`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听的范例。
+> 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测；PA 闪烁/匕首魔免。
 
 ---
 

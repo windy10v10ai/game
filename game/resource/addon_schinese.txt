@@ -156,6 +156,8 @@
 		"data_panel_member_point"		"会员积分 (可用/总数)"
 		"data_panel_season_point"		"勇士积分 (可用/总数)"
 		"data_panel_property_point"		"属性点 (可用/总数)"
+		"data_panel_season_point_tooltip"	"勇士积分（可用/总分：{useable}/{total}）"
+		"data_panel_member_point_tooltip"	"会员积分（可用/总分：{useable}/{total}）"
 
 		"data_panel_data_button"		"数据"
 		"data_panel_property_button"	"属性"
@@ -170,8 +172,8 @@
 		"data_panel_link_rule"			"经验属性规则说明"
 		"data_panel_member_point_rule_url"		"https://ifdian.net/p/24140a48680511ed9d3852540025c377"
 
-		"reset_property_use_season_point"		"消耗{seasonPoint}勇士积分重置"
-		"reset_property_use_member_point"		"消耗1000会员积分重置"
+		"reset_property_use_season_point"		"消耗{seasonPoint}可用勇士积分重置<br>(不会降低等级)"
+		"reset_property_use_member_point"		"消耗1000可用会员积分重置<br>(不会降低等级)"
 
 		"data_panel_player_property_label"		"使用属性点增强英雄，升级后属性及时生效。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
@@ -200,6 +202,7 @@
 		"data_panel_player_property_ignore_movespeed_limit"		"无视移速上限"
 		"data_panel_player_property_cannot_miss"				"克敌机先"
 		"data_panel_player_property_flying"						"飞行状态"
+		"data_panel_player_property_slow_immune"				"减速免疫"
 		"data_panel_player_property_skill_points_bonus"			"额外技能点"
 		"data_panel_player_property_bonus_vision"				"额外视野"
 
@@ -1081,7 +1084,7 @@
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br><font color='#00ff00'>觉醒升级：施法距离和钩子速度随帕吉的力量值增加，每点力量增加%hook_distance_per_strength%，额外距离上限%hook_max_distance_bonus%。</font>"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br>大幅提升施法距离与钩子速度。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
@@ -1092,23 +1095,18 @@
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，对周围敌人造成基础伤害+当前攻击力%attack_damage_pct%%%的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性。<br>可以正常攻击，但攻击力降低。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage_reduction_pct"		"%攻击力降低："
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_health_damage_pct"			"%每秒最大生命伤害："
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom"							"剑刃风暴"
 		"DOTA_Tooltip_modifier_juggernaut_blade_fury_custom_Description"				"魔抗增加、减益免疫，对周围敌人造成伤害。"
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，斧王会自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放；触发后的持续时间内持续自动斩杀。<br><br>斩杀线 = 淘汰之刃阈值 + 斧王收获的额外护甲<br><br>斩杀时会突进到敌人身边。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。 — by RN"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_duration"							"持续时间："
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_check_interval"						"斩杀间隔："
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_increase_damage_per_kill"			"每次斩杀提升伤害："
-		"DOTA_Tooltip_modifier_axe_auto_culling_blade"									"无情铁手"
-		"DOTA_Tooltip_modifier_axe_auto_culling_blade_Description"						"已斩杀 %dMODIFIER_PROPERTY_STACKS_COUNT% 次敌人，淘汰之刃伤害获得永久提升。"
 
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
@@ -1123,7 +1121,7 @@
 
 		// 宙斯 神王-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>神王 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯会自动普攻弧形闪电和雷击命中的目标。"
+		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"开启自动施法后，宙斯自动对施法距离内的敌人施放弧形闪电与雷击。<br><br>优先对英雄施法，范围内只有小兵时仅施放弧形闪电。"
 
 		// 幻影刺客 幻影突袭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
@@ -1134,14 +1132,16 @@
 
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医的死亡守卫额外继承本体%damage_percentage%%%的攻击力。<br><br>巫医智慧突破极限，可以沟通神明召唤更多的死亡守卫（上限%max_ward_num%个），但额外守卫无基础攻击力。"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_damage_percentage"	"%守卫继承攻击力："
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_intvalve"		"额外1个死亡守卫所需智力："
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_max_ward_num"	"额外守卫上限："
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前的技能增强等比提升。"
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得10个灵魂，击杀小兵获得3个灵魂。"
+
+		// 卓尔游侠 裂影箭
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%触发概率："
 
 		///////////////////////////////////////////////////
 		//
@@ -1367,37 +1367,9 @@
 		// 虚空假面 逆转时空
 		"DOTA_Tooltip_ability_faceless_void_time_zone_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
 
-// 俄罗斯轮盘赌
-"DOTA_Tooltip_ability_russian_roulette"                                 "赌命（隐藏）"
-"DOTA_Tooltip_ability_russian_roulette_Description"                     "掏出左轮,把你的手套扔到对方的脸上,向他发起俄罗斯轮盘赌。在6秒内,双方交替开枪,其中随机的一枪是致命的。<br><br>如果敌人死亡,冷却时间减少100%%。<br><br>技能生效期间双方被禁锢。<br><br>技能等级和双方等级可能影响赌局的公平。\n\n驱散类型:无法被驱散"
-"DOTA_Tooltip_ability_russian_roulette_Lore"                            "RN: 队友之间可以用的，快快快"
-"DOTA_Tooltip_ability_russian_roulette_interval"                        "射击间隔:"
-"DOTA_Tooltip_ability_russian_roulette_AbilityCastRange"                "施法距离:"
-
-"DOTA_Tooltip_modifier_russian_roulette_root"                "赌命"
-"DOTA_Tooltip_modifier_russian_roulette_root_Description"   "当前轮盘序列: %dMODIFIER_PROPERTY_TOOLTIP%"
-
-"DOTA_Tooltip_ability_ability_copy_item"                    "山寨（隐藏）"
-"DOTA_Tooltip_ability_ability_copy_item_Description"        "持续施法1.5秒后,随机复制范围内任意英雄的一件装备到自己的物品栏。打断或死亡则失败。"
-"DOTA_Tooltip_ability_ability_copy_item_search_radius"      "搜索范围:"
-"DOTA_Tooltip_ability_ability_copy_item_channel_duration"   "持续施法时间:"
-"DOTA_Tooltip_ability_ability_copy_item_Lore"                            "RN: 藏在阴影里，手不停的动，不知道在干什么"
-
 "DOTA_Tooltip_ability_item_skill_talisman"                  "符箓（隐藏）"
 "DOTA_Tooltip_ability_item_skill_talisman_Description"    "拥有该装备后释放的第一个技能将被存储。使用后释放存储的技能,无冷却无施法前摇。可堆叠,可完全分享。后续购买的符箓自动继承已存储的技能。<br><br><font color='#70EA72'>当前存储技能: %stored_ability%</font>"
 "DOTA_Tooltip_modifier_skill_talisman_display"                "符箓存储的技能"
-// 英雄附身
-"DOTA_Tooltip_ability_hero_possession"                              "剑来（隐藏）"
-"DOTA_Tooltip_ability_hero_possession_Description"                  "召唤同英雄历史上的剑灵附身。获得全部装备，属性和技能。<br><br>附身期间,请勿对英灵的装备动歪心思。<br><br>持续时间结束后,所有效果将被移除并恢复你原本的状态。"
-"DOTA_Tooltip_ability_hero_possession_Lore"                         "RN: 剑来！"
-"DOTA_Tooltip_ability_hero_possession_duration"                     "持续时间:"
-"DOTA_Tooltip_ability_hero_possession_Note0"                        "附身装备在效果期间无法丢弃或出售。"
-"DOTA_Tooltip_ability_hero_possession_Note1"                        "来自属性书和银月的属性加成以临时modifier形式应用。"
-
-		"DOTA_Tooltip_modifier_hero_possession"                             "剑灵附身"
-		"DOTA_Tooltip_modifier_hero_possession_Description"                 "正在召唤传奇英雄的力量。获得他们的装备、属性和技能。"
-		"DOTA_Tooltip_modifier_item_hero_possession_stats"                    "剑灵附身"
-		"DOTA_Tooltip_modifier_item_hero_possession_stats_Description"        "被传奇英雄的力量附身。获得 +%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% 力量、+%dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% 敏捷、+%dMODIFIER_PROPERTY_STATS_INTELLECT_BONUS% 智力、+%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% 攻击速度、+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强 和 +%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% 状态抗性。"
 
 		//技能书
 		"DOTA_Tooltip_Ability_item_skill_learning"                    "技能书"
@@ -2540,7 +2512,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 被动技能书

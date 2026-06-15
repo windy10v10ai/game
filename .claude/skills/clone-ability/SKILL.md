@@ -81,8 +81,8 @@ files:
 | BaseClass 值 | 处理 |
 |---|---|
 | 原版技能名（如 `dragon_knight_dragon_blood`） | 继续 |
-| `ability_datadriven` | **停止**：「该技能为 DataDriven 类型，请人工处理。」 |
-| `ability_lua` | **停止**：「该技能为 Lua 类型，请人工处理。」 |
+| `ability_datadriven` | **停止**：该技能非继承原版，属从零自制 → 转 `custom-ability` skill。 |
+| `ability_lua` | **停止**：该技能非继承原版，属从零自制 → 转 `custom-ability` skill。 |
 
 ---
 
