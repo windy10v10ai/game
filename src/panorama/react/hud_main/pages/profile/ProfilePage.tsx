@@ -4,10 +4,11 @@ import { useNetTable } from '../../../shared/hooks/useNetTable';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { useNavigation } from '../../store/NavigationContext';
 import { StatsTab } from './tabs/StatsTab';
+import { AwakenTab } from './tabs/AwakenTab';
 import { MemberTab } from './tabs/member';
 import { MemberSubTab } from './tabs/member/constants';
 
-export type ProfileTabId = 'stats' | 'member';
+export type ProfileTabId = 'stats' | 'awaken' | 'member';
 
 interface ProfilePageProps {
   // 支持 'tab' 或 'tab:subTab'（如 'member:points'）定位到一级 tab 内的子页
@@ -16,6 +17,7 @@ interface ProfilePageProps {
 
 const PROFILE_TABS: { id: ProfileTabId; label: string }[] = [
   { id: 'stats', label: $.Localize('#profile_tab_stats') },
+  { id: 'awaken', label: $.Localize('#profile_tab_awaken') },
   { id: 'member', label: $.Localize('#profile_tab_member') },
 ];
 
@@ -90,6 +92,7 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
 
       <Panel className="content-area">
         {currentTab === 'stats' && <StatsTab />}
+        {currentTab === 'awaken' && <AwakenTab />}
         {currentTab === 'member' && (
           <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
         )}

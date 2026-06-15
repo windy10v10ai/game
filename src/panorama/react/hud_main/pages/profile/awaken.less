@@ -1,0 +1,51 @@
+// 觉醒 Tab 样式：觉醒技能预览网格
+@import "../../../shared/styles/tokens.less";
+
+.awaken-layout {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+}
+
+.awaken-grid {
+  width: 100%;
+  height: fit-children;
+  flow-children: right-wrap;
+  horizontal-align: center;
+}
+
+.awaken-card {
+  width: 150px;
+  height: 150px;
+  flow-children: down;
+  margin: 8px;
+  padding: 10px;
+  background-image: url("s2r://panorama/images/backgrounds/gallery_background_png.vtex");
+  border: 1px solid @color-gold-soft;
+  border-radius: @radius-lg;
+}
+
+.awaken-hero {
+  width: 64px;
+  height: 36px;
+  horizontal-align: center;
+  margin-bottom: 6px;
+}
+
+.awaken-ability-icon {
+  width: 56px;
+  height: 56px;
+  horizontal-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 6px #d000ff;
+}
+
+.awaken-hero-name {
+  width: 100%;
+  margin-top: 6px;
+  text-align: center;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+}

@@ -286,6 +286,7 @@
 		///////////////////////////////////////////////////
 		"profile_title"					"个人中心"
 		"profile_tab_stats"				"战绩"
+		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
 
 		// Stat Tab UI

@@ -286,6 +286,7 @@
 		///////////////////////////////////////////////////
 		"profile_title"					"Profile"
 		"profile_tab_stats"				"Stats"
+		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
 
 		// Stat Tab UI
