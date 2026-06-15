@@ -279,6 +279,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
 - **Net Table 清行不能传 nil**: `CustomNetTables.SetTableValue(table, key, nil)` 在 Dota 引擎下是 **noop**，不会删除或同步空值给客户端。如需清行，传**空 table**（数组类用 `[]`、对象类用 `{}`），客户端 `Object.values(value).length === 0` 即可识别为空
 - **React Panorama 条件返回不同 panel 结构会渲染失败**: 在 React 组件中根据状态返回**完全不同的 JSX 结构**（例如 `if (empty) return <Panel collapse />; return <Panel>...复杂子树...</Panel>;`）会导致 panel 在 Panorama DOM 中始终缺失。改为**始终渲染同一 panel 树**，用 `style={{ visibility: cond ? 'visible' : 'collapse' }}` 切换显隐
+- **不吃技能增强须显式标 flag，不靠物理类型**: 自定义技能用 `ApplyDamage` 造成物理伤害时，**不要**依赖「物理类型隐式不吃 spell amp」这条经验来确保不被技能增强放大。引擎判定是否吃技能增强的真正开关是伤害标志位，要明确排除时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`（本项目技能增强是自定义属性 `property_spell_amplify_percentage` 实现，更不应靠隐式行为）
 
 ### 图片资源管理
 

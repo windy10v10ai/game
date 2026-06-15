@@ -1138,6 +1138,11 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得10个灵魂，击杀小兵获得3个灵魂。"
 
+		// 卓尔游侠 裂影箭
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%触发概率："
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
@@ -2507,7 +2512,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 被动技能书
