@@ -59,16 +59,14 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
     if (damage <= 0) return;
 
     const maxTargets = ability.GetSpecialValueFor('splinter_targets');
-    const radius = ability.GetSpecialValueFor('splinter_radius');
     const projectileSpeed = ability.GetSpecialValueFor('projectile_speed');
     const slowDuration = ability.GetSpecialValueFor('slow_duration');
     const frostArrows = parent.FindAbilityByName('drow_ranger_frost_arrows');
-
     const enemies = FindUnitsInRadius(
       parent.GetTeamNumber(),
       target.GetAbsOrigin(),
       undefined,
-      radius,
+      ability.GetSpecialValueFor('splinter_radius'),
       UnitTargetTeam.ENEMY,
       UnitTargetType.HERO + UnitTargetType.BASIC,
       UnitTargetFlags.NONE,
@@ -79,34 +77,44 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
     let hit = 0;
     for (const enemy of enemies) {
       if (enemy === target || enemy.IsNull() || !enemy.IsAlive()) continue;
-
-      ProjectileManager.CreateTrackingProjectile({
-        Target: enemy,
-        Source: parent,
-        Ability: ability,
-        EffectName: 'particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf',
-        iMoveSpeed: projectileSpeed,
-        bDodgeable: false,
-      });
-
-      ApplyDamage({
-        victim: enemy,
-        attacker: parent,
-        damage,
-        damage_type: DamageTypes.PHYSICAL,
-        damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION,
-        ability,
-      });
-
-      // 复用霜冻箭减速，随其等级强弱
-      if (frostArrows && frostArrows.GetLevel() > 0) {
-        enemy.AddNewModifier(parent, frostArrows, 'modifier_drow_ranger_frost_arrows_slow', {
-          duration: slowDuration,
-        });
-      }
-
+      this.fireSplinter(parent, ability, enemy, damage, projectileSpeed, slowDuration, frostArrows);
       hit += 1;
       if (hit >= maxTargets) break;
+    }
+  }
+
+  // 对单个敌人射出一支分裂箭：弹道 + 物理伤害（不吃技能增强）+ 霜冻减速
+  private fireSplinter(
+    parent: CDOTA_BaseNPC,
+    ability: CDOTABaseAbility,
+    enemy: CDOTA_BaseNPC,
+    damage: number,
+    projectileSpeed: number,
+    slowDuration: number,
+    frostArrows?: CDOTABaseAbility,
+  ): void {
+    ProjectileManager.CreateTrackingProjectile({
+      Target: enemy,
+      Source: parent,
+      Ability: ability,
+      EffectName: 'particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf',
+      iMoveSpeed: projectileSpeed,
+      bDodgeable: false,
+    });
+
+    ApplyDamage({
+      victim: enemy,
+      attacker: parent,
+      damage,
+      damage_type: DamageTypes.PHYSICAL,
+      damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION,
+      ability,
+    });
+
+    if (frostArrows && frostArrows.GetLevel() > 0) {
+      enemy.AddNewModifier(parent, frostArrows, 'modifier_drow_ranger_frost_arrows_slow', {
+        duration: slowDuration,
+      });
     }
   }
 }
