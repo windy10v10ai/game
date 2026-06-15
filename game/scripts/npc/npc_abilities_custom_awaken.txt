@@ -398,4 +398,40 @@
 			"invulnerability_duration"	"1.67"
 		}
 	}
+
+	// 卓尔游侠 裂影箭-觉醒
+	// 新增被动：普攻有概率分裂出数支箭射向主目标周围的敌人，造成本次攻击伤害的百分比并附带霜冻箭减速
+	// 技能名同时作 special_bonus key 挂回 marksmanship，使精准箭触发概率提升（见 override 联动）
+	"special_bonus_unique_drow_ranger_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_drow_ranger_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"drow_ranger_multishot_arcana"
+		"MaxLevel"						"4"
+		"LinkedAbility"					"drow_ranger_marksmanship"	// 与大招射手天赋双向联动同步升级
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_drow.vsndevts"
+		}
+
+		"AbilityValues"
+		{
+			"splinter_chance"
+			{
+				"value"										"30 35 40 45"	// 与射手天赋同概率
+				"special_bonus_unique_drow_ranger_3"		"+13"			// 同吃射手天赋的概率天赋
+			}
+			"splinter_targets"			"2"
+			"splinter_radius"			"500"
+			"splinter_damage_pct"		"40"
+			"slow_duration"				"1.5"
+			"projectile_speed"			"1250"
+		}
+	}
 }

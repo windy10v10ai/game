@@ -74,4 +74,11 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_nevermore_upgrade',
     newLevel: 1,
   },
+  // 卓尔游侠 裂影箭（新增被动，与大招射手天赋 LinkedAbility 同步升级，初始等级继承大招）
+  {
+    heroName: 'npc_dota_hero_drow_ranger',
+    newAbility: 'special_bonus_unique_drow_ranger_upgrade',
+    newLevel: 0,
+    inheritLevelFrom: 'drow_ranger_marksmanship',
+  },
 ];

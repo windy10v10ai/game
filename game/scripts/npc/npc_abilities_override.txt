@@ -5100,6 +5100,7 @@
 	"drow_ranger_marksmanship"
 	{
 		"MaxLevel" "4"
+		"LinkedAbility"	"special_bonus_unique_drow_ranger_upgrade"	// 与觉醒裂影箭双向联动同步升级
 		"AbilityValues"
 		{
 			"chance"
