@@ -1,4 +1,7 @@
-/** 觉醒替换配置：物品觉醒（路线 A）与未来数据觉醒（路线 B）共用同一张表 */
+/**
+ * 觉醒替换配置：物品觉醒（路线 A）与未来数据觉醒（路线 B）共用同一张表。
+ * 增删觉醒英雄后，记得同步更新觉醒预览页 AwakenTab.tsx 的 AWAKEN_ABILITIES。
+ */
 
 export interface AbilityReplacement {
   heroName: string;
@@ -80,5 +83,11 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_drow_ranger_upgrade',
     newLevel: 0,
     inheritLevelFrom: 'drow_ranger_marksmanship',
+  },
+  // 钢背兽 自动喷刺（新增 autocast 总开关：有敌方英雄时自动黏液+倒刺）
+  {
+    heroName: 'npc_dota_hero_bristleback',
+    newAbility: 'special_bonus_unique_bristleback_upgrade',
+    newLevel: 1,
   },
 ];

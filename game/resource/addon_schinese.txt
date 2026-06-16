@@ -286,7 +286,9 @@
 		///////////////////////////////////////////////////
 		"profile_title"					"个人中心"
 		"profile_tab_stats"				"战绩"
+		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
+		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
@@ -918,7 +920,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。"
+		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。 — by RN"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
@@ -1095,7 +1097,7 @@
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得<font color='#FFCC66'>减益免疫</font>和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
@@ -1105,7 +1107,7 @@
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。 — by RN"
 
 		// 死灵法师 竭心光环-觉醒
@@ -1136,12 +1138,16 @@
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得10个灵魂，击杀小兵获得3个灵魂。"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。"
 
 		// 卓尔游侠 裂影箭
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%触发概率："
+
+		// 钢背兽 自动喷刺
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>自动喷刺 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>自动施放</font><br><br>开启自动施法后，当范围内有敌方英雄时，钢背兽自动施放刺针扫射，并对最近的敌方英雄施放粘稠鼻液。<br><br><font color='#FFFFFF'>觉醒强化</font><br>粘稠鼻液：基础降甲提升至<font color='#FFFFFF'><b>10</b></font>点，每层降甲提升至<font color='#FFFFFF'><b>6</b></font>点，叠加上限提升至<font color='#FFFFFF'><b>10</b></font>层<br>刺针扫射：伤害上限提升至<font color='#FFFFFF'><b>1000</b></font><br>战意：叠加上限提升至<font color='#FFFFFF'><b>20</b></font>层"
 
 		///////////////////////////////////////////////////
 		//
@@ -2512,7 +2518,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠、钢背兽\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 被动技能书
