@@ -75,6 +75,7 @@
 
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
+		"game_preset_remember"			"保存难度设置"
 		"custom_game_vote"				"投票倒计时"
 		"map_dota_warning"				"当前地图无法选择此难度。<br>想选择N1~N5难度时，请在游戏开始前选择 [Dota] 地图"
 		"map_hard_warning"				"当前地图无法选择此难度。<br>想选择N6或N7难度时，请在游戏开始前选择 [HARD] 地图"
