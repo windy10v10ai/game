@@ -4,13 +4,13 @@ LinkLuaModifier("modifier_assassinate_caster_crit", "heroes/hero_sniper/sniper_a
 	LUA_MODIFIER_MOTION_NONE)
 
 
-sniper_assassinate_upgrade = class({})
+special_bonus_unique_sniper_assassinate_upgrade = class({})
 
-function sniper_assassinate_upgrade:GetAOERadius()
+function special_bonus_unique_sniper_assassinate_upgrade:GetAOERadius()
 	return self:GetSpecialValueFor("scepter_radius")
 end
 
-function sniper_assassinate_upgrade:OnUpgrade()
+function special_bonus_unique_sniper_assassinate_upgrade:OnUpgrade()
 	local caster = self:GetCaster()
 	local keen_scope = caster:FindAbilityByName("sniper_keen_scope")
 
@@ -19,7 +19,7 @@ function sniper_assassinate_upgrade:OnUpgrade()
 	end
 end
 
-function sniper_assassinate_upgrade:OnSpellStart()
+function special_bonus_unique_sniper_assassinate_upgrade:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_point = self:GetCursorPosition()
 	local radius = self:GetSpecialValueFor("scepter_radius")
@@ -77,7 +77,7 @@ function sniper_assassinate_upgrade:OnSpellStart()
 	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
 end
 
-function sniper_assassinate_upgrade:FireAssassinateProjectiles()
+function special_bonus_unique_sniper_assassinate_upgrade:FireAssassinateProjectiles()
 	local caster = self:GetCaster()
 	-- 获取施法者的攻击弹道粒子效果
 	local attack_particle = caster:GetRangedProjectileName()
@@ -109,7 +109,7 @@ function sniper_assassinate_upgrade:FireAssassinateProjectiles()
 	end
 end
 
--- function sniper_assassinate_upgrade:OnProjectileHit(target, location)
+-- function special_bonus_unique_sniper_assassinate_upgrade:OnProjectileHit(target, location)
 -- 	if not target then return end
 
 -- 	local caster = self:GetCaster()

@@ -34,7 +34,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
   {
     heroName: 'npc_dota_hero_sniper',
     targetAbility: 'sniper_assassinate',
-    newAbility: 'sniper_assassinate_upgrade',
+    newAbility: 'special_bonus_unique_sniper_assassinate_upgrade',
     newLevel: 0,
   },
   // 斧王 自动淘汰之刃（插入 slot 3，与大招淘汰之刃 LinkedAbility 同步升级，初始等级继承大招）

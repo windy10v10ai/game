@@ -108,7 +108,7 @@
 
 	// 狙击手 觉醒刺杀
 	// 改为可主动施放的群体暗杀，附带暴击
-	"sniper_assassinate_upgrade"
+	"special_bonus_unique_sniper_assassinate_upgrade"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_sniper/sniper_assassinate_upgrade"
