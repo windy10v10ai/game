@@ -7289,6 +7289,11 @@
 				"special_bonus_unique_sniper_headshot_damage"	"+60"	// +30
 			}
 			"slow_duration"					"0.2 0.3 0.4 0.5 0.6"
+			"proc_chance"
+			{
+				"value"						"40"
+				"sniper_assassinate_upgrade"	"=100"	// 觉醒刺杀后必定爆头击退
+			}
 		}
 	}
 	// 瞄准
