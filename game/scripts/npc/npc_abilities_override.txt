@@ -7292,7 +7292,7 @@
 			"proc_chance"
 			{
 				"value"						"40"
-				"sniper_assassinate_upgrade"	"=100"	// 觉醒刺杀后必定爆头击退
+				"sniper_assassinate_upgrade"	"=100"	// 觉醒暗杀后必定爆头击退
 			}
 		}
 	}
