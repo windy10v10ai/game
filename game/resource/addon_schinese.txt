@@ -1139,7 +1139,7 @@
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
 
 		// 卓尔游侠 裂影箭
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
@@ -1149,6 +1149,10 @@
 		// 钢背兽 自动喷刺
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>自动喷刺 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>自动施放</font><br><br>开启自动施法后，当范围内有敌方英雄时，钢背兽自动施放刺针扫射，并对最近的敌方英雄施放粘稠鼻液。<br><br><font color='#FFFFFF'>觉醒强化</font><br>粘稠鼻液：基础降甲提升至<font color='#FFFFFF'><b>10</b></font>点，每层降甲提升至<font color='#FFFFFF'><b>6</b></font>点，叠加上限提升至<font color='#FFFFFF'><b>10</b></font>层<br>刺针扫射：伤害上限提升至<font color='#FFFFFF'><b>1000</b></font><br>战意：叠加上限提升至<font color='#FFFFFF'><b>20</b></font>层"
+
+		// 莉娜 神灭斩
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>神灭斩 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的<font color='#FFE56E'>纯粹伤害</font>，该伤害受技能增强影响。"
 
 		///////////////////////////////////////////////////
 		//
@@ -2519,7 +2523,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠、钢背兽\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠、钢背兽、莉娜\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 被动技能书

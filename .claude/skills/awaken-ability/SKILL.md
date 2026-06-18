@@ -81,6 +81,7 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 **正文关键词颜色（统一）**：
 - 魔法免疫 / 减益免疫等保护类关键词 → 金色 `#FFCC66`（参考 PA、影魔）
+- 伤害类型关键词（正文内联的「纯粹伤害 / 魔法伤害」等）→ 纯粹 `#FFE56E`（金色）、魔法 `#05CAFF`（蓝色）。项目既有约定，新增照此对齐
 - 自动施放 / 触发类提示 → 红色 `#FF0000`（参考斧王、肉钩）
 - 神杖升级说明 → 白色 `#FFFFFF` 配「神杖升级：」前缀（参考死灵竭心光环、火枪暗杀）
 - **写死的数值** → 引擎只对 `%key%` 变量自动套白色粗体，正文里手写的具体数字不会变色，须**手动**包成 `<font color='#FFFFFF'><b>数字</b></font>`（白色粗体，模拟引擎数值样式；参考钢背兽、影魔觉醒）。每个技能的强化各占一行（`<br>` 分隔）。
@@ -134,10 +135,12 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 ### 进阶 3：监听某技能施法后触发效果
 
-要在「英雄施放某个特定技能后」附带效果：
+要在「英雄施放某个特定技能后」附带效果。下面两种实现**不是对等选项**，按步骤 2 的选型优先级选（① 被动属性加成尤其可能卡顿的 → DataDriven ② 逻辑技能 → TS ③ 纯 Lua 只维护已有不从零写；详见 `custom-ability` skill）：监听 + 造成伤害是**逻辑**，**从零新增一律走 TS**；DataDriven 一节仅作为「维护已有 datadriven 技能」的范例，不要据此从零新写。
 
-- **Lua/TS intrinsic modifier**：modifier `DeclareFunctions` 返回 `MODIFIER_EVENT_ON_ABILITY_START`，`OnAbilityStart(keys)` 判断 `keys.unit == parent` 且 `keys.ability:GetAbilityName() == "目标技能名"`。不依赖技能 behavior，最通用。
-- **DataDriven modifier**：KV `Modifiers` 加 `"Passive" "1"` 常驻 modifier（配 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者 `keys.caster`。主动技（如 `UNIT_TARGET`）上也会常驻触发。
+- **TS intrinsic modifier（从零新增首选）**：`@registerModifier` 的 modifier 在 `DeclareFunctions` 声明事件，回调里判 `event.unit == parent` 且 `event.ability.GetAbilityName() == "目标技能名"`。不依赖技能 behavior，最通用。**先想清触发时机选对事件**：
+  - `MODIFIER_EVENT_ON_ABILITY_START` → `OnAbilityStart`：**前摇开始**就触发（玩家可在前摇结束前取消施法）。只适合需要前摇期就生效的效果（如前摇加魔免防打断，见影魔现有觉醒）。**不要**用它结算附加伤害——玩家取消施法即可反复白嫖。
+  - `MODIFIER_EVENT_ON_ABILITY_FULLY_CAST` → `OnAbilityFullyCast`：**前摇走完、真正 OnSpellStart** 才触发，等价「释放完成」。附加伤害/附加效果一律用这个。目标技能是单体指向时，伤害数值可直接 `event.ability.GetSpecialValueFor("xxx")` 读触发技能当前等级的值，天然随其等级/神杖/天赋分级，无需自带 KV 数值。
+- **DataDriven modifier（仅维护已有）**：KV `Modifiers` 加 `"Passive" "1"` 常驻 modifier（配 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者 `keys.caster`。主动技（如 `UNIT_TARGET`）上也会常驻触发。
 
 > **关键坑**：不要为了让 listener 常驻而给主动技 `AbilityBehavior` 叠加 `DOTA_ABILITY_BEHAVIOR_PASSIVE`——实测会使该主动技**无法施放**。DataDriven 的 `Passive` modifier 不依赖技能 behavior 即可常驻，保持原主动 behavior 即可。
 

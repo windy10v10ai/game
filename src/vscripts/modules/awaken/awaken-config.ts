@@ -90,4 +90,10 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_bristleback_upgrade',
     newLevel: 1,
   },
+  // 莉娜 神灭斩觉醒（新增被动：施放神灭斩附带等额纯粹伤害）
+  {
+    heroName: 'npc_dota_hero_lina',
+    newAbility: 'special_bonus_unique_lina_upgrade',
+    newLevel: 1,
+  },
 ];

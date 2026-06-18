@@ -384,7 +384,7 @@
 	}
 
 	// 影魔 魂之挽歌护体-觉醒
-	// 新增被动：释放魂之挽歌前摇期间获得魔法免疫；并提升支配死灵击杀英雄灵魂=10、小兵=3（见 override 联动）
+	// 新增被动：释放魂之挽歌前摇期间获得魔法免疫；提升支配死灵击杀英雄灵魂=10、小兵=3（见 override 联动）；提升施法速度降低暗影压制与魂之挽歌抬手
 	"special_bonus_unique_nevermore_upgrade"
 	{
 		"BaseClass"						"ability_lua"
@@ -396,7 +396,19 @@
 		"AbilityValues"
 		{
 			"invulnerability_duration"	"1.67"
+			"cast_speed_pct"			"50"
 		}
+	}
+
+	// 莉娜 神灭斩-觉醒
+	// 新增被动：每次施放神灭斩，对目标额外造成等同大招当前伤害的纯粹伤害（吃技能增强）
+	"special_bonus_unique_lina_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_lina_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"lina/lina_ti6_immortal/lina_laguna_blade"
+		"MaxLevel"						"1"
 	}
 
 	// 卓尔游侠 裂影箭-觉醒

@@ -29,6 +29,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     heroName: 'npc_dota_hero_bristleback',
     abilityName: 'special_bonus_unique_bristleback_upgrade',
   },
+  { heroName: 'npc_dota_hero_lina', abilityName: 'special_bonus_unique_lina_upgrade' },
 ];
 
 export function AwakenTab() {
