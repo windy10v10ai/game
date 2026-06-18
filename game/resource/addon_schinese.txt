@@ -3282,6 +3282,7 @@
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 		"dota_hud_error_awaken_stone_unsupported"										"该英雄暂未拥有可觉醒的技能"
 		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
+		"dota_hud_error_assassinate_no_target"											"范围内没有敌方英雄"
 		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
 		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
 

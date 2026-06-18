@@ -10,6 +10,36 @@ function special_bonus_unique_sniper_assassinate_upgrade:GetAOERadius()
 	return self:GetSpecialValueFor("scepter_radius")
 end
 
+function special_bonus_unique_sniper_assassinate_upgrade:_GetEnemyHeroesAt(vLocation)
+	return FindUnitsInRadius(
+		self:GetCaster():GetTeamNumber(),
+		vLocation,
+		nil,
+		self:GetSpecialValueFor("scepter_radius"),
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE +
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+		FIND_ANY_ORDER,
+		false
+	)
+end
+
+-- 范围内无敌方英雄则拦截施法（不进CD、不耗蓝），配套飘字
+function special_bonus_unique_sniper_assassinate_upgrade:CastFilterResultLocation(vLocation)
+	if #self:_GetEnemyHeroesAt(vLocation) == 0 then
+		return UF_FAIL_CUSTOM
+	end
+	return UF_SUCCESS
+end
+
+function special_bonus_unique_sniper_assassinate_upgrade:GetCustomCastErrorLocation(vLocation)
+	if #self:_GetEnemyHeroesAt(vLocation) == 0 then
+		return "#dota_hud_error_assassinate_no_target"
+	end
+	return ""
+end
+
 function special_bonus_unique_sniper_assassinate_upgrade:OnUpgrade()
 	local caster = self:GetCaster()
 	local keen_scope = caster:FindAbilityByName("sniper_keen_scope")
@@ -22,22 +52,8 @@ end
 function special_bonus_unique_sniper_assassinate_upgrade:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_point = self:GetCursorPosition()
-	local radius = self:GetSpecialValueFor("scepter_radius")
 
-	-- 直接查找目标，不依赖数据驱动系统
-	local targets = FindUnitsInRadius(
-		caster:GetTeamNumber(),
-		target_point,
-		nil,
-		radius,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE +
-		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
-		FIND_ANY_ORDER,
-		false
-	)
-
+	local targets = self:_GetEnemyHeroesAt(target_point)
 	if #targets == 0 then
 		return
 	end

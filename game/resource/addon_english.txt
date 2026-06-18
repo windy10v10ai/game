@@ -3239,6 +3239,7 @@
 		"dota_hud_error_no_runes"														"No runes available to transmute in inventory!"
 		"dota_hud_error_awaken_stone_unsupported"										"This hero has no ability to awaken"
 		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
+		"dota_hud_error_assassinate_no_target"											"No enemy heroes in range"
 		"dota_hud_error_passive_skill_tome_max_usage"									"Passive Skill Tome usage limit reached"
 		"dota_hud_error_ward_no_cast_zone"												"Cannot place wards near Roshan's pit"
 
