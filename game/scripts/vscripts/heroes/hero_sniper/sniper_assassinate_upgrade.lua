@@ -4,13 +4,43 @@ LinkLuaModifier("modifier_assassinate_caster_crit", "heroes/hero_sniper/sniper_a
 	LUA_MODIFIER_MOTION_NONE)
 
 
-sniper_assassinate_upgrade = class({})
+special_bonus_unique_sniper_assassinate_upgrade = class({})
 
-function sniper_assassinate_upgrade:GetAOERadius()
+function special_bonus_unique_sniper_assassinate_upgrade:GetAOERadius()
 	return self:GetSpecialValueFor("scepter_radius")
 end
 
-function sniper_assassinate_upgrade:OnUpgrade()
+function special_bonus_unique_sniper_assassinate_upgrade:_GetEnemyHeroesAt(vLocation)
+	return FindUnitsInRadius(
+		self:GetCaster():GetTeamNumber(),
+		vLocation,
+		nil,
+		self:GetSpecialValueFor("scepter_radius"),
+		DOTA_UNIT_TARGET_TEAM_ENEMY,
+		DOTA_UNIT_TARGET_HERO,
+		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE +
+		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+		FIND_ANY_ORDER,
+		false
+	)
+end
+
+-- 范围内无敌方英雄则拦截施法（不进CD、不耗蓝），配套飘字
+function special_bonus_unique_sniper_assassinate_upgrade:CastFilterResultLocation(vLocation)
+	if #self:_GetEnemyHeroesAt(vLocation) == 0 then
+		return UF_FAIL_CUSTOM
+	end
+	return UF_SUCCESS
+end
+
+function special_bonus_unique_sniper_assassinate_upgrade:GetCustomCastErrorLocation(vLocation)
+	if #self:_GetEnemyHeroesAt(vLocation) == 0 then
+		return "#dota_hud_error_assassinate_no_target"
+	end
+	return ""
+end
+
+function special_bonus_unique_sniper_assassinate_upgrade:OnUpgrade()
 	local caster = self:GetCaster()
 	local keen_scope = caster:FindAbilityByName("sniper_keen_scope")
 
@@ -19,32 +49,18 @@ function sniper_assassinate_upgrade:OnUpgrade()
 	end
 end
 
-function sniper_assassinate_upgrade:OnSpellStart()
+function special_bonus_unique_sniper_assassinate_upgrade:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_point = self:GetCursorPosition()
-	local radius = self:GetSpecialValueFor("scepter_radius")
 
-	-- 直接查找目标，不依赖数据驱动系统
-	local targets = FindUnitsInRadius(
-		caster:GetTeamNumber(),
-		target_point,
-		nil,
-		radius,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		DOTA_UNIT_TARGET_HERO,
-		DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE +
-		DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
-		FIND_ANY_ORDER,
-		false
-	)
-
+	local targets = self:_GetEnemyHeroesAt(target_point)
 	if #targets == 0 then
 		return
 	end
 
 	-- 存储目标并发射弹道
 	self.tTargets = targets
-	-- self:FireAssassinateProjectiles()
+	self:FireAssassinateProjectiles()
 
 
 	--EmitSoundOn("Hero_Sniper.AssassinateDamage", target)
@@ -57,7 +73,8 @@ function sniper_assassinate_upgrade:OnSpellStart()
 
 	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
 	for _, target in pairs(self.tTargets) do
-		caster:PerformAttack(target, true, true, true, false, true, false, true)
+		-- 不走普攻弹道，视觉由 FireAssassinateProjectiles 的大招弹道承担，避免双弹道
+		caster:PerformAttack(target, true, true, true, false, false, false, true)
 		-- 额外伤害与眩晕随弹道命中结算，避免瞬发先于子弹到达
 		local travel_time = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() / projectile_speed
 		Timers:CreateTimer(travel_time, function()
@@ -77,15 +94,9 @@ function sniper_assassinate_upgrade:OnSpellStart()
 	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
 end
 
-function sniper_assassinate_upgrade:FireAssassinateProjectiles()
+function special_bonus_unique_sniper_assassinate_upgrade:FireAssassinateProjectiles()
 	local caster = self:GetCaster()
-	-- 获取施法者的攻击弹道粒子效果
-	local attack_particle = caster:GetRangedProjectileName()
-
-	-- 如果没有攻击弹道，使用默认的
-	if not attack_particle or attack_particle == "" then
-		attack_particle = "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
-	end
+	local attack_particle = "particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
 	for _, target in pairs(self.tTargets) do
 		caster:EmitSound("Hero_Sniper.AssassinateProjectile")
 		ProjectileManager:CreateTrackingProjectile({
@@ -109,7 +120,7 @@ function sniper_assassinate_upgrade:FireAssassinateProjectiles()
 	end
 end
 
--- function sniper_assassinate_upgrade:OnProjectileHit(target, location)
+-- function special_bonus_unique_sniper_assassinate_upgrade:OnProjectileHit(target, location)
 -- 	if not target then return end
 
 -- 	local caster = self:GetCaster()
