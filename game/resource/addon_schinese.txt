@@ -2227,8 +2227,8 @@
 
 		// consecrated_wraps_2 炽天使的圣化圣衣
 		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>神器·急支糖衣</font>"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>被动：神圣化</h1>每%stack_gain_time%秒获得一层叠加效果，最多为%max_stacks%层。获得一层叠加效果时，移动速度提升%movement_speed_pct_on_stack_gain%%%，持续%duration%秒。<br><br>只要受到来自玩家控制单位或肉山的伤害，所有叠加效果都会被消耗，并获得全伤害护盾，持续%duration%秒，每层叠加效果可以吸收%barrier_per_stack%点伤害（最高为%max_barrier_tooltip%点）。"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"受到来自玩家控制单位或肉山的伤害后%stack_gain_time%秒内无法获得叠加效果。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>被动：神圣化</h1>每%AbilityChargeRestoreTime%秒获得一层叠加效果，最多为%max_stacks%层。获得一层叠加效果时，移动速度提升%movement_speed_pct_on_stack_gain%%%，持续%duration%秒。<br><br>只要受到来自玩家控制单位或肉山的伤害，所有叠加效果都会被消耗，并获得全伤害护盾，持续%duration%秒，每层叠加效果可以吸收%barrier_per_stack%点伤害（最高为%max_barrier_tooltip%点）。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"受到来自玩家控制单位或肉山的伤害后%AbilityChargeRestoreTime%秒内无法获得叠加效果。"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"对自身的伤害和生命流失伤害无法移除叠加效果。"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"移动速度加成效果不会叠加。"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"只有在装备了这件物品后至少达到过一次最高叠加层数才会提供移动速度加成。"

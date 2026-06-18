@@ -2207,8 +2207,8 @@
 
 		// consecrated_wraps_2
 		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %stack_gain_time%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %stack_gain_time%s after you take damage from a player-controlled unit or Roshan."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %AbilityChargeRestoreTime%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %AbilityChargeRestoreTime%s after you take damage from a player-controlled unit or Roshan."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"Self-damage and HP Loss damage cannot remove stacks."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"Movement speed buff does not stack."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"Movement speed buff is only provided if you have reached maximum stacks at least once while the item is equipped."
