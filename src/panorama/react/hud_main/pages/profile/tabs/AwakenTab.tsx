@@ -8,7 +8,10 @@ import React from 'react';
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
   { heroName: 'npc_dota_hero_pudge', abilityName: 'pudge_meat_hook_lua' },
   { heroName: 'npc_dota_hero_juggernaut', abilityName: 'juggernaut_blade_fury_custom' },
-  { heroName: 'npc_dota_hero_sniper', abilityName: 'special_bonus_unique_sniper_assassinate_upgrade' },
+  {
+    heroName: 'npc_dota_hero_sniper',
+    abilityName: 'special_bonus_unique_sniper_assassinate_upgrade',
+  },
   { heroName: 'npc_dota_hero_axe', abilityName: 'axe_auto_culling_blade' },
   { heroName: 'npc_dota_hero_necrolyte', abilityName: 'necrolyte_heartstopper_aura_datadriven' },
   { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
