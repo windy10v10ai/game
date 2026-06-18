@@ -1245,6 +1245,10 @@
 	// 船长
 	"npc_dota_hero_kunkka"
 	{
+		"Ability4"		"kunkka_torrent_storm"
+		"Ability8"		"kunkka_admirals_rum"
+		"Ability17"		"special_bonus_spell_aoe_100"
+		"Ability16"		"special_bonus_unique_kunkka_tidebringer_armor_pierce"
 		"Bot"
 		{
 			"Build"
@@ -1278,7 +1282,7 @@
 				"27"		"special_bonus_unique_kunkka_rum_duration"
 				"28"		"special_bonus_unique_kunkka_2"
 				"29"		"special_bonus_unique_kunkka_4"
-				"30"		"special_bonus_unique_kunkka_tidebringer_armor_pierce"
+				"30"		"" // **special_bonus_unique_kunkka_tidebringer_armor_pierce**
 				"31"		"kunkka_x_marks_the_spot"
 			}
 		}

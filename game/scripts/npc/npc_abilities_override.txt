@@ -1944,66 +1944,72 @@
 	{
 		"AbilityValues"
 		{
-				"speed"		"900"
+				"speed"		"900"	// **900** [700]
 				"radius"
 				{
-					"value"		"900"
+					"value"		"900"	// **900** [750]
 				}
-				"duration"		"2.5"
-				"knockback_distance"		"800"
+				"duration"		"2.5"	// **2.5** [1.0]
+				"knockback_distance"		"1200"	// **800** [600]
 		}
 	}
 	// 洪流
 	"kunkka_torrent"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel"						"5"	// **5** [4]
 		"AbilityValues"
 		{
-			"slow_duration"				"1 2 3 4 5"
+			"slow_duration"				"1 2 3 4 5"	// **1 2 3 4 5** [1 2 3 4]
 			"torrent_damage"
 			{
-				"value"			"110 180 250 320 390"
+				"value"			"110 180 250 320 390"	// **110 180 250 320 390** [110 180 250 320]
 			}
 			"AbilityCooldown"
 			{
-				"value"						"14 13 12 11 10"
+				"value"						"12 11 10 9 8"	// **14 13 12 11 10** [16 14 12 10]
 			}
 			"stun_duration"
 			{
-				"value"								"1"		// 1.4
+				"value"								"1.2"		// **1** [1.4]
 			}
 		}
 	}
 	// 潮汐使者 水刀
 	"kunkka_tidebringer"
 	{
-		"MaxLevel"						"5"
+		"MaxLevel"						"5"	// **5** [4]
 		"AbilityValues"
 		{
 			"cleave_ending_width"
 			{
-				"value"		"500 550 600 650 700"
+				"value"		"700 800 900 1000 1100"	// **500 550 600 650 700** [500 550 600 650]
 			}
 			"cleave_distance"
 			{
-				"value"			"650 775 900 1025 1150"
+				"value"			"900 1050 1200 1350 1500"	// **650 775 900 1025 1150** [650 775 900 1025]
 			}
 			"damage_bonus"
 			{
-				"value"			"35 70 105 140 175"
+				"value"			"130 160 190 220 250"	// **35 70 105 140 175** [35 70 105 140]
+				"special_bonus_unique_kunkka_2"		"+150" // **+75** [+75]
 			}
 			"AbilityCooldown"
 			{
-				"value"					"12.0 10.0 8.0 6.0 4.0"
+				"value"					"7.0 6.0 5.0 4.0 3.0"	// **12.0 10.0 8.0 6.0 4.0** [13.0 10.0 7.0 4.0]
+			}
+			"pierces_armor"
+			{
+				"value"		"0"
+				"special_bonus_unique_kunkka_tidebringer_armor_pierce"	"+100" // **+25** [+25]
 			}
 		}
 	}
 	// 标记
 	"kunkka_x_marks_the_spot"
 	{
-		"MaxLevel"						"5"
-		"AbilityCastRange"				"550 700 850 1000 1150"
-		"AbilityCooldown"				"20 18 16 14 12"
+		"MaxLevel"						"5"	// **5** [4]
+		"AbilityCastRange"				"700 900 1100 1300 1500"	// **550 700 850 1000 1150** [550 700 850 1000]
+		"AbilityCooldown"				"16 14 12 10 8"	// **20 18 16 14 12** [24 20 16 12]
 	}
 	// 统帅朗姆酒 先天
 	"kunkka_admirals_rum"
@@ -2012,32 +2018,84 @@
 		{
 			"ghostship_absorb"
 			{
-				"value"					"40"		// 18 大招有双倍效果，必须小于50
+				"value"					"40"		// **40** [18] 大招有双倍效果，必须小于50
 			}
 			"movespeed_bonus"
 			{
-				"value"					"15.5"		// 7.75 x2
-				"hero_levelup"			"+0.5"		// +0.25 x2
+				"value"					"15.5"		// **15.5** [7.75] x2
+				"hero_levelup"			"+0.5"		// **+0.5** [+0.25] x2
 			}
 			"AbilityCooldown"
 			{
-				"value"					"30.25"		// 60.5 x0.5
-				"hero_levelup"			"-0.25"		// -0.5 x0.5
+				"value"					"30.25"		// **30.25** [50.5] x0.5
+				"hero_levelup"			"-0.25"		// **-0.25** [-0.5] x0.5
 			}
 		}
 	}
 	// 幽灵船
 	"kunkka_ghostship"
 	{
-		"MaxLevel" "4"
-		"AbilityDamage"					"350 475 600 725"
-		"AbilityManaCost"				"125 175 225 275"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// **SPELL_IMMUNITY_ENEMIES_NO**
+		"MaxLevel" "4"	// **4** [3]
+		"AbilityDamage"					"400 600 800 1000"	// **350 475 600 725** [350 475 600]
+		"AbilityManaCost"				"125 175 225 275"	// **125 175 225 275** [125 175 225]
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"90 80 70 60"
+				"value"					"55 50 45 40"	// **90 80 70 60** [90 80 70]
 			}
+		}
+	}
+	// 洪流浪潮 ( scepter ability )
+	"kunkka_torrent_storm"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"1"
+		"FightRecapLevel"				"1"
+		"IsGrantedByScepter"			"1"
+		"HasScepterUpgrade"				"1"
+		"AbilitySound"					"Ability.Torrent"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"				"1000"
+		// Time
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"275"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+				"torrent_interval"
+				{
+					"special_bonus_scepter"				"0.2"
+				}
+				"torrent_duration"
+				{
+					"special_bonus_scepter"				"10.0"
+				}
+				"torrent_min_distance"
+				{
+					"special_bonus_scepter"				"115"
+				}
+				"torrent_max_distance"
+				{
+					"special_bonus_scepter"				"1100"
+					"affected_by_aoe_increase"	"1"
+				}
 		}
 	}
 	//=================================================================================================================
@@ -3201,7 +3259,7 @@
 			}
 			"AbilityCastRange"
 			{
-				"value"								"900"	// 550 625 700 775
+				"value"								"900"	// [750]	// 550 625 700 775
 				"special_bonus_unique_sand_king_8"	"+300"	// +200
 			}
 		}
@@ -8106,7 +8164,7 @@
 		{
 			"corrosive_radius"
 			{
-				"value"			"900"	// 500
+				"value"			"900"	// [750]	// 500
 				"affected_by_aoe_increase"	"1"
 			}
 			"dive_speed"
@@ -8602,7 +8660,7 @@
 			"clone_duration"			"3"	// 5
 			"frostbite_radius"
 			{
-				"value"						"900"	// 450 x2
+				"value"						"900"	// [750]	// 450 x2
 			}
 		}
 	}
@@ -11103,7 +11161,7 @@
 		{
 				"purge_damage"
 				{
-					"value" "900"		// 450 x2
+					"value" "900"	// [750]		// 450 x2
 				}
 		}
 	}
@@ -11872,7 +11930,7 @@
 			"stun_duration"				"1.6"	// 0.8
 			"aoe"
 			{
-				"value"			"900"	// 600
+				"value"			"900"	// [750]	// 600
 				"affected_by_aoe_increase"	"1"
 			}
 			"golem_hp"
@@ -12451,7 +12509,7 @@
 		{
 			"AbilityCastRange"
 			{
-				"value"			"900"	// 600
+				"value"			"900"	// [750]	// 600
 			}
 			"invis_duration"			"2.0 2.4 2.8 3.2 3.6"
 			"move_speed"				"10 18 26 34 42"	// 0 8 16 24 +10
@@ -12778,7 +12836,7 @@
 		{
 			"radius"
 			{
-				"value"						"900"		// 800
+				"value"						"900"	// [750]		// 800
 			}
 			"armor_per_stack"				"8 12 16 20"	// 2 3 4 x4
 			"song_cost_reduction_per_stack_tooltip"	"1 1.5 2 2.5"
