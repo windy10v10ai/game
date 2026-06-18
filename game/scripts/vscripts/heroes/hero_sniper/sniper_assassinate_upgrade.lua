@@ -44,7 +44,7 @@ function special_bonus_unique_sniper_assassinate_upgrade:OnSpellStart()
 
 	-- 存储目标并发射弹道
 	self.tTargets = targets
-	-- self:FireAssassinateProjectiles()
+	self:FireAssassinateProjectiles()
 
 
 	--EmitSoundOn("Hero_Sniper.AssassinateDamage", target)
@@ -57,7 +57,8 @@ function special_bonus_unique_sniper_assassinate_upgrade:OnSpellStart()
 
 	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
 	for _, target in pairs(self.tTargets) do
-		caster:PerformAttack(target, true, true, true, false, true, false, true)
+		-- 不走普攻弹道，视觉由 FireAssassinateProjectiles 的大招弹道承担，避免双弹道
+		caster:PerformAttack(target, true, true, true, false, false, false, true)
 		-- 额外伤害与眩晕随弹道命中结算，避免瞬发先于子弹到达
 		local travel_time = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() / projectile_speed
 		Timers:CreateTimer(travel_time, function()
@@ -79,13 +80,7 @@ end
 
 function special_bonus_unique_sniper_assassinate_upgrade:FireAssassinateProjectiles()
 	local caster = self:GetCaster()
-	-- 获取施法者的攻击弹道粒子效果
-	local attack_particle = caster:GetRangedProjectileName()
-
-	-- 如果没有攻击弹道，使用默认的
-	if not attack_particle or attack_particle == "" then
-		attack_particle = "particles/units/heroes/hero_sniper/sniper_base_attack.vpcf"
-	end
+	local attack_particle = "particles/units/heroes/hero_sniper/sniper_assassinate.vpcf"
 	for _, target in pairs(self.tTargets) do
 		caster:EmitSound("Hero_Sniper.AssassinateProjectile")
 		ProjectileManager:CreateTrackingProjectile({
