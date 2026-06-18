@@ -946,6 +946,9 @@
 	// 死亡先知
 	"npc_dota_hero_death_prophet"
 	{
+		"Ability6"		"death_prophet_swarm_attack"
+		"Ability14"		"special_bonus_attack_range_100"
+		"Ability17"		"special_bonus_spell_aoe_100"
 		"Bot"
 		{
 			"Build"
@@ -1241,6 +1244,12 @@
 				"31"		"juggernaut_blade_fury"
 			}
 		}
+	}
+	// 小鹿
+	"npc_dota_hero_enchantress"
+	{
+		"Ability17"		"special_bonus_unique_enchantress_2"
+		"Ability14"		"special_bonus_unique_enchantress_3"
 	}
 	// 船长
 	"npc_dota_hero_kunkka"

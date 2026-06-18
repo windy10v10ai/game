@@ -62,6 +62,7 @@
 		"fixed_ability_ability_trigger_on_move_name"		"蝴蝶效应 · 橙影"
 		"fixed_ability_ability_trigger_on_cast_name"		"蝴蝶效应 · 红魔"
 		"fixed_ability_ability_trigger_learned_skills_name"	"蝴蝶效应 · 蓝武"
+		"fixed_ability_death_prophet_swarm_attack_name"	"我！即是虫群！"
 		"fixed_ability_ability_trigger_on_active_name"		"蝴蝶效应 · 紫啸"
 		"fixed_ability_ability_trigger_on_spell_reflect_name"	"蝴蝶效应 · 绿莲"
 		"fixed_ability_ability_charge_damage_name"			"蝴蝶效应 · 青凝"
@@ -1001,6 +1002,10 @@
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note6"						"• 两段式技能和取消技能"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note7"						"• 卡尔的元素球和融合技能"
 
+		// 死亡先知新大招·我！即是虫群！（攻击触发-地穴虫群）
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack"							"我！即是虫群！"
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_Description"				"被动：我说了我是虫群你耳聋吗？普攻有概率触发地穴虫群，伪随机触发。触发后技能冷却时间会恢复正常。"
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_basic_trigger_chance"		"%触发地穴虫群概率："
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"									"<font color='#FF0000'>蝴蝶效应 · 红魔</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>被动：入魔</font></h1>施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发。与多重施法互斥。孙悟空模型无法触发。<br><br>普通技能触发概率：%basic_trigger_chance%%%<br>终极技能触发概率：%ultimate_trigger_chance%%%<br>"

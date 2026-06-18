@@ -62,6 +62,7 @@
 		"fixed_ability_ability_trigger_on_move_name"		"Butterfly Effect - Orange"
 		"fixed_ability_ability_trigger_on_cast_name"		"Butterfly Effect - Red"
 		"fixed_ability_ability_trigger_learned_skills_name"	"Butterfly Effect - Blue"
+		"fixed_ability_death_prophet_swarm_attack_name"	"I AM THE SWARM!"
 		"fixed_ability_ability_trigger_on_active_name"		"Butterfly Effect - Purple"
 		"fixed_ability_ability_trigger_on_spell_reflect_name"	"Butterfly Effect - Green"
 		"fixed_ability_ability_charge_damage_name"			"Butterfly Effect - Cyan"
@@ -1007,6 +1008,10 @@
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note6"						"• Two-stage abilities and cancel abilities"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note7"						"• Invoker's orbs and fusion abilities"
 
+		// 死亡先知新大招·我！即是虫群！（攻击触发-地穴虫群）
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack"							"I AM THE SWARM!"
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_Description"				"Passive: Be the Swarm Attacks have a chance to trigger Crypt Swarm with pseudo-random distribution. Cooldown will be restored after triggering."
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_basic_trigger_chance"		"%Crypt Swarm Trigger Chance:"
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"									"<font color='#FF0000'>Butterfly Effect: Red</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>Passive: Spell Echo</font></h1>When you cast an ability, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. Mutually exclusive with multiple cast. Monkey King model cannot trigger.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br>"
