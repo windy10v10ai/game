@@ -50,6 +50,20 @@ export class Game {
         Player.MergePlayerInfo(player);
       }
 
+      // 按 playerId 发布，方便加载界面用 GetLocalPlayerID 读取
+      PlayerHelper.ForEachPlayer((playerId) => {
+        const steamId = PlayerResource.GetSteamAccountID(playerId);
+        const setting = Player.playerInfoMap.get(steamId.toString())?.playerSetting;
+        if (!setting) return;
+        if (setting.gamePresetDota || setting.gamePresetHard || setting.gamePresetCustom) {
+          CustomNetTables.SetTableValue('game_preset', playerId.toString(), {
+            dota: setting.gamePresetDota,
+            hard: setting.gamePresetHard,
+            custom: setting.gamePresetCustom,
+          });
+        }
+      });
+
       // pointInfo 仅在开局一次性下发到 net table，无需保留在 class 中
       const pointInfoBySteamId = new Map<number, PointInfoDto[]>();
       for (const info of gameStart.pointInfo) {

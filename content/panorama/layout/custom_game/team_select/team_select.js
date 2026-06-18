@@ -11,6 +11,12 @@ var g_TEAM_SPECATOR = 1;
 
 var g_DifficultyChosen = false;
 
+// 按地图保存预设相关状态
+var g_userInteracted = false; // 玩家是否手动点过难度（避免预设覆盖手动选择）
+var g_presetApplied = false; // 预设是否已应用（仅应用一次）
+var g_suppressSave = false; // 程序化应用预设时抑制回存
+var g_presetRemembered = false; // 本图当前是否已保存预设（决定勾选框初值与发送判定）
+
 //--------------------------------------------------------------------------------------------------
 // Handler for when the Lock and Start button is pressed
 //--------------------------------------------------------------------------------------------------
@@ -301,7 +307,7 @@ function SetDifficultyByMapName() {
     disableDifficultyButton(button, '#map_custom_warning');
   }
 
-  // 根据地图名字，设置难度选择
+  // custom 图自动选择自定义难度（预设开关在所有图通用，无需隐藏）
   if (mapDisplayName === 'custom') {
     OnChooseDifficulty(0);
   }
@@ -360,6 +366,75 @@ function OnChooseDifficulty(difficulty) {
   GameEvents.SendCustomGameEventToServer('choose_difficulty', {
     difficulty: difficulty,
   });
+
+  if (!g_suppressSave) {
+    g_userInteracted = true;
+  }
+}
+
+/**
+ * 加载本地玩家已保存的难度预设并应用（仅 dota/hard，仅应用一次）
+ */
+function OnGamePresetChange(_table, key, value) {
+  if (key !== String(Game.GetLocalPlayerID())) {
+    return;
+  }
+  ApplyDifficultyPreset(value);
+}
+
+function ApplyDifficultyPreset(value) {
+  if (!value || g_presetApplied) {
+    return;
+  }
+  const mapDisplayName = Game.GetMapInfo().map_display_name;
+  g_presetApplied = true;
+
+  let slotExists = false;
+  if (mapDisplayName === 'dota' || mapDisplayName === 'hard') {
+    const slot = mapDisplayName === 'dota' ? value.dota : value.hard;
+    // failover：保存的难度按钮在当前画面不存在则跳过
+    if (slot && $('#DifficultyN' + slot.difficulty)) {
+      slotExists = true;
+      if (!g_userInteracted && !g_DifficultyChosen) {
+        g_suppressSave = true;
+        OnChooseDifficulty(slot.difficulty);
+        g_suppressSave = false;
+      }
+    }
+  } else if (mapDisplayName === 'custom') {
+    // custom 的 KV 由加载界面回填，这里只负责勾选框初值
+    slotExists = !!value.custom;
+  }
+
+  if (slotExists) {
+    g_presetRemembered = true;
+    $('#RememberDifficultyToggle').checked = true;
+  }
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function OnRememberDifficultyToggle() {
+  SyncPresetIntent();
+}
+
+/** 同步「是否记住」意图给服务端（电平触发，内容去重在服务端做）。 */
+function SyncPresetIntent() {
+  if (g_suppressSave) {
+    return;
+  }
+  const remember = $('#RememberDifficultyToggle').checked;
+  if (remember) {
+    GameEvents.SendCustomGameEventToServer('save_game_preset', {
+      mapName: Game.GetMapInfo().map_display_name,
+      remember: true,
+    });
+  } else if (g_presetRemembered) {
+    GameEvents.SendCustomGameEventToServer('save_game_preset', {
+      mapName: Game.GetMapInfo().map_display_name,
+      remember: false,
+    });
+  }
+  g_presetRemembered = remember;
 }
 
 /**
@@ -387,6 +462,9 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
     button.RemoveClass('selected');
     button.AddClass('deactivated');
   }
+
+  // 定稿时同步一次，覆盖未手动翻转勾选框的情况
+  SyncPresetIntent();
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -462,4 +540,10 @@ function OnGameDifficultyChoiceChange(_table, key, value) {
 
   // 根据地图名字，设置难度选择
   SetDifficultyByMapName();
+
+  // 已保存难度预设：开局后由服务端写入 game_preset，订阅后应用
+  CustomNetTables.SubscribeNetTableListener('game_preset', OnGamePresetChange);
+  ApplyDifficultyPreset(
+    CustomNetTables.GetTableValue('game_preset', String(Game.GetLocalPlayerID())),
+  );
 })();

@@ -92,6 +92,7 @@ no_support_abilitys = {
 	legion_commander_duel = 1,                      -- 军团指挥官 决斗
 	ability_ward_observer_slot = 1,                 -- 额外假眼槽位
 	ability_ward_sentry_slot = 1,                   -- 额外真眼槽位
+	witch_doctor_voodoo_switcheroo = 1,             -- 巫医 魔晶变身（多重会导致英雄消失）
 }
 no_support_items = {
 	-- 消耗品

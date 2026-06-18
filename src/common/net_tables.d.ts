@@ -1,4 +1,4 @@
-import { PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
+import { GamePresetCustomOptions, PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -15,6 +15,14 @@ declare global {
     };
     game_difficulty: {
       all: { difficulty: number };
+    };
+    // 加载界面读取本地玩家已保存的按地图预设，key = playerId
+    game_preset: {
+      [playerId: string]: {
+        dota?: { difficulty: number };
+        hard?: { difficulty: number };
+        custom?: { gameOptions: GamePresetCustomOptions };
+      };
     };
     player_stats: {
       [playerId: string]: {

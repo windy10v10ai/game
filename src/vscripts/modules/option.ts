@@ -20,6 +20,10 @@ export class Option {
   gameDifficulty = 0;
   midOnlyMode = false;
 
+  // 全员投完后延迟定稿，留出修改窗口（尤其单人自动投票会瞬间锁死）。vote_end 强制立即定稿。
+  private static readonly FINALIZE_DELAY = 3;
+  private static readonly FINALIZE_TIMER = 'difficulty_finalize';
+
   constructor() {
     CustomGameEventManager.RegisterListener('game_options_change', (_, keys) => {
       return this.OnGameOptionChange(keys);
@@ -67,33 +71,52 @@ export class Option {
   }
 
   CalculateDifficulty(force: boolean) {
+    if (force) {
+      // vote_end：立即定稿，取消可能在途的延迟定稿
+      Timers.RemoveTimer(Option.FINALIZE_TIMER);
+      this.FinalizeDifficulty();
+      return;
+    }
+
     const playerCount = PlayerHelper.GetHumamPlayerCount();
-    let playerChosen = 0;
-    let averageDifficulty = 0;
+    const { chosen } = this.CollectDifficultyVotes();
+    if (chosen >= playerCount) {
+      // 全员投完后留 3 秒窗口允许改票；每次新投票重置计时
+      Timers.RemoveTimer(Option.FINALIZE_TIMER);
+      Timers.CreateTimer(Option.FINALIZE_TIMER, {
+        endTime: Option.FINALIZE_DELAY,
+        callback: () => this.FinalizeDifficulty(),
+      });
+    }
+  }
+
+  private CollectDifficultyVotes() {
+    let chosen = 0;
+    let sum = 0;
     PlayerHelper.ForEachPlayer((playerId) => {
       if (PlayerResource.GetConnectionState(playerId) !== ConnectionState.UNKNOWN) {
-        const difficultyChosen = CustomNetTables.GetTableValue(
-          'difficulty_choice',
-          playerId.toString(),
-        );
-        if (difficultyChosen !== undefined) {
-          playerChosen++;
-          averageDifficulty += difficultyChosen.difficulty;
+        const choice = CustomNetTables.GetTableValue('difficulty_choice', playerId.toString());
+        if (choice !== undefined) {
+          chosen++;
+          sum += choice.difficulty;
         }
       }
     });
-    if (playerChosen === 0) {
+    return { chosen, sum };
+  }
+
+  private FinalizeDifficulty() {
+    const { chosen, sum } = this.CollectDifficultyVotes();
+    let averageDifficulty: number;
+    if (chosen === 0) {
       // 如果没有人选择难度，根据地图名选择默认难度，Dota默认1，Hard默认6
       averageDifficulty = this.GetDefaultDifficulty();
     } else {
-      averageDifficulty = averageDifficulty / playerChosen;
-      // 四舍五入
-      averageDifficulty = Math.floor(averageDifficulty + 0.5);
+      // 平均后四舍五入
+      averageDifficulty = Math.floor(sum / chosen + 0.5);
     }
-    if (force || playerChosen >= playerCount) {
-      CustomNetTables.SetTableValue('game_difficulty', 'all', { difficulty: averageDifficulty });
-      this.gameDifficulty = averageDifficulty;
-    }
+    CustomNetTables.SetTableValue('game_difficulty', 'all', { difficulty: averageDifficulty });
+    this.gameDifficulty = averageDifficulty;
   }
 
   SetDefaultDifficulty() {

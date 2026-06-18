@@ -14,6 +14,23 @@ export class PlayerProperty {
   name!: string;
   level!: number;
 }
+// custom 图整套 KV 预设。后端契约使用 camelCase（布尔以 0/1 传输）。
+export class GamePresetCustomOptions {
+  multiplierRadiant!: number;
+  multiplierDire!: number;
+  playerNumberRadiant!: number;
+  playerNumberDire!: number;
+  towerPowerPct!: number;
+  respawnTimePct!: number;
+  startingGoldPlayer!: number;
+  startingGoldBot!: number;
+  maxLevel!: number;
+  fixedAbility!: string;
+  forceRandomHero!: number;
+  enablePlayerAttribute!: number;
+  midOnlyMode!: number;
+}
+
 export class PlayerSetting {
   isRememberAbilityKey: boolean;
   activeAbilityKey: string;
@@ -26,6 +43,10 @@ export class PlayerSetting {
   wardObserverQuickCast?: boolean;
   wardSentryKey?: string;
   wardSentryQuickCast?: boolean;
+  // 按地图游戏预设，槽位存在即「记住」
+  gamePresetDota?: { difficulty: number };
+  gamePresetHard?: { difficulty: number };
+  gamePresetCustom?: { gameOptions: GamePresetCustomOptions };
 }
 
 export class PlayerStatsLifetimeDto {
