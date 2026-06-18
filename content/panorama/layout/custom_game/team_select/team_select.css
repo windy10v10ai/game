@@ -56,6 +56,30 @@
 .deactivated .difficultyText {
   color: #a9aaaa;
 }
+#RememberPresetPanel {
+  width: 100%;
+  padding: 4px 7px;
+  align: left center;
+}
+#RememberPresetPanel.hidden {
+  visibility: collapse;
+}
+.rememberPresetToggle {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #000000;
+  background-color: #2c2c2ccc;
+  vertical-align: center;
+}
+.rememberPresetToggle:selected {
+  background-color: #5da7db;
+}
+.rememberPresetLabel {
+  margin-left: 10px;
+  font-size: 20px;
+  color: #c9caca;
+  vertical-align: center;
+}
 #TeamsContainer {
   width: 100%;
   padding: 10px;

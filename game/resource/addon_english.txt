@@ -75,6 +75,7 @@
 
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty:"
+		"game_preset_remember"			"Save difficulty settings"
 		"custom_game_vote"				"Time to Vote:"
 		"map_dota_warning"				"Current map cannot select this difficulty. <br>To select N1~N5 difficulty, please select the 'dota' map before starting the game."
 		"map_hard_warning"				"Current map cannot select this difficulty. <br>To select N6 or N7 difficulty, please select the 'hard' map before starting the game."

@@ -4,7 +4,7 @@ import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-langua
 import { ConductApi } from '../api/conduct';
 import { PlayerInfoApi } from '../api/player-info';
 import { PlayerPropertyApi } from '../api/player-property';
-import { PlayerSettingApi } from '../api/player-setting';
+import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
 import { Debug } from './debug/Debug';
@@ -53,6 +53,7 @@ export function ActivateModules() {
     new PlayerInfoApi();
     new PlayerPropertyApi();
     new PlayerSettingApi();
+    new PlayerGamePresetApi();
     new AlipayApi();
     new ConductApi();
 

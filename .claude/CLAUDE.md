@@ -406,6 +406,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - "移植自 xxx.lua 的 yyy 函数"之类来源说明（git 历史会保留）
 - 单行字段含义的复述（`// 覆盖默认 level >= 3` 跟在 `ability: { level: { gte: 2 } }` 后面就是冗余）
 - 段落式罗列"对英雄做什么 / 对小兵做什么"，代码已经表达得很清楚
+- 把讨论中提到的具体场景 / 边界 case / 取舍过程逐条搬进注释——注释只保留概括性的设计意图，细枝末节不写
 
 写：
 - 选择某个数值/方案的**原因**（"1 级伤害太低、蓝耗占比高，2 级起才用"）

@@ -10,6 +10,7 @@
     // Lua/TS tables
     "game_options",
     "game_difficulty",
+    "game_preset",  // 按地图保存的游戏预设
 
     // Panorama/TS tables
     "player_stats",
