@@ -34,7 +34,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
   {
     heroName: 'npc_dota_hero_sniper',
     targetAbility: 'sniper_assassinate',
-    newAbility: 'sniper_assassinate_upgrade',
+    newAbility: 'special_bonus_unique_sniper_assassinate_upgrade',
     newLevel: 0,
   },
   // 斧王 自动淘汰之刃（插入 slot 3，与大招淘汰之刃 LinkedAbility 同步升级，初始等级继承大招）
@@ -88,6 +88,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
   {
     heroName: 'npc_dota_hero_bristleback',
     newAbility: 'special_bonus_unique_bristleback_upgrade',
+    newLevel: 1,
+  },
+  // 莉娜 神灭斩觉醒（新增被动：施放神灭斩附带等额纯粹伤害）
+  {
+    heroName: 'npc_dota_hero_lina',
+    newAbility: 'special_bonus_unique_lina_upgrade',
     newLevel: 1,
   },
 ];
