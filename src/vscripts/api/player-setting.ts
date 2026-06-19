@@ -130,11 +130,16 @@ export class PlayerGamePresetApi {
     );
   }
 
+  private RoundPresetNumber(value: number): number {
+    const rounded = Math.round(value * 10) / 10;
+    return rounded === Math.floor(rounded) ? Math.floor(rounded) : rounded;
+  }
+
   private BuildCustomOptions(): GamePresetCustomOptions {
     const o = GameRules.Option;
     return {
-      multiplierRadiant: o.radiantGoldXpMultiplier,
-      multiplierDire: o.direGoldXpMultiplier,
+      multiplierRadiant: this.RoundPresetNumber(o.radiantGoldXpMultiplier),
+      multiplierDire: this.RoundPresetNumber(o.direGoldXpMultiplier),
       playerNumberRadiant: o.radiantPlayerNumber,
       playerNumberDire: o.direPlayerNumber,
       towerPowerPct: o.towerPower,
