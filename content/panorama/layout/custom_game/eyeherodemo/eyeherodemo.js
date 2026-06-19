@@ -129,6 +129,10 @@ function AwakenStoneSelectedHeroes() {
   DispatchAddToSelectedEntitiesWithName('item', 'item_awaken_stone');
 }
 
+function BkbSelectedHeroes() {
+  DispatchAddToSelectedEntitiesWithName('item', 'item_black_king_bar');
+}
+
 // 对所有选中单位添加物品/技能。kind: 'item' | 'ability'
 function DispatchAddToSelectedEntitiesWithName(kind, name) {
   if (!name) {

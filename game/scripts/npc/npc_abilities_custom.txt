@@ -14,7 +14,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
-		"AbilityCharges"				"20"
+		"AbilityCharges"				"1"
 		"AbilityChargeRestoreTime"		"99999"	// 充能只来自购买，禁止自动恢复
 		"AbilityTextureName"			"item_ward_observer"
 
@@ -35,7 +35,7 @@
 		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"1.0"
-		"AbilityCharges"				"20"
+		"AbilityCharges"				"1"
 		"AbilityChargeRestoreTime"		"99999"	// 充能只来自购买，禁止自动恢复
 		"AbilityTextureName"			"item_ward_sentry"
 
@@ -3087,6 +3087,25 @@
 			"amplify_duration"          "3.0" // 伤害增幅持续
 			"max_times"          		"3 4 5 6 7" // 增幅最大倍率
 			"base_amplify"              "2"
+		}
+	}
+	//死亡先知新大招·我！即是虫群！（普攻触发地穴虫群）
+	"death_prophet_swarm_attack"
+	{
+		"BaseClass"             "ability_lua"
+		"ScriptFile"            "abilities/death_prophet_swarm_attack"
+		"AbilityTextureName"    "death_prophet_swarm_attack"
+
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"MaxLevel"              "4"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "6"
+
+		"AbilityValues"
+		{
+			"basic_trigger_chance"      "25 50 75 100"
 		}
 	}
 	//=================================================================================================================

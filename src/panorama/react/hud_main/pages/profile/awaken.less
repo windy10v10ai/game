@@ -1,0 +1,98 @@
+// 觉醒 Tab 样式：觉醒技能预览网格
+@import "../../../shared/styles/tokens.less";
+
+.awaken-layout {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+  padding: 0px 32px;
+}
+
+/* 顶部说明：觉醒石图标 + 如何获取/觉醒的富文本 */
+.awaken-intro {
+  width: 100%;
+  flow-children: right;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background-color: #00000040;
+  border-radius: @radius-lg;
+  border-left: 2px solid @color-gold-soft;
+}
+
+.awaken-intro-icon {
+  width: 66px;
+  height: 48px;
+  vertical-align: center;
+  margin-right: 14px;
+  box-shadow: 1px 1px 2px 1px #000000aa;
+}
+
+.awaken-intro-text {
+  width: fill-parent-flow(1);
+  vertical-align: center;
+  font-size: @font-size-md;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+}
+
+.awaken-grid {
+  width: 100%;
+  height: fit-children;
+  flow-children: right-wrap;
+  horizontal-align: center;
+}
+
+/* 子元素不走 flow，全部叠加在立绘上；卡片宽高比贴近 portrait 立绘(235:272)避免拉伸 */
+.awaken-card {
+  width: 124px;
+  height: 144px;
+  margin: 14px;
+  border: 1px solid @color-gold-soft;
+  border-radius: @radius-lg;
+}
+
+/* 英雄竖版立绘铺满整张卡片作背景 */
+.awaken-hero {
+  width: 100%;
+  height: 100%;
+  border-radius: @radius-lg;
+}
+
+/* 底部深色渐变压暗，保证图标与英雄名清晰 */
+.awaken-scrim {
+  width: 100%;
+  height: 66px;
+  vertical-align: bottom;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#0f033a00), to(#0f033af2));
+  border-bottom-left-radius: @radius-lg;
+  border-bottom-right-radius: @radius-lg;
+}
+
+/* 图标+名字底部对齐的纵向 flow，名字永远在图标下方；两行名字只把图标上顶不会重叠 */
+.awaken-bottom {
+  width: 100%;
+  vertical-align: bottom;
+  flow-children: down;
+  padding-bottom: 8px;
+}
+
+/* 觉醒图标叠在立绘下部，深色阴影环绕与英雄底图分离 */
+.awaken-ability-icon {
+  width: 44px;
+  height: 44px;
+  horizontal-align: center;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  box-shadow: 1px 2px 5px 2px #000000ee;
+}
+
+.awaken-hero-name {
+  width: 100%;
+  text-align: center;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+  text-shadow:
+    2px 2px 4px #000000ee,
+    0 0 6px #000000cc;
+}
