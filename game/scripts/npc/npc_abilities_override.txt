@@ -10284,6 +10284,8 @@
 	"lina_laguna_blade"
 	{
 		"MaxLevel" "4"
+		// 觉醒附加纯粹伤害须对魔免单位生效
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityManaCost"				"150 300 450 600"
 		"AbilityValues"
 		{
