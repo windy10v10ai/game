@@ -3089,6 +3089,25 @@
 			"base_amplify"              "2"
 		}
 	}
+	//死亡先知新大招·我！即是虫群！（普攻触发地穴虫群）
+	"death_prophet_swarm_attack"
+	{
+		"BaseClass"             "ability_lua"
+		"ScriptFile"            "abilities/death_prophet_swarm_attack"
+		"AbilityTextureName"    "death_prophet_swarm_attack"
+
+		"AbilityBehavior"       "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"           "DOTA_ABILITY_TYPE_ULTIMATE"
+
+		"MaxLevel"              "4"
+		"RequiredLevel"         "6"
+		"LevelsBetweenUpgrades" "6"
+
+		"AbilityValues"
+		{
+			"basic_trigger_chance"      "25 50 75 100"
+		}
+	}
 	//=================================================================================================================
 	// Brewmaster: Primal Split
 	//=================================================================================================================

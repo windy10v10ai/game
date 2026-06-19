@@ -31,6 +31,14 @@ function CheckForHostPrivileges() {
   }
 }
 
+function NormalizePresetValue(value) {
+  if (typeof value === 'number') {
+    var rounded = Math.round((value + Number.EPSILON) * 10) / 10;
+    return rounded === Math.floor(rounded) ? String(Math.floor(rounded)) : String(rounded);
+  }
+  return String(value);
+}
+
 function InitializeUI(keys) {
   if (keys.PlayerID !== Game.GetLocalPlayerID()) {
     return;
@@ -340,7 +348,7 @@ function ApplyCustomPresetToDropdowns(options) {
     if (!dd) {
       return;
     }
-    const optionId = String(value);
+    const optionId = NormalizePresetValue(value);
     if (dd.HasOption && !dd.HasOption(optionId)) {
       return; // failover：选项在画面中不存在跳过
     }

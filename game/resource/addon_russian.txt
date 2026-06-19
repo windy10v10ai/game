@@ -95,6 +95,7 @@
 		"ScepterSelectedHeroes_Button"				"Аганим"
 		"ShardSelectedHeroes_Button"				"Осколок"
 		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
+		"BkbSelectedHeroes_Button"					"BKB"
 		"InvulnOn_Button"							"Неуязвимость вкл."
 		"InvulnOff_Button"							"Неуязвимость выкл."
 		"Reset_Button"								"Сбросить"
