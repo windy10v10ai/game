@@ -131,6 +131,7 @@
 		"ScepterSelectedHeroes_Button"				"神杖"
 		"ShardSelectedHeroes_Button"				"魔晶"
 		"AwakenStoneSelectedHeroes_Button"			"觉醒石"
+		"BkbSelectedHeroes_Button"					"黑皇杖"
 		"InvulnOn_Button"							"开启无敌"
 		"InvulnOff_Button"							"关闭无敌"
 		"Reset_Button"								"重置"

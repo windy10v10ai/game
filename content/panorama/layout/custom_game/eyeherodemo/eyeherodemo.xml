@@ -77,8 +77,11 @@
 							</Button>
 						</Panel>
 						<Panel class="Row">
-							<Button id="AwakenStoneSelectedHeroesButton" class="DemoButton" acceptsjoyfocus="true" onactivate="AwakenStoneSelectedHeroes()">
+							<Button id="AwakenStoneSelectedHeroesButton" class="DemoButton LeftButton" acceptsjoyfocus="true" onactivate="AwakenStoneSelectedHeroes()">
 								<Label text="#AwakenStoneSelectedHeroes_Button" />
+							</Button>
+							<Button class="DemoButton RightButton" acceptsjoyfocus="true" onactivate="BkbSelectedHeroes()">
+								<Label text="#BkbSelectedHeroes_Button" />
 							</Button>
 						</Panel>
 						<Panel class="Row">
