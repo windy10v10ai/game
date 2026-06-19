@@ -1944,72 +1944,72 @@
 	{
 		"AbilityValues"
 		{
-				"speed"		"900"	// **900** [700]
+				"speed"		"900"	// 700
 				"radius"
 				{
-					"value"		"900"	// **900** [750]
+					"value"		"900"	// 750
 				}
-				"duration"		"2.5"	// **2.5** [1.0]
-				"knockback_distance"		"1200"	// **800** [600]
+				"duration"		"2.5"	// 1.0
+				"knockback_distance"		"1200"	// 600 +200 限时加强 +400
 		}
 	}
 	// 洪流
 	"kunkka_torrent"
 	{
-		"MaxLevel"						"5"	// **5** [4]
+		"MaxLevel"						"5"
 		"AbilityValues"
 		{
-			"slow_duration"				"1 2 3 4 5"	// **1 2 3 4 5** [1 2 3 4]
+			"slow_duration"				"1 2 3 4 5"
 			"torrent_damage"
 			{
-				"value"			"110 180 250 320 390"	// **110 180 250 320 390** [110 180 250 320]
+				"value"			"110 180 250 320 390"
 			}
 			"AbilityCooldown"
 			{
-				"value"						"12 11 10 9 8"	// **14 13 12 11 10** [16 14 12 10]
+				"value"						"12 11 10 9 8"	// 原版 16 14 12 10 加强 14 13 12 11 10 限时加强 12 11 10 9 8
 			}
 			"stun_duration"
 			{
-				"value"								"1.2"		// **1** [1.4]
+				"value"								"1.2"		// 1.4
 			}
 		}
 	}
 	// 潮汐使者 水刀
 	"kunkka_tidebringer"
 	{
-		"MaxLevel"						"5"	// **5** [4]
+		"MaxLevel"						"5"
 		"AbilityValues"
 		{
 			"cleave_ending_width"
 			{
-				"value"		"700 800 900 1000 1100"	// **500 550 600 650 700** [500 550 600 650]
+				"value"		"700 800 900 1000 1100"	// 原版 500 550 600 650 限时加强 700 800 900 1000 1100
 			}
 			"cleave_distance"
 			{
-				"value"			"900 1050 1200 1350 1500"	// **650 775 900 1025 1150** [650 775 900 1025]
+				"value"			"900 1050 1200 1350 1500"	// 原版 650 775 900 1025 限时加强 900 1050 1200 1350 1500
 			}
 			"damage_bonus"
 			{
-				"value"			"130 160 190 220 250"	// **35 70 105 140 175** [35 70 105 140]
-				"special_bonus_unique_kunkka_2"		"+150" // **+75** [+75]
+				"value"			"130 160 190 220 250"	// 原版 35 70 105 140 限时加强 130 160 190 220 250
+				"special_bonus_unique_kunkka_2"		"+150" // +75 限时加强 +75
 			}
 			"AbilityCooldown"
 			{
-				"value"					"7.0 6.0 5.0 4.0 3.0"	// **12.0 10.0 8.0 6.0 4.0** [13.0 10.0 7.0 4.0]
+				"value"					"7.0 6.0 5.0 4.0 3.0"	// 原版 13.0 10.0 7.0 4.0 加强 12.0 10.0 8.0 6.0 4.0 限时加强 7.0 6.0 5.0 4.0 3.0
 			}
 			"pierces_armor"
 			{
 				"value"		"0"
-				"special_bonus_unique_kunkka_tidebringer_armor_pierce"	"+100" // **+25** [+25]
+				"special_bonus_unique_kunkka_tidebringer_armor_pierce"	"+100" // +25 限时加强 +75
 			}
 		}
 	}
 	// 标记
 	"kunkka_x_marks_the_spot"
 	{
-		"MaxLevel"						"5"	// **5** [4]
-		"AbilityCastRange"				"700 900 1100 1300 1500"	// **550 700 850 1000 1150** [550 700 850 1000]
-		"AbilityCooldown"				"16 14 12 10 8"	// **20 18 16 14 12** [24 20 16 12]
+		"MaxLevel"						"5"
+		"AbilityCastRange"				"700 900 1100 1300 1500"	// 原版 550 700 850 1000 限时加强 700 900 1100 1300 1500
+		"AbilityCooldown"				"16 14 12 10 8"	// 原版 24 20 16 12 加强 20 18 16 14 12 限时加强 16 14 12 10 8
 	}
 	// 统帅朗姆酒 先天
 	"kunkka_admirals_rum"
@@ -2018,84 +2018,33 @@
 		{
 			"ghostship_absorb"
 			{
-				"value"					"40"		// **40** [18] 大招有双倍效果，必须小于50
+				"value"					"40"		// 18 大招有双倍效果，必须小于50
 			}
 			"movespeed_bonus"
 			{
-				"value"					"15.5"		// **15.5** [7.75] x2
-				"hero_levelup"			"+0.5"		// **+0.5** [+0.25] x2
+				"value"					"15.5"		// 7.75 x2
+				"hero_levelup"			"+0.5"		// +0.25 x2
 			}
 			"AbilityCooldown"
 			{
-				"value"					"30.25"		// **30.25** [50.5] x0.5
-				"hero_levelup"			"-0.25"		// **-0.25** [-0.5] x0.5
+				"value"					"30.25"		// 50.5 x0.5
+				"hero_levelup"			"-0.25"		// -0.5 x0.5
 			}
 		}
 	}
 	// 幽灵船
 	"kunkka_ghostship"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// **SPELL_IMMUNITY_ENEMIES_NO**
-		"MaxLevel" "4"	// **4** [3]
-		"AbilityDamage"					"400 600 800 1000"	// **350 475 600 725** [350 475 600]
-		"AbilityManaCost"				"125 175 225 275"	// **125 175 225 275** [125 175 225]
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// 原版 SPELL_IMMUNITY_ENEMIES_NO 限时加强
+		"MaxLevel" "4"
+		"AbilityDamage"					"400 600 800 1000"	// 原版 350 475 600 限时加强 400 600 800 1000
+		"AbilityManaCost"				"125 175 225 275"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"55 50 45 40"	// **90 80 70 60** [90 80 70]
+				"value"					"55 50 45 40"	// 原版 90 80 70 限时加强 55 50 45 40
 			}
-		}
-	}
-	// 洪流浪潮 ( scepter ability )
-	"kunkka_torrent_storm"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
-		"MaxLevel"						"1"
-		"FightRecapLevel"				"1"
-		"IsGrantedByScepter"			"1"
-		"HasScepterUpgrade"				"1"
-		"AbilitySound"					"Ability.Torrent"
-
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
-		"AbilityCastRange"				"1000"
-		// Time
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40"
-
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"275"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-				"torrent_interval"
-				{
-					"special_bonus_scepter"				"0.2"
-				}
-				"torrent_duration"
-				{
-					"special_bonus_scepter"				"10.0"
-				}
-				"torrent_min_distance"
-				{
-					"special_bonus_scepter"				"115"
-				}
-				"torrent_max_distance"
-				{
-					"special_bonus_scepter"				"1100"
-					"affected_by_aoe_increase"	"1"
-				}
 		}
 	}
 	//=================================================================================================================
