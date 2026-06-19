@@ -502,7 +502,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15.0"
+		"AbilityCooldown"				"20.0"
 		"AbilitySharedCooldown"			"ethereal"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 
@@ -525,24 +525,24 @@
 				"bonus_mana"					"3000"	// 2000
 
 				"duration"						"6.0"
-				"extra_spell_damage_percent"	"-20"//-30
+				"extra_spell_damage_percent"	"-20"	//-30
 
 				"radius"
 				{
-					"value"						"1500"	// 1200
+					"value"						"1200"	// 900
 					"affected_by_aoe_increase"	"1"
 				}
 				"health_steal"					"50"	// 40
 
-				"interval"						"0.5"//1.0
+				"interval"						"0.5"	// 1.0
 				"active_radius"
 				{
-					"value"						"1500"	// 1200
+					"value"						"1200"	// 900
 					"affected_by_aoe_increase"	"1"
 				}
-				"movespeed_steal_pct"			"12"//9
+				"movespeed_steal_pct"			"12"	// 6
 				"active_health_steal"			"100"	// 90
-				"stack_duration"				"3"//2
+				"stack_duration"				"2"		// 1.5
 		}
 	}
 
@@ -554,12 +554,12 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_consecrated_wraps_2"
-		"ItemCost"						"300"
+		"ItemCost"						"900"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_consecrated_wraps_2"
 		"ItemRequirements"
 		{
-			"01"						"item_consecrated_wraps;item_ultimate_orb;item_cloak;item_cloak"
+			"01"						"item_consecrated_wraps;item_ultimate_orb;item_cloak"
 		}
 	}
 
@@ -580,11 +580,11 @@
 		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
 		"EnableChargeDisplayOverride"	"1"
 
-		"ItemInitialCharges"			"3"//5
+		"ItemInitialCharges"			"6"	//3
 		"ItemRequiresCharges"			"1"
 		"ItemDisplayCharges"			"1"
-		"AbilityCharges"				"6"//5
-		"AbilityChargeRestoreTime"		"2"//3.5
+		"AbilityCharges"				"6"	//3
+		"AbilityChargeRestoreTime"		"2"	//4
 		"AbilityCooldown"				"0"
 		"ItemPermanent"					"1"
 
@@ -595,16 +595,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_spell_resist"					"50"	// 40 配方减个斗篷给卷轴加价保持总价
-			"bonus_all_stats"						"40"	// 30
+			"bonus_spell_resist"					"40"	// 30
+			"bonus_all_stats"						"30"	// 20
 			"bonus_health"							"500"	// 250
 
-			"movement_speed_pct_on_stack_gain"		"25"//20
+			"movement_speed_pct_on_stack_gain"		"25"	// 15
 
 			"stack_threshold_damage"				"0"
-			"duration"								"20"//10
-			"barrier_per_stack"						"2000"	// 1200
-			"max_barrier_tooltip"					"12000"	// 6000
+			"duration"								"20"	//10
+			"barrier_per_stack"						"1500"	// 120
+			"max_barrier_tooltip"					"9000"	// 360
 		}
 	}
 
@@ -690,7 +690,7 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_hydras_breath_2"
-		"ItemCost"						"2000"//1000
+		"ItemCost"						"1950"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_hydras_breath_2"
 		"ItemRequirements"
@@ -713,7 +713,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
-		"ItemCost"						"17300"
+		"ItemCost"						"20000"
 		"ItemShopTags"					"agi;damage;attack_speed;hard_to_tag;"
 		"ItemQuality"					"artifact"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -726,18 +726,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"strength"						"80"	// 60
-			"agility"						"100"	// 80
-			"damage"						"150"	// 100
+			"strength"						"60"	// 15
+			"agility"						"100"	// 30
+			"damage"						"150"	// 25
 			"base_count"					"0"
-			"count"							"9"		//6
-			"secondary_target_range_bonus"	"400"	//250
-			"secondary_target_angle"		"180"	//120
-			"proc_chance"					"66.7"	//50
-			"proc_dmg_pct"					"150"	// 75
-			"proc_dmg_pct_primary_tooltip"	"175"	// 100
-			"base_proc_dmg"					"100"	// 50
-			"base_attack_range"				"300"	// 250
+			"count"							"6"		// 3
+			"secondary_target_range_bonus"	"300"	// 150
+			"secondary_target_angle"		"150"	// 120
+			"proc_chance"					"60"	// 30
+			"proc_dmg_pct"					"100"	// 75
+			"proc_dmg_pct_primary_tooltip"	"125"	// 100
+			"base_proc_dmg"					"100"	// 20
+			"base_attack_range"				"250"	// 150
 
 			"poison_duration"				"3"
 			"poison_base_damage"			"0"

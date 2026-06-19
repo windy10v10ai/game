@@ -75,6 +75,7 @@
 
 		// 右侧面板
 		"game_difficulty_choice"		"Choose a difficulty:"
+		"game_preset_remember"			"Save difficulty settings"
 		"custom_game_vote"				"Time to Vote:"
 		"map_dota_warning"				"Current map cannot select this difficulty. <br>To select N1~N5 difficulty, please select the 'dota' map before starting the game."
 		"map_hard_warning"				"Current map cannot select this difficulty. <br>To select N6 or N7 difficulty, please select the 'hard' map before starting the game."
@@ -130,6 +131,7 @@
 		"ScepterSelectedHeroes_Button"				"Scepter"
 		"ShardSelectedHeroes_Button"				"Shard"
 		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
+		"BkbSelectedHeroes_Button"					"BKB"
 		"InvulnOn_Button"							"Invuln On"
 		"InvulnOff_Button"							"Invuln Off"
 		"Reset_Button"								"Reset"
@@ -286,7 +288,9 @@
 		///////////////////////////////////////////////////
 		"profile_title"					"Profile"
 		"profile_tab_stats"				"Stats"
+		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
+		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one.<br>Currently only the following heroes are supported:"
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"
@@ -924,16 +928,16 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X CAST CHANCE:"
 
 		// 狙击手 暗杀-觉醒
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spells, including on Spell Immune units."
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"RADIUS:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_bonus_physical_damage"	"BONUS PHYSICAL DAMAGE:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_stun_duration"	"STUN DURATION:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br>After awakening, Headshot's proc chance is raised to <font color='#FFFFFF'><b>100%</b></font>, so every attack triggers Headshot's knockback and slow.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note2"						"Interrupts channeling spells, including on Spell Immune units."
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_crit_bonus"		"%CRITICAL DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_bonus_physical_damage"	"BONUS PHYSICAL DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_stun_duration"	"STUN DURATION:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"Assassinate"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"Sniper's taking aim at your head!"
 
@@ -1004,6 +1008,10 @@
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note6"						"• Two-stage abilities and cancel abilities"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note7"						"• Invoker's orbs and fusion abilities"
 
+		// 死亡先知新大招·我！即是虫群！（攻击触发-地穴虫群）
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack"							"I AM THE SWARM!"
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_Description"				"Passive: Be the Swarm Attacks have a chance to trigger Crypt Swarm with pseudo-random distribution. Cooldown will be restored after triggering."
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_basic_trigger_chance"		"%Crypt Swarm Trigger Chance:"
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"									"<font color='#FF0000'>Butterfly Effect: Red</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>Passive: Spell Echo</font></h1>When you cast an ability, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. Mutually exclusive with multiple cast. Monkey King model cannot trigger.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br>"
@@ -1099,7 +1107,7 @@
 
 		// Juggernaut - Blade Fury Awakened
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>Blade Fury Awakened</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, each second dealing magic damage to surrounding enemies equal to base damage plus a percentage of each enemy's max health. Grants debuff immunity and %magic_resistance_bonus%%% magic resistance, and can attack normally but with attack power reduced by %damage_reduction_pct%%%. Performs a strong dispel on himself when the spin ends."
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"Juggernaut becomes a spinning storm, each second dealing magic damage to surrounding enemies equal to base damage plus a percentage of each enemy's max health. Grants <font color='#FFCC66'>debuff immunity</font> and %magic_resistance_bonus%%% magic resistance, and can attack normally but with attack power reduced by %damage_reduction_pct%%%. Performs a strong dispel on himself when the spin ends."
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"RADIUS:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"DURATION:"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"BASE DAMAGE:"
@@ -1109,7 +1117,7 @@
 
 		// Axe - Ruthless Hand Awakened
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 
 		// Necrophos Heartstopper Aura - Awakened
@@ -1138,12 +1146,20 @@
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants 10 souls per hero kill and 3 souls per unit kill."
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
 
 		// Drow Ranger Splinter Shot
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a chance to splinter into arrows that fly at up to %splinter_targets% enemies around the primary target, each dealing %splinter_damage_pct%%% of the attack's damage as physical damage and applying Frost Arrows' slow."
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%Proc Chance:"
+
+		// Bristleback Auto Quill
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>Auto Quill Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>Autocast</font><br><br>With autocast enabled, whenever enemy heroes are in range, Bristleback automatically fires Quill Spray and casts Viscous Nasal Goo on the nearest enemy hero.<br><br><font color='#FFFFFF'>Awakening Bonuses</font><br>Viscous Nasal Goo: base armor reduction raised to <font color='#FFFFFF'><b>10</b></font>, per-stack to <font color='#FFFFFF'><b>6</b></font>, stack limit raised to <font color='#FFFFFF'><b>10</b></font><br>Quill Spray: damage cap raised to <font color='#FFFFFF'><b>1000</b></font><br>Warpath: max stacks raised to <font color='#FFFFFF'><b>20</b></font>"
+
+		// Lina Laguna Blade
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"Each time Lina casts Laguna Blade, the target takes additional <font color='#FFE56E'>pure damage</font> equal to that Laguna Blade's damage, affected by Spell Amplification."
 
 		///////////////////////////////////////////////////
 		//
@@ -2196,8 +2212,8 @@
 
 		// consecrated_wraps_2
 		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>Artifact: Syrup-Coated Wraps</font>"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %stack_gain_time%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %stack_gain_time%s after you take damage from a player-controlled unit or Roshan."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>Passive: Hallowed</h1> Gain a stack every %AbilityChargeRestoreTime%s, up to a maximum of %max_stacks% stacks. Upon gaining a stack, your movement speed is increased by %movement_speed_pct_on_stack_gain%%% for %duration%s.<br><br>Whenever you take damage from a player-controlled unit or Roshan, consume all stacks to gain an all damage barrier for %duration%s that absorbs %barrier_per_stack% damage per stack (%max_barrier_tooltip% max)."
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"Stacks cannot be gained for %AbilityChargeRestoreTime%s after you take damage from a player-controlled unit or Roshan."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"Self-damage and HP Loss damage cannot remove stacks."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"Movement speed buff does not stack."
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"Movement speed buff is only provided if you have reached maximum stacks at least once while the item is equipped."
@@ -2503,7 +2519,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Sniper, Axe, Necrophos, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Sniper, Axe, Necrophos, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend, Drow Ranger, Bristleback, Lina\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
 
 		// 被动技能书
@@ -3228,6 +3244,7 @@
 		"dota_hud_error_no_runes"														"No runes available to transmute in inventory!"
 		"dota_hud_error_awaken_stone_unsupported"										"This hero has no ability to awaken"
 		"dota_hud_error_awaken_stone_awakened"											"This hero has already awakened"
+		"dota_hud_error_assassinate_no_target"											"No enemy heroes in range"
 		"dota_hud_error_passive_skill_tome_max_usage"									"Passive Skill Tome usage limit reached"
 		"dota_hud_error_ward_no_cast_zone"												"Cannot place wards near Roshan's pit"
 

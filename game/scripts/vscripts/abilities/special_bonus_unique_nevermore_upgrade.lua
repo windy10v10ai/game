@@ -20,7 +20,13 @@ function modifier_special_bonus_unique_nevermore_upgrade:IsDebuff() return false
 function modifier_special_bonus_unique_nevermore_upgrade:DeclareFunctions()
 	return {
 		MODIFIER_EVENT_ON_ABILITY_START,
+		MODIFIER_PROPERTY_CASTTIME_PERCENTAGE,
 	}
+end
+
+-- 全局施法速度（影魔有抬手的技能仅暗影压制与魂之挽歌，等价只降这两个抬手）
+function modifier_special_bonus_unique_nevermore_upgrade:GetModifierPercentageCasttime()
+	return self:GetAbility():GetSpecialValueFor("cast_speed_pct") or 0
 end
 
 function modifier_special_bonus_unique_nevermore_upgrade:OnAbilityStart(keys)

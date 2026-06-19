@@ -76,6 +76,10 @@
 							</Button>
 						</Panel>
 					</Panel>
+					<Panel id="RememberPresetPanel" class="flowRight">
+						<ToggleButton checked="false" class="rememberPresetToggle" id="RememberDifficultyToggle" onactivate="OnRememberDifficultyToggle()" />
+						<Label class="rememberPresetLabel" text="#game_preset_remember" />
+					</Panel>
 				</Panel>
 
 				<!--Teams List, left hand panel-->

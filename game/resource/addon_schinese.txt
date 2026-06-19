@@ -75,6 +75,7 @@
 
 		// 右侧面板
 		"game_difficulty_choice"		"选择一个难度"
+		"game_preset_remember"			"保存难度设置"
 		"custom_game_vote"				"投票倒计时"
 		"map_dota_warning"				"当前地图无法选择此难度。<br>想选择N1~N5难度时，请在游戏开始前选择 [Dota] 地图"
 		"map_hard_warning"				"当前地图无法选择此难度。<br>想选择N6或N7难度时，请在游戏开始前选择 [HARD] 地图"
@@ -130,6 +131,7 @@
 		"ScepterSelectedHeroes_Button"				"神杖"
 		"ShardSelectedHeroes_Button"				"魔晶"
 		"AwakenStoneSelectedHeroes_Button"			"觉醒石"
+		"BkbSelectedHeroes_Button"					"黑皇杖"
 		"InvulnOn_Button"							"开启无敌"
 		"InvulnOff_Button"							"关闭无敌"
 		"Reset_Button"								"重置"
@@ -286,7 +288,9 @@
 		///////////////////////////////////////////////////
 		"profile_title"					"个人中心"
 		"profile_tab_stats"				"战绩"
+		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
+		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
@@ -917,16 +921,16 @@
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_4_times"		"%4X施放概率："
 
 		// 狙击手 暗杀-觉醒
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。 — by RN"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_Note2"						"打断引导法术，包括对魔法免疫单位。"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_radius"			"暗杀范围:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_bonus_physical_damage"	"额外物理伤害:"
-		"DOTA_Tooltip_ability_sniper_assassinate_upgrade_scepter_stun_duration"	"眩晕时间:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br>觉醒后爆头几率提升至<font color='#FFFFFF'><b>100%</b></font>，每次普攻必定触发爆头击退减速。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。 — by RN"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note2"						"打断引导法术，包括对魔法免疫单位。"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_radius"			"暗杀范围:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_crit_bonus"		"%致命一击伤害:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_bonus_physical_damage"	"额外物理伤害:"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_scepter_stun_duration"	"眩晕时间:"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target"							"暗杀"
 		"DOTA_Tooltip_modifier_sniper_assassinate_target_Description"				"狙击手正在瞄准你的头部！"
 
@@ -998,6 +1002,10 @@
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note6"						"• 两段式技能和取消技能"
 		"DOTA_Tooltip_ability_ability_trigger_learned_skills_Note7"						"• 卡尔的元素球和融合技能"
 
+		// 死亡先知新大招·我！即是虫群！（攻击触发-地穴虫群）
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack"							"我！即是虫群！"
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_Description"				"被动：我说了我是虫群你耳聋吗？普攻有概率触发地穴虫群，伪随机触发。触发后技能冷却时间会恢复正常。"
+		"DOTA_Tooltip_ability_death_prophet_swarm_attack_basic_trigger_chance"		"%触发地穴虫群概率："
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"									"<font color='#FF0000'>蝴蝶效应 · 红魔</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>被动：入魔</font></h1>施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发。与多重施法互斥。孙悟空模型无法触发。<br><br>普通技能触发概率：%basic_trigger_chance%%%<br>终极技能触发概率：%ultimate_trigger_chance%%%<br>"
@@ -1095,7 +1103,7 @@
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
-		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得减益免疫和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
+		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_Description"					"剑圣化身旋转风暴，每秒对周围敌人造成基础伤害加目标最大生命百分比的魔法伤害。期间获得<font color='#FFCC66'>减益免疫</font>和%magic_resistance_bonus%%%魔法抗性，可以正常攻击但攻击力降低%damage_reduction_pct%%%。旋转结束时对自身施加强效驱散。"
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_radius"						"作用范围："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_duration"					"持续时间："
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom_damage"						"基础伤害："
@@ -1105,7 +1113,7 @@
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。 — by RN"
 
 		// 死灵法师 竭心光环-觉醒
@@ -1136,12 +1144,20 @@
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得10个灵魂，击杀小兵获得3个灵魂。"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
 
 		// 卓尔游侠 裂影箭
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%触发概率："
+
+		// 钢背兽 自动喷刺
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>自动喷刺 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>自动施放</font><br><br>开启自动施法后，当范围内有敌方英雄时，钢背兽自动施放刺针扫射，并对最近的敌方英雄施放粘稠鼻液。<br><br><font color='#FFFFFF'>觉醒强化</font><br>粘稠鼻液：基础降甲提升至<font color='#FFFFFF'><b>10</b></font>点，每层降甲提升至<font color='#FFFFFF'><b>6</b></font>点，叠加上限提升至<font color='#FFFFFF'><b>10</b></font>层<br>刺针扫射：伤害上限提升至<font color='#FFFFFF'><b>1000</b></font><br>战意：叠加上限提升至<font color='#FFFFFF'><b>20</b></font>层"
+
+		// 莉娜 神灭斩
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>神灭斩 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的<font color='#FFE56E'>纯粹伤害</font>，该伤害受技能增强影响。"
 
 		///////////////////////////////////////////////////
 		//
@@ -2216,8 +2232,8 @@
 
 		// consecrated_wraps_2 炽天使的圣化圣衣
 		"DOTA_Tooltip_Ability_item_consecrated_wraps_2"				"<font color='#e03e2e'>神器·急支糖衣</font>"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>被动：神圣化</h1>每%stack_gain_time%秒获得一层叠加效果，最多为%max_stacks%层。获得一层叠加效果时，移动速度提升%movement_speed_pct_on_stack_gain%%%，持续%duration%秒。<br><br>只要受到来自玩家控制单位或肉山的伤害，所有叠加效果都会被消耗，并获得全伤害护盾，持续%duration%秒，每层叠加效果可以吸收%barrier_per_stack%点伤害（最高为%max_barrier_tooltip%点）。"
-		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"受到来自玩家控制单位或肉山的伤害后%stack_gain_time%秒内无法获得叠加效果。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Description"				"<h1>被动：神圣化</h1>每%AbilityChargeRestoreTime%秒获得一层叠加效果，最多为%max_stacks%层。获得一层叠加效果时，移动速度提升%movement_speed_pct_on_stack_gain%%%，持续%duration%秒。<br><br>只要受到来自玩家控制单位或肉山的伤害，所有叠加效果都会被消耗，并获得全伤害护盾，持续%duration%秒，每层叠加效果可以吸收%barrier_per_stack%点伤害（最高为%max_barrier_tooltip%点）。"
+		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note0"	    			"受到来自玩家控制单位或肉山的伤害后%AbilityChargeRestoreTime%秒内无法获得叠加效果。"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note1"	    			"对自身的伤害和生命流失伤害无法移除叠加效果。"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note2"					"移动速度加成效果不会叠加。"
 		"DOTA_Tooltip_ability_item_consecrated_wraps_2_Note3"					"只有在装备了这件物品后至少达到过一次最高叠加层数才会提供移动速度加成。"
@@ -2512,7 +2528,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠、钢背兽、莉娜\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 被动技能书
@@ -3271,6 +3287,7 @@
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 		"dota_hud_error_awaken_stone_unsupported"										"该英雄暂未拥有可觉醒的技能"
 		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"
+		"dota_hud_error_assassinate_no_target"											"范围内没有敌方英雄"
 		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
 		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
 

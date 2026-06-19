@@ -42,6 +42,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["silencer_glaives_of_wisdom"] = true,      -- 沉默术士 智慧之刃
     ["viper_poison_attack"] = true,             -- 冥界亚龙 毒性攻击
     ["witch_doctor_voodoo_restoration"] = true, -- 巫医 巫毒恢复
+    ["witch_doctor_voodoo_switcheroo"] = true,  -- 巫医 魔晶变身
     ["bloodseeker_blood_mist2"] = true,         -- 血魔 血雾（自定义版本）
     ["brewmaster_drunken_boxing"] = true,       -- 酒仙 醉拳
 
@@ -91,6 +92,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
     ["phantom_assassin_phantom_strike"] = true,
+    ["special_bonus_unique_phantom_assassin_upgrade"] = true,
     ["pangolier_gyroshell"] = true,   -- 石鳞剑士 地雷滚滚
     ["legion_commander_duel"] = true, -- 军团指挥官 决斗
 
