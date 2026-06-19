@@ -62,7 +62,6 @@
 		"fixed_ability_ability_trigger_on_move_name"		"蝴蝶效应 · 橙影"
 		"fixed_ability_ability_trigger_on_cast_name"		"蝴蝶效应 · 红魔"
 		"fixed_ability_ability_trigger_learned_skills_name"	"蝴蝶效应 · 蓝武"
-		"fixed_ability_death_prophet_swarm_attack_name"	"我！即是虫群！"
 		"fixed_ability_ability_trigger_on_active_name"		"蝴蝶效应 · 紫啸"
 		"fixed_ability_ability_trigger_on_spell_reflect_name"	"蝴蝶效应 · 绿莲"
 		"fixed_ability_ability_charge_damage_name"			"蝴蝶效应 · 青凝"

@@ -62,7 +62,6 @@
 		"fixed_ability_ability_trigger_on_move_name"		"Butterfly Effect - Orange"
 		"fixed_ability_ability_trigger_on_cast_name"		"Butterfly Effect - Red"
 		"fixed_ability_ability_trigger_learned_skills_name"	"Butterfly Effect - Blue"
-		"fixed_ability_death_prophet_swarm_attack_name"	"I AM THE SWARM!"
 		"fixed_ability_ability_trigger_on_active_name"		"Butterfly Effect - Purple"
 		"fixed_ability_ability_trigger_on_spell_reflect_name"	"Butterfly Effect - Green"
 		"fixed_ability_ability_charge_damage_name"			"Butterfly Effect - Cyan"

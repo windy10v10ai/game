@@ -6729,12 +6729,16 @@
 		"AbilityManaCost"				"150 175 200 225"
 		"AbilityValues"
 		{
-				"AbilityCooldown"
-				{
-					"value"		"120 110 100 90"
-				}
-				"requiem_reduction_ms"	"-20 -25 -30 -35"
-				"requiem_reduction_mres"	"-5 -10 -15 -20"
+			"AbilityCooldown"
+			{
+				"value"		"120 110 100 90"
+			}
+			"requiem_reduction_ms"	"-20 -25 -30 -35"
+			"requiem_reduction_mres"	"-5 -10 -15 -20"
+			"max_soul_release"
+			{
+				"value"							"50"
+			}
 		}
 	}
 	//=================================================================================================================
