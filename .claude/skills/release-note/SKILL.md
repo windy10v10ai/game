@@ -4,6 +4,7 @@ description: >-
   生成 Steam Workshop 中英文更新日志。支持手动、PR、Issue（含 checklist 进度）。
   版本号：用户指定 > release PR 大版本 > Steam 递增补丁字母。
   用户确认后可写回 open PR（UTF-8 无 BOM）。
+  **创建 PR 时必须调用本 skill 生成 Release Note 段，不要手写。**
   Use when creating a pull request to generate Steam Workshop release notes.
 ---
 
@@ -144,6 +145,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 - **优先**玩家感知：加强/削弱/修正谁、哪类玩法变了
 - 多英雄技能跟进时用「多英雄并列」句式
 - 每次中英文各 2–5 条 bullet
+- **每条压成一行一句、尽量短**：去掉括号补充说明、引号内的技能强化名、spell amp/具体机制等次要限定，只留玩家可感知的核心变化。例：写「新增莉娜觉醒：每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的纯粹伤害」，不再补「（受技能增强影响）」
 
 ### 从 PR 提取信息
 

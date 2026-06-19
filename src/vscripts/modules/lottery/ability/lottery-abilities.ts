@@ -42,7 +42,7 @@ export const abilityTiersActive: Tier[] = [
       'ability_trigger_on_active', //紫蝴蝶
       'brewmaster_drunken_boxing', // 酒仙 醉拳
       'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
-      'sniper_assassinate_upgrade', // 狙击 觉醒群体暗杀
+      'special_bonus_unique_sniper_assassinate_upgrade', // 狙击 觉醒群体暗杀
     ],
   },
   {
