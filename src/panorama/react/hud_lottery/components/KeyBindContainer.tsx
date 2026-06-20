@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import KeySettingButton from './KeySettingButton';
+import WardKeySettingButton from './WardKeySettingButton';
 import KeyBindRemember from './KeyBindRemember';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
@@ -38,6 +39,14 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
   const [isRememberAbilityKey, setIsRememberAbilityKey] = useState(
     playerSetting.isRememberAbilityKey,
   );
+  const [wardObserverKey, setWardObserverKey] = useState(playerSetting.wardObserverKey ?? '');
+  const [wardObserverQuickCast, setWardObserverQuickCast] = useState(
+    playerSetting.wardObserverQuickCast ?? false,
+  );
+  const [wardSentryKey, setWardSentryKey] = useState(playerSetting.wardSentryKey ?? '');
+  const [wardSentryQuickCast, setWardSentryQuickCast] = useState(
+    playerSetting.wardSentryQuickCast ?? false,
+  );
   const isFirstRender = useRef(true);
 
   // 监听nettable数据变化
@@ -64,6 +73,10 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
       activeAbilityQuickCast,
       passiveAbilityQuickCast,
       passiveAbilityQuickCast2,
+      wardObserverKey,
+      wardObserverQuickCast,
+      wardSentryKey,
+      wardSentryQuickCast,
     });
   }, [
     isRememberAbilityKey,
@@ -73,6 +86,10 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
     activeAbilityQuickCast,
     passiveAbilityQuickCast,
     passiveAbilityQuickCast2,
+    wardObserverKey,
+    wardObserverQuickCast,
+    wardSentryKey,
+    wardSentryQuickCast,
   ]);
 
   useEffect(() => {
@@ -123,6 +140,24 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({ isCollapsed, player
           setBindKeyText={setPassiveAbilityKey2}
           quickCast={passiveAbilityQuickCast2}
           setQuickCast={setPassiveAbilityQuickCast2}
+        />
+      </Panel>
+      <Panel style={{ flowChildren: 'right' }}>
+        <WardKeySettingButton
+          itemname="item_ward_observer"
+          abilityname="ability_ward_observer_slot"
+          bindKeyText={wardObserverKey}
+          setBindKeyText={setWardObserverKey}
+          quickCast={wardObserverQuickCast}
+          setQuickCast={setWardObserverQuickCast}
+        />
+        <WardKeySettingButton
+          itemname="item_ward_sentry"
+          abilityname="ability_ward_sentry_slot"
+          bindKeyText={wardSentryKey}
+          setBindKeyText={setWardSentryKey}
+          quickCast={wardSentryQuickCast}
+          setQuickCast={setWardSentryQuickCast}
         />
       </Panel>
       <KeyBindRemember

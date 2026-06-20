@@ -268,3 +268,16 @@ function RefreshItem(refreshItem, item, caster)
 		end
 	end
 end
+
+-- 觉醒技能加魔法免疫，但不顶替已有的更长魔免（如真 BKB）。
+-- 已有相等或更长的 modifier_black_king_bar_immune 时跳过，避免短时觉醒魔免缩短/替代它。
+-- 返回是否实际施加了觉醒魔免（true 时调用方才需要做取消/移除处理）。
+function ApplyAwakenMagicImmunity(unit, ability, duration)
+	local existing = unit:FindModifierByName("modifier_black_king_bar_immune")
+	if existing and existing:GetRemainingTime() >= duration then
+		return false
+	end
+	unit:AddNewModifier(unit, ability, "modifier_black_king_bar_immune", { duration = duration })
+	unit:EmitSound("DOTA_Item.BlackKingBar.Activate")
+	return true
+end

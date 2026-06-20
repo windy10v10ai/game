@@ -42,7 +42,7 @@ export const abilityTiersActive: Tier[] = [
       'ability_trigger_on_active', //紫蝴蝶
       'brewmaster_drunken_boxing', // 酒仙 醉拳
       'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
-      'sniper_assassinate_upgrade', // 狙击 觉醒群体暗杀
+      'special_bonus_unique_sniper_assassinate_upgrade', // 狙击 觉醒群体暗杀
     ],
   },
   {
@@ -263,7 +263,6 @@ export const abilityTiersPassive: Tier[] = [
       'ancient_apparition_frost_orb', // 冰霜法球
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
-      'break_speed_limit', // 斯拉克 刮痧之王
     ],
   },
   {
@@ -361,4 +360,15 @@ export const abilityTiersPassive: Tier[] = [
       'crystal_maiden_glacial_guard2', // 冰女 先天 冰川护体
     ],
   },
+];
+
+// 蝴蝶系列被动过强，bot 抽到会严重影响玩家体验，需从 bot 抽取池中排除
+export const butterflyPassiveAbilities = [
+  'ability_trigger_on_active', // 紫蝴蝶
+  'ability_trigger_learned_skills', // 蓝蝴蝶
+  'ability_trigger_on_spell_reflect', // 绿蝴蝶
+  'ability_charge_damage', // 青蝴蝶
+  'ability_trigger_on_cast', // 红蝴蝶
+  'ability_trigger_on_attacked', // 金蝴蝶
+  'ability_trigger_on_move', // 橙影蝴蝶
 ];

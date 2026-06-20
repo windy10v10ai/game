@@ -3,16 +3,18 @@ import { pickRandomTierByRate } from '../shared/random-tier';
 import { itemTiers } from './lottery-items';
 
 export enum ItemLotteryPool {
-  INITIAL = 'initial', // 开局点位：屏蔽 T5/T4，避开引擎全价卖出窗口
+  INITIAL = 'initial', // 开局点位：屏蔽 T7~T4，避开引擎全价卖出窗口
   DEFAULT = 'default', // 普通藏宝箱
   PREMIUM = 'premium', // 后期 / 肉山 / 会员：高 tier 加权
+  ULTRA = 'ultra', // 大后期：保底 T3，高 tier 明显加权
 }
 
 const POOL_RATES: Record<ItemLotteryPool, number[]> = {
-  // 累计阈值 [T5, T4, T3, T2, T1]
-  [ItemLotteryPool.INITIAL]: [0, 0, 10, 50, 100],
-  [ItemLotteryPool.DEFAULT]: [1, 5, 20, 60, 100],
-  [ItemLotteryPool.PREMIUM]: [5, 25, 60, 100, 100],
+  // 累计阈值 [T7, T6, T5, T4, T3, T2, T1]
+  [ItemLotteryPool.INITIAL]: [0, 0, 0, 0, 10, 50, 100],
+  [ItemLotteryPool.DEFAULT]: [1, 2, 4, 8, 30, 60, 100],
+  [ItemLotteryPool.PREMIUM]: [2, 4, 8, 30, 60, 100, 100],
+  [ItemLotteryPool.ULTRA]: [4, 10, 16, 40, 100, 100, 100],
 };
 
 export class ItemLotteryHelper {

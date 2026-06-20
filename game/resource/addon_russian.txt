@@ -49,6 +49,7 @@
 
 		// 右侧面板
 		"game_difficulty_choice"		"Выберите сложность"
+		"game_preset_remember"			"Сохранить настройки сложности"
 		"custom_game_vote"				"Таймер голосования"
 
 		"loading_status_1"				"Данные игрока загружаются. Пожалуйста, дождитесь окончания загрузки перед стартом"
@@ -93,6 +94,8 @@
 		"MaxLevelUpSelectedHeroes_Button"			"Max+Gold"
 		"ScepterSelectedHeroes_Button"				"Аганим"
 		"ShardSelectedHeroes_Button"				"Осколок"
+		"AwakenStoneSelectedHeroes_Button"			"Awaken Stone"
+		"BkbSelectedHeroes_Button"					"BKB"
 		"InvulnOn_Button"							"Неуязвимость вкл."
 		"InvulnOff_Button"							"Неуязвимость выкл."
 		"Reset_Button"								"Сбросить"
@@ -113,6 +116,8 @@
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Меню"
 		"data_panel_property_point"		"Attribute Points (Доступно/Всего)"
+		"data_panel_season_point_tooltip"	"Battle Experience (Доступно/Всего: {useable}/{total})"
+		"data_panel_member_point_tooltip"	"Member Experience (Доступно/Всего: {useable}/{total})"
 
 		"data_panel_data_button"		"Инфо"
 		"data_panel_property_button"	"Атрибуты"
@@ -126,8 +131,8 @@
 		"data_panel_level_progress"		"Уровень"
 		"data_panel_link_rule"			"Правила опыта и атрибутов"
 
-		"reset_property_use_season_point"		"Сбросить Attribute Points за {seasonPoint} Battle Experience"
-		"reset_property_use_member_point"		"Сбросить Attribute Points за 1000 Member Experience"
+		"reset_property_use_season_point"		"Сбросить за {seasonPoint} Battle Experience<br>(уровень не снизится)"
+		"reset_property_use_member_point"		"Сбросить за 1000 Member Experience<br>(уровень не снизится)"
 
 		"data_panel_player_property_label"		"Тратьте Attribute Points для улучшения героя — улучшения постоянные и сохраняются из игры в игру."
 		"data_panel_player_property_label_2"		"Очки нельзя тратить на локальном сервере — играйте на выделенном сервере от Valve, чтобы использовать и получать бонусы от улучшений."
@@ -180,6 +185,8 @@
 		"lottery_tooltip_ability_refresh_used"					"Способности изменены"
 		"lottery_tooltip_ability_refresh_picked"				"Способность выбрана"
 		"lottery_tooltip_ability_refresh_not_member"			"Поддержавшие разработчика могут изменить способности один раз. Нажмите на эту кнопку, чтобы открыть страницу поддержки в браузере"
+		"lottery_tooltip_ability_refresh_paid"					"Потратить <font color='#FFD700'>{cost}</font> доступных очков на изменение (уровень поддержки не меняется)"
+		"lottery_tooltip_ability_refresh_insufficient"			"Недостаточно доступных очков. Нажмите, чтобы открыть страницу поддержки"
 
 		"lottery_tooltip_item_refresh"							"Нажмите, чтобы изменить предметы"
 		"lottery_tooltip_item_refresh_used"						"Предметы изменены"
@@ -222,6 +229,8 @@
 		///////////////////////////////////////////////////
 		"profile_title"					"Профиль"
 		"profile_tab_stats"				"Статистика"
+		"profile_tab_awaken"			"Пробуждение"
+		"awaken_intro_desc"				"Открывайте сундуки, чтобы получить <font color='#FFD24A'>Камень пробуждения</font>, превращающий одну из способностей героя в пробуждённую форму.<br>Убийство Рошана или открытие большего числа сундуков повышает шанс его получить.<br>Сейчас поддерживаются только следующие герои:"
 		"profile_stat_games"			"Игры"
 		"profile_stat_winrate"			"Винрейт"
 		"profile_stat_conduct"			"Очки поведения"

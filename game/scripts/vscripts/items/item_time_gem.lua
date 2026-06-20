@@ -45,6 +45,8 @@ end
 function item_time_gem:IsAbitilyException(ability)
     local exceptions = {
         ["dazzle_good_juju"] = true,
+        ["ability_ward_observer_slot"] = true,
+        ["ability_ward_sentry_slot"] = true,
     }
     return exceptions[ability:GetName()]
 end

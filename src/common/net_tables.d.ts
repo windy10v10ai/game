@@ -1,4 +1,4 @@
-import { PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
+import { GamePresetCustomOptions, PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -15,6 +15,14 @@ declare global {
     };
     game_difficulty: {
       all: { difficulty: number };
+    };
+    // 加载界面读取本地玩家已保存的按地图预设，key = playerId
+    game_preset: {
+      [playerId: string]: {
+        dota?: { difficulty: number };
+        hard?: { difficulty: number };
+        custom?: { gameOptions: GamePresetCustomOptions };
+      };
     };
     player_stats: {
       [playerId: string]: {
@@ -71,8 +79,16 @@ declare global {
       [playerId: string]: {
         candidates: LotteryDto[];
         isRefreshed: boolean;
-        // 奖池档位（initial/default/premium）。命名为 poolType 而非 tier，避免与物品自身的 1~5 级 tier 混淆。
+        // 已使用会员积分刷新的次数；每个藏宝箱单独计算，新藏宝箱从 0 开始。
+        paidRefreshCount: number;
+        // 奖池档位（initial/default/premium/ultra）。命名为 poolType 而非 tier，避免与物品自身的 1~7 级 tier 混淆。
         poolType: string;
+      };
+    };
+    // 被动技能书抽奖（使用技能书触发，瞬时事件，key = playerId）
+    lottery_passive_tome: {
+      [playerId: string]: {
+        candidates: LotteryDto[];
       };
     };
     // 添加虚拟金币表定义

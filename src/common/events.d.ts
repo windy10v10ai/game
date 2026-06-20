@@ -21,9 +21,11 @@ interface CustomGameEventDeclarations {
   lottery_pick_ability: LotteryPickEventData;
   lottery_refresh_ability: LotteryRefreshEventData;
   save_bind_ability_key: SaveBindAbilityKeyEventData;
+  save_game_preset: SaveGamePresetEventData;
   lottery_reset_ability: LotteryRefreshEventData;
   lottery_pick_item: LotteryPickItemEventData;
   lottery_refresh_item: Record<string, never>;
+  lottery_pick_passive_tome: LotteryPickItemEventData;
   player_info_refresh: Record<string, never>;
 
   alipay_order_create: AlipayOrderCreateEventData;
@@ -127,6 +129,13 @@ interface DebugPanelAddToUnitEventData {
 }
 
 
+// 按地图记住/清除游戏预设的意图开关。仅传 remember，
+// 服务端在 PRE_GAME 用已有数据（难度票 / GameRules.Option）按地图持久化。
+interface SaveGamePresetEventData {
+  mapName: string;
+  remember: boolean;
+}
+
 interface SaveBindAbilityKeyEventData {
   isRememberAbilityKey: boolean;
   activeAbilityKey: string;
@@ -135,5 +144,9 @@ interface SaveBindAbilityKeyEventData {
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
   passiveAbilityQuickCast2?: boolean;
+  wardObserverKey?: string;
+  wardObserverQuickCast?: boolean;
+  wardSentryKey?: string;
+  wardSentryQuickCast?: boolean;
 }
 

@@ -6,7 +6,7 @@
 	//=================================================================================================================
 
 	// 屠夫 觉醒肉钩
-	// 施法距离随力量值增加，可切换是否钩友方单位
+	// 大幅强化的施法距离与钩速（固定值，不再随力量增长），可切换是否钩友方单位
 	"pudge_meat_hook_lua"
 	{
 		"BaseClass"						"ability_lua"
@@ -41,11 +41,9 @@
 				"value"					"0"
 				"special_bonus_shard"	"50"
 			}
-			"hook_speed"							"1600 1800 2000 2200 2400"
+			"hook_speed"							"2100 2400 2700 3000 3300"
 			"hook_width"							"100"
-			"hook_base_distance"					"1300 1500 1700 1900 2100"
-			"hook_distance_per_strength"			"3"
-			"hook_max_distance_bonus"				"5000"
+			"hook_base_distance"					"1800 2100 2400 2700 3000"
 			"vision_radius"							"500"
 			"vision_duration"						"4"
 			"hook_followthrough_constant"			"0.1"
@@ -58,7 +56,7 @@
 	}
 
 	// 剑圣 觉醒剑刃风暴
-	// 通道期间持续对周围敌人造成基础伤害+攻击力的魔法伤害，免疫魔法和减益
+	// 通道期间每秒对周围敌人造成 基础伤害 + 目标最大生命% 的魔法伤害，魔免+减益免疫，结束时自我强效驱散
 	"juggernaut_blade_fury_custom"
 	{
 		"BaseClass"						"ability_lua"
@@ -83,16 +81,22 @@
 				"value"						"350"	// 260
 				"affected_by_aoe_increase"	"1"
 			}
+			"duration"					"5"
 			"damage"
 			{
-				"value"								"40 80 120 160 200"
-				"special_bonus_unique_juggernaut"	"+200"
+				"value"								"80 160 240 320 400"
+				"special_bonus_unique_juggernaut"	"+240"
 			}
-			"duration"					"5"
 			"AbilityCooldown"			"20 19 18 17 16"
 			"AbilityManaCost"			"100 105 110 115 120"
-			"attack_damage_pct"			"50"
-			"damage_reduction_pct"		"70 65 60 55 50"
+			"health_damage_pct"
+			{
+				"value"							"2"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
+				"display_type"					"kMagicalDamagePercentage"
+			}
+			"damage_reduction_pct"		"50"
 			"talent_bonus_movespeed"
 			{
 				"value"		"0"
@@ -102,27 +106,9 @@
 		}
 	}
 
-	// 斯拉克 刮痧之王
-	// 攻速满时击杀英雄可突破攻速上限，每次 +50，持续 20 秒
-	"break_speed_limit"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/break_speed_limit"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"break_speed_limit"
-		"MaxLevel"						"1"
-
-		"AbilityValues"
-		{
-			"speed_limit_per_stack"		"50"
-			"duration"					"20"
-			"max_stacks"				"100"
-		}
-	}
-
 	// 狙击手 觉醒刺杀
-	// 改为可主动施放的群体暗杀，附带暴击；自动施法被动按几率触发
-	"sniper_assassinate_upgrade"
+	// 改为可主动施放的群体暗杀，附带暴击
+	"special_bonus_unique_sniper_assassinate_upgrade"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"heroes/hero_sniper/sniper_assassinate_upgrade"
@@ -156,35 +142,319 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"scepter_crit_bonus"		"180 210 240 270"
-			"trigger_chance"			"4 5 6 7"
+			"bonus_physical_damage"		"300 400 500 600"
 			"projectile_speed"			"3000"
+			"scepter_stun_duration"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"0.8 1.0 1.2 1.4"
+			}
 		}
 	}
 
 	// 斧王 自动淘汰之刃
-	// 开启后持续时间内自动对低血量敌人施放淘汰之刃，每次击杀叠加增伤与护甲
+	// 开启自动施法后，只要淘汰之刃冷却就绪，自动对斩杀线内的低血敌人施放原版淘汰之刃
 	"axe_auto_culling_blade"
 	{
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/axe_auto_culling_blade"
+		"ScriptFile"					"abilities/ts_abilities/axe_auto_culling_blade"
 		"AbilityTextureName"			"axe_auto_culling_blade"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"MaxLevel"						"4"
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
-		"AbilityCooldown"				"50 45 40 35"
+		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
+	}
+
+	// 死灵法师 竭心光环-觉醒
+	// 重写为 DataDriven 脚本伤害，可吃技能增强；伤害削弱，aura_damage 为每秒最大生命百分比
+	"necrolyte_heartstopper_aura_datadriven"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_AURA"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura"
+		"HasScepterUpgrade"				"1"
+		"IsBreakable"					"1"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"aura_radius"
+			{
+				"value"						"700"
+				"affected_by_aoe_increase"	"1"
+			}
+			"aura_damage"
+			{
+				"value"							"0.6 0.9 1.2 1.5 1.8"
+				"special_bonus_unique_necrophos_2"	"+0.5"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_MAGICAL"
+				"display_type"					"kMagicalDamagePercentage"
+			}
+			"aura_damage_interval"		"0.5"
+			"heal_reduction_pct"
+			{
+				"value"					"0"
+				"special_bonus_unique_necrophos_5"	"-20"
+			}
+			"heal_regen_to_damage"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"+40"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_heartstopper_aura_datadriven"
+			{
+				"Passive"		"1"
+				"IsHidden"		"0"
+				"Aura"			"modifier_heartstopper_debuff_datadriven"
+				"Aura_Radius"	"%aura_radius"
+				"Aura_Teams"	"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"	"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+			}
+
+			"modifier_heartstopper_debuff_datadriven"
+			{
+				"IsDebuff"		"1"
+				"IsHidden"		"0"
+				"IsPurgable"	"0"
+				"ThinkInterval"	"%aura_damage_interval"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET"	"%heal_reduction_pct"
+					"MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE"		"%heal_reduction_pct"
+				}
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"heroes/hero_necrolyte/heartstopper_aura"
+						"Function"		"HeartstopperAura"
+					}
+				}
+			}
+		}
+	}
+
+	// 宙斯 神王-觉醒
+	// 开启自动施法后，自动对施法距离内敌人施放弧形闪电/雷击（英雄优先，只有小兵时仅放弧形闪电）
+	"special_bonus_unique_zuus_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_zuus_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"			"zuus_static_field_alt1"
+		"MaxLevel"						"1"
+	}
+
+	// 幻影刺客 幻影突袭-觉醒
+	// 闪烁到目标身旁，获得短暂攻速加成与魔法免疫后自动攻击
+	"special_bonus_unique_phantom_assassin_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"ScriptFile"					"abilities/special_bonus_unique_phantom_assassin_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY | DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"phantom_assassin_arcana_phantom_strike"
+		"MaxLevel"						"5"
+
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+		}
+
+		"AbilityCastPoint"				"0.3"
 		"AbilityManaCost"				"50"
 
 		"AbilityValues"
 		{
-			"duration"					"6 7 8 9"
-			"check_interval"			"1 0.8 0.6 0.4"
-			"increase_damage_per_kill"	"3"
-			"armor_per_stack"
+			"bonus_attack_speed"
 			{
-				"value"					"1 2 3 4"
+				"value"											"80 120 160 200 240"
+				"special_bonus_unique_phantom_assassin_strike_aspd"	"+60"
+			}
+			"untargetable_duration"
+			{
+				"value"						"2.0"
+				"special_bonus_unique_phantom_assassin_4"	"+0.8"
+			}
+			"dagger_immune_duration"		"1.0"
+			"AbilityCastRange"
+			{
+				"value"											"650 750 850 950 1050"
+				"special_bonus_unique_phantom_assassin_6"	"+200"
+			}
+			"AbilityCooldown"				"14 12 10 8 6"
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/special_bonus_unique_phantom_assassin_upgrade"
+				"Function"		"OnSpellStart"
 			}
 		}
+
+		"Modifiers"
+		{
+			"modifier_phantom_strike_datadriven"
+			{
+				"IsBuff"	"1"
+				"Duration"	"%untargetable_duration"
+				"States"
+				{
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%bonus_attack_speed"
+				}
+			}
+
+			// 常驻监听：施放窒碍短匕后获得短暂魔免（不顶替真BKB）
+			"modifier_pa_awaken_dagger_listener"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"RemoveOnDeath"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_phantom_assassin_upgrade"
+						"Function"		"OnDaggerCast"
+					}
+				}
+			}
+		}
+	}
+
+	// 巫医 神语-觉醒
+	// 死亡守卫/变身术守卫被召唤时，攻击力按巫医当前技能增强% 提升
+	"special_bonus_unique_witch_doctor_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"witch_doctor/ribbitar_icon/witch_doctor_death_ward"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"search_radius"		"300"
+		}
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_witch_doctor_upgrade"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"IsPurgable"	"0"
+				"RemoveOnDeath"	"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_witch_doctor_upgrade"
+						"Function"		"OnAbilityExecuted"
+						"search_radius"		"%search_radius"
+					}
+				}
+			}
+		}
+	}
+
+	// 影魔 魂之挽歌护体-觉醒
+	// 新增被动：释放魂之挽歌前摇期间获得魔法免疫；提升支配死灵击杀英雄灵魂=10、小兵=3（见 override 联动）；提升施法速度降低暗影压制与魂之挽歌抬手
+	"special_bonus_unique_nevermore_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/special_bonus_unique_nevermore_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"nevermore_dark_lord_demon"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"invulnerability_duration"	"1.67"
+			"cast_speed_pct"			"50"
+		}
+	}
+
+	// 莉娜 神灭斩-觉醒
+	// 新增被动：每次施放神灭斩，对目标额外造成等同大招当前伤害的纯粹伤害（吃技能增强）
+	"special_bonus_unique_lina_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_lina_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"lina/lina_ti6_immortal/lina_laguna_blade"
+		"MaxLevel"						"1"
+	}
+
+	// 卓尔游侠 裂影箭-觉醒
+	// 新增被动：普攻有概率分裂出数支箭射向主目标周围的敌人，造成本次攻击伤害的百分比并附带霜冻箭减速
+	// 技能名同时作 special_bonus key 挂回 marksmanship，使精准箭触发概率提升（见 override 联动）
+	"special_bonus_unique_drow_ranger_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_drow_ranger_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"drow_ranger_multishot_arcana"
+		"MaxLevel"						"4"
+		"LinkedAbility"					"drow_ranger_marksmanship"	// 与大招射手天赋双向联动同步升级
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_drow/drow_marksmanship_attack.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_drow.vsndevts"
+		}
+
+		"AbilityValues"
+		{
+			"splinter_chance"
+			{
+				"value"										"30 35 40 45"	// 与射手天赋同概率
+				"special_bonus_unique_drow_ranger_3"		"+13"			// 同吃射手天赋的概率天赋
+			}
+			"splinter_targets"			"2"
+			"splinter_radius"			"500"
+			"splinter_damage_pct"		"40"
+			"slow_duration"				"1.5"
+			"projectile_speed"			"1250"
+		}
+	}
+
+	// 钢背兽 自动喷刺-觉醒
+	// 开启自动施法后，仅在范围内有敌方英雄时自动施放倒刺喷射与黏液（黏液锁最近英雄）
+	"special_bonus_unique_bristleback_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_bristleback_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"			"bristleback/bb_2022_immortal_ability_icon/bb_2022_immortal_bristleback"
+		"MaxLevel"						"1"
 	}
 }

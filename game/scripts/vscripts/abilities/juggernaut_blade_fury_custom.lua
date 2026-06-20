@@ -25,10 +25,9 @@ function modifier_juggernaut_blade_fury_custom:OnCreated(kv)
     local caster = self:GetCaster()
     local attack_damage = caster:GetAverageTrueAttackDamage(nil)
     local damage_reduction_pct = ability:GetSpecialValueFor("damage_reduction_pct")
-    local attack_damage_pct = ability:GetSpecialValueFor("attack_damage_pct") / 100
-    local base_damage = ability:GetSpecialValueFor("damage")
     self.damage_reduction = -attack_damage * damage_reduction_pct / 100
-    self.tick_damage = (attack_damage * attack_damage_pct + base_damage) * 0.5
+    self.base_tick = ability:GetSpecialValueFor("damage") * 0.5
+    self.health_pct_tick = ability:GetSpecialValueFor("health_damage_pct") / 100 * 0.5
 
     self:SetHasCustomTransmitterData(true)
     self.particle = ParticleManager:CreateParticle(
@@ -52,6 +51,8 @@ function modifier_juggernaut_blade_fury_custom:OnDestroy()
         ParticleManager:DestroyParticle(self.particle, false)
     end
     StopSoundOn("Hero_Juggernaut.BladeFuryStart", caster)
+    -- 旋转结束对自身强效驱散，清掉身上 debuff/控制
+    caster:Purge(false, true, false, true, true)
 end
 
 function modifier_juggernaut_blade_fury_custom:OnIntervalThink()
@@ -69,7 +70,7 @@ function modifier_juggernaut_blade_fury_custom:OnIntervalThink()
         ApplyDamage({
             victim = enemy,
             attacker = caster,
-            damage = self.tick_damage,
+            damage = self.base_tick + enemy:GetMaxHealth() * self.health_pct_tick,
             damage_type = DAMAGE_TYPE_MAGICAL,
             ability = ability
         })

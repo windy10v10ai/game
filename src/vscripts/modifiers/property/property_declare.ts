@@ -240,6 +240,15 @@ export class property_cannot_miss extends PropertyBaseModifier {
 }
 
 @registerModifier('modifiers/property/property_declare')
+export class property_slow_immune extends PropertyBaseModifier {
+  CheckState(): Partial<Record<ModifierState, boolean>> {
+    return {
+      [ModifierState.UNSLOWABLE]: true,
+    };
+  }
+}
+
+@registerModifier('modifiers/property/property_declare')
 export class property_flying extends PropertyBaseModifier {
   CheckState(): Partial<Record<ModifierState, boolean>> {
     return {

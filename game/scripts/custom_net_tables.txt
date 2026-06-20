@@ -10,6 +10,7 @@
     // Lua/TS tables
     "game_options",
     "game_difficulty",
+    "game_preset",  // 按地图保存的游戏预设
 
     // Panorama/TS tables
     "player_stats",
@@ -25,6 +26,7 @@
     "lottery_passive_abilities_2",
     "lottery_status",
     "lottery_item",  // 藏宝箱触发物品抽奖
+    "lottery_passive_tome",  // 被动技能书触发被动技能抽奖
 	  "player_virtual_gold",
 	  "bot_passive_abilities",  // Bot 被动技能表
 	  "alipay_order",  // 支付宝订单状态

@@ -1,5 +1,27 @@
 'use strict';
 
+// custom 图整套 KV 预设回填状态（字段名为后端契约的 camelCase）
+var g_customPresetLoaded = false; // 预设是否已加载（只加载一次）
+var g_loadedCustomOptions; // 服务端已保存的 custom KV
+
+var CUSTOM_PRESET_DROPDOWNS = [
+  ['multiplierRadiant', 'player_gold_xp_multiplier_dropdown'],
+  ['multiplierDire', 'bot_gold_xp_multiplier_dropdown'],
+  ['playerNumberRadiant', 'radiant_player_number_dropdown'],
+  ['playerNumberDire', 'dire_player_number_dropdown'],
+  ['towerPowerPct', 'tower_power_dropdown'],
+  ['respawnTimePct', 'respawn_time_percentage_dropdown'],
+  ['startingGoldPlayer', 'starting_gold_player_dropdown'],
+  ['startingGoldBot', 'starting_gold_bot_dropdown'],
+  ['maxLevel', 'max_level_dropdown'],
+  ['fixedAbility', 'fixed_ability_dropdown'],
+];
+var CUSTOM_PRESET_TOGGLES = [
+  ['forceRandomHero', 'force_random_hero'],
+  ['enablePlayerAttribute', 'enable_player_attribute'],
+  ['midOnlyMode', 'mid_only_mode'],
+];
+
 function CheckForHostPrivileges() {
   var player_info = Game.GetLocalPlayerInfo();
   if (!player_info) {
@@ -7,6 +29,14 @@ function CheckForHostPrivileges() {
   } else {
     return player_info.player_has_host_privileges;
   }
+}
+
+function NormalizePresetValue(value) {
+  if (typeof value === 'number') {
+    var rounded = Math.round((value + Number.EPSILON) * 10) / 10;
+    return rounded === Math.floor(rounded) ? String(Math.floor(rounded)) : String(rounded);
+  }
+  return String(value);
 }
 
 function InitializeUI(keys) {
@@ -213,9 +243,9 @@ function StateChange() {
   if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_CUSTOM_GAME_SETUP)) {
     // 游戏选项显示（全体玩家）
     $('#display_options_container').style.visibility = 'visible';
+  } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     // 统计玩家语言
     SendPlayerLanguage();
-  } else if (Game.GameStateIs(DOTA_GameState.DOTA_GAMERULES_STATE_HERO_SELECTION)) {
     GameEvents.SendCustomGameEventToServer('loading_set_options', {
       host_privilege: CheckForHostPrivileges(),
       game_options: {
@@ -273,6 +303,73 @@ function SendGameOptionsToServer() {
   });
 }
 
+// -------- custom 预设 加载/回填（保存由服务端在 PRE_GAME 统一处理） --------
+
+function OnGamePresetChange(_table, key, value) {
+  if (key !== String(Game.GetLocalPlayerID())) {
+    return;
+  }
+  LoadCustomPreset(value);
+}
+
+function LoadCustomPreset(value) {
+  if (g_customPresetLoaded) {
+    return;
+  }
+  if (!value || !value.custom || !value.custom.gameOptions) {
+    return;
+  }
+  // custom 整套 KV 只有房主能改，非房主不回填
+  if (!CheckForHostPrivileges()) {
+    return;
+  }
+  if (Game.GetMapInfo().map_display_name !== 'custom') {
+    return;
+  }
+  g_customPresetLoaded = true;
+  g_loadedCustomOptions = value.custom.gameOptions;
+  // 难度已定为 0（custom 已解锁）则立即应用覆盖默认值；否则等 OnDifficultyDropDownChanged(0)
+  if ($('#player_gold_xp_multiplier_dropdown').enabled) {
+    ApplyCustomPresetToDropdowns(g_loadedCustomOptions);
+  }
+}
+
+function ApplyCustomPresetToDropdowns(options) {
+  if (!options) {
+    return;
+  }
+  CUSTOM_PRESET_DROPDOWNS.forEach(function (pair) {
+    const field = pair[0];
+    const value = options[field];
+    if (value === undefined || value === null) {
+      return; // failover：缺字段跳过
+    }
+    const dd = $('#' + pair[1]);
+    if (!dd) {
+      return;
+    }
+    const optionId = NormalizePresetValue(value);
+    if (dd.HasOption && !dd.HasOption(optionId)) {
+      return; // failover：选项在画面中不存在跳过
+    }
+    dd.SetSelected(optionId);
+  });
+  CUSTOM_PRESET_TOGGLES.forEach(function (pair) {
+    const field = pair[0];
+    const value = options[field];
+    if (value === undefined || value === null) {
+      return;
+    }
+    const tb = $('#' + pair[1]);
+    if (tb) {
+      tb.checked = !!value;
+    }
+  });
+  // 程序回填不会触发 onactivate/oninputsubmit，必须主动补发一次，
+  // 否则只能等到 HERO_SELECTION 兜底发送，那时 force_random_hero 已经来不及生效。
+  SendGameOptionsToServer();
+}
+
 /**
  * 非主机玩家显示游戏选项内容设定
  */
@@ -299,6 +396,10 @@ function OnDifficultyDropDownChanged(difficulty) {
   if (optionId === 0) {
     UnLockOptionAll();
     InitCustomSetting();
+    // custom 解锁并填完默认值后，用已保存预设覆盖
+    if (g_loadedCustomOptions) {
+      ApplyCustomPresetToDropdowns(g_loadedCustomOptions);
+    }
   } else {
     InitDifficultyCommonSetting();
     if (optionId === 1) {
@@ -335,8 +436,8 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
   const random = Math.random();
-  const chanceSurvivor = 0.2;
-  const chanceOMGAI = 0.4;
+  const chanceSurvivor = 0.5;
+  const chanceOMGAI = 1;
   if (random < chanceSurvivor) {
     $('#DotaSurvivorPanel').visible = true;
     $('#OMGAIPanel').visible = false;
@@ -421,6 +522,9 @@ function SendPlayerLanguage() {
   // 初始化游戏难度
   CustomNetTables.GetTableValue('game_options', 'game_options', ShowGameOptionsChange);
   CustomNetTables.GetTableValue('game_difficulty', 'all', OnGameDifficultyChoiceChange);
+  // 已保存 custom 预设：开局后由服务端写入 game_preset
+  CustomNetTables.SubscribeNetTableListener('game_preset', OnGamePresetChange);
+  LoadCustomPreset(CustomNetTables.GetTableValue('game_preset', String(Game.GetLocalPlayerID())));
   // 链接按钮
   DispatchLinkPanel();
   DispatchQQ();

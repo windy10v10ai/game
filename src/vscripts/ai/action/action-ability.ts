@@ -1,4 +1,8 @@
-import { CastAbilityOnTargetByBehavior, GetFullCastRange } from '../ability/ability-cast';
+import {
+  ApplyAbilityAction,
+  CastAbilityOnTargetByBehavior,
+  GetFullCastRange,
+} from '../ability/ability-cast';
 import { BotBaseAIModifier } from '../hero/bot-base';
 import { ActionFind } from './action-find';
 import {
@@ -129,29 +133,9 @@ export class ActionAbility {
   }
 
   private static doAction(condition: CastCoindition, ability: CDOTABaseAbility): boolean {
-    if (condition?.action) {
-      if (condition?.action?.toggleOn) {
-        if (!ability.GetToggleState()) {
-          print(`[AI] toggleOn ${ability.GetName()}`);
-          ability.ToggleAbility();
-          return true;
-        }
-      }
-      if (condition?.action?.toggleOff) {
-        if (ability.GetToggleState()) {
-          print(`[AI] toggleOff ${ability.GetName()}`);
-          ability.ToggleAbility();
-          return true;
-        }
-      }
-      if (condition?.action?.autoCastOn) {
-        if (!ability.GetAutoCastState()) {
-          print(`[AI] autoCastOn ${ability.GetName()}`);
-          ability.ToggleAutoCast();
-          return true;
-        }
-      }
+    if (!condition.action) {
+      return false;
     }
-    return false;
+    return ApplyAbilityAction(ability, condition.action);
   }
 }
