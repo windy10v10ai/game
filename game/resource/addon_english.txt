@@ -257,6 +257,7 @@
 		"key_bind_remember"										"Save Key"
 
 		"lottery_item_header"									"Pick Your Treasure"
+		"lottery_passive_tome_header"							"Choose a Passive Ability"
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -2524,7 +2525,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Gain a random passive ability.\nEach player can use this up to 3 times per game.\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game.\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
 
 		// 圣女白莲

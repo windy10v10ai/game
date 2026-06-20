@@ -11,15 +11,18 @@ end
 modifier_death_prophet_swarm_attack = class({})
 
 function modifier_death_prophet_swarm_attack:IsHidden() return true end
+
 function modifier_death_prophet_swarm_attack:IsPermanent() return true end
+
 function modifier_death_prophet_swarm_attack:RemoveOnDeath() return false end
+
 function modifier_death_prophet_swarm_attack:IsPurgable() return false end
 
 function modifier_death_prophet_swarm_attack:DeclareFunctions()
-	return { MODIFIER_EVENT_ON_ATTACK_LANDED }
+	return { MODIFIER_EVENT_ON_ATTACK }
 end
 
-function modifier_death_prophet_swarm_attack:OnAttackLanded(params)
+function modifier_death_prophet_swarm_attack:OnAttack(params)
 	if not IsServer() then return end
 
 	local parent = self:GetParent()
@@ -36,17 +39,11 @@ function modifier_death_prophet_swarm_attack:OnAttackLanded(params)
 	local swarm = parent:FindAbilityByName("death_prophet_carrion_swarm")
 	if not swarm or swarm:GetLevel() <= 0 then return end
 
-	-- 暂时结束冷却以触发施放，施放后一帧还原原冷却
+	-- 暂时结束冷却以触发施放
 	local remaining_cooldown = swarm:GetCooldownTimeRemaining()
 	swarm:EndCooldown()
 	parent:SetCursorPosition(params.target:GetAbsOrigin())
 	parent:CastAbilityImmediately(swarm, parent:GetPlayerOwnerID())
-
-	swarm:SetContextThink("restore_swarm_cooldown", function()
-		if swarm and not swarm:IsNull() and remaining_cooldown > 0 then
-			swarm:EndCooldown()
-			swarm:StartCooldown(remaining_cooldown)
-		end
-		return nil
-	end, FrameTime())
+	-- 返还魔法
+	parent:GiveMana(swarm:GetManaCost(-1))
 end

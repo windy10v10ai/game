@@ -365,6 +365,9 @@ function ApplyCustomPresetToDropdowns(options) {
       tb.checked = !!value;
     }
   });
+  // 程序回填不会触发 onactivate/oninputsubmit，必须主动补发一次，
+  // 否则只能等到 HERO_SELECTION 兜底发送，那时 force_random_hero 已经来不及生效。
+  SendGameOptionsToServer();
 }
 
 /**

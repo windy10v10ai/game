@@ -25,6 +25,7 @@ interface CustomGameEventDeclarations {
   lottery_reset_ability: LotteryRefreshEventData;
   lottery_pick_item: LotteryPickItemEventData;
   lottery_refresh_item: Record<string, never>;
+  lottery_pick_passive_tome: LotteryPickItemEventData;
   player_info_refresh: Record<string, never>;
 
   alipay_order_create: AlipayOrderCreateEventData;
