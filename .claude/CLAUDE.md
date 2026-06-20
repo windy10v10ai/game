@@ -393,7 +393,6 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 代码改动保持最小化，优先用最简单的机制实现：
 
-- 把 timer 延迟设为 0，而不是另加一次冗余调用
 - 复用一个字符串事件，而不是新增自定义事件
 - 避免过度还原、过度分析
 
