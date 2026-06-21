@@ -292,7 +292,7 @@
 		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one.<br>Currently only the following heroes are supported:"
-		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> <font color='#9B5DE0'>Battle Points</font> to permanently unlock awakening for specific heroes. This is permanent and cannot be undone. The hero's awakened ability may be buffed, nerfed, or reworked in future updates."
+		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> <font color='#9B5DE0'>Battle Points</font> to unlock awakening for a hero. Permanent and irreversible — the awakened ability may be buffed, nerfed, or reworked in future updates."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
 		"awaken_unlock_tooltip_insufficient"	"Not enough points. Need {cost}, have {current}"

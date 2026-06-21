@@ -94,12 +94,17 @@ export function AwakenTab() {
           const isUnlocked = awakenedHeroes.some((h) => h.heroName === heroName);
 
           return (
-            <Panel key={abilityName} className="awaken-card">
+            <Panel
+              key={abilityName}
+              className={isUnlocked ? 'awaken-card awaken-card-unlocked' : 'awaken-card'}
+            >
               <DOTAHeroImage
                 className="awaken-hero"
                 heroname={heroName}
                 heroimagestyle="portrait"
               />
+              <Panel className="awaken-top-scrim" />
+              <Label className="awaken-hero-name-top" text={$.Localize('#' + heroName)} />
               <Panel className="awaken-scrim" />
               <Panel className="awaken-bottom">
                 <DOTAAbilityImage
@@ -108,7 +113,12 @@ export function AwakenTab() {
                   showtooltip={true}
                 />
                 {isUnlocked ? (
-                  <Label className="awaken-hero-name" text={$.Localize('#' + heroName)} />
+                  <Panel className="awaken-unlocked-badge">
+                    <Label
+                      className="awaken-unlocked-badge-label"
+                      text={$.Localize('#awaken_unlocked_label')}
+                    />
+                  </Panel>
                 ) : (
                   <PrimaryButton
                     className="awaken-unlock-btn"
