@@ -87,7 +87,7 @@ src/
 ├── panorama/              # UI (React + TypeScript → JavaScript)
 │   ├── react/
 │   │   ├── shared/        # 跨 entry 共享：通用组件 / hooks / 设计 token
-│   │   │   ├── components/  # AppButton, Dialog, Modal, TabNavigation, ...
+│   │   │   ├── components/  # TabNavigation, SubTabNavigation
 │   │   │   ├── hooks/       # useNetTable, useClientEvent
 │   │   │   └── styles/      # tokens.less, buttons.less, dialog.less
 │   │   ├── hud_lottery/   # 常驻 HUD 浮窗：技能抽奖
@@ -112,7 +112,6 @@ src/
 │   │       │               ├── ClickablePanel.tsx
 │   │       │               ├── constants.ts
 │   │       │               └── styles.less
-│   │       └── dialogs/          # ConfirmDialog + useConfirm
 │   ├── utils/             # 全局 utils（@utils/* 别名指向这里）
 │   └── webpack.{dev,prod}.js
 │
