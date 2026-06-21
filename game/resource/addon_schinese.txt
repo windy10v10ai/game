@@ -3168,15 +3168,14 @@
 
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"无限手套"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>被动：极速</font></h1>提升攻击速度，移动速度和攻击距离，并减少%bat_reduction_pct%%%基础攻击间隔。"
+		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻炼化目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其炼化。</font><br><br>施法距离：%abilitycastrange%\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。"
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。 — by RN"
-		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"基础攻击间隔减少效果无法叠加。"
+		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"获得的金钱经验，享有倍率加成！"
+		"DOTA_Tooltip_ability_item_swift_glove_Note1"									"基础攻击间隔减少效果无法叠加。"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"							"+$str"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_agility"							"+$agi"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_intellect"							"+$int"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"						"+$attack"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_movement_speed"					"+$move_speed"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_range"						"+$attack_range"
+		"DOTA_Tooltip_ability_item_swift_glove_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_swift_glove_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"						"%+基础攻击间隔减少"
 
 		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"万剑归宗"
@@ -3291,6 +3290,8 @@
 		"dota_hud_error_assassinate_no_target"											"范围内没有敌方英雄"
 		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
 		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
+		"dota_hud_error_swift_glove_no_roshan"											"无法对肉山使用"
+		"dota_hud_error_swift_glove_no_building"										"无法对建筑使用"
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"
