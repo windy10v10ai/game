@@ -292,6 +292,11 @@
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
 		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
+		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> <font color='#9B5DE0'>勇士积分</font>可以解锁永久觉醒指定英雄。觉醒永久生效，不可撤销，英雄的觉醒技能可能随版本更新增强、削弱甚至重做。"
+		"awaken_unlock_button"				"积分觉醒"
+		"awaken_unlocked_label"				"已觉醒"
+		"awaken_unlock_tooltip_insufficient"	"积分不足，需要 {cost}，当前 {current}"
+		"awaken_unlock_tooltip_confirm"		"消耗 {cost} 勇士积分可以永久觉醒该英雄"
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"

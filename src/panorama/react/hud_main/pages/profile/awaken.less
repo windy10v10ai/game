@@ -35,11 +35,13 @@
   text-shadow: @text-shadow-soft;
 }
 
+/* 占满说明区之外的剩余高度，超出时纵向滚动（横向不滚，挤压换行） */
 .awaken-grid {
   width: 100%;
-  height: fit-children;
+  height: fill-parent-flow(1);
   flow-children: right-wrap;
   horizontal-align: center;
+  overflow: squish scroll;
 }
 
 /* 子元素不走 flow，全部叠加在立绘上；卡片宽高比贴近 portrait 立绘(235:272)避免拉伸 */
@@ -95,4 +97,19 @@
   text-shadow:
     2px 2px 4px #000000ee,
     0 0 6px #000000cc;
+}
+
+/* 卡片内尺寸覆盖，配色交给通用 .btn-primary（shared/styles/buttons.less）；
+   用组合选择器保证覆盖优先级不受样式文件加载顺序影响 */
+.btn-primary.awaken-unlock-btn {
+  width: 64%;
+  height: 22px;
+  min-width: 0px;
+  padding: 0px;
+  horizontal-align: center;
+}
+
+/* 卡片够窄，文案("积分觉醒")用通用字号会挤满整个按钮，单独缩小 */
+.awaken-unlock-btn .btn-primary-label {
+  font-size: @font-size-xs;
 }

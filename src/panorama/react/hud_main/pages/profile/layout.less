@@ -78,9 +78,11 @@
 }
 
 /* ========== 内容区域 ========== */
+/* 占满 modal 内除头部/Tab 栏外的剩余高度，而不是按内容自适应，
+   这样 AwakenTab 的滚动网格才能拿到真正可用的高度去滚动 */
 .content-area {
   width: 100%;
-  height: fit-children;
+  height: fill-parent-flow(1);
   min-height: 480px;
   padding: 14px;
   flow-children: down;

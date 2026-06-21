@@ -88,7 +88,7 @@ src/
 │   ├── react/
 │   │   ├── shared/        # 跨 entry 共享：通用组件 / hooks / 设计 token
 │   │   │   ├── components/  # TabNavigation, SubTabNavigation
-│   │   │   ├── hooks/       # useNetTable, useClientEvent
+│   │   │   ├── hooks/       # useNetTable
 │   │   │   └── styles/      # tokens.less, buttons.less, dialog.less
 │   │   ├── hud_lottery/   # 常驻 HUD 浮窗：技能抽奖
 │   │   └── hud_main/      # 中心化界面容器（home/shop/achievements 等）
