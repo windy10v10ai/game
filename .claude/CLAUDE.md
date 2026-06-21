@@ -335,6 +335,8 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 | 单位/英雄专属技能 KV | `game/scripts/npc/npc_abilities_custom.txt` |
 | 原版物品参考 | `docs/reference/<version>/items.txt` |
 | 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
+| 自制物品 KV | `game/scripts/npc/npc_items_custom.txt` |
+| 物品共享 DataDriven hub（`item_apply_modifiers`） | `game/scripts/npc/npc_items_modifier.txt` |
 | 觉醒技能 KV | `game/scripts/npc/npc_abilities_custom_awaken.txt` |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |

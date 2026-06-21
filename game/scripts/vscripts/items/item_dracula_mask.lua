@@ -13,8 +13,6 @@ function item_dracula_mask:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration")
 
-    -- 永恒之盘触发音效
-    caster:EmitSound("DOTA_Item.AeonDisk.Activate")
     -- 撒旦触发音效
     caster:EmitSound("DOTA_Item.Satanic.Activate")
     -- 添加主动buff

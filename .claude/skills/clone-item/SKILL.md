@@ -43,7 +43,7 @@ files: game/scripts/npc/npc_items_clone.txt
 ```
 
 **判断是否为克隆版**：在搜索结果中，找到物品块（`"<克隆物品名>"\n{`），读取其 `BaseClass`：
-- `BaseClass` = `item_datadriven` 或 `item_lua` → **不是克隆版**（是自制物品，不属于本 skill 处理范围）
+- `BaseClass` = `item_datadriven` 或 `item_lua` → **不是克隆版**（是自制物品，改用 `custom-item` skill）
 - `BaseClass` = 其他原版物品名（如 `item_armlet`）→ **是克隆版**
 
 | 情况 | 处理 |
@@ -51,7 +51,7 @@ files: game/scripts/npc/npc_items_clone.txt
 | **在 npc_items_clone.txt 中找到且是克隆版** | 目标文件 = npc_items_clone.txt；模式 = **更新** |
 | **在旧文件中找到且是克隆版**（npc_items_custom.txt 或 npc_items_artifact.txt） | 提示用户：已在旧文件中找到，将迁移到 npc_items_clone.txt；模式 = **更新** |
 | **所有文件均未找到** | 模式 = **新建** |
-| **找到但 BaseClass 是 item_datadriven/item_lua** | 告知用户该物品是自制物品，不是克隆版，询问是否重新输入 |
+| **找到但 BaseClass 是 item_datadriven/item_lua** | 告知用户该物品是自制物品，不是克隆版，改用 `custom-item` skill |
 
 ---
 
