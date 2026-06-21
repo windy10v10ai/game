@@ -6593,6 +6593,7 @@
 		"AbilityCastPoint"			"0.0"
 		"AbilityManaCost"			"0"
 		"AbilitySharedCooldown"		"item_hand_of_midas"
+		"IsTempestDoubleClonable"	"0"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
