@@ -347,6 +347,7 @@ tBotItemData.purchaseItemList = {
 		'item_bfury_ultra', -- 剑圣先手用先哲，看着换
 		'item_jump_jump_jump',
 		'item_excalibur',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_kunkka = {
 		'item_magic_wand',
@@ -937,6 +938,7 @@ tBotItemData.purchaseItemList = {
 		'item_skadi_2',      -- 大冰眼
 		'item_wasp_callous',
 		'item_excalibur',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_witch_doctor = {
 		'item_magic_wand',
