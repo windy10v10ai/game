@@ -193,7 +193,6 @@ tBotItemData.purchaseItemList = {
 		'item_refresh_core',
 		'item_necronomicon_staff',
 		'item_hallowed_scepter',
-		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_dazzle = {
 		-- 出门装
@@ -323,7 +322,6 @@ tBotItemData.purchaseItemList = {
 		'item_gungir_2', -- 风暴之锤
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
-		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_juggernaut = {
 		'item_magic_wand',
@@ -416,7 +414,6 @@ tBotItemData.purchaseItemList = {
 		'item_refresh_core',
 		'item_shivas_guard_2',
 		'item_sacred_trident',
-		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_lion = {
 		'item_magic_wand',
@@ -440,7 +437,6 @@ tBotItemData.purchaseItemList = {
 		'item_refresh_core',
 		'item_hallowed_scepter',
 		'item_refresher',
-		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_luna = {
 		'item_aghanims_shard',
