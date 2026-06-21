@@ -1,11 +1,97 @@
 // 觉醒 Tab 样式：觉醒技能预览网格
 @import "../../../shared/styles/tokens.less";
 
+/* 不走 flow，让确认弹窗能以同尺寸叠在 awaken-layout 上层 */
+.awaken-root {
+  width: 100%;
+  height: 100%;
+}
+
 .awaken-layout {
   width: 100%;
   height: 100%;
   flow-children: down;
   padding: 0px 32px;
+}
+
+/* 全屏透明遮罩（不压暗背景）+ 居中确认框；遮罩仅用于承接点击外部区域关闭 */
+.awaken-confirm-overlay {
+  width: 100%;
+  height: 100%;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.awaken-confirm-dialog {
+  width: 320px;
+  horizontal-align: center;
+  vertical-align: center;
+  flow-children: down;
+  padding: 20px;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    0% 100%,
+    from(#1c112ef2),
+    to(#1a0836f2)
+  );
+  border: 2px solid @color-gold-soft;
+  border-radius: @radius-lg;
+  box-shadow: @shadow-soft;
+}
+
+/* 即将获得的觉醒技能图标，居中展示；英雄名已用文字说明，不再重复放头像 */
+.awaken-confirm-ability-icon {
+  width: 64px;
+  height: 64px;
+  horizontal-align: center;
+  margin-bottom: 8px;
+  border-radius: @radius-sm;
+  box-shadow: 1px 2px 5px 2px #000000ee;
+}
+
+.awaken-confirm-hero-name {
+  width: 100%;
+  text-align: center;
+  font-size: @font-size-lg;
+  font-weight: bold;
+  color: @color-gold;
+  margin-bottom: 8px;
+}
+
+.awaken-confirm-desc {
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  font-size: @font-size-sm;
+  color: @color-text;
+  margin-bottom: 16px;
+}
+
+.awaken-confirm-actions {
+  width: 100%;
+  flow-children: right;
+  horizontal-align: center;
+}
+
+/* 确认在左、取消在右，符合 Windows 对话框惯例；两按钮等宽，视觉更平衡 */
+.btn-primary.awaken-confirm-confirm {
+  width: 120px;
+  height: 36px;
+  margin-right: 12px;
+  horizontal-align: center;
+}
+
+.awaken-confirm-cancel {
+  width: 120px;
+  height: 36px;
+  horizontal-align: center;
+}
+
+.awaken-confirm-cancel-label {
+  width: 100%;
+  text-align: center;
+  vertical-align: center;
 }
 
 /* 顶部说明：觉醒石图标 + 如何获取/觉醒的富文本 */
@@ -128,7 +214,7 @@
   width: 100%;
   vertical-align: center;
   text-align: center;
-  font-size: @font-size-xs;
+  font-size: @font-size-sm;
   font-weight: bold;
   color: @color-gold;
   text-shadow: 1px 1px 3px #000000ee;
@@ -137,14 +223,14 @@
 /* 卡片内尺寸覆盖，配色交给通用 .btn-primary（shared/styles/buttons.less）；
    用组合选择器保证覆盖优先级不受样式文件加载顺序影响 */
 .btn-primary.awaken-unlock-btn {
-  width: 64%;
+  width: 50%;
   height: 22px;
   min-width: 0px;
   padding: 0px;
   horizontal-align: center;
 }
 
-/* 卡片够窄，文案("积分觉醒")用通用字号会挤满整个按钮，单独缩小 */
+/* 文案缩短为"觉醒"后按钮变窄，字号可以适当放大 */
 .awaken-unlock-btn .btn-primary-label {
-  font-size: @font-size-xs;
+  font-size: @font-size-sm;
 }
