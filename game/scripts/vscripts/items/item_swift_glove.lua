@@ -48,8 +48,10 @@ function item_swift_glove:OnSpellStart()
     local caster = self:GetCaster()
     local target = self:GetCursorTarget()
 
-    -- 对英雄目标按 hero_kill_chance 概率失败，仅消耗充能，不产生任何效果
+    -- 对英雄目标按 hero_kill_chance 概率失败，给逃过一劫的目标和施法者反馈，避免毫无手感
     if target:IsHero() and not RollPercentage(self:GetSpecialValueFor("hero_kill_chance")) then
+        target:EmitSound("DOTA_Item.LinkensSphere.Activate")
+        SendOverheadEventMessage(caster, OVERHEAD_ALERT_MISS, target, 0, caster)
         SpendSwiftGloveCharge(caster)
         return
     end
