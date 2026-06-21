@@ -295,6 +295,7 @@
 		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to unlock awakening for a hero. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked in future updates, the hero's awakening still applies."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
+		"awaken_unlock_tooltip_insufficient"	"Not enough useable points."
 		"awaken_unlock_confirm_desc"		"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
 		"awaken_unlock_confirm_cancel"		"Cancel"
 		"awaken_unlock_confirm_button"		"Confirm"

@@ -295,6 +295,7 @@
 		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
+		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
 		"awaken_unlock_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
 		"awaken_unlock_confirm_cancel"		"取消"
 		"awaken_unlock_confirm_button"		"确认"

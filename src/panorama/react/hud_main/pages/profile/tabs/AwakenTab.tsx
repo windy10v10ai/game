@@ -105,6 +105,7 @@ export function AwakenTab() {
               abilityName={abilityName}
               isUnlocked={awakenedHeroes.some((h) => h.heroName === heroName)}
               enabled={!isPending && canAfford}
+              canAfford={canAfford}
               onUnlockClick={handleUnlockClick}
             />
           ))}

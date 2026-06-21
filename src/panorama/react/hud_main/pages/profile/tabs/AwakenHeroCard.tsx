@@ -5,6 +5,7 @@ interface AwakenHeroCardProps {
   abilityName: string;
   isUnlocked: boolean;
   enabled: boolean;
+  canAfford: boolean;
   onUnlockClick: (heroName: string, abilityName: string) => void;
 }
 
@@ -14,6 +15,7 @@ export function AwakenHeroCard({
   abilityName,
   isUnlocked,
   enabled,
+  canAfford,
   onUnlockClick,
 }: AwakenHeroCardProps) {
   return (
@@ -41,6 +43,7 @@ export function AwakenHeroCard({
             enabled={enabled}
             onClick={() => onUnlockClick(heroName, abilityName)}
             label={$.Localize('#awaken_unlock_button')}
+            tooltipText={canAfford ? undefined : $.Localize('#awaken_unlock_tooltip_insufficient')}
           />
         )}
       </Panel>

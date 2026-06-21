@@ -1,6 +1,14 @@
 // Profile 页面外框 + Tab 导航 + 内容区
 @import "../../../shared/styles/tokens.less";
 
+/* 透明遮罩：仅用于承接点击对话框外部区域关闭，不改变现有视觉 */
+.profile-overlay {
+  width: 100%;
+  height: 100%;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
 /* ========== 个人中心外框 ========== */
 .profile-modal {
   width: 70%;

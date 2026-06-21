@@ -234,6 +234,7 @@
 		"awaken_unlock_intro_desc"			"Потратьте <font color='#FFFFFF'><b>10000</b></font> доступных <font color='#9B5DE0'>Battle Points</font>, чтобы разблокировать пробуждение героя. Навсегда и без возможности отмены — даже если способность будет усилена, ослаблена или переработана в будущих обновлениях, пробуждение героя останется в силе."
 		"awaken_unlock_button"				"Пробудить"
 		"awaken_unlocked_label"				"Пробуждён"
+		"awaken_unlock_tooltip_insufficient"	"Недостаточно доступных очков."
 		"awaken_unlock_confirm_desc"		"Потратить <font color='#FFFFFF'><b>10000</b></font> доступных <font color='#9B5DE0'>Battle Points</font>,<br>чтобы навсегда пробудить этого героя?"
 		"awaken_unlock_confirm_cancel"		"Отмена"
 		"awaken_unlock_confirm_button"		"Подтвердить"
