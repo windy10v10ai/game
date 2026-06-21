@@ -193,6 +193,7 @@ tBotItemData.purchaseItemList = {
 		'item_refresh_core',
 		'item_necronomicon_staff',
 		'item_hallowed_scepter',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_dazzle = {
 		-- 出门装
@@ -322,6 +323,7 @@ tBotItemData.purchaseItemList = {
 		'item_gungir_2', -- 风暴之锤
 		'item_hallowed_scepter',
 		'item_necronomicon_staff',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_juggernaut = {
 		'item_magic_wand',
@@ -347,6 +349,7 @@ tBotItemData.purchaseItemList = {
 		'item_bfury_ultra', -- 剑圣先手用先哲，看着换
 		'item_jump_jump_jump',
 		'item_excalibur',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_kunkka = {
 		'item_magic_wand',
@@ -413,6 +416,7 @@ tBotItemData.purchaseItemList = {
 		'item_refresh_core',
 		'item_shivas_guard_2',
 		'item_sacred_trident',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_lion = {
 		'item_magic_wand',
@@ -436,6 +440,7 @@ tBotItemData.purchaseItemList = {
 		'item_refresh_core',
 		'item_hallowed_scepter',
 		'item_refresher',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_luna = {
 		'item_aghanims_shard',
@@ -937,6 +942,7 @@ tBotItemData.purchaseItemList = {
 		'item_skadi_2',      -- 大冰眼
 		'item_wasp_callous',
 		'item_excalibur',
+		'item_swift_glove', -- 无限手套
 	},
 	npc_dota_hero_witch_doctor = {
 		'item_magic_wand',

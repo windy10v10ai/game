@@ -3127,7 +3127,7 @@
 
 		// Swift Glove (无限手套)
 		"DOTA_Tooltip_Ability_item_swift_glove"                                "Swift Glove"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1><font color='#FFFF00'>Active: The Snap</font></h1>Kills the target unit for %self_gold% gold and %self_xp%x experience.<br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Can be used on Ancient Creeps, but cannot be used on Roshan.<br><br><font color='#FFFF00'>When cast on an enemy hero, has a %hero_kill_chance%%% chance to instantly kill it.</font><br><br>Range: %abilitycastrange%\n\n<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%."
+		"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1><font color='#FFFF00'>Active: The Snap</font></h1>Kills the target unit for %self_gold% gold and %self_xp%x experience.<br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Can be used on Ancient Creeps, but cannot be used on Roshan.<br><br><font color='#FFFF00'>When cast on an enemy hero, has a %hero_kill_chance%%% chance to instantly kill it.</font>\n\n<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%."
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"                           "Gloves that grant unmatched speed and precision."
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"                          "The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 		"DOTA_Tooltip_ability_item_swift_glove_Note1"                          "Base Attack Time reduction effect cannot be stacked."
