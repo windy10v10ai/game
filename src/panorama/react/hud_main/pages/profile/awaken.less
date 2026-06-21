@@ -28,13 +28,7 @@
   vertical-align: center;
   flow-children: down;
   padding: 20px;
-  background-color: gradient(
-    linear,
-    0% 0%,
-    0% 100%,
-    from(#1c112ef2),
-    to(#1a0836f2)
-  );
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#1c112ef2), to(#1a0836f2));
   border: 2px solid @color-gold-soft;
   border-radius: @radius-lg;
   box-shadow: @shadow-soft;
@@ -76,15 +70,17 @@
 
 /* 确认在左、取消在右，符合 Windows 对话框惯例；两按钮等宽，视觉更平衡 */
 .btn-primary.awaken-confirm-confirm {
-  width: 120px;
+  padding: 8px;
+  width: 130px;
   height: 36px;
   margin-right: 12px;
   horizontal-align: center;
 }
 
 .awaken-confirm-cancel {
-  width: 120px;
+  width: 130px;
   height: 36px;
+  padding: 8px;
   horizontal-align: center;
 }
 
@@ -205,7 +201,7 @@
 
 /* 已觉醒状态：纯文字，不做成按钮外框，避免误以为可点击 */
 .awaken-unlocked-badge {
-  width: 64%;
+  width: 80%;
   height: 22px;
   horizontal-align: center;
 }
@@ -223,14 +219,13 @@
 /* 卡片内尺寸覆盖，配色交给通用 .btn-primary（shared/styles/buttons.less）；
    用组合选择器保证覆盖优先级不受样式文件加载顺序影响 */
 .btn-primary.awaken-unlock-btn {
-  width: 50%;
+  width: 60%;
   height: 22px;
   min-width: 0px;
   padding: 0px;
   horizontal-align: center;
 }
 
-/* 文案缩短为"觉醒"后按钮变窄，字号可以适当放大 */
 .awaken-unlock-btn .btn-primary-label {
   font-size: @font-size-sm;
 }
