@@ -25,6 +25,9 @@
 			<Image id="conductThumbUpFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_up_fill.png" />
 			<Image id="conductThumbDownFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_down_fill.png" />
 			<Image id="rightFlareBg" class="SeqImg" src="file://{images}/custom_game/hud/right_flare_bg.png" />
+			<Image id="snsDiscordQrCode" class="SeqImg" src="file://{images}/custom_game/sns/discord_qr_code.png" />
+			<Image id="snsQqQrCode1" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code1.png" />
+			<Image id="snsQqQrCode2" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code2.png" />
 		</Panel>
 	</Panel>
 </root>
