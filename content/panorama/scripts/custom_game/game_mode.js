@@ -434,7 +434,6 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 }
 
 // -------- 链接按钮 --------
-// 模板：新增联动入口时复制一份 DotaSurvivorPanel + DispatchXxx，按需加回随机展示逻辑
 function DispatchLinkPanel() {
   DispatchDotaSurvivor();
 }
