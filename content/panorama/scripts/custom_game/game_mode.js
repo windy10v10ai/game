@@ -480,10 +480,7 @@ function DispatchTenvTenRemake() {
 function DispatchQQ() {
   const button = $('#QQPanel');
   button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent(
-      'ExternalBrowserGoToURL',
-      'https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs',
-    );
+    $.DispatchEvent('ExternalBrowserGoToURL', 'https://qm.qq.com/q/BPUhaLiec2');
   });
   button.SetPanelEvent('onmouseover', () => {
     $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#join_qq'));
