@@ -50,6 +50,7 @@ export const transformLotteryStatus = createTransform<LotteryStatusDto>({
 
 export const transformPlayer = createTransform<PlayerInfoDto>({
   properties: { type: 'array' },
+  awakenedHeroes: { type: 'array' },
   playerSetting: {
     type: 'optional-nested',
     fields: {

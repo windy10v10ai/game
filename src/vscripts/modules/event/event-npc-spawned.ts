@@ -4,6 +4,7 @@ import { PlayerPropertyApi } from '../../api/player-property';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { GameConfig } from '../GameConfig';
+import { AwakenHelper } from '../helper/awaken-helper';
 import { BotAbility } from '../helper/bot-ability';
 import { MemberHelper } from '../helper/member-helper';
 import { ModifierHelper } from '../helper/modifier-helper';
@@ -149,6 +150,8 @@ export class EventNpcSpawned {
       // 设置会员
       MemberHelper.ApplyMemberModifier(hero);
       const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
+      // 积分解锁的永久觉醒
+      AwakenHelper.ApplyUnlockedAwaken(hero, steamAccountId);
       // 设置新手BUFF
       const playerSeasonLevel = Player.GetSeasonLevel(steamAccountId);
       if (playerSeasonLevel <= 5) {

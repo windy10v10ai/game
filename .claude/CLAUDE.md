@@ -87,8 +87,8 @@ src/
 ├── panorama/              # UI (React + TypeScript → JavaScript)
 │   ├── react/
 │   │   ├── shared/        # 跨 entry 共享：通用组件 / hooks / 设计 token
-│   │   │   ├── components/  # AppButton, Dialog, Modal, TabNavigation, ...
-│   │   │   ├── hooks/       # useNetTable, useClientEvent
+│   │   │   ├── components/  # TabNavigation, SubTabNavigation
+│   │   │   ├── hooks/       # useNetTable
 │   │   │   └── styles/      # tokens.less, buttons.less, dialog.less
 │   │   ├── hud_lottery/   # 常驻 HUD 浮窗：技能抽奖
 │   │   └── hud_main/      # 中心化界面容器（home/shop/achievements 等）
@@ -112,7 +112,6 @@ src/
 │   │       │               ├── ClickablePanel.tsx
 │   │       │               ├── constants.ts
 │   │       │               └── styles.less
-│   │       └── dialogs/          # ConfirmDialog + useConfirm
 │   ├── utils/             # 全局 utils（@utils/* 别名指向这里）
 │   └── webpack.{dev,prod}.js
 │
@@ -407,7 +406,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - "移植自 xxx.lua 的 yyy 函数"之类来源说明（git 历史会保留）
 - 单行字段含义的复述（`// 覆盖默认 level >= 3` 跟在 `ability: { level: { gte: 2 } }` 后面就是冗余）
 - 段落式罗列"对英雄做什么 / 对小兵做什么"，代码已经表达得很清楚
-- 把讨论中提到的具体场景 / 边界 case / 取舍过程逐条搬进注释——注释只保留概括性的设计意图，细枝末节不写
+- **禁止**把讨论中出现的任何具体场景 / 边界 case / 取舍过程 / 例子（具体语言、单词、数值、变量名等）原样搬进注释。哪怕讨论时反复提到这些细节，注释里也只留一句概括性的设计意图，一个具体例子都不写——写了就是过度注释，必须删
 
 写：
 - 选择某个数值/方案的**原因**（"1 级伤害太低、蓝耗占比高，2 级起才用"）
