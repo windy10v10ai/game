@@ -930,7 +930,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br>觉醒后爆头几率提升至<font color='#FFFFFF'><b>100%</b></font>，每次普攻必定触发爆头击退减速。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。 — by RN"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"

@@ -937,7 +937,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br>After awakening, Headshot's proc chance is raised to <font color='#FFFFFF'><b>100%</b></font>, so every attack triggers Headshot's knockback and slow.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
