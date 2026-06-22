@@ -1,6 +1,14 @@
 // Profile 页面外框 + Tab 导航 + 内容区
 @import "../../../shared/styles/tokens.less";
 
+/* 透明遮罩：仅用于承接点击对话框外部区域关闭，不改变现有视觉 */
+.profile-overlay {
+  width: 100%;
+  height: 100%;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
 /* ========== 个人中心外框 ========== */
 .profile-modal {
   width: 70%;
@@ -78,9 +86,11 @@
 }
 
 /* ========== 内容区域 ========== */
+/* 占满 modal 内除头部/Tab 栏外的剩余高度，而不是按内容自适应，
+   这样 AwakenTab 的滚动网格才能拿到真正可用的高度去滚动 */
 .content-area {
   width: 100%;
-  height: fit-children;
+  height: fill-parent-flow(1);
   min-height: 480px;
   padding: 14px;
   flow-children: down;

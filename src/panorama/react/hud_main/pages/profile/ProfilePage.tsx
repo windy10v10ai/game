@@ -35,67 +35,69 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
   const memberPointRef = useRef<Panel | null>(null);
 
   return (
-    <Panel className="modal-panel profile-modal" hittest={true}>
-      <Panel className="modal-header">
-        <Label className="modal-title" text={$.Localize('#profile_title')} />
-        <Panel className="profile-header-points">
-          <Panel
-            ref={seasonPointRef}
-            className="profile-header-point-item"
-            onmouseover={() =>
-              seasonPointRef.current &&
-              $.DispatchEvent(
-                'DOTAShowTextTooltip',
-                seasonPointRef.current,
-                $.Localize('#data_panel_season_point'),
-              )
-            }
-            onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
-          >
-            <Image
-              className="profile-header-point-icon"
-              src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
-            />
-            <Label
-              className="profile-header-point-value-season"
-              text={String(useableSeasonPoint)}
-            />
-            <Label className="profile-header-point-total" text={` / ${seasonPointTotal}`} />
+    <Panel className="profile-overlay" onactivate={closePage}>
+      <Panel className="modal-panel profile-modal" hittest={true} onactivate={() => {}}>
+        <Panel className="modal-header">
+          <Label className="modal-title" text={$.Localize('#profile_title')} />
+          <Panel className="profile-header-points">
+            <Panel
+              ref={seasonPointRef}
+              className="profile-header-point-item"
+              onmouseover={() =>
+                seasonPointRef.current &&
+                $.DispatchEvent(
+                  'DOTAShowTextTooltip',
+                  seasonPointRef.current,
+                  $.Localize('#data_panel_season_point'),
+                )
+              }
+              onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+            >
+              <Image
+                className="profile-header-point-icon"
+                src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
+              />
+              <Label
+                className="profile-header-point-value-season"
+                text={String(useableSeasonPoint)}
+              />
+              <Label className="profile-header-point-total" text={` / ${seasonPointTotal}`} />
+            </Panel>
+            <Panel
+              ref={memberPointRef}
+              className="profile-header-point-item"
+              onmouseover={() =>
+                memberPointRef.current &&
+                $.DispatchEvent(
+                  'DOTAShowTextTooltip',
+                  memberPointRef.current,
+                  $.Localize('#data_panel_member_point'),
+                )
+              }
+              onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
+            >
+              <Image
+                className="profile-header-point-icon"
+                src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
+              />
+              <Label className="profile-header-point-value" text={String(useableMemberPoint)} />
+              <Label className="profile-header-point-total" text={` / ${memberPointTotal}`} />
+            </Panel>
           </Panel>
-          <Panel
-            ref={memberPointRef}
-            className="profile-header-point-item"
-            onmouseover={() =>
-              memberPointRef.current &&
-              $.DispatchEvent(
-                'DOTAShowTextTooltip',
-                memberPointRef.current,
-                $.Localize('#data_panel_member_point'),
-              )
-            }
-            onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
-          >
-            <Image
-              className="profile-header-point-icon"
-              src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
-            />
-            <Label className="profile-header-point-value" text={String(useableMemberPoint)} />
-            <Label className="profile-header-point-total" text={` / ${memberPointTotal}`} />
-          </Panel>
+          <Button className="btn-close" onactivate={closePage} />
         </Panel>
-        <Button className="btn-close" onactivate={closePage} />
-      </Panel>
 
-      <Panel className="tab-nav-wrapper">
-        <TabNavigation tabs={PROFILE_TABS} currentTab={currentTab} onTabChange={setCurrentTab} />
-      </Panel>
+        <Panel className="tab-nav-wrapper">
+          <TabNavigation tabs={PROFILE_TABS} currentTab={currentTab} onTabChange={setCurrentTab} />
+        </Panel>
 
-      <Panel className="content-area">
-        {currentTab === 'stats' && <StatsTab />}
-        {currentTab === 'awaken' && <AwakenTab />}
-        {currentTab === 'member' && (
-          <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
-        )}
+        <Panel className="content-area">
+          {currentTab === 'stats' && <StatsTab />}
+          {currentTab === 'awaken' && <AwakenTab />}
+          {currentTab === 'member' && (
+            <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
+          )}
+        </Panel>
       </Panel>
     </Panel>
   );

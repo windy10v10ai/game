@@ -292,6 +292,13 @@
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
 		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
+		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_unlock_button"				"觉醒"
+		"awaken_unlocked_label"				"已觉醒"
+		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
+		"awaken_unlock_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
+		"awaken_unlock_confirm_cancel"		"取消"
+		"awaken_unlock_confirm_button"		"确认"
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
@@ -923,7 +930,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br>觉醒后爆头几率提升至<font color='#FFFFFF'><b>100%</b></font>，每次普攻必定触发爆头击退减速。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。 — by RN"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
@@ -3168,7 +3175,7 @@
 
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"无限手套"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻炼化目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其炼化。</font>\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。"
+		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻湮灭目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其湮灭。</font>\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。"
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。 — by RN"
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"获得的金钱经验，享有倍率加成！"
 		"DOTA_Tooltip_ability_item_swift_glove_Note1"									"基础攻击间隔减少效果无法叠加。"

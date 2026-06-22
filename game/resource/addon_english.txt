@@ -292,6 +292,13 @@
 		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one.<br>Currently only the following heroes are supported:"
+		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to unlock awakening for a hero. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked in future updates, the hero's awakening still applies."
+		"awaken_unlock_button"				"Awaken"
+		"awaken_unlocked_label"				"Awakened"
+		"awaken_unlock_tooltip_insufficient"	"Not enough useable points."
+		"awaken_unlock_confirm_desc"		"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
+		"awaken_unlock_confirm_cancel"		"Cancel"
+		"awaken_unlock_confirm_button"		"Confirm"
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"
@@ -930,7 +937,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br>After awakening, Headshot's proc chance is raised to <font color='#FFFFFF'><b>100%</b></font>, so every attack triggers Headshot's knockback and slow.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
