@@ -434,46 +434,15 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 }
 
 // -------- 链接按钮 --------
+// 模板：新增联动入口时复制一份 DotaSurvivorPanel + DispatchXxx，按需加回随机展示逻辑
 function DispatchLinkPanel() {
-  const random = Math.random();
-  const chanceSurvivor = 0.5;
-  const chanceOMGAI = 1;
-  if (random < chanceSurvivor) {
-    $('#DotaSurvivorPanel').visible = true;
-    $('#OMGAIPanel').visible = false;
-    $('#TenvTenRemakePanel').visible = false;
-    DispatchDotaSurvivor();
-  } else if (random < chanceOMGAI) {
-    $('#DotaSurvivorPanel').visible = false;
-    $('#OMGAIPanel').visible = true;
-    $('#TenvTenRemakePanel').visible = false;
-    DispatchOMGAI();
-  } else {
-    $('#DotaSurvivorPanel').visible = false;
-    $('#OMGAIPanel').visible = false;
-    $('#TenvTenRemakePanel').visible = true;
-    DispatchTenvTenRemake();
-  }
+  DispatchDotaSurvivor();
 }
 
 function DispatchDotaSurvivor() {
   const button = $('#DotaSurvivorButton');
   button.SetPanelEvent('onactivate', () => {
     $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
-  });
-}
-
-function DispatchOMGAI() {
-  const button = $('#OMGAIButton');
-  button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('DOTAShowCustomGamePage', 2841790376);
-  });
-}
-
-function DispatchTenvTenRemake() {
-  const button = $('#TenvTenRemakeButton');
-  button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('DOTAShowCustomGamePage', 3564393242);
   });
 }
 
