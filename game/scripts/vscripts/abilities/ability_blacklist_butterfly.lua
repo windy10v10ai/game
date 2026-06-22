@@ -319,6 +319,7 @@ EXCLUDED_ITEMS = {
     ["item_seer_stone"] = true,       -- 先知石
     ["item_saint_orb"] = true,        -- 莲花
     ["item_saint_orb_2"] = true,      -- 莲花2
+    ["item_swift_glove"] = true,      -- 无限手套
 
     -- ========================================
     -- 包含特定子字符串的物品(通过子字符串匹配)

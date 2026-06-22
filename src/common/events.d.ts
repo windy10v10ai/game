@@ -25,7 +25,10 @@ interface CustomGameEventDeclarations {
   lottery_reset_ability: LotteryRefreshEventData;
   lottery_pick_item: LotteryPickItemEventData;
   lottery_refresh_item: Record<string, never>;
+  lottery_pick_passive_tome: LotteryPickItemEventData;
   player_info_refresh: Record<string, never>;
+  awaken_unlock_hero: AwakenUnlockHeroEventData;
+  awaken_unlock_result: Record<string, never>;
 
   alipay_order_create: AlipayOrderCreateEventData;
   alipay_order_query: AlipayOrderQueryEventData;
@@ -113,6 +116,10 @@ interface HudOpenPageEventData {
   page: string;
   param?: string;
   playerId: PlayerID;
+}
+
+interface AwakenUnlockHeroEventData {
+  heroName: string;
 }
 
 interface PlayerConductEventData {

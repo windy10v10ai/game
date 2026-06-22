@@ -1,7 +1,7 @@
 import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import ExpandButton from './components/ExpandButton';
 import KeyBindContainer from './components/KeyBindContainer';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
@@ -32,8 +32,10 @@ function KeyBind() {
     passiveAbilityQuickCast2: false,
   };
 
-  useEffect(() => {
-    // 如果快捷键有设置，则默认折叠
+  // 仅首次加载到玩家数据时判断一次：已有任一快捷键设置就默认折叠；之后修改键位不再自动折叠
+  const [hasCheckedInitialKeys, setHasCheckedInitialKeys] = useState(false);
+  if (!hasCheckedInitialKeys && player) {
+    setHasCheckedInitialKeys(true);
     if (
       playerSetting.activeAbilityKey ||
       playerSetting.passiveAbilityKey ||
@@ -43,13 +45,7 @@ function KeyBind() {
     ) {
       setIsCollapsed(true);
     }
-  }, [
-    playerSetting.activeAbilityKey,
-    playerSetting.passiveAbilityKey,
-    playerSetting.passiveAbilityKey2,
-    playerSetting.wardObserverKey,
-    playerSetting.wardSentryKey,
-  ]);
+  }
 
   // 获取玩家steamId，如果获取失败，则为观战，不显示
   if (!steamAccountId) {

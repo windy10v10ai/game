@@ -86,6 +86,11 @@ export class UseItem {
       return true;
     }
 
+    // 无限手套（继承团队之手主动技能）
+    if (ActionItem.UseItemOnTarget(hero, 'item_swift_glove', creep)) {
+      return true;
+    }
+
     return false;
   }
 }

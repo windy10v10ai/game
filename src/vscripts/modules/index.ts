@@ -2,6 +2,7 @@ import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
 import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-language-tracker';
 import { ConductApi } from '../api/conduct';
+import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
@@ -54,6 +55,7 @@ export function ActivateModules() {
     new PlayerPropertyApi();
     new PlayerSettingApi();
     new PlayerGamePresetApi();
+    new PlayerHeroAwakeningApi();
     new AlipayApi();
     new ConductApi();
 

@@ -68,8 +68,6 @@
 
 		// link面板
 		"dota_survivor_button"			"联动地图 刀塔幸存者"
-		"omg_ai_button"					"联动地图 OMG AI"
-		"tenvten_remake_button"			"联动地图 TenvTen Remake"
 		"join_qq"						"点击加群"
 		"join_discord"					"点击加入Discord"
 
@@ -257,6 +255,7 @@
 		"key_bind_remember"										"记忆改键"
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
+		"lottery_passive_tome_header"							"选择一个被动技能"
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -291,6 +290,13 @@
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
 		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
+		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_unlock_button"				"觉醒"
+		"awaken_unlocked_label"				"已觉醒"
+		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
+		"awaken_unlock_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
+		"awaken_unlock_confirm_cancel"		"取消"
+		"awaken_unlock_confirm_button"		"确认"
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
@@ -922,7 +928,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>暗杀 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br>觉醒后爆头几率提升至<font color='#FFFFFF'><b>100%</b></font>，每次普攻必定触发爆头击退减速。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"狙击手锁定区域内的敌方英雄，发射毁灭性的子弹，在远距离造成一次必定暴击的攻击，并附带额外物理伤害。<br><br><font color='#FFFFFF'>神杖升级：命中的敌方英雄附加眩晕效果。</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"扣下扳机的那一刻，整片战场都为之屏息。 — by RN"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"准星效果只对友军可见。"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"隐身不会使弹道偏移。"
@@ -2533,7 +2539,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"被动技能书"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 随机获得一个被动技能。\n每名玩家整局最多使用 3 次\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>使用: 学习被动技能</h1> 有更高概率获得强力技能，从 4 个随机被动技能中任选其一学习。\n每名玩家整局最多使用 2 次\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"翻开它，便能习得前人沉淀的力量。"
 
 		// 圣女白莲
@@ -3167,15 +3173,14 @@
 
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"无限手套"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>被动：极速</font></h1>提升攻击速度，移动速度和攻击距离，并减少%bat_reduction_pct%%%基础攻击间隔。"
+		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻湮灭目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其湮灭。</font>\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。"
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。 — by RN"
-		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"基础攻击间隔减少效果无法叠加。"
+		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"获得的金钱经验，享有倍率加成！"
+		"DOTA_Tooltip_ability_item_swift_glove_Note1"									"基础攻击间隔减少效果无法叠加。"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"							"+$str"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_agility"							"+$agi"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_intellect"							"+$int"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"						"+$attack"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_movement_speed"					"+$move_speed"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_range"						"+$attack_range"
+		"DOTA_Tooltip_ability_item_swift_glove_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_swift_glove_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"						"%+基础攻击间隔减少"
 
 		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"万剑归宗"
@@ -3290,6 +3295,8 @@
 		"dota_hud_error_assassinate_no_target"											"范围内没有敌方英雄"
 		"dota_hud_error_passive_skill_tome_max_usage"									"被动技能书使用次数已达上限"
 		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
+		"dota_hud_error_swift_glove_no_roshan"											"无法对肉山使用"
+		"dota_hud_error_swift_glove_no_building"										"无法对建筑使用"
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"

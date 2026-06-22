@@ -365,6 +365,9 @@ function ApplyCustomPresetToDropdowns(options) {
       tb.checked = !!value;
     }
   });
+  // 程序回填不会触发 onactivate/oninputsubmit，必须主动补发一次，
+  // 否则只能等到 HERO_SELECTION 兜底发送，那时 force_random_hero 已经来不及生效。
+  SendGameOptionsToServer();
 }
 
 /**
@@ -432,25 +435,7 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
-  const random = Math.random();
-  const chanceSurvivor = 0.5;
-  const chanceOMGAI = 1;
-  if (random < chanceSurvivor) {
-    $('#DotaSurvivorPanel').visible = true;
-    $('#OMGAIPanel').visible = false;
-    $('#TenvTenRemakePanel').visible = false;
-    DispatchDotaSurvivor();
-  } else if (random < chanceOMGAI) {
-    $('#DotaSurvivorPanel').visible = false;
-    $('#OMGAIPanel').visible = true;
-    $('#TenvTenRemakePanel').visible = false;
-    DispatchOMGAI();
-  } else {
-    $('#DotaSurvivorPanel').visible = false;
-    $('#OMGAIPanel').visible = false;
-    $('#TenvTenRemakePanel').visible = true;
-    DispatchTenvTenRemake();
-  }
+  DispatchDotaSurvivor();
 }
 
 function DispatchDotaSurvivor() {
@@ -460,27 +445,10 @@ function DispatchDotaSurvivor() {
   });
 }
 
-function DispatchOMGAI() {
-  const button = $('#OMGAIButton');
-  button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('DOTAShowCustomGamePage', 2841790376);
-  });
-}
-
-function DispatchTenvTenRemake() {
-  const button = $('#TenvTenRemakeButton');
-  button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('DOTAShowCustomGamePage', 3564393242);
-  });
-}
-
 function DispatchQQ() {
   const button = $('#QQPanel');
   button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent(
-      'ExternalBrowserGoToURL',
-      'https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs',
-    );
+    $.DispatchEvent('ExternalBrowserGoToURL', 'https://qm.qq.com/q/BPUhaLiec2');
   });
   button.SetPanelEvent('onmouseover', () => {
     $.DispatchEvent('DOTAShowTextTooltip', button, $.Localize('#join_qq'));

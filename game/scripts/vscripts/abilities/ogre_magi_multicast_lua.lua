@@ -118,6 +118,7 @@ no_support_items = {
 	item_silver_edge_2 = 1,
 	item_demonicon = 1, -- 死灵书
 	item_power_treads = 1, -- 动力鞋
+	item_swift_glove = 1, -- 无限手套
 }
 no_support_substrings = {
 	"mango",

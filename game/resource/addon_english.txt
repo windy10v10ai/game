@@ -68,8 +68,6 @@
 
 		// link面板
 		"dota_survivor_button"			"Also check out: Dota Survivor"
-		"omg_ai_button"					"Also check out: OMG AI"
-		"tenvten_remake_button"			"Also check out: TenvTen Remake"
 		"join_qq"						"Click to join the QQ"
 		"join_discord"					"Click to join the Discord"
 
@@ -257,6 +255,7 @@
 		"key_bind_remember"										"Save Key"
 
 		"lottery_item_header"									"Pick Your Treasure"
+		"lottery_passive_tome_header"							"Choose a Passive Ability"
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -291,6 +290,13 @@
 		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one.<br>Currently only the following heroes are supported:"
+		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to unlock awakening for a hero. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked in future updates, the hero's awakening still applies."
+		"awaken_unlock_button"				"Awaken"
+		"awaken_unlocked_label"				"Awakened"
+		"awaken_unlock_tooltip_insufficient"	"Not enough useable points."
+		"awaken_unlock_confirm_desc"		"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
+		"awaken_unlock_confirm_cancel"		"Cancel"
+		"awaken_unlock_confirm_button"		"Confirm"
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"
@@ -929,7 +935,7 @@
 
 		// 狙击手 暗杀-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade"							"<font color='#d000ff'>Assassinate Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br>After awakening, Headshot's proc chance is raised to <font color='#FFFFFF'><b>100%</b></font>, so every attack triggers Headshot's knockback and slow.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Description"				"Sniper locks onto enemy heroes in an area, firing devastating bullets that deal an attack with a guaranteed critical hit at long range, plus bonus physical damage.<br><br><font color='#FFFFFF'>Aghanim's Scepter: affected enemy heroes are also stunned.</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Lore"						"For the space of a heartbeat, the whole battlefield holds its breath."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note0"						"Crosshair effect is only visible to allies."
 		"DOTA_Tooltip_ability_special_bonus_unique_sniper_assassinate_upgrade_Note1"						"Invisibility doesn't disjoint the projectile."
@@ -2524,7 +2530,7 @@
 
 		// 被动技能书
 		"DOTA_Tooltip_ability_item_passive_skill_tome"					"Passive Skill Tome"
-		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Gain a random passive ability.\nEach player can use this up to 3 times per game.\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_passive_skill_tome_Description"		"<h1>Active: Learn Passive Skill</h1> Higher chance of strong abilities. Choose one passive ability to learn from 4 random options.\nEach player can use this up to 2 times per game.\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_passive_skill_tome_Lore"				"Open it, and the power distilled by those before you becomes yours."
 
 		// 圣女白莲
@@ -3126,15 +3132,14 @@
 
 		// Swift Glove (无限手套)
 		"DOTA_Tooltip_Ability_item_swift_glove"                                "Swift Glove"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%."
+		"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1><font color='#FFFF00'>Active: The Snap</font></h1>Kills the target unit for %self_gold% gold and %self_xp%x experience.<br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Can be used on Ancient Creeps, but cannot be used on Roshan.<br><br><font color='#FFFF00'>When cast on an enemy hero, has a %hero_kill_chance%%% chance to instantly kill it.</font>\n\n<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%."
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"                           "Gloves that grant unmatched speed and precision."
-		"DOTA_Tooltip_ability_item_swift_glove_Note0"                          "Base Attack Time reduction effect cannot be stacked."
+		"DOTA_Tooltip_ability_item_swift_glove_Note0"                          "The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
+		"DOTA_Tooltip_ability_item_swift_glove_Note1"                          "Base Attack Time reduction effect cannot be stacked."
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"                 "+$str"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_agility"                  "+$agi"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_intellect"                "+$int"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"             "+$attack"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_movement_speed"           "+$move_speed"
-		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_range"             "+$attack_range"
+		"DOTA_Tooltip_ability_item_swift_glove_bonus_damage"                   "+$damage"
+		"DOTA_Tooltip_ability_item_swift_glove_bonus_armor"                    "+$armor"
 		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"				"%+$bat_reduction_pct"
 
 		// Ten Thousand Swords (万剑归宗)
@@ -3247,6 +3252,8 @@
 		"dota_hud_error_assassinate_no_target"											"No enemy heroes in range"
 		"dota_hud_error_passive_skill_tome_max_usage"									"Passive Skill Tome usage limit reached"
 		"dota_hud_error_ward_no_cast_zone"												"Cannot place wards near Roshan's pit"
+		"dota_hud_error_swift_glove_no_roshan"											"Cannot be used on Roshan"
+		"dota_hud_error_swift_glove_no_building"										"Cannot be used on buildings"
 
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note0"    "Does not trigger the following types of skills:"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note1"    "• Map functionality skills (teleport, point of control, etc.)"

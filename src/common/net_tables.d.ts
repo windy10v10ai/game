@@ -85,6 +85,12 @@ declare global {
         poolType: string;
       };
     };
+    // 被动技能书抽奖（使用技能书触发，瞬时事件，key = playerId）
+    lottery_passive_tome: {
+      [playerId: string]: {
+        candidates: LotteryDto[];
+      };
+    };
     // 添加虚拟金币表定义
     player_virtual_gold: {
       [playerID: string]: {
