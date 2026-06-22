@@ -16,9 +16,6 @@ function item_withered_spring:OnSpellStart()
     -- 回血 音效
     caster:EmitSound("Item.GuardianGreaves.Activate")
 
-    -- 永恒之盘触发音效
-    caster:EmitSound("DOTA_Item.AeonDisk.Activate")
-
     -- 添加主动buff
     caster:AddNewModifier(caster, self, "modifier_item_withered_spring_active", { duration = duration })
 

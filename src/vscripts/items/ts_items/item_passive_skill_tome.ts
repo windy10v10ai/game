@@ -1,16 +1,9 @@
-import { AbilityLotteryHelper } from '../../modules/lottery/ability/ability-lottery-helper';
-import { abilityTiersPassive } from '../../modules/lottery/ability/lottery-abilities';
 import { BaseItem, registerAbility } from '../../utils/dota_ts_adapter';
 
-// 技能书抽奖排除列表,以后可按需扩充
-const PASSIVE_TOME_BLACKLIST = [
-  'medusa_mana_shield', // 魔法盾
-];
-
-/** 被动技能书:使用后按 premium 概率随机抽 1 个被动技能学到英雄身上,每名玩家整局最多 3 次 */
+/** 被动技能书:使用后弹 4 选 1，按 premium 概率随机展示被动技能候选,每名玩家整局最多 2 次 */
 @registerAbility('item_passive_skill_tome')
 export class ItemPassiveSkillTome extends BaseItem {
-  private static readonly MAX_USAGE = 3;
+  private static readonly MAX_USAGE = 2;
   // 静态成员与物品实例无关,按 playerId 整局累计成功使用次数
   private static readonly usageCount = new Map<PlayerID, number>();
 
@@ -43,18 +36,7 @@ export class ItemPassiveSkillTome extends BaseItem {
     const hero = caster as CDOTA_BaseNPC_Hero;
     const playerId = hero.GetPlayerOwnerID();
 
-    const [result] = AbilityLotteryHelper.getRandomAbilities(
-      abilityTiersPassive,
-      1,
-      hero,
-      PASSIVE_TOME_BLACKLIST.slice(),
-      true,
-    );
-    if (!result) {
-      return;
-    }
-
-    hero.AddAbility(result.name);
+    GameRules.Lottery.PassiveTome.onTriggered(hero);
     ItemPassiveSkillTome.usageCount.set(
       playerId,
       (ItemPassiveSkillTome.usageCount.get(playerId) ?? 0) + 1,

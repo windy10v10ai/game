@@ -56,7 +56,7 @@ relicensing possible without having to track down every contributor.
 
 ## 沟通
 
-- 加入[QQ群](https://qm.qq.com/cgi-bin/qm/qr?k=6yNcbJ0GOuPECq1dmIvsmdj8y7dZBiHs)
+- 加入[QQ群](https://qm.qq.com/q/BPUhaLiec2)
 
 ## 提交代码
 

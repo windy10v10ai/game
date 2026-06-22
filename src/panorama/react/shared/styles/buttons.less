@@ -17,22 +17,33 @@
   transition-timing-function: ease-in-out;
 }
 
-// 主操作按钮
+// 主操作按钮（蓝紫渐变，与会员订阅按钮同色系）
 .btn-primary {
   .btn-base;
-  background-color: @color-primary;
-  border: 1px solid @color-bg-deep;
+  background-color: @color-primary-btn;
+  border: 1px solid @color-primary-border;
   color: @color-text;
 
   &:hover {
-    background-color: @color-accent;
-    color: @color-text-strong;
+    brightness: 1.2;
   }
 
   &:active {
-    background-color: @color-secondary;
-    color: @color-text-strong;
+    brightness: 0.9;
   }
+}
+
+.btn-primary:disabled {
+  saturation: 0.3;
+  brightness: 0.6;
+}
+
+.btn-primary-label {
+  width: 100%;
+  text-align: center;
+  vertical-align: center;
+  color: @color-text;
+  text-shadow: 0px 1px 4px #00000088;
 }
 
 // 次级 / 镂空按钮

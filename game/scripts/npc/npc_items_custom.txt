@@ -6563,7 +6563,6 @@
 	//=================================================================================================================
 	// 无限手套
 	//=================================================================================================================
-	// 霰弹枪+黄金魔龙枪+散魂剑+六脉神剑，加移速加攻速加攻击距离
 	"item_recipe_swift_glove"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6576,7 +6575,7 @@
 		"ItemResult"				"item_swift_glove"
 		"ItemRequirements"
 		{
-			"01"					"item_hand_of_group;item_hurricane_pike_2;item_sacred_six_vein;item_fusion_agile"
+			"01"					"item_hand_of_group;item_armlet_artifact;item_mjollnir_2;item_fusion_agile"
 		}
 	}
 
@@ -6585,24 +6584,48 @@
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/item_swift_glove"
 		"ID"						"10318"
-		"AbilityTextureName"		"jisushoutao"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"		"swift_glove"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastRange"			"600"
+		"AbilityCastPoint"			"0.0"
+		"AbilityManaCost"			"0"
+		"AbilitySharedCooldown"		"item_hand_of_midas"
+		"IsTempestDoubleClonable"	"0"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
+
+		"AbilityCooldown"			"0"
+		"AbilityCharges"			"2"
+		"AbilityChargeRestoreTime"	"90"
+		"ItemInitialCharges"		"1"
+		"ItemRequiresCharges"		"1"
+		"ItemDisplayCharges"		"1"
+		"ItemStackable"				"0"
+		"ItemPermanent"				"1"
+		"precache"
+		{
+			"particle"	"particles/items2_fx/hand_of_midas.vpcf"
+		}
 
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"100"	// tooltip only - 力量
-			"bonus_agility"				"100"	// tooltip only - 敏捷
-			"bonus_intellect"			"100"	// tooltip only - 智力
-			"bonus_attack_speed"		"166"	// tooltip only - 攻击速度（66 + 100 额外）
-			// FIXME 继承配方，移除移动速度
-			"bonus_movement_speed"		"50"	// tooltip only - 移动速度
+			"bonus_strength"			"150"	// tooltip only - 力量（光暗臂章切换部分折算）
+			"bonus_attack_speed"		"240"	// tooltip only - 攻击速度（取材料常驻较大值）
+			"bonus_damage"				"300"	// tooltip only - 攻击力（神雷锤/光暗臂章）
+			"bonus_armor"				"75"	// tooltip only - 护甲（光暗臂章）
 
 			// Lua 逻辑需要的参数
-			"bonus_attack_range"		"250"	// Lua 逻辑需要 - 有条件判断（仅远程英雄）
 			"bat_reduction_pct"			"30"	// Lua 逻辑需要 - 动态计算 BAT
+			"self_xp"			"2"
+			"self_gold"			"600"
+			"group_range"		"1800"
+			"group_xp"			"0.5"
+			"group_gold"		"120"
+			"hero_kill_chance"	"50"
 		}
 	}
 

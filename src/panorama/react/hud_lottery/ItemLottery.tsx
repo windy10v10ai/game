@@ -201,10 +201,15 @@ function ItemLottery() {
 
   const [remaining, setRemaining] = useState(EXPIRE_SECONDS);
 
-  // 新一组 candidates 出现 → 重置倒计时
+  // 新一组 candidates 出现 → 渲染期同步重置倒计时，避免 effect 内 setState 多触发一次渲染
+  const [prevRaw, setPrevRaw] = useState(raw);
+  if (raw !== prevRaw) {
+    setPrevRaw(raw);
+    setRemaining(EXPIRE_SECONDS);
+  }
+
   useEffect(() => {
     if (candidates.length === 0) return undefined;
-    setRemaining(EXPIRE_SECONDS);
     const startTime = Game.GetGameTime();
     const id = setInterval(() => {
       const left = Math.max(0, EXPIRE_SECONDS - (Game.GetGameTime() - startTime));
