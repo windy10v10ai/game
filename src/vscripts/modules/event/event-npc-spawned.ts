@@ -19,8 +19,8 @@ export class EventNpcSpawned {
   // 小兵出生到己方一塔的预设旅行时间(秒)，在 Dota Tools 中校准（仅一塔存活时生效）
   // 地图对角对称：Radiant 下路 ↔ Dire 上路为长线(一塔离基地远)，另一对较短，中路最短
   private static readonly CREEP_T1_TRAVEL_TIMES: Record<string, Record<string, number>> = {
-    goodguys: { top: 18, mid: 12, bot: 23 },
-    badguys: { top: 23, mid: 12, bot: 18 },
+    goodguys: { top: 17, mid: 12, bot: 22 },
+    badguys: { top: 22, mid: 12, bot: 17 },
   };
 
   // 小兵激活判定的移动阈值(单位)，超过即认为已离开出生点开始行走
