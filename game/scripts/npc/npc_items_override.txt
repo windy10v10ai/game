@@ -224,9 +224,6 @@
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
-		"ItemInitialCharges"			"1"
-		"ItemStackable"					"1"
-		"ItemStackableMax"				"2"
 		"AbilityValues"
 		{
 			"duration"				"180"	// 120
