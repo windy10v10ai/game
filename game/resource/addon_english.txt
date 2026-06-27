@@ -290,7 +290,7 @@
 		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one.<br>Currently only the following heroes are supported:"
-		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to unlock awakening for a hero. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked in future updates, the hero's awakening still applies."
+		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to unlock awakening for a hero. This does not lower your Battle Level. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked in future updates, the hero's awakening still applies."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
 		"awaken_unlock_tooltip_insufficient"	"Not enough useable points."
@@ -1167,6 +1167,10 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"Each time Lina casts Laguna Blade, the target takes additional <font color='#FFE56E'>pure damage</font> equal to that Laguna Blade's damage, affected by Spell Amplification."
 
+		// Monkey King Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
@@ -1228,17 +1232,17 @@
 		// 幽鬼 spe
 		"DOTA_Tooltip_ability_spectre_desolate_Description"		"Deals bonus pure damage whenever Spectre attacks an enemy."
 		"DOTA_Tooltip_ability_spectre_desolate_radius"						""
-		"DOTA_Tooltip_ability_spectre_ursa_enrage"												"Defy"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"Reduces cooldown and allows Monkey King to use Defy while disabled."
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%STATUS RESISTANCE:"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "DURATION:"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "COOLDOWN:"
-		"DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} Defy Duration"
-		"DOTA_Tooltip_modifier_spectre_ursa_enrage" "Defy"
-		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
+		"DOTA_Tooltip_ability_monkey_king_defy"												"Defy"
+		"DOTA_Tooltip_ability_monkey_king_defy_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
+		"DOTA_Tooltip_ability_monkey_king_defy_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
+		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"Gains <font color='#FFFFFF'><b>100%</b></font> bonus attack damage during Defy."
+		"DOTA_Tooltip_ability_monkey_king_defy_damage_reduction"		                        "%DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_monkey_king_defy_status_resistance"		                     "%STATUS RESISTANCE:"
+		"DOTA_Tooltip_ability_monkey_king_defy_awaken_bonus_attack_damage_pct"		         "%BONUS ATTACK DAMAGE:"
+		"DOTA_Tooltip_ability_monkey_king_defy_duration"					                    "DURATION:"
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_defy_duration"    "+{s:bonus_duration} Defy Duration"
+		"DOTA_Tooltip_modifier_monkey_king_defy" "Defy"
+		"DOTA_Tooltip_modifier_monkey_king_defy_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
 
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} Noxious Plague Damage"
@@ -2525,7 +2529,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"Awakening Stone"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n<h1>Supported Heroes</h1>Pudge, Juggernaut, Sniper, Axe, Necrophos, Zeus, Phantom Assassin, Witch Doctor, Shadow Fiend, Drow Ranger, Bristleback, Lina\nShareable with teammates.\nCannot be purchased or sell. Has a chance to appear in treasure chests."
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"				"<h1>Active: Awaken</h1> Stir the hero's slumbering power, transfiguring one ability into its awakened form.\n\nSee supported heroes on the Profile - Awaken page.\nShareable with teammates. Cannot be purchased or sold. Has a chance to appear in treasure chests."
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"A stone that stirs dormant power awake."
 
 		// 被动技能书

@@ -290,7 +290,7 @@
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
 		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
-		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
 		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
@@ -1165,6 +1165,10 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>神灭斩 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的<font color='#FFE56E'>纯粹伤害</font>，该伤害受技能增强影响。"
 
+		// 齐天大圣-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"如意金箍棒额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
@@ -1226,17 +1230,17 @@
 		// 幽鬼 spe
 		"DOTA_Tooltip_ability_spectre_desolate_Description"		"幽鬼的攻击对敌人造成额外的纯粹伤害。"
 		"DOTA_Tooltip_ability_spectre_desolate_radius"						""
-		"DOTA_Tooltip_ability_spectre_ursa_enrage"  "斗战胜佛"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_Lore"	"一念成佛一念成魔"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_Description"	"齐天大圣释放斗战胜佛真正的力量，承受的伤害降低并获得状态抗性。施放时将移除所受的负面效果。\n\n驱散类型：强驱散"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_scepter_description"							"减少冷却时间，而且幽鬼可以在被控制的状态下使用鬼影无形。"
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_damage_reduction"		                        "%伤害降低："
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_status_resistance"		                     "%状态抗性："
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_duration"					                    "持续时间："
-		"DOTA_Tooltip_ability_spectre_ursa_enrage_cooldown_scepter"					            "冷却时间："
-		"DOTA_Tooltip_ability_special_bonus_unique_spectre_401"    "+{s:bonus_duration} 斗战胜佛持续时间"
-		"DOTA_Tooltip_modifier_spectre_ursa_enrage" "斗战胜佛"
-		"DOTA_Tooltip_modifier_spectre_ursa_enrage_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害减少和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
+		"DOTA_Tooltip_ability_monkey_king_defy"  "斗战胜佛"
+		"DOTA_Tooltip_ability_monkey_king_defy_Lore"	"一念成佛一念成魔"
+		"DOTA_Tooltip_ability_monkey_king_defy_Description"	"齐天大圣释放斗战胜佛真正的力量，承受的伤害降低并获得状态抗性。施放时将移除所受的负面效果。\n\n驱散类型：强驱散"
+		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"斗战胜佛期间获得<font color='#FFFFFF'><b>100%</b></font>攻击力加成。"
+		"DOTA_Tooltip_ability_monkey_king_defy_damage_reduction"		                        "%承受伤害降低："
+		"DOTA_Tooltip_ability_monkey_king_defy_status_resistance"		                     "%状态抗性："
+		"DOTA_Tooltip_ability_monkey_king_defy_awaken_bonus_attack_damage_pct"		         "%攻击力加成（神杖）："
+		"DOTA_Tooltip_ability_monkey_king_defy_duration"					                    "持续时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_defy_duration"    "+{s:bonus_duration} 斗战胜佛持续时间"
+		"DOTA_Tooltip_modifier_monkey_king_defy" "斗战胜佛"
+		"DOTA_Tooltip_modifier_monkey_king_defy_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害降低和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
 
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} 恶性瘟疫伤害"
@@ -2534,7 +2538,7 @@
 
 		// 觉醒石
 		"DOTA_Tooltip_ability_item_awaken_stone"						"觉醒石"
-		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n<h1>支持的英雄</h1>屠夫、剑圣、狙击手、斧王、死灵法师、宙斯、幻影刺客、巫医、影魔、卓尔游侠、钢背兽、莉娜\n可以分享给队友\n不可购买出售，藏宝箱有概率出现"
+		"DOTA_Tooltip_ability_item_awaken_stone_Description"			"<h1>使用: 觉醒</h1> 唤醒英雄沉睡的力量，将一个技能蜕变为觉醒形态。\n\n支持的英雄请在个人主页-觉醒页面查看。\n可以分享给队友，不可购买出售，藏宝箱有概率出现。"
 		"DOTA_Tooltip_ability_item_awaken_stone_Lore"					"一块能唤醒沉睡之力的石头。"
 
 		// 被动技能书

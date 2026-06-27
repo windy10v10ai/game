@@ -164,6 +164,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["invoker_invoke"] = true,      -- 卡尔 法术融合
     ["invoker_alacrity"] = true,    -- 卡尔 灵动迅捷
     ["invoker_alacrity_ad"] = true, -- 卡尔 灵动迅捷（AD版本）
+    ["invoker_sun_strike"] = true,  -- 卡尔 天火
 
     -- ========================================
     -- 特殊机制技能
@@ -193,6 +194,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["wisp_spirits_out"] = true,
     ["warlock_fatal_bonds"] = true, -- 术士 致命连接（计算量大可能导致游戏崩溃）
     ["lich_chain_frost"] = true,    -- 巫妖 连环霜冻
+    ["doom_bringer_devour"] = true, -- 末日 吞噬
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招

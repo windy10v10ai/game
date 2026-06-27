@@ -457,4 +457,13 @@
 		"AbilityTextureName"			"bristleback/bb_2022_immortal_ability_icon/bb_2022_immortal_bristleback"
 		"MaxLevel"						"1"
 	}
+
+	// 齐天大圣-觉醒（纯 KV 标记：special_bonus 键挂在大招 awaken_enabled 与如意金箍棒 override）
+	"special_bonus_unique_monkey_king_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"monkey_king_wukongs_command_ti9"
+		"MaxLevel"						"1"
+	}
 }
