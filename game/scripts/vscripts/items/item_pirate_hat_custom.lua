@@ -33,7 +33,7 @@ end
 function modifier_item_pirate_hat_custom:GetModifierBaseAttackTimeConstant()
 	if self.bat_check ~= true then
 		self.bat_check = true
-        local current_bat = self:GetParent():GetBaseAttackTime()
+        local current_bat = self:GetParent():GetBaseAttackTime(0)
         
         local bat_reduction = self:GetAbility():GetSpecialValueFor("bat_reduction")
         local new_bat = current_bat - bat_reduction
