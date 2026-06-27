@@ -98,7 +98,7 @@
 		"BkbSelectedHeroes_Button"					"BKB"
 		"InvulnOn_Button"							"Неуязвимость вкл."
 		"InvulnOff_Button"							"Неуязвимость выкл."
-		"Reset_Button"								"Сбросить"
+		"LogModifiers_Button"						"Модификаторы"
 		"RemoveSpawns_Button"						"Удалить"
 		"AddToUnit_Placeholder"						"Название предмета / способности"
 		"AddItem_Button"							"Добавить предмет"
