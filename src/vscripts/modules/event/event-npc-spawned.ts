@@ -16,12 +16,23 @@ function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero): boolean {
 }
 
 export class EventNpcSpawned {
-  // 小兵出生到己方一塔的预设旅行时间(秒)，在 Dota Tools 中校准（双方对称，仅一塔存活时生效）
-  private static readonly CREEP_T1_TRAVEL_TIMES: Record<string, number> = {
-    top: 32,
-    mid: 29,
-    bot: 32,
+  // 小兵出生到己方一塔的预设旅行时间(秒)，在 Dota Tools 中校准（仅一塔存活时生效）
+  // 地图对角对称：Radiant 下路 ↔ Dire 上路为长线(一塔离基地远)，另一对较短，中路最短
+  private static readonly CREEP_T1_TRAVEL_TIMES: Record<string, Record<string, number>> = {
+    goodguys: { top: 18, mid: 12, bot: 23 },
+    badguys: { top: 23, mid: 12, bot: 18 },
   };
+
+  // 小兵激活判定的移动阈值(单位)，超过即认为已离开出生点开始行走
+  private static readonly ACTIVATION_MOVE_THRESHOLD = 100;
+  // 游戏进行到该时刻(秒)后停止补无敌：中后期小兵被断线已无关紧要
+  private static readonly INVULN_CUTOFF_TIME = 20 * 60;
+
+  // 已出生但仍在预加载休眠期、等待激活后补无敌的小兵
+  private pendingInvuln = new Map<
+    EntityIndex,
+    { creep: CDOTA_BaseNPC; travelTime: number; spawnPos: Vector }
+  >();
 
   private roshanLevelBase = 1;
   private isFirstRoshan = true;
@@ -42,6 +53,37 @@ export class EventNpcSpawned {
 
   constructor() {
     ListenToGameEvent('npc_spawned', (keys) => this.OnNpcSpawned(keys), this);
+
+    // 预加载休眠期长度不可预测，无法在出生时算准 duration；改为检测小兵真正开始移动后再补无敌
+    Timers.CreateTimer(0.5, () => this.checkPendingInvuln());
+  }
+
+  // 单个全局 timer 轮询：等待预加载小兵离开出生点（激活），此刻才加 travelTime 时长的无敌
+  private checkPendingInvuln(): number | undefined {
+    // 中后期不再需要，停止轮询并清空待激活表
+    if (GameRules.GetDOTATime(false, false) >= EventNpcSpawned.INVULN_CUTOFF_TIME) {
+      this.pendingInvuln.clear();
+      return undefined;
+    }
+
+    const activated: EntityIndex[] = [];
+    this.pendingInvuln.forEach((info, entindex) => {
+      if (info.creep.IsNull() || !info.creep.IsAlive()) {
+        activated.push(entindex);
+        return;
+      }
+      const moved = info.creep.GetAbsOrigin().__sub(info.spawnPos).Length2D();
+      if (moved > EventNpcSpawned.ACTIVATION_MOVE_THRESHOLD) {
+        info.creep.AddNewModifier(info.creep, undefined, 'modifier_fountain_glyph', {
+          duration: info.travelTime,
+        });
+        activated.push(entindex);
+      }
+    });
+    for (const entindex of activated) {
+      this.pendingInvuln.delete(entindex);
+    }
+    return 0.5;
   }
 
   // 单位出生
@@ -187,20 +229,19 @@ export class EventNpcSpawned {
     }
   }
 
-  // 按几何象限判断兵线，与阵营无关（top=左上、bot=右下），塔名同样是几何方位
-  private static getCreepLane(creep: CDOTA_BaseNPC): 'top' | 'mid' | 'bot' | null {
+  // 出生时小兵挤在己方基地附近，按 |x| 与 |y| 谁更大判别更靠近哪条边线
+  // 对角对称：Radiant |x|>|y| 为上路（左边线），Dire 相反
+  private static getCreepLane(creep: CDOTA_BaseNPC, team: DotaTeam): 'top' | 'mid' | 'bot' | null {
     const pos = creep.GetAbsOrigin();
-    const diff = Math.abs(Math.abs(pos.x) - Math.abs(pos.y));
-    if (diff < 1500) {
+    const ax = Math.abs(pos.x);
+    const ay = Math.abs(pos.y);
+    if (Math.abs(ax - ay) < 1500) {
       return 'mid';
     }
-    if (pos.x > 0 && pos.y < 0) {
-      return 'bot';
+    if (team === DotaTeam.GOODGUYS) {
+      return ax > ay ? 'top' : 'bot';
     }
-    if (pos.x < 0 && pos.y > 0) {
-      return 'top';
-    }
-    return null;
+    return ax > ay ? 'bot' : 'top';
   }
 
   // 该路一塔是否存活（一塔被推后小兵已逼近前线，不再需要无敌）
@@ -215,11 +256,6 @@ export class EventNpcSpawned {
       }
     }
     return false;
-  }
-
-  // 计算距离下一个30s波次的等待时间
-  private static getPreloadBuffer(gameTime: number): number {
-    return Math.ceil(gameTime / 30) * 30 - gameTime;
   }
 
   private OnCreepSpawned(creep: CDOTA_BaseNPC): void {
@@ -252,9 +288,7 @@ export class EventNpcSpawned {
       return;
     }
 
-    print(`[EventNpcSpawned] creep spawned: ${creepName} at ${creep.GetAbsOrigin()}`);
-
-    // 兵线小兵：出生到己方最远塔前无敌，防止中途被拉断线
+    // 兵线小兵：出生到己方一塔前无敌，防止中途被拉断线
     this.applyCreepLaneInvulnerable(creep, creepName);
   }
 
@@ -264,31 +298,31 @@ export class EventNpcSpawned {
       return;
     }
 
-    print(`[CreepInvuln] creep spawned: ${creepName}`);
-
-    const team = creep.GetTeam();
-    const lane = EventNpcSpawned.getCreepLane(creep);
-    if (!lane) {
-      print(`[CreepInvuln]   FAIL: cannot determine lane`);
+    // 中后期已停止轮询，不再登记，避免待激活表只进不出
+    if (GameRules.GetDOTATime(false, false) >= EventNpcSpawned.INVULN_CUTOFF_TIME) {
       return;
     }
 
-    print(`[CreepInvuln]   team=${team}, lane=${lane}, pos=${creep.GetAbsOrigin()}`);
+    const team = creep.GetTeam();
+    const lane = EventNpcSpawned.getCreepLane(creep, team);
+    if (!lane) {
+      return;
+    }
 
     // 仅一塔存活时才加无敌，一塔被推后小兵已逼近前线无需保护
     if (!EventNpcSpawned.isTower1Alive(team, lane)) {
-      print(`[CreepInvuln]   SKIP: tower1 not alive in lane ${lane}`);
       return;
     }
 
-    const travelTime = EventNpcSpawned.CREEP_T1_TRAVEL_TIMES[lane];
-    const preloadBuffer = EventNpcSpawned.getPreloadBuffer(GameRules.GetGameTime());
-    const duration = preloadBuffer + travelTime;
+    const teamStr = team === DotaTeam.GOODGUYS ? 'goodguys' : 'badguys';
+    const travelTime = EventNpcSpawned.CREEP_T1_TRAVEL_TIMES[teamStr][lane];
 
-    print(
-      `[CreepInvuln]   travelTime=${travelTime}, preloadBuffer=${preloadBuffer}, duration=${duration}`,
-    );
-    creep.AddNewModifier(creep, undefined, 'modifier_fountain_glyph', { duration });
+    // 登记待激活，由 checkPendingInvuln 在小兵开始移动后补无敌
+    this.pendingInvuln.set(creep.GetEntityIndex(), {
+      creep,
+      travelTime,
+      spawnPos: creep.GetAbsOrigin(),
+    });
   }
 
   private getExtraRoshanLevel(): number {
