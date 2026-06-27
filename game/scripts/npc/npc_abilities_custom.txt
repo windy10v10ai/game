@@ -2879,13 +2879,13 @@
 	}
 
 	// 大圣
-	"spectre_ursa_enrage"
+	"monkey_king_defy"
 	{
 		"BaseClass"     "ability_lua"
 		"AbilityTextureName"	"monkey_king_wukongs_command"
-		"ScriptFile"	"heroes/hero_spectre/spectre_ursa_enrage"
+		"ScriptFile"	"heroes/hero_monkey_king/monkey_king_defy"
 
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityType"					"ABILITY_TYPE_BASIC"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
@@ -2894,18 +2894,16 @@
 		"LevelsBetweenUpgrades"			"6"
 		"AbilitySound"					"Hero_MonkeyKing.FurArmy"
 
-		"LinkedAbility"					"spectre_haunt"
-
 		"AbilityCastPoint"				"0.1"
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCastGestureSlot"		"DEFAULT"
 		"AbilityCastRange"				"0"
 
 		"MaxLevel" "4"
-		"AbilityCooldown"				"50"
+		"AbilityCooldown"				"60"
 		"AbilityManaCost"				"150 200 250 300"
 
-		"HasScepterUpgrade"			"0"
+		"HasScepterUpgrade"			"1"
 
 		"AbilityValues"
 		{
@@ -2913,15 +2911,25 @@
 			"duration"
 			{
 				"value"						"5.0"
-				"special_bonus_unique_spectre_401"	"+3.0"
+				"special_bonus_unique_monkey_king_defy_duration"	"+3.0"
 			}
 			"status_resistance"
 			{
-				"value"						"40 60 80 100"
+				"value"						"50 60 70 80"	// 跟承受伤害降低一致
+			}
+			"awaken_bonus_attack_damage_pct"
+			{
+				"value"						"0"
+				"special_bonus_scepter"		"+100"	// 神杖：大招期间 +100% 攻击力
+			}
+			"awaken_enabled"
+			{
+				"value"									"0"
+				"special_bonus_unique_monkey_king_upgrade"	"1"	// 觉醒：可被控施放 + 大招期间技能免疫
 			}
 		}
 	}
-	"special_bonus_unique_spectre_401"
+	"special_bonus_unique_monkey_king_defy_duration"
 	{
 		"BaseClass"					"special_bonus_undefined"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"

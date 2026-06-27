@@ -6213,7 +6213,21 @@
 			{
 				"value"						"120 140 160 180 200"
 			}
-			"strike_flat_damage"	"20 40 60 80 100"
+			"strike_flat_damage"
+			{
+				"value"										"20 40 60 80 100"
+				"special_bonus_unique_monkey_king_upgrade"	"+200"	// 觉醒：额外伤害 +200
+			}
+			"AbilityCastRange"
+			{
+				"value"										"1100"
+				"special_bonus_unique_monkey_king_upgrade"	"+700"	// 觉醒：施法距离 +700
+			}
+			"strike_cast_range"
+			{
+				"value"										"1100"
+				"special_bonus_unique_monkey_king_upgrade"	"+700"	// 觉醒：打击距离 +700
+			}
 			"AbilityCooldown"
 			{
 				"value"					"24 21 18 15 12"
@@ -6246,7 +6260,7 @@
 	"monkey_king_wukongs_command"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"150"	// 100 90 80
+		"AbilityCooldown"				"120"	// 100 90 80
 		"AbilityValues"
 		{
 				"bonus_armor"

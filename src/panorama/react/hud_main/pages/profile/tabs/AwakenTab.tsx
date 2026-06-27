@@ -37,6 +37,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     abilityName: 'special_bonus_unique_bristleback_upgrade',
   },
   { heroName: 'npc_dota_hero_lina', abilityName: 'special_bonus_unique_lina_upgrade' },
+  {
+    heroName: 'npc_dota_hero_monkey_king',
+    abilityName: 'special_bonus_unique_monkey_king_upgrade',
+  },
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
