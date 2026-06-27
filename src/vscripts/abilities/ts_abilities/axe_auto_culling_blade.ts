@@ -28,6 +28,7 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
     }
 
     if (!culling.IsFullyCastable()) return;
+    if (this.GetCurrentAbilityCharges() <= 0) return;
 
     // 淘汰之刃可对魔免单位施放
     const enemies = findEnemiesInRange(
@@ -44,6 +45,7 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
       if (!enemy.IsNull() && enemy.IsAlive() && enemy.GetHealth() <= threshold) {
         castImmediatelyOnTarget(caster, culling, enemy);
         culling.EndCooldown(); // 不进入 CD
+        this.SetCurrentAbilityCharges(this.GetCurrentAbilityCharges() - 1);
         this.pendingTarget = enemy;
         return;
       }
