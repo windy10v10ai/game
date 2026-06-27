@@ -107,7 +107,7 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
       attacker: parent,
       damage,
       damage_type: DamageTypes.PHYSICAL,
-      damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION,
+      damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.IGNORES_BASE_PHYSICAL_ARMOR,
       ability,
     });
 

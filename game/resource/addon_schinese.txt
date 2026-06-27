@@ -1154,7 +1154,7 @@
 
 		// 卓尔游侠 裂影箭
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。<br>分裂箭矢将穿透敌人的防御，<font color='#FFFFFF'><b>无视他们的基础护甲</b></font>。"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%触发概率："
 
 		// 钢背兽 自动喷刺
