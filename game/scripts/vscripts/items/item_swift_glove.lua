@@ -167,7 +167,7 @@ function modifier_item_swift_glove:GetModifierBaseAttackTimeConstant()
     if self.bat_check ~= true then
         self.bat_check = true
         local parent = self:GetParent()
-        local current_bat = parent:GetBaseAttackTime()
+        local current_bat = parent:GetBaseAttackTime(false)
 
         -- 手动计算百分比减少
         local bat_reduction_pct = self.bat_reduction_pct
