@@ -1,4 +1,4 @@
-﻿<root>
+<root>
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
 		<include src="s2r://panorama/layout/custom_game/eyeherodemo/eyeherodemo.vcss_c" />
