@@ -17,20 +17,20 @@ function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero): boolean {
 
 export class EventNpcSpawned {
   // 小兵出生到各塔位的预设旅行时间(秒)，在 Dota Tools 中校准
-  // T3 已在己方高地无需无敌，仅预设 T1/T2
+  // T1 最远（离基地最远），时间最长；T2 较近，时间较短
   private static readonly CREEP_TRAVEL_TIMES: Record<
     string,
     Record<string, Record<number, number>>
   > = {
     goodguys: {
-      top: { 1: 20, 2: 32 },
-      mid: { 1: 17, 2: 29 },
-      bot: { 1: 20, 2: 32 },
+      top: { 1: 32, 2: 20 },
+      mid: { 1: 29, 2: 17 },
+      bot: { 1: 32, 2: 20 },
     },
     badguys: {
-      top: { 1: 20, 2: 32 },
-      mid: { 1: 17, 2: 29 },
-      bot: { 1: 20, 2: 32 },
+      top: { 1: 32, 2: 20 },
+      mid: { 1: 29, 2: 17 },
+      bot: { 1: 32, 2: 20 },
     },
   };
 
@@ -286,27 +286,36 @@ export class EventNpcSpawned {
       return;
     }
 
+    print(`[CreepInvuln] creep spawned: ${creepName}`);
+
     const team = creep.GetTeam();
     const lane = EventNpcSpawned.getCreepLane(creep, team);
     if (!lane) {
+      print(`[CreepInvuln]   FAIL: cannot determine lane`);
       return;
     }
 
+    print(`[CreepInvuln]   team=${team}, lane=${lane}, pos=${creep.GetAbsOrigin()}`);
+
     const result = EventNpcSpawned.findFarthestAliveTower(team, lane);
     if (!result) {
-      // 该路无存活塔，不加无敌
+      print(`[CreepInvuln]   SKIP: no alive tower in lane ${lane}`);
       return;
     }
 
     const teamStr = team === DotaTeam.GOODGUYS ? 'goodguys' : 'badguys';
     const travelTime = EventNpcSpawned.CREEP_TRAVEL_TIMES[teamStr]?.[lane]?.[result.tier];
     if (travelTime === undefined) {
+      print(`[CreepInvuln]   FAIL: no travel time for ${teamStr}.${lane}.T${result.tier}`);
       return;
     }
 
     const preloadBuffer = EventNpcSpawned.getPreloadBuffer(GameRules.GetGameTime());
     const duration = preloadBuffer + travelTime;
 
+    print(
+      `[CreepInvuln]   tower=${result.tower.GetUnitName()}, tier=T${result.tier}, travelTime=${travelTime}, preloadBuffer=${preloadBuffer}, duration=${duration}`,
+    );
     creep.AddNewModifier(creep, undefined, 'modifier_fountain_glyph', { duration });
   }
 
