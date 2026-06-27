@@ -1156,7 +1156,7 @@
 
 		// Drow Ranger Splinter Shot
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a chance to splinter into arrows that fly at up to %splinter_targets% enemies around the primary target, each dealing %splinter_damage_pct%%% of the attack's damage as physical damage and applying Frost Arrows' slow.<br>Splinter arrows pierce through defenses, <font color='#FFFFFF'><b>ignoring their base armor</b></font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a chance to splinter into arrows that fly at up to %splinter_targets% enemies around the primary target, each dealing %splinter_damage_pct%%% of the attack's damage as physical damage and applying Frost Arrows' slow.<br>Splinter arrows pierce through defenses, ignoring their <font color='#FFFFFF'><b>base armor</b></font>."
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%Proc Chance:"
 
 		// Bristleback Auto Quill
