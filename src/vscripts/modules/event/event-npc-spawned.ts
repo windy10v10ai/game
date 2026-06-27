@@ -16,26 +16,12 @@ function IsHeroDemoDebugHero(hero: CDOTA_BaseNPC_Hero): boolean {
 }
 
 export class EventNpcSpawned {
-  // 小兵出生到各塔位的预设旅行时间(秒)，在 Dota Tools 中校准
-  // T1 最远（离基地最远），时间最长；T2 较近，时间较短
-  private static readonly CREEP_TRAVEL_TIMES: Record<
-    string,
-    Record<string, Record<number, number>>
-  > = {
-    goodguys: {
-      top: { 1: 32, 2: 20 },
-      mid: { 1: 29, 2: 17 },
-      bot: { 1: 32, 2: 20 },
-    },
-    badguys: {
-      top: { 1: 32, 2: 20 },
-      mid: { 1: 29, 2: 17 },
-      bot: { 1: 32, 2: 20 },
-    },
+  // 小兵出生到己方一塔的预设旅行时间(秒)，在 Dota Tools 中校准（双方对称，仅一塔存活时生效）
+  private static readonly CREEP_T1_TRAVEL_TIMES: Record<string, number> = {
+    top: 32,
+    mid: 29,
+    bot: 32,
   };
-
-  // 兵线分界阈值：|X| > 此值判为边路，否则中路
-  private static readonly LANE_X_THRESHOLD = 2500;
 
   private roshanLevelBase = 1;
   private isFirstRoshan = true;
@@ -201,42 +187,34 @@ export class EventNpcSpawned {
     }
   }
 
-  // 根据小兵阵营和出生 X 坐标确定兵线
-  private static getCreepLane(creep: CDOTA_BaseNPC, team: DotaTeam): 'top' | 'mid' | 'bot' | null {
-    const x = creep.GetAbsOrigin().x;
-    const absX = Math.abs(x);
-
-    if (absX <= EventNpcSpawned.LANE_X_THRESHOLD) {
+  // 按几何象限判断兵线，与阵营无关（top=左上、bot=右下），塔名同样是几何方位
+  private static getCreepLane(creep: CDOTA_BaseNPC): 'top' | 'mid' | 'bot' | null {
+    const pos = creep.GetAbsOrigin();
+    const diff = Math.abs(Math.abs(pos.x) - Math.abs(pos.y));
+    if (diff < 1500) {
       return 'mid';
     }
-
-    // 左路 (X < -threshold): 天辉为 top，夜魇为 bot
-    // 右路 (X > +threshold): 天辉为 bot，夜魇为 top
-    if (x < 0) {
-      return team === DotaTeam.GOODGUYS ? 'top' : 'bot';
+    if (pos.x > 0 && pos.y < 0) {
+      return 'bot';
     }
-    return team === DotaTeam.GOODGUYS ? 'bot' : 'top';
-  }
-
-  // 查找某方某路最远存活塔，返回塔实体和塔级(1/2/3)，无存活塔返回 null
-  private static findFarthestAliveTower(
-    team: DotaTeam,
-    lane: string,
-  ): { tower: CDOTA_BaseNPC; tier: number } | null {
-    const prefix =
-      team === DotaTeam.GOODGUYS ? 'npc_dota_goodguys_tower' : 'npc_dota_badguys_tower';
-    const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
-
-    // T1 → T2 优先级搜索（T3 已在高地无需无敌）
-    for (let tier = 1; tier <= 2; tier++) {
-      const targetName = `${prefix}${tier}_${lane}`;
-      for (const tower of towers) {
-        if (tower.GetUnitName() === targetName && !tower.IsNull() && tower.GetHealth() > 0) {
-          return { tower, tier };
-        }
-      }
+    if (pos.x < 0 && pos.y > 0) {
+      return 'top';
     }
     return null;
+  }
+
+  // 该路一塔是否存活（一塔被推后小兵已逼近前线，不再需要无敌）
+  private static isTower1Alive(team: DotaTeam, lane: string): boolean {
+    const prefix =
+      team === DotaTeam.GOODGUYS ? 'npc_dota_goodguys_tower' : 'npc_dota_badguys_tower';
+    const targetName = `${prefix}1_${lane}`;
+    const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
+    for (const tower of towers) {
+      if (tower.GetUnitName() === targetName && !tower.IsNull() && tower.GetHealth() > 0) {
+        return true;
+      }
+    }
+    return false;
   }
 
   // 计算距离下一个30s波次的等待时间
@@ -274,22 +252,22 @@ export class EventNpcSpawned {
       return;
     }
 
+    print(`[EventNpcSpawned] creep spawned: ${creepName} at ${creep.GetAbsOrigin()}`);
+
     // 兵线小兵：出生到己方最远塔前无敌，防止中途被拉断线
     this.applyCreepLaneInvulnerable(creep, creepName);
   }
 
   private applyCreepLaneInvulnerable(creep: CDOTA_BaseNPC, creepName: string): void {
-    // 仅处理兵线小兵（不含野怪、召唤物等）
-    const isGoodGuys = creepName.startsWith('npc_dota_creep_goodguys');
-    const isBadGuys = creepName.startsWith('npc_dota_creep_badguys');
-    if (!isGoodGuys && !isBadGuys) {
+    // 仅处理兵线小兵与攻城车（entity name 为 lane/siege，不含野怪、召唤物等）
+    if (creepName !== 'npc_dota_creep_lane' && creepName !== 'npc_dota_creep_siege') {
       return;
     }
 
     print(`[CreepInvuln] creep spawned: ${creepName}`);
 
     const team = creep.GetTeam();
-    const lane = EventNpcSpawned.getCreepLane(creep, team);
+    const lane = EventNpcSpawned.getCreepLane(creep);
     if (!lane) {
       print(`[CreepInvuln]   FAIL: cannot determine lane`);
       return;
@@ -297,24 +275,18 @@ export class EventNpcSpawned {
 
     print(`[CreepInvuln]   team=${team}, lane=${lane}, pos=${creep.GetAbsOrigin()}`);
 
-    const result = EventNpcSpawned.findFarthestAliveTower(team, lane);
-    if (!result) {
-      print(`[CreepInvuln]   SKIP: no alive tower in lane ${lane}`);
+    // 仅一塔存活时才加无敌，一塔被推后小兵已逼近前线无需保护
+    if (!EventNpcSpawned.isTower1Alive(team, lane)) {
+      print(`[CreepInvuln]   SKIP: tower1 not alive in lane ${lane}`);
       return;
     }
 
-    const teamStr = team === DotaTeam.GOODGUYS ? 'goodguys' : 'badguys';
-    const travelTime = EventNpcSpawned.CREEP_TRAVEL_TIMES[teamStr]?.[lane]?.[result.tier];
-    if (travelTime === undefined) {
-      print(`[CreepInvuln]   FAIL: no travel time for ${teamStr}.${lane}.T${result.tier}`);
-      return;
-    }
-
+    const travelTime = EventNpcSpawned.CREEP_T1_TRAVEL_TIMES[lane];
     const preloadBuffer = EventNpcSpawned.getPreloadBuffer(GameRules.GetGameTime());
     const duration = preloadBuffer + travelTime;
 
     print(
-      `[CreepInvuln]   tower=${result.tower.GetUnitName()}, tier=T${result.tier}, travelTime=${travelTime}, preloadBuffer=${preloadBuffer}, duration=${duration}`,
+      `[CreepInvuln]   travelTime=${travelTime}, preloadBuffer=${preloadBuffer}, duration=${duration}`,
     );
     creep.AddNewModifier(creep, undefined, 'modifier_fountain_glyph', { duration });
   }
