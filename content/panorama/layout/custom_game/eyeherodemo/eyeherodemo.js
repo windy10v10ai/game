@@ -168,6 +168,10 @@ function AddAbilityToSelected() {
   DispatchAddToSelectedEntitiesWithName('ability', $('#AddToUnitInput').text);
 }
 
+function LogModifiersOfSelected() {
+  DispatchForSelectedEntities('LogModifiersButtonPressed');
+}
+
 function MoveHeroToCoord() {
   var raw = $('#CoordInput').text;
   $.DispatchEvent('FireCustomGameEvent_Str', 'MoveToCoordPressed', raw || '');

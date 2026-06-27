@@ -132,7 +132,7 @@
 		"BkbSelectedHeroes_Button"					"黑皇杖"
 		"InvulnOn_Button"							"开启无敌"
 		"InvulnOff_Button"							"关闭无敌"
-		"Reset_Button"								"重置"
+		"LogModifiers_Button"						"查看Modifier"
 		"RemoveSpawns_Button"						"移除"
 		"AddToUnit_Placeholder"						"输入物品/技能名"
 		"AddItem_Button"							"添加物品"

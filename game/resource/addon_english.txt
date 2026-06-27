@@ -132,7 +132,7 @@
 		"BkbSelectedHeroes_Button"					"BKB"
 		"InvulnOn_Button"							"Invuln On"
 		"InvulnOff_Button"							"Invuln Off"
-		"Reset_Button"								"Reset"
+		"LogModifiers_Button"						"Log Modifiers"
 		"RemoveSpawns_Button"						"Remove"
 		"AddToUnit_Placeholder"						"Item / ability name"
 		"AddItem_Button"							"Add Item"
