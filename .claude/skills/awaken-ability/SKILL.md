@@ -48,6 +48,8 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 },
 ```
 
+> **注释只写英雄名**（如 `// 齐天大圣 觉醒`），**不要**罗列会随版本变动的技能效果/数值。效果描述属于本地化文案，不该散落在配置注释里。
+
 ### 2) 觉醒技能本体
 
 若 `newAbility` 复用已有技能则跳过本步。新技能需补齐：
@@ -86,15 +88,11 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 - 神杖升级说明 → 白色 `#FFFFFF` 配「神杖升级：」前缀（参考死灵竭心光环、火枪暗杀）
 - **写死的数值** → 引擎只对 `%key%` 变量自动套白色粗体，正文里手写的具体数字不会变色，须**手动**包成 `<font color='#FFFFFF'><b>数字</b></font>`（白色粗体，模拟引擎数值样式；参考钢背兽、影魔觉醒）。每个技能的强化各占一行（`<br>` 分隔）。
 
-### 4) 物品描述
+### 4) 觉醒预览页
 
-在觉醒石 `_Description` 的「支持的英雄」列表里加上该英雄名（中英同步）。
+在 `src/panorama/react/hud_main/pages/profile/tabs/AwakenTab.tsx` 的 `AWAKEN_ABILITIES` 加一条 `{ heroName, abilityName }`。该列表是配置表的展示副本，需手动同步，否则新觉醒不会出现在个人中心「觉醒」页。觉醒石 `_Description` 不再列英雄名（指向此页面），无需改动物品描述。
 
-### 5) 觉醒预览页
-
-在 `src/panorama/react/hud_main/pages/profile/tabs/AwakenTab.tsx` 的 `AWAKEN_ABILITIES` 加一条 `{ heroName, abilityName }`。该列表是配置表的展示副本，需手动同步，否则新觉醒不会出现在个人中心「觉醒」页。
-
-### 6) 验证
+### 5) 验证
 
 `npm run build:vscripts` 不报错 + `npx jest awaken-replacer` 过。槽位顺序 / 点数退还 / 飘字 / 运行时行为须 Dota tools 实跑确认。改完 vscripts 只看编译是否通过，不读编译产物 `.lua`。
 
