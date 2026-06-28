@@ -48,7 +48,7 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 },
 ```
 
-> **注释只写英雄名**（如 `// 齐天大圣 觉醒`），**不要**罗列会随版本变动的技能效果/数值。效果描述属于本地化文案，不该散落在配置注释里。
+> **注释只写英雄名**（如 `// 齐天大圣 觉醒`），**不要**罗列会随版本变动的技能效果/数值。效果描述属于本地化文案，不该散落在配置注释里。也不要写成「移除 A，替换为 B」这类复述改动结果的叙述——哪怕不含数值，本质仍是效果描述，且与本地化文案重复，文案一改注释就过时。需要点明机制时用字段名/系统名（如「与大招 LinkedAbility 同步升级」），不要叙述玩法效果。
 
 ### 2) 觉醒技能本体
 
@@ -175,6 +175,16 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 **前摇加魔免要防取消刷新**：魔免绑在 `ON_ABILITY_START`（前摇开始）触发时，玩家可在前摇结束前取消再施法反复刷新（取消不进 CD、不耗蓝）。防法：仅当 `ApplyAwakenMagicImmunity` 返回 true 才启动取消检测；`StartIntervalThink` 轮询 `IsInAbilityPhase()`，前摇结束后若 `GetCooldownTimeRemaining() <= 0`（被取消）则移除；**移除前判据**——仅当 `modifier_black_king_bar_immune` 剩余 ≤ 本次魔免时长才 `Destroy()`，**绝不无条件 `RemoveModifierByName`**（同名 modifier 区分不了来源，会误删真 BKB）。
 
 > 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测；PA 闪烁/匕首魔免。
+
+### 进阶 6：纯被动标记技能改用 Modifier 展示（省技能栏空间）
+
+纯被动且描述简单的觉醒技能（典型如进阶 4 的「数值仅觉醒后生效」纯 KV 标记技能），不必占技能栏（castbar）一个槛位，可改用常驻 buff 图标展示：
+
+- KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
+- 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
+- modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 CLAUDE.md 本地化文案规约）。
+
+> 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（`npc_abilities_custom_awaken.txt`）+ 对应 `modifier_special_bonus_unique_winter_wyvern_upgrade` 本地化。
 
 ---
 

@@ -10665,6 +10665,7 @@
 	"ogre_magi_multicast"
 	{
 		"MaxLevel" "4"
+		"LinkedAbility"	"ogre_magi_multicast_lua"	// 与觉醒多重施法 MK2 双向联动同步升级
 		"AbilityValues"
 		{
 			"multicast_2_times"
@@ -12305,6 +12306,16 @@
 				}
 				"duration"	"5"//**2**
 				"max_duration"	"10"//**6**
+				"transfer_on_death"
+				{
+					"value"		"0"
+					"special_bonus_unique_winter_wyvern_upgrade"	"=1"	// 觉醒：诅咒主目标死亡后转移给范围内血量最低的敌方英雄
+				}
+				"transfer_duration_pct"
+				{
+					"value"		"0"
+					"special_bonus_unique_winter_wyvern_upgrade"	"=50"	// 觉醒：转移后持续时间为原时长 50%
+				}
 		}
 	}
 	// 古龙诗集（先天）

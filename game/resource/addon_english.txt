@@ -926,8 +926,8 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"DURATION:"
 
 		// 多重施法
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast MK2"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Allows you cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"<font color='#d000ff'>Multicast (Awakened)</font>"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Allows you cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval.<br>When Ogre Magi is Awakened, this skill is granted in addition to the ultimate Multicast, stacking into a double multicast, and the innate Dumb Luck ability is removed."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"Can trigger most abilities and items, channel ability won't trigger multiple casting."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
@@ -1152,7 +1152,7 @@
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
 
 		// Drow Ranger Splinter Shot
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
@@ -1170,6 +1170,12 @@
 		// Monkey King Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
+
+		// Winter Wyvern Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade_Description"		"When the primary target of Winter's Curse dies, the curse transfers to the enemy unit with the lowest health in the radius, lasting <font color='#FFFFFF'><b>50%%</b></font> of the original duration."
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade_Description"		"When the primary target of Winter's Curse dies, the curse transfers to the enemy unit with the lowest health in the radius, lasting <font color='#FFFFFF'><b>50%%</b></font> of the original duration."
 
 		///////////////////////////////////////////////////
 		//
@@ -1235,7 +1241,7 @@
 		"DOTA_Tooltip_ability_monkey_king_defy"												"Defy"
 		"DOTA_Tooltip_ability_monkey_king_defy_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
 		"DOTA_Tooltip_ability_monkey_king_defy_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
-		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"Gains <font color='#FFFFFF'><b>100%</b></font> bonus attack damage during Defy."
+		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"Gains %awaken_bonus_attack_damage_pct%%% bonus attack damage during Defy."
 		"DOTA_Tooltip_ability_monkey_king_defy_damage_reduction"		                        "%DAMAGE REDUCTION:"
 		"DOTA_Tooltip_ability_monkey_king_defy_status_resistance"		                     "%STATUS RESISTANCE:"
 		"DOTA_Tooltip_ability_monkey_king_defy_awaken_bonus_attack_damage_pct"		         "%BONUS ATTACK DAMAGE:"

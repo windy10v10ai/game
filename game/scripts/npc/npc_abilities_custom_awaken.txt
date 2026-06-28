@@ -468,4 +468,26 @@
 		"AbilityTextureName"			"monkey_king_wukongs_command_ti9"
 		"MaxLevel"						"1"
 	}
+
+	// 寒冬飞龙-觉醒（纯 KV 标记：special_bonus 键挂在寒冬诅咒 transfer_on_death/transfer_duration_pct override）
+	// 不在 castbar 显示，改用常驻 buff 图标展示，说明仍读 ability tooltip 用于觉醒页面
+	"special_bonus_unique_winter_wyvern_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"winter_wyvern_winters_curse"
+		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_winter_wyvern_upgrade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
 }

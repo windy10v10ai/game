@@ -919,8 +919,8 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"持续时间："
 
 		// 多重施法
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"多重施法（改）"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"使英雄在单次施法中有概率多次施放同一技能和物品，多重施法间隔为%multicast_delay%秒。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"<font color='#d000ff'>多重施法（觉醒）</font>"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"使英雄在单次施法中有概率多次施放同一技能和物品，多重施法间隔为%multicast_delay%秒。<br>食人魔魔法师觉醒时额外获得此技能，与大招多重施法叠加形成双重多重施法，并移除先天技能傻福。"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"可以触发绝大多数的技能和物品，持续施法不会触发多重施法。"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
@@ -1150,7 +1150,7 @@
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
 
 		// 卓尔游侠 裂影箭
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
@@ -1168,6 +1168,12 @@
 		// 齐天大圣-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"如意金箍棒额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+
+		// 寒冬飞龙-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade_Description"		"寒冬诅咒的主目标死亡时，诅咒转移给范围内血量最低的敌方单位，持续时间为原时长的<font color='#FFFFFF'><b>50%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade_Description"		"寒冬诅咒的主目标死亡时，诅咒转移给范围内血量最低的敌方单位，持续时间为原时长的<font color='#FFFFFF'><b>50%%</b></font>。"
 
 		///////////////////////////////////////////////////
 		//
@@ -1233,7 +1239,7 @@
 		"DOTA_Tooltip_ability_monkey_king_defy"  "斗战胜佛"
 		"DOTA_Tooltip_ability_monkey_king_defy_Lore"	"一念成佛一念成魔"
 		"DOTA_Tooltip_ability_monkey_king_defy_Description"	"齐天大圣释放斗战胜佛真正的力量，承受的伤害降低并获得状态抗性。施放时将移除所受的负面效果。\n\n驱散类型：强驱散"
-		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"斗战胜佛期间获得<font color='#FFFFFF'><b>100%</b></font>攻击力加成。"
+		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"斗战胜佛期间获得%awaken_bonus_attack_damage_pct%%%攻击力加成。"
 		"DOTA_Tooltip_ability_monkey_king_defy_damage_reduction"		                        "%承受伤害降低："
 		"DOTA_Tooltip_ability_monkey_king_defy_status_resistance"		                     "%状态抗性："
 		"DOTA_Tooltip_ability_monkey_king_defy_awaken_bonus_attack_damage_pct"		         "%攻击力加成（神杖）："
