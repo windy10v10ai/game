@@ -12316,7 +12316,7 @@
 				"transfer_duration_pct"
 				{
 					"value"		"0"
-					"special_bonus_unique_winter_wyvern_upgrade"	"=50"	// 觉醒：转移后持续时间为原时长 时长减半似乎写死了 修改数值不生效
+					"special_bonus_unique_winter_wyvern_upgrade"	"=50"	// 觉醒：转移后持续时间为原时长 修改数值似乎不生效
 				}
 		}
 	}
