@@ -5147,7 +5147,6 @@
 	"drow_ranger_marksmanship"
 	{
 		"MaxLevel" "4"
-		"LinkedAbility"	"special_bonus_unique_drow_ranger_upgrade"	// 与觉醒裂影箭双向联动同步升级
 		"AbilityValues"
 		{
 			"chance"
@@ -10665,6 +10664,7 @@
 	"ogre_magi_multicast"
 	{
 		"MaxLevel" "4"
+		"LinkedAbility"	"ogre_magi_multicast_lua"	// 与觉醒多重施法 MK2 双向联动同步升级
 		"AbilityValues"
 		{
 			"multicast_2_times"
@@ -12292,19 +12292,31 @@
 	"winter_wyvern_winters_curse"
 	{
 		"MaxLevel" "4"
-		"AbilityCastRange"				"1200"	// 800
-		"AbilityCooldown"				"45"	// **60** 100 90 80 减少CD
+		"AbilityCastRange"				"900 1000 1100 1200"	// 800
+		"AbilityCooldown"				"60"	// 100 90 80 减少CD
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-				"damage_reduction"	"0"	// **50** 100 不会收到敌人伤害 改成伤害降低
+				"damage_reduction"	"50"	// 100 不会收到敌人伤害 改成伤害降低
 				"bonus_attack_speed"
 				{
-					"value"		"130"	// 50 65 80
-					"special_bonus_unique_winter_wyvern_3"	"+120"	// 60
+					"value"		"100 130 160 190"	// 50 65 80 x2
+					"special_bonus_unique_winter_wyvern_3"	"+120"	// 60 x2
 				}
-				"duration"	"5"//**2**
-				"max_duration"	"10"//**6**
+				"duration"	"2"			//	2
+				"max_duration"	"8"	//	6
+				"bonus_duration_per_hero"	"1.0"	// 1.5
+				"bonus_duration_per_creep"	"0.2"	// 0.5
+				"transfer_on_death"
+				{
+					"value"		"0"
+					"special_bonus_unique_winter_wyvern_upgrade"	"=1"	// 觉醒：诅咒主目标死亡后转移给范围内血量最低的敌方英雄
+				}
+				"transfer_duration_pct"
+				{
+					"value"		"0"
+					"special_bonus_unique_winter_wyvern_upgrade"	"=50"	// 觉醒：转移后持续时间为原时长 修改数值似乎不生效
+				}
 		}
 	}
 	// 古龙诗集（先天）
