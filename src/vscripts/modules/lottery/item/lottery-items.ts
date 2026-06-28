@@ -41,10 +41,11 @@ export const itemTiers: Tier[] = [
       'item_tome_of_agility', // 敏捷之书
       'item_tome_of_intelligence', // 智力之书
       'item_tome_of_strength', // 力量之书
-      'item_light_part', // 圣光组件
-      'item_dark_part', // 暗影组件
       'item_ultimate_scepter_2', // 真·阿哈利姆神杖
       'item_hydras_breath', // 怪蛇之息
+      'item_roshans_banner', // 肉山的战旗
+      'item_light_part', // 圣光组件
+      'item_dark_part', // 暗影组件
     ],
   },
   // 3~5k
@@ -66,8 +67,8 @@ export const itemTiers: Tier[] = [
   {
     level: 2,
     names: [
+      // 'item_collector', // 收纳符
       'item_rune_transmuter_random', // 洗炼石
-      'item_collector', // 收纳符
       'item_tome_of_knowledge', // 知识之书
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_great_famango', // 大疗伤莲花

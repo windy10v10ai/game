@@ -165,6 +165,8 @@
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
 		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"2"
 	}
 
 	// 死灵法师 竭心光环-觉醒
@@ -441,7 +443,7 @@
 			}
 			"splinter_targets"			"2"
 			"splinter_radius"			"500"
-			"splinter_damage_pct"		"40"
+			"splinter_damage_pct"		"50"
 			"slow_duration"				"1.5"
 			"projectile_speed"			"1250"
 		}
@@ -455,6 +457,15 @@
 		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_bristleback_upgrade"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityTextureName"			"bristleback/bb_2022_immortal_ability_icon/bb_2022_immortal_bristleback"
+		"MaxLevel"						"1"
+	}
+
+	// 齐天大圣-觉醒（纯 KV 标记：special_bonus 键挂在大招 awaken_enabled 与如意金箍棒 override）
+	"special_bonus_unique_monkey_king_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"monkey_king_wukongs_command_ti9"
 		"MaxLevel"						"1"
 	}
 }

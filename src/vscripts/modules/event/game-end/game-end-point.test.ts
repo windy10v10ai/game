@@ -251,14 +251,14 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(1.8);
     });
 
-    it('电脑金钱<=1000时应该-0.1', () => {
+    it('电脑金钱<=3000时应该-0.1', () => {
       const option = {
         ...defaultOption,
         direGoldXpMultiplier: 10,
-        startingGoldBot: 1000,
+        startingGoldBot: 3000,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(1.8);
+      expect(multiplier).toBe(1.9);
     });
 
     it('N6难度多个条件组合', () => {
