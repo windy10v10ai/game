@@ -165,6 +165,8 @@
 		"RequiredLevel"					"6"
 		"LevelsBetweenUpgrades"			"6"
 		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
+		"AbilityCharges"				"3"
+		"AbilityChargeRestoreTime"		"2"
 	}
 
 	// 死灵法师 竭心光环-觉醒
@@ -441,7 +443,7 @@
 			}
 			"splinter_targets"			"2"
 			"splinter_radius"			"500"
-			"splinter_damage_pct"		"40"
+			"splinter_damage_pct"		"50"
 			"slow_duration"				"1.5"
 			"projectile_speed"			"1250"
 		}
