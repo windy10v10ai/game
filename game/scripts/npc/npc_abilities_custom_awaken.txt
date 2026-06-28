@@ -442,7 +442,7 @@
 			"splinter_chance"
 			{
 				"value"										"40"
-				"special_bonus_unique_drow_ranger_3"		"+13"			// 同吃射手天赋的概率天赋
+				"special_bonus_unique_drow_ranger_3"		"+13"			// 同步射手天赋的概率天赋
 			}
 			"splinter_targets"			"2"
 			"splinter_radius"			"500"
