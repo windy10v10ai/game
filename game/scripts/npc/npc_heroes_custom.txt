@@ -1626,8 +1626,10 @@
 	}
 	"npc_dota_hero_ogre_magi"
 	{
-		"AttributeStrengthGain"		"4.7"	// 4.2
+		"AttributeStrengthGain"		"4.7"	// 4.0
 		"AttributeAgilityGain"		"2.0"	// 1.5
+		"AttributeBaseIntelligence"		"9"	// 0
+		"AttributeIntelligenceGain"		"2"	// 0
 		"Bot"
 		{
 			"Build"

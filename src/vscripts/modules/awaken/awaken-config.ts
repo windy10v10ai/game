@@ -77,12 +77,11 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_nevermore_upgrade',
     newLevel: 1,
   },
-  // 卓尔游侠 裂影箭（新增被动，与大招射手天赋 LinkedAbility 同步升级，初始等级继承大招）
+  // 卓尔游侠 裂影箭（新增被动，固定概率不随等级变化）
   {
     heroName: 'npc_dota_hero_drow_ranger',
     newAbility: 'special_bonus_unique_drow_ranger_upgrade',
-    newLevel: 0,
-    inheritLevelFrom: 'drow_ranger_marksmanship',
+    newLevel: 1,
   },
   // 钢背兽 自动喷刺（新增 autocast 总开关：有敌方英雄时自动黏液+倒刺）
   {
@@ -101,5 +100,19 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     heroName: 'npc_dota_hero_monkey_king',
     newAbility: 'special_bonus_unique_monkey_king_upgrade',
     newLevel: 1,
+  },
+  // 寒冬飞龙 觉醒
+  {
+    heroName: 'npc_dota_hero_winter_wyvern',
+    newAbility: 'special_bonus_unique_winter_wyvern_upgrade',
+    newLevel: 1,
+  },
+  // 食人魔魔法师 觉醒（复用抽奖池技能，与大招 LinkedAbility 同步升级，初始等级继承大招）
+  {
+    heroName: 'npc_dota_hero_ogre_magi',
+    targetAbility: 'ogre_magi_dumb_luck',
+    newAbility: 'ogre_magi_multicast_lua',
+    newLevel: 0,
+    inheritLevelFrom: 'ogre_magi_multicast',
   },
 ];

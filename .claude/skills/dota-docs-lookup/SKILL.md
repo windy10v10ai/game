@@ -4,9 +4,10 @@ description: >-
   Routes Dota 2 custom game documentation: prefer ModDota (community-maintained,
   searchable API indexes) for vscripts, game events, Panorama JS API, and Panorama
   events; fall back to Valve Developer Wiki when ModDota is insufficient (concepts,
-  DataDriven KV depth, modifier Actions). Use when you need to look up a specific
-  Dota 2 API, event name, or modifier binding, or when the user asks where to find
-  modding documentation.
+  DataDriven KV depth, modifier Actions); use robincode.cn when checking what changed
+  in a recent official Dota 2 update (API/engine diffs). Use when you need to look up
+  a specific Dota 2 API, event name, modifier binding, or recent API change, or when
+  the user asks where to find modding documentation.
 ---
 
 # Dota 2 文档查阅路由
@@ -15,6 +16,7 @@ description: >-
 
 1. **优先 [ModDota API](https://moddota.com/api/)**：社区从客户端整理，**分类清晰、可检索**，适合快速核对类名、方法签名、事件名、Panorama API。
 2. **ModDota 信息仍不足时**，再查 **Valve Developer Wiki**（概念、流程、个别 KV/Action 细节、官方表述）。
+3. **排查官方版本更新后的 API 变更**（如「这个函数最近改了吗」「这次更新引擎 API 有什么变化」）时，查 [robincode.cn](https://www.robincode.cn/)——该站跟踪官方更新后的最新 API 变更内容，ModDota/Wiki 通常滞后于最新版本。
 
 仍按任务类型**只打开对应栏目**，不要无目的地跨站乱搜。
 
@@ -47,13 +49,21 @@ description: >-
 
 ---
 
+## 第三优先：robincode.cn（版本更新 API 变更追踪）
+
+| 你在做什么 | 链接 | 用途简述 |
+| ---------- | ---- | -------- |
+| 排查**官方版本更新**后某个 API/字段/行为是否有变化，或不确定某运行时报错是否由新版本引擎改动引起 | [robincode.cn](https://www.robincode.cn/) | 追踪 Dota 2 官方更新后的**最新 API 变更**，ModDota/Valve Wiki 的收录通常滞后于最新版本。 |
+
 ## 其他规则
 
 - **TypeScript 类型**：本仓库 `@moddota/dota-lua-types` 与 ModDota/实机不一致时，以 **ModDota + 游戏实测** 为准。
 - **Valve Wiki**：部分页面在自动化抓取时可能被拦截；若工具无法读取，在浏览器中打开链接即可。
+- **版本更新引起的 API 行为变化**（如本仓库 CLAUDE.md 中记录的 `GetBaseAttackTime` 之类改动）应优先怀疑并查 robincode.cn 确认，而不是先假设是自己代码的问题。
 
 ## 不要做的事
 
 - 不要跳过 ModDota 直接去 Wiki **查 Panorama JS 或游戏事件名**（应先 `panorama/api`、`panorama/events` 或 `events`）。
 - 不要用 Panorama 文档去查 **`GameRules` 等服务器 Lua 绑定**（应查 ModDota **vscripts**）。
 - 不要为找一个 API **同时翻遍**所有 Wiki 章节；先锁定 ModDota 对应分区，不够再补官方文档。
+- 不要在排查**版本更新导致的 API 变化**时只查 ModDota/Wiki 就下结论——这两者更新滞后，应补查 robincode.cn。
