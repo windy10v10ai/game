@@ -514,8 +514,8 @@
 	"npc_dota_hero_monkey_king"
 	{
 		// 禁用猴子猴孙，存在卡顿的问题
-		// "Ability6"		"spectre_ursa_enrage"
-		// "Ability17"		"special_bonus_unique_spectre_401"
+		"Ability6"		"monkey_king_defy"
+		"Ability17"		"special_bonus_unique_monkey_king_defy_duration"
 	}
 
 	// 幽鬼

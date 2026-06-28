@@ -55,6 +55,7 @@ export class HeroDebugPanel {
     this.onStr('ScepterHero', (e) => this.withHero(e, (h) => this.grantScepter(h)));
     this.onStr('ShardHero', (e) => this.withHero(e, (h) => this.grantShard(h)));
     this.onStr('ResetHero', (e) => this.withHero(e, (h) => this.resetHero(h)));
+    this.onStr('LogModifiersButtonPressed', (e) => this.onLogModifiers(e));
     this.onStr('RemoveHeroButtonPressed', (e) => this.onRemoveHero(e));
     this.onStr('InvulnOnHero', (e) => this.withHero(e, (h) => this.setInvulnerable(h, true)));
     this.onStr('InvulnOffHero', (e) => this.withHero(e, (h) => this.setInvulnerable(h, false)));
@@ -100,6 +101,31 @@ export class HeroDebugPanel {
     if (hero && !hero.IsNull() && hero.IsHero()) {
       action(hero);
     }
+  }
+
+  // 打印选中单位所有 modifier（对任意单位有效）。
+  private onLogModifiers(event: StrEventData): void {
+    const entIndex = tonumber(event.str);
+    if (entIndex === undefined) {
+      return;
+    }
+    const unit = EntIndexToHScript(entIndex as EntityIndex) as CDOTA_BaseNPC | undefined;
+    if (!unit || unit.IsNull()) {
+      return;
+    }
+    const unitName = unit.GetUnitName();
+    print(`[DebugPanel] --- Modifiers of ${unitName} (entindex ${entIndex}) ---`);
+    const modifiers = unit.FindAllModifiers();
+    for (const modifier of modifiers) {
+      const name = modifier.GetName();
+      const stackCount = modifier.GetStackCount();
+      const remainingTime = modifier.GetRemainingTime();
+      const stackStr = stackCount > 0 ? ` x${stackCount}` : '';
+      const timeStr = remainingTime > 0 ? ` (${remainingTime.toFixed(1)}s)` : '';
+      print(`[DebugPanel]   ${name}${stackStr}${timeStr}`);
+    }
+    const count = modifiers.length;
+    print(`[DebugPanel] --- Total: ${count} modifiers ---`);
   }
 
   private getSelectedHero(playerId: PlayerID): CDOTA_BaseNPC_Hero | undefined {

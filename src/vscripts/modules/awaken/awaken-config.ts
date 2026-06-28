@@ -96,4 +96,10 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_lina_upgrade',
     newLevel: 1,
   },
+  // 齐天大圣 觉醒
+  {
+    heroName: 'npc_dota_hero_monkey_king',
+    newAbility: 'special_bonus_unique_monkey_king_upgrade',
+    newLevel: 1,
+  },
 ];

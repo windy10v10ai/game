@@ -98,13 +98,13 @@ export class GameEndPoint {
     if (option.direGoldXpMultiplier >= 40) {
       multiplier *= 2.4;
     } else if (option.direGoldXpMultiplier >= 20) {
-      multiplier *= 2.2;
+      multiplier *= 2.3;
     } else if (option.direGoldXpMultiplier >= 15) {
+      multiplier *= 2.2;
+    } else if (option.direGoldXpMultiplier >= 12) {
       multiplier *= 2.1;
-    } else if (option.direGoldXpMultiplier === 12) {
-      multiplier *= 1.95;
-    } else if (option.direGoldXpMultiplier === 10) {
-      multiplier *= 1.9;
+    } else if (option.direGoldXpMultiplier >= 10) {
+      multiplier *= 2.0;
     } else if (option.direGoldXpMultiplier >= 5) {
       multiplier *= 1.5;
     }
@@ -121,7 +121,7 @@ export class GameEndPoint {
     // 防御塔倍率
     if (option.towerPower <= 150) {
       multiplier -= 0.1;
-    } else if (option.towerPower >= 600) {
+    } else if (option.towerPower >= 500) {
       multiplier -= 0.1;
     }
 
@@ -130,7 +130,7 @@ export class GameEndPoint {
       if (option.startingGoldPlayer >= 5000) {
         multiplier -= 0.1;
       }
-      if (option.startingGoldBot <= 1000) {
+      if (option.startingGoldBot <= 3000) {
         multiplier -= 0.1;
       }
     }
