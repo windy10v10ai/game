@@ -185,9 +185,11 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 - KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
 - 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
 - modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 CLAUDE.md 本地化文案规约）。
-- **modifier tooltip 不支持 `%key%` 变量读取 KV 数值**（会显示空白或吞掉百分号），描述里必须写死成具体数字；ability 自身的描述不受影响，仍可正常用 `%key%`。
+- **modifier tooltip 不支持直接 `%key%` 读取 ability 的 `AbilityValues`**（会显示空白或吞掉百分号）；ability 自身的描述不受影响，仍可正常用 `%key%`。modifier 这边按实现方式分两种处理：
+  - **DataDriven 标记技能**（本节默认场景，KV `Modifiers` 子块、无脚本）：没有代码可补，描述里**写死成具体数字**。
+  - **TS/Lua 脚本类 modifier**（`ability_lua` + `GetIntrinsicModifierName`，如进阶 3 的监听型觉醒）：数值若会变化（随等级、天赋等），**不要写死**——用 `MODIFIER_PROPERTY_TOOLTIP` 动态取值：`DeclareFunctions` 加 `ModifierFunction.TOOLTIP`，实现 `OnTooltip(): number` 返回目标值（如 `this.GetAbility()?.GetSpecialValueFor('xxx') ?? 0`），本地化里用 `%dMODIFIER_PROPERTY_TOOLTIP%%%` 占位（同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会像 ability 的 `%key%` 一样自动套白色粗体**（实测），需要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值的处理方式一样。
 
-> 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（`npc_abilities_custom_awaken.txt`）+ 对应 `modifier_special_bonus_unique_winter_wyvern_upgrade` 本地化。
+> 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（DataDriven 写死数值）；卓尔游侠裂影箭觉醒 `special_bonus_unique_drow_ranger_upgrade`（TS modifier，分裂概率会被天赋提升，用 `OnTooltip` 动态显示而非写死）。
 
 ---
 

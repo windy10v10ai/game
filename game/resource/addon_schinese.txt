@@ -1160,7 +1160,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有%splinter_chance%%%概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。<br>分裂箭矢将穿透敌人的防御，无视他们的<font color='#FFFFFF'><b>基础护甲</b></font>。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有<font color='#FFFFFF'><b>40%%</b></font>概率分裂出箭矢，射向主目标周围最多<font color='#FFFFFF'><b>2</b></font>名敌人，每支造成本次攻击伤害<font color='#FFFFFF'><b>50%%</b></font>的物理伤害，并附带霜冻之箭的减速效果。<br>分裂箭矢将穿透敌人的防御，无视他们的<font color='#FFFFFF'><b>基础护甲</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>概率分裂出箭矢，射向主目标周围最多<font color='#FFFFFF'><b>2</b></font>名敌人，每支造成本次攻击伤害<font color='#FFFFFF'><b>50%%</b></font>的物理伤害，并附带霜冻之箭的减速效果。<br>分裂箭矢将穿透敌人的防御，无视他们的<font color='#FFFFFF'><b>基础护甲</b></font>。"
 
 		// 钢背兽 自动喷刺
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>自动喷刺 觉醒</font>"

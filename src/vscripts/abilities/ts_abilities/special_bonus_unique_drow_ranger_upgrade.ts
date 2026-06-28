@@ -32,7 +32,12 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_ATTACK];
+    return [ModifierFunction.ON_ATTACK, ModifierFunction.TOOLTIP];
+  }
+
+  // 分裂概率可被 special_bonus_unique_drow_ranger_3 天赋提升，tooltip 需要动态读取而非写死
+  OnTooltip(): number {
+    return this.GetAbility()?.GetSpecialValueFor('splinter_chance') ?? 0;
   }
 
   // 抬手射出即触发（不等主箭命中），分裂箭与主箭同时飞出
