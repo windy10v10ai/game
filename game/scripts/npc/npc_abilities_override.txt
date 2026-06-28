@@ -12293,19 +12293,19 @@
 	"winter_wyvern_winters_curse"
 	{
 		"MaxLevel" "4"
-		"AbilityCastRange"				"1200"	// 800
-		"AbilityCooldown"				"45"	// **60** 100 90 80 减少CD
+		"AbilityCastRange"				"900 1000 1100 1200"	// 800
+		"AbilityCooldown"				"60"	// 100 90 80 减少CD
 		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
-				"damage_reduction"	"0"	// **50** 100 不会收到敌人伤害 改成伤害降低
+				"damage_reduction"	"50"	// 100 不会收到敌人伤害 改成伤害降低
 				"bonus_attack_speed"
 				{
-					"value"		"130"	// 50 65 80
-					"special_bonus_unique_winter_wyvern_3"	"+120"	// 60
+					"value"		"100 130 160 190"	// 50 65 80 x2
+					"special_bonus_unique_winter_wyvern_3"	"+120"	// 60 x2
 				}
-				"duration"	"5"//**2**
-				"max_duration"	"10"//**6**
+				"duration"	"4"			//	2
+				"max_duration"	"10"	//	6
 				"transfer_on_death"
 				{
 					"value"		"0"
