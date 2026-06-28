@@ -11,6 +11,7 @@ import { ModeRetreat } from './mode-retreat';
 export class FSA {
   public static readonly MODE_SWITCH_THRESHOLD = 0.5;
   private static readonly RETREAT_HP_THRESHOLD = 35;
+  private static readonly MID_ONLY_RETREAT_HP_THRESHOLD = 15;
 
   ModeList: ModeBase[] = [];
   constructor() {
@@ -28,7 +29,10 @@ export class FSA {
     if (
       PlayerResource.IsValidPlayerID(pid) &&
       PlayerResource.IsFakeClient(pid) &&
-      hero.GetHealthPercent() < FSA.RETREAT_HP_THRESHOLD
+      hero.GetHealthPercent() <
+        (GameRules.Option.midOnlyMode
+          ? FSA.MID_ONLY_RETREAT_HP_THRESHOLD
+          : FSA.RETREAT_HP_THRESHOLD)
     ) {
       return ModeEnum.RETREAT;
     }
