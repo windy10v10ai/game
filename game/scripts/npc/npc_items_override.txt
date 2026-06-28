@@ -219,12 +219,17 @@
 	// 肉山的战旗 旗帜
 	"item_roshans_banner"
 	{
+		"ItemPurchasable"				"1"
+		"ItemCost"						"8000"
+		"ItemStockInitial"				"1"
+		"ItemStockMax"					"1"
+		"ItemStockTime"					"600"
 		"AbilityValues"
 		{
 			"duration"				"180"	// 120
 			"health"				"40 80 120"
 			"health_tooltip"		"10 20 30"
-			"buff_linger_duration"		"15"// 0.1
+			"buff_linger_duration"		"30"// 0.1
 		}
 	}
 

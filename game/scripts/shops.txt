@@ -44,7 +44,7 @@
 
 		"item"		"item_diadem"				// 宝冕
 		"item"		"item_travel_boots"			// 飞鞋 远行鞋
-		"item"		"item_radar_of_dragon"
+		"item"		"item_candy_candy"			// 嘉心糖
 		"item"		"item_recipe_greater_famango" // 巨大疗伤莲花配方
 	}
 	// 装备
@@ -155,7 +155,7 @@
 		// "item"		"item_pers"					// 坚韧球
  		"item"		"item_mask_of_madness"
 		"item"		"item_hand_of_group"		// 团队之手
-		"item"		"item_candy_candy"
+		"item"		"item_roshans_banner"		// 肉山的战旗
 		"item"		"item_wings_of_haste"		// 急速之翼
 		"item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石

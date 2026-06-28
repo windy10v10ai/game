@@ -101,9 +101,9 @@ export class GameEndPoint {
       multiplier *= 2.3;
     } else if (option.direGoldXpMultiplier >= 15) {
       multiplier *= 2.2;
-    } else if (option.direGoldXpMultiplier === 12) {
+    } else if (option.direGoldXpMultiplier >= 12) {
       multiplier *= 2.1;
-    } else if (option.direGoldXpMultiplier === 10) {
+    } else if (option.direGoldXpMultiplier >= 10) {
       multiplier *= 2.0;
     } else if (option.direGoldXpMultiplier >= 5) {
       multiplier *= 1.5;

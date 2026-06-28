@@ -55,7 +55,8 @@ export class EventNpcSpawned {
     ListenToGameEvent('npc_spawned', (keys) => this.OnNpcSpawned(keys), this);
 
     // 预加载休眠期长度不可预测，无法在出生时算准 duration；改为检测小兵真正开始移动后再补无敌
-    Timers.CreateTimer(0.5, () => this.checkPendingInvuln());
+    // 暂时关闭
+    // Timers.CreateTimer(0.5, () => this.checkPendingInvuln());
   }
 
   // 单个全局 timer 轮询：等待预加载小兵离开出生点（激活），此刻才加 travelTime 时长的无敌
@@ -289,7 +290,8 @@ export class EventNpcSpawned {
     }
 
     // 兵线小兵：出生到己方一塔前无敌，防止中途被拉断线
-    this.applyCreepLaneInvulnerable(creep, creepName);
+    // 暂时关闭
+    // this.applyCreepLaneInvulnerable(creep, creepName);
   }
 
   private applyCreepLaneInvulnerable(creep: CDOTA_BaseNPC, creepName: string): void {
