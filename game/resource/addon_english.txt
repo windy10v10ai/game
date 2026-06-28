@@ -1149,15 +1149,21 @@
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
 
 		// Drow Ranger Splinter Shot
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a chance to splinter into arrows that fly at up to %splinter_targets% enemies around the primary target, each dealing %splinter_damage_pct%%% of the attack's damage as physical damage and applying Frost Arrows' slow.<br>Splinter arrows pierce through defenses, ignoring their <font color='#FFFFFF'><b>base armor</b></font>."
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%Proc Chance:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a chance to splinter into arrows that fly at up to %splinter_targets% enemies around the primary target, each dealing %splinter_damage_pct%%% of the attack's damage as physical damage and applying Frost Arrows' slow.<br>Splinter arrows pierce through defenses, ignoring their <font color='#FFFFFF'><b>base armor</b></font>."
 
 		// Bristleback Auto Quill
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>Auto Quill Awakened</font>"
@@ -1166,10 +1172,14 @@
 		// Lina Laguna Blade
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"Each time Lina casts Laguna Blade, the target takes additional <font color='#FFE56E'>pure damage</font> equal to that Laguna Blade's damage, affected by Spell Amplification."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lina_upgrade_Description"		"Each time Lina casts Laguna Blade, the target takes additional <font color='#FFE56E'>pure damage</font> equal to that Laguna Blade's damage, affected by Spell Amplification."
 
 		// Monkey King Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
 
 		// Winter Wyvern Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"

@@ -20,7 +20,7 @@ export class SpecialBonusUniqueDrowRangerUpgrade extends BaseAbility {
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModifier {
   IsHidden(): boolean {
-    return true;
+    return false;
   }
 
   IsPurgable(): boolean {

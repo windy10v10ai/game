@@ -349,10 +349,11 @@
 
 	// 巫医 神语-觉醒
 	// 死亡守卫/变身术守卫被召唤时，攻击力按巫医当前技能增强% 提升
+	// 不在 castbar 显示，改用常驻 buff 图标展示，说明仍读 ability tooltip 用于觉醒页面
 	"special_bonus_unique_witch_doctor_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
 		"AbilityTextureName"			"witch_doctor/ribbitar_icon/witch_doctor_death_ward"
 		"MaxLevel"						"1"
@@ -367,7 +368,7 @@
 			"modifier_special_bonus_unique_witch_doctor_upgrade"
 			{
 				"Passive"		"1"
-				"IsHidden"		"1"
+				"IsHidden"		"0"
 				"IsPurgable"	"0"
 				"RemoveOnDeath"	"0"
 				"Attributes"	"MODIFIER_ATTRIBUTE_PERMANENT"
@@ -387,11 +388,12 @@
 
 	// 影魔 魂之挽歌护体-觉醒
 	// 新增被动：释放魂之挽歌前摇期间获得魔法免疫；提升支配死灵击杀英雄灵魂=10、小兵=3（见 override 联动）；提升施法速度降低暗影压制与魂之挽歌抬手
+	// 不在 castbar 显示，改用常驻 buff 图标展示，说明仍读 ability tooltip 用于觉醒页面
 	"special_bonus_unique_nevermore_upgrade"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/special_bonus_unique_nevermore_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"nevermore_dark_lord_demon"
 		"MaxLevel"						"1"
 
@@ -404,11 +406,12 @@
 
 	// 莉娜 神灭斩-觉醒
 	// 新增被动：每次施放神灭斩，对目标额外造成等同大招当前伤害的纯粹伤害（吃技能增强）
+	// 不在 castbar 显示，改用常驻 buff 图标展示，说明仍读 ability tooltip 用于觉醒页面
 	"special_bonus_unique_lina_upgrade"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_lina_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"lina/lina_ti6_immortal/lina_laguna_blade"
 		"MaxLevel"						"1"
 	}
@@ -416,11 +419,12 @@
 	// 卓尔游侠 裂影箭-觉醒
 	// 新增被动：普攻有概率分裂出数支箭射向主目标周围的敌人，造成本次攻击伤害的百分比并附带霜冻箭减速
 	// 技能名同时作 special_bonus key 挂回 marksmanship，使精准箭触发概率提升（见 override 联动）
+	// 不在 castbar 显示，改用常驻 buff 图标展示，说明仍读 ability tooltip 用于觉醒页面
 	"special_bonus_unique_drow_ranger_upgrade"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_drow_ranger_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -461,12 +465,25 @@
 	}
 
 	// 齐天大圣-觉醒（纯 KV 标记：special_bonus 键挂在大招 awaken_enabled 与如意金箍棒 override）
+	// 不在 castbar 显示，改用常驻 buff 图标展示，说明仍读 ability tooltip 用于觉醒页面
 	"special_bonus_unique_monkey_king_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"monkey_king_wukongs_command_ti9"
 		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_monkey_king_upgrade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
 	}
 
 	// 寒冬飞龙-觉醒（纯 KV 标记：special_bonus 键挂在寒冬诅咒 transfer_on_death/transfer_duration_pct override）
