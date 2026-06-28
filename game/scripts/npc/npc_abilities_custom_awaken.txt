@@ -429,8 +429,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"drow_ranger_multishot_arcana"
-		"MaxLevel"						"4"
-		"LinkedAbility"					"drow_ranger_marksmanship"	// 与大招射手天赋双向联动同步升级
+		"MaxLevel"						"1"
 
 		"precache"
 		{
@@ -442,7 +441,7 @@
 		{
 			"splinter_chance"
 			{
-				"value"										"30 35 40 45"	// 与射手天赋同概率
+				"value"										"40"
 				"special_bonus_unique_drow_ranger_3"		"+13"			// 同吃射手天赋的概率天赋
 			}
 			"splinter_targets"			"2"

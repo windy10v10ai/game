@@ -120,6 +120,8 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`。
 
+> **不要用 `Innate "1"` + `DependentOnAbility` 替代 `LinkedAbility`**：官方有「新技能比关联技能多一档等级」的场景用这个组合（古辰山 Absolute Zero 先天、玛尔斯 Sidekick），但那些都是英雄出生自带的先天技能槛位。本项目觉醒技能是运行时用觉醒石 `AddAbility()` 动态加上去的，不是原生先天槛位——给它加 `Innate "1"` 实测会导致技能/buff 图标不显示（卓尔游侠裂影箭觉醒踩过，已放弃改回固定等级）。等级关联场景老老实实用上面的 `LinkedAbility` + `inheritLevelFrom`（要求两边 `MaxLevel` 一致）；如果新技能就是想比关联技能多一档，优先考虑改成固定值/不分级，而不是引入 `DependentOnAbility`。
+
 ### 进阶 2：autocast 自动触发（自动施放）
 
 「开 autocast 后自动检测施放」类觉醒，**已有共享基类 `AutoCastAbility`（`src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts`），直接继承，不要重复造轮子**：
@@ -183,6 +185,7 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 - KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
 - 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
 - modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 CLAUDE.md 本地化文案规约）。
+- **modifier tooltip 不支持 `%key%` 变量读取 KV 数值**（会显示空白或吞掉百分号），描述里必须写死成具体数字；ability 自身的描述不受影响，仍可正常用 `%key%`。
 
 > 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（`npc_abilities_custom_awaken.txt`）+ 对应 `modifier_special_bonus_unique_winter_wyvern_upgrade` 本地化。
 
