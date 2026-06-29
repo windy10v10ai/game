@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
 import { AwakenHeroCard } from './AwakenHeroCard';
+import { AwakenRandomCard } from './AwakenRandomCard';
+import { AwakenRandomCandidatesDialog } from './AwakenRandomCandidatesDialog';
 import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
 
 /**
@@ -50,18 +52,37 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
 const HERO_AWAKEN_UNLOCK_COST = 10000;
+// 随机抽选半价，与 api 价格表一致
+const HERO_AWAKEN_RANDOM_COST = 5000;
+// 随机抽选开放所需的最少剩余可觉醒英雄数，与 api 候选数一致
+const AWAKEN_RANDOM_MIN_POOL = 3;
 // 兜底：ack 事件丢包时仍能解除按钮锁定
 const UNLOCK_PENDING_TIMEOUT_S = 15;
+
+const ABILITY_BY_HERO: Record<string, string> = {};
+for (const { heroName, abilityName } of AWAKEN_ABILITIES) {
+  ABILITY_BY_HERO[heroName] = abilityName;
+}
+
+interface ConfirmTarget {
+  heroName: string;
+  abilityName: string;
+  isRandom: boolean;
+}
 
 export function AwakenTab() {
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
   const awakenedHeroes = player?.awakenedHeroes ?? [];
   const useableSeasonPoint = player?.useableSeasonPoint ?? 0;
+
+  const randomData = useNetTable('awaken_random', steamId);
+  const candidateNames = randomData?.candidates ? Object.values(randomData.candidates) : [];
+
   const [isPending, setIsPending] = useState(false);
-  const [confirmHero, setConfirmHero] = useState<{ heroName: string; abilityName: string } | null>(
-    null,
-  );
+  const [confirmHero, setConfirmHero] = useState<ConfirmTarget | null>(null);
+  // 关闭候选层但不清空候选集（净表仍保留，再次点随机卡会复现同一组）
+  const [candidatesDismissed, setCandidatesDismissed] = useState(false);
 
   useEffect(() => {
     const listener = GameEvents.Subscribe('awaken_unlock_result', () => {
@@ -72,19 +93,45 @@ export function AwakenTab() {
     };
   }, []);
 
-  const canAfford = useableSeasonPoint >= HERO_AWAKEN_UNLOCK_COST;
+  const canAffordDirect = useableSeasonPoint >= HERO_AWAKEN_UNLOCK_COST;
+  const canAffordRandom = useableSeasonPoint >= HERO_AWAKEN_RANDOM_COST;
+  const remainingPool = AWAKEN_ABILITIES.filter(
+    ({ heroName }) => !awakenedHeroes.some((h) => h.heroName === heroName),
+  ).length;
+  const hasEnoughPool = remainingPool >= AWAKEN_RANDOM_MIN_POOL;
+
+  const showCandidates = candidateNames.length > 0 && !candidatesDismissed && !confirmHero;
+  const candidates = candidateNames.map((heroName) => ({
+    heroName,
+    abilityName: ABILITY_BY_HERO[heroName] ?? '',
+  }));
 
   const handleUnlockClick = (heroName: string, abilityName: string) => {
-    if (isPending || !canAfford) return;
-    setConfirmHero({ heroName, abilityName });
+    if (isPending || !canAffordDirect) return;
+    setConfirmHero({ heroName, abilityName, isRandom: false });
   };
 
-  const handleConfirmUnlock = () => {
+  const handleRandomClick = () => {
+    if (isPending || !canAffordRandom || !hasEnoughPool) return;
+    setCandidatesDismissed(false);
+    GameEvents.SendCustomGameEventToServer('awaken_random_request', {});
+  };
+
+  const handleCandidateSelect = (heroName: string, abilityName: string) => {
+    setConfirmHero({ heroName, abilityName, isRandom: true });
+  };
+
+  const handleConfirm = () => {
     if (!confirmHero) return;
-    const { heroName } = confirmHero;
+    const { heroName, isRandom } = confirmHero;
     setConfirmHero(null);
     setIsPending(true);
-    GameEvents.SendCustomGameEventToServer('awaken_unlock_hero', { heroName });
+    if (isRandom) {
+      setCandidatesDismissed(true);
+      GameEvents.SendCustomGameEventToServer('awaken_random_confirm', { heroName });
+    } else {
+      GameEvents.SendCustomGameEventToServer('awaken_unlock_hero', { heroName });
+    }
     $.Schedule(UNLOCK_PENDING_TIMEOUT_S, () => setIsPending(false));
   };
 
@@ -107,24 +154,40 @@ export function AwakenTab() {
           />
         </Panel>
         <Panel className="awaken-grid">
+          <AwakenRandomCard
+            enabled={!isPending && canAffordRandom && hasEnoughPool}
+            canAfford={canAffordRandom}
+            hasEnoughPool={hasEnoughPool}
+            onClick={handleRandomClick}
+          />
           {AWAKEN_ABILITIES.map(({ heroName, abilityName }) => (
             <AwakenHeroCard
               key={abilityName}
               heroName={heroName}
               abilityName={abilityName}
               isUnlocked={awakenedHeroes.some((h) => h.heroName === heroName)}
-              enabled={!isPending && canAfford}
-              canAfford={canAfford}
+              enabled={!isPending && canAffordDirect}
+              canAfford={canAffordDirect}
               onUnlockClick={handleUnlockClick}
             />
           ))}
         </Panel>
       </Panel>
+      {showCandidates && (
+        <AwakenRandomCandidatesDialog
+          candidates={candidates}
+          onSelect={handleCandidateSelect}
+          onClose={() => setCandidatesDismissed(true)}
+        />
+      )}
       {confirmHero && (
         <AwakenUnlockConfirmDialog
           heroName={confirmHero.heroName}
           abilityName={confirmHero.abilityName}
-          onConfirm={handleConfirmUnlock}
+          descKey={
+            confirmHero.isRandom ? '#awaken_random_confirm_desc' : '#awaken_unlock_confirm_desc'
+          }
+          onConfirm={handleConfirm}
           onCancel={() => setConfirmHero(null)}
         />
       )}

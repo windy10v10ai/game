@@ -297,6 +297,13 @@
 		"awaken_unlock_confirm_desc"		"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
 		"awaken_unlock_confirm_cancel"		"Cancel"
 		"awaken_unlock_confirm_button"		"Confirm"
+		"awaken_random_title"				"Random Awaken"
+		"awaken_random_button"				"Draw"
+		"awaken_random_select_button"		"Select"
+		"awaken_random_candidates_title"	"Choose a hero to awaken permanently"
+		"awaken_random_confirm_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
+		"awaken_random_tooltip_insufficient_point"	"Not enough useable points."
+		"awaken_random_tooltip_insufficient_pool"	"Fewer than 3 heroes available to awaken."
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"

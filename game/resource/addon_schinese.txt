@@ -297,6 +297,13 @@
 		"awaken_unlock_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
 		"awaken_unlock_confirm_cancel"		"取消"
 		"awaken_unlock_confirm_button"		"确认"
+		"awaken_random_title"				"随机觉醒"
+		"awaken_random_button"				"抽选"
+		"awaken_random_select_button"		"选择"
+		"awaken_random_candidates_title"	"选择一个英雄永久觉醒"
+		"awaken_random_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
+		"awaken_random_tooltip_insufficient_point"	"可用积分不足"
+		"awaken_random_tooltip_insufficient_pool"	"可觉醒英雄不足 3 个"
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
