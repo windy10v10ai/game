@@ -126,12 +126,11 @@ export function AwakenTab() {
     const { heroName, isRandom } = confirmHero;
     setConfirmHero(null);
     setIsPending(true);
+    // 随机认领与直购共用同一事件，半价由 API 按是否命中候选集派生；随机时先收起候选层
     if (isRandom) {
       setCandidatesDismissed(true);
-      GameEvents.SendCustomGameEventToServer('awaken_random_confirm', { heroName });
-    } else {
-      GameEvents.SendCustomGameEventToServer('awaken_unlock_hero', { heroName });
     }
+    GameEvents.SendCustomGameEventToServer('awaken_unlock_hero', { heroName });
     $.Schedule(UNLOCK_PENDING_TIMEOUT_S, () => setIsPending(false));
   };
 

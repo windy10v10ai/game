@@ -23,35 +23,25 @@ export class PlayerHeroAwakeningApi {
     CustomGameEventManager.RegisterListener('awaken_random_request', (_, event) =>
       this.onRandomRequest(event),
     );
-    CustomGameEventManager.RegisterListener<AwakenUnlockHeroEventData>(
-      'awaken_random_confirm',
-      (_, event) => this.onRandomConfirm(event),
-    );
   }
 
+  /**
+   * 直购与随机认领共用：半价由 API 按 heroName 是否命中候选集派生，game 无需区分。
+   * 成功后统一清空候选集净表行（无候选时即空行，无害），使前端候选层收起。
+   */
   private onUnlockHero(event: { PlayerID: PlayerID; heroName: string }) {
-    this.requestAwaken(event.PlayerID, event.heroName, false);
-  }
-
-  private onRandomConfirm(event: { PlayerID: PlayerID; heroName: string }) {
-    this.requestAwaken(event.PlayerID, event.heroName, true);
-  }
-
-  /** clearRandomOnSuccess: 随机认领成功后清空候选集净表行，使前端候选层收起 */
-  private requestAwaken(playerId: PlayerID, heroName: string, clearRandomOnSuccess: boolean) {
+    const playerId = event.PlayerID;
     const steamId = PlayerResource.GetSteamAccountID(playerId);
     ApiClient.sendWithRetry({
       method: HttpMethod.PUT,
       path: `/player/${steamId}/hero-awakening`,
       body: {
-        heroName,
+        heroName: event.heroName,
         useMemberPoint: false,
       },
       successFunc: (data) => {
-        PlayerHeroAwakeningApi.UnlockSuccess(data, playerId, steamId, heroName);
-        if (clearRandomOnSuccess) {
-          CustomNetTables.SetTableValue('awaken_random', steamId.toString(), {});
-        }
+        PlayerHeroAwakeningApi.UnlockSuccess(data, playerId, steamId, event.heroName);
+        CustomNetTables.SetTableValue('awaken_random', steamId.toString(), {});
       },
       failureFunc: (data) => PlayerHeroAwakeningApi.UnlockFailure(data, playerId),
     });

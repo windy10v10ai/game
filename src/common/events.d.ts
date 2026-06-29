@@ -30,7 +30,6 @@ interface CustomGameEventDeclarations {
   awaken_unlock_hero: AwakenUnlockHeroEventData;
   awaken_unlock_result: Record<string, never>;
   awaken_random_request: Record<string, never>;
-  awaken_random_confirm: AwakenUnlockHeroEventData;
 
   alipay_order_create: AlipayOrderCreateEventData;
   alipay_order_query: AlipayOrderQueryEventData;
