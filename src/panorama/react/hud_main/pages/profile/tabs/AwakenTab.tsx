@@ -63,8 +63,6 @@ const ABILITY_BY_HERO: Record<string, string> = {};
 for (const { heroName, abilityName } of AWAKEN_ABILITIES) {
   ABILITY_BY_HERO[heroName] = abilityName;
 }
-// 候选层滚动动画闪过的英雄池
-const ROLL_POOL = AWAKEN_ABILITIES.map((a) => a.heroName);
 
 interface ConfirmTarget {
   heroName: string;
@@ -102,8 +100,7 @@ export function AwakenTab() {
   ).length;
   const hasEnoughPool = remainingPool >= AWAKEN_RANDOM_MIN_POOL;
 
-  // 点开即显示（先滚动），候选到达后定格；确认弹窗叠在其上，故不因 confirmHero 卸载，避免取消后重新滚动
-  const showCandidates = candidatesOpen;
+  const showCandidates = candidatesOpen && candidateNames.length > 0 && !confirmHero;
   const candidates = candidateNames.map((heroName) => ({
     heroName,
     abilityName: ABILITY_BY_HERO[heroName] ?? '',
@@ -178,7 +175,6 @@ export function AwakenTab() {
       {showCandidates && (
         <AwakenRandomCandidatesDialog
           candidates={candidates}
-          rollPool={ROLL_POOL}
           onSelect={handleCandidateSelect}
           onClose={() => setCandidatesOpen(false)}
         />

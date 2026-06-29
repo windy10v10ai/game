@@ -195,22 +195,6 @@
   horizontal-align: center;
 }
 
-/* 老虎机滚动停下时金光一闪，强化“随机定格”反馈；box-shadow 是 Panorama 支持的动画属性 */
-@keyframes AwakenSettleGlow {
-  0% {
-    box-shadow: 0 0 14px 4px #ffd24aff;
-  }
-  100% {
-    box-shadow: 0 0 0px 0px #ffd24a00;
-  }
-}
-
-.awaken-card-settled {
-  animation-name: AwakenSettleGlow;
-  animation-duration: 0.4s;
-  animation-timing-function: ease-out;
-}
-
 /* 已觉醒卡片整体描边/光晕换成亮金色，一眼区分于待解锁卡片 */
 .awaken-card-unlocked {
   border: 1px solid @color-gold;
