@@ -1990,7 +1990,8 @@
 			}
 			"damage_bonus"
 			{
-				"value"			"35 70 105 140 175"
+				"value"			"75 100 125 150 200"	// 35 70 105 140
+				"special_bonus_unique_kunkka_2"		"+100"	// +75
 			}
 			"AbilityCooldown"
 			{
