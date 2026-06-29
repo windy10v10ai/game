@@ -25,7 +25,11 @@ export function AwakenRandomCard({
       <Panel className="awaken-random-bg" />
       <Panel className="awaken-top-scrim" />
       <Label className="awaken-hero-name-top" text={$.Localize('#awaken_random_title')} />
-      <Label className="awaken-random-subtitle" text={$.Localize('#awaken_random_card_desc')} />
+      <Label
+        className="awaken-random-subtitle"
+        html={true}
+        text={$.Localize('#awaken_random_card_desc')}
+      />
       <Panel className="awaken-scrim" />
       <Panel className="awaken-bottom">
         <DOTAAbilityImage className="awaken-ability-icon" abilityname="" />
