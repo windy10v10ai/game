@@ -81,8 +81,8 @@ export function AwakenTab() {
 
   const [isPending, setIsPending] = useState(false);
   const [confirmHero, setConfirmHero] = useState<ConfirmTarget | null>(null);
-  // 关闭候选层但不清空候选集（净表仍保留，再次点随机卡会复现同一组）
-  const [candidatesDismissed, setCandidatesDismissed] = useState(false);
+  // 候选层仅在本次点随机卡后显式打开，避免重开页面时凭净表残留候选自动弹出
+  const [candidatesOpen, setCandidatesOpen] = useState(false);
 
   useEffect(() => {
     const listener = GameEvents.Subscribe('awaken_unlock_result', () => {
@@ -100,7 +100,7 @@ export function AwakenTab() {
   ).length;
   const hasEnoughPool = remainingPool >= AWAKEN_RANDOM_MIN_POOL;
 
-  const showCandidates = candidateNames.length > 0 && !candidatesDismissed && !confirmHero;
+  const showCandidates = candidatesOpen && candidateNames.length > 0 && !confirmHero;
   const candidates = candidateNames.map((heroName) => ({
     heroName,
     abilityName: ABILITY_BY_HERO[heroName] ?? '',
@@ -113,7 +113,7 @@ export function AwakenTab() {
 
   const handleRandomClick = () => {
     if (isPending || !canAffordRandom || !hasEnoughPool) return;
-    setCandidatesDismissed(false);
+    setCandidatesOpen(true);
     GameEvents.SendCustomGameEventToServer('awaken_random_request', {});
   };
 
@@ -128,7 +128,7 @@ export function AwakenTab() {
     setIsPending(true);
     // 随机认领与直购共用同一事件，半价由 API 按是否命中候选集派生；随机时先收起候选层
     if (isRandom) {
-      setCandidatesDismissed(true);
+      setCandidatesOpen(false);
     }
     GameEvents.SendCustomGameEventToServer('awaken_unlock_hero', { heroName });
     $.Schedule(UNLOCK_PENDING_TIMEOUT_S, () => setIsPending(false));
@@ -176,7 +176,7 @@ export function AwakenTab() {
         <AwakenRandomCandidatesDialog
           candidates={candidates}
           onSelect={handleCandidateSelect}
-          onClose={() => setCandidatesDismissed(true)}
+          onClose={() => setCandidatesOpen(false)}
         />
       )}
       {confirmHero && (

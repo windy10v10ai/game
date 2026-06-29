@@ -147,6 +147,19 @@
   background-color: gradient(linear, 0% 0%, 0% 100%, from(#3a2b66), to(#1a0836));
 }
 
+/* 标题下方简短说明，卡片空间有限故居中换行、小字 */
+.awaken-random-subtitle {
+  width: 90%;
+  horizontal-align: center;
+  vertical-align: top;
+  margin-top: 26px;
+  text-align: center;
+  white-space: normal;
+  font-size: @font-size-xs;
+  color: @color-text-muted;
+  text-shadow: 1px 1px 3px #000000ee;
+}
+
 /* 候选选择层：居中面板 + 一排候选卡 */
 .awaken-candidates-dialog {
   horizontal-align: center;
@@ -165,7 +178,16 @@
   font-size: @font-size-lg;
   font-weight: bold;
   color: @color-gold;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
+}
+
+.awaken-candidates-desc {
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  font-size: @font-size-sm;
+  color: @color-text;
+  margin-bottom: 14px;
 }
 
 .awaken-candidates-row {

@@ -24,6 +24,11 @@ export function AwakenRandomCandidatesDialog({
           className="awaken-candidates-title"
           text={$.Localize('#awaken_random_candidates_title')}
         />
+        <Label
+          className="awaken-candidates-desc"
+          html={true}
+          text={$.Localize('#awaken_random_candidates_desc')}
+        />
         <Panel className="awaken-candidates-row">
           {candidates.map(({ heroName, abilityName }) => (
             <Panel key={heroName} className="awaken-card">

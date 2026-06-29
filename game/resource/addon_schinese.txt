@@ -290,7 +290,7 @@
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
 		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
-		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。<br>消耗一半积分（<font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>），从随机抽选的 3 个候选英雄中选 1 个觉醒。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
 		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
@@ -304,6 +304,8 @@
 		"awaken_random_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
 		"awaken_random_tooltip_insufficient_point"	"可用积分不足"
 		"awaken_random_tooltip_insufficient_pool"	"可觉醒英雄不足 3 个"
+		"awaken_random_card_desc"			"半价随机 3 选 1"
+		"awaken_random_candidates_desc"		"消耗一半积分（<font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>），从随机抽选的 3 个候选英雄中选 1 个觉醒。"
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
