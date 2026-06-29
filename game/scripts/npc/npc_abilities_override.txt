@@ -1950,7 +1950,7 @@
 					"value"		"900"	// 750
 				}
 				"duration"		"2.5"	// 1.0
-				"knockback_distance"		"1200"	// 600 +200 限时加强 +400
+				"knockback_distance"		"800"	// 600 +200
 		}
 	}
 	// 洪流
@@ -1966,11 +1966,11 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"						"12 11 10 9 8"	// 原版 16 14 12 10 加强 14 13 12 11 10 限时加强 12 11 10 9 8
+				"value"						"14 13 12 11 10"	// 16 14 12 10 5级10秒, 前期适当减少CD
 			}
 			"stun_duration"
 			{
-				"value"								"1.2"		// 1.4
+				"value"								"1"		// 1.4
 			}
 		}
 	}
@@ -1982,25 +1982,23 @@
 		{
 			"cleave_ending_width"
 			{
-				"value"		"700 800 900 1000 1100"	// 原版 500 550 600 650 限时加强 700 800 900 1000 1100
+				"value"		"500 550 600 650 700"
 			}
 			"cleave_distance"
 			{
-				"value"			"900 1050 1200 1350 1500"	// 原版 650 775 900 1025 限时加强 900 1050 1200 1350 1500
+				"value"			"650 775 900 1025 1150"
 			}
 			"damage_bonus"
 			{
-				"value"			"130 160 190 220 250"	// 原版 35 70 105 140 限时加强 130 160 190 220 250
-				"special_bonus_unique_kunkka_2"		"+150" // +75 限时加强 +75
+				"value"			"35 70 105 140 175"
 			}
 			"AbilityCooldown"
 			{
-				"value"					"7.0 6.0 5.0 4.0 3.0"	// 原版 13.0 10.0 7.0 4.0 加强 12.0 10.0 8.0 6.0 4.0 限时加强 7.0 6.0 5.0 4.0 3.0
+				"value"					"12.0 10.0 8.0 6.0 4.0"	// 13.0 10.0 7.0 4.0 5级4秒, 前期适当减少CD
 			}
 			"pierces_armor"
 			{
-				"value"		"0"
-				"special_bonus_unique_kunkka_tidebringer_armor_pierce"	"+100" // +25 限时加强 +75
+				"special_bonus_unique_kunkka_tidebringer_armor_pierce"	"+50"	// +25 x2
 			}
 		}
 	}
@@ -2008,8 +2006,8 @@
 	"kunkka_x_marks_the_spot"
 	{
 		"MaxLevel"						"5"
-		"AbilityCastRange"				"700 900 1100 1300 1500"	// 原版 550 700 850 1000 限时加强 700 900 1100 1300 1500
-		"AbilityCooldown"				"16 14 12 10 8"	// 原版 24 20 16 12 加强 20 18 16 14 12 限时加强 16 14 12 10 8
+		"AbilityCastRange"				"800 950 1100 1250 1400"	// 550 700 850 1000 +250
+		"AbilityCooldown"				"20 18 16 14 12"	// 24 20 16 12 5级12秒, 前期适当减少CD
 	}
 	// 统帅朗姆酒 先天
 	"kunkka_admirals_rum"
@@ -2035,15 +2033,15 @@
 	// 幽灵船
 	"kunkka_ghostship"
 	{
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// 原版 SPELL_IMMUNITY_ENEMIES_NO 限时加强
+		// "SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// 原版 SPELL_IMMUNITY_ENEMIES_NO 限时加强
 		"MaxLevel" "4"
-		"AbilityDamage"					"400 600 800 1000"	// 原版 350 475 600 限时加强 400 600 800 1000
+		"AbilityDamage"					"350 475 600 725"
 		"AbilityManaCost"				"125 175 225 275"
 		"AbilityValues"
 		{
 			"AbilityCooldown"
 			{
-				"value"					"55 50 45 40"	// 原版 90 80 70 限时加强 55 50 45 40
+				"value"					"90 80 70 60"
 			}
 		}
 	}
