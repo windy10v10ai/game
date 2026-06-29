@@ -946,9 +946,9 @@
 	// 死亡先知
 	"npc_dota_hero_death_prophet"
 	{
-		"Ability6"		"death_prophet_swarm_attack"
-		"Ability14"		"special_bonus_attack_range_100"
-		"Ability17"		"special_bonus_spell_aoe_100"
+		//"Ability6"		"death_prophet_swarm_attack"
+		//"Ability14"		"special_bonus_attack_range_100"
+		//"Ability17"		"special_bonus_spell_aoe_100"
 		"Bot"
 		{
 			"Build"
@@ -1254,10 +1254,6 @@
 	// 船长
 	"npc_dota_hero_kunkka"
 	{
-		"Ability4"		"kunkka_torrent_storm"
-		"Ability8"		"kunkka_admirals_rum"
-		"Ability17"		"special_bonus_spell_aoe_100"
-		"Ability16"		"special_bonus_unique_kunkka_tidebringer_armor_pierce"
 		"Bot"
 		{
 			"Build"

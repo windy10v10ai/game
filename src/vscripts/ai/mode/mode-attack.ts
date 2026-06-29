@@ -28,9 +28,12 @@ export class ModeAttack extends ModeBase {
       if (heroAI.aroundEnemyHeroes.length > 0) {
         desire += 0.26;
       }
+      if (GameRules.Option.midOnlyMode) {
+        desire += 0.1;
+      }
     }
 
-    desire = Math.min(desire, 0.88);
+    desire = Math.min(desire, GameRules.Option.midOnlyMode ? 0.94 : 0.88);
     return desire;
   }
 
