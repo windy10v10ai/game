@@ -84,9 +84,10 @@ export class PlayerHeroAwakeningApi {
     const player = json.decode(data)[0] as PlayerInfoDto;
     Player.MergePlayerInfo(player);
     // 以合并后的真实记录为准，避免响应体异常缺字段时仍误赋技能
-    const isUnlocked = Player.GetAwakenedHeroes(steamId).some((h) => h.heroName === heroName);
+    const awakenConfirmed = Player.GetAwakenedHeroes(steamId).some((h) => h.heroName === heroName);
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-    if (hero && isUnlocked) {
+    // 只觉醒当前英雄本体；解锁的是其它英雄时留到下局出生由 AwakenHelper 应用
+    if (hero && awakenConfirmed && hero.GetUnitName() === heroName) {
       applyAwakenByHero(hero);
     }
     PlayerHeroAwakeningApi.notifyResult(playerId);
