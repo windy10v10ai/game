@@ -195,6 +195,22 @@
   horizontal-align: center;
 }
 
+/* 老虎机滚动停下时弹一下，强化“随机定格”的反馈 */
+@keyframes AwakenSettlePop {
+  0% {
+    transform: scale3d(1.12, 1.12, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.awaken-card-settled {
+  animation-name: AwakenSettlePop;
+  animation-duration: 0.18s;
+  animation-timing-function: ease-out;
+}
+
 /* 已觉醒卡片整体描边/光晕换成亮金色，一眼区分于待解锁卡片 */
 .awaken-card-unlocked {
   border: 1px solid @color-gold;
