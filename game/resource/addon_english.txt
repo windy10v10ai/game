@@ -300,12 +300,12 @@
 		"awaken_random_title"				"Random Awaken"
 		"awaken_random_button"				"Draw"
 		"awaken_random_select_button"		"Select"
-		"awaken_random_candidates_title"	"Choose a hero to awaken permanently"
+		"awaken_random_candidates_title"	"Choose a hero to awaken permanently (half price)"
 		"awaken_random_confirm_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
 		"awaken_random_tooltip_insufficient_point"	"Not enough useable points."
 		"awaken_random_tooltip_insufficient_pool"	"Fewer than 3 heroes available to awaken."
 		"awaken_random_card_desc"			"Half cost<br>random 1 of 3"
-		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font>, half price.<br>Awaken one of these 3 randomly drawn heroes."
+		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font>.<br>Awaken one of these 3 randomly drawn heroes."
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"
