@@ -7034,7 +7034,7 @@
 	"razor_static_link"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"44 38 32 26 20"
+		"AbilityCooldown"				"44 38 32 26 20"	// 44 36 28 20 5级20秒不变, 前期适当减少CD
 		"AbilityManaCost"				"65 75 85 100 120"	// 65
 		"AbilityValues"
 		{
