@@ -115,6 +115,13 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newLevel: 0,
     inheritLevelFrom: 'ogre_magi_multicast',
   },
+  // 昆卡 觉醒（复用原版神杖技能 kunkka_torrent_storm）
+  {
+    heroName: 'npc_dota_hero_kunkka',
+    targetAbility: 'kunkka_admirals_rum',
+    newAbility: 'kunkka_torrent_storm',
+    newLevel: 1,
+  },
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

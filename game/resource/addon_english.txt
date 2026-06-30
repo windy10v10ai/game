@@ -1195,6 +1195,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade_Description"		"When the primary target of Winter's Curse dies, the curse transfers to the enemy unit with the lowest health in the radius, lasting <font color='#FFFFFF'><b>50%%</b></font> of the original duration."
 
+		// Kunkka Awakened
+		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>Torrent Storm Awakened</font>"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"Releases a Torrent in a random area within %torrent_max_distance% range of the target position once every %torrent_interval% for %torrent_duration% seconds."
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"A hundred leagues of dry land couldn't keep these seas at bay."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

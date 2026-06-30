@@ -2031,6 +2031,30 @@
 			}
 		}
 	}
+	// 洪流浪潮 觉醒：去 HIDDEN 让技能栏可见，补 base value 使脱离神杖也能施放
+	"kunkka_torrent_storm"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityValues"
+		{
+			"torrent_interval"
+			{
+				"value"					"0.25"
+			}
+			"torrent_duration"
+			{
+				"value"					"4.0"
+			}
+			"torrent_min_distance"
+			{
+				"value"					"115"
+			}
+			"torrent_max_distance"
+			{
+				"value"					"1100"
+			}
+		}
+	}
 	// 幽灵船
 	"kunkka_ghostship"
 	{

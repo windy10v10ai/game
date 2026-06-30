@@ -1193,6 +1193,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade_Description"		"寒冬诅咒的主目标死亡时，诅咒转移给范围内血量最低的敌方单位，持续时间为原时长的<font color='#FFFFFF'><b>50%%</b></font>。"
 
+		// 昆卡-觉醒（复用原版洪流浪潮）
+		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>洪流浪潮 觉醒</font>"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"在目标地点%torrent_max_distance%范围内，每%torrent_interval%秒在一个随机区域释放一道洪流，持续%torrent_duration%秒。"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"一百个陆地的联盟也牵制不了这些滔天海浪。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

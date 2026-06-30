@@ -48,6 +48,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     abilityName: 'special_bonus_unique_winter_wyvern_upgrade',
   },
   { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
+  { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
