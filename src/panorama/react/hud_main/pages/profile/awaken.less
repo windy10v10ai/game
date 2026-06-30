@@ -135,6 +135,66 @@
   border-radius: @radius-lg;
 }
 
+/* 随机抽选卡：网格首位，无英雄立绘，用金色描边 + 渐变底与英雄卡区分 */
+.awaken-random-card {
+  border: 1px solid @color-gold-soft;
+}
+
+.awaken-random-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: @radius-lg;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#3a2b66), to(#1a0836));
+}
+
+/* 标题下方简短说明，卡片空间有限故居中换行、小字 */
+.awaken-random-subtitle {
+  width: 90%;
+  horizontal-align: center;
+  vertical-align: top;
+  margin-top: 26px;
+  text-align: center;
+  white-space: normal;
+  font-size: @font-size-xs;
+  color: @color-text-muted;
+  text-shadow: 1px 1px 3px #000000ee;
+}
+
+/* 候选选择层：居中面板 + 一排候选卡 */
+.awaken-candidates-dialog {
+  horizontal-align: center;
+  vertical-align: center;
+  flow-children: down;
+  padding: 20px 28px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#1c112ef2), to(#1a0836f2));
+  border: 2px solid @color-gold-soft;
+  border-radius: @radius-lg;
+  box-shadow: @shadow-soft;
+}
+
+.awaken-candidates-title {
+  width: 100%;
+  text-align: center;
+  font-size: @font-size-lg;
+  font-weight: bold;
+  color: @color-gold;
+  margin-bottom: 4px;
+}
+
+.awaken-candidates-desc {
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  font-size: @font-size-sm;
+  color: @color-text;
+  margin-bottom: 14px;
+}
+
+.awaken-candidates-row {
+  flow-children: right;
+  horizontal-align: center;
+}
+
 /* 已觉醒卡片整体描边/光晕换成亮金色，一眼区分于待解锁卡片 */
 .awaken-card-unlocked {
   border: 1px solid @color-gold;
