@@ -30,5 +30,6 @@
 	  "player_virtual_gold",
 	  "bot_passive_abilities",  // Bot 被动技能表
 	  "alipay_order",  // 支付宝订单状态
+	  "awaken_random",  // 随机抽选觉醒候选集
   ]
 }

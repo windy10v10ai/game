@@ -116,3 +116,14 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     inheritLevelFrom: 'ogre_magi_multicast',
   },
 ];
+
+/** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
+export function getAwakenHeroNames(): string[] {
+  const names: string[] = [];
+  for (const replacement of ABILITY_REPLACEMENTS) {
+    if (!names.includes(replacement.heroName)) {
+      names.push(replacement.heroName);
+    }
+  }
+  return names;
+}
