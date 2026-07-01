@@ -4,6 +4,7 @@
  */
 
 import { ItemTier } from './item-tier-config';
+import { CandidatePoolEntry } from './weighted-pool';
 
 /**
  * 英雄模板类型枚举
@@ -28,7 +29,7 @@ export interface HeroTemplateConfig {
   /** 模板名称 */
   name: HeroTemplate;
   /** 按 tier 组织的装备列表 */
-  itemsByTier: Partial<Record<ItemTier, string[]>>;
+  itemsByTier: Partial<Record<ItemTier, CandidatePoolEntry[]>>;
   /** 按 tier 组织的消耗品列表（可选） */
   consumablesByTier?: Partial<Record<ItemTier, string[]>>;
 }
@@ -83,13 +84,7 @@ const StrengthTankTemplate: HeroTemplateConfig = {
     ],
     [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
     [ItemTier.T4]: ['item_tome_of_strength'], // 力量之书
-    [ItemTier.T5]: [
-      'item_tome_of_luoshu', // 洛书
-      'item_tome_of_strength', // 力量之书
-      'item_tome_of_strength', // 力量之书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_intelligence', // 智力之书
-    ],
+    [ItemTier.T5]: [],
   },
 };
 
@@ -143,13 +138,7 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
       'item_moon_shard_datadriven', // 真银月之晶
     ],
     [ItemTier.T4]: ['item_tome_of_agility'], // 敏捷之书
-    [ItemTier.T5]: [
-      'item_tome_of_luoshu', // 洛书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_strength', // 力量之书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_intelligence', // 智力之书
-    ],
+    [ItemTier.T5]: [],
   },
 };
 
@@ -199,13 +188,7 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
       'item_moon_shard_datadriven', // 真银月之晶
     ],
     [ItemTier.T4]: ['item_tome_of_agility'], // 敏捷之书
-    [ItemTier.T5]: [
-      'item_tome_of_luoshu', // 洛书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_strength', // 力量之书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_intelligence', // 智力之书
-    ],
+    [ItemTier.T5]: [],
   },
 };
 
@@ -259,13 +242,7 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
     ],
     [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
     [ItemTier.T4]: ['item_tome_of_intelligence'], // 智力之书
-    [ItemTier.T5]: [
-      'item_tome_of_luoshu', // 洛书
-      'item_tome_of_intelligence', // 智力之书
-      'item_tome_of_strength', // 力量之书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_intelligence', // 智力之书
-    ],
+    [ItemTier.T5]: [],
   },
 };
 
@@ -319,15 +296,42 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_wings_of_haste', // 急速之翼
     ],
     [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
-    [ItemTier.T5]: [
-      'item_tome_of_luoshu', // 洛书
-      'item_tome_of_intelligence', // 智力之书
-      'item_tome_of_strength', // 力量之书
-      'item_tome_of_agility', // 敏捷之书
-      'item_tome_of_intelligence', // 智力之书
-    ],
+    [ItemTier.T5]: [],
   },
 };
+
+/**
+ * 主属性对三种属性之书的加权（供 tome 阶段循环购买使用）
+ * 全才（Attributes.ALL）三者均分
+ */
+export const PrimaryAttributeTomeWeights: Record<
+  Attributes,
+  Record<'strength' | 'agility' | 'intelligence', number>
+> = {
+  [Attributes.STRENGTH]: { strength: 0.5, agility: 0.25, intelligence: 0.25 },
+  [Attributes.AGILITY]: { strength: 0.25, agility: 0.5, intelligence: 0.25 },
+  [Attributes.INTELLECT]: { strength: 0.25, agility: 0.25, intelligence: 0.5 },
+  [Attributes.ALL]: { strength: 1 / 3, agility: 1 / 3, intelligence: 1 / 3 },
+} as Record<Attributes, Record<'strength' | 'agility' | 'intelligence', number>>;
+
+/**
+ * 根据难度倍率获取 tome 购买上限（不含洛书）
+ */
+export function GetTomePurchaseCap(multiplier: number): number {
+  if (multiplier < 3) {
+    return 6;
+  } else if (multiplier < 6) {
+    return 12;
+  } else if (multiplier < 10) {
+    return 20;
+  } else if (multiplier < 20) {
+    return 30;
+  } else if (multiplier < 40) {
+    return 45;
+  } else {
+    return 60;
+  }
+}
 
 /**
  * 所有英雄模板配置
@@ -350,7 +354,10 @@ export function getHeroTemplate(template: HeroTemplate): HeroTemplateConfig | un
 /**
  * 根据模板和 tier 获取推荐装备列表
  */
-export function getTemplateItemsByTier(template: HeroTemplate, tier: ItemTier): string[] {
+export function getTemplateItemsByTier(
+  template: HeroTemplate,
+  tier: ItemTier,
+): CandidatePoolEntry[] {
   const templateConfig = HeroTemplates[template];
   if (!templateConfig) {
     return [];
