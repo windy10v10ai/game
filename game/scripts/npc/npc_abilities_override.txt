@@ -2035,6 +2035,7 @@
 	"kunkka_torrent_storm"
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"AbilityCooldown"				"60"	// 75
 		"AbilityValues"
 		{
 			"torrent_interval"
