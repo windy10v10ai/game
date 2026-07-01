@@ -108,6 +108,10 @@ declare global {
     alipay_order: {
       [steamAccountID: string]: AlipayOrderState;
     };
+    // 随机抽选觉醒的当前候选集（API get-or-create 的权威候选），key = steamAccountID；清空时传 {}
+    awaken_random: {
+      [steamAccountID: string]: { candidates?: string[] };
+    };
   }
 }
 

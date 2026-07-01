@@ -20,10 +20,16 @@ export class ModePush extends ModeBase {
 
     // 进入推进阶段后大幅提升 push 欲望
     if (GameRules.AI.BotTeam?.isAfterPhaseStart()) {
-      desire += 0.6;
+      desire += 0.2;
+      desire = Math.max(desire, 0.72);
     }
 
-    desire = Math.min(desire, 0.75);
+    if (GameRules.Option.midOnlyMode) {
+      desire += 0.08;
+      desire = Math.max(desire, 0.8);
+    }
+
+    desire = Math.min(desire, GameRules.Option.midOnlyMode ? 0.86 : 0.75);
 
     return desire;
   }

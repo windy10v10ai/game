@@ -894,6 +894,7 @@
 		"IsBreakable"					"1"
 
 		"MaxLevel"						"4"
+		"LinkedAbility"					"ogre_magi_multicast"	// 食人魔魔法师觉醒：与大招多重施法双向联动同步升级
 
 		"AbilityTextureName"			"ogre_magi_multicast_lua"
 		"precache"

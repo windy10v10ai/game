@@ -289,14 +289,25 @@
 		"profile_tab_stats"				"战绩"
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
-		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。<br>目前仅支持以下英雄："
-		"awaken_unlock_intro_desc"			"消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>可以解锁指定英雄的觉醒，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_intro_title"				"觉醒石"
+		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态，仅本局对局内生效。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。"
+		"awaken_unlock_intro_title"			"永久觉醒"
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，永久觉醒指定英雄。<br><font color='#FFD24A'>随机抽选</font>：积分减半，消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，从随机 3 个候选英雄中选 1 个觉醒。<br>消耗的是可用勇士积分，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
 		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
 		"awaken_unlock_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
 		"awaken_unlock_confirm_cancel"		"取消"
 		"awaken_unlock_confirm_button"		"确认"
+		"awaken_random_title"				"随机觉醒"
+		"awaken_random_button"				"抽选"
+		"awaken_random_select_button"		"选择"
+		"awaken_random_candidates_title"	"选择一个英雄永久觉醒（积分减半）"
+		"awaken_random_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
+		"awaken_random_tooltip_insufficient_point"	"可用积分不足"
+		"awaken_random_tooltip_insufficient_pool"	"可觉醒英雄不足 3 个"
+		"awaken_random_card_desc"			"消耗积分减半<br>随机3选1"
+		"awaken_random_candidates_desc"		"消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>。<br>从随机 3 个候选英雄中选 1 个永久觉醒。"
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
@@ -919,8 +930,8 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"持续时间："
 
 		// 多重施法
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"多重施法（改）"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"使英雄在单次施法中有概率多次施放同一技能和物品，多重施法间隔为%multicast_delay%秒。"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"<font color='#d000ff'>多重施法（觉醒）</font>"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"使英雄在单次施法中有概率多次施放同一技能和物品，多重施法间隔为%multicast_delay%秒。<br>食人魔魔法师觉醒时额外获得此技能，与大招多重施法叠加形成双重多重施法，并移除先天技能傻福。"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"可以触发绝大多数的技能和物品，持续施法不会触发多重施法。"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X施放概率："
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X施放概率："
@@ -1147,15 +1158,20 @@
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前的技能增强等比提升。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前的技能增强等比提升。"
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
 
 		// 卓尔游侠 裂影箭
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。<br>分裂箭矢将穿透敌人的防御，无视他们的<font color='#FFFFFF'><b>基础护甲</b></font>。"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%触发概率："
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有%splinter_chance%%%概率分裂出箭矢，射向主目标周围最多%splinter_targets%名敌人，每支造成本次攻击伤害%splinter_damage_pct%%%的物理伤害，并附带霜冻之箭的减速效果。<br>分裂箭矢将穿透敌人的防御，无视他们的<font color='#FFFFFF'><b>基础护甲</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade_Description"		"普攻有<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>概率分裂出箭矢，射向主目标周围最多<font color='#FFFFFF'><b>2</b></font>名敌人，每支造成本次攻击伤害<font color='#FFFFFF'><b>50%%</b></font>的物理伤害，并附带霜冻之箭的减速效果。<br>分裂箭矢将穿透敌人的防御，无视他们的<font color='#FFFFFF'><b>基础护甲</b></font>。"
 
 		// 钢背兽 自动喷刺
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>自动喷刺 觉醒</font>"
@@ -1164,10 +1180,25 @@
 		// 莉娜 神灭斩
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>神灭斩 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的<font color='#FFE56E'>纯粹伤害</font>，该伤害受技能增强影响。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>神灭斩 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lina_upgrade_Description"		"每次释放神灭斩，对目标额外造成等同本次神灭斩伤害的<font color='#FFE56E'>纯粹伤害</font>，该伤害受技能增强影响。"
 
 		// 齐天大圣-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"如意金箍棒额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+
+		// 寒冬飞龙-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade_Description"		"寒冬诅咒的主目标死亡时，诅咒转移给范围内血量最低的敌方单位，持续时间为原时长的<font color='#FFFFFF'><b>50%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade_Description"		"寒冬诅咒的主目标死亡时，诅咒转移给范围内血量最低的敌方单位，持续时间为原时长的<font color='#FFFFFF'><b>50%%</b></font>。"
+
+		// 昆卡-觉醒（复用原版洪流浪潮）
+		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>洪流浪潮 觉醒</font>"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"在目标地点%torrent_max_distance%范围内，每%torrent_interval%秒在一个随机区域释放一道洪流，持续%torrent_duration%秒。"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"一百个陆地的联盟也牵制不了这些滔天海浪。"
 
 		///////////////////////////////////////////////////
 		//
@@ -1233,7 +1264,7 @@
 		"DOTA_Tooltip_ability_monkey_king_defy"  "斗战胜佛"
 		"DOTA_Tooltip_ability_monkey_king_defy_Lore"	"一念成佛一念成魔"
 		"DOTA_Tooltip_ability_monkey_king_defy_Description"	"齐天大圣释放斗战胜佛真正的力量，承受的伤害降低并获得状态抗性。施放时将移除所受的负面效果。\n\n驱散类型：强驱散"
-		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"斗战胜佛期间获得<font color='#FFFFFF'><b>100%</b></font>攻击力加成。"
+		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"斗战胜佛期间获得%awaken_bonus_attack_damage_pct%%%攻击力加成。"
 		"DOTA_Tooltip_ability_monkey_king_defy_damage_reduction"		                        "%承受伤害降低："
 		"DOTA_Tooltip_ability_monkey_king_defy_status_resistance"		                     "%状态抗性："
 		"DOTA_Tooltip_ability_monkey_king_defy_awaken_bonus_attack_damage_pct"		         "%攻击力加成（神杖）："

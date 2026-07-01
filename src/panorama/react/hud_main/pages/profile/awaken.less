@@ -11,7 +11,7 @@
   width: 100%;
   height: 100%;
   flow-children: down;
-  padding: 0px 32px;
+  padding: 0px 16px;
 }
 
 /* 全屏透明遮罩（不压暗背景）+ 居中确认框；遮罩仅用于承接点击外部区域关闭 */
@@ -90,28 +90,58 @@
   vertical-align: center;
 }
 
-/* 顶部说明：觉醒石图标 + 如何获取/觉醒的富文本 */
+/* 顶部说明：局内临时觉醒 / 永久觉醒 左右两栏，中间竖线分隔 */
 .awaken-intro {
   width: 100%;
   flow-children: right;
   margin-bottom: 12px;
   padding: 10px 14px;
-  background-color: #00000040;
+  background-color: #00000090;
   border-radius: @radius-lg;
   border-left: 2px solid @color-gold-soft;
 }
 
+.awaken-intro-col {
+  width: fill-parent-flow(3);
+  flow-children: down;
+}
+
+/* 局内觉醒文案更短，左栏窄一些，把空间让给内容更多的永久觉醒栏 */
+.awaken-intro-col-left {
+  width: fill-parent-flow(2);
+}
+
+.awaken-intro-divider {
+  width: 2px;
+  height: 100%;
+  margin: 0px 16px;
+  background-color: #ffffff26;
+}
+
+.awaken-intro-col-header {
+  width: 100%;
+  flow-children: right;
+  margin-bottom: 6px;
+}
+
 .awaken-intro-icon {
-  width: 66px;
-  height: 48px;
+  width: 32px;
+  height: 24px;
   vertical-align: center;
-  margin-right: 14px;
+  margin-right: 8px;
   box-shadow: 1px 1px 2px 1px #000000aa;
 }
 
-.awaken-intro-text {
-  width: fill-parent-flow(1);
+.awaken-intro-title {
   vertical-align: center;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: @text-shadow-soft;
+}
+
+.awaken-intro-text {
+  width: 100%;
   font-size: @font-size-md;
   color: @color-text;
   text-shadow: @text-shadow-soft;
@@ -130,9 +160,69 @@
 .awaken-card {
   width: 124px;
   height: 144px;
-  margin: 14px;
+  margin: 16px;
   border: 1px solid @color-primary-deep;
   border-radius: @radius-lg;
+}
+
+/* 随机抽选卡：网格首位，无英雄立绘，用金色描边 + 渐变底与英雄卡区分 */
+.awaken-random-card {
+  border: 1px solid @color-gold-soft;
+}
+
+.awaken-random-bg {
+  width: 100%;
+  height: 100%;
+  border-radius: @radius-lg;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#3a2b66), to(#1a0836));
+}
+
+/* 标题下方简短说明，卡片空间有限故居中换行、小字 */
+.awaken-random-subtitle {
+  width: 90%;
+  horizontal-align: center;
+  vertical-align: top;
+  margin-top: 26px;
+  text-align: center;
+  white-space: normal;
+  font-size: @font-size-xs;
+  color: @color-text-muted;
+  text-shadow: 1px 1px 3px #000000ee;
+}
+
+/* 候选选择层：居中面板 + 一排候选卡 */
+.awaken-candidates-dialog {
+  horizontal-align: center;
+  vertical-align: center;
+  flow-children: down;
+  padding: 20px 28px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#1c112ef2), to(#1a0836f2));
+  border: 2px solid @color-gold-soft;
+  border-radius: @radius-lg;
+  box-shadow: @shadow-soft;
+}
+
+.awaken-candidates-title {
+  width: 100%;
+  text-align: center;
+  font-size: @font-size-lg;
+  font-weight: bold;
+  color: @color-gold;
+  margin-bottom: 4px;
+}
+
+.awaken-candidates-desc {
+  width: 100%;
+  text-align: center;
+  white-space: normal;
+  font-size: @font-size-sm;
+  color: @color-text;
+  margin-bottom: 14px;
+}
+
+.awaken-candidates-row {
+  flow-children: right;
+  horizontal-align: center;
 }
 
 /* 已觉醒卡片整体描边/光晕换成亮金色，一眼区分于待解锁卡片 */

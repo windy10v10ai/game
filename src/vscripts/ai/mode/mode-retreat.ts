@@ -60,6 +60,10 @@ export class ModeRetreat extends ModeBase {
       }
     }
 
+    if (GameRules.Option.midOnlyMode) {
+      desire *= 0.75;
+    }
+
     desire = Math.min(desire, 1);
     return desire;
   }

@@ -422,12 +422,12 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_mjollnir_2"
-		"ItemCost"						"1100"
+		"ItemCost"						"3100"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_mjollnir_2"
 		"ItemRequirements"
 		{
-			"01"						"item_mjollnir;item_relic;item_hyperstone;item_hyperstone"
+			"01"						"item_mjollnir;item_relic;item_hyperstone"
 		}
 	}
 
@@ -484,12 +484,12 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_crellas_crozier_2"
-		"ItemCost"						"100"
+		"ItemCost"						"2900"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_crellas_crozier_2"
 		"ItemRequirements"
 		{
-			"01"						"item_crellas_crozier;item_ultimate_orb;item_ultimate_orb;item_soul_booster"
+			"01"						"item_crellas_crozier;item_ultimate_orb;item_soul_booster"
 		}
 	}
 
@@ -616,12 +616,12 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_essence_distiller_2"
-		"ItemCost"						"125"
+		"ItemCost"						"1525"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_essence_distiller_2"
 		"ItemRequirements"
 		{
-			"01"						"item_essence_distiller;item_platemail;item_platemail;item_ultimate_orb"
+			"01"						"item_essence_distiller;item_platemail;item_ultimate_orb"
 		}
 	}
 
@@ -690,12 +690,12 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"			"item_recipe_hydras_breath_2"
-		"ItemCost"						"1950"
+		"ItemCost"						"3150"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_hydras_breath_2"
 		"ItemRequirements"
 		{
-			"01"						"item_hydras_breath;item_reaver;item_eagle;item_relic;item_dragon_lance"
+			"01"						"item_hydras_breath;item_hurricane_pike_2"
 		}
 	}
 
