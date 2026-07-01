@@ -289,7 +289,7 @@
 		"profile_tab_stats"				"Stats"
 		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
-		"awaken_intro_title"				"In-Match Awaken"
+		"awaken_intro_title"				"Temporary Awaken"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one."
 		"awaken_unlock_intro_title"			"Permanent Awaken"
 		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font> to awaken one of 3 randomly drawn heroes.<br>Spends useable Battle Points and does not lower your Battle Level. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
