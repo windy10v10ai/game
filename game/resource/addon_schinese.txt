@@ -289,7 +289,9 @@
 		"profile_tab_stats"				"战绩"
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
-		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。"
+		"awaken_intro_title"				"觉醒石"
+		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态，仅本局对局内生效。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。"
+		"awaken_unlock_intro_title"			"永久觉醒"
 		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，永久觉醒指定英雄。<br><font color='#FFD24A'>随机抽选</font>：积分减半，消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，从随机 3 个候选英雄中选 1 个觉醒。<br>消耗的是可用勇士积分，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
@@ -1183,15 +1185,20 @@
 
 		// 齐天大圣-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"如意金箍棒额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"如意金箍棒额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
 
 		// 寒冬飞龙-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade_Description"		"寒冬诅咒的主目标死亡时，诅咒转移给范围内血量最低的敌方单位，持续时间为原时长的<font color='#FFFFFF'><b>50%%</b></font>。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade_Description"		"寒冬诅咒的主目标死亡时，诅咒转移给范围内血量最低的敌方单位，持续时间为原时长的<font color='#FFFFFF'><b>50%%</b></font>。"
+
+		// 昆卡-觉醒（复用原版洪流浪潮）
+		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>洪流浪潮 觉醒</font>"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"在目标地点%torrent_max_distance%范围内，每%torrent_interval%秒在一个随机区域释放一道洪流，持续%torrent_duration%秒。"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"一百个陆地的联盟也牵制不了这些滔天海浪。"
 
 		///////////////////////////////////////////////////
 		//
