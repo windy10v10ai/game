@@ -1625,7 +1625,7 @@
 		"AttributeStrengthGain"		"4.7"	// 4.0
 		"AttributeAgilityGain"		"2.0"	// 1.5
 		"AttributeBaseIntelligence"		"9"	// 0
-		"AttributeIntelligenceGain"		"2"	// 0
+		"AttributeIntelligenceGain"		"1"	// 0
 		"Bot"
 		{
 			"Build"

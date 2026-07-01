@@ -48,6 +48,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     abilityName: 'special_bonus_unique_winter_wyvern_upgrade',
   },
   { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
+  { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
@@ -141,19 +142,31 @@ export function AwakenTab() {
     <Panel className="awaken-root">
       <Panel className="awaken-layout">
         <Panel className="awaken-intro">
-          <DOTAItemImage className="awaken-intro-icon" itemname="item_awaken_stone" />
-          <Label
-            className="awaken-intro-text"
-            html={true}
-            text={$.Localize('#awaken_intro_desc')}
-          />
-        </Panel>
-        <Panel className="awaken-intro">
-          <Label
-            className="awaken-intro-text"
-            html={true}
-            text={$.Localize('#awaken_unlock_intro_desc')}
-          />
+          <Panel className="awaken-intro-col awaken-intro-col-left">
+            <Panel className="awaken-intro-col-header">
+              <DOTAItemImage className="awaken-intro-icon" itemname="item_awaken_stone" />
+              <Label className="awaken-intro-title" text={$.Localize('#awaken_intro_title')} />
+            </Panel>
+            <Label
+              className="awaken-intro-text"
+              html={true}
+              text={$.Localize('#awaken_intro_desc')}
+            />
+          </Panel>
+          <Panel className="awaken-intro-divider" />
+          <Panel className="awaken-intro-col">
+            <Panel className="awaken-intro-col-header">
+              <Label
+                className="awaken-intro-title"
+                text={$.Localize('#awaken_unlock_intro_title')}
+              />
+            </Panel>
+            <Label
+              className="awaken-intro-text"
+              html={true}
+              text={$.Localize('#awaken_unlock_intro_desc')}
+            />
+          </Panel>
         </Panel>
         <Panel className="awaken-grid">
           <AwakenRandomCard

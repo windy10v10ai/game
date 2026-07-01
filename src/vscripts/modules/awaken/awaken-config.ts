@@ -115,6 +115,13 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newLevel: 0,
     inheritLevelFrom: 'ogre_magi_multicast',
   },
+  // 昆卡 觉醒（复用原版神杖技能 kunkka_torrent_storm，插入朗姆酒原槽位，朗姆酒保留等级挪至其他槽位）
+  {
+    heroName: 'npc_dota_hero_kunkka',
+    targetSlot: 3, // Ability4（0-indexed），原版对应 kunkka_admirals_rum
+    newAbility: 'kunkka_torrent_storm',
+    newLevel: 1,
+  },
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
