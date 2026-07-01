@@ -199,6 +199,10 @@ export class HeroBuildManager {
     }
 
     const weights = PrimaryAttributeTomeWeights[buildState.heroPrimaryAttribute];
+    if (!weights) {
+      return false;
+    }
+
     const attribute = PickWeightedOne(weights);
     if (attribute === undefined) {
       return false;

@@ -266,6 +266,20 @@ describe('InitializeHeroBuild', () => {
     }
   });
 
+  it('英雄专属池显式为空数组时，resolvedItems 对应 tier 也为空数组，不回退模板池', () => {
+    const mockHero = createMockHero('npc_dota_hero_test_explicit_empty_pool');
+    const config = {
+      template: HeroTemplate.StrengthTank,
+      targetItemsByTier: {
+        [ItemTier.T4]: [] as string[],
+      },
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.resolvedItems[ItemTier.T4]).toEqual([]);
+  });
+
   it('难度倍率 < 9 时 T5 不解锁，resolvedItems[T5] 为空数组', () => {
     global.GameRules.Option.direGoldXpMultiplier = 5;
     const mockHero = createMockHero('npc_dota_hero_test_t5_locked');

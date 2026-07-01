@@ -155,6 +155,26 @@ describe('HeroBuildManager.TryPurchaseItem - tome 阶段', () => {
     expect(buildState.tomePurchasedCount).toBe(20);
   });
 
+  it('heroPrimaryAttribute 不在 PrimaryAttributeTomeWeights 映射中时，不购买且不抛出', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 6; // GetTomePurchaseCap(6) === 20
+    const hero = createMockHero();
+    const buildState = createBuildState({
+      currentTier: ItemTier.T5,
+      tomePhase: true,
+      luoshuPurchased: true,
+      tomePurchasedCount: 5,
+      heroPrimaryAttribute: Attributes.INVALID,
+    });
+
+    let result: boolean | undefined;
+    expect(() => {
+      result = HeroBuildManager.TryPurchaseItem(hero, buildState);
+    }).not.toThrow();
+
+    expect(result).toBe(false);
+    expect(buildState.tomePurchasedCount).toBe(5);
+  });
+
   it('难度过低导致 T5 未解锁（resolvedItems[T5] 为空数组）时，T4 买完后立即进入 tome 阶段并购买洛书', () => {
     global.GameRules.Option.direGoldXpMultiplier = 5; // T5 未解锁
     const hero = createMockHero();
