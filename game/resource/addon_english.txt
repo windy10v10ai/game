@@ -289,14 +289,25 @@
 		"profile_tab_stats"				"Stats"
 		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
-		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one.<br>Currently only the following heroes are supported:"
-		"awaken_unlock_intro_desc"			"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to unlock awakening for a hero. This does not lower your Battle Level. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked in future updates, the hero's awakening still applies."
+		"awaken_intro_title"				"Awakening Stone"
+		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form for this match only.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one."
+		"awaken_unlock_intro_title"			"Permanent Awaken"
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font> to awaken one of 3 randomly drawn heroes.<br>Spends useable Battle Points and does not lower your Battle Level. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
 		"awaken_unlock_tooltip_insufficient"	"Not enough useable points."
 		"awaken_unlock_confirm_desc"		"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
 		"awaken_unlock_confirm_cancel"		"Cancel"
 		"awaken_unlock_confirm_button"		"Confirm"
+		"awaken_random_title"				"Random Awaken"
+		"awaken_random_button"				"Draw"
+		"awaken_random_select_button"		"Select"
+		"awaken_random_candidates_title"	"Choose a hero to awaken permanently (half price)"
+		"awaken_random_confirm_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
+		"awaken_random_tooltip_insufficient_point"	"Not enough useable points."
+		"awaken_random_tooltip_insufficient_pool"	"Fewer than 3 heroes available to awaken."
+		"awaken_random_card_desc"			"Half cost<br>random 1 of 3"
+		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font>.<br>Awaken one of these 3 randomly drawn heroes."
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"
@@ -926,8 +937,8 @@
 		"DOTA_Tooltip_ability_alchemist_berserk_potion2_duration"					"DURATION:"
 
 		// 多重施法
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"Multicast MK2"
-		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Allows you cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval."
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua"							"<font color='#d000ff'>Multicast (Awakened)</font>"
+		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Description"				"Allows you cast abilities and items multiple times with each use. Each multicast has a %multicast_delay% second interval.<br>When Ogre Magi is Awakened, this skill is granted in addition to the ultimate Multicast, stacking into a double multicast, and the innate Dumb Luck ability is removed."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_Lore"						"Can trigger most abilities and items, channel ability won't trigger multiple casting."
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_2_times"		"%2X CAST CHANCE:"
 		"DOTA_Tooltip_ability_ogre_magi_multicast_lua_multicast_3_times"		"%3X CAST CHANCE:"
@@ -1149,15 +1160,20 @@
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
 
 		// Drow Ranger Splinter Shot
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a chance to splinter into arrows that fly at up to %splinter_targets% enemies around the primary target, each dealing %splinter_damage_pct%%% of the attack's damage as physical damage and applying Frost Arrows' slow.<br>Splinter arrows pierce through defenses, ignoring their <font color='#FFFFFF'><b>base armor</b></font>."
-		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_splinter_chance"	"%Proc Chance:"
+		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a %splinter_chance%%% chance to splinter into arrows that fly at up to %splinter_targets% enemies around the primary target, each dealing %splinter_damage_pct%%% of the attack's damage as physical damage and applying Frost Arrows' slow.<br>Splinter arrows pierce through defenses, ignoring their <font color='#FFFFFF'><b>base armor</b></font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_drow_ranger_upgrade_Description"		"Attacks have a <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> chance to splinter into arrows that fly at up to <font color='#FFFFFF'><b>2</b></font> enemies around the primary target, each dealing <font color='#FFFFFF'><b>50%%</b></font> of the attack's damage as physical damage and applying Frost Arrows' slow.<br>Splinter arrows pierce through defenses, ignoring their <font color='#FFFFFF'><b>base armor</b></font>."
 
 		// Bristleback Auto Quill
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>Auto Quill Awakened</font>"
@@ -1166,10 +1182,25 @@
 		// Lina Laguna Blade
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade_Description"		"Each time Lina casts Laguna Blade, the target takes additional <font color='#FFE56E'>pure damage</font> equal to that Laguna Blade's damage, affected by Spell Amplification."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lina_upgrade_Description"		"Each time Lina casts Laguna Blade, the target takes additional <font color='#FFE56E'>pure damage</font> equal to that Laguna Blade's damage, affected by Spell Amplification."
 
 		// Monkey King Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
+
+		// Winter Wyvern Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade_Description"		"When the primary target of Winter's Curse dies, the curse transfers to the enemy unit with the lowest health in the radius, lasting <font color='#FFFFFF'><b>50%%</b></font> of the original duration."
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_winter_wyvern_upgrade_Description"		"When the primary target of Winter's Curse dies, the curse transfers to the enemy unit with the lowest health in the radius, lasting <font color='#FFFFFF'><b>50%%</b></font> of the original duration."
+
+		// Kunkka Awakened
+		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>Torrent Storm Awakened</font>"
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"Releases a Torrent in a random area within %torrent_max_distance% range of the target position once every %torrent_interval% for %torrent_duration% seconds."
+		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"A hundred leagues of dry land couldn't keep these seas at bay."
 
 		///////////////////////////////////////////////////
 		//
@@ -1235,7 +1266,7 @@
 		"DOTA_Tooltip_ability_monkey_king_defy"												"Defy"
 		"DOTA_Tooltip_ability_monkey_king_defy_Lore"											"The Monkey King is no stranger to eluding death. After all, he did escape the Narrow Maze all by himself. At least, that's what he tells everybody."
 		"DOTA_Tooltip_ability_monkey_king_defy_Description"									"Monkey King emboldens himself to defy his enemies' attacks, receiving Damage Reduction and Status Resistance, while also removing any existing debuffs on him.\n\nDISPEL TYPE: Strong Dispel"
-		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"Gains <font color='#FFFFFF'><b>100%</b></font> bonus attack damage during Defy."
+		"DOTA_Tooltip_ability_monkey_king_defy_scepter_description"							"Gains %awaken_bonus_attack_damage_pct%%% bonus attack damage during Defy."
 		"DOTA_Tooltip_ability_monkey_king_defy_damage_reduction"		                        "%DAMAGE REDUCTION:"
 		"DOTA_Tooltip_ability_monkey_king_defy_status_resistance"		                     "%STATUS RESISTANCE:"
 		"DOTA_Tooltip_ability_monkey_king_defy_awaken_bonus_attack_damage_pct"		         "%BONUS ATTACK DAMAGE:"

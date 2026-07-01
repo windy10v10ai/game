@@ -11,7 +11,7 @@ end
 -- 监听 modifier
 modifier_special_bonus_unique_nevermore_upgrade = class({})
 
-function modifier_special_bonus_unique_nevermore_upgrade:IsHidden() return true end
+function modifier_special_bonus_unique_nevermore_upgrade:IsHidden() return false end
 
 function modifier_special_bonus_unique_nevermore_upgrade:IsPurgable() return false end
 

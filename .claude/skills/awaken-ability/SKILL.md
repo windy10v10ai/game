@@ -48,7 +48,7 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 },
 ```
 
-> **注释只写英雄名**（如 `// 齐天大圣 觉醒`），**不要**罗列会随版本变动的技能效果/数值。效果描述属于本地化文案，不该散落在配置注释里。
+> **注释只写英雄名**（如 `// 齐天大圣 觉醒`），**不要**罗列会随版本变动的技能效果/数值。效果描述属于本地化文案，不该散落在配置注释里。也不要写成「移除 A，替换为 B」这类复述改动结果的叙述——哪怕不含数值，本质仍是效果描述，且与本地化文案重复，文案一改注释就过时。需要点明机制时用字段名/系统名（如「与大招 LinkedAbility 同步升级」），不要叙述玩法效果。
 
 ### 2) 觉醒技能本体
 
@@ -120,6 +120,8 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > 参考：斧王 `axe_auto_culling_blade` ↔ `axe_culling_blade`。
 
+> **不要用 `Innate "1"` + `DependentOnAbility` 替代 `LinkedAbility`**：官方有「新技能比关联技能多一档等级」的场景用这个组合（古辰山 Absolute Zero 先天、玛尔斯 Sidekick），但那些都是英雄出生自带的先天技能槛位。本项目觉醒技能是运行时用觉醒石 `AddAbility()` 动态加上去的，不是原生先天槛位——给它加 `Innate "1"` 实测会导致技能/buff 图标不显示（卓尔游侠裂影箭觉醒踩过，已放弃改回固定等级）。等级关联场景老老实实用上面的 `LinkedAbility` + `inheritLevelFrom`（要求两边 `MaxLevel` 一致）；如果新技能就是想比关联技能多一档，优先考虑改成固定值/不分级，而不是引入 `DependentOnAbility`。
+
 ### 进阶 2：autocast 自动触发（自动施放）
 
 「开 autocast 后自动检测施放」类觉醒，**已有共享基类 `AutoCastAbility`（`src/vscripts/abilities/ts_abilities/shared/auto-cast-ability.ts`），直接继承，不要重复造轮子**：
@@ -175,6 +177,19 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 **前摇加魔免要防取消刷新**：魔免绑在 `ON_ABILITY_START`（前摇开始）触发时，玩家可在前摇结束前取消再施法反复刷新（取消不进 CD、不耗蓝）。防法：仅当 `ApplyAwakenMagicImmunity` 返回 true 才启动取消检测；`StartIntervalThink` 轮询 `IsInAbilityPhase()`，前摇结束后若 `GetCooldownTimeRemaining() <= 0`（被取消）则移除；**移除前判据**——仅当 `modifier_black_king_bar_immune` 剩余 ≤ 本次魔免时长才 `Destroy()`，**绝不无条件 `RemoveModifierByName`**（同名 modifier 区分不了来源，会误删真 BKB）。
 
 > 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测；PA 闪烁/匕首魔免。
+
+### 进阶 6：纯被动标记技能改用 Modifier 展示（省技能栏空间）
+
+纯被动且描述简单的觉醒技能（典型如进阶 4 的「数值仅觉醒后生效」纯 KV 标记技能），不必占技能栏（castbar）一个槛位，可改用常驻 buff 图标展示：
+
+- KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
+- 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
+- modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 CLAUDE.md 本地化文案规约）。
+- **modifier tooltip 不支持直接 `%key%` 读取 ability 的 `AbilityValues`**（会显示空白或吞掉百分号）；ability 自身的描述不受影响，仍可正常用 `%key%`。modifier 这边按实现方式分两种处理：
+  - **DataDriven 标记技能**（本节默认场景，KV `Modifiers` 子块、无脚本）：没有代码可补，描述里**写死成具体数字**。
+  - **TS/Lua 脚本类 modifier**（`ability_lua` + `GetIntrinsicModifierName`，如进阶 3 的监听型觉醒）：数值若会变化（随等级、天赋等），**不要写死**——用 `MODIFIER_PROPERTY_TOOLTIP` 动态取值：`DeclareFunctions` 加 `ModifierFunction.TOOLTIP`，实现 `OnTooltip(): number` 返回目标值（如 `this.GetAbility()?.GetSpecialValueFor('xxx') ?? 0`），本地化里用 `%dMODIFIER_PROPERTY_TOOLTIP%%%` 占位（同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会像 ability 的 `%key%` 一样自动套白色粗体**（实测），需要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值的处理方式一样。
+
+> 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（DataDriven 写死数值）；卓尔游侠裂影箭觉醒 `special_bonus_unique_drow_ranger_upgrade`（TS modifier，分裂概率会被天赋提升，用 `OnTooltip` 动态显示而非写死）。
 
 ---
 

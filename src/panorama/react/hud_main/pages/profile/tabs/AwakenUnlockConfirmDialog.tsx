@@ -5,6 +5,8 @@ interface AwakenUnlockConfirmDialogProps {
   abilityName: string;
   onConfirm: () => void;
   onCancel: () => void;
+  // 随机抽选认领走半价文案，默认直购全价文案
+  descKey?: string;
 }
 
 /** 觉醒永久生效、不可撤销，解锁前用此弹窗二次确认要解锁的英雄与技能 */
@@ -13,6 +15,7 @@ export function AwakenUnlockConfirmDialog({
   abilityName,
   onConfirm,
   onCancel,
+  descKey = '#awaken_unlock_confirm_desc',
 }: AwakenUnlockConfirmDialogProps) {
   return (
     <Panel className="awaken-confirm-overlay" onactivate={onCancel}>
@@ -24,11 +27,7 @@ export function AwakenUnlockConfirmDialog({
           showtooltip={true}
         />
         <Label className="awaken-confirm-hero-name" text={$.Localize('#' + heroName)} />
-        <Label
-          className="awaken-confirm-desc"
-          html={true}
-          text={$.Localize('#awaken_unlock_confirm_desc')}
-        />
+        <Label className="awaken-confirm-desc" html={true} text={$.Localize(descKey)} />
         <Panel className="awaken-confirm-actions">
           <PrimaryButton
             className="awaken-confirm-confirm"

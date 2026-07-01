@@ -37,6 +37,7 @@ export class ItemAwakenStone extends BaseItem {
 
     const success = applyAwakenByHero(caster as CDOTA_BaseNPC_Hero);
     if (success) {
+      EmitSoundOn('hud.equip.agh_scepter', caster);
       UTIL_Remove(this);
     }
   }
