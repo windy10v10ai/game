@@ -90,7 +90,7 @@
   vertical-align: center;
 }
 
-/* 顶部说明：觉醒石图标 + 如何获取/觉醒的富文本 */
+/* 顶部说明：局内临时觉醒 / 永久觉醒 左右两栏，中间竖线分隔 */
 .awaken-intro {
   width: 100%;
   flow-children: right;
@@ -101,17 +101,42 @@
   border-left: 2px solid @color-gold-soft;
 }
 
+.awaken-intro-col {
+  width: fill-parent-flow(1);
+  flow-children: down;
+}
+
+.awaken-intro-divider {
+  width: 2px;
+  height: 100%;
+  margin: 0px 16px;
+  background-color: #ffffff26;
+}
+
+.awaken-intro-col-header {
+  width: 100%;
+  flow-children: right;
+  margin-bottom: 6px;
+}
+
 .awaken-intro-icon {
-  width: 66px;
-  height: 48px;
+  width: 32px;
+  height: 24px;
   vertical-align: center;
-  margin-right: 14px;
+  margin-right: 8px;
   box-shadow: 1px 1px 2px 1px #000000aa;
 }
 
-.awaken-intro-text {
-  width: fill-parent-flow(1);
+.awaken-intro-title {
   vertical-align: center;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: @text-shadow-soft;
+}
+
+.awaken-intro-text {
+  width: 100%;
   font-size: @font-size-md;
   color: @color-text;
   text-shadow: @text-shadow-soft;

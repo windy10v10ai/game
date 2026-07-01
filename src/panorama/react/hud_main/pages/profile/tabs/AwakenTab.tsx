@@ -6,6 +6,9 @@ import { AwakenRandomCard } from './AwakenRandomCard';
 import { AwakenRandomCandidatesDialog } from './AwakenRandomCandidatesDialog';
 import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
 
+// 与勇士积分页共用同一张图（member_points.png），此处直接写路径避免跨 tab 引用
+const BATTLE_POINT_ICON = 'file://{images}/custom_game/member/member_points.png';
+
 /**
  * 觉醒 Tab：觉醒技能预览墙 + 积分解锁入口。
  * 列表与 src/common 无关，是 vscripts awaken-config 中 ABILITY_REPLACEMENTS 的展示副本，
@@ -142,19 +145,32 @@ export function AwakenTab() {
     <Panel className="awaken-root">
       <Panel className="awaken-layout">
         <Panel className="awaken-intro">
-          <DOTAItemImage className="awaken-intro-icon" itemname="item_awaken_stone" />
-          <Label
-            className="awaken-intro-text"
-            html={true}
-            text={$.Localize('#awaken_intro_desc')}
-          />
-        </Panel>
-        <Panel className="awaken-intro">
-          <Label
-            className="awaken-intro-text"
-            html={true}
-            text={$.Localize('#awaken_unlock_intro_desc')}
-          />
+          <Panel className="awaken-intro-col">
+            <Panel className="awaken-intro-col-header">
+              <DOTAItemImage className="awaken-intro-icon" itemname="item_awaken_stone" />
+              <Label className="awaken-intro-title" text={$.Localize('#awaken_intro_title')} />
+            </Panel>
+            <Label
+              className="awaken-intro-text"
+              html={true}
+              text={$.Localize('#awaken_intro_desc')}
+            />
+          </Panel>
+          <Panel className="awaken-intro-divider" />
+          <Panel className="awaken-intro-col">
+            <Panel className="awaken-intro-col-header">
+              <Image className="awaken-intro-icon" src={BATTLE_POINT_ICON} />
+              <Label
+                className="awaken-intro-title"
+                text={$.Localize('#awaken_unlock_intro_title')}
+              />
+            </Panel>
+            <Label
+              className="awaken-intro-text"
+              html={true}
+              text={$.Localize('#awaken_unlock_intro_desc')}
+            />
+          </Panel>
         </Panel>
         <Panel className="awaken-grid">
           <AwakenRandomCard
