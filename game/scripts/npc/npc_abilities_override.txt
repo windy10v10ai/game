@@ -2036,23 +2036,28 @@
 	{
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
 		"AbilityCooldown"				"60"	// 75
+		"HasScepterUpgrade"				"0"
 		"AbilityValues"
 		{
 			"torrent_interval"
 			{
-				"value"					"0.25"
+				"value"					"0.2"	// 0.25
+				"special_bonus_scepter"	"0"
 			}
 			"torrent_duration"
 			{
 				"value"					"4.0"
+				"special_bonus_scepter"	"0"
 			}
 			"torrent_min_distance"
 			{
 				"value"					"115"
+				"special_bonus_scepter"	"0"
 			}
 			"torrent_max_distance"
 			{
 				"value"					"1100"
+				"special_bonus_scepter"	"0"
 			}
 		}
 	}
