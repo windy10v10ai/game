@@ -95,6 +95,7 @@ no_support_abilitys = {
 	ability_ward_sentry_slot = 1,                   -- 额外真眼槽位
 	witch_doctor_voodoo_switcheroo = 1,             -- 巫医 魔晶变身（多重会导致英雄消失）
 	doom_bringer_devour = 1,                        -- 末日 吞噬
+	rattletrap_jetpack = 1,                         -- 发条技师 喷气背包
 }
 no_support_items = {
 	-- 消耗品

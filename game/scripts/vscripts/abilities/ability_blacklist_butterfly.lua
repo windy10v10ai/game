@@ -95,6 +95,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["special_bonus_unique_phantom_assassin_upgrade"] = true,
     ["pangolier_gyroshell"] = true,   -- 石鳞剑士 地雷滚滚
     ["legion_commander_duel"] = true, -- 军团指挥官 决斗
+    ["rattletrap_jetpack"] = true,    -- 发条技师 喷气背包（触发飞行影响正常操作）
 
 
     ["elder_titan_ancestral_spirit"] = true,

@@ -3,7 +3,9 @@
  */
 
 import { HeroBuilds } from './hero-build-config';
+import { HeroTemplate } from './hero-build-config-template';
 import { InitializeHeroBuild } from './hero-build-state';
+import { ItemTier } from './item-tier-config';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare let global: any;
@@ -12,10 +14,25 @@ declare var console: any;
 
 // Mock print function
 global.print = jest.fn();
+global.GameRules = {
+  Option: { direGoldXpMultiplier: 1 },
+};
+// 沿用 weighted-pool.test.ts 同款 RandomFloat(min, max) 签名
+global.RandomFloat = (min: number, max: number) => min + Math.random() * (max - min);
+
+function createMockHero(unitName: string, primaryAttribute: Attributes = Attributes.AGILITY) {
+  return {
+    GetUnitName: () => unitName,
+    GetPrimaryAttribute: () => primaryAttribute,
+  } as CDOTA_BaseNPC_Hero;
+}
 
 describe('InitializeHeroBuild', () => {
   beforeEach(() => {
     jest.clearAllMocks();
+    global.GameRules = {
+      Option: { direGoldXpMultiplier: 1 },
+    };
   });
 
   // it('测试 1: Luna 的完整配置', () => {
@@ -207,12 +224,104 @@ describe('InitializeHeroBuild', () => {
   //   expect(result.resolvedItems[ItemTier.T4]).not.toContain('item_8');
   // });
 
+  it('英雄专属候选池完全替代模板池：T2 只有 2 项时结果长度为 2 且不含模板独有条目', () => {
+    const mockHero = createMockHero('npc_dota_hero_test_pool_override');
+    const config = {
+      template: HeroTemplate.StrengthTank,
+      targetItemsByTier: {
+        // T3/T4/T5 也固定为无前置装备的条目，避免 FillPrerequisiteItems 回填 T2 干扰断言
+        [ItemTier.T2]: ['item_blink', 'item_blade_mail'],
+        [ItemTier.T3]: ['item_heart'],
+        [ItemTier.T4]: ['item_insight_armor'],
+        [ItemTier.T5]: ['item_beast_armor'],
+      },
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.resolvedItems[ItemTier.T2].length).toBe(2);
+    expect(result.resolvedItems[ItemTier.T2]).toEqual(
+      expect.arrayContaining(['item_blink', 'item_blade_mail']),
+    );
+    // 模板 T2 独有条目（英雄专属池未包含）不应出现
+    expect(result.resolvedItems[ItemTier.T2]).not.toContain('item_echo_sabre_2');
+    expect(result.resolvedItems[ItemTier.T2]).not.toContain('item_radiance');
+    expect(result.resolvedItems[ItemTier.T2]).not.toContain('item_black_king_bar');
+  });
+
+  it('英雄未配置该 tier 时回退到模板候选池', () => {
+    const mockHero = createMockHero('npc_dota_hero_test_template_fallback');
+    const config = {
+      template: HeroTemplate.StrengthTank,
+      targetItemsByTier: {
+        [ItemTier.T2]: ['item_blink'],
+      },
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    const templateT1Pool = ['item_phase_boots', 'item_bracer', 'item_vanguard'];
+    for (const item of result.resolvedItems[ItemTier.T1]) {
+      expect(templateT1Pool).toContain(item);
+    }
+  });
+
+  it('英雄专属池显式为空数组时，resolvedItems 对应 tier 也为空数组，不回退模板池', () => {
+    const mockHero = createMockHero('npc_dota_hero_test_explicit_empty_pool');
+    const config = {
+      template: HeroTemplate.StrengthTank,
+      targetItemsByTier: {
+        [ItemTier.T4]: [] as string[],
+      },
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.resolvedItems[ItemTier.T4]).toEqual([]);
+  });
+
+  it('难度倍率 < 9 时 T5 不解锁，resolvedItems[T5] 为空数组', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 5;
+    const mockHero = createMockHero('npc_dota_hero_test_t5_locked');
+    const config = {
+      template: HeroTemplate.StrengthTank,
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.resolvedItems[ItemTier.T5]).toEqual([]);
+  });
+
+  it('难度倍率 >= 9 时 T5 解锁，resolvedItems[T5] 非空', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 10;
+    const mockHero = createMockHero('npc_dota_hero_test_t5_unlocked');
+    const config = {
+      template: HeroTemplate.StrengthTank,
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.resolvedItems[ItemTier.T5].length).toBeGreaterThan(0);
+  });
+
+  it('新字段初始值正确', () => {
+    const mockHero = createMockHero('npc_dota_hero_test_new_fields', Attributes.INTELLECT);
+    const config = {
+      template: HeroTemplate.MagicalCarry,
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.tomePhase).toBe(false);
+    expect(result.luoshuPurchased).toBe(false);
+    expect(result.tomePurchasedCount).toBe(0);
+    expect(result.heroPrimaryAttribute).toBe(Attributes.INTELLECT);
+  });
+
   // abaddon实际测试
 
   it('测试 6: Abaddon 的实际测试', () => {
-    const mockHero = {
-      GetUnitName: () => 'npc_dota_hero_abaddon',
-    } as CDOTA_BaseNPC_Hero;
+    const mockHero = createMockHero('npc_dota_hero_abaddon');
 
     const abaddonConfig = HeroBuilds.npc_dota_hero_abaddon;
     const result = InitializeHeroBuild(mockHero, abaddonConfig);
@@ -221,9 +330,7 @@ describe('InitializeHeroBuild', () => {
   });
 
   it('测试 7: Axe 的实际测试', () => {
-    const mockHero = {
-      GetUnitName: () => 'npc_dota_hero_axe',
-    } as CDOTA_BaseNPC_Hero;
+    const mockHero = createMockHero('npc_dota_hero_axe');
 
     const axeConfig = HeroBuilds.npc_dota_hero_axe;
     const result = InitializeHeroBuild(mockHero, axeConfig);

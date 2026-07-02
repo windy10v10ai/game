@@ -5,6 +5,7 @@
 
 import { HeroTemplate } from './hero-build-config-template';
 import { ItemTier } from './item-tier-config';
+import { CandidatePoolEntry } from './weighted-pool';
 
 /**
  * 英雄出装配置接口（新版本 - 基于 Tier）
@@ -15,7 +16,7 @@ export interface HeroBuildConfig {
 
   /** 基于 Tier 的装备列表（可选） */
   targetItemsByTier?: {
-    [tier: number]: string[]; // 装备数组，不按槽位分类
+    [tier: number]: CandidatePoolEntry[]; // 装备数组，不按槽位分类
   };
 }
 

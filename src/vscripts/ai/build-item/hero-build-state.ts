@@ -6,6 +6,13 @@
 import { HeroBuildConfig } from './hero-build-config';
 import { getTemplateConsumablesByTier, getTemplateItemsByTier } from './hero-build-config-template';
 import { getItemConfig, GetItemPrerequisites, ItemTier } from './item-tier-config';
+import { CandidatePoolEntry, SampleWeightedWithoutReplacement } from './weighted-pool';
+
+/** T5 装备解锁所需的最低难度倍率 */
+const T5_UNLOCK_MULTIPLIER = 9;
+
+/** 每个 tier 装备槽位上限 */
+const MAX_ITEMS_PER_TIER = 6;
 
 /**
  * 英雄出装运行时状态
@@ -23,6 +30,18 @@ export interface HeroBuildState {
   consumables: {
     [tier: number]: string[]; // 消耗品名数组
   };
+
+  /** 是否已进入 tome 循环购买阶段 */
+  tomePhase: boolean;
+
+  /** 是否已购买洛书 */
+  luoshuPurchased: boolean;
+
+  /** 已购买的属性之书数量 */
+  tomePurchasedCount: number;
+
+  /** 英雄主属性（用于 tome 阶段加权） */
+  heroPrimaryAttribute: Attributes;
 }
 
 /**
@@ -50,11 +69,16 @@ export function InitializeHeroBuild(
     [ItemTier.T5]: [],
   };
 
-  // 填充用户配置的装备（最多 6 个）
-  FillUserConfigItems(config, resolvedItems, consumables);
+  const t5Unlocked = GameRules.Option.direGoldXpMultiplier >= T5_UNLOCK_MULTIPLIER;
+  const tiersToResolve = t5Unlocked
+    ? [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4, ItemTier.T5]
+    : [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4];
 
-  // 使用 template 填充空缺或稀疏的 tier
-  FillTemplateItems(config, resolvedItems, consumables);
+  // 每个 tier 二选一候选池（英雄专属优先，否则用模板），加权抽取补满槽位
+  SampleTierItems(config, resolvedItems, tiersToResolve);
+
+  // 消耗品直接复制模板全部条目，不做抽样
+  FillTemplateConsumables(config, consumables, tiersToResolve);
 
   // 为高 tier 装备补全前置装备（每个 tier 最多 6 个）
   FillPrerequisiteItems(resolvedItems);
@@ -77,37 +101,28 @@ export function InitializeHeroBuild(
     currentTier: ItemTier.T1,
     resolvedItems,
     consumables,
+    tomePhase: false,
+    luoshuPurchased: false,
+    tomePurchasedCount: 0,
+    heroPrimaryAttribute: hero.GetPrimaryAttribute(),
   };
 }
 
 /**
- * 填充用户配置的装备
+ * 每个 tier 选出唯一有效候选池（英雄专属池优先于模板池），加权抽取补满槽位
  * @param config 英雄出装配置
  * @param resolvedItems 装备记录
- * @param consumables 消耗品列表（按tier分组）
+ * @param tiers 需要解析的 tier 列表（T5 未解锁时不包含 T5）
  */
-function FillUserConfigItems(
+function SampleTierItems(
   config: HeroBuildConfig,
   resolvedItems: Record<number, string[]>,
-  _consumables: Record<number, string[]>,
+  tiers: ItemTier[],
 ): void {
-  if (!config.targetItemsByTier) {
-    return;
-  }
-
-  for (const tierStr in config.targetItemsByTier) {
-    const tier = parseInt(tierStr) as ItemTier;
-    const items = config.targetItemsByTier[tier];
-    if (items !== undefined) {
-      const regularItems: string[] = [];
-      for (const itemName of items) {
-        // 用户配置的装备都当作普通装备处理（消耗品通过模板的 consumablesByTier 配置）
-        if (regularItems.length < 6) {
-          regularItems.push(itemName);
-        }
-      }
-      resolvedItems[tier] = regularItems;
-    }
+  for (const tier of tiers) {
+    const heroPool = config.targetItemsByTier?.[tier];
+    const pool: CandidatePoolEntry[] = heroPool ?? getTemplateItemsByTier(config.template, tier);
+    resolvedItems[tier] = SampleWeightedWithoutReplacement(pool, MAX_ITEMS_PER_TIER);
   }
 }
 
@@ -143,39 +158,18 @@ function FillPrerequisiteItems(resolvedItems: Record<number, string[]>): void {
 }
 
 /**
- * 使用 template 填充空缺或稀疏的 tier
+ * 复制模板消耗品到每个待解析 tier（不做抽样，与装备候选池选取无关）
  * @param config 英雄出装配置
- * @param resolvedItems 装备记录
  * @param consumables 消耗品列表（按tier分组）
+ * @param tiers 需要解析的 tier 列表（T5 未解锁时不包含 T5）
  */
-function FillTemplateItems(
+function FillTemplateConsumables(
   config: HeroBuildConfig,
-  resolvedItems: Record<number, string[]>,
   consumables: Record<number, string[]>,
+  tiers: ItemTier[],
 ): void {
-  if (config.template === undefined) {
-    return;
-  }
-
-  for (let tier = ItemTier.T1; tier <= ItemTier.T5; tier++) {
-    // 如果该 tier 装备数量少于 6 个，从 template 补充
-    if (resolvedItems[tier].length < 6) {
-      const templateItems = getTemplateItemsByTier(config.template, tier);
-
-      for (const templateItem of templateItems) {
-        // 避免重复添加
-        if (!resolvedItems[tier].includes(templateItem)) {
-          resolvedItems[tier].push(templateItem);
-        }
-
-        // 最多补充到 6 个装备
-        if (resolvedItems[tier].length >= 6) {
-          break;
-        }
-      }
-    }
-
-    // 从 template 从设置该 tier 的消耗品（复制模板中的消耗品，不能直接设置，否则使用时会被其他英雄影响）
+  for (const tier of tiers) {
+    // 复制模板中的消耗品，不能直接设置，否则使用时会被其他英雄影响
     const templateConsumables = getTemplateConsumablesByTier(config.template, tier);
     for (const consumable of templateConsumables) {
       consumables[tier].push(consumable);
