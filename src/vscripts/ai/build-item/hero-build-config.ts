@@ -250,7 +250,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_glimmer_cape', // 微光披风
         'item_force_staff', // 原力法杖
         'item_octarine_core', // 玲珑心
-        'item_kaya', // 慧光
         'item_refresher', // 刷新球
         'item_rod_of_atos', // 阿托斯之棍
       ],
@@ -530,7 +529,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_octarine_core', // 玲珑心
         'item_hand_of_group', // 团队之手
         'item_refresher', // 刷新球
-        'item_kaya', // 慧光
       ],
       [ItemTier.T3]: [
         'item_aeon_pendant', // 永恒坠饰
