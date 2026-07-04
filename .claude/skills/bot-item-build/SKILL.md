@@ -158,6 +158,13 @@ description: >-
 `sell-item-config.ts` 的 `ItemUpgradeReplacements`：如果两件候选是同一功能槽位的不同分支
 （如多种鞋子、或某组件与其"合成成品"没有 sell-replacement 关系），只留其中一件，其余用别的非冲突装备替代。
 
+**同一 `prerequisite` 的平行分支同理，不只是鞋子**：`item-tier-config.ts` 里两件装备如果
+`prerequisite` 字段指向同一个下位装备（如 `item_wasp_callous` 和 `item_wasp_despotic` 都以
+`item_butterfly` 为前置，分别升级到蝴蝶的两条不同分支），它们是**互斥的平行分支**，不是互补装备——
+两者都不在对方的 `ItemUpgradeReplacements` 里，买了不会互相顶替出售，会被同时买下白白浪费金钱。
+添加候选前扫一遍 `item-tier-config.ts` 找出所有共享同一 `prerequisite` 的装备组，同一 tier 只保留
+其中信号最强的一个（前置装备本身，如 `item_butterfly`，可以和分支之一共存，因为分支会顶替前置）。
+
 ---
 
 ## 第六步：展示提案，等待确认
@@ -202,9 +209,10 @@ description: >-
 放 scratchpad 目录即可）解析 `hero-build-config.ts` / `hero-build-config-template.ts` 里每个
 `[ItemTier.Tn]: [...]` 区块中的装备名，对照 `item-tier-config.ts` 的 `tier` 字段，确认 0 处不一致。
 
-同时检查第 5.1 节的互斥组问题：至少要扫描"鞋子互斥组"（`item_boots`/`item_power_treads`/
-`item_arcane_boots`/`item_phase_boots`/`item_tranquil_boots`）在每个英雄每个 tier 里是否同时出现
-2 件以上，若有则必须修复。
+同时检查第 5.1 节的互斥组问题：脚本里从 `item-tier-config.ts` 解析出所有共享同一 `prerequisite`
+的装备分组（鞋子互斥组 `item_boots`/`item_power_treads`/`item_arcane_boots`/`item_phase_boots`/
+`item_tranquil_boots` 只是其中一种，`item_wasp_callous`/`item_wasp_despotic` 这类共享同一前置的
+平行分支同理），逐组扫描每个英雄每个 tier 是否同时出现 2 件以上，若有则必须修复。
 
 然后运行：
 ```bash

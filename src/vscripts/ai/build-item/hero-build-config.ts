@@ -230,7 +230,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hydras_breath', // 怪蛇之息
         'item_dodo_desolator', // 黯灭头
         'item_wasp_callous', // 大核荣耀冷酷
-        'item_wasp_despotic', // 大核荣耀暴虐
         'item_mjollnir', // 雷神之锤
         'item_sacred_trident', // 三叉戟
       ],
@@ -364,7 +363,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hydras_breath', // 怪蛇之息
         'item_mjollnir', // 雷神之锤
         'item_sacred_trident', // 三叉戟
-        'item_wasp_despotic', // 大核荣耀暴虐
       ],
       [ItemTier.T4]: [
         'item_monkey_king_bar_2', // 定海神针
