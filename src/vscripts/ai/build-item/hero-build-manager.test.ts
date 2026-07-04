@@ -54,6 +54,7 @@ function createBuildState(overrides: Partial<HeroBuildState> = {}): HeroBuildSta
     tomePurchasedCount: 0,
     tomePurchaseCap: GetTomePurchaseCap(1),
     heroPrimaryAttribute: Attributes.STRENGTH,
+    tomeCycleIndex: 0,
     ...overrides,
   };
 }

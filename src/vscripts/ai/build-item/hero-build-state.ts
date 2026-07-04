@@ -46,6 +46,9 @@ export interface HeroBuildState {
 
   /** 英雄主属性（用于 tome 阶段加权） */
   heroPrimaryAttribute: Attributes;
+
+  /** tome 循环购买索引（固定顺序，非随机） */
+  tomeCycleIndex: number;
 }
 
 /**
@@ -111,6 +114,7 @@ export function InitializeHeroBuild(
     tomePurchasedCount: 0,
     tomePurchaseCap: GetTomePurchaseCap(multiplier),
     heroPrimaryAttribute: hero.GetPrimaryAttribute(),
+    tomeCycleIndex: 0,
   };
 }
 

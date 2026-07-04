@@ -3,10 +3,8 @@
  * 负责决策购买哪些装备、何时出售旧装备
  */
 
-import { PrimaryAttributeTomeWeights } from './hero-build-config-template';
 import { HeroBuildState } from './hero-build-state';
 import { ItemTier } from './item-tier-config';
-import { PickWeightedOne } from './weighted-pool';
 
 /** 洛书（属性全能之书），T5 装备买完后优先购买一次 */
 const TOME_OF_LUOSHU = 'item_tome_of_luoshu';
@@ -185,13 +183,7 @@ export class HeroBuildManager {
     return false;
   }
 
-  /**
-   * tome 循环购买阶段：先买一次洛书，之后按主属性加权循环购买单属性之书
-   * @param hero 英雄单位
-   * @param buildState 出装状态
-   * @param currentItems 当前拥有的装备列表
-   * @returns 是否成功购买
-   */
+  /** tome 循环购买阶段：先买一次洛书，之后按主属性固定循环购买单属性之书 */
   private static TryPurchaseTome(
     hero: CDOTA_BaseNPC_Hero,
     buildState: HeroBuildState,
@@ -214,17 +206,21 @@ export class HeroBuildManager {
       return false;
     }
 
-    const weights = PrimaryAttributeTomeWeights[buildState.heroPrimaryAttribute];
-    if (!weights) {
+    // 按主属性固定循环：主属性占 50%，另外两种各占 25%
+    const tomeCycle: Record<string, Array<'strength' | 'agility' | 'intelligence'>> = {
+      [Attributes.STRENGTH]: ['strength', 'agility', 'intelligence', 'strength'],
+      [Attributes.AGILITY]: ['agility', 'strength', 'intelligence', 'agility'],
+      [Attributes.INTELLECT]: ['intelligence', 'strength', 'agility', 'intelligence'],
+      [Attributes.ALL]: ['strength', 'agility', 'intelligence'],
+    };
+    const cycle = tomeCycle[buildState.heroPrimaryAttribute];
+    if (!cycle || cycle.length === 0) {
       return false;
     }
+    const attribute = cycle[buildState.tomeCycleIndex % cycle.length];
+    buildState.tomeCycleIndex++;
 
-    const attribute = PickWeightedOne(weights);
-    if (attribute === undefined) {
-      return false;
-    }
-
-    const tomeItemName = ATTRIBUTE_TOME_ITEMS[attribute as 'strength' | 'agility' | 'intelligence'];
+    const tomeItemName = ATTRIBUTE_TOME_ITEMS[attribute];
     const result = this.BuyItem(hero, tomeItemName, currentItems);
     if (result) {
       buildState.tomePurchasedCount++;
