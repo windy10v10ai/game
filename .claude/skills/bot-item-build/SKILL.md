@@ -88,9 +88,16 @@ description: >-
 （例如价格/tier 规则调整后遗留的历史归属）。
 
 **CSV 里出现但 `item-tier-config.ts` 完全没收录的装备**（不属于第二步噪音过滤名单，是真实遗漏）：
-不要因为查不到 tier 就直接跳过或换用别的装备顶替。先在 `item-tier-config.ts` 里补上这条配置——
-`cost` 取 CSV 的「Average 金钱」列（同一装备各行数值应一致，可与命名/功能相近的同价位装备互相印证），
-`tier` 按该 cost 对照本节的价格区间表得出。补完后再按正常流程把它纳入候选。
+不要因为查不到 tier 就直接跳过或换用别的装备顶替。**信号强（事件数明显不低，尤其是多个英雄反复出现同
+一件未收录装备）时直接自动补录，不需要额外用 AskUserQuestion 确认**——先在 `item-tier-config.ts` 里
+补上这条配置：`cost` 取 CSV 的「Average 金钱」列（同一装备各行数值应一致，可与命名/功能相近的同价位
+装备互相印证），`tier` 按该 cost 对照本节的价格区间表得出。补完后再按正常流程把它纳入候选。只有当信号
+很弱（个位数、极低事件数）或明显是过时/已改名的历史装备时才跳过。
+
+**`nameCN` 取值来源，禁止自己猜译名**：优先在现有代码里找权威译名——`item-tier-config.ts` 里若已有
+该装备的 `nameCN` 字段直接用；没有的话查 `game/scripts/vscripts/bot/bot_item_data.lua` 或其他英雄配置
+里出现过的同装备注释。都找不到时，去 `game/resource/addon_schinese.txt` 搜
+`DOTA_Tooltip_Ability_<item_name>` 键取其值。三处都查不到再询问用户，不要凭印象/相似装备名称推测。
 
 ---
 

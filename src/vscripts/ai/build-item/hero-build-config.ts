@@ -381,7 +381,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
         'item_shivas_guard_2', // 希瓦的守护2
         'item_hallowed_scepter', // 仙云法杖
-        'item_arcane_octarine_core', // 阿卡尼玲珑心
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
