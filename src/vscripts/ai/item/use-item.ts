@@ -28,6 +28,25 @@ const CONSUME_ITEMS_NO_TARGET = [
 
 export class UseItem {
   /**
+   * 将物品从备用栏换到主栏空位（主栏全满时强行对调最后一位）
+   */
+  private static SwapToMainInventoryIfNeeded(hero: CDOTA_BaseNPC_Hero, itemName: string): void {
+    const item = hero.FindItemInInventory(itemName);
+    if (!item) return;
+    const slot = item.GetItemSlot();
+    if (slot < 6) return; // 已在主栏
+    for (let i = 0; i < 6; i++) {
+      const existing = hero.GetItemInSlot(i);
+      if (!existing || existing.IsNull()) {
+        hero.SwapItems(slot, i);
+        return;
+      }
+    }
+    // 主栏全满，强行对调第 6 格（最后一位主栏）
+    hero.SwapItems(slot, 5);
+  }
+
+  /**
    * 使用所有消耗品
    * @param hero 英雄单位
    * @returns 是否使用了任何物品
@@ -41,8 +60,9 @@ export class UseItem {
       }
     }
 
-    // 2. 使用不需要目标的消耗品
+    // 2. 使用不需要目标的消耗品（属性书/洛书可能在备用栏，先换到主栏）
     for (const itemName of CONSUME_ITEMS_NO_TARGET) {
+      this.SwapToMainInventoryIfNeeded(hero, itemName);
       if (ActionItem.UseItemNoTarget(hero, itemName)) {
         return true;
       }

@@ -74,8 +74,9 @@ no_support_abilitys = {
 	tiny_tree_channel = 1,                          -- 树木连掷
 	shredder_chakram = 1,                           -- 锯齿飞轮
 	shredder_twisted_chakram = 1,                   -- 锯齿飞轮
-	yukari_moon_portal = 1,                         -- 八云紫 3技能
-	yukari_twin_trains = 1,                         -- 八云紫 大招
+	yukari_moon_portal = 1,                         -- 八云紫 3技能 月之门
+	ability_thdots_yukari04 = 1,                    -- 八云紫 A杖 深弹幕结界 -梦幻泡影
+	yukari_twin_trains = 1,                         -- 八云紫 大招 无人废线车辆炸弹
 	storm_spirit_ball_lightning = 1,                --  球状闪电
 	phantom_assassin_phantom_strike = 1,            --  幻影突袭
 	special_bonus_unique_phantom_assassin_upgrade = 1, --  幻影突袭觉醒
@@ -95,6 +96,7 @@ no_support_abilitys = {
 	ability_ward_sentry_slot = 1,                   -- 额外真眼槽位
 	witch_doctor_voodoo_switcheroo = 1,             -- 巫医 魔晶变身（多重会导致英雄消失）
 	doom_bringer_devour = 1,                        -- 末日 吞噬
+	rattletrap_jetpack = 1,                         -- 发条技师 喷气背包
 }
 no_support_items = {
 	-- 消耗品

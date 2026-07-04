@@ -181,6 +181,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
 - **测试范围**: 只验证自己写的状态/分支逻辑。Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）mock 作为占位防崩，不要用 `toHaveBeenCalledWith` 断言它们的参数——那是在测引擎契约不是自己的代码
 - **不为强依赖引擎 API 的逻辑过度搭 mock**: 当一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，**不要**为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）去测引擎行为。这类运行时行为由作者手动在 Dota tools 确认。mock 只保留占位防崩（返回个固定值不崩即可）
+- **依赖 Dota API 的代码不需要单元测试**: 如果一段代码的主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数），**不要**为了测它而 mock `GetItemInSlot` 之类的底层 API 再断言结果——这是在测"我的 mock 返回了什么"，不是在测自己的逻辑。这类代码靠 Dota tools 实机验证。只有当代码里包含足够分量的**自身分支/计算逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）时才写单元测试，且测试目标是那段逻辑本身，不是底层 API 调用是否被正确触发
 
 ### 构建系统
 

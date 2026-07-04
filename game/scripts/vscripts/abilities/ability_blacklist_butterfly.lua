@@ -95,6 +95,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["special_bonus_unique_phantom_assassin_upgrade"] = true,
     ["pangolier_gyroshell"] = true,   -- 石鳞剑士 地雷滚滚
     ["legion_commander_duel"] = true, -- 军团指挥官 决斗
+    ["rattletrap_jetpack"] = true,    -- 发条技师 喷气背包（触发飞行影响正常操作）
 
 
     ["elder_titan_ancestral_spirit"] = true,
@@ -126,8 +127,9 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["warlock_upheaval"] = true,                           -- 术士 剧变
     ["enigma_midnight_pulse"] = true,                      -- 谜团 午夜凋零
     ["goku_kamehameha"] = true,                            -- 悟空 龟派气功
-    ["yukari_twin_trains"] = true,                         -- 八云紫 无人废线车辆炸弹
-    ["yukari_moon_portal"] = true,                         -- 八云紫 月之门
+    ["yukari_moon_portal"] = true,                         -- 八云紫 3技能 月之门
+    ["ability_thdots_yukari04"] = true,                    -- 八云紫 A杖 深弹幕结界 -梦幻泡影
+    ["yukari_twin_trains"] = true,                         -- 八云紫 大招 无人废线车辆炸弹
     ["artoria_excalibur"] = true,                          -- Artoria 誓约胜利之剑
     ["miku_dance"] = true,                                 -- 初音未来 舞蹈
     ["miku_get_down"] = true,                              -- 初音未来 Get Down

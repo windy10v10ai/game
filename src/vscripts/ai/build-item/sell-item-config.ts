@@ -18,8 +18,11 @@ export const SpecialConsumableItems: string[] = [
   'item_moon_shard_datadriven', // 真·银月之晶
   'item_ward_observer', // 侦查守卫
   'item_ward_sentry', // 岗哨守卫
+  'item_ward_dispenser', // 侦察·岗哨守卫
   'item_dust', // 显隐之尘
   'item_gem', // 真视宝石
+  'item_smoke_of_deceit', // 诡计之雾
+  'item_roshans_banner', // 肉山的战旗
 ];
 
 /**
@@ -32,6 +35,7 @@ export const SellItemCommonJunkList: string[] = [
   'item_sphere', // 林肯法球
   'item_dragon_lance', // 魔龙枪
   'item_diffusal_blade', // 净魂之刃
+  'item_shadow_amulet', // 暗影护符
 
   // 配件
   'item_branches', // 铁树枝干

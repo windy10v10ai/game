@@ -61,10 +61,20 @@ export class BotBaseAIModifier extends BaseModifier {
     currentLevel: 0,
   };
 
+  /** 已迁移到新出装系统的英雄列表 */
+  private static NEW_BUILD_SYSTEM_HEROES: Record<string, boolean> = {
+    ['npc_dota_hero_abaddon']: true,
+    ['npc_dota_hero_axe']: true,
+    ['npc_dota_hero_bane']: true,
+    ['npc_dota_hero_bloodseeker']: true,
+    ['npc_dota_hero_bounty_hunter']: true,
+  };
+
+  /** 当前英雄是否使用新出装系统 */
+  private newBuildSystem: boolean = false;
+
   // 出装状态
   public buildState: HeroBuildState | undefined;
-  // 是否使用新出装系统
-  public useNewBuildSystem: boolean = false;
 
   public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
@@ -86,9 +96,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
     this.isIntHero = this.hero.GetPrimaryAttribute() === Attributes.INTELLECT;
 
-    // 初始化出装状态
-    // FIXME 待所有英雄使用新出装系统后删除
-    if (this.useNewBuildSystem) {
+    // 从集中英雄列表判断是否使用新出装系统
+    this.newBuildSystem = !!BotBaseAIModifier.NEW_BUILD_SYSTEM_HEROES[this.hero.GetUnitName()];
+    if (this.newBuildSystem) {
       const config = getHeroBuildConfig(this.hero.GetUnitName());
       if (config) {
         this.buildState = InitializeHeroBuild(this.hero, config);
