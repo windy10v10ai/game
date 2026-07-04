@@ -5,13 +5,13 @@
 
 /**
  * 装备等级枚举
- * 基于实际金钱划分
- * 根据实际情况略作微调
- * T1: <2000金 - 早期装备
- * T2: 2000-5000金 - 中期过渡
- * T3: 5000-10000金 - 中期核心
- * T4: 10000-30000金 - 后期装备
- * T5: >30000金 - 终极装备
+ * 基于实际金钱划分，区间为左开右闭 (下限, 上限]
+ * T1: cost <= 2000 - 早期装备
+ * T2: 2000 < cost <= 5000 - 中期过渡
+ * T3: 5000 < cost <= 10000 - 中期核心
+ * T4: 10000 < cost <= 30000 - 后期装备
+ * T5: cost > 30000 - 终极装备
+ * 特殊道具需要偏离价格规则时，在该条目旁加注释说明原因，不要改规则本身
  */
 export enum ItemTier {
   T1 = 1,
@@ -432,14 +432,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
 
   item_adi_king: {
     name: 'item_adi_king',
-    tier: ItemTier.T3,
+    tier: ItemTier.T2,
     cost: 5000,
     prerequisite: 'item_power_treads',
     upgrades: ['item_adi_king_plus'],
   },
   item_refresher: {
     name: 'item_refresher',
-    tier: ItemTier.T3,
+    tier: ItemTier.T2,
     cost: 5000,
     upgrades: ['item_refresh_core'],
   },
@@ -689,14 +689,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   },
   item_wasp_callous: {
     name: 'item_wasp_callous',
-    tier: ItemTier.T4,
+    tier: ItemTier.T3,
     cost: 10000,
     prerequisite: 'item_butterfly',
     upgrades: ['item_wasp_golden'],
   },
   item_wasp_despotic: {
     name: 'item_wasp_despotic',
-    tier: ItemTier.T4,
+    tier: ItemTier.T3,
     cost: 10000,
     prerequisite: 'item_butterfly',
     upgrades: ['item_wasp_golden'],
@@ -705,7 +705,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   // ===== T4: 后期装备 (10000-30000金) =====
   item_shotgun_v2: {
     name: 'item_shotgun_v2',
-    tier: ItemTier.T4,
+    tier: ItemTier.T3,
     cost: 10000,
     prerequisite: 'item_shotgun',
   },

@@ -106,11 +106,11 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
       'item_black_king_bar', // 黑皇杖
     ],
     [ItemTier.T3]: [
-      'item_monkey_king_bar_2', // 金箍棒2
       'item_wasp_callous', // 大核荣耀冷酷
       'item_satanic', // 撒旦之邪力
     ],
     [ItemTier.T4]: [
+      'item_monkey_king_bar_2', // 金箍棒2（tier 归属修正：真实价格属于 T4）
       'item_black_king_bar_2', // 黑皇杖2
       'item_wasp_golden', // 黄金大核荣耀
       'item_infernal_desolator', // 绝对破防之刃
@@ -160,10 +160,10 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
       'item_black_king_bar', // 黑皇杖
     ],
     [ItemTier.T3]: [
-      'item_monkey_king_bar_2', // 金箍棒2
       'item_satanic', // 撒旦之邪力
     ],
     [ItemTier.T4]: [
+      'item_monkey_king_bar_2', // 金箍棒2（tier 归属修正：真实价格属于 T4）
       'item_excalibur', // EX咖喱棒
       'item_satanic_2', // 撒旦之邪力2
       'item_black_king_bar_2', // 黑皇杖2
@@ -212,12 +212,12 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
       'item_force_staff', // 原力法杖
       'item_aether_lens_2', // 以太透镜2
       'item_aeon_disk', // 永恒之盘
+      'item_refresher', // 刷新球（tier 归属修正：真实价格属于 T2）
     ],
     [ItemTier.T3]: [
       'item_arcane_blink_2', // 奥术闪烁2
       'item_magic_scepter', // 魔法权杖
       'item_sheepstick', // 邪恶镰刀
-      'item_refresher', // 刷新球
       'item_aeon_pendant', // 永恒吊坠
     ],
     [ItemTier.T4]: [
@@ -266,9 +266,9 @@ const SupportTemplate: HeroTemplateConfig = {
       'item_holy_locket', // 圣洁吊坠
       'item_aeon_disk', // 永恒之盘
       'item_hand_of_group', // 团队之手
+      'item_guardian_greaves', // 卫士胫甲（tier 归属修正：真实价格属于 T2）
     ],
     [ItemTier.T3]: [
-      'item_guardian_greaves', // 卫士胫甲
       'item_sheepstick', // 邪恶镰刀
       'item_aeon_pendant', // 永恒吊坠
       'item_orb_of_the_brine', // 苍洋魔珠

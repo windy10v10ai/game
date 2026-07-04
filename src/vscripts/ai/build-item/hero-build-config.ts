@@ -44,10 +44,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
   npc_dota_hero_luna: {
     template: HeroTemplate.AgilityCarryRanged,
     targetItemsByTier: {
-      [ItemTier.T3]: [
-        'item_monkey_king_bar_2', // 定海神针
-      ],
       [ItemTier.T4]: [
+        'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_excalibur', // 圣剑
         'item_skadi_2', // 大冰眼
         'item_satanic_2', // 真·撒旦
@@ -60,10 +58,10 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     template: HeroTemplate.AgilityCarryRanged,
     targetItemsByTier: {
       [ItemTier.T3]: [
-        'item_monkey_king_bar_2', // 定海神针
         'item_hurricane_pike_2', // 大推推
       ],
       [ItemTier.T4]: [
+        'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_excalibur', // 圣剑
         'item_satanic_2', // 真·撒旦
         'item_black_king_bar_2', // 真·BKB
@@ -75,11 +73,11 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     template: HeroTemplate.AgilityCarryRanged,
     targetItemsByTier: {
       [ItemTier.T3]: [
-        'item_monkey_king_bar_2', // 定海神针
         'item_hurricane_pike_2', // 大推推
+        'item_shotgun_v2', // 散弹枪（tier 归属修正：真实价格属于 T3）
       ],
       [ItemTier.T4]: [
-        'item_shotgun_v2', // 散弹枪
+        'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_satanic_2', // 真·撒旦
         'item_black_king_bar_2', // 真·BKB
       ],
