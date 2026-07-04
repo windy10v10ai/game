@@ -9224,9 +9224,9 @@
 			"distance_damage_pct"
 			{
 				"value"			"10 15 20 25 30"	// 5 10 15 20 +5
-				"special_bonus_unique_enchantress_4"	"+10"	// +6.5 x1.5
+				"special_bonus_unique_enchantress_4"	"+20"	// +6.5 x3倍左右
 			}
-			"distance_cap"			"80000"// 1750 解锁上限
+			"distance_cap"			"3500"// 1750 x2
 		}
 	}
 	//=================================================================================================================
@@ -12313,9 +12313,9 @@
 					"special_bonus_unique_winter_wyvern_3"	"+120"	// 60 x2
 				}
 				"duration"	"3.0"			//	2
-				"max_duration"	"80000"	//	6 解锁上限
-				"bonus_duration_per_hero"	"1.2"	// 1.5
-				"bonus_duration_per_creep"	"0.4"	// 0.5
+				"max_duration"	"8"			//	6
+				"bonus_duration_per_hero"	"1.0"	// 1.5
+				"bonus_duration_per_creep"	"0.2"	// 0.5
 				"transfer_on_death"
 				{
 					"value"		"0"
