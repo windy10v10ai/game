@@ -128,6 +128,64 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
     },
   },
+  // 力丸
+  npc_dota_hero_riki: {
+    template: HeroTemplate.AgilityCarryMelee,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_power_treads', // 动力鞋
+        'item_wraith_band', // 怨灵细带
+        'item_falcon_blade', // 猎鹰战刃
+        'item_magic_wand', // 魔杖
+        'item_hand_of_midas', // 金手指
+        'item_quelling_blade_2_datadriven', // 毒瘤之刃
+        'item_talisman_of_evasion', // 闪避护符
+      ],
+      [ItemTier.T2]: [
+        'item_bfury', // 狂战斧
+        'item_sange_and_yasha', // 散夜对剑
+        'item_basher', // 碎颅锤
+        'item_diffusal_blade', // 净魂之刃
+        'item_eagle', // 鹰歌弓
+        'item_hand_of_group', // 团队之手
+        'item_desolator', // 黯灭
+        'item_octarine_core', // 玲珑心
+        'item_aether_lens_2', // 以太透镜2
+      ],
+      [ItemTier.T3]: [
+        'item_greater_crit', // 代达罗斯之殇
+        'item_dodo_desolator', // 黯灭头
+        'item_butterfly', // 蝴蝶刀
+        'item_wasp_despotic', // 大核荣耀暴虐
+        'item_sacred_trident', // 三叉戟
+        'item_radiance_2', // 圣焰之光
+        'item_satanic', // 撒旦之邪力
+      ],
+      [ItemTier.T4]: [
+        'item_monkey_king_bar_2', // 定海神针
+        'item_infernal_desolator', // 绝对破防之刃
+        'item_blue_fantasy', // 苍蓝幻想
+        'item_sange_and_yasha_1', // 神器·散夜对剑
+        'item_abyssal_blade_v2', // 一闪
+        'item_satanic_2', // 真红·撒旦之邪力
+        'item_excalibur', // EX咖喱棒
+        'item_bfury_ultra', // 救世狂战
+        'item_refresh_core', // 熔火核心
+      ],
+      [ItemTier.T5]: [
+        'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_magic_sword', // 魔渊剑
+        'item_switchable_crit_blade', // 归海一刀
+        'item_time_gem', // 时间宝石
+        'item_ten_thousand_swords', // 万剑归宗
+        'item_forbidden_staff', // 禁忌法杖
+        'item_magic_crit_blade', // 魔龙狂舞
+        'item_dracula_mask', // 生命之盔
+        'item_swift_glove', // 无限手套
+      ],
+    },
+  },
+
   // ===== 敏捷核心英雄(远程) =====
 
   npc_dota_hero_luna: {
@@ -146,14 +204,59 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
   npc_dota_hero_drow_ranger: {
     template: HeroTemplate.AgilityCarryRanged,
     targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_power_treads', // 动力鞋
+        'item_wraith_band', // 怨灵细带
+        'item_hand_of_midas', // 金手指
+        'item_falcon_blade', // 猎鹰战刃
+        'item_mask_of_madness', // 疯狂面具
+        'item_magic_wand', // 魔杖
+        'item_talisman_of_evasion', // 闪避护符
+        'item_bracer', // 护腕
+      ],
+      [ItemTier.T2]: [
+        'item_hurricane_pike', // 飓风长戟
+        'item_hand_of_group', // 团队之手
+        'item_desolator', // 黯灭
+        'item_eagle', // 鹰歌弓
+        'item_force_staff', // 原力法杖
+        'item_black_king_bar', // 黑皇杖
+        'item_shotgun', // 双管霰弹枪
+        'item_sange_and_yasha', // 散夜对剑
+        'item_monkey_king_bar', // 金箍棒
+      ],
       [ItemTier.T3]: [
         'item_hurricane_pike_2', // 大推推
+        'item_shotgun_v2', // 三管霰弹枪
+        'item_butterfly', // 蝴蝶刀
+        'item_hydras_breath', // 怪蛇之息
+        'item_dodo_desolator', // 黯灭头
+        'item_wasp_callous', // 大核荣耀冷酷
+        'item_wasp_despotic', // 大核荣耀暴虐
+        'item_mjollnir', // 雷神之锤
+        'item_sacred_trident', // 三叉戟
       ],
       [ItemTier.T4]: [
         'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_excalibur', // 圣剑
         'item_satanic_2', // 真·撒旦
         'item_black_king_bar_2', // 真·BKB
+        'item_infernal_desolator', // 绝对破防之刃
+        'item_wasp_golden', // 黄金大核荣耀
+        'item_sacred_six_vein', // 六脉神剑
+        'item_hydras_breath_2', // 神器·千年毒蛟之息
+        'item_sange_and_yasha_1', // 神器·散夜对剑
+      ],
+      [ItemTier.T5]: [
+        'item_hawkeye_turret', // 鹰眼炮台
+        'item_switchable_crit_blade', // 归海一刀
+        'item_swift_glove', // 无限手套
+        'item_ten_thousand_swords', // 万剑归宗
+        'item_dracula_mask', // 生命之盔
+        'item_beast_shield', // 兽化盾
+        'item_time_gem', // 时间宝石
+        'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_magic_sword', // 魔渊剑
       ],
     },
   },
@@ -169,6 +272,123 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_satanic_2', // 真·撒旦
         'item_black_king_bar_2', // 真·BKB
+      ],
+    },
+  },
+
+  // 冥界亚龙
+  npc_dota_hero_viper: {
+    template: HeroTemplate.AgilityCarryRanged,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_power_treads', // 动力鞋
+        'item_wraith_band', // 怨灵细带
+        'item_null_talisman', // 空灵挂件
+        'item_vanguard', // 先锋盾
+        'item_bracer', // 护腕
+        'item_falcon_blade', // 猎鹰战刃
+        'item_magic_wand', // 魔杖
+        'item_hand_of_midas', // 金手指
+      ],
+      [ItemTier.T2]: [
+        'item_sange_and_yasha', // 散夜对剑
+        'item_travel_boots', // 远行鞋
+        'item_hand_of_group', // 团队之手
+        'item_hurricane_pike', // 飓风长戟
+        'item_black_king_bar', // 黑皇杖
+        'item_desolator', // 黯灭
+        'item_kaya', // 慧光
+        'item_shivas_guard', // 希瓦的守护
+      ],
+      [ItemTier.T3]: [
+        'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
+        'item_wasp_callous', // 大核荣耀冷酷
+        'item_shotgun_v2', // 三管霰弹枪
+        'item_hydras_breath', // 怪蛇之息
+        'item_dodo_desolator', // 黯灭头
+        'item_sacred_trident', // 三叉戟
+        'item_radiance_2', // 圣焰之光
+        'item_mjollnir', // 雷神之锤
+      ],
+      [ItemTier.T4]: [
+        'item_monkey_king_bar_2', // 定海神针
+        'item_black_king_bar_2', // 天神杖
+        'item_wasp_golden', // 黄金大核荣耀
+        'item_refresh_core', // 熔火核心
+        'item_skadi_2', // 粘妈之眼
+        'item_excalibur', // EX咖喱棒
+        'item_sacred_six_vein', // 六脉神剑
+        'item_infernal_desolator', // 绝对破防之刃
+        'item_hydras_breath_2', // 神器·千年毒蛟之息
+      ],
+      [ItemTier.T5]: [
+        'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_hawkeye_turret', // 鹰眼炮台
+        'item_swift_glove', // 无限手套
+        'item_time_gem', // 时间宝石
+        'item_ten_thousand_swords', // 万剑归宗
+        'item_switchable_crit_blade', // 归海一刀
+        'item_magic_crit_blade', // 魔龙狂舞
+        'item_beast_armor', // 兽化甲
+        'item_magic_sword', // 魔渊剑
+      ],
+    },
+  },
+
+  // 复仇之魂
+  npc_dota_hero_vengefulspirit: {
+    template: HeroTemplate.AgilityCarryRanged,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_power_treads', // 动力鞋
+        'item_wraith_band', // 怨灵细带
+        'item_falcon_blade', // 猎鹰战刃
+        'item_magic_wand', // 魔杖
+        'item_talisman_of_evasion', // 闪避护符
+        'item_hand_of_midas', // 金手指
+        'item_mask_of_madness', // 疯狂面具
+      ],
+      [ItemTier.T2]: [
+        'item_desolator', // 黯灭
+        'item_sange_and_yasha', // 散夜对剑
+        'item_eagle', // 鹰歌弓
+        'item_hand_of_group', // 团队之手
+        'item_hurricane_pike', // 飓风长戟
+        'item_black_king_bar', // 黑皇杖
+        'item_bfury', // 狂战斧
+        'item_shotgun', // 双管霰弹枪
+      ],
+      [ItemTier.T3]: [
+        'item_hurricane_pike_2', // 大推推
+        'item_wasp_callous', // 大核荣耀冷酷
+        'item_dodo_desolator', // 黯灭头
+        'item_shotgun_v2', // 三管霰弹枪
+        'item_hydras_breath', // 怪蛇之息
+        'item_mjollnir', // 雷神之锤
+        'item_sacred_trident', // 三叉戟
+        'item_wasp_despotic', // 大核荣耀暴虐
+      ],
+      [ItemTier.T4]: [
+        'item_monkey_king_bar_2', // 定海神针
+        'item_infernal_desolator', // 绝对破防之刃
+        'item_black_king_bar_2', // 天神杖
+        'item_wasp_golden', // 黄金大核荣耀
+        'item_skadi_2', // 粘妈之眼
+        'item_excalibur', // EX咖喱棒
+        'item_hydras_breath_2', // 神器·千年毒蛟之息
+        'item_sacred_six_vein', // 六脉神剑
+        'item_bfury_ultra', // 救世狂战
+      ],
+      [ItemTier.T5]: [
+        'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_hawkeye_turret', // 鹰眼炮台
+        'item_swift_glove', // 无限手套
+        'item_magic_sword', // 魔渊剑
+        'item_switchable_crit_blade', // 归海一刀
+        'item_ten_thousand_swords', // 万剑归宗
+        'item_beast_shield', // 兽化盾
+        'item_time_gem', // 时间宝石
+        'item_dracula_mask', // 生命之盔
       ],
     },
   },
@@ -334,6 +554,66 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_undying_heart', // 不朽之心
         'item_black_king_bar_2', // 真·BKB
         'item_overwhelming_blink_2', // 大力量跳刀
+      ],
+    },
+  },
+
+  // 斯温
+  npc_dota_hero_sven: {
+    template: HeroTemplate.StrengthTank,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_power_treads', // 动力鞋
+        'item_bracer', // 护腕
+        'item_quelling_blade_2_datadriven', // 毒瘤之刃
+        'item_mask_of_madness', // 疯狂面具
+        'item_vanguard', // 先锋盾
+        'item_falcon_blade', // 猎鹰战刃
+        'item_magic_wand', // 魔杖
+        'item_hand_of_midas', // 金手指
+        'item_wraith_band', // 怨灵细带
+      ],
+      [ItemTier.T2]: [
+        'item_sange_and_yasha', // 散夜对剑
+        'item_blink', // 闪烁匕首
+        'item_echo_sabre_2', // 音速战刃
+        'item_black_king_bar', // 黑皇杖
+        'item_hand_of_group', // 团队之手
+        'item_desolator', // 黯灭
+        'item_monkey_king_bar', // 金箍棒
+        'item_armlet_plus', // 小鸡臂章Plus
+      ],
+      [ItemTier.T3]: [
+        'item_vladmir_2', // 强袭祭品
+        'item_wasp_despotic', // 大核荣耀暴虐
+        'item_armlet_pro_max', // 小鸡臂章Pro Max
+        'item_dodo_desolator', // 黯灭头
+        'item_greater_crit', // 代达罗斯之殇
+        'item_sacred_trident', // 三叉戟
+        'item_heart', // 恐鳌之心
+        'item_satanic', // 撒旦之邪力
+      ],
+      [ItemTier.T4]: [
+        'item_black_king_bar_2', // 天神杖
+        'item_monkey_king_bar_2', // 定海神针
+        'item_infernal_desolator', // 绝对破防之刃
+        'item_wasp_golden', // 黄金大核荣耀
+        'item_undying_heart', // 不朽之心
+        'item_sacred_six_vein', // 六脉神剑
+        'item_excalibur', // EX咖喱棒
+        'item_refresh_core', // 熔火核心
+        'item_sange_and_yasha_1', // 神器·散夜对剑
+      ],
+      [ItemTier.T5]: [
+        'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_switchable_crit_blade', // 归海一刀
+        'item_ten_thousand_swords', // 万剑归宗
+        'item_magic_sword', // 魔渊剑
+        'item_withered_spring', // 生命之心
+        'item_beast_shield', // 兽化盾
+        'item_dracula_mask', // 生命之盔
+        'item_swift_glove', // 无限手套
+        'item_time_gem', // 时间宝石
       ],
     },
   },

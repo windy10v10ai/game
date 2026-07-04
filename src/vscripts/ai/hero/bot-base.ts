@@ -68,6 +68,11 @@ export class BotBaseAIModifier extends BaseModifier {
     ['npc_dota_hero_bane']: true,
     ['npc_dota_hero_bloodseeker']: true,
     ['npc_dota_hero_bounty_hunter']: true,
+    ['npc_dota_hero_drow_ranger']: true,
+    ['npc_dota_hero_riki']: true,
+    ['npc_dota_hero_sven']: true,
+    ['npc_dota_hero_vengefulspirit']: true,
+    ['npc_dota_hero_viper']: true,
   };
 
   /** 当前英雄是否使用新出装系统 */

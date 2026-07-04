@@ -74,6 +74,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T1,
     cost: 500,
   },
+  item_talisman_of_evasion: {
+    name: 'item_talisman_of_evasion',
+    nameCN: '闪避护符',
+    tier: ItemTier.T1,
+    cost: 1300,
+  },
   item_quelling_blade_2_datadriven: {
     name: 'item_quelling_blade_2_datadriven',
     nameCN: '毒瘤之刃',
@@ -209,6 +215,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2150,
   },
+  item_eagle: {
+    name: 'item_eagle',
+    nameCN: '鹰歌弓',
+    tier: ItemTier.T2,
+    cost: 2800,
+  },
   item_vladmir: {
     name: 'item_vladmir',
     nameCN: '弗拉迪米尔的祭品',
@@ -304,6 +316,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2875,
     upgrades: ['item_abyssal_blade', 'item_abyssal_blade_v2'],
+  },
+  item_diffusal_blade: {
+    name: 'item_diffusal_blade',
+    nameCN: '净魂之刃',
+    tier: ItemTier.T2,
+    cost: 2500,
   },
 
   // 高价T2装备
@@ -808,6 +826,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     prerequisite: 'item_butterfly',
     upgrades: ['item_wasp_golden'],
   },
+  item_hydras_breath: {
+    name: 'item_hydras_breath',
+    nameCN: '怪蛇之息',
+    tier: ItemTier.T3,
+    cost: 5900,
+    upgrades: ['item_hydras_breath_2'],
+  },
 
   // ===== T4: 后期装备 (10000-30000金) =====
   item_shotgun_v2: {
@@ -926,6 +951,20 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 13800,
     prerequisite: 'item_heart',
   },
+  item_hydras_breath_2: {
+    name: 'item_hydras_breath_2',
+    nameCN: '神器·千年毒蛟之息',
+    tier: ItemTier.T4,
+    cost: 20000,
+    prerequisite: 'item_hydras_breath',
+  },
+  item_armlet_artifact: {
+    name: 'item_armlet_artifact',
+    nameCN: '神器·光暗臂章',
+    tier: ItemTier.T4,
+    cost: 18500,
+    prerequisite: 'item_armlet_pro_max',
+  },
   item_shivas_guard_2: {
     name: 'item_shivas_guard_2',
     nameCN: '雅典娜的守护',
@@ -946,6 +985,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 14000,
     prerequisite: 'item_sange_and_yasha',
+  },
+  item_yasha_and_kaya_1: {
+    name: 'item_yasha_and_kaya_1',
+    nameCN: '神器·慧夜对剑',
+    tier: ItemTier.T4,
+    cost: 14000,
+    prerequisite: 'item_yasha_and_kaya',
   },
   item_gungir_2: {
     name: 'item_gungir_2',

@@ -116,6 +116,11 @@ function AIGameMode:OnNPCSpawned(keys)
                     ["npc_dota_hero_bane"] = true,
                     ["npc_dota_hero_bloodseeker"] = true,
                     ["npc_dota_hero_bounty_hunter"] = true,
+                    ["npc_dota_hero_drow_ranger"] = true,
+                    ["npc_dota_hero_riki"] = true,
+                    ["npc_dota_hero_sven"] = true,
+                    ["npc_dota_hero_vengefulspirit"] = true,
+                    ["npc_dota_hero_viper"] = true,
                 }
                 if not excludeHeroes[sName] then
                     hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_strategy", {})

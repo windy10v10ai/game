@@ -94,6 +94,12 @@ description: >-
 装备互相印证），`tier` 按该 cost 对照本节的价格区间表得出。补完后再按正常流程把它纳入候选。只有当信号
 很弱（个位数、极低事件数）或明显是过时/已改名的历史装备时才跳过。
 
+**`ItemQuality: "component"` 的装备即使信号很强也跳过**：在 `docs/reference/<version>/items.txt`
+查该装备的 `ItemQuality` 字段——标为 `"component"` 说明官方就把它定位为合成中间件（如
+`item_orb_of_venom`、`item_helm_of_iron_will`、`item_diadem`），不是玩家会长期持有的终局装备，
+不应作为候选池目标，无论 CSV 事件数多高都跳过。`"secret_shop"`、`"artifact"` 等其他 quality 标签
+才是可以正常收录的终局装备。
+
 **`nameCN` 取值来源，禁止自己猜译名**：优先在现有代码里找权威译名——`item-tier-config.ts` 里若已有
 该装备的 `nameCN` 字段直接用；没有的话查 `game/scripts/vscripts/bot/bot_item_data.lua` 或其他英雄配置
 里出现过的同装备注释。都找不到时，去 `game/resource/addon_schinese.txt` 搜
