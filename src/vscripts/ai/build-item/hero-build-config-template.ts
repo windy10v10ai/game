@@ -205,7 +205,6 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
       'item_hand_of_midas', // 金手指
     ],
     [ItemTier.T2]: [
-      'item_kaya', // 慧光
       'item_octarine_core', // 玲珑心
       'item_rod_of_atos', // 阿托斯之棍
       'item_glimmer_cape', // 微光披风

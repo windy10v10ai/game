@@ -74,12 +74,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T1,
     cost: 500,
   },
-  item_talisman_of_evasion: {
-    name: 'item_talisman_of_evasion',
-    nameCN: '闪避护符',
-    tier: ItemTier.T1,
-    cost: 1300,
-  },
   item_quelling_blade_2_datadriven: {
     name: 'item_quelling_blade_2_datadriven',
     nameCN: '毒瘤之刃',
@@ -215,12 +209,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2150,
   },
-  item_eagle: {
-    name: 'item_eagle',
-    nameCN: '鹰歌弓',
-    tier: ItemTier.T2,
-    cost: 2800,
-  },
   item_vladmir: {
     name: 'item_vladmir',
     nameCN: '弗拉迪米尔的祭品',
@@ -316,12 +304,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2875,
     upgrades: ['item_abyssal_blade', 'item_abyssal_blade_v2'],
-  },
-  item_diffusal_blade: {
-    name: 'item_diffusal_blade',
-    nameCN: '净魂之刃',
-    tier: ItemTier.T2,
-    cost: 2500,
   },
 
   // 高价T2装备

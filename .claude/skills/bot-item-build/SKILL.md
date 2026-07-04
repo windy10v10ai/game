@@ -78,6 +78,14 @@ description: >-
   `item_ultimate_scepter_2`、`item_aghanims_shard`、`item_moon_shard_datadriven`、
   `item_tome_of_strength`/`item_tome_of_agility`/`item_tome_of_intelligence`。
   这些不进入 `targetItemsByTier` 候选池提案，混进来会和自动购买逻辑重复。
+- **`sell-item-config.ts` 的 `SellItemCommonJunkList` 里的装备**（`item_magic_wand` 和「消耗品」
+  段落里列出的几件除外——它们是设计上就该用完即扔的一次性/早期消耗品）：这份列表是背包超过出售阈值
+  （7~9件，`SellItem.GetSellThreshold`）时 `SellCommonJunkItems` **无条件**优先出售的清单。
+  `RemoveCurrentTierItems` 只保护"当前正在购买的这一 tier"，一旦出装进度推进到下一 tier，前面买的、
+  但在这份名单里的装备就会在下次背包超阈值时被半价甩卖——不管是不是特意买的。CSV 信号再强也不能用
+  （如 `item_diffusal_blade`、`item_eagle`、`item_talisman_of_evasion`、裸的
+  `item_kaya`/`item_sange`/`item_yasha`）。**每次生成候选池前必须对照这份列表逐条过滤**，不要只凭
+  tier 归属和信号强度判断。
 
 ---
 

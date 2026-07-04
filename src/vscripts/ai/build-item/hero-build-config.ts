@@ -139,18 +139,17 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_wand', // 魔杖
         'item_hand_of_midas', // 金手指
         'item_quelling_blade_2_datadriven', // 毒瘤之刃
-        'item_talisman_of_evasion', // 闪避护符
+        'item_vanguard', // 先锋盾
       ],
       [ItemTier.T2]: [
         'item_bfury', // 狂战斧
         'item_sange_and_yasha', // 散夜对剑
         'item_basher', // 碎颅锤
-        'item_diffusal_blade', // 净魂之刃
-        'item_eagle', // 鹰歌弓
         'item_hand_of_group', // 团队之手
         'item_desolator', // 黯灭
         'item_octarine_core', // 玲珑心
         'item_aether_lens_2', // 以太透镜2
+        'item_monkey_king_bar', // 金箍棒
       ],
       [ItemTier.T3]: [
         'item_greater_crit', // 代达罗斯之殇
@@ -211,19 +210,18 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_falcon_blade', // 猎鹰战刃
         'item_mask_of_madness', // 疯狂面具
         'item_magic_wand', // 魔杖
-        'item_talisman_of_evasion', // 闪避护符
         'item_bracer', // 护腕
       ],
       [ItemTier.T2]: [
         'item_hurricane_pike', // 飓风长戟
         'item_hand_of_group', // 团队之手
         'item_desolator', // 黯灭
-        'item_eagle', // 鹰歌弓
         'item_force_staff', // 原力法杖
         'item_black_king_bar', // 黑皇杖
         'item_shotgun', // 双管霰弹枪
         'item_sange_and_yasha', // 散夜对剑
         'item_monkey_king_bar', // 金箍棒
+        'item_aether_lens_2', // 以太透镜2
       ],
       [ItemTier.T3]: [
         'item_hurricane_pike_2', // 大推推
@@ -297,8 +295,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hurricane_pike', // 飓风长戟
         'item_black_king_bar', // 黑皇杖
         'item_desolator', // 黯灭
-        'item_kaya', // 慧光
         'item_shivas_guard', // 希瓦的守护
+        'item_aether_lens_2', // 以太透镜2
       ],
       [ItemTier.T3]: [
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
@@ -344,19 +342,19 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_wraith_band', // 怨灵细带
         'item_falcon_blade', // 猎鹰战刃
         'item_magic_wand', // 魔杖
-        'item_talisman_of_evasion', // 闪避护符
         'item_hand_of_midas', // 金手指
         'item_mask_of_madness', // 疯狂面具
+        'item_soul_ring', // 灵魂之戒
       ],
       [ItemTier.T2]: [
         'item_desolator', // 黯灭
         'item_sange_and_yasha', // 散夜对剑
-        'item_eagle', // 鹰歌弓
         'item_hand_of_group', // 团队之手
         'item_hurricane_pike', // 飓风长戟
         'item_black_king_bar', // 黑皇杖
         'item_bfury', // 狂战斧
         'item_shotgun', // 双管霰弹枪
+        'item_monkey_king_bar', // 金箍棒
       ],
       [ItemTier.T3]: [
         'item_hurricane_pike_2', // 大推推
