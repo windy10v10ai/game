@@ -808,6 +808,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     prerequisite: 'item_butterfly',
     upgrades: ['item_wasp_golden'],
   },
+  item_hydras_breath: {
+    name: 'item_hydras_breath',
+    nameCN: '怪蛇之息',
+    tier: ItemTier.T3,
+    cost: 5900,
+    upgrades: ['item_hydras_breath_2'],
+  },
 
   // ===== T4: 后期装备 (10000-30000金) =====
   item_shotgun_v2: {
@@ -925,6 +932,20 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 13800,
     prerequisite: 'item_heart',
+  },
+  item_hydras_breath_2: {
+    name: 'item_hydras_breath_2',
+    nameCN: '神器·千年毒蛟之息',
+    tier: ItemTier.T4,
+    cost: 20000,
+    prerequisite: 'item_hydras_breath',
+  },
+  item_armlet_artifact: {
+    name: 'item_armlet_artifact',
+    nameCN: '神器·光暗臂章',
+    tier: ItemTier.T4,
+    cost: 18500,
+    prerequisite: 'item_armlet_pro_max',
   },
   item_shivas_guard_2: {
     name: 'item_shivas_guard_2',

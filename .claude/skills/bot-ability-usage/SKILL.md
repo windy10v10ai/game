@@ -53,7 +53,6 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 | `AbilityBehavior` | 决定 cast 调用方式 | dispatcher 自动按 `UNIT_TARGET / POINT / AOE / NO_TARGET` 派发，**spec 不用关心** |
 | `AbilityUnitTargetTeam` | 决定 `TargetSide` | `ENEMY` → `EnemyHero/EnemyCreep/EnemyBuilding`；`FRIENDLY` → `FriendlyHero/FriendlyBuilding`；技能仅作用施法者 → `Self` |
 | `AbilityUnitTargetType` | 区分英雄/小兵/建筑 | 含 `HERO` 用 `*Hero`；仅 `BASIC/CREEP` 用 `EnemyCreep`；含 `BUILDING` 用 `*Building`；同一技能多种合法目标且语义合理时**注册多条 spec**（如冰霜魔盾对友方英雄 + 友方建筑） |
-| `AbilityUnitTargetFlags` 含 `INVULNERABLE` | 友方建筑通常带无敌（未暴露的塔），`aroundFriendlyBuildings` 已包含无敌目标 | 对友方建筑的技能（如 `lich_frost_shield`）天然可用 |
 | `AbilityCastRange` | 施法距离 | **dispatcher 会自动按 cast range + 施法距离加成过滤目标**，spec 通常**不要**手写 `range.lte` |
 
 如该技能是 `PASSIVE` 或纯 `NO_TARGET` 自身 buff 不需要选目标 → `TargetSide.Self`。
