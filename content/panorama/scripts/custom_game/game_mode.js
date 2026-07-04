@@ -161,7 +161,7 @@ function UnLockOptionAll() {
   $('#mid_only_mode').enabled = true;
 }
 
-// N1-N6 通用设置
+// N1-N8 通用设置
 function InitDifficultyCommonSetting() {
   $('#radiant_player_number_dropdown').SetSelected('1');
   $('#dire_player_number_dropdown').SetSelected('10');
@@ -237,6 +237,15 @@ function InitN7Setting() {
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
   $('#starting_gold_bot_dropdown').SetSelected('5000');
+}
+function InitN8Setting() {
+  $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
+  $('#bot_gold_xp_multiplier_dropdown').SetSelected('15');
+
+  $('#tower_power_dropdown').SetSelected('400');
+
+  $('#starting_gold_player_dropdown').SetSelected('3000');
+  $('#starting_gold_bot_dropdown').SetSelected('10000');
 }
 // -------- send to server --------
 function StateChange() {
@@ -416,6 +425,8 @@ function OnDifficultyDropDownChanged(difficulty) {
       InitN6Setting();
     } else if (optionId === 7) {
       InitN7Setting();
+    } else if (optionId === 8) {
+      InitN8Setting();
     }
     LockOption();
   }

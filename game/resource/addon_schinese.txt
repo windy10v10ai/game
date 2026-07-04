@@ -25,6 +25,7 @@
 		"game_difficulty_n5"		"N5"
 		"game_difficulty_n6"		"N6"
 		"game_difficulty_n7"		"N7"
+		"game_difficulty_n8"		"N8"
 
 		// 选项名称
 		"player_gold_xp_multiplier"	"天辉金钱/经验倍率"
@@ -76,7 +77,7 @@
 		"game_preset_remember"			"保存难度设置"
 		"custom_game_vote"				"投票倒计时"
 		"map_dota_warning"				"当前地图无法选择此难度。<br>想选择N1~N5难度时，请在游戏开始前选择 [Dota] 地图"
-		"map_hard_warning"				"当前地图无法选择此难度。<br>想选择N6或N7难度时，请在游戏开始前选择 [HARD] 地图"
+		"map_hard_warning"				"当前地图无法选择此难度。<br>想选择N6、N7或N8难度时，请在游戏开始前选择 [HARD] 地图"
 		"map_custom_warning"			"当前地图无法选择此难度。<br>想选择自定义难度时，请在游戏开始前选择 [Custom] 地图"
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
