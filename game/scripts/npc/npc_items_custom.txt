@@ -1902,6 +1902,7 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AllowedInBackpack"				"1"
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -1930,6 +1931,7 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AllowedInBackpack"				"1"
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -1958,6 +1960,7 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AllowedInBackpack"				"1"
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -4134,6 +4137,7 @@
 		"IsTempestDoubleClonable"		"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"AllowedInBackpack"				"1"
 		"AbilityValues"
 		{
 			"bonus_all_stats"			"100"

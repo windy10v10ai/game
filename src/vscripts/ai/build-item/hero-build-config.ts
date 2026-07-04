@@ -77,6 +77,57 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
     },
   },
+  // 血魔
+  npc_dota_hero_bloodseeker: {
+    template: HeroTemplate.AgilityCarryMelee,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_hand_of_midas', // 金手指
+        'item_phase_boots', // 相位鞋
+        'item_wraith_band', // 怨灵细带
+        'item_vanguard', // 先锋盾
+        'item_orb_of_corrosion', // 腐蚀之珠
+        'item_magic_wand', // 魔棒
+        'item_falcon_blade', // 猎鹰战刃
+      ],
+      [ItemTier.T2]: [
+        'item_basher', // 碎颅锤
+        'item_echo_sabre_2', // 音速战刃
+        'item_sange_and_yasha', // 散夜对剑
+        'item_black_king_bar', // 黑皇杖
+        'item_bfury', // 狂战斧
+        'item_hand_of_group', // 团队之手
+        'item_desolator', // 黯灭
+      ],
+      [ItemTier.T3]: [
+        'item_mjollnir', // 雷神之锤
+        'item_wasp_callous', // 大核荣耀冷酷
+        'item_radiance_2', // 圣焰之光
+        'item_satanic', // 撒旦之邪力
+        'item_butterfly', // 蝴蝶刀
+        'item_dodo_desolator', // 黯灭头
+        'item_sacred_trident', // 三叉戟
+      ],
+      [ItemTier.T4]: [
+        'item_blue_fantasy', // 苍蓝幻想
+        'item_monkey_king_bar_2', // 定海神针
+        'item_abyssal_blade_v2', // 一闪
+        'item_infernal_desolator', // 绝对破防之刃
+        'item_wasp_golden', // 黄金大核荣耀
+        'item_black_king_bar_2', // 真·BKB
+        'item_excalibur', // EX咖喱棒
+      ],
+      [ItemTier.T5]: [
+        'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_magic_sword', // 魔渊剑
+        'item_ten_thousand_swords', // 万剑归宗
+        'item_switchable_crit_blade', // 归海一刀
+        'item_beast_armor', // 兽化甲
+        'item_time_gem', // 时间宝石
+        'item_magic_crit_blade', // 魔龙狂舞
+      ],
+    },
+  },
   // ===== 敏捷核心英雄(远程) =====
 
   npc_dota_hero_luna: {

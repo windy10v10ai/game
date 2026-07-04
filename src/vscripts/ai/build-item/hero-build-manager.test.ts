@@ -27,6 +27,8 @@ function createMockHero(ownedItems: string[] = []) {
     },
     AddItemByName: (itemName: string) => ({ GetName: () => itemName }),
     SpendGold: jest.fn(),
+    CastAbilityNoTarget: jest.fn(),
+    GetPlayerOwnerID: () => 0,
   } as unknown as CDOTA_BaseNPC_Hero;
 }
 

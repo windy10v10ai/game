@@ -150,6 +150,14 @@ tier 目标数量 > 6（而不是 ≥ 6）的根本原因。
 - 若 canonical tier 本身需要调整（如某装备价格上偏离价格规则被特意定为另一档），在
   `item-tier-config.ts` 对应条目旁加注释说明原因
 
+### 7.1 首次迁移新英雄时的额外注册
+
+当为一个**之前未使用新出装系统的英雄**首次添加 `hero-build-config.ts` 配置时，还必须注册到以下 3 个地方（后续走 skill 调整已有英雄的配置时不需要重复此步骤，因为已经注册过了）：
+
+1. **`src/vscripts/ai/hero/bot-base.ts`** 的 `NEW_BUILD_SYSTEM_HEROES` 静态记录：这是 TS 侧判定英雄使用新/老出装系统的唯一来源（替代了原先在每个 hero 文件里 `override useNewBuildSystem: boolean = true` 的做法）。在记录中添加一行：`['npc_dota_hero_<name>']: true,`，按字母顺序排列。
+2. **`game/scripts/vscripts/events.lua`** 的 `excludeHeroes` 表：如果不在这里排除，该英雄会被额外添加 `modifier_bot_think_strategy`（老 Lua 系统的旧 AI 逻辑），必须阻止。在表内新增一行：`["npc_dota_hero_<name>"] = true,`，按字母顺序插入。
+3. **`src/vscripts/ai/hero/hero-<name>.ts`**：如果该英雄还没有对应的 TS 英雄 AI 文件，需要创建。内容参考已有文件（如 `hero-bane.ts`），只需 `@registerModifier` 装饰器 + 继承 `BotBaseAIModifier`，**不需要** `override useNewBuildSystem` 字段（集中列表已经接管此判断）。
+
 ---
 
 ## 第八步：一致性校验
