@@ -503,7 +503,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-		"ItemCost"						"6800"
+		"ItemCost"						"5700"
 		"ItemShopTags"					"damage;armor;int;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bm;blade mail;blademail"
@@ -1677,7 +1677,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8975"
+		"ItemCost"						"10100"
 		"ItemShopTags"					"damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"mkb;monkey king bar"
@@ -2307,7 +2307,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16000"
+		"ItemCost"						"15000"
 		"ItemShopTags"					"damage;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"infernal Desolator"
@@ -2889,7 +2889,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16800"
+		"ItemCost"						"16700"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bluefantasy;blue fantasy;diffusal blade;disperser;nullifier;spirit vessel"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
@@ -3158,7 +3158,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"9000"
+		"ItemCost"						"10000"
 		"ItemShopTags"					"speed"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMC;butterfly;crystalis;lesser crit"
@@ -3502,7 +3502,7 @@
 		"AbilitySharedCooldown"			"echo_sabre"
 		"AbilityTextureName"			"item_echo_sabre_2"
 		"AbilityManaCost"				"0"
-		"ItemCost"						"3625"
+		"ItemCost"						"4325"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -3830,7 +3830,7 @@
 		"AbilityManaCost"				"250"
 		"AbilitySharedCooldown"			"blink"
 
-		"ItemCost"						"21000"
+		"ItemCost"						"15650"
 		"ItemAliases"					"blink dagger;arcane blink;swift blink;overwhelming blink;fallen sky;meteor hammer"
 
 		"AbilityValues"
@@ -3913,7 +3913,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"16000"
+		"ItemCost"						"15050"
 		"ItemShopTags"					"damage;attack_speed;unique"
 		"ItemQuality"					"artifact"
 		"ItemAliases"					"gleipnir;gliepnir;glaypnir"
@@ -4393,7 +4393,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"ID"	"3092"
 		"ItemQuality"	"rare"
-		"ItemCost"	"0"
+		"ItemCost"	"11200"
 		"ItemDeclarations"	"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
 		"ItemShopTags"	"armor"
 		"ItemAliases"	"saint white lotus orb;"
@@ -6080,7 +6080,7 @@
 		"AbilityCastPoint"			"0.0"
 		"AbilityCooldown"			"0.0"	// 冷却由Lua动态控制
 
-		"ItemCost"					"60000"
+		"ItemCost"					"70000"
 		"ItemShopTags"				"damage;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6156,7 +6156,7 @@
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"60000"
+		"ItemCost"					"57800"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
@@ -6270,6 +6270,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"			"1"
 
+		"ItemCost"					"50600"
 		"ItemShopTags"				"str;health;regen;armor;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6716,7 +6717,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"19800"
+		"ItemCost"					"67900"
 		"ItemShopTags"				"move_speed;boost_mana;mana_pool"
 		"ItemQuality"				"rare"
 		"ItemAliases"				"mana;mb;refresh core;refresher orb;octarine core"
@@ -6775,6 +6776,8 @@
 		"AbilityCastPoint"			"0.0"
 		"AbilityCooldown"			"40.0"
 		"AbilityManaCost"			"300"
+
+		"ItemCost"					"57300"
 
 		"AbilityValues"
 		{
@@ -6979,7 +6982,7 @@
 		"AbilityCooldown"			"20.0"
 		"AbilityManaCost"			"600"
 
-		"ItemCost"					"35000"
+		"ItemCost"					"55900"
 		"ItemShopTags"				"damage;armor;int;hard_to_tag"
 		"ItemQuality"				"artifact"
 		"ItemAliases"				"beast armor"
@@ -7200,7 +7203,7 @@
 		"AbilityCooldown"				"20.0"
 		"AbilityManaCost"				"150"
 
-		"ItemCost"						"25000"
+		"ItemCost"						"59000"
 		"ItemShopTags"					"damage;agi;hard_to_tag"
 		"ItemQuality"					"artifact"
 

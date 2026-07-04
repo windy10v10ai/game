@@ -54,7 +54,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_magic_wand: {
     name: 'item_magic_wand',
     tier: ItemTier.T1,
-    cost: 450,
+    cost: 460,
     upgrades: ['item_holy_locket'],
   },
   item_bracer: { name: 'item_bracer', tier: ItemTier.T1, cost: 500 },
@@ -139,12 +139,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_arcane_boots: {
     name: 'item_arcane_boots',
     tier: ItemTier.T1,
-    cost: 1400,
+    cost: 1500,
   },
   item_phase_boots: {
     name: 'item_phase_boots',
     tier: ItemTier.T1,
-    cost: 1500,
+    cost: 1450,
     upgrades: ['item_adi_king', 'item_adi_king_plus'],
   },
 
@@ -229,7 +229,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_blade_mail: {
     name: 'item_blade_mail',
     tier: ItemTier.T2,
-    cost: 2300,
+    cost: 2400,
     upgrades: ['item_blade_mail_2'],
   },
   item_aether_lens: {
@@ -400,7 +400,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_monkey_king_bar: {
     name: 'item_monkey_king_bar',
     tier: ItemTier.T2,
-    cost: 4700,
+    cost: 5000,
     upgrades: ['item_monkey_king_bar_2'],
   },
   item_radiance: {
@@ -458,8 +458,8 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   },
   item_guardian_greaves: {
     name: 'item_guardian_greaves',
-    tier: ItemTier.T3,
-    cost: 5050,
+    tier: ItemTier.T2,
+    cost: 4450,
     upgrades: ['item_guardian_greaves_artifact'],
   },
   item_greater_crit: {
@@ -474,8 +474,8 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   },
   item_shivas_guard: {
     name: 'item_shivas_guard',
-    tier: ItemTier.T3,
-    cost: 5175,
+    tier: ItemTier.T2,
+    cost: 4500,
     upgrades: ['item_shivas_guard_2'],
   },
   item_sheepstick: {
@@ -532,7 +532,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_blade_mail_2: {
     name: 'item_blade_mail_2',
     tier: ItemTier.T3,
-    cost: 5600,
+    cost: 5700,
     prerequisite: 'item_blade_mail',
   },
   item_rapier: {
@@ -631,7 +631,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_dodo_desolator: {
     name: 'item_dodo_desolator',
     tier: ItemTier.T3,
-    cost: 8600,
+    cost: 8000,
     prerequisite: 'item_desolator',
     upgrades: ['item_infernal_desolator'],
   },
@@ -672,8 +672,8 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   },
   item_monkey_king_bar_2: {
     name: 'item_monkey_king_bar_2',
-    tier: ItemTier.T3,
-    cost: 9800,
+    tier: ItemTier.T4,
+    cost: 10100,
     prerequisite: 'item_monkey_king_bar',
   },
   item_angels_demise: {
@@ -751,7 +751,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_saint_orb: {
     name: 'item_saint_orb',
     tier: ItemTier.T4,
-    cost: 11000,
+    cost: 11200,
     prerequisite: 'item_lotus_orb',
   },
   item_manta_2: {
@@ -806,7 +806,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_shivas_guard_2: {
     name: 'item_shivas_guard_2',
     tier: ItemTier.T4,
-    cost: 14000,
+    cost: 13000,
     prerequisite: 'item_shivas_guard',
   },
   item_kaya_and_sange_1: {
@@ -824,13 +824,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_gungir_2: {
     name: 'item_gungir_2',
     tier: ItemTier.T4,
-    cost: 15000,
+    cost: 15050,
     prerequisite: 'item_gungir',
   },
   item_infernal_desolator: {
     name: 'item_infernal_desolator',
     tier: ItemTier.T4,
-    cost: 15600,
+    cost: 15000,
     prerequisite: 'item_dodo_desolator',
     upgrades: ['item_magic_sword'],
   },
@@ -850,7 +850,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_necronomicon_staff: {
     name: 'item_necronomicon_staff',
     tier: ItemTier.T4,
-    cost: 16000,
+    cost: 13000,
     prerequisite: 'item_sheepstick',
   },
   item_force_field_ultra: {
@@ -861,25 +861,25 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_blue_fantasy: {
     name: 'item_blue_fantasy',
     tier: ItemTier.T4,
-    cost: 16745,
+    cost: 16700,
   },
   item_hallowed_scepter: {
     name: 'item_hallowed_scepter',
     tier: ItemTier.T4,
-    cost: 16800,
+    cost: 15800,
     prerequisite: 'item_magic_scepter',
     upgrades: ['item_magic_crit_blade'],
   },
   item_refresh_core: {
     name: 'item_refresh_core',
     tier: ItemTier.T4,
-    cost: 19800,
+    cost: 19900,
     prerequisite: 'item_arcane_octarine_core',
   },
   item_guardian_greaves_artifact: {
     name: 'item_guardian_greaves_artifact',
     tier: ItemTier.T4,
-    cost: 19900,
+    cost: 16800,
     prerequisite: 'item_guardian_greaves',
   },
   item_tome_of_agility: {
@@ -906,7 +906,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_excalibur: {
     name: 'item_excalibur',
     tier: ItemTier.T4,
-    cost: 29800,
+    cost: 30000,
     prerequisite: 'item_monkey_king_bar_2',
     upgrades: ['item_rapier_ultra_bot_1'],
   },
@@ -962,41 +962,41 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_withered_spring: {
     name: 'item_withered_spring',
     tier: ItemTier.T5,
-    cost: 65649,
+    cost: 50600,
     prerequisite: 'item_undying_heart',
   },
   item_magic_crit_blade: {
     name: 'item_magic_crit_blade',
     tier: ItemTier.T5,
-    cost: 65999,
+    cost: 57800,
     prerequisite: 'item_hallowed_scepter',
   },
   item_beast_armor: {
     name: 'item_beast_armor',
     tier: ItemTier.T5,
-    cost: 66599,
+    cost: 55900,
   },
   item_magic_sword: {
     name: 'item_magic_sword',
     tier: ItemTier.T5,
-    cost: 69599,
+    cost: 59000,
     prerequisite: 'item_bfury_ultra',
   },
   item_beast_shield: {
     name: 'item_beast_shield',
     tier: ItemTier.T5,
-    cost: 71799,
+    cost: 57300,
   },
   item_time_gem: {
     name: 'item_time_gem',
     tier: ItemTier.T5,
-    cost: 77799,
+    cost: 67900,
     prerequisite: 'item_refresh_core',
   },
   item_switchable_crit_blade: {
     name: 'item_switchable_crit_blade',
     tier: ItemTier.T5,
-    cost: 79799,
+    cost: 70000,
   },
   item_ten_thousand_swords: {
     name: 'item_ten_thousand_swords',

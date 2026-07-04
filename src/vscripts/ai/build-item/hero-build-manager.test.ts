@@ -23,9 +23,7 @@ function createMockHero(ownedItems: string[] = []) {
     GetGold: () => 999999,
     GetItemInSlot: (slot: number) => {
       const itemName = ownedItems[slot];
-      return itemName !== undefined
-        ? { IsNull: () => false, GetName: () => itemName }
-        : undefined;
+      return itemName !== undefined ? { IsNull: () => false, GetName: () => itemName } : undefined;
     },
     AddItemByName: (itemName: string) => ({ GetName: () => itemName }),
     SpendGold: jest.fn(),
