@@ -4,7 +4,7 @@
 
 import { HeroBuilds } from './hero-build-config';
 import { HeroTemplate } from './hero-build-config-template';
-import { InitializeHeroBuild } from './hero-build-state';
+import { GetT5ItemCount, InitializeHeroBuild } from './hero-build-state';
 import { ItemTier } from './item-tier-config';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -280,9 +280,23 @@ describe('InitializeHeroBuild', () => {
     expect(result.resolvedItems[ItemTier.T4]).toEqual([]);
   });
 
-  it('难度倍率 < 9 时 T5 不解锁，resolvedItems[T5] 为空数组', () => {
-    global.GameRules.Option.direGoldXpMultiplier = 5;
-    const mockHero = createMockHero('npc_dota_hero_test_t5_locked');
+  it('GetT5ItemCount 阶梯边界值', () => {
+    expect(GetT5ItemCount(2.9)).toBe(0);
+    expect(GetT5ItemCount(3)).toBe(1);
+    expect(GetT5ItemCount(4.9)).toBe(1);
+    expect(GetT5ItemCount(5)).toBe(2);
+    expect(GetT5ItemCount(6.9)).toBe(2);
+    expect(GetT5ItemCount(7)).toBe(3);
+    expect(GetT5ItemCount(8.9)).toBe(3);
+    expect(GetT5ItemCount(9)).toBe(5);
+    expect(GetT5ItemCount(11.9)).toBe(5);
+    expect(GetT5ItemCount(12)).toBe(6);
+    expect(GetT5ItemCount(100)).toBe(6);
+  });
+
+  it('难度倍率 = 2 时 T5 阶梯为 0，resolvedItems[T5] 为空数组', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 2;
+    const mockHero = createMockHero('npc_dota_hero_test_t5_zero');
     const config = {
       template: HeroTemplate.StrengthTank,
     };
@@ -292,16 +306,42 @@ describe('InitializeHeroBuild', () => {
     expect(result.resolvedItems[ItemTier.T5]).toEqual([]);
   });
 
-  it('难度倍率 >= 9 时 T5 解锁，resolvedItems[T5] 非空', () => {
-    global.GameRules.Option.direGoldXpMultiplier = 10;
-    const mockHero = createMockHero('npc_dota_hero_test_t5_unlocked');
+  it('难度倍率 = 7 时 T5 阶梯为 3，resolvedItems[T5] 长度为 3 且每项均来自候选池', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 7;
+    const mockHero = createMockHero('npc_dota_hero_test_t5_three');
     const config = {
       template: HeroTemplate.StrengthTank,
     };
 
     const result = InitializeHeroBuild(mockHero, config);
 
-    expect(result.resolvedItems[ItemTier.T5].length).toBeGreaterThan(0);
+    const templateT5Pool = ['item_beast_shield', 'item_beast_armor', 'item_withered_spring'];
+    expect(result.resolvedItems[ItemTier.T5].length).toBe(3);
+    for (const item of result.resolvedItems[ItemTier.T5]) {
+      expect(templateT5Pool).toContain(item);
+    }
+  });
+
+  it('难度倍率 = 12 时 T5 阶梯为 6，resolvedItems[T5] 长度为 6（候选池 >= 6 项）', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 12;
+    const mockHero = createMockHero('npc_dota_hero_test_t5_six');
+    const config = {
+      template: HeroTemplate.StrengthTank,
+      targetItemsByTier: {
+        [ItemTier.T5]: [
+          'item_beast_shield',
+          'item_beast_armor',
+          'item_withered_spring',
+          'item_rapier_ultra_bot_1',
+          'item_magic_sword',
+          'item_switchable_crit_blade',
+        ],
+      },
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.resolvedItems[ItemTier.T5].length).toBe(6);
   });
 
   it('新字段初始值正确', () => {

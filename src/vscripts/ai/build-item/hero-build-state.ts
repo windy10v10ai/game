@@ -8,9 +8,6 @@ import { getTemplateConsumablesByTier, getTemplateItemsByTier } from './hero-bui
 import { getItemConfig, GetItemPrerequisites, ItemTier } from './item-tier-config';
 import { CandidatePoolEntry, SampleWeightedWithoutReplacement } from './weighted-pool';
 
-/** T5 装备解锁所需的最低难度倍率 */
-const T5_UNLOCK_MULTIPLIER = 9;
-
 /** 每个 tier 装备槽位上限 */
 const MAX_ITEMS_PER_TIER = 6;
 
@@ -69,13 +66,11 @@ export function InitializeHeroBuild(
     [ItemTier.T5]: [],
   };
 
-  const t5Unlocked = GameRules.Option.direGoldXpMultiplier >= T5_UNLOCK_MULTIPLIER;
-  const tiersToResolve = t5Unlocked
-    ? [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4, ItemTier.T5]
-    : [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4];
+  const multiplier = GameRules.Option.direGoldXpMultiplier;
+  const tiersToResolve = [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4, ItemTier.T5];
 
   // 每个 tier 二选一候选池（英雄专属优先，否则用模板），加权抽取补满槽位
-  SampleTierItems(config, resolvedItems, tiersToResolve);
+  SampleTierItems(config, resolvedItems, tiersToResolve, multiplier);
 
   // 消耗品直接复制模板全部条目，不做抽样
   FillTemplateConsumables(config, consumables, tiersToResolve);
@@ -109,20 +104,42 @@ export function InitializeHeroBuild(
 }
 
 /**
+ * 按难度倍率返回 T5 装备槽位数（难度阶梯，替代原先的硬解锁阈值）
+ */
+export function GetT5ItemCount(multiplier: number): number {
+  if (multiplier < 3) {
+    return 0;
+  } else if (multiplier < 5) {
+    return 1;
+  } else if (multiplier < 7) {
+    return 2;
+  } else if (multiplier < 9) {
+    return 3;
+  } else if (multiplier < 12) {
+    return 5;
+  } else {
+    return 6;
+  }
+}
+
+/**
  * 每个 tier 选出唯一有效候选池（英雄专属池优先于模板池），加权抽取补满槽位
  * @param config 英雄出装配置
  * @param resolvedItems 装备记录
- * @param tiers 需要解析的 tier 列表（T5 未解锁时不包含 T5）
+ * @param tiers 需要解析的 tier 列表
+ * @param multiplier 难度倍率，决定 T5 槽位数
  */
 function SampleTierItems(
   config: HeroBuildConfig,
   resolvedItems: Record<number, string[]>,
   tiers: ItemTier[],
+  multiplier: number,
 ): void {
   for (const tier of tiers) {
     const heroPool = config.targetItemsByTier?.[tier];
     const pool: CandidatePoolEntry[] = heroPool ?? getTemplateItemsByTier(config.template, tier);
-    resolvedItems[tier] = SampleWeightedWithoutReplacement(pool, MAX_ITEMS_PER_TIER);
+    const slotCount = tier === ItemTier.T5 ? GetT5ItemCount(multiplier) : MAX_ITEMS_PER_TIER;
+    resolvedItems[tier] = SampleWeightedWithoutReplacement(pool, slotCount);
   }
 }
 
@@ -161,7 +178,7 @@ function FillPrerequisiteItems(resolvedItems: Record<number, string[]>): void {
  * 复制模板消耗品到每个待解析 tier（不做抽样，与装备候选池选取无关）
  * @param config 英雄出装配置
  * @param consumables 消耗品列表（按tier分组）
- * @param tiers 需要解析的 tier 列表（T5 未解锁时不包含 T5）
+ * @param tiers 需要解析的 tier 列表
  */
 function FillTemplateConsumables(
   config: HeroBuildConfig,
