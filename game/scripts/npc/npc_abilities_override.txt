@@ -10680,25 +10680,20 @@
 			"multicast_2_times"
 			{
 				"value"		"75 80 85 90"
-				// Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
-				"special_bonus_facet_ogre_magi_fat_chance" "+0"
-				"dynamic_value"		"true"
 			}
 
 			"multicast_3_times"
 			{
 				"value"		"15 30 45 60"
-				// Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
-				"special_bonus_facet_ogre_magi_fat_chance" "+0"
-				"dynamic_value"		"true"
 			}
 
 			"multicast_4_times"
 			{
 				"value"		"5 10 15 20"
-				// Have the bonus listed here so the value shows as modified, actual modification is done by strenght_mult
-				"special_bonus_facet_ogre_magi_fat_chance" "+0"
-				"dynamic_value"		"true"
+			}
+			"strength_for_one_pct"
+			{
+				"value"				"30"
 			}
 		}
 	}
