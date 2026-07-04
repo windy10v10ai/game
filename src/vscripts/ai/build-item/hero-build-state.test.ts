@@ -3,7 +3,7 @@
  */
 
 import { HeroBuilds } from './hero-build-config';
-import { HeroTemplate } from './hero-build-config-template';
+import { GetTomePurchaseCap, HeroTemplate } from './hero-build-config-template';
 import { GetT5ItemCount, InitializeHeroBuild } from './hero-build-state';
 import { ItemTier } from './item-tier-config';
 
@@ -356,6 +356,18 @@ describe('InitializeHeroBuild', () => {
     expect(result.luoshuPurchased).toBe(false);
     expect(result.tomePurchasedCount).toBe(0);
     expect(result.heroPrimaryAttribute).toBe(Attributes.INTELLECT);
+  });
+
+  it('tomePurchaseCap 在初始化时按当前难度倍率冻结', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 6;
+    const mockHero = createMockHero('npc_dota_hero_test_tome_cap');
+    const config = {
+      template: HeroTemplate.MagicalCarry,
+    };
+
+    const result = InitializeHeroBuild(mockHero, config);
+
+    expect(result.tomePurchaseCap).toBe(GetTomePurchaseCap(6));
   });
 
   // abaddon实际测试

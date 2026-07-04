@@ -2,6 +2,7 @@
  * 测试 HeroBuildManager 的购买流程接入 tome 阶段
  */
 
+import { GetTomePurchaseCap } from './hero-build-config-template';
 import { HeroBuildManager } from './hero-build-manager';
 import { HeroBuildState } from './hero-build-state';
 import { ItemTier } from './item-tier-config';
@@ -49,6 +50,7 @@ function createBuildState(overrides: Partial<HeroBuildState> = {}): HeroBuildSta
     tomePhase: false,
     luoshuPurchased: false,
     tomePurchasedCount: 0,
+    tomePurchaseCap: GetTomePurchaseCap(1),
     heroPrimaryAttribute: Attributes.STRENGTH,
     ...overrides,
   };
@@ -123,13 +125,13 @@ describe('HeroBuildManager.TryPurchaseItem - tome 阶段', () => {
   });
 
   it('luoshuPurchased 为 true 且 tomePurchasedCount 小于难度上限时，购买属性书', () => {
-    global.GameRules.Option.direGoldXpMultiplier = 6; // GetTomePurchaseCap(6) === 20
     const hero = createMockHero();
     const buildState = createBuildState({
       currentTier: ItemTier.T5,
       tomePhase: true,
       luoshuPurchased: true,
       tomePurchasedCount: 5,
+      tomePurchaseCap: GetTomePurchaseCap(6), // 冻结值 20，与实时难度倍率无关
     });
 
     const result = HeroBuildManager.TryPurchaseItem(hero, buildState);
@@ -139,14 +141,14 @@ describe('HeroBuildManager.TryPurchaseItem - tome 阶段', () => {
     expect(buildState.luoshuPurchased).toBe(true);
   });
 
-  it('tomePurchasedCount 已达到难度上限时，不再购买属性书', () => {
-    global.GameRules.Option.direGoldXpMultiplier = 6; // GetTomePurchaseCap(6) === 20
+  it('tomePurchasedCount 已达到冻结上限时，不再购买属性书', () => {
     const hero = createMockHero();
     const buildState = createBuildState({
       currentTier: ItemTier.T5,
       tomePhase: true,
       luoshuPurchased: true,
       tomePurchasedCount: 20,
+      tomePurchaseCap: GetTomePurchaseCap(6), // 冻结值 20
     });
 
     const result = HeroBuildManager.TryPurchaseItem(hero, buildState);
@@ -155,14 +157,33 @@ describe('HeroBuildManager.TryPurchaseItem - tome 阶段', () => {
     expect(buildState.tomePurchasedCount).toBe(20);
   });
 
-  it('heroPrimaryAttribute 不在 PrimaryAttributeTomeWeights 映射中时，不购买且不抛出', () => {
-    global.GameRules.Option.direGoldXpMultiplier = 6; // GetTomePurchaseCap(6) === 20
+  it('冻结的 tomePurchaseCap 与实时难度倍率算出的上限不同时，购买判定使用冻结值而非实时重新计算', () => {
+    // 若实时读取 direGoldXpMultiplier，上限应为 GetTomePurchaseCap(6) === 20，仍可购买
+    // 但 buildState 冻结的 tomePurchaseCap 被显式设为 5，已达冻结上限，不应购买
+    global.GameRules.Option.direGoldXpMultiplier = 6;
     const hero = createMockHero();
     const buildState = createBuildState({
       currentTier: ItemTier.T5,
       tomePhase: true,
       luoshuPurchased: true,
       tomePurchasedCount: 5,
+      tomePurchaseCap: 5,
+    });
+
+    const result = HeroBuildManager.TryPurchaseItem(hero, buildState);
+
+    expect(result).toBe(false);
+    expect(buildState.tomePurchasedCount).toBe(5);
+  });
+
+  it('heroPrimaryAttribute 不在 PrimaryAttributeTomeWeights 映射中时，不购买且不抛出', () => {
+    const hero = createMockHero();
+    const buildState = createBuildState({
+      currentTier: ItemTier.T5,
+      tomePhase: true,
+      luoshuPurchased: true,
+      tomePurchasedCount: 5,
+      tomePurchaseCap: GetTomePurchaseCap(6),
       heroPrimaryAttribute: Attributes.INVALID,
     });
 

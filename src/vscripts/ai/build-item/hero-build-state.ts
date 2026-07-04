@@ -4,7 +4,11 @@
  */
 
 import { HeroBuildConfig } from './hero-build-config';
-import { getTemplateConsumablesByTier, getTemplateItemsByTier } from './hero-build-config-template';
+import {
+  getTemplateConsumablesByTier,
+  getTemplateItemsByTier,
+  GetTomePurchaseCap,
+} from './hero-build-config-template';
 import { getItemConfig, GetItemPrerequisites, ItemTier } from './item-tier-config';
 import { CandidatePoolEntry, SampleWeightedWithoutReplacement } from './weighted-pool';
 
@@ -36,6 +40,9 @@ export interface HeroBuildState {
 
   /** 已购买的属性之书数量 */
   tomePurchasedCount: number;
+
+  /** tome 购买上限，初始化时按当前难度倍率冻结，避免游戏内难度变化影响已在进行的出装 */
+  tomePurchaseCap: number;
 
   /** 英雄主属性（用于 tome 阶段加权） */
   heroPrimaryAttribute: Attributes;
@@ -99,6 +106,7 @@ export function InitializeHeroBuild(
     tomePhase: false,
     luoshuPurchased: false,
     tomePurchasedCount: 0,
+    tomePurchaseCap: GetTomePurchaseCap(multiplier),
     heroPrimaryAttribute: hero.GetPrimaryAttribute(),
   };
 }

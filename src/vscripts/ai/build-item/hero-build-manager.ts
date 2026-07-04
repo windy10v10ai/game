@@ -3,7 +3,7 @@
  * 负责决策购买哪些装备、何时出售旧装备
  */
 
-import { GetTomePurchaseCap, PrimaryAttributeTomeWeights } from './hero-build-config-template';
+import { PrimaryAttributeTomeWeights } from './hero-build-config-template';
 import { HeroBuildState } from './hero-build-state';
 import { ItemTier } from './item-tier-config';
 import { PickWeightedOne } from './weighted-pool';
@@ -193,7 +193,7 @@ export class HeroBuildManager {
       return result;
     }
 
-    const cap = GetTomePurchaseCap(GameRules.Option.direGoldXpMultiplier);
+    const cap = buildState.tomePurchaseCap;
     if (buildState.tomePurchasedCount >= cap) {
       return false;
     }
