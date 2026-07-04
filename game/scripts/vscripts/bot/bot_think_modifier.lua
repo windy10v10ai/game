@@ -41,9 +41,6 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	if hAbility5 and hAbility5:IsInAbilityPhase() then return end
 	if hAbility6 and hAbility6:IsInAbilityPhase() then return end
 
-	-- item use
-	if BotItemThink:UseActiveItem(hHero) then return end
-
 	-- ability use
 	if hHero:IsSilenced() then return end
 	if BotAbilityThink:ThinkUseAbility(hHero) then return end

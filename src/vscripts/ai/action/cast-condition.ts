@@ -54,6 +54,10 @@ export interface CastCoindition {
       count?: NumberRange;
       range?: number;
     };
+    /**
+     * 要求施法者当前全部技能的剩余冷却时间总和落在此区间才施法（如刷新球，只在冷却压力大时使用）。
+     */
+    abilityCooldownTotal?: NumberRange;
   };
   ability?: AbilityCoindition;
   action?: {
@@ -92,6 +96,10 @@ export interface UnitCondition {
   hasShard?: boolean;
   noModifier?: string;
   notActionable?: boolean;
+  /**
+   * 排除远古野（大龙/小龙等）。
+   */
+  excludeAncient?: boolean;
   /**
    * 比较目标绝对 HP 与技能的 special value（已含天赋加成）。
    * lte: true → target.HP ≤ effectiveDamage（技能可击杀目标）
@@ -200,6 +208,9 @@ export function CheckUnitConditionFailure(
     return true;
   }
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
+    return true;
+  }
+  if (unitCondition.excludeAncient && unit.IsAncient()) {
     return true;
   }
 
