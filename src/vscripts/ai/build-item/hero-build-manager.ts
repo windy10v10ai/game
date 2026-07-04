@@ -87,6 +87,22 @@ export class HeroBuildManager {
   }
 
   /**
+   * 获取英雄随身物品数量（0-8号槽位，不含储藏室），用于购买上限判断
+   * @param hero 英雄单位
+   * @returns 随身物品数量
+   */
+  public static GetFieldItemCount(hero: CDOTA_BaseNPC_Hero): number {
+    let count = 0;
+    for (let i = 0; i < 9; i++) {
+      const item = hero.GetItemInSlot(i);
+      if (item && !item.IsNull()) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  /**
    * 尝试购买装备
    * @param hero 英雄单位
    * @param buildState 出装状态
@@ -231,8 +247,8 @@ export class HeroBuildManager {
     if (currentItems.includes(itemName)) {
       return false;
     }
-    // 拥有9件物品时，不购买
-    if (currentItems.length >= 9) {
+    // 随身9格已满时，不购买（储藏室物品不占随身格子，不计入此判断）
+    if (this.GetFieldItemCount(hero) >= 9) {
       return false;
     }
     const cost = GetItemCost(itemName);
