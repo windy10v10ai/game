@@ -318,7 +318,8 @@ export class SellItem {
   }
 
   /**
-   * 从物品Map中移除英雄当前tier的物品
+   * 从物品Map中移除受保护的装备
+   * tome 阶段出装已定型，保护全部 tier；否则只保护当前 tier
    * @param itemsMap 物品Map
    * @param buildState 出装状态
    */
@@ -326,12 +327,14 @@ export class SellItem {
     itemsMap: Map<string, CDOTA_Item[]>,
     buildState: HeroBuildState,
   ): void {
-    const currentTier = buildState.currentTier;
-    const currentTierItems = buildState.resolvedItems[currentTier];
+    const tiers = buildState.tomePhase
+      ? [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4, ItemTier.T5]
+      : [buildState.currentTier];
 
-    // 移除当前tier的普通装备
-    for (const itemName of currentTierItems) {
-      itemsMap.delete(itemName);
+    for (const tier of tiers) {
+      for (const itemName of buildState.resolvedItems[tier]) {
+        itemsMap.delete(itemName);
+      }
     }
   }
 

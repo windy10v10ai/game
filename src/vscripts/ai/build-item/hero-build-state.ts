@@ -85,18 +85,21 @@ export function InitializeHeroBuild(
   // 为高 tier 装备补全前置装备（每个 tier 最多 6 个）
   FillPrerequisiteItems(resolvedItems);
 
+  const toNames = (names: string[]) =>
+    names.map((name) => getItemConfig(name)?.nameCN ?? name).join(', ');
+
   print(
     `[AI] InitializeHeroBuild ${hero.GetUnitName()} 初始化出装:\n` +
-      `  T1: ${resolvedItems[ItemTier.T1].join(', ')}\n` +
-      `  T2: ${resolvedItems[ItemTier.T2].join(', ')}\n` +
-      `  T3: ${resolvedItems[ItemTier.T3].join(', ')}\n` +
-      `  T4: ${resolvedItems[ItemTier.T4].join(', ')}\n` +
-      `  T5: ${resolvedItems[ItemTier.T5].join(', ')}\n` +
-      `  消耗品 T1: ${consumables[ItemTier.T1].join(', ')}\n` +
-      `  消耗品 T2: ${consumables[ItemTier.T2].join(', ')}\n` +
-      `  消耗品 T3: ${consumables[ItemTier.T3].join(', ')}\n` +
-      `  消耗品 T4: ${consumables[ItemTier.T4].join(', ')}\n` +
-      `  消耗品 T5: ${consumables[ItemTier.T5].join(', ')}`,
+      `  T1: ${toNames(resolvedItems[ItemTier.T1])}\n` +
+      `  T2: ${toNames(resolvedItems[ItemTier.T2])}\n` +
+      `  T3: ${toNames(resolvedItems[ItemTier.T3])}\n` +
+      `  T4: ${toNames(resolvedItems[ItemTier.T4])}\n` +
+      `  T5: ${toNames(resolvedItems[ItemTier.T5])}\n` +
+      `  消耗品 T1: ${toNames(consumables[ItemTier.T1])}\n` +
+      `  消耗品 T2: ${toNames(consumables[ItemTier.T2])}\n` +
+      `  消耗品 T3: ${toNames(consumables[ItemTier.T3])}\n` +
+      `  消耗品 T4: ${toNames(consumables[ItemTier.T4])}\n` +
+      `  消耗品 T5: ${toNames(consumables[ItemTier.T5])}`,
   );
 
   return {
