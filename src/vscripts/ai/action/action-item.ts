@@ -1,6 +1,14 @@
 import { GetFullCastRange } from '../ability/ability-cast';
 import { CastCoindition, CheckUnitConditionFailure, IsAbilityBehavior } from './cast-condition';
 
+// 属性天赋书购买时主栏常满，只能落进备用栏，豁免备用栏排除避免卡死无法消耗
+const TOME_ITEMS_USEABLE_FROM_BACKPACK = [
+  'item_tome_of_luoshu',
+  'item_tome_of_strength',
+  'item_tome_of_agility',
+  'item_tome_of_intelligence',
+];
+
 export class ActionItem {
   // ---------------------------------------------------------
   // Item usage 使用物品
@@ -85,8 +93,12 @@ export class ActionItem {
       return undefined;
     }
     const itemSlot = item.GetItemSlot();
-    // 如果在备用物品栏中 则不可用
-    if (itemSlot >= InventorySlot.SLOT_7 && itemSlot <= InventorySlot.SLOT_9) {
+    // 如果在备用物品栏中 则不可用（天赋书豁免，主栏满时购买只能落入备用栏）
+    if (
+      !TOME_ITEMS_USEABLE_FROM_BACKPACK.includes(itemName) &&
+      itemSlot >= InventorySlot.SLOT_7 &&
+      itemSlot <= InventorySlot.SLOT_9
+    ) {
       return undefined;
     }
     if (this.IsItemCastable(hero, item) === false) {
