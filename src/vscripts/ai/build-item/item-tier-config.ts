@@ -947,6 +947,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 14000,
     prerequisite: 'item_sange_and_yasha',
   },
+  item_yasha_and_kaya_1: {
+    name: 'item_yasha_and_kaya_1',
+    nameCN: '神器·慧夜对剑',
+    tier: ItemTier.T4,
+    cost: 14000,
+    prerequisite: 'item_yasha_and_kaya',
+  },
   item_gungir_2: {
     name: 'item_gungir_2',
     nameCN: '风暴之锤',

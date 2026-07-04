@@ -270,7 +270,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_blink', // 大智力跳刀
         'item_gungir_2', // 风暴之锤
         'item_arcane_octarine_core', // 阿卡尼玲珑心
-        'item_devastator_2', // 神圣斧
+        'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_sacred_six_vein', // 六脉神剑
       ],
       [ItemTier.T5]: [
@@ -548,7 +548,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_necronomicon_staff', // 死灵法师权杖
         'item_shivas_guard_2', // 希瓦的守护2
         'item_arcane_octarine_core', // 阿卡尼玲珑心
-        'item_black_king_bar_2', // 天神杖
+        'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_sacred_six_vein', // 六脉神剑
       ],
