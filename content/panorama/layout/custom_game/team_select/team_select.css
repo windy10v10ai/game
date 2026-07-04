@@ -40,6 +40,9 @@
 .difficultyChoice.fullWidth {
   width: 47%;
 }
+.difficultyChoice.thirdWidth {
+  width: 31%;
+}
 .difficultyChoice.selected {
   background-color: gradient(linear, 0% 0%, 0% 100%, from(#838383cc), to(#2c2c2ccc));
   box-shadow: 0px 0px 5px 0px rgba(102, 102, 102, 0.8);

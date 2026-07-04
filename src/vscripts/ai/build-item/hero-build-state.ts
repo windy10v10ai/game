@@ -131,6 +131,8 @@ export function GetT5ItemCount(multiplier: number): number {
   } else if (multiplier < 9) {
     return 3;
   } else if (multiplier < 12) {
+    return 4;
+  } else if (multiplier < 15) {
     return 5;
   } else {
     return 6;
