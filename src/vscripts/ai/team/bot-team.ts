@@ -50,8 +50,10 @@ export class BotTeam {
       this.baseBotPushMin = RandomInt(11, 13);
     } else if (botGoldXpMultiplier <= 10) {
       this.baseBotPushMin = RandomInt(9, 11);
-    } else if (botGoldXpMultiplier <= 15) {
+    } else if (botGoldXpMultiplier <= 12) {
       this.baseBotPushMin = RandomInt(7, 9);
+    } else if (botGoldXpMultiplier <= 15) {
+      this.baseBotPushMin = RandomInt(6, 8);
     } else if (botGoldXpMultiplier <= 20) {
       this.baseBotPushMin = RandomInt(5, 7);
     } else {

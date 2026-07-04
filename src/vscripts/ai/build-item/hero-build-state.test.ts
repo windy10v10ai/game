@@ -288,9 +288,10 @@ describe('InitializeHeroBuild', () => {
     expect(GetT5ItemCount(6.9)).toBe(2);
     expect(GetT5ItemCount(7)).toBe(3);
     expect(GetT5ItemCount(8.9)).toBe(3);
-    expect(GetT5ItemCount(9)).toBe(5);
-    expect(GetT5ItemCount(11.9)).toBe(5);
-    expect(GetT5ItemCount(12)).toBe(6);
+    expect(GetT5ItemCount(9)).toBe(4);
+    expect(GetT5ItemCount(11.9)).toBe(4);
+    expect(GetT5ItemCount(12)).toBe(5);
+    expect(GetT5ItemCount(15)).toBe(6);
     expect(GetT5ItemCount(100)).toBe(6);
   });
 
@@ -322,8 +323,8 @@ describe('InitializeHeroBuild', () => {
     }
   });
 
-  it('难度倍率 = 12 时 T5 阶梯为 6，resolvedItems[T5] 长度为 6（候选池 >= 6 项）', () => {
-    global.GameRules.Option.direGoldXpMultiplier = 12;
+  it('难度倍率 = 15 时 T5 阶梯为 6，resolvedItems[T5] 长度为 6（候选池 >= 6 项）', () => {
+    global.GameRules.Option.direGoldXpMultiplier = 15;
     const mockHero = createMockHero('npc_dota_hero_test_t5_six');
     const config = {
       template: HeroTemplate.StrengthTank,

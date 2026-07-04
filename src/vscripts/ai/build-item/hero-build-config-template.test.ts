@@ -38,9 +38,8 @@ describe('GetTomePurchaseCap', () => {
     [6, 20],
     [9.9, 20],
     [10, 30],
-    [19.9, 30],
-    [20, 45],
-    [39.9, 45],
+    [15, 60],
+    [20, 60],
     [40, 60],
     [100, 60],
   ])('returns %d cap for multiplier %d', (multiplier, expectedCap) => {

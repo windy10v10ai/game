@@ -78,6 +78,8 @@ export class GameEndPoint {
         return 2.1;
       case 7:
         return 2.2;
+      case 8:
+        return 2.3;
       default:
         // 自定义模式
         return this.GetCustomModeMultiplier(option);

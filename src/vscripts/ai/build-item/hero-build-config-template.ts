@@ -324,10 +324,8 @@ export function GetTomePurchaseCap(multiplier: number): number {
     return 12;
   } else if (multiplier < 10) {
     return 20;
-  } else if (multiplier < 20) {
+  } else if (multiplier < 15) {
     return 30;
-  } else if (multiplier < 40) {
-    return 45;
   } else {
     return 60;
   }
