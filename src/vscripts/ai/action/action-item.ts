@@ -58,9 +58,6 @@ export class ActionItem {
 
   /**
    * 使用无目标物品
-   * @param hero 英雄单位
-   * @param itemName 物品名称
-   * @returns 是否成功使用
    */
   static UseItemNoTarget(hero: CDOTA_BaseNPC_Hero, itemName: string): boolean {
     const item = this.FindItemInInventoryUseable(hero, itemName);
@@ -74,7 +71,7 @@ export class ActionItem {
   }
 
   /**
-   * 寻找可用的物品，检测是否可以施法
+   * 寻找可用的物品，检测是否可以施法（只看主栏 0~5 号格）
    */
   static FindItemInInventoryUseable(
     hero: CDOTA_BaseNPC_Hero,
@@ -85,8 +82,8 @@ export class ActionItem {
       return undefined;
     }
     const itemSlot = item.GetItemSlot();
-    // 如果在备用物品栏中 则不可用
-    if (itemSlot >= InventorySlot.SLOT_7 && itemSlot <= InventorySlot.SLOT_9) {
+    // 不在主栏（0~5号格）中则不可用
+    if (itemSlot > 5) {
       return undefined;
     }
     if (this.IsItemCastable(hero, item) === false) {

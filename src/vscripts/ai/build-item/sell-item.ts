@@ -55,6 +55,27 @@ export class SellItem {
   }
 
   /**
+   * 获取英雄随身物品栏（0-8号槽位，不含储藏室）的物品Map，用于判断是否触发出售
+   * @param hero 英雄单位
+   * @returns Map<物品名称, 物品对象数组> - 支持同名重复物品
+   */
+  static GetFieldItemsMap(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item[]> {
+    const itemsMap = new Map<string, CDOTA_Item[]>();
+    for (let i = 0; i < 9; i++) {
+      const item = hero.GetItemInSlot(i);
+      if (item) {
+        const itemName = item.GetName();
+        if (!itemsMap.has(itemName)) {
+          itemsMap.set(itemName, []);
+        }
+        itemsMap.get(itemName)!.push(item);
+      }
+    }
+
+    return itemsMap;
+  }
+
+  /**
    * 尝试出售指定物品，如果成功则返回true，否则返回false
    * @param hero 英雄单位
    * @param items 物品数组
@@ -318,7 +339,8 @@ export class SellItem {
   }
 
   /**
-   * 从物品Map中移除英雄当前tier的物品
+   * 从物品Map中移除受保护的装备
+   * tome 阶段出装已定型，保护全部 tier；否则只保护当前 tier
    * @param itemsMap 物品Map
    * @param buildState 出装状态
    */
@@ -326,12 +348,14 @@ export class SellItem {
     itemsMap: Map<string, CDOTA_Item[]>,
     buildState: HeroBuildState,
   ): void {
-    const currentTier = buildState.currentTier;
-    const currentTierItems = buildState.resolvedItems[currentTier];
+    const tiers = buildState.tomePhase
+      ? [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4, ItemTier.T5]
+      : [buildState.currentTier];
 
-    // 移除当前tier的普通装备
-    for (const itemName of currentTierItems) {
-      itemsMap.delete(itemName);
+    for (const tier of tiers) {
+      for (const itemName of buildState.resolvedItems[tier]) {
+        itemsMap.delete(itemName);
+      }
     }
   }
 
@@ -342,22 +366,19 @@ export class SellItem {
    * @returns 是否出售了物品
    */
   static SellExtraItems(hero: CDOTA_BaseNPC_Hero, buildState?: HeroBuildState): boolean {
-    // 获取物品Map
-    const itemsMap = this.GetItemsMapIncludeStash(hero);
-
-    // 计算总物品数量
-    let totalItemCount = 0;
-    for (const items of itemsMap.values()) {
-      totalItemCount += items.length;
+    // 出售阈值只看随身物品（不含储藏室），避免储藏室堆积物品误触发出售
+    const fieldItemsMap = this.GetFieldItemsMap(hero);
+    let fieldItemCount = 0;
+    for (const items of fieldItemsMap.values()) {
+      fieldItemCount += items.length;
     }
-
-    // 获取出售阈值
-    const sellThreshold = this.GetSellThreshold(itemsMap);
-
-    // 物品栏未达到阈值，不需要出售
-    if (totalItemCount < sellThreshold) {
+    const sellThreshold = this.GetSellThreshold(fieldItemsMap);
+    if (fieldItemCount < sellThreshold) {
       return false;
     }
+
+    // 触发出售后，仍在随身+储藏室全部范围内寻找出售目标
+    const itemsMap = this.GetItemsMapIncludeStash(hero);
 
     // 如果提供了buildState，移除当前tier的物品，防止出售购买死循环
     if (buildState) {

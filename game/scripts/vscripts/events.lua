@@ -114,6 +114,7 @@ function AIGameMode:OnNPCSpawned(keys)
                     ["npc_dota_hero_abaddon"] = true,
                     ["npc_dota_hero_axe"] = true,
                     ["npc_dota_hero_bane"] = true,
+                    ["npc_dota_hero_bloodseeker"] = true,
                     ["npc_dota_hero_bounty_hunter"] = true,
                 }
                 if not excludeHeroes[sName] then
