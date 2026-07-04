@@ -79,11 +79,13 @@ description: >-
   `item_tome_of_strength`/`item_tome_of_agility`/`item_tome_of_intelligence`。
   这些不进入 `targetItemsByTier` 候选池提案，混进来会和自动购买逻辑重复。
 - **`sell-item-config.ts` 的 `SellItemCommonJunkList` 里的装备**（`item_magic_wand` 和「消耗品」
-  段落里列出的几件除外——它们是设计上就该用完即扔的一次性/早期消耗品）：这份列表是背包满时**无条件**
-  优先出售的清单，不看是不是本次 tier 特意买的。放进候选池的装备一旦进入这份名单，后期库存一满就会
-  被半价甩卖，等于白买。CSV 信号再强也不能用（如 `item_diffusal_blade`、`item_eagle`、
-  `item_talisman_of_evasion`、裸的 `item_kaya`/`item_sange`/`item_yasha`）。**每次生成候选池前必须
-  对照这份列表逐条过滤**，不要只凭 tier 归属和信号强度判断。
+  段落里列出的几件除外——它们是设计上就该用完即扔的一次性/早期消耗品）：这份列表是背包超过出售阈值
+  （7~9件，`SellItem.GetSellThreshold`）时 `SellCommonJunkItems` **无条件**优先出售的清单。
+  `RemoveCurrentTierItems` 只保护"当前正在购买的这一 tier"，一旦出装进度推进到下一 tier，前面买的、
+  但在这份名单里的装备就会在下次背包超阈值时被半价甩卖——不管是不是特意买的。CSV 信号再强也不能用
+  （如 `item_diffusal_blade`、`item_eagle`、`item_talisman_of_evasion`、裸的
+  `item_kaya`/`item_sange`/`item_yasha`）。**每次生成候选池前必须对照这份列表逐条过滤**，不要只凭
+  tier 归属和信号强度判断。
 
 ---
 
@@ -99,6 +101,12 @@ description: >-
 补上这条配置：`cost` 取 CSV 的「Average 金钱」列（同一装备各行数值应一致，可与命名/功能相近的同价位
 装备互相印证），`tier` 按该 cost 对照本节的价格区间表得出。补完后再按正常流程把它纳入候选。只有当信号
 很弱（个位数、极低事件数）或明显是过时/已改名的历史装备时才跳过。
+
+**`ItemQuality: "component"` 的装备即使信号很强也跳过**：在 `docs/reference/<version>/items.txt`
+查该装备的 `ItemQuality` 字段——标为 `"component"` 说明官方就把它定位为合成中间件（如
+`item_orb_of_venom`、`item_helm_of_iron_will`、`item_diadem`），不是玩家会长期持有的终局装备，
+不应作为候选池目标，无论 CSV 事件数多高都跳过。`"secret_shop"`、`"artifact"` 等其他 quality 标签
+才是可以正常收录的终局装备。
 
 **`nameCN` 取值来源，禁止自己猜译名**：优先在现有代码里找权威译名——`item-tier-config.ts` 里若已有
 该装备的 `nameCN` 字段直接用；没有的话查 `game/scripts/vscripts/bot/bot_item_data.lua` 或其他英雄配置
@@ -150,6 +158,13 @@ description: >-
 `sell-item-config.ts` 的 `ItemUpgradeReplacements`：如果两件候选是同一功能槽位的不同分支
 （如多种鞋子、或某组件与其"合成成品"没有 sell-replacement 关系），只留其中一件，其余用别的非冲突装备替代。
 
+**同一 `prerequisite` 的平行分支同理，不只是鞋子**：`item-tier-config.ts` 里两件装备如果
+`prerequisite` 字段指向同一个下位装备（如 `item_wasp_callous` 和 `item_wasp_despotic` 都以
+`item_butterfly` 为前置，分别升级到蝴蝶的两条不同分支），它们是**互斥的平行分支**，不是互补装备——
+两者都不在对方的 `ItemUpgradeReplacements` 里，买了不会互相顶替出售，会被同时买下白白浪费金钱。
+添加候选前扫一遍 `item-tier-config.ts` 找出所有共享同一 `prerequisite` 的装备组，同一 tier 只保留
+其中信号最强的一个（前置装备本身，如 `item_butterfly`，可以和分支之一共存，因为分支会顶替前置）。
+
 ---
 
 ## 第六步：展示提案，等待确认
@@ -194,9 +209,10 @@ description: >-
 放 scratchpad 目录即可）解析 `hero-build-config.ts` / `hero-build-config-template.ts` 里每个
 `[ItemTier.Tn]: [...]` 区块中的装备名，对照 `item-tier-config.ts` 的 `tier` 字段，确认 0 处不一致。
 
-同时检查第 5.1 节的互斥组问题：至少要扫描"鞋子互斥组"（`item_boots`/`item_power_treads`/
-`item_arcane_boots`/`item_phase_boots`/`item_tranquil_boots`）在每个英雄每个 tier 里是否同时出现
-2 件以上，若有则必须修复。
+同时检查第 5.1 节的互斥组问题：脚本里从 `item-tier-config.ts` 解析出所有共享同一 `prerequisite`
+的装备分组（鞋子互斥组 `item_boots`/`item_power_treads`/`item_arcane_boots`/`item_phase_boots`/
+`item_tranquil_boots` 只是其中一种，`item_wasp_callous`/`item_wasp_despotic` 这类共享同一前置的
+平行分支同理），逐组扫描每个英雄每个 tier 是否同时出现 2 件以上，若有则必须修复。
 
 然后运行：
 ```bash
