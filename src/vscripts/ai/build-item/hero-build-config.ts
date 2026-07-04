@@ -173,19 +173,114 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     },
   },
 
+  npc_dota_hero_windrunner: {
+    template: HeroTemplate.AgilityCarryRanged,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_power_treads', // 动力鞋
+        'item_magic_wand', // 魔杖
+        'item_hand_of_midas', // 金手指
+        'item_mask_of_madness', // 疯狂面具
+        'item_wraith_band', // 怨灵细带
+        'item_vanguard', // 先锋盾
+        'item_falcon_blade', // 猎鹰战刃
+      ],
+      [ItemTier.T2]: [
+        'item_hand_of_group', // 团队之手
+        'item_monkey_king_bar', // 金箍棒
+        'item_desolator', // 黯灭
+        'item_hurricane_pike', // 飓风长戟
+        'item_black_king_bar', // 黑皇杖
+        'item_shotgun', // 双管霰弹枪
+        'item_octarine_core', // 玲珑心
+        'item_aether_lens_2', // 以太透镜2
+        'item_sange_and_yasha', // 散夜对剑
+      ],
+      [ItemTier.T3]: [
+        'item_wasp_despotic', // 大核荣耀暴虐
+        'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
+        'item_greater_crit', // 代达罗斯之殇
+        'item_mjollnir', // 雷神之锤
+        'item_dodo_desolator', // 黯灭头
+        'item_shotgun_v2', // 三管霰弹枪
+        'item_sacred_trident', // 三叉戟
+        'item_satanic', // 撒旦之邪力
+      ],
+      [ItemTier.T4]: [
+        'item_infernal_desolator', // 绝对破防之刃
+        'item_black_king_bar_2', // 天神杖
+        'item_monkey_king_bar_2', // 定海神针
+        'item_wasp_golden', // 黄金大核荣耀
+        'item_skadi_2', // 粘妈之眼
+        'item_excalibur', // EX咖喱棒
+        'item_sacred_six_vein', // 六脉神剑
+        'item_refresh_core', // 熔火核心
+      ],
+      [ItemTier.T5]: [
+        'item_swift_glove', // 无限手套
+        'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_hawkeye_turret', // 鹰眼炮台
+        'item_switchable_crit_blade', // 归海一刀
+        'item_ten_thousand_swords', // 万剑归宗
+        'item_magic_sword', // 魔渊剑
+        'item_time_gem', // 时间宝石
+        'item_dracula_mask', // 生命之盔
+      ],
+    },
+  },
+
   // ===== 法师核心英雄 =====
 
   npc_dota_hero_lion: {
     template: HeroTemplate.MagicalCarry,
     targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_tranquil_boots', // 静谧之鞋
+        'item_null_talisman', // 空灵挂件
+        'item_hand_of_midas', // 金手指
+        'item_magic_wand', // 魔杖
+        'item_soul_ring', // 灵魂之戒
+        'item_wraith_band', // 怨灵细带
+        'item_falcon_blade', // 猎鹰战刃
+      ],
+      [ItemTier.T2]: [
+        'item_aether_lens_2', // 以太透镜2
+        'item_hand_of_group', // 团队之手
+        'item_blink', // 闪烁匕首
+        'item_glimmer_cape', // 微光披风
+        'item_force_staff', // 原力法杖
+        'item_octarine_core', // 玲珑心
+        'item_refresher', // 刷新球
+        'item_rod_of_atos', // 阿托斯之棍
+      ],
       [ItemTier.T3]: [
         'item_aeon_pendant', // 永恒坠饰
+        'item_phylactery', // 灵匣
+        'item_angels_demise', // 绝刃
+        'item_dagon_5', // 达贡之神力
+        'item_magic_scepter', // 魔云法杖
+        'item_arcane_blink_2', // 秘奥闪光
+        'item_sheepstick', // 邪恶镰刀
       ],
       [ItemTier.T4]: [
         'item_hallowed_scepter', // 神圣魔法权杖
         'item_necronomicon_staff', // 死灵法师权杖
         'item_refresh_core', // 熔火核心
         'item_arcane_blink', // 大智力跳刀
+        'item_gungir_2', // 风暴之锤
+        'item_arcane_octarine_core', // 奥术之心
+        'item_yasha_and_kaya_1', // 神器·慧夜对剑
+        'item_sacred_six_vein', // 六脉神剑
+      ],
+      [ItemTier.T5]: [
+        'item_time_gem', // 时间宝石
+        'item_magic_crit_blade', // 魔龙狂舞
+        'item_ten_thousand_swords', // 万剑
+        'item_forbidden_staff', // 禁忌法杖
+        'item_withered_spring', // 生命之心
+        'item_dracula_mask', // 生命之盔
+        'item_beast_armor', // 兽化甲
+        'item_swift_glove', // 无限手套
       ],
     },
   },
@@ -381,7 +476,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
         'item_shivas_guard_2', // 希瓦的守护2
         'item_hallowed_scepter', // 仙云法杖
-        'item_arcane_octarine_core', // 阿卡尼玲珑心
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -408,6 +503,62 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hallowed_scepter', // 神圣魔法权杖
         'item_necronomicon_staff', // 死灵法师权杖
         'item_refresh_core', // 熔火核心
+      ],
+    },
+  },
+
+  // 巫妖
+  npc_dota_hero_lich: {
+    template: HeroTemplate.Support,
+    targetItemsByTier: {
+      [ItemTier.T1]: [
+        'item_tranquil_boots', // 静谧之鞋
+        'item_null_talisman', // 空灵挂件
+        'item_magic_wand', // 魔杖
+        'item_hand_of_midas', // 金手指
+        'item_soul_ring', // 灵魂之戒
+        'item_wraith_band', // 怨灵细带
+        'item_falcon_blade', // 猎鹰战刃
+      ],
+      [ItemTier.T2]: [
+        'item_aether_lens_2', // 以太透镜2
+        'item_blink', // 闪烁匕首
+        'item_rod_of_atos', // 阿托斯之棍
+        'item_glimmer_cape', // 微光披风
+        'item_force_staff', // 原力法杖
+        'item_octarine_core', // 玲珑心
+        'item_hand_of_group', // 团队之手
+        'item_refresher', // 刷新球
+      ],
+      [ItemTier.T3]: [
+        'item_aeon_pendant', // 永恒坠饰
+        'item_sheepstick', // 邪恶镰刀
+        'item_magic_scepter', // 魔云法杖
+        'item_angels_demise', // 绝刃
+        'item_sacred_trident', // 三叉戟
+        'item_dagon_5', // 达贡之神力
+        'item_orb_of_the_brine', // 苍洋魔珠
+      ],
+      [ItemTier.T4]: [
+        'item_refresh_core', // 熔火核心
+        'item_gungir_2', // 风暴之锤
+        'item_hallowed_scepter', // 神圣魔法权杖
+        'item_necronomicon_staff', // 死灵法师权杖
+        'item_shivas_guard_2', // 希瓦的守护2
+        'item_arcane_octarine_core', // 奥术之心
+        'item_yasha_and_kaya_1', // 神器·慧夜对剑
+        'item_kaya_and_sange_1', // 神器·散慧对剑
+        'item_sacred_six_vein', // 六脉神剑
+      ],
+      [ItemTier.T5]: [
+        'item_time_gem', // 时间宝石
+        'item_magic_crit_blade', // 魔龙狂舞
+        'item_withered_spring', // 生命之心
+        'item_ten_thousand_swords', // 万剑
+        'item_forbidden_staff', // 禁忌法杖
+        'item_shadow_impact', // 暗影咒灭
+        'item_beast_armor', // 兽化甲
+        'item_beast_shield', // 兽化盾
       ],
     },
   },

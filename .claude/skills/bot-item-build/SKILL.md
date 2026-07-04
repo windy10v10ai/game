@@ -4,7 +4,7 @@ description: >-
   基于 bot（英雄_BOT.csv）与玩家（英雄_玩家.csv）出装统计 CSV（列：物品,英雄,Average 时长_秒,胜率,事件数,Average 金钱），
   按装备在 src/vscripts/ai/build-item/item-tier-config.ts 的 canonical tier 过滤数据，
   为 src/vscripts/ai/build-item/hero-build-config.ts / hero-build-config-template.ts 的候选池生成扩充建议：
-  bot 数据优先、玩家数据补充、同英雄模板兜底，目标每个 tier 候选数 > 6（MAX_ITEMS_PER_TIER=6 的抽样上限）。
+  bot 数据优先、玩家数据补充、同英雄模板兜底，目标每个 tier 候选数 7~9（MAX_ITEMS_PER_TIER=6 的抽样上限）。
   与用户确认后执行编辑并校验 tier 一致性。
 ---
 
@@ -29,8 +29,9 @@ description: >-
 `{ item, weight }` 才能自定义权重。排序、分组只是给人看的，不影响游戏内行为。
 
 **候选池 ≤ 6 件时，抽样等于原样返回，没有随机性**；必须 **> 6** 件才能让"这把和上把出的不一样"，
-也才能留出以后根据胜率数据继续优化候选池的空间（正好卡在 6 就没有改进余地了）。这是本 skill 每个
-tier 目标数量 > 6（而不是 ≥ 6）的根本原因。
+也才能留出以后根据胜率数据继续优化候选池的空间（正好卡在 6 就没有改进余地了）。但也不宜无限扩张——
+候选过多会稀释每件装备的实际入选概率、增加后续维护和人工核对成本。这是本 skill 每个 tier 目标数量
+定为 **7~9**（而不是恰好 6，也不超过 9）的根本原因。
 
 ### Tier 归属规则（`item-tier-config.ts`）
 
@@ -61,7 +62,9 @@ tier 目标数量 > 6（而不是 ≥ 6）的根本原因。
 至少需要一份；两份都有时按下文"数据优先级"处理。CSV 格式：
 `物品,英雄,Average 时长_秒,胜率,事件数,Average 金钱`（表头行跳过）。
 
-确认本次要调整的英雄范围（英雄内部代号，如 `npc_dota_hero_axe`）。
+确认本次要调整的英雄范围（英雄内部代号，如 `npc_dota_hero_axe`）。若用户给出的是英雄中文名（如
+「风行者」「莱恩」），在 `npc_heroes.txt`（`docs/reference/<version>/`）中查出对应的
+`npc_dota_hero_<id>` 系统名，并在回复中明确列出中文名 → 系统名的对照，供用户确认没有认错英雄。
 
 ---
 
@@ -75,6 +78,12 @@ tier 目标数量 > 6（而不是 ≥ 6）的根本原因。
   `item_ultimate_scepter_2`、`item_aghanims_shard`、`item_moon_shard_datadriven`、
   `item_tome_of_strength`/`item_tome_of_agility`/`item_tome_of_intelligence`。
   这些不进入 `targetItemsByTier` 候选池提案，混进来会和自动购买逻辑重复。
+- **`sell-item-config.ts` 的 `SellItemCommonJunkList` 里的装备**（`item_magic_wand` 和「消耗品」
+  段落里列出的几件除外——它们是设计上就该用完即扔的一次性/早期消耗品）：这份列表是背包满时**无条件**
+  优先出售的清单，不看是不是本次 tier 特意买的。放进候选池的装备一旦进入这份名单，后期库存一满就会
+  被半价甩卖，等于白买。CSV 信号再强也不能用（如 `item_diffusal_blade`、`item_eagle`、
+  `item_talisman_of_evasion`、裸的 `item_kaya`/`item_sange`/`item_yasha`）。**每次生成候选池前必须
+  对照这份列表逐条过滤**，不要只凭 tier 归属和信号强度判断。
 
 ---
 
@@ -83,6 +92,18 @@ tier 目标数量 > 6（而不是 ≥ 6）的根本原因。
 读取 `item-tier-config.ts`，取每个装备的 `tier` 字段作为唯一权威依据。**过滤 CSV 数据时用这个字段**，
 不要看装备当前摆在 `hero-build-config.ts` 的哪个 tier 桶里——当前摆放位置可能本身就是待修正的错误
 （例如价格/tier 规则调整后遗留的历史归属）。
+
+**CSV 里出现但 `item-tier-config.ts` 完全没收录的装备**（不属于第二步噪音过滤名单，是真实遗漏）：
+不要因为查不到 tier 就直接跳过或换用别的装备顶替。**信号强（事件数明显不低，尤其是多个英雄反复出现同
+一件未收录装备）时直接自动补录，不需要额外用 AskUserQuestion 确认**——先在 `item-tier-config.ts` 里
+补上这条配置：`cost` 取 CSV 的「Average 金钱」列（同一装备各行数值应一致，可与命名/功能相近的同价位
+装备互相印证），`tier` 按该 cost 对照本节的价格区间表得出。补完后再按正常流程把它纳入候选。只有当信号
+很弱（个位数、极低事件数）或明显是过时/已改名的历史装备时才跳过。
+
+**`nameCN` 取值来源，禁止自己猜译名**：优先在现有代码里找权威译名——`item-tier-config.ts` 里若已有
+该装备的 `nameCN` 字段直接用；没有的话查 `game/scripts/vscripts/bot/bot_item_data.lua` 或其他英雄配置
+里出现过的同装备注释。都找不到时，去 `game/resource/addon_schinese.txt` 搜
+`DOTA_Tooltip_Ability_<item_name>` 键取其值。三处都查不到再询问用户，不要凭印象/相似装备名称推测。
 
 ---
 
@@ -97,17 +118,19 @@ tier 目标数量 > 6（而不是 ≥ 6）的根本原因。
 
 ## 第五步：逐 tier 构建扩充候选（数据优先级）
 
-对每个目标英雄的每个 tier，按以下优先级顺序纳入候选，直到数量 > 6（**不是恰好 6**）：
+对每个目标英雄的每个 tier，按以下优先级顺序纳入候选，直到数量落在 **7~9** 之间（不是恰好 6，也不宜超过 9）：
 
 1. **保留现有池子里的所有装备**
 2. **Bot 数据优先**：该 tier 下、该英雄的 Bot CSV 里出现过的装备，**全部纳入**（不设事件数阈值，
    只要 tier 匹配、非噪音就算，因为这是历史实际购买行为，信号本身就有意义）
-3. **玩家数据补充**：若"现有 + Bot"仍不足 6，从玩家 CSV 按事件数降序取，补到 6 件以上
+3. **玩家数据补充**：若"现有 + Bot"仍不足 7，从玩家 CSV 按事件数降序取，补到 7 件以上
 4. **同英雄模板兜底**：若上述来源仍不够，检查该英雄所用 `HeroTemplate` 里同 tier（或角色定位相近的
    其他 tier，如力量坦克模板的 T5 可能被辅助英雄借用）是否有尚未使用的条目，按角色定位是否合理挑选
 5. **纯角色定位判断**：若以上全部来源都补不出第 7 件（数据彻底稀薄，模板也没有可借的），
    允许挑选一件契合该英雄技能定位、但完全没有数据支撑的装备。这类装备**必须单独列出**，
    用 AskUserQuestion 请用户确认是否认可这个判断，不能自行决定后直接写入配置
+6. **超过 9 件时按信号强度（Bot/玩家事件数之和）裁剪**：数据来源已经足够多、总数超过 9 时，
+   优先保留事件数总和最高的条目，裁掉信号最弱的，不要为了"数据全都要"而堆到两位数
 
 每个候选标注来源（Bot 胜率/事件数、玩家事件数、模板借用、纯判断），供用户在确认阶段判断取舍。
 
@@ -156,7 +179,12 @@ tier 目标数量 > 6（而不是 ≥ 6）的根本原因。
 
 1. **`src/vscripts/ai/hero/bot-base.ts`** 的 `NEW_BUILD_SYSTEM_HEROES` 静态记录：这是 TS 侧判定英雄使用新/老出装系统的唯一来源（替代了原先在每个 hero 文件里 `override useNewBuildSystem: boolean = true` 的做法）。在记录中添加一行：`['npc_dota_hero_<name>']: true,`，按字母顺序排列。
 2. **`game/scripts/vscripts/events.lua`** 的 `excludeHeroes` 表：如果不在这里排除，该英雄会被额外添加 `modifier_bot_think_strategy`（老 Lua 系统的旧 AI 逻辑），必须阻止。在表内新增一行：`["npc_dota_hero_<name>"] = true,`，按字母顺序插入。
-3. **`src/vscripts/ai/hero/hero-<name>.ts`**：如果该英雄还没有对应的 TS 英雄 AI 文件，需要创建。内容参考已有文件（如 `hero-bane.ts`），只需 `@registerModifier` 装饰器 + 继承 `BotBaseAIModifier`，**不需要** `override useNewBuildSystem` 字段（集中列表已经接管此判断）。
+
+以上 2 项对每个首次迁移的英雄都必须做。**不需要**额外新建 `src/vscripts/ai/hero/hero-<name>.ts`：
+`AI.ts` 的 `getModifierName()` 对没有专属判断分支的英雄会默认落到通用的 `BotBaseAIModifier`，
+已迁移的 abaddon/axe/bane/bloodseeker/bounty_hunter 均无专属文件、全部走这条默认路径。只有当英雄
+需要**自定义技能施法逻辑**（超出通用出装/攻击行为）时才新建专属文件并在 `AI.ts` 的
+`getModifierName()` 里加判断分支，参考 `hero-viper.ts`、`hero-drow-ranger.ts` 等既有实现。
 
 ---
 
@@ -182,7 +210,8 @@ npx jest src/vscripts/ai/build-item
 
 - **数据优先级固定**：Bot 优先、玩家补充、模板兜底、纯判断兜底，不跳过前面的层级直接用判断。
 - **纯判断类装备必须 AskUserQuestion 确认**，不得自行决定。
-- **目标是 > 6 件，不是 ≥ 6 件**——正好 6 件没有为后续胜率驱动的迭代留出空间。
+- **目标是 7~9 件，不是恰好 6 件，也不宜超过 9 件**——正好 6 件没有为后续胜率驱动的迭代留出空间，
+  超过 9 件则稀释权重、增加维护成本。
 - **不修改** `MAX_ITEMS_PER_TIER`、`GetT5ItemCount` 难度阶梯、tier 边界规则本身。
 - **注释只写装备中文名**，不写数据来源推导过程；tier 归属修正类改动才附简短原因。
 - **同一 tier 内鞋子（及其他无 sell-replacement 关系的同槽位装备）只能保留一种**，`item_boots`
