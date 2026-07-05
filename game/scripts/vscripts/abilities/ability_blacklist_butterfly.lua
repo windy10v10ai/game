@@ -341,15 +341,4 @@ EXCLUDED_ITEMS = {
     ["earth_spirit_stone_caller"] = true,
     ["muerta_gunslinger"] = true,
     ["troll_warlord_switch_stance"] = true,
-
-    ---圣器
-    ["item_qinglong"] = true,
-    ["item_qinglong_p"] = true,
-    ["item_xuanwu"] = true,
-    ["item_xuanwu_p"] = true,
-    ["item_zhuque"] = true,
-    ["item_zhuque_p"] = true,
-    ["item_baihu"] = true,
-    ["item_baihu_p"] = true,
-    ["item_flight_bar"] = true,
 }

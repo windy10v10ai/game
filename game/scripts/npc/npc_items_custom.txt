@@ -7407,43 +7407,6 @@
 		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 
-	"item_skill_talisman"
-	{
-		"ID"                        "10331"
-		"BaseClass"                 "item_lua"
-		"ScriptFile"                "items/item_skill_talisman"
-		"AbilityTextureName"        "skill_talisman"
-
-		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityCastRange"          "1800"  //
-
-		"ItemCost"                  "1000"
-		"ItemShopTags"              "consumable"
-		"ItemQuality"               "consumable"
-		"ItemStackable"             "1"
-		"ItemPermanent"             "0"
-		"ItemInitialCharges"        "1"
-		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
-		"IsTempestDoubleClonable"   "0"
-
-		"AbilityCastPoint"          "0.0"
-		"AbilityCooldown"           "0.0"
-		"AbilityManaCost"           "0"
-
-		"AbilityValues"
-		{
-			"radius"                "100"  // 用于AOE指示器
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"stored_ability"        "0"
-			}
-		}
-	}
-
 	//=================================================================================================================
 	// item_collector 收纳符
 	//=================================================================================================================
