@@ -97,6 +97,7 @@ no_support_abilitys = {
 	witch_doctor_voodoo_switcheroo = 1,             -- 巫医 魔晶变身（多重会导致英雄消失）
 	doom_bringer_devour = 1,                        -- 末日 吞噬
 	rattletrap_jetpack = 1,                         -- 发条技师 喷气背包
+	enchantress_bunny_hop = 1,                      -- 魅惑魔女 跳跃（Sproink，神杖技能）
 }
 no_support_items = {
 	-- 消耗品
