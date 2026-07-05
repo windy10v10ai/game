@@ -98,6 +98,7 @@ no_support_abilitys = {
 	doom_bringer_devour = 1,                        -- 末日 吞噬
 	rattletrap_jetpack = 1,                         -- 发条技师 喷气背包
 	enchantress_bunny_hop = 1,                      -- 魅惑魔女 跳跃（Sproink，神杖技能）
+	tidehunter_anchor_smash = 1,                    -- 潮汐猎人 锚击
 }
 no_support_items = {
 	-- 消耗品

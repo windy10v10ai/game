@@ -266,6 +266,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["monkey_king_wukongs_command"] = true,
     ["monkey_king_transfiguration"] = true,
 
+    ["tidehunter_anchor_smash"] = true, -- 潮汐猎人 锚击
+
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题
