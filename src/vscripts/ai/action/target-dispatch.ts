@@ -47,7 +47,7 @@ export function TryCastBySpec(
   if (CheckFriendlyCreepNearbyFailure(hero, condition?.self?.friendlyCreepNearby)) {
     return false;
   }
-  if (CheckAbilityCooldownTotalFailure(hero, condition?.self?.abilityCooldownTotal)) {
+  if (CheckCooldownTotalFailure(hero, condition?.self?.cooldownTotal)) {
     return false;
   }
 
@@ -133,23 +133,29 @@ function CheckFriendlyCreepNearbyFailure(
   return CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count);
 }
 
-/** 刷新类：检查所有技能总冷却时间是否落在阈值区间。 */
-function CheckAbilityCooldownTotalFailure(
+/** 刷新类：检查所有技能 + 主栏物品的总冷却时间是否落在阈值区间。 */
+function CheckCooldownTotalFailure(
   hero: CDOTA_BaseNPC_Hero,
-  abilityCooldownTotal: NumberRange | undefined,
+  cooldownTotal: NumberRange | undefined,
 ): boolean {
-  if (!abilityCooldownTotal) {
+  if (!cooldownTotal) {
     return false;
   }
   let totalCooldown = 0;
-  const count = hero.GetAbilityCount();
-  for (let i = 0; i < count; i++) {
+  const abilityCount = hero.GetAbilityCount();
+  for (let i = 0; i < abilityCount; i++) {
     const abil = hero.GetAbilityByIndex(i);
     if (abil) {
       totalCooldown += abil.GetCooldownTimeRemaining();
     }
   }
-  return CheckNumberRangeFailure(totalCooldown, abilityCooldownTotal);
+  for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.SLOT_6; slot++) {
+    const item = hero.GetItemInSlot(slot);
+    if (item) {
+      totalCooldown += item.GetCooldownTimeRemaining();
+    }
+  }
+  return CheckNumberRangeFailure(totalCooldown, cooldownTotal);
 }
 
 function resolveCastPosition(

@@ -60,9 +60,10 @@ export interface CastCoindition {
       range?: number;
     };
     /**
-     * 要求施法者当前全部技能的剩余冷却时间总和落在此区间才施法（如刷新球，只在冷却压力大时使用）。
+     * 要求施法者当前全部技能 + 主栏物品（0~5号槽）的剩余冷却时间总和落在此区间才施法
+     * （如刷新球，只在冷却压力大时使用）。
      */
-    abilityCooldownTotal?: NumberRange;
+    cooldownTotal?: NumberRange;
   };
   ability?: AbilityCoindition;
   action?: {
