@@ -53,7 +53,7 @@ export function registerItemSpecs(): void {
   ItemRegistry.registerAll(adiKing);
   ItemRegistry.registerAll(hawkeyeFighter);
 
-  // B1：NO_TARGET buff + 敌人检测（按 Lua 原距离分段）
+  // B1：NO_TARGET buff + 敌人检测
   ItemRegistry.registerAll(magicScepter);
   ItemRegistry.registerAll(magicSword);
   ItemRegistry.registerAll(waspCallous);
