@@ -34,6 +34,7 @@
 		"ItemPermanent"				"0"
 		"ItemInitialCharges"		"1"
 		"IsTempestDoubleClonable"	"0"
+		// "ItemCanBeUsedWithoutInventory"	"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1902,7 +1903,8 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -1931,7 +1933,8 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -1960,7 +1963,8 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -4137,7 +4141,8 @@
 		"IsTempestDoubleClonable"		"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 			"bonus_all_stats"			"100"
@@ -7358,6 +7363,7 @@
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"300"
+		"ItemCanBeUsedWithoutInventory"	"1"
 		"OnSpellStart"
 		{
 
@@ -7520,6 +7526,7 @@
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"

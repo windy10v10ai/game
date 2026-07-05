@@ -47,6 +47,11 @@ export interface CastCoindition {
      */
     noEnemyHeroInRange?: number;
     /**
+     * 若 self 周围该距离内存在存活的敌方建筑（塔/兵营等），则跳过施法。
+     * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyBuildings 缓存）。
+     */
+    noEnemyBuildingInRange?: number;
+    /**
      * 要求 self 周围存在至少指定数量的友方小兵才施法。
      * range 不填时默认 900。由 dispatcher 在 tryCast 层 inline FindUnitsInRadius 检查。
      */
