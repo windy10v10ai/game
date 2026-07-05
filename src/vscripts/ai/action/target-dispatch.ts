@@ -38,48 +38,14 @@ export function TryCastBySpec(
     return false;
   }
 
-  const noHeroRange = condition?.self?.noEnemyHeroInRange;
-  if (noHeroRange !== undefined) {
-    for (const enemy of ai.aroundEnemyHeroes) {
-      if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= noHeroRange) {
-        return false;
-      }
-    }
+  if (CheckNoEnemyHeroInRangeFailure(ai, condition?.self?.noEnemyHeroInRange)) {
+    return false;
   }
-
-  const friendlyCreepNearby = condition?.self?.friendlyCreepNearby;
-  if (friendlyCreepNearby !== undefined) {
-    const range = friendlyCreepNearby.range ?? 900;
-    const creeps = FindUnitsInRadius(
-      hero.GetTeamNumber(),
-      hero.GetAbsOrigin(),
-      undefined,
-      range,
-      UnitTargetTeam.FRIENDLY,
-      UnitTargetType.CREEP,
-      UnitTargetFlags.NONE,
-      FindOrder.ANY,
-      false,
-    );
-    if (CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count)) {
-      return false;
-    }
+  if (CheckFriendlyCreepNearbyFailure(hero, condition?.self?.friendlyCreepNearby)) {
+    return false;
   }
-
-  // 刷新类：检查所有技能总冷却时间
-  const abilityCooldownTotal = condition?.self?.abilityCooldownTotal;
-  if (abilityCooldownTotal) {
-    let totalCooldown = 0;
-    const count = hero.GetAbilityCount();
-    for (let i = 0; i < count; i++) {
-      const abil = hero.GetAbilityByIndex(i);
-      if (abil) {
-        totalCooldown += abil.GetCooldownTimeRemaining();
-      }
-    }
-    if (CheckNumberRangeFailure(totalCooldown, abilityCooldownTotal)) {
-      return false;
-    }
+  if (CheckAbilityCooldownTotalFailure(hero, condition?.self?.abilityCooldownTotal)) {
+    return false;
   }
 
   const target = pickTarget(ai, castable, targetSide, condition);
@@ -109,6 +75,64 @@ export function TryCastBySpec(
  *   此模式要求 spec 显式设置 target.range.lte（> cast range），否则会被 fillRangeFromCastRange
  *   限制为 cast range，失去意义。
  */
+
+function CheckNoEnemyHeroInRangeFailure(
+  ai: BotBaseAIModifier,
+  noHeroRange: number | undefined,
+): boolean {
+  if (noHeroRange === undefined) {
+    return false;
+  }
+  const hero = ai.GetHero();
+  for (const enemy of ai.aroundEnemyHeroes) {
+    if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= noHeroRange) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function CheckFriendlyCreepNearbyFailure(
+  hero: CDOTA_BaseNPC_Hero,
+  friendlyCreepNearby: NonNullable<CastCoindition['self']>['friendlyCreepNearby'],
+): boolean {
+  if (friendlyCreepNearby === undefined) {
+    return false;
+  }
+  const range = friendlyCreepNearby.range ?? 900;
+  const creeps = FindUnitsInRadius(
+    hero.GetTeamNumber(),
+    hero.GetAbsOrigin(),
+    undefined,
+    range,
+    UnitTargetTeam.FRIENDLY,
+    UnitTargetType.CREEP,
+    UnitTargetFlags.NONE,
+    FindOrder.ANY,
+    false,
+  );
+  return CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count);
+}
+
+/** 刷新类：检查所有技能总冷却时间是否落在阈值区间。 */
+function CheckAbilityCooldownTotalFailure(
+  hero: CDOTA_BaseNPC_Hero,
+  abilityCooldownTotal: NumberRange | undefined,
+): boolean {
+  if (!abilityCooldownTotal) {
+    return false;
+  }
+  let totalCooldown = 0;
+  const count = hero.GetAbilityCount();
+  for (let i = 0; i < count; i++) {
+    const abil = hero.GetAbilityByIndex(i);
+    if (abil) {
+      totalCooldown += abil.GetCooldownTimeRemaining();
+    }
+  }
+  return CheckNumberRangeFailure(totalCooldown, abilityCooldownTotal);
+}
+
 function resolveCastPosition(
   hero: CDOTA_BaseNPC_Hero,
   castable: CDOTABaseAbility,
