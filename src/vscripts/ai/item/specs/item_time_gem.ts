@@ -1,12 +1,13 @@
 import { TargetSide } from '../../ability/ability-spec';
 import { ItemSpec } from '../item-spec';
 
-/** 时间宝石：仅在技能总冷却压力大（≥60秒）时使用。 */
+/** 时间宝石：600 范围内有敌人，且技能总冷却压力大（≥60秒）时使用。 */
 export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_time_gem',
-    targetSide: TargetSide.Self,
+    targetSide: TargetSide.EnemyHero,
     condition: {
+      target: { range: { lte: 600 }, count: { gte: 1 }, ignoresMagicImmune: true },
       self: { abilityCooldownTotal: { gte: 60 } },
     },
   },

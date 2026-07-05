@@ -38,7 +38,6 @@ import { SPECS as shadowJudgment } from './item_shadow_judgment';
 import { SPECS as sheepstick } from './item_sheepstick';
 import { SPECS as shivasGuard2 } from './item_shivas_guard_2';
 import { SPECS as swiftGlove } from './item_swift_glove';
-import { SPECS as switchableCritBlade } from './item_switchable_crit_blade';
 import { SPECS as timeGem } from './item_time_gem';
 import { SPECS as undyingHeart } from './item_undying_heart';
 import { SPECS as waspCallous } from './item_wasp_callous';
@@ -119,7 +118,4 @@ export function registerItemSpecs(): void {
   ItemRegistry.registerAll(refresher);
   ItemRegistry.registerAll(refreshCore);
   ItemRegistry.registerAll(timeGem);
-
-  // H：开关类
-  ItemRegistry.registerAll(switchableCritBlade);
 }
