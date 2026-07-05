@@ -7404,6 +7404,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"120"
+		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 
 	"item_skill_talisman"
@@ -7467,6 +7468,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"300"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"OnSpellStart"
 		{
@@ -7500,6 +7502,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"
