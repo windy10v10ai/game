@@ -6,8 +6,5 @@ export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_forbidden_blade',
     targetSide: TargetSide.EnemyHero,
-    condition: {
-      self: { unitCondition: { healthPercent: { gte: 20 } } },
-    },
   },
 ];

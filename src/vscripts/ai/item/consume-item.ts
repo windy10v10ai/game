@@ -19,8 +19,12 @@ export class ConsumeItem {
     usableFromBackpack: boolean | undefined,
   ): boolean {
     const item = hero.FindItemInInventory(itemName);
-    if (!item || (!usableFromBackpack && item.GetItemSlot() > InventorySlot.SLOT_6)) {
+    if (!item) {
       return false;
+    }
+    // 备用栏物品既不能施法也不生效被动加成，买到备用栏时挤开主栏末位强制换入
+    if (!usableFromBackpack && item.GetItemSlot() > InventorySlot.SLOT_6) {
+      hero.SwapItems(item.GetItemSlot(), InventorySlot.SLOT_6);
     }
     if (!item.IsFullyCastable()) {
       return false;
