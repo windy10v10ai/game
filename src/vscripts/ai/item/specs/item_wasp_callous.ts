@@ -6,16 +6,16 @@ export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_wasp_callous',
     targetSide: TargetSide.EnemyHero,
-    condition: { target: { range: { lte: 900 }, count: { gte: 1 }, ignoresMagicImmune: true } },
+    condition: { target: { range: { lte: 1200 }, count: { gte: 1 }, ignoresMagicImmune: true } },
   },
   {
     itemName: 'item_wasp_despotic',
     targetSide: TargetSide.EnemyHero,
-    condition: { target: { range: { lte: 900 }, count: { gte: 1 }, ignoresMagicImmune: true } },
+    condition: { target: { range: { lte: 1200 }, count: { gte: 1 }, ignoresMagicImmune: true } },
   },
   {
     itemName: 'item_wasp_golden',
     targetSide: TargetSide.EnemyHero,
-    condition: { target: { range: { lte: 900 }, count: { gte: 1 }, ignoresMagicImmune: true } },
+    condition: { target: { range: { lte: 1200 }, count: { gte: 1 }, ignoresMagicImmune: true } },
   },
 ];

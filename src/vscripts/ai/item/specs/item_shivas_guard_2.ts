@@ -7,7 +7,7 @@ export const SPECS: ItemSpec[] = [
     itemName: 'item_shivas_guard_2',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { range: { lte: 600 }, count: { gte: 1 }, ignoresMagicImmune: true },
+      target: { range: { lte: 900 }, count: { gte: 1 } },
     },
   },
 ];

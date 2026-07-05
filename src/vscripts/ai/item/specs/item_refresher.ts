@@ -10,7 +10,7 @@ export const SPECS: ItemSpec[] = [
     itemName: 'item_refresher',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { range: { lte: 900 }, count: { gte: 1 }, ignoresMagicImmune: true },
+      target: { count: { gte: 1 }, ignoresMagicImmune: true },
       self: { unitCondition: { manaPercent: { gte: 30 } }, abilityCooldownTotal: { gte: 60 } },
     },
   },
@@ -18,7 +18,7 @@ export const SPECS: ItemSpec[] = [
     itemName: 'item_refresh_core',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { range: { lte: 900 }, count: { gte: 1 }, ignoresMagicImmune: true },
+      target: { count: { gte: 1 }, ignoresMagicImmune: true },
       self: { unitCondition: { manaPercent: { gte: 30 } }, abilityCooldownTotal: { gte: 60 } },
     },
   },
@@ -26,7 +26,7 @@ export const SPECS: ItemSpec[] = [
     itemName: 'item_time_gem',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { range: { lte: 900 }, count: { gte: 1 }, ignoresMagicImmune: true },
+      target: { count: { gte: 1 }, ignoresMagicImmune: true },
       self: { unitCondition: { manaPercent: { gte: 30 } }, abilityCooldownTotal: { gte: 60 } },
     },
   },

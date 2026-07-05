@@ -6,16 +6,16 @@ export const SPECS: ItemSpec[] = [
   {
     itemName: 'item_magic_scepter',
     targetSide: TargetSide.EnemyHero,
-    condition: { target: { range: { lte: 1200 }, count: { gte: 1 }, ignoresMagicImmune: true } },
+    condition: { target: { range: { lte: 1200 }, count: { gte: 1 } } },
   },
   {
     itemName: 'item_hallowed_scepter',
     targetSide: TargetSide.EnemyHero,
-    condition: { target: { range: { lte: 1200 }, count: { gte: 1 }, ignoresMagicImmune: true } },
+    condition: { target: { range: { lte: 1200 }, count: { gte: 1 } } },
   },
   {
     itemName: 'item_magic_crit_blade',
     targetSide: TargetSide.EnemyHero,
-    condition: { target: { range: { lte: 1200 }, count: { gte: 1 }, ignoresMagicImmune: true } },
+    condition: { target: { range: { lte: 1200 }, count: { gte: 1 } } },
   },
 ];
