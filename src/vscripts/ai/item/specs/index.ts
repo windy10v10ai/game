@@ -32,7 +32,6 @@ import { SPECS as shadowJudgment } from './item_shadow_judgment';
 import { SPECS as sheepstick } from './item_sheepstick';
 import { SPECS as shivasGuard2 } from './item_shivas_guard_2';
 import { SPECS as smokeOfDeceit } from './item_smoke_of_deceit';
-import { SPECS as swiftGlove } from './item_swift_glove';
 import { SPECS as undyingHeart } from './item_undying_heart';
 import { SPECS as waspCallous } from './item_wasp_callous';
 
@@ -40,14 +39,13 @@ import { SPECS as waspCallous } from './item_wasp_callous';
  * 物品 AI spec 聚合注册入口，结构对齐 ability/specs/index.ts。
  *
  * 一个物品一个文件（同名多档位共用同一逻辑时合并为一个文件，如达贡 1~5 级、
- * 阿迪王/阿迪王plus、大核荣耀系列、法杖系列、刷新球系列、羊刀系列、圣物系列、不朽之心系列
+ * 阿迪王/阿迪王plus、大核荣耀系列、法杖系列、刷新球系列、羊刀系列、圣物系列、不朽之心系列、团队之手系列
  * 这些有明确升级链且施法逻辑相同的装备）。
  * 注册顺序即 ItemDispatcher 遍历到该物品时的 spec 尝试顺序。
  */
 export function registerItemSpecs(): void {
   // Phase 1：对小兵 / 拾取物
   ItemRegistry.registerAll(handOfGroup);
-  ItemRegistry.registerAll(swiftGlove);
   ItemRegistry.registerAll(roshansBanner);
   ItemRegistry.registerAll(smokeOfDeceit);
 
@@ -80,12 +78,12 @@ export function registerItemSpecs(): void {
 
   // C：对敌英雄控制类（跳过已被控目标）
   ItemRegistry.registerAll(sheepstick);
-  ItemRegistry.registerAll(etherealBlade);
   ItemRegistry.registerAll(abyssalBladeV2);
 
   // D：对敌英雄伤害类（不检控制）
   ItemRegistry.registerAll(blueFantasy);
   ItemRegistry.registerAll(dagon);
+  ItemRegistry.registerAll(etherealBlade);
   ItemRegistry.registerAll(shadowJudgment);
   ItemRegistry.registerAll(shadowImpact);
   ItemRegistry.registerAll(forbiddenBlade);
