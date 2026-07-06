@@ -551,7 +551,8 @@
 	"item_smoke_of_deceit"
 	{
 		"ItemInitialCharges"			"1"
-		"ItemStockMax"					"5"
+		"ItemStockInitial"				"1"	// 2
+		"ItemStockMax"					"5"	// 3
 		"ItemStockTime"					"300.0" // 420
 		"AbilityValues"
 		{
