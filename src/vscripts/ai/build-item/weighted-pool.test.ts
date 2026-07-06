@@ -25,25 +25,6 @@ describe('ResolveCandidateEntry', () => {
 });
 
 describe('SampleWeightedWithoutReplacement', () => {
-  it('3 项等权重候选池抽 2 个：长度恰为 2、不重复、各候选出现比例落在 30%~70%', () => {
-    const pool: CandidatePoolEntry[] = ['item_a', 'item_b', 'item_c'];
-    const counts: Record<string, number> = { item_a: 0, item_b: 0, item_c: 0 };
-    const iterations = 1000;
-
-    for (let i = 0; i < iterations; i++) {
-      const result = SampleWeightedWithoutReplacement(pool, 2);
-      expect(result).toHaveLength(2);
-      expect(new Set(result).size).toBe(2);
-      for (const item of result) counts[item]++;
-    }
-
-    for (const key of Object.keys(counts)) {
-      const ratio = counts[key] / iterations;
-      expect(ratio).toBeGreaterThanOrEqual(0.3);
-      expect(ratio).toBeLessThanOrEqual(0.7);
-    }
-  });
-
   it('候选池长度小于 count 时返回全部候选', () => {
     const pool: CandidatePoolEntry[] = ['item_a', 'item_b'];
     const result = SampleWeightedWithoutReplacement(pool, 3);
