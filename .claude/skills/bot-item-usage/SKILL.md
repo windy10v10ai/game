@@ -160,6 +160,7 @@ export const SPECS: ItemSpec[] = [
 - **不要把需要目标检测的 NO_TARGET 物品写成 `TargetSide.Self`**：见第三步"检测技巧"一节，这是最容易写错的地方。
 - **不要在 spec 里手写 `range.lte`，除非物品 `AbilityCastRange` 为 0**：dispatcher 会自动用 KV 施法距离填入；NO_TARGET 物品这个值通常是 0，不写会导致搜索半径永远是 0（等于找不到任何目标），必须显式写。
 - **升级链且逻辑相同的物品默认合并成一个文件**：新建前先查 `prerequisite`/`upgrades`，见第二步。
+- **合并进同一文件时，链条起点（base）物品也要有自己的 entry**：bot 出装可能停在某个中间/起点档位，只写最高档会导致持有低档位的 bot 永远不触发使用逻辑（dispatcher 按 `item.GetName()` 精确匹配 spec，没有 fallback）。参考 [item_adi_king.ts](src/vscripts/ai/item/specs/item_adi_king.ts)、[item_dagon.ts](src/vscripts/ai/item/specs/item_dagon.ts)：链条上每个 bot 实际可能持有的档位都要有条目。
 - **`usableFromBackpack` 只改 TS 不改 KV 不会生效**：见第五步，两处必须同时满足。
 - **不要把"购买后立即消耗"的物品塞进 ItemSpec**：那类物品走 `consume-item.ts`，不需要战斗决策，混进 ItemSpec 是过度设计。
 - **spec 文件头部注释不要复述 condition 里的具体数值**（同 bot-ability-usage 的规则）：只写意图，不写"900 范围""≥60秒"这类会随数值调整而与代码脱节的具体值。
