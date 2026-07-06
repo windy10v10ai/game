@@ -75,11 +75,11 @@ export class GameEndPoint {
       case 5:
         return 2;
       case 6:
-        return 2.1;
-      case 7:
         return 2.2;
-      case 8:
+      case 7:
         return 2.3;
+      case 8:
+        return 2.5;
       default:
         // 自定义模式
         return this.GetCustomModeMultiplier(option);
@@ -97,18 +97,20 @@ export class GameEndPoint {
       multiplier *= 1.1;
     }
 
-    if (option.direGoldXpMultiplier >= 40) {
+    if (option.direGoldXpMultiplier >= 20) {
       multiplier *= 2.4;
-    } else if (option.direGoldXpMultiplier >= 20) {
-      multiplier *= 2.3;
     } else if (option.direGoldXpMultiplier >= 15) {
-      multiplier *= 2.2;
+      multiplier *= 2.3;
     } else if (option.direGoldXpMultiplier >= 12) {
       multiplier *= 2.1;
     } else if (option.direGoldXpMultiplier >= 10) {
       multiplier *= 2.0;
+    } else if (option.direGoldXpMultiplier >= 7) {
+      multiplier *= 1.8;
     } else if (option.direGoldXpMultiplier >= 5) {
       multiplier *= 1.5;
+    } else if (option.direGoldXpMultiplier >= 3) {
+      multiplier *= 1.2;
     }
 
     // ---- 以下使用加减法计算倍率 ----

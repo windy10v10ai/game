@@ -33,6 +33,13 @@ description: >-
 候选过多会稀释每件装备的实际入选概率、增加后续维护和人工核对成本。这是本 skill 每个 tier 目标数量
 定为 **7~9**（而不是恰好 6，也不超过 9）的根本原因。
 
+### 施法 spec 文件组织约定（`src/vscripts/ai/item/specs/`）
+
+与本 skill 的候选池调整是两回事，但依据同一份 `item-tier-config.ts` 的 `prerequisite`/`upgrades` 字段：
+若多个物品构成明确的升级链，且各自的 `ItemSpec.condition` 完全相同，应合并写进一个 spec 文件
+（以链条起点物品命名，文件内 `SPECS` 数组含多条 entry），而不是严格"一物品一文件"。
+参考 `item_dagon.ts`（达贡 1~5 级）、`item_wasp_callous.ts`（大核荣耀系列）等既有写法。
+
 ### Tier 归属规则（`item-tier-config.ts`）
 
 `ItemTier` 按实际金钱划分，区间为**左开右闭** `(下限, 上限]`：

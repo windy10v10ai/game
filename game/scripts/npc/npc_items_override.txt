@@ -224,6 +224,7 @@
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"1"
 		"ItemStockTime"					"600"
+		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 			"duration"				"180"	// 120

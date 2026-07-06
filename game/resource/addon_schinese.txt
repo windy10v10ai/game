@@ -1425,16 +1425,6 @@
 		// 虚空假面 逆转时空
 		"DOTA_Tooltip_ability_faceless_void_time_zone_Description"					"在时空中创造一个遮罩，改变其中所有单位的移动、攻击、施法、弹道和转身速度。友军的速度提升，冷却加快。敌人的速度降低，技能和物品的冷却全部冻结。时间膨胀的负面状态持续时间在逆转时空内不会变少。"
 
-"DOTA_Tooltip_ability_item_skill_talisman"                  "符箓（隐藏）"
-"DOTA_Tooltip_ability_item_skill_talisman_Description"    "拥有该装备后释放的第一个技能将被存储。使用后释放存储的技能,无冷却无施法前摇。可堆叠,可完全分享。后续购买的符箓自动继承已存储的技能。<br><br><font color='#70EA72'>当前存储技能: %stored_ability%</font>"
-"DOTA_Tooltip_modifier_skill_talisman_display"                "符箓存储的技能"
-
-		//技能书
-		"DOTA_Tooltip_Ability_item_skill_learning"                    "技能书"
-		"DOTA_Tooltip_Ability_item_skill_learning_Description"        "<h1>使用: 学习技能</h1> 随机获得一个技能，当前随机的技能图标在buf栏可查看"
-		"DOTA_Tooltip_Ability_item_skill_learning_Lore"               "RN：喏，你要的三被动"
-		"DOTA_Tooltip_modifier_skill_learning_display"                    "可以学习的技能"
-
 		///////////////////////////////////////////////////
 		//
 		//			自定义英雄 Custom Heroes

@@ -7,8 +7,9 @@ import { getHeroBuildConfig } from '../build-item/hero-build-config';
 import { HeroBuildManager } from '../build-item/hero-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
 import { SellItem } from '../build-item/sell-item';
+import { ConsumeItem } from '../item/consume-item';
+import { ItemDispatcher } from '../item/item-dispatcher';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
-import { UseItem } from '../item/use-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
@@ -156,9 +157,6 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因自身而进行的施法
    */
   CastSelf(): boolean {
-    if (this.UseItemSelf()) {
-      return true;
-    }
     if (this.UseAbilitySelf()) {
       return true;
     }
@@ -169,9 +167,6 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因敌人而进行的施法
    */
   CastEnemy(): boolean {
-    if (UseItem.UseItemEnemy(this.hero, this.aroundEnemyHeroes)) {
-      return true;
-    }
     if (this.UseAbilityEnemy()) {
       return true;
     }
@@ -189,19 +184,9 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因小兵而进行的施法
    */
   CastCreep(): boolean {
-    if (UseItem.UseItemCreep(this.hero, this.aroundEnemyCreeps)) {
-      return true;
-    }
     if (this.UseAbilityCreep()) {
       return true;
     }
-    return false;
-  }
-
-  // ---------------------------------------------------------
-  // Item usage
-  // ---------------------------------------------------------
-  UseItemSelf(): boolean {
     return false;
   }
 
@@ -243,6 +228,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
+    if (ItemDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -268,6 +256,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
+    if (ItemDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -291,6 +282,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   ActionRetreat(): boolean {
     if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
@@ -339,6 +333,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   ActionPush(): boolean {
     if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
@@ -411,7 +408,7 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   BuildItem(): boolean {
     // 使用消耗品
-    UseItem.UseConsumeItems(this.hero);
+    ConsumeItem.ConsumeKnownItems(this.hero);
     // SellItem.SellExtraItems 内部已包含智能出售系统
     if (SellItem.SellExtraItems(this.hero, this.buildState)) {
       return true;
