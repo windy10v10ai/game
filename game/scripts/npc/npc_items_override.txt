@@ -222,15 +222,15 @@
 		"ItemPurchasable"				"1"
 		"ItemCost"						"8000"
 		"ItemStockInitial"				"1"
-		"ItemStockMax"					"1"
+		"ItemStockMax"					"3"
 		"ItemStockTime"					"600"
 		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
-			"duration"				"180"	// 120
+			"duration"				"120"	// 120
 			"health"				"40 80 120"
 			"health_tooltip"		"10 20 30"
-			"buff_linger_duration"		"30"// 0.1
+			"buff_linger_duration"		"20"// 0.1
 		}
 	}
 
