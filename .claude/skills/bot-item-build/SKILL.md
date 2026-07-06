@@ -34,12 +34,8 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 超过 12 会稀释每件装备的实际入选概率、增加维护和人工核对成本，此时应按信号强度裁掉最弱的条目；
 但 8~12 之间只要是真实数据支撑的有价值装备，不必为了凑到某个"整数"而强行裁剪。
 
-### 施法 spec 文件组织约定（`src/vscripts/ai/item/specs/`）
-
-与本 skill 的候选池调整是两回事，但依据同一份 `item-tier-config.ts` 的 `prerequisite`/`upgrades` 字段：
-若多个物品构成明确的升级链，且各自的 `ItemSpec.condition` 完全相同，应合并写进一个 spec 文件
-（以链条起点物品命名，文件内 `SPECS` 数组含多条 entry），而不是严格"一物品一文件"。
-参考 `item_dagon.ts`（达贡 1~5 级）、`item_wasp_callous.ts`（大核荣耀系列）等既有写法。
+> 编写 `src/vscripts/ai/item/specs/` 下的战斗使用逻辑（何时对谁使用某物品）是另一件事，
+> 与本 skill 的候选池调整无关，见 [bot-item-ability-usage](../bot-item-ability-usage/SKILL.md) skill。
 
 ### Tier 归属规则（`item-tier-config.ts`）
 
