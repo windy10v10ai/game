@@ -1902,7 +1902,8 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -1931,7 +1932,8 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -1960,7 +1962,8 @@
 		"IsTempestDoubleClonable"			"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 				"bonus"				"100"
@@ -4137,7 +4140,8 @@
 		"IsTempestDoubleClonable"		"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AllowedInBackpack"				"1"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
 		"AbilityValues"
 		{
 			"bonus_all_stats"			"100"
@@ -7358,6 +7362,7 @@
 		"ItemStockInitial"				"0"
 		"ItemStockMax"					"3"
 		"ItemStockTime"					"300"
+		"ItemCanBeUsedWithoutInventory"	"1"
 		"OnSpellStart"
 		{
 
@@ -7399,43 +7404,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"120"
-	}
-
-	"item_skill_talisman"
-	{
-		"ID"                        "10331"
-		"BaseClass"                 "item_lua"
-		"ScriptFile"                "items/item_skill_talisman"
-		"AbilityTextureName"        "skill_talisman"
-
-		"AbilityBehavior"           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityCastRange"          "1800"  //
-
-		"ItemCost"                  "1000"
-		"ItemShopTags"              "consumable"
-		"ItemQuality"               "consumable"
-		"ItemStackable"             "1"
-		"ItemPermanent"             "0"
-		"ItemInitialCharges"        "1"
-		"ItemShareability"          "ITEM_FULLY_SHAREABLE"
-		"IsTempestDoubleClonable"   "0"
-
-		"AbilityCastPoint"          "0.0"
-		"AbilityCooldown"           "0.0"
-		"AbilityManaCost"           "0"
-
-		"AbilityValues"
-		{
-			"radius"                "100"  // 用于AOE指示器
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"              "FIELD_INTEGER"
-				"stored_ability"        "0"
-			}
-		}
+		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 
 	//=================================================================================================================
@@ -7462,6 +7431,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"300"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"OnSpellStart"
 		{
@@ -7495,6 +7465,7 @@
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"
@@ -7520,6 +7491,7 @@
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"consumable"

@@ -74,10 +74,7 @@ const StrengthTankTemplate: HeroTemplateConfig = {
     ],
   },
   consumablesByTier: {
-    [ItemTier.T1]: [
-      'item_blood_grenade', // 血腥榴弹
-      'item_faerie_fire', // 仙灵之火
-    ],
+    [ItemTier.T1]: ['item_blood_grenade'], // 血腥榴弹
     [ItemTier.T2]: [
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_wings_of_haste', // 急速之翼
@@ -125,10 +122,7 @@ const AgilityCarryMeleeTemplate: HeroTemplateConfig = {
     ],
   },
   consumablesByTier: {
-    [ItemTier.T1]: [
-      'item_blood_grenade', // 血腥榴弹
-      'item_faerie_fire', // 仙灵之火
-    ],
+    [ItemTier.T1]: ['item_blood_grenade'], // 血腥榴弹
     [ItemTier.T2]: [
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_wings_of_haste', // 急速之翼
@@ -175,10 +169,7 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
     ],
   },
   consumablesByTier: {
-    [ItemTier.T1]: [
-      'item_blood_grenade', // 血腥榴弹
-      'item_faerie_fire', // 仙灵之火
-    ],
+    [ItemTier.T1]: ['item_blood_grenade'], // 血腥榴弹
     [ItemTier.T2]: [
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_wings_of_haste', // 急速之翼
@@ -231,10 +222,7 @@ const MagicalCarryTemplate: HeroTemplateConfig = {
     ],
   },
   consumablesByTier: {
-    [ItemTier.T1]: [
-      'item_enchanted_mango', // 魔法芒果
-      'item_infused_raindrop', // 凝魂之露
-    ],
+    [ItemTier.T1]: ['item_infused_raindrop'], // 凝魂之露
     [ItemTier.T2]: [
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_wings_of_haste', // 急速之翼
@@ -286,10 +274,7 @@ const SupportTemplate: HeroTemplateConfig = {
     ],
   },
   consumablesByTier: {
-    [ItemTier.T1]: [
-      'item_enchanted_mango', // 魔法芒果
-      'item_infused_raindrop', // 凝魂之露
-    ],
+    [ItemTier.T1]: ['item_infused_raindrop'], // 凝魂之露
     [ItemTier.T2]: [
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_wings_of_haste', // 急速之翼

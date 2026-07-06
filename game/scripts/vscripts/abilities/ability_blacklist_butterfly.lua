@@ -81,7 +81,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["mirana_leap"] = true,                        -- 米拉娜 跳跃
     ["techies_suicide"] = true,                    -- 炸弹人 自爆
     ["weaver_time_lapse"] = true,                  -- 编织者 时光倒流
-    ["enchantress_sproink"] = true,                -- 魅惑魔女 跳跃
+    ["enchantress_bunny_hop"] = true,              -- 魅惑魔女 跳跃(Sproink,神杖技能)
     ["sand_king_burrowstrike"] = true,             -- 沙王 掘地穿刺
     ["morphling_waveform"] = true,                 -- 水人 波浪形态
     ["antimage_blink"] = true,                     -- 敌法师 闪烁
@@ -266,6 +266,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["monkey_king_wukongs_command"] = true,
     ["monkey_king_transfiguration"] = true,
 
+    ["tidehunter_anchor_smash"] = true, -- 潮汐猎人 锚击
+
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题
@@ -339,15 +341,4 @@ EXCLUDED_ITEMS = {
     ["earth_spirit_stone_caller"] = true,
     ["muerta_gunslinger"] = true,
     ["troll_warlord_switch_stance"] = true,
-
-    ---圣器
-    ["item_qinglong"] = true,
-    ["item_qinglong_p"] = true,
-    ["item_xuanwu"] = true,
-    ["item_xuanwu_p"] = true,
-    ["item_zhuque"] = true,
-    ["item_zhuque_p"] = true,
-    ["item_baihu"] = true,
-    ["item_baihu_p"] = true,
-    ["item_flight_bar"] = true,
 }

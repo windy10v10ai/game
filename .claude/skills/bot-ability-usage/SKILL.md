@@ -152,3 +152,4 @@ export const SPECS: AbilitySpec[] = [
 - **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / autoCastOn` 表达。这条路径目前只在老 `ActionAbility.doAction` 中实现，dispatcher 暂未串接 —— 遇到这类技能告知用户「该开关类目前需要走老链路或扩展 dispatcher」，不要自行硬塞。
 - **TSTL 对象 spread 陷阱**：见 CLAUDE.md「常见陷阱」末条；spec 文件本身用不到 spread，但若需要扩展 dispatcher / cast-condition，**绝对**不能写 `{ ...maybeUndefined }`。
 - **KV 数值字段术语**：Dota 2 现行 KV 中数值字段块名为 `AbilityValues`（旧版 `AbilitySpecial` 已废弃）。在注释、字段命名、文档中统一使用 `AbilityValue` 表述；引擎 API `GetSpecialValueFor(key)` 仍可调用，但变量名和注释应写 `abilityValue` / `rangeFromAbilityValue`，不用 `specialValue`。
+- **spec 文件头部注释不要复述 condition 里的字段/数值**：注释只写意图（"范围内有敌人即用"），不要带上 `range.lte` 等字段的具体值（"900 范围内"）。同一个数值出现两处，后续只改其中一处就会自相矛盾，且无法判断哪个是真相源。此规则同样适用于 ItemSpec（`ai/item/specs/`）文件。发现注释数值与代码不一致时，**不要默认注释代表设计意图、代码是笔误就去改代码**——应先查 git blame / 实机测试确认谁是真相源，再决定改代码还是改注释。

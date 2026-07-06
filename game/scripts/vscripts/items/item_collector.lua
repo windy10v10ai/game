@@ -51,15 +51,7 @@ function CollectItems()
                 table.insert(dragon_balls, item_physical)
             elseif string.find(item_name, "fusion") then
                 category = "fusion"
-            elseif string.find(item_name, "rune_transmuter") or
-                string.find(item_name, "skill_talisman") or
-                string.find(item_name, "skill_learning") or
-                string.find(item_name, "ability_replacer") or
-                string.find(item_name, "scroll_guardian_angel") or
-                string.find(item_name, "item_zhuque") or
-                string.find(item_name, "item_baihu") or
-                string.find(item_name, "item_xuanwu") or
-                string.find(item_name, "item_qinglong") then
+            elseif string.find(item_name, "rune_transmuter") then
                 category = "special"
             else
                 category = "equipment"

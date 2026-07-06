@@ -190,7 +190,7 @@ describe('GameEndPoint', () => {
     it('夜魇金钱经验倍率>=20时', () => {
       const option = { ...defaultOption, direGoldXpMultiplier: 20 } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2.2);
+      expect(multiplier).toBe(2.3);
     });
 
     it('夜魇金钱经验倍率>=10时', () => {
@@ -261,7 +261,7 @@ describe('GameEndPoint', () => {
       expect(multiplier).toBe(1.9);
     });
 
-    it('N6难度多个条件组合', () => {
+    it('高难度多个条件组合', () => {
       const option = {
         ...defaultOption,
         radiantGoldXpMultiplier: 1.5,
@@ -281,7 +281,7 @@ describe('GameEndPoint', () => {
         enablePlayerAttribute: false,
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
-      expect(multiplier).toBe(2.6);
+      expect(multiplier).toBe(2.7);
     });
 
     it('固定技能时，降低倍率', () => {

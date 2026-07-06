@@ -12,7 +12,6 @@ require('util')
 require('bot/bot_item_data')
 require('events')
 require('bot/bot_think_item_build')
-require('bot/bot_think_item_use')
 require('bot/bot_think_ability_use')
 require('bot/bot_think_modifier')
 

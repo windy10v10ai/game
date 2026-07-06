@@ -1,5 +1,6 @@
 import { registerAbilitySpecs } from './ability/specs';
 import { BotBaseAIModifier } from './hero/bot-base';
+import { registerItemSpecs } from './item/specs';
 import { DrowRangerAIModifier } from './hero/hero-drow-ranger';
 import { LunaAIModifier } from './hero/hero-luna';
 import { MedusaAIModifier } from './hero/hero-medusa';
@@ -16,6 +17,7 @@ export class AI {
   constructor() {
     this.FSA = new FSA();
     registerAbilitySpecs();
+    registerItemSpecs();
   }
 
   public EnableAI(hero: CDOTA_BaseNPC_Hero) {
