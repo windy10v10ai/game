@@ -35,7 +35,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 但 8~12 之间只要是真实数据支撑的有价值装备，不必为了凑到某个"整数"而强行裁剪。
 
 > 编写 `src/vscripts/ai/item/specs/` 下的战斗使用逻辑（何时对谁使用某物品）是另一件事，
-> 与本 skill 的候选池调整无关，见 [bot-item-ability-usage](../bot-item-ability-usage/SKILL.md) skill。
+> 与本 skill 的候选池调整无关，见 [bot-item-usage](../bot-item-usage/SKILL.md) skill。
 
 ### Tier 归属规则（`item-tier-config.ts`）
 

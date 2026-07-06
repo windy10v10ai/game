@@ -1,5 +1,5 @@
 ---
-name: bot-item-ability-usage
+name: bot-item-usage
 description: >-
   为指定 Dota 物品编写 bot AI 使用规则（ItemSpec），让 bot 在合适时机自动使用该战斗物品。
   原版物品、克隆物品统一在 src/vscripts/ai/item/specs/ 下登记一个文件（升级链 + 使用逻辑相同的
