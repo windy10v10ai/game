@@ -174,21 +174,20 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 所以**同一 tier 候选池里绝不能同时放入功能互斥的装备**，否则英雄会把它们全部买一遍，白白浪费金钱。
 
 最典型的互斥组是**鞋子**：`item_boots`（基础鞋）、`item_power_treads`、`item_arcane_boots`、
-`item_phase_boots`、`item_tranquil_boots` 彼此之间在 `sell-item-config.ts` 的
-`ItemUpgradeReplacements` 里**没有互相顶替出售的关系**（每种升级鞋只会顶替 `item_boots`
+`item_phase_boots`、`item_tranquil_boots` 在 `item-tier-config.ts` 里共享同一个 `baseItems`
+下位装备（`item_boots`），彼此之间**没有互相顶替出售的关系**（每种升级鞋只会顶替 `item_boots`
 本身，不会顶替另一种升级鞋）。**每个英雄的候选池里，鞋子类装备只能保留一种**（且不要把
 `item_boots` 当"安全填充"留着——它是低级鞋，选定了真正要用的鞋之后应直接替换掉，不要与真鞋并存）。
 
-添加候选前，检查该装备在 `item-tier-config.ts` 里的 `prerequisite`/`upgrades` 链，以及
-`sell-item-config.ts` 的 `ItemUpgradeReplacements`：如果两件候选是同一功能槽位的不同分支
-（如多种鞋子、或某组件与其"合成成品"没有 sell-replacement 关系），只留其中一件，其余用别的非冲突装备替代。
+添加候选前，检查该装备在 `item-tier-config.ts` 里的 `baseItems` 链：如果两件候选是同一功能槽位的
+不同分支（如多种鞋子、或共享同一下位装备但互不替代的平行版本），只留其中一件，其余用别的非冲突装备替代。
 
-**同一 `prerequisite` 的平行分支同理，不只是鞋子**：`item-tier-config.ts` 里两件装备如果
-`prerequisite` 字段指向同一个下位装备（如 `item_wasp_callous` 和 `item_wasp_despotic` 都以
-`item_butterfly` 为前置，分别升级到蝴蝶的两条不同分支），它们是**互斥的平行分支**，不是互补装备——
-两者都不在对方的 `ItemUpgradeReplacements` 里，买了不会互相顶替出售，会被同时买下白白浪费金钱。
-添加候选前扫一遍 `item-tier-config.ts` 找出所有共享同一 `prerequisite` 的装备组，同一 tier 只保留
-其中信号最强的一个（前置装备本身，如 `item_butterfly`，可以和分支之一共存，因为分支会顶替前置）。
+**同一 `baseItems` 的平行分支同理，不只是鞋子**：`item-tier-config.ts` 里两件装备如果
+`baseItems` 都包含同一个下位装备（如 `item_wasp_callous` 和 `item_wasp_despotic` 都以
+`item_butterfly` 为下位装备，分别升级到蝴蝶的两条不同分支），它们是**互斥的平行分支**，不是互补装备——
+出售替代关系（`GetReplacedItems`）里彼此互不替代，买了不会互相顶替出售，会被同时买下白白浪费金钱。
+添加候选前扫一遍 `item-tier-config.ts` 找出所有共享同一 `baseItems` 条目的装备组，同一 tier 只保留
+其中信号最强的一个（下位装备本身，如 `item_butterfly`，可以和分支之一共存，因为分支会顶替它）。
 
 ---
 
@@ -234,9 +233,9 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 放 scratchpad 目录即可）解析 `hero-build-config.ts` / `hero-build-config-template.ts` 里每个
 `[ItemTier.Tn]: [...]` 区块中的装备名，对照 `item-tier-config.ts` 的 `tier` 字段，确认 0 处不一致。
 
-同时检查第 5.1 节的互斥组问题：脚本里从 `item-tier-config.ts` 解析出所有共享同一 `prerequisite`
-的装备分组（鞋子互斥组 `item_boots`/`item_power_treads`/`item_arcane_boots`/`item_phase_boots`/
-`item_tranquil_boots` 只是其中一种，`item_wasp_callous`/`item_wasp_despotic` 这类共享同一前置的
+同时检查第 5.1 节的互斥组问题：脚本里从 `item-tier-config.ts` 解析出所有共享同一 `baseItems`
+条目的装备分组（鞋子互斥组 `item_boots`/`item_power_treads`/`item_arcane_boots`/`item_phase_boots`/
+`item_tranquil_boots` 只是其中一种，`item_wasp_callous`/`item_wasp_despotic` 这类共享同一下位装备的
 平行分支同理），逐组扫描每个英雄每个 tier 是否同时出现 2 件以上，若有则必须修复。
 
 然后运行：

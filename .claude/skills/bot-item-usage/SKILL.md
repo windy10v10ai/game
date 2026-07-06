@@ -55,9 +55,9 @@ Glob pattern: src/vscripts/ai/item/specs/<itemName>.ts
 | 已存在 | 操作模式 = **修正现有 spec**（读取并按用户需求编辑 SPECS 数组） |
 | 不存在 | 操作模式 = **新建 spec 文件** |
 
-**新建前先查 `item-tier-config.ts` 的 `prerequisite`/`upgrades` 字段**：若该物品与另一个已有 spec 的物品构成明确升级链（如 `item_wasp_callous` → `item_wasp_golden`），且使用条件完全相同，**合并进对方文件**（以链条起点物品命名），不要新建文件。参考 [item_dagon.ts](src/vscripts/ai/item/specs/item_dagon.ts)（达贡 1~5 级）、[item_wasp_callous.ts](src/vscripts/ai/item/specs/item_wasp_callous.ts)（大核荣耀系列）、[item_refresher.ts](src/vscripts/ai/item/specs/item_refresher.ts)（刷新球系列）等既有写法。
+**新建前先查 `item-tier-config.ts` 的 `baseItems` 字段**：若该物品与另一个已有 spec 的物品构成明确升级链（如 `item_wasp_callous` → `item_wasp_golden`），且使用条件完全相同，**合并进对方文件**（以链条起点物品命名），不要新建文件。参考 [item_dagon.ts](src/vscripts/ai/item/specs/item_dagon.ts)（达贡 1~5 级）、[item_wasp_callous.ts](src/vscripts/ai/item/specs/item_wasp_callous.ts)（大核荣耀系列）、[item_refresher.ts](src/vscripts/ai/item/specs/item_refresher.ts)（刷新球系列）等既有写法。
 
-只有逻辑不同的平行分支（同一 `prerequisite` 但效果不同，如各类鞋子）才应该分开成独立文件或干脆不共用。
+只有逻辑不同的平行分支（共享同一 `baseItems` 但效果不同，如各类鞋子）才应该分开成独立文件或干脆不共用。
 
 ---
 
