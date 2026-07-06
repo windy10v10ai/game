@@ -19,13 +19,14 @@
    - **下位装备（前置装备）**：单向链，只配置直接关联的前置装备，系统自动递归补全
    - **上位装备（升级装备）**：一对多关系，系统自动生成，用于智能出售判定
 
-3. **英雄模板系统** (5种模板)
+3. **英雄模板系统** (按英雄真实主属性 AttributePrimary 划分为4种模板)
 
-   - AgilityCarryMelee: 敏捷核心(近战) (PA, Juggernaut, Riki等)
-   - AgilityCarryRanged: 敏捷核心(远程) (Luna, Drow, Sniper等)
-   - MagicalCarry: 法师核心 (Lion, Lina, Zeus等)
-   - StrengthTank: 力量坦克 (Axe, Pudge, Bristleback等)
-   - Support: 辅助 (Crystal Maiden, Dazzle等)
+   - Strength: 力量 (Axe, Pudge, Sven等)
+   - Agility: 敏捷 (PA, Riki, Luna, Drow, Sniper等)
+   - Intelligence: 智力 (Lion, Lina, Crystal Maiden, Dazzle等)
+   - Universal: 全才/ALL属性 (Death Prophet等)
+
+   护腕/怨灵系带/空灵挂件这类同价位三选一属性配件，必须按英雄真实主属性匹配（力量用护腕、敏捷用怨灵系带、智力用空灵挂件），不能跨属性混用。
 
 4. **智能装备过渡**
 
@@ -44,7 +45,7 @@
 src/vscripts/ai/build-item/
 ├── hero-build-manager.ts        # 核心管理器
 ├── item-tier-config.ts          # 装备等级配置 (160+装备，包含升级关系函数)
-├── hero-build-config-template.ts # 英雄模板配置 (5种模板)
+├── hero-build-config-template.ts # 英雄模板配置 (4种模板)
 ├── hero-build-config.ts         # 英雄出装配置 (示例9个英雄)
 ├── hero-build-state.ts          # 出装状态管理
 └── README.md                    # 本文档
@@ -52,24 +53,20 @@ src/vscripts/ai/build-item/
 
 ## 配置英雄出装
 
-### 1. 简单配置 - 仅使用模板
-
-如果英雄完全符合某个模板,无需任何配置,系统会根据英雄攻击类型自动使用`AgilityCarryMelee`或`AgilityCarryRanged`模板。
-
-### 2. 基础配置 - 选择模板
+### 1. 基础配置 - 选择模板
 
 ```typescript
-// 在 hero-build-config.ts 中添加
+// 在 hero-build-config.ts 中添加，template 按英雄真实主属性选择
 npc_dota_hero_your_hero: {
-  template: HeroTemplate.MagicalCarry,  // 使用法师模板
+  template: HeroTemplate.Intelligence,  // 使用智力模板
 }
 ```
 
-### 3. 高级配置 - 自定义目标装备
+### 2. 高级配置 - 自定义目标装备
 
 ```typescript
 npc_dota_hero_luna: {
-  template: HeroTemplate.AgilityCarryRanged,
+  template: HeroTemplate.Agility,
   targetItemsByTier: {
     // 按 tier 配置目标装备
     [ItemTier.T3]: ['item_monkey_king_bar_2'], // 定海神针
@@ -83,7 +80,7 @@ npc_dota_hero_luna: {
 }
 ```
 
-### 4. 配置说明
+### 3. 配置说明
 
 - **template**: 可选,指定使用的模板
 - **targetItemsByTier**: 可选,按 tier 设置目标装备
@@ -134,11 +131,11 @@ item_rapier (T3) ← item_excalibur 的 prerequisite
 
 ## 示例配置
 
-### 敏捷核心(远程) - Luna
+### 敏捷 - Luna
 
 ```typescript
 npc_dota_hero_luna: {
-  template: HeroTemplate.AgilityCarryRanged,
+  template: HeroTemplate.Agility,
   targetItemsByTier: {
     [ItemTier.T3]: ['item_monkey_king_bar_2'],
     [ItemTier.T4]: [
@@ -151,11 +148,11 @@ npc_dota_hero_luna: {
 }
 ```
 
-### 法师核心 - Lion
+### 智力 - Lion
 
 ```typescript
 npc_dota_hero_lion: {
-  template: HeroTemplate.MagicalCarry,
+  template: HeroTemplate.Intelligence,
   targetItemsByTier: {
     [ItemTier.T3]: ['item_aeon_pendant'],
     [ItemTier.T4]: [
@@ -168,11 +165,11 @@ npc_dota_hero_lion: {
 }
 ```
 
-### 力量坦克 - Axe
+### 力量 - Axe
 
 ```typescript
 npc_dota_hero_axe: {
-  template: HeroTemplate.StrengthTank,
+  template: HeroTemplate.Strength,
   targetItemsByTier: {
     [ItemTier.T3]: ['item_blade_mail_2', 'item_radiance_2'],
     [ItemTier.T4]: [
@@ -204,8 +201,8 @@ item_your_new_item: {
 在`hero-build-config-template.ts`中修改对应模板的`itemsByTier`:
 
 ```typescript
-const AgilityCarryRangedTemplate: HeroTemplateConfig = {
-  name: HeroTemplate.AgilityCarryRanged,
+const AgilityTemplate: HeroTemplateConfig = {
+  name: HeroTemplate.Agility,
   itemsByTier: {
     [ItemTier.T1]: ["item_boots", "item_power_treads", "item_wraith_band"],
     [ItemTier.T2]: ["item_sange_and_yasha", "item_monkey_king_bar"],
@@ -245,7 +242,7 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
 | 配置方式 | 每个装备手动配置 | 只配置目标装备       |
 | 装备过渡 | 手动定义每个过渡 | 自动递归补全前置装备 |
 | 出售逻辑 | 固定规则         | 基于升级关系智能判断 |
-| 英雄模板 | 无               | 5种预定义模板        |
+| 英雄模板 | 无               | 4种预定义模板        |
 | 装备组织 | 无               | 按 tier 组织         |
 | 可维护性 | 低               | 高                   |
 | 类型安全 | 无               | TypeScript类型检查   |
