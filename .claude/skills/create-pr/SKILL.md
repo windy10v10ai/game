@@ -62,6 +62,7 @@ git push -u origin feature/{issue-number}-{branch-name}
 - **Issue 段**：分支名匹配 `^feature/(\d+)` 时，提取该数字填入模板的 `- [ ] fix #<issue-id>`；无匹配则保留占位或删除该行
 - **Release Note 段**：**必须先调用 `release-note` skill 生成**，不要手写
 - **PR 标题默认使用英文**，简短概括改动（≤70 字符）
+- **待确认/待验证事项写进 `## Checklist` 段落，用 checkbox 形式**（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），不要另开"待确认"之类的散文段落——review 时需要能逐项勾选，不是读一段说明文字
 
 ```bash
 gh pr create --base develop --title "<英文标题>" --body-file <填充后的模板文件>
@@ -73,3 +74,4 @@ gh pr create --base develop --title "<英文标题>" --body-file <填充后的�
 
 - **分支不是从 develop 切出**：若在别的 feature 分支上直接 `checkout -b`，新分支会带着上一个分支未合并的改动，PR diff 会包含无关内容
 - **Release Note 手写**：必须先跑 `release-note` skill，不要直接照抄改动列表拼凑
+- **待确认事项写成独立段落**：应该和 `I have tested the changes works well.` 放在同一个 `## Checklist` 里，各自一个 checkbox
