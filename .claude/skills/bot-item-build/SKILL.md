@@ -96,6 +96,9 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
   `item_ultimate_scepter_2`、`item_aghanims_shard`、`item_moon_shard_datadriven`、
   `item_tome_of_strength`/`item_tome_of_agility`/`item_tome_of_intelligence`。
   这些不进入 `targetItemsByTier` 候选池提案，混进来会和自动购买逻辑重复。
+- **臂章系列固定候选范围**：`item_armlet` 系列只出 `item_armlet`（基础档）或 `item_armlet_pro_max`
+  （终极档），**不出** `item_armlet_plus`（中间件），也不出 pro_max 之后的平行分支
+  `item_armlet_light`/`item_armlet_dark`/`item_armlet_artifact`。
 - **`sell-item-config.ts` 的 `SellItemCommonJunkList` 里的装备**（`item_magic_wand` 和「消耗品」
   段落里列出的几件除外——它们是设计上就该用完即扔的一次性/早期消耗品）：这份列表是背包超过出售阈值
   （7~9件，`SellItem.GetSellThreshold`）时 `SellCommonJunkItems` **无条件**优先出售的清单。
@@ -259,3 +262,5 @@ npx jest src/vscripts/ai/build-item
 - **属性三选一配件（护腕/怨灵系带/空灵挂件）必须匹配英雄真实主属性**，查
   `docs/reference/<version>/npc_heroes.txt` 的 `AttributePrimary` 确认，不要凭印象判断；
   Universal 英雄不用这三件中的任何一件。
+- **臂章系列只出 `item_armlet` 或 `item_armlet_pro_max`**，不出 `item_armlet_plus`，也不出
+  `item_armlet_light`/`item_armlet_dark`/`item_armlet_artifact`。

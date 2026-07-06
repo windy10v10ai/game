@@ -461,7 +461,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_radiance', // 辉耀
         'item_sange_and_yasha', // 散夜对剑
         'item_black_king_bar', // 黑皇杖
-        'item_armlet_plus', // 小鸡臂章Plus
         'item_armlet', // 莫尔迪基安的臂章
         'item_shivas_guard', // 希瓦的守护
       ],
@@ -786,7 +785,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hand_of_group', // 团队之手
         'item_desolator', // 黯灭
         'item_monkey_king_bar', // 金箍棒
-        'item_armlet_plus', // 小鸡臂章Plus
+        'item_armlet', // 莫尔迪基安的臂章
       ],
       [ItemTier.T3]: [
         'item_vladmir_2', // 强袭祭品
@@ -845,7 +844,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_desolator', // 黯灭
         'item_octarine_core', // 玲珑心
         'item_sange_and_yasha', // 散夜对剑
-        'item_armlet_plus', // 小鸡臂章Plus
       ],
       [ItemTier.T3]: [
         'item_greater_crit', // 代达罗斯之殇
