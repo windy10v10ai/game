@@ -4140,6 +4140,7 @@
 		"IsTempestDoubleClonable"		"0"
 		"ItemSellable"					"0"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
+		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
 		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"AbilityValues"
