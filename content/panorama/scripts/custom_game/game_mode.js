@@ -245,7 +245,7 @@ function InitN8Setting() {
   $('#tower_power_dropdown').SetSelected('400');
 
   $('#starting_gold_player_dropdown').SetSelected('3000');
-  $('#starting_gold_bot_dropdown').SetSelected('7000');
+  $('#starting_gold_bot_dropdown').SetSelected('5000');
 }
 // -------- send to server --------
 function StateChange() {
