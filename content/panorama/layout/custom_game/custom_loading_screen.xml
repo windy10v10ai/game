@@ -125,7 +125,6 @@
 							<Label text="1000" id="1000"/>
 							<Label text="3000" id="3000"/>
 							<Label text="5000" id="5000"/>
-							<Label text="7000" id="7000"/>
 							<Label text="10000" id="10000"/>
 						</DropDown>
 					</Panel>

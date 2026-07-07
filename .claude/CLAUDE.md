@@ -432,27 +432,13 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 ## Git 工作流
 
-### 分支命名
-
-- 功能分支：`feature/{issue-number}-{branch-name}`
-- 示例：`feature/123-add-new-hero-ai`
-
-### Pull Request
-
-实现完成后由 Claude **直接用 `gh pr create` 创建 PR**（base 默认 `develop`），不依赖任何自动建 PR 的 workflow。
-使用模板创建 PR，模板文件为 `.github/pull_request_template.md`。
-分支名匹配 `^feature/(\\d+)` 时，提取 `issue-id` 作为 Issue 段。
-**创建 PR 前必须先调用 `release-note` skill 生成 Release Note 段，不要手写**（规则见 `.claude/skills/release-note/SKILL.md`）。
-**PR 标题默认使用英文。**
-
-### Commit 格式
-
-简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`，不写其他正文、不写 bullet 说明。
-详细说明由 PR description 承担，commit message 保持简洁。
-
-### Git & Commits
+- 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
+- PR 的 base branch 固定为 `develop`；标题默认英文；创建前必须先调用 `release-note` skill 生成 Release Note 段
+- Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 
 只 stage 与本次请求明确相关的文件，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
+
+> 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill（`.claude/skills/create-pr/SKILL.md`）。
 
 
 ## 文档自维护规范
