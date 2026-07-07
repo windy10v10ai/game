@@ -5,7 +5,8 @@ import { CastCoindition } from '../action/cast-condition';
  *  - EnemyHero / EnemyCreep:   复用 bot-base 预搜的 aroundEnemyHeroes / aroundEnemyCreeps
  *  - EnemyBuilding:            复用 bot-base 预搜的 aroundEnemyBuildings（防御塔/兵营等）
  *  - FriendlyHero:             复用 bot-base 预搜的 aroundFriendlyHeroes（含自己）
- *  - FriendlyBuilding:         复用 bot-base 预搜的 aroundFriendlyBuildings（含无敌塔/兵营）
+ *  - FriendlyCreep:            复用 bot-base 预搜的 aroundFriendlyCreeps（900 范围）
+ *  - FriendlyBuilding:         复用 bot-base 预搜的 aroundFriendlyBuildings（防御塔/兵营等）
  *  - Self:                     直接以施法者为目标
  *
  * 使用 const object + 字面量联合，TSTL 编译为零开销字符串常量。
@@ -15,6 +16,7 @@ export const TargetSide = {
   EnemyCreep: 'enemyCreep',
   EnemyBuilding: 'enemyBuilding',
   FriendlyHero: 'friendlyHero',
+  FriendlyCreep: 'friendlyCreep',
   FriendlyBuilding: 'friendlyBuilding',
   Self: 'self',
 } as const;

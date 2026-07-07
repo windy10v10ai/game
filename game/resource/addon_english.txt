@@ -25,6 +25,7 @@
 		"game_difficulty_n5"		"N5"
 		"game_difficulty_n6"		"N6"
 		"game_difficulty_n7"		"N7"
+		"game_difficulty_n8"		"N8"
 
 		// 选项名称
 		"player_gold_xp_multiplier"	"Radiant Gold/XP Multiplier"
@@ -76,7 +77,7 @@
 		"game_preset_remember"			"Save difficulty settings"
 		"custom_game_vote"				"Time to Vote:"
 		"map_dota_warning"				"Current map cannot select this difficulty. <br>To select N1~N5 difficulty, please select the 'dota' map before starting the game."
-		"map_hard_warning"				"Current map cannot select this difficulty. <br>To select N6 or N7 difficulty, please select the 'hard' map before starting the game."
+		"map_hard_warning"				"Current map cannot select this difficulty. <br>To select N6, N7 or N8 difficulty, please select the 'hard' map before starting the game."
 		"map_custom_warning"			"Current map cannot select this difficulty. <br>To select Custom difficulty, please select the 'custom' map before starting the game."
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."

@@ -7,8 +7,9 @@ import { getHeroBuildConfig } from '../build-item/hero-build-config';
 import { HeroBuildManager } from '../build-item/hero-build-manager';
 import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
 import { SellItem } from '../build-item/sell-item';
+import { ConsumeItem } from '../item/consume-item';
+import { ItemDispatcher } from '../item/item-dispatcher';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
-import { UseItem } from '../item/use-item';
 import { ModeEnum } from '../mode/mode-enum';
 import { HeroUtil } from './hero-util';
 
@@ -61,10 +62,33 @@ export class BotBaseAIModifier extends BaseModifier {
     currentLevel: 0,
   };
 
+  /** 已迁移到新出装系统的英雄列表 */
+  private static NEW_BUILD_SYSTEM_HEROES: Record<string, boolean> = {
+    ['npc_dota_hero_abaddon']: true,
+    ['npc_dota_hero_axe']: true,
+    ['npc_dota_hero_bane']: true,
+    ['npc_dota_hero_bloodseeker']: true,
+    ['npc_dota_hero_bounty_hunter']: true,
+    ['npc_dota_hero_chaos_knight']: true,
+    ['npc_dota_hero_death_prophet']: true,
+    ['npc_dota_hero_drow_ranger']: true,
+    ['npc_dota_hero_kunkka']: true,
+    ['npc_dota_hero_lich']: true,
+    ['npc_dota_hero_lion']: true,
+    ['npc_dota_hero_riki']: true,
+    ['npc_dota_hero_skywrath_mage']: true,
+    ['npc_dota_hero_spectre']: true,
+    ['npc_dota_hero_sven']: true,
+    ['npc_dota_hero_vengefulspirit']: true,
+    ['npc_dota_hero_viper']: true,
+    ['npc_dota_hero_windrunner']: true,
+  };
+
+  /** 当前英雄是否使用新出装系统 */
+  private newBuildSystem: boolean = false;
+
   // 出装状态
   public buildState: HeroBuildState | undefined;
-  // 是否使用新出装系统
-  public useNewBuildSystem: boolean = false;
 
   public aroundEnemyHeroes: CDOTA_BaseNPC[] = [];
   public aroundEnemyCreeps: CDOTA_BaseNPC[] = [];
@@ -86,9 +110,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
     this.isIntHero = this.hero.GetPrimaryAttribute() === Attributes.INTELLECT;
 
-    // 初始化出装状态
-    // FIXME 待所有英雄使用新出装系统后删除
-    if (this.useNewBuildSystem) {
+    // 从集中英雄列表判断是否使用新出装系统
+    this.newBuildSystem = !!BotBaseAIModifier.NEW_BUILD_SYSTEM_HEROES[this.hero.GetUnitName()];
+    if (this.newBuildSystem) {
       const config = getHeroBuildConfig(this.hero.GetUnitName());
       if (config) {
         this.buildState = InitializeHeroBuild(this.hero, config);
@@ -138,9 +162,6 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因自身而进行的施法
    */
   CastSelf(): boolean {
-    if (this.UseItemSelf()) {
-      return true;
-    }
     if (this.UseAbilitySelf()) {
       return true;
     }
@@ -151,9 +172,6 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因敌人而进行的施法
    */
   CastEnemy(): boolean {
-    if (UseItem.UseItemEnemy(this.hero, this.aroundEnemyHeroes)) {
-      return true;
-    }
     if (this.UseAbilityEnemy()) {
       return true;
     }
@@ -171,19 +189,9 @@ export class BotBaseAIModifier extends BaseModifier {
    * 因小兵而进行的施法
    */
   CastCreep(): boolean {
-    if (UseItem.UseItemCreep(this.hero, this.aroundEnemyCreeps)) {
-      return true;
-    }
     if (this.UseAbilityCreep()) {
       return true;
     }
-    return false;
-  }
-
-  // ---------------------------------------------------------
-  // Item usage
-  // ---------------------------------------------------------
-  UseItemSelf(): boolean {
     return false;
   }
 
@@ -225,6 +233,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
+    if (ItemDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -250,6 +261,9 @@ export class BotBaseAIModifier extends BaseModifier {
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
+    if (ItemDispatcher.Run(this)) {
+      return true;
+    }
     if (this.CastSelf()) {
       return true;
     }
@@ -273,6 +287,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   ActionRetreat(): boolean {
     if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
@@ -321,6 +338,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
   ActionPush(): boolean {
     if (AbilityDispatcher.Run(this)) {
+      return true;
+    }
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
@@ -393,7 +413,7 @@ export class BotBaseAIModifier extends BaseModifier {
   // ---------------------------------------------------------
   BuildItem(): boolean {
     // 使用消耗品
-    UseItem.UseConsumeItems(this.hero);
+    ConsumeItem.ConsumeKnownItems(this.hero);
     // SellItem.SellExtraItems 内部已包含智能出售系统
     if (SellItem.SellExtraItems(this.hero, this.buildState)) {
       return true;

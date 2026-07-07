@@ -16,6 +16,8 @@ description: >-
 
 用 `grep` / 片段读取定位，**禁止**一次读入整个 override 文件。
 
+判断某技能当前实际生效的数值（如蓝耗）时，**不能只看 docs/reference 原版，也不能只看顶层字段**——override 常把数值写成 `AbilityValues` 内的嵌套子块（如 `AbilityManaCost { "value" "9 10 11 12 13" }`）而非顶层字段。例：`drow_ranger_frost_arrows` 原版 0 蓝，本图 override 里实际是 `AbilityValues` 嵌套的 9-13 蓝/箭，只 grep 顶层 `AbilityManaCost` 会误判为 0 蓝。先精确读该技能整段（到下一个顶层技能名前），同时检查顶层字段和 `AbilityValues` 嵌套块；override 未覆盖时才回落原版。
+
 ## 技能范围
 
 用户未指定技能时，从参考 `npc_heroes.txt` 读取槽位：

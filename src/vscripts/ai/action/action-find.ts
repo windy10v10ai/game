@@ -56,7 +56,7 @@ export class ActionFind {
   }
 
   static FindFriendlyBuildings(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
-    return this.FindTeams(self, radius, UnitTargetType.BUILDING, UnitTargetFlags.INVULNERABLE);
+    return this.FindTeams(self, radius, UnitTargetType.BUILDING);
   }
 
   static FindTeamBuildingsInvulnerable(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {

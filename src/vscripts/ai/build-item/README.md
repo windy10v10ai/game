@@ -14,18 +14,19 @@
    - T4: 10,000-30,000金币 - 后期装备
    - T5: >30,000金币 - 终极装备
 
-2. **装备升级关系系统**
+2. **装备替代关系系统**
 
-   - **下位装备（前置装备）**：单向链，只配置直接关联的前置装备，系统自动递归补全
-   - **上位装备（升级装备）**：一对多关系，系统自动生成，用于智能出售判定
+   - **下位装备（材料/前置版本）**：只配置 `baseItems`（直接下一层，多条合成路线写多个）
+   - **替代关系**：系统开局对 `baseItems` 做传递闭包，自动得到每件装备替代的全部下位装备，用于智能出售判定
 
-3. **英雄模板系统** (5种模板)
+3. **英雄模板系统** (按英雄真实主属性 AttributePrimary 划分为4种模板)
 
-   - AgilityCarryMelee: 敏捷核心(近战) (PA, Juggernaut, Riki等)
-   - AgilityCarryRanged: 敏捷核心(远程) (Luna, Drow, Sniper等)
-   - MagicalCarry: 法师核心 (Lion, Lina, Zeus等)
-   - StrengthTank: 力量坦克 (Axe, Pudge, Bristleback等)
-   - Support: 辅助 (Crystal Maiden, Dazzle等)
+   - Strength: 力量 (Axe, Pudge, Sven等)
+   - Agility: 敏捷 (PA, Riki, Luna, Drow, Sniper等)
+   - Intelligence: 智力 (Lion, Lina, Crystal Maiden, Dazzle等)
+   - Universal: 全才/ALL属性 (Death Prophet等)
+
+   护腕/怨灵系带/空灵挂件这类同价位三选一属性配件，必须按英雄真实主属性匹配（力量用护腕、敏捷用怨灵系带、智力用空灵挂件），不能跨属性混用。
 
 4. **智能装备过渡**
 
@@ -44,7 +45,7 @@
 src/vscripts/ai/build-item/
 ├── hero-build-manager.ts        # 核心管理器
 ├── item-tier-config.ts          # 装备等级配置 (160+装备，包含升级关系函数)
-├── hero-build-config-template.ts # 英雄模板配置 (5种模板)
+├── hero-build-config-template.ts # 英雄模板配置 (4种模板)
 ├── hero-build-config.ts         # 英雄出装配置 (示例9个英雄)
 ├── hero-build-state.ts          # 出装状态管理
 └── README.md                    # 本文档
@@ -52,24 +53,20 @@ src/vscripts/ai/build-item/
 
 ## 配置英雄出装
 
-### 1. 简单配置 - 仅使用模板
-
-如果英雄完全符合某个模板,无需任何配置,系统会根据英雄攻击类型自动使用`AgilityCarryMelee`或`AgilityCarryRanged`模板。
-
-### 2. 基础配置 - 选择模板
+### 1. 基础配置 - 选择模板
 
 ```typescript
-// 在 hero-build-config.ts 中添加
+// 在 hero-build-config.ts 中添加，template 按英雄真实主属性选择
 npc_dota_hero_your_hero: {
-  template: HeroTemplate.MagicalCarry,  // 使用法师模板
+  template: HeroTemplate.Intelligence,  // 使用智力模板
 }
 ```
 
-### 3. 高级配置 - 自定义目标装备
+### 2. 高级配置 - 自定义目标装备
 
 ```typescript
 npc_dota_hero_luna: {
-  template: HeroTemplate.AgilityCarryRanged,
+  template: HeroTemplate.Agility,
   targetItemsByTier: {
     // 按 tier 配置目标装备
     [ItemTier.T3]: ['item_monkey_king_bar_2'], // 定海神针
@@ -83,12 +80,11 @@ npc_dota_hero_luna: {
 }
 ```
 
-### 4. 配置说明
+### 3. 配置说明
 
 - **template**: 可选,指定使用的模板
 - **targetItemsByTier**: 可选,按 tier 设置目标装备
-  - 每个 tier 可以配置多个装备（数组）
-  - 系统会自动补全前置装备（下位装备）
+  - 每个 tier 可以配置多个装备（数组），候选池需保证足够数量（见 `bot-item-build` skill）
   - 系统会从模板中补充空缺的 tier
 
 ## 工作原理
@@ -96,49 +92,37 @@ npc_dota_hero_luna: {
 ### 购买决策流程
 
 1. **填充用户配置** - 将配置的目标装备按 tier 填充到出装列表
-2. **补全前置装备** - 为高 tier 装备递归补全所有前置装备（下位装备）
-3. **使用模板填充** - 对于装备数量少于 6 个的 tier，从模板中补充装备
-4. **购买决策** - 按 tier 顺序购买，优先购买当前 tier 的装备
+2. **使用模板填充** - 对于装备数量少于 6 个的 tier，从模板中补充装备
+3. **购买决策** - 按 tier 顺序购买，优先购买当前 tier 的装备
 
 ### 出售决策流程
 
-在 `SellItem.SellExtraItems()` 中按以下优先级执行:
+在 `SellItem.SellExtraItems()` 中按以下顺序执行:
 
-1. **智能出售低级装备** (装备数量 > 6 时)
+1. 出售已消耗的物品（魔晶、急速之翼等）
+2. 出售配方物品
+3. 出售重复物品
+4. 出售通用垃圾物品
+5. **出售被替代的装备** - 拥有上位装备时，出售其 `baseItems` 材料链上的所有下位装备
+6. 按价值顺序出售物品（初级→中级→高级）
+7. 出售出装表中低于当前 tier 的残留装备（仅新出装系统英雄）
+8. 出售英雄特定物品
 
-   - 检查是否有上位装备（升级装备）
-   - 如果拥有上位装备，自动出售下位装备
-   - 基于装备等级和升级关系智能判断
+### 装备替代关系
 
-2. **传统出售系统** (fallback):
-   - 出售已消耗的物品(魔晶、急速之翼等)
-   - 出售配方物品
-   - 出售通用垃圾物品
-   - 出售重复物品
-   - 出售被升级替代的装备
-   - 出售英雄特定物品
-   - 按价值顺序出售物品(初级→中级→高级)
+假设 `item_hallowed_scepter` 配置为 `baseItems: ['item_magic_scepter']`，而
+`item_magic_scepter` 配置为 `baseItems: ['item_kaya']`：
 
-### 前置装备补全
-
-假设配置了 `item_excalibur` (T4):
-
-系统会自动补全前置装备链:
-
-```
-item_rapier (T3) ← item_excalibur 的 prerequisite
-→ item_excalibur (T4) ← 目标
-```
-
-如果 `item_rapier` 也有前置装备，会继续递归补全，直到没有前置装备为止。
+系统开局会对 `baseItems` 做传递闭包，得到 `item_hallowed_scepter` 替代
+`item_magic_scepter` 和 `item_kaya` 两件下位装备，拥有前者时二者都会被自动出售。
 
 ## 示例配置
 
-### 敏捷核心(远程) - Luna
+### 敏捷 - Luna
 
 ```typescript
 npc_dota_hero_luna: {
-  template: HeroTemplate.AgilityCarryRanged,
+  template: HeroTemplate.Agility,
   targetItemsByTier: {
     [ItemTier.T3]: ['item_monkey_king_bar_2'],
     [ItemTier.T4]: [
@@ -151,11 +135,11 @@ npc_dota_hero_luna: {
 }
 ```
 
-### 法师核心 - Lion
+### 智力 - Lion
 
 ```typescript
 npc_dota_hero_lion: {
-  template: HeroTemplate.MagicalCarry,
+  template: HeroTemplate.Intelligence,
   targetItemsByTier: {
     [ItemTier.T3]: ['item_aeon_pendant'],
     [ItemTier.T4]: [
@@ -168,11 +152,11 @@ npc_dota_hero_lion: {
 }
 ```
 
-### 力量坦克 - Axe
+### 力量 - Axe
 
 ```typescript
 npc_dota_hero_axe: {
-  template: HeroTemplate.StrengthTank,
+  template: HeroTemplate.Strength,
   targetItemsByTier: {
     [ItemTier.T3]: ['item_blade_mail_2', 'item_radiance_2'],
     [ItemTier.T4]: [
@@ -194,8 +178,7 @@ item_your_new_item: {
   name: 'item_your_new_item',
   tier: ItemTier.T3,
   cost: 8000,
-  prerequisite: 'item_base_item', // 可选：直接前置装备
-  upgradesTo: ['item_upgraded_version'], // 可选：可升级到的装备列表
+  baseItems: ['item_base_item'], // 可选：直接下位装备（材料/前置版本），多条合成路线写多个
 }
 ```
 
@@ -204,8 +187,8 @@ item_your_new_item: {
 在`hero-build-config-template.ts`中修改对应模板的`itemsByTier`:
 
 ```typescript
-const AgilityCarryRangedTemplate: HeroTemplateConfig = {
-  name: HeroTemplate.AgilityCarryRanged,
+const AgilityTemplate: HeroTemplateConfig = {
+  name: HeroTemplate.Agility,
   itemsByTier: {
     [ItemTier.T1]: ["item_boots", "item_power_treads", "item_wraith_band"],
     [ItemTier.T2]: ["item_sange_and_yasha", "item_monkey_king_bar"],
@@ -226,26 +209,14 @@ const AgilityCarryRangedTemplate: HeroTemplateConfig = {
   T3: item_monkey_king_bar_2
   T4: item_excalibur
 [AI] BuildItem npc_dota_hero_luna 购买装备: item_wraith_band (T1)
-[AI] SellLowTierItems npc_dota_hero_luna 出售下位装备: item_wraith_band (已拥有上位装备: item_monkey_king_bar_2)
+[AI] SellReplacedItems npc_dota_hero_luna 出售被替代装备: item_wraith_band (已拥有: item_monkey_king_bar_2)
 ```
 
 ## 优势
 
 1. **配置简单** - 只需配置最终目标,系统自动处理过渡
 2. **灵活性高** - 按 tier 配置,支持多个目标装备
-3. **智能出售** - 基于升级关系自动出售下位装备,避免浪费
+3. **智能出售** - 基于 `baseItems` 传递闭包自动出售下位装备,避免浪费
 4. **易于维护** - 装备、模板、英雄配置分离,清晰明了
 5. **可扩展** - 轻松添加新装备、新模板、新英雄
-6. **自动补全** - 前置装备自动递归补全,无需手动配置
-
-## 与旧系统的对比
-
-| 特性     | 旧系统 (Lua)     | 新系统 (TypeScript)  |
-| -------- | ---------------- | -------------------- |
-| 配置方式 | 每个装备手动配置 | 只配置目标装备       |
-| 装备过渡 | 手动定义每个过渡 | 自动递归补全前置装备 |
-| 出售逻辑 | 固定规则         | 基于升级关系智能判断 |
-| 英雄模板 | 无               | 5种预定义模板        |
-| 装备组织 | 无               | 按 tier 组织         |
-| 可维护性 | 低               | 高                   |
-| 类型安全 | 无               | TypeScript类型检查   |
+6. **类型安全** - TypeScript类型检查

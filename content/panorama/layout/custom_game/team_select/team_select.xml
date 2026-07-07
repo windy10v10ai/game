@@ -63,11 +63,14 @@
 							</Button>
 						</Panel>
 						<Panel id="DifficultyHard" class="flowRight">
-							<Button id="DifficultyN6" class="difficultyChoice fullWidth" onactivate="OnChooseDifficulty(6)">
+							<Button id="DifficultyN6" class="difficultyChoice thirdWidth" onactivate="OnChooseDifficulty(6)">
 								<Label class="difficultyText" text="#game_difficulty_n6" />
 							</Button>
-							<Button id="DifficultyN7" class="difficultyChoice fullWidth" onactivate="OnChooseDifficulty(7)">
+							<Button id="DifficultyN7" class="difficultyChoice thirdWidth" onactivate="OnChooseDifficulty(7)">
 								<Label class="difficultyText" text="#game_difficulty_n7" />
+							</Button>
+							<Button id="DifficultyN8" class="difficultyChoice thirdWidth" onactivate="OnChooseDifficulty(8)">
+								<Label class="difficultyText" text="#game_difficulty_n8" />
 							</Button>
 						</Panel>
 						<Panel id="DifficultyCustom" class="flowRight">
