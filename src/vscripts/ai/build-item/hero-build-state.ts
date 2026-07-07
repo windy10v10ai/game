@@ -9,7 +9,7 @@ import {
   getTemplateItemsByTier,
   GetTomePurchaseCap,
 } from './hero-build-config-template';
-import { getItemConfig, GetItemPrerequisites, ItemTier } from './item-tier-config';
+import { getItemConfig, ItemTier } from './item-tier-config';
 import { CandidatePoolEntry, SampleWeightedWithoutReplacement } from './weighted-pool';
 
 /** 每个 tier 装备槽位上限 */
@@ -85,9 +85,6 @@ export function InitializeHeroBuild(
   // 消耗品直接复制模板全部条目，不做抽样
   FillTemplateConsumables(config, consumables, tiersToResolve);
 
-  // 为高 tier 装备补全前置装备（每个 tier 最多 6 个）
-  FillPrerequisiteItems(resolvedItems);
-
   const toNames = (names: string[]) =>
     names.map((name) => getItemConfig(name)?.nameCN ?? name).join(', ');
 
@@ -157,37 +154,6 @@ function SampleTierItems(
     const pool: CandidatePoolEntry[] = heroPool ?? getTemplateItemsByTier(config.template, tier);
     const slotCount = tier === ItemTier.T5 ? GetT5ItemCount(multiplier) : MAX_ITEMS_PER_TIER;
     resolvedItems[tier] = SampleWeightedWithoutReplacement(pool, slotCount);
-  }
-}
-
-/**
- * 为高 tier 装备补全前置装备
- * @param resolvedItems 装备记录
- * @param _consumables 消耗品列表（按tier分组，消耗品不需要补全前置装备）
- */
-function FillPrerequisiteItems(resolvedItems: Record<number, string[]>): void {
-  for (let tier = ItemTier.T5; tier >= ItemTier.T1; tier--) {
-    const tierItems = resolvedItems[tier];
-
-    for (const itemName of tierItems) {
-      const prerequisites = GetItemPrerequisites(itemName);
-
-      for (const prereq of prerequisites) {
-        const prereqConfig = getItemConfig(prereq);
-        if (!prereqConfig) continue;
-
-        const prereqTier = prereqConfig.tier;
-        // 只添加更低 tier 的前置装备，同一级别或更高级别的不添加
-        if (prereqTier < tier) {
-          // 添加到对应 tier，去重，且不超过 6 个
-          if (!resolvedItems[prereqTier].includes(prereq)) {
-            if (resolvedItems[prereqTier].length < 6) {
-              resolvedItems[prereqTier].push(prereq);
-            }
-          }
-        }
-      }
-    }
   }
 }
 

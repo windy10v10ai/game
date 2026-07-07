@@ -33,10 +33,8 @@ export interface ItemConfig {
   tier: ItemTier;
   /** 实际金钱(用于验证) */
   cost: number;
-  /** 直接前置装备（下位装备，只有一条路线） */
-  prerequisite?: string;
-  /** 可升级到的装备列表（上位装备，支持多种路线） */
-  upgrades?: string[];
+  /** 直接下位装备（材料/前置版本），只写直接下一层，多条合成路线写多个 */
+  baseItems?: string[];
 }
 
 /**
@@ -52,14 +50,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '速度之靴',
     tier: ItemTier.T1,
     cost: 500,
-    upgrades: ['item_power_treads', 'item_phase_boots', 'item_arcane_boots', 'item_tranquil_boots'],
   },
   item_magic_wand: {
     name: 'item_magic_wand',
     nameCN: '魔杖',
     tier: ItemTier.T1,
     cost: 460,
-    upgrades: ['item_holy_locket'],
   },
   item_bracer: { name: 'item_bracer', nameCN: '护腕', tier: ItemTier.T1, cost: 500 },
   item_null_talisman: {
@@ -132,6 +128,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '静谧之鞋',
     tier: ItemTier.T1,
     cost: 900,
+    baseItems: ['item_boots'],
   },
   item_orb_of_corrosion: {
     name: 'item_orb_of_corrosion',
@@ -152,20 +149,21 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '动力鞋',
     tier: ItemTier.T1,
     cost: 1400,
-    upgrades: ['item_phase_boots'],
+    baseItems: ['item_boots'],
   },
   item_arcane_boots: {
     name: 'item_arcane_boots',
     nameCN: '奥术鞋',
     tier: ItemTier.T1,
     cost: 1500,
+    baseItems: ['item_boots'],
   },
   item_phase_boots: {
     name: 'item_phase_boots',
     nameCN: '相位鞋',
     tier: ItemTier.T1,
     cost: 1450,
-    upgrades: ['item_adi_king', 'item_adi_king_plus'],
+    baseItems: ['item_boots', 'item_power_treads'],
   },
 
   // 早期防御/核心
@@ -187,7 +185,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '水晶剑',
     tier: ItemTier.T1,
     cost: 2000,
-    upgrades: ['item_greater_crit'],
   },
 
   // ===== T2: 中期过渡 (2000-5000金) =====
@@ -198,21 +195,18 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '慧光',
     tier: ItemTier.T2,
     cost: 2100,
-    upgrades: ['item_kaya_and_sange', 'item_yasha_and_kaya', 'item_sacred_trident'],
   },
   item_sange: {
     name: 'item_sange',
     nameCN: '散华',
     tier: ItemTier.T2,
     cost: 2100,
-    upgrades: ['item_sange_and_yasha', 'item_kaya_and_sange', 'item_sacred_trident'],
   },
   item_yasha: {
     name: 'item_yasha',
     nameCN: '夜叉',
     tier: ItemTier.T2,
     cost: 2100,
-    upgrades: ['item_sange_and_yasha', 'item_yasha_and_kaya', 'item_sacred_trident'],
   },
 
   // 功能装备
@@ -227,40 +221,31 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '弗拉迪米尔的祭品',
     tier: ItemTier.T2,
     cost: 2200,
-    upgrades: ['item_vladmir_2'],
   },
   item_force_staff: {
     name: 'item_force_staff',
     nameCN: '原力法杖',
     tier: ItemTier.T2,
     cost: 2200,
-    upgrades: ['item_force_staff_2', 'item_force_staff_3'],
   },
   item_hand_of_midas: {
     name: 'item_hand_of_midas',
     nameCN: '迈达斯之手',
     tier: ItemTier.T1, // 迈达斯之手：价格属于 T2 区间，但作为早期核心冲装特意归入 T1
     cost: 2200,
-    upgrades: ['item_hand_of_group'],
   },
   item_holy_locket: {
     name: 'item_holy_locket',
     nameCN: '圣洁吊坠',
     tier: ItemTier.T2,
     cost: 2250,
-    upgrades: ['item_orb_of_the_brine'],
+    baseItems: ['item_magic_wand'],
   },
   item_blink: {
     name: 'item_blink',
     nameCN: '闪烁匕首',
     tier: ItemTier.T2,
     cost: 2250,
-    upgrades: [
-      'item_swift_blink',
-      'item_overwhelming_blink',
-      'item_arcane_blink_2',
-      'item_jump_jump_jump',
-    ],
   },
   item_rod_of_atos: {
     name: 'item_rod_of_atos',
@@ -275,21 +260,18 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '刃甲',
     tier: ItemTier.T2,
     cost: 2400,
-    upgrades: ['item_blade_mail_2'],
   },
   item_aether_lens: {
     name: 'item_aether_lens',
     nameCN: '以太透镜',
     tier: ItemTier.T2,
     cost: 2350,
-    upgrades: ['item_aether_lens_2'],
   },
   item_armlet: {
     name: 'item_armlet',
     nameCN: '莫尔迪基安的臂章',
     tier: ItemTier.T2,
     cost: 2500,
-    upgrades: ['item_armlet_plus', 'item_armlet_pro_max'],
   },
   item_travel_boots: {
     name: 'item_travel_boots',
@@ -302,7 +284,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '天堂之戟',
     tier: ItemTier.T2,
     cost: 2600,
-    upgrades: ['item_heavens_halberd_v2'],
   },
   item_cyclone: {
     name: 'item_cyclone',
@@ -315,7 +296,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '回音战刃',
     tier: ItemTier.T2,
     cost: 2700,
-    upgrades: ['item_echo_sabre_2'],
   },
   item_witch_blade: {
     name: 'item_witch_blade',
@@ -328,14 +308,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '碎颅锤',
     tier: ItemTier.T2,
     cost: 2875,
-    upgrades: ['item_abyssal_blade', 'item_abyssal_blade_v2'],
   },
   item_maelstrom: {
     name: 'item_maelstrom',
     nameCN: '漩涡',
     tier: ItemTier.T2,
     cost: 2950,
-    upgrades: ['item_mjollnir'],
   },
 
   // 高价T2装备
@@ -344,14 +322,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '永恒之盘',
     tier: ItemTier.T2,
     cost: 3000,
-    upgrades: ['item_aeon_pendant'],
   },
   item_aether_lens_2: {
     name: 'item_aether_lens_2',
     nameCN: '以太透镜2',
     tier: ItemTier.T2,
     cost: 3200,
-    prerequisite: 'item_aether_lens',
+    baseItems: ['item_aether_lens'],
   },
   item_invis_sword: {
     name: 'item_invis_sword',
@@ -364,7 +341,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '黯灭',
     tier: ItemTier.T2,
     cost: 3500,
-    upgrades: ['item_dodo_desolator', 'item_infernal_desolator'],
   },
   item_crimson_guard: {
     name: 'item_crimson_guard',
@@ -385,15 +361,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '永世法衣',
     tier: ItemTier.T2,
     cost: 3700,
-    upgrades: ['item_eternal_shroud_ultra'],
   },
   item_force_staff_2: {
     name: 'item_force_staff_2',
     nameCN: '风力法杖',
     tier: ItemTier.T2,
     cost: 3700,
-    prerequisite: 'item_force_staff',
-    upgrades: ['item_force_staff_3'],
+    baseItems: ['item_force_staff'],
   },
   item_pipe: { name: 'item_pipe', nameCN: '洞察烟斗', tier: ItemTier.T2, cost: 3725 },
   item_specialists_array: {
@@ -407,14 +381,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '清莲宝珠',
     tier: ItemTier.T2,
     cost: 3850,
-    upgrades: ['item_saint_orb'],
   },
   item_bfury: {
     name: 'item_bfury',
     nameCN: '狂战斧',
     tier: ItemTier.T2,
     cost: 3900,
-    upgrades: ['item_bfury_ultra'],
   },
 
   // 核心装备
@@ -423,115 +395,102 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '黑皇杖',
     tier: ItemTier.T2,
     cost: 4050,
-    upgrades: ['item_black_king_bar_2'],
   },
   item_yasha_and_kaya: {
     name: 'item_yasha_and_kaya',
     nameCN: '慧夜对剑',
     tier: ItemTier.T2,
     cost: 4200,
-    prerequisite: 'item_yasha',
-    upgrades: ['item_sacred_trident', 'item_sacred_six_vein'],
+    baseItems: ['item_kaya', 'item_yasha'],
   },
   item_ultimate_scepter: {
     name: 'item_ultimate_scepter',
     nameCN: '阿哈利姆神杖',
     tier: ItemTier.T2,
     cost: 4200,
-    upgrades: ['item_ultimate_scepter_2'],
   },
   item_kaya_and_sange: {
     name: 'item_kaya_and_sange',
     nameCN: '散慧对剑',
     tier: ItemTier.T2,
     cost: 4200,
-    prerequisite: 'item_kaya',
-    upgrades: ['item_sacred_trident', 'item_sacred_six_vein', 'item_kaya_and_sange_1'],
+    baseItems: ['item_kaya', 'item_sange'],
   },
   item_sange_and_yasha: {
     name: 'item_sange_and_yasha',
     nameCN: '散夜对剑',
     tier: ItemTier.T2,
     cost: 4200,
-    prerequisite: 'item_sange',
-    upgrades: ['item_sacred_trident', 'item_sacred_six_vein', 'item_sange_and_yasha_1'],
+    baseItems: ['item_sange', 'item_yasha'],
   },
   item_echo_sabre_2: {
     name: 'item_echo_sabre_2',
     nameCN: '音速战刃',
     tier: ItemTier.T2,
     cost: 4325,
+    baseItems: ['item_echo_sabre'],
   },
   item_bloodstone_v2: {
     name: 'item_bloodstone_v2',
     nameCN: '迷你血精石',
     tier: ItemTier.T2,
     cost: 4400,
-    upgrades: ['item_bloodstone'],
   },
   item_hurricane_pike: {
     name: 'item_hurricane_pike',
     nameCN: '飓风长戟',
     tier: ItemTier.T2,
     cost: 4450,
-    upgrades: ['item_hurricane_pike_2'],
   },
   item_shotgun: {
     name: 'item_shotgun',
     nameCN: '双管霰弹枪',
     tier: ItemTier.T2,
     cost: 4500,
-    upgrades: ['item_shotgun_v2'],
   },
   item_armlet_plus: {
     name: 'item_armlet_plus',
     nameCN: '小鸡臂章Plus',
     tier: ItemTier.T2,
     cost: 4500,
-    prerequisite: 'item_armlet',
-    upgrades: ['item_armlet_pro_max'],
+    baseItems: ['item_armlet'],
   },
   item_gungir: {
     name: 'item_gungir',
     nameCN: '缚灵索',
     tier: ItemTier.T2,
     cost: 4550,
-    upgrades: ['item_gungir_2'],
   },
   item_manta: {
     name: 'item_manta',
     nameCN: '幻影斧',
     tier: ItemTier.T2,
     cost: 4650,
-    upgrades: ['item_manta_1', 'item_manta_2'],
   },
   item_monkey_king_bar: {
     name: 'item_monkey_king_bar',
     nameCN: '金箍棒',
     tier: ItemTier.T2,
     cost: 5000,
-    upgrades: ['item_monkey_king_bar_2'],
   },
   item_radiance: {
     name: 'item_radiance',
     nameCN: '辉耀',
     tier: ItemTier.T2,
     cost: 4700,
-    upgrades: ['item_radiance_2'],
   },
   item_sphere: {
     name: 'item_sphere',
     nameCN: '林肯法球',
     tier: ItemTier.T2,
     cost: 4800,
-    upgrades: ['item_sphere_2', 'item_saint_orb'],
   },
   item_hand_of_group: {
     name: 'item_hand_of_group',
     nameCN: '团队之手',
     tier: ItemTier.T2,
     cost: 4800,
-    prerequisite: 'item_hand_of_midas',
+    baseItems: ['item_hand_of_midas'],
   },
   item_crellas_crozier: {
     name: 'item_crellas_crozier',
@@ -544,7 +503,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '玲珑心',
     tier: ItemTier.T2,
     cost: 4800,
-    upgrades: ['item_arcane_octarine_core', 'item_refresh_core'],
   },
 
   // ===== T3: 中期核心 (5000-10000金) =====
@@ -554,44 +512,39 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '阿迪王',
     tier: ItemTier.T2,
     cost: 5000,
-    prerequisite: 'item_power_treads',
-    upgrades: ['item_adi_king_plus'],
+    baseItems: ['item_phase_boots', 'item_power_treads'],
   },
   item_refresher: {
     name: 'item_refresher',
     nameCN: '刷新球',
     tier: ItemTier.T2,
     cost: 5000,
-    upgrades: ['item_refresh_core'],
   },
   item_satanic: {
     name: 'item_satanic',
     nameCN: '撒旦之邪力',
     tier: ItemTier.T3,
     cost: 5050,
-    upgrades: ['item_satanic_2'],
   },
   item_arcane_blink_2: {
     name: 'item_arcane_blink_2',
     nameCN: '秘奥闪光',
     tier: ItemTier.T3,
     cost: 5050,
-    prerequisite: 'item_blink',
-    upgrades: ['item_arcane_blink', 'item_jump_jump_jump'],
+    baseItems: ['item_blink'],
   },
   item_guardian_greaves: {
     name: 'item_guardian_greaves',
     nameCN: '卫士胫甲',
     tier: ItemTier.T2,
     cost: 4450,
-    upgrades: ['item_guardian_greaves_artifact'],
   },
   item_greater_crit: {
     name: 'item_greater_crit',
     nameCN: '代达罗斯之殇',
     tier: ItemTier.T3,
     cost: 5100,
-    prerequisite: 'item_lesser_crit',
+    baseItems: ['item_lesser_crit'],
   },
   item_assault: {
     name: 'item_assault',
@@ -604,94 +557,90 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '希瓦的守护',
     tier: ItemTier.T2,
     cost: 4500,
-    upgrades: ['item_shivas_guard_2'],
   },
   item_sheepstick: {
     name: 'item_sheepstick',
     nameCN: '邪恶镰刀',
     tier: ItemTier.T3,
     cost: 5200,
-    upgrades: ['item_necronomicon_staff'],
   },
   item_heart: {
     name: 'item_heart',
     nameCN: '恐鳌之心',
     tier: ItemTier.T3,
     cost: 5200,
-    upgrades: ['item_undying_heart'],
   },
   item_force_staff_3: {
     name: 'item_force_staff_3',
     nameCN: '黄金法杖',
     tier: ItemTier.T3,
     cost: 5200,
-    prerequisite: 'item_force_staff_2',
+    baseItems: ['item_force_staff', 'item_force_staff_2'],
   },
   item_swift_blink: {
     name: 'item_swift_blink',
     nameCN: '迅疾闪光',
     tier: ItemTier.T3,
     cost: 5300,
-    prerequisite: 'item_blink',
-    upgrades: ['item_swift_blink_2', 'item_jump_jump_jump'],
+    baseItems: ['item_blink'],
   },
   item_overwhelming_blink: {
     name: 'item_overwhelming_blink',
     nameCN: '盛势闪光',
     tier: ItemTier.T3,
     cost: 5300,
-    prerequisite: 'item_blink',
-    upgrades: ['item_overwhelming_blink_2', 'item_jump_jump_jump'],
+    baseItems: ['item_blink'],
   },
   item_silver_edge: {
     name: 'item_silver_edge',
     nameCN: '白银之锋',
     tier: ItemTier.T3,
     cost: 5350,
-    upgrades: ['item_silver_edge_2'],
   },
   item_ethereal_blade: {
     name: 'item_ethereal_blade',
     nameCN: '虚灵之刃',
     tier: ItemTier.T3,
     cost: 5450,
-    upgrades: ['item_ethereal_blade_ultra'],
   },
   item_butterfly: {
     name: 'item_butterfly',
     nameCN: '蝴蝶',
     tier: ItemTier.T3,
     cost: 5450,
-    upgrades: ['item_wasp_callous', 'item_wasp_despotic', 'item_wasp_golden'],
   },
-  item_mjollnir: { name: 'item_mjollnir', nameCN: '雷神之锤', tier: ItemTier.T3, cost: 5500 },
+  item_mjollnir: {
+    name: 'item_mjollnir',
+    nameCN: '雷神之锤',
+    tier: ItemTier.T3,
+    cost: 5500,
+    baseItems: ['item_maelstrom'],
+  },
   item_blade_mail_2: {
     name: 'item_blade_mail_2',
     nameCN: '刃甲2',
     tier: ItemTier.T3,
     cost: 5700,
-    prerequisite: 'item_blade_mail',
+    baseItems: ['item_blade_mail'],
   },
   item_rapier: {
     name: 'item_rapier',
     nameCN: '圣剑',
     tier: ItemTier.T3,
     cost: 5600,
-    upgrades: ['item_excalibur'],
   },
   item_skadi: {
     name: 'item_skadi',
     nameCN: '斯嘉蒂之眼',
     tier: ItemTier.T3,
     cost: 5900,
-    upgrades: ['item_skadi_2'],
   },
   item_radiance_2: {
     name: 'item_radiance_2',
     nameCN: '圣焰之光',
     tier: ItemTier.T3,
     cost: 6000,
-    prerequisite: 'item_radiance',
+    baseItems: ['item_radiance'],
   },
   item_phylactery: {
     name: 'item_phylactery',
@@ -710,37 +659,34 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '咸鱼之王',
     tier: ItemTier.T3,
     cost: 6000,
-    prerequisite: 'item_aeon_disk',
+    baseItems: ['item_aeon_disk'],
   },
   item_devastator: {
     name: 'item_devastator',
     nameCN: '圣斧',
     tier: ItemTier.T3,
     cost: 6200,
-    upgrades: ['item_devastator_2'],
   },
   item_abyssal_blade: {
     name: 'item_abyssal_blade',
     nameCN: '深渊之刃',
     tier: ItemTier.T3,
     cost: 6250,
-    prerequisite: 'item_basher',
-    upgrades: ['item_abyssal_blade_v2'],
+    baseItems: ['item_basher'],
   },
   item_armlet_pro_max: {
     name: 'item_armlet_pro_max',
     nameCN: '小鸡臂章Pro Max',
     tier: ItemTier.T3,
     cost: 6500,
-    prerequisite: 'item_armlet_plus',
+    baseItems: ['item_armlet', 'item_armlet_plus'],
   },
   item_sphere_2: {
     name: 'item_sphere_2',
     nameCN: '真·林肯法球',
     tier: ItemTier.T3,
     cost: 6800,
-    prerequisite: 'item_sphere',
-    upgrades: ['item_saint_orb'],
+    baseItems: ['item_sphere'],
   },
   item_dagon_5: { name: 'item_dagon_5', nameCN: '达贡之神力', tier: ItemTier.T3, cost: 7450 },
   item_sacred_trident: {
@@ -748,30 +694,35 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '三叉戟',
     tier: ItemTier.T3,
     cost: 7800,
-    prerequisite: 'item_kaya',
-    upgrades: ['item_sacred_six_vein'],
+    baseItems: [
+      'item_kaya',
+      'item_kaya_and_sange',
+      'item_sange',
+      'item_sange_and_yasha',
+      'item_yasha',
+      'item_yasha_and_kaya',
+    ],
   },
   item_manta_1: {
     name: 'item_manta_1',
     nameCN: '幻身斧',
     tier: ItemTier.T3,
     cost: 8000,
-    prerequisite: 'item_manta',
-    upgrades: ['item_manta_2'],
+    baseItems: ['item_manta'],
   },
   item_orb_of_the_brine: {
     name: 'item_orb_of_the_brine',
     nameCN: '苍洋魔珠',
     tier: ItemTier.T3,
     cost: 8000,
-    prerequisite: 'item_holy_locket',
+    baseItems: ['item_holy_locket'],
   },
   item_magic_scepter: {
     name: 'item_magic_scepter',
     nameCN: '魔云法杖',
     tier: ItemTier.T3,
     cost: 8000,
-    upgrades: ['item_hallowed_scepter'],
+    baseItems: ['item_kaya'],
   },
   item_moon_shard_datadriven: {
     name: 'item_moon_shard_datadriven',
@@ -784,63 +735,63 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '无敌之刃',
     tier: ItemTier.T3,
     cost: 8350,
-    prerequisite: 'item_silver_edge',
+    baseItems: ['item_silver_edge'],
   },
   item_dodo_desolator: {
     name: 'item_dodo_desolator',
     nameCN: '黯灭头',
     tier: ItemTier.T3,
     cost: 8000,
-    prerequisite: 'item_desolator',
-    upgrades: ['item_infernal_desolator'],
+    baseItems: ['item_desolator'],
   },
   item_ultimate_scepter_2: {
     name: 'item_ultimate_scepter_2',
     nameCN: '真·阿哈利姆神杖',
     tier: ItemTier.T3,
     cost: 8600,
-    prerequisite: 'item_ultimate_scepter',
+    baseItems: ['item_ultimate_scepter'],
   },
   item_bloodstone: {
     name: 'item_bloodstone',
     nameCN: '血精神石',
     tier: ItemTier.T3,
     cost: 9000,
-    prerequisite: 'item_bloodstone_v2',
+    baseItems: ['item_bloodstone_v2'],
   },
   item_heavens_halberd_v2: {
     name: 'item_heavens_halberd_v2',
     nameCN: '无锋战戟',
     tier: ItemTier.T3,
     cost: 9500,
-    prerequisite: 'item_heavens_halberd',
+    baseItems: ['item_heavens_halberd'],
   },
   item_adi_king_plus: {
     name: 'item_adi_king_plus',
     nameCN: '阿迪王plus',
     tier: ItemTier.T3,
     cost: 9600,
-    prerequisite: 'item_adi_king',
+    baseItems: ['item_adi_king', 'item_phase_boots'],
   },
   item_eternal_shroud_ultra: {
     name: 'item_eternal_shroud_ultra',
     nameCN: '法师泳衣',
     tier: ItemTier.T3,
     cost: 9600,
+    baseItems: ['item_eternal_shroud'],
   },
   item_hurricane_pike_2: {
     name: 'item_hurricane_pike_2',
     nameCN: '黄金魔龙枪 Ultimate',
     tier: ItemTier.T3,
     cost: 9700,
-    prerequisite: 'item_hurricane_pike',
+    baseItems: ['item_hurricane_pike'],
   },
   item_monkey_king_bar_2: {
     name: 'item_monkey_king_bar_2',
     nameCN: '定海神针',
     tier: ItemTier.T4,
     cost: 10100,
-    prerequisite: 'item_monkey_king_bar',
+    baseItems: ['item_monkey_king_bar'],
   },
   item_angels_demise: {
     name: 'item_angels_demise',
@@ -853,30 +804,27 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '强袭祭品',
     tier: ItemTier.T3,
     cost: 9800,
-    prerequisite: 'item_vladmir',
+    baseItems: ['item_assault', 'item_vladmir'],
   },
   item_wasp_callous: {
     name: 'item_wasp_callous',
     nameCN: '大核荣耀冷酷',
     tier: ItemTier.T3,
     cost: 10000,
-    prerequisite: 'item_butterfly',
-    upgrades: ['item_wasp_golden'],
+    baseItems: ['item_butterfly'],
   },
   item_wasp_despotic: {
     name: 'item_wasp_despotic',
     nameCN: '大核荣耀暴虐',
     tier: ItemTier.T3,
     cost: 10000,
-    prerequisite: 'item_butterfly',
-    upgrades: ['item_wasp_golden'],
+    baseItems: ['item_butterfly'],
   },
   item_hydras_breath: {
     name: 'item_hydras_breath',
     nameCN: '怪蛇之息',
     tier: ItemTier.T3,
     cost: 5900,
-    upgrades: ['item_hydras_breath_2'],
   },
   item_revenants_brooch_ultra: {
     name: 'item_revenants_brooch_ultra',
@@ -891,38 +839,35 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '三管霰弹枪',
     tier: ItemTier.T3,
     cost: 10000,
-    prerequisite: 'item_shotgun',
+    baseItems: ['item_shotgun'],
   },
   item_arcane_blink: {
     name: 'item_arcane_blink',
     nameCN: '爱因斯坦闪光',
     tier: ItemTier.T4,
     cost: 10100,
-    prerequisite: 'item_arcane_blink_2',
-    upgrades: ['item_jump_jump_jump'],
+    baseItems: ['item_arcane_blink_2'],
   },
   item_overwhelming_blink_2: {
     name: 'item_overwhelming_blink_2',
     nameCN: '泰森闪光',
     tier: ItemTier.T4,
     cost: 10600,
-    prerequisite: 'item_overwhelming_blink',
-    upgrades: ['item_jump_jump_jump'],
+    baseItems: ['item_overwhelming_blink'],
   },
   item_arcane_octarine_core: {
     name: 'item_arcane_octarine_core',
     nameCN: '奥术之心',
     tier: ItemTier.T4,
     cost: 10600,
-    prerequisite: 'item_octarine_core',
+    baseItems: ['item_aether_lens_2', 'item_octarine_core'],
   },
   item_swift_blink_2: {
     name: 'item_swift_blink_2',
     nameCN: '博尔特闪光',
     tier: ItemTier.T4,
     cost: 10600,
-    prerequisite: 'item_swift_blink',
-    upgrades: ['item_jump_jump_jump'],
+    baseItems: ['item_swift_blink'],
   },
   item_insight_armor: {
     name: 'item_insight_armor',
@@ -935,86 +880,84 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '一闪',
     tier: ItemTier.T4,
     cost: 10800,
-    prerequisite: 'item_abyssal_blade',
-    upgrades: ['item_shadow_judgment'],
+    baseItems: ['item_abyssal_blade', 'item_basher'],
   },
   item_saint_orb: {
     name: 'item_saint_orb',
     nameCN: '圣女白莲',
     tier: ItemTier.T4,
     cost: 11200,
-    prerequisite: 'item_lotus_orb',
+    baseItems: ['item_lotus_orb', 'item_sphere', 'item_sphere_2'],
   },
   item_manta_2: {
     name: 'item_manta_2',
     nameCN: '相位斧',
     tier: ItemTier.T4,
     cost: 11100,
-    prerequisite: 'item_manta_1',
+    baseItems: ['item_manta', 'item_manta_1'],
   },
   item_black_king_bar_2: {
     name: 'item_black_king_bar_2',
     nameCN: '天神杖',
     tier: ItemTier.T4,
     cost: 11600,
-    prerequisite: 'item_black_king_bar',
-    upgrades: ['item_beast_shield'],
+    baseItems: ['item_black_king_bar'],
   },
   item_ethereal_blade_ultra: {
     name: 'item_ethereal_blade_ultra',
     nameCN: '神器·永恒虚灵之刃',
     tier: ItemTier.T4,
     cost: 12000,
-    prerequisite: 'item_ethereal_blade',
+    baseItems: ['item_ethereal_blade'],
   },
   item_skadi_2: {
     name: 'item_skadi_2',
     nameCN: '粘妈之眼',
     tier: ItemTier.T4,
     cost: 12000,
-    prerequisite: 'item_skadi',
+    baseItems: ['item_skadi'],
   },
   item_satanic_2: {
     name: 'item_satanic_2',
     nameCN: '真红·撒旦之邪力',
     tier: ItemTier.T4,
     cost: 12000,
-    prerequisite: 'item_satanic',
+    baseItems: ['item_satanic'],
   },
   item_bfury_ultra: {
     name: 'item_bfury_ultra',
     nameCN: '救世狂战',
     tier: ItemTier.T4,
     cost: 12000,
-    prerequisite: 'item_bfury',
+    baseItems: ['item_bfury'],
   },
   item_devastator_2: {
     name: 'item_devastator_2',
     nameCN: '神圣斧',
     tier: ItemTier.T4,
     cost: 12600,
-    prerequisite: 'item_devastator',
+    baseItems: ['item_devastator'],
   },
   item_undying_heart: {
     name: 'item_undying_heart',
     nameCN: '不朽之心',
     tier: ItemTier.T4,
     cost: 13800,
-    prerequisite: 'item_heart',
+    baseItems: ['item_heart'],
   },
   item_hydras_breath_2: {
     name: 'item_hydras_breath_2',
     nameCN: '神器·千年毒蛟之息',
     tier: ItemTier.T4,
     cost: 20000,
-    prerequisite: 'item_hydras_breath',
+    baseItems: ['item_hydras_breath'],
   },
   item_armlet_artifact: {
     name: 'item_armlet_artifact',
     nameCN: '神器·光暗臂章',
     tier: ItemTier.T4,
     cost: 18500,
-    prerequisite: 'item_armlet_pro_max',
+    baseItems: ['item_armlet_pro_max'],
   },
   // 与 item_armlet_artifact 同为 item_armlet_pro_max 的平行分支，二者互斥，同一 tier 不可共存
   item_armlet_light: {
@@ -1022,79 +965,94 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '圣光·臂章',
     tier: ItemTier.T4,
     cost: 12500,
-    prerequisite: 'item_armlet_pro_max',
+    baseItems: ['item_armlet_pro_max'],
   },
   item_shivas_guard_2: {
     name: 'item_shivas_guard_2',
     nameCN: '雅典娜的守护',
     tier: ItemTier.T4,
     cost: 13000,
-    prerequisite: 'item_shivas_guard',
+    baseItems: ['item_shivas_guard'],
   },
   item_mjollnir_2: {
     name: 'item_mjollnir_2',
     nameCN: '神器·神雷锤',
     tier: ItemTier.T4,
     cost: 14000,
-    prerequisite: 'item_mjollnir',
+    baseItems: ['item_mjollnir'],
   },
   item_kaya_and_sange_1: {
     name: 'item_kaya_and_sange_1',
     nameCN: '神器·散慧对剑',
     tier: ItemTier.T4,
     cost: 14000,
-    prerequisite: 'item_kaya_and_sange',
+    baseItems: ['item_kaya_and_sange'],
   },
   item_sange_and_yasha_1: {
     name: 'item_sange_and_yasha_1',
     nameCN: '神器·散夜对剑',
     tier: ItemTier.T4,
     cost: 14000,
-    prerequisite: 'item_sange_and_yasha',
+    baseItems: ['item_sange_and_yasha'],
   },
   item_yasha_and_kaya_1: {
     name: 'item_yasha_and_kaya_1',
     nameCN: '神器·慧夜对剑',
     tier: ItemTier.T4,
     cost: 14000,
-    prerequisite: 'item_yasha_and_kaya',
+    baseItems: ['item_yasha_and_kaya'],
   },
   item_gungir_2: {
     name: 'item_gungir_2',
     nameCN: '风暴之锤',
     tier: ItemTier.T4,
     cost: 15050,
-    prerequisite: 'item_gungir',
+    baseItems: ['item_gungir'],
   },
   item_infernal_desolator: {
     name: 'item_infernal_desolator',
     nameCN: '绝对破防之刃',
     tier: ItemTier.T4,
     cost: 15000,
-    prerequisite: 'item_dodo_desolator',
-    upgrades: ['item_magic_sword'],
+    baseItems: ['item_desolator', 'item_dodo_desolator'],
   },
   item_sacred_six_vein: {
     name: 'item_sacred_six_vein',
     nameCN: '六脉神剑',
     tier: ItemTier.T4,
     cost: 15600,
-    prerequisite: 'item_sacred_trident',
+    baseItems: [
+      'item_kaya',
+      'item_kaya_and_sange',
+      'item_sacred_trident',
+      'item_sange',
+      'item_sange_and_yasha',
+      'item_yasha',
+      'item_yasha_and_kaya',
+    ],
   },
   item_jump_jump_jump: {
     name: 'item_jump_jump_jump',
     nameCN: '跳！跳！跳！刀',
     tier: ItemTier.T4,
     cost: 15650,
-    prerequisite: 'item_overwhelming_blink_2',
     // 可以有多个前置：overwhelming_blink_2, arcane_blink, swift_blink_2，选择其中一个作为主要前置
+    baseItems: [
+      'item_arcane_blink',
+      'item_arcane_blink_2',
+      'item_blink',
+      'item_overwhelming_blink',
+      'item_overwhelming_blink_2',
+      'item_swift_blink',
+      'item_swift_blink_2',
+    ],
   },
   item_necronomicon_staff: {
     name: 'item_necronomicon_staff',
     nameCN: '死灵法杖',
     tier: ItemTier.T4,
     cost: 13000,
-    prerequisite: 'item_sheepstick',
+    baseItems: ['item_sheepstick'],
   },
   item_force_field_ultra: {
     name: 'item_force_field_ultra',
@@ -1113,22 +1071,26 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '仙云法杖',
     tier: ItemTier.T4,
     cost: 15800,
-    prerequisite: 'item_magic_scepter',
-    upgrades: ['item_magic_crit_blade'],
+    baseItems: ['item_kaya', 'item_magic_scepter'],
   },
   item_refresh_core: {
     name: 'item_refresh_core',
     nameCN: '熔火核心',
     tier: ItemTier.T4,
     cost: 19900,
-    prerequisite: 'item_arcane_octarine_core',
+    baseItems: [
+      'item_aether_lens_2',
+      'item_arcane_octarine_core',
+      'item_octarine_core',
+      'item_refresher',
+    ],
   },
   item_guardian_greaves_artifact: {
     name: 'item_guardian_greaves_artifact',
     nameCN: '神器·卫士胫甲',
     tier: ItemTier.T4,
     cost: 16800,
-    prerequisite: 'item_guardian_greaves',
+    baseItems: ['item_guardian_greaves'],
   },
   item_tome_of_agility: {
     name: 'item_tome_of_agility',
@@ -1153,15 +1115,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '黄金大核荣耀',
     tier: ItemTier.T4,
     cost: 20000,
-    prerequisite: 'item_wasp_callous',
+    baseItems: ['item_butterfly', 'item_wasp_callous', 'item_wasp_despotic'],
   },
   item_excalibur: {
     name: 'item_excalibur',
     nameCN: 'EX咖喱棒',
     tier: ItemTier.T4,
     cost: 30000,
-    prerequisite: 'item_monkey_king_bar_2',
-    upgrades: ['item_rapier_ultra_bot_1'],
+    baseItems: ['item_monkey_king_bar_2', 'item_rapier'],
   },
 
   // ===== T5: 终极装备 (>30000金) =====
@@ -1177,7 +1138,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '暗影裁决',
     tier: ItemTier.T5,
     cost: 57175,
-    prerequisite: 'item_abyssal_blade_v2',
+    baseItems: ['item_abyssal_blade_v2'],
   },
   item_dracula_mask: {
     name: 'item_dracula_mask',
@@ -1202,7 +1163,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '解放的诅咒圣剑',
     tier: ItemTier.T5,
     cost: 60000,
-    prerequisite: 'item_excalibur',
+    baseItems: ['item_excalibur', 'item_rapier'],
   },
   item_swift_glove: {
     name: 'item_swift_glove',
@@ -1233,14 +1194,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '生命之心',
     tier: ItemTier.T5,
     cost: 50600,
-    prerequisite: 'item_undying_heart',
+    baseItems: ['item_undying_heart'],
   },
   item_magic_crit_blade: {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
     cost: 57800,
-    prerequisite: 'item_hallowed_scepter',
+    baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {
     name: 'item_beast_armor',
@@ -1253,20 +1214,21 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '魔渊剑',
     tier: ItemTier.T5,
     cost: 59000,
-    prerequisite: 'item_bfury_ultra',
+    baseItems: ['item_bfury_ultra', 'item_infernal_desolator', 'item_skadi_2'],
   },
   item_beast_shield: {
     name: 'item_beast_shield',
     nameCN: '兽化盾',
     tier: ItemTier.T5,
     cost: 57300,
+    baseItems: ['item_black_king_bar_2'],
   },
   item_time_gem: {
     name: 'item_time_gem',
     nameCN: '时间宝石',
     tier: ItemTier.T5,
     cost: 67900,
-    prerequisite: 'item_refresh_core',
+    baseItems: ['item_refresh_core'],
   },
   item_switchable_crit_blade: {
     name: 'item_switchable_crit_blade',
@@ -1297,119 +1259,51 @@ export function getItemTier(itemName: string): ItemTier | undefined {
 }
 
 /**
- * 初始化所有装备的 upgrades 字段（递归查找所有升级装备）
- * 基于直接升级关系递归查找所有间接升级装备，填充到 upgrades 中
- * 对于没有直接升级的装备，检查它是否是其他装备的前置，并创建升级关系
+ * 基于 baseItems 边做传递闭包，得到每件装备替代的全部下位装备（材料链任意深度）
+ * 传入 config 便于单测注入小型 fixture，不依赖完整 ItemTierConfig
  */
-export function InitializeItemUpgrades(): void {
-  print('[AI] InitializeItemUpgrades 初始化装备升级关系');
+export function BuildItemReplaceMap(config: Record<string, ItemConfig>): Map<string, string[]> {
+  const replaceMap = new Map<string, string[]>();
 
-  // 第一步：查找所有以当前装备为前置的装备，添加到升级关系中
-  for (const itemName in ItemTierConfig) {
-    const config = ItemTierConfig[itemName];
-    if (!config) continue;
+  function collectDescendants(itemName: string, visited: Set<string>): string[] {
+    const baseItems = config[itemName]?.baseItems;
+    if (!baseItems) return [];
 
-    // 查找所有以当前装备为前置的装备
-    const upgradesFromPrerequisite: string[] = [];
-    for (const otherItemName in ItemTierConfig) {
-      const otherConfig = ItemTierConfig[otherItemName];
-      if (!otherConfig) continue;
-
-      // 如果其他装备的前置是当前装备，则当前装备可以升级到该装备
-      if (otherConfig.prerequisite === itemName) {
-        upgradesFromPrerequisite.push(otherItemName);
-      }
+    const result: string[] = [];
+    for (const baseItem of baseItems) {
+      if (visited.has(baseItem)) continue;
+      visited.add(baseItem);
+      result.push(baseItem);
+      result.push(...collectDescendants(baseItem, visited));
     }
+    return result;
+  }
 
-    // 合并已有的升级和从 prerequisite 找到的升级
-    if (upgradesFromPrerequisite.length > 0) {
-      if (config.upgrades && config.upgrades.length > 0) {
-        // 合并并去重
-        const existingUpgrades = new Set(config.upgrades);
-        for (const upgrade of upgradesFromPrerequisite) {
-          existingUpgrades.add(upgrade);
-        }
-        config.upgrades = Array.from(existingUpgrades);
-      } else {
-        // 如果没有已有升级，直接设置
-        config.upgrades = upgradesFromPrerequisite;
-      }
+  for (const itemName in config) {
+    const descendants = collectDescendants(itemName, new Set());
+    if (descendants.length > 0) {
+      replaceMap.set(itemName, descendants);
     }
   }
 
-  // 第二步：递归查找所有升级装备（包括间接升级）
-  for (const itemName in ItemTierConfig) {
-    const config = ItemTierConfig[itemName];
-    if (!config) continue;
+  return replaceMap;
+}
 
-    // 如果该装备没有升级关系，跳过
-    if (!config.upgrades || config.upgrades.length === 0) {
-      continue;
-    }
+let ItemReplaceMap: Map<string, string[]> = new Map();
 
-    // 递归查找所有升级装备（包括间接升级）
-    const allUpgrades = new Set<string>(config.upgrades);
-    const visited = new Set<string>();
-
-    function collectAllUpgrades(item: string) {
-      if (visited.has(item)) return;
-      visited.add(item);
-
-      const itemConfig = ItemTierConfig[item];
-      if (!itemConfig || !itemConfig.upgrades) return;
-
-      for (const upgrade of itemConfig.upgrades) {
-        if (!allUpgrades.has(upgrade)) {
-          allUpgrades.add(upgrade);
-          collectAllUpgrades(upgrade);
-        }
-      }
-    }
-
-    // 对每个直接升级装备，递归查找其所有升级装备
-    for (const directUpgrade of config.upgrades) {
-      collectAllUpgrades(directUpgrade);
-    }
-
-    // 将递归查找的结果更新到 config.upgrades
-    config.upgrades = Array.from(allUpgrades);
-  }
+/**
+ * 初始化装备替代关系（游戏开始时调用一次）
+ */
+export function InitializeItemReplaceMap(): void {
+  print('[AI] InitializeItemReplaceMap 初始化装备替代关系');
+  ItemReplaceMap = BuildItemReplaceMap(ItemTierConfig);
 }
 
 /**
- * 获取装备的所有前置装备（下位装备）
- * 基于 prerequisite 字段递归查找
+ * 获取拥有该装备时可以出售的全部下位装备
  * @param itemName 装备名称
- * @returns 前置装备列表（从最底层到当前装备的前一个）
+ * @returns 被替代的下位装备列表
  */
-export function GetItemPrerequisites(itemName: string): string[] {
-  const config = ItemTierConfig[itemName];
-  if (!config || !config.prerequisite) {
-    return [];
-  }
-
-  const prerequisites: string[] = [];
-  let currentItem: string | undefined = config.prerequisite;
-
-  // 递归查找所有前置装备
-  while (currentItem) {
-    const currentConfig = ItemTierConfig[currentItem];
-    if (!currentConfig) break;
-
-    prerequisites.push(currentItem);
-    currentItem = currentConfig.prerequisite;
-  }
-
-  return prerequisites;
-}
-
-/**
- * 获取装备的升级装备链
- * 直接返回初始化时填充的 upgrades 字段
- * @param itemName 装备名称
- * @returns 升级装备列表（从直接升级到最终升级）
- */
-export function GetItemUpgradeChain(itemName: string): string[] {
-  const config = ItemTierConfig[itemName];
-  return config?.upgrades || [];
+export function GetReplacedItems(itemName: string): string[] {
+  return ItemReplaceMap.get(itemName) ?? [];
 }

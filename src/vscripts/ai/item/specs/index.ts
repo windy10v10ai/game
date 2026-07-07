@@ -1,6 +1,7 @@
 import { ItemRegistry } from '../item-registry';
 import { SPECS as abyssalBladeV2 } from './item_abyssal_blade_v2';
 import { SPECS as adiKing } from './item_adi_king';
+import { SPECS as armlet } from './item_armlet';
 import { SPECS as beastArmor } from './item_beast_armor';
 import { SPECS as beastShield } from './item_beast_shield';
 import { SPECS as bladeMail2 } from './item_blade_mail_2';
@@ -51,6 +52,7 @@ export function registerItemSpecs(): void {
 
   // B1：无条件常驻 buff（不受距离限制）
   ItemRegistry.registerAll(adiKing);
+  ItemRegistry.registerAll(armlet);
   ItemRegistry.registerAll(hawkeyeFighter);
 
   // B1：NO_TARGET buff + 敌人检测

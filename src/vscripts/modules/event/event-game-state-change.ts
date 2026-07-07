@@ -1,4 +1,4 @@
-import { InitializeItemUpgrades } from '../../ai/build-item/item-tier-config';
+import { InitializeItemReplaceMap } from '../../ai/build-item/item-tier-config';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4/ga4';
 import { GA4ItemTracker } from '../../api/analytics/ga4/ga4-item-tracker';
@@ -141,7 +141,7 @@ export class EventGameStateChange {
     // 初始化Bot团队策略，挂载到 GameRules.AI 供 FSA 层访问
     GameRules.AI.BotTeam = new BotTeam();
     // 初始化Bot出装系统
-    InitializeItemUpgrades();
+    InitializeItemReplaceMap();
   }
 
   /**
