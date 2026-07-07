@@ -29,7 +29,7 @@ export class NeutralItemManager {
 
     let addTimeMin = [0, 0, 0, 0, 0];
     // 根据multiplier计算tier开始时间
-    if (multiplier >= 20) {
+    if (multiplier >= 15) {
       // 立刻获取中立物品
       addTimeMin = [0, 0, 0, 0, 0];
     } else if (multiplier >= 10) {

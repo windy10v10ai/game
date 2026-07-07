@@ -9,14 +9,6 @@ local rune_types = {
     "item_fusion_shadow",
     "item_fusion_magic",
     "item_fusion_agile",
-    "item_xuanwu",
-    "item_zhuque",
-    "item_baihu",
-    "item_qinglong",
-    "item_xuanwu_p",
-    "item_zhuque_p",
-    "item_baihu_p",
-    "item_qinglong_p",
 }
 
 local rune_type_lookup = {}

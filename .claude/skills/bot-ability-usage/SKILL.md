@@ -53,7 +53,6 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 | `AbilityBehavior` | 决定 cast 调用方式 | dispatcher 自动按 `UNIT_TARGET / POINT / AOE / NO_TARGET` 派发，**spec 不用关心** |
 | `AbilityUnitTargetTeam` | 决定 `TargetSide` | `ENEMY` → `EnemyHero/EnemyCreep/EnemyBuilding`；`FRIENDLY` → `FriendlyHero/FriendlyBuilding`；技能仅作用施法者 → `Self` |
 | `AbilityUnitTargetType` | 区分英雄/小兵/建筑 | 含 `HERO` 用 `*Hero`；仅 `BASIC/CREEP` 用 `EnemyCreep`；含 `BUILDING` 用 `*Building`；同一技能多种合法目标且语义合理时**注册多条 spec**（如冰霜魔盾对友方英雄 + 友方建筑） |
-| `AbilityUnitTargetFlags` 含 `INVULNERABLE` | 友方建筑通常带无敌（未暴露的塔），`aroundFriendlyBuildings` 已包含无敌目标 | 对友方建筑的技能（如 `lich_frost_shield`）天然可用 |
 | `AbilityCastRange` | 施法距离 | **dispatcher 会自动按 cast range + 施法距离加成过滤目标**，spec 通常**不要**手写 `range.lte` |
 
 如该技能是 `PASSIVE` 或纯 `NO_TARGET` 自身 buff 不需要选目标 → `TargetSide.Self`。
@@ -153,3 +152,4 @@ export const SPECS: AbilitySpec[] = [
 - **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / autoCastOn` 表达。这条路径目前只在老 `ActionAbility.doAction` 中实现，dispatcher 暂未串接 —— 遇到这类技能告知用户「该开关类目前需要走老链路或扩展 dispatcher」，不要自行硬塞。
 - **TSTL 对象 spread 陷阱**：见 CLAUDE.md「常见陷阱」末条；spec 文件本身用不到 spread，但若需要扩展 dispatcher / cast-condition，**绝对**不能写 `{ ...maybeUndefined }`。
 - **KV 数值字段术语**：Dota 2 现行 KV 中数值字段块名为 `AbilityValues`（旧版 `AbilitySpecial` 已废弃）。在注释、字段命名、文档中统一使用 `AbilityValue` 表述；引擎 API `GetSpecialValueFor(key)` 仍可调用，但变量名和注释应写 `abilityValue` / `rangeFromAbilityValue`，不用 `specialValue`。
+- **spec 文件头部注释不要复述 condition 里的字段/数值**：注释只写意图（"范围内有敌人即用"），不要带上 `range.lte` 等字段的具体值（"900 范围内"）。同一个数值出现两处，后续只改其中一处就会自相矛盾，且无法判断哪个是真相源。此规则同样适用于 ItemSpec（`ai/item/specs/`）文件。发现注释数值与代码不一致时，**不要默认注释代表设计意图、代码是笔误就去改代码**——应先查 git blame / 实机测试确认谁是真相源，再决定改代码还是改注释。

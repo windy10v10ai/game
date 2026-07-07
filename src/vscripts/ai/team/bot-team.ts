@@ -12,6 +12,7 @@ export class BotTeam {
   private botPushMin: number = 15; // 电脑开始推进的分钟数（动态，随游戏进度可能调整）
   botPushLevel: number = 10; // 电脑推进等级（供 BotBase 初始化读取）
   private baseBotPushMin: number = 15; // 基础推进时间（根据难度计算）
+  private earlyGameMin: number = 3; // 对线期时间
   private pushStarted: boolean = false; // 是否已进入推进阶段
   private addAmount: number = 0; // Bot发钱的基础金额
 
@@ -50,12 +51,22 @@ export class BotTeam {
       this.baseBotPushMin = RandomInt(11, 13);
     } else if (botGoldXpMultiplier <= 10) {
       this.baseBotPushMin = RandomInt(9, 11);
-    } else if (botGoldXpMultiplier <= 15) {
+    } else if (botGoldXpMultiplier <= 12) {
       this.baseBotPushMin = RandomInt(7, 9);
+    } else if (botGoldXpMultiplier <= 15) {
+      this.baseBotPushMin = RandomInt(6, 8);
     } else if (botGoldXpMultiplier <= 20) {
       this.baseBotPushMin = RandomInt(5, 7);
     } else {
       this.baseBotPushMin = RandomInt(4, 5);
+    }
+
+    if (botGoldXpMultiplier <= 5) {
+      this.earlyGameMin = 4;
+    } else if (botGoldXpMultiplier <= 10) {
+      this.earlyGameMin = 3;
+    } else {
+      this.earlyGameMin = 2;
     }
 
     // 初始化时，动态推进时间等于基础推进时间
@@ -201,9 +212,14 @@ export class BotTeam {
       gameModeEntity.SetBotsMaxPushTier(pushTier);
       gameModeEntity.SetBotsInLateGame(true);
       gameModeEntity.SetBotsAlwaysPushWithHuman(true);
+    } else if (gameTime >= this.earlyGameMin * 60) {
+      // MIDGAME - 抱团可能推1塔
+      gameModeEntity.SetBotsInLateGame(true);
+      gameModeEntity.SetBotsAlwaysPushWithHuman(false);
+      gameModeEntity.SetBotsMaxPushTier(1);
     } else {
       // EARLYGAME - 不推进
-      gameModeEntity.SetBotsInLateGame(true);
+      gameModeEntity.SetBotsInLateGame(false);
       gameModeEntity.SetBotsAlwaysPushWithHuman(false);
       gameModeEntity.SetBotsMaxPushTier(1);
     }

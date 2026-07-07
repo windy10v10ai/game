@@ -1,7 +1,6 @@
 import { HeroBuildState } from './hero-build-state';
-import { GetItemUpgradeChain, ItemTier } from './item-tier-config';
+import { GetReplacedItems, ItemTier } from './item-tier-config';
 import {
-  ItemUpgradeReplacements,
   SellItemCommonJunkList,
   SellItemHeroList,
   SpecialConsumableItems,
@@ -41,6 +40,27 @@ export class SellItem {
   static GetItemsMapIncludeStash(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item[]> {
     const itemsMap = new Map<string, CDOTA_Item[]>();
     for (let i = 0; i < 15; i++) {
+      const item = hero.GetItemInSlot(i);
+      if (item) {
+        const itemName = item.GetName();
+        if (!itemsMap.has(itemName)) {
+          itemsMap.set(itemName, []);
+        }
+        itemsMap.get(itemName)!.push(item);
+      }
+    }
+
+    return itemsMap;
+  }
+
+  /**
+   * 获取英雄随身物品栏（0-8号槽位，不含储藏室）的物品Map，用于判断是否触发出售
+   * @param hero 英雄单位
+   * @returns Map<物品名称, 物品对象数组> - 支持同名重复物品
+   */
+  static GetFieldItemsMap(hero: CDOTA_BaseNPC_Hero): Map<string, CDOTA_Item[]> {
+    const itemsMap = new Map<string, CDOTA_Item[]>();
+    for (let i = 0; i < 9; i++) {
       const item = hero.GetItemInSlot(i);
       if (item) {
         const itemName = item.GetName();
@@ -196,33 +216,6 @@ export class SellItem {
     return false;
   }
 
-  // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
-  /**
-   * 出售被升级替代的装备 - 当拥有高级装备时，出售低级装备
-   * @param hero 英雄单位
-   * @param itemsMap 物品Map
-   * @returns 是否出售了物品
-   */
-  static SellUpgradedItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
-    // 遍历装备升级替代关系
-    for (const [upgradeItem, replaceItems] of Object.entries(ItemUpgradeReplacements)) {
-      // 检查是否拥有高级装备
-      if (itemsMap.has(upgradeItem)) {
-        // 遍历需要被替代的低级装备
-        for (const replaceItem of replaceItems) {
-          if (itemsMap.has(replaceItem)) {
-            const items = itemsMap.get(replaceItem)!;
-            print(
-              `[AI] SellUpgradedItems ${hero.GetUnitName()} 出售被替代装备: ${replaceItem} (已拥有: ${upgradeItem})`,
-            );
-            return this.SellItem(hero, items, replaceItem, true);
-          }
-        }
-      }
-    }
-    return false;
-  }
-
   /**
    * 出售英雄特定物品 - 从英雄特定出售列表中寻找要出售的旧装备
    * @param hero 英雄单位
@@ -268,42 +261,39 @@ export class SellItem {
   }
 
   /**
-   * 智能出售低等级装备 - 使用装备成长树系统
+   * 出售被替代的下位装备 - 拥有上位装备（含合成材料链的传递闭包）时出售
    * @param hero 英雄单位
    * @param itemsMap 物品Map
    * @returns 是否出售了物品
    */
-  static SellLowTierItems(
-    hero: CDOTA_BaseNPC_Hero,
-    itemsMap: Map<string, CDOTA_Item[]>,
-    buildState?: HeroBuildState,
-  ): boolean {
-    // 获取所有当前拥有的装备名
-    const currentItems = Array.from(itemsMap.keys());
-
-    // 优先级 1: 查找并出售被升级替代的装备
-    for (const itemName of currentItems) {
-      const items = itemsMap.get(itemName);
-      if (!items) continue;
-
-      // 检查是否有其他装备是这个装备的升级装备
-      const upgradeItems = GetItemUpgradeChain(itemName);
-      for (const upgradeItem of upgradeItems) {
-        const hasUpgradeItem = hero.HasItemInInventory(upgradeItem);
-        if (hasUpgradeItem) {
+  static SellReplacedItems(hero: CDOTA_BaseNPC_Hero, itemsMap: Map<string, CDOTA_Item[]>): boolean {
+    for (const ownedItem of itemsMap.keys()) {
+      const replacedItems = GetReplacedItems(ownedItem);
+      for (const replacedItem of replacedItems) {
+        if (itemsMap.has(replacedItem)) {
+          const items = itemsMap.get(replacedItem)!;
           print(
-            `[AI] SellLowTierItems ${hero.GetUnitName()} 出售下位装备: ${itemName} (已拥有上位装备: ${upgradeItem})`,
+            `[AI] SellReplacedItems ${hero.GetUnitName()} 出售被替代装备: ${replacedItem} (已拥有: ${ownedItem})`,
           );
-          return this.SellItem(hero, items, itemName, true);
+          return this.SellItem(hero, items, replacedItem, true);
         }
       }
     }
+    return false;
+  }
 
-    // 优先级 2: 出售更低tier的装备
-    if (!buildState) {
-      return false;
-    }
-    // 对所有低于current tier的，从低到高遍历出售
+  /**
+   * 出售出装表中低于当前 tier 的残留装备（无替代关系的过时装备）
+   * @param hero 英雄单位
+   * @param itemsMap 物品Map
+   * @param buildState 出装状态
+   * @returns 是否出售了物品
+   */
+  static SellOutdatedTierItems(
+    hero: CDOTA_BaseNPC_Hero,
+    itemsMap: Map<string, CDOTA_Item[]>,
+    buildState: HeroBuildState,
+  ): boolean {
     for (let tier = ItemTier.T1; tier < buildState.currentTier; tier++) {
       const tierItems = buildState.resolvedItems[tier];
       for (const itemName of tierItems) {
@@ -313,12 +303,12 @@ export class SellItem {
         }
       }
     }
-
     return false;
   }
 
   /**
-   * 从物品Map中移除英雄当前tier的物品
+   * 从物品Map中移除受保护的装备
+   * tome 阶段出装已定型，保护全部 tier；否则只保护当前 tier
    * @param itemsMap 物品Map
    * @param buildState 出装状态
    */
@@ -326,12 +316,14 @@ export class SellItem {
     itemsMap: Map<string, CDOTA_Item[]>,
     buildState: HeroBuildState,
   ): void {
-    const currentTier = buildState.currentTier;
-    const currentTierItems = buildState.resolvedItems[currentTier];
+    const tiers = buildState.tomePhase
+      ? [ItemTier.T1, ItemTier.T2, ItemTier.T3, ItemTier.T4, ItemTier.T5]
+      : [buildState.currentTier];
 
-    // 移除当前tier的普通装备
-    for (const itemName of currentTierItems) {
-      itemsMap.delete(itemName);
+    for (const tier of tiers) {
+      for (const itemName of buildState.resolvedItems[tier]) {
+        itemsMap.delete(itemName);
+      }
     }
   }
 
@@ -342,22 +334,19 @@ export class SellItem {
    * @returns 是否出售了物品
    */
   static SellExtraItems(hero: CDOTA_BaseNPC_Hero, buildState?: HeroBuildState): boolean {
-    // 获取物品Map
-    const itemsMap = this.GetItemsMapIncludeStash(hero);
-
-    // 计算总物品数量
-    let totalItemCount = 0;
-    for (const items of itemsMap.values()) {
-      totalItemCount += items.length;
+    // 出售阈值只看随身物品（不含储藏室），避免储藏室堆积物品误触发出售
+    const fieldItemsMap = this.GetFieldItemsMap(hero);
+    let fieldItemCount = 0;
+    for (const items of fieldItemsMap.values()) {
+      fieldItemCount += items.length;
     }
-
-    // 获取出售阈值
-    const sellThreshold = this.GetSellThreshold(itemsMap);
-
-    // 物品栏未达到阈值，不需要出售
-    if (totalItemCount < sellThreshold) {
+    const sellThreshold = this.GetSellThreshold(fieldItemsMap);
+    if (fieldItemCount < sellThreshold) {
       return false;
     }
+
+    // 触发出售后，仍在随身+储藏室全部范围内寻找出售目标
+    const itemsMap = this.GetItemsMapIncludeStash(hero);
 
     // 如果提供了buildState，移除当前tier的物品，防止出售购买死循环
     if (buildState) {
@@ -384,24 +373,23 @@ export class SellItem {
       return true;
     }
 
+    // 出售被上位装备替代的下位装备
+    if (this.SellReplacedItems(hero, itemsMap)) {
+      return true;
+    }
+
     // 当物品数量过多时，按价值顺序出售物品（初级->中级->高级）
     if (this.SellItemsByValue(hero, itemsMap)) {
       return true;
     }
 
-    // 优先使用智能出售系统
-    if (this.SellLowTierItems(hero, itemsMap, buildState)) {
+    // 出售出装表中低于当前 tier 的残留装备（仅新出装系统英雄）
+    if (buildState && this.SellOutdatedTierItems(hero, itemsMap, buildState)) {
       return true;
     }
 
     // 出售英雄特定物品
     if (this.SellHeroSpecificItems(hero, itemsMap)) {
-      return true;
-    }
-
-    // FIXME 被SellLowTierItems替代，待所有英雄使用新出装系统后删除
-    // 出售被升级替代的装备
-    if (this.SellUpgradedItems(hero, itemsMap)) {
       return true;
     }
 

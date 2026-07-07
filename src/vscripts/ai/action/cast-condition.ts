@@ -47,6 +47,11 @@ export interface CastCoindition {
      */
     noEnemyHeroInRange?: number;
     /**
+     * 若 self 周围该距离内存在存活的敌方建筑（塔/兵营等），则跳过施法。
+     * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyBuildings 缓存）。
+     */
+    noEnemyBuildingInRange?: number;
+    /**
      * 要求 self 周围存在至少指定数量的友方小兵才施法。
      * range 不填时默认 900。由 dispatcher 在 tryCast 层 inline FindUnitsInRadius 检查。
      */
@@ -54,6 +59,11 @@ export interface CastCoindition {
       count?: NumberRange;
       range?: number;
     };
+    /**
+     * 要求施法者当前全部技能 + 主栏物品（0~5号槽）的剩余冷却时间总和落在此区间才施法
+     * （如刷新球，只在冷却压力大时使用）。
+     */
+    cooldownTotal?: NumberRange;
   };
   ability?: AbilityCoindition;
   action?: {
@@ -92,6 +102,10 @@ export interface UnitCondition {
   hasShard?: boolean;
   noModifier?: string;
   notActionable?: boolean;
+  /**
+   * 排除远古野（大龙/小龙等）。
+   */
+  excludeAncient?: boolean;
   /**
    * 比较目标绝对 HP 与技能的 special value（已含天赋加成）。
    * lte: true → target.HP ≤ effectiveDamage（技能可击杀目标）
@@ -200,6 +214,9 @@ export function CheckUnitConditionFailure(
     return true;
   }
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
+    return true;
+  }
+  if (unitCondition.excludeAncient && unit.IsAncient()) {
     return true;
   }
 

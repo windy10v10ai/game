@@ -81,7 +81,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["mirana_leap"] = true,                        -- 米拉娜 跳跃
     ["techies_suicide"] = true,                    -- 炸弹人 自爆
     ["weaver_time_lapse"] = true,                  -- 编织者 时光倒流
-    ["enchantress_sproink"] = true,                -- 魅惑魔女 跳跃
+    ["enchantress_bunny_hop"] = true,              -- 魅惑魔女 跳跃(Sproink,神杖技能)
     ["sand_king_burrowstrike"] = true,             -- 沙王 掘地穿刺
     ["morphling_waveform"] = true,                 -- 水人 波浪形态
     ["antimage_blink"] = true,                     -- 敌法师 闪烁
@@ -95,6 +95,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["special_bonus_unique_phantom_assassin_upgrade"] = true,
     ["pangolier_gyroshell"] = true,   -- 石鳞剑士 地雷滚滚
     ["legion_commander_duel"] = true, -- 军团指挥官 决斗
+    ["rattletrap_jetpack"] = true,    -- 发条技师 喷气背包（触发飞行影响正常操作）
 
 
     ["elder_titan_ancestral_spirit"] = true,
@@ -126,8 +127,9 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["warlock_upheaval"] = true,                           -- 术士 剧变
     ["enigma_midnight_pulse"] = true,                      -- 谜团 午夜凋零
     ["goku_kamehameha"] = true,                            -- 悟空 龟派气功
-    ["yukari_twin_trains"] = true,                         -- 八云紫 无人废线车辆炸弹
-    ["yukari_moon_portal"] = true,                         -- 八云紫 月之门
+    ["yukari_moon_portal"] = true,                         -- 八云紫 3技能 月之门
+    ["ability_thdots_yukari04"] = true,                    -- 八云紫 A杖 深弹幕结界 -梦幻泡影
+    ["yukari_twin_trains"] = true,                         -- 八云紫 大招 无人废线车辆炸弹
     ["artoria_excalibur"] = true,                          -- Artoria 誓约胜利之剑
     ["miku_dance"] = true,                                 -- 初音未来 舞蹈
     ["miku_get_down"] = true,                              -- 初音未来 Get Down
@@ -264,6 +266,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["monkey_king_wukongs_command"] = true,
     ["monkey_king_transfiguration"] = true,
 
+    ["tidehunter_anchor_smash"] = true, -- 潮汐猎人 锚击
+
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题
@@ -337,15 +341,4 @@ EXCLUDED_ITEMS = {
     ["earth_spirit_stone_caller"] = true,
     ["muerta_gunslinger"] = true,
     ["troll_warlord_switch_stance"] = true,
-
-    ---圣器
-    ["item_qinglong"] = true,
-    ["item_qinglong_p"] = true,
-    ["item_xuanwu"] = true,
-    ["item_xuanwu_p"] = true,
-    ["item_zhuque"] = true,
-    ["item_zhuque_p"] = true,
-    ["item_baihu"] = true,
-    ["item_baihu_p"] = true,
-    ["item_flight_bar"] = true,
 }

@@ -6,6 +6,16 @@
 import { HeroBuildState } from './hero-build-state';
 import { ItemTier } from './item-tier-config';
 
+/** 洛书（属性全能之书），T5 装备买完后优先购买一次 */
+const TOME_OF_LUOSHU = 'item_tome_of_luoshu';
+
+/** 三种单属性之书，供 tome 循环阶段按主属性加权购买 */
+const ATTRIBUTE_TOME_ITEMS: Record<'strength' | 'agility' | 'intelligence', string> = {
+  strength: 'item_tome_of_strength',
+  agility: 'item_tome_of_agility',
+  intelligence: 'item_tome_of_intelligence',
+};
+
 /**
  * 出装管理器
  */
@@ -46,6 +56,12 @@ export class HeroBuildManager {
       return nextTier;
     }
 
+    // T5 装备买完（或从未解锁，数组为空），进入 tome 循环购买阶段
+    if (allBought && currentTier === ItemTier.T5 && !buildState.tomePhase) {
+      print(`[AI] BuildItemManager.DetermineCurrentTier: ${hero.GetUnitName()} 进入 tome 阶段`);
+      buildState.tomePhase = true;
+    }
+
     return currentTier;
   }
 
@@ -69,6 +85,22 @@ export class HeroBuildManager {
   }
 
   /**
+   * 获取英雄随身物品数量（0-8号槽位，不含储藏室），用于购买上限判断
+   * @param hero 英雄单位
+   * @returns 随身物品数量
+   */
+  public static GetFieldItemCount(hero: CDOTA_BaseNPC_Hero): number {
+    let count = 0;
+    for (let i = 0; i < 9; i++) {
+      const item = hero.GetItemInSlot(i);
+      if (item && !item.IsNull()) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+  /**
    * 尝试购买装备
    * @param hero 英雄单位
    * @param buildState 出装状态
@@ -78,10 +110,16 @@ export class HeroBuildManager {
     // 获取购买决策
     const currentItems = this.GetHeroItems(hero);
 
+    // 每次调用都重新判断 tier（即使本次未购买），确保 T5 买完后能及时切换到 tome 阶段
+    buildState.currentTier = this.DetermineCurrentTier(hero, buildState);
+
     if (this.TryPurchaseConsumable(hero, buildState, currentItems)) {
       return true;
     }
     if (this.TryPurchaseNormalItem(hero, buildState, currentItems)) {
+      return true;
+    }
+    if (this.TryPurchaseTome(hero, buildState, currentItems)) {
       return true;
     }
     return false;
@@ -145,6 +183,51 @@ export class HeroBuildManager {
     return false;
   }
 
+  /** tome 循环购买阶段：先买一次洛书，之后按主属性固定循环购买单属性之书 */
+  private static TryPurchaseTome(
+    hero: CDOTA_BaseNPC_Hero,
+    buildState: HeroBuildState,
+    currentItems: string[],
+  ): boolean {
+    if (!buildState.tomePhase) {
+      return false;
+    }
+
+    if (!buildState.luoshuPurchased) {
+      const result = this.BuyItem(hero, TOME_OF_LUOSHU, currentItems);
+      if (result) {
+        buildState.luoshuPurchased = true;
+      }
+      return result;
+    }
+
+    const cap = buildState.tomePurchaseCap;
+    if (buildState.tomePurchasedCount >= cap) {
+      return false;
+    }
+
+    // 按主属性固定循环：主属性占 50%，另外两种各占 25%
+    const tomeCycle: Record<string, Array<'strength' | 'agility' | 'intelligence'>> = {
+      [Attributes.STRENGTH]: ['strength', 'agility', 'intelligence', 'strength'],
+      [Attributes.AGILITY]: ['agility', 'strength', 'intelligence', 'agility'],
+      [Attributes.INTELLECT]: ['intelligence', 'strength', 'agility', 'intelligence'],
+      [Attributes.ALL]: ['strength', 'agility', 'intelligence'],
+    };
+    const cycle = tomeCycle[buildState.heroPrimaryAttribute];
+    if (!cycle || cycle.length === 0) {
+      return false;
+    }
+    const attribute = cycle[buildState.tomeCycleIndex % cycle.length];
+    buildState.tomeCycleIndex++;
+
+    const tomeItemName = ATTRIBUTE_TOME_ITEMS[attribute];
+    const result = this.BuyItem(hero, tomeItemName, currentItems);
+    if (result) {
+      buildState.tomePurchasedCount++;
+    }
+    return result;
+  }
+
   /**
    * 购买物品, 如果已经拥有则返回 false
    * @param hero 英雄单位
@@ -160,8 +243,8 @@ export class HeroBuildManager {
     if (currentItems.includes(itemName)) {
       return false;
     }
-    // 拥有9件物品时，不购买
-    if (currentItems.length >= 9) {
+    // 随身9格已满时，不购买（储藏室物品不占随身格子，不计入此判断）
+    if (this.GetFieldItemCount(hero) >= 9) {
       return false;
     }
     const cost = GetItemCost(itemName);

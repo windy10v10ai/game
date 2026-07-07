@@ -181,6 +181,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
 - **测试范围**: 只验证自己写的状态/分支逻辑。Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）mock 作为占位防崩，不要用 `toHaveBeenCalledWith` 断言它们的参数——那是在测引擎契约不是自己的代码
 - **不为强依赖引擎 API 的逻辑过度搭 mock**: 当一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，**不要**为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）去测引擎行为。这类运行时行为由作者手动在 Dota tools 确认。mock 只保留占位防崩（返回个固定值不崩即可）
+- **依赖 Dota API 的代码不需要单元测试**: 如果一段代码的主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数），**不要**为了测它而 mock `GetItemInSlot` 之类的底层 API 再断言结果——这是在测"我的 mock 返回了什么"，不是在测自己的逻辑。这类代码靠 Dota tools 实机验证。只有当代码里包含足够分量的**自身分支/计算逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）时才写单元测试，且测试目标是那段逻辑本身，不是底层 API 调用是否被正确触发
 
 ### 构建系统
 
@@ -400,7 +401,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 ## 注释规约
 
-代码注释只写**为什么这样做**，不写**这行代码做了什么**。读者能从代码本身读懂的，就不要再用注释复述一遍。
+代码注释只写**为什么这样做**，不写**这行代码做了什么**。读者能从代码本身读懂的，就不要再用注释复述一遍。**一条注释如果只是对代码/细节的单纯复述，宁可不写这条注释**——数值、字段名、行为这些会随代码演进，注释复述的副本不会跟着自动更新，两者一旦不一致，读者反而无法判断谁是真相源。
 
 不写：
 - KV 字段、behavior、cast range 等可以直接查 KV 文件得到的事实
@@ -409,6 +410,10 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - 段落式罗列"对英雄做什么 / 对小兵做什么"，代码已经表达得很清楚
 - **技能/物品的具体效果与数值描述**（会随版本变动，属于本地化文案的职责）。配置表/代码注释只标英雄名或技能系统名（如 `// 齐天大圣 觉醒`），不要复述"+100% 攻击力、施法距离 +700"这类效果——它们一变就和注释脱节
 - **禁止**把讨论中出现的任何具体场景 / 边界 case / 取舍过程 / 例子（具体语言、单词、数值、变量名等）原样搬进注释。哪怕讨论时反复提到这些细节，注释里也只留一句概括性的设计意图，一个具体例子都不写——写了就是过度注释，必须删
+- **"A 曾经是 X，现在/这里改成 Y"这种对比句式本身就是信号**，不管内容是否属实都要删——即使把话术改得更"技术化"（去掉"这次""沿用"等词），只要结构上是在拿过去和现在做对比，就还是在叙述变更过程而不是陈述设计事实，必须整句删掉，不是重新措辞
+- **"为什么某项被排除/没有实现"这类逐项列举默认不写**，属于 PR 描述的职责，不是改写得更精炼就行
+
+写完注释后自查一遍是否出现这些词：**旧 / 原版 / Lua / 沿用 / 这里 / 本次 / 此次 / 额外 / 改为**——出现即说明在叙述过程，删掉重写或整句删除。
 
 写：
 - 选择某个数值/方案的**原因**（"1 级伤害太低、蓝耗占比高，2 级起才用"）
@@ -427,27 +432,13 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 ## Git 工作流
 
-### 分支命名
-
-- 功能分支：`feature/{issue-number}-{branch-name}`
-- 示例：`feature/123-add-new-hero-ai`
-
-### Pull Request
-
-实现完成后由 Claude **直接用 `gh pr create` 创建 PR**（base 默认 `develop`），不依赖任何自动建 PR 的 workflow。
-使用模板创建 PR，模板文件为 `.github/pull_request_template.md`。
-分支名匹配 `^feature/(\\d+)` 时，提取 `issue-id` 作为 Issue 段。
-**创建 PR 前必须先调用 `release-note` skill 生成 Release Note 段，不要手写**（规则见 `.claude/skills/release-note/SKILL.md`）。
-**PR 标题默认使用英文。**
-
-### Commit 格式
-
-简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`，不写其他正文、不写 bullet 说明。
-详细说明由 PR description 承担，commit message 保持简洁。
-
-### Git & Commits
+- 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
+- PR 的 base branch 固定为 `develop`；标题默认英文；创建前必须先调用 `release-note` skill 生成 Release Note 段
+- Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 
 只 stage 与本次请求明确相关的文件，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
+
+> 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill（`.claude/skills/create-pr/SKILL.md`）。
 
 
 ## 文档自维护规范
