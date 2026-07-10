@@ -1,5 +1,6 @@
 if item_swift_glove == nil then item_swift_glove = class({}) end
 LinkLuaModifier("modifier_item_swift_glove", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_item_swift_glove_chain_lightning", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
 
 function item_swift_glove:GetIntrinsicModifierName()
     return "modifier_item_swift_glove"
@@ -148,11 +149,31 @@ function modifier_item_swift_glove:OnRefresh(params)
 
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+
+        local ability = self:GetAbility()
+        local parent = self:GetParent()
+        if ability and parent then
+            if not ability.added_modifiers then
+                ability.added_modifiers = {}
+            end
+            if not ability.added_modifiers.chain_lightning or ability.added_modifiers.chain_lightning:IsNull() then
+                ability.added_modifiers.chain_lightning = parent:AddNewModifier(parent, ability, "modifier_item_swift_glove_chain_lightning", {})
+            end
+        end
     end
 end
 
 function modifier_item_swift_glove:OnDestroy()
     if IsServer() then
+        local ability = self:GetAbility()
+        if ability and ability.added_modifiers then
+            for _, modifier in pairs(ability.added_modifiers) do
+                if modifier and not modifier:IsNull() then
+                    modifier:Destroy()
+                end
+            end
+            ability.added_modifiers = nil
+        end
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
     end
 end
@@ -181,4 +202,116 @@ end
 -- 在 modifier_item_swift_glove 中添加
 function modifier_item_swift_glove:GetPriority()
     return MODIFIER_PRIORITY_HIGH -- 比鹰眼炮台更高的优先级
+end
+
+if modifier_item_swift_glove_chain_lightning == nil then modifier_item_swift_glove_chain_lightning = class({}) end
+
+function modifier_item_swift_glove_chain_lightning:IsHidden() return true end
+
+function modifier_item_swift_glove_chain_lightning:IsPurgable() return false end
+
+function modifier_item_swift_glove_chain_lightning:RemoveOnDeath() return false end
+
+function modifier_item_swift_glove_chain_lightning:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_MULTIPLE + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_item_swift_glove_chain_lightning:OnCreated(params)
+    self:OnRefresh(params)
+end
+
+function modifier_item_swift_glove_chain_lightning:OnRefresh(params)
+    local ability = self:GetAbility()
+    self.chain_chance = ability:GetSpecialValueFor("chain_chance")
+    self.chain_damage = ability:GetSpecialValueFor("chain_damage")
+    self.chain_strikes = ability:GetSpecialValueFor("chain_strikes")
+    self.chain_radius = ability:GetSpecialValueFor("chain_radius")
+    self.chain_cooldown = ability:GetSpecialValueFor("chain_cooldown")
+    self.double_damage_chance = ability:GetSpecialValueFor("double_damage_chance")
+    self.double_damage_multiplier = ability:GetSpecialValueFor("double_damage_multiplier")
+    self.quintuple_damage_chance = ability:GetSpecialValueFor("quintuple_damage_chance")
+    self.quintuple_damage_multiplier = ability:GetSpecialValueFor("quintuple_damage_multiplier")
+    self.decuple_damage_chance = ability:GetSpecialValueFor("decuple_damage_chance")
+    self.decuple_damage_multiplier = ability:GetSpecialValueFor("decuple_damage_multiplier")
+    self.last_proc_time = self.last_proc_time or -999
+end
+
+function modifier_item_swift_glove_chain_lightning:DeclareFunctions()
+    return {
+        MODIFIER_EVENT_ON_ATTACK_LANDED,
+    }
+end
+
+function modifier_item_swift_glove_chain_lightning:OnAttackLanded(params)
+    if not IsServer() then return end
+    if params.attacker ~= self:GetParent() then return end
+    if not params.target or params.target:IsNull() then return end
+    if params.target:IsBuilding() then return end
+    if params.target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
+
+    local now = GameRules:GetGameTime()
+    if now < self.last_proc_time + (self.current_cooldown or self.chain_cooldown) then return end
+    if not RollPercentage(self.chain_chance) then return end
+
+    local multiplier = self:GetDamageMultiplier()
+    self.current_cooldown = self.chain_cooldown * multiplier
+    self.last_proc_time = now
+    self:FireChainLightning(params.target, self.chain_damage * multiplier)
+end
+
+function modifier_item_swift_glove_chain_lightning:GetDamageMultiplier()
+    local roll = RandomFloat(0, 100)
+    if roll <= self.decuple_damage_chance then
+        return self.decuple_damage_multiplier
+    end
+    if roll <= self.decuple_damage_chance + self.quintuple_damage_chance then
+        return self.quintuple_damage_multiplier
+    end
+    if roll <= self.decuple_damage_chance + self.quintuple_damage_chance + self.double_damage_chance then
+        return self.double_damage_multiplier
+    end
+    return 1
+end
+
+function modifier_item_swift_glove_chain_lightning:FireChainLightning(first_target, damage)
+    local caster = self:GetParent()
+    local ability = self:GetAbility()
+    local hit_targets = {}
+    local current_target = first_target
+    local previous_target = caster
+
+    for _ = 1, self.chain_strikes do
+        if not current_target or current_target:IsNull() then return end
+
+        hit_targets[current_target:entindex()] = true
+        self:CreateChainLightningEffect(previous_target, current_target)
+        EmitSoundOn("Item.Maelstrom.Chain_Lightning", current_target)
+        ApplyDamage({
+            victim = current_target,
+            attacker = caster,
+            damage = damage,
+            damage_type = DAMAGE_TYPE_MAGICAL,
+            ability = ability
+        })
+
+        local next_target = nil
+        local enemies = FindUnitsInRadius(caster:GetTeamNumber(), current_target:GetAbsOrigin(), nil, self.chain_radius,
+            DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        for _, enemy in pairs(enemies) do
+            if enemy and not enemy:IsNull() and not enemy:IsBuilding() and not hit_targets[enemy:entindex()] then
+                next_target = enemy
+                break
+            end
+        end
+        previous_target = current_target
+        current_target = next_target
+    end
+end
+
+function modifier_item_swift_glove_chain_lightning:CreateChainLightningEffect(source, target)
+    local particle = ParticleManager:CreateParticle("particles/items_fx/chain_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, source)
+    ParticleManager:SetParticleControlEnt(particle, 0, source, PATTACH_POINT_FOLLOW, "attach_hitloc", source:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:ReleaseParticleIndex(particle)
 end
