@@ -11,56 +11,57 @@ import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
  * 列表与 src/common 无关，是 vscripts awaken-config 中 ABILITY_REPLACEMENTS 的展示副本，
  * 增删觉醒英雄时需同步此处。每张卡复用引擎现成资源（英雄头像 + 觉醒图标自带本地化 tooltip）。
  */
+// 新加的英雄排在前面，旧的排在后面（随机卡固定第一个，不受此列表顺序影响）
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
-  { heroName: 'npc_dota_hero_pudge', abilityName: 'pudge_meat_hook_lua' },
-  { heroName: 'npc_dota_hero_juggernaut', abilityName: 'juggernaut_blade_fury_custom' },
   {
-    heroName: 'npc_dota_hero_sniper',
-    abilityName: 'special_bonus_unique_sniper_assassinate_upgrade',
-  },
-  { heroName: 'npc_dota_hero_axe', abilityName: 'axe_auto_culling_blade' },
-  { heroName: 'npc_dota_hero_necrolyte', abilityName: 'necrolyte_heartstopper_aura_datadriven' },
-  { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
-  {
-    heroName: 'npc_dota_hero_phantom_assassin',
-    abilityName: 'special_bonus_unique_phantom_assassin_upgrade',
-  },
-  {
-    heroName: 'npc_dota_hero_witch_doctor',
-    abilityName: 'special_bonus_unique_witch_doctor_upgrade',
-  },
-  { heroName: 'npc_dota_hero_nevermore', abilityName: 'special_bonus_unique_nevermore_upgrade' },
-  {
-    heroName: 'npc_dota_hero_drow_ranger',
-    abilityName: 'special_bonus_unique_drow_ranger_upgrade',
-  },
-  {
-    heroName: 'npc_dota_hero_bristleback',
-    abilityName: 'special_bonus_unique_bristleback_upgrade',
-  },
-  { heroName: 'npc_dota_hero_lina', abilityName: 'special_bonus_unique_lina_upgrade' },
-  {
-    heroName: 'npc_dota_hero_monkey_king',
-    abilityName: 'special_bonus_unique_monkey_king_upgrade',
-  },
-  {
-    heroName: 'npc_dota_hero_winter_wyvern',
-    abilityName: 'special_bonus_unique_winter_wyvern_upgrade',
-  },
-  { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
-  { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
-  {
-    heroName: 'npc_dota_hero_windrunner',
-    abilityName: 'special_bonus_unique_windrunner_upgrade',
+    heroName: 'npc_dota_hero_sven',
+    abilityName: 'special_bonus_unique_sven_upgrade',
   },
   {
     heroName: 'npc_dota_hero_rattletrap',
     abilityName: 'special_bonus_unique_rattletrap_upgrade',
   },
   {
-    heroName: 'npc_dota_hero_sven',
-    abilityName: 'special_bonus_unique_sven_upgrade',
+    heroName: 'npc_dota_hero_windrunner',
+    abilityName: 'special_bonus_unique_windrunner_upgrade',
   },
+  { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
+  { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
+  {
+    heroName: 'npc_dota_hero_winter_wyvern',
+    abilityName: 'special_bonus_unique_winter_wyvern_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_monkey_king',
+    abilityName: 'special_bonus_unique_monkey_king_upgrade',
+  },
+  { heroName: 'npc_dota_hero_lina', abilityName: 'special_bonus_unique_lina_upgrade' },
+  {
+    heroName: 'npc_dota_hero_bristleback',
+    abilityName: 'special_bonus_unique_bristleback_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_drow_ranger',
+    abilityName: 'special_bonus_unique_drow_ranger_upgrade',
+  },
+  { heroName: 'npc_dota_hero_nevermore', abilityName: 'special_bonus_unique_nevermore_upgrade' },
+  {
+    heroName: 'npc_dota_hero_witch_doctor',
+    abilityName: 'special_bonus_unique_witch_doctor_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_phantom_assassin',
+    abilityName: 'special_bonus_unique_phantom_assassin_upgrade',
+  },
+  { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
+  { heroName: 'npc_dota_hero_necrolyte', abilityName: 'necrolyte_heartstopper_aura_datadriven' },
+  { heroName: 'npc_dota_hero_axe', abilityName: 'axe_auto_culling_blade' },
+  {
+    heroName: 'npc_dota_hero_sniper',
+    abilityName: 'special_bonus_unique_sniper_assassinate_upgrade',
+  },
+  { heroName: 'npc_dota_hero_juggernaut', abilityName: 'juggernaut_blade_fury_custom' },
+  { heroName: 'npc_dota_hero_pudge', abilityName: 'pudge_meat_hook_lua' },
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
