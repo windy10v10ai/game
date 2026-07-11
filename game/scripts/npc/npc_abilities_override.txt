@@ -3866,6 +3866,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityDamage"					"80 160 240 320 400"
+		"LinkedAbility"					"special_bonus_unique_sven_upgrade"	// 双向联动同步升级
 		"AbilityValues"
 		{
 				"AbilityCooldown"

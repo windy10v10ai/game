@@ -1217,6 +1217,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Power Cogs Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Damage taken is reduced by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
+		// Sven Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> for %duration% seconds, increasing Strength by %strength_bonus% and Attack Speed by %attackspeed_bonus% during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> and briefly increases Strength and Attack Speed."
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"Sven Awakened"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% and Attack Speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

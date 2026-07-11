@@ -134,6 +134,13 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_rattletrap_upgrade',
     newLevel: 1,
   },
+  // 斯温 觉醒（与风暴之拳 LinkedAbility 同步升级，初始等级继承风暴之拳）
+  {
+    heroName: 'npc_dota_hero_sven',
+    newAbility: 'special_bonus_unique_sven_upgrade',
+    newLevel: 0,
+    inheritLevelFrom: 'sven_storm_bolt',
+  },
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

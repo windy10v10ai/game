@@ -560,4 +560,54 @@
 			}
 		}
 	}
+
+	// 斯温-觉醒
+	"special_bonus_unique_sven_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"sven_storm_bolt"
+		"MaxLevel"						"5"
+		"LinkedAbility"					"sven_storm_bolt"	// 双向联动同步升级
+
+		"AbilityValues"
+		{
+			"duration"				"2"
+			"strength_bonus"		"20 40 60 80 100"
+			"attackspeed_bonus"	"20 40 60 80 100"
+		}
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_sven_upgrade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_sven_upgrade"
+						"Function"		"OnStormBoltCast"
+					}
+				}
+			}
+
+			"modifier_special_bonus_unique_sven_upgrade_buff"
+			{
+				"IsBuff"		"1"
+				"Duration"		"%duration"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"			"%strength_bonus"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"%attackspeed_bonus"
+				}
+			}
+		}
+	}
 }

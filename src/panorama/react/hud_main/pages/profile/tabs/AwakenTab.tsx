@@ -57,6 +57,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     heroName: 'npc_dota_hero_rattletrap',
     abilityName: 'special_bonus_unique_rattletrap_upgrade',
   },
+  {
+    heroName: 'npc_dota_hero_sven',
+    abilityName: 'special_bonus_unique_sven_upgrade',
+  },
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
