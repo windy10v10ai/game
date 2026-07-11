@@ -1201,6 +1201,28 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"在目标地点%torrent_max_distance%范围内，每%torrent_interval%秒在一个随机区域释放一道洪流，持续%torrent_duration%秒。"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"一百个陆地的联盟也牵制不了这些滔天海浪。"
 
+		// 风行者-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
+
+		// 发条技师-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+
+		// 斯温-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，持续%duration%秒，期间力量提升%strength_bonus%点，攻击速度提升%attackspeed_bonus%点。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，并短暂提升力量与攻击速度。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"斯温 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
