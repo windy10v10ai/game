@@ -204,6 +204,31 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T1,
     cost: 2000,
   },
+  item_hyperstone: {
+    name: 'item_hyperstone',
+    nameCN: '振奋宝石',
+    tier: ItemTier.T1,
+    cost: 2000,
+  },
+  item_buckler: {
+    name: 'item_buckler',
+    nameCN: '玄冥盾牌',
+    tier: ItemTier.T1,
+    cost: 425,
+  },
+  item_headdress: {
+    name: 'item_headdress',
+    nameCN: '恢复头巾',
+    tier: ItemTier.T1,
+    cost: 425,
+  },
+  item_mekansm: {
+    name: 'item_mekansm',
+    nameCN: '梅肯斯姆',
+    tier: ItemTier.T1,
+    cost: 1775,
+    baseItems: ['item_headdress'],
+  },
 
   // ===== T2: 中期过渡 (2000-5000金) =====
 
@@ -288,6 +313,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '阿托斯之棍',
     tier: ItemTier.T2,
     cost: 2250,
+  },
+  item_eagle: {
+    name: 'item_eagle',
+    nameCN: '鹰歌弓',
+    tier: ItemTier.T2,
+    cost: 2800,
   },
 
   // 防御/核心装备
@@ -377,6 +408,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '黯灭',
     tier: ItemTier.T2,
     cost: 3500,
+  },
+  item_nullifier: {
+    name: 'item_nullifier',
+    nameCN: '否决坠饰',
+    tier: ItemTier.T2,
+    cost: 4350,
   },
   item_crimson_guard: {
     name: 'item_crimson_guard',
@@ -677,6 +714,19 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T3,
     cost: 6000,
     baseItems: ['item_radiance'],
+  },
+  item_disperser_chaos: {
+    name: 'item_disperser_chaos',
+    nameCN: '混沌·散魂剑',
+    tier: ItemTier.T3,
+    cost: 6100,
+  },
+  item_veil_of_discord_2: {
+    name: 'item_veil_of_discord_2',
+    nameCN: '赫拉的神秘面纱',
+    tier: ItemTier.T3,
+    cost: 7200,
+    baseItems: ['item_veil_of_discord'],
   },
   item_phylactery: {
     name: 'item_phylactery',
@@ -1001,6 +1051,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 13800,
     baseItems: ['item_heart'],
+  },
+  item_crellas_crozier_2: {
+    name: 'item_crellas_crozier_2',
+    nameCN: '神器·克莱拉的神化牧杖',
+    tier: ItemTier.T4,
+    cost: 13500,
+    baseItems: ['item_crellas_crozier'],
   },
   item_hydras_breath_2: {
     name: 'item_hydras_breath_2',
