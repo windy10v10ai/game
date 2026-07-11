@@ -229,10 +229,13 @@ function modifier_item_swift_glove_chain_lightning:OnRefresh(params)
     self.chain_cooldown = ability:GetSpecialValueFor("chain_cooldown")
     self.double_damage_chance = ability:GetSpecialValueFor("double_damage_chance")
     self.double_damage_multiplier = ability:GetSpecialValueFor("double_damage_multiplier")
+    self.double_damage_cooldown = ability:GetSpecialValueFor("double_damage_cooldown")
     self.quintuple_damage_chance = ability:GetSpecialValueFor("quintuple_damage_chance")
     self.quintuple_damage_multiplier = ability:GetSpecialValueFor("quintuple_damage_multiplier")
+    self.quintuple_damage_cooldown = ability:GetSpecialValueFor("quintuple_damage_cooldown")
     self.decuple_damage_chance = ability:GetSpecialValueFor("decuple_damage_chance")
     self.decuple_damage_multiplier = ability:GetSpecialValueFor("decuple_damage_multiplier")
+    self.decuple_damage_cooldown = ability:GetSpecialValueFor("decuple_damage_cooldown")
     self.last_proc_time = self.last_proc_time or -999
 end
 
@@ -253,8 +256,8 @@ function modifier_item_swift_glove_chain_lightning:OnAttackLanded(params)
     if now < self.last_proc_time + (self.current_cooldown or self.chain_cooldown) then return end
     if not RollPercentage(self.chain_chance) then return end
 
-    local multiplier = self:GetDamageMultiplier()
-    self.current_cooldown = self.chain_cooldown * multiplier
+    local multiplier, cooldown = self:GetDamageMultiplier()
+    self.current_cooldown = cooldown
     self.last_proc_time = now
     self:FireChainLightning(params.target, self.chain_damage * multiplier)
 end
@@ -262,15 +265,15 @@ end
 function modifier_item_swift_glove_chain_lightning:GetDamageMultiplier()
     local roll = RandomFloat(0, 100)
     if roll <= self.decuple_damage_chance then
-        return self.decuple_damage_multiplier
+        return self.decuple_damage_multiplier, self.decuple_damage_cooldown
     end
     if roll <= self.decuple_damage_chance + self.quintuple_damage_chance then
-        return self.quintuple_damage_multiplier
+        return self.quintuple_damage_multiplier, self.quintuple_damage_cooldown
     end
     if roll <= self.decuple_damage_chance + self.quintuple_damage_chance + self.double_damage_chance then
-        return self.double_damage_multiplier
+        return self.double_damage_multiplier, self.double_damage_cooldown
     end
-    return 1
+    return 1, self.chain_cooldown
 end
 
 function modifier_item_swift_glove_chain_lightning:FireChainLightning(first_target, damage)
