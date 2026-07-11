@@ -184,7 +184,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     },
   },
 
-  // 玛尔斯（分裂萌兽 Meepo）
+  // 初音未来（Meepo）
   npc_dota_hero_meepo: {
     template: HeroTemplate.Agility,
     targetItemsByTier: {
@@ -317,7 +317,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     },
   },
 
-  // 米拉娜（美杜莎）
+  // 美杜莎
   npc_dota_hero_medusa: {
     template: HeroTemplate.Agility,
     targetItemsByTier: {
@@ -2061,7 +2061,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
     },
   },
 
-  // 巨魔战将（骷髅王）
+  // 骷髅王
   npc_dota_hero_skeleton_king: {
     template: HeroTemplate.Strength,
     targetItemsByTier: {
