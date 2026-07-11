@@ -136,6 +136,24 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T1,
     cost: 1050,
   },
+  item_ancient_janggo: {
+    name: 'item_ancient_janggo',
+    nameCN: '韧鼓',
+    tier: ItemTier.T1,
+    cost: 1625,
+  },
+  item_essence_distiller: {
+    name: 'item_essence_distiller',
+    nameCN: '精之灵器',
+    tier: ItemTier.T1,
+    cost: 1775,
+  },
+  item_oblivion_staff: {
+    name: 'item_oblivion_staff',
+    nameCN: '空明杖',
+    tier: ItemTier.T1,
+    cost: 1625,
+  },
   item_falcon_blade: {
     name: 'item_falcon_blade',
     nameCN: '猎鹰战刃',
@@ -216,6 +234,18 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2150,
   },
+  item_solar_crest: {
+    name: 'item_solar_crest',
+    nameCN: '炎阳纹章',
+    tier: ItemTier.T2,
+    cost: 2575,
+  },
+  item_consecrated_wraps: {
+    name: 'item_consecrated_wraps',
+    nameCN: '圣化护服',
+    tier: ItemTier.T2,
+    cost: 2600,
+  },
   item_vladmir: {
     name: 'item_vladmir',
     nameCN: '弗拉迪米尔的祭品',
@@ -240,6 +270,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T2,
     cost: 2250,
     baseItems: ['item_magic_wand'],
+  },
+  item_revenants_brooch: {
+    name: 'item_revenants_brooch',
+    nameCN: '英灵胸针',
+    tier: ItemTier.T2,
+    cost: 3300,
   },
   item_blink: {
     name: 'item_blink',
@@ -831,6 +867,27 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '神器·魔武双修',
     tier: ItemTier.T3,
     cost: 10000,
+    baseItems: ['item_revenants_brooch'],
+  },
+  item_consecrated_wraps_2: {
+    name: 'item_consecrated_wraps_2',
+    nameCN: '神器·急支糖衣',
+    tier: ItemTier.T3,
+    cost: 7500,
+    baseItems: ['item_consecrated_wraps'],
+  },
+  item_wind_waker: {
+    name: 'item_wind_waker',
+    nameCN: '风之杖',
+    tier: ItemTier.T3,
+    cost: 6800,
+  },
+  item_boots_of_bearing_2: {
+    name: 'item_boots_of_bearing_2',
+    nameCN: '神器·蹦迪之鞋',
+    tier: ItemTier.T3,
+    cost: 9950,
+    baseItems: ['item_boots_of_bearing'],
   },
 
   // ===== T4: 后期装备 (10000-30000金) =====
