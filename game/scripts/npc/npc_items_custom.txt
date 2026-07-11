@@ -4541,6 +4541,7 @@
 		"precache"
 		{
 			"particle"	"particles/items2_fx/hand_of_midas.vpcf"
+			"particle"	"particles/items_fx/chain_lightning.vpcf"
 		}
 
 		// Special
@@ -6635,7 +6636,21 @@
 			"group_range"		"1800"
 			"group_xp"			"0.5"
 			"group_gold"		"120"
-			"hero_kill_chance"	"50"
+			"hero_kill_chance"	"30"
+			"chain_chance"		"75"
+			"chain_damage"		"700"
+			"chain_strikes"		"15"
+			"chain_radius"		"1400"
+			"chain_cooldown"		"0.2"
+			"double_damage_chance"	"20"
+			"double_damage_multiplier"	"2"
+			"double_damage_cooldown"	"0.3"
+			"quintuple_damage_chance"	"3"
+			"quintuple_damage_multiplier"	"5"
+			"quintuple_damage_cooldown"	"0.5"
+			"decuple_damage_chance"	"0.1"
+			"decuple_damage_multiplier"	"10"
+			"decuple_damage_cooldown"	"1"
 		}
 	}
 
