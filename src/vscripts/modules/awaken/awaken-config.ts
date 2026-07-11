@@ -128,6 +128,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_windrunner_upgrade',
     newLevel: 1,
   },
+  // 发条技师 觉醒
+  {
+    heroName: 'npc_dota_hero_rattletrap',
+    newAbility: 'special_bonus_unique_rattletrap_upgrade',
+    newLevel: 1,
+  },
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

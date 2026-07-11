@@ -513,4 +513,51 @@
 			"fade_delay"					"0.2"
 		}
 	}
+
+	// 发条技师-觉醒
+	"special_bonus_unique_rattletrap_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"rattletrap_power_cogs"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"duration"				"3"
+			"damage_reduction_pct"	"-60"
+		}
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_rattletrap_upgrade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/special_bonus_unique_rattletrap_upgrade"
+						"Function"		"OnCogsCast"
+					}
+				}
+			}
+
+			"modifier_special_bonus_unique_rattletrap_upgrade_shield"
+			{
+				"IsBuff"		"1"
+				"Duration"		"%duration"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE"	"%damage_reduction_pct"
+				}
+			}
+		}
+	}
 }

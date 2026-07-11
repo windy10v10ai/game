@@ -1207,6 +1207,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
 
+		// 发条技师-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

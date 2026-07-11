@@ -1209,6 +1209,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>Windrun Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"Casting Windrun grants <font color='#d7ccc7'>invisibility</font> for the same duration as Windrun. Attacking an enemy briefly reveals Windrunner before she fades back into invisibility. Moving does not break invisibility.<br>Powershot damage is increased by <font color='#FFFFFF'><b>100%%</b></font>."
 
+		// Clockwerk Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants <font color='#FFCC66'>Magic Immunity</font> for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants <font color='#FFCC66'>Magic Immunity</font> for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Power Cogs Awakened"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Damage taken is reduced by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

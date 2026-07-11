@@ -53,6 +53,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     heroName: 'npc_dota_hero_windrunner',
     abilityName: 'special_bonus_unique_windrunner_upgrade',
   },
+  {
+    heroName: 'npc_dota_hero_rattletrap',
+    abilityName: 'special_bonus_unique_rattletrap_upgrade',
+  },
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
