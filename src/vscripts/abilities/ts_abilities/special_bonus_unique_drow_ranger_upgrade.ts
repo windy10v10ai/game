@@ -5,6 +5,11 @@ import {
   registerModifier,
 } from '../../utils/dota_ts_adapter';
 
+interface FateRouletteModifier extends CDOTA_Modifier_Lua {
+  GetInheritedRouletteEffect(record: number): number;
+  PlayInheritedRouletteEffect(target: CDOTA_BaseNPC, record: number): void;
+}
+
 /**
  * 卓尔游侠 裂影箭-觉醒：普攻有概率分裂出箭矢射向主目标周围的敌人，
  * 各造成本次攻击伤害的百分比并附带霜冻之箭减速。还原老版精准箭分裂手感。
@@ -79,10 +84,29 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
       false,
     );
 
+    const fateRoulette = parent.FindModifierByName('modifier_ability_fate_roulette_counter') as
+      | FateRouletteModifier
+      | undefined;
+    const fateEffect = fateRoulette?.GetInheritedRouletteEffect(event.record) ?? 0;
+    const fateAbility = parent.FindAbilityByName('ability_fate_roulette');
+    const fateCriticalDamage = fateAbility?.GetSpecialValueFor('critical_damage') ?? 0;
+
     let hit = 0;
     for (const enemy of enemies) {
       if (enemy === target || enemy.IsNull() || !enemy.IsAlive()) continue;
-      this.fireSplinter(parent, ability, enemy, damage, projectileSpeed, slowDuration, frostArrows);
+      this.fireSplinter(
+        parent,
+        ability,
+        enemy,
+        damage,
+        projectileSpeed,
+        slowDuration,
+        frostArrows,
+        fateRoulette,
+        event.record,
+        fateEffect,
+        fateCriticalDamage,
+      );
       hit += 1;
       if (hit >= maxTargets) break;
     }
@@ -96,7 +120,11 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
     damage: number,
     projectileSpeed: number,
     slowDuration: number,
-    frostArrows?: CDOTABaseAbility,
+    frostArrows: CDOTABaseAbility | undefined,
+    fateRoulette: FateRouletteModifier | undefined,
+    attackRecord: number,
+    fateEffect: number,
+    fateCriticalDamage: number,
   ): void {
     ProjectileManager.CreateTrackingProjectile({
       Target: enemy,
@@ -107,14 +135,19 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
       bDodgeable: false,
     });
 
+    const inheritedDamage =
+      fateEffect === 1 && fateCriticalDamage > 0 ? damage * fateCriticalDamage * 0.01 : damage;
+
     ApplyDamage({
       victim: enemy,
       attacker: parent,
-      damage,
+      damage: inheritedDamage,
       damage_type: DamageTypes.PHYSICAL,
       damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.IGNORES_BASE_PHYSICAL_ARMOR,
       ability,
     });
+
+    fateRoulette?.PlayInheritedRouletteEffect(enemy, attackRecord);
 
     if (frostArrows && frostArrows.GetLevel() > 0) {
       enemy.AddNewModifier(parent, frostArrows, 'modifier_drow_ranger_frost_arrows_slow', {

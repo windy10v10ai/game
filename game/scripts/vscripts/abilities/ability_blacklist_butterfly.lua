@@ -268,6 +268,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
 
     ["tidehunter_anchor_smash"] = true, -- 潮汐猎人 锚击
 
+
+    ["ability_fate_roulette"] = true, -- 命运轮盘（避免蝴蝶随机开启命定之刻）
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题
