@@ -162,6 +162,8 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是 `UNIT_TARGET` 主动），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
 
+> **动手前必查：一个 value 块只能有一个 `special_bonus_` key**。选定目标数值前，先按 `update-abilities-override` skill 的方法读该技能整段（override 差分 + `docs/reference/<version>/heroes/` 原版全集），确认目标 value 块**没有**已被占用的 `special_bonus_unique_*`（常见来源：原版天赋、其它觉醒）。若已占用（如 `windrunner_shackleshot` 的 `stun_duration` 已挂天赋 `special_bonus_unique_windranger_6`），该字段不能再挂第二个 special_bonus key 作觉醒专属加强，需换一个未被占用的字段，或改用其它实现方式（DataDriven Modifiers / TS）。
+
 > 参考：PA 觉醒后潜匿之刺 `dagger_speed` 1200→2100；狙击手 `special_bonus_unique_sniper_assassinate_upgrade` 觉醒后爆头 `proc_chance` `=100`。
 
 ### 进阶 5：加魔免但不顶替真 BKB
@@ -190,6 +192,31 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
   - **TS/Lua 脚本类 modifier**（`ability_lua` + `GetIntrinsicModifierName`，如进阶 3 的监听型觉醒）：数值若会变化（随等级、天赋等），**不要写死**——用 `MODIFIER_PROPERTY_TOOLTIP` 动态取值：`DeclareFunctions` 加 `ModifierFunction.TOOLTIP`，实现 `OnTooltip(): number` 返回目标值（如 `this.GetAbility()?.GetSpecialValueFor('xxx') ?? 0`），本地化里用 `%dMODIFIER_PROPERTY_TOOLTIP%%%` 占位（同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会像 ability 的 `%key%` 一样自动套白色粗体**（实测），需要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值的处理方式一样。
 
 > 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（DataDriven 写死数值）；卓尔游侠裂影箭觉醒 `special_bonus_unique_drow_ranger_upgrade`（TS modifier，分裂概率会被天赋提升，用 `OnTooltip` 动态显示而非写死）。
+
+### 进阶 7：借用原生 hardcoded modifier（如隐身）实现效果
+
+某些效果（如隐身）引擎有原生硬编码 modifier 支撑，但目标 KV 里查不到 `Modifiers` 块（完全编译进引擎，无法照抄），仍可在 TS 里直接 `AddNewModifier` 按名字借用：
+
+```ts
+const invis = parent.AddNewModifier(parent, this.GetAbility(), 'modifier_riki_backstab', {
+  duration,
+  fade_delay: fadeDelay,
+});
+```
+
+`duration` 参数通常能让原生 modifier 自动到期（如 `modifier_black_king_bar_immune`）。**若实机验证发现某个借用的原生 modifier 不吃 `duration` 自动移除**，改用 `Timers.CreateTimer(duration, callback)` 手动 `Destroy()`，`callback` 内先 `IsNull()` 判空再 `Destroy()`（防止已被其它途径提前移除时重复调用报错）：
+
+```ts
+if (!invis) return;
+Timers.CreateTimer(duration, () => {
+  if (invis.IsNull()) return;
+  invis.Destroy();
+});
+```
+
+原生 modifier 内部可能还支持其它同名参数覆写（如本例 `fade_delay`），具体哪些参数生效、哪些字段该从自身觉醒技能 KV 读取（而非硬编码），**没有文档，只能靠实机反复验证**，不要凭一次测试结果下结论。
+
+> 参考：风行者觉醒 `special_bonus_unique_windrunner_upgrade` 借用隐刺 `modifier_riki_backstab`。
 
 ---
 

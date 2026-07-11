@@ -122,6 +122,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'kunkka_torrent_storm',
     newLevel: 1,
   },
+  // 风行者 觉醒
+  {
+    heroName: 'npc_dota_hero_windrunner',
+    newAbility: 'special_bonus_unique_windrunner_upgrade',
+    newLevel: 1,
+  },
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

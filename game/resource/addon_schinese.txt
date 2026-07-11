@@ -1201,6 +1201,12 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"在目标地点%torrent_max_distance%范围内，每%torrent_interval%秒在一个随机区域释放一道洪流，持续%torrent_duration%秒。"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"一百个陆地的联盟也牵制不了这些滔天海浪。"
 
+		// 风行者-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

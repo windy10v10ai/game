@@ -49,6 +49,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
   },
   { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },
   { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
+  {
+    heroName: 'npc_dota_hero_windrunner',
+    abilityName: 'special_bonus_unique_windrunner_upgrade',
+  },
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
