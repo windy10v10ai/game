@@ -120,6 +120,14 @@ export const SellItemCommonJunkList: string[] = [
   'item_enchanted_mango',
   'item_flask',
   'item_bottle',
+  'item_foragers_stats', // 铁树坚果
+  'item_foragers_mana', // 托莫干伞盖
+  'item_foragers_health', // 活力伞菌
+  // 疗伤莲花
+  'item_famango',
+  'item_great_famango',
+  'item_greater_famango',
+  'item_cheese', // 奶酪
 ];
 
 /**
