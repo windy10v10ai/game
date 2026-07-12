@@ -23,7 +23,13 @@ export class HeroPick {
   static PickBotHeroes() {
     math.randomseed(GameRules.GetGameTime());
 
-    const nameList = HeroPick.BotNameList;
+    const bannedHeroes = GameRules.GetBannedHeroes();
+    print(`[EnablePickRules][Debug] PickBotHeroes bannedHeroes=${bannedHeroes.join(',')}`);
+
+    const bannedHeroNames = bannedHeroes.map((heroName) => heroName.replace('npc_dota_hero_', ''));
+    const nameList = HeroPick.BotNameList.filter(
+      (heroName) => !bannedHeroNames.includes(heroName.replace('npc_dota_hero_', '')),
+    );
 
     const radiantPlayerNumberCurrent = PlayerResource.GetPlayerCountForTeam(DotaTeam.GOODGUYS);
     const direPlayerNumberCurrent = PlayerResource.GetPlayerCountForTeam(DotaTeam.BADGUYS);

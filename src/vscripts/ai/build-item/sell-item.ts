@@ -1,6 +1,7 @@
 import { HeroBuildState } from './hero-build-state';
 import { GetReplacedItems, ItemTier } from './item-tier-config';
 import {
+  NeverSellItems,
   SellItemCommonJunkList,
   SellItemHeroList,
   SpecialConsumableItems,
@@ -209,6 +210,9 @@ export class SellItem {
     itemsMap: Map<string, CDOTA_Item[]>,
   ): boolean {
     for (const [itemName, items] of itemsMap) {
+      if (NeverSellItems.includes(itemName)) {
+        continue;
+      }
       if (items.length > 1) {
         return this.SellItem(hero, items, itemName, true);
       }

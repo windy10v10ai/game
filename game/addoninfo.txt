@@ -2,6 +2,7 @@
 {
 	"maps"					"dota hard custom"
 	"PenaltiesEnabled"		"0"
+	"EnablePickRules"		"1"
 	"IsPlayable"			"1"
 	"HeroGuidesSupported"	"1"
 	"ForceDefaultGuide"		"0"
