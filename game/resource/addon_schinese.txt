@@ -1087,6 +1087,34 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
 
 
+		// ability_fate_roulette 命运轮盘
+		"DOTA_Tooltip_ability_ability_fate_roulette"                                           "<font color='#FFD700'>命运轮盘</font>"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Description"                               "英雄与命运博弈，每一次攻击都是赌注。累计 %attacks_before_proc% 次有效普通攻击后，下一次有效普通攻击将对目标等概率触发以下命运之一：<font color='#FFD76A'>暴击</font>、<font color='#8FD7FF'>眩晕</font>目标 %stun_duration% 秒、持续驱散、破坏、缠绕、锁闭，持续 %effect_duration% 秒。持续驱散会立即并每 %dispel_interval% 秒进行一次弱驱散，仅移除目标的正面状态。每次轮盘触发都会对英雄自身施加一次弱驱散。<br>主动释放后进入“命定之刻”，持续期间每次有效普通攻击都必定触发轮盘，且不会增加、重置或消耗原有攻击计数。"
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_Lore"								"命运从不掷骰子——除非，你就是赌注。"
+		"DOTA_Tooltip_ability_ability_fate_roulette_critical_damage"					"%暴击伤害："
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_stun_duration"					"眩晕时间："
+		"DOTA_Tooltip_ability_ability_fate_roulette_effect_duration"					"命运效果持续时间："
+		"DOTA_Tooltip_ability_ability_fate_roulette_active_duration"					"命定之刻持续时间："
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"							"仅英雄本体对敌方英雄或普通单位完成的常规攻击会推进计数。未触发轮盘的落空攻击、攻击建筑或守卫均不计数。阿哈利姆神杖升级的分裂箭、怪蛇之息及其升级装备、裂影箭觉醒的分裂攻击会继承轮盘效果，但不会推进“命运低语”的计数。"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note1"							"命运轮盘无法被破坏，触发轮盘效果的攻击必定命中，所有效果均无视技能免疫。除暴击外，其余效果的持续时间受目标状态抗性影响。"
+
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter"							"命运低语"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter_Description"					"已完成 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 次有效普通攻击。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined"						"命定之刻"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined_Description"					"每次有效普通攻击必定触发一次轮盘赌，命运低语的攻击计数暂时冻结。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun"							"眩晕"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun_Description"					"无法移动、攻击或施法。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel"							"持续驱散"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel_Description"					"正面状态正被持续移除。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break"							"破坏"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break_Description"					"被动技能已被禁用。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root"							"缠绕"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root_Description"					"无法移动。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute"							"锁闭"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute_Description"					"物品已被禁用。"
+
 		// ---- bot技能 ----
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"机械救赎 N6"
@@ -1200,6 +1228,28 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>洪流浪潮 觉醒</font>"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"在目标地点%torrent_max_distance%范围内，每%torrent_interval%秒在一个随机区域释放一道洪流，持续%torrent_duration%秒。"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"一百个陆地的联盟也牵制不了这些滔天海浪。"
+
+		// 风行者-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
+
+		// 发条技师-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
+
+		// 斯温-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，持续%duration%秒，期间力量提升%strength_bonus%点，攻击速度提升%attackspeed_bonus%点。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，并短暂提升力量与攻击速度。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"斯温 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
 
 		///////////////////////////////////////////////////
 		//
@@ -3199,8 +3249,8 @@
 
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"无限手套"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻湮灭目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其湮灭。</font>\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。"
-		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。 — by RN"
+		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻湮灭目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其湮灭。</font>\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。\n\n<h1>被动：强化连环闪电</h1>攻击有%chain_chance%%%几率释放一道强化连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避，并且吃技能增强。<br>强化闪电有%double_damage_chance%%%几率造成%double_damage_multiplier%倍伤害，%quintuple_damage_chance%%%几率造成%quintuple_damage_multiplier%倍伤害，%decuple_damage_chance%%%几率造成%decuple_damage_multiplier%倍伤害。内置冷却为%chain_cooldown%秒，倍率触发对应冷却时间为%double_damage_cooldown%秒，%quintuple_damage_cooldown%秒，%decuple_damage_cooldown%秒。"
+		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。"
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"获得的金钱经验，享有倍率加成！"
 		"DOTA_Tooltip_ability_item_swift_glove_Note1"									"基础攻击间隔减少效果无法叠加。"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"							"+$str"

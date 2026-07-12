@@ -144,6 +144,8 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > **关键坑**：不要为了让 listener 常驻而给主动技 `AbilityBehavior` 叠加 `DOTA_ABILITY_BEHAVIOR_PASSIVE`——实测会使该主动技**无法施放**。DataDriven 的 `Passive` modifier 不依赖技能 behavior 即可常驻，保持原主动 behavior 即可。
 
+> **关键坑**：`OnAbilityExecuted` 的 `RunScript` 里若要再给自己加一个**同一技能 KV `Modifiers` 里定义的** DataDriven modifier（如限时减伤 buff），必须用 `ability:ApplyDataDrivenModifier(caster, target, "modifier_name", {})`，**不能**用通用的 `unit:AddNewModifier(...)`——用 `AddNewModifier` 加载 DataDriven 定义的 modifier 时，**modifier 本身不会被加载**（不是 KV 占位符解析失败，是整个 modifier 都没生效），buff 图标不会出现在状态栏。`AddNewModifier` 只适用于借用别的技能/原生 hardcoded modifier（见进阶 7），不适用于自己 KV 里定义的 DataDriven modifier。
+
 > 参考：影魔 `ability_lua` + `GetIntrinsicModifierName` 监听 `nevermore_requiem`；PA `ability_datadriven`（`UNIT_TARGET`，未加 PASSIVE）的 `modifier_pa_awaken_dagger_listener` 用 `OnAbilityExecuted`；宙斯 `special_bonus_unique_zuus_upgrade` 是 PASSIVE datadriven 监听范例。
 
 ### 进阶 4：数值仅觉醒后生效（special_bonus 关联）
@@ -158,9 +160,11 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 }
 ```
 
-`=值` 覆盖、`+值` 增加。引擎检测英雄拥有该 key 同名技能时自动应用。
+`=值` 覆盖、`+值` 增加，此外还支持 `+N%` 按百分比增加（如 `+100%` 表示翻倍，项目里已有大量原版天赋先例，如 `special_bonus_unique_dragon_knight_9 "+120%"`）——多档位字段要整体等比缩放时用这个，不需要手算每档绝对值再写数组。引擎检测英雄拥有该 key 同名技能时自动应用。
 
 > **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是 `UNIT_TARGET` 主动），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
+
+> **动手前必查：一个 value 块只能有一个 `special_bonus_` key**。选定目标数值前，先按 `update-abilities-override` skill 的方法读该技能整段（override 差分 + `docs/reference/<version>/heroes/` 原版全集），确认目标 value 块**没有**已被占用的 `special_bonus_unique_*`（常见来源：原版天赋、其它觉醒）。若已占用（如 `windrunner_shackleshot` 的 `stun_duration` 已挂天赋 `special_bonus_unique_windranger_6`），该字段不能再挂第二个 special_bonus key 作觉醒专属加强，需换一个未被占用的字段，或改用其它实现方式（DataDriven Modifiers / TS）。
 
 > 参考：PA 觉醒后潜匿之刺 `dagger_speed` 1200→2100；狙击手 `special_bonus_unique_sniper_assassinate_upgrade` 觉醒后爆头 `proc_chance` `=100`。
 
@@ -185,11 +189,37 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 - KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
 - 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
 - modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 CLAUDE.md 本地化文案规约）。
-- **modifier tooltip 不支持直接 `%key%` 读取 ability 的 `AbilityValues`**（会显示空白或吞掉百分号）；ability 自身的描述不受影响，仍可正常用 `%key%`。modifier 这边按实现方式分两种处理：
-  - **DataDriven 标记技能**（本节默认场景，KV `Modifiers` 子块、无脚本）：没有代码可补，描述里**写死成具体数字**。
-  - **TS/Lua 脚本类 modifier**（`ability_lua` + `GetIntrinsicModifierName`，如进阶 3 的监听型觉醒）：数值若会变化（随等级、天赋等），**不要写死**——用 `MODIFIER_PROPERTY_TOOLTIP` 动态取值：`DeclareFunctions` 加 `ModifierFunction.TOOLTIP`，实现 `OnTooltip(): number` 返回目标值（如 `this.GetAbility()?.GetSpecialValueFor('xxx') ?? 0`），本地化里用 `%dMODIFIER_PROPERTY_TOOLTIP%%%` 占位（同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会像 ability 的 `%key%` 一样自动套白色粗体**（实测），需要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值的处理方式一样。
+- **modifier tooltip 不支持直接 `%key%` 读取 ability 的 `AbilityValues`**（会显示空白或吞掉百分号）；ability 自身的描述不受影响，仍可正常用 `%key%`。modifier 这边按实现方式分三种处理：
+  - **DataDriven 且数值挂在内置 `MODIFIER_PROPERTY_*`**（如 `MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE`、`MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT` 等标准属性，`Properties` 块里已声明）：**可以**直接动态取值，本地化写 `%dMODIFIER_PROPERTY_<属性名>%%%` 即可，引擎自动读取该 modifier 当前的属性值，**不需要**任何 RunScript/OnTooltip 代码，也**不需要**手动包白色粗体（项目里已有先例：`monkey_king_defy`、`insight_armor_aura`）。
+  - **DataDriven 且数值不对应任何内置 Property**（纯标记技能、无脚本）：没有代码可补，描述里**写死成具体数字**。
+  - **TS/Lua 脚本类 modifier**（`ability_lua` + `GetIntrinsicModifierName`，如进阶 3 的监听型觉醒）：数值若会变化（随等级、天赋等），**不要写死**——用 `MODIFIER_PROPERTY_TOOLTIP` 动态取值：`DeclareFunctions` 加 `ModifierFunction.TOOLTIP`，实现 `OnTooltip(): number` 返回目标值（如 `this.GetAbility()?.GetSpecialValueFor('xxx') ?? 0`），本地化里用 `%dMODIFIER_PROPERTY_TOOLTIP%%%` 占位（同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会像 ability 的 `%key%` 一样自动套白色粗体**（实测），需要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值的处理方式一样（这条仅限自定义 `TOOLTIP`/`TOOLTIP2`，内置 Property 不受影响）。
 
-> 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（DataDriven 写死数值）；卓尔游侠裂影箭觉醒 `special_bonus_unique_drow_ranger_upgrade`（TS modifier，分裂概率会被天赋提升，用 `OnTooltip` 动态显示而非写死）。
+> 参考：寒冬飞龙觉醒 `special_bonus_unique_winter_wyvern_upgrade`（DataDriven 写死数值）；卓尔游侠裂影箭觉醒 `special_bonus_unique_drow_ranger_upgrade`（TS modifier，分裂概率会被天赋提升，用 `OnTooltip` 动态显示而非写死）；发条技师觉醒 `special_bonus_unique_rattletrap_upgrade_shield`（DataDriven 内置 Property 动态取值，`%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%`）。
+
+### 进阶 7：借用原生 hardcoded modifier（如隐身）实现效果
+
+某些效果（如隐身）引擎有原生硬编码 modifier 支撑，但目标 KV 里查不到 `Modifiers` 块（完全编译进引擎，无法照抄），仍可在 TS 里直接 `AddNewModifier` 按名字借用：
+
+```ts
+const invis = parent.AddNewModifier(parent, this.GetAbility(), 'modifier_riki_backstab', {
+  duration,
+  fade_delay: fadeDelay,
+});
+```
+
+`duration` 参数通常能让原生 modifier 自动到期（如 `modifier_black_king_bar_immune`）。**若实机验证发现某个借用的原生 modifier 不吃 `duration` 自动移除**，改用 `Timers.CreateTimer(duration, callback)` 手动 `Destroy()`，`callback` 内先 `IsNull()` 判空再 `Destroy()`（防止已被其它途径提前移除时重复调用报错）：
+
+```ts
+if (!invis) return;
+Timers.CreateTimer(duration, () => {
+  if (invis.IsNull()) return;
+  invis.Destroy();
+});
+```
+
+原生 modifier 内部可能还支持其它同名参数覆写（如本例 `fade_delay`），具体哪些参数生效、哪些字段该从自身觉醒技能 KV 读取（而非硬编码），**没有文档，只能靠实机反复验证**，不要凭一次测试结果下结论。
+
+> 参考：风行者觉醒 `special_bonus_unique_windrunner_upgrade` 借用隐刺 `modifier_riki_backstab`。
 
 ---
 
