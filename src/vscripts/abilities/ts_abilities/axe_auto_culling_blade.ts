@@ -42,7 +42,12 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
     const threshold =
       culling.GetSpecialValueFor('damage') * (1 + caster.GetSpellAmplification(false));
     for (const enemy of enemies) {
-      if (!enemy.IsNull() && enemy.IsAlive() && enemy.GetHealth() <= threshold) {
+      if (
+        !enemy.IsNull() &&
+        enemy.IsAlive() &&
+        !enemy.HasModifier('modifier_item_helm_of_the_undying_active') &&
+        enemy.GetHealth() <= threshold
+      ) {
         castImmediatelyOnTarget(caster, culling, enemy);
         culling.EndCooldown(); // 不进入 CD
         this.SetCurrentAbilityCharges(this.GetCurrentAbilityCharges() - 1);

@@ -11,6 +11,7 @@ import { VirtualGoldBank } from './bank/virtual-gold-bank';
 import { Debug } from './debug/Debug';
 import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
 import { Event } from './event/event';
+import { DragonWishFilter } from './filter/dragon-wish-filter';
 import { GoldXPFilter } from './filter/gold-xp-filter';
 import { Lottery } from './lottery/lottery';
 import { Option } from './option';
@@ -47,6 +48,8 @@ export function ActivateModules() {
     new HeroDebugPanel();
 
     new PropertyController();
+
+    new DragonWishFilter();
 
     new VirtualGoldBank();
 

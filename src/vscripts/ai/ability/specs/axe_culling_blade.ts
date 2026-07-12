@@ -11,7 +11,10 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: {
-        unitCondition: { healthAbilityValue: { key: 'damage', lte: true, includeSpellAmp: true } },
+        unitCondition: {
+          healthAbilityValue: { key: 'damage', lte: true, includeSpellAmp: true },
+          noModifier: 'modifier_item_helm_of_the_undying_active',
+        },
       },
     },
   },
