@@ -99,6 +99,7 @@ no_support_abilitys = {
 	rattletrap_jetpack = 1,                         -- 发条技师 喷气背包
 	enchantress_bunny_hop = 1,                      -- 魅惑魔女 跳跃（Sproink，神杖技能）
 	tidehunter_anchor_smash = 1,                    -- 潮汐猎人 锚击
+	ability_fate_roulette = 1,                     -- 命运轮盘（重复施放只会刷新自身状态）
 }
 no_support_items = {
 	-- 消耗品

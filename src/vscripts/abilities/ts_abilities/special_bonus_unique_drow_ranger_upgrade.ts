@@ -5,6 +5,11 @@ import {
   registerModifier,
 } from '../../utils/dota_ts_adapter';
 
+interface FateRouletteModifier extends CDOTA_Modifier_Lua {
+  GetInheritedRouletteEffect(record: number): number;
+  PlayInheritedRouletteEffect(target: CDOTA_BaseNPC, record: number): void;
+}
+
 /**
  * 卓尔游侠 裂影箭-觉醒：普攻有概率分裂出箭矢射向主目标周围的敌人，
  * 各造成本次攻击伤害的百分比并附带霜冻之箭减速。还原老版精准箭分裂手感。
@@ -40,34 +45,74 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
     return this.GetAbility()?.GetSpecialValueFor('splinter_chance') ?? 0;
   }
 
-  // 抬手射出即触发（不等主箭命中），分裂箭与主箭同时飞出
+  // Fire splinter arrows when the attack starts, without waiting for the primary projectile to land.
   OnAttack(event: ModifierAttackEvent): void {
     if (!IsServer()) return;
+
+    const attack = this.getSplinterAttack(event);
+    if (!attack) return;
+
+    const { parent, target, ability, damage } = attack;
+    const fateRoulette = parent.FindModifierByName('modifier_ability_fate_roulette_counter') as
+      | FateRouletteModifier
+      | undefined;
+    const fateEffect = fateRoulette?.GetInheritedRouletteEffect(event.record) ?? 0;
+    const fateAbility = parent.FindAbilityByName('ability_fate_roulette');
+    const fateCriticalDamage = fateAbility?.GetSpecialValueFor('critical_damage') ?? 0;
+    const frostArrows = parent.FindAbilityByName('drow_ranger_frost_arrows');
+    const enemies = this.findSplinterTargets(parent, target, ability);
+
+    this.fireSplinters(
+      enemies,
+      parent,
+      target,
+      ability,
+      damage,
+      frostArrows,
+      fateRoulette,
+      event.record,
+      fateEffect,
+      fateCriticalDamage,
+    );
+  }
+
+  private getSplinterAttack(event: ModifierAttackEvent):
+    | {
+        parent: CDOTA_BaseNPC;
+        target: CDOTA_BaseNPC;
+        ability: CDOTABaseAbility;
+        damage: number;
+      }
+    | undefined {
     const parent = this.GetParent();
-    if (event.attacker !== parent || parent.IsIllusion()) return;
+    if (event.attacker !== parent || parent.IsIllusion()) return undefined;
 
     const target = event.target;
-    if (!target || target.IsNull() || !target.IsAlive()) return;
-    if (target.GetTeamNumber() === parent.GetTeamNumber()) return;
+    if (!target || target.IsNull() || !target.IsAlive()) return undefined;
+    if (target.GetTeamNumber() === parent.GetTeamNumber()) return undefined;
 
     const ability = this.GetAbility();
-    if (!ability || ability.GetLevel() <= 0) return;
+    if (!ability || ability.GetLevel() <= 0) return undefined;
     if (!RollPseudoRandomPercentage(ability.GetSpecialValueFor('splinter_chance'), 0, parent)) {
-      return;
+      return undefined;
     }
 
-    // 抬手时本次攻击伤害尚未结算，用对该目标的平均攻击力作基数
+    // The attack has not dealt damage yet, so use average true attack damage as the base.
     const damage =
       parent.GetAverageTrueAttackDamage(target) *
       ability.GetSpecialValueFor('splinter_damage_pct') *
       0.01;
-    if (damage <= 0) return;
+    if (damage <= 0) return undefined;
 
-    const maxTargets = ability.GetSpecialValueFor('splinter_targets');
-    const projectileSpeed = ability.GetSpecialValueFor('projectile_speed');
-    const slowDuration = ability.GetSpecialValueFor('slow_duration');
-    const frostArrows = parent.FindAbilityByName('drow_ranger_frost_arrows');
-    const enemies = FindUnitsInRadius(
+    return { parent, target, ability, damage };
+  }
+
+  private findSplinterTargets(
+    parent: CDOTA_BaseNPC,
+    target: CDOTA_BaseNPC,
+    ability: CDOTABaseAbility,
+  ): CDOTA_BaseNPC[] {
+    return FindUnitsInRadius(
       parent.GetTeamNumber(),
       target.GetAbsOrigin(),
       undefined,
@@ -78,11 +123,40 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
       FindOrder.CLOSEST,
       false,
     );
+  }
 
+  private fireSplinters(
+    enemies: CDOTA_BaseNPC[],
+    parent: CDOTA_BaseNPC,
+    target: CDOTA_BaseNPC,
+    ability: CDOTABaseAbility,
+    damage: number,
+    frostArrows: CDOTABaseAbility | undefined,
+    fateRoulette: FateRouletteModifier | undefined,
+    attackRecord: number,
+    fateEffect: number,
+    fateCriticalDamage: number,
+  ): void {
+    const maxTargets = ability.GetSpecialValueFor('splinter_targets');
+    const projectileSpeed = ability.GetSpecialValueFor('projectile_speed');
+    const slowDuration = ability.GetSpecialValueFor('slow_duration');
     let hit = 0;
+
     for (const enemy of enemies) {
       if (enemy === target || enemy.IsNull() || !enemy.IsAlive()) continue;
-      this.fireSplinter(parent, ability, enemy, damage, projectileSpeed, slowDuration, frostArrows);
+      this.fireSplinter(
+        parent,
+        ability,
+        enemy,
+        damage,
+        projectileSpeed,
+        slowDuration,
+        frostArrows,
+        fateRoulette,
+        attackRecord,
+        fateEffect,
+        fateCriticalDamage,
+      );
       hit += 1;
       if (hit >= maxTargets) break;
     }
@@ -96,7 +170,11 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
     damage: number,
     projectileSpeed: number,
     slowDuration: number,
-    frostArrows?: CDOTABaseAbility,
+    frostArrows: CDOTABaseAbility | undefined,
+    fateRoulette: FateRouletteModifier | undefined,
+    attackRecord: number,
+    fateEffect: number,
+    fateCriticalDamage: number,
   ): void {
     ProjectileManager.CreateTrackingProjectile({
       Target: enemy,
@@ -107,14 +185,19 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
       bDodgeable: false,
     });
 
+    const inheritedDamage =
+      fateEffect === 1 && fateCriticalDamage > 0 ? damage * fateCriticalDamage * 0.01 : damage;
+
     ApplyDamage({
       victim: enemy,
       attacker: parent,
-      damage,
+      damage: inheritedDamage,
       damage_type: DamageTypes.PHYSICAL,
       damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.IGNORES_BASE_PHYSICAL_ARMOR,
       ability,
     });
+
+    fateRoulette?.PlayInheritedRouletteEffect(enemy, attackRecord);
 
     if (frostArrows && frostArrows.GetLevel() > 0) {
       enemy.AddNewModifier(parent, frostArrows, 'modifier_drow_ranger_frost_arrows_slow', {

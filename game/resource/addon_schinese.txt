@@ -1087,6 +1087,37 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
 
 
+		// ability_fate_roulette 命运轮盘
+		"DOTA_Tooltip_ability_ability_fate_roulette"                                           "<font color='#FFD700'>命运轮盘</font>"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Description"                               "英雄与命运博弈，每一次攻击都是赌注。完成 %attacks_before_proc% 次有效普通攻击后，下一次有效普通攻击将等概率触发一种命运：<font color='#FFD76A'>暴击</font>，造成 %critical_damage%%% 伤害；<font color='#8FD7FF'>眩晕</font>目标 %stun_duration% 秒；或对目标施加持续驱散、破坏、缠绕、锁闭，持续 %effect_duration% 秒。持续驱散会立即并每 %dispel_interval% 秒进行一次弱驱散，仅移除目标的正面状态；每次轮盘触发还会对英雄自身进行一次弱驱散。施放后进入“命定之刻” %active_duration% 秒，期间每次有效普通攻击必定触发轮盘，且不会增加、重置或消耗原有攻击计数。"
+
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_Lore"								"命运从不掷骰子——除非，你就是赌注。"
+		"DOTA_Tooltip_ability_ability_fate_roulette_attacks_before_proc"				"触发前所需攻击："
+		"DOTA_Tooltip_ability_ability_fate_roulette_critical_damage"					"%暴击伤害："
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_stun_duration"					"眩晕时间："
+		"DOTA_Tooltip_ability_ability_fate_roulette_effect_duration"					"命运效果持续时间："
+		"DOTA_Tooltip_ability_ability_fate_roulette_active_duration"					"命定之刻持续时间："
+		"DOTA_Tooltip_ability_ability_fate_roulette_dispel_interval"					"持续驱散间隔："
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"							"仅英雄本体对敌方英雄或普通单位完成的常规攻击会推进计数；未触发轮盘的落空攻击、攻击建筑或守卫均不计数。阿哈利姆神杖升级的分裂箭、怪蛇之息及其升级装备、裂影箭觉醒的分裂攻击会继承轮盘效果，但不会推进“命运低语”的计数。"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note1"							"命运轮盘无法被破坏；触发轮盘效果的攻击必定命中。除暴击外，其余效果持续时间受目标状态抗性影响。"
+
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter"							"命运低语"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter_Description"					"已完成 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 次有效普通攻击。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined"						"命定之刻"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined_Description"					"每次有效普通攻击必定触发一次轮盘赌；命运低语的攻击计数暂时冻结。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun"							"眩晕"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun_Description"					"无法移动、攻击或施法。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel"							"持续驱散"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel_Description"					"正面状态正被持续移除。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break"							"破坏"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break_Description"					"被动技能已被禁用。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root"							"缠绕"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root_Description"					"无法移动。"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute"							"锁闭"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute_Description"					"物品已被禁用。"
+
 		// ---- bot技能 ----
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"机械救赎 N6"
