@@ -2823,7 +2823,7 @@
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
 
 		// 神器魔武双修
-		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"<font color='#e03e2e'>神器·魔武双修</font>"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"神器·魔武双修"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>被动：</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"对于其他来源的致命一击也被视为致命一击效果。"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note1"						"攻击建筑物时不会触发幻影暴击。"
@@ -3376,6 +3376,19 @@
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"
+
+		// item_six_paths_reincarnation_gun 六道轮回枪
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun"                                  "六道轮回枪"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Description"                      "<h1>主动：六道轮转</h1>持续%active_duration%秒。期间每次攻击都会独立随机转化为以下一种伤害类型：<br>- 物理伤害<br>- 魔法伤害<br>- 纯粹伤害<br>暴击伤害也会被转化。分裂箭及类似的额外攻击会分别随机伤害类型。\n<h1>被动：六道霰弹</h1>每次攻击时，对目标及其周围%attack_radius%范围内的敌人造成相当于本次攻击伤害%attack_percent%%%的额外伤害。额外伤害根据暴击后的攻击伤害计算，并在目标护甲、魔法抗性等减伤生效前确定数值。<br>每次触发随机造成以下一种伤害：<br>- 物理伤害<br>- 魔法伤害<br>- 纯粹伤害<br>此伤害受到技能增强影响。多支分裂箭同时命中时，所有霰弹效果共享%internal_cooldown%秒全局内部冷却，单次攻击不会瞬间重复触发大量范围伤害。\n<h1>被动：法师克星</h1>攻击使目标造成的技能伤害降低%mage_slayer_spell_damage_reduction%%%，持续%mage_slayer_duration%秒。效果期间，目标每秒受到：<br>- %mage_slayer_damage_per_type%点物理伤害<br>- %mage_slayer_damage_per_type%点魔法伤害<br>- %mage_slayer_damage_per_type%点纯粹伤害"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Lore"                             "六管轮转，三界同归。"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_bonus_damage"                     "+$damage"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_attack_speed"                     "+$attack"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_spell_lifesteal"                  "%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_bonus_magic_resistance"           "%+$spell_resist"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active"                          "六道轮转"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "每次攻击独立随机转化为物理、魔法或纯粹伤害。"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "法师克星"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "造成的技能伤害降低50%，并持续受到物理、魔法和纯粹伤害。"
 
 	}
 }

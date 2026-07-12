@@ -31,6 +31,10 @@
 			"item_necronomicon_staff_bonus_agility"			"15"
 
 			"item_orb_of_the_brine_bonus_all_stats"		"20"
+
+			"item_six_paths_reincarnation_gun_bonus_damage"             "370"
+			"item_six_paths_reincarnation_gun_attack_speed"             "180"
+			"item_six_paths_reincarnation_gun_bonus_magic_resistance"   "25"
 		}
 		"Modifiers"
 		{
@@ -206,6 +210,19 @@
 				{
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"50"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"130"
+				}
+			}
+			"modifier_item_six_paths_reincarnation_gun_stats"
+			{
+				"Passive"       "1"
+				"IsHidden"      "1"
+				"RemoveOnDeath" "0"
+				"Attributes"    "MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"     "%item_six_paths_reincarnation_gun_bonus_damage"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%item_six_paths_reincarnation_gun_attack_speed"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"   "%item_six_paths_reincarnation_gun_bonus_magic_resistance"
 				}
 			}
 			// 阿迪王

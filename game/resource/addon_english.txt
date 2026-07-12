@@ -2824,7 +2824,7 @@
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%."
 
 		// 神器魔武双修
-		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"						"<font color='#e03e2e'>Artifact: Revenant's Brooch</font>"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"						"Artifact: Revenant's Brooch"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>Passive: Phantom Critical</h1>Grants each attack a %crit_chance%%% chance to deal an additional %crit_multiplier%%% of the attack's damage as bonus magic damage."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note1"						"Phantom Critical does not work against buildings."
@@ -3352,6 +3352,19 @@
 
 		// 藏宝箱
 		"npc_treasure_chest"											"Treasure Chest"
+
+		// item_six_paths_reincarnation_gun
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun"                                  "Six Paths Reincarnation Gun"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Description"                       "<h1>Active: Six Paths Rotation</h1>For %active_duration% seconds, each attack is independently converted into one of the following damage types:<br>- Physical damage<br>- Magical damage<br>- Pure damage<br>Critical strike damage is also converted. Split arrows and similar additional attacks roll their damage type separately.\n<h1>Passive: Samsara Scatter</h1>Each attack deals bonus damage to the target and enemies within %attack_radius% equal to %attack_percent%%% of that attack's damage. The bonus damage is calculated after critical strikes, but before the target's armor, magic resistance, and other damage reductions.<br>Each proc randomly deals one of the following:<br>- Physical damage<br>- Magical damage<br>- Pure damage<br>This damage is affected by spell amplification. All shotgun effects share a %internal_cooldown% second attacker-wide internal cooldown, preventing simultaneous split arrows from producing many splash procs from a single attack.\n<h1>Passive: Mage Slayer</h1>Attacks reduce the target's spell damage by %mage_slayer_spell_damage_reduction%%% for %mage_slayer_duration% seconds. While affected, the target takes the following each second:<br>- %mage_slayer_damage_per_type% physical damage<br>- %mage_slayer_damage_per_type% magical damage<br>- %mage_slayer_damage_per_type% pure damage"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Lore"                             "Six chambers turn; all three realms return as one."
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_bonus_damage"                     "+$damage"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_attack_speed"                     "+$attack"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_spell_lifesteal"                  "%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_bonus_magic_resistance"           "%+$spell_resist"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active"                          "Six Paths Rotation"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "Each attack is independently converted to physical, magical, or pure damage."
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "Mage Slayer"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "Spell damage dealt is reduced by 50%, while taking physical, magical, and pure damage over time."
 
 	}
 }

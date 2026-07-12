@@ -309,6 +309,7 @@
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
+		"item"      "item_six_paths_reincarnation_gun" // 六道轮回枪
 	}
 
 	"sideshop1"
