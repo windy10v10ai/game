@@ -230,7 +230,7 @@
 			"duration"				"120"	// 120
 			"health"				"40 80 120"
 			"health_tooltip"		"10 20 30"
-			"buff_linger_duration"		"20"// 0.1
+			"buff_linger_duration"		"15"// 0.1
 		}
 	}
 
@@ -611,6 +611,7 @@
 		"ItemStockTime"					"180"
 		"ItemInitialStockTime"			"240"
 		"IsObsolete"					"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"AbilityValues"
 		{
