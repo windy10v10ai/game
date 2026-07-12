@@ -141,7 +141,7 @@
 				"value"						"350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"scepter_crit_bonus"		"180 210 240 270"
+			"scepter_crit_bonus"		"210 240 270 300"
 			"bonus_physical_damage"
 			{
 				"value"						"300 400 500 600"
