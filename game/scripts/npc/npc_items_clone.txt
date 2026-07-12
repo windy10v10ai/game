@@ -466,7 +466,7 @@
 			"static_radius"			"1200"	// 1000
 			"static_cooldown"			"0.33"//0.66
 			"chain_chance"				"50"
-			"chain_damage"				"540"	// 360
+			"chain_damage"				"480"	// 360
 			"chain_strikes"			"12"
 			"chain_radius"				"1200"	// 1000
 			"chain_delay"				"0.25"

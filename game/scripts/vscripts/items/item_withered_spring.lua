@@ -24,7 +24,8 @@ function item_withered_spring:OnSpellStart()
 
     -- 立即恢复生命值
     local instant_heal = self:GetSpecialValueFor("instant_heal")
-    caster:Heal(instant_heal, self)
+    local instant_heal_pct = self:GetSpecialValueFor("instant_heal_pct")
+    caster:Heal(instant_heal + caster:GetMaxHealth() * instant_heal_pct / 100, self)
 
     -- 永恒之盘触发特效 - 护盾爆发效果
     local particle = ParticleManager:CreateParticle(
@@ -60,10 +61,6 @@ function modifier_item_withered_spring:OnCreated(params)
     self.health_regen_pct = ability:GetSpecialValueFor("health_regen_pct")
     self.status_resistance = ability:GetSpecialValueFor("status_resistance")
     self.hp_threshold = ability:GetSpecialValueFor("hp_threshold")
-
-    if IsServer() then
-        self:StartIntervalThink(0.1) -- 每0.1秒检查生命值
-    end
 end
 
 function modifier_item_withered_spring:OnRefresh(params)
@@ -74,20 +71,27 @@ function modifier_item_withered_spring:OnRefresh(params)
     end
 end
 
-function modifier_item_withered_spring:OnIntervalThink()
+-- 血量下限锁在 1，伤害结算时引擎同步钳制，避免单次爆发直接秒杀绕过阈值判定
+function modifier_item_withered_spring:GetMinHealth()
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() and ability:IsFullyCastable() then
+        return 1
+    end
+    return 0
+end
+
+function modifier_item_withered_spring:OnTakeDamage(event)
     if not IsServer() then return end
 
     local parent = self:GetParent()
+    if event.unit ~= parent then return end
+
     local ability = self:GetAbility()
+    if not ability or ability:IsNull() or not ability:IsFullyCastable() then return end
 
-    if not ability or ability:IsNull() then return end
-
-    -- 检查生命值是否低于阈值
-    local hp_pct = parent:GetHealthPercent()
-    if hp_pct <= self.hp_threshold and ability:IsFullyCastable() then
-        -- 自动触发主动技能
+    if parent:GetHealthPercent() <= self.hp_threshold then
         ability:OnSpellStart()
-        ability:UseResources(false, false, false, true) -- 消耗冷却
+        ability:UseResources(false, false, false, true)
     end
 end
 
@@ -101,6 +105,8 @@ function modifier_item_withered_spring:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+        MODIFIER_PROPERTY_MIN_HEALTH,
+        MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
 end
 

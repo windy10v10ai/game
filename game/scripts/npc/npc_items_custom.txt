@@ -6303,10 +6303,11 @@
 
 			// Lua 逻辑需要 - 主动技能参数
 			"hp_threshold"				"40"	// Lua 逻辑需要 - 自动触发生命阈值
+			"instant_heal"				"2500"	// Lua 逻辑需要 - 立即恢复生命值
+			"instant_heal_pct"			"6"		// Lua 逻辑需要 - 立即恢复最大生命值百分比
 			"active_duration"			"3"		// Lua 逻辑需要 - 主动持续时间
-			"instant_heal"				"1500"	// Lua 逻辑需要 - 立即恢复生命值
 			"bonus_armor_active"		"30"	// Lua 逻辑需要 - 主动护甲加成
-			"bonus_regen_active"		"200"	// Lua 逻辑需要 - 主动生命回复
+			"bonus_regen_active"		"300"	// Lua 逻辑需要 - 主动生命回复
 			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免
 			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
 
@@ -6638,7 +6639,7 @@
 			"group_gold"		"120"
 			"hero_kill_chance"	"30"
 			"chain_chance"		"65"
-			"chain_damage"		"700"
+			"chain_damage"		"600"
 			"chain_strikes"		"15"
 			"chain_radius"		"1200"
 			"chain_cooldown"		"0.2"
@@ -6646,10 +6647,10 @@
 			"double_damage_multiplier"	"2"
 			"double_damage_cooldown"	"0.3"
 			"quintuple_damage_chance"	"3"
-			"quintuple_damage_multiplier"	"5"
+			"quintuple_damage_multiplier"	"3"
 			"quintuple_damage_cooldown"	"0.5"
-			"decuple_damage_chance"	"0.1"
-			"decuple_damage_multiplier"	"10"
+			"decuple_damage_chance"	"1"
+			"decuple_damage_multiplier"	"5"
 			"decuple_damage_cooldown"	"1"
 		}
 	}
