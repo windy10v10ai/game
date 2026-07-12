@@ -43,6 +43,7 @@ export const abilityTiersActive: Tier[] = [
       'brewmaster_drunken_boxing', // 酒仙 醉拳
       'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
       'special_bonus_unique_sniper_assassinate_upgrade', // 狙击 觉醒群体暗杀
+      'ability_fate_roulette', // 命运轮盘
     ],
   },
   {

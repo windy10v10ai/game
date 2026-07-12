@@ -3097,6 +3097,48 @@
 			"base_amplify"              "2"
 		}
 	}
+	// 命运轮盘（大招池中的主动/被动混合技能）
+	"ability_fate_roulette"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ability_fate_roulette"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"            "ability_fate_roulette"
+		"SpellImmunityType"             "SPELL_IMMUNITY_ENEMIES_YES"
+		"IsBreakable"                   "0"
+
+		"MaxLevel"                      "4"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+
+		"AbilityCastPoint"              "0.1"
+		"AbilityCooldown"               "40 30 20 10"
+		"AbilityManaCost"               "100 150 200 250"
+
+		"precache"
+		{
+			"particle"                      "particles/items4_fx/combo_breaker_buff.vpcf"
+			"particle"                      "particles/units/heroes/hero_invoker/invoker_ghost_walk_debuff_wex.vpcf"
+			"particle"                      "particles/items4_fx/nullifier_mute.vpcf"
+			"particle"                      "particles/status_fx/status_effect_nullifier.vpcf"
+			"particle"                      "particles/generic_gameplay/generic_break.vpcf"
+			"particle"                      "particles/units/heroes/heroes_underlord/abyssal_underlord_pitofmalice_stun.vpcf"
+			"particle"                      "particles/generic_gameplay/generic_stunned.vpcf"
+			"particle"                      "particles/units/heroes/hero_oracle/oracle_fortune_purge.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"attacks_before_proc"           "4 3 2 1"
+			"critical_damage"               "200 300 400 550"
+			"stun_duration"                 "0.5 1 1.5 2"
+			"effect_duration"               "1 2 3 4"
+			"active_duration"               "3 5 8 11"
+			"dispel_interval"               "0.2"
+		}
+	}
+
 	//死亡先知新大招·我！即是虫群！（普攻触发地穴虫群）
 	"death_prophet_swarm_attack"
 	{

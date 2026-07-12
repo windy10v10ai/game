@@ -1092,6 +1092,37 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
+		// ability_fate_roulette 命运轮盘
+		"DOTA_Tooltip_ability_ability_fate_roulette"                                           "<font color='#FFD700'>Fate Roulette</font>"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Description"                               "The hero wagers against fate with every attack. After completing %attacks_before_proc% valid attacks, the next valid attack triggers one of six equally likely fates: a %critical_damage%%% critical strike; a %stun_duration%-second stun; or Continuous Dispel, Break, Root, or Mute for %effect_duration% seconds. Continuous Dispel immediately applies a basic dispel and repeats every %dispel_interval% seconds, removing only positive buffs from the target. Every roulette trigger also applies a basic dispel to the hero. Casting the ability grants Destined Moment for %active_duration% seconds, causing every valid attack to trigger roulette without gaining, resetting, or consuming the stored attack count."
+
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_Lore"								"Fate never rolls the dice—unless you are the wager."
+		"DOTA_Tooltip_ability_ability_fate_roulette_attacks_before_proc"				"Attacks Before Trigger:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_critical_damage"					"%CRITICAL DAMAGE:"
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_stun_duration"					"Stun Duration:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_effect_duration"					"Fate Effect Duration:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_active_duration"					"Destined Moment Duration:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_dispel_interval"					"Continuous Dispel Interval:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"							"Only regular attacks completed by the real hero against enemy heroes or basic units advance the count. Missed non-triggering attacks and attacks against buildings or wards are ignored. Split Shot upgraded by Aghanim's Scepter, Hydra's Breath and its upgrade, and Splinter Arrow Awakening inherit roulette effects without advancing Whisper of Fate's count."
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note1"							"Fate Roulette cannot be disabled by Break, and attacks that trigger roulette cannot miss. All outcomes except the critical strike are reduced by the target's status resistance."
+
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter"							"Whisper of Fate"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter_Description"					"<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> valid attacks completed."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined"						"Destined Moment"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined_Description"					"Every valid attack triggers a roulette roll while Whisper of Fate's attack count is frozen."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun"							"Stun"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun_Description"					"Unable to move, attack, or cast abilities."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel"							"Continuous Dispel"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel_Description"					"Positive buffs are continuously removed."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break"							"Break"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break_Description"					"Passive abilities are disabled."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root"							"Root"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root_Description"					"Unable to move."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute"							"Mute"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute_Description"					"Items are disabled."
+
 		// ---- bot技能 ----
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
