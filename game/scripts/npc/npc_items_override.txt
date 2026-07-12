@@ -611,6 +611,7 @@
 		"ItemStockTime"					"180"
 		"ItemInitialStockTime"			"240"
 		"IsObsolete"					"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 
 		"AbilityValues"
 		{

@@ -3253,7 +3253,7 @@
 
 		"DOTA_Tooltip_Ability_item_swift_glove"											"无限手套"
 		"DOTA_Tooltip_ability_item_swift_glove_Description"								"<h1><font color='#FFFF00'>主动：灭世响指</font></h1>立刻湮灭目标单位，获得 %self_gold% 金钱和 %self_xp% 倍经验值。<br>周围 %group_range% 范围内的友军获得 %group_gold% 金钱和 %group_xp% 倍经验值。<br><br>可以对远古单位使用，但无法对肉山使用。<br><br><font color='#FFFF00'>对敌方英雄释放时有%hero_kill_chance%%%概率直接将其湮灭。</font>\n\n<h1>被动：极速</h1>减少%bat_reduction_pct%%%基础攻击间隔。\n\n<h1>被动：强化连环闪电</h1>攻击有%chain_chance%%%几率释放一道强化连环闪电，在%chain_radius%范围内%chain_strikes%个目标之间跳跃，每次造成%chain_damage%点魔法伤害。触发闪电时无视闪避，并且吃技能增强。<br>强化闪电有%double_damage_chance%%%几率造成%double_damage_multiplier%倍伤害，%quintuple_damage_chance%%%几率造成%quintuple_damage_multiplier%倍伤害，%decuple_damage_chance%%%几率造成%decuple_damage_multiplier%倍伤害。内置冷却为%chain_cooldown%秒，倍率触发对应冷却时间为%double_damage_cooldown%秒，%quintuple_damage_cooldown%秒，%decuple_damage_cooldown%秒。"
-		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。 — by RN"
+		"DOTA_Tooltip_ability_item_swift_glove_Lore"									"传说中的手套，能让佩戴者的速度快到看不见。"
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"									"获得的金钱经验，享有倍率加成！"
 		"DOTA_Tooltip_ability_item_swift_glove_Note1"									"基础攻击间隔减少效果无法叠加。"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_strength"							"+$str"

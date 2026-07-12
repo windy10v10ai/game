@@ -23,7 +23,7 @@ export class GameConfig {
     GameRules.SetCustomGameSetupAutoLaunchDelay(45); // 游戏设置时间 -30s 为投票时间
     GameRules.SetCustomGameSetupRemainingTime(3); // 游戏设置剩余时间
     // GameRules.SetCustomGameSetupTimeout(3); // 游戏设置阶段超时
-    GameRules.SetHeroSelectionTime(50); // 选择英雄阶段的持续时间
+    // GameRules.SetHeroSelectionTime(50); // 选择英雄阶段的持续时间
     GameRules.SetHeroSelectPenaltyTime(10); // 选择英雄超时惩罚时间
     GameRules.SetStrategyTime(10); // 选完英雄的策略阶段的持续时间
     GameRules.SetShowcaseTime(0); // 选完英雄进游戏前的展示时间
@@ -71,6 +71,12 @@ export class GameConfig {
     //     GameRules.SetCustomGameTeamMaxPlayers(team, 1);
     // }
 
+    // ban英雄设置
+    GameRules.SetCustomGameBansPerTeam(3); // 设置每个队伍的ban英雄数量
+    GameRules.SetHideBlacklistedHeroes(true);
+    game.SetDraftingBanningTimeOverride(10); // ban 阶段时长
+    game.SetDraftingHeroPickSelectTimeOverride(40); // pick 阶段时长
+
     game.SetTowerBackdoorProtectionEnabled(true);
     game.SetMaximumAttackSpeed(700);
     game.SetMinimumAttackSpeed(20);
@@ -78,7 +84,6 @@ export class GameConfig {
     if (IsInToolsMode()) {
       print('[GameConfig] 开发者模式快速开始游戏');
       // GameRules.SetCustomGameSetupAutoLaunchDelay(5);
-      // GameRules.SetHeroSelectionTime(5);
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(3);
       GameRules.SetPreGameTime(5); // 进入游戏后号角吹响前的准备时间
