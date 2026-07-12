@@ -3113,7 +3113,7 @@
 		"LevelsBetweenUpgrades"         "6"
 
 		"AbilityCastPoint"              "0.1"
-		"AbilityCooldown"               "40 30 20 10"
+		"AbilityCooldown"               "35 30 25 20"
 		"AbilityManaCost"               "100 150 200 250"
 
 		"precache"
@@ -3130,11 +3130,11 @@
 
 		"AbilityValues"
 		{
-			"attacks_before_proc"           "4 3 2 1"
-			"critical_damage"               "200 300 400 550"
-			"stun_duration"                 "0.5 1 1.5 2"
-			"effect_duration"               "1 2 3 4"
-			"active_duration"               "3 5 8 11"
+			"attacks_before_proc"           "4"
+			"critical_damage"               "200 300 400 500"
+			"stun_duration"                 "0.8 1 1.2 1.4"
+			"effect_duration"               "2.5 3 3.5 4"
+			"active_duration"               "4 5 6 7"
 			"dispel_interval"               "0.2"
 		}
 	}
