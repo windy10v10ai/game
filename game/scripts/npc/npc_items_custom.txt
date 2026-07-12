@@ -6250,9 +6250,8 @@
 	}
 
 	//=================================================================================================================
-	// 枯木逢春 生命之心
+	// 生命之心 枯木逢春
 	//=================================================================================================================
-	// 咸鱼之王+卫士胫甲+item_undying_heart+洞察盔甲+item_fusion_life 主动：枯木逢春：融合几个效果的主动，生命低于20%自动触发 被动：继承所有装备的被动
 	"item_recipe_withered_spring"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6267,7 +6266,7 @@
 		"ItemResult"				"item_withered_spring"
 		"ItemRequirements"
 		{
-			"01"					"item_aeon_pendant;item_undying_heart;item_insight_armor;item_fusion_life"
+			"01"					"item_aeon_pendant;item_undying_heart;item_guardian_greaves_artifact;item_insight_armor;item_fusion_life"
 		}
 	}
 
@@ -6299,12 +6298,18 @@
 		{
 			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
 			"health_regen_pct"			"3"		// Lua 逻辑需要 - 百分比生命回复
-			"status_resistance"			"30"	// Lua 逻辑需要 - 状态抗性
+			"status_resistance"			"20"	// Lua 逻辑需要 - 状态抗性
 
 			// Lua 逻辑需要 - 主动技能参数
-			"hp_threshold"				"40"	// Lua 逻辑需要 - 自动触发生命阈值
-			"instant_heal"				"2500"	// Lua 逻辑需要 - 立即恢复生命值
-			"instant_heal_pct"			"6"		// Lua 逻辑需要 - 立即恢复最大生命值百分比
+			"hp_threshold"				"20"	// Lua 逻辑需要 - 自动触发生命阈值
+			"replenish_health"			"2500"	// Lua 逻辑需要 - 立即恢复生命值
+			"replenish_health_pct"		"6"		// Lua 逻辑需要 - 立即恢复最大生命值百分比
+			"replenish_mana"			"1500"	// Lua 逻辑需要 - 立即恢复法力值
+			"replenish_radius"
+			{
+				"value"						"1200"	// Lua 逻辑需要 - 回血回蓝影响友军范围
+				"affected_by_aoe_increase"	"1"
+			}
 			"active_duration"			"3"		// Lua 逻辑需要 - 主动持续时间
 			"bonus_armor_active"		"30"	// Lua 逻辑需要 - 主动护甲加成
 			"bonus_regen_active"		"300"	// Lua 逻辑需要 - 主动生命回复

@@ -22,11 +22,6 @@ function item_withered_spring:OnSpellStart()
     -- 驱散负面效果
     caster:Purge(false, true, false, true, true)
 
-    -- 立即恢复生命值
-    local instant_heal = self:GetSpecialValueFor("instant_heal")
-    local instant_heal_pct = self:GetSpecialValueFor("instant_heal_pct")
-    caster:Heal(instant_heal + caster:GetMaxHealth() * instant_heal_pct / 100, self)
-
     -- 永恒之盘触发特效 - 护盾爆发效果
     local particle = ParticleManager:CreateParticle(
         "particles/items4_fx/combo_breaker_buff.vpcf",
@@ -34,6 +29,24 @@ function item_withered_spring:OnSpellStart()
         caster
     )
     ParticleManager:ReleaseParticleIndex(particle)
+
+    -- 卫士胫甲效果：回血回蓝对自身和范围内友军生效，主动buff不含在内
+    local replenish_health = self:GetSpecialValueFor("replenish_health")
+    local replenish_health_pct = self:GetSpecialValueFor("replenish_health_pct")
+    local replenish_mana = self:GetSpecialValueFor("replenish_mana")
+    local replenish_radius = self:GetSpecialValueFor("replenish_radius")
+    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, replenish_radius,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        DOTA_UNIT_TARGET_HERO,
+        DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+        FIND_ANY_ORDER, false)
+    for _, ally in pairs(allies) do
+        local heal_amount = replenish_health + ally:GetMaxHealth() * replenish_health_pct / 100
+        ally:Heal(heal_amount, self)
+        ally:GiveMana(replenish_mana)
+        SendOverheadEventMessage(caster, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
+        SendOverheadEventMessage(caster, OVERHEAD_ALERT_MANA_ADD, ally, replenish_mana, nil)
+    end
 end
 
 -- 被动modifier

@@ -660,7 +660,7 @@
 		"ItemInitialStockTime"			"0"
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"240"
+		"ItemStockTime"					"180"
 
 		"AbilityValues"
 		{
@@ -701,7 +701,7 @@
 		"ItemInitialStockTime"			"0"
 		"ItemStockInitial"				"1"
 		"ItemStockMax"					"3"
-		"ItemStockTime"					"240"
+		"ItemStockTime"					"180"
 
 		"AbilityValues"
 		{
