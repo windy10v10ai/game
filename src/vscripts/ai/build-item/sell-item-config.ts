@@ -26,6 +26,15 @@ export const SpecialConsumableItems: string[] = [
 ];
 
 /**
+ * 永不出售物品列表 - 即使数量重复也不会被当作多余物品出售
+ */
+export const NeverSellItems: string[] = [
+  'item_ward_observer', // 侦查守卫
+  'item_ward_sentry', // 岗哨守卫
+  'item_ward_dispenser', // 侦察·岗哨守卫
+];
+
+/**
  * 通用出售垃圾物品列表 - 所有英雄都会出售的物品
  * 主要是基础配件和早期物品
  */
@@ -111,6 +120,14 @@ export const SellItemCommonJunkList: string[] = [
   'item_enchanted_mango',
   'item_flask',
   'item_bottle',
+  'item_foragers_stats', // 铁树坚果
+  'item_foragers_mana', // 托莫干伞盖
+  'item_foragers_health', // 活力伞菌
+  // 疗伤莲花
+  'item_famango',
+  'item_great_famango',
+  'item_greater_famango',
+  'item_cheese', // 奶酪
 ];
 
 /**
