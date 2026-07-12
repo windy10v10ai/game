@@ -214,12 +214,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 
 ### 7.1 首次迁移新英雄时的额外注册
 
-当为一个**之前未使用新出装系统的英雄**首次添加 `hero-build-config.ts` 配置时，还必须注册到以下 3 个地方（后续走 skill 调整已有英雄的配置时不需要重复此步骤，因为已经注册过了）：
-
-1. **`src/vscripts/ai/hero/bot-base.ts`** 的 `NEW_BUILD_SYSTEM_HEROES` 静态记录：这是 TS 侧判定英雄使用新/老出装系统的唯一来源（替代了原先在每个 hero 文件里 `override useNewBuildSystem: boolean = true` 的做法）。在记录中添加一行：`['npc_dota_hero_<name>']: true,`，按字母顺序排列。
-2. **`game/scripts/vscripts/events.lua`** 的 `excludeHeroes` 表：如果不在这里排除，该英雄会被额外添加 `modifier_bot_think_strategy`（老 Lua 系统的旧 AI 逻辑），必须阻止。在表内新增一行：`["npc_dota_hero_<name>"] = true,`，按字母顺序插入。
-
-以上 2 项对每个首次迁移的英雄都必须做。**不需要**额外新建 `src/vscripts/ai/hero/hero-<name>.ts`：
+新出装系统已是 `BotBaseAIModifier` 的唯一默认行为——`Init()` 会对 `hero-build-config.ts` 中有配置的英雄无条件调用 `InitializeHeroBuild`，不再有英雄名单开关。老 Lua 出装系统（`modifier_bot_think_strategy`）已随全部英雄迁移完成一并移除。为新英雄首次添加 `hero-build-config.ts` 配置后**不需要**额外注册到任何名单，也**不需要**额外新建 `src/vscripts/ai/hero/hero-<name>.ts`：
 `AI.ts` 的 `getModifierName()` 对没有专属判断分支的英雄会默认落到通用的 `BotBaseAIModifier`，
 已迁移的 abaddon/axe/bane/bloodseeker/bounty_hunter 均无专属文件、全部走这条默认路径。只有当英雄
 需要**自定义技能施法逻辑**（超出通用出装/攻击行为）时才新建专属文件并在 `AI.ts` 的

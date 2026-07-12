@@ -122,6 +122,25 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'kunkka_torrent_storm',
     newLevel: 1,
   },
+  // 风行者 觉醒
+  {
+    heroName: 'npc_dota_hero_windrunner',
+    newAbility: 'special_bonus_unique_windrunner_upgrade',
+    newLevel: 1,
+  },
+  // 发条技师 觉醒
+  {
+    heroName: 'npc_dota_hero_rattletrap',
+    newAbility: 'special_bonus_unique_rattletrap_upgrade',
+    newLevel: 1,
+  },
+  // 斯温 觉醒（与风暴之拳 LinkedAbility 同步升级，初始等级继承风暴之拳）
+  {
+    heroName: 'npc_dota_hero_sven',
+    newAbility: 'special_bonus_unique_sven_upgrade',
+    newLevel: 0,
+    inheritLevelFrom: 'sven_storm_bolt',
+  },
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

@@ -50,38 +50,6 @@ function modifier_bot_think_item_use:OnIntervalThink()
 end
 
 --------------------------------------------------------------------------------
--- Bot strategy modifier 机器人策略
---------------------------------------------------------------------------------
-modifier_bot_think_strategy = class({})
-
-function modifier_bot_think_strategy:IsPurgable() return false end
-
-function modifier_bot_think_strategy:IsHidden() return true end
-
-function modifier_bot_think_strategy:RemoveOnDeath() return false end
-
-function modifier_bot_think_strategy:OnCreated()
-	if IsClient() then return end
-	if not self then return end
-	self:StartIntervalThink(2)
-end
-
-function modifier_bot_think_strategy:OnIntervalThink()
-	if IsClient() then return end
-	if not self then return end
-
-	local GameTime = GameRules:GetDOTATime(false, false)
-	local hHero = self:GetParent()
-	if hHero:IsNull() then return end
-
-	if IsHeroUncontrollable(hHero) then return end
-
-	BotThink:ThinkSell(hHero)
-	BotThink:ThinkPurchase(hHero)
-	-- BotThink:ThinkConsumeItem(hHero)
-end
-
---------------------------------------------------------------------------------
 -- Bot ward modifier 机器人做眼
 --------------------------------------------------------------------------------
 modifier_bot_think_ward = class({})

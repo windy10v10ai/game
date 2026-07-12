@@ -1092,6 +1092,34 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
+		// ability_fate_roulette 命运轮盘
+		"DOTA_Tooltip_ability_ability_fate_roulette"                                           "<font color='#FFD700'>Fate Roulette</font>"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Description"                               "The hero wagers against fate with every attack. After completing %attacks_before_proc% valid attacks, the next valid attack triggers one of the following fates against the target: <font color='#FFD76A'>Critical Strike</font>, <font color='#8FD7FF'>Stun</font> for %stun_duration% seconds, Continuous Dispel, Break, Root, or Mute for %effect_duration% seconds. Continuous Dispel immediately applies a basic dispel and repeats every %dispel_interval% seconds, removing only positive buffs from the target. Every roulette trigger also applies a basic dispel to the hero.<br>Casting the ability grants Destined Moment, causing every valid attack to trigger roulette without gaining, resetting, or consuming the stored attack count."
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_Lore"								"Fate never rolls the dice—unless you are the wager."
+		"DOTA_Tooltip_ability_ability_fate_roulette_critical_damage"					"%CRITICAL DAMAGE:"
+
+		"DOTA_Tooltip_ability_ability_fate_roulette_stun_duration"					"Stun Duration:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_effect_duration"					"Fate Effect Duration:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_active_duration"					"Destined Moment Duration:"
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note0"							"Only regular attacks completed by the real hero against enemy heroes or basic units advance the count. Missed non-triggering attacks and attacks against buildings or wards are ignored. Split Shot upgraded by Aghanim's Scepter, Hydra's Breath and its upgrade, and Splinter Arrow Awakening inherit roulette effects without advancing Whisper of Fate's count."
+		"DOTA_Tooltip_ability_ability_fate_roulette_Note1"							"Fate Roulette cannot be disabled by Break, attacks that trigger roulette cannot miss, and all outcomes ignore spell immunity. Except for the critical strike, the other outcomes' durations are reduced by the target's status resistance."
+
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter"							"Whisper of Fate"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_counter_Description"					"<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> valid attacks completed."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined"						"Destined Moment"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_destined_Description"					"Every valid attack triggers a roulette roll while Whisper of Fate's attack count is frozen."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun"							"Stun"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_stun_Description"					"Unable to move, attack, or cast abilities."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel"							"Continuous Dispel"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_dispel_Description"					"Positive buffs are continuously removed."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break"							"Break"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_break_Description"					"Passive abilities are disabled."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root"							"Root"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_root_Description"					"Unable to move."
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute"							"Mute"
+		"DOTA_Tooltip_modifier_ability_fate_roulette_mute_Description"					"Items are disabled."
+
 		// ---- bot技能 ----
 		// 机械救赎
 		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
@@ -1202,6 +1230,28 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>Torrent Storm Awakened</font>"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"Releases a Torrent in a random area within %torrent_max_distance% range of the target position once every %torrent_interval% for %torrent_duration% seconds."
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"A hundred leagues of dry land couldn't keep these seas at bay."
+
+		// Windrunner Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>Windrun Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade_Description"		"Casting Windrun grants <font color='#d7ccc7'>invisibility</font> for the same duration as Windrun. Attacking an enemy briefly reveals Windrunner before she fades back into invisibility. Moving does not break invisibility.<br>Powershot damage is increased by <font color='#FFFFFF'><b>100%%</b></font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>Windrun Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"Casting Windrun grants <font color='#d7ccc7'>invisibility</font> for the same duration as Windrun. Attacking an enemy briefly reveals Windrunner before she fades back into invisibility. Moving does not break invisibility.<br>Powershot damage is increased by <font color='#FFFFFF'><b>100%%</b></font>."
+
+		// Clockwerk Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants <font color='#FFCC66'>Magic Immunity</font> for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants <font color='#FFCC66'>Magic Immunity</font> for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Power Cogs Awakened"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Damage taken is reduced by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
+
+		// Sven Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> for %duration% seconds, increasing Strength by %strength_bonus% and Attack Speed by %attackspeed_bonus% during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> and briefly increases Strength and Attack Speed."
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"Sven Awakened"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% and Attack Speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		///////////////////////////////////////////////////
 		//
@@ -3168,7 +3218,7 @@
 
 		// Swift Glove (无限手套)
 		"DOTA_Tooltip_Ability_item_swift_glove"                                "Swift Glove"
-		"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1><font color='#FFFF00'>Active: The Snap</font></h1>Kills the target unit for %self_gold% gold and %self_xp%x experience.<br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Can be used on Ancient Creeps, but cannot be used on Roshan.<br><br><font color='#FFFF00'>When cast on an enemy hero, has a %hero_kill_chance%%% chance to instantly kill it.</font>\n\n<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%."
+		"DOTA_Tooltip_ability_item_swift_glove_Description"                    "<h1><font color='#FFFF00'>Active: The Snap</font></h1>Kills the target unit for %self_gold% gold and %self_xp%x experience.<br>Allies within %group_range% gain %group_gold% gold and %group_xp%x experience.<br><br>Can be used on Ancient Creeps, but cannot be used on Roshan.<br><br><font color='#FFFF00'>When cast on an enemy hero, has a %hero_kill_chance%%% chance to instantly kill it.</font>\n\n<h1>Passive: Rapid Strikes</h1>Reduces Base Attack Time by %bat_reduction_pct%%%.\n\n<h1>Passive: Empowered Chain Lightning</h1>Grants a %chain_chance%%% chance on attack to release an empowered bolt of electricity that leaps between %chain_strikes% targets within a %chain_radius% radius, dealing %chain_damage% magical damage to each. Lightning proc pierces evasion and benefits from spell amplification.<br>Empowered lightning has a %double_damage_chance%%% chance to deal %double_damage_multiplier%x damage, %quintuple_damage_chance%%% chance to deal %quintuple_damage_multiplier%x damage, and %decuple_damage_chance%%% chance to deal %decuple_damage_multiplier%x damage. Internal cooldown is %chain_cooldown%s, and the matching cooldowns for empowered strikes are %double_damage_cooldown%s, %quintuple_damage_cooldown%s, and %decuple_damage_cooldown%s."
 		"DOTA_Tooltip_ability_item_swift_glove_Lore"                           "Gloves that grant unmatched speed and precision."
 		"DOTA_Tooltip_ability_item_swift_glove_Note0"                          "The gold and experience obtained will respect the Gold/XP multipliers set in the game rules."
 		"DOTA_Tooltip_ability_item_swift_glove_Note1"                          "Base Attack Time reduction effect cannot be stacked."

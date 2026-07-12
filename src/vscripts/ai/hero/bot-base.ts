@@ -62,31 +62,6 @@ export class BotBaseAIModifier extends BaseModifier {
     currentLevel: 0,
   };
 
-  /** 已迁移到新出装系统的英雄列表 */
-  private static NEW_BUILD_SYSTEM_HEROES: Record<string, boolean> = {
-    ['npc_dota_hero_abaddon']: true,
-    ['npc_dota_hero_axe']: true,
-    ['npc_dota_hero_bane']: true,
-    ['npc_dota_hero_bloodseeker']: true,
-    ['npc_dota_hero_bounty_hunter']: true,
-    ['npc_dota_hero_chaos_knight']: true,
-    ['npc_dota_hero_death_prophet']: true,
-    ['npc_dota_hero_drow_ranger']: true,
-    ['npc_dota_hero_kunkka']: true,
-    ['npc_dota_hero_lich']: true,
-    ['npc_dota_hero_lion']: true,
-    ['npc_dota_hero_riki']: true,
-    ['npc_dota_hero_skywrath_mage']: true,
-    ['npc_dota_hero_spectre']: true,
-    ['npc_dota_hero_sven']: true,
-    ['npc_dota_hero_vengefulspirit']: true,
-    ['npc_dota_hero_viper']: true,
-    ['npc_dota_hero_windrunner']: true,
-  };
-
-  /** 当前英雄是否使用新出装系统 */
-  private newBuildSystem: boolean = false;
-
   // 出装状态
   public buildState: HeroBuildState | undefined;
 
@@ -110,13 +85,9 @@ export class BotBaseAIModifier extends BaseModifier {
 
     this.isIntHero = this.hero.GetPrimaryAttribute() === Attributes.INTELLECT;
 
-    // 从集中英雄列表判断是否使用新出装系统
-    this.newBuildSystem = !!BotBaseAIModifier.NEW_BUILD_SYSTEM_HEROES[this.hero.GetUnitName()];
-    if (this.newBuildSystem) {
-      const config = getHeroBuildConfig(this.hero.GetUnitName());
-      if (config) {
-        this.buildState = InitializeHeroBuild(this.hero, config);
-      }
+    const config = getHeroBuildConfig(this.hero.GetUnitName());
+    if (config) {
+      this.buildState = InitializeHeroBuild(this.hero, config);
     }
 
     // 初始化Think
