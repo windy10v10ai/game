@@ -105,8 +105,24 @@ function modifier_ability_fate_roulette_counter:GetAttacksBeforeProc()
     return math.max(ability:GetSpecialValueFor("attacks_before_proc"), 1)
 end
 
+function modifier_ability_fate_roulette_counter:IsWhirlwindAttack(params)
+    local whirlwind = self:GetParent():FindModifierByName("modifier_windrunner_whirlwind_custom")
+    if not whirlwind then return false end
+
+    local record = params.record or -1
+    if whirlwind.IsWhirlwindAttackRecord and whirlwind:IsWhirlwindAttackRecord(record) then
+        return true
+    end
+
+    -- Modifier event ordering is not guaranteed. The registration flag identifies the attack
+    -- while PerformAttack is dispatching its record event.
+    return whirlwind.IsRegisteringWhirlwindAttack
+        and whirlwind:IsRegisteringWhirlwindAttack()
+end
+
 function modifier_ability_fate_roulette_counter:IsSupportedSplitAttack(params)
     if params.no_attack_cooldown ~= true and params.no_attack_cooldown ~= 1 then return true end
+    if self:IsWhirlwindAttack(params) then return true end
 
     -- Time Lock and similar bonus attacks strike the current primary target again.
     -- Medusa/Hydra split attacks select secondary targets, so reject same-target bonus records.
@@ -222,7 +238,8 @@ function modifier_ability_fate_roulette_counter:OnAttackLanded(params)
 
     local parent = self:GetParent()
     if parent:HasModifier("modifier_ability_fate_roulette_destined") then return end
-    if params.no_attack_cooldown == true or params.no_attack_cooldown == 1 then return end
+    local is_no_attack_cooldown = params.no_attack_cooldown == true or params.no_attack_cooldown == 1
+    if is_no_attack_cooldown and not self:IsWhirlwindAttack(params) then return end
 
     local max_stacks = self:GetAttacksBeforeProc()
     self:SetStackCount(math.min(self:GetStackCount() + 1, max_stacks))

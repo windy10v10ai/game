@@ -1087,6 +1087,20 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
 
 
+		// windrunner_whirlwind_custom 旋风
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"旋风"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"集中火力不再需要施法目标，而是对风行者攻击距离 + %search_radius_bonus%范围内的随机敌人发动攻击。每秒发动固定次数的攻击，并且每4箭才会击中一次同个敌人。以英雄优先。"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"										"狂风所至，箭雨无处不在。"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"									"旋风攻击可以触发暴击和攻击特效，也会被闪避。"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"同一目标在最近 %repeat_block_count% 次攻击内不会再次被选中；没有其他目标时除外。"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note2"									"缴械、眩晕、妖术或持续施法期间暂停攻击。不会攻击建筑、守卫、无敌、隐身或视野外单位。"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_duration"									"持续时间："
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_attacks_per_second"							"每秒攻击次数："
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_damage_reduction"								"%攻击伤害降低："
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_search_radius_bonus"							"搜索范围加成："
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom"										"旋风"
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom_Description"								"每秒发动 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 次旋风攻击，攻击伤害降低 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font>。"
+
 		// ability_fate_roulette 命运轮盘
 		"DOTA_Tooltip_ability_ability_fate_roulette"                                           "<font color='#FFD700'>命运轮盘</font>"
 		"DOTA_Tooltip_ability_ability_fate_roulette_Description"                               "英雄与命运博弈，每一次攻击都是赌注。累计 %attacks_before_proc% 次有效普通攻击后，下一次有效普通攻击将对目标等概率触发以下命运之一：<font color='#FFD76A'>暴击</font>、<font color='#8FD7FF'>眩晕</font>目标 %stun_duration% 秒、持续驱散、破坏、缠绕、锁闭，持续 %effect_duration% 秒。持续驱散会立即并每 %dispel_interval% 秒进行一次弱驱散，仅移除目标的正面状态。每次轮盘触发都会对英雄自身施加一次弱驱散。<br>主动释放后进入“命定之刻”，持续期间每次有效普通攻击都必定触发轮盘，且不会增加、重置或消耗原有攻击计数。"

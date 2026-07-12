@@ -1092,6 +1092,20 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
+		// windrunner_whirlwind_custom 旋风
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"Whirlwind"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"Focus Fire no longer requires a target, instead firing at random enemies within Windranger's attack range + %search_radius_bonus%. Fires a fixed number of attacks per second, and can only hit the same enemy every 4 shots. Prioritizes Heroes."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"										"Where the gale blows, arrows rain without end."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"									"Whirlwind attacks can critically strike and trigger attack modifiers, but can also miss."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"A target cannot be selected again for the next %repeat_block_count% attacks unless no other target is available."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note2"									"Attacks pause while disarmed, stunned, hexed, or channeling. Buildings, wards, invulnerable, invisible, and unseen units are ignored."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_duration"									"DURATION:"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_attacks_per_second"							"ATTACKS PER SECOND:"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_damage_reduction"								"%ATTACK DAMAGE REDUCTION:"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_search_radius_bonus"							"SEARCH RANGE BONUS:"
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom"										"Whirlwind"
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom_Description"								"Performs <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Whirlwind attacks per second with <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> reduced attack damage."
+
 		// ability_fate_roulette 命运轮盘
 		"DOTA_Tooltip_ability_ability_fate_roulette"                                           "<font color='#FFD700'>Fate Roulette</font>"
 		"DOTA_Tooltip_ability_ability_fate_roulette_Description"                               "The hero wagers against fate with every attack. After completing %attacks_before_proc% valid attacks, the next valid attack triggers one of the following fates against the target: <font color='#FFD76A'>Critical Strike</font>, <font color='#8FD7FF'>Stun</font> for %stun_duration% seconds, Continuous Dispel, Break, Root, or Mute for %effect_duration% seconds. Continuous Dispel immediately applies a basic dispel and repeats every %dispel_interval% seconds, removing only positive buffs from the target. Every roulette trigger also applies a basic dispel to the hero.<br>Casting the ability grants Destined Moment, causing every valid attack to trigger roulette without gaining, resetting, or consuming the stored attack count."
