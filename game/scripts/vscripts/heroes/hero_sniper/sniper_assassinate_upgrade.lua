@@ -58,40 +58,41 @@ function special_bonus_unique_sniper_assassinate_upgrade:OnSpellStart()
 		return
 	end
 
-	-- 存储目标并发射弹道
+	-- 存储目标并发射弹道，伤害在 OnProjectileHit 里随弹道实际命中结算
 	self.tTargets = targets
 	self:FireAssassinateProjectiles()
 
-
-	--EmitSoundOn("Hero_Sniper.AssassinateDamage", target)
 	EmitSoundOn("Ability.Assassinate", caster)
+end
 
-	local projectile_speed = self:GetSpecialValueFor("projectile_speed") or 3000
+-- 引擎在 FireAssassinateProjectiles 创建的追踪弹道命中目标时自动调用
+function special_bonus_unique_sniper_assassinate_upgrade:OnProjectileHit(target, location)
+	if not target or target:IsNull() or not target:IsAlive() then return end
+
+	local caster = self:GetCaster()
+	if caster:IsNull() or not caster:IsAlive() then return end
+
 	local bonus_physical_damage = self:GetSpecialValueFor("bonus_physical_damage")
 	-- special_bonus_scepter 控制是否生效，无A杖时引擎返回0
 	local stun_duration = self:GetSpecialValueFor("scepter_stun_duration")
 
+	-- 不走普攻弹道，视觉由 FireAssassinateProjectiles 的大招弹道承担，避免双弹道
 	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
-	for _, target in pairs(self.tTargets) do
-		-- 不走普攻弹道，视觉由 FireAssassinateProjectiles 的大招弹道承担，避免双弹道
-		caster:PerformAttack(target, true, true, true, false, false, false, true)
-		-- 额外伤害与眩晕随弹道命中结算，避免瞬发先于子弹到达
-		local travel_time = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() / projectile_speed
-		Timers:CreateTimer(travel_time, function()
-			if target:IsNull() or not target:IsAlive() then return end
-			ApplyDamage({
-				victim = target,
-				attacker = caster,
-				damage = bonus_physical_damage,
-				damage_type = DAMAGE_TYPE_PHYSICAL,
-				ability = self,
-			})
-			if stun_duration > 0 then
-				target:AddNewModifier(caster, self, "modifier_stunned", { duration = stun_duration })
-			end
-		end)
-	end
+	caster:PerformAttack(target, true, true, true, false, false, false, true)
 	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
+
+	ApplyDamage({
+		victim = target,
+		attacker = caster,
+		damage = bonus_physical_damage,
+		damage_type = DAMAGE_TYPE_PHYSICAL,
+		ability = self,
+	})
+	if stun_duration > 0 then
+		target:AddNewModifier(caster, self, "modifier_stunned", { duration = stun_duration })
+	end
+
+	target:RemoveModifierByName("modifier_sniper_assassinate_target")
 end
 
 function special_bonus_unique_sniper_assassinate_upgrade:FireAssassinateProjectiles()
@@ -119,21 +120,6 @@ function special_bonus_unique_sniper_assassinate_upgrade:FireAssassinateProjecti
 		target:AddNewModifier(caster, self, "modifier_sniper_assassinate_target", { Duration = 0.6 })
 	end
 end
-
--- function special_bonus_unique_sniper_assassinate_upgrade:OnProjectileHit(target, location)
--- 	if not target then return end
-
--- 	local caster = self:GetCaster()
-
--- 	-- 添加暴击修饰符并执行攻击
--- 	caster:AddNewModifier(caster, self, "modifier_assassinate_caster_crit", {})
--- 	caster:PerformAttack(target, true, true, true, true, false, false, true)
--- 	caster:RemoveModifierByName("modifier_assassinate_caster_crit")
-
--- 	EmitSoundOn("Hero_Sniper.AssassinateDamage", target)
--- 	-- 移除目标标记
--- 	target:RemoveModifierByName("modifier_sniper_assassinate_target")
--- end
 
 modifier_sniper_assassinate_target = class({})
 

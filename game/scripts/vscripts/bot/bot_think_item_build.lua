@@ -490,6 +490,9 @@ function BotThink:AddWardItem(hHero)
   if BotThink:FindItemByNameIncludeStash(hHero, "item_ward_sentry") then
     return
   end
+  if BotThink:FindItemByNameIncludeStash(hHero, "item_ward_dispenser") then
+    return
+  end
   if BotThink:FindItemByNameIncludeStash(hHero, "item_dust") then
     return
   end
