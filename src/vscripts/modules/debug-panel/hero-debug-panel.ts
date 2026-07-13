@@ -173,7 +173,6 @@ export class HeroDebugPanel {
       // DebugCreateUnit 回调晚于 npc_spawned，events.lua 已在同步阶段挂上
       // bot AI modifier，标记拦不住，这里必须主动清除。
       // hero.RemoveModifierByName('modifier_bot_think_item_use');
-      // hero.RemoveModifierByName('modifier_bot_think_ward');
 
       FindClearSpaceForUnit(hero, spawnLoc, false);
       hero.SetRespawnPosition(spawnLoc);

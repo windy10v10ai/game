@@ -570,6 +570,7 @@
 	"item_ward_observer"
 	{
 		"AbilityCastRange"				"600"
+		"ItemStockMax"					"8"	// 4
 		"ItemStockTime"					"90.0"	// 135.0
 		"AbilityValues"
 		{

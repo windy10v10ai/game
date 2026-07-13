@@ -259,13 +259,9 @@ function modifier_ability_fate_roulette_counter:PlayRouletteEffect(target, effec
     local ability = self:GetAbility()
     if not ability or ability:IsNull() or not target or target:IsNull() then return end
 
+    -- The purge is gameplay-only. Do not reuse Aeon Disk's looping buff particle here: it can
+    -- leave a golden haze behind and incorrectly suggests that an item effect was triggered.
     parent:Purge(false, true, false, false, false)
-    local dispel_particle = ParticleManager:CreateParticle(
-        "particles/items4_fx/combo_breaker_buff.vpcf",
-        PATTACH_ABSORIGIN_FOLLOW,
-        parent
-    )
-    ParticleManager:ReleaseParticleIndex(dispel_particle)
 
     if effect == FATE_EFFECT_CRITICAL then
         target:EmitSound("Hero_Brewmaster.Brawler.Crit")
