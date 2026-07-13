@@ -505,7 +505,7 @@
 		"AbilityHealthCost"				"0"
 		"AbilityCooldown"				"0"
 		"AbilityCharges"				"1"
-		"AbilityChargeRestoreTime"		"120"
+		"AbilityChargeRestoreTime"		"10"
 		"ItemCost"						"0"
 		"ItemStackable"					"0"
 		"ItemInitialCharges"			"1"
