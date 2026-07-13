@@ -63,8 +63,7 @@ function modifier_bot_think_ward:RemoveOnDeath() return false end
 function modifier_bot_think_ward:OnCreated()
 	if IsClient() then return end
 	if not self then return end
-	local interval = 180
-	if AIGameMode.DebugMode then interval = 60 end
+	local interval = 240
 	self:StartIntervalThink(interval)
 end
 
