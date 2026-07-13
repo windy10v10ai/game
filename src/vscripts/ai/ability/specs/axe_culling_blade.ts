@@ -1,3 +1,4 @@
+import { IMMORTALITY_MODIFIER } from '../../../modules/filter/dragon-wish-filter';
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
@@ -13,7 +14,7 @@ export const SPECS: AbilitySpec[] = [
       target: {
         unitCondition: {
           healthAbilityValue: { key: 'damage', lte: true, includeSpellAmp: true },
-          noModifier: 'modifier_item_helm_of_the_undying_active',
+          noModifier: IMMORTALITY_MODIFIER,
         },
       },
     },

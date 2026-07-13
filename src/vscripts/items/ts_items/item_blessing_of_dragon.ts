@@ -1,5 +1,12 @@
 import { BaseItem, registerAbility } from '../../utils/dota_ts_adapter';
 
+const EXCLUDED_UNIT_NAMES = new Set([
+  'npc_dota_roshan',
+  'npc_dota_courier',
+  'npc_dota_flying_courier',
+  'npc_dota_miniboss',
+]);
+
 @registerAbility('item_blessing_of_dragon_2')
 export class ItemBlessingOfDragonDestruction extends BaseItem {
   OnSpellStart(): void {
@@ -21,7 +28,7 @@ export class ItemBlessingOfDragonDestruction extends BaseItem {
     );
 
     for (const target of targets) {
-      if (target.IsAlive()) {
+      if (target.IsAlive() && !EXCLUDED_UNIT_NAMES.has(target.GetUnitName())) {
         target.Kill(this, caster);
       }
     }

@@ -1,4 +1,4 @@
-const IMMORTALITY_MODIFIER = 'modifier_item_helm_of_the_undying_active';
+export const IMMORTALITY_MODIFIER = 'modifier_item_helm_of_the_undying_active';
 const CULLING_BLADE = 'axe_culling_blade';
 
 export class DragonWishFilter {
