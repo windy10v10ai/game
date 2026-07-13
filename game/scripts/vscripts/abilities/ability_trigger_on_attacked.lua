@@ -38,6 +38,7 @@ end
 
 function modifier_trigger_on_attacked:OnAttacked(params)
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     local attacker = params.attacker
     local parent = self:GetParent() -- 被攻击者

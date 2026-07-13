@@ -94,6 +94,47 @@
 		"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
 	}
 
+	"npc_fountain_damage_proxy"
+	{
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/development/invisiblebox.vmdl"
+		"SoundSet"					""
+		"Level"						"1"
+		"UnitLabel"					"creep"
+
+		"ArmorPhysical"				"0"
+		"MagicalResistance"			"0"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+		"AttackDamageMin"			"0"
+		"AttackDamageMax"			"0"
+		"AttackAcquisitionRange"	"0"
+		"AttackRange"				"0"
+
+		"BountyXP"					"0"
+		"BountyGoldMin"				"0"
+		"BountyGoldMax"				"0"
+
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_NONE"
+		"MovementSpeed"				"0"
+		"MovementTurnRate"			"0"
+
+		"StatusHealth"				"100000"
+		"StatusHealthRegen"			"0"
+		"StatusMana"					"0"
+		"StatusManaRegen"			"0"
+
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+
+		"VisionDaytimeRange"			"0"
+		"VisionNighttimeRange"		"0"
+		"WakesNeutrals"				"0"
+	}
+
 	"npc_dota_courier"
 	{
 		"StatusHealth"				"10"	// 6

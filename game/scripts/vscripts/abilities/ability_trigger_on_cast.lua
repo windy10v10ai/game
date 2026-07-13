@@ -67,6 +67,7 @@ end
 
 function modifier_trigger_on_cast:OnAbilityExecuted(params)
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     local caster = params.unit
     local parent = self:GetParent()

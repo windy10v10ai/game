@@ -29,6 +29,7 @@ export class GamePresetCustomOptions {
   forceRandomHero!: number;
   enablePlayerAttribute!: number;
   midOnlyMode!: number;
+  enableFountainAntiCamp!: number;
 }
 
 export class PlayerSetting {

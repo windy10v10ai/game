@@ -38,6 +38,7 @@ end
 
 function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     local parent = self:GetParent()
     local attacker = params.attacker

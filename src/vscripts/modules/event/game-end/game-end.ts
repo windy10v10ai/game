@@ -76,14 +76,18 @@ export class GameEnd {
       }
 
       let damageTaken = 0;
-      for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
-        if (
-          PlayerResource.IsValidPlayerID(victimID) &&
-          PlayerResource.IsValidPlayer(victimID) &&
-          PlayerResource.GetSelectedHeroEntity(victimID)
-        ) {
-          if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
-            damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
+      if (GameRules.FountainAntiCamp?.IsEnabled()) {
+        damageTaken = GameRules.FountainAntiCamp.GetDamageTaken(playerId);
+      } else {
+        for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
+          if (
+            PlayerResource.IsValidPlayerID(victimID) &&
+            PlayerResource.IsValidPlayer(victimID) &&
+            PlayerResource.GetSelectedHeroEntity(victimID)
+          ) {
+            if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
+              damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
+            }
           }
         }
       }

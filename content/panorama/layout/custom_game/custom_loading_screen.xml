@@ -171,6 +171,11 @@
 						<Label id="MidOnlyModeTitle" class="GameOptionsLabel" text="#mid_only_mode" />
 						<ToggleButton checked="false" class="GameOptionsToggle" id="mid_only_mode" onactivate="SendGameOptionsToServer()"/>
 					</Panel>
+					<!-- 防堵泉机制 -->
+					<Panel id="FountainAntiCampPanel" class="GameOptionsSubPanel">
+						<Label id="FountainAntiCampTitle" class="GameOptionsLabel" text="#enable_fountain_anti_camp" />
+						<ToggleButton checked="false" class="GameOptionsToggle" id="enable_fountain_anti_camp" onactivate="SendGameOptionsToServer()"/>
+					</Panel>
 				</Panel>
 			</Panel>
 			<!-- 游戏选项显示 START-->
@@ -200,7 +205,7 @@
 			</Panel>
 
 			<!-- QQ Discord 二维码 -->
-			<Panel id="QQDiscordContainer" >
+			<Panel id="QQDiscordContainer" hittest="false" hittestchildren="false">
 				<Panel id="QQDiscordPanel">
 					<Panel id="QQPanel" class="QQDiscordSubPanel">
 						<Image id="QQQRCodeImage" src="file://{images}/custom_game/sns/qq_qr_code1.png"/>

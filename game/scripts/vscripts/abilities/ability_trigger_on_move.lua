@@ -42,6 +42,7 @@ end
 
 function modifier_trigger_on_move:OnIntervalThink()
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     local parent = self:GetParent()
     if not parent or parent:IsNull() or not parent:IsAlive() then return end

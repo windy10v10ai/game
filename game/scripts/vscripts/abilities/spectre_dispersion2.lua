@@ -2,6 +2,14 @@
 spectre_dispersion2 = class({})
 LinkLuaModifier("modifier_spectre_dispersion2", "abilities/spectre_dispersion2", LUA_MODIFIER_MOTION_NONE)
 
+local function IsUnitFountainLocked(unit)
+    if not unit or unit:IsNull() then return false end
+    if IsFountainLocked then return IsFountainLocked(unit) end
+
+    local modifier = unit:FindModifierByName("modifier_fountain_intrusion")
+    return modifier ~= nil and modifier:GetElapsedTime() >= 5
+end
+
 function spectre_dispersion2:GetIntrinsicModifierName()
     return "modifier_spectre_dispersion2"
 end
@@ -15,14 +23,17 @@ function modifier_spectre_dispersion2:IsPurgable() return false end
 
 function modifier_spectre_dispersion2:OnCreated()
     if IsServer() then
-        -- 分别累积不同类型的伤害
-        self.accumulated_damage = {
-            [DAMAGE_TYPE_PHYSICAL] = 0,
-            [DAMAGE_TYPE_MAGICAL] = 0,
-            [DAMAGE_TYPE_PURE] = 0,
-        }
-        self.is_timer_active = false
+        self:ResetAccumulatedDamage()
     end
+end
+
+function modifier_spectre_dispersion2:ResetAccumulatedDamage()
+    self.accumulated_damage = {
+        [DAMAGE_TYPE_PHYSICAL] = 0,
+        [DAMAGE_TYPE_MAGICAL] = 0,
+        [DAMAGE_TYPE_PURE] = 0,
+    }
+    self.is_timer_active = false
 end
 
 function modifier_spectre_dispersion2:DeclareFunctions()
@@ -33,6 +44,11 @@ end
 
 function modifier_spectre_dispersion2:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
+        if IsUnitFountainLocked(self:GetParent()) then
+            self:ResetAccumulatedDamage()
+            return 0
+        end
+
         if keys.target == self:GetParent() then
             local damage = keys.original_damage
             if damage >= self:GetAbility():GetSpecialValueFor("threshold") then
@@ -72,6 +88,11 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
     if not IsServer() then return end
 
     local caster = self:GetParent()
+    if IsUnitFountainLocked(caster) then
+        self:ResetAccumulatedDamage()
+        return
+    end
+
     local ability = self:GetAbility()
     local radius = ability:GetSpecialValueFor("radius")
 
@@ -124,10 +145,5 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
     end
 
     -- 重置累积数据
-    self.accumulated_damage = {
-        [DAMAGE_TYPE_PHYSICAL] = 0,
-        [DAMAGE_TYPE_MAGICAL] = 0,
-        [DAMAGE_TYPE_PURE] = 0,
-    }
-    self.is_timer_active = false
+    self:ResetAccumulatedDamage()
 end

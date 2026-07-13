@@ -44,6 +44,7 @@
 		"force_random_hero"			"强制随机英雄"
 		"enable_player_attribute"	"启用玩家属性"
 		"mid_only_mode"				"中路乱斗模式"
+		"enable_fountain_anti_camp"	"启用防堵泉机制"
 		"hide_chat_team"			"隐藏聊天框"
 		"show_chat_team"			"显示聊天框"
 
@@ -3375,6 +3376,12 @@
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"
+
+		// 泉水防堵泉
+		"DOTA_Tooltip_modifier_fountain_outer_zone"									"夜魇基地警戒区"
+		"DOTA_Tooltip_modifier_fountain_outer_zone_Description"							"在此区域内击杀AI英雄只能获得10%金币和经验；进入泉水攻击范围后击杀AI英雄不获得金币和经验。"
+		"DOTA_Tooltip_modifier_fountain_intrusion"									"泉水警戒"
+		"DOTA_Tooltip_modifier_fountain_intrusion_Description"							"在敌方泉水内连续停留超过5秒后，装备和主动技能将被禁用，被动及自定义触发效果失效，且无法恢复生命和魔法；离开泉水后解除。"
 
 	}
 }

@@ -20,6 +20,7 @@ var CUSTOM_PRESET_TOGGLES = [
   ['forceRandomHero', 'force_random_hero'],
   ['enablePlayerAttribute', 'enable_player_attribute'],
   ['midOnlyMode', 'mid_only_mode'],
+  ['enableFountainAntiCamp', 'enable_fountain_anti_camp'],
 ];
 
 function CheckForHostPrivileges() {
@@ -100,6 +101,7 @@ function InitCustomSetting() {
   $('#force_random_hero').checked = false; // 默认不强制随机
   $('#enable_player_attribute').checked = true;
   $('#mid_only_mode').checked = false;
+  $('#enable_fountain_anti_camp').checked = false;
   $('#player_gold_xp_multiplier_dropdown').SetSelected('1.5');
   $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
   $('#radiant_player_number_dropdown').SetSelected('1');
@@ -141,6 +143,7 @@ function LockOption() {
   $('#force_random_hero').enabled = false;
   $('#enable_player_attribute').enabled = false;
   $('#mid_only_mode').enabled = false;
+  $('#enable_fountain_anti_camp').enabled = false;
 }
 
 function UnLockOptionAll() {
@@ -159,6 +162,7 @@ function UnLockOptionAll() {
   $('#force_random_hero').enabled = true;
   $('#enable_player_attribute').enabled = true;
   $('#mid_only_mode').enabled = true;
+  $('#enable_fountain_anti_camp').enabled = true;
 }
 
 // N1-N8 通用设置
@@ -173,6 +177,7 @@ function InitDifficultyCommonSetting() {
   $('#force_random_hero').checked = false;
   $('#enable_player_attribute').checked = true;
   $('#mid_only_mode').checked = false;
+  $('#enable_fountain_anti_camp').checked = true;
 }
 
 function InitN1Setting() {
@@ -294,6 +299,7 @@ function SendGameOptionsToServer() {
   const forceRandomHero = $('#force_random_hero').checked;
   const enablePlayerAttribute = $('#enable_player_attribute').checked;
   const midOnlyMode = $('#mid_only_mode').checked;
+  const enableFountainAntiCamp = $('#enable_fountain_anti_camp').checked;
 
   GameEvents.SendCustomGameEventToServer('game_options_change', {
     multiplier_radiant: Number(playerGoldXpMultiplier),
@@ -309,6 +315,7 @@ function SendGameOptionsToServer() {
     force_random_hero: forceRandomHero,
     enable_player_attribute: enablePlayerAttribute,
     mid_only_mode: midOnlyMode,
+    enable_fountain_anti_camp: Number(enableFountainAntiCamp),
   });
 }
 

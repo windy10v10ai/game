@@ -50,6 +50,7 @@ end
 
 function modifier_trigger_learned_skills:OnAttackLanded(params)
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     local attacker = params.attacker
     local parent = self:GetParent()

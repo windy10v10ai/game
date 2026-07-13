@@ -126,7 +126,8 @@ export class PlayerGamePresetApi {
       a.fixedAbility === b.fixedAbility &&
       a.forceRandomHero === b.forceRandomHero &&
       a.enablePlayerAttribute === b.enablePlayerAttribute &&
-      a.midOnlyMode === b.midOnlyMode
+      a.midOnlyMode === b.midOnlyMode &&
+      a.enableFountainAntiCamp === b.enableFountainAntiCamp
     );
   }
 
@@ -151,6 +152,7 @@ export class PlayerGamePresetApi {
       forceRandomHero: o.forceRandomHero ? 1 : 0,
       enablePlayerAttribute: o.enablePlayerAttribute ? 1 : 0,
       midOnlyMode: o.midOnlyMode ? 1 : 0,
+      enableFountainAntiCamp: o.enableFountainAntiCamp ? 1 : 0,
     };
   }
 

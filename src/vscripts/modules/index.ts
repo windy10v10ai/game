@@ -12,6 +12,7 @@ import { Debug } from './debug/Debug';
 import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
 import { Event } from './event/event';
 import { GoldXPFilter } from './filter/gold-xp-filter';
+import { FountainAntiCamp } from './fountain/fountain-anti-camp';
 import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
@@ -27,6 +28,7 @@ declare global {
     Lottery: Lottery;
     Event: Event;
     GoldXPFilter: GoldXPFilter;
+    FountainAntiCamp: FountainAntiCamp;
     Treasure: Treasure;
     WardSlot: WardSlot;
   }
@@ -68,6 +70,8 @@ export function ActivateModules() {
   if (GameRules.GameConfig == null) GameRules.GameConfig = new GameConfig();
 
   if (GameRules.Option == null) GameRules.Option = new Option();
+
+  if (GameRules.FountainAntiCamp == null) GameRules.FountainAntiCamp = new FountainAntiCamp();
 
   if (GameRules.Lottery == null) GameRules.Lottery = new Lottery();
 

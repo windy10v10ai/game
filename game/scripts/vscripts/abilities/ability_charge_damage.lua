@@ -48,6 +48,7 @@ end
 
 function modifier_ability_charge_damage_tracker:OnIntervalThink()
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     local caster = self:GetParent()
     local ability = self:GetAbility()
@@ -184,6 +185,7 @@ end
 
 function modifier_ability_charge_damage_tracker:OnAbilityExecuted(keys)
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     if keys.unit ~= self:GetParent() then
         return

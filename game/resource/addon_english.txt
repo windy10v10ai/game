@@ -1,4 +1,4 @@
-"lang"
+﻿"lang"
 {
 	"Language"		"english"
 	"Tokens"
@@ -44,6 +44,7 @@
 		"force_random_hero"			"Force Random Hero"
 		"enable_player_attribute"	"Enable Player Attribute"
 		"mid_only_mode"				"Mid Only Mode"
+		"enable_fountain_anti_camp"	"Enable Anti-Fountain-Camping"
 		"hide_chat_team"			"Hide Chat and Team"
 		"show_chat_team"			"Show Chat and Team"
 
@@ -3365,6 +3366,12 @@
 
 		// 藏宝箱
 		"npc_treasure_chest"											"Treasure Chest"
+
+		// 泉水防堵泉
+		"DOTA_Tooltip_modifier_fountain_outer_zone"									"Dire Base Warning Zone"
+		"DOTA_Tooltip_modifier_fountain_outer_zone_Description"							"AI hero kills in this area grant only 10% gold and experience. AI hero kills within fountain attack range grant no gold or experience."
+		"DOTA_Tooltip_modifier_fountain_intrusion"									"Fountain Warning"
+		"DOTA_Tooltip_modifier_fountain_intrusion_Description"							"After remaining inside the enemy fountain for more than 5 seconds, items and active abilities are disabled, passives and custom triggers stop working, and health and mana restoration are prevented. Leaving the fountain removes the effect."
 
 	}
 }

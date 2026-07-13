@@ -16,6 +16,7 @@ export class Option {
   fixedAbility = 'none';
   forceRandomHero = false;
   enablePlayerAttribute = true;
+  enableFountainAntiCamp = false;
 
   gameDifficulty = 0;
   midOnlyMode = false;
@@ -51,6 +52,7 @@ export class Option {
     this.fixedAbility = keys.fixed_ability;
     this.forceRandomHero = keys.force_random_hero === 1;
     this.enablePlayerAttribute = keys.enable_player_attribute === 1;
+    this.enableFountainAntiCamp = keys.enable_fountain_anti_camp === 1;
     this.midOnlyMode = keys.mid_only_mode === 1;
     CustomNetTables.SetTableValue('game_options', 'game_options', keys);
     CustomNetTables.SetTableValue('game_options', 'point_multiplier', {

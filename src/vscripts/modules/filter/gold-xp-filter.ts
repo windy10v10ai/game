@@ -55,7 +55,22 @@ export class GoldXPFilter {
       mul = this.filterHeroKillGoldByMultiplier(mul);
     }
 
-    args.gold = Math.floor(gold * mul);
+    if (reason === ModifyGoldReason.HERO_KILL || reason === ModifyGoldReason.SHARED_GOLD) {
+      mul *= this.getFountainRewardMultiplier(playerID);
+    }
+
+    const filteredGold = Math.floor(gold * mul);
+    if (
+      reason === ModifyGoldReason.HERO_KILL &&
+      filteredGold === 0 &&
+      this.shouldPreserveZeroRewardKillMessage(playerID)
+    ) {
+      // 保留引擎生成的原生击杀来源，临时金币会在结算后立即抵消。
+      args.gold = 1;
+      this.removeTemporaryKillMessageGold(playerID, args.reliable === 1);
+    } else {
+      args.gold = filteredGold;
+    }
 
     return true;
   }
@@ -80,11 +95,29 @@ export class GoldXPFilter {
 
     if (reason === ModifyXpReason.HERO_KILL) {
       mul = this.filterHeroKillGoldByMultiplier(mul);
+      mul *= this.getFountainRewardMultiplier(playerID);
     }
 
     args.experience = Math.floor(xp * mul);
 
     return true;
+  }
+
+  private getFountainRewardMultiplier(playerID: PlayerID): number {
+    const fountainAntiCamp = GameRules.FountainAntiCamp;
+    return fountainAntiCamp !== undefined
+      ? fountainAntiCamp.GetActiveRewardMultiplier(playerID)
+      : 1;
+  }
+
+  private shouldPreserveZeroRewardKillMessage(playerID: PlayerID): boolean {
+    return GameRules.FountainAntiCamp?.ShouldPreserveZeroRewardKillMessage(playerID) ?? false;
+  }
+
+  private removeTemporaryKillMessageGold(playerID: PlayerID, reliable: boolean): void {
+    Timers.CreateTimer(0, () => {
+      PlayerResource.ModifyGold(playerID, -1, reliable, ModifyGoldReason.UNSPECIFIED);
+    });
   }
 
   /**

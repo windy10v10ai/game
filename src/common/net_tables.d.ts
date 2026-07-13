@@ -152,4 +152,5 @@ export interface GameOptions {
   force_random_hero: number;
   enable_player_attribute: number;
   mid_only_mode: number;
+  enable_fountain_anti_camp: number;
 }

@@ -90,6 +90,7 @@ end
 
 function modifier_ability_trigger_on_active:OnIntervalThink()
     if not IsServer() then return end
+    if IsFountainLocked and IsFountainLocked(self:GetParent()) then return end
 
     --print("[ability_trigger_on_active1332] OnIntervalThink")
     -- 自动施放所有可用技能

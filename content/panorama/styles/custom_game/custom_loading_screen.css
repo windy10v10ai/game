@@ -17,7 +17,7 @@
 
 #game_options_container {
   width: 450px;
-  height: 76%;
+  height: 82%;
   background-color: gradient(
     linear,
     100% 0%,
@@ -80,7 +80,7 @@
 }
 
 #QQDiscordContainer {
-  width: 500px;
+  width: 380px;
   vertical-align: bottom;
   margin-bottom: 60px;
 }
@@ -94,8 +94,8 @@
 
 #QQQRCodeImage,
 #DiscordQRCodeImage {
-  width: 200px;
-  height: 260px;
+  width: 150px;
+  height: 195px;
 }
 
 #LinkButtonContainer {

@@ -3,6 +3,14 @@ LinkLuaModifier("modifier_item_withered_spring_active", "items/item_withered_spr
 
 item_withered_spring = class({})
 
+local function IsUnitFountainLocked(unit)
+    if not unit or unit:IsNull() then return false end
+    if IsFountainLocked then return IsFountainLocked(unit) end
+
+    local modifier = unit:FindModifierByName("modifier_fountain_intrusion")
+    return modifier ~= nil and modifier:GetElapsedTime() >= 5
+end
+
 function item_withered_spring:GetIntrinsicModifierName()
     return "modifier_item_withered_spring"
 end
@@ -11,6 +19,8 @@ function item_withered_spring:OnSpellStart()
     if not IsServer() then return end
 
     local caster = self:GetCaster()
+    if IsUnitFountainLocked(caster) then return end
+
     local duration = self:GetSpecialValueFor("active_duration")
 
     -- 回血 音效
@@ -86,6 +96,8 @@ end
 
 -- 血量下限锁在 1，伤害结算时引擎同步钳制，避免单次爆发直接秒杀绕过阈值判定
 function modifier_item_withered_spring:GetMinHealth()
+    if IsUnitFountainLocked(self:GetParent()) then return 0 end
+
     local ability = self:GetAbility()
     if ability and not ability:IsNull() and ability:IsFullyCastable() then
         return 1
@@ -97,7 +109,7 @@ function modifier_item_withered_spring:OnTakeDamage(event)
     if not IsServer() then return end
 
     local parent = self:GetParent()
-    if event.unit ~= parent then return end
+    if event.unit ~= parent or IsUnitFountainLocked(parent) then return end
 
     local ability = self:GetAbility()
     if not ability or ability:IsNull() or not ability:IsFullyCastable() then return end
@@ -124,10 +136,12 @@ function modifier_item_withered_spring:DeclareFunctions()
 end
 
 function modifier_item_withered_spring:GetModifierHealthRegenPercentageUnique()
+    if IsUnitFountainLocked(self:GetParent()) then return 0 end
     return self.health_regen_pct or 0
 end
 
 function modifier_item_withered_spring:GetModifierStatusResistanceStacking()
+    if IsUnitFountainLocked(self:GetParent()) then return 0 end
     return self.status_resistance or 0
 end
 
@@ -153,8 +167,13 @@ function modifier_item_withered_spring_active:OnCreated()
     self.status_resistance = self:GetAbility():GetSpecialValueFor("status_resistance_active") or 80
 
     if not IsServer() then return end
+    if IsUnitFountainLocked(self:GetParent()) then
+        self:Destroy()
+        return
+    end
 
-    -- 服务器端逻辑
+    self:StartIntervalThink(FrameTime())
+
     self.damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction") or -30 -- 30%减伤 = 不受任何伤害
     -- 添加持续的视觉效果(只在主动触发时显示)
     local particle = ParticleManager:CreateParticle(
@@ -163,6 +182,12 @@ function modifier_item_withered_spring_active:OnCreated()
         self:GetParent()
     )
     self:AddParticle(particle, false, false, -1, false, false)
+end
+
+function modifier_item_withered_spring_active:OnIntervalThink()
+    if IsUnitFountainLocked(self:GetParent()) then
+        self:Destroy()
+    end
 end
 
 function modifier_item_withered_spring_active:DeclareFunctions()
@@ -175,22 +200,27 @@ function modifier_item_withered_spring_active:DeclareFunctions()
 end
 
 function modifier_item_withered_spring_active:GetModifierPhysicalArmorBonus()
+    if IsUnitFountainLocked(self:GetParent()) then return 0 end
     return self.bonus_armor_active or 0
 end
 
 function modifier_item_withered_spring_active:GetModifierConstantHealthRegen()
+    if IsUnitFountainLocked(self:GetParent()) then return 0 end
     return self.bonus_regen_active or 0
 end
 
 function modifier_item_withered_spring_active:GetModifierIncomingDamage_Percentage()
+    if IsUnitFountainLocked(self:GetParent()) then return 0 end
     return self.damage_reduction or -30
 end
 
 function modifier_item_withered_spring_active:GetModifierStatusResistanceStacking()
+    if IsUnitFountainLocked(self:GetParent()) then return 0 end
     return self.status_resistance or 80
 end
 
 function modifier_item_withered_spring_active:CheckState()
+    if IsUnitFountainLocked(self:GetParent()) then return {} end
     return {
         [MODIFIER_STATE_DEBUFF_IMMUNE] = true, -- 免疫debuff
     }

@@ -1,4 +1,4 @@
-"lang"
+﻿"lang"
 {
 	"Language"		"Russian"
 	"Tokens"
@@ -37,6 +37,7 @@
 		"starting_gold_bot"			"Стартовое золото ботов"
 		"force_random_hero"			"Принудительно случайный героя"
 		"enable_player_attribute"	"Enable Player Attribute"
+		"enable_fountain_anti_camp"	"Enable Anti-Fountain-Camping"
 		"hide_chat_team"			"Скрыть командный чат"
 		"show_chat_team"			"Показать командный чат"
 
@@ -474,5 +475,6 @@
 
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
+
 	}
 }
