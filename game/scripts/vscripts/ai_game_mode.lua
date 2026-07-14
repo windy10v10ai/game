@@ -64,7 +64,6 @@ end
 
 function AIGameMode:LinkLuaModifiers()
     LinkLuaModifier("modifier_bot_think_item_use", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
-    LinkLuaModifier("modifier_bot_think_ward", "bot/bot_think_modifier.lua", LUA_MODIFIER_MOTION_NONE)
     -- 智力魔抗modifier
     LinkLuaModifier("modifier_intelect_magic_resist", "modifiers/global/intelect_magic_resist", LUA_MODIFIER_MOTION_NONE)
 end
@@ -136,8 +135,6 @@ function AIGameMode:PreGameOptions()
         self.botPushMin = RandomInt(4, 5)
     end
     print("botPushMin: " .. self.botPushMin)
-
-    BotThink:SetTome()
 
     self.PreGameOptionsSet = true
 end
