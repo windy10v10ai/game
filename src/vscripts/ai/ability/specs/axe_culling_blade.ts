@@ -1,3 +1,4 @@
+import { IMMORTALITY_MODIFIER } from '../../../modules/filter/dragon-wish-filter';
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
@@ -11,7 +12,10 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: {
-        unitCondition: { healthAbilityValue: { key: 'damage', lte: true, includeSpellAmp: true } },
+        unitCondition: {
+          healthAbilityValue: { key: 'damage', lte: true, includeSpellAmp: true },
+          noModifier: IMMORTALITY_MODIFIER,
+        },
       },
     },
   },

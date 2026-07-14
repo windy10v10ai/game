@@ -2880,14 +2880,15 @@
 		"DOTA_Tooltip_ability_item_blessing_of_dragon_bonus_all_stats"					"+$all"
 
 		// item_blessing_of_dragon_1 神龙赐福·不死
-		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>神龙赐福·不死</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>被动：不死之身</font></h1>字面意思。\n可以分享给队友"
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9F5F9F'>神龙赐福·不死</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9F5F9F'>被动：不死之身</font></h1>进入不死之身的绿魂状态。\n可以分享给队友。"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Note0"			"绿魂状态下，淘汰之刃无法对你释放。"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>不死之身</font>"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>求求你打死我</font>"
 
 		// item_blessing_of_dragon_2 神龙赐福·毁灭
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>神龙赐福·毁灭</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>主动：毁灭世界</h1>累了，毁灭吧。\n可以分享给队友"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>主动：毁灭世界</h1>立即杀死全地图所有敌方英雄和普通单位，无视伤害免疫、魔法免疫、无敌和免死效果。每%AbilityChargeRestoreTime%秒恢复1点充能。\n可以分享给队友。"
 
 		// item_blessing_of_dragon_3 神龙赐福·时间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_3"				"<font color='#9f5f9f'>神龙赐福·时间</font>"

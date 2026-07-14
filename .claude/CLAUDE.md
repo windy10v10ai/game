@@ -179,9 +179,12 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **测试文件**: 与源代码同位置的 `*.test.ts` 文件(例如 `gold-xp-filter.test.ts`)
 - **模拟**: 在测试中通过 `global.GameRules = { ... }` 模拟 Dota 全局变量
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
-- **测试范围**: 只验证自己写的状态/分支逻辑。Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）mock 作为占位防崩，不要用 `toHaveBeenCalledWith` 断言它们的参数——那是在测引擎契约不是自己的代码
-- **不为强依赖引擎 API 的逻辑过度搭 mock**: 当一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，**不要**为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）去测引擎行为。这类运行时行为由作者手动在 Dota tools 确认。mock 只保留占位防崩（返回个固定值不崩即可）
-- **依赖 Dota API 的代码不需要单元测试**: 如果一段代码的主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数），**不要**为了测它而 mock `GetItemInSlot` 之类的底层 API 再断言结果——这是在测"我的 mock 返回了什么"，不是在测自己的逻辑。这类代码靠 Dota tools 实机验证。只有当代码里包含足够分量的**自身分支/计算逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）时才写单元测试，且测试目标是那段逻辑本身，不是底层 API 调用是否被正确触发
+- **只测自己的分支/计算逻辑，不测引擎契约**：判断标准是代码里是否包含足够分量的**自身逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）。以下情况都**不需要**写单元测试，靠 Dota tools 实机验证：
+  - 代码主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数、`FindUnitsInRadius` 后直接操作结果集），本身没有值得验证的分支
+  - 需要 mock 多个 Dota 全局枚举/常量对象（如 `UnitTargetTeam` / `UnitTargetType` / `UnitTargetFlags` / `FindOrder`）才能让测试跑起来——这是"代码本身没有自身逻辑、只是在拼引擎调用参数"的强信号
+  - 一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，不要为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）
+  - 断言只是在还原调用方自己传入的配置参数（如断言 `FindUnitsInRadius` 被以哪些 team/flags 调用）——这是在测"我传了什么参数"，不是在测判断逻辑
+  - Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）只作为占位防崩 mock，不要用 `toHaveBeenCalledWith` 断言它们的参数
 
 ### 构建系统
 
