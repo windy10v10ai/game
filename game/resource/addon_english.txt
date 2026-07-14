@@ -2878,14 +2878,15 @@
 		"DOTA_Tooltip_ability_item_blessing_of_dragon_bonus_all_stats"					"+$all"
 
 		// item_blessing_of_dragon_1 神龙赐福·不死
-		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>Dragon's Blessing of Immortality</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>Passive: Immortality</font></h1>Self-explanatory.\nShareable with teammates."
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9F5F9F'>Dragon's Blessing of Immortality</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9F5F9F'>Passive: Immortality</font></h1>You enter the green Immortality spirit state.\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Note0"			"Culling Blade cannot be cast on you while this is active."
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>Immortality</font>"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>You are immortal! For now anyway...</font>"
 
 		// item_blessing_of_dragon_2 神龙赐福·毁灭
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>Dragon's Blessing of Destruction</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Feeling tired? Let's bring destruction upon the world.\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Instantly kills all enemy heroes and basic units on the map, bypassing damage immunity, magic immunity, invulnerability, and death prevention. Restores 1 charge every %AbilityChargeRestoreTime% seconds.\nShareable with teammates."
 
 		// item_blessing_of_dragon_3 神龙赐福·时间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_3"				"<font color='#9f5f9f'>Dragon's Blessing of Time</font>"
