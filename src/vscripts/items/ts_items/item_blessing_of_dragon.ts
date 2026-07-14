@@ -1,11 +1,5 @@
-import {
-  BaseItem,
-  BaseModifier,
-  registerAbility,
-  registerModifier,
-} from '../../utils/dota_ts_adapter';
-
-const WORLD_DESTRUCTION_MODIFIER = 'modifier_item_blessing_of_dragon_world_destruction';
+import { modifier_ignore_invulnerable_kill } from '../../modifiers/global/modifier_ignore_invulnerable_kill';
+import { BaseItem, registerAbility } from '../../utils/dota_ts_adapter';
 
 const EXCLUDED_UNIT_NAMES = new Set([
   'npc_dota_roshan',
@@ -36,31 +30,16 @@ export class ItemBlessingOfDragonDestruction extends BaseItem {
 
     for (const target of targets) {
       if (target.IsAlive() && !EXCLUDED_UNIT_NAMES.has(target.GetUnitName())) {
-        target.AddNewModifier(caster, this, WORLD_DESTRUCTION_MODIFIER, {});
-        target.Kill(this, caster);
-        target.RemoveModifierByName(WORLD_DESTRUCTION_MODIFIER);
+        if (target.IsHero()) {
+          target.AddNewModifier(caster, this, modifier_ignore_invulnerable_kill.name, {});
+          target.Kill(this, caster);
+          target.RemoveModifierByName(modifier_ignore_invulnerable_kill.name);
+        } else {
+          target.Kill(this, caster);
+        }
       }
     }
 
     this.SpendCharge(1);
-  }
-}
-
-@registerModifier('items/ts_items/item_blessing_of_dragon', WORLD_DESTRUCTION_MODIFIER)
-export class ModifierItemBlessingOfDragonWorldDestruction extends BaseModifier {
-  IsHidden(): boolean {
-    return true;
-  }
-
-  IsPurgable(): boolean {
-    return false;
-  }
-
-  IsPurgeException(): boolean {
-    return false;
-  }
-
-  GetAttributes(): ModifierAttribute {
-    return ModifierAttribute.IGNORE_INVULNERABLE;
   }
 }
