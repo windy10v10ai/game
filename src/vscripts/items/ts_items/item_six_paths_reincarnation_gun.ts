@@ -123,6 +123,7 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
         attacker: parent,
         damage: splashDamage,
         damage_type: splashDamageType,
+        damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.REFLECTION,
         ability,
       });
     }
@@ -286,6 +287,7 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
     if (event.attacker !== this.GetParent() || event.damage_category !== DamageCategory.ATTACK) {
       return 0;
     }
+    if (event.target.IsBuilding() || event.target.IsOther()) return 0;
 
     const damageType = this.getOrCreateDamageType(event.record);
     return damageType === DamageTypes.PHYSICAL ? 0 : -100;
@@ -293,6 +295,7 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
 
   OnAttackLanded(event: ModifierAttackEvent): void {
     if (!IsServer() || event.attacker !== this.GetParent()) return;
+    if (event.target.IsBuilding() || event.target.IsOther()) return;
 
     const damageType = this.getOrCreateDamageType(event.record);
     if (damageType === DamageTypes.PHYSICAL) return;
