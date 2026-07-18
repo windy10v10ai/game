@@ -5331,7 +5331,7 @@
 
 				"blast_movement_slow"	"-100"	//-80
 				"duration"				"1.5"		//4
-				"blast_stat_multiplier"		"1.5"	//1.0
+				"blast_stat_multiplier"		"1.0"	//1.0
 				"blast_damage_base"			"200"//50
 				"duration_ally"				"6"	//4.0
 				"ethereal_damage_bonus"	"-60"	//-30
