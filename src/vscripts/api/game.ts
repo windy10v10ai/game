@@ -1,3 +1,4 @@
+import { GameConfig } from '../modules/GameConfig';
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
@@ -91,7 +92,7 @@ export class Game {
     const apiParameter = {
       method: HttpMethod.GET,
       path: Game.GAME_START_URL,
-      querys: { steamIds: steamIds.join(','), matchId },
+      querys: { steamIds: steamIds.join(','), matchId, version: GameConfig.GAME_VERSION },
       successFunc: onSuccess,
       failureFunc: onFailure,
       retryTimes: 6,
