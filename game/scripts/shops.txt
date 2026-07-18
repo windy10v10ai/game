@@ -259,16 +259,17 @@
 		"item"		"item_abyssal_blade_v2"		// 一闪
 		"item"		"item_monkey_king_bar_2"	// 定海神针
 		"item"		"item_bfury_ultra"			// 救世狂战
-
 		"item"		"item_infernal_desolator"	// 绝对破防之刃
-		"item"		"item_revenants_brooch_ultra"		// 神器魔武双修
-		"item"		"item_wasp_golden"			// 黄金大核荣耀
- 		"item"		"item_satanic_2"			// 撒旦之邪力
 
+		"item"		"item_revenants_brooch_ultra"		// 神器魔武双修
+ 		"item"		"item_satanic_2"			// 撒旦之邪力
 		"item"		"item_hurricane_pike_2"		// 黄金魔龙枪
 		"item"		"item_shotgun_v2"			// 霰弹枪
+
+		"item"		"item_wasp_golden"			// 黄金大核荣耀
 		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
+		"item"      "item_six_paths_reincarnation_gun" // 六道轮回枪
 
 		"item"		"item_switchable_crit_blade"	// 归海一刀
 		"item"		"item_forbidden_blade"			// 禁忌战刃
