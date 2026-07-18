@@ -134,7 +134,20 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
     const parent = this.GetParent() as CDOTA_BaseNPC_Hero;
     const unlockedSlots = Math.min(this.GetStackCount(), MAX_UNLOCKED_ITEM_SLOTS);
 
-    // Restore items that left the still-locked part of the backpack.
+    this.restoreItemsOutsideLockedBackpack(parent, unlockedSlots);
+    this.activateUsableInventoryItems(parent, unlockedSlots);
+    this.deactivateLockedBackpackItems(parent, unlockedSlots);
+
+    parent.CalculateStatBonus(true);
+    this.observedInventoryItems = this.buildObservedInventoryItems(parent);
+    this.lastInventorySignature = this.buildInventorySignature(parent);
+  }
+
+  /** Restore items that left the still-locked part of the backpack. */
+  private restoreItemsOutsideLockedBackpack(
+    parent: CDOTA_BaseNPC_Hero,
+    unlockedSlots: number,
+  ): void {
     for (let index = this.forcedUnequippedItems.length - 1; index >= 0; index--) {
       const record = this.forcedUnequippedItems[index];
       const item = EntIndexToHScript(record.entIndex) as CDOTA_Item | undefined;
@@ -160,7 +173,9 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
       }
       this.forcedUnequippedItems.splice(index, 1);
     }
+  }
 
+  private activateUsableInventoryItems(parent: CDOTA_BaseNPC_Hero, unlockedSlots: number): void {
     // The engine can keep ItemState=1 when an item is dropped from an unlocked
     // backpack slot and then picked up again. In that case Pack Rat does not
     // recreate the item's intrinsic modifiers by itself. Track the actual slot
@@ -182,7 +197,9 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
         item.OnEquip();
       }
     }
+  }
 
+  private deactivateLockedBackpackItems(parent: CDOTA_BaseNPC_Hero, unlockedSlots: number): void {
     for (let offset = 0; offset < MAX_UNLOCKED_ITEM_SLOTS; offset++) {
       const slot = FIRST_BACKPACK_SLOT + offset;
       const item = parent.GetItemInSlot(slot);
@@ -213,10 +230,6 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
         item.OnUnequip();
       }
     }
-
-    parent.CalculateStatBonus(true);
-    this.observedInventoryItems = this.buildObservedInventoryItems(parent);
-    this.lastInventorySignature = this.buildInventorySignature(parent);
   }
 
   private isLockedBackpackSlot(slot: number, unlockedSlots: number): boolean {
