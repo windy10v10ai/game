@@ -32,9 +32,9 @@
 
 			"item_orb_of_the_brine_bonus_all_stats"		"20"
 
-			"item_six_paths_reincarnation_gun_bonus_damage"             "370"
-			"item_six_paths_reincarnation_gun_attack_speed"             "180"
-			"item_six_paths_reincarnation_gun_bonus_magic_resistance"   "25"
+			"item_six_paths_reincarnation_gun_bonus_damage"             "300"
+			"item_six_paths_reincarnation_gun_attack_speed"             "150"
+			"item_six_paths_reincarnation_gun_bonus_magic_resistance"   "20"
 		}
 		"Modifiers"
 		{

@@ -7459,7 +7459,7 @@
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityCooldown"               "30"
+		"AbilityCooldown"               "40"
 		"AbilityManaCost"               "300"
 
 		"ItemCost"                      "27000"
@@ -7476,21 +7476,21 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"                        "370"
-			"attack_speed"                        "180"
-			"spell_lifesteal"                     "42"
-			"bonus_magic_resistance"              "25"
+			"bonus_damage"                        "300"
+			"attack_speed"                        "150"
+			"spell_lifesteal"                     "30"
+			"bonus_magic_resistance"              "20"
 
 			"attack_radius"                       "400"
-			"attack_percent"                      "60"
+			"attack_percent"                      "45"
 			"internal_cooldown"                   "0.05"
 
 			"mage_slayer_duration"                "3"
-			"mage_slayer_spell_damage_reduction"  "50"
-			"mage_slayer_damage_per_type"         "200"
+			"mage_slayer_spell_damage_reduction"  "30"
+			"mage_slayer_damage_per_type"         "90"
 			"mage_slayer_damage_interval"         "1"
 
-			"active_duration"                     "10"
+			"active_duration"                     "8"
 		}
 	}
 

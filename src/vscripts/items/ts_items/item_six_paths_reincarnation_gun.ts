@@ -39,10 +39,10 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
   override statsModifierName = 'modifier_item_six_paths_reincarnation_gun_stats';
 
   private attackRadius = 400;
-  private attackPercent = 60;
+  private attackPercent = 45;
   private internalCooldown = 0.05;
   private mageSlayerDuration = 3;
-  private spellLifesteal = 42;
+  private spellLifesteal = 30;
 
   OnCreated(): void {
     const ability = this.GetAbility();
@@ -153,8 +153,8 @@ export class ModifierItemSixPathsReincarnationGunCooldown extends BaseItemModifi
 export class ModifierItemSixPathsReincarnationGunDebuff extends BaseItemModifier {
   override statsModifierName = '';
 
-  private spellDamageReduction = 50;
-  private damagePerType = 200;
+  private spellDamageReduction = 30;
+  private damagePerType = 90;
   private damageInterval = 1;
   private hasTicked = false; // To prevent the first tick from happening immediately on creation
 
@@ -225,6 +225,7 @@ export class ModifierItemSixPathsReincarnationGunDebuff extends BaseItemModifier
         attacker: caster,
         damage: this.damagePerType,
         damage_type: damageType,
+        damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION,
         ability,
       });
     }
@@ -312,6 +313,7 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
       attacker: this.GetParent(),
       damage: convertedDamage,
       damage_type: damageType,
+      damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION,
       ability,
     });
   }
