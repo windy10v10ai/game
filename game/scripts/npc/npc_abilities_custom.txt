@@ -3139,6 +3139,40 @@
 		}
 	}
 
+	// 风行者 旋风
+	"windrunner_whirlwind_custom"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ts_abilities/windrunner_whirlwind_custom"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"            "windrunner_focusfire"
+		"AbilityCastAnimation"          "ACT_INVALID"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+
+		"MaxLevel"                      "4"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+
+		"AbilityCastPoint"              "0"
+		"AbilityCooldown"               "60 50 40 30"
+		"AbilityManaCost"               "75 150 225 300"
+
+		"AbilityValues"
+		{
+			"duration"                    "8 9 10 11"
+			"attacks_per_second"          "8 10 12 14"
+			"damage_reduction"
+			{
+				"value"                                "-35 -30 -25 -20"
+				"special_bonus_unique_windranger_8"    "+15"
+			}
+			"search_radius_bonus"         "250"
+			"repeat_block_count"          "3"
+			"fade_delay"                  "0.2"
+		}
+	}
+
 	//死亡先知新大招·我！即是虫群！（普攻触发地穴虫群）
 	"death_prophet_swarm_attack"
 	{
