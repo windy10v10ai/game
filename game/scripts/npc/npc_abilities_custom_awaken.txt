@@ -170,7 +170,7 @@
 		"LevelsBetweenUpgrades"			"6"
 		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
 		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"6"
+		"AbilityChargeRestoreTime"		"10"
 	}
 
 	// 死灵法师 竭心光环-觉醒
@@ -363,7 +363,8 @@
 
 		"AbilityValues"
 		{
-			"search_radius"		"300"
+			"search_radius"			"300"
+			"spell_amp_ratio_pct"	"50"
 		}
 
 		"Modifiers"
@@ -380,9 +381,10 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"abilities/special_bonus_unique_witch_doctor_upgrade"
-						"Function"		"OnAbilityExecuted"
-						"search_radius"		"%search_radius"
+						"ScriptFile"			"abilities/special_bonus_unique_witch_doctor_upgrade"
+						"Function"				"OnAbilityExecuted"
+						"search_radius"			"%search_radius"
+						"spell_amp_ratio_pct"	"%spell_amp_ratio_pct"
 					}
 				}
 			}

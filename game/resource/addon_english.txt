@@ -1201,9 +1201,9 @@
 
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by %spell_amp_ratio_pct%%% of his current Spell Amplification when summoned."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by 50%%% of his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"

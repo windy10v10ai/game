@@ -85,9 +85,6 @@ export const itemTiers: Tier[] = [
   {
     level: 1,
     names: [
-      'item_foragers_stats', // 铁树坚果
-      'item_foragers_mana', // 托莫干伞盖
-      'item_foragers_health', // 活力伞菌
       'item_bracer', // 护腕
       'item_wraith_band', // 系带
       'item_null_talisman', // 挂件

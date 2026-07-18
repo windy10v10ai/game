@@ -1199,9 +1199,9 @@
 
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前的技能增强等比提升。"
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前技能增强的%spell_amp_ratio_pct%%%等比提升。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前的技能增强等比提升。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"巫医沟通神明，死亡守卫与变身术守卫被召唤时，攻击力按巫医当前技能增强的50%%%等比提升。"
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
