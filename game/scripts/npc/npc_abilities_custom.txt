@@ -3162,9 +3162,14 @@
 		{
 			"duration"                    "8 9 10 11"
 			"attacks_per_second"          "8 10 12 14"
-			"damage_reduction"            "35 30 25 20"
+			"damage_reduction"
+			{
+				"value"                                "-35 -30 -25 -20"
+				"special_bonus_unique_windranger_8"    "+15"
+			}
 			"search_radius_bonus"         "250"
 			"repeat_block_count"          "3"
+			"fade_delay"                  "0.2"
 		}
 	}
 

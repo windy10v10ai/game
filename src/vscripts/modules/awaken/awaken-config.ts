@@ -122,11 +122,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'kunkka_torrent_storm',
     newLevel: 1,
   },
-  // 风行者 觉醒
+  // 风行者 觉醒（替换大招 focusfire，等级同步已学等级）
   {
     heroName: 'npc_dota_hero_windrunner',
-    newAbility: 'special_bonus_unique_windrunner_upgrade',
-    newLevel: 1,
+    targetAbility: 'windrunner_focusfire',
+    newAbility: 'windrunner_whirlwind_custom',
+    newLevel: 0,
   },
   // 发条技师 觉醒
   {

@@ -23,7 +23,7 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
   },
   {
     heroName: 'npc_dota_hero_windrunner',
-    abilityName: 'special_bonus_unique_windrunner_upgrade',
+    abilityName: 'windrunner_whirlwind_custom',
   },
   { heroName: 'npc_dota_hero_kunkka', abilityName: 'kunkka_torrent_storm' },
   { heroName: 'npc_dota_hero_ogre_magi', abilityName: 'ogre_magi_multicast_lua' },

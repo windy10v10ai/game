@@ -1087,17 +1087,16 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
 
 
-		// windrunner_whirlwind_custom 旋风
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"旋风"
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"集中火力不再需要施法目标，而是对风行者攻击距离 + %search_radius_bonus%范围内的随机敌人发动攻击。每秒发动固定次数的攻击，并且每4箭才会击中一次同个敌人。以英雄优先。"
+		// windrunner_whirlwind_custom 旋风（风行者 觉醒）
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"<font color='#d000ff'>旋风 觉醒</font>"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"集中火力不再需要施法目标，而是对风行者攻击距离 + %search_radius_bonus%范围内的随机敌人发动攻击。每秒发动固定次数的攻击，以英雄优先。\n\n学会本技能后，施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"										"狂风所至，箭雨无处不在。"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"									"旋风攻击可以触发暴击和攻击特效，也会被闪避。"
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"同一目标在最近 %repeat_block_count% 次攻击内不会再次被选中；没有其他目标时除外。"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"同一目标在最近 %repeat_block_count% 次攻击内不会再次被选中，没有其他目标时除外。"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note2"									"缴械、眩晕、妖术或持续施法期间暂停攻击。不会攻击建筑、守卫、无敌、隐身或视野外单位。"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_duration"									"持续时间："
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_attacks_per_second"							"每秒攻击次数："
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_damage_reduction"								"%攻击伤害降低："
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_search_radius_bonus"							"搜索范围加成："
 		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom"										"旋风"
 		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom_Description"								"每秒发动 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 次旋风攻击，攻击伤害降低 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font>。"
 
@@ -1242,12 +1241,6 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>洪流浪潮 觉醒</font>"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"在目标地点%torrent_max_distance%范围内，每%torrent_interval%秒在一个随机区域释放一道洪流，持续%torrent_duration%秒。"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"一百个陆地的联盟也牵制不了这些滔天海浪。"
-
-		// 风行者-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>风行 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"施放风行时进入<font color='#d7ccc7'>隐身</font>状态，持续时间与风行相同。主动攻击敌人后会短暂显形，随后重新隐身。移动不会破坏隐身状态。<br>强力击伤害提升<font color='#FFFFFF'><b>100%%</b></font>。"
 
 		// 发条技师-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"

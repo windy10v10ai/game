@@ -1092,9 +1092,9 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
-		// windrunner_whirlwind_custom 旋风
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"Whirlwind"
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"Focus Fire no longer requires a target, instead firing at random enemies within Windranger's attack range + %search_radius_bonus%. Fires a fixed number of attacks per second, and can only hit the same enemy every 4 shots. Prioritizes Heroes."
+		// windrunner_whirlwind_custom 旋风（风行者 觉醒）
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"<font color='#d000ff'>Whirlwind Awakened</font>"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"Focus Fire no longer requires a target, instead firing at random enemies within Windranger's attack range + %search_radius_bonus%. Fires a fixed number of attacks per second, prioritizing Heroes.\n\nLearning this ability causes casting Windrun to grant <font color='#d7ccc7'>invisibility</font> for the same duration. Attacking briefly reveals you before you turn invisible again. Moving does not break invisibility."
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"										"Where the gale blows, arrows rain without end."
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"									"Whirlwind attacks can critically strike and trigger attack modifiers, but can also miss."
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"A target cannot be selected again for the next %repeat_block_count% attacks unless no other target is available."
@@ -1102,7 +1102,6 @@
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_duration"									"DURATION:"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_attacks_per_second"							"ATTACKS PER SECOND:"
 		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_damage_reduction"								"%ATTACK DAMAGE REDUCTION:"
-		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_search_radius_bonus"							"SEARCH RANGE BONUS:"
 		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom"										"Whirlwind"
 		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom_Description"								"Performs <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Whirlwind attacks per second with <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> reduced attack damage."
 
@@ -1244,12 +1243,6 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>Torrent Storm Awakened</font>"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"Releases a Torrent in a random area within %torrent_max_distance% range of the target position once every %torrent_interval% for %torrent_duration% seconds."
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"A hundred leagues of dry land couldn't keep these seas at bay."
-
-		// Windrunner Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>Windrun Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade_Description"		"Casting Windrun grants <font color='#d7ccc7'>invisibility</font> for the same duration as Windrun. Attacking an enemy briefly reveals Windrunner before she fades back into invisibility. Moving does not break invisibility.<br>Powershot damage is increased by <font color='#FFFFFF'><b>100%%</b></font>."
-		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>Windrun Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"Casting Windrun grants <font color='#d7ccc7'>invisibility</font> for the same duration as Windrun. Attacking an enemy briefly reveals Windrunner before she fades back into invisibility. Moving does not break invisibility.<br>Powershot damage is increased by <font color='#FFFFFF'><b>100%%</b></font>."
 
 		// Clockwerk Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"

@@ -7,10 +7,64 @@ import {
 
 @registerAbility('windrunner_whirlwind_custom')
 export class WindrunnerWhirlwindCustom extends BaseAbility {
+  GetIntrinsicModifierName(): string {
+    return 'modifier_windrunner_whirlwind_custom_windrun_stealth';
+  }
+
   OnSpellStart(): void {
     const caster = this.GetCaster();
     caster.AddNewModifier(caster, this, 'modifier_windrunner_whirlwind_custom', {
       duration: this.GetSpecialValueFor('duration'),
+    });
+  }
+}
+
+/**
+ * 风行者 觉醒：学会旋风后，施放风行(windrunner_windrun)借用隐刺的隐身效果，限时生效。
+ * 迁移自原 special_bonus_unique_windrunner_upgrade。
+ */
+@registerModifier('abilities/ts_abilities/windrunner_whirlwind_custom')
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export class modifier_windrunner_whirlwind_custom_windrun_stealth extends BaseModifier {
+  IsHidden(): boolean {
+    return true;
+  }
+
+  IsPurgable(): boolean {
+    return false;
+  }
+
+  RemoveOnDeath(): boolean {
+    return false;
+  }
+
+  DeclareFunctions(): ModifierFunction[] {
+    return [ModifierFunction.ON_ABILITY_FULLY_CAST];
+  }
+
+  OnAbilityFullyCast(event: ModifierAbilityEvent): void {
+    if (!IsServer()) return;
+    const parent = this.GetParent();
+    if (event.unit !== parent) return;
+
+    const ability = event.ability;
+    if (ability.GetAbilityName() !== 'windrunner_windrun') return;
+
+    const duration = ability.GetSpecialValueFor('AbilityDuration');
+    if (duration <= 0) return;
+
+    const selfAbility = this.GetAbility();
+    const fadeDelay = selfAbility?.GetSpecialValueFor('fade_delay') ?? 0;
+
+    const invis = parent.AddNewModifier(parent, selfAbility, 'modifier_riki_backstab', {
+      duration,
+      fade_delay: fadeDelay,
+    });
+    if (!invis) return;
+
+    Timers.CreateTimer(duration, () => {
+      if (invis.IsNull()) return;
+      invis.Destroy();
     });
   }
 }
@@ -92,7 +146,7 @@ export class modifier_windrunner_whirlwind_custom extends BaseModifier {
   }
 
   GetModifierDamageOutgoing_Percentage(event: ModifierAttackEvent): number {
-    return this.whirlwindAttackRecords[event.record] ? -this.damageReduction : 0;
+    return this.whirlwindAttackRecords[event.record] ? this.damageReduction : 0;
   }
 
   OnTooltip(): number {
@@ -100,7 +154,7 @@ export class modifier_windrunner_whirlwind_custom extends BaseModifier {
   }
 
   OnTooltip2(): number {
-    return this.damageReduction;
+    return -this.damageReduction;
   }
 
   private refreshValues(): void {
