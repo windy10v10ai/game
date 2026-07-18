@@ -9,7 +9,7 @@ export class GameEndPoint {
     const deathScore = -Math.sqrt(player.deaths) * 0.6;
     const assistScore = Math.sqrt(player.assists) * 1.8;
     const damageScore = Math.min(40, Math.sqrt(player.heroDamage) / 200);
-    const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 100);
+    const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 80);
     const healingScore = Math.min(40, Math.sqrt(player.healing) / 50);
     const towerKillScore = Math.sqrt(player.towerKills) * 3;
 
@@ -79,7 +79,7 @@ export class GameEndPoint {
       case 7:
         return 2.3;
       case 8:
-        return 2.5;
+        return 2.4;
       default:
         // 自定义模式
         return this.GetCustomModeMultiplier(option);

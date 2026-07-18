@@ -1201,9 +1201,9 @@
 
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by %spell_amp_ratio_pct%%% of his current Spell Amplification when summoned."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by 50%%% of his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
@@ -3058,35 +3058,35 @@
 		// 融合符文系列
 		// 鹰眼符文
 		"DOTA_Tooltip_ability_item_fusion_hawkeye"										"Hawkeye Rune"
-		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter"
 
 		// 禁忌符文
 		"DOTA_Tooltip_ability_item_fusion_forbidden"									"Forbidden Rune"
-		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade"
 
 		// 暴虐符文
 		"DOTA_Tooltip_ability_item_fusion_brutal"										"Brutal Rune"
-		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance"
 
 		// 兽化符文
 		"DOTA_Tooltip_ability_item_fusion_beast"										"Beast Rune"
-		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor"
 
 		// 生命符文
 		"DOTA_Tooltip_ability_item_fusion_life"											"Life Rune"
-		"DOTA_Tooltip_ability_item_fusion_life_Description"								"A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_life_Description"								"A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask"
 
 		// 暗影符文
 		"DOTA_Tooltip_ability_item_fusion_shadow"										"Shadow Rune"
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact"
 
 		// 魔化符文
 		"DOTA_Tooltip_ability_item_fusion_magic"										"Magic Rune"
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Sword, Time Gem\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Sword, Time Gem"
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
