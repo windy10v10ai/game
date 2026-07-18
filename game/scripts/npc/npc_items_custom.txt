@@ -7430,6 +7430,71 @@
 	}
 
 	//=================================================================================================================
+	// Recipe: 六道轮回枪
+	//=================================================================================================================
+	"item_recipe_six_paths_reincarnation_gun"
+	{
+		"ID"                            "10340"
+		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"            "item_recipe_six_paths_reincarnation_gun"
+		"Model"                         "models/props_gameplay/recipe.vmdl"
+		"ItemCost"                      "3900"
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_six_paths_reincarnation_gun"
+		"ItemRequirements"
+		{
+			"01"                         "item_shotgun_v2;item_revenants_brooch_ultra;item_mage_slayer"
+		}
+	}
+
+	//=================================================================================================================
+	// 六道轮回枪
+	//=================================================================================================================
+	"item_six_paths_reincarnation_gun"
+	{
+		"ID"                            "10341"
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/ts_items/item_six_paths_reincarnation_gun"
+		"AbilityTextureName"            "six_paths_reincarnation_gun"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityCooldown"               "30"
+		"AbilityManaCost"               "300"
+
+		"ItemCost"                      "27000"
+		"ItemShopTags"                  "damage;attack_speed;magic_resist"
+		"ItemQuality"                   "artifact"
+		"ItemAliases"                   "six paths;reincarnation gun;samsara gun"
+		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"           "0"
+
+		"precache"
+		{
+			"particle"                    "particles/custom/shrapnel.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"bonus_damage"                        "370"
+			"attack_speed"                        "180"
+			"spell_lifesteal"                     "42"
+			"bonus_magic_resistance"              "25"
+
+			"attack_radius"                       "400"
+			"attack_percent"                      "60"
+			"internal_cooldown"                   "0.05"
+
+			"mage_slayer_duration"                "3"
+			"mage_slayer_spell_damage_reduction"  "50"
+			"mage_slayer_damage_per_type"         "200"
+			"mage_slayer_damage_interval"         "1"
+
+			"active_duration"                     "10"
+		}
+	}
+
+	//=================================================================================================================
 	// item_collector 收纳符
 	//=================================================================================================================
 	"item_collector"
