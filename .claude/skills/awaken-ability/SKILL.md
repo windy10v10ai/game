@@ -219,7 +219,7 @@ Timers.CreateTimer(duration, () => {
 
 原生 modifier 内部可能还支持其它同名参数覆写（如本例 `fade_delay`），具体哪些参数生效、哪些字段该从自身觉醒技能 KV 读取（而非硬编码），**没有文档，只能靠实机反复验证**，不要凭一次测试结果下结论。
 
-> 参考：风行者觉醒 `special_bonus_unique_windrunner_upgrade` 借用隐刺 `modifier_riki_backstab`。
+> 参考：风行者觉醒 `windrunner_whirlwind_custom`（`GetIntrinsicModifierName` 挂的被动 modifier）借用隐刺 `modifier_riki_backstab`；该被动与技能自身的主动 `OnSpellStart` 共存，二者互不影响——`GetIntrinsicModifierName` 不依赖 `AbilityBehavior`，主动大招可以正常保留 `IMMEDIATE | NO_TARGET` 之类行为。
 
 ---
 

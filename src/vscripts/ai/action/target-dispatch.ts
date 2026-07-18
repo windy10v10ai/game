@@ -219,10 +219,13 @@ function fillRangeFromCastRange(
     return condition!;
   }
   // 避免使用对象 spread —— TSTL 的 __TS__ObjectAssign 接到 nil 会崩。
-  const specialValueKey = existingTarget?.rangeFromAbilityValue;
-  const castRange = specialValueKey
-    ? castable.GetSpecialValueFor(specialValueKey)
+  const abilityValueKey = existingTarget?.rangeFromAbilityValue;
+  let castRange = abilityValueKey
+    ? castable.GetSpecialValueFor(abilityValueKey)
     : GetFullCastRange(hero, castable);
+  if (existingTarget?.rangeFromAttackRange) {
+    castRange += hero.Script_GetAttackRange();
+  }
   const range: NumberRange = { lte: castRange };
   if (existing?.gte !== undefined) {
     range.gte = existing.gte;
@@ -235,6 +238,7 @@ function fillRangeFromCastRange(
     count: existingTarget?.count,
     ignoresMagicImmune: existingTarget?.ignoresMagicImmune,
     rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
+    rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
     castMode: existingTarget?.castMode,
     range,
   };

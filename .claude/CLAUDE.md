@@ -391,7 +391,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - 两个 tab 缩进，键值多 tab 对齐；颜色代码**大写**
 - 注释用**中文**且中英一致；HTML 标签与换行（`\n` 分段、`<br><br>` 段内换行）中英一致
 - **文案不用分号**（`；`/`;`），句间用逗号或句号
-- `_Description` **不复述已单独成行的数值**：若已有 `_xxx`（带冒号的数值标签行）单独条目，正文就不再写 `%xxx%` 复述；仅当该数值无单独条目时才内联 `%xxx%`
+- `_Description` **不同时既内联又单独成行同一个数值**：一个 `AbilityValues` 数值只能选其一 —— 该数值只在 Description/Note 中以 `%xxx%` 出现一次（不单独定义 `_xxx` 标签行），或者只作为 `_xxx` 单独成行展示（Description 不再重复 `%xxx%`）。多个关联数值（如同一机制下的若干档位/字段）建议各自单独成行；孤立的单个数值两种方式均可，按可读性选择，但不要两处都写
 - **UI 键**（按钮/标签/提示等 Panorama 文本）需同步**俄文**；技能/物品/游戏逻辑类键不译俄文
 
 > 完整规则、对齐示例见 `.claude/skills/localization-format-guide/references/localization-format-guide.md`。

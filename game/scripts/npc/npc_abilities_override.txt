@@ -12143,7 +12143,6 @@
 				"powershot_damage"
 				{
 					"value"									"170 270 370 470 570"	// 170 270 370 470
-					"special_bonus_unique_windrunner_upgrade"	"+100%"	// 风行 觉醒
 				}
 				"slow"
 				{

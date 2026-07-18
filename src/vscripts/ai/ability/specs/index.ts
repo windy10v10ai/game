@@ -36,6 +36,7 @@ import { SPECS as tinkerMarchOfTheMachines } from './tinker_march_of_the_machine
 import { SPECS as tinkerWarpGrenade } from './tinker_warp_grenade';
 import { SPECS as tuskWalrusPunch } from './tusk_walrus_punch';
 import { SPECS as viperPoisonAttack } from './viper_poison_attack';
+import { SPECS as windrunnerWhirlwindCustom } from './windrunner_whirlwind_custom';
 import { SPECS as winterWyvernArcticBurn } from './winter_wyvern_arctic_burn';
 
 /**
@@ -106,6 +107,8 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(drowRangerFrostArrows);
   AbilityRegistry.registerAll(ancientApparitionChillingTouch);
   AbilityRegistry.registerAll(enchantressImpetus);
+  // 主动型抽奖技能
+  AbilityRegistry.registerAll(windrunnerWhirlwindCustom);
   // TOGGLE 类：分裂箭按敌人数量开关；严寒烧灼有 A 杖时按敌情飞行开关（持续耗蓝，无敌则关）
   AbilityRegistry.registerAll(medusaSplitShot);
   AbilityRegistry.registerAll(winterWyvernArcticBurn);
