@@ -14,7 +14,6 @@ export const abilityTiersActive: Tier[] = [
       'alchemist_chemical_rage', // 化学狂暴
       'life_stealer_rage', // 狂暴
       'marci_unleash', // 怒拳破
-      'windrunner_whirlwind_custom', // 风行者 旋风
       // 小技能
       'dark_willow_shadow_realm', // 暗影之境
     ],
@@ -31,6 +30,7 @@ export const abilityTiersActive: Tier[] = [
       'faceless_void_time_zone', // 逆转时空
       'doom_bringer_doom', // 末日
       'puck_dream_coil', // 梦境缠绕
+      'windrunner_whirlwind_custom', // 风行者 旋风
 
       // 小技能
       'antimage_counterspell', // 法术反制
