@@ -254,6 +254,7 @@ function modifier_item_swift_glove_chain_lightning:OnAttackLanded(params)
     if not params.target or params.target:IsNull() then return end
     if params.target:IsBuilding() then return end
     if params.target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
+    if params.target:IsMagicImmune() then return end
 
     local now = GameRules:GetGameTime()
     if now < self.last_proc_time + (self.current_cooldown or self.chain_cooldown) then return end
@@ -303,7 +304,7 @@ function modifier_item_swift_glove_chain_lightning:FireChainLightning(first_targ
         local next_target = nil
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), current_target:GetAbsOrigin(), nil, self.chain_radius,
             DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
         for _, enemy in pairs(enemies) do
             if enemy and not enemy:IsNull() and not enemy:IsBuilding() and not hit_targets[enemy:entindex()] then
                 next_target = enemy
