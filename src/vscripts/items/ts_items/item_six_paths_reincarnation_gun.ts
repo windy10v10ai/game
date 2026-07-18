@@ -1,26 +1,16 @@
 import { BaseItem, registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
 import { BaseItemModifier } from './base_item_modifier';
 
-const DAMAGE_TYPE_PHYSICAL = 1;
-const DAMAGE_TYPE_MAGICAL = 2;
-const DAMAGE_TYPE_PURE = 3;
-
 const SHOTGUN_COOLDOWN_MODIFIERS = [
   'modifier_item_shotgun_cooldown',
   'modifier_item_shotgun_v2_cooldown',
   'modifier_item_six_paths_reincarnation_gun_cooldown',
 ];
 
-type ReincarnationDamageType = 1 | 2 | 3;
+const REINCARNATION_DAMAGE_TYPES = [DamageTypes.PHYSICAL, DamageTypes.MAGICAL, DamageTypes.PURE];
 
-function rollReincarnationDamageType(): ReincarnationDamageType {
-  return RandomInt(DAMAGE_TYPE_PHYSICAL, DAMAGE_TYPE_PURE) as ReincarnationDamageType;
-}
-
-function toDotaDamageType(damageType: ReincarnationDamageType): DamageTypes {
-  if (damageType === DAMAGE_TYPE_MAGICAL) return DamageTypes.MAGICAL;
-  if (damageType === DAMAGE_TYPE_PURE) return DamageTypes.PURE;
-  return DamageTypes.PHYSICAL;
+function rollReincarnationDamageType(): DamageTypes {
+  return REINCARNATION_DAMAGE_TYPES[RandomInt(0, REINCARNATION_DAMAGE_TYPES.length - 1)];
 }
 
 function hasShotgunCooldown(unit: CDOTA_BaseNPC): boolean {
@@ -105,7 +95,7 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
     });
 
     const splashDamage = (preReductionAttackDamage * this.attackPercent) / 100;
-    const splashDamageType = toDotaDamageType(rollReincarnationDamageType());
+    const splashDamageType = rollReincarnationDamageType();
     const enemies = FindUnitsInRadius(
       parent.GetTeamNumber(),
       target.GetAbsOrigin(),
@@ -117,7 +107,6 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
       FindOrder.ANY,
       false,
     );
-
     const particle = ParticleManager.CreateParticle(
       'particles/custom/shrapnel.vpcf',
       ParticleAttachment.CUSTOMORIGIN,
@@ -127,6 +116,7 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
     ParticleManager.ReleaseParticleIndex(particle);
 
     for (const enemy of enemies) {
+      if (enemy === target) continue;
       if (enemy.IsBuilding() || enemy.IsOther()) continue;
       ApplyDamage({
         victim: enemy,
@@ -165,6 +155,7 @@ export class ModifierItemSixPathsReincarnationGunDebuff extends BaseItemModifier
   private spellDamageReduction = 50;
   private damagePerType = 200;
   private damageInterval = 1;
+  private hasTicked = false; // To prevent the first tick from happening immediately on creation
 
   OnCreated(): void {
     this.refreshValues();
@@ -217,6 +208,11 @@ export class ModifierItemSixPathsReincarnationGunDebuff extends BaseItemModifier
   OnIntervalThink(): void {
     if (!IsServer()) return;
 
+    if (!this.hasTicked) {
+      this.hasTicked = true;
+      return;
+    }
+
     const target = this.GetParent();
     const caster = this.GetCaster();
     const ability = this.GetAbility();
@@ -241,7 +237,7 @@ export class ModifierItemSixPathsReincarnationGunDebuff extends BaseItemModifier
 export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier {
   override statsModifierName = '';
 
-  private attackDamageTypes: Record<number, ReincarnationDamageType> = {};
+  private attackDamageTypes: Record<number, DamageTypes> = {};
 
   OnCreated(): void {
     if (IsServer()) {
@@ -267,6 +263,10 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
     return ModifierAttribute.NONE;
   }
 
+  GetTexture(): string {
+    return 'six_paths_reincarnation_gun';
+  }
+
   DeclareFunctions(): ModifierFunction[] {
     return [
       ModifierFunction.ON_ATTACK_RECORD,
@@ -288,26 +288,27 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
     }
 
     const damageType = this.getOrCreateDamageType(event.record);
-    return damageType === DAMAGE_TYPE_PHYSICAL ? 0 : -100;
+    return damageType === DamageTypes.PHYSICAL ? 0 : -100;
   }
 
   OnAttackLanded(event: ModifierAttackEvent): void {
     if (!IsServer() || event.attacker !== this.GetParent()) return;
 
     const damageType = this.getOrCreateDamageType(event.record);
-    if (damageType === DAMAGE_TYPE_PHYSICAL) return;
+    if (damageType === DamageTypes.PHYSICAL) return;
 
     const ability = this.GetAbility();
-    if (!ability || !event.target || event.target.IsNull()) return;
+    const target = event.target;
+    if (!ability || !target || target.IsNull()) return;
 
     const convertedDamage = Math.max(event.original_damage, 0);
     if (convertedDamage <= 0) return;
 
     ApplyDamage({
-      victim: event.target,
+      victim: target,
       attacker: this.GetParent(),
       damage: convertedDamage,
-      damage_type: toDotaDamageType(damageType),
+      damage_type: damageType,
       ability,
     });
   }
@@ -317,7 +318,7 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
     delete this.attackDamageTypes[event.record];
   }
 
-  private getOrCreateDamageType(record: number): ReincarnationDamageType {
+  private getOrCreateDamageType(record: number): DamageTypes {
     const existing = this.attackDamageTypes[record];
     if (existing !== undefined) return existing;
 
