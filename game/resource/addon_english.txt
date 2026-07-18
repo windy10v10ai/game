@@ -254,6 +254,7 @@
 		"key_bind_input_err"									"Invalid input - Try another key"
 		"key_bind_quick_cast"									"Quick Cast"
 		"key_bind_remember"										"Save Key"
+		"key_bind_inventory_slot_tooltip"					"Inventory slot %s hotkey. Unlock the slot with the Inventory Expansion Tome before using its item."
 
 		"lottery_item_header"									"Pick Your Treasure"
 		"lottery_passive_tome_header"							"Choose a Passive Ability"
@@ -2006,6 +2007,13 @@
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"Tome of Luoshu"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"Gained a lot of bonuses from Luoshu's Tome."
+
+		// item_inventory_slot_unlock 扩容之书
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock"						"Tome of Expansion"
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock_Description"			"<h1>Use: Expand Inventory</h1>Permanently unlocks 1 item slot for this match, allowing items in that slot to provide their effects and be actively used. Each hero can use up to 3.\nShareable with teammates."
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock"						"Expanded Inventory"
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock_Description"			"<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> item slots unlocked."
+		"dota_hud_error_inventory_slot_unlock_max_usage"						"All 3 item slots are already unlocked."
 
 		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"

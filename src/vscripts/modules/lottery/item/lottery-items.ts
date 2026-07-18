@@ -9,6 +9,7 @@ export const itemTiers: Tier[] = [
     level: 7,
     names: [
       'item_tome_of_luoshu', // 洛书
+      'item_inventory_slot_unlock', // 扩容之书
       'item_universal_rune', // 通用符文
       'item_passive_skill_tome', // 被动技能书
     ],
