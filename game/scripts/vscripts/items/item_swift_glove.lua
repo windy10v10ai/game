@@ -1,6 +1,9 @@
 if item_swift_glove == nil then item_swift_glove = class({}) end
 LinkLuaModifier("modifier_item_swift_glove", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_swift_glove_chain_lightning", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
+-- This Lua item must register the shared kill modifier instead of relying on Dragon Destruction loading first.
+LinkLuaModifier("modifier_ignore_invulnerable_kill", "modifiers/global/modifier_ignore_invulnerable_kill",
+    LUA_MODIFIER_MOTION_NONE)
 
 function item_swift_glove:GetIntrinsicModifierName()
     return "modifier_item_swift_glove"
@@ -74,7 +77,7 @@ function item_swift_glove:OnSpellStart()
     ParticleManager:ReleaseParticleIndex(pfx)
 
     target:AddNewModifier(caster, self, "modifier_ignore_invulnerable_kill", {})
-    target:Kill(self, caster) -- 使用 Kill() 而不是 ForceKill()
+    target:Kill(self, caster) -- Preserve standard kill credit and death rewards.
     target:RemoveModifierByName("modifier_ignore_invulnerable_kill")
     caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     caster:ModifyGoldFiltered(self_gold, true, DOTA_ModifyGold_CreepKill)
