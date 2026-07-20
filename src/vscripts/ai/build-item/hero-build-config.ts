@@ -1377,7 +1377,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hawkeye_turret', // 鹰眼炮台
         'item_ten_thousand_swords', // 万剑归宗
         'item_forbidden_staff', // 禁忌法锤
-        'item_shadow_impact', // 暗影法杖
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
         'item_withered_spring', // 生命之心
