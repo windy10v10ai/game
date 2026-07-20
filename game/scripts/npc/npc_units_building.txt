@@ -859,6 +859,7 @@
 	"dota_fountain"
 	{
 		// Abilities
+		"Ability1"					"ability_fountain_anti_camp"
 		"Ability2"					"tower_headshot"			// none
 		"Ability3"					"tower_ursa_fury_swipes"
 		"Ability4"					"tower_antimage_mana_break"

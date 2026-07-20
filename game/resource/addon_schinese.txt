@@ -1143,6 +1143,12 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"魔抗："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"全属性："
 
+		// 泉水 反蹲警戒
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"反蹲警戒"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被施加反蹲效果。"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"反蹲封锁"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"无法使用装备、主动技能和被动技能，无法恢复生命和魔法，移动速度被强制限制，且免疫类保护效果被强制解除。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Awaken Abilities 觉醒技能
