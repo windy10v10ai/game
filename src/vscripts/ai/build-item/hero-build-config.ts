@@ -283,7 +283,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 咸鱼之王
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_infernal_desolator', // 绝对破防之刃
         'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_wasp_golden', // 黄金大核荣耀
@@ -356,7 +355,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_revenants_brooch_ultra', // 神器·魔武双修
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_infernal_desolator', // 绝对破防之刃
         'item_sacred_six_vein', // 六脉神剑
         'item_wasp_golden', // 黄金大核荣耀
@@ -502,7 +500,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_vladmir_2', // 强袭祭品
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_black_king_bar_2', // 天神杖
         'item_infernal_desolator', // 绝对破防之刃
         'item_monkey_king_bar_2', // 定海神针
@@ -638,7 +635,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_excalibur', // 圣剑
         'item_satanic_2', // 真·撒旦
@@ -700,7 +696,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_rapier', // 圣剑
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_monkey_king_bar_2', // 定海神针（tier 归属修正：真实价格属于 T4）
         'item_satanic_2', // 真·撒旦
         'item_black_king_bar_2', // 真·BKB
@@ -763,7 +758,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_mjollnir', // 雷神之锤
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_monkey_king_bar_2', // 定海神针
         'item_black_king_bar_2', // 天神杖
         'item_wasp_golden', // 黄金大核荣耀
@@ -821,7 +815,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_monkey_king_bar_2', // 定海神针
         'item_infernal_desolator', // 绝对破防之刃
         'item_black_king_bar_2', // 天神杖
@@ -880,7 +873,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_satanic', // 撒旦之邪力
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_infernal_desolator', // 绝对破防之刃
         'item_black_king_bar_2', // 天神杖
         'item_monkey_king_bar_2', // 定海神针
@@ -1058,7 +1050,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 咸鱼之王
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_hallowed_scepter', // 神圣魔法权杖
         'item_necronomicon_staff', // 死灵法师权杖
         'item_refresh_core', // 熔火核心
@@ -1246,7 +1237,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dodo_desolator', // 黯灭头
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_refresh_core', // 熔火核心
         'item_hallowed_scepter', // 仙云法杖
         'item_arcane_octarine_core', // 奥术之心
@@ -1388,7 +1378,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_devastator', // 圣斧
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_refresh_core', // 熔火核心
         'item_hallowed_scepter', // 仙云法杖
         'item_gungir_2', // 风暴之锤
@@ -1695,7 +1684,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_eternal_shroud_ultra', // 法师泳衣
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_black_king_bar_2', // 天神杖
         'item_wasp_golden', // 黄金大核荣耀
         'item_jump_jump_jump', // 跳！跳！跳！刀
@@ -2716,7 +2704,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dodo_desolator', // 黯灭头
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_shivas_guard_2', // 雅典娜的守护
         'item_refresh_core', // 熔火核心
         'item_hallowed_scepter', // 仙云法杖
@@ -2775,7 +2762,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dodo_desolator', // 黯灭头
       ],
       [ItemTier.T4]: [
-        'item_six_paths_reincarnation_gun', // 六道轮回枪
         'item_necronomicon_staff', // 死灵法杖
         'item_gungir_2', // 风暴之锤
         'item_refresh_core', // 熔火核心
