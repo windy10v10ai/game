@@ -948,6 +948,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 10000,
     baseItems: ['item_shotgun'],
   },
+  item_six_paths_reincarnation_gun: {
+    name: 'item_six_paths_reincarnation_gun',
+    nameCN: '六道轮回枪',
+    tier: ItemTier.T4,
+    cost: 30000,
+    baseItems: ['item_shotgun_v2', 'item_revenants_brooch_ultra', 'item_mage_slayer'],
+  },
   item_arcane_blink: {
     name: 'item_arcane_blink',
     nameCN: '爱因斯坦闪光',

@@ -5331,7 +5331,7 @@
 
 				"blast_movement_slow"	"-100"	//-80
 				"duration"				"1.5"		//4
-				"blast_stat_multiplier"		"1.5"	//1.0
+				"blast_stat_multiplier"		"1.0"	//1.0
 				"blast_damage_base"			"200"//50
 				"duration_ally"				"6"	//4.0
 				"ethereal_damage_bonus"	"-60"	//-30
@@ -5398,7 +5398,7 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5424,7 +5424,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5449,7 +5449,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5474,7 +5474,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5499,7 +5499,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5524,7 +5524,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5549,7 +5549,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5574,7 +5574,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"600"	// 9分钟买
+		"ItemInitialStockTime"		"240"	// 3分钟买
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5883,8 +5883,8 @@
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_all_stats"			"60"	// tooltip only - 全属性
-			"bonus_movement_speed"		"160"	// tooltip only - 移动速度
-			"bonus_movement_speed_pct"	"50"	// tooltip only - 移动速度百分比
+			"bonus_movement_speed"		"140"	// tooltip only - 移动速度
+			"bonus_movement_speed_pct"	"30"	// tooltip only - 移动速度百分比
 			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
 			// 主动效果（在 Lua 中实现）
 			"active_movement_speed_pct"	"50"
@@ -6250,9 +6250,8 @@
 	}
 
 	//=================================================================================================================
-	// 枯木逢春 生命之心
+	// 生命之心 枯木逢春
 	//=================================================================================================================
-	// 咸鱼之王+卫士胫甲+item_undying_heart+洞察盔甲+item_fusion_life 主动：枯木逢春：融合几个效果的主动，生命低于20%自动触发 被动：继承所有装备的被动
 	"item_recipe_withered_spring"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6267,7 +6266,7 @@
 		"ItemResult"				"item_withered_spring"
 		"ItemRequirements"
 		{
-			"01"					"item_aeon_pendant;item_undying_heart;item_insight_armor;item_fusion_life"
+			"01"					"item_aeon_pendant;item_undying_heart;item_guardian_greaves_artifact;item_insight_armor;item_fusion_life"
 		}
 	}
 
@@ -6299,14 +6298,21 @@
 		{
 			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
 			"health_regen_pct"			"3"		// Lua 逻辑需要 - 百分比生命回复
-			"status_resistance"			"30"	// Lua 逻辑需要 - 状态抗性
+			"status_resistance"			"20"	// Lua 逻辑需要 - 状态抗性
 
 			// Lua 逻辑需要 - 主动技能参数
-			"hp_threshold"				"40"	// Lua 逻辑需要 - 自动触发生命阈值
+			"hp_threshold"				"20"	// Lua 逻辑需要 - 自动触发生命阈值
+			"replenish_health"			"2500"	// Lua 逻辑需要 - 立即恢复生命值
+			"replenish_health_pct"		"6"		// Lua 逻辑需要 - 立即恢复最大生命值百分比
+			"replenish_mana"			"1500"	// Lua 逻辑需要 - 立即恢复法力值
+			"replenish_radius"
+			{
+				"value"						"1200"	// Lua 逻辑需要 - 回血回蓝影响友军范围
+				"affected_by_aoe_increase"	"1"
+			}
 			"active_duration"			"3"		// Lua 逻辑需要 - 主动持续时间
-			"instant_heal"				"1500"	// Lua 逻辑需要 - 立即恢复生命值
 			"bonus_armor_active"		"30"	// Lua 逻辑需要 - 主动护甲加成
-			"bonus_regen_active"		"200"	// Lua 逻辑需要 - 主动生命回复
+			"bonus_regen_active"		"300"	// Lua 逻辑需要 - 主动生命回复
 			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免
 			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
 
@@ -6636,9 +6642,9 @@
 			"group_range"		"1800"
 			"group_xp"			"0.5"
 			"group_gold"		"120"
-			"hero_kill_chance"	"30"
-			"chain_chance"		"65"
-			"chain_damage"		"700"
+			"hero_kill_chance"	"50"
+			"chain_chance"		"60"
+			"chain_damage"		"600"
 			"chain_strikes"		"15"
 			"chain_radius"		"1200"
 			"chain_cooldown"		"0.2"
@@ -6646,10 +6652,10 @@
 			"double_damage_multiplier"	"2"
 			"double_damage_cooldown"	"0.3"
 			"quintuple_damage_chance"	"3"
-			"quintuple_damage_multiplier"	"5"
+			"quintuple_damage_multiplier"	"3"
 			"quintuple_damage_cooldown"	"0.5"
-			"decuple_damage_chance"	"0.1"
-			"decuple_damage_multiplier"	"10"
+			"decuple_damage_chance"	"1"
+			"decuple_damage_multiplier"	"5"
 			"decuple_damage_cooldown"	"1"
 		}
 	}
@@ -7421,6 +7427,72 @@
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"120"
 		"ItemCanBeUsedWithoutInventory"	"1"
+	}
+
+	//=================================================================================================================
+	// Recipe: 六道轮回枪
+	//=================================================================================================================
+	"item_recipe_six_paths_reincarnation_gun"
+	{
+		"ID"                            "10340"
+		"BaseClass"                     "item_datadriven"
+		"AbilityTextureName"            "item_recipe_six_paths_reincarnation_gun"
+		"Model"                         "models/props_gameplay/recipe.vmdl"
+		"ItemCost"                      "6900"
+		"ItemRecipe"                    "1"
+		"ItemResult"                    "item_six_paths_reincarnation_gun"
+		"ItemRequirements"
+		{
+			"01"                         "item_shotgun_v2;item_revenants_brooch_ultra;item_mage_slayer"
+		}
+	}
+
+	//=================================================================================================================
+	// 六道轮回枪
+	//=================================================================================================================
+	"item_six_paths_reincarnation_gun"
+	{
+		"ID"                            "10341"
+		"BaseClass"                     "item_lua"
+		"ScriptFile"                    "items/ts_items/item_six_paths_reincarnation_gun"
+		"AbilityTextureName"            "six_paths_reincarnation_gun"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityCooldown"               "40"
+		"AbilityManaCost"               "300"
+
+		"ItemCost"                      "30000"
+		"ItemShopTags"                  "damage;attack_speed;magic_resist"
+		"ItemQuality"                   "artifact"
+		"ItemAliases"                   "six paths;reincarnation gun;samsara gun"
+		"ItemDeclarations"              "DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ItemRequiresCharges"           "0"
+
+		"precache"
+		{
+			"particle"                    "particles/custom/shrapnel.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"bonus_damage"                        "300"
+			"attack_speed"                        "150"
+			"spell_lifesteal"                     "30"
+			"bonus_magic_resistance"              "20"
+
+			"attack_radius"                       "400"
+			"attack_percent"                      "45"
+			"internal_cooldown"                   "0.05"
+			"pure_damage_cap_multiplier"          "3"
+
+			"mage_slayer_duration"                "3"
+			"mage_slayer_spell_damage_reduction"  "30"
+			"mage_slayer_damage_per_type"         "90"
+			"mage_slayer_damage_interval"         "1"
+
+			"active_duration"                     "6"
+		}
 	}
 
 	//=================================================================================================================

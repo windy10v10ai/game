@@ -99,7 +99,6 @@ function AIGameMode:OnNPCSpawned(keys)
         return
     end
 
-    local sName = hEntity:GetName()
     -- REFACTORED: Creep buff system moved to TypeScript
     -- See: src/vscripts/modules/event/game-in-progress/creep-buff-manager.ts
 
@@ -109,12 +108,6 @@ function AIGameMode:OnNPCSpawned(keys)
         if not IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
             if not hEntity:HasModifier("modifier_bot_think_item_use") then
                 hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
-            end
-
-            if tBotItemData.wardHeroList[sName] then
-                if not hEntity:HasModifier("modifier_bot_think_ward") then
-                    hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_ward", {})
-                end
             end
         end
 

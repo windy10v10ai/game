@@ -141,8 +141,12 @@
 				"value"						"350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"scepter_crit_bonus"		"180 210 240 270"
-			"bonus_physical_damage"		"300 400 500 600"
+			"scepter_crit_bonus"		"210 240 270 300"
+			"bonus_physical_damage"
+			{
+				"value"						"300 400 500 600"
+				"special_bonus_unique_sniper_1"	"+250"
+			}
 			"projectile_speed"			"3000"
 			"scepter_stun_duration"
 			{
@@ -166,7 +170,7 @@
 		"LevelsBetweenUpgrades"			"6"
 		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
 		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"3"
+		"AbilityChargeRestoreTime"		"10"
 	}
 
 	// 死灵法师 竭心光环-觉醒
@@ -359,7 +363,8 @@
 
 		"AbilityValues"
 		{
-			"search_radius"		"300"
+			"search_radius"			"300"
+			"spell_amp_ratio_pct"	"50"
 		}
 
 		"Modifiers"
@@ -376,9 +381,10 @@
 				{
 					"RunScript"
 					{
-						"ScriptFile"	"abilities/special_bonus_unique_witch_doctor_upgrade"
-						"Function"		"OnAbilityExecuted"
-						"search_radius"		"%search_radius"
+						"ScriptFile"			"abilities/special_bonus_unique_witch_doctor_upgrade"
+						"Function"				"OnAbilityExecuted"
+						"search_radius"			"%search_radius"
+						"spell_amp_ratio_pct"	"%spell_amp_ratio_pct"
 					}
 				}
 			}
@@ -496,21 +502,6 @@
 				"RemoveOnDeath"		"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
-		}
-	}
-
-	// 风行者-觉醒
-	"special_bonus_unique_windrunner_upgrade"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_windrunner_upgrade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"windrunner_windrun"
-		"MaxLevel"						"1"
-
-		"AbilityValues"
-		{
-			"fade_delay"					"0.2"
 		}
 	}
 

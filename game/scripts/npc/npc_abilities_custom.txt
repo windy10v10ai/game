@@ -3113,7 +3113,7 @@
 		"LevelsBetweenUpgrades"         "6"
 
 		"AbilityCastPoint"              "0.1"
-		"AbilityCooldown"               "35 30 25 20"
+		"AbilityCooldown"               "30"
 		"AbilityManaCost"               "100 150 200 250"
 
 		"precache"
@@ -3132,10 +3132,44 @@
 		{
 			"attacks_before_proc"           "4"
 			"critical_damage"               "200 300 400 500"
-			"stun_duration"                 "0.8 1 1.2 1.4"
-			"effect_duration"               "2.5 3 3.5 4"
+			"stun_duration"                 "0.6 0.7 0.8 0.9"
+			"effect_duration"               "2 2.25 2.5 2.75"
 			"active_duration"               "4 5 6 7"
 			"dispel_interval"               "0.2"
+		}
+	}
+
+	// 风行者 旋风
+	"windrunner_whirlwind_custom"
+	{
+		"BaseClass"                     "ability_lua"
+		"ScriptFile"                    "abilities/ts_abilities/windrunner_whirlwind_custom"
+		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityType"                   "DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"            "windrunner_focusfire"
+		"AbilityCastAnimation"          "ACT_INVALID"
+		"SpellDispellableType"          "SPELL_DISPELLABLE_NO"
+
+		"MaxLevel"                      "4"
+		"RequiredLevel"                 "6"
+		"LevelsBetweenUpgrades"         "6"
+
+		"AbilityCastPoint"              "0"
+		"AbilityCooldown"               "60 55 50 45"
+		"AbilityManaCost"               "75 150 225 300"
+
+		"AbilityValues"
+		{
+			"duration"                    "8 9 10 11"
+			"attacks_per_second"          "6 7 8 9"
+			"damage_reduction"
+			{
+				"value"                                "-25"
+				"special_bonus_unique_windranger_8"    "+15"
+			}
+			"search_radius_bonus"         "250"
+			"repeat_block_count"          "3"
+			"fade_delay"                  "0.2"
 		}
 	}
 

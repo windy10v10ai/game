@@ -1,12 +1,13 @@
 import { GA4TreasureTracker, TreasureTier } from '../../api/analytics/ga4/ga4-treasure-tracker';
 import { modifier_treasure_chest } from '../../modifiers/global/modifier_treasure_chest';
 import { reloadable } from '../../utils/tstl-utils';
+import { PlayerHelper } from '../helper/player-helper';
 import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 
 @reloadable
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
-  static readonly RESPAWN_INTERVAL = 120;
+  static readonly RESPAWN_INTERVAL = 180;
   static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;
   static readonly OPEN_PARTICLE = 'particles/items2_fx/hand_of_midas.vpcf';
@@ -195,7 +196,15 @@ export class Treasure {
     this.openCount++;
     const pointTier = Treasure.getPointTier(point);
     GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, pointTier);
-    GameRules.Lottery.Item.onTriggered(opener, Treasure.mapToLotteryPool(this.openCount));
+
+    // 全队人类玩家各获得一次抽奖，与肉山击杀奖励逻辑一致
+    const pool = Treasure.mapToLotteryPool(this.openCount);
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
+      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+      if (!hero) return;
+      GameRules.Lottery.Item.onTriggered(hero, pool);
+    });
   }
 
   getRandomSpawnPoint(): Vector {

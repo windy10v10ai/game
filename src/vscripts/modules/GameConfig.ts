@@ -1,5 +1,5 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v5.41';
+  public static readonly GAME_VERSION = 'v5.42';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -74,8 +74,8 @@ export class GameConfig {
     // ban英雄设置
     GameRules.SetCustomGameBansPerTeam(3); // 设置每个队伍的ban英雄数量
     GameRules.SetHideBlacklistedHeroes(true);
-    game.SetDraftingBanningTimeOverride(10); // ban 阶段时长
-    game.SetDraftingHeroPickSelectTimeOverride(40); // pick 阶段时长
+    game.SetDraftingBanningTimeOverride(15); // ban 阶段时长
+    game.SetDraftingHeroPickSelectTimeOverride(45); // pick 阶段时长
 
     game.SetTowerBackdoorProtectionEnabled(true);
     game.SetMaximumAttackSpeed(700);

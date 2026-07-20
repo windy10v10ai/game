@@ -22,10 +22,6 @@ function item_withered_spring:OnSpellStart()
     -- 驱散负面效果
     caster:Purge(false, true, false, true, true)
 
-    -- 立即恢复生命值
-    local instant_heal = self:GetSpecialValueFor("instant_heal")
-    caster:Heal(instant_heal, self)
-
     -- 永恒之盘触发特效 - 护盾爆发效果
     local particle = ParticleManager:CreateParticle(
         "particles/items4_fx/combo_breaker_buff.vpcf",
@@ -33,6 +29,24 @@ function item_withered_spring:OnSpellStart()
         caster
     )
     ParticleManager:ReleaseParticleIndex(particle)
+
+    -- 卫士胫甲效果：回血回蓝对自身和范围内友军生效，主动buff不含在内
+    local replenish_health = self:GetSpecialValueFor("replenish_health")
+    local replenish_health_pct = self:GetSpecialValueFor("replenish_health_pct")
+    local replenish_mana = self:GetSpecialValueFor("replenish_mana")
+    local replenish_radius = self:GetSpecialValueFor("replenish_radius")
+    local allies = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, replenish_radius,
+        DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+        DOTA_UNIT_TARGET_HERO,
+        DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
+        FIND_ANY_ORDER, false)
+    for _, ally in pairs(allies) do
+        local heal_amount = replenish_health + ally:GetMaxHealth() * replenish_health_pct / 100
+        ally:Heal(heal_amount, self)
+        ally:GiveMana(replenish_mana)
+        SendOverheadEventMessage(caster, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
+        SendOverheadEventMessage(caster, OVERHEAD_ALERT_MANA_ADD, ally, replenish_mana, nil)
+    end
 end
 
 -- 被动modifier
@@ -60,10 +74,6 @@ function modifier_item_withered_spring:OnCreated(params)
     self.health_regen_pct = ability:GetSpecialValueFor("health_regen_pct")
     self.status_resistance = ability:GetSpecialValueFor("status_resistance")
     self.hp_threshold = ability:GetSpecialValueFor("hp_threshold")
-
-    if IsServer() then
-        self:StartIntervalThink(0.1) -- 每0.1秒检查生命值
-    end
 end
 
 function modifier_item_withered_spring:OnRefresh(params)
@@ -74,20 +84,34 @@ function modifier_item_withered_spring:OnRefresh(params)
     end
 end
 
-function modifier_item_withered_spring:OnIntervalThink()
+-- 血量下限锁在 1，伤害结算时引擎同步钳制，避免单次爆发直接秒杀绕过阈值判定
+function modifier_item_withered_spring:GetMinHealth()
+    if self:GetParent():HasModifier("modifier_ignore_invulnerable_kill") then
+        return 0
+    end
+
+    local ability = self:GetAbility()
+    if ability and not ability:IsNull() and ability:IsFullyCastable() then
+        return 1
+    end
+    return 0
+end
+
+function modifier_item_withered_spring:OnTakeDamage(event)
     if not IsServer() then return end
 
     local parent = self:GetParent()
+    -- 死亡时不触发
+    if not parent:IsAlive() then return end
+
+    if event.unit ~= parent then return end
+
     local ability = self:GetAbility()
+    if not ability or ability:IsNull() or not ability:IsFullyCastable() then return end
 
-    if not ability or ability:IsNull() then return end
-
-    -- 检查生命值是否低于阈值
-    local hp_pct = parent:GetHealthPercent()
-    if hp_pct <= self.hp_threshold and ability:IsFullyCastable() then
-        -- 自动触发主动技能
+    if parent:GetHealthPercent() <= self.hp_threshold then
         ability:OnSpellStart()
-        ability:UseResources(false, false, false, true) -- 消耗冷却
+        ability:UseResources(false, false, false, true)
     end
 end
 
@@ -101,6 +125,8 @@ function modifier_item_withered_spring:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+        MODIFIER_PROPERTY_MIN_HEALTH,
+        MODIFIER_EVENT_ON_TAKEDAMAGE,
     }
 end
 

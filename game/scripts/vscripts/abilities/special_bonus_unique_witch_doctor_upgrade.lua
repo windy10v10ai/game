@@ -13,7 +13,7 @@ function OnAbilityExecuted(params)
     if spell_amp <= 0 then
         return
     end
-    local mult = 1 + spell_amp
+    local mult = 1 + spell_amp * (params.spell_amp_ratio_pct / 100)
 
     -- 延迟一帧等守卫生成
     Timers:CreateTimer(0.1, function()

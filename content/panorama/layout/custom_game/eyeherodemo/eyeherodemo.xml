@@ -12,7 +12,10 @@
 			<Button id="CancelButton" class="CloseButton" acceptsjoyfocus="true" onactivate="CloseHeroPicker()" />
 		</Panel>
 		<Panel class="ControlPanel">
-			<Panel class="ControlPanelContainer">
+			<Panel class="ControlPanelContainer" require-composition-layer="true">
+				<!-- Decorative glass layers stay outside input handling so existing controls retain behavior. -->
+				<Panel id="ControlPanelGlassFog" hittest="false" />
+				<Panel id="ControlPanelGlassLens" hittest="false" />
 				<Panel id="SpawnUnitsCategory" class="Category">
 					<Label class="CategoryHeader" text="#SpawnUnits_ButtonCategory" />
 					<Panel class="CategoryButtonContainer">
@@ -129,14 +132,18 @@
 					<Panel class="CategoryButtonContainer">
 						<Panel class="Row">
 							<ToggleButton id="FreeSpellsButton" class="DemoToggleButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( FreeSpellsButtonPressed )">
+								<!-- The visual switch mirrors ToggleButton state while the parent remains the only interactive control. -->
+								<Panel class="GlobalToggleSwitch" hittest="false">
+									<Panel class="GlobalToggleKnob" hittest="false" />
+								</Panel>
 								<Label text="#FreeSpells_Button" />
 							</ToggleButton>
-							<Button id="RefreshButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( RefreshButtonPressed )" onmouseover="UIShowTextTooltip( #Refresh_Button )" onmouseout="UIHideTextTooltip()">
-								<Panel class="RefreshIcon" />
-							</Button>
 						</Panel>
 						<Panel class="Row">
 							<ToggleButton id="ToggleDayNight" class="DemoToggleButton" acceptsjoyfocus="true" onactivate="FireCustomGameEvent_Str( ToggleDayNight )">
+								<Panel class="GlobalToggleSwitch" hittest="false">
+									<Panel class="GlobalToggleKnob" hittest="false" />
+								</Panel>
 								<Label text="#ToggleDayNight_Button" />
 							</ToggleButton>
 						</Panel>

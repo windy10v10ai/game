@@ -135,7 +135,7 @@ export class ModifierItemSaintOrbBuff extends BaseModifier {
   }
 
   GetTexture(): string {
-    return 'item_saint_orb';
+    return 'saint_orb';
   }
 
   OnCreated(): void {

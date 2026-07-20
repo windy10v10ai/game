@@ -72,6 +72,16 @@ global.GameRules = {
   Lottery: { Item: { onTriggered: jest.fn() } },
 };
 
+// 单人类玩家即可覆盖 openChest 的全队广播分支，避免过度构造多玩家场景
+global.DOTA_MAX_TEAM_PLAYERS = 1;
+const fakeTeamHero = { GetUnitName: () => 'npc_dota_hero_axe' };
+global.PlayerResource = {
+  IsValidPlayer: () => true,
+  GetPlayer: () => ({}),
+  GetSteamAccountID: () => 1000,
+  GetSelectedHeroEntity: () => fakeTeamHero,
+};
+
 import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 import { Treasure } from './treasure';
 
@@ -89,6 +99,7 @@ describe('Treasure', () => {
     mockState = global.GameState.CUSTOM_GAME_SETUP;
     (global.CreateUnitByName as jest.Mock).mockClear();
     (global.Timers.CreateTimer as jest.Mock).mockClear();
+    (global.GameRules.Lottery.Item.onTriggered as jest.Mock).mockClear();
     treasure = new Treasure();
   });
 

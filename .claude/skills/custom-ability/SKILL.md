@@ -113,6 +113,10 @@ KV `BaseClass` 同样写 `ability_lua`、`ScriptFile` 指向 TSTL 编译产物�
 
 觉醒及「自动施放」类技法——autocast 自动触发（含共享基类 `AutoCastAbility`）、监听某技能施法、加魔免不顶 BKB、`special_bonus` 仅特定技能时生效——目前都只由觉醒技能使用，集中在 **`awaken-ability`** 的「进阶」章节，需要时去那里查。
 
+### 弹道命中判定：用原生 `OnProjectileHit`
+
+`ProjectileManager:CreateTrackingProjectile` / `CreateLinearProjectile` 传入 `Ability = self` 后，弹道真正命中目标时引擎会自动调用技能类的 `OnProjectileHit(target, location)`（创建时传了 `ExtraData` 则是 `OnProjectileHit_ExtraData(target, location, data)`）。伤害/眩晕等命中效果写在这个回调里结算，**不要**手算「距离 ÷ 移速」当 `travel_time` 再开 `Timers:CreateTimer` 延迟触发——那只是估算值，目标中途位移/闪现会跑偏，也无法尊重目标的闪避判定。`bIsAttack = true` 不会让引擎自动重复结算一次攻击伤害，回调里手动 `ApplyDamage` / `PerformAttack` 不冲突。参考 `heroes/hero_sniper/sniper_assassinate_upgrade.lua`。
+
 ---
 
 ## 收尾

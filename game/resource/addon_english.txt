@@ -410,18 +410,18 @@
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many towers are destroyed."
-		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"ATTACK DAMAGE BONUS"
-		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"%INCOMING DAMAGE REDUCTION BONUS:"
+		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_damage_reduction"				"+%INCOMING DAMAGE REDUCTION:"
 
 		"DOTA_Tooltip_ability_creep_buff_upgraded"						"Super Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_upgraded_Description"			"Level up based on how many towers are destroyed."
-		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"ATTACK DAMAGE BONUS:"
-		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"%INCOMING DAMAGE REDUCTION BONUS:"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_bonus_damage"			"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_upgraded_damage_reduction"		"+%INCOMING DAMAGE REDUCTION:"
 
 		"DOTA_Tooltip_ability_creep_buff_mega"							"Mega Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_mega_Description"				"Level up based on how many towers are destroyed."
-		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"ATTACK DAMAGE BONUS:"
-		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"%INCOMING DAMAGE REDUCTION BONUS:"
+		"DOTA_Tooltip_ability_creep_buff_mega_bonus_damage"				"+$damage"
+		"DOTA_Tooltip_ability_creep_buff_mega_damage_reduction"			"+%INCOMING DAMAGE REDUCTION:"
 
 		"DOTA_Tooltip_ability_creep_siege_incoming_basic_damage_penalty"	"%NON-HERO BONUS ATTACK DAMAGE:"
 
@@ -1092,6 +1092,19 @@
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
+		// windrunner_whirlwind_custom 旋风（风行者 觉醒）
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom"												"<font color='#d000ff'>Whirlwind Awakened</font>"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Description"									"Focus Fire no longer requires a target, instead firing at random enemies within Windranger's attack range + %search_radius_bonus%. Fires a fixed number of attacks per second, prioritizing Heroes.\n\nLearning this ability causes casting Windrun to grant <font color='#d7ccc7'>invisibility</font> for the same duration. Attacking briefly reveals you before you turn invisible again. Moving does not break invisibility."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Lore"										"Where the gale blows, arrows rain without end."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note0"									"Whirlwind attacks can critically strike and trigger attack modifiers, but can also miss."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note1"									"A target cannot be selected again for the next %repeat_block_count% attacks unless no other target is available."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_Note2"									"Attacks pause while disarmed, stunned, hexed, or channeling. Buildings, wards, invulnerable, invisible, and unseen units are ignored."
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_duration"									"DURATION:"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_attacks_per_second"							"ATTACKS PER SECOND:"
+		"DOTA_Tooltip_ability_windrunner_whirlwind_custom_damage_reduction"								"%ATTACK DAMAGE REDUCTION:"
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom"										"Whirlwind"
+		"DOTA_Tooltip_modifier_windrunner_whirlwind_custom_Description"								"Performs <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> Whirlwind attacks per second with <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> reduced attack damage."
+
 		// ability_fate_roulette 命运轮盘
 		"DOTA_Tooltip_ability_ability_fate_roulette"                                           "<font color='#FFD700'>Fate Roulette</font>"
 		"DOTA_Tooltip_ability_ability_fate_roulette_Description"                               "The hero wagers against fate with every attack. After completing %attacks_before_proc% valid attacks, the next valid attack triggers one of the following fates against the target: <font color='#FFD76A'>Critical Strike</font>, <font color='#8FD7FF'>Stun</font> for %stun_duration% seconds, Continuous Dispel, Break, Root, or Mute for %effect_duration% seconds. Continuous Dispel immediately applies a basic dispel and repeats every %dispel_interval% seconds, removing only positive buffs from the target. Every roulette trigger also applies a basic dispel to the hero.<br>Casting the ability grants Destined Moment, causing every valid attack to trigger roulette without gaining, resetting, or consuming the stored attack count."
@@ -1188,9 +1201,9 @@
 
 		// Witch Doctor Divine Words - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by %spell_amp_ratio_pct%%% of his current Spell Amplification when summoned."
 		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>Divine Words Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by his current Spell Amplification when summoned."
+		"DOTA_Tooltip_modifier_special_bonus_unique_witch_doctor_upgrade_Description"		"By communing with the gods, Witch Doctor's Death Wards and Voodoo Switcheroo wards gain attack damage scaled by 50%%% of his current Spell Amplification when summoned."
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
@@ -1230,12 +1243,6 @@
 		"DOTA_Tooltip_ability_kunkka_torrent_storm"					"<font color='#d000ff'>Torrent Storm Awakened</font>"
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Description"		"Releases a Torrent in a random area within %torrent_max_distance% range of the target position once every %torrent_interval% for %torrent_duration% seconds."
 		"DOTA_Tooltip_ability_kunkka_torrent_storm_Lore"			"A hundred leagues of dry land couldn't keep these seas at bay."
-
-		// Windrunner Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>Windrun Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_windrunner_upgrade_Description"		"Casting Windrun grants <font color='#d7ccc7'>invisibility</font> for the same duration as Windrun. Attacking an enemy briefly reveals Windrunner before she fades back into invisibility. Moving does not break invisibility.<br>Powershot damage is increased by <font color='#FFFFFF'><b>100%%</b></font>."
-		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade"					"<font color='#d000ff'>Windrun Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_windrunner_upgrade_Description"		"Casting Windrun grants <font color='#d7ccc7'>invisibility</font> for the same duration as Windrun. Attacking an enemy briefly reveals Windrunner before she fades back into invisibility. Moving does not break invisibility.<br>Powershot damage is increased by <font color='#FFFFFF'><b>100%%</b></font>."
 
 		// Clockwerk Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
@@ -2452,7 +2459,7 @@
 		"DOTA_Tooltip_ability_item_adi_king"												"Advanced Phase Boots"
 		"DOTA_Tooltip_ability_item_adi_king_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Fast!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_Lore" 											"Gotta Go Fast!"
-		"DOTA_Tooltip_ability_item_adi_king_sp"												"+$move_speed"
+		"DOTA_Tooltip_ability_item_adi_king_sp"												"+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_adi_king_att"											"+$damage"
 		"DOTA_Tooltip_ability_item_adi_king_ar"												"+$armor"
 		"DOTA_Tooltip_ability_item_adi_king_bonus_evasion"									"%+$evasion"
@@ -2466,7 +2473,7 @@
 		"DOTA_Tooltip_ability_item_adi_king_plus"												"Advanced Phase Boots Plus"
 		"DOTA_Tooltip_ability_item_adi_king_plus_description"									"<h1><font color='#FFFF00'>Active: Gotta Go Faster!</font></h1>Gain %active_sp%%% movement speed for %dur% seconds. Allows you to exceed the movement speed limit and move anywhere, regardless of terrain. Applies a basic dispel when used.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span> \n<h1><font color='#FFFF00'>Passive: Speed Aura</font></h1>Grants %aura_sp%%% extra movement speed to all allied units within %aura_rd% radius."
 		"DOTA_Tooltip_ability_item_adi_king_plus_Lore" 											"Gotta Go Faster!"
-		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+$move_speed"
+		"DOTA_Tooltip_ability_item_adi_king_plus_sp"											"+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_adi_king_plus_att"											"+$damage"
 		"DOTA_Tooltip_ability_item_adi_king_plus_ar"											"+$armor"
 		"DOTA_Tooltip_ability_item_adi_king_plus_bonus_evasion"									"%+$evasion"
@@ -2824,7 +2831,7 @@
 		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%."
 
 		// 神器魔武双修
-		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"						"<font color='#e03e2e'>Artifact: Revenant's Brooch</font>"
+		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"						"Artifact: Revenant's Brooch"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>Passive: Phantom Critical</h1>Grants each attack a %crit_chance%%% chance to deal an additional %crit_multiplier%%% of the attack's damage as bonus magic damage."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note0"						"Counts as a Critical Strike for purposes of stacking with other sources of Critical Strike."
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Note1"						"Phantom Critical does not work against buildings."
@@ -2878,14 +2885,15 @@
 		"DOTA_Tooltip_ability_item_blessing_of_dragon_bonus_all_stats"					"+$all"
 
 		// item_blessing_of_dragon_1 神龙赐福·不死
-		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9f5f9f'>Dragon's Blessing of Immortality</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9f5f9f'>Passive: Immortality</font></h1>Self-explanatory.\nShareable with teammates."
+		"DOTA_Tooltip_Ability_item_blessing_of_dragon_1"				"<font color='#9F5F9F'>Dragon's Blessing of Immortality</font>"
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Description"		"<h1><font color='#9F5F9F'>Passive: Immortality</font></h1>You enter the green Immortality spirit state.\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_1_Note0"			"Culling Blade cannot be cast on you while this is active."
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active"			"<font color='#9f5f9f'>Immortality</font>"
 		"DOTA_Tooltip_modifier_item_helm_of_the_undying_active_Description"			"<font color='#FFFF00'>You are immortal! For now anyway...</font>"
 
 		// item_blessing_of_dragon_2 神龙赐福·毁灭
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_2"				"<font color='#9f5f9f'>Dragon's Blessing of Destruction</font>"
-		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Feeling tired? Let's bring destruction upon the world.\nShareable with teammates."
+		"DOTA_Tooltip_ability_item_blessing_of_dragon_2_Description"		"<h1>Active: World Destruction</h1>Instantly kills all enemy heroes and basic units on the map, bypassing damage immunity, magic immunity, invulnerability, and death prevention. Restores 1 charge every %AbilityChargeRestoreTime% seconds.\nShareable with teammates."
 
 		// item_blessing_of_dragon_3 神龙赐福·时间
 		"DOTA_Tooltip_Ability_item_blessing_of_dragon_3"				"<font color='#9f5f9f'>Dragon's Blessing of Time</font>"
@@ -3050,35 +3058,35 @@
 		// 融合符文系列
 		// 鹰眼符文
 		"DOTA_Tooltip_ability_item_fusion_hawkeye"										"Hawkeye Rune"
-		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_hawkeye_Description"							"A mysterious fusion rune containing the power of hawkeye. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Hawkeye Turret, Hawkeye Fighter"
 
 		// 禁忌符文
 		"DOTA_Tooltip_ability_item_fusion_forbidden"									"Forbidden Rune"
-		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_forbidden_Description"						"A mysterious fusion rune containing forbidden power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Forbidden Staff, Forbidden Blade"
 
 		// 暴虐符文
 		"DOTA_Tooltip_ability_item_fusion_brutal"										"Brutal Rune"
-		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_brutal_Description"							"A mysterious fusion rune containing brutal power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Guihai Blade, Dragon Dance"
 
 		// 兽化符文
 		"DOTA_Tooltip_ability_item_fusion_beast"										"Beast Rune"
-		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_beast_Description"							"A mysterious fusion rune containing beastly power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Beast Shield, Beast Armor"
 
 		// 生命符文
 		"DOTA_Tooltip_ability_item_fusion_life"											"Life Rune"
-		"DOTA_Tooltip_ability_item_fusion_life_Description"								"A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_life_Description"								"A mysterious fusion rune containing life power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Withered Spring, Dracula Mask"
 
 		// 暗影符文
 		"DOTA_Tooltip_ability_item_fusion_shadow"										"Shadow Rune"
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact"
 
 		// 魔化符文
 		"DOTA_Tooltip_ability_item_fusion_magic"										"Magic Rune"
-		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Sword, Time Gem\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_magic_Description"							"A mysterious fusion rune containing arcane power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Magic Sword, Time Gem"
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords\n\n<font color='#70B0FF'>Stock Refresh Time: First at 9 minutes, replenished every 3 minutes</font>"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
@@ -3103,7 +3111,7 @@
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Description"      "<h1><font color='#FFFF00'>Active: Humanoid Fighter</font></h1>Take to the air and soar, gaining flying vision and movement for %active_duration% seconds with %active_movement_speed_pct%%% bonus movement speed and a removed movement speed cap. Applies a dispel on use.<br><br>Cooldown: %AbilityCooldown% seconds<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_Lore"             "Transform into a fighter, soaring through the skies, unmatched by anyone."
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_all_stats"  "+$all"
-		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+$move_speed"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct" "%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"  "%+Turn Rate"
 
@@ -3161,9 +3169,9 @@
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"                   "Dragon Breath"
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"       "Gains extra intelligence spell amplification."
 
-		// Withered Spring (枯木逢春)
+		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. Instantly heals %instant_heal% health and grants %bonus_armor_active% armor, %bonus_regen_active% health regeneration, %damage_reduction%%% damage reduction, and %status_resistance_active%%% status resistance for %active_duration% seconds.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span><br><br><h1>Passive: Vitality</h1>Grants %health_regen_pct%%% of max health as health regeneration."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor, %bonus_regen_active% health regeneration, %status_resistance_active%%% status resistance, and %damage_reduction%%% damage reduction.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. No single instance of damage can reduce health below 1, so it can never be killed outright."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"                       "From withered wood, spring blooms anew."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"             "+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"               "+$health"
@@ -3173,23 +3181,34 @@
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"              "%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"          "%+Status Resistance"
 		"DOTA_Tooltip_ability_item_withered_spring_magic_resistance"           "%+$spell_resist"
+		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Fully immune to damage and debuffs during the active effect."
+		"DOTA_Tooltip_ability_item_withered_spring_Note1"                      "Enters cooldown after triggering automatically."
+
+		"DOTA_Tooltip_modifier_item_withered_spring_active"                    "Withering Bloom"
+		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Damage reduction and increased resistance. Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and +%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance."
 
 		// Dracula Mask (德古拉面罩)
 		"DOTA_Tooltip_Ability_item_dracula_mask"                               "Dracula's Mask"
-		"DOTA_Tooltip_ability_item_dracula_mask_Description"                   "<h1>Passive: Vampiric Feast</h1>Automatically triggers when health falls below %hp_threshold%%%. Increases lifesteal to %lifesteal_active%%%, spell lifesteal to %spell_lifesteal_active%%%, grants +%bonus_attack_speed_active% attack speed, +%bonus_movement_speed_active%%% movement speed, %damage_reduction%%% damage reduction, and %status_resistance_active%%% status resistance for %active_duration% seconds.<br><br><h1>Passive: Lifesteal</h1>Heals the attacker for %lifesteal_percent%%% of attack damage dealt.<br><br><h1>Passive: Spell Lifesteal</h1>Heals for %spell_lifesteal%%% of spell damage dealt."
+		"DOTA_Tooltip_ability_item_dracula_mask_Description"                   "<h1>Active: Vampiric Feast</h1>Dispels all negative effects and grants the following for %active_duration% seconds:<br>%lifesteal_active%%% lifesteal<br>%spell_lifesteal_active%%% spell lifesteal<br>+%bonus_attack_speed_active% attack speed<br>+%bonus_movement_speed_active%%% movement speed<br>%damage_reduction%%% damage reduction<br>Slow immunity<br><br>Automatically triggers when health falls below %hp_threshold%%%.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>"
 		"DOTA_Tooltip_ability_item_dracula_mask_Lore"                          "The mask of the immortal vampire lord."
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_strength"                "+$str"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health"                  "+$health"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_damage"                  "+$damage"
 		"DOTA_Tooltip_ability_item_dracula_mask_lifesteal_percent"             "%+Lifesteal"
 		"DOTA_Tooltip_ability_item_dracula_mask_spell_lifesteal"               "%+Spell Lifesteal"
-		"DOTA_Tooltip_ability_item_dracula_mask_bonus_movement_speed"          "+$move_speed"
+		"DOTA_Tooltip_ability_item_dracula_mask_bonus_movement_speed"          "%+$move_speed"
+		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health_regen"            "+$hp_regen"
+		"DOTA_Tooltip_ability_item_dracula_mask_Note0"                         "Immune to slows and gains 30% damage reduction during the active effect."
+		"DOTA_Tooltip_ability_item_dracula_mask_Note1"                         "Enters cooldown after triggering automatically."
+		"DOTA_Tooltip_ability_item_dracula_mask_Note2"                         "The passive physical and spell lifesteal effects are always active."
+
+		"DOTA_Tooltip_modifier_item_dracula_mask_active"                       "Vampiric Feast"
+		"DOTA_Tooltip_modifier_item_dracula_mask_active_Description"           "Increases lifesteal to %dMODIFIER_PROPERTY_TOOLTIP%%%, spell lifesteal to %dMODIFIER_PROPERTY_TOOLTIP2%%%, attack speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%, and movement speed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. Reduces damage taken by 30% and grants slow immunity."
 
 		// Shadow Judgment (暗影裁决)
 		"DOTA_Tooltip_Ability_item_shadow_judgment"                            "Shadow Judgment"
-		"DOTA_Tooltip_ability_item_shadow_judgment_Description"                "<h1>Active: Judgment</h1>Stuns the target for %stun_duration% seconds, dealing %active_damage_base% base damage plus %active_damage_multi%%% of your primary attribute as pure damage, before then applying multiple debuffs:<br><br>- Mutes and silences for %mute_duration% seconds<br>- Slows movement by %slow_pct%%% and attack speed by %attack_slow%<br>- Deals %max_hp_dmg_pct%%% of max HP as damage per second<br>- Reduces healing by %hp_regen_reduction%%%<br>- Silences for %silence_duration% seconds, causing attacks to deal %silence_damage_percent%%% bonus damage<br>Pierces debuff immunity."
+		"DOTA_Tooltip_ability_item_shadow_judgment_Description"                "<h1>Active: Shadow Trial</h1>Afflicts the target with Shadow Trial, fusing all debuff effects from Flash, Blue Fantasy, and Ultra Bloodthorn.<br><br>Flash: Blinks behind the target and stuns for %stun_duration% seconds, dealing %active_damage_base%+%active_damage_multi%x[Primary Attribute] pure damage<br>Blue Fantasy: Continuously dispels buffs, disables items and passives for %mute_duration% seconds, slows by %slow_pct%%%, reduces attack speed by %attack_slow%, deals %max_hp_dmg_pct%%% max health as pure damage per second, and reduces healing by %hp_regen_reduction%%%<br>Ultra Bloodthorn: Silences for %silence_duration% seconds, dealing %silence_damage_percent%%% of damage taken during that time as bonus magic damage on expiry<br><br>Cast Range: %abilitycastrange%"
 		"DOTA_Tooltip_ability_item_shadow_judgment_Lore"                       "The shadow's judgment is absolute."
-		"DOTA_Tooltip_ability_item_shadow_judgment_Note0"						"Max health damage is not affected by Spell Damage."
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_strength"             "+$str"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_agility"              "+$agi"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_intellect"            "+$int"
@@ -3199,6 +3218,9 @@
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_health"               "+$health"
 		"DOTA_Tooltip_ability_item_shadow_judgment_bonus_mana_regen"           "+$mana_regen"
 		"DOTA_Tooltip_ability_item_shadow_judgment_spell_amp"                  "%+$spell_amp"
+		"DOTA_Tooltip_ability_item_shadow_judgment_Note0"                      "The Flash effect deals pure damage, ignoring spell immunity."
+		"DOTA_Tooltip_ability_item_shadow_judgment_Note1"                      "The Blue Fantasy effect continuously dispels buffs on the target."
+		"DOTA_Tooltip_ability_item_shadow_judgment_Note2"                      "The Blue Fantasy max health damage is not affected by Spell Amplification."
 
 		// Shadow Impact (暗影咒灭)
 		"DOTA_Tooltip_Ability_item_shadow_impact"                              "<font color='#C77DFF'>Shadow Impact</font>"
@@ -3226,7 +3248,6 @@
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"             "+$attack"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_damage"                   "+$damage"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_armor"                    "+$armor"
-		"DOTA_Tooltip_ability_item_swift_glove_bat_reduction_pct"				"%+$bat_reduction_pct"
 
 		// Ten Thousand Swords (万剑归宗)
 		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"Ten Thousand Swords"
@@ -3352,6 +3373,19 @@
 
 		// 藏宝箱
 		"npc_treasure_chest"											"Treasure Chest"
+
+		// item_six_paths_reincarnation_gun
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun"                                  "Six Paths Reincarnation Gun"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Description"                       "<h1>Active: Six Paths Rotation</h1>For %active_duration% seconds, each attack is independently converted into one of the following damage types:<br>- Physical damage<br>- Magical damage<br>- Pure damage<br>Critical strike damage is also converted. Split arrows and similar additional attacks roll their damage type separately. Converted damage is not affected by spell amplification.\n<h1>Passive: Samsara Scatter</h1>Each attack deals bonus damage to other enemies within %attack_radius% of the target equal to %attack_percent%%% of that attack's damage. The bonus damage is calculated after critical strikes, but before the target's armor, magic resistance, and other damage reductions.<br>Each proc randomly deals one of the following:<br>- Physical damage<br>- Magical damage<br>- Pure damage<br>Samsara Scatter bonus damage is not affected by spell amplification.<br>All shotgun effects share a %internal_cooldown% second attacker-wide internal cooldown, preventing simultaneous split arrows from producing many splash procs from a single attack.\n<h1>Passive: Mage Slayer</h1>Attacks reduce the target's ability and item damage by %mage_slayer_spell_damage_reduction%%% for %mage_slayer_duration% seconds. While affected, the target takes the following each second:<br>- %mage_slayer_damage_per_type% physical damage<br>- %mage_slayer_damage_per_type% magical damage<br>- %mage_slayer_damage_per_type% pure damage<br>The damage over time is not affected by spell amplification."
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Lore"                             "Six chambers turn; all three realms return as one."
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_bonus_damage"                     "+$damage"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_attack_speed"                     "+$attack"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_spell_lifesteal"                  "%+$spell_lifesteal"
+		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_bonus_magic_resistance"           "%+$spell_resist"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active"                          "Six Paths Rotation"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "Each attack is independently converted to physical, magical, or pure damage. Converted damage is not affected by spell amplification."
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "Mage Slayer"
+		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "Ability and item damage dealt is reduced by 30%, while taking physical, magical, and pure damage over time. The damage over time is not affected by spell amplification."
 
 	}
 }

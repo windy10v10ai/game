@@ -496,40 +496,27 @@
 	}
 	"item_blessing_of_dragon_2"
 	{
-		"BaseClass"                     "item_blood_grenade"
-		"ID"						    "9627"
-		"AbilityTextureName"            "item_blessing_of_dragon_2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityCastRange"				"99999"
+		"BaseClass"						"item_lua"
+		"ScriptFile"					"items/ts_items/item_blessing_of_dragon"
+		"ID"							"9627"
+		"AbilityTextureName"			"item_blessing_of_dragon_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastPoint"				"0"
 		"AbilityHealthCost"				"0"
-		"AbilityCooldown"				"180"
+		"AbilityCooldown"				"0"
+		"AbilityCharges"				"2"
+		"AbilityChargeRestoreTime"		"120"
 		"ItemCost"						"0"
 		"ItemStackable"					"0"
-		"ItemInitialCharges"			"8"
-		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"
+		"ItemRequiresCharges"			"1"
+		"ItemDisplayCharges"			"1"
+		"ItemPermanent"					"1"
 		"IsTempestDoubleClonable"		"0"
 		"ItemPurchasable"				"1"
 		"ItemKillable"					"0"
-		"ItemSellable"				    "0"
-        "ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"AbilityValues"
-		{
-			"speed"					"99999"
-			"radius"
-			{
-				"value"		"99999"
-				"affected_by_aoe_increase"	"1"
-			}
-			"movespeed_slow"		"-100"
-			"bonus_health"			"0"
-			"damage_over_time"		"0"
-			"impact_damage"			"99999"
-			"tick_rate"				"1"
-			"debuff_duration"		"1"
-		}
+		"ItemSellable"					"0"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
 	}
 	// 神龙赐福·时间
 	"item_recipe_blessing_of_dragon_3"
@@ -657,10 +644,6 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"0"
-		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
-		"ItemStockTime"					"240"
 
 		"AbilityValues"
 		{
@@ -698,10 +681,6 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"0"
-		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
-		"ItemStockTime"					"240"
 
 		"AbilityValues"
 		{

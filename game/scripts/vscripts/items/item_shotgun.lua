@@ -60,6 +60,7 @@ function modifier_item_shotgun:GetModifierProcAttack_Feedback(keys)
 	-- if item in cooldown then return end
 	if keys.attacker:HasModifier("modifier_item_shotgun_cooldown") then return end
 	if keys.attacker:HasModifier("modifier_item_shotgun_v2_cooldown") then return end
+	if keys.attacker:HasModifier("modifier_item_six_paths_reincarnation_gun_cooldown") then return end
 
 	local ability = self:GetAbility()
 	local target_loc = keys.target:GetAbsOrigin()
