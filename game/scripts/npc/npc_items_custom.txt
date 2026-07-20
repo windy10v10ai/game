@@ -5292,53 +5292,6 @@
 	}
 
 	//=================================================================================================================
-	// 神器永恒虚灵刀
-	//=================================================================================================================
-	"item_recipe_ethereal_blade_ultra"
-	{
-		"BaseClass"						"item_recipe_ethereal_blade"
-		"ItemCost"						"600"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_ethereal_blade_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_ethereal_blade;item_ethereal_blade"
-		}
-	}
-	"item_ethereal_blade_ultra"
-	{
-		"BaseClass"						"item_ethereal_blade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"900"	//800
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"16.0"	//22
-		"AbilitySharedCooldown"			"ethereal"
-		"AbilityManaCost"				"400"	//100
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"			"ethereal_blade_ultra"
-		"AbilityValues"
-		{
-				"bonus_agility"			"50"	//24
-				"bonus_strength"		"50"	//24
-				"bonus_intellect"		"50"	//24
-
-				"blast_movement_slow"	"-100"	//-80
-				"duration"				"1.5"		//4
-				"blast_stat_multiplier"		"1.0"	//1.0
-				"blast_damage_base"			"200"//50
-				"duration_ally"				"6"	//4.0
-				"ethereal_damage_bonus"	"-60"	//-30
-				"projectile_speed"	"2000"		//1400
-		}
-	}
-	//=================================================================================================================
 	// 法师泳衣
 	//=================================================================================================================
 	"item_recipe_eternal_shroud_ultra"
@@ -6487,9 +6440,9 @@
 		}
 	}
 	//=================================================================================================================
-	// 暗影咒灭
+	// 暗影法杖
 	//=================================================================================================================
-	// 达贡之神力+永恒虚灵之刃+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
+	// 达贡之神力+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
 	"item_recipe_shadow_impact"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6504,7 +6457,7 @@
 		"ItemResult"				"item_shadow_impact"
 		"ItemRequirements"
 		{
-			"01"					"item_dagon_5;item_ethereal_blade_ultra;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
+			"01"					"item_dagon_5;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
 		}
 	}
 
@@ -6513,7 +6466,7 @@
 		"BaseClass"					"item_lua"
 		"ID"						"10314"
 		"ScriptFile"				"items/item_shadow_impact"
-		"AbilityTextureName"		"anyingchongji"
+		"AbilityTextureName"		"shadow_impact"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -6542,11 +6495,6 @@
 			"sheep_duration"			"1.5"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
-			"ethereal_duration"			"4.0"	// Lua 逻辑需要 - 虚灵持续时间
-			"blast_agility_multiplier"	"2.5"	// Lua 逻辑需要 - 虚灵之刃主属性倍数
-			"blast_damage_base"			"300"	// Lua 逻辑需要 - 虚灵之刃基础伤害
-			"blast_movement_slow"		"-80"	// Lua 逻辑需要 - 虚灵减速百分比
-			"ethereal_damage_bonus"		"40"	// Lua 逻辑需要 - 虚灵伤害加成
 			"absolute_damage"
 			{
 				"value"					"600"
@@ -6570,7 +6518,6 @@
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
-			"particle"					"particles/items2_fx/ethereal_blade.vpcf"
 		}
 	}
 

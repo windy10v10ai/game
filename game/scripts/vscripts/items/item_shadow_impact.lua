@@ -18,13 +18,10 @@ function item_shadow_impact:OnSpellStart()
     -- 1. 达贡能量冲击
     self:ApplyDagonEffect(target)
 
-    -- 2. 虚灵之刃效果
-    self:ApplyEtherealBladeEffect(target)
-
-    -- 3. 死灵法杖效果 (伤害+变羊)
+    -- 2. 死灵法杖效果 (伤害+变羊)
     self:ApplyNecrolyteEffect(target)
 
-    -- 4. 绝刃效果 (额外纯粹伤害)
+    -- 3. 绝刃效果 (额外纯粹伤害)
     self:ApplyAbsoluteDamage(target)
 
     -- 主特效
@@ -62,38 +59,6 @@ function item_shadow_impact:ApplyDagonEffect(target)
     -- 使用更强的音效
     EmitSoundOn("Hero_Lion.FingerOfDeath", target)
     EmitSoundOn("Hero_Zuus.LightningBolt", target) -- 添加雷击音效增强冲击感
-end
-
-function item_shadow_impact:ApplyEtherealBladeEffect(target)
-    local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("ethereal_duration") * (1 - target:GetStatusResistance())
-
-    -- 计算虚灵之刃伤害
-    local primary_stat = 0
-    if caster:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
-        primary_stat = caster:GetStrength()
-    elseif caster:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
-        primary_stat = caster:GetAgility()
-    elseif caster:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then
-        primary_stat = caster:GetIntellect(false)
-    end
-
-    local damage = self:GetSpecialValueFor("blast_damage_base") +
-        primary_stat * self:GetSpecialValueFor("blast_agility_multiplier")
-
-    ApplyDamage({
-        victim = target,
-        attacker = caster,
-        damage = damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = self
-    })
-
-    -- 添加虚灵状态
-    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_ethereal", { duration = duration })
-    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_slow", { duration = duration })
-
-    EmitSoundOn("DOTA_Item.EtherealBlade.Activate", caster)
 end
 
 function item_shadow_impact:ApplyNecrolyteEffect(target)

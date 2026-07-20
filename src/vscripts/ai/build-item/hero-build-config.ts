@@ -1173,7 +1173,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_forbidden_staff', // 禁忌法锤
         'item_ten_thousand_swords', // 万剑归宗
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_beast_shield', // 兽化盾
         'item_withered_spring', // 生命之心
         'item_dracula_mask', // 生命之盔
@@ -1241,7 +1241,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_ten_thousand_swords', // 万剑归宗
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_forbidden_staff', // 禁忌法锤
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
@@ -1294,7 +1294,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_blink', // 爱因斯坦闪光
         'item_hallowed_scepter', // 仙云法杖
         'item_necronomicon_staff', // 死灵法杖
-        'item_ethereal_blade_ultra', // 神器·永恒虚灵之刃
         'item_blue_fantasy', // 苍蓝幻想
         'item_refresh_core', // 熔火核心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
@@ -1308,7 +1307,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_time_gem', // 时间宝石
         'item_forbidden_staff', // 禁忌法锤
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_ten_thousand_swords', // 万剑归宗
         'item_withered_spring', // 生命之心
         'item_hawkeye_turret', // 鹰眼炮台
@@ -1378,7 +1377,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hawkeye_turret', // 鹰眼炮台
         'item_ten_thousand_swords', // 万剑归宗
         'item_forbidden_staff', // 禁忌法锤
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
         'item_withered_spring', // 生命之心
@@ -1443,7 +1442,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_forbidden_staff', // 禁忌法锤
         'item_ten_thousand_swords', // 万剑归宗
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
       ],
     },
   },
@@ -2299,7 +2298,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_ten_thousand_swords', // 万剑
         'item_forbidden_staff', // 禁忌法杖
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_beast_shield', // 兽化盾
       ],
     },
@@ -2360,7 +2359,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_withered_spring', // 生命之心
         'item_beast_shield', // 兽化盾
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_hawkeye_turret', // 鹰眼炮台
       ],
     },
@@ -2546,7 +2545,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_ten_thousand_swords', // 万剑归宗
         'item_magic_crit_blade', // 魔龙狂舞
         'item_withered_spring', // 生命之心
@@ -2621,7 +2620,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_forbidden_staff', // 禁忌法锤
         'item_dracula_mask', // 生命之盔
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
       ],
     },
   },
@@ -2737,7 +2736,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hawkeye_turret', // 鹰眼炮台
         'item_withered_spring', // 生命之心
         'item_ten_thousand_swords', // 万剑归宗
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
