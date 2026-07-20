@@ -1017,13 +1017,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 11600,
     baseItems: ['item_black_king_bar'],
   },
-  item_ethereal_blade_ultra: {
-    name: 'item_ethereal_blade_ultra',
-    nameCN: '神器·永恒虚灵之刃',
-    tier: ItemTier.T4,
-    cost: 12000,
-    baseItems: ['item_ethereal_blade'],
-  },
   item_skadi_2: {
     name: 'item_skadi_2',
     nameCN: '粘妈之眼',
@@ -1258,7 +1251,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_shadow_judgment',
     nameCN: '暗影裁决',
     tier: ItemTier.T5,
-    cost: 57175,
+    cost: 47175,
     baseItems: ['item_abyssal_blade_v2'],
   },
   item_dracula_mask: {
@@ -1300,9 +1293,9 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   },
   item_shadow_impact: {
     name: 'item_shadow_impact',
-    nameCN: '暗影咒灭',
+    nameCN: '暗影法杖',
     tier: ItemTier.T5,
-    cost: 65249,
+    cost: 40400,
   },
   item_hawkeye_turret: {
     name: 'item_hawkeye_turret',
