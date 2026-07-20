@@ -370,7 +370,7 @@
 			"unholy_bonus_strength"	"300"
 			"unholy_bonus_armor"	"48"
 			"unholy_bonus_slow_resistance"	"90"	// x2 不能超过100
-			"unholy_health_drain_per_second"	"900"
+			"unholy_health_drain_per_second"	"360"	// 45 x8
 			"toggle_cooldown"		"0.036"
 		}
 	}
@@ -741,7 +741,7 @@
 
 			"poison_duration"				"3"
 			"poison_base_damage"			"0"
-			"poison_damage_per_second"		"10"	// 6
+			"poison_damage_per_second"		"6"		// 5
 		}
 	}
 
