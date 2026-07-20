@@ -1620,11 +1620,11 @@
 		"AbilityCooldown"				"60.0 65.0 70.0 75.0 80.0"
 
 		"ItemCost"						"6000"
-		"ItemShopTags"					"str;regen_health;health_pool"
+		"ItemShopTags"					"str;regen_health;health_pool;escape;tank"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"ad;aeon disk"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-		"ShouldBeSuggested"				"1"
+		"SuggestLategame"				"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1637,6 +1637,7 @@
 				"buff_duration"		"3"
 				"max_level"		"5"
 				"cooldown_duration"		"60.0 65.0 70.0 75.0 80.0"
+				"initial_cooldown"		"6"
 		}
 	}
 	//=================================================================================================================
