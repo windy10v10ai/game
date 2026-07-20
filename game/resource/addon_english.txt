@@ -3206,16 +3206,22 @@
 
 		// Shadow Staff (暗影法杖)
 		"DOTA_Tooltip_Ability_item_shadow_impact"                              "Shadow Staff"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes to it<br>- Deals %absolute_damage% additional pure damage<br><br>Cast Range: %abilitycastrange%<br>Pierces debuff immunity."
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes to it<br><br>Cast Range: %abilitycastrange%<br>Cooldown: %active_cooldown%s<br>Pierces debuff immunity.\n<h1>Passive: Empower Spell</h1>The next Unit Target spell you cast on an enemy deals a separate %bonus_spell_damage% additional damage, disables their passives, and slows their movement speed by %slow%%% for %slow_duration%s.<br><br>Cooldown: %passive_cooldown%s."
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"                         "The shadow's curse brings annihilation."
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"              "+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"               "+$str"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_agility"                "+$agi"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_damage"                 "+$damage"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_health"                 "+$health"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_health_regen"           "+$hp_regen"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana"                   "+$mana"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana_regen"             "+$mana_regen"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_all_stats"              "+$all"
 		"DOTA_Tooltip_ability_item_shadow_impact_spell_amp"                    "%+$spell_amp"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_cast_range"             "+$cast_range"
+		"DOTA_Tooltip_ability_item_shadow_impact_Note0"                        "The Necronomicon Blast transforms the target into a harmless critter, unable to attack, cast spells, or use items."
+		"DOTA_Tooltip_ability_item_shadow_impact_Note1"                        "The Empower Spell slow debuff is dispellable."
+		"DOTA_Tooltip_ability_item_shadow_impact_Note2"                        "The Empower Spell break debuff is not dispellable."
 
 		"DOTA_Tooltip_modifier_shadow_impact_sheep"									"Necronomicon Blast"
 		"DOTA_Tooltip_modifier_shadow_impact_sheep_Description"						"Transformed into a critter. Cannot attack, cast spells, or use items. Reduce magic resistance (flat)."

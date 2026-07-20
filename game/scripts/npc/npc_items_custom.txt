@@ -6479,7 +6479,7 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"10"
+		"AbilityCooldown"			"3"	// 被动冷却，主动冷却见 active_cooldown
 		"AbilityManaCost"			"800"
 		"AbilityCastRange"			"900"
 		"AbilityCastPoint"			"0.2"
@@ -6487,9 +6487,10 @@
 		"AbilityValues"
 		{
 			// 主动技能参数（Lua 逻辑需要）
+			"active_cooldown"			"9"	// Lua 逻辑需要 - 主动施法冷却
 			"dagon_damage"
 			{
-				"value"					"800"
+				"value"					"2100"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
@@ -6497,19 +6498,23 @@
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
-			"absolute_damage"
-			{
-				"value"					"600"
-				"CalculateSpellDamageTooltip"	"1"
-			}
+
+			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）
+			"bonus_health"				"600"	// 绝刃自身加成
+			// "bonus_health_regen"		"7"		// 绝刃自身加成
+			"bonus_mana"				"1500"
+			"bonus_mana_regen"			"30"
+			// "bonus_all_stats"			"25"	// 绝刃自身加成
+			"slow"						"50"	// 绝刃减速
+			"slow_duration"				"4"		// 绝刃减速持续时间
+			"bonus_spell_damage"		"900"	// 绝刃法术伤害加成
+			"passive_cooldown"			"3"		// 绝刃自身充能冷却
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_intellect"			"200"	// tooltip only - 智力
 			"bonus_strength"			"80"	// tooltip only - 力量
 			"bonus_agility"				"120"	// tooltip only - 敏捷
 			"bonus_damage"				"250"	// tooltip only - 攻击力
-			"bonus_mana"				"1500"	// tooltip only - 魔法值
-			"bonus_mana_regen"			"30"	// tooltip only - 魔法回复
 			"spell_amp"					"60"	// tooltip only - 技能增强
 
 			// Lua 逻辑需要 - 施法距离（不在可优化列表）

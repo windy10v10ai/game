@@ -21,8 +21,8 @@ function item_shadow_impact:OnSpellStart()
     -- 2. 死灵法杖效果 (伤害+变羊)
     self:ApplyNecrolyteEffect(target)
 
-    -- 3. 绝刃效果 (额外纯粹伤害)
-    self:ApplyAbsoluteDamage(target)
+    -- 3. 绝刃被动 (法术强化：额外法术伤害+减速+破坏被动技能)
+    self:ApplyAngelsDemiseEffect(target)
 
     -- 主特效
     local particle = ParticleManager:CreateParticle(
@@ -31,6 +31,10 @@ function item_shadow_impact:OnSpellStart()
         target
     )
     ParticleManager:ReleaseParticleIndex(particle)
+
+    -- AbilityCooldown 是被动冷却，这里覆盖成吃冷却缩减的主动真实冷却
+    local cooldown = self:GetSpecialValueFor("active_cooldown")
+    self:StartCooldown(cooldown * caster:GetCooldownReduction())
 end
 
 function item_shadow_impact:ApplyDagonEffect(target)
@@ -58,7 +62,6 @@ function item_shadow_impact:ApplyDagonEffect(target)
 
     -- 使用更强的音效
     EmitSoundOn("Hero_Lion.FingerOfDeath", target)
-    EmitSoundOn("Hero_Zuus.LightningBolt", target) -- 添加雷击音效增强冲击感
 end
 
 function item_shadow_impact:ApplyNecrolyteEffect(target)
@@ -84,17 +87,13 @@ function item_shadow_impact:ApplyNecrolyteEffect(target)
     EmitSoundOn("DOTA_Item.Sheepstick.Activate", target)
 end
 
-function item_shadow_impact:ApplyAbsoluteDamage(target)
+function item_shadow_impact:ApplyAngelsDemiseEffect(target)
     local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("absolute_damage")
+    local duration = self:GetSpecialValueFor("slow_duration") * (1 - target:GetStatusResistance())
 
-    ApplyDamage({
-        victim = target,
-        attacker = caster,
-        damage = damage,
-        damage_type = DAMAGE_TYPE_PURE,
-        ability = self
-    })
+    -- 借用的原生充能被动不保证自动触发，主动连招里手动补挂目标 debuff
+    target:AddNewModifier(caster, self, "modifier_item_angels_demise_slow", { duration = duration })
+    target:AddNewModifier(caster, self, "modifier_item_angels_demise_break", { duration = duration })
 end
 
 -- 被动modifier
@@ -125,12 +124,19 @@ function modifier_item_shadow_impact:OnRefresh(params)
 
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+
+        -- 借用绝刃原生被动（法术强化：下个单体技能附加伤害+破坏+减速）
+        local parent = self:GetParent()
+        local ability = self:GetAbility()
+        parent:RemoveModifierByName("modifier_item_angels_demise")
+        parent:AddNewModifier(parent, ability, "modifier_item_angels_demise", {})
     end
 end
 
 function modifier_item_shadow_impact:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+        self:GetParent():RemoveModifierByName("modifier_item_angels_demise")
     end
 end
 
