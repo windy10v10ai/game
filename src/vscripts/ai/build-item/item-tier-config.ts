@@ -951,7 +951,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_six_paths_reincarnation_gun: {
     name: 'item_six_paths_reincarnation_gun',
     nameCN: '六道轮回枪',
-    tier: ItemTier.T4,
+    tier: ItemTier.T5, // 价格贴近T4上限，按强度定位手动归入T5
     cost: 30000,
     baseItems: ['item_shotgun_v2', 'item_revenants_brooch_ultra', 'item_mage_slayer'],
   },
