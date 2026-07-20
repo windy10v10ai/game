@@ -10694,7 +10694,7 @@
 			}
 			"strength_for_one_pct"
 			{
-				"value"				"30"
+				"value"				"50"
 			}
 		}
 	}
