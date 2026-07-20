@@ -6490,7 +6490,7 @@
 			"active_cooldown"			"15"	// Lua 逻辑需要 - 主动施法冷却
 			"dagon_damage"
 			{
-				"value"					"2100"
+				"value"					"1800"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
