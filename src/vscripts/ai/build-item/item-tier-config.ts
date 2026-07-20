@@ -1251,7 +1251,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_shadow_judgment',
     nameCN: '暗影裁决',
     tier: ItemTier.T5,
-    cost: 57175,
+    cost: 47175,
     baseItems: ['item_abyssal_blade_v2'],
   },
   item_dracula_mask: {
@@ -1295,7 +1295,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_shadow_impact',
     nameCN: '暗影法杖',
     tier: ItemTier.T5,
-    cost: 53249,
+    cost: 40400,
   },
   item_hawkeye_turret: {
     name: 'item_hawkeye_turret',

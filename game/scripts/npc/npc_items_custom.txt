@@ -5468,7 +5468,7 @@
 		"AbilityTextureName"		"fusion_shadow"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -6479,8 +6479,8 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"8"
-		"AbilityManaCost"			"1600"
+		"AbilityCooldown"			"10"
+		"AbilityManaCost"			"800"
 		"AbilityCastRange"			"900"
 		"AbilityCastPoint"			"0.2"
 
@@ -6492,8 +6492,9 @@
 				"value"					"800"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
-			"sheep_duration"			"1.5"	// Lua 逻辑需要 - 变形持续时间
+
+			"necrolyte_att_multiplier"	"1.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
 			"absolute_damage"
