@@ -7438,7 +7438,7 @@
 		"BaseClass"                     "item_datadriven"
 		"AbilityTextureName"            "item_recipe_six_paths_reincarnation_gun"
 		"Model"                         "models/props_gameplay/recipe.vmdl"
-		"ItemCost"                      "3900"
+		"ItemCost"                      "6900"
 		"ItemRecipe"                    "1"
 		"ItemResult"                    "item_six_paths_reincarnation_gun"
 		"ItemRequirements"
@@ -7462,7 +7462,7 @@
 		"AbilityCooldown"               "40"
 		"AbilityManaCost"               "300"
 
-		"ItemCost"                      "27000"
+		"ItemCost"                      "30000"
 		"ItemShopTags"                  "damage;attack_speed;magic_resist"
 		"ItemQuality"                   "artifact"
 		"ItemAliases"                   "six paths;reincarnation gun;samsara gun"
@@ -7484,13 +7484,14 @@
 			"attack_radius"                       "400"
 			"attack_percent"                      "45"
 			"internal_cooldown"                   "0.05"
+			"pure_damage_cap_multiplier"          "3"
 
 			"mage_slayer_duration"                "3"
 			"mage_slayer_spell_damage_reduction"  "30"
 			"mage_slayer_damage_per_type"         "90"
 			"mage_slayer_damage_interval"         "1"
 
-			"active_duration"                     "8"
+			"active_duration"                     "6"
 		}
 	}
 
