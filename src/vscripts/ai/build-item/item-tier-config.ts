@@ -1290,7 +1290,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_swift_glove',
     nameCN: '无限手套',
     tier: ItemTier.T5,
-    cost: 60099,
+    cost: 47300,
   },
   item_forbidden_blade: {
     name: 'item_forbidden_blade',
@@ -1314,14 +1314,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_withered_spring',
     nameCN: '生命之心',
     tier: ItemTier.T5,
-    cost: 50600,
+    cost: 52600,
     baseItems: ['item_undying_heart'],
   },
   item_magic_crit_blade: {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
-    cost: 57800,
+    cost: 47800,
     baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {
@@ -1355,13 +1355,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_switchable_crit_blade',
     nameCN: '归海一刀',
     tier: ItemTier.T5,
-    cost: 70000,
+    cost: 60000,
   },
   item_ten_thousand_swords: {
     name: 'item_ten_thousand_swords',
     nameCN: '万剑归宗',
     tier: ItemTier.T5,
-    cost: 87599,
+    cost: 67600,
   },
 };
 
