@@ -693,7 +693,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_blade_mail_2',
     nameCN: '刃甲2',
     tier: ItemTier.T3,
-    cost: 5700,
+    cost: 5800,
     baseItems: ['item_blade_mail'],
   },
   item_rapier: {
@@ -1321,7 +1321,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_beast_armor',
     nameCN: '兽化甲',
     tier: ItemTier.T5,
-    cost: 55900,
+    cost: 56000,
   },
   item_magic_sword: {
     name: 'item_magic_sword',

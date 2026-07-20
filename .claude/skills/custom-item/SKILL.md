@@ -81,15 +81,15 @@ export class ModifierItemMyNewItemPassive extends BaseItemModifier {
 
 KV `BaseClass` = `item_lua`，`ScriptFile` 指向 TSTL 编译产物路径。已有 51 个物品是历史遗留的**原生 Lua**（`game/scripts/vscripts/items/*.lua`，手写 `class({})` + `LinkLuaModifier`），不强制迁移，但新建一律走 TS。原生 Lua 写法仍可参考 `item_swift_glove.lua` 理解 hub 调用时机（`OnCreated` 必须先调 `OnRefresh`，`OnRefresh`/`OnDestroy` 都调 `RefreshItemDataDrivenModifier`）。
 
-**标准流程**：物品新增的 modifier 若是可见 buff/debuff（`IsHidden()` 为 `false`，比如主动技能生成的增益/减益），都应显式加一个 `GetTexture()` 覆盖，返回该物品自己的贴图文件名：
+**标准流程**：物品新增的 modifier 若是可见 buff/debuff（`IsHidden()` 为 `false`，比如主动技能生成的增益/减益），都应显式加一个 `GetTexture()` 覆盖，返回该物品的系统注册名：
 
 ```ts
 GetTexture(): string {
-  return 'my_new_item'; // 对应 items/<name>.png，不带 item_ 前缀
+  return 'item_my_new_item'; // 带 item_ 前缀，即该物品的注册名
 }
 ```
 
-`GetTexture()` 返回的是**贴图文件名本身**（对应 `spellicons/`/`items/` 下的实际 png，不带路径/扩展名），**不是**物品/技能的系统注册名（不带 `item_`/`ability_` 前缀）。
+`GetTexture()` 返回的是**物品/技能的系统注册名**（带 `item_`/`ability_` 前缀），引擎据此找到该物品 KV 的 `AbilityTextureName` 再定位 `spellicons/`/`items/` 下的实际 png，**不是**贴图文件名本身。
 
 手写 TS modifier 时容易踩的坑：`StartIntervalThink(interval)` 的**第一次** `OnIntervalThink` 会立即触发，不是等一个 interval 后才触发。若逻辑是"每隔 N 秒造成一次伤害/效果"，需要用一个标记跳过首次回调，否则创建瞬间就会多结算一次。
 
