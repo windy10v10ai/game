@@ -7,7 +7,7 @@ import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 @reloadable
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
-  static readonly RESPAWN_INTERVAL = 180;
+  static readonly RESPAWN_INTERVAL = 240;
   static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;
   static readonly OPEN_PARTICLE = 'particles/items2_fx/hand_of_midas.vpcf';

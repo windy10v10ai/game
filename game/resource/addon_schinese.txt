@@ -3179,21 +3179,20 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲、%bonus_regen_active%点生命回复、%status_resistance_active%%%状态抗性和%damage_reduction%%%减伤。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>生命值低于%hp_threshold%%%时自动触发以上效果，任意一次伤害都不会将其直接击杀。"
+		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲、%bonus_regen_active%点生命回复和%status_resistance_active%%%状态抗性。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>生命值低于%hp_threshold%%%时自动触发以上效果，任意一次伤害都不会将其直接击杀。"
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"								"饱含生命之力的树甲，枯木逢春，绝处逢生。"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"						"+$health"
-		"DOTA_Tooltip_ability_item_withered_spring_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_withered_spring_bonus_mana"							"+$mana"
 		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"					"%+最大生命值回复"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_ability_item_withered_spring_magic_resistance"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"主动效果期间完全免疫伤害和debuff。"
 		"DOTA_Tooltip_ability_item_withered_spring_Note1"								"自动触发后进入冷却。"
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"枯木逢春"
-		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"减伤,加抗性，护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%,生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%,状态抗性增加%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%。"
+		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"加抗性，护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%,生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%,状态抗性增加%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%。"
 
 		// 德古拉面罩/生命之盔
 		"DOTA_Tooltip_Ability_item_dracula_mask"										"<font color='#8B0000'>生命之盔</font>"
