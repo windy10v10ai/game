@@ -343,6 +343,12 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
       damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.REFLECTION,
       ability,
     });
+
+    const overheadAlert =
+      damageType === DamageTypes.PURE
+        ? OverheadAlert.BONUS_PURE_DAMAGE
+        : OverheadAlert.BONUS_SPELL_DAMAGE;
+    SendOverheadEventMessage(undefined, overheadAlert, target, convertedDamage, undefined);
   }
 
   OnAttackRecordDestroy(event: ModifierAttackEvent): void {
