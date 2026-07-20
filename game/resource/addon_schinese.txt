@@ -3219,7 +3219,7 @@
 		"DOTA_Tooltip_modifier_shadow_judgment_silence_Description"						"被沉默。效果结束时,期间受到伤害的%dMODIFIER_PROPERTY_TOOLTIP%%%将以额外魔法伤害的形式结算。"
 
 		// 暗影法杖
-		"DOTA_Tooltip_Ability_item_shadow_impact"										"<font color='#C77DFF'>暗影法杖</font>"
+		"DOTA_Tooltip_Ability_item_shadow_impact"										"暗影法杖"
 		"DOTA_Tooltip_ability_item_shadow_impact_Description"							"<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭。<br><br>纯粹伤害：%absolute_damage%点<br>魔法伤害：%dagon_damage%点<br>死灵冲击：降低敌人 %blast_magic_resist%%% 点的魔法抗性（固定值），造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br><br>施法距离：%abilitycastrange%"
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"									"暗影的冲击,毁灭一切。"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"						"+$int"
