@@ -9,9 +9,6 @@ function MagicCritBladeOnCreated(keys)
 
     if not caster or not ability then return end
 
-    -- 添加原生 Revenants Brooch modifier 处理幻影暴击
-    local brooch_modifier = caster:AddNewModifier(caster, ability, "modifier_item_revenants_brooch", {})
-
     -- 添加原生 Devastator modifier 处理巫师之刃 + 魔蚀
     local devastator_modifier = caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
 
@@ -27,9 +24,6 @@ function MagicCritBladeOnCreated(keys)
     end
 
     -- 使用 modifier 的 entindex 作为唯一标识
-    if brooch_modifier then
-        table.insert(ability.added_modifiers, brooch_modifier)
-    end
     if devastator_modifier then
         table.insert(ability.added_modifiers, devastator_modifier)
     end

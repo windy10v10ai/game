@@ -725,7 +725,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_veil_of_discord_2',
     nameCN: '赫拉的神秘面纱',
     tier: ItemTier.T3,
-    cost: 7200,
+    cost: 6000,
     baseItems: ['item_veil_of_discord'],
   },
   item_phylactery: {
@@ -1314,7 +1314,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
-    cost: 47800,
+    cost: 43800,
     baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {

@@ -3340,7 +3340,7 @@
 				"bonus_agile"		   		"70"
 				"attack_speed"		   		"30"
 				"crit_chance"				"30"
-				"crit_multiplier"			"330"
+				"crit_multiplier"			"300"
 				"active_boost_duration"		"4"
 				"active_dodge_chance"		"75"
 				"move_speed"				"30"
@@ -6064,19 +6064,19 @@
 			"crit_chance_mode1"			"18"
 			"crit_multiplier_mode1"		"5"
 			"guaranteed_crit_multiplier_mode1"	"4"
-			"cooldown_mode1"			"6"
+			"cooldown_mode1"			"4"
 
 			// 模式2:
 			"crit_chance_mode2"			"6"
-			"crit_multiplier_mode2"		"16"
+			"crit_multiplier_mode2"		"13"
 			"guaranteed_crit_multiplier_mode2"	"12"
-			"cooldown_mode2"			"20"
+			"cooldown_mode2"			"12"
 
 			// 模式3:
 			"crit_chance_mode3"			"1"
 			"crit_multiplier_mode3"		"80"
-			"guaranteed_crit_multiplier_mode3"	"40"
-			"cooldown_mode3"			"60"
+			"guaranteed_crit_multiplier_mode3"	"30"
+			"cooldown_mode3"			"30"
 		}
 	}
 
@@ -6119,7 +6119,7 @@
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"47800"
+		"ItemCost"					"43800"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
@@ -6135,6 +6135,8 @@
 
 			// 神圣斧
 			"bonus_intellect"			"200"
+			"bonus_attack_speed"		"80"
+			"bonus_armor"				"14"
 			// 巫师之刃 + 魔蚀 modifier
 			"projectile_speed"			"300"
 			"int_damage_multiplier"		"1.25"
@@ -6480,13 +6482,18 @@
 			"active_cooldown"			"15"	// Lua 逻辑需要 - 主动施法冷却
 			"dagon_damage"
 			{
-				"value"					"1800"
+				"value"					"900"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"pure_damage"
+			{
+				"value"					"900"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
 			"necrolyte_att_multiplier"	"1.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
-			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
+			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）

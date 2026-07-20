@@ -2580,7 +2580,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be silenced, muted, and disarmed.<br><br>Reduces enemy magic resistance by %blast_magic_resist%%% (flat).<br><br>Enemy will take magical damage equal to %blast_att_multiplier%x the sum of all your attributes + %blast_damage_base%.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be <font color='#6DB6E9'>silenced</font>, <font color='#C3E1DB'>muted</font>, and <font color='#AFB912'>disarmed</font>.<br><br>Reduces enemy magic resistance by %blast_magic_resist%%% (additive).<br><br>Enemy will take <font color='#05CAFF'>magical damage</font> equal to %blast_att_multiplier%x the sum of all your attributes + %blast_damage_base%.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
@@ -3145,6 +3145,8 @@
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.<br><br>All attacks have true strike.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Spell Critical</font></h1>Dealing magical or pure damage to enemy units has a %spell_crit_chance%%% chance to critically strike, dealing %spell_crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_attack_speed"        "+$attack"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_armor"               "+$armor"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"         "%+Spell Amp per Intelligence"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_projectile_speed"				"+$projectile_speed"
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"                   "Dragon Breath"
@@ -3204,7 +3206,7 @@
 
 		// Shadow Staff (暗影法杖)
 		"DOTA_Tooltip_Ability_item_shadow_impact"                              "Shadow Staff"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes to it<br><br>Cast Range: %abilitycastrange%<br>Cooldown: %active_cooldown%s<br>Pierces debuff immunity.\n<h1>Passive: Empower Spell</h1>The next Unit Target spell you cast on an enemy deals a separate %bonus_spell_damage% additional damage, disables their passives, and slows their movement speed by %slow%%% for %slow_duration%s.<br><br>Cooldown: %passive_cooldown%s."
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Impact</h1>Turns the target into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be <font color='#6DB6E9'>silenced</font>, <font color='#C3E1DB'>muted</font>, and <font color='#AFB912'>disarmed</font>.<br><br>Reduces enemy magic resistance by %blast_magic_resist%%% (additive).<br><br>Enemy will take <font color='#05CAFF'>magical damage</font> equal to %necrolyte_att_multiplier%x the sum of all your attributes + %dagon_damage%, plus %pure_damage% <font color='#FFE56E'>pure damage</font>.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds<br>Cooldown: %active_cooldown%s\n<h1>Passive: Empower Spell</h1>The next Unit Target spell you cast on an enemy deals a separate %bonus_spell_damage% additional damage, disables their passives, and slows their movement speed by %slow%%% for %slow_duration%s.<br><br>Cooldown: %passive_cooldown%s."
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"                         "The shadow's curse brings annihilation."
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"              "+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"               "+$str"
