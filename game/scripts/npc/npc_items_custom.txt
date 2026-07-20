@@ -877,7 +877,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8300"
+		"ItemCost"						"8400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1654,7 +1654,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3300"
+		"ItemCost"						"3200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -5614,14 +5614,14 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"39999"
+		"ItemCost"					"29999"
 		"ItemPermanent"				"0"
 		"ItemStackable"				"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
 		"ItemSellable"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"		"60"	// 0分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"60"
