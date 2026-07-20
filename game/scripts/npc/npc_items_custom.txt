@@ -877,7 +877,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8700"
+		"ItemCost"						"8300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -886,7 +886,7 @@
 		"ItemResult"					"item_excalibur"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar_2;item_rapier;item_rapier"
+			"01"						"item_monkey_king_bar_2;item_rapier"
 		}
 	}
 
@@ -908,7 +908,7 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"600"
+			"bonus_damage"			"400"
 			"bonus_spell_amp"		"50"
 			"bonus_damage_percent"	"100"
 		}
@@ -1014,10 +1014,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_strength"		"120"	// Tooltip, real value in item_undying_heart_bonus_strength
-				"bonus_health"			"1600"
+				"bonus_strength"		"100"	// Tooltip, real value in modifier_item_undying_heart_stats
+				"bonus_health"			"1200"	// Tooltip, real value in modifier_item_undying_heart_stats
 				"health_regen_pct"		"2"
-				"bonus_evasion"			"20"
+				"bonus_evasion"			"20"	// Tooltip, real value in modifier_item_undying_heart_stats
 				"status_resistance"		"8"
 				"dur"					"5"
 				"active_hp_regen"		"1000"
@@ -4702,7 +4702,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6200"
+		"ItemCost"						"6000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -4718,7 +4718,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"40000"
+		"ItemCost"						"36000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4767,7 +4767,7 @@
 		"ID"							"9596"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"8000"
+		"ItemCost"						"6000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra_bot"
@@ -4782,7 +4782,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9597"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"60000"
+		"ItemCost"						"48000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4828,7 +4828,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9598"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"60000"
+		"ItemCost"						"48000"
 
 		"ItemPurchasable"				"0"
 		"ItemDroppable"					"1"
@@ -6090,7 +6090,7 @@
 		"AbilityCastPoint"			"0.0"
 		"AbilityCooldown"			"0.0"	// 冷却由Lua动态控制
 
-		"ItemCost"					"60000"
+		"ItemCost"					"54000"
 		"ItemShopTags"				"damage;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6297,7 +6297,7 @@
 		{
 			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
 			"health_regen_pct"			"3"		// Lua 逻辑需要 - 百分比生命回复
-			"status_resistance"			"20"	// Lua 逻辑需要 - 状态抗性
+			"status_resistance"			"15"	// Lua 逻辑需要 - 状态抗性
 
 			// Lua 逻辑需要 - 主动技能参数
 			"hp_threshold"				"20"	// Lua 逻辑需要 - 自动触发生命阈值
@@ -6315,7 +6315,7 @@
 			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"150"	// tooltip only - 力量
+			"bonus_strength"			"120"	// tooltip only - 力量
 			"bonus_health"				"2500"	// tooltip only - 生命值
 			"bonus_mana"				"2500"	// tooltip only - 法力值
 			"bonus_armor"				"20"	// tooltip only - 护甲

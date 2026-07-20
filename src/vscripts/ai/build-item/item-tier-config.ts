@@ -1242,7 +1242,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_excalibur',
     nameCN: 'EX咖喱棒',
     tier: ItemTier.T4,
-    cost: 30000,
+    cost: 24000,
     baseItems: ['item_monkey_king_bar_2', 'item_rapier'],
   },
 
@@ -1283,7 +1283,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_rapier_ultra_bot_1',
     nameCN: '解放的诅咒圣剑',
     tier: ItemTier.T5,
-    cost: 60000,
+    cost: 48000,
     baseItems: ['item_excalibur', 'item_rapier'],
   },
   item_swift_glove: {
@@ -1355,7 +1355,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_switchable_crit_blade',
     nameCN: '归海一刀',
     tier: ItemTier.T5,
-    cost: 60000,
+    cost: 54000,
   },
   item_ten_thousand_swords: {
     name: 'item_ten_thousand_swords',

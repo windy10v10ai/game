@@ -144,7 +144,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 - **禁止**维护向用语：KV、override、对齐参考、注释、AbilityValues、文件路径
 - **避免**技术细节（具体倍率小数等），除非用户要求；玩家需要理解的具体数值（如积分倍率档位）可保留
 - **优先**玩家感知：加强/削弱/修正谁、哪类玩法变了
-- **Bot AI 行为改动（新增/修正 bot 对某物品或技能的使用逻辑）只需说明行为方向本身**（"Bot 现在会主动使用/开启 XX"、"Bot 不再误用 XX"），**不需要**连带描述该物品/技能效果是什么、数值多少——这些是物品/技能本身的固有效果，不是本次改动的内容，写出来反而喧宾夺主
+- **Bot AI 行为改动（新增/修正 bot 对某物品或技能的使用逻辑）只需说明行为方向本身**（中文"电脑现在会主动使用/开启 XX"、"电脑不再误用 XX"；英文"Bot now actively uses/activates XX"、"Bot no longer misuses XX"），**不需要**连带描述该物品/技能效果是什么、数值多少——这些是物品/技能本身的固有效果，不是本次改动的内容，写出来反而喧宾夺主
 - 多英雄技能跟进时用「多英雄并列」句式
 - **同一目标的多处改动合并成一条**：同一英雄/物品/系统的多个改动点（改名、加成、新机制等）用逗号串成一句，不要每个改动点单独开一条 bullet。真实案例：
   - 「重做无限手套：更改配方和属性，新增主动技能「灭世响指」，有50%概率直接湮灭敌方英雄」（配方+属性+新技能三处合并一条）
@@ -173,6 +173,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 | 金钱/经验倍率 | Gold/XP multiplier |
 | 中立物品 | Neutral items |
 | 勇士积分 | Battle point |
+| 电脑 | Bot/Bots |
 
 ## GAME_VERSION 同步
 
