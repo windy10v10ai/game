@@ -32,9 +32,62 @@
   width: 244px;
   max-height: 785px;
   flow-children: down;
-  background-color: gradient(linear, 0% 0%, 70% 0%, from(#111111), to(#222222));
-  box-shadow: #000000aa 2px 2px 8px;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#23628e96),
+    color-stop(0.42, #0d355493),
+    to(#031421a6)
+  );
+  background-blur: gaussian(8);
+  border: 1px solid #9ee5ff66;
+  border-radius: 18px;
+  box-shadow:
+    fill #ddf6ff30 1px 1px 2px 0px,
+    fill #00071370 -1px -1px 3px 1px,
+    #00050bb0 7px 11px 30px 0px;
   overflow: squish scroll;
+}
+
+/* Separate tint and edge-light layers keep the controls crisp above the glass surface. */
+#ControlPanelGlassFog {
+  width: 100%;
+  height: 100%;
+  ignore-parent-flow: true;
+  background-color: gradient(
+    radial,
+    18% 12%,
+    0% 0%,
+    92% 108%,
+    from(#6fd2f12e),
+    color-stop(0.34, #1d789b34),
+    color-stop(0.72, #0a345042),
+    to(#020b174d)
+  );
+  border-radius: 18px;
+  opacity: 0.76;
+}
+
+#ControlPanelGlassLens {
+  width: 100%;
+  height: 100%;
+  ignore-parent-flow: true;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#f4fcff2e),
+    color-stop(0.16, #8edfff18),
+    color-stop(0.42, #33a5cb08),
+    color-stop(0.72, #0b29400d),
+    to(#00071338)
+  );
+  border: 1px solid #e4f8ff55;
+  border-radius: 18px;
+  box-shadow:
+    fill #f8fdff4a 2px 2px 3px 0px,
+    fill #00101f85 -2px -2px 4px 1px;
 }
 
 .HUDFlipped .ControlPanelContainer {
@@ -52,11 +105,20 @@
   height: 120px;
   vertical-align: middle;
   transform: translateX(0px);
-  background-color: gradient(linear, 0% 0%, 70% 0%, from(#111111), to(#3b3b3b));
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 12px;
-  box-shadow: #000000aa 1px 1px 6px;
-  transition-property: background-color;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#245f82b8),
+    color-stop(0.48, #103f5fb8),
+    to(#061a2dc7)
+  );
+  border: 1px solid #8edcff55;
+  border-radius: 7px;
+  box-shadow:
+    fill #d8f3ff29 1px 1px 1px 0px,
+    #00050ba0 2px 5px 14px 0px;
+  transition-property: background-color, border, box-shadow;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
@@ -71,19 +133,31 @@
   height: 16px;
   vertical-align: middle;
   horizontal-align: right;
-  background-image: url("s2r://");
+  background-image: url("s2r://panorama/images/control_icons/single_arrow_left_png.vtex");
   background-size: contain;
   background-repeat: no-repeat;
-  wash-color: #d0d0d0;
+  wash-color: #c9efff;
   transform: translateX(-1px);
   transition-property: transform, wash-color;
   transition-delay: 0s;
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
+  opacity: 0.9;
 }
 
 #ControlPanelSlideThumb:hover {
-  background-color: gradient(linear, 0% 0%, 70% 0%, from(#181818), to(#474747));
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#3c8eb8d0),
+    color-stop(0.5, #17658bd0),
+    to(#082b47d8)
+  );
+  border: 1px solid #b8eeff88;
+  box-shadow:
+    fill #e5f8ff38 1px 1px 2px 0px,
+    #22aeda66 2px 5px 16px 0px;
 }
 
 #ControlPanelSlideThumb:hover .RightArrowButtonIcon {
@@ -147,6 +221,9 @@
 #HeroPickerImage {
   height: 30px;
   width: height-percentage(177.77%);
+  border: 1px solid #9ee2ff55;
+  border-radius: 7px;
+  box-shadow: fill #d8f3ff2e 1px 1px 1px 0px;
 }
 
 #SpawnHeroButton {
@@ -156,7 +233,7 @@
 #SpawnHeroButton .HeroPickerArrow {
   background-size: 12px 18px;
   background-position: right center;
-  wash-color: #d8dade;
+  wash-color: #c8edfa;
 }
 
 #SpawnHeroName {
@@ -165,13 +242,22 @@
   vertical-align: middle;
   margin: 0px 6px;
   font-size: 16px;
+  color: #eefaff;
+  text-shadow: 0px 1px 2px #000a12c0;
   text-overflow: shrink;
 }
 
 .HorizontalRule {
   width: 100%;
   height: 1px;
-  background-color: #4e515599;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 0%,
+    from(#8edcff00),
+    color-stop(0.5, #8edcff70),
+    to(#8edcff00)
+  );
   margin: 6px 0px;
 }
 
@@ -181,20 +267,28 @@
   background-color: gradient(
     linear,
     0% 0%,
-    0% 100%,
-    from(#2d2f31),
-    to(hsv-transform(#2d2f31, 0, 1, 0.4))
+    100% 100%,
+    from(#2d6b9228),
+    color-stop(0.46, #15486733),
+    to(#061c3042)
   );
-  box-shadow: fill #00000011 1px 1px 8px 1px;
+  border: 1px solid #9ee5ff32;
+  border-radius: 12px;
+  box-shadow:
+    fill #d9f4ff18 1px 1px 2px 0px,
+    fill #00071338 -1px -1px 3px 1px,
+    #0007132c 2px 4px 12px 0px;
   margin: 12px 12px 0px;
 }
 
 .CategoryHeader {
   width: 100%;
   font-size: 15px;
-  color: #fff;
+  color: #eefaff;
   text-transform: uppercase;
   letter-spacing: 1px;
+  font-weight: semi-bold;
+  text-shadow: 0px 1px 2px #000a0fc0;
   padding: 6px 6px 0px;
 }
 
@@ -216,22 +310,28 @@
 
 .DemoButton {
   height: 30px;
-  background-color: #3e4144;
-  border: 1px solid #4e5155;
+  background-color: #667b8ce8;
+  border: 1px solid #9ee2ff4d;
+  border-radius: 8px;
+  box-shadow:
+    fill #e5f8ff29 1px 1px 1px 0px,
+    fill #00101c70 -1px -1px 2px 1px,
+    #00071366 1px 3px 8px 0px;
   width: fill-parent-flow(1);
-  transition-property: background-color, border, color;
+  transition-property: background-color, border, box-shadow, pre-transform-scale2d;
   transition-duration: 0.15s;
-  transition-timing-function: linear;
+  transition-timing-function: ease-in-out;
 }
 
 .DemoButton Label {
   horizontal-align: center;
   vertical-align: middle;
-  color: #d8dade;
+  color: #eefaff;
   font-size: 16px;
   text-transform: uppercase;
   font-family: defaultFont;
   font-weight: normal;
+  text-shadow: 0px 1px 2px #000a12c0;
   text-overflow: shrink;
   letter-spacing: 1px;
 }
@@ -239,11 +339,23 @@
 .DemoTextEntry {
   height: 30px;
   width: 100%;
-  background-color: #2a2c2e;
-  border: 1px solid #4e5155;
-  color: #d8dade;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#06182aba), to(#0b2e4bb0));
+  border: 1px solid #8ddcff45;
+  border-radius: 8px;
+  box-shadow:
+    fill #00050b88 0px 1px 4px 1px,
+    fill #c8edff24 1px -1px 1px 0px;
+  color: #eefaff;
+  font-size: 18px;
+  font-weight: semi-bold;
+  padding: 1px 9px 0px;
+}
+
+.DemoTextEntry #PlaceholderText {
+  color: #a9c9d8b0;
   font-size: 14px;
-  padding: 0px 6px;
+  font-weight: normal;
+  vertical-align: center;
 }
 
 #SingleCreepWaveButton {
@@ -268,38 +380,6 @@
 
 #SingleCreepWaveButton:hover .PlusIcon {
   wash-color: #fff;
-}
-
-#RefreshButton {
-  width: 40px;
-  height: 24px;
-  vertical-align: middle;
-  margin-left: 6px;
-}
-
-#RefreshButton .RefreshIcon {
-  width: 100%;
-  height: 100%;
-  vertical-align: middle;
-  horizontal-align: center;
-  brightness: 0.8;
-  saturation: 0.6;
-  background-image: url("s2r://");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition-property: brightness, saturation;
-  transition-duration: 0.2s;
-}
-
-#RefreshButton:hover .RefreshIcon {
-  brightness: 1.5;
-  saturation: 1;
-}
-
-#RefreshButton:active .RefreshIcon {
-  brightness: 1;
-  saturation: 1;
 }
 
 .DemoButton .RuneImage {
@@ -362,21 +442,37 @@
   margin-top: 2px;
   height: 28px;
   width: 28px;
-  saturation: 0.8;
-  brightness: 0.6;
-  transition-property: brightness, saturation, opacity;
+  background-color: gradient(
+    radial,
+    50% 35%,
+    0% 0%,
+    55% 65%,
+    from(#3f88ae8f),
+    color-stop(0.56, #174c6b8f),
+    to(#061a2da8)
+  );
+  border: 1px solid #8edcff55;
+  border-radius: 50%;
+  box-shadow:
+    fill #d8f3ff29 1px 1px 1px 0px,
+    #00050b88 1px 3px 8px 0px;
+  saturation: 0.95;
+  brightness: 0.9;
+  transition-property: brightness, saturation, opacity, pre-transform-scale2d;
   transition-duration: 0.2s;
   transition-timing-function: linear;
 }
 
 .RuneButton:hover {
-  brightness: 1.5;
+  brightness: 1.25;
   saturation: 1;
+  pre-transform-scale2d: 1.06;
 }
 
 .RuneButton:active {
-  brightness: 1;
+  brightness: 0.95;
   saturation: 1;
+  pre-transform-scale2d: 0.96;
 }
 
 .RuneButton DOTAEmoticon {
@@ -386,8 +482,19 @@
 }
 
 .DemoButton:hover {
-  background-color: gradient(linear, 0% 0%, 70% 0%, from(#676b70), to(#3e4144));
-  border: 1px solid #686b70;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#7b9bb3ff),
+    color-stop(0.48, #728b9fff),
+    to(#6c7d8dff)
+  );
+  border: 1px solid #b9eeff88;
+  box-shadow:
+    fill #e8fbff3d 1px 1px 2px 0px,
+    fill #00304a70 -1px -1px 2px 1px,
+    #35b8e070 1px 4px 12px 0px;
 }
 
 .DemoButton:hover Label {
@@ -395,8 +502,8 @@
 }
 
 .DemoButton:active {
-  background-color: #7e94b1;
-  pre-transform-scale2d: 1.02;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#5f778aff), to(#53606cff));
+  pre-transform-scale2d: 0.98;
 }
 
 .Category .RuneImage:hover {
@@ -410,7 +517,19 @@
 #SelectHeroContainer {
   vertical-align: center;
   margin-left: 280px;
-  background-color: #000c;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#1b4d78d4),
+    color-stop(0.5, #0c2c4bc8),
+    to(#031222dc)
+  );
+  border: 1px solid #8fd8ff60;
+  border-radius: 18px;
+  box-shadow:
+    fill #c9edff38 1px 1px 2px 0px,
+    #00050bc7 8px 12px 30px 0px;
   opacity: 0;
   transform: translateX(-60px) translateY(-100px);
   transition-property: opacity, transform;
@@ -441,11 +560,86 @@
 
 .DemoToggleButton {
   width: fill-parent-flow(1);
+  flow-children: right;
 }
 
 .DemoToggleButton Label {
+  width: fill-parent-flow(1);
+  horizontal-align: left;
+  vertical-align: middle;
+  text-align: right;
+  margin: 0px;
+  padding: 0px;
   letter-spacing: 1px;
-  color: #d8dade;
+  color: #eefaff;
+  text-shadow: 0px 1px 2px #000a12c0;
+}
+
+ToggleButton.DemoToggleButton Label,
+ToggleButton.DemoToggleButton:selected Label {
+  color: #eefaff;
+  opacity: 1;
+  text-shadow: 0px 1px 2px #000a12c0;
+}
+
+.DemoToggleButton .TickBox {
+  visibility: collapse;
+}
+
+/* The track is decorative; ToggleButton remains the single source of interaction state. */
+.GlobalToggleSwitch {
+  width: 40px;
+  height: 22px;
+  vertical-align: middle;
+  margin-right: 8px;
+  overflow: clip;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#5f7686c7), to(#2b4659d6));
+  border: 1px solid #c7e8f075;
+  border-radius: 11px;
+  box-shadow:
+    fill #00101c99 0px 1px 3px 1px,
+    fill #d8f5ff24 1px -1px 1px 0px;
+  transition-property: background-color, border, box-shadow;
+  transition-duration: 0.16s;
+  transition-timing-function: ease-in-out;
+}
+
+.GlobalToggleKnob {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  transform: translateX(2px);
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#f5fbfd), to(#afc0c8));
+  border: 1px solid #e9fbffc0;
+  border-radius: 9px;
+  box-shadow:
+    #00101ca8 1px 2px 4px 0px,
+    fill #ffffff70 1px 1px 1px 0px;
+  transition-property: transform, background-color, border, box-shadow;
+  transition-duration: 0.16s;
+  transition-timing-function: ease-in-out;
+}
+
+.DemoToggleButton:selected .GlobalToggleSwitch {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#6edcf5e8), to(#2198c8e8));
+  border: 1px solid #c8f4ffc0;
+  box-shadow:
+    fill #dffaff38 1px 1px 1px 0px,
+    #20b9e875 0px 2px 8px 0px;
+}
+
+.DemoToggleButton:selected .GlobalToggleKnob {
+  transform: translateX(20px);
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#dff8ff), to(#82c9df));
+  border: 1px solid #effcffd8;
+}
+
+.DemoToggleButton:hover .GlobalToggleSwitch {
+  border: 1px solid #e2f8ffb0;
+}
+
+.DemoToggleButton:active .GlobalToggleSwitch {
+  brightness: 0.9;
 }
 
 #Footer {
@@ -469,19 +663,55 @@
 }
 
 .DemoButton.QuitButton {
-  background-color: #9e393c;
-  border: 1px solid #b64548;
-  box-shadow: 0px 0px 8px #6e070a00;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#8a3658b8),
+    color-stop(0.48, #5d1d3bbf),
+    to(#28091cd0)
+  );
+  border: 1px solid #ff9dbb66;
+  box-shadow:
+    fill #ffe8f029 1px 1px 1px 0px,
+    #14020ca0 1px 4px 11px 0px;
+}
+
+.DemoButton.QuitButton Label {
+  color: #ffe6ee;
 }
 
 .DemoButton.QuitButton:hover {
-  background-color: #da5458;
-  background-color: gradient(linear, 0% 0%, 70% 0%, from(#da5458), to(#9e393c));
-  border: 1px solid #da5458;
-  box-shadow: 0px 0px 8px #94080d3f;
+  background-color: gradient(
+    linear,
+    0% 0%,
+    100% 100%,
+    from(#b84a72cf),
+    color-stop(0.48, #832d50d4),
+    to(#3d0d28dc)
+  );
+  border: 1px solid #ffc3d588;
+  box-shadow:
+    fill #fff0f53d 1px 1px 2px 0px,
+    #e04b7a66 1px 4px 13px 0px;
 }
 
 .DemoButton.QuitButton:active {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#aa8888), to(#ffaaaa));
-  pre-transform-scale2d: 1.02;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#6d2446d8), to(#2b0a20e0));
+  pre-transform-scale2d: 0.98;
+}
+
+.ControlPanelContainer VerticalScrollBar {
+  background-color: #020d174d;
+  border-radius: 4px;
+}
+
+.ControlPanelContainer VerticalScrollBar .ScrollThumb {
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#4da0c9b8), to(#164c6bbd));
+  border: 1px solid #9ee2ff60;
+  border-radius: 4px;
+}
+
+.ControlPanelContainer VerticalScrollBar .ScrollThumb:hover {
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#73c7e8d0), to(#26779bd0));
 }

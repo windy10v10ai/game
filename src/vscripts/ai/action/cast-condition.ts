@@ -26,6 +26,11 @@ export interface CastCoindition {
      */
     rangeFromAbilityValue?: string;
     /**
+     * 将施法者攻击距离计入搜索半径。
+     * 可与 rangeFromAbilityValue 组合，用于攻击距离外扩型技能。
+     */
+    rangeFromAttackRange?: boolean;
+    /**
      * 决定 POINT 技能的释放位置：
      * - 'targetPosition'（默认）：释放点 = 目标位置
      * - 'projectedOnCastRange'：

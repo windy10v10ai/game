@@ -73,7 +73,9 @@ function item_swift_glove:OnSpellStart()
     ParticleManager:SetParticleControl(pfx, 1, target_pos)
     ParticleManager:ReleaseParticleIndex(pfx)
 
+    target:AddNewModifier(caster, self, "modifier_ignore_invulnerable_kill", {})
     target:Kill(self, caster) -- 使用 Kill() 而不是 ForceKill()
+    target:RemoveModifierByName("modifier_ignore_invulnerable_kill")
     caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     caster:ModifyGoldFiltered(self_gold, true, DOTA_ModifyGold_CreepKill)
     if not caster:IsTempestDouble() then
@@ -157,7 +159,8 @@ function modifier_item_swift_glove:OnRefresh(params)
                 ability.added_modifiers = {}
             end
             if not ability.added_modifiers.chain_lightning or ability.added_modifiers.chain_lightning:IsNull() then
-                ability.added_modifiers.chain_lightning = parent:AddNewModifier(parent, ability, "modifier_item_swift_glove_chain_lightning", {})
+                ability.added_modifiers.chain_lightning = parent:AddNewModifier(parent, ability,
+                    "modifier_item_swift_glove_chain_lightning", {})
             end
         end
     end
@@ -251,6 +254,7 @@ function modifier_item_swift_glove_chain_lightning:OnAttackLanded(params)
     if not params.target or params.target:IsNull() then return end
     if params.target:IsBuilding() then return end
     if params.target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end
+    if params.target:IsMagicImmune() then return end
 
     local now = GameRules:GetGameTime()
     if now < self.last_proc_time + (self.current_cooldown or self.chain_cooldown) then return end
@@ -300,7 +304,7 @@ function modifier_item_swift_glove_chain_lightning:FireChainLightning(first_targ
         local next_target = nil
         local enemies = FindUnitsInRadius(caster:GetTeamNumber(), current_target:GetAbsOrigin(), nil, self.chain_radius,
             DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
         for _, enemy in pairs(enemies) do
             if enemy and not enemy:IsNull() and not enemy:IsBuilding() and not hit_targets[enemy:entindex()] then
                 next_target = enemy
@@ -313,8 +317,11 @@ function modifier_item_swift_glove_chain_lightning:FireChainLightning(first_targ
 end
 
 function modifier_item_swift_glove_chain_lightning:CreateChainLightningEffect(source, target)
-    local particle = ParticleManager:CreateParticle("particles/items_fx/chain_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW, source)
-    ParticleManager:SetParticleControlEnt(particle, 0, source, PATTACH_POINT_FOLLOW, "attach_hitloc", source:GetAbsOrigin(), true)
-    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    local particle = ParticleManager:CreateParticle("particles/items_fx/chain_lightning.vpcf", PATTACH_ABSORIGIN_FOLLOW,
+        source)
+    ParticleManager:SetParticleControlEnt(particle, 0, source, PATTACH_POINT_FOLLOW, "attach_hitloc",
+        source:GetAbsOrigin(), true)
+    ParticleManager:SetParticleControlEnt(particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc",
+        target:GetAbsOrigin(), true)
     ParticleManager:ReleaseParticleIndex(particle)
 end

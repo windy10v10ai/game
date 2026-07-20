@@ -87,6 +87,15 @@ Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式�
 
 **modifier 想显示自定义动态数值（非标准 MODIFIER_PROPERTY 枚举），用 `MODIFIER_PROPERTY_TOOLTIP`**：仅对 Lua/TS 脚本类 modifier 有效（DataDriven modifier 没有脚本可实现，只能写死数字）。modifier 脚本里 `DeclareFunctions` 加 `MODIFIER_PROPERTY_TOOLTIP`（TS 写 `ModifierFunction.TOOLTIP`），实现 `OnTooltip(): number` 返回目标值（如读 ability 的 `GetSpecialValueFor`），本地化用 `%dMODIFIER_PROPERTY_TOOLTIP%` 占位。同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`。数值会随等级/天赋变化时优先用这个，而不是写死（实测：卓尔游侠裂影箭觉醒分裂概率会被天赋提升，改用此机制而非写死数字）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会自动套白色粗体**（与 ability 的 `%key%` 不同，实测确认），要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值一样处理。
 
+### 5. AbilityValues 数值展示方式
+
+一条 `AbilityValues` 数值只能选其一种展示方式，不要两处都写：
+
+- **内联在 Description/Note 正文**：用 `%xxx%` 直接嵌进句子里，不额外定义 `_xxx` 标签行
+- **单独成行**：定义 `_xxx` 标签行（如 `"DOTA_Tooltip_ability_xxx_search_radius" "SEARCH RADIUS:"`），正文不再用 `%xxx%` 复述
+
+**多个关联数值**（同一机制下的若干档位/字段，如持续时间、每秒次数、削减幅度）建议各自单独成行，方便玩家在数值面板逐条对照。**孤立的单个数值**（只影响一处、不成体系）两种方式都可以，按哪种更通顺易读来选，但同一个数值不要既内联又单独成行——那样正文会显得重复。
+
 ## 中英文版本同步要求
 
 ### 1. 格式一致性

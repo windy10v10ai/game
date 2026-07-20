@@ -179,9 +179,12 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **测试文件**: 与源代码同位置的 `*.test.ts` 文件(例如 `gold-xp-filter.test.ts`)
 - **模拟**: 在测试中通过 `global.GameRules = { ... }` 模拟 Dota 全局变量
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
-- **测试范围**: 只验证自己写的状态/分支逻辑。Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）mock 作为占位防崩，不要用 `toHaveBeenCalledWith` 断言它们的参数——那是在测引擎契约不是自己的代码
-- **不为强依赖引擎 API 的逻辑过度搭 mock**: 当一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，**不要**为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）去测引擎行为。这类运行时行为由作者手动在 Dota tools 确认。mock 只保留占位防崩（返回个固定值不崩即可）
-- **依赖 Dota API 的代码不需要单元测试**: 如果一段代码的主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数），**不要**为了测它而 mock `GetItemInSlot` 之类的底层 API 再断言结果——这是在测"我的 mock 返回了什么"，不是在测自己的逻辑。这类代码靠 Dota tools 实机验证。只有当代码里包含足够分量的**自身分支/计算逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）时才写单元测试，且测试目标是那段逻辑本身，不是底层 API 调用是否被正确触发
+- **只测自己的分支/计算逻辑，不测引擎契约**：判断标准是代码里是否包含足够分量的**自身逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）。以下情况都**不需要**写单元测试，靠 Dota tools 实机验证：
+  - 代码主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数、`FindUnitsInRadius` 后直接操作结果集），本身没有值得验证的分支
+  - 需要 mock 多个 Dota 全局枚举/常量对象（如 `UnitTargetTeam` / `UnitTargetType` / `UnitTargetFlags` / `FindOrder`）才能让测试跑起来——这是"代码本身没有自身逻辑、只是在拼引擎调用参数"的强信号
+  - 一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，不要为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）
+  - 断言只是在还原调用方自己传入的配置参数（如断言 `FindUnitsInRadius` 被以哪些 team/flags 调用）——这是在测"我传了什么参数"，不是在测判断逻辑
+  - Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）只作为占位防崩 mock，不要用 `toHaveBeenCalledWith` 断言它们的参数
 
 ### 构建系统
 
@@ -275,6 +278,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **TSTL 对象 spread 不可传 undefined**: 在 `src/vscripts/` 中**禁止**对可能为 `undefined` 的对象使用 spread（`{ ...maybeUndefined }` 或 `{ ...obj?.maybeUndefined }`）。TSTL 把对象 spread 编成 `__TS__ObjectAssign`，内部用 `pairs(...)` 遍历每个参数，传到 `nil` 会运行时 crash `bad argument #1 to 'pairs' (table expected, got nil)`。改用显式 if 判断 + 手动赋值，或用 `?? {}` 兜底后再 spread。jest 测试不会暴露此问题，必须在 Dota tools 实跑验证
 - **VScripts 验证时机**: 不要在每次修改 `src/vscripts/` 后都自动运行 `npm run build:vscripts`；用户的开发环境会自动编译。仅在创建 PR 前、最终完成前，或用户明确要求验证时统一运行一次。验证时只看 TS/TSTL 是否报错，**不要去读 `game/scripts/vscripts/` 下编译生成的 `.lua` 产物**对照（浪费时间，产物是 TSTL 自动生成的）。运行时行为靠 jest（自己的分支逻辑）+ Dota tools 实跑验证
 - **TSTL 枚举用 normalized 成员名**: `src/vscripts/` 中引用 Dota 枚举成员时去掉原生前缀（`UF_` / `DOTA_` 等），如 `UnitFilterResult.FAIL_CUSTOM`（**不是** `UF_FAIL_CUSTOM`）、`UnitFilterResult.SUCCESS`。TSTL 编译时会自动内联回 Lua 原生名（`UF_FAIL_CUSTOM`）。用带前缀的名字 TS 会报 `Property 'UF_XXX' does not exist`
+- **本地常量不要与 Dota 引擎全局同名**: TSTL/moddota 转译器会把 normalized 枚举（如 `DamageTypes.PURE`）编译成同名的 Lua 全局标识符（如 `DAMAGE_TYPE_PURE`）。若同一文件里另外声明了同名的 `const`/`local`（哪怕只是内部用途，如自定义的掷骰索引），Lua 词法作用域会让局部变量遮蔽全局，编译和类型检查都不会报错，只有运行时才会取到错误的数值（如 `DamageTypes.PURE` 实际取到局部的 `3` 而非引擎的 `4`，导致 `ApplyDamage` 静默不生效）。避免用 `DAMAGE_TYPE_*`、`UnitTargetTeam` 等引擎保留名做本地变量
 - **施法错误飘字须 CastFilterResult + GetCustomCastError 配套**: 自定义物品/技能要在施法前拦截并飘字提示时，仅实现 `GetCustomCastError()` 无效——引擎只在 `CastFilterResult()` 返回 `UnitFilterResult.FAIL_CUSTOM` 时才去取错误文本。两者须配套（用同一判据）。错误文本 key 在本地化文件中**定义不带 `#`**（如 `dota_hud_error_xxx`），代码返回时**带 `#`**（`#dota_hud_error_xxx`）
 - **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
 - **Net Table 清行不能传 nil**: `CustomNetTables.SetTableValue(table, key, nil)` 在 Dota 引擎下是 **noop**，不会删除或同步空值给客户端。如需清行，传**空 table**（数组类用 `[]`、对象类用 `{}`），客户端 `Object.values(value).length === 0` 即可识别为空
@@ -387,7 +391,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - 两个 tab 缩进，键值多 tab 对齐；颜色代码**大写**
 - 注释用**中文**且中英一致；HTML 标签与换行（`\n` 分段、`<br><br>` 段内换行）中英一致
 - **文案不用分号**（`；`/`;`），句间用逗号或句号
-- `_Description` **不复述已单独成行的数值**：若已有 `_xxx`（带冒号的数值标签行）单独条目，正文就不再写 `%xxx%` 复述；仅当该数值无单独条目时才内联 `%xxx%`
+- `_Description` **不同时既内联又单独成行同一个数值**：一个 `AbilityValues` 数值只能选其一 —— 该数值只在 Description/Note 中以 `%xxx%` 出现一次（不单独定义 `_xxx` 标签行），或者只作为 `_xxx` 单独成行展示（Description 不再重复 `%xxx%`）。多个关联数值（如同一机制下的若干档位/字段）建议各自单独成行；孤立的单个数值两种方式均可，按可读性选择，但不要两处都写
 - **UI 键**（按钮/标签/提示等 Panorama 文本）需同步**俄文**；技能/物品/游戏逻辑类键不译俄文
 
 > 完整规则、对齐示例见 `.claude/skills/localization-format-guide/references/localization-format-guide.md`。

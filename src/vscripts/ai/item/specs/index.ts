@@ -32,6 +32,7 @@ import { SPECS as shadowImpact } from './item_shadow_impact';
 import { SPECS as shadowJudgment } from './item_shadow_judgment';
 import { SPECS as sheepstick } from './item_sheepstick';
 import { SPECS as shivasGuard2 } from './item_shivas_guard_2';
+import { SPECS as sixPathsReincarnationGun } from './item_six_paths_reincarnation_gun';
 import { SPECS as smokeOfDeceit } from './item_smoke_of_deceit';
 import { SPECS as undyingHeart } from './item_undying_heart';
 import { SPECS as waspCallous } from './item_wasp_callous';
@@ -61,6 +62,7 @@ export function registerItemSpecs(): void {
   ItemRegistry.registerAll(waspCallous);
   ItemRegistry.registerAll(hawkeyeTurret);
   ItemRegistry.registerAll(shivasGuard2);
+  ItemRegistry.registerAll(sixPathsReincarnationGun);
 
   // B2：战斗 buff（激进/保守 OR）
   ItemRegistry.registerAll(bladeMail2);
