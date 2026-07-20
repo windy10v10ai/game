@@ -595,16 +595,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_spell_resist"					"40"	// 30
-			"bonus_all_stats"						"30"	// 20
+			"bonus_spell_resist"					"30"	// 12
+			"bonus_all_stats"						"20"	// 5
 			"bonus_health"							"500"	// 250
 
 			"movement_speed_pct_on_stack_gain"		"25"	// 15
 
 			"stack_threshold_damage"				"0"
-			"duration"								"20"	//10
-			"barrier_per_stack"						"1500"	// 120
-			"max_barrier_tooltip"					"9000"	// 360
+			"duration"								"10"	// 5
+			"barrier_per_stack"						"600"	// 120
+			"max_barrier_tooltip"					"3600"	// 360
 		}
 	}
 

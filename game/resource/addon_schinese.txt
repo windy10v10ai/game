@@ -770,6 +770,7 @@
 		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"		"折射伤害阈值："
 		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"折射范围："
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"反射伤害类型与接收伤害类型一致（物理/魔法/纯粹），无视减益免疫。反射伤害随距离递减。"
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note1"			"反射伤害不受技能增强影响。"
 		// "DOTA_Tooltip_ability_special_bonus_unique_spectre_5"		"+{s:value}% 折射概率"
 
 		//贪魔的贪婪
@@ -2203,7 +2204,7 @@
 
 		// item_aeon_pendant 咸鱼之王
 		"DOTA_Tooltip_Ability_item_aeon_pendant"				"咸鱼之王"
-		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>被动：强断连招</h1>当受到伤害并且生命值低于%health_threshold_pct%%%时，会对英雄施加一个强驱散效果，%buff_duration%秒内+%status_resistance%%%状态抗性，并且所有受到和造成的伤害全部归零。来自玩家的伤害才会触发。每次触发后冷却时间都会增加。"
+		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>被动：强断连招</h1>当受到伤害并且生命值低于%health_threshold_pct%%%时，会对英雄施加强驱散效果，并且获得%buff_duration%秒的加成状态，提供+%status_resistance%%%<font color='#b99012'>状态抗性</font>，并且所有受到和造成的伤害全部归零。只有来自玩家的伤害才会触发。每次触发后冷却时间都会增加。<br/><br/>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>"
 		"DOTA_Tooltip_ability_item_aeon_pendant_lore"					"受咸鱼之王保佑的，就别太固执了。"
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_mana"					"+$mana"
@@ -2812,23 +2813,6 @@
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active"				"坚韧"
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active_Description"	"移动速度提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。\n攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%。"
 
-		// 神器永恒虚灵刀
-		"DOTA_Tooltip_Ability_item_ethereal_blade_ultra"				"<font color='#e03e2e'>神器·永恒虚灵之刃</font>"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>主动：虚化冲击</h1>发射一道能量波，将目标转变为虚无状态，接下来受到的魔法伤害将会提升%ethereal_damage_bonus%%%，并且无法攻击或被攻击。<br><br>如果目标是敌人还将被减速%blast_movement_slow%%%，并额外受到%blast_stat_multiplier%x[你的全属性]+%blast_damage_base%点魔法伤害。<br>持续时间：%duration%秒"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"与幽魂权杖共享冷却时间。"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"虚无状态下的单位将额外受到%ethereal_damage_bonus%%%的魔法伤害。"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"对于全才英雄，他们的主属性数值是所有属性总和的60%%。"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note3"						"使用回城卷轴或远行鞋不会驱散虚无状态。"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_agility"				"+$all"
-
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_mana_regen_multiplier"		"%+魔法恢复增强"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Lore"						"一把忽隐忽现的阴森刀刃，可以在物理和魔法两个位面造成伤害。"
-
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal"				"虚化冲击"
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal_Description"	"虚化形态。受到%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%%%法术攻击加成并且不能进行物理攻击或被攻击。"
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"虚灵之刃减速"
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%。"
-
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"			"神器·魔武双修"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>被动：</h1>每次攻击都有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
@@ -3080,7 +3064,7 @@
 
 		// 暗影符文
 		"DOTA_Tooltip_ability_item_fusion_shadow"										"暗影符文"
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"一种神秘的融合符文,蕴含着暗影的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 暗影裁决、暗影咒灭"
+		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"一种神秘的融合符文,蕴含着暗影的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 暗影裁决、暗影法杖"
 
 		// 魔化符文
 		"DOTA_Tooltip_ability_item_fusion_magic"										"魔化符文"
@@ -3179,21 +3163,20 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲、%bonus_regen_active%点生命回复、%status_resistance_active%%%状态抗性和%damage_reduction%%%减伤。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>生命值低于%hp_threshold%%%时自动触发以上效果，任意一次伤害都不会将其直接击杀。"
+		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲、%bonus_regen_active%点生命回复和%status_resistance_active%%%状态抗性。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>生命值低于%hp_threshold%%%时自动触发以上效果，任意一次伤害都不会将其直接击杀。"
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"								"饱含生命之力的树甲，枯木逢春，绝处逢生。"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"						"+$health"
-		"DOTA_Tooltip_ability_item_withered_spring_bonus_health_regen"					"+$hp_regen"
+		"DOTA_Tooltip_ability_item_withered_spring_bonus_mana"							"+$mana"
 		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"					"%+最大生命值回复"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_ability_item_withered_spring_magic_resistance"					"%+$spell_resist"
 		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"主动效果期间完全免疫伤害和debuff。"
 		"DOTA_Tooltip_ability_item_withered_spring_Note1"								"自动触发后进入冷却。"
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"枯木逢春"
-		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"减伤,加抗性，护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%,生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%,状态抗性增加%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%。"
+		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"					"加抗性，护甲增加%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%,生命回复增加%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%,状态抗性增加%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%。"
 
 		// 德古拉面罩/生命之盔
 		"DOTA_Tooltip_Ability_item_dracula_mask"										"<font color='#8B0000'>生命之盔</font>"
@@ -3236,21 +3219,24 @@
 		"DOTA_Tooltip_modifier_shadow_judgment_silence"									"暗影审判：灵魂撕裂"
 		"DOTA_Tooltip_modifier_shadow_judgment_silence_Description"						"被沉默。效果结束时,期间受到伤害的%dMODIFIER_PROPERTY_TOOLTIP%%%将以额外魔法伤害的形式结算。"
 
-		// 暗影咒灭
-		"DOTA_Tooltip_Ability_item_shadow_impact"										"<font color='#C77DFF'>暗影咒灭</font>"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"							"<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭。<br><br>纯粹伤害：%absolute_damage%点<br>魔法伤害：%dagon_damage%点<br>虚灵冲击：造成%blast_damage_base%+%blast_agility_multiplier%x[主属性]点魔法伤害,并使目标进入虚灵状态%ethereal_duration%秒,减速%blast_movement_slow%%%<br>死灵冲击：降低敌人 %blast_magic_resist%%% 点的魔法抗性（固定值），造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br><br>施法距离：%abilitycastrange%"
+		// 暗影法杖
+		"DOTA_Tooltip_Ability_item_shadow_impact"										"暗影法杖"
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"							"<h1>主动：暗影湮灭</h1>对目标施放暗影湮灭。<br><br>魔法伤害：%dagon_damage%点<br>死灵冲击：降低敌人 %blast_magic_resist%%% 点的魔法抗性（固定值），造成%necrolyte_att_multiplier%x[全属性]点魔法伤害,并变羊%sheep_duration%秒<br><br>施法距离：%abilitycastrange%<br>冷却时间：%active_cooldown%秒\n<h1>被动：法术强化</h1>下个对敌人施放的单体技能会单独对目标造成%bonus_spell_damage%点额外伤害，<font color='#dd621e'>禁用</font>其被动技能，并且减缓%slow%%%移动速度，持续%slow_duration%秒。<br><br>冷却时间：%passive_cooldown%秒。"
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"									"暗影的冲击,毁灭一切。"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"						"+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_agility"							"+$agi"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_health"							"+$health"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana"								"+$mana"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_all_stats"						"+$all"
 		"DOTA_Tooltip_ability_item_shadow_impact_spell_amp"								"%+$spell_amp"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_cast_range"						"+$cast_range"
-		"DOTA_Tooltip_ability_item_shadow_impact_Note0"									"虚灵状态下的单位将额外受到%ethereal_damage_bonus%%%的魔法伤害。"
-		"DOTA_Tooltip_ability_item_shadow_impact_Note1"									"死灵冲击会将目标变成无害的小动物,无法攻击，施法或使用物品。"
-		"DOTA_Tooltip_ability_item_shadow_impact_Note2"									"绝刃效果造成纯粹伤害,无视魔法免疫。"
+		"DOTA_Tooltip_ability_item_shadow_impact_Note0"									"死灵冲击会将目标变成无害的小动物,无法攻击，施法或使用物品。"
+		"DOTA_Tooltip_ability_item_shadow_impact_Note1"									"法术强化的减速效果可以被驱散。"
+		"DOTA_Tooltip_ability_item_shadow_impact_Note2"									"法术强化的破坏效果不能被驱散。"
 
 		"DOTA_Tooltip_modifier_shadow_impact_sheep"										"死灵冲击"
 		"DOTA_Tooltip_modifier_shadow_impact_sheep_Description"							"变成一只小动物。不能攻击，释放技能或使用物品。降低魔法抗性（固定值）。"
