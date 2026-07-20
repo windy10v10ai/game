@@ -12162,6 +12162,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
+			"movespeed_bonus_pct"	"30"	// 50 -20削弱防止队友跟不上
 			"AbilityDuration"
 			{
 				"value"									"3 3.5 4 4.5 5"	// 3 4 5 6 差值0.5
