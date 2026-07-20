@@ -2306,7 +2306,6 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"法术虚弱"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"受到的技能伤害增加%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
@@ -3150,12 +3149,10 @@
 
 		// 魔龙狂舞
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"									"<font color='#A74ABD'>魔龙狂舞</font>"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#FF0000'>被动：神圣斧</font></h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。<br><br>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。<br><br>所有攻击都具有克敌机先效果。\n<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>使用后%active_duration%秒内，获得%spell_amp_multiplier%倍被智力法术增强。<br><br>冷却时间：%active_cooldown%秒<br>魔法消耗：%AbilityManaCost%\n<h1><font color='#0096FF'>被动：幻影暴击</font></h1>每次攻击有%crit_chance%%%几率造成额外的魔法伤害，数值为攻击伤害的%crit_multiplier%%%。"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"						"<h1><font color='#FF0000'>被动：神圣斧</font></h1>使下次攻击具有克敌机先效果，并且会施加毒素，持续%slow_duration%秒，减缓%slow%%%移动速度，并且每秒造成%int_damage_multiplier%倍智力值的伤害。<br><br>攻击会降低敌人%active_mres_reduction%%%魔法抗性，持续%passive_cooldown%秒。<br><br>所有攻击都具有克敌机先效果。\n<h1><font color='#A74ABD'>主动：龙息爆发</font></h1>使用后%active_duration%秒内，获得%spell_amp_multiplier%倍被智力法术增强。<br><br>冷却时间：%active_cooldown%秒<br>魔法消耗：%AbilityManaCost%\n<h1><font color='#0096FF'>被动：法术暴击</font></h1>对敌方单位造成魔法或纯粹伤害时，有%spell_crit_chance%%%几率触发暴击，造成%spell_crit_multiplier%%%伤害。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"								"魔龙狂舞，焚天灭地。魔焰龙息席卷万物，法术爆发摧枯拉朽。"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"						"+$damage"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"					"%+每点智力法术增强"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_projectile_speed"				"+$projectile_speed"
 
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"							"龙息爆发"
@@ -3283,7 +3280,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"兽化盾"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，移动速度固定为%active_movespeed%，持续%active_duration%秒。<br>提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，持续%active_duration%秒。<br>提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"潜水服"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"每层增加%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"融合了兽化符文力量的终极防御装备，能让使用者化身为不可摧毁的堡垒。"
@@ -3296,7 +3293,7 @@
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_damage"					"+$damage"
 
 		"DOTA_Tooltip_modifier_item_beast_shield_active"								"人形肉盾"
-		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"所有加成提升，移动速度减慢。"
+		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"所有加成提升。"
 
 		"DOTA_Tooltip_modifier_item_beast_shield_aura"									"兽化盾强袭光环"
 		"DOTA_Tooltip_modifier_item_beast_shield_aura_Description"						"获得%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点护甲和%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点攻击速度。"

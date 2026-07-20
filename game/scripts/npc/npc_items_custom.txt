@@ -6103,7 +6103,7 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_ultra;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_devastator_2;item_veil_of_discord_2;item_fusion_brutal"
 		}
 	}
 
@@ -6133,12 +6133,6 @@
 			"active_duration"			"4"
 			"spell_amp_multiplier"		"2"
 
-			// 幻影暴击 modifier
-			"bonus_damage"				"200"
-			"crit_chance"				"30"
-			"crit_multiplier"			"340"
-			"spell_lifesteal"			"30"
-
 			// 神圣斧
 			"bonus_intellect"			"200"
 			// 巫师之刃 + 魔蚀 modifier
@@ -6149,11 +6143,9 @@
 			"active_mres_reduction"		"40"
 			"passive_cooldown"			"4"
 
-			// 死代码,未被任何脚本读取
-			// "spell_crit_chance"			"15"
-			// "spell_crit_multiplier"		"10.0"
-			// "guaranteed_spell_crit_multiplier"	"6.0"
-			// "spell_crit_cooldown"		"60"
+			// 法术暴击 modifier
+			"spell_crit_chance"			"30"
+			"spell_crit_multiplier"		"250"
 		}
 
 
@@ -6752,7 +6744,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"40.0"
+		"AbilityCooldown"			"60.0"
 		"AbilityManaCost"			"300"
 
 		"ItemCost"					"57300"
@@ -6762,7 +6754,6 @@
 			// 主动技能
 			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"400"
 			// BKB
 			"magic_resist"					"100"
 
@@ -6868,7 +6859,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%passive_bonus_health_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%passive_bonus_attack_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%passive_bonus_damage"
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%active_movespeed"
 				}
 
 				"EffectName"		"particles/items_fx/aegis_lvl_1000_ambient.vpcf"

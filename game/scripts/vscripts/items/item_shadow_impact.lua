@@ -15,11 +15,11 @@ function item_shadow_impact:OnSpellStart()
         return
     end
 
-    -- 1. 达贡能量冲击
-    self:ApplyDagonEffect(target)
-
-    -- 2. 死灵法杖效果 (伤害+变羊)
+    -- 1. 死灵法杖效果 (伤害+变羊 降低魔抗)
     self:ApplyNecrolyteEffect(target)
+
+    -- 2. 达贡能量冲击
+    self:ApplyDagonEffect(target)
 
     -- 3. 绝刃被动 (法术强化：额外法术伤害+减速+破坏被动技能)
     self:ApplyAngelsDemiseEffect(target)
@@ -67,6 +67,10 @@ end
 function item_shadow_impact:ApplyNecrolyteEffect(target)
     local caster = self:GetCaster()
 
+    -- 变羊效果 降低魔抗
+    local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
+    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", { duration = duration })
+
     -- 死灵冲击伤害 - 基于全属性
     local blast_att_multiplier = self:GetSpecialValueFor("necrolyte_att_multiplier")
     local allAtt = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect(false)
@@ -80,9 +84,6 @@ function item_shadow_impact:ApplyNecrolyteEffect(target)
         ability = self
     })
 
-    -- 变羊效果
-    local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
-    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", { duration = duration })
 
     EmitSoundOn("DOTA_Item.Sheepstick.Activate", target)
 end

@@ -2296,7 +2296,6 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"Spell Weakness"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
@@ -3143,12 +3142,10 @@
 
 		// Dragon Dance (魔龙狂舞)
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.<br><br>All attacks have true strike.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.<br><br>All attacks have true strike.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Spell Critical</font></h1>Dealing magical or pure damage to enemy units has a %spell_crit_chance%%% chance to critically strike, dealing %spell_crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"         "%+Spell Amp per Intelligence"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_projectile_speed"				"+$projectile_speed"
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"                   "Dragon Breath"
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"       "Gains extra intelligence spell amplification."
@@ -3271,7 +3268,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"Beast Shield"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, movement speed is set to %active_movespeed%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"Diving Suit"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."
@@ -3284,7 +3281,7 @@
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_damage"					"+$damage"
 
 		"DOTA_Tooltip_modifier_item_beast_shield_active"								"Human Shield"
-		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"All bonuses are increased, movement speed slowed."
+		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"All bonuses are increased."
 
 		"DOTA_Tooltip_modifier_item_beast_shield_aura"									"Beast Shield Assault Aura"
 		"DOTA_Tooltip_modifier_item_beast_shield_aura_Description"						"Gaining %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
