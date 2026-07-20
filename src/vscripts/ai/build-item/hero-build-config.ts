@@ -2059,6 +2059,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_switchable_crit_blade', // 归海一刀
         'item_withered_spring', // 生命之心
         'item_time_gem', // 时间宝石
+        'item_hawkeye_fighter', // 鹰眼战机
       ],
     },
   },
