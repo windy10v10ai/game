@@ -633,8 +633,8 @@
 			"damage_reduction"
 			{
 				"value"				"10 13 16 19 22"
-				"special_bonus_shard"				"+5"
-				"special_bonus_unique_spectre_5"		"+5"
+				"special_bonus_shard"				"+4"
+				"special_bonus_unique_spectre_5"		"+4"
 			}
 			// 伤害阈值
 			"threshold"
