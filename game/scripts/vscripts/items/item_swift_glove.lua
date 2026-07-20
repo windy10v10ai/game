@@ -1,6 +1,11 @@
 if item_swift_glove == nil then item_swift_glove = class({}) end
 LinkLuaModifier("modifier_item_swift_glove", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_swift_glove_chain_lightning", "items/item_swift_glove.lua", LUA_MODIFIER_MOTION_NONE)
+-- This Lua item must register the shared kill modifier instead of relying on Dragon Destruction loading first.
+LinkLuaModifier("modifier_ignore_invulnerable_kill", "modifiers/global/modifier_ignore_invulnerable_kill",
+    LUA_MODIFIER_MOTION_NONE)
+
+local IGNORE_INVULNERABLE_KILL_DURATION = 0.25
 
 function item_swift_glove:GetIntrinsicModifierName()
     return "modifier_item_swift_glove"
@@ -73,9 +78,12 @@ function item_swift_glove:OnSpellStart()
     ParticleManager:SetParticleControl(pfx, 1, target_pos)
     ParticleManager:ReleaseParticleIndex(pfx)
 
-    target:AddNewModifier(caster, self, "modifier_ignore_invulnerable_kill", {})
-    target:Kill(self, caster) -- 使用 Kill() 而不是 ForceKill()
-    target:RemoveModifierByName("modifier_ignore_invulnerable_kill")
+    -- Keep the bypass alive briefly because Kill() can finish its minimum-health check after this Lua call returns.
+    -- The timestamp is a synchronous fallback if the shared TS modifier has not finished registering yet.
+    target.ignore_invulnerable_kill_until = GameRules:GetGameTime() + IGNORE_INVULNERABLE_KILL_DURATION
+    target:AddNewModifier(caster, self, "modifier_ignore_invulnerable_kill",
+        { duration = IGNORE_INVULNERABLE_KILL_DURATION })
+    target:Kill(self, caster) -- Preserve standard kill credit and death rewards.
     caster:EmitSound("DOTA_Item.Hand_Of_Midas")
     caster:ModifyGoldFiltered(self_gold, true, DOTA_ModifyGold_CreepKill)
     if not caster:IsTempestDouble() then

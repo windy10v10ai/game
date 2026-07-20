@@ -86,7 +86,10 @@ end
 
 -- 血量下限锁在 1，伤害结算时引擎同步钳制，避免单次爆发直接秒杀绕过阈值判定
 function modifier_item_withered_spring:GetMinHealth()
-    if self:GetParent():HasModifier("modifier_ignore_invulnerable_kill") then
+    local parent = self:GetParent()
+    local ignore_kill_until = parent.ignore_invulnerable_kill_until
+    if (ignore_kill_until and ignore_kill_until >= GameRules:GetGameTime()) or
+        parent:HasModifier("modifier_ignore_invulnerable_kill") then
         return 0
     end
 
