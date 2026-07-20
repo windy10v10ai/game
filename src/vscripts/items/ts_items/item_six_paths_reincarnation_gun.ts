@@ -17,6 +17,20 @@ function hasShotgunCooldown(unit: CDOTA_BaseNPC): boolean {
   return SHOTGUN_COOLDOWN_MODIFIERS.some((modifierName) => unit.HasModifier(modifierName));
 }
 
+// 纯粹伤害不吃护甲，按目标护甲折算出"若是物理攻击本应造成的伤害"作为参照上限，
+// 避免后期高护甲目标下纯粹伤害相对物理/魔法伤害差距过大。
+function capPureDamageByArmor(
+  rawDamage: number,
+  target: CDOTA_BaseNPC,
+  capMultiplier: number,
+): number {
+  const armor = target.GetPhysicalArmorValue(false);
+  if (armor <= 0) return rawDamage; // 负护甲下物理等效值必然放大，封顶不会生效
+
+  const armorMultiplier = 1 - (0.06 * armor) / (1 + 0.06 * armor);
+  return Math.min(rawDamage, rawDamage * armorMultiplier * capMultiplier);
+}
+
 @registerAbility('item_six_paths_reincarnation_gun')
 export class ItemSixPathsReincarnationGun extends BaseItem {
   GetIntrinsicModifierName(): string {
@@ -39,10 +53,11 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
   override statsModifierName = 'modifier_item_six_paths_reincarnation_gun_stats';
 
   private attackRadius = 400;
-  private attackPercent = 60;
+  private attackPercent = 45;
   private internalCooldown = 0.05;
   private mageSlayerDuration = 3;
-  private spellLifesteal = 42;
+  private spellLifesteal = 30;
+  private pureDamageCapMultiplier = 3;
 
   OnCreated(): void {
     const ability = this.GetAbility();
@@ -52,6 +67,7 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
       this.internalCooldown = ability.GetSpecialValueFor('internal_cooldown');
       this.mageSlayerDuration = ability.GetSpecialValueFor('mage_slayer_duration');
       this.spellLifesteal = ability.GetSpecialValueFor('spell_lifesteal');
+      this.pureDamageCapMultiplier = ability.GetSpecialValueFor('pure_damage_cap_multiplier');
     }
     super.OnCreated();
   }
@@ -118,10 +134,14 @@ export class ModifierItemSixPathsReincarnationGun extends BaseItemModifier {
     for (const enemy of enemies) {
       if (enemy === target) continue;
       if (enemy.IsBuilding() || enemy.IsOther()) continue;
+      const damage =
+        splashDamageType === DamageTypes.PURE
+          ? capPureDamageByArmor(splashDamage, enemy, this.pureDamageCapMultiplier)
+          : splashDamage;
       ApplyDamage({
         victim: enemy,
         attacker: parent,
-        damage: splashDamage,
+        damage,
         damage_type: splashDamageType,
         damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.REFLECTION,
         ability,
@@ -153,8 +173,8 @@ export class ModifierItemSixPathsReincarnationGunCooldown extends BaseItemModifi
 export class ModifierItemSixPathsReincarnationGunDebuff extends BaseItemModifier {
   override statsModifierName = '';
 
-  private spellDamageReduction = 50;
-  private damagePerType = 200;
+  private spellDamageReduction = 30;
+  private damagePerType = 90;
   private damageInterval = 1;
   private hasTicked = false; // To prevent the first tick from happening immediately on creation
 
@@ -225,6 +245,7 @@ export class ModifierItemSixPathsReincarnationGunDebuff extends BaseItemModifier
         attacker: caster,
         damage: this.damagePerType,
         damage_type: damageType,
+        damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.REFLECTION,
         ability,
       });
     }
@@ -239,17 +260,20 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
   override statsModifierName = '';
 
   private attackDamageTypes: Record<number, DamageTypes> = {};
+  private pureDamageCapMultiplier = 3;
 
   OnCreated(): void {
     if (IsServer()) {
       this.attackDamageTypes = {};
     }
+    const ability = this.GetAbility();
+    if (ability) {
+      this.pureDamageCapMultiplier = ability.GetSpecialValueFor('pure_damage_cap_multiplier');
+    }
   }
 
   OnRefresh(): void {
-    if (IsServer()) {
-      this.attackDamageTypes = {};
-    }
+    this.OnCreated();
   }
 
   IsHidden(): boolean {
@@ -304,14 +328,19 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
     const target = event.target;
     if (!ability || !target || target.IsNull()) return;
 
-    const convertedDamage = Math.max(event.original_damage, 0);
+    let convertedDamage = Math.max(event.original_damage, 0);
     if (convertedDamage <= 0) return;
+
+    if (damageType === DamageTypes.PURE) {
+      convertedDamage = capPureDamageByArmor(convertedDamage, target, this.pureDamageCapMultiplier);
+    }
 
     ApplyDamage({
       victim: target,
       attacker: this.GetParent(),
       damage: convertedDamage,
       damage_type: damageType,
+      damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.REFLECTION,
       ability,
     });
   }
