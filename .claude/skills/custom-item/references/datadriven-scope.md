@@ -58,6 +58,27 @@ caster:RemoveModifierByName("modifier_item_eternal_shroud")
 
 原生 modifier 自动从传入的 `ability` 读取它需要的 `AbilityValues` 字段（按原版字段名补全即可），不要在自己 KV 的 `Modifiers` 块里重复定义这个原生 modifier。
 
+**需要同时合并多个原生 modifier 时**，`RemoveModifierByName` 得逐个手写调用名字，不够通用；改用 `ability` 上挂一个数组记录所有合并进来的 modifier 句柄，`OnDestroy` 时统一遍历 `Destroy()`：
+
+```lua
+-- OnCreated
+local m1 = caster:AddNewModifier(caster, ability, "modifier_item_devastator", {})
+local m2 = caster:AddNewModifier(caster, ability, "modifier_item_xxx", {})
+ability.added_modifiers = ability.added_modifiers or {}
+if m1 then table.insert(ability.added_modifiers, m1) end
+if m2 then table.insert(ability.added_modifiers, m2) end
+
+-- OnDestroy
+for _, modifier in pairs(ability.added_modifiers or {}) do
+    if modifier and not modifier:IsNull() then
+        modifier:Destroy()
+    end
+end
+ability.added_modifiers = nil
+```
+
+范例：`item_magic_crit_blade.lua`（合并 `modifier_item_devastator`）。
+
 ## `item_apply_modifiers` 共享 hub 的三类场景
 
 `game/scripts/npc/npc_items_modifier.txt` 里的 `item_apply_modifiers`（`BaseClass item_datadriven`）是一个全局共享物品，专门用来存放各个 `item_lua` 物品「纯数值常量加成」部分的 DataDriven 定义，避免每个物品都要写一遍 Lua `GetModifier*`。

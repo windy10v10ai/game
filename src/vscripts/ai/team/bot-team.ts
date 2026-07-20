@@ -16,9 +16,9 @@ export class BotTeam {
   private pushStarted: boolean = false; // 是否已进入推进阶段
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly addAmountBase: number = 1; // Bot发钱的基础金额
+  private readonly addAmountBase: number = 1.5; // Bot发钱的基础金额
   private readonly addAmountPlayerNumberBonus: number = 0.1; // 每个玩家增加的金额
-  private readonly addAmountNeedLevel: number = 0.015; // 每玩家等级增加的金额
+  private readonly addAmountNeedLevel: number = 0.01; // 每玩家等级增加的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
 
   /**

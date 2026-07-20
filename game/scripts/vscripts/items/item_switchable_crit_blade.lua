@@ -26,6 +26,8 @@ function item_switchable_crit_blade:OnSpellStart()
     modifier:SetStackCount(current_mode)
     self:SetSecondaryCharges(current_mode) -- 新增:保存到物品
     EmitSoundOn("Item.ToggleOn", caster)
+    -- 切换时不进入CD
+    self:EndCooldown()
 end
 
 function item_switchable_crit_blade:GetCooldown(level)
