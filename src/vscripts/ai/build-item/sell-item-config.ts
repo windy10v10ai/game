@@ -22,7 +22,6 @@ export const SpecialConsumableItems: string[] = [
   'item_dust', // 显隐之尘
   'item_gem', // 真视宝石
   'item_smoke_of_deceit', // 诡计之雾
-  'item_roshans_banner', // 肉山的战旗
 ];
 
 /**
@@ -128,6 +127,7 @@ export const SellItemCommonJunkList: string[] = [
   'item_great_famango',
   'item_greater_famango',
   'item_cheese', // 奶酪
+  'item_roshans_banner', // 肉山的战旗
 ];
 
 /**

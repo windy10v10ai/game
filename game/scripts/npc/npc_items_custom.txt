@@ -877,7 +877,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8700"
+		"ItemCost"						"8300"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -886,7 +886,7 @@
 		"ItemResult"					"item_excalibur"
 		"ItemRequirements"
 		{
-			"01"						"item_monkey_king_bar_2;item_rapier;item_rapier"
+			"01"						"item_monkey_king_bar_2;item_rapier"
 		}
 	}
 
@@ -908,7 +908,7 @@
 
 		"AbilityValues"
 		{
-			"bonus_damage"			"600"
+			"bonus_damage"			"400"
 			"bonus_spell_amp"		"50"
 			"bonus_damage_percent"	"100"
 		}
@@ -1014,10 +1014,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_strength"		"120"	// Tooltip, real value in item_undying_heart_bonus_strength
-				"bonus_health"			"1600"
+				"bonus_strength"		"100"	// Tooltip, real value in modifier_item_undying_heart_stats
+				"bonus_health"			"1200"	// Tooltip, real value in modifier_item_undying_heart_stats
 				"health_regen_pct"		"2"
-				"bonus_evasion"			"20"
+				"bonus_evasion"			"20"	// Tooltip, real value in modifier_item_undying_heart_stats
 				"status_resistance"		"8"
 				"dur"					"5"
 				"active_hp_regen"		"1000"
@@ -1620,11 +1620,11 @@
 		"AbilityCooldown"				"60.0 65.0 70.0 75.0 80.0"
 
 		"ItemCost"						"6000"
-		"ItemShopTags"					"str;regen_health;health_pool"
+		"ItemShopTags"					"str;regen_health;health_pool;escape;tank"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"ad;aeon disk"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS | DECLARE_PURCHASES_IN_SPEECH"
-		"ShouldBeSuggested"				"1"
+		"SuggestLategame"				"1"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -1637,6 +1637,7 @@
 				"buff_duration"		"3"
 				"max_level"		"5"
 				"cooldown_duration"		"60.0 65.0 70.0 75.0 80.0"
+				"initial_cooldown"		"6"
 		}
 	}
 	//=================================================================================================================
@@ -4702,7 +4703,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6200"
+		"ItemCost"						"6000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -4718,7 +4719,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"40000"
+		"ItemCost"						"36000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4767,7 +4768,7 @@
 		"ID"							"9596"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"8000"
+		"ItemCost"						"6000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra_bot"
@@ -4782,7 +4783,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9597"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"60000"
+		"ItemCost"						"48000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4828,7 +4829,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9598"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"60000"
+		"ItemCost"						"48000"
 
 		"ItemPurchasable"				"0"
 		"ItemDroppable"					"1"
@@ -5292,53 +5293,6 @@
 	}
 
 	//=================================================================================================================
-	// 神器永恒虚灵刀
-	//=================================================================================================================
-	"item_recipe_ethereal_blade_ultra"
-	{
-		"BaseClass"						"item_recipe_ethereal_blade"
-		"ItemCost"						"600"
-		"ItemShopTags"					""
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_ethereal_blade_ultra"
-		"ItemRequirements"
-		{
-			"01"						"item_ethereal_blade;item_ethereal_blade"
-		}
-	}
-	"item_ethereal_blade_ultra"
-	{
-		"BaseClass"						"item_ethereal_blade"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY | DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"FightRecapLevel"				"1"
-		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
-		"AbilityCastRange"				"900"	//800
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"16.0"	//22
-		"AbilitySharedCooldown"			"ethereal"
-		"AbilityManaCost"				"400"	//100
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_ALWAYS"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-		"AbilityTextureName"			"ethereal_blade_ultra"
-		"AbilityValues"
-		{
-				"bonus_agility"			"50"	//24
-				"bonus_strength"		"50"	//24
-				"bonus_intellect"		"50"	//24
-
-				"blast_movement_slow"	"-100"	//-80
-				"duration"				"1.5"		//4
-				"blast_stat_multiplier"		"1.0"	//1.0
-				"blast_damage_base"			"200"//50
-				"duration_ally"				"6"	//4.0
-				"ethereal_damage_bonus"	"-60"	//-30
-				"projectile_speed"	"2000"		//1400
-		}
-	}
-	//=================================================================================================================
 	// 法师泳衣
 	//=================================================================================================================
 	"item_recipe_eternal_shroud_ultra"
@@ -5439,7 +5393,7 @@
 		"AbilityTextureName"		"fusion_brutal"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5514,7 +5468,7 @@
 		"AbilityTextureName"		"fusion_shadow"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5564,7 +5518,7 @@
 		"AbilityTextureName"		"fusion_agile"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -6090,7 +6044,7 @@
 		"AbilityCastPoint"			"0.0"
 		"AbilityCooldown"			"0.0"	// 冷却由Lua动态控制
 
-		"ItemCost"					"70000"
+		"ItemCost"					"54000"
 		"ItemShopTags"				"damage;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6099,30 +6053,29 @@
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_damage"				"800"	// tooltip only - 攻击力
+			"bonus_damage"				"600"	// tooltip only - 攻击力
 			"bonus_spell_amp"			"50"	// tooltip only - 法术增强
 			"bonus_damage_percent"		"100"	// tooltip only - 基础伤害加成
 			"bonus_agility"				"100"	// tooltip only - 敏捷
 			"bonus_evasion"				"35"	// tooltip only - 闪避
-			"bonus_attack_speed"		"100"	// tooltip only - 攻击速度
 
 			// 暴击参数（Lua 逻辑需要 - 动态暴击计算）
 			// 模式1:
 			"crit_chance_mode1"			"18"
-			"crit_multiplier_mode1"		"6"
-			"guaranteed_crit_multiplier_mode1"	"5"
+			"crit_multiplier_mode1"		"5"
+			"guaranteed_crit_multiplier_mode1"	"4"
 			"cooldown_mode1"			"6"
 
 			// 模式2:
 			"crit_chance_mode2"			"6"
-			"crit_multiplier_mode2"		"20"
-			"guaranteed_crit_multiplier_mode2"	"15"
+			"crit_multiplier_mode2"		"16"
+			"guaranteed_crit_multiplier_mode2"	"12"
 			"cooldown_mode2"			"20"
 
 			// 模式3:
 			"crit_chance_mode3"			"1"
-			"crit_multiplier_mode3"		"100"
-			"guaranteed_crit_multiplier_mode3"	"50"
+			"crit_multiplier_mode3"		"80"
+			"guaranteed_crit_multiplier_mode3"	"40"
 			"cooldown_mode3"			"60"
 		}
 	}
@@ -6166,7 +6119,7 @@
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"57800"
+		"ItemCost"					"47800"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
@@ -6183,11 +6136,11 @@
 			// 幻影暴击 modifier
 			"bonus_damage"				"200"
 			"crit_chance"				"30"
-			"crit_multiplier"			"480"
+			"crit_multiplier"			"340"
 			"spell_lifesteal"			"30"
 
 			// 神圣斧
-			"bonus_intellect"			"180"
+			"bonus_intellect"			"200"
 			// 巫师之刃 + 魔蚀 modifier
 			"projectile_speed"			"300"
 			"int_damage_multiplier"		"1.25"
@@ -6196,11 +6149,11 @@
 			"active_mres_reduction"		"40"
 			"passive_cooldown"			"4"
 
-			// Lua 逻辑需要 - 龙息爆发(法术暴击,事件驱动)
-			"spell_crit_chance"			"15"
-			"spell_crit_multiplier"		"10.0"
-			"guaranteed_spell_crit_multiplier"	"6.0"
-			"spell_crit_cooldown"		"60"
+			// 死代码,未被任何脚本读取
+			// "spell_crit_chance"			"15"
+			// "spell_crit_multiplier"		"10.0"
+			// "guaranteed_spell_crit_multiplier"	"6.0"
+			// "spell_crit_cooldown"		"60"
 		}
 
 
@@ -6266,7 +6219,7 @@
 		"ItemResult"				"item_withered_spring"
 		"ItemRequirements"
 		{
-			"01"					"item_aeon_pendant;item_undying_heart;item_guardian_greaves_artifact;item_insight_armor;item_fusion_life"
+			"01"					"item_aeon_pendant;item_undying_heart;item_guardian_greaves_artifact;item_fusion_life"
 		}
 	}
 
@@ -6275,11 +6228,11 @@
 		"BaseClass"					"item_lua"
 		"ID"						"10314"
 		"ScriptFile"				"items/item_withered_spring"
-		"AbilityTextureName"		"kumufengchun"
+		"AbilityTextureName"		"withered_spring"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"FightRecapLevel"			"1"
 
-		"ItemCost"					"50600"
+		"ItemCost"					"52600"
 		"ItemShopTags"				"str;health;regen;armor;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6298,7 +6251,7 @@
 		{
 			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
 			"health_regen_pct"			"3"		// Lua 逻辑需要 - 百分比生命回复
-			"status_resistance"			"20"	// Lua 逻辑需要 - 状态抗性
+			"status_resistance"			"15"	// Lua 逻辑需要 - 状态抗性
 
 			// Lua 逻辑需要 - 主动技能参数
 			"hp_threshold"				"20"	// Lua 逻辑需要 - 自动触发生命阈值
@@ -6311,18 +6264,16 @@
 				"affected_by_aoe_increase"	"1"
 			}
 			"active_duration"			"3"		// Lua 逻辑需要 - 主动持续时间
-			"bonus_armor_active"		"30"	// Lua 逻辑需要 - 主动护甲加成
+			"bonus_armor_active"		"20"	// Lua 逻辑需要 - 主动护甲加成
 			"bonus_regen_active"		"300"	// Lua 逻辑需要 - 主动生命回复
-			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免
 			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"150"	// tooltip only - 力量
+			"bonus_strength"			"120"	// tooltip only - 力量
 			"bonus_health"				"2500"	// tooltip only - 生命值
-			"bonus_health_regen"		"80"	// tooltip only - 生命回复
-			"bonus_armor"				"40"	// tooltip only - 护甲
+			"bonus_mana"				"2500"	// tooltip only - 法力值
+			"bonus_armor"				"20"	// tooltip only - 护甲
 			"bonus_evasion"				"25"	// tooltip only - 闪避
-			"magic_resistance"			"20"	// tooltip only - 魔法抗性
 		}
 	}
 	//=================================================================================================================
@@ -6490,9 +6441,9 @@
 		}
 	}
 	//=================================================================================================================
-	// 暗影咒灭
+	// 暗影法杖
 	//=================================================================================================================
-	// 达贡之神力+永恒虚灵之刃+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
+	// 达贡之神力+死灵法杖+绝刃 融合所有主动，cd短，耗蓝高
 	"item_recipe_shadow_impact"
 	{
 		"BaseClass"					"item_datadriven"
@@ -6507,7 +6458,7 @@
 		"ItemResult"				"item_shadow_impact"
 		"ItemRequirements"
 		{
-			"01"					"item_dagon_5;item_ethereal_blade_ultra;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
+			"01"					"item_dagon_5;item_necronomicon_staff;item_angels_demise;item_fusion_shadow"
 		}
 	}
 
@@ -6516,7 +6467,7 @@
 		"BaseClass"					"item_lua"
 		"ID"						"10314"
 		"ScriptFile"				"items/item_shadow_impact"
-		"AbilityTextureName"		"anyingchongji"
+		"AbilityTextureName"		"shadow_impact"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -6528,41 +6479,42 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"8"
-		"AbilityManaCost"			"1600"
+		"AbilityCooldown"			"3"	// 被动冷却，主动冷却见 active_cooldown
+		"AbilityManaCost"			"800"
 		"AbilityCastRange"			"900"
 		"AbilityCastPoint"			"0.2"
 
 		"AbilityValues"
 		{
 			// 主动技能参数（Lua 逻辑需要）
+			"active_cooldown"			"15"	// Lua 逻辑需要 - 主动施法冷却
 			"dagon_damage"
 			{
-				"value"					"800"
+				"value"					"1800"
 				"CalculateSpellDamageTooltip"	"1"
 			}
-			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
-			"sheep_duration"			"1.5"	// Lua 逻辑需要 - 变形持续时间
+
+			"necrolyte_att_multiplier"	"1.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
-			"ethereal_duration"			"4.0"	// Lua 逻辑需要 - 虚灵持续时间
-			"blast_agility_multiplier"	"2.5"	// Lua 逻辑需要 - 虚灵之刃主属性倍数
-			"blast_damage_base"			"300"	// Lua 逻辑需要 - 虚灵之刃基础伤害
-			"blast_movement_slow"		"-80"	// Lua 逻辑需要 - 虚灵减速百分比
-			"ethereal_damage_bonus"		"40"	// Lua 逻辑需要 - 虚灵伤害加成
-			"absolute_damage"
-			{
-				"value"					"600"
-				"CalculateSpellDamageTooltip"	"1"
-			}
+
+			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）
+			"bonus_health"				"600"	// 绝刃自身加成
+			// "bonus_health_regen"		"7"		// 绝刃自身加成
+			"bonus_mana"				"1500"
+			"bonus_mana_regen"			"30"
+			// "bonus_all_stats"			"25"	// 绝刃自身加成
+			"slow"						"50"	// 绝刃减速
+			"slow_duration"				"4"		// 绝刃减速持续时间
+			"bonus_spell_damage"		"900"	// 绝刃法术伤害加成
+			"passive_cooldown"			"3"		// 绝刃自身充能冷却
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_intellect"			"200"	// tooltip only - 智力
 			"bonus_strength"			"80"	// tooltip only - 力量
 			"bonus_agility"				"120"	// tooltip only - 敏捷
 			"bonus_damage"				"250"	// tooltip only - 攻击力
-			"bonus_mana"				"1500"	// tooltip only - 魔法值
-			"bonus_mana_regen"			"30"	// tooltip only - 魔法回复
 			"spell_amp"					"60"	// tooltip only - 技能增强
 
 			// Lua 逻辑需要 - 施法距离（不在可优化列表）
@@ -6573,7 +6525,6 @@
 		{
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_necrolyte.vsndevts"
 			"particle"					"particles/units/heroes/hero_necrolyte/necrolyte_pulse.vpcf"
-			"particle"					"particles/items2_fx/ethereal_blade.vpcf"
 		}
 	}
 
@@ -6643,19 +6594,19 @@
 			"group_xp"			"0.5"
 			"group_gold"		"120"
 			"hero_kill_chance"	"50"
-			"chain_chance"		"60"
+			"chain_chance"		"50"
 			"chain_damage"		"600"
 			"chain_strikes"		"15"
 			"chain_radius"		"1200"
 			"chain_cooldown"		"0.2"
 			"double_damage_chance"	"20"
-			"double_damage_multiplier"	"2"
+			"double_damage_multiplier"	"1.5"
 			"double_damage_cooldown"	"0.3"
 			"quintuple_damage_chance"	"3"
-			"quintuple_damage_multiplier"	"3"
+			"quintuple_damage_multiplier"	"2"
 			"quintuple_damage_cooldown"	"0.5"
 			"decuple_damage_chance"	"1"
-			"decuple_damage_multiplier"	"5"
+			"decuple_damage_multiplier"	"3"
 			"decuple_damage_cooldown"	"1"
 		}
 	}
@@ -6697,15 +6648,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"				"250"
-			"bonus_agility"					"250"
-			"bonus_intellect"				"250"
-			"status_resistance"				"60"
-			"bonus_attack_speed"			"200"
-			"movement_speed_percent_bonus"	"50"
-			"hp_regen_amp"					"100"
+			"bonus_strength"				"200"
+			"bonus_agility"					"200"
+			"bonus_intellect"				"200"
+			"status_resistance"				"50"
+			"bonus_attack_speed"			"160"
+			"movement_speed_percent_bonus"	"40"
+			"hp_regen_amp"					"80"
 			"mana_regen_multiplier"			"150"
-			"spell_amp"						"100"
+			"spell_amp"						"80"
 			"magic_damage_attack"			"100"
 		}
 	}

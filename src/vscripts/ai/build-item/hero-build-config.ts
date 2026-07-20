@@ -177,7 +177,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_forbidden_staff', // 禁忌法杖
         'item_magic_crit_blade', // 魔龙狂舞
         'item_dracula_mask', // 生命之盔
-        'item_swift_glove', // 无限手套
       ],
     },
   },
@@ -378,7 +377,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_magic_sword', // 魔渊剑
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
-        'item_hawkeye_fighter', // 鹰眼战机
         'item_beast_armor', // 兽化甲
         'item_withered_spring', // 生命之心
       ],
@@ -453,7 +451,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_beast_armor', // 兽化甲
         'item_shadow_judgment', // 暗影裁决
-        'item_hawkeye_fighter', // 鹰眼战机
       ],
     },
   },
@@ -597,7 +594,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dracula_mask', // 生命之盔
         'item_beast_armor', // 兽化甲
         'item_magic_crit_blade', // 魔龙狂舞
-        'item_hawkeye_fighter', // 鹰眼战机
       ],
     },
   },
@@ -719,7 +715,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_time_gem', // 时间宝石
         'item_magic_sword', // 魔渊剑
-        'item_hawkeye_fighter', // 鹰眼战机
         'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
@@ -771,10 +766,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       [ItemTier.T5]: [
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_swift_glove', // 无限手套
         'item_time_gem', // 时间宝石
         'item_ten_thousand_swords', // 万剑归宗
-        'item_switchable_crit_blade', // 归海一刀
         'item_magic_crit_blade', // 魔龙狂舞
         'item_beast_armor', // 兽化甲
         'item_magic_sword', // 魔渊剑
@@ -828,9 +821,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       [ItemTier.T5]: [
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_swift_glove', // 无限手套
         'item_magic_sword', // 魔渊剑
-        'item_switchable_crit_blade', // 归海一刀
         'item_ten_thousand_swords', // 万剑归宗
         'item_beast_shield', // 兽化盾
         'item_time_gem', // 时间宝石
@@ -883,10 +874,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
       ],
       [ItemTier.T5]: [
-        'item_swift_glove', // 无限手套
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_switchable_crit_blade', // 归海一刀
         'item_ten_thousand_swords', // 万剑归宗
         'item_magic_sword', // 魔渊剑
         'item_time_gem', // 时间宝石
@@ -1003,7 +992,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_forbidden_staff', // 禁忌法杖
         'item_withered_spring', // 生命之心
         'item_dracula_mask', // 生命之盔
-        'item_swift_glove', // 无限手套
       ],
     },
   },
@@ -1069,10 +1057,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_forbidden_staff', // 禁忌法锤
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_swift_glove', // 无限手套
-        'item_switchable_crit_blade', // 归海一刀
         'item_withered_spring', // 生命之心
-        'item_hawkeye_fighter', // 鹰眼战机
+        'item_six_paths_reincarnation_gun', // 六道轮回枪
       ],
     },
   },
@@ -1187,7 +1173,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_forbidden_staff', // 禁忌法锤
         'item_ten_thousand_swords', // 万剑归宗
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_beast_shield', // 兽化盾
         'item_withered_spring', // 生命之心
         'item_dracula_mask', // 生命之盔
@@ -1255,10 +1241,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_ten_thousand_swords', // 万剑归宗
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_swift_glove', // 无限手套
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_forbidden_staff', // 禁忌法锤
-        'item_switchable_crit_blade', // 归海一刀
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
         'item_withered_spring', // 生命之心
@@ -1310,7 +1294,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_blink', // 爱因斯坦闪光
         'item_hallowed_scepter', // 仙云法杖
         'item_necronomicon_staff', // 死灵法杖
-        'item_ethereal_blade_ultra', // 神器·永恒虚灵之刃
         'item_blue_fantasy', // 苍蓝幻想
         'item_refresh_core', // 熔火核心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
@@ -1324,12 +1307,9 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_time_gem', // 时间宝石
         'item_forbidden_staff', // 禁忌法锤
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_ten_thousand_swords', // 万剑归宗
         'item_withered_spring', // 生命之心
-        'item_swift_glove', // 无限手套
-        'item_beast_shield', // 兽化盾
-        'item_dracula_mask', // 生命之盔
         'item_hawkeye_turret', // 鹰眼炮台
       ],
     },
@@ -1396,11 +1376,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_hawkeye_turret', // 鹰眼炮台
         'item_ten_thousand_swords', // 万剑归宗
-        'item_swift_glove', // 无限手套
         'item_forbidden_staff', // 禁忌法锤
-        'item_shadow_impact', // 暗影咒灭
         'item_dracula_mask', // 生命之盔
-        'item_switchable_crit_blade', // 归海一刀
         'item_beast_shield', // 兽化盾
         'item_withered_spring', // 生命之心
       ],
@@ -1464,8 +1441,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_forbidden_staff', // 禁忌法锤
         'item_ten_thousand_swords', // 万剑归宗
-        'item_shadow_impact', // 暗影咒灭
-        'item_swift_glove', // 无限手套
+        'item_shadow_impact', // 暗影法杖
       ],
     },
   },
@@ -1517,7 +1493,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_armor', // 兽化甲
         'item_beast_shield', // 兽化盾
         'item_ten_thousand_swords', // 万剑
-        'item_switchable_crit_blade', // 归海一刀
       ],
     },
   },
@@ -1635,8 +1610,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_magic_crit_blade', // 魔龙狂舞
         'item_dracula_mask', // 生命之盔
-        'item_swift_glove', // 无限手套
-        'item_switchable_crit_blade', // 归海一刀
         'item_forbidden_staff', // 禁忌法锤
       ],
     },
@@ -1879,7 +1852,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_switchable_crit_blade', // 归海一刀
         'item_beast_armor', // 兽化甲
-        'item_swift_glove', // 无限手套
         'item_time_gem', // 时间宝石
       ],
     },
@@ -2022,10 +1994,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_armor', // 兽化甲
         'item_forbidden_staff', // 禁忌法锤
         'item_magic_sword', // 魔渊剑
-        'item_switchable_crit_blade', // 归海一刀
         'item_dracula_mask', // 生命之盔
-        'item_swift_glove', // 无限手套
-        'item_tome_of_luoshu', // 洛书
       ],
     },
   },
@@ -2088,7 +2057,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_switchable_crit_blade', // 归海一刀
         'item_withered_spring', // 生命之心
         'item_time_gem', // 时间宝石
-        'item_swift_glove', // 无限手套
+        'item_hawkeye_fighter', // 鹰眼战机
       ],
     },
   },
@@ -2157,10 +2126,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_magic_sword', // 魔渊剑
         'item_dracula_mask', // 生命之盔
-        'item_switchable_crit_blade', // 归海一刀
-        'item_swift_glove', // 无限手套
         'item_forbidden_staff', // 禁忌法锤
-        'item_hawkeye_fighter', // 鹰眼战机
       ],
     },
   },
@@ -2217,7 +2183,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_forbidden_staff', // 禁忌法杖
         'item_withered_spring', // 生命之心
         'item_beast_shield', // 兽化盾
-        'item_swift_glove', // 无限手套
       ],
     },
   },
@@ -2279,7 +2244,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_shield', // 兽化盾
         'item_withered_spring', // 生命之心
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_swift_glove', // 无限手套
       ],
     },
   },
@@ -2333,7 +2297,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_ten_thousand_swords', // 万剑
         'item_forbidden_staff', // 禁忌法杖
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_beast_shield', // 兽化盾
       ],
     },
@@ -2394,7 +2358,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_withered_spring', // 生命之心
         'item_beast_shield', // 兽化盾
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_hawkeye_turret', // 鹰眼炮台
       ],
     },
@@ -2456,7 +2420,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_forbidden_staff', // 禁忌法锤
         'item_ten_thousand_swords', // 万剑归宗
-        'item_swift_glove', // 无限手套
         'item_beast_shield', // 兽化盾
       ],
     },
@@ -2520,8 +2483,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_sword', // 魔渊剑
         'item_beast_shield', // 兽化盾
         'item_magic_crit_blade', // 魔龙狂舞
-        'item_switchable_crit_blade', // 归海一刀
-        'item_swift_glove', // 无限手套
       ],
     },
   },
@@ -2583,8 +2544,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
-        'item_swift_glove', // 无限手套
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_ten_thousand_swords', // 万剑归宗
         'item_magic_crit_blade', // 魔龙狂舞
         'item_withered_spring', // 生命之心
@@ -2592,7 +2552,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_shield', // 兽化盾
         'item_magic_sword', // 魔渊剑
         'item_dracula_mask', // 生命之盔
-        'item_switchable_crit_blade', // 归海一刀
       ],
     },
   },
@@ -2659,10 +2618,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_forbidden_staff', // 禁忌法锤
         'item_dracula_mask', // 生命之盔
-        'item_swift_glove', // 无限手套
         'item_hawkeye_turret', // 鹰眼炮台
-        'item_shadow_impact', // 暗影咒灭
-        'item_switchable_crit_blade', // 归海一刀
+        'item_shadow_impact', // 暗影法杖
       ],
     },
   },
@@ -2718,12 +2675,10 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_crit_blade', // 魔龙狂舞
         'item_ten_thousand_swords', // 万剑归宗
         'item_time_gem', // 时间宝石
-        'item_swift_glove', // 无限手套
         'item_hawkeye_turret', // 鹰眼炮台
         'item_withered_spring', // 生命之心
         'item_beast_shield', // 兽化盾
-        'item_beast_armor', // 兽化甲
-        'item_switchable_crit_blade', // 归海一刀
+        'item_forbidden_staff', // 禁忌法锤
       ],
     },
   },
@@ -2780,10 +2735,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hawkeye_turret', // 鹰眼炮台
         'item_withered_spring', // 生命之心
         'item_ten_thousand_swords', // 万剑归宗
-        'item_shadow_impact', // 暗影咒灭
+        'item_shadow_impact', // 暗影法杖
         'item_magic_crit_blade', // 魔龙狂舞
-        'item_swift_glove', // 无限手套
-        'item_switchable_crit_blade', // 归海一刀
       ],
     },
   },
@@ -2853,9 +2806,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_forbidden_staff', // 禁忌法锤
         'item_magic_sword', // 魔渊剑
         'item_dracula_mask', // 生命之盔
-        'item_switchable_crit_blade', // 归海一刀
-        'item_tome_of_luoshu', // 洛书
-        'item_swift_glove', // 无限手套
       ],
     },
   },

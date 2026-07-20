@@ -769,6 +769,7 @@
 		"DOTA_Tooltip_ability_spectre_dispersion2_threshold"			"REFLECTION DAMAGE THRESHOLD:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_radius"			"REFLECTION RADIUS:"
 		"DOTA_Tooltip_ability_spectre_dispersion2_Note0"			"Reflection damage type matches received damage type (Physical/Magical/Pure). Pierces debuff immunity. Reflection damage decreases with distance."
+		"DOTA_Tooltip_ability_spectre_dispersion2_Note1"			"Reflection damage is not affected by spell amplification."
 
 		//贪魔的贪婪
 		"DOTA_Tooltip_ability_alchemist_goblins_greed2"								"Greevil's Greed"
@@ -2193,7 +2194,7 @@
 
 		// item_aeon_pendant 咸鱼之王
 		"DOTA_Tooltip_Ability_item_aeon_pendant"				"Aeon Pendant"
-		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%, a strong dispel is applied and you gain a %buff_duration% second buff that provides +%status_resistance%%% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. Cooldown increases every time it triggers."
+		"DOTA_Tooltip_ability_item_aeon_pendant_Description"					"<h1>Passive: Combo Breaker</h1> When you take damage and your health falls below %health_threshold_pct%%%, a strong dispel is applied and you gain a %buff_duration% second buff that provides +%status_resistance%%% Status Resistance and causes all damage you deal and are dealt to be reduced to zero. Only triggers on player based damage. Cooldown increases every time it triggers.<br/><br/>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>"
 		"DOTA_Tooltip_ability_item_aeon_pendant_lore"					"A powerful artifact long ago smuggled out of the Ivory Incubarium. Or so many believe."
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_health"					"+$health"
 		"DOTA_Tooltip_ability_item_aeon_pendant_bonus_mana"					"+$mana"
@@ -2813,23 +2814,6 @@
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active"				"Resilient"
 		"DOTA_Tooltip_modifier_item_boots_of_bearing_2_active_Description"	"Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%. Attack speed increased by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
-		// 神器永恒虚灵刀
-		"DOTA_Tooltip_Ability_item_ethereal_blade_ultra"				"<font color='#e03e2e'>Artifact: Eternal Ethereal Blade</font>"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Description"					"<h1>Active: Ether Blast</h1>Converts the target unit to ethereal form, rendering them immune to physical damage, but unable to attack and %ethereal_damage_bonus%%% more vulnerable to magic damage.<br><br>  Enemy targets are also slowed by %blast_movement_slow%%%, and take %blast_stat_multiplier%x the sum of all your attributes + %blast_damage_base% as magical damage.<br>Duration: %duration% seconds"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note0"						"Shares cooldown with Ghost Scepter."
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note1"						"Units in ethereal state take an additional %ethereal_damage_bonus%% magic damage."
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note2"						"For versatile heroes, their main attribute value is 60%% of the sum of all attributes."
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Note3"						"Using Town Portal Scroll or Boots of Travel will not dispel ethereal state."
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_bonus_agility"				"+$all"
-
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_mana_regen_multiplier"		"%+Mana Regen Amplification"
-		"DOTA_Tooltip_ability_item_ethereal_blade_ultra_Lore"						"A sinister blade that flickers in and out of existence, dealing damage in both the physical and magical realms."
-
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal"				"Ethereal Shock"
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_ethereal_Description"	"Ethereal form. Taking %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE%% increased magic damage, cannot attack, and immune to physical damage."
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow"				"Ethereal Blade Slow"
-		"DOTA_Tooltip_modifier_item_ethereal_blade_ultra_slow_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%."
-
 		// 神器魔武双修
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra"						"Artifact: Revenant's Brooch"
 		"DOTA_Tooltip_Ability_item_revenants_brooch_ultra_Description"				"<h1>Passive: Phantom Critical</h1>Grants each attack a %crit_chance%%% chance to deal an additional %crit_multiplier%%% of the attack's damage as bonus magic damage."
@@ -3078,7 +3062,7 @@
 
 		// 暗影符文
 		"DOTA_Tooltip_ability_item_fusion_shadow"										"Shadow Rune"
-		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Impact"
+		"DOTA_Tooltip_ability_item_fusion_shadow_Description"							"A mysterious fusion rune containing shadow power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Shadow Judgment, Shadow Staff"
 
 		// 魔化符文
 		"DOTA_Tooltip_ability_item_fusion_magic"										"Magic Rune"
@@ -3171,21 +3155,20 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor, %bonus_regen_active% health regeneration, %status_resistance_active%%% status resistance, and %damage_reduction%%% damage reduction.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. No single instance of damage can reduce health below 1, so it can never be killed outright."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor, %bonus_regen_active% health regeneration, and %status_resistance_active%%% status resistance.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. No single instance of damage can reduce health below 1, so it can never be killed outright."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"                       "From withered wood, spring blooms anew."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"             "+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"               "+$health"
-		"DOTA_Tooltip_ability_item_withered_spring_bonus_health_regen"         "+$hp_regen"
+		"DOTA_Tooltip_ability_item_withered_spring_bonus_mana"                 "+$mana"
 		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"           "%+Max Health Regen"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"                "+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"              "%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"          "%+Status Resistance"
-		"DOTA_Tooltip_ability_item_withered_spring_magic_resistance"           "%+$spell_resist"
 		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Fully immune to damage and debuffs during the active effect."
 		"DOTA_Tooltip_ability_item_withered_spring_Note1"                      "Enters cooldown after triggering automatically."
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"                    "Withering Bloom"
-		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Damage reduction and increased resistance. Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and +%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance."
+		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Increased resistance. Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and +%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance."
 
 		// Dracula Mask (德古拉面罩)
 		"DOTA_Tooltip_Ability_item_dracula_mask"                               "Dracula's Mask"
@@ -3222,18 +3205,24 @@
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note1"                      "The Blue Fantasy effect continuously dispels buffs on the target."
 		"DOTA_Tooltip_ability_item_shadow_judgment_Note2"                      "The Blue Fantasy max health damage is not affected by Spell Amplification."
 
-		// Shadow Impact (暗影咒灭)
-		"DOTA_Tooltip_Ability_item_shadow_impact"                              "<font color='#C77DFF'>Shadow Impact</font>"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes plus %blast_damage_base% to it<br>- Applies ethereal form for %ethereal_duration% seconds, dealing %blast_agility_multiplier%%% of your agility as magical damage and slowing it by %blast_movement_slow%%%<br>- Increases magic damage taken by %ethereal_damage_bonus%%%<br>- Deals %absolute_damage% additional pure damage<br><br>Cast Range: %abilitycastrange%<br>Pierces debuff immunity."
+		// Shadow Staff (暗影法杖)
+		"DOTA_Tooltip_Ability_item_shadow_impact"                              "Shadow Staff"
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes to it<br><br>Cast Range: %abilitycastrange%<br>Cooldown: %active_cooldown%s<br>Pierces debuff immunity.\n<h1>Passive: Empower Spell</h1>The next Unit Target spell you cast on an enemy deals a separate %bonus_spell_damage% additional damage, disables their passives, and slows their movement speed by %slow%%% for %slow_duration%s.<br><br>Cooldown: %passive_cooldown%s."
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"                         "The shadow's curse brings annihilation."
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"              "+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"               "+$str"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_agility"                "+$agi"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_damage"                 "+$damage"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_health"                 "+$health"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_health_regen"           "+$hp_regen"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana"                   "+$mana"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_mana_regen"             "+$mana_regen"
+		"DOTA_Tooltip_ability_item_shadow_impact_bonus_all_stats"              "+$all"
 		"DOTA_Tooltip_ability_item_shadow_impact_spell_amp"                    "%+$spell_amp"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_cast_range"             "+$cast_range"
+		"DOTA_Tooltip_ability_item_shadow_impact_Note0"                        "The Necronomicon Blast transforms the target into a harmless critter, unable to attack, cast spells, or use items."
+		"DOTA_Tooltip_ability_item_shadow_impact_Note1"                        "The Empower Spell slow debuff is dispellable."
+		"DOTA_Tooltip_ability_item_shadow_impact_Note2"                        "The Empower Spell break debuff is not dispellable."
 
 		"DOTA_Tooltip_modifier_shadow_impact_sheep"									"Necronomicon Blast"
 		"DOTA_Tooltip_modifier_shadow_impact_sheep_Description"						"Transformed into a critter. Cannot attack, cast spells, or use items. Reduce magic resistance (flat)."

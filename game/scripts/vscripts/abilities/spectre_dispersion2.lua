@@ -115,7 +115,8 @@ function modifier_spectre_dispersion2:ReleaseAccumulatedDamage()
                             damage_type = damage_type,
                             ability = ability,
                             damage_flags = DOTA_DAMAGE_FLAG_REFLECTION +
-                                DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL
+                                DOTA_DAMAGE_FLAG_NO_SPELL_LIFESTEAL +
+                                DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION
                         })
                     end
                 end

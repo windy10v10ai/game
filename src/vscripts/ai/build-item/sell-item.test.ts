@@ -122,13 +122,9 @@ describe('SellItem.GetSellThreshold', () => {
         'item_smoke_of_deceit',
         [{ GetName: () => 'item_smoke_of_deceit' }] as unknown as CDOTA_Item[],
       ],
-      [
-        'item_roshans_banner',
-        [{ GetName: () => 'item_roshans_banner' }] as unknown as CDOTA_Item[],
-      ],
     ]);
 
-    // 4 件特殊消耗品：7 + 4 = 11，封顶 9
+    // 3 件特殊消耗品：7 + 3 = 10，封顶 9
     expect(SellItem.GetSellThreshold(itemsMap)).toBe(9);
   });
 });

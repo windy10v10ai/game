@@ -951,7 +951,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   item_six_paths_reincarnation_gun: {
     name: 'item_six_paths_reincarnation_gun',
     nameCN: '六道轮回枪',
-    tier: ItemTier.T4,
+    tier: ItemTier.T5, // 价格贴近T4上限，按强度定位手动归入T5
     cost: 30000,
     baseItems: ['item_shotgun_v2', 'item_revenants_brooch_ultra', 'item_mage_slayer'],
   },
@@ -1016,13 +1016,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 11600,
     baseItems: ['item_black_king_bar'],
-  },
-  item_ethereal_blade_ultra: {
-    name: 'item_ethereal_blade_ultra',
-    nameCN: '神器·永恒虚灵之刃',
-    tier: ItemTier.T4,
-    cost: 12000,
-    baseItems: ['item_ethereal_blade'],
   },
   item_skadi_2: {
     name: 'item_skadi_2',
@@ -1242,7 +1235,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_excalibur',
     nameCN: 'EX咖喱棒',
     tier: ItemTier.T4,
-    cost: 30000,
+    cost: 24000,
     baseItems: ['item_monkey_king_bar_2', 'item_rapier'],
   },
 
@@ -1258,7 +1251,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_shadow_judgment',
     nameCN: '暗影裁决',
     tier: ItemTier.T5,
-    cost: 57175,
+    cost: 47175,
     baseItems: ['item_abyssal_blade_v2'],
   },
   item_dracula_mask: {
@@ -1283,14 +1276,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_rapier_ultra_bot_1',
     nameCN: '解放的诅咒圣剑',
     tier: ItemTier.T5,
-    cost: 60000,
+    cost: 48000,
     baseItems: ['item_excalibur', 'item_rapier'],
   },
   item_swift_glove: {
     name: 'item_swift_glove',
     nameCN: '无限手套',
     tier: ItemTier.T5,
-    cost: 60099,
+    cost: 47300,
   },
   item_forbidden_blade: {
     name: 'item_forbidden_blade',
@@ -1300,9 +1293,9 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
   },
   item_shadow_impact: {
     name: 'item_shadow_impact',
-    nameCN: '暗影咒灭',
+    nameCN: '暗影法杖',
     tier: ItemTier.T5,
-    cost: 65249,
+    cost: 40400,
   },
   item_hawkeye_turret: {
     name: 'item_hawkeye_turret',
@@ -1314,14 +1307,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_withered_spring',
     nameCN: '生命之心',
     tier: ItemTier.T5,
-    cost: 50600,
+    cost: 52600,
     baseItems: ['item_undying_heart'],
   },
   item_magic_crit_blade: {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
-    cost: 57800,
+    cost: 47800,
     baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {
@@ -1355,13 +1348,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_switchable_crit_blade',
     nameCN: '归海一刀',
     tier: ItemTier.T5,
-    cost: 70000,
+    cost: 54000,
   },
   item_ten_thousand_swords: {
     name: 'item_ten_thousand_swords',
     nameCN: '万剑归宗',
     tier: ItemTier.T5,
-    cost: 87599,
+    cost: 67600,
   },
 };
 

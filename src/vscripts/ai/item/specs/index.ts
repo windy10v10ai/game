@@ -25,7 +25,6 @@ import { SPECS as jumpJumpJump } from './item_jump_jump_jump';
 import { SPECS as magicScepter } from './item_magic_scepter';
 import { SPECS as magicSword } from './item_magic_sword';
 import { SPECS as refresher } from './item_refresher';
-import { SPECS as roshansBanner } from './item_roshans_banner';
 import { SPECS as saintOrb } from './item_saint_orb';
 import { SPECS as satanic2 } from './item_satanic_2';
 import { SPECS as shadowImpact } from './item_shadow_impact';
@@ -48,7 +47,6 @@ import { SPECS as waspCallous } from './item_wasp_callous';
 export function registerItemSpecs(): void {
   // Phase 1：对小兵 / 拾取物
   ItemRegistry.registerAll(handOfGroup);
-  ItemRegistry.registerAll(roshansBanner);
   ItemRegistry.registerAll(smokeOfDeceit);
 
   // B1：无条件常驻 buff（不受距离限制）

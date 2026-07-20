@@ -212,7 +212,7 @@
 		"item"		"item_time_gem"				// 时间宝石
 		"item"		"item_forbidden_staff"		// 禁忌法锤
 		"item"		"item_magic_crit_blade"		// 魔龙狂舞
-		"item"		"item_shadow_impact"		// 暗影咒灭
+		"item"		"item_shadow_impact"		// 暗影法杖
 	}
 
 	// Level 4 - Purple Recipes 防具
