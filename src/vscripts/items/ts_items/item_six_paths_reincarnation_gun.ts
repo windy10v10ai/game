@@ -289,7 +289,7 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
   }
 
   GetTexture(): string {
-    return 'six_paths_reincarnation_gun';
+    return 'item_six_paths_reincarnation_gun';
   }
 
   DeclareFunctions(): ModifierFunction[] {
