@@ -55,6 +55,17 @@
     "webpack-cli": "^7.0.3",
     "webpack-panorama-x": "^0.4.0"
   },
+  "overrides": {
+    "minimatch@^3.0.0": {
+      "brace-expansion": "^1.1.16"
+    },
+    "minimatch@^9.0.0": {
+      "brace-expansion": "^2.1.2"
+    },
+    "minimatch@^10.0.0": {
+      "brace-expansion": "^5.0.7"
+    }
+  },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
