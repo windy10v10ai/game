@@ -93,7 +93,7 @@ export class modifier_fountain_anti_camp_lock extends BaseModifier {
 
     const parent = this.GetParent();
     parent.Purge(true, false, false, false, true);
-    // parent.RemoveModifierByName('modifier_black_king_bar_immune');
+    parent.RemoveModifierByName('modifier_black_king_bar_immune');
   }
 
   CheckState(): Partial<Record<ModifierState, boolean>> {
