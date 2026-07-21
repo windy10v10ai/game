@@ -1147,7 +1147,7 @@
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
 		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"
-		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"无法使用装备、主动技能和被动技能，无法恢复生命和魔法，移动速度被强制限制，且免疫类保护效果被强制解除。"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"无法攻击，无法使用装备、主动技能和被动技能，无法恢复生命和魔法，移动速度被强制限制，且免疫类保护效果被强制解除。"
 
 		///////////////////////////////////////////////////
 		//

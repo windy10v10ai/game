@@ -1152,7 +1152,7 @@
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
 		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
-		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and immunity-granting protections are removed."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to attack, use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and immunity-granting protections are removed."
 
 		///////////////////////////////////////////////////
 		//
