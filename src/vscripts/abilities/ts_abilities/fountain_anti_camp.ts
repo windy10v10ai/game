@@ -101,6 +101,7 @@ export class modifier_fountain_anti_camp_lock extends BaseModifier {
       [ModifierState.MUTED]: true,
       [ModifierState.SILENCED]: true,
       [ModifierState.PASSIVES_DISABLED]: true,
+      [ModifierState.DISARMED]: true,
     };
   }
 
