@@ -632,10 +632,9 @@
 		{
 			"damage_reduction"
 			{
-				"value"				"8 10 12 14 16"
-				"special_bonus_shard"				"+3"
-				"special_bonus_unique_spectre_5"		"+3"
-				"CalculateSpellDamageTooltip"	"1"
+				"value"				"10 13 16 19 22"
+				"special_bonus_shard"				"+4"
+				"special_bonus_unique_spectre_5"		"+4"
 			}
 			// 伤害阈值
 			"threshold"
@@ -906,17 +905,17 @@
 			"multicast_delay"	"0.6"
 			"multicast_2_times"
 			{
-				"value"		"75 80 85 90"
+				"value"		"75 75 75 75"
 			}
 
 			"multicast_3_times"
 			{
-				"value"		"15 30 45 60"
+				"value"		"15 20 25 30"
 			}
 
 			"multicast_4_times"
 			{
-				"value"		"5 10 15 20"
+				"value"		"0 5 10 15"
 			}
 		}
 	}

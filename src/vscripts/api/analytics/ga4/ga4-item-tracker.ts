@@ -90,6 +90,8 @@ export class GA4ItemTracker {
     isGameEnd = false,
     tier?: number,
   ): void {
+    if (itemName.includes('recipe')) return;
+
     const key: SampleKey = `${playerId}:${itemName}`;
     const existing = this.samples.get(key);
     if (existing) {

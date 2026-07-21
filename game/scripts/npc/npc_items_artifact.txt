@@ -644,10 +644,6 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"0"
-		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
 
 		"AbilityValues"
 		{
@@ -685,10 +681,6 @@
 		"ItemKillable"					"0"
 		"ItemSellable"					"1"
 		"ItemShareability"				"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"			"0"
-		"ItemStockInitial"				"1"
-		"ItemStockMax"					"3"
-		"ItemStockTime"					"180"
 
 		"AbilityValues"
 		{

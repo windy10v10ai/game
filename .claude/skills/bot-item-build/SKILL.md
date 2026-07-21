@@ -34,6 +34,9 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 超过 12 会稀释每件装备的实际入选概率、增加维护和人工核对成本，此时应按信号强度裁掉最弱的条目；
 但 8~12 之间只要是真实数据支撑的有价值装备，不必为了凑到某个"整数"而强行裁剪。
 
+**T5 是例外**：整个装备库里 T5 装备总数只有约 18 件，摊到单个英雄的候选池撑不满 8~10 的区间，
+目标改为 **7~9 件，不超过 10 件**。
+
 > 编写 `src/vscripts/ai/item/specs/` 下的战斗使用逻辑（何时对谁使用某物品）是另一件事，
 > 与本 skill 的候选池调整无关，见 [bot-item-usage](../bot-item-usage/SKILL.md) skill。
 
@@ -68,6 +71,13 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 属性三选一配件，分别主加力量/敏捷/智力（各 +5 主属性 +2 其余两项），**必须匹配英雄的真实主属性**，
 不能三选一之外的两件也塞进候选池（如力量英雄的候选池里除了护腕又混入怨灵系带）。。
 
+### T5 装备定位参考
+
+部分 T5 装备的英雄适配定位不直接从名字看出，供判断候选时参考：
+
+- `item_hawkeye_turret`（鹰眼炮台）：技能实现要求 `IsRangedAttacker()`，只有远程英雄能触发，是远程英雄的核心 T5 装备
+- `item_magic_sword`（魔渊剑）：融合狂战斧 + 绝对破防之刃 + 大冰眼，是力量英雄的核心 T5 装备
+
 ---
 
 ## 第一步：收集 CSV 输入
@@ -96,6 +106,10 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
   `item_ultimate_scepter_2`、`item_aghanims_shard`、`item_moon_shard_datadriven`、
   `item_tome_of_strength`/`item_tome_of_agility`/`item_tome_of_intelligence`。
   这些不进入 `targetItemsByTier` 候选池提案，混进来会和自动购买逻辑重复。
+- **`ItemQuality: "consumable"` 的装备**：即使 cost 落在某个 tier 区间也不进 `targetItemsByTier`——
+  这类装备本质是用完即耗（如 `item_tome_of_luoshu` 洛书，KV 里 `ItemPermanent: "0"`），塞进装备槽位
+  候选池会占用宝贵的槽位却买了就消失。添加候选前查一下该装备在
+  `docs/reference/<version>/items.txt` 或 `npc_items_custom.txt` 里的 `ItemQuality`。
 - **臂章系列固定候选范围**：`item_armlet` 系列只出 `item_armlet`（基础档）或 `item_armlet_pro_max`
   （终极档），**不出** `item_armlet_plus`（中间件），也不出 pro_max 之后的平行分支
   `item_armlet_light`/`item_armlet_dark`/`item_armlet_artifact`。
@@ -248,7 +262,7 @@ npx jest src/vscripts/ai/build-item
 - **纯判断类装备必须 AskUserQuestion 确认**，不得自行决定。
 - **目标至少 8 件，最佳区间 8~10，不超过 12**——正好 6 件没有为后续胜率驱动的迭代留出空间。8~12
   之间只要是真实数据支撑的有价值装备就可以保留，不必强行裁到某个"整数"；超过 12 件才需要按信号
-  强度裁剪。
+  强度裁剪。**T5 例外：装备库总量少，目标改为 7~9 件，不超过 10 件**。
 - **不修改** `MAX_ITEMS_PER_TIER`、`GetT5ItemCount` 难度阶梯、tier 边界规则本身。
 - **注释只写装备中文名**，不写数据来源推导过程；tier 归属修正类改动才附简短原因。
 - **同一 tier 内鞋子（及其他无 sell-replacement 关系的同槽位装备）只能保留一种**，`item_boots`

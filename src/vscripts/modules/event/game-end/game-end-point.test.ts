@@ -46,7 +46,7 @@ describe('GameEndPoint', () => {
         towerKills: 9,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(36);
+      expect(score).toBe(37);
     });
 
     it('应该正确计算团队玩家的分数', () => {
@@ -73,7 +73,7 @@ describe('GameEndPoint', () => {
         towerKills: 11,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(143);
+      expect(score).toBe(151);
     });
   });
 

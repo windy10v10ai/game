@@ -7501,6 +7501,7 @@
 			"damage_reflection_pct"
 			{
 				"value"		"8 12 16 20 24"
+				"special_bonus_unique_spectre_5"		"+4"
 			}
 			"min_radius"
 			{
@@ -8983,8 +8984,8 @@
 	"death_prophet_silence"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"14 13 12 11 10"	// 15 14 13 12
-		"AbilityDuration"				"3.5 4.0 4.5 5.0 5.5"	// 3.5 4.0 4.5 5.0
+		"AbilityCooldown"				"15 14 13 12 11"	// 15 14 13 12
+		"AbilityDuration"				"3.0 3.5 4.0 4.5 5.0"	// 3.5 4.0 4.5 5.0
 		"AbilityManaCost"				"80 90 100 110 120"	// 80 90 100 110
 	}
 	// 巫术精研
@@ -10680,21 +10681,21 @@
 		{
 			"multicast_2_times"
 			{
-				"value"		"75 80 85 90"
+				"value"		"75 75 75 75"
 			}
 
 			"multicast_3_times"
 			{
-				"value"		"15 30 45 60"
+				"value"		"15 20 25 30"
 			}
 
 			"multicast_4_times"
 			{
-				"value"		"5 10 15 20"
+				"value"		"0 5 10 15"
 			}
 			"strength_for_one_pct"
 			{
-				"value"				"30"
+				"value"				"50"
 			}
 		}
 	}
@@ -12143,7 +12144,6 @@
 				"powershot_damage"
 				{
 					"value"									"170 270 370 470 570"	// 170 270 370 470
-					"special_bonus_unique_windrunner_upgrade"	"+100%"	// 风行 觉醒
 				}
 				"slow"
 				{
@@ -12162,6 +12162,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
+			"movespeed_bonus_pct"	"30"	// 50 -20削弱防止队友跟不上
 			"AbilityDuration"
 			{
 				"value"									"3 3.5 4 4.5 5"	// 3 4 5 6 差值0.5

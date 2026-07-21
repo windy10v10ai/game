@@ -15,17 +15,17 @@ function item_shadow_impact:OnSpellStart()
         return
     end
 
-    -- 1. 达贡能量冲击
-    self:ApplyDagonEffect(target)
+    -- 1. 死灵法杖变羊 (降低魔抗)
+    self:ApplyNecrolyteSheep(target)
 
-    -- 2. 虚灵之刃效果
-    self:ApplyEtherealBladeEffect(target)
+    -- 2. 死灵法杖伤害 + 达贡能量冲击 (合并为一次魔法伤害，享受降低后的魔抗)
+    self:ApplyNecrolyteAndDagonDamage(target)
 
-    -- 3. 死灵法杖效果 (伤害+变羊)
-    self:ApplyNecrolyteEffect(target)
+    -- 3. 纯粹伤害
+    self:ApplyPureDamage(target)
 
-    -- 4. 绝刃效果 (额外纯粹伤害)
-    self:ApplyAbsoluteDamage(target)
+    -- 4. 绝刃被动 (法术强化：额外法术伤害+减速+破坏被动技能)
+    self:ApplyAngelsDemiseEffect(target)
 
     -- 主特效
     local particle = ParticleManager:CreateParticle(
@@ -34,16 +34,36 @@ function item_shadow_impact:OnSpellStart()
         target
     )
     ParticleManager:ReleaseParticleIndex(particle)
+
+    -- AbilityCooldown 是被动冷却，这里覆盖成吃冷却缩减的主动真实冷却
+    local cooldown = self:GetSpecialValueFor("active_cooldown")
+    self:StartCooldown(cooldown * caster:GetCooldownReduction())
 end
 
-function item_shadow_impact:ApplyDagonEffect(target)
+function item_shadow_impact:ApplyNecrolyteSheep(target)
     local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("dagon_damage")
+
+    -- 变羊效果 降低魔抗
+    local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
+    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", { duration = duration })
+
+    EmitSoundOn("DOTA_Item.Sheepstick.Activate", target)
+end
+
+function item_shadow_impact:ApplyNecrolyteAndDagonDamage(target)
+    local caster = self:GetCaster()
+
+    -- 死灵冲击伤害 - 基于全属性
+    local blast_att_multiplier = self:GetSpecialValueFor("necrolyte_att_multiplier")
+    local allAtt = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect(false)
+    local necrolyte_damage = allAtt * blast_att_multiplier
+
+    local dagon_damage = self:GetSpecialValueFor("dagon_damage")
 
     ApplyDamage({
         victim = target,
         attacker = caster,
-        damage = damage,
+        damage = necrolyte_damage + dagon_damage,
         damage_type = DAMAGE_TYPE_MAGICAL,
         ability = self
     })
@@ -61,67 +81,11 @@ function item_shadow_impact:ApplyDagonEffect(target)
 
     -- 使用更强的音效
     EmitSoundOn("Hero_Lion.FingerOfDeath", target)
-    EmitSoundOn("Hero_Zuus.LightningBolt", target) -- 添加雷击音效增强冲击感
 end
 
-function item_shadow_impact:ApplyEtherealBladeEffect(target)
+function item_shadow_impact:ApplyPureDamage(target)
     local caster = self:GetCaster()
-    local duration = self:GetSpecialValueFor("ethereal_duration") * (1 - target:GetStatusResistance())
-
-    -- 计算虚灵之刃伤害
-    local primary_stat = 0
-    if caster:GetPrimaryAttribute() == DOTA_ATTRIBUTE_STRENGTH then
-        primary_stat = caster:GetStrength()
-    elseif caster:GetPrimaryAttribute() == DOTA_ATTRIBUTE_AGILITY then
-        primary_stat = caster:GetAgility()
-    elseif caster:GetPrimaryAttribute() == DOTA_ATTRIBUTE_INTELLECT then
-        primary_stat = caster:GetIntellect(false)
-    end
-
-    local damage = self:GetSpecialValueFor("blast_damage_base") +
-        primary_stat * self:GetSpecialValueFor("blast_agility_multiplier")
-
-    ApplyDamage({
-        victim = target,
-        attacker = caster,
-        damage = damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = self
-    })
-
-    -- 添加虚灵状态
-    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_ethereal", { duration = duration })
-    target:AddNewModifier(caster, self, "modifier_item_ethereal_blade_slow", { duration = duration })
-
-    EmitSoundOn("DOTA_Item.EtherealBlade.Activate", caster)
-end
-
-function item_shadow_impact:ApplyNecrolyteEffect(target)
-    local caster = self:GetCaster()
-
-    -- 死灵冲击伤害 - 基于全属性
-    local blast_att_multiplier = self:GetSpecialValueFor("necrolyte_att_multiplier")
-    local allAtt = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect(false)
-    local damage = allAtt * blast_att_multiplier
-
-    ApplyDamage({
-        victim = target,
-        attacker = caster,
-        damage = damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = self
-    })
-
-    -- 变羊效果
-    local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
-    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", { duration = duration })
-
-    EmitSoundOn("DOTA_Item.Sheepstick.Activate", target)
-end
-
-function item_shadow_impact:ApplyAbsoluteDamage(target)
-    local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("absolute_damage")
+    local damage = self:GetSpecialValueFor("pure_damage")
 
     ApplyDamage({
         victim = target,
@@ -130,6 +94,15 @@ function item_shadow_impact:ApplyAbsoluteDamage(target)
         damage_type = DAMAGE_TYPE_PURE,
         ability = self
     })
+end
+
+function item_shadow_impact:ApplyAngelsDemiseEffect(target)
+    local caster = self:GetCaster()
+    local duration = self:GetSpecialValueFor("slow_duration") * (1 - target:GetStatusResistance())
+
+    -- 借用的原生充能被动不保证自动触发，主动连招里手动补挂目标 debuff
+    target:AddNewModifier(caster, self, "modifier_item_angels_demise_slow", { duration = duration })
+    target:AddNewModifier(caster, self, "modifier_item_angels_demise_break", { duration = duration })
 end
 
 -- 被动modifier
@@ -160,12 +133,19 @@ function modifier_item_shadow_impact:OnRefresh(params)
 
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+
+        -- 借用绝刃原生被动（法术强化：下个单体技能附加伤害+破坏+减速）
+        local parent = self:GetParent()
+        local ability = self:GetAbility()
+        parent:RemoveModifierByName("modifier_item_angels_demise")
+        parent:AddNewModifier(parent, ability, "modifier_item_angels_demise", {})
     end
 end
 
 function modifier_item_shadow_impact:OnDestroy()
     if IsServer() then
         RefreshItemDataDrivenModifier(_, self:GetAbility(), self.stats_modifier_name)
+        self:GetParent():RemoveModifierByName("modifier_item_angels_demise")
     end
 end
 

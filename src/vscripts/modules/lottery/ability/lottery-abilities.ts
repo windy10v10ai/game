@@ -30,6 +30,7 @@ export const abilityTiersActive: Tier[] = [
       'faceless_void_time_zone', // 逆转时空
       'doom_bringer_doom', // 末日
       'puck_dream_coil', // 梦境缠绕
+      'windrunner_whirlwind_custom', // 风行者 旋风
 
       // 小技能
       'antimage_counterspell', // 法术反制
@@ -192,7 +193,6 @@ export const abilityTiersPassive: Tier[] = [
       'winter_wyvern_arctic_burn', // 严寒灼烧
 
       // 自定义技能
-      'spectre_dispersion2', // 幽鬼 折射改
       'batrider_smoldering_resin2', // 蝙蝠骑士 树脂
       'jakiro_double_trouble2', // 双头龙 天生一对
     ],
@@ -214,6 +214,7 @@ export const abilityTiersPassive: Tier[] = [
       'medusa_split_shot', // 分裂箭
 
       // 自定义技能
+      'spectre_dispersion2', // 幽鬼 折射改
       'dark_seer_normal_punch2', // 普通一拳
       'ogre_magi_multicast_lua', // 多重施法
       'leshrac_defilement2', // 大肆污染 拉席克
