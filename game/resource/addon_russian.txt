@@ -472,6 +472,8 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
+
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
 	}

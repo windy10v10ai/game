@@ -7023,6 +7023,7 @@
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
 			"bonus_damage"					"150"	// 攻击力
+			"bonus_aoe"						"300"	// 作用范围
 			"evasion"						"20"	// 闪避
 		}
 
