@@ -3261,11 +3261,12 @@
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
+		"AbilityCastRange"				"2000"
 
 		"AbilityValues"
 		{
-			"radius"					"1600"
-			"move_speed"				"400"
+			"radius"					"2000"
+			"move_speed"				"300"
 		}
 	}
 
