@@ -1,18 +1,17 @@
+import { PlayerHelper } from '../../modules/helper/player-helper';
 import {
   BaseAbility,
   BaseModifier,
   registerAbility,
   registerModifier,
 } from '../../utils/dota_ts_adapter';
-import { PlayerHelper } from '../../modules/helper/player-helper';
 
 const WATCHER_MODIFIER_NAME = 'modifier_fountain_anti_camp_watcher';
 const LOCK_MODIFIER_NAME = 'modifier_fountain_anti_camp_lock';
-const POLL_INTERVAL = 0.25;
-const LOCK_DURATION = 0.75;
-const LOCKED_MOVE_SPEED = 400;
+const POLL_INTERVAL = 1;
+const LOCK_DURATION = 3;
 
-@registerAbility('ability_fountain_anti_camp')
+@registerAbility('fountain_anti_camp')
 export class AbilityFountainAntiCamp extends BaseAbility {
   GetIntrinsicModifierName(): string {
     return WATCHER_MODIFIER_NAME;
@@ -36,6 +35,7 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
 
   OnCreated(): void {
     if (!IsServer()) return;
+    if (this.GetParent().GetTeamNumber() !== DotaTeam.BADGUYS) return;
     this.StartIntervalThink(POLL_INTERVAL);
   }
 
@@ -44,11 +44,13 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
 
     const fountain = this.GetParent();
     const ability = this.GetAbility();
+    if (!ability) return;
+
     const enemies = FindUnitsInRadius(
       fountain.GetTeamNumber(),
       fountain.GetAbsOrigin(),
       undefined,
-      fountain.Script_GetAttackRange(),
+      ability.GetSpecialValueFor('radius'),
       UnitTargetTeam.ENEMY,
       UnitTargetType.HERO,
       UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,
@@ -83,17 +85,15 @@ export class modifier_fountain_anti_camp_lock extends BaseModifier {
   }
 
   GetTexture(): string {
-    return 'shadow_shaman_shackles';
+    return 'action_lockenemytower';
   }
 
   OnCreated(): void {
     if (!IsServer()) return;
 
     const parent = this.GetParent();
-    parent.Purge(true, false, false, false, false);
-    parent.RemoveModifierByName('modifier_black_king_bar_immune');
-    parent.RemoveModifierByName('modifier_item_beast_shield_active');
-    parent.RemoveModifierByName('modifier_item_withered_spring_active');
+    parent.Purge(true, false, false, false, true);
+    // parent.RemoveModifierByName('modifier_black_king_bar_immune');
   }
 
   CheckState(): Partial<Record<ModifierState, boolean>> {
@@ -121,6 +121,6 @@ export class modifier_fountain_anti_camp_lock extends BaseModifier {
   }
 
   GetModifierMoveSpeed_Absolute(): number {
-    return LOCKED_MOVE_SPEED;
+    return this.GetAbility()?.GetSpecialValueFor('move_speed') ?? 400;
   }
 }

@@ -1148,10 +1148,10 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
 
-		// Fountain Anti-Camp
-		"DOTA_Tooltip_ability_fountain_anti_camp"							"Anti-Camp Warning"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are afflicted with an anti-camp effect."
-		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Anti-Camp Lock"
+		// Fountain Sanction
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and immunity-granting protections are removed."
 
 		///////////////////////////////////////////////////

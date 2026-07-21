@@ -3252,14 +3252,20 @@
 		}
 	}
 
-	// 泉水 反蹲警戒
-	"ability_fountain_anti_camp"
+	// 泉水制裁
+	"fountain_anti_camp"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/fountain_anti_camp"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"bounty_hunter_track"
+		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"radius"					"1600"
+			"move_speed"				"400"
+		}
 	}
 
 }
