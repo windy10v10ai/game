@@ -3258,6 +3258,7 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/fountain_anti_camp"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
 
