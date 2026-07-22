@@ -29,29 +29,19 @@ describe('Keeper of the Light awakened Illuminate tooltip', () => {
   it.each(localizationFiles)('exposes all player-facing values in %s', (file) => {
     const content = readFileSync(file, 'utf8');
     for (const special of illuminateTooltipSpecials) {
-      expect(content).toContain(
-        `"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_${special}"`,
-      );
+      expect(content).toContain(`"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_${special}"`);
     }
-    expect(content).toContain(
-      '"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note0"',
-    );
-    expect(content).toContain(
-      '"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note1"',
-    );
-    expect(content).not.toContain(
-      '"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note2"',
-    );
+    expect(content).toContain('"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note0"');
+    expect(content).toContain('"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note1"');
+    expect(content).not.toContain('"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note2"');
   });
-
 
   it.each(localizationFiles)(
     'keeps all requested damage, geometry, stack, duration, and example values in visible tooltip text in %s',
     (file) => {
       const content = readFileSync(file, 'utf8');
       const tooltipLines = illuminateLocalizationLines(content);
-      const description =
-        tooltipLines.find((line) => line.includes('_Description"')) ?? '';
+      const description = tooltipLines.find((line) => line.includes('_Description"')) ?? '';
       const note0 = tooltipLines.find((line) => line.includes('_Note0"')) ?? '';
       const note1 = tooltipLines.find((line) => line.includes('_Note1"')) ?? '';
 
