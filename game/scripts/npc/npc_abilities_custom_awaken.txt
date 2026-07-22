@@ -552,6 +552,34 @@
 		}
 	}
 
+
+	// 光之守卫 冲击波-觉醒
+	"special_bonus_unique_keeper_of_the_light_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_keeper_of_the_light_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"keeper_of_the_light/kotl_ti7_immortal/keeper_of_the_light_illuminate_alt"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"base_damage_bonus"				"100"
+			"max_focus_stacks"				"5"
+			"damage_pct_per_stack"			"25"
+			"spell_amp_scaling_per_stack"	"10"
+			"spell_amp_scaling_cap"			"600"
+			"channel_reduction_per_stack"	"0.35"
+			"range_per_stack"				"200"
+			"radius_per_stack"				"60"
+			"focus_duration_1"				"10"
+			"focus_duration_2"				"15"
+			"focus_duration_3"				"20"
+			"focus_duration_4"				"25"
+			"snapshot_linger_duration"		"4"
+		}
+	}
+
 	// 斯温-觉醒
 	"special_bonus_unique_sven_upgrade"
 	{

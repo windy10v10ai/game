@@ -9886,6 +9886,7 @@
 	"keeper_of_the_light_illuminate"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
+		"AbilityTextureName"			"keeper_of_the_light/kotl_ti7_immortal/keeper_of_the_light_illuminate_alt"
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"100 125 150 175 200"
 		"AbilityValues"
@@ -9894,7 +9895,15 @@
 			{
 				"value"				"185 290 395 500 605"
 			}
-			"channel_vision_step"		"150 180 210 240 270"
+			"channel_vision_step"				"150 180 210 240 270"
+			"base_damage_bonus"					"100"
+			"max_focus_stacks"					"5"
+			"damage_pct_per_stack"				"25"
+			"spell_amp_scaling_per_stack"		"10"
+			"spell_amp_scaling_cap"				"600"
+			"channel_reduction_per_stack"		"0.35"
+			"range_per_stack"					"200"
+			"radius_per_stack"					"60"
 		}
 	}
 	// 法力流失

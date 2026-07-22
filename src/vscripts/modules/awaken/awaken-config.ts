@@ -16,6 +16,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 光之守卫 觉醒
+  {
+    heroName: 'npc_dota_hero_keeper_of_the_light',
+    newAbility: 'special_bonus_unique_keeper_of_the_light_upgrade',
+    newLevel: 1,
+  },
   // 屠夫 觉醒肉钩：把原版 pudge_meat_hook 替换为射程随力量增长的觉醒版
   {
     heroName: 'npc_dota_hero_pudge',

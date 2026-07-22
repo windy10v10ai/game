@@ -1259,6 +1259,26 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"斯温 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
 
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"					"<font color='#d000ff'>冲击波 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"		"冲击波每级基础伤害增加 <font color='#FFFFFF'><b>%base_damage_bonus%</b></font>。每命中一名不同的敌方真实英雄，获得1层<font color='#FFE56E'>聚光</font>，最多%max_focus_stacks%层。每层使后续冲击波伤害提高%damage_pct_per_stack%%%加上当前技能增强的%spell_amp_scaling_per_stack%%%，最大蓄力时间缩短%channel_reduction_per_stack%秒，距离增加%range_per_stack%，宽度增加%radius_per_stack%；计入聚光成长的技能增强最多为%spell_amp_scaling_cap%%%。聚光持续10/15/20/25秒，取决于灵魂形态等级；命中会刷新全部层数的持续时间，施法不会消耗层数。开始蓄力时锁定层数，本次命中获得的新层数只强化下一次冲击波。死亡或超时清空聚光。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"聚光"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"		"当前聚光使冲击波伤害提高 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>，最大蓄力时间缩短 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font> 秒。<br>每层使冲击距离增加200、宽度增加60。聚光不会被施法消耗；再次命中敌方真实英雄会刷新全部层数的持续时间。"
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Description"		"持续施法 - 引导光明能量，随时间积聚力量。释放时，冲击波沿直线向前推进，对沿途敌人造成伤害并提供视野。<br><br><h1><font color='#d000ff'>觉醒升级</font></h1>每命中一名不同的敌方真实英雄，获得1层<font color='#FFE56E'>聚光</font>。聚光持续强化后续冲击波的伤害、积聚速度、距离和宽度。<br><br><font color='#FFE56E'>觉醒数值</font><br>基础伤害：285 / 390 / 495 / 600 / 705<br>聚光上限：5层；持续时间：10/15/20/25秒（随灵魂形态等级）<br>每层聚光：伤害+25%；每100%技能增强额外+10%；最大积聚时间-0.35秒；距离+200；宽度+60<br>技能增强成长最多计算600%。<br><font color='#FFE56E'>0 / 1 / 5层举例</font><br>最大积聚时间：3.0 / 2.65 / 1.25秒；距离：1550 / 1750 / 2550；宽度：400 / 460 / 700<br><font color='#FFE56E'>伤害举例（5级、550%技能增强、5层）</font><br>每层提高80%，5层共提高400%；705 → 聚光后3525 → 再计算技能增强后造成22912.5点减伤前伤害。"
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_SummaryDescription"		"积聚后释放直线冲击波。觉醒后，命中敌方英雄会叠加聚光，持续强化后续冲击波。"
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_total_damage"		"觉醒最高伤害："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_max_channel_time"		"当前最大积聚时间："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_radius"		"当前宽度："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_range"		"当前距离："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_base_damage_bonus"		"每级基础伤害增加："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_max_focus_stacks"		"聚光层数上限："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_damage_pct_per_stack"		"每层基础伤害增加（%）："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_spell_amp_scaling_per_stack"		"每100%技能增强额外增加（%）："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_channel_reduction_per_stack"		"每层积聚时间减少（秒）："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_range_per_stack"		"每层距离增加："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_radius_per_stack"		"每层宽度增加："
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note0"		"命中会刷新全部聚光层数的持续时间；施法不会消耗层数。开始积聚时锁定层数，因此本次冲击波命中获得的新层数只强化下一次冲击波。"
+		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note1"		"举例：拥有550%技能增强时，每层聚光提高80%伤害，5层共提高400%；5级冲击波在再次计算技能增强前的最高伤害为3525。"
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
