@@ -45,6 +45,14 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newLevel: 0,
     inheritLevelFrom: 'axe_culling_blade',
   },
+  // 军团指挥官 自动决斗
+  {
+    heroName: 'npc_dota_hero_legion_commander',
+    targetSlot: 3,
+    newAbility: 'legion_commander_auto_duel',
+    newLevel: 0,
+    inheritLevelFrom: 'legion_commander_duel',
+  },
   // 死灵法师 竭心光环觉醒：替换原版竭心光环为 DataDriven 脚本伤害版
   {
     heroName: 'npc_dota_hero_necrolyte',

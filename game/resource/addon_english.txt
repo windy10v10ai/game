@@ -1180,6 +1180,12 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 
+		// Legion Commander Auto Duel - Awakened
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel Awakened</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>With autocast enabled, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. It will not trigger while Duel is on cooldown or otherwise not castable. Auto Duel first consumes every passive spell-block layer on the target, so passive reflection or block items such as Linken's Sphere cannot stop this Duel."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Honor needs no invitation; the nearest enemy will do."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"BONUS AUTO DUEL RANGE:"
+
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"Necrophos stills the hearts of his opponents, causing nearby enemy units to lose a percentage of their max health over time.<br><br><font color='#d000ff'>The damage can be amplified by abilities.</font>"

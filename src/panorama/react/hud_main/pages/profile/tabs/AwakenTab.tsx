@@ -55,6 +55,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
   },
   { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
   { heroName: 'npc_dota_hero_necrolyte', abilityName: 'necrolyte_heartstopper_aura_datadriven' },
+  {
+    heroName: 'npc_dota_hero_legion_commander',
+    abilityName: 'legion_commander_auto_duel',
+  },
   { heroName: 'npc_dota_hero_axe', abilityName: 'axe_auto_culling_blade' },
   {
     heroName: 'npc_dota_hero_sniper',

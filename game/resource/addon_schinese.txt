@@ -1176,6 +1176,12 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
 
+		// 军团指挥官 自动决斗-觉醒
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>自动决斗 觉醒</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>自动施放：最近英雄</font><br><br>开启自动施法后，以决斗施法距离额外增加%bonus_cast_range%码为搜索范围，自动对最近的可见敌方英雄施放决斗。决斗处于冷却或无法施放时不会触发。自动决斗会先消耗目标身上的所有被动法术格挡层，使林肯法球等被动反弹或格挡装备无法阻止本次决斗。"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"荣誉无需邀约，最近的敌人就是对手。"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"额外自动决斗范围："
+
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Description"		"死灵法师让敌人的心脏停跳，使附近敌方单位按最大生命值一定百分比持续流失生命。<br><br><font color='#d000ff'>造成的伤害可以被技能增强。</font>"

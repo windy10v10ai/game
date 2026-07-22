@@ -2142,6 +2142,7 @@
 	"legion_commander_duel"
 	{
 		"MaxLevel" "4"
+		"LinkedAbility"					"legion_commander_auto_duel"
 		"AbilityValues"
 		{
 			"duration"
