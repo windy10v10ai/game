@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const { readFileSync } = jest.requireActual('fs');
+const { join, resolve } = jest.requireActual('path');
 
-const root = path.resolve(__dirname, '..');
-const read = (relativePath) => fs.readFileSync(path.join(root, relativePath), 'utf8');
+const root = resolve(__dirname, '..');
+const read = (relativePath) => readFileSync(join(root, relativePath), 'utf8');
 
 const abilityName = 'special_bonus_unique_phoenix_upgrade';
 
