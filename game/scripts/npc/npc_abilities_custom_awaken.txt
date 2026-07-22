@@ -700,6 +700,70 @@
 			}
 		}
 	}
+	// 巫妖 连环霜冻-觉醒
+	"lich_chain_frost_awakened"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/lich_chain_frost_awakened"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"lich_chain_frost"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"750"
+		"AbilityCooldown"				"75 70 65 60"
+		"AbilityManaCost"				"150 300 450 600"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_lich/lich_chain_frost.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"damage"							"250 400 550 700"
+			"bonus_jump_damage"				"30 50 75 100"
+			"jumps"
+			{
+				"value"							"30 35 40 45"
+				"special_bonus_unique_lich_5"	"+100"
+			}
+			"initial_projectile_speed"		"1575"
+			"projectile_speed"				"1275"
+			"jump_range"						"1100"
+			"slow_duration"					"4.0"
+			"frostbound_duration"			"4"
+			"bonus_jumps_per_hero_killed"	"5"
+			"bonus_jumps_per_creep_killed"	"2"
+		}
+	}
+	// 巫妖 寒灾轮回-觉醒
+	"special_bonus_unique_lich_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_lich_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"lich_chain_frost"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"intelligence_damage_multiplier"		"0.75"
+			"natural_detonation_multiplier"		"2.25"
+			"nova_detonation_multiplier_per_stack"	"0.75"
+			"mark_duration"						"8"
+			"mark_max_stacks"					"3"
+			"detonation_radius"					"350"
+			"freeze_duration"					"0.6"
+		}
+	}
 	// 术士 地狱火献祭-觉醒
 	"special_bonus_unique_warlock_upgrade"
 	{

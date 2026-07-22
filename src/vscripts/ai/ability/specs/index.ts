@@ -11,6 +11,7 @@ import { SPECS as drowRangerFrostArrows } from './drow_ranger_frost_arrows';
 import { SPECS as enchantressImpetus } from './enchantress_impetus';
 import { SPECS as jakiroDualBreath } from './jakiro_dual_breath';
 import { SPECS as lichFrostArmor } from './lich_frost_armor';
+import { SPECS as lichIceSpire } from './lich_ice_spire';
 import { SPECS as lichFrostNova } from './lich_frost_nova';
 import { SPECS as lichFrostShield } from './lich_frost_shield';
 import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
@@ -64,6 +65,7 @@ export function registerAbilitySpecs(): void {
 
   // Lich 巫妖
   AbilityRegistry.registerAll(lichFrostNova);
+  AbilityRegistry.registerAll(lichIceSpire);
   AbilityRegistry.registerAll(lichFrostShield);
 
   // Lion 莱恩

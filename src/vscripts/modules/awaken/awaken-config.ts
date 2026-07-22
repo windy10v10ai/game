@@ -16,6 +16,18 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 巫妖 觉醒
+  {
+    heroName: 'npc_dota_hero_lich',
+    targetAbility: 'lich_chain_frost',
+    newAbility: 'lich_chain_frost_awakened',
+    newLevel: 0,
+  },
+  {
+    heroName: 'npc_dota_hero_lich',
+    newAbility: 'special_bonus_unique_lich_upgrade',
+    newLevel: 1,
+  },
   // 末日使者 觉醒
   {
     heroName: 'npc_dota_hero_doom_bringer',
