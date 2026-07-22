@@ -16,6 +16,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 凤凰 觉醒
+  {
+    heroName: 'npc_dota_hero_phoenix',
+    newAbility: 'special_bonus_unique_phoenix_upgrade',
+    newLevel: 1,
+  },
   // 屠夫 觉醒肉钩：把原版 pudge_meat_hook 替换为射程随力量增长的觉醒版
   {
     heroName: 'npc_dota_hero_pudge',

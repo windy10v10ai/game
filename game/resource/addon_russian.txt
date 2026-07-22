@@ -472,6 +472,15 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray формирует горячую точку после %hotspot_start_length_pct%%% своей длины. Чем ближе цель к концу луча, тем выше урон по врагам и лечение союзников; на расстоянии %hotspot_reference_length% оба эффекта достигают %hotspot_end_multiplier_pct%%% от базового значения. Если луч длиннее %hotspot_reference_length%, усиление у его конца продолжает возрастать."
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_start_length_pct"	"НАЧАЛО ГОРЯЧЕЙ ТОЧКИ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_end_multiplier_pct"	"ЭФФЕКТ НА ДАЛЬНОСТИ 1200:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_reference_length"		"ОПОРНАЯ ДЛИНА ЛУЧА:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 200%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
+
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
 	}

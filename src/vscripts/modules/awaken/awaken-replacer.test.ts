@@ -149,6 +149,17 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
+  it('凤凰觉醒：纯新增一级热点能力，不替换烈日炙烤', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_phoenix',
+      abilities: [{ name: 'phoenix_sun_ray', level: 5 }],
+    });
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities.find((a) => a.name === 'phoenix_sun_ray')?.level).toBe(5);
+    expect(f.abilities.find((a) => a.name === 'special_bonus_unique_phoenix_upgrade')?.level).toBe(
+      1,
+    );
+  });
   it('命中配置的英雄返回 true 并应用替换', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_pudge',

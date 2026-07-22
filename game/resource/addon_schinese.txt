@@ -1150,6 +1150,15 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>烈日炙烤 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤的光束从 %hotspot_start_length_pct%%% 长度处开始形成热点。目标越靠近光束末端，对敌人造成的伤害和对友军提供的治疗越高；在 %hotspot_reference_length% 距离处达到基础效果的 %hotspot_end_multiplier_pct%%%。若光束长度超过 %hotspot_reference_length%，末端效果会继续随距离提高。"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_start_length_pct"	"热点起始长度："
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_end_multiplier_pct"	"1200 距离效果："
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_reference_length"		"参考光束长度："
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>烈日炙烤 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 200%% 伤害和治疗；光束更长时，末端效果继续提高。"
+
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br>大幅提升施法距离与钩子速度。"

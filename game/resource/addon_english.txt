@@ -1155,6 +1155,15 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray forms a hotspot after %hotspot_start_length_pct%%% of its length. The closer a target is to the end of the ray, the greater its damage to enemies and healing to allies; at %hotspot_reference_length% range, both reach %hotspot_end_multiplier_pct%%% of their base values. If the ray extends beyond %hotspot_reference_length%, its endpoint continues to become stronger with distance."
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_start_length_pct"	"HOTSPOT START LENGTH:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_end_multiplier_pct"	"EFFECT AT 1200 RANGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_reference_length"		"REFERENCE RAY LENGTH:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray begins scaling after 50%% of its length and reaches 200%% damage and healing at 1200 range. A longer ray continues scaling at its endpoint."
+
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br>Greatly increased cast range and hook speed."
