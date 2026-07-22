@@ -16,6 +16,19 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 末日使者 觉醒
+  {
+    heroName: 'npc_dota_hero_doom_bringer',
+    targetAbility: 'doom_bringer_doom',
+    newAbility: 'doom_bringer_doom_awakened',
+    newLevel: 0,
+  },
+  // 觉醒吞噬保留原生技能，仅新增隐藏被动，将本次吞噬获得的野怪技能设为最大等级
+  {
+    heroName: 'npc_dota_hero_doom_bringer',
+    newAbility: 'doom_bringer_devour_awakened',
+    newLevel: 1,
+  },
   // 屠夫 觉醒肉钩：把原版 pudge_meat_hook 替换为射程随力量增长的觉醒版
   {
     heroName: 'npc_dota_hero_pudge',

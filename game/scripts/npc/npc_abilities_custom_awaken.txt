@@ -601,4 +601,50 @@
 			}
 		}
 	}
+	// 末日使者 觉醒末日
+	// 无神杖时保持敌方单体末日；有神杖时可将友方真实英雄或自己变为移动范围末日载体
+	"doom_bringer_doom_awakened"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/doom_bringer_doom_awakened"
+		"AbilityTextureName"			"doom_bringer_doom"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastRange"				"550"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"150 200 250 300"
+		"HasScepterUpgrade"			"1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityValues"
+		{
+			"duration"					"12 14 16 18"
+			"damage"					"66 132 198 264"
+			"aoe_bonus_probe"
+			{
+				"value"					"1"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+	// 末日使者 觉醒吞噬
+	// 保留原生吞噬，通过隐藏被动把本次获得或替换的野怪技能设为其最大等级
+	"doom_bringer_devour_awakened"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/doom_bringer_devour_awakened"
+		"AbilityTextureName"			"doom_bringer_devour"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"1"
+	}
 }

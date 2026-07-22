@@ -5,6 +5,65 @@ LinkLuaModifier("modifier_ability_trigger_on_active", "abilities/ability_trigger
 
 ability_trigger_on_active = class({})
 
+local AWAKENED_DOOM_ABILITY = "doom_bringer_doom_awakened"
+
+local function AppendUniqueAwakenedDoomButterflyTarget(units, seen, unit)
+    if not unit or unit:IsNull() or not unit:IsAlive() then
+        return
+    end
+
+    local entity_index = unit:entindex()
+    if seen[entity_index] then
+        return
+    end
+
+    seen[entity_index] = true
+    table.insert(units, unit)
+end
+
+local function FindAwakenedDoomButterflyTargets(caster, ability, search_origin, search_range, has_scepter)
+    local units = {}
+    local seen = {}
+    local enemies = FindUnitsInRadius(
+        caster:GetTeamNumber(),
+        search_origin,
+        nil,
+        search_range,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        ability:GetAbilityTargetType(),
+        ability:GetAbilityTargetFlags() + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS,
+        FIND_ANY_ORDER,
+        false
+    )
+
+    for _, enemy in ipairs(enemies) do
+        AppendUniqueAwakenedDoomButterflyTarget(units, seen, enemy)
+    end
+
+    if has_scepter then
+        local allies = FindUnitsInRadius(
+            caster:GetTeamNumber(),
+            search_origin,
+            nil,
+            search_range,
+            DOTA_UNIT_TARGET_TEAM_FRIENDLY,
+            DOTA_UNIT_TARGET_HERO,
+            DOTA_UNIT_TARGET_FLAG_NONE,
+            FIND_ANY_ORDER,
+            false
+        )
+
+        for _, ally in ipairs(allies) do
+            if ally:IsRealHero() then
+                AppendUniqueAwakenedDoomButterflyTarget(units, seen, ally)
+            end
+        end
+        AppendUniqueAwakenedDoomButterflyTarget(units, seen, caster)
+    end
+
+    return units
+end
+
 -- 添加这个函数来显示AOE范围指示器
 function ability_trigger_on_active:GetAOERadius()
     return self:GetSpecialValueFor("search_radius")
@@ -305,7 +364,20 @@ function modifier_ability_trigger_on_active:TryCastAbility(ability)
         local search_range = self.ability:GetSpecialValueFor("search_radius")
 
         -- 根据目标队伍查找目标
-        if bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
+        if ability_name == AWAKENED_DOOM_ABILITY then
+            local candidates = FindAwakenedDoomButterflyTargets(
+                self.caster,
+                ability,
+                self.target_point,
+                search_range,
+                self.caster:HasScepter()
+            )
+            if #candidates > 0 then
+                cast_target = candidates[RandomInt(1, #candidates)]
+            else
+                return
+            end
+        elseif bit.band(target_team, DOTA_UNIT_TARGET_TEAM_ENEMY) ~= 0 then
             -- 敌方目标
             local enemies = FindUnitsInRadius(
                 self.caster:GetTeamNumber(),
