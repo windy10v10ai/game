@@ -1,3 +1,5 @@
+// Jest executes JavaScript test files in CommonJS mode.
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { readFileSync } = require('fs');
 
 const localizationFiles = [
