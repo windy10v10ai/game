@@ -486,7 +486,6 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_reference_length"		"ОПОРНАЯ ДЛИНА ЛУЧА:"
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 200%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
 
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
