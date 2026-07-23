@@ -148,11 +148,12 @@ function modifier_item_beast_armor_passive:GetAttributes()
 end
 
 function modifier_item_beast_armor_passive:OnCreated()
-    if IsServer() then
-        if not self:GetAbility() then return end
-        local ability = self:GetAbility()
+    local ability = self:GetAbility()
+    if not ability then return end
 
-        -- 莲花被动格挡
+    self.bonus_aoe = ability:GetSpecialValueFor("bonus_aoe")
+
+    if IsServer() then
         self.block_cooldown = ability:GetSpecialValueFor("block_cooldown")
         self.last_block_time = 0
     end
@@ -161,7 +162,12 @@ end
 function modifier_item_beast_armor_passive:DeclareFunctions()
     return {
         MODIFIER_PROPERTY_ABSORB_SPELL,
+        MODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING,
     }
+end
+
+function modifier_item_beast_armor_passive:GetModifierAoEBonusConstantStacking()
+    return self.bonus_aoe or 0
 end
 
 -- 莲花被动格挡

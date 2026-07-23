@@ -60,7 +60,7 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
-		"ItemCost"						"1125"
+		"ItemCost"						"1100"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_shivas_guard_2"
 		"ItemRequirements"
@@ -91,13 +91,13 @@
 		{
 				"bonus_hp_regen"		"0"
 				"bonus_armor"			"34"	// 17
-				"bonus_aoe"				"150"	// 75
+				"bonus_aoe"				"120"	// 75
 				"aura_radius"
 				{
 					"value"	"1200"
 					"affected_by_aoe_increase"	"1"
 				}
-				"aura_attack_speed"		"-90"	// -45
+				"aura_attack_speed"		"-80"	// -40
 				"blast_damage"			"600"	// 260
 				"blast_movement_speed"	"-60"	// -40
 				"blast_debuff_duration"	"4.0"

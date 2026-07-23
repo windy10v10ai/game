@@ -628,4 +628,19 @@
 			}
 		}
 	}
+	// 术士 地狱火献祭-觉醒
+	"special_bonus_unique_warlock_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/ts_abilities/special_bonus_unique_warlock_upgrade"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"warlock_rain_of_chaos"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"regen_to_damage_pct"		"150"
+		}
+	}
 }

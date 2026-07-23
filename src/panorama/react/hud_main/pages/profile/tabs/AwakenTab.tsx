@@ -18,6 +18,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     abilityName: 'special_bonus_unique_phoenix_upgrade',
   },
   {
+    heroName: 'npc_dota_hero_warlock',
+    abilityName: 'special_bonus_unique_warlock_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_sven',
     abilityName: 'special_bonus_unique_sven_upgrade',
   },

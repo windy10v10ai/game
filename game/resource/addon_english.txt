@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by <font color='#FFFFFF'><b>150%%</b></font> of the sum of Warlock's current Health Regeneration and Mana Regeneration."
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -1147,6 +1153,12 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"ARMOR:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
+
+		// Fountain Sanction
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to attack, use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and buffs are forcibly dispelled."
 
 		///////////////////////////////////////////////////
 		//
@@ -3310,6 +3322,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 

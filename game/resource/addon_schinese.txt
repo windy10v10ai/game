@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的%regen_to_damage_pct%%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>地狱火献祭 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的<font color='#FFFFFF'><b>150%%</b></font>。"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -1142,6 +1148,12 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_armor"				"护甲："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"魔抗："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"全属性："
+
+		// 泉水 制裁
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"无法攻击，无法使用装备、主动技能和被动技能，无法恢复生命和魔法，移动速度被强制限制，且增益被强制驱散。"
 
 		///////////////////////////////////////////////////
 		//
@@ -3322,6 +3334,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
