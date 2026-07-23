@@ -2948,6 +2948,7 @@
 		"MaxLevel"              "5"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "6"
+		"IsBreakable"           "1"
 
 		"AbilityValues"
 		{
@@ -2968,6 +2969,7 @@
 			"MaxLevel"              "5"
 			"RequiredLevel"         "6"
 			"LevelsBetweenUpgrades" "6"
+			"IsBreakable"           "1"
 
 		"AbilityValues"
 		{
@@ -2987,6 +2989,7 @@
 		"MaxLevel"              "5"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "6"
+		"IsBreakable"           "1"
 		"AbilityValues"
 		{
 			// 普通技能触发概率 (每级)
@@ -3031,6 +3034,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"                   "1"
 		"AbilityValues"
 		{
 			// 反弹伤害百分比
@@ -3089,6 +3093,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"                   "1"
 		"AbilityValues"
 		{
 			"ultimate_ready_delay"      "15 12 9 7 5"  // 冷却好后缓冲时间才开始计数

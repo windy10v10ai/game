@@ -45,8 +45,8 @@ function modifier_trigger_on_move:OnIntervalThink()
 
     local parent = self:GetParent()
     if not parent or parent:IsNull() or not parent:IsAlive() then return end
-    if parent:IsIllusion() then return end
     if parent:PassivesDisabled() then return end
+    if parent:IsIllusion() then return end
 
     local current_position = parent:GetAbsOrigin()
     local distance = (current_position - self.last_position):Length2D()
