@@ -87,6 +87,7 @@ function modifier_item_dracula_mask:OnIntervalThink()
     local ability = self:GetAbility()
 
     if not ability or ability:IsNull() then return end
+    if parent:IsMuted() then return end
 
     -- 检查生命值是否低于阈值
     local hp_pct = parent:GetHealthPercent()
