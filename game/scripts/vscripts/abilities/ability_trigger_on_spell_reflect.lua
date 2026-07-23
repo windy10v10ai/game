@@ -42,6 +42,8 @@ function modifier_trigger_on_spell_reflect:OnTakeDamage(params)
     local parent = self:GetParent()
     local attacker = params.attacker
 
+    if parent:PassivesDisabled() then return end
+
     -- 检查内置冷却
     if parent:HasModifier("modifier_trigger_on_spell_reflect_cooldown") then
         --print("[SpellReflect] On cooldown, skipping")
