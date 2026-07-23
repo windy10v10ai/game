@@ -150,7 +150,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Infernal Immolation Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by 150% of the sum of Warlock's current Health Regeneration and Mana Regeneration."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by <font color='#FFFFFF'><b>150%%</b></font> of the sum of Warlock's current Health Regeneration and Mana Regeneration."
 
 		///////////////////////////////////////////////////
 		//

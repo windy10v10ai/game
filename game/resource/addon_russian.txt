@@ -114,7 +114,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Адское пламя: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на 150% суммы текущих восстановления здоровья и маны Чернокнижника."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на <font color='#FFFFFF'><b>150%%</b></font> суммы текущих восстановления здоровья и маны Чернокнижника."
 
 		///////////////////////////////////////////////////
 		//

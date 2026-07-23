@@ -150,7 +150,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的%regen_to_damage_pct%%%。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>地狱火献祭 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的150%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的<font color='#FFFFFF'><b>150%%</b></font>。"
 
 		///////////////////////////////////////////////////
 		//

@@ -14,6 +14,7 @@ import {
 const PERMANENT_IMMOLATION_ABILITY = 'warlock_golem_permanent_immolation';
 const AWAKEN_MODIFIER = 'modifier_special_bonus_unique_warlock_upgrade';
 const INFERNAL_MODIFIER = 'modifier_special_bonus_unique_warlock_upgrade_infernal';
+// 地狱火刚生成时 owner/技能可能还未就绪，挂载失败后短暂重试兜底
 const INFERNAL_SPAWN_RETRY_DELAYS = [0.03, 0.1, 0.3];
 
 /** 术士觉醒 */
@@ -50,6 +51,7 @@ export class modifier_special_bonus_unique_warlock_upgrade extends BaseModifier 
       this,
     );
     this.scanExistingInfernals();
+    // 觉醒创建的同一帧内已存在的地狱火数据可能还未就绪，下一帧再补扫一次兜底
     Timers.CreateTimer(0, () => {
       if (!this.IsNull()) this.scanExistingInfernals();
     });
