@@ -3007,6 +3007,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
 			// 基础触发概率(移速500时的概率)
