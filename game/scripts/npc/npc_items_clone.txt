@@ -468,7 +468,7 @@
 			"chain_chance"				"50"
 			"chain_damage"				"480"	// 180
 			"chain_strikes"			"12"
-			"chain_radius"				"1200"	// 650
+			"chain_radius"				"900"	// 650
 			"chain_delay"				"0.25"
 			"chain_cooldown"			"0.2"
 			"max_charges"				"0"
