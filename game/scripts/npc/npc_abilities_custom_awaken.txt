@@ -197,7 +197,7 @@
 		"LevelsBetweenUpgrades"			"6"
 		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
 		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"10"
+		"AbilityChargeRestoreTime"		"12"
 	}
 
 	// 死灵法师 竭心光环-觉醒
