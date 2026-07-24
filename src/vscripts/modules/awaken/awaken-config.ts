@@ -16,6 +16,14 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 军团指挥官 自动决斗（插入 slot 4，即 Ability5 空槽，与大招决斗 LinkedAbility 同步升级，初始等级继承大招）
+  {
+    heroName: 'npc_dota_hero_legion_commander',
+    targetSlot: 4,
+    newAbility: 'legion_commander_auto_duel',
+    newLevel: 0,
+    inheritLevelFrom: 'legion_commander_duel',
+  },
   // 凤凰 觉醒
   {
     heroName: 'npc_dota_hero_phoenix',
@@ -56,14 +64,6 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'axe_auto_culling_blade',
     newLevel: 0,
     inheritLevelFrom: 'axe_culling_blade',
-  },
-  // 军团指挥官 自动决斗
-  {
-    heroName: 'npc_dota_hero_legion_commander',
-    targetSlot: 3,
-    newAbility: 'legion_commander_auto_duel',
-    newLevel: 0,
-    inheritLevelFrom: 'legion_commander_duel',
   },
   // 死灵法师 竭心光环觉醒：替换原版竭心光环为 DataDriven 脚本伤害版
   {

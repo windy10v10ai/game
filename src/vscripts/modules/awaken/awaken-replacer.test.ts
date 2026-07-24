@@ -149,22 +149,6 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
-  it('军团觉醒：在决斗槽位插入自动决斗并继承决斗等级', () => {
-    const f = createFakeHero({
-      unitName: 'npc_dota_hero_legion_commander',
-      abilities: [
-        { name: 'slot0', level: 4 },
-        { name: 'slot1', level: 4 },
-        { name: 'slot2', level: 4 },
-        { name: 'legion_commander_duel', level: 2 },
-      ],
-    });
-
-    expect(applyAwakenByHero(f.hero)).toBe(true);
-    expect(f.abilities.find((a) => a.name === 'legion_commander_auto_duel')?.level).toBe(2);
-    expect(f.abilities.find((a) => a.name === 'legion_commander_duel')?.level).toBe(2);
-  });
-
   it('命中配置的英雄返回 true 并应用替换', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_pudge',

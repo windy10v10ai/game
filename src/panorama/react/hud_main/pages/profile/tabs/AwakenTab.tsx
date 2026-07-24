@@ -14,6 +14,10 @@ import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
 // 新加的英雄排在前面，旧的排在后面（随机卡固定第一个，不受此列表顺序影响）
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
   {
+    heroName: 'npc_dota_hero_legion_commander',
+    abilityName: 'legion_commander_auto_duel',
+  },
+  {
     heroName: 'npc_dota_hero_phoenix',
     abilityName: 'special_bonus_unique_phoenix_upgrade',
   },
@@ -63,10 +67,6 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
   },
   { heroName: 'npc_dota_hero_zuus', abilityName: 'special_bonus_unique_zuus_upgrade' },
   { heroName: 'npc_dota_hero_necrolyte', abilityName: 'necrolyte_heartstopper_aura_datadriven' },
-  {
-    heroName: 'npc_dota_hero_legion_commander',
-    abilityName: 'legion_commander_auto_duel',
-  },
   { heroName: 'npc_dota_hero_axe', abilityName: 'axe_auto_culling_blade' },
   {
     heroName: 'npc_dota_hero_sniper',
