@@ -2916,6 +2916,21 @@
 				"value"	"160"	// 130
 			}
 			"forward_move_speed"	"350"	// 250
+			"focal_point_max_multiplier"
+			{
+				"value"						"0"
+				"special_bonus_unique_phoenix_upgrade"	"=200"
+			}
+			"focal_point_start_length_pct"
+			{
+				"value"						"0"
+				"special_bonus_unique_phoenix_upgrade"	"=50"
+			}
+			"focal_point_full_length_tooltip_only"
+			{
+				"value"						"0"
+				"special_bonus_unique_phoenix_upgrade"	"=1200"
+			}
 			"shard_move_slow_pct"
 			{
 				"value"				"25"	// 0
