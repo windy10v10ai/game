@@ -2948,6 +2948,7 @@
 		"MaxLevel"              "5"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "6"
+		"IsBreakable"           "1"
 
 		"AbilityValues"
 		{
@@ -2968,6 +2969,7 @@
 			"MaxLevel"              "5"
 			"RequiredLevel"         "6"
 			"LevelsBetweenUpgrades" "6"
+			"IsBreakable"           "1"
 
 		"AbilityValues"
 		{
@@ -2987,6 +2989,7 @@
 		"MaxLevel"              "5"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "6"
+		"IsBreakable"           "1"
 		"AbilityValues"
 		{
 			// 普通技能触发概率 (每级)
@@ -3007,6 +3010,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
 			// 基础触发概率(移速500时的概率)
@@ -3030,6 +3034,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"                   "1"
 		"AbilityValues"
 		{
 			// 反弹伤害百分比
@@ -3088,6 +3093,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"                   "1"
 		"AbilityValues"
 		{
 			"ultimate_ready_delay"      "15 12 9 7 5"  // 冷却好后缓冲时间才开始计数
@@ -3161,13 +3167,13 @@
 		"AbilityValues"
 		{
 			"duration"                    "8 9 10 11"
-			"attacks_per_second"          "5 6 7 8"
+			"attacks_per_second"          "4 5 6 7"
 			"damage_reduction"
 			{
 				"value"                                "-25"
 				"special_bonus_unique_windranger_8"    "+15"
 			}
-			"search_radius_bonus"         "250"
+			"search_radius_bonus"         "150"
 			"repeat_block_count"          "3"
 			"fade_delay"                  "0.2"
 		}
@@ -3249,6 +3255,24 @@
 			"attack_speed"				"20 30 40"
 			"movespeed"					"10 15 20"
 			"slow_duration"				"2"
+		}
+	}
+
+	// 泉水制裁
+	"fountain_anti_camp"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/fountain_anti_camp"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityTextureName"			"action_lockenemytower"
+		"MaxLevel"						"1"
+		"AbilityCastRange"				"2200"
+
+		"AbilityValues"
+		{
+			"radius"					"2200"
+			"move_speed"				"300"
 		}
 	}
 

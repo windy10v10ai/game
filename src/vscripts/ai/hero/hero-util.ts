@@ -5,6 +5,8 @@ export class HeroUtil {
     'modifier_winter_wyvern_winters_curse', // 冰龙大
     'modifier_huskar_life_break_taunt', // 哈斯卡 A杖大
     'modifier_teleporting', // TP
+    'modifier_doom_bringer_doom', // 末日大招
+    'modifier_necrolyte_reapers_scythe', // 死灵法师大招
   ];
 
   static NotActionable(hero: CDOTA_BaseNPC): boolean {

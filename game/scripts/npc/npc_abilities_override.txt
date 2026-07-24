@@ -2142,6 +2142,7 @@
 	"legion_commander_duel"
 	{
 		"MaxLevel" "4"
+		"LinkedAbility"					"legion_commander_auto_duel"
 		"AbilityValues"
 		{
 			"duration"
@@ -2916,6 +2917,21 @@
 				"value"	"160"	// 130
 			}
 			"forward_move_speed"	"350"	// 250
+			"focal_point_max_multiplier"
+			{
+				"value"						"0"
+				"special_bonus_unique_phoenix_upgrade"	"=200"
+			}
+			"focal_point_start_length_pct"
+			{
+				"value"						"0"
+				"special_bonus_unique_phoenix_upgrade"	"=50"
+			}
+			"focal_point_full_length_tooltip_only"
+			{
+				"value"						"0"
+				"special_bonus_unique_phoenix_upgrade"	"=1200"
+			}
 			"shard_move_slow_pct"
 			{
 				"value"				"25"	// 0
@@ -3579,7 +3595,10 @@
 			}
 			"duration"
 			{
-				"value"							"3.0"	// 4.25
+				"value"							"2.0"	// 4.25
+				"hero_levelup"					"+0.25"
+				"levelup_interval"				"10"	// 6
+				"special_bonus_scepter"			"+0.5"	// +1
 			}
 			"scepter_attack_speed"
 			{
@@ -3591,7 +3610,7 @@
 			}
 			"scepter_aura_radius"
 			{
-				"special_bonus_scepter"			"+900"	// +1200
+				"special_bonus_scepter"			"+600"	// +1200
 			}
 		}
 	}
@@ -10374,7 +10393,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"24 20 16 12 8"
+				"value"					"24 21 18 15 12"
 			}
 			"duration"					"2 2.4 2.8 3.2 3.6"
 		}
@@ -12162,6 +12181,7 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
+			"movespeed_bonus_pct"	"30"	// 50 -20削弱防止队友跟不上
 			"AbilityDuration"
 			{
 				"value"									"3 3.5 4 4.5 5"	// 3 4 5 6 差值0.5

@@ -86,7 +86,8 @@ end
 
 -- 血量下限锁在 1，伤害结算时引擎同步钳制，避免单次爆发直接秒杀绕过阈值判定
 function modifier_item_withered_spring:GetMinHealth()
-    if self:GetParent():HasModifier("modifier_ignore_invulnerable_kill") then
+    local parent = self:GetParent()
+    if parent:HasModifier("modifier_ignore_invulnerable_kill") or parent:IsMuted() then
         return 0
     end
 
@@ -105,6 +106,7 @@ function modifier_item_withered_spring:OnTakeDamage(event)
     if not parent:IsAlive() then return end
 
     if event.unit ~= parent then return end
+    if parent:IsMuted() then return end
 
     local ability = self:GetAbility()
     if not ability or ability:IsNull() or not ability:IsFullyCastable() then return end

@@ -122,7 +122,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_switchable_crit_blade', // 归海一刀
         'item_beast_armor', // 兽化甲
         'item_time_gem', // 时间宝石
-        'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
   },
@@ -175,7 +174,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_ten_thousand_swords', // 万剑归宗
         'item_forbidden_staff', // 禁忌法杖
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_dracula_mask', // 生命之盔
       ],
     },
@@ -306,7 +304,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_beast_shield', // 兽化盾
         'item_beast_armor', // 兽化甲
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_withered_spring', // 生命之心
       ],
     },
@@ -374,7 +371,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_beast_shield', // 兽化盾
         'item_time_gem', // 时间宝石
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_magic_sword', // 魔渊剑
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_beast_armor', // 兽化甲
@@ -516,7 +512,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_switchable_crit_blade', // 归海一刀
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_swift_glove', // 无限手套
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
@@ -593,7 +588,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_dracula_mask', // 生命之盔
         'item_beast_armor', // 兽化甲
-        'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
   },
@@ -715,7 +709,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_time_gem', // 时间宝石
         'item_magic_sword', // 魔渊剑
-        'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
   },
@@ -768,9 +761,9 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hawkeye_turret', // 鹰眼炮台
         'item_time_gem', // 时间宝石
         'item_ten_thousand_swords', // 万剑归宗
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_beast_armor', // 兽化甲
         'item_magic_sword', // 魔渊剑
+        'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
   },
@@ -935,7 +928,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_shield', // 兽化盾
         'item_time_gem', // 时间宝石
         'item_magic_sword', // 魔渊剑
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_switchable_crit_blade', // 归海一刀
         'item_dracula_mask', // 生命之盔
       ],
@@ -1542,7 +1534,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_armor', // 兽化甲
         'item_ten_thousand_swords', // 万剑
         'item_time_gem', // 时间宝石
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_forbidden_staff', // 禁忌法杖
       ],
     },
@@ -1608,7 +1599,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_beast_shield', // 兽化盾
         'item_time_gem', // 时间宝石
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_dracula_mask', // 生命之盔
         'item_forbidden_staff', // 禁忌法锤
       ],
@@ -1924,7 +1914,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_armor', // 兽化甲
         'item_time_gem', // 时间宝石
         'item_dracula_mask', // 生命之盔
-        'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
   },
@@ -2123,7 +2112,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_time_gem', // 时间宝石
         'item_beast_shield', // 兽化盾
-        'item_magic_crit_blade', // 魔龙狂舞
         'item_magic_sword', // 魔渊剑
         'item_dracula_mask', // 生命之盔
         'item_forbidden_staff', // 禁忌法锤
@@ -2482,7 +2470,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_magic_sword', // 魔渊剑
         'item_beast_shield', // 兽化盾
-        'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
   },
@@ -2726,9 +2713,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_infernal_desolator', // 绝对破防之刃
         'item_hydras_breath_2', // 神器·千年毒蛟之息
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
-        'item_excalibur', // EX咖喱棒
         'item_black_king_bar_2', // 天神杖
-        'item_monkey_king_bar_2', // 定海神针
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石

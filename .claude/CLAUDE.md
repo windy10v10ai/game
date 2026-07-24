@@ -183,7 +183,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
   - 代码主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数、`FindUnitsInRadius` 后直接操作结果集），本身没有值得验证的分支
   - 需要 mock 多个 Dota 全局枚举/常量对象（如 `UnitTargetTeam` / `UnitTargetType` / `UnitTargetFlags` / `FindOrder`）才能让测试跑起来——这是"代码本身没有自身逻辑、只是在拼引擎调用参数"的强信号
   - 一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，不要为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）
-  - 断言只是在还原调用方自己传入的配置参数（如断言 `FindUnitsInRadius` 被以哪些 team/flags 调用）——这是在测"我传了什么参数"，不是在测判断逻辑
+  - 断言只是在还原调用方自己传入的配置参数（如断言 `FindUnitsInRadius` 被以哪些 team/flags 调用）——这是在测"我传了什么参数"，不是在测判断逻辑。不管这层调用是 Dota 原生 API 还是项目自己封装的 wrapper（如 `shared/auto-cast-ability` 里的 helper），只要断言对象是"mock 有没有被调用/传了什么参数"而非真实判断结果，同样不需要写；技能里若原有的自制逻辑（如某个手动补丁）被验证为多余并删除后，配套测试也要一并检查是否已退化为纯 mock 调用断言
   - Dota 原生 API（`CreateUnitByName` / `ParticleManager.*` / `EmitSoundOn` / `UTIL_Remove` / `AddNewModifier` 等）只作为占位防崩 mock，不要用 `toHaveBeenCalledWith` 断言它们的参数
 
 ### 构建系统

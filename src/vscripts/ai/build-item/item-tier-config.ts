@@ -5,12 +5,12 @@
 
 /**
  * 装备等级枚举
- * 基于实际金钱划分，区间为左开右闭 (下限, 上限]
+ * 基于实际金钱划分，区间为左开右开 (下限, 上限)，T5 下限为闭区间
  * T1: cost <= 2000 - 早期装备
  * T2: 2000 < cost <= 5000 - 中期过渡
  * T3: 5000 < cost <= 10000 - 中期核心
- * T4: 10000 < cost <= 30000 - 后期装备
- * T5: cost > 30000 - 终极装备
+ * T4: 10000 < cost < 30000 - 后期装备
+ * T5: cost >= 30000 - 终极装备
  * 特殊道具需要偏离价格规则时，在该条目旁加注释说明原因，不要改规则本身
  */
 export enum ItemTier {
@@ -693,7 +693,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_blade_mail_2',
     nameCN: '刃甲2',
     tier: ItemTier.T3,
-    cost: 5700,
+    cost: 5800,
     baseItems: ['item_blade_mail'],
   },
   item_rapier: {
@@ -725,7 +725,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_veil_of_discord_2',
     nameCN: '赫拉的神秘面纱',
     tier: ItemTier.T3,
-    cost: 7200,
+    cost: 6000,
     baseItems: ['item_veil_of_discord'],
   },
   item_phylactery: {
@@ -872,13 +872,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9700,
     baseItems: ['item_hurricane_pike'],
   },
-  item_monkey_king_bar_2: {
-    name: 'item_monkey_king_bar_2',
-    nameCN: '定海神针',
-    tier: ItemTier.T4,
-    cost: 10100,
-    baseItems: ['item_monkey_king_bar'],
-  },
   item_angels_demise: {
     name: 'item_angels_demise',
     nameCN: '绝刃',
@@ -939,21 +932,21 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9950,
     baseItems: ['item_boots_of_bearing'],
   },
+  item_monkey_king_bar_2: {
+    name: 'item_monkey_king_bar_2',
+    nameCN: '定海神针',
+    tier: ItemTier.T3, // 价格属于T4区间，按强度定位手动归入T3
+    cost: 10100,
+    baseItems: ['item_monkey_king_bar'],
+  },
 
-  // ===== T4: 后期装备 (10000-30000金) =====
+  // ===== T4: 后期装备 (10000-30000金，不含30000) =====
   item_shotgun_v2: {
     name: 'item_shotgun_v2',
     nameCN: '三管霰弹枪',
     tier: ItemTier.T3,
     cost: 10000,
     baseItems: ['item_shotgun'],
-  },
-  item_six_paths_reincarnation_gun: {
-    name: 'item_six_paths_reincarnation_gun',
-    nameCN: '六道轮回枪',
-    tier: ItemTier.T5, // 价格贴近T4上限，按强度定位手动归入T5
-    cost: 30000,
-    baseItems: ['item_shotgun_v2', 'item_revenants_brooch_ultra', 'item_mage_slayer'],
   },
   item_arcane_blink: {
     name: 'item_arcane_blink',
@@ -1239,8 +1232,15 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     baseItems: ['item_monkey_king_bar_2', 'item_rapier'],
   },
 
-  // ===== T5: 终极装备 (>30000金) =====
+  // ===== T5: 终极装备 (>=30000金) =====
 
+  item_six_paths_reincarnation_gun: {
+    name: 'item_six_paths_reincarnation_gun',
+    nameCN: '六道轮回枪',
+    tier: ItemTier.T5,
+    cost: 30000,
+    baseItems: ['item_shotgun_v2', 'item_revenants_brooch_ultra', 'item_mage_slayer'],
+  },
   item_hawkeye_fighter: {
     name: 'item_hawkeye_fighter',
     nameCN: '鹰眼战机',
@@ -1314,14 +1314,14 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_crit_blade',
     nameCN: '魔龙狂舞',
     tier: ItemTier.T5,
-    cost: 47800,
+    cost: 43800,
     baseItems: ['item_hallowed_scepter'],
   },
   item_beast_armor: {
     name: 'item_beast_armor',
     nameCN: '兽化甲',
     tier: ItemTier.T5,
-    cost: 55900,
+    cost: 56000,
   },
   item_magic_sword: {
     name: 'item_magic_sword',

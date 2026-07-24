@@ -197,13 +197,15 @@ export class Treasure {
     const pointTier = Treasure.getPointTier(point);
     GA4TreasureTracker.SendOpen(opener, this.spawnCount, point, pointTier);
 
-    // 全队人类玩家各获得一次抽奖，与肉山击杀奖励逻辑一致
+    // 全队人类玩家各获得一次抽奖，非开箱者降低一档 pool
     const pool = Treasure.mapToLotteryPool(this.openCount);
+    const otherPool = Treasure.lowerPoolByOne(pool);
+    const openerPlayerId = opener.GetPlayerOwnerID();
     PlayerHelper.ForEachPlayer((playerId) => {
       if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
       const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) return;
-      GameRules.Lottery.Item.onTriggered(hero, pool);
+      GameRules.Lottery.Item.onTriggered(hero, playerId === openerPlayerId ? pool : otherPool);
     });
   }
 
@@ -241,6 +243,21 @@ export class Treasure {
     if (openCount >= 10) return ItemLotteryPool.ULTRA;
     if (openCount >= 5) return ItemLotteryPool.PREMIUM;
     return ItemLotteryPool.DEFAULT;
+  }
+
+  // 非开箱者奖励降一档，INITIAL 已是最低档保持不变
+  static lowerPoolByOne(pool: ItemLotteryPool): ItemLotteryPool {
+    switch (pool) {
+      case ItemLotteryPool.ULTRA:
+        return ItemLotteryPool.PREMIUM;
+      case ItemLotteryPool.PREMIUM:
+        return ItemLotteryPool.DEFAULT;
+      case ItemLotteryPool.DEFAULT:
+        return ItemLotteryPool.INITIAL;
+      case ItemLotteryPool.INITIAL:
+      default:
+        return ItemLotteryPool.INITIAL;
+    }
   }
 
   getActiveChestCount(): number {

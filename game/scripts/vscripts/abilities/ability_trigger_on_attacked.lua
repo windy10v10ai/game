@@ -44,6 +44,7 @@ function modifier_trigger_on_attacked:OnAttacked(params)
 
     -- 确保是自己被攻击
     if params.target ~= parent then return end
+    if parent:PassivesDisabled() then return end
     if parent:IsIllusion() then return end
     if attacker:IsBuilding() then return end
 

@@ -87,9 +87,8 @@ local function HeroKilled(keys)
     end
 
     -- AI连死补偿
-    -- AI 50级后不再补偿
     if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
-        AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 3 then
+        AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 2 then
         -- 补偿的金钱和经验 设计上不应该超过AI通过击杀玩家获得的
         local deathCount = AIGameMode.BotRecordSuccessiveDeathTable[playerId]
         local gold = 0
@@ -109,7 +108,7 @@ local function HeroKilled(keys)
 
         -- 击杀者等级加成
         local killerLevel = attacker:GetLevel()
-        gold = gold + killerLevel * 6
+        gold = gold + killerLevel * 4
         xp = xp + killerLevel * 4
 
         if iLevel >= 50 then
@@ -117,7 +116,7 @@ local function HeroKilled(keys)
         end
 
         -- 连死次数补正
-        local extraFactor = math.max(1, deathCount - 2)
+        local extraFactor = math.max(1, deathCount - 1)
 
         -- 两边团队击杀数补正
         local playerTeamKill = PlayerResource:GetTeamKills(PlayerResource:GetTeam(attackerPlayerID))

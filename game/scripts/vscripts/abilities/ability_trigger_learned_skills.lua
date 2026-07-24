@@ -55,6 +55,7 @@ function modifier_trigger_learned_skills:OnAttackLanded(params)
     local parent = self:GetParent()
 
     if attacker ~= parent then return end
+    if parent:PassivesDisabled() then return end
     if parent:IsIllusion() then return end
     if params.target:IsBuilding() then return end
 

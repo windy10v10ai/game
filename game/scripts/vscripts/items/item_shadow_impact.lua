@@ -15,13 +15,16 @@ function item_shadow_impact:OnSpellStart()
         return
     end
 
-    -- 1. 达贡能量冲击
-    self:ApplyDagonEffect(target)
+    -- 1. 死灵法杖变羊 (降低魔抗)
+    self:ApplyNecrolyteSheep(target)
 
-    -- 2. 死灵法杖效果 (伤害+变羊)
-    self:ApplyNecrolyteEffect(target)
+    -- 2. 死灵法杖伤害 + 达贡能量冲击 (合并为一次魔法伤害，享受降低后的魔抗)
+    self:ApplyNecrolyteAndDagonDamage(target)
 
-    -- 3. 绝刃被动 (法术强化：额外法术伤害+减速+破坏被动技能)
+    -- 3. 纯粹伤害
+    self:ApplyPureDamage(target)
+
+    -- 4. 绝刃被动 (法术强化：额外法术伤害+减速+破坏被动技能)
     self:ApplyAngelsDemiseEffect(target)
 
     -- 主特效
@@ -37,14 +40,30 @@ function item_shadow_impact:OnSpellStart()
     self:StartCooldown(cooldown * caster:GetCooldownReduction())
 end
 
-function item_shadow_impact:ApplyDagonEffect(target)
+function item_shadow_impact:ApplyNecrolyteSheep(target)
     local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("dagon_damage")
+
+    -- 变羊效果 降低魔抗
+    local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
+    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", { duration = duration })
+
+    EmitSoundOn("DOTA_Item.Sheepstick.Activate", target)
+end
+
+function item_shadow_impact:ApplyNecrolyteAndDagonDamage(target)
+    local caster = self:GetCaster()
+
+    -- 死灵冲击伤害 - 基于全属性
+    local blast_att_multiplier = self:GetSpecialValueFor("necrolyte_att_multiplier")
+    local allAtt = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect(false)
+    local necrolyte_damage = allAtt * blast_att_multiplier
+
+    local dagon_damage = self:GetSpecialValueFor("dagon_damage")
 
     ApplyDamage({
         victim = target,
         attacker = caster,
-        damage = damage,
+        damage = necrolyte_damage + dagon_damage,
         damage_type = DAMAGE_TYPE_MAGICAL,
         ability = self
     })
@@ -64,27 +83,17 @@ function item_shadow_impact:ApplyDagonEffect(target)
     EmitSoundOn("Hero_Lion.FingerOfDeath", target)
 end
 
-function item_shadow_impact:ApplyNecrolyteEffect(target)
+function item_shadow_impact:ApplyPureDamage(target)
     local caster = self:GetCaster()
-
-    -- 死灵冲击伤害 - 基于全属性
-    local blast_att_multiplier = self:GetSpecialValueFor("necrolyte_att_multiplier")
-    local allAtt = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect(false)
-    local damage = allAtt * blast_att_multiplier
+    local damage = self:GetSpecialValueFor("pure_damage")
 
     ApplyDamage({
         victim = target,
         attacker = caster,
         damage = damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
+        damage_type = DAMAGE_TYPE_PURE,
         ability = self
     })
-
-    -- 变羊效果
-    local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
-    target:AddNewModifier(caster, self, "modifier_shadow_impact_sheep", { duration = duration })
-
-    EmitSoundOn("DOTA_Item.Sheepstick.Activate", target)
 end
 
 function item_shadow_impact:ApplyAngelsDemiseEffect(target)

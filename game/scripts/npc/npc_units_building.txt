@@ -859,10 +859,10 @@
 	"dota_fountain"
 	{
 		// Abilities
-		"Ability2"					"tower_headshot"			// none
+		"Ability2"					"tower_headshot"
 		"Ability3"					"tower_ursa_fury_swipes"
 		"Ability4"					"tower_antimage_mana_break"
-
+		"Ability5"					"fountain_anti_camp"
 		"Ability6"					"fountain_hp_aura"
 
 		"AttackDamageMin"			"390"		// 290

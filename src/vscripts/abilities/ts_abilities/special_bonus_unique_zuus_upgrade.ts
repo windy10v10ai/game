@@ -12,10 +12,6 @@ import {
  */
 @registerAbility('special_bonus_unique_zuus_upgrade')
 export class SpecialBonusUniqueZuusUpgrade extends AutoCastAbility {
-  getThinkInterval(): number {
-    return 0.5;
-  }
-
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
     // 弧形闪电：英雄优先，无英雄也对小兵
     const arc = caster.FindAbilityByName('zuus_arc_lightning');

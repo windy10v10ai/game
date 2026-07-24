@@ -101,6 +101,7 @@ no_support_abilitys = {
 	tidehunter_anchor_smash = 1,                    -- 潮汐猎人 锚击
 	ability_fate_roulette = 1,                     -- 命运轮盘（重复施放只会刷新自身状态）
 	venomancer_plague_ward = 1,                     -- 剧毒术士 瘟疫守卫
+	enchantress_enchant = 1,                        -- 魅惑魔女 魅惑
 }
 no_support_items = {
 	-- 消耗品

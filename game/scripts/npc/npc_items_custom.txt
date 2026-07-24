@@ -470,7 +470,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1900"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -503,7 +503,7 @@
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-		"ItemCost"						"5700"
+		"ItemCost"						"5800"
 		"ItemShopTags"					"damage;armor;int;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"bm;blade mail;blademail"
@@ -517,7 +517,7 @@
 				"bonus_damage"			"60"
 				"bonus_armor"			"30"
 				"bonus_intellect"		"0"
-				"duration"				"5.5"
+				"duration"				"4"
 				"passive_reflection_constant"			"60"
 				"passive_reflection_pct"			"20"
 				"active_reflection_pct"			"100"
@@ -877,7 +877,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8300"
+		"ItemCost"						"8400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1654,7 +1654,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3300"
+		"ItemCost"						"3200"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3340,7 +3340,7 @@
 				"bonus_agile"		   		"70"
 				"attack_speed"		   		"30"
 				"crit_chance"				"30"
-				"crit_multiplier"			"330"
+				"crit_multiplier"			"300"
 				"active_boost_duration"		"4"
 				"active_dodge_chance"		"75"
 				"move_speed"				"30"
@@ -4417,7 +4417,7 @@
 		// -------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"duration"						"5"		//主动持续时间
+			"duration"						"4"		//主动持续时间
 			"heal_percent"					"8"		//反制回血%
 			"block_cooldown"				"7"		//被动格挡冷却时间
 
@@ -5317,7 +5317,7 @@
 		"SuggestLategame"				"1"
 		"AbilityValues"
 		{
-			"bonus_spell_resist"					"40"	//20
+			"bonus_spell_resist"					"30"	//20
 			"bonus_strength"						"20"	//10
 			"bonus_health"							"500"	//250
 			// 禁用被动防止炸房
@@ -5325,7 +5325,7 @@
 			"stack_duration"						"0"		//5
 			"stack_resist"							"0.0"	//3.5
 
-			"mana_restore_pct"						"40"	//25
+			"mana_restore_pct"						"30"	//25
 			"max_stacks"							"8"		//6
 		}
 	}
@@ -5614,14 +5614,14 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"39999"
+		"ItemCost"					"29999"
 		"ItemPermanent"				"0"
 		"ItemStackable"				"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
 		"ItemSellable"				"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"		"60"	// 0分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"1"
 		"ItemStockTime"				"60"
@@ -6064,19 +6064,19 @@
 			"crit_chance_mode1"			"18"
 			"crit_multiplier_mode1"		"5"
 			"guaranteed_crit_multiplier_mode1"	"4"
-			"cooldown_mode1"			"6"
+			"cooldown_mode1"			"4"
 
 			// 模式2:
 			"crit_chance_mode2"			"6"
-			"crit_multiplier_mode2"		"16"
+			"crit_multiplier_mode2"		"13"
 			"guaranteed_crit_multiplier_mode2"	"12"
-			"cooldown_mode2"			"20"
+			"cooldown_mode2"			"12"
 
 			// 模式3:
 			"crit_chance_mode3"			"1"
 			"crit_multiplier_mode3"		"80"
-			"guaranteed_crit_multiplier_mode3"	"40"
-			"cooldown_mode3"			"60"
+			"guaranteed_crit_multiplier_mode3"	"30"
+			"cooldown_mode3"			"30"
 		}
 	}
 
@@ -6103,7 +6103,7 @@
 		"ItemResult"				"item_magic_crit_blade"
 		"ItemRequirements"
 		{
-			"01"					"item_hallowed_scepter;item_devastator_2;item_revenants_brooch_ultra;item_fusion_brutal"
+			"01"					"item_hallowed_scepter;item_devastator_2;item_veil_of_discord_2;item_fusion_brutal"
 		}
 	}
 
@@ -6119,7 +6119,7 @@
 		"AbilityManaCost"			"1200"
 		"AbilitySharedCooldown"		"magic_scepter"
 
-		"ItemCost"					"47800"
+		"ItemCost"					"43800"
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
@@ -6133,14 +6133,10 @@
 			"active_duration"			"4"
 			"spell_amp_multiplier"		"2"
 
-			// 幻影暴击 modifier
-			"bonus_damage"				"200"
-			"crit_chance"				"30"
-			"crit_multiplier"			"340"
-			"spell_lifesteal"			"30"
-
 			// 神圣斧
 			"bonus_intellect"			"200"
+			"bonus_attack_speed"		"80"
+			"bonus_armor"				"14"
 			// 巫师之刃 + 魔蚀 modifier
 			"projectile_speed"			"300"
 			"int_damage_multiplier"		"1.25"
@@ -6149,11 +6145,9 @@
 			"active_mres_reduction"		"40"
 			"passive_cooldown"			"4"
 
-			// 死代码,未被任何脚本读取
-			// "spell_crit_chance"			"15"
-			// "spell_crit_multiplier"		"10.0"
-			// "guaranteed_spell_crit_multiplier"	"6.0"
-			// "spell_crit_cooldown"		"60"
+			// 法术暴击 modifier
+			"spell_crit_chance"			"30"
+			"spell_crit_multiplier"		"250"
 		}
 
 
@@ -6472,8 +6466,6 @@
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"FightRecapLevel"			"1"
-		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"	// 允许选中魔免目标
 		"ItemShopTags"				"damage;int;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6490,13 +6482,18 @@
 			"active_cooldown"			"15"	// Lua 逻辑需要 - 主动施法冷却
 			"dagon_damage"
 			{
-				"value"					"1800"
+				"value"					"900"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"pure_damage"
+			{
+				"value"					"900"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
-			"necrolyte_att_multiplier"	"1.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
-			"sheep_movement_speed"		"140"	// Lua 逻辑需要 - 变形移动速度
+			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）
@@ -6556,7 +6553,6 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK"
 		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityCastRange"			"600"
 		"AbilityCastPoint"			"0.0"
 		"AbilityManaCost"			"0"
@@ -6587,17 +6583,17 @@
 			"bonus_armor"				"80"	// tooltip only - 护甲（光暗臂章）
 
 			// Lua 逻辑需要的参数
-			"bat_reduction_pct"			"30"	// Lua 逻辑需要 - 动态计算 BAT
+			"bat_reduction_pct"			"25"	// Lua 逻辑需要 - 动态计算 BAT
 			"self_xp"			"2"
 			"self_gold"			"600"
 			"group_range"		"1800"
 			"group_xp"			"0.5"
 			"group_gold"		"120"
 			"hero_kill_chance"	"50"
-			"chain_chance"		"50"
-			"chain_damage"		"600"
-			"chain_strikes"		"15"
-			"chain_radius"		"1200"
+			"chain_chance"		"40"
+			"chain_damage"		"500"
+			"chain_strikes"		"12"
+			"chain_radius"		"900"
 			"chain_cooldown"		"0.2"
 			"double_damage_chance"	"20"
 			"double_damage_multiplier"	"1.5"
@@ -6755,7 +6751,7 @@
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 
 		"AbilityCastPoint"			"0.0"
-		"AbilityCooldown"			"40.0"
+		"AbilityCooldown"			"60.0"
 		"AbilityManaCost"			"300"
 
 		"ItemCost"					"57300"
@@ -6765,7 +6761,6 @@
 			// 主动技能
 			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			"active_movespeed"				"400"
 			// BKB
 			"magic_resist"					"100"
 
@@ -6871,7 +6866,6 @@
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"		"%passive_bonus_health_regen"
 					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%passive_bonus_attack_speed"
 					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"		"%passive_bonus_damage"
-					"MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE"			"%active_movespeed"
 				}
 
 				"EffectName"		"particles/items_fx/aegis_lvl_1000_ambient.vpcf"
@@ -6963,7 +6957,7 @@
 		"AbilityCooldown"			"20.0"
 		"AbilityManaCost"			"600"
 
-		"ItemCost"					"55900"
+		"ItemCost"					"56000"
 		"ItemShopTags"				"damage;armor;int;hard_to_tag"
 		"ItemQuality"				"artifact"
 		"ItemAliases"				"beast armor"
@@ -7002,25 +6996,25 @@
 			// 刃甲属性
 			"passive_reflection_constant"	"80"	// 被动反伤固定值
 			"passive_reflection_pct"		"25"	// 被动反伤百分比
-			"active_reflection_pct"			"120"	// 主动反伤百分比
+			"active_reflection_pct"			"100"	// 主动反伤百分比
 			"bonus_armor"					"80"	// 护甲
 
 			// Lua 逻辑需要
 			"block_cooldown"				"7"		// 林肯格挡冷却
 
-			"active_duration"				"5"		// 主动持续时间
+			"active_duration"				"4"		// 主动持续时间
 			"blast_radius"					"900"	// 冲击波范围
 			"blast_damage"					"1200"	// 冲击波伤害
 
 			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
 			"movement_slow"					"40"	// tooltip only - 移速减缓
-			"attack_slow"					"160"	// tooltip only - 攻速减缓
-			"spell_resist_reduction"		"25"	// tooltip only - 魔法抗性降低
+			"attack_slow"					"120"	// tooltip only - 攻速减缓
+			"spell_resist_reduction"		"20"	// tooltip only - 魔法抗性降低
 
 			// 辉耀光环（事件驱动）
 			"aura_radius"					"900"	// 光环范围
 			"aura_damage"					"180"	// 光环伤害
-			"blind_pct"						"20"	// 致盲百分比
+			"blind_pct"						"10"	// 致盲百分比
 
 			// 被动属性
 			"bonus_strength"				"30"	// 力量
@@ -7028,8 +7022,10 @@
 			"bonus_intellect"				"30"	// 智力
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
-			"bonus_damage"					"150"	// 攻击力
-			"evasion"						"20"	// 闪避
+			"bonus_damage"					"120"	// 攻击力
+			"evasion"						"25"	// 闪避
+
+			"bonus_aoe"						"150"	// 作用范围 lua
 		}
 
 		// 主动技能
@@ -7094,8 +7090,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-40"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-160"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-25"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-120"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-20"
 				}
 
 				"TextureName"			"item_shivas_guard"
@@ -7406,7 +7402,7 @@
 		"ID"                            "10341"
 		"BaseClass"                     "item_lua"
 		"ScriptFile"                    "items/ts_items/item_six_paths_reincarnation_gun"
-		"AbilityTextureName"            "six_paths_reincarnation_gun"
+		"AbilityTextureName"            "item_six_paths_reincarnation_gun"
 		"AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"         "DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"         "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"

@@ -90,6 +90,7 @@ describe('Treasure', () => {
   const fakeOpener = {
     GetUnitName: () => 'npc_dota_hero_axe',
     GetPlayerOwner: () => ({}),
+    GetPlayerOwnerID: () => 0,
   } as any;
 
   beforeEach(() => {
@@ -196,6 +197,24 @@ describe('Treasure', () => {
 
     it('第 10 个起使用 ULTRA 池', () => {
       expect(Treasure.mapToLotteryPool(10)).toBe(ItemLotteryPool.ULTRA);
+    });
+  });
+
+  describe('lowerPoolByOne 降级映射', () => {
+    it('ULTRA 降为 PREMIUM', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.ULTRA)).toBe(ItemLotteryPool.PREMIUM);
+    });
+
+    it('PREMIUM 降为 DEFAULT', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.PREMIUM)).toBe(ItemLotteryPool.DEFAULT);
+    });
+
+    it('DEFAULT 降为 INITIAL', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.DEFAULT)).toBe(ItemLotteryPool.INITIAL);
+    });
+
+    it('INITIAL 已是最低档，保持 INITIAL', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.INITIAL)).toBe(ItemLotteryPool.INITIAL);
     });
   });
 

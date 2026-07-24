@@ -1,3 +1,4 @@
+import { HeroUtil } from '../../../ai/hero/hero-util';
 import { BaseAbility, BaseModifier, registerModifier } from '../../../utils/dota_ts_adapter';
 
 /**
@@ -10,7 +11,7 @@ export abstract class AutoCastAbility extends BaseAbility {
   }
 
   getThinkInterval(): number {
-    return 0.3;
+    return 0.5;
   }
 
   abstract OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void;
@@ -40,7 +41,7 @@ export class modifier_autocast_think extends BaseModifier {
   OnIntervalThink(): void {
     if (!IsServer()) return;
     const caster = this.GetParent();
-    if (!caster.IsAlive()) return;
+    if (HeroUtil.NotActionable(caster) || caster.IsSilenced()) return;
     // 玩家正在持续释放（TP 等）时不抢操作，避免打断
     if (caster.IsChanneling()) return;
     const ability = this.GetAbility() as unknown as AutoCastAbility;

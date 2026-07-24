@@ -271,6 +271,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
 
 
     ["ability_fate_roulette"] = true, -- 命运轮盘（避免蝴蝶随机开启命定之刻）
+    ["enchantress_enchant"] = true,   -- 魅惑魔女 魅惑
 }
 -- 定义需要排除的物品黑名单
 -- 这些物品不会被自动触发,避免游戏机制冲突或性能问题

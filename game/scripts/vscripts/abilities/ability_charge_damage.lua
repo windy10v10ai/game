@@ -52,6 +52,8 @@ function modifier_ability_charge_damage_tracker:OnIntervalThink()
     local caster = self:GetParent()
     local ability = self:GetAbility()
 
+    if caster:PassivesDisabled() then return end
+
     local current_time = GameRules:GetGameTime()
     local max_times = ability:GetSpecialValueFor("max_times")
 
@@ -189,8 +191,10 @@ function modifier_ability_charge_damage_tracker:OnAbilityExecuted(keys)
         return
     end
 
-    local ability = keys.ability
     local caster = self:GetParent()
+    if caster:PassivesDisabled() then return end
+
+    local ability = keys.ability
     local ability_name = ability:GetAbilityName()
 
     if ability:IsPassive() or ability:IsItem() or ability == self:GetAbility() then
