@@ -200,6 +200,24 @@
 		"AbilityChargeRestoreTime"		"12"
 	}
 
+	// 军团指挥官 自动决斗
+	"legion_commander_auto_duel"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/legion_commander_auto_duel"
+		"AbilityTextureName"			"legion_commander_duel"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"LinkedAbility"					"legion_commander_duel"
+		"AbilityValues"
+		{
+			"bonus_cast_range"			"200"
+		}
+	}
+
 	// 死灵法师 竭心光环-觉醒
 	// 重写为 DataDriven 脚本伤害，可吃技能增强；伤害削弱，aura_damage 为每秒最大生命百分比
 	"necrolyte_heartstopper_aura_datadriven"
