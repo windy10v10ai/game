@@ -1169,10 +1169,7 @@
 
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray forms a hotspot after %hotspot_start_length_pct%%% of its length. The closer a target is to the end of the ray, the greater its damage to enemies and healing to allies; at %hotspot_reference_length% range, both reach %hotspot_end_multiplier_pct%%% of their base values. If the ray extends beyond %hotspot_reference_length%, its endpoint continues to become stronger with distance."
-		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_start_length_pct"	"HOTSPOT START LENGTH:"
-		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_end_multiplier_pct"	"EFFECT AT 1200 RANGE:"
-		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_hotspot_reference_length"		"REFERENCE RAY LENGTH:"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray does more damage and healing to targets near the end of the beam. Beam intensity starts increasing at %hotspot_start_length_pct%%% of its length, reaching %hotspot_end_multiplier_pct%%% of base damage and healing at %hotspot_reference_length% range. Extending the beam further makes the endpoint's damage and healing keep increasing."
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Sun Ray Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray begins scaling after 50%% of its length and reaches 200%% damage and healing at 1200 range. A longer ray continues scaling at its endpoint."
 
