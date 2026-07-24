@@ -16,6 +16,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 凤凰 觉醒
+  {
+    heroName: 'npc_dota_hero_phoenix',
+    newAbility: 'special_bonus_unique_phoenix_upgrade',
+    newLevel: 1,
+  },
   // 术士 觉醒
   {
     heroName: 'npc_dota_hero_warlock',
