@@ -465,8 +465,8 @@
 			"static_seconary_radius"	"1200"	// 900
 			"static_radius"			"1200"	// 900
 			"static_cooldown"			"1.0"
-			"chain_chance"				"50"
-			"chain_damage"				"480"	// 180
+			"chain_chance"				"30"	// 25
+			"chain_damage"				"450"	// 180
 			"chain_strikes"			"12"
 			"chain_radius"				"900"	// 650
 			"chain_delay"				"0.25"
