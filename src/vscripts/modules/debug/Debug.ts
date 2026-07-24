@@ -5,6 +5,7 @@ import { GameEnd } from '../event/game-end/game-end';
 import { ModifierHelper } from '../helper/modifier-helper';
 import { PlayerHelper } from '../helper/player-helper';
 import { CMD } from './debug-cmd';
+import { handleGlobalItemDebugCommand } from './debug-item-helper';
 
 @reloadable
 export class Debug {
@@ -155,13 +156,7 @@ export class Debug {
     }
 
     // ---- item 替换装备命令 ----
-    if (cmd === CMD.ADD_BKB_ALL) {
-      PlayerHelper.ForEachPlayer((playerId) => {
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (!hero) return;
-        hero.AddItemByName('item_black_king_bar_2');
-      });
-    }
+    handleGlobalItemDebugCommand(cmd);
     if (cmd === CMD.ADD_ITEM_ALL) {
       const itemName = args[0];
       PlayerHelper.ForEachPlayer((playerId) => {
