@@ -65,14 +65,20 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
     for (const hero of enemies) {
       if (!hero.IsRealHero() || !PlayerHelper.IsHumanPlayer(hero)) continue;
 
-      const stack = hero.AddNewModifier(fountain, ability, STACK_MODIFIER_NAME, {
-        duration: DEBUFF_DURATION,
-      });
+      if (hero.HasModifier(LOCK_MODIFIER_NAME)) {
+        hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, { duration: DEBUFF_DURATION });
+        continue;
+      }
 
-      if (stack.GetStackCount() >= LOCK_STACK_THRESHOLD) {
-        hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, {
-          duration: DEBUFF_DURATION,
-        });
+      const stackCount = (hero.FindModifierByName(STACK_MODIFIER_NAME)?.GetStackCount() ?? 0) + 1;
+
+      if (stackCount >= LOCK_STACK_THRESHOLD) {
+        hero.RemoveModifierByName(STACK_MODIFIER_NAME);
+        hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, { duration: DEBUFF_DURATION });
+      } else {
+        hero
+          .AddNewModifier(fountain, ability, STACK_MODIFIER_NAME, { duration: DEBUFF_DURATION })
+          .SetStackCount(stackCount);
       }
     }
   }
@@ -99,16 +105,6 @@ export class modifier_fountain_anti_camp_stack extends BaseModifier {
 
   GetTexture(): string {
     return 'action_lockenemytower';
-  }
-
-  OnCreated(): void {
-    this.SetStackCount(1);
-  }
-
-  OnRefresh(): void {
-    if (this.GetStackCount() < LOCK_STACK_THRESHOLD) {
-      this.IncrementStackCount();
-    }
   }
 }
 
