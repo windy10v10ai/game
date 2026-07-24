@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的%regen_to_damage_pct%%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>地狱火献祭 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的<font color='#FFFFFF'><b>150%%</b></font>。"
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -1143,12 +1149,24 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"魔抗："
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"全属性："
 
+		// 泉水 制裁
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"无法攻击，无法使用装备、主动技能和被动技能，无法恢复生命和魔法，移动速度被强制限制，且增益被强制驱散。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Awaken Abilities 觉醒技能
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>烈日炙烤 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤的光束末端对目标造成的伤害与治疗更高。光束强度从 %hotspot_start_length_pct%%% 长度处开始增强，在 %hotspot_reference_length% 距离处达到基础伤害/治疗的 %hotspot_end_multiplier_pct%%%。若光束长度进一步增加，末端的伤害和治疗量会继续提高。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>烈日炙烤 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 200%% 伤害和治疗。光束更长时，末端效果继续提高。"
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
@@ -3319,6 +3337,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 

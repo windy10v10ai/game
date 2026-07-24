@@ -110,6 +110,12 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Адское пламя: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на <font color='#FFFFFF'><b>150%%</b></font> суммы текущих восстановления здоровья и маны Чернокнижника."
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -471,6 +477,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_damage"			"Макс. урон： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
+
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 200%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
 
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"

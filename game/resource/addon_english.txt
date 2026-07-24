@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by <font color='#FFFFFF'><b>150%%</b></font> of the sum of Warlock's current Health Regeneration and Mana Regeneration."
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -1148,12 +1154,24 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
 
+		// Fountain Sanction
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to attack, use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and buffs are forcibly dispelled."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Awaken Abilities 觉醒技能
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray does more damage and healing to targets near the end of the beam. Beam intensity starts increasing at %hotspot_start_length_pct%%% of its length, reaching %hotspot_end_multiplier_pct%%% of base damage and healing at %hotspot_reference_length% range. Extending the beam further makes the endpoint's damage and healing keep increasing."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray begins scaling after 50%% of its length and reaches 200%% damage and healing at 1200 range. A longer ray continues scaling at its endpoint."
 
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
@@ -3307,6 +3325,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
