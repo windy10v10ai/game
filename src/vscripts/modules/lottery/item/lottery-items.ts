@@ -46,13 +46,13 @@ export const itemTiers: Tier[] = [
       'item_roshans_banner', // 肉山的战旗
       'item_light_part', // 圣光组件
       'item_dark_part', // 暗影组件
+      'item_veil_of_discord_2', // 赫拉的神秘面纱
     ],
   },
   // 3~5k
   {
     level: 3,
     names: [
-      'item_veil_of_discord_2', // 赫拉的神秘面纱
       'item_consumable_gem', // 幻影宝石
       'item_candy_candy', // 嘉心糖
       'item_solar_crest', // 炎阳纹章
@@ -77,6 +77,7 @@ export const itemTiers: Tier[] = [
       'item_ancient_janggo', // 韧鼓
       'item_holy_locket', // 圣洁吊坠
       'item_consecrated_wraps', // 圣化护服
+      'item_veil_of_discord_2', // 纷争面纱
     ],
   },
   // 1k

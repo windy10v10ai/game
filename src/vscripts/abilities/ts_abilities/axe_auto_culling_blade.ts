@@ -15,6 +15,10 @@ import {
 export class AxeAutoCullingBlade extends AutoCastAbility {
   private pendingTarget?: CDOTA_BaseNPC;
 
+  getThinkInterval(): number {
+    return 1;
+  }
+
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
     const culling = caster.FindAbilityByName('axe_culling_blade');
     if (!culling) return;
