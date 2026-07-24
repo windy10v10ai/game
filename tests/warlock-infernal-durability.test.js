@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
-const { KeyValues } = require('easy-keyvalues');
+const fs = jest.requireActual('fs');
+const path = jest.requireActual('path');
+const { KeyValues } = jest.requireActual('easy-keyvalues');
 
 async function parseKv(relativePath) {
   const absolutePath = path.join(__dirname, '..', relativePath);
