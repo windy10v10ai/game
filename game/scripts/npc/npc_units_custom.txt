@@ -156,8 +156,10 @@
 	//=================================================================================
 	"npc_dota_warlock_golem"
 	{
+		"Ability3"					"warlock_golem_durability"	// Original slot is empty; add hidden durability passive.
 		"BaseAttackSpeed"			"180"		// 100
 		"AttackRate"				"1.2"		// 1.25
+		"MagicalResistance"			"75"		// 33
 	}
 
 
