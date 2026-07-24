@@ -55,17 +55,14 @@ export function getFullCastRange(caster: CDOTA_BaseNPC, ability: CDOTABaseAbilit
   return ability.GetCastRange(caster.GetAbsOrigin(), undefined) + caster.GetCastRangeBonus();
 }
 
-/** 在 range 内找敌方单位（最近优先）。始终排除迷雾外/隐身单位；allowMagicImmune 时额外可命中魔免单位（如淘汰之刃）。 */
+/** 在 range 内找敌方单位（最近优先）。始终排除迷雾外/隐身单位；extraFlags 可叠加额外过滤（如魔免单位可命中、排除幻象）。 */
 export function findEnemiesInRange(
   caster: CDOTA_BaseNPC,
   range: number,
   targetType: UnitTargetType,
-  allowMagicImmune = false,
+  extraFlags: UnitTargetFlags = UnitTargetFlags.NONE,
 ): CDOTA_BaseNPC[] {
-  let flags = UnitTargetFlags.FOW_VISIBLE + UnitTargetFlags.NO_INVIS;
-  if (allowMagicImmune) {
-    flags = flags + UnitTargetFlags.MAGIC_IMMUNE_ENEMIES;
-  }
+  const flags = UnitTargetFlags.FOW_VISIBLE + UnitTargetFlags.NO_INVIS + extraFlags;
   return FindUnitsInRadius(
     caster.GetTeamNumber(),
     caster.GetAbsOrigin(),
