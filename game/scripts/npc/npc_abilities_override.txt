@@ -3595,7 +3595,10 @@
 			}
 			"duration"
 			{
-				"value"							"3.0"	// 4.25
+				"value"							"2.0"	// 4.25
+				"hero_levelup"					"+0.25"
+				"levelup_interval"				"10"	// 6
+				"special_bonus_scepter"			"+0.5"	// +1
 			}
 			"scepter_attack_speed"
 			{
@@ -3607,7 +3610,7 @@
 			}
 			"scepter_aura_radius"
 			{
-				"special_bonus_scepter"			"+900"	// +1200
+				"special_bonus_scepter"			"+600"	// +1200
 			}
 		}
 	}
@@ -10390,7 +10393,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"24 20 16 12 8"
+				"value"					"24 21 18 15 12"
 			}
 			"duration"					"2 2.4 2.8 3.2 3.6"
 		}

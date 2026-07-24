@@ -3173,7 +3173,7 @@
 				"value"                                "-25"
 				"special_bonus_unique_windranger_8"    "+15"
 			}
-			"search_radius_bonus"         "250"
+			"search_radius_bonus"         "150"
 			"repeat_block_count"          "3"
 			"fade_delay"                  "0.2"
 		}

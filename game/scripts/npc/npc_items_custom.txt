@@ -6491,7 +6491,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
-			"necrolyte_att_multiplier"	"1.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
@@ -6583,17 +6583,17 @@
 			"bonus_armor"				"80"	// tooltip only - 护甲（光暗臂章）
 
 			// Lua 逻辑需要的参数
-			"bat_reduction_pct"			"30"	// Lua 逻辑需要 - 动态计算 BAT
+			"bat_reduction_pct"			"25"	// Lua 逻辑需要 - 动态计算 BAT
 			"self_xp"			"2"
 			"self_gold"			"600"
 			"group_range"		"1800"
 			"group_xp"			"0.5"
 			"group_gold"		"120"
 			"hero_kill_chance"	"50"
-			"chain_chance"		"50"
-			"chain_damage"		"600"
-			"chain_strikes"		"15"
-			"chain_radius"		"1200"
+			"chain_chance"		"40"
+			"chain_damage"		"500"
+			"chain_strikes"		"12"
+			"chain_radius"		"900"
 			"chain_cooldown"		"0.2"
 			"double_damage_chance"	"20"
 			"double_damage_multiplier"	"1.5"
