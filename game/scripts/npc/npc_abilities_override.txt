@@ -10389,7 +10389,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"24 20 16 12 8"
+				"value"					"24 21 18 15 12"
 			}
 			"duration"					"2 2.4 2.8 3.2 3.6"
 		}
