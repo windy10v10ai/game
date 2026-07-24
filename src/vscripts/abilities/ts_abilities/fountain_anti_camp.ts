@@ -7,9 +7,11 @@ import {
 } from '../../utils/dota_ts_adapter';
 
 const WATCHER_MODIFIER_NAME = 'modifier_fountain_anti_camp_watcher';
+const STACK_MODIFIER_NAME = 'modifier_fountain_anti_camp_stack';
 const LOCK_MODIFIER_NAME = 'modifier_fountain_anti_camp_lock';
 const POLL_INTERVAL = 1;
-const LOCK_DURATION = 3;
+const DEBUFF_DURATION = 3;
+const LOCK_STACK_THRESHOLD = 3;
 
 @registerAbility('fountain_anti_camp')
 export class AbilityFountainAntiCamp extends BaseAbility {
@@ -36,6 +38,7 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
   OnCreated(): void {
     if (!IsServer()) return;
     if (this.GetParent().GetTeamNumber() !== DotaTeam.BADGUYS) return;
+    if (PlayerHelper.GetHumamPlayerCount() < 2) return;
     this.StartIntervalThink(POLL_INTERVAL);
   }
 
@@ -60,7 +63,50 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
 
     for (const hero of enemies) {
       if (!hero.IsRealHero() || !PlayerHelper.IsHumanPlayer(hero)) continue;
-      hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, { duration: LOCK_DURATION });
+
+      const stack = hero.AddNewModifier(fountain, ability, STACK_MODIFIER_NAME, {
+        duration: DEBUFF_DURATION,
+      });
+
+      if (stack.GetStackCount() >= LOCK_STACK_THRESHOLD) {
+        hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, {
+          duration: DEBUFF_DURATION,
+        });
+      }
+    }
+  }
+}
+
+@registerModifier('abilities/ts_abilities/fountain_anti_camp')
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export class modifier_fountain_anti_camp_stack extends BaseModifier {
+  IsHidden(): boolean {
+    return false;
+  }
+
+  IsDebuff(): boolean {
+    return true;
+  }
+
+  IsPurgable(): boolean {
+    return false;
+  }
+
+  RemoveOnDeath(): boolean {
+    return true;
+  }
+
+  GetTexture(): string {
+    return 'action_lockenemytower';
+  }
+
+  OnCreated(): void {
+    this.SetStackCount(1);
+  }
+
+  OnRefresh(): void {
+    if (this.GetStackCount() < LOCK_STACK_THRESHOLD) {
+      this.IncrementStackCount();
     }
   }
 }
