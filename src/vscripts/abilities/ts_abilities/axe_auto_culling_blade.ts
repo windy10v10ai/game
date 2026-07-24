@@ -1,5 +1,5 @@
-import { registerAbility } from '../../utils/dota_ts_adapter';
 import { IMMORTALITY_MODIFIER } from '../../modules/filter/dragon-wish-filter';
+import { registerAbility } from '../../utils/dota_ts_adapter';
 import {
   AutoCastAbility,
   castImmediatelyOnTarget,
@@ -15,9 +15,13 @@ import {
 export class AxeAutoCullingBlade extends AutoCastAbility {
   private pendingTarget?: CDOTA_BaseNPC;
 
+  getThinkInterval(): number {
+    return 1;
+  }
+
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
     const culling = caster.FindAbilityByName('axe_culling_blade');
-    if (!culling) return;
+    if (!culling || !culling.IsFullyCastable()) return;
 
     const pending = this.pendingTarget;
     this.pendingTarget = undefined;

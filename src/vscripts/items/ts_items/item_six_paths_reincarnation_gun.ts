@@ -289,7 +289,7 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
   }
 
   GetTexture(): string {
-    return 'six_paths_reincarnation_gun';
+    return 'item_six_paths_reincarnation_gun';
   }
 
   DeclareFunctions(): ModifierFunction[] {
@@ -343,6 +343,12 @@ export class ModifierItemSixPathsReincarnationGunActive extends BaseItemModifier
       damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION + DamageFlag.REFLECTION,
       ability,
     });
+
+    const overheadAlert =
+      damageType === DamageTypes.PURE
+        ? OverheadAlert.BONUS_PURE_DAMAGE
+        : OverheadAlert.BONUS_SPELL_DAMAGE;
+    SendOverheadEventMessage(undefined, overheadAlert, target, convertedDamage, undefined);
   }
 
   OnAttackRecordDestroy(event: ModifierAttackEvent): void {

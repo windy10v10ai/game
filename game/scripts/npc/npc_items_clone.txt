@@ -9,7 +9,7 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_veil_of_discord_2"
-		"ItemCost"						"1475"
+		"ItemCost"						"1500"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_veil_of_discord_2"
 		"ItemRequirements"
@@ -28,7 +28,7 @@
 		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.0"
 		"AbilityManaCost"				"200"
-		"ItemCost"						"7200"
+		"ItemCost"						"6000"
 		"ItemShopTags"					"int;regen_health;hard_to_tag;spell_amp"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"vod;veil of discord"
@@ -60,7 +60,7 @@
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_shivas_guard_2"
-		"ItemCost"						"1125"
+		"ItemCost"						"1100"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_shivas_guard_2"
 		"ItemRequirements"
@@ -91,13 +91,13 @@
 		{
 				"bonus_hp_regen"		"0"
 				"bonus_armor"			"34"	// 17
-				"bonus_aoe"				"150"	// 75
+				"bonus_aoe"				"120"	// 75
 				"aura_radius"
 				{
 					"value"	"1200"
 					"affected_by_aoe_increase"	"1"
 				}
-				"aura_attack_speed"		"-90"	// -45
+				"aura_attack_speed"		"-80"	// -40
 				"blast_damage"			"600"	// 260
 				"blast_movement_speed"	"-60"	// -40
 				"blast_debuff_duration"	"4.0"
@@ -370,7 +370,7 @@
 			"unholy_bonus_strength"	"300"
 			"unholy_bonus_armor"	"48"
 			"unholy_bonus_slow_resistance"	"90"	// x2 不能超过100
-			"unholy_health_drain_per_second"	"900"
+			"unholy_health_drain_per_second"	"360"	// 45 x8
 			"toggle_cooldown"		"0.036"
 		}
 	}
@@ -442,7 +442,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCastRange"				"1200"//800
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"20.0"//30
+		"AbilityCooldown"				"20.0"//35
 		"AbilityManaCost"				"50"
 		"ItemCost"						"14000"
 		"ItemShopTags"					"damage;attack_speed;unique;farming;dps"
@@ -455,22 +455,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_damage"				"160"	// 120
-			"bonus_attack_speed"		"240"	// 210
+			"bonus_damage"				"80"	// 25
+			"bonus_attack_speed"		"240"	// 90
 			"static_duration"			"15.0"
-			"static_chance"			"40"
-			"static_strikes"			"5"
-			"static_damage"			"675"	// 450
-			"static_primary_radius"	"900"	// 750
-			"static_seconary_radius"	"1200"	// 1000
-			"static_radius"			"1200"	// 1000
-			"static_cooldown"			"0.33"//0.66
-			"chain_chance"				"50"
-			"chain_damage"				"480"	// 360
+			"static_chance"			"30"	// 20
+			"static_strikes"			"5"	// 4
+			"static_damage"			"675"	// 225
+			"static_primary_radius"	"900"	// 600
+			"static_seconary_radius"	"1200"	// 900
+			"static_radius"			"1200"	// 900
+			"static_cooldown"			"1.0"
+			"chain_chance"				"30"	// 25
+			"chain_damage"				"450"	// 180
 			"chain_strikes"			"12"
-			"chain_radius"				"1200"	// 1000
+			"chain_radius"				"900"	// 650
 			"chain_delay"				"0.25"
-			"chain_cooldown"			"0.1"
+			"chain_cooldown"			"0.2"
 			"max_charges"				"0"
 			"illusion_multiplier_pct"	"100"
 		}
@@ -741,7 +741,7 @@
 
 			"poison_duration"				"3"
 			"poison_base_damage"			"0"
-			"poison_damage_per_second"		"10"	// 6
+			"poison_damage_per_second"		"6"		// 5
 		}
 	}
 

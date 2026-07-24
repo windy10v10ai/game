@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by <font color='#FFFFFF'><b>150%%</b></font> of the sum of Warlock's current Health Regeneration and Mana Regeneration."
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -1148,12 +1154,24 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
 
+		// Fountain Sanction
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to attack, use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and buffs are forcibly dispelled."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Awaken Abilities 觉醒技能
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray does more damage and healing to targets near the end of the beam. Beam intensity starts increasing at %hotspot_start_length_pct%%% of its length, reaching %hotspot_end_multiplier_pct%%% of base damage and healing at %hotspot_reference_length% range. Extending the beam further makes the endpoint's damage and healing keep increasing."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray begins scaling after 50%% of its length and reaches 200%% damage and healing at 1200 range. A longer ray continues scaling at its endpoint."
 
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
@@ -1179,6 +1197,12 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
+
+		// Legion Commander Auto Duel - Awakened
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel Awakened</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>With autocast enabled, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. It will not trigger while Duel is on cooldown or otherwise not castable. Auto Duel first consumes every passive spell-block layer on the target, so passive reflection or block items such as Linken's Sphere cannot stop this Duel."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Honor needs no invitation; the nearest enemy will do."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"BONUS AUTO DUEL RANGE:"
 
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
@@ -2296,7 +2320,6 @@
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_health"				"+$health"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_bonus_intellect"			"+$int"
 		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_lifesteal"			"%+$spell_lifesteal"
-		"DOTA_Tooltip_ability_item_veil_of_discord_2_spell_amp"					"%+$spell_amp"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff"					"Spell Weakness"
 		"DOTA_Tooltip_modifier_item_veil_of_discord_2_debuff_Description"		"Spell damage taken increased by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
@@ -2581,7 +2604,7 @@
 
 		// 死灵法杖
 		"DOTA_Tooltip_ability_item_necronomicon_staff"								"Necronomicon Staff"
-		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be silenced, muted, and disarmed.<br><br>Reduces enemy magic resistance by %blast_magic_resist%%% (flat).<br><br>Enemy will take magical damage equal to %blast_att_multiplier%x the sum of all your attributes + %blast_damage_base%.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
+		"DOTA_Tooltip_ability_item_necronomicon_staff_Description"					"<h1>Active: Necronomicon Blast</h1>Turns a target unit into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be <font color='#6DB6E9'>silenced</font>, <font color='#C3E1DB'>muted</font>, and <font color='#AFB912'>disarmed</font>.<br><br>Reduces enemy magic resistance by %blast_magic_resist%%% (additive).<br><br>Enemy will take <font color='#05CAFF'>magical damage</font> equal to %blast_att_multiplier%x the sum of all your attributes + %blast_damage_base%.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_agility"				"+$agi"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_strength"				"+$str"
 		"DOTA_Tooltip_ability_item_necronomicon_staff_bonus_intellect"				"+$int"
@@ -3143,12 +3166,12 @@
 
 		// Dragon Dance (魔龙狂舞)
 		"DOTA_Tooltip_Ability_item_magic_crit_blade"                           "Dragon Dance"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.<br><br>All attacks have true strike.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Phantom Critical</font></h1>Each attack has a %crit_chance%%% chance to deal additional magic damage equal to %crit_multiplier%%% of the attack damage."
+		"DOTA_Tooltip_ability_item_magic_crit_blade_Description"               "<h1><font color='#FF0000'>Passive: Sacred Parasma</font></h1> Causes your next attack to have true strike, apply a poison for %slow_duration% seconds, slowing by %slow%%% and dealing %int_damage_multiplier%x your intelligence as damage every second.<br><br>Your attacks reduce the enemy's Magic resistance by %active_mres_reduction%%% for %passive_cooldown% seconds.<br><br>All attacks have true strike.\n<h1><font color='#A74ABD'>Active: Dragon Breath</font></h1>Grants %spell_amp_multiplier%x spell amp per intelligence for %active_duration% seconds.<br><br>Cool Down: %active_cooldown%秒<br>Mana Cost: %AbilityManaCost%\n<h1><font color='#0096FF'>Passive: Spell Critical</font></h1>Dealing magical or pure damage to enemy units has a %spell_crit_chance%%% chance to critically strike, dealing %spell_crit_multiplier%%% damage."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_Lore"                      "Dragon Dance incinerates all in its path. The magic dragon breath sweeps away everything, spell explosions devastate all."
 		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_intellect"           "+$int"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_damage"              "+$damage"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_attack_speed"        "+$attack"
+		"DOTA_Tooltip_ability_item_magic_crit_blade_bonus_armor"               "+$armor"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_amp_per_int"         "%+Spell Amp per Intelligence"
-		"DOTA_Tooltip_ability_item_magic_crit_blade_spell_lifesteal"					"%+$spell_lifesteal"
 		"DOTA_Tooltip_ability_item_magic_crit_blade_projectile_speed"				"+$projectile_speed"
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active"                   "Dragon Breath"
 		"DOTA_Tooltip_modifier_item_magic_crit_blade_active_Description"       "Gains extra intelligence spell amplification."
@@ -3207,7 +3230,7 @@
 
 		// Shadow Staff (暗影法杖)
 		"DOTA_Tooltip_Ability_item_shadow_impact"                              "Shadow Staff"
-		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Annihilation</h1>Combines multiple devastating effects on the target:<br><br>- Deals %dagon_damage% magical damage<br>- Reduces enemy magic resistance by %blast_magic_resist%%% (flat). Transforms target into a critter for %sheep_duration% seconds, dealing %necrolyte_att_multiplier%%% of your total attributes to it<br><br>Cast Range: %abilitycastrange%<br>Cooldown: %active_cooldown%s<br>Pierces debuff immunity.\n<h1>Passive: Empower Spell</h1>The next Unit Target spell you cast on an enemy deals a separate %bonus_spell_damage% additional damage, disables their passives, and slows their movement speed by %slow%%% for %slow_duration%s.<br><br>Cooldown: %passive_cooldown%s."
+		"DOTA_Tooltip_ability_item_shadow_impact_Description"                  "<h1>Active: Shadow Impact</h1>Turns the target into a harmless critter. The target's base movement speed becomes %sheep_movement_speed% and will be <font color='#6DB6E9'>silenced</font>, <font color='#C3E1DB'>muted</font>, and <font color='#AFB912'>disarmed</font>.<br><br>Reduces enemy magic resistance by %blast_magic_resist%%% (additive).<br><br>Enemy will take <font color='#05CAFF'>magical damage</font> equal to %necrolyte_att_multiplier%x the sum of all your attributes + %dagon_damage%, plus %pure_damage% <font color='#FFE56E'>pure damage</font>.<br><br>Cast Range: %abilitycastrange%<br>Duration: %sheep_duration% seconds<br>Cooldown: %active_cooldown%s\n<h1>Passive: Empower Spell</h1>The next Unit Target spell you cast on an enemy deals a separate %bonus_spell_damage% additional damage, disables their passives, and slows their movement speed by %slow%%% for %slow_duration%s.<br><br>Cooldown: %passive_cooldown%s."
 		"DOTA_Tooltip_ability_item_shadow_impact_Lore"                         "The shadow's curse brings annihilation."
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_intellect"              "+$int"
 		"DOTA_Tooltip_ability_item_shadow_impact_bonus_strength"               "+$str"
@@ -3271,7 +3294,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"Beast Shield"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, movement speed is set to %active_movespeed%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"Diving Suit"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."
@@ -3284,7 +3307,7 @@
 		"DOTA_Tooltip_ability_item_beast_shield_passive_bonus_damage"					"+$damage"
 
 		"DOTA_Tooltip_modifier_item_beast_shield_active"								"Human Shield"
-		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"All bonuses are increased, movement speed slowed."
+		"DOTA_Tooltip_modifier_item_beast_shield_active_Description"					"All bonuses are increased."
 
 		"DOTA_Tooltip_modifier_item_beast_shield_aura"									"Beast Shield Assault Aura"
 		"DOTA_Tooltip_modifier_item_beast_shield_aura_Description"						"Gaining %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
@@ -3302,6 +3325,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
