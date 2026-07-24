@@ -38,7 +38,8 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
   OnCreated(): void {
     if (!IsServer()) return;
     if (this.GetParent().GetTeamNumber() !== DotaTeam.BADGUYS) return;
-    if (PlayerHelper.GetHumamPlayerCount() < 2) return;
+    // 仅在多人游戏中生效 (开发模式下允许单人测试生效)
+    if (!IsInToolsMode() && PlayerHelper.GetHumamPlayerCount() < 2) return;
     this.StartIntervalThink(POLL_INTERVAL);
   }
 
