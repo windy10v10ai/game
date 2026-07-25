@@ -6,6 +6,7 @@ import {
   castImmediatelyOnTarget,
   findEnemiesInRange,
   getFullCastRange,
+  modifier_autocast_think,
 } from './shared/auto-cast-ability';
 import { isWarlockInfernalUnitName } from './warlock-awaken-math';
 
@@ -35,6 +36,10 @@ function canWinDuel(
 /** 军团指挥官 自动决斗-觉醒：复用决斗完成自动目标选择与施放。 */
 @registerAbility('legion_commander_auto_duel')
 export class LegionCommanderAutoDuel extends AutoCastAbility {
+  GetIntrinsicModifierName(): string {
+    return 'modifier_legion_commander_auto_duel_intrinsic';
+  }
+
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
     const duel = caster.FindAbilityByName('legion_commander_duel');
     if (!duel || !duel.IsFullyCastable()) return;
@@ -64,13 +69,33 @@ export class LegionCommanderAutoDuel extends AutoCastAbility {
 
     castImmediatelyOnTarget(caster, duel, target);
 
-    applyAwakenMagicImmunity(caster, this, duration);
     target.AddNewModifier(
       caster,
       this,
       modifier_legion_commander_auto_duel_target_unselectable.name,
       { duration },
     );
+  }
+}
+
+/** 自动决斗-觉醒的 intrinsic：继承共享的 autocast 思考，额外监听决斗（含手动施放）真正释放后追加真实 BKB。 */
+@registerModifier('abilities/ts_abilities/legion_commander_auto_duel')
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export class modifier_legion_commander_auto_duel_intrinsic extends modifier_autocast_think {
+  DeclareFunctions(): ModifierFunction[] {
+    return [ModifierFunction.ON_ABILITY_FULLY_CAST];
+  }
+
+  OnAbilityFullyCast(event: ModifierAbilityEvent): void {
+    if (!IsServer()) return;
+    const parent = this.GetParent();
+    if (event.unit !== parent) return;
+    if (event.ability.GetAbilityName() !== 'legion_commander_duel') return;
+
+    const ability = this.GetAbility();
+    if (!ability) return;
+
+    applyAwakenMagicImmunity(parent, ability, event.ability.GetSpecialValueFor('duration'));
   }
 }
 
