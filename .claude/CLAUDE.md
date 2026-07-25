@@ -344,6 +344,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 | 自制物品 KV | `game/scripts/npc/npc_items_custom.txt` |
 | 物品共享 DataDriven hub（`item_apply_modifiers`） | `game/scripts/npc/npc_items_modifier.txt` |
 | 觉醒技能 KV | `game/scripts/npc/npc_abilities_custom_awaken.txt` |
+| 通用战斗公式（伤害/护甲等，手写纯 Lua，被遗留纯 Lua 物品脚本引用） | `game/scripts/vscripts/util.lua`（TS 侧同步入口 `src/vscripts/utils/damage-calculation.ts`） |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 | addon 俄文本地化 | `game/resource/addon_russian.txt` |
@@ -440,6 +441,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 - 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
 - PR 的 base branch 固定为 `develop`；标题默认英文；创建前必须先调用 `release-note` skill 生成 Release Note 段
 - Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
+- `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
 
 只 stage 与本次请求明确相关的文件，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
 
