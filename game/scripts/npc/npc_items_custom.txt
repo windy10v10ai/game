@@ -6491,7 +6491,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
-			"necrolyte_att_multiplier"	"1.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
@@ -6583,17 +6583,17 @@
 			"bonus_armor"				"80"	// tooltip only - 护甲（光暗臂章）
 
 			// Lua 逻辑需要的参数
-			"bat_reduction_pct"			"30"	// Lua 逻辑需要 - 动态计算 BAT
+			"bat_reduction_pct"			"25"	// Lua 逻辑需要 - 动态计算 BAT
 			"self_xp"			"2"
 			"self_gold"			"600"
 			"group_range"		"1800"
 			"group_xp"			"0.5"
 			"group_gold"		"120"
 			"hero_kill_chance"	"50"
-			"chain_chance"		"50"
-			"chain_damage"		"600"
-			"chain_strikes"		"15"
-			"chain_radius"		"1200"
+			"chain_chance"		"40"
+			"chain_damage"		"500"
+			"chain_strikes"		"12"
+			"chain_radius"		"900"
 			"chain_cooldown"		"0.2"
 			"double_damage_chance"	"20"
 			"double_damage_multiplier"	"1.5"
@@ -6996,7 +6996,7 @@
 			// 刃甲属性
 			"passive_reflection_constant"	"80"	// 被动反伤固定值
 			"passive_reflection_pct"		"25"	// 被动反伤百分比
-			"active_reflection_pct"			"120"	// 主动反伤百分比
+			"active_reflection_pct"			"100"	// 主动反伤百分比
 			"bonus_armor"					"80"	// 护甲
 
 			// Lua 逻辑需要
@@ -7008,13 +7008,13 @@
 
 			// 主动Debuff 需要同时修改 modifier_item_beast_armor_debuff
 			"movement_slow"					"40"	// tooltip only - 移速减缓
-			"attack_slow"					"160"	// tooltip only - 攻速减缓
-			"spell_resist_reduction"		"25"	// tooltip only - 魔法抗性降低
+			"attack_slow"					"120"	// tooltip only - 攻速减缓
+			"spell_resist_reduction"		"20"	// tooltip only - 魔法抗性降低
 
 			// 辉耀光环（事件驱动）
 			"aura_radius"					"900"	// 光环范围
 			"aura_damage"					"180"	// 光环伤害
-			"blind_pct"						"20"	// 致盲百分比
+			"blind_pct"						"10"	// 致盲百分比
 
 			// 被动属性
 			"bonus_strength"				"30"	// 力量
@@ -7022,8 +7022,10 @@
 			"bonus_intellect"				"30"	// 智力
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
-			"bonus_damage"					"150"	// 攻击力
-			"evasion"						"20"	// 闪避
+			"bonus_damage"					"120"	// 攻击力
+			"evasion"						"25"	// 闪避
+
+			"bonus_aoe"						"150"	// 作用范围 lua
 		}
 
 		// 主动技能
@@ -7088,8 +7090,8 @@
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-40"
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-160"
-					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-25"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"-120"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-20"
 				}
 
 				"TextureName"			"item_shivas_guard"

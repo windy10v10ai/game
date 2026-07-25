@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by <font color='#FFFFFF'><b>150%%</b></font> of the sum of Warlock's current Health Regeneration and Mana Regeneration."
+
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -490,7 +496,7 @@
 		"DOTA_Tooltip_modifier_global_newbie"					"<font color='#87CEEB'>Newbie Protection ★★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_Description"		"This player's Battle Level is below level 5<br/>Their hero gains:<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health<br>+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed<br>+%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magical resistance<br>+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
 		"DOTA_Tooltip_modifier_global_newbie_2"					"<font color='#87CEEB'>Newbie Protection ★</font>"
-		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"This player's battle level is below level 8<br/>Their hero gains:<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health<br>+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed<br>+%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magical resistance<br>+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
+		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"This player's battle level is below level 10<br/>Their hero gains:<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health<br>+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed<br>+%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magical resistance<br>+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
 		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
 		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Points every day.<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
@@ -1149,12 +1155,26 @@
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_magic_resistance"	"MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_attributes"		"ATTRIBUTES:"
 
+		// Fountain Sanction
+		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"Fountain Sanction Warning"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"Stacks once per second while near the fountain. Reaching 3 stacks triggers the sanction."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to attack, use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and buffs are forcibly dispelled."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Awaken Abilities 觉醒技能
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 凤凰 烈日炙烤-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray does more damage and healing to targets near the end of the beam. Beam intensity starts increasing at %hotspot_start_length_pct%%% of its length, reaching %hotspot_end_multiplier_pct%%% of base damage and healing at %hotspot_reference_length% range. Extending the beam further makes the endpoint's damage and healing keep increasing."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Sun Ray Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray begins scaling after 50%% of its length and reaches 200%% damage and healing at 1200 range. A longer ray continues scaling at its endpoint."
 
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
@@ -1180,6 +1200,14 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
+
+		// Legion Commander Auto Duel - Awakened
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel · Awakened</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>While autocast is enabled and Duel is ready, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. Illusions are ignored, and it only triggers when there's a high chance of killing the target without leaving Legion Commander critically low on health.<br><br>Auto Duel ignores and consumes the target's passive spell block and reflection effects.<br><br>During Duel, Legion Commander gains Black King Bar's spell immunity, and the target cannot be selected."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Honor needs no invitation; the nearest enemy will do."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"BONUS AUTO DUEL RANGE:"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Auto Duel: Unselectable"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"This unit cannot be selected during Duel."
 
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
@@ -3309,6 +3337,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_armor"								"+$armor"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
