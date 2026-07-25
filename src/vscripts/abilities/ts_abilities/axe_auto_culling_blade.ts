@@ -40,7 +40,7 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
       caster,
       getFullCastRange(caster, culling),
       UnitTargetType.HERO,
-      true,
+      UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,
     );
 
     // 斩杀线 = 原版固定阈值，吃技能增强

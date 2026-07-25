@@ -20,7 +20,8 @@ export class LegionCommanderAutoDuel extends AutoCastAbility {
       caster,
       getFullCastRange(caster, duel) + bonusCastRange,
       UnitTargetType.HERO,
-      true, // 决斗可对魔免单位施放
+      // 决斗可对魔免单位施放，排除幻象
+      UnitTargetFlags.MAGIC_IMMUNE_ENEMIES + UnitTargetFlags.NOT_ILLUSIONS,
     );
     const target = enemies[0];
     if (!target) return;
