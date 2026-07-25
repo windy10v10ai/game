@@ -35,16 +35,34 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
     return false;
   }
 
+  // 泉水作为地图内置实体，生成时机早于真实对局中玩家连接完毕，人数判断需等状态到 PRE_GAME 后才可信
+  private checked = false;
+
   OnCreated(): void {
     if (!IsServer()) return;
     if (this.GetParent().GetTeamNumber() !== DotaTeam.BADGUYS) return;
-    // 仅在多人游戏中生效 (开发模式下允许单人测试生效)
-    if (!IsInToolsMode() && PlayerHelper.GetHumamPlayerCount() < 2) return;
     this.StartIntervalThink(POLL_INTERVAL);
   }
 
   OnIntervalThink(): void {
     if (!IsServer()) return;
+
+    if (!this.checked) {
+      const state = GameRules.State_Get();
+      if (state < GameState.PRE_GAME) return;
+
+      this.checked = true;
+      const humanCount = PlayerHelper.GetHumamPlayerCount();
+      // 仅在多人游戏中生效 (开发模式下允许单人测试生效)
+      const canRun = IsInToolsMode() || humanCount >= 2;
+      print(
+        `[FountainAntiCamp] check state=${state} toolsMode=${IsInToolsMode()} humanCount=${humanCount} canRun=${canRun}`,
+      );
+      if (!canRun) {
+        this.StartIntervalThink(-1);
+        return;
+      }
+    }
 
     const fountain = this.GetParent();
     const ability = this.GetAbility();
