@@ -7,6 +7,7 @@ import {
   findEnemiesInRange,
   getFullCastRange,
 } from './shared/auto-cast-ability';
+import { isWarlockInfernalUnitName } from './warlock-awaken-math';
 
 const MAX_SPELL_ABSORB_LAYERS = 16;
 const KILL_TIME_DUEL_DURATION_RATIO = 0.8;
@@ -50,7 +51,10 @@ export class LegionCommanderAutoDuel extends AutoCastAbility {
       UnitTargetFlags.MAGIC_IMMUNE_ENEMIES + UnitTargetFlags.NOT_ILLUSIONS,
     );
     const target = enemies.find(
-      (enemy) => !enemy.IsIllusion() && canWinDuel(caster, enemy, duration),
+      (enemy) =>
+        !enemy.IsIllusion() &&
+        !isWarlockInfernalUnitName(enemy.GetUnitName()) &&
+        canWinDuel(caster, enemy, duration),
     );
     if (!target) return;
 
