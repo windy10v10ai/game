@@ -47,6 +47,7 @@ export class GameConfig {
     game.SetUseDefaultDOTARuneSpawnLogic(true); // 是否使用默认的神符生成逻辑
     // game.SetRemoveIllusionsOnDeath(true); // 是否在英雄死亡的时候移除幻象
     game.SetFreeCourierModeEnabled(true); // 是否启用免费信使模式
+    game.SetCanSellAnywhere(true); // 参考加速模式，卖装备不受商店范围限制
     game.SetSelectionGoldPenaltyEnabled(true); // 是否启用选择英雄时的金钱惩罚（超时每秒扣钱）
     game.SetLoseGoldOnDeath(false); // 是否在英雄死亡时扣除金钱
     game.SetCustomBuybackCostEnabled(true); // 是否启用自定义买活价格
