@@ -7,8 +7,32 @@ import {
 
 const MODIFIER_NAME = 'modifier_item_inventory_slot_unlock';
 const MAX_UNLOCKED_ITEM_SLOTS = 3;
-const FIRST_BACKPACK_SLOT = 6;
-const LAST_BACKPACK_SLOT = FIRST_BACKPACK_SLOT + MAX_UNLOCKED_ITEM_SLOTS - 1;
+const FIRST_BACKPACK_SLOT = InventorySlot.SLOT_7;
+const LAST_BACKPACK_SLOT = InventorySlot.SLOT_9;
+const INVENTORY_SYNC_INTERVAL = 0.1;
+
+// CanBeUsedOutOfInventory() also turns true once an item merely passes through an
+// unlocked backpack slot, so it cannot be used to detect the KV declaration at
+// runtime. Mirror the KV `ItemCanBeUsedWithoutInventory "1"` items here instead.
+const BACKPACK_ALWAYS_USABLE_ITEMS: string[] = [
+  'item_roshans_banner',
+  'item_dust',
+  'item_smoke_of_deceit',
+  'item_ward_observer',
+  'item_ward_sentry',
+  'item_ward_dispenser',
+  'item_tome_of_knowledge',
+  'item_tome_of_agility',
+  'item_tome_of_intelligence',
+  'item_tome_of_strength',
+  'item_tome_of_luoshu',
+  'item_tome_of_ability_reset',
+  'item_skill_reset',
+  'item_collector',
+  'item_awaken_stone',
+  'item_passive_skill_tome',
+  'item_inventory_slot_unlock',
+];
 
 interface ForcedUnequippedItem {
   entIndex: EntityIndex;
@@ -78,8 +102,8 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
     }
 
     // Inventory changes do not expose a modifier event. Poll a lightweight
-    // signature so newly granted/swapped items are corrected almost immediately.
-    this.StartIntervalThink(0.03);
+    // signature so newly granted/swapped items are corrected quickly.
+    this.StartIntervalThink(INVENTORY_SYNC_INTERVAL);
     this.SynchronizeInventory();
   }
 
@@ -168,7 +192,12 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
       const inMainInventory = ownedByParent && slot >= 0 && slot < FIRST_BACKPACK_SLOT;
 
       item.SetCanBeUsedOutOfInventory(inUnlockedBackpack);
-      if (!inUnlockedBackpack && !inMainInventory) {
+      if (inMainInventory) {
+        // Backpack slots handle their own equip via activateUsableInventoryItems;
+        // items dragged back into the main inventory need it restored here instead.
+        item.SetItemState(1);
+        item.OnEquip();
+      } else if (!inUnlockedBackpack) {
         item.SetItemState(0);
       }
       this.forcedUnequippedItems.splice(index, 1);
@@ -213,6 +242,12 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
           item.SetActivated(record.wasActivated);
           this.removeForcedUnequippedItem(item.entindex());
         }
+        continue;
+      }
+
+      // Items with KV ItemCanBeUsedWithoutInventory (e.g. Roshan's Banner) are
+      // already usable from any backpack slot natively; leave them untouched.
+      if (!record && BACKPACK_ALWAYS_USABLE_ITEMS.includes(item.GetAbilityName())) {
         continue;
       }
 
@@ -317,6 +352,6 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
   }
 
   GetTexture(): string {
-    return 'inventory_slot_unlock';
+    return 'item_inventory_slot_unlock';
   }
 }

@@ -7539,7 +7539,7 @@
 	// 扩容之书：藏宝箱专属消耗品
 	"item_inventory_slot_unlock"
 	{
-		"ID"						"10340"
+		"ID"						"10342"
 		"BaseClass"					"item_lua"
 		"ScriptFile"				"items/ts_items/item_inventory_slot_unlock"
 		"AbilityTextureName"		"inventory_slot_unlock"

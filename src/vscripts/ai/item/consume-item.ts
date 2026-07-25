@@ -37,8 +37,7 @@ export class ConsumeItem {
     if (IsAbilityBehavior(item, AbilityBehavior.NO_TARGET)) {
       if (
         itemName === 'item_inventory_slot_unlock' &&
-        (item as CDOTA_Item & { CastFilterResult(): UnitFilterResult }).CastFilterResult() !==
-          UnitFilterResult.SUCCESS
+        (item as CDOTA_Item_Lua).CastFilterResult() !== UnitFilterResult.SUCCESS
       ) {
         return false;
       }
