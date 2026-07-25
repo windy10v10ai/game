@@ -38,6 +38,8 @@ export class GameConfig {
     // GameRules.SetCustomGameAllowHeroPickMusic(false); // 是否允许英雄选择阶段的音乐
     // GameRules.SetCustomGameAllowBattleMusic(false); // 是否允许战斗阶段音乐
     GameRules.SetUseUniversalShopMode(true); // 是否启用全地图商店模式（在基地也可以购买神秘商店的物品）* 这个不是设置在任何地方都可以购买，如果要设置这个，需要将购买区域覆盖全地图
+    // 地图原有商店触发器范围不足以覆盖全图，叠加超大半径触发器让购买/出售在任意位置生效
+    SpawnDOTAShopTriggerRadiusApproximate(Vector(0, 0, 0), 30000).SetShopType(ShopType.HOME);
     // GameRules.SetHideKillMessageHeaders(true); // 是否隐藏顶部的英雄击杀信息
     GameRules.SetCustomGameEndDelay(30);
     GameRules.SetFilterMoreGold(true);
@@ -47,7 +49,6 @@ export class GameConfig {
     game.SetUseDefaultDOTARuneSpawnLogic(true); // 是否使用默认的神符生成逻辑
     // game.SetRemoveIllusionsOnDeath(true); // 是否在英雄死亡的时候移除幻象
     game.SetFreeCourierModeEnabled(true); // 是否启用免费信使模式
-    game.SetCanSellAnywhere(true); // 参考加速模式，卖装备不受商店范围限制
     game.SetSelectionGoldPenaltyEnabled(true); // 是否启用选择英雄时的金钱惩罚（超时每秒扣钱）
     game.SetLoseGoldOnDeath(false); // 是否在英雄死亡时扣除金钱
     game.SetCustomBuybackCostEnabled(true); // 是否启用自定义买活价格
