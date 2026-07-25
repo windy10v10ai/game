@@ -3,21 +3,6 @@
 
 "DOTAAbilities"
 {
-	// Warlock Infernal base durability: hidden passive grants status resistance.
-	"warlock_golem_durability"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/warlock_golem_durability"
-		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"IsOnCastBar"					"0"
-
-		"AbilityValues"
-		{
-			"status_resistance"			"50"
-		}
-	}
-
 	// 充能来自商店成功购买后的物品转换，放置消耗一层充能。
 	"ability_ward_observer_slot"
 	{
