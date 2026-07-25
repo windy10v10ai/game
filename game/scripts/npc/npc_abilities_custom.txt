@@ -3272,7 +3272,7 @@
 		"AbilityValues"
 		{
 			"radius"					"2000"
-			"move_speed"				"300"
+			"move_speed"				"400"
 		}
 	}
 
