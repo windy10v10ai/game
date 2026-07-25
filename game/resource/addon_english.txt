@@ -189,6 +189,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"Cooldown (%)"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
+		"data_panel_player_property_aoe_bonus_constant_stacking"	"Radius"
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Damage (%)"
 		"data_panel_player_property_status_resistance_stacking"	"Status Resistance (%)"
 		"data_panel_player_property_evasion_constant"			"Evasion (%)"

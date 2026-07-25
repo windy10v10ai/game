@@ -189,6 +189,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
+		"data_panel_player_property_aoe_bonus_constant_stacking"	"作用范围"
 		"data_panel_player_property_spell_amplify_percentage"	"技能增强 ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"状态抗性 ( % )"
 		"data_panel_player_property_evasion_constant"			"闪避 ( % )"

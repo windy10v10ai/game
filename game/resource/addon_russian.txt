@@ -148,6 +148,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"Перезарядка (%)"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Дальность применения"
+		"data_panel_player_property_aoe_bonus_constant_stacking"	"Радиус"
 		"data_panel_player_property_spell_amplify_percentage"	"Урон от заклинаний (%)"
 		"data_panel_player_property_status_resistance_stacking"	"Сопротивление эффектам (%)"
 		"data_panel_player_property_evasion_constant"			"Уклонение (%)"
