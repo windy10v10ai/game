@@ -12071,16 +12071,16 @@
 			}
 			"golem_hp"
 			{
-				"value"					"3500 5500 7500 9500"	// 1500 2250 3000, manually increased
+				"value"					"3000 5000 7000 9000"	// 1500 2250 3000, manually increased
 			}
 			"golem_dmg"					"100 200 300 400"	// 100 150 200 差值x2
-			"golem_armor"				"40 60 90 110"	// 8 12 14, manually increased
+			"golem_armor"				"40 60 80 100"	// 8 12 14, manually increased
 			"golem_movement_speed"		"350 400 450 500"	// 320 340 360
 			"golem_health_regen"		"50 100 150 200"	// 25 50 75 x2
 			"golem_gold_bounty"			"100 200 300 400"	// 100 150 200 差值x2
 			"golem_hp_scepter"
 			{
-				"special_bonus_scepter"	"3500 5500 7500 9500"	// 1500 2250 3000, manually increased
+				"special_bonus_scepter"	"3000 5000 7000 9000"	// 1500 2250 3000, manually increased
 			}
 			"golem_dmg_scepter"
 			{
@@ -12092,7 +12092,7 @@
 			}
 			"bonus_damage_resist"
 			{
-				"special_bonus_unique_warlock_1"		"+80"	// +25, manually increased to 80% reduction
+				"special_bonus_unique_warlock_1"		"+75"	// +25, manually increased
 			}
 			"bonus_armor"
 			{
@@ -12100,7 +12100,7 @@
 			}
 			"tooltip_golem_armor"
 			{
-				"value"			"40 60 90 110"	// 8 12 14, manually increased
+				"value"			"40 60 80 100"	// 8 12 14, manually increased
 				"special_bonus_unique_warlock_2"		"+100"	// +20
 			}
 		}
