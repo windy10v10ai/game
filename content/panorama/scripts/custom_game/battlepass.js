@@ -409,6 +409,7 @@ const Player_Propertys_Show_Tooltip_1 = [
   'property_cannot_miss',
   'property_flying',
   'property_slow_immune',
+  'property_aoe_bonus_constant_stacking',
 ];
 
 const Player_Propertys_Show_Tooltip_2 = ['property_skill_points_bonus'];
@@ -453,6 +454,13 @@ const Player_Property_List = [
     level: 0,
     imageSrc: 's2r://panorama/images/cavern/icon_cc_aghs_png.vtex',
     valuePerLevel: 25,
+    enableMaxLevelUpgrade: true,
+  },
+  {
+    name: 'property_aoe_bonus_constant_stacking',
+    level: 0,
+    imageSrc: 's2r://panorama/images/status_icons/ability_aoe_icon_psd.vtex',
+    valuePerLevel: 15,
     enableMaxLevelUpgrade: true,
   },
   {
