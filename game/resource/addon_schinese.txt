@@ -1197,10 +1197,12 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
 
 		// 军团指挥官 自动决斗-觉醒
-		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>自动决斗 觉醒</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>自动施放：最近英雄</font><br><br>开启自动施法后，以决斗施法距离额外增加%bonus_cast_range%码为搜索范围，自动对最近的可见敌方英雄施放决斗。决斗处于冷却或无法施放时不会触发。自动决斗会先消耗目标身上的所有被动法术格挡层，使林肯法球等被动反弹或格挡装备无法阻止本次决斗。"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>自动决斗·觉醒</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>自动施法：最近英雄</font><br><br>开启自动施法后，若决斗可以施放，则自动对决斗施法距离外额外%bonus_cast_range%范围内最近的可见敌方英雄施放决斗。不会选择幻象，只有大概率能击杀目标、且不会让自身陷入残血时才会触发。<br><br>自动决斗会无视并消耗目标的被动法术格挡与反弹效果。<br><br>决斗期间，军团指挥官获得黑皇杖的魔法免疫效果，目标无法被选中。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"荣誉无需邀约，最近的敌人就是对手。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"额外自动决斗范围："
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"自动决斗：无法选中"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"决斗期间，该单位无法被选中。"
 
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"

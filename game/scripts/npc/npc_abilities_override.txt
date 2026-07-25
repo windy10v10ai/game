@@ -2148,6 +2148,7 @@
 			"duration"
 			{
 				"value"				"3.75 4.5 5.25 6.0"	// 4.0 4.5 5.0
+				"special_bonus_unique_legion_commander_duel_duration"	"+1.5"	// +0.75 x2
 			}
 			"reward_damage"
 			{

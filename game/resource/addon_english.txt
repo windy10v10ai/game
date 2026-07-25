@@ -1201,10 +1201,12 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 
 		// Legion Commander Auto Duel - Awakened
-		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel Awakened</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>With autocast enabled, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. It will not trigger while Duel is on cooldown or otherwise not castable. Auto Duel first consumes every passive spell-block layer on the target, so passive reflection or block items such as Linken's Sphere cannot stop this Duel."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel · Awakened</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>While autocast is enabled and Duel is ready, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. Illusions are ignored, and it only triggers when there's a high chance of killing the target without leaving Legion Commander critically low on health.<br><br>Auto Duel ignores and consumes the target's passive spell block and reflection effects.<br><br>During Duel, Legion Commander gains Black King Bar's spell immunity, and the target cannot be selected."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Honor needs no invitation; the nearest enemy will do."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"BONUS AUTO DUEL RANGE:"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Auto Duel: Unselectable"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"This unit cannot be selected during Duel."
 
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
