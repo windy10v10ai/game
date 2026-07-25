@@ -6240,6 +6240,10 @@
 			"soundfile"					"soundevents/game_sounds_items.vsndevts"
 			"particle"					"particles/items4_fx/combo_breaker.vpcf"
 			"particle"					"particles/items4_fx/combo_breaker_buff.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_base.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b_ropefollow.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_puffs.vpcf"
 		}
 		"AbilityValues"
 		{

@@ -12,23 +12,20 @@ function item_withered_spring:OnSpellStart()
 
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("active_duration")
+    local is_passive_trigger = self.is_passive_trigger or false
+    self.is_passive_trigger = false
+    -- 被动免死触发时全额免伤/免出伤，直接把百分比数值传给 buff，避免布尔值经 KeyValues 转成 0/1 后被 Lua 当真值判定
+    local damage_negation_pct = is_passive_trigger and -100 or 0
 
     -- 回血 音效
     caster:EmitSound("Item.GuardianGreaves.Activate")
 
     -- 添加主动buff
-    caster:AddNewModifier(caster, self, "modifier_item_withered_spring_active", { duration = duration })
+    caster:AddNewModifier(caster, self, "modifier_item_withered_spring_active",
+        { duration = duration, damage_negation_pct = damage_negation_pct })
 
     -- 驱散负面效果
     caster:Purge(false, true, false, true, true)
-
-    -- 永恒之盘触发特效 - 护盾爆发效果
-    local particle = ParticleManager:CreateParticle(
-        "particles/items4_fx/combo_breaker_buff.vpcf",
-        PATTACH_ABSORIGIN_FOLLOW,
-        caster
-    )
-    ParticleManager:ReleaseParticleIndex(particle)
 
     -- 卫士胫甲效果：回血回蓝对自身和范围内友军生效，主动buff不含在内
     local replenish_health = self:GetSpecialValueFor("replenish_health")
@@ -40,12 +37,40 @@ function item_withered_spring:OnSpellStart()
         DOTA_UNIT_TARGET_HERO,
         DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS,
         FIND_ANY_ORDER, false)
+
+    if is_passive_trigger then
+        -- 永恒之盘触发特效 - 护盾爆发效果，仅被动免死触发时播放
+        local particle = ParticleManager:CreateParticle(
+            "particles/items4_fx/combo_breaker_buff.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW,
+            caster
+        )
+        ParticleManager:ReleaseParticleIndex(particle)
+    end
+
     for _, ally in pairs(allies) do
         local heal_amount = replenish_health + ally:GetMaxHealth() * replenish_health_pct / 100
         ally:Heal(heal_amount, self)
         ally:GiveMana(replenish_mana)
         SendOverheadEventMessage(caster, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
         SendOverheadEventMessage(caster, OVERHEAD_ALERT_MANA_ADD, ally, replenish_mana, nil)
+
+        -- 卫士胫甲绳索特效：CP0 施法者、CP1 受益目标，每个目标各起一个实例
+        local rope = ParticleManager:CreateParticle(
+            "particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_base.vpcf",
+            PATTACH_CUSTOMORIGIN,
+            caster
+        )
+        ParticleManager:SetParticleControlEnt(rope, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc",
+            caster:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControlEnt(rope, 1, ally, PATTACH_POINT_FOLLOW, "attach_hitloc",
+            ally:GetAbsOrigin(), true)
+        -- puffs 子特效（目标周身光效）只走 CP4/5 这条多目标管线，不吃 CP0/1，需要单独补上
+        ParticleManager:SetParticleControlEnt(rope, 4, caster, PATTACH_POINT_FOLLOW, "attach_hitloc",
+            caster:GetAbsOrigin(), true)
+        ParticleManager:SetParticleControlEnt(rope, 5, ally, PATTACH_POINT_FOLLOW, "attach_hitloc",
+            ally:GetAbsOrigin(), true)
+        ParticleManager:ReleaseParticleIndex(rope)
     end
 end
 
@@ -112,6 +137,7 @@ function modifier_item_withered_spring:OnTakeDamage(event)
     if not ability or ability:IsNull() or not ability:IsFullyCastable() then return end
 
     if parent:GetHealthPercent() <= self.hp_threshold then
+        ability.is_passive_trigger = true
         ability:OnSpellStart()
         ability:UseResources(false, false, false, true)
     end
@@ -153,25 +179,15 @@ function modifier_item_withered_spring_active:GetTexture()
     return "item_withered_spring"
 end
 
-function modifier_item_withered_spring_active:OnCreated()
+function modifier_item_withered_spring_active:OnCreated(params)
     if not self:GetAbility() then return end
+
+    self.damage_negation_pct = params and params.damage_negation_pct or 0
 
     -- 客户端和服务器端都需要读取
     self.bonus_armor_active = self:GetAbility():GetSpecialValueFor("bonus_armor_active")
     self.bonus_regen_active = self:GetAbility():GetSpecialValueFor("bonus_regen_active")
     self.status_resistance = self:GetAbility():GetSpecialValueFor("status_resistance_active") or 80
-
-    if not IsServer() then return end
-
-    -- 服务器端逻辑
-    self.damage_reduction = self:GetAbility():GetSpecialValueFor("damage_reduction") or -30 -- 30%减伤 = 不受任何伤害
-    -- 添加持续的视觉效果(只在主动触发时显示)
-    local particle = ParticleManager:CreateParticle(
-        "particles/items4_fx/combo_breaker_buff.vpcf",
-        PATTACH_ABSORIGIN_FOLLOW,
-        self:GetParent()
-    )
-    self:AddParticle(particle, false, false, -1, false, false)
 end
 
 function modifier_item_withered_spring_active:DeclareFunctions()
@@ -180,6 +196,7 @@ function modifier_item_withered_spring_active:DeclareFunctions()
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
         MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
         MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING,
+        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
     }
 end
 
@@ -191,16 +208,15 @@ function modifier_item_withered_spring_active:GetModifierConstantHealthRegen()
     return self.bonus_regen_active or 0
 end
 
+-- 被动免死触发时短暂免疫所有伤害，仿永恒之盘的保命效果
 function modifier_item_withered_spring_active:GetModifierIncomingDamage_Percentage()
-    return self.damage_reduction or -30
+    return self.damage_negation_pct
+end
+
+function modifier_item_withered_spring_active:GetModifierTotalDamageOutgoing_Percentage()
+    return self.damage_negation_pct
 end
 
 function modifier_item_withered_spring_active:GetModifierStatusResistanceStacking()
     return self.status_resistance or 80
-end
-
-function modifier_item_withered_spring_active:CheckState()
-    return {
-        [MODIFIER_STATE_DEBUFF_IMMUNE] = true, -- 免疫debuff
-    }
 end
