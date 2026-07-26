@@ -7536,4 +7536,34 @@
 		"ItemQuality"				"consumable"
 	}
 
+	// 扩容之书：藏宝箱专属消耗品
+	"item_inventory_slot_unlock"
+	{
+		"ID"						"10342"
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/ts_items/item_inventory_slot_unlock"
+		"AbilityTextureName"		"inventory_slot_unlock"
+		"Model"						"models/gameplay/attrib_tome_xp.vmdl"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+		"ItemCost"					"0"
+		"ItemPurchasable"			"0"
+		"ItemSellable"				"0"
+		"ItemDroppable"				"1"
+		"ItemKillable"				"0"
+		"ItemStackable"				"1"
+		"ItemPermanent"				"0"
+		"ItemInitialCharges"		"1"
+		"IsTempestDoubleClonable"	"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	}
+
 }

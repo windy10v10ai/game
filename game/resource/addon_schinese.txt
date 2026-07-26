@@ -261,6 +261,7 @@
 		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
 		"key_bind_quick_cast"									"快速施法"
 		"key_bind_remember"										"记忆改键"
+		"key_bind_inventory_slot_tooltip"					"第%s格装备快捷键；需要先使用扩容之书解锁该格，锁定时按键不会施放。"
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
 		"lottery_passive_tome_header"							"选择一个被动技能"
@@ -2052,6 +2053,13 @@
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"哥哥你为我花了这么多钱，你女朋友不会生气吧？"
+
+		// item_inventory_slot_unlock 扩容之书
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock"						"扩容之书"
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock_Description"			"<h1>使用：扩展行囊</h1>本局中永久解锁1个物品栏，使该栏位中的物品可以正常生效并主动使用。每名英雄最多使用3次。\n可以分享给队友。"
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock"						"扩展行囊"
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock_Description"			"已解锁<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>个物品栏。"
+		"dota_hud_error_inventory_slot_unlock_max_usage"						"已经解锁全部3个物品栏"
 
 		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"真·银月之晶"
