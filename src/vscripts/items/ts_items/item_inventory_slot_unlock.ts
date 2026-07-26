@@ -180,6 +180,10 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
         continue;
       }
 
+      if (BACKPACK_ALWAYS_USABLE_ITEMS.includes(item.GetAbilityName())) {
+        continue;
+      }
+
       const slot = item.GetItemSlot();
       if (this.isLockedBackpackSlot(slot, unlockedSlots)) {
         continue;
@@ -212,7 +216,7 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
     // or changes slots, even if ItemState already says it is equipped.
     for (let slot = 0; slot < FIRST_BACKPACK_SLOT + unlockedSlots; slot++) {
       const item = parent.GetItemInSlot(slot);
-      if (!item) {
+      if (!item || BACKPACK_ALWAYS_USABLE_ITEMS.includes(item.GetAbilityName())) {
         continue;
       }
 
@@ -232,22 +236,16 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
     for (let offset = 0; offset < MAX_UNLOCKED_ITEM_SLOTS; offset++) {
       const slot = FIRST_BACKPACK_SLOT + offset;
       const item = parent.GetItemInSlot(slot);
-      if (!item) {
+      if (!item || BACKPACK_ALWAYS_USABLE_ITEMS.includes(item.GetAbilityName())) {
         continue;
       }
 
       const record = this.findForcedUnequippedItem(item.entindex());
       if (offset < unlockedSlots) {
-        if (record) {
+        if (record !== undefined) {
           item.SetActivated(record.wasActivated);
           this.removeForcedUnequippedItem(item.entindex());
         }
-        continue;
-      }
-
-      // Items with KV ItemCanBeUsedWithoutInventory (e.g. Roshan's Banner) are
-      // already usable from any backpack slot natively; leave them untouched.
-      if (!record && BACKPACK_ALWAYS_USABLE_ITEMS.includes(item.GetAbilityName())) {
         continue;
       }
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import KeySettingButton from './KeySettingButton';
-import WardKeySettingButton from './WardKeySettingButton';
 import InventorySlotKeySettingButton from './InventorySlotKeySettingButton';
 import KeyBindRemember from './KeyBindRemember';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
@@ -15,25 +14,8 @@ interface KeyBindContainerProps {
   playerSettingLoaded: boolean;
 }
 
-interface KeyBindSettingState {
-  isRememberAbilityKey: boolean;
-  activeAbilityKey: string;
-  passiveAbilityKey: string;
-  passiveAbilityKey2: string;
-  activeAbilityQuickCast: boolean;
-  passiveAbilityQuickCast: boolean;
-  passiveAbilityQuickCast2: boolean;
-  wardObserverKey: string;
-  wardObserverQuickCast: boolean;
-  wardSentryKey: string;
-  wardSentryQuickCast: boolean;
-  inventorySlot7Key: string;
-  inventorySlot7QuickCast: boolean;
-  inventorySlot8Key: string;
-  inventorySlot8QuickCast: boolean;
-  inventorySlot9Key: string;
-  inventorySlot9QuickCast: boolean;
-}
+/** 从事件契约派生，整个 state 对象即 save_bind_ability_key 的 payload。 */
+type KeyBindSettingState = Required<SaveBindAbilityKeyEventData>;
 
 function normalizeKeyBindSetting(playerSetting: PlayerSetting): KeyBindSettingState {
   return {
@@ -44,10 +26,6 @@ function normalizeKeyBindSetting(playerSetting: PlayerSetting): KeyBindSettingSt
     activeAbilityQuickCast: playerSetting.activeAbilityQuickCast,
     passiveAbilityQuickCast: playerSetting.passiveAbilityQuickCast,
     passiveAbilityQuickCast2: playerSetting.passiveAbilityQuickCast2 ?? false,
-    wardObserverKey: playerSetting.wardObserverKey ?? '',
-    wardObserverQuickCast: playerSetting.wardObserverQuickCast ?? false,
-    wardSentryKey: playerSetting.wardSentryKey ?? '',
-    wardSentryQuickCast: playerSetting.wardSentryQuickCast ?? false,
     inventorySlot7Key: playerSetting.inventorySlot7Key ?? '',
     inventorySlot7QuickCast: playerSetting.inventorySlot7QuickCast ?? false,
     inventorySlot8Key: playerSetting.inventorySlot8Key ?? '',
@@ -55,28 +33,6 @@ function normalizeKeyBindSetting(playerSetting: PlayerSetting): KeyBindSettingSt
     inventorySlot9Key: playerSetting.inventorySlot9Key ?? '',
     inventorySlot9QuickCast: playerSetting.inventorySlot9QuickCast ?? false,
   };
-}
-
-function keyBindSettingsEqual(left: KeyBindSettingState, right: KeyBindSettingState): boolean {
-  return (
-    left.isRememberAbilityKey === right.isRememberAbilityKey &&
-    left.activeAbilityKey === right.activeAbilityKey &&
-    left.passiveAbilityKey === right.passiveAbilityKey &&
-    left.passiveAbilityKey2 === right.passiveAbilityKey2 &&
-    left.activeAbilityQuickCast === right.activeAbilityQuickCast &&
-    left.passiveAbilityQuickCast === right.passiveAbilityQuickCast &&
-    left.passiveAbilityQuickCast2 === right.passiveAbilityQuickCast2 &&
-    left.wardObserverKey === right.wardObserverKey &&
-    left.wardObserverQuickCast === right.wardObserverQuickCast &&
-    left.wardSentryKey === right.wardSentryKey &&
-    left.wardSentryQuickCast === right.wardSentryQuickCast &&
-    left.inventorySlot7Key === right.inventorySlot7Key &&
-    left.inventorySlot7QuickCast === right.inventorySlot7QuickCast &&
-    left.inventorySlot8Key === right.inventorySlot8Key &&
-    left.inventorySlot8QuickCast === right.inventorySlot8QuickCast &&
-    left.inventorySlot9Key === right.inventorySlot9Key &&
-    left.inventorySlot9QuickCast === right.inventorySlot9QuickCast
-  );
 }
 
 const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
@@ -92,45 +48,20 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
   const [lotteryStatus, setLotteryStatus] = useState<LotteryStatusDto | null>(
     GetLotteryStatus(steamAccountId),
   );
-  const [activeAbilityKey, setActiveAbilityKey] = useState(playerSetting.activeAbilityKey);
-  const [passiveAbilityKey, setPassiveAbilityKey] = useState(playerSetting.passiveAbilityKey);
-  const [passiveAbilityKey2, setPassiveAbilityKey2] = useState(
-    playerSetting.passiveAbilityKey2 ?? '',
-  );
-  const [activeAbilityQuickCast, setActiveAbilityQuickCast] = useState(
-    playerSetting.activeAbilityQuickCast,
-  );
-  const [passiveAbilityQuickCast, setPassiveAbilityQuickCast] = useState(
-    playerSetting.passiveAbilityQuickCast,
-  );
-  const [passiveAbilityQuickCast2, setPassiveAbilityQuickCast2] = useState(
-    playerSetting.passiveAbilityQuickCast2 ?? false,
-  );
-  const [isRememberAbilityKey, setIsRememberAbilityKey] = useState(
-    playerSetting.isRememberAbilityKey,
-  );
-  const [wardObserverKey, setWardObserverKey] = useState(playerSetting.wardObserverKey ?? '');
-  const [wardObserverQuickCast, setWardObserverQuickCast] = useState(
-    playerSetting.wardObserverQuickCast ?? false,
-  );
-  const [wardSentryKey, setWardSentryKey] = useState(playerSetting.wardSentryKey ?? '');
-  const [wardSentryQuickCast, setWardSentryQuickCast] = useState(
-    playerSetting.wardSentryQuickCast ?? false,
-  );
-  const [inventorySlot7Key, setInventorySlot7Key] = useState(playerSetting.inventorySlot7Key ?? '');
-  const [inventorySlot7QuickCast, setInventorySlot7QuickCast] = useState(
-    playerSetting.inventorySlot7QuickCast ?? false,
-  );
-  const [inventorySlot8Key, setInventorySlot8Key] = useState(playerSetting.inventorySlot8Key ?? '');
-  const [inventorySlot8QuickCast, setInventorySlot8QuickCast] = useState(
-    playerSetting.inventorySlot8QuickCast ?? false,
-  );
-  const [inventorySlot9Key, setInventorySlot9Key] = useState(playerSetting.inventorySlot9Key ?? '');
-  const [inventorySlot9QuickCast, setInventorySlot9QuickCast] = useState(
-    playerSetting.inventorySlot9QuickCast ?? false,
+  const [setting, setSetting] = useState<KeyBindSettingState>(() =>
+    normalizeKeyBindSetting(playerSetting),
   );
   const [hasHydratedPlayerSetting, setHasHydratedPlayerSetting] = useState(false);
   const lastSyncedSetting = useRef<KeyBindSettingState | null>(null);
+
+  // 值没变就返回原引用，React 据此跳过重渲染，同步 effect 也不会重发相同设置
+  const patchSetting = (patch: Partial<KeyBindSettingState>) => {
+    setSetting((current) => {
+      const patchedKeys = Object.keys(patch) as (keyof KeyBindSettingState)[];
+      const changed = patchedKeys.some((key) => current[key] !== patch[key]);
+      return changed ? { ...current, ...patch } : current;
+    });
+  };
 
   // 监听nettable数据变化
   useEffect(() => {
@@ -147,109 +78,33 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
       return;
     }
 
-    const setting = normalizeKeyBindSetting(playerSetting);
-    lastSyncedSetting.current = setting;
+    const hydrated = normalizeKeyBindSetting(playerSetting);
+    lastSyncedSetting.current = hydrated;
     // Player settings arrive asynchronously from the net table after Panorama mounts.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    setIsRememberAbilityKey(setting.isRememberAbilityKey);
-    setActiveAbilityKey(setting.activeAbilityKey);
-    setPassiveAbilityKey(setting.passiveAbilityKey);
-    setPassiveAbilityKey2(setting.passiveAbilityKey2);
-    setActiveAbilityQuickCast(setting.activeAbilityQuickCast);
-    setPassiveAbilityQuickCast(setting.passiveAbilityQuickCast);
-    setPassiveAbilityQuickCast2(setting.passiveAbilityQuickCast2);
-    setWardObserverKey(setting.wardObserverKey);
-    setWardObserverQuickCast(setting.wardObserverQuickCast);
-    setWardSentryKey(setting.wardSentryKey);
-    setWardSentryQuickCast(setting.wardSentryQuickCast);
-    setInventorySlot7Key(setting.inventorySlot7Key);
-    setInventorySlot7QuickCast(setting.inventorySlot7QuickCast);
-    setInventorySlot8Key(setting.inventorySlot8Key);
-    setInventorySlot8QuickCast(setting.inventorySlot8QuickCast);
-    setInventorySlot9Key(setting.inventorySlot9Key);
-    setInventorySlot9QuickCast(setting.inventorySlot9QuickCast);
+    setSetting(hydrated);
     setHasHydratedPlayerSetting(true);
   }, [hasHydratedPlayerSetting, playerSetting, playerSettingLoaded]);
 
   useEffect(() => {
-    if (!hasHydratedPlayerSetting) {
-      return;
-    }
-
-    const setting: KeyBindSettingState = {
-      isRememberAbilityKey,
-      activeAbilityKey,
-      passiveAbilityKey,
-      passiveAbilityKey2,
-      activeAbilityQuickCast,
-      passiveAbilityQuickCast,
-      passiveAbilityQuickCast2,
-      wardObserverKey,
-      wardObserverQuickCast,
-      wardSentryKey,
-      wardSentryQuickCast,
-      inventorySlot7Key,
-      inventorySlot7QuickCast,
-      inventorySlot8Key,
-      inventorySlot8QuickCast,
-      inventorySlot9Key,
-      inventorySlot9QuickCast,
-    };
-    if (lastSyncedSetting.current && keyBindSettingsEqual(setting, lastSyncedSetting.current)) {
+    if (!hasHydratedPlayerSetting || lastSyncedSetting.current === setting) {
       return;
     }
     lastSyncedSetting.current = setting;
 
-    GameEvents.SendCustomGameEventToServer('save_bind_ability_key', {
-      isRememberAbilityKey,
-      activeAbilityKey,
-      passiveAbilityKey,
-      passiveAbilityKey2,
-      activeAbilityQuickCast,
-      passiveAbilityQuickCast,
-      passiveAbilityQuickCast2,
-      wardObserverKey,
-      wardObserverQuickCast,
-      wardSentryKey,
-      wardSentryQuickCast,
-      inventorySlot7Key,
-      inventorySlot7QuickCast,
-      inventorySlot8Key,
-      inventorySlot8QuickCast,
-      inventorySlot9Key,
-      inventorySlot9QuickCast,
-    });
-  }, [
-    hasHydratedPlayerSetting,
-    isRememberAbilityKey,
-    activeAbilityKey,
-    passiveAbilityKey,
-    passiveAbilityKey2,
-    activeAbilityQuickCast,
-    passiveAbilityQuickCast,
-    passiveAbilityQuickCast2,
-    wardObserverKey,
-    wardObserverQuickCast,
-    wardSentryKey,
-    wardSentryQuickCast,
-    inventorySlot7Key,
-    inventorySlot7QuickCast,
-    inventorySlot8Key,
-    inventorySlot8QuickCast,
-    inventorySlot9Key,
-    inventorySlot9QuickCast,
-  ]);
+    GameEvents.SendCustomGameEventToServer('save_bind_ability_key', setting);
+  }, [hasHydratedPlayerSetting, setting]);
 
   useEffect(() => {
     // 每秒刷新一次改键显示
     const timer = setInterval(() => {
       saveInputKeyborard(
         lotteryStatus?.activeAbilityName,
-        activeAbilityKey,
+        setting.activeAbilityKey,
         lotteryStatus?.passiveAbilityName,
-        passiveAbilityKey,
+        setting.passiveAbilityKey,
         lotteryStatus?.passiveAbilityName2,
-        passiveAbilityKey2,
+        setting.passiveAbilityKey2,
       );
     }, 1000);
     return () => {
@@ -257,97 +112,80 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
     };
   }, [
     lotteryStatus,
-    activeAbilityKey,
-    passiveAbilityKey,
-    passiveAbilityKey2,
-    activeAbilityQuickCast,
-    passiveAbilityQuickCast,
-    passiveAbilityQuickCast2,
+    setting.activeAbilityKey,
+    setting.passiveAbilityKey,
+    setting.passiveAbilityKey2,
   ]);
 
   useEffect(() => {
     const refreshInventoryHotkeys = () => {
-      saveInventorySlotHotkeys(inventorySlot7Key, inventorySlot8Key, inventorySlot9Key);
+      saveInventorySlotHotkeys(
+        setting.inventorySlot7Key,
+        setting.inventorySlot8Key,
+        setting.inventorySlot9Key,
+      );
     };
     refreshInventoryHotkeys();
     const timer = setInterval(refreshInventoryHotkeys, 250);
     return () => {
       clearInterval(timer);
     };
-  }, [inventorySlot7Key, inventorySlot8Key, inventorySlot9Key]);
+  }, [setting.inventorySlot7Key, setting.inventorySlot8Key, setting.inventorySlot9Key]);
 
   return (
     <Panel style={containerStyle} className="container">
       <Panel style={{ flowChildren: 'right' }}>
         <KeySettingButton
           abilityname={lotteryStatus?.activeAbilityName}
-          bindKeyText={activeAbilityKey}
-          setBindKeyText={setActiveAbilityKey}
-          quickCast={activeAbilityQuickCast}
-          setQuickCast={setActiveAbilityQuickCast}
+          bindKeyText={setting.activeAbilityKey}
+          setBindKeyText={(value) => patchSetting({ activeAbilityKey: value })}
+          quickCast={setting.activeAbilityQuickCast}
+          setQuickCast={(value) => patchSetting({ activeAbilityQuickCast: value })}
         />
         <KeySettingButton
           abilityname={lotteryStatus?.passiveAbilityName}
-          bindKeyText={passiveAbilityKey}
-          setBindKeyText={setPassiveAbilityKey}
-          quickCast={passiveAbilityQuickCast}
-          setQuickCast={setPassiveAbilityQuickCast}
+          bindKeyText={setting.passiveAbilityKey}
+          setBindKeyText={(value) => patchSetting({ passiveAbilityKey: value })}
+          quickCast={setting.passiveAbilityQuickCast}
+          setQuickCast={(value) => patchSetting({ passiveAbilityQuickCast: value })}
         />
         <KeySettingButton
           abilityname={lotteryStatus?.passiveAbilityName2}
-          bindKeyText={passiveAbilityKey2}
-          setBindKeyText={setPassiveAbilityKey2}
-          quickCast={passiveAbilityQuickCast2}
-          setQuickCast={setPassiveAbilityQuickCast2}
-        />
-      </Panel>
-      <Panel style={{ flowChildren: 'right' }}>
-        <WardKeySettingButton
-          itemname="item_ward_observer"
-          abilityname="ability_ward_observer_slot"
-          bindKeyText={wardObserverKey}
-          setBindKeyText={setWardObserverKey}
-          quickCast={wardObserverQuickCast}
-          setQuickCast={setWardObserverQuickCast}
-        />
-        <WardKeySettingButton
-          itemname="item_ward_sentry"
-          abilityname="ability_ward_sentry_slot"
-          bindKeyText={wardSentryKey}
-          setBindKeyText={setWardSentryKey}
-          quickCast={wardSentryQuickCast}
-          setQuickCast={setWardSentryQuickCast}
+          bindKeyText={setting.passiveAbilityKey2}
+          setBindKeyText={(value) => patchSetting({ passiveAbilityKey2: value })}
+          quickCast={setting.passiveAbilityQuickCast2}
+          setQuickCast={(value) => patchSetting({ passiveAbilityQuickCast2: value })}
         />
       </Panel>
       <Panel style={{ flowChildren: 'right' }}>
         <InventorySlotKeySettingButton
           inventorySlot={6}
           displaySlot={7}
-          bindKeyText={inventorySlot7Key}
-          setBindKeyText={setInventorySlot7Key}
-          quickCast={inventorySlot7QuickCast}
-          setQuickCast={setInventorySlot7QuickCast}
+          bindKeyText={setting.inventorySlot7Key}
+          setBindKeyText={(value) => patchSetting({ inventorySlot7Key: value })}
+          quickCast={setting.inventorySlot7QuickCast}
+          setQuickCast={(value) => patchSetting({ inventorySlot7QuickCast: value })}
         />
         <InventorySlotKeySettingButton
           inventorySlot={7}
           displaySlot={8}
-          bindKeyText={inventorySlot8Key}
-          setBindKeyText={setInventorySlot8Key}
-          quickCast={inventorySlot8QuickCast}
-          setQuickCast={setInventorySlot8QuickCast}
+          bindKeyText={setting.inventorySlot8Key}
+          setBindKeyText={(value) => patchSetting({ inventorySlot8Key: value })}
+          quickCast={setting.inventorySlot8QuickCast}
+          setQuickCast={(value) => patchSetting({ inventorySlot8QuickCast: value })}
         />
         <InventorySlotKeySettingButton
           inventorySlot={8}
           displaySlot={9}
-          bindKeyText={inventorySlot9Key}
-          setBindKeyText={setInventorySlot9Key}
-          quickCast={inventorySlot9QuickCast}
-          setQuickCast={setInventorySlot9QuickCast}
+          bindKeyText={setting.inventorySlot9Key}
+          setBindKeyText={(value) => patchSetting({ inventorySlot9Key: value })}
+          quickCast={setting.inventorySlot9QuickCast}
+          setQuickCast={(value) => patchSetting({ inventorySlot9QuickCast: value })}
         />
       </Panel>
       <KeyBindRemember
-        isRememberAbilityKey={isRememberAbilityKey}
-        setIsRememberAbilityKey={setIsRememberAbilityKey}
+        isRememberAbilityKey={setting.isRememberAbilityKey}
+        setIsRememberAbilityKey={(value) => patchSetting({ isRememberAbilityKey: value })}
       />
     </Panel>
   );

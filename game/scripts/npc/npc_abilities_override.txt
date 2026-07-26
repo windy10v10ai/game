@@ -12093,7 +12093,7 @@
 			}
 			"bonus_damage_resist"
 			{
-				"special_bonus_unique_warlock_1"		"+75"	// +25, manually increased
+				"special_bonus_unique_warlock_1"		"+65"	// +25, manually increased
 			}
 			"bonus_armor"
 			{
