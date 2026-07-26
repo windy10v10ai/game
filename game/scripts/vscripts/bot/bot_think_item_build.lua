@@ -21,12 +21,12 @@ end
 --------------------
 
 -- find item
-function BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
-  for i = 0, 5 do
-    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-  end
-  return nil
-end
+-- function BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
+--   for i = 0, 5 do
+--     if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+--   end
+--   return nil
+-- end
 
 -- function BotThink:FindItemByName(hHero, sName)
 --   for i = 0, 8 do
@@ -61,65 +61,65 @@ function BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
 end
 
 -- use item
-function BotThink:UseItemOnTarget(hHero, sItemName, hTarget)
-  if not hHero:HasItemInInventory(sItemName) then
-    return false
-  end
-  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-  if hItem then
-    if hItem:IsCooldownReady() then
-      hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
-      return true
-    end
-  end
-  return false
-end
+-- function BotThink:UseItemOnTarget(hHero, sItemName, hTarget)
+--   if not hHero:HasItemInInventory(sItemName) then
+--     return false
+--   end
+--   local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+--   if hItem then
+--     if hItem:IsCooldownReady() then
+--       hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
+--       return true
+--     end
+--   end
+--   return false
+-- end
 
-function BotThink:UseItemOnPostion(hHero, sItemName, hTarget)
-  if not hHero:HasItemInInventory(sItemName) then
-    return false
-  end
-  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-  if hItem then
-    if hItem:IsCooldownReady() then
-      hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
-      return true
-    end
-  end
-  return false
-end
+-- function BotThink:UseItemOnPostion(hHero, sItemName, hTarget)
+--   if not hHero:HasItemInInventory(sItemName) then
+--     return false
+--   end
+--   local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+--   if hItem then
+--     if hItem:IsCooldownReady() then
+--       hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
+--       return true
+--     end
+--   end
+--   return false
+-- end
 
-function BotThink:UseItem(hHero, sItemName)
-  if not hHero:HasItemInInventory(sItemName) then
-    return false
-  end
-  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-  if hItem then
-    if hItem:IsCooldownReady() then
-      hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
-      return true
-    end
-  end
-  return false
-end
+-- function BotThink:UseItem(hHero, sItemName)
+--   if not hHero:HasItemInInventory(sItemName) then
+--     return false
+--   end
+--   local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+--   if hItem then
+--     if hItem:IsCooldownReady() then
+--       hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
+--       return true
+--     end
+--   end
+--   return false
+-- end
 
-function BotThink:GetCooldownTotal(hHero)
-  local iCooldownTotal = 0
-  for i = 0, 5 do
-    local hAbility = hHero:GetAbilityByIndex(i)
-    if hAbility then
-      iCooldownTotal = iCooldownTotal + hAbility:GetCooldownTimeRemaining()
-    end
-  end
-  -- item 0 to 8
-  for i = 0, 8 do
-    local hItem = hHero:GetItemInSlot(i)
-    if hItem then
-      iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
-    end
-  end
-  return iCooldownTotal
-end
+-- function BotThink:GetCooldownTotal(hHero)
+--   local iCooldownTotal = 0
+--   for i = 0, 5 do
+--     local hAbility = hHero:GetAbilityByIndex(i)
+--     if hAbility then
+--       iCooldownTotal = iCooldownTotal + hAbility:GetCooldownTimeRemaining()
+--     end
+--   end
+--   -- item 0 to 8
+--   for i = 0, 8 do
+--     local hItem = hHero:GetItemInSlot(i)
+--     if hItem then
+--       iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
+--     end
+--   end
+--   return iCooldownTotal
+-- end
 
 --------------------
 -- common function

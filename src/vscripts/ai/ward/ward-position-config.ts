@@ -103,7 +103,6 @@ const SENTRY_WARD_POSITIONS: readonly Vector[] = [
   Vector(-1998, 6113, 0),
   // 上野区
   // 中路
-  Vector(-6119, -6403, 0),
   Vector(-7036, -5603, 0),
   Vector(-2073, -2417, 0),
   Vector(1290, 842, 0),
