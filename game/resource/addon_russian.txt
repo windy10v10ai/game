@@ -148,6 +148,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"Перезарядка (%)"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Дальность применения"
+		"data_panel_player_property_aoe_bonus_constant_stacking"	"Радиус способностей"
 		"data_panel_player_property_spell_amplify_percentage"	"Урон от заклинаний (%)"
 		"data_panel_player_property_status_resistance_stacking"	"Сопротивление эффектам (%)"
 		"data_panel_player_property_evasion_constant"			"Уклонение (%)"
@@ -205,6 +206,8 @@
 		"key_bind_mouseover_tooltop"							"Назначить клавишу для использования способности<br>Если у вас возникли конфликты или сбои в работе горячих клавиш, попробуйте отключиться и снова подключиться, а затем добавить бинд ещё раз"
 		"key_bind_input_err"									"Неверный ввод, попробуйте другой бинд"
 		"key_bind_quick_cast"									"Быстрое применение"
+		"key_bind_remember"										"Сохранить клавиши способностей"
+		"key_bind_inventory_slot_tooltip"					"Горячая клавиша предмета в ячейке %s. Сначала разблокируйте ячейку книгой расширения инвентаря."
 		///////////////////////////////////////////////////
 		//
 		//			Member
@@ -483,6 +486,14 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 200%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
+
+		// Legion Commander Auto Duel - Awakened
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль · Пробуждение</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Автоприменение: ближайший герой</font><br><br>Если автоприменение включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает невосприимчивость к эффектам без дополнительного сопротивления магии, а цель нельзя выбрать."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Честь не требует приглашения — ближайший враг станет соперником."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"ДОПОЛНИТЕЛЬНАЯ ДАЛЬНОСТЬ АВТОМАТИЧЕСКОЙ ДУЭЛИ:"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"Во время Duel эту цель нельзя выбрать."
 
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"

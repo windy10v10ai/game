@@ -8,8 +8,8 @@ import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
-import { Debug } from './debug/Debug';
 import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
+import { Debug } from './debug/Debug';
 import { Event } from './event/event';
 import { DragonWishFilter } from './filter/dragon-wish-filter';
 import { GoldXPFilter } from './filter/gold-xp-filter';
@@ -17,7 +17,7 @@ import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
 import { Treasure } from './treasure/treasure';
-import { WardSlot } from './ward-slot/ward-slot';
+// import { WardSlot } from './ward-slot/ward-slot';
 
 declare global {
   interface CDOTAGameRules {
@@ -29,7 +29,7 @@ declare global {
     Event: Event;
     GoldXPFilter: GoldXPFilter;
     Treasure: Treasure;
-    WardSlot: WardSlot;
+    // WardSlot: WardSlot;
   }
 }
 
@@ -80,5 +80,5 @@ export function ActivateModules() {
 
   if (GameRules.Treasure == null) GameRules.Treasure = new Treasure();
 
-  GameRules.WardSlot = new WardSlot();
+  // GameRules.WardSlot = new WardSlot();
 }

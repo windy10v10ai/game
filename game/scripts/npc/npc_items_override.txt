@@ -580,6 +580,7 @@
 		"AbilityCastRange"				"600"
 		"ItemStockMax"					"8"	// 4
 		"ItemStockTime"					"90.0"	// 135.0
+		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 			"lifetime"				"480"					// 360
@@ -595,6 +596,7 @@
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
 		"ItemStockTime"					"45"	// 70.0
+		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 			"lifetime"								"480"	// 420
@@ -603,6 +605,7 @@
 	}
 	"item_ward_dispenser"
 	{
+		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 				"lifetime_observer"				"480"			// 360

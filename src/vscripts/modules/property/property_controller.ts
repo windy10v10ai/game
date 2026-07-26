@@ -1,5 +1,6 @@
 import { type PlayerProperty } from '../../api/player';
 import {
+  property_aoe_bonus_constant_stacking,
   property_attack_range_bonus,
   property_attackspeed_bonus_constant,
   property_bonus_vision,
@@ -65,6 +66,7 @@ export class PropertyController {
     PropertyController.propertyLuaModiferMap.set(property_mana_regen_total_percentage.name, 0.3);
     PropertyController.propertyLuaModiferMap.set(property_ignore_movespeed_limit.name, 0.125);
     PropertyController.propertyLuaModiferMap.set(property_slow_immune.name, 0.125);
+    PropertyController.propertyLuaModiferMap.set(property_aoe_bonus_constant_stacking.name, 15);
 
     // data driven modifier
     // 多档属性名须以 '_level_' 结尾；单档则为完整 modifier 名

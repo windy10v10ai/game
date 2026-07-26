@@ -135,7 +135,6 @@ interface DebugPanelAddToUnitEventData {
   name: string;
 }
 
-
 // 按地图记住/清除游戏预设的意图开关。仅传 remember，
 // 服务端在 PRE_GAME 用已有数据（难度票 / GameRules.Option）按地图持久化。
 interface SaveGamePresetEventData {
@@ -151,9 +150,10 @@ interface SaveBindAbilityKeyEventData {
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
   passiveAbilityQuickCast2?: boolean;
-  wardObserverKey?: string;
-  wardObserverQuickCast?: boolean;
-  wardSentryKey?: string;
-  wardSentryQuickCast?: boolean;
+  inventorySlot7Key?: string;
+  inventorySlot7QuickCast?: boolean;
+  inventorySlot8Key?: string;
+  inventorySlot8QuickCast?: boolean;
+  inventorySlot9Key?: string;
+  inventorySlot9QuickCast?: boolean;
 }
-

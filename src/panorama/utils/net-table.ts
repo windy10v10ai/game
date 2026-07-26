@@ -73,6 +73,12 @@ function TransPlayerData(data: NetworkedData<PlayerInfoDto>): PlayerInfoDto {
       passiveAbilityQuickCast: Boolean(data.playerSetting.passiveAbilityQuickCast),
       passiveAbilityKey2: data.playerSetting.passiveAbilityKey2,
       passiveAbilityQuickCast2: Boolean(data.playerSetting.passiveAbilityQuickCast2 ?? 0),
+      inventorySlot7Key: data.playerSetting.inventorySlot7Key,
+      inventorySlot7QuickCast: Boolean(data.playerSetting.inventorySlot7QuickCast ?? 0),
+      inventorySlot8Key: data.playerSetting.inventorySlot8Key,
+      inventorySlot8QuickCast: Boolean(data.playerSetting.inventorySlot8QuickCast ?? 0),
+      inventorySlot9Key: data.playerSetting.inventorySlot9Key,
+      inventorySlot9QuickCast: Boolean(data.playerSetting.inventorySlot9QuickCast ?? 0),
     };
   }
   if (data.member != null) {

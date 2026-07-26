@@ -33,6 +33,7 @@ game/scripts/vscripts/abilities/ts_abilities
 game/scripts/vscripts/modifiers/property
 game/scripts/vscripts/modifiers/global
 game/scripts/vscripts/modifiers/debug
+game/scripts/vscripts/modifiers/register-modifiers.lua
 game/scripts/vscripts/modules/
 game/scripts/vscripts/server/
 game/scripts/vscripts/utils/

@@ -6147,7 +6147,7 @@
 
 			// 法术暴击 modifier
 			"spell_crit_chance"			"30"
-			"spell_crit_multiplier"		"250"
+			"spell_crit_multiplier"		"220"
 		}
 
 
@@ -6240,6 +6240,10 @@
 			"soundfile"					"soundevents/game_sounds_items.vsndevts"
 			"particle"					"particles/items4_fx/combo_breaker.vpcf"
 			"particle"					"particles/items4_fx/combo_breaker_buff.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_base.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b_ropefollow.vpcf"
+			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_puffs.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -6487,7 +6491,7 @@
 			}
 			"pure_damage"
 			{
-				"value"					"900"
+				"value"					"600"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
@@ -7523,6 +7527,36 @@
 		"ItemDroppable"				"1"
 		"ItemKillable"				"0"
 		"ItemPermanent"				"0"
+		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
+		"ItemStockInitial"			"0"
+		"ItemStockMax"				"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
+
+		"ItemShopTags"				"consumable"
+		"ItemQuality"				"consumable"
+	}
+
+	// 扩容之书：藏宝箱专属消耗品
+	"item_inventory_slot_unlock"
+	{
+		"ID"						"10342"
+		"BaseClass"					"item_lua"
+		"ScriptFile"				"items/ts_items/item_inventory_slot_unlock"
+		"AbilityTextureName"		"inventory_slot_unlock"
+		"Model"						"models/gameplay/attrib_tome_xp.vmdl"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityCooldown"			"1.0"
+		"AbilityManaCost"			"0"
+		"ItemCost"					"0"
+		"ItemPurchasable"			"0"
+		"ItemSellable"				"0"
+		"ItemDroppable"				"1"
+		"ItemKillable"				"0"
+		"ItemStackable"				"1"
+		"ItemPermanent"				"0"
+		"ItemInitialCharges"		"1"
+		"IsTempestDoubleClonable"	"0"
 		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"0"
