@@ -1289,6 +1289,18 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"斯温 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
 
+		// 水晶室女 极寒领域-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"		"引导极寒领域期间获得<font color='#FFCC66'>技能免疫</font>，引导结束时立即失去。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"		"引导极寒领域期间获得<font color='#FFCC66'>技能免疫</font>，引导结束时立即失去。"
+
+		// 小小 抓树-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

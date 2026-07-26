@@ -1291,6 +1291,18 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"Sven Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% and Attack Speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
+		// 水晶室女 极寒领域-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>Freezing Field Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"		"Grants <font color='#FFCC66'>Magic Immunity</font> while channeling Freezing Field, lost immediately when the channel ends."
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>Freezing Field Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"		"Grants <font color='#FFCC66'>Magic Immunity</font> while channeling Freezing Field, lost immediately when the channel ends."
+
+		// 小小 抓树-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能

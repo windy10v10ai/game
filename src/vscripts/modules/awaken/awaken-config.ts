@@ -162,6 +162,18 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newLevel: 0,
     inheritLevelFrom: 'sven_storm_bolt',
   },
+  // 水晶室女 觉醒
+  {
+    heroName: 'npc_dota_hero_crystal_maiden',
+    newAbility: 'special_bonus_unique_crystal_maiden_upgrade',
+    newLevel: 1,
+  },
+  // 小小 觉醒
+  {
+    heroName: 'npc_dota_hero_tiny',
+    newAbility: 'special_bonus_unique_tiny_upgrade',
+    newLevel: 1,
+  },
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
