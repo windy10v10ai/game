@@ -21,7 +21,7 @@ const POLL_INTERVAL_MS = 250;
 const rootPanelStyle: Partial<VCSSStyleDeclaration> = {
   width: '100px',
   height: '36px',
-  padding: '4px',
+  padding: '4px 0px 4px 4px',
   borderRadius: '3px',
 };
 
@@ -60,10 +60,10 @@ const slotBadgeStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 const captureBoxStyle: Partial<VCSSStyleDeclaration> = {
-  width: '40px',
+  width: '34px',
   height: '28px',
   marginTop: '0px',
-  marginLeft: '30px',
+  marginLeft: '32px',
   horizontalAlign: 'left',
   verticalAlign: 'center',
 };
@@ -75,8 +75,8 @@ const captureTextStyle: Partial<VCSSStyleDeclaration> = {
 };
 
 const quickCastToggleStyle: Partial<VCSSStyleDeclaration> = {
-  width: '22px',
-  height: '24px',
+  width: '28px',
+  height: '28px',
   horizontalAlign: 'right',
   verticalAlign: 'center',
 };
@@ -164,7 +164,15 @@ const InventorySlotKeySettingButton = ({
         }
         onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
       >
-        <ToggleButton style={{ width: '20px', height: '20px' }} selected={quickCast} />
+        <ToggleButton
+          style={{
+            width: '26px',
+            height: '26px',
+            horizontalAlign: 'center',
+            verticalAlign: 'center',
+          }}
+          selected={quickCast}
+        />
       </Panel>
     </Panel>
   );

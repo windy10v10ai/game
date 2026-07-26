@@ -11,10 +11,7 @@ interface KeyCaptureBoxProps {
   textStyle?: Partial<VCSSStyleDeclaration>;
 }
 
-/**
- * 点击激活单字符按键输入，校验通过后回写 bindKeyText。
- * 供 KeySettingButton（技能改键）与 WardKeySettingButton（Ward 改键）共用。
- */
+/** 点击激活单字符按键输入，校验通过后回写 bindKeyText。供各改键按钮共用。 */
 const KeyCaptureBox = ({
   bindKeyText,
   setBindKeyText,
