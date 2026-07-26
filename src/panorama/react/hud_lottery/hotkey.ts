@@ -18,6 +18,8 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 /**
  * 真假眼额外槛位的改键：按键时重新获取 abilityID（绑定时技能可能尚未挂载到英雄身上，
  * 如重新加载游戏后），且充能为 0 时表现为「物品没有反应」而非技能的「冷却中」提示。
+ *
+ * @deprecated 暂时停用，无调用方。随真假眼额外槽位一起保留。
  */
 export function bindWardSlotKey(abilityname: string, key: string, isQuickCast: boolean) {
   AddKeyBind(

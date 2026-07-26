@@ -5,9 +5,9 @@ import KeyCaptureBox from './KeyCaptureBox';
 interface KeySettingButtonProps {
   abilityname?: string;
   bindKeyText: string;
-  setBindKeyText: React.Dispatch<React.SetStateAction<string>>;
+  setBindKeyText: (key: string) => void;
   quickCast: boolean;
-  setQuickCast: React.Dispatch<React.SetStateAction<boolean>>;
+  setQuickCast: (value: boolean) => void;
 }
 
 const rootPanelStyle: Partial<VCSSStyleDeclaration> = {

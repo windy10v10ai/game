@@ -46,8 +46,6 @@ function KeyBind() {
       playerSetting.activeAbilityKey ||
       playerSetting.passiveAbilityKey ||
       playerSetting.passiveAbilityKey2 ||
-      playerSetting.wardObserverKey ||
-      playerSetting.wardSentryKey ||
       playerSetting.inventorySlot7Key ||
       playerSetting.inventorySlot8Key ||
       playerSetting.inventorySlot9Key
