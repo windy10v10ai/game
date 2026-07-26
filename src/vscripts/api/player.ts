@@ -43,6 +43,12 @@ export class PlayerSetting {
   wardObserverQuickCast?: boolean;
   wardSentryKey?: string;
   wardSentryQuickCast?: boolean;
+  inventorySlot7Key?: string;
+  inventorySlot7QuickCast?: boolean;
+  inventorySlot8Key?: string;
+  inventorySlot8QuickCast?: boolean;
+  inventorySlot9Key?: string;
+  inventorySlot9QuickCast?: boolean;
   // 按地图游戏预设，槽位存在即「记住」
   gamePresetDota?: { difficulty: number };
   gamePresetHard?: { difficulty: number };

@@ -60,6 +60,9 @@ export const transformPlayer = createTransform<PlayerInfoDto>({
       passiveAbilityQuickCast2: { type: 'boolean' },
       wardObserverQuickCast: { type: 'boolean' },
       wardSentryQuickCast: { type: 'boolean' },
+      inventorySlot7QuickCast: { type: 'boolean' },
+      inventorySlot8QuickCast: { type: 'boolean' },
+      inventorySlot9QuickCast: { type: 'boolean' },
     },
   },
   member: {
