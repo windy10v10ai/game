@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import KeySettingButton from './KeySettingButton';
+import WardKeySettingButton from './WardKeySettingButton';
 import InventorySlotKeySettingButton from './InventorySlotKeySettingButton';
 import KeyBindRemember from './KeyBindRemember';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
@@ -26,6 +27,10 @@ function normalizeKeyBindSetting(playerSetting: PlayerSetting): KeyBindSettingSt
     activeAbilityQuickCast: playerSetting.activeAbilityQuickCast,
     passiveAbilityQuickCast: playerSetting.passiveAbilityQuickCast,
     passiveAbilityQuickCast2: playerSetting.passiveAbilityQuickCast2 ?? false,
+    wardObserverKey: playerSetting.wardObserverKey ?? '',
+    wardObserverQuickCast: playerSetting.wardObserverQuickCast ?? false,
+    wardSentryKey: playerSetting.wardSentryKey ?? '',
+    wardSentryQuickCast: playerSetting.wardSentryQuickCast ?? false,
     inventorySlot7Key: playerSetting.inventorySlot7Key ?? '',
     inventorySlot7QuickCast: playerSetting.inventorySlot7QuickCast ?? false,
     inventorySlot8Key: playerSetting.inventorySlot8Key ?? '',
@@ -155,6 +160,24 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
           setBindKeyText={(value) => patchSetting({ passiveAbilityKey2: value })}
           quickCast={setting.passiveAbilityQuickCast2}
           setQuickCast={(value) => patchSetting({ passiveAbilityQuickCast2: value })}
+        />
+      </Panel>
+      <Panel style={{ flowChildren: 'right' }}>
+        <WardKeySettingButton
+          itemname="item_ward_observer"
+          abilityname="ability_ward_observer_slot"
+          bindKeyText={setting.wardObserverKey}
+          setBindKeyText={(value) => patchSetting({ wardObserverKey: value })}
+          quickCast={setting.wardObserverQuickCast}
+          setQuickCast={(value) => patchSetting({ wardObserverQuickCast: value })}
+        />
+        <WardKeySettingButton
+          itemname="item_ward_sentry"
+          abilityname="ability_ward_sentry_slot"
+          bindKeyText={setting.wardSentryKey}
+          setBindKeyText={(value) => patchSetting({ wardSentryKey: value })}
+          quickCast={setting.wardSentryQuickCast}
+          setQuickCast={(value) => patchSetting({ wardSentryQuickCast: value })}
         />
       </Panel>
       <Panel style={{ flowChildren: 'right' }}>
