@@ -198,6 +198,8 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
 2. 拼接：`## Release Note` + 中文围栏块 + 英文围栏块
 3. 写入临时文件（**UTF-8 无 BOM**），`gh pr edit <N> --body-file <文件>`
 
+**追加到聚合 release PR**：若存在另一条 `release` 标签的 open PR（与当前 PR 不同），额外用 `AskUserQuestion` 询问用户是否把本次条目也追加进该 PR 的 Release Note——追加到中英文围栏块既有列表末尾，不覆盖已有条目。
+
 ## 执行步骤
 
 1. **判断参数类型**（Issue 与 PR 编号独立）：

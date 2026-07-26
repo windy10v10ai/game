@@ -238,7 +238,7 @@
 		"item"		"item_vladmir_2"			// 强袭祭品
 		"item"		"item_undying_heart"		// 不朽之心
 
-		"item"		"item_withered_spring"		// 枯木逢春
+		"item"		"item_withered_spring"		// 生命之心
 		"item"		"item_dracula_mask"			// 德古拉面罩
 		"item"		"item_beast_armor"			// 兽化甲
 		"item"		"item_beast_shield"			// 兽化盾

@@ -1,6 +1,7 @@
 import 'utils/index';
 // import './ai_game_mode';
 import { ActivateModules } from './modules';
+import { RegisterModifiers } from './modifiers/register-modifiers';
 import './utils/lifesteal';
 import Precache from './utils/precache';
 
@@ -10,6 +11,7 @@ Object.assign(getfenv(), {
     if (AIGameMode == null) {
       dofile('ai_game_mode');
     }
+    RegisterModifiers();
     ActivateModules();
     AIGameMode.InitGameMode();
   },

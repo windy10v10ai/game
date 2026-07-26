@@ -18,6 +18,8 @@ export function bindAbilityKey(abilityname: string, key: string, isQuickCast: bo
 /**
  * 真假眼额外槛位的改键：按键时重新获取 abilityID（绑定时技能可能尚未挂载到英雄身上，
  * 如重新加载游戏后），且充能为 0 时表现为「物品没有反应」而非技能的「冷却中」提示。
+ *
+ * @deprecated 暂时停用，无调用方。随真假眼额外槽位一起保留。
  */
 export function bindWardSlotKey(abilityname: string, key: string, isQuickCast: boolean) {
   AddKeyBind(
@@ -34,12 +36,85 @@ export function bindWardSlotKey(abilityname: string, key: string, isQuickCast: b
   );
 }
 
+/**
+ * Custom hotkeys for inventory slots 7/8/9. Resolve the current item on every key press so
+ * swapping items never leaves the hotkey pointing at a stale entity. Locked items are inactive.
+ */
+export function bindInventorySlotKey(inventorySlot: number, key: string, isQuickCast: boolean) {
+  AddKeyBind(
+    key,
+    () => {
+      const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+      if (heroID === -1) {
+        return;
+      }
+
+      const itemID = Entities.GetItemInSlot(heroID, inventorySlot) as AbilityEntityIndex;
+      if (itemID === -1 || !Abilities.IsItem(itemID) || !Abilities.IsActivated(itemID)) {
+        return;
+      }
+
+      executeAbilityCast(heroID, itemID, isQuickCast, false);
+    },
+    () => {},
+  );
+}
+
+const INVENTORY_HOTKEY_LABEL_ID = 'InventorySlotHotkeyTextCustom';
+
+/** Keep custom key labels attached to the native backpack slot panels. */
+export function saveInventorySlotHotkeys(slot7Key: string, slot8Key: string, slot9Key: string) {
+  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
+  const showHeroHotkeys = heroID !== -1 && portraitUnitID === heroID;
+  const keys = [slot7Key, slot8Key, slot9Key];
+
+  for (let offset = 0; offset < keys.length; offset++) {
+    const inventorySlot = 6 + offset;
+    const slotPanel = FindDotaHudElement(`inventory_slot_${inventorySlot}`);
+    if (!slotPanel) {
+      continue;
+    }
+
+    const keyText = showHeroHotkeys ? bindKeyToText(keys[offset]) : '';
+    setInventorySlotHotkey(slotPanel, keyText);
+  }
+}
+
+function setInventorySlotHotkey(slotPanel: Panel, text: string) {
+  const existing = slotPanel.FindChildTraverse(INVENTORY_HOTKEY_LABEL_ID) as LabelPanel | undefined;
+
+  if (text === '') {
+    existing?.DeleteAsync(0);
+    return;
+  }
+
+  const label = existing ?? $.CreatePanel('Label', slotPanel, INVENTORY_HOTKEY_LABEL_ID);
+  label.text = text;
+  label.hittest = false;
+  label.style.horizontalAlign = 'left';
+  label.style.verticalAlign = 'top';
+  label.style.margin = '1px 0px 0px 1px';
+  label.style.minWidth = '16px';
+  label.style.height = '17px';
+  label.style.padding = '0px 3px 0px 3px';
+  label.style.backgroundColor = '#000000e8';
+  label.style.borderRadius = '2px';
+  label.style.color = '#ffffff';
+  label.style.fontSize = '12px';
+  label.style.fontWeight = 'bold';
+  label.style.textAlign = 'center';
+  label.style.textShadow = '1px 1px 0px 2 #000000';
+  label.style.zIndex = 20;
+}
+
 function executeAbilityCast(
   heroID: EntityIndex,
   abilityID: AbilityEntityIndex,
   isQuickCast: boolean,
+  allowUpgrade: boolean = true,
 ) {
-  if (GameUI.IsControlDown() === true) {
+  if (allowUpgrade && GameUI.IsControlDown() === true) {
     // ctrl升级
     Abilities.AttemptToUpgrade(abilityID);
     return;
@@ -177,7 +252,7 @@ function QuickCastAbility(abilityID: AbilityEntityIndex, behavior: DOTA_ABILITY_
 }
 
 function isAbilityReady(abilityID: AbilityEntityIndex): boolean {
-  if (Abilities.GetLevel(abilityID) === 0) {
+  if (!Abilities.IsItem(abilityID) && Abilities.GetLevel(abilityID) === 0) {
     GameUI.SendCustomHUDError('dota_hud_error_ability_not_learned', 'General.CastFail_NotLearned');
     return false;
   }

@@ -9,6 +9,7 @@ const CONSUME_ITEMS: Array<{ itemName: string; usableFromBackpack?: boolean }> =
   { itemName: 'item_tome_of_agility', usableFromBackpack: true },
   { itemName: 'item_tome_of_intelligence', usableFromBackpack: true },
   { itemName: 'item_tome_of_luoshu', usableFromBackpack: true },
+  { itemName: 'item_inventory_slot_unlock', usableFromBackpack: true },
 ];
 
 export class ConsumeItem {
@@ -34,6 +35,12 @@ export class ConsumeItem {
       return true;
     }
     if (IsAbilityBehavior(item, AbilityBehavior.NO_TARGET)) {
+      if (
+        itemName === 'item_inventory_slot_unlock' &&
+        (item as CDOTA_Item_Lua).CastFilterResult() !== UnitFilterResult.SUCCESS
+      ) {
+        return false;
+      }
       hero.CastAbilityNoTarget(item, hero.GetPlayerOwnerID());
       return true;
     }

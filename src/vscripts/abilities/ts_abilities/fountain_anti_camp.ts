@@ -7,9 +7,11 @@ import {
 } from '../../utils/dota_ts_adapter';
 
 const WATCHER_MODIFIER_NAME = 'modifier_fountain_anti_camp_watcher';
+const STACK_MODIFIER_NAME = 'modifier_fountain_anti_camp_stack';
 const LOCK_MODIFIER_NAME = 'modifier_fountain_anti_camp_lock';
 const POLL_INTERVAL = 1;
-const LOCK_DURATION = 3;
+const DEBUFF_DURATION = 3;
+const LOCK_STACK_THRESHOLD = 3;
 
 @registerAbility('fountain_anti_camp')
 export class AbilityFountainAntiCamp extends BaseAbility {
@@ -33,6 +35,9 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
     return false;
   }
 
+  // 泉水作为地图内置实体，生成时机早于真实对局中玩家连接完毕，人数判断需等状态到 PRE_GAME 后才可信
+  private checked = false;
+
   OnCreated(): void {
     if (!IsServer()) return;
     if (this.GetParent().GetTeamNumber() !== DotaTeam.BADGUYS) return;
@@ -41,6 +46,23 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
 
   OnIntervalThink(): void {
     if (!IsServer()) return;
+
+    if (!this.checked) {
+      const state = GameRules.State_Get();
+      if (state < GameState.PRE_GAME) return;
+
+      this.checked = true;
+      const humanCount = PlayerHelper.GetHumamPlayerCount();
+      // 仅在多人游戏中生效 (开发模式下允许单人测试生效)
+      const canRun = IsInToolsMode() || humanCount >= 2;
+      print(
+        `[FountainAntiCamp] check state=${state} toolsMode=${IsInToolsMode()} humanCount=${humanCount} canRun=${canRun}`,
+      );
+      if (!canRun) {
+        this.StartIntervalThink(-1);
+        return;
+      }
+    }
 
     const fountain = this.GetParent();
     const ability = this.GetAbility();
@@ -60,8 +82,47 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
 
     for (const hero of enemies) {
       if (!hero.IsRealHero() || !PlayerHelper.IsHumanPlayer(hero)) continue;
-      hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, { duration: LOCK_DURATION });
+
+      if (hero.HasModifier(LOCK_MODIFIER_NAME)) {
+        hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, { duration: DEBUFF_DURATION });
+        continue;
+      }
+
+      const stackCount = (hero.FindModifierByName(STACK_MODIFIER_NAME)?.GetStackCount() ?? 0) + 1;
+
+      if (stackCount >= LOCK_STACK_THRESHOLD) {
+        hero.RemoveModifierByName(STACK_MODIFIER_NAME);
+        hero.AddNewModifier(fountain, ability, LOCK_MODIFIER_NAME, { duration: DEBUFF_DURATION });
+      } else {
+        hero
+          .AddNewModifier(fountain, ability, STACK_MODIFIER_NAME, { duration: DEBUFF_DURATION })
+          .SetStackCount(stackCount);
+      }
     }
+  }
+}
+
+@registerModifier('abilities/ts_abilities/fountain_anti_camp')
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export class modifier_fountain_anti_camp_stack extends BaseModifier {
+  IsHidden(): boolean {
+    return false;
+  }
+
+  IsDebuff(): boolean {
+    return true;
+  }
+
+  IsPurgable(): boolean {
+    return false;
+  }
+
+  RemoveOnDeath(): boolean {
+    return true;
+  }
+
+  GetTexture(): string {
+    return 'action_lockenemytower';
   }
 }
 

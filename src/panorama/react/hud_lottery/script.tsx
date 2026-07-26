@@ -6,7 +6,7 @@ import Lottery from './Lottery';
 import KeyBind from './KeyBind';
 import ItemLottery from './ItemLottery';
 import PassiveTomeLottery from './PassiveTomeLottery';
-import WardSlot from './WardSlot';
+// import WardSlot from './WardSlot';
 
 function Root() {
   return (
@@ -15,7 +15,7 @@ function Root() {
       <PassiveTomeLottery />
       <Lottery />
       <KeyBind />
-      <WardSlot />
+      {/* <WardSlot /> */}
     </Panel>
   );
 }

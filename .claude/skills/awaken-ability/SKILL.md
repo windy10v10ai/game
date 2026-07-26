@@ -178,6 +178,8 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 
 已有相等或更长的 BKB 时跳过，否则加魔免 + 播音效，**返回是否实际施加**。
 
+**TS 代码优先用已有的 TS 封装**：`src/vscripts/abilities/ts_abilities/shared/awaken-magic-immunity.ts` 导出的 `applyAwakenMagicImmunity(unit, ability, duration)` 是同一逻辑的原生 TS 实现（同样借用 `modifier_black_king_bar_immune` 且不顶替真 BKB），直接 `import` 复用即可，不要再 `declare function` 绑定 Lua 全局。它与 Lua 版的差异是返回值：施加成功返回该 modifier 的句柄（`CDOTA_Buff`），跳过时返回 `undefined`（Lua 版返回布尔值）。
+
 **前摇加魔免要防取消刷新**：魔免绑在 `ON_ABILITY_START`（前摇开始）触发时，玩家可在前摇结束前取消再施法反复刷新（取消不进 CD、不耗蓝）。防法：仅当 `ApplyAwakenMagicImmunity` 返回 true 才启动取消检测；`StartIntervalThink` 轮询 `IsInAbilityPhase()`，前摇结束后若 `GetCooldownTimeRemaining() <= 0`（被取消）则移除；**移除前判据**——仅当 `modifier_black_king_bar_immune` 剩余 ≤ 本次魔免时长才 `Destroy()`，**绝不无条件 `RemoveModifierByName`**（同名 modifier 区分不了来源，会误删真 BKB）。
 
 > 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测；PA 闪烁/匕首魔免。

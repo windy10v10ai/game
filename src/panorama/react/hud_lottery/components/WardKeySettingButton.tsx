@@ -49,6 +49,8 @@ const quickCastToggleStyle: Partial<VCSSStyleDeclaration> = {
  * 真假眼额外槛位的改键设置，单行紧凑布局：图标 + 按键框 + 快速施法开关。
  * ability_ward_observer_slot / ability_ward_sentry_slot 为 POINT 目标技能，
  * bindWardSlotKey 的 QuickCastAbility 已原生支持光标位置快速施法。
+ *
+ * @deprecated 暂时停用，无调用方。随真假眼额外槽位一起保留。
  */
 const WardKeySettingButton = ({
   itemname,

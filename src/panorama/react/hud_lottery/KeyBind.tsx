@@ -30,6 +30,12 @@ function KeyBind() {
     activeAbilityQuickCast: false,
     passiveAbilityQuickCast: false,
     passiveAbilityQuickCast2: false,
+    inventorySlot7Key: '',
+    inventorySlot7QuickCast: false,
+    inventorySlot8Key: '',
+    inventorySlot8QuickCast: false,
+    inventorySlot9Key: '',
+    inventorySlot9QuickCast: false,
   };
 
   // 仅首次加载到玩家数据时判断一次：已有任一快捷键设置就默认折叠；之后修改键位不再自动折叠
@@ -40,8 +46,9 @@ function KeyBind() {
       playerSetting.activeAbilityKey ||
       playerSetting.passiveAbilityKey ||
       playerSetting.passiveAbilityKey2 ||
-      playerSetting.wardObserverKey ||
-      playerSetting.wardSentryKey
+      playerSetting.inventorySlot7Key ||
+      playerSetting.inventorySlot8Key ||
+      playerSetting.inventorySlot9Key
     ) {
       setIsCollapsed(true);
     }
@@ -54,7 +61,11 @@ function KeyBind() {
 
   return (
     <Panel style={containerStyle}>
-      <KeyBindContainer isCollapsed={isCollapsed} playerSetting={playerSetting} />
+      <KeyBindContainer
+        isCollapsed={isCollapsed}
+        playerSetting={playerSetting}
+        playerSettingLoaded={player !== null}
+      />
       <Panel style={{ horizontalAlign: 'left', verticalAlign: 'bottom' }}>
         <ExpandButton
           textToken={isCollapsed ? '#key_bind' : '#key_bind_collapsed'}

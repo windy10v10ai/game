@@ -34,10 +34,7 @@ function item_forbidden_staff:OnSpellStart()
 
     for _, enemy in pairs(enemies) do
         if not enemy:IsMagicImmune() and not enemy:TriggerSpellAbsorb(self) then
-            -- 1. 死灵冲击效果 (包含变形) - 添加这一行!
             self:ApplyNecrolyteEffect(enemy)
-            -- 2. 闪电风暴效果
-            self:ApplyLightningEffect(enemy)
         end
     end
 
@@ -72,12 +69,14 @@ function item_forbidden_staff:ApplyNecrolyteEffect(target)
 
     -- 计算施法者的全属性
     local allAtt = caster:GetStrength() + caster:GetAgility() + caster:GetIntellect(false)
-    local damage = allAtt * blast_att_multiplier
+    local necrolyte_damage = allAtt * blast_att_multiplier
+    local lightning_damage = self:GetSpecialValueFor("lightning_damage")
 
+    -- 死灵冲击与闪电风暴合并为一次伤害结算，避免免死类保护在同一次施法内被拆成两段绕过
     ApplyDamage({
         victim = target,
         attacker = caster,
-        damage = damage,
+        damage = necrolyte_damage + lightning_damage,
         damage_type = DAMAGE_TYPE_MAGICAL,
         ability = self
     })
@@ -87,20 +86,11 @@ function item_forbidden_staff:ApplyNecrolyteEffect(target)
     -- 添加变形效果
     local duration = self:GetSpecialValueFor("sheep_duration") * (1 - target:GetStatusResistance())
     target:AddNewModifier(caster, self, "modifier_item_forbidden_staff_sheep", { duration = duration })
+
+    self:PlayLightningParticle(target)
 end
 
-function item_forbidden_staff:ApplyLightningEffect(target)
-    local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("lightning_damage")
-
-    ApplyDamage({
-        victim = target,
-        attacker = caster,
-        damage = damage,
-        damage_type = DAMAGE_TYPE_MAGICAL,
-        ability = self
-    })
-    -- 流星锤特效
+function item_forbidden_staff:PlayLightningParticle(target)
     local particle = ParticleManager:CreateParticle(
         "particles/items4_fx/meteor_hammer_spell.vpcf",
         PATTACH_WORLDORIGIN,

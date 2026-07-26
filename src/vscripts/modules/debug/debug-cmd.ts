@@ -41,6 +41,7 @@ export enum CMD {
 
   // ---- item ----
   ADD_BKB_ALL = '-bkball', // 所有人添加bkb
+  ADD_PHASE_AXE_ALL = '-phaseaxeall', // 所有人添加相位斧
   ADD_ITEM_ALL = '-additemall', // 所有人添加物品
   REMOVE_ITEM_ALL = '-rmiall', // 移除所有物品
   RM_ITEM = '-rmitem', // 移除物品

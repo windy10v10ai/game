@@ -189,6 +189,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"Cooldown (%)"
 		"data_panel_player_property_cast_range_bonus_stacking"	"Cast Range"
+		"data_panel_player_property_aoe_bonus_constant_stacking"	"AOE Bonus"
 		"data_panel_player_property_spell_amplify_percentage"	"Spell Damage (%)"
 		"data_panel_player_property_status_resistance_stacking"	"Status Resistance (%)"
 		"data_panel_player_property_evasion_constant"			"Evasion (%)"
@@ -259,7 +260,8 @@
 		"key_bind_mouseover_tooltop"							"Click to bind a hotkey to this ability. <br>If you encounter conflicts or malfunctions, try disconnecting and reconnecting to the game."
 		"key_bind_input_err"									"Invalid input - Try another key"
 		"key_bind_quick_cast"									"Quick Cast"
-		"key_bind_remember"										"Save Key"
+		"key_bind_remember"										"Save Ability Keys"
+		"key_bind_inventory_slot_tooltip"					"Inventory slot %s hotkey. Unlock the slot with the Inventory Expansion Tome before using its item."
 
 		"lottery_item_header"									"Pick Your Treasure"
 		"lottery_passive_tome_header"							"Choose a Passive Ability"
@@ -495,7 +497,7 @@
 		"DOTA_Tooltip_modifier_global_newbie"					"<font color='#87CEEB'>Newbie Protection ★★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_Description"		"This player's Battle Level is below level 5<br/>Their hero gains:<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health<br>+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed<br>+%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magical resistance<br>+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
 		"DOTA_Tooltip_modifier_global_newbie_2"					"<font color='#87CEEB'>Newbie Protection ★</font>"
-		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"This player's battle level is below level 8<br/>Their hero gains:<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health<br>+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed<br>+%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magical resistance<br>+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
+		"DOTA_Tooltip_modifier_global_newbie_2_Description"		"This player's battle level is below level 10<br/>Their hero gains:<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health<br>+%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% movement speed<br>+%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magical resistance<br>+%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor."
 		"DOTA_Tooltip_modifier_global_member_normal"					"<font color='#FFCC66'>★ Membership Buff! ★</font>"
 		"DOTA_Tooltip_modifier_global_member_normal_Description"		"Membership Benefits:<br>+%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage.<br>+%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% spell damage.<br>+%dMODIFIER_PROPERTY_HEALTH_BONUS% health.<br>+%dMODIFIER_PROPERTY_MANA_BONUS% mana.<br>- Respawn time reduced by 5 seconds.<br/>- Buyback cooldown reduced to 2 minutes.<br/>- You can refresh your active/passive abilities once at game start.<br/>- You will receive 100 Member Points every day.<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"					"<font color='#FFCC66'>★ Premium Membership Buff! ★</font>"
@@ -1156,7 +1158,9 @@
 
 		// Fountain Sanction
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned."
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode."
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"Fountain Sanction Warning"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"Stacks once per second while near the fountain. Reaching 3 stacks triggers the sanction."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"Unable to attack, use items, active abilities, or passive abilities. Health and mana cannot be restored. Movement speed is forcibly restricted, and buffs are forcibly dispelled."
 
@@ -1199,10 +1203,12 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 
 		// Legion Commander Auto Duel - Awakened
-		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel Awakened</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>With autocast enabled, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. It will not trigger while Duel is on cooldown or otherwise not castable. Auto Duel first consumes every passive spell-block layer on the target, so passive reflection or block items such as Linken's Sphere cannot stop this Duel."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel · Awakened</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>While autocast is enabled and Duel is ready, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. Illusions are ignored, and it only triggers when there's a high chance of killing the target without leaving Legion Commander critically low on health.<br><br>Auto Duel ignores and consumes the target's passive spell block and reflection effects.<br><br>During Duel, Legion Commander gains Black King Bar's spell immunity, and the target cannot be selected."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Honor needs no invitation; the nearest enemy will do."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"BONUS AUTO DUEL RANGE:"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Auto Duel: Unselectable"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"This unit cannot be selected during Duel."
 
 		// Necrophos Heartstopper Aura - Awakened
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>Heartstopper Aura Awakened</font>"
@@ -2038,6 +2044,13 @@
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"Tome of Luoshu"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"Gained a lot of bonuses from Luoshu's Tome."
+
+		// item_inventory_slot_unlock 扩容之书
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock"						"Tome of Expansion"
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock_Description"			"<h1>Use: Expand Inventory</h1>Permanently unlocks 1 item slot for this match, allowing items in that slot to provide their effects and be actively used. Each hero can use up to 3.\nShareable with teammates."
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock"						"Expanded Inventory"
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock_Description"			"<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> item slots unlocked."
+		"dota_hud_error_inventory_slot_unlock_max_usage"						"All 3 item slots are already unlocked."
 
 		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"Moon Shard"
@@ -3178,7 +3191,7 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor, %bonus_regen_active% health regeneration, and %status_resistance_active%%% status resistance.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. No single instance of damage can reduce health below 1, so it can never be killed outright."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor, %bonus_regen_active% health regeneration, and %status_resistance_active%%% status resistance.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. No single instance of damage can reduce health below 1, so it can never be killed outright, and for the next %active_duration% seconds, all damage taken and dealt is reduced to zero."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"                       "From withered wood, spring blooms anew."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"             "+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"               "+$health"
@@ -3187,7 +3200,7 @@
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"                "+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"              "%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"          "%+Status Resistance"
-		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Fully immune to damage and debuffs during the active effect."
+		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Only when triggered passively, all damage taken and dealt is reduced to zero for %active_duration% seconds."
 		"DOTA_Tooltip_ability_item_withered_spring_Note1"                      "Enters cooldown after triggering automatically."
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"                    "Withering Bloom"

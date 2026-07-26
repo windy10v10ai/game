@@ -1,5 +1,5 @@
 export class GameConfig {
-  public static readonly GAME_VERSION = 'v5.44';
+  public static readonly GAME_VERSION = 'v5.45';
   public static readonly MEMBER_BUYBACK_CD = 120;
   public static readonly PRE_GAME_TIME = 60;
   // 英雄击杀经验系数
@@ -38,6 +38,8 @@ export class GameConfig {
     // GameRules.SetCustomGameAllowHeroPickMusic(false); // 是否允许英雄选择阶段的音乐
     // GameRules.SetCustomGameAllowBattleMusic(false); // 是否允许战斗阶段音乐
     GameRules.SetUseUniversalShopMode(true); // 是否启用全地图商店模式（在基地也可以购买神秘商店的物品）* 这个不是设置在任何地方都可以购买，如果要设置这个，需要将购买区域覆盖全地图
+    // 地图原有商店触发器范围不足以覆盖全图，叠加超大半径触发器让购买/出售在任意位置生效
+    SpawnDOTAShopTriggerRadiusApproximate(Vector(0, 0, 0), 30000).SetShopType(ShopType.HOME);
     // GameRules.SetHideKillMessageHeaders(true); // 是否隐藏顶部的英雄击杀信息
     GameRules.SetCustomGameEndDelay(30);
     GameRules.SetFilterMoreGold(true);

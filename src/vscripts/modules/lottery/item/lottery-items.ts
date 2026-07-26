@@ -31,6 +31,7 @@ export const itemTiers: Tier[] = [
     level: 5,
     names: [
       'item_awaken_stone', // 觉醒石
+      'item_inventory_slot_unlock', // 扩容之书
     ],
   },
   // 特殊物品

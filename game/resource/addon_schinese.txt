@@ -189,6 +189,7 @@
 
 		"data_panel_player_property_cooldown_percentage"		"冷却时间 ( % )"
 		"data_panel_player_property_cast_range_bonus_stacking"	"施法距离"
+		"data_panel_player_property_aoe_bonus_constant_stacking"	"作用范围"
 		"data_panel_player_property_spell_amplify_percentage"	"技能增强 ( % )"
 		"data_panel_player_property_status_resistance_stacking"	"状态抗性 ( % )"
 		"data_panel_player_property_evasion_constant"			"闪避 ( % )"
@@ -259,7 +260,8 @@
 		"key_bind_mouseover_tooltop"							"点击设置快捷键。<br>如遇快捷键冲突，失灵，请尝试断开重连后重新设置。"
 		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
 		"key_bind_quick_cast"									"快速施法"
-		"key_bind_remember"										"记忆改键"
+		"key_bind_remember"										"记忆技能改键"
+		"key_bind_inventory_slot_tooltip"					"第%s格装备快捷键；需要先使用扩容之书解锁该格，锁定时按键不会施放。"
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
 		"lottery_passive_tome_header"							"选择一个被动技能"
@@ -496,7 +498,7 @@
 		"DOTA_Tooltip_modifier_global_newbie"						"<font color='#87CEEB'>新手保护 ★★</font>"
 		"DOTA_Tooltip_modifier_global_newbie_Description"			"- 勇士等级 5 级以内获得新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_newbie_2"						"<font color='#87CEEB'>新手保护 ★</font>"
-		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 8 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
+		"DOTA_Tooltip_modifier_global_newbie_2_Description"			"- 勇士等级 10 级以内获得半新手保护<br/>- 额外获得 +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT% 移动速度, +%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性, +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% 护甲"
 		"DOTA_Tooltip_modifier_global_member_normal"						"<font color='#FFCC66'>★ 会员专属BUFF ★</font>"
 		"DOTA_Tooltip_modifier_global_member_normal_Description"			"- 额外获得 +%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% 攻击力, +%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%% 技能增强, +%dMODIFIER_PROPERTY_HEALTH_BONUS% HP, +%dMODIFIER_PROPERTY_MANA_BONUS% MP.<br/> - 复活时间减少5秒<br/> - 买活CD降低至2分钟<br/> - 开局抽选的 主动/被动技能 各可刷新一次<br/> - 每日登陆获得100会员积分<br/>"
 		"DOTA_Tooltip_modifier_global_member_premium"						"<font color='#FFCC66'>★ 高级会员BUFF ★</font>"
@@ -1151,7 +1153,9 @@
 
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。仅组队模式下生效。"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"泉水制裁警告"
+		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"靠近泉水时每秒叠加一层，叠满3层后将进入制裁状态。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock_Description"		"无法攻击，无法使用装备、主动技能和被动技能，无法恢复生命和魔法，移动速度被强制限制，且增益被强制驱散。"
 
@@ -1195,10 +1199,12 @@
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
 
 		// 军团指挥官 自动决斗-觉醒
-		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>自动决斗 觉醒</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>自动施放：最近英雄</font><br><br>开启自动施法后，以决斗施法距离额外增加%bonus_cast_range%码为搜索范围，自动对最近的可见敌方英雄施放决斗。决斗处于冷却或无法施放时不会触发。自动决斗会先消耗目标身上的所有被动法术格挡层，使林肯法球等被动反弹或格挡装备无法阻止本次决斗。"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>自动决斗·觉醒</font>"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>自动施法：最近英雄</font><br><br>开启自动施法后，若决斗可以施放，则自动对决斗施法距离外额外%bonus_cast_range%范围内最近的可见敌方英雄施放决斗。不会选择幻象，只有大概率能击杀目标、且不会让自身陷入残血时才会触发。<br><br>自动决斗会无视并消耗目标的被动法术格挡与反弹效果。<br><br>决斗期间，军团指挥官获得黑皇杖的魔法免疫效果，目标无法被选中。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"荣誉无需邀约，最近的敌人就是对手。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"额外自动决斗范围："
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"自动决斗：无法选中"
+		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"决斗期间，该单位无法被选中。"
 
 		// 死灵法师 竭心光环-觉醒
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven"					"<font color='#d000ff'>竭心光环 觉醒</font>"
@@ -2047,6 +2053,13 @@
 
 		"DOTA_Tooltip_modifier_luoshu_tome"								"洛书看好你！"
 		"DOTA_Tooltip_modifier_luoshu_tome_Description"					"哥哥你为我花了这么多钱，你女朋友不会生气吧？"
+
+		// item_inventory_slot_unlock 扩容之书
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock"						"扩容之书"
+		"DOTA_Tooltip_Ability_item_inventory_slot_unlock_Description"			"<h1>使用：扩展行囊</h1>本局中永久解锁1个物品栏，使该栏位中的物品可以正常生效并主动使用。每名英雄最多使用3次。\n可以分享给队友。"
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock"						"扩展行囊"
+		"DOTA_Tooltip_modifier_item_inventory_slot_unlock_Description"			"已解锁<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>个物品栏。"
+		"dota_hud_error_inventory_slot_unlock_max_usage"						"已经解锁全部3个物品栏"
 
 		// item_moon_shard_datadriven
 		"DOTA_Tooltip_modifier_item_moon_shard_datadriven_consumed"						"真·银月之晶"
@@ -3186,7 +3199,7 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"										"<font color='#90EE90'>生命之心</font>"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲、%bonus_regen_active%点生命回复和%status_resistance_active%%%状态抗性。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>生命值低于%hp_threshold%%%时自动触发以上效果，任意一次伤害都不会将其直接击杀。"
+		"DOTA_Tooltip_ability_item_withered_spring_Description"							"<h1><font color='#90EE90'>主动：枯木逢春</font></h1>使自身和周围友军回复%replenish_health%点生命 +%replenish_health_pct%%%最大生命值和%replenish_mana%点魔法，并移除施法者身上全部的负面效果。施法者在%active_duration%秒内获得%bonus_armor_active%点护甲、%bonus_regen_active%点生命回复和%status_resistance_active%%%状态抗性。<br><br>作用范围：%replenish_radius%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">强驱散</span>\n\n<h1>被动：绝处逢生</h1>生命值低于%hp_threshold%%%时自动触发以上效果，任意一次伤害都不会将其直接击杀，并且在%active_duration%秒内所受到和造成的伤害全部归零。"
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"								"饱含生命之力的树甲，枯木逢春，绝处逢生。"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"						"+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"						"+$health"
@@ -3195,7 +3208,7 @@
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"							"+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"						"%+$evasion"
 		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"主动效果期间完全免疫伤害和debuff。"
+		"DOTA_Tooltip_ability_item_withered_spring_Note0"								"仅被动触发时，%active_duration%秒内所受到和造成的伤害全部归零。"
 		"DOTA_Tooltip_ability_item_withered_spring_Note1"								"自动触发后进入冷却。"
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"								"枯木逢春"

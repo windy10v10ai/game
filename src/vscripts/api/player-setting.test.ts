@@ -13,8 +13,14 @@ if (typeof globalAny.CustomGameEventManager === 'undefined') {
 if (typeof globalAny.ListenToGameEvent === 'undefined') {
   globalAny.ListenToGameEvent = () => 0;
 }
+if (typeof globalAny.PlayerResource === 'undefined') {
+  globalAny.PlayerResource = {
+    GetSteamAccountID: () => 123456,
+  };
+}
 
-import { PlayerGamePresetApi } from './player-setting';
+import { ApiClient, HttpMethod } from './api-client';
+import { PlayerGamePresetApi, PlayerSettingApi } from './player-setting';
 
 describe('PlayerGamePresetApi', () => {
   describe('RoundPresetNumber', () => {
@@ -35,5 +41,50 @@ describe('PlayerGamePresetApi', () => {
       // @ts-expect-error access private for test
       expect(api.RoundPresetNumber(2.0)).toBe(2);
     });
+  });
+});
+
+describe('PlayerSettingApi', () => {
+  afterEach(() => {
+    jest.restoreAllMocks();
+  });
+
+  it('sends inventory slot hotkeys and quick-cast settings', () => {
+    const sendSpy = jest.spyOn(ApiClient, 'sendWithRetry').mockImplementation(() => undefined);
+    const api = new PlayerSettingApi();
+
+    // @ts-expect-error access private for request contract verification
+    api.SendBindAbilityKey({
+      PlayerID: 0,
+      isRememberAbilityKey: 1,
+      activeAbilityKey: 'Q',
+      passiveAbilityKey: 'W',
+      passiveAbilityKey2: 'E',
+      activeAbilityQuickCast: 0,
+      passiveAbilityQuickCast: 1,
+      passiveAbilityQuickCast2: 0,
+      inventorySlot7Key: '7',
+      inventorySlot7QuickCast: 1,
+      inventorySlot8Key: '8',
+      inventorySlot8QuickCast: 0,
+      inventorySlot9Key: '9',
+      inventorySlot9QuickCast: 1,
+    });
+
+    expect(sendSpy).toHaveBeenCalledWith(
+      expect.objectContaining({
+        method: HttpMethod.PUT,
+        path: '/player/123456/setting',
+        body: expect.objectContaining({
+          isRememberAbilityKey: true,
+          inventorySlot7Key: '7',
+          inventorySlot7QuickCast: true,
+          inventorySlot8Key: '8',
+          inventorySlot8QuickCast: false,
+          inventorySlot9Key: '9',
+          inventorySlot9QuickCast: true,
+        }),
+      }),
+    );
   });
 });
