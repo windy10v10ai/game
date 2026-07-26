@@ -12,8 +12,6 @@ if (!global.wardSlotProcessedItemEntIndexes) {
 /**
  * 真假眼额外槽位（issue #1812）：人类玩家成功获得商店真假眼后，删除入包物品，
  * 转为英雄身上隐藏 slot ability 的一层充能。充能/冷却走 ability 自带 charge 系统。
- *
- * @deprecated 暂时停用，未在 ActivateModules 中注册。功能位由扩容之书解锁的背包 7/8/9 格承担。
  */
 @reloadable
 export class WardSlot {
