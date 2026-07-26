@@ -6147,7 +6147,7 @@
 
 			// 法术暴击 modifier
 			"spell_crit_chance"			"30"
-			"spell_crit_multiplier"		"250"
+			"spell_crit_multiplier"		"220"
 		}
 
 
@@ -6491,7 +6491,7 @@
 			}
 			"pure_damage"
 			{
-				"value"					"900"
+				"value"					"600"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
