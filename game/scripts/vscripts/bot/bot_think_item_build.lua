@@ -21,12 +21,12 @@ end
 --------------------
 
 -- find item
-function BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
-  for i = 0, 5 do
-    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-  end
-  return nil
-end
+-- function BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
+--   for i = 0, 5 do
+--     if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
+--   end
+--   return nil
+-- end
 
 -- function BotThink:FindItemByName(hHero, sName)
 --   for i = 0, 8 do
@@ -34,23 +34,6 @@ end
 --   end
 --   return nil
 -- end
-
-function BotThink:FindItemByNameIncludeStash(hHero, sName)
-  for i = 0, 15 do
-    if hHero:GetItemInSlot(i) and hHero:GetItemInSlot(i):GetName() == sName then return hHero:GetItemInSlot(i) end
-  end
-  return nil
-end
-
-function BotThink:IsItemCanUse(hHero, sName)
-  if hHero:HasItemInInventory(sName) then
-    local item = BotThink:FindItemByNameNotIncludeBackpack(hHero, sName)
-    if item and item:IsCooldownReady() then
-      return true
-    end
-  end
-  return false
-end
 
 -- find enemy
 -- find many
@@ -78,90 +61,65 @@ function BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
 end
 
 -- use item
-function BotThink:UseItemOnTarget(hHero, sItemName, hTarget)
-  if not hHero:HasItemInInventory(sItemName) then
-    return false
-  end
-  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-  if hItem then
-    if hItem:IsCooldownReady() then
-      hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
-      return true
-    end
-  end
-  return false
-end
+-- function BotThink:UseItemOnTarget(hHero, sItemName, hTarget)
+--   if not hHero:HasItemInInventory(sItemName) then
+--     return false
+--   end
+--   local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+--   if hItem then
+--     if hItem:IsCooldownReady() then
+--       hHero:CastAbilityOnTarget(hTarget, hItem, hHero:GetPlayerOwnerID())
+--       return true
+--     end
+--   end
+--   return false
+-- end
 
-function BotThink:UseItemOnPostion(hHero, sItemName, hTarget)
-  if not hHero:HasItemInInventory(sItemName) then
-    return false
-  end
-  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-  if hItem then
-    if hItem:IsCooldownReady() then
-      hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
-      return true
-    end
-  end
-  return false
-end
+-- function BotThink:UseItemOnPostion(hHero, sItemName, hTarget)
+--   if not hHero:HasItemInInventory(sItemName) then
+--     return false
+--   end
+--   local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+--   if hItem then
+--     if hItem:IsCooldownReady() then
+--       hHero:CastAbilityOnPosition(hTarget:GetOrigin(), hItem, hHero:GetPlayerOwnerID())
+--       return true
+--     end
+--   end
+--   return false
+-- end
 
-function BotThink:UseItem(hHero, sItemName)
-  if not hHero:HasItemInInventory(sItemName) then
-    return false
-  end
-  local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
-  if hItem then
-    if hItem:IsCooldownReady() then
-      hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
-      return true
-    end
-  end
-  return false
-end
+-- function BotThink:UseItem(hHero, sItemName)
+--   if not hHero:HasItemInInventory(sItemName) then
+--     return false
+--   end
+--   local hItem = BotThink:FindItemByNameNotIncludeBackpack(hHero, sItemName)
+--   if hItem then
+--     if hItem:IsCooldownReady() then
+--       hHero:CastAbilityNoTarget(hItem, hHero:GetPlayerOwnerID())
+--       return true
+--     end
+--   end
+--   return false
+-- end
 
-function BotThink:GetCooldownTotal(hHero)
-  local iCooldownTotal = 0
-  for i = 0, 5 do
-    local hAbility = hHero:GetAbilityByIndex(i)
-    if hAbility then
-      iCooldownTotal = iCooldownTotal + hAbility:GetCooldownTimeRemaining()
-    end
-  end
-  -- item 0 to 8
-  for i = 0, 8 do
-    local hItem = hHero:GetItemInSlot(i)
-    if hItem then
-      iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
-    end
-  end
-  return iCooldownTotal
-end
-
---------------------
--- 是否在防御塔附近
---------------------
-function BotThink:IsBesideFriendTower(hHero, radius)
-  local vHeroPos = hHero:GetAbsOrigin()
-  local towers = Entities:FindAllByClassnameWithin("npc_dota_tower", vHeroPos, radius)
-  for i, vTower in ipairs(towers) do
-    if vTower:GetTeamNumber() == hHero:GetTeamNumber() then
-      return true
-    end
-  end
-  return false
-end
-
-function BotThink:IsBesideEnemyTower(hHero, radius)
-  local vHeroPos = hHero:GetAbsOrigin()
-  local towers = Entities:FindAllByClassnameWithin("npc_dota_tower", vHeroPos, radius)
-  for i, vTower in ipairs(towers) do
-    if vTower:GetTeamNumber() ~= hHero:GetTeamNumber() then
-      return true
-    end
-  end
-  return false
-end
+-- function BotThink:GetCooldownTotal(hHero)
+--   local iCooldownTotal = 0
+--   for i = 0, 5 do
+--     local hAbility = hHero:GetAbilityByIndex(i)
+--     if hAbility then
+--       iCooldownTotal = iCooldownTotal + hAbility:GetCooldownTimeRemaining()
+--     end
+--   end
+--   -- item 0 to 8
+--   for i = 0, 8 do
+--     local hItem = hHero:GetItemInSlot(i)
+--     if hItem then
+--       iCooldownTotal = iCooldownTotal + hItem:GetCooldownTimeRemaining()
+--     end
+--   end
+--   return iCooldownTotal
+-- end
 
 --------------------
 -- common function
@@ -268,123 +226,3 @@ end
 --     return
 --   end
 -- end
-
-
--- 插眼
-local wardItemTable = {
-  "item_ward_observer",
-  "item_ward_observer",
-  "item_ward_observer",
-  "item_ward_observer",
-  "item_ward_sentry",
-  "item_ward_sentry",
-  "item_ward_sentry",
-  "item_ward_sentry",
-  "item_ward_sentry",
-  "item_ward_sentry",
-}
-function BotThink:AddWardItem(hHero)
-  local iItemCount = hHero:GetNumItemsInInventory()
-  if iItemCount >= 8 then
-    return
-  end
-
-  if BotThink:FindItemByNameIncludeStash(hHero, "item_ward_observer") then
-    return
-  end
-  if BotThink:FindItemByNameIncludeStash(hHero, "item_ward_sentry") then
-    return
-  end
-  if BotThink:FindItemByNameIncludeStash(hHero, "item_ward_dispenser") then
-    return
-  end
-  if BotThink:FindItemByNameIncludeStash(hHero, "item_dust") then
-    return
-  end
-  if BotThink:FindItemByNameIncludeStash(hHero, "item_gem") then
-    return
-  end
-
-  local itemIndex = RandomInt(1, #wardItemTable)
-  local sItemName = wardItemTable[itemIndex]
-  local addedItem = hHero:AddItemByName(sItemName)
-end
-
-function BotThink:PutWardObserver(hHero)
-  local wardPostionList = tBotItemData.wardObserverPostionList
-  local sWardItemName = "item_ward_observer"
-  local sUnitClassName = "npc_dota_ward_base"
-
-  if BotThink:IsBesideFriendTower(hHero, 1600) then
-    return
-  end
-  if BotThink:IsBesideEnemyTower(hHero, 900) then
-    return
-  end
-
-  -- 随机在附近插假眼
-  if RandomInt(1, 5) == 1 then
-    wardPostionList = {}
-    table.insert(wardPostionList, hHero:GetAbsOrigin())
-  end
-
-  if BotThink:IsItemCanUse(hHero, sWardItemName) then
-    BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassName)
-  end
-end
-
-function BotThink:PutWardSentry(hHero)
-  if BotThink:IsBesideFriendTower(hHero, 1000) then
-    return
-  end
-
-  local wardPostionList = tBotItemData.wardSentryPostionList
-  local sWardItemName = "item_ward_sentry"
-  local sUnitClassName = "npc_dota_ward_base_truesight"
-
-  -- 受伤时做真眼
-  if hHero:GetHealthPercent() < 80 then
-    wardPostionList = {}
-    table.insert(wardPostionList, hHero:GetAbsOrigin())
-  end
-
-  if BotThink:IsItemCanUse(hHero, sWardItemName) then
-    BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassName)
-  end
-end
-
-function BotThink:PutWardItem(hHero, wardPostionList, sWardItemName, sUnitClassName)
-  -- if in range of wardPostionList, put ward
-  local iCastRange = 500
-  local iFindRange = 1200
-  if sWardItemName == "item_ward_observer" then
-    iFindRange = 1600
-  end
-  local wardItem = BotThink:FindItemByNameIncludeStash(hHero, sWardItemName)
-  local vHeroPos = hHero:GetAbsOrigin()
-  for _, vWardPos in ipairs(wardPostionList) do
-    if wardItem then
-      local wardPosVector = vWardPos + Vector(RandomInt(-50, 50), RandomInt(-50, 50), 0)
-      local wardPosDistance = (wardPosVector - vHeroPos):Length()
-      if wardPosDistance < iCastRange then
-        -- find wards in wardPosVector
-        local wards = Entities:FindAllByClassnameWithin(sUnitClassName, wardPosVector, iFindRange)
-        -- for each wards, if not same team remove from list
-        for i = #wards, 1, -1 do
-          if wards[i]:GetTeamNumber() ~= hHero:GetTeamNumber() then
-            table.remove(wards, i)
-          end
-        end
-        -- if no wards, put ward
-        if #wards == 0 then
-          print("Think put ward " ..
-            hHero:GetName() .. " try to put " .. sWardItemName .. " at [" .. vWardPos[1] .. "," .. vWardPos[2] .. "]")
-          hHero:CastAbilityOnPosition(wardPosVector, wardItem, hHero:GetPlayerOwnerID())
-        else
-          -- print("Think put ward "..hHero:GetName().." !Stop to put ward at "..vWardPos[1]..","..vWardPos[2])
-        end
-        return
-      end
-    end
-  end
-end
