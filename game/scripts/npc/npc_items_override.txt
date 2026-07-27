@@ -580,7 +580,6 @@
 		"AbilityCastRange"				"600"
 		"ItemStockMax"					"8"	// 4
 		"ItemStockTime"					"90.0"	// 135.0
-		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 			"lifetime"				"480"					// 360
@@ -592,11 +591,11 @@
 	//=================================================================================================================
 	"item_ward_sentry"
 	{
+		"AbilityCastRange"				"600"	// 500
 		"ItemCost"						"40"
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
 		"ItemStockTime"					"45"	// 70.0
-		"ItemCanBeUsedWithoutInventory"	"1"
 		"AbilityValues"
 		{
 			"lifetime"								"480"	// 420
@@ -605,11 +604,14 @@
 	}
 	"item_ward_dispenser"
 	{
-		"ItemCanBeUsedWithoutInventory"	"1"
+		"AbilityCastRange"				"600"	// 500
 		"AbilityValues"
 		{
 				"lifetime_observer"				"480"			// 360
 				"observer_duration_minutes_tooltip"		"8"		// 6
+				// 引擎对 dispenser 取这两个值而非 AbilityCastRange，三处须同步
+				"cast_range_observer"			"600"	// 500
+				"cast_range_sentry"				"600"	// 500
 		}
 	}
 	//=================================================================================================================
