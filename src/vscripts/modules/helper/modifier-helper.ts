@@ -1,6 +1,6 @@
 import {
-  MAX_UNLOCKED_ITEM_SLOTS,
   MODIFIER_NAME as INVENTORY_SLOT_UNLOCK_MODIFIER,
+  MAX_UNLOCKED_ITEM_SLOTS,
 } from '../../items/ts_items/item_inventory_slot_unlock';
 
 export class ModifierHelper {
