@@ -1,3 +1,8 @@
+import {
+  MAX_UNLOCKED_ITEM_SLOTS,
+  MODIFIER_NAME as INVENTORY_SLOT_UNLOCK_MODIFIER,
+} from '../../items/ts_items/item_inventory_slot_unlock';
+
 export class ModifierHelper {
   private static GLOBAL_APPLY_MODIFIERS_ITEM: CDOTA_Item_DataDriven = CreateItem(
     'item_apply_modifiers',
@@ -27,20 +32,21 @@ export class ModifierHelper {
     const itemName = item.GetName();
 
     Timers.CreateTimer(0.1, () => {
+      // 解锁格数取自扩容之书的 stack count，同步更新，
+      // 不依赖引擎装备状态那种需要轮询补齐的中间表示
+      const unlockedBackpackSlots = Math.min(
+        caster.GetModifierStackCount(INVENTORY_SLOT_UNLOCK_MODIFIER, caster),
+        MAX_UNLOCKED_ITEM_SLOTS,
+      );
+      const countedSlotLimit = InventorySlot.SLOT_7 + unlockedBackpackSlots;
+
       // 计算持有者拥有的该物品数量
       let itemCount = 0;
-      for (let i = 0; i <= InventorySlot.SLOT_9; i++) {
+      for (let i = 0; i < countedSlotLimit; i++) {
         const itemInSlot = caster.GetItemInSlot(i);
-        if (!itemInSlot || itemInSlot.GetName() !== itemName) {
-          continue;
+        if (itemInSlot && itemInSlot.GetName() === itemName) {
+          itemCount++;
         }
-
-        // 背包格里的物品被解锁后才装备生效，用引擎装备状态判断，
-        // 避免底层 helper 依赖具体的解锁来源
-        if (i >= InventorySlot.SLOT_7 && itemInSlot.GetItemState() !== 1) {
-          continue;
-        }
-        itemCount++;
       }
 
       const modifiers = caster.FindAllModifiersByName(modifierName);
