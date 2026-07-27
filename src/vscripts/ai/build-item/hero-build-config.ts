@@ -304,7 +304,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_beast_shield', // 兽化盾
         'item_beast_armor', // 兽化甲
-        'item_withered_spring', // 生命之心
       ],
     },
   },
@@ -374,7 +373,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_sword', // 魔渊剑
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_beast_armor', // 兽化甲
-        'item_withered_spring', // 生命之心
       ],
     },
   },
@@ -444,7 +442,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
         'item_swift_glove', // 无限手套
-        'item_withered_spring', // 生命之心
         'item_beast_armor', // 兽化甲
         'item_shadow_judgment', // 暗影裁决
       ],
@@ -583,7 +580,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_time_gem', // 时间宝石
         'item_swift_glove', // 无限手套
-        'item_withered_spring', // 生命之心
         'item_beast_shield', // 兽化盾
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_dracula_mask', // 生命之盔
@@ -1167,7 +1163,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_shadow_impact', // 暗影法杖
         'item_beast_shield', // 兽化盾
-        'item_withered_spring', // 生命之心
         'item_dracula_mask', // 生命之盔
       ],
     },
@@ -1237,7 +1232,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_forbidden_staff', // 禁忌法锤
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
-        'item_withered_spring', // 生命之心
       ],
     },
   },
@@ -2084,7 +2078,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blade_mail_2', // 刃甲2
         'item_heart', // 恐鳌之心
         'item_eternal_shroud_ultra', // 法师泳衣
-        'item_aeon_pendant', // 咸鱼之王
         'item_sacred_trident', // 三叉戟
         'item_vladmir_2', // 强袭祭品
         'item_armlet_pro_max', // 小鸡臂章Pro Max
