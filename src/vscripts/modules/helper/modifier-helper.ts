@@ -29,11 +29,18 @@ export class ModifierHelper {
     Timers.CreateTimer(0.1, () => {
       // 计算持有者拥有的该物品数量
       let itemCount = 0;
-      for (let i = 0; i < 6; i++) {
+      for (let i = 0; i <= InventorySlot.SLOT_9; i++) {
         const itemInSlot = caster.GetItemInSlot(i);
-        if (itemInSlot && itemInSlot.GetName() === itemName) {
-          itemCount++;
+        if (!itemInSlot || itemInSlot.GetName() !== itemName) {
+          continue;
         }
+
+        // 背包格里的物品被解锁后才装备生效，用引擎装备状态判断，
+        // 避免底层 helper 依赖具体的解锁来源
+        if (i >= InventorySlot.SLOT_7 && itemInSlot.GetItemState() !== 1) {
+          continue;
+        }
+        itemCount++;
       }
 
       const modifiers = caster.FindAllModifiersByName(modifierName);
