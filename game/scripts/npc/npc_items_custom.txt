@@ -5630,6 +5630,7 @@
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"artifact"
 		"IsTempestDoubleClonable"	"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 
 	//=================================================================================================================
