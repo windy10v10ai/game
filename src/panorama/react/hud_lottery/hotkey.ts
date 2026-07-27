@@ -501,6 +501,17 @@ export function saveInputKeyborard(
   }
 }
 
+/** saveInputKeyborard 在按键全空时提前返回，清空设置后需主动调一次才能抹掉技能图标上的角标。 */
+export function clearAbilityHotkeyLabels() {
+  const abilities = FindDotaHudElement(`abilities`);
+  if (!abilities) {
+    return;
+  }
+  for (const abilityPanel of abilities.Children()) {
+    removeCustomHotkey(abilityPanel);
+  }
+}
+
 function setCurrentHotkey(abilityname: string, text: string, abilityPanels: Panel[]) {
   // 查找改键技能面板
   const targetAbilityPanel = abilityPanels.find((abilityPanel) => {
