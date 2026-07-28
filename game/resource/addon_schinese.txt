@@ -1376,6 +1376,9 @@
 		"DOTA_Tooltip_modifier_monkey_king_defy" "斗战胜佛"
 		"DOTA_Tooltip_modifier_monkey_king_defy_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害降低和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
 
+		// 小小 tiny
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_toss_damage"  "+{s:bonus_toss_damage} 投掷伤害"
+
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} 恶性瘟疫伤害"
 

@@ -1378,6 +1378,9 @@
 		"DOTA_Tooltip_modifier_monkey_king_defy" "Defy"
 		"DOTA_Tooltip_modifier_monkey_king_defy_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
 
+		// 小小 tiny
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_toss_damage"  "+{s:bonus_toss_damage} Toss Damage"
+
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} Noxious Plague Damage"
 
