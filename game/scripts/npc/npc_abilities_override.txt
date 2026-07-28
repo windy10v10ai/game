@@ -4211,6 +4211,7 @@
 			"toss_damage"
 			{
 				"value"				"180 270 360 450 540"	// 90 180 270 360 +90
+				"special_bonus_unique_tiny_toss_damage"	"+150"
 			}
 		}
 	}
@@ -4218,13 +4219,15 @@
 	"tiny_tree_grab"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16 14 12 10 8"	// 15 12 9 6
+		"AbilityCooldown"				"16 14 12 10 8"	// 16 13 10 7
 		"AbilityValues"
 		{
 			"attack_count"
 			{
 				"value"					"10 15 20 25 30"	// 5 6 7 8 9
-				"special_bonus_shard"			"+50"		// 额外添加魔晶效果
+				"special_bonus_unique_tiny_upgrade"	"+9000"	// 觉醒后等效无限次
+				"special_bonus_unique_tiny_6"		"+10"		// 须显式保留，否则原版此键合并后会排到觉醒键之前
+				"special_bonus_shard"			"+20"		// 额外添加魔晶效果
 			}
 			"bonus_damage"
 			{
@@ -4232,9 +4235,9 @@
 			}
 			"bonus_damage_buildings"
 			{
-				"value"							"20 30 40 50 60"	// 30 40 50 60 70
+				"value"							"20 30 40 50 60"	// 30 40 50 60 最大值和原版一致
 			}
-			"splash_pct"				"60 70 80 90 100"	// 70 80 90 100 110
+			"splash_pct"				"60 70 80 90 100"	// 70 80 90 100
 		}
 	}
 	// 扔树
@@ -4274,7 +4277,6 @@
 				"attack_speed_reduction"
 				{
 					"value"		"-10"						// -35
-					"special_bonus_unique_tiny_6" "+10"		// +8
 				}
 				"toss_bonus_damage"
 				{
@@ -4292,6 +4294,13 @@
 			"str_to_slow_resist_pct"			"12"	// 20 -8
 			"str_to_status_resist_pct"			"8"		// 10 -2
 		}
+	}
+	// 自定义天赋 投掷伤害
+	"special_bonus_unique_tiny_toss_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
 	}
 	//=================================================================================================================
 	// Ability: Treant Protector 树精卫士/大树
