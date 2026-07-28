@@ -110,6 +110,14 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// Undying Flesh Decay - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге. Это применение не расходует ману и не влияет на перезарядку Гниения."
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note0"		"Иллюзии и отключение пассивных способностей не активируют эффект."
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note1"		"Производные атаки без задержки между атаками не активируют эффект."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге. Это применение не расходует ману и не влияет на перезарядку Гниения."
+
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."
