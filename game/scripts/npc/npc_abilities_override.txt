@@ -4219,7 +4219,7 @@
 	"tiny_tree_grab"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"16 14 12 10 8"	// 15 12 9 6
+		"AbilityCooldown"				"16 14 12 10 8"	// 16 13 10 7
 		"AbilityValues"
 		{
 			"attack_count"
@@ -4235,9 +4235,9 @@
 			}
 			"bonus_damage_buildings"
 			{
-				"value"							"20 30 40 50 60"	// 30 40 50 60 70
+				"value"							"20 30 40 50 60"	// 30 40 50 60 最大值和原版一致
 			}
-			"splash_pct"				"60 70 80 90 100"	// 70 80 90 100 110
+			"splash_pct"				"60 70 80 90 100"	// 70 80 90 100
 		}
 	}
 	// 扔树
