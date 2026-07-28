@@ -65,11 +65,11 @@
 			"bonus_attack_speed"		"10 20 30 40 50 60 70 80 90 100"
 			// 技能
 			"bonus_spell_amplify"		"5 10 15 20 25 30 35 40 45 50"
-			"bonus_cooldown"			"3 6 9 12 15 18 21 24 27 30"
+			"bonus_cooldown"			"2 4 6 8 10 12 14 16 18 20"
 			// 防御
 			"bonus_move_speed"			"10 20 30 40 50 60 70 80 90 100"
-			"bonus_armor"				"4 8 12 16 20 24 28 32 36 40"
-			"bonus_magic_resistance"	"4 8 12 16 20 24 28 32 36 40"
+			"bonus_armor"				"3 6 9 12 15 18 21 24 27 30"
+			"bonus_magic_resistance"	"3 6 9 12 15 18 21 24 27 30"
 			// 全属性
 			"bonus_attributes"			"10 20 30 40 50 60 70 80 90 100"
 		}
@@ -2948,6 +2948,7 @@
 		"MaxLevel"              "5"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "6"
+		"IsBreakable"           "1"
 
 		"AbilityValues"
 		{
@@ -2968,6 +2969,7 @@
 			"MaxLevel"              "5"
 			"RequiredLevel"         "6"
 			"LevelsBetweenUpgrades" "6"
+			"IsBreakable"           "1"
 
 		"AbilityValues"
 		{
@@ -2987,6 +2989,7 @@
 		"MaxLevel"              "5"
 		"RequiredLevel"         "6"
 		"LevelsBetweenUpgrades" "6"
+		"IsBreakable"           "1"
 		"AbilityValues"
 		{
 			// 普通技能触发概率 (每级)
@@ -3007,6 +3010,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"					"1"
 		"AbilityValues"
 		{
 			// 基础触发概率(移速500时的概率)
@@ -3030,6 +3034,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"                   "1"
 		"AbilityValues"
 		{
 			// 反弹伤害百分比
@@ -3088,6 +3093,7 @@
 		"MaxLevel"                      "5"
 		"RequiredLevel"                 "6"
 		"LevelsBetweenUpgrades"         "6"
+		"IsBreakable"                   "1"
 		"AbilityValues"
 		{
 			"ultimate_ready_delay"      "15 12 9 7 5"  // 冷却好后缓冲时间才开始计数
@@ -3167,7 +3173,7 @@
 				"value"                                "-25"
 				"special_bonus_unique_windranger_8"    "+15"
 			}
-			"search_radius_bonus"         "250"
+			"search_radius_bonus"         "150"
 			"repeat_block_count"          "3"
 			"fade_delay"                  "0.2"
 		}
@@ -3249,6 +3255,24 @@
 			"attack_speed"				"20 30 40"
 			"movespeed"					"10 15 20"
 			"slow_duration"				"2"
+		}
+	}
+
+	// 泉水制裁
+	"fountain_anti_camp"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/fountain_anti_camp"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityTextureName"			"action_lockenemytower"
+		"MaxLevel"						"1"
+		"AbilityCastRange"				"2000"
+
+		"AbilityValues"
+		{
+			"radius"					"2000"
+			"move_speed"				"400"
 		}
 	}
 

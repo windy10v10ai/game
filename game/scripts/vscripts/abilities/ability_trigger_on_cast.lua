@@ -73,6 +73,7 @@ function modifier_trigger_on_cast:OnAbilityExecuted(params)
     local executed_ability = params.ability
 
     if caster ~= parent then return end
+    if parent:PassivesDisabled() then return end
     if parent:IsIllusion() then return end
 
     -- ✅ 全局冷却

@@ -24,6 +24,17 @@ export class property_cast_range_bonus_stacking extends PropertyBaseModifier {
 }
 
 @registerModifier('modifiers/property/property_declare')
+export class property_aoe_bonus_constant_stacking extends PropertyBaseModifier {
+  DeclareFunctions(): ModifierFunction[] {
+    return [ModifierFunction.AOE_BONUS_CONSTANT_STACKING];
+  }
+
+  GetModifierAoEBonusConstantStacking(): number {
+    return this.value;
+  }
+}
+
+@registerModifier('modifiers/property/property_declare')
 export class property_spell_amplify_percentage extends PropertyBaseModifier {
   DeclareFunctions(): ModifierFunction[] {
     return [ModifierFunction.SPELL_AMPLIFY_PERCENTAGE];

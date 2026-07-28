@@ -26,6 +26,7 @@ describe('GameEndPoint', () => {
     towerKills: 0,
     score: 0,
     battlePoints: 0,
+    awaken: 0,
     ...overrides,
   });
 

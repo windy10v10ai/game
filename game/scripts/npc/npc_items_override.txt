@@ -591,6 +591,7 @@
 	//=================================================================================================================
 	"item_ward_sentry"
 	{
+		"AbilityCastRange"				"600"	// 500
 		"ItemCost"						"40"
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
@@ -603,10 +604,14 @@
 	}
 	"item_ward_dispenser"
 	{
+		"AbilityCastRange"				"600"	// 500
 		"AbilityValues"
 		{
 				"lifetime_observer"				"480"			// 360
 				"observer_duration_minutes_tooltip"		"8"		// 6
+				// 引擎对 dispenser 取这两个值而非 AbilityCastRange，三处须同步
+				"cast_range_observer"			"600"	// 500
+				"cast_range_sentry"				"600"	// 500
 		}
 	}
 	//=================================================================================================================

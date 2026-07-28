@@ -90,6 +90,7 @@ describe('Treasure', () => {
   const fakeOpener = {
     GetUnitName: () => 'npc_dota_hero_axe',
     GetPlayerOwner: () => ({}),
+    GetPlayerOwnerID: () => 0,
   } as any;
 
   beforeEach(() => {
@@ -97,6 +98,7 @@ describe('Treasure', () => {
     createdUnits.length = 0;
     entityIndexCounter = 1;
     mockState = global.GameState.CUSTOM_GAME_SETUP;
+    global.DOTA_MAX_TEAM_PLAYERS = 1;
     (global.CreateUnitByName as jest.Mock).mockClear();
     (global.Timers.CreateTimer as jest.Mock).mockClear();
     (global.GameRules.Lottery.Item.onTriggered as jest.Mock).mockClear();
@@ -199,6 +201,24 @@ describe('Treasure', () => {
     });
   });
 
+  describe('lowerPoolByOne 降级映射', () => {
+    it('ULTRA 降为 PREMIUM', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.ULTRA)).toBe(ItemLotteryPool.PREMIUM);
+    });
+
+    it('PREMIUM 降为 DEFAULT', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.PREMIUM)).toBe(ItemLotteryPool.DEFAULT);
+    });
+
+    it('DEFAULT 降为 INITIAL', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.DEFAULT)).toBe(ItemLotteryPool.INITIAL);
+    });
+
+    it('INITIAL 已是最低档，保持 INITIAL', () => {
+      expect(Treasure.lowerPoolByOne(ItemLotteryPool.INITIAL)).toBe(ItemLotteryPool.INITIAL);
+    });
+  });
+
   describe('openChest', () => {
     it('清空 active，不影响 spawnCount', () => {
       treasure.spawnOne();
@@ -225,12 +245,29 @@ describe('Treasure', () => {
       expect(treasure.getActiveChestCount()).toBe(1);
     });
 
-    it('GAME_IN_PROGRESS 时立即刷新一次并挂上周期 timer', () => {
+    // GetHumamPlayerCount 遍历 DOTA_MAX_TEAM_PLAYERS 个槽位，mock 的每个槽位都是人类玩家
+    const enterGameWithHumanCount = (count: number) => {
+      global.DOTA_MAX_TEAM_PLAYERS = count;
       mockState = global.GameState.GAME_IN_PROGRESS;
       listeners['game_rules_state_change']?.({});
-      const [delay, callback] = (global.Timers.CreateTimer as jest.Mock).mock.calls[0];
+      return (global.Timers.CreateTimer as jest.Mock).mock.calls[0];
+    };
+
+    it('GAME_IN_PROGRESS 时立即刷新一次并挂上周期 timer', () => {
+      const [delay, callback] = enterGameWithHumanCount(1);
       expect(delay).toBe(0);
-      expect(callback()).toBe(Treasure.RESPAWN_INTERVAL);
+      callback();
+      expect(treasure.getActiveChestCount()).toBe(1);
+    });
+
+    it('单人局使用较短的刷新间隔', () => {
+      const [, callback] = enterGameWithHumanCount(1);
+      expect(callback()).toBe(Treasure.RESPAWN_INTERVAL_SINGLE);
+    });
+
+    it('多人局使用较长的刷新间隔', () => {
+      const [, callback] = enterGameWithHumanCount(2);
+      expect(callback()).toBe(Treasure.RESPAWN_INTERVAL_MULTI);
     });
   });
 });
