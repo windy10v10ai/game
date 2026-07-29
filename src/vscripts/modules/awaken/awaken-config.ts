@@ -16,6 +16,18 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 半人马战行者 觉醒：双刃剑替换为觉醒版，同时添加隐藏机制能力
+  {
+    heroName: 'npc_dota_hero_centaur',
+    targetAbility: 'centaur_double_edge',
+    newAbility: 'centaur_double_edge_awakened',
+    newLevel: 0,
+  },
+  {
+    heroName: 'npc_dota_hero_centaur',
+    newAbility: 'special_bonus_unique_centaur_upgrade',
+    newLevel: 1,
+  },
   // 水晶室女 觉醒
   {
     heroName: 'npc_dota_hero_crystal_maiden',

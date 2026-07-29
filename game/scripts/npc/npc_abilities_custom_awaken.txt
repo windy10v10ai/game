@@ -5,6 +5,80 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 半人马战行者 双刃剑 觉醒
+	"centaur_double_edge_awakened"
+	{
+		"BaseClass"						"centaur_double_edge"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"FightRecapLevel"				"1"
+		"AbilitySound"					"Hero_Centaur.DoubleEdge"
+		"HasShardUpgrade"				"1"
+		"AbilityTextureName"			"centaur_double_edge"
+		"MaxLevel"						"5"
+
+		"AbilityCooldown"				"3.5"
+		"AbilityCastRange"				"175"
+		"AbilityCastPoint"				"0.25"
+		"AbilityManaCost"				"0"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityValues"
+		{
+			"edge_damage"
+			{
+				"value"							"180 270 360 450 540"	// 120 180 240 300 x1.5
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"strength_damage"
+			{
+				"value"							"60 90 120 150 180"
+				"special_bonus_unique_centaur_4"	"+30"
+			}
+			"radius"
+			{
+				"value"							"220"
+				"affected_by_aoe_increase"		"1"
+			}
+			"shard_str_pct"
+			{
+				"special_bonus_shard"			"+12"
+			}
+			"shard_str_duration"
+			{
+				"special_bonus_shard"			"+15"
+			}
+			"shard_max_stacks"
+			{
+				"special_bonus_shard"			"+5"
+			}
+			"shard_movement_slow"
+			{
+				"special_bonus_shard"			"+25"
+			}
+			"shard_movement_slow_duration"
+			{
+				"special_bonus_shard"			"+2"
+			}
+			"damage_window"				"6"
+			"damage_conversion_pct"		"100"
+			"stored_damage_cap_pct"		"600"
+			"shield_pct"				"60"
+			"shield_duration"			"4"
+		}
+	}
+
+	// 半人马战行者 反击精英隐藏机制
+	"special_bonus_unique_centaur_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_centaur_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"1"
+	}
 	// 凤凰-觉醒
 	"special_bonus_unique_phoenix_upgrade"
 	{
