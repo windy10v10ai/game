@@ -110,6 +110,27 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Альтернативное применение: Natural Order следует за Elder Titan и может быть мгновенно усилен."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Призывает астрального духа. Задетые враги дают Elder Titan дополнительный урон и скорость передвижения.\n\nАльтернативное применение: Natural Order следует за Elder Titan с базовым радиусом 800. Без усиления он уменьшает только базовую броню и базовое сопротивление магии. Применение усиливает поле на %field_duration% сек.: первое касание каждого врага даёт бонусы духа, а касание героя также даёт скорость атаки; положительная броня уменьшается на значение Natural Order, а сопротивление магии напрямую снижается на такое же число процентных пунктов. Эффект действует на невосприимчивых к заклинаниям врагов, а бонус к дальности применения увеличивает радиус поля.\n\n<font color='#FFFFFF'>Улучшение от Aghanim's Scepter:</font> Первое касание каждого вражеского героя даёт %scepter_magic_immune_per_hero% сек. <font color='#FFCC66'>невосприимчивости к эффектам и сопротивления магии</font>."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_field_duration"		"ДЛИТЕЛЬНОСТЬ УСИЛЕНИЯ:"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_awaken_radius"		"РАДИУС ПОЛЯ АЛЬТ. ПРИМЕНЕНИЯ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"			"УРОН ЗА НЕ-ГЕРОЯ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"			"УРОН ЗА ГЕРОЙСКОЕ СУЩЕСТВО:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"			"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА НЕ-ГЕРОЯ (%):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"			"СКОРОСТЬ ПЕРЕДВИЖЕНИЯ ЗА ГЕРОЙСКОЕ СУЩЕСТВО (%):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_cap"				"МАКС. СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (%):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_per_real_hero"	"СКОРОСТЬ АТАКИ ЗА ГЕРОЯ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_cap"			"МАКС. СКОРОСТЬ АТАКИ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_magic_immune_per_hero"	"ДЛИТЕЛЬНОСТЬ SCEPTER ЗА ГЕРОЯ:"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field"				"<font color='#d000ff'>Воплощённое поле</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field_Description"		"Natural Order усилен. Первое касание каждого врага даёт бонусы Астрального духа."
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff"				"<font color='#d000ff'>Бонусы Астрального духа</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff_Description"			"Даёт %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% урона, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% скорости передвижения и %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% скорости атаки."
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order"			"<font color='#d000ff'>Поле Natural Order</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order_Description"		"Уменьшает базовую броню и базовое сопротивление магии. Во время усиления положительная броня уменьшается на значение Natural Order, а сопротивление магии напрямую снижается на такое же число процентных пунктов."
+
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."

@@ -149,6 +149,15 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
+  it('上古巨神觉醒替换二技能并继承原等级', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_elder_titan',
+      abilities: [{ name: 'elder_titan_ancestral_spirit', level: 4 }],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([{ name: 'elder_titan_ancestral_spirit_awaken', level: 4 }]);
+  });
   it('命中配置的英雄返回 true 并应用替换', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_pudge',

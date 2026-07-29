@@ -5,6 +5,36 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 上古巨神 觉醒灵体游魂
+	"elder_titan_ancestral_spirit_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/elder_titan_ancestral_spirit_awaken"
+		"AbilityTextureName"			"elder_titan_ancestral_spirit"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.4"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"AbilityCooldown"				"30"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"spirit_cast_point"			"0.4"
+			"spirit_cast_range"			"1200"
+			"spirit_radius"				"275"
+			"field_duration"				"10"
+			"damage_creeps"				"3 7 11 15 19"
+			"damage_heroes"				"17 38 59 80 101"
+			"move_pct_creeps"			"1.5"
+			"move_pct_heroes"			"4 5 6 7 8"
+			"move_pct_cap"				"40"
+			"attack_speed_per_real_hero"	"10 15 20 25 30"
+			"attack_speed_cap"			"150"
+			"scepter_magic_immune_per_hero"	"1.5"
+		}
+	}
+
 	// 凤凰-觉醒
 	"special_bonus_unique_phoenix_upgrade"
 	{

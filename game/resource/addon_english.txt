@@ -146,6 +146,27 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Alternative Cast: Natural Order follows Elder Titan and can be empowered instantly."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Summons an Astral Spirit. Enemies touched by the spirit grant Elder Titan bonus damage and movement speed.\n\nAlternative Cast: Natural Order follows Elder Titan with a base radius of 800. While not empowered, it reduces only base armor and base magic resistance. Activate to empower the field for %field_duration% seconds: the first touch on each enemy grants Astral Spirit bonuses, while heroes also grant attack speed; positive armor is reduced by Natural Order's percentage and magic resistance is directly reduced by the same number of percentage points. The reduction affects spell immune enemies, and cast range bonuses increase the field radius.\n\n<font color='#FFFFFF'>Scepter Upgrade:</font> The first touch on each enemy hero grants %scepter_magic_immune_per_hero% seconds of <font color='#FFCC66'>debuff immunity and magic resistance</font>."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_field_duration"		"EMPOWER DURATION:"
+		"DOTA_Tooltip_ability_elder_titan_natural_order_awaken_radius"		"ALTERNATIVE CAST FIELD RADIUS:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"			"ATTACK DAMAGE PER NON-HERO:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"			"ATTACK DAMAGE PER HERO-TYPE UNIT:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"			"MOVE SPEED PER NON-HERO (%):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"			"MOVE SPEED PER HERO-TYPE UNIT (%):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_cap"				"MOVE SPEED CAP (%):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_per_real_hero"	"ATTACK SPEED PER HERO:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_cap"			"ATTACK SPEED CAP:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_magic_immune_per_hero"	"SCEPTER DURATION PER HERO:"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field"				"<font color='#d000ff'>Embodied Field</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field_Description"		"Natural Order is empowered. The first touch on each enemy grants Astral Spirit bonuses."
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff"				"<font color='#d000ff'>Astral Spirit Bonuses</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff_Description"			"Grants %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% attack damage, %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% movement speed, and %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT% attack speed."
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order"			"<font color='#d000ff'>Natural Order Field</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order_Description"		"Reduces base armor and base magic resistance. While empowered, positive armor is reduced by Natural Order's percentage and magic resistance is directly reduced by the same number of percentage points."
+
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."

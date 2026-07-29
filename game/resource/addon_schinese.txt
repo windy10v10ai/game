@@ -146,6 +146,27 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
+		// 上古巨神 灵体游魂-觉醒
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"多样施法：自然秩序改为环绕自身，并可立即强化。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"召唤先祖游魂。游魂触碰敌人后，为上古巨神提供攻击力和移动速度。\n\n多样施法：自然秩序改为环绕自身，基础范围为 800。未强化时只降低基础护甲和基础魔抗。点击技能可强化领域 %field_duration% 秒：首次触碰敌人获得游魂加成，触碰英雄还会获得攻击速度；敌人的正护甲按自然秩序比例降低，魔法抗性直接降低相同百分点。减防对技能免疫单位生效，技能范围加成会扩大领域。\n\n<font color='#FFFFFF'>神杖升级：</font>每首次触碰一名敌方英雄，获得 %scepter_magic_immune_per_hero% 秒<font color='#FFCC66'>减益免疫和魔法抗性</font>。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_field_duration"		"强化持续时间："
+		"DOTA_Tooltip_ability_elder_titan_natural_order_awaken_radius"		"多样施法领域半径："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"			"每个非英雄单位攻击力："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"			"每个英雄单位攻击力："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"			"每个非英雄单位移动速度（%）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"			"每个英雄单位移动速度（%）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_cap"				"移动速度上限（%）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_per_real_hero"	"每个英雄攻击速度："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_cap"			"攻击速度上限："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_magic_immune_per_hero"	"神杖每个英雄持续时间："
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field"				"<font color='#d000ff'>本体领域</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field_Description"		"自然秩序已强化；首次触碰敌人会提供游魂加成。"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff"				"<font color='#d000ff'>灵体游魂加成</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff_Description"			"获得%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力、%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度和%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度。"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order"			"<font color='#d000ff'>自然秩序领域</font>"
+		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order_Description"		"降低基础护甲和基础魔抗。强化期间，正护甲按自然秩序比例降低，魔抗直接降低相同百分点。"
+
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的%regen_to_damage_pct%%%。"

@@ -16,6 +16,13 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 上古巨神 觉醒
+  {
+    heroName: 'npc_dota_hero_elder_titan',
+    targetAbility: 'elder_titan_ancestral_spirit',
+    newAbility: 'elder_titan_ancestral_spirit_awaken',
+    newLevel: 0,
+  },
   // 水晶室女 觉醒
   {
     heroName: 'npc_dota_hero_crystal_maiden',
