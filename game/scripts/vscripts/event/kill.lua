@@ -48,9 +48,10 @@ local function HeroKilled(keys)
 
     local iLevel = hHero:GetLevel()
     local GameTime = GameRules:GetDOTATime(false, false)
+    local suppressRewards = GameRules.FountainAntiCamp and GameRules.FountainAntiCamp:ShouldSuppressRewardsForVictim(hHero)
 
     -- 玩家团队奖励逻辑
-    if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
+    if not suppressRewards and attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) then
         -- 前期增长慢，电脑等级较高时，增长快
         local gold = 0
         if iLevel <= 30 then
@@ -87,7 +88,7 @@ local function HeroKilled(keys)
     end
 
     -- AI连死补偿
-    if attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
+    if not suppressRewards and attackerPlayer and IsGoodTeamPlayer(attackerPlayerID) and IsBadTeamPlayer(playerId) and
         AIGameMode.BotRecordSuccessiveDeathTable[playerId] and AIGameMode.BotRecordSuccessiveDeathTable[playerId] >= 2 then
         -- 补偿的金钱和经验 设计上不应该超过AI通过击杀玩家获得的
         local deathCount = AIGameMode.BotRecordSuccessiveDeathTable[playerId]

@@ -44,6 +44,11 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
     this.StartIntervalThink(POLL_INTERVAL);
   }
 
+  OnDestroy(): void {
+    if (!IsServer()) return;
+    GameRules.FountainAntiCamp.Disable(this.GetParent());
+  }
+
   OnIntervalThink(): void {
     if (!IsServer()) return;
 
@@ -68,11 +73,14 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
     const ability = this.GetAbility();
     if (!ability) return;
 
+    const radius = ability.GetSpecialValueFor('radius');
+    GameRules.FountainAntiCamp.Configure(fountain, ability, radius);
+
     const enemies = FindUnitsInRadius(
       fountain.GetTeamNumber(),
       fountain.GetAbsOrigin(),
       undefined,
-      ability.GetSpecialValueFor('radius'),
+      radius,
       UnitTargetTeam.ENEMY,
       UnitTargetType.HERO,
       UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,

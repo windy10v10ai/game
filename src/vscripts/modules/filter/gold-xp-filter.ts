@@ -44,6 +44,11 @@ export class GoldXPFilter {
     const reason = args.reason_const;
     let mul = this.getPlayerGoldXpMultiplier(playerID);
 
+    if (GameRules.FountainAntiCamp.ShouldSuppressGoldReward(playerID, reason)) {
+      args.gold = 0;
+      return true;
+    }
+
     if (this.GOLD_REASON_NOT_FILTER.includes(reason)) {
       return true;
     }
@@ -77,6 +82,11 @@ export class GoldXPFilter {
     const playerID = args.player_id_const;
     const reason = args.reason_const;
     let mul = this.getPlayerGoldXpMultiplier(playerID);
+
+    if (GameRules.FountainAntiCamp.ShouldSuppressExperienceReward(playerID, reason)) {
+      args.experience = 0;
+      return true;
+    }
 
     if (reason === ModifyXpReason.HERO_KILL) {
       mul = this.filterHeroKillGoldByMultiplier(mul);
