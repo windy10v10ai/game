@@ -1292,10 +1292,12 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
 
 		// 水晶室女 极寒领域-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>极寒领域 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"		"引导极寒领域期间获得<font color='#FFCC66'>技能免疫</font>，引导结束时立即失去。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>极寒领域 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"		"引导极寒领域期间获得<font color='#FFCC66'>技能免疫</font>，引导结束时立即失去。"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"极寒领域 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"获得<font color='#FFFFFF'>法术抵抗</font>，抵挡一次敌方指向性法术。"
 
 		// 小小 抓树-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
