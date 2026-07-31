@@ -47,8 +47,8 @@
 		"item"		"item_ghost"				// 幽魂权杖
 
 		// 额外
-		"item"		"item_roshans_banner"		// 肉山的战旗
-		"item"		"item_tome_of_ability_reset"	// 技能重选书
+		"item"		"item_collector"			// 收纳符
+		"item"		"item_skill_reset"			// 遗忘技能书
 		// "item"		"item_recipe_greater_famango" // 巨大疗伤莲花配方
 	}
 	// 装备
@@ -76,14 +76,15 @@
 		"item"		"item_quelling_blade_2_datadriven" // 毒瘤之刃
 
 		// 额外
-		"item"		"item_wish_1"
-		"item"		"item_wish_2"
-		"item"		"item_wish_3"
-		"item"		"item_wish_4"
 		"item"		"item_rune_transmuter_random"		// 洗炼石
 		"item"		"item_rune_transmuter_advanced"		// 转化石
 		"item"		"item_universal_rune"				// 通用符文
 		"item"		"item_awaken_stone"					// 觉醒石
+
+		"item"		"item_wish_1"
+		"item"		"item_wish_2"
+		"item"		"item_wish_3"
+		"item"		"item_wish_4"
 
 	}
 	// 其他
@@ -113,11 +114,8 @@
 
 		"item"		"item_light_part"			// 圣光组件
 		"item"		"item_dark_part"			// 暗影组件
-		// "item"		"item_armlet_light"			// 圣光臂章
-		// "item"		"item_armlet_dark"			// 暗影臂章
-		// FIXME 暂时移动
-		"item"		"item_collector"			// 收纳符
-		"item"		"item_skill_reset"			// 遗忘技能书
+		"item"		"item_roshans_banner"		// 肉山的战旗
+		"item"		"item_tome_of_ability_reset"	// 技能重选书
 
 		// FIXME 暂时移动到
 		"item"		"item_tome_of_strength"
@@ -283,11 +281,10 @@
 		"item"		"item_wasp_golden"			// 黄金大核荣耀
 		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
-		"item"      "item_six_paths_reincarnation_gun" // 六道轮回枪
+		"item"		"item_forbidden_blade"			// 禁忌战刃
 
-		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
+		"item"		"item_six_paths_reincarnation_gun" // 六道轮回枪	// FIXME 暂时移动
 		"item"		"item_switchable_crit_blade"	// 归海一刀
-		// "item"		"item_forbidden_blade"			// 禁忌战刃
 		"item"		"item_hawkeye_turret"		// 鹰眼炮台
 		"item"		"item_magic_sword"			// 魔渊剑
 	}
@@ -323,7 +320,8 @@
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"		// 洛书
 
-		"item"      "item_shadow_judgment"      // 暗影裁决
+		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
+		// "item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
