@@ -16,6 +16,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 天怒法师 觉醒
+  {
+    heroName: 'npc_dota_hero_skywrath_mage',
+    newAbility: 'special_bonus_unique_skywrath_upgrade',
+    newLevel: 1,
+  },
   // 水晶室女 觉醒
   {
     heroName: 'npc_dota_hero_crystal_maiden',
