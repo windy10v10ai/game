@@ -47,8 +47,8 @@
 		"item"		"item_ghost"				// 幽魂权杖
 
 		// 额外
-		"item"		"item_collector"			// 收纳符
-		"item"		"item_skill_reset"			// 遗忘技能书
+		"item"		"item_roshans_banner"		// 肉山的战旗
+		"item"		"item_tome_of_ability_reset"	// 技能重选书
 		// "item"		"item_recipe_greater_famango" // 巨大疗伤莲花配方
 	}
 	// 装备
@@ -110,11 +110,20 @@
 
 		// 额外
 		"item"		"item_force_field_ultra"	// 天地同寿甲
+
 		"item"		"item_light_part"			// 圣光组件
 		"item"		"item_dark_part"			// 暗影组件
+		// "item"		"item_armlet_light"			// 圣光臂章
+		// "item"		"item_armlet_dark"			// 暗影臂章
+		// FIXME 暂时移动
+		"item"		"item_collector"			// 收纳符
+		"item"		"item_skill_reset"			// 遗忘技能书
 
-		"item"		"item_armlet_light"			// 圣光臂章
-		"item"		"item_armlet_dark"			// 暗影臂章
+		// FIXME 暂时移动到
+		"item"		"item_tome_of_strength"
+		"item"		"item_tome_of_agility"
+		"item"		"item_tome_of_intelligence"
+		"item"		"item_tome_of_luoshu"		// 洛书
 	}
 	// 神秘商店
 	"secretshop"
@@ -161,7 +170,8 @@
 		"item"		"item_hand_of_group"		// 团队之手
 		"item"		"item_roshans_banner"		// 肉山的战旗
 		"item"		"item_wings_of_haste"		// 急速之翼
-		"item"		"item_moon_shard_datadriven"
+		"item"		"item_moon_shard"			// 银月之晶
+		// "item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
 		"item"		"item_tome_of_ability_reset"	// 技能重选书
 	}
@@ -275,8 +285,9 @@
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
 		"item"      "item_six_paths_reincarnation_gun" // 六道轮回枪
 
+		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
 		"item"		"item_switchable_crit_blade"	// 归海一刀
-		"item"		"item_forbidden_blade"			// 禁忌战刃
+		// "item"		"item_forbidden_blade"			// 禁忌战刃
 		"item"		"item_hawkeye_turret"		// 鹰眼炮台
 		"item"		"item_magic_sword"			// 魔渊剑
 	}
@@ -306,10 +317,12 @@
 		"item"		"item_swift_blink_2"
 		"item"		"item_arcane_blink"
 		"item"		"item_jump_jump_jump"
+
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"		// 洛书
+
 		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机

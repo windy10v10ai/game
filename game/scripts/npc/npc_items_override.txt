@@ -9,7 +9,7 @@
 	"item_recipe_travel_boots_2"	"REMOVE"
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
-	"item_moon_shard"				"REMOVE"
+	// "item_moon_shard"				"REMOVE"
 	"item_helm_of_the_dominator"	"REMOVE" // 支配头盔
 	"item_helm_of_the_overlord"		"REMOVE" // 统御头盔
 
@@ -56,16 +56,16 @@
 			"01"						"item_famango;item_famango"
 		}
 	}
-	"item_recipe_greater_famango"
-	{
-		"ItemCost"						"2000"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
-		"ItemRequirements"
-		{
-			"01"						"item_great_famango"
-		}
-	}
+	// "item_recipe_greater_famango"
+	// {
+	// 	"ItemCost"						"2000"
+	// 	"ItemPurchasable"				"1"
+	// 	"ItemSellable"					"1"
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01"						"item_great_famango"
+	// 	}
+	// }
 	// 美味护盾
 	"item_royale_with_cheese"
 	{
