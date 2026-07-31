@@ -15,28 +15,41 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
   }
 
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
+    this.castAncientSeal(caster);
+    this.castMysticFlare(caster);
+    this.castArcaneBolt(caster);
+    this.castConcussiveShot(caster);
+  }
+
+  private castAncientSeal(caster: CDOTA_BaseNPC_Hero): void {
     const seal = caster.FindAbilityByName('skywrath_mage_ancient_seal');
-    if (seal && seal.IsFullyCastable()) {
-      const target = this.findHero(caster, seal);
-      if (target) castImmediatelyOnTarget(caster, seal, target);
-    }
+    if (!seal || !seal.IsFullyCastable()) return;
 
+    const target = this.findHero(caster, seal);
+    if (target) castImmediatelyOnTarget(caster, seal, target);
+  }
+
+  private castMysticFlare(caster: CDOTA_BaseNPC_Hero): void {
     const flare = caster.FindAbilityByName('skywrath_mage_mystic_flare');
-    if (flare && flare.IsFullyCastable()) {
-      const target = this.findHero(caster, flare);
-      if (target) this.castAtPosition(caster, flare, target.GetAbsOrigin());
-    }
+    if (!flare || !flare.IsFullyCastable()) return;
 
+    const target = this.findHero(caster, flare);
+    if (target) this.castAtPosition(caster, flare, target.GetAbsOrigin());
+  }
+
+  private castArcaneBolt(caster: CDOTA_BaseNPC_Hero): void {
     const bolt = caster.FindAbilityByName('skywrath_mage_arcane_bolt');
-    if (bolt && bolt.IsFullyCastable()) {
-      const flags =
-        bolt.GetSpecialValueFor('pierce_spell_immunity') > 0
-          ? UnitTargetFlags.MAGIC_IMMUNE_ENEMIES
-          : UnitTargetFlags.NONE;
-      const target = this.findHeroOrCreep(caster, bolt, flags);
-      if (target) castImmediatelyOnTarget(caster, bolt, target);
-    }
+    if (!bolt || !bolt.IsFullyCastable()) return;
 
+    const flags =
+      bolt.GetSpecialValueFor('pierce_spell_immunity') > 0
+        ? UnitTargetFlags.MAGIC_IMMUNE_ENEMIES
+        : UnitTargetFlags.NONE;
+    const target = this.findHeroOrCreep(caster, bolt, flags);
+    if (target) castImmediatelyOnTarget(caster, bolt, target);
+  }
+
+  private castConcussiveShot(caster: CDOTA_BaseNPC_Hero): void {
     const shot = caster.FindAbilityByName('skywrath_mage_concussive_shot');
     const launchRadius = shot?.GetSpecialValueFor('launch_radius') ?? 0;
     const shotRange =
@@ -45,10 +58,12 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
         : launchRadius > 0
           ? launchRadius
           : shot && getFullCastRange(caster, shot);
-    if (shot && shot.IsFullyCastable() && shotRange && this.findHero(caster, shot, shotRange)) {
-      // 震荡光弹是无目标技能，由原生技能在有效搜索范围内选择目标。
-      caster.CastAbilityImmediately(shot, caster.GetPlayerOwnerID());
+    if (!shot || !shot.IsFullyCastable() || !shotRange || !this.findHero(caster, shot, shotRange)) {
+      return;
     }
+
+    // 震荡光弹是无目标技能，由原生技能在有效搜索范围内选择目标。
+    caster.CastAbilityImmediately(shot, caster.GetPlayerOwnerID());
   }
 
   private findHero(
