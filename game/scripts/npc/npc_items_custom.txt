@@ -4016,7 +4016,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25.0"
+		"AbilityCooldown"				"40.0"
 		"AbilityManaCost"				"150"
 
 		// Item Info
@@ -6334,7 +6334,7 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"50"
+		"AbilityCooldown"			"60"
 		"AbilityManaCost"			"0"
 
 		"precache"
