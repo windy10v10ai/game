@@ -13,6 +13,22 @@ function pngNames(dir) {
     .map((f) => path.basename(f, path.extname(f)));
 }
 
+// 曾有 19 张 JPEG 被直接改扩展名当 png 用，资源编译器静默拒绝、图标全是紫块，靠肉眼和文件名都看不出来
+function notRealPng(dir) {
+  const header = Buffer.from([0x89, 0x50, 0x4e, 0x47]);
+  return fs
+    .readdirSync(dir)
+    .filter((f) => f.toLowerCase().endsWith('.png'))
+    .filter((f) => {
+      const fd = fs.openSync(path.join(dir, f), 'r');
+      const buf = Buffer.alloc(4);
+      fs.readSync(fd, buf, 0, 4, 0);
+      fs.closeSync(fd);
+      return !buf.equals(header);
+    })
+    .sort();
+}
+
 function xmlEntries() {
   const xml = fs.readFileSync(xmlPath, 'utf8');
   const entries = [];
@@ -41,6 +57,8 @@ const entries = xmlEntries();
 const referenced = entries.map((e) => e.name);
 
 let failed = false;
+failed = report('flash3 下扩展名是 png 但内容不是 PNG', notRealPng(flash3Dir)) || failed;
+failed = report('content 下扩展名是 png 但内容不是 PNG', notRealPng(contentDir)) || failed;
 failed = report('缺少 content 副本，需从 flash3 复制', diff(flash3, content)) || failed;
 failed = report('content 多余，flash3 中不存在', diff(content, flash3)) || failed;
 failed = report('未登记进 images_items.xml', diff(content, referenced)) || failed;
