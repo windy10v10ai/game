@@ -256,9 +256,48 @@
   font-size: @font-size-sm;
   font-weight: bold;
   color: @color-text;
+  /* 卡片窄，长英雄名（尤其俄文）自动缩字号而非裁切 */
+  text-overflow: shrink;
   text-shadow:
     2px 2px 4px #000000ee,
     0 0 6px #000000cc;
+}
+
+/* 限时免费角标：绿色与已觉醒的金色描边、待解锁的紫色描边都不撞色，低调但能一眼挑出 */
+.awaken-free-badge {
+  horizontal-align: right;
+  vertical-align: top;
+  margin-top: 3px;
+  margin-right: 4px;
+  padding: 1px 5px;
+  background-color: #00000099;
+  border: 1px solid @color-safe;
+  border-radius: @radius-sm;
+}
+
+/* 名字短到能与角标同行时，让出角标那块宽度并右靠，与角标连成一组 */
+.awaken-hero-name-top-inline {
+  width: 62%;
+  horizontal-align: left;
+  text-align: right;
+  padding-right: 5px;
+}
+
+/* 名字占满第一行时角标退到第二行 */
+.awaken-free-badge-wrapped {
+  margin-top: 24px;
+}
+
+/* 角标退到第二行后压暗区要跟着变高，否则角标落在亮色立绘上 */
+.awaken-top-scrim-tall {
+  height: 48px;
+}
+
+.awaken-free-badge-label {
+  font-size: @font-size-xs;
+  font-weight: bold;
+  color: @color-safe;
+  text-shadow: 1px 1px 3px #000000ee;
 }
 
 /* 底部深色渐变压暗，保证图标与按钮/徽标清晰 */
