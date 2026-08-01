@@ -92,7 +92,16 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 在 `src/panorama/react/hud_main/pages/profile/tabs/AwakenTab.tsx` 的 `AWAKEN_ABILITIES` 加一条 `{ heroName, abilityName }`。该列表是配置表的展示副本，需手动同步，否则新觉醒不会出现在个人中心「觉醒」页。觉醒石 `_Description` 不再列英雄名（指向此页面），无需改动物品描述。
 
-### 5) 验证
+### 5) 限时免费体验清单
+
+新觉醒默认加入限免清单，让玩家不花积分也能试。清单是手工维护的，两处都要改：
+
+- `src/vscripts/modules/awaken/awaken-config.ts` 的 `FREE_TRIAL_HEROES` 加英雄名（决定实际生效）
+- `AwakenTab.tsx` 对应条目加 `freeTrial: true`（决定卡片是否显示限免角标）
+
+加完后**必须**用 `AskUserQuestion` 把清单里已有的旧英雄列出来，问用户哪些移出——清单没有到期机制，不问就会一直免费下去。
+
+### 6) 验证
 
 `npm run build:vscripts` 不报错 + `npx jest awaken-replacer` 过。槽位顺序 / 点数退还 / 飘字 / 运行时行为须 Dota tools 实跑确认。改完 vscripts 只看编译是否通过，不读编译产物 `.lua`。
 
@@ -245,3 +254,4 @@ Timers.CreateTimer(duration, () => {
 - 数值/效果「仅觉醒后生效」还是「全局对该英雄生效」
 - 等级是否需要与某技能关联
 - 主动技是否要做成自动触发
+- 限免清单中已有的哪些旧英雄该移出（见步骤 5，每次新增觉醒都要问）
