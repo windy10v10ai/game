@@ -9,6 +9,7 @@ import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-abili
 import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
+import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
 import { GameEndPoint } from './game-end-point';
@@ -117,6 +118,7 @@ export class GameEnd {
         towerKills: PlayerResource.GetTowerKills(playerId),
         score: 0,
         battlePoints: 0,
+        awaken: isAwakened(hero) ? 1 : 0,
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
       const rawBattlePoints = this.CalculatePlayerBattlePoints(

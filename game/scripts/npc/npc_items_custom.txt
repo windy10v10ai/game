@@ -276,7 +276,7 @@
 		{
 			"radius"				"900"
 			"duration_minutes"		"10"
-			"charge_count"			"3"
+			"charge_count"			"5"
 		}
 	}
 	//=================================================================================================================
@@ -5630,6 +5630,7 @@
 		"ItemShopTags"				"consumable"
 		"ItemQuality"				"artifact"
 		"IsTempestDoubleClonable"	"0"
+		"ItemCanBeUsedWithoutInventory"	"1"
 	}
 
 	//=================================================================================================================

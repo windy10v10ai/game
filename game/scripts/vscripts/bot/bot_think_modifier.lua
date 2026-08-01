@@ -44,7 +44,4 @@ function modifier_bot_think_item_use:OnIntervalThink()
 	-- ability use
 	if hHero:IsSilenced() then return end
 	if BotAbilityThink:ThinkUseAbility(hHero) then return end
-
-	BotThink:PutWardObserver(hHero)
-	BotThink:PutWardSentry(hHero)
 end
