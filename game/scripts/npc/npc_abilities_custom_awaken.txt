@@ -744,6 +744,11 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"undying_decay"
 		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"trigger_cooldown"				"0.5"
+		}
 	}
 
 	// 水晶室女 极寒领域-觉醒

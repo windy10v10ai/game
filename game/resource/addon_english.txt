@@ -151,6 +151,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit. This cast costs no mana and does not affect Decay's cooldown."
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note0"		"Cannot be triggered by illusions or while Broken."
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note1"		"Derived attacks with no attack cooldown cannot trigger this effect."
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note2"		"Can trigger at most once every %trigger_cooldown% seconds."
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Flesh Decay Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit. This cast costs no mana and does not affect Decay's cooldown."
 

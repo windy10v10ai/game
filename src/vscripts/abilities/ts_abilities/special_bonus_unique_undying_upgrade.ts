@@ -19,6 +19,8 @@ export class SpecialBonusUniqueUndyingUpgrade extends BaseAbility {
 @registerModifier('abilities/ts_abilities/special_bonus_unique_undying_upgrade')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_special_bonus_unique_undying_upgrade extends BaseModifier {
+  private lastTriggerTime = 0;
+
   IsHidden(): boolean {
     return false;
   }
@@ -65,6 +67,11 @@ export class modifier_special_bonus_unique_undying_upgrade extends BaseModifier 
 
     const decay = parent.FindAbilityByName(DECAY_ABILITY);
     if (!decay || decay.IsNull() || decay.GetLevel() <= 0) return;
+
+    const now = GameRules.GetGameTime();
+    const cooldown = awaken.GetSpecialValueFor('trigger_cooldown');
+    if (now - this.lastTriggerTime < cooldown) return;
+    this.lastTriggerTime = now;
 
     const previousCursorPosition = parent.GetCursorPosition();
     parent.SetCursorPosition(target.GetAbsOrigin());
