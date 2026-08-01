@@ -1427,6 +1427,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_forbidden_staff', // 禁忌法锤
         'item_ten_thousand_swords', // 万剑归宗
+        'item_beast_shield', // 兽化盾
         'item_shadow_impact', // 暗影法杖
       ],
     },
@@ -2278,7 +2279,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_ten_thousand_swords', // 万剑
         'item_forbidden_staff', // 禁忌法杖
-        'item_shadow_impact', // 暗影法杖
         'item_beast_shield', // 兽化盾
       ],
     },
@@ -2339,7 +2339,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_withered_spring', // 生命之心
         'item_beast_shield', // 兽化盾
-        'item_shadow_impact', // 暗影法杖
         'item_hawkeye_turret', // 鹰眼炮台
       ],
     },
