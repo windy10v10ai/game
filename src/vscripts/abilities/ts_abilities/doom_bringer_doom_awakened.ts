@@ -4,12 +4,7 @@ import {
   registerAbility,
   registerModifier,
 } from '../../utils/dota_ts_adapter';
-import {
-  getDoomAwakenedEffectiveRadius,
-  getDoomAwakenedNativeScepterRadius,
-  getDoomAwakenedTalentStates,
-  isDoomAwakenedFriendlyTarget,
-} from './doom-awaken-logic';
+import { getDoomAwakenedTalentStates, isDoomAwakenedFriendlyTarget } from './doom-awaken-logic';
 import {
   DevourAbilityEntry,
   getDevourAbilityHighestDeclaredLevel,
@@ -35,13 +30,6 @@ function isSameTeam(caster: CDOTA_BaseNPC, target: CDOTA_BaseNPC): boolean {
 
 function getEnemyDoomDuration(target: CDOTA_BaseNPC, duration: number): number {
   return Math.max(0, duration * (1 - target.GetStatusResistance()));
-}
-
-function getNativeScepterAuraRadius(abilityLevel: number): number {
-  return getDoomAwakenedNativeScepterRadius(
-    GetAbilityKeyValuesByName('doom_bringer_doom'),
-    abilityLevel,
-  );
 }
 
 function hasLearnedTalent(caster: CDOTA_BaseNPC | undefined, talentName: string): boolean {
@@ -129,14 +117,7 @@ export class DoomBringerDoomAwakened extends BaseAbility {
     const caster = this.GetCaster();
     if (!caster.HasScepter()) return 0;
 
-    return this.getEffectiveScepterAuraRadius();
-  }
-
-  private getEffectiveScepterAuraRadius(): number {
-    const nativeRadius = getNativeScepterAuraRadius(this.GetLevel());
-    // The probe starts at 1 so GetSpecialValueFor can expose only the caster's AoE increase after subtraction.
-    const aoeBonus = Math.max(0, this.GetSpecialValueFor('aoe_bonus_probe') - 1);
-    return getDoomAwakenedEffectiveRadius(nativeRadius, aoeBonus);
+    return this.GetSpecialValueFor('scepter_aura_radius');
   }
 
   OnSpellStart(): void {
@@ -158,7 +139,7 @@ export class DoomBringerDoomAwakened extends BaseAbility {
 
     if (!caster.HasScepter()) return;
 
-    const radius = this.getEffectiveScepterAuraRadius();
+    const radius = this.GetSpecialValueFor('scepter_aura_radius');
     target.AddNewModifier(caster, this, CARRIER_MODIFIER, {
       duration: effectDuration,
       radius,

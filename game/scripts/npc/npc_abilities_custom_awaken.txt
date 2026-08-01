@@ -693,9 +693,9 @@
 		{
 			"duration"					"12 14 16 18"
 			"damage"					"66 132 198 264"
-			"aoe_bonus_probe"
+			"scepter_aura_radius"
 			{
-				"value"					"1"
+				"value"					"350"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
