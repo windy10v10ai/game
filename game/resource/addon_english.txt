@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// Undying Flesh Decay - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Flesh Decay Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every %trigger_cooldown% seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Flesh Decay Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every <font color='#FFFFFF'><b>0.5</b></font> seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
+
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
