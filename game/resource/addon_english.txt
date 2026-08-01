@@ -3171,6 +3171,7 @@
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct" "%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"  "%+Turn Rate"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_evasion"    "%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"          "Fighter Mode"
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining flying vision and unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."

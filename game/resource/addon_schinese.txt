@@ -3172,6 +3172,7 @@
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"				"+移动速度（可叠加）"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"						"%+转身速率"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_evasion"						"%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"								"战机模式"
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"					"获得高空视野，移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，无视地形和单位碰撞。"
