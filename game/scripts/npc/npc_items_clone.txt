@@ -260,6 +260,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_boots_of_bearing_2"
 		"ItemCost"						"5725"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_boots_of_bearing_2"

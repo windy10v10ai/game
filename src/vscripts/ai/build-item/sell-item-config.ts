@@ -217,12 +217,8 @@ export const ValueBasedSellItemsList: string[] = [
   'item_dagon_5', // 达贡之神力（5级）
 
   // 终极道具 10k~ 不出售
-];
 
-/**
- * 英雄特定出售物品列表
- * 根据英雄名称配置特定的出售物品
- */
-export const SellItemHeroList: Record<string, string[]> = {
-  npc_dota_hero_abaddon: ['item_overwhelming_blink', 'item_echo_sabre_2'],
-};
+  // 特殊道具 - 排在最后，仅在没有任何装备可卖时才用于腾出随身格位
+  'item_dust', // 显隐之尘
+  'item_gem', // 真视宝石
+];

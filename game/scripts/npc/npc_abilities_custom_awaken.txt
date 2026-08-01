@@ -661,4 +661,36 @@
 			"regen_to_damage_pct"		"150"
 		}
 	}
+
+	// 水晶室女 极寒领域-觉醒
+	"special_bonus_unique_crystal_maiden_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_crystal_maiden_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"crystal_maiden_freezing_field"
+		"MaxLevel"						"1"
+	}
+
+	// 小小 抓树-觉醒
+	// 效果由 npc_abilities_override.txt 中 tiny_tree_grab 的 special_bonus 键实现，本技能仅作拥有标记
+	"special_bonus_unique_tiny_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"tiny_tree_grab"
+		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_tiny_upgrade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
 }

@@ -12,6 +12,9 @@ import { isWarlockInfernalUnitName } from './warlock-awaken-math';
 
 const MAX_SPELL_ABSORB_LAYERS = 16;
 const KILL_TIME_DUEL_DURATION_RATIO = 0.8;
+// 高等级下击杀伤害大量来自普攻以外的来源，纯普攻 DPS 估算过于保守，取消这层折扣
+const LATE_GAME_LEVEL = 30;
+const KILL_TIME_DUEL_DURATION_RATIO_LATE = 1;
 const MIN_SURVIVING_HEALTH_RATIO = 0.3;
 
 // 决斗中断/外部支援等干扰无法预知，靠这两条安全余量兜底，而不是逐帧重新评估战局
@@ -26,7 +29,11 @@ function canWinDuel(
   const timeToKill = target.GetHealth() / casterDPS;
   // 状态抗性会缩短决斗对目标一侧的强制时长，目标可能借机提前脱离
   const effectiveDuration = duelDuration * (1 - target.GetStatusResistance());
-  if (timeToKill > effectiveDuration * KILL_TIME_DUEL_DURATION_RATIO) return false;
+  const killTimeRatio =
+    caster.GetLevel() >= LATE_GAME_LEVEL
+      ? KILL_TIME_DUEL_DURATION_RATIO_LATE
+      : KILL_TIME_DUEL_DURATION_RATIO;
+  if (timeToKill > effectiveDuration * killTimeRatio) return false;
 
   const targetDPS = calculateAttackDPS(target, caster);
   const survivingHealth = caster.GetHealth() - targetDPS * timeToKill;

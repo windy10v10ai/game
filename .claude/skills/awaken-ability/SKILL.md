@@ -140,6 +140,7 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 - **TS intrinsic modifier（从零新增首选）**：`@registerModifier` 的 modifier 在 `DeclareFunctions` 声明事件，回调里判 `event.unit == parent` 且 `event.ability.GetAbilityName() == "目标技能名"`。不依赖技能 behavior，最通用。**先想清触发时机选对事件**：
   - `MODIFIER_EVENT_ON_ABILITY_START` → `OnAbilityStart`：**前摇开始**就触发（玩家可在前摇结束前取消施法）。只适合需要前摇期就生效的效果（如前摇加魔免防打断，见影魔现有觉醒）。**不要**用它结算附加伤害——玩家取消施法即可反复白嫖。
   - `MODIFIER_EVENT_ON_ABILITY_FULLY_CAST` → `OnAbilityFullyCast`：**前摇走完、真正 OnSpellStart** 才触发，等价「释放完成」。附加伤害/附加效果一律用这个。目标技能是单体指向时，伤害数值可直接 `event.ability.GetSpecialValueFor("xxx")` 读触发技能当前等级的值，天然随其等级/神杖/天赋分级，无需自带 KV 数值。
+  - `MODIFIER_EVENT_ON_ABILITY_END_CHANNEL` → `OnAbilityEndChannel`：**引导结束**触发，读条走完和被打断/主动取消都会推。引导期间才生效的觉醒（如引导期魔免）用 `FULLY_CAST` 开、`END_CHANNEL` 收，**不要写轮询**——`CDOTA_BaseNPC` 上没有 `IsChannelling`（只有 `CDOTABaseAbility.IsChanneling()`），照着轮询思路写会编译不过。时长用 `event.ability.GetChannelTime()` 申请，实际回收交给 `END_CHANNEL`。参考：冰女 `special_bonus_unique_crystal_maiden_upgrade`。
 - **DataDriven modifier（仅维护已有）**：KV `Modifiers` 加 `"Passive" "1"` 常驻 modifier（配 `"RemoveOnDeath" "0"` + `"Attributes" "MODIFIER_ATTRIBUTE_PERMANENT"`），用 **`OnAbilityExecuted`** 块 `RunScript`。被施放的技能是 **`keys.event_ability`**（不是 `keys.ability`），施法者 `keys.caster`。主动技（如 `UNIT_TARGET`）上也会常驻触发。
 
 > **关键坑**：不要为了让 listener 常驻而给主动技 `AbilityBehavior` 叠加 `DOTA_ABILITY_BEHAVIOR_PASSIVE`——实测会使该主动技**无法施放**。DataDriven 的 `Passive` modifier 不依赖技能 behavior 即可常驻，保持原主动 behavior 即可。
@@ -164,7 +165,11 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > **关键坑：key 必须是 `special_bonus_` 前缀的技能名**。引擎靠前缀识别哪些子 key 是「bonus 覆盖」，非此前缀的子 key 被当无关元数据**静默忽略**（数值不变，无报错）。觉醒技能即使是普通可学习主动技（如 PA `special_bonus_unique_phantom_assassin_upgrade` 是 `UNIT_TARGET` 主动），只要名字带前缀就能当 key；反之，不带前缀的觉醒技能名（如曾用的 `sniper_assassinate_upgrade`）写进去不生效，须把觉醒技能**重命名**为 `special_bonus_unique_*`（连带改抽奖池引用、Lua 类名、本地化 key；ScriptFile 路径/Lua 文件名可不动，仅同步文件内 ability 类名）。该 key 技能还须被英雄拥有且等级 ≥ 1 才应用。
 
-> **动手前必查：一个 value 块只能有一个 `special_bonus_` key**。选定目标数值前，先按 `update-abilities-override` skill 的方法读该技能整段（override 差分 + `docs/reference/<version>/heroes/` 原版全集），确认目标 value 块**没有**已被占用的 `special_bonus_unique_*`（常见来源：原版天赋、其它觉醒）。若已占用（如 `windrunner_shackleshot` 的 `stun_duration` 已挂天赋 `special_bonus_unique_windranger_6`），该字段不能再挂第二个 special_bonus key 作觉醒专属加强，需换一个未被占用的字段，或改用其它实现方式（DataDriven Modifiers / TS）。
+> **同一 value 块可以挂多个 `special_bonus_` key，但引擎只应用块内第一个命中的**，所以觉醒键须排在 `value` 之后、其它键之前。动手前先按 `update-abilities-override` skill 的方法读该技能整段（override 差分 + `docs/reference/<version>/heroes/` 原版全集，**原版键会被合并进来，只看 override 会漏**），确认块内已有哪些 `special_bonus_*`（常见来源：原版天赋、魔晶、神杖、其它觉醒）。排首位意味着觉醒后该字段上的其它 bonus 全部失效，若不可接受则换一个干净字段，或改用其它实现方式（DataDriven Modifiers / TS）。
+
+> **块内原有的原版键必须在 override 里逐条显式重写，并排在觉醒键之后**。只把觉醒键写进 override 是不够的——override 未显式声明的原版键在合并时会排到觉醒键**前面**，觉醒同样静默失效。这些重写行的唯一作用是固定键序，须加注释说明，避免被后续「删同值差分」当冗余清理掉（写与原版不同的值可再加一层保险）。
+
+> 实测：`tiny_tree_grab` 的 `attack_count` 原本挂着原版天赋 `special_bonus_unique_tiny_6` 与魔晶键，觉醒键排第三时**静默失效**（无报错、数值不变）；把觉醒键提到 `value` 之后、并将原版天赋键显式重写在其后，才生效。
 
 > 参考：PA 觉醒后潜匿之刺 `dagger_speed` 1200→2100；狙击手 `special_bonus_unique_sniper_assassinate_upgrade` 觉醒后爆头 `proc_chance` `=100`。
 

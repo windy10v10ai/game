@@ -17,7 +17,7 @@ import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
 import { Treasure } from './treasure/treasure';
-// import { WardSlot } from './ward-slot/ward-slot';
+import { WardSlot } from './ward-slot/ward-slot';
 
 declare global {
   interface CDOTAGameRules {
@@ -29,7 +29,7 @@ declare global {
     Event: Event;
     GoldXPFilter: GoldXPFilter;
     Treasure: Treasure;
-    // WardSlot: WardSlot;
+    WardSlot: WardSlot;
   }
 }
 
@@ -80,5 +80,5 @@ export function ActivateModules() {
 
   if (GameRules.Treasure == null) GameRules.Treasure = new Treasure();
 
-  // GameRules.WardSlot = new WardSlot();
+  GameRules.WardSlot = new WardSlot();
 }

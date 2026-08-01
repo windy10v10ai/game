@@ -26,6 +26,15 @@ Pull Type从进到远
   - Kobolds (E), Ogres (M), Centaurs (H), Drakes (A) - (Normal Gamerules)
   - Ghosts (E), Centaurs (M), Wildkin (H), Prowlers (A)
 
+## 编辑商店购买范围
+
+让购买/出售在地图任意位置生效。
+
+- 修改 `prefabs\dota_pvp_prefab.vmap` 中天辉泉水的 `trigger_shop`
+  - 尺寸放大
+  - z轴须覆盖高地与河道落差，原高度仅 260，只拉 xy 会导致英雄上高地后脱离触发器，在transform中Scale 3倍
+- 移除中立生物营地的 `trigger_shop`
+
 ## 编译地图
 
 在Hammer中按F9，选择Build。

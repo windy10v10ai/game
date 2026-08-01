@@ -1,7 +1,9 @@
 import 'panorama-polyfill-x/lib/console';
 import 'panorama-polyfill-x/lib/timers';
 import React, { useEffect, useRef, useState } from 'react';
-import { FindDotaHudElement } from '@utils/utils';
+import { FindDotaHudElement, GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { useNetTable } from '../shared/hooks/useNetTable';
+import { PlayerSetting } from '../../../vscripts/api/player';
 
 const POLL_INTERVAL_MS = 200;
 const RIGHT_FLARE_WIDTH = '125px';
@@ -12,9 +14,17 @@ const INVENTORY_MARGIN_RIGHT = '100px';
 const ABILITY_INSET_SHADOW_RIGHT_MARGIN_RIGHT = '302px';
 
 const SLOTS = [
-  { ability: 'ability_ward_observer_slot', item: 'item_ward_observer' },
-  { ability: 'ability_ward_sentry_slot', item: 'item_ward_sentry' },
-] as const;
+  {
+    ability: 'ability_ward_observer_slot',
+    item: 'item_ward_observer',
+    settingKey: 'wardObserverKey',
+  },
+  {
+    ability: 'ability_ward_sentry_slot',
+    item: 'item_ward_sentry',
+    settingKey: 'wardSentryKey',
+  },
+] as const satisfies readonly { ability: string; item: string; settingKey: keyof PlayerSetting }[];
 
 const containerStyle: Partial<VCSSStyleDeclaration> = {
   horizontalAlign: 'right',
@@ -50,6 +60,22 @@ const chargeStyle: Partial<VCSSStyleDeclaration> = {
   textShadow: '0px 0px 5px 3.0 #8B0000FF',
 };
 
+const hotkeyStyle: Partial<VCSSStyleDeclaration> = {
+  horizontalAlign: 'left',
+  verticalAlign: 'top',
+  minWidth: '14px',
+  height: '14px',
+  backgroundColor: '#000000cc',
+  border: '1px solid #000000',
+  borderRadius: '2px',
+  color: '#FFFFFF',
+  fontSize: '10px',
+  fontWeight: 'bold',
+  textAlign: 'center',
+  textShadow: '1px 1px 2px 2.0 #000000FF',
+  zIndex: 1,
+};
+
 function getHeroSlotAbility(abilityName: string): AbilityEntityIndex | -1 {
   const heroId = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
   if (heroId === -1) {
@@ -70,12 +96,12 @@ function placeWard(abilityName: string) {
   Abilities.ExecuteAbility(abilityId, heroId, false);
 }
 
-/**
- * @deprecated 暂时停用，未在 script.tsx 中挂载。功能位由扩容之书解锁的背包 7/8/9 格承担。
- */
 function WardSlot() {
   const containerRef = useRef<Panel | null>(null);
   const [charges, setCharges] = useState<number[]>(() => SLOTS.map(() => 0));
+  const steamAccountId = GetLocalPlayerSteamAccountID();
+  const player = useNetTable('player_table', steamAccountId);
+  const playerSetting = player?.playerSetting;
 
   useEffect(() => {
     const rightFlare = FindDotaHudElement('right_flare');
@@ -120,8 +146,9 @@ function WardSlot() {
 
   return (
     <Panel hittest={false} ref={containerRef} style={containerStyle}>
-      {SLOTS.map(({ ability, item }, i) => {
+      {SLOTS.map(({ ability, item, settingKey }, i) => {
         const chargeCount = charges[i];
+        const hotkey = playerSetting?.[settingKey] ?? '';
         return (
           <Panel
             key={ability}
@@ -134,6 +161,7 @@ function WardSlot() {
               showtooltip={true}
               style={{ ...iconBaseStyle, opacity: chargeCount > 0 ? '1' : '0.4' }}
             />
+            {hotkey !== '' && <Label style={hotkeyStyle} text={hotkey} />}
             <Label style={chargeStyle} text={chargeCount.toString()} />
           </Panel>
         );

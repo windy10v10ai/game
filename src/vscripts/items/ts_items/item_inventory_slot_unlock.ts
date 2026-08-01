@@ -5,8 +5,8 @@ import {
   registerModifier,
 } from '../../utils/dota_ts_adapter';
 
-const MODIFIER_NAME = 'modifier_item_inventory_slot_unlock';
-const MAX_UNLOCKED_ITEM_SLOTS = 3;
+export const MODIFIER_NAME = 'modifier_item_inventory_slot_unlock';
+export const MAX_UNLOCKED_ITEM_SLOTS = 3;
 const FIRST_BACKPACK_SLOT = InventorySlot.SLOT_7;
 const LAST_BACKPACK_SLOT = InventorySlot.SLOT_9;
 const INVENTORY_SYNC_INTERVAL = 0.1;
@@ -18,9 +18,9 @@ const BACKPACK_ALWAYS_USABLE_ITEMS: string[] = [
   'item_roshans_banner',
   'item_dust',
   'item_smoke_of_deceit',
-  'item_ward_observer',
-  'item_ward_sentry',
-  'item_ward_dispenser',
+  // 'item_ward_observer',
+  // 'item_ward_sentry',
+  // 'item_ward_dispenser',
   'item_tome_of_knowledge',
   'item_tome_of_agility',
   'item_tome_of_intelligence',

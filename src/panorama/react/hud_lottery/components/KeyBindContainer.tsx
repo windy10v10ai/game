@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import KeySettingButton from './KeySettingButton';
+import WardKeySettingButton from './WardKeySettingButton';
 import InventorySlotKeySettingButton from './InventorySlotKeySettingButton';
 import KeyBindRemember from './KeyBindRemember';
 import { GetLotteryStatus, SubscribeLotteryStatus } from '@utils/net-table';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
-import { saveInputKeyborard, saveInventorySlotHotkeys } from '../hotkey';
+import { clearAbilityHotkeyLabels, saveInputKeyborard, saveInventorySlotHotkeys } from '../hotkey';
 import { PlayerSetting } from '../../../../vscripts/api/player';
 
 interface KeyBindContainerProps {
@@ -26,6 +27,10 @@ function normalizeKeyBindSetting(playerSetting: PlayerSetting): KeyBindSettingSt
     activeAbilityQuickCast: playerSetting.activeAbilityQuickCast,
     passiveAbilityQuickCast: playerSetting.passiveAbilityQuickCast,
     passiveAbilityQuickCast2: playerSetting.passiveAbilityQuickCast2 ?? false,
+    wardObserverKey: playerSetting.wardObserverKey ?? '',
+    wardObserverQuickCast: playerSetting.wardObserverQuickCast ?? false,
+    wardSentryKey: playerSetting.wardSentryKey ?? '',
+    wardSentryQuickCast: playerSetting.wardSentryQuickCast ?? false,
     inventorySlot7Key: playerSetting.inventorySlot7Key ?? '',
     inventorySlot7QuickCast: playerSetting.inventorySlot7QuickCast ?? false,
     inventorySlot8Key: playerSetting.inventorySlot8Key ?? '',
@@ -61,6 +66,29 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
       const changed = patchedKeys.some((key) => current[key] !== patch[key]);
       return changed ? { ...current, ...patch } : current;
     });
+  };
+
+  // 记忆勾选是「是否跨局保存」的偏好，不随按键一起清
+  const clearAllKeys = () => {
+    patchSetting({
+      activeAbilityKey: '',
+      activeAbilityQuickCast: false,
+      passiveAbilityKey: '',
+      passiveAbilityQuickCast: false,
+      passiveAbilityKey2: '',
+      passiveAbilityQuickCast2: false,
+      wardObserverKey: '',
+      wardObserverQuickCast: false,
+      wardSentryKey: '',
+      wardSentryQuickCast: false,
+      inventorySlot7Key: '',
+      inventorySlot7QuickCast: false,
+      inventorySlot8Key: '',
+      inventorySlot8QuickCast: false,
+      inventorySlot9Key: '',
+      inventorySlot9QuickCast: false,
+    });
+    clearAbilityHotkeyLabels();
   };
 
   // 监听nettable数据变化
@@ -158,6 +186,24 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
         />
       </Panel>
       <Panel style={{ flowChildren: 'right' }}>
+        <WardKeySettingButton
+          itemname="item_ward_observer"
+          abilityname="ability_ward_observer_slot"
+          bindKeyText={setting.wardObserverKey}
+          setBindKeyText={(value) => patchSetting({ wardObserverKey: value })}
+          quickCast={setting.wardObserverQuickCast}
+          setQuickCast={(value) => patchSetting({ wardObserverQuickCast: value })}
+        />
+        <WardKeySettingButton
+          itemname="item_ward_sentry"
+          abilityname="ability_ward_sentry_slot"
+          bindKeyText={setting.wardSentryKey}
+          setBindKeyText={(value) => patchSetting({ wardSentryKey: value })}
+          quickCast={setting.wardSentryQuickCast}
+          setQuickCast={(value) => patchSetting({ wardSentryQuickCast: value })}
+        />
+      </Panel>
+      <Panel style={{ flowChildren: 'right' }}>
         <InventorySlotKeySettingButton
           inventorySlot={6}
           displaySlot={7}
@@ -186,6 +232,7 @@ const KeyBindContainer: React.FC<KeyBindContainerProps> = ({
       <KeyBindRemember
         isRememberAbilityKey={setting.isRememberAbilityKey}
         setIsRememberAbilityKey={(value) => patchSetting({ isRememberAbilityKey: value })}
+        clearAllKeys={clearAllKeys}
       />
     </Panel>
   );

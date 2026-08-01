@@ -150,6 +150,10 @@ interface SaveBindAbilityKeyEventData {
   activeAbilityQuickCast: boolean;
   passiveAbilityQuickCast: boolean;
   passiveAbilityQuickCast2?: boolean;
+  wardObserverKey?: string;
+  wardObserverQuickCast?: boolean;
+  wardSentryKey?: string;
+  wardSentryQuickCast?: boolean;
   inventorySlot7Key?: string;
   inventorySlot7QuickCast?: boolean;
   inventorySlot8Key?: string;

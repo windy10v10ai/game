@@ -13,9 +13,17 @@ export const itemTiers: Tier[] = [
       'item_passive_skill_tome', // 被动技能书
     ],
   },
-  // 终极物品
+  // 特殊物品
   {
     level: 6,
+    names: [
+      'item_awaken_stone', // 觉醒石
+      'item_inventory_slot_unlock', // 扩容之书
+    ],
+  },
+  // 终极物品
+  {
+    level: 5,
     names: [
       'item_fusion_hawkeye', // 鹰眼符文
       'item_fusion_forbidden', // 禁忌符文
@@ -25,13 +33,6 @@ export const itemTiers: Tier[] = [
       'item_fusion_shadow', // 暗影符文
       'item_fusion_magic', // 魔化符文
       'item_fusion_agile', // 灵动符文
-    ],
-  },
-  {
-    level: 5,
-    names: [
-      'item_awaken_stone', // 觉醒石
-      'item_inventory_slot_unlock', // 扩容之书
     ],
   },
   // 特殊物品
@@ -56,6 +57,12 @@ export const itemTiers: Tier[] = [
     names: [
       'item_consumable_gem', // 幻影宝石
       'item_candy_candy', // 嘉心糖
+
+      'item_force_staff_2', // 黄金法杖
+      'item_sange_and_yasha', // 散夜对剑
+      'item_kaya_and_sange', // 散慧对剑
+      'item_yasha_and_kaya', // 慧夜对剑
+      'item_bfury', // 狂战斧
       'item_solar_crest', // 炎阳纹章
       'item_aether_lens_2', // 以太之镜
       'item_wings_of_haste', // 急速之翼

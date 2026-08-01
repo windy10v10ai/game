@@ -7,7 +7,9 @@ import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 @reloadable
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
-  static readonly RESPAWN_INTERVAL = 240;
+
+  static readonly RESPAWN_INTERVAL_SINGLE = 120; // 单人局
+  static readonly RESPAWN_INTERVAL_MULTI = 180; // 多人局（全队发奖励，避免刷太多）
   static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;
   static readonly OPEN_PARTICLE = 'particles/items2_fx/hand_of_midas.vpcf';
@@ -16,8 +18,8 @@ export class Treasure {
   // 开局点位：仅天辉高地附近，开局走两步就能看到
   static readonly SPAWN_POINTS_INITIAL: Vector[] = [
     Vector(-7314, -5346, 256), // 高低左近
-    Vector(-7492, -3646, 256), // 高地左远
-    Vector(-4317, -7208, 263), // 高地右远
+    Vector(-7548, -3274, 256), // 高地左远
+    Vector(-4255, -7043, 256), // 高地右远
   ];
 
   // 中期点位：天辉野区
@@ -73,7 +75,6 @@ export class Treasure {
     Vector(-110, -7129, 128),
     Vector(2039, -7166, 128),
     Vector(-360, -8686, 128),
-    Vector(7692, -7822, 256),
     Vector(-1927, -8665, 128),
     Vector(6368, -8416, 0),
 
@@ -96,6 +97,7 @@ export class Treasure {
 
     // 天辉下路外野区
     Vector(8472, -4897, 128),
+    Vector(7692, -7822, 256),
 
     // 夜魇上路外野区
     Vector(-7456, 3552, 128),
@@ -126,14 +128,22 @@ export class Treasure {
         if (state === GameState.PRE_GAME) {
           this.spawnOne();
         } else if (state === GameState.GAME_IN_PROGRESS) {
+          const interval = Treasure.getRespawnInterval();
           Timers.CreateTimer(0, () => {
             this.spawnOne();
-            return Treasure.RESPAWN_INTERVAL;
+            return interval;
           });
         }
       },
       undefined,
     );
+  }
+
+  // <= 1 而非 === 1，兜底纯 bot 调试局
+  private static getRespawnInterval(): number {
+    return PlayerHelper.GetHumamPlayerCount() <= 1
+      ? Treasure.RESPAWN_INTERVAL_SINGLE
+      : Treasure.RESPAWN_INTERVAL_MULTI;
   }
 
   spawnOne(): void {

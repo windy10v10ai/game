@@ -2,7 +2,7 @@
 name: release-note
 description: >-
   生成 Steam Workshop 中英文更新日志。支持手动、PR、Issue（含 checklist 进度）。
-  版本号：用户指定 > release PR 大版本 > Steam 递增补丁字母。
+  版本号：用户指定 > release PR 大版本（推荐值，须问用户）> Steam 递增补丁字母。
   用户确认后可写回 open PR（UTF-8 无 BOM）。
   **创建 PR 时必须调用本 skill 生成 Release Note 段，不要手写。**
   Use when creating a pull request to generate Steam Workshop release notes.
@@ -58,16 +58,23 @@ URL 含 `/issues/` → Issue；拉取正文分两条路径：
 
 Steam 最新去掉字母后缀 +0.01 得下一主版本（如 `v5.19b` → `v5.20`）。若 open release PR 版本一致则直接采用；不一致则问用户。
 
-### 3. Open release PR 大版本 > Steam
+### 3. Open release PR 大版本 > Steam（推荐值，须问用户）
 
-**必须先 WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本作为当前 Steam 最新版——**每次执行步骤 2 时都必须重新 fetch，不得使用会话早期的缓存结果。**
+**必须先 WebFetch** [Steam Workshop Changelog](https://steamcommunity.com/sharedfiles/filedetails/changelog/2307479570) 取第 1 页首条版本作为当前 Steam 最新版——**每次执行本步骤时都必须重新 fetch，不得使用会话早期的缓存结果。**
 
 ```bash
 gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url
 ```
 
-release PR 存在且大版本**严格高于** Steam（如 Steam `v5.19b`，release PR `v5.20`）→ **采用 release PR 版本**（`v5.20`）。
-**Steam 已发布与 release PR 同大版本**（如 Steam `v5.20`，release PR `v5.20`）→ **不采用**，进入步骤 4。多条 release PR 时问用户。
+- **release PR 大版本严格高于 Steam**（Steam `v5.45b`，release PR `v5.46`）→ release PR 版本只是**推荐值**，用 `AskUserQuestion` 让用户二选一：
+  - 大版本 `v5.46`（推荐，即 release PR 标题版本）
+  - 小版本补丁 `v5.45c`（步骤 4 递增结果）
+- **Steam 已发布与 release PR 同大版本**（Steam `v5.46`，release PR `v5.46`）→ 进入步骤 4。
+- 多条 release PR → 问用户用哪条。
+
+> 推荐值不可直接采用：release PR 由 `create_release_pr.yml` 在任意 PR 合入 `develop` 后自动创建（版本 = 最新 tag 大版本 +1），它的存在只说明有过一次合并，不代表本次改动作为大版本发布——用户往往仍在连续补小版本补丁。
+
+无论用户选大版本还是小版本补丁，本次条目都要按下文「聚合 release PR」合并进该 PR。
 
 ### 4. 默认：Steam 同大版本递增补丁字母
 
@@ -135,7 +142,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 1. 简洁明了，每条尽量压成 1 句；同一目标的多个改动点用逗号串在这 1 句里，不为每个改动点新开一条
 2. 重要的写在前面
 3. 中文全角标点，英文半角标点
-4. 英文直接表述（`Fixed X not working.`），避免冗余句式
+4. 英文直接表述（`Fixed X not working.`），避免冗余句式（如开头写 `Fixed an issue where X...`，直接写 `Fixed X...`）
 5. 物品/技能名及其内部效果/增益名（如"开关"技能的具体称呼）一律从本地化文件查找（中 `addon_schinese.txt`，英 `addon_english.txt`）核实后再用，**禁止凭印象/常见 Dota 术语臆造**——同一件物品在不同 mod 里效果命名可能不同，写错等于编造了一个不存在的机制
 6. 优先用玩家熟悉的简称与主动句式（如"魔免/魔抗"而非"魔法免疫、魔法抗性等效果"；"不再触发X"而非"不再能被X选取"），避免被动语态和书面化长句
 
@@ -179,12 +186,16 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 
 文件：`src/vscripts/modules/GameConfig.ts`，不含 a/b/c 后缀（`v5.20` 而非 `v5.20a`）。
 
-- Workshop 大版本（去掉 a/b/c）与 `GAME_VERSION` 不同时 → **必须自动修改** `GameConfig.ts`，**不得遗漏**
-- 仅 a/b/c 小更、大版本未变 → 不改
+- **本次所选版本**的大版本（去掉 a/b/c）与 `GAME_VERSION` 不同时 → **必须自动修改** `GameConfig.ts`，**不得遗漏**
+- 选了小版本补丁、大版本未变 → 不改（即使存在更高大版本的 open release PR）
 
 ## 更新 open PR 的 Release Note
 
-生成文案后，用**选项菜单**让用户选择操作（写入 PR / 仅提交改动 / 全部执行 / 跳过），按所选执行。
+生成文案后，用**选项菜单**让用户选择操作（写入功能 PR + 合并进聚合 release PR / 仅写入功能 PR / 仅提交改动 / 跳过），按所选执行。
+
+两处都用同一套编辑流程：`gh pr view <N> --repo windy10v10ai/game --json body -q .body` 取 body → 改 → 写入临时文件（**UTF-8 无 BOM**）→ `gh pr edit <N> --body-file <文件>`。
+
+### 写入当前功能 PR
 
 ```bash
 gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state open --json number,url
@@ -192,13 +203,32 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
 
 恰好一条时默认指向；多条时先让用户选号；无 open PR 则只输出文案。
 
-替换方式：保留 `## Release Note` 之上的内容，替换该标题起至文末。
+保留 `## Release Note` 之上的内容，替换该标题起至文末：拼接 `## Release Note` + 中文围栏块 + 英文围栏块。
 
-1. `gh pr view <N> --repo windy10v10ai/game --json body -q .body`
-2. 拼接：`## Release Note` + 中文围栏块 + 英文围栏块
-3. 写入临时文件（**UTF-8 无 BOM**），`gh pr edit <N> --body-file <文件>`
+### 聚合 release PR
 
-**追加到聚合 release PR**：若存在另一条 `release` 标签的 open PR（与当前 PR 不同），额外用 `AskUserQuestion` 询问用户是否把本次条目也追加进该 PR 的 Release Note——追加到中英文围栏块既有列表末尾，不覆盖已有条目。
+标签 `release` 的 open PR（`develop → main`，标题即大版本号）是本轮所有条目的**聚合容器**：大版本条目在上，尚未发布的小版本补丁条目按版本号分块累积在 `---` 之下。本次条目**始终**合并进去，不只留在功能 PR。布局（参考 [#2253](https://github.com/windy10v10ai/game/pull/2253)）：
+
+```
+## Checklist
+
+- [ ] 更新游戏版本号
+
+## Release Note
+
+<大版本 中文围栏块>
+<大版本 英文围栏块>
+
+---
+
+<该补丁版本的关联 PR 链接等 checklist 行，用户手动维护>
+
+<补丁版本 中文围栏块>
+<补丁版本 英文围栏块>
+```
+
+- **本次为小版本补丁** → 只动 `---` 之下：该补丁版本号已有围栏块时，中英文条目分别追加到既有列表末尾；是新的补丁版本号时，在文末新起 `---` + 中英文围栏块。大版本围栏块与 `---` 之下的既有 checklist 行保持原样。
+- **本次为大版本** → 替换 `## Release Note` 与首个 `---` 之间的中英文围栏块；`---` 之下的补丁块全部保留（各补丁版本在 Steam 已各自发过一次日志，留档不清理）。
 
 ## 执行步骤
 
@@ -206,15 +236,17 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
    - URL 含 `/issues/` → Issue（有 checklist → 路径 A；无 → 路径 B）
    - URL 含 `/pull/`，或 `#N` / 纯数字 → PR
    - 其他 → 手动
-2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行。
+2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行；命中步骤 3 时必须让用户在大版本与小版本补丁间选。
 3. **生成更新日志**：Issue+checklist 列已完成英雄并附 `x/总数`；PR 列全部英雄；手动按用户列点。
 4. **GAME_VERSION 同步**：大版本变化时**必须立即**修改 `GameConfig.ts`，不得等用户提醒。
 5. **输出**中英文两版，标题含具体版本号。
-6. **写入 PR**：用选项菜单让用户选择操作后执行。
+6. **写入 PR**：用选项菜单让用户选择操作后执行——写入当前功能 PR，并把条目合并进聚合 release PR 的对应版本块。
 
 ### 交付前自检
 
 - 版本号为具体字符串，中英文一致
+- open release PR 大版本高于 Steam 时，已用 `AskUserQuestion` 确认走大版本还是小版本补丁
+- 条目已合并进聚合 release PR 的对应版本块，大版本块与其他补丁块保持原样
 - Issue checklist `x/total` 统计正确；无 checklist 不编造
 - 多英雄列表与实际范围一致
 - 无维护向技术用语

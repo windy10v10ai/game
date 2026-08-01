@@ -16,6 +16,7 @@ game/panorama/layout/custom_game/
 game/panorama/scripts/custom_game/
 game/panorama/styles/
 game/panorama/images/heroes/**/*.vxml_c
+game/panorama/images/items
 game/panorama/images/custom_game/lottery
 game/panorama/images/custom_game/profile
 game/panorama/images/custom_game/member

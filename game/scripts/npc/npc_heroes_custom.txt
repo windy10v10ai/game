@@ -2227,6 +2227,8 @@
 	// 小小
 	"npc_dota_hero_tiny"
 	{
+		"Ability11"		"special_bonus_unique_tiny_toss_damage"
+
 		"Bot"
 		{
 			"Build"
@@ -2257,8 +2259,8 @@
 				"24"		"tiny_grow"
 				"25"		"special_bonus_unique_tiny_2"
 				"26"		"tiny_tree_grab"
-				"27"		"special_bonus_strength_8"
-				"28"		"special_bonus_unique_tiny_6"
+				"27"		"special_bonus_unique_tiny_toss_damage"
+				"28"		"special_bonus_strength_10"
 				"29"		"special_bonus_unique_tiny_7"
 				"30"		"special_bonus_unique_tiny_3"
 				"31"		"tiny_avalanche"

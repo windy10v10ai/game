@@ -44,7 +44,7 @@ if modifier_consumable_gem_aura == nil then modifier_consumable_gem_aura = class
 
 function modifier_consumable_gem_aura:OnCreated(kv)
 	self.radius = kv.radius or 900
-	self.charge_count = kv.charge_count or 3
+	self.charge_count = kv.charge_count or 5
 
 	if IsServer() then
 		self:StartIntervalThink(0.1)

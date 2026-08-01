@@ -261,6 +261,8 @@
 		"key_bind_input_err"									"输入内容不可用，请尝试其他按键"
 		"key_bind_quick_cast"									"快速施法"
 		"key_bind_remember"										"记忆技能改键"
+		"key_bind_clear"										"清除"
+		"key_bind_clear_tooltip"								"清空所有快捷键与快速施法设置。<br>本局内已生效的按键需断开重连后失效。"
 		"key_bind_inventory_slot_tooltip"					"第%s格装备快捷键；需要先使用扩容之书解锁该格，锁定时按键不会施放。"
 
 		"lottery_item_header"									"宝箱开启！选择你的奖励"
@@ -1289,6 +1291,20 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"斯温 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
 
+		// 水晶室女 极寒领域-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"极寒领域 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"获得<font color='#FFFFFF'>法术抵抗</font>，抵挡一次敌方指向性法术。"
+
+		// 小小 抓树-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
@@ -1361,6 +1377,9 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_defy_duration"    "+{s:bonus_duration} 斗战胜佛持续时间"
 		"DOTA_Tooltip_modifier_monkey_king_defy" "斗战胜佛"
 		"DOTA_Tooltip_modifier_monkey_king_defy_Description"	"获得%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%承受伤害降低和%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%%状态抗性"
+
+		// 小小 tiny
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_toss_damage"  "+{s:bonus_toss_damage} 投掷伤害"
 
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} 恶性瘟疫伤害"

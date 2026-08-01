@@ -14,6 +14,14 @@ import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
 // 新加的英雄排在前面，旧的排在后面（随机卡固定第一个，不受此列表顺序影响）
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
   {
+    heroName: 'npc_dota_hero_crystal_maiden',
+    abilityName: 'special_bonus_unique_crystal_maiden_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_tiny',
+    abilityName: 'special_bonus_unique_tiny_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_legion_commander',
     abilityName: 'legion_commander_auto_duel',
   },

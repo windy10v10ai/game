@@ -301,17 +301,31 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 "AbilityTextureName"    "axe_auto_culling_blade"
 ```
 
-引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。
+引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到任何 xml，也**不需要** content 副本。
+
+> 技能图标与下面的物品图标流程**不同**，别照抄。spellicons 是否也该走 content 编译尚未统一，留待后续 issue。
 
 #### 物品图标（`AbilityTextureName`，物品 `item_xxx`）
 
-放在 `game/resource/flash3/images/items/<name>.png`，机制与技能图标相同：
+图标名与物品名去掉 `item_` 前缀保持一致，KV 中用文件名引用：
 
 ```
 "AbilityTextureName"    "awaken_stone"
 ```
 
-引擎自动在 `items/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。图标名建议与物品名去掉 `item_` 前缀保持一致。
+png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可（少任一步都是紫块）：
+
+1. `game/resource/flash3/images/items/<name>.png`
+2. 同一张 png 复制到 `content/panorama/images/items/<name>.png`
+3. `content/panorama/images/items/images_items.xml` 里加一行，`id` 与文件名一致：
+
+```xml
+<Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
+```
+
+改完跑 `npm run lint:images` 校验三处一致（已并入 `npm run lint`）。
+
+编译产物 `game/panorama/images/items/*.vtex_c` 已 gitignore，由 Dota tools 本地生成。**换机器 clone 后必须先用 Dota tools 完整编译一次才能发布**，否则 workshop 包会缺图标 —— `custom_game/` 下 lottery、profile、member 等目录同理。
 
 #### Panorama UI 图片
 

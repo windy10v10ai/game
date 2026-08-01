@@ -261,6 +261,8 @@
 		"key_bind_input_err"									"Invalid input - Try another key"
 		"key_bind_quick_cast"									"Quick Cast"
 		"key_bind_remember"										"Save Ability Keys"
+		"key_bind_clear"										"Clear"
+		"key_bind_clear_tooltip"								"Clears all hotkeys and quick cast settings.<br>Keys already bound this game stay active until you reconnect."
 		"key_bind_inventory_slot_tooltip"					"Inventory slot %s hotkey. Unlock the slot with the Inventory Expansion Tome before using its item."
 
 		"lottery_item_header"									"Pick Your Treasure"
@@ -1291,6 +1293,20 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"Sven Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% and Attack Speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
+		// 水晶室女 极寒领域-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>Freezing Field Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants <font color='#FFCC66'>Magic Immunity</font>.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>Freezing Field Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants <font color='#FFCC66'>Magic Immunity</font>.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"Freezing Field Awakened"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"Grants <font color='#FFFFFF'>Spellblock</font>, blocking one enemy targeted spell."
+
+		// 小小 抓树-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
@@ -1363,6 +1379,9 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_defy_duration"    "+{s:bonus_duration} Defy Duration"
 		"DOTA_Tooltip_modifier_monkey_king_defy" "Defy"
 		"DOTA_Tooltip_modifier_monkey_king_defy_Description"	"Gaining %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%% incoming Damage Reduction and %dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% Status Resistance."
+
+		// 小小 tiny
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_toss_damage"  "+{s:bonus_toss_damage} Toss Damage"
 
 		// 剧毒
 		"DOTA_Tooltip_ability_special_bonus_unique_venomancer_201"  "+{s:bonus_impact_damage} Noxious Plague Damage"

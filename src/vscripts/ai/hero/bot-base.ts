@@ -11,6 +11,7 @@ import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
 import { ModeEnum } from '../mode/mode-enum';
+import { WardPlacement } from '../ward/ward-placement';
 import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
@@ -29,6 +30,9 @@ export class BotBaseAIModifier extends BaseModifier {
   private neutralItemTier: number = 0;
   private desiredNeutralActive: NeutralItemConfig | undefined;
   private desiredNeutralPassive: NeutralItemConfig | undefined;
+
+  // 插眼节流：下次允许尝试的 gameTime
+  public wardPlaceNextTime: number = -60;
 
   protected readonly FindRadius: number = 1800;
   protected readonly CastRange: number = 900;
@@ -118,6 +122,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return;
     }
     if (this.ActionMode()) {
+      return;
+    }
+    // 战斗与推进优先，脱战后才考虑插眼
+    if (WardPlacement.Run(this)) {
       return;
     }
 

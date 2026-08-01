@@ -26,5 +26,6 @@
 
 		<!-- for compile images, not this xml show in game -->
 		<CustomUIElement type="EndScreen"			layoutfile="file://{resources}/layout/custom_game/images.xml" />
+		<CustomUIElement type="EndScreen"			layoutfile="file://{resources}/images/items/images_items.xml" />
 	</Panel>
 </root>
