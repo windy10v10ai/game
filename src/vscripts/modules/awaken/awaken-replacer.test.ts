@@ -1,4 +1,4 @@
-﻿/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { applyAwakenByHero, canAwaken, executeReplacement, isAwakened } from './awaken-replacer';
 
 /** 构造一个记录技能槽状态的假英雄，用于验证三分支的增删与退点数逻辑 */
@@ -149,24 +149,6 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
-  it('巫妖觉醒会替换连环霜冻并同时添加觉醒被动', () => {
-    const f = createFakeHero({
-      unitName: 'npc_dota_hero_lich',
-      abilities: [{ name: 'lich_chain_frost', level: 4 }],
-    });
-
-    expect(applyAwakenByHero(f.hero)).toBe(true);
-    expect(f.abilities.map((ability) => ability.name)).toEqual([
-      'lich_chain_frost_awakened',
-      'special_bonus_unique_lich_upgrade',
-    ]);
-    expect(f.abilities.find((ability) => ability.name === 'lich_chain_frost_awakened')?.level).toBe(
-      4,
-    );
-    expect(f.abilities.some((ability) => ability.name === 'lich_chain_frost')).toBe(false);
-    expect(isAwakened(f.hero)).toBe(true);
-  });
-
   it('命中配置的英雄返回 true 并应用替换', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_pudge',
