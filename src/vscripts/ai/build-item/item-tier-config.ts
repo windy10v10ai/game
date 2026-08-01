@@ -936,7 +936,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_monkey_king_bar_2',
     nameCN: '定海神针',
     tier: ItemTier.T3, // 价格属于T4区间，按强度定位手动归入T3
-    cost: 10100,
+    cost: 9800,
     baseItems: ['item_monkey_king_bar'],
   },
 

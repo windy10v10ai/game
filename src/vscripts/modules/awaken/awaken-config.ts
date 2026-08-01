@@ -16,6 +16,13 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 末日使者 觉醒
+  {
+    heroName: 'npc_dota_hero_doom_bringer',
+    targetAbility: 'doom_bringer_doom',
+    newAbility: 'doom_bringer_doom_awakened',
+    newLevel: 0,
+  },
   // 光之守卫 觉醒
   {
     heroName: 'npc_dota_hero_keeper_of_the_light',

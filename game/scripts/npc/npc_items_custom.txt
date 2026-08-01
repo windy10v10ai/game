@@ -900,7 +900,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8400"
+		"ItemCost"						"8600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1677,7 +1677,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3200"
+		"ItemCost"						"3000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1701,7 +1701,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10100"
+		"ItemCost"						"9800"
 		"ItemShopTags"					"damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"mkb;monkey king bar"
@@ -4249,7 +4249,7 @@
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"1"
-			"blast_magic_resist"	"-50"
+			"blast_magic_resist"	"-40"
 		}
 	}
 	//=================================================================================================================
@@ -6171,7 +6171,7 @@
 
 			// 法术暴击 modifier
 			"spell_crit_chance"			"30"
-			"spell_crit_multiplier"		"220"
+			"spell_crit_multiplier"		"200"
 		}
 
 
@@ -6522,7 +6522,7 @@
 			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
-			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
+			"blast_magic_resist"		"-40"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）
 			"bonus_health"				"600"	// 绝刃自身加成
@@ -6531,7 +6531,7 @@
 			"bonus_mana_regen"			"30"
 			// "bonus_all_stats"			"25"	// 绝刃自身加成
 			"slow"						"50"	// 绝刃减速
-			"slow_duration"				"4"		// 绝刃减速持续时间
+			"slow_duration"				"3"		// 绝刃减速持续时间
 			"bonus_spell_damage"		"900"	// 绝刃法术伤害加成
 			"passive_cooldown"			"3"		// 绝刃自身充能冷却
 

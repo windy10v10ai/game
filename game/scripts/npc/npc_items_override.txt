@@ -324,6 +324,7 @@
 			"bonus_mana"				"600"	// 450
 			"bonus_all_stats"			"25"	// 8
 			"slow"						"50"	// 30
+			"slow_duration"				"3"		// 4
 			"bonus_spell_damage"		"900"	// 250
 		}
 	}
