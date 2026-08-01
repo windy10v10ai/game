@@ -537,8 +537,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"60"
-				"bonus_armor"			"30"
+				"bonus_damage"			"30"
+				"bonus_armor"			"20"
 				"bonus_intellect"		"0"
 				"duration"				"4"
 				"passive_reflection_constant"			"60"
@@ -6609,7 +6609,7 @@
 			"bonus_strength"			"200"	// tooltip only - 力量（光暗臂章切换部分折算）
 			"bonus_attack_speed"		"240"	// tooltip only - 攻击速度（取材料常驻较大值）
 			"bonus_damage"				"400"	// tooltip only - 攻击力（神雷锤/光暗臂章）
-			"bonus_armor"				"80"	// tooltip only - 护甲（光暗臂章）
+			"bonus_armor"				"60"	// tooltip only - 护甲（光暗臂章）
 
 			// Lua 逻辑需要的参数
 			"bat_reduction_pct"			"25"	// Lua 逻辑需要 - 动态计算 BAT
@@ -7023,10 +7023,10 @@
 		"AbilityValues"
 		{
 			// 刃甲属性
-			"passive_reflection_constant"	"80"	// 被动反伤固定值
+			"passive_reflection_constant"	"60"	// 被动反伤固定值
 			"passive_reflection_pct"		"25"	// 被动反伤百分比
 			"active_reflection_pct"			"100"	// 主动反伤百分比
-			"bonus_armor"					"80"	// 护甲
+			"bonus_armor"					"60"	// 护甲
 
 			// Lua 逻辑需要
 			"block_cooldown"				"7"		// 林肯格挡冷却
