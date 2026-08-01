@@ -10257,17 +10257,38 @@
 			}
 			"jumps"
 			{
-				"value"			"10 15 20 25"	// 10 10 10
-				"special_bonus_unique_lich_5"	"+75"	// 原版不存在，手动修改
+				"value"			"20 30 40 50"	// 10 10 10
+				"special_bonus_unique_lich_5"	"+50"	// 原版不存在，手动修改
 			}
 			"has_unlimited_jumps"
 			{
 				"value"							"0"
 				"special_bonus_unique_lich_5"		"=0"	// =1 移除 连环霜冻无限弹跳天赋
 			}
+			"initial_projectile_speed"
+			{
+				"value"						"1050"
+				"special_bonus_unique_lich_upgrade"	"=1575"
+			}
+			"projectile_speed"
+			{
+				"value"						"850"
+				"special_bonus_unique_lich_upgrade"	"=1275"
+			}
 			"jump_range"
 			{
-				"value"			"800"	// 550
+				"value"						"800"	// 550
+				"special_bonus_unique_lich_upgrade"	"=1100"
+			}
+			"slow_duration"
+			{
+				"value"						"2.5"
+				"special_bonus_unique_lich_upgrade"	"=4.0"
+			}
+			"frostbound_duration"
+			{
+				"value"						"2"
+				"special_bonus_unique_lich_upgrade"	"=4"
 			}
 			"bonus_jumps_per_hero_killed"
 			{
@@ -10279,6 +10300,17 @@
 			}
 		}
 	}
+	"special_bonus_unique_lich_5"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"bonus_jumps"					"100"
+		}
+	}
+
 	// 献身 先天
 	"lich_death_charge"
 	{
