@@ -5366,7 +5366,7 @@
 		"AbilityTextureName"		"fusion_hawkeye"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5705,13 +5705,13 @@
 		"AbilityValues"
 		{
 			// 主动技能参数
-			"active_attack_range"		"800"	// 主动攻击距离（仅远程）
+			"active_attack_range"		"600"	// 主动攻击距离（仅远程）
 			"active_duration"			"6"		// 主动持续时间
-			"active_bonus_vision"		"400"	// 额外视野
+			"active_bonus_vision"		"300"	// 额外视野
 
 			// 溅射伤害参数（Lua 逻辑）
 			"attack_radius"				"400"	// 溅射范围
-			"attack_percent"			"100"	// 溅射伤害百分比
+			"attack_percent"			"80"	// 溅射伤害百分比
 			"internal_cooldown"			"0.05"	// 内置冷却时间
 
 			// Desolator 参数（从 item_infernal_desolator 继承）
@@ -5720,7 +5720,7 @@
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
 			"bonus_damage_per_kill"		"10"	// 每次击杀增加的攻击力
 			"bonus_damage_per_assist"	"2"		// 每次助攻增加的攻击力
-			"max_damage"				"300"	// 最大额外攻击力
+			"max_damage"				"200"	// 最大额外攻击力
 
 			// 被动属性（DataDriven Properties）
 			"bonus_attack_range"		"250"	// 攻击距离加成
@@ -5860,13 +5860,13 @@
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_all_stats"			"60"	// tooltip only - 全属性
+			"bonus_all_stats"			"30"	// tooltip only - 全属性
 			"bonus_movement_speed"		"140"	// tooltip only - 移动速度
-			"bonus_movement_speed_pct"	"30"	// tooltip only - 移动速度百分比
+			"bonus_movement_speed_pct"	"20"	// tooltip only - 移动速度百分比
 			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
 			// 主动效果（在 Lua 中实现）
 			"active_movement_speed_pct"	"50"
-			"active_duration"			"6"
+			"active_duration"			"4"
 		}
 	}
 
@@ -7463,7 +7463,7 @@
 
 			"mage_slayer_duration"                "3"
 			"mage_slayer_spell_damage_reduction"  "30"
-			"mage_slayer_damage_per_type"         "90"
+			"mage_slayer_damage_per_type"         "150"
 			"mage_slayer_damage_interval"         "1"
 
 			"active_duration"                     "6"
