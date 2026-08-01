@@ -190,7 +190,7 @@ files: game/scripts/npc/npc_items_clone.txt
 
 1. `game/resource/flash3/images/items/<name>_2.png`
 2. `content/panorama/images/items/<name>_2.png`（同一张 png 的副本）
-3. `content/panorama/images/items/images_items.xml` 中一行 `<Image id="<name>_2" class="SeqImg" src="file://{images}/items/<name>_2.png" />`
+3. `content/panorama/layout/custom_game/images_items.xml` 中一行 `<Image id="<name>_2" class="SeqImg" src="file://{images}/items/<name>_2.png" />`
 
 - 若 flash3 下**不存在** → 提醒用户：「请在 `game/resource/flash3/images/items/` 目录下创建 `<name>_2.png` 图片文件。`AbilityTextureName` 已设置为 `item_<name>_2`。」放好后由你补第 2、3 步
 - 若 flash3 下**已存在** → 直接补第 2、3 步

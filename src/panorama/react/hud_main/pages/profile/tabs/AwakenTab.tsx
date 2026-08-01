@@ -12,28 +12,41 @@ import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
  * 增删觉醒英雄时需同步此处。每张卡复用引擎现成资源（英雄头像 + 觉醒图标自带本地化 tooltip）。
  */
 // 新加的英雄排在前面，旧的排在后面（随机卡固定第一个，不受此列表顺序影响）
-const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
-  { heroName: 'npc_dota_hero_techies', abilityName: 'techies_squees_scope' },
+// freeTrial 与 vscripts awaken-config 的 FREE_TRIAL_HEROES 对应，同样需手动同步
+const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boolean }[] = [
+  {
+    heroName: 'npc_dota_hero_techies',
+    abilityName: 'techies_squees_scope',
+  },
   {
     heroName: 'npc_dota_hero_undying',
     abilityName: 'special_bonus_unique_undying_upgrade',
+    freeTrial: true,
   },
-  { heroName: 'npc_dota_hero_lich', abilityName: 'special_bonus_unique_lich_upgrade' },
+  {
+    heroName: 'npc_dota_hero_lich',
+    abilityName: 'special_bonus_unique_lich_upgrade',
+    freeTrial: true,
+  },
   {
     heroName: 'npc_dota_hero_doom_bringer',
     abilityName: 'doom_bringer_doom_awakened',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_keeper_of_the_light',
     abilityName: 'special_bonus_unique_keeper_of_the_light_upgrade',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_crystal_maiden',
     abilityName: 'special_bonus_unique_crystal_maiden_upgrade',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_tiny',
     abilityName: 'special_bonus_unique_tiny_upgrade',
+    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_legion_commander',
@@ -222,17 +235,22 @@ export function AwakenTab() {
             hasEnoughPool={hasEnoughPool}
             onClick={handleRandomClick}
           />
-          {AWAKEN_ABILITIES.map(({ heroName, abilityName }) => (
-            <AwakenHeroCard
-              key={abilityName}
-              heroName={heroName}
-              abilityName={abilityName}
-              isUnlocked={awakenedHeroes.some((h) => h.heroName === heroName)}
-              enabled={!isPending && canAffordDirect}
-              canAfford={canAffordDirect}
-              onUnlockClick={handleUnlockClick}
-            />
-          ))}
+          {AWAKEN_ABILITIES.map(({ heroName, abilityName, freeTrial }) => {
+            const isUnlocked = awakenedHeroes.some((h) => h.heroName === heroName);
+            return (
+              <AwakenHeroCard
+                key={abilityName}
+                heroName={heroName}
+                abilityName={abilityName}
+                isUnlocked={isUnlocked}
+                // 已买断的玩家不需要再看到限免提示
+                isFreeTrial={freeTrial === true && !isUnlocked}
+                enabled={!isPending && canAffordDirect}
+                canAfford={canAffordDirect}
+                onUnlockClick={handleUnlockClick}
+              />
+            );
+          })}
         </Panel>
       </Panel>
       {showCandidates && (

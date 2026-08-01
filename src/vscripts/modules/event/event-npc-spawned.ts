@@ -201,7 +201,7 @@ export class EventNpcSpawned {
       // 设置会员
       MemberHelper.ApplyMemberModifier(hero);
       const steamAccountId = PlayerResource.GetSteamAccountID(hero.GetPlayerID());
-      // 积分解锁的永久觉醒
+      // 积分解锁与限时免费的觉醒
       AwakenHelper.ApplyUnlockedAwaken(hero, steamAccountId);
       // 设置新手BUFF
       const playerSeasonLevel = Player.GetSeasonLevel(steamAccountId);

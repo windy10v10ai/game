@@ -317,7 +317,7 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 
 1. `game/resource/flash3/images/items/<name>.png`
 2. 同一张 png 复制到 `content/panorama/images/items/<name>.png`
-3. `content/panorama/images/items/images_items.xml` 里加一行，`id` 与文件名一致：
+3. `content/panorama/layout/custom_game/images_items.xml` 里加一行，`id` 与文件名一致（引擎只允许从 `layout/custom_game/` 加载 layout，故登记表与 png 不同目录）：
 
 ```xml
 <Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
