@@ -505,7 +505,36 @@
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"Во время Duel эту цель нельзя выбрать."
 
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на %base_damage_bonus%, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого Illuminate вражеского героя даётся 1 заряд Фокуса, каждый заряд увеличивает урон Illuminate на %damage_pct_per_stack%%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"МАКС. ЗАРЯДОВ ФОКУСА:"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"ДЛИТЕЛЬНОСТЬ ФОКУСА:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Урон Illuminate увеличен на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
+
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
+		// Doom Awakened
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> можно применить к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Область Doom"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Враги в радиусе %dMODIFIER_PROPERTY_TOOLTIP% непрерывно получают Doom."
+		// 巫妖 寒灾轮回
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере %intelligence_damage_multiplier%x интеллекта и накладывают 1 заряд Frost Calamity длительностью %mark_duration% сек, который взрывается самостоятельно при %mark_max_stacks% зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе %detonation_radius% в размере %nova_detonation_multiplier_per_stack%x интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на %freeze_duration% сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"Иллюзии не считаются настоящими героями. Roshan считается обычным юнитом."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"Метки Frost Calamity накапливаются только на настоящих героях и Roshan. Roshan получает урон от взрыва, но не замораживается."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"Frost Blast может досрочно взорвать Frost Calamity, нанося урон в зависимости от текущего числа зарядов."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта и накладывают 1 заряд Frost Calamity длительностью <font color='#FFFFFF'><b>8</b></font> сек, который взрывается самостоятельно при <font color='#FFFFFF'><b>3</b></font> зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе <font color='#FFFFFF'><b>350</b></font> в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на <font color='#FFFFFF'><b>0.6</b></font> сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"При 3 зарядах срабатывает взрыв Frost Calamity. Lich также может досрочно взорвать метку с помощью Frost Blast."
+
 	}
 }

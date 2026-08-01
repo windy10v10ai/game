@@ -7,6 +7,29 @@
 	//=================================================================================================================
 	// Moon Shard 银月
 	//=================================================================================================================
+	"item_recipe_moon_shard_datadriven"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"					"item_datadriven"
+		"ID"						"10343"
+		"Model"						"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"					"4000"
+		"ItemShopTags"				""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"				"1"
+		"ItemResult"				"item_moon_shard_datadriven"
+		"ItemRequirements"
+		{
+			"01"					"item_moon_shard"
+		}
+	}
 	"item_moon_shard_datadriven"
 	{
 		// General
@@ -514,8 +537,8 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-				"bonus_damage"			"60"
-				"bonus_armor"			"30"
+				"bonus_damage"			"30"
+				"bonus_armor"			"20"
 				"bonus_intellect"		"0"
 				"duration"				"4"
 				"passive_reflection_constant"			"60"
@@ -877,7 +900,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8400"
+		"ItemCost"						"8600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1654,7 +1677,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3200"
+		"ItemCost"						"3000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1678,7 +1701,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10100"
+		"ItemCost"						"9800"
 		"ItemShopTags"					"damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"mkb;monkey king bar"
@@ -3777,7 +3800,7 @@
 				"bonus_agility"			"30"	//6
 				"bonus_intellect"		"50"	//24
 				"spell_amp"				"30"	//10
-				"mana_regen_multiplier"	"150"	//50
+				"mana_regen_multiplier"	"75"	//25
 
 				"burn_dps_buildings"	"60"	//50
 				"burn_dps_units"		"150"	//50
@@ -3993,7 +4016,7 @@
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"25.0"
+		"AbilityCooldown"				"40.0"
 		"AbilityManaCost"				"150"
 
 		// Item Info
@@ -4226,7 +4249,7 @@
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"1"
-			"blast_magic_resist"	"-50"
+			"blast_magic_resist"	"-40"
 		}
 	}
 	//=================================================================================================================
@@ -5213,7 +5236,7 @@
 				"bonus_strength"		"80"
 				"bonus_intellect"			"80"
 				"slow_resistance"			"50"	// 25
-				"mana_regen_multiplier"		"100"	// 50
+				"mana_regen_multiplier"		"60"	// 30
 				"spell_amp"				"25"		// 12
 				"hp_regen_amp"			"40"		// 20
 				"manacost_reduction"	"40"		// 25
@@ -5285,7 +5308,7 @@
 				"bonus_agility"			"80"
 				"bonus_intellect"		"80"
 				"bonus_attack_speed"	"60" // 20
-				"mana_regen_multiplier"	"100" // 50
+				"mana_regen_multiplier"	"60" // 30
 				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"25" // 12
 				"cast_speed_pct"		"50" // 25
@@ -5343,7 +5366,7 @@
 		"AbilityTextureName"		"fusion_hawkeye"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5682,22 +5705,22 @@
 		"AbilityValues"
 		{
 			// 主动技能参数
-			"active_attack_range"		"800"	// 主动攻击距离（仅远程）
+			"active_attack_range"		"600"	// 主动攻击距离（仅远程）
 			"active_duration"			"6"		// 主动持续时间
-			"active_bonus_vision"		"400"	// 额外视野
+			"active_bonus_vision"		"300"	// 额外视野
 
 			// 溅射伤害参数（Lua 逻辑）
 			"attack_radius"				"400"	// 溅射范围
-			"attack_percent"			"100"	// 溅射伤害百分比
+			"attack_percent"			"80"	// 溅射伤害百分比
 			"internal_cooldown"			"0.05"	// 内置冷却时间
 
 			// Desolator 参数（从 item_infernal_desolator 继承）
 			"bonus_damage"				"300"	// 攻击力
-			"corruption_armor"			"-50"	// 护甲降低
+			"corruption_armor"			"-45"	// 护甲降低
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
 			"bonus_damage_per_kill"		"10"	// 每次击杀增加的攻击力
 			"bonus_damage_per_assist"	"2"		// 每次助攻增加的攻击力
-			"max_damage"				"300"	// 最大额外攻击力
+			"max_damage"				"200"	// 最大额外攻击力
 
 			// 被动属性（DataDriven Properties）
 			"bonus_attack_range"		"250"	// 攻击距离加成
@@ -5837,13 +5860,14 @@
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_all_stats"			"60"	// tooltip only - 全属性
+			"bonus_all_stats"			"30"	// tooltip only - 全属性
 			"bonus_movement_speed"		"140"	// tooltip only - 移动速度
-			"bonus_movement_speed_pct"	"30"	// tooltip only - 移动速度百分比
+			"bonus_movement_speed_pct"	"20"	// tooltip only - 移动速度百分比
 			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
+			"bonus_evasion"			"20"	// tooltip only - 闪避
 			// 主动效果（在 Lua 中实现）
 			"active_movement_speed_pct"	"50"
-			"active_duration"			"6"
+			"active_duration"			"4"
 		}
 	}
 
@@ -6148,7 +6172,7 @@
 
 			// 法术暴击 modifier
 			"spell_crit_chance"			"30"
-			"spell_crit_multiplier"		"220"
+			"spell_crit_multiplier"		"200"
 		}
 
 
@@ -6311,7 +6335,7 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"50"
+		"AbilityCooldown"			"60"
 		"AbilityManaCost"			"0"
 
 		"precache"
@@ -6499,7 +6523,7 @@
 			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
-			"blast_magic_resist"		"-50"	// Lua 逻辑需要 - 魔法抗性减少
+			"blast_magic_resist"		"-40"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）
 			"bonus_health"				"600"	// 绝刃自身加成
@@ -6508,7 +6532,7 @@
 			"bonus_mana_regen"			"30"
 			// "bonus_all_stats"			"25"	// 绝刃自身加成
 			"slow"						"50"	// 绝刃减速
-			"slow_duration"				"4"		// 绝刃减速持续时间
+			"slow_duration"				"3"		// 绝刃减速持续时间
 			"bonus_spell_damage"		"900"	// 绝刃法术伤害加成
 			"passive_cooldown"			"3"		// 绝刃自身充能冷却
 
@@ -6585,7 +6609,7 @@
 			"bonus_strength"			"200"	// tooltip only - 力量（光暗臂章切换部分折算）
 			"bonus_attack_speed"		"240"	// tooltip only - 攻击速度（取材料常驻较大值）
 			"bonus_damage"				"400"	// tooltip only - 攻击力（神雷锤/光暗臂章）
-			"bonus_armor"				"80"	// tooltip only - 护甲（光暗臂章）
+			"bonus_armor"				"60"	// tooltip only - 护甲（光暗臂章）
 
 			// Lua 逻辑需要的参数
 			"bat_reduction_pct"			"25"	// Lua 逻辑需要 - 动态计算 BAT
@@ -6999,10 +7023,10 @@
 		"AbilityValues"
 		{
 			// 刃甲属性
-			"passive_reflection_constant"	"80"	// 被动反伤固定值
+			"passive_reflection_constant"	"60"	// 被动反伤固定值
 			"passive_reflection_pct"		"25"	// 被动反伤百分比
 			"active_reflection_pct"			"100"	// 主动反伤百分比
-			"bonus_armor"					"80"	// 护甲
+			"bonus_armor"					"60"	// 护甲
 
 			// Lua 逻辑需要
 			"block_cooldown"				"7"		// 林肯格挡冷却
@@ -7440,7 +7464,7 @@
 
 			"mage_slayer_duration"                "3"
 			"mage_slayer_spell_damage_reduction"  "30"
-			"mage_slayer_damage_per_type"         "90"
+			"mage_slayer_damage_per_type"         "150"
 			"mage_slayer_damage_interval"         "1"
 
 			"active_duration"                     "6"

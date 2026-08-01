@@ -22,6 +22,25 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_undying_upgrade',
     newLevel: 1,
   },
+  // 巫妖 觉醒
+  {
+    heroName: 'npc_dota_hero_lich',
+    newAbility: 'special_bonus_unique_lich_upgrade',
+    newLevel: 1,
+  },
+  // 末日使者 觉醒
+  {
+    heroName: 'npc_dota_hero_doom_bringer',
+    targetAbility: 'doom_bringer_doom',
+    newAbility: 'doom_bringer_doom_awakened',
+    newLevel: 0,
+  },
+  // 光之守卫 觉醒
+  {
+    heroName: 'npc_dota_hero_keeper_of_the_light',
+    newAbility: 'special_bonus_unique_keeper_of_the_light_upgrade',
+    newLevel: 1,
+  },
   // 水晶室女 觉醒
   {
     heroName: 'npc_dota_hero_crystal_maiden',
