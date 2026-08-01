@@ -332,6 +332,8 @@
 		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，永久觉醒指定英雄。<br><font color='#FFD24A'>随机抽选</font>：积分减半，消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，从随机 3 个候选英雄中选 1 个觉醒。<br>消耗的是可用勇士积分，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
+		"awaken_free_trial_badge"			"限免"
+		"awaken_free_trial_tooltip"			"新觉醒限时免费体验，选择该英雄时自动生效"
 		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
 		"awaken_unlock_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
 		"awaken_unlock_confirm_cancel"		"取消"
