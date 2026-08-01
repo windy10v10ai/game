@@ -228,6 +228,14 @@ Timers.CreateTimer(duration, () => {
 
 > 参考：风行者觉醒 `windrunner_whirlwind_custom`（`GetIntrinsicModifierName` 挂的被动 modifier）借用隐刺 `modifier_riki_backstab`；该被动与技能自身的主动 `OnSpellStart` 共存，二者互不影响——`GetIntrinsicModifierName` 不依赖 `AbilityBehavior`，主动大招可以正常保留 `IMMEDIATE | NO_TARGET` 之类行为。
 
+### 进阶 8：需要读取「施法者当前 AoE/属性加成」等动态值时，优先在自身 KV 声明同名字段
+
+想让觉醒技能的某个数值自动叠加施法者当前的 AoE 加成（或其他类似的引擎内置加成机制）时，**不要**用「哑值探测」手法（如声明一个 `value: "1"` 的占位数值加 `affected_by_aoe_increase: "1"`，再用 `GetSpecialValueFor() - 1` 反推出加成百分比、手动相加到别的数值上）。正确做法是直接在自身 KV 里声明目标字段本身（字段名与原版一致，如 `scepter_aura_radius`），带上同样的 `affected_by_aoe_increase: "1"`，让 `GetSpecialValueFor('scepter_aura_radius')` 直接返回已经计入加成的最终值。这样既不需要跨技能读取原版 KV，也不需要额外的相加逻辑，且能直接用 `%scepter_aura_radius%` 占位符内联进本地化正文（与原版写法一致）。
+
+### 进阶 9：运行时替换类技能的 `HasScepterUpgrade` + `scepter_description` 不会正常显示
+
+觉醒技能若是**运行时替换**（通过 `awaken-config.ts` 的 `targetAbility` 把原版技能整体换成新的 `ability_lua`），即使 KV 里带 `HasScepterUpgrade: "1"` 并写了 `_scepter_description`，引擎也不会渲染这个神杖对比预览面板——因为该面板依赖的是"英雄默认自带、原生学习"的技能实例，替换类技能走的是完全不同的运行时挂载路径。神杖相关的效果说明应直接写进主 `_Description` 正文（可加 `<font color='#92acf5'>阿哈利姆神杖</font>` 提示），不要指望 `_scepter_description` 单独显示。（注：常驻挂在英雄默认技能槽的觉醒技能，如 `imba_chaos_knight_phantasm`，`scepter_description` 可以正常显示，问题只出在替换类。）
+
 ---
 
 ## 不明确时询问
