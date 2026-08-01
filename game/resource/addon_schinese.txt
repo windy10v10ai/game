@@ -148,12 +148,9 @@
 
 		// 尸王 血肉腐朽-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽。此次施放不消耗魔法，且不影响腐朽的冷却时间。"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note0"		"幻象和破坏状态下无法触发。"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note1"		"无攻击间隔的衍生攻击无法触发。"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Note2"		"最多每%trigger_cooldown%秒触发一次。"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽。此次施放不消耗魔法，且不影响腐朽的冷却时间。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
