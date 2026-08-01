@@ -11733,6 +11733,13 @@
 	//=================================================================================================================
 	// Ability: Techies 工程师/炸弹人
 	//=================================================================================================================
+	// Squee's Scope Awakened: expose the native shard passive and disable shard auto-grant
+	"techies_squees_scope"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_SHOW_IN_GUIDES"
+		"IsGrantedByShard"				"0"
+		"AbilityTextureName"			"techies_stasis_trap"
+	}
 	// 感应地雷
 	"techies_land_mines"
 	{

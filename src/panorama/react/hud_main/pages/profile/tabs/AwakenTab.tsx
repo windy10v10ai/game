@@ -13,6 +13,7 @@ import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
  */
 // 新加的英雄排在前面，旧的排在后面（随机卡固定第一个，不受此列表顺序影响）
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
+  { heroName: 'npc_dota_hero_techies', abilityName: 'techies_squees_scope' },
   {
     heroName: 'npc_dota_hero_undying',
     abilityName: 'special_bonus_unique_undying_upgrade',
