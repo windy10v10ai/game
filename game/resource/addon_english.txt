@@ -1307,6 +1307,16 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
 
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Illuminate Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by %base_damage_bonus%, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit by Illuminate grants 1 Focus stack, and each stack increases Illuminate damage by %damage_pct_per_stack%%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"MAX FOCUS STACKS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"FOCUS DURATION:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Illuminate Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by <font color='#FFFFFF'><b>100</b></font>, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit grants 1 Focus stack, up to <font color='#FFFFFF'><b>10</b></font> stacks lasting <font color='#FFFFFF'><b>20</b></font> seconds, and each stack increases Illuminate damage by <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Focus"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Illuminate damage increased by <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
+
 		///////////////////////////////////////////////////
 		//
 		// 					Heroes Override 原版英雄技能
