@@ -497,27 +497,17 @@
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"Во время Duel эту цель нельзя выбрать."
 
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на %base_damage_bonus%, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого Illuminate вражеского героя даётся 1 заряд Фокуса, каждый заряд увеличивает урон Illuminate на %damage_pct_per_stack%%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"МАКС. ЗАРЯДОВ ФОКУСА:"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"ДЛИТЕЛЬНОСТЬ ФОКУСА:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Урон Illuminate увеличен на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
+
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
-		// Keeper of the Light - пробуждение Illuminate
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"					"<font color='#d000ff'>Пробуждение Illuminate</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"		"Увеличивает базовый урон Illuminate на каждом уровне на <font color='#FFFFFF'><b>%base_damage_bonus%</b></font>. За каждого нового настоящего вражеского героя, задетого волной, даётся 1 заряд <font color='#FFE56E'>Фокуса</font>, максимум %max_focus_stacks%. Каждый заряд увеличивает урон следующих применений Illuminate на %damage_pct_per_stack%%% плюс %spell_amp_scaling_per_stack%%% от текущего усиления заклинаний, сокращает полную зарядку на %channel_reduction_per_stack% сек., увеличивает дальность на %range_per_stack% и ширину на %radius_per_stack%. Усиление заклинаний для роста Фокуса учитывается максимум до %spell_amp_scaling_cap%%%. Фокус длится 10/15/20/25 сек. в зависимости от уровня Spirit Form; попадания обновляют все заряды, применение их не расходует. Заряды фиксируются в начале подготовки, поэтому заряды от этой волны усилят только следующую. Фокус исчезает после смерти или окончания времени."
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"		"Текущий Фокус увеличивает урон Illuminate на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> и сокращает полную зарядку на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font> сек.<br>Каждый заряд увеличивает дальность на 200 и ширину на 60. Применение не расходует Фокус; попадание по настоящему вражескому герою обновляет все заряды."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Description"		"ПРЕРЫВАЕМАЯ — направляет энергию света, постепенно накапливая силу. При отпускании выпускает волну по прямой, наносящую урон врагам и раскрывающую местность вдоль пути.<br><br><h1><font color='#d000ff'>УЛУЧШЕНИЕ ПРОБУЖДЕНИЯ</font></h1>За каждого поражённого настоящего вражеского героя герой получает 1 заряд <font color='#FFE56E'>Фокуса</font>. Фокус усиливает урон, скорость накопления, дальность и ширину последующих волн Illuminate.<br><br><font color='#FFE56E'>ПАРАМЕТРЫ ПРОБУЖДЕНИЯ</font><br>Базовый урон: 285 / 390 / 495 / 600 / 705<br>Максимум Фокуса: 5 зарядов; длительность: 10/15/20/25 сек. (зависит от уровня Spirit Form)<br>За заряд Фокуса: +25% урона; ещё +10% за каждые 100% усиления заклинаний; -0.35 сек. максимального накопления; +200 к дальности; +60 к ширине<br>Рост от усиления заклинаний учитывается максимум до 600%.<br><font color='#FFE56E'>ПРИМЕР ДЛЯ 0 / 1 / 5 ЗАРЯДОВ</font><br>Макс. накопление: 3.0 / 2.65 / 1.25 сек.; дальность: 1550 / 1750 / 2550; ширина: 400 / 460 / 700<br><font color='#FFE56E'>ПРИМЕР УРОНА (5-Й УРОВЕНЬ, 550% УСИЛЕНИЯ, 5 ЗАРЯДОВ)</font><br>Каждый заряд даёт 80%, всего 400%; 705 → 3525 после Фокуса → 22912.5 урона до сопротивления после повторного применения усиления заклинаний."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_SummaryDescription"		"После накопления выпускает волну по прямой. После пробуждения попадания по вражеским героям накапливают Фокус, усиливающий последующие применения Illuminate."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_total_damage"		"МАКС. УРОН ПОСЛЕ ПРОБУЖДЕНИЯ:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_max_channel_time"		"ТЕКУЩЕЕ МАКС. ВРЕМЯ НАКОПЛЕНИЯ:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_radius"		"ТЕКУЩАЯ ШИРИНА:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_range"		"ТЕКУЩАЯ ДАЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_base_damage_bonus"		"ПРИБАВКА БАЗОВОГО УРОНА ЗА УРОВЕНЬ:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_max_focus_stacks"		"МАКС. ЗАРЯДОВ ФОКУСА:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_damage_pct_per_stack"		"БАЗОВЫЙ УРОН ЗА ЗАРЯД (%):"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_spell_amp_scaling_per_stack"		"ДОП. ЗА 100% УСИЛЕНИЯ ЗАКЛИНАНИЙ (%):"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_channel_reduction_per_stack"		"СОКРАЩЕНИЕ НАКОПЛЕНИЯ ЗА ЗАРЯД:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_range_per_stack"		"ДАЛЬНОСТЬ ЗА ЗАРЯД:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_radius_per_stack"		"ШИРИНА ЗА ЗАРЯД:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note0"		"Попадание обновляет длительность всех зарядов Фокуса; применение не расходует их. Число зарядов фиксируется в начале накопления, поэтому новые заряды от текущей волны усиливают только следующую."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note1"		"Пример: при 550% усиления заклинаний каждый заряд Фокуса повышает урон на 80%, а 5 зарядов — на 400%; максимальный урон Illuminate 5-го уровня до повторного применения усиления заклинаний равен 3525."
 	}
 }

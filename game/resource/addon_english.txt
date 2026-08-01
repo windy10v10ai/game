@@ -1307,26 +1307,15 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
 
-		// Keeper of the Light - Illuminate Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"					"<font color='#d000ff'>Illuminate Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"		"Increases Illuminate's base damage at every level by <font color='#FFFFFF'><b>%base_damage_bonus%</b></font>. Gain 1 <font color='#FFE56E'>Focus</font> stack for each different enemy real Hero hit, up to %max_focus_stacks%. Each stack increases subsequent Illuminates' damage by %damage_pct_per_stack%%% plus %spell_amp_scaling_per_stack%%% of current Spell Amplification, reduces full-charge time by %channel_reduction_per_stack% seconds, and increases distance by %range_per_stack% and width by %radius_per_stack%. Spell Amplification contributing to Focus is capped at %spell_amp_scaling_cap%%%. Focus lasts 10/15/20/25 seconds based on Spirit Form's level; valid hits refresh all stacks and casting does not consume them. Stacks are locked when charging begins, so stacks gained by that wave empower only the next Illuminate. Focus is cleared on death or expiry."
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Illuminate Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by %base_damage_bonus%, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit by Illuminate grants 1 Focus stack, and each stack increases Illuminate damage by %damage_pct_per_stack%%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"MAX FOCUS STACKS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"FOCUS DURATION:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Illuminate Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by <font color='#FFFFFF'><b>100</b></font>, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit grants 1 Focus stack, up to <font color='#FFFFFF'><b>10</b></font> stacks lasting <font color='#FFFFFF'><b>20</b></font> seconds, and each stack increases Illuminate damage by <font color='#FFFFFF'><b>25</b></font>%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Focus"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"		"Current Focus increases Illuminate damage by <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> and reduces full-charge time by <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font> seconds.<br>Each stack increases distance by 200 and width by 60. Casting does not consume Focus; hitting another enemy real Hero refreshes all stacks."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Description"		"CHANNELED - Channels light energy, building power over time. When released, a wave travels forward in a line, dealing damage and granting vision along its path.<br><br><h1><font color='#d000ff'>AWAKENING UPGRADE</font></h1>Gain 1 <font color='#FFE56E'>Focus</font> stack for each different enemy real Hero hit. Focus continuously empowers the damage, charge speed, range, and width of subsequent Illuminates.<br><br><font color='#FFE56E'>AWAKENING VALUES</font><br>Base Damage: 285 / 390 / 495 / 600 / 705<br>Max Focus: 5 stacks; Duration: 10/15/20/25 seconds (based on Spirit Form level)<br>Per Focus Stack: +25% damage; +10% more per 100% Spell Amplification; -0.35 seconds max channel time; +200 range; +60 width<br>Spell Amplification scaling is capped at 600%.<br><font color='#FFE56E'>0 / 1 / 5 STACK EXAMPLE</font><br>Max Channel Time: 3.0 / 2.65 / 1.25 seconds; Range: 1550 / 1750 / 2550; Width: 400 / 460 / 700<br><font color='#FFE56E'>DAMAGE EXAMPLE (LEVEL 5, 550% SPELL AMPLIFICATION, 5 STACKS)</font><br>Each stack grants 80%, for 400% total; 705 → 3525 after Focus → 22912.5 pre-mitigation damage after Spell Amplification is applied again."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_SummaryDescription"		"Releases a linear wave after charging. Once awakened, hitting enemy Heroes builds Focus that continuously empowers subsequent Illuminates."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_total_damage"		"AWAKENED MAX DAMAGE:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_max_channel_time"		"CURRENT MAX CHANNEL TIME:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_radius"		"CURRENT WIDTH:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_range"		"CURRENT RANGE:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_base_damage_bonus"		"BASE DAMAGE PER LEVEL BONUS:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_max_focus_stacks"		"MAX FOCUS STACKS:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_damage_pct_per_stack"		"BASE DAMAGE PER STACK (%):"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_spell_amp_scaling_per_stack"		"EXTRA PER 100% SPELL AMP (%):"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_channel_reduction_per_stack"		"CHANNEL TIME REDUCTION PER STACK:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_range_per_stack"		"RANGE PER STACK:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_radius_per_stack"		"WIDTH PER STACK:"
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note0"		"Hits refresh the duration of all Focus stacks; casting does not consume them. Stacks are snapshotted when channeling begins, so new stacks gained by the current wave empower only the next Illuminate."
-		"DOTA_Tooltip_ability_keeper_of_the_light_illuminate_Note1"		"Example: at 550% Spell Amplification, each Focus stack grants 80% damage and 5 stacks grant 400%; level 5 Illuminate has 3525 max damage before Spell Amplification is applied again."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Illuminate damage increased by <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
 
 		///////////////////////////////////////////////////
 		//
