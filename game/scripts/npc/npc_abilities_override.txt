@@ -10257,8 +10257,8 @@
 			}
 			"jumps"
 			{
-				"value"			"30 35 40 45"	// 10 10 10
-				"special_bonus_unique_lich_5"	"+100"	// 原版不存在，手动修改
+				"value"			"20 30 40 50"	// 10 10 10
+				"special_bonus_unique_lich_5"	"+50"	// 原版不存在，手动修改
 			}
 			"has_unlimited_jumps"
 			{

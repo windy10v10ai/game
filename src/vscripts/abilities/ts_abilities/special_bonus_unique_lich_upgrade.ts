@@ -1,4 +1,4 @@
-﻿import {
+import {
   BaseAbility,
   BaseModifier,
   registerAbility,
@@ -11,21 +11,12 @@ import {
 } from './lich-awaken-math';
 
 const CHAIN_FROST = 'lich_chain_frost';
-const AWAKENED_CHAIN_FROST = 'lich_chain_frost_awakened';
 const FROST_NOVA = 'lich_frost_nova';
 const ICE_SPIRE = 'lich_ice_spire';
-const LEGACY_ICE_SPIRE = 'lich_ice_spire_awakened';
-const SHARD_ITEM = 'item_aghanims_shard';
-const SHARD_MODIFIER = 'modifier_item_aghanims_shard';
-const FROSTBOUND_MODIFIER = 'modifier_lich_chainfrost_frostbound';
 const AWAKEN_MODIFIER = 'modifier_special_bonus_unique_lich_upgrade';
 const MARK_MODIFIER = 'modifier_special_bonus_unique_lich_upgrade_mark';
 
-export function isLichChainFrostAbility(abilityName: string): boolean {
-  return abilityName === CHAIN_FROST || abilityName === AWAKENED_CHAIN_FROST;
-}
-
-/** 巫妖觉醒：连环霜冻智力附伤、寒灾印记引爆，并永久解锁寒冰尖柱。 */
+/** 巫妖觉醒：连环霜冻智力附伤、寒灾印记引爆，寒冰尖柱已解锁时自动施放。 */
 @registerAbility('special_bonus_unique_lich_upgrade')
 export class SpecialBonusUniqueLichUpgrade extends BaseAbility {
   GetIntrinsicModifierName(): string {
@@ -52,16 +43,6 @@ export class modifier_special_bonus_unique_lich_upgrade extends BaseModifier {
 
   RemoveOnDeath(): boolean {
     return false;
-  }
-
-  OnCreated(): void {
-    if (!IsServer()) return;
-    this.ensureNativeIceSpire();
-  }
-
-  OnRefresh(): void {
-    if (!IsServer()) return;
-    this.ensureNativeIceSpire();
   }
 
   DeclareFunctions(): ModifierFunction[] {
@@ -92,7 +73,7 @@ export class modifier_special_bonus_unique_lich_upgrade extends BaseModifier {
     }
 
     const abilityName = inflictor.GetAbilityName();
-    if (isLichChainFrostAbility(abilityName)) {
+    if (abilityName === CHAIN_FROST) {
       this.onChainFrostDamage(lich, awaken, inflictor, target);
     } else if (abilityName === FROST_NOVA) {
       this.onFrostNovaDamage(lich, awaken, target);
@@ -107,7 +88,6 @@ export class modifier_special_bonus_unique_lich_upgrade extends BaseModifier {
   ): void {
     if (!this.isValidDamageTarget(lich, target)) return;
 
-    this.preserveFrostboundDuration(target, chainFrost.GetSpecialValueFor('frostbound_duration'));
     this.maybeAutoCastIceSpire(lich, chainFrost, target);
 
     const bonusDamage = calculateLichAwakenDamage(
@@ -178,8 +158,8 @@ export class modifier_special_bonus_unique_lich_upgrade extends BaseModifier {
 
     const damage = calculateLichAwakenDetonationDamage(
       lich.GetIntellect(false),
-      awaken.GetSpecialValueFor('natural_detonation_multiplier'),
-      1,
+      awaken.GetSpecialValueFor('nova_detonation_multiplier_per_stack'),
+      maxStacks,
     );
     this.detonate(lich, awaken, target, damage);
   }
@@ -241,18 +221,6 @@ export class modifier_special_bonus_unique_lich_upgrade extends BaseModifier {
     );
   }
 
-  private ensureNativeIceSpire(): void {
-    const lich = this.GetParent() as CDOTA_BaseNPC_Hero;
-    const legacyIceSpire = lich.FindAbilityByName(LEGACY_ICE_SPIRE);
-    if (legacyIceSpire) {
-      lich.RemoveAbility(LEGACY_ICE_SPIRE);
-    }
-
-    if (!lich.HasModifier(SHARD_MODIFIER)) {
-      lich.AddItemByName(SHARD_ITEM);
-    }
-  }
-
   private maybeAutoCastIceSpire(
     lich: CDOTA_BaseNPC_Hero,
     chainFrost: CDOTABaseAbility,
@@ -276,17 +244,6 @@ export class modifier_special_bonus_unique_lich_upgrade extends BaseModifier {
 
     lich.SetCursorPosition(nearbyHeroes[0].GetAbsOrigin());
     lich.CastAbilityImmediately(iceSpire, lich.GetPlayerOwnerID());
-  }
-
-  private preserveFrostboundDuration(target: CDOTA_BaseNPC, duration: number): void {
-    if (duration <= 0) return;
-
-    Timers.CreateTimer(0, () => {
-      if (!target || target.IsNull()) return;
-      const frostbound = target.FindModifierByName(FROSTBOUND_MODIFIER);
-      if (!frostbound || frostbound.IsNull()) return;
-      frostbound.SetDuration(duration, true);
-    });
   }
 }
 
