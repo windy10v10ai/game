@@ -12,67 +12,6 @@ function ogre_magi_multicast_lua:Precache(context)
 		context)
 end
 
-local AWAKENED_DOOM_ABILITY = "doom_bringer_doom_awakened"
-
-local function AppendUniqueAwakenedDoomTarget(units, seen, unit)
-	if not unit or unit:IsNull() or not unit:IsAlive() then
-		return
-	end
-
-	local entity_index = unit:entindex()
-	if seen[entity_index] then
-		return
-	end
-
-	seen[entity_index] = true
-	table.insert(units, unit)
-end
-
-local function FindAwakenedDoomMulticastTargets(caster, ability, has_scepter)
-	local units = {}
-	local seen = {}
-	local origin = caster:GetAbsOrigin()
-	local search_range = ability:GetCastRange(origin, nil) + caster:GetCastRangeBonus()
-	local enemies = FindUnitsInRadius(
-		caster:GetTeamNumber(),
-		origin,
-		nil,
-		search_range,
-		DOTA_UNIT_TARGET_TEAM_ENEMY,
-		ability:GetAbilityTargetType(),
-		ability:GetAbilityTargetFlags() + DOTA_UNIT_TARGET_FLAG_CAN_BE_SEEN,
-		FIND_ANY_ORDER,
-		false
-	)
-
-	for _, enemy in ipairs(enemies) do
-		AppendUniqueAwakenedDoomTarget(units, seen, enemy)
-	end
-
-	if has_scepter then
-		local allies = FindUnitsInRadius(
-			caster:GetTeamNumber(),
-			origin,
-			nil,
-			search_range,
-			DOTA_UNIT_TARGET_TEAM_FRIENDLY,
-			DOTA_UNIT_TARGET_HERO,
-			DOTA_UNIT_TARGET_FLAG_NONE,
-			FIND_ANY_ORDER,
-			false
-		)
-
-		for _, ally in ipairs(allies) do
-			if ally:IsRealHero() then
-				AppendUniqueAwakenedDoomTarget(units, seen, ally)
-			end
-		end
-		AppendUniqueAwakenedDoomTarget(units, seen, caster)
-	end
-
-	return units
-end
-
 ---------------------------------------------------------------------
 --Modifiers
 if modifier_ogre_magi_multicast_lua == nil then
@@ -131,6 +70,7 @@ no_support_abilitys = {
 	ember_spirit_sleight_of_fist = 1,               -- 无影拳
 	goku_kaioken = 1,                               -- 界王拳
 	doom_bringer_doom = 1,                          -- 末日
+	doom_bringer_doom_awakened = 1,                 -- 末日 觉醒
 	tusk_snowball = 1,                              -- 雪球
 	tiny_tree_channel = 1,                          -- 树木连掷
 	shredder_chakram = 1,                           -- 锯齿飞轮
@@ -314,15 +254,10 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 
 		-- 指向性技能 向周围随机目标施法
 		if IsAbilityBehavior(ability:GetBehavior(), DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) then
-			local units
-			if abilityName == AWAKENED_DOOM_ABILITY then
-				units = FindAwakenedDoomMulticastTargets(keys.unit, ability, keys.unit:HasScepter())
-			else
-				units = FindUnitsInRadius(keys.unit:GetTeamNumber(), pos, nil, ability:GetCastRange(pos, nil),
-					ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(),
-					ability:GetAbilityTargetFlags() + DOTA_UNIT_TARGET_FLAG_CAN_BE_SEEN,
-					FIND_ANY_ORDER, false)
-			end
+			local units = FindUnitsInRadius(keys.unit:GetTeamNumber(), pos, nil, ability:GetCastRange(pos, nil),
+				ability:GetAbilityTargetTeam(), ability:GetAbilityTargetType(),
+				ability:GetAbilityTargetFlags() + DOTA_UNIT_TARGET_FLAG_CAN_BE_SEEN,
+				FIND_ANY_ORDER, false)
 			if #units > 0 then
 				target = units[RandomInt(1, #units)]
 				pos = target:GetAbsOrigin()
