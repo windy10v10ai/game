@@ -7,6 +7,7 @@
   calculateRadiusWithCastRangeBonus,
   isEligibleRealHeroTarget,
   resolveAwakenCastMode,
+  resolveAwakenFieldState,
   resolveFieldMode,
   resolveNaturalOrderOverlap,
   shouldOverrideNaturalOrderRadius,
@@ -66,6 +67,21 @@ describe('calculateRadiusWithCastRangeBonus', () => {
   });
 });
 
+describe('resolveAwakenFieldState', () => {
+  it('keeps the active field radius while Natural Order is unlearned', () => {
+    expect(resolveAwakenFieldState(800, 125, 0)).toEqual({
+      radius: 925,
+      naturalOrderEnabled: false,
+    });
+  });
+
+  it('enables Natural Order effects separately after the skill is learned', () => {
+    expect(resolveAwakenFieldState(800, 125, 1)).toEqual({
+      radius: 925,
+      naturalOrderEnabled: true,
+    });
+  });
+});
 describe('shouldOverrideNaturalOrderRadius', () => {
   it('overrides only Natural Order radius while field mode is enabled', () => {
     expect(shouldOverrideNaturalOrderRadius(true, 'elder_titan_natural_order', 'radius')).toBe(

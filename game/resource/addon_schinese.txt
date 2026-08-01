@@ -149,7 +149,7 @@
 		// 上古巨神 灵体游魂-觉醒
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"多样施法：自然秩序改为环绕自身，并可立即强化。"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"召唤先祖游魂。游魂触碰敌人后，为上古巨神提供攻击力和移动速度。\n\n多样施法：自然秩序改为环绕自身，基础范围为 800。未强化时只降低基础护甲和基础魔抗。点击技能可强化领域 %field_duration% 秒：首次触碰敌人获得游魂加成，触碰英雄还会获得攻击速度；敌人的正护甲按自然秩序比例降低，魔法抗性直接降低相同百分点。减防对技能免疫单位生效，技能范围加成会扩大领域。\n\n<font color='#FFFFFF'>神杖升级：</font>每首次触碰一名敌方英雄，获得 %scepter_magic_immune_per_hero% 秒<font color='#FFCC66'>减益免疫和魔法抗性</font>。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"召唤先祖游魂。游魂触碰敌人后，为上古巨神提供攻击力和移动速度。\n\n多样施法：自然秩序改为环绕自身，基础范围为 800。未强化时只降低基础护甲和基础魔抗。点击技能可强化领域 %field_duration% 秒：首次触碰敌人获得游魂加成，触碰英雄还会获得攻击速度；敌人的正护甲按自然秩序比例降低，魔法抗性直接降低相同百分点。减防对技能免疫单位生效，技能范围加成会扩大领域。未学习自然秩序时，领域仍可强化并获得游魂加成，但不会降低护甲或魔抗。\n\n<font color='#FFFFFF'>神杖升级：</font>每首次触碰一名敌方英雄，获得 %scepter_magic_immune_per_hero% 秒<font color='#FFCC66'>减益免疫和魔法抗性</font>。"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_field_duration"		"强化持续时间："
 		"DOTA_Tooltip_ability_elder_titan_natural_order_awaken_radius"		"多样施法领域半径："
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"			"每个非英雄单位攻击力："

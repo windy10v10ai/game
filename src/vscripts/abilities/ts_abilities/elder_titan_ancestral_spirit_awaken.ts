@@ -6,14 +6,15 @@ import {
 } from '../../utils/dota_ts_adapter';
 import { applyAwakenMagicImmunity } from './shared/awaken-magic-immunity';
 import {
+  ElderTitanAwakenFieldState,
   ElderTitanFieldCounts,
   FieldTouchTracker,
   calculateBonusArmorReductionDelta,
   calculateFieldBonuses,
   calculateMagicResistanceTarget,
-  calculateRadiusWithCastRangeBonus,
   isEligibleRealHeroTarget,
   resolveAwakenCastMode,
+  resolveAwakenFieldState,
   resolveFieldMode,
   resolveNaturalOrderOverlap,
   shouldOverrideNaturalOrderRadius,
@@ -119,15 +120,24 @@ export class ElderTitanAncestralSpiritAwaken extends BaseAbility {
     controller.SetStackCount(nextStack);
   }
 
-  getFieldRadius(): number {
+  getFieldState(): ElderTitanAwakenFieldState {
     const caster = this.GetCaster();
     const naturalOrder = caster.FindAbilityByName(NATURAL_ORDER_ABILITY);
-    if (!naturalOrder || naturalOrder.GetLevel() <= 0) return 0;
+    if (!naturalOrder) return resolveAwakenFieldState(0, 0, 0);
 
-    return calculateRadiusWithCastRangeBonus(
+    return resolveAwakenFieldState(
       naturalOrder.GetSpecialValueFor('awaken_radius'),
       caster.GetCastRangeBonus(),
+      naturalOrder.GetLevel(),
     );
+  }
+
+  getFieldRadius(): number {
+    return this.getFieldState().radius;
+  }
+
+  isNaturalOrderEnabled(): boolean {
+    return this.getFieldState().naturalOrderEnabled;
   }
 
   ensureNativeSpiritAbility(): CDOTABaseAbility | undefined {
@@ -284,9 +294,9 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
 
   GetAuraEntityReject(_target: CDOTA_BaseNPC): boolean {
     const ability = this.GetAbility();
-    if (!ability || !(ability as ElderTitanAncestralSpiritAwaken).isFieldMode()) return true;
-    const naturalOrder = this.GetParent().FindAbilityByName(NATURAL_ORDER_ABILITY);
-    return !naturalOrder || naturalOrder.GetLevel() <= 0;
+    if (!ability) return true;
+    const awakenAbility = ability as ElderTitanAncestralSpiritAwaken;
+    return !awakenAbility.isFieldMode() || !awakenAbility.isNaturalOrderEnabled();
   }
 
   private shouldOverrideNaturalOrderRadius(event: ModifierOverrideAbilitySpecialEvent): boolean {

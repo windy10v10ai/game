@@ -20,6 +20,11 @@ export interface ElderTitanFieldBonuses {
   attackSpeed: number;
 }
 
+export interface ElderTitanAwakenFieldState {
+  radius: number;
+  naturalOrderEnabled: boolean;
+}
+
 export interface SpiritWrapperState {
   waitingForReturn: boolean;
   returnHidden: boolean;
@@ -92,6 +97,17 @@ export function calculateRadiusWithCastRangeBonus(
   castRangeBonus: number,
 ): number {
   return Math.max(0, baseRadius) + Math.max(0, castRangeBonus);
+}
+
+export function resolveAwakenFieldState(
+  baseRadius: number,
+  castRangeBonus: number,
+  naturalOrderLevel: number,
+): ElderTitanAwakenFieldState {
+  return {
+    radius: calculateRadiusWithCastRangeBonus(baseRadius, castRangeBonus),
+    naturalOrderEnabled: naturalOrderLevel > 0,
+  };
 }
 
 export function shouldOverrideNaturalOrderRadius(
