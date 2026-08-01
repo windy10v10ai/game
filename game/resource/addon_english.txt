@@ -1315,11 +1315,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"Freezing Field Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"Grants <font color='#FFFFFF'>Spellblock</font>, blocking one enemy targeted spell."
 
-		// 小小 抓树-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tiny Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out.<br>Grow no longer reduces attack speed."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tiny Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out.<br>Grow no longer reduces attack speed."
 
 		// 光之守卫 冲击波-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Illuminate Awakened</font>"

@@ -1313,11 +1313,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"极寒领域 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"获得<font color='#FFFFFF'>法术抵抗</font>，抵挡一次敌方指向性法术。"
 
-		// 小小 抓树-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>小小 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。<br>长大不再降低攻击速度。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>小小 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。<br>长大不再降低攻击速度。"
 
 		// 光之守卫 冲击波-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>冲击波 觉醒</font>"
