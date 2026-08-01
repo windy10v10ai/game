@@ -9,9 +9,21 @@
 	"item_recipe_travel_boots_2"	"REMOVE"
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
-	"item_moon_shard"				"REMOVE"
+	// "item_moon_shard"				"REMOVE"
 	"item_helm_of_the_dominator"	"REMOVE" // 支配头盔
 	"item_helm_of_the_overlord"		"REMOVE" // 统御头盔
+
+	//=================================================================================================================
+	// 银月之晶 真·银月之晶的合成材料
+	//=================================================================================================================
+	"item_moon_shard"
+	{
+		"AbilityValues"
+		{
+				"bonus_attack_speed"		"100"
+				"bonus_night_vision"		"200"
+		}
+	}
 
 	//=================================================================================================================
 	// 疗伤莲花 奶酪 奶酪块
@@ -56,16 +68,16 @@
 			"01"						"item_famango;item_famango"
 		}
 	}
-	"item_recipe_greater_famango"
-	{
-		"ItemCost"						"2000"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
-		"ItemRequirements"
-		{
-			"01"						"item_great_famango"
-		}
-	}
+	// "item_recipe_greater_famango"
+	// {
+	// 	"ItemCost"						"2000"
+	// 	"ItemPurchasable"				"1"
+	// 	"ItemSellable"					"1"
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01"						"item_great_famango"
+	// 	}
+	// }
 	// 美味护盾
 	"item_royale_with_cheese"
 	{
@@ -591,6 +603,7 @@
 	//=================================================================================================================
 	"item_ward_sentry"
 	{
+		"AbilityCastRange"				"600"	// 500
 		"ItemCost"						"40"
 		"ItemStockMax"					"20"
 		"ItemStockInitial"				"3"
@@ -603,10 +616,14 @@
 	}
 	"item_ward_dispenser"
 	{
+		"AbilityCastRange"				"600"	// 500
 		"AbilityValues"
 		{
 				"lifetime_observer"				"480"			// 360
 				"observer_duration_minutes_tooltip"		"8"		// 6
+				// 引擎对 dispenser 取这两个值而非 AbilityCastRange，三处须同步
+				"cast_range_observer"			"600"	// 500
+				"cast_range_sentry"				"600"	// 500
 		}
 	}
 	//=================================================================================================================

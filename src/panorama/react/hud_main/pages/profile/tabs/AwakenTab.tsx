@@ -18,6 +18,30 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     abilityName: 'doom_bringer_doom_awakened',
   },
   {
+    heroName: 'npc_dota_hero_keeper_of_the_light',
+    abilityName: 'special_bonus_unique_keeper_of_the_light_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_crystal_maiden',
+    abilityName: 'special_bonus_unique_crystal_maiden_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_tiny',
+    abilityName: 'special_bonus_unique_tiny_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_legion_commander',
+    abilityName: 'legion_commander_auto_duel',
+  },
+  {
+    heroName: 'npc_dota_hero_phoenix',
+    abilityName: 'special_bonus_unique_phoenix_upgrade',
+  },
+  {
+    heroName: 'npc_dota_hero_warlock',
+    abilityName: 'special_bonus_unique_warlock_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_sven',
     abilityName: 'special_bonus_unique_sven_upgrade',
   },

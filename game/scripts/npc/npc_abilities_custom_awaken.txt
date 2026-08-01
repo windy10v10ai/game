@@ -5,6 +5,33 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 凤凰-觉醒
+	"special_bonus_unique_phoenix_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"phoenix_sun_ray"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"hotspot_start_length_pct"	"50"
+			"hotspot_end_multiplier_pct"	"200"
+			"hotspot_reference_length"	"1200"
+		}
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_phoenix_upgrade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
 	// 屠夫 觉醒肉钩
 	// 大幅强化的施法距离与钩速（固定值，不再随力量增长），可切换是否钩友方单位
 	"pudge_meat_hook_lua"
@@ -170,7 +197,25 @@
 		"LevelsBetweenUpgrades"			"6"
 		"LinkedAbility"					"axe_culling_blade"	// 与大招淘汰之刃双向联动同步升级
 		"AbilityCharges"				"3"
-		"AbilityChargeRestoreTime"		"10"
+		"AbilityChargeRestoreTime"		"12"
+	}
+
+	// 军团指挥官 自动决斗
+	"legion_commander_auto_duel"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/legion_commander_auto_duel"
+		"AbilityTextureName"			"legion_commander_duel"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"LinkedAbility"					"legion_commander_duel"
+		"AbilityValues"
+		{
+			"bonus_cast_range"			"200"
+		}
 	}
 
 	// 死灵法师 竭心光环-觉醒
@@ -552,6 +597,24 @@
 		}
 	}
 
+	// 光之守卫 冲击波-觉醒
+	"special_bonus_unique_keeper_of_the_light_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_keeper_of_the_light_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"keeper_of_the_light/kotl_ti7_immortal/keeper_of_the_light_illuminate_alt"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"base_damage_bonus"				"100"
+			"max_focus_stacks"				"10"
+			"damage_pct_per_stack"			"25"
+			"focus_duration"				"20"	// 须长于冲击波冷却，否则聚光在下一发可用前就过期
+		}
+	}
+
 	// 斯温-觉醒
 	"special_bonus_unique_sven_upgrade"
 	{
@@ -646,5 +709,52 @@
 		"AbilityTextureName"			"doom_bringer_devour"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"MaxLevel"						"1"
+	}
+	// 术士 地狱火献祭-觉醒
+	"special_bonus_unique_warlock_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/ts_abilities/special_bonus_unique_warlock_upgrade"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"warlock_rain_of_chaos"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"regen_to_damage_pct"		"150"
+		}
+	}
+
+	// 水晶室女 极寒领域-觉醒
+	"special_bonus_unique_crystal_maiden_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_crystal_maiden_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"crystal_maiden_freezing_field"
+		"MaxLevel"						"1"
+	}
+
+	// 小小 抓树-觉醒
+	// 效果由 npc_abilities_override.txt 中 tiny_tree_grab 的 special_bonus 键实现，本技能仅作拥有标记
+	"special_bonus_unique_tiny_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"tiny_tree_grab"
+		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_tiny_upgrade"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
 	}
 }
