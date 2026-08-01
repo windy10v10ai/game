@@ -1285,12 +1285,13 @@
 
 		// 末日使者-觉醒
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对一个敌方单位施加末日。持有阿哈利姆神杖时，目标同时成为范围末日载体，并可改为对友方真实英雄或自己施放；友方载体不会受到末日。范围半径直接读取原生阿哈利姆神杖末日半径，并在每次施放或刷新时快照。重复对同一载体施放会刷新持续时间与半径。范围内敌人会继承末日的锁闭与破坏天赋。觉醒后，吞噬获得的野怪技能会持续校正到最大等级。"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"			"可对自己或友方真实英雄施放，使其成为范围末日载体；载体本身不受末日，范围内敌人会受到末日并继承锁闭与破坏天赋。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n觉醒后，吞噬获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"持续时间："
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"			"末日对敌人施加<font color='#dd621e'>破坏</font>效果。\n\n可改为对自己或友方英雄施放，使其成为移动的范围末日中心，持续对周围敌人施加末日；该友军自身不会受到末日影响。"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"范围末日持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"每秒伤害："
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"范围末日载体"
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"周围%dMODIFIER_PROPERTY_TOOLTIP%范围内的敌人持续受到末日效果。重复施放会刷新持续时间与半径。"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"范围末日"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"%dMODIFIER_PROPERTY_TOOLTIP%范围内的敌人持续受到末日效果。"
 		// 斯温-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，持续%duration%秒，期间力量提升%strength_bonus%点，攻击速度提升%attackspeed_bonus%点。"

@@ -700,16 +700,6 @@
 			}
 		}
 	}
-	// 末日使者 觉醒吞噬
-	// 保留原生吞噬，通过隐藏被动把本次获得或替换的野怪技能设为其最大等级
-	"doom_bringer_devour_awakened"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/ts_abilities/doom_bringer_devour_awakened"
-		"AbilityTextureName"			"doom_bringer_devour"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
-		"MaxLevel"						"1"
-	}
 	// 术士 地狱火献祭-觉醒
 	"special_bonus_unique_warlock_upgrade"
 	{

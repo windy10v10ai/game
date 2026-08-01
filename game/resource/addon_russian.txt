@@ -511,12 +511,13 @@
 		"npc_treasure_chest"													"Сундук с сокровищами"
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает Doom на вражеского юнита. С Aghanim's Scepter цель также становится центром области Doom, а способность можно применить к настоящему союзному герою или к самому владельцу; союзный носитель не получает Doom. Радиус напрямую считывается из стандартного Doom с Aghanim's Scepter и фиксируется при каждом наложении или обновлении. Повторное применение к тому же носителю обновляет длительность и радиус. Враги в области наследуют таланты Doom на запрет предметов и отключение пассивных способностей. После пробуждения способности нейтральных крипов, полученные с помощью Devour, постоянно корректируются до максимального уровня."
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"			"Можно применить к владельцу или настоящему союзному герою, превратив его в носителя области Doom. Носитель не получает Doom; враги рядом получают Doom и наследуют таланты на запрет предметов и отключение пассивных способностей."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью Devour, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"			"Doom накладывает Break на врагов.\n\nМожно применить к владельцу или союзному герою, превратив его в подвижный центр, который непрерывно накладывает Doom на врагов поблизости; сам союзник при этом не получает Doom."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Носитель области Doom"
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Враги в радиусе %dMODIFIER_PROPERTY_TOOLTIP% непрерывно получают Doom. Повторное применение обновляет длительность и радиус."
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Область Doom"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Враги в радиусе %dMODIFIER_PROPERTY_TOOLTIP% непрерывно получают Doom."
 
 	}
 }

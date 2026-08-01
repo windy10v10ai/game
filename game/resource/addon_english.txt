@@ -1287,12 +1287,13 @@
 
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Doom Awakened</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Dooms an enemy unit. With Aghanim's Scepter, the target also becomes the center of an area Doom, and the ability may instead target a real allied hero or the caster; allied carriers are not Doomed. The radius is read directly from native Scepter Doom and snapshotted whenever the carrier is applied or refreshed. Recasting on the same carrier refreshes its duration and radius. Enemies in the area inherit Doom's Mute and Break talents. After awakening, neutral-creep abilities gained through Devour are continuously corrected to their maximum level."
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"			"May target the caster or a real allied hero, turning that unit into an area-Doom carrier. The carrier is not Doomed; nearby enemies are Doomed and inherit the Mute and Break talents."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel\n\nAfter awakening, neutral-creep abilities gained through Devour are automatically raised to their maximum level."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"			"Doom applies Break to enemies.\n\nMay instead target the caster or an allied hero, turning that unit into a mobile center that continuously Dooms nearby enemies; the ally itself is not affected by Doom."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"AREA DOOM DURATION:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"DAMAGE PER SECOND:"
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Area Doom Carrier"
-		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Enemies within %dMODIFIER_PROPERTY_TOOLTIP% range are continuously Doomed. Recasting refreshes the duration and radius."
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Area Doom"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Enemies within %dMODIFIER_PROPERTY_TOOLTIP% range are continuously Doomed."
 		// Sven Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> for %duration% seconds, increasing Strength by %strength_bonus% and Attack Speed by %attackspeed_bonus% during that time."

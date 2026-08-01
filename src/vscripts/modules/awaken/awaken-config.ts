@@ -23,12 +23,6 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'doom_bringer_doom_awakened',
     newLevel: 0,
   },
-  // 觉醒吞噬保留原生技能，仅新增隐藏被动，将本次吞噬获得的野怪技能设为最大等级
-  {
-    heroName: 'npc_dota_hero_doom_bringer',
-    newAbility: 'doom_bringer_devour_awakened',
-    newLevel: 1,
-  },
   // 光之守卫 觉醒
   {
     heroName: 'npc_dota_hero_keeper_of_the_light',
