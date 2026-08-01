@@ -18,6 +18,19 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string }[] = [
     abilityName: 'elder_titan_ancestral_spirit_awaken',
   },
   {
+    heroName: 'npc_dota_hero_undying',
+    abilityName: 'special_bonus_unique_undying_upgrade',
+  },
+  { heroName: 'npc_dota_hero_lich', abilityName: 'special_bonus_unique_lich_upgrade' },
+  {
+    heroName: 'npc_dota_hero_doom_bringer',
+    abilityName: 'doom_bringer_doom_awakened',
+  },
+  {
+    heroName: 'npc_dota_hero_keeper_of_the_light',
+    abilityName: 'special_bonus_unique_keeper_of_the_light_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_crystal_maiden',
     abilityName: 'special_bonus_unique_crystal_maiden_upgrade',
   },

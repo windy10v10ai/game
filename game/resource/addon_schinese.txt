@@ -166,6 +166,11 @@
 		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff_Description"			"获得%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力、%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度和%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度。"
 		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order"			"<font color='#d000ff'>自然秩序领域</font>"
 		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order_Description"		"降低基础护甲和基础魔抗。强化期间，正护甲按自然秩序比例降低，魔抗直接降低相同百分点。"
+		// 尸王 血肉腐朽-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.5</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
@@ -1304,6 +1309,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
+		// 末日使者-觉醒
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"持续时间："
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"范围末日持续时间："
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"每秒伤害："
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"范围末日"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"%dMODIFIER_PROPERTY_TOOLTIP%范围内的敌人持续受到末日效果。"
 		// 斯温-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，持续%duration%秒，期间力量提升%strength_bonus%点，攻击速度提升%attackspeed_bonus%点。"
@@ -1313,16 +1326,28 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
 
 		// 水晶室女 极寒领域-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>极寒领域 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"		"引导极寒领域期间获得<font color='#FFCC66'>技能免疫</font>，引导结束时立即失去。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>极寒领域 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"		"引导极寒领域期间获得<font color='#FFCC66'>技能免疫</font>，引导结束时立即失去。"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"极寒领域 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"获得<font color='#FFFFFF'>法术抵抗</font>，抵挡一次敌方指向性法术。"
 
-		// 小小 抓树-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>小小 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。<br>长大不再降低攻击速度。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>小小 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。<br>长大不再降低攻击速度。"
+
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>冲击波 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高%base_damage_bonus%点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>冲击波每命中一名敌方英雄获得1层聚光，每层使冲击波伤害提高%damage_pct_per_stack%%%。"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"聚光层数上限："
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"聚光持续时间："
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>冲击波 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>25</b></font>%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"聚光"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"冲击波伤害提高<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>。"
 
 		///////////////////////////////////////////////////
 		//
@@ -3173,6 +3198,7 @@
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"				"+移动速度（可叠加）"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"						"%+转身速率"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_evasion"						"%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"								"战机模式"
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"					"获得高空视野，移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，无视地形和单位碰撞。"
@@ -3457,6 +3483,16 @@
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "每次攻击独立随机转化为物理、魔法或纯粹伤害。转换伤害不受技能增强影响。"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "法师克星"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "造成的技能和物品伤害降低30%，并持续受到物理、魔法和纯粹伤害。持续伤害不受技能增强影响。"
+		// 巫妖 寒灾轮回
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力%intelligence_damage_multiplier%倍的魔法伤害，并叠加1层寒灾印记，持续%mark_duration%秒，叠满%mark_max_stacks%层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在%detonation_radius%范围内造成相当于智力%nova_detonation_multiplier_per_stack%倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人%freeze_duration%秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"幻象不计入真实英雄；肉山按普通单位处理。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"寒灾印记仅对真实英雄和肉山叠加；肉山会受到爆炸伤害，但不会被眩晕。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"寒霜爆发可提前引爆寒灾印记，并按当前层数结算伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍的魔法伤害，并叠加1层寒灾印记，持续<font color='#FFFFFF'><b>8</b></font>秒，叠满<font color='#FFFFFF'><b>3</b></font>层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在<font color='#FFFFFF'><b>350</b></font>范围内造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人<font color='#FFFFFF'><b>0.6</b></font>秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"寒灾印记"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"达到3层时触发寒灾冰爆；巫妖也可使用寒霜爆发提前引爆。"
 
 	}
 }
