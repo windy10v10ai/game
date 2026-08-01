@@ -4277,6 +4277,7 @@
 				"attack_speed_reduction"
 				{
 					"value"		"-10"						// -35
+					"special_bonus_unique_tiny_upgrade"	"+10"	// 与 value 抵消，觉醒后无攻速惩罚
 				}
 				"toss_bonus_damage"
 				{
