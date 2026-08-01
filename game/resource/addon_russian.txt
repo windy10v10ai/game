@@ -534,5 +534,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"При 3 зарядах срабатывает взрыв Frost Calamity. Lich также может досрочно взорвать метку с помощью Frost Blast."
 
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+
 	}
 }

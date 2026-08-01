@@ -761,8 +761,8 @@
 		"MaxLevel"						"1"
 	}
 
-	// 小小 抓树-觉醒
-	// 效果由 npc_abilities_override.txt 中 tiny_tree_grab 的 special_bonus 键实现，本技能仅作拥有标记
+	// 小小 觉醒
+	// 效果由 npc_abilities_override.txt 中 tiny_tree_grab / tiny_grow 的 special_bonus 键实现，本技能仅作拥有标记
 	"special_bonus_unique_tiny_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
