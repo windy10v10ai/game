@@ -5716,7 +5716,7 @@
 
 			// Desolator 参数（从 item_infernal_desolator 继承）
 			"bonus_damage"				"300"	// 攻击力
-			"corruption_armor"			"-50"	// 护甲降低
+			"corruption_armor"			"-45"	// 护甲降低
 			"corruption_duration"		"7.0"	// 护甲降低持续时间
 			"bonus_damage_per_kill"		"10"	// 每次击杀增加的攻击力
 			"bonus_damage_per_assist"	"2"		// 每次助攻增加的攻击力
@@ -5864,6 +5864,7 @@
 			"bonus_movement_speed"		"140"	// tooltip only - 移动速度
 			"bonus_movement_speed_pct"	"20"	// tooltip only - 移动速度百分比
 			"bonus_turn_rate"			"50"	// tooltip only - 转身速率
+			"bonus_evasion"			"20"	// tooltip only - 闪避
 			// 主动效果（在 Lua 中实现）
 			"active_movement_speed_pct"	"50"
 			"active_duration"			"4"
