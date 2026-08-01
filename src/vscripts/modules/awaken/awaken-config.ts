@@ -16,6 +16,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 尸王 觉醒
+  {
+    heroName: 'npc_dota_hero_undying',
+    newAbility: 'special_bonus_unique_undying_upgrade',
+    newLevel: 1,
+  },
   // 巫妖 觉醒
   {
     heroName: 'npc_dota_hero_lich',
