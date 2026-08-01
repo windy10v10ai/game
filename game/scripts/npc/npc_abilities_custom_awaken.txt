@@ -700,6 +700,26 @@
 			}
 		}
 	}
+	// 巫妖 寒灾轮回-觉醒
+	"special_bonus_unique_lich_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_lich_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"lich_chain_frost"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"intelligence_damage_multiplier"		"0.75"
+			"nova_detonation_multiplier_per_stack"	"0.75"
+			"mark_duration"						"8"
+			"mark_max_stacks"					"3"
+			"detonation_radius"					"350"
+			"freeze_duration"					"0.6"
+		}
+	}
 	// 术士 地狱火献祭-觉醒
 	"special_bonus_unique_warlock_upgrade"
 	{
