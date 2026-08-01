@@ -511,7 +511,7 @@
 		"npc_treasure_chest"													"Сундук с сокровищами"
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> можно применить к владельцу или союзному герою, превратив его в подвижный центр, который непрерывно накладывает Doom на врагов поблизости; сам союзник при этом не получает Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> можно применить к владельцу или союзному герою, который будет непрерывно накладывать Doom на врагов поблизости, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
