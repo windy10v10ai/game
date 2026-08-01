@@ -1,17 +1,20 @@
-﻿import {
+import {
   FieldTouchTracker,
   calculateBonusArmorReductionDelta,
   calculateDefenseReduction,
   calculateFieldBonuses,
   calculateMagicResistanceTarget,
   calculateRadiusWithCastRangeBonus,
+  isEligibleFieldTarget,
   isEligibleRealHeroTarget,
   resolveAwakenCastMode,
   resolveAwakenFieldState,
+  resolveFieldBuffSync,
   resolveFieldMode,
   resolveNaturalOrderOverlap,
   shouldOverrideNaturalOrderRadius,
   shouldRestoreAwakenWrapper,
+  shouldTrackPendingSpiritReturn,
 } from './elder-titan-awaken-math';
 
 describe('FieldTouchTracker', () => {
@@ -35,6 +38,29 @@ describe('resolveFieldMode', () => {
     expect(resolveFieldMode(false, undefined, 0)).toBe(false);
   });
 });
+describe('resolveFieldBuffSync', () => {
+  it('forces one delayed sync after creation-time targets were already touched', () => {
+    expect(resolveFieldBuffSync(true, false)).toEqual({
+      shouldSync: true,
+      initialSyncPending: false,
+    });
+  });
+
+  it('does not resend when the initial sync is complete and no target is new', () => {
+    expect(resolveFieldBuffSync(false, false)).toEqual({
+      shouldSync: false,
+      initialSyncPending: false,
+    });
+  });
+
+  it('resends when a new target enters after the initial sync', () => {
+    expect(resolveFieldBuffSync(false, true)).toEqual({
+      shouldSync: true,
+      initialSyncPending: false,
+    });
+  });
+});
+
 describe('resolveAwakenCastMode', () => {
   it('uses point targeting normally and immediate no-target casting in field mode', () => {
     expect(resolveAwakenCastMode(false)).toBe('point');
@@ -99,6 +125,13 @@ describe('shouldOverrideNaturalOrderRadius', () => {
   });
 });
 
+describe('shouldTrackPendingSpiritReturn', () => {
+  it('tracks a spirit cast that was already active before awakening', () => {
+    expect(shouldTrackPendingSpiritReturn(false)).toBe(true);
+    expect(shouldTrackPendingSpiritReturn(true)).toBe(false);
+  });
+});
+
 describe('shouldRestoreAwakenWrapper', () => {
   const shouldRestore = (waitingForReturn: boolean, returnHidden: boolean): boolean =>
     shouldRestoreAwakenWrapper({ waitingForReturn, returnHidden });
@@ -152,6 +185,31 @@ describe('isEligibleRealHeroTarget', () => {
   });
 });
 
+describe('isEligibleFieldTarget', () => {
+  const enemyCreep = {
+    isAlive: true,
+    isOpposingTeam: true,
+    isNeutralUnit: false,
+    isBuilding: false,
+    isWard: false,
+    isCourier: false,
+  };
+
+  it('accepts opposing and neutral non-hero units', () => {
+    expect(isEligibleFieldTarget(enemyCreep)).toBe(true);
+    expect(
+      isEligibleFieldTarget({ ...enemyCreep, isOpposingTeam: false, isNeutralUnit: true }),
+    ).toBe(true);
+  });
+
+  it('rejects friendly units and non-unit targets', () => {
+    expect(isEligibleFieldTarget({ ...enemyCreep, isOpposingTeam: false })).toBe(false);
+    for (const excluded of ['isBuilding', 'isWard', 'isCourier'] as const) {
+      expect(isEligibleFieldTarget({ ...enemyCreep, [excluded]: true })).toBe(false);
+    }
+    expect(isEligibleFieldTarget({ ...enemyCreep, isAlive: false })).toBe(false);
+  });
+});
 describe('calculateFieldBonuses', () => {
   const values = {
     damagePerCreep: 11,

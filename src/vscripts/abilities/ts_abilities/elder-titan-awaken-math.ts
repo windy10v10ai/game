@@ -65,6 +65,21 @@ export class FieldTouchTracker {
   }
 }
 
+export interface FieldBuffSyncDecision {
+  shouldSync: boolean;
+  initialSyncPending: boolean;
+}
+
+export function resolveFieldBuffSync(
+  initialSyncPending: boolean,
+  touchedNewTarget: boolean,
+): FieldBuffSyncDecision {
+  return {
+    shouldSync: initialSyncPending || touchedNewTarget,
+    initialSyncPending: false,
+  };
+}
+
 export type ElderTitanAwakenCastMode = 'point' | 'no-target';
 
 export function resolveAwakenCastMode(fieldMode: boolean): ElderTitanAwakenCastMode {
@@ -122,6 +137,10 @@ export function shouldRestoreAwakenWrapper(state: SpiritWrapperState): boolean {
   return state.waitingForReturn && state.returnHidden;
 }
 
+export function shouldTrackPendingSpiritReturn(returnHidden: boolean): boolean {
+  return !returnHidden;
+}
+
 export function isEligibleRealHeroTarget(state: RealHeroTargetState): boolean {
   return (
     state.isRealHero &&
@@ -132,6 +151,24 @@ export function isEligibleRealHeroTarget(state: RealHeroTargetState): boolean {
   );
 }
 
+export interface ElderTitanFieldTargetState {
+  isAlive: boolean;
+  isOpposingTeam: boolean;
+  isNeutralUnit: boolean;
+  isBuilding: boolean;
+  isWard: boolean;
+  isCourier: boolean;
+}
+
+export function isEligibleFieldTarget(state: ElderTitanFieldTargetState): boolean {
+  return (
+    state.isAlive &&
+    (state.isOpposingTeam || state.isNeutralUnit) &&
+    !state.isBuilding &&
+    !state.isWard &&
+    !state.isCourier
+  );
+}
 export function calculateFieldBonuses(
   counts: ElderTitanFieldCounts,
   values: ElderTitanFieldValues,

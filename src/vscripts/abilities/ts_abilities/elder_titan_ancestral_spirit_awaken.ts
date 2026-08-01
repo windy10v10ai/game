@@ -12,13 +12,16 @@ import {
   calculateBonusArmorReductionDelta,
   calculateFieldBonuses,
   calculateMagicResistanceTarget,
+  isEligibleFieldTarget,
   isEligibleRealHeroTarget,
   resolveAwakenCastMode,
   resolveAwakenFieldState,
+  resolveFieldBuffSync,
   resolveFieldMode,
   resolveNaturalOrderOverlap,
   shouldOverrideNaturalOrderRadius,
   shouldRestoreAwakenWrapper,
+  shouldTrackPendingSpiritReturn,
 } from './elder-titan-awaken-math';
 
 const SCRIPT_PATH = 'abilities/ts_abilities/elder_titan_ancestral_spirit_awaken';
@@ -155,6 +158,15 @@ export class ElderTitanAncestralSpiritAwaken extends BaseAbility {
     return nativeSpirit;
   }
 
+  trackPendingSpiritReturn(): void {
+    if (this.waitingForSpiritReturn) return;
+
+    const returnSpirit = this.GetCaster().FindAbilityByName(RETURN_SPIRIT_ABILITY);
+    if (!returnSpirit) return;
+
+    this.waitingForSpiritReturn = shouldTrackPendingSpiritReturn(returnSpirit.IsHidden());
+  }
+
   restoreWrapperAfterReturn(): void {
     if (!this.waitingForSpiritReturn) return;
 
@@ -222,6 +234,7 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
     const ability = this.GetAbility() as ElderTitanAncestralSpiritAwaken;
     ability.ensureNativeSpiritAbility();
     ability.syncReplicatedFieldMode();
+    ability.trackPendingSpiritReturn();
     this.StartIntervalThink(0.1);
   }
 
@@ -231,6 +244,7 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
     const parent = this.GetParent();
     ability.syncReplicatedFieldMode();
     ability.ensureNativeSpiritAbility();
+    ability.trackPendingSpiritReturn();
 
     if (!ability.GetAutoCastState()) {
       parent.RemoveModifierByName(FIELD_MODIFIER);
@@ -277,11 +291,11 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
   }
 
   GetAuraSearchTeam(): UnitTargetTeam {
-    return UnitTargetTeam.ENEMY;
+    return UnitTargetTeam.BOTH;
   }
 
   GetAuraSearchType(): UnitTargetType {
-    return UnitTargetType.HERO + UnitTargetType.BASIC;
+    return UnitTargetType.ALL;
   }
 
   GetAuraSearchFlags(): UnitTargetFlags {
@@ -292,11 +306,23 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
     return 0.2;
   }
 
-  GetAuraEntityReject(_target: CDOTA_BaseNPC): boolean {
+  GetAuraEntityReject(target: CDOTA_BaseNPC): boolean {
     const ability = this.GetAbility();
-    if (!ability) return true;
+    if (!ability || target.IsNull()) return true;
     const awakenAbility = ability as ElderTitanAncestralSpiritAwaken;
-    return !awakenAbility.isFieldMode() || !awakenAbility.isNaturalOrderEnabled();
+    const caster = awakenAbility.GetCaster();
+    return (
+      !awakenAbility.isFieldMode() ||
+      !awakenAbility.isNaturalOrderEnabled() ||
+      !isEligibleFieldTarget({
+        isAlive: target.IsAlive(),
+        isOpposingTeam: target.IsOpposingTeam(caster.GetTeamNumber()),
+        isNeutralUnit: target.IsNeutralUnitType(),
+        isBuilding: target.IsBuilding(),
+        isWard: target.IsWard(),
+        isCourier: target.IsCourier(),
+      })
+    );
   }
 
   private shouldOverrideNaturalOrderRadius(event: ModifierOverrideAbilitySpecialEvent): boolean {
@@ -318,6 +344,7 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
 @registerModifier(SCRIPT_PATH)
 export class modifier_elder_titan_ancestral_spirit_awaken_field extends BaseModifier {
   private readonly touched = new FieldTouchTracker();
+  private initialBuffSyncPending = true;
   private counts: ElderTitanFieldCounts = { creeps: 0, heroLike: 0, realHeroes: 0 };
   private statBuff?: modifier_elder_titan_ancestral_spirit_awaken_buff;
   private immunity?: CDOTA_Buff;
@@ -365,7 +392,12 @@ export class modifier_elder_titan_ancestral_spirit_awaken_field extends BaseModi
 
   OnIntervalThink(): void {
     if (!IsServer()) return;
-    this.scanEnemies();
+    const touchedNewTarget = this.scanEnemies();
+    const syncDecision = resolveFieldBuffSync(this.initialBuffSyncPending, touchedNewTarget);
+    if (syncDecision.shouldSync) {
+      this.statBuff?.setCounts(this.counts);
+    }
+    this.initialBuffSyncPending = syncDecision.initialSyncPending;
   }
 
   OnDestroy(): void {
@@ -375,27 +407,43 @@ export class modifier_elder_titan_ancestral_spirit_awaken_field extends BaseModi
     this.touched.reset();
   }
 
-  private scanEnemies(): void {
+  private scanEnemies(): boolean {
     const parent = this.GetParent();
     const ability = this.GetAbility() as ElderTitanAncestralSpiritAwaken | undefined;
-    if (!ability) return;
+    if (!ability) return false;
 
     const enemies = FindUnitsInRadius(
       parent.GetTeamNumber(),
       parent.GetAbsOrigin(),
       undefined,
       ability.getFieldRadius(),
-      UnitTargetTeam.ENEMY,
-      UnitTargetType.HERO + UnitTargetType.BASIC,
+      UnitTargetTeam.BOTH,
+      UnitTargetType.ALL,
       UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,
       FindOrder.ANY,
       false,
     );
 
+    let touchedNewTarget = false;
     for (const enemy of enemies) {
-      if (enemy.IsNull() || !enemy.IsAlive() || !this.touched.touch(enemy.entindex())) continue;
+      if (
+        enemy.IsNull() ||
+        !isEligibleFieldTarget({
+          isAlive: enemy.IsAlive(),
+          isOpposingTeam: enemy.IsOpposingTeam(parent.GetTeamNumber()),
+          isNeutralUnit: enemy.IsNeutralUnitType(),
+          isBuilding: enemy.IsBuilding(),
+          isWard: enemy.IsWard(),
+          isCourier: enemy.IsCourier(),
+        }) ||
+        !this.touched.touch(enemy.entindex())
+      ) {
+        continue;
+      }
+      touchedNewTarget = true;
       this.onFirstTouch(enemy, ability);
     }
+    return touchedNewTarget;
   }
 
   private onFirstTouch(enemy: CDOTA_BaseNPC, ability: ElderTitanAncestralSpiritAwaken): void {
@@ -411,8 +459,6 @@ export class modifier_elder_titan_ancestral_spirit_awaken_field extends BaseModi
         this.extendScepterImmunity(ability.GetSpecialValueFor('scepter_magic_immune_per_hero'));
       }
     }
-
-    this.statBuff?.setCounts(this.counts);
   }
 
   private isEligibleRealHero(unit: CDOTA_BaseNPC): boolean {
