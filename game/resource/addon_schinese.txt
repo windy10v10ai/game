@@ -1285,9 +1285,8 @@
 
 		// 末日使者-觉醒
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n觉醒后，吞噬获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，可改为对自己或友方英雄施放，使其成为移动的范围末日中心，持续对周围敌人施加末日；该友军自身不会受到末日影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"持续时间："
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_description"			"末日对敌人施加<font color='#dd621e'>破坏</font>效果。\n\n可改为对自己或友方英雄施放，使其成为移动的范围末日中心，持续对周围敌人施加末日；该友军自身不会受到末日影响。"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"范围末日持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"每秒伤害："
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"范围末日"
