@@ -900,7 +900,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"8400"
+		"ItemCost"						"8600"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1677,7 +1677,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"3200"
+		"ItemCost"						"3000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1701,7 +1701,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10100"
+		"ItemCost"						"9800"
 		"ItemShopTags"					"damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"mkb;monkey king bar"
@@ -6531,7 +6531,7 @@
 			"bonus_mana_regen"			"30"
 			// "bonus_all_stats"			"25"	// 绝刃自身加成
 			"slow"						"50"	// 绝刃减速
-			"slow_duration"				"4"		// 绝刃减速持续时间
+			"slow_duration"				"3"		// 绝刃减速持续时间
 			"bonus_spell_damage"		"900"	// 绝刃法术伤害加成
 			"passive_cooldown"			"3"		// 绝刃自身充能冷却
 
