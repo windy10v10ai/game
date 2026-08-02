@@ -11,7 +11,9 @@ jobs:
   review:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      (github.event.pull_request.user.login != 'windybirth' && !github.event.pull_request.draft)
+      (github.event.pull_request.user.login != 'windybirth' &&
+       github.event.pull_request.user.type != 'Bot' &&
+       !github.event.pull_request.draft)
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:

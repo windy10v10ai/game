@@ -461,7 +461,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 > 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill（`.claude/skills/create-pr/SKILL.md`）。
 
-非仓库主人发起的 PR 在 `opened`/`ready_for_review` 时会由 `.github/workflows/claude-pr-review.yml` 自动跑一次 Claude review（判断标准见 `pr-review-checklist` skill），只发顶层评论，不提交正式 review 状态。
+非仓库主人、非 bot 发起的 PR 在 `opened`/`ready_for_review` 时会由 `.github/workflows/claude-pr-review.yml` 自动跑一次 Claude review（判断标准见 `pr-review-checklist` skill），只发顶层评论，不提交正式 review 状态。
 
 
 ## 文档自维护规范
