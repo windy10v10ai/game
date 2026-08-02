@@ -64,6 +64,38 @@ function insertAbility(
   return true;
 }
 
+/** 将新技能换入目标槽，同时保留依赖 hardcoded 生命周期的原技能对象。 */
+function swapPreservingTarget(
+  hero: CDOTA_BaseNPC_Hero,
+  replacement: AbilityReplacement,
+  targetAbilityName: string,
+): boolean {
+  const targetAbility = hero.FindAbilityByName(targetAbilityName);
+  if (targetAbility === undefined) {
+    return false;
+  }
+
+  const newAbilityLevel = resolveNewLevel(hero, replacement, replacement.newLevel);
+  const newAbility = addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
+  if (newAbility === undefined) {
+    return false;
+  }
+
+  if (replacement.preserveTargetCooldown === true) {
+    const remainingCooldown = targetAbility.GetCooldownTimeRemaining();
+    if (remainingCooldown > 0) {
+      newAbility.StartCooldown(remainingCooldown);
+    }
+  }
+
+  const keepTargetActivated = replacement.targetAbilityActivated === true;
+  hero.SwapAbilities(targetAbilityName, replacement.newAbility, keepTargetActivated, true);
+  targetAbility.SetActivated(keepTargetActivated);
+  targetAbility.SetHidden(true);
+  newAbility.SetActivated(true);
+  newAbility.SetHidden(false);
+  return true;
+}
 /** 标记技能可见（自身状态机中途）时，新技能应保持隐藏、旧技能不删 */
 function shouldKeepNewAbilityHidden(
   hero: CDOTA_BaseNPC_Hero,
@@ -132,6 +164,14 @@ export function executeReplacement(
 
   const targetAbilityName = resolveTargetAbility(hero, replacement);
 
+  // 保留原技能对象并换位：用于依赖原生 hardcoded 生命周期的觉醒技能。
+  if (
+    replacement.preserveTargetAbility === true &&
+    targetAbilityName !== undefined &&
+    targetAbilityName !== 'generic_hidden'
+  ) {
+    return swapPreservingTarget(hero, replacement, targetAbilityName);
+  }
   // 插入：targetSlot 命中非空槽位时把原技能挤进来重新加回；空槽/generic_hidden 走替换
   if (
     replacement.targetSlot !== undefined &&

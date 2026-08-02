@@ -23,6 +23,9 @@ function createFakeHero(opts: {
     SetLevel: (lvl: number) => {
       entry.level = lvl;
     },
+    SetActivated: (activated: boolean) => {
+      (entry as { activated?: boolean }).activated = activated;
+    },
   });
 
   const hero: any = {
@@ -50,6 +53,15 @@ function createFakeHero(opts: {
       addOrder.push(name);
       return makeAbility(entry);
     },
+    SwapAbilities: (firstName: string, secondName: string) => {
+      const firstIndex = abilities.findIndex((a) => a.name === firstName);
+      const secondIndex = abilities.findIndex((a) => a.name === secondName);
+      if (firstIndex < 0 || secondIndex < 0) return;
+      [abilities[firstIndex], abilities[secondIndex]] = [
+        abilities[secondIndex],
+        abilities[firstIndex],
+      ];
+    },
   };
 
   return { hero, abilities, addOrder, getPoints: () => abilityPoints };
@@ -64,6 +76,28 @@ describe('executeReplacement', () => {
       newLevel: 1,
     });
     expect(f.abilities.map((a) => a.name)).toEqual(['foo', 'special_bonus_unique_zuus_upgrade']);
+  });
+
+  it('preserves and swaps the native target object instead of recreating it', () => {
+    const f = createFakeHero({
+      abilities: [
+        { name: 'slot0', level: 1 },
+        { name: 'native_hammer', level: 4 },
+      ],
+    });
+    executeReplacement(f.hero, {
+      heroName: 'npc_dota_hero_omniknight',
+      targetAbility: 'native_hammer',
+      newAbility: 'awakened_hammer',
+      newLevel: 0,
+      inheritLevelFrom: 'native_hammer',
+      preserveTargetAbility: true,
+      targetAbilityActivated: true,
+    });
+
+    expect(f.abilities.map((a) => a.name)).toEqual(['slot0', 'awakened_hammer', 'native_hammer']);
+    expect(f.abilities.find((a) => a.name === 'awakened_hammer')?.level).toBe(4);
+    expect(f.abilities.find((a) => a.name === 'native_hammer')?.level).toBe(4);
   });
 
   it('分支3 替换：移除旧技能、加新技能', () => {
