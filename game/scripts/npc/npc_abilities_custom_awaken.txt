@@ -37,6 +37,15 @@
 			"cooldown_reduction"		"0.1"
 		}
 	}
+	// 小精灵觉醒
+	"special_bonus_unique_wisp_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_wisp_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"wisp_tether"
+		"MaxLevel"						"1"
+	}
 
 	// 上古巨神 觉醒灵体游魂
 	// 除冷却（觉醒专属强化，免瞄准自动施放，缩短冷却体现觉醒增益）外，
