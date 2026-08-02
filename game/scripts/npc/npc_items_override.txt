@@ -9,9 +9,21 @@
 	"item_recipe_travel_boots_2"	"REMOVE"
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
-	"item_moon_shard"				"REMOVE"
+	// "item_moon_shard"				"REMOVE"
 	"item_helm_of_the_dominator"	"REMOVE" // 支配头盔
 	"item_helm_of_the_overlord"		"REMOVE" // 统御头盔
+
+	//=================================================================================================================
+	// 银月之晶 真·银月之晶的合成材料
+	//=================================================================================================================
+	"item_moon_shard"
+	{
+		"AbilityValues"
+		{
+				"bonus_attack_speed"		"100"
+				"bonus_night_vision"		"200"
+		}
+	}
 
 	//=================================================================================================================
 	// 疗伤莲花 奶酪 奶酪块
@@ -56,16 +68,16 @@
 			"01"						"item_famango;item_famango"
 		}
 	}
-	"item_recipe_greater_famango"
-	{
-		"ItemCost"						"2000"
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
-		"ItemRequirements"
-		{
-			"01"						"item_great_famango"
-		}
-	}
+	// "item_recipe_greater_famango"
+	// {
+	// 	"ItemCost"						"2000"
+	// 	"ItemPurchasable"				"1"
+	// 	"ItemSellable"					"1"
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01"						"item_great_famango"
+	// 	}
+	// }
 	// 美味护盾
 	"item_royale_with_cheese"
 	{
@@ -312,6 +324,7 @@
 			"bonus_mana"				"600"	// 450
 			"bonus_all_stats"			"25"	// 8
 			"slow"						"50"	// 30
+			"slow_duration"				"3"		// 4
 			"bonus_spell_damage"		"900"	// 250
 		}
 	}

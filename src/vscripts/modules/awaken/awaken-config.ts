@@ -16,6 +16,31 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 尸王 觉醒
+  {
+    heroName: 'npc_dota_hero_undying',
+    newAbility: 'special_bonus_unique_undying_upgrade',
+    newLevel: 1,
+  },
+  // 巫妖 觉醒
+  {
+    heroName: 'npc_dota_hero_lich',
+    newAbility: 'special_bonus_unique_lich_upgrade',
+    newLevel: 1,
+  },
+  // 末日使者 觉醒
+  {
+    heroName: 'npc_dota_hero_doom_bringer',
+    targetAbility: 'doom_bringer_doom',
+    newAbility: 'doom_bringer_doom_awakened',
+    newLevel: 0,
+  },
+  // 光之守卫 觉醒
+  {
+    heroName: 'npc_dota_hero_keeper_of_the_light',
+    newAbility: 'special_bonus_unique_keeper_of_the_light_upgrade',
+    newLevel: 1,
+  },
   // 水晶室女 觉醒
   {
     heroName: 'npc_dota_hero_crystal_maiden',
@@ -174,6 +199,19 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'pudge_meat_hook_lua',
     newLevel: 0,
   },
+];
+
+/**
+ * 限时免费体验清单：清单内英雄不需积分解锁，选它出场即自动觉醒。
+ * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
+ */
+export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_undying', // 尸王
+  'npc_dota_hero_lich', // 巫妖
+  'npc_dota_hero_doom_bringer', // 末日使者
+  'npc_dota_hero_keeper_of_the_light', // 光之守卫
+  'npc_dota_hero_crystal_maiden', // 水晶室女
+  'npc_dota_hero_tiny', // 小小
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

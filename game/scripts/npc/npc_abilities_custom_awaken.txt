@@ -597,6 +597,24 @@
 		}
 	}
 
+	// 光之守卫 冲击波-觉醒
+	"special_bonus_unique_keeper_of_the_light_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_keeper_of_the_light_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"keeper_of_the_light/kotl_ti7_immortal/keeper_of_the_light_illuminate_alt"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"base_damage_bonus"				"100"
+			"max_focus_stacks"				"10"
+			"damage_pct_per_stack"			"25"
+			"focus_duration"				"20"	// 须长于冲击波冷却，否则聚光在下一发可用前就过期
+		}
+	}
+
 	// 斯温-觉醒
 	"special_bonus_unique_sven_upgrade"
 	{
@@ -646,6 +664,62 @@
 			}
 		}
 	}
+	// 末日使者 觉醒末日
+	// 无神杖时保持敌方单体末日；有神杖时可将友方真实英雄或自己变为移动范围末日载体
+	"doom_bringer_doom_awakened"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/doom_bringer_doom_awakened"
+		"AbilityTextureName"			"doom_bringer_doom"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastRange"				"550"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"150 200 250 300"
+		"HasScepterUpgrade"			"1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+
+		"AbilityValues"
+		{
+			"duration"					"12 14 16 18"
+			"damage"					"66 132 198 264"
+			"scepter_aura_radius"
+			{
+				"value"					"350"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+	// 巫妖 寒灾轮回-觉醒
+	"special_bonus_unique_lich_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_lich_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"lich_chain_frost"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"intelligence_damage_multiplier"		"0.75"
+			"nova_detonation_multiplier_per_stack"	"0.75"
+			"mark_duration"						"8"
+			"mark_max_stacks"					"3"
+			"detonation_radius"					"350"
+			"freeze_duration"					"0.6"
+		}
+	}
 	// 术士 地狱火献祭-觉醒
 	"special_bonus_unique_warlock_upgrade"
 	{
@@ -662,6 +736,21 @@
 		}
 	}
 
+	// 尸王 觉醒
+	"special_bonus_unique_undying_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_undying_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"undying_decay"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"trigger_cooldown"				"0.5"
+		}
+	}
+
 	// 水晶室女 极寒领域-觉醒
 	"special_bonus_unique_crystal_maiden_upgrade"
 	{
@@ -672,8 +761,8 @@
 		"MaxLevel"						"1"
 	}
 
-	// 小小 抓树-觉醒
-	// 效果由 npc_abilities_override.txt 中 tiny_tree_grab 的 special_bonus 键实现，本技能仅作拥有标记
+	// 小小 觉醒
+	// 效果由 npc_abilities_override.txt 中 tiny_tree_grab / tiny_grow 的 special_bonus 键实现，本技能仅作拥有标记
 	"special_bonus_unique_tiny_upgrade"
 	{
 		"BaseClass"						"ability_datadriven"
