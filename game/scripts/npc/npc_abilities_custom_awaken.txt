@@ -855,4 +855,21 @@
 			}
 		}
 	}
+
+	// 蓝猫 球状闪电-觉醒
+	"special_bonus_unique_storm_spirit_upgrade"
+	{
+		"BaseClass"			"ability_lua"
+		"ScriptFile"			"abilities/ts_abilities/special_bonus_unique_storm_spirit_upgrade"
+		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"		"storm_spirit_ball_lightning"
+		"MaxLevel"			"1"
+
+		"AbilityValues"
+		{
+			"vortex_duration_multiplier"		"0.5"
+			"multicast_move_speed_multiplier"	"1.5"
+			"vortex_trigger_cooldown"		"3"
+		}
+	}
 }

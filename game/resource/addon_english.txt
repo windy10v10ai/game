@@ -3494,5 +3494,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"At 3 stacks, triggers a Frost Calamity detonation. Lich can also detonate it early with Frost Blast."
 
+		// Storm Spirit Ball Lightning - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>Ball Lightning Vortex Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"After Ball Lightning damages an enemy, it automatically casts Electric Vortex at the hit location. This effect only works if Electric Vortex has been learned. The attached Electric Vortex lasts <font color='#FFFFFF'><b>50%%</b></font> as long as normal and does not affect Electric Vortex's cooldown. Each enemy can trigger this effect at most once every %vortex_trigger_cooldown% seconds. With Aghanim's Scepter, the attached pull also affects enemies in the area. If Ball Lightning triggers Multicast, its movement speed is increased by <font color='#FFFFFF'><b>50%%</b></font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>Ball Lightning Vortex Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"After Ball Lightning damages an enemy, it automatically casts Electric Vortex at the hit location. This effect only works if Electric Vortex has been learned. The attached Electric Vortex lasts <font color='#FFFFFF'><b>50%%</b></font> as long as normal and does not affect Electric Vortex's cooldown. Each enemy can trigger this effect at most once every <font color='#FFFFFF'><b>3</b></font> seconds. With Aghanim's Scepter, the attached pull also affects enemies in the area. If Ball Lightning triggers Multicast, its movement speed is increased by <font color='#FFFFFF'><b>50%%</b></font>."
+
 	}
 }
