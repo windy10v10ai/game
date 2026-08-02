@@ -6,6 +6,8 @@ interface PrimaryButtonProps {
   tooltipText?: string;
   // 'gold' 用于与 'primary' 蓝紫渐变区分的第二种货币/强调场景（shared/styles/buttons.less 的 .btn-gold）
   variant?: 'primary' | 'gold';
+  // label 中需要 <br> 固定断行位置时开启，默认纯文本渲染
+  html?: boolean;
 }
 
 /**
@@ -19,6 +21,7 @@ export function PrimaryButton({
   onClick,
   tooltipText,
   variant = 'primary',
+  html = false,
 }: PrimaryButtonProps) {
   const variantClass = variant === 'gold' ? 'btn-gold' : 'btn-primary';
   const buttonClass = className ? `${variantClass} ${className}` : variantClass;
@@ -33,7 +36,7 @@ export function PrimaryButton({
       }
       onmouseout={() => tooltipText && $.DispatchEvent('DOTAHideTextTooltip')}
     >
-      <Label className="btn-primary-label" text={label} />
+      <Label className="btn-primary-label" html={html} text={label} />
     </Button>
   );
 }

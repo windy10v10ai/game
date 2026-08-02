@@ -44,6 +44,7 @@ export function AwakenUnlockConfirmDialog({
           <PrimaryButton
             className="awaken-confirm-pay"
             enabled={canAffordSeason}
+            html={true}
             onClick={() => onConfirm(false)}
             label={$.Localize('#awaken_pay_season_button').replace('{cost}', String(seasonCost))}
             tooltipText={
@@ -54,6 +55,7 @@ export function AwakenUnlockConfirmDialog({
             variant="gold"
             className="awaken-confirm-pay"
             enabled={canAffordMember}
+            html={true}
             onClick={() => onConfirm(true)}
             label={$.Localize('#awaken_pay_member_button').replace('{cost}', String(memberCost))}
             tooltipText={
