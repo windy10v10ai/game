@@ -163,7 +163,7 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
     const ability = this.GetAbility() as ElderTitanAncestralSpiritAwaken;
     ability.ensureNativeSpiritAbility();
     ability.trackPendingSpiritReturn();
-    this.StartIntervalThink(0.5);
+    this.StartIntervalThink(0.3);
   }
 
   OnIntervalThink(): void {

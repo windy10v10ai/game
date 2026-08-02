@@ -19,7 +19,7 @@
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"HasScepterUpgrade"				"1"
 		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
-		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityCooldown"				"16 15 14 13 12"
 		"AbilityManaCost"				"80 90 100 110 120"
 		"MaxLevel"						"5"
 
