@@ -559,7 +559,7 @@
 				}
 				"damage_per_second"
 				{
-					"value"			"24 36 48 60 72"	// 12 18 24 30 x2
+					"value"			"24 32 40 48 56"	// 12 16 20 24 x2
 				}
 		}
 	}
@@ -800,11 +800,11 @@
 			"boar_total_damage_tooltip"
 			{
 				"value"										"60 90 120 150 180"	// 30 45 60 75 x2
-				"special_bonus_unique_beastmaster_2"		"+60"	// 30 x2
+				"special_bonus_unique_beastmaster_2"		"+50"	// 25 x2
 			}
 			"boar_bonus_damage"
 			{
-				"special_bonus_unique_beastmaster_2"		"+60"	// 30 x2
+				"special_bonus_unique_beastmaster_2"		"+50"	// 25 x2
 			}
 			"boar_base_xp_bounty"				"60 70 80 90 100"
 			"boar_base_movespeed"				"320 340 360 380 400"	// 320 330 340 350 差值20
@@ -836,7 +836,7 @@
 			"dive_damage"
 			{
 				"value"		"60 95 130 165 200"
-				"special_bonus_unique_beastmaster_2"	"+60"	// 30 x2
+				"special_bonus_unique_beastmaster_2"	"+50"	// 25 x2
 			}
 			"dive_root_duration"			"0.4 0.6 0.8 1.0 1.2"
 		}
@@ -862,7 +862,7 @@
 		{
 			"bonus_damage"
 			{
-				"special_bonus_unique_beastmaster_2"	"+60"	// 30 x2
+				"special_bonus_unique_beastmaster_2"	"+50"	// 25 x2
 			}
 			"bonus_attack_speed"
 			{
@@ -1051,7 +1051,7 @@
 					"value"	"30 50 70 90 110"				// 15 25 35 45 x2
 					"special_bonus_unique_centaur_3"	"+90"	// 45 x2
 				}
-				"return_damage_str"			"16 24 32 40 48"
+				"return_damage_str"			"14 21 28 35 42"
 		}
 	}
 	// 奔袭冲撞
@@ -1319,11 +1319,11 @@
 		{
 			"burn_damage"
 			{
-				"value" "30 60 90 120 150"	// 15 30 45 60 x2
+				"value" "36 68 100 132 164"	// 18 34 50 66 x2
 			}
 			"burn_damage_pct"
 			{
-				"value" "1 2 3 4 5"
+				"value" "0.5 1.75 3 4.25 5.5"
 			}
 		}
 	}
@@ -1399,7 +1399,7 @@
 			}
 			"bonus_aoe"
 			{
-				"value"				"25 50 75 100 125"
+				"value"				"30 60 90 120 150"
 			}
 		}
 	}
@@ -1421,13 +1421,14 @@
 		}
 	}
 
-	// 变龙
+	// 变龙 各级形态效果不同(非线性数值缩放)，不能改变最大等级，与原版一致维持3级
 	"dragon_knight_elder_dragon_form"
 	{
+		"AbilityCooldown"				"90"	// 100
 		"AbilityManaCost"				"50 100 150"	// 50
 		"AbilityValues"
 		{
-				"bonus_attack_damage"		"40 100 160 220"	// 0
+				"bonus_attack_damage"		"40 100 160"	// 0
 		}
 	}
 	//=================================================================================================================
@@ -1674,7 +1675,7 @@
 			"damage_per_second"
 			{
 				"value"									"160 240 320 400"	// 45 90 135 180 加成115起差值+35
-				"special_bonus_unique_earth_spirit_8"			"+50%"		// 30% +20%
+				"special_bonus_unique_earth_spirit_8"			"+45%"		// 25% +20%
 			}
 		}
 	}
@@ -3182,7 +3183,7 @@
 			}
 			"mana_burn"
 			{
-				"value"				"80 160 240 320 400"	// 40 80 120 160 x2
+				"value"				"80 150 220 290 360"	// 40 75 110 145 x2
 				"special_bonus_unique_clockwerk_2"	"+160"	// 80 x2
 			}
 			"AbilityCooldown"
@@ -3725,12 +3726,11 @@
 				"AbilityCooldown"
 				{
 					"value"		"18 17 16 15 14"	// 18/17/16/15
-					"special_bonus_unique_snapfire_3"	"-5"		// -4
 				}
 				"projectile_speed"		"1800"						// 1200
 				"impact_damage"
 				{
-					"value"					"75 150 225 300 375"
+					"value"					"60 130 200 270 340"
 				}
 				"impact_stun_duration"
 				{
@@ -3765,17 +3765,17 @@
 			"projectile_count"
 			{
 				"value"		"12"	// 8 x1.5
-				"special_bonus_unique_snapfire_1"	"+12"	// +8 x1.5
+				"special_bonus_unique_snapfire_1"	"+9"	// +6 x1.5
 			}
 			"projectile_speed"		"1950"	// 1300 x1.5
 			"damage_per_impact"
 			{
-				"value"		"180 270 360 450"
+				"value"		"170 250 330 410"
 			}
 			"burn_damage"
 			{
 				"value"					"160 200 240 280"	// 60 80 100
-				"special_bonus_unique_snapfire_5"	"+70"	// +35 x2
+				"special_bonus_unique_snapfire_5"	"+60"	// +30 x2
 			}
 			"move_slow_pct"
 			{
@@ -4330,7 +4330,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityValues"
 		{
-			"duration"				"0.9 1.1 1.3 1.5 1.7"
+			"duration"				"0.75 1.0 1.25 1.5 1.75"
 			"flat_heal"				"30 50 70 90 110"	// 15 25 35 45 x2
 
 			"leech_damage"
@@ -4349,7 +4349,6 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCooldown"				"24 21 18 15 12"
-		"AbilityManaCost"				"65 70 75 80 85"
 		"AbilityValues"
 		{
 			"heal_per_second"
@@ -5188,12 +5187,12 @@
 	"drow_ranger_multishot"
 	{
 		"MaxLevel"						"5"
-		"AbilityManaCost"				"50 70 90 110 130"	// 50 70 90 110
+		"AbilityManaCost"				"70 85 100 115 130"	// 70 85 100 115
 		"AbilityValues"
 		{
 			"arrow_damage_pct"
 			{
-				"value"										"100 120 140 160 180"	// 100 120 140 160
+				"value"										"80 100 120 140 160"	// 80 100 120 140
 				"special_bonus_unique_drow_ranger_1"		"+40"			// 25
 			}
 			"AbilityCooldown"
@@ -5506,8 +5505,7 @@
 	"gyrocopter_homing_missile"
 	{
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"24 21 18 15 12"
-		"AbilityManaCost"				"120 130 140 150 160"
+		"AbilityCooldown"				"26 22 18 14 10"
 		"AbilityValues"
 		{
 			"hits_to_kill_tooltip"		"6"				// 3
@@ -5641,7 +5639,7 @@
 	{
 		"MaxLevel"						"4"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO
-		"AbilityManaCost"				"100 150 200 250"
+		"AbilityManaCost"				"150 200 250 300"
 		"AbilityValues"
 		{
 			"arrow_width"
@@ -5931,8 +5929,7 @@
 		{
 			"bonus_building_damage"
 			{
-				"value"													"25"	// 30
-				"special_bonus_unique_lone_druid_spirit_bear_demolish"	"+15"	// +20
+				"value"													"15"	// 20 -5
 			}
 		}
 	}
@@ -8045,7 +8042,7 @@
 		{
 			"base_damage"
 			{
-				"value"					"40 60 80 100 120"
+				"value"					"40 70 100 130 160"
 			}
 			"tick_damage"
 			{
@@ -8423,7 +8420,7 @@
 	"ancient_apparition_ice_blast"
 	{
 		"MaxLevel" "4"
-		"AbilityCooldown"				"55 50 45 40"					// 60 50 40
+		"AbilityCooldown"				"50 45 40 35"
 		"AbilityDamage"					"250 325 400 475"				// 250 325 400
 		"AbilityValues"
 		{
@@ -8499,7 +8496,7 @@
 	{
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"550 600 650 700 750"
-		"AbilityDuration"				"3.5 4.0 4.5 5.0 5.5"	// 3.5 4.5 5.5 6.5 差值0.5
+		"AbilityDuration"				"3 3.5 4 4.5 5"	// 3 4 5 6 差值0.5
 		"AbilityManaCost"				"120 130 140 150 160"
 		"AbilityValues"
 		{
@@ -8528,7 +8525,7 @@
 			"AbilityCooldown"
 			{
 				"value"	"90 80 70 60"	// 120 110 100 差值10 最大值60
-				"special_bonus_scepter"	"-30"	// -45
+				"special_bonus_scepter"	"-30"	// -40
 			}
 			"illusion_count"
 			{
@@ -9983,7 +9980,7 @@
 			"mana_leak_pct"	"4.5 5 5.5 6.0 6.5"
 			"AbilityCooldown"
 			{
-				"value"			"19 16 13 10 7"
+				"value"			"18 16 14 12 10"
 			}
 		}
 	}
@@ -10640,9 +10637,9 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"				"38 36 34 32 30"
+				"value"				"36 33 30 27 24"
 			}
-			"barrier_flat"			"240 360 480 600 720"	// 120 180 240 300 x2
+			"barrier_flat"			"300 400 500 600 700"	// 150 200 250 300 x2
 			"mana_to_barrier"
 			{
 				"value"					"20"	// 12
@@ -10828,7 +10825,7 @@
 	"oracle_false_promise"
 	{
 		"MaxLevel" "4"
-		"AbilityCastRange"				"700 800 900 1000"
+		"AbilityCastRange"				"800 850 900 950"
 		"AbilityManaCost"				"100 150 200 250"
 		"AbilityValues"
 		{
@@ -10914,7 +10911,7 @@
 			}
 			"AbilityCooldown"
 			{
-				"value"								"10 9 8 7 6"
+				"value"								"12 11 10 9 8"
 			}
 		}
 	}
@@ -11070,7 +11067,7 @@
 		"MaxLevel"						"5"
 		"AbilityCastRange"				"450 500 550 600 650"
 		"AbilityCooldown"				"16 13 10 7 4"
-		"AbilityManaCost"				"100 110 120 130 140"
+		"AbilityManaCost"				"100 105 110 115 120"
 		"AbilityValues"
 		{
 			"strike_damage"
@@ -12630,7 +12627,7 @@
 		{
 			"damage"
 			{
-				"value"							"300 475 650 825"
+				"value"							"275 425 575 725"
 				"special_bonus_unique_zeus_4"		"+175"	// 75
 			}
 		}
@@ -12779,7 +12776,7 @@
 				"value"		"20 35 50 65 80"
 			}
 			"bleed_health_pct"			"3 4 5 6 7"
-			"bleed_creep_dps"			"85 90 95 100 105"
+			"bleed_creep_dps"			"60 75 90 105 120"
 			"dagger_width"				"150"	// 130
 			"dagger_vision"				"300"	// 200
 			"slow_duration"

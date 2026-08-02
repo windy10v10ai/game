@@ -22,7 +22,7 @@ export class DrowRangerAIModifier extends BotBaseAIModifier {
     // 数箭齐发
     if (
       ActionAbility.CastAbilityOnFindEnemyHero(this, 'drow_ranger_multishot', {
-        target: { range: { lte: attackRange * 1.75 - 200 } },
+        target: { range: { lte: attackRange + 275 } },
       })
     ) {
       return true;
@@ -36,7 +36,7 @@ export class DrowRangerAIModifier extends BotBaseAIModifier {
     // 数箭齐发
     if (
       ActionAbility.CastAbilityOnFindEnemyCreep(this, 'drow_ranger_multishot', {
-        target: { range: { lte: attackRange * 1.75 - 200 }, count: { gte: 3 } },
+        target: { range: { lte: attackRange + 275 }, count: { gte: 3 } },
       })
     ) {
       return true;
