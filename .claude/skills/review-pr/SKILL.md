@@ -1,5 +1,5 @@
 ---
-name: pr-review-checklist
+name: review-pr
 description: >-
   review 一份 PR/代码改动时使用的判断标准清单，从本仓库历史上大量实质性 review
   评论中提炼。当用户说"review 一下这个 PR"「检查一下这份改动」「这个 PR 有没有问题」
