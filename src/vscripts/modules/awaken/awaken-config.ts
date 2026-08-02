@@ -26,6 +26,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newLevel: 0,
     keepHiddenWhile: 'elder_titan_return_spirit',
   },
+  // 炸弹人 觉醒
+  {
+    heroName: 'npc_dota_hero_techies',
+    newAbility: 'techies_squees_scope',
+    newLevel: 1,
+  },
   // 尸王 觉醒
   {
     heroName: 'npc_dota_hero_undying',

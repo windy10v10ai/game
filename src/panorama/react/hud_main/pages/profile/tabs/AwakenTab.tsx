@@ -19,6 +19,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     abilityName: 'elder_titan_ancestral_spirit_awaken',
   },
   {
+    heroName: 'npc_dota_hero_techies',
+    abilityName: 'techies_squees_scope',
+  },
+  {
     heroName: 'npc_dota_hero_undying',
     abilityName: 'special_bonus_unique_undying_upgrade',
     freeTrial: true,
@@ -112,9 +116,12 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
-const HERO_AWAKEN_UNLOCK_COST = 10000;
+const HERO_AWAKEN_UNLOCK_COST_SEASON = 10000;
 // 随机抽选半价，与 api 价格表一致
-const HERO_AWAKEN_RANDOM_COST = 5000;
+const HERO_AWAKEN_RANDOM_COST_SEASON = 5000;
+// 会员积分档，与 api 价格表一致
+const HERO_AWAKEN_UNLOCK_COST_MEMBER = 4000;
+const HERO_AWAKEN_RANDOM_COST_MEMBER = 2000;
 // 随机抽选开放所需的最少剩余可觉醒英雄数，与 api 候选数一致
 const AWAKEN_RANDOM_MIN_POOL = 3;
 // 兜底：ack 事件丢包时仍能解除按钮锁定
@@ -138,6 +145,7 @@ export function AwakenTab() {
   const player = useNetTable('player_table', steamId);
   const awakenedHeroes = player?.awakenedHeroes ?? [];
   const useableSeasonPoint = player?.useableSeasonPoint ?? 0;
+  const useableMemberPoint = player?.useableMemberPoint ?? 0;
 
   const randomData = useNetTable('awaken_random', steamId);
   const candidateNames = randomData?.candidates ? Object.values(randomData.candidates) : [];
@@ -156,8 +164,13 @@ export function AwakenTab() {
     };
   }, []);
 
-  const canAffordDirect = useableSeasonPoint >= HERO_AWAKEN_UNLOCK_COST;
-  const canAffordRandom = useableSeasonPoint >= HERO_AWAKEN_RANDOM_COST;
+  // 卡片可点判定：任一种积分够即可，具体花哪种在确认弹窗里选
+  const canAffordDirect =
+    useableSeasonPoint >= HERO_AWAKEN_UNLOCK_COST_SEASON ||
+    useableMemberPoint >= HERO_AWAKEN_UNLOCK_COST_MEMBER;
+  const canAffordRandom =
+    useableSeasonPoint >= HERO_AWAKEN_RANDOM_COST_SEASON ||
+    useableMemberPoint >= HERO_AWAKEN_RANDOM_COST_MEMBER;
   const remainingPool = AWAKEN_ABILITIES.filter(
     ({ heroName }) => !awakenedHeroes.some((h) => h.heroName === heroName),
   ).length;
@@ -185,7 +198,7 @@ export function AwakenTab() {
     setConfirmHero({ heroName, abilityName, isRandom: true });
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = (useMemberPoint: boolean) => {
     if (!confirmHero) return;
     const { heroName, isRandom } = confirmHero;
     setConfirmHero(null);
@@ -194,7 +207,10 @@ export function AwakenTab() {
     if (isRandom) {
       setCandidatesOpen(false);
     }
-    GameEvents.SendCustomGameEventToServer('awaken_unlock_hero', { heroName });
+    GameEvents.SendCustomGameEventToServer('awaken_unlock_hero', {
+      heroName,
+      useMemberPoint: useMemberPoint ? 1 : 0,
+    });
     $.Schedule(UNLOCK_PENDING_TIMEOUT_S, () => setIsPending(false));
   };
 
@@ -267,6 +283,20 @@ export function AwakenTab() {
           abilityName={confirmHero.abilityName}
           descKey={
             confirmHero.isRandom ? '#awaken_random_confirm_desc' : '#awaken_unlock_confirm_desc'
+          }
+          seasonCost={
+            confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_SEASON : HERO_AWAKEN_UNLOCK_COST_SEASON
+          }
+          memberCost={
+            confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_MEMBER : HERO_AWAKEN_UNLOCK_COST_MEMBER
+          }
+          canAffordSeason={
+            useableSeasonPoint >=
+            (confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_SEASON : HERO_AWAKEN_UNLOCK_COST_SEASON)
+          }
+          canAffordMember={
+            useableMemberPoint >=
+            (confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_MEMBER : HERO_AWAKEN_UNLOCK_COST_MEMBER)
           }
           onConfirm={handleConfirm}
           onCancel={() => setConfirmHero(null)}
