@@ -23,7 +23,7 @@
 }
 
 .awaken-confirm-dialog {
-  width: 320px;
+  width: 340px;
   horizontal-align: center;
   vertical-align: center;
   flow-children: down;
@@ -32,6 +32,11 @@
   border: 2px solid @color-gold-soft;
   border-radius: @radius-lg;
   box-shadow: @shadow-soft;
+}
+
+/* 右上角关闭按钮：独占一行右对齐，避免破坏下方内容的纵向 flow */
+.awaken-confirm-close {
+  margin-bottom: 4px;
 }
 
 /* 即将获得的觉醒技能图标，居中展示；英雄名已用文字说明，不再重复放头像 */
@@ -68,26 +73,21 @@
   horizontal-align: center;
 }
 
-/* 确认在左、取消在右，符合 Windows 对话框惯例；两按钮等宽，视觉更平衡 */
-.btn-primary.awaken-confirm-confirm {
-  padding: 8px;
+/* 勇士积分（蓝紫）左、会员积分（金色）右，与个人中心两个积分块的配色呼应；两按钮等宽 */
+.btn-gold.awaken-confirm-pay,
+.btn-primary.awaken-confirm-pay {
   width: 130px;
-  height: 36px;
-  margin-right: 12px;
+  height: 52px;
+  padding: 4px 6px;
+  margin: 0px 6px;
   horizontal-align: center;
 }
 
-.awaken-confirm-cancel {
-  width: 130px;
-  height: 36px;
-  padding: 8px;
-  horizontal-align: center;
-}
-
-.awaken-confirm-cancel-label {
-  width: 100%;
-  text-align: center;
-  vertical-align: center;
+/* 价格+货币名合并展示，按钮宽度放不下时换行，而不是继续缩小字号 */
+.awaken-confirm-pay .btn-primary-label {
+  font-size: @font-size-sm;
+  white-space: normal;
+  text-overflow: shrink;
 }
 
 /* 顶部说明：局内临时觉醒 / 永久觉醒 左右两栏，中间竖线分隔 */
