@@ -92,7 +92,16 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 在 `src/panorama/react/hud_main/pages/profile/tabs/AwakenTab.tsx` 的 `AWAKEN_ABILITIES` 加一条 `{ heroName, abilityName }`。该列表是配置表的展示副本，需手动同步，否则新觉醒不会出现在个人中心「觉醒」页。觉醒石 `_Description` 不再列英雄名（指向此页面），无需改动物品描述。
 
-### 5) 验证
+### 5) 限时免费体验清单
+
+新觉醒默认加入限免清单，让玩家不花积分也能试。清单是手工维护的，两处都要改：
+
+- `src/vscripts/modules/awaken/awaken-config.ts` 的 `FREE_TRIAL_HEROES` 加英雄名（决定实际生效）
+- `AwakenTab.tsx` 对应条目加 `freeTrial: true`（决定卡片是否显示限免角标）
+
+加完后**必须**用 `AskUserQuestion` 把清单里已有的旧英雄列出来，问用户哪些移出——清单没有到期机制，不问就会一直免费下去。
+
+### 6) 验证
 
 `npm run build:vscripts` 不报错 + `npx jest awaken-replacer` 过。槽位顺序 / 点数退还 / 飘字 / 运行时行为须 Dota tools 实跑确认。改完 vscripts 只看编译是否通过，不读编译产物 `.lua`。
 
@@ -228,6 +237,35 @@ Timers.CreateTimer(duration, () => {
 
 > 参考：风行者觉醒 `windrunner_whirlwind_custom`（`GetIntrinsicModifierName` 挂的被动 modifier）借用隐刺 `modifier_riki_backstab`；该被动与技能自身的主动 `OnSpellStart` 共存，二者互不影响——`GetIntrinsicModifierName` 不依赖 `AbilityBehavior`，主动大招可以正常保留 `IMMEDIATE | NO_TARGET` 之类行为。
 
+### 进阶 8：需要读取「施法者当前 AoE/属性加成」等动态值时，优先在自身 KV 声明同名字段
+
+想让觉醒技能的某个数值自动叠加施法者当前的 AoE 加成（或其他类似的引擎内置加成机制）时，**不要**用「哑值探测」手法（如声明一个 `value: "1"` 的占位数值加 `affected_by_aoe_increase: "1"`，再用 `GetSpecialValueFor() - 1` 反推出加成百分比、手动相加到别的数值上）。正确做法是直接在自身 KV 里声明目标字段本身（字段名与原版一致，如 `scepter_aura_radius`），带上同样的 `affected_by_aoe_increase: "1"`，让 `GetSpecialValueFor('scepter_aura_radius')` 直接返回已经计入加成的最终值。这样既不需要跨技能读取原版 KV，也不需要额外的相加逻辑，且能直接用 `%scepter_aura_radius%` 占位符内联进本地化正文（与原版写法一致）。
+
+### 进阶 9：运行时替换类技能的 `HasScepterUpgrade` + `scepter_description` 不会正常显示
+
+觉醒技能若是**运行时替换**（通过 `awaken-config.ts` 的 `targetAbility` 把原版技能整体换成新的 `ability_lua`），即使 KV 里带 `HasScepterUpgrade: "1"` 并写了 `_scepter_description`，引擎也不会渲染这个神杖对比预览面板——因为该面板依赖的是"英雄默认自带、原生学习"的技能实例，替换类技能走的是完全不同的运行时挂载路径。神杖相关的效果说明应直接写进主 `_Description` 正文（可加 `<font color='#92acf5'>阿哈利姆神杖</font>` 提示），不要指望 `_scepter_description` 单独显示。（注：常驻挂在英雄默认技能槽的觉醒技能，如 `imba_chaos_knight_phantasm`，`scepter_description` 可以正常显示，问题只出在替换类。）
+
+### 进阶 10：觉醒专属参数不要塞进原版技能的 override KV
+
+觉醒技能若需要「跟随某个原版技能的等级/天赋联动」某个数值（如领域半径随原版技能天赋扩大），**不要**为了图省事把这个觉醒专属的自定义字段直接写进 `npc_abilities_override.txt` 里原版技能自己的 `AbilityValues`——即使代码要通过 `FindAbilityByName(原版技能).GetSpecialValueFor('自定义字段')` 去读、需要蹭同一份天赋绑定，也不能把字段存放在原版技能身上。这样会让原版技能的差分文件里混入一个只有觉醒机制认识的字段，看 override 文件的人无法理解这个字段为什么存在，后续调整原版技能数值平衡时也容易误改或误删。
+
+正确做法：字段直接定义在觉醒技能自己的 KV 里；需要联动原版技能当前等级/天赋时，在代码里读取原版技能实例的等级/已生效数值，用公式在觉醒技能侧算出最终值，而不是让原版技能替觉醒机制保管参数。
+
+### 进阶 11：目标是「简化原版操作」时，优先包一层自动化外壳，不要重新实现原版机制
+
+有些觉醒诉求本质是「原版技能手动操作太繁琐，希望自动帮玩家完成」（如某个需要手动施放+手动收尾两步操作的技能，想在自动施法开启后全自动化）。这类需求容易被过度设计成一套全新机制（如引入持续 buff/领域/独立数值体系去模拟"自动化后应有的效果"），实际上完全不需要——原版技能自身的施法逻辑、命中判定、加成效果都不用动，觉醒技能只需要做**一层控制外壳**。
+
+这个方案还额外解决了英雄技能槽位已满、无法新增独立技能的问题：把原版技能隐藏（`SetHidden(true)`）挂在英雄身上而不是移除，觉醒技能占用同一个槽位对外显示，自身 KV 完整还原原版数值供玩家查看，内部通过代为调用原版技能的 `OnSpellStart()` 复用其全部效果——玩家看到的是"同一个技能位置多了自动施法能力"，而不是"技能被替换成了别的东西"。这是利用引擎已有机制实现最小改动的方式，槽位紧张、又只想加自动化能力时优先考虑这个思路。
+
+- 关闭自动施法：技能栏显示原版技能本体，玩家手动操作，行为与不觉醒时完全一致
+- 打开自动施法：觉醒技能的 intrinsic modifier 用 `OnIntervalThink` 周期检测触发条件（如冷却是否转好、范围内是否有合适目标），满足条件时**代替玩家调用原版技能自身的 `OnSpellStart()`**（而不是重新实现一遍技能效果），原版技能命中判定、加成、伤害全部原样生效；需要玩家原本手动点第二步操作（如某个收尾/确认技能）时，同样在检测循环里判断该技能是否可施放，可施放就代为调用
+
+判断「简化操作」类需求是否走偏了的信号：如果实现过程中出现了原版技能本身没有的新数值字段（半径、持续时间、加成档位）、新的 buff/debuff modifier、或者需要"叠加/覆盖原版效果"的逻辑，那大概率是把"自动化操作"和"改变技能效果"这两件事混在一起了——先回头确认需求到底是哪一种，多数"简化操作"类诉求只需要前者。代码代为触发 `OnSpellStart()` 时须补 `UseResources`，见 CLAUDE.md「常见陷阱」。
+
+**替换类觉醒仍需完整还原原版技能的 KV 数值和本地化文案**：这层"自动化外壳"不改变原版效果，因此觉醒技能自己的 KV（`AbilityValues`、`AbilityCooldown`、`AbilityManaCost`、`HasScepterUpgrade` 等）和本地化描述都应该与原版技能 + `npc_abilities_override.txt` 差分之后的最终值保持完全一致（玩家在未开自动施法时，看到的技能面板本质就是原版技能本身）。新增的自动施法说明追加在原版描述之后，不要替换掉原版的效果描述。
+
+> 参考：上古巨神觉醒 `elder_titan_ancestral_spirit_awaken`——自动施法开启后，冷却转好且附近有敌方英雄时自动朝最远的英雄施放先祖之魂（直接调用原版 `elder_titan_ancestral_spirit` 的 `OnSpellStart`），游魂可召回时自动调用原版 `elder_titan_return_spirit`，不新增任何数值/效果，原版命中加成、护甲魔抗削弱、KV 数值、本地化描述全部原样保留。
+
 ---
 
 ## 不明确时询问
@@ -237,3 +275,4 @@ Timers.CreateTimer(duration, () => {
 - 数值/效果「仅觉醒后生效」还是「全局对该英雄生效」
 - 等级是否需要与某技能关联
 - 主动技是否要做成自动触发
+- 限免清单中已有的哪些旧英雄该移出（见步骤 5，每次新增觉醒都要问）

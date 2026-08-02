@@ -3,11 +3,16 @@
 import { ABILITY_REPLACEMENTS, AbilityReplacement } from './awaken-config';
 
 /** 加新技能并设等级（不超过其 MaxLevel） */
-function addAbilityAtLevel(hero: CDOTA_BaseNPC_Hero, abilityName: string, level: number): void {
+function addAbilityAtLevel(
+  hero: CDOTA_BaseNPC_Hero,
+  abilityName: string,
+  level: number,
+): CDOTABaseAbility | undefined {
   const added = hero.AddAbility(abilityName);
   if (added !== undefined) {
     added.SetLevel(Math.min(level, added.GetMaxLevel()));
   }
+  return added;
 }
 
 /** 解析替换目标技能名：优先 targetAbility，其次 targetSlot 当前占用的技能 */
@@ -59,6 +64,21 @@ function insertAbility(
   return true;
 }
 
+/** 标记技能可见（自身状态机中途）时，新技能应保持隐藏、旧技能不删 */
+function shouldKeepNewAbilityHidden(
+  hero: CDOTA_BaseNPC_Hero,
+  replacement: AbilityReplacement,
+  targetAbilityName: string | undefined,
+): boolean {
+  if (targetAbilityName === undefined || replacement.keepHiddenWhile === undefined) {
+    return false;
+  }
+
+  const targetAbility = hero.FindAbilityByName(targetAbilityName);
+  const markerAbility = hero.FindAbilityByName(replacement.keepHiddenWhile);
+  return targetAbility !== undefined && markerAbility !== undefined && !markerAbility.IsHidden();
+}
+
 /** 替换：移除旧技能 → 加新技能，inheritLevelFrom > newLevel(>0) > 原已学等级（不退点数） */
 function replaceAbility(
   hero: CDOTA_BaseNPC_Hero,
@@ -74,10 +94,19 @@ function replaceAbility(
   }
   const fallbackLevel = replacement.newLevel > 0 ? replacement.newLevel : savedLevel;
   const newAbilityLevel = resolveNewLevel(hero, replacement, fallbackLevel);
-  if (targetAbilityName !== undefined && hero.FindAbilityByName(targetAbilityName) !== undefined) {
+  const keepHidden = shouldKeepNewAbilityHidden(hero, replacement, targetAbilityName);
+  if (
+    targetAbilityName !== undefined &&
+    !keepHidden &&
+    hero.FindAbilityByName(targetAbilityName) !== undefined
+  ) {
     hero.RemoveAbility(targetAbilityName);
   }
-  addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
+  const added = addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
+  // 解除隐藏由标记技能自身的状态机负责（如 restoreWrapperAfterReturn 里的 SwapAbilities）
+  if (keepHidden && added !== undefined) {
+    added.SetHidden(true);
+  }
   return true;
 }
 

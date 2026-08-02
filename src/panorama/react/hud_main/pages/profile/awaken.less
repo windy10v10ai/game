@@ -23,7 +23,7 @@
 }
 
 .awaken-confirm-dialog {
-  width: 320px;
+  width: 340px;
   horizontal-align: center;
   vertical-align: center;
   flow-children: down;
@@ -32,6 +32,11 @@
   border: 2px solid @color-gold-soft;
   border-radius: @radius-lg;
   box-shadow: @shadow-soft;
+}
+
+/* 右上角关闭按钮：独占一行右对齐，避免破坏下方内容的纵向 flow */
+.awaken-confirm-close {
+  margin-bottom: 4px;
 }
 
 /* 即将获得的觉醒技能图标，居中展示；英雄名已用文字说明，不再重复放头像 */
@@ -68,26 +73,21 @@
   horizontal-align: center;
 }
 
-/* 确认在左、取消在右，符合 Windows 对话框惯例；两按钮等宽，视觉更平衡 */
-.btn-primary.awaken-confirm-confirm {
-  padding: 8px;
+/* 勇士积分（蓝紫）左、会员积分（金色）右，与个人中心两个积分块的配色呼应；两按钮等宽 */
+.btn-gold.awaken-confirm-pay,
+.btn-primary.awaken-confirm-pay {
   width: 130px;
-  height: 36px;
-  margin-right: 12px;
+  height: 52px;
+  padding: 4px 6px;
+  margin: 0px 6px;
   horizontal-align: center;
 }
 
-.awaken-confirm-cancel {
-  width: 130px;
-  height: 36px;
-  padding: 8px;
-  horizontal-align: center;
-}
-
-.awaken-confirm-cancel-label {
-  width: 100%;
-  text-align: center;
-  vertical-align: center;
+/* 价格+货币名合并展示，按钮宽度放不下时换行，而不是继续缩小字号 */
+.awaken-confirm-pay .btn-primary-label {
+  font-size: @font-size-sm;
+  white-space: normal;
+  text-overflow: shrink;
 }
 
 /* 顶部说明：局内临时觉醒 / 永久觉醒 左右两栏，中间竖线分隔 */
@@ -96,7 +96,7 @@
   flow-children: right;
   margin-bottom: 12px;
   padding: 10px 14px;
-  background-color: #00000090;
+  background-color: #000000cc;
   border-radius: @radius-lg;
   border-left: 2px solid @color-gold-soft;
 }
@@ -256,9 +256,48 @@
   font-size: @font-size-sm;
   font-weight: bold;
   color: @color-text;
+  /* 卡片窄，长英雄名（尤其俄文）自动缩字号而非裁切 */
+  text-overflow: shrink;
   text-shadow:
     2px 2px 4px #000000ee,
     0 0 6px #000000cc;
+}
+
+/* 限时免费角标：绿色与已觉醒的金色描边、待解锁的紫色描边都不撞色，低调但能一眼挑出 */
+.awaken-free-badge {
+  horizontal-align: right;
+  vertical-align: top;
+  margin-top: 3px;
+  margin-right: 4px;
+  padding: 1px 5px;
+  background-color: #00000099;
+  border: 1px solid @color-safe;
+  border-radius: @radius-sm;
+}
+
+/* 名字短到能与角标同行时，让出角标那块宽度并右靠，与角标连成一组 */
+.awaken-hero-name-top-inline {
+  width: 62%;
+  horizontal-align: left;
+  text-align: right;
+  padding-right: 5px;
+}
+
+/* 名字占满第一行时角标退到第二行 */
+.awaken-free-badge-wrapped {
+  margin-top: 24px;
+}
+
+/* 角标退到第二行后压暗区要跟着变高，否则角标落在亮色立绘上 */
+.awaken-top-scrim-tall {
+  height: 48px;
+}
+
+.awaken-free-badge-label {
+  font-size: @font-size-xs;
+  font-weight: bold;
+  color: @color-safe;
+  text-shadow: 1px 1px 3px #000000ee;
 }
 
 /* 底部深色渐变压暗，保证图标与按钮/徽标清晰 */
