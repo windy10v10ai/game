@@ -497,6 +497,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на %attack_range_tooltip%."
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на <font color='#FFFFFF'><b>1</b></font>."
+
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
