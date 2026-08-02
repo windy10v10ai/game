@@ -566,6 +566,15 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает <font color='#FFCC66'>иммунитет к отрицательным эффектам</font> и <font color='#FFFFFF'><b>60%</b></font> сопротивления магии на время действия Shallow Grave."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает <font color='#FFCC66'>иммунитет к отрицательным эффектам</font> и <font color='#FFFFFF'><b>60%</b></font> сопротивления магии на время действия Shallow Grave."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_shallow_grave"			"Пробуждение Shallow Grave"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_shallow_grave_Description"	"Цель получает <font color='#FFCC66'>иммунитет к отрицательным эффектам</font> и <font color='#FFFFFF'><b>60%</b></font> сопротивления магии до окончания Shallow Grave."
+		"DOTA_Tooltip_modifier_dazzle_shallow_grave"		"Shallow Grave"
+		"DOTA_Tooltip_modifier_dazzle_shallow_grave_Description"		"Во время действия Shallow Grave здоровье не может опуститься ниже 1.<br><font color='#d000ff'>Пробуждение:</font> также даёт <font color='#FFCC66'>иммунитет к отрицательным эффектам</font> и <font color='#FFFFFF'><b>60%</b></font> сопротивления магии."
 
 	}
 }

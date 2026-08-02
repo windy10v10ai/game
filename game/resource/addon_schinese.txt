@@ -3500,6 +3500,15 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍的魔法伤害，并叠加1层寒灾印记，持续<font color='#FFFFFF'><b>8</b></font>秒，叠满<font color='#FFFFFF'><b>3</b></font>层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在<font color='#FFFFFF'><b>350</b></font>范围内造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人<font color='#FFFFFF'><b>0.6</b></font>秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"寒灾印记"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"达到3层时触发寒灾冰爆；巫妖也可使用寒霜爆发提前引爆。"
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>薄葬 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>减益免疫</font>和<font color='#FFFFFF'><b>60%</b></font>法术抗性。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>减益免疫</font>和<font color='#FFFFFF'><b>60%</b></font>法术抗性。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_shallow_grave"			"薄葬 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_shallow_grave_Description"	"获得<font color='#FFCC66'>减益免疫</font>和<font color='#FFFFFF'><b>60%</b></font>法术抗性，持续至薄葬结束。"
+		"DOTA_Tooltip_modifier_dazzle_shallow_grave"		"薄葬"
+		"DOTA_Tooltip_modifier_dazzle_shallow_grave_Description"		"薄葬期间生命值不会低于1。<br><font color='#d000ff'>觉醒：</font>同时获得<font color='#FFCC66'>减益免疫</font>和<font color='#FFFFFF'><b>60%</b></font>魔法抗性。"
 
 	}
 }

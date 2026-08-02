@@ -855,4 +855,18 @@
 			}
 		}
 	}
+	// 戴泽 觉醒
+	"special_bonus_unique_dazzle_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_dazzle_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"dazzle_shallow_grave"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"magic_resistance"			"60"
+		}
+	}
 }
