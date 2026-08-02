@@ -3276,4 +3276,14 @@
 		}
 	}
 
+	"dragon_knight_elder_dragon_form_upgrade"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/dragon_knight_elder_dragon_form_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"MaxLevel"						"1"
+		"AbilityTextureName"				"dragon_knight_elder_dragon_form"
+	}
+
+
 }

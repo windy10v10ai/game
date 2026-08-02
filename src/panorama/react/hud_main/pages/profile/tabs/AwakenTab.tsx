@@ -19,6 +19,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     abilityName: 'elder_titan_ancestral_spirit_awaken',
   },
   {
+    heroName: 'npc_dota_hero_dragon_knight',
+    abilityName: 'special_bonus_unique_dragon_knight_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_techies',
     abilityName: 'techies_squees_scope',
   },
