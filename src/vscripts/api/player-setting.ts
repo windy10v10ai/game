@@ -26,6 +26,12 @@ export class PlayerSettingApi {
       wardObserverQuickCast: event.wardObserverQuickCast === 1,
       wardSentryKey: event.wardSentryKey,
       wardSentryQuickCast: event.wardSentryQuickCast === 1,
+      inventorySlot7Key: event.inventorySlot7Key,
+      inventorySlot7QuickCast: event.inventorySlot7QuickCast === 1,
+      inventorySlot8Key: event.inventorySlot8Key,
+      inventorySlot8QuickCast: event.inventorySlot8QuickCast === 1,
+      inventorySlot9Key: event.inventorySlot9Key,
+      inventorySlot9QuickCast: event.inventorySlot9QuickCast === 1,
     };
 
     ApiClient.sendWithRetry({

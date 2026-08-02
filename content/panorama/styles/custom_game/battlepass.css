@@ -157,8 +157,8 @@ TextEntry.MonoFont {
 }
 .pointParent {
   vertical-align: center;
-  margin: 5px 10px 5px 10px;
-  width: 150px;
+  margin: 5px 8px 5px 8px;
+  width: 165px;
   height: 40px;
   background-color: gradient(linear, 0% 0%, 80% 0%, from(#333333), to(#111111));
   border-radius: 15px;
@@ -170,7 +170,7 @@ TextEntry.MonoFont {
   width: 32px;
   height: 38px;
   vertical-align: center;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 6px 0px 6px;
 
   tooltip-position: top;
   tooltip-body-position: 50%;
@@ -184,10 +184,10 @@ TextEntry.MonoFont {
 .pointNumber {
   horizontal-align: right;
   vertical-align: center;
-  margin: 0px 10px 0px 10px;
+  margin: 0px 6px 0px 2px;
   color: white;
-  font-size: 26px;
-  margin-left: 1%;
+  font-size: 20px;
+  text-overflow: shrink;
 }
 
 #LoadingFail {

@@ -301,17 +301,31 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 "AbilityTextureName"    "axe_auto_culling_blade"
 ```
 
-引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。
+引擎会自动在 `spellicons/` 目录下查找同名 `.png`，**不需要**注册到任何 xml，也**不需要** content 副本。
+
+> 技能图标与下面的物品图标流程**不同**，别照抄。spellicons 是否也该走 content 编译尚未统一，留待后续 issue。
 
 #### 物品图标（`AbilityTextureName`，物品 `item_xxx`）
 
-放在 `game/resource/flash3/images/items/<name>.png`，机制与技能图标相同：
+图标名与物品名去掉 `item_` 前缀保持一致，KV 中用文件名引用：
 
 ```
 "AbilityTextureName"    "awaken_stone"
 ```
 
-引擎自动在 `items/` 目录下查找同名 `.png`，**不需要**注册到 `images.xml`。图标名建议与物品名去掉 `item_` 前缀保持一致。
+png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可（少任一步都是紫块）：
+
+1. `game/resource/flash3/images/items/<name>.png`
+2. 同一张 png 复制到 `content/panorama/images/items/<name>.png`
+3. `content/panorama/layout/custom_game/images_items.xml` 里加一行，`id` 与文件名一致（引擎只允许从 `layout/custom_game/` 加载 layout，故登记表与 png 不同目录）：
+
+```xml
+<Image id="awaken_stone" class="SeqImg" src="file://{images}/items/awaken_stone.png" />
+```
+
+改完跑 `npm run lint:images` 校验三处一致（已并入 `npm run lint`）。
+
+编译产物 `game/panorama/images/items/*.vtex_c` 已 gitignore，由 Dota tools 本地生成。**换机器 clone 后必须先用 Dota tools 完整编译一次才能发布**，否则 workshop 包会缺图标 —— `custom_game/` 下 lottery、profile、member 等目录同理。
 
 #### Panorama UI 图片
 
@@ -394,7 +408,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - 注释用**中文**且中英一致；HTML 标签与换行（`\n` 分段、`<br><br>` 段内换行）中英一致
 - **文案不用分号**（`；`/`;`），句间用逗号或句号
 - `_Description` **不同时既内联又单独成行同一个数值**：一个 `AbilityValues` 数值只能选其一 —— 该数值只在 Description/Note 中以 `%xxx%` 出现一次（不单独定义 `_xxx` 标签行），或者只作为 `_xxx` 单独成行展示（Description 不再重复 `%xxx%`）。多个关联数值（如同一机制下的若干档位/字段）建议各自单独成行；孤立的单个数值两种方式均可，按可读性选择，但不要两处都写
-- **UI 键**（按钮/标签/提示等 Panorama 文本）需同步**俄文**；技能/物品/游戏逻辑类键不译俄文
+- **UI 键**（按钮/标签/提示等 Panorama 文本）**必须**同步俄文；技能/物品/游戏逻辑类键在**本次新增或修改该键时一并写俄文**，存量中原本没有俄文的旧键不必特意补齐；已有的俄文一律保留并跟随中英同步更新，不得单方面删除
 
 > 完整规则、对齐示例见 `.claude/skills/localization-format-guide/references/localization-format-guide.md`。
 
@@ -446,6 +460,8 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 只 stage 与本次请求明确相关的文件，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
 
 > 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill（`.claude/skills/create-pr/SKILL.md`）。
+
+非仓库主人发起的 PR 在 `opened`/`ready_for_review` 时会由 `.github/workflows/claude-pr-review.yml` 自动跑一次 Claude review（判断标准见 `pr-review-checklist` skill），只发顶层评论，不提交正式 review 状态。
 
 
 ## 文档自维护规范

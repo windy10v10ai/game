@@ -186,14 +186,16 @@ files: game/scripts/npc/npc_items_clone.txt
 
 ## 第八步：图片提醒
 
-检查图片文件是否存在：
-```
-game/resource/flash3/images/items/<name>_2.png
-```
-（注意：文件名去掉 `item_` 前缀，如 `shivas_guard_2.png`）
+物品图标要生效必须**三处齐备**（文件名去掉 `item_` 前缀，如 `shivas_guard_2.png`）：
 
-- 若**不存在** → 提醒用户：「请在 `game/resource/flash3/images/items/` 目录下创建 `<name>_2.png` 图片文件。`AbilityTextureName` 已设置为 `item_<name>_2`。」
-- 若**已存在** → 无需任何提醒，直接跳过此步
+1. `game/resource/flash3/images/items/<name>_2.png`
+2. `content/panorama/images/items/<name>_2.png`（同一张 png 的副本）
+3. `content/panorama/layout/custom_game/images_items.xml` 中一行 `<Image id="<name>_2" class="SeqImg" src="file://{images}/items/<name>_2.png" />`
+
+- 若 flash3 下**不存在** → 提醒用户：「请在 `game/resource/flash3/images/items/` 目录下创建 `<name>_2.png` 图片文件。`AbilityTextureName` 已设置为 `item_<name>_2`。」放好后由你补第 2、3 步
+- 若 flash3 下**已存在** → 直接补第 2、3 步
+
+完成后跑 `npm run lint:images` 校验三处一致。
 
 ---
 
@@ -300,7 +302,7 @@ Glob: game/scripts/npc/shops*.txt
 - [ ] 所有材料价格已从 `docs/reference/<version>/items.txt` 逐项读取 ItemCost 核实（非凭记忆）
 - [ ] AbilityValues：可成长属性 × 2，固定机制值不变，每项附原版值注释
 - [ ] ItemCost = 原版 + 额外材料 + 配方费之和
-- [ ] 图片文件存在或已提醒用户创建
+- [ ] 图片三处齐备（flash3 png / content png / images_items.xml 登记），或已提醒用户创建 flash3 那张，`npm run lint:images` 通过
 - [ ] addon_english.txt 和 addon_schinese.txt 已同步写入本地化键
 - [ ] 本地化键名前缀与物品系统名完全匹配
 - [ ] npc_items_clone.txt 格式正确（有文件头/尾，KV 块正确嵌套）
