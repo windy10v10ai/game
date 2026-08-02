@@ -148,24 +148,17 @@
 
 		// 上古巨神 灵体游魂-觉醒
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"自动施法：自然秩序改为环绕自身，并可立即强化。"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"上古巨神放出他的灵体游魂。游魂触碰敌人后，会为上古巨神提供攻击力和移动速度加成。\n\n自动施法：灵体游魂改为环绕上古巨神的自然秩序领域，基础范围 800。领域未强化时只降低敌人的基础护甲和基础魔抗。点击技能可强化领域 %field_duration% 秒，期间首次触碰的敌人会给予游魂加成，触碰英雄还会额外给予攻击速度；敌人的正护甲按自然秩序比例降低，魔法抗性直接降低相同百分点，且对技能免疫单位同样生效。领域半径会随技能范围加成扩大。\n\n<font color='#FFFFFF'>神杖升级：</font>每首次触碰一名敌方英雄，获得 %scepter_magic_immune_per_hero% 秒<font color='#FFCC66'>减益免疫和魔法抗性</font>。"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_field_duration"		"强化持续时间："
-		"DOTA_Tooltip_ability_elder_titan_natural_order_awaken_radius"		"自动施法领域半径："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"			"每个非英雄单位攻击力："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"			"每个英雄单位攻击力："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"			"每个非英雄单位移动速度（%）："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"			"每个英雄单位移动速度（%）："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_cap"				"移动速度上限（%）："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_per_real_hero"	"每个英雄攻击速度："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_attack_speed_cap"			"攻击速度上限："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_magic_immune_per_hero"	"神杖每个英雄持续时间："
-		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field"				"<font color='#d000ff'>本体领域</font>"
-		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_field_Description"		"自然秩序已强化；首次触碰敌人会提供游魂加成。"
-		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff"				"<font color='#d000ff'>灵体游魂加成</font>"
-		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_buff_Description"			"获得%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%点攻击力、%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%移动速度和%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%攻击速度。"
-		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order"			"<font color='#d000ff'>自然秩序领域</font>"
-		"DOTA_Tooltip_modifier_elder_titan_ancestral_spirit_awaken_natural_order_Description"		"降低基础护甲和基础魔抗。强化期间，正护甲按自然秩序比例降低，魔抗直接降低相同百分点。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"自动施法：自动朝最远的敌方英雄放出游魂并自动收回。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"上古巨神放出他的灵体游魂，灵魂对任何经过的单位都会造成伤害。当它与巨神合体时，它每伤害过一个单位都会给予若干攻击力和移动速度加成。\n\n灵体游魂拥有回音重踏，回归和自然秩序三个技能。<br><br><font color='#d000ff'>觉醒强化：</font>冷却时间缩短。<br><font color='#00CED1'>自动施法：</font>技能冷却完毕且附近存在敌方英雄时，自动朝距离最远的敌方英雄放出游魂，游魂可召回时立即自动收回，无需手动操作；开启期间手动放出的游魂同样会被自动收回。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"灵体持续时间："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"加成持续时间："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"伤害："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"作用范围："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%移动速度加成（非英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%移动速度加成（英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"攻击力加成（非英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"攻击力加成（英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"游魂每碰到一名英雄就能使上古巨神在游魂回归后获得%scepter_magic_immune_per_hero%秒<font color='#d76907'>减益免疫</font>状态和%immunity_resist%%%魔法抗性提升。"
 		// 尸王 血肉腐朽-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
@@ -1216,7 +1209,7 @@
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><font color=\"#FF0000\">自动施法开启时，肉钩只会拖拽敌方单位。<br>自动施法关闭时，肉钩可以拖拽友方单位。</font><br><br>大幅提升施法距离与钩子速度。"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"发射一个肉钩，将接触到的第一个单位拖回。<br><br><font color='#00CED1'>自动施法：</font>开启时肉钩只会拖拽敌方单位，关闭时肉钩可以拖拽友方单位。<br><br>大幅提升施法距离与钩子速度。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"被钩中的友方单位不会受到伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"伤害："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"钩子速度："
@@ -1237,12 +1230,12 @@
 
 		// 斧王 无情铁手-觉醒
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>无情铁手 觉醒</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>自动施放：自动斩杀</font><br><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#00CED1'>自动施放：自动斩杀</font><br><br>开启自动施法后，只要淘汰之刃冷却就绪，斧王便自动检测施法范围内血量低于斩杀线的敌方英雄并立即施放淘汰之刃。"
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"利刃所向，皆为收割。"
 
 		// 军团指挥官 自动决斗-觉醒
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>自动决斗·觉醒</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>自动施法：最近英雄</font><br><br>开启自动施法后，若决斗可以施放，则自动对决斗施法距离外额外%bonus_cast_range%范围内最近的可见敌方英雄施放决斗。不会选择幻象，只有大概率能击杀目标、且不会让自身陷入残血时才会触发。<br><br>自动决斗会无视并消耗目标的被动法术格挡与反弹效果。<br><br>决斗期间，军团指挥官获得黑皇杖的魔法免疫效果，目标无法被选中。"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>自动施法：</font>开启后，若决斗可以施放，则自动对决斗施法距离外额外%bonus_cast_range%范围内最近的可见敌方英雄施放决斗。不会选择幻象，只有大概率能击杀目标、且不会让自身陷入残血时才会触发。<br><br>自动决斗会无视并消耗目标的被动法术格挡与反弹效果。<br><br>决斗期间，军团指挥官获得黑皇杖的魔法免疫效果，目标无法被选中。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"荣誉无需邀约，最近的敌人就是对手。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"额外自动决斗范围："
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"自动决斗：无法选中"
@@ -1290,7 +1283,7 @@
 
 		// 钢背兽 自动喷刺
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>自动喷刺 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>自动施放</font><br><br>开启自动施法后，当范围内有敌方英雄时，钢背兽自动施放刺针扫射，并对最近的敌方英雄施放粘稠鼻液。<br><br><font color='#FFFFFF'>觉醒强化</font><br>粘稠鼻液：基础降甲提升至<font color='#FFFFFF'><b>10</b></font>点，每层降甲提升至<font color='#FFFFFF'><b>6</b></font>点，叠加上限提升至<font color='#FFFFFF'><b>10</b></font>层<br>刺针扫射：伤害上限提升至<font color='#FFFFFF'><b>1000</b></font><br>战意：叠加上限提升至<font color='#FFFFFF'><b>20</b></font>层"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#00CED1'>自动施法：</font>开启后，当范围内有敌方英雄时，钢背兽自动施放刺针扫射，并对最近的敌方英雄施放粘稠鼻液。<br><br><font color='#d000ff'>觉醒强化：</font>粘稠鼻液：基础降甲提升至<font color='#FFFFFF'><b>10</b></font>点，每层降甲提升至<font color='#FFFFFF'><b>6</b></font>点，叠加上限提升至<font color='#FFFFFF'><b>10</b></font>层<br>刺针扫射：伤害上限提升至<font color='#FFFFFF'><b>1000</b></font><br>战意：叠加上限提升至<font color='#FFFFFF'><b>20</b></font>层"
 
 		// 莉娜 神灭斩
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>神灭斩 觉醒</font>"
