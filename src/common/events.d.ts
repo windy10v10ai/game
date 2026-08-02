@@ -121,6 +121,7 @@ interface HudOpenPageEventData {
 
 interface AwakenUnlockHeroEventData {
   heroName: string;
+  useMemberPoint: number;
 }
 
 interface PlayerConductEventData {

@@ -4277,6 +4277,7 @@
 				"attack_speed_reduction"
 				{
 					"value"		"-10"						// -35
+					"special_bonus_unique_tiny_upgrade"	"+10"	// 与 value 抵消，觉醒后无攻速惩罚
 				}
 				"toss_bonus_damage"
 				{
@@ -9915,6 +9916,7 @@
 	"keeper_of_the_light_illuminate"
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"	// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
+		"AbilityTextureName"			"keeper_of_the_light/kotl_ti7_immortal/keeper_of_the_light_illuminate_alt"
 		"MaxLevel"						"5"
 		"AbilityManaCost"				"100 125 150 175 200"
 		"AbilityValues"
@@ -9923,7 +9925,29 @@
 			{
 				"value"				"185 290 395 500 605"
 			}
-			"channel_vision_step"		"150 180 210 240 270"
+			"channel_vision_step"				"150 180 210 240 270"
+			"max_channel_time"
+			{
+				"value"											"3"
+				"special_bonus_unique_keeper_of_the_light_upgrade"	"=1.5"
+			}
+			"range"
+			{
+				"value"											"1550"
+				"special_bonus_unique_keeper_of_the_light_upgrade"	"=2300"
+			}
+			"radius"
+			{
+				"value"											"400"
+				"special_bonus_unique_keeper_of_the_light_upgrade"	"=600"
+				"affected_by_aoe_increase"						"1"	// 原版键，须显式重写并排在觉醒键之后以固定键序
+			}
+			// 与 range 同比例提升，否则拉长的距离会让波形飞行时间从 1.72 秒涨到 2.56 秒，远目标更容易走开
+			"speed"
+			{
+				"value"											"900"
+				"special_bonus_unique_keeper_of_the_light_upgrade"	"=1350"
+			}
 		}
 	}
 	// 法力流失
@@ -10234,17 +10258,38 @@
 			}
 			"jumps"
 			{
-				"value"			"10 15 20 25"	// 10 10 10
-				"special_bonus_unique_lich_5"	"+75"	// 原版不存在，手动修改
+				"value"			"20 30 40 50"	// 10 10 10
+				"special_bonus_unique_lich_5"	"+50"	// 原版不存在，手动修改
 			}
 			"has_unlimited_jumps"
 			{
 				"value"							"0"
 				"special_bonus_unique_lich_5"		"=0"	// =1 移除 连环霜冻无限弹跳天赋
 			}
+			"initial_projectile_speed"
+			{
+				"value"						"1050"
+				"special_bonus_unique_lich_upgrade"	"=1575"
+			}
+			"projectile_speed"
+			{
+				"value"						"850"
+				"special_bonus_unique_lich_upgrade"	"=1275"
+			}
 			"jump_range"
 			{
-				"value"			"800"	// 550
+				"value"						"800"	// 550
+				"special_bonus_unique_lich_upgrade"	"=1100"
+			}
+			"slow_duration"
+			{
+				"value"						"2.5"
+				"special_bonus_unique_lich_upgrade"	"=4.0"
+			}
+			"frostbound_duration"
+			{
+				"value"						"2"
+				"special_bonus_unique_lich_upgrade"	"=4"
 			}
 			"bonus_jumps_per_hero_killed"
 			{
@@ -10256,6 +10301,17 @@
 			}
 		}
 	}
+	"special_bonus_unique_lich_5"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityValues"
+		{
+			"bonus_jumps"					"100"
+		}
+	}
+
 	// 献身 先天
 	"lich_death_charge"
 	{

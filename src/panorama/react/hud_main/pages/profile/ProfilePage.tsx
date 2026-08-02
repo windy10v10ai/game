@@ -48,7 +48,7 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
                 $.DispatchEvent(
                   'DOTAShowTextTooltip',
                   seasonPointRef.current,
-                  $.Localize('#data_panel_season_point'),
+                  $.Localize('#profile_point_season_tooltip'),
                 )
               }
               onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
@@ -58,10 +58,20 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
                 src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex"
               />
               <Label
+                className="profile-header-point-prefix"
+                text={$.Localize('#profile_point_useable_prefix')}
+              />
+              <Label
                 className="profile-header-point-value-season"
                 text={String(useableSeasonPoint)}
               />
-              <Label className="profile-header-point-total" text={` / ${seasonPointTotal}`} />
+              <Label
+                className="profile-header-point-total"
+                text={$.Localize('#profile_point_total_fmt').replace(
+                  '{n}',
+                  String(seasonPointTotal),
+                )}
+              />
             </Panel>
             <Panel
               ref={memberPointRef}
@@ -71,7 +81,7 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
                 $.DispatchEvent(
                   'DOTAShowTextTooltip',
                   memberPointRef.current,
-                  $.Localize('#data_panel_member_point'),
+                  $.Localize('#profile_point_member_tooltip'),
                 )
               }
               onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
@@ -80,8 +90,18 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
                 className="profile-header-point-icon"
                 src="s2r://panorama/images/custom_game/battlepass/charge_point_png.vtex"
               />
+              <Label
+                className="profile-header-point-prefix"
+                text={$.Localize('#profile_point_useable_prefix')}
+              />
               <Label className="profile-header-point-value" text={String(useableMemberPoint)} />
-              <Label className="profile-header-point-total" text={` / ${memberPointTotal}`} />
+              <Label
+                className="profile-header-point-total"
+                text={$.Localize('#profile_point_total_fmt').replace(
+                  '{n}',
+                  String(memberPointTotal),
+                )}
+              />
             </Panel>
           </Panel>
           <Button className="btn-close" onactivate={closePage} />

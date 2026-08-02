@@ -28,7 +28,7 @@ export const abilityTiersActive: Tier[] = [
       'legion_commander_duel', // 决斗
       'mars_bulwark', // 护身甲盾
       'faceless_void_time_zone', // 逆转时空
-      'doom_bringer_doom', // 末日
+      'doom_bringer_doom_awakened', // 末日
       'puck_dream_coil', // 梦境缠绕
       'windrunner_whirlwind_custom', // 风行者 旋风
 

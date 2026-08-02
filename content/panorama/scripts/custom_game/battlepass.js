@@ -126,31 +126,27 @@ function SetUseableLevelTooltipSnippet(panel, useableLevel) {
 }
 
 function SetTopStatus(player) {
-  // 数据
-  $('#MemberPoint').text = player.memberPointTotal;
-  $('#SeasonPoint').text = player.seasonPointTotal;
+  // 累计积分只增不减、决定等级，与可花费的可用积分是两回事，避免玩家误以为消耗会拉低等级
+  const totalPrefix = $.Localize('#data_panel_point_total_prefix');
+  $('#MemberPoint').text = `${totalPrefix} ${player.memberPointTotal}`;
+  $('#SeasonPoint').text = `${totalPrefix} ${player.seasonPointTotal}`;
   $('#PropertyPoint').text = `${player.useableLevel} / ${player.totalLevel}`;
 
-  // 顶部 pill 只显总额，可用积分放进 hover tooltip
   SetPointTooltip(
     '#SeasonPointContainer',
     '#data_panel_season_point_tooltip',
-    player.useableSeasonPoint,
     player.seasonPointTotal,
   );
   SetPointTooltip(
     '#MemberPointContainer',
     '#data_panel_member_point_tooltip',
-    player.useableMemberPoint,
     player.memberPointTotal,
   );
 }
 
-function SetPointTooltip(panelId, locKey, useable, total) {
+function SetPointTooltip(panelId, locKey, total) {
   const panel = $(panelId);
-  const text = $.Localize(locKey)
-    .replace('{useable}', useable)
-    .replace('{total}', total);
+  const text = $.Localize(locKey).replace('{total}', total);
   panel.SetPanelEvent('onmouseover', () => {
     $.DispatchEvent('DOTAShowTextTooltip', panel, text);
   });

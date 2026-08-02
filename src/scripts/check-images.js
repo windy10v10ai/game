@@ -4,7 +4,15 @@ const path = require('path');
 const repoRoot = path.resolve(__dirname, '..', '..');
 const flash3Dir = path.join(repoRoot, 'game', 'resource', 'flash3', 'images', 'items');
 const contentDir = path.join(repoRoot, 'content', 'panorama', 'images', 'items');
-const xmlPath = path.join(contentDir, 'images_items.xml');
+// 引擎只允许从 layout/custom_game/ 加载 layout，登记表须与 png 分开放
+const xmlPath = path.join(
+  repoRoot,
+  'content',
+  'panorama',
+  'layout',
+  'custom_game',
+  'images_items.xml',
+);
 
 function pngNames(dir) {
   return fs

@@ -146,6 +146,12 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
+		// 尸王 血肉腐朽-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.5</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的%regen_to_damage_pct%%%。"
@@ -163,8 +169,9 @@
 		"data_panel_member_point"		"会员积分 (可用/总数)"
 		"data_panel_season_point"		"勇士积分 (可用/总数)"
 		"data_panel_property_point"		"属性点 (可用/总数)"
-		"data_panel_season_point_tooltip"	"勇士积分（可用/总分：{useable}/{total}）"
-		"data_panel_member_point_tooltip"	"会员积分（可用/总分：{useable}/{total}）"
+		"data_panel_point_total_prefix"	"累计"
+		"data_panel_season_point_tooltip"	"<font color='#9B5DE0'>累计勇士积分：{total}</font>，决定勇士等级与属性点，只增不减，任何花费都不会让它下降。"
+		"data_panel_member_point_tooltip"	"<font color='#FFD700'>累计会员积分：{total}</font>，决定会员等级与属性点，只增不减，任何花费都不会让它下降。"
 
 		"data_panel_data_button"		"数据"
 		"data_panel_property_button"	"属性"
@@ -172,9 +179,9 @@
 		"data_panel_property_reset"		"重置属性"
 
 		"data_panel_season_level"		"勇士等级"
-		"data_panel_season_level_tooltip"		"通过勇士积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#FFD700'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#FFD700'>100</font>点。"
+		"data_panel_season_level_tooltip"		"通过<font color='#9B5DE0'>累计勇士积分</font>提升等级，每升一级即可获得1点属性点<br>可在<font color='#FFD700'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#FFD700'>100</font>点。"
 		"data_panel_member_level"		"会员等级"
-		"data_panel_member_level_tooltip"		"通过会员积分提升等级，每升一级即可获得1点属性点<br>可在<font color='#FFD700'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#FFD700'>50</font>点。"
+		"data_panel_member_level_tooltip"		"通过<font color='#FFD700'>累计会员积分</font>提升等级，每升一级即可获得1点属性点<br>可在<font color='#FFD700'>属性</font>面板中用于升级英雄属性。<br>每提升一级，升级所需经验增加<font color='#FFD700'>50</font>点。"
 		"data_panel_level_progress"		"升级进度"
 		"data_panel_link_rule"			"经验属性规则说明"
 		"data_panel_member_point_rule_url"		"https://ifdian.net/p/24140a48680511ed9d3852540025c377"
@@ -300,25 +307,32 @@
 		"profile_tab_stats"				"战绩"
 		"profile_tab_awaken"			"觉醒"
 		"profile_tab_member"			"会员"
+		"profile_point_season_tooltip"		"可用勇士积分：可用于永久觉醒英雄。<br>累计勇士积分：决定勇士等级与属性点，只增不减，任何花费都不会让它下降。"
+		"profile_point_member_tooltip"		"可用会员积分：可用于永久觉醒英雄、刷新抽奖等。<br>累计会员积分：决定会员等级与属性点，只增不减，任何花费都不会让它下降。"
+		"profile_point_useable_prefix"		"可用"
+		"profile_point_total_fmt"			"/ 累计 {n}"
 		"awaken_intro_title"				"觉醒石"
 		"awaken_intro_desc"				"开启藏宝箱有几率获得<font color='#FFD24A'>觉醒石</font>，使用后将英雄的一个技能蜕变为觉醒形态，仅本局对局内生效。<br>击杀肉山、或开启更多藏宝箱时，获得觉醒石的几率更高。"
 		"awaken_unlock_intro_title"			"永久觉醒"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，永久觉醒指定英雄。<br><font color='#FFD24A'>随机抽选</font>：积分减半，消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，从随机 3 个候选英雄中选 1 个觉醒。<br>消耗的是可用勇士积分，不会降低勇士等级。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>指定英雄</font>：消耗 <font color='#FFFFFF'><b>10000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>可用会员积分</font>，永久觉醒指定英雄。<br><font color='#FFD24A'>随机抽选</font>：积分减半，消耗 <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>可用会员积分</font>，从随机 3 个候选英雄中选 1 个觉醒。<br>消耗的只是可用积分：可用积分会减少，但累计积分只增不减，勇士/会员等级与属性点不受影响。永久觉醒不可撤销，技能即使随版本更新增强、削弱甚至重做，英雄的觉醒状态依然生效。"
 		"awaken_unlock_button"				"觉醒"
 		"awaken_unlocked_label"				"已觉醒"
+		"awaken_free_trial_badge"			"限免"
+		"awaken_free_trial_tooltip"			"新觉醒限时免费体验，选择该英雄时自动生效"
 		"awaken_unlock_tooltip_insufficient"	"可用积分不足"
-		"awaken_unlock_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>10000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
-		"awaken_unlock_confirm_cancel"		"取消"
+		"awaken_unlock_confirm_desc"		"选择消耗的积分，<br>永久觉醒该英雄？"
 		"awaken_unlock_confirm_button"		"确认"
+		"awaken_pay_member_button"			"{cost}<br>可用会员积分"
+		"awaken_pay_season_button"			"{cost}<br>可用勇士积分"
 		"awaken_random_title"				"随机觉醒"
 		"awaken_random_button"				"抽选"
 		"awaken_random_select_button"		"选择"
 		"awaken_random_candidates_title"	"选择一个英雄永久觉醒（积分减半）"
-		"awaken_random_confirm_desc"		"是否消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>，<br>永久觉醒该英雄？"
+		"awaken_random_confirm_desc"		"随机抽选<font color='#FFD24A'>消耗积分减半</font>，<br>选择消耗的积分，永久觉醒该英雄？"
 		"awaken_random_tooltip_insufficient_point"	"可用积分不足"
 		"awaken_random_tooltip_insufficient_pool"	"可觉醒英雄不足 3 个"
 		"awaken_random_card_desc"			"消耗积分减半<br>随机3选1"
-		"awaken_random_candidates_desc"		"消耗 <font color='#FFFFFF'><b>5000</b></font> 可用<font color='#9B5DE0'>勇士积分</font>。<br>从随机 3 个候选英雄中选 1 个永久觉醒。"
+		"awaken_random_candidates_desc"		"消耗 <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>可用勇士积分</font>，或 <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>可用会员积分</font>。<br>从随机 3 个候选英雄中选 1 个永久觉醒。"
 
 		// Stat Tab UI
 		"profile_stat_games"			"游戏场次"
@@ -1283,6 +1297,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
+		// 末日使者-觉醒
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"持续时间："
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"范围末日持续时间："
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"每秒伤害："
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"范围末日"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"%dMODIFIER_PROPERTY_TOOLTIP%范围内的敌人持续受到末日效果。"
 		// 斯温-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，持续%duration%秒，期间力量提升%strength_bonus%点，攻击速度提升%attackspeed_bonus%点。"
@@ -1299,11 +1321,21 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"极寒领域 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"获得<font color='#FFFFFF'>法术抵抗</font>，抵挡一次敌方指向性法术。"
 
-		// 小小 抓树-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>抓树 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。"
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>小小 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。<br>长大不再降低攻击速度。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>小小 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"抓起的树木不再因攻击次数耗尽而损毁。<br>长大不再降低攻击速度。"
+
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>冲击波 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高%base_damage_bonus%点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>冲击波每命中一名敌方英雄获得1层聚光，每层使冲击波伤害提高%damage_pct_per_stack%%%。"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"聚光层数上限："
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"聚光持续时间："
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>冲击波 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>25</b></font>%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"聚光"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"冲击波伤害提高<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>。"
 
 		///////////////////////////////////////////////////
 		//
@@ -3154,6 +3186,7 @@
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"				"+移动速度（可叠加）"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"						"%+转身速率"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_evasion"						"%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"								"战机模式"
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description"					"获得高空视野，移速提升%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，无视地形和单位碰撞。"
@@ -3438,6 +3471,16 @@
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "每次攻击独立随机转化为物理、魔法或纯粹伤害。转换伤害不受技能增强影响。"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "法师克星"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "造成的技能和物品伤害降低30%，并持续受到物理、魔法和纯粹伤害。持续伤害不受技能增强影响。"
+		// 巫妖 寒灾轮回
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力%intelligence_damage_multiplier%倍的魔法伤害，并叠加1层寒灾印记，持续%mark_duration%秒，叠满%mark_max_stacks%层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在%detonation_radius%范围内造成相当于智力%nova_detonation_multiplier_per_stack%倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人%freeze_duration%秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"幻象不计入真实英雄；肉山按普通单位处理。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"寒灾印记仅对真实英雄和肉山叠加；肉山会受到爆炸伤害，但不会被眩晕。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"寒霜爆发可提前引爆寒灾印记，并按当前层数结算伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍的魔法伤害，并叠加1层寒灾印记，持续<font color='#FFFFFF'><b>8</b></font>秒，叠满<font color='#FFFFFF'><b>3</b></font>层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在<font color='#FFFFFF'><b>350</b></font>范围内造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人<font color='#FFFFFF'><b>0.6</b></font>秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"寒灾印记"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"达到3层时触发寒灾冰爆；巫妖也可使用寒霜爆发提前引爆。"
 
 	}
 }

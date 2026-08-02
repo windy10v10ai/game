@@ -23,7 +23,7 @@ description: >-
 
 1. 明确要新增/修改的 key 列表与对应文本，判断是否为 UI 相关键
 2. 同时在 `addon_schinese.txt` 与 `addon_english.txt` 增删相同 key
-3. UI 相关键同步添加/更新到 `addon_russian.txt`
+3. 同步添加/更新到 `addon_russian.txt`：UI 相关键必须；技能/物品类键在本次新增或修改时也一并写，存量缺俄文的旧键不必特意补齐，已有俄文不得单方面删除
 4. 对齐检查：
    - 缩进、tab 对齐、空行位置一致
    - HTML 标签位置一致（包括 `\n` 与 `<br>`）

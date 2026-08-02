@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { FindDotaHudElement } from '@utils/utils';
+import { FindDotaHudElement, IsInHeroSelectionLayer } from '@utils/utils';
 import { useNavigation } from '../store/NavigationContext';
 
 const BUTTON_ID = 'OpenProfileButton';
@@ -9,8 +9,9 @@ const TOOLTIP_TEXT = $.Localize('#profile_title');
  *
  * hud_main 常驻入口按钮（生涯入口）。
  *
- * 渲染目标不是 React tree，而是 Dota HUD 的 ButtonBar（爱发电/Kofi 按钮所在容器），
- * 因此用 imperative 方式：useEffect 中通过 $.CreatePanel 挂到 ButtonBar，组件卸载时 DeleteAsync。
+ * 渲染目标不是 React tree，而是外部 panel：Hud 层挂到 Dota HUD 的 ButtonBar（爱发电/Kofi 按钮所在
+ * 容器），英雄选择层的 ButtonBar 尚不可见，改挂本层自身容器并自带定位样式。
+ * 因此用 imperative 方式：useEffect 中通过 $.CreatePanel 创建，组件卸载时 DeleteAsync。
  *
  * 行为：
  *   - 点击：若当前未打开 profile，则 openPage('profile', 'awaken')；若已打开任何 hud_main 页面，则 closePage()。
@@ -26,27 +27,36 @@ export function ProfileEntryButton() {
   }, [currentPage, openPage, closePage]);
 
   useEffect(() => {
-    let buttonBar: Panel | null = null;
-    try {
-      buttonBar = FindDotaHudElement('ButtonBar');
-    } catch (e) {
-      $.Msg('[HudEntryButton] cannot locate Hud root: ', e);
+    // 选人层的 ButtonBar 属于游戏内 HUD，此时不可见，改挂本层容器并自带定位样式
+    const heroSelectLayer = IsInHeroSelectionLayer();
+    let host: Panel | null = $.GetContextPanel();
+    if (!heroSelectLayer) {
+      try {
+        host = FindDotaHudElement('ButtonBar');
+      } catch (e) {
+        $.Msg('[HudEntryButton] cannot locate Hud root: ', e);
+        host = null;
+      }
     }
-    if (!buttonBar) {
+    if (!host) {
       return () => {
         /* noop */
       };
     }
 
     // 复用既有按钮 panel（脚本热重载场景），否则新建
-    const existing = buttonBar.FindChild(BUTTON_ID);
-    const button = existing ?? $.CreatePanel('Button', buttonBar, BUTTON_ID);
+    const existing = host.FindChild(BUTTON_ID);
+    const button = existing ?? $.CreatePanel('Button', host, BUTTON_ID);
 
-    // 显式放大按钮尺寸（默认 ButtonBar 子按钮偏小），并把图标作为整面背景。
+    // 显式放大按钮尺寸（默认 ButtonBar 子按钮偏小）
     button.style.width = '50px';
     button.style.height = '50px';
-    button.style.marginLeft = '2px';
-    button.style.marginRight = '2px';
+    if (heroSelectLayer) {
+      button.AddClass('hud-hero-select-entry-btn');
+    } else {
+      button.style.marginLeft = '2px';
+      button.style.marginRight = '2px';
+    }
     button.style.backgroundImage = "url('file://{images}/custom_game/profile/icon_profile.png')";
     button.style.backgroundSize = '100% 100%';
     button.style.backgroundRepeat = 'no-repeat';
@@ -78,6 +88,6 @@ export function ProfileEntryButton() {
     };
   }, []);
 
-  // 这个组件不渲染任何 React 节点，按钮挂到外部 ButtonBar
+  // 按钮挂到外部 panel，这个组件不渲染任何 React 节点
   return null;
 }

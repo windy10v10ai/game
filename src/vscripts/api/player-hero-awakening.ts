@@ -8,8 +8,9 @@ import { ApiClient, HttpMethod } from './api-client';
 import { Player, PlayerInfoDto } from './player';
 
 /**
- * 积分解锁英雄觉醒：仅支持赛季积分（useMemberPoint 固定 false），失败原因（英雄名无效/
- * 已觉醒/积分不足/玩家不存在）均由前端发请求前预判规避，故失败时不区分文案，仅打日志。
+ * 积分解锁英雄觉醒：支持勇士积分与会员积分两种支付方式，由前端在确认弹窗中选择并透传
+ * useMemberPoint。失败原因（英雄名无效/已觉醒/积分不足/玩家不存在）均由前端发请求前预判规避，
+ * 故失败时不区分文案，仅打日志。
  *
  * 随机抽选（半价）：候选集由 API 账号级持久化，game 侧只负责建议候选与展示。
  * 半价由 API 内部按「heroName 命中候选集」派生，认领仍走同一直购端点、IF 不变。
@@ -29,7 +30,7 @@ export class PlayerHeroAwakeningApi {
    * 直购与随机认领共用：半价由 API 按 heroName 是否命中候选集派生，game 无需区分。
    * 成功后统一清空候选集净表行（无候选时即空行，无害），使前端候选层收起。
    */
-  private onUnlockHero(event: { PlayerID: PlayerID; heroName: string }) {
+  private onUnlockHero(event: { PlayerID: PlayerID; heroName: string; useMemberPoint: number }) {
     const playerId = event.PlayerID;
     const steamId = PlayerResource.GetSteamAccountID(playerId);
     ApiClient.sendWithRetry({
@@ -37,7 +38,7 @@ export class PlayerHeroAwakeningApi {
       path: `/player/${steamId}/hero-awakening`,
       body: {
         heroName: event.heroName,
-        useMemberPoint: false,
+        useMemberPoint: event.useMemberPoint === 1,
       },
       successFunc: (data) => {
         PlayerHeroAwakeningApi.UnlockSuccess(data, playerId, steamId, event.heroName);
