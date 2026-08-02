@@ -18,6 +18,8 @@ description: >-
 
 判断某技能当前实际生效的数值（如蓝耗）时，**不能只看 docs/reference 原版，也不能只看顶层字段**——override 常把数值写成 `AbilityValues` 内的嵌套子块（如 `AbilityManaCost { "value" "9 10 11 12 13" }`）而非顶层字段。例：`drow_ranger_frost_arrows` 原版 0 蓝，本图 override 里实际是 `AbilityValues` 嵌套的 9-13 蓝/箭，只 grep 顶层 `AbilityManaCost` 会误判为 0 蓝。先精确读该技能整段（到下一个顶层技能名前），同时检查顶层字段和 `AbilityValues` 嵌套块；override 未覆盖时才回落原版。
 
+依据"官方公告但尚未正式上线"的改动清单维护时（`docs/reference` 尚未包含该次改动），判定改不改、改成什么应始终以用户给出的官方改动文本（旧值→新值）为准，不要直接拿 `docs/reference` 当前显示的数值当基准去反推新旧——同一份 reference 快照里不同技能的抓取时间点可能不一致，个别技能可能已经混入了比其余技能更新的数值。若发现 reference 显示的值与改动文本描述的"旧值"对不上，先向用户确认 reference 版本状态，不要自行假设。
+
 ## 技能范围
 
 用户未指定技能时，从参考 `npc_heroes.txt` 读取槽位：
@@ -73,6 +75,8 @@ description: >-
     - 旧格式有 `RequiresScepter "1"` 等辅助键，新格式无此键 → 直接删除辅助键，**无需询问**
     - 子键在参考中已完全消失（非结构迁移）→ **直接删除，无需询问**
 - 版本更新后键名改变（如旧版 `foo_tooltip` → 新版 `foo`）：删旧键名，按新键名走正常 P1/P2/P3 流程
+- **天赋（`special_bonus_unique_*`）改动前必须核实 key 仍然有效**：处理任何涉及天赋的改动前，先去参考文件 `npc_heroes.txt` 中该英雄的 `Ability10-17` 列表核实该天赋 key 是否仍存在——版本更新可能把某个天赋整体替换成另一个 key（甚至换成完全不同的机制），仅凭数值重算发现不了这种情况。key 已不存在则视为被替换，按新 key 重新处理，不要继续在旧 key 上做数值调整
+- **数值内嵌在天赋名里的通用天赋（如 `special_bonus_cast_range_125`、`special_bonus_attack_damage_15`）是引擎原生实现，不需要写任何 KV**：只需在 `Ability10-17` / `Bot.Build` 里正确引用天赋名即可，不要为其新增 `AbilityValues` 块
 
 ### P2 差分与 MaxLevel 扩展
 
