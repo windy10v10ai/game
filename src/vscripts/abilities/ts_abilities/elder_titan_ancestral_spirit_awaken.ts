@@ -5,10 +5,6 @@ import {
   registerAbility,
   registerModifier,
 } from '../../utils/dota_ts_adapter';
-import {
-  shouldRestoreAwakenWrapper,
-  shouldTrackPendingSpiritReturn,
-} from './elder-titan-awaken-math';
 
 const SCRIPT_PATH = 'abilities/ts_abilities/elder_titan_ancestral_spirit_awaken';
 const AWAKEN_ABILITY = 'elder_titan_ancestral_spirit_awaken';
@@ -68,7 +64,7 @@ export class ElderTitanAncestralSpiritAwaken extends BaseAbility {
     const returnSpirit = this.GetCaster().FindAbilityByName(RETURN_SPIRIT_ABILITY);
     if (!returnSpirit) return;
 
-    this.waitingForSpiritReturn = shouldTrackPendingSpiritReturn(returnSpirit.IsHidden());
+    this.waitingForSpiritReturn = !returnSpirit.IsHidden();
   }
 
   restoreWrapperAfterReturn(): void {
@@ -78,15 +74,7 @@ export class ElderTitanAncestralSpiritAwaken extends BaseAbility {
     const nativeSpirit = caster.FindAbilityByName(NATIVE_SPIRIT_ABILITY);
     const returnSpirit = caster.FindAbilityByName(RETURN_SPIRIT_ABILITY);
     if (!nativeSpirit || !returnSpirit) return;
-
-    if (
-      !shouldRestoreAwakenWrapper({
-        waitingForReturn: this.waitingForSpiritReturn,
-        returnHidden: returnSpirit.IsHidden(),
-      })
-    ) {
-      return;
-    }
+    if (!returnSpirit.IsHidden()) return;
 
     this.waitingForSpiritReturn = false;
     caster.SwapAbilities(NATIVE_SPIRIT_ABILITY, AWAKEN_ABILITY, false, true);
