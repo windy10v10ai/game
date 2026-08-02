@@ -1187,6 +1187,12 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed."
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Techies gains <font color='#FFFFFF'><b>1</b></font> attack range and attack projectile speed for each point of attack speed."
+
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray does more damage and healing to targets near the end of the beam. Beam intensity starts increasing at %hotspot_start_length_pct%%% of its length, reaching %hotspot_end_multiplier_pct%%% of base damage and healing at %hotspot_reference_length% range. Extending the beam further makes the endpoint's damage and healing keep increasing."

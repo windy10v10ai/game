@@ -16,6 +16,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 炸弹人 觉醒
+  {
+    heroName: 'npc_dota_hero_techies',
+    newAbility: 'techies_squees_scope',
+    newLevel: 1,
+  },
   // 尸王 觉醒
   {
     heroName: 'npc_dota_hero_undying',

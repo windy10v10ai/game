@@ -1182,6 +1182,12 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"每点攻击速度都会让工程师获得%attack_range_tooltip%攻击距离和攻击弹道速度。"
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"每点攻击速度都会让工程师获得<font color='#FFFFFF'><b>1</b></font>点攻击距离和攻击弹道速度。"
+
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>烈日炙烤 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤的光束末端对目标造成的伤害与治疗更高。光束强度从 %hotspot_start_length_pct%%% 长度处开始增强，在 %hotspot_reference_length% 距离处达到基础伤害/治疗的 %hotspot_end_multiplier_pct%%%。若光束长度进一步增加，末端的伤害和治疗量会继续提高。"
