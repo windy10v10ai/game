@@ -13,9 +13,19 @@ export interface AbilityReplacement {
   newLevel: number;
   /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），优先级高于 newLevel */
   inheritLevelFrom?: string;
+  /** 该标记技能可见期间新技能保持隐藏且不删 targetAbility（如上古巨神丢魂中途不打断原生召回流程） */
+  keepHiddenWhile?: string;
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 上古巨神 觉醒
+  {
+    heroName: 'npc_dota_hero_elder_titan',
+    targetAbility: 'elder_titan_ancestral_spirit',
+    newAbility: 'elder_titan_ancestral_spirit_awaken',
+    newLevel: 0,
+    keepHiddenWhile: 'elder_titan_return_spirit',
+  },
   // 炸弹人 觉醒
   {
     heroName: 'npc_dota_hero_techies',
