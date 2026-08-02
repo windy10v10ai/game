@@ -37,6 +37,17 @@ description: >-
 
 伤害标志位（`DamageFlag.REFLECTION`/`NO_SPELL_AMPLIFICATION` 等）与技能增强的显式声明、防止数值被无限刷高的上限设计，参见 CLAUDE.md「常见陷阱」里已有的对应条目。
 
+## 依赖 / package 升级 PR
+
+PR 是 `package.json` 依赖版本升级（如 dependabot 自动发起的 PR）时，除上述通用标准外还需要：
+
+- 说明这个包在项目里的作用：运行时依赖还是仅用于构建/测试的 devDependency，被哪些模块/环节用到
+- 评估升级风险：版本跨度（patch/minor/major）、有没有已知的破坏性变更或安全公告、是否影响构建产物或运行时行为
+- 给出明确的处理建议，分档：
+  - **可直接合并**：devDependency 或影响面很小的小版本/补丁升级，无破坏性变更
+  - **建议测试后合并**：影响构建产物或运行时行为，或变更说明不够清晰，需要先跑一遍构建/游戏内验证
+  - **需要修改后合并**：升级带来破坏性 API 变更，项目里有代码依赖了旧行为，需要同步改代码
+
 ## 输出规范（自动化 review 场景）
 
 - 只发一条顶层综述评论（`gh pr comment`），不使用 inline 行内评论，不提交正式的 APPROVE/REQUEST_CHANGES 状态——最终合并决定权在人工
