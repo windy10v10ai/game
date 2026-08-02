@@ -1,9 +1,11 @@
 name: Claude PR Review
 
 # 不含 synchronize：CLAUDE_CODE_OAUTH_TOKEN 与交互式 Claude Code 共享订阅额度，收紧触发次数
+# 用 pull_request_target 而非 pull_request：外部贡献者的 PR 大多来自 fork，
+# fork 触发的 pull_request 默认拿不到仓库 secrets（含 CLAUDE_CODE_OAUTH_TOKEN）。
 
 on:
-  pull_request:
+  pull_request_target:
     types: [opened, ready_for_review]
   workflow_dispatch: {}
 
@@ -21,7 +23,8 @@ jobs:
       pull-requests: read
       id-token: write
     steps:
-      # 不传 ref：两种事件的默认检出目标本就是我们想要的分支/PR
+      # 不传 ref：pull_request_target 默认检出 base 分支而非 PR 改动本身，刻意如此——
+      # 不执行/编译贡献者提交的代码，diff 内容全程只用 gh pr diff 以文本形式读取。
       - name: Checkout
         uses: actions/checkout@v7
         with:
