@@ -95,9 +95,9 @@ export interface AlipayPointsTier {
 }
 
 export const ALIPAY_POINTS_TIERS: AlipayPointsTier[] = [
-  { productCode: AlipayProductCode.POINTS_TIER1, points: 3500, price: '78.00', savedAmount: 20 },
-  { productCode: AlipayProductCode.POINTS_TIER2, points: 11000, price: '238.00', savedAmount: 42 },
-  { productCode: AlipayProductCode.POINTS_TIER3, points: 28000, price: '568.00', savedAmount: 80 },
+  { productCode: AlipayProductCode.POINTS_TIER1, points: 4000, price: '78.00', savedAmount: 20 },
+  { productCode: AlipayProductCode.POINTS_TIER2, points: 12500, price: '238.00', savedAmount: 42 },
+  { productCode: AlipayProductCode.POINTS_TIER3, points: 31000, price: '568.00', savedAmount: 80 },
 ];
 
 export { AFDIAN_SHOP_URL, GetAfdianSubscribeUrl, KOFI_SHOP_URL, KOFI_SUBSCRIBE_URL };

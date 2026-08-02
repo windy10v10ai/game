@@ -23,8 +23,10 @@
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/react/hud_lottery/layout.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/react/hud_main/layout.xml" />
 		<CustomUIElement type="EndScreen"					layoutfile="file://{resources}/layout/custom_game/react/hud_main/layout.xml" />
+		<CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/react/hud_main/layout.xml" />
 
 		<!-- for compile images, not this xml show in game -->
 		<CustomUIElement type="EndScreen"			layoutfile="file://{resources}/layout/custom_game/images.xml" />
+		<CustomUIElement type="EndScreen"			layoutfile="file://{resources}/layout/custom_game/images_items.xml" />
 	</Panel>
 </root>

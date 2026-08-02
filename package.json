@@ -16,8 +16,9 @@
     "start": "npm run launch && npm run dev",
     "test": "jest",
     "prettier-check": "prettier --check .",
-    "lint": "eslint --ext .js,.ts,.tsx \"./src/**/*.{js,ts,tsx}\"",
-    "lint:fix": "eslint --ext .js,.ts,.tsx --fix  \"./src/**/*.{js,ts,tsx}\""
+    "lint": "eslint --ext .js,.ts,.tsx \"./src/**/*.{js,ts,tsx}\" && npm run lint:images",
+    "lint:fix": "eslint --ext .js,.ts,.tsx --fix  \"./src/**/*.{js,ts,tsx}\"",
+    "lint:images": "node src/scripts/check-images.js"
   },
   "devDependencies": {
     "@moddota/dota-lua-types": "^4.38.2",

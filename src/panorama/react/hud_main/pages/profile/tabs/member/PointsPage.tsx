@@ -26,7 +26,7 @@ interface PointsPageProps {
 // 外链统一显示原价（游戏内无法得知平台会员折扣）
 const AFDIAN_POINTS_PRICES = ['98.00', '280.00', '648.00'];
 const KOFI_POINTS_PRICES = ['11.99', '36.99', '89.99'];
-const POINTS_AMOUNTS = [3500, 11000, 28000];
+const POINTS_AMOUNTS = [4000, 12500, 31000];
 
 export function PointsPage({ refreshing, onRefresh }: PointsPageProps) {
   const steamId = GetLocalPlayerSteamAccountID();

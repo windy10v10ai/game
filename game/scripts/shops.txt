@@ -3,11 +3,10 @@
 	// 消耗品
 	"consumables"
 	{
-		// "item"		"item_tpscroll"				// 回城卷轴
+		"item"		"item_tpscroll"				// 回城卷轴
 		"item"		"item_clarity"				// 净化药水
 		"item"		"item_faerie_fire"			// 仙灵之火
 		"item"		"item_smoke_of_deceit"		// 诡计之雾
-		"item"		"item_dust"					// 显影之尘
 
 		"item"		"item_ward_observer"		// 侦查守卫
 		"item"		"item_ward_sentry"			// 岗哨守卫
@@ -17,12 +16,14 @@
 		"item"		"item_tango"				// 仙灵之火
 		"item"		"item_blood_grenade"		// 血腥榴弹
 		"item"		"item_bottle"				// 魔瓶
-		"item"		"item_infused_raindrop"		// 凝魂之露
+		"item"		"item_dust"					// 显影之尘
 
+		"item"		"item_infused_raindrop"		// 凝魂之露
 		"item"		"item_aghanims_shard"		// 阿哈利姆魔晶
+
+		// 额外
 		"item"		"item_tome_of_knowledge"	// 知识之书
-		"item"		"item_skill_reset"			// 遗忘技能书
-		"item"		"item_collector"			// 收纳符
+		"item"		"item_candy_candy"			// 嘉心糖
 	}
 	// 属性
 	"attributes"
@@ -43,9 +44,12 @@
 		"item"		"item_staff_of_wizardry"	// 魔力法杖
 
 		"item"		"item_diadem"				// 宝冕
-		"item"		"item_travel_boots"			// 飞鞋 远行鞋
-		"item"		"item_candy_candy"			// 嘉心糖
-		"item"		"item_recipe_greater_famango" // 巨大疗伤莲花配方
+		"item"		"item_ghost"				// 幽魂权杖
+
+		// 额外
+		"item"		"item_collector"			// 收纳符
+		"item"		"item_skill_reset"			// 遗忘技能书
+		// "item"		"item_recipe_greater_famango" // 巨大疗伤莲花配方
 	}
 	// 装备
 	"weapons_armor"
@@ -68,24 +72,19 @@
 		"item"		"item_javelin"				// 标枪
 		"item"		"item_helm_of_iron_will"	// 铁意头盔
 		"item"		"item_mithril_hammer"		// 秘银锤
-
+		// 额外
 		"item"		"item_quelling_blade_2_datadriven" // 毒瘤之刃
 
+		// 额外
+		"item"		"item_rune_transmuter_random"		// 洗炼石
+		"item"		"item_rune_transmuter_advanced"		// 转化石
+		"item"		"item_universal_rune"				// 通用符文
+		"item"		"item_awaken_stone"					// 觉醒石
 
-		"item"		"item_ring_of_health"		// 治疗指环
-		"item"		"item_void_stone"			// 虚无宝石
-		"item"		"item_talisman_of_evasion"	// 闪避护符
-		"item"		"item_platemail"			// 板甲
-
-		"item"		"item_ring_of_tarrasque"	// 恐鳌之戒
-		"item"		"item_tiara_of_selemene"	// 赛莉蒙妮之冠
-		"item"		"item_hyperstone"			// 振奋宝石
-		"item"		"item_demon_edge"			// 恶魔刀锋
-
-		"item"		"item_energy_booster"		// 能量之球
-		"item"		"item_vitality_booster"		// 活力之球
-		"item"		"item_point_booster"		// 精气之球
-		"item"		"item_relic"				// 圣者遗物
+		"item"		"item_wish_1"
+		"item"		"item_wish_2"
+		"item"		"item_wish_3"
+		"item"		"item_wish_4"
 
 	}
 	// 其他
@@ -108,33 +107,44 @@
 
 		"item"		"item_cloak"				// 抗魔斗篷
 		"item"		"item_chasm_stone"			// 裂隙之石
-		"item"		"item_ghost"				// 幽魂权杖
 		"item"		"item_blink"				// 闪烁匕首
+
+		// 额外
+		"item"		"item_force_field_ultra"	// 天地同寿甲
+
+		"item"		"item_light_part"			// 圣光组件
+		"item"		"item_dark_part"			// 暗影组件
+		"item"		"item_roshans_banner"		// 肉山的战旗
+		"item"		"item_tome_of_ability_reset"	// 技能重选书
+
+		// FIXME 暂时移动到
+		"item"		"item_tome_of_strength"
+		"item"		"item_tome_of_agility"
+		"item"		"item_tome_of_intelligence"
+		"item"		"item_tome_of_luoshu"		// 洛书
+	}
+	// 神秘商店
+	"secretshop"
+	{
+		"item"		"item_ring_of_health"		// 治疗指环
+		"item"		"item_void_stone"			// 虚无宝石
+		"item"		"item_talisman_of_evasion"	// 闪避护符
+		"item"		"item_platemail"			// 板甲
+
+		"item"		"item_ring_of_tarrasque"	// 恐鳌之戒
+		"item"		"item_tiara_of_selemene"	// 赛莉蒙妮之冠
+		"item"		"item_hyperstone"			// 振奋宝石
+		"item"		"item_demon_edge"			// 恶魔刀锋
+
+		"item"		"item_vitality_booster"		// 活力之球
+		"item"		"item_energy_booster"		// 能量之球
+		"item"		"item_point_booster"		// 精气之球
+		"item"		"item_relic"				// 圣者遗物
 
 		"item"		"item_reaver"				// 掠夺者之斧
 		"item"		"item_eagle"				// 鹰歌弓
 		"item"		"item_mystic_staff"			// 神秘法杖
 		"item"		"item_ultimate_orb"			// 极限法球
-
-		"item"		"item_dragon_lance"			// 魔龙枪
-		"item"		"item_force_field_ultra"	// 天地同寿甲
-		"item"		"item_light_part"			// 圣光组件
-		"item"		"item_dark_part"			// 暗影组件
-
-		"item"		"item_armlet_light"			// 圣光臂章
-		"item"		"item_armlet_dark"			// 暗影臂章
-	}
-	// 神秘商店
-	"secretshop"
-	{
-		"item"		"item_wish_1"
-		"item"		"item_wish_2"
-		"item"		"item_wish_3"
-		"item"		"item_wish_4"
-		"item"		"item_rune_transmuter_random"		// 洗炼石
-		"item"		"item_rune_transmuter_advanced"		// 转化石
-		"item"		"item_universal_rune"				// 通用符文
-		"item"		"item_awaken_stone"					// 觉醒石
 	}
 
 	// ------------------------------------------
@@ -153,11 +163,13 @@
 
 		// "item"		"item_oblivion_staff"		// 空明杖
 		// "item"		"item_pers"					// 坚韧球
+		// "item"		"item_travel_boots"			// 飞鞋 远行鞋
  		"item"		"item_mask_of_madness"
 		"item"		"item_hand_of_group"		// 团队之手
 		"item"		"item_roshans_banner"		// 肉山的战旗
 		"item"		"item_wings_of_haste"		// 急速之翼
-		"item"		"item_moon_shard_datadriven"
+		"item"		"item_moon_shard"			// 银月之晶
+		// "item"		"item_moon_shard_datadriven"
 		"item"		"item_consumable_gem"		// 幻影宝石
 		"item"		"item_tome_of_ability_reset"	// 技能重选书
 	}
@@ -269,10 +281,10 @@
 		"item"		"item_wasp_golden"			// 黄金大核荣耀
 		"item"		"item_excalibur"			// EX咖喱棒
 		"item"		"item_rapier_ultra"			// 诅咒圣剑
-		"item"      "item_six_paths_reincarnation_gun" // 六道轮回枪
-
-		"item"		"item_switchable_crit_blade"	// 归海一刀
 		"item"		"item_forbidden_blade"			// 禁忌战刃
+
+		"item"		"item_six_paths_reincarnation_gun" // 六道轮回枪	// FIXME 暂时移动
+		"item"		"item_switchable_crit_blade"	// 归海一刀
 		"item"		"item_hawkeye_turret"		// 鹰眼炮台
 		"item"		"item_magic_sword"			// 魔渊剑
 	}
@@ -302,11 +314,14 @@
 		"item"		"item_swift_blink_2"
 		"item"		"item_arcane_blink"
 		"item"		"item_jump_jump_jump"
+
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"		// 洛书
-		"item"      "item_shadow_judgment"      // 暗影裁决
+
+		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
+		// "item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套

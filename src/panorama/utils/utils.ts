@@ -31,7 +31,7 @@ export function GetAfdianSubscribeUrl(): string {
 
 /**
  * 爱发电积分下单链接（按档位）。末尾追加 remark={steamId32} 让爱发电下单页带上账号，
- * 后台据此自动发积分（与会员订阅同机制）。三个 URL 对应 3500 / 11000 / 28000（从低到高）。
+ * 后台据此自动发积分（与会员订阅同机制）。三个 URL 对应 4000 / 12500 / 31000（从低到高）。
  * sku 参数保持 percent-encoded 原样（%5B%7B... 即 [{...}]），不要 decode——
  * 链接直接交给 ExternalBrowserGoToURL 打开，解码后的 " [ { 空格会破坏 URL 解析。
  */
@@ -105,4 +105,17 @@ export function GetDotaHud() {
 
 export function FindDotaHudElement(id: string) {
   return GetDotaHud().FindChildTraverse(id);
+}
+
+/**
+ * 当前 layout 是否运行在英雄选择层。
+ * 该层容器同样挂在 Hud 之下，只能靠祖先链上的容器 id 区分，不能用「找不到 Hud」判断。
+ */
+export function IsInHeroSelectionLayer(): boolean {
+  for (let panel: Panel | null = $.GetContextPanel(); panel; panel = panel.GetParent()) {
+    if (panel.id === 'CustomUIContainer_HeroSelection') {
+      return true;
+    }
+  }
+  return false;
 }

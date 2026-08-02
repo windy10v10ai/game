@@ -146,6 +146,25 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Autocast: automatically sends the spirit toward the farthest enemy hero and recalls it automatically."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan sends forth his Astral Spirit, damaging any units it passes through.  When the spirit rejoins the Titan, it grants bonus damage and movement speed for each unit it passed through.\n\nThe Astral Spirit possesses the Echo Stomp, Return Spirit, and Natural Order abilities.<br><br><font color='#d000ff'>Awakening Bonus:</font> Reduced cooldown.<br><font color='#00CED1'>Autocast:</font> Whenever the ability is off cooldown and an enemy hero is nearby, automatically sends the spirit toward the farthest enemy hero, then recalls it automatically as soon as the recall is available, with no manual input required. While active, manually cast spirits are also recalled automatically."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"BUFF DURATION:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%BONUS SPEED (CREEPS):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%BONUS SPEED (HEROES):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"BONUS DAMAGE (CREEPS):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"BONUS DAMAGE (HEROES):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Causes Elder Titan to become debuff immune and gain %immunity_resist%%% magic resistance for %scepter_magic_immune_per_hero% seconds per affected enemy Hero when the spirit returns."
+		// Undying Flesh Decay - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Flesh Decay Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every %trigger_cooldown% seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Flesh Decay Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every <font color='#FFFFFF'><b>0.5</b></font> seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
+
 		// 半人马战行者 双刃剑 觉醒
 		"DOTA_Tooltip_ability_centaur_double_edge_awakened"						"<font color='#d000ff'>Double Edge Awakened</font>"
 		"DOTA_Tooltip_ability_centaur_double_edge_awakened_Summary"				"Stores damage taken to empower the next Double Edge and forge an all-damage shield."
@@ -190,8 +209,9 @@
 		"data_panel_member_point"		"Member Points (Usable/Total)"
 		"data_panel_season_point"		"Battle Points (Usable/Total)"
 		"data_panel_property_point"		"Attribute Points (Usable/Total)"
-		"data_panel_season_point_tooltip"	"Battle Points (Usable/Total: {useable}/{total})"
-		"data_panel_member_point_tooltip"	"Member Points (Usable/Total: {useable}/{total})"
+		"data_panel_point_total_prefix"	"Total"
+		"data_panel_season_point_tooltip"	"<font color='#9B5DE0'>Total Battle Points: {total}</font>, determines Battle Level and attribute points. Only ever goes up — spending never lowers it."
+		"data_panel_member_point_tooltip"	"<font color='#FFD700'>Total Member Points: {total}</font>, determines Member Level and attribute points. Only ever goes up — spending never lowers it."
 
 		"data_panel_data_button"		"Data"
 		"data_panel_property_button"	"Attributes"
@@ -199,9 +219,9 @@
 		"data_panel_property_reset"		"Reset"
 
 		"data_panel_season_level"		"Battle Level"
-		"data_panel_season_level_tooltip"		"Level up with Battle Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#FFD700'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#FFD700'>100</font> for each level up."
+		"data_panel_season_level_tooltip"		"Level up with <font color='#9B5DE0'>total Battle Points</font>. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#FFD700'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#FFD700'>100</font> for each level up."
 		"data_panel_member_level"		"Member Level"
-		"data_panel_member_level_tooltip"		"Level up with Member Points. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#FFD700'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#FFD700'>50</font> for each level up."
+		"data_panel_member_level_tooltip"		"Level up with <font color='#FFD700'>total Member Points</font>. Each level grants 1 attribute point.<br>Use these points to upgrade hero attributes in the <font color='#FFD700'>ATTRIBUTE</font> panel.<br>The required points increase by <font color='#FFD700'>50</font> for each level up."
 		"data_panel_level_progress"		"Level Progress"
 		"data_panel_link_rule"			"Points and Attribute Rule"
 		"data_panel_member_point_rule_url"		"https://ko-fi.com/post/Points-and-Attribute-Rules-S6S01CTP83"
@@ -265,16 +285,16 @@
 		"lottery_tooltip_ability_refresh_used"					"Ability has been rerolled."
 		"lottery_tooltip_ability_refresh_picked"				"Ability has been selected."
 		"lottery_tooltip_ability_refresh_not_member"			"Members can reroll abilities once per game. Click this button to open the membership page in your browser."
-		"lottery_tooltip_ability_refresh_paid"					"Spend <font color='#FFD700'>{cost}</font> useable points to reroll<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
+		"lottery_tooltip_ability_refresh_paid"					"Spend <font color='#FFD700'>{cost}</font> usable points to reroll<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
 		"lottery_tooltip_ability_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
-		"lottery_tooltip_ability_refresh_insufficient"			"Not enough useable points. Click to open the membership page."
+		"lottery_tooltip_ability_refresh_insufficient"			"Not enough usable points. Click to open the membership page."
 
 		"lottery_tooltip_item_refresh"							"Premium members can reroll items once for free."
 		"lottery_tooltip_item_refresh_used"						"Items have been rerolled."
 		"lottery_tooltip_item_refresh_not_premium"				"Premium members can reroll items. Click to open the membership page."
-		"lottery_tooltip_item_refresh_paid"						"Spend <font color='#FFD700'>{cost}</font> useable points to reroll items<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
+		"lottery_tooltip_item_refresh_paid"						"Spend <font color='#FFD700'>{cost}</font> usable points to reroll items<br>Remaining available rerolls: {remaining}<br>(total member points and membership level unchanged)."
 		"lottery_tooltip_item_refresh_limit"					"No available rerolls left.<br>Remaining available rerolls: 0"
-		"lottery_tooltip_item_refresh_insufficient"				"Not enough useable points. Click to open the membership page."
+		"lottery_tooltip_item_refresh_insufficient"				"Not enough usable points. Click to open the membership page."
 
 		"lottery_button_ability_reset"							"Reset"
 		"lottery_tooltip_ability_reset_enable"					"Remove the selected ability and reroll a new set of abilities"
@@ -327,25 +347,32 @@
 		"profile_tab_stats"				"Stats"
 		"profile_tab_awaken"			"Awaken"
 		"profile_tab_member"					"Member"
+		"profile_point_season_tooltip"		"Usable Battle Points: spend on permanent hero awakening.<br>Total Battle Points: determines Battle Level and attribute points. Only ever goes up — spending never lowers it."
+		"profile_point_member_tooltip"		"Usable Member Points: spend on permanent hero awakening, lottery refresh, and more.<br>Total Member Points: determines Member Level and attribute points. Only ever goes up — spending never lowers it."
+		"profile_point_useable_prefix"		"Usable"
+		"profile_point_total_fmt"			"/ Total {n}"
 		"awaken_intro_title"				"Awakening Stone"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form for this match only.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one."
 		"awaken_unlock_intro_title"			"Permanent Awaken"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font> to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font> to awaken one of 3 randomly drawn heroes.<br>Spends useable Battle Points and does not lower your Battle Level. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>10000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>usable Member Points</font>, to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>, to awaken one of 3 randomly drawn heroes.<br>Only spends usable points: usable points go down, but total points only ever go up and never lower your Battle/Member Level or attribute points. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
-		"awaken_unlock_tooltip_insufficient"	"Not enough useable points."
-		"awaken_unlock_confirm_desc"		"Spend <font color='#FFFFFF'><b>10000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
-		"awaken_unlock_confirm_cancel"		"Cancel"
+		"awaken_free_trial_badge"			"FREE"
+		"awaken_free_trial_tooltip"			"New awakening free trial. Pick this hero and the awakening applies automatically."
+		"awaken_unlock_tooltip_insufficient"	"Not enough usable points."
+		"awaken_unlock_confirm_desc"		"Choose the points to spend<br>to permanently awaken this hero?"
 		"awaken_unlock_confirm_button"		"Confirm"
+		"awaken_pay_member_button"			"{cost}<br>usable Member Points"
+		"awaken_pay_season_button"			"{cost}<br>usable Battle Points"
 		"awaken_random_title"				"Random Awaken"
 		"awaken_random_button"				"Draw"
 		"awaken_random_select_button"		"Select"
 		"awaken_random_candidates_title"	"Choose a hero to awaken permanently (half price)"
-		"awaken_random_confirm_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font><br>to permanently awaken this hero?"
-		"awaken_random_tooltip_insufficient_point"	"Not enough useable points."
+		"awaken_random_confirm_desc"		"Random draw <font color='#FFD24A'>costs half the points</font>.<br>Choose the points to spend to permanently awaken this hero?"
+		"awaken_random_tooltip_insufficient_point"	"Not enough usable points."
 		"awaken_random_tooltip_insufficient_pool"	"Fewer than 3 heroes available to awaken."
 		"awaken_random_card_desc"			"Half cost<br>random 1 of 3"
-		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> available <font color='#9B5DE0'>Battle Points</font>.<br>Awaken one of these 3 randomly drawn heroes."
+		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>.<br>Awaken one of these 3 randomly drawn heroes."
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"
@@ -1200,6 +1227,12 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed."
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Techies gains <font color='#FFFFFF'><b>1</b></font> attack range and attack projectile speed for each point of attack speed."
+
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray does more damage and healing to targets near the end of the beam. Beam intensity starts increasing at %hotspot_start_length_pct%%% of its length, reaching %hotspot_end_multiplier_pct%%% of base damage and healing at %hotspot_reference_length% range. Extending the beam further makes the endpoint's damage and healing keep increasing."
@@ -1208,7 +1241,7 @@
 
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br>Greatly increased cast range and hook speed."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts.<br><br><font color='#00CED1'>Autocast:</font> when enabled, the hook only hits enemies; when disabled, the hook can pull allies.<br><br>Greatly increased cast range and hook speed."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"HOOK SPEED:"
@@ -1228,12 +1261,12 @@
 
 		// Axe - Ruthless Hand Awakened
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#00CED1'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 
 		// Legion Commander Auto Duel - Awakened
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel · Awakened</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>While autocast is enabled and Duel is ready, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. Illusions are ignored, and it only triggers when there's a high chance of killing the target without leaving Legion Commander critically low on health.<br><br>Auto Duel ignores and consumes the target's passive spell block and reflection effects.<br><br>During Duel, Legion Commander gains Black King Bar's spell immunity, and the target cannot be selected."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Autocast:</font> While enabled and Duel is ready, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. Illusions are ignored, and it only triggers when there's a high chance of killing the target without leaving Legion Commander critically low on health.<br><br>Auto Duel ignores and consumes the target's passive spell block and reflection effects.<br><br>During Duel, Legion Commander gains Black King Bar's spell immunity, and the target cannot be selected."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Honor needs no invitation; the nearest enemy will do."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"BONUS AUTO DUEL RANGE:"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Auto Duel: Unselectable"
@@ -1279,7 +1312,7 @@
 
 		// Bristleback Auto Quill
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>Auto Quill Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>Autocast</font><br><br>With autocast enabled, whenever enemy heroes are in range, Bristleback automatically fires Quill Spray and casts Viscous Nasal Goo on the nearest enemy hero.<br><br><font color='#FFFFFF'>Awakening Bonuses</font><br>Viscous Nasal Goo: base armor reduction raised to <font color='#FFFFFF'><b>10</b></font>, per-stack to <font color='#FFFFFF'><b>6</b></font>, stack limit raised to <font color='#FFFFFF'><b>10</b></font><br>Quill Spray: damage cap raised to <font color='#FFFFFF'><b>1000</b></font><br>Warpath: max stacks raised to <font color='#FFFFFF'><b>20</b></font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#00CED1'>Autocast:</font> With autocast enabled, whenever enemy heroes are in range, Bristleback automatically fires Quill Spray and casts Viscous Nasal Goo on the nearest enemy hero.<br><br><font color='#d000ff'>Awakening Bonuses:</font> Viscous Nasal Goo: base armor reduction raised to <font color='#FFFFFF'><b>10</b></font>, per-stack to <font color='#FFFFFF'><b>6</b></font>, stack limit raised to <font color='#FFFFFF'><b>10</b></font><br>Quill Spray: damage cap raised to <font color='#FFFFFF'><b>1000</b></font><br>Warpath: max stacks raised to <font color='#FFFFFF'><b>20</b></font>"
 
 		// Lina Laguna Blade
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
@@ -1312,6 +1345,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Power Cogs Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Damage taken is reduced by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
+		// Doom Awakened
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Doom Awakened</font>"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel\n\nWith <font color='#92acf5'>Aghanim's Scepter</font>, may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"AREA DOOM DURATION:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Area Doom"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Enemies within %dMODIFIER_PROPERTY_TOOLTIP% range are continuously Doomed."
 		// Sven Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> for %duration% seconds, increasing Strength by %strength_bonus% and Attack Speed by %attackspeed_bonus% during that time."
@@ -1321,16 +1362,28 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% and Attack Speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		// 水晶室女 极寒领域-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>Freezing Field Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"		"Grants <font color='#FFCC66'>Magic Immunity</font> while channeling Freezing Field, lost immediately when the channel ends."
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"					"<font color='#d000ff'>Freezing Field Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"		"Grants <font color='#FFCC66'>Magic Immunity</font> while channeling Freezing Field, lost immediately when the channel ends."
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>Freezing Field Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants <font color='#FFCC66'>Magic Immunity</font>.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>Freezing Field Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants <font color='#FFCC66'>Magic Immunity</font>.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"Freezing Field Awakened"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"Grants <font color='#FFFFFF'>Spellblock</font>, blocking one enemy targeted spell."
 
-		// 小小 抓树-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tree Grab Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out."
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tiny Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out.<br>Grow no longer reduces attack speed."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Tiny Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"The grabbed tree is no longer destroyed when its attack count runs out.<br>Grow no longer reduces attack speed."
+
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Illuminate Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by %base_damage_bonus%, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit by Illuminate grants 1 Focus stack, and each stack increases Illuminate damage by %damage_pct_per_stack%%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"MAX FOCUS STACKS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"FOCUS DURATION:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Illuminate Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by <font color='#FFFFFF'><b>100</b></font>, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit grants 1 Focus stack, up to <font color='#FFFFFF'><b>10</b></font> stacks lasting <font color='#FFFFFF'><b>20</b></font> seconds, and each stack increases Illuminate damage by <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Focus"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Illuminate damage increased by <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
 
 		///////////////////////////////////////////////////
 		//
@@ -3178,6 +3231,7 @@
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed"  "+Movement Speed (Stacks)"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_movement_speed_pct" "%+$move_speed"
 		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_turn_rate"  "%+Turn Rate"
+		"DOTA_Tooltip_ability_item_hawkeye_fighter_bonus_evasion"    "%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active"          "Fighter Mode"
 		"DOTA_Tooltip_modifier_item_hawkeye_fighter_active_Description" "Gaining flying vision and unobstructed movement, movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, and ignoring the movement speed limit."
@@ -3456,6 +3510,16 @@
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "Each attack is independently converted to physical, magical, or pure damage. Converted damage is not affected by spell amplification."
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "Mage Slayer"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "Ability and item damage dealt is reduced by 30%, while taking physical, magical, and pure damage over time. The damage over time is not affected by spell amplification."
+		// 巫妖 寒灾轮回
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Frost Calamity Cycle</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"Increases Chain Frost's projectile speed and bounce range, and extends the duration of its slow and Frostbound.<br><br>Hits on a hero or Roshan deal bonus magical damage equal to %intelligence_damage_multiplier%x Intelligence and apply a stack of Frost Calamity lasting %mark_duration% seconds, detonating automatically at %mark_max_stacks% stacks; casting Frost Blast on a marked enemy also detonates it early. Detonation deals magical damage in a %detonation_radius% radius equal to %nova_detonation_multiplier_per_stack%x Intelligence per stack consumed and <font color='#2DD5E4'>Stuns</font> enemies for %freeze_duration% seconds.<br><br>If Ice Spire is already learned, hitting the only enemy hero nearby with Chain Frost casts Ice Spire at that hero automatically."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"Illusions do not count as real heroes. Roshan is treated as a regular unit."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"Frost Calamity marks only stack on real heroes and Roshan. Roshan takes the detonation damage but is not frozen."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"Frost Blast can detonate Frost Calamity early, dealing damage based on its current stacks."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Frost Calamity Cycle</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Increases Chain Frost's projectile speed and bounce range, and extends the duration of its slow and Frostbound.<br><br>Hits on a hero or Roshan deal bonus magical damage equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence and apply a stack of Frost Calamity lasting <font color='#FFFFFF'><b>8</b></font> seconds, detonating automatically at <font color='#FFFFFF'><b>3</b></font> stacks; casting Frost Blast on a marked enemy also detonates it early. Detonation deals magical damage in a <font color='#FFFFFF'><b>350</b></font> radius equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence per stack consumed and <font color='#2DD5E4'>Stuns</font> enemies for <font color='#FFFFFF'><b>0.6</b></font> seconds.<br><br>If Ice Spire is already learned, hitting the only enemy hero nearby with Chain Frost casts Ice Spire at that hero automatically."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"At 3 stacks, triggers a Frost Calamity detonation. Lich can also detonate it early with Frost Blast."
 
 	}
 }

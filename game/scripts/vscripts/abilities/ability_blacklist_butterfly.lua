@@ -197,7 +197,9 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["wisp_spirits_out"] = true,
     ["warlock_fatal_bonds"] = true, -- 术士 致命连接（计算量大可能导致游戏崩溃）
     ["lich_chain_frost"] = true,    -- 巫妖 连环霜冻
+    ["doom_bringer_doom"] = true,   -- 末日
     ["doom_bringer_devour"] = true, -- 末日 吞噬
+    ["doom_bringer_doom_awakened"] = true, -- 末日 觉醒
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招

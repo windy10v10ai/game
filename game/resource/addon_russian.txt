@@ -110,6 +110,25 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan призывает своего астрального духа, который наносит урон любым юнитам на своём пути. Когда дух воссоединяется с Titan, он даёт бонус к урону и скорости передвижения за каждый задетый юнит.\n\nАстральный дух обладает способностями Echo Stomp, Return Spirit и Natural Order.<br><br><font color='#d000ff'>Бонус пробуждения:</font> Сокращённое время восстановления.<br><font color='#00CED1'>Автоприменение:</font> Как только способность готова к использованию и поблизости есть вражеский герой, автоматически посылает духа к самому дальнему вражескому герою, а затем автоматически возвращает его, как только возврат становится доступен, без ручного управления. Пока способность активна, вручную призванный дух также возвращается автоматически."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"ДЛИТЕЛЬНОСТЬ БОНУСА:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"РАДИУС:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"БОНУС УРОНА (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"БОНУС УРОНА (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Elder Titan получает неуязвимость к дебаффам и %immunity_resist%%% сопротивления магии на %scepter_magic_immune_per_hero% сек. за каждого задетого вражеского героя, когда дух возвращается."
+		// Undying Flesh Decay - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в %trigger_cooldown% сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.5</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+
 		// 半人马战行者 双刃剑 觉醒
 		"DOTA_Tooltip_ability_centaur_double_edge_awakened"						"<font color='#d000ff'>Двойное лезвие: пробуждение</font>"
 		"DOTA_Tooltip_ability_centaur_double_edge_awakened_Summary"				"Накапливает полученный урон, усиливая следующее Двойное лезвие и создавая щит от любого урона."
@@ -150,8 +169,9 @@
 		///////////////////////////////////////////////////
 		"data_panel_button"				"Меню"
 		"data_panel_property_point"		"Attribute Points (Доступно/Всего)"
-		"data_panel_season_point_tooltip"	"Battle Experience (Доступно/Всего: {useable}/{total})"
-		"data_panel_member_point_tooltip"	"Member Experience (Доступно/Всего: {useable}/{total})"
+		"data_panel_point_total_prefix"	"Всего"
+		"data_panel_season_point_tooltip"	"<font color='#9B5DE0'>Всего Battle Points: {total}</font>, определяет Battle Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
+		"data_panel_member_point_tooltip"	"<font color='#FFD700'>Всего Member Points: {total}</font>, определяет Member Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
 
 		"data_panel_data_button"		"Инфо"
 		"data_panel_property_button"	"Атрибуты"
@@ -159,9 +179,9 @@
 		"data_panel_property_reset"		"Сбросить"
 
 		// "data_panel_season_level"		"Battle - уровень"
-		"data_panel_season_level_tooltip"		"Повышение уровня за Battle Experience даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>100</font> за каждый уровень."
+		"data_panel_season_level_tooltip"		"Повышение уровня за <font color='#9B5DE0'>всего Battle Experience</font> даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>100</font> за каждый уровень."
 		// "data_panel_member_level"		"Member - уровень"
-		"data_panel_member_level_tooltip"		"Повышение уровня за Member Experience даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
+		"data_panel_member_level_tooltip"		"Повышение уровня за <font color='#FFD700'>всего Member Experience</font> даёт 1 очко атрибута, которое можно использовать в панели <font color='#E8C07D'>АТРИБУТЫ</font>, а стоимость уровня увеличивается на <font color='#E8C07D'>50</font> за каждый уровень."
 		"data_panel_level_progress"		"Уровень"
 		"data_panel_link_rule"			"Правила опыта и атрибутов"
 
@@ -269,25 +289,32 @@
 		"profile_title"					"Профиль"
 		"profile_tab_stats"				"Статистика"
 		"profile_tab_awaken"			"Пробуждение"
+		"profile_point_season_tooltip"		"Доступно Battle Points: тратится на постоянное пробуждение героя.<br>Всего Battle Points: определяет Battle Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
+		"profile_point_member_tooltip"		"Доступно Member Points: тратится на постоянное пробуждение героя, обновление лотереи и другое.<br>Всего Member Points: определяет Member Level и очки атрибутов. Только растёт — траты никогда его не уменьшают."
+		"profile_point_useable_prefix"		"Доступно"
+		"profile_point_total_fmt"			"/ Всего {n}"
 		"awaken_intro_title"				"Камень пробуждения"
 		"awaken_intro_desc"				"Открывайте сундуки, чтобы получить <font color='#FFD24A'>Камень пробуждения</font>, превращающий одну из способностей героя в пробуждённую форму только на этот матч.<br>Убийство Рошана или открытие большего числа сундуков повышает шанс его получить."
 		"awaken_unlock_intro_title"			"Постоянное пробуждение"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Выбранный герой</font>: потратьте <font color='#FFFFFF'><b>10000</b></font> доступных <font color='#9B5DE0'>Battle Points</font>, чтобы навсегда пробудить выбранного героя.<br><font color='#FFD24A'>Случайный розыгрыш</font>: вдвое дешевле, потратьте <font color='#FFFFFF'><b>5000</b></font> доступных <font color='#9B5DE0'>Battle Points</font>, чтобы пробудить одного из 3 случайно выбранных героев.<br>Тратятся доступные Battle Points и не снижается ваш Battle Level. Навсегда и без возможности отмены — даже если способность будет усилена, ослаблена или переработана позже, пробуждение героя останется в силе."
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Выбранный герой</font>: потратьте <font color='#FFFFFF'><b>10000</b></font> <font color='#9B5DE0'>доступных Battle Points</font>, или <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>доступных Member Points</font>, чтобы навсегда пробудить выбранного героя.<br><font color='#FFD24A'>Случайный розыгрыш</font>: вдвое дешевле, потратьте <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>доступных Battle Points</font>, или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных Member Points</font>, чтобы пробудить одного из 3 случайно выбранных героев.<br>Тратятся только доступные очки: доступные очки уменьшаются, а общие очки только растут и никогда не снижают ваш Battle/Member Level или очки атрибутов. Навсегда и без возможности отмены — даже если способность будет усилена, ослаблена или переработана позже, пробуждение героя останется в силе."
 		"awaken_unlock_button"				"Пробудить"
 		"awaken_unlocked_label"				"Пробуждён"
+		"awaken_free_trial_badge"			"Free"
+		"awaken_free_trial_tooltip"			"Новое пробуждение бесплатно на ограниченное время. Выберите этого героя, и пробуждение применится автоматически."
 		"awaken_unlock_tooltip_insufficient"	"Недостаточно доступных очков."
-		"awaken_unlock_confirm_desc"		"Потратить <font color='#FFFFFF'><b>10000</b></font> доступных <font color='#9B5DE0'>Battle Points</font>,<br>чтобы навсегда пробудить этого героя?"
-		"awaken_unlock_confirm_cancel"		"Отмена"
+		"awaken_unlock_confirm_desc"		"Выберите очки для траты,<br>чтобы навсегда пробудить этого героя?"
 		"awaken_unlock_confirm_button"		"Подтвердить"
+		"awaken_pay_member_button"			"{cost}<br>доступных Member Points"
+		"awaken_pay_season_button"			"{cost}<br>доступных Battle Points"
 		"awaken_random_title"				"Случайное пробуждение"
 		"awaken_random_button"				"Розыгрыш"
 		"awaken_random_select_button"		"Выбрать"
 		"awaken_random_candidates_title"	"Выберите героя для пробуждения навсегда (вдвое дешевле)"
-		"awaken_random_confirm_desc"		"Потратить <font color='#FFFFFF'><b>5000</b></font> доступных <font color='#9B5DE0'>Battle Points</font>,<br>чтобы навсегда пробудить этого героя?"
+		"awaken_random_confirm_desc"		"Случайный розыгрыш <font color='#FFD24A'>вдвое дешевле</font>.<br>Выберите очки для траты, чтобы навсегда пробудить этого героя?"
 		"awaken_random_tooltip_insufficient_point"	"Недостаточно доступных очков."
 		"awaken_random_tooltip_insufficient_pool"	"Доступно менее 3 героев для пробуждения."
 		"awaken_random_card_desc"			"Вдвое дешевле<br>1 из 3"
-		"awaken_random_candidates_desc"		"Потратьте <font color='#FFFFFF'><b>5000</b></font> доступных <font color='#9B5DE0'>Battle Points</font>.<br>Пробудите одного из этих 3 случайно выбранных героев."
+		"awaken_random_candidates_desc"		"Потратьте <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>доступных Battle Points</font>, или <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>доступных Member Points</font>.<br>Пробудите одного из этих 3 случайно выбранных героев."
 		"profile_stat_games"			"Игры"
 		"profile_stat_winrate"			"Винрейт"
 		"profile_stat_conduct"			"Очки поведения"
@@ -510,6 +537,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на %attack_range_tooltip%."
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на <font color='#FFFFFF'><b>1</b></font>."
+
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
@@ -518,13 +551,48 @@
 
 		// Legion Commander Auto Duel - Awakened
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль · Пробуждение</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Автоприменение: ближайший герой</font><br><br>Если автоприменение включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает невосприимчивость к эффектам без дополнительного сопротивления магии, а цель нельзя выбрать."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает невосприимчивость к эффектам без дополнительного сопротивления магии, а цель нельзя выбрать."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Честь не требует приглашения — ближайший враг станет соперником."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"ДОПОЛНИТЕЛЬНАЯ ДАЛЬНОСТЬ АВТОМАТИЧЕСКОЙ ДУЭЛИ:"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable_Description"	"Во время Duel эту цель нельзя выбрать."
 
+		// 光之守卫 冲击波-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade"				"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на %base_damage_bonus%, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого Illuminate вражеского героя даётся 1 заряд Фокуса, каждый заряд увеличивает урон Illuminate на %damage_pct_per_stack%%%."
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"МАКС. ЗАРЯДОВ ФОКУСА:"
+		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"ДЛИТЕЛЬНОСТЬ ФОКУСА:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Пробуждение Illuminate</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Урон Illuminate увеличен на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
+
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
+		// Doom Awakened
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> можно применить к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier"				"Область Doom"
+		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Враги в радиусе %dMODIFIER_PROPERTY_TOOLTIP% непрерывно получают Doom."
+		// 巫妖 寒灾轮回
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере %intelligence_damage_multiplier%x интеллекта и накладывают 1 заряд Frost Calamity длительностью %mark_duration% сек, который взрывается самостоятельно при %mark_max_stacks% зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе %detonation_radius% в размере %nova_detonation_multiplier_per_stack%x интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на %freeze_duration% сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"Иллюзии не считаются настоящими героями. Roshan считается обычным юнитом."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"Метки Frost Calamity накапливаются только на настоящих героях и Roshan. Roshan получает урон от взрыва, но не замораживается."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"Frost Blast может досрочно взорвать Frost Calamity, нанося урон в зависимости от текущего числа зарядов."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Цикл ледяного бедствия</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Увеличивает скорость снаряда и радиус отскока Chain Frost, а также продлевает длительность замедления и Frostbound.<br><br>Попадания по герою или Roshan наносят дополнительный магический урон в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта и накладывают 1 заряд Frost Calamity длительностью <font color='#FFFFFF'><b>8</b></font> сек, который взрывается самостоятельно при <font color='#FFFFFF'><b>3</b></font> зарядах; применение Frost Blast на отмеченного врага также взрывает его досрочно. Взрыв наносит урон в радиусе <font color='#FFFFFF'><b>350</b></font> в размере <font color='#FFFFFF'><b>0.75x</b></font> интеллекта за каждый израсходованный заряд и <font color='#2DD5E4'>оглушает</font> врагов на <font color='#FFFFFF'><b>0.6</b></font> сек.<br><br>Если Ice Spire уже изучена, попадание Chain Frost по единственному вражескому герою поблизости автоматически применяет Ice Spire в позиции этого героя."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"При 3 зарядах срабатывает взрыв Frost Calamity. Lich также может досрочно взорвать метку с помощью Frost Blast."
+
+		// 小小 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+
 	}
 }

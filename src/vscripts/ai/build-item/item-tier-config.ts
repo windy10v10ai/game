@@ -936,7 +936,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_monkey_king_bar_2',
     nameCN: '定海神针',
     tier: ItemTier.T3, // 价格属于T4区间，按强度定位手动归入T3
-    cost: 10100,
+    cost: 9800,
     baseItems: ['item_monkey_king_bar'],
   },
 
@@ -1245,7 +1245,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_hawkeye_fighter',
     nameCN: '鹰眼战机',
     tier: ItemTier.T5,
-    cost: 56349,
+    cost: 36300,
   },
   item_shadow_judgment: {
     name: 'item_shadow_judgment',
@@ -1301,7 +1301,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_hawkeye_turret',
     nameCN: '鹰眼炮台',
     tier: ItemTier.T5,
-    cost: 65299,
+    cost: 44700,
   },
   item_withered_spring: {
     name: 'item_withered_spring',

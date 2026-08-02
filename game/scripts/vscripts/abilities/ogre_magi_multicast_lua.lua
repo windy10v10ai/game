@@ -70,6 +70,7 @@ no_support_abilitys = {
 	ember_spirit_sleight_of_fist = 1,               -- 无影拳
 	goku_kaioken = 1,                               -- 界王拳
 	doom_bringer_doom = 1,                          -- 末日
+	doom_bringer_doom_awakened = 1,                 -- 末日 觉醒
 	tusk_snowball = 1,                              -- 雪球
 	tiny_tree_channel = 1,                          -- 树木连掷
 	shredder_chakram = 1,                           -- 锯齿飞轮

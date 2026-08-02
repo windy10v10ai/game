@@ -108,9 +108,9 @@ const AgilityTemplate: HeroTemplateConfig = {
     [ItemTier.T3]: [
       'item_wasp_callous', // 大核荣耀冷酷
       'item_satanic', // 撒旦之邪力
+      'item_monkey_king_bar_2', // 定海神针
     ],
     [ItemTier.T4]: [
-      'item_monkey_king_bar_2', // 金箍棒2（tier 归属修正：真实价格属于 T4）
       'item_black_king_bar_2', // 黑皇杖2
       'item_wasp_golden', // 黄金大核荣耀
       'item_infernal_desolator', // 绝对破防之刃
