@@ -64,21 +64,18 @@ function insertAbility(
   return true;
 }
 
-/** Preserve a target ability only while the configured marker ability is visible. */
-function shouldPreserveTargetAbility(
+/** 标记技能可见（自身状态机中途）时，新技能应保持隐藏、旧技能不删 */
+function shouldKeepNewAbilityHidden(
   hero: CDOTA_BaseNPC_Hero,
   replacement: AbilityReplacement,
   targetAbilityName: string | undefined,
 ): boolean {
-  if (
-    targetAbilityName === undefined ||
-    replacement.preserveTargetAbilityWhenVisible === undefined
-  ) {
+  if (targetAbilityName === undefined || replacement.keepHiddenWhile === undefined) {
     return false;
   }
 
   const targetAbility = hero.FindAbilityByName(targetAbilityName);
-  const markerAbility = hero.FindAbilityByName(replacement.preserveTargetAbilityWhenVisible);
+  const markerAbility = hero.FindAbilityByName(replacement.keepHiddenWhile);
   return targetAbility !== undefined && markerAbility !== undefined && !markerAbility.IsHidden();
 }
 
@@ -97,16 +94,17 @@ function replaceAbility(
   }
   const fallbackLevel = replacement.newLevel > 0 ? replacement.newLevel : savedLevel;
   const newAbilityLevel = resolveNewLevel(hero, replacement, fallbackLevel);
-  const preserveTargetAbility = shouldPreserveTargetAbility(hero, replacement, targetAbilityName);
+  const keepHidden = shouldKeepNewAbilityHidden(hero, replacement, targetAbilityName);
   if (
     targetAbilityName !== undefined &&
-    !preserveTargetAbility &&
+    !keepHidden &&
     hero.FindAbilityByName(targetAbilityName) !== undefined
   ) {
     hero.RemoveAbility(targetAbilityName);
   }
   const added = addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
-  if (preserveTargetAbility && added !== undefined) {
+  // 解除隐藏由标记技能自身的状态机负责（如 restoreWrapperAfterReturn 里的 SwapAbilities）
+  if (keepHidden && added !== undefined) {
     added.SetHidden(true);
   }
   return true;

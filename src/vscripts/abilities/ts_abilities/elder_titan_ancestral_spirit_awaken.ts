@@ -129,7 +129,7 @@ export class ElderTitanAncestralSpiritAwaken extends BaseAbility {
     if (!naturalOrder) return resolveAwakenFieldState(0, 0, 0);
 
     return resolveAwakenFieldState(
-      naturalOrder.GetSpecialValueFor('awaken_radius'),
+      this.GetSpecialValueFor('awaken_radius'),
       caster.GetCastRangeBonus(),
       naturalOrder.GetLevel(),
     );
@@ -274,7 +274,8 @@ export class modifier_elder_titan_ancestral_spirit_awaken_controller extends Bas
       );
     }
 
-    return eventAbility.GetSpecialValueFor('awaken_radius');
+    const ability = this.GetAbility();
+    return ability ? ability.GetSpecialValueFor('awaken_radius') : 0;
   }
 
   IsAura(): boolean {

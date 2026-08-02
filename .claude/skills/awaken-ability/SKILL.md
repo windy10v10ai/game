@@ -245,6 +245,12 @@ Timers.CreateTimer(duration, () => {
 
 觉醒技能若是**运行时替换**（通过 `awaken-config.ts` 的 `targetAbility` 把原版技能整体换成新的 `ability_lua`），即使 KV 里带 `HasScepterUpgrade: "1"` 并写了 `_scepter_description`，引擎也不会渲染这个神杖对比预览面板——因为该面板依赖的是"英雄默认自带、原生学习"的技能实例，替换类技能走的是完全不同的运行时挂载路径。神杖相关的效果说明应直接写进主 `_Description` 正文（可加 `<font color='#92acf5'>阿哈利姆神杖</font>` 提示），不要指望 `_scepter_description` 单独显示。（注：常驻挂在英雄默认技能槽的觉醒技能，如 `imba_chaos_knight_phantasm`，`scepter_description` 可以正常显示，问题只出在替换类。）
 
+### 进阶 10：觉醒专属参数不要塞进原版技能的 override KV
+
+觉醒技能若需要「跟随某个原版技能的等级/天赋联动」某个数值（如领域半径随原版技能天赋扩大），**不要**为了图省事把这个觉醒专属的自定义字段直接写进 `npc_abilities_override.txt` 里原版技能自己的 `AbilityValues`——即使代码要通过 `FindAbilityByName(原版技能).GetSpecialValueFor('自定义字段')` 去读、需要蹭同一份天赋绑定，也不能把字段存放在原版技能身上。这样会让原版技能的差分文件里混入一个只有觉醒机制认识的字段，看 override 文件的人无法理解这个字段为什么存在，后续调整原版技能数值平衡时也容易误改或误删。
+
+正确做法：字段直接定义在觉醒技能自己的 KV 里；需要联动原版技能当前等级/天赋时，在代码里读取原版技能实例的等级/已生效数值，用公式在觉醒技能侧算出最终值，而不是让原版技能替觉醒机制保管参数。
+
 ---
 
 ## 不明确时询问

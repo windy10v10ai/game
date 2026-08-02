@@ -13,8 +13,8 @@ export interface AbilityReplacement {
   newLevel: number;
   /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），优先级高于 newLevel */
   inheritLevelFrom?: string;
-  /** 替换时若该标记技能可见，则保留 targetAbility，待原生流程结束后再切换到觉醒技能 */
-  preserveTargetAbilityWhenVisible?: string;
+  /** 该标记技能可见期间新技能保持隐藏且不删 targetAbility（如上古巨神丢魂中途不打断原生召回流程） */
+  keepHiddenWhile?: string;
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
@@ -24,7 +24,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     targetAbility: 'elder_titan_ancestral_spirit',
     newAbility: 'elder_titan_ancestral_spirit_awaken',
     newLevel: 0,
-    preserveTargetAbilityWhenVisible: 'elder_titan_return_spirit',
+    keepHiddenWhile: 'elder_titan_return_spirit',
   },
   // 尸王 觉醒
   {

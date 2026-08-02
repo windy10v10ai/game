@@ -12,6 +12,9 @@
 		"ScriptFile"					"abilities/ts_abilities/elder_titan_ancestral_spirit_awaken"
 		"AbilityTextureName"			"elder_titan_ancestral_spirit"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.4"
 		"AbilityManaCost"				"80 90 100 110 120"
@@ -23,6 +26,11 @@
 			"spirit_cast_point"			"0.4"
 			"spirit_cast_range"			"1200"
 			"spirit_radius"				"275"
+			"awaken_radius"
+			{
+				"value"						"800"
+				"special_bonus_unique_elder_titan_5"	"+250"
+			}
 			"field_duration"				"10"
 			"damage_creeps"				"3 7 11 15 19"
 			"damage_heroes"				"17 38 59 80 101"
