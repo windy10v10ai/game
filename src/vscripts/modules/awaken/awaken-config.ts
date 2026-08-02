@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 小精灵觉醒
+  {
+    heroName: 'npc_dota_hero_wisp',
+    newAbility: 'special_bonus_unique_wisp_upgrade',
+    newLevel: 1,
+  },
   // 上古巨神 觉醒
   {
     heroName: 'npc_dota_hero_elder_titan',

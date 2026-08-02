@@ -23,6 +23,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     abilityName: 'techies_squees_scope',
   },
   {
+    heroName: 'npc_dota_hero_wisp',
+    abilityName: 'special_bonus_unique_wisp_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_undying',
     abilityName: 'special_bonus_unique_undying_upgrade',
     freeTrial: true,
