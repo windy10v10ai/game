@@ -67,7 +67,13 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
   }
   ```
 
-- **`ScriptFile` 实现选型** → 见 `custom-ability` skill，觉醒不另立规则。被动觉醒标准写法：`GetIntrinsicModifierName()` 返回一个隐藏内置 modifier，无需学习即生效，所有可调值从 KV `AbilityValues` 读取。源码放 `src/vscripts/abilities/`，KV `ScriptFile` 指向编译产物 `abilities/ts_abilities/<name>`（参考斧王 `axe_auto_culling_blade`、宙斯 `special_bonus_unique_zuus_upgrade`）。
+- **`ScriptFile` 实现选型** → 见 `custom-ability` skill，觉醒不另立规则。被动觉醒标准写法：`GetIntrinsicModifierName()` 返回一个内置 modifier，无需学习即生效，所有可调值从 KV `AbilityValues` 读取。源码放 `src/vscripts/abilities/`，KV `ScriptFile` 指向编译产物 `abilities/ts_abilities/<name>`（参考斧王 `axe_auto_culling_blade`、宙斯 `special_bonus_unique_zuus_upgrade`）。
+
+- **觉醒状态必须在游戏内可见** → 觉醒是玩家花积分换来的永久改造，进游戏后必须能确认自己已觉醒。**技能栏可见**与**常驻 buff 图标**二选一，两者都隐藏 = 玩家零感知，视为未完成：
+  - 技能栏可见：`AbilityBehavior` 不加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`。主动技觉醒天然满足（参考 PA `special_bonus_unique_phantom_assassin_upgrade`、军团 `legion_commander_auto_duel`）。
+  - 常驻 buff 图标：技能加 `HIDDEN` 不占技能栏，另挂一个**非隐藏**的常驻 modifier —— TS 里 `IsHidden()` 返回 `false`，DataDriven 写 `"IsHidden" "0"`（参考发条 `special_bonus_unique_rattletrap_upgrade`、斯温 `special_bonus_unique_sven_upgrade`）。细节见进阶 6。
+
+  走 buff 图标这条时 `GetTexture()` 和 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description` 都要补齐，否则图标是紫块、悬停无说明。**只写了 tooltip 文案却把 modifier 设成隐藏**是最容易漏的组合——文案在文件里躺着，游戏里永远看不到。
 
 - **图标** → 引用 Dota2 原版技能名则不放 png；自定义图标才复制同名 png 到 `game/resource/flash3/images/spellicons/<name>.png`。`AbilityTextureName` 也可直接填**至宝/变体 texture 路径**（如 `necrolyte/apostle_of_decay_icons/necrolyte_heartstopper_aura`、`drow_ranger/immortal/drow_ranger_wave_of_silence`、`zuus_static_field_alt1`），引擎直接引用，同样无需放 png。
 
