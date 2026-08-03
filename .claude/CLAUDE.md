@@ -357,7 +357,7 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | 原版物品参考 | `docs/reference/<version>/items.txt` |
 | 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
 | 自制物品 KV | `game/scripts/npc/npc_items_custom.txt` |
-| 物品共享 DataDriven hub（`item_apply_modifiers`） | `game/scripts/npc/npc_items_modifier.txt` |
+| 物品共享 DataDriven modifier（`item_apply_modifiers`） | `game/scripts/npc/npc_items_modifier.txt` |
 | 觉醒技能 KV | `game/scripts/npc/npc_abilities_custom_awaken.txt` |
 | 通用战斗公式（伤害/护甲等，手写纯 Lua，被遗留纯 Lua 物品脚本引用） | `game/scripts/vscripts/util.lua`（TS 侧同步入口 `src/vscripts/utils/damage-calculation.ts`） |
 | addon 英文本地化 | `game/resource/addon_english.txt` |
