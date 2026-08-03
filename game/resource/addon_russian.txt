@@ -110,6 +110,25 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// Beastmaster Wild Axes and Drums of Slom awakened
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes: пробуждение</font>"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"			"Герой швыряет топоры, которые прорубают деревья и противников на своём пути и возвращаются обратно. Каждый топор задевает одного врага лишь единожды и увеличивает урон, получаемый от героя и его существ.<br><br><font color='#d000ff'>ПРОБУЖДЕНИЕ:</font> Усиление получаемого урона стало больше и длится дольше, а топоры почти мгновенно вылетают и возвращаются. Длительность эффекта зависит от сопротивления эффектам."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"УРОН ТОПОРА:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%ДОП. УРОН ЗА ЭФФЕКТ:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"ДЛИТЕЛЬНОСТЬ ЭФФЕКТА:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_min_throw_duration"		"МИНИМАЛЬНОЕ ВРЕМЯ ПОЛЁТА ТОПОРОВ:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_max_throw_duration"		"МАКСИМАЛЬНОЕ ВРЕМЯ ПОЛЁТА ТОПОРОВ:"
+
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken"					"Drums of Slom"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_Description"			"Когда владелец способности или его существа неподалёку атакуют, он бьёт в барабан, нанося урон врагам вокруг и излечивая владельца и его существ на долю от нанесённого урона. Каждая совершённая атака уменьшает интервал между ударами, вплоть до 0,5 сек. после 20 атак. Если атаки не происходят, интервал постепенно возрастает.<br><br>Применение способности Primal Roar считается за 10 атак.<br><br><font color='#d000ff'>ПОД ВЛИЯНИЕМ ПРОБУЖДЕНИЯ:</font> Увеличены урон, лечение и число ударов барабана, даваемых Primal Roar."
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_radius"					"РАДИУС:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_max_stacks"				"АТАК ДЛЯ МИНИМАЛЬНОГО ИНТЕРВАЛА:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_min_drum_hit_interval"	"МИНИМАЛЬНЫЙ ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_max_drum_hit_interval"	"МАКСИМАЛЬНЫЙ ИНТЕРВАЛ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_base_damage"			"УРОН ОТ УДАРА:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_heal_pct"				"%ЛЕЧЕНИЕ ОТ УРОНА ГЕРОЯМ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_creep_heal_pct"			"%ЛЕЧЕНИЕ ОТ УРОНА КРИПАМ:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_primal_roar_stacks"		"УДАРЫ БАРАБАНА ОТ PRIMAL ROAR:"
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."

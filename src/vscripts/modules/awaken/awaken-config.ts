@@ -18,6 +18,19 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // Beastmaster awakening: native-class clones preserve hardcoded behavior and isolate awakened tooltips.
+  {
+    heroName: 'npc_dota_hero_beastmaster',
+    targetAbility: 'beastmaster_wild_axes',
+    newAbility: 'beastmaster_wild_axes_awaken',
+    newLevel: 0,
+  },
+  {
+    heroName: 'npc_dota_hero_beastmaster',
+    targetAbility: 'beastmaster_drums_of_slom',
+    newAbility: 'beastmaster_drums_of_slom_awaken',
+    newLevel: 0,
+  },
   // 戴泽 觉醒
   {
     heroName: 'npc_dota_hero_dazzle',
@@ -228,6 +241,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_beastmaster', // ??
   'npc_dota_hero_dazzle', // 戴泽
   'npc_dota_hero_elder_titan', // 上古巨神
   'npc_dota_hero_techies', // 炸弹人

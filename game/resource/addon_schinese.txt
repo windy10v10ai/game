@@ -146,7 +146,26 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
-		// 上古巨神 灵体游魂-觉醒
+		// Beastmaster Wild Axes and Drums of Slom awakened
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>野性之斧 觉醒</font>"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"			"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧对同一个敌人只能击中一次，并且使受到来自兽王和其单位的伤害增加。<br><br><font color='#d000ff'>觉醒强化：</font>伤害加深效果更强、持续更久，飞斧会以极快速度飞出并返回。减益持续时间受状态抗性影响。"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"每把飞斧伤害："
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%每把加深伤害："
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"负面效果持续时间："
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_min_throw_duration"		"最短飞斧飞行时间："
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_max_throw_duration"		"最长飞斧飞行时间："
+
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken"					"斯洛姆战鼓"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_Description"			"兽王或周围他控制的单位攻击敌人都会使他敲下战鼓，对附近单位造成伤害，并且<font color='#07d738'>治疗</font>自身和他控制的单位，数值为造成伤害的一定百分比。每次攻击都会降低敲鼓的间隔，20次攻击后降低至最短0.5秒敲击一次。如果没有发动攻击，敲鼓间隔会逐渐变长。<br><br>使用原始咆哮时自动增加10层敲鼓叠加效果。<br><br><font color='#d000ff'>受觉醒影响：</font>造成的伤害、治疗和原始咆哮提供的敲鼓层数增加。"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_radius"					"伤害作用范围："
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_max_stacks"				"最短间隔所需攻击次数："
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_min_drum_hit_interval"	"最短敲鼓间隔："
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_max_drum_hit_interval"	"最长敲鼓间隔："
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_base_damage"			"敲鼓伤害："
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_heal_pct"				"%英雄伤害<font color='#07d738'>治疗</font>量："
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_creep_heal_pct"			"%非英雄伤害<font color='#07d738'>治疗</font>量："
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_primal_roar_stacks"		"原始咆哮提供的敲鼓层数："
+		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"自动施法：自动朝最远的敌方英雄放出游魂并自动收回。"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"上古巨神放出他的灵体游魂，灵魂对任何经过的单位都会造成伤害。当它与巨神合体时，它每伤害过一个单位都会给予若干攻击力和移动速度加成。\n\n灵体游魂拥有回音重踏，回归和自然秩序三个技能。<br><br><font color='#d000ff'>觉醒强化：</font>冷却时间缩短。<br><font color='#00CED1'>自动施法：</font>技能冷却完毕且附近存在敌方英雄时，自动朝距离最远的敌方英雄放出游魂，游魂可召回时立即自动收回，无需手动操作；开启期间手动放出的游魂同样会被自动收回。"
