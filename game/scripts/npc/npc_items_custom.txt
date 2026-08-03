@@ -6470,7 +6470,7 @@
 	"item_recipe_shadow_impact"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10313"
+		"ID"						"10344"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_shadow_impact"
 
@@ -6488,7 +6488,7 @@
 	"item_shadow_impact"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10314"
+		"ID"						"10345"
 		"ScriptFile"				"items/item_shadow_impact"
 		"AbilityTextureName"		"shadow_impact"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
