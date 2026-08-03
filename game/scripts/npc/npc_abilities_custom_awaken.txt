@@ -89,7 +89,7 @@
 		"AbilityValues"
 		{
 			"hotspot_start_length_pct"	"50"
-			"hotspot_end_multiplier_pct"	"200"
+			"hotspot_end_multiplier_pct"	"180"
 			"hotspot_reference_length"	"1200"
 		}
 
@@ -241,7 +241,7 @@
 				"value"						"350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"scepter_crit_bonus"		"210 240 270 300"
+			"scepter_crit_bonus"		"220 240 260 280"
 			"bonus_physical_damage"
 			{
 				"value"						"300 400 500 600"
@@ -563,11 +563,7 @@
 
 		"AbilityValues"
 		{
-			"splinter_chance"
-			{
-				"value"										"40"
-				"special_bonus_unique_drow_ranger_3"		"+13"			// 同步射手天赋的概率天赋
-			}
+			"splinter_chance"				"40"
 			"splinter_targets"			"2"
 			"splinter_radius"			"500"
 			"splinter_damage_pct"		"50"
@@ -691,7 +687,7 @@
 		{
 			"base_damage_bonus"				"100"
 			"max_focus_stacks"				"10"
-			"damage_pct_per_stack"			"25"
+			"damage_pct_per_stack"			"20"
 			"focus_duration"				"20"	// 须长于冲击波冷却，否则聚光在下一发可用前就过期
 		}
 	}
@@ -830,7 +826,7 @@
 
 		"AbilityValues"
 		{
-			"trigger_cooldown"				"0.5"
+			"trigger_cooldown"				"0.6"
 		}
 	}
 

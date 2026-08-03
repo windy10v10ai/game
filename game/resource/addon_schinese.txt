@@ -163,7 +163,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.5</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.6</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
@@ -1205,7 +1205,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>烈日炙烤 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤的光束末端对目标造成的伤害与治疗更高。光束强度从 %hotspot_start_length_pct%%% 长度处开始增强，在 %hotspot_reference_length% 距离处达到基础伤害/治疗的 %hotspot_end_multiplier_pct%%%。若光束长度进一步增加，末端的伤害和治疗量会继续提高。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>烈日炙烤 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 200%% 伤害和治疗。光束更长时，末端效果继续提高。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 180%% 伤害和治疗。光束更长时，末端效果继续提高。"
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
@@ -1352,7 +1352,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"聚光层数上限："
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"聚光持续时间："
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>冲击波 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>25</b></font>%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>20</b></font>%%。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"聚光"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"冲击波伤害提高<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>。"
 
