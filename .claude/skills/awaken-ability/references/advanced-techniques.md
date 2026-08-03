@@ -85,6 +85,8 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 
 **TS 代码优先用已有的 TS 封装**：`src/vscripts/abilities/ts_abilities/shared/awaken-magic-immunity.ts` 导出的 `applyAwakenMagicImmunity(unit, ability, duration)` 是同一逻辑的原生 TS 实现（同样借用 `modifier_black_king_bar_immune` 且不顶替真 BKB），直接 `import` 复用即可，不要再 `declare function` 绑定 Lua 全局。它与 Lua 版的差异是返回值：施加成功返回该 modifier 的句柄（`CDOTA_Buff`），跳过时返回 `undefined`（Lua 版返回布尔值）。
 
+**魔抗必须在自己技能 KV 写 `spell_reduce`**：`modifier_black_king_bar_immune` 自带的只有减益免疫，魔抗数值是引擎从**施加它的那个 ability** 上读 `spell_reduce` 字段（原版即 `item_black_king_bar` 的 `AbilityValues`，值为 `60`）。借到觉醒技能上时，觉醒技能 KV 若没有这个字段，玩家只拿到减益免疫、**魔抗为 0**——不报错、不打日志，只能靠实机看数值发现。字段名须与 `item_black_king_bar` 一致，写进觉醒技能自己的 `AbilityValues`（符合进阶 10），不要塞进原版技能的 override。
+
 **前摇加魔免要防取消刷新**：魔免绑在 `ON_ABILITY_START`（前摇开始）触发时，玩家可在前摇结束前取消再施法反复刷新（取消不进 CD、不耗蓝）。防法：仅当 `ApplyAwakenMagicImmunity` 返回 true 才启动取消检测；`StartIntervalThink` 轮询 `IsInAbilityPhase()`，前摇结束后若 `GetCooldownTimeRemaining() <= 0`（被取消）则移除；**移除前判据**——仅当 `modifier_black_king_bar_immune` 剩余 ≤ 本次魔免时长才 `Destroy()`，**绝不无条件 `RemoveModifierByName`**（同名 modifier 区分不了来源，会误删真 BKB）。
 
 > 参考：影魔 `special_bonus_unique_nevermore_upgrade.lua` 的 `OnIntervalThink` 取消检测；PA 闪烁/匕首魔免。
