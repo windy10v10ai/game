@@ -286,6 +286,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **`@keyframes` 不能写在 `@import` 进来的页面/组件 less 里（如 `hud_main/pages/*/*.less`）**: webpack `additionalData` 会给 keyframe 名加 Valve 必需的引号（`@keyframes 'Name'`），但**只作用于 layout.xml 直接引用的那个 styles.less**；`@import` 进来的子 less 内容由 less 编译器后续合并，拿不到这层转换，keyframe 名未加引号被 Valve 拒绝，**导致整张 styles.css 解析失败、该页所有样式丢失**（图标变紫块等）。hud_lottery 的 keyframe 能用是因为它写在 entry 直载的 `styles.less` 里。**结论：hud_main 页面的动画一律用 JS 驱动**（如 `$.Schedule` 定时改 prop），不要在页面 less 写 `@keyframes`。另注：`transform`/`scale3d` 等属性 Panorama 本就不支持，更不能用
 - **引用自己项目定义的 modifier/ability 名用类名 `.name`，不要另开重复字符串常量**：`@registerModifier`/`@registerAbility` 不传 `name` 参数时，注册到 Lua 的名字就是类本身的类名（见 `dota_ts_adapter.ts` 的 `registerModifier` 实现）。在同一或其他文件里引用这个自定义 modifier/ability（如 `AddNewModifier`/`FindModifierByName`/`HasModifier` 的名字参数）时直接写 `SomeModifierClass.name`，不要另外声明一个 `const XXX_MODIFIER_NAME = 'modifier_xxx'` 字符串常量——后者在改类名时容易忘记同步，导致两处不一致。此写法不适用于引用引擎原生 hardcoded modifier（如 `modifier_black_king_bar_immune`），那些没有本地类可取 `.name`，仍需写字符串字面量。
 - **不吃技能增强须显式标 flag，不靠物理类型**: 自定义技能用 `ApplyDamage` 造成物理伤害时，**不要**依赖「物理类型隐式不吃 spell amp」这条经验来确保不被技能增强放大。引擎判定是否吃技能增强的真正开关是伤害标志位，要明确排除时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`（本项目技能增强是自定义属性 `property_spell_amplify_percentage` 实现，更不应靠隐式行为）
+- **代码代为触发技能施放须补 `UseResources`**：代码直接调用某个技能的 `OnSpellStart()`（如自动检测循环里代玩家触发施法、监听某事件后连锁触发另一个技能）时，跳过了引擎原生施法管线，不会自动扣资源/进 CD，须显式调用 `this.UseResources(mana, useHealth, gold, cooldown)` 补上（四个布尔参数对应要不要消耗法力/生命/金钱、要不要进入冷却，按该技能实际消耗类型传参）。这一步只在「代码主动触发施放」时需要；玩家手动点技能触发的 `OnSpellStart()` 回调，引擎在调用前已经走完资源结算，不要重复调用，否则会双重扣资源/双重进 CD
 
 ### 图片资源管理
 
@@ -356,7 +357,7 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | 原版物品参考 | `docs/reference/<version>/items.txt` |
 | 克隆升级物品 KV | `game/scripts/npc/npc_items_clone.txt` |
 | 自制物品 KV | `game/scripts/npc/npc_items_custom.txt` |
-| 物品共享 DataDriven hub（`item_apply_modifiers`） | `game/scripts/npc/npc_items_modifier.txt` |
+| 物品共享 DataDriven modifier（`item_apply_modifiers`） | `game/scripts/npc/npc_items_modifier.txt` |
 | 觉醒技能 KV | `game/scripts/npc/npc_abilities_custom_awaken.txt` |
 | 通用战斗公式（伤害/护甲等，手写纯 Lua，被遗留纯 Lua 物品脚本引用） | `game/scripts/vscripts/util.lua`（TS 侧同步入口 `src/vscripts/utils/damage-calculation.ts`） |
 | addon 英文本地化 | `game/resource/addon_english.txt` |

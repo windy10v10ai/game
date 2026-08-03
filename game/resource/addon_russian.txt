@@ -110,11 +110,24 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan призывает своего астрального духа, который наносит урон любым юнитам на своём пути. Когда дух воссоединяется с Titan, он даёт бонус к урону и скорости передвижения за каждый задетый юнит.\n\nАстральный дух обладает способностями Echo Stomp, Return Spirit и Natural Order.<br><br><font color='#d000ff'>Бонус пробуждения:</font> Сокращённое время восстановления.<br><font color='#00CED1'>Автоприменение:</font> Как только способность готова к использованию и поблизости есть вражеский герой, автоматически посылает духа к самому дальнему вражескому герою, а затем автоматически возвращает его, как только возврат становится доступен, без ручного управления. Пока способность активна, вручную призванный дух также возвращается автоматически."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"ДЛИТЕЛЬНОСТЬ БОНУСА:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"РАДИУС:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"БОНУС УРОНА (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"БОНУС УРОНА (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Elder Titan получает неуязвимость к дебаффам и %immunity_resist%%% сопротивления магии на %scepter_magic_immune_per_hero% сек. за каждого задетого вражеского героя, когда дух возвращается."
 		// Undying Flesh Decay - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в %trigger_cooldown% сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.5</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.6</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
@@ -497,15 +510,21 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на %attack_range_tooltip%."
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на <font color='#FFFFFF'><b>1</b></font>."
+
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 200%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 180%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
 
 		// Legion Commander Auto Duel - Awakened
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль · Пробуждение</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Автоприменение: ближайший герой</font><br><br>Если автоприменение включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает невосприимчивость к эффектам без дополнительного сопротивления магии, а цель нельзя выбрать."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает эффект <font color='#FFCC66'>Black King Bar</font>, а цель нельзя выбрать."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Честь не требует приглашения — ближайший враг станет соперником."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"ДОПОЛНИТЕЛЬНАЯ ДАЛЬНОСТЬ АВТОМАТИЧЕСКОЙ ДУЭЛИ:"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
@@ -517,7 +536,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"МАКС. ЗАРЯДОВ ФОКУСА:"
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"ДЛИТЕЛЬНОСТЬ ФОКУСА:"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Пробуждение Illuminate</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>20</b></font>%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Урон Illuminate увеличен на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
 
@@ -547,6 +566,11 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
 	}
 }
