@@ -3422,7 +3422,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage_passive"					"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff"									"极寒冲击"
