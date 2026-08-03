@@ -5,6 +5,79 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 上古巨神 觉醒灵体游魂
+	// 除冷却（觉醒专属强化，免瞄准自动施放，缩短冷却体现觉醒增益）外，
+	// 其余数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致
+	"elder_titan_ancestral_spirit_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/elder_titan_ancestral_spirit_awaken"
+		"AbilityTextureName"			"elder_titan_ancestral_spirit"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"HasScepterUpgrade"				"1"
+		"AbilityCastPoint"				"0.4 0.4 0.4 0.4 0.4"
+		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityManaCost"				"80 90 100 110 120"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"AbilityCastRange"
+			{
+				"value"						"1200"
+			}
+			"radius"
+			{
+				"value"			"275"
+				"affected_by_aoe_increase"	"1"
+			}
+			"pass_damage"
+			{
+				"value"	"50"
+				"CalculateSpellDamageTooltip"		"1"
+			}
+			"spirit_duration"
+			{
+				"value"								"10.0"
+			}
+			"buff_duration"
+			{
+				"value"								"10.0"
+			}
+			"speed"							"900"
+			"move_pct_creeps"				"1.5"
+			"move_pct_heroes"
+			{
+				"value"		"4 5 6 7 8"
+				"special_bonus_unique_elder_titan_bonus_spirit_speed"	"+2.5"
+			}
+			"damage_creeps"
+			{
+				"value"	"3 7 11 15 19"
+				"CalculateSpellDamageTooltip"				"0"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_NONE"
+			}
+			"damage_heroes"
+			{
+				"value"		"17 38 59 80 101"
+				"special_bonus_unique_elder_titan"	"+30"
+				"CalculateSpellDamageTooltip"	"0"
+				"DamageTypeTooltip"				"DAMAGE_TYPE_NONE"
+			}
+			"armor_creeps"					"0"
+			"armor_heroes"					"0"
+			"move_pct_cap"					"40"
+			"scepter_magic_immune_per_hero"
+			{
+				"special_bonus_scepter"		"1.5"
+			}
+			"immunity_resist"				"50"
+		}
+	}
+
 	// 凤凰-觉醒
 	"special_bonus_unique_phoenix_upgrade"
 	{
@@ -16,7 +89,7 @@
 		"AbilityValues"
 		{
 			"hotspot_start_length_pct"	"50"
-			"hotspot_end_multiplier_pct"	"200"
+			"hotspot_end_multiplier_pct"	"180"
 			"hotspot_reference_length"	"1200"
 		}
 
@@ -168,7 +241,7 @@
 				"value"						"350"
 				"affected_by_aoe_increase"	"1"
 			}
-			"scepter_crit_bonus"		"210 240 270 300"
+			"scepter_crit_bonus"		"220 240 260 280"
 			"bonus_physical_damage"
 			{
 				"value"						"300 400 500 600"
@@ -215,6 +288,8 @@
 		"AbilityValues"
 		{
 			"bonus_cast_range"			"200"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
 		}
 	}
 
@@ -348,6 +423,8 @@
 				"special_bonus_unique_phantom_assassin_6"	"+200"
 			}
 			"AbilityCooldown"				"14 12 10 8 6"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"					"60"
 		}
 
 		"OnSpellStart"
@@ -449,6 +526,8 @@
 		{
 			"invulnerability_duration"	"1.67"
 			"cast_speed_pct"			"50"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
 		}
 	}
 
@@ -484,11 +563,7 @@
 
 		"AbilityValues"
 		{
-			"splinter_chance"
-			{
-				"value"										"40"
-				"special_bonus_unique_drow_ranger_3"		"+13"			// 同步射手天赋的概率天赋
-			}
+			"splinter_chance"				"40"
 			"splinter_targets"			"2"
 			"splinter_radius"			"500"
 			"splinter_damage_pct"		"50"
@@ -562,6 +637,8 @@
 		{
 			"duration"				"3"
 			"damage_reduction_pct"	"-60"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"			"60"
 		}
 
 		"Modifiers"
@@ -610,7 +687,7 @@
 		{
 			"base_damage_bonus"				"100"
 			"max_focus_stacks"				"10"
-			"damage_pct_per_stack"			"25"
+			"damage_pct_per_stack"			"20"
 			"focus_duration"				"20"	// 须长于冲击波冷却，否则聚光在下一发可用前就过期
 		}
 	}
@@ -629,6 +706,8 @@
 			"duration"				"2"
 			"strength_bonus"		"20 40 60 80 100"
 			"attackspeed_bonus"	"20 40 60 80 100"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"			"60"
 		}
 
 		"Modifiers"
@@ -747,7 +826,7 @@
 
 		"AbilityValues"
 		{
-			"trigger_cooldown"				"0.5"
+			"trigger_cooldown"				"0.6"
 		}
 	}
 
@@ -759,6 +838,12 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"crystal_maiden_freezing_field"
 		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
+		}
 	}
 
 	// 小小 觉醒
@@ -780,6 +865,21 @@
 				"RemoveOnDeath"		"0"
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
 			}
+		}
+	}
+	// 戴泽 觉醒
+	"special_bonus_unique_dazzle_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_dazzle_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"dazzle_shallow_grave"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
 		}
 	}
 }

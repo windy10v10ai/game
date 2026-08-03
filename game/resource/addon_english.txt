@@ -146,11 +146,24 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Autocast: automatically sends the spirit toward the farthest enemy hero and recalls it automatically."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan sends forth his Astral Spirit, damaging any units it passes through.  When the spirit rejoins the Titan, it grants bonus damage and movement speed for each unit it passed through.\n\nThe Astral Spirit possesses the Echo Stomp, Return Spirit, and Natural Order abilities.<br><br><font color='#d000ff'>Awakening Bonus:</font> Reduced cooldown.<br><font color='#00CED1'>Autocast:</font> Whenever the ability is off cooldown and an enemy hero is nearby, automatically sends the spirit toward the farthest enemy hero, then recalls it automatically as soon as the recall is available, with no manual input required. While active, manually cast spirits are also recalled automatically."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"BUFF DURATION:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%BONUS SPEED (CREEPS):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%BONUS SPEED (HEROES):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"BONUS DAMAGE (CREEPS):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"BONUS DAMAGE (HEROES):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Causes Elder Titan to become debuff immune and gain %immunity_resist%%% magic resistance for %scepter_magic_immune_per_hero% seconds per affected enemy Hero when the spirit returns."
 		// Undying Flesh Decay - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Flesh Decay Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every %trigger_cooldown% seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Flesh Decay Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every <font color='#FFFFFF'><b>0.5</b></font> seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every <font color='#FFFFFF'><b>0.6</b></font> seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
@@ -1187,15 +1200,21 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 炸弹人 觉醒
+		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
+		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed."
+		"DOTA_Tooltip_modifier_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
+		"DOTA_Tooltip_modifier_techies_squees_scope_Description"		"Techies gains <font color='#FFFFFF'><b>1</b></font> attack range and attack projectile speed for each point of attack speed."
+
 		// 凤凰 烈日炙烤-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Sun Ray Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray does more damage and healing to targets near the end of the beam. Beam intensity starts increasing at %hotspot_start_length_pct%%% of its length, reaching %hotspot_end_multiplier_pct%%% of base damage and healing at %hotspot_reference_length% range. Extending the beam further makes the endpoint's damage and healing keep increasing."
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Sun Ray Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray begins scaling after 50%% of its length and reaches 200%% damage and healing at 1200 range. A longer ray continues scaling at its endpoint."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray begins scaling after 50%% of its length and reaches 180%% damage and healing at 1200 range. A longer ray continues scaling at its endpoint."
 
 		// Pudge - Meat Hook Awakened
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>Meat Hook Awakened</font>"
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts. <br><font color=\"#FF0000\">When autocast is enabled, the hook will only hit enemies.<br>When autocast is disabled, the hook can pull allies.</font><br><br>Greatly increased cast range and hook speed."
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Description"							"Launches a hook that pulls the first unit it contacts.<br><br><font color='#00CED1'>Autocast:</font> when enabled, the hook only hits enemies; when disabled, the hook can pull allies.<br><br>Greatly increased cast range and hook speed."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Note0"								"Allied units take no damage when hooked."
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_damage"							"DAMAGE:"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_speed"							"HOOK SPEED:"
@@ -1215,12 +1234,12 @@
 
 		// Axe - Ruthless Hand Awakened
 		"DOTA_Tooltip_ability_axe_auto_culling_blade"									"<font color='#d000ff'>Ruthless Hand Awakened</font>"
-		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#FF0000'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
+		"DOTA_Tooltip_ability_axe_auto_culling_blade_Description"						"<font color='#00CED1'>Autocast: Auto Cull</font><br><br>With autocast enabled, whenever Culling Blade is off cooldown, Axe automatically detects enemy heroes within cast range whose health is below the cull threshold and casts Culling Blade immediately."
 		"DOTA_Tooltip_ability_axe_auto_culling_blade_Lore"								"Where the blade falls, the harvest follows."
 
 		// Legion Commander Auto Duel - Awakened
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Auto Duel · Awakened</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#FF0000'>Autocast: Nearest Hero</font><br><br>While autocast is enabled and Duel is ready, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. Illusions are ignored, and it only triggers when there's a high chance of killing the target without leaving Legion Commander critically low on health.<br><br>Auto Duel ignores and consumes the target's passive spell block and reflection effects.<br><br>During Duel, Legion Commander gains Black King Bar's spell immunity, and the target cannot be selected."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Autocast:</font> While enabled and Duel is ready, automatically casts Duel on the nearest visible enemy hero within Duel's cast range plus %bonus_cast_range%. Illusions are ignored, and it only triggers when there's a high chance of killing the target without leaving Legion Commander critically low on health.<br><br>Auto Duel ignores and consumes the target's passive spell block and reflection effects.<br><br>During Duel, Legion Commander gains the <font color='#FFCC66'>Black King Bar</font> effect, and the target cannot be selected."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Honor needs no invitation; the nearest enemy will do."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"BONUS AUTO DUEL RANGE:"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Auto Duel: Unselectable"
@@ -1242,7 +1261,7 @@
 
 		// Phantom Assassin Phantom Strike - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>Phantom Strike Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and <font color='#FFCC66'>magic immunity</font> briefly, then automatically attacks.<br><br>Stifling Dagger's projectile speed is increased. Casting Stifling Dagger grants brief <font color='#FFCC66'>magic immunity</font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"Phantom Assassin blinks to a target unit, gaining bonus attack speed and the <font color='#FFCC66'>Black King Bar</font> effect briefly, then automatically attacks.<br><br>Stifling Dagger's projectile speed is increased. Casting Stifling Dagger briefly grants the <font color='#FFCC66'>Black King Bar</font> effect."
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"Bonus Attack Speed:"
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"Duration:"
 
@@ -1254,9 +1273,9 @@
 
 		// Shadow Fiend Requiem Guard - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains the <font color='#FFCC66'>Black King Bar</font> effect, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
 		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>Requiem of Souls Guard Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains <font color='#FFCC66'>magic immunity</font>, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade_Description"		"During Requiem of Souls' cast animation, Shadow Fiend gains the <font color='#FFCC66'>Black King Bar</font> effect, preventing his cast from being interrupted by disables.<br><br>Necromastery grants <font color='#FFFFFF'><b>10</b></font> souls per hero kill and <font color='#FFFFFF'><b>3</b></font> souls per unit kill.<br><br>Increases cast speed by <font color='#FFFFFF'><b>50%%</b></font>, reducing the cast point of Shadowraze and Requiem of Souls."
 
 		// Drow Ranger Splinter Shot
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>Splinter Shot Awakened</font>"
@@ -1266,7 +1285,7 @@
 
 		// Bristleback Auto Quill
 		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade"					"<font color='#d000ff'>Auto Quill Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#FF0000'>Autocast</font><br><br>With autocast enabled, whenever enemy heroes are in range, Bristleback automatically fires Quill Spray and casts Viscous Nasal Goo on the nearest enemy hero.<br><br><font color='#FFFFFF'>Awakening Bonuses</font><br>Viscous Nasal Goo: base armor reduction raised to <font color='#FFFFFF'><b>10</b></font>, per-stack to <font color='#FFFFFF'><b>6</b></font>, stack limit raised to <font color='#FFFFFF'><b>10</b></font><br>Quill Spray: damage cap raised to <font color='#FFFFFF'><b>1000</b></font><br>Warpath: max stacks raised to <font color='#FFFFFF'><b>20</b></font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bristleback_upgrade_Description"		"<font color='#00CED1'>Autocast:</font> With autocast enabled, whenever enemy heroes are in range, Bristleback automatically fires Quill Spray and casts Viscous Nasal Goo on the nearest enemy hero.<br><br><font color='#d000ff'>Awakening Bonuses:</font> Viscous Nasal Goo: base armor reduction raised to <font color='#FFFFFF'><b>10</b></font>, per-stack to <font color='#FFFFFF'><b>6</b></font>, stack limit raised to <font color='#FFFFFF'><b>10</b></font><br>Quill Spray: damage cap raised to <font color='#FFFFFF'><b>1000</b></font><br>Warpath: max stacks raised to <font color='#FFFFFF'><b>20</b></font>"
 
 		// Lina Laguna Blade
 		"DOTA_Tooltip_ability_special_bonus_unique_lina_upgrade"					"<font color='#d000ff'>Laguna Blade Awakened</font>"
@@ -1276,9 +1295,9 @@
 
 		// Monkey King Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains the <font color='#FFCC66'>Black King Bar</font> effect until the ability ends."
 		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>Monkey King Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains <font color='#FFCC66'>Magic Immunity</font> until the ability ends."
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"Boundless Strike gains <font color='#FFFFFF'><b>200</b></font> bonus damage and <font color='#FFFFFF'><b>700</b></font> cast range.<br>Can cast Defy while disabled.<br>When casting Defy, gains the <font color='#FFCC66'>Black King Bar</font> effect until the ability ends."
 
 		// Winter Wyvern Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>Winter's Curse Awakened</font>"
@@ -1293,9 +1312,9 @@
 
 		// Clockwerk Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants <font color='#FFCC66'>Magic Immunity</font> for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants the <font color='#FFCC66'>Black King Bar</font> effect for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>Power Cogs Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants <font color='#FFCC66'>Magic Immunity</font> for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"Casting Power Cogs grants the <font color='#FFCC66'>Black King Bar</font> effect for <font color='#FFFFFF'><b>3</b></font> seconds, reducing damage taken by <font color='#FFFFFF'><b>60%%</b></font> during that time."
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Power Cogs Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Damage taken is reduced by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
@@ -1309,17 +1328,17 @@
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"Enemies within %dMODIFIER_PROPERTY_TOOLTIP% range are continuously Doomed."
 		// Sven Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> for %duration% seconds, increasing Strength by %strength_bonus% and Attack Speed by %attackspeed_bonus% during that time."
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants the <font color='#FFCC66'>Black King Bar</font> effect for %duration% seconds, increasing Strength by %strength_bonus% and Attack Speed by %attackspeed_bonus% during that time."
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>Sven Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants <font color='#FFCC66'>Magic Immunity</font> and briefly increases Strength and Attack Speed."
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"Casting Storm Hammer grants the <font color='#FFCC66'>Black King Bar</font> effect and briefly increases Strength and Attack Speed."
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"Sven Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"Strength increased by %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% and Attack Speed by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%."
 
 		// 水晶室女 极寒领域-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>Freezing Field Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants <font color='#FFCC66'>Magic Immunity</font>.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants the <font color='#FFCC66'>Black King Bar</font> effect.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>Freezing Field Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants <font color='#FFCC66'>Magic Immunity</font>.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"Casting Freezing Field grants the <font color='#FFCC66'>Black King Bar</font> effect.<br><br>Also grants <font color='#FFFFFF'>Spellblock</font> for <font color='#FFFFFF'><b>10</b></font> seconds, consumed after blocking one enemy targeted spell."
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"Freezing Field Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"Grants <font color='#FFFFFF'>Spellblock</font>, blocking one enemy targeted spell."
 
@@ -1335,7 +1354,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"MAX FOCUS STACKS:"
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"FOCUS DURATION:"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Illuminate Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by <font color='#FFFFFF'><b>100</b></font>, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit grants 1 Focus stack, up to <font color='#FFFFFF'><b>10</b></font> stacks lasting <font color='#FFFFFF'><b>20</b></font> seconds, and each stack increases Illuminate damage by <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Increases Illuminate's base damage by <font color='#FFFFFF'><b>100</b></font>, shortens max channel time to <font color='#FFFFFF'><b>1.5</b></font> seconds, extends distance to <font color='#FFFFFF'><b>2300</b></font>, width to <font color='#FFFFFF'><b>600</b></font> and speed to <font color='#FFFFFF'><b>1350</b></font>.<br>Each enemy Hero hit grants 1 Focus stack, up to <font color='#FFFFFF'><b>10</b></font> stacks lasting <font color='#FFFFFF'><b>20</b></font> seconds, and each stack increases Illuminate damage by <font color='#FFFFFF'><b>20</b></font>%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Focus"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Illuminate damage increased by <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
 
@@ -3391,7 +3410,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage_passive"					"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff"									"Cold Shock"
@@ -3474,6 +3493,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Increases Chain Frost's projectile speed and bounce range, and extends the duration of its slow and Frostbound.<br><br>Hits on a hero or Roshan deal bonus magical damage equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence and apply a stack of Frost Calamity lasting <font color='#FFFFFF'><b>8</b></font> seconds, detonating automatically at <font color='#FFFFFF'><b>3</b></font> stacks; casting Frost Blast on a marked enemy also detonates it early. Detonation deals magical damage in a <font color='#FFFFFF'><b>350</b></font> radius equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence per stack consumed and <font color='#2DD5E4'>Stuns</font> enemies for <font color='#FFFFFF'><b>0.6</b></font> seconds.<br><br>If Ice Spire is already learned, hitting the only enemy hero nearby with Chain Frost casts Ice Spire at that hero automatically."
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"At 3 stacks, triggers a Frost Calamity detonation. Lich can also detonate it early with Frost Blast."
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Shallow Grave Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
 	}
 }

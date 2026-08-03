@@ -4,16 +4,20 @@ import { applyAwakenByHero, canAwaken, executeReplacement, isAwakened } from './
 /** 构造一个记录技能槽状态的假英雄，用于验证三分支的增删与退点数逻辑 */
 function createFakeHero(opts: {
   unitName?: string;
-  abilities?: { name: string; level: number }[];
+  abilities?: { name: string; level: number; hidden?: boolean }[];
   abilityPoints?: number;
 }) {
-  const abilities: { name: string; level: number }[] = opts.abilities ?? [];
+  const abilities: { name: string; level: number; hidden?: boolean }[] = opts.abilities ?? [];
   let abilityPoints = opts.abilityPoints ?? 0;
   const addOrder: string[] = [];
 
-  const makeAbility = (entry: { name: string; level: number }) => ({
+  const makeAbility = (entry: { name: string; level: number; hidden?: boolean }) => ({
     GetAbilityName: () => entry.name,
     GetLevel: () => entry.level,
+    IsHidden: () => entry.hidden ?? false,
+    SetHidden: (hidden: boolean) => {
+      entry.hidden = hidden;
+    },
     // 占位防崩：替换分支实现会调用 GetMaxLevel，运行时由引擎提供真实值
     GetMaxLevel: () => 25,
     SetLevel: (lvl: number) => {
@@ -149,6 +153,32 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
+  it('上古巨神觉醒替换二技能并继承原等级', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_elder_titan',
+      abilities: [{ name: 'elder_titan_ancestral_spirit', level: 4 }],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([{ name: 'elder_titan_ancestral_spirit_awaken', level: 4 }]);
+  });
+  it('上古巨神觉醒时灵体已在场外：保留原技能供回魂流程使用，并隐藏觉醒技能', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_elder_titan',
+      abilities: [
+        { name: 'elder_titan_ancestral_spirit', level: 4, hidden: true },
+        { name: 'elder_titan_return_spirit', level: 1 },
+      ],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([
+      { name: 'elder_titan_ancestral_spirit', level: 4, hidden: true },
+      { name: 'elder_titan_return_spirit', level: 1 },
+      { name: 'elder_titan_ancestral_spirit_awaken', level: 4, hidden: true },
+    ]);
+  });
+
   it('命中配置的英雄返回 true 并应用替换', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_pudge',
