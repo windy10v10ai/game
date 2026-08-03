@@ -6470,7 +6470,7 @@
 	"item_recipe_shadow_impact"
 	{
 		"BaseClass"					"item_datadriven"
-		"ID"						"10313"
+		"ID"						"10344"
 		"Model"						"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName"		"item_recipe_shadow_impact"
 
@@ -6488,7 +6488,7 @@
 	"item_shadow_impact"
 	{
 		"BaseClass"					"item_lua"
-		"ID"						"10314"
+		"ID"						"10345"
 		"ScriptFile"				"items/item_shadow_impact"
 		"AbilityTextureName"		"shadow_impact"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -7046,12 +7046,13 @@
 			"blind_pct"						"10"	// 致盲百分比
 
 			// 被动属性
+			// 智力与攻击力的字段名须与刃甲 modifier 错开，同名会被它再读一次导致数值翻倍
 			"bonus_strength"				"30"	// 力量
 			"bonus_agility"					"30"	// 敏捷
-			"bonus_intellect"				"30"	// 智力
+			"bonus_intellect_passive"		"30"	// 智力
 			"bonus_health_regen"			"40"	// 生命回复
 			"bonus_mana_regen"				"25"	// 魔法回复
-			"bonus_damage"					"120"	// 攻击力
+			"bonus_damage_passive"			"120"	// 攻击力
 			"evasion"						"25"	// 闪避
 
 			"bonus_aoe"						"150"	// 作用范围 lua
@@ -7081,10 +7082,10 @@
 				{
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"%bonus_strength"
 					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%bonus_agility"
-					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect"
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%bonus_intellect_passive"
 					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%bonus_health_regen"
 					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"%bonus_mana_regen"
-					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage"
+					"MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE"	"%bonus_damage_passive"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"%evasion"
 				}
 
