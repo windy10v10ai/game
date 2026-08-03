@@ -189,6 +189,22 @@ describe('applyAwakenByHero', () => {
     expect(f.abilities.some((a) => a.name === 'pudge_meat_hook_lua')).toBe(true);
   });
 
+  it('replaces Beastmaster Wild Axes and Drums of Slom with awakened native clones', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_beastmaster',
+      abilities: [
+        { name: 'beastmaster_wild_axes', level: 3 },
+        { name: 'beastmaster_drums_of_slom', level: 1 },
+      ],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([
+      { name: 'beastmaster_wild_axes_awaken', level: 3 },
+      { name: 'beastmaster_drums_of_slom_awaken', level: 1 },
+    ]);
+  });
+
   it('未配置的英雄返回 false 且不改动技能', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_tinker',
