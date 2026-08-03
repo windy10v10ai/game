@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 戴泽 觉醒
+  {
+    heroName: 'npc_dota_hero_dazzle',
+    newAbility: 'special_bonus_unique_dazzle_upgrade',
+    newLevel: 1,
+  },
   // 半人马战行者 觉醒：双刃剑替换为觉醒版，同时添加隐藏机制能力
   {
     heroName: 'npc_dota_hero_centaur',
@@ -234,6 +240,9 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_dazzle', // 戴泽
+  'npc_dota_hero_elder_titan', // 上古巨神
+  'npc_dota_hero_techies', // 炸弹人
   'npc_dota_hero_undying', // 尸王
   'npc_dota_hero_lich', // 巫妖
   'npc_dota_hero_doom_bringer', // 末日使者
