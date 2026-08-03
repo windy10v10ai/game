@@ -524,7 +524,7 @@
 
 		// Legion Commander Auto Duel - Awakened
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль · Пробуждение</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает невосприимчивость к эффектам без дополнительного сопротивления магии, а цель нельзя выбрать."
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>Автоприменение:</font> Если включено и Duel готова, способность автоматически применяется к ближайшему видимому вражескому герою в радиусе применения Duel плюс %bonus_cast_range%. Иллюзии игнорируются.<br><br>Автоматическая дуэль игнорирует и расходует пассивные эффекты блока и отражения заклинаний цели.<br><br>Длительность Duel фиксирована и не зависит от сопротивления эффектам.<br><br>Во время Duel Legion Commander получает эффект <font color='#FFCC66'>Black King Bar</font>, а цель нельзя выбрать."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"Честь не требует приглашения — ближайший враг станет соперником."
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"ДОПОЛНИТЕЛЬНАЯ ДАЛЬНОСТЬ АВТОМАТИЧЕСКОЙ ДУЭЛИ:"
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"Автоматическая дуэль: цель нельзя выбрать"
@@ -566,6 +566,11 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade"					"<font color='#d000ff'>Пробуждение Tiny</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_tiny_upgrade_Description"		"Захваченное дерево больше не разрушается, когда заканчиваются его атаки.<br>Grow больше не снижает скорость атаки."
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
 		// Storm Spirit: Шаровая молния — пробуждение
 		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>Вихрь шаровой молнии: пробуждение</font>"

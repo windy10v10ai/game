@@ -288,6 +288,8 @@
 		"AbilityValues"
 		{
 			"bonus_cast_range"			"200"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
 		}
 	}
 
@@ -421,6 +423,8 @@
 				"special_bonus_unique_phantom_assassin_6"	"+200"
 			}
 			"AbilityCooldown"				"14 12 10 8 6"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"					"60"
 		}
 
 		"OnSpellStart"
@@ -522,6 +526,8 @@
 		{
 			"invulnerability_duration"	"1.67"
 			"cast_speed_pct"			"50"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
 		}
 	}
 
@@ -635,6 +641,8 @@
 		{
 			"duration"				"3"
 			"damage_reduction_pct"	"-60"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"			"60"
 		}
 
 		"Modifiers"
@@ -702,6 +710,8 @@
 			"duration"				"2"
 			"strength_bonus"		"20 40 60 80 100"
 			"attackspeed_bonus"	"20 40 60 80 100"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"			"60"
 		}
 
 		"Modifiers"
@@ -832,6 +842,12 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"crystal_maiden_freezing_field"
 		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
+		}
 	}
 
 	// 小小 觉醒
@@ -855,7 +871,21 @@
 			}
 		}
 	}
+	// 戴泽 觉醒
+	"special_bonus_unique_dazzle_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_dazzle_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"dazzle_shallow_grave"
+		"MaxLevel"						"1"
 
+		"AbilityValues"
+		{
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"				"60"
+		}
+	}
 	// 蓝猫 球状闪电-觉醒
 	"special_bonus_unique_storm_spirit_upgrade"
 	{
