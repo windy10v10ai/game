@@ -2046,7 +2046,11 @@
 		}
 		"AbilityValues"
 		{
-			"min_radius"	"750"
+			"min_radius"
+			{
+				"value"						"750"
+				"affected_by_aoe_increase"	"1"
+			}
 			"max_radius"
 			{
 				"value"						"750"

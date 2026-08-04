@@ -1859,6 +1859,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"
+		"DOTA_Tooltip_ability_yukari_tentacles_radius"	"作用范围："
 		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"智力伤害系数:"
 		"DOTA_Tooltip_ability_yukari_tentacles_duration"	"间隙持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%移动速度降低:"
