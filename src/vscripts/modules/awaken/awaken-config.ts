@@ -32,6 +32,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newLevel: 0,
     keepHiddenWhile: 'elder_titan_return_spirit',
   },
+  // 龙骑士 觉醒
+  {
+    heroName: 'npc_dota_hero_dragon_knight',
+    newAbility: 'special_bonus_unique_dragon_knight_upgrade',
+    newLevel: 1,
+  },
   // 炸弹人 觉醒
   {
     heroName: 'npc_dota_hero_techies',

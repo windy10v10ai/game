@@ -1428,7 +1428,24 @@
 		"AbilityManaCost"				"50 100 150"	// 50
 		"AbilityValues"
 		{
-				"bonus_attack_damage"		"40 100 160"	// 0
+			"duration"						"60"
+			"bonus_movement_speed"			"65 70 75 80"	// 25 30 35 40 +40
+			"bonus_attack_range"				"350"
+			"bonus_ability_cast_range"			"350"
+			"corrosive_duration"				"3"
+			"corrosive_damage_per_second"		"54 90 126 135"
+			"corrosive_armor_reduction"			"5 10 15 20"
+			"ranged_splash_damage_pct"			"0 75 75 100"
+			"ranged_splash_radius"
+			{
+				"value"						"150 425 425 500"	// 0 275 275 350 +150
+				"affected_by_aoe_increase"		"1"
+			}
+			"frost_duration"					"0 0 3 3"
+			"frost_bonus_movement_speed"		"30 40 50 60"
+			"frost_bonus_attack_speed"			"30 40 50 60"
+			"frost_healing_reduction"			"0 0 60 60"
+			"bonus_attack_damage"				"40 100 160"	// 0
 		}
 	}
 	//=================================================================================================================

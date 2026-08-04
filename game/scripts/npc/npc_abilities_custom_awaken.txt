@@ -78,6 +78,30 @@
 		}
 	}
 
+	// 龙骑士 真龙形态-觉醒
+	"special_bonus_unique_dragon_knight_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_dragon_knight_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"dragon_knight/dk_persona/dragon_knight_elder_dragon_form_persona1"
+		"MaxLevel"						"1"
+		"RestrictValuesToMaxLevel"	"0"
+
+
+
+
+		"AbilityValues"
+		{
+			"presence_damage_reduction_pct"	"20"
+			"roar_trigger_max_health_pct"		"15"
+			"fear_duration"					"3"
+			"roar_cooldown"					"8"
+		}
+	}
+
 	// 凤凰-觉醒
 	"special_bonus_unique_phoenix_upgrade"
 	{
