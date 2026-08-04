@@ -5,6 +5,82 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 兽王 觉醒
+	"beastmaster_wild_axes_awaken"
+	{
+		"BaseClass"								"beastmaster_wild_axes"
+		"AbilityTextureName"						"beastmaster_wild_axes"
+		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"
+		"FightRecapLevel"							"1"
+		"AbilitySound"							"Hero_Beastmaster.Wild_Axes"
+		"HasShardUpgrade"							"1"
+		"MaxLevel"								"5"
+		"AbilityCastRange"							"1500"
+		"AbilityCastPoint"							"0.3"
+		"AbilityManaCost"							"50 55 60 65 70"
+		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityValues"
+		{
+			"radius"
+			{
+				"value"								"175"
+				"affected_by_aoe_increase"				"1"
+			}
+			"spread"
+			{
+				"value"								"450"
+				"affected_by_aoe_increase"				"1"
+			}
+			"range"									"1500"
+			"axe_damage"
+			{
+				"value"								"80 160 240 320 400"
+				"CalculateSpellDamageTooltip"			"1"
+			}
+			"damage_amp"
+			{
+				"value"								"15 16 17 18 19"
+				"special_bonus_unique_beastmaster_9"		"+3"
+			}
+			"duration"								"18 19 20 21 22"
+			"AbilityCooldown"
+			{
+				"value"								"8"
+				"special_bonus_unique_beastmaster_wild_axe_cooldown"	"-8"
+			}
+			"min_throw_duration"						"0.3"
+			"max_throw_duration"						"0.3"
+			"apply_debuff_on_attack"
+			{
+				"special_bonus_shard"					"=1"
+			}
+		}
+	}
+
+	"beastmaster_drums_of_slom_awaken"
+	{
+		"BaseClass"								"beastmaster_drums_of_slom"
+		"AbilityTextureName"						"beastmaster_drums_of_slom"
+		"IsGrantedByScepter"						"1"
+		"MaxLevel"								"1"
+
+		"AbilityValues"
+		{
+			"base_damage"								"180"
+			"radius"									"787.5"
+			"min_drum_hit_interval"					"0.2"
+			"heal_pct"								"30"
+			"creep_heal_pct"							"7.5"
+			"primal_roar_stacks"						"25"
+		}
+	}
+
 	// 上古巨神 觉醒灵体游魂
 	// 除冷却（觉醒专属强化，免瞄准自动施放，缩短冷却体现觉醒增益）外，
 	// 其余数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致

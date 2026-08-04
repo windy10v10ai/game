@@ -146,6 +146,25 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// Beastmaster Wild Axes and Drums of Slom awakened
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes Awakened</font>"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"			"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path.  Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units.<br><br><font color='#d000ff'>AWAKENED:</font> Damage amplification is stronger and lasts longer, while the axes travel out and back at extreme speed. Debuff duration is affected by Status Resistance."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"DAMAGE PER AXE:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%DAMAGE AMP PER STACK:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"DEBUFF DURATION:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_min_throw_duration"		"MINIMUM AXE TRAVEL TIME:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_max_throw_duration"		"MAXIMUM AXE TRAVEL TIME:"
+
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken"					"Drums of Slom"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_Description"			"Attacks from Beastmaster or a nearby unit he controls will cause him bang his drum, dealing damage to nearby units and healing Beastmaster and units under his control for a portion of the damage dealt. Every attack decreases the interval between drum hits down to a minimum of 0.5s between hits after 20 attacks. If no attacks are made, the intervals gradually increase.<br><br>Using Primal Roar counts as 10 attacks.<br><br><font color='#d000ff'>AWAKENED:</font> Damage, healing, and drum stacks granted by Primal Roar are increased."
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_radius"					"DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_max_stacks"				"ATTACKS FOR SHORTEST INTERVAL:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_min_drum_hit_interval"	"SHORTEST DRUM INTERVAL:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_max_drum_hit_interval"	"LONGEST DRUM INTERVAL:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_base_damage"			"DRUM HIT DAMAGE:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_heal_pct"				"%HEAL FROM HEROES:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_creep_heal_pct"			"%HEAL FROM CREEPS:"
+		"DOTA_Tooltip_ability_beastmaster_drums_of_slom_awaken_primal_roar_stacks"		"DRUM STACKS FROM PRIMAL ROAR:"
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Autocast: automatically sends the spirit toward the farthest enemy hero and recalls it automatically."
