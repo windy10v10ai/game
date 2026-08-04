@@ -572,5 +572,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// Storm Spirit: Шаровая молния — пробуждение
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>Вихрь шаровой молнии: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"После того как Шаровая молния наносит урон врагу, она автоматически применяет Электрический вихрь в месте попадания. Эффект действует только если Электрический вихрь изучен. Длительность вызванного Электрического вихря составляет <font color='#FFFFFF'><b>50%%</b></font> от обычной и не влияет на его перезарядку. Каждый враг может активировать этот эффект не чаще одного раза за %vortex_trigger_cooldown% сек. Со Скипетром Aghanim вызванное притягивание также действует на врагов в области. Если Шаровая молния срабатывает от Многократного заклинания, её скорость перемещения увеличивается на <font color='#FFFFFF'><b>50%%</b></font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>Вихрь шаровой молнии: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"После того как Шаровая молния наносит урон врагу, она автоматически применяет Электрический вихрь в месте попадания. Эффект действует только если Электрический вихрь изучен. Длительность вызванного Электрического вихря составляет <font color='#FFFFFF'><b>50%%</b></font> от обычной и не влияет на его перезарядку. Каждый враг может активировать этот эффект не чаще одного раза за <font color='#FFFFFF'><b>3</b></font> сек. Со Скипетром Aghanim вызванное притягивание также действует на врагов в области. Если Шаровая молния срабатывает от Многократного заклинания, её скорость перемещения увеличивается на <font color='#FFFFFF'><b>50%%</b></font>."
+
 	}
 }

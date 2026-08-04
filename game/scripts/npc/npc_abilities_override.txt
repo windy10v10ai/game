@@ -11685,6 +11685,10 @@
 			{
 				"value"			"50 100 150 200 250"	// 25 50 75 100 x2
 			}
+			"overload_bounces"
+			{
+				"special_bonus_unique_storm_spirit_7"	"=3"	// 2 -> 3
+			}
 			"shard_activation_charges"
 			{
 				"special_bonus_shard"				"6"	// 3 x2

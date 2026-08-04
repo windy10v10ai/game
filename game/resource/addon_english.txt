@@ -3500,5 +3500,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
+		// Storm Spirit Ball Lightning - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>Ball Lightning Vortex Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"After Ball Lightning damages an enemy, it automatically casts Electric Vortex at the hit location. This effect only works if Electric Vortex has been learned. The attached Electric Vortex lasts <font color='#FFFFFF'><b>50%%</b></font> as long as normal and does not affect Electric Vortex's cooldown. Each enemy can trigger this effect at most once every %vortex_trigger_cooldown% seconds. With Aghanim's Scepter, the attached pull also affects enemies in the area. If Ball Lightning triggers Multicast, its movement speed is increased by <font color='#FFFFFF'><b>50%%</b></font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>Ball Lightning Vortex Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"After Ball Lightning damages an enemy, it automatically casts Electric Vortex at the hit location. This effect only works if Electric Vortex has been learned. The attached Electric Vortex lasts <font color='#FFFFFF'><b>50%%</b></font> as long as normal and does not affect Electric Vortex's cooldown. Each enemy can trigger this effect at most once every <font color='#FFFFFF'><b>3</b></font> seconds. With Aghanim's Scepter, the attached pull also affects enemies in the area. If Ball Lightning triggers Multicast, its movement speed is increased by <font color='#FFFFFF'><b>50%%</b></font>."
+
 	}
 }

@@ -20,6 +20,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_storm_spirit',
+    abilityName: 'special_bonus_unique_storm_spirit_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_elder_titan',
     abilityName: 'elder_titan_ancestral_spirit_awaken',
     freeTrial: true,

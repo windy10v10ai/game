@@ -3507,5 +3507,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 
+		// 蓝猫 球状闪电-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>球状涡流 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电命中敌人后，会在命中位置自动施放一次电子涡流。仅在已学习电子涡流时生效。附带的电子涡流持续时间为原效果的<font color='#FFFFFF'><b>50%%</b></font>，且不影响电子涡流的冷却时间。同一敌人在%vortex_trigger_cooldown%秒内最多触发一次。拥有阿哈利姆神杖时，附带的牵引也会作用于范围内敌人。若球状闪电触发多重施法，其移动速度提高<font color='#FFFFFF'><b>50%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade"		"<font color='#D000FF'>球状涡流 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_storm_spirit_upgrade_Description"		"球状闪电命中敌人后，会在命中位置自动施放一次电子涡流。仅在已学习电子涡流时生效。附带的电子涡流持续时间为原效果的<font color='#FFFFFF'><b>50%%</b></font>，且不影响电子涡流的冷却时间。同一敌人在<font color='#FFFFFF'><b>3</b></font>秒内最多触发一次。拥有阿哈利姆神杖时，附带的牵引也会作用于范围内敌人。若球状闪电触发多重施法，其移动速度提高<font color='#FFFFFF'><b>50%%</b></font>。"
+
 	}
 }

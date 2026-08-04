@@ -24,6 +24,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_dazzle_upgrade',
     newLevel: 1,
   },
+  // 蓝猫 觉醒
+  {
+    heroName: 'npc_dota_hero_storm_spirit',
+    newAbility: 'special_bonus_unique_storm_spirit_upgrade',
+    newLevel: 1,
+  },
   // 上古巨神 觉醒
   {
     heroName: 'npc_dota_hero_elder_titan',
