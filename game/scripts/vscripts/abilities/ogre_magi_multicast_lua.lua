@@ -105,6 +105,8 @@ no_support_abilitys = {
 	venomancer_plague_ward = 1,                     -- 剧毒术士 瘟疫守卫
 	enchantress_enchant = 1,                        -- 魅惑魔女 魅惑
 	undying_tombstone = 1,                          -- 不朽尸王 墓碑
+	keeper_of_the_light_illuminate = 1,             -- 光之守卫 冲击波
+	special_bonus_unique_keeper_of_the_light_upgrade = 1, -- 光之守卫 冲击波 觉醒
 }
 no_support_items = {
 	-- 消耗品

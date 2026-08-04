@@ -142,6 +142,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["morphling_replicate"] = true,                        -- 水人 复制
     ["ancient_apparition_ice_blast"] = true,               -- 冰魂 寒冰爆破
     ["phantom_assassin_phantom_strike_datadriven"] = true, -- 幻刺b觉醒
+    ["keeper_of_the_light_illuminate"] = true,              -- 光之守卫 冲击波
+    ["special_bonus_unique_keeper_of_the_light_upgrade"] = true, -- 光之守卫 冲击波 觉醒
 
     -- ========================================
     -- 取消/停止类技能
