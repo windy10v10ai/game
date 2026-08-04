@@ -5,6 +5,51 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 雷泽 静电连接觉醒
+	"razor_static_link_awakened"
+	{
+		"BaseClass"						"razor_static_link"
+		"AbilityTextureName"			"razor_static_link"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilityCastRange"				"550"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"28 26 24 22 20"
+		"AbilityManaCost"				"65 75 85 100 120"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"drain_duration"						"12"
+			"drain_rate"							"12 24 36 48 60"
+			"drain_range_buffer"					"600"
+			"awaken_duration"						"15"
+			"awaken_self_gain_cap"					"12 24 36 48 60"
+			"awaken_target_reduction_per_instance"	"12 24 36 48 60"
+			"awaken_target_reduction_total_cap"		"200 400 800 1200 1200"
+			"expiry_scan_interval"
+			{
+				"value"						"1"
+				"IsHidden"					"1"
+			}
+		}
+	}
+
+	// 雷泽 觉醒控制器
+	"razor_static_link_awakened_controller"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/razor_static_link_awakened_controller"
+		"AbilityTextureName"			"razor_static_link"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"IsBreakable"					"1"
+		"MaxLevel"						"1"
+	}
+
 	// 上古巨神 觉醒灵体游魂
 	// 除冷却（觉醒专属强化，免瞄准自动施放，缩短冷却体现觉醒增益）外，
 	// 其余数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致

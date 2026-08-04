@@ -29,7 +29,7 @@ function resolveTargetAbility(
   return undefined;
 }
 
-/** 新技能初始等级：配了 inheritLevelFrom 则继承该关联技能当前等级，否则用 fallback */
+/** 新技能初始等级：已学习的关联技能优先，否则保留配置的最低初始等级 */
 function resolveNewLevel(
   hero: CDOTA_BaseNPC_Hero,
   replacement: AbilityReplacement,
@@ -37,7 +37,7 @@ function resolveNewLevel(
 ): number {
   if (replacement.inheritLevelFrom !== undefined) {
     const linked = hero.FindAbilityByName(replacement.inheritLevelFrom);
-    if (linked !== undefined) {
+    if (linked !== undefined && linked.GetLevel() > 0) {
       return linked.GetLevel();
     }
   }
@@ -122,11 +122,14 @@ export function executeReplacement(
 
   // 纯新增
   if (replacement.targetAbility === undefined && replacement.targetSlot === undefined) {
-    addAbilityAtLevel(
+    const added = addAbilityAtLevel(
       hero,
       replacement.newAbility,
       resolveNewLevel(hero, replacement, replacement.newLevel),
     );
+    if (added !== undefined && replacement.newAbilityHidden === true) {
+      added.SetHidden(true);
+    }
     return true;
   }
 
