@@ -2751,6 +2751,7 @@
 	// 纯洁之锤
 	"omniknight_hammer_of_purity"
 	{
+		"LinkedAbility"				"omniknight_hammer_of_purity_awakened"
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
@@ -2798,6 +2799,9 @@
 	// 守护天使
 	"omniknight_guardian_angel"
 	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/omniknight_guardian_angel_awakened"
+		"LinkedAbility"				"omniknight_guardian_angel_awakened"
 		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
 		"MaxLevel" "4"
 		"AbilityManaCost"				"125 175 225 275"	// 125 175 225

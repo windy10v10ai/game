@@ -15,6 +15,12 @@ export interface AbilityReplacement {
   inheritLevelFrom?: string;
   /** 该标记技能可见期间新技能保持隐藏且不删 targetAbility（如上古巨神丢魂中途不打断原生召回流程） */
   keepHiddenWhile?: string;
+  /** 替换技能槽时保留 targetAbility 原对象，供依赖原生 hardcoded 生命周期的技能继续工作 */
+  preserveTargetAbility?: boolean;
+  /** 保留 targetAbility 时，换出技能槽后是否继续启用原对象 */
+  targetAbilityActivated?: boolean;
+  /** 保留 targetAbility 时，将目标技能剩余冷却继承给新技能 */
+  preserveTargetCooldown?: boolean;
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
@@ -23,6 +29,26 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     heroName: 'npc_dota_hero_dazzle',
     newAbility: 'special_bonus_unique_dazzle_upgrade',
     newLevel: 1,
+  },
+  // 全能骑士 觉醒
+  {
+    heroName: 'npc_dota_hero_omniknight',
+    targetAbility: 'omniknight_hammer_of_purity',
+    newAbility: 'omniknight_hammer_of_purity_awakened',
+    newLevel: 0,
+    inheritLevelFrom: 'omniknight_hammer_of_purity',
+    preserveTargetAbility: true,
+    targetAbilityActivated: false,
+  },
+  {
+    heroName: 'npc_dota_hero_omniknight',
+    targetAbility: 'omniknight_guardian_angel',
+    newAbility: 'omniknight_guardian_angel_awakened',
+    newLevel: 0,
+    inheritLevelFrom: 'omniknight_guardian_angel',
+    preserveTargetAbility: true,
+    targetAbilityActivated: false,
+    preserveTargetCooldown: true,
   },
   // 上古巨神 觉醒
   {
