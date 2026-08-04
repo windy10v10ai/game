@@ -572,5 +572,10 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 德鲁伊 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>Пробуждение: Симбиоз с медведем</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade_Description"		"Spirit Bear наследует все действующие внематчевые характеристики Lone Druid и дополнительные очки способностей.<br>Он также синхронизирует текущие уровни способностей, полученных в начале игры, после замены через Ability Reset Tome и добавления через Passive Skill Tome."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>Пробуждение: Симбиоз с медведем</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade_Description"		"Ваш Spirit Bear наследует все внематчевые характеристики, дополнительные очки способностей и текущие дополнительные способности. Замены через Ability Reset Tome и новые способности из Passive Skill Tome синхронизируются автоматически."
 	}
 }

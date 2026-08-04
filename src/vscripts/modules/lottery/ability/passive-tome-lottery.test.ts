@@ -24,8 +24,13 @@ global.CustomNetTables = {
   GetTableValue: jest.fn((table: string, key: string) => netTable[table]?.[key]),
 };
 
+const addedAbility = {
+  IsNull: jest.fn(() => false),
+  GetAbilityIndex: jest.fn(() => 0),
+  SetAbilityIndex: jest.fn(),
+};
 const mockHero = {
-  AddAbility: jest.fn(),
+  AddAbility: jest.fn(() => addedAbility),
   GetAbilityCount: jest.fn(() => 0),
   GetAbilityByIndex: jest.fn(() => undefined),
   GetPlayerOwnerID: jest.fn(() => 3),

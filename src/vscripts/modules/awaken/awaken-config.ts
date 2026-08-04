@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 德鲁伊 觉醒
+  {
+    heroName: 'npc_dota_hero_lone_druid',
+    newAbility: 'special_bonus_unique_lone_druid_upgrade',
+    newLevel: 1,
+  },
   // 戴泽 觉醒
   {
     heroName: 'npc_dota_hero_dazzle',
