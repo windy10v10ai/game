@@ -3494,5 +3494,10 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"At 3 stacks, triggers a Frost Calamity detonation. Lich can also detonate it early with Frost Blast."
 
+		// 德鲁伊 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>Symbiotic Spirit Bear Awakening</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade_Description"		"Spirit Bear inherits all of Lone Druid's currently active out-of-game properties and bonus ability points.<br>It also synchronizes the current levels of abilities gained from the starting lottery, Ability Reset Tome, and Passive Skill Tome."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>Symbiotic Spirit Bear Awakening</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade_Description"		"Your Spirit Bear inherits all out-of-game properties, bonus ability points, and current extra abilities. Ability resets and abilities granted by the Passive Skill Tome synchronize automatically."
 	}
 }
