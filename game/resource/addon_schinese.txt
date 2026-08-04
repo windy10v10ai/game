@@ -3507,5 +3507,18 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 
+		// 小精灵 Tether 觉醒
+		"DOTA_Tooltip_ability_wisp_tether_Description"	"将艾欧和一个友方单位连接在一起，提高双方的移动速度。当艾欧回复生命或魔法时，连在一起的友军将获得一部分回复效果。距离过远时连接将会断开，也可以主动断开连接。羁绊会减速触碰到的敌人。觉醒后，羁绊双方无视移动速度上限；连接目标继承小精灵的部分属性，受到的部分伤害由小精灵承担。"
+		"DOTA_Tooltip_ability_wisp_tether_damage_share_pct"	"%连接后减伤："
+		"DOTA_Tooltip_ability_wisp_tether_attribute_share_pct"	"%继承三维属性："
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade"	"<font color='#d000ff'>羁绊 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade_Description"	"羁绊双方无视移动速度上限；连接目标继承小精灵的部分属性，受到的部分伤害由小精灵承担。"
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade_SummaryDescription"	"无视移动速度上限，并使连接目标继承属性、分担伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade"	"<font color='#d000ff'>羁绊 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_Description"	"羁绊双方无视移动速度上限；连接目标继承小精灵的部分属性，受到的部分伤害由小精灵承担。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_tether"	"羁绊 觉醒"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_tether_Description"	"无视移动速度上限。继承小精灵<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>%%的三维属性，受到的<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>%%伤害由小精灵承担。"
+
+
 	}
 }

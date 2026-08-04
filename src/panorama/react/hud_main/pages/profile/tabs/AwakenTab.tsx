@@ -30,6 +30,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_wisp',
+    abilityName: 'special_bonus_unique_wisp_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_undying',
     abilityName: 'special_bonus_unique_undying_upgrade',
     freeTrial: true,

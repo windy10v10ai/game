@@ -3500,5 +3500,18 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
+		// 小精灵 Tether 觉醒
+		"DOTA_Tooltip_ability_wisp_tether_Description"	"Tethers Io to an allied unit, granting bonus movement speed to both. When Io restores health or mana, the tethered unit gains a portion of that amount. The tether breaks when the allied unit moves too far away, or Io cancels the tether. Tether slows enemies touching it. After awakening, both tethered units ignore the movement speed limit; the ally inherits a portion of Io's attributes, and Io takes a portion of the damage it receives."
+		"DOTA_Tooltip_ability_wisp_tether_damage_share_pct"	"%DAMAGE REDUCTION WHILE TETHERED:"
+		"DOTA_Tooltip_ability_wisp_tether_attribute_share_pct"	"%ALL ATTRIBUTES INHERITED:"
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade"					"<font color='#d000ff'>Tether Awakening</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade_Description"	"Both tethered units ignore the movement speed limit; the ally inherits a portion of Io's attributes, and Io takes a portion of the damage it receives."
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade_SummaryDescription"	"Removes the movement speed limit and grants the ally attribute inheritance and damage sharing."
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade"				"<font color='#d000ff'>Tether Awakening</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_Description"	"Both tethered units ignore the movement speed limit; the ally inherits a portion of Io's attributes, and Io takes a portion of the damage it receives."
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_tether"		"Tether Awakening"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_tether_Description"	"Ignores the movement speed limit. Inherits <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>%% of Io's attributes. <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>%% of damage taken is transferred to Io."
+
+
 	}
 }

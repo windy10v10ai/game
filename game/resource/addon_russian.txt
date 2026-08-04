@@ -572,5 +572,18 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 小精灵 Tether 觉醒
+		"DOTA_Tooltip_ability_wisp_tether_Description"	"Связывает героя с союзным существом, увеличивая скорость передвижения обоих. Когда владелец способности восстанавливает здоровье или ману, их в приумноженном количестве получает и связанное существо. Связь разорвётся, если отменить способность вручную или если расстояние до цели окажется слишком большим. Если противник заденет связь, его скорость передвижения будет уменьшена. После пробуждения оба связанных существа игнорируют ограничение скорости передвижения; союзник наследует часть атрибутов Io, а Io принимает на себя часть получаемого им урона."
+		"DOTA_Tooltip_ability_wisp_tether_damage_share_pct"	"%СНИЖЕНИЕ УРОНА ПРИ СВЯЗИ:"
+		"DOTA_Tooltip_ability_wisp_tether_attribute_share_pct"	"%НАСЛЕДОВАНИЕ ВСЕХ АТРИБУТОВ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade"	"<font color='#d000ff'>Пробуждение связи</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade_Description"	"Оба связанных существа игнорируют ограничение скорости передвижения; союзник наследует часть атрибутов Io, а Io принимает на себя часть получаемого им урона."
+		"DOTA_Tooltip_ability_special_bonus_unique_wisp_upgrade_SummaryDescription"	"Снимает ограничение скорости, а союзнику даёт наследование атрибутов и распределение урона."
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade"	"<font color='#d000ff'>Пробуждение связи</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_Description"	"Оба связанных существа игнорируют ограничение скорости передвижения; союзник наследует часть атрибутов Io, а Io принимает на себя часть получаемого им урона."
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_tether"	"Пробуждение связи"
+		"DOTA_Tooltip_modifier_special_bonus_unique_wisp_upgrade_tether_Description"	"Игнорирует ограничение скорости передвижения. Наследует <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>%% атрибутов Io. <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>%% получаемого урона переносится на Io."
+
+
 	}
 }
