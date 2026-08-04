@@ -13,6 +13,7 @@ import { Debug } from './debug/Debug';
 import { Event } from './event/event';
 import { DragonWishFilter } from './filter/dragon-wish-filter';
 import { GoldXPFilter } from './filter/gold-xp-filter';
+import { FountainAntiCamp } from './fountain-anti-camp/fountain-anti-camp';
 import { Lottery } from './lottery/lottery';
 import { Option } from './option';
 import { PropertyController } from './property/property_controller';
@@ -28,6 +29,7 @@ declare global {
     Lottery: Lottery;
     Event: Event;
     GoldXPFilter: GoldXPFilter;
+    FountainAntiCamp: FountainAntiCamp;
     Treasure: Treasure;
     WardSlot: WardSlot;
   }
@@ -75,6 +77,8 @@ export function ActivateModules() {
   if (GameRules.Lottery == null) GameRules.Lottery = new Lottery();
 
   if (GameRules.Event == null) GameRules.Event = new Event();
+
+  if (GameRules.FountainAntiCamp == null) GameRules.FountainAntiCamp = new FountainAntiCamp();
 
   if (GameRules.GoldXPFilter == null) GameRules.GoldXPFilter = new GoldXPFilter();
 
