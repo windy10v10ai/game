@@ -4,17 +4,25 @@ import { applyAwakenByHero, canAwaken, executeReplacement, isAwakened } from './
 /** 构造一个记录技能槽状态的假英雄，用于验证三分支的增删与退点数逻辑 */
 function createFakeHero(opts: {
   unitName?: string;
-  abilities?: { name: string; level: number; hidden?: boolean }[];
+  abilities?: { name: string; level: number; hidden?: boolean; activated?: boolean }[];
   abilityPoints?: number;
 }) {
-  const abilities: { name: string; level: number; hidden?: boolean }[] = opts.abilities ?? [];
+  const abilities: { name: string; level: number; hidden?: boolean; activated?: boolean }[] =
+    opts.abilities ?? [];
   let abilityPoints = opts.abilityPoints ?? 0;
   const addOrder: string[] = [];
+  const swapOrder: [string, string][] = [];
 
-  const makeAbility = (entry: { name: string; level: number; hidden?: boolean }) => ({
+  const makeAbility = (entry: {
+    name: string;
+    level: number;
+    hidden?: boolean;
+    activated?: boolean;
+  }) => ({
     GetAbilityName: () => entry.name,
     GetLevel: () => entry.level,
     IsHidden: () => entry.hidden ?? false,
+    IsActivated: () => entry.activated ?? true,
     SetHidden: (hidden: boolean) => {
       entry.hidden = hidden;
     },
@@ -32,6 +40,7 @@ function createFakeHero(opts: {
     SetAbilityPoints: (p: number) => {
       abilityPoints = p;
     },
+    GetAbilityCount: () => abilities.length,
     GetAbilityByIndex: (i: number) => {
       const entry = abilities[i];
       return entry !== undefined ? makeAbility(entry) : undefined;
@@ -50,9 +59,18 @@ function createFakeHero(opts: {
       addOrder.push(name);
       return makeAbility(entry);
     },
+    SwapAbilities: (name1: string, name2: string) => {
+      swapOrder.push([name1, name2]);
+      const index1 = abilities.findIndex((ability) => ability.name === name1);
+      const index2 = abilities.findIndex((ability) => ability.name === name2);
+      if (index1 < 0 || index2 < 0) return;
+      const first = abilities[index1];
+      abilities[index1] = abilities[index2];
+      abilities[index2] = first;
+    },
   };
 
-  return { hero, abilities, addOrder, getPoints: () => abilityPoints };
+  return { hero, abilities, addOrder, swapOrder, getPoints: () => abilityPoints };
 }
 
 describe('executeReplacement', () => {
@@ -179,6 +197,45 @@ describe('applyAwakenByHero', () => {
     ]);
   });
 
+  it('Razor awakening replaces Static Link and adds a level-one hidden controller', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_razor',
+      abilities: [
+        { name: 'razor_plasma_field', level: 3 },
+        { name: 'razor_static_link', level: 3 },
+        { name: 'razor_storm_surge', level: 2 },
+        { name: 'razor_unstable_current', level: 1 },
+        { name: 'razor_eye_of_the_storm', level: 3 },
+      ],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.addOrder).toEqual([
+      'razor_static_link_awakened',
+      'razor_static_link_awakened_controller',
+    ]);
+    expect(f.abilities).toEqual([
+      { name: 'razor_plasma_field', level: 3 },
+      { name: 'razor_storm_surge', level: 2 },
+      { name: 'razor_unstable_current', level: 1 },
+      { name: 'razor_eye_of_the_storm', level: 3 },
+      { name: 'razor_static_link_awakened', level: 3 },
+      { name: 'razor_static_link_awakened_controller', level: 1, hidden: true },
+    ]);
+  });
+
+  it('keeps the awakened active ability unlearned while the hidden controller waits at level one', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_razor',
+      abilities: [{ name: 'razor_static_link', level: 0 }],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([
+      { name: 'razor_static_link_awakened', level: 0 },
+      { name: 'razor_static_link_awakened_controller', level: 1, hidden: true },
+    ]);
+  });
   it('命中配置的英雄返回 true 并应用替换', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_pudge',

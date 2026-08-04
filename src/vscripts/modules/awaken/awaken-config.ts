@@ -13,11 +13,26 @@ export interface AbilityReplacement {
   newLevel: number;
   /** 加新技能时改为继承此关联技能的当前等级（用于 LinkedAbility 同步升级的技能初始等级对齐），优先级高于 newLevel */
   inheritLevelFrom?: string;
+  /** ????????????????????????? */
+  newAbilityHidden?: boolean;
   /** 该标记技能可见期间新技能保持隐藏且不删 targetAbility（如上古巨神丢魂中途不打断原生召回流程） */
   keepHiddenWhile?: string;
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // ?? ??
+  {
+    heroName: 'npc_dota_hero_razor',
+    targetAbility: 'razor_static_link',
+    newAbility: 'razor_static_link_awakened',
+    newLevel: 0,
+  },
+  {
+    heroName: 'npc_dota_hero_razor',
+    newAbility: 'razor_static_link_awakened_controller',
+    newLevel: 1,
+    newAbilityHidden: true,
+  },
   // 戴泽 觉醒
   {
     heroName: 'npc_dota_hero_dazzle',
@@ -228,6 +243,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_razor', // ??
   'npc_dota_hero_dazzle', // 戴泽
   'npc_dota_hero_elder_titan', // 上古巨神
   'npc_dota_hero_techies', // 炸弹人
