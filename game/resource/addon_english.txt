@@ -2032,6 +2032,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing movement speed, and reducing vision to a consistent 600. Bonus damage is added based on Yukari's Intelligence."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_yukari_tentacles_radius" "RADIUS:"
 		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"BONUS DAMAGE PER INT:"
 		"DOTA_Tooltip_ability_yukari_tentacles_duration" "DURATION:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%MOVEMENT SPEED SLOW:"

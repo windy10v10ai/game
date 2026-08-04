@@ -1126,7 +1126,11 @@
 		"AbilityValues"
 		{
 			"amp_pct"					"8 10 12 14 16"
-			"radius"					"450"
+			"radius"
+			{
+				"value"						"450"
+				"affected_by_aoe_increase"	"1"
+			}
 			"slow_amount"				"-30 -35 -40 -45 -50"
 			"duration"					"3"
 			"damage"
@@ -1193,7 +1197,11 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.0"
 			"range"					"2000"
-			"width"					"350"
+			"width"
+			{
+				"value"						"350"
+				"affected_by_aoe_increase"	"1"
+			}
 			"speed"					"2000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1260,7 +1268,11 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.5"
 			"range"					"4000"
-			"width"					"400"
+			"width"
+			{
+				"value"						"400"
+				"affected_by_aoe_increase"	"1"
+			}
 			"speed"					"4000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1645,7 +1657,11 @@
 			"bonus_attackspeed"				"30 45 60 75 90"
 			"super_saiyan_tick"				"0.2"
 			"super_saiyan_range"			"900"
-			"super_saiyan_radius"			"400"
+			"super_saiyan_radius"
+			{
+				"value"						"400"
+				"affected_by_aoe_increase"	"1"
+			}
 			"super_saiyan_cooldown"			"14"
 		}
 
@@ -1763,7 +1779,11 @@
 			"channel"					"2"
 			"visionRange_max"			"2500"
 			"damage_max"				"1500"
-			"radius_max"				"400"
+			"radius_max"
+			{
+				"value"						"400"
+				"affected_by_aoe_increase"	"1"
+			}
 			"speed"						"2500"
 		}
 
@@ -2034,8 +2054,16 @@
 		}
 		"AbilityValues"
 		{
-			"min_radius"	"750"
-			"max_radius"	"750"
+			"min_radius"
+			{
+				"value"						"750"
+				"affected_by_aoe_increase"	"1"
+			}
+			"max_radius"
+			{
+				"value"						"750"
+				"affected_by_aoe_increase"	"1"
+			}
 			"target_range"	"0"
 			"barrage_spawn_point"	"16"
 			"barrage_fire_interval"	"0.1"
@@ -2310,7 +2338,11 @@
 			"AbilityCooldown"		"90"
 			"AbilityManaCost"		"160"
 			// "radius_normal"			"200"
-			"radius_active"			"400"
+			"radius_active"
+			{
+				"value"						"400"
+				"affected_by_aoe_increase"	"1"
+			}
 			"duration"				"30"
 		}
 	}
@@ -2418,7 +2450,11 @@
 				"value"									"150"
 				"special_bonus_unique_sword_master_2"	"+80"
 			}
-			"radius"						"350"
+			"radius"
+			{
+				"value"						"350"
+				"affected_by_aoe_increase"	"1"
+			}
 			"damage_bonus"					"100 160 220 280 340"
 		}
 	}
@@ -2565,7 +2601,11 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"damage_crit"				"180 260 340"
-			"radius"					"350"
+			"radius"
+			{
+				"value"						"350"
+				"affected_by_aoe_increase"	"1"
+			}
 			"AbilityCooldown"
 			{
 				"value"									"25"
