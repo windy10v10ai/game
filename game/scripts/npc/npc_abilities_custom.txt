@@ -1197,7 +1197,11 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.0"
 			"range"					"2000"
-			"width"					"350"
+			"width"
+			{
+				"value"						"350"
+				"affected_by_aoe_increase"	"1"
+			}
 			"speed"					"2000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1264,7 +1268,11 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.5"
 			"range"					"4000"
-			"width"					"400"
+			"width"
+			{
+				"value"						"400"
+				"affected_by_aoe_increase"	"1"
+			}
 			"speed"					"4000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"

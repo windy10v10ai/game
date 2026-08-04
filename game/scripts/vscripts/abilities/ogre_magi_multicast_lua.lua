@@ -104,6 +104,7 @@ no_support_abilitys = {
 	ability_fate_roulette = 1,                     -- 命运轮盘（重复施放只会刷新自身状态）
 	venomancer_plague_ward = 1,                     -- 剧毒术士 瘟疫守卫
 	enchantress_enchant = 1,                        -- 魅惑魔女 魅惑
+	undying_tombstone = 1,                          -- 不朽尸王 墓碑
 }
 no_support_items = {
 	-- 消耗品
