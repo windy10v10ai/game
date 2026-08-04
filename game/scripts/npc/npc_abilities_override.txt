@@ -10266,17 +10266,17 @@
 			"initial_projectile_speed"
 			{
 				"value"						"1050"
-				"special_bonus_unique_lich_upgrade"	"=1575"
+				"special_bonus_unique_lich_upgrade"	"=1400"
 			}
 			"projectile_speed"
 			{
 				"value"						"850"
-				"special_bonus_unique_lich_upgrade"	"=1275"
+				"special_bonus_unique_lich_upgrade"	"=1100"
 			}
 			"jump_range"
 			{
 				"value"						"800"	// 550
-				"special_bonus_unique_lich_upgrade"	"=1100"
+				"special_bonus_unique_lich_upgrade"	"=1000"
 			}
 			"slow_duration"
 			{

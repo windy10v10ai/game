@@ -163,7 +163,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.5</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.6</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
@@ -1205,7 +1205,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>烈日炙烤 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤的光束末端对目标造成的伤害与治疗更高。光束强度从 %hotspot_start_length_pct%%% 长度处开始增强，在 %hotspot_reference_length% 距离处达到基础伤害/治疗的 %hotspot_end_multiplier_pct%%%。若光束长度进一步增加，末端的伤害和治疗量会继续提高。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>烈日炙烤 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 200%% 伤害和治疗。光束更长时，末端效果继续提高。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 180%% 伤害和治疗。光束更长时，末端效果继续提高。"
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
@@ -1235,7 +1235,7 @@
 
 		// 军团指挥官 自动决斗-觉醒
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>自动决斗·觉醒</font>"
-		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>自动施法：</font>开启后，若决斗可以施放，则自动对决斗施法距离外额外%bonus_cast_range%范围内最近的可见敌方英雄施放决斗。不会选择幻象，只有大概率能击杀目标、且不会让自身陷入残血时才会触发。<br><br>自动决斗会无视并消耗目标的被动法术格挡与反弹效果。<br><br>决斗期间，军团指挥官获得黑皇杖的魔法免疫效果，目标无法被选中。"
+		"DOTA_Tooltip_ability_legion_commander_auto_duel_Description"						"<font color='#00CED1'>自动施法：</font>开启后，若决斗可以施放，则自动对决斗施法距离外额外%bonus_cast_range%范围内最近的可见敌方英雄施放决斗。不会选择幻象，只有大概率能击杀目标、且不会让自身陷入残血时才会触发。<br><br>自动决斗会无视并消耗目标的被动法术格挡与反弹效果。<br><br>决斗期间，军团指挥官获得<font color='#FFCC66'>黑皇杖</font>效果，目标无法被选中。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_Lore"							"荣誉无需邀约，最近的敌人就是对手。"
 		"DOTA_Tooltip_ability_legion_commander_auto_duel_bonus_cast_range"				"额外自动决斗范围："
 		"DOTA_Tooltip_modifier_legion_commander_auto_duel_target_unselectable"	"自动决斗：无法选中"
@@ -1258,7 +1258,7 @@
 
 		// 幻影刺客 幻影突袭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade"				"<font color='#d000ff'>幻影突袭 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>魔法免疫</font>，并自动发起攻击。<br><br>窒碍短匕弹道速度提升。施放窒碍短匕后获得短暂<font color='#FFCC66'>魔法免疫</font>。"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>黑皇杖</font>效果，并自动发起攻击。<br><br>窒碍短匕弹道速度提升。施放窒碍短匕后获得短暂<font color='#FFCC66'>黑皇杖</font>效果。"
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"攻击速度加成："
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"持续时间："
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Lore"						"RN: 这下敢B上去了吧"
@@ -1271,9 +1271,9 @@
 
 		// 影魔 安魂曲护体-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
+		"DOTA_Tooltip_ability_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>黑皇杖</font>效果，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade"					"<font color='#d000ff'>魂之挽歌护体 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>魔法免疫</font>，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nevermore_upgrade_Description"		"释放魂之挽歌的施法前摇期间，影魔获得<font color='#FFCC66'>黑皇杖</font>效果，避免被控制打断。<br><br>支配死灵击杀英雄获得<font color='#FFFFFF'><b>10</b></font>个灵魂，击杀小兵获得<font color='#FFFFFF'><b>3</b></font>个灵魂。<br><br>提升施法速度<font color='#FFFFFF'><b>50%%</b></font>，降低暗影压制与魂之挽歌的施法抬手时间。"
 
 		// 卓尔游侠 裂影箭
 		"DOTA_Tooltip_ability_special_bonus_unique_drow_ranger_upgrade"					"<font color='#d000ff'>裂影箭 觉醒</font>"
@@ -1293,9 +1293,9 @@
 
 		// 齐天大圣-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+		"DOTA_Tooltip_ability_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>黑皇杖</font>效果，持续到大招结束。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade"					"<font color='#d000ff'>齐天大圣 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>技能免疫</font>，持续到大招结束。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_monkey_king_upgrade_Description"		"棒击大地额外伤害提升<font color='#FFFFFF'><b>200</b></font>，施法距离提升<font color='#FFFFFF'><b>700</b></font>。<br>可以在被控制状态下施放斗战胜佛。<br>施放斗战胜佛时获得<font color='#FFCC66'>黑皇杖</font>效果，持续到大招结束。"
 
 		// 寒冬飞龙-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_winter_wyvern_upgrade"					"<font color='#d000ff'>寒冬诅咒 觉醒</font>"
@@ -1310,9 +1310,9 @@
 
 		// 发条技师-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_ability_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>黑皇杖</font>效果，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade"					"<font color='#d000ff'>发条 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>技能免疫</font>，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_Description"		"施放能量齿轮后获得<font color='#FFCC66'>黑皇杖</font>效果，持续<font color='#FFFFFF'><b>3</b></font>秒，期间受到的伤害降低<font color='#FFFFFF'><b>60%%</b></font>。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
@@ -1326,17 +1326,17 @@
 		"DOTA_Tooltip_modifier_doom_bringer_doom_awakened_carrier_Description"	"%dMODIFIER_PROPERTY_TOOLTIP%范围内的敌人持续受到末日效果。"
 		// 斯温-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，持续%duration%秒，期间力量提升%strength_bonus%点，攻击速度提升%attackspeed_bonus%点。"
+		"DOTA_Tooltip_ability_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>黑皇杖</font>效果，持续%duration%秒，期间力量提升%strength_bonus%点，攻击速度提升%attackspeed_bonus%点。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade"					"<font color='#d000ff'>斯温 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>技能免疫</font>，并短暂提升力量与攻击速度。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_Description"		"施放风暴之拳后获得<font color='#FFCC66'>黑皇杖</font>效果，并短暂提升力量与攻击速度。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff"				"斯温 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_sven_upgrade_buff_Description"	"力量提升%dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS%点，攻击速度提升%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%点。"
 
 		// 水晶室女 极寒领域-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_ability_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>黑皇杖</font>效果。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade"						"<font color='#d000ff'>极寒领域 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>技能免疫</font>。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_Description"			"施放极寒领域获得<font color='#FFCC66'>黑皇杖</font>效果。<br><br>同时获得<font color='#FFFFFF'>法术抵抗</font>，持续<font color='#FFFFFF'><b>10</b></font>秒，抵挡一次敌方指向性法术后消失。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield"				"极寒领域 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_crystal_maiden_upgrade_shield_Description"	"获得<font color='#FFFFFF'>法术抵抗</font>，抵挡一次敌方指向性法术。"
 
@@ -1352,7 +1352,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"聚光层数上限："
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"聚光持续时间："
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>冲击波 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>25</b></font>%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>20</b></font>%%。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"聚光"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"冲击波伤害提高<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>。"
 
@@ -1859,6 +1859,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"
+		"DOTA_Tooltip_ability_yukari_tentacles_radius"	"作用范围："
 		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"智力伤害系数:"
 		"DOTA_Tooltip_ability_yukari_tentacles_duration"	"间隙持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%移动速度降低:"
@@ -3422,7 +3423,7 @@
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_health_regen"						"+$hp_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_mana_regen"						"+$mana_regen"
 		"DOTA_Tooltip_ability_item_beast_armor_bonus_aoe"								"+$aoe_bonus"
-		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage"							"+$damage"
+		"DOTA_Tooltip_ability_item_beast_armor_bonus_damage_passive"					"+$damage"
 		"DOTA_Tooltip_ability_item_beast_armor_evasion"									"%+$evasion"
 
 		"DOTA_Tooltip_modifier_item_beast_armor_debuff"									"极寒冲击"
@@ -3500,6 +3501,11 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍的魔法伤害，并叠加1层寒灾印记，持续<font color='#FFFFFF'><b>8</b></font>秒，叠满<font color='#FFFFFF'><b>3</b></font>层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在<font color='#FFFFFF'><b>350</b></font>范围内造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人<font color='#FFFFFF'><b>0.6</b></font>秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"寒灾印记"
 		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"达到3层时触发寒灾冰爆；巫妖也可使用寒霜爆发提前引爆。"
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>薄葬 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 
 		// 德鲁伊 觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>共生灵熊·觉醒</font>"

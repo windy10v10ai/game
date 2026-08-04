@@ -1,8 +1,8 @@
 import { LotteryDto } from '../../../../common/dto/lottery';
-import { ApiClient } from '../../../api/api-client';
 import { GA4PickItemTracker } from '../../../api/analytics/ga4/ga4-pick-item-tracker';
-import { PlayerMemberPointApi } from '../../../api/player-member-point';
+import { ApiClient } from '../../../api/api-client';
 import { MemberLevel, Player } from '../../../api/player';
+import { PlayerMemberPointApi } from '../../../api/player-member-point';
 import { reloadable } from '../../../utils/tstl-utils';
 import { PlayerHelper } from '../../helper/player-helper';
 import { ItemLotteryHelper, ItemLotteryPool } from './item-lottery-helper';
@@ -68,8 +68,7 @@ export class ItemLottery {
       return;
     }
 
-    // 用 CreateItem 提前指定 purchaser=undefined 再加进 inventory，
-    // 让引擎从一开始就不把它当作"刚购买的"——既能立即使用，又按半价出售。
+    // CreateItem 时 purchaser 传 undefined 避免引擎按"刚购买"处理（能立即使用、半价出售）
     const item = CreateItem(matched.name, undefined, undefined);
     if (item !== undefined) {
       hero.AddItem(item);
@@ -86,6 +85,12 @@ export class ItemLottery {
     });
 
     GA4PickItemTracker.SendPick(playerId, matched.name, matched.level);
+
+    // 英雄有同名可叠加物品，添加后item会消失，必须判定非 undefined 才能 SetPurchaser
+    if (item !== undefined) {
+      // 防止属性书等物品无法合成
+      item.SetPurchaser(hero);
+    }
   }
 
   refreshItem(playerId: PlayerID): void {
