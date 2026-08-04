@@ -99,6 +99,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
 
 
     ["elder_titan_ancestral_spirit"] = true,
+    ["elder_titan_ancestral_spirit_awaken"] = true, -- 上古巨神 灵体游魂 觉醒
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降

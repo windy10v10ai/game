@@ -89,6 +89,7 @@ no_support_abilitys = {
 	ancient_apparition_ice_blast = 1,               -- 冰晶爆轰
 	ancient_apparition_ice_blast_release = 1,       -- 冰晶爆轰
 	elder_titan_ancestral_spirit = 1,               -- 灵体游魂
+	elder_titan_ancestral_spirit_awaken = 1,        -- 上古巨神 灵体游魂 觉醒
 	primal_beast_onslaught = 1,                     -- 獸 突
 	hoodwink_sharpshooter = 1,                      -- 一箭穿心
 	hoodwink_sharpshooter_release = 1,              -- 一箭穿心
