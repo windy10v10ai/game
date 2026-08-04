@@ -1021,16 +1021,8 @@
 		// Ability Values		//------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"start_radius"
-			{
-				"value"						"300"
-				"affected_by_aoe_increase"	"1"
-			}
-			"end_radius"
-			{
-				"value"						"300"
-				"affected_by_aoe_increase"	"1"
-			}
+			"start_radius"			"300"
+			"end_radius"			"300"
 			"speed"					"1500.0"
 			"cast_range"			"650"
 			"stun_duration"			"1 1.1 1.2 1.3 1.4"
@@ -1205,11 +1197,7 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.0"
 			"range"					"2000"
-			"width"
-			{
-				"value"						"350"
-				"affected_by_aoe_increase"	"1"
-			}
+			"width"					"350"
 			"speed"					"2000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1276,11 +1264,7 @@
 			"cast_delay"			"1.0"
 			"duration"				"2.5"
 			"range"					"4000"
-			"width"
-			{
-				"value"						"400"
-				"affected_by_aoe_increase"	"1"
-			}
+			"width"					"400"
 			"speed"					"4000.0"
 			"interval"				"0.2"
 			"AbilityCooldown"
@@ -1880,11 +1864,7 @@
 				"special_bonus_unique_yukari_01_stun" "+0.6"
 			}
 			"speed"			"1200"
-			"radius"
-			{
-				"value"						"150"
-				"affected_by_aoe_increase"	"1"
-			}
+			"radius"		"150"
 			"range"			"1200"
 			"num"			"6"
 			"cast_range"	"1200"
@@ -2066,11 +2046,7 @@
 		}
 		"AbilityValues"
 		{
-			"min_radius"
-			{
-				"value"						"750"
-				"affected_by_aoe_increase"	"1"
-			}
+			"min_radius"	"750"
 			"max_radius"
 			{
 				"value"						"750"
@@ -2080,17 +2056,9 @@
 			"barrage_spawn_point"	"16"
 			"barrage_fire_interval"	"0.1"
 			"barrage_damage"	"200"
-			"barrage_radius"
-			{
-				"value"						"750"
-				"affected_by_aoe_increase"	"1"
-			}
+			"barrage_radius"	"750"
 			"ex_damage"			"50"
-			"wanbaochui_radius"
-			{
-				"value"						"750"
-				"affected_by_aoe_increase"	"1"
-			}
+			"wanbaochui_radius"	"750"
 			"int_bonus"			"4"
 			"stun_duration"
 			{
