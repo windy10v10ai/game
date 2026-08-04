@@ -510,6 +510,12 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// Skywrath Mage Staff of the Scion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"							"<font color='#d000ff'>Посох отпрыска · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"	"Каждый раз, когда Skywrath Mage наносит магический урон способностью, перезарядка всех его способностей, кроме предметов, сокращается на %cooldown_reduction% сек.<br><br><font color='#FF0000'>Щёлкните правой кнопкой мыши, чтобы включить или выключить автоприменение.</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade"					"<font color='#d000ff'>Посох отпрыска · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade_Description"	"Каждый раз, когда Skywrath Mage наносит магический урон способностью, перезарядка всех его способностей, кроме предметов, сокращается."
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на %attack_range_tooltip%."

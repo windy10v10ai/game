@@ -1255,6 +1255,12 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"Healing Reduction:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
 
+		// Skywrath Mage Staff of the Scion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"							"<font color='#d000ff'>Staff of the Scion Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"	"Every time Skywrath Mage deals magic damage with an ability, he reduces all his non-item ability cooldowns by %cooldown_reduction%s.<br><br><font color='#FF0000'>Right-click to toggle autocast.</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade"					"<font color='#d000ff'>Staff of the Scion Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade_Description"	"Every time Skywrath Mage deals magic damage with an ability, all his non-item ability cooldowns are reduced."
+
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When autocast is enabled, Zeus automatically casts Arc Lightning and Lightning Bolt on enemies within cast range.<br><br>Prioritizes heroes. Casts only Arc Lightning when only creeps are in range."

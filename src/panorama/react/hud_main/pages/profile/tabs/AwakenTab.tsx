@@ -50,6 +50,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_skywrath_mage',
+    abilityName: 'special_bonus_unique_skywrath_upgrade',
+  },
+  {
     heroName: 'npc_dota_hero_crystal_maiden',
     abilityName: 'special_bonus_unique_crystal_maiden_upgrade',
     freeTrial: true,

@@ -24,6 +24,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_dazzle_upgrade',
     newLevel: 1,
   },
+  // 天怒法师 觉醒
+  {
+    heroName: 'npc_dota_hero_skywrath_mage',
+    newAbility: 'special_bonus_unique_skywrath_upgrade',
+    newLevel: 1,
+  },
   // 上古巨神 觉醒
   {
     heroName: 'npc_dota_hero_elder_titan',
