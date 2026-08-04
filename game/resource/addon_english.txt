@@ -3496,5 +3496,10 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Non-hero deaths reduce them by <font color='#FFFFFF'><b>0.2</b></font>s; hero deaths reduce them by <font color='#FFFFFF'><b>3</b></font>s."
 
+		// 德鲁伊 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>Symbiotic Spirit Bear Awakening</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade_Description"		"Spirit Bear inherits all of Lone Druid's currently active out-of-game properties and bonus ability points.<br>It also synchronizes the current levels of abilities gained from the starting lottery, Ability Reset Tome, and Passive Skill Tome."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>Symbiotic Spirit Bear Awakening</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade_Description"		"Your Spirit Bear inherits all out-of-game properties, bonus ability points, and current extra abilities. Ability resets and abilities granted by the Passive Skill Tome synchronize automatically."
 	}
 }
