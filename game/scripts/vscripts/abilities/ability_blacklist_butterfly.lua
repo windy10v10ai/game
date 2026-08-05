@@ -100,6 +100,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
 
     ["elder_titan_ancestral_spirit"] = true,
     ["elder_titan_ancestral_spirit_awaken"] = true, -- 上古巨神 灵体游魂 觉醒
+    ["elder_titan_return_spirit"] = true,           -- 上古巨神 召回游魂
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降
@@ -143,6 +144,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["ancient_apparition_ice_blast"] = true,               -- 冰魂 寒冰爆破
     ["phantom_assassin_phantom_strike_datadriven"] = true, -- 幻刺b觉醒
     ["keeper_of_the_light_illuminate"] = true,              -- 光之守卫 冲击波
+    ["keeper_of_the_light_illuminate_end"] = true,          -- 光之守卫 冲击波 释放
     ["special_bonus_unique_keeper_of_the_light_upgrade"] = true, -- 光之守卫 冲击波 觉醒
 
     -- ========================================
@@ -252,6 +254,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["pudge_meat_hook_lua"] = true,
     ["centaur_mount"] = true,
     ["techies_reactive_tazer"] = true,
+    ["techies_reactive_tazer_detonate"] = true, -- 炸弹人 引爆电击
     --幽鬼
     ["spectre_shadow_step"] = true,
     ["spectre_reality"] = true,
