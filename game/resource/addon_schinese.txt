@@ -1318,7 +1318,7 @@
 
 		// 末日使者-觉醒
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，末日额外施加<font color='#DD621E'>破坏</font>效果，并可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"范围末日持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"每秒伤害："
@@ -1859,6 +1859,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"
+		"DOTA_Tooltip_ability_yukari_tentacles_radius"	"作用范围："
 		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"智力伤害系数:"
 		"DOTA_Tooltip_ability_yukari_tentacles_duration"	"间隙持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%移动速度降低:"

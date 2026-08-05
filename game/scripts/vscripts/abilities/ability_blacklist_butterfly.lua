@@ -99,6 +99,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
 
 
     ["elder_titan_ancestral_spirit"] = true,
+    ["elder_titan_ancestral_spirit_awaken"] = true, -- 上古巨神 灵体游魂 觉醒
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降
@@ -108,6 +109,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["furion_force_of_nature"] = true,    -- 先知 自然之力
     ["zuus_cloud"] = true,                -- 宙斯 雷云
     ["venomancer_plague_ward"] = true,    -- 剧毒术士 瘟疫守卫
+    ["undying_tombstone"] = true,         -- 不朽尸王 墓碑
 
     -- ========================================
     -- 持续施法/引导类技能
@@ -140,6 +142,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["morphling_replicate"] = true,                        -- 水人 复制
     ["ancient_apparition_ice_blast"] = true,               -- 冰魂 寒冰爆破
     ["phantom_assassin_phantom_strike_datadriven"] = true, -- 幻刺b觉醒
+    ["keeper_of_the_light_illuminate"] = true,              -- 光之守卫 冲击波
+    ["special_bonus_unique_keeper_of_the_light_upgrade"] = true, -- 光之守卫 冲击波 觉醒
 
     -- ========================================
     -- 取消/停止类技能

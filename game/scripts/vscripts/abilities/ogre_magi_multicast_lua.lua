@@ -51,6 +51,7 @@ no_support_abilitys = {
 	invoker_sun_strike = 1,
 	invoker_forge_spirit = 1,
 	axe_culling_blade = 1,
+	techies_suicide = 1,                            -- 炸弹人 自爆
 	ogre_magi_ignite = 1,
 	viper_viper_strike = 1,
 	death_prophet_carrion_swarm = 1,
@@ -89,6 +90,7 @@ no_support_abilitys = {
 	ancient_apparition_ice_blast = 1,               -- 冰晶爆轰
 	ancient_apparition_ice_blast_release = 1,       -- 冰晶爆轰
 	elder_titan_ancestral_spirit = 1,               -- 灵体游魂
+	elder_titan_ancestral_spirit_awaken = 1,        -- 上古巨神 灵体游魂 觉醒
 	primal_beast_onslaught = 1,                     -- 獸 突
 	hoodwink_sharpshooter = 1,                      -- 一箭穿心
 	hoodwink_sharpshooter_release = 1,              -- 一箭穿心
@@ -103,6 +105,9 @@ no_support_abilitys = {
 	ability_fate_roulette = 1,                     -- 命运轮盘（重复施放只会刷新自身状态）
 	venomancer_plague_ward = 1,                     -- 剧毒术士 瘟疫守卫
 	enchantress_enchant = 1,                        -- 魅惑魔女 魅惑
+	undying_tombstone = 1,                          -- 不朽尸王 墓碑
+	keeper_of_the_light_illuminate = 1,             -- 光之守卫 冲击波
+	special_bonus_unique_keeper_of_the_light_upgrade = 1, -- 光之守卫 冲击波 觉醒
 }
 no_support_items = {
 	-- 消耗品

@@ -38,7 +38,7 @@ global.PlayerResource = {
 };
 
 // CreateItem 全局函数 mock：返回一个带 name 字段的伪 item 用于断言
-global.CreateItem = jest.fn((name: string) => ({ name }));
+global.CreateItem = jest.fn((name: string) => ({ name, SetPurchaser: jest.fn() }));
 
 jest.mock('../../helper/player-helper', () => ({
   PlayerHelper: {
@@ -149,7 +149,7 @@ describe('ItemLottery', () => {
         } as any,
       );
       expect(global.CreateItem).toHaveBeenCalledWith(target.name, undefined, undefined);
-      expect(mockHero.AddItem).toHaveBeenCalledWith({ name: target.name });
+      expect(mockHero.AddItem).toHaveBeenCalledWith(expect.objectContaining({ name: target.name }));
       // 选完后写空 candidates 清行
       expect(netTable['lottery_item']['3'].candidates).toEqual([]);
       expect(netTable['lottery_item']['3'].isRefreshed).toBe(false);
