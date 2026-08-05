@@ -51,6 +51,7 @@ no_support_abilitys = {
 	invoker_sun_strike = 1,
 	invoker_forge_spirit = 1,
 	axe_culling_blade = 1,
+	techies_suicide = 1,                            -- 炸弹人 自爆
 	ogre_magi_ignite = 1,
 	viper_viper_strike = 1,
 	death_prophet_carrion_swarm = 1,
