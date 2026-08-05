@@ -12,22 +12,22 @@ export function isDoomAwakenedFriendlyTarget({
   return hasScepter && sameTeam && isRealHero;
 }
 
-export interface DoomAwakenedTalentStateInput {
+export interface DoomAwakenedStateInput {
   hasMuteTalent: boolean;
-  hasBreakTalent: boolean;
+  doesBreak: boolean;
 }
 
-export interface DoomAwakenedTalentStates {
+export interface DoomAwakenedStates {
   muted: boolean;
   passivesDisabled: boolean;
 }
 
-export function getDoomAwakenedTalentStates({
+export function getDoomAwakenedStates({
   hasMuteTalent,
-  hasBreakTalent,
-}: DoomAwakenedTalentStateInput): DoomAwakenedTalentStates {
+  doesBreak,
+}: DoomAwakenedStateInput): DoomAwakenedStates {
   return {
     muted: hasMuteTalent,
-    passivesDisabled: hasBreakTalent,
+    passivesDisabled: doesBreak,
   };
 }

@@ -51,6 +51,7 @@ no_support_abilitys = {
 	invoker_sun_strike = 1,
 	invoker_forge_spirit = 1,
 	axe_culling_blade = 1,
+	techies_suicide = 1,                            -- 炸弹人 自爆
 	ogre_magi_ignite = 1,
 	viper_viper_strike = 1,
 	death_prophet_carrion_swarm = 1,
@@ -105,6 +106,8 @@ no_support_abilitys = {
 	venomancer_plague_ward = 1,                     -- 剧毒术士 瘟疫守卫
 	enchantress_enchant = 1,                        -- 魅惑魔女 魅惑
 	undying_tombstone = 1,                          -- 不朽尸王 墓碑
+	keeper_of_the_light_illuminate = 1,             -- 光之守卫 冲击波
+	special_bonus_unique_keeper_of_the_light_upgrade = 1, -- 光之守卫 冲击波 觉醒
 }
 no_support_items = {
 	-- 消耗品
