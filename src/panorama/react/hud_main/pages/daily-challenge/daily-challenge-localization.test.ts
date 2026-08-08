@@ -1,5 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+/// <reference types="node" />
+import * as fs from 'fs';
+import * as path from 'path';
 
 const resourceRoot = path.resolve(__dirname, '../../../../../../game/resource');
 const localizationFiles = ['addon_schinese.txt', 'addon_english.txt', 'addon_russian.txt'];

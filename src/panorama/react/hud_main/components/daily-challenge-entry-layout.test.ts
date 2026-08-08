@@ -1,5 +1,6 @@
-const fs = require('fs');
-const path = require('path');
+/// <reference types="node" />
+import * as fs from 'fs';
+import * as path from 'path';
 
 function read(relativePath) {
   return fs.readFileSync(path.resolve(__dirname, relativePath), 'utf8');
@@ -33,6 +34,9 @@ describe('hero selection entry layout', () => {
     const dailyLeft = readMarginLeft(styles, 'hud-hero-select-daily-challenge-entry-btn');
     expect(profileLeft).toBe(100);
     expect(dailyLeft).toBe(160);
+    if (profileLeft === null || dailyLeft === null) {
+      throw new Error('expected both entry offsets to be present');
+    }
     expect(dailyLeft - profileLeft).toBeGreaterThanOrEqual(50);
     expect(dailyLeft).toBeLessThan(240);
   });

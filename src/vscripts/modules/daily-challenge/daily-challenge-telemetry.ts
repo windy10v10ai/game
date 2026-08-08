@@ -236,63 +236,108 @@ export class DailyChallengeTelemetry {
     if (!this.running) {
       return undefined;
     }
+    const deltaMs = this.getActiveModifierScanDeltaMs();
+    if (deltaMs === undefined) {
+      return SCAN_INTERVAL_SECONDS;
+    }
+    const activeByPlayerAndTarget = new Map<string, Set<ChallengeMetric>>();
+    const observedIgnoredModifiers = new Map<string, Set<CDOTA_Buff>>();
+    for (const target of this.deps.getBotHeroes()) {
+      this.collectTargetActiveModifierMetrics(
+        target,
+        activeByPlayerAndTarget,
+        observedIgnoredModifiers,
+      );
+    }
+    this.replaceIgnoredActiveModifiers(observedIgnoredModifiers);
+    this.applyActiveModifierMetrics(activeByPlayerAndTarget, deltaMs);
+    return SCAN_INTERVAL_SECONDS;
+  }
+
+  private getActiveModifierScanDeltaMs(): number | undefined {
     const now = this.deps.getGameTime();
     const rawDelta = Math.max(0, now - this.lastScanGameTime);
     this.lastScanGameTime = now;
-    if (rawDelta <= 0) {
-      return SCAN_INTERVAL_SECONDS;
-    }
-    const deltaMs = Math.min(rawDelta, MAX_SCAN_DELTA_SECONDS) * 1000;
-    const activeByPlayerAndTarget = new Map<string, Set<ChallengeMetric>>();
-    const observedIgnoredModifiers = new Map<string, Set<CDOTA_Buff>>();
+    return rawDelta > 0 ? Math.min(rawDelta, MAX_SCAN_DELTA_SECONDS) * 1000 : undefined;
+  }
 
-    for (const target of this.deps.getBotHeroes()) {
-      if (!this.isEnemyBotRealHero(target) || target.IsAlive?.() === false) {
+  private collectTargetActiveModifierMetrics(
+    target: DailyChallengeTelemetryEntity,
+    activeByPlayerAndTarget: Map<string, Set<ChallengeMetric>>,
+    observedIgnoredModifiers: Map<string, Set<CDOTA_Buff>>,
+  ): void {
+    if (!this.isEnemyBotRealHero(target) || target.IsAlive?.() === false) return;
+    const targetPlayerId = target.GetPlayerOwnerID?.();
+    if (targetPlayerId === undefined) return;
+    for (const modifier of target.FindAllModifiers?.() ?? []) {
+      this.collectActiveModifierMetrics(
+        target,
+        targetPlayerId,
+        modifier,
+        activeByPlayerAndTarget,
+        observedIgnoredModifiers,
+      );
+    }
+  }
+
+  private collectActiveModifierMetrics(
+    target: DailyChallengeTelemetryEntity,
+    targetPlayerId: PlayerID,
+    modifier: CDOTA_Buff,
+    activeByPlayerAndTarget: Map<string, Set<ChallengeMetric>>,
+    observedIgnoredModifiers: Map<string, Set<CDOTA_Buff>>,
+  ): void {
+    if (modifier.IsNull() || !isActiveModifier(modifier)) return;
+    const caster = modifier.GetCaster() as DailyChallengeTelemetryEntity | undefined;
+    const auraOwner = modifier.GetAuraOwner() as DailyChallengeTelemetryEntity | undefined;
+    const playerId = resolveDailyChallengeHumanPlayerId(caster, auraOwner, this.deps);
+    if (playerId === undefined || !this.isEnemyTeam(playerId, target)) return;
+    const key = `${playerId}:${targetPlayerId}`;
+    const activeMetrics = activeByPlayerAndTarget.get(key) ?? new Set<ChallengeMetric>();
+    for (const metric of classifyDailyChallengeModifier(modifier, this.classifierConstants)) {
+      if (this.shouldIgnoreActiveModifier(playerId, metric, modifier, observedIgnoredModifiers)) {
         continue;
       }
-      const targetPlayerId = target.GetPlayerOwnerID?.();
-      if (targetPlayerId === undefined) {
-        continue;
-      }
-      for (const modifier of target.FindAllModifiers?.() ?? []) {
-        if (modifier.IsNull() || !isActiveModifier(modifier)) continue;
-        const caster = modifier.GetCaster() as DailyChallengeTelemetryEntity | undefined;
-        const auraOwner = modifier.GetAuraOwner() as DailyChallengeTelemetryEntity | undefined;
-        const playerId = resolveDailyChallengeHumanPlayerId(caster, auraOwner, this.deps);
-        if (playerId === undefined || !this.isEnemyTeam(playerId, target)) {
-          continue;
-        }
-        const key = `${playerId}:${targetPlayerId}`;
-        const activeMetrics = activeByPlayerAndTarget.get(key) ?? new Set<ChallengeMetric>();
-        for (const metric of classifyDailyChallengeModifier(modifier, this.classifierConstants)) {
-          const ignoreKey = this.activeModifierIgnoreKey(playerId, metric);
-          const ignoredModifiers = this.ignoredActiveModifiersByPlayerAndMetric.get(ignoreKey);
-          if (ignoredModifiers?.has(modifier)) {
-            const observed = observedIgnoredModifiers.get(ignoreKey) ?? new Set<CDOTA_Buff>();
-            observed.add(modifier);
-            observedIgnoredModifiers.set(ignoreKey, observed);
-            continue;
-          }
-          activeMetrics.add(metric);
-        }
-        activeByPlayerAndTarget.set(key, activeMetrics);
-      }
+      activeMetrics.add(metric);
     }
+    activeByPlayerAndTarget.set(key, activeMetrics);
+  }
 
+  private shouldIgnoreActiveModifier(
+    playerId: PlayerID,
+    metric: ChallengeMetric,
+    modifier: CDOTA_Buff,
+    observedIgnoredModifiers: Map<string, Set<CDOTA_Buff>>,
+  ): boolean {
+    const ignoreKey = this.activeModifierIgnoreKey(playerId, metric);
+    const ignoredModifiers = this.ignoredActiveModifiersByPlayerAndMetric.get(ignoreKey);
+    if (!ignoredModifiers?.has(modifier)) return false;
+    const observed = observedIgnoredModifiers.get(ignoreKey) ?? new Set<CDOTA_Buff>();
+    observed.add(modifier);
+    observedIgnoredModifiers.set(ignoreKey, observed);
+    return true;
+  }
+
+  private replaceIgnoredActiveModifiers(
+    observedIgnoredModifiers: Map<string, Set<CDOTA_Buff>>,
+  ): void {
     this.ignoredActiveModifiersByPlayerAndMetric.clear();
     for (const [key, modifiers] of observedIgnoredModifiers) {
       this.ignoredActiveModifiersByPlayerAndMetric.set(key, modifiers);
     }
+  }
 
+  private applyActiveModifierMetrics(
+    activeByPlayerAndTarget: Map<string, Set<ChallengeMetric>>,
+    deltaMs: number,
+  ): void {
     for (const [key, metrics] of activeByPlayerAndTarget) {
-      const separator = key.indexOf(':');
-      const playerId = Number(key.substring(0, separator));
+      const playerId = Number(key.substring(0, key.indexOf(':')));
       if (!Number.isFinite(playerId) || !this.deps.isValidPlayerId(playerId)) continue;
       for (const metric of metrics) {
         this.accumulator.add(playerId, metric, deltaMs);
       }
     }
-    return SCAN_INTERVAL_SECONDS;
   }
 
   private activeModifierIgnoreKey(playerId: PlayerID, metric: ChallengeMetric): string {

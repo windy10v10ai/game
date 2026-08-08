@@ -81,6 +81,8 @@ const createPlayer = (overrides: Partial<GameEndPlayerDto> = {}): GameEndPlayerD
   lastHits: 456,
   healing: 100000,
   towerKills: 7,
+  stuns: 0,
+  roshanKills: 0,
   awaken: 0,
   ...overrides,
 });

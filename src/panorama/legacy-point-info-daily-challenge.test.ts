@@ -1,9 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const vm = require('vm');
+/// <reference types="node" />
+import * as fs from 'fs';
+import * as path from 'path';
+import * as vm from 'vm';
 
-function loadPointInfo(language) {
-  const localized = {
+function loadPointInfo(language: string) {
+  const localized: Record<string, string> = {
     '#daily_challenge_reward_source_personal': '个人任务',
     '#daily_challenge_reward_source_global': '共同任务',
     '#daily_challenge_reward_source_streak': '连续完成奖励',
@@ -15,16 +16,26 @@ function loadPointInfo(language) {
     '#daily_challenge_task_global_hero_damage': '共同累计对敌方 Bot 造成{target}伤害',
     '#npc_dota_hero_crystal_maiden': '水晶室女',
   };
-  const dollar = jest.fn(() => ({ id: 'panel_id', style: {} }));
+  type DollarMock = jest.Mock<{ id: string; style: Record<string, never> }, []> & {
+    Msg: jest.Mock;
+    Schedule: jest.Mock;
+    Language: () => string;
+    Localize: (key: string) => string;
+  };
+  const dollar = jest.fn(() => ({ id: 'panel_id', style: {} })) as DollarMock;
   dollar.Msg = jest.fn();
   dollar.Schedule = jest.fn();
   dollar.Language = () => language;
   dollar.Localize = (key) => localized[key] ?? key;
-  const context = {
+  const baseContext = {
     $: dollar,
     CustomNetTables: { GetTableValue: jest.fn() },
     GetSteamAccountID: jest.fn(),
   };
+  type ScriptContext = typeof baseContext & {
+    BuildDailyChallengeRewardDisplay: (reward: Record<string, unknown>) => Record<string, string>;
+  };
+  const context = baseContext as ScriptContext;
   const source = fs.readFileSync(
     path.resolve(__dirname, '../../content/panorama/layout/custom_game/point_info/point_info.js'),
     'utf8',

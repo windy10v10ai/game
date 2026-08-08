@@ -1,6 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const vm = require('vm');
+/// <reference types="node" />
+import * as fs from 'fs';
+import * as path from 'path';
+import * as vm from 'vm';
 
 const xmlPath = path.resolve(
   __dirname,
@@ -13,7 +14,7 @@ const scriptPath = path.resolve(
 
 function createPanel() {
   const pointsContainer = {
-    events: {},
+    events: {} as Record<string, () => void>,
     SetPanelEvent: jest.fn(function setPanelEvent(name, callback) {
       this.events[name] = callback;
     }),
@@ -35,27 +36,34 @@ function createPanel() {
 }
 
 function loadEndScreen() {
-  const roots = {
+  const roots: Record<string, unknown> = {
     EndScreenWindow: { visible: false },
     TeamsContainer: { RemoveAndDeleteChildren: jest.fn() },
     EndScreenVictory: { text: '', style: {} },
     GameTime: { text: '' },
   };
-  const localized = {
+  const localized: Record<string, string> = {
     '#daily_challenge_end_screen_detail': '每日挑战 +{points}',
     '#daily_challenge_end_screen_total_points': '本局赛季积分 +{points}',
     '#daily_challenge_end_screen_match_points': '对局结算 +{points}',
     '#daily_challenge_end_screen_challenge_points': '每日挑战 +{points}',
     '#daily_challenge_end_screen_conduct_modifier': '行为分修正 {points}',
   };
-  const dollar = jest.fn((selector) => roots[selector.replace(/^#/, '')]);
+  type DollarMock = jest.Mock<unknown, [string]> & {
+    CreatePanel: jest.Mock;
+    Localize: jest.Mock<string, [string]>;
+    DispatchEvent: jest.Mock;
+    GetContextPanel: jest.Mock;
+    Msg: jest.Mock;
+  };
+  const dollar = jest.fn((selector: string) => roots[selector.replace(/^#/, '')]) as DollarMock;
   dollar.CreatePanel = jest.fn();
   dollar.Localize = jest.fn((key) => localized[key] ?? key);
   dollar.DispatchEvent = jest.fn();
   dollar.GetContextPanel = jest.fn(() => ({ RemoveClass: jest.fn() }));
   dollar.Msg = jest.fn();
 
-  const context = {
+  const baseContext = {
     $: dollar,
     GameUI: {
       CustomUIConfig: jest.fn(() => ({ _: {} })),
@@ -78,6 +86,12 @@ function loadEndScreen() {
     DotaDefaultUIElement_t: { DOTA_DEFAULT_UI_ENDGAME: 0 },
     find_hud_element: jest.fn(() => ({ visible: true })),
   };
+  type ScriptContext = typeof baseContext & {
+    OnPlayerStatsChanged: (table: string, key: string, stats: Record<string, number>) => void;
+    BuildEndScreenPointsDisplay: (stats: Record<string, number>) => Record<string, unknown>;
+    playerPanelsById: Record<string, ReturnType<typeof createPanel>>;
+  };
+  const context = baseContext as ScriptContext;
 
   vm.runInNewContext(fs.readFileSync(scriptPath, 'utf8'), context);
   return context;

@@ -1,5 +1,6 @@
-﻿const fs = require('fs');
-const path = require('path');
+/// <reference types="node" />
+import * as fs from 'fs';
+import * as path from 'path';
 
 const pagePath = path.join(__dirname, 'DailyChallengePage.tsx');
 const progressPath = path.join(__dirname, 'ChallengeProgress.tsx');
@@ -33,7 +34,7 @@ describe('daily challenge PC layout contract', () => {
   it('shows the current three-round state and a completed-task reward overview', () => {
     expect(page).toContain('#daily_challenge_round_progress');
     expect(page).toContain('#daily_challenge_personal_complete');
-    expect(page).toContain('completedTasks.map');
+    expect(page).toContain('tasks.map');
     expect(page).toContain('daily-challenge-completed-task-row');
   });
 
