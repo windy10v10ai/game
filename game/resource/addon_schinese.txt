@@ -502,10 +502,10 @@
 		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"	"击退距离："
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"		"减速持续时间："
 
-		"DOTA_Tooltip_ability_fountain_hp_aura"								"泉水生命光环"
-		"DOTA_Tooltip_ability_fountain_hp_aura_Description"					"提高周围单位的生命值上限。"
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"					"%额外生命值加成："
-		"DOTA_Tooltip_ability_fountain_hp_aura_radius"						"作用范围："
+		"DOTA_Tooltip_ability_fountain_armor_aura"							"泉水护甲光环"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"					"增加附近友军%bonus_armor%点护甲。"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"					"泉水魔抗光环"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"				"增加附近友军%bonus_magical_armor%%%魔法抗性。"
 		///////////////////////////////////////////////////
 		//
 		//			itembuilds

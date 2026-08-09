@@ -19,6 +19,8 @@ function item_withered_spring:OnSpellStart()
 
     -- 回血 音效
     caster:EmitSound("Item.GuardianGreaves.Activate")
+    local fx = ParticleManager:CreateParticle("particles/items3_fx/warmage.vpcf", PATTACH_ABSORIGIN, caster)
+    ParticleManager:ReleaseParticleIndex(fx)
 
     -- 添加主动buff
     caster:AddNewModifier(caster, self, "modifier_item_withered_spring_active",
@@ -55,22 +57,9 @@ function item_withered_spring:OnSpellStart()
         SendOverheadEventMessage(caster, OVERHEAD_ALERT_HEAL, ally, heal_amount, nil)
         SendOverheadEventMessage(caster, OVERHEAD_ALERT_MANA_ADD, ally, replenish_mana, nil)
 
-        -- 卫士胫甲绳索特效：CP0 施法者、CP1 受益目标，每个目标各起一个实例
-        local rope = ParticleManager:CreateParticle(
-            "particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_base.vpcf",
-            PATTACH_CUSTOMORIGIN,
-            caster
-        )
-        ParticleManager:SetParticleControlEnt(rope, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc",
-            caster:GetAbsOrigin(), true)
-        ParticleManager:SetParticleControlEnt(rope, 1, ally, PATTACH_POINT_FOLLOW, "attach_hitloc",
-            ally:GetAbsOrigin(), true)
-        -- puffs 子特效（目标周身光效）只走 CP4/5 这条多目标管线，不吃 CP0/1，需要单独补上
-        ParticleManager:SetParticleControlEnt(rope, 4, caster, PATTACH_POINT_FOLLOW, "attach_hitloc",
-            caster:GetAbsOrigin(), true)
-        ParticleManager:SetParticleControlEnt(rope, 5, ally, PATTACH_POINT_FOLLOW, "attach_hitloc",
-            ally:GetAbsOrigin(), true)
-        ParticleManager:ReleaseParticleIndex(rope)
+        local fx2 = ParticleManager:CreateParticle("particles/items3_fx/warmage_recipient.vpcf",
+            PATTACH_ABSORIGIN_FOLLOW, ally)
+        ParticleManager:ReleaseParticleIndex(fx2)
     end
 end
 

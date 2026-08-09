@@ -14,6 +14,7 @@ const DEBUFF_DURATION = 3;
 const LOCK_STACK_THRESHOLD = 3;
 
 const RETALIATION_PROJECTILE = 'particles/base_attacks/ranged_tower_bad.vpcf';
+const RETALIATION_HIT_SOUND = 'Hero_OgreMagi.Fireblast.Cast';
 const RETALIATION_EXPIRE_TIME = 10;
 
 @registerAbility('fountain_anti_camp')
@@ -29,6 +30,8 @@ export class AbilityFountainAntiCamp extends BaseAbility {
     const damage = target.GetMaxHealth() * this.GetSpecialValueFor('retaliation_damage_pct') * 0.01;
     if (damage <= 0) return;
 
+    // 致命伤会让目标立刻死亡，先发声再结算
+    target.EmitSound(RETALIATION_HIT_SOUND);
     ApplyDamage({
       victim: target,
       attacker: this.GetCaster(),

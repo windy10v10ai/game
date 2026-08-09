@@ -361,10 +361,10 @@
 		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"Дастанция отбрасывания: "
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"Длительность замедления: "
 
-		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
-		"DOTA_Tooltip_ability_fountain_hp_aura_Description"				"Повышает здоровье близлежащих союзников"
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"Бонус здоровья в процентах: "
-		"DOTA_Tooltip_ability_fountain_hp_aura_radius"					"Радиус:"
+		"DOTA_Tooltip_ability_fountain_armor_aura"						"Защитная аура фонтана"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Даёт %bonus_armor% брони ближайшим союзникам."
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Магическая аура фонтана"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Даёт %bonus_magical_armor%%% сопротивления магии ближайшим союзникам."
 		///////////////////////////////////////////////////
 		//
 		//            itembuilds
