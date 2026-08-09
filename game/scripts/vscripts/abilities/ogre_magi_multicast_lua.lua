@@ -91,6 +91,7 @@ no_support_abilitys = {
 	ancient_apparition_ice_blast_release = 1,       -- 冰晶爆轰
 	elder_titan_ancestral_spirit = 1,               -- 灵体游魂
 	elder_titan_ancestral_spirit_awaken = 1,        -- 上古巨神 灵体游魂 觉醒
+	elder_titan_return_spirit = 1,                  -- 上古巨神 召回游魂
 	primal_beast_onslaught = 1,                     -- 獸 突
 	hoodwink_sharpshooter = 1,                      -- 一箭穿心
 	hoodwink_sharpshooter_release = 1,              -- 一箭穿心
@@ -107,7 +108,9 @@ no_support_abilitys = {
 	enchantress_enchant = 1,                        -- 魅惑魔女 魅惑
 	undying_tombstone = 1,                          -- 不朽尸王 墓碑
 	keeper_of_the_light_illuminate = 1,             -- 光之守卫 冲击波
+	keeper_of_the_light_illuminate_end = 1,         -- 光之守卫 冲击波 释放
 	special_bonus_unique_keeper_of_the_light_upgrade = 1, -- 光之守卫 冲击波 觉醒
+	techies_reactive_tazer_detonate = 1,            -- 炸弹人 引爆电击
 }
 no_support_items = {
 	-- 消耗品
@@ -243,6 +246,13 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 
 		-- 英雄持续施法时 不触发多重
 		if keys.unit:IsChanneling() then
+			ability.multicast = nil
+			return nil
+		end
+
+		-- 隐藏技能多为槽位互换的子技能，在互换窗口外施放会让引擎再 swap 一次，
+		-- 把可见的主技能永久换到隐藏位。施法瞬间它仍可见，只能延迟到重放前才判定
+		if ability:IsHidden() then
 			ability.multicast = nil
 			return nil
 		end
