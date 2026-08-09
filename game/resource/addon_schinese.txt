@@ -163,7 +163,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.5</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.6</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
@@ -502,10 +502,10 @@
 		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"	"击退距离："
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"		"减速持续时间："
 
-		"DOTA_Tooltip_ability_fountain_hp_aura"								"泉水生命光环"
-		"DOTA_Tooltip_ability_fountain_hp_aura_Description"					"提高周围单位的生命值上限。"
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"					"%额外生命值加成："
-		"DOTA_Tooltip_ability_fountain_hp_aura_radius"						"作用范围："
+		"DOTA_Tooltip_ability_fountain_armor_aura"							"泉水护甲光环"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"					"增加附近友军%bonus_armor%点护甲。"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"					"泉水魔抗光环"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"				"增加附近友军%bonus_magical_armor%%%魔法抗性。"
 		///////////////////////////////////////////////////
 		//
 		//			itembuilds
@@ -1182,7 +1182,7 @@
 
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。仅组队模式下生效。"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。仅组队模式下生效。<br><br>范围内的电脑英雄被击杀时，会向击杀者发射追踪火球，无视魔免，造成相当于击杀者最大生命值%retaliation_damage_pct%%%的伤害。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"泉水制裁警告"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"靠近泉水时每秒叠加一层，叠满3层后将进入制裁状态。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"
@@ -1205,7 +1205,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>烈日炙烤 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤的光束末端对目标造成的伤害与治疗更高。光束强度从 %hotspot_start_length_pct%%% 长度处开始增强，在 %hotspot_reference_length% 距离处达到基础伤害/治疗的 %hotspot_end_multiplier_pct%%%。若光束长度进一步增加，末端的伤害和治疗量会继续提高。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>烈日炙烤 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 200%% 伤害和治疗。光束更长时，末端效果继续提高。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"烈日炙烤从光束 50%% 长度处开始增强，在 1200 距离处造成 180%% 伤害和治疗。光束更长时，末端效果继续提高。"
 
 		// 屠夫 肉钩-觉醒
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua"										"<font color='#d000ff'>肉钩 觉醒</font>"
@@ -1324,7 +1324,7 @@
 
 		// 末日使者-觉醒
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，末日额外施加<font color='#DD621E'>破坏</font>效果，并可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"范围末日持续时间："
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"每秒伤害："
@@ -1358,7 +1358,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"聚光层数上限："
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"聚光持续时间："
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>冲击波 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>25</b></font>%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"冲击波基础伤害提高<font color='#FFFFFF'><b>100</b></font>点，最大蓄力时间缩短至<font color='#FFFFFF'><b>1.5</b></font>秒，距离提高至<font color='#FFFFFF'><b>2300</b></font>，宽度提高至<font color='#FFFFFF'><b>600</b></font>，速度提高至<font color='#FFFFFF'><b>1350</b></font>。<br>每命中一名敌方英雄获得1层聚光，最多<font color='#FFFFFF'><b>10</b></font>层，持续<font color='#FFFFFF'><b>20</b></font>秒，每层使冲击波伤害提高<font color='#FFFFFF'><b>20</b></font>%%。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"聚光"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"冲击波伤害提高<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>。"
 
@@ -1865,6 +1865,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles"	"静观其变之眼"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description"	"在目标区域打开一个充满可怕触手的间隙，持续造成伤害，减慢敌人的移动速度，并将视野范围限制为600."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second"	"每秒伤害:"
+		"DOTA_Tooltip_ability_yukari_tentacles_radius"	"作用范围："
 		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"智力伤害系数:"
 		"DOTA_Tooltip_ability_yukari_tentacles_duration"	"间隙持续时间:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%移动速度降低:"

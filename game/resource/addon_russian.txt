@@ -110,6 +110,9 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// 泉水 制裁
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Вражеские герои под управлением игроков подвергаются санкции, приближаясь к радиусу атаки фонтана. Действует только в командном режиме.<br><br>Когда герой-бот погибает в этом радиусе, в убийцу выпускается самонаводящийся огненный шар, который проходит сквозь магический иммунитет и наносит урон, равный %retaliation_damage_pct%%% максимального здоровья убийцы."
+
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
@@ -127,7 +130,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в %trigger_cooldown% сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
 		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.5</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.6</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
 
 		// 术士 地狱火献祭-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
@@ -358,10 +361,10 @@
 		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"Дастанция отбрасывания: "
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"Длительность замедления: "
 
-		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
-		"DOTA_Tooltip_ability_fountain_hp_aura_Description"				"Повышает здоровье близлежащих союзников"
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"Бонус здоровья в процентах: "
-		"DOTA_Tooltip_ability_fountain_hp_aura_radius"					"Радиус:"
+		"DOTA_Tooltip_ability_fountain_armor_aura"						"Защитная аура фонтана"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Даёт %bonus_armor% брони ближайшим союзникам."
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Магическая аура фонтана"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Даёт %bonus_magical_armor%%% сопротивления магии ближайшим союзникам."
 		///////////////////////////////////////////////////
 		//
 		//            itembuilds
@@ -526,7 +529,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade"					"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_phoenix_upgrade_Description"		"Луч Sun Ray наносит больше урона и лечения целям у своего конца. Интенсивность луча начинает расти с %hotspot_start_length_pct%%% его длины и достигает %hotspot_end_multiplier_pct%%% базового урона и лечения на дальности %hotspot_reference_length%. Дальнейшее увеличение длины луча продолжает усиливать эффект на его конце."
 		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade"				"<font color='#d000ff'>Пробуждение: Солнечный луч</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 200%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
+		"DOTA_Tooltip_modifier_special_bonus_unique_phoenix_upgrade_Description"		"Sun Ray усиливается после 50%% длины луча и на дальности 1200 наносит 180%% урона и лечения. Более длинный луч продолжает усиливаться у своего конца."
 
 		// Legion Commander Auto Duel - Awakened
 		"DOTA_Tooltip_ability_legion_commander_auto_duel"									"<font color='#d000ff'>Автоматическая дуэль · Пробуждение</font>"
@@ -542,7 +545,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_max_focus_stacks"	"МАКС. ЗАРЯДОВ ФОКУСА:"
 		"DOTA_Tooltip_ability_special_bonus_unique_keeper_of_the_light_upgrade_focus_duration"	"ДЛИТЕЛЬНОСТЬ ФОКУСА:"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade"			"<font color='#d000ff'>Пробуждение Illuminate</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>25</b></font>%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_Description"	"Увеличивает базовый урон Illuminate на <font color='#FFFFFF'><b>100</b></font>, сокращает максимальное время накопления до <font color='#FFFFFF'><b>1.5</b></font> сек., увеличивает дальность до <font color='#FFFFFF'><b>2300</b></font>, ширину до <font color='#FFFFFF'><b>600</b></font> и скорость до <font color='#FFFFFF'><b>1350</b></font>.<br>За каждого задетого вражеского героя даётся 1 заряд Фокуса, максимум <font color='#FFFFFF'><b>10</b></font> зарядов длительностью <font color='#FFFFFF'><b>20</b></font> сек., каждый заряд увеличивает урон Illuminate на <font color='#FFFFFF'><b>20</b></font>%%."
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus"		"Фокус"
 		"DOTA_Tooltip_modifier_special_bonus_unique_keeper_of_the_light_upgrade_focus_Description"	"Урон Illuminate увеличен на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>."
 
@@ -550,7 +553,7 @@
 		"npc_treasure_chest"													"Сундук с сокровищами"
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> можно применить к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> Doom также накладывает <font color='#DD621E'>Разрушение</font> и может применяться к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"

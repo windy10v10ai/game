@@ -53,7 +53,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_satanic', // 撒旦之邪力
         'item_butterfly', // 蝴蝶刀
         'item_dodo_desolator', // 黯灭头
-        'item_angels_demise', // 天使陨落
         'item_sacred_trident', // 圣三叉戟
         'item_armlet_pro_max', // 臂章·终极
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
@@ -145,8 +144,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_basher', // 碎颅锤
         'item_hand_of_group', // 团队之手
         'item_desolator', // 黯灭
-        'item_octarine_core', // 玲珑心
-        'item_aether_lens_2', // 以太透镜2
+        'item_black_king_bar', // 黑皇杖
+        'item_echo_sabre_2', // 音速战刃
         'item_monkey_king_bar', // 金箍棒
       ],
       [ItemTier.T3]: [
@@ -175,7 +174,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_switchable_crit_blade', // 归海一刀
         'item_time_gem', // 时间宝石
         'item_ten_thousand_swords', // 万剑归宗
-        'item_forbidden_staff', // 禁忌法杖
         'item_dracula_mask', // 生命之盔
       ],
     },
@@ -261,8 +259,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_specialists_array', // 行家阵列
         'item_monkey_king_bar', // 金箍棒
         'item_maelstrom', // 漩涡
-        'item_aether_lens_2', // 以太透镜2
-        'item_octarine_core', // 玲珑心
         'item_shotgun', // 双管霰弹枪
         'item_force_staff', // 原力法杖
       ],
@@ -290,7 +286,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_six_vein', // 六脉神剑
         'item_hydras_breath_2', // 神器·千年毒蛟之息
         'item_refresh_core', // 熔火核心
-        'item_arcane_octarine_core', // 奥术之心
         'item_saint_orb', // 圣女白莲
       ],
       [ItemTier.T5]: [
@@ -330,8 +325,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_specialists_array', // 行家阵列
         'item_sange_and_yasha', // 散夜对剑
         'item_force_staff', // 原力法杖
-        'item_aether_lens_2', // 以太透镜2
-        'item_octarine_core', // 玲珑心
       ],
       [ItemTier.T3]: [
         { item: 'item_hurricane_pike_2', weight: 2 }, // 黄金魔龙枪 Ultimate
@@ -394,11 +387,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_echo_sabre', // 回音战刃
         'item_hand_of_group', // 团队之手
         'item_black_king_bar', // 黑皇杖
-        'item_aether_lens_2', // 以太透镜2
         'item_monkey_king_bar', // 金箍棒
         'item_sange_and_yasha', // 散夜对剑
-        'item_octarine_core', // 玲珑心
-        'item_crellas_crozier', // 克莱拉牧杖
       ],
       [ItemTier.T3]: [
         'item_dodo_desolator', // 黯灭头
@@ -408,7 +398,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
         'item_wasp_despotic', // 大核荣耀暴虐
         'item_armlet_pro_max', // 小鸡臂章Pro Max
-        'item_aeon_pendant', // 咸鱼之王
         'item_adi_king_plus', // 阿迪王plus
         'item_greater_crit', // 代达罗斯之殇
         'item_rapier', // 圣剑
@@ -425,7 +414,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_skadi_2', // 粘妈之眼
         'item_sacred_six_vein', // 六脉神剑
         'item_wasp_golden', // 黄金大核荣耀
-        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T5]: [
         'item_magic_sword', // 魔渊剑
@@ -533,9 +521,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_echo_sabre', // 回音战刃
         'item_desolator', // 黯灭
         'item_monkey_king_bar', // 金箍棒
-        'item_octarine_core', // 玲珑心
         'item_refresher', // 刷新球
-        'item_aether_lens_2', // 以太透镜2
         'item_black_king_bar', // 黑皇杖
       ],
       [ItemTier.T3]: [
@@ -544,7 +530,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_skadi', // 斯嘉蒂之眼
         'item_mjollnir', // 雷神之锤
         'item_armlet_pro_max', // 小鸡臂章Pro Max
-        'item_aeon_pendant', // 咸鱼之王
         'item_silver_edge_2', // 无敌之刃
         'item_butterfly', // 蝴蝶
         'item_wasp_despotic', // 大核荣耀暴虐
@@ -563,7 +548,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blue_fantasy', // 苍蓝幻想
         'item_skadi_2', // 粘妈之眼
         'item_abyssal_blade_v2', // 一闪
-        'item_arcane_octarine_core', // 奥术之心
         { item: 'item_jump_jump_jump', weight: 2 }, // 跳！跳！跳！刀
       ],
       [ItemTier.T5]: [
@@ -600,7 +584,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_shotgun', // 双管霰弹枪
         'item_sange_and_yasha', // 散夜对剑
         'item_monkey_king_bar', // 金箍棒
-        'item_aether_lens_2', // 以太透镜2
       ],
       [ItemTier.T3]: [
         'item_hurricane_pike_2', // 大推推
@@ -750,7 +733,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_ten_thousand_swords', // 万剑归宗
         'item_beast_armor', // 兽化甲
         'item_magic_sword', // 魔渊剑
-        'item_magic_crit_blade', // 魔龙狂舞
       ],
     },
   },
@@ -829,8 +811,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hurricane_pike', // 飓风长戟
         'item_black_king_bar', // 黑皇杖
         'item_shotgun', // 双管霰弹枪
-        'item_octarine_core', // 玲珑心
-        'item_aether_lens_2', // 以太透镜2
         'item_sange_and_yasha', // 散夜对剑
       ],
       [ItemTier.T3]: [
@@ -1203,10 +1183,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_devastator_2', // 神圣斧
         'item_gungir_2', // 风暴之锤
-        'item_excalibur', // EX咖喱棒
         'item_necronomicon_staff', // 死灵法杖
         'item_hydras_breath_2', // 神器·千年毒蛟之息
-        'item_infernal_desolator', // 绝对破防之刃
         'item_black_king_bar_2', // 天神杖
       ],
       [ItemTier.T5]: [
@@ -1336,7 +1314,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_devastator_2', // 神圣斧
         'item_kaya_and_sange_1', // 神器·散慧对剑
-        'item_infernal_desolator', // 绝对破防之刃
         'item_black_king_bar_2', // 天神杖
       ],
       [ItemTier.T5]: [
@@ -1600,7 +1577,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hurricane_pike', // 飓风长戟
         'item_desolator', // 黯灭
         'item_maelstrom', // 漩涡
-        'item_octarine_core', // 玲珑心
         'item_lotus_orb', // 清莲宝珠
         'item_monkey_king_bar', // 金箍棒
       ],
@@ -1629,7 +1605,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
         'item_hydras_breath_2', // 神器·千年毒蛟之息
         'item_sange_and_yasha_1', // 神器·散夜对剑
-        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T5]: [
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
@@ -1723,7 +1698,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hand_of_group', // 团队之手
         'item_black_king_bar', // 黑皇杖
         'item_desolator', // 黯灭
-        'item_octarine_core', // 玲珑心
         'item_sange_and_yasha', // 散夜对剑
       ],
       [ItemTier.T3]: [
@@ -1840,9 +1814,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_black_king_bar', // 黑皇杖
         'item_desolator', // 黯灭
         'item_armlet', // 莫尔迪基安的臂章
-        'item_aether_lens_2', // 以太透镜2
         'item_bfury', // 狂战斧
-        'item_octarine_core', // 玲珑心
         'item_monkey_king_bar', // 金箍棒
       ],
       [ItemTier.T3]: [
@@ -1869,7 +1841,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_six_vein', // 六脉神剑
         'item_refresh_core', // 熔火核心
         'item_bfury_ultra', // 救世狂战
-        'item_arcane_octarine_core', // 奥术之心
         'item_saint_orb', // 圣女白莲
       ],
       [ItemTier.T5]: [
@@ -1939,7 +1910,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_hallowed_scepter', // 仙云法杖
         'item_kaya_and_sange_1', // 神器·散慧对剑
-        'item_excalibur', // EX咖喱棒
         'item_gungir_2', // 风暴之锤
       ],
       [ItemTier.T5]: [
@@ -2186,7 +2156,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_saint_orb', // 圣女白莲
         'item_devastator_2', // 神圣斧
-        'item_infernal_desolator', // 绝对破防之刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -2285,7 +2254,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_meteor_hammer_2', // 星落
         'item_aeon_pendant', // 咸鱼之王
         'item_revenants_brooch_ultra', // 神器·魔武双修
-        'item_hydras_breath', // 怪蛇之息
         'item_angels_demise', // 绝刃
         'item_wind_waker', // 风之杖
       ],
@@ -2416,9 +2384,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_octarine_core', // 奥术之心
         'item_black_king_bar_2', // 天神杖
         'item_sange_and_yasha_1', // 神器·散夜对剑
-        'item_infernal_desolator', // 绝对破防之刃
-        'item_excalibur', // EX咖喱棒
-        'item_bfury_ultra', // 救世狂战
         'item_shivas_guard_2', // 雅典娜的守护
       ],
       [ItemTier.T5]: [
@@ -2600,7 +2565,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
         'item_magic_scepter', // 魔云法杖
         'item_revenants_brooch_ultra', // 神器·魔武双修
-        'item_dodo_desolator', // 黯灭头
       ],
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 雅典娜的守护
@@ -2611,7 +2575,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_black_king_bar_2', // 天神杖
         'item_hydras_breath_2', // 神器·千年毒蛟之息
         'item_arcane_octarine_core', // 奥术之心
-        'item_infernal_desolator', // 绝对破防之刃
       ],
       [ItemTier.T5]: [
         'item_magic_crit_blade', // 魔龙狂舞
@@ -2654,7 +2617,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_shotgun_v2', // 三管霰弹枪
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
         'item_hydras_breath', // 怪蛇之息
-        'item_dodo_desolator', // 黯灭头
       ],
       [ItemTier.T4]: [
         'item_necronomicon_staff', // 死灵法杖
@@ -2663,7 +2625,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hallowed_scepter', // 仙云法杖
         'item_arcane_octarine_core', // 奥术之心
         'item_sacred_six_vein', // 六脉神剑
-        'item_infernal_desolator', // 绝对破防之刃
         'item_hydras_breath_2', // 神器·千年毒蛟之息
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_black_king_bar_2', // 天神杖
