@@ -1,20 +1,15 @@
-import { registerAbility, registerModifier } from '../../utils/dota_ts_adapter';
+import { registerAbility } from '../../utils/dota_ts_adapter';
 import {
   AutoCastAbility,
   castImmediatelyOnTarget,
   findEnemiesInRange,
   findHeroOrCreepInRange,
   getFullCastRange,
-  modifier_autocast_think,
 } from './shared/auto-cast-ability';
 
-/** 天怒法师 天裔之杖-觉醒：造成魔法技能伤害时减少冷却，并提供四个主动技能的自动施法开关。 */
+/** 天怒法师 天裔之杖-觉醒：四个主动技能的自动施法开关。冷却缩减由觉醒一并发放的原版 skywrath_mage_staff_of_the_scion 提供。 */
 @registerAbility('special_bonus_unique_skywrath_upgrade')
 export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
-  GetIntrinsicModifierName(): string {
-    return modifier_special_bonus_unique_skywrath_upgrade.name;
-  }
-
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
     this.castAncientSeal(caster);
     this.castMysticFlare(caster);
@@ -82,56 +77,5 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
   ): void {
     caster.SetCursorPosition(position);
     caster.CastAbilityImmediately(ability, caster.GetPlayerOwnerID());
-  }
-}
-
-/**
- * 共享自动施法思考，并在每次造成魔法技能伤害后减少天怒非物品技能的剩余冷却。
- * 引擎伤害事件负责触发，不增加额外扫描或定时器。
- */
-@registerModifier('abilities/ts_abilities/special_bonus_unique_skywrath_upgrade')
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export class modifier_special_bonus_unique_skywrath_upgrade extends modifier_autocast_think {
-  IsHidden(): boolean {
-    return false;
-  }
-
-  GetTexture(): string {
-    return 'skywrath_mage_staff_of_the_scion_awaken';
-  }
-
-  DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_TAKEDAMAGE];
-  }
-
-  OnTakeDamage(event: ModifierInstanceEvent): void {
-    if (!IsServer()) return;
-
-    const parent = this.GetParent();
-    const ability = this.GetAbility();
-    if (!ability || event.attacker !== parent || parent.PassivesDisabled()) return;
-    if (
-      event.damage <= 0 ||
-      event.damage_category !== DamageCategory.SPELL ||
-      event.damage_type !== DamageTypes.MAGICAL ||
-      !event.inflictor ||
-      event.inflictor.IsItem()
-    ) {
-      return;
-    }
-    const reduction = ability.GetSpecialValueFor('cooldown_reduction');
-    if (reduction <= 0) return;
-
-    for (let index = 0; index < parent.GetAbilityCount(); index++) {
-      const targetAbility = parent.GetAbilityByIndex(index);
-      if (!targetAbility) continue;
-
-      const remaining = targetAbility.GetCooldownTimeRemaining();
-      if (remaining <= 0) continue;
-
-      targetAbility.EndCooldown();
-      const reducedRemaining = remaining - reduction;
-      if (reducedRemaining > 0) targetAbility.StartCooldown(reducedRemaining);
-    }
   }
 }

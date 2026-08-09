@@ -11,11 +11,12 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"						"abilities/ts_abilities/special_bonus_unique_skywrath_upgrade"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
-		"AbilityTextureName"			"skywrath_mage_staff_of_the_scion_awaken"
+		"AbilityTextureName"			"skywrath_mage_staff_of_the_scion"
 		"MaxLevel"						"1"
 
 		"AbilityValues"
 		{
+			// 实际生效值来自原版 skywrath_mage_staff_of_the_scion，此处仅供 tooltip 引用
 			"cooldown_reduction"		"0.1"
 		}
 	}

@@ -18,7 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
-  // 天怒法师 觉醒
+  // 天怒法师 觉醒（冷却缩减复用原版 facet 被动，纯新增以免顶掉玩家已选的 facet 技能）
+  {
+    heroName: 'npc_dota_hero_skywrath_mage',
+    newAbility: 'skywrath_mage_staff_of_the_scion',
+    newLevel: 1,
+  },
   {
     heroName: 'npc_dota_hero_skywrath_mage',
     newAbility: 'special_bonus_unique_skywrath_upgrade',
