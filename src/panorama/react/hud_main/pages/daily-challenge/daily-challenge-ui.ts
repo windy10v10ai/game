@@ -11,7 +11,6 @@ import {
 } from '../../../../../common/dto/daily-challenge';
 import { formatStatNumber } from '../../../shared/utils/format-stat-number';
 
-type LocalizedText = { cn: string; en: string; ru: string };
 type ChallengeUnit = 'count' | 'damage' | 'millisecond';
 
 export type DailyChallengeEntryIndicator =
@@ -253,10 +252,11 @@ export function getDailyChallengeRewardSourceLocalizationKey(
 export function getDailyChallengeRewardTaskTitle(
   reward: DailyChallengeRewardHistoryDto,
   language: string,
+  localize: (key: string) => string,
 ): string {
   const task = reward.taskSnapshot;
   if (!task) return '';
-  return fillChallengeTarget(task.title, task.target, task.unit, language);
+  return getDailyChallengeTaskTitle(task, language, localize);
 }
 
 export function getDailyChallengeContributionTierLocalizationKey(
@@ -275,12 +275,6 @@ export function getDailyChallengeEntryIndicator(
   return needsSelection ? { kind: 'dot' } : { kind: 'none' };
 }
 
-export function getLocalizedChallengeText(text: LocalizedText, language: string): string {
-  if (language === 'schinese') return text.cn;
-  if (language === 'russian') return text.ru;
-  return text.en;
-}
-
 export function formatChallengeValue(value: number, unit: ChallengeUnit, language: string): string {
   const safeValue = Number.isFinite(value) && value > 0 ? value : 0;
   if (unit === 'millisecond') {
@@ -293,16 +287,24 @@ export function formatChallengeValue(value: number, unit: ChallengeUnit, languag
   return formatStatNumber(safeValue, language === 'schinese');
 }
 
-export function fillChallengeTarget(
-  text: LocalizedText,
-  target: number,
-  unit: ChallengeUnit,
-  language: string,
+export function getDailyChallengeTaskLocalizationKey(
+  task: Pick<DailyChallengeTaskSnapshotDto, 'scope' | 'metric'>,
 ): string {
-  return getLocalizedChallengeText(text, language).replace(
-    /\{target\}/g,
-    formatChallengeValue(target, unit, language),
-  );
+  const scope =
+    task.scope === 'personal_hero' ? 'hero' : task.scope === 'global' ? 'global' : 'general';
+  return `#daily_challenge_task_${scope}_${task.metric}`;
+}
+
+export function getDailyChallengeTaskTitle(
+  task: Pick<DailyChallengeTaskSnapshotDto, 'scope' | 'metric' | 'heroName' | 'target' | 'unit'>,
+  language: string,
+  localize: (key: string) => string,
+): string {
+  const template = localize(getDailyChallengeTaskLocalizationKey(task));
+  const hero = task.heroName ? localize(`#${task.heroName}`) : '';
+  return template
+    .replace(/\{hero\}/g, hero)
+    .replace(/\{target\}/g, formatChallengeValue(task.target, task.unit, language));
 }
 
 export function getDailyChallengeRefreshIntent(input: {

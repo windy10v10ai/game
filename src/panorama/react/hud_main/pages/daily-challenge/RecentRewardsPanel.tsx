@@ -27,7 +27,9 @@ export function RecentRewardsPanel({ rewards }: RecentRewardsPanelProps) {
       ) : (
         <Panel className="daily-challenge-reward-history-list">
           {rewards.map((reward) => {
-            const taskTitle = getDailyChallengeRewardTaskTitle(reward, language);
+            const taskTitle = getDailyChallengeRewardTaskTitle(reward, language, (key) =>
+              $.Localize(key),
+            );
             return (
               <Panel key={reward.rewardId} className="daily-challenge-reward-history-row">
                 <Panel className="daily-challenge-reward-history-main">

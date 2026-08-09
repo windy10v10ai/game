@@ -26,18 +26,10 @@ export type DailyChallengeRewardSource = 'personal' | 'global' | 'streak';
 export type DailyChallengeContributionTier = 'top' | 'middle' | 'base';
 export type DailyChallengeStar = 1 | 2 | 3;
 
-export interface DailyChallengeLocalizedTextDto {
-  cn: string;
-  en: string;
-  ru: string;
-}
-
 export interface DailyChallengeTaskSnapshotDto {
   assignmentId: string;
   taskId: string;
-  revision: number;
   scope: ChallengeScope;
-  /** Frozen by v2 backend; optional while old cached snapshots age out. */
   configVersion?: number;
   /** Personal assignments include their current round; global assignments omit it. */
   round?: number;
@@ -45,9 +37,6 @@ export interface DailyChallengeTaskSnapshotDto {
   metric: ChallengeMetric;
   heroName?: string;
   unit: ChallengeUnit;
-  minDataVersion?: number;
-  title: DailyChallengeLocalizedTextDto;
-  description: DailyChallengeLocalizedTextDto;
   target: number;
   progress: number;
   rewardSeasonPoint: number;

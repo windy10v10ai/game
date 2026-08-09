@@ -15,13 +15,10 @@ const createTask = (
 ) => ({
   assignmentId,
   taskId: assignmentId,
-  revision: 1,
   scope,
   metric,
   ...(heroName ? { heroName } : {}),
   unit: metric.includes('duration') ? ('millisecond' as const) : ('count' as const),
-  title: { cn: assignmentId, en: assignmentId, ru: assignmentId },
-  description: { cn: assignmentId, en: assignmentId, ru: assignmentId },
   target: 100,
   progress: 0,
   rewardSeasonPoint: 100,

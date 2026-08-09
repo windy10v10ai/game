@@ -15,7 +15,7 @@ import {
   DailyChallengeRequestTimeout,
   DailyChallengeRetryableActionRequest,
   DailyChallengeViewedRequestState,
-  fillChallengeTarget,
+  getDailyChallengeTaskTitle,
   formatAutoSyncCountdown,
   formatDailyChallengeRoundProgress,
   getDailyChallengeAcceptButtonState,
@@ -331,11 +331,8 @@ export function DailyChallengePage() {
                               <TaskStarBadge task={task} />
                               <Label
                                 className="daily-challenge-completed-task-title"
-                                text={fillChallengeTarget(
-                                  task.title,
-                                  task.target,
-                                  task.unit,
-                                  $.Language(),
+                                text={getDailyChallengeTaskTitle(task, $.Language(), (key) =>
+                                  $.Localize(key),
                                 )}
                               />
                             </Panel>

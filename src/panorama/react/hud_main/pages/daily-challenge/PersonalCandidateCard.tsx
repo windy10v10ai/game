@@ -4,7 +4,7 @@ import { PrimaryButton } from '../../../shared/components';
 import { ChallengeProgress } from './ChallengeProgress';
 import {
   DailyChallengeAcceptButtonState,
-  fillChallengeTarget,
+  getDailyChallengeTaskTitle,
   getDailyChallengeStarVisual,
   getDailyChallengeTaskStar,
 } from './daily-challenge-ui';
@@ -42,8 +42,7 @@ export function PersonalCandidateCard({
   provisionalProgress = 0,
 }: PersonalCandidateCardProps) {
   const language = $.Language();
-  const title = fillChallengeTarget(task.title, task.target, task.unit, language);
-  const description = fillChallengeTarget(task.description, task.target, task.unit, language);
+  const title = getDailyChallengeTaskTitle(task, language, (key) => $.Localize(key));
   return (
     <Panel
       className={`daily-challenge-card daily-challenge-personal-card${accepted ? ' is-accepted' : ''}`}
@@ -55,13 +54,12 @@ export function PersonalCandidateCard({
         </Panel>
         <Label
           className="daily-challenge-reward"
-          text={$.Localize('#daily_challenge_reward_points').replace(
+          text={$.Localize('#daily_challenge_task_reward_hint').replace(
             '{n}',
             String(task.rewardSeasonPoint),
           )}
         />
       </Panel>
-      <Label className="daily-challenge-task-description" text={description} />
       {accepted ? (
         <ChallengeProgress
           progress={task.progress}

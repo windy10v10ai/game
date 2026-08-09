@@ -3,7 +3,6 @@ import {
   DailyChallengeRetryableActionRequest,
   DailyChallengeViewedRequestState,
   createDailyChallengeRequestId,
-  fillChallengeTarget,
   fillGlobalRewardTier,
   formatAutoSyncCountdown,
   formatChallengeValue,
@@ -16,16 +15,15 @@ import {
   getDailyChallengeFreeRefreshStateLocalizationKey,
   getDailyChallengeRoundState,
   getDailyChallengeTaskStar,
+  getDailyChallengeTaskLocalizationKey,
+  getDailyChallengeTaskTitle,
   getDailyChallengeStarVisual,
   getDailyChallengeRewardSourceLocalizationKey,
   getDailyChallengeRewardTaskTitle,
   getDailyChallengeContributionTierLocalizationKey,
-  getLocalizedChallengeText,
   isSuccessfulNetworkBoolean,
   normalizeDailyChallengePlayerSnapshot,
 } from './daily-challenge-ui';
-
-const text = { cn: '造成{target}伤害', en: 'Deal {target} damage', ru: 'Нанесите {target} урона' };
 
 describe('daily challenge UI helpers', () => {
   it('shows accept/refresh progress separately from a genuinely closed challenge day', () => {
@@ -53,16 +51,45 @@ describe('daily challenge UI helpers', () => {
     expect(getDailyChallengeEntryIndicator(0, false)).toEqual({ kind: 'none' });
   });
 
-  it('uses the current Panorama language with English fallback', () => {
-    expect(getLocalizedChallengeText(text, 'schinese')).toBe(text.cn);
-    expect(getLocalizedChallengeText(text, 'russian')).toBe(text.ru);
-    expect(getLocalizedChallengeText(text, 'german')).toBe(text.en);
+  it('resolves task copy through scope and metric localization templates', () => {
+    expect(
+      getDailyChallengeTaskLocalizationKey({ scope: 'personal_general', metric: 'hero_damage' }),
+    ).toBe('#daily_challenge_task_general_hero_damage');
+    expect(
+      getDailyChallengeTaskLocalizationKey({ scope: 'personal_hero', metric: 'magical_damage' }),
+    ).toBe('#daily_challenge_task_hero_magical_damage');
+    expect(getDailyChallengeTaskLocalizationKey({ scope: 'global', metric: 'roshan_kills' })).toBe(
+      '#daily_challenge_task_global_roshan_kills',
+    );
   });
 
-  it('renders millisecond goals as player-facing seconds and replaces target placeholders', () => {
-    expect(formatChallengeValue(300000, 'millisecond', 'schinese')).toBe('300秒');
+  it('fills localized hero and target placeholders from the task snapshot', () => {
+    const localize = (key: string) => {
+      if (key === '#daily_challenge_task_hero_magical_damage') {
+        return 'Use {hero} to deal {target} magical damage';
+      }
+      if (key === '#npc_dota_hero_crystal_maiden') return 'Crystal Maiden';
+      return key;
+    };
+
+    expect(
+      getDailyChallengeTaskTitle(
+        {
+          scope: 'personal_hero',
+          metric: 'magical_damage',
+          heroName: 'npc_dota_hero_crystal_maiden',
+          target: 500000,
+          unit: 'damage',
+        },
+        'english',
+        localize,
+      ),
+    ).toBe('Use Crystal Maiden to deal 500K magical damage');
+  });
+
+  it('renders millisecond goals as player-facing seconds', () => {
+    expect(formatChallengeValue(300000, 'millisecond', 'schinese')).toBe('300\u79d2');
     expect(formatChallengeValue(300000, 'millisecond', 'english')).toBe('300s');
-    expect(fillChallengeTarget(text, 500000, 'damage', 'schinese')).toBe('造成50万伤害');
   });
 
   it('keeps formal and provisional progress as separate capped bar segments', () => {
@@ -265,7 +292,7 @@ describe('daily challenge UI helpers', () => {
     expect(state.begin('2026-08-04:2', 'view-request-3')).toBe(false);
     expect(state.begin('2026-08-04:3', 'view-request-4')).toBe(true);
   });
-  it('uses the frozen task snapshot for player-facing reward history titles', () => {
+  it('uses game localization templates for player-facing reward history titles', () => {
     expect(
       getDailyChallengeRewardTaskTitle(
         {
@@ -277,20 +304,21 @@ describe('daily challenge UI helpers', () => {
           taskSnapshot: {
             assignmentId: 'assignment-1',
             taskId: 'damage-1',
-            revision: 2,
             scope: 'personal_general',
             metric: 'hero_damage',
             unit: 'damage',
-            title: text,
-            description: text,
             target: 500000,
             progress: 500000,
             rewardSeasonPoint: 100,
           },
         },
         'schinese',
+        (key) =>
+          key === '#daily_challenge_task_general_hero_damage'
+            ? '累计对敌方 Bot 造成{target}伤害'
+            : key,
       ),
-    ).toBe('造成50万伤害');
+    ).toBe('累计对敌方 Bot 造成50万伤害');
     expect(
       getDailyChallengeRewardTaskTitle(
         {
@@ -301,6 +329,7 @@ describe('daily challenge UI helpers', () => {
           createdAt: '2026-08-05T00:00:00.000Z',
         },
         'english',
+        (key) => key,
       ),
     ).toBe('');
   });

@@ -1,4 +1,4 @@
-﻿const fs = require('fs');
+const fs = require('fs');
 const path = require('path');
 
 const resourceRoot = path.resolve(__dirname, '../../../../../../game/resource');
@@ -26,6 +26,7 @@ const requiredKeys = [
   'daily_challenge_syncing',
   'daily_challenge_auto_sync',
   'daily_challenge_settlement_hint',
+  'daily_challenge_task_reward_hint',
   'daily_challenge_progress_formal',
   'daily_challenge_progress_provisional',
   'daily_challenge_progress_target',
@@ -52,6 +53,52 @@ const requiredKeys = [
   'daily_challenge_action_accepted_task_unavailable',
 ];
 
+const taskTemplateMetrics = {
+  general: [
+    'hero_damage',
+    'physical_damage',
+    'magical_damage',
+    'pure_damage',
+    'damage_taken',
+    'healing',
+    'kills',
+    'assists',
+    'last_hits',
+    'tower_kills',
+    'bot_kills',
+    'roshan_kills',
+    'stun_duration_ms',
+    'slow_duration_ms',
+    'root_duration_ms',
+    'silence_duration_ms',
+    'taunt_duration_ms',
+    'break_duration_ms',
+    'debuff_duration_ms',
+  ],
+  global: ['bot_kills', 'roshan_kills', 'tower_kills', 'hero_damage'],
+  hero: [
+    'magical_damage',
+    'stun_duration_ms',
+    'physical_damage',
+    'healing',
+    'damage_taken',
+    'slow_duration_ms',
+    'assists',
+    'debuff_duration_ms',
+    'hero_damage',
+    'root_duration_ms',
+    'kills',
+    'silence_duration_ms',
+    'tower_kills',
+    'pure_damage',
+    'bot_kills',
+    'taunt_duration_ms',
+  ],
+};
+const requiredTaskTemplateKeys = Object.entries(taskTemplateMetrics).flatMap(([scope, metrics]) =>
+  metrics.map((metric) => `daily_challenge_task_${scope}_${metric}`),
+);
+
 describe('daily challenge localization contract', () => {
   test.each(localizationFiles)('%s contains every player-facing PC layout token', (fileName) => {
     const text = fs.readFileSync(path.join(resourceRoot, fileName), 'utf8');
@@ -63,6 +110,23 @@ describe('daily challenge localization contract', () => {
       expect(tokenLine?.[0]).not.toContain('???');
     }
   });
+
+  test.each(localizationFiles)(
+    '%s contains the 39 task templates with required placeholders',
+    (fileName) => {
+      const text = fs.readFileSync(path.join(resourceRoot, fileName), 'utf8');
+
+      for (const key of requiredTaskTemplateKeys) {
+        const tokenLine = text.match(new RegExp(`^[\t ]*"${key}"[\t ]+"([^"\r\n]+)"[\t ]*$`, 'm'));
+        expect(tokenLine).not.toBeNull();
+        expect(tokenLine?.[1]).toContain('{target}');
+        expect(tokenLine?.[1]).not.toContain('???');
+        if (key.startsWith('daily_challenge_task_hero_')) {
+          expect(tokenLine?.[1]).toContain('{hero}');
+        }
+      }
+    },
+  );
 
   test.each(localizationFiles)('%s keeps one localization token per line', (fileName) => {
     const text = fs.readFileSync(path.join(resourceRoot, fileName), 'utf8');

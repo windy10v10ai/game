@@ -42,14 +42,22 @@ function FormatDailyChallengeRewardValue(value, unit) {
 function GetDailyChallengeRewardTaskTitle(reward) {
   if (reward == null || reward.taskSnapshot == null) return "";
   const task = reward.taskSnapshot;
-  const language = $.Language();
-  let title = task.title.en;
-  if (language == "schinese") title = task.title.cn;
-  if (language == "russian") title = task.title.ru || task.title.en;
-  return title.replace(
-    /\{target\}/g,
-    FormatDailyChallengeRewardValue(task.target, task.unit),
+  const scope =
+    task.scope == "personal_hero"
+      ? "hero"
+      : task.scope == "global"
+        ? "global"
+        : "general";
+  const template = $.Localize(
+    "#daily_challenge_task_" + scope + "_" + task.metric,
   );
+  const hero = task.heroName == null ? "" : $.Localize("#" + task.heroName);
+  return template
+    .replace(/\{hero\}/g, hero)
+    .replace(
+      /\{target\}/g,
+      FormatDailyChallengeRewardValue(task.target, task.unit),
+    );
 }
 
 function BuildDailyChallengeRewardDisplay(reward) {

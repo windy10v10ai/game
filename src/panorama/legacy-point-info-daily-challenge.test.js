@@ -12,6 +12,8 @@ function loadPointInfo(language) {
     '#daily_challenge_reward_tier_base': '基础贡献档',
     '#daily_challenge_reward_history_day': '挑战日 {day}',
     '#daily_challenge_reward_streak_days': '连续完成 {days} 天',
+    '#daily_challenge_task_global_hero_damage': '共同累计对敌方 Bot 造成{target}伤害',
+    '#npc_dota_hero_crystal_maiden': '水晶室女',
   };
   const dollar = jest.fn(() => ({ id: 'panel_id', style: {} }));
   dollar.Msg = jest.fn();
@@ -32,7 +34,7 @@ function loadPointInfo(language) {
 }
 
 describe('legacy point info daily challenge details', () => {
-  it('uses frozen task copy and contribution tier without exposing internal ids', () => {
+  it('uses game localization templates and contribution tier without exposing internal ids', () => {
     const context = loadPointInfo('schinese');
     const display = context.BuildDailyChallengeRewardDisplay({
       dayId: '2026-08-04',
@@ -41,15 +43,16 @@ describe('legacy point info daily challenge details', () => {
       assignmentId: 'internal-assignment',
       contributionTier: 'top',
       taskSnapshot: {
+        scope: 'global',
+        metric: 'hero_damage',
         unit: 'damage',
         target: 500000,
-        title: { cn: '共同造成{target}伤害', en: 'Deal {target} damage', ru: '' },
       },
     });
 
     expect({ ...display }).toEqual({
       source: '共同任务',
-      task: '共同造成50万伤害',
+      task: '共同累计对敌方 Bot 造成50万伤害',
       meta: '挑战日 2026-08-04 · 最高贡献档',
     });
     expect(JSON.stringify(display)).not.toContain('internal-config');

@@ -3,7 +3,7 @@ import {
   DailyChallengeGlobalRewardTiersDto,
   DailyChallengeTaskSnapshotDto,
 } from '../../../../../common/dto/daily-challenge';
-import { fillChallengeTarget, fillGlobalRewardTier } from './daily-challenge-ui';
+import { fillGlobalRewardTier, getDailyChallengeTaskTitle } from './daily-challenge-ui';
 import { ChallengeProgress } from './ChallengeProgress';
 
 export function GlobalChallengeCard({
@@ -42,11 +42,11 @@ export function GlobalChallengeCard({
       </Panel>
       <Label
         className="daily-challenge-task-title"
-        text={fillChallengeTarget(task.title, task.target, task.unit, language)}
+        text={getDailyChallengeTaskTitle(task, language, (key) => $.Localize(key))}
       />
       <Label
         className="daily-challenge-task-description"
-        text={fillChallengeTarget(task.description, task.target, task.unit, language)}
+        text={$.Localize('#daily_challenge_global_reward_hint')}
       />
       <ChallengeProgress progress={task.progress} target={task.target} unit={task.unit} />
       <Panel className="daily-challenge-tier-row">

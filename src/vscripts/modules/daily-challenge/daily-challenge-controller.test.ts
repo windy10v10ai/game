@@ -31,12 +31,9 @@ const createSnapshot = (): DailyChallengePlayerSnapshotDto => ({
     {
       assignmentId: 'assignment-1',
       taskId: 'damage-1',
-      revision: 1,
       scope: 'personal_general',
       metric: 'hero_damage',
       unit: 'damage',
-      title: { cn: 'damage', en: 'damage', ru: 'damage' },
-      description: { cn: 'damage', en: 'damage', ru: 'damage' },
       target: 500000,
       progress: 0,
       rewardSeasonPoint: 100,
