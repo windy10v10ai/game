@@ -3495,6 +3495,12 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Nearby deaths reduce the current cooldowns of all abilities and items."
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Non-hero deaths reduce them by <font color='#FFFFFF'><b>0.2</b></font>s; hero deaths reduce them by <font color='#FFFFFF'><b>3</b></font>s."
+		// Tidehunter
+		"DOTA_Tooltip_ability_special_bonus_unique_tidehunter_smash_on_blubber"				"<font color='#d000ff'>Anchor Smash Awakening</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tidehunter_smash_on_blubber_Description"	"When Kraken Shell triggers a strong dispel, it automatically releases Anchor Smash. This Anchor Smash triggers attack effects normally, but deals no additional regular attack damage."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tidehunter_smash_on_blubber"			"<font color='#d000ff'>Anchor Smash Awakening</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tidehunter_smash_on_blubber_Description"	"When Kraken Shell triggers a strong dispel, it automatically releases Anchor Smash. This Anchor Smash triggers attack effects normally, but deals no additional regular attack damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_tidehunter_anchor_smash_damage"			"+{s:bonus_attack_damage}% Anchor Smash Attack Damage"
 
 	}
 }

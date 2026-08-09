@@ -4130,6 +4130,7 @@
 			"attack_damage"
 			{
 				"value"										"50 100 150 200 250"
+				"special_bonus_unique_tidehunter_anchor_smash_damage"	"+50%"
 			}
 			"damage_reduction"
 			{
@@ -4178,6 +4179,17 @@
 			"fish_attack_range"				"4"		// 2 x2
 			"fish_damage_block"				"4"		// 1 x4
 			"fish_health_bonus"				"60"	// 3 x20
+		}
+	}
+	// 自定义天赋 锚击攻击伤害
+	"special_bonus_unique_tidehunter_anchor_smash_damage"
+	{
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"special_bonus_base"
+		"AbilityValues"
+		{
+			"attack_damage"					"50"
 		}
 	}
 	//=================================================================================================================
