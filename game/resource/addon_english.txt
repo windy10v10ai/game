@@ -1187,7 +1187,7 @@
 
 		// Fountain Sanction
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode."
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode.<br><br>When a bot hero is killed within the area, a homing fireball is launched at the killer, piercing spell immunity and dealing damage equal to %retaliation_damage_pct%%% of the killer's maximum health."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"Fountain Sanction Warning"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"Stacks once per second while near the fountain. Reaching 3 stacks triggers the sanction."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
