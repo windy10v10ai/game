@@ -3318,7 +3318,7 @@
 
 		"AbilityValues"
 		{
-			"radius"						"2000"
+			"radius"						"1600"
 			"move_speed"					"400"
 			"retaliation_damage_pct"		"20"
 			"retaliation_projectile_speed"	"2100"
