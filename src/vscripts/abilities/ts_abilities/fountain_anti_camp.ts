@@ -27,12 +27,16 @@ export class AbilityFountainAntiCamp extends BaseAbility {
     if (!target || target.IsNull() || !target.IsAlive()) return;
 
     const damagePct = this.GetSpecialValueFor('retaliation_damage_pct');
-    if (damagePct <= 0) return;
+    const damage = target.GetMaxHealth() * damagePct * 0.01;
+    print(
+      `[FountainAntiCamp] retaliation hit target=${target.GetUnitName()} pct=${damagePct} damage=${damage}`,
+    );
+    if (damage <= 0) return;
 
     ApplyDamage({
       victim: target,
       attacker: this.GetCaster(),
-      damage: target.GetMaxHealth() * damagePct * 0.01,
+      damage,
       damage_type: DamageTypes.PURE,
       // 按最大生命值算的固定值，排除会改变数值的伤害修正与反弹
       damage_flags:
@@ -84,11 +88,14 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
       print(
         `[FountainAntiCamp] check state=${state} toolsMode=${IsInToolsMode()} humanCount=${humanCount} canRun=${canRun}`,
       );
-      if (!canRun) {
+      if (canRun) {
+        // 生效：反击需要全局死亡事件，等人数确认后再注册
+        ListenToGameEvent('entity_killed', (keys) => this.OnEntityKilled(keys), this);
+      } else {
+        // 不生效：停掉轮询，制裁与反击都不启用
         this.StartIntervalThink(-1);
         return;
       }
-      ListenToGameEvent('entity_killed', (keys) => this.OnEntityKilled(keys), this);
     }
 
     const fountain = this.GetParent();
@@ -175,7 +182,6 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
       vSourceLoc: victim.GetAbsOrigin(),
       bDodgeable: false,
       bIgnoreObstructions: true,
-      bSuppressTargetCheck: true,
       flExpireTime: GameRules.GetGameTime() + RETALIATION_EXPIRE_TIME,
     });
   }
