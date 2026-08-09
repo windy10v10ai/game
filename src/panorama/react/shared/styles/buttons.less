@@ -38,6 +38,27 @@
   brightness: 0.6;
 }
 
+// 与 .btn-primary 并列的第二种货币/强调配色（金色渐变）
+.btn-gold {
+  .btn-base;
+  background-color: @color-gold-btn;
+  border: 1px solid @color-gold;
+  color: @color-text;
+
+  &:hover {
+    brightness: 1.2;
+  }
+
+  &:active {
+    brightness: 0.9;
+  }
+}
+
+.btn-gold:disabled {
+  saturation: 0.3;
+  brightness: 0.6;
+}
+
 .btn-primary-label {
   width: 100%;
   text-align: center;

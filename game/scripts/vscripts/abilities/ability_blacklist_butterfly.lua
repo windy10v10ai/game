@@ -99,6 +99,8 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
 
 
     ["elder_titan_ancestral_spirit"] = true,
+    ["elder_titan_ancestral_spirit_awaken"] = true, -- 上古巨神 灵体游魂 觉醒
+    ["elder_titan_return_spirit"] = true,           -- 上古巨神 召回游魂
     -- ========================================
     -- 召唤类技能
     -- 原因：召唤单位可能导致单位管理问题和性能下降
@@ -108,6 +110,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["furion_force_of_nature"] = true,    -- 先知 自然之力
     ["zuus_cloud"] = true,                -- 宙斯 雷云
     ["venomancer_plague_ward"] = true,    -- 剧毒术士 瘟疫守卫
+    ["undying_tombstone"] = true,         -- 不朽尸王 墓碑
 
     -- ========================================
     -- 持续施法/引导类技能
@@ -140,6 +143,9 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["morphling_replicate"] = true,                        -- 水人 复制
     ["ancient_apparition_ice_blast"] = true,               -- 冰魂 寒冰爆破
     ["phantom_assassin_phantom_strike_datadriven"] = true, -- 幻刺b觉醒
+    ["keeper_of_the_light_illuminate"] = true,              -- 光之守卫 冲击波
+    ["keeper_of_the_light_illuminate_end"] = true,          -- 光之守卫 冲击波 释放
+    ["special_bonus_unique_keeper_of_the_light_upgrade"] = true, -- 光之守卫 冲击波 觉醒
 
     -- ========================================
     -- 取消/停止类技能
@@ -197,7 +203,9 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["wisp_spirits_out"] = true,
     ["warlock_fatal_bonds"] = true, -- 术士 致命连接（计算量大可能导致游戏崩溃）
     ["lich_chain_frost"] = true,    -- 巫妖 连环霜冻
+    ["doom_bringer_doom"] = true,   -- 末日
     ["doom_bringer_devour"] = true, -- 末日 吞噬
+    ["doom_bringer_doom_awakened"] = true, -- 末日 觉醒
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招
@@ -246,6 +254,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["pudge_meat_hook_lua"] = true,
     ["centaur_mount"] = true,
     ["techies_reactive_tazer"] = true,
+    ["techies_reactive_tazer_detonate"] = true, -- 炸弹人 引爆电击
     --幽鬼
     ["spectre_shadow_step"] = true,
     ["spectre_reality"] = true,

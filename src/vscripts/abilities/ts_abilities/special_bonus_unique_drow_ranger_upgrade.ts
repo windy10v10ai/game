@@ -40,7 +40,6 @@ export class modifier_special_bonus_unique_drow_ranger_upgrade extends BaseModif
     return [ModifierFunction.ON_ATTACK, ModifierFunction.TOOLTIP];
   }
 
-  // 分裂概率可被 special_bonus_unique_drow_ranger_3 天赋提升，tooltip 需要动态读取而非写死
   OnTooltip(): number {
     return this.GetAbility()?.GetSpecialValueFor('splinter_chance') ?? 0;
   }
