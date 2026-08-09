@@ -5,10 +5,18 @@
   height: 100%;
 }
 
-/* 英雄选择层的入口按钮挂本层容器，坐标对齐左上角那排原生按钮（尺寸由脚本与 HUD 内保持一致） */
-.hud-hero-select-entry-btn {
+/* 英雄选择层入口使用独立槽位，避免覆盖个人中心、设置和退出按钮。 */
+.hud-hero-select-profile-entry-btn,
+.hud-hero-select-daily-challenge-entry-btn {
   horizontal-align: left;
   vertical-align: top;
-  margin-left: 100px;
   margin-top: 8px;
+}
+
+.hud-hero-select-profile-entry-btn {
+  margin-left: 100px;
+}
+
+.hud-hero-select-daily-challenge-entry-btn {
+  margin-left: 160px;
 }

@@ -113,3 +113,39 @@
   );
   transition: background-color 0.35s ease-in-out 0s;
 }
+
+.dailyChallengeRewardDetails {
+  width: 92%;
+  flow-children: down;
+  horizontal-align: center;
+  background-color: #08041088;
+  border: 1px solid #daa52044;
+  border-radius: 6px;
+  padding: 7px 10px;
+  margin-top: 6px;
+}
+
+.dailyChallengeRewardSource {
+  color: #daa520ff;
+  font-size: 17px;
+  font-weight: bold;
+  horizontal-align: center;
+}
+
+.dailyChallengeRewardTask {
+  width: 100%;
+  color: #ffffffdd;
+  font-size: 16px;
+  text-align: center;
+  text-overflow: shrink;
+  margin-top: 2px;
+}
+
+.dailyChallengeRewardMeta {
+  width: 100%;
+  color: #ffffff88;
+  font-size: 13px;
+  text-align: center;
+  text-overflow: shrink;
+  margin-top: 3px;
+}

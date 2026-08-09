@@ -7,9 +7,12 @@ import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
 import { ApiClient } from '../../../api/api-client';
+import { dailyChallengePlayerSnapshotStore } from '../../../api/daily-challenge-snapshot';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
+import { buildDailyChallengeMatchContributionForGameEnd } from '../../daily-challenge/daily-challenge-contribution-collector';
+import { dailyChallengeMatchContext } from '../../daily-challenge/daily-challenge-match-context';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
 import { GameEndPoint, normalizeControlTime } from './game-end-point';
@@ -178,6 +181,15 @@ export class GameEnd {
       countryCode: GA4.countryCode,
       players,
     };
+
+    const dailyChallenge = buildDailyChallengeMatchContributionForGameEnd({
+      players,
+      context: dailyChallengeMatchContext,
+      getSnapshot: (steamId) => dailyChallengePlayerSnapshotStore.get(steamId.toString()),
+    });
+    if (dailyChallenge) {
+      gameEndDto.dailyChallenge = dailyChallenge;
+    }
 
     return gameEndDto;
   }

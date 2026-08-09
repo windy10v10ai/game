@@ -79,6 +79,7 @@
 						<Label id="PointsValue" class="PointsValue" text="" />
 						<Label id="PointsModifier" class="PointsModifier" text="" visible="false" />
 					</Panel>
+					<Label id="DailyChallengePoints" class="DailyChallengePoints" text="" visible="false" />
 				</Panel>
 				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />
 				<Panel id="NeutralItemContainer" class="NeutralColumn" />

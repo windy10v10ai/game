@@ -1,3 +1,4 @@
+import { DailyChallengePlayerSnapshotDto } from '../../common/dto/daily-challenge';
 import { LotteryStatusDto } from '../../common/dto/lottery-status';
 import { PlayerInfoDto } from '../../vscripts/api/player';
 
@@ -75,5 +76,24 @@ export const transformPlayer = createTransform<PlayerInfoDto>({
   statsLifetime: {
     type: 'optional-nested',
     fields: {},
+  },
+});
+
+export const transformDailyChallenge = createTransform<DailyChallengePlayerSnapshotDto>({
+  candidates: { type: 'array' },
+  recentRewards: { type: 'array' },
+  needsSelection: { type: 'boolean' },
+  refresh: {
+    type: 'nested',
+    fields: {
+      isMember: { type: 'boolean' },
+      freeRefreshAvailable: { type: 'boolean' },
+    },
+  },
+  lastAction: {
+    type: 'optional-nested',
+    fields: {
+      success: { type: 'boolean' },
+    },
   },
 });

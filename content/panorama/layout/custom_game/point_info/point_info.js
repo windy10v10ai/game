@@ -23,6 +23,86 @@ function OnDataLoaded() {
   $("#panel_id").style.visibility = "visible";
 }
 
+function FormatDailyChallengeRewardValue(value, unit) {
+  const safeValue = Number.isFinite(value) && value > 0 ? value : 0;
+  if (unit == "millisecond") {
+    const seconds = safeValue / 1000;
+    const formatted = Number.isInteger(seconds)
+      ? String(seconds)
+      : seconds.toFixed(1).replace(/\.0$/, "");
+    return $.Language() == "schinese" ? formatted + "\u79d2" : formatted + "s";
+  }
+  if ($.Language() == "schinese" && safeValue >= 10000) {
+    const wan = safeValue / 10000;
+    return (Number.isInteger(wan) ? String(wan) : wan.toFixed(1).replace(/\.0$/, "")) + "\u4e07";
+  }
+  return String(safeValue);
+}
+
+function GetDailyChallengeRewardTaskTitle(reward) {
+  if (reward == null || reward.taskSnapshot == null) return "";
+  const task = reward.taskSnapshot;
+  const language = $.Language();
+  let title = task.title.en;
+  if (language == "schinese") title = task.title.cn;
+  if (language == "russian") title = task.title.ru || task.title.en;
+  return title.replace(
+    /\{target\}/g,
+    FormatDailyChallengeRewardValue(task.target, task.unit),
+  );
+}
+
+function BuildDailyChallengeRewardDisplay(reward) {
+  const sourceKeys = {
+    personal: "#daily_challenge_reward_source_personal",
+    global: "#daily_challenge_reward_source_global",
+    streak: "#daily_challenge_reward_source_streak",
+  };
+  const tierKeys = {
+    top: "#daily_challenge_reward_tier_top",
+    middle: "#daily_challenge_reward_tier_middle",
+    base: "#daily_challenge_reward_tier_base",
+  };
+  const meta = [
+    $.Localize("#daily_challenge_reward_history_day").replace("{day}", reward.dayId),
+  ];
+  if (reward.contributionTier != null && tierKeys[reward.contributionTier] != null) {
+    meta.push($.Localize(tierKeys[reward.contributionTier]));
+  }
+  if (reward.streakDays != null) {
+    meta.push(
+      $.Localize("#daily_challenge_reward_streak_days").replace(
+        "{days}",
+        String(reward.streakDays),
+      ),
+    );
+  }
+  return {
+    source: $.Localize(sourceKeys[reward.source] || sourceKeys.personal),
+    task: GetDailyChallengeRewardTaskTitle(reward),
+    meta: meta.join(" \u00b7 "),
+  };
+}
+
+function SetDailyChallengeRewardDetails(panel, reward) {
+  const detailsPanel = panel.FindChildTraverse("dailyChallengeRewardDetails");
+  if (reward == null) {
+    detailsPanel.style.visibility = "collapse";
+    return;
+  }
+  const display = BuildDailyChallengeRewardDisplay(reward);
+  detailsPanel.style.visibility = "visible";
+  panel.SetDialogVariable("daily_challenge_reward_source", display.source);
+  panel.SetDialogVariable("daily_challenge_reward_meta", display.meta);
+  const taskPanel = panel.FindChildTraverse("dailyChallengeRewardTask");
+  if (display.task == "") {
+    taskPanel.style.visibility = "collapse";
+  } else {
+    taskPanel.style.visibility = "visible";
+    panel.SetDialogVariable("daily_challenge_reward_task", display.task);
+  }
+}
+
 function AddPointInfo(data) {
   //add panel
   const panel = $.CreatePanel("Panel", $("#point_info_container"), "");
@@ -64,6 +144,8 @@ function AddPointInfo(data) {
   } else {
     panel.SetDialogVariable("point_info_memberPoint", data.memberPoint);
   }
+
+  SetDailyChallengeRewardDetails(panel, data.dailyChallengeReward);
 }
 
 const _ui_RootPanel = $("#panel_id");

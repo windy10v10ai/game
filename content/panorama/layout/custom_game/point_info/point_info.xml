@@ -30,6 +30,12 @@
 				<Panel class="pointPanelTitle" id="pointInfoTitle2">
 					<Label class="pointTitleText" text="{s:point_info_title_text2}" />
 				</Panel>
+				<Panel id="dailyChallengeRewardDetails" class="dailyChallengeRewardDetails">
+					<Label class="dailyChallengeRewardSource" text="{s:daily_challenge_reward_source}" />
+					<Label id="dailyChallengeRewardTask" class="dailyChallengeRewardTask"
+						text="{s:daily_challenge_reward_task}" />
+					<Label class="dailyChallengeRewardMeta" text="{s:daily_challenge_reward_meta}" />
+				</Panel>
 				<Panel class="pointPanelRow" id="pointInfoPoint">
 					<Panel class="pointPanelRow" id="panelSeasonPoint">
 						<Label class="pointText" text="+" />

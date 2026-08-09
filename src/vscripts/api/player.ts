@@ -1,3 +1,4 @@
+import { DailyChallengeRewardDetailDto } from '../../common/dto/daily-challenge';
 export enum MemberLevel {
   NORMAL = 1,
   PREMIUM = 2,
@@ -121,6 +122,7 @@ export class PointInfoDto {
 
   seasonPoint?: number;
   memberPoint?: number;
+  dailyChallengeReward?: DailyChallengeRewardDetailDto;
 }
 
 /**

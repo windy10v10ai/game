@@ -52,7 +52,7 @@ export function ProfileEntryButton() {
     button.style.width = '50px';
     button.style.height = '50px';
     if (heroSelectLayer) {
-      button.AddClass('hud-hero-select-entry-btn');
+      button.AddClass('hud-hero-select-profile-entry-btn');
     } else {
       button.style.marginLeft = '2px';
       button.style.marginRight = '2px';

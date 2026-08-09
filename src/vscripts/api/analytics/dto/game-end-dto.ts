@@ -1,3 +1,4 @@
+import { DailyChallengeMatchContributionDto } from '../../../../common/dto/daily-challenge';
 import { EventBaseDto } from './event-base-dto';
 
 export class GameEndGameOptionsDto {
@@ -42,4 +43,5 @@ export class GameEndDto extends EventBaseDto {
   gameTimeMsec: number;
   countryCode: string;
   players: GameEndPlayerDto[];
+  dailyChallenge?: DailyChallengeMatchContributionDto;
 }
