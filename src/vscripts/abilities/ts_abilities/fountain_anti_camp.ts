@@ -15,13 +15,6 @@ const LOCK_STACK_THRESHOLD = 3;
 
 const RETALIATION_PROJECTILE = 'particles/base_attacks/ranged_tower_good.vpcf';
 const RETALIATION_EXPIRE_TIME = 10;
-// 反击伤害按最大生命值固定计算，排除会改变数值的伤害修正与反弹
-const RETALIATION_DAMAGE_FLAGS =
-  DamageFlag.BYPASSES_INVULNERABILITY +
-  DamageFlag.HPLOSS +
-  DamageFlag.NO_DAMAGE_MULTIPLIERS +
-  DamageFlag.NO_SPELL_AMPLIFICATION +
-  DamageFlag.NO_REFLECTION;
 
 @registerAbility('fountain_anti_camp')
 export class AbilityFountainAntiCamp extends BaseAbility {
@@ -41,7 +34,13 @@ export class AbilityFountainAntiCamp extends BaseAbility {
       attacker: this.GetCaster(),
       damage: target.GetMaxHealth() * damagePct * 0.01,
       damage_type: DamageTypes.PURE,
-      damage_flags: RETALIATION_DAMAGE_FLAGS,
+      // 按最大生命值算的固定值，排除会改变数值的伤害修正与反弹
+      damage_flags:
+        DamageFlag.BYPASSES_INVULNERABILITY +
+        DamageFlag.HPLOSS +
+        DamageFlag.NO_DAMAGE_MULTIPLIERS +
+        DamageFlag.NO_SPELL_AMPLIFICATION +
+        DamageFlag.NO_REFLECTION,
       ability: this,
     });
   }
