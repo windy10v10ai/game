@@ -3503,5 +3503,15 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
+		// Abaddon The Quickening - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>The Quickening Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever any allied or enemy unit dies within %radius% range of Abaddon, the current cooldowns of all his abilities and items are reduced. Hero deaths reduce them by %cooldown_reduction_heroes%s; non-hero deaths reduce them by %cooldown_reduction_creeps%s."
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Nearby deaths reduce the current cooldowns of all abilities and items."
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_cooldown_reduction_creeps"	"Cooldown Reduction per Non-Hero Death:"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_cooldown_reduction_heroes"	"Cooldown Reduction per Hero Death:"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_radius"				"Radius:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever any allied or enemy unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Hero deaths reduce them by <font color='#FFFFFF'><b>6</b></font>s; non-hero deaths reduce them by <font color='#FFFFFF'><b>0.5</b></font>s."
+
 	}
 }

@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 亚巴顿 觉醒
+  {
+    heroName: 'npc_dota_hero_abaddon',
+    newAbility: 'special_bonus_unique_abaddon_quickening_awaken',
+    newLevel: 1,
+  },
   // 天怒法师 觉醒（冷却缩减复用原版 facet 被动，纯新增以免顶掉玩家已选的 facet 技能）
   {
     heroName: 'npc_dota_hero_skywrath_mage',
