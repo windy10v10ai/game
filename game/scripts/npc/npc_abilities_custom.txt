@@ -3336,13 +3336,13 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
-		"AbilityCastRange"				"1800"
+		"AbilityCastRange"				"2000"
 
 		"AbilityValues"
 		{
-			"radius"						"1800"
+			"radius"						"2000"
 			"move_speed"					"400"
-			"retaliation_damage_pct"		"20"
+			"retaliation_damage_pct"		"25"
 			"retaliation_projectile_speed"	"2100"
 		}
 	}
