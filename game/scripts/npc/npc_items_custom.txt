@@ -4249,7 +4249,7 @@
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"1"
-			"blast_magic_resist"	"-40"
+			"blast_magic_resist"	"-30"
 		}
 	}
 	//=================================================================================================================
@@ -5059,10 +5059,10 @@
 				"bonus_armor"			"14"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.25"
+				"int_damage_multiplier"	"1.2"
 				"slow"	"50"
 				"slow_duration"	"4"
-				"active_mres_reduction"		"40"
+				"active_mres_reduction"		"35"
 				"passive_cooldown"		"4"
 		}
 	}
@@ -5942,7 +5942,7 @@
 			}
 			"sheep_duration"		"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"	"100"	// Lua 逻辑需要 - 变形移动速度
-			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
+			"blast_magic_resist"	"-30"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_mana_regen"			"15"	// tooltip only - 魔法回复
@@ -6164,7 +6164,7 @@
 			"bonus_armor"				"14"
 			// 巫师之刃 + 魔蚀 modifier
 			"projectile_speed"			"300"
-			"int_damage_multiplier"		"1.25"
+			"int_damage_multiplier"		"1.2"
 			"slow"						"50"
 			"slow_duration"				"4"
 			"active_mres_reduction"		"40"
@@ -6263,12 +6263,9 @@
 		"precache"
 		{
 			"soundfile"					"soundevents/game_sounds_items.vsndevts"
-			"particle"					"particles/items4_fx/combo_breaker.vpcf"
 			"particle"					"particles/items4_fx/combo_breaker_buff.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_base.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b_ropefollow.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_puffs.vpcf"
+			"particle"					"particles/items3_fx/warmage.vpcf"
+			"particle"					"particles/items3_fx/warmage_recipient.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -6391,10 +6388,6 @@
 		}
 	}
 
-	//=================================================================================================================
-	// 暗影裁决
-	//=================================================================================================================
-
 	"item_shadow_judgment"
 	{
 		"BaseClass"					"item_lua"
@@ -6502,7 +6495,7 @@
 
 		"AbilityCooldown"			"3"	// 被动冷却，主动冷却见 active_cooldown
 		"AbilityManaCost"			"800"
-		"AbilityCastRange"			"900"
+		"AbilityCastRange"			"800"
 		"AbilityCastPoint"			"0.2"
 
 		"AbilityValues"
@@ -6511,19 +6504,19 @@
 			"active_cooldown"			"15"	// Lua 逻辑需要 - 主动施法冷却
 			"dagon_damage"
 			{
-				"value"					"900"
+				"value"					"1000"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"pure_damage"
 			{
-				"value"					"600"
+				"value"					"500"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
 			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
-			"blast_magic_resist"		"-40"	// Lua 逻辑需要 - 魔法抗性减少
+			"blast_magic_resist"		"-30"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）
 			"bonus_health"				"600"	// 绝刃自身加成

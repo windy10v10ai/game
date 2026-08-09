@@ -45,6 +45,12 @@ export class Debug {
 
     // ---- 常用命令 ----
 
+    if (cmd === CMD.D) {
+      const playerId = keys.playerid;
+      const damage = PlayerResource.GetRawPlayerDamage(playerId);
+      this.log(`Player ${playerId} damage: ${damage}`);
+    }
+
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
