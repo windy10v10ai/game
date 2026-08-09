@@ -13,7 +13,7 @@ const POLL_INTERVAL = 1;
 const DEBUFF_DURATION = 3;
 const LOCK_STACK_THRESHOLD = 3;
 
-const RETALIATION_PROJECTILE = 'particles/base_attacks/ranged_tower_good.vpcf';
+const RETALIATION_PROJECTILE = 'particles/base_attacks/ranged_tower_bad.vpcf';
 const RETALIATION_EXPIRE_TIME = 10;
 
 @registerAbility('fountain_anti_camp')
