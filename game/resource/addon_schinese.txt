@@ -1182,7 +1182,7 @@
 
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"泉水制裁"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。仅组队模式下生效。"
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"敌方人类玩家英雄靠近泉水攻击范围时会被制裁。仅组队模式下生效。<br><br>范围内的AI英雄被击杀时，会向击杀者发射追踪火球，无视魔免，造成相当于击杀者最大生命值%retaliation_damage_pct%%%的伤害。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"泉水制裁警告"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"靠近泉水时每秒叠加一层，叠满3层后将进入制裁状态。"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"泉水制裁"

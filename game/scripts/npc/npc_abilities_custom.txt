@@ -3309,14 +3309,15 @@
 		"ScriptFile"					"abilities/ts_abilities/fountain_anti_camp"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
 		"AbilityCastRange"				"2000"
 
 		"AbilityValues"
 		{
-			"radius"					"2000"
-			"move_speed"				"400"
+			"radius"						"2000"
+			"move_speed"					"400"
 			"retaliation_damage_pct"		"50"
 			"retaliation_projectile_speed"	"2100"
 		}

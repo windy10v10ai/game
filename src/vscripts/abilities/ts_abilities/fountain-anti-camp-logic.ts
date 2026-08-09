@@ -1,32 +1,16 @@
-export interface FountainAreaPoint {
+export interface Point2D {
   x: number;
   y: number;
 }
 
-export function isInsideFountainArea(
-  point: FountainAreaPoint,
-  center: FountainAreaPoint,
-  radius: number,
-): boolean {
-  if (radius <= 0) return false;
-
-  const deltaX = point.x - center.x;
-  const deltaY = point.y - center.y;
-  return deltaX * deltaX + deltaY * deltaY <= radius * radius;
-}
-
-export function getRetaliationHealthAfterHit(healthBefore: number, damage: number): number {
-  return Math.max(0, healthBefore - Math.max(0, damage));
-}
-
 export interface TrackingProjectileStep {
-  position: FountainAreaPoint;
+  position: Point2D;
   reached: boolean;
 }
 
 export function advanceTrackingProjectile(
-  current: FountainAreaPoint,
-  target: FountainAreaPoint,
+  current: Point2D,
+  target: Point2D,
   travelDistance: number,
   hitRadius: number,
 ): TrackingProjectileStep {
