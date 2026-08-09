@@ -5,7 +5,6 @@ import {
   registerAbility,
   registerModifier,
 } from '../../utils/dota_ts_adapter';
-import { advanceTrackingProjectile } from './fountain-anti-camp-logic';
 
 const WATCHER_MODIFIER_NAME = 'modifier_fountain_anti_camp_watcher';
 const STACK_MODIFIER_NAME = 'modifier_fountain_anti_camp_stack';
@@ -15,31 +14,36 @@ const DEBUFF_DURATION = 3;
 const LOCK_STACK_THRESHOLD = 3;
 
 const RETALIATION_PROJECTILE = 'particles/base_attacks/ranged_tower_good.vpcf';
-const RETALIATION_HIT_RADIUS = 128;
-const RETALIATION_MAX_TRAVEL_TIME = 20;
-// 反击伤害是按最大生命值算的固定值，排除掉所有会改变它的途径
+const RETALIATION_EXPIRE_TIME = 10;
+// 反击伤害按最大生命值固定计算，排除会改变数值的伤害修正与反弹
 const RETALIATION_DAMAGE_FLAGS =
   DamageFlag.BYPASSES_INVULNERABILITY +
   DamageFlag.HPLOSS +
   DamageFlag.NO_DAMAGE_MULTIPLIERS +
   DamageFlag.NO_SPELL_AMPLIFICATION +
-  DamageFlag.NO_SPELL_LIFESTEAL +
-  DamageFlag.BYPASSES_ALL_BLOCK +
   DamageFlag.NO_REFLECTION;
-
-interface RetaliationProjectile {
-  target: CDOTA_BaseNPC_Hero;
-  damage: number;
-  speed: number;
-  position: { x: number; y: number };
-  createdAt: number;
-  lastUpdateAt: number;
-}
 
 @registerAbility('fountain_anti_camp')
 export class AbilityFountainAntiCamp extends BaseAbility {
   GetIntrinsicModifierName(): string {
     return WATCHER_MODIFIER_NAME;
+  }
+
+  OnProjectileHit(target: CDOTA_BaseNPC | undefined, _location: Vector): void {
+    if (!IsServer()) return;
+    if (!target || target.IsNull() || !target.IsAlive()) return;
+
+    const damagePct = this.GetSpecialValueFor('retaliation_damage_pct');
+    if (damagePct <= 0) return;
+
+    ApplyDamage({
+      victim: target,
+      attacker: this.GetCaster(),
+      damage: target.GetMaxHealth() * damagePct * 0.01,
+      damage_type: DamageTypes.PURE,
+      damage_flags: RETALIATION_DAMAGE_FLAGS,
+      ability: this,
+    });
   }
 }
 
@@ -60,7 +64,6 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
 
   // 泉水作为地图内置实体，生成时机早于真实对局中玩家连接完毕，人数判断需等状态到 PRE_GAME 后才可信
   private checked = false;
-  private retaliationProjectiles = new Map<ProjectileID, RetaliationProjectile>();
 
   OnCreated(): void {
     if (!IsServer()) return;
@@ -127,12 +130,12 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
   }
 
   private OnEntityKilled(keys: GameEventProvidedProperties & EntityKilledEvent): void {
-    const fountain = this.GetParent();
     const ability = this.GetAbility();
-    if (fountain.IsNull() || !ability) return;
+    if (!ability) return;
 
+    const fountain = this.GetParent();
     const victim = this.GetBaseNpc(keys.entindex_killed);
-    if (!this.IsFountainAiHero(victim)) return;
+    if (!this.IsFountainAiHero(victim, fountain)) return;
 
     const radius = ability.GetSpecialValueFor('radius');
     if (victim.GetAbsOrigin().__sub(fountain.GetAbsOrigin()).Length2D() > radius) return;
@@ -143,100 +146,38 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
     this.LaunchRetaliation(victim, target);
   }
 
-  private IsFountainAiHero(unit: CDOTA_BaseNPC | undefined): unit is CDOTA_BaseNPC_Hero {
+  private IsFountainAiHero(
+    unit: CDOTA_BaseNPC | undefined,
+    fountain: CDOTA_BaseNPC,
+  ): unit is CDOTA_BaseNPC_Hero {
     return (
       unit !== undefined &&
       !unit.IsNull() &&
       unit.IsRealHero() &&
-      unit.GetTeamNumber() === this.GetParent().GetTeamNumber() &&
+      unit.GetTeamNumber() === fountain.GetTeamNumber() &&
       PlayerHelper.IsBotPlayerByPlayerId(unit.GetPlayerOwnerID())
     );
   }
 
+  // 命中结算走引擎的 AbilityFountainAntiCamp.OnProjectileHit
   private LaunchRetaliation(victim: CDOTA_BaseNPC_Hero, target: CDOTA_BaseNPC_Hero): void {
-    const fountain = this.GetParent();
     const ability = this.GetAbility();
     if (!ability) return;
 
-    const damagePct = ability.GetSpecialValueFor('retaliation_damage_pct');
     const projectileSpeed = ability.GetSpecialValueFor('retaliation_projectile_speed');
-    if (damagePct <= 0 || projectileSpeed <= 0) return;
+    if (projectileSpeed <= 0) return;
 
-    const sourceLocation = victim.GetAbsOrigin();
-    const createdAt = GameRules.GetGameTime();
-    const projectileId = ProjectileManager.CreateTrackingProjectile({
+    ProjectileManager.CreateTrackingProjectile({
       Target: target,
-      Source: fountain,
+      Source: this.GetParent(),
       Ability: ability,
       EffectName: RETALIATION_PROJECTILE,
       iMoveSpeed: projectileSpeed,
-      vSourceLoc: sourceLocation,
+      vSourceLoc: victim.GetAbsOrigin(),
       bDodgeable: false,
       bIgnoreObstructions: true,
       bSuppressTargetCheck: true,
-    });
-
-    this.retaliationProjectiles.set(projectileId, {
-      target,
-      damage: target.GetMaxHealth() * damagePct * 0.01,
-      speed: projectileSpeed,
-      position: { x: sourceLocation.x, y: sourceLocation.y },
-      createdAt,
-      lastUpdateAt: createdAt,
-    });
-    Timers.CreateTimer(FrameTime(), () => this.TrackRetaliationProjectile(projectileId));
-  }
-
-  private TrackRetaliationProjectile(projectileId: ProjectileID): number | void {
-    if (this.IsNull()) return undefined;
-
-    const projectile = this.retaliationProjectiles.get(projectileId);
-    if (!projectile) return undefined;
-
-    const target = projectile.target;
-    if (target.IsNull() || !target.IsAlive()) {
-      this.DestroyRetaliationProjectile(projectileId);
-      return undefined;
-    }
-
-    const now = GameRules.GetGameTime();
-    const targetLocation = target.GetAbsOrigin();
-    const step = advanceTrackingProjectile(
-      projectile.position,
-      { x: targetLocation.x, y: targetLocation.y },
-      projectile.speed * Math.max(FrameTime(), now - projectile.lastUpdateAt),
-      RETALIATION_HIT_RADIUS,
-    );
-    projectile.position = step.position;
-    projectile.lastUpdateAt = now;
-
-    const timedOut = now - projectile.createdAt >= RETALIATION_MAX_TRAVEL_TIME;
-    if (!step.reached && !timedOut) return FrameTime();
-
-    this.DestroyRetaliationProjectile(projectileId);
-    this.ApplyRetaliation(target, projectile.damage);
-    return undefined;
-  }
-
-  private DestroyRetaliationProjectile(projectileId: ProjectileID): void {
-    this.retaliationProjectiles.delete(projectileId);
-    ProjectileManager.DestroyTrackingProjectile(projectileId);
-  }
-
-  private ApplyRetaliation(target: CDOTA_BaseNPC_Hero, damage: number): void {
-    const fountain = this.GetParent();
-    const ability = this.GetAbility();
-    if (!ability || fountain.IsNull() || target.IsNull() || !target.IsAlive() || damage <= 0) {
-      return;
-    }
-
-    ApplyDamage({
-      victim: target,
-      attacker: fountain,
-      damage,
-      damage_type: DamageTypes.PURE,
-      damage_flags: RETALIATION_DAMAGE_FLAGS,
-      ability,
+      flExpireTime: GameRules.GetGameTime() + RETALIATION_EXPIRE_TIME,
     });
   }
 
@@ -248,41 +189,15 @@ export class modifier_fountain_anti_camp_watcher extends BaseModifier {
     return entity;
   }
 
+  // 召唤物/幻象击杀时反击对象是它们背后的玩家英雄
   private ResolveHumanOwnerHero(unit: CDOTA_BaseNPC | undefined): CDOTA_BaseNPC_Hero | undefined {
-    const playerId = this.ResolveOwnerPlayerId(unit);
-    if (playerId === undefined || !PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
-      return undefined;
-    }
+    if (!unit || unit.IsNull()) return undefined;
+
+    const playerId = unit.GetPlayerOwnerID();
+    if (playerId < 0 || !PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return undefined;
 
     const hero = PlayerResource.GetSelectedHeroEntity(playerId);
     return hero && !hero.IsNull() && hero.IsRealHero() ? hero : undefined;
-  }
-
-  // 召唤物/幻象击杀时需沿 owner 链回溯到真正的玩家英雄
-  private ResolveOwnerPlayerId(unit: CDOTA_BaseNPC | undefined): PlayerID | undefined {
-    let current: CBaseEntity | undefined = unit;
-    const visited = new Set<EntityIndex>();
-
-    for (let depth = 0; current && depth < 8; depth++) {
-      if (current.IsNull()) return undefined;
-
-      const entityIndex = current.entindex();
-      if (visited.has(entityIndex)) return undefined;
-      visited.add(entityIndex);
-
-      if (current.IsBaseNPC()) {
-        const playerId = current.GetPlayerOwnerID();
-        if (PlayerResource.IsValidPlayerID(playerId) && PlayerResource.IsValidPlayer(playerId)) {
-          return playerId;
-        }
-      }
-
-      const owner = current.GetOwnerEntity();
-      if (!owner || owner === current) return undefined;
-      current = owner;
-    }
-
-    return undefined;
   }
 }
 
