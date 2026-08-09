@@ -111,11 +111,8 @@ export class GameEnd {
         kills: PlayerResource.GetKills(playerId),
         deaths: PlayerResource.GetDeaths(playerId),
         assists: PlayerResource.GetAssists(playerId),
-        heroDamage: GameRules.FountainAntiCamp.GetFinalHeroDamage(
-          playerId,
-          PlayerResource.GetRawPlayerDamage(playerId),
-        ),
-        damageTaken: GameRules.FountainAntiCamp.GetFinalDamageTaken(playerId, damageTaken),
+        heroDamage: PlayerResource.GetRawPlayerDamage(playerId),
+        damageTaken,
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
@@ -153,7 +150,7 @@ export class GameEnd {
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
         heroDamage: playerDto.heroDamage,
-        damagereceived: playerDto.damageTaken,
+        damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,
         pointModifier,

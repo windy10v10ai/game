@@ -19,31 +19,6 @@ export function getRetaliationHealthAfterHit(healthBefore: number, damage: numbe
   return Math.max(0, healthBefore - Math.max(0, damage));
 }
 
-export function clampExcludedDamage(totalDamage: number, excludedDamage: number): number {
-  return Math.max(0, totalDamage - Math.max(0, excludedDamage));
-}
-
-export function shouldArmRewardSuppression(currentHealth: number, incomingDamage: number): boolean {
-  return currentHealth > 0 && incomingDamage > 0 && incomingDamage >= currentHealth;
-}
-
-export interface FountainRewardValues {
-  minimumGold: number;
-  maximumGold: number;
-  deathXp: number;
-}
-
-export function captureLatestRewardValues(
-  saved: FountainRewardValues,
-  current: FountainRewardValues,
-): FountainRewardValues {
-  return {
-    minimumGold: current.minimumGold > 0 ? current.minimumGold : saved.minimumGold,
-    maximumGold: current.maximumGold > 0 ? current.maximumGold : saved.maximumGold,
-    deathXp: current.deathXp > 0 ? current.deathXp : saved.deathXp,
-  };
-}
-
 export interface TrackingProjectileStep {
   position: FountainAreaPoint;
   reached: boolean;
@@ -72,15 +47,4 @@ export function advanceTrackingProjectile(
     },
     reached,
   };
-}
-export function isProjectileWithinHitRadius(
-  projectile: FountainAreaPoint,
-  target: FountainAreaPoint,
-  hitRadius: number,
-): boolean {
-  if (hitRadius <= 0) return false;
-
-  const deltaX = projectile.x - target.x;
-  const deltaY = projectile.y - target.y;
-  return deltaX * deltaX + deltaY * deltaY <= hitRadius * hitRadius;
 }
