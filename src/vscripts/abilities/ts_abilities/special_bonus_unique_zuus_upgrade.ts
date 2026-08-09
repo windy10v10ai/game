@@ -3,6 +3,7 @@ import {
   AutoCastAbility,
   castImmediatelyOnTarget,
   findEnemiesInRange,
+  findHeroOrCreepInRange,
   getFullCastRange,
 } from './shared/auto-cast-ability';
 
@@ -16,39 +17,19 @@ export class SpecialBonusUniqueZuusUpgrade extends AutoCastAbility {
     // 弧形闪电：英雄优先，无英雄也对小兵
     const arc = caster.FindAbilityByName('zuus_arc_lightning');
     if (arc && arc.IsFullyCastable()) {
-      const [target] = this.findTarget(caster, arc);
+      const target = findHeroOrCreepInRange(caster, getFullCastRange(caster, arc));
       if (target) castImmediatelyOnTarget(caster, arc, target);
     }
 
     // 雷击：仅对英雄，只有小兵时不放
     const bolt = caster.FindAbilityByName('zuus_lightning_bolt');
     if (bolt && bolt.IsFullyCastable()) {
-      const [target, isHero] = this.findTarget(caster, bolt);
-      if (target && isHero) castImmediatelyOnTarget(caster, bolt, target);
+      const [target] = findEnemiesInRange(
+        caster,
+        getFullCastRange(caster, bolt),
+        UnitTargetType.HERO,
+      );
+      if (target !== undefined) castImmediatelyOnTarget(caster, bolt, target);
     }
-  }
-
-  // 返回 [目标, 是否英雄]：英雄优先，否则最近小兵
-  private findTarget(
-    caster: CDOTA_BaseNPC_Hero,
-    ability: CDOTABaseAbility,
-  ): [CDOTA_BaseNPC | undefined, boolean] {
-    const enemies = findEnemiesInRange(
-      caster,
-      getFullCastRange(caster, ability),
-      UnitTargetType.HERO + UnitTargetType.BASIC,
-    );
-    let creep: CDOTA_BaseNPC | undefined;
-    for (const enemy of enemies) {
-      if (!enemy.IsNull() && enemy.IsAlive()) {
-        if (enemy.IsHero()) {
-          return [enemy, true];
-        }
-        if (!creep) {
-          creep = enemy;
-        }
-      }
-    }
-    return [creep, false];
   }
 }
