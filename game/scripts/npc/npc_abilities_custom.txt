@@ -3318,7 +3318,7 @@
 		{
 			"radius"						"2000"
 			"move_speed"					"400"
-			"retaliation_damage_pct"		"50"
+			"retaliation_damage_pct"		"20"
 			"retaliation_projectile_speed"	"2100"
 		}
 	}
