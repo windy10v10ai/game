@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 变体精灵 觉醒
+  {
+    heroName: 'npc_dota_hero_morphling',
+    newAbility: 'morphling_flow_echo_awaken',
+    newLevel: 1,
+  },
   // 亚巴顿 觉醒
   {
     heroName: 'npc_dota_hero_abaddon',

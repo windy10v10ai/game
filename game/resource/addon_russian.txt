@@ -112,6 +112,19 @@
 		"ToggleDayNight_Button"						"День/Ночь"
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
+		// Морфлинг Эхо Потока — пробуждение
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken"							"<font color='#d000ff'>Эхо Потока: пробуждение</font>"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_SummaryDescription"		"Текущая ловкость усиливает заклинания; чем выше отношение текущей силы к ловкости, тем сильнее сокращается перезарядка способностей и предметов."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Description"				"Морфлинг пробуждает древнюю силу Потока. Каждые %agility_per_spell_amp% ед. текущей ловкости дают 1%% усиления заклинаний. Чем выше отношение текущей силы к ловкости, тем сильнее сокращается перезарядка способностей и предметов, вплоть до %max_cooldown_speed_bonus%%%."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_agility_per_spell_amp"		"ЛОВКОСТИ ЗА 1% УСИЛЕНИЯ ЗАКЛИНАНИЙ:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_min_strength_agility_ratio"	"%МИНИМАЛЬНОЕ ОТНОШЕНИЕ СИЛЫ К ЛОВКОСТИ:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_max_strength_agility_ratio"	"%МАКСИМАЛЬНОЕ ОТНОШЕНИЕ СИЛЫ К ЛОВКОСТИ:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_max_cooldown_speed_bonus"	"%МАКС. СОКРАЩЕНИЕ ПЕРЕЗАРЯДКИ:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note0"					"Сокращение перезарядки линейно растёт между минимальным и максимальным отношением силы к ловкости."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note1"					"Действует на способности Морфлинга, способности, полученные с помощью Morph, и перезарядку предметов."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note2"					"Изменение атрибутов динамически влияет на способности и предметы, которые уже перезаряжаются."
+		"DOTA_Tooltip_modifier_morphling_flow_echo_awaken"						"<font color='#d000ff'>Эхо Потока: пробуждение</font>"
+		"DOTA_Tooltip_modifier_morphling_flow_echo_awaken_Description"			"Усиление заклинаний: +%fMODIFIER_PROPERTY_TOOLTIP%%%\nСокращение перезарядки: +%fMODIFIER_PROPERTY_TOOLTIP2%%%"
 
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Вражеские герои под управлением игроков подвергаются санкции, приближаясь к радиусу атаки фонтана. Действует только в командном режиме.<br><br>Когда герой-бот погибает в этом радиусе, в убийцу выпускается самонаводящийся огненный шар, который проходит сквозь магический иммунитет и наносит урон, равный %retaliation_damage_pct%%% максимального здоровья убийцы."

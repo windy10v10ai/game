@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { applyAwakenByHero, canAwaken, executeReplacement, isAwakened } from './awaken-replacer';
+import { ABILITY_REPLACEMENTS, FREE_TRIAL_HEROES } from './awaken-config';
 
 /** 构造一个记录技能槽状态的假英雄，用于验证三分支的增删与退点数逻辑 */
 function createFakeHero(opts: {
@@ -214,6 +215,29 @@ describe('applyAwakenByHero', () => {
   });
 });
 
+describe('Morphling awakening configuration', () => {
+  it('adds Flow Echo as a hidden level-one awakening ability', () => {
+    const replacement = ABILITY_REPLACEMENTS.find(
+      (entry) => entry.heroName === 'npc_dota_hero_morphling',
+    );
+
+    expect(replacement).toEqual({
+      heroName: 'npc_dota_hero_morphling',
+      newAbility: 'morphling_flow_echo_awaken',
+      newLevel: 1,
+    });
+
+    const f = createFakeHero({ abilities: [] });
+    executeReplacement(f.hero, replacement!);
+    expect(f.abilities).toEqual([
+      expect.objectContaining({ name: 'morphling_flow_echo_awaken', level: 1 }),
+    ]);
+  });
+
+  it('does not add Morphling to the free trial list', () => {
+    expect(FREE_TRIAL_HEROES).not.toContain('npc_dota_hero_morphling');
+  });
+});
 describe('canAwaken', () => {
   it('配置表内的英雄返回 true', () => {
     const f = createFakeHero({ unitName: 'npc_dota_hero_pudge' });
