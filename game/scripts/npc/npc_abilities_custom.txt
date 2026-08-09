@@ -274,16 +274,38 @@
 			}
 		}
 	}
-	// 泉水最大生命值
-	"fountain_hp_aura"
+	// 泉水护甲
+	"fountain_armor_aura"
 	{
-		"BaseClass"						"granite_golem_hp_aura"
+		"BaseClass"						"black_dragon_dragonhide_aura"
 
 		"AbilityValues"
 		{
-			"bonus_hp"
+			"bonus_armor"
 			{
-				"value" "50"
+				"value" "150"
+			}
+			"radius"
+			{
+				"value" "1600"
+				"affected_by_aoe_increase"	"1"
+			}
+		}
+	}
+	// 泉水魔抗
+	"fountain_magical_armor_aura"
+	{
+		"BaseClass"						"mudgolem_cloak_aura"
+
+		"AbilityValues"
+		{
+			"bonus_magical_armor"
+			{
+				"value" "90"
+			}
+			"bonus_magical_armor_creeps"
+			{
+				"value" "90"
 			}
 			"radius"
 			{

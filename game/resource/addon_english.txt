@@ -501,10 +501,10 @@
 		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"		"KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"SLOW DURATION:"
 
-		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
-		"DOTA_Tooltip_ability_fountain_hp_aura_Description"				"Increases the health capacity of nearby units."
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"BONUS HP PERCENTAGE:"
-		"DOTA_Tooltip_ability_fountain_hp_aura_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_fountain_armor_aura"						"Fountain Armor Aura"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Provides %bonus_armor% armor to nearby allies."
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Fountain Magical Resistance Aura"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Provides %bonus_magical_armor%%% magical resistance to nearby allies."
 		///////////////////////////////////////////////////
 		//
 		//            itembuilds
