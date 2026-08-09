@@ -26,11 +26,7 @@ export class AbilityFountainAntiCamp extends BaseAbility {
     if (!IsServer()) return;
     if (!target || target.IsNull() || !target.IsAlive()) return;
 
-    const damagePct = this.GetSpecialValueFor('retaliation_damage_pct');
-    const damage = target.GetMaxHealth() * damagePct * 0.01;
-    print(
-      `[FountainAntiCamp] retaliation hit target=${target.GetUnitName()} pct=${damagePct} damage=${damage}`,
-    );
+    const damage = target.GetMaxHealth() * this.GetSpecialValueFor('retaliation_damage_pct') * 0.01;
     if (damage <= 0) return;
 
     ApplyDamage({
