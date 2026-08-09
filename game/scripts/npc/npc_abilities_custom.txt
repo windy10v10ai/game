@@ -3336,7 +3336,7 @@
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
-		"AbilityCastRange"				"2000"
+		"AbilityCastRange"				"1800"
 
 		"AbilityValues"
 		{
