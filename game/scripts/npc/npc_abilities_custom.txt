@@ -3330,15 +3330,20 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ts_abilities/fountain_anti_camp"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityTextureName"			"action_lockenemytower"
 		"MaxLevel"						"1"
 		"AbilityCastRange"				"2000"
 
 		"AbilityValues"
 		{
-			"radius"					"2000"
-			"move_speed"				"400"
+			"radius"						"1800"
+			"move_speed"					"400"
+			"retaliation_damage_pct"		"20"
+			"retaliation_projectile_speed"	"2100"
 		}
 	}
 
