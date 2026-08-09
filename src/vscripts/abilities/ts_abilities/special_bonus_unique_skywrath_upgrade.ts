@@ -3,6 +3,7 @@ import {
   AutoCastAbility,
   castImmediatelyOnTarget,
   findEnemiesInRange,
+  findHeroOrCreepInRange,
   getFullCastRange,
   modifier_autocast_think,
 } from './shared/auto-cast-ability';
@@ -25,16 +26,24 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
     const seal = caster.FindAbilityByName('skywrath_mage_ancient_seal');
     if (!seal || !seal.IsFullyCastable()) return;
 
-    const target = this.findHero(caster, seal);
-    if (target) castImmediatelyOnTarget(caster, seal, target);
+    const [target] = findEnemiesInRange(
+      caster,
+      getFullCastRange(caster, seal),
+      UnitTargetType.HERO,
+    );
+    if (target !== undefined) castImmediatelyOnTarget(caster, seal, target);
   }
 
   private castMysticFlare(caster: CDOTA_BaseNPC_Hero): void {
     const flare = caster.FindAbilityByName('skywrath_mage_mystic_flare');
     if (!flare || !flare.IsFullyCastable()) return;
 
-    const target = this.findHero(caster, flare);
-    if (target) this.castAtPosition(caster, flare, target.GetAbsOrigin());
+    const [target] = findEnemiesInRange(
+      caster,
+      getFullCastRange(caster, flare),
+      UnitTargetType.HERO,
+    );
+    if (target !== undefined) this.castAtPosition(caster, flare, target.GetAbsOrigin());
   }
 
   private castArcaneBolt(caster: CDOTA_BaseNPC_Hero): void {
@@ -45,54 +54,25 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
       bolt.GetSpecialValueFor('pierce_spell_immunity') > 0
         ? UnitTargetFlags.MAGIC_IMMUNE_ENEMIES
         : UnitTargetFlags.NONE;
-    const target = this.findHeroOrCreep(caster, bolt, flags);
+    const target = findHeroOrCreepInRange(caster, getFullCastRange(caster, bolt), flags);
     if (target) castImmediatelyOnTarget(caster, bolt, target);
   }
 
   private castConcussiveShot(caster: CDOTA_BaseNPC_Hero): void {
     const shot = caster.FindAbilityByName('skywrath_mage_concussive_shot');
-    const launchRadius = shot?.GetSpecialValueFor('launch_radius') ?? 0;
-    const shotRange =
-      shot && shot.GetSpecialValueFor('launch_global') > 0
+    if (!shot || !shot.IsFullyCastable()) return;
+
+    // 无目标技能，实际目标由原生技能挑选，这里只确认搜索范围内确实有英雄可打
+    const launchRadius = shot.GetSpecialValueFor('launch_radius');
+    const searchRange =
+      shot.GetSpecialValueFor('launch_global') > 0
         ? FIND_UNITS_EVERYWHERE
         : launchRadius > 0
           ? launchRadius
-          : shot && getFullCastRange(caster, shot);
-    if (!shot || !shot.IsFullyCastable() || !shotRange || !this.findHero(caster, shot, shotRange)) {
-      return;
-    }
+          : getFullCastRange(caster, shot);
+    if (findEnemiesInRange(caster, searchRange, UnitTargetType.HERO).length === 0) return;
 
-    // 震荡光弹是无目标技能，由原生技能在有效搜索范围内选择目标。
     caster.CastAbilityImmediately(shot, caster.GetPlayerOwnerID());
-  }
-
-  private findHero(
-    caster: CDOTA_BaseNPC_Hero,
-    ability: CDOTABaseAbility,
-    range = getFullCastRange(caster, ability),
-  ): CDOTA_BaseNPC | undefined {
-    const enemies = findEnemiesInRange(caster, range, UnitTargetType.HERO);
-    return enemies.find((enemy) => !enemy.IsNull() && enemy.IsAlive() && enemy.IsHero());
-  }
-
-  private findHeroOrCreep(
-    caster: CDOTA_BaseNPC_Hero,
-    ability: CDOTABaseAbility,
-    extraFlags: UnitTargetFlags,
-  ): CDOTA_BaseNPC | undefined {
-    const enemies = findEnemiesInRange(
-      caster,
-      getFullCastRange(caster, ability),
-      UnitTargetType.HERO + UnitTargetType.BASIC,
-      extraFlags,
-    );
-    let creep: CDOTA_BaseNPC | undefined;
-    for (const enemy of enemies) {
-      if (enemy.IsNull() || !enemy.IsAlive()) continue;
-      if (enemy.IsHero()) return enemy;
-      if (!creep) creep = enemy;
-    }
-    return creep;
   }
 
   private castAtPosition(

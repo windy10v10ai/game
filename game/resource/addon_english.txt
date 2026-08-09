@@ -1256,10 +1256,10 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
 
 		// Skywrath Mage Staff of the Scion - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"							"<font color='#d000ff'>Staff of the Scion Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"	"Every time Skywrath Mage deals magic damage with an ability, he reduces all his non-item ability cooldowns by %cooldown_reduction%s.<br><br><font color='#FF0000'>Right-click to toggle autocast.</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade"					"<font color='#d000ff'>Staff of the Scion Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade_Description"	"Every time Skywrath Mage deals magic damage with an ability, all his non-item ability cooldowns are reduced."
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Staff of the Scion Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Whenever Skywrath Mage's abilities deal <font color='#05CAFF'>magical damage</font>, the remaining cooldown of all his abilities is reduced by %cooldown_reduction%s. Items are not included.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Mystic Flare, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
+		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Staff of the Scion Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Whenever Skywrath Mage's abilities deal <font color='#05CAFF'>magical damage</font>, the remaining cooldown of all his abilities is reduced by <font color='#FFFFFF'><b>0.1</b></font>s. Items are not included.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Mystic Flare, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
 
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"

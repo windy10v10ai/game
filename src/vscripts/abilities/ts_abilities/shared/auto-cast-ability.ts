@@ -76,6 +76,21 @@ export function findEnemiesInRange(
   );
 }
 
+/** 英雄优先、无英雄时退而取最近的小兵。 */
+export function findHeroOrCreepInRange(
+  caster: CDOTA_BaseNPC,
+  range: number,
+  extraFlags: UnitTargetFlags = UnitTargetFlags.NONE,
+): CDOTA_BaseNPC | undefined {
+  const enemies = findEnemiesInRange(
+    caster,
+    range,
+    UnitTargetType.HERO + UnitTargetType.BASIC,
+    extraFlags,
+  );
+  return enemies.find((enemy) => enemy.IsHero()) ?? enemies[0];
+}
+
 /** 瞬发施放（不抢玩家操作）；ability / target 须有效。 */
 export function castImmediatelyOnTarget(
   caster: CDOTA_BaseNPC,
