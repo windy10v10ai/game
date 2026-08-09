@@ -18,16 +18,16 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
-  // 戴泽 觉醒
-  {
-    heroName: 'npc_dota_hero_dazzle',
-    newAbility: 'special_bonus_unique_dazzle_upgrade',
-    newLevel: 1,
-  },
   // 天怒法师 觉醒
   {
     heroName: 'npc_dota_hero_skywrath_mage',
     newAbility: 'special_bonus_unique_skywrath_upgrade',
+    newLevel: 1,
+  },
+  // 戴泽 觉醒
+  {
+    heroName: 'npc_dota_hero_dazzle',
+    newAbility: 'special_bonus_unique_dazzle_upgrade',
     newLevel: 1,
   },
   // 上古巨神 觉醒
@@ -234,6 +234,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_skywrath_mage', // 天怒法师
   'npc_dota_hero_dazzle', // 戴泽
   'npc_dota_hero_elder_titan', // 上古巨神
   'npc_dota_hero_techies', // 炸弹人
@@ -241,8 +242,6 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_lich', // 巫妖
   'npc_dota_hero_doom_bringer', // 末日使者
   'npc_dota_hero_keeper_of_the_light', // 光之守卫
-  'npc_dota_hero_crystal_maiden', // 水晶室女
-  'npc_dota_hero_tiny', // 小小
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
