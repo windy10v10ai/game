@@ -31,6 +31,10 @@ function getEnemyDoomDuration(target: CDOTA_BaseNPC, duration: number): number {
   return Math.max(0, duration * (1 - target.GetStatusResistance()));
 }
 
+function applyBasicDispel(target: CDOTA_BaseNPC): void {
+  target.Purge(true, false, false, false, false);
+}
+
 function hasLearnedTalent(caster: CDOTA_BaseNPC | undefined, talentName: string): boolean {
   if (!caster || caster.IsNull()) return false;
   const talent = caster.FindAbilityByName(talentName);
@@ -133,6 +137,7 @@ export class DoomBringerDoomAwakened extends BaseAbility {
       : getEnemyDoomDuration(target, baseDuration);
 
     if (!targetIsFriendly) {
+      applyBasicDispel(target);
       applyOrRefreshDoom(caster, this, target, effectDuration);
     }
 
