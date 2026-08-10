@@ -397,7 +397,7 @@
 			"hp_threshold"							"1000 2000 3000 4000"	// 400
 			"duration"
 			{
-				"value"		"4.5 5.5 6.5 7.5"	// 常态加强；神杖仍额外 +0.5，最高 8.0
+				"value"		"4.5 5.0 5.5 6.0"	// 4.0 5.0 6.0 确保最高等级时长不超过原版数值
 				"special_bonus_scepter"	"+0.5"	// +3
 			}
 			"ally_threshold_scepter"
