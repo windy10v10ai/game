@@ -168,7 +168,7 @@ ability.added_modifiers = nil
 
 - 同样写完整 DataDriven modifier（`Properties` 放静态部分；需要逐帧效果时加 `ThinkInterval` + `OnIntervalThink` 的 `RunScript`）
 - 用 `ApplyItemDataDrivenModifier` 附加到目标并传入 `duration`
-- 可见 buff（要出现在状态栏）加 `"IsHidden" "0"` + `"IsBuff" "1"` + `"TextureName"`，图标名填该物品 `AbilityTextureName` 的值
+- 可见 buff（要出现在状态栏）加 `"IsHidden" "0"` + `"IsBuff" "1"` + `"TextureName"`，物品类图标填**物品系统名**（带 `item_` 前缀），由引擎再去解析该物品的 `AbilityTextureName`
 - 参考：`modifier_item_withered_spring_active`（物品主动 buff）、`modifier_global_member_normal`（无时限的可见全局 buff）
 
 ## 决策口诀
