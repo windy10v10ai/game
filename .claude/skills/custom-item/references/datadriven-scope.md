@@ -40,6 +40,13 @@
 
 表里没有的属性名不代表一定不行（DataDriven 支持面比这更宽），但**没有本仓先例**，先在 Dota Tools 验证再铺开。
 
+**已确认不可用**，命中直接留在脚本侧，不要试图下沉：
+
+- `MODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING`
+- `MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE_UNIQUE`（上表的 `HP_REGEN_AMPLIFY_PERCENTAGE` 是回复放大，语义不同，替代不了）
+
+`npc_items_custom.txt` 里那几处 `（不在可优化列表）` 注释指的就是这份名单。
+
 ## 可写进 `States` 的状态
 
 ```kv
@@ -93,12 +100,18 @@
 
 **永久型原版 modifier 的挂/摘**：
 
+模式 2 声明 `BaseItemModifier` 的 `vanillaModifierNames` 即可，挂摘由基类全包，不要自己写。
+
+模式 1 在 DataDriven modifier 的 `OnCreated` / `OnDestroy` 事件块里 `RunScript`，**存句柄再 `Destroy()`**：
+
 ```lua
 -- OnCreated
-caster:AddNewModifier(caster, ability, "modifier_item_eternal_shroud", {})
+local modifier = caster:AddNewModifier(caster, ability, "modifier_item_eternal_shroud", {})
 -- OnDestroy
-caster:RemoveModifierByName("modifier_item_eternal_shroud")
+if modifier and not modifier:IsNull() then modifier:Destroy() end
 ```
+
+**不要用 `RemoveModifierByName`**——它按名字删，会连同其他物品实例挂的同名 modifier 一起删掉，多件叠加时表现为静默丢属性。句柄的存放位置见下面的多 modifier 写法。
 
 不要在自己 KV 的 `Modifiers` 块里重复定义这个原版 modifier。
 
@@ -155,6 +168,8 @@ ability.added_modifiers = nil
 
 - 同样写完整 DataDriven modifier（`Properties` 放静态部分；需要逐帧效果时加 `ThinkInterval` + `OnIntervalThink` 的 `RunScript`）
 - 用 `ApplyItemDataDrivenModifier` 附加到目标并传入 `duration`
+- 可见 buff（要出现在状态栏）加 `"IsHidden" "0"` + `"IsBuff" "1"` + `"TextureName"`，值填该物品的 `AbilityTextureName`，且**必须带 `item_` 前缀**
+- 参考：`modifier_item_withered_spring_active`（物品主动 buff）、`modifier_global_member_normal`（无时限的可见全局 buff）
 
 ## 决策口诀
 

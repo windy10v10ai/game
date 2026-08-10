@@ -2517,32 +2517,20 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"Ultra Corruption"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Infernal Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
-		// item_sacred_trident 三叉戟
-		"DOTA_Tooltip_Ability_item_sacred_trident"										"Holy Trinity"
-		"DOTA_Tooltip_Ability_item_sacred_trident_Description"					""
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"				"+$all"
-		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"					"%+Spell Damage"
-		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+Mana Regen Amplification"
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+Status Resistance"
-		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
-		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+Magic Attack Damage"
-
-		"DOTA_Tooltip_ability_item_sacred_trident_Lore"						"The three mythical blades that were never seen all together in harmony, now combined as one."
-
 		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Legendary Hexad"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_Description"					""
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"				"+$all"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"					"%+Spell Damage"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+Magic Attack Damage"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"					"It would be insane to find a pair of each of the three swords of legends and combine them all, but the power found in them all would be unmatched..."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"To gather all three legendary swords in their perfected form and forge them into one, the power within is beyond measure."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_all_stats_tooltip"				"+$all"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed_tooltip"			"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Slow Resistance"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Spell Damage"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Mana Cost/Mana Loss Reduction"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Cast Speed Bonus"
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
@@ -3180,7 +3168,7 @@
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
@@ -3266,7 +3254,7 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor, %bonus_regen_active% health regeneration, and %status_resistance_active%%% status resistance.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. No single instance of damage can reduce health below 1, so it can never be killed outright, and for the next %active_duration% seconds, all damage taken and dealt is reduced to zero."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor and %bonus_regen_active% health regeneration.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers the effects above, and for %buff_duration% seconds you gain +%status_resistance%%% <font color='#B99012'>Status Resistance</font> and all damage you deal and are dealt is reduced to zero."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"                       "From withered wood, spring blooms anew."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"             "+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"               "+$health"
@@ -3274,12 +3262,10 @@
 		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"           "%+Max Health Regen"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"                "+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"              "%+$evasion"
-		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"          "%+Status Resistance"
-		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Only when triggered passively, all damage taken and dealt is reduced to zero for %active_duration% seconds."
-		"DOTA_Tooltip_ability_item_withered_spring_Note1"                      "Enters cooldown after triggering automatically."
+		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Enters cooldown after triggering automatically."
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"                    "Withering Bloom"
-		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Increased resistance. Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and +%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance."
+		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		// Dracula Mask (德古拉面罩)
 		"DOTA_Tooltip_Ability_item_dracula_mask"                               "Dracula's Mask"
@@ -3348,21 +3334,6 @@
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"             "+$attack"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_damage"                   "+$damage"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_armor"                    "+$armor"
-
-		// Ten Thousand Swords (万剑归宗)
-		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"Ten Thousand Swords"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"						"<h1><font color='#FFFF00'>Passive: Sword Mastery</font></h1>Gains the power of all four Artifacts, greatly increasing all attributes, status resistance, attack speed, movement speed, health regeneration, mana regeneration, and spell amplification. Attacks deal bonus magical damage."
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_Lore"								"Ten Thousand Swords, invincible. The power of the four Artifacts converges here, forging a supreme weapon."
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_strength"					"+$str"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_agility"					"+$agi"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_status_resistance"				"%+Status Resistance"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_hp_regen_amp"					"%+$restoration_amp"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_mana_regen_multiplier"			"%+Mana Regen Enhancement"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_spell_amp"						"%+Spell Amplification"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_magic_damage_attack"				"+Magic Damage Attack"
 
 		// Time Gem (时间宝石)
 		"DOTA_Tooltip_Ability_item_time_gem"											"Time Gem"

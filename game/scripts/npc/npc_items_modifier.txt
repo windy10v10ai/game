@@ -35,6 +35,9 @@
 			"item_six_paths_reincarnation_gun_bonus_damage"             "300"
 			"item_six_paths_reincarnation_gun_attack_speed"             "150"
 			"item_six_paths_reincarnation_gun_bonus_magic_resistance"   "20"
+
+			"item_withered_spring_bonus_armor_active"	"20"
+			"item_withered_spring_bonus_regen_active"	"300"
 		}
 		"Modifiers"
 		{
@@ -431,11 +434,23 @@
 				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
 				"Properties"
 				{
+					// 生命与魔法由复用的 modifier_item_aeon_disk 提供，此处再写一遍会双倍
 					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"	"120"
-					"MODIFIER_PROPERTY_HEALTH_BONUS"			"2500"
-					"MODIFIER_PROPERTY_MANA_BONUS"				"2500"
 					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"20"
 					"MODIFIER_PROPERTY_EVASION_CONSTANT"		"25"
+				}
+			}
+			// 枯木逢春 主动 buff，持续时间由脚本传入
+			"modifier_item_withered_spring_active"
+			{
+				"IsHidden"				"0"
+				"IsBuff"				"1"
+				"IsPurgable"			"0"
+				"TextureName"			"item_withered_spring"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%item_withered_spring_bonus_armor_active"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%item_withered_spring_bonus_regen_active"
 				}
 			}
 			// 德古拉面罩

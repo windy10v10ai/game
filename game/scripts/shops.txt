@@ -292,13 +292,9 @@
 	// Level 6 - Orange / Orb / Artifacts 军备
 	"artifacts"
 	{
-		// "item"		"item_sange"				// 散华
- 		// "item"		"item_yasha"				// 夜叉
- 		// "item"		"item_kaya"					// 慧光
-
 		"item"		"item_echo_sabre_2"			// 音速战刃
-		"item"		"item_harpoon"				// 鱼叉
-		"item"		"item_specialists_array"	// 行家阵列
+		"item"		"item_yasha"
+		"item"		"item_kaya"
 		"item"		"item_hydras_breath_2"		// 神器怪蛇之息
 
 		"item"		"item_devastator_2"			// 神圣斧
@@ -309,20 +305,22 @@
  		"item"		"item_kaya_and_sange_1"		// 散慧对剑
  		"item"		"item_sange_and_yasha_1"	// 散夜对剑
  		"item"		"item_yasha_and_kaya_1"		// 夜慧对剑
-		"item"		"item_sacred_six_vein"		// 六脉神剑
-		"item"		"item_overwhelming_blink_2"
-		"item"		"item_swift_blink_2"
-		"item"		"item_arcane_blink"
-		"item"		"item_jump_jump_jump"
+		"item"		"item_specialists_array"	// 行家阵列
 
+		// "item"		"item_harpoon"				// 鱼叉
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"		// 洛书
 
+		"item"		"item_overwhelming_blink_2"
+		"item"		"item_swift_blink_2"
+		"item"		"item_arcane_blink"
+		"item"		"item_jump_jump_jump"
+
 		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
 		// "item"      "item_shadow_judgment"      // 暗影裁决
-		"item"      "item_ten_thousand_swords"      // 万剑归宗
+		"item"		"item_sacred_six_vein"		// 六脉神剑
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
 	}
