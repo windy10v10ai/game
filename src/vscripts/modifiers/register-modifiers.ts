@@ -1,3 +1,4 @@
+import { modifier_global_melee_status_resistance } from './global/melee_status_resistance';
 import {
   property_aoe_bonus_constant_stacking,
   property_attack_range_bonus,
@@ -16,6 +17,11 @@ import {
 const PROPERTY_SCRIPT_PATH = 'modifiers/property/property_declare';
 
 export function RegisterModifiers() {
+  LinkLuaModifier(
+    modifier_global_melee_status_resistance.name,
+    'modifiers/global/melee_status_resistance',
+    LuaModifierMotionType.NONE,
+  );
   LinkLuaModifier(
     property_cast_range_bonus_stacking.name,
     PROPERTY_SCRIPT_PATH,
