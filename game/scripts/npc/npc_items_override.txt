@@ -9,7 +9,7 @@
 	"item_recipe_travel_boots_2"	"REMOVE"
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
-	// "item_moon_shard"				"REMOVE"
+	"item_moon_shard"				"REMOVE"
 	"item_helm_of_the_dominator"	"REMOVE" // 支配头盔
 	"item_helm_of_the_overlord"		"REMOVE" // 统御头盔
 
