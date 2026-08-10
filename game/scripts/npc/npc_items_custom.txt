@@ -4726,7 +4726,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6000"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -4742,7 +4742,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"36000"
+		"ItemCost"						"32000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4791,7 +4791,7 @@
 		"ID"							"9596"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6000"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra_bot"
@@ -4806,7 +4806,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9597"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"48000"
+		"ItemCost"						"40000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4852,7 +4852,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9598"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"48000"
+		"ItemCost"						"40000"
 
 		"ItemPurchasable"				"0"
 		"ItemDroppable"					"1"
@@ -5375,7 +5375,7 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5401,7 +5401,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5426,7 +5426,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5451,7 +5451,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5476,7 +5476,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5501,7 +5501,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5526,7 +5526,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5551,7 +5551,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -6246,9 +6246,10 @@
 	{
 		"BaseClass"					"item_lua"
 		"ID"						"10314"
-		"ScriptFile"				"items/item_withered_spring"
+		"ScriptFile"				"items/ts_items/item_withered_spring"
 		"AbilityTextureName"		"withered_spring"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilitySharedCooldown"		"aeon"
 		"FightRecapLevel"			"1"
 
 		"ItemCost"					"52600"
@@ -6269,31 +6270,38 @@
 		}
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
-			"health_regen_pct"			"3"		// Lua 逻辑需要 - 百分比生命回复
-			"status_resistance"			"15"	// Lua 逻辑需要 - 状态抗性
+			// 由原版 modifier_item_aeon_disk 按原版字段名读取
+			"health_threshold_pct"		"40"
+			"buff_duration"				"3"
+			"status_resistance"			"80"
+			"cooldown_duration"			"60"	// 单值 + max_level 1 关闭原版的触发递增
+			"max_level"					"1"
+			"initial_cooldown"			"6"
+			"bonus_health"				"2500"
+			"bonus_mana"				"2500"
 
-			// Lua 逻辑需要 - 主动技能参数
-			"hp_threshold"				"20"	// Lua 逻辑需要 - 自动触发生命阈值
-			"replenish_health"			"2500"	// Lua 逻辑需要 - 立即恢复生命值
-			"replenish_health_pct"		"6"		// Lua 逻辑需要 - 立即恢复最大生命值百分比
-			"replenish_mana"			"1500"	// Lua 逻辑需要 - 立即恢复法力值
+			// DataDriven 表达不了，留在 TS
+			"health_regen_pct"			"3"
+
+			// 主动技能参数
+			"replenish_health"			"2500"
+			"replenish_health_pct"		"6"
+			"replenish_mana"			"1500"
 			"replenish_radius"
 			{
-				"value"						"1200"	// Lua 逻辑需要 - 回血回蓝影响友军范围
+				"value"						"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"active_duration"			"3"		// Lua 逻辑需要 - 主动持续时间
-			"bonus_armor_active"		"20"	// Lua 逻辑需要 - 主动护甲加成
-			"bonus_regen_active"		"300"	// Lua 逻辑需要 - 主动生命回复
-			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
+			"active_duration"			"3"
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"120"	// tooltip only - 力量
-			"bonus_health"				"2500"	// tooltip only - 生命值
-			"bonus_mana"				"2500"	// tooltip only - 法力值
-			"bonus_armor"				"20"	// tooltip only - 护甲
-			"bonus_evasion"				"25"	// tooltip only - 闪避
+			// 主动 buff 属性，真值在 item_apply_modifiers，此处仅供 tooltip
+			"bonus_armor_active"		"20"
+			"bonus_regen_active"		"300"
+
+			// 被动属性，真值在 item_apply_modifiers，此处仅供 tooltip
+			"bonus_strength"			"120"
+			"bonus_armor"				"20"
+			"bonus_evasion"				"25"
 		}
 	}
 	//=================================================================================================================

@@ -136,8 +136,6 @@ export class EventGameStateChange {
     GA4.RecordGameStartTime();
     // 启动物品持有时长采样
     GA4ItemTracker.StartTracking();
-    // FIXME 临时禁用融合符文额外刷新次数
-    // FusionRuneManager.InitializeFusion();
     // 初始化Bot团队策略，挂载到 GameRules.AI 供 FSA 层访问
     GameRules.AI.BotTeam = new BotTeam();
     // 初始化Bot出装系统
