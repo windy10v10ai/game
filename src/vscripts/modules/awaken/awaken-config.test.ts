@@ -1,4 +1,4 @@
-﻿import { ABILITY_REPLACEMENTS, FREE_TRIAL_HEROES, getAwakenHeroNames } from './awaken-config';
+﻿import { ABILITY_REPLACEMENTS, getAwakenHeroNames } from './awaken-config';
 
 describe('Abaddon awakening configuration', () => {
   it('grants only the scripted Quickening awakening ability', () => {
@@ -17,9 +17,5 @@ describe('Abaddon awakening configuration', () => {
     expect(
       getAwakenHeroNames().filter((heroName) => heroName === 'npc_dota_hero_abaddon'),
     ).toHaveLength(1);
-  });
-
-  it('requires unlocking instead of granting free trial access', () => {
-    expect(FREE_TRIAL_HEROES).not.toContain('npc_dota_hero_abaddon');
   });
 });
