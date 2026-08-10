@@ -3288,7 +3288,6 @@
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_damage"                  "+$damage"
 		"DOTA_Tooltip_ability_item_dracula_mask_lifesteal_percent"             "%+Lifesteal"
 		"DOTA_Tooltip_ability_item_dracula_mask_spell_lifesteal"               "%+Spell Lifesteal"
-		"DOTA_Tooltip_ability_item_dracula_mask_bonus_movement_speed"          "%+$move_speed"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health_regen"            "+$hp_regen"
 		"DOTA_Tooltip_ability_item_dracula_mask_Note0"                         "Immune to slows and gains 30% damage reduction during the active effect."
 		"DOTA_Tooltip_ability_item_dracula_mask_Note1"                         "Enters cooldown after triggering automatically."

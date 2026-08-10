@@ -5466,7 +5466,7 @@
 		"AbilityTextureName"		"fusion_life"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -6252,7 +6252,7 @@
 		"AbilitySharedCooldown"		"aeon"
 		"FightRecapLevel"			"1"
 
-		"ItemCost"					"52600"
+		"ItemCost"					"42600"
 		"ItemShopTags"				"str;health;regen;armor;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6299,9 +6299,9 @@
 			"bonus_regen_active"		"300"
 
 			// 被动属性，真值在 item_apply_modifiers，此处仅供 tooltip
-			"bonus_strength"			"120"
+			"bonus_strength"			"100"
 			"bonus_armor"				"20"
-			"bonus_evasion"				"25"
+			"bonus_evasion"				"20"
 		}
 	}
 	//=================================================================================================================
@@ -6363,13 +6363,12 @@
 			"bonus_attack_speed_active"	"150"	// Lua 逻辑需要 - 主动攻速加成
 			"bonus_movement_speed_active"	"30"	// Lua 逻辑需要 - 主动移速加成
 			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免
-			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
+			"status_resistance_active"	"50"	// Lua 逻辑需要 - 主动状态抗性
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"80"	// tooltip only - 力量
+			"bonus_strength"			"75"	// tooltip only - 力量
 			"bonus_health"				"2000"	// tooltip only - 生命值
-			"bonus_damage"				"250"	// tooltip only - 攻击力
-			"bonus_movement_speed"		"20"	// tooltip only - 移动速度
+			"bonus_damage"				"200"	// tooltip only - 攻击力
 			"bonus_health_regen"		"0"		// tooltip only - 生命回复
 		}
 	}
