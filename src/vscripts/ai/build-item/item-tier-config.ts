@@ -775,20 +775,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     baseItems: ['item_sphere'],
   },
   item_dagon_5: { name: 'item_dagon_5', nameCN: '达贡之神力', tier: ItemTier.T3, cost: 7450 },
-  item_sacred_trident: {
-    name: 'item_sacred_trident',
-    nameCN: '三叉戟',
-    tier: ItemTier.T3,
-    cost: 7800,
-    baseItems: [
-      'item_kaya',
-      'item_kaya_and_sange',
-      'item_sange',
-      'item_sange_and_yasha',
-      'item_yasha',
-      'item_yasha_and_kaya',
-    ],
-  },
   item_manta_1: {
     name: 'item_manta_1',
     nameCN: '幻身斧',
@@ -1123,21 +1109,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 15000,
     baseItems: ['item_desolator', 'item_dodo_desolator'],
   },
-  item_sacred_six_vein: {
-    name: 'item_sacred_six_vein',
-    nameCN: '六脉神剑',
-    tier: ItemTier.T4,
-    cost: 15600,
-    baseItems: [
-      'item_kaya',
-      'item_kaya_and_sange',
-      'item_sacred_trident',
-      'item_sange',
-      'item_sange_and_yasha',
-      'item_yasha',
-      'item_yasha_and_kaya',
-    ],
-  },
   item_jump_jump_jump: {
     name: 'item_jump_jump_jump',
     nameCN: '跳！跳！跳！刀',
@@ -1350,11 +1321,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T5,
     cost: 54000,
   },
-  item_ten_thousand_swords: {
-    name: 'item_ten_thousand_swords',
-    nameCN: '万剑归宗',
+  item_sacred_six_vein: {
+    name: 'item_sacred_six_vein',
+    nameCN: '六脉神剑',
     tier: ItemTier.T5,
-    cost: 67600,
+    cost: 42000,
+    baseItems: ['item_sange_and_yasha_1', 'item_yasha_and_kaya_1', 'item_kaya_and_sange_1'],
   },
 };
 
