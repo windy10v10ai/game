@@ -309,7 +309,7 @@
 			}
 			"radius"
 			{
-				"value" "1600"
+				"value" "1500"
 				"affected_by_aoe_increase"	"1"
 			}
 		}
