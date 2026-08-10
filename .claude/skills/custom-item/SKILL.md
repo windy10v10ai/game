@@ -228,14 +228,15 @@ export class ModifierItemMyNewItemPassive extends BaseItemModifier {
     "ItemResult"         "item_my_new_item"
     "ItemRequirements"
     {
-        "01"             "item_a;item_b"   // 该槽位 a 或 b 任一满足
-        "02"             "item_c"
+        "01"             "item_a;item_b"   // 这条配方要 a 和 b 各一件
+        "02"             "item_c;item_c"   // 或者两件 c
     }
 }
 ```
 
-- 每个 `"0N"` 是一个**槽位**（槽位之间 AND，全部满足才能合成），槽位内用 `;` 分隔的是**该槽位可选项**（OR）。OR 列表里若混有 `item_fusion_agile` 这类无属性纯令牌材料，习惯排在该槽位**最后**（参考 `item_recipe_ten_thousand_swords`），有数值的材料排前面。
-- **多路径合成**（同一神器允许不同顺序的中间品拼出，如 `item_recipe_sacred_trident` 用 4 个槽位覆盖 3 种顺序）仅在用户明确要求"任意顺序都能合成"时才用，默认单一路径。
+- 每个 `"0N"` 是**一条完整配方**，行内用 `;` 分隔的是这条配方需要的**全部材料**（AND，缺一件都合不出来）；同一材料要两件就在行内写两次。行内若混有 `item_fusion_agile` 这类无属性纯令牌材料，习惯排在**最后**，有数值的材料排前面。
+- 多条 `"0N"` 之间是 **OR**，满足任意一条即可合成。**多路径合成**（同一成品允许不同中间品拼出，如 `item_recipe_armlet_artifact` 用两条覆盖两种顺序）仅在用户明确要求"任意顺序都能合成"时才用，默认只写 `"01"` 一条。
+- 别把 `"0N"` 当成"槽位"理解——写成一行一件材料，实际效果是"任一件材料就能合成"，静默出错。
 - `ItemCost`：按「材料总价 + 图纸费 = 物品总价」反推，具体数值找用户确认或参考同类神器定价。
 
 ### ID 分配
