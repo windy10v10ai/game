@@ -6358,8 +6358,10 @@
 			// Lua 逻辑需要 - 主动技能参数
 			"hp_threshold"				"40"	// Lua 逻辑需要 - 自动触发生命阈值
 			"active_duration"			"5"		// Lua 逻辑需要 - 主动持续时间
-			"lifesteal_active"			"300"	// Lua 逻辑需要 - 主动期间物理吸血
-			"spell_lifesteal_active"	"100"	// Lua 逻辑需要 - 主动期间法术吸血
+			"lifesteal_active"			"225"	// Lua 逻辑需要 - 主动期间物理吸血
+			"spell_lifesteal_active"	"70"	// Lua 逻辑需要 - 主动期间法术吸血
+			"lifesteal_active_total_tooltip"	"300"
+			"spell_lifesteal_active_total_tooltip"	"100"
 			"bonus_attack_speed_active"	"150"	// Lua 逻辑需要 - 主动攻速加成
 			"bonus_movement_speed_active"	"30"	// Lua 逻辑需要 - 主动移速加成
 			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免

@@ -3281,7 +3281,7 @@
 
 		// Dracula Mask (德古拉面罩)
 		"DOTA_Tooltip_Ability_item_dracula_mask"                               "Dracula's Mask"
-		"DOTA_Tooltip_ability_item_dracula_mask_Description"                   "<h1>Active: Vampiric Feast</h1>Dispels all negative effects and grants the following for %active_duration% seconds:<br>%lifesteal_active%%% lifesteal<br>%spell_lifesteal_active%%% spell lifesteal<br>+%bonus_attack_speed_active% attack speed<br>+%bonus_movement_speed_active%%% movement speed<br>%damage_reduction%%% damage reduction<br>Slow immunity<br><br>Automatically triggers when health falls below %hp_threshold%%%.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>"
+		"DOTA_Tooltip_ability_item_dracula_mask_Description"                   "<h1>Active: Vampiric Feast</h1>Dispels all negative effects and grants the following for %active_duration% seconds:<br>%lifesteal_active_total_tooltip%%% lifesteal<br>%spell_lifesteal_active_total_tooltip%%% spell lifesteal<br>+%bonus_attack_speed_active% attack speed<br>+%bonus_movement_speed_active%%% movement speed<br>%damage_reduction%%% damage reduction<br>Slow immunity<br><br>Automatically triggers when health falls below %hp_threshold%%%.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>"
 		"DOTA_Tooltip_ability_item_dracula_mask_Lore"                          "The mask of the immortal vampire lord."
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_strength"                "+$str"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health"                  "+$health"

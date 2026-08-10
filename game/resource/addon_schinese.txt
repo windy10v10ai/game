@@ -3289,7 +3289,7 @@
 
 		// 德古拉面罩/生命之盔
 		"DOTA_Tooltip_Ability_item_dracula_mask"										"<font color='#8B0000'>生命之盔</font>"
-		"DOTA_Tooltip_ability_item_dracula_mask_Description"							"<h1><font color='#90EE90'>主动：吸血盛宴</font></h1>驱散所有负面效果,并在%active_duration%秒内获得:<br>%lifesteal_active%%%物理吸血<br>%spell_lifesteal_active%%%法术吸血<br>+%bonus_attack_speed_active%攻击速度<br>+%bonus_movement_speed_active%%%移动速度<br>%damage_reduction%%%减伤<br>免疫减速<br><br>生命值低于%hp_threshold%%%时自动触发。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_dracula_mask_Description"							"<h1><font color='#90EE90'>主动：吸血盛宴</font></h1>驱散所有负面效果,并在%active_duration%秒内获得:<br>%lifesteal_active_total_tooltip%%%物理吸血<br>%spell_lifesteal_active_total_tooltip%%%法术吸血<br>+%bonus_attack_speed_active%攻击速度<br>+%bonus_movement_speed_active%%%移动速度<br>%damage_reduction%%%减伤<br>免疫减速<br><br>生命值低于%hp_threshold%%%时自动触发。<br><br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_dracula_mask_Lore"									"饱含生命之力的头盔,赋予佩戴者永恒的生命力。"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_strength"							"+$str"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health"							"+$health"
