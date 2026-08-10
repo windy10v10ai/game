@@ -3266,7 +3266,7 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor and %bonus_regen_active% health regeneration.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>When you take damage and your health falls below %health_threshold_pct%%%, automatically triggers the effects above, and for %buff_duration% seconds you gain +%status_resistance%%% <font color='#B99012'>Status Resistance</font> and all damage you deal and are dealt is reduced to zero."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor and %bonus_regen_active% health regeneration.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers the effects above, and for %buff_duration% seconds you gain +%status_resistance%%% <font color='#B99012'>Status Resistance</font> and all damage you deal and are dealt is reduced to zero."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"                       "From withered wood, spring blooms anew."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"             "+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"               "+$health"
@@ -3274,8 +3274,7 @@
 		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"           "%+Max Health Regen"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"                "+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"              "%+$evasion"
-		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Only triggers on player based damage."
-		"DOTA_Tooltip_ability_item_withered_spring_Note1"                      "Enters cooldown after triggering automatically."
+		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Enters cooldown after triggering automatically."
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"                    "Withering Bloom"
 		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
