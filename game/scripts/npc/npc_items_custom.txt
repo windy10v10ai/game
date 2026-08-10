@@ -7,29 +7,29 @@
 	//=================================================================================================================
 	// Moon Shard 银月
 	//=================================================================================================================
-	"item_recipe_moon_shard_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"					"item_datadriven"
-		"ID"						"10343"
-		"Model"						"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
+	// "item_recipe_moon_shard_datadriven"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"					"item_datadriven"
+	// 	"ID"						"10343"
+	// 	"Model"						"models/props_gameplay/recipe.vmdl"
+	// 	"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"0"
-		"ItemShopTags"				""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"					"4000"
+	// 	"ItemShopTags"				""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_moon_shard_datadriven"
-		"ItemRequirements"
-		{
-			"01"					"item_moon_shard;item_moon_shard"
-		}
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"				"1"
+	// 	"ItemResult"				"item_moon_shard"
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01"					"item_moon_shard_datadriven"
+	// 	}
+	// }
 	"item_moon_shard_datadriven"
 	{
 		// General
