@@ -2529,6 +2529,7 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Spell Damage"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Magic Damage Attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Mana Cost/Mana Loss Reduction"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Cast Speed Bonus"
 

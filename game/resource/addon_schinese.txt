@@ -2539,6 +2539,7 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+魔法恢复增强"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+技能增强"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+魔法伤害攻击"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+魔法消耗/魔法损失降低"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+施法速度加成"
 

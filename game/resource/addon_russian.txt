@@ -125,6 +125,7 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Усиление регенерации маны"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Усиление заклинаний"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Магический урон от атак"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Снижение затрат и потери маны"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Скорость применения"
 

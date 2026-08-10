@@ -2419,6 +2419,7 @@
 			"hp_regen_amp"					"80"
 			"mana_regen_multiplier"			"120"
 			"spell_amp"						"50"
+			"magic_damage_attack"			"100"
 
 			// 三叉戟没有这三项，由脚本侧读取
 			"slow_resistance"				"75"
