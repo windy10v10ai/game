@@ -3,7 +3,7 @@
 {
 	"madstone_limits"
 	{
-		"madstone_no_limit_time"			"30:00"
+		"madstone_no_limit_time"			"20:00"
 	}
 
 	"neutral_tiers"
@@ -79,7 +79,7 @@
 
 		"2"//8件
 		{
-			"start_time"			"6:00"
+			"start_time"			"5:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
 			"craft_cost"			"8"
@@ -148,7 +148,7 @@
 
 		"3"//8件
 		{
-			"start_time"			"12:00"
+			"start_time"			"10:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
 			"craft_cost"			"12"
@@ -223,7 +223,7 @@
 
 		"4"//12件
 		{
-			"start_time"			"18:00"
+			"start_time"			"15:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
 			"craft_cost"			"16"
@@ -307,7 +307,7 @@
 
 		"5"//12件
 		{
-			"start_time"			"24:00"
+			"start_time"			"20:00"
 			"trinket_options"		"5"
 			"enhancement_options"	"5"
 			"craft_cost"			"20"

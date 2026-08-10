@@ -24,7 +24,7 @@ export interface NeutralTierConfig {
 export class NeutralItemManager {
   // 获取各tier开始时间
   private static GetTierStartTimes(): number[] {
-    const baseTimeMin = [0, 6, 12, 18, 24];
+    const baseTimeMin = [0, 5, 10, 15, 20];
     const multiplier = GameRules.Option.direGoldXpMultiplier;
 
     let addTimeMin = [0, 0, 0, 0, 0];
