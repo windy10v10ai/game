@@ -51,7 +51,7 @@ description: 从零自制全新自定义物品（BaseClass = item_datadriven / i
 字段名从 `docs/reference/<version>/items.txt` 抄，**逐条核对**，这三条踩中都不会报错，只会数值悄悄不对：
 
 1. **按需取用**——只写你要的字段。不写的字段对应效果就不生效，不必完整复制原版 `AbilityValues`。不想要某个子效果时，删掉 key 或填 `0` 都可以（`item_magic_sword` 把 `bonus_damage_per_kill` 等显式写 `0`，表达"知道有这个效果，主动关了"）。
-2. **写了就一定被套用**——自己的 `Properties` **不要**再声明同名属性，否则原版 modifier 加一次、自己的 `Properties` 再加一次，**数值双倍**。
+2. **写了就一定被套用**——自己的 `Properties` **不要**再声明同名属性，否则原版 modifier 加一次、自己的 `Properties` 再加一次，**数值双倍**。这条对模式 2 的**镜像值**同样成立：`xxx_tooltip` 之外那些沿用原版字段名的镜像值（`bonus_health` / `bonus_mana` 等）照样会被原版 modifier 读走，"仅供 tooltip"只是注释里的说法，引擎不认。排查交集时不能因为标了 tooltip only 就跳过。
 3. **多个原版共有字段会各读一次**——复用两个以上原版 modifier 时，先查它们 `AbilityValues` 的交集。落在交集里的字段会被每个 modifier 各加一次。
 
 ### 字段冲突了怎么办
@@ -101,7 +101,7 @@ description: 从零自制全新自定义物品（BaseClass = item_datadriven / i
 
 Lua/TS modifier 的每个 `GetModifier*` 都是「引擎每查一次 → 回一次 Lua」。单位越多、查询越频繁越卡，这就是**回调税**。DataDriven `Properties` 由引擎原生求值，不交税。
 
-所以**永久数值常量属性一律不写在 TS 里**：模式 1 写自己 KV，模式 2 下沉 `item_apply_modifiers`。项目里这些属性早已全量迁走（`npc_items_modifier.txt` 27 个 `_stats` 块），新物品照此办。
+所以**数值常量属性一律不写在 TS 里**，永久属性与限时 buff 都算：模式 1 写自己 KV；模式 2 下沉 `item_apply_modifiers`——永久的写 `_stats` 块由 `BaseItemModifier` 对齐层数，限时 buff 写成完整 modifier 块、由脚本 `ApplyItemDataDrivenModifier` 传 `duration` 挂上。项目里这些属性早已全量迁走（`npc_items_modifier.txt` 27 个 `_stats` 块），新物品照此办。
 
 `item_lua` 的 KV **不支持**自己的 `Modifiers` 块（全仓 0 例），这正是 `item_apply_modifiers` 存在的原因，不是风格选择。
 
@@ -130,7 +130,8 @@ Lua/TS modifier 的每个 `GetModifier*` 都是「引擎每查一次 → 回一�
 | 物品自己 KV 的 `Modifiers` | **引擎**，随物品得失自动挂摘 | 模式 1 |
 | KV `ApplyModifier` 挂原版 modifier + `Duration` | **引擎**，时限到期 | 模式 1 主动技能 |
 | 脚本 `AddNewModifier` 挂**带 duration** 的 modifier | **引擎**，时限到期 | 两个模式 |
-| 脚本 `AddNewModifier` 挂**永久**原版 modifier | **自己**，`ability.added_modifiers` 数组 + `OnDestroy` 遍历 `Destroy()` | 两个模式 |
+| 脚本 `AddNewModifier` 挂**永久**原版 modifier | **自己**，`ability.added_modifiers` 数组 + `OnDestroy` 遍历 `Destroy()` | 模式 1 |
+| `BaseItemModifier` 的 `vanillaModifierNames` | **基类**，随物品得失挂摘并按句柄精确销毁 | **只有模式 2** |
 | `item_apply_modifiers` 的 `_stats` | **`RefreshItemDataDrivenModifier`**，`OnCreated`/`OnRefresh`/`OnDestroy` 三处都要调 | **只有模式 2** |
 
 **`item_apply_modifiers` 只属于模式 2**：27 个 `_stats` 对应的物品 100% 是 `item_lua`，没有一个 `item_datadriven`。模式 1 有自己的 `Modifiers` 块，不需要也不应该碰它。
@@ -196,11 +197,14 @@ export class ItemMyNewItem extends BaseItem {
 @registerModifier('items/ts_items/item_my_new_item', 'modifier_item_my_new_item_passive')
 export class ModifierItemMyNewItemPassive extends BaseItemModifier {
   override statsModifierName = 'modifier_item_my_new_item_stats'; // 无永久属性时填 ''
+  override vanillaModifierNames = ['modifier_item_xxx'];          // 复用原版 modifier，没有则不写
   // 只手写 references/datadriven-scope.md 表外的逻辑
 }
 ```
 
-`BaseItemModifier` 已实现三个生命周期的 `_stats` 同步（按背包里该物品实例数对齐层数）。**override 这三个回调时必须调 `super.XXX()`**，否则属性静默失效。
+`BaseItemModifier` 已实现三个生命周期的 `_stats` 同步（按背包里该物品实例数对齐层数），以及 `vanillaModifierNames` 里那些原版 modifier 的挂摘。**override 这三个回调时必须调 `super.XXX()`**，否则属性静默失效。
+
+`vanillaModifierNames` 收一个数组，一件物品可以同时复用多个原版 modifier；基类保存句柄、销毁时逐个 `Destroy()`，不要自己写 `RemoveModifierByName`（原因见 `references/datadriven-scope.md`）。
 
 物品若压根没有永久属性（消耗品 / 工具类，7 个 TS 物品有 4 个如此），`statsModifierName` 填 `''`，完全不碰 `item_apply_modifiers`。
 
