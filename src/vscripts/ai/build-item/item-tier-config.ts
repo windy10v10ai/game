@@ -1229,7 +1229,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_dracula_mask',
     nameCN: '生命之盔',
     tier: ItemTier.T5,
-    cost: 57449,
+    cost: 36900,
   },
   item_forbidden_staff: {
     name: 'item_forbidden_staff',
@@ -1278,7 +1278,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_withered_spring',
     nameCN: '生命之心',
     tier: ItemTier.T5,
-    cost: 52600,
+    cost: 42600,
     baseItems: ['item_undying_heart'],
   },
   item_magic_crit_blade: {
