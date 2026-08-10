@@ -287,6 +287,7 @@
 	"dark_seer_vacuum"
 	{
 		"MaxLevel"						"5"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"		// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
 		"AbilityCastRange"				"500 550 600 650 700" // 与镖同步
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"60 90 120 150 180"
