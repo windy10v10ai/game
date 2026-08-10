@@ -348,6 +348,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hawkeye_turret', // 鹰眼炮台
         'item_switchable_crit_blade', // 归海一刀
         'item_swift_glove', // 无限手套
+        'item_sacred_six_vein', // 六脉神剑
         'item_beast_shield', // 兽化盾
         'item_time_gem', // 时间宝石
         'item_magic_sword', // 魔渊剑
@@ -472,13 +473,13 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       [ItemTier.T5]: [
         'item_hawkeye_turret', // 鹰眼炮台
         'item_time_gem', // 时间宝石
+        'item_sacred_six_vein', // 六脉神剑
         'item_switchable_crit_blade', // 归海一刀
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_swift_glove', // 无限手套
         'item_dracula_mask', // 生命之盔
         'item_beast_shield', // 兽化盾
         'item_magic_sword', // 魔渊剑
-        'item_forbidden_staff', // 禁忌法锤
         'item_beast_armor', // 兽化甲
       ],
     },
