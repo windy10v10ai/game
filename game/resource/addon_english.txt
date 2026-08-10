@@ -1257,7 +1257,7 @@
 
 		// Skywrath Mage Staff of the Scion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Staff of the Scion Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Skywrath Mage gains Staff of the Scion. Every time his abilities deal <font color='#05CAFF'>magical damage</font> to an enemy hero, the cooldown of all his abilities is reduced by %cooldown_reduction%s.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Mystic Flare, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Skywrath Mage gains Staff of the Scion. Every time his abilities deal <font color='#05CAFF'>magical damage</font> to an enemy hero, the cooldown of all his abilities is reduced by %cooldown_reduction%s.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When autocast is enabled, Zeus automatically casts Arc Lightning and Lightning Bolt on enemies within cast range.<br><br>Prioritizes heroes. Casts only Arc Lightning when only creeps are in range."
