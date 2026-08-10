@@ -7,6 +7,7 @@ export enum CMD {
   A = '-a', // 获取当前ability
   REFRESH_AI = '-r', // 刷新AI
   TIME = '-time', // 获取当前时间，不包含暂停
+  D = '-d', // 获取当前伤害
 
   KILL = '-k',
   KILL_ALL = '-kall',
@@ -25,8 +26,6 @@ export enum CMD {
   /** 重置当前英雄技能 */
   RESET_ABILITY = '-resetAbility',
   REFRESH_BUYBACK = '-refreshBuyback',
-  /** 获取英雄状态抗性 */
-  GET_SR = '-getSR',
   /** 对英雄造成存粹伤害 */
   DAMAGE_PURE = '-damagePure',
   HP_LOSS = '-hploss',

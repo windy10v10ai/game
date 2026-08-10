@@ -43,7 +43,6 @@ export const abilityTiersActive: Tier[] = [
       'ability_trigger_on_active', //紫蝴蝶
       'brewmaster_drunken_boxing', // 酒仙 醉拳
       'juggernaut_blade_fury_custom', // 剑圣 觉醒剑刃风暴
-      'special_bonus_unique_sniper_assassinate_upgrade', // 狙击 觉醒群体暗杀
       'ability_fate_roulette', // 命运轮盘
     ],
   },
@@ -77,10 +76,12 @@ export const abilityTiersActive: Tier[] = [
       'shredder_whirling_death', // 死亡旋风
       'tidehunter_kraken_shell', // 海妖外壳
       'earthshaker_enchant_totem', // 强化图腾
+      'dark_seer_vacuum', // 真空
 
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
       'ancient_apparition_freezing_aura', // 极寒光环
+      'special_bonus_unique_sniper_assassinate_upgrade', // 狙击 觉醒群体暗杀
     ],
   },
   {
@@ -222,8 +223,6 @@ export const abilityTiersPassive: Tier[] = [
       'rubick_curiosity2', // 拉比克 先天 奇心
 
       'ability_trigger_learned_skills', //蓝蝴蝶
-      'ability_trigger_on_spell_reflect', //绿蝴蝶
-      'ability_charge_damage', //青蝴蝶
       'ability_trigger_on_cast', //红蝴蝶
       'ability_trigger_on_attacked', //金蝴蝶
     ],
@@ -250,9 +249,6 @@ export const abilityTiersPassive: Tier[] = [
       'drow_ranger_trueshot', // 精准光环
       'death_prophet_witchcraft', // 死亡先知 巫术精研
 
-      // 单位技能
-      'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
-
       // 法球/开关技能
       'omniknight_hammer_of_purity', // 纯洁之锤
 
@@ -265,6 +261,8 @@ export const abilityTiersPassive: Tier[] = [
       'ancient_apparition_frost_orb', // 冰霜法球
       'crystal_maiden_ice_explosion', // 冰女 冰暴
       'ability_trigger_on_move', //橙影蝴蝶
+      'ability_trigger_on_spell_reflect', //绿蝴蝶
+      'ability_charge_damage', //青蝴蝶
     ],
   },
   {
@@ -303,6 +301,9 @@ export const abilityTiersPassive: Tier[] = [
       'lina_fiery_soul', // 炽魂
       'alchemist_goblins_greed2', // 贪婪
       'pudge_innate_graft_flesh', // 腐肉堆积
+
+      // 单位技能
+      'frostbitten_golem_time_warp_aura', // 萨满 时间扭曲光环
 
       // 法球/开关技能
       'doom_bringer_infernal_blade', // 阎刃

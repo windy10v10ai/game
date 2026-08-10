@@ -257,6 +257,5 @@ end
 function modifier_item_dracula_mask_active:CheckState()
     return {
         [MODIFIER_STATE_UNSLOWABLE] = true,
-        [MODIFIER_STATE_DEBUFF_IMMUNE] = true,
     }
 end

@@ -27,7 +27,6 @@ local RECIPE_WHITELIST = {
 	"item_shadow_judgment",
 	"item_shadow_impact",
 	"item_swift_glove",
-	"item_ten_thousand_swords",
 	"item_time_gem",
 	"item_beast_shield",
 	"item_beast_armor",

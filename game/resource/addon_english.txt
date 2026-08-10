@@ -443,7 +443,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"		"This structure's attack damage and max health is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>This structure also has %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% extra health regeneration."
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</b></font> extra magic resistance and <font color='#FFFFFF'><b>20%%</b></font> status resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many towers are destroyed."
@@ -501,10 +501,10 @@
 		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"		"KNOCKBACK DISTANCE:"
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"SLOW DURATION:"
 
-		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
-		"DOTA_Tooltip_ability_fountain_hp_aura_Description"				"Increases the health capacity of nearby units."
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"BONUS HP PERCENTAGE:"
-		"DOTA_Tooltip_ability_fountain_hp_aura_radius"					"RADIUS:"
+		"DOTA_Tooltip_ability_fountain_armor_aura"						"Fountain Armor Aura"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Provides %bonus_armor% armor to nearby allies."
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Fountain Magical Resistance Aura"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Provides %bonus_magical_armor%%% magical resistance to nearby allies."
 		///////////////////////////////////////////////////
 		//
 		//            itembuilds
@@ -1187,7 +1187,7 @@
 
 		// Fountain Sanction
 		"DOTA_Tooltip_ability_fountain_anti_camp"							"Fountain Sanction"
-		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode."
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Enemy human-controlled heroes near the fountain's attack range are sanctioned. Only active in team mode.<br><br>When a bot hero is killed within the area, a homing fireball is launched at the killer, piercing spell immunity and dealing damage equal to %retaliation_damage_pct%%% of the killer's maximum health."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack"				"Fountain Sanction Warning"
 		"DOTA_Tooltip_modifier_fountain_anti_camp_stack_Description"	"Stacks once per second while near the fountain. Reaching 3 stacks triggers the sanction."
 		"DOTA_Tooltip_modifier_fountain_anti_camp_lock"					"Fountain Sanction"
@@ -1255,6 +1255,9 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"Healing Reduction:"
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"% Health Regen to Damage (Scepter):"
 
+		// Skywrath Mage Staff of the Scion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Staff of the Scion Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Skywrath Mage gains Staff of the Scion. Every time his abilities deal <font color='#05CAFF'>magical damage</font> to an enemy hero, the cooldown of all his abilities is reduced by %cooldown_reduction%s.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When autocast is enabled, Zeus automatically casts Arc Lightning and Lightning Bolt on enemies within cast range.<br><br>Prioritizes heroes. Casts only Arc Lightning when only creeps are in range."
@@ -1320,7 +1323,7 @@
 
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Doom Awakened</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel\n\nWith <font color='#92acf5'>Aghanim's Scepter</font>, may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel\n\nWith <font color='#92acf5'>Aghanim's Scepter</font>, Doom also applies <font color='#DD621E'>Break</font> and may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"DURATION:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"AREA DOOM DURATION:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"DAMAGE PER SECOND:"
@@ -2032,6 +2035,7 @@
 		"DOTA_Tooltip_ability_yukari_tentacles" "Tentacle Portal"
 		"DOTA_Tooltip_ability_yukari_tentacles_Description" "Opens a portal filled with dire tentacles in the target area, dealing damage over time, slowing movement speed, and reducing vision to a consistent 600. Bonus damage is added based on Yukari's Intelligence."
 		"DOTA_Tooltip_ability_yukari_tentacles_damage_per_second" "DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_yukari_tentacles_radius" "RADIUS:"
 		"DOTA_Tooltip_ability_yukari_tentacles_intelligence_per_second"	"BONUS DAMAGE PER INT:"
 		"DOTA_Tooltip_ability_yukari_tentacles_duration" "DURATION:"
 		"DOTA_Tooltip_ability_yukari_tentacles_root"	"%MOVEMENT SPEED SLOW:"
@@ -2513,32 +2517,21 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"Ultra Corruption"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Infernal Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
-		// item_sacred_trident 三叉戟
-		"DOTA_Tooltip_Ability_item_sacred_trident"										"Holy Trinity"
-		"DOTA_Tooltip_Ability_item_sacred_trident_Description"					""
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"				"+$all"
-		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"					"%+Spell Damage"
-		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+Mana Regen Amplification"
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+Status Resistance"
-		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
-		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+Magic Attack Damage"
-
-		"DOTA_Tooltip_ability_item_sacred_trident_Lore"						"The three mythical blades that were never seen all together in harmony, now combined as one."
-
 		// item_six_vein 六脉神剑
-		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Legendary Hexad"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_Description"					""
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"				"+$all"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"					"%+Spell Damage"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+Magic Attack Damage"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"					"It would be insane to find a pair of each of the three swords of legends and combine them all, but the power found in them all would be unmatched..."
+		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>Legendary Hexad</font>"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"To gather all three legendary swords in their perfected form and forge them into one, the power within is beyond measure."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_intellect"						"+$all"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Slow Resistance"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Spell Damage"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Magic Damage Attack"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Mana Cost/Mana Loss Reduction"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Cast Speed Bonus"
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"						"Flash"
@@ -3176,7 +3169,7 @@
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove, Ten Thousand Swords"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
@@ -3262,7 +3255,7 @@
 
 		// 枯木逢春/生命之心
 		"DOTA_Tooltip_Ability_item_withered_spring"                            "Withered Spring"
-		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor, %bonus_regen_active% health regeneration, and %status_resistance_active%%% status resistance.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>Automatically triggers when health falls below %hp_threshold%%%. No single instance of damage can reduce health below 1, so it can never be killed outright, and for the next %active_duration% seconds, all damage taken and dealt is reduced to zero."
+		"DOTA_Tooltip_ability_item_withered_spring_Description"                "<h1><font color='#90EE90'>Active: Withering Bloom</font></h1>Restores %replenish_health% health +%replenish_health_pct%%% max health and %replenish_mana% mana to yourself and nearby allies, and removes all negative effects from the caster. Over the next %active_duration% seconds, the caster gains %bonus_armor_active% armor and %bonus_regen_active% health regeneration.<br><br>Radius: %replenish_radius%<br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Strong Dispel</span>\n\n<h1>Passive: Rebirth</h1>When you take damage from a hero and your health falls below %health_threshold_pct%%%, automatically triggers the effects above, and for %buff_duration% seconds you gain +%status_resistance%%% <font color='#B99012'>Status Resistance</font> and all damage you deal and are dealt is reduced to zero."
 		"DOTA_Tooltip_ability_item_withered_spring_Lore"                       "From withered wood, spring blooms anew."
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_strength"             "+$str"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_health"               "+$health"
@@ -3270,23 +3263,20 @@
 		"DOTA_Tooltip_ability_item_withered_spring_health_regen_pct"           "%+Max Health Regen"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_armor"                "+$armor"
 		"DOTA_Tooltip_ability_item_withered_spring_bonus_evasion"              "%+$evasion"
-		"DOTA_Tooltip_ability_item_withered_spring_status_resistance"          "%+Status Resistance"
-		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Only when triggered passively, all damage taken and dealt is reduced to zero for %active_duration% seconds."
-		"DOTA_Tooltip_ability_item_withered_spring_Note1"                      "Enters cooldown after triggering automatically."
+		"DOTA_Tooltip_ability_item_withered_spring_Note0"                      "Enters cooldown after triggering automatically."
 
 		"DOTA_Tooltip_modifier_item_withered_spring_active"                    "Withering Bloom"
-		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Increased resistance. Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor, +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration, and +%dMODIFIER_PROPERTY_STATUS_RESISTANCE_STACKING%%% status resistance."
+		"DOTA_Tooltip_modifier_item_withered_spring_active_Description"        "Grants +%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS% armor and +%dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% health regeneration."
 
 		// Dracula Mask (德古拉面罩)
 		"DOTA_Tooltip_Ability_item_dracula_mask"                               "Dracula's Mask"
-		"DOTA_Tooltip_ability_item_dracula_mask_Description"                   "<h1>Active: Vampiric Feast</h1>Dispels all negative effects and grants the following for %active_duration% seconds:<br>%lifesteal_active%%% lifesteal<br>%spell_lifesteal_active%%% spell lifesteal<br>+%bonus_attack_speed_active% attack speed<br>+%bonus_movement_speed_active%%% movement speed<br>%damage_reduction%%% damage reduction<br>Slow immunity<br><br>Automatically triggers when health falls below %hp_threshold%%%.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>"
+		"DOTA_Tooltip_ability_item_dracula_mask_Description"                   "<h1>Active: Vampiric Feast</h1>Dispels all negative effects and grants the following for %active_duration% seconds:<br>%lifesteal_active_total_tooltip%%% lifesteal<br>%spell_lifesteal_active_total_tooltip%%% spell lifesteal<br>+%bonus_attack_speed_active% attack speed<br>+%bonus_movement_speed_active%%% movement speed<br>%damage_reduction%%% damage reduction<br>Slow immunity<br><br>Automatically triggers when health falls below %hp_threshold%%%.<br><br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Weak Dispel</span>"
 		"DOTA_Tooltip_ability_item_dracula_mask_Lore"                          "The mask of the immortal vampire lord."
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_strength"                "+$str"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health"                  "+$health"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_damage"                  "+$damage"
 		"DOTA_Tooltip_ability_item_dracula_mask_lifesteal_percent"             "%+Lifesteal"
 		"DOTA_Tooltip_ability_item_dracula_mask_spell_lifesteal"               "%+Spell Lifesteal"
-		"DOTA_Tooltip_ability_item_dracula_mask_bonus_movement_speed"          "%+$move_speed"
 		"DOTA_Tooltip_ability_item_dracula_mask_bonus_health_regen"            "+$hp_regen"
 		"DOTA_Tooltip_ability_item_dracula_mask_Note0"                         "Immune to slows and gains 30% damage reduction during the active effect."
 		"DOTA_Tooltip_ability_item_dracula_mask_Note1"                         "Enters cooldown after triggering automatically."
@@ -3344,21 +3334,6 @@
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"             "+$attack"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_damage"                   "+$damage"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_armor"                    "+$armor"
-
-		// Ten Thousand Swords (万剑归宗)
-		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"Ten Thousand Swords"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"						"<h1><font color='#FFFF00'>Passive: Sword Mastery</font></h1>Gains the power of all four Artifacts, greatly increasing all attributes, status resistance, attack speed, movement speed, health regeneration, mana regeneration, and spell amplification. Attacks deal bonus magical damage."
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_Lore"								"Ten Thousand Swords, invincible. The power of the four Artifacts converges here, forging a supreme weapon."
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_strength"					"+$str"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_agility"					"+$agi"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_status_resistance"				"%+Status Resistance"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_hp_regen_amp"					"%+$restoration_amp"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_mana_regen_multiplier"			"%+Mana Regen Enhancement"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_spell_amp"						"%+Spell Amplification"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_magic_damage_attack"				"+Magic Damage Attack"
 
 		// Time Gem (时间宝石)
 		"DOTA_Tooltip_Ability_item_time_gem"											"Time Gem"
@@ -3498,6 +3473,13 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
+
+		// Abaddon The Quickening - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>The Quickening Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within %radius% range of Abaddon, all his cooldowns are reduced. Non-hero deaths reduce them by %cooldown_reduction_creeps%s; hero deaths reduce them by %cooldown_reduction_heroes%s."
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Nearby deaths reduce the current cooldowns of all abilities and items."
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Non-hero deaths reduce them by <font color='#FFFFFF'><b>0.2</b></font>s; hero deaths reduce them by <font color='#FFFFFF'><b>3</b></font>s."
 
 	}
 }

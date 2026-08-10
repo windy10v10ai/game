@@ -5,6 +5,39 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 亚巴顿 觉醒
+	"special_bonus_unique_abaddon_quickening_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_abaddon_quickening_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"abaddon_borrowed_time"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"cooldown_reduction_creeps"		"0.2"
+			"cooldown_reduction_heroes"	"3"
+			"radius"							"900"
+		}
+	}
+	// 天怒法师-觉醒
+	"special_bonus_unique_skywrath_upgrade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"						"abilities/ts_abilities/special_bonus_unique_skywrath_upgrade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityTextureName"			"skywrath_mage_staff_of_the_scion"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			// 实际生效值来自原版 skywrath_mage_staff_of_the_scion，此处仅供 tooltip 引用
+			"cooldown_reduction"		"0.1"
+		}
+	}
+
 	// 上古巨神 觉醒灵体游魂
 	// 除冷却（觉醒专属强化，免瞄准自动施放，缩短冷却体现觉醒增益）外，
 	// 其余数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致
@@ -776,6 +809,11 @@
 			{
 				"value"					"350"
 				"affected_by_aoe_increase"	"1"
+			}
+			"does_break"
+			{
+				"value"					"0"
+				"special_bonus_scepter"	"+1"
 			}
 		}
 	}

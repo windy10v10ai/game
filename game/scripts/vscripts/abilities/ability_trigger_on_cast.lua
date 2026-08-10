@@ -159,6 +159,7 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
         local ability = caster:GetAbilityByIndex(i)
         if ability and ability:GetLevel() > 0
             and not ability:IsPassive()
+            and not ability:IsHidden()
             and ability ~= self:GetAbility()
             and not ability:IsItem()
             and not EXCLUDED_ABILITIES_ALLBUTTER[ability:GetAbilityName()] then
@@ -252,6 +253,12 @@ function modifier_trigger_on_cast:TriggerRandomAbility(params)
             return
         end
         if not random_ability or random_ability:IsNull() then
+            self.trigger_depth = self.trigger_depth - 1
+            return
+        end
+        -- 隐藏技能多为槽位互换的子技能，在互换窗口外施放会让引擎再 swap 一次，
+        -- 把可见的主技能永久换到隐藏位。挑选到此处之间状态可能已变，须重新判定
+        if random_ability:IsHidden() then
             self.trigger_depth = self.trigger_depth - 1
             return
         end

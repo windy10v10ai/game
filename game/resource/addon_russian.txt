@@ -110,6 +110,25 @@
 		"PauseDemo_Button"							"Пауза"
 		"QuitDemo_Button"							"Выход"
 
+		// 泉水 制裁
+		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Вражеские герои под управлением игроков подвергаются санкции, приближаясь к радиусу атаки фонтана. Действует только в командном режиме.<br><br>Когда герой-бот погибает в этом радиусе, в убийцу выпускается самонаводящийся огненный шар, который проходит сквозь магический иммунитет и наносит урон, равный %retaliation_damage_pct%%% максимального здоровья убийцы."
+
+		// item_six_vein 六脉神剑
+		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>Легендарная гексада</font>"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Выкован из трёх артефактных клинков, объединяя стойкость Sange, стремительность Yasha и ясность Kaya в одном оружии."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"Собрать все три легендарных клинка в их совершенной форме и сплавить их воедино, заключённая внутри сила безмерна."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_intellect"						"+$all"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Сопротивление эффектам"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Сопротивление замедлению"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Усиление регенерации маны"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Усиление заклинаний"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Магический урон от атак"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Снижение затрат и потери маны"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Скорость применения"
+
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
@@ -304,7 +323,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"		"Урон атаки и максимальное здоровье этого строения увеличены на %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Эта постройка также имеет дополнительные %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% восстановления здоровья"
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Сопростивление магии героев ближнего боя увеличено на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Герои ближнего боя получают <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</b></font> дополнительного сопротивления магии и <font color='#FFFFFF'><b>20%%</b></font> сопротивления эффектам."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"Бонус к урону"
@@ -358,10 +377,10 @@
 		"DOTA_Tooltip_ability_tower_headshot_knockback_distance"			"Дастанция отбрасывания: "
 		"DOTA_Tooltip_ability_tower_headshot_slow_duration"				"Длительность замедления: "
 
-		"DOTA_Tooltip_ability_fountain_hp_aura"						"Fountain HP Aura"
-		"DOTA_Tooltip_ability_fountain_hp_aura_Description"				"Повышает здоровье близлежащих союзников"
-		"DOTA_Tooltip_ability_fountain_hp_aura_bonus_hp"				"Бонус здоровья в процентах: "
-		"DOTA_Tooltip_ability_fountain_hp_aura_radius"					"Радиус:"
+		"DOTA_Tooltip_ability_fountain_armor_aura"						"Защитная аура фонтана"
+		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Даёт %bonus_armor% брони ближайшим союзникам."
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Магическая аура фонтана"
+		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Даёт %bonus_magical_armor%%% сопротивления магии ближайшим союзникам."
 		///////////////////////////////////////////////////
 		//
 		//            itembuilds
@@ -510,6 +529,9 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// Skywrath Mage Staff of the Scion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Посох отпрыска · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Бонус пробуждения:</font> Skywrath Mage получает Staff of the Scion. Каждый раз, когда его способности наносят <font color='#05CAFF'>магический урон</font> вражескому герою, время восстановления всех его способностей сокращается на %cooldown_reduction% сек.<br><br><font color='#00CED1'>Автоприменение:</font> Если включено, Skywrath Mage автоматически применяет Ancient Seal, Concussive Shot и Arcane Bolt, когда вражеский герой находится в радиусе применения. Arcane Bolt также применяется по крипам, если героев поблизости нет."
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Пробуждение: Squee's Scope</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Каждая единица скорости атаки героя увеличивает его дальность атаки и скорость снарядов на %attack_range_tooltip%."
@@ -544,7 +566,7 @@
 		"npc_treasure_chest"													"Сундук с сокровищами"
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
-		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> можно применить к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
+		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> Doom также накладывает <font color='#DD621E'>Разрушение</font> и может применяться к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_scepter_duration"			"ДЛИТЕЛЬНОСТЬ ОБЛАСТИ DOOM:"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_damage"					"УРОН В СЕКУНДУ:"
@@ -571,6 +593,13 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
+
+		// Abaddon The Quickening - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>Ускорение · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит умирает в радиусе %radius% от Abaddon, всё его время перезарядки сокращается. Смерть не-героя сокращает его на %cooldown_reduction_creeps% сек., а смерть героя — на %cooldown_reduction_heroes% сек."
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Смерти поблизости сокращают текущее время перезарядки всех способностей и предметов."
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>Ускорение · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит погибает в радиусе <font color='#FFFFFF'><b>900</b></font> от Abaddon, текущее время перезарядки всех его способностей и предметов сокращается. Смерть не-героя сокращает его на <font color='#FFFFFF'><b>0.2</b></font> сек., а смерть героя — на <font color='#FFFFFF'><b>3</b></font> сек."
 
 	}
 }

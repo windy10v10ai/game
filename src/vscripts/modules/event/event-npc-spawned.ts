@@ -3,6 +3,7 @@ import { Player } from '../../api/player';
 import { PlayerPropertyApi } from '../../api/player-property';
 import { modifier_debug_manual_control } from '../../modifiers/debug/modifier_debug_manual_control';
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
+import { modifier_global_melee_status_resistance } from '../../modifiers/global/melee_status_resistance';
 import { AwakenHelper } from '../helper/awaken-helper';
 import { BotAbility } from '../helper/bot-ability';
 import { MemberHelper } from '../helper/member-helper';
@@ -187,6 +188,7 @@ export class EventNpcSpawned {
       hero.GetName() === 'npc_dota_hero_troll_warlord'
     ) {
       ModifierHelper.applyGlobalModifier(hero, 'modifier_global_melee_resistance');
+      hero.AddNewModifier(hero, undefined, modifier_global_melee_status_resistance.name, {});
     }
     // 魔抗修正
     hero.AddNewModifier(hero, undefined, modifier_intelect_magic_resist.name, {});

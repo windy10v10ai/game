@@ -7,29 +7,29 @@
 	//=================================================================================================================
 	// Moon Shard 银月
 	//=================================================================================================================
-	"item_recipe_moon_shard_datadriven"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"					"item_datadriven"
-		"ID"						"10343"
-		"Model"						"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
+	// "item_recipe_moon_shard_datadriven"
+	// {
+	// 	// General
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"BaseClass"					"item_datadriven"
+	// 	"ID"						"10343"
+	// 	"Model"						"models/props_gameplay/recipe.vmdl"
+	// 	"AbilityTextureName"		"item_recipe_moon_shard_datadriven"
 
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"4000"
-		"ItemShopTags"				""
+	// 	// Item Info
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemCost"					"4000"
+	// 	"ItemShopTags"				""
 
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_moon_shard_datadriven"
-		"ItemRequirements"
-		{
-			"01"					"item_moon_shard"
-		}
-	}
+	// 	// Recipe
+	// 	//-------------------------------------------------------------------------------------------------------------
+	// 	"ItemRecipe"				"1"
+	// 	"ItemResult"				"item_moon_shard_datadriven"
+	// 	"ItemRequirements"
+	// 	{
+	// 		"01"					"item_moon_shard"
+	// 	}
+	// }
 	"item_moon_shard_datadriven"
 	{
 		// General
@@ -2360,71 +2360,6 @@
 	}
 
 	//=================================================================================================================
-	// Recipe: sacred trident 三叉戟
-	//=================================================================================================================
-	"item_recipe_sacred_trident"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"3038"
-		"BaseClass"						"item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe_sacred_trident"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
-		"ItemShopTags"					""
-
-		// Recipe
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_sacred_trident"
-		"ItemRequirements"
-		{
-			"01"						"item_sange_and_yasha;item_kaya"
-			"02"						"item_kaya_and_sange;item_yasha"
-			"03"						"item_yasha_and_kaya;item_sange"
-			"04"						"item_yasha;item_sange;item_kaya"
-		}
-	}
-
-	//=================================================================================================================
-	// sacred trident
-	//=================================================================================================================
-	"item_sacred_trident"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_trident"
-		"ID"							"3039"
-		"AbilityTextureName"			"item_sacred_trident"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"ItemShopTags"					"damage;str;agi;unique"
-		"ItemQuality"					"epic"
-		"ItemAliases"					"sacred trident;holy trinity;sacred trinity;holy trident"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"				"1"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_strength"		"33"
-			"bonus_agility"			"33"
-			"bonus_intellect"		"33"
-			"status_resistance"		"25"
-			"bonus_attack_speed"	"33"
-			"movement_speed_percent_bonus"				"12"
-			"hp_regen_amp"			"30"
-			"mana_regen_multiplier"	"60"
-			"spell_amp"				"18"
-			"magic_damage_attack"	"33"
-		}
-	}
-
-	//=================================================================================================================
 	// Recipe: Sacred Six Vein 六脉神剑
 	//=================================================================================================================
 	"item_recipe_sacred_six_vein"
@@ -2438,7 +2373,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						""
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2447,7 +2382,7 @@
 		"ItemResult"					"item_sacred_six_vein"
 		"ItemRequirements"
 		{
-			"01"						"item_sacred_trident;item_sacred_trident"
+			"01"						"item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1"
 		}
 	}
 
@@ -2458,8 +2393,9 @@
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"item_trident"
+		"BaseClass"						"item_lua"
 		"ID"							"3041"
+		"ScriptFile"					"items/ts_items/item_sacred_six_vein"
 		"AbilityTextureName"			"item_sacred_six_vein"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
@@ -2473,16 +2409,22 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
 		{
-			"bonus_strength"		"66"
-			"bonus_agility"			"66"
-			"bonus_intellect"		"66"
-			"status_resistance"		"36"
-			"bonus_attack_speed"	"66"
-			"movement_speed_percent_bonus"				"18"
-			"hp_regen_amp"			"60"
-			"mana_regen_multiplier"	"90"
-			"spell_amp"				"36"
-			"magic_damage_attack"	"66"
+			// 由原生 modifier_item_trident 提供，它不属于散华/夜叉/慧光家族，多件之间正常叠加
+			"bonus_strength"				"160"
+			"bonus_agility"					"160"
+			"bonus_intellect"				"160"
+			"bonus_attack_speed"			"120"
+			"movement_speed_percent_bonus"	"40"
+			"status_resistance"				"50"
+			"hp_regen_amp"					"80"
+			"mana_regen_multiplier"			"120"
+			"spell_amp"						"50"
+			"magic_damage_attack"			"100"
+
+			// 三叉戟没有这三项，由脚本侧读取
+			"slow_resistance"				"75"
+			"manacost_reduction"			"40"
+			"cast_speed_pct"				"50"
 		}
 	}
 
@@ -4038,7 +3980,7 @@
 				"creep_lifesteal_reduction_pct"	"80"
 				"unholy_lifesteal_percent"	"275"
 				"unholy_lifesteal_total_tooltip"	"350"
-				"unholy_duration"		"7.5"
+				"unholy_duration"		"6"
 		}
 	}
 	//=================================================================================================================
@@ -4249,7 +4191,7 @@
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
 			"blast_att_multiplier"	"1"
-			"blast_magic_resist"	"-40"
+			"blast_magic_resist"	"-30"
 		}
 	}
 	//=================================================================================================================
@@ -4726,7 +4668,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6000"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -4742,7 +4684,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"36000"
+		"ItemCost"						"32000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4791,7 +4733,7 @@
 		"ID"							"9596"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6000"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra_bot"
@@ -4806,7 +4748,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9597"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"48000"
+		"ItemCost"						"40000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4852,7 +4794,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9598"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"48000"
+		"ItemCost"						"40000"
 
 		"ItemPurchasable"				"0"
 		"ItemDroppable"					"1"
@@ -5059,10 +5001,10 @@
 				"bonus_armor"			"14"
 				"bonus_mana_regen"		"3"
 				"projectile_speed"		"300"
-				"int_damage_multiplier"	"1.25"
+				"int_damage_multiplier"	"1.2"
 				"slow"	"50"
 				"slow_duration"	"4"
-				"active_mres_reduction"		"40"
+				"active_mres_reduction"		"35"
 				"passive_cooldown"		"4"
 		}
 	}
@@ -5375,7 +5317,7 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5401,7 +5343,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5426,7 +5368,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5451,7 +5393,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5466,7 +5408,7 @@
 		"AbilityTextureName"		"fusion_life"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 
-		"ItemCost"					"20000"
+		"ItemCost"					"10000"
 		"ItemIsNeutralDrop"			"0"
 		"ItemPurchasable"			"1"
 		"ItemKillable"				"0"
@@ -5476,7 +5418,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5501,7 +5443,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5526,7 +5468,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5551,7 +5493,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5942,7 +5884,7 @@
 			}
 			"sheep_duration"		"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"	"100"	// Lua 逻辑需要 - 变形移动速度
-			"blast_magic_resist"	"-50"	// Lua 逻辑需要 - 魔法抗性减少
+			"blast_magic_resist"	"-30"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_mana_regen"			"15"	// tooltip only - 魔法回复
@@ -6164,7 +6106,7 @@
 			"bonus_armor"				"14"
 			// 巫师之刃 + 魔蚀 modifier
 			"projectile_speed"			"300"
-			"int_damage_multiplier"		"1.25"
+			"int_damage_multiplier"		"1.2"
 			"slow"						"50"
 			"slow_duration"				"4"
 			"active_mres_reduction"		"40"
@@ -6246,12 +6188,13 @@
 	{
 		"BaseClass"					"item_lua"
 		"ID"						"10314"
-		"ScriptFile"				"items/item_withered_spring"
+		"ScriptFile"				"items/ts_items/item_withered_spring"
 		"AbilityTextureName"		"withered_spring"
 		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilitySharedCooldown"		"aeon"
 		"FightRecapLevel"			"1"
 
-		"ItemCost"					"52600"
+		"ItemCost"					"42600"
 		"ItemShopTags"				"str;health;regen;armor;hard_to_tag"
 		"ItemQuality"				"epic"
 		"ItemPurchasable"			"1"
@@ -6263,40 +6206,44 @@
 		"precache"
 		{
 			"soundfile"					"soundevents/game_sounds_items.vsndevts"
-			"particle"					"particles/items4_fx/combo_breaker.vpcf"
 			"particle"					"particles/items4_fx/combo_breaker_buff.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_base.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_b_ropefollow.vpcf"
-			"particle"					"particles/items_fx/aoe_item_generic_caster_to_target_rope_guardian_greaves_puffs.vpcf"
+			"particle"					"particles/items3_fx/warmage.vpcf"
+			"particle"					"particles/items3_fx/warmage_recipient.vpcf"
 		}
 		"AbilityValues"
 		{
-			// Lua 逻辑需要 - 百分比回血和状态抗性（不在可优化列表）
-			"health_regen_pct"			"3"		// Lua 逻辑需要 - 百分比生命回复
-			"status_resistance"			"15"	// Lua 逻辑需要 - 状态抗性
+			// 由原版 modifier_item_aeon_disk 按原版字段名读取
+			"health_threshold_pct"		"40"
+			"buff_duration"				"3"
+			"status_resistance"			"80"
+			"cooldown_duration"			"60"	// 单值 + max_level 1 关闭原版的触发递增
+			"max_level"					"1"
+			"initial_cooldown"			"6"
+			"bonus_health"				"2500"
+			"bonus_mana"				"2500"
 
-			// Lua 逻辑需要 - 主动技能参数
-			"hp_threshold"				"20"	// Lua 逻辑需要 - 自动触发生命阈值
-			"replenish_health"			"2500"	// Lua 逻辑需要 - 立即恢复生命值
-			"replenish_health_pct"		"6"		// Lua 逻辑需要 - 立即恢复最大生命值百分比
-			"replenish_mana"			"1500"	// Lua 逻辑需要 - 立即恢复法力值
+			// DataDriven 表达不了，留在 TS
+			"health_regen_pct"			"3"
+
+			// 主动技能参数
+			"replenish_health"			"2500"
+			"replenish_health_pct"		"6"
+			"replenish_mana"			"1500"
 			"replenish_radius"
 			{
-				"value"						"1200"	// Lua 逻辑需要 - 回血回蓝影响友军范围
+				"value"						"1200"
 				"affected_by_aoe_increase"	"1"
 			}
-			"active_duration"			"3"		// Lua 逻辑需要 - 主动持续时间
-			"bonus_armor_active"		"20"	// Lua 逻辑需要 - 主动护甲加成
-			"bonus_regen_active"		"300"	// Lua 逻辑需要 - 主动生命回复
-			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
+			"active_duration"			"3"
 
-			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"120"	// tooltip only - 力量
-			"bonus_health"				"2500"	// tooltip only - 生命值
-			"bonus_mana"				"2500"	// tooltip only - 法力值
-			"bonus_armor"				"20"	// tooltip only - 护甲
-			"bonus_evasion"				"25"	// tooltip only - 闪避
+			// 主动 buff 属性，真值在 item_apply_modifiers，此处仅供 tooltip
+			"bonus_armor_active"		"20"
+			"bonus_regen_active"		"300"
+
+			// 被动属性，真值在 item_apply_modifiers，此处仅供 tooltip
+			"bonus_strength"			"100"
+			"bonus_armor"				"20"
+			"bonus_evasion"				"20"
 		}
 	}
 	//=================================================================================================================
@@ -6353,18 +6300,19 @@
 			// Lua 逻辑需要 - 主动技能参数
 			"hp_threshold"				"40"	// Lua 逻辑需要 - 自动触发生命阈值
 			"active_duration"			"5"		// Lua 逻辑需要 - 主动持续时间
-			"lifesteal_active"			"300"	// Lua 逻辑需要 - 主动期间物理吸血
-			"spell_lifesteal_active"	"100"	// Lua 逻辑需要 - 主动期间法术吸血
+			"lifesteal_active"			"225"	// Lua 逻辑需要 - 主动期间物理吸血
+			"spell_lifesteal_active"	"70"	// Lua 逻辑需要 - 主动期间法术吸血
+			"lifesteal_active_total_tooltip"	"300"
+			"spell_lifesteal_active_total_tooltip"	"100"
 			"bonus_attack_speed_active"	"150"	// Lua 逻辑需要 - 主动攻速加成
 			"bonus_movement_speed_active"	"30"	// Lua 逻辑需要 - 主动移速加成
 			"damage_reduction"			"-30"	// Lua 逻辑需要 - 主动伤害减免
-			"status_resistance_active"	"80"	// Lua 逻辑需要 - 主动状态抗性
+			"status_resistance_active"	"50"	// Lua 逻辑需要 - 主动状态抗性
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_strength"			"80"	// tooltip only - 力量
+			"bonus_strength"			"75"	// tooltip only - 力量
 			"bonus_health"				"2000"	// tooltip only - 生命值
-			"bonus_damage"				"250"	// tooltip only - 攻击力
-			"bonus_movement_speed"		"20"	// tooltip only - 移动速度
+			"bonus_damage"				"200"	// tooltip only - 攻击力
 			"bonus_health_regen"		"0"		// tooltip only - 生命回复
 		}
 	}
@@ -6390,10 +6338,6 @@
 			"01"					"item_abyssal_blade_v2;item_blue_fantasy;item_bloodthorn_ultra;item_fusion_shadow"
 		}
 	}
-
-	//=================================================================================================================
-	// 暗影裁决
-	//=================================================================================================================
 
 	"item_shadow_judgment"
 	{
@@ -6502,7 +6446,7 @@
 
 		"AbilityCooldown"			"3"	// 被动冷却，主动冷却见 active_cooldown
 		"AbilityManaCost"			"800"
-		"AbilityCastRange"			"900"
+		"AbilityCastRange"			"800"
 		"AbilityCastPoint"			"0.2"
 
 		"AbilityValues"
@@ -6511,19 +6455,19 @@
 			"active_cooldown"			"15"	// Lua 逻辑需要 - 主动施法冷却
 			"dagon_damage"
 			{
-				"value"					"900"
+				"value"					"1000"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 			"pure_damage"
 			{
-				"value"					"600"
+				"value"					"500"
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
 			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
-			"blast_magic_resist"		"-40"	// Lua 逻辑需要 - 魔法抗性减少
+			"blast_magic_resist"		"-30"	// Lua 逻辑需要 - 魔法抗性减少
 
 			// modifier_item_angels_demise 提供的属性（绝刃被动：法术强化，原生 modifier 读取）
 			"bonus_health"				"600"	// 绝刃自身加成
@@ -6633,56 +6577,6 @@
 			"decuple_damage_chance"	"1"
 			"decuple_damage_multiplier"	"3"
 			"decuple_damage_cooldown"	"1"
-		}
-	}
-
-	//=================================================================================================================
-	// 万剑归宗
-	//=================================================================================================================
-	"item_recipe_ten_thousand_swords"
-	{
-		"BaseClass"					"item_datadriven"
-		"ID"						"10319"
-		"Model"						"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"		"item_recipe_ten_thousand_swords"
-		"ItemCost"					"0"
-		"ItemShopTags"				""
-		"ItemRecipe"				"1"
-		"ItemResult"				"item_ten_thousand_swords"
-		"ItemRequirements"
-		{
-			"01"					"item_sacred_six_vein;item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1;item_fusion_agile"
-		}
-	}
-
-	"item_ten_thousand_swords"
-	{
-		"BaseClass"					"item_trident"
-		"ID"						"10320"
-		"AbilityTextureName"		"wanjianguizong"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-
-		"ItemShopTags"				"damage;str;agi;attack_speed;unique"
-		"ItemQuality"				"artifact"
-		"ItemAliases"				"ten thousand swords"
-		"ItemDeclarations"			"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"ShouldBeSuggested"			"1"
-		"ItemPurchasable"			"1"
-		"ItemSellable"				"0"
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityValues"
-		{
-			"bonus_strength"				"200"
-			"bonus_agility"					"200"
-			"bonus_intellect"				"200"
-			"status_resistance"				"50"
-			"bonus_attack_speed"			"160"
-			"movement_speed_percent_bonus"	"40"
-			"hp_regen_amp"					"80"
-			"mana_regen_multiplier"			"150"
-			"spell_amp"						"80"
-			"magic_damage_attack"			"100"
 		}
 	}
 

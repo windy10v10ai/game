@@ -4,7 +4,7 @@ import {
   registerAbility,
   registerModifier,
 } from '../../utils/dota_ts_adapter';
-import { getDoomAwakenedTalentStates, isDoomAwakenedFriendlyTarget } from './doom-awaken-logic';
+import { getDoomAwakenedStates, isDoomAwakenedFriendlyTarget } from './doom-awaken-logic';
 import {
   DevourAbilityEntry,
   getDevourAbilityHighestDeclaredLevel,
@@ -17,7 +17,6 @@ const DOOM_STATES_MODIFIER = 'modifier_doom_bringer_doom_awakened_states';
 const CARRIER_MODIFIER = 'modifier_doom_bringer_doom_awakened_carrier';
 const DEVOUR_MODIFIER = 'modifier_doom_bringer_doom_awakened_devour';
 const DOOM_MUTE_TALENT = 'special_bonus_unique_doom_10';
-const DOOM_BREAK_TALENT = 'special_bonus_unique_doom_11';
 const DOOM_AURA_PARTICLE = 'particles/units/heroes/hero_doom_bringer/doom_bringer_doom_aura.vpcf';
 const AURA_INTERVAL = 0.2;
 const AURA_LINGER = 0.5;
@@ -30,6 +29,10 @@ function isSameTeam(caster: CDOTA_BaseNPC, target: CDOTA_BaseNPC): boolean {
 
 function getEnemyDoomDuration(target: CDOTA_BaseNPC, duration: number): number {
   return Math.max(0, duration * (1 - target.GetStatusResistance()));
+}
+
+function applyBasicDispel(target: CDOTA_BaseNPC): void {
+  target.Purge(true, false, false, false, false);
 }
 
 function hasLearnedTalent(caster: CDOTA_BaseNPC | undefined, talentName: string): boolean {
@@ -134,6 +137,7 @@ export class DoomBringerDoomAwakened extends BaseAbility {
       : getEnemyDoomDuration(target, baseDuration);
 
     if (!targetIsFriendly) {
+      applyBasicDispel(target);
       applyOrRefreshDoom(caster, this, target, effectDuration);
     }
 
@@ -164,9 +168,10 @@ export class modifier_doom_bringer_doom_awakened_states extends BaseModifier {
 
   CheckState(): Partial<Record<ModifierState, boolean>> {
     const caster = this.GetCaster();
-    const states = getDoomAwakenedTalentStates({
+    const ability = this.GetAbility();
+    const states = getDoomAwakenedStates({
       hasMuteTalent: hasLearnedTalent(caster, DOOM_MUTE_TALENT),
-      hasBreakTalent: hasLearnedTalent(caster, DOOM_BREAK_TALENT),
+      doesBreak: !!ability && !ability.IsNull() && ability.GetSpecialValueFor('does_break') > 0,
     });
 
     return {

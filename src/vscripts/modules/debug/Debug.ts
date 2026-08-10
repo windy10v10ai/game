@@ -45,6 +45,12 @@ export class Debug {
 
     // ---- 常用命令 ----
 
+    if (cmd === CMD.D) {
+      const playerId = keys.playerid;
+      const damage = PlayerResource.GetRawPlayerDamage(playerId);
+      this.log(`Player ${playerId} damage: ${damage}`);
+    }
+
     if (cmd === CMD.V) {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
@@ -359,13 +365,6 @@ export class Debug {
       const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
       if (!hero) return;
       hero.SetBuybackCooldownTime(0);
-    }
-    // 获取状态抗性
-    if (cmd === CMD.GET_SR) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const sr = hero.GetStatusResistance();
-      this.log(`status resistance: ${sr}`);
     }
     // 造成存粹伤害
     if (cmd === CMD.DAMAGE_PURE) {

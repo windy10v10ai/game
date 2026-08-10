@@ -23,7 +23,7 @@ function item_undying_heart:OnSpellStart()
 	caster:Heal(sumHpRegen, caster)
 	SendOverheadEventMessage(caster, OVERHEAD_ALERT_HEAL, caster, sumHpRegen, nil)
 	local fx2 = ParticleManager:CreateParticle("particles/items3_fx/warmage_recipient.vpcf", PATTACH_ABSORIGIN_FOLLOW,
-		hero)
+		caster)
 	ParticleManager:ReleaseParticleIndex(fx2)
 
 	-- remove debuff

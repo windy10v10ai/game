@@ -5,8 +5,8 @@ import { itemTiers } from './lottery-items';
 export enum ItemLotteryPool {
   INITIAL = 'initial', // 开局点位：屏蔽 T7~T4，避开引擎全价卖出窗口
   DEFAULT = 'default', // 普通藏宝箱
-  PREMIUM = 'premium', // 后期 / 肉山 / 会员：高 tier 加权
-  ULTRA = 'ultra', // 大后期：保底 T3，高 tier 明显加权
+  PREMIUM = 'premium', // 后期：高 tier 加权
+  ULTRA = 'ultra', // 大后期 / 肉山：保底 T3，高 tier 明显加权
 }
 
 const POOL_RATES: Record<ItemLotteryPool, number[]> = {
