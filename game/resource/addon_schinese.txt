@@ -443,7 +443,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"		"建筑物的攻击和最大生命值增加 %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%。<br>获得额外 %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT%点/秒生命恢复。"
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"威压"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"近战英雄额外获得 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性。"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"近战英雄额外获得 %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% 魔法抗性和 <font color='#FFFFFF'><b>20%%</b></font> 状态抗性。"
 
 		"DOTA_Tooltip_ability_creep_buff"								"小兵Buff"
 		"DOTA_Tooltip_ability_creep_buff_Description"					"根据摧毁防御塔的数量升级。"

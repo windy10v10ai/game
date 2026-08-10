@@ -322,7 +322,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"		"Урон атаки и максимальное здоровье этого строения увеличены на %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>Эта постройка также имеет дополнительные %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% восстановления здоровья"
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Сопростивление магии героев ближнего боя увеличено на %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%"
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Герои ближнего боя получают %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% дополнительного сопротивления магии и <font color='#FFFFFF'><b>20%%</b></font> сопротивления эффектам."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_bonus_damage"					"Бонус к урону"
