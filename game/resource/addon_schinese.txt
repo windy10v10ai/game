@@ -3482,5 +3482,12 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 
+		// 亚巴顿 畅快淋漓觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>畅快淋漓 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"亚巴顿附近%radius%范围内有单位阵亡时，他的所有冷却时间都会减少。非英雄单位阵亡减少%cooldown_reduction_creeps%秒，英雄阵亡减少%cooldown_reduction_heroes%秒。"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"附近单位阵亡时，减少所有技能和物品的当前冷却。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>畅快淋漓 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"附近 <font color='#FFFFFF'><b>900</b></font> 范围内有单位阵亡时，亚巴顿所有技能和物品的当前冷却都会减少。非英雄单位阵亡减少 <font color='#FFFFFF'><b>0.2</b></font> 秒，英雄阵亡减少 <font color='#FFFFFF'><b>3</b></font> 秒。"
+
 	}
 }
