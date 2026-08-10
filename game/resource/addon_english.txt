@@ -443,7 +443,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"		"This structure's attack damage and max health is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>This structure also has %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% extra health regeneration."
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% extra magic resistance."
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</b></font> extra magic resistance and <font color='#FFFFFF'><b>20%%</b></font> status resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many towers are destroyed."
@@ -1257,7 +1257,7 @@
 
 		// Skywrath Mage Staff of the Scion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Staff of the Scion Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Skywrath Mage gains Staff of the Scion. Every time his abilities deal <font color='#05CAFF'>magical damage</font> to an enemy hero, the cooldown of all his abilities is reduced by %cooldown_reduction%s.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Mystic Flare, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Skywrath Mage gains Staff of the Scion. Every time his abilities deal <font color='#05CAFF'>magical damage</font> to an enemy hero, the cooldown of all his abilities is reduced by %cooldown_reduction%s.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When autocast is enabled, Zeus automatically casts Arc Lightning and Lightning Bolt on enemies within cast range.<br><br>Prioritizes heroes. Casts only Arc Lightning when only creeps are in range."
@@ -2518,17 +2518,18 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Infernal Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
 		// item_six_vein 六脉神剑
-		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Legendary Hexad"
+		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>Legendary Hexad</font>"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"To gather all three legendary swords in their perfected form and forge them into one, the power within is beyond measure."
-		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_all_stats_tooltip"				"+$all"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed_tooltip"			"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_intellect"						"+$all"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+Status Resistance"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+Slow Resistance"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+Mana Regen Amplification"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+Spell Damage"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_magic_damage_attack"					"+Magic Damage Attack"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Mana Cost/Mana Loss Reduction"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Cast Speed Bonus"
 

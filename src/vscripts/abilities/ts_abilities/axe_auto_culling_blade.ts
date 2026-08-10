@@ -16,7 +16,7 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
   private pendingTarget?: CDOTA_BaseNPC;
 
   getThinkInterval(): number {
-    return 1;
+    return 0.6;
   }
 
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {

@@ -26,8 +26,6 @@ export enum CMD {
   /** 重置当前英雄技能 */
   RESET_ABILITY = '-resetAbility',
   REFRESH_BUYBACK = '-refreshBuyback',
-  /** 获取英雄状态抗性 */
-  GET_SR = '-getSR',
   /** 对英雄造成存粹伤害 */
   DAMAGE_PURE = '-damagePure',
   HP_LOSS = '-hploss',

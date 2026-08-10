@@ -10,52 +10,63 @@ import {
 /** 天怒法师 天裔之杖-觉醒：四个主动技能的自动施法开关。冷却缩减由觉醒一并发放的原版 skywrath_mage_staff_of_the_scion 提供。 */
 @registerAbility('special_bonus_unique_skywrath_upgrade')
 export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
+  // 每轮 think 最多放一个技能，避免四个技能同帧连发，下一个留给下轮 think
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
-    this.castAncientSeal(caster);
-    this.castMysticFlare(caster);
-    this.castArcaneBolt(caster);
+    if (this.castAncientSeal(caster)) return;
+    // if (this.castMysticFlare(caster)) return;
+    if (this.castArcaneBolt(caster)) return;
     this.castConcussiveShot(caster);
   }
 
-  private castAncientSeal(caster: CDOTA_BaseNPC_Hero): void {
+  // 上古封印
+  private castAncientSeal(caster: CDOTA_BaseNPC_Hero): boolean {
     const seal = caster.FindAbilityByName('skywrath_mage_ancient_seal');
-    if (!seal || !seal.IsFullyCastable()) return;
+    if (!seal || !seal.IsFullyCastable()) return false;
 
     const [target] = findEnemiesInRange(
       caster,
       getFullCastRange(caster, seal),
       UnitTargetType.HERO,
     );
-    if (target !== undefined) castImmediatelyOnTarget(caster, seal, target);
+    if (target === undefined) return false;
+    castImmediatelyOnTarget(caster, seal, target);
+    return true;
   }
 
-  private castMysticFlare(caster: CDOTA_BaseNPC_Hero): void {
+  // 神秘之耀
+  private castMysticFlare(caster: CDOTA_BaseNPC_Hero): boolean {
     const flare = caster.FindAbilityByName('skywrath_mage_mystic_flare');
-    if (!flare || !flare.IsFullyCastable()) return;
+    if (!flare || !flare.IsFullyCastable()) return false;
 
     const [target] = findEnemiesInRange(
       caster,
       getFullCastRange(caster, flare),
       UnitTargetType.HERO,
     );
-    if (target !== undefined) this.castAtPosition(caster, flare, target.GetAbsOrigin());
+    if (target === undefined) return false;
+    this.castAtPosition(caster, flare, target.GetAbsOrigin());
+    return true;
   }
 
-  private castArcaneBolt(caster: CDOTA_BaseNPC_Hero): void {
+  // 奥法鹰隼
+  private castArcaneBolt(caster: CDOTA_BaseNPC_Hero): boolean {
     const bolt = caster.FindAbilityByName('skywrath_mage_arcane_bolt');
-    if (!bolt || !bolt.IsFullyCastable()) return;
+    if (!bolt || !bolt.IsFullyCastable()) return false;
 
     const flags =
       bolt.GetSpecialValueFor('pierce_spell_immunity') > 0
         ? UnitTargetFlags.MAGIC_IMMUNE_ENEMIES
         : UnitTargetFlags.NONE;
     const target = findHeroOrCreepInRange(caster, getFullCastRange(caster, bolt), flags);
-    if (target) castImmediatelyOnTarget(caster, bolt, target);
+    if (!target) return false;
+    castImmediatelyOnTarget(caster, bolt, target);
+    return true;
   }
 
-  private castConcussiveShot(caster: CDOTA_BaseNPC_Hero): void {
+  // 震荡光弹
+  private castConcussiveShot(caster: CDOTA_BaseNPC_Hero): boolean {
     const shot = caster.FindAbilityByName('skywrath_mage_concussive_shot');
-    if (!shot || !shot.IsFullyCastable()) return;
+    if (!shot || !shot.IsFullyCastable()) return false;
 
     // 无目标技能，实际目标由原生技能挑选，这里只确认搜索范围内确实有英雄可打
     const launchRadius = shot.GetSpecialValueFor('launch_radius');
@@ -65,9 +76,10 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
         : launchRadius > 0
           ? launchRadius
           : getFullCastRange(caster, shot);
-    if (findEnemiesInRange(caster, searchRange, UnitTargetType.HERO).length === 0) return;
+    if (findEnemiesInRange(caster, searchRange, UnitTargetType.HERO).length === 0) return false;
 
     caster.CastAbilityImmediately(shot, caster.GetPlayerOwnerID());
+    return true;
   }
 
   private castAtPosition(
