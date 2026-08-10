@@ -4726,7 +4726,7 @@
 		"ID"							"9594"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6000"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra"
@@ -4742,7 +4742,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9595"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"36000"
+		"ItemCost"						"32000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4791,7 +4791,7 @@
 		"ID"							"9596"
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		"AbilityTextureName" 			"item_recipe_rapier_ultra"
-		"ItemCost"						"6000"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_rapier_ultra_bot"
@@ -4806,7 +4806,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9597"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"48000"
+		"ItemCost"						"40000"
 
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
@@ -4852,7 +4852,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"ID"							"9598"
 		"AbilityTextureName"			"item_rapier_ultra"
-		"ItemCost"						"48000"
+		"ItemCost"						"40000"
 
 		"ItemPurchasable"				"0"
 		"ItemDroppable"					"1"
@@ -5375,7 +5375,7 @@
 		"ItemPermanent"				"1"
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5401,7 +5401,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5426,7 +5426,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5451,7 +5451,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5476,7 +5476,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5501,7 +5501,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5526,7 +5526,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
@@ -5551,7 +5551,7 @@
 		"ItemDroppable"				"1"		// 添加:允许丢弃
 		"ItemStackable"				"0"		// 添加:不可堆叠
 		"ItemDisassembleRule"		"DOTA_ITEM_DISASSEMBLE_NEVER"	// 添加:不可拆解
-		"ItemInitialStockTime"		"240"	// 3分钟买
+		"ItemInitialStockTime"		"0"
 		"ItemStockInitial"			"0"
 		"ItemStockMax"				"3"
 		"ItemStockTime"				"180"
