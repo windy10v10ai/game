@@ -3,7 +3,7 @@ import { pickRandomTierByRate } from '../shared/random-tier';
 import { Tier } from '../shared/tier';
 
 export class AbilityLotteryHelper {
-  private static readonly BASE_TIER_RATES = [1, 5, 20, 60, 100];
+  private static readonly BASE_TIER_RATES = [2, 5, 25, 60, 100];
   private static readonly PREMIUM_TIER_RATES = [5, 25, 60, 100, 100];
 
   private static getRandomLotteryDto(tiers: Tier[], isHighTier: boolean = false): LotteryDto {

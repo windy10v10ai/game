@@ -11622,6 +11622,7 @@
 					"value"			"800 1200 1600 2000"
 					"special_bonus_unique_skywrath_5" "+600"	// +400
 				}
+				"damage_interval"		"0.25"	// 0.1 降低频率 防止炸房
 		}
 	}
 	// 天裔之盾 先天
