@@ -1276,7 +1276,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_rapier_ultra_bot_1',
     nameCN: '解放的诅咒圣剑',
     tier: ItemTier.T5,
-    cost: 48000,
+    cost: 40000,
     baseItems: ['item_excalibur', 'item_rapier'],
   },
   item_swift_glove: {
