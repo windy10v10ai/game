@@ -24,10 +24,10 @@
 	// 	// Recipe
 	// 	//-------------------------------------------------------------------------------------------------------------
 	// 	"ItemRecipe"				"1"
-	// 	"ItemResult"				"item_moon_shard"
+	// 	"ItemResult"				"item_moon_shard_datadriven"
 	// 	"ItemRequirements"
 	// 	{
-	// 		"01"					"item_moon_shard_datadriven"
+	// 		"01"					"item_moon_shard"
 	// 	}
 	// }
 	"item_moon_shard_datadriven"
