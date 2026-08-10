@@ -3984,7 +3984,7 @@
 				"creep_lifesteal_reduction_pct"	"80"
 				"unholy_lifesteal_percent"	"275"
 				"unholy_lifesteal_total_tooltip"	"350"
-				"unholy_duration"		"7.5"
+				"unholy_duration"		"6"
 		}
 	}
 	//=================================================================================================================
