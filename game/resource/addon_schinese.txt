@@ -2527,31 +2527,20 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"绝对破防之刃"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"绝对破防之刃使你的护甲被削弱%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。"
 
-		// item_sacred_trident 三叉戟
-		"DOTA_Tooltip_Ability_item_sacred_trident"										"三叉戟"
-		"DOTA_Tooltip_Ability_item_sacred_trident_Description"					"由散华，夜叉和慧光一起合成。"
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_intellect"					"+$all"
-		"DOTA_Tooltip_Ability_item_sacred_trident_spell_amp"					"%+技能增强"
-		"DOTA_Tooltip_Ability_item_sacred_trident_mana_regen_multiplier"				"%+魔法恢复增强"
-		"DOTA_Tooltip_Ability_item_sacred_trident_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_sacred_trident_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_Ability_item_sacred_trident_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_Ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
-		"DOTA_Tooltip_Ability_item_sacred_trident_magic_damage_attack"				"+魔法伤害攻击"
-		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"传说是古希腊神话中海神波塞冬的象征物和武器，目前广泛用于渔民捕鱼。"
-
 		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"六脉神剑"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_Description"					"由两个三叉戟合成。"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_intellect"					"+$all"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_spell_amp"					"%+技能增强"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_mana_regen_multiplier"				"%+魔法恢复增强"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_bonus_attack_speed"			"+$attack"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_status_resistance"					"%+状态抗性"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
-		"DOTA_Tooltip_Ability_item_sacred_six_vein_magic_damage_attack"				"+魔法伤害攻击"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"凌波微步（移速）以及北冥神功（抗性），都是大理皇室段誉的武门绝学。本质上也不过是两把鱼叉而已。"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"由三把神器对剑合成，散华的坚韧，夜叉的迅捷，慧光的通明尽归一身。"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"凌波微步以及北冥神功，都是大理皇室段誉的武门绝学，六脉神剑更是段氏一族的至高传承。"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_all_stats_tooltip"				"+$all"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed_tooltip"			"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_status_resistance"					"%+状态抗性"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_slow_resistance"						"%+减速抗性"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_mana_regen_multiplier"				"%+魔法恢复增强"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_spell_amp"							"%+技能增强"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+魔法消耗/魔法损失降低"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+施法速度加成"
 
 		// item_abyssal_blade_v2 一闪
 		"DOTA_Tooltip_ability_item_abyssal_blade_v2"									"一闪"
@@ -3182,7 +3171,7 @@
 
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"灵动符文"
-		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套、万剑归宗"
+		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套"
 
 		// item_universal_rune 通用符文
 		"DOTA_Tooltip_Ability_item_universal_rune"										"通用符文"
@@ -3360,20 +3349,6 @@
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_attack_speed"						"+$attack"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_damage"							"+$damage"
 		"DOTA_Tooltip_ability_item_swift_glove_bonus_armor"							"+$armor"
-
-		"DOTA_Tooltip_Ability_item_ten_thousand_swords"									"万剑归宗"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_Description"						"<h1><font color='#FFFF00'>被动：剑之极致</font></h1>集四把神器对剑之力于一身，大幅提升全属性，状态抗性，攻击速度，移动速度，生命恢复，魔法恢复和技能增强。攻击附带魔法伤害。"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_Lore"							"万剑归宗，天下无敌。四把神器对剑的力量汇聚于此，铸就无上神兵。"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_strength"					"+$str"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_agility"					"+$agi"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_intellect"					"+$int"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_status_resistance"				"%+状态抗性"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_bonus_attack_speed"				"+$attack"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_movement_speed_percent_bonus"	"%+$move_speed"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_hp_regen_amp"					"%+$restoration_amp"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_mana_regen_multiplier"			"%+魔法恢复增强"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_spell_amp"						"%+技能增强"
-		"DOTA_Tooltip_ability_item_ten_thousand_swords_magic_damage_attack"				"+魔法伤害攻击"
 
 		"DOTA_Tooltip_Ability_item_time_gem"											"时间宝石"
 		"DOTA_Tooltip_ability_item_time_gem_Description"								"<h1><font color='#FFFF00'>主动：时间重置</font></h1>重置所有物品和技能的冷却时间。<br><br>冷却时间：%AbilityCooldown%秒\n<h1>被动：时间加速</h1>降低所有技能和物品%bonus_cooldown%%%的冷却时间。"

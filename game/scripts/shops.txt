@@ -321,7 +321,6 @@
 		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
 		// "item"      "item_shadow_judgment"      // 暗影裁决
 		"item"		"item_sacred_six_vein"		// 六脉神剑
-		"item"      "item_ten_thousand_swords"      // 万剑归宗
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
 	}
