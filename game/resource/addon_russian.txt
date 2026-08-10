@@ -593,5 +593,12 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// Abaddon The Quickening - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>Ускорение · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит умирает в радиусе %radius% от Abaddon, всё его время перезарядки сокращается. Смерть не-героя сокращает его на %cooldown_reduction_creeps% сек., а смерть героя — на %cooldown_reduction_heroes% сек."
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Смерти поблизости сокращают текущее время перезарядки всех способностей и предметов."
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>Ускорение · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит погибает в радиусе <font color='#FFFFFF'><b>900</b></font> от Abaddon, текущее время перезарядки всех его способностей и предметов сокращается. Смерть не-героя сокращает его на <font color='#FFFFFF'><b>0.2</b></font> сек., а смерть героя — на <font color='#FFFFFF'><b>3</b></font> сек."
+
 	}
 }

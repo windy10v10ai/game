@@ -5,6 +5,23 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 亚巴顿 觉醒
+	"special_bonus_unique_abaddon_quickening_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_abaddon_quickening_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"abaddon_borrowed_time"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"cooldown_reduction_creeps"		"0.2"
+			"cooldown_reduction_heroes"	"3"
+			"radius"							"900"
+		}
+	}
 	// 天怒法师-觉醒
 	"special_bonus_unique_skywrath_upgrade"
 	{

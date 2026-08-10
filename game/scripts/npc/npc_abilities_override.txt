@@ -287,6 +287,7 @@
 	"dark_seer_vacuum"
 	{
 		"MaxLevel"						"5"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"		// SPELL_IMMUNITY_ENEMIES_NO 无视魔免
 		"AbilityCastRange"				"500 550 600 650 700" // 与镖同步
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"60 90 120 150 180"
@@ -396,7 +397,7 @@
 			"hp_threshold"							"1000 2000 3000 4000"	// 400
 			"duration"
 			{
-				"value"		"4.0 4.5 5.0 5.5"	// 4.0 5.0 6.0
+				"value"		"4.5 5.0 5.5 6.0"	// 4.0 5.0 6.0 确保最高等级时长不超过原版数值
 				"special_bonus_scepter"	"+0.5"	// +3
 			}
 			"ally_threshold_scepter"

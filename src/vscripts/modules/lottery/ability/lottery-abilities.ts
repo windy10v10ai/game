@@ -77,6 +77,7 @@ export const abilityTiersActive: Tier[] = [
       'shredder_whirling_death', // 死亡旋风
       'tidehunter_kraken_shell', // 海妖外壳
       'earthshaker_enchant_totem', // 强化图腾
+      'dark_seer_vacuum', // 真空
 
       // 自定义技能
       'clinkz_burning_barrage2', // 炽烈火雨
