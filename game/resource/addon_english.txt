@@ -2518,7 +2518,7 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Infernal Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
 		// item_six_vein 六脉神剑
-		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"Legendary Hexad"
+		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>Legendary Hexad</font>"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"To gather all three legendary swords in their perfected form and forge them into one, the power within is beyond measure."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_all_stats_tooltip"				"+$all"
