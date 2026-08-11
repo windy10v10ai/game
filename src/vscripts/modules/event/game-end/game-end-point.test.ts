@@ -80,7 +80,8 @@ describe('GameEndPoint', () => {
     });
 
     it('应该为控制时间增加递减且封顶的分数', () => {
-      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 400 }))).toBe(5);
+      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 400 }))).toBe(7);
+      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 1000 }))).toBe(11);
       expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 10000 }))).toBe(25);
     });
   });
