@@ -4754,7 +4754,7 @@
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
-		"AllowedInBackpack"				"0"
+		"AllowedInBackpack"				"1"
 		"IsTempestDoubleClonable"		"0"
 
 		"AbilityValues"
@@ -4818,7 +4818,7 @@
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
-		"AllowedInBackpack"				"0"
+		"AllowedInBackpack"				"1"
 
 		"AbilityValues"
 		{
