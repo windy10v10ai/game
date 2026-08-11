@@ -182,10 +182,11 @@ export class EventNpcSpawned {
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
     this.SetHeroSpawnPoint(hero);
-    // 近战buff
+    // 近战buff，仅对玩家生效
     if (
-      hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
-      hero.GetName() === 'npc_dota_hero_troll_warlord'
+      PlayerHelper.IsHumanPlayer(hero) &&
+      (hero.GetAttackCapability() === UnitAttackCapability.MELEE_ATTACK ||
+        hero.GetName() === 'npc_dota_hero_troll_warlord')
     ) {
       ModifierHelper.applyGlobalModifier(hero, 'modifier_global_melee_resistance');
       hero.AddNewModifier(hero, undefined, modifier_global_melee_status_resistance.name, {});
