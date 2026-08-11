@@ -12,7 +12,7 @@ export class GameEndPoint {
     const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 80);
     const healingScore = Math.min(40, Math.sqrt(player.healing) / 50);
     const towerKillScore = Math.sqrt(player.towerKills) * 3;
-    const stunScore = Math.min(25, Math.sqrt(player.stuns) / 4);
+    const stunScore = Math.min(25, Math.sqrt(player.stuns) / 3);
 
     const totalScore =
       killScore +
