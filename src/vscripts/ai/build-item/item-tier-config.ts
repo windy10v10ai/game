@@ -779,8 +779,15 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_sacred_trident',
     nameCN: '三叉戟',
     tier: ItemTier.T3,
-    cost: 7800,
-    baseItems: ['item_yasha', 'item_sange', 'item_kaya'],
+    cost: 8400,
+    baseItems: [
+      'item_kaya',
+      'item_kaya_and_sange',
+      'item_sange',
+      'item_sange_and_yasha',
+      'item_yasha',
+      'item_yasha_and_kaya',
+    ],
   },
   item_manta_1: {
     name: 'item_manta_1',
@@ -1332,7 +1339,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_sacred_six_vein',
     nameCN: '六脉神剑',
     tier: ItemTier.T5,
-    cost: 44000,
+    cost: 42000,
     baseItems: [
       'item_sange_and_yasha_1',
       'item_yasha_and_kaya_1',
