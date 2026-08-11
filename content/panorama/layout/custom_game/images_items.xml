@@ -110,6 +110,7 @@
 			<Image id="rune_transmuter_advanced" class="SeqImg" src="file://{images}/items/rune_transmuter_advanced.png" />
 			<Image id="rune_transmuter_random" class="SeqImg" src="file://{images}/items/rune_transmuter_random.png" />
 			<Image id="sacred_six_vein" class="SeqImg" src="file://{images}/items/sacred_six_vein.png" />
+			<Image id="sacred_trident" class="SeqImg" src="file://{images}/items/sacred_trident.png" />
 			<Image id="saint_orb" class="SeqImg" src="file://{images}/items/saint_orb.png" />
 			<Image id="sange_and_yasha_1" class="SeqImg" src="file://{images}/items/sange_and_yasha_1.png" />
 			<Image id="satanic_2" class="SeqImg" src="file://{images}/items/satanic_2.png" />

@@ -307,6 +307,7 @@
 		"item"		"item_arcane_blink"
 		"item"		"item_jump_jump_jump"
 
+ 		"item"		"item_sacred_trident"		// 三叉戟
  		"item"		"item_kaya_and_sange_1"		// 散慧对剑
  		"item"		"item_sange_and_yasha_1"	// 散夜对剑
  		"item"		"item_yasha_and_kaya_1"		// 夜慧对剑

@@ -2517,9 +2517,22 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"Ultra Corruption"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Infernal Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
+		// item_sacred_trident 三叉戟
+		"DOTA_Tooltip_Ability_item_sacred_trident"										"Holy Trinity"
+		"DOTA_Tooltip_ability_item_sacred_trident_Description"							"Forged from Sange, Yasha and Kaya together."
+		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"The three mythical blades that were never seen all together in harmony, now combined as one."
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_intellect"						"+$all"
+		"DOTA_Tooltip_ability_item_sacred_trident_status_resistance"					"%+Status Resistance"
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_trident_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_trident_mana_regen_multiplier"					"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_sacred_trident_spell_amp"							"%+Spell Damage"
+		"DOTA_Tooltip_ability_item_sacred_trident_magic_damage_attack"					"+Magic Damage Attack"
+
 		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>Legendary Hexad</font>"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords and the Holy Trinity, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"To gather all three legendary swords in their perfected form and forge them into one, the power within is beyond measure."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_intellect"						"+$all"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"
