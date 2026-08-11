@@ -103,6 +103,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('damagereceived', playerData?.damagereceived ?? 0);
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
+  panel.SetDialogVariableInt('stuns', Math.round(playerData?.stuns ?? 0));
   const pointModifier = playerData?.pointModifier ?? 0;
   const conductPoint = playerData?.conductPoint ?? 100;
   const points = playerData?.points ?? 0;

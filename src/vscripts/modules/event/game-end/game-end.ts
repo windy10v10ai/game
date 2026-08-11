@@ -116,6 +116,8 @@ export class GameEnd {
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
+        stuns: PlayerResource.GetStuns(playerId),
+        roshanKills: PlayerResource.GetRoshanKills(playerId),
         score: 0,
         battlePoints: 0,
         awaken: isAwakened(hero) ? 1 : 0,
@@ -159,6 +161,7 @@ export class GameEnd {
         agi: hero.GetAgility(),
         int: hero.GetIntellect(false),
         towerKills: playerDto.towerKills,
+        stuns: playerDto.stuns,
       });
     });
 

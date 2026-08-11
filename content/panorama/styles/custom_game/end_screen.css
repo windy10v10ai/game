@@ -16,7 +16,7 @@
 }
 
 #EndScreenWindow #MatchResultBlock {
-  width: 1800px;
+  width: 1850px;
   background-color: rgba(20, 20, 20, 0.5);
   background-color: gradient(
     linear,
@@ -216,11 +216,11 @@
 }
 
 .HeaderColumn {
-  width: 400px;
+  width: 360px;
 }
 
 .AspectRatio4x3 .HeaderColumn {
-  width: 400px;
+  width: 360px;
 }
 
 .SavesColumn {
@@ -344,6 +344,12 @@
   margin-right: 5px;
 }
 
+.StunsColumn {
+  width: 60px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
 .PtsColumn {
   width: 65px;
   margin-left: 5px;
@@ -431,7 +437,7 @@
 }
 
 .Team #TeamInfo {
-  width: 1800px;
+  width: 1850px;
   height: 50px;
   padding-top: 1px;
   padding-bottom: 6px;
@@ -550,7 +556,7 @@
 }
 
 .Player {
-  width: 1800px;
+  width: 1850px;
   height: 40px;
   padding-bottom: 0px;
   background-color: rgba(0, 0, 0, 0.95);
