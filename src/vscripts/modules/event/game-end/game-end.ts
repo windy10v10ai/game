@@ -99,6 +99,8 @@ export class GameEnd {
         0,
         PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
       );
+      const rawStuns = PlayerResource.GetStuns(playerId);
+      const stuns = Number.isFinite(rawStuns) && rawStuns > 0 ? rawStuns : 0;
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
@@ -116,7 +118,7 @@ export class GameEnd {
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
-        stuns: PlayerResource.GetStuns(playerId),
+        stuns,
         roshanKills: PlayerResource.GetRoshanKills(playerId),
         score: 0,
         battlePoints: 0,
