@@ -29,6 +29,8 @@ export class GameEndPlayerDto {
   lastHits: number;
   healing: number;
   towerKills: number;
+  stuns: number;
+  roshanKills: number;
 
   /** 0=未觉醒 1=已觉醒。用数值而非布尔，为将来多阶觉醒等档位留扩展余地 */
   awaken: number;

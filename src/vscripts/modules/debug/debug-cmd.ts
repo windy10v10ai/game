@@ -8,6 +8,7 @@ export enum CMD {
   REFRESH_AI = '-r', // 刷新AI
   TIME = '-time', // 获取当前时间，不包含暂停
   D = '-d', // 获取当前伤害
+  S = '-s', // 获取控制时长
 
   KILL = '-k',
   KILL_ALL = '-kall',

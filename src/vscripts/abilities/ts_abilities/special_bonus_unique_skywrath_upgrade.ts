@@ -13,9 +13,9 @@ export class SpecialBonusUniqueSkywrathUpgrade extends AutoCastAbility {
   // 每轮 think 最多放一个技能，避免四个技能同帧连发，下一个留给下轮 think
   OnAutoCastThink(caster: CDOTA_BaseNPC_Hero): void {
     if (this.castAncientSeal(caster)) return;
-    // if (this.castMysticFlare(caster)) return;
+    if (this.castConcussiveShot(caster)) return;
+    if (this.castMysticFlare(caster)) return;
     if (this.castArcaneBolt(caster)) return;
-    this.castConcussiveShot(caster);
   }
 
   // 上古封印
