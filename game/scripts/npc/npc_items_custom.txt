@@ -2373,7 +2373,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1500"
+		"ItemCost"						"2100"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2382,7 +2382,10 @@
 		"ItemResult"					"item_sacred_trident"
 		"ItemRequirements"
 		{
-			"01"						"item_yasha;item_sange;item_kaya"
+			"01"						"item_sange_and_yasha;item_kaya"
+			"02"						"item_kaya_and_sange;item_yasha"
+			"03"						"item_yasha_and_kaya;item_sange"
+			"04"						"item_yasha;item_sange;item_kaya"
 		}
 	}
 
@@ -2435,7 +2438,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"
+		"ItemCost"						"0"
 		"ItemShopTags"					""
 
 		// Recipe
