@@ -37,7 +37,7 @@
 					</Panel>
 					<Label class="LegendPanel HeroHealingColumn" text="#dota_page_match_details_legend_hero_healing" onmouseover="UIShowTextTooltipStyled( #dota_page_match_details_legend_hero_healing_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Label class="LegendPanel TowerKillsColumn" text="#custom_end_screen_tower_kills" />
-					<Label class="LegendPanel StunsColumn" text="#custom_end_screen_control_time" />
+					<Label class="LegendPanel StunsColumn" text="#custom_end_screen_control_time" onmouseover="UIShowTextTooltipStyled( #custom_end_screen_control_time_tooltip, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					<Panel class="LegendPanel PtsColumn">
 						<Image class="PtsColumnImg" src="s2r://panorama/images/custom_game/battlepass/pts_earned_png.vtex" onmouseover="UIShowTextTooltipStyled( #data_panel_season_point, ShortTextTooltip )" onmouseout="UIHideTextTooltip()" />
 					</Panel>
