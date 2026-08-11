@@ -1326,7 +1326,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_time_gem',
     nameCN: '时间宝石',
     tier: ItemTier.T5,
-    cost: 67900,
+    cost: 62300,
     baseItems: ['item_refresh_core'],
   },
   item_switchable_crit_blade: {

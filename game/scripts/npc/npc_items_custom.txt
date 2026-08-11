@@ -6682,7 +6682,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"67900"
+		"ItemCost"					"62300"
 		"ItemShopTags"				"move_speed;boost_mana;mana_pool"
 		"ItemQuality"				"rare"
 		"ItemAliases"				"mana;mb;refresh core;refresher orb;octarine core"
@@ -6697,7 +6697,7 @@
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_all_stats"			"100"	// tooltip only - 全属性
+			"bonus_all_stats"			"80"	// tooltip only - 全属性
 			"bonus_health"				"1500"	// tooltip only - 生命值
 			"bonus_mana"				"1500"	// tooltip only - 魔法值
 			"bonus_health_regen"		"20.0"	// tooltip only - 生命恢复
