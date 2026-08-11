@@ -3,7 +3,8 @@
 	// 消耗品
 	"consumables"
 	{
-		"item"		"item_tpscroll"				// 回城卷轴
+		// "item"		"item_tpscroll"				// 回城卷轴
+		"item"		"item_travel_boots"			// 飞鞋 远行鞋
 		"item"		"item_clarity"				// 净化药水
 		"item"		"item_faerie_fire"			// 仙灵之火
 		"item"		"item_smoke_of_deceit"		// 诡计之雾
@@ -168,8 +169,7 @@
 		"item"		"item_hand_of_group"		// 团队之手
 		"item"		"item_roshans_banner"		// 肉山的战旗
 		"item"		"item_wings_of_haste"		// 急速之翼
-		"item"		"item_moon_shard"			// 银月之晶
-		// "item"		"item_moon_shard_datadriven"
+		"item"		"item_moon_shard_datadriven" // 真 银月之晶
 		"item"		"item_consumable_gem"		// 幻影宝石
 		"item"		"item_tome_of_ability_reset"	// 技能重选书
 	}
@@ -293,8 +293,8 @@
 	"artifacts"
 	{
 		"item"		"item_echo_sabre_2"			// 音速战刃
-		"item"		"item_yasha"
-		"item"		"item_kaya"
+		"item"		"item_harpoon"				// 鱼叉
+		"item"		"item_specialists_array"	// 行家阵列
 		"item"		"item_hydras_breath_2"		// 神器怪蛇之息
 
 		"item"		"item_devastator_2"			// 神圣斧
@@ -302,25 +302,23 @@
 		"item"		"item_blue_fantasy"			// 苍蓝幻想
  		"item"		"item_skadi_2"				// 斯嘉蒂之眼
 
- 		"item"		"item_kaya_and_sange_1"		// 散慧对剑
- 		"item"		"item_sange_and_yasha_1"	// 散夜对剑
- 		"item"		"item_yasha_and_kaya_1"		// 夜慧对剑
-		"item"		"item_specialists_array"	// 行家阵列
-
-		// "item"		"item_harpoon"				// 鱼叉
-		"item"		"item_tome_of_strength"
-		"item"		"item_tome_of_agility"
-		"item"		"item_tome_of_intelligence"
-		"item"		"item_tome_of_luoshu"		// 洛书
-
 		"item"		"item_overwhelming_blink_2"
 		"item"		"item_swift_blink_2"
 		"item"		"item_arcane_blink"
 		"item"		"item_jump_jump_jump"
 
-		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
-		// "item"      "item_shadow_judgment"      // 暗影裁决
+ 		"item"		"item_kaya_and_sange_1"		// 散慧对剑
+ 		"item"		"item_sange_and_yasha_1"	// 散夜对剑
+ 		"item"		"item_yasha_and_kaya_1"		// 夜慧对剑
 		"item"		"item_sacred_six_vein"		// 六脉神剑
+
+		"item"		"item_tome_of_strength"
+		"item"		"item_tome_of_agility"
+		"item"		"item_tome_of_intelligence"
+		"item"		"item_tome_of_luoshu"		// 洛书
+
+		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
+		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
 	}

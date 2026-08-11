@@ -3,7 +3,7 @@ import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 /** 近战英雄状态抗性加成，与 KV 的 modifier_global_melee_resistance（魔抗）并列挂载，自身保持隐藏不重复显示图标 */
 @registerModifier('modifiers/global/melee_status_resistance')
 export class modifier_global_melee_status_resistance extends BaseModifier {
-  private static readonly STATUS_RESISTANCE_BONUS = 20;
+  private static readonly STATUS_RESISTANCE_BONUS = 15;
 
   IsHidden(): boolean {
     return true;
