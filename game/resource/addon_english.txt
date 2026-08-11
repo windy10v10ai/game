@@ -104,6 +104,7 @@
 		"bot_multiplier"	"Bot Multiplier"
 
 		"custom_end_screen_tower_kills"		"Towers"
+		"custom_end_screen_control_time"		"Stun"
 		"custom_end_screen_abilities"		"Abilities"
 
 		"conduct_point_bonus_tooltip"			"Conduct <font color='#FFD700'>{0}</font> bonus, points ×1.1"

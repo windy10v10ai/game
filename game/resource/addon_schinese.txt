@@ -105,6 +105,7 @@
 		"bot_multiplier"		"电脑倍率"
 
 		"custom_end_screen_tower_kills"		"推塔"
+		"custom_end_screen_control_time"		"眩晕"
 
 		"conduct_point_bonus_tooltip"			"行为分 <font color='#FFD700'>{0}</font> 奖励，积分 ×1.1"
 		"conduct_point_light_penalty_tooltip"	"行为分 <font color='#FFA726'>{0}</font> 惩罚，积分 ×0.8"

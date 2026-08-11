@@ -73,6 +73,8 @@
 		"custom_end_screen_victory_message"	"Победа Radiant!"
 		"custom_end_screen_lose_message"	"Победа Dire!"
 
+		"custom_end_screen_control_time"		"Оглушение"
+
 		"player_multiplier"	"Player Multiplier"
 		"bot_multiplier"	"Bot Multiplier"
 

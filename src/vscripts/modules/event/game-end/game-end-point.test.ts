@@ -24,6 +24,8 @@ describe('GameEndPoint', () => {
     healing: 0,
     lastHits: 0,
     towerKills: 0,
+    stuns: 0,
+    roshanKills: 0,
     score: 0,
     battlePoints: 0,
     awaken: 0,
@@ -61,7 +63,7 @@ describe('GameEndPoint', () => {
         towerKills: 2,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(43);
+      expect(score).toBe(41);
     });
 
     it('应该正确计算超高数据玩家的分数', () => {
@@ -75,6 +77,11 @@ describe('GameEndPoint', () => {
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(151);
+    });
+
+    it('应该为控制时间增加递减且封顶的分数', () => {
+      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 400 }))).toBe(5);
+      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 10000 }))).toBe(25);
     });
   });
 
