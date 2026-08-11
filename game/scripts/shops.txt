@@ -307,18 +307,17 @@
 		"item"		"item_arcane_blink"
 		"item"		"item_jump_jump_jump"
 
- 		"item"		"item_sacred_trident"		// 三叉戟
  		"item"		"item_kaya_and_sange_1"		// 散慧对剑
  		"item"		"item_sange_and_yasha_1"	// 散夜对剑
  		"item"		"item_yasha_and_kaya_1"		// 夜慧对剑
-		"item"		"item_sacred_six_vein"		// 六脉神剑
+ 		"item"		"item_sacred_trident"		// 三叉戟
 
 		"item"		"item_tome_of_strength"
 		"item"		"item_tome_of_agility"
 		"item"		"item_tome_of_intelligence"
 		"item"		"item_tome_of_luoshu"		// 洛书
 
-		"item"		"item_magic_crit_blade"		// 魔龙狂舞 FIXME 暂时移动
+		"item"		"item_sacred_six_vein"		// 六脉神剑
 		"item"      "item_shadow_judgment"      // 暗影裁决
 		"item"      "item_hawkeye_fighter"      // 鹰眼战机
 		"item"      "item_swift_glove"      // 无限手套
