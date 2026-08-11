@@ -2,6 +2,10 @@ import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { reloadable } from '../../../utils/tstl-utils';
 import { Option } from '../../option';
 
+export function normalizeControlTime(controlTime: number): number {
+  return Number.isFinite(controlTime) ? Math.abs(controlTime) : 0;
+}
+
 @reloadable
 export class GameEndPoint {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {

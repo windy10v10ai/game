@@ -1,6 +1,6 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { Option } from '../../option';
-import { GameEndPoint } from './game-end-point';
+import { GameEndPoint, normalizeControlTime } from './game-end-point';
 
 export function IsInToolsMode(): boolean {
   return true;
@@ -30,6 +30,16 @@ describe('GameEndPoint', () => {
     battlePoints: 0,
     awaken: 0,
     ...overrides,
+  });
+
+  describe('normalizeControlTime', () => {
+    it('应该保留控制时间的绝对值并过滤非有限值', () => {
+      expect(normalizeControlTime(4)).toBe(4);
+      expect(normalizeControlTime(-4)).toBe(4);
+      expect(normalizeControlTime(0)).toBe(0);
+      expect(normalizeControlTime(Number.NaN)).toBe(0);
+      expect(normalizeControlTime(Number.POSITIVE_INFINITY)).toBe(0);
+    });
   });
 
   describe('GameEndPoint.CalculatePlayerScore', () => {

@@ -12,7 +12,7 @@ import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
-import { GameEndPoint } from './game-end-point';
+import { GameEndPoint, normalizeControlTime } from './game-end-point';
 
 @reloadable
 export class GameEnd {
@@ -99,8 +99,7 @@ export class GameEnd {
         0,
         PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
       );
-      const rawStuns = PlayerResource.GetStuns(playerId);
-      const stuns = Number.isFinite(rawStuns) && rawStuns > 0 ? rawStuns : 0;
+      const stuns = normalizeControlTime(PlayerResource.GetStuns(playerId));
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
