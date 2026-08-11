@@ -2527,9 +2527,22 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"绝对破防之刃"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"绝对破防之刃使你的护甲被削弱%dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%点。"
 
+		// item_sacred_trident 三叉戟
+		"DOTA_Tooltip_Ability_item_sacred_trident"										"三叉戟"
+		"DOTA_Tooltip_ability_item_sacred_trident_Description"							"由散华，夜叉和慧光一起合成。"
+		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"传说是古希腊神话中海神波塞冬的象征物和武器，目前广泛用于渔民捕鱼。"
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_intellect"						"+$all"
+		"DOTA_Tooltip_ability_item_sacred_trident_status_resistance"					"%+状态抗性"
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_trident_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_trident_mana_regen_multiplier"					"%+魔法恢复增强"
+		"DOTA_Tooltip_ability_item_sacred_trident_spell_amp"							"%+技能增强"
+		"DOTA_Tooltip_ability_item_sacred_trident_magic_damage_attack"					"+魔法伤害攻击"
+
 		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>六脉神剑</font>"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"由三把神器对剑合成，散华的坚韧，夜叉的迅捷，慧光的通明尽归一身。"
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"由三把神器对剑与三叉戟合成，散华的坚韧，夜叉的迅捷，慧光的通明尽归一身。"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"凌波微步以及北冥神功，都是大理皇室段誉的武门绝学，六脉神剑更是段氏一族的至高传承。"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_intellect"						"+$all"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"

@@ -113,9 +113,22 @@
 		// 泉水 制裁
 		"DOTA_Tooltip_ability_fountain_anti_camp_Description"				"Вражеские герои под управлением игроков подвергаются санкции, приближаясь к радиусу атаки фонтана. Действует только в командном режиме.<br><br>Когда герой-бот погибает в этом радиусе, в убийцу выпускается самонаводящийся огненный шар, который проходит сквозь магический иммунитет и наносит урон, равный %retaliation_damage_pct%%% максимального здоровья убийцы."
 
+		// item_sacred_trident 三叉戟
+		"DOTA_Tooltip_Ability_item_sacred_trident"										"Священный трезубец"
+		"DOTA_Tooltip_ability_item_sacred_trident_Description"							"Выкован из Sange, Yasha и Kaya вместе."
+		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"Три мифических клинка, которых никогда не видели вместе в гармонии, теперь соединены в одно."
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_intellect"						"+$all"
+		"DOTA_Tooltip_ability_item_sacred_trident_status_resistance"					"%+Сопротивление эффектам"
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_trident_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_trident_mana_regen_multiplier"					"%+Усиление регенерации маны"
+		"DOTA_Tooltip_ability_item_sacred_trident_spell_amp"							"%+Усиление заклинаний"
+		"DOTA_Tooltip_ability_item_sacred_trident_magic_damage_attack"					"+Магический урон от атак"
+
 		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>Легендарная гексада</font>"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Выкован из трёх артефактных клинков, объединяя стойкость Sange, стремительность Yasha и ясность Kaya в одном оружии."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Выкован из трёх артефактных клинков и Священного трезубца, объединяя стойкость Sange, стремительность Yasha и ясность Kaya в одном оружии."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"Собрать все три легендарных клинка в их совершенной форме и сплавить их воедино, заключённая внутри сила безмерна."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_intellect"						"+$all"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"

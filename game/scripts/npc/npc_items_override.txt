@@ -279,8 +279,8 @@
 		"AbilityManaCost"				"50"		// 125
 		"AbilityValues"
 		{
-			"active_movement_speed"		"60"		// 20
-			"bonus_magical_armor"			"35"	// 20
+			"active_movement_speed"		"40"		// 20
+			"bonus_magical_armor"			"30"	// 20
 			"barrier_block"					"600"	// 375
 		}
 	}
