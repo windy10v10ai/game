@@ -775,6 +775,20 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     baseItems: ['item_sphere'],
   },
   item_dagon_5: { name: 'item_dagon_5', nameCN: '达贡之神力', tier: ItemTier.T3, cost: 7450 },
+  item_sacred_trident: {
+    name: 'item_sacred_trident',
+    nameCN: '三叉戟',
+    tier: ItemTier.T3,
+    cost: 8400,
+    baseItems: [
+      'item_kaya',
+      'item_kaya_and_sange',
+      'item_sange',
+      'item_sange_and_yasha',
+      'item_yasha',
+      'item_yasha_and_kaya',
+    ],
+  },
   item_manta_1: {
     name: 'item_manta_1',
     nameCN: '幻身斧',
@@ -1078,21 +1092,21 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_kaya_and_sange_1',
     nameCN: '神器·散慧对剑',
     tier: ItemTier.T4,
-    cost: 14000,
+    cost: 11200,
     baseItems: ['item_kaya_and_sange'],
   },
   item_sange_and_yasha_1: {
     name: 'item_sange_and_yasha_1',
     nameCN: '神器·散夜对剑',
     tier: ItemTier.T4,
-    cost: 14000,
+    cost: 11200,
     baseItems: ['item_sange_and_yasha'],
   },
   item_yasha_and_kaya_1: {
     name: 'item_yasha_and_kaya_1',
     nameCN: '神器·慧夜对剑',
     tier: ItemTier.T4,
-    cost: 14000,
+    cost: 11200,
     baseItems: ['item_yasha_and_kaya'],
   },
   item_gungir_2: {
@@ -1312,7 +1326,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_time_gem',
     nameCN: '时间宝石',
     tier: ItemTier.T5,
-    cost: 67900,
+    cost: 62300,
     baseItems: ['item_refresh_core'],
   },
   item_switchable_crit_blade: {
@@ -1326,7 +1340,12 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '六脉神剑',
     tier: ItemTier.T5,
     cost: 42000,
-    baseItems: ['item_sange_and_yasha_1', 'item_yasha_and_kaya_1', 'item_kaya_and_sange_1'],
+    baseItems: [
+      'item_sange_and_yasha_1',
+      'item_yasha_and_kaya_1',
+      'item_kaya_and_sange_1',
+      'item_sacred_trident',
+    ],
   },
 };
 
