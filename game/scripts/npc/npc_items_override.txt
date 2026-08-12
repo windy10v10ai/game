@@ -9,7 +9,7 @@
 	"item_recipe_travel_boots_2"	"REMOVE"
 	"item_travel_boots_2"			"REMOVE"
 	"item_recipe_moon_shard"		"REMOVE"
-	// "item_moon_shard"				"REMOVE"
+	"item_moon_shard"				"REMOVE"
 	"item_helm_of_the_dominator"	"REMOVE" // 支配头盔
 	"item_helm_of_the_overlord"		"REMOVE" // 统御头盔
 
@@ -279,8 +279,8 @@
 		"AbilityManaCost"				"50"		// 125
 		"AbilityValues"
 		{
-			"active_movement_speed"		"60"		// 20
-			"bonus_magical_armor"			"35"	// 20
+			"active_movement_speed"		"40"		// 20
+			"bonus_magical_armor"			"30"	// 20
 			"barrier_block"					"600"	// 375
 		}
 	}

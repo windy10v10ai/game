@@ -104,6 +104,8 @@
 		"bot_multiplier"	"Bot Multiplier"
 
 		"custom_end_screen_tower_kills"		"Towers"
+		"custom_end_screen_control_time"		"Control"
+		"custom_end_screen_control_time_tooltip"	"Includes stun and root duration"
 		"custom_end_screen_abilities"		"Abilities"
 
 		"conduct_point_bonus_tooltip"			"Conduct <font color='#FFD700'>{0}</font> bonus, points ×1.1"
@@ -443,7 +445,7 @@
 		"DOTA_Tooltip_modifier_tower_power_Description"		"This structure's attack damage and max health is increased by %dMODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE%%%.<br>This structure also has %dMODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT% extra health regeneration."
 
 		"DOTA_Tooltip_modifier_global_melee_resistance"					"Melee Hero Bonus"
-		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</b></font> extra magic resistance and <font color='#FFFFFF'><b>20%%</b></font> status resistance."
+		"DOTA_Tooltip_modifier_global_melee_resistance_Description"		"Melee heroes have <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</b></font> extra magic resistance and <font color='#FFFFFF'><b>15%%</b></font> status resistance."
 
 		"DOTA_Tooltip_ability_creep_buff"								"Creep Buff"
 		"DOTA_Tooltip_ability_creep_buff_Description"					"Level up based on how many towers are destroyed."
@@ -1173,7 +1175,7 @@
 
 		// ---- bot技能 ----
 		// 机械救赎
-		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation N6"
+		"DOTA_Tooltip_ability_bot_power_n6"							"Bot Salvation"
 		"DOTA_Tooltip_ability_bot_power_n6_Description"				"The ability automatically upgrades every 5 hero levels, providing enhancements to core attributes such as attack, armor, cooldown reduction and movement speed."
 		"DOTA_Tooltip_ability_bot_power_n6_Lore"					"In the face of a player's intelligence and creativity, the Bot's design often falls short. Although they can perfectly execute commands, they can never surpass a player's intuition and strategy. To overcome this, developers injected the 'Bot Salvation' program, allowing them to unlock their potential in critical moments and turn the tide of battle."
 		"DOTA_Tooltip_ability_bot_power_n6_bonus_damage"			"ATTACK DAMAGE:"
@@ -1257,7 +1259,7 @@
 
 		// Skywrath Mage Staff of the Scion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Staff of the Scion Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Skywrath Mage gains Staff of the Scion. Every time his abilities deal <font color='#05CAFF'>magical damage</font> to an enemy hero, the cooldown of all his abilities is reduced by %cooldown_reduction%s.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Concussive Shot and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
+		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Awakening Bonus:</font> Skywrath Mage gains Staff of the Scion. Every time his abilities deal <font color='#05CAFF'>magical damage</font> to an enemy hero, the cooldown of all his abilities is reduced by %cooldown_reduction%s.<br><br><font color='#00CED1'>Autocast:</font> While enabled, Skywrath Mage automatically casts Ancient Seal, Concussive Shot, Mystic Flare and Arcane Bolt whenever an enemy hero is within cast range. Arcane Bolt also fires at creeps when no hero is available."
 		// Zeus God King - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade"							"<font color='#d000ff'>God King Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_zuus_upgrade_Description"				"When autocast is enabled, Zeus automatically casts Arc Lightning and Lightning Bolt on enemies within cast range.<br><br>Prioritizes heroes. Casts only Arc Lightning when only creeps are in range."
@@ -2517,9 +2519,22 @@
 		"DOTA_Tooltip_modifier_infernal_desolator_buff"					"Ultra Corruption"
 		"DOTA_Tooltip_modifier_infernal_desolator_buff_Description"		"Infernal Desolator attacks reduced your armor by %dMODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS%."
 
+		// item_sacred_trident 三叉戟
+		"DOTA_Tooltip_Ability_item_sacred_trident"										"Holy Trinity"
+		"DOTA_Tooltip_ability_item_sacred_trident_Description"							"Forged from Sange, Yasha and Kaya together."
+		"DOTA_Tooltip_ability_item_sacred_trident_Lore"									"The three mythical blades that were never seen all together in harmony, now combined as one."
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_intellect"						"+$all"
+		"DOTA_Tooltip_ability_item_sacred_trident_status_resistance"					"%+Status Resistance"
+		"DOTA_Tooltip_ability_item_sacred_trident_bonus_attack_speed"					"+$attack"
+		"DOTA_Tooltip_ability_item_sacred_trident_movement_speed_percent_bonus"			"%+$move_speed"
+		"DOTA_Tooltip_ability_item_sacred_trident_hp_regen_amp"							"%+$restoration_amp"
+		"DOTA_Tooltip_ability_item_sacred_trident_mana_regen_multiplier"					"%+Mana Regen Amplification"
+		"DOTA_Tooltip_ability_item_sacred_trident_spell_amp"							"%+Spell Damage"
+		"DOTA_Tooltip_ability_item_sacred_trident_magic_damage_attack"					"+Magic Damage Attack"
+
 		// item_six_vein 六脉神剑
 		"DOTA_Tooltip_Ability_item_sacred_six_vein"										"<font color='#FFCC66'>Legendary Hexad</font>"
-		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
+		"DOTA_Tooltip_ability_item_sacred_six_vein_Description"							"Forged from all three artifact swords and the Holy Trinity, uniting Sange's resilience, Yasha's swiftness and Kaya's clarity in a single blade."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_Lore"								"To gather all three legendary swords in their perfected form and forge them into one, the power within is beyond measure."
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_intellect"						"+$all"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_bonus_attack_speed"					"+$attack"

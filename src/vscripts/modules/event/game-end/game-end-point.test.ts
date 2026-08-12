@@ -1,6 +1,6 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { Option } from '../../option';
-import { GameEndPoint } from './game-end-point';
+import { GameEndPoint, normalizeControlTime } from './game-end-point';
 
 export function IsInToolsMode(): boolean {
   return true;
@@ -24,10 +24,22 @@ describe('GameEndPoint', () => {
     healing: 0,
     lastHits: 0,
     towerKills: 0,
+    stuns: 0,
+    roshanKills: 0,
     score: 0,
     battlePoints: 0,
     awaken: 0,
     ...overrides,
+  });
+
+  describe('normalizeControlTime', () => {
+    it('应该保留控制时间的绝对值并过滤非有限值', () => {
+      expect(normalizeControlTime(4)).toBe(4);
+      expect(normalizeControlTime(-4)).toBe(4);
+      expect(normalizeControlTime(0)).toBe(0);
+      expect(normalizeControlTime(Number.NaN)).toBe(0);
+      expect(normalizeControlTime(Number.POSITIVE_INFINITY)).toBe(0);
+    });
   });
 
   describe('GameEndPoint.CalculatePlayerScore', () => {
@@ -61,7 +73,7 @@ describe('GameEndPoint', () => {
         towerKills: 2,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(43);
+      expect(score).toBe(41);
     });
 
     it('应该正确计算超高数据玩家的分数', () => {
@@ -75,6 +87,12 @@ describe('GameEndPoint', () => {
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
       expect(score).toBe(151);
+    });
+
+    it('应该为控制时间增加递减且封顶的分数', () => {
+      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 400 }))).toBe(7);
+      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 1000 }))).toBe(11);
+      expect(GameEndPoint.CalculatePlayerScore(createBasePlayer({ stuns: 10000 }))).toBe(25);
     });
   });
 

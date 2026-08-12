@@ -16,10 +16,10 @@
 
 		"#dota_item_build_windy_consumables_items"
 		{
-			// "item"		"item_ward_observer"  //侦查守卫
-			// "item"		"item_ward_sentry"  //岗哨守卫
-			// "item"		"item_smoke_of_deceit"  //诡计之雾
-			// "item"		"item_dust"  //显影之尘
+			"item"		"item_ward_observer"  //侦查守卫
+			"item"		"item_ward_sentry"  //岗哨守卫
+			"item"		"item_smoke_of_deceit"  //诡计之雾
+			"item"		"item_dust"  //显影之尘
 			"item"		"item_tome_of_knowledge" //知识之书
 			"item"		"item_aghanims_shard" //阿哈利姆魔晶
 			"item"		"item_wings_of_haste" //急速之翼

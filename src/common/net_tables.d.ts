@@ -37,6 +37,7 @@ declare global {
         agi: number;
         int: number;
         towerKills: number;
+        stuns: number;
       };
     };
     loading_status: {

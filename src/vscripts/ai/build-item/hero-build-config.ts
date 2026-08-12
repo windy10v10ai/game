@@ -53,6 +53,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_satanic', // 撒旦之邪力
         'item_butterfly', // 蝴蝶刀
         'item_dodo_desolator', // 黯灭头
+        'item_sacred_trident', // 圣三叉戟
         'item_armlet_pro_max', // 臂章·终极
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
@@ -104,6 +105,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_satanic', // 撒旦之邪力
         'item_butterfly', // 蝴蝶刀
         'item_dodo_desolator', // 黯灭头
+        'item_sacred_trident', // 三叉戟
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
       [ItemTier.T4]: [
@@ -151,6 +153,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dodo_desolator', // 黯灭头
         'item_butterfly', // 蝴蝶刀
         'item_wasp_despotic', // 大核荣耀暴虐
+        'item_sacred_trident', // 三叉戟
         'item_radiance_2', // 圣焰之光
         'item_satanic', // 撒旦之邪力
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
@@ -205,6 +208,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_satanic', // 撒旦之邪力
         'item_butterfly', // 蝴蝶
+        'item_sacred_trident', // 三叉戟
         'item_hydras_breath', // 怪蛇之息
         'item_greater_crit', // 代达罗斯之殇
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
@@ -264,6 +268,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_shotgun_v2', // 三管霰弹枪
         'item_hydras_breath', // 怪蛇之息
         'item_butterfly', // 蝴蝶
+        'item_sacred_trident', // 三叉戟
         'item_satanic', // 撒旦之邪力
         'item_mjollnir', // 雷神之锤
         'item_greater_crit', // 代达罗斯之殇
@@ -326,6 +331,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_mjollnir', // 雷神之锤
         'item_hydras_breath', // 怪蛇之息
         'item_wasp_callous', // 大核荣耀冷酷
+        'item_sacred_trident', // 三叉戟
         'item_greater_crit', // 代达罗斯之殇
         'item_butterfly', // 蝴蝶
         'item_skadi', // 斯嘉蒂之眼
@@ -385,6 +391,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_skadi', // 斯嘉蒂之眼
         'item_satanic', // 撒旦之邪力
         'item_vladmir_2', // 强袭祭品
+        'item_sacred_trident', // 三叉戟
         'item_wasp_despotic', // 大核荣耀暴虐
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_adi_king_plus', // 阿迪王plus
@@ -450,6 +457,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_shotgun_v2', // 三管霰弹枪
         'item_dodo_desolator', // 黯灭头
         'item_hydras_breath', // 怪蛇之息
+        'item_sacred_trident', // 三叉戟
         'item_arcane_blink_2', // 秘奥闪光
         'item_mjollnir', // 雷神之锤
         'item_greater_crit', // 代达罗斯之殇
@@ -510,6 +518,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
       [ItemTier.T3]: [
         'item_dodo_desolator', // 黯灭头
+        'item_sacred_trident', // 三叉戟
         'item_skadi', // 斯嘉蒂之眼
         'item_mjollnir', // 雷神之锤
         'item_armlet_pro_max', // 小鸡臂章Pro Max
@@ -575,6 +584,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dodo_desolator', // 黯灭头
         'item_wasp_callous', // 大核荣耀冷酷
         'item_mjollnir', // 雷神之锤
+        'item_sacred_trident', // 三叉戟
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
         { item: 'item_silver_edge_2', weight: 2 }, // 无敌之刃
       ],
@@ -630,6 +640,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_wasp_despotic', // 大核荣耀暴虐
         'item_satanic', // 撒旦之邪力
         'item_butterfly', // 蝴蝶
+        'item_sacred_trident', // 三叉戟
         'item_rapier', // 圣剑
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
@@ -685,6 +696,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_shotgun_v2', // 三管霰弹枪
         'item_hydras_breath', // 怪蛇之息
         'item_dodo_desolator', // 黯灭头
+        'item_sacred_trident', // 三叉戟
         'item_radiance_2', // 圣焰之光
         'item_mjollnir', // 雷神之锤
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
@@ -739,6 +751,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_shotgun_v2', // 三管霰弹枪
         'item_hydras_breath', // 怪蛇之息
         'item_mjollnir', // 雷神之锤
+        'item_sacred_trident', // 三叉戟
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
       [ItemTier.T4]: [
@@ -790,6 +803,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_mjollnir', // 雷神之锤
         'item_dodo_desolator', // 黯灭头
         'item_shotgun_v2', // 三管霰弹枪
+        'item_sacred_trident', // 三叉戟
         'item_satanic', // 撒旦之邪力
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
       ],
@@ -839,6 +853,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_radiance_2', // 圣焰之光
         'item_heart', // 恐鳌之心
         'item_eternal_shroud_ultra', // 法师泳衣
+        'item_sacred_trident', // 三叉戟
         'item_aeon_pendant', // 咸鱼之王
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_vladmir_2', // 强袭祭品
@@ -946,6 +961,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_maelstrom', // 漩涡
       ],
       [ItemTier.T3]: [
+        'item_sacred_trident', // 三叉戟
         'item_magic_scepter', // 魔云法杖
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
         'item_revenants_brooch_ultra', // 神器·魔武双修
@@ -1011,6 +1027,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 永恒坠饰
         'item_magic_scepter', // 魔云法杖
         'item_meteor_hammer_2', // 星落
+        'item_sacred_trident', // 三叉戟
         'item_angels_demise', // 绝刃
         'item_arcane_blink_2', // 秘奥闪光
         'item_sheepstick', // 邪恶镰刀
@@ -1066,6 +1083,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
       [ItemTier.T3]: [
         'item_angels_demise', // 绝刃
+        'item_sacred_trident', // 三叉戟
         'item_bloodstone', // 血精神石
         'item_magic_scepter', // 魔云法杖
         'item_phylactery', // 灵匣
@@ -1481,6 +1499,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_overwhelming_blink', // 盛势闪光
         'item_eternal_shroud_ultra', // 法师泳衣
         'item_aeon_pendant', // 咸鱼之王
+        'item_sacred_trident', // 三叉戟
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_vladmir_2', // 强袭祭品
         'item_bloodstone', // 血精神石
@@ -1606,6 +1625,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_dodo_desolator', // 黯灭头
         'item_greater_crit', // 代达罗斯之殇
+        'item_sacred_trident', // 三叉戟
         'item_heart', // 恐鳌之心
         'item_satanic', // 撒旦之邪力
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
@@ -1662,6 +1682,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_bloodstone', // 血精神石
         'item_dodo_desolator', // 黯灭头
         'item_armlet_pro_max', // 小鸡臂章Pro Max
+        'item_sacred_trident', // 三叉戟
         'item_radiance_2', // 圣焰之光
       ],
       [ItemTier.T4]: [
@@ -1715,6 +1736,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_vladmir_2', // 强袭祭品
         'item_dodo_desolator', // 黯灭头
         'item_armlet_pro_max', // 小鸡臂章Pro Max
+        'item_sacred_trident', // 三叉戟
         'item_heart', // 恐鳌之心
         'item_overwhelming_blink', // 力量跳刀
         'item_blade_mail_2', // 刃甲2
@@ -1775,6 +1797,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_dodo_desolator', // 黯灭头
         'item_silver_edge', // 白银之锋
+        'item_sacred_trident', // 三叉戟
         'item_heart', // 恐鳌之心
         'item_radiance_2', // 圣焰之光
         'item_blade_mail_2', // 刃甲2
@@ -1905,6 +1928,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_radiance_2', // 圣焰之光
         'item_blade_mail_2', // 刃甲2
         'item_armlet_pro_max', // 小鸡臂章Pro Max
+        'item_sacred_trident', // 三叉戟
         'item_vladmir_2', // 强袭祭品
         'item_eternal_shroud_ultra', // 法师泳衣
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
@@ -1967,6 +1991,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_blade_mail_2', // 刃甲2
         'item_heart', // 恐鳌之心
         'item_eternal_shroud_ultra', // 法师泳衣
+        'item_sacred_trident', // 三叉戟
         'item_vladmir_2', // 强袭祭品
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_bloodstone', // 血精神石
@@ -2085,6 +2110,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 永恒坠饰
         'item_magic_scepter', // 魔云法杖
         'item_meteor_hammer_2', // 星落
+        'item_sacred_trident', // 三叉戟
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_arcane_blink_2', // 秘奥闪光
       ],
@@ -2139,6 +2165,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sheepstick', // 邪恶镰刀
         'item_magic_scepter', // 魔云法杖
         'item_angels_demise', // 绝刃
+        'item_sacred_trident', // 三叉戟
         'item_dagon_5', // 达贡之神力
         'item_orb_of_the_brine', // 苍洋魔珠
       ],
@@ -2307,6 +2334,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 咸鱼之王
         'item_heavens_halberd_v2', // 无锋战戟
         'item_blade_mail_2', // 刃甲2
+        'item_sacred_trident', // 三叉戟
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_heart', // 恐鳌之心
         'item_eternal_shroud_ultra', // 法师泳衣
@@ -2364,6 +2392,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_scepter', // 魔云法杖
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_heart', // 恐鳌之心
+        'item_sacred_trident', // 三叉戟
         'item_aeon_pendant', // 咸鱼之王
         'item_radiance_2', // 圣焰之光
         'item_meteor_hammer_2', // 星落
@@ -2427,6 +2456,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_heart', // 恐鳌之心
         'item_sheepstick', // 邪恶镰刀
         'item_blade_mail_2', // 刃甲2
+        'item_sacred_trident', // 三叉戟
         'item_aeon_pendant', // 咸鱼之王
         'item_magic_scepter', // 魔云法杖
         'item_eternal_shroud_ultra', // 法师泳衣
@@ -2491,6 +2521,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
         'item_hydras_breath', // 怪蛇之息
         'item_shotgun_v2', // 三管霰弹枪
+        'item_sacred_trident', // 三叉戟
         'item_magic_scepter', // 魔云法杖
         'item_revenants_brooch_ultra', // 神器·魔武双修
       ],
@@ -2598,6 +2629,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sheepstick', // 邪恶镰刀
         'item_radiance_2', // 圣焰之光
         'item_eternal_shroud_ultra', // 法师泳衣
+        'item_sacred_trident', // 三叉戟
         'item_heart', // 恐鳌之心
         'item_bloodstone', // 血精神石
         'item_aeon_pendant', // 咸鱼之王

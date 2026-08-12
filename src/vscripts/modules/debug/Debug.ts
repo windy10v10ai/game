@@ -45,6 +45,12 @@ export class Debug {
 
     // ---- 常用命令 ----
 
+    // -s GetStuns(playerId: PlayerID
+    if (cmd === CMD.S) {
+      const playerId = keys.playerid;
+      const stuns = PlayerResource.GetStuns(playerId);
+      this.log(`Player ${playerId} stuns: ${stuns}`);
+    }
     if (cmd === CMD.D) {
       const playerId = keys.playerid;
       const damage = PlayerResource.GetRawPlayerDamage(playerId);

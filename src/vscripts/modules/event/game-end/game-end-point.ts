@@ -2,16 +2,21 @@ import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { reloadable } from '../../../utils/tstl-utils';
 import { Option } from '../../option';
 
+export function normalizeControlTime(controlTime: number): number {
+  return Number.isFinite(controlTime) ? Math.abs(controlTime) : 0;
+}
+
 @reloadable
 export class GameEndPoint {
   static CalculatePlayerScore(player: GameEndPlayerDto): number {
     const killScore = Math.sqrt(player.kills) * 1.6;
     const deathScore = -Math.sqrt(player.deaths) * 0.6;
-    const assistScore = Math.sqrt(player.assists) * 1.8;
+    const assistScore = Math.sqrt(player.assists) * 1.6;
     const damageScore = Math.min(40, Math.sqrt(player.heroDamage) / 200);
     const damageTakenScore = Math.min(40, Math.sqrt(player.damageTaken) / 80);
     const healingScore = Math.min(40, Math.sqrt(player.healing) / 50);
     const towerKillScore = Math.sqrt(player.towerKills) * 3;
+    const stunScore = Math.min(25, Math.sqrt(player.stuns) / 3);
 
     const totalScore =
       killScore +
@@ -20,7 +25,8 @@ export class GameEndPoint {
       damageScore +
       damageTakenScore +
       healingScore +
-      towerKillScore;
+      towerKillScore +
+      stunScore;
 
     return Math.round(totalScore);
   }

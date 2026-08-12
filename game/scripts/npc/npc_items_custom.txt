@@ -2360,6 +2360,71 @@
 	}
 
 	//=================================================================================================================
+	// Recipe: Sacred Trident 三叉戟
+	//=================================================================================================================
+	"item_recipe_sacred_trident"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"ID"							"3038"
+		"BaseClass"						"item_datadriven"
+		"Model"							"models/props_gameplay/recipe.vmdl"
+		"AbilityTextureName"			"item_recipe_sacred_trident"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"2100"
+		"ItemShopTags"					""
+
+		// Recipe
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemRecipe"					"1"
+		"ItemResult"					"item_sacred_trident"
+		"ItemRequirements"
+		{
+			"01"						"item_sange_and_yasha;item_kaya"
+			"02"						"item_kaya_and_sange;item_yasha"
+			"03"						"item_yasha_and_kaya;item_sange"
+			"04"						"item_yasha;item_sange;item_kaya"
+		}
+	}
+
+	//=================================================================================================================
+	// sacred trident
+	//=================================================================================================================
+	"item_sacred_trident"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"item_trident"
+		"ID"							"3039"
+		"AbilityTextureName"			"item_sacred_trident"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		"ItemShopTags"					"damage;str;agi;unique"
+		"ItemQuality"					"epic"
+		"ItemAliases"					"sacred trident;holy trinity;sacred trinity;holy trident"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
+		"ShouldBeSuggested"				"1"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"bonus_strength"		"36"
+			"bonus_agility"			"36"
+			"bonus_intellect"		"36"
+			"status_resistance"		"25"
+			"bonus_attack_speed"	"33"
+			"movement_speed_percent_bonus"				"12"
+			"hp_regen_amp"			"30"
+			"mana_regen_multiplier"	"60"
+			"spell_amp"				"18"
+			"magic_damage_attack"	"33"
+		}
+	}
+
+	//=================================================================================================================
 	// Recipe: Sacred Six Vein 六脉神剑
 	//=================================================================================================================
 	"item_recipe_sacred_six_vein"
@@ -2382,7 +2447,7 @@
 		"ItemResult"					"item_sacred_six_vein"
 		"ItemRequirements"
 		{
-			"01"						"item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1"
+			"01"						"item_sange_and_yasha_1;item_yasha_and_kaya_1;item_kaya_and_sange_1;item_sacred_trident"
 		}
 	}
 
@@ -2410,15 +2475,15 @@
 		"AbilityValues"
 		{
 			// 由原生 modifier_item_trident 提供，它不属于散华/夜叉/慧光家族，多件之间正常叠加
-			"bonus_strength"				"160"
-			"bonus_agility"					"160"
-			"bonus_intellect"				"160"
-			"bonus_attack_speed"			"120"
+			"bonus_strength"				"180"
+			"bonus_agility"					"180"
+			"bonus_intellect"				"180"
+			"bonus_attack_speed"			"140"
 			"movement_speed_percent_bonus"	"40"
 			"status_resistance"				"50"
 			"hp_regen_amp"					"80"
 			"mana_regen_multiplier"			"120"
-			"spell_amp"						"50"
+			"spell_amp"						"60"
 			"magic_damage_attack"			"100"
 
 			// 三叉戟没有这三项，由脚本侧读取
@@ -4190,7 +4255,7 @@
 			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
 			"blast_damage_base"		"100"
-			"blast_att_multiplier"	"1"
+			"blast_att_multiplier"	"0.8"
 			"blast_magic_resist"	"-30"
 		}
 	}
@@ -4689,7 +4754,7 @@
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
-		"AllowedInBackpack"				"0"
+		"AllowedInBackpack"				"1"
 		"IsTempestDoubleClonable"		"0"
 
 		"AbilityValues"
@@ -4753,7 +4818,7 @@
 		"ItemDroppable"					"0"
 		"ItemKillable"					"0"
 		"ItemSellable"					"0"
-		"AllowedInBackpack"				"0"
+		"AllowedInBackpack"				"1"
 
 		"AbilityValues"
 		{
@@ -5161,7 +5226,7 @@
 		"AbilityTextureName"			"item_recipe_kaya_and_sange_1"
 		"ItemRequirements"
 		{
-			"01"						"item_kaya_and_sange;item_kaya_and_sange;item_reaver;item_mystic_staff"
+			"01"						"item_kaya_and_sange;item_kaya_and_sange;item_mystic_staff"
 		}
 	}
 
@@ -5175,8 +5240,8 @@
 		"AbilityTextureName"			"item_kaya_and_sange_1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"80"
-				"bonus_intellect"			"80"
+				"bonus_strength"		"60"
+				"bonus_intellect"			"60"
 				"slow_resistance"			"50"	// 25
 				"mana_regen_multiplier"		"60"	// 30
 				"spell_amp"				"25"		// 12
@@ -5197,7 +5262,7 @@
 		"AbilityTextureName"			"item_recipe_sange_and_yasha_1"
 		"ItemRequirements"
 		{
-			"01"						"item_sange_and_yasha;item_sange_and_yasha;item_reaver;item_eagle"
+			"01"						"item_sange_and_yasha;item_sange_and_yasha;item_reaver"
 		}
 	}
 
@@ -5211,10 +5276,10 @@
 		"AbilityTextureName"			"item_sange_and_yasha_1"
 		"AbilityValues"
 		{
-				"bonus_strength"		"80"	// 16
-				"bonus_agility"			"80"	// 16
+				"bonus_strength"		"60"	// 16
+				"bonus_agility"			"60"	// 16
 				"status_resistance"		"35"	// 15
-				"bonus_attack_speed"	"60"	// 20
+				"bonus_attack_speed"	"50"	// 20
 				"movement_speed_percent_bonus"	"25" // 12
 				"hp_regen_amp"			"40"	// 25
 				"slow_resistance"		"50"	// 25
@@ -5233,7 +5298,7 @@
 		"AbilityTextureName"			"item_recipe_yasha_and_kaya_1"
 		"ItemRequirements"
 		{
-			"01"						"item_yasha_and_kaya;item_yasha_and_kaya;item_eagle;item_mystic_staff"
+			"01"						"item_yasha_and_kaya;item_yasha_and_kaya;item_eagle"
 		}
 	}
 
@@ -5247,9 +5312,9 @@
 		"AbilityTextureName"			"item_yasha_and_kaya_1"
 		"AbilityValues"
 		{
-				"bonus_agility"			"80"
-				"bonus_intellect"		"80"
-				"bonus_attack_speed"	"60" // 20
+				"bonus_agility"			"60"
+				"bonus_intellect"		"60"
+				"bonus_attack_speed"	"50" // 20
 				"mana_regen_multiplier"	"60" // 30
 				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"25" // 12
@@ -5876,7 +5941,7 @@
 				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
 				"affected_by_aoe_increase"	"1"
 			}
-			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"0.4"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"lightning_damage"
 			{
 				"value"					"1200"
@@ -6464,7 +6529,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
-			"necrolyte_att_multiplier"	"1.0"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"0.8"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-30"	// Lua 逻辑需要 - 魔法抗性减少
@@ -6617,7 +6682,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"67900"
+		"ItemCost"					"62300"
 		"ItemShopTags"				"move_speed;boost_mana;mana_pool"
 		"ItemQuality"				"rare"
 		"ItemAliases"				"mana;mb;refresh core;refresher orb;octarine core"
@@ -6632,7 +6697,7 @@
 		"AbilityValues"
 		{
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
-			"bonus_all_stats"			"100"	// tooltip only - 全属性
+			"bonus_all_stats"			"80"	// tooltip only - 全属性
 			"bonus_health"				"1500"	// tooltip only - 生命值
 			"bonus_mana"				"1500"	// tooltip only - 魔法值
 			"bonus_health_regen"		"20.0"	// tooltip only - 生命恢复

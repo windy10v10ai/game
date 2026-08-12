@@ -12,7 +12,7 @@ import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
-import { GameEndPoint } from './game-end-point';
+import { GameEndPoint, normalizeControlTime } from './game-end-point';
 
 @reloadable
 export class GameEnd {
@@ -99,6 +99,7 @@ export class GameEnd {
         0,
         PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
       );
+      const stuns = normalizeControlTime(PlayerResource.GetStuns(playerId));
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
@@ -116,6 +117,8 @@ export class GameEnd {
         healing: PlayerResource.GetHealing(playerId),
         lastHits: PlayerResource.GetLastHits(playerId),
         towerKills: PlayerResource.GetTowerKills(playerId),
+        stuns,
+        roshanKills: PlayerResource.GetRoshanKills(playerId),
         score: 0,
         battlePoints: 0,
         awaken: isAwakened(hero) ? 1 : 0,
@@ -159,6 +162,7 @@ export class GameEnd {
         agi: hero.GetAgility(),
         int: hero.GetIntellect(false),
         towerKills: playerDto.towerKills,
+        stuns: playerDto.stuns,
       });
     });
 

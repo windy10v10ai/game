@@ -2,6 +2,7 @@ import { Player } from '../../api/player';
 import { TowerPushStatus } from '../../modules/event/event-entity-killed';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
+import { BotLaneRecovery } from './bot-lane-recovery';
 
 /**
  * Bot推进策略管理器
@@ -16,10 +17,11 @@ export class BotTeam {
   private pushStarted: boolean = false; // 是否已进入推进阶段
   private addAmount: number = 0; // Bot发钱的基础金额
 
-  private readonly addAmountBase: number = 1.5; // Bot发钱的基础金额
+  private readonly addAmountBase: number = 2; // Bot发钱的基础金额
   private readonly addAmountPlayerNumberBonus: number = 0.15; // 每个玩家增加的金额
   private readonly addAmountNeedLevel: number = 0.02; // 每玩家等级增加的金额
   private readonly refreshInterval: number = 1; // 刷新策略间隔
+  private readonly laneRecovery = new BotLaneRecovery();
 
   /**
    * 初始化Bot团队策略
@@ -33,6 +35,7 @@ export class BotTeam {
     Timers.CreateTimer(this.refreshInterval, () => {
       this.refreshTeamStrategy();
       this.addMoneyForBots();
+      this.laneRecovery.Run();
       return this.refreshInterval;
     });
   }
