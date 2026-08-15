@@ -6,13 +6,12 @@ import {
 import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
-import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
-import { GameEndPoint, normalizeControlTime } from './game-end-point';
+import { GameEndPoint } from './game-end-point';
 
 @reloadable
 export class GameEnd {
@@ -48,11 +47,7 @@ export class GameEnd {
     };
 
     const gameTime = GameRules.GetGameTime();
-    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(
-      difficulty,
-      ApiClient.IsLocalhost(),
-      GameRules.Option,
-    );
+    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(difficulty, GameRules.Option);
 
     const players: GameEndPlayerDto[] = [];
     // Pre-collect steamIds to determine real player count for team game check
@@ -76,30 +71,9 @@ export class GameEnd {
         return;
       }
 
-      let damageTaken = 0;
-      for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
-        if (
-          PlayerResource.IsValidPlayerID(victimID) &&
-          PlayerResource.IsValidPlayer(victimID) &&
-          PlayerResource.GetSelectedHeroEntity(victimID)
-        ) {
-          if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
-            damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
-          }
-        }
-      }
-
-      // 本局累计获得金币，扣除从虚拟金币库转回的金额，与 end_screen_2.js money 列保持一致
-      const virtualGoldData = CustomNetTables.GetTableValue(
-        'player_virtual_gold',
-        playerId.toString(),
-      );
-      const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
-      const totalGoldEarned = Math.max(
-        0,
-        PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
-      );
-      const stuns = normalizeControlTime(PlayerResource.GetStuns(playerId));
+      const damageTaken = PlayerHelper.GetDamageTaken(playerId);
+      const totalGoldEarned = PlayerHelper.GetTotalGoldEarned(playerId);
+      const stuns = PlayerHelper.GetStuns(playerId);
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),

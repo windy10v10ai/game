@@ -8,6 +8,7 @@ import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
+import { DailyTask } from './daily-task/daily-task';
 import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
@@ -30,6 +31,7 @@ declare global {
     GoldXPFilter: GoldXPFilter;
     Treasure: Treasure;
     WardSlot: WardSlot;
+    DailyTask: DailyTask;
   }
 }
 
@@ -79,6 +81,8 @@ export function ActivateModules() {
   if (GameRules.GoldXPFilter == null) GameRules.GoldXPFilter = new GoldXPFilter();
 
   if (GameRules.Treasure == null) GameRules.Treasure = new Treasure();
+
+  if (GameRules.DailyTask == null) GameRules.DailyTask = new DailyTask();
 
   GameRules.WardSlot = new WardSlot();
 }
