@@ -76,29 +76,8 @@ export class GameEnd {
         return;
       }
 
-      let damageTaken = 0;
-      for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
-        if (
-          PlayerResource.IsValidPlayerID(victimID) &&
-          PlayerResource.IsValidPlayer(victimID) &&
-          PlayerResource.GetSelectedHeroEntity(victimID)
-        ) {
-          if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
-            damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
-          }
-        }
-      }
-
-      // 本局累计获得金币，扣除从虚拟金币库转回的金额，与 end_screen_2.js money 列保持一致
-      const virtualGoldData = CustomNetTables.GetTableValue(
-        'player_virtual_gold',
-        playerId.toString(),
-      );
-      const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
-      const totalGoldEarned = Math.max(
-        0,
-        PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
-      );
+      const damageTaken = PlayerHelper.GetDamageTaken(playerId);
+      const totalGoldEarned = PlayerHelper.GetTotalGoldEarned(playerId);
       const stuns = normalizeControlTime(PlayerResource.GetStuns(playerId));
 
       const playerDto: GameEndPlayerDto = {

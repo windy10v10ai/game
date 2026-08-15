@@ -78,7 +78,7 @@ export class Game {
         CustomNetTables.SetTableValue('point_info', steamId.toString(), list);
       });
 
-      // 按 steamId 匹配到 playerId 再转发，daily_task net table 与 lottery_item 一样按 playerId 存
+      // 按 steamId 匹配到 playerId 再转发，daily_task net table 按 playerId 存
       if (gameStart.dailyTasks) {
         PlayerHelper.ForEachPlayer((playerId) => {
           const steamId = PlayerResource.GetSteamAccountID(playerId);

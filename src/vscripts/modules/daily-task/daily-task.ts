@@ -8,9 +8,6 @@ import { DailyTaskStartDto } from '../../api/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
-// 0 = custom 图；1 起为预设难度，不设上限（后续可能扩展更多难度档位）
-const PRESET_DIFFICULTY_MIN = 1;
-
 export interface DailyTaskCompletionResult {
   taskId: string;
   star: number;
@@ -39,6 +36,7 @@ export class DailyTask {
     );
   }
 
+  // mapName 开局即固定，判定保证一次成功，不用等玩家投票的难度定下来
   IsDailyTaskEnabled(): boolean {
     // 工具模式下忽略作弊/localhost，避免开发调试时被误判为禁用，与 GetDifficultyMultiplier 处理方式一致
     if (!IsInToolsMode()) {
@@ -46,8 +44,7 @@ export class DailyTask {
         return false;
       }
     }
-    const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
-    return difficulty >= PRESET_DIFFICULTY_MIN;
+    return GetMapName() !== 'custom';
   }
 
   /** /game/start 响应解析后调用，dto 由 game.ts 按 steamId 匹配出 playerId 后传入 */

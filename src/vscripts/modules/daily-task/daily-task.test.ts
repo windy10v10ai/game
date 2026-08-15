@@ -25,6 +25,9 @@ global.GameRules = { IsCheatMode: () => mockIsCheatMode() };
 const mockIsInToolsMode = jest.fn(() => false);
 global.IsInToolsMode = () => mockIsInToolsMode();
 
+const mockGetMapName = jest.fn(() => 'dota');
+global.GetMapName = () => mockGetMapName();
+
 const mockGetSelectedHeroName = jest.fn((_playerId: number) => 'npc_dota_hero_lina');
 global.PlayerResource = {
   GetSelectedHeroName: (playerId: number) => mockGetSelectedHeroName(playerId),
@@ -72,9 +75,9 @@ describe('DailyTask', () => {
     mockIsCheatMode.mockReturnValue(false);
     mockIsLocalhost.mockReturnValue(false);
     mockIsInToolsMode.mockReturnValue(false);
+    mockGetMapName.mockReturnValue('dota');
     mockGetSelectedHeroName.mockReturnValue('npc_dota_hero_lina');
     mockReadTaskMetric.mockReset();
-    netTable['game_difficulty'] = { all: { difficulty: 3 } };
     dailyTask = new DailyTask();
   });
 
@@ -89,34 +92,29 @@ describe('DailyTask', () => {
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
 
-    it('custom 图（difficulty=0）禁用', () => {
-      netTable['game_difficulty'] = { all: { difficulty: 0 } };
+    it('custom 图禁用', () => {
+      mockGetMapName.mockReturnValue('custom');
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
 
-    it('difficulty 超过 8（预留未来扩展难度）仍启用', () => {
-      netTable['game_difficulty'] = { all: { difficulty: 9 } };
+    it('dota / hard 图启用', () => {
+      mockGetMapName.mockReturnValue('dota');
+      expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
+      mockGetMapName.mockReturnValue('hard');
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
     });
 
-    it('预设难度 >=1 启用', () => {
-      netTable['game_difficulty'] = { all: { difficulty: 1 } };
-      expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
-      netTable['game_difficulty'] = { all: { difficulty: 8 } };
-      expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
-    });
-
-    it('工具模式下忽略作弊/localhost，仍按难度判定', () => {
+    it('工具模式下忽略作弊/localhost，仍按地图判定', () => {
       mockIsInToolsMode.mockReturnValue(true);
       mockIsCheatMode.mockReturnValue(true);
       mockIsLocalhost.mockReturnValue(true);
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
     });
 
-    it('工具模式下 custom 图（difficulty=0）仍然禁用', () => {
+    it('工具模式下 custom 图仍然禁用', () => {
       mockIsInToolsMode.mockReturnValue(true);
       mockIsCheatMode.mockReturnValue(true);
-      netTable['game_difficulty'] = { all: { difficulty: 0 } };
+      mockGetMapName.mockReturnValue('custom');
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
   });

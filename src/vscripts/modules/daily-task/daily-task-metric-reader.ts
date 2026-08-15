@@ -1,4 +1,5 @@
 import { normalizeControlTime } from '../event/game-end/game-end-point';
+import { PlayerHelper } from '../helper/player-helper';
 
 /**
  * 10 个指标全部来自 PlayerResource 原生 API，局内展示与结算判定各调一次，没有采集代码。
@@ -19,9 +20,9 @@ export function ReadTaskMetric(playerId: PlayerID, metric: string): number | und
     case 'healing':
       return PlayerResource.GetHealing(playerId);
     case 'total_gold_earned':
-      return readTotalGoldEarned(playerId);
+      return PlayerHelper.GetTotalGoldEarned(playerId);
     case 'damage_taken':
-      return readDamageTaken(playerId);
+      return PlayerHelper.GetDamageTaken(playerId);
     case 'stun_duration':
       return normalizeControlTime(PlayerResource.GetStuns(playerId));
     case 'roshan_kills':
@@ -29,27 +30,4 @@ export function ReadTaskMetric(playerId: PlayerID, metric: string): number | und
     default:
       return undefined;
   }
-}
-
-function readDamageTaken(playerId: PlayerID): number {
-  let damageTaken = 0;
-  for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
-    if (
-      PlayerResource.IsValidPlayerID(victimID) &&
-      PlayerResource.IsValidPlayer(victimID) &&
-      PlayerResource.GetSelectedHeroEntity(victimID)
-    ) {
-      if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
-        damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
-      }
-    }
-  }
-  return damageTaken;
-}
-
-// 与 game-end.ts 同源口径：扣除从虚拟金币库转回的金额
-function readTotalGoldEarned(playerId: PlayerID): number {
-  const virtualGoldData = CustomNetTables.GetTableValue('player_virtual_gold', playerId.toString());
-  const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
-  return Math.max(0, PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal);
 }
