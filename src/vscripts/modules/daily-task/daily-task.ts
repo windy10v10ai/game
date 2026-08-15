@@ -8,8 +8,8 @@ import { DailyTaskStartDto } from '../../api/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
+// 0 = custom 图；1 起为预设难度，不设上限（后续可能扩展更多难度档位）
 const PRESET_DIFFICULTY_MIN = 1;
-const PRESET_DIFFICULTY_MAX = 8;
 
 export interface DailyTaskCompletionResult {
   taskId: string;
@@ -47,7 +47,7 @@ export class DailyTask {
       }
     }
     const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
-    return difficulty >= PRESET_DIFFICULTY_MIN && difficulty <= PRESET_DIFFICULTY_MAX;
+    return difficulty >= PRESET_DIFFICULTY_MIN;
   }
 
   /** /game/start 响应解析后调用，dto 由 game.ts 按 steamId 匹配出 playerId 后传入 */

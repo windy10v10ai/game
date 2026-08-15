@@ -10,7 +10,7 @@ import { Player, PlayerInfoDto, PointInfoDto } from './player';
 class GameStart {
   players!: PlayerInfoDto[];
   pointInfo!: PointInfoDto[];
-  dailyTasks?: DailyTaskStartDto[]; // 每日任务候选，禁用地图/旧版后端可能不下发
+  dailyTasks?: DailyTaskStartDto[]; // 每日任务候选
   ga4Config?: GA4ConfigDto; // Only present for official servers
 }
 

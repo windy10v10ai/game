@@ -94,12 +94,12 @@ describe('DailyTask', () => {
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
 
-    it('difficulty 超出 1~8 禁用', () => {
+    it('difficulty 超过 8（预留未来扩展难度）仍启用', () => {
       netTable['game_difficulty'] = { all: { difficulty: 9 } };
-      expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
+      expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
     });
 
-    it('预设难度 1~8 内启用', () => {
+    it('预设难度 >=1 启用', () => {
       netTable['game_difficulty'] = { all: { difficulty: 1 } };
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
       netTable['game_difficulty'] = { all: { difficulty: 8 } };
@@ -113,7 +113,7 @@ describe('DailyTask', () => {
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
     });
 
-    it('工具模式下 difficulty 超出 1~8 仍然禁用', () => {
+    it('工具模式下 custom 图（difficulty=0）仍然禁用', () => {
       mockIsInToolsMode.mockReturnValue(true);
       mockIsCheatMode.mockReturnValue(true);
       netTable['game_difficulty'] = { all: { difficulty: 0 } };
