@@ -1,6 +1,6 @@
 import { PlayerHelper } from '../helper/player-helper';
 
-/** 读取玩家当前某项任务指标的数值，用于候选展示和结算判定。都是实时读取当前数据，不做额外的过程采集 */
+/** 读取玩家当前某项任务指标的数值，用于候选展示和结算判定，都是实时读取当前数据 */
 export function ReadTaskMetric(playerId: PlayerID, metric: string): number | undefined {
   switch (metric) {
     case 'kills':
