@@ -32,7 +32,7 @@ declare global {
         damagereceived: number;
         healing: number;
         points: number;
-        pointModifier: number;
+        conductDelta: number;
         conductPoint: number;
         str: number;
         agi: number;
