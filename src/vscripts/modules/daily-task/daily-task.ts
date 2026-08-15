@@ -56,7 +56,7 @@ export class DailyTask {
       history: dto.history,
       selectedTaskId: undefined,
     });
-    this.publish(playerId);
+    this.setDailyTaskTable(playerId);
   }
 
   /** 未知 taskId（不在当前候选里）直接忽略，不崩溃、不影响已选状态 */
@@ -71,7 +71,7 @@ export class DailyTask {
       return;
     }
     state.selectedTaskId = taskId;
-    this.publish(playerId);
+    this.setDailyTaskTable(playerId);
   }
 
   /**
@@ -107,7 +107,7 @@ export class DailyTask {
     };
   }
 
-  private publish(playerId: PlayerID): void {
+  private setDailyTaskTable(playerId: PlayerID): void {
     const state = this.state.get(playerId);
     if (!state) {
       return;
