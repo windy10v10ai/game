@@ -38,11 +38,6 @@ export class DailyTask {
     return GetMapName() !== 'custom';
   }
 
-  /** 结算时原样回传给 /game/end 的 dailyTaskDayId，用于服务端判断任务归属的日期 */
-  GetDayId(): string | undefined {
-    return this.dayId;
-  }
-
   /** 游戏开始时初始化本局任务状态 */
   SetStartData(playerId: PlayerID, dto: DailyTaskStartDto): void {
     this.dayId = dto.dayId;
@@ -97,10 +92,15 @@ export class DailyTask {
     if (value === undefined || value < candidate.target) {
       return undefined;
     }
+    // 防御性检查：能选中候选说明 SetStartData 必然已执行过，dayId 理论上必然已设置
+    if (!this.dayId) {
+      return undefined;
+    }
     return {
       taskId: candidate.taskId,
       star: candidate.star,
       seasonPoint: candidate.rewardSeasonPoint,
+      dayId: this.dayId,
     };
   }
 

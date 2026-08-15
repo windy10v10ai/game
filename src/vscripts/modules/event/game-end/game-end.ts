@@ -160,7 +160,6 @@ export class GameEnd {
       gameTimeMsec: Math.round(gameTime * 1000),
       countryCode: GA4.countryCode,
       players,
-      dailyTaskDayId: GameRules.DailyTask.GetDayId(),
     };
 
     return gameEndDto;

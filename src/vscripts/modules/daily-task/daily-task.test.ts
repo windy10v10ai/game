@@ -211,6 +211,7 @@ describe('DailyTask', () => {
         taskId: GENERAL_CANDIDATE.taskId,
         star: GENERAL_CANDIDATE.star,
         seasonPoint: GENERAL_CANDIDATE.rewardSeasonPoint,
+        dayId: '20260815',
       });
     });
 
@@ -223,6 +224,7 @@ describe('DailyTask', () => {
         taskId: HERO_CANDIDATE.taskId,
         star: HERO_CANDIDATE.star,
         seasonPoint: HERO_CANDIDATE.rewardSeasonPoint,
+        dayId: '20260815',
       });
     });
   });

@@ -39,4 +39,6 @@ export interface DailyTaskResultDto {
   taskId: string;
   star: number;
   seasonPoint: number;
+  /** 本局归属的任务日，取自 /game/start 响应，用于服务端判断任务归属日期 */
+  dayId: string;
 }
