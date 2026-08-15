@@ -31,5 +31,6 @@
 	  "bot_passive_abilities",  // Bot 被动技能表
 	  "alipay_order",  // 支付宝订单状态
 	  "awaken_random",  // 随机抽选觉醒候选集
+	  "daily_task",  // 每日任务：候选、本地选择、当日完成状态
   ]
 }

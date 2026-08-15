@@ -1,4 +1,5 @@
 import { GamePresetCustomOptions, PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
+import { CompletedTaskDto, DailyTaskHistoryEntryDto, TaskCandidateDto } from './dto/daily-task';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -112,6 +113,17 @@ declare global {
     // 随机抽选觉醒的当前候选集（API get-or-create 的权威候选），key = steamAccountID；清空时传 {}
     awaken_random: {
       [steamAccountID: string]: { candidates?: string[] };
+    };
+    // 每日任务：本局候选、本地选择与当日完成状态，key = playerId
+    daily_task: {
+      [playerId: string]: {
+        enabled: boolean;
+        candidates: TaskCandidateDto[];
+        selectedTaskId?: string;
+        completedTasks: CompletedTaskDto[];
+        todaySeasonPoint: number;
+        history: DailyTaskHistoryEntryDto[];
+      };
     };
   }
 }

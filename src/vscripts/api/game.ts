@@ -4,11 +4,13 @@ import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
 import { GA4 } from './analytics/ga4/ga4';
 import { ApiClient, HttpMethod } from './api-client';
+import { DailyTaskStartDto } from './daily-task';
 import { Player, PlayerInfoDto, PointInfoDto } from './player';
 
 class GameStart {
   players!: PlayerInfoDto[];
   pointInfo!: PointInfoDto[];
+  dailyTasks?: DailyTaskStartDto[]; // 每日任务候选，禁用地图/旧版后端可能不下发
   ga4Config?: GA4ConfigDto; // Only present for official servers
 }
 
@@ -75,6 +77,17 @@ export class Game {
       pointInfoBySteamId.forEach((list, steamId) => {
         CustomNetTables.SetTableValue('point_info', steamId.toString(), list);
       });
+
+      // 按 steamId 匹配到 playerId 再转发，daily_task net table 与 lottery_item 一样按 playerId 存
+      if (gameStart.dailyTasks) {
+        PlayerHelper.ForEachPlayer((playerId) => {
+          const steamId = PlayerResource.GetSteamAccountID(playerId);
+          const dailyTaskDto = gameStart.dailyTasks!.find((dt) => dt.steamId === steamId);
+          if (dailyTaskDto) {
+            GameRules.DailyTask.SetStartData(playerId, dailyTaskDto);
+          }
+        });
+      }
 
       const status = gameStart.players.length > 0 ? 2 : 3;
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
