@@ -1,10 +1,6 @@
 import { PlayerHelper } from '../helper/player-helper';
 
-/**
- * 按 metric 读取该玩家当前的任务指标值，供候选展示与达标判定复用。
- * 10 个指标全部来自 PlayerResource 原生 API，没有采集代码。
- * metric 为未知值（老客户端遇到新任务池）时返回 undefined，调用方按未知任务保护处理。
- */
+/** 读取玩家当前某项任务指标的数值，用于候选展示和结算判定。都是实时读取当前数据，不做额外的过程采集 */
 export function ReadTaskMetric(playerId: PlayerID, metric: string): number | undefined {
   switch (metric) {
     case 'kills':
@@ -28,6 +24,7 @@ export function ReadTaskMetric(playerId: PlayerID, metric: string): number | und
     case 'roshan_kills':
       return PlayerResource.GetRoshanKills(playerId);
     default:
+      // 无法识别的指标（老客户端遇到新任务池）返回 undefined，交给调用方做未知任务保护
       return undefined;
   }
 }

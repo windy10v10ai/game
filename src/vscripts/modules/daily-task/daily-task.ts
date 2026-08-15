@@ -22,10 +22,7 @@ interface DailyTaskPlayerState {
   selectedTaskId?: string;
 }
 
-/**
- * 每日任务 G1：模式门控 + 指标读取分发 + 达标判定 + 候选本地状态。
- * 结算上报（game-end.ts）与 UI 是后续 PR，本模块只暴露 EvaluateCompletion 供结算调用。
- */
+/** 每日任务：判断本局是否可以参与、记录玩家选择的任务、结算时判断是否完成 */
 @reloadable
 export class DailyTask {
   private state: Map<PlayerID, DailyTaskPlayerState> = new Map();
@@ -36,9 +33,9 @@ export class DailyTask {
     );
   }
 
-  // mapName 开局即固定，判定保证一次成功，不用等玩家投票的难度定下来
+  // 地图类型开局就已经确定，不用等玩家把难度投完票，判断能保证一次成功
   IsDailyTaskEnabled(): boolean {
-    // 工具模式下忽略作弊/localhost，避免开发调试时被误判为禁用，与 GetDifficultyMultiplier 处理方式一致
+    // 工具模式下不受作弊模式/本地环境影响，避免开发调试时被误判为禁用
     if (!IsInToolsMode()) {
       if (GameRules.IsCheatMode() || ApiClient.IsLocalhost()) {
         return false;
@@ -47,7 +44,7 @@ export class DailyTask {
     return GetMapName() !== 'custom';
   }
 
-  /** 用 /game/start 下发的候选与历史初始化本局任务状态，playerId 由 game.ts 按 steamId 匹配后传入 */
+  /** 游戏开始时初始化本局任务状态 */
   SetStartData(playerId: PlayerID, dto: DailyTaskStartDto): void {
     this.state.set(playerId, {
       candidates: dto.candidates,
@@ -59,12 +56,13 @@ export class DailyTask {
     this.setDailyTaskTable(playerId);
   }
 
-  /** 玩家选择一个候选任务，记录进本地状态；未知 taskId（不在当前候选里）直接忽略，不崩溃、不影响已选状态 */
+  /** 玩家选择一个候选任务 */
   SelectCandidate(playerId: PlayerID, taskId: string): void {
     const state = this.state.get(playerId);
     if (!state) {
       return;
     }
+    // 选了一个不在候选里的任务，直接忽略，不崩溃、不影响已选状态
     const candidate = state.candidates.find((c) => c.taskId === taskId);
     if (!candidate) {
       print(`[DailyTask] SelectCandidate: unknown taskId=${taskId} playerId=${playerId}`);
@@ -74,10 +72,7 @@ export class DailyTask {
     this.setDailyTaskTable(playerId);
   }
 
-  /**
-   * 结算判定入口，供后续 game-end.ts 改造调用。门控未通过 / 未选候选 / 候选未知 /
-   * 英雄不匹配 / 指标未识别 / 未达标，均返回 undefined。
-   */
+  /** 判断这局是否完成了每日任务，用于游戏结算时计分 */
   EvaluateCompletion(playerId: PlayerID): DailyTaskCompletionResult | undefined {
     if (!this.IsDailyTaskEnabled()) {
       return undefined;
@@ -86,6 +81,7 @@ export class DailyTask {
     if (!state?.selectedTaskId) {
       return undefined;
     }
+    // 防御性检查：能被选中的任务本来就一定在候选列表里，这里理论上必然能找到
     const candidate = state.candidates.find((c) => c.taskId === state.selectedTaskId);
     if (!candidate) {
       return undefined;
@@ -96,6 +92,7 @@ export class DailyTask {
         return undefined;
       }
     }
+    // 无法识别的指标（老客户端遇到新任务池）按未达标处理
     const value = ReadTaskMetric(playerId, candidate.metric);
     if (value === undefined || value < candidate.target) {
       return undefined;
