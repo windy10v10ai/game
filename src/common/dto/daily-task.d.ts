@@ -54,7 +54,7 @@ export interface DailyTaskStartDto {
 }
 
 /** daily_task net table 单个玩家条目 */
-export interface DailyTaskNetTableEntry extends Omit<DailyTaskStartDto, 'steamId' | 'dayId'> {
+export interface DailyTaskNetTableEntry extends DailyTaskStartDto {
   enabled: boolean;
   selectedTaskId?: string;
 }

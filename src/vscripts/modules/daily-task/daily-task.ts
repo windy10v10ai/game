@@ -87,12 +87,8 @@ export class DailyTask {
       return;
     }
     CustomNetTables.SetTableValue('daily_task', playerId.toString(), {
+      ...state,
       enabled: this.IsDailyTaskEnabled(),
-      candidates: state.candidates,
-      selectedTaskId: state.selectedTaskId,
-      completedTasks: state.completedTasks,
-      todaySeasonPoint: state.todaySeasonPoint,
-      history: state.history,
     });
   }
 }
