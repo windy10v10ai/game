@@ -8,8 +8,6 @@ import {
 export class DailyTaskStartDto {
   steamId!: number;
   dayId!: string;
-  totalRounds!: number;
-  currentRound!: number;
   candidates!: TaskCandidateDto[];
   completedTasks!: CompletedTaskDto[];
   todaySeasonPoint!: number;

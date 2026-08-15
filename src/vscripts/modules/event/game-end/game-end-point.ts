@@ -1,5 +1,6 @@
 import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { reloadable } from '../../../utils/tstl-utils';
+import { EnvironmentHelper } from '../../helper/environment-helper';
 import { Option } from '../../option';
 
 export function normalizeControlTime(controlTime: number): number {
@@ -62,11 +63,8 @@ export class GameEndPoint {
   }
 
   static GetDifficultyMultiplier(difficulty: number, isLocalhost: boolean, option: Option): number {
-    // 如果是作弊模式，不计算倍率。开发模式无视这条
-    if (!IsInToolsMode()) {
-      if (GameRules.IsCheatMode() || isLocalhost) {
-        return 0;
-      }
+    if (!EnvironmentHelper.IsValidGameEnvironment(isLocalhost)) {
+      return 0;
     }
 
     switch (difficulty) {

@@ -6,6 +6,7 @@ import {
 import { ApiClient } from '../../api/api-client';
 import { DailyTaskStartDto } from '../../api/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
+import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
 export interface DailyTaskCompletionResult {
@@ -35,11 +36,8 @@ export class DailyTask {
 
   // 地图类型开局就已经确定，不用等玩家把难度投完票，判断能保证一次成功
   IsDailyTaskEnabled(): boolean {
-    // 工具模式下不受作弊模式/本地环境影响，避免开发调试时被误判为禁用
-    if (!IsInToolsMode()) {
-      if (GameRules.IsCheatMode() || ApiClient.IsLocalhost()) {
-        return false;
-      }
+    if (!EnvironmentHelper.IsValidGameEnvironment(ApiClient.IsLocalhost())) {
+      return false;
     }
     return GetMapName() !== 'custom';
   }
@@ -81,7 +79,7 @@ export class DailyTask {
     if (!state?.selectedTaskId) {
       return undefined;
     }
-    // 防御性检查：能被选中的任务本来就一定在候选列表里，这里理论上必然能找到
+    // 防御性检查：能被选中的任务本来就一定在候选列表里，理论上必然能找到对应候选
     const candidate = state.candidates.find((c) => c.taskId === state.selectedTaskId);
     if (!candidate) {
       return undefined;

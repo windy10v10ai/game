@@ -124,8 +124,6 @@ describe('DailyTask', () => {
       dailyTask.SetStartData(PLAYER_ID, {
         steamId: 111,
         dayId: '20260815',
-        totalRounds: 3,
-        currentRound: 1,
         candidates: [GENERAL_CANDIDATE],
         completedTasks: [],
         todaySeasonPoint: 0,
@@ -146,8 +144,6 @@ describe('DailyTask', () => {
       dailyTask.SetStartData(PLAYER_ID, {
         steamId: 111,
         dayId: '20260815',
-        totalRounds: 3,
-        currentRound: 1,
         candidates: [GENERAL_CANDIDATE],
         completedTasks: [],
         todaySeasonPoint: 0,
@@ -166,8 +162,6 @@ describe('DailyTask', () => {
       dailyTask.SetStartData(PLAYER_ID, {
         steamId: 111,
         dayId: '20260815',
-        totalRounds: 3,
-        currentRound: 1,
         candidates: [GENERAL_CANDIDATE, HERO_CANDIDATE],
         completedTasks: [],
         todaySeasonPoint: 0,
