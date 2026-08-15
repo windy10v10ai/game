@@ -1,18 +1,13 @@
 import {
   CompletedTaskDto,
   DailyTaskHistoryEntryDto,
+  DailyTaskResultDto,
   TaskCandidateDto,
 } from '../../../common/dto/daily-task';
 import { DailyTaskStartDto } from '../../api/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
-
-export interface DailyTaskCompletionResult {
-  taskId: string;
-  star: number;
-  seasonPoint: number;
-}
 
 interface DailyTaskPlayerState {
   candidates: TaskCandidateDto[];
@@ -26,6 +21,8 @@ interface DailyTaskPlayerState {
 @reloadable
 export class DailyTask {
   private state: Map<PlayerID, DailyTaskPlayerState> = new Map();
+  // 同一局所有玩家的 /game/start 请求同批下发，dayId 天然一致，按局存一份即可
+  private dayId?: string;
 
   constructor() {
     CustomGameEventManager.RegisterListener('dailytask_select_candidate', (_, event) =>
@@ -41,8 +38,14 @@ export class DailyTask {
     return GetMapName() !== 'custom';
   }
 
+  /** 结算时原样回传给 /game/end 的 dailyTaskDayId，用于服务端判断任务归属的日期 */
+  GetDayId(): string | undefined {
+    return this.dayId;
+  }
+
   /** 游戏开始时初始化本局任务状态 */
   SetStartData(playerId: PlayerID, dto: DailyTaskStartDto): void {
+    this.dayId = dto.dayId;
     this.state.set(playerId, {
       candidates: dto.candidates,
       completedTasks: dto.completedTasks,
@@ -70,7 +73,7 @@ export class DailyTask {
   }
 
   /** 判断这局是否完成了每日任务，用于游戏结算时计分 */
-  EvaluateCompletion(playerId: PlayerID): DailyTaskCompletionResult | undefined {
+  EvaluateCompletion(playerId: PlayerID): DailyTaskResultDto | undefined {
     if (!this.IsDailyTaskEnabled()) {
       return undefined;
     }

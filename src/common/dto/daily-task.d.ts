@@ -33,3 +33,10 @@ export interface DailyTaskHistoryEntryDto {
   tasks: CompletedTaskDto[];
   seasonPoint: number;
 }
+
+/** /game/end 上报的完成结果，未完成任务时整个对象不发送 */
+export interface DailyTaskResultDto {
+  taskId: string;
+  star: number;
+  seasonPoint: number;
+}

@@ -111,16 +111,27 @@ export class GameEnd {
       const conductPoint = playerInfo?.conductPoint ?? 100;
       const conductMultiplier = this.GetConductMultiplier(conductPoint, isTeamGame);
       // 最终积分 = 原始积分 × 行为分倍率（向上取整 0）
-      const finalBattlePoints = Math.max(0, Math.round(rawBattlePoints * conductMultiplier));
+      const settledPoints = Math.max(0, Math.round(rawBattlePoints * conductMultiplier));
       // 修正量（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
-      const pointModifier = finalBattlePoints - rawBattlePoints;
-      playerDto.battlePoints = finalBattlePoints;
+      const pointModifier = settledPoints - rawBattlePoints;
+
+      // 掉线玩家不结算每日任务，哪怕退出前指标已达标
+      const dailyTaskCompletion = playerDto.isDisconnected
+        ? undefined
+        : GameRules.DailyTask.EvaluateCompletion(playerId);
+      if (dailyTaskCompletion) {
+        playerDto.dailyTask = dailyTaskCompletion;
+      }
+      const dailyTaskPoints = dailyTaskCompletion?.seasonPoint ?? 0;
+      // 须在行为分倍率之后并入，否则候选卡上写的奖励值会被倍率放大/缩小
+      playerDto.battlePoints = settledPoints + dailyTaskPoints;
       players.push(playerDto);
 
       print(
         `[GameEnd] player ${playerId} steamId=${playerDto.steamId} ` +
-          `raw=${rawBattlePoints} conductPoint=${conductPoint} ` +
-          `multiplier=${conductMultiplier} final=${finalBattlePoints} modifier=${pointModifier}`,
+          `raw=${rawBattlePoints} conductPoint=${conductPoint} multiplier=${conductMultiplier} ` +
+          `settled=${settledPoints} dailyTaskPoints=${dailyTaskPoints} total=${playerDto.battlePoints} ` +
+          `modifier=${pointModifier}`,
       );
 
       // 结算界面数据：points 是最终积分，pointModifier 仅用于括号展示
@@ -151,6 +162,7 @@ export class GameEnd {
       gameTimeMsec: Math.round(gameTime * 1000),
       countryCode: GA4.countryCode,
       players,
+      dailyTaskDayId: GameRules.DailyTask.GetDayId(),
     };
 
     return gameEndDto;
