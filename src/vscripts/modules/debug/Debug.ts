@@ -50,7 +50,8 @@ export class Debug {
       const playerId = keys.playerid;
       const stuns = PlayerResource.GetStuns(playerId);
       const healing = PlayerResource.GetHealing(playerId);
-      this.log(`控制：${stuns} 治疗：${healing}`);
+      const damageTaken = PlayerHelper.GetDamageTaken(playerId);
+      this.log(`控制：${stuns} 治疗：${healing} 承受伤害：${damageTaken}`);
     }
     if (cmd === CMD.D) {
       const playerId = keys.playerid;
