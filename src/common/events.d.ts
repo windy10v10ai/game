@@ -27,6 +27,12 @@ interface CustomGameEventDeclarations {
   lottery_refresh_item: Record<string, never>;
   lottery_pick_passive_tome: LotteryPickItemEventData;
   player_info_refresh: Record<string, never>;
+  daily_challenge_accept: DailyChallengeAcceptEventData;
+  daily_challenge_refresh: DailyChallengeRequestEventData;
+  daily_challenge_request_snapshot: DailyChallengeRequestEventData;
+  daily_challenge_sync_progress: DailyChallengeRequestEventData;
+  daily_challenge_view: DailyChallengeRequestEventData;
+  daily_challenge_action_result: DailyChallengeActionResultEventData;
   awaken_unlock_hero: AwakenUnlockHeroEventData;
   awaken_unlock_result: Record<string, never>;
   awaken_random_request: Record<string, never>;
@@ -117,6 +123,23 @@ interface HudOpenPageEventData {
   page: string;
   param?: string;
   playerId: PlayerID;
+}
+
+interface DailyChallengeRequestEventData {
+  requestId: string;
+}
+
+interface DailyChallengeAcceptEventData extends DailyChallengeRequestEventData {
+  assignmentId: string;
+}
+
+interface DailyChallengeActionResultEventData {
+  action: 'accept' | 'refresh' | 'snapshot' | 'sync' | 'view';
+  requestId: string;
+  success: boolean;
+  code: string;
+  costMemberPoint?: number;
+  snapshot?: import('./dto/daily-challenge').DailyChallengePlayerSnapshotDto;
 }
 
 interface AwakenUnlockHeroEventData {

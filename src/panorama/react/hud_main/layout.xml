@@ -9,6 +9,7 @@
         <include src="./styles.less" />
         <include src="./pages/profile/styles.less" />
         <include src="./pages/leaderboard/styles.less" />
+        <include src="./pages/daily-challenge/styles.less" />
     </styles>
     <Panel class="root" hittest="false" />
 </root>

@@ -132,6 +132,8 @@ export class EventGameStateChange {
   }
 
   private OnGameInProgress(): void {
+    // Confirm daily challenge match ownership once GAME_IN_PROGRESS begins.
+    Game.ConfirmDailyChallengeMatchStart();
     // 记录游戏开始时间用于 GA4 统计
     GA4.RecordGameStartTime();
     // 启动物品持有时长采样

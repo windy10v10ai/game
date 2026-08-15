@@ -1,0 +1,1 @@
+export { DailyChallengePage } from './DailyChallengePage';

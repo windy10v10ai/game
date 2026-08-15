@@ -19,6 +19,106 @@ var imagefile = {
 
 var _ = GameUI.CustomUIConfig()._;
 
+var playerPanelsById = {};
+
+function NormalizeEndScreenPoints(value) {
+  const points = Number(value);
+  return isFinite(points) ? Math.round(points) : 0;
+}
+
+function LocalizeEndScreenPoints(key, points) {
+  return $.Localize(key).replace('{points}', String(points));
+}
+
+function FormatSignedEndScreenPoints(points) {
+  return (points > 0 ? '+' : '') + String(points);
+}
+
+/**
+ * Builds the compact points summary shown in one post-game scoreboard cell.
+ * `points` is already the final conduct-adjusted match reward.
+ */
+function BuildEndScreenPointsDisplay(playerData) {
+  const data = playerData || {};
+  const matchPoints = NormalizeEndScreenPoints(data.points);
+  const dailyChallengePoints = Math.max(0, NormalizeEndScreenPoints(data.dailyChallengePoints));
+  const hasServerTotal = data.totalSeasonPoints !== undefined && data.totalSeasonPoints !== null;
+  const totalPoints = hasServerTotal
+    ? NormalizeEndScreenPoints(data.totalSeasonPoints)
+    : matchPoints + dailyChallengePoints;
+  const pointModifier = NormalizeEndScreenPoints(data.pointModifier);
+  const dailyChallengeVisible = dailyChallengePoints > 0;
+  const pointModifierVisible = pointModifier !== 0;
+  const tooltipLines = [
+    LocalizeEndScreenPoints('#daily_challenge_end_screen_total_points', totalPoints),
+    LocalizeEndScreenPoints('#daily_challenge_end_screen_match_points', matchPoints),
+  ];
+
+  if (dailyChallengeVisible) {
+    tooltipLines.push(
+      LocalizeEndScreenPoints('#daily_challenge_end_screen_challenge_points', dailyChallengePoints),
+    );
+  }
+  if (pointModifierVisible) {
+    tooltipLines.push(
+      LocalizeEndScreenPoints(
+        '#daily_challenge_end_screen_conduct_modifier',
+        FormatSignedEndScreenPoints(pointModifier),
+      ),
+    );
+  }
+
+  return {
+    totalPoints,
+    dailyChallengeText: dailyChallengeVisible
+      ? LocalizeEndScreenPoints('#daily_challenge_end_screen_detail', dailyChallengePoints)
+      : '',
+    dailyChallengeVisible,
+    pointModifierText: pointModifierVisible ? FormatSignedEndScreenPoints(pointModifier) : '',
+    pointModifierVisible,
+    tooltipText: tooltipLines.join('\n'),
+  };
+}
+
+function UpdatePlayerPoints(panel, playerData) {
+  if (!panel) {
+    return;
+  }
+
+  const display = BuildEndScreenPointsDisplay(playerData);
+  const pointsContainer = panel.FindChildTraverse('PointsLabel');
+  const pointsValueLabel = panel.FindChildTraverse('PointsValue');
+  const pointsModifierLabel = panel.FindChildTraverse('PointsModifier');
+  const dailyChallengeLabel = panel.FindChildTraverse('DailyChallengePoints');
+
+  if (pointsValueLabel) {
+    pointsValueLabel.text = String(display.totalPoints);
+  }
+  if (pointsModifierLabel) {
+    pointsModifierLabel.text = display.pointModifierText;
+    pointsModifierLabel.visible = display.pointModifierVisible;
+  }
+  if (dailyChallengeLabel) {
+    dailyChallengeLabel.text = display.dailyChallengeText;
+    dailyChallengeLabel.visible = display.dailyChallengeVisible;
+  }
+  if (pointsContainer) {
+    pointsContainer.SetPanelEvent('onmouseover', () => {
+      $.DispatchEvent('DOTAShowTextTooltip', pointsContainer, display.tooltipText);
+    });
+    pointsContainer.SetPanelEvent('onmouseout', () => {
+      $.DispatchEvent('DOTAHideTextTooltip');
+    });
+  }
+}
+
+function OnPlayerStatsChanged(_table, key, value) {
+  const panel = playerPanelsById[key];
+  if (panel && value) {
+    UpdatePlayerPoints(panel, value);
+  }
+}
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FinishGame() {
   Game.FinishGame();
@@ -104,39 +204,8 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
   panel.SetDialogVariableInt('stuns', Math.round(playerData?.stuns ?? 0));
-  const pointModifier = playerData?.pointModifier ?? 0;
-  const conductPoint = playerData?.conductPoint ?? 100;
-  const points = playerData?.points ?? 0;
-  const pointsContainer = panel.FindChildTraverse('PointsLabel');
-  const pointsValueLabel = panel.FindChildTraverse('PointsValue');
-  const pointsModifierLabel = panel.FindChildTraverse('PointsModifier');
-  if (pointsValueLabel) pointsValueLabel.text = String(points);
-  if (pointsModifierLabel && pointsContainer) {
-    if (pointModifier !== 0) {
-      const sign = pointModifier > 0 ? '+' : '-';
-      pointsModifierLabel.text = sign + Math.abs(pointModifier);
-      pointsModifierLabel.visible = true;
-      pointsContainer.SetPanelEvent('onmouseover', () => {
-        let tooltipKey;
-        if (pointModifier > 0) {
-          tooltipKey = '#conduct_point_bonus_tooltip';
-        } else if (conductPoint < 60) {
-          tooltipKey = '#conduct_point_heavy_penalty_tooltip';
-        } else {
-          tooltipKey = '#conduct_point_light_penalty_tooltip';
-        }
-        const tooltipText = $.Localize(tooltipKey).replace('{0}', conductPoint);
-        $.DispatchEvent('DOTAShowTextTooltip', pointsContainer, tooltipText);
-      });
-      pointsContainer.SetPanelEvent('onmouseout', () => {
-        $.DispatchEvent('DOTAHideTextTooltip');
-      });
-    } else {
-      pointsModifierLabel.visible = false;
-      pointsContainer.ClearPanelEvent('onmouseover');
-      pointsContainer.ClearPanelEvent('onmouseout');
-    }
-  }
+  playerPanelsById[playerId.toString()] = panel;
+  UpdatePlayerPoints(panel, playerData);
 
   panel.SetDialogVariableInt('strength', playerData?.str ?? 0);
   panel.SetDialogVariableInt('agility', playerData?.agi ?? 0);
@@ -278,6 +347,7 @@ function OnGameResult(_table, key, value) {
   }
 
   $('#EndScreenWindow').visible = true;
+  playerPanelsById = {};
   $('#TeamsContainer').RemoveAndDeleteChildren();
 
   Snippet_Team(2);
@@ -322,6 +392,7 @@ function OnGameResult(_table, key, value) {
 
   $('#EndScreenWindow').visible = false;
   CustomNetTables.SubscribeNetTableListener('ending_status', OnGameResult);
+  CustomNetTables.SubscribeNetTableListener('player_stats', OnPlayerStatsChanged);
   // CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
   OnGameResult(null, 'ending_data', CustomNetTables.GetTableValue('ending_status', 'ending_data'));
 })();

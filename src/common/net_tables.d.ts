@@ -31,6 +31,8 @@ declare global {
         damagereceived: number;
         healing: number;
         points: number;
+        dailyChallengePoints?: number;
+        totalSeasonPoints?: number;
         pointModifier: number;
         conductPoint: number;
         str: number;

@@ -8,6 +8,9 @@ import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
+import { DailyChallengeController } from './daily-challenge/daily-challenge-controller';
+import { installDailyChallengeDamageObserver } from './daily-challenge/daily-challenge-damage-observer';
+import { DailyChallengeTelemetry } from './daily-challenge/daily-challenge-telemetry';
 import { HeroDebugPanel } from './debug-panel/hero-debug-panel';
 import { Debug } from './debug/Debug';
 import { Event } from './event/event';
@@ -61,6 +64,9 @@ export function ActivateModules() {
     new PlayerHeroAwakeningApi();
     new AlipayApi();
     new ConductApi();
+    const dailyChallengeTelemetry = new DailyChallengeTelemetry();
+    installDailyChallengeDamageObserver();
+    new DailyChallengeController(undefined, undefined, dailyChallengeTelemetry);
 
     // 玩家语言统计：监听 player_language 事件，收到即发 GA4 并缓存供 mid-only-mode 查询
     new GA4PlayerLanguageTracker();

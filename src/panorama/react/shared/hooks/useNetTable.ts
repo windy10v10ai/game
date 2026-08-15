@@ -1,5 +1,6 @@
 import { transformLotteryStatus, transformPlayer } from '@utils/net-table-transform';
 import { useEffect, useState } from 'react';
+import { bindKeyedNetTableSubscription } from './net-table-subscription';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const transformers: Partial<Record<keyof CustomNetTableDeclarations, (raw: any) => any>> = {
@@ -30,28 +31,32 @@ export function useNetTable<
   });
 
   useEffect(() => {
-    if (!key) {
-      return () => {
-        /* noop */
-      };
-    }
-    const listenerId = CustomNetTables.SubscribeNetTableListener(
-      tableName,
-      (_tableName, rowKey, rowValue) => {
-        if (rowKey !== key) return;
-        if (!rowValue) {
-          setValue(null);
-          return;
-        }
-        setValue(finalTransform ? finalTransform(rowValue) : (rowValue as unknown as TValue));
+    if (!key) return () => undefined;
+    return bindKeyedNetTableSubscription<TValue>(
+      key,
+      (rowKey) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const raw = CustomNetTables.GetTableValue(tableName, rowKey as any);
+        if (!raw) return null;
+        return finalTransform ? finalTransform(raw) : (raw as unknown as TValue);
       },
+      (listener) =>
+        CustomNetTables.SubscribeNetTableListener(tableName, (_tableName, rowKey, rowValue) => {
+          if (!rowValue) {
+            listener(rowKey, null);
+            return;
+          }
+          listener(
+            rowKey,
+            finalTransform ? finalTransform(rowValue) : (rowValue as unknown as TValue),
+          );
+        }),
+      (listenerId) => CustomNetTables.UnsubscribeNetTableListener(listenerId),
+      setValue,
     );
-    return () => {
-      CustomNetTables.UnsubscribeNetTableListener(listenerId);
-    };
     // finalTransform 是模块级稳定函数，不放进依赖避免无限重订阅。
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tableName, key]);
 
-  return value;
+  return key ? value : null;
 }
