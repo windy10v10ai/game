@@ -49,7 +49,8 @@ export class Debug {
     if (cmd === CMD.S) {
       const playerId = keys.playerid;
       const stuns = PlayerResource.GetStuns(playerId);
-      this.log(`Player ${playerId} stuns: ${stuns}`);
+      const healing = PlayerResource.GetHealing(playerId);
+      this.log(`控制：${stuns} 治疗：${healing}`);
     }
     if (cmd === CMD.D) {
       const playerId = keys.playerid;
