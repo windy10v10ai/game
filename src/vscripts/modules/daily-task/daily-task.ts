@@ -1,19 +1,10 @@
-import {
-  CompletedTaskDto,
-  DailyTaskHistoryEntryDto,
-  DailyTaskResultDto,
-  TaskCandidateDto,
-} from '../../../common/dto/daily-task';
+import { DailyTaskResultDto } from '../../../common/dto/daily-task';
 import { DailyTaskStartDto } from '../../api/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
-interface DailyTaskPlayerState {
-  candidates: TaskCandidateDto[];
-  completedTasks: CompletedTaskDto[];
-  todaySeasonPoint: number;
-  history: DailyTaskHistoryEntryDto[];
+interface DailyTaskPlayerState extends DailyTaskStartDto {
   selectedTaskId?: string;
 }
 
@@ -21,8 +12,6 @@ interface DailyTaskPlayerState {
 @reloadable
 export class DailyTask {
   private state: Map<PlayerID, DailyTaskPlayerState> = new Map();
-  // 同一局所有玩家的 /game/start 请求同批下发，dayId 天然一致，按局存一份即可
-  private dayId?: string;
 
   constructor() {
     CustomGameEventManager.RegisterListener('dailytask_select_candidate', (_, event) =>
@@ -40,14 +29,7 @@ export class DailyTask {
 
   /** 游戏开始时初始化本局任务状态 */
   SetStartData(playerId: PlayerID, dto: DailyTaskStartDto): void {
-    this.dayId = dto.dayId;
-    this.state.set(playerId, {
-      candidates: dto.candidates,
-      completedTasks: dto.completedTasks,
-      todaySeasonPoint: dto.todaySeasonPoint,
-      history: dto.history,
-      selectedTaskId: undefined,
-    });
+    this.state.set(playerId, { ...dto, selectedTaskId: undefined });
     this.setDailyTaskTable(playerId);
   }
 
@@ -92,15 +74,11 @@ export class DailyTask {
     if (value === undefined || value < candidate.target) {
       return undefined;
     }
-    // 防御性检查：能选中候选说明 SetStartData 必然已执行过，dayId 理论上必然已设置
-    if (!this.dayId) {
-      return undefined;
-    }
     return {
       taskId: candidate.taskId,
       star: candidate.star,
       seasonPoint: candidate.rewardSeasonPoint,
-      dayId: this.dayId,
+      dayId: state.dayId,
     };
   }
 
