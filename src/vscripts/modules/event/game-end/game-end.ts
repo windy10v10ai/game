@@ -6,7 +6,6 @@ import {
 import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
-import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
@@ -48,11 +47,7 @@ export class GameEnd {
     };
 
     const gameTime = GameRules.GetGameTime();
-    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(
-      difficulty,
-      ApiClient.IsLocalhost(),
-      GameRules.Option,
-    );
+    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(difficulty, GameRules.Option);
 
     const players: GameEndPlayerDto[] = [];
     // Pre-collect steamIds to determine real player count for team game check

@@ -3,7 +3,6 @@ import {
   DailyTaskHistoryEntryDto,
   TaskCandidateDto,
 } from '../../../common/dto/daily-task';
-import { ApiClient } from '../../api/api-client';
 import { DailyTaskStartDto } from '../../api/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { EnvironmentHelper } from '../helper/environment-helper';
@@ -36,7 +35,7 @@ export class DailyTask {
 
   // 地图类型开局就已经确定，不用等玩家把难度投完票，判断能保证一次成功
   IsDailyTaskEnabled(): boolean {
-    if (EnvironmentHelper.IsInvalidGameEnvironment(ApiClient.IsLocalhost())) {
+    if (EnvironmentHelper.IsInvalidGameEnvironment()) {
       return false;
     }
     return GetMapName() !== 'custom';

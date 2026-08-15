@@ -62,8 +62,8 @@ export class GameEndPoint {
     return Math.round(points);
   }
 
-  static GetDifficultyMultiplier(difficulty: number, isLocalhost: boolean, option: Option): number {
-    if (EnvironmentHelper.IsInvalidGameEnvironment(isLocalhost)) {
+  static GetDifficultyMultiplier(difficulty: number, option: Option): number {
+    if (EnvironmentHelper.IsInvalidGameEnvironment()) {
       return 0;
     }
 
