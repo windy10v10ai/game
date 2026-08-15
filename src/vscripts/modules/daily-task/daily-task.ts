@@ -1,5 +1,4 @@
-import { DailyTaskResultDto } from '../../../common/dto/daily-task';
-import { DailyTaskStartDto } from '../../api/daily-task';
+import { DailyTaskResultDto, DailyTaskStartDto } from '../../../common/dto/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
