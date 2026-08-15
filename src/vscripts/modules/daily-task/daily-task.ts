@@ -40,8 +40,11 @@ export class DailyTask {
   }
 
   IsDailyTaskEnabled(): boolean {
-    if (GameRules.IsCheatMode() || ApiClient.IsLocalhost()) {
-      return false;
+    // 工具模式下忽略作弊/localhost，避免开发调试时被误判为禁用，与 GetDifficultyMultiplier 处理方式一致
+    if (!IsInToolsMode()) {
+      if (GameRules.IsCheatMode() || ApiClient.IsLocalhost()) {
+        return false;
+      }
     }
     const difficulty = CustomNetTables.GetTableValue('game_difficulty', 'all')?.difficulty ?? 0;
     return difficulty >= PRESET_DIFFICULTY_MIN && difficulty <= PRESET_DIFFICULTY_MAX;

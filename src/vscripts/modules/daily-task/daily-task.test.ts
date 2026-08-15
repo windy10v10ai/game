@@ -22,6 +22,9 @@ global.CustomNetTables = {
 const mockIsCheatMode = jest.fn(() => false);
 global.GameRules = { IsCheatMode: () => mockIsCheatMode() };
 
+const mockIsInToolsMode = jest.fn(() => false);
+global.IsInToolsMode = () => mockIsInToolsMode();
+
 const mockGetSelectedHeroName = jest.fn((_playerId: number) => 'npc_dota_hero_lina');
 global.PlayerResource = {
   GetSelectedHeroName: (playerId: number) => mockGetSelectedHeroName(playerId),
@@ -68,6 +71,7 @@ describe('DailyTask', () => {
     for (const k of Object.keys(netTable)) delete netTable[k];
     mockIsCheatMode.mockReturnValue(false);
     mockIsLocalhost.mockReturnValue(false);
+    mockIsInToolsMode.mockReturnValue(false);
     mockGetSelectedHeroName.mockReturnValue('npc_dota_hero_lina');
     mockReadTaskMetric.mockReset();
     netTable['game_difficulty'] = { all: { difficulty: 3 } };
@@ -100,6 +104,20 @@ describe('DailyTask', () => {
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
       netTable['game_difficulty'] = { all: { difficulty: 8 } };
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
+    });
+
+    it('工具模式下忽略作弊/localhost，仍按难度判定', () => {
+      mockIsInToolsMode.mockReturnValue(true);
+      mockIsCheatMode.mockReturnValue(true);
+      mockIsLocalhost.mockReturnValue(true);
+      expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
+    });
+
+    it('工具模式下 difficulty 超出 1~8 仍然禁用', () => {
+      mockIsInToolsMode.mockReturnValue(true);
+      mockIsCheatMode.mockReturnValue(true);
+      netTable['game_difficulty'] = { all: { difficulty: 0 } };
+      expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
   });
 
