@@ -416,10 +416,11 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 ## Implementation Style
 
-代码改动保持最小化，优先用最简单的机制实现：
+代码改动保持最小化，优先用最简单的机制实现，遵循 DRY（不重复自己）、KISS（保持简单）、YAGNI（不做用不上的设计）：
 
 - 复用一个字符串事件，而不是新增自定义事件
 - 避免过度还原、过度分析
+- 多处需要相同逻辑（尤其是要求口径一致的计算）时提取共享函数，不要各自维护一份；调用方各自实现一遍容易在后续修改时只改一处、悄悄产生口径分歧
 
 ## 注释规约
 
