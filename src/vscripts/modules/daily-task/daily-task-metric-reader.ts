@@ -1,8 +1,8 @@
-import { normalizeControlTime } from '../event/game-end/game-end-point';
 import { PlayerHelper } from '../helper/player-helper';
 
 /**
- * 10 个指标全部来自 PlayerResource 原生 API，局内展示与结算判定各调一次，没有采集代码。
+ * 按 metric 读取该玩家当前的任务指标值，供候选展示与达标判定复用。
+ * 10 个指标全部来自 PlayerResource 原生 API，没有采集代码。
  * metric 为未知值（老客户端遇到新任务池）时返回 undefined，调用方按未知任务保护处理。
  */
 export function ReadTaskMetric(playerId: PlayerID, metric: string): number | undefined {
@@ -24,7 +24,7 @@ export function ReadTaskMetric(playerId: PlayerID, metric: string): number | und
     case 'damage_taken':
       return PlayerHelper.GetDamageTaken(playerId);
     case 'stun_duration':
-      return normalizeControlTime(PlayerResource.GetStuns(playerId));
+      return PlayerHelper.GetStuns(playerId);
     case 'roshan_kills':
       return PlayerResource.GetRoshanKills(playerId);
     default:

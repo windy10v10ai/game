@@ -47,7 +47,7 @@ export class DailyTask {
     return GetMapName() !== 'custom';
   }
 
-  /** /game/start 响应解析后调用，dto 由 game.ts 按 steamId 匹配出 playerId 后传入 */
+  /** 用 /game/start 下发的候选与历史初始化本局任务状态，playerId 由 game.ts 按 steamId 匹配后传入 */
   SetStartData(playerId: PlayerID, dto: DailyTaskStartDto): void {
     this.state.set(playerId, {
       candidates: dto.candidates,
@@ -59,7 +59,7 @@ export class DailyTask {
     this.setDailyTaskTable(playerId);
   }
 
-  /** 未知 taskId（不在当前候选里）直接忽略，不崩溃、不影响已选状态 */
+  /** 玩家选择一个候选任务，记录进本地状态；未知 taskId（不在当前候选里）直接忽略，不崩溃、不影响已选状态 */
   SelectCandidate(playerId: PlayerID, taskId: string): void {
     const state = this.state.get(playerId);
     if (!state) {

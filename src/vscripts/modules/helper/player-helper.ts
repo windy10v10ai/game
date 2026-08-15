@@ -1,3 +1,5 @@
+import { normalizeControlTime } from '../event/game-end/game-end-point';
+
 export class PlayerHelper {
   static IsHumanPlayer(npc: CDOTA_BaseNPC | undefined): boolean {
     if (npc && npc.IsRealHero()) {
@@ -105,5 +107,9 @@ export class PlayerHelper {
     );
     const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
     return Math.max(0, PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal);
+  }
+
+  static GetStuns(playerId: PlayerID): number {
+    return normalizeControlTime(PlayerResource.GetStuns(playerId));
   }
 }
