@@ -36,7 +36,7 @@ export class DailyTask {
 
   // 地图类型开局就已经确定，不用等玩家把难度投完票，判断能保证一次成功
   IsDailyTaskEnabled(): boolean {
-    if (!EnvironmentHelper.IsValidGameEnvironment(ApiClient.IsLocalhost())) {
+    if (EnvironmentHelper.IsInvalidGameEnvironment(ApiClient.IsLocalhost())) {
       return false;
     }
     return GetMapName() !== 'custom';

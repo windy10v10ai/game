@@ -63,7 +63,7 @@ export class GameEndPoint {
   }
 
   static GetDifficultyMultiplier(difficulty: number, isLocalhost: boolean, option: Option): number {
-    if (!EnvironmentHelper.IsValidGameEnvironment(isLocalhost)) {
+    if (EnvironmentHelper.IsInvalidGameEnvironment(isLocalhost)) {
       return 0;
     }
 
