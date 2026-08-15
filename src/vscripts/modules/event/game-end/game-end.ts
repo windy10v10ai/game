@@ -98,7 +98,7 @@ export class GameEnd {
         awaken: isAwakened(hero) ? 1 : 0,
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
-      const rawBattlePoints = this.CalculatePlayerBattlePoints(
+      const baseBattlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
         difficultyMultiplier,
         winnerTeamId,
@@ -111,9 +111,9 @@ export class GameEnd {
       const conductPoint = playerInfo?.conductPoint ?? 100;
       const conductMultiplier = this.GetConductMultiplier(conductPoint, isTeamGame);
       // 对局积分 = 原始积分 × 行为分倍率（向上取整 0），不含每日任务奖励
-      const matchPoints = Math.max(0, Math.round(rawBattlePoints * conductMultiplier));
+      const matchPoints = Math.max(0, Math.round(baseBattlePoints * conductMultiplier));
       // 行为分倍率造成的增减（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
-      const conductDelta = matchPoints - rawBattlePoints;
+      const conductDelta = matchPoints - baseBattlePoints;
 
       // 掉线玩家不结算每日任务，哪怕退出前指标已达标
       const dailyTaskCompletion = playerDto.isDisconnected
@@ -129,9 +129,7 @@ export class GameEnd {
 
       print(
         `[GameEnd] player ${playerId} steamId=${playerDto.steamId} ` +
-          `raw=${rawBattlePoints} conductPoint=${conductPoint} multiplier=${conductMultiplier} ` +
-          `match=${matchPoints} dailyTaskPoints=${dailyTaskPoints} total=${playerDto.battlePoints} ` +
-          `conductDelta=${conductDelta}`,
+          `base=${baseBattlePoints} dailyTaskPoints=${dailyTaskPoints} total=${playerDto.battlePoints}`,
       );
 
       // 结算界面数据：points 是最终积分，conductDelta 仅用于括号展示
