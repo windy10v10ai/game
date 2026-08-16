@@ -160,6 +160,28 @@ describe('DailyTask', () => {
     });
   });
 
+  describe('GetSelectedCandidate（只读查询选中候选）', () => {
+    beforeEach(() => {
+      dailyTask.SetStartData(PLAYER_ID, {
+        steamId: 111,
+        dayId: '20260815',
+        candidates: [GENERAL_CANDIDATE, HERO_CANDIDATE],
+        completedTasks: [],
+        todaySeasonPoint: 0,
+        history: [],
+      });
+    });
+
+    it('未选择候选时返回 undefined', () => {
+      expect(dailyTask.GetSelectedCandidate(PLAYER_ID)).toBeUndefined();
+    });
+
+    it('已选择候选时返回完整候选，不判定是否完成', () => {
+      dailyTask.SelectCandidate(PLAYER_ID, GENERAL_CANDIDATE.taskId);
+      expect(dailyTask.GetSelectedCandidate(PLAYER_ID)).toEqual(GENERAL_CANDIDATE);
+    });
+  });
+
   describe('EvaluateCompletion（达标判定）', () => {
     beforeEach(() => {
       dailyTask.SetStartData(PLAYER_ID, {
