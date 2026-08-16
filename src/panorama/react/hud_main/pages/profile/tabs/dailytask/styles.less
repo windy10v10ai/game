@@ -38,6 +38,12 @@
   text-shadow: @text-shadow-soft;
 }
 
+// 撑满标题盒子下方的剩余空间，让提示卡/候选行能在这层里居中，而不是贴着标题、下方留一大片空白
+.dailytask-body {
+  width: 100%;
+  height: fill-parent-flow(1);
+}
+
 .dailytask-hint {
   max-width: 640px;
   horizontal-align: center;

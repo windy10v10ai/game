@@ -47,24 +47,26 @@ export function DailyTaskTab() {
           text={subtitleText}
         />
       </Panel>
-      <Label
-        className="dailytask-hint"
-        style={{ visibility: showHint ? 'visible' : 'collapse' }}
-        text={hintText}
-      />
-      <Panel
-        className="dailytask-candidate-row"
-        style={{ visibility: showHint ? 'collapse' : 'visible' }}
-      >
-        {displayCandidates.map(({ candidate, title }) => (
-          <TaskCandidateCard
-            key={candidate.taskId}
-            candidate={candidate}
-            title={title}
-            selected={candidate.taskId === dailyTask?.selectedTaskId}
-            onSelect={handleSelect}
-          />
-        ))}
+      <Panel className="dailytask-body">
+        <Label
+          className="dailytask-hint"
+          style={{ visibility: showHint ? 'visible' : 'collapse' }}
+          text={hintText}
+        />
+        <Panel
+          className="dailytask-candidate-row"
+          style={{ visibility: showHint ? 'collapse' : 'visible' }}
+        >
+          {displayCandidates.map(({ candidate, title }) => (
+            <TaskCandidateCard
+              key={candidate.taskId}
+              candidate={candidate}
+              title={title}
+              selected={candidate.taskId === dailyTask?.selectedTaskId}
+              onSelect={handleSelect}
+            />
+          ))}
+        </Panel>
       </Panel>
     </Panel>
   );
