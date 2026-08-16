@@ -153,6 +153,14 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
+  it('谜团觉醒替换黑洞并继承原等级', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_enigma',
+      abilities: [{ name: 'enigma_black_hole', level: 3 }],
+    });
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([{ name: 'enigma_black_hole_awakened', level: 3 }]);
+  });
   it('上古巨神觉醒替换二技能并继承原等级', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_elder_titan',

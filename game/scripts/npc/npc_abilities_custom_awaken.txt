@@ -5,6 +5,49 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 谜团 觉醒
+	"enigma_black_hole_awakened"
+	{
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ts_abilities/enigma_black_hole_awakened"
+		"AbilityTextureName"			"enigma_black_hole"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"MaxLevel"					"4"
+		"AbilityManaCost"				"300 400 500 600"
+		"AbilityCooldown"				"120"
+		"HasScepterUpgrade"			"1"
+
+		"precache"
+		{
+			"particle"					"particles/enigma_black_hole_awakened_aura.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			// 运行时以隐藏的原版黑洞 damage 为真相源；以下两项仅用于 Tooltip 逐级展示。
+			"original_damage"
+			{
+				"value"						"100 150 200 250"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PURE"
+			}
+			"alternate_damage"
+			{
+				"value"						"50 75 100 125"
+				"CalculateSpellDamageTooltip"	"1"
+				"DamageTypeTooltip"			"DAMAGE_TYPE_PURE"
+			}
+			"alternate_damage_pct"		"50"
+			"residence_duration"			"5"
+			"control_duration"			"2"
+			"tick_interval"				"0.25"
+		}
+	}
+
 	// 亚巴顿 觉醒
 	"special_bonus_unique_abaddon_quickening_awaken"
 	{

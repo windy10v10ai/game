@@ -61,4 +61,32 @@ describe('DragonWishFilter', () => {
 
     expect(orderFilter(createOrder())).toBe(true);
   });
+
+  it('blocks enabling Enigma alternate cast while either Black Hole is cooling down', () => {
+    const enigma = {
+      GetAbilityName: () => 'enigma_black_hole_awakened',
+      GetAutoCastState: () => false,
+      GetCooldownTimeRemaining: () => 0,
+      GetCaster: () => ({
+        IsChanneling: () => false,
+        FindAbilityByName: () => ({ GetCooldownTimeRemaining: () => 1 }),
+      }),
+    };
+    entities[1] = enigma;
+    const order = createOrder();
+    order.order_type = UnitOrder.CAST_TOGGLE_AUTO;
+    expect(orderFilter(order)).toBe(false);
+  });
+
+  it('allows disabling Enigma alternate cast during cooldown', () => {
+    entities[1] = {
+      GetAbilityName: () => 'enigma_black_hole_awakened',
+      GetAutoCastState: () => true,
+      GetCooldownTimeRemaining: () => 10,
+      GetCaster: () => ({ IsChanneling: () => false, FindAbilityByName: () => undefined }),
+    };
+    const order = createOrder();
+    order.order_type = UnitOrder.CAST_TOGGLE_AUTO;
+    expect(orderFilter(order)).toBe(true);
+  });
 });
