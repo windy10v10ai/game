@@ -398,6 +398,25 @@
   font-size: 14px;
 }
 
+.DailyTaskBadge {
+  margin-left: 4px;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.DailyTaskBadgeValue {
+  font-size: 14px;
+  color: #9b5de0;
+  text-shadow: 1px 1px 3px 3 #000;
+  brightness: 2;
+  vertical-align: center;
+  horizontal-align: center;
+}
+
+.AspectRatio4x3 .DailyTaskBadgeValue {
+  font-size: 12px;
+}
+
 .AspectRatio4x3 .PtsColumn > Image {
   width: 30px;
   height: 35px;

@@ -1,5 +1,5 @@
 import { TaskCandidateDto } from '../../../../../../../common/dto/daily-task';
-import { getDisplayCandidates, getTaskTitle } from './dailytask-ui';
+import { getDisplayCandidates, getMetricShortLabel, getTaskTitle } from './dailytask-ui';
 
 const TEMPLATES: Record<string, string> = {
   '#dailytask_task_general_kills': '本局击杀英雄达到 {target} 次',
@@ -65,6 +65,25 @@ describe('getTaskTitle', () => {
       "本局击杀 <font color='#FFFFFF'><b>2</b></font> 次肉山",
     );
     expect(getTaskTitle(heroCandidate, 'schinese', localize)).toBeUndefined();
+  });
+});
+
+describe('getMetricShortLabel', () => {
+  const metricTemplates: Record<string, string> = { '#dailytask_metric_short_kills': '击杀' };
+  const metricLocalize = (key: string): string => metricTemplates[key] ?? key;
+
+  it('已知 metric 返回简短标签', () => {
+    expect(getMetricShortLabel('kills', metricLocalize)).toBe('击杀');
+  });
+
+  it('本地化模板缺失时返回 undefined', () => {
+    expect(getMetricShortLabel('assists', metricLocalize)).toBeUndefined();
+  });
+
+  it('未识别的 metric 返回 undefined', () => {
+    expect(
+      getMetricShortLabel('unknown_metric' as TaskCandidateDto['metric'], metricLocalize),
+    ).toBeUndefined();
   });
 });
 

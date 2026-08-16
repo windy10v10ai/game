@@ -67,3 +67,33 @@ export function getDisplayCandidates(
   }
   return result;
 }
+
+/** history[].dayId 是 'YYYYMMDD'，格式化成 'MM-DD' 用于历史列表展示 */
+export function formatHistoryDate(dayId: string): string {
+  if (!/^\d{8}$/.test(dayId)) return dayId;
+  return `${dayId.slice(4, 6)}-${dayId.slice(6, 8)}`;
+}
+
+const METRIC_SHORT_LABEL_KEYS: Record<TaskMetric, string> = {
+  kills: '#dailytask_metric_short_kills',
+  assists: '#dailytask_metric_short_assists',
+  last_hits: '#dailytask_metric_short_last_hits',
+  tower_kills: '#dailytask_metric_short_tower_kills',
+  hero_damage: '#dailytask_metric_short_hero_damage',
+  healing: '#dailytask_metric_short_healing',
+  total_gold_earned: '#dailytask_metric_short_total_gold_earned',
+  damage_taken: '#dailytask_metric_short_damage_taken',
+  stun_duration: '#dailytask_metric_short_stun_duration',
+  roshan_kills: '#dailytask_metric_short_roshan_kills',
+};
+
+/** 历史行槽位下方的简短指标标签；metric 不认识（本地化模板缺失）时返回 undefined */
+export function getMetricShortLabel(
+  metric: TaskMetric,
+  localize: (key: string) => string,
+): string | undefined {
+  const key = METRIC_SHORT_LABEL_KEYS[metric];
+  if (!key) return undefined;
+  const label = localize(key);
+  return label === key ? undefined : label;
+}

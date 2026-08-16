@@ -138,6 +138,29 @@ function Snippet_Player(playerId, rootPanel, index) {
     }
   }
 
+  const dailyTaskBadge = panel.FindChildTraverse('DailyTaskBadge');
+  if (dailyTaskBadge) {
+    const dailyTask = playerData?.dailyTask;
+    if (dailyTask) {
+      const dailyTaskValueLabel = dailyTaskBadge.FindChildTraverse('DailyTaskBadgeValue');
+      if (dailyTaskValueLabel) dailyTaskValueLabel.text = '+' + dailyTask.rewardSeasonPoint;
+      dailyTaskBadge.visible = true;
+      dailyTaskBadge.SetPanelEvent('onmouseover', () => {
+        const tooltipText = BuildDailyTaskTooltip(dailyTask);
+        if (tooltipText) {
+          $.DispatchEvent('DOTAShowTextTooltip', dailyTaskBadge, tooltipText);
+        }
+      });
+      dailyTaskBadge.SetPanelEvent('onmouseout', () => {
+        $.DispatchEvent('DOTAHideTextTooltip');
+      });
+    } else {
+      dailyTaskBadge.visible = false;
+      dailyTaskBadge.ClearPanelEvent('onmouseover');
+      dailyTaskBadge.ClearPanelEvent('onmouseout');
+    }
+  }
+
   panel.SetDialogVariableInt('strength', playerData?.str ?? 0);
   panel.SetDialogVariableInt('agility', playerData?.agi ?? 0);
   panel.SetDialogVariableInt('intellect', playerData?.int ?? 0);
@@ -190,6 +213,23 @@ function Snippet_Player(playerId, rootPanel, index) {
       CreateAbilityImage(abilitiesContainer, lotteryStatus.passiveAbilityName2);
     }
   }
+}
+
+/**
+ * 结算页每日任务 tooltip 文案，复用候选卡的本地化 key（#dailytask_task_<scope>_<metric>）。
+ * 与 dailytask-ui.ts 的 getTaskTitle 逻辑一致，但这里走独立于 webpack/TSTL 的旧版 Panorama 脚本管线，无法直接共享。
+ *
+ * @param {Object} candidate TaskCandidateDto
+ * @returns {string|null} 未知 metric（本地化模板缺失）时返回 null
+ */
+function BuildDailyTaskTooltip(candidate) {
+  const scopeKey = candidate.scope === 'personal_hero' ? 'hero' : 'general';
+  const key = '#dailytask_task_' + scopeKey + '_' + candidate.metric;
+  const template = $.Localize(key);
+  if (template === key) return null;
+  const hero = candidate.heroName ? $.Localize('#' + candidate.heroName) : '';
+  const target = String(candidate.target).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return template.replace(/\{hero\}/g, hero).replace(/\{target\}/g, target);
 }
 
 function CreateAbilityImage(abilitiesContainer, abilityName) {

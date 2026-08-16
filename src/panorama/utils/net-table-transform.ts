@@ -83,4 +83,5 @@ export const transformDailyTask = createTransform<DailyTaskNetTableEntry>({
   enabled: { type: 'boolean' },
   candidates: { type: 'array' },
   completedTasks: { type: 'array' },
+  history: { type: 'array' },
 });

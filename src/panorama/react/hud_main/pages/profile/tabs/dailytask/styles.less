@@ -1,5 +1,19 @@
-// 每日任务 Tab 样式：候选卡 + 星级徽章
+// 每日任务 Tab 样式：候选卡 + 星级徽章 + 历史面板
 @import "../../../../../shared/styles/tokens.less";
+
+// 左侧 SubTabNavigation + 右侧内容区；两个子页（候选/历史）都需要占满可用高度，
+// 因此不用 member-layout 的 fit-children——候选页的 body 要靠 fill-parent-flow(1) 撑满剩余空间
+.dailytask-layout {
+  width: 100%;
+  height: 100%;
+  flow-children: right;
+}
+
+.dailytask-content {
+  width: fill-parent-flow(1);
+  height: 100%;
+  flow-children: down;
+}
 
 .dailytask-root {
   width: 100%;
@@ -163,4 +177,137 @@
   font-weight: bold;
   color: @color-gold;
   text-shadow: 1px 1px 3px #000000ee;
+}
+
+// ============================================================
+// 历史子页
+// ============================================================
+
+.dailytask-history-root {
+  width: 100%;
+  height: 100%;
+  flow-children: down;
+}
+
+.dailytask-history-title {
+  width: 100%;
+  text-align: left;
+  font-size: @font-size-xl;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: @text-shadow-soft;
+  margin: 0px 6px 16px;
+}
+
+// 列头与下方行共用同一套列宽（date / tasks / points），保证纵向对齐
+.dailytask-history-header {
+  width: 100%;
+  flow-children: right;
+  padding: 0px 16px;
+  margin-bottom: 6px;
+}
+
+.dailytask-history-header-date {
+  width: 90px;
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+}
+
+.dailytask-history-header-tasks {
+  min-width: 220px;
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+}
+
+.dailytask-history-header-points {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+}
+
+// 撑满剩余高度并纵向滚动，行数随天数增长（最多 30 天）
+.dailytask-history-list {
+  width: 100%;
+  height: fill-parent-flow(1);
+  flow-children: down;
+  overflow: squish scroll;
+}
+
+.dailytask-history-row {
+  .stats-card;
+  width: 100%;
+  height: 84px;
+  flow-children: right;
+  padding: 0px 16px;
+  margin: 0px 0px 8px;
+  vertical-align: center;
+}
+
+// 今日进行中的记录用金色描边区分，与 dailytask-card-selected 同款手法但不加光晕
+.dailytask-history-row-today {
+  border: 1px solid @color-gold;
+}
+
+.dailytask-history-date {
+  width: 90px;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+}
+
+// min-width 保证只有 1~2 个任务时也占住 3 槽位的宽度，积分列不会跟着左右跳动；
+// 不加两侧留白让它居中——槽位从左侧（日期后）开始排，与列头 tasks 列左对齐
+.dailytask-history-slots {
+  min-width: 280px;
+  flow-children: right;
+}
+
+// 固定宽度的轮次槽位：未完成的轮次留空，保证每行对齐一致，不随完成轮数多少变形
+.dailytask-history-slot {
+  width: 84px;
+  height: 64px;
+  flow-children: down;
+  horizontal-align: center;
+  vertical-align: center;
+  margin-right: 10px;
+}
+
+// 头像+星级同一行，与候选卡 dailytask-card-header-left 手法一致
+.dailytask-history-slot-top {
+  flow-children: right;
+  horizontal-align: center;
+  vertical-align: center;
+}
+
+.dailytask-history-slot-hero {
+  width: 22px;
+  height: 22px;
+  vertical-align: center;
+  margin-right: 4px;
+  border-radius: @radius-sm;
+}
+
+.dailytask-history-slot-star {
+  font-size: @font-size-md;
+  color: @color-gold;
+  vertical-align: center;
+  text-shadow: @text-shadow-soft;
+}
+
+.dailytask-history-slot-metric {
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  horizontal-align: center;
+  margin-top: 2px;
+}
+
+.dailytask-history-spacer {
+  width: fill-parent-flow(1);
+}
+
+.dailytask-history-points {
+  font-size: @font-size-lg;
+  font-weight: bold;
+  color: @color-accent;
+  text-shadow: @text-shadow-soft;
 }
