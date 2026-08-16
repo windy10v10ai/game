@@ -22,6 +22,9 @@ global.CustomNetTables = {
 const mockIsCheatMode = jest.fn(() => false);
 global.GameRules = { IsCheatMode: () => mockIsCheatMode() };
 
+// 进度推送定时器只需占位防崩，回调不在单测里跑
+global.Timers = { CreateTimer: jest.fn() };
+
 const mockIsInToolsMode = jest.fn(() => false);
 global.IsInToolsMode = () => mockIsInToolsMode();
 

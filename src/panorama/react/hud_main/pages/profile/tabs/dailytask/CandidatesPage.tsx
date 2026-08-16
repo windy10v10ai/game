@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
-import { TOTAL_ROUNDS_PER_DAY } from './constants';
-import { getDisplayCandidates } from './dailytask-ui';
+import { getDisplayCandidates, TOTAL_ROUNDS_PER_DAY } from './dailytask-ui';
 import { TaskCandidateCard } from './TaskCandidateCard';
 
 /**

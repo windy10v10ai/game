@@ -1,4 +1,5 @@
 // hud_main 容器外壳样式（页面级 modal 样式由 shared/styles/dialog.less 提供）
+@import "../shared/styles/tokens.less";
 
 .root {
   width: 100%;
@@ -11,4 +12,77 @@
   vertical-align: top;
   margin-left: 100px;
   margin-top: 8px;
+}
+
+/* 局内每日任务进度浮窗：顶部留白 45px 避开 FPS 显示与顶部英雄栏；
+   跟随 HUD 翻转换边，与 battlepass 的紫色主页按钮恒定异侧 */
+.dailytask-hud {
+  vertical-align: top;
+  horizontal-align: right;
+  margin-top: 45px;
+  margin-right: 20px;
+  flow-children: right;
+  padding: 3px 10px;
+  border-radius: @radius-md;
+  background-color: @color-bg-tint-strong;
+  border: 1px solid @color-gold-muted-soft;
+  transition-property: background-color, border;
+  transition-duration: @transition-fast;
+}
+
+.HUDFlipped .dailytask-hud {
+  horizontal-align: left;
+  margin-right: 0px;
+  margin-left: 20px;
+}
+
+.dailytask-hud:hover {
+  background-color: #000000cc;
+  border: 1px solid @color-gold-muted;
+}
+
+.dailytask-hud-hero {
+  width: 26px;
+  height: 26px;
+  vertical-align: center;
+  margin-right: @spacing-xs;
+  border-radius: @radius-sm;
+}
+
+.dailytask-hud-star {
+  vertical-align: center;
+  font-size: @font-size-sm;
+  letter-spacing: 1px;
+  color: @color-gold;
+  margin-right: @spacing-xs;
+  text-shadow: @text-shadow-soft;
+}
+
+.dailytask-hud-text {
+  vertical-align: center;
+  font-size: @font-size-md;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+}
+
+/* 未领取：金边加金字，提醒还有任务没选 */
+.dailytask-hud-unclaimed {
+  border: 1px solid @color-gold;
+}
+
+.dailytask-hud-unclaimed .dailytask-hud-text {
+  color: @color-gold;
+}
+
+/* 英雄不符：这局已经拿不到，整体压暗 */
+.dailytask-hud-mismatch {
+  opacity: 0.55;
+}
+
+.dailytask-hud-mismatch .dailytask-hud-text {
+  color: @color-text-muted;
+}
+
+.dailytask-hud-completed .dailytask-hud-text {
+  color: @color-gold;
 }

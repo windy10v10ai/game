@@ -1,6 +1,9 @@
 import { TaskCandidateDto, TaskMetric } from '../../../../../../../common/dto/daily-task';
 import { formatStatNumber } from '../../../../../shared/utils/format-stat-number';
 
+// 每天轮数，服务端当前默认值（spec 3.1），DTO 不下发，改动不影响契约
+export const TOTAL_ROUNDS_PER_DAY = 3;
+
 // roshan_kills 单局归属唯一，不适合做英雄专属任务，只保留在通用任务里（spec 12.2）
 const HERO_METRICS: readonly TaskMetric[] = [
   'kills',
