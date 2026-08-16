@@ -443,8 +443,7 @@
 		///////////////////////////////////////////////////
 		"profile_tab_dailytask"			"每日任务"
 		"dailytask_header_title"			"我的每日任务"
-		"dailytask_header_round"			"第 {round}/{total} 轮"
-		"dailytask_header_subtitle"			"请选择本轮任务"
+		"dailytask_header_subtitle"			"请选择第 {round}/{total} 轮任务"
 		"dailytask_reward_hint"			"+{n} 勇士积分"
 		"dailytask_select_button"			"领取任务"
 		"dailytask_selected_label"			"已领取"

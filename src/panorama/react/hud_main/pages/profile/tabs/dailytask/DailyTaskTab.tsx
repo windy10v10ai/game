@@ -32,7 +32,7 @@ export function DailyTaskTab() {
     : allDone
       ? '#dailytask_all_done_hint'
       : '#dailytask_empty_hint';
-  const roundText = $.Localize('#dailytask_header_round')
+  const subtitleText = $.Localize('#dailytask_header_subtitle')
     .replace('{round}', String(currentRound))
     .replace('{total}', String(TOTAL_ROUNDS_PER_DAY));
   const hintText = $.Localize(hintKey).replace('{total}', String(TOTAL_ROUNDS_PER_DAY));
@@ -41,11 +41,10 @@ export function DailyTaskTab() {
     <Panel className="dailytask-root">
       <Panel className="dailytask-header-box">
         <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
-        <Label className="dailytask-header-round" text={roundText} />
         <Label
           className="dailytask-header-subtitle"
           style={{ visibility: showHint ? 'collapse' : 'visible' }}
-          text={$.Localize('#dailytask_header_subtitle')}
+          text={subtitleText}
         />
       </Panel>
       <Label

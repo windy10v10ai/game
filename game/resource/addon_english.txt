@@ -443,8 +443,7 @@
 		///////////////////////////////////////////////////
 		"profile_tab_dailytask"			"Tasks"
 		"dailytask_header_title"			"My Daily Tasks"
-		"dailytask_header_round"			"Round {round}/{total}"
-		"dailytask_header_subtitle"			"Choose a task for this round"
+		"dailytask_header_subtitle"			"Choose your task for round {round}/{total}"
 		"dailytask_reward_hint"			"+{n} Battle Points"
 		"dailytask_select_button"			"Claim Task"
 		"dailytask_selected_label"			"Claimed"

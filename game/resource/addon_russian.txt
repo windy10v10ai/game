@@ -337,8 +337,7 @@
 		///////////////////////////////////////////////////
 		"profile_tab_dailytask"			"Задания"
 		"dailytask_header_title"			"Мои ежедневные задания"
-		"dailytask_header_round"			"Раунд {round}/{total}"
-		"dailytask_header_subtitle"			"Выберите задание для этого раунда"
+		"dailytask_header_subtitle"			"Выберите задание для раунда {round}/{total}"
 		"dailytask_reward_hint"			"+{n} Battle Points"
 		"dailytask_select_button"			"Принять задание"
 		"dailytask_selected_label"			"Принято"
