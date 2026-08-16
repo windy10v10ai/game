@@ -59,6 +59,9 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
+    "setupFiles": [
+      "<rootDir>/src/scripts/jest.setup.js"
+    ],
     "moduleNameMapper": {
       "^@utils/(.*)$": "<rootDir>/src/panorama/react/utils/$1"
     },

@@ -2,10 +2,6 @@ import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { Option } from '../../option';
 import { GameEndPoint, normalizeControlTime } from './game-end-point';
 
-export function IsInToolsMode(): boolean {
-  return true;
-}
-
 describe('GameEndPoint', () => {
   // 创建基础玩家数据
   const createBasePlayer = (overrides: Partial<GameEndPlayerDto> = {}): GameEndPlayerDto => ({
