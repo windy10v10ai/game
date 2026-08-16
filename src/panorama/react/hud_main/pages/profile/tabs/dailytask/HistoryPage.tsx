@@ -27,11 +27,12 @@ export function HistoryPage() {
   return (
     <Panel className="dailytask-history-root">
       <Label className="dailytask-history-title" text={$.Localize('#dailytask_subtab_history')} />
-      <Label
+      <Panel
         className="dailytask-hint"
         style={{ visibility: entries.length === 0 ? 'visible' : 'collapse' }}
-        text={$.Localize('#dailytask_history_empty_hint')}
-      />
+      >
+        <Label className="dailytask-hint-text" text={$.Localize('#dailytask_history_empty_hint')} />
+      </Panel>
       <Panel
         className="dailytask-history-header"
         style={{ visibility: entries.length === 0 ? 'collapse' : 'visible' }}

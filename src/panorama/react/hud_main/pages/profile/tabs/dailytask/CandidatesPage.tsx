@@ -46,11 +46,9 @@ export function CandidatesPage() {
         />
       </Panel>
       <Panel className="dailytask-body">
-        <Label
-          className="dailytask-hint"
-          style={{ visibility: showHint ? 'visible' : 'collapse' }}
-          text={hintText}
-        />
+        <Panel className="dailytask-hint" style={{ visibility: showHint ? 'visible' : 'collapse' }}>
+          <Label className="dailytask-hint-text" text={hintText} />
+        </Panel>
         <Panel
           className="dailytask-candidate-row"
           style={{ visibility: showHint ? 'collapse' : 'visible' }}
