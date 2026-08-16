@@ -81,9 +81,9 @@
 .dailytask-heroselect {
   horizontal-align: left;
   vertical-align: bottom;
-  margin-left: 450px;
-  margin-bottom: 60px;
-  height: 200px;
+  margin-left: 445px;
+  margin-bottom: 50px;
+  height: 160px;
   width: 400px;
   flow-children: down;
 }
@@ -126,14 +126,22 @@
 }
 
 .btn-primary.dailytask-heroselect-select-btn {
-  width: 110px;
-  height: 32px;
+  width: 80px;
+  height: 26px;
+  padding: 0px 6px;
   margin-left: @spacing-sm;
 }
 
+// font-size 写在按钮自身选择器上对 .btn-primary-label 不生效，需要直接选中 label
+.dailytask-heroselect-select-btn .btn-primary-label {
+  font-size: @font-size-xs;
+}
+
 .dailytask-heroselect-claimed-badge {
-  width: 110px;
-  height: 32px;
+  horizontal-align: center;
+  vertical-align: center;
+  width: 80px;
+  height: 26px;
   margin-left: @spacing-sm;
   border: 1px solid @color-gold;
   border-radius: @radius-sm;
@@ -141,7 +149,6 @@
 
 .dailytask-heroselect-claimed-label {
   width: 100%;
-  height: 100%;
   vertical-align: center;
   text-align: center;
   font-size: @font-size-xs;
