@@ -445,6 +445,7 @@
 		"dailytask_header_title"			"我的每日任务"
 		"dailytask_header_subtitle"			"请选择第 {round}/{total} 轮任务"
 		"dailytask_reward_hint"			"+{n} 勇士积分"
+		"dailytask_settlement_tooltip_prefix"		"完成每日任务："
 		"dailytask_select_button"			"领取任务"
 		"dailytask_selected_label"			"已领取"
 		"dailytask_disabled_hint"			"自定义难度、作弊模式或本地主机对局无法参与每日任务"

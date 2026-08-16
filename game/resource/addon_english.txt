@@ -445,6 +445,7 @@
 		"dailytask_header_title"			"My Daily Tasks"
 		"dailytask_header_subtitle"			"Choose your task for round {round}/{total}"
 		"dailytask_reward_hint"			"+{n} Battle Points"
+		"dailytask_settlement_tooltip_prefix"		"Daily Task Completed: "
 		"dailytask_select_button"			"Claim Task"
 		"dailytask_selected_label"			"Claimed"
 		"dailytask_disabled_hint"			"Daily Tasks aren't available with custom difficulty, cheat mode, or localhost matches"

@@ -367,6 +367,14 @@
   align: center center;
 }
 
+.PointsBadgeColumn {
+  flow-children: down;
+  width: fit-children;
+  height: fit-children;
+  margin-left: 4px;
+  vertical-align: center;
+}
+
 .AspectRatio4x3 .PtsColumn {
   width: 58px;
 }
@@ -383,7 +391,7 @@
 
 .PointsModifier {
   font-size: 14px;
-  margin-left: 2px;
+  margin-top: 2px;
 }
 
 .AspectRatio4x3 .PointsValue,
@@ -399,8 +407,6 @@
 }
 
 .DailyTaskBadge {
-  margin-left: 4px;
-  vertical-align: center;
   horizontal-align: center;
 }
 

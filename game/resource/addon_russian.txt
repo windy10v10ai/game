@@ -339,6 +339,7 @@
 		"dailytask_header_title"			"Мои ежедневные задания"
 		"dailytask_header_subtitle"			"Выберите задание для раунда {round}/{total}"
 		"dailytask_reward_hint"			"+{n} Battle Points"
+		"dailytask_settlement_tooltip_prefix"		"Задание дня выполнено: "
 		"dailytask_select_button"			"Принять задание"
 		"dailytask_selected_label"			"Принято"
 		"dailytask_disabled_hint"			"Ежедневные задания недоступны при пользовательской сложности, в чит-режиме или в локальных матчах"
