@@ -145,6 +145,25 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Снижение затрат и потери маны"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Скорость применения"
 
+		// 马格纳斯 两极反转-觉醒
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened"						"<font color='#d000ff'>Обратная полярность: пробуждение</font>"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_Description"			"Magnus изменяет свойства материи, притягивая ближайших врагов перед собой, оглушая их и нанося <font color='#FFE56E'>чистый урон</font>.<br><br>После применения в течение %recast_window% сек. можно применить <font color='#d000ff'>Дважды обратную полярность</font>. Перезарядка начинается после повторного применения или окончания окна."
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_SummaryDescription"	"Притягивает ближайших врагов, наносит чистый урон и оглушает, затем ненадолго позволяет применить способность повторно."
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_pull_radius"			"РАДИУС:"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_polarity_damage"		"ЧИСТЫЙ УРОН:"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_hero_stun_duration"	"ОГЛУШЕНИЕ ГЕРОЕВ:"
+
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened"						"<font color='#d000ff'>Дважды обратная полярность</font>"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_Description"			"Радиально отталкивает врагов от Magnus, нанося <font color='#FFE56E'>чистый урон</font> и оглушая их. Столкнувшись с рельефом, деревом, строением или другим неотталкиваемым существом, враг останавливается и повторно получает тот же урон и оглушение. Каждый враг вызывает эффект столкновения один раз."
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_SummaryDescription"	"Радиально отталкивает врагов, повторно нанося урон и оглушая их при столкновении."
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_radius"		"РАДИУС:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_distance"	"МАКС. ДАЛЬНОСТЬ ТОЛЧКА:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_duration"	"ДЛИТЕЛЬНОСТЬ ТОЛЧКА:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_polarity_damage"	"ЧИСТЫЙ УРОН:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_hero_stun_duration"	"ОГЛУШЕНИЕ ГЕРОЕВ:"
+		"DOTA_Tooltip_modifier_magnataur_reverse_reverse_polarity_window"						"<font color='#d000ff'>Дважды обратная полярность</font>"
+		"DOTA_Tooltip_modifier_magnataur_reverse_reverse_polarity_window_Description"			"Обратную полярность можно применить повторно, чтобы радиально оттолкнуть ближайших врагов. После окончания окна начинается перезарядка."
+
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."

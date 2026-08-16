@@ -1253,6 +1253,25 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 马格纳斯 两极反转-觉醒
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened"						"<font color='#d000ff'>两极反转 觉醒</font>"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_Description"			"马格纳斯改变物质的属性，将附近的敌人牵引至自己前方，造成<font color='#FFE56E'>纯粹伤害</font>并眩晕。<br><br>释放后可在%recast_window%秒内再次施放<font color='#d000ff'>两极反转·再反转</font>。二段释放或窗口过期后，本技能进入冷却。"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_SummaryDescription"	"将附近敌人牵引至前方，造成纯粹伤害并眩晕，随后可在短时间内再次施放。"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_pull_radius"			"作用范围："
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_polarity_damage"		"纯粹伤害："
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_hero_stun_duration"	"英雄眩晕时间："
+
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened"						"<font color='#d000ff'>两极反转·再反转</font>"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_Description"			"以马格纳斯为中心，将范围内的敌人径向推出，造成<font color='#FFE56E'>纯粹伤害</font>并眩晕。被推动的敌人撞上地形、树木、建筑或未被推动的其他单位时停止移动，并再次受到该伤害和眩晕。每个敌人只会触发一次碰撞效果。"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_SummaryDescription"	"将周围敌人径向推出，碰撞障碍时再次造成伤害和眩晕。"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_radius"		"作用范围："
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_distance"	"最远推出距离："
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_duration"	"推动时间："
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_polarity_damage"	"纯粹伤害："
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_hero_stun_duration"	"英雄眩晕时间："
+		"DOTA_Tooltip_modifier_magnataur_reverse_reverse_polarity_window"						"<font color='#d000ff'>两极反转·再反转</font>"
+		"DOTA_Tooltip_modifier_magnataur_reverse_reverse_polarity_window_Description"			"可再次施放两极反转，将周围敌人径向推出。窗口结束后，两极反转进入冷却。"
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"每点攻击速度都会让工程师获得%attack_range_tooltip%攻击距离和攻击弹道速度。"
