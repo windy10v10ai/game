@@ -438,6 +438,40 @@
 
 		///////////////////////////////////////////////////
 		//
+		//			DailyTask
+		//
+		///////////////////////////////////////////////////
+		"profile_tab_dailytask"			"每日任务"
+		"dailytask_header_title"			"我的每日任务"
+		"dailytask_header_subtitle"			"请选择第 {round}/{total} 轮任务"
+		"dailytask_reward_hint"			"+{n} 勇士积分"
+		"dailytask_select_button"			"领取任务"
+		"dailytask_selected_label"			"已领取"
+		"dailytask_disabled_hint"			"自定义难度、作弊模式或本地主机对局无法参与每日任务"
+		"dailytask_empty_hint"			"暂无可选的每日任务，下一局再来看看"
+		"dailytask_all_done_hint"			"今日 {total} 轮任务已全部完成"
+		"dailytask_task_general_kills"			"本局击杀英雄达到 {target} 次"
+		"dailytask_task_general_assists"			"本局助攻达到 {target} 次"
+		"dailytask_task_general_last_hits"			"本局补刀数达到 {target}"
+		"dailytask_task_general_tower_kills"		"本局推掉 {target} 座防御塔"
+		"dailytask_task_general_hero_damage"		"本局对敌方英雄造成 {target} 点伤害"
+		"dailytask_task_general_healing"			"本局治疗友方英雄达到 {target} 点"
+		"dailytask_task_general_total_gold_earned"	"本局总经济达到 {target}"
+		"dailytask_task_general_damage_taken"		"本局承受敌方英雄伤害达到 {target} 点"
+		"dailytask_task_general_stun_duration"		"本局眩晕/缠绕敌方英雄时长达到 {target} 秒"
+		"dailytask_task_general_roshan_kills"		"本局击杀 {target} 次肉山"
+		"dailytask_task_hero_kills"			"使用 {hero} 单局击杀英雄达到 {target} 次"
+		"dailytask_task_hero_assists"			"使用 {hero} 单局助攻达到 {target} 次"
+		"dailytask_task_hero_last_hits"			"使用 {hero} 单局补刀数达到 {target}"
+		"dailytask_task_hero_tower_kills"			"使用 {hero} 单局推掉 {target} 座防御塔"
+		"dailytask_task_hero_hero_damage"			"使用 {hero} 单局对敌方英雄造成 {target} 点伤害"
+		"dailytask_task_hero_healing"			"使用 {hero} 单局治疗友方英雄达到 {target} 点"
+		"dailytask_task_hero_total_gold_earned"	"使用 {hero} 单局总经济达到 {target}"
+		"dailytask_task_hero_damage_taken"			"使用 {hero} 单局承受敌方英雄伤害达到 {target} 点"
+		"dailytask_task_hero_stun_duration"			"使用 {hero} 单局眩晕/缠绕敌方英雄时长达到 {target} 秒"
+
+		///////////////////////////////////////////////////
+		//
 		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////
