@@ -21,7 +21,9 @@
   margin-top: 45px;
   margin-right: 10px;
   flow-children: right;
-  padding: 3px 10px;
+  // 固定行高：英雄图标比文字高，不锁死的话英雄任务与通用任务之间切换会跳动
+  height: 26px;
+  padding: 0px 10px;
   border-radius: @radius-md;
   background-color: @color-bg-tint-strong;
   border: 1px solid @color-gold-muted-soft;
@@ -35,8 +37,8 @@
 }
 
 .dailytask-hud-hero {
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
   vertical-align: center;
   margin-right: @spacing-xs;
   border-radius: @radius-sm;
