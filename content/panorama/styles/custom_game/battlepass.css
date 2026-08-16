@@ -32,13 +32,6 @@ TextEntry.MonoFont {
   margin-left: 200px;
 }
 
-/* 翻转 HUD 时小地图换到右侧，按钮跟着走，与每日任务进度浮窗恒定异侧 */
-.HUDFlipped #BPButtonPanel {
-  horizontal-align: right;
-  margin-left: 0px;
-  margin-right: 200px;
-}
-
 /* 主页按钮 */
 #BPButton {
   width: 140px;

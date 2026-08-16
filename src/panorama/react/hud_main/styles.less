@@ -14,13 +14,12 @@
   margin-top: 8px;
 }
 
-/* 局内每日任务进度浮窗：顶部留白 45px 避开 FPS 显示与顶部英雄栏；
-   跟随 HUD 翻转换边，与 battlepass 的紫色主页按钮恒定异侧 */
+/* 局内每日任务进度浮窗：顶部留白 45px 避开 FPS 显示与顶部英雄栏 */
 .dailytask-hud {
   vertical-align: top;
   horizontal-align: right;
   margin-top: 45px;
-  margin-right: 20px;
+  margin-right: 10px;
   flow-children: right;
   padding: 3px 10px;
   border-radius: @radius-md;
@@ -28,12 +27,6 @@
   border: 1px solid @color-gold-muted-soft;
   transition-property: background-color, border;
   transition-duration: @transition-fast;
-}
-
-.HUDFlipped .dailytask-hud {
-  horizontal-align: left;
-  margin-right: 0px;
-  margin-left: 20px;
 }
 
 .dailytask-hud:hover {
