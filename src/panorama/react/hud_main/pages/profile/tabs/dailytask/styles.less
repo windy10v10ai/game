@@ -7,16 +7,24 @@
   flow-children: down;
 }
 
+// 深色底 + 左侧金色描边，呼应 awaken-intro 的标题区块处理
+.dailytask-header-box {
+  width: 100%;
+  flow-children: down;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background-color: #000000cc;
+  border-radius: @radius-lg;
+  border-left: 2px solid @color-gold-soft;
+}
+
 .dailytask-header-row {
   width: 100%;
   flow-children: right;
   vertical-align: center;
-  margin-bottom: 4px;
 }
 
 .dailytask-header-title {
-  width: fill-parent-flow(1);
-  text-align: left;
   font-size: @font-size-xl;
   font-weight: bold;
   color: @color-gold;
@@ -24,22 +32,21 @@
 }
 
 .dailytask-header-round {
-  text-align: right;
+  vertical-align: center;
+  margin-left: 12px;
   font-size: @font-size-lg;
   font-weight: bold;
   color: @color-gold;
   text-shadow: @text-shadow-soft;
 }
 
-// 提示文字亮度/字重对齐标题，右对齐避免和左侧标题一样居中显得重复
 .dailytask-header-subtitle {
   width: 100%;
-  text-align: right;
+  text-align: left;
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
   text-shadow: @text-shadow-soft;
-  margin-bottom: 16px;
 }
 
 .dailytask-hint {
