@@ -336,7 +336,12 @@
 		//
 		///////////////////////////////////////////////////
 		"profile_tab_dailytask"			"Задания"
-		"dailytask_reward_hint"			"+{n} сезонных очков"
+		"dailytask_header_title"			"Мои ежедневные задания"
+		"dailytask_header_round"			"Раунд {round}/{total}"
+		"dailytask_header_subtitle"			"Выберите задание для этого раунда"
+		"dailytask_reward_hint"			"+{n} Battle Points"
+		"dailytask_select_button"			"Выбрать"
+		"dailytask_selected_label"			"Выбрано"
 		"dailytask_disabled_hint"			"Ежедневные задания недоступны при пользовательской сложности, в чит-режиме или в локальных матчах"
 		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
 		"dailytask_task_general_kills"			"Наберите {target} килла героев за матч"

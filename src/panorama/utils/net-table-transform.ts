@@ -82,4 +82,5 @@ export const transformPlayer = createTransform<PlayerInfoDto>({
 export const transformDailyTask = createTransform<DailyTaskNetTableEntry>({
   enabled: { type: 'boolean' },
   candidates: { type: 'array' },
+  completedTasks: { type: 'array' },
 });

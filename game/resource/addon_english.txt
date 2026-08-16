@@ -442,7 +442,12 @@
 		//
 		///////////////////////////////////////////////////
 		"profile_tab_dailytask"			"Tasks"
-		"dailytask_reward_hint"			"+{n} Season Points"
+		"dailytask_header_title"			"My Daily Tasks"
+		"dailytask_header_round"			"Round {round}/{total}"
+		"dailytask_header_subtitle"			"Choose a task for this round"
+		"dailytask_reward_hint"			"+{n} Battle Points"
+		"dailytask_select_button"			"Select"
+		"dailytask_selected_label"			"Selected"
 		"dailytask_disabled_hint"			"Daily Tasks aren't available with custom difficulty, cheat mode, or localhost matches"
 		"dailytask_empty_hint"			"No daily tasks available right now, check back next match"
 		"dailytask_task_general_kills"			"Get {target} hero kills this match"

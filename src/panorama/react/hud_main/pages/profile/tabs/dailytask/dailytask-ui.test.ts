@@ -26,7 +26,9 @@ function makeCandidate(overrides: Partial<TaskCandidateDto> = {}): TaskCandidate
 
 describe('getTaskTitle', () => {
   it('渲染通用任务标题并替换 target', () => {
-    expect(getTaskTitle(makeCandidate(), 'schinese', localize)).toBe('本局击杀英雄达到 20 次');
+    expect(getTaskTitle(makeCandidate(), 'schinese', localize)).toBe(
+      "本局击杀英雄达到 <font color='#FFFFFF'><b>20</b></font> 次",
+    );
   });
 
   it('渲染英雄任务标题并替换 hero 与 target', () => {
@@ -38,7 +40,7 @@ describe('getTaskTitle', () => {
       target: 500000,
     });
     expect(getTaskTitle(candidate, 'schinese', localize)).toBe(
-      '使用 莉娜 单局对敌方英雄造成 50万 点伤害',
+      "使用 莉娜 单局对敌方英雄造成 <font color='#FFFFFF'><b>50万</b></font> 点伤害",
     );
   });
 
@@ -59,7 +61,9 @@ describe('getTaskTitle', () => {
       metric: 'roshan_kills',
       heroName: 'npc_dota_hero_lina',
     });
-    expect(getTaskTitle(generalCandidate, 'schinese', localize)).toBe('本局击杀 2 次肉山');
+    expect(getTaskTitle(generalCandidate, 'schinese', localize)).toBe(
+      "本局击杀 <font color='#FFFFFF'><b>2</b></font> 次肉山",
+    );
     expect(getTaskTitle(heroCandidate, 'schinese', localize)).toBeUndefined();
   });
 });
@@ -72,6 +76,8 @@ describe('getDisplayCandidates', () => {
       metric: 'unknown_metric' as TaskCandidateDto['metric'],
     });
     const result = getDisplayCandidates([known, unknown], 'schinese', localize);
-    expect(result).toEqual([{ candidate: known, title: '本局击杀英雄达到 20 次' }]);
+    expect(result).toEqual([
+      { candidate: known, title: "本局击杀英雄达到 <font color='#FFFFFF'><b>20</b></font> 次" },
+    ]);
   });
 });

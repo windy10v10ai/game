@@ -27,7 +27,10 @@ function isKnownMetric(candidate: Pick<TaskCandidateDto, 'scope' | 'metric'>): b
   return HERO_METRICS.includes(candidate.metric) || GENERAL_ONLY_METRICS.includes(candidate.metric);
 }
 
-/** 候选任务标题，metric 不认识或本地化模板缺失时返回 undefined（spec 5.4 未知候选保护） */
+/**
+ * 候选任务标题，metric 不认识或本地化模板缺失时返回 undefined（spec 5.4 未知候选保护）。
+ * 返回值内嵌 HTML 高亮数值，渲染方需要 `html={true}`。
+ */
 export function getTaskTitle(
   candidate: Pick<TaskCandidateDto, 'scope' | 'metric' | 'heroName' | 'target'>,
   language: string,
@@ -39,7 +42,9 @@ export function getTaskTitle(
   if (template === key) return undefined;
   const hero = candidate.heroName ? localize(`#${candidate.heroName}`) : '';
   const target = formatStatNumber(candidate.target, language === 'schinese');
-  return template.replace(/\{hero\}/g, hero).replace(/\{target\}/g, target);
+  // 数值强调沿用项目既有约定（如 awaken_unlock_intro_desc 的积分数字）：白色加粗
+  const targetHtml = `<font color='#FFFFFF'><b>${target}</b></font>`;
+  return template.replace(/\{hero\}/g, hero).replace(/\{target\}/g, targetHtml);
 }
 
 export interface DisplayCandidate {

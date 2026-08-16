@@ -4,6 +4,37 @@
 .dailytask-root {
   width: 100%;
   height: 100%;
+  flow-children: down;
+}
+
+.dailytask-header-title {
+  width: 100%;
+  text-align: center;
+  font-size: @font-size-xl;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: @text-shadow-soft;
+  margin-bottom: 4px;
+}
+
+.dailytask-header-status {
+  width: 100%;
+  flow-children: down;
+  margin-bottom: 16px;
+}
+
+.dailytask-header-round {
+  width: 100%;
+  text-align: center;
+  font-size: @font-size-md;
+  color: @color-gold-value;
+}
+
+.dailytask-header-subtitle {
+  width: 100%;
+  text-align: center;
+  font-size: @font-size-sm;
+  color: @color-text-muted;
 }
 
 .dailytask-hint {
@@ -25,19 +56,16 @@
   width: 100%;
   height: 100%;
   flow-children: right;
-  horizontal-align: center;
-  vertical-align: center;
 }
 
+// 固定 3 个候选水平塞满整行，而不是定宽居中留边；背景复用 .stats-card（个人中心统一的图片材质卡片）
 .dailytask-card {
-  width: 220px;
+  .stats-card;
+  width: fill-parent-flow(1);
   height: 260px;
-  margin: 12px;
+  margin: 0px 6px;
   flow-children: down;
   padding: 14px;
-  background-color: @color-bg-card;
-  border: 1px solid @color-primary-deep;
-  border-radius: @radius-lg;
 }
 
 /* 选中态整体换金色描边+光晕，与 awaken-card-unlocked 的强调手法一致 */
@@ -88,16 +116,43 @@
   width: 100%;
   height: fill-parent-flow(1);
   white-space: normal;
-  font-size: @font-size-sm;
+  font-size: @font-size-md;
   color: @color-text;
   text-shadow: @text-shadow-soft;
 }
 
+// 勇士积分配色与 profile 页头一致（.profile-header-point-value-season 同用 @color-accent）
 .dailytask-card-reward {
   width: 100%;
   text-align: right;
   font-size: @font-size-sm;
   font-weight: bold;
-  color: @color-gold;
+  color: @color-accent;
   text-shadow: @text-shadow-soft;
+  margin-bottom: 8px;
+}
+
+// 卡片内尺寸覆盖，配色交给通用 .btn-primary（与 awaken-unlock-btn 同写法）
+.btn-primary.dailytask-select-btn {
+  width: 100%;
+  height: 32px;
+  horizontal-align: center;
+}
+
+.dailytask-selected-badge {
+  width: 100%;
+  height: 32px;
+  horizontal-align: center;
+  border: 1px solid @color-gold;
+  border-radius: @radius-sm;
+}
+
+.dailytask-selected-badge-label {
+  width: 100%;
+  vertical-align: center;
+  text-align: center;
+  font-size: @font-size-sm;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: 1px 1px 3px #000000ee;
 }

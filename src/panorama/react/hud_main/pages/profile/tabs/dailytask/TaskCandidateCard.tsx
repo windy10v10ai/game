@@ -1,5 +1,6 @@
 import React from 'react';
 import { TaskCandidateDto } from '../../../../../../../common/dto/daily-task';
+import { PrimaryButton } from '../../../../../shared/components';
 
 interface TaskCandidateCardProps {
   candidate: TaskCandidateDto;
@@ -15,10 +16,7 @@ export function TaskCandidateCard({
   onSelect,
 }: TaskCandidateCardProps) {
   return (
-    <Panel
-      className={`dailytask-card${selected ? ' dailytask-card-selected' : ''}`}
-      onactivate={() => onSelect(candidate.taskId)}
-    >
+    <Panel className={`dailytask-card${selected ? ' dailytask-card-selected' : ''}`}>
       <Panel className="dailytask-card-header">
         {candidate.heroName ? (
           <DOTAHeroImage
@@ -31,7 +29,7 @@ export function TaskCandidateCard({
           <Label className="dailytask-star-visual" text={'★'.repeat(candidate.star)} />
         </Panel>
       </Panel>
-      <Label className="dailytask-card-title" html={false} text={title} />
+      <Label className="dailytask-card-title" html={true} text={title} />
       <Label
         className="dailytask-card-reward"
         text={$.Localize('#dailytask_reward_hint').replace(
@@ -39,6 +37,20 @@ export function TaskCandidateCard({
           String(candidate.rewardSeasonPoint),
         )}
       />
+      {selected ? (
+        <Panel className="dailytask-selected-badge">
+          <Label
+            className="dailytask-selected-badge-label"
+            text={$.Localize('#dailytask_selected_label')}
+          />
+        </Panel>
+      ) : (
+        <PrimaryButton
+          className="dailytask-select-btn"
+          onClick={() => onSelect(candidate.taskId)}
+          label={$.Localize('#dailytask_select_button')}
+        />
+      )}
     </Panel>
   );
 }
