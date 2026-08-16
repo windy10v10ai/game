@@ -1,5 +1,6 @@
 import { LotteryStatusDto } from '../../common/dto/lottery-status';
 import { PlayerInfoDto } from '../../vscripts/api/player';
+import { DailyTaskNetTableEntry } from '../../common/dto/daily-task';
 
 type FieldSchema =
   | { type: 'boolean' }
@@ -76,4 +77,9 @@ export const transformPlayer = createTransform<PlayerInfoDto>({
     type: 'optional-nested',
     fields: {},
   },
+});
+
+export const transformDailyTask = createTransform<DailyTaskNetTableEntry>({
+  enabled: { type: 'boolean' },
+  candidates: { type: 'array' },
 });
