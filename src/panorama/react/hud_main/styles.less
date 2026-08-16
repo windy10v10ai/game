@@ -75,3 +75,84 @@
 .dailytask-hud-completed .dailytask-hud-text {
   color: @color-gold;
 }
+
+// 选英雄阶段候选速览：屏幕中下方常驻 3 行；
+// margin-bottom 避开原生选人界面底部的英雄栏/操作区
+.dailytask-heroselect {
+  horizontal-align: left;
+  vertical-align: bottom;
+  margin-left: 445px;
+  margin-bottom: 50px;
+  height: 160px;
+  width: 400px;
+  flow-children: down;
+}
+
+.dailytask-heroselect-row {
+  width: 100%;
+  min-height: 46px;
+  flow-children: right;
+  vertical-align: center;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+  border-radius: @radius-md;
+  background-color: @color-bg-tint-strong;
+}
+
+.dailytask-heroselect-row-left {
+  width: fill-parent-flow(1);
+  flow-children: right;
+  vertical-align: center;
+}
+
+.dailytask-heroselect-row-left .dailytask-star-badge {
+  margin-right: @spacing-sm;
+}
+
+.dailytask-heroselect-hero-icon {
+  width: 28px;
+  height: 28px;
+  vertical-align: center;
+  margin-right: @spacing-sm;
+  border-radius: @radius-sm;
+}
+
+.dailytask-heroselect-title {
+  width: fill-parent-flow(1);
+  white-space: normal;
+  font-size: @font-size-sm;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+}
+
+.btn-primary.dailytask-heroselect-select-btn {
+  width: 80px;
+  height: 26px;
+  padding: 0px 6px;
+  margin-left: @spacing-sm;
+}
+
+// font-size 写在按钮自身选择器上对 .btn-primary-label 不生效，需要直接选中 label
+.dailytask-heroselect-select-btn .btn-primary-label {
+  font-size: @font-size-xs;
+}
+
+.dailytask-heroselect-claimed-badge {
+  horizontal-align: center;
+  vertical-align: center;
+  width: 80px;
+  height: 26px;
+  margin-left: @spacing-sm;
+  border: 1px solid @color-gold;
+  border-radius: @radius-sm;
+}
+
+.dailytask-heroselect-claimed-label {
+  width: 100%;
+  vertical-align: center;
+  text-align: center;
+  font-size: @font-size-xs;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: 1px 1px 3px #000000ee;
+}
