@@ -74,8 +74,10 @@
   box-shadow: @shadow-gold;
 }
 
+// min-height 对齐英雄头像高度，通用任务没有头像时这一行也不会变矮，标题起始位置才能对齐
 .dailytask-card-header {
   width: 100%;
+  min-height: 32px;
   flow-children: right;
   vertical-align: center;
   margin-bottom: 8px;
