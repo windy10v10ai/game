@@ -18,25 +18,27 @@ export function TaskCandidateCard({
   return (
     <Panel className={`dailytask-card${selected ? ' dailytask-card-selected' : ''}`}>
       <Panel className="dailytask-card-header">
-        {candidate.heroName ? (
-          <DOTAHeroImage
-            className="dailytask-card-hero-icon"
-            heroname={candidate.heroName}
-            heroimagestyle="icon"
-          />
-        ) : null}
-        <Panel className={`dailytask-star-badge dailytask-star-${candidate.star}`}>
-          <Label className="dailytask-star-visual" text={'★'.repeat(candidate.star)} />
+        <Panel className="dailytask-card-header-left">
+          {candidate.heroName ? (
+            <DOTAHeroImage
+              className="dailytask-card-hero-icon"
+              heroname={candidate.heroName}
+              heroimagestyle="icon"
+            />
+          ) : null}
+          <Panel className={`dailytask-star-badge dailytask-star-${candidate.star}`}>
+            <Label className="dailytask-star-visual" text={'★'.repeat(candidate.star)} />
+          </Panel>
         </Panel>
+        <Label
+          className="dailytask-card-reward"
+          text={$.Localize('#dailytask_reward_hint').replace(
+            '{n}',
+            String(candidate.rewardSeasonPoint),
+          )}
+        />
       </Panel>
       <Label className="dailytask-card-title" html={true} text={title} />
-      <Label
-        className="dailytask-card-reward"
-        text={$.Localize('#dailytask_reward_hint').replace(
-          '{n}',
-          String(candidate.rewardSeasonPoint),
-        )}
-      />
       {selected ? (
         <Panel className="dailytask-selected-badge">
           <Label

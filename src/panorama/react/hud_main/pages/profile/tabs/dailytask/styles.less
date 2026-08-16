@@ -81,6 +81,13 @@
   margin-bottom: 8px;
 }
 
+// 占满header左侧剩余空间，把奖励文字挤到右上角
+.dailytask-card-header-left {
+  width: fill-parent-flow(1);
+  flow-children: right;
+  vertical-align: center;
+}
+
 .dailytask-card-hero-icon {
   width: 32px;
   height: 32px;
@@ -121,15 +128,14 @@
   text-shadow: @text-shadow-soft;
 }
 
-// 勇士积分配色与 profile 页头一致（.profile-header-point-value-season 同用 @color-accent）
+// 勇士积分配色与 profile 页头一致（.profile-header-point-value-season 同用 @color-accent）；
+// 放在 header 右上角，与星级徽章同排，比夹在正文里更醒目
 .dailytask-card-reward {
-  width: 100%;
-  text-align: right;
-  font-size: @font-size-md;
+  vertical-align: center;
+  font-size: @font-size-lg;
   font-weight: bold;
   color: @color-accent;
   text-shadow: @text-shadow-soft;
-  margin-bottom: 8px;
 }
 
 // 定宽居中留出两侧 margin，与 awaken-unlock-btn 同写法
