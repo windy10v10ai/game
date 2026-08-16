@@ -37,6 +37,11 @@ const containerStyleShow: Partial<VCSSStyleDeclaration> = {
   transform: 'translateY(0)',
 };
 
+const overlayStyle: Partial<VCSSStyleDeclaration> = {
+  width: '100%',
+  height: '100%',
+};
+
 function Lottery() {
   const steamAccountId = GetLocalPlayerSteamAccountID();
 
@@ -93,15 +98,20 @@ function Lottery() {
     };
   }, [steamAccountId]);
 
+  // 折叠态或整体隐藏时遮罩不吃点击，避免拦截地图操作
+  const isOverlayActive = !isCollapsed && containerStyle === containerStyleShow;
+
   return (
-    <Panel style={containerStyle}>
-      <Panel style={{ horizontalAlign: 'center', marginTop: '45px' }}>
-        <ExpandButton
-          textToken={isCollapsed ? '#lottery_expand' : '#lottery_collapsed'}
-          toggleCollapse={toggleCollapse}
-        />
+    <Panel style={overlayStyle} hittest={isOverlayActive} onactivate={() => setIsCollapsed(true)}>
+      <Panel style={containerStyle} onactivate={() => {}}>
+        <Panel style={{ horizontalAlign: 'center', marginTop: '45px' }}>
+          <ExpandButton
+            textToken={isCollapsed ? '#lottery_expand' : '#lottery_collapsed'}
+            toggleCollapse={toggleCollapse}
+          />
+        </Panel>
+        <LotteryContainer isCollapsed={isCollapsed} onOpenMember={() => setIsCollapsed(true)} />
       </Panel>
-      <LotteryContainer isCollapsed={isCollapsed} onOpenMember={() => setIsCollapsed(true)} />
     </Panel>
   );
 }
