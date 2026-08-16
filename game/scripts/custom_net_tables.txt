@@ -32,5 +32,6 @@
 	  "alipay_order",  // 支付宝订单状态
 	  "awaken_random",  // 随机抽选觉醒候选集
 	  "daily_task",  // 每日任务：候选、本地选择、当日完成状态
+	  "daily_task_progress",  // 每日任务：局内实时进度
   ]
 }
