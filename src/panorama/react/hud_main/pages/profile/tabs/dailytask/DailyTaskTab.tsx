@@ -40,10 +40,8 @@ export function DailyTaskTab() {
   return (
     <Panel className="dailytask-root">
       <Panel className="dailytask-header-box">
-        <Panel className="dailytask-header-row">
-          <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
-          <Label className="dailytask-header-round" text={roundText} />
-        </Panel>
+        <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
+        <Label className="dailytask-header-round" text={roundText} />
         <Label
           className="dailytask-header-subtitle"
           style={{ visibility: showHint ? 'collapse' : 'visible' }}
