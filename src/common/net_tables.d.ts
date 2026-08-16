@@ -1,5 +1,5 @@
 import { GamePresetCustomOptions, PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
-import { DailyTaskNetTableEntry } from './dto/daily-task';
+import { DailyTaskNetTableEntry, TaskCandidateDto } from './dto/daily-task';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -39,6 +39,8 @@ declare global {
         int: number;
         towerKills: number;
         stuns: number;
+        // 本局完成的每日任务，用于结算页展示明细；未完成则不下发
+        dailyTask?: TaskCandidateDto;
       };
     };
     loading_status: {

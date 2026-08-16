@@ -1,10 +1,21 @@
-import { DailyTaskResultDto, DailyTaskStartDto } from '../../../common/dto/daily-task';
+import {
+  DailyTaskResultDto,
+  DailyTaskStartDto,
+  TaskCandidateDto,
+} from '../../../common/dto/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
 interface DailyTaskPlayerState extends DailyTaskStartDto {
   selectedTaskId?: string;
+}
+
+export interface DailyTaskCompletion {
+  /** 上报给 /game/end 的字段，仅此 */
+  result: DailyTaskResultDto;
+  /** 结算页展示用，同一次查找顺带取出，不重复判定 */
+  candidate: TaskCandidateDto;
 }
 
 /** 每日任务：判断本局是否可以参与、记录玩家选择的任务、结算时判断是否完成 */
@@ -48,8 +59,8 @@ export class DailyTask {
     this.setDailyTaskTable(playerId);
   }
 
-  /** 判断这局是否完成了每日任务，用于游戏结算时计分 */
-  EvaluateCompletion(playerId: PlayerID): DailyTaskResultDto | undefined {
+  /** 判断这局是否完成了每日任务，用于游戏结算时计分与结算页展示 */
+  EvaluateCompletion(playerId: PlayerID): DailyTaskCompletion | undefined {
     if (!this.IsDailyTaskEnabled()) {
       return undefined;
     }
@@ -74,10 +85,13 @@ export class DailyTask {
       return undefined;
     }
     return {
-      taskId: candidate.taskId,
-      star: candidate.star,
-      seasonPoint: candidate.rewardSeasonPoint,
-      dayId: state.dayId,
+      result: {
+        taskId: candidate.taskId,
+        star: candidate.star,
+        seasonPoint: candidate.rewardSeasonPoint,
+        dayId: state.dayId,
+      },
+      candidate,
     };
   }
 

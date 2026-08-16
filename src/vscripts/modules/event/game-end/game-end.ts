@@ -120,9 +120,9 @@ export class GameEnd {
         ? undefined
         : GameRules.DailyTask.EvaluateCompletion(playerId);
       if (dailyTaskCompletion) {
-        playerDto.dailyTask = dailyTaskCompletion;
+        playerDto.dailyTask = dailyTaskCompletion.result;
       }
-      const dailyTaskPoints = dailyTaskCompletion?.seasonPoint ?? 0;
+      const dailyTaskPoints = dailyTaskCompletion?.result.seasonPoint ?? 0;
       // 须在行为分倍率之后并入，否则候选卡上写的奖励值会被倍率放大/缩小
       playerDto.battlePoints = matchPoints + dailyTaskPoints;
       players.push(playerDto);
@@ -132,7 +132,7 @@ export class GameEnd {
           `base=${baseBattlePoints} dailyTaskPoints=${dailyTaskPoints} total=${playerDto.battlePoints}`,
       );
 
-      // 结算界面数据：points 是最终积分，conductDelta 仅用于括号展示
+      // 结算界面数据：points 是最终积分，conductDelta / dailyTask 仅用于明细展示
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
         heroDamage: playerDto.heroDamage,
@@ -146,6 +146,7 @@ export class GameEnd {
         int: hero.GetIntellect(false),
         towerKills: playerDto.towerKills,
         stuns: playerDto.stuns,
+        dailyTask: dailyTaskCompletion?.candidate,
       });
     });
 

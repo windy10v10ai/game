@@ -203,28 +203,34 @@ describe('DailyTask', () => {
       expect(dailyTask.EvaluateCompletion(PLAYER_ID)).toBeUndefined();
     });
 
-    it('通用任务达标时返回完成结果', () => {
+    it('通用任务达标时返回完成结果（含结算页展示用的完整候选）', () => {
       dailyTask.SelectCandidate(PLAYER_ID, GENERAL_CANDIDATE.taskId);
       mockReadTaskMetric.mockReturnValue(GENERAL_CANDIDATE.target);
 
       expect(dailyTask.EvaluateCompletion(PLAYER_ID)).toEqual({
-        taskId: GENERAL_CANDIDATE.taskId,
-        star: GENERAL_CANDIDATE.star,
-        seasonPoint: GENERAL_CANDIDATE.rewardSeasonPoint,
-        dayId: '20260815',
+        result: {
+          taskId: GENERAL_CANDIDATE.taskId,
+          star: GENERAL_CANDIDATE.star,
+          seasonPoint: GENERAL_CANDIDATE.rewardSeasonPoint,
+          dayId: '20260815',
+        },
+        candidate: GENERAL_CANDIDATE,
       });
     });
 
-    it('英雄专属任务英雄匹配且达标时返回完成结果', () => {
+    it('英雄专属任务英雄匹配且达标时返回完成结果（含结算页展示用的完整候选）', () => {
       dailyTask.SelectCandidate(PLAYER_ID, HERO_CANDIDATE.taskId);
       mockGetSelectedHeroName.mockReturnValue(HERO_CANDIDATE.heroName!);
       mockReadTaskMetric.mockReturnValue(HERO_CANDIDATE.target);
 
       expect(dailyTask.EvaluateCompletion(PLAYER_ID)).toEqual({
-        taskId: HERO_CANDIDATE.taskId,
-        star: HERO_CANDIDATE.star,
-        seasonPoint: HERO_CANDIDATE.rewardSeasonPoint,
-        dayId: '20260815',
+        result: {
+          taskId: HERO_CANDIDATE.taskId,
+          star: HERO_CANDIDATE.star,
+          seasonPoint: HERO_CANDIDATE.rewardSeasonPoint,
+          dayId: '20260815',
+        },
+        candidate: HERO_CANDIDATE,
       });
     });
   });

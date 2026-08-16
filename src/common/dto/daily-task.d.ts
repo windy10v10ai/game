@@ -23,14 +23,11 @@ export interface TaskCandidateDto {
   heroName?: string;
 }
 
-export interface CompletedTaskDto {
-  taskId: string;
-  star: number;
-}
-
 export interface DailyTaskHistoryEntryDto {
   dayId: string;
-  tasks: CompletedTaskDto[];
+  // 服务端按当天记录的 taskId+star 现算出完整候选字段（同 generateCandidates 的口径），
+  // 历史面板才能复用候选卡的标题拼装逻辑；查不到（任务池已变更）的条目服务端直接不下发
+  tasks: TaskCandidateDto[];
   seasonPoint: number;
 }
 
@@ -48,7 +45,7 @@ export interface DailyTaskStartDto {
   steamId: number;
   dayId: string;
   candidates: TaskCandidateDto[];
-  completedTasks: CompletedTaskDto[];
+  completedTasks: TaskCandidateDto[];
   todaySeasonPoint: number;
   history: DailyTaskHistoryEntryDto[];
 }
