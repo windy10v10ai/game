@@ -1312,7 +1312,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_magic_sword',
     nameCN: '魔渊剑',
     tier: ItemTier.T5,
-    cost: 59000,
+    cost: 49000,
     baseItems: ['item_bfury_ultra', 'item_infernal_desolator', 'item_skadi_2'],
   },
   item_beast_shield: {
@@ -1326,7 +1326,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_time_gem',
     nameCN: '时间宝石',
     tier: ItemTier.T5,
-    cost: 62300,
+    cost: 52300,
     baseItems: ['item_refresh_core'],
   },
   item_switchable_crit_blade: {
