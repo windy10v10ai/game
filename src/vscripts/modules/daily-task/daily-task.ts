@@ -22,11 +22,13 @@ export interface DailyTaskCompletion {
 @reloadable
 export class DailyTask {
   private state: Map<PlayerID, DailyTaskPlayerState> = new Map();
+  private readonly PROGRESS_PUSH_INTERVAL = 1;
 
   constructor() {
     CustomGameEventManager.RegisterListener('dailytask_select_candidate', (_, event) =>
       this.SelectCandidate(event.PlayerID, event.taskId),
     );
+    this.startProgressPush();
   }
 
   // 地图类型开局就已经确定，不用等玩家把难度投完票，判断能保证一次成功
@@ -57,6 +59,45 @@ export class DailyTask {
     }
     state.selectedTaskId = taskId;
     this.setDailyTaskTable(playerId);
+    // 立即推一次，改选后 HUD 不用等下一个 tick 才对齐
+    this.pushProgress(playerId);
+  }
+
+  private startProgressPush(): void {
+    Timers.CreateTimer(this.PROGRESS_PUSH_INTERVAL, () => {
+      const gameState = GameRules.State_Get();
+      if (gameState < GameState.PRE_GAME) {
+        return this.PROGRESS_PUSH_INTERVAL;
+      }
+      if (this.IsDailyTaskEnabled()) {
+        this.state.forEach((_, playerId) => this.pushProgress(playerId));
+      }
+      // 结算后指标不再变化，补推的这一次与 EvaluateCompletion 同口径。
+      // 停表后 net table 行仍保留，客户端继续显示终值
+      if (gameState >= GameState.POST_GAME) {
+        return undefined;
+      }
+      return this.PROGRESS_PUSH_INTERVAL;
+    });
+  }
+
+  private pushProgress(playerId: PlayerID): void {
+    const state = this.state.get(playerId);
+    if (!state?.selectedTaskId) {
+      return;
+    }
+    const candidate = state.candidates.find((c) => c.taskId === state.selectedTaskId);
+    if (!candidate) {
+      return;
+    }
+    const value = ReadTaskMetric(playerId, candidate.metric);
+    if (value === undefined) {
+      return;
+    }
+    CustomNetTables.SetTableValue('daily_task_progress', playerId.toString(), {
+      taskId: candidate.taskId,
+      value,
+    });
   }
 
   /** 判断这局是否完成了每日任务，用于游戏结算时计分与结算页展示 */

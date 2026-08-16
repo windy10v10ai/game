@@ -1,7 +1,6 @@
 import React from 'react';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
-import { TOTAL_ROUNDS_PER_DAY } from './constants';
-import { formatHistoryDate, getMetricShortLabel } from './dailytask-ui';
+import { formatHistoryDate, getMetricShortLabel, TOTAL_ROUNDS_PER_DAY } from './dailytask-ui';
 
 /**
  * 每日任务历史记录子页：每天一行，今天的进行中记录排在最前。

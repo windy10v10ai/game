@@ -120,6 +120,11 @@ declare global {
     daily_task: {
       [playerId: string]: DailyTaskNetTableEntry;
     };
+    // 每日任务局内实时进度，key = playerId。展示所需的星级/指标/目标值都在 daily_task 里且整局不变，
+    // 这里只推每秒会变的当前值；taskId 不用于展示，只用于对齐数值归属，防止改选任务瞬间数字串号
+    daily_task_progress: {
+      [playerId: string]: { taskId: string; value: number };
+    };
   }
 }
 

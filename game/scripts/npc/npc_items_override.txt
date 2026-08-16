@@ -304,7 +304,7 @@
 			"bonus_health"		"400"			// 200
 			"bonus_mana"		"400"			// 200
 			"bonus_all_stats"	"16"			// 7
-			"bonus_spell_damage"		"450"	// 150
+			"bonus_spell_damage"		"300"	// 150
 		}
 	}
 
@@ -325,7 +325,7 @@
 			"bonus_all_stats"			"25"	// 8
 			"slow"						"50"	// 30
 			"slow_duration"				"3"		// 4
-			"bonus_spell_damage"		"900"	// 250
+			"bonus_spell_damage"		"800"	// 250
 		}
 	}
 	//=================================================================================================================
