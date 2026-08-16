@@ -1,5 +1,5 @@
-import { getTaskTitle, getDisplayCandidates } from './dailytask-ui';
 import { TaskCandidateDto } from '../../../../../../../common/dto/daily-task';
+import { getDisplayCandidates, getTaskTitle } from './dailytask-ui';
 
 const TEMPLATES: Record<string, string> = {
   '#dailytask_task_general_kills': '本局击杀英雄达到 {target} 次',
