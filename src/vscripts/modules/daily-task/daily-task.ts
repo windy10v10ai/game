@@ -81,12 +81,21 @@ export class DailyTask {
     });
   }
 
+  /** 只读查询：本局选中的候选（未选择返回 undefined），供 GA4 等统计模块使用 */
+  GetSelectedCandidate(playerId: PlayerID): TaskCandidateDto | undefined {
+    return this.findSelectedCandidate(this.state.get(playerId));
+  }
+
+  private findSelectedCandidate(state?: DailyTaskPlayerState): TaskCandidateDto | undefined {
+    if (!state?.selectedTaskId) {
+      return undefined;
+    }
+    return state.candidates.find((c) => c.taskId === state.selectedTaskId);
+  }
+
   private pushProgress(playerId: PlayerID): void {
     const state = this.state.get(playerId);
-    if (!state?.selectedTaskId) {
-      return;
-    }
-    const candidate = state.candidates.find((c) => c.taskId === state.selectedTaskId);
+    const candidate = this.findSelectedCandidate(state);
     if (!candidate) {
       return;
     }
@@ -106,12 +115,8 @@ export class DailyTask {
       return undefined;
     }
     const state = this.state.get(playerId);
-    if (!state?.selectedTaskId) {
-      return undefined;
-    }
-    // 防御性检查：能被选中的任务本来就一定在候选列表里，理论上必然能找到对应候选
-    const candidate = state.candidates.find((c) => c.taskId === state.selectedTaskId);
-    if (!candidate) {
+    const candidate = this.findSelectedCandidate(state);
+    if (!state || !candidate) {
       return undefined;
     }
     if (candidate.scope === 'personal_hero') {
