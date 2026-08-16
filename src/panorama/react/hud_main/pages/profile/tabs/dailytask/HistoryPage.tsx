@@ -74,7 +74,10 @@ export function HistoryPage() {
                     ? getMetricShortLabel(task.metric, (key) => $.Localize(key))
                     : undefined;
                   return (
-                    <Panel key={index} className="dailytask-history-slot">
+                    <Panel
+                      key={index}
+                      className={`dailytask-history-slot${task ? ' dailytask-history-slot-filled' : ''}`}
+                    >
                       {task && (
                         <>
                           <Panel className="dailytask-history-slot-top">

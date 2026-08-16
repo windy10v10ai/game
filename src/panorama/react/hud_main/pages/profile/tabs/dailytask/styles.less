@@ -199,29 +199,35 @@
   margin: 0px 6px 16px;
 }
 
-// 列头与下方行共用同一套列宽（date / tasks / points），保证纵向对齐
+// 列头与下方行共用同一套列宽（date / tasks / points），保证纵向对齐；
+// 两侧 margin 与候选卡（dailytask-card / dailytask-header-box）保持一致
 .dailytask-history-header {
   width: 100%;
   flow-children: right;
   padding: 0px 16px;
-  margin-bottom: 6px;
+  margin: 0px 6px 6px;
 }
 
 .dailytask-history-header-date {
   width: 90px;
-  font-size: @font-size-sm;
-  color: @color-text-muted;
+  text-align: center;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
 }
 
 .dailytask-history-header-tasks {
-  min-width: 220px;
-  font-size: @font-size-sm;
-  color: @color-text-muted;
+  min-width: 330px;
+  text-align: center;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
 }
 
 .dailytask-history-header-points {
-  font-size: @font-size-sm;
-  color: @color-text-muted;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
 }
 
 // 撑满剩余高度并纵向滚动，行数随天数增长（最多 30 天）
@@ -238,7 +244,7 @@
   height: 84px;
   flow-children: right;
   padding: 0px 16px;
-  margin: 0px 0px 8px;
+  margin: 0px 6px 8px;
   vertical-align: center;
 }
 
@@ -249,6 +255,7 @@
 
 .dailytask-history-date {
   width: 90px;
+  text-align: center;
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
@@ -258,18 +265,24 @@
 // min-width 保证只有 1~2 个任务时也占住 3 槽位的宽度，积分列不会跟着左右跳动；
 // 不加两侧留白让它居中——槽位从左侧（日期后）开始排，与列头 tasks 列左对齐
 .dailytask-history-slots {
-  min-width: 280px;
+  min-width: 330px;
   flow-children: right;
 }
 
 // 固定宽度的轮次槽位：未完成的轮次留空，保证每行对齐一致，不随完成轮数多少变形
 .dailytask-history-slot {
-  width: 84px;
+  width: 100px;
   height: 64px;
   flow-children: down;
   horizontal-align: center;
   vertical-align: center;
   margin-right: 10px;
+}
+
+// 已完成的槽位加描边，让通用任务（没有头像）也有明确的"这格有内容"视觉边界
+.dailytask-history-slot-filled {
+  border: 1px solid #e0caa544;
+  border-radius: @radius-sm;
 }
 
 // 头像+星级同一行，与候选卡 dailytask-card-header-left 手法一致
