@@ -76,19 +76,21 @@
   color: @color-gold;
 }
 
-// 选英雄阶段候选速览：屏幕中下方常驻 3 行，贴合 spec 3.4（候选早于选英雄下发，需在选人阶段就可见）；
+// 选英雄阶段候选速览：屏幕中下方常驻 3 行；
 // margin-bottom 避开原生选人界面底部的英雄栏/操作区
 .dailytask-heroselect {
-  horizontal-align: center;
+  horizontal-align: left;
   vertical-align: bottom;
-  margin-bottom: 130px;
-  width: 720px;
+  margin-left: 450px;
+  margin-bottom: 60px;
+  height: 200px;
+  width: 400px;
   flow-children: down;
 }
 
 .dailytask-heroselect-row {
   width: 100%;
-  min-height: 40px;
+  min-height: 46px;
   flow-children: right;
   vertical-align: center;
   padding: 6px 12px;

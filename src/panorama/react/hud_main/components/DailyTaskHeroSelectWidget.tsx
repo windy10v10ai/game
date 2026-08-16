@@ -7,7 +7,7 @@ import { getDisplayCandidates } from '../pages/profile/tabs/dailytask/dailytask-
 const localize = (key: string): string => $.Localize(key);
 
 /**
- * 选英雄阶段的每日任务候选速览：屏幕中下方常驻 3 行，可直接领取任务，不需要打开个人中心（spec 3.4）。
+ * 选英雄阶段的每日任务候选速览：屏幕中下方常驻 3 行，可直接领取任务，不需要打开个人中心。
  */
 export function DailyTaskHeroSelectWidget() {
   const playerId = Game.GetLocalPlayerID();
