@@ -17,6 +17,7 @@ class GameStart {
 export class Game {
   public static readonly GAME_START_URL = '/game/start';
   public static readonly GAME_END_URL = '/game/end';
+  public static readonly LOCAL_GAME_END_URL = '/game/end/local';
 
   constructor() {}
 
@@ -121,7 +122,7 @@ export class Game {
 
     const apiParameter = {
       method: HttpMethod.POST,
-      path: Game.GAME_END_URL,
+      path: ApiClient.IsLocalhost() ? Game.LOCAL_GAME_END_URL : Game.GAME_END_URL,
       body: gameEndDto,
       successFunc: (data: string) => {
         // CustomNetTables.SetTableValue('ending_status', 'ending_status', {

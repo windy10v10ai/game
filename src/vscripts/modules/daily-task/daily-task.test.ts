@@ -36,11 +36,6 @@ global.PlayerResource = {
   GetSelectedHeroName: (playerId: number) => mockGetSelectedHeroName(playerId),
 };
 
-const mockIsLocalhost = jest.fn(() => false);
-jest.mock('../../api/api-client', () => ({
-  ApiClient: { IsLocalhost: () => mockIsLocalhost() },
-}));
-
 const mockReadTaskMetric = jest.fn();
 jest.mock('./daily-task-metric-reader', () => ({
   ReadTaskMetric: (playerId: number, metric: string) => mockReadTaskMetric(playerId, metric),
@@ -76,7 +71,6 @@ describe('DailyTask', () => {
   beforeEach(() => {
     for (const k of Object.keys(netTable)) delete netTable[k];
     mockIsCheatMode.mockReturnValue(false);
-    mockIsLocalhost.mockReturnValue(false);
     mockIsInToolsMode.mockReturnValue(false);
     mockGetMapName.mockReturnValue('dota');
     mockGetSelectedHeroName.mockReturnValue('npc_dota_hero_lina');
@@ -87,11 +81,6 @@ describe('DailyTask', () => {
   describe('IsDailyTaskEnabled（模式门控）', () => {
     it('作弊模式下禁用', () => {
       mockIsCheatMode.mockReturnValue(true);
-      expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
-    });
-
-    it('localhost 下禁用', () => {
-      mockIsLocalhost.mockReturnValue(true);
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
 
@@ -107,10 +96,9 @@ describe('DailyTask', () => {
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
     });
 
-    it('工具模式下忽略作弊/localhost，仍按地图判定', () => {
+    it('工具模式下忽略作弊状态，仍按地图判定', () => {
       mockIsInToolsMode.mockReturnValue(true);
       mockIsCheatMode.mockReturnValue(true);
-      mockIsLocalhost.mockReturnValue(true);
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
     });
 
