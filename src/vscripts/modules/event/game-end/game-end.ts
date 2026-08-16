@@ -98,7 +98,7 @@ export class GameEnd {
         awaken: isAwakened(hero) ? 1 : 0,
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
-      const rawBattlePoints = this.CalculatePlayerBattlePoints(
+      const baseBattlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
         difficultyMultiplier,
         winnerTeamId,
@@ -110,27 +110,36 @@ export class GameEnd {
       );
       const conductPoint = playerInfo?.conductPoint ?? 100;
       const conductMultiplier = this.GetConductMultiplier(conductPoint, isTeamGame);
-      // 最终积分 = 原始积分 × 行为分倍率（向上取整 0）
-      const finalBattlePoints = Math.max(0, Math.round(rawBattlePoints * conductMultiplier));
-      // 修正量（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
-      const pointModifier = finalBattlePoints - rawBattlePoints;
-      playerDto.battlePoints = finalBattlePoints;
+      // 对局积分 = 原始积分 × 行为分倍率（向上取整 0），不含每日任务奖励
+      const matchPoints = Math.max(0, Math.round(baseBattlePoints * conductMultiplier));
+      // 行为分倍率造成的增减（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
+      const conductDelta = matchPoints - baseBattlePoints;
+
+      // 掉线玩家不结算每日任务，哪怕退出前指标已达标
+      const dailyTaskCompletion = playerDto.isDisconnected
+        ? undefined
+        : GameRules.DailyTask.EvaluateCompletion(playerId);
+      if (dailyTaskCompletion) {
+        playerDto.dailyTask = dailyTaskCompletion;
+      }
+      const dailyTaskPoints = dailyTaskCompletion?.seasonPoint ?? 0;
+      // 须在行为分倍率之后并入，否则候选卡上写的奖励值会被倍率放大/缩小
+      playerDto.battlePoints = matchPoints + dailyTaskPoints;
       players.push(playerDto);
 
       print(
         `[GameEnd] player ${playerId} steamId=${playerDto.steamId} ` +
-          `raw=${rawBattlePoints} conductPoint=${conductPoint} ` +
-          `multiplier=${conductMultiplier} final=${finalBattlePoints} modifier=${pointModifier}`,
+          `base=${baseBattlePoints} dailyTaskPoints=${dailyTaskPoints} total=${playerDto.battlePoints}`,
       );
 
-      // 结算界面数据：points 是最终积分，pointModifier 仅用于括号展示
+      // 结算界面数据：points 是最终积分，conductDelta 仅用于括号展示
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
         heroDamage: playerDto.heroDamage,
         damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,
-        pointModifier,
+        conductDelta,
         conductPoint,
         str: hero.GetStrength(),
         agi: hero.GetAgility(),

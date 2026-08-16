@@ -1,24 +1,9 @@
-import {
-  CompletedTaskDto,
-  DailyTaskHistoryEntryDto,
-  TaskCandidateDto,
-} from '../../../common/dto/daily-task';
-import { DailyTaskStartDto } from '../../api/daily-task';
+import { DailyTaskResultDto, DailyTaskStartDto } from '../../../common/dto/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
 import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
-export interface DailyTaskCompletionResult {
-  taskId: string;
-  star: number;
-  seasonPoint: number;
-}
-
-interface DailyTaskPlayerState {
-  candidates: TaskCandidateDto[];
-  completedTasks: CompletedTaskDto[];
-  todaySeasonPoint: number;
-  history: DailyTaskHistoryEntryDto[];
+interface DailyTaskPlayerState extends DailyTaskStartDto {
   selectedTaskId?: string;
 }
 
@@ -43,13 +28,7 @@ export class DailyTask {
 
   /** 游戏开始时初始化本局任务状态 */
   SetStartData(playerId: PlayerID, dto: DailyTaskStartDto): void {
-    this.state.set(playerId, {
-      candidates: dto.candidates,
-      completedTasks: dto.completedTasks,
-      todaySeasonPoint: dto.todaySeasonPoint,
-      history: dto.history,
-      selectedTaskId: undefined,
-    });
+    this.state.set(playerId, { ...dto, selectedTaskId: undefined });
     this.setDailyTaskTable(playerId);
   }
 
@@ -70,7 +49,7 @@ export class DailyTask {
   }
 
   /** 判断这局是否完成了每日任务，用于游戏结算时计分 */
-  EvaluateCompletion(playerId: PlayerID): DailyTaskCompletionResult | undefined {
+  EvaluateCompletion(playerId: PlayerID): DailyTaskResultDto | undefined {
     if (!this.IsDailyTaskEnabled()) {
       return undefined;
     }
@@ -98,6 +77,7 @@ export class DailyTask {
       taskId: candidate.taskId,
       star: candidate.star,
       seasonPoint: candidate.rewardSeasonPoint,
+      dayId: state.dayId,
     };
   }
 
@@ -107,12 +87,8 @@ export class DailyTask {
       return;
     }
     CustomNetTables.SetTableValue('daily_task', playerId.toString(), {
+      ...state,
       enabled: this.IsDailyTaskEnabled(),
-      candidates: state.candidates,
-      selectedTaskId: state.selectedTaskId,
-      completedTasks: state.completedTasks,
-      todaySeasonPoint: state.todaySeasonPoint,
-      history: state.history,
     });
   }
 }

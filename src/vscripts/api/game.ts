@@ -1,10 +1,10 @@
+import { DailyTaskStartDto } from '../../common/dto/daily-task';
 import { GameConfig } from '../modules/GameConfig';
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { GameEndDto } from './analytics/dto/game-end-dto';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
 import { GA4 } from './analytics/ga4/ga4';
 import { ApiClient, HttpMethod } from './api-client';
-import { DailyTaskStartDto } from './daily-task';
 import { Player, PlayerInfoDto, PointInfoDto } from './player';
 
 class GameStart {

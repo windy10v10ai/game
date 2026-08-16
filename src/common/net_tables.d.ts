@@ -1,5 +1,5 @@
 import { GamePresetCustomOptions, PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
-import { CompletedTaskDto, DailyTaskHistoryEntryDto, TaskCandidateDto } from './dto/daily-task';
+import { DailyTaskNetTableEntry } from './dto/daily-task';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -32,7 +32,7 @@ declare global {
         damagereceived: number;
         healing: number;
         points: number;
-        pointModifier: number;
+        conductDelta: number;
         conductPoint: number;
         str: number;
         agi: number;
@@ -116,14 +116,7 @@ declare global {
     };
     // 每日任务：本局候选、本地选择与当日完成状态，key = playerId
     daily_task: {
-      [playerId: string]: {
-        enabled: boolean;
-        candidates: TaskCandidateDto[];
-        selectedTaskId?: string;
-        completedTasks: CompletedTaskDto[];
-        todaySeasonPoint: number;
-        history: DailyTaskHistoryEntryDto[];
-      };
+      [playerId: string]: DailyTaskNetTableEntry;
     };
   }
 }

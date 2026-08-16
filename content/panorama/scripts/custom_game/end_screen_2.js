@@ -104,7 +104,7 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
   panel.SetDialogVariableInt('stuns', Math.round(playerData?.stuns ?? 0));
-  const pointModifier = playerData?.pointModifier ?? 0;
+  const conductDelta = playerData?.conductDelta ?? 0;
   const conductPoint = playerData?.conductPoint ?? 100;
   const points = playerData?.points ?? 0;
   const pointsContainer = panel.FindChildTraverse('PointsLabel');
@@ -112,13 +112,13 @@ function Snippet_Player(playerId, rootPanel, index) {
   const pointsModifierLabel = panel.FindChildTraverse('PointsModifier');
   if (pointsValueLabel) pointsValueLabel.text = String(points);
   if (pointsModifierLabel && pointsContainer) {
-    if (pointModifier !== 0) {
-      const sign = pointModifier > 0 ? '+' : '-';
-      pointsModifierLabel.text = sign + Math.abs(pointModifier);
+    if (conductDelta !== 0) {
+      const sign = conductDelta > 0 ? '+' : '-';
+      pointsModifierLabel.text = sign + Math.abs(conductDelta);
       pointsModifierLabel.visible = true;
       pointsContainer.SetPanelEvent('onmouseover', () => {
         let tooltipKey;
-        if (pointModifier > 0) {
+        if (conductDelta > 0) {
           tooltipKey = '#conduct_point_bonus_tooltip';
         } else if (conductPoint < 60) {
           tooltipKey = '#conduct_point_heavy_penalty_tooltip';
