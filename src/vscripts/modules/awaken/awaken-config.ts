@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 莱恩 觉醒
+  {
+    heroName: 'npc_dota_hero_lion',
+    newAbility: 'special_bonus_unique_lion_finger_of_death_awaken',
+    newLevel: 1,
+  },
   // 亚巴顿 觉醒
   {
     heroName: 'npc_dota_hero_abaddon',
@@ -245,6 +251,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_lion', // 莱恩
   'npc_dota_hero_abaddon', // 亚巴顿
   'npc_dota_hero_skywrath_mage', // 天怒法师
   'npc_dota_hero_dazzle', // 戴泽
