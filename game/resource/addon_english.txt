@@ -443,7 +443,7 @@
 		///////////////////////////////////////////////////
 		"profile_tab_dailytask"			"Tasks"
 		"dailytask_reward_hint"			"+{n} Season Points"
-		"dailytask_disabled_hint"			"Daily Tasks aren't available in custom maps, cheat mode, or localhost matches"
+		"dailytask_disabled_hint"			"Daily Tasks aren't available with custom difficulty, cheat mode, or localhost matches"
 		"dailytask_empty_hint"			"No daily tasks available right now, check back next match"
 		"dailytask_task_general_kills"			"Get {target} hero kills this match"
 		"dailytask_task_general_assists"			"Get {target} assists this match"

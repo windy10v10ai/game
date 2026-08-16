@@ -443,7 +443,7 @@
 		///////////////////////////////////////////////////
 		"profile_tab_dailytask"			"每日任务"
 		"dailytask_reward_hint"			"+{n} 赛季积分"
-		"dailytask_disabled_hint"			"自定义地图、作弊模式或本地主机对局无法参与每日任务"
+		"dailytask_disabled_hint"			"自定义难度、作弊模式或本地主机对局无法参与每日任务"
 		"dailytask_empty_hint"			"暂无可选的每日任务，下一局再来看看"
 		"dailytask_task_general_kills"			"本局击杀英雄达到 {target} 次"
 		"dailytask_task_general_assists"			"本局助攻达到 {target} 次"
