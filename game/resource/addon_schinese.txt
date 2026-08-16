@@ -1252,6 +1252,25 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+		// 干扰者 静态风暴觉醒
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened"			"<font color='#d000ff'>静态风暴 觉醒</font>"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_Description"			"在目标地点同时释放动力场。静态风暴持续对范围内敌人造成<font color='#05CAFF'>魔法伤害</font>并施加沉默，同时将敌人牵引至风暴中心。每名进入风暴范围的敌人还会受到一次施法者当前等级的风雷之击。\n<font color='#FFFFFF'>神杖升级：同时禁用范围内敌人的物品。</font>"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_SummaryDescription"			"静态风暴会同时释放动力场，使每名进入范围的敌人受到一次当前等级的风雷之击，并获得向心引力和逐渐增强的生命百分比伤害。"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_SummaryDescription_scepter"			"静态风暴还会禁用敌人物品。"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_radius"			"作用范围："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_duration"			"持续时间："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_damage_interval"			"伤害间隔："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_base_damage_start_pct"			"起始基础伤害："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_damage_max"			"最大基础每秒伤害："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_max_health_damage_start_pct"			"起始最大生命每秒伤害："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_max_health_damage_end_pct"			"最终最大生命每秒伤害："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_radius_multiplier"			"牵引范围倍率："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_dead_zone"			"中心死区："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_start_speed"			"起始牵引速度："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_end_speed"			"最终牵引速度："
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_max_speed"			"最大牵引速度："
+		"DOTA_Tooltip_modifier_disruptor_static_storm_awakened_marker"			"<font color='#d000ff'>静态风暴 觉醒</font>"
+		"DOTA_Tooltip_modifier_disruptor_static_storm_awakened_marker_Description"			"静态风暴会同时释放动力场，使每名进入范围的敌人受到一次当前等级的风雷之击，并获得持续增强的伤害与向心牵引。"
 
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"

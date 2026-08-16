@@ -4,6 +4,7 @@ import { SPECS as axeBattleHunger } from './axe_battle_hunger';
 import { SPECS as axeBerserkerSCall } from './axe_berserkers_call';
 import { SPECS as axeCullingBlade } from './axe_culling_blade';
 import { SPECS as doomBringerInfernalBlade } from './doom_bringer_infernal_blade';
+import { SPECS as disruptorStaticStormAwakened } from './disruptor_static_storm_awakened';
 import { SPECS as dragonKnightBreatheFire } from './dragon_knight_breathe_fire';
 import { SPECS as dragonKnightDragonTail } from './dragon_knight_dragon_tail';
 import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
@@ -52,6 +53,8 @@ import { SPECS as winterWyvernArcticBurn } from './winter_wyvern_arctic_burn';
  * 当未来 spec 之间出现真正需要"全局优先级"的取舍时，再扩展机制。当前保持简单。
  */
 export function registerAbilitySpecs(): void {
+  // 干扰者 觉醒
+  AbilityRegistry.registerAll(disruptorStaticStormAwakened);
   // Dragon Knight 龙骑士
   AbilityRegistry.registerAll(dragonKnightBreatheFire);
   AbilityRegistry.registerAll(dragonKnightDragonTail);

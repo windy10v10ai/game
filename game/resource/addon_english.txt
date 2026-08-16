@@ -1257,6 +1257,25 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+		// 干扰者 静态风暴觉醒
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened"			"<font color='#d000ff'>Static Storm Awakened</font>"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_Description"			"Also casts Kinetic Field at the target location. Static Storm continuously deals <font color='#05CAFF'>magical damage</font>, silences enemies in its area, and pulls them toward the storm center. Each enemy that enters the storm is struck once by the caster's current-level Thunder Strike.\n<font color='#FFFFFF'>Scepter Upgrade: Enemies in the area also cannot use items.</font>"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_SummaryDescription"			"Static Storm also casts Kinetic Field, strikes each enemy that enters with the current level of Thunder Strike, and gains inward gravity and ramping max-health damage."
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_SummaryDescription_scepter"			"Static Storm also mutes enemies."
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_damage_interval"			"DAMAGE INTERVAL:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_base_damage_start_pct"			"STARTING BASE DAMAGE:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_damage_max"			"MAX BASE DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_max_health_damage_start_pct"			"STARTING MAX HEALTH DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_max_health_damage_end_pct"			"FINAL MAX HEALTH DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_radius_multiplier"			"GRAVITY RADIUS MULTIPLIER:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_dead_zone"			"CENTER DEAD ZONE:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_start_speed"			"STARTING GRAVITY SPEED:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_end_speed"			"FINAL GRAVITY SPEED:"
+		"DOTA_Tooltip_ability_disruptor_static_storm_awakened_gravity_max_speed"			"MAX GRAVITY SPEED:"
+		"DOTA_Tooltip_modifier_disruptor_static_storm_awakened_marker"			"<font color='#d000ff'>Static Storm Awakened</font>"
+		"DOTA_Tooltip_modifier_disruptor_static_storm_awakened_marker_Description"			"Static Storm also casts Kinetic Field, strikes each enemy that enters with the current level of Thunder Strike, and gains ramping damage and inward gravity."
 
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
