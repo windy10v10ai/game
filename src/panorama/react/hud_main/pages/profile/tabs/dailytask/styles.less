@@ -241,10 +241,10 @@
 .dailytask-history-row {
   .stats-card;
   width: 100%;
-  height: 60px;
+  height: 56px;
   flow-children: right;
   padding: 0px 16px;
-  margin: 0px 6px 8px;
+  margin: 0px 6px 4px;
   vertical-align: center;
 }
 
@@ -256,7 +256,7 @@
 // vertical-align 只管这个元素在父级 flow-children:right 里怎么对齐，
 // 不写就是默认贴顶——date/points 必须各自声明，不能只靠 row 上那条
 .dailytask-history-date {
-  width: 180px;
+  width: 160px;
   text-align: center;
   vertical-align: center;
   font-size: @font-size-md;
@@ -275,8 +275,8 @@
 
 // 固定宽度的轮次槽位：未完成的轮次留空，保证每行对齐一致，不随完成轮数多少变形
 .dailytask-history-slot {
-  width: 200px;
-  height: 48px;
+  width: 220px;
+  height: 46px;
   flow-children: right;
   horizontal-align: center;
   vertical-align: center;
@@ -286,7 +286,6 @@
 // 已完成的槽位加描边+底色+内边距，让通用任务（没有头像）也有明确的"这格有内容"的卡片边界
 .dailytask-history-slot-filled {
   background-color: #ffffff08;
-  border: 1px solid #e0caa544;
   border-radius: @radius-sm;
   padding: 4px 6px;
 }

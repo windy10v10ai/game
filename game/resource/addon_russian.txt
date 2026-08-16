@@ -350,7 +350,7 @@
 		"dailytask_history_empty_hint"			"Пока нет истории. Выполненные задания появятся здесь."
 		"dailytask_history_col_date"			"Дата"
 		"dailytask_history_col_tasks"			"Выполнено"
-		"dailytask_history_col_points"			"Очки"
+		"dailytask_history_col_points"			"Всего очков"
 		"dailytask_metric_short_kills"			"Киллы"
 		"dailytask_metric_short_assists"			"Ассисты"
 		"dailytask_metric_short_last_hits"			"Добивания"

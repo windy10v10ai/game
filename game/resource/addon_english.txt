@@ -456,7 +456,7 @@
 		"dailytask_history_empty_hint"			"No history yet. Completed tasks will show up here."
 		"dailytask_history_col_date"			"Date"
 		"dailytask_history_col_tasks"			"Completed"
-		"dailytask_history_col_points"			"Points"
+		"dailytask_history_col_points"			"Total Points"
 		"dailytask_metric_short_kills"			"Kills"
 		"dailytask_metric_short_assists"			"Assists"
 		"dailytask_metric_short_last_hits"			"Last Hits"
