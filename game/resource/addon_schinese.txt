@@ -455,7 +455,7 @@
 		"dailytask_history_today"			"今日"
 		"dailytask_history_empty_hint"			"暂无历史记录，完成任务后这里会显示你的记录"
 		"dailytask_history_col_date"			"日期"
-		"dailytask_history_col_tasks"			"完成情况"
+		"dailytask_history_col_tasks"			"完成任务"
 		"dailytask_history_col_points"			"获得积分"
 		"dailytask_metric_short_kills"			"击杀"
 		"dailytask_metric_short_assists"			"助攻"

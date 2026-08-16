@@ -80,19 +80,19 @@ export function HistoryPage() {
                     >
                       {task && (
                         <>
-                          <Panel className="dailytask-history-slot-top">
+                          <Panel className="dailytask-history-slot-hero">
                             {task.heroName && (
                               <DOTAHeroImage
-                                className="dailytask-history-slot-hero"
+                                className="dailytask-history-slot-hero-image"
                                 heroname={task.heroName}
                                 heroimagestyle="icon"
                               />
                             )}
-                            <Label
-                              className="dailytask-history-slot-star"
-                              text={'★'.repeat(task.star)}
-                            />
                           </Panel>
+                          <Label
+                            className="dailytask-history-slot-star"
+                            text={'★'.repeat(task.star)}
+                          />
                           {metricLabel && (
                             <Label className="dailytask-history-slot-metric" text={metricLabel} />
                           )}
