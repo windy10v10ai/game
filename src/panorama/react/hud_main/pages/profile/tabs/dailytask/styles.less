@@ -7,34 +7,39 @@
   flow-children: down;
 }
 
-.dailytask-header-title {
+.dailytask-header-row {
   width: 100%;
-  text-align: center;
+  flow-children: right;
+  vertical-align: center;
+  margin-bottom: 4px;
+}
+
+.dailytask-header-title {
+  width: fill-parent-flow(1);
+  text-align: left;
   font-size: @font-size-xl;
   font-weight: bold;
   color: @color-gold;
   text-shadow: @text-shadow-soft;
-  margin-bottom: 4px;
-}
-
-.dailytask-header-status {
-  width: 100%;
-  flow-children: down;
-  margin-bottom: 16px;
 }
 
 .dailytask-header-round {
-  width: 100%;
-  text-align: center;
-  font-size: @font-size-md;
-  color: @color-gold-value;
+  text-align: right;
+  font-size: @font-size-lg;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: @text-shadow-soft;
 }
 
+// 提示文字亮度/字重对齐标题，右对齐避免和左侧标题一样居中显得重复
 .dailytask-header-subtitle {
   width: 100%;
-  text-align: center;
-  font-size: @font-size-sm;
-  color: @color-text-muted;
+  text-align: right;
+  font-size: @font-size-md;
+  font-weight: bold;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+  margin-bottom: 16px;
 }
 
 .dailytask-hint {

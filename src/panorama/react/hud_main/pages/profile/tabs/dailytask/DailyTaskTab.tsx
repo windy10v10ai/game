@@ -23,32 +23,35 @@ export function DailyTaskTab() {
   const displayCandidates = dailyTask
     ? getDisplayCandidates(dailyTask.candidates, $.Language(), (key) => $.Localize(key))
     : [];
-  const showHint = disabled || displayCandidates.length === 0;
-  const hintKey = disabled ? '#dailytask_disabled_hint' : '#dailytask_empty_hint';
-
   const completedRoundCount = Math.min(TOTAL_ROUNDS_PER_DAY, dailyTask?.completedTasks.length ?? 0);
   const currentRound = Math.min(TOTAL_ROUNDS_PER_DAY, completedRoundCount + 1);
+  const allDone = !disabled && completedRoundCount >= TOTAL_ROUNDS_PER_DAY;
+  const showHint = disabled || allDone || displayCandidates.length === 0;
+  const hintKey = disabled
+    ? '#dailytask_disabled_hint'
+    : allDone
+      ? '#dailytask_all_done_hint'
+      : '#dailytask_empty_hint';
   const roundText = $.Localize('#dailytask_header_round')
     .replace('{round}', String(currentRound))
     .replace('{total}', String(TOTAL_ROUNDS_PER_DAY));
+  const hintText = $.Localize(hintKey).replace('{total}', String(TOTAL_ROUNDS_PER_DAY));
 
   return (
     <Panel className="dailytask-root">
-      <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
-      <Panel
-        className="dailytask-header-status"
-        style={{ visibility: showHint ? 'collapse' : 'visible' }}
-      >
+      <Panel className="dailytask-header-row">
+        <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
         <Label className="dailytask-header-round" text={roundText} />
-        <Label
-          className="dailytask-header-subtitle"
-          text={$.Localize('#dailytask_header_subtitle')}
-        />
       </Panel>
+      <Label
+        className="dailytask-header-subtitle"
+        style={{ visibility: showHint ? 'collapse' : 'visible' }}
+        text={$.Localize('#dailytask_header_subtitle')}
+      />
       <Label
         className="dailytask-hint"
         style={{ visibility: showHint ? 'visible' : 'collapse' }}
-        text={$.Localize(hintKey)}
+        text={hintText}
       />
       <Panel
         className="dailytask-candidate-row"

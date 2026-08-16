@@ -344,6 +344,7 @@
 		"dailytask_selected_label"			"Принято"
 		"dailytask_disabled_hint"			"Ежедневные задания недоступны при пользовательской сложности, в чит-режиме или в локальных матчах"
 		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
+		"dailytask_all_done_hint"			"Все {total} раунда на сегодня выполнены"
 		"dailytask_task_general_kills"			"Наберите {target} килла героев за матч"
 		"dailytask_task_general_assists"			"Наберите {target} ассистов за матч"
 		"dailytask_task_general_last_hits"			"Наберите {target} добиваний за матч"
