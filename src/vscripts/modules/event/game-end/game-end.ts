@@ -6,13 +6,12 @@ import {
 import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
-import { ApiClient } from '../../../api/api-client';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
 import { PlayerHelper } from '../../helper/player-helper';
-import { GameEndPoint, normalizeControlTime } from './game-end-point';
+import { GameEndPoint } from './game-end-point';
 
 @reloadable
 export class GameEnd {
@@ -48,11 +47,7 @@ export class GameEnd {
     };
 
     const gameTime = GameRules.GetGameTime();
-    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(
-      difficulty,
-      ApiClient.IsLocalhost(),
-      GameRules.Option,
-    );
+    const difficultyMultiplier = GameEndPoint.GetDifficultyMultiplier(difficulty, GameRules.Option);
 
     const players: GameEndPlayerDto[] = [];
     // Pre-collect steamIds to determine real player count for team game check
@@ -76,30 +71,9 @@ export class GameEnd {
         return;
       }
 
-      let damageTaken = 0;
-      for (let victimID = 0; victimID < DOTA_MAX_TEAM_PLAYERS; victimID++) {
-        if (
-          PlayerResource.IsValidPlayerID(victimID) &&
-          PlayerResource.IsValidPlayer(victimID) &&
-          PlayerResource.GetSelectedHeroEntity(victimID)
-        ) {
-          if (PlayerResource.GetTeam(victimID) !== PlayerResource.GetTeam(playerId)) {
-            damageTaken += PlayerResource.GetDamageDoneToHero(victimID, playerId);
-          }
-        }
-      }
-
-      // 本局累计获得金币，扣除从虚拟金币库转回的金额，与 end_screen_2.js money 列保持一致
-      const virtualGoldData = CustomNetTables.GetTableValue(
-        'player_virtual_gold',
-        playerId.toString(),
-      );
-      const transferredBackTotal = virtualGoldData?.transferred_back_total ?? 0;
-      const totalGoldEarned = Math.max(
-        0,
-        PlayerResource.GetTotalEarnedGold(playerId) - transferredBackTotal,
-      );
-      const stuns = normalizeControlTime(PlayerResource.GetStuns(playerId));
+      const damageTaken = PlayerHelper.GetDamageTaken(playerId);
+      const totalGoldEarned = PlayerHelper.GetTotalGoldEarned(playerId);
+      const stuns = PlayerHelper.GetStuns(playerId);
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
@@ -124,7 +98,7 @@ export class GameEnd {
         awaken: isAwakened(hero) ? 1 : 0,
       };
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
-      const rawBattlePoints = this.CalculatePlayerBattlePoints(
+      const baseBattlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
         difficultyMultiplier,
         winnerTeamId,
@@ -136,27 +110,36 @@ export class GameEnd {
       );
       const conductPoint = playerInfo?.conductPoint ?? 100;
       const conductMultiplier = this.GetConductMultiplier(conductPoint, isTeamGame);
-      // 最终积分 = 原始积分 × 行为分倍率（向上取整 0）
-      const finalBattlePoints = Math.max(0, Math.round(rawBattlePoints * conductMultiplier));
-      // 修正量（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
-      const pointModifier = finalBattlePoints - rawBattlePoints;
-      playerDto.battlePoints = finalBattlePoints;
+      // 对局积分 = 原始积分 × 行为分倍率（向上取整 0），不含每日任务奖励
+      const matchPoints = Math.max(0, Math.round(baseBattlePoints * conductMultiplier));
+      // 行为分倍率造成的增减（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
+      const conductDelta = matchPoints - baseBattlePoints;
+
+      // 掉线玩家不结算每日任务，哪怕退出前指标已达标
+      const dailyTaskCompletion = playerDto.isDisconnected
+        ? undefined
+        : GameRules.DailyTask.EvaluateCompletion(playerId);
+      if (dailyTaskCompletion) {
+        playerDto.dailyTask = dailyTaskCompletion;
+      }
+      const dailyTaskPoints = dailyTaskCompletion?.seasonPoint ?? 0;
+      // 须在行为分倍率之后并入，否则候选卡上写的奖励值会被倍率放大/缩小
+      playerDto.battlePoints = matchPoints + dailyTaskPoints;
       players.push(playerDto);
 
       print(
         `[GameEnd] player ${playerId} steamId=${playerDto.steamId} ` +
-          `raw=${rawBattlePoints} conductPoint=${conductPoint} ` +
-          `multiplier=${conductMultiplier} final=${finalBattlePoints} modifier=${pointModifier}`,
+          `base=${baseBattlePoints} dailyTaskPoints=${dailyTaskPoints} total=${playerDto.battlePoints}`,
       );
 
-      // 结算界面数据：points 是最终积分，pointModifier 仅用于括号展示
+      // 结算界面数据：points 是最终积分，conductDelta 仅用于括号展示
       CustomNetTables.SetTableValue('player_stats', playerId.toString(), {
         steamId: playerDto.steamId.toString(),
         heroDamage: playerDto.heroDamage,
         damagereceived: damageTaken,
         healing: playerDto.healing,
         points: playerDto.battlePoints,
-        pointModifier,
+        conductDelta,
         conductPoint,
         str: hero.GetStrength(),
         agi: hero.GetAgility(),

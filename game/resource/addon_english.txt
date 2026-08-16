@@ -438,6 +438,40 @@
 
 		///////////////////////////////////////////////////
 		//
+		//			DailyTask
+		//
+		///////////////////////////////////////////////////
+		"profile_tab_dailytask"			"Tasks"
+		"dailytask_header_title"			"My Daily Tasks"
+		"dailytask_header_subtitle"			"Choose your task for round {round}/{total}"
+		"dailytask_reward_hint"			"+{n} Battle Points"
+		"dailytask_select_button"			"Claim Task"
+		"dailytask_selected_label"			"Claimed"
+		"dailytask_disabled_hint"			"Daily Tasks aren't available with custom difficulty, cheat mode, or localhost matches"
+		"dailytask_empty_hint"			"No daily tasks available right now, check back next match"
+		"dailytask_all_done_hint"			"All {total} rounds completed today"
+		"dailytask_task_general_kills"			"Get {target} hero kills this match"
+		"dailytask_task_general_assists"			"Get {target} assists this match"
+		"dailytask_task_general_last_hits"			"Get {target} last hits this match"
+		"dailytask_task_general_tower_kills"		"Destroy {target} towers this match"
+		"dailytask_task_general_hero_damage"		"Deal {target} hero damage this match"
+		"dailytask_task_general_healing"			"Heal allied heroes for {target} this match"
+		"dailytask_task_general_total_gold_earned"	"Earn {target} total gold this match"
+		"dailytask_task_general_damage_taken"		"Take {target} damage from enemy heroes this match"
+		"dailytask_task_general_stun_duration"		"Stun or root enemy heroes for {target} seconds this match"
+		"dailytask_task_general_roshan_kills"		"Kill Roshan {target} times this match"
+		"dailytask_task_hero_kills"			"Get {target} hero kills this match as {hero}"
+		"dailytask_task_hero_assists"			"Get {target} assists this match as {hero}"
+		"dailytask_task_hero_last_hits"			"Get {target} last hits this match as {hero}"
+		"dailytask_task_hero_tower_kills"			"Destroy {target} towers this match as {hero}"
+		"dailytask_task_hero_hero_damage"			"Deal {target} hero damage this match as {hero}"
+		"dailytask_task_hero_healing"			"Heal allied heroes for {target} this match as {hero}"
+		"dailytask_task_hero_total_gold_earned"	"Earn {target} total gold this match as {hero}"
+		"dailytask_task_hero_damage_taken"			"Take {target} damage from enemy heroes this match as {hero}"
+		"dailytask_task_hero_stun_duration"			"Stun or root enemy heroes for {target} seconds this match as {hero}"
+
+		///////////////////////////////////////////////////
+		//
 		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////

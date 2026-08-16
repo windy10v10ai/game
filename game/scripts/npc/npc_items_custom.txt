@@ -6179,7 +6179,7 @@
 
 			// 法术暴击 modifier
 			"spell_crit_chance"			"30"
-			"spell_crit_multiplier"		"200"
+			"spell_crit_multiplier"		"180"
 		}
 
 

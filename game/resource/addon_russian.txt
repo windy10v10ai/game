@@ -332,6 +332,40 @@
 
 		///////////////////////////////////////////////////
 		//
+		//			DailyTask
+		//
+		///////////////////////////////////////////////////
+		"profile_tab_dailytask"			"Задания"
+		"dailytask_header_title"			"Мои ежедневные задания"
+		"dailytask_header_subtitle"			"Выберите задание для раунда {round}/{total}"
+		"dailytask_reward_hint"			"+{n} Battle Points"
+		"dailytask_select_button"			"Принять задание"
+		"dailytask_selected_label"			"Принято"
+		"dailytask_disabled_hint"			"Ежедневные задания недоступны при пользовательской сложности, в чит-режиме или в локальных матчах"
+		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
+		"dailytask_all_done_hint"			"Все {total} раунда на сегодня выполнены"
+		"dailytask_task_general_kills"			"Наберите {target} килла героев за матч"
+		"dailytask_task_general_assists"			"Наберите {target} ассистов за матч"
+		"dailytask_task_general_last_hits"			"Наберите {target} добиваний за матч"
+		"dailytask_task_general_tower_kills"		"Уничтожьте {target} башен за матч"
+		"dailytask_task_general_hero_damage"		"Нанесите {target} урона героям за матч"
+		"dailytask_task_general_healing"			"Вылечите союзных героев на {target} за матч"
+		"dailytask_task_general_total_gold_earned"	"Заработайте {target} золота за матч"
+		"dailytask_task_general_damage_taken"		"Получите {target} урона от героев противника за матч"
+		"dailytask_task_general_stun_duration"		"Оглушайте или сковывайте героев противника суммарно {target} секунд за матч"
+		"dailytask_task_general_roshan_kills"		"Убейте Рошана {target} раз(а) за матч"
+		"dailytask_task_hero_kills"			"Наберите {target} килла героев за матч, играя за {hero}"
+		"dailytask_task_hero_assists"			"Наберите {target} ассистов за матч, играя за {hero}"
+		"dailytask_task_hero_last_hits"			"Наберите {target} добиваний за матч, играя за {hero}"
+		"dailytask_task_hero_tower_kills"			"Уничтожьте {target} башен за матч, играя за {hero}"
+		"dailytask_task_hero_hero_damage"			"Нанесите {target} урона героям за матч, играя за {hero}"
+		"dailytask_task_hero_healing"			"Вылечите союзных героев на {target} за матч, играя за {hero}"
+		"dailytask_task_hero_total_gold_earned"	"Заработайте {target} золота за матч, играя за {hero}"
+		"dailytask_task_hero_damage_taken"			"Получите {target} урона от героев противника за матч, играя за {hero}"
+		"dailytask_task_hero_stun_duration"			"Оглушайте или сковывайте героев противника суммарно {target} секунд за матч, играя за {hero}"
+
+		///////////////////////////////////////////////////
+		//
 		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////

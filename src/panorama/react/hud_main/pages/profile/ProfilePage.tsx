@@ -7,8 +7,9 @@ import { StatsTab } from './tabs/StatsTab';
 import { AwakenTab } from './tabs/AwakenTab';
 import { MemberTab } from './tabs/member';
 import { MemberSubTab } from './tabs/member/constants';
+import { DailyTaskTab } from './tabs/dailytask';
 
-export type ProfileTabId = 'stats' | 'awaken' | 'member';
+export type ProfileTabId = 'stats' | 'awaken' | 'member' | 'dailytask';
 
 interface ProfilePageProps {
   // 支持 'tab' 或 'tab:subTab'（如 'member:points'）定位到一级 tab 内的子页
@@ -19,6 +20,7 @@ const PROFILE_TABS: { id: ProfileTabId; label: string }[] = [
   { id: 'stats', label: $.Localize('#profile_tab_stats') },
   { id: 'awaken', label: $.Localize('#profile_tab_awaken') },
   { id: 'member', label: $.Localize('#profile_tab_member') },
+  { id: 'dailytask', label: $.Localize('#profile_tab_dailytask') },
 ];
 
 export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
@@ -117,6 +119,7 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
           {currentTab === 'member' && (
             <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
           )}
+          {currentTab === 'dailytask' && <DailyTaskTab />}
         </Panel>
       </Panel>
     </Panel>

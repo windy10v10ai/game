@@ -1,10 +1,15 @@
-import { transformLotteryStatus, transformPlayer } from '@utils/net-table-transform';
+import {
+  transformLotteryStatus,
+  transformPlayer,
+  transformDailyTask,
+} from '@utils/net-table-transform';
 import { useEffect, useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const transformers: Partial<Record<keyof CustomNetTableDeclarations, (raw: any) => any>> = {
   player_table: transformPlayer,
   lottery_status: transformLotteryStatus,
+  daily_task: transformDailyTask,
 };
 
 /**
