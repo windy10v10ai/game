@@ -1,5 +1,5 @@
 ---
-name: loading-faq
+name: faq
 description: >-
   维护 Dota 10v10 AI 自定义加载界面的 FAQ。用户提供原始问题、答案或要求新增/优化加载提示时，
   自动将其精简为面向玩家的问答，判断常见/冷门分类，写入传统 Panorama 加载屏及中英俄本地化。
