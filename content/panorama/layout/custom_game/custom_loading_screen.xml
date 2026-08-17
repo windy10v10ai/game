@@ -231,6 +231,10 @@
 					<Label id="ChatHideButtonLabelShow" class="ChatHideButtonLabel" text="#show_chat_team" />
 				</Button>
 			</Panel>
+			<Panel id="LoadingFaqPanel" hittest="false">
+				<Label id="LoadingFaqQuestion" />
+				<Label id="LoadingFaqAnswer" />
+			</Panel>
 		</Panel>
 	</Panel>
 </root>
