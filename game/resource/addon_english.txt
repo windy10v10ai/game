@@ -101,6 +101,14 @@
 		"loading_faq_pulse_nova_answer"				"Pulse Nova does not benefit from AoE bonuses to prevent AFK farming."
 		"loading_faq_member_checkin_question"		"What happens if I miss a Member daily check-in?"
 		"loading_faq_member_checkin_answer"			"Missed check-ins are restored automatically the next time you log in. They appear together with that day's check-in points, for up to 7 missed days."
+		"loading_faq_duplicate_ability_question"	"Can an ability drawn from the lottery stack with the same ability my hero already has?"
+		"loading_faq_duplicate_ability_answer"		"No. Only the highest level of an identical ability takes effect, so do not pick it. Different versions can both work, such as Multicast and Multicast (Awakened)."
+		"loading_faq_treasure_rewards_question"		"Where are Treasure Chests, and how do I get better rewards?"
+		"loading_faq_treasure_rewards_answer"			"Treasure Chests appear in forests and map corners. Opening one starts an item lottery. Open more chests to improve the reward pool. Killing Roshan grants the highest-tier item lottery."
+		"loading_faq_multiplayer_treasure_question"	"What is the benefit of opening Treasure Chests in multiplayer?"
+		"loading_faq_multiplayer_treasure_answer"		"Everyone on the team gets an item lottery, and the opener receives better item rewards. Open any chest you find promptly."
+		"loading_faq_dragon_balls_question"		"Why can't I combine all 7 Dragon Balls?"
+		"loading_faq_dragon_balls_answer"			"Dragon Balls and equipment dropped by neutral creeps must be in your main inventory to be used in combinations. Move them from your backpack or stash, or drop and pick them up again."
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
