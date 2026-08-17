@@ -104,9 +104,7 @@
 		"loading_faq_duplicate_ability_question"	"抽选到与英雄自带相同的技能，可以叠加吗？"
 		"loading_faq_duplicate_ability_answer"		"不能，同名技能只生效最高等级，请不要选择。不同版本可同时生效，例如多重施法与多重施法（觉醒）。"
 		"loading_faq_treasure_rewards_question"		"藏宝箱在哪里，如何获得更好奖励？"
-		"loading_faq_treasure_rewards_answer"			"树林和地图角落会出现藏宝箱。开启可进行物品抽奖，开启的藏宝箱越多，奖池越好。击杀肉山可获得最高档物品抽奖。"
-		"loading_faq_multiplayer_treasure_question"	"多人游戏时，开启藏宝箱有什么好处？"
-		"loading_faq_multiplayer_treasure_answer"		"全队都能获得一次物品抽奖，开启者能获得更好的物品奖励。发现藏宝箱后，尽快开启吧。"
+		"loading_faq_treasure_rewards_answer"			"树林和地图角落会出现藏宝箱，开启即可获得一次物品抽奖，队友也能共享抽奖机会，抢先开启的人还能额外获得更好的奖励。开启的藏宝箱越多、击杀肉山，奖池档次越高。"
 		"loading_faq_dragon_balls_question"		"集齐 7 颗龙珠后为什么无法合成？"
 		"loading_faq_dragon_balls_answer"			"龙珠和中立生物掉落的装备需放入主背包才会参与合成。请从备用背包或仓库移入主背包，或丢下后重新拾取。"
 
