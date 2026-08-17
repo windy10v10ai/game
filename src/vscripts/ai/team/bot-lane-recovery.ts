@@ -9,20 +9,26 @@ import {
   resolveBotLaneRecovery,
 } from './bot-lane-recovery-decision';
 
-const ENEMY_HERO_RADIUS = 1600;
-const ENEMY_LANE_CREEP_RADIUS = 1800;
-const FRIENDLY_LANE_CREEP_RADIUS = 2400;
-const LANDING_RADIUS_MIN = 300;
-const LANDING_RADIUS_MAX = 600;
-const TARGET_REACHED_RADIUS = 100;
-const ENEMY_INTERRUPT_RADIUS = 900;
-const RECOVERY_TASK_INTERVAL = 0.1;
+const CANDIDATE_ENEMY_HERO_RADIUS = 1600;
+// 敌方小兵用于定位线路，己方小兵用于判断是否已在线上
+const LANE_ENEMY_CREEP_RADIUS = 1800;
+const LANE_FRIENDLY_CREEP_RADIUS = 2400;
+const JUNGLE_NEUTRAL_RADIUS = 700;
+const FRONT_TOWER_MAX_TIER = 2;
+const LANDING_OFFSET_MIN = 300;
+const LANDING_OFFSET_MAX = 600;
+const TASK_TARGET_REACHED_RADIUS = 100;
+const TASK_ENEMY_INTERRUPT_RADIUS = 900;
+const TASK_TICK_INTERVAL = 0.1;
 
-// duration 从 TP 指令下达起算，含约 3 秒引导。中路集结点离塔的距离约为上下路的一半，超时相应缩短
-const RECOVERY_TARGETS: Record<BotLane, { position: Vector; duration: number }> = {
-  top: { position: Vector(-6434, 3555, 128), duration: 10 },
-  mid: { position: Vector(-507, -406, 0), duration: 6 },
-  bot: { position: Vector(5758, -5708, 128), duration: 10 },
+// 时长从 TP 指令下达起算，含约 3 秒引导。TP 塔取候选中的最低层级，配合前排塔门槛只会是一塔或二塔
+const RECOVERY_TARGETS: Record<
+  BotLane,
+  { position: Vector; tier1Duration: number; tier2Duration: number }
+> = {
+  top: { position: Vector(-6434, 3555, 128), tier1Duration: 10, tier2Duration: 20 },
+  mid: { position: Vector(-507, -406, 0), tier1Duration: 6, tier2Duration: 11 },
+  bot: { position: Vector(5758, -5708, 128), tier1Duration: 10, tier2Duration: 15 },
 };
 
 interface JungleRecoveryTask {
@@ -56,10 +62,11 @@ export class BotLaneRecovery {
       return;
     }
 
+    const hasFrontTower = towers.some((tower) => tower.tier <= FRONT_TOWER_MAX_TIER);
     PlayerHelper.ForEachPlayer((playerId) => {
       const candidate = this.GetRecoveryCandidate(playerId);
       if (candidate) {
-        this.ExecuteRecovery(candidate, towers);
+        this.ExecuteRecovery(candidate, towers, hasFrontTower);
       }
     });
   }
@@ -90,7 +97,7 @@ export class BotLaneRecovery {
     if (
       !scroll ||
       !scroll.IsFullyCastable() ||
-      ActionFind.FindEnemyHeroes(hero, ENEMY_HERO_RADIUS).length > 0
+      ActionFind.FindEnemyHeroes(hero, CANDIDATE_ENEMY_HERO_RADIUS).length > 0
     ) {
       return undefined;
     }
@@ -100,16 +107,17 @@ export class BotLaneRecovery {
   private ExecuteRecovery(
     candidate: RecoveryCandidate,
     towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
+    hasFrontTower: boolean,
   ): void {
     const hero = candidate.hero;
     const enemyLaneCreeps = this.FindLaneCreeps(
       hero,
-      ENEMY_LANE_CREEP_RADIUS,
+      LANE_ENEMY_CREEP_RADIUS,
       UnitTargetTeam.ENEMY,
     );
     const friendlyLaneCreeps = this.FindLaneCreeps(
       hero,
-      FRIENDLY_LANE_CREEP_RADIUS,
+      LANE_FRIENDLY_CREEP_RADIUS,
       UnitTargetTeam.FRIENDLY,
     );
     const enemyLaneCreep = enemyLaneCreeps[0];
@@ -118,16 +126,13 @@ export class BotLaneRecovery {
     const laneTowers = getRecoveryTowerCandidates(towers, lane);
     const nearestLaneTowerDistance = this.GetNearestTowerDistance(hero, laneTowers);
     const nearestTowerDistance = this.GetNearestTowerDistance(hero, towers);
-    const attackTarget = hero.GetAttackTarget();
-    const hasAttackTarget =
-      attackTarget !== undefined && !attackTarget.IsNull() && attackTarget.IsAlive();
     const heroPosition = hero.GetAbsOrigin();
     const decision = resolveBotLaneRecovery({
       enemyLane: lane,
       hasFriendlyLaneCreep: friendlyLaneCreeps.length > 0,
       distanceToLaneTower: nearestLaneTowerDistance,
-      isAttackingNeutral: hasAttackTarget && attackTarget.GetTeamNumber() === DotaTeam.NEUTRALS,
-      isAttackingAncient: hasAttackTarget && attackTarget.IsAncient(),
+      hasNearbyNeutral: this.HasNearbyNeutral(hero),
+      hasFrontTower,
       distanceToNearestTower: nearestTowerDistance,
       heroPositionX: heroPosition.x,
       heroPositionY: heroPosition.y,
@@ -140,11 +145,11 @@ export class BotLaneRecovery {
     const tower = preferredTowers[RandomInt(0, preferredTowers.length - 1)];
     const landingPosition = tower.value
       .GetAbsOrigin()
-      .__add(RandomVector(RandomInt(LANDING_RADIUS_MIN, LANDING_RADIUS_MAX)));
+      .__add(RandomVector(RandomInt(LANDING_OFFSET_MIN, LANDING_OFFSET_MAX)));
 
     candidate.hero.CastAbilityOnPosition(landingPosition, candidate.scroll, candidate.playerId);
     if (decision.reason === 'jungle' && tower.lane !== undefined) {
-      this.CreateJungleRecoveryTask(candidate.hero, tower.lane);
+      this.CreateJungleRecoveryTask(candidate.hero, tower.lane, tower.tier);
     }
     print(
       `[BotLaneRecovery] ${decision.reason} tp_order hero=${candidate.hero.GetUnitName()} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
@@ -161,13 +166,14 @@ export class BotLaneRecovery {
     this.EndJungleRecoveryMovement(hero.GetEntityIndex(), 'retreat');
   }
 
-  private CreateJungleRecoveryTask(hero: CDOTA_BaseNPC_Hero, lane: BotLane): void {
+  private CreateJungleRecoveryTask(hero: CDOTA_BaseNPC_Hero, lane: BotLane, tier: number): void {
     const target = RECOVERY_TARGETS[lane];
+    const duration = tier >= 2 ? target.tier2Duration : target.tier1Duration;
     this.jungleRecoveryTasks.set(hero.GetEntityIndex(), {
       hero,
       heroName: hero.GetUnitName(),
       targetPosition: target.position,
-      expiresAt: GameRules.GetDOTATime(false, true) + target.duration,
+      expiresAt: GameRules.GetDOTATime(false, true) + duration,
       phase: 'waiting_for_tp',
     });
     this.StartTaskExecutor();
@@ -179,13 +185,13 @@ export class BotLaneRecovery {
     }
     this.taskExecutorRunning = true;
 
-    Timers.CreateTimer(RECOVERY_TASK_INTERVAL, () => {
+    Timers.CreateTimer(TASK_TICK_INTERVAL, () => {
       this.UpdateJungleRecoveryTasks();
       if (this.jungleRecoveryTasks.size === 0) {
         this.taskExecutorRunning = false;
         return undefined;
       }
-      return RECOVERY_TASK_INTERVAL;
+      return TASK_TICK_INTERVAL;
     });
   }
 
@@ -216,7 +222,7 @@ export class BotLaneRecovery {
       if (HeroUtil.NotActionable(hero)) {
         continue;
       }
-      if (hero.GetAbsOrigin().__sub(task.targetPosition).Length2D() <= TARGET_REACHED_RADIUS) {
+      if (hero.GetAbsOrigin().__sub(task.targetPosition).Length2D() <= TASK_TARGET_REACHED_RADIUS) {
         this.EndJungleRecoveryMovement(entityIndex, 'reached_target');
         continue;
       }
@@ -230,6 +236,10 @@ export class BotLaneRecovery {
         print(
           `[BotLaneRecovery] jungle move_start hero=${hero.GetUnitName()} target=(${Math.floor(task.targetPosition.x)},${Math.floor(task.targetPosition.y)},${Math.floor(task.targetPosition.z)})`,
         );
+      }
+      // 正在攻击时不重复下指令，否则高频命令会持续打断攻击前摇
+      if (hero.IsAttacking()) {
+        continue;
       }
       ExecuteOrderFromTable({
         OrderType: UnitOrder.ATTACK_MOVE,
@@ -255,11 +265,16 @@ export class BotLaneRecovery {
   }
 
   private HasNearbyEnemyHeroOrTower(hero: CDOTA_BaseNPC_Hero): boolean {
-    if (ActionFind.FindEnemyHeroes(hero, ENEMY_INTERRUPT_RADIUS).length > 0) {
+    if (ActionFind.FindEnemyHeroes(hero, TASK_ENEMY_INTERRUPT_RADIUS).length > 0) {
       return true;
     }
-    const buildings = ActionFind.FindEnemyBuildingsInvulnerable(hero, ENEMY_INTERRUPT_RADIUS);
+    const buildings = ActionFind.FindEnemyBuildingsInvulnerable(hero, TASK_ENEMY_INTERRUPT_RADIUS);
     return buildings.some((building) => building.GetUnitName().includes('tower'));
+  }
+
+  private HasNearbyNeutral(hero: CDOTA_BaseNPC_Hero): boolean {
+    const creeps = ActionFind.FindEnemyCreeps(hero, JUNGLE_NEUTRAL_RADIUS);
+    return creeps.some((creep) => creep.GetTeamNumber() === DotaTeam.NEUTRALS);
   }
 
   private FindFriendlyTowers(): BotLaneRecoveryTower<CDOTA_BaseNPC>[] {
