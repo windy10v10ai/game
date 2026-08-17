@@ -31,6 +31,7 @@ interface JungleRecoveryTask {
   heroName: string;
   targetPosition: Vector;
   expiresAt: number;
+  teleportStarted: boolean;
   movementStarted: boolean;
 }
 
@@ -97,6 +98,9 @@ export class BotLaneRecovery {
       HeroUtil.NotActionable(hero) ||
       hero.IsMuted()
     ) {
+      return undefined;
+    }
+    if (this.jungleRecoveryTasks.has(hero.GetEntityIndex())) {
       return undefined;
     }
 
@@ -173,7 +177,7 @@ export class BotLaneRecovery {
       this.CreateJungleRecoveryTask(candidate.hero, RECOVERY_TARGETS[tower.lane]);
     }
     print(
-      `[BotLaneRecovery] ${plan.decision.reason} tp_start hero=${candidate.hero.GetUnitName()} distance=${Math.floor(plan.recoveryDistance)} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
+      `[BotLaneRecovery] ${plan.decision.reason} tp_order hero=${candidate.hero.GetUnitName()} distance=${Math.floor(plan.recoveryDistance)} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
     );
   }
 
@@ -193,6 +197,7 @@ export class BotLaneRecovery {
       heroName: hero.GetUnitName(),
       targetPosition,
       expiresAt: GameRules.GetDOTATime(false, true) + RECOVERY_TASK_DURATION,
+      teleportStarted: false,
       movementStarted: false,
     });
     this.StartTaskExecutor();
@@ -231,6 +236,16 @@ export class BotLaneRecovery {
         continue;
       }
 
+      if (hero.HasModifier('modifier_teleporting')) {
+        if (!task.teleportStarted) {
+          task.teleportStarted = true;
+          print(`[BotLaneRecovery] jungle tp_start hero=${task.heroName}`);
+        }
+        continue;
+      }
+      if (!task.teleportStarted) {
+        continue;
+      }
       if (HeroUtil.NotActionable(hero)) {
         continue;
       }
