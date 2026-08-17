@@ -27,7 +27,7 @@ export interface BotLaneRecoveryTower<T> {
 
 // lane 量的是该路防御塔，jungle 量的是最近的己方防御塔
 const LANE_TRIGGER_TOWER_DISTANCE = 4000;
-const JUNGLE_TRIGGER_TOWER_DISTANCE = 2000;
+const JUNGLE_TRIGGER_TOWER_DISTANCE = 2500;
 
 export function resolveBotLaneRecovery(
   input: BotLaneRecoveryDecisionInput,
