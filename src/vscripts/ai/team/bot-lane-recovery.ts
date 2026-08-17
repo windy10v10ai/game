@@ -28,9 +28,19 @@ const RECOVERY_TARGETS: Record<BotLane, Vector> = {
 
 interface JungleRecoveryTask {
   hero: CDOTA_BaseNPC_Hero;
+  heroName: string;
   targetPosition: Vector;
   expiresAt: number;
+  movementStarted: boolean;
 }
+
+type JungleRecoveryEndReason =
+  | 'invalid_hero'
+  | 'dead'
+  | 'timeout'
+  | 'reached_target'
+  | 'enemy_nearby'
+  | 'retreat';
 
 interface RecoveryCandidate {
   playerId: PlayerID;
@@ -163,7 +173,7 @@ export class BotLaneRecovery {
       this.CreateJungleRecoveryTask(candidate.hero, RECOVERY_TARGETS[tower.lane]);
     }
     print(
-      `[BotLaneRecovery] hero=${candidate.hero.GetUnitName()} reason=${plan.decision.reason} distance=${Math.floor(plan.recoveryDistance)} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
+      `[BotLaneRecovery] ${plan.decision.reason} tp_start hero=${candidate.hero.GetUnitName()} distance=${Math.floor(plan.recoveryDistance)} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
     );
   }
 
@@ -174,14 +184,16 @@ export class BotLaneRecovery {
 
   /** Cancels the hero's post-teleport jungle recovery movement. */
   public CancelJungleRecoveryMovement(hero: CDOTA_BaseNPC_Hero): void {
-    this.jungleRecoveryTasks.delete(hero.GetEntityIndex());
+    this.EndJungleRecoveryMovement(hero.GetEntityIndex(), 'retreat');
   }
 
   private CreateJungleRecoveryTask(hero: CDOTA_BaseNPC_Hero, targetPosition: Vector): void {
     this.jungleRecoveryTasks.set(hero.GetEntityIndex(), {
       hero,
+      heroName: hero.GetUnitName(),
       targetPosition,
       expiresAt: GameRules.GetDOTATime(false, true) + RECOVERY_TASK_DURATION,
+      movementStarted: false,
     });
     this.StartTaskExecutor();
   }
@@ -206,28 +218,57 @@ export class BotLaneRecovery {
     const gameTime = GameRules.GetDOTATime(false, true);
     for (const [entityIndex, task] of this.jungleRecoveryTasks) {
       const hero = task.hero;
-      if (hero.IsNull() || !hero.IsAlive() || gameTime >= task.expiresAt) {
-        this.jungleRecoveryTasks.delete(entityIndex);
+      if (hero.IsNull()) {
+        this.EndJungleRecoveryMovement(entityIndex, 'invalid_hero');
+        continue;
+      }
+      if (!hero.IsAlive()) {
+        this.EndJungleRecoveryMovement(entityIndex, 'dead');
+        continue;
+      }
+      if (gameTime >= task.expiresAt) {
+        this.EndJungleRecoveryMovement(entityIndex, 'timeout');
         continue;
       }
 
       if (HeroUtil.NotActionable(hero)) {
         continue;
       }
-      if (
-        this.GetDistanceToPosition(hero, task.targetPosition) <= TARGET_REACHED_RADIUS ||
-        this.HasNearbyEnemyHeroOrTower(hero)
-      ) {
-        this.jungleRecoveryTasks.delete(entityIndex);
+      if (this.GetDistanceToPosition(hero, task.targetPosition) <= TARGET_REACHED_RADIUS) {
+        this.EndJungleRecoveryMovement(entityIndex, 'reached_target');
+        continue;
+      }
+      if (this.HasNearbyEnemyHeroOrTower(hero)) {
+        this.EndJungleRecoveryMovement(entityIndex, 'enemy_nearby');
         continue;
       }
 
+      if (!task.movementStarted) {
+        task.movementStarted = true;
+        print(
+          `[BotLaneRecovery] jungle move_start hero=${hero.GetUnitName()} target=(${Math.floor(task.targetPosition.x)},${Math.floor(task.targetPosition.y)},${Math.floor(task.targetPosition.z)})`,
+        );
+      }
       ExecuteOrderFromTable({
         OrderType: UnitOrder.ATTACK_MOVE,
         UnitIndex: hero.GetEntityIndex(),
         Position: task.targetPosition,
         Queue: false,
       });
+    }
+  }
+
+  private EndJungleRecoveryMovement(
+    entityIndex: EntityIndex,
+    reason: JungleRecoveryEndReason,
+  ): void {
+    const task = this.jungleRecoveryTasks.get(entityIndex);
+    if (!task) {
+      return;
+    }
+    this.jungleRecoveryTasks.delete(entityIndex);
+    if (task.movementStarted) {
+      print(`[BotLaneRecovery] jungle move_end hero=${task.heroName} reason=${reason}`);
     }
   }
 
