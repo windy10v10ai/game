@@ -281,7 +281,13 @@ export class BotLaneRecovery {
     const towers = Entities.FindAllByClassname('npc_dota_tower') as CDOTA_BaseNPC[];
     const result: BotLaneRecoveryTower<CDOTA_BaseNPC>[] = [];
     for (const tower of towers) {
-      if (tower.IsNull() || !tower.IsAlive() || tower.GetTeamNumber() !== DotaTeam.BADGUYS) {
+      // 无敌塔是被前排塔保护的后排塔，不代表前线位置，回线距离与 TP 目标都只参照最外层塔
+      if (
+        tower.IsNull() ||
+        !tower.IsAlive() ||
+        tower.IsInvulnerable() ||
+        tower.GetTeamNumber() !== DotaTeam.BADGUYS
+      ) {
         continue;
       }
 
