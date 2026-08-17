@@ -45,7 +45,6 @@ export class Debug {
 
     // ---- 常用命令 ----
 
-    // -s GetStuns(playerId: PlayerID
     if (cmd === CMD.S) {
       const playerId = keys.playerid;
       const stuns = PlayerResource.GetStuns(playerId);
@@ -152,21 +151,11 @@ export class Debug {
       }
     }
 
-    // ---- ability ----
-    if (cmd === CMD.ADD_ABILITY) {
-      const hero = PlayerResource.GetSelectedHeroEntity(keys.playerid);
-      if (!hero) return;
-      const abilityName = args[0];
-      hero.AddAbility(abilityName);
+    if (cmd === CMD.BOT_THINKING_ENABLE) {
+      GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
     }
-    if (cmd === CMD.ADD_ABILITY_ALL) {
-      PlayerHelper.ForEachPlayer((playerId) => {
-        if (!PlayerHelper.IsHumanPlayerByPlayerId(playerId)) return;
-        const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-        if (!hero) return;
-        const abilityName = args[0];
-        hero.AddAbility(abilityName);
-      });
+    if (cmd === CMD.BOT_THINKING_DISABLE) {
+      GameRules.GetGameModeEntity().SetBotThinkingEnabled(false);
     }
 
     // ---- item 替换装备命令 ----

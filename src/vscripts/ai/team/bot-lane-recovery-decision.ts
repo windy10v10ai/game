@@ -22,8 +22,8 @@ export interface BotLaneRecoveryTower<T> {
   tier: number;
 }
 
-const LANE_RECOVERY_DISTANCE = 3000;
-const JUNGLE_RECOVERY_DISTANCE = 2000;
+const LANE_RECOVERY_DISTANCE = 4000;
+const JUNGLE_RECOVERY_DISTANCE = 1600;
 
 export function resolveBotLaneRecovery(
   input: BotLaneRecoveryDecisionInput,

@@ -359,6 +359,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_time_gem', // 时间宝石
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_beast_armor', // 兽化甲
+        'item_six_paths_reincarnation_gun', // 六道轮回枪
       ],
     },
   },
@@ -605,6 +606,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_shield', // 兽化盾
         'item_time_gem', // 时间宝石
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
+        'item_six_paths_reincarnation_gun', // 六道轮回枪
       ],
     },
   },
@@ -664,6 +666,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_beast_shield', // 兽化盾
         'item_rapier_ultra_bot_1', // 解放的诅咒圣剑
         'item_time_gem', // 时间宝石
+        'item_six_paths_reincarnation_gun', // 六道轮回枪
       ],
     },
   },
@@ -822,6 +825,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_sword', // 魔渊剑
         'item_time_gem', // 时间宝石
         'item_dracula_mask', // 生命之盔
+        'item_six_paths_reincarnation_gun', // 六道轮回枪
       ],
     },
   },

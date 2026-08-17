@@ -10,7 +10,8 @@ import {
 } from './bot-lane-recovery-decision';
 
 const ENEMY_HERO_RADIUS = 1600;
-const LANE_CREEP_RADIUS = 1400;
+const ENEMY_LANE_CREEP_RADIUS = 1800;
+const FRIENDLY_LANE_CREEP_RADIUS = 2400;
 const LANDING_RADIUS_MIN = 300;
 const LANDING_RADIUS_MAX = 600;
 
@@ -45,11 +46,19 @@ export class BotLaneRecovery {
         return;
       }
 
-      const laneCreeps = this.FindLaneCreeps(hero);
-      const enemyLaneCreep = laneCreeps.find(
-        (creep) => creep.GetTeamNumber() !== hero.GetTeamNumber(),
+      const enemyLaneCreeps = this.FindLaneCreeps(
+        hero,
+        ENEMY_LANE_CREEP_RADIUS,
+        UnitTargetTeam.ENEMY,
       );
-      const lane = enemyLaneCreep ? this.GetLane(enemyLaneCreep.GetAbsOrigin()) : undefined;
+      const friendlyLaneCreeps = this.FindLaneCreeps(
+        hero,
+        FRIENDLY_LANE_CREEP_RADIUS,
+        UnitTargetTeam.FRIENDLY,
+      );
+      const enemyLaneCreep = enemyLaneCreeps[0];
+      const lane =
+        enemyLaneCreep !== undefined ? this.GetLane(enemyLaneCreep.GetAbsOrigin()) : undefined;
       const laneTowers = getRecoveryTowerCandidates(towers, lane);
       const nearestLaneTowerDistance = this.GetNearestTowerDistance(hero, laneTowers);
       const nearestTowerDistance = this.GetNearestTowerDistance(hero, towers);
@@ -58,9 +67,7 @@ export class BotLaneRecovery {
         attackTarget !== undefined && !attackTarget.IsNull() && attackTarget.IsAlive();
       const decision = resolveBotLaneRecovery({
         enemyLane: lane,
-        hasFriendlyLaneCreep: laneCreeps.some(
-          (creep) => creep.GetTeamNumber() === hero.GetTeamNumber(),
-        ),
+        hasFriendlyLaneCreep: friendlyLaneCreeps.length > 0,
         distanceToLaneTower: nearestLaneTowerDistance,
         isAttackingNeutral: hasAttackTarget && attackTarget.GetTeamNumber() === DotaTeam.NEUTRALS,
         isAttackingAncient: hasAttackTarget && attackTarget.IsAncient(),
@@ -102,11 +109,15 @@ export class BotLaneRecovery {
     return result;
   }
 
-  private FindLaneCreeps(hero: CDOTA_BaseNPC_Hero): CDOTA_BaseNPC[] {
+  private FindLaneCreeps(
+    hero: CDOTA_BaseNPC_Hero,
+    radius: number,
+    teamFilter: UnitTargetTeam,
+  ): CDOTA_BaseNPC[] {
     const creeps = ActionFind.Find(
       hero,
-      LANE_CREEP_RADIUS,
-      UnitTargetTeam.BOTH,
+      radius,
+      teamFilter,
       UnitTargetType.CREEP,
       UnitTargetFlags.NONE,
       FindOrder.ANY,
