@@ -3,6 +3,7 @@ import { ActionFind } from '../action/action-find';
 import { HeroUtil } from '../hero/hero-util';
 import {
   BotLane,
+  BotLaneRecoveryReason,
   BotLaneRecoveryTower,
   getRecoveryTowerCandidates,
   getPreferredRecoveryTowers,
@@ -20,6 +21,8 @@ const LANDING_OFFSET_MAX = 600;
 const TASK_TARGET_REACHED_RADIUS = 100;
 const TASK_ENEMY_INTERRUPT_RADIUS = 900;
 const TASK_TICK_INTERVAL = 0.1;
+const FOUNTAIN_RADIUS = 1200;
+const FOUNTAIN_EVICTION_INTERVAL = 10;
 
 // 时长从 TP 指令下达起算，含约 3 秒引导。TP 塔取候选中的最低层级，配合前排塔门槛只会是一塔或二塔
 const RECOVERY_TARGETS: Record<
@@ -27,13 +30,14 @@ const RECOVERY_TARGETS: Record<
   { position: Vector; tier1Duration: number; tier2Duration: number }
 > = {
   top: { position: Vector(-6434, 3555, 128), tier1Duration: 15, tier2Duration: 25 },
-  mid: { position: Vector(-507, -406, 0), tier1Duration: 10, tier2Duration: 20 },
-  bot: { position: Vector(5758, -5708, 128), tier1Duration: 15, tier2Duration: 25 },
+  mid: { position: Vector(-867, -719, 128), tier1Duration: 10, tier2Duration: 20 },
+  bot: { position: Vector(5614, -5562, 128), tier1Duration: 15, tier2Duration: 25 },
 };
 
 interface JungleRecoveryTask {
   hero: CDOTA_BaseNPC_Hero;
   heroName: string;
+  source: TeleportReason;
   targetPosition: Vector;
   expiresAt: number;
   phase: 'waiting_for_tp' | 'teleporting' | 'moving';
@@ -46,6 +50,8 @@ type JungleRecoveryEndReason =
   | 'enemy_nearby'
   | 'retreat';
 
+type TeleportReason = BotLaneRecoveryReason | 'fountain';
+
 interface RecoveryCandidate {
   playerId: PlayerID;
   hero: CDOTA_BaseNPC_Hero;
@@ -54,7 +60,9 @@ interface RecoveryCandidate {
 
 export class BotLaneRecovery {
   private readonly jungleRecoveryTasks = new Map<EntityIndex, JungleRecoveryTask>();
+  private readonly fountainEvictionNextTime = new Map<EntityIndex, number>();
   private taskExecutorRunning = false;
+  private fountainPosition: Vector | undefined;
 
   public Run(): void {
     const towers = this.FindFriendlyTowers();
@@ -64,14 +72,20 @@ export class BotLaneRecovery {
 
     const hasFrontTower = towers.some((tower) => tower.tier <= FRONT_TOWER_MAX_TIER);
     PlayerHelper.ForEachPlayer((playerId) => {
-      const candidate = this.GetRecoveryCandidate(playerId);
-      if (candidate) {
+      const candidate = this.GetBotCandidate(playerId);
+      if (!candidate) {
+        return;
+      }
+      if (this.TryEvictFromFountain(candidate, towers, hasFrontTower)) {
+        return;
+      }
+      if (this.IsRecoveryCandidate(candidate)) {
         this.ExecuteRecovery(candidate, towers, hasFrontTower);
       }
     });
   }
 
-  private GetRecoveryCandidate(playerId: PlayerID): RecoveryCandidate | undefined {
+  private GetBotCandidate(playerId: PlayerID): RecoveryCandidate | undefined {
     if (
       !PlayerHelper.IsBotPlayerByPlayerId(playerId) ||
       PlayerResource.GetTeam(playerId) !== DotaTeam.BADGUYS
@@ -94,14 +108,18 @@ export class BotLaneRecovery {
     }
 
     const scroll = hero.FindItemInInventory('item_tpscroll');
-    if (
-      !scroll ||
-      !scroll.IsFullyCastable() ||
-      ActionFind.FindEnemyHeroes(hero, CANDIDATE_ENEMY_HERO_RADIUS).length > 0
-    ) {
+    if (!scroll) {
       return undefined;
     }
     return { playerId, hero, scroll };
+  }
+
+  // 泉水驱逐会自行刷新冷却，因此可施放判定只属于回线路径
+  private IsRecoveryCandidate(candidate: RecoveryCandidate): boolean {
+    return (
+      candidate.scroll.IsFullyCastable() &&
+      ActionFind.FindEnemyHeroes(candidate.hero, CANDIDATE_ENEMY_HERO_RADIUS).length === 0
+    );
   }
 
   private ExecuteRecovery(
@@ -141,18 +159,92 @@ export class BotLaneRecovery {
       return;
     }
 
-    const preferredTowers = getPreferredRecoveryTowers(towers, decision.lane);
+    this.CastRecoveryTeleport(
+      candidate,
+      towers,
+      decision.lane,
+      decision.reason,
+      decision.reason === 'jungle',
+    );
+  }
+
+  /**
+   * 把 Bot 从己方泉水传送回前排塔并接管上线。
+   *
+   * 原生 Bot AI 会在满状态下毫无收益地 TP 回泉水，且 TP 冷却好转后重复该动作。
+   */
+  private TryEvictFromFountain(
+    candidate: RecoveryCandidate,
+    towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
+    hasFrontTower: boolean,
+  ): boolean {
+    // 只剩三塔说明已被推到高地，此时留在泉水是合理防守位
+    if (!hasFrontTower) {
+      return false;
+    }
+
+    const hero = candidate.hero;
+    const entityIndex = hero.GetEntityIndex();
+    const gameTime = GameRules.GetDOTATime(false, true);
+    if (gameTime < (this.fountainEvictionNextTime.get(entityIndex) ?? 0)) {
+      return false;
+    }
+    if (!this.IsAtFountain(hero)) {
+      return false;
+    }
+    // 满状态是与正常回城补给的分界线，残血或缺蓝属于合理回城
+    if (hero.GetHealth() < hero.GetMaxHealth() || hero.GetMana() < hero.GetMaxMana()) {
+      return false;
+    }
+
+    this.fountainEvictionNextTime.set(entityIndex, gameTime + FOUNTAIN_EVICTION_INTERVAL);
+    // 施放后引擎重新开始冷却，Bot 在这期间无法自行 TP 回泉水
+    candidate.scroll.EndCooldown();
+    this.CastRecoveryTeleport(candidate, towers, undefined, 'fountain', true);
+    return true;
+  }
+
+  private IsAtFountain(hero: CDOTA_BaseNPC_Hero): boolean {
+    const fountainPosition = this.GetFountainPosition();
+    if (!fountainPosition) {
+      return false;
+    }
+    return hero.GetAbsOrigin().__sub(fountainPosition).Length2D() <= FOUNTAIN_RADIUS;
+  }
+
+  private GetFountainPosition(): Vector | undefined {
+    if (this.fountainPosition) {
+      return this.fountainPosition;
+    }
+    const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
+    for (const fountain of fountains) {
+      if (!fountain.IsNull() && fountain.GetTeamNumber() === DotaTeam.BADGUYS) {
+        this.fountainPosition = fountain.GetAbsOrigin();
+        return this.fountainPosition;
+      }
+    }
+    return undefined;
+  }
+
+  private CastRecoveryTeleport(
+    candidate: RecoveryCandidate,
+    towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
+    lane: BotLane | undefined,
+    reason: TeleportReason,
+    createTask: boolean,
+  ): void {
+    const preferredTowers = getPreferredRecoveryTowers(towers, lane);
     const tower = preferredTowers[RandomInt(0, preferredTowers.length - 1)];
     const landingPosition = tower.value
       .GetAbsOrigin()
       .__add(RandomVector(RandomInt(LANDING_OFFSET_MIN, LANDING_OFFSET_MAX)));
 
     candidate.hero.CastAbilityOnPosition(landingPosition, candidate.scroll, candidate.playerId);
-    if (decision.reason === 'jungle' && tower.lane !== undefined) {
-      this.CreateJungleRecoveryTask(candidate.hero, tower.lane, tower.tier);
+    if (createTask && tower.lane !== undefined) {
+      this.CreateJungleRecoveryTask(candidate.hero, tower.lane, tower.tier, reason);
     }
     print(
-      `[BotLaneRecovery] ${decision.reason} tp_order hero=${candidate.hero.GetUnitName()} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
+      `[BotLaneRecovery] ${reason} tp_order hero=${candidate.hero.GetUnitName()} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
     );
   }
 
@@ -166,12 +258,18 @@ export class BotLaneRecovery {
     this.EndJungleRecoveryMovement(hero.GetEntityIndex(), 'retreat');
   }
 
-  private CreateJungleRecoveryTask(hero: CDOTA_BaseNPC_Hero, lane: BotLane, tier: number): void {
+  private CreateJungleRecoveryTask(
+    hero: CDOTA_BaseNPC_Hero,
+    lane: BotLane,
+    tier: number,
+    source: TeleportReason,
+  ): void {
     const target = RECOVERY_TARGETS[lane];
     const duration = tier >= 2 ? target.tier2Duration : target.tier1Duration;
     this.jungleRecoveryTasks.set(hero.GetEntityIndex(), {
       hero,
       heroName: hero.GetUnitName(),
+      source,
       targetPosition: target.position,
       expiresAt: GameRules.GetDOTATime(false, true) + duration,
       phase: 'waiting_for_tp',
@@ -212,7 +310,7 @@ export class BotLaneRecovery {
       if (task.phase === 'waiting_for_tp') {
         if (isTeleporting) {
           task.phase = 'teleporting';
-          print(`[BotLaneRecovery] jungle tp_start hero=${task.heroName}`);
+          print(`[BotLaneRecovery] ${task.source} tp_start hero=${task.heroName}`);
         }
         continue;
       }
@@ -234,7 +332,7 @@ export class BotLaneRecovery {
       if (task.phase === 'teleporting') {
         task.phase = 'moving';
         print(
-          `[BotLaneRecovery] jungle move_start hero=${hero.GetUnitName()} target=(${Math.floor(task.targetPosition.x)},${Math.floor(task.targetPosition.y)},${Math.floor(task.targetPosition.z)})`,
+          `[BotLaneRecovery] ${task.source} move_start hero=${hero.GetUnitName()} target=(${Math.floor(task.targetPosition.x)},${Math.floor(task.targetPosition.y)},${Math.floor(task.targetPosition.z)})`,
         );
       }
       // 正在攻击时不重复下指令，否则高频命令会持续打断攻击前摇
@@ -260,7 +358,7 @@ export class BotLaneRecovery {
     }
     this.jungleRecoveryTasks.delete(entityIndex);
     if (task.phase === 'moving') {
-      print(`[BotLaneRecovery] jungle move_end hero=${task.heroName} reason=${reason}`);
+      print(`[BotLaneRecovery] ${task.source} move_end hero=${task.heroName} reason=${reason}`);
     }
   }
 
