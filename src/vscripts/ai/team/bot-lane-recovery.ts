@@ -3,7 +3,6 @@ import { ActionFind } from '../action/action-find';
 import { HeroUtil } from '../hero/hero-util';
 import {
   BotLane,
-  BotLaneRecoveryDecision,
   BotLaneRecoveryTower,
   getRecoveryTowerCandidates,
   getPreferredRecoveryTowers,
@@ -31,13 +30,11 @@ interface JungleRecoveryTask {
   heroName: string;
   targetPosition: Vector;
   expiresAt: number;
-  teleportStarted: boolean;
-  movementStarted: boolean;
+  phase: 'waiting_for_tp' | 'teleporting' | 'moving';
 }
 
 type JungleRecoveryEndReason =
-  | 'invalid_hero'
-  | 'dead'
+  | 'unavailable'
   | 'timeout'
   | 'reached_target'
   | 'enemy_nearby'
@@ -47,11 +44,6 @@ interface RecoveryCandidate {
   playerId: PlayerID;
   hero: CDOTA_BaseNPC_Hero;
   scroll: CDOTA_Item;
-}
-
-interface RecoveryPlan {
-  decision: BotLaneRecoveryDecision;
-  recoveryDistance: number;
 }
 
 export class BotLaneRecovery {
@@ -64,22 +56,12 @@ export class BotLaneRecovery {
       return;
     }
 
-    PlayerHelper.ForEachPlayer((playerId) => this.TryRecoverBot(playerId, towers));
-  }
-
-  private TryRecoverBot(
-    playerId: PlayerID,
-    towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
-  ): void {
-    const candidate = this.GetRecoveryCandidate(playerId);
-    if (!candidate) {
-      return;
-    }
-    const plan = this.ResolveRecoveryPlan(candidate.hero, towers);
-    if (!plan) {
-      return;
-    }
-    this.ExecuteRecovery(candidate, towers, plan);
+    PlayerHelper.ForEachPlayer((playerId) => {
+      const candidate = this.GetRecoveryCandidate(playerId);
+      if (candidate) {
+        this.ExecuteRecovery(candidate, towers);
+      }
+    });
   }
 
   private GetRecoveryCandidate(playerId: PlayerID): RecoveryCandidate | undefined {
@@ -115,10 +97,11 @@ export class BotLaneRecovery {
     return { playerId, hero, scroll };
   }
 
-  private ResolveRecoveryPlan(
-    hero: CDOTA_BaseNPC_Hero,
+  private ExecuteRecovery(
+    candidate: RecoveryCandidate,
     towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
-  ): RecoveryPlan | undefined {
+  ): void {
+    const hero = candidate.hero;
     const enemyLaneCreeps = this.FindLaneCreeps(
       hero,
       ENEMY_LANE_CREEP_RADIUS,
@@ -147,37 +130,21 @@ export class BotLaneRecovery {
       distanceToNearestTower: nearestTowerDistance,
     });
     if (!decision) {
-      return undefined;
-    }
-
-    const recoveryDistance =
-      decision.reason === 'lane' ? nearestLaneTowerDistance : nearestTowerDistance;
-    if (recoveryDistance === undefined) {
-      return undefined;
-    }
-    return { decision, recoveryDistance };
-  }
-
-  private ExecuteRecovery(
-    candidate: RecoveryCandidate,
-    towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
-    plan: RecoveryPlan,
-  ): void {
-    const preferredTowers = getPreferredRecoveryTowers(towers, plan.decision.lane);
-    if (preferredTowers.length === 0) {
       return;
     }
+
+    const preferredTowers = getPreferredRecoveryTowers(towers, decision.lane);
     const tower = preferredTowers[RandomInt(0, preferredTowers.length - 1)];
     const landingPosition = tower.value
       .GetAbsOrigin()
       .__add(RandomVector(RandomInt(LANDING_RADIUS_MIN, LANDING_RADIUS_MAX)));
 
     candidate.hero.CastAbilityOnPosition(landingPosition, candidate.scroll, candidate.playerId);
-    if (plan.decision.reason === 'jungle' && tower.lane !== undefined) {
+    if (decision.reason === 'jungle' && tower.lane !== undefined) {
       this.CreateJungleRecoveryTask(candidate.hero, RECOVERY_TARGETS[tower.lane]);
     }
     print(
-      `[BotLaneRecovery] ${plan.decision.reason} tp_order hero=${candidate.hero.GetUnitName()} distance=${Math.floor(plan.recoveryDistance)} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
+      `[BotLaneRecovery] ${decision.reason} tp_order hero=${candidate.hero.GetUnitName()} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
     );
   }
 
@@ -197,8 +164,7 @@ export class BotLaneRecovery {
       heroName: hero.GetUnitName(),
       targetPosition,
       expiresAt: GameRules.GetDOTATime(false, true) + RECOVERY_TASK_DURATION,
-      teleportStarted: false,
-      movementStarted: false,
+      phase: 'waiting_for_tp',
     });
     this.StartTaskExecutor();
   }
@@ -223,12 +189,8 @@ export class BotLaneRecovery {
     const gameTime = GameRules.GetDOTATime(false, true);
     for (const [entityIndex, task] of this.jungleRecoveryTasks) {
       const hero = task.hero;
-      if (hero.IsNull()) {
-        this.EndJungleRecoveryMovement(entityIndex, 'invalid_hero');
-        continue;
-      }
-      if (!hero.IsAlive()) {
-        this.EndJungleRecoveryMovement(entityIndex, 'dead');
+      if (hero.IsNull() || !hero.IsAlive()) {
+        this.EndJungleRecoveryMovement(entityIndex, 'unavailable');
         continue;
       }
       if (gameTime >= task.expiresAt) {
@@ -236,20 +198,21 @@ export class BotLaneRecovery {
         continue;
       }
 
-      if (hero.HasModifier('modifier_teleporting')) {
-        if (!task.teleportStarted) {
-          task.teleportStarted = true;
+      const isTeleporting = hero.HasModifier('modifier_teleporting');
+      if (task.phase === 'waiting_for_tp') {
+        if (isTeleporting) {
+          task.phase = 'teleporting';
           print(`[BotLaneRecovery] jungle tp_start hero=${task.heroName}`);
         }
         continue;
       }
-      if (!task.teleportStarted) {
+      if (isTeleporting) {
         continue;
       }
       if (HeroUtil.NotActionable(hero)) {
         continue;
       }
-      if (this.GetDistanceToPosition(hero, task.targetPosition) <= TARGET_REACHED_RADIUS) {
+      if (hero.GetAbsOrigin().__sub(task.targetPosition).Length2D() <= TARGET_REACHED_RADIUS) {
         this.EndJungleRecoveryMovement(entityIndex, 'reached_target');
         continue;
       }
@@ -258,8 +221,8 @@ export class BotLaneRecovery {
         continue;
       }
 
-      if (!task.movementStarted) {
-        task.movementStarted = true;
+      if (task.phase === 'teleporting') {
+        task.phase = 'moving';
         print(
           `[BotLaneRecovery] jungle move_start hero=${hero.GetUnitName()} target=(${Math.floor(task.targetPosition.x)},${Math.floor(task.targetPosition.y)},${Math.floor(task.targetPosition.z)})`,
         );
@@ -282,7 +245,7 @@ export class BotLaneRecovery {
       return;
     }
     this.jungleRecoveryTasks.delete(entityIndex);
-    if (task.movementStarted) {
+    if (task.phase === 'moving') {
       print(`[BotLaneRecovery] jungle move_end hero=${task.heroName} reason=${reason}`);
     }
   }
@@ -293,10 +256,6 @@ export class BotLaneRecovery {
     }
     const buildings = ActionFind.FindEnemyBuildingsInvulnerable(hero, ENEMY_INTERRUPT_RADIUS);
     return buildings.some((building) => building.GetUnitName().includes('tower'));
-  }
-
-  private GetDistanceToPosition(hero: CDOTA_BaseNPC_Hero, position: Vector): number {
-    return hero.GetAbsOrigin().__sub(position).Length2D();
   }
 
   private FindFriendlyTowers(): BotLaneRecoveryTower<CDOTA_BaseNPC>[] {
