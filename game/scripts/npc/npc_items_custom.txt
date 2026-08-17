@@ -6542,7 +6542,7 @@
 			// "bonus_all_stats"			"25"	// 绝刃自身加成
 			"slow"						"50"	// 绝刃减速
 			"slow_duration"				"2"		// 绝刃减速持续时间
-			"bonus_spell_damage"		"750"	// 绝刃法术伤害加成
+			"bonus_spell_damage"		"700"	// 绝刃法术伤害加成
 			"passive_cooldown"			"1"		// 绝刃自身充能冷却
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
