@@ -252,8 +252,6 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_techies', // 炸弹人
   'npc_dota_hero_undying', // 尸王
   'npc_dota_hero_lich', // 巫妖
-  'npc_dota_hero_doom_bringer', // 末日使者
-  'npc_dota_hero_keeper_of_the_light', // 光之守卫
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

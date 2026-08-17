@@ -77,7 +77,12 @@
 				<Panel id="PointsLabel" class="PtsColumn">
 					<Panel class="PointsInner">
 						<Label id="PointsValue" class="PointsValue" text="" />
-						<Label id="PointsModifier" class="PointsModifier" text="" visible="false" />
+						<Panel class="PointsBadgeColumn">
+							<Panel id="DailyTaskBadge" class="DailyTaskBadge" visible="false">
+								<Label id="DailyTaskBadgeValue" class="DailyTaskBadgeValue" text="" />
+							</Panel>
+							<Label id="PointsModifier" class="PointsModifier" text="" visible="false" />
+						</Panel>
 					</Panel>
 				</Panel>
 				<Panel id="ItemsContainer" class="ItemsColumn LeftRightFlow" />

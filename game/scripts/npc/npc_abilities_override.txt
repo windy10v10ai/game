@@ -3598,8 +3598,8 @@
 			}
 			"duration"
 			{
-				"value"							"2.0"	// 4.25
-				"hero_levelup"					"+0.25"
+				"value"							"1.0"	// 4.25
+				"hero_levelup"					"+0.1"	// +0.25
 				"levelup_interval"				"10"	// 6
 				"special_bonus_scepter"			"+0.5"	// +1
 			}
@@ -6143,7 +6143,7 @@
 		{
 			"damage_per_mana"
 			{
-				"value"								"5.0"	// 2
+				"value"								"4.0"	// 2
 				"hero_levelup"						"+0.3"	// +0.1
 			}
 		}

@@ -1,4 +1,5 @@
 // hud_main 容器外壳样式（页面级 modal 样式由 shared/styles/dialog.less 提供）
+@import "../shared/styles/tokens.less";
 
 .root {
   width: 100%;
@@ -11,4 +12,147 @@
   vertical-align: top;
   margin-left: 100px;
   margin-top: 8px;
+}
+
+/* 局内每日任务进度浮窗：顶部留白 45px 避开 FPS 显示与顶部英雄栏 */
+.dailytask-hud {
+  vertical-align: top;
+  horizontal-align: right;
+  margin-top: 46px;
+  margin-right: 10px;
+  flow-children: right;
+  // 固定行高：英雄图标比文字高，不锁死的话英雄任务与通用任务之间切换会跳动
+  height: 26px;
+  padding: 0px 10px;
+  border-radius: @radius-md;
+  background-color: @color-bg-tint-strong;
+  transition-property: background-color;
+  transition-duration: @transition-fast;
+}
+
+.dailytask-hud:hover {
+  background-color: #000000cc;
+}
+
+.dailytask-hud-hero {
+  width: 20px;
+  height: 20px;
+  vertical-align: center;
+  margin-right: @spacing-xs;
+  border-radius: @radius-sm;
+}
+
+.dailytask-hud-star {
+  vertical-align: center;
+  font-size: @font-size-sm;
+  letter-spacing: 1px;
+  color: @color-gold;
+  margin-right: @spacing-xs;
+  text-shadow: @text-shadow-soft;
+}
+
+.dailytask-hud-text {
+  vertical-align: center;
+  font-size: @font-size-md;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+}
+
+/* 未领取：压暗文字，靠文案本身提示还有任务没选 */
+.dailytask-hud-unclaimed .dailytask-hud-text {
+  color: @color-text-muted;
+}
+
+/* 英雄不符：这局已经拿不到，整体压暗 */
+.dailytask-hud-mismatch {
+  opacity: 0.55;
+}
+
+.dailytask-hud-mismatch .dailytask-hud-text {
+  color: @color-text-muted;
+}
+
+.dailytask-hud-completed .dailytask-hud-text {
+  color: @color-gold;
+}
+
+// 选英雄阶段候选速览：屏幕中下方常驻 3 行；
+// margin-bottom 避开原生选人界面底部的英雄栏/操作区
+.dailytask-heroselect {
+  horizontal-align: left;
+  vertical-align: bottom;
+  margin-left: 445px;
+  margin-bottom: 50px;
+  height: 160px;
+  width: 400px;
+  flow-children: down;
+}
+
+.dailytask-heroselect-row {
+  width: 100%;
+  min-height: 46px;
+  flow-children: right;
+  vertical-align: center;
+  padding: 6px 12px;
+  margin-bottom: 6px;
+  border-radius: @radius-md;
+  background-color: @color-bg-tint-strong;
+}
+
+.dailytask-heroselect-row-left {
+  width: fill-parent-flow(1);
+  flow-children: right;
+  vertical-align: center;
+}
+
+.dailytask-heroselect-row-left .dailytask-star-badge {
+  margin-right: @spacing-sm;
+}
+
+.dailytask-heroselect-hero-icon {
+  width: 28px;
+  height: 28px;
+  vertical-align: center;
+  margin-right: @spacing-sm;
+  border-radius: @radius-sm;
+}
+
+.dailytask-heroselect-title {
+  width: fill-parent-flow(1);
+  white-space: normal;
+  font-size: @font-size-sm;
+  color: @color-text;
+  text-shadow: @text-shadow-soft;
+}
+
+.btn-primary.dailytask-heroselect-select-btn {
+  width: 80px;
+  height: 26px;
+  padding: 0px 6px;
+  margin-left: @spacing-sm;
+}
+
+// font-size 写在按钮自身选择器上对 .btn-primary-label 不生效，需要直接选中 label
+.dailytask-heroselect-select-btn .btn-primary-label {
+  font-size: @font-size-xs;
+}
+
+.dailytask-heroselect-claimed-badge {
+  horizontal-align: center;
+  vertical-align: center;
+  width: 80px;
+  height: 26px;
+  margin-left: @spacing-sm;
+  border: 1px solid @color-gold;
+  border-radius: @radius-sm;
+}
+
+.dailytask-heroselect-claimed-label {
+  width: 100%;
+  vertical-align: center;
+  text-align: center;
+  font-size: @font-size-xs;
+  font-weight: bold;
+  color: @color-gold;
+  text-shadow: 1px 1px 3px #000000ee;
 }

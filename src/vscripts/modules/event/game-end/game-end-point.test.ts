@@ -2,10 +2,6 @@ import { GameEndPlayerDto } from '../../../api/analytics/dto/game-end-dto';
 import { Option } from '../../option';
 import { GameEndPoint, normalizeControlTime } from './game-end-point';
 
-export function IsInToolsMode(): boolean {
-  return true;
-}
-
 describe('GameEndPoint', () => {
   // 创建基础玩家数据
   const createBasePlayer = (overrides: Partial<GameEndPlayerDto> = {}): GameEndPlayerDto => ({
@@ -322,6 +318,45 @@ describe('GameEndPoint', () => {
       } as Option;
       const multiplier = GameEndPoint.GetCustomModeMultiplier(option);
       expect(multiplier).toBeGreaterThanOrEqual(0);
+    });
+  });
+
+  describe('GameEndPoint.IsExtremeCustomMode', () => {
+    const defaultOption = {
+      radiantGoldXpMultiplier: 1.5,
+      direGoldXpMultiplier: 2,
+      radiantPlayerNumber: 10,
+      direPlayerNumber: 10,
+      towerPower: 200,
+      startingGoldPlayer: 3000,
+      startingGoldBot: 3000,
+      respawnTimePercentage: 100,
+      maxLevel: 50,
+      forceRandomHero: false,
+      enablePlayerAttribute: true,
+      fixedAbility: 'none',
+      gameDifficulty: 0,
+    } as Option;
+
+    it('默认配置不算极端', () => {
+      expect(GameEndPoint.IsExtremeCustomMode(defaultOption)).toBe(false);
+    });
+
+    it('秒活（复活时间百分比为下拉框最低档10）算极端', () => {
+      const option = { ...defaultOption, respawnTimePercentage: 10 } as Option;
+      expect(GameEndPoint.IsExtremeCustomMode(option)).toBe(true);
+    });
+
+    it('综合积分倍率低于1倍算极端', () => {
+      const option = { ...defaultOption, radiantGoldXpMultiplier: 5 } as Option;
+      expect(GameEndPoint.GetCustomModeMultiplier(option)).toBeLessThan(1);
+      expect(GameEndPoint.IsExtremeCustomMode(option)).toBe(true);
+    });
+
+    it('综合积分倍率大于等于1倍且无其他极端项时不算极端', () => {
+      const option = { ...defaultOption, direGoldXpMultiplier: 10 } as Option;
+      expect(GameEndPoint.GetCustomModeMultiplier(option)).toBeGreaterThanOrEqual(1);
+      expect(GameEndPoint.IsExtremeCustomMode(option)).toBe(false);
     });
   });
 });

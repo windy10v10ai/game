@@ -1,3 +1,4 @@
+import { DailyTaskStartDto } from '../../common/dto/daily-task';
 import { GameConfig } from '../modules/GameConfig';
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { GameEndDto } from './analytics/dto/game-end-dto';
@@ -9,12 +10,14 @@ import { Player, PlayerInfoDto, PointInfoDto } from './player';
 class GameStart {
   players!: PlayerInfoDto[];
   pointInfo!: PointInfoDto[];
+  dailyTasks?: DailyTaskStartDto[]; // 每日任务候选
   ga4Config?: GA4ConfigDto; // Only present for official servers
 }
 
 export class Game {
   public static readonly GAME_START_URL = '/game/start';
   public static readonly GAME_END_URL = '/game/end';
+  public static readonly LOCAL_GAME_END_URL = '/game/end/local';
 
   constructor() {}
 
@@ -76,6 +79,17 @@ export class Game {
         CustomNetTables.SetTableValue('point_info', steamId.toString(), list);
       });
 
+      // 按 steamId 匹配到 playerId 再转发，daily_task net table 按 playerId 存
+      if (gameStart.dailyTasks) {
+        PlayerHelper.ForEachPlayer((playerId) => {
+          const steamId = PlayerResource.GetSteamAccountID(playerId);
+          const dailyTaskDto = gameStart.dailyTasks!.find((dt) => dt.steamId === steamId);
+          if (dailyTaskDto) {
+            GameRules.DailyTask.SetStartData(playerId, dailyTaskDto);
+          }
+        });
+      }
+
       const status = gameStart.players.length > 0 ? 2 : 3;
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
         status,
@@ -108,7 +122,7 @@ export class Game {
 
     const apiParameter = {
       method: HttpMethod.POST,
-      path: Game.GAME_END_URL,
+      path: ApiClient.IsLocalhost() ? Game.LOCAL_GAME_END_URL : Game.GAME_END_URL,
       body: gameEndDto,
       successFunc: (data: string) => {
         // CustomNetTables.SetTableValue('ending_status', 'ending_status', {

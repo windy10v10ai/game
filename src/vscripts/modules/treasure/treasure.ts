@@ -8,7 +8,7 @@ import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
 
-  static readonly RESPAWN_INTERVAL_SINGLE = 120; // 单人局
+  static readonly RESPAWN_INTERVAL_SINGLE = 180; // 单人局
   static readonly RESPAWN_INTERVAL_MULTI = 180; // 多人局（全队发奖励，避免刷太多）
   static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;

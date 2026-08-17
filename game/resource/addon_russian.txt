@@ -332,6 +332,62 @@
 
 		///////////////////////////////////////////////////
 		//
+		//			DailyTask
+		//
+		///////////////////////////////////////////////////
+		"profile_tab_dailytask"			"Задания"
+		"dailytask_header_title"			"Мои ежедневные задания"
+		"dailytask_header_subtitle"			"Выберите задание для раунда {round}/{total}"
+		"dailytask_reward_hint"			"+{n} Battle Points"
+		"dailytask_settlement_tooltip_prefix"		"Задание дня выполнено: "
+		"dailytask_select_button"			"Принять задание"
+		"dailytask_selected_label"			"Принято"
+		"dailytask_disabled_hint"			"Ежедневные задания недоступны в чит-режиме или при пользовательской сложности с мгновенным возрождением или общим коэффициентом очков ниже 1x"
+		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
+		"dailytask_all_done_hint"			"Все {total} раунда на сегодня выполнены"
+		"dailytask_hud_unclaimed"			"Задание не принято"
+		"dailytask_hud_unclaimed_tip"			"Сегодняшнее задание ещё не принято, нажмите чтобы выбрать"
+		"dailytask_hud_hero_mismatch"			"Герой не подходит"
+		"dailytask_hud_hero_mismatch_tip"		"Текущий герой не подходит для этого задания, нажмите чтобы выбрать другое"
+		"dailytask_subtab_candidates"			"Сегодня"
+		"dailytask_subtab_history"			"История"
+		"dailytask_history_today"			"Сегодня"
+		"dailytask_history_empty_hint"			"Пока нет истории. Выполненные задания появятся здесь."
+		"dailytask_history_col_date"			"Дата"
+		"dailytask_history_col_tasks"			"Выполнено"
+		"dailytask_history_col_points"			"Всего очков"
+		"dailytask_metric_short_kills"			"Киллы"
+		"dailytask_metric_short_assists"			"Ассисты"
+		"dailytask_metric_short_last_hits"			"Добивания"
+		"dailytask_metric_short_tower_kills"		"Башни"
+		"dailytask_metric_short_hero_damage"		"Урон"
+		"dailytask_metric_short_healing"			"Лечение"
+		"dailytask_metric_short_total_gold_earned"	"Золото"
+		"dailytask_metric_short_damage_taken"		"Полученный урон"
+		"dailytask_metric_short_stun_duration"		"Оглушение"
+		"dailytask_metric_short_roshan_kills"		"Рошан"
+		"dailytask_task_general_kills"			"Наберите {target} килла героев за матч"
+		"dailytask_task_general_assists"			"Наберите {target} ассистов за матч"
+		"dailytask_task_general_last_hits"			"Наберите {target} добиваний за матч"
+		"dailytask_task_general_tower_kills"		"Уничтожьте {target} башен за матч"
+		"dailytask_task_general_hero_damage"		"Нанесите {target} урона героям за матч"
+		"dailytask_task_general_healing"			"Вылечите союзных героев на {target} за матч"
+		"dailytask_task_general_total_gold_earned"	"Заработайте {target} золота за матч"
+		"dailytask_task_general_damage_taken"		"Получите {target} урона от героев противника за матч"
+		"dailytask_task_general_stun_duration"		"Оглушайте или сковывайте героев противника суммарно {target} секунд за матч"
+		"dailytask_task_general_roshan_kills"		"Убейте Рошана {target} раз(а) за матч"
+		"dailytask_task_hero_kills"			"Наберите {target} килла героев за матч, играя за {hero}"
+		"dailytask_task_hero_assists"			"Наберите {target} ассистов за матч, играя за {hero}"
+		"dailytask_task_hero_last_hits"			"Наберите {target} добиваний за матч, играя за {hero}"
+		"dailytask_task_hero_tower_kills"			"Уничтожьте {target} башен за матч, играя за {hero}"
+		"dailytask_task_hero_hero_damage"			"Нанесите {target} урона героям за матч, играя за {hero}"
+		"dailytask_task_hero_healing"			"Вылечите союзных героев на {target} за матч, играя за {hero}"
+		"dailytask_task_hero_total_gold_earned"	"Заработайте {target} золота за матч, играя за {hero}"
+		"dailytask_task_hero_damage_taken"			"Получите {target} урона от героев противника за матч, играя за {hero}"
+		"dailytask_task_hero_stun_duration"			"Оглушайте или сковывайте героев противника суммарно {target} секунд за матч, играя за {hero}"
+
+		///////////////////////////////////////////////////
+		//
 		//			Creep / Tower
 		//
 		///////////////////////////////////////////////////

@@ -20,11 +20,12 @@ export interface ApiParameter {
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
+  private static LOCAL_ALLOWED_PATHS = ['/game/start', '/game/end/local'];
 
-  private static HOST_NAME: string = (() => {
-    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
-  })();
-  // private static HOST_NAME: string = 'https://windy10v10ai.com/api';
+  // private static HOST_NAME: string = (() => {
+  //   return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
+  // })();
+  private static HOST_NAME: string = 'https://windy10v10ai.com/api';
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   // dont change this version, it is used to identify the server
@@ -64,9 +65,10 @@ export class ApiClient {
     print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${fullPath} body ${json.encode(body)}`);
     const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + fullPath);
     const apiKey = this.GetServerAuthKey();
+    const isLocalhost = this.IsLocalhost();
 
     // 本地主机只发送开局请求
-    if (this.IsLocalhost() && path !== '/game/start') {
+    if (isLocalhost && !ApiClient.LOCAL_ALLOWED_PATHS.includes(path)) {
       callbackFunc({
         StatusCode: 401,
         Body: ApiClient.LOCAL_APIKEY,

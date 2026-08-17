@@ -52,12 +52,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_doom_bringer',
     abilityName: 'doom_bringer_doom_awakened',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_keeper_of_the_light',
     abilityName: 'special_bonus_unique_keeper_of_the_light_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_crystal_maiden',

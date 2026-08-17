@@ -1,4 +1,5 @@
 import { GamePresetCustomOptions, PlayerInfoDto, PointInfoDto } from '../vscripts/api/player';
+import { DailyTaskNetTableEntry, TaskCandidateDto } from './dto/daily-task';
 import { LotteryDto } from './dto/lottery';
 import { LotteryStatusDto } from './dto/lottery-status';
 
@@ -31,13 +32,15 @@ declare global {
         damagereceived: number;
         healing: number;
         points: number;
-        pointModifier: number;
+        conductDelta: number;
         conductPoint: number;
         str: number;
         agi: number;
         int: number;
         towerKills: number;
         stuns: number;
+        // 本局完成的每日任务，用于结算页展示明细；未完成则不下发
+        dailyTask?: TaskCandidateDto;
       };
     };
     loading_status: {
@@ -112,6 +115,15 @@ declare global {
     // 随机抽选觉醒的当前候选集（API get-or-create 的权威候选），key = steamAccountID；清空时传 {}
     awaken_random: {
       [steamAccountID: string]: { candidates?: string[] };
+    };
+    // 每日任务：本局候选、本地选择与当日完成状态，key = playerId
+    daily_task: {
+      [playerId: string]: DailyTaskNetTableEntry;
+    };
+    // 每日任务局内实时进度，key = playerId。展示所需的星级/指标/目标值都在 daily_task 里且整局不变，
+    // 这里只推每秒会变的当前值；taskId 不用于展示，只用于对齐数值归属，防止改选任务瞬间数字串号
+    daily_task_progress: {
+      [playerId: string]: { taskId: string; value: number };
     };
   }
 }
