@@ -3,6 +3,7 @@ import { ActionFind } from '../action/action-find';
 import { HeroUtil } from '../hero/hero-util';
 import {
   BotLane,
+  BotLaneRecoveryDecision,
   BotLaneRecoveryTower,
   getRecoveryTowerCandidates,
   getPreferredRecoveryTowers,
@@ -31,6 +32,17 @@ interface JungleRecoveryTask {
   expiresAt: number;
 }
 
+interface RecoveryCandidate {
+  playerId: PlayerID;
+  hero: CDOTA_BaseNPC_Hero;
+  scroll: CDOTA_Item;
+}
+
+interface RecoveryPlan {
+  decision: BotLaneRecoveryDecision;
+  recoveryDistance: number;
+}
+
 export class BotLaneRecovery {
   private readonly jungleRecoveryTasks = new Map<EntityIndex, JungleRecoveryTask>();
   private taskExecutorRunning = false;
@@ -41,77 +53,118 @@ export class BotLaneRecovery {
       return;
     }
 
-    PlayerHelper.ForEachPlayer((playerId) => {
-      if (!PlayerHelper.IsBotPlayerByPlayerId(playerId)) {
-        return;
-      }
-      if (PlayerResource.GetTeam(playerId) !== DotaTeam.BADGUYS) {
-        return;
-      }
+    PlayerHelper.ForEachPlayer((playerId) => this.TryRecoverBot(playerId, towers));
+  }
 
-      const hero = PlayerResource.GetSelectedHeroEntity(playerId);
-      if (!hero || !hero.IsAlive() || hero.IsIllusion() || HeroUtil.NotActionable(hero)) {
-        return;
-      }
-      if (hero.IsMuted()) {
-        return;
-      }
+  private TryRecoverBot(
+    playerId: PlayerID,
+    towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
+  ): void {
+    const candidate = this.GetRecoveryCandidate(playerId);
+    if (!candidate) {
+      return;
+    }
+    const plan = this.ResolveRecoveryPlan(candidate.hero, towers);
+    if (!plan) {
+      return;
+    }
+    this.ExecuteRecovery(candidate, towers, plan);
+  }
 
-      const scroll = hero.FindItemInInventory('item_tpscroll');
-      if (!scroll || !scroll.IsFullyCastable()) {
-        return;
-      }
-      if (ActionFind.FindEnemyHeroes(hero, ENEMY_HERO_RADIUS).length > 0) {
-        return;
-      }
+  private GetRecoveryCandidate(playerId: PlayerID): RecoveryCandidate | undefined {
+    if (
+      !PlayerHelper.IsBotPlayerByPlayerId(playerId) ||
+      PlayerResource.GetTeam(playerId) !== DotaTeam.BADGUYS
+    ) {
+      return undefined;
+    }
 
-      const enemyLaneCreeps = this.FindLaneCreeps(
-        hero,
-        ENEMY_LANE_CREEP_RADIUS,
-        UnitTargetTeam.ENEMY,
-      );
-      const friendlyLaneCreeps = this.FindLaneCreeps(
-        hero,
-        FRIENDLY_LANE_CREEP_RADIUS,
-        UnitTargetTeam.FRIENDLY,
-      );
-      const enemyLaneCreep = enemyLaneCreeps[0];
-      const lane =
-        enemyLaneCreep !== undefined ? this.GetLane(enemyLaneCreep.GetAbsOrigin()) : undefined;
-      const laneTowers = getRecoveryTowerCandidates(towers, lane);
-      const nearestLaneTowerDistance = this.GetNearestTowerDistance(hero, laneTowers);
-      const nearestTowerDistance = this.GetNearestTowerDistance(hero, towers);
-      const attackTarget = hero.GetAttackTarget();
-      const hasAttackTarget =
-        attackTarget !== undefined && !attackTarget.IsNull() && attackTarget.IsAlive();
-      const decision = resolveBotLaneRecovery({
-        enemyLane: lane,
-        hasFriendlyLaneCreep: friendlyLaneCreeps.length > 0,
-        distanceToLaneTower: nearestLaneTowerDistance,
-        isAttackingNeutral: hasAttackTarget && attackTarget.GetTeamNumber() === DotaTeam.NEUTRALS,
-        isAttackingAncient: hasAttackTarget && attackTarget.IsAncient(),
-        distanceToNearestTower: nearestTowerDistance,
-      });
-      if (!decision) {
-        return;
-      }
+    const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+    if (
+      !hero ||
+      !hero.IsAlive() ||
+      hero.IsIllusion() ||
+      HeroUtil.NotActionable(hero) ||
+      hero.IsMuted()
+    ) {
+      return undefined;
+    }
 
-      const preferredTowers = getPreferredRecoveryTowers(towers, decision.lane);
-      const tower = preferredTowers[RandomInt(0, preferredTowers.length - 1)];
-      const recoveryDistance =
-        decision.reason === 'lane' ? nearestLaneTowerDistance : nearestTowerDistance;
-      const landingPosition = tower.value
-        .GetAbsOrigin()
-        .__add(RandomVector(RandomInt(LANDING_RADIUS_MIN, LANDING_RADIUS_MAX)));
+    const scroll = hero.FindItemInInventory('item_tpscroll');
+    if (
+      !scroll ||
+      !scroll.IsFullyCastable() ||
+      ActionFind.FindEnemyHeroes(hero, ENEMY_HERO_RADIUS).length > 0
+    ) {
+      return undefined;
+    }
+    return { playerId, hero, scroll };
+  }
 
-      hero.CastAbilityOnPosition(landingPosition, scroll, playerId);
-      if (decision.reason === 'jungle' && tower.lane !== undefined) {
-        this.CreateJungleRecoveryTask(hero, RECOVERY_TARGETS[tower.lane]);
-      }
-      print(
-        `[BotLaneRecovery] hero=${hero.GetUnitName()} reason=${decision.reason} distance=${Math.floor(recoveryDistance!)} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
-      );
+  private ResolveRecoveryPlan(
+    hero: CDOTA_BaseNPC_Hero,
+    towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
+  ): RecoveryPlan | undefined {
+    const enemyLaneCreeps = this.FindLaneCreeps(
+      hero,
+      ENEMY_LANE_CREEP_RADIUS,
+      UnitTargetTeam.ENEMY,
+    );
+    const friendlyLaneCreeps = this.FindLaneCreeps(
+      hero,
+      FRIENDLY_LANE_CREEP_RADIUS,
+      UnitTargetTeam.FRIENDLY,
+    );
+    const enemyLaneCreep = enemyLaneCreeps[0];
+    const lane =
+      enemyLaneCreep !== undefined ? this.GetLane(enemyLaneCreep.GetAbsOrigin()) : undefined;
+    const laneTowers = getRecoveryTowerCandidates(towers, lane);
+    const nearestLaneTowerDistance = this.GetNearestTowerDistance(hero, laneTowers);
+    const nearestTowerDistance = this.GetNearestTowerDistance(hero, towers);
+    const attackTarget = hero.GetAttackTarget();
+    const hasAttackTarget =
+      attackTarget !== undefined && !attackTarget.IsNull() && attackTarget.IsAlive();
+    const decision = resolveBotLaneRecovery({
+      enemyLane: lane,
+      hasFriendlyLaneCreep: friendlyLaneCreeps.length > 0,
+      distanceToLaneTower: nearestLaneTowerDistance,
+      isAttackingNeutral: hasAttackTarget && attackTarget.GetTeamNumber() === DotaTeam.NEUTRALS,
+      isAttackingAncient: hasAttackTarget && attackTarget.IsAncient(),
+      distanceToNearestTower: nearestTowerDistance,
     });
+    if (!decision) {
+      return undefined;
+    }
+
+    const recoveryDistance =
+      decision.reason === 'lane' ? nearestLaneTowerDistance : nearestTowerDistance;
+    if (recoveryDistance === undefined) {
+      return undefined;
+    }
+    return { decision, recoveryDistance };
+  }
+
+  private ExecuteRecovery(
+    candidate: RecoveryCandidate,
+    towers: readonly BotLaneRecoveryTower<CDOTA_BaseNPC>[],
+    plan: RecoveryPlan,
+  ): void {
+    const preferredTowers = getPreferredRecoveryTowers(towers, plan.decision.lane);
+    if (preferredTowers.length === 0) {
+      return;
+    }
+    const tower = preferredTowers[RandomInt(0, preferredTowers.length - 1)];
+    const landingPosition = tower.value
+      .GetAbsOrigin()
+      .__add(RandomVector(RandomInt(LANDING_RADIUS_MIN, LANDING_RADIUS_MAX)));
+
+    candidate.hero.CastAbilityOnPosition(landingPosition, candidate.scroll, candidate.playerId);
+    if (plan.decision.reason === 'jungle' && tower.lane !== undefined) {
+      this.CreateJungleRecoveryTask(candidate.hero, RECOVERY_TARGETS[tower.lane]);
+    }
+    print(
+      `[BotLaneRecovery] hero=${candidate.hero.GetUnitName()} reason=${plan.decision.reason} distance=${Math.floor(plan.recoveryDistance)} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
+    );
   }
 
   /** Returns whether lane recovery currently owns this hero's movement. */
