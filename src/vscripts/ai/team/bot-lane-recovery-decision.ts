@@ -9,6 +9,8 @@ export interface BotLaneRecoveryDecisionInput {
   isAttackingNeutral: boolean;
   isAttackingAncient: boolean;
   distanceToNearestTower: number | undefined;
+  heroPositionX: number;
+  heroPositionY: number;
 }
 
 export interface BotLaneRecoveryDecision {
@@ -37,9 +39,11 @@ export function resolveBotLaneRecovery(
     return { reason: 'lane', lane: input.enemyLane };
   }
 
+  // x + y > 0 为地图对角线右上侧的夜魇半区，bot 在天辉野区时不回线
   if (
     input.isAttackingNeutral &&
     !input.isAttackingAncient &&
+    input.heroPositionX + input.heroPositionY > 0 &&
     input.distanceToNearestTower !== undefined &&
     input.distanceToNearestTower > JUNGLE_RECOVERY_DISTANCE
   ) {
