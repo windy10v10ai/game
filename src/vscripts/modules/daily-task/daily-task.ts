@@ -4,6 +4,7 @@ import {
   TaskCandidateDto,
 } from '../../../common/dto/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
+import { GameEndPoint } from '../event/game-end/game-end-point';
 import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
@@ -28,6 +29,9 @@ export class DailyTask {
     CustomGameEventManager.RegisterListener('dailytask_select_candidate', (_, event) =>
       this.SelectCandidate(event.PlayerID, event.taskId),
     );
+    // 自定义模式的极端配置判定依赖 GameRules.Option，值在加载界面异步写入，
+    // 可能晚于 SetStartData 的首次快照，需要在配置变化时重新同步 enabled
+    CustomGameEventManager.RegisterListener('game_options_change', () => this.RefreshEnabled());
     this.startProgressPush();
   }
 
@@ -36,7 +40,11 @@ export class DailyTask {
     if (EnvironmentHelper.IsInvalidGameEnvironment()) {
       return false;
     }
-    return GetMapName() !== 'custom';
+    if (GetMapName() !== 'custom') {
+      return true;
+    }
+    // 每日任务奖励分固定，不受自定义模式综合积分倍率影响，极端配置单独拦截
+    return !GameEndPoint.IsExtremeCustomMode(GameRules.Option);
   }
 
   /** 游戏开始时初始化本局任务状态 */
@@ -79,6 +87,10 @@ export class DailyTask {
       }
       return this.PROGRESS_PUSH_INTERVAL;
     });
+  }
+
+  private RefreshEnabled(): void {
+    this.state.forEach((_, playerId) => this.setDailyTaskTable(playerId));
   }
 
   /** 只读查询：本局选中的候选（未选择返回 undefined），供 GA4 等统计模块使用 */

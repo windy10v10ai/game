@@ -5,7 +5,7 @@ import { TaskCandidateCard } from './TaskCandidateCard';
 
 /**
  * 每日任务候选子页：展示本局候选任务卡，点击本地选择一个，零网络请求。
- * 禁用态（自定义难度/作弊/localhost）与空候选态共享同一份固定 panel 树，
+ * 禁用态（作弊模式/自定义难度极端配置）与空候选态共享同一份固定 panel 树，
  * 用 visibility 切换显隐，避免 panel 因条件返回不同结构而在 Panorama DOM 中缺失。
  */
 export function CandidatesPage() {

@@ -20,7 +20,23 @@ global.CustomNetTables = {
 };
 
 const mockIsCheatMode = jest.fn(() => false);
-global.GameRules = { IsCheatMode: () => mockIsCheatMode() };
+// 与 game-end-point.test.ts 的 GetCustomModeMultiplier 默认档一致，倍率=1，非极端
+const defaultOption = {
+  radiantGoldXpMultiplier: 1.5,
+  direGoldXpMultiplier: 2,
+  radiantPlayerNumber: 10,
+  direPlayerNumber: 10,
+  towerPower: 200,
+  startingGoldPlayer: 3000,
+  startingGoldBot: 3000,
+  respawnTimePercentage: 100,
+  maxLevel: 50,
+  forceRandomHero: false,
+  enablePlayerAttribute: true,
+  fixedAbility: 'none',
+  gameDifficulty: 0,
+};
+global.GameRules = { IsCheatMode: () => mockIsCheatMode(), Option: { ...defaultOption } };
 
 // 进度推送定时器只需占位防崩，回调不在单测里跑
 global.Timers = { CreateTimer: jest.fn() };
@@ -75,6 +91,7 @@ describe('DailyTask', () => {
     mockGetMapName.mockReturnValue('dota');
     mockGetSelectedHeroName.mockReturnValue('npc_dota_hero_lina');
     mockReadTaskMetric.mockReset();
+    global.GameRules.Option = { ...defaultOption };
     dailyTask = new DailyTask();
   });
 
@@ -84,8 +101,20 @@ describe('DailyTask', () => {
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
 
-    it('custom 图禁用', () => {
+    it('custom 图非极端配置下启用', () => {
       mockGetMapName.mockReturnValue('custom');
+      expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
+    });
+
+    it('custom 图秒活时禁用', () => {
+      mockGetMapName.mockReturnValue('custom');
+      global.GameRules.Option.respawnTimePercentage = 10;
+      expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
+    });
+
+    it('custom 图综合积分倍率低于1倍时禁用', () => {
+      mockGetMapName.mockReturnValue('custom');
+      global.GameRules.Option.radiantGoldXpMultiplier = 5;
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
     });
 
@@ -102,11 +131,32 @@ describe('DailyTask', () => {
       expect(dailyTask.IsDailyTaskEnabled()).toBe(true);
     });
 
-    it('工具模式下 custom 图仍然禁用', () => {
+    it('工具模式下 custom 图极端配置仍然禁用', () => {
       mockIsInToolsMode.mockReturnValue(true);
       mockIsCheatMode.mockReturnValue(true);
       mockGetMapName.mockReturnValue('custom');
+      global.GameRules.Option.respawnTimePercentage = 0;
       expect(dailyTask.IsDailyTaskEnabled()).toBe(false);
+    });
+  });
+
+  describe('game_options_change（配置变更后同步 enabled，不用等玩家选择候选才刷新）', () => {
+    it('SetStartData 后配置变为极端，不选候选也应刷新 enabled', () => {
+      mockGetMapName.mockReturnValue('custom');
+      dailyTask.SetStartData(PLAYER_ID, {
+        steamId: 111,
+        dayId: '20260815',
+        candidates: [GENERAL_CANDIDATE],
+        completedTasks: [],
+        todaySeasonPoint: 0,
+        history: [],
+      });
+      expect(netTable['daily_task'][PLAYER_ID.toString()].enabled).toBe(true);
+
+      global.GameRules.Option.respawnTimePercentage = 10;
+      eventListeners['game_options_change'](0, {});
+
+      expect(netTable['daily_task'][PLAYER_ID.toString()].enabled).toBe(false);
     });
   });
 
