@@ -13,9 +13,9 @@ export class GameEndPoint {
     const killScore = Math.sqrt(player.kills) * 1.6;
     const deathScore = -Math.sqrt(player.deaths) * 0.6;
     const assistScore = Math.sqrt(player.assists) * 1.6;
-    const damageScore = Math.min(25, Math.sqrt(player.heroDamage) / 200);
-    const damageTakenScore = Math.min(25, Math.sqrt(player.damageTaken) / 80);
-    const healingScore = Math.min(25, Math.sqrt(player.healing) / 60);
+    const damageScore = Math.min(30, Math.sqrt(player.heroDamage) / 200);
+    const damageTakenScore = Math.min(30, Math.sqrt(player.damageTaken) / 80);
+    const healingScore = Math.min(30, Math.sqrt(player.healing) / 60);
     const towerKillScore = Math.sqrt(player.towerKills) * 3;
     const stunScore = Math.min(25, Math.sqrt(player.stuns) / 3);
 
