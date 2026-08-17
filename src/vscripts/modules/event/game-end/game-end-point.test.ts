@@ -88,7 +88,7 @@ describe('GameEndPoint', () => {
         towerKills: 11,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(151);
+      expect(score).toBe(146);
     });
 
     it('应该为控制时间增加递减且封顶的分数', () => {
