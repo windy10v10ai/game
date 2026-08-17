@@ -15,6 +15,33 @@
   background-size: 100% 100%;
 }
 
+#LoadingFaqPanel {
+  width: 460px;
+  horizontal-align: right;
+  margin-top: 38px;
+  margin-right: 460px;
+  flow-children: down;
+}
+
+#LoadingFaqQuestion {
+  width: 100%;
+  color: #e8c07d;
+  font-size: 18px;
+  font-weight: bold;
+  white-space: normal;
+  text-shadow: 1px 1px 2px #000000cc;
+}
+
+#LoadingFaqAnswer {
+  width: 100%;
+  margin-top: 5px;
+  color: #dfe8f2;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: normal;
+  text-shadow: 1px 1px 2px #000000cc;
+}
+
 #game_options_container {
   width: 450px;
   height: 76%;
