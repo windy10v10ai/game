@@ -62,6 +62,7 @@ export class BotLaneRecovery {
   private readonly jungleRecoveryTasks = new Map<EntityIndex, JungleRecoveryTask>();
   private readonly fountainEvictionNextTime = new Map<EntityIndex, number>();
   private taskExecutorRunning = false;
+  // 构造时机不保证地图实体已加载，首次使用时才查询；泉水坐标此后不再变化
   private fountainPosition: Vector | undefined;
 
   public Run(): void {
