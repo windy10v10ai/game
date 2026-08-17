@@ -4,7 +4,7 @@ import { EnvironmentHelper } from '../../helper/environment-helper';
 import { Option } from '../../option';
 
 export function normalizeControlTime(controlTime: number): number {
-  return Number.isFinite(controlTime) ? Math.abs(controlTime) : 0;
+  return Number.isFinite(controlTime) ? Math.round(Math.abs(controlTime)) : 0;
 }
 
 @reloadable

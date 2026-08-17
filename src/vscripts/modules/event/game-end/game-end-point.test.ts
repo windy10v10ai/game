@@ -36,6 +36,12 @@ describe('GameEndPoint', () => {
       expect(normalizeControlTime(Number.NaN)).toBe(0);
       expect(normalizeControlTime(Number.POSITIVE_INFINITY)).toBe(0);
     });
+
+    it('应该取整到整数秒', () => {
+      expect(normalizeControlTime(4.4)).toBe(4);
+      expect(normalizeControlTime(4.5)).toBe(5);
+      expect(normalizeControlTime(-4.5)).toBe(5);
+    });
   });
 
   describe('GameEndPoint.CalculatePlayerScore', () => {
