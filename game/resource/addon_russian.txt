@@ -692,6 +692,17 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// Slark Essence Erosion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark лично убивает вражеского героя, теряющего атрибуты из-за наложенного им Essence Shift, жертва навсегда теряет все атрибуты. Потеря рассчитывается по базовому проценту потери атрибутов и дополнительному проценту, растущему с уровнем Slark, а сам Slark навсегда получает %permanent_all_stats_per_kill% ко всем атрибутам. Перерождение не активирует этот эффект."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"Превращает временную потерю атрибутов от Essence Shift у убитого героя в постоянную и навсегда увеличивает атрибуты Slark."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_base_loss_attribute_pct"	"БАЗОВЫЙ ПРОЦЕНТ ПОТЕРИ АТРИБУТОВ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_extra_loss_attribute_pct"	"ДОПОЛНИТЕЛЬНЫЙ ПРОЦЕНТ ПОТЕРИ АТРИБУТОВ:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark лично убивает вражеского героя, теряющего атрибуты из-за наложенного им Essence Shift, жертва навсегда теряет все атрибуты. Потеря рассчитывается по базовому проценту потери атрибутов и дополнительному проценту, растущему с уровнем Slark, а сам Slark навсегда получает <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ко всем атрибутам. Перерождение не активирует этот эффект."
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff"			"Разъедание сущности"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff_Description"	"Навсегда теряет <font color='#FF6B6B'><b>%fMODIFIER_PROPERTY_TOOLTIP%</b></font> ко всем атрибутам."
+
 		// Abaddon The Quickening - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>Ускорение · Пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит умирает в радиусе %radius% от Abaddon, всё его время перезарядки сокращается. Смерть не-героя сокращает его на %cooldown_reduction_creeps% сек., а смерть героя — на %cooldown_reduction_heroes% сек."

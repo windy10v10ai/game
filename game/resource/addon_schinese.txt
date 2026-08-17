@@ -3580,6 +3580,17 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 
+		// 斯拉克 精华侵蚀觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克亲自击杀带有由自己施加的能量转移属性流失的敌方英雄时，该英雄永久损失全属性。损失量按基础损失属性比例与随斯拉克等级成长的额外损失属性比例计算，同时斯拉克永久获得%permanent_all_stats_per_kill%点全属性。重生不会触发。"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"将被击杀英雄受到的能量转移临时属性流失按比例转为永久全属性损失，同时永久增加斯拉克的全属性。"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_base_loss_attribute_pct"	"基础损失属性比例："
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_extra_loss_attribute_pct"	"额外损失属性比例："
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>精华侵蚀 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克亲自击杀带有由自己施加的能量转移属性流失的敌方英雄时，该英雄永久损失全属性。损失量按基础损失属性比例与随斯拉克等级成长的额外损失属性比例计算，同时斯拉克永久获得<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>点全属性。重生不会触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff"			"精华侵蚀"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff_Description"	"永久损失 <font color='#FF6B6B'><b>%fMODIFIER_PROPERTY_TOOLTIP%</b></font> 点全属性。"
+
 		// 亚巴顿 畅快淋漓觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>畅快淋漓 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"亚巴顿附近%radius%范围内有单位阵亡时，他的所有冷却时间都会减少。非英雄单位阵亡减少%cooldown_reduction_creeps%秒，英雄阵亡减少%cooldown_reduction_heroes%秒。"

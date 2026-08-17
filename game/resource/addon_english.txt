@@ -3571,6 +3571,17 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
+		// Slark Essence Erosion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark personally kills an enemy hero suffering attribute loss from his Essence Shift, that hero permanently loses all attributes. The loss is calculated from the base attribute loss percentage and the additional attribute loss percentage that scales with Slark's level, while Slark permanently gains %permanent_all_stats_per_kill% to all attributes. Reincarnation does not trigger this effect."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"Converts a slain hero's temporary Essence Shift attribute loss into permanent all-attribute loss while permanently increasing Slark's attributes."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_base_loss_attribute_pct"	"BASE ATTRIBUTE LOSS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_extra_loss_attribute_pct"	"ADDITIONAL ATTRIBUTE LOSS:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Essence Erosion Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark personally kills an enemy hero suffering attribute loss from his Essence Shift, that hero permanently loses all attributes. The loss is calculated from the base attribute loss percentage and the additional attribute loss percentage that scales with Slark's level, while Slark permanently gains <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> to all attributes. Reincarnation does not trigger this effect."
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff"			"Essence Erosion"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff_Description"	"Permanently loses <font color='#FF6B6B'><b>%fMODIFIER_PROPERTY_TOOLTIP%</b></font> all attributes."
+
 		// Abaddon The Quickening - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>The Quickening Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within %radius% range of Abaddon, all his cooldowns are reduced. Non-hero deaths reduce them by %cooldown_reduction_creeps%s; hero deaths reduce them by %cooldown_reduction_heroes%s."
