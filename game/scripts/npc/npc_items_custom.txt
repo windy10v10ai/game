@@ -4254,8 +4254,8 @@
 
 			"sheep_duration"		"3.0"
 			"sheep_movement_speed"	"120"
-			"blast_damage_base"		"100"
-			"blast_att_multiplier"	"0.8"
+			"blast_damage_base"		"200"
+			"blast_att_multiplier"	"0.5"
 			"blast_magic_resist"	"-30"
 		}
 	}
@@ -5941,7 +5941,7 @@
 				"value"						"600"		// NOTE: radius_tooltip = ( radius + bonus_aoe )
 				"affected_by_aoe_increase"	"1"
 			}
-			"necrolyte_att_multiplier"	"0.4"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"0.3"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"lightning_damage"
 			{
 				"value"					"1200"
@@ -6509,7 +6509,7 @@
 		"ItemPurchasable"			"1"
 		"ItemSellable"				"0"
 
-		"AbilityCooldown"			"3"	// 被动冷却，主动冷却见 active_cooldown
+		"AbilityCooldown"			"1"	// 被动冷却，主动冷却见 active_cooldown
 		"AbilityManaCost"			"800"
 		"AbilityCastRange"			"800"
 		"AbilityCastPoint"			"0.2"
@@ -6529,7 +6529,7 @@
 				"CalculateSpellDamageTooltip"	"1"
 			}
 
-			"necrolyte_att_multiplier"	"0.8"	// Lua 逻辑需要 - 死灵冲击全属性倍数
+			"necrolyte_att_multiplier"	"0.5"	// Lua 逻辑需要 - 死灵冲击全属性倍数
 			"sheep_duration"			"3.0"	// Lua 逻辑需要 - 变形持续时间
 			"sheep_movement_speed"		"120"	// Lua 逻辑需要 - 变形移动速度
 			"blast_magic_resist"		"-30"	// Lua 逻辑需要 - 魔法抗性减少
@@ -6541,9 +6541,9 @@
 			"bonus_mana_regen"			"30"
 			// "bonus_all_stats"			"25"	// 绝刃自身加成
 			"slow"						"50"	// 绝刃减速
-			"slow_duration"				"3"		// 绝刃减速持续时间
-			"bonus_spell_damage"		"800"	// 绝刃法术伤害加成
-			"passive_cooldown"			"3"		// 绝刃自身充能冷却
+			"slow_duration"				"2"		// 绝刃减速持续时间
+			"bonus_spell_damage"		"750"	// 绝刃法术伤害加成
+			"passive_cooldown"			"1"		// 绝刃自身充能冷却
 
 			// 被动属性（已迁移到 item_apply_modifiers 的 DataDriven，仅用于 tooltip 显示）
 			"bonus_intellect"			"200"	// tooltip only - 智力
