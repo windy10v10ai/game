@@ -29,6 +29,9 @@ export class DailyTask {
     CustomGameEventManager.RegisterListener('dailytask_select_candidate', (_, event) =>
       this.SelectCandidate(event.PlayerID, event.taskId),
     );
+    // 自定义模式的极端配置判定依赖 GameRules.Option，值在加载界面异步写入，
+    // 可能晚于 SetStartData 的首次快照，需要在配置变化时重新同步 enabled
+    CustomGameEventManager.RegisterListener('game_options_change', () => this.RefreshEnabled());
     this.startProgressPush();
   }
 
@@ -84,6 +87,10 @@ export class DailyTask {
       }
       return this.PROGRESS_PUSH_INTERVAL;
     });
+  }
+
+  private RefreshEnabled(): void {
+    this.state.forEach((_, playerId) => this.setDailyTaskTable(playerId));
   }
 
   /** 只读查询：本局选中的候选（未选择返回 undefined），供 GA4 等统计模块使用 */

@@ -140,6 +140,26 @@ describe('DailyTask', () => {
     });
   });
 
+  describe('game_options_change（配置变更后同步 enabled，不用等玩家选择候选才刷新）', () => {
+    it('SetStartData 后配置变为极端，不选候选也应刷新 enabled', () => {
+      mockGetMapName.mockReturnValue('custom');
+      dailyTask.SetStartData(PLAYER_ID, {
+        steamId: 111,
+        dayId: '20260815',
+        candidates: [GENERAL_CANDIDATE],
+        completedTasks: [],
+        todaySeasonPoint: 0,
+        history: [],
+      });
+      expect(netTable['daily_task'][PLAYER_ID.toString()].enabled).toBe(true);
+
+      global.GameRules.Option.respawnTimePercentage = 10;
+      eventListeners['game_options_change'](0, {});
+
+      expect(netTable['daily_task'][PLAYER_ID.toString()].enabled).toBe(false);
+    });
+  });
+
   describe('SelectCandidate（候选本地状态）', () => {
     it('未知 taskId 被忽略，不崩溃、不写入选择', () => {
       dailyTask.SetStartData(PLAYER_ID, {
