@@ -170,4 +170,13 @@ export class GameEndPoint {
     // 保留小数点1位
     return Math.round(multiplier * 10) / 10;
   }
+
+  /** 自定义模式下是否为不宜参与每日任务的极端配置（每日任务奖励分固定，不受综合积分倍率影响） */
+  public static IsExtremeCustomMode(option: Option): boolean {
+    // 秒活档位（下拉框最低档为10，留出余量避免卡在临界值）
+    if (option.respawnTimePercentage < 25) {
+      return true;
+    }
+    return this.GetCustomModeMultiplier(option) < 1;
+  }
 }

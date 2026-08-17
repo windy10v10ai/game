@@ -342,7 +342,7 @@
 		"dailytask_settlement_tooltip_prefix"		"Задание дня выполнено: "
 		"dailytask_select_button"			"Принять задание"
 		"dailytask_selected_label"			"Принято"
-		"dailytask_disabled_hint"			"Ежедневные задания недоступны при пользовательской сложности, в чит-режиме или в локальных матчах"
+		"dailytask_disabled_hint"			"Ежедневные задания недоступны в чит-режиме или при пользовательской сложности с мгновенным возрождением или общим коэффициентом очков ниже 1x"
 		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
 		"dailytask_all_done_hint"			"Все {total} раунда на сегодня выполнены"
 		"dailytask_hud_unclaimed"			"Задание не принято"

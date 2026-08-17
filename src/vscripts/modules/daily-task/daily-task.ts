@@ -4,6 +4,7 @@ import {
   TaskCandidateDto,
 } from '../../../common/dto/daily-task';
 import { reloadable } from '../../utils/tstl-utils';
+import { GameEndPoint } from '../event/game-end/game-end-point';
 import { EnvironmentHelper } from '../helper/environment-helper';
 import { ReadTaskMetric } from './daily-task-metric-reader';
 
@@ -36,7 +37,11 @@ export class DailyTask {
     if (EnvironmentHelper.IsInvalidGameEnvironment()) {
       return false;
     }
-    return GetMapName() !== 'custom';
+    if (GetMapName() !== 'custom') {
+      return true;
+    }
+    // 每日任务奖励分固定，不受自定义模式综合积分倍率影响，极端配置单独拦截
+    return !GameEndPoint.IsExtremeCustomMode(GameRules.Option);
   }
 
   /** 游戏开始时初始化本局任务状态 */
