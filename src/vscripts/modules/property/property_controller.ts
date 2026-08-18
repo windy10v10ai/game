@@ -28,6 +28,7 @@ import {
 } from '../../modifiers/property/property_declare';
 import { reloadable } from '../../utils/tstl-utils';
 import { PlayerHelper } from '../helper/player-helper';
+import { calculateBonusSkillPointCount } from './property-calculations';
 
 @reloadable
 export class PropertyController {
@@ -46,6 +47,8 @@ export class PropertyController {
   private static PLAYER_MODIFER_DATA_DRIVEN_ITEM: CDOTA_Item_DataDriven;
 
   private static bnusSkillPointsAdded = new Map<number, number>();
+
+  private static bonusSkillPointsAddedByUnit = new Map<string, number>();
 
   // 每N级加点一次
   public static HERO_LEVEL_PER_POINT = 2;
@@ -152,32 +155,35 @@ export class PropertyController {
     if (!hero) {
       return;
     }
+    PropertyController.RemoveAllPlayerPropertyFromUnit(hero);
+  }
 
+  public static RemoveAllPlayerPropertyFromUnit(target: CDOTA_BaseNPC) {
     // 移除Lua modifier
     for (const key of PropertyController.propertyLuaModiferMap.keys()) {
-      hero.RemoveModifierByName(key);
+      target.RemoveModifierByName(key);
     }
 
     // 移除DataDriven modifier
     for (const key of PropertyController.propertyDataDrivenModifierMap.keys()) {
       const value = PropertyController.propertyDataDrivenModifierMap.get(key);
       if (value) {
-        PropertyController.RemoveDataDrivenPlayerPropertyModifiers(hero, value);
+        PropertyController.RemoveDataDrivenPlayerPropertyModifiers(target, value);
       }
     }
   }
 
   /** 按注册名卸下：多档卸 1–8，单档卸该名 */
   private static RemoveDataDrivenPlayerPropertyModifiers(
-    hero: CDOTA_BaseNPC_Hero,
+    target: CDOTA_BaseNPC,
     registeredModifierName: string,
   ) {
     if (registeredModifierName.endsWith('_level_')) {
       for (let i = 1; i <= 8; i++) {
-        hero.RemoveModifierByName(`${registeredModifierName}${i}`);
+        target.RemoveModifierByName(`${registeredModifierName}${i}`);
       }
     } else {
-      hero.RemoveModifierByName(registeredModifierName);
+      target.RemoveModifierByName(registeredModifierName);
     }
   }
 
@@ -191,7 +197,7 @@ export class PropertyController {
   }
 
   // 根据英雄等级和加点点数，计算当前应该生效的属性等级
-  private static GetPropertyActiveLevel(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
+  public static GetPropertyActiveLevel(hero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
     if (PropertyController.limitPropertyNames.includes(property.name)) {
       const activeLevelMax = Math.floor(hero.GetLevel() / PropertyController.HERO_LEVEL_PER_POINT);
       return Math.min(property.level, activeLevelMax);
@@ -252,13 +258,70 @@ export class PropertyController {
     }
   }
 
+  public static ApplyPlayerPropertyToUnit(
+    sourceHero: CDOTA_BaseNPC_Hero,
+    target: CDOTA_BaseNPC,
+    property: PlayerProperty,
+    bonusSkillPointLedgerKey?: string,
+  ) {
+    // 移速属性作为例外,即使禁用玩家属性也生效
+    const isMoveSpeedProperty = property.name === 'property_movespeed_bonus_constant';
+
+    if (!GameRules.Option.enablePlayerAttribute && !isMoveSpeedProperty) {
+      return;
+    }
+    const activeLevel = PropertyController.GetPropertyActiveLevel(sourceHero, property);
+
+    if (property.name === 'property_skill_points_bonus') {
+      PropertyController.SyncBonusSkillPointsToUnit(
+        target,
+        PropertyController.GetBonusSkillPointCount(sourceHero, property),
+        bonusSkillPointLedgerKey ?? `unit:${target.GetEntityIndex()}`,
+      );
+      return;
+    }
+
+    if (!target.IsAlive()) {
+      return;
+    }
+
+    const propertyValuePerLevel = PropertyController.propertyLuaModiferMap.get(property.name);
+    if (propertyValuePerLevel) {
+      const value = propertyValuePerLevel * activeLevel;
+      if (value === 0) {
+        return;
+      }
+      target.RemoveModifierByName(property.name);
+      target.AddNewModifier(sourceHero, undefined, property.name, { value });
+      return;
+    }
+
+    const dataDrivenModifierName = PropertyController.propertyDataDrivenModifierMap.get(
+      property.name,
+    );
+    if (dataDrivenModifierName) {
+      PropertyController.RefreshDataDrivenPlayerPropertyOnUnit(
+        sourceHero,
+        target,
+        dataDrivenModifierName,
+        activeLevel,
+      );
+    }
+  }
+
+  public static GetBonusSkillPointCount(sourceHero: CDOTA_BaseNPC_Hero, property: PlayerProperty) {
+    return calculateBonusSkillPointCount(
+      PropertyController.GetPropertyActiveLevel(sourceHero, property),
+    );
+  }
+
   private static SetBonusSkillPoints(
     hero: CDOTA_BaseNPC_Hero,
     property: PlayerProperty,
     activeLevel: number,
   ) {
     const steamId = property.steamId;
-    const shoudAddSP = Math.floor(activeLevel / 2);
+    const shoudAddSP = calculateBonusSkillPointCount(activeLevel);
     const currentAddedSP = PropertyController.bnusSkillPointsAdded.get(steamId) || 0;
     const deltaSP = shoudAddSP - currentAddedSP;
     if (deltaSP <= 0) {
@@ -269,13 +332,55 @@ export class PropertyController {
     PropertyController.bnusSkillPointsAdded.set(steamId, shoudAddSP);
   }
 
+  public static ForgetBonusSkillPointLedger(ledgerKey: string) {
+    PropertyController.bonusSkillPointsAddedByUnit.delete(ledgerKey);
+  }
+
+  public static SyncBonusSkillPointsToUnit(
+    target: CDOTA_BaseNPC,
+    shouldAddSP: number,
+    ledgerKey: string,
+  ) {
+    const normalizedSP = Math.max(0, Math.floor(shouldAddSP));
+    const currentAddedSP = PropertyController.bonusSkillPointsAddedByUnit.get(ledgerKey) ?? 0;
+    const deltaSP = normalizedSP - currentAddedSP;
+    if (deltaSP === 0) {
+      return;
+    }
+
+    const abilityPointTarget = target as CDOTA_BaseNPC & {
+      GetAbilityPoints?: () => number;
+      SetAbilityPoints?: (points: number) => void;
+    };
+    if (abilityPointTarget.GetAbilityPoints && abilityPointTarget.SetAbilityPoints) {
+      abilityPointTarget.SetAbilityPoints(
+        Math.max(0, abilityPointTarget.GetAbilityPoints() + deltaSP),
+      );
+    }
+
+    if (normalizedSP === 0) {
+      PropertyController.bonusSkillPointsAddedByUnit.delete(ledgerKey);
+    } else {
+      PropertyController.bonusSkillPointsAddedByUnit.set(ledgerKey, normalizedSP);
+    }
+  }
+
   private static RefreshDataDrivenPlayerProperty(
     hero: CDOTA_BaseNPC_Hero,
     modifierName: string,
     level: number,
   ) {
+    PropertyController.RefreshDataDrivenPlayerPropertyOnUnit(hero, hero, modifierName, level);
+  }
+
+  private static RefreshDataDrivenPlayerPropertyOnUnit(
+    sourceHero: CDOTA_BaseNPC_Hero,
+    target: CDOTA_BaseNPC,
+    modifierName: string,
+    level: number,
+  ) {
     const registeredName = modifierName;
-    PropertyController.RemoveDataDrivenPlayerPropertyModifiers(hero, registeredName);
+    PropertyController.RemoveDataDrivenPlayerPropertyModifiers(target, registeredName);
 
     let applyName = modifierName;
     if (registeredName.endsWith('_level_')) {
@@ -294,7 +399,7 @@ export class PropertyController {
         undefined,
       ) as CDOTA_Item_DataDriven;
     }
-    this.PLAYER_MODIFER_DATA_DRIVEN_ITEM.ApplyDataDrivenModifier(hero, hero, applyName, {
+    this.PLAYER_MODIFER_DATA_DRIVEN_ITEM.ApplyDataDrivenModifier(sourceHero, target, applyName, {
       duration: -1,
     });
   }

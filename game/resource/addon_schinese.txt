@@ -3585,5 +3585,10 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>畅快淋漓 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"附近 <font color='#FFFFFF'><b>900</b></font> 范围内有单位阵亡时，亚巴顿所有技能和物品的当前冷却都会减少。非英雄单位阵亡减少 <font color='#FFFFFF'><b>0.2</b></font> 秒，英雄阵亡减少 <font color='#FFFFFF'><b>3</b></font> 秒。"
 
+		// 德鲁伊 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>共生灵熊·觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lone_druid_upgrade_Description"		"灵熊继承德鲁伊当前生效的全部局外属性和额外技能点。<br>同时同步开局抽取、能力重置书替换以及被动技能书新增的技能及其当前等级。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade"		"<font color='#d000ff'>共生灵熊·觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lone_druid_upgrade_Description"		"你的灵熊继承全部局外属性、额外技能点和当前额外技能；使用能力重置书或被动技能书后会自动同步。"
 	}
 }

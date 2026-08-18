@@ -2,6 +2,7 @@ import { LotteryDto } from '../../../../common/dto/lottery';
 import { reloadable } from '../../../utils/tstl-utils';
 import { AbilityLotteryHelper } from './ability-lottery-helper';
 import { abilityTiersPassive } from './lottery-abilities';
+import { addAbilityToDynamicSlot } from './ability-slot';
 
 /**
  * 被动技能书抽奖：使用技能书触发后弹 4 选 1，倒计时由客户端驱动，归零自动随机选 1。
@@ -50,7 +51,13 @@ export class PassiveTomeLottery {
       return;
     }
 
-    hero.AddAbility(matched.name);
+    const added = addAbilityToDynamicSlot(hero, matched.name);
+    if (!added) {
+      print(
+        '[PassiveTomeLottery] failed to add ability for player ' + playerId + ': ' + matched.name,
+      );
+      return;
+    }
     print('[PassiveTomeLottery] player ' + playerId + ' picked ' + matched.name);
 
     // 清空候选（写空数组，客户端 candidates.length === 0 → UI collapse）。

@@ -9,6 +9,7 @@ import { PlayerHelper } from '../../helper/player-helper';
 import { AbilityLotteryHelper } from './ability-lottery-helper';
 import { AbilityItemTypes } from './ability-item-type';
 import { abilityTiersActive, abilityTiersPassive } from './lottery-abilities';
+import { addAbilityToDynamicSlot } from './ability-slot';
 
 @reloadable
 export class AbilityLottery {
@@ -18,6 +19,7 @@ export class AbilityLottery {
   // 会员积分刷新累进消耗：首次免费后，第 n 次积分刷新(n 从 0)取此表，封顶 50
   readonly paidRefreshCosts = [10, 20, 30, 50];
   readonly maxPaidRefreshCount = 5;
+  private pendingAbilitySlotIndices: Record<string, number> = {};
 
   constructor() {
     // 启动物品抽奖
@@ -204,7 +206,7 @@ export class AbilityLottery {
   pickAbility(userId: EntityIndex, event: LotteryPickEventData & CustomGameEventDataBase) {
     const steamAccountID = PlayerResource.GetSteamAccountID(event.PlayerID).toString();
     const lotteryStatus = NetTableHelper.GetLotteryStatus(steamAccountID);
-    const abilityType = event.type;
+    const abilityType = event.type as AbilityItemType;
     if (abilityType === AbilityItemTypes.Active && lotteryStatus.activeAbilityName) {
       print('已经抽取过主动技能');
       return;
@@ -222,7 +224,14 @@ export class AbilityLottery {
     if (!hero) {
       return;
     }
-    hero.AddAbility(event.name);
+    const pendingSlotKey = this.getPendingAbilitySlotKey(steamAccountID, abilityType);
+    const added = addAbilityToDynamicSlot(
+      hero,
+      event.name,
+      this.pendingAbilitySlotIndices[pendingSlotKey],
+    );
+    if (!added) return;
+    delete this.pendingAbilitySlotIndices[pendingSlotKey];
 
     // 记录选择的技能
     if (abilityType === AbilityItemTypes.Active) {
@@ -372,6 +381,10 @@ export class AbilityLottery {
     return true;
   }
 
+  private getPendingAbilitySlotKey(steamAccountID: string, abilityType: AbilityItemType): string {
+    return `${steamAccountID}:${abilityType}`;
+  }
+
   /**
    * 重置技能
    */
@@ -418,6 +431,8 @@ export class AbilityLottery {
     const oldAbility = hero.FindAbilityByName(pickedAbilityName);
     if (oldAbility) {
       const abilityPoints = oldAbility.GetLevel();
+      this.pendingAbilitySlotIndices[this.getPendingAbilitySlotKey(steamAccountID, abilityType)] =
+        oldAbility.GetAbilityIndex();
       hero.RemoveAbility(pickedAbilityName);
       if (abilityPoints > 0) {
         hero.SetAbilityPoints(hero.GetAbilityPoints() + abilityPoints);
