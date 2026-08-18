@@ -113,6 +113,11 @@ export class BotBaseAIModifier extends BaseModifier {
     this.FindAround();
     // update state
     this.mode = GameRules.AI.FSA.GetMode(this);
+    if (this.mode === ModeEnum.RETREAT) {
+      GameRules.AI.BotTeam?.cancelJungleRecoveryMovement(this.hero);
+    } else if (GameRules.AI.BotTeam?.isJungleRecoveryMovementActive(this.hero)) {
+      return;
+    }
     if (this.gameTime < this.continueActionEndTime) {
       // print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
       return;
