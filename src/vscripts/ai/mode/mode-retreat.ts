@@ -70,12 +70,19 @@ export class ModeRetreat extends ModeBase {
 
   GetIncreaseDesireNearTower(heroAI: BotBaseAIModifier, tower: CDOTA_BaseNPC): number {
     let desire = 0;
-    const distanceThanRange = HeroUtil.GetDistanceToAttackRange(tower, heroAI.GetHero());
+    // 小于0表示在防御塔攻击范围内
+    const distanceToAttackRange = HeroUtil.GetDistanceToAttackRange(tower, heroAI.GetHero());
 
     // 缓冲带200距离，英雄升级后距离减少
     const heroLevel = heroAI.GetHero().GetLevel();
-    const towerBufferRange = 200 - heroLevel * 20;
-    const distanceThanRangeWithBuffer = distanceThanRange - towerBufferRange;
+    let towerRangeBuffer = 200; // 防御塔缓冲带，防御塔越强缓冲带越大
+    if (tower.GetUnitName().includes('tower3')) {
+      towerRangeBuffer = 300;
+    } else if (tower.GetUnitName().includes('fort') || tower.GetUnitName().includes('tower4')) {
+      towerRangeBuffer = 400;
+    }
+    const heroAggressive = heroLevel * 50 - towerRangeBuffer;
+    const distanceThanRangeWithBuffer = distanceToAttackRange + heroAggressive;
     // 靠近防御塔攻击范围时，每减少100，desire增加0.1
     if (distanceThanRangeWithBuffer <= 0) {
       desire += (-distanceThanRangeWithBuffer / 100) * 0.1;

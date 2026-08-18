@@ -5,8 +5,8 @@ import {
   BotLane,
   BotLaneRecoveryReason,
   BotLaneRecoveryTower,
-  getRecoveryTowerCandidates,
   getPreferredRecoveryTowers,
+  getRecoveryTowerCandidates,
   resolveBotLaneRecovery,
 } from './bot-lane-recovery-decision';
 
@@ -19,7 +19,7 @@ const FRONT_TOWER_MAX_TIER = 2;
 const LANDING_OFFSET_MIN = 300;
 const LANDING_OFFSET_MAX = 600;
 const TASK_TARGET_REACHED_RADIUS = 100;
-const TASK_ENEMY_INTERRUPT_RADIUS = 900;
+const TASK_ENEMY_INTERRUPT_RADIUS = 700; // 敌方英雄或塔在此范围内会中断强制位移
 const TASK_TICK_INTERVAL = 0.1;
 const FOUNTAIN_RADIUS = 1200;
 const FOUNTAIN_EVICTION_INTERVAL = 10;
