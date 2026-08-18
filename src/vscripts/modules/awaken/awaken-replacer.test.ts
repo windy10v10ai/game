@@ -153,6 +153,17 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
+  it('干扰者静态风暴觉醒替换并继承等级且重复应用幂等', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_disruptor',
+      abilities: [{ name: 'disruptor_static_storm', level: 3 }],
+    });
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([{ name: 'disruptor_static_storm_awakened', level: 3 }]);
+    expect(applyAwakenByHero(f.hero)).toBe(false);
+    expect(f.abilities).toEqual([{ name: 'disruptor_static_storm_awakened', level: 3 }]);
+  });
+
   it('上古巨神觉醒替换二技能并继承原等级', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_elder_titan',

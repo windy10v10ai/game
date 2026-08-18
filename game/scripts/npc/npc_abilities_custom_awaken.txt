@@ -1,6 +1,72 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
+	"disruptor_static_storm_awakened"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/disruptor_static_storm_awakened"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"disruptor_static_storm"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
+		"HasScepterUpgrade"			"1"
+		"AbilityCastPoint"				"0.05"
+		"MaxLevel"					"4"
+		"RequiredLevel"				"6"
+		"LevelsBetweenUpgrades"		"6"
+		"AbilityCooldown"				"90 80 70 60"
+		"AbilityManaCost"				"100 200 300 400"
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_disruptor/disruptor_static_storm.vpcf"
+		}
+		"AbilityValues"
+		{
+			"AbilityCastRange"			"800"
+			"duration"
+			{
+				"value"						"6"
+				"display_type"				"kDuration"
+			}
+			"radius"
+			{
+				"value"						"450"
+				"affected_by_aoe_increase"	"1"
+			}
+			"damage_interval"
+			{
+				"value"						"0.1"
+				"display_type"				"kDuration"
+			}
+			"base_damage_start_pct"
+			{
+				"value"						"25"
+				"display_type"				"kMagicalDamagePercentage"
+			}
+			"damage_max"
+			{
+				"value"						"300 475 750 1025"
+				"display_type"				"kMagicalDamage"
+			}
+			"max_health_damage_start_pct"
+			{
+				"value"						"0.4 0.6 0.8 1.0"
+				"display_type"				"kMagicalDamagePercentage"
+			}
+			"max_health_damage_end_pct"
+			{
+				"value"						"1.0 1.5 2.0 2.5"
+				"display_type"				"kMagicalDamagePercentage"
+			}
+			"gravity_radius_multiplier"	"2.5"
+			"gravity_dead_zone"			"96"
+			"gravity_start_speed"			"360"
+			"gravity_end_speed"			"720"
+			"gravity_max_speed"			"800"
+		}
+	}
+
 	// 觉醒技能
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
