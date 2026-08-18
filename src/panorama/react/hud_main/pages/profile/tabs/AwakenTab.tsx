@@ -58,6 +58,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     abilityName: 'special_bonus_unique_keeper_of_the_light_upgrade',
   },
   {
+    heroName: 'npc_dota_hero_centaur',
+    abilityName: 'centaur_double_edge_awakened',
+  },
+  {
     heroName: 'npc_dota_hero_crystal_maiden',
     abilityName: 'special_bonus_unique_crystal_maiden_upgrade',
   },
