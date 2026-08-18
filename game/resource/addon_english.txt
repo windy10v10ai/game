@@ -172,6 +172,19 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// Morphling Flow's Echo Awakening
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken"							"<font color='#d000ff'>Flow's Echo Awakened</font>"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_SummaryDescription"		"Current Agility grants spell amplification; a higher current Strength-to-Agility ratio reduces ability and item cooldowns."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Description"				"Morphling awakens the ancient power of Flow. Every %agility_per_spell_amp% current Agility grants 1%% spell amplification. A higher current Strength-to-Agility ratio reduces ability and item cooldowns, up to %max_cooldown_speed_bonus%%%."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_agility_per_spell_amp"		"AGILITY PER 1% SPELL AMPLIFICATION:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_min_strength_agility_ratio"	"%MINIMUM STRENGTH / AGILITY RATIO:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_max_strength_agility_ratio"	"%MAXIMUM STRENGTH / AGILITY RATIO:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_max_cooldown_speed_bonus"	"%MAXIMUM COOLDOWN REDUCTION:"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note0"					"Cooldown reduction scales linearly between the minimum and maximum Strength-to-Agility ratios."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note1"					"Affects Morphling's abilities, abilities acquired through Morph, and item cooldowns."
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note2"					"Attribute changes dynamically affect abilities and items already on cooldown."
+		"DOTA_Tooltip_modifier_morphling_flow_echo_awaken"						"<font color='#d000ff'>Flow's Echo Awakened</font>"
+		"DOTA_Tooltip_modifier_morphling_flow_echo_awaken_Description"			"Spell Amplification: +%fMODIFIER_PROPERTY_TOOLTIP%%%\nCooldown Reduction: +%fMODIFIER_PROPERTY_TOOLTIP2%%%"
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Autocast: automatically sends the spirit toward the farthest enemy hero and recalls it automatically."

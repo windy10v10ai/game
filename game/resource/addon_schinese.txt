@@ -172,6 +172,19 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
+		// 变体精灵 潮落回响 觉醒
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken"							"<font color='#d000ff'>潮落回响 觉醒</font>"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_SummaryDescription"		"当前敏捷提供技能增强；当前力量相对敏捷越高，技能和物品的冷却时间越短。"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Description"				"变体精灵唤醒古老的潮落力量。每%agility_per_spell_amp%点当前敏捷提供1%%技能增强。当前力量/敏捷比例越高，技能和物品的冷却时间越短，最多降低%max_cooldown_speed_bonus%%%。"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_agility_per_spell_amp"		"每1%技能增强所需敏捷："
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_min_strength_agility_ratio"	"%最低力量/敏捷比例："
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_max_strength_agility_ratio"	"%最高力量/敏捷比例："
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_max_cooldown_speed_bonus"	"%最大冷却时间降低："
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note0"					"冷却时间降低在最低和最高力量/敏捷比例之间线性提升。"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note1"					"影响变体精灵自身技能、通过变形获得的技能以及物品冷却。"
+		"DOTA_Tooltip_ability_morphling_flow_echo_awaken_Note2"					"属性变化会实时影响已经进入冷却的技能和物品。"
+		"DOTA_Tooltip_modifier_morphling_flow_echo_awaken"						"<font color='#d000ff'>潮落回响 觉醒</font>"
+		"DOTA_Tooltip_modifier_morphling_flow_echo_awaken_Description"			"技能增强：+%fMODIFIER_PROPERTY_TOOLTIP%%%\n冷却时间降低：+%fMODIFIER_PROPERTY_TOOLTIP2%%%"
 		// 上古巨神 灵体游魂-觉醒
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"自动施法：自动朝最远的敌方英雄放出游魂并自动收回。"

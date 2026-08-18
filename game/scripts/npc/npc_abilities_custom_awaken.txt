@@ -4,6 +4,35 @@
 	// 觉醒技能
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
+	// 变体精灵 潮落回响觉醒
+	"morphling_flow_echo_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/morphling_flow_echo_awaken"
+		"AbilityTextureName"			"morphling_ebb_and_flow"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"agility_per_spell_amp"
+			{
+				"value"						"5"
+			}
+			"min_strength_agility_ratio"
+			{
+				"value"						"50"
+			}
+			"max_strength_agility_ratio"
+			{
+				"value"						"175"
+			}
+			"max_cooldown_speed_bonus"
+			{
+				"value"						"60"
+			}
+		}
+	}
 
 	// 亚巴顿 觉醒
 	"special_bonus_unique_abaddon_quickening_awaken"
