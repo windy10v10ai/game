@@ -14,6 +14,7 @@ import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
 // 新加的英雄排在前面，旧的排在后面（随机卡固定第一个，不受此列表顺序影响）
 // freeTrial 与 vscripts awaken-config 的 FREE_TRIAL_HEROES 对应，同样需手动同步
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boolean }[] = [
+  { heroName: 'npc_dota_hero_enigma', abilityName: 'enigma_black_hole_awakened' },
   {
     heroName: 'npc_dota_hero_abaddon',
     abilityName: 'special_bonus_unique_abaddon_quickening_awaken',

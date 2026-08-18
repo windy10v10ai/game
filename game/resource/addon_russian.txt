@@ -697,5 +697,17 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>Ускорение · Пробуждение</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит погибает в радиусе <font color='#FFFFFF'><b>900</b></font> от Abaddon, текущее время перезарядки всех его способностей и предметов сокращается. Смерть не-героя сокращает его на <font color='#FFFFFF'><b>0.2</b></font> сек., а смерть героя — на <font color='#FFFFFF'><b>3</b></font> сек."
 
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened" "<font color='#d000ff'>Пробуждённая Чёрная дыра</font>"
+		"dota_hud_error_enigma_black_hole_alternate_cast_active" "Альтернативное применение включено: Чёрную дыру нельзя применить вручную."
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_Description" "Когда режим альтернативного применения выключен, используется обычная Black Hole.<br><br>Когда режим альтернативного применения включён, вокруг Enigma постоянно наносится %alternate_damage_pct%%% урона обычной Black Hole, каждую секунду расходуется мана в размере стоимости применения этой способности. Aghanim's Scepter притягивает врагов. Враги, остающиеся рядом %residence_duration% сек., попадают под контроль Black Hole на %control_duration% сек."
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_SummaryDescription" "Щёлкните правой кнопкой, чтобы включить постоянную Black Hole вокруг Enigma."
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_original_damage" "Урон обычной Black Hole в секунду"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_alternate_damage" "Урон альтернативного применения в секунду"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_residence_duration" "Время до контроля"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_control_duration" "Длительность контроля"
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_status" "<font color='#d000ff'>Пробуждённая Чёрная дыра</font>"
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_status_Description"	"Постоянный режим альтернативного применения активен: наносит урон вокруг Enigma и расходует ману."
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_control" "Контроль Black Hole"
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_control_Description" "Цель контролируется Black Hole и не может действовать."
 	}
 }

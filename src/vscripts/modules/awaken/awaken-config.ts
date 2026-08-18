@@ -18,6 +18,13 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 谜团 觉醒
+  {
+    heroName: 'npc_dota_hero_enigma',
+    targetAbility: 'enigma_black_hole',
+    newAbility: 'enigma_black_hole_awakened',
+    newLevel: 0,
+  },
   // 亚巴顿 觉醒
   {
     heroName: 'npc_dota_hero_abaddon',

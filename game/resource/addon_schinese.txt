@@ -3546,6 +3546,7 @@
 		"dota_hud_error_ward_no_cast_zone"												"肉山坑附近不能放置守卫"
 		"dota_hud_error_swift_glove_no_roshan"											"无法对肉山使用"
 		"dota_hud_error_swift_glove_no_building"										"无法对建筑使用"
+		"dota_hud_error_enigma_black_hole_alternate_cast_active"						"多样施法已开启，黑洞无法主动施放"
 
 		// 藏宝箱
 		"npc_treasure_chest"															"藏宝箱"
@@ -3585,5 +3586,16 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>畅快淋漓 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"附近 <font color='#FFFFFF'><b>900</b></font> 范围内有单位阵亡时，亚巴顿所有技能和物品的当前冷却都会减少。非英雄单位阵亡减少 <font color='#FFFFFF'><b>0.2</b></font> 秒，英雄阵亡减少 <font color='#FFFFFF'><b>3</b></font> 秒。"
 
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened" "<font color='#d000ff'>黑洞 觉醒</font>"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_Description" "关闭多样施法时，使用原版黑洞。<br><br>开启多样施法时，以谜团为中心持续造成原版黑洞%alternate_damage_pct%%%的伤害，每秒消耗等同于本技能施法魔耗的魔法。拥有阿哈利姆神杖时持续吸引范围内敌人，敌人连续停留%residence_duration%秒后受到%control_duration%秒的黑洞控制。"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_SummaryDescription" "右键切换以自身为中心的持续黑洞。"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_original_damage" "原版黑洞每秒伤害"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_alternate_damage" "多样施法每秒伤害"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_residence_duration" "触发控制所需时间"
+		"DOTA_Tooltip_ability_enigma_black_hole_awakened_control_duration" "控制持续时间"
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_status" "<font color='#d000ff'>黑洞 觉醒</font>"
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_status_Description" "多样施法持续模式已开启：以谜团为中心持续造成伤害并消耗魔法。"
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_control" "黑洞控制"
+		"DOTA_Tooltip_modifier_enigma_black_hole_awakened_control_Description" "被黑洞控制，无法行动。"
 	}
 }
