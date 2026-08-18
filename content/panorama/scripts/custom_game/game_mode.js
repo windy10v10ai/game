@@ -40,7 +40,6 @@ var LOADING_FAQ_GROUPS = [
       'loading_faq_pulse_nova',
       'loading_faq_member_checkin',
       'loading_faq_duplicate_ability',
-      'loading_faq_multiplayer_treasure',
       'loading_faq_dragon_balls',
     ],
   },

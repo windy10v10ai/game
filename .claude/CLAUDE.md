@@ -180,6 +180,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **模拟**: 在测试中通过 `global.GameRules = { ... }` 模拟 Dota 全局变量
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
 - **只测自己的分支/计算逻辑，不测引擎契约**：判断标准是代码里是否包含足够分量的**自身逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）。以下情况都**不需要**写单元测试，靠 Dota tools 实机验证：
+  - 纯函数、零 mock 不是该测的充分条件：只是把设计好的触发条件做布尔组合（如"满足 A 且 B 且距离 > 阈值就触发"）、不含实际计算时，同样不写测试——断言只会复述设计本身
   - 代码主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数、`FindUnitsInRadius` 后直接操作结果集），本身没有值得验证的分支
   - 需要 mock 多个 Dota 全局枚举/常量对象（如 `UnitTargetTeam` / `UnitTargetType` / `UnitTargetFlags` / `FindOrder`）才能让测试跑起来——这是"代码本身没有自身逻辑、只是在拼引擎调用参数"的强信号
   - 一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，不要为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）
@@ -290,6 +291,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **引用自己项目定义的 modifier/ability 名用类名 `.name`，不要另开重复字符串常量**：`@registerModifier`/`@registerAbility` 不传 `name` 参数时，注册到 Lua 的名字就是类本身的类名（见 `dota_ts_adapter.ts` 的 `registerModifier` 实现）。在同一或其他文件里引用这个自定义 modifier/ability（如 `AddNewModifier`/`FindModifierByName`/`HasModifier` 的名字参数）时直接写 `SomeModifierClass.name`，不要另外声明一个 `const XXX_MODIFIER_NAME = 'modifier_xxx'` 字符串常量——后者在改类名时容易忘记同步，导致两处不一致。此写法不适用于引用引擎原生 hardcoded modifier（如 `modifier_black_king_bar_immune`），那些没有本地类可取 `.name`，仍需写字符串字面量。
 - **不吃技能增强须显式标 flag，不靠物理类型**: 自定义技能用 `ApplyDamage` 造成物理伤害时，**不要**依赖「物理类型隐式不吃 spell amp」这条经验来确保不被技能增强放大。引擎判定是否吃技能增强的真正开关是伤害标志位，要明确排除时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`（本项目技能增强是自定义属性 `property_spell_amplify_percentage` 实现，更不应靠隐式行为）
 - **代码代为触发技能施放须补 `UseResources`**：代码直接调用某个技能的 `OnSpellStart()`（如自动检测循环里代玩家触发施法、监听某事件后连锁触发另一个技能）时，跳过了引擎原生施法管线，不会自动扣资源/进 CD，须显式调用 `this.UseResources(mana, useHealth, gold, cooldown)` 补上（四个布尔参数对应要不要消耗法力/生命/金钱、要不要进入冷却，按该技能实际消耗类型传参）。这一步只在「代码主动触发施放」时需要；玩家手动点技能触发的 `OnSpellStart()` 回调，引擎在调用前已经走完资源结算，不要重复调用，否则会双重扣资源/双重进 CD
+- **下达攻击命令前先查 `IsAttacking()`**：高频重复下达 `ATTACK_MOVE` / `ATTACK_TARGET`（如 0.1 秒一次的执行器）会不断重置攻击前摇，Bot 表现为反复抬手却打不出伤害。发命令前加 `if (hero.IsAttacking()) return;` 让当前这次攻击走完，参考 `ai/action/action-attack.ts` 的 `MoveToAttack`。判定要放在结束/中断条件**之后**、发命令**之前**，否则 Bot 被小兵缠住时会连中断条件都不再检查
 
 ### 图片资源管理
 
