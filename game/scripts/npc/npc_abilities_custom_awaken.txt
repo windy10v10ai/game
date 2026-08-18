@@ -22,6 +22,17 @@
 			"radius"							"900"
 		}
 	}
+	// 潮汐猎人 锚击-觉醒
+	"special_bonus_unique_tidehunter_smash_on_blubber"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_tidehunter_smash_on_blubber"
+		"AbilityType"					"ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"tidehunter_anchor_smash"
+		"MaxLevel"						"1"
+	}
+
 	// 天怒法师-觉醒
 	"special_bonus_unique_skywrath_upgrade"
 	{

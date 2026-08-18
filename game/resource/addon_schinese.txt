@@ -3584,6 +3584,12 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"附近单位阵亡时，减少所有技能和物品的当前冷却。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>畅快淋漓 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"附近 <font color='#FFFFFF'><b>900</b></font> 范围内有单位阵亡时，亚巴顿所有技能和物品的当前冷却都会减少。非英雄单位阵亡减少 <font color='#FFFFFF'><b>0.2</b></font> 秒，英雄阵亡减少 <font color='#FFFFFF'><b>3</b></font> 秒。"
+		// 潮汐猎人
+		"DOTA_Tooltip_ability_special_bonus_unique_tidehunter_smash_on_blubber"				"<font color='#d000ff'>锚击觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tidehunter_smash_on_blubber_Description"	"海妖外壳触发强驱散时自动释放锚击。该锚击会正常触发攻击特效，但不会额外造成普通攻击伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tidehunter_smash_on_blubber"			"<font color='#d000ff'>锚击觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tidehunter_smash_on_blubber_Description"	"海妖外壳触发强驱散时自动释放锚击。该锚击会正常触发攻击特效，但不会额外造成普通攻击伤害。"
+		"DOTA_Tooltip_ability_special_bonus_unique_tidehunter_anchor_smash_damage"			"+{s:bonus_attack_damage}% 锚击攻击伤害"
 
 	}
 }

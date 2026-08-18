@@ -2223,6 +2223,49 @@
 	"npc_dota_hero_morphling"
 	{
 	}
+	// 潮汐猎人
+	"npc_dota_hero_tidehunter"
+	{
+		"Ability14"		"special_bonus_unique_tidehunter_anchor_smash_damage"
+
+		"Bot"
+		{
+			"Build"
+			{
+				"1"		"tidehunter_gush"
+				"2"		"tidehunter_kraken_shell"
+				"3"		"tidehunter_anchor_smash"
+				"4"		"tidehunter_kraken_shell"
+				"5"		"tidehunter_anchor_smash"
+				"6"		"tidehunter_ravage"
+				"7"		"tidehunter_anchor_smash"
+				"8"		"tidehunter_kraken_shell"
+				"9"		"tidehunter_kraken_shell"
+				"10"		"special_bonus_unique_tidehunter_5"
+				"11"		"tidehunter_anchor_smash"
+				"12"		"tidehunter_ravage"
+				"13"		"tidehunter_gush"
+				"14"		"tidehunter_gush"
+				"15"		"special_bonus_unique_tidehunter_2"
+				"16"		"tidehunter_gush"
+				"17"		""
+				"18"		"tidehunter_ravage"
+				"19"		""
+				"20"		"special_bonus_unique_tidehunter"
+				"21"		""
+				"22"		""
+				"23"		"tidehunter_gush"
+				"24"		"tidehunter_ravage"
+				"25"		"special_bonus_unique_tidehunter_7"
+				"26"		"tidehunter_kraken_shell"
+				"27"		"special_bonus_unique_tidehunter_3"
+				"28"		"special_bonus_unique_tidehunter_ravage_cooldown"
+				"29"		"special_bonus_unique_tidehunter_anchor_smash_damage"
+				"30"		"special_bonus_unique_tidehunter_10"
+				"31"		"tidehunter_anchor_smash"
+			}
+		}
+	}
 	// 小小
 	"npc_dota_hero_tiny"
 	{
