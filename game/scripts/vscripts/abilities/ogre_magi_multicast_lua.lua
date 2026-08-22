@@ -57,6 +57,7 @@ no_support_abilitys = {
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
 	terrorblade_reflection = 1,                     -- 倒影
+	spectre_haunt = 1,                              -- 幽鬼 鬼影重重
 	terrorblade_metamorphosis = 1,                  -- 魔化
 	vengefulspirit_nether_swap = 1,                 -- 移形换位
 	terrorblade_sunder = 1,                         -- 魂断
