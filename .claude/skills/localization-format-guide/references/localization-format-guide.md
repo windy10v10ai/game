@@ -115,6 +115,10 @@
 		"DOTA_Tooltip_modifier_item_name_aura_Description"								"Aura描述"
 ```
 
+**modifier 的 `_Description` 要写技能效果本身，不能只写当前数值**——玩家点开 buff 图标往往是想确认这个效果到底做了什么。内容照 ability `_Description` 写一遍，再在末尾接当前累计/动态数值。
+
+**ability 用「单独成行」展示的数值，modifier 正文里要补回来**——modifier 只有一段正文、没有数值面板，ability 那边靠 `_xxx` 标签行展示的数值在 modifier 上不会出现。这类数值须以 `%dMODIFIER_PROPERTY_TOOLTIP%` / `%dMODIFIER_PROPERTY_TOOLTIP2%` 内联进 modifier 正文（每个 modifier 最多两个，超出的用文字概括或拆成多个 modifier）。
+
 #### Modifier 描述中的变量使用
 
 Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式：
