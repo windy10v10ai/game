@@ -11,7 +11,7 @@ description: >-
 
 把"何时何处施放该技能"以数据形式登记到 `AbilityRegistry`，由 `AbilityDispatcher` 在每个 bot tick 自动遍历并执行。
 
-> 架构背景：bot 主动施法走两条链路——`AbilityDispatcher`（按 spec 注册表）优先，未命中再回落到老的 `UseAbilityXxx` 手写逻辑。新技能一律走 spec，不要再往英雄文件加。
+> 架构背景：`AbilityDispatcher`（按 spec 注册表）是 bot 精细主动施法的唯一目标架构。存量 `UseAbilityXxx` 手写逻辑属于迁移债务，修改涉及这些技能时应将规则迁入 spec 并删除重复入口。新技能一律走 spec，不要再往英雄文件加。
 >
 > 关键路径:
 > - 类型: [src/vscripts/ai/ability/ability-spec.ts](src/vscripts/ai/ability/ability-spec.ts)
@@ -148,7 +148,7 @@ export const SPECS: AbilitySpec[] = [
 
 - **不要在 spec 里手写 `range.lte`**：dispatcher 会用技能 KV 中的 `AbilityCastRange + GetCastRangeBonus` 自动填入。手写反而会覆盖默认值，导致超出施法距离也尝试施放。例外：spec 想要更小的搜索半径才显式覆盖。
 - **不要为 spec 加新的字段类型**：spec 字段只能是 `ability-spec.ts` 中已定义的；新需求先扩展 `cast-condition.ts` 与 dispatcher，再消费。
-- **不要往英雄文件 `UseAbilityXxx` 加新技能**：新技能一律走 spec。旧英雄文件保留是为了不破坏现有逻辑，**不是**新技能的入口。
+- **不要往英雄文件 `UseAbilityXxx` 加新技能**：新技能一律走 spec。遇到已有手写规则时，将有效条件迁入 spec，并在确认行为等价后删除对应英雄覆盖，不能把英雄专属施法保留为长期第二执行层。
 - **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / autoCastOn` 表达。这条路径目前只在老 `ActionAbility.doAction` 中实现，dispatcher 暂未串接 —— 遇到这类技能告知用户「该开关类目前需要走老链路或扩展 dispatcher」，不要自行硬塞。
 - **TSTL 对象 spread 陷阱**：见 CLAUDE.md「常见陷阱」末条；spec 文件本身用不到 spread，但若需要扩展 dispatcher / cast-condition，**绝对**不能写 `{ ...maybeUndefined }`。
 - **KV 数值字段术语**：Dota 2 现行 KV 中数值字段块名为 `AbilityValues`（旧版 `AbilitySpecial` 已废弃）。在注释、字段命名、文档中统一使用 `AbilityValue` 表述；引擎 API `GetSpecialValueFor(key)` 仍可调用，但变量名和注释应写 `abilityValue` / `rangeFromAbilityValue`，不用 `specialValue`。
