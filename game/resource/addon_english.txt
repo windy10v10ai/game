@@ -86,7 +86,7 @@
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"What tends to cause the game to lag?"
-		"loading_faq_players_instant_revive_answer"		"More than six players or enabling instant revive in Custom mode can significantly increase server load."
+		"loading_faq_players_instant_revive_answer"		"More than six players, too many illusions or summoned units on the field, or enabling extreme Custom mode settings like instant revive can significantly increase server load and cause lag."
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
 		"loading_faq_local_host_question"			"Can I play on a local host?"
@@ -3568,6 +3568,13 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
+
+		// Slark Essence Erosion - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals %permanent_steal_pct%%% of the total attributes his Essence Shift has taken from that hero.<br>An enemy hero's base attributes never fall below <font color='#FFFFFF'><b>1</b></font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"When Slark kills an enemy hero, he permanently steals part of the attributes his Essence Shift has taken from that hero."
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Essence Erosion Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals <font color='#FFFFFF'><b>10%%</b></font> of the total attributes his Essence Shift has taken from that hero.<br>Permanently gained <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> to all attributes."
 
 		// Abaddon The Quickening - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>The Quickening Awakened</font>"

@@ -86,7 +86,7 @@
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"什么情况容易导致游戏卡顿？"
-		"loading_faq_players_instant_revive_answer"		"玩家数超过 6 名，或在自定义模式中选择秒活，都会明显增加服务器负担并导致卡顿。"
+		"loading_faq_players_instant_revive_answer"		"玩家数超过 6 名，场上幻象或召唤单位过多，或在自定义模式中选择秒活等极端设置，都会明显增加服务器负担并导致卡顿。"
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_local_host_question"			"本地主机可以进行游戏吗？"
@@ -3577,6 +3577,13 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
+
+		// 斯拉克 精华侵蚀觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的%permanent_steal_pct%%%永久偷走该英雄的全属性。<br>敌方英雄的基础属性最低保留<font color='#FFFFFF'><b>1</b></font>点。"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"斯拉克击杀敌人时，将能量转移偷取属性总量的一部分永久偷走该英雄的全属性。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>精华侵蚀 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的<font color='#FFFFFF'><b>10%%</b></font>永久偷走该英雄的全属性。<br>已永久获得 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 点全属性。"
 
 		// 亚巴顿 畅快淋漓觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>畅快淋漓 觉醒</font>"
