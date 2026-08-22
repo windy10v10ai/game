@@ -692,10 +692,10 @@
 
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark лично убивает вражеского героя, у которого его Essence Shift похитил атрибуты, он навсегда забирает %permanent_steal_pct%%% от общего похищенного количества в виде всех атрибутов.<br>Базовые атрибуты вражеского героя не опускаются ниже <font color='#FFFFFF'><b>1</b></font>."
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"Личное убийство героя, истощённого Essence Shift, навсегда забирает часть его атрибутов."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает %permanent_steal_pct%%% от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Базовые атрибуты вражеского героя не опускаются ниже <font color='#FFFFFF'><b>1</b></font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"Когда Slark убивает вражеского героя, он навсегда забирает часть атрибутов, похищенных у этого героя его Essence Shift."
 		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark лично убивает вражеского героя, у которого его Essence Shift похитил атрибуты, он навсегда забирает <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>%% от общего похищенного количества в виде всех атрибутов.<br>Навсегда получено <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ко всем атрибутам."
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>%% от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Навсегда получено <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> ко всем атрибутам."
 
 		// Abaddon The Quickening - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>Ускорение · Пробуждение</font>"

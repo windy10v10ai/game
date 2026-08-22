@@ -3580,10 +3580,10 @@
 
 		// 斯拉克 精华侵蚀觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克亲手击杀被自己能量转移偷取过属性的敌方英雄时，按偷取总量的%permanent_steal_pct%%%永久偷走该英雄的全属性。<br>敌方英雄的基础属性最低保留<font color='#FFFFFF'><b>1</b></font>点。"
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"亲手击杀被能量转移偷取过属性的敌人时，按偷取总量的一定比例永久偷走该英雄的全属性。"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的%permanent_steal_pct%%%永久偷走该英雄的全属性。<br>敌方英雄的基础属性最低保留<font color='#FFFFFF'><b>1</b></font>点。"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"斯拉克击杀敌人时，将能量转移偷取属性总量的一部分永久偷走该英雄的全属性。"
 		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>精华侵蚀 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克亲手击杀被自己能量转移偷取过属性的敌方英雄时，按偷取总量的<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>%%永久偷走该英雄的全属性。<br>已永久获得 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 点全属性。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>%%永久偷走该英雄的全属性。<br>已永久获得 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 点全属性。"
 
 		// 亚巴顿 畅快淋漓觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>畅快淋漓 觉醒</font>"
