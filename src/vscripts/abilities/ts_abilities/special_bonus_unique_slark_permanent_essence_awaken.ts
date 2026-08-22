@@ -39,7 +39,7 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_DEATH, ModifierFunction.TOOLTIP];
+    return [ModifierFunction.ON_DEATH, ModifierFunction.TOOLTIP, ModifierFunction.TOOLTIP2];
   }
 
   OnDeath(event: ModifierInstanceEvent): void {
@@ -67,11 +67,8 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
     const stolenAttributes = this.getEssenceShiftStatLoss(victim, slark);
     if (stolenAttributes <= 0) return;
 
-    const conversionPct =
-      ability.GetSpecialValueFor('base_loss_attribute_pct') +
-      ability.GetSpecialValueFor('extra_loss_attribute_pct');
     // 比例偏低时向下取整常得 0，保底 1 点才不会出现「杀了等于没杀」
-    const amount = Math.max(1, Math.floor((stolenAttributes * conversionPct) / 100));
+    const amount = Math.max(1, Math.floor((stolenAttributes * this.getStealPct()) / 100));
 
     this.drainBaseAttributes(victim as CDOTA_BaseNPC_Hero, amount);
     this.gainBaseAttributes(slark, amount);
@@ -79,6 +76,15 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
 
   OnTooltip(): number {
     return this.GetStackCount();
+  }
+
+  OnTooltip2(): number {
+    return this.getStealPct();
+  }
+
+  private getStealPct(): number {
+    const ability = this.GetAbility();
+    return ability && !ability.IsNull() ? ability.GetSpecialValueFor('permanent_steal_pct') : 0;
   }
 
   private getEssenceShiftStatLoss(victim: CDOTA_BaseNPC, slark: CDOTA_BaseNPC): number {

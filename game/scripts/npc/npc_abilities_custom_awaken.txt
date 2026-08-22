@@ -17,17 +17,7 @@
 
 		"AbilityValues"
 		{
-			"base_loss_attribute_pct"
-			{
-				"value"			"10"
-				"display_type"	"kBuffPercentage"
-			}
-			"extra_loss_attribute_pct"
-			{
-				"value"			"0"
-				"hero_levelup"	"+0.1"
-				"display_type"	"kBuffPercentage"
-			}
+			"permanent_steal_pct"		"10"
 		}
 	}
 
