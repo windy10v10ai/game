@@ -4,25 +4,12 @@ import {
   registerAbility,
   registerModifier,
 } from '../../utils/dota_ts_adapter';
-import {
-  calculateSlarkPermanentAttributeLoss,
-  PERMANENT_ATTRIBUTE_LOSS_SCALE,
-} from './slark-permanent-essence-awaken-math';
 
 const ESSENCE_SHIFT_COUNTER = 'modifier_slark_essence_shift_debuff_counter';
 const ESSENCE_SHIFT_DEBUFF = 'modifier_slark_essence_shift_debuff';
 const ESSENCE_SHIFT_ICON = 'slark_essence_shift';
-const PENDING_APPLY_INTERVAL = 0.5;
-
-interface PermanentEssenceDebuff extends CDOTA_Modifier_Lua {
-  AddPermanentLoss(loss: number): void;
-}
-
-interface PendingPermanentLoss {
-  victim: CDOTA_BaseNPC_Hero;
-  playerId: PlayerID;
-  loss: number;
-}
+const MIN_BASE_ATTRIBUTE = 1;
+const GAIN_POPUP_PARTICLE = 'particles/msg_fx/msg_gold.vpcf';
 
 @registerAbility('special_bonus_unique_slark_permanent_essence_awaken')
 export class SpecialBonusUniqueSlarkPermanentEssenceAwaken extends BaseAbility {
@@ -31,12 +18,10 @@ export class SpecialBonusUniqueSlarkPermanentEssenceAwaken extends BaseAbility {
   }
 }
 
-/** Slark awakening: converts a directly killed hero's temporary Essence Shift loss into permanent loss. */
+/** 斯拉克 精华侵蚀觉醒：亲手击杀被能量转移偷过属性的英雄时，把偷取量按比例转成双方的永久基础属性变化。 */
 @registerModifier('abilities/ts_abilities/special_bonus_unique_slark_permanent_essence_awaken')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_special_bonus_unique_slark_permanent_essence_awaken extends BaseModifier {
-  private pendingPermanentLossByVictim: Record<number, PendingPermanentLoss> = {};
-
   IsHidden(): boolean {
     return false;
   }
@@ -54,23 +39,7 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [
-      ModifierFunction.ON_DEATH,
-      ModifierFunction.STATS_STRENGTH_BONUS,
-      ModifierFunction.STATS_AGILITY_BONUS,
-      ModifierFunction.STATS_INTELLECT_BONUS,
-      ModifierFunction.TOOLTIP,
-    ];
-  }
-
-  OnCreated(): void {
-    if (!IsServer()) return;
-
-    this.pendingPermanentLossByVictim = {};
-  }
-
-  OnIntervalThink(): void {
-    this.applyPendingPermanentLosses();
+    return [ModifierFunction.ON_DEATH, ModifierFunction.TOOLTIP];
   }
 
   OnDeath(event: ModifierInstanceEvent): void {
@@ -83,12 +52,7 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
       victim.IsNull() ||
       !victim.IsRealHero() ||
       victim.IsIllusion() ||
-      victim.GetTeamNumber() === slark.GetTeamNumber()
-    ) {
-      return;
-    }
-
-    if (
+      victim.GetTeamNumber() === slark.GetTeamNumber() ||
       event.attacker !== slark ||
       slark.IsIllusion() ||
       slark.PassivesDisabled() ||
@@ -103,34 +67,18 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
     const stolenAttributes = this.getEssenceShiftStatLoss(victim, slark);
     if (stolenAttributes <= 0) return;
 
-    const permanentLoss = calculateSlarkPermanentAttributeLoss(
-      stolenAttributes,
-      ability.GetSpecialValueFor('base_loss_attribute_pct'),
-      ability.GetSpecialValueFor('extra_loss_attribute_pct'),
-    );
-    if (permanentLoss <= 0) return;
+    const conversionPct =
+      ability.GetSpecialValueFor('base_loss_attribute_pct') +
+      ability.GetSpecialValueFor('extra_loss_attribute_pct');
+    // 比例偏低时向下取整常得 0，保底 1 点才不会出现「杀了等于没杀」
+    const amount = Math.max(1, Math.floor((stolenAttributes * conversionPct) / 100));
 
-    this.queuePermanentLoss(victim as CDOTA_BaseNPC_Hero, permanentLoss);
-    this.addPermanentAllStats(slark, ability);
-  }
-
-  GetModifierBonusStats_Strength(): number {
-    return this.GetStackCount();
-  }
-
-  GetModifierBonusStats_Agility(): number {
-    return this.GetStackCount();
-  }
-
-  GetModifierBonusStats_Intellect(): number {
-    return this.GetStackCount();
+    this.drainBaseAttributes(victim as CDOTA_BaseNPC_Hero, amount);
+    this.gainBaseAttributes(slark, amount);
   }
 
   OnTooltip(): number {
-    const ability = this.GetAbility();
-    return ability && !ability.IsNull()
-      ? ability.GetSpecialValueFor('permanent_all_stats_per_kill')
-      : 0;
+    return this.GetStackCount();
   }
 
   private getEssenceShiftStatLoss(victim: CDOTA_BaseNPC, slark: CDOTA_BaseNPC): number {
@@ -163,158 +111,27 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
     );
   }
 
-  private queuePermanentLoss(victim: CDOTA_BaseNPC_Hero, permanentLoss: number): void {
-    const victimIndex = victim.GetEntityIndex();
-    const existing = this.pendingPermanentLossByVictim[victimIndex];
-    this.pendingPermanentLossByVictim[victimIndex] = {
-      victim,
-      playerId: victim.GetPlayerOwnerID(),
-      loss: permanentLoss + (existing?.loss ?? 0),
-    };
-    // 只在有待处理项时开表，清空后立即停，避免空转
-    this.StartIntervalThink(PENDING_APPLY_INTERVAL);
+  private drainBaseAttributes(victim: CDOTA_BaseNPC_Hero, amount: number): void {
+    const strength = this.drainableAmount(victim.GetBaseStrength(), amount);
+    if (strength > 0) victim.ModifyStrength(-strength);
+
+    const agility = this.drainableAmount(victim.GetBaseAgility(), amount);
+    if (agility > 0) victim.ModifyAgility(-agility);
+
+    const intellect = this.drainableAmount(victim.GetBaseIntellect(), amount);
+    if (intellect > 0) victim.ModifyIntellect(-intellect);
   }
 
-  private applyPendingPermanentLosses(): void {
-    const slark = this.GetParent() as CDOTA_BaseNPC_Hero;
-    const ability = this.GetAbility();
-    if (!ability || ability.IsNull() || slark.IsNull()) return;
-
-    let remaining = 0;
-    for (const victimIndex in this.pendingPermanentLossByVictim) {
-      const pending = this.pendingPermanentLossByVictim[victimIndex];
-      let victim: CDOTA_BaseNPC_Hero | undefined = pending.victim;
-      if (victim.IsNull() && pending.playerId >= 0) {
-        victim = PlayerResource.GetSelectedHeroEntity(pending.playerId);
-      }
-      if (!victim || victim.IsNull() || !victim.IsAlive()) {
-        remaining++;
-        continue;
-      }
-
-      if (!this.applyPermanentLoss(victim, slark, ability, pending.loss)) {
-        remaining++;
-        continue;
-      }
-      delete this.pendingPermanentLossByVictim[victimIndex];
-    }
-
-    if (remaining === 0) this.StartIntervalThink(-1);
+  private drainableAmount(baseAttribute: number, amount: number): number {
+    return Math.max(0, Math.min(amount, baseAttribute - MIN_BASE_ATTRIBUTE));
   }
 
-  private applyPermanentLoss(
-    victim: CDOTA_BaseNPC,
-    slark: CDOTA_BaseNPC,
-    ability: CDOTABaseAbility,
-    permanentLoss: number,
-  ): boolean {
-    const existing = victim.FindModifierByNameAndCaster(
-      modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff.name,
-      slark,
-    ) as PermanentEssenceDebuff | undefined;
-    if (existing && !existing.IsNull()) {
-      existing.AddPermanentLoss(permanentLoss);
-      return true;
-    }
+  private gainBaseAttributes(slark: CDOTA_BaseNPC_Hero, amount: number): void {
+    slark.ModifyStrength(amount);
+    slark.ModifyAgility(amount);
+    slark.ModifyIntellect(amount);
+    this.SetStackCount(this.GetStackCount() + amount);
 
-    const created = victim.AddNewModifier(
-      slark,
-      ability,
-      modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff.name,
-      { permanentLoss },
-    );
-    return !!created && !created.IsNull();
-  }
-
-  private addPermanentAllStats(slark: CDOTA_BaseNPC_Hero, ability: CDOTABaseAbility): void {
-    const allStatsPerKill = ability.GetSpecialValueFor('permanent_all_stats_per_kill');
-    if (allStatsPerKill <= 0) return;
-
-    this.SetStackCount(this.GetStackCount() + allStatsPerKill);
-    slark.CalculateStatBonus(true);
-  }
-}
-
-@registerModifier('abilities/ts_abilities/special_bonus_unique_slark_permanent_essence_awaken')
-// eslint-disable-next-line @typescript-eslint/naming-convention
-export class modifier_special_bonus_unique_slark_permanent_essence_awaken_debuff extends BaseModifier {
-  private permanentLoss = 0;
-
-  IsHidden(): boolean {
-    return false;
-  }
-
-  IsDebuff(): boolean {
-    return true;
-  }
-
-  IsPurgable(): boolean {
-    return false;
-  }
-
-  RemoveOnDeath(): boolean {
-    return false;
-  }
-
-  GetAttributes(): ModifierAttribute {
-    return ModifierAttribute.MULTIPLE;
-  }
-
-  GetTexture(): string {
-    return ESSENCE_SHIFT_ICON;
-  }
-
-  DeclareFunctions(): ModifierFunction[] {
-    return [
-      ModifierFunction.STATS_STRENGTH_BONUS,
-      ModifierFunction.STATS_AGILITY_BONUS,
-      ModifierFunction.STATS_INTELLECT_BONUS,
-      ModifierFunction.TOOLTIP,
-    ];
-  }
-
-  OnCreated(kv: { permanentLoss?: number }): void {
-    if (!IsServer()) return;
-
-    this.permanentLoss = Math.max(kv.permanentLoss ?? 0, 0);
-    this.SetHasCustomTransmitterData(true);
-    this.SendBuffRefreshToClients();
-    (this.GetParent() as CDOTA_BaseNPC_Hero).CalculateStatBonus(true);
-  }
-
-  AddCustomTransmitterData(): { permanentLoss: number } {
-    return { permanentLoss: this.permanentLoss };
-  }
-
-  HandleCustomTransmitterData(data: { permanentLoss: number }): void {
-    this.permanentLoss = data.permanentLoss;
-  }
-
-  AddPermanentLoss(loss: number): void {
-    if (!IsServer() || loss <= 0) return;
-
-    this.permanentLoss += loss;
-    this.SendBuffRefreshToClients();
-    (this.GetParent() as CDOTA_BaseNPC_Hero).CalculateStatBonus(true);
-  }
-
-  GetModifierBonusStats_Strength(): number {
-    return -this.getPermanentLoss();
-  }
-
-  GetModifierBonusStats_Agility(): number {
-    return -this.getPermanentLoss();
-  }
-
-  GetModifierBonusStats_Intellect(): number {
-    return -this.getPermanentLoss();
-  }
-
-  OnTooltip(): number {
-    return this.getPermanentLoss();
-  }
-
-  private getPermanentLoss(): number {
-    return this.permanentLoss / PERMANENT_ATTRIBUTE_LOSS_SCALE;
+    PopupNumbers(slark, GAIN_POPUP_PARTICLE, Vector(208, 0, 255), 2, amount, POPUP_SYMBOL_PRE_PLUS);
   }
 }

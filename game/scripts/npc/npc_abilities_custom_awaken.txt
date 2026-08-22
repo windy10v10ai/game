@@ -28,7 +28,6 @@
 				"hero_levelup"	"+0.1"
 				"display_type"	"kBuffPercentage"
 			}
-			"permanent_all_stats_per_kill"	"1"
 		}
 	}
 
