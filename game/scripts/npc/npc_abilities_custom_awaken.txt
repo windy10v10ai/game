@@ -1,6 +1,28 @@
 "DOTAAbilities"
 {
 	//=================================================================================================================
+	// 莱恩 觉醒
+	"special_bonus_unique_lion_finger_of_death_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_lion_finger_of_death_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"		"lion_finger_of_death"
+		"IsOnCastBar"				"1"
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"missing_health_damage_pct"
+			{
+				"value"					"25"
+			}
+			"cooldown_reduction_per_growth"	"10"
+			"melee_finger_damage_pct"		"50"
+		}
+	}
+
+	//=================================================================================================================
 	// 觉醒技能
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================

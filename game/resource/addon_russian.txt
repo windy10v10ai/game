@@ -697,5 +697,12 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>Ускорение · Пробуждение</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит погибает в радиусе <font color='#FFFFFF'><b>900</b></font> от Abaddon, текущее время перезарядки всех его способностей и предметов сокращается. Смерть не-героя сокращает его на <font color='#FFFFFF'><b>0.2</b></font> сек., а смерть героя — на <font color='#FFFFFF'><b>3</b></font> сек."
 
+		// 莱恩 死亡一指觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lion_finger_of_death_awaken"				"<font color='#d000ff'>Цикл смерти · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lion_finger_of_death_awaken_Description"	"Дополнительный урон от потерянного здоровья: <font color='#FFFFFF'><b>%missing_health_damage_pct%</b></font><font color='#FFFFFF'><b>%%</b></font>\nСокращение текущей перезарядки за рост: <font color='#FFFFFF'><b>%cooldown_reduction_per_growth% сек.</b></font>\nДополнительный урон атак в форме демона от Finger: <font color='#FFFFFF'><b>%melee_finger_damage_pct%</b></font><font color='#FFFFFF'><b>%%</b></font>\n<font color='#00CED1'>Альтернативное применение:</font> автоматически выбирает только настоящих вражеских героев, игнорируя Linken's Sphere, Lotus Orb и отражение заклинаний."
+		"DOTA_Tooltip_ability_special_bonus_unique_lion_finger_of_death_awaken_SummaryDescription"	"Finger наносит урон от потерянного здоровья, рост сокращает перезарядку, альтернативное применение автоматически добивает героев, а атаки демона наносят урон Finger."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lion_finger_of_death_awaken"			"<font color='#d000ff'>Цикл смерти · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lion_finger_of_death_awaken_Description"	"Дополнительный урон от потерянного здоровья: <font color='#FFFFFF'><b>25%%</b></font>\nСокращение текущей перезарядки за рост: <font color='#FFFFFF'><b>10 сек.</b></font>\nДополнительный урон атак в форме демона от Finger: <font color='#FFFFFF'><b>50%%</b></font>\n<font color='#00CED1'>Альтернативное применение:</font> автоматически выбирает только настоящих вражеских героев, игнорируя Linken's Sphere, Lotus Orb и отражение заклинаний."
+
 	}
 }

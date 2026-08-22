@@ -3576,5 +3576,12 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Non-hero deaths reduce them by <font color='#FFFFFF'><b>0.2</b></font>s; hero deaths reduce them by <font color='#FFFFFF'><b>3</b></font>s."
 
+		// 莱恩 死亡一指觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lion_finger_of_death_awaken"				"<font color='#d000ff'>Cycle of Death Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lion_finger_of_death_awaken_Description"	"Missing-health bonus damage: <font color='#FFFFFF'><b>%missing_health_damage_pct%</b></font><font color='#FFFFFF'><b>%%</b></font>\nCurrent cooldown reduction per growth: <font color='#FFFFFF'><b>%cooldown_reduction_per_growth%s</b></font>\nDemon-form attack bonus from Finger damage: <font color='#FFFFFF'><b>%melee_finger_damage_pct%</b></font><font color='#FFFFFF'><b>%%</b></font>\n<font color='#00CED1'>Alternative Cast:</font> Only automatically targets real enemy heroes, ignoring Linken's Sphere, Lotus Orb, and spell reflection."
+		"DOTA_Tooltip_ability_special_bonus_unique_lion_finger_of_death_awaken_SummaryDescription"	"Finger deals missing-health damage, growth reduces its cooldown, Alternative Cast automatically executes heroes, and melee demon attacks carry Finger damage."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lion_finger_of_death_awaken"			"<font color='#d000ff'>Cycle of Death Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lion_finger_of_death_awaken_Description"	"Missing-health bonus damage: <font color='#FFFFFF'><b>25%%</b></font>\nCurrent cooldown reduction per growth: <font color='#FFFFFF'><b>10s</b></font>\nDemon-form attack bonus from Finger damage: <font color='#FFFFFF'><b>50%%</b></font>\n<font color='#00CED1'>Alternative Cast:</font> Only automatically targets real enemy heroes, ignoring Linken's Sphere, Lotus Orb, and spell reflection."
+
 	}
 }
