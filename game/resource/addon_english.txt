@@ -1282,6 +1282,25 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 马格纳斯 两极反转-觉醒
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened"						"<font color='#d000ff'>Reverse Polarity Awakened</font>"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_Description"			"Magnus changes the properties of matter, pulling nearby enemies in front of him, dealing <font color='#FFE56E'>pure damage</font> and stunning them.<br><br>After casting, <font color='#d000ff'>Reverse Reverse Polarity</font> can be cast within %recast_window% seconds. This ability begins its cooldown when the recast is used or the window expires."
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_SummaryDescription"	"Pulls nearby enemies in front of Magnus, dealing pure damage and stunning them, then enables a brief recast."
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_pull_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_polarity_damage"		"PURE DAMAGE:"
+		"DOTA_Tooltip_ability_magnataur_reverse_polarity_awakened_hero_stun_duration"	"HERO STUN DURATION:"
+
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened"						"<font color='#d000ff'>Reverse Reverse Polarity</font>"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_Description"			"Radially pushes enemies away from Magnus, dealing <font color='#FFE56E'>pure damage</font> and stunning them. An enemy that collides with terrain, a tree, a building, or another unit that is not being pushed stops moving and takes the damage and stun again. Each enemy can trigger the collision effect once."
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_SummaryDescription"	"Radially pushes nearby enemies away, dealing damage and stunning them again on collision."
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_radius"		"RADIUS:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_distance"	"MAX PUSH DISTANCE:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_push_duration"	"PUSH DURATION:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_polarity_damage"	"PURE DAMAGE:"
+		"DOTA_Tooltip_ability_magnataur_reverse_reverse_polarity_awakened_hero_stun_duration"	"HERO STUN DURATION:"
+		"DOTA_Tooltip_modifier_magnataur_reverse_reverse_polarity_window"						"<font color='#d000ff'>Reverse Reverse Polarity</font>"
+		"DOTA_Tooltip_modifier_magnataur_reverse_reverse_polarity_window_Description"			"Reverse Polarity can be recast to radially push nearby enemies. Reverse Polarity begins its cooldown when this window ends."
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed."

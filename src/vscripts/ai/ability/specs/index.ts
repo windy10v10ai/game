@@ -18,6 +18,7 @@ import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
 import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
 import { SPECS as lionVoodoo } from './lion_voodoo';
+import { SPECS as magnataurReversePolarityAwakened } from './magnataur_reverse_polarity_awakened';
 import { SPECS as medusaSplitShot } from './medusa_split_shot';
 import { SPECS as omniknightHammerOfPurity } from './omniknight_hammer_of_purity';
 import { SPECS as omniknightPurification } from './omniknight_purification';
@@ -78,6 +79,9 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(axeBerserkerSCall);
   AbilityRegistry.registerAll(axeBattleHunger);
   AbilityRegistry.registerAll(axeCullingBlade);
+
+  // Magnus 马格纳斯
+  AbilityRegistry.registerAll(magnataurReversePolarityAwakened);
 
   // Sand King 沙王
   AbilityRegistry.registerAll(sandkingBurrowstrike);

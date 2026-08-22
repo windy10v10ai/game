@@ -153,6 +153,19 @@ describe('executeReplacement', () => {
 });
 
 describe('applyAwakenByHero', () => {
+  it('猛犸觉醒替换两极反转并加入二段控制器', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_magnataur',
+      abilities: [{ name: 'magnataur_reverse_polarity', level: 3 }],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toEqual([
+      { name: 'magnataur_reverse_polarity_awakened', level: 3 },
+      { name: 'magnataur_reverse_reverse_polarity_awakened', level: 1 },
+    ]);
+  });
+
   it('上古巨神觉醒替换二技能并继承原等级', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_elder_titan',
