@@ -12,16 +12,10 @@ import {
 const ESSENCE_SHIFT_COUNTER = 'modifier_slark_essence_shift_debuff_counter';
 const ESSENCE_SHIFT_DEBUFF = 'modifier_slark_essence_shift_debuff';
 const ESSENCE_SHIFT_ICON = 'slark_essence_shift';
-const SNAPSHOT_INTERVAL = 0.1;
+const PENDING_APPLY_INTERVAL = 0.5;
 
 interface PermanentEssenceDebuff extends CDOTA_Modifier_Lua {
   AddPermanentLoss(loss: number): void;
-}
-
-interface EssenceShiftSnapshot {
-  statLoss: number;
-  expiresAt: number;
-  snapshotAt: number;
 }
 
 interface PendingPermanentLoss {
@@ -41,7 +35,6 @@ export class SpecialBonusUniqueSlarkPermanentEssenceAwaken extends BaseAbility {
 @registerModifier('abilities/ts_abilities/special_bonus_unique_slark_permanent_essence_awaken')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class modifier_special_bonus_unique_slark_permanent_essence_awaken extends BaseModifier {
-  private cachedStatLossByVictim: Record<number, EssenceShiftSnapshot> = {};
   private pendingPermanentLossByVictim: Record<number, PendingPermanentLoss> = {};
 
   IsHidden(): boolean {
@@ -73,19 +66,10 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
   OnCreated(): void {
     if (!IsServer()) return;
 
-    this.cachedStatLossByVictim = {};
     this.pendingPermanentLossByVictim = {};
-    this.snapshotEnemyHeroes();
-    this.StartIntervalThink(SNAPSHOT_INTERVAL);
-  }
-
-  OnRefresh(): void {
-    if (!IsServer()) return;
-    this.snapshotEnemyHeroes();
   }
 
   OnIntervalThink(): void {
-    this.snapshotEnemyHeroes();
     this.applyPendingPermanentLosses();
   }
 
@@ -104,19 +88,6 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
       return;
     }
 
-    const victimIndex = victim.GetEntityIndex();
-    const currentStatLoss = this.getEssenceShiftSnapshot(victim, slark).statLoss;
-    const cachedSnapshot = this.cachedStatLossByVictim[victimIndex];
-    const gameTime = GameRules.GetGameTime();
-    const cachedStatLoss =
-      cachedSnapshot &&
-      (cachedSnapshot.expiresAt >= gameTime ||
-        (cachedSnapshot.expiresAt < 0 &&
-          cachedSnapshot.snapshotAt + SNAPSHOT_INTERVAL * 2 >= gameTime))
-        ? cachedSnapshot.statLoss
-        : 0;
-    delete this.cachedStatLossByVictim[victimIndex];
-
     if (
       event.attacker !== slark ||
       slark.IsIllusion() ||
@@ -129,9 +100,7 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
     const ability = this.GetAbility();
     if (!ability || ability.IsNull() || ability.GetLevel() <= 0 || !ability.IsActivated()) return;
 
-    // Prefer the live native counter so independently expiring stacks are not over-counted.
-    // The snapshot is only a fallback when death cleanup has already removed the counter.
-    const stolenAttributes = currentStatLoss > 0 ? currentStatLoss : cachedStatLoss;
+    const stolenAttributes = this.getEssenceShiftStatLoss(victim, slark);
     if (stolenAttributes <= 0) return;
 
     const permanentLoss = calculateSlarkPermanentAttributeLoss(
@@ -164,81 +133,20 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
       : 0;
   }
 
-  private snapshotEnemyHeroes(): void {
-    if (!IsServer()) return;
-
-    const slark = this.GetParent() as CDOTA_BaseNPC_Hero;
-    if (slark.IsNull()) return;
-
-    for (const hero of HeroList.GetAllHeroes()) {
-      if (
-        hero.IsNull() ||
-        !hero.IsAlive() ||
-        !hero.IsRealHero() ||
-        hero.IsIllusion() ||
-        hero.GetTeamNumber() === slark.GetTeamNumber()
-      ) {
-        continue;
-      }
-
-      const snapshot = this.getEssenceShiftSnapshot(hero, slark);
-      const heroIndex = hero.GetEntityIndex();
-      if (snapshot.statLoss > 0) {
-        this.cachedStatLossByVictim[heroIndex] = snapshot;
-      } else {
-        delete this.cachedStatLossByVictim[heroIndex];
-      }
-    }
-  }
-
-  private getEssenceShiftSnapshot(
-    victim: CDOTA_BaseNPC,
-    slark: CDOTA_BaseNPC,
-  ): EssenceShiftSnapshot {
+  private getEssenceShiftStatLoss(victim: CDOTA_BaseNPC, slark: CDOTA_BaseNPC): number {
     let statLoss = 0;
-    let expiresAt = 0;
-    const snapshotAt = GameRules.GetGameTime();
-    const counters = victim.FindAllModifiersByName(ESSENCE_SHIFT_COUNTER);
-    const mayUseUnattributedCounter = counters.length === 1 && this.isOnlyRealSlark(slark);
-
-    for (const modifier of counters) {
-      if (
-        modifier.IsNull() ||
-        (!mayUseUnattributedCounter && !this.isModifierFromSlark(modifier, slark))
-      ) {
-        continue;
-      }
-
-      const modifierStatLoss = modifier.GetStackCount();
-      if (modifierStatLoss < statLoss) continue;
-
-      statLoss = modifierStatLoss;
-      expiresAt = this.getModifierExpiry(modifier, snapshotAt);
+    for (const modifier of victim.FindAllModifiersByName(ESSENCE_SHIFT_COUNTER)) {
+      if (modifier.IsNull() || !this.isModifierFromSlark(modifier, slark)) continue;
+      statLoss = Math.max(statLoss, modifier.GetStackCount());
     }
+    if (statLoss > 0) return statLoss;
 
-    if (statLoss > 0) return { statLoss, expiresAt, snapshotAt };
-
-    // Native Essence Shift also creates one debuff instance per stolen attribute.
-    // Use those source-attributed instances when the UI counter is absent or unattributed.
+    // 计数器缺失时回退到每层一个的原生实例
     for (const modifier of victim.FindAllModifiersByName(ESSENCE_SHIFT_DEBUFF)) {
       if (modifier.IsNull() || !this.isModifierFromSlark(modifier, slark)) continue;
-
       statLoss += Math.max(modifier.GetStackCount(), 1);
-      const modifierExpiry = this.getModifierExpiry(modifier, snapshotAt);
-      expiresAt = modifierExpiry < 0 ? -1 : Math.max(expiresAt, modifierExpiry);
     }
-    return { statLoss, expiresAt, snapshotAt };
-  }
-
-  private isOnlyRealSlark(slark: CDOTA_BaseNPC): boolean {
-    let slarkCount = 0;
-    for (const hero of HeroList.GetAllHeroes()) {
-      if (hero.IsRealHero() && !hero.IsIllusion() && hero.GetUnitName() === slark.GetUnitName()) {
-        slarkCount++;
-        if (slarkCount > 1) return false;
-      }
-    }
-    return slarkCount === 1;
+    return statLoss;
   }
 
   private isModifierFromSlark(modifier: CDOTA_Buff, slark: CDOTA_BaseNPC): boolean {
@@ -255,11 +163,6 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
     );
   }
 
-  private getModifierExpiry(modifier: CDOTA_Buff, snapshotAt: number): number {
-    const remainingTime = modifier.GetRemainingTime();
-    return remainingTime < 0 ? -1 : snapshotAt + remainingTime;
-  }
-
   private queuePermanentLoss(victim: CDOTA_BaseNPC_Hero, permanentLoss: number): void {
     const victimIndex = victim.GetEntityIndex();
     const existing = this.pendingPermanentLossByVictim[victimIndex];
@@ -268,6 +171,8 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
       playerId: victim.GetPlayerOwnerID(),
       loss: permanentLoss + (existing?.loss ?? 0),
     };
+    // 只在有待处理项时开表，清空后立即停，避免空转
+    this.StartIntervalThink(PENDING_APPLY_INTERVAL);
   }
 
   private applyPendingPermanentLosses(): void {
@@ -275,18 +180,26 @@ export class modifier_special_bonus_unique_slark_permanent_essence_awaken extend
     const ability = this.GetAbility();
     if (!ability || ability.IsNull() || slark.IsNull()) return;
 
+    let remaining = 0;
     for (const victimIndex in this.pendingPermanentLossByVictim) {
       const pending = this.pendingPermanentLossByVictim[victimIndex];
       let victim: CDOTA_BaseNPC_Hero | undefined = pending.victim;
       if (victim.IsNull() && pending.playerId >= 0) {
         victim = PlayerResource.GetSelectedHeroEntity(pending.playerId);
       }
-      if (!victim || victim.IsNull() || !victim.IsAlive()) continue;
-
-      if (this.applyPermanentLoss(victim, slark, ability, pending.loss)) {
-        delete this.pendingPermanentLossByVictim[victimIndex];
+      if (!victim || victim.IsNull() || !victim.IsAlive()) {
+        remaining++;
+        continue;
       }
+
+      if (!this.applyPermanentLoss(victim, slark, ability, pending.loss)) {
+        remaining++;
+        continue;
+      }
+      delete this.pendingPermanentLossByVictim[victimIndex];
     }
+
+    if (remaining === 0) this.StartIntervalThink(-1);
   }
 
   private applyPermanentLoss(
