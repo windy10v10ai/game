@@ -86,7 +86,7 @@
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"什么情况容易导致游戏卡顿？"
-		"loading_faq_players_instant_revive_answer"		"玩家数超过 6 名，或在自定义模式中选择秒活，都会明显增加服务器负担并导致卡顿。"
+		"loading_faq_players_instant_revive_answer"		"玩家数超过 6 名、场上幻象或召唤单位过多，或在自定义模式中选择秒活等极端设置，都会明显增加服务器负担并导致卡顿。"
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_local_host_question"			"本地主机可以进行游戏吗？"

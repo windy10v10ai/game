@@ -86,7 +86,7 @@
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"What tends to cause the game to lag?"
-		"loading_faq_players_instant_revive_answer"		"More than six players or enabling instant revive in Custom mode can significantly increase server load."
+		"loading_faq_players_instant_revive_answer"		"More than six players, too many illusions or summoned units on the field, or enabling extreme Custom mode settings like instant revive can significantly increase server load and cause lag."
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
 		"loading_faq_local_host_question"			"Can I play on a local host?"
