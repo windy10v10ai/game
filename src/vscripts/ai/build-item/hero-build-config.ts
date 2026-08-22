@@ -1582,7 +1582,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_infernal_desolator', // 绝对破防之刃
         'item_excalibur', // EX咖喱棒
         'item_refresh_core', // 熔火核心
-        'item_hydras_breath_2', // 神器·千年毒蛟之息
         'item_sange_and_yasha_1', // 神器·散夜对剑
       ],
       [ItemTier.T5]: [
