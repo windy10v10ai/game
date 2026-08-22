@@ -6144,7 +6144,7 @@
 			"damage_per_mana"
 			{
 				"value"								"4.0"	// 2
-				"hero_levelup"						"+0.3"	// +0.1
+				"hero_levelup"						"+0.2"	// +0.1
 			}
 		}
 	}
