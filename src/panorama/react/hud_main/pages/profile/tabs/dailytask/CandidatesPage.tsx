@@ -1,7 +1,9 @@
 import React from 'react';
+import { PrimaryButton } from '../../../../../shared/components';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
 import { getDisplayCandidates, TOTAL_ROUNDS_PER_DAY } from './dailytask-ui';
 import { TaskCandidateCard } from './TaskCandidateCard';
+import { useDailyTaskRefreshButton } from './useDailyTaskRefreshButton';
 
 /**
  * 每日任务候选子页：展示本局候选任务卡，点击本地选择一个，零网络请求。
@@ -11,6 +13,7 @@ import { TaskCandidateCard } from './TaskCandidateCard';
 export function CandidatesPage() {
   const playerId = Game.GetLocalPlayerID();
   const dailyTask = useNetTable('daily_task', playerId >= 0 ? String(playerId) : null);
+  const refreshBtn = useDailyTaskRefreshButton(dailyTask?.refreshRemaining);
 
   const handleSelect = (taskId: string) => {
     GameEvents.SendCustomGameEventToServer('dailytask_select_candidate', { taskId });
@@ -38,11 +41,22 @@ export function CandidatesPage() {
     <Panel className="dailytask-root">
       <Panel className="dailytask-header-box">
         <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
-        <Label
-          className="dailytask-header-subtitle"
+        <Label className="dailytask-header-desc" text={$.Localize('#dailytask_header_desc')} />
+        <Panel
+          className="dailytask-header-subtitle-row"
           style={{ visibility: showHint ? 'collapse' : 'visible' }}
-          text={subtitleText}
-        />
+        >
+          <Label className="dailytask-header-subtitle" text={subtitleText} />
+          <PrimaryButton
+            className="dailytask-refresh-btn"
+            variant="ghost"
+            enabled={refreshBtn.enabled}
+            onClick={refreshBtn.handleClick}
+            label={$.Localize(
+              refreshBtn.used ? '#dailytask_refresh_used_label' : '#dailytask_refresh_button',
+            )}
+          />
+        </Panel>
       </Panel>
       <Panel className="dailytask-body">
         <Panel className="dailytask-hint" style={{ visibility: showHint ? 'visible' : 'collapse' }}>

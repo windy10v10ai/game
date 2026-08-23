@@ -3,6 +3,7 @@ import {
   DailyTaskStartDto,
   TaskCandidateDto,
 } from '../../../common/dto/daily-task';
+import { ApiClient, HttpMethod } from '../../api/api-client';
 import { reloadable } from '../../utils/tstl-utils';
 import { GameEndPoint } from '../event/game-end/game-end-point';
 import { EnvironmentHelper } from '../helper/environment-helper';
@@ -22,12 +23,18 @@ export interface DailyTaskCompletion {
 /** 每日任务：判断本局是否可以参与、记录玩家选择的任务、结算时判断是否完成 */
 @reloadable
 export class DailyTask {
+  private static readonly REFRESH_URL = '/daily-task/refresh';
+  // 需要和 useDailyTaskRefreshButton.ts 的本地兜底超时保持一致，请求卡住时两侧同时放开按钮
+  private static readonly REFRESH_TIMEOUT_SECONDS = 10;
   private state: Map<PlayerID, DailyTaskPlayerState> = new Map();
   private readonly PROGRESS_PUSH_INTERVAL = 1;
 
   constructor() {
     CustomGameEventManager.RegisterListener('dailytask_select_candidate', (_, event) =>
       this.SelectCandidate(event.PlayerID, event.taskId),
+    );
+    CustomGameEventManager.RegisterListener('dailytask_refresh_candidates', (_, event) =>
+      this.RequestRefresh(event.PlayerID),
     );
     // 自定义模式的极端配置判定依赖 GameRules.Option，值在加载界面异步写入，
     // 可能晚于 SetStartData 的首次快照，需要在配置变化时重新同步 enabled
@@ -69,6 +76,33 @@ export class DailyTask {
     this.setDailyTaskTable(playerId);
     // 立即推一次，改选后 HUD 不用等下一个 tick 才对齐
     this.pushProgress(playerId);
+  }
+
+  /** 玩家请求刷新本轮候选，次数限制、幂等性均由后端裁定，这里只转发并覆盖本地状态 */
+  RequestRefresh(playerId: PlayerID): void {
+    const state = this.state.get(playerId);
+    if (!state) {
+      return;
+    }
+    ApiClient.sendWithRetry({
+      method: HttpMethod.POST,
+      path: DailyTask.REFRESH_URL,
+      body: { steamId: state.steamId, dayId: state.dayId },
+      timeoutSeconds: DailyTask.REFRESH_TIMEOUT_SECONDS,
+      retryTimes: 1,
+      successFunc: (data) => {
+        const snapshot = json.decode(data)[0] as DailyTaskStartDto;
+        const current = this.state.get(playerId);
+        if (!current) {
+          return;
+        }
+        this.state.set(playerId, { ...snapshot, selectedTaskId: current.selectedTaskId });
+        this.setDailyTaskTable(playerId);
+      },
+      failureFunc: (data) => {
+        print(`[DailyTask] RequestRefresh failed playerId=${playerId} data=${data}`);
+      },
+    });
   }
 
   private startProgressPush(): void {

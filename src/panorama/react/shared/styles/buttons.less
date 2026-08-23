@@ -67,17 +67,26 @@
   text-shadow: 0px 1px 4px #00000088;
 }
 
-// 次级 / 镂空按钮
+// 次级 / 镂空按钮，视觉参考会员状态页的「刷新会员状态」按钮（member/styles.less 的 .member-refresh-btn）
 .btn-ghost {
   .btn-base;
-  background-color: @color-bg-panel;
-  border: 1px solid @color-bg-deep;
-  color: @color-text-muted;
+  background-color: #000000aa;
+  border: 1px solid @color-gold-muted-soft;
+  color: @color-text;
 
   &:hover {
-    background-color: @color-primary;
-    color: @color-text;
+    brightness: 1.3;
+    border-color: @color-gold-soft;
   }
+
+  &:active {
+    brightness: 0.9;
+  }
+}
+
+.btn-ghost:disabled {
+  saturation: 0.3;
+  brightness: 0.6;
 }
 
 // 禁用按钮

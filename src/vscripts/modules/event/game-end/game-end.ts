@@ -116,10 +116,11 @@ export class GameEnd {
       // 行为分倍率造成的增减（用于结算界面括号展示，正=加成 负=惩罚 0=无变化）
       const conductDelta = matchPoints - baseBattlePoints;
 
-      // 掉线玩家不结算每日任务，哪怕退出前指标已达标
-      const dailyTaskCompletion = playerDto.isDisconnected
-        ? undefined
-        : GameRules.DailyTask.EvaluateCompletion(playerId);
+      // 掉线玩家、未获胜的一方不结算每日任务，哪怕指标已达标
+      const dailyTaskEligible = !playerDto.isDisconnected && playerDto.teamId === winnerTeamId;
+      const dailyTaskCompletion = dailyTaskEligible
+        ? GameRules.DailyTask.EvaluateCompletion(playerId)
+        : undefined;
       if (dailyTaskCompletion) {
         playerDto.dailyTask = dailyTaskCompletion.result;
       }
