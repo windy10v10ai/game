@@ -14,13 +14,17 @@ import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
 import { SPECS as drowRangerFrostArrows } from './drow_ranger_frost_arrows';
 import { SPECS as enchantressImpetus } from './enchantress_impetus';
 import { SPECS as getDown } from './get_down';
+import { SPECS as imbaChaosKnightPhantasm } from './imba_chaos_knight_phantasm';
 import { SPECS as jakiroDualBreath } from './jakiro_dual_breath';
+import { SPECS as juggernautSwiftSlash } from './juggernaut_swift_slash';
 import { SPECS as kunkkaTidalWave } from './kunkka_tidal_wave';
 import { SPECS as kunkkaXMarksTheSpot } from './kunkka_x_marks_the_spot';
 import { SPECS as lichFrostArmor } from './lich_frost_armor';
 import { SPECS as lichFrostNova } from './lich_frost_nova';
 import { SPECS as lichFrostShield } from './lich_frost_shield';
 import { SPECS as lichIceSpire } from './lich_ice_spire';
+import { SPECS as linaFlameCloak } from './lina_flame_cloak';
+import { SPECS as linaLagunaBlade } from './lina_laguna_blade';
 import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
 import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
@@ -39,6 +43,8 @@ import { SPECS as omniknightGuardianAngel } from './omniknight_guardian_angel';
 import { SPECS as omniknightHammerOfPurity } from './omniknight_hammer_of_purity';
 import { SPECS as omniknightMartyr } from './omniknight_martyr';
 import { SPECS as omniknightPurification } from './omniknight_purification';
+import { SPECS as phantomAssassinBlur } from './phantom_assassin_blur';
+import { SPECS as phantomAssassinFanOfKnives } from './phantom_assassin_fan_of_knives';
 import { SPECS as rikiTricksOfTheTrade } from './riki_tricks_of_the_trade';
 import { SPECS as sandkingBurrowstrike } from './sandking_burrowstrike';
 import { SPECS as sandkingScorpionStrike } from './sandking_scorpion_strike';
@@ -50,6 +56,8 @@ import { SPECS as shadowShamanUrnaconda } from './shadow_shaman_urnaconda';
 import { SPECS as shadowShamanVoodoo } from './shadow_shaman_voodoo';
 import { SPECS as silencerGlaivesOfWisdom } from './silencer_glaives_of_wisdom';
 import { SPECS as slarkSaltwaterShiv } from './slark_saltwater_shiv';
+import { SPECS as spectreHaunt } from './spectre_haunt';
+import { SPECS as spectreSpectralDagger } from './spectre_spectral_dagger';
 import { SPECS as tinkerDeployTurrets } from './tinker_deploy_turrets';
 import { SPECS as tinkerLaser } from './tinker_laser';
 import { SPECS as tinkerMarchOfTheMachines } from './tinker_march_of_the_machines';
@@ -115,6 +123,24 @@ export function registerAbilitySpecs(): void {
 
   // Witch Doctor 巫医
   AbilityRegistry.registerAll(witchDoctorVoodooSwitcheroo);
+
+  // Phantom Assassin 幻影刺客
+  AbilityRegistry.registerAll(phantomAssassinBlur);
+  AbilityRegistry.registerAll(phantomAssassinFanOfKnives);
+
+  // Juggernaut 主宰
+  AbilityRegistry.registerAll(juggernautSwiftSlash);
+
+  // Chaos Knight 混沌骑士
+  AbilityRegistry.registerAll(imbaChaosKnightPhantasm);
+
+  // Lina 莉娜
+  AbilityRegistry.registerAll(linaFlameCloak);
+  AbilityRegistry.registerAll(linaLagunaBlade);
+
+  // Spectre 幽鬼
+  AbilityRegistry.registerAll(spectreSpectralDagger);
+  AbilityRegistry.registerAll(spectreHaunt);
 
   // Lich 巫妖
   AbilityRegistry.registerAll(lichFrostNova);
