@@ -936,4 +936,19 @@
 			"spell_reduce"				"60"
 		}
 	}
+
+	// 巨牙海民 摔角行家-觉醒
+	"special_bonus_unique_tusk_tag_team_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_tusk_tag_team_awaken"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"tusk_tag_team"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"damage_taken_to_bonus_pct"	"50"
+		}
+	}
 }
