@@ -12,6 +12,8 @@ import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
 import { SPECS as drowRangerFrostArrows } from './drow_ranger_frost_arrows';
 import { SPECS as enchantressImpetus } from './enchantress_impetus';
 import { SPECS as jakiroDualBreath } from './jakiro_dual_breath';
+import { SPECS as kunkkaTidalWave } from './kunkka_tidal_wave';
+import { SPECS as kunkkaXMarksTheSpot } from './kunkka_x_marks_the_spot';
 import { SPECS as lichFrostArmor } from './lich_frost_armor';
 import { SPECS as lichFrostNova } from './lich_frost_nova';
 import { SPECS as lichFrostShield } from './lich_frost_shield';
@@ -21,7 +23,15 @@ import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
 import { SPECS as lionVoodoo } from './lion_voodoo';
 import { SPECS as medusaSplitShot } from './medusa_split_shot';
+import { SPECS as ogreMagiBloodlust } from './ogre_magi_bloodlust';
+import { SPECS as ogreMagiFireblast } from './ogre_magi_fireblast';
+import { SPECS as ogreMagiIgnite } from './ogre_magi_ignite';
+import { SPECS as ogreMagiSmash } from './ogre_magi_smash';
+import { SPECS as ogreMagiUnrefinedFireblast } from './ogre_magi_unrefined_fireblast';
+import { SPECS as omniknightAngelicFlight } from './omniknight_angelic_flight';
+import { SPECS as omniknightGuardianAngel } from './omniknight_guardian_angel';
 import { SPECS as omniknightHammerOfPurity } from './omniknight_hammer_of_purity';
+import { SPECS as omniknightMartyr } from './omniknight_martyr';
 import { SPECS as omniknightPurification } from './omniknight_purification';
 import { SPECS as sandkingBurrowstrike } from './sandking_burrowstrike';
 import { SPECS as sandkingScorpionStrike } from './sandking_scorpion_strike';
@@ -66,9 +76,23 @@ export function registerAbilitySpecs(): void {
 
   // Omniknight 全能骑士
   AbilityRegistry.registerAll(omniknightPurification);
+  AbilityRegistry.registerAll(omniknightMartyr);
+  AbilityRegistry.registerAll(omniknightAngelicFlight);
+  AbilityRegistry.registerAll(omniknightGuardianAngel);
 
   // Jakiro 杰奇洛
   AbilityRegistry.registerAll(jakiroDualBreath);
+
+  // Ogre Magi 食人魔魔法师
+  AbilityRegistry.registerAll(ogreMagiFireblast);
+  AbilityRegistry.registerAll(ogreMagiIgnite);
+  AbilityRegistry.registerAll(ogreMagiBloodlust);
+  AbilityRegistry.registerAll(ogreMagiUnrefinedFireblast);
+  AbilityRegistry.registerAll(ogreMagiSmash);
+
+  // Kunkka 昆卡
+  AbilityRegistry.registerAll(kunkkaXMarksTheSpot);
+  AbilityRegistry.registerAll(kunkkaTidalWave);
 
   // Lich 巫妖
   AbilityRegistry.registerAll(lichFrostNova);

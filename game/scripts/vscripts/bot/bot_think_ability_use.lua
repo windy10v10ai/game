@@ -95,12 +95,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_PhantomAssassin(hHero)
 	elseif sHeroName == "npc_dota_hero_juggernaut" then
 		self:ThinkUseAbility_Juggernaut(hHero)
-	elseif sHeroName == "npc_dota_hero_kunkka" then
-		self:ThinkUseAbility_Kunkka(hHero)
-	elseif sHeroName == "npc_dota_hero_ogre_magi" then
-		self:ThinkUseAbility_OgreMagi(hHero)
-	elseif sHeroName == "npc_dota_hero_omniknight" then
-		self:ThinkUseAbility_Omniknight(hHero)
 	elseif sHeroName == "npc_dota_hero_meepo" then
 		self:ThinkUseAbility_Meepo(hHero)
 	elseif sHeroName == "npc_dota_hero_chaos_knight" then
@@ -144,53 +138,6 @@ function BotAbilityThink:ThinkUseAbility_Juggernaut(hHero)
 
 	if hHero:HasModifier("modifier_item_ultimate_scepter") then
 		if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility4) then
-			return true
-		end
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Kunkka(hHero)
-	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility4 = hHero:GetAbilityByIndex(3)
-	local hAbility5 = hHero:GetAbilityByIndex(4)
-
-	if BotAbilityThink:CastAbilityOnEnemyTarget(hHero, hAbility3) then
-		return true
-	end
-	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility5) then
-		return true
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility4 = hHero:GetAbilityByIndex(3)
-	local hAbility5 = hHero:GetAbilityByIndex(4)
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility2) then return true end
-	-- set hAbility3 auto cast
-	if hAbility3:IsFullyCastable() then
-		if hAbility3:GetAutoCastState() == false then
-			hAbility3:ToggleAutoCast()
-		end
-	end
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility4) then return true end
-
-	-- cast on teammate
-	if hAbility5:IsFullyCastable() then
-		local iRange = GetFullCastRange(hHero, hAbility5)
-		local tAllHeroes = BotThink:FindFriendHeroesInRangeAndVisible(hHero, iRange)
-		local iCount = #tAllHeroes
-		for i = 1, iCount do
-			if tAllHeroes[iCount + 1 - i]:HasModifier("modifier_ogre_magi_smash_buff") then
-				table.remove(tAllHeroes,
-					iCount + 1 - i)
-			end
-		end
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
 			return true
 		end
 	end
@@ -243,17 +190,6 @@ function BotAbilityThink:ThinkUseAbility_Meepo(hHero)
 			end
 		end
 	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Omniknight(hHero)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility5 = hHero:GetAbilityByIndex(4)
-	local hAbility6 = hHero:GetAbilityByIndex(5)
-	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility2, 60) then return true end
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility3) then return true end
-	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility5, 85) then return true end
-	if self:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility6, 85) then return true end
 end
 
 function BotAbilityThink:ThinkUseAbility_ChaosKnight(hHero)
