@@ -22,7 +22,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["clinkz_skeleton_walk"] = true,        -- 火枪手 灼热之箭
     ["riki_permanent_invisibility"] = true, -- 力丸 永久隐身
     --["templar_assassin_meld"] = true,            -- 圣堂刺客 融合（已注释）
-    --["sand_king_sand_storm"] = true,             -- 沙王 沙尘暴（已注释）
+    --["sandking_sand_storm"] = true,              -- 沙王 沙尘暴（已注释）
     ["treant_natures_guise"] = true, -- 树精卫士 自然之姿
 
     -- ========================================
@@ -79,10 +79,21 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["dawnbreaker_celestial_hammer"] = true,       -- 破晓辰星 上界重锤
     ["dawnbreaker_converge"] = true,               -- 破晓辰星 聚合
     ["mirana_leap"] = true,                        -- 米拉娜 跳跃
+    ["slark_pounce"] = true,                       -- 斯拉克 突袭
+    ["faceless_void_time_walk"] = true,            -- 虚空假面 时间漫游
+    ["riki_blink_strike"] = true,                  -- 力丸 突袭
+    ["void_spirit_astral_step"] = true,            -- 虚无之灵 太虚之径
+    ["void_spirit_dissimilate"] = true,            -- 虚无之灵 异化
+    ["puck_illusory_orb"] = true,                  -- 帕克 幻象法球
+    ["spirit_breaker_charge_of_darkness"] = true,  -- 裂魂人 暗影冲刺
+    ["rattletrap_hookshot"] = true,                -- 发条技师 发射钩爪
+    ["huskar_life_break"] = true,                  -- 哈斯卡 牺牲
+    ["juggernaut_omni_slash"] = true,              -- 主宰 无敌斩
+    ["pangolier_swashbuckle"] = true,              -- 石鳞剑士 虚张声势
     ["techies_suicide"] = true,                    -- 炸弹人 自爆
     ["weaver_time_lapse"] = true,                  -- 编织者 时光倒流
     ["enchantress_bunny_hop"] = true,              -- 魅惑魔女 跳跃(Sproink,神杖技能)
-    ["sand_king_burrowstrike"] = true,             -- 沙王 掘地穿刺
+    ["sandking_burrowstrike"] = true,              -- 沙王 掘地穿刺
     ["morphling_waveform"] = true,                 -- 水人 波浪形态
     ["antimage_blink"] = true,                     -- 敌法师 闪烁
     ["queenofpain_blink"] = true,                  -- 痛苦女王 闪烁
@@ -97,6 +108,18 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["legion_commander_duel"] = true, -- 军团指挥官 决斗
     ["rattletrap_jetpack"] = true,    -- 发条技师 喷气背包（触发飞行影响正常操作）
 
+    -- ========================================
+    -- 拖拽/击退类技能
+    -- 原因：改变敌方位置会打乱队友的战术安排
+    -- ========================================
+    ["tiny_toss"] = true,                          -- 小小 投掷
+    ["pudge_meat_hook"] = true,                    -- 帕吉 肉钩
+    ["batrider_flaming_lasso"] = true,             -- 蝙蝠骑士 燃烧枷锁
+    ["disruptor_glimpse"] = true,                  -- 干扰者 恶念瞥视
+    ["tusk_walrus_kick"] = true,                   -- 巨牙海民 海象飞踢
+    ["dark_seer_vacuum"] = true,                   -- 黑暗贤者 真空
+    ["earth_spirit_geomagnetic_grip"] = true,      -- 大地之灵 地磁之握
+    ["mars_spear"] = true,                         -- 玛尔斯 矛
 
     ["elder_titan_ancestral_spirit"] = true,
     ["elder_titan_ancestral_spirit_awaken"] = true, -- 上古巨神 灵体游魂 觉醒
@@ -126,7 +149,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["crystal_maiden_freezing_field"] = true,              -- 水晶室女 极寒领域
     ["witch_doctor_death_ward"] = true,                    -- 巫医 死亡守卫
     ["pudge_dismember"] = true,                            -- 屠夫 肢解
-    ["sand_king_epicenter"] = true,                        -- 沙王 地震
+    ["sandking_epicenter"] = true,                         -- 沙王 地震
     ["storm_spirit_ball_lightning"] = true,                -- 风暴之灵 球状闪电
     ["warlock_upheaval"] = true,                           -- 术士 剧变
     ["enigma_midnight_pulse"] = true,                      -- 谜团 午夜凋零
