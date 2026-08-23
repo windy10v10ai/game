@@ -17,7 +17,7 @@ export const SPECS: AbilitySpec[] = [
     condition: {
       target: {
         count: { gte: 2 },
-        range: { lte: 800 },
+        range: { lte: 900 },
         castMode: 'projectedOnCastRange',
       },
     },
