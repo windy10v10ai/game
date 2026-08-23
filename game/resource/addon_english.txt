@@ -472,6 +472,7 @@
 		"dailytask_settlement_tooltip_prefix"		"Daily Task Completed: "
 		"dailytask_select_button"			"Claim Task"
 		"dailytask_selected_label"			"Claimed"
+		"dailytask_refresh_button"			"Refresh Tasks"
 		"dailytask_disabled_hint"			"Daily Tasks aren't available in cheat mode, or under custom difficulty with instant respawn or an overall score multiplier below 1x"
 		"dailytask_empty_hint"			"No daily tasks available right now, check back next match"
 		"dailytask_all_done_hint"			"All {total} rounds completed today"

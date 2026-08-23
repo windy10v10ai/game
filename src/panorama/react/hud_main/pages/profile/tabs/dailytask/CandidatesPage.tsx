@@ -1,4 +1,5 @@
 import React from 'react';
+import { PrimaryButton } from '../../../../../shared/components';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
 import { getDisplayCandidates, TOTAL_ROUNDS_PER_DAY } from './dailytask-ui';
 import { TaskCandidateCard } from './TaskCandidateCard';
@@ -38,11 +39,18 @@ export function CandidatesPage() {
     <Panel className="dailytask-root">
       <Panel className="dailytask-header-box">
         <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
-        <Label
-          className="dailytask-header-subtitle"
+        <Panel
+          className="dailytask-header-subtitle-row"
           style={{ visibility: showHint ? 'collapse' : 'visible' }}
-          text={subtitleText}
-        />
+        >
+          <Label className="dailytask-header-subtitle" text={subtitleText} />
+          <PrimaryButton
+            className="dailytask-refresh-btn"
+            variant="ghost"
+            onClick={() => {}}
+            label={$.Localize('#dailytask_refresh_button')}
+          />
+        </Panel>
       </Panel>
       <Panel className="dailytask-body">
         <Panel className="dailytask-hint" style={{ visibility: showHint ? 'visible' : 'collapse' }}>

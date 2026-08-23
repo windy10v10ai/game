@@ -472,6 +472,7 @@
 		"dailytask_settlement_tooltip_prefix"		"完成每日任务："
 		"dailytask_select_button"			"领取任务"
 		"dailytask_selected_label"			"已领取"
+		"dailytask_refresh_button"			"刷新任务"
 		"dailytask_disabled_hint"			"作弊模式，或自定义难度选择秒活、综合积分倍率低于1倍时，无法参与每日任务"
 		"dailytask_empty_hint"			"暂无可选的每日任务，下一局再来看看"
 		"dailytask_all_done_hint"			"今日 {total} 轮任务已全部完成"

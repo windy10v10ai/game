@@ -60,6 +60,12 @@ export function DailyTaskHeroSelectWidget() {
           </Panel>
         );
       })}
+      <PrimaryButton
+        className="dailytask-heroselect-refresh-btn"
+        variant="ghost"
+        onClick={() => {}}
+        label={localize('#dailytask_refresh_button')}
+      />
     </Panel>
   );
 }

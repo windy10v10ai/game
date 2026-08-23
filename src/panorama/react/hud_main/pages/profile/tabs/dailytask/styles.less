@@ -43,13 +43,32 @@
   text-shadow: @text-shadow-soft;
 }
 
-.dailytask-header-subtitle {
+.dailytask-header-subtitle-row {
   width: 100%;
+  flow-children: right;
+  vertical-align: center;
+}
+
+.dailytask-header-subtitle {
+  width: fill-parent-flow(1);
   text-align: left;
   font-size: @font-size-md;
   font-weight: bold;
   color: @color-text;
   text-shadow: @text-shadow-soft;
+}
+
+// 贴右小按钮，用 ghost 弱化配色——刷新是不鼓励玩家点击的次级操作，不该跟领取任务抢视觉；
+// width 用 fit-children 让宽度跟文字走，俄文等长文案不会被裁切
+.btn-ghost.dailytask-refresh-btn {
+  width: fit-children;
+  min-width: 110px;
+  height: 28px;
+  padding: 0px 14px;
+}
+
+.dailytask-refresh-btn .btn-primary-label {
+  font-size: @font-size-sm;
 }
 
 // 撑满标题盒子下方的剩余空间，让提示卡/候选行能在这层里居中，而不是贴着标题、下方留一大片空白
