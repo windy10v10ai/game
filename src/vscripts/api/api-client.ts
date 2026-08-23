@@ -1,4 +1,4 @@
-import { GetLocalHostHash } from './api-client.local';
+import { GetLocalHostAPIKEY } from './api-client.local';
 
 // enum http methods
 export enum HttpMethod {
@@ -82,7 +82,7 @@ export class ApiClient {
     request.SetHTTPRequestNetworkActivityTimeout(timeoutSeconds);
     request.SetHTTPRequestHeaderValue(
       'x-api-key',
-      isLocalhost ? GetLocalHostHash() || apiKey : apiKey,
+      isLocalhost ? GetLocalHostAPIKEY() || apiKey : apiKey,
     );
     if (body) {
       request.SetHTTPRequestRawPostBody('application/json', json.encode(body));

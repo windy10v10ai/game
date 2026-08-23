@@ -1,3 +1,3 @@
-export function GetLocalHostHash(): string {
+export function GetLocalHostAPIKEY(): string {
   return '';
 }
