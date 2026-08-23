@@ -353,7 +353,7 @@
 		"awaken_intro_title"				"Awakening Stone"
 		"awaken_intro_desc"				"Open treasure chests for a chance to obtain an <font color='#FFD24A'>Awaken Stone</font> that transforms one of a hero's abilities into its awakened form for this match only.<br>Killing Roshan or opening more treasure chests increases the chance of obtaining one."
 		"awaken_unlock_intro_title"			"Permanent Awaken"
-		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>10000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>usable Member Points</font>, to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>, to awaken one of 3 randomly drawn heroes.<br>Only spends usable points: usable points go down, but total points only ever go up and never lower your Battle/Member Level or attribute points. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
+		"awaken_unlock_intro_desc"			"<font color='#FFD24A'>Specific Hero</font>: spend <font color='#FFFFFF'><b>8000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>4000</b></font> <font color='#FFD700'>usable Member Points</font>, to permanently awaken a chosen hero.<br><font color='#FFD24A'>Random Draw</font>: half price, spend <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>, to awaken one of 3 randomly drawn heroes.<br>Only spends usable points: usable points go down, but total points only ever go up and never lower your Battle/Member Level or attribute points. Permanent and irreversible — even if the awakened ability is buffed, nerfed, or reworked later, the hero's awakening still applies."
 		"awaken_unlock_button"				"Awaken"
 		"awaken_unlocked_label"				"Awakened"
 		"awaken_free_trial_badge"			"FREE"
@@ -371,7 +371,7 @@
 		"awaken_random_tooltip_insufficient_point"	"Not enough usable points."
 		"awaken_random_tooltip_insufficient_pool"	"Fewer than 3 heroes available to awaken."
 		"awaken_random_card_desc"			"Half cost<br>random 1 of 3"
-		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>5000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>.<br>Awaken one of these 3 randomly drawn heroes."
+		"awaken_random_candidates_desc"		"Spend <font color='#FFFFFF'><b>4000</b></font> <font color='#9B5DE0'>usable Battle Points</font>, or <font color='#FFFFFF'><b>2000</b></font> <font color='#FFD700'>usable Member Points</font>.<br>Awaken one of these 3 randomly drawn heroes."
 
 		// Stat Tab UI
 		"profile_stat_games"			"Games"

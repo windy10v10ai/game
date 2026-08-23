@@ -47,12 +47,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_undying',
     abilityName: 'special_bonus_unique_undying_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_lich',
     abilityName: 'special_bonus_unique_lich_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_doom_bringer',
@@ -134,9 +132,9 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
-const HERO_AWAKEN_UNLOCK_COST_SEASON = 10000;
+const HERO_AWAKEN_UNLOCK_COST_SEASON = 8000;
 // 随机抽选半价，与 api 价格表一致
-const HERO_AWAKEN_RANDOM_COST_SEASON = 5000;
+const HERO_AWAKEN_RANDOM_COST_SEASON = 4000;
 // 会员积分档，与 api 价格表一致
 const HERO_AWAKEN_UNLOCK_COST_MEMBER = 4000;
 const HERO_AWAKEN_RANDOM_COST_MEMBER = 2000;
