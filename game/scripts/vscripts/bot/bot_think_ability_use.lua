@@ -93,8 +93,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 
 	if sHeroName == "npc_dota_hero_phantom_assassin" then
 		self:ThinkUseAbility_PhantomAssassin(hHero)
-	elseif sHeroName == "npc_dota_hero_zuus" then
-		self:ThinkUseAbility_Zuus(hHero)
 	elseif sHeroName == "npc_dota_hero_juggernaut" then
 		self:ThinkUseAbility_Juggernaut(hHero)
 	elseif sHeroName == "npc_dota_hero_kunkka" then
@@ -103,8 +101,6 @@ function BotAbilityThink:ThinkUseAbility(hHero)
 		self:ThinkUseAbility_OgreMagi(hHero)
 	elseif sHeroName == "npc_dota_hero_omniknight" then
 		self:ThinkUseAbility_Omniknight(hHero)
-	elseif sHeroName == "npc_dota_hero_abaddon" then
-		self:ThinkUseAbility_Abaddon(hHero)
 	elseif sHeroName == "npc_dota_hero_meepo" then
 		self:ThinkUseAbility_Meepo(hHero)
 	elseif sHeroName == "npc_dota_hero_chaos_knight" then
@@ -137,36 +133,6 @@ function BotAbilityThink:ThinkUseAbility_PhantomAssassin(hHero)
 			local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
 			if #tAllHeroes > 0 then
 				hHero:CastAbilityNoTarget(hAbility4, hHero:GetPlayerOwnerID())
-				return true
-			end
-		end
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Zuus(hHero)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-	local hAbility3 = hHero:GetAbilityByIndex(2)
-	local hAbility4 = hHero:GetAbilityByIndex(3)
-
-	if BotAbilityThink:CastAbilityOnEnemyPostion(hHero, hAbility2) then
-		return true
-	end
-	if hAbility3:IsFullyCastable() then
-		local iRange = hAbility3:GetSpecialValueFor("range")
-		local tAllHeroes = BotThink:FindEnemyHeroesInRangeAndVisible(hHero, iRange)
-		if #tAllHeroes > 0 then
-			hHero:CastAbilityNoTarget(hAbility3, hHero:GetPlayerOwnerID())
-			return true
-		end
-	end
-	if hHero:HasModifier("modifier_item_ultimate_scepter") then
-		if hAbility4:IsFullyCastable() then
-			local iRange = 2000
-			local tAllHeroes = FindUnitsInRadius(hHero:GetTeam(), hHero:GetOrigin(), nil, iRange,
-				DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO,
-				DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE + DOTA_UNIT_TARGET_FLAG_NO_INVIS, FIND_FARTHEST, false)
-			if #tAllHeroes > 0 then
-				hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility4, hHero:GetPlayerOwnerID())
 				return true
 			end
 		end
@@ -227,19 +193,6 @@ function BotAbilityThink:ThinkUseAbility_OgreMagi(hHero)
 			hHero:CastAbilityOnPosition(tAllHeroes[1]:GetOrigin(), hAbility5, hHero:GetPlayerOwnerID())
 			return true
 		end
-	end
-end
-
-function BotAbilityThink:ThinkUseAbility_Abaddon(hHero)
-	local hAbility1 = hHero:GetAbilityByIndex(0)
-	local hAbility2 = hHero:GetAbilityByIndex(1)
-	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility1, 95) then
-		return true
-	end
-	if self:CastAbilityOnEnemyTarget(hHero, hAbility1) then return true end
-
-	if BotAbilityThink:CastAbilityOnFriendTargetWithLessHp(hHero, hAbility2, 95, "modifier_abaddon_aphotic_shield") then
-		return true
 	end
 end
 

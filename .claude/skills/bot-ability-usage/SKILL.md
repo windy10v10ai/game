@@ -64,22 +64,38 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 用 `AskUserQuestion` 与用户确认以下几项中需要的项目（不需要的项直接省略，spec 越简单越好）：
 
 1. **目标血量条件**（最常见）：例如"残血斩杀"`target.unitCondition.healthPercent.lte: 25`；"低血量队友"`lte: 70`；"避开满血"`lte: 95`。
-2. **目标数量条件**：群体技能要求"周围至少 N 个敌人才出手"`target.count.gte: 3`。
+2. **目标数量条件**：群体技能要求"施法范围内至少 N 个敌人才出手"`target.count.gte: 3`。**计数范围 = 生效的 `range.lte`**（spec 显式写的优先，未写时按 cast range / `rangeFromAbilityValue` 自动补齐），不是固定的 1800 预搜半径。计数只按存活与距离收窄，不受 `target.unitCondition` 影响。若判据需要比施法距离更大的观察范围，注意 `range` 同时决定目标筛选，放大会让 bot 追着远处目标跑。
 3. **施法者条件**：例如"蓝量够才用"`self.unitCondition.manaPercent.gte: 50`，或"血量低才用某保命技能"。
 4. **技能等级 / 充能条件**：`ability.level.gte: 3`、`ability.charges.gte: 1`。
 5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff/buff。Modifier 名查 `DOTA_Tooltip_modifier_<name>` 取 `<name>`：**优先查项目 `game/resource/addon_schinese.txt`**（自定义/克隆/override 技能以项目本地化为准）；项目搜不到再查 reference 最新版本 `docs/reference/<version>/abilities_schinese.txt`（原版技能兜底）。例：寒霜魔盾 = `modifier_lich_frost_shield`；`lich_frost_armor` 是项目把奥术法师寒冰盔甲克隆给巫妖，原版 lich 无此技能，modifier 名 = `modifier_lich_frost_armor`，仅在项目本地化有定义。
 6. **跳过已被控目标**：`target.unitCondition.notActionable: true`，目标处于眩晕/变羊/噩梦/虚空大等硬控状态则跳过，对已被控的目标使用控制技能通常是浪费。
 7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵或建筑施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
 8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。
-9. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+9. **排除施法者自己**：`target.excludeSelf: true`。友方候选天然包含施法者且距离 0 排在首位，以自身生命为代价的技能（如亚巴顿迷雾缠绕）必须排掉；纯增益给自己用通常合理，不要随手加。
+10. **目标相对朝向**：`target.facing: 'front' | 'back'`，只保留位于施法者正面 / 背面半区的目标（水平面点积取符号，正侧方两者都不满足）。用于带位移的技能区分追击（朝目标跳）与撤退（背对目标跳），如宙斯神圣一跳。
+11. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
+
+### 是否补一条对小兵的清兵规则
+
+对英雄的规则确认完之后，再判断这个技能要不要顺带清兵。**不要自行决定，用 `AskUserQuestion` 问用户**，并在选项说明里带上该技能的冷却与法力消耗，让用户有判断依据。
+
+三个条件全部满足才提问：
+
+1. **范围伤害**。`AbilityBehavior` 含 `AOE`，或是 `POINT` 类技能，或 `UNIT_TARGET` 同时带 `AOE`。
+2. **能作用于普通单位**。`AbilityUnitTargetType` 含 `BASIC` 或 `CREEP`；`POINT` 与 `NO_TARGET` 类天然满足。仅 `HERO` 的单位指定技能选不中小兵，直接排除。
+3. **拿去清兵不亏**。冷却与法力属于关键技能级别的不要提问，直接排除。经验线是冷却 45 秒以上或法力 200 以上；同时看这个技能在英雄战里的地位，核心机动与保命技能即使便宜也不清兵。
+
+以下类型任何情况都不提问：单体伤害与单体控制、增益 / 护盾 / 治疗、纯位移、被动。
+
+用户同意后，在同一文件的 `SPECS` 数组里再加一条 `targetSide: TargetSide.EnemyCreep` 的 entry，排在对英雄的规则之后。默认门槛由 dispatcher 自动套用，通常不需要再写任何条件。
 
 > **EnemyCreep 默认条件**（`CREEP_DEFAULT_CONDITION`，由 dispatcher 自动套用，无需在 spec 中重复写）：
-> - `self.unitCondition.manaPercent.gte: 50`
-> - `self.unitCondition.healthPercent.gte: 50`
+> - `self.unitCondition.manaPercent.gte: 40`
+> - `self.unitCondition.healthPercent.gte: 40`
 > - `ability.level.gte: 3`
 > - `self.noEnemyHeroInRange: 900`
 >
-> spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 50 }` 会替换默认的 `gte: 50`。
+> spec 中显式指定的同路径值会通过 `DeepMerge` 覆盖默认值（NumberRange 整体替换，非 key 级合并）。例如想在自身蓝量低时才吸蓝：`self.unitCondition.manaPercent: { lte: 40 }` 会替换默认的 `gte: 40`。
 
 > 现有条件结构见 [cast-condition.ts](src/vscripts/ai/action/cast-condition.ts) 的 `UnitCondition / AbilityCoindition / NumberRange`。
 
