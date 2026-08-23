@@ -227,10 +227,11 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 1. `src/vscripts/` 中的所有 TypeScript 文件会编译为 Lua
 2. 使用 `@registerModifier()` 和 `@registerAbility()` 装饰器进行自动注册
-3. 从 `utils/dota_ts_adapter.ts` 扩展 `BaseModifier`、`BaseAbility` 或 `BaseItem`
-4. 通过 `GameRules.*` 单例访问模块(例如 `GameRules.Lottery.refresh()`)
-5. 开发期间在 VConsole 中使用 `script_reload` 进行热重载
-6. 在 `*.test.ts` 文件中使用 Jest 编写测试(根据需要模拟 Dota 全局变量)
+3. **modifier 类名一律 snake_case**：不传 name 参数时类名即注册到 Lua 的 modifier 名，须与 Dota 原生命名风格一致，如 `modifier_fountain_anti_camp_watcher`、`tinker_ai_modifier`。snake_case 类名会触发 lint，在类声明上方加 `// eslint-disable-next-line @typescript-eslint/naming-convention`。存量 PascalCase AI modifier（`BotBaseAIModifier` 等）是历史遗留，新增不要照抄
+4. 从 `utils/dota_ts_adapter.ts` 扩展 `BaseModifier`、`BaseAbility` 或 `BaseItem`
+5. 通过 `GameRules.*` 单例访问模块(例如 `GameRules.Lottery.refresh()`)
+6. 开发期间在 VConsole 中使用 `script_reload` 进行热重载
+7. 在 `*.test.ts` 文件中使用 Jest 编写测试(根据需要模拟 Dota 全局变量)
 
 ### Panorama UI 架构
 
