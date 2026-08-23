@@ -41,9 +41,11 @@ import { SPECS as tuskWalrusPunch } from './tusk_walrus_punch';
 import { SPECS as viperPoisonAttack } from './viper_poison_attack';
 import { SPECS as windrunnerWhirlwindCustom } from './windrunner_whirlwind_custom';
 import { SPECS as winterWyvernArcticBurn } from './winter_wyvern_arctic_burn';
+import { SPECS as zuusArcLightning } from './zuus_arc_lightning';
 import { SPECS as zuusCloud } from './zuus_cloud';
 import { SPECS as zuusHeavenlyJump } from './zuus_heavenly_jump';
 import { SPECS as zuusLightningBolt } from './zuus_lightning_bolt';
+import { SPECS as zuusThundergodsWrath } from './zuus_thundergods_wrath';
 
 /**
  * 技能 AI spec 聚合注册入口。
@@ -103,9 +105,11 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(tinkerDeployTurrets);
 
   // Zuus 宙斯
+  AbilityRegistry.registerAll(zuusArcLightning);
   AbilityRegistry.registerAll(zuusLightningBolt);
   AbilityRegistry.registerAll(zuusHeavenlyJump);
   AbilityRegistry.registerAll(zuusCloud);
+  AbilityRegistry.registerAll(zuusThundergodsWrath);
 
   // Abaddon 亚巴顿
   AbilityRegistry.registerAll(abaddonDeathCoil);
