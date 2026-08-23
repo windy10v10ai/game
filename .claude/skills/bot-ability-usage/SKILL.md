@@ -75,6 +75,20 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 10. **目标相对朝向**：`target.facing: 'front' | 'back'`，只保留位于施法者正面 / 背面半区的目标（水平面点积取符号，正侧方两者都不满足）。用于带位移的技能区分追击（朝目标跳）与撤退（背对目标跳），如宙斯神圣一跳。
 11. **同名多条 spec**：若英雄/小兵/建筑 不同目标场景条件不同（如群蛇守卫对英雄/对塔），写多条 `AbilitySpec` entry，按"重要的写前面"排序。
 
+### 是否补一条对小兵的清兵规则
+
+对英雄的规则确认完之后，再判断这个技能要不要顺带清兵。**不要自行决定，用 `AskUserQuestion` 问用户**，并在选项说明里带上该技能的冷却与法力消耗，让用户有判断依据。
+
+三个条件全部满足才提问：
+
+1. **范围伤害**。`AbilityBehavior` 含 `AOE`，或是 `POINT` 类技能，或 `UNIT_TARGET` 同时带 `AOE`。
+2. **能作用于普通单位**。`AbilityUnitTargetType` 含 `BASIC` 或 `CREEP`；`POINT` 与 `NO_TARGET` 类天然满足。仅 `HERO` 的单位指定技能选不中小兵，直接排除。
+3. **拿去清兵不亏**。冷却与法力属于关键技能级别的不要提问，直接排除。经验线是冷却 45 秒以上或法力 200 以上；同时看这个技能在英雄战里的地位，核心机动与保命技能即使便宜也不清兵。
+
+以下类型任何情况都不提问：单体伤害与单体控制、增益 / 护盾 / 治疗、纯位移、被动。
+
+用户同意后，在同一文件的 `SPECS` 数组里再加一条 `targetSide: TargetSide.EnemyCreep` 的 entry，排在对英雄的规则之后。默认门槛由 dispatcher 自动套用，通常不需要再写任何条件。
+
 > **EnemyCreep 默认条件**（`CREEP_DEFAULT_CONDITION`，由 dispatcher 自动套用，无需在 spec 中重复写）：
 > - `self.unitCondition.manaPercent.gte: 40`
 > - `self.unitCondition.healthPercent.gte: 40`
