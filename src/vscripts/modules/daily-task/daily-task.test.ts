@@ -150,6 +150,7 @@ describe('DailyTask', () => {
         completedTasks: [],
         todaySeasonPoint: 0,
         history: [],
+        refreshRemaining: 1,
       });
       expect(netTable['daily_task'][PLAYER_ID.toString()].enabled).toBe(true);
 
@@ -169,6 +170,7 @@ describe('DailyTask', () => {
         completedTasks: [],
         todaySeasonPoint: 0,
         history: [],
+        refreshRemaining: 1,
       });
 
       expect(() => dailyTask.SelectCandidate(PLAYER_ID, 'not_exist')).not.toThrow();
@@ -189,6 +191,7 @@ describe('DailyTask', () => {
         completedTasks: [],
         todaySeasonPoint: 0,
         history: [],
+        refreshRemaining: 1,
       });
 
       dailyTask.SelectCandidate(PLAYER_ID, GENERAL_CANDIDATE.taskId);
@@ -207,6 +210,7 @@ describe('DailyTask', () => {
         completedTasks: [],
         todaySeasonPoint: 0,
         history: [],
+        refreshRemaining: 1,
       });
     });
 
@@ -229,6 +233,7 @@ describe('DailyTask', () => {
         completedTasks: [],
         todaySeasonPoint: 0,
         history: [],
+        refreshRemaining: 1,
       });
     });
 

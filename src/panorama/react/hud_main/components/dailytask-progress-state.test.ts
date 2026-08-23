@@ -23,6 +23,7 @@ function makeEntry(overrides: Partial<DailyTaskNetTableEntry> = {}): DailyTaskNe
     completedTasks: [],
     todaySeasonPoint: 0,
     history: [],
+    refreshRemaining: 1,
     enabled: true,
     ...overrides,
   };

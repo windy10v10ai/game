@@ -258,6 +258,16 @@ export class BotTeam {
     return this.pushStarted;
   }
 
+  /** Returns whether jungle recovery currently owns this hero's movement. */
+  isJungleRecoveryMovementActive(hero: CDOTA_BaseNPC_Hero): boolean {
+    return this.laneRecovery.IsJungleRecoveryMovementActive(hero);
+  }
+
+  /** Cancels the hero's post-teleport jungle recovery movement. */
+  cancelJungleRecoveryMovement(hero: CDOTA_BaseNPC_Hero): void {
+    this.laneRecovery.CancelJungleRecoveryMovement(hero);
+  }
+
   /**
    * 给Bot发钱
    * 每1秒调用一次(原Lua实现是2秒调用一次,现在金额减半以保持总量不变)

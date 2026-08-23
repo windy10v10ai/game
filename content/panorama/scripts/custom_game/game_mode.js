@@ -21,6 +21,50 @@ var CUSTOM_PRESET_TOGGLES = [
   ['enablePlayerAttribute', 'enable_player_attribute'],
   ['midOnlyMode', 'mid_only_mode'],
 ];
+var LOADING_FAQ_GROUPS = [
+  {
+    weight: 8,
+    entries: [
+      'loading_faq_players_instant_revive',
+      'loading_faq_illusions_summons',
+      'loading_faq_local_host',
+      'loading_faq_pause',
+      'loading_faq_attributes',
+      'loading_faq_treasure_rewards',
+    ],
+  },
+  {
+    weight: 2,
+    entries: [
+      'loading_faq_hero_bounty',
+      'loading_faq_pulse_nova',
+      'loading_faq_member_checkin',
+      'loading_faq_duplicate_ability',
+      'loading_faq_dragon_balls',
+    ],
+  },
+];
+
+function ShowLoadingFAQ() {
+  var totalWeight = LOADING_FAQ_GROUPS.reduce(function (total, group) {
+    return total + group.weight;
+  }, 0);
+  var selectedWeight = Math.random() * totalWeight;
+  var group = LOADING_FAQ_GROUPS[0];
+
+  for (var i = 0; i < LOADING_FAQ_GROUPS.length; i++) {
+    selectedWeight -= LOADING_FAQ_GROUPS[i].weight;
+    if (selectedWeight < 0) {
+      group = LOADING_FAQ_GROUPS[i];
+      break;
+    }
+  }
+
+  var entryIndex = Math.floor(Math.random() * group.entries.length);
+  var entryKey = group.entries[entryIndex];
+  $('#LoadingFaqQuestion').text = $.Localize('#' + entryKey + '_question');
+  $('#LoadingFaqAnswer').text = $.Localize('#' + entryKey + '_answer');
+}
 
 function CheckForHostPrivileges() {
   var player_info = Game.GetLocalPlayerInfo();
@@ -492,6 +536,7 @@ function SendPlayerLanguage() {
     return;
   }
   LockOption();
+  ShowLoadingFAQ();
   // 游戏选择项目table监听
   CustomNetTables.SubscribeNetTableListener('game_options', ShowGameOptionsChange);
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);

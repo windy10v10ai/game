@@ -42,6 +42,7 @@ interface CustomGameEventDeclarations {
   debug_panel_add_to_unit: DebugPanelAddToUnitEventData;
 
   dailytask_select_candidate: DailyTaskSelectCandidateEventData;
+  dailytask_refresh_candidates: Record<string, never>;
 }
 
 interface CustomGameEventDataBase {

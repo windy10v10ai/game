@@ -1,7 +1,6 @@
 ---
 name: api-usage
 description: Windy10v10AI 的 VScripts API 调用规范与工作流（ApiClient、重试机制、Analytics 事件采集与发送模式）。
-disable-model-invocation: true
 ---
 
 # API Usage
@@ -37,4 +36,3 @@ disable-model-invocation: true
    - 模式 1：提供 `static` 方法，构造 `ApiParameter`，调用 `sendWithRetry`
    - 模式 2：注册事件监听器，使用静态变量累积数据，在合适状态发送并记录日志
 5. 确保日志包含关键可排查信息（成功、失败、数量、玩家等）
-

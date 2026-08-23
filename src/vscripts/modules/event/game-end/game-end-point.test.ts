@@ -36,6 +36,12 @@ describe('GameEndPoint', () => {
       expect(normalizeControlTime(Number.NaN)).toBe(0);
       expect(normalizeControlTime(Number.POSITIVE_INFINITY)).toBe(0);
     });
+
+    it('应该取整到整数秒', () => {
+      expect(normalizeControlTime(4.4)).toBe(4);
+      expect(normalizeControlTime(4.5)).toBe(5);
+      expect(normalizeControlTime(-4.5)).toBe(5);
+    });
   });
 
   describe('GameEndPoint.CalculatePlayerScore', () => {
@@ -82,7 +88,7 @@ describe('GameEndPoint', () => {
         towerKills: 11,
       });
       const score = GameEndPoint.CalculatePlayerScore(player);
-      expect(score).toBe(151);
+      expect(score).toBe(126);
     });
 
     it('应该为控制时间增加递减且封顶的分数', () => {

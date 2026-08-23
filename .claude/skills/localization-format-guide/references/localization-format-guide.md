@@ -115,6 +115,10 @@
 		"DOTA_Tooltip_modifier_item_name_aura_Description"								"Aura描述"
 ```
 
+**modifier 的 `_Description` 要写技能效果本身，不能只写当前数值**——玩家点开 buff 图标往往是想确认这个效果到底做了什么。内容照 ability `_Description` 写一遍，再在末尾接当前累计/动态数值。
+
+**ability 用「单独成行」展示的数值，modifier 正文里要补回来**——modifier 只有一段正文、没有数值面板，ability 那边靠 `_xxx` 标签行展示的数值在 modifier 上不会出现。这类数值须以 `%dMODIFIER_PROPERTY_TOOLTIP%` / `%dMODIFIER_PROPERTY_TOOLTIP2%` 内联进 modifier 正文（每个 modifier 最多两个，超出的用文字概括或拆成多个 modifier）。
+
 #### Modifier 描述中的变量使用
 
 Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式：
@@ -125,7 +129,9 @@ Modifier 描述中可以使用变量，使用 `%dMODIFIER_PROPERTY_XXX%` 格式�
 
 **坑：`%key%` 引用技能自身 `AbilityValues` 在 modifier 里不生效**——`%dMODIFIER_PROPERTY_XXX%` 之所以能用，是因为它读的是 modifier 自己 KV 声明的 `Properties` 值；而直接照搬 ability 描述里的 `%splinter_targets%` 之类、引用技能 `AbilityValues` 字段的写法，对 `ability_lua`/纯脚本类技能的 modifier（没有 KV `Properties` 块）不生效，会显示空白或吞掉百分号。ability 自身的描述不受影响，仍可正常用 `%key%`。
 
-**modifier 想显示自定义动态数值（非标准 MODIFIER_PROPERTY 枚举），用 `MODIFIER_PROPERTY_TOOLTIP`**：仅对 Lua/TS 脚本类 modifier 有效（DataDriven modifier 没有脚本可实现，只能写死数字）。modifier 脚本里 `DeclareFunctions` 加 `MODIFIER_PROPERTY_TOOLTIP`（TS 写 `ModifierFunction.TOOLTIP`），实现 `OnTooltip(): number` 返回目标值（如读 ability 的 `GetSpecialValueFor`），本地化用 `%dMODIFIER_PROPERTY_TOOLTIP%` 占位。同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`。数值会随等级/天赋变化时优先用这个，而不是写死（实测：卓尔游侠裂影箭觉醒分裂概率会被天赋提升，改用此机制而非写死数字）。只有真正固定不变的数值才写死。**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会自动套白色粗体**（与 ability 的 `%key%` 不同，实测确认），要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值一样处理。
+**modifier 想显示自定义动态数值（非标准 MODIFIER_PROPERTY 枚举），用 `MODIFIER_PROPERTY_TOOLTIP`**：仅对 Lua/TS 脚本类 modifier 有效（DataDriven modifier 没有脚本可实现，只能写死数字）。modifier 脚本里 `DeclareFunctions` 加 `MODIFIER_PROPERTY_TOOLTIP`（TS 写 `ModifierFunction.TOOLTIP`），实现 `OnTooltip(): number` 返回目标值（如读 ability 的 `GetSpecialValueFor`），本地化用 `%dMODIFIER_PROPERTY_TOOLTIP%` 占位。同一 modifier 最多两个动态值，第二个用 `MODIFIER_PROPERTY_TOOLTIP2`/`OnTooltip2`/`%dMODIFIER_PROPERTY_TOOLTIP2%`。数值会随等级/天赋变化时优先用这个，而不是写死（实测：卓尔游侠裂影箭觉醒分裂概率会被天赋提升，改用此机制而非写死数字）。只有真正固定不变的数值才写死。**坑：`OnTooltip` / `OnTooltip2` 里不能现调 `GetSpecialValueFor`**——tooltip 在客户端渲染，客户端侧取技能 `AbilityValues` 会失败，整个 `%dMODIFIER_PROPERTY_TOOLTIP%` 占位符被吞掉、正文里只剩残留的百分号。正确做法是在 `OnCreated` / `OnRefresh` 里（**放在 `if (!IsServer()) return;` 之前**）把值缓存进实例字段，`OnTooltip` 只返回该字段（参考 `windrunner_whirlwind_custom.ts` 的 `refreshValues`）。
+
+**`%dMODIFIER_PROPERTY_TOOLTIP%` 不会自动套白色粗体**（与 ability 的 `%key%` 不同，实测确认），要手动包 `<font color='#FFFFFF'><b>...</b></font>`，和写死数值一样处理。
 
 ### 5. AbilityValues 数值展示方式
 
