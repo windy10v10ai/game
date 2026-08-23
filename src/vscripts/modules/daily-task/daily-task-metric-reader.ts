@@ -21,8 +21,16 @@ export function ReadTaskMetric(playerId: PlayerID, metric: string): number | und
       return PlayerHelper.GetDamageTaken(playerId);
     case 'stun_duration':
       return PlayerHelper.GetStuns(playerId);
-    case 'roshan_kills':
-      return PlayerResource.GetRoshanKills(playerId);
+    case 'roshan_kills': {
+      const team = PlayerResource.GetTeam(playerId);
+      let kills = 0;
+      PlayerHelper.ForEachPlayer((teammateId) => {
+        if (PlayerResource.GetTeam(teammateId) === team) {
+          kills += PlayerResource.GetRoshanKills(teammateId);
+        }
+      });
+      return kills;
+    }
     default:
       // 无法识别的指标（老客户端遇到新任务池）返回 undefined，交给调用方做未知任务保护
       return undefined;
