@@ -88,6 +88,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_orb_of_corrosion', // 腐蚀之珠
         'item_magic_wand', // 魔棒
         'item_falcon_blade', // 猎鹰战刃
+        'item_lesser_crit', // 水晶剑
       ],
       [ItemTier.T2]: [
         'item_basher', // 碎颅锤
@@ -137,6 +138,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_wand', // 魔杖
         'item_quelling_blade_2_datadriven', // 毒瘤之刃
         'item_vanguard', // 先锋盾
+        'item_lesser_crit', // 水晶剑
       ],
       [ItemTier.T2]: [
         'item_bfury', // 狂战斧
@@ -565,6 +567,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_mask_of_madness', // 疯狂面具
         'item_magic_wand', // 魔杖
         'item_vanguard', // 先锋盾
+        'item_lesser_crit', // 水晶剑
       ],
       [ItemTier.T2]: [
         'item_hurricane_pike', // 飓风长戟
@@ -788,6 +791,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_wraith_band', // 怨灵细带
         'item_vanguard', // 先锋盾
         'item_falcon_blade', // 猎鹰战刃
+        'item_lesser_crit', // 水晶剑
       ],
       [ItemTier.T2]: [
         'item_hand_of_group', // 团队之手
@@ -1129,6 +1133,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_null_talisman', // 空灵挂件
         'item_magic_wand', // 魔杖
         'item_soul_ring', // 灵魂之戒
+        'item_hand_of_midas', // 迈达斯之手
       ],
       [ItemTier.T2]: [
         { item: 'item_aether_lens_2', weight: 2 }, // 以太透镜2
@@ -2519,6 +2524,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
         'item_magic_scepter', // 魔云法杖
         'item_revenants_brooch_ultra', // 神器·魔武双修
+        'item_radiance_2', // 圣焰之光
       ],
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 雅典娜的守护
