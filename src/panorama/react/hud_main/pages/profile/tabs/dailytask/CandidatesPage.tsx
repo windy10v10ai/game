@@ -3,6 +3,7 @@ import { PrimaryButton } from '../../../../../shared/components';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
 import { getDisplayCandidates, TOTAL_ROUNDS_PER_DAY } from './dailytask-ui';
 import { TaskCandidateCard } from './TaskCandidateCard';
+import { useDailyTaskRefreshButton } from './useDailyTaskRefreshButton';
 
 /**
  * 每日任务候选子页：展示本局候选任务卡，点击本地选择一个，零网络请求。
@@ -12,6 +13,7 @@ import { TaskCandidateCard } from './TaskCandidateCard';
 export function CandidatesPage() {
   const playerId = Game.GetLocalPlayerID();
   const dailyTask = useNetTable('daily_task', playerId >= 0 ? String(playerId) : null);
+  const refreshBtn = useDailyTaskRefreshButton(dailyTask?.refreshRemaining);
 
   const handleSelect = (taskId: string) => {
     GameEvents.SendCustomGameEventToServer('dailytask_select_candidate', { taskId });
@@ -47,8 +49,11 @@ export function CandidatesPage() {
           <PrimaryButton
             className="dailytask-refresh-btn"
             variant="ghost"
-            onClick={() => {}}
-            label={$.Localize('#dailytask_refresh_button')}
+            enabled={refreshBtn.enabled}
+            onClick={refreshBtn.handleClick}
+            label={$.Localize(
+              refreshBtn.used ? '#dailytask_refresh_used_label' : '#dailytask_refresh_button',
+            )}
           />
         </Panel>
       </Panel>

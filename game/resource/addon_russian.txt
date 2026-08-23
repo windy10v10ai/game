@@ -367,6 +367,7 @@
 		"dailytask_select_button"			"Принять"
 		"dailytask_selected_label"			"Принято"
 		"dailytask_refresh_button"			"Обновить"
+		"dailytask_refresh_used_label"			"Обновлено"
 		"dailytask_disabled_hint"			"Ежедневные задания недоступны в чит-режиме или при пользовательской сложности с мгновенным возрождением или общим коэффициентом очков ниже 1x"
 		"dailytask_empty_hint"			"Сейчас нет доступных ежедневных заданий, загляните в следующем матче"
 		"dailytask_all_done_hint"			"Все {total} раунда на сегодня выполнены"
