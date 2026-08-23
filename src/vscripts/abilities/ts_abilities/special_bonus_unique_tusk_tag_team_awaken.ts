@@ -103,6 +103,14 @@ export class modifier_special_bonus_unique_tusk_tag_team_awaken extends BaseModi
       return;
     }
 
+    this.applyBonusDamage(event, target, parent);
+  }
+
+  private applyBonusDamage(
+    event: ModifierInstanceEvent,
+    target: CDOTA_BaseNPC,
+    parent: CDOTA_BaseNPC,
+  ): void {
     if (event.damage <= 0) return;
 
     const attacker = event.attacker;
