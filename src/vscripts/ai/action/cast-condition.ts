@@ -43,6 +43,16 @@ export interface CastCoindition {
      * 仅对 POINT behavior 的 ability 生效；UNIT_TARGET / NO_TARGET 忽略此字段。
      */
     castMode?: 'targetPosition' | 'projectedOnCastRange';
+    /**
+     * 从候选中排除施法者自己。
+     * 友方候选天然包含施法者且距离为 0 排在首位，以自身生命为代价的技能需要排掉。
+     */
+    excludeSelf?: boolean;
+    /**
+     * 只保留位于施法者正面（front）或背面（back）半区的目标。
+     * 用于带位移的技能区分追击与撤退两种用法。
+     */
+    facing?: 'front' | 'back';
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -125,6 +135,12 @@ export interface UnitCondition {
   };
 }
 
+/** 只取水平面分量参与计算，Vector 天然满足该形状。 */
+export interface HorizontalVector {
+  x: number;
+  y: number;
+}
+
 export interface NumberRange {
   gte?: number;
   lte?: number;
@@ -142,6 +158,10 @@ export function FilterTargetWithCondition(
 
   for (const unit of units) {
     if (!unit.IsAlive()) {
+      continue;
+    }
+
+    if (condition?.target?.excludeSelf && unit.GetEntityIndex() === self.GetEntityIndex()) {
       continue;
     }
 
@@ -181,10 +201,46 @@ export function FilterTargetWithCondition(
       continue;
     }
 
+    const facing = condition?.target?.facing;
+    if (
+      facing &&
+      CheckFacingFailure(
+        facing,
+        self.GetForwardVector(),
+        unit.GetAbsOrigin().__sub(self.GetAbsOrigin()),
+      )
+    ) {
+      continue;
+    }
+
     return unit;
   }
 
   return undefined;
+}
+
+/**
+ * 判断目标是否落在施法者朝向的指定半区。
+ *
+ * @param facing - 要求的半区，未指定时不过滤
+ * @param forward - 施法者朝向向量
+ * @param toTarget - 施法者指向目标的向量
+ * @returns 不满足要求时返回 `true`
+ */
+export function CheckFacingFailure(
+  facing: 'front' | 'back' | undefined,
+  forward: HorizontalVector,
+  toTarget: HorizontalVector,
+): boolean {
+  if (!facing) {
+    return false;
+  }
+  const dot = forward.x * toTarget.x + forward.y * toTarget.y;
+  // 正侧方点积为 0，方位不明确，front 与 back 都判失败
+  if (facing === 'front') {
+    return dot <= 0;
+  }
+  return dot >= 0;
 }
 
 /**

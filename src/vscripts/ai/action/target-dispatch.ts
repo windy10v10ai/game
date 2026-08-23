@@ -240,6 +240,8 @@ function fillRangeFromCastRange(
     rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
     rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
     castMode: existingTarget?.castMode,
+    excludeSelf: existingTarget?.excludeSelf,
+    facing: existingTarget?.facing,
     range,
   };
   return {

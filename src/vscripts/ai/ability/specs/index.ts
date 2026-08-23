@@ -1,4 +1,6 @@
 import { AbilityRegistry } from '../ability-registry';
+import { SPECS as abaddonAphoticShield } from './abaddon_aphotic_shield';
+import { SPECS as abaddonDeathCoil } from './abaddon_death_coil';
 import { SPECS as ancientApparitionChillingTouch } from './ancient_apparition_chilling_touch';
 import { SPECS as axeBattleHunger } from './axe_battle_hunger';
 import { SPECS as axeBerserkerSCall } from './axe_berserkers_call';
@@ -39,6 +41,9 @@ import { SPECS as tuskWalrusPunch } from './tusk_walrus_punch';
 import { SPECS as viperPoisonAttack } from './viper_poison_attack';
 import { SPECS as windrunnerWhirlwindCustom } from './windrunner_whirlwind_custom';
 import { SPECS as winterWyvernArcticBurn } from './winter_wyvern_arctic_burn';
+import { SPECS as zuusCloud } from './zuus_cloud';
+import { SPECS as zuusHeavenlyJump } from './zuus_heavenly_jump';
+import { SPECS as zuusLightningBolt } from './zuus_lightning_bolt';
 
 /**
  * 技能 AI spec 聚合注册入口。
@@ -96,6 +101,15 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(tinkerMarchOfTheMachines);
   AbilityRegistry.registerAll(tinkerWarpGrenade);
   AbilityRegistry.registerAll(tinkerDeployTurrets);
+
+  // Zuus 宙斯
+  AbilityRegistry.registerAll(zuusLightningBolt);
+  AbilityRegistry.registerAll(zuusHeavenlyJump);
+  AbilityRegistry.registerAll(zuusCloud);
+
+  // Abaddon 亚巴顿
+  AbilityRegistry.registerAll(abaddonDeathCoil);
+  AbilityRegistry.registerAll(abaddonAphoticShield);
 
   // 抽奖法球 / 开关类：bot 抽到后主动开启自动施法 / 切换开关，否则永不生效。
   // CD 制 / 0 蓝法球常开（Self autoCastOn）
