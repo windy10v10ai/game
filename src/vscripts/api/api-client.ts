@@ -20,7 +20,7 @@ export interface ApiParameter {
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
-  private static LOCAL_ALLOWED_PATHS = ['/game/start', '/game/end/local'];
+  private static LOCAL_ALLOWED_PATHS = ['/game/start', '/game/end/local', '/daily-task/refresh'];
 
   // private static HOST_NAME: string = (() => {
   //   return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
