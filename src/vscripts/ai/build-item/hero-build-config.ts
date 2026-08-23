@@ -1128,9 +1128,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_boots', // 奥术鞋
         'item_null_talisman', // 空灵挂件
         'item_magic_wand', // 魔杖
-        'item_lesser_crit', // 水晶剑
         'item_soul_ring', // 灵魂之戒
-        'item_falcon_blade', // 猎鹰战刃
       ],
       [ItemTier.T2]: [
         { item: 'item_aether_lens_2', weight: 2 }, // 以太透镜2
@@ -1142,7 +1140,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_kaya_and_sange', // 散慧对剑
         'item_specialists_array', // 行家阵列
         'item_black_king_bar', // 黑皇杖
-        'item_maelstrom', // 漩涡
         'item_witch_blade', // 巫师之刃
       ],
       [ItemTier.T3]: [
@@ -1150,15 +1147,13 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_scepter', // 魔云法杖
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
         'item_revenants_brooch_ultra', // 神器·魔武双修
-        'item_shotgun_v2', // 三管霰弹枪
         'item_dagon_5', // 达贡之神力
         'item_phylactery', // 灵匣
         'item_meteor_hammer_2', // 星落
         'item_devastator', // 圣斧
-        'item_mjollnir', // 雷神之锤
-        'item_dodo_desolator', // 黯灭头
       ],
       [ItemTier.T4]: [
+        'item_arcane_blink', // 爱因斯坦闪光
         'item_refresh_core', // 熔火核心
         'item_hallowed_scepter', // 仙云法杖
         'item_arcane_octarine_core', // 奥术之心
@@ -1170,6 +1165,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_black_king_bar_2', // 天神杖
       ],
       [ItemTier.T5]: [
+        'item_hawkeye_fighter', // 鹰眼战机
         'item_magic_crit_blade', // 魔龙狂舞
         'item_time_gem', // 时间宝石
         'item_sacred_six_vein', // 六脉神剑
@@ -1257,6 +1253,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_soul_ring', // 灵魂之戒
         'item_falcon_blade', // 猎鹰战刃
         'item_vanguard', // 先锋盾
+        'item_mekansm', // 梅肯斯姆
       ],
       [ItemTier.T2]: [
         'item_hand_of_group', // 团队之手
@@ -1275,10 +1272,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dagon_5', // 达贡之神力
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
         'item_magic_scepter', // 魔云法杖
-        'item_shotgun_v2', // 三管霰弹枪
         'item_revenants_brooch_ultra', // 神器·魔武双修
-        'item_mjollnir', // 雷神之锤
-        'item_dodo_desolator', // 黯灭头
         'item_aeon_pendant', // 咸鱼之王
         'item_meteor_hammer_2', // 星落
         'item_bloodstone', // 血精神石
@@ -2504,6 +2498,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_vanguard', // 先锋盾
         'item_soul_ring', // 灵魂之戒
         'item_falcon_blade', // 猎鹰战刃
+        'item_mekansm', // 梅肯斯姆
       ],
       [ItemTier.T2]: [
         { item: 'item_aether_lens_2', weight: 2 }, // 以太透镜2
@@ -2514,7 +2509,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hurricane_pike', // 飓风长戟
         'item_octarine_core', // 玲珑心
         'item_black_king_bar', // 黑皇杖
-        'item_sange_and_yasha', // 散夜对剑
+        'item_kaya_and_sange', // 散慧对剑
       ],
       [ItemTier.T3]: [
         'item_aeon_pendant', // 咸鱼之王
@@ -2541,6 +2536,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_withered_spring', // 生命之心
         'item_beast_shield', // 兽化盾
         'item_forbidden_staff', // 禁忌法锤
+        'item_dracula_mask', // 生命之盔
       ],
     },
   },
@@ -2571,10 +2567,12 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sheepstick', // 邪恶镰刀
         'item_aeon_pendant', // 咸鱼之王
         'item_dagon_5', // 达贡之神力
-        'item_shotgun_v2', // 三管霰弹枪
+        'item_radiance_2', // 圣焰之光
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
       ],
       [ItemTier.T4]: [
+        'item_saint_orb', // 圣女白莲
+        'item_guardian_greaves_artifact', // 神器·卫士胫甲
         'item_necronomicon_staff', // 死灵法杖
         'item_gungir_2', // 风暴之锤
         'item_refresh_core', // 熔火核心
@@ -2584,6 +2582,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_black_king_bar_2', // 天神杖
       ],
       [ItemTier.T5]: [
+        'item_forbidden_staff', // 禁忌法锤
+        'item_beast_shield', // 兽化盾
         'item_time_gem', // 时间宝石
         'item_hawkeye_turret', // 鹰眼炮台
         'item_withered_spring', // 生命之心
