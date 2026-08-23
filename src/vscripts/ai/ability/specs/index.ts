@@ -5,12 +5,15 @@ import { SPECS as ancientApparitionChillingTouch } from './ancient_apparition_ch
 import { SPECS as axeBattleHunger } from './axe_battle_hunger';
 import { SPECS as axeBerserkerSCall } from './axe_berserkers_call';
 import { SPECS as axeCullingBlade } from './axe_culling_blade';
+import { SPECS as chibiHit } from './chibi_hit';
+import { SPECS as chibiMonster } from './chibi_monster';
 import { SPECS as doomBringerInfernalBlade } from './doom_bringer_infernal_blade';
 import { SPECS as dragonKnightBreatheFire } from './dragon_knight_breathe_fire';
 import { SPECS as dragonKnightDragonTail } from './dragon_knight_dragon_tail';
 import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
 import { SPECS as drowRangerFrostArrows } from './drow_ranger_frost_arrows';
 import { SPECS as enchantressImpetus } from './enchantress_impetus';
+import { SPECS as getDown } from './get_down';
 import { SPECS as jakiroDualBreath } from './jakiro_dual_breath';
 import { SPECS as kunkkaTidalWave } from './kunkka_tidal_wave';
 import { SPECS as kunkkaXMarksTheSpot } from './kunkka_x_marks_the_spot';
@@ -22,7 +25,10 @@ import { SPECS as lionFingerOfDeath } from './lion_finger_of_death';
 import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
 import { SPECS as lionVoodoo } from './lion_voodoo';
+import { SPECS as liuKick } from './liu_kick';
 import { SPECS as medusaSplitShot } from './medusa_split_shot';
+import { SPECS as mikuDance } from './miku_dance';
+import { SPECS as mikuHadouken } from './miku_hadouken';
 import { SPECS as ogreMagiBloodlust } from './ogre_magi_bloodlust';
 import { SPECS as ogreMagiFireblast } from './ogre_magi_fireblast';
 import { SPECS as ogreMagiIgnite } from './ogre_magi_ignite';
@@ -33,6 +39,7 @@ import { SPECS as omniknightGuardianAngel } from './omniknight_guardian_angel';
 import { SPECS as omniknightHammerOfPurity } from './omniknight_hammer_of_purity';
 import { SPECS as omniknightMartyr } from './omniknight_martyr';
 import { SPECS as omniknightPurification } from './omniknight_purification';
+import { SPECS as rikiTricksOfTheTrade } from './riki_tricks_of_the_trade';
 import { SPECS as sandkingBurrowstrike } from './sandking_burrowstrike';
 import { SPECS as sandkingScorpionStrike } from './sandking_scorpion_strike';
 import { SPECS as sandkingSandStorm } from './sandking_sand_storm';
@@ -51,6 +58,7 @@ import { SPECS as tuskWalrusPunch } from './tusk_walrus_punch';
 import { SPECS as viperPoisonAttack } from './viper_poison_attack';
 import { SPECS as windrunnerWhirlwindCustom } from './windrunner_whirlwind_custom';
 import { SPECS as winterWyvernArcticBurn } from './winter_wyvern_arctic_burn';
+import { SPECS as witchDoctorVoodooSwitcheroo } from './witch_doctor_voodoo_switcheroo';
 import { SPECS as zuusArcLightning } from './zuus_arc_lightning';
 import { SPECS as zuusCloud } from './zuus_cloud';
 import { SPECS as zuusHeavenlyJump } from './zuus_heavenly_jump';
@@ -93,6 +101,20 @@ export function registerAbilitySpecs(): void {
   // Kunkka 昆卡
   AbilityRegistry.registerAll(kunkkaXMarksTheSpot);
   AbilityRegistry.registerAll(kunkkaTidalWave);
+
+  // Meepo（初音）
+  AbilityRegistry.registerAll(mikuHadouken);
+  AbilityRegistry.registerAll(liuKick);
+  AbilityRegistry.registerAll(mikuDance);
+  AbilityRegistry.registerAll(getDown);
+  AbilityRegistry.registerAll(chibiMonster);
+  AbilityRegistry.registerAll(chibiHit);
+
+  // Riki 力丸
+  AbilityRegistry.registerAll(rikiTricksOfTheTrade);
+
+  // Witch Doctor 巫医
+  AbilityRegistry.registerAll(witchDoctorVoodooSwitcheroo);
 
   // Lich 巫妖
   AbilityRegistry.registerAll(lichFrostNova);
