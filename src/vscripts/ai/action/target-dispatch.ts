@@ -274,6 +274,7 @@ function resolveRange(
 
 /**
  * 对英雄计数时把数量下限收敛到该队伍的英雄总数，无需调整时返回 undefined。
+ * 只有声明了大于 1 的下限才会去查队伍人数，其余情况在进入查询前就返回。
  *
  * 两队人数在开局可配置，敌方只有 1 个英雄时「至少 2 个」这类阈值否则永远不成立，
  * 整条规则失效。满编局下声明值不超过总数，收敛不生效。
@@ -288,7 +289,8 @@ function resolveCount(
   isToggleAction: boolean,
 ): NumberRange | undefined {
   const existing = existingTarget?.count;
-  if (existing?.gte === undefined || isToggleAction) {
+  // 下限不超过 1 时收敛不可能改变结果，先挡在查询队伍人数之前
+  if (existing?.gte === undefined || existing.gte <= 1 || isToggleAction) {
     return undefined;
   }
   let heroTotal: number;
