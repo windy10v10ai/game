@@ -7,7 +7,8 @@ export interface CastCoindition {
   target?: {
     unitCondition?: UnitCondition;
     /**
-     * 敌人数量
+     * 生效范围内的敌人数量。范围取 range.lte，未显式指定时由 dispatcher 按施法距离自动补齐。
+     * 只按存活与距离收窄：unitCondition 是挑目标用的，不参与「这片区域值不值得放」的判断。
      */
     count?: NumberRange;
     /**
@@ -152,7 +153,8 @@ export function FilterTargetWithCondition(
   self: CDOTA_BaseNPC_Hero,
   ability?: CDOTABaseAbility,
 ): CDOTA_BaseNPC | undefined {
-  if (CheckNumberRangeFailure(units.length, condition?.target?.count)) {
+  const count = condition?.target?.count;
+  if (count && CheckNumberRangeFailure(CountUnitsInRange(condition, units, self), count)) {
     return undefined;
   }
 
@@ -217,6 +219,27 @@ export function FilterTargetWithCondition(
   }
 
   return undefined;
+}
+
+function CountUnitsInRange(
+  condition: CastCoindition | undefined,
+  units: CDOTA_BaseNPC[],
+  self: CDOTA_BaseNPC_Hero,
+): number {
+  let total = 0;
+  for (const unit of units) {
+    if (!unit.IsAlive()) {
+      continue;
+    }
+    if (condition?.target?.excludeSelf && unit.GetEntityIndex() === self.GetEntityIndex()) {
+      continue;
+    }
+    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), condition?.target?.range)) {
+      continue;
+    }
+    total++;
+  }
+  return total;
 }
 
 /**

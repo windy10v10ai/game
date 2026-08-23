@@ -15,7 +15,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { rangeFromAbilityValue: 'range', facing: 'front' },
-      self: { unitCondition: { healthPercent: { gte: 50 } } },
+      self: { unitCondition: { healthPercent: { gte: 80 } } },
     },
   },
   {
