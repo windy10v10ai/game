@@ -93,6 +93,7 @@ no_support_abilitys = {
 
 	-- 位移与形态切换
 	mirana_leap = 1,                                -- 米拉娜 跳跃
+	slark_pounce = 1,                               -- 斯拉克 突袭
 	earth_spirit_rolling_boulder = 1,               -- 大地之灵 巨石翻滚
 	ember_spirit_fire_remnant = 1,                  -- 灰烬之灵 飞魂
 	ember_spirit_activate_fire_remnant = 1,         -- 灰烬之灵 激活飞魂

@@ -79,6 +79,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["dawnbreaker_celestial_hammer"] = true,       -- 破晓辰星 上界重锤
     ["dawnbreaker_converge"] = true,               -- 破晓辰星 聚合
     ["mirana_leap"] = true,                        -- 米拉娜 跳跃
+    ["slark_pounce"] = true,                       -- 斯拉克 突袭
     ["techies_suicide"] = true,                    -- 炸弹人 自爆
     ["weaver_time_lapse"] = true,                  -- 编织者 时光倒流
     ["enchantress_bunny_hop"] = true,              -- 魅惑魔女 跳跃(Sproink,神杖技能)
