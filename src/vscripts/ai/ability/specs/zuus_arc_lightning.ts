@@ -12,7 +12,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'zuus_arc_lightning',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      self: { unitCondition: { manaPercent: { gte: 50 } } },
+      self: { unitCondition: { manaPercent: { gte: 30 } } },
     },
   },
   {
