@@ -147,6 +147,8 @@ export class Treasure {
   }
 
   spawnOne(): void {
+    this.cleanupInvalidChests();
+
     // 增加场上同时存在的最大个数兜底，避免玩家完全找不到第一只
     if (this.activeChests.size >= Treasure.MAX_ACTIVE_CHESTS) {
       return;
@@ -156,6 +158,22 @@ export class Treasure {
 
   debugSpawnAt(point: Vector): void {
     this.spawnAt(point);
+  }
+
+  private cleanupInvalidChests(): void {
+    for (const entIndex of this.activeChests.keys()) {
+      const entity = EntIndexToHScript(entIndex);
+
+      if (
+        !entity ||
+        entity.IsNull() ||
+        !entity.IsBaseNPC() ||
+        entity.GetUnitName() !== Treasure.UNIT_NAME ||
+        !entity.IsAlive()
+      ) {
+        this.activeChests.delete(entIndex);
+      }
+    }
   }
 
   /** 调试用 */
