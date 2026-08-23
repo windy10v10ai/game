@@ -41,6 +41,7 @@ export function CandidatesPage() {
     <Panel className="dailytask-root">
       <Panel className="dailytask-header-box">
         <Label className="dailytask-header-title" text={$.Localize('#dailytask_header_title')} />
+        <Label className="dailytask-header-desc" text={$.Localize('#dailytask_header_desc')} />
         <Panel
           className="dailytask-header-subtitle-row"
           style={{ visibility: showHint ? 'collapse' : 'visible' }}

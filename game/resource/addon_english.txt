@@ -468,6 +468,7 @@
 		"profile_tab_dailytask"			"Tasks"
 		"dailytask_header_title"			"My Daily Tasks"
 		"dailytask_header_subtitle"			"Choose your task for round {round}/{total}"
+		"dailytask_header_desc"			"Complete up to 3 rounds of tasks per day, each round pick one of 3 random candidates (general or hero-specific) to complete, one refresh allowed per round, the match must be won to complete a task, and Battle Points are awarded on the end screen"
 		"dailytask_reward_hint"			"+{n} Battle Points"
 		"dailytask_settlement_tooltip_prefix"		"Daily Task Completed: "
 		"dailytask_select_button"			"Claim Task"

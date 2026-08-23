@@ -468,6 +468,7 @@
 		"profile_tab_dailytask"			"每日任务"
 		"dailytask_header_title"			"我的每日任务"
 		"dailytask_header_subtitle"			"请选择第 {round}/{total} 轮任务"
+		"dailytask_header_desc"			"每天最多可完成 3 轮任务，每轮从 3 个随机候选（含通用任务与英雄专属任务）中选一个完成，每轮可以刷新一次，游戏胜利才算完成任务，结算时获得任务奖励勇士积分"
 		"dailytask_reward_hint"			"+{n} 勇士积分"
 		"dailytask_settlement_tooltip_prefix"		"完成每日任务："
 		"dailytask_select_button"			"领取任务"

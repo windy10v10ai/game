@@ -43,6 +43,17 @@
   text-shadow: @text-shadow-soft;
 }
 
+// 规则说明：固定展示，不跟 showHint 一起隐藏，作弊模式/全部完成等提示态下也该看得到
+.dailytask-header-desc {
+  width: 100%;
+  text-align: left;
+  white-space: normal;
+  font-size: @font-size-sm;
+  color: @color-text-muted;
+  text-shadow: @text-shadow-soft;
+  margin-bottom: 8px;
+}
+
 .dailytask-header-subtitle-row {
   width: 100%;
   flow-children: right;

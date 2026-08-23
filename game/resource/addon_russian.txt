@@ -362,6 +362,7 @@
 		"profile_tab_dailytask"			"Задания"
 		"dailytask_header_title"			"Мои ежедневные задания"
 		"dailytask_header_subtitle"			"Выберите задание для раунда {round}/{total}"
+		"dailytask_header_desc"			"Выполняйте до 3 раундов заданий в день, каждый раунд выбирайте одно из 3 случайных заданий (общее или для конкретного героя), одно обновление за раунд, задание засчитывается только при победе в матче, Battle Points начисляются на экране итогов"
 		"dailytask_reward_hint"			"+{n} Battle Points"
 		"dailytask_settlement_tooltip_prefix"		"Задание дня выполнено: "
 		"dailytask_select_button"			"Принять"
