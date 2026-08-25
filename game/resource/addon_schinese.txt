@@ -1279,6 +1279,23 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 哈斯卡 炙矛可热觉醒
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened"					"<font color='#d000ff'>炙矛可热 觉醒</font>"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Description"		"哈斯卡将长矛点燃，在普通攻击的同时对敌方单位造成可叠加的持续伤害。每次攻击都会牺牲哈斯卡部分最大生命值。<br><br><font color='#d000ff'>觉醒强化：</font>获得炙矛可热效果，每层附加基于目标最大生命值的烧灼；全部烧灼伤害均为<font color='#FFE56E'>纯粹伤害</font>。"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_SummaryDescription"	"烧灼伤害改为纯粹伤害，并附加1%至4%目标最大生命值烧灼。"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Lore"				"神灵武士以自身鲜血点燃长矛，让敌人的生命在烈焰中消逝。"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note0"				"沸血之矛的烧灼可以无限叠加。"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note1"				"哈斯卡不能使用此技能自杀。"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note2"				"不会对肉山造成额外的最大生命值烧灼伤害。"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_max_health_cost"		"%最大生命值消耗："
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_pure_burn_damage"			"纯粹烧灼伤害："
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_pure_burn_damage_max_pct"	"%最大生命值纯粹烧灼："
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_duration"				"持续时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_huskar_incendiary_awaken"				"<font color='#d000ff'>炙矛可热 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_huskar_incendiary_awaken_Description"		"沸血之矛获得炙矛可热效果，附加1%至4%目标最大生命值烧灼；全部烧灼伤害改为<font color='#FFE56E'>纯粹伤害</font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_huskar_incendiary_awaken"				"<font color='#d000ff'>炙矛可热 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_huskar_incendiary_awaken_Description"		"沸血之矛附加1%至4%目标最大生命值烧灼，且全部烧灼均为<font color='#FFE56E'>纯粹伤害</font>。"
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"每点攻击速度都会让工程师获得%attack_range_tooltip%攻击距离和攻击弹道速度。"

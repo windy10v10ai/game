@@ -18,6 +18,23 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 哈斯卡 炙矛可热觉醒
+  {
+    heroName: 'npc_dota_hero_huskar',
+    targetAbility: 'huskar_burning_spear',
+    newAbility: 'huskar_burning_spear_incendiary_awakened',
+    newLevel: 0,
+  },
+  {
+    heroName: 'npc_dota_hero_huskar',
+    newAbility: 'huskar_nothl_conflagration',
+    newLevel: 1,
+  },
+  {
+    heroName: 'npc_dota_hero_huskar',
+    newAbility: 'special_bonus_unique_huskar_incendiary_awaken',
+    newLevel: 1,
+  },
   // 亚巴顿 觉醒
   {
     heroName: 'npc_dota_hero_abaddon',
@@ -245,6 +262,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_huskar', // 哈斯卡
   'npc_dota_hero_abaddon', // 亚巴顿
   'npc_dota_hero_skywrath_mage', // 天怒法师
   'npc_dota_hero_dazzle', // 戴泽

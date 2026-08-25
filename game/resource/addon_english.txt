@@ -1284,6 +1284,23 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 哈斯卡 炙矛可热觉醒
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened"					"<font color='#d000ff'>Incendiary Awakened</font>"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Description"		"Huskar sets his spears aflame, dealing stacking damage over time with his attacks. Each attack costs a portion of Huskar's maximum health.<br><br><font color='#d000ff'>Awakening Bonus:</font> Gains Incendiary, adding burn damage based on the target's maximum health. All burn damage is <font color='#FFE56E'>pure damage</font>."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_SummaryDescription"	"Burn damage becomes pure and gains 1% to 4% maximum-health burn."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Lore"				"The Sacred Warrior kindles his spears with his own blood and burns away his enemies' life."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note0"				"Burning Spear stacks without limit."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note1"				"Huskar cannot kill himself with this ability."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note2"				"Does not deal additional maximum-health burn damage to Roshan."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_max_health_cost"		"%MAX HEALTH COST:"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_pure_burn_damage"			"PURE BURN DAMAGE:"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_pure_burn_damage_max_pct"	"%MAX HEALTH PURE BURN:"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_special_bonus_unique_huskar_incendiary_awaken"				"<font color='#d000ff'>Incendiary Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_huskar_incendiary_awaken_Description"		"Burning Spear gains Incendiary, adding 1% to 4% of the target's maximum health as burn damage. All burn damage becomes <font color='#FFE56E'>pure damage</font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_huskar_incendiary_awaken"				"<font color='#d000ff'>Incendiary Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_huskar_incendiary_awaken_Description"		"Burning Spear adds 1% to 4% maximum-health burn, and all burn damage is <font color='#FFE56E'>pure damage</font>."
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed."
