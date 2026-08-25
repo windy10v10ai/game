@@ -7,7 +7,13 @@ export interface CastCoindition {
   target?: {
     unitCondition?: UnitCondition;
     /**
-     * 敌人数量
+     * 生效范围内的敌人数量。范围取 range.lte，未显式指定时由 dispatcher 按施法距离自动补齐。
+     * 只按存活与距离收窄：unitCondition 是挑目标用的，不参与「这片区域值不值得放」的判断。
+     *
+     * 对英雄计数时，gte 会由 dispatcher 收敛到该队伍的英雄总数。两队人数开局可配置，
+     * 敌方只有 1 个英雄时「至少 2 个」这类阈值否则永远不成立，整条规则失效；
+     * 满编局下声明值不超过总数，收敛不生效。开关类（action）不参与收敛，
+     * 它们的开与关是一对互补阈值，只压低其中一侧会让两条规则同时成立、每 tick 反复开关。
      */
     count?: NumberRange;
     /**
@@ -43,6 +49,16 @@ export interface CastCoindition {
      * 仅对 POINT behavior 的 ability 生效；UNIT_TARGET / NO_TARGET 忽略此字段。
      */
     castMode?: 'targetPosition' | 'projectedOnCastRange';
+    /**
+     * 从候选中排除施法者自己。
+     * 友方候选天然包含施法者且距离为 0 排在首位，以自身生命为代价的技能需要排掉。
+     */
+    excludeSelf?: boolean;
+    /**
+     * 只保留位于施法者正面（front）或背面（back）半区的目标。
+     * 用于带位移的技能区分追击与撤退两种用法。
+     */
+    facing?: 'front' | 'back';
   };
   self?: {
     unitCondition?: UnitCondition;
@@ -125,6 +141,12 @@ export interface UnitCondition {
   };
 }
 
+/** 只取水平面分量参与计算，Vector 天然满足该形状。 */
+export interface HorizontalVector {
+  x: number;
+  y: number;
+}
+
 export interface NumberRange {
   gte?: number;
   lte?: number;
@@ -136,12 +158,17 @@ export function FilterTargetWithCondition(
   self: CDOTA_BaseNPC_Hero,
   ability?: CDOTABaseAbility,
 ): CDOTA_BaseNPC | undefined {
-  if (CheckNumberRangeFailure(units.length, condition?.target?.count)) {
+  const count = condition?.target?.count;
+  if (count && CheckNumberRangeFailure(CountUnitsInRange(condition, units, self), count)) {
     return undefined;
   }
 
   for (const unit of units) {
     if (!unit.IsAlive()) {
+      continue;
+    }
+
+    if (condition?.target?.excludeSelf && unit.GetEntityIndex() === self.GetEntityIndex()) {
       continue;
     }
 
@@ -181,10 +208,67 @@ export function FilterTargetWithCondition(
       continue;
     }
 
+    const facing = condition?.target?.facing;
+    if (
+      facing &&
+      CheckFacingFailure(
+        facing,
+        self.GetForwardVector(),
+        unit.GetAbsOrigin().__sub(self.GetAbsOrigin()),
+      )
+    ) {
+      continue;
+    }
+
     return unit;
   }
 
   return undefined;
+}
+
+function CountUnitsInRange(
+  condition: CastCoindition | undefined,
+  units: CDOTA_BaseNPC[],
+  self: CDOTA_BaseNPC_Hero,
+): number {
+  let total = 0;
+  for (const unit of units) {
+    if (!unit.IsAlive()) {
+      continue;
+    }
+    if (condition?.target?.excludeSelf && unit.GetEntityIndex() === self.GetEntityIndex()) {
+      continue;
+    }
+    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), condition?.target?.range)) {
+      continue;
+    }
+    total++;
+  }
+  return total;
+}
+
+/**
+ * 判断目标是否落在施法者朝向的指定半区。
+ *
+ * @param facing - 要求的半区，未指定时不过滤
+ * @param forward - 施法者朝向向量
+ * @param toTarget - 施法者指向目标的向量
+ * @returns 不满足要求时返回 `true`
+ */
+export function CheckFacingFailure(
+  facing: 'front' | 'back' | undefined,
+  forward: HorizontalVector,
+  toTarget: HorizontalVector,
+): boolean {
+  if (!facing) {
+    return false;
+  }
+  const dot = forward.x * toTarget.x + forward.y * toTarget.y;
+  // 正侧方点积为 0，方位不明确，front 与 back 都判失败
+  if (facing === 'front') {
+    return dot <= 0;
+  }
+  return dot >= 0;
 }
 
 /**

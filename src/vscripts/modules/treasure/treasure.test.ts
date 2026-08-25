@@ -51,18 +51,31 @@ global.UTIL_Remove = jest.fn();
 
 let entityIndexCounter = 1;
 const createdUnits: any[] = [];
+const entitiesByIndex = new Map<number, any>();
+
+global.EntIndexToHScript = jest.fn((index: number) => entitiesByIndex.get(index));
 global.CreateUnitByName = jest.fn(() => {
   const idx = entityIndexCounter++;
+  let alive = true;
+
   const unit = {
     GetEntityIndex: () => idx,
     GetUnitName: () => 'npc_treasure_chest',
+    IsNull: () => false,
+    IsBaseNPC: () => true,
+    IsAlive: () => alive,
+    Kill: jest.fn(() => {
+      alive = false;
+    }),
     SetIdleAcquire: jest.fn(),
     SetAcquisitionRange: jest.fn(),
     AddNewModifier: jest.fn(),
     GetAbsOrigin: () => ({ x: 0, y: 0, z: 256 }),
     SetAbsOrigin: jest.fn(),
   };
+
   createdUnits.push(unit);
+  entitiesByIndex.set(idx, unit);
   return unit;
 });
 
@@ -97,6 +110,7 @@ describe('Treasure', () => {
     Object.keys(listeners).forEach((k) => delete listeners[k]);
     createdUnits.length = 0;
     entityIndexCounter = 1;
+    entitiesByIndex.clear();
     mockState = global.GameState.CUSTOM_GAME_SETUP;
     global.DOTA_MAX_TEAM_PLAYERS = 1;
     (global.CreateUnitByName as jest.Mock).mockClear();
@@ -125,6 +139,23 @@ describe('Treasure', () => {
       treasure.spawnOne();
       expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
       expect(treasure.getSpawnCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+    });
+    it('被外部击杀的宝箱不会永久占用 active slot', () => {
+      treasure.spawnOne();
+      treasure.spawnOne();
+
+      expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+      expect(treasure.getSpawnCount()).toBe(2);
+
+      // 模拟神龙赐福：毁灭等外部机制直接 Kill 宝箱，
+      // 没有经过 Treasure.openChest()
+      createdUnits[0].Kill();
+
+      treasure.spawnOne();
+
+      expect(treasure.getActiveChestCount()).toBe(Treasure.MAX_ACTIVE_CHESTS);
+      expect(treasure.getSpawnCount()).toBe(3);
+      expect(global.CreateUnitByName).toHaveBeenCalledTimes(3);
     });
 
     it('开启后允许下次 spawn', () => {

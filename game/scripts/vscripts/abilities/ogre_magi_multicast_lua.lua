@@ -50,6 +50,88 @@ no_support_abilitys = {
 	invoker_alacrity_ad = 1,
 	invoker_sun_strike = 1,
 	invoker_forge_spirit = 1,
+
+	-- 幻象与召唤
+	chaos_knight_phantasm = 1,                      -- 混沌骑士 幻象
+	dark_seer_wall_of_replica = 1,                 -- 黑暗贤者 复制之墙
+	terrorblade_conjure_image = 1,                 -- 恐怖利刃 惑幻
+	naga_siren_mirror_image = 1,                   -- 娜迦海妖 镜像
+	skeleton_king_reincarnation = 1,               -- 冥魂大帝 绝冥再生
+	spectre_shadow_step = 1,                       -- 幽鬼 如影随形
+
+	-- 持续施法与持续区域
+	bane_fiends_grip = 1,                           -- 祸乱之源 魔爪
+	crystal_maiden_freezing_field = 1,              -- 水晶室女 极寒领域
+	enigma_black_hole = 1,                          -- 谜团 黑洞
+	enigma_midnight_pulse = 1,                      -- 谜团 午夜凋零
+	pudge_dismember = 1,                            -- 帕吉 肢解
+	sandking_epicenter = 1,                         -- 沙王 地震
+	warlock_upheaval = 1,                           -- 术士 剧变
+
+	-- 传送与位置状态
+	wisp_relocate = 1,                              -- 艾欧 降临
+	furion_teleportation = 1,                       -- 自然先知 传送
+	kunkka_x_marks_the_spot = 1,                    -- 昆卡 标记
+	dawnbreaker_converge = 1,                       -- 破晓辰星 聚合
+	earth_spirit_stone_caller = 1,                  -- 大地之灵 残岩
+
+	-- 两段式与内部技能
+	alchemist_unstable_concoction = 1,              -- 炼金术士 不稳定化合物
+	alchemist_unstable_concoction_throw = 1,        -- 炼金术士 不稳定化合物投掷
+	crystal_maiden_freezing_field_stop = 1,         -- 水晶室女 停止极寒领域
+	naga_siren_song_of_the_siren_cancel = 1,        -- 娜迦海妖 取消海妖之歌
+
+	-- 攻击模式与法球
+	medusa_split_shot = 1,                           -- 美杜莎 分裂箭
+	drow_ranger_frost_arrows = 1,                   -- 卓尔游侠 霜冻之箭
+	huskar_burning_spear = 1,                        -- 哈斯卡 火矛
+	enchantress_impetus = 1,                         -- 魅惑魔女 推进
+	silencer_glaives_of_wisdom = 1,                  -- 沉默术士 智慧之刃
+	viper_poison_attack = 1,                         -- 冥界亚龙 毒性攻击
+	viper_nethertoxin = 1,                           -- 冥界亚龙 幽冥剧毒
+	troll_warlord_switch_stance = 1,                -- 巨魔战将 切换姿态
+
+	-- 位移与形态切换
+	mirana_leap = 1,                                -- 米拉娜 跳跃
+	slark_pounce = 1,                               -- 斯拉克 突袭
+	void_spirit_astral_step = 1,                    -- 虚无之灵 太虚之径
+	void_spirit_dissimilate = 1,                    -- 虚无之灵 异化
+	puck_illusory_orb = 1,                          -- 帕克 幻象法球
+	spirit_breaker_charge_of_darkness = 1,          -- 裂魂人 暗影冲刺
+	rattletrap_hookshot = 1,                        -- 发条技师 发射钩爪
+	huskar_life_break = 1,                          -- 哈斯卡 牺牲
+	juggernaut_omni_slash = 1,                      -- 主宰 无敌斩
+	pangolier_swashbuckle = 1,                      -- 石鳞剑士 虚张声势
+	pangolier_gyroshell = 1,                        -- 石鳞剑士 地雷滚滚
+	sandking_burrowstrike = 1,                      -- 沙王 掘地穿刺
+	monkey_king_tree_dance = 1,                     -- 齐天大圣 丛林之舞
+	monkey_king_primal_spring = 1,                  -- 齐天大圣 乾坤之跃
+	spectre_reality = 1,                            -- 幽鬼 空降
+	zuus_heavenly_jump = 1,                         -- 宙斯 神圣一跳
+	snapfire_firesnap_cookie = 1,                   -- 电炎绝手 龙炎饼干
+	weaver_time_lapse = 1,                          -- 编织者 时光倒流
+	viper_nosedive = 1,                             -- 冥界亚龙 俯冲
+	tinker_keen_teleport = 1,                       -- 修补匠 传送
+	abyssal_underlord_dark_rift = 1,                -- 孽主 黑暗之门
+	keeper_of_the_light_recall = 1,                 -- 光之守卫 召回
+	lich_death_charge = 1,                          -- 巫妖 献身
+	dawnbreaker_solar_guardian = 1,                 -- 破晓辰星 天光现世
+	phantom_lancer_doppelwalk = 1,                  -- 幻影长矛手 幻影突袭
+	tiny_toss = 1,                                  -- 小小 投掷
+	pudge_meat_hook = 1,                            -- 帕吉 肉钩
+	pudge_meat_hook_lua = 1,                        -- 帕吉 肉钩 觉醒
+	batrider_flaming_lasso = 1,                     -- 蝙蝠骑士 燃烧枷锁
+	disruptor_glimpse = 1,                          -- 干扰者 恶念瞥视
+	tusk_walrus_kick = 1,                           -- 巨牙海民 海象飞踢
+	dark_seer_vacuum = 1,                           -- 黑暗贤者 真空
+	earth_spirit_geomagnetic_grip = 1,              -- 大地之灵 地磁之握
+	mars_spear = 1,                                 -- 玛尔斯 矛
+	earth_spirit_rolling_boulder = 1,               -- 大地之灵 巨石翻滚
+	ember_spirit_fire_remnant = 1,                  -- 灰烬之灵 飞魂
+	ember_spirit_activate_fire_remnant = 1,         -- 灰烬之灵 激活飞魂
+	morphling_waveform = 1,                         -- 变体精灵 波浪形态
+	mars_bulwark = 1,                               -- 玛尔斯 护身甲盾
+	brewmaster_primal_split = 1,                    -- 酒仙 元素分离
 	axe_culling_blade = 1,
 	techies_suicide = 1,                            -- 炸弹人 自爆
 	ogre_magi_ignite = 1,
@@ -57,6 +139,7 @@ no_support_abilitys = {
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
 	terrorblade_reflection = 1,                     -- 倒影
+	spectre_haunt = 1,                              -- 幽鬼 鬼影重重
 	terrorblade_metamorphosis = 1,                  -- 魔化
 	vengefulspirit_nether_swap = 1,                 -- 移形换位
 	terrorblade_sunder = 1,                         -- 魂断

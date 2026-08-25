@@ -40,7 +40,7 @@ export interface DailyTaskResultDto {
   dayId: string;
 }
 
-/** /game/start 响应里 dailyTasks 数组的单项形状（每个 steamId 一条） */
+/** /game/start 响应里 dailyTasks 数组的单项形状（每个 steamId 一条），/daily-task/refresh 响应复用同一形状 */
 export interface DailyTaskStartDto {
   steamId: number;
   dayId: string;
@@ -48,6 +48,8 @@ export interface DailyTaskStartDto {
   completedTasks: TaskCandidateDto[];
   todaySeasonPoint: number;
   history: DailyTaskHistoryEntryDto[];
+  /** 本轮剩余刷新次数 */
+  refreshRemaining: number;
 }
 
 /** daily_task net table 单个玩家条目 */

@@ -3,6 +3,7 @@ import { IsInHeroSelectionLayer } from '@utils/utils';
 import { PrimaryButton } from '../../shared/components';
 import { useNetTable } from '../../shared/hooks/useNetTable';
 import { getDisplayCandidates } from '../pages/profile/tabs/dailytask/dailytask-ui';
+import { useDailyTaskRefreshButton } from '../pages/profile/tabs/dailytask/useDailyTaskRefreshButton';
 
 const localize = (key: string): string => $.Localize(key);
 
@@ -12,6 +13,7 @@ const localize = (key: string): string => $.Localize(key);
 export function DailyTaskHeroSelectWidget() {
   const playerId = Game.GetLocalPlayerID();
   const dailyTask = useNetTable('daily_task', playerId >= 0 ? String(playerId) : null);
+  const refreshBtn = useDailyTaskRefreshButton(dailyTask?.refreshRemaining);
   // hud_main 同时注册在三层，这个浮窗只在选英雄层渲染一份；所在层不会变，只判定一次
   const [inHeroSelectLayer] = useState(IsInHeroSelectionLayer);
 
@@ -60,6 +62,15 @@ export function DailyTaskHeroSelectWidget() {
           </Panel>
         );
       })}
+      <PrimaryButton
+        className="dailytask-heroselect-refresh-btn"
+        variant="ghost"
+        enabled={refreshBtn.enabled}
+        onClick={refreshBtn.handleClick}
+        label={localize(
+          refreshBtn.used ? '#dailytask_refresh_used_label' : '#dailytask_refresh_button',
+        )}
+      />
     </Panel>
   );
 }

@@ -29,9 +29,8 @@ export class GA4DailyTaskTracker {
     });
   }
 
-  // 掉线玩家不结算每日任务，与 game-end.ts 的结算口径一致（spec 3.5）
+  // 与 game-end.ts 的结算口径保持一致：直接读它已经判定好的结果，不重复判定
   private static IsCompleted(player: GameEndPlayerDto): boolean {
-    if (player.isDisconnected) return false;
-    return GameRules.DailyTask.EvaluateCompletion(player.playerId) !== undefined;
+    return player.dailyTask !== undefined;
   }
 }

@@ -66,6 +66,22 @@
 		"MaxLevel"					"1"
 	}
 
+	// 斯拉克 精华侵蚀觉醒
+	"special_bonus_unique_slark_permanent_essence_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_slark_permanent_essence_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"slark_essence_shift"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"permanent_steal_pct"		"10"
+		}
+	}
+
 	// 亚巴顿 觉醒
 	"special_bonus_unique_abaddon_quickening_awaken"
 	{
