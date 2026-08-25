@@ -5,6 +5,51 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 斯拉达 觉醒
+	"slardar_amplify_damage_awakened"
+	{
+		"BaseClass"						"slardar_amplify_damage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+		"AbilityTextureName"			"slardar_amplify_damage"
+		"MaxLevel"						"4"
+		"RequiredLevel"				"6"
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"25"
+
+		"AbilityValues"
+		{
+			"armor_reduction"				"-10 -15 -20 -25"
+			"duration"						"18"
+			"puddle_radius"				"200"
+			"puddle_duration"				"12"
+			"field_radius"					"500"
+			"caster_armor_reduction_pct"	"50"
+		}
+	}
+
+	"special_bonus_unique_slardar_amplify_damage_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_slardar_amplify_damage_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"slardar_amplify_damage"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_slardar/slardar_crush_puddle.vpcf"
+		}
+	}
+
 	// 斯拉克 精华侵蚀觉醒
 	"special_bonus_unique_slark_permanent_essence_awaken"
 	{

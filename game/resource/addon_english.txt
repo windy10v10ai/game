@@ -3586,5 +3586,19 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Non-hero deaths reduce them by <font color='#FFFFFF'><b>0.2</b></font>s; hero deaths reduce them by <font color='#FFFFFF'><b>3</b></font>s."
 
+		// 斯拉达 侵蚀雾霭领域觉醒
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened"						"<font color='#d000ff'>Corrosive Haze Domain Awakened</font>"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_Description"				"Reduces enemy armor, increasing the physical damage they take, while providing True Sight and revealing invisible units. Enemy units leave a trail of water behind them.\n\n<font color='#d000ff'>Awakening Bonus:</font> Slardar creates a field that continuously applies the current level of Corrosive Haze to enemies within it. The effect is reapplied after being dispelled and remains for its current duration after leaving the field. Armor reduction is additionally increased by %caster_armor_reduction_pct%%% of Slardar's current total armor."
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_armor_reduction"			"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_duration"				"DURATION:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_puddle_radius"			"WATER TRAIL RADIUS:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_puddle_duration"			"WATER TRAIL DURATION:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_field_radius"			"FIELD RADIUS:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_caster_armor_reduction_pct"	"%EXTRA ARMOR REDUCTION (TOTAL ARMOR):"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slardar_amplify_damage_awaken"			"<font color='#d000ff'>Corrosive Haze Domain Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slardar_amplify_damage_awaken_Description"	"Creates a Corrosive Haze domain that continuously applies the current level of the ultimate to enemies within it. Extra armor reduction is based on Slardar's current total armor.<br>Current extra armor reduction: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
+		"DOTA_Tooltip_modifier_slardar_amplify_damage_awakened_bonus"				"<font color='#d000ff'>Corrosive Haze Awakened</font>"
+		"DOTA_Tooltip_modifier_slardar_amplify_damage_awakened_bonus_Description"		"Reduces armor by <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> in total and provides True Sight to Slardar.<br>Awakening extra armor reduction: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font> (based on Slardar's current total armor)."
+
 	}
 }
