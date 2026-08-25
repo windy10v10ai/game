@@ -172,6 +172,14 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
+		// 撼地者 余震-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>余震 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"撼地者自身的余震每命中一个单位，就在该单位的命中位置触发一次小余震。每个小余震分别搜索范围内的敌人并造成独立魔法伤害；多个小余震可以对同一单位重复造成伤害。同一批小余震只会眩晕同一单位一次。小余震不会再次触发此效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_damage_pct"		"%小余震伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%小余震作用范围："
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%小余震眩晕时间："
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>余震 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"余震命中的每个单位都会在命中位置触发一次不可递归的小余震。小余震伤害可以重叠；同一批只眩晕同一单位一次。"
 		// 上古巨神 灵体游魂-觉醒
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"自动施法：自动朝最远的敌方英雄放出游魂并自动收回。"

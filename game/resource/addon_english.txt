@@ -172,6 +172,14 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
+		// Earthshaker Aftershock - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Aftershock Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Each unit hit by Earthshaker's own Aftershock triggers a small Aftershock at its position when hit. Each small Aftershock independently searches for nearby enemies and deals a separate instance of magical damage; overlapping small Aftershocks can damage the same unit repeatedly. Each unit is stunned only once per batch. Small Aftershocks cannot trigger this effect again."
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_damage_pct"		"%SMALL AFTERSHOCK DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%SMALL AFTERSHOCK RADIUS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%SMALL AFTERSHOCK STUN DURATION:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Aftershock Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Each unit hit by Aftershock triggers a non-recursive small Aftershock at its hit position. Small Aftershock damage can overlap; each unit is stunned only once per batch."
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Autocast: automatically sends the spirit toward the farthest enemy hero and recalls it automatically."
