@@ -1263,6 +1263,13 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 敌法师 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"闪烁压制附近敌人的魔法，法力虚空按每个敌方英雄各自缺失的魔法结算伤害。"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，落点<font color='#FFFFFF'><b>1000</b></font>范围内的敌人<font color='#FFFFFF'><b>6</b></font>秒内无法获得或恢复魔法，敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法。<br>法力虚空范围内的每个敌方英雄，按自身与主目标缺失魔法中较高的一方承受伤害。<br><font color='#FFCC66'>魔法免疫</font>的敌人不受觉醒效果影响。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"施放闪烁后，落点<font color='#FFFFFF'><b>1000</b></font>范围内的敌人<font color='#FFFFFF'><b>6</b></font>秒内无法获得或恢复魔法，敌方英雄立刻损失<font color='#FFFFFF'><b>40%%</b></font>当前魔法。<br>法力虚空范围内的每个敌方英雄，按自身与主目标缺失魔法中较高的一方承受伤害。<br><font color='#FFCC66'>魔法免疫</font>的敌人不受觉醒效果影响。"
+
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"生命值过低时自动对血量百分比最高的敌人施放魂断，不受控制影响。"

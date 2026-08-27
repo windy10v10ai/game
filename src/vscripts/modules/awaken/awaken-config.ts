@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 敌法师 觉醒
+  {
+    heroName: 'npc_dota_hero_antimage',
+    newAbility: 'special_bonus_unique_antimage_mana_suppression_awaken',
+    newLevel: 1,
+  },
   // 恐怖利刃 觉醒
   {
     heroName: 'npc_dota_hero_terrorblade',
@@ -294,6 +300,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_antimage', // 敌法师
   'npc_dota_hero_terrorblade', // 恐怖利刃
   'npc_dota_hero_bounty_hunter', // 赏金猎人
   'npc_dota_hero_nyx_assassin', // 司夜刺客

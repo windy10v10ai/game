@@ -5,6 +5,23 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 敌法师 觉醒
+	"special_bonus_unique_antimage_mana_suppression_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_antimage_mana_suppression_awaken"
+		"AbilityTextureName"			"antimage_blink"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"blink_radius"				"1000"
+			"mana_lock_duration"		"6"
+			"current_mana_loss_pct"		"40"
+		}
+	}
+
 	// 恐怖利刃 魂断觉醒
 	"terrorblade_sunder_awakened_status"
 	{

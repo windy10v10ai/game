@@ -794,6 +794,13 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 敌法师 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink подавляет ману ближайших врагов, а Mana Void наносит урон каждому вражескому герою по его собственной недостающей мане."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink враги в радиусе <font color='#FFFFFF'><b>1000</b></font> от точки назначения не могут получать и восстанавливать ману <font color='#FFFFFF'><b>6</b></font> сек., а вражеские герои мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны.<br>Каждый вражеский герой в области Mana Void получает урон по большему из значений: своей недостающей маны или недостающей маны основной цели.<br>Враги с <font color='#FFCC66'>невосприимчивостью к магии</font> не подвержены эффектам пробуждения."
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Подавление маны: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"		"После применения Blink враги в радиусе <font color='#FFFFFF'><b>1000</b></font> от точки назначения не могут получать и восстанавливать ману <font color='#FFFFFF'><b>6</b></font> сек., а вражеские герои мгновенно теряют <font color='#FFFFFF'><b>40%%</b></font> текущей маны.<br>Каждый вражеский герой в области Mana Void получает урон по большему из значений: своей недостающей маны или недостающей маны основной цели.<br>Враги с <font color='#FFCC66'>невосприимчивостью к магии</font> не подвержены эффектам пробуждения."
+
 		// 恐怖利刃 魂断觉醒
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
 		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"Автоматически применяет Sunder по вражескому герою с наибольшим процентом здоровья при низком здоровье, даже под контролем."
