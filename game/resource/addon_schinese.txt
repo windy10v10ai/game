@@ -1280,6 +1280,17 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 敌法师 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"						"<font color='#d000ff'>法力禁域 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"			"施放闪烁时，使落点附近的敌人无法获得或恢复魔法，并使敌方英雄损失等同一部分最大魔法值的魔法。施放法力虚空时，还会对所选英雄附近的其他敌方英雄同步释放法力虚空。同步释放无视法术格挡和法术反弹，每个英雄只会受到一次。"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"闪烁压制附近敌人的魔法，法力虚空会对所选英雄附近的其他敌方英雄同步释放。"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_blink_radius"			"闪烁作用范围："
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_mana_lock_duration"		"无法获得或恢复魔法时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_max_mana_reduction_pct"	"损失魔法（最大魔法值）："
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_mana_void_spread_radius"	"法力虚空同步释放范围："
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>法力禁域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"			"施放闪烁时，使落点<font color='#FFFFFF'><b>1000</b></font>范围内的敌人在<font color='#FFFFFF'><b>6</b></font>秒内无法获得或恢复魔法，并使敌方英雄损失等同<font color='#FFFFFF'><b>50%%</b></font>最大魔法值的魔法。施放法力虚空时，还会对所选英雄<font color='#FFFFFF'><b>500</b></font>范围内的其他敌方英雄同步释放法力虚空。同步释放无视法术格挡和法术反弹，每个英雄只会受到一次。"
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"每点攻击速度都会让工程师获得%attack_range_tooltip%攻击距离和攻击弹道速度。"

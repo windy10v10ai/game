@@ -5,6 +5,33 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 敌法师 觉醒
+	"special_bonus_unique_antimage_mana_suppression_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_antimage_mana_suppression_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"antimage_blink"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"blink_radius"					"1000"
+			"mana_lock_duration"
+			{
+				"value"						"6"
+				"display_type"				"kBuffDuration"
+			}
+			"max_mana_reduction_pct"
+			{
+				"value"						"50"
+				"display_type"				"kManaPercentage"
+			}
+			"mana_void_spread_radius"		"500"
+		}
+	}
+
 	// 斯拉克 精华侵蚀觉醒
 	"special_bonus_unique_slark_permanent_essence_awaken"
 	{
