@@ -693,6 +693,17 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 赏金猎人 忍术觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken"					"<font color='#d000ff'>Дзинада · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_Description"		"Когда атака с Jinada попадает по настоящему вражескому герою, она может похитить один случайный продаваемый, нескладываемый предмет, не являющийся рецептом, из инвентаря или ранца цели. Похищенный предмет принадлежит Bounty Hunter и может быть продан.<br>После успешной кражи этот враг получает защиту от новых краж на %protection_duration% сек. Эффект не срабатывает, если у Bounty Hunter нет свободной ячейки. После 4-го уровня Jinada шанс кражи больше не растёт."
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_SummaryDescription"	"Атаки с Jinada могут похитить предмет вражеского героя; успешная кража временно защищает эту цель."
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_steal_chance_pct"		"ШАНС КРАЖИ ПРЕДМЕТА:"
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_protection_duration"	"ДЛИТЕЛЬНОСТЬ ЗАЩИТЫ ОТ КРАЖИ:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_bounty_hunter_item_steal_awaken"				"<font color='#d000ff'>Дзинада · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_bounty_hunter_item_steal_awaken_Description"			"Когда атака с Jinada попадает по настоящему вражескому герою, она с вероятностью <font color='#FFFFFF'><b>5%%/10%%/15%%/20%%</b></font> похищает один продаваемый предмет. Похищенный предмет принадлежит Bounty Hunter и может быть продан. После успешной кражи враг получает защиту на <font color='#FFFFFF'><b>60</b></font> сек. Эффект не срабатывает, если у Bounty Hunter нет свободной ячейки."
+		"DOTA_Tooltip_modifier_bounty_hunter_item_steal_protection"							"Защита от кражи"
+		"DOTA_Tooltip_modifier_bounty_hunter_item_steal_protection_Description"					"Bounty Hunter недавно похитил предмет этого героя. Некоторое время Jinada Awakened не может снова его обокрасть."
+
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает %permanent_steal_pct%%% от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Базовые атрибуты вражеского героя не опускаются ниже <font color='#FFFFFF'><b>1</b></font>."

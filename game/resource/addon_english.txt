@@ -3572,6 +3572,17 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
+		// 赏金猎人 忍术觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken"					"<font color='#d000ff'>Jinada Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_Description"		"When a Jinada attack hits a real enemy hero, it has a chance to steal one random sellable, non-stackable, non-recipe item from their inventory or backpack. The stolen item belongs to Bounty Hunter and can be sold.<br>After a successful theft, that enemy is protected from further thefts for %protection_duration% seconds. This effect does not trigger while Bounty Hunter has no empty item slot. The theft chance stops increasing after Jinada reaches level 4."
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_SummaryDescription"	"Jinada attacks can steal an enemy hero's item; a successful theft temporarily protects that enemy."
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_steal_chance_pct"		"ITEM STEAL CHANCE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_protection_duration"	"THEFT PROTECTION DURATION:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_bounty_hunter_item_steal_awaken"				"<font color='#d000ff'>Jinada Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_bounty_hunter_item_steal_awaken_Description"			"When a Jinada attack hits a real enemy hero, it has a <font color='#FFFFFF'><b>5%%/10%%/15%%/20%%</b></font> chance to steal one sellable item. The stolen item belongs to Bounty Hunter and can be sold. After a successful theft, that enemy gains <font color='#FFFFFF'><b>60</b></font> seconds of theft protection. This effect does not trigger while Bounty Hunter has no empty item slot."
+		"DOTA_Tooltip_modifier_bounty_hunter_item_steal_protection"							"Theft Protection"
+		"DOTA_Tooltip_modifier_bounty_hunter_item_steal_protection_Description"					"An item was recently stolen by Bounty Hunter. Jinada Awakened cannot steal from this hero again for a short time."
+
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals %permanent_steal_pct%%% of the total attributes his Essence Shift has taken from that hero.<br>An enemy hero's base attributes never fall below <font color='#FFFFFF'><b>1</b></font>."
