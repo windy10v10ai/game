@@ -19,6 +19,7 @@ end
 ================================================================================================================= ]]
 function Scepter2OnDestroy(keys)
 	Timers:CreateTimer(0.1, function()
+		if not keys.caster or keys.caster:IsNull() then return end
 		local num_scepters_in_inventory = 0
 		for i = 0, 5, 1 do --Search for Aghanim's Regalia in the player's inventory.
 			local current_item = keys.caster:GetItemInSlot(i)

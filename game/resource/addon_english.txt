@@ -1285,6 +1285,13 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 邪影芳灵 影域留形觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_shadow_realm_awaken"					"<font color='#d000ff'>Shadow Echo Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_shadow_realm_awaken_Description"		"Casting Shadow Realm leaves an immobile phantom at the cast position. The phantom inherits Dark Willow's attributes, equipment, player properties, and acquired 2+1 abilities at cast time, then performs normal attacks with <font color='#FFFFFF'><b>100%%</b></font> attack damage. It prioritizes the nearest enemy hero in range, then the nearest regular enemy unit, then the nearest enemy building, and remains in place when there is no target.<br><br>The phantom cannot cast abilities or use items, but triggers attack effects available to illusions. Without <font color='#92ACF5'>Aghanim's Scepter</font>, it disappears when its first attack finishes. With <font color='#92ACF5'>Aghanim's Scepter</font>, it lasts until Shadow Realm ends."
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_shadow_realm_awaken_SummaryDescription"	"Casting Shadow Realm leaves an auto-attacking phantom with a snapshot of Dark Willow's current power."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dark_willow_shadow_realm_awaken"				"<font color='#d000ff'>Shadow Echo Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dark_willow_shadow_realm_awaken_Description"		"Casting Shadow Realm leaves an immobile phantom at the cast position. The phantom inherits Dark Willow's attributes, equipment, player properties, and acquired 2+1 abilities at cast time, then performs normal attacks with <font color='#FFFFFF'><b>100%%</b></font> attack damage. It prioritizes the nearest enemy hero in range, then the nearest regular enemy unit, then the nearest enemy building, and remains in place when there is no target.<br><br>The phantom cannot cast abilities or use items, but triggers attack effects available to illusions. Without <font color='#92ACF5'>Aghanim's Scepter</font>, it disappears when its first attack finishes. With <font color='#92ACF5'>Aghanim's Scepter</font>, it lasts until Shadow Realm ends."
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed."

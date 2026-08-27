@@ -91,6 +91,25 @@ export function findHeroOrCreepInRange(
   return enemies.find((enemy) => enemy.IsHero()) ?? enemies[0];
 }
 
+/** 英雄优先，其次普通单位，最后选择建筑。 */
+export function findHeroCreepOrBuildingInRange(
+  caster: CDOTA_BaseNPC,
+  range: number,
+  extraFlags: UnitTargetFlags = UnitTargetFlags.NONE,
+): CDOTA_BaseNPC | undefined {
+  const enemies = findEnemiesInRange(
+    caster,
+    range,
+    UnitTargetType.HERO + UnitTargetType.BASIC + UnitTargetType.BUILDING,
+    extraFlags,
+  );
+  return (
+    enemies.find((enemy) => enemy.IsHero()) ??
+    enemies.find((enemy) => !enemy.IsBuilding()) ??
+    enemies[0]
+  );
+}
+
 /** 瞬发施放（不抢玩家操作）；ability / target 须有效。 */
 export function castImmediatelyOnTarget(
   caster: CDOTA_BaseNPC,
