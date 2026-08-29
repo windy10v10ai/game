@@ -3581,6 +3581,17 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 
+		// 赏金猎人 忍术觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken"					"<font color='#d000ff'>忍术 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_Description"		"忍术攻击命中敌方真实英雄时，有一定几率随机偷取其主物品栏或背包中的一件可出售、不可叠加的非配方装备。偷来的装备归赏金猎人所有，可以出售。<br>成功后，该敌人会获得%protection_duration%秒防偷保护。赏金猎人没有空余物品栏时不会触发。忍术达到4级后偷取几率不再提高。"
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_SummaryDescription"	"忍术攻击有几率偷取敌方英雄的一件装备；同一敌人被偷取后会暂时获得保护。"
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_steal_chance_pct"		"装备偷取几率："
+		"DOTA_Tooltip_ability_special_bonus_unique_bounty_hunter_item_steal_awaken_protection_duration"	"防偷保护时间："
+		"DOTA_Tooltip_modifier_special_bonus_unique_bounty_hunter_item_steal_awaken"				"<font color='#d000ff'>忍术 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_bounty_hunter_item_steal_awaken_Description"			"忍术攻击命中敌方真实英雄时，有<font color='#FFFFFF'><b>5%%/10%%/15%%/20%%</b></font>几率偷取一件可出售装备。偷来的装备归赏金猎人所有，可以出售。成功后，该敌人获得<font color='#FFFFFF'><b>60</b></font>秒防偷保护。赏金猎人没有空余物品栏时不会触发。"
+		"DOTA_Tooltip_modifier_bounty_hunter_item_steal_protection"							"防偷保护"
+		"DOTA_Tooltip_modifier_bounty_hunter_item_steal_protection_Description"					"装备刚被赏金猎人偷取过，暂时不会再次受到忍术觉醒的装备偷取。"
+
 		// 斯拉克 精华侵蚀觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的%permanent_steal_pct%%%永久偷走该英雄的全属性。<br>敌方英雄的基础属性最低保留<font color='#FFFFFF'><b>1</b></font>点。"

@@ -5,6 +5,23 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 赏金猎人 忍术觉醒
+	"special_bonus_unique_bounty_hunter_item_steal_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_bounty_hunter_item_steal_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"		"bounty_hunter_jinada"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"4"
+
+		"AbilityValues"
+		{
+			"steal_chance_pct"			"5 10 15 20"
+			"protection_duration"		"60"
+		}
+	}
+
 	// 斯拉克 精华侵蚀觉醒
 	"special_bonus_unique_slark_permanent_essence_awaken"
 	{
