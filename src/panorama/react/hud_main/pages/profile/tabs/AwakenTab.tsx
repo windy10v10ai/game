@@ -20,6 +20,11 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_earthshaker',
+    abilityName: 'special_bonus_unique_earthshaker_upgrade',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_abyssal_underlord',
     abilityName: 'special_bonus_unique_underlord_demons_reach_awaken',
     freeTrial: true,
@@ -52,7 +57,6 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_techies',
     abilityName: 'techies_squees_scope',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_undying',
