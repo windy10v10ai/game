@@ -1267,7 +1267,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%SMALL AFTERSHOCK RADIUS:"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%SMALL AFTERSHOCK STUN DURATION:"
 		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Aftershock Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Aftershock creates a small Aftershock at each hit position. Their damage can overlap, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Aftershock creates a small Aftershock at each hit position, dealing <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> of its damage as <font color='#05CAFF'>magical damage</font> in <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> of its radius. Its stun lasts half as long. Their damage can overlap, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."
 
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"

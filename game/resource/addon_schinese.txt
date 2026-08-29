@@ -1262,7 +1262,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%小余震作用范围："
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%小余震眩晕时间："
 		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>余震 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"余震会在每个命中位置触发一次小余震。小余震伤害可以重叠，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"余震会在每个命中位置触发一次小余震，造成原余震<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>的<font color='#05CAFF'>魔法伤害</font>，作用范围为原余震的<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font>。眩晕时间为原余震的一半。小余震伤害可以重叠，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"
 
 		// 上古巨神 灵体游魂-觉醒
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"

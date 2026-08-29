@@ -675,7 +675,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%РАДИУС МАЛОГО АФТЕРШОКА:"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Афтершок: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Афтершок создаёт малый Афтершок в каждой точке попадания. Их урон может накладываться, но в каждой серии цель оглушается только один раз. Малые Афтершоки не создают новые малые Афтершоки."
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Афтершок создаёт малый Афтершок в каждой точке попадания, наносящий <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> урона Афтершока как <font color='#05CAFF'>магический урон</font> в радиусе <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> от исходного. Оглушение длится вдвое меньше. Урон малых Афтершоков может накладываться, но в каждой серии цель оглушается только один раз. Малые Афтершоки не создают новые малые Афтершоки."
 
 		// Elder Titan Astral Spirit - Awakened
 		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"

@@ -27,6 +27,16 @@ export class SpecialBonusUniqueEarthshakerUpgrade extends BaseAbility {
 export class modifier_special_bonus_unique_earthshaker_upgrade extends BaseModifier {
   private pendingCenters: AftershockCenter[] = [];
   private flushScheduled = false;
+  private smallAftershockDamagePct = 0;
+  private smallAftershockRadiusPct = 0;
+
+  OnCreated(): void {
+    this.refreshTooltipValues();
+  }
+
+  OnRefresh(): void {
+    this.refreshTooltipValues();
+  }
 
   IsHidden(): boolean {
     return false;
@@ -49,7 +59,15 @@ export class modifier_special_bonus_unique_earthshaker_upgrade extends BaseModif
   }
 
   DeclareFunctions(): ModifierFunction[] {
-    return [ModifierFunction.ON_TAKEDAMAGE];
+    return [ModifierFunction.ON_TAKEDAMAGE, ModifierFunction.TOOLTIP, ModifierFunction.TOOLTIP2];
+  }
+
+  OnTooltip(): number {
+    return this.smallAftershockDamagePct;
+  }
+
+  OnTooltip2(): number {
+    return this.smallAftershockRadiusPct;
   }
 
   OnTakeDamage(event: ModifierInstanceEvent): void {
@@ -139,7 +157,7 @@ export class modifier_special_bonus_unique_earthshaker_upgrade extends BaseModif
         undefined,
         radius,
         UnitTargetTeam.ENEMY,
-        UnitTargetType.HERO | UnitTargetType.BASIC,
+        UnitTargetType.HEROES_AND_CREEPS,
         UnitTargetFlags.NONE,
         FindOrder.ANY,
         false,
@@ -176,5 +194,13 @@ export class modifier_special_bonus_unique_earthshaker_upgrade extends BaseModif
     );
     ParticleManager.SetParticleControl(particle, 0, position);
     ParticleManager.ReleaseParticleIndex(particle);
+  }
+
+  private refreshTooltipValues(): void {
+    const ability = this.GetAbility();
+    if (!ability || ability.IsNull()) return;
+
+    this.smallAftershockDamagePct = ability.GetSpecialValueFor('small_aftershock_damage_pct');
+    this.smallAftershockRadiusPct = ability.GetSpecialValueFor('small_aftershock_radius_pct');
   }
 }
