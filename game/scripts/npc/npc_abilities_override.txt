@@ -4566,7 +4566,7 @@
 			"hero_damage"
 			{
 				"value"				"50 100 150 200 250"	// 30 50 70 90
-				"special_bonus_unique_wisp"		"+150%"		// +50%
+				"special_bonus_unique_wisp"		"+100%"		// +50%
 			}
 			"max_range"
 			{
