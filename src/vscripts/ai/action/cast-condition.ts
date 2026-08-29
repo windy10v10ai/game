@@ -395,8 +395,20 @@ function isNumberRange(item: object): boolean {
   return keys.length > 0 && keys.every((k) => k === 'gte' || k === 'lte');
 }
 
+/**
+ * 自定义 Lua 技能（BaseClass 为 ability_lua）的 behavior 由引擎以 64 位 userdata 返回，
+ * 位运算函数只收 number，直接参与按位与会在运行时抛错。
+ */
+function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
+  const raw = ability.GetBehavior();
+  if (type(raw) === 'number') {
+    return raw as number;
+  }
+  return tonumber(tostring(raw)) ?? 0;
+}
+
 export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
-  const abilityBehavior = ability.GetBehavior() as number;
+  const abilityBehavior = GetAbilityBehaviorBits(ability);
   // check is behavior bit set in abilityBehavior
   const isBitSet = (abilityBehavior & behavior) === behavior;
   return !!isBitSet;
