@@ -3595,5 +3595,19 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>畅快淋漓 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"附近 <font color='#FFFFFF'><b>900</b></font> 范围内有单位阵亡时，亚巴顿所有技能和物品的当前冷却都会减少。非英雄单位阵亡减少 <font color='#FFFFFF'><b>0.2</b></font> 秒，英雄阵亡减少 <font color='#FFFFFF'><b>3</b></font> 秒。"
 
+		// 斯拉达 侵蚀雾霭领域觉醒
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened"						"<font color='#d000ff'>侵蚀雾霭领域 觉醒</font>"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_Description"				"削弱敌人的护甲，加深其受到的物理伤害，同时提供目标的真实视域，显示隐身单位。敌方单位将在身后留下水迹。\n\n<font color='#d000ff'>觉醒强化：</font>斯拉达形成领域，领域内的敌人持续受到当前等级的侵蚀雾霭；被驱散后会再次施加，离开领域后按当前持续时间保留。护甲削弱额外增加斯拉达当前总护甲的%caster_armor_reduction_pct%%%。"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_armor_reduction"			"护甲削弱："
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_duration"				"持续时间："
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_puddle_radius"			"水迹作用范围："
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_puddle_duration"			"水迹持续时间："
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_field_radius"			"领域范围："
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_caster_armor_reduction_pct"	"%额外减甲（自身总护甲）："
+		"DOTA_Tooltip_modifier_special_bonus_unique_slardar_amplify_damage_awaken"			"<font color='#d000ff'>侵蚀雾霭领域 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slardar_amplify_damage_awaken_Description"	"形成侵蚀雾霭领域，领域内的敌人持续受到当前等级的大招效果。额外减甲按斯拉达当前总护甲计算。<br>当前额外减甲：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>点。"
+		"DOTA_Tooltip_modifier_slardar_amplify_damage_awakened_bonus"				"<font color='#d000ff'>侵蚀雾霭 觉醒</font>"
+		"DOTA_Tooltip_modifier_slardar_amplify_damage_awakened_bonus_Description"		"护甲共降低<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>点，并为斯拉达提供真实视域。<br>其中觉醒额外减甲：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>点（按斯拉达当前总护甲计算）。"
+
 	}
 }

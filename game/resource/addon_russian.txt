@@ -707,5 +707,19 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>Ускорение · Пробуждение</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Когда юнит погибает в радиусе <font color='#FFFFFF'><b>900</b></font> от Abaddon, текущее время перезарядки всех его способностей и предметов сокращается. Смерть не-героя сокращает его на <font color='#FFFFFF'><b>0.2</b></font> сек., а смерть героя — на <font color='#FFFFFF'><b>3</b></font> сек."
 
+		// 斯拉达 侵蚀雾霭领域觉醒
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened"						"<font color='#d000ff'>Поле Corrosive Haze · Пробуждение</font>"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_Description"				"Снижает броню врага, увеличивая получаемый им физический урон, а также даёт True Sight и раскрывает невидимых существ. Вражеские существа оставляют за собой водный след.\n\n<font color='#d000ff'>Бонус пробуждения:</font> Slardar создаёт область, которая постоянно накладывает Corrosive Haze текущего уровня на врагов внутри неё. После развеивания эффект накладывается снова, а после выхода из области сохраняется на текущую длительность. Снижение брони дополнительно увеличивается на %caster_armor_reduction_pct%%% от текущей общей брони Slardar."
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_armor_reduction"			"СНИЖЕНИЕ БРОНИ:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_puddle_radius"			"РАДИУС ВОДНОГО СЛЕДА:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_puddle_duration"			"ДЛИТЕЛЬНОСТЬ ВОДНОГО СЛЕДА:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_field_radius"			"РАДИУС ОБЛАСТИ:"
+		"DOTA_Tooltip_ability_slardar_amplify_damage_awakened_caster_armor_reduction_pct"	"%ДОП. СНИЖЕНИЕ БРОНИ (ОБЩАЯ БРОНЯ):"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slardar_amplify_damage_awaken"			"<font color='#d000ff'>Поле Corrosive Haze · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slardar_amplify_damage_awaken_Description"	"Создаёт поле Corrosive Haze, непрерывно накладывающее текущий уровень ультимативной способности на врагов внутри. Дополнительное снижение брони зависит от текущей общей брони Slardar.<br>Текущее дополнительное снижение брони: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
+		"DOTA_Tooltip_modifier_slardar_amplify_damage_awakened_bonus"				"<font color='#d000ff'>Corrosive Haze · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_slardar_amplify_damage_awakened_bonus_Description"		"Снижает броню всего на <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> и даёт Slardar True Sight на цель.<br>Дополнительное снижение брони от пробуждения: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font> (зависит от текущей общей брони Slardar)."
+
 	}
 }
