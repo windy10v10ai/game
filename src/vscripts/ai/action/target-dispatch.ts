@@ -41,6 +41,9 @@ export function TryCastBySpec(
   if (CheckNoEnemyHeroInRangeFailure(ai, condition?.self?.noEnemyHeroInRange)) {
     return false;
   }
+  if (CheckEnemyHeroInRangeFailure(ai, condition?.self?.enemyHeroInRange)) {
+    return false;
+  }
   if (CheckNoEnemyBuildingInRangeFailure(ai, condition?.self?.noEnemyBuildingInRange)) {
     return false;
   }
@@ -79,6 +82,16 @@ export function TryCastBySpec(
  *   限制为 cast range，失去意义。
  */
 
+function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
+  const hero = ai.GetHero();
+  for (const enemy of ai.aroundEnemyHeroes) {
+    if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= range) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function CheckNoEnemyHeroInRangeFailure(
   ai: BotBaseAIModifier,
   noHeroRange: number | undefined,
@@ -86,13 +99,17 @@ function CheckNoEnemyHeroInRangeFailure(
   if (noHeroRange === undefined) {
     return false;
   }
-  const hero = ai.GetHero();
-  for (const enemy of ai.aroundEnemyHeroes) {
-    if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= noHeroRange) {
-      return true;
-    }
+  return HasEnemyHeroInRange(ai, noHeroRange);
+}
+
+function CheckEnemyHeroInRangeFailure(
+  ai: BotBaseAIModifier,
+  heroRange: number | undefined,
+): boolean {
+  if (heroRange === undefined) {
+    return false;
   }
-  return false;
+  return !HasEnemyHeroInRange(ai, heroRange);
 }
 
 function CheckNoEnemyBuildingInRangeFailure(

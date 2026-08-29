@@ -10,7 +10,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'omniknight_guardian_angel',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { range: { lte: 1200 } },
+      target: { range: { lte: 1200 }, count: { gte: 2 } },
     },
   },
 ];

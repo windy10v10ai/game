@@ -68,6 +68,11 @@ export interface CastCoindition {
      */
     noEnemyHeroInRange?: number;
     /**
+     * 要求 self 周围该距离内存在存活的敌方英雄才施法，是 noEnemyHeroInRange 的反面。
+     * 用于本身不指向敌人、但只在交战时才该放的技能。
+     */
+    enemyHeroInRange?: number;
+    /**
      * 若 self 周围该距离内存在存活的敌方建筑（塔/兵营等），则跳过施法。
      * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyBuildings 缓存）。
      */

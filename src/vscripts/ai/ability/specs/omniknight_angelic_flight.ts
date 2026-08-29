@@ -9,8 +9,9 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.FriendlyHero,
     condition: {
       target: {
-        unitCondition: { healthPercent: { lte: 85 } },
+        unitCondition: { healthPercent: { lte: 90 } },
       },
+      self: { enemyHeroInRange: 900 },
     },
   },
 ];

@@ -17,7 +17,9 @@ import { SPECS as getDown } from './get_down';
 import { SPECS as imbaChaosKnightPhantasm } from './imba_chaos_knight_phantasm';
 import { SPECS as jakiroDualBreath } from './jakiro_dual_breath';
 import { SPECS as juggernautSwiftSlash } from './juggernaut_swift_slash';
+import { SPECS as kunkkaGhostship } from './kunkka_ghostship';
 import { SPECS as kunkkaTidalWave } from './kunkka_tidal_wave';
+import { SPECS as kunkkaTorrent } from './kunkka_torrent';
 import { SPECS as kunkkaXMarksTheSpot } from './kunkka_x_marks_the_spot';
 import { SPECS as lichFrostArmor } from './lich_frost_armor';
 import { SPECS as lichFrostNova } from './lich_frost_nova';
@@ -108,7 +110,9 @@ export function registerAbilitySpecs(): void {
 
   // Kunkka 昆卡
   AbilityRegistry.registerAll(kunkkaXMarksTheSpot);
+  AbilityRegistry.registerAll(kunkkaTorrent);
   AbilityRegistry.registerAll(kunkkaTidalWave);
+  AbilityRegistry.registerAll(kunkkaGhostship);
 
   // Meepo（初音）
   AbilityRegistry.registerAll(mikuHadouken);
