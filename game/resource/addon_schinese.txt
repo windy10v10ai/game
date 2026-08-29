@@ -3583,15 +3583,13 @@
 
 		// 孽主 恶魔之势觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>恶魔之势 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"拥有衰退光环的攻击力加成时，普攻造成分裂伤害。分裂距离随当前加成攻击力提高。"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"拥有衰退光环的攻击力加成时，普攻造成分裂伤害。"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"分裂伤害："
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_starting_width"	"起始宽度（码）："
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"基础分裂距离（码）："
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"每点攻击力增加距离（码）："
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_angle"			"分裂角度（°）："
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"孽主在拥有衰退光环的攻击力加成时，攻击具有分裂效果。分裂距离随当前加成攻击力提高。"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"孽主在拥有衰退光环的攻击力加成时，攻击具有分裂效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%分裂伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"分裂距离（基础）："
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"分裂距离（每点叠加攻击力）："
 		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>恶魔之势 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"拥有衰退光环的攻击力加成时，普攻造成<font color='#FFFFFF'><b>100%%</b></font>分裂伤害。当前分裂距离：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>。起始宽度为<font color='#FFFFFF'><b>150</b></font>，分裂角度为<font color='#FFFFFF'><b>75°</b></font>。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"拥有衰退光环的攻击力加成时，攻击造成<font color='#FFFFFF'><b>100%%</b></font>分裂伤害，分裂距离随当前加成攻击力提高。当前分裂距离：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>。"
 
 		// 斯拉克 精华侵蚀觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"

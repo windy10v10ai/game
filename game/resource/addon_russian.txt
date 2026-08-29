@@ -695,15 +695,13 @@
 
 		// 孽主 恶魔之势觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Пока Atrophy Aura даёт дополнительный урон от атак, атаки наносят прорубающий урон. Дальность прорубания увеличивается вместе с текущим бонусом к урону."
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Атаки становятся прорубающими, пока действует бонус к урону от Atrophy Aura."
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"УРОН ОТ ПРОРУБАНИЯ:"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_starting_width"	"НАЧАЛЬНАЯ ШИРИНА (ЕД.):"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"БАЗОВАЯ ДАЛЬНОСТЬ ПРОРУБАНИЯ (ЕД.):"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"ДАЛЬНОСТЬ ЗА ЕДИНИЦУ УРОНА (ЕД.):"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_angle"			"УГОЛ ПРОРУБАНИЯ (°):"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura. Дальность прорубания увеличивается с каждой единицей дополнительного урона."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%УРОН ОТ ПРОРУБАНИЯ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"ДАЛЬНОСТЬ ПРОРУБАНИЯ (БАЗОВАЯ):"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"ДАЛЬНОСТЬ ПРОРУБАНИЯ (ЗА ЕДИНИЦУ УРОНА):"
 		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Пока Atrophy Aura даёт дополнительный урон от атак, атаки наносят <font color='#FFFFFF'><b>100%%</b></font> прорубающего урона. Текущая дальность прорубания: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>. Начальная ширина — <font color='#FFFFFF'><b>150</b></font>, угол прорубания — <font color='#FFFFFF'><b>75°</b></font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Пока Atrophy Aura даёт дополнительный урон от атак, атаки наносят <font color='#FFFFFF'><b>100%%</b></font> прорубающего урона, а дальность прорубания увеличивается с каждой единицей дополнительного урона. Текущая дальность прорубания: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
 
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
