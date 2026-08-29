@@ -474,6 +474,34 @@
 			{
 				"value"							"30 40 50 60 70"
 			}
+			// 恶魔之势觉醒
+			"cleave_damage_pct"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=100"
+			}
+			"cleave_starting_width"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=150"
+				"affected_by_aoe_increase"		"1"
+			}
+			"cleave_angle"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=75"
+			}
+			"cleave_distance_base"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=100"
+				"affected_by_aoe_increase"		"1"
+			}
+			"cleave_distance_per_stack"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=2"
+			}
 		}
 	}
 	// 恶魔之扉 不扩展等级
@@ -1951,8 +1979,8 @@
 				{
 					"value"		"900"	// 750
 				}
-				"duration"		"2.5"	// 1.0
-				"knockback_distance"		"900"	// 600 +300
+				"duration"		"2.0"	// 1.0
+				"knockback_distance"		"300"	// 600 x0.5 拖拽太远会影响连招
 		}
 	}
 	// 洪流
@@ -4566,7 +4594,7 @@
 			"hero_damage"
 			{
 				"value"				"50 100 150 200 250"	// 30 50 70 90
-				"special_bonus_unique_wisp"		"+150%"		// +50%
+				"special_bonus_unique_wisp"		"+100%"		// +50%
 			}
 			"max_range"
 			{

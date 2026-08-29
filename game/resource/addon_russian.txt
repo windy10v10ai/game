@@ -702,6 +702,16 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Афтершок: пробуждение</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Каждый юнит, задетый Афтершоком, создаёт в точке попадания малый Афтершок без повторного срабатывания. Урон может накладываться; в каждой серии цель оглушается только один раз."
 
+		// 孽主 恶魔之势觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura. Дальность прорубания увеличивается с каждой единицей дополнительного урона."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Атаки Underlord наносят прорубающий урон, пока он получает дополнительный урон от Atrophy Aura."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%УРОН ОТ ПРОРУБАНИЯ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"ДАЛЬНОСТЬ ПРОРУБАНИЯ (БАЗОВАЯ):"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"ДАЛЬНОСТЬ ПРОРУБАНИЯ (ЗА ЕДИНИЦУ УРОНА):"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"				"Пока Atrophy Aura даёт дополнительный урон от атак, атаки наносят <font color='#FFFFFF'><b>100%%</b></font> прорубающего урона, а дальность прорубания увеличивается с каждой единицей дополнительного урона. Текущая дальность прорубания: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
+
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает %permanent_steal_pct%%% от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Базовые атрибуты вражеского героя не опускаются ниже <font color='#FFFFFF'><b>1</b></font>."

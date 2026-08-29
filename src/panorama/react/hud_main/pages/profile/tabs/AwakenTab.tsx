@@ -20,6 +20,11 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_abyssal_underlord',
+    abilityName: 'special_bonus_unique_underlord_demons_reach_awaken',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_slark',
     abilityName: 'special_bonus_unique_slark_permanent_essence_awaken',
     freeTrial: true,

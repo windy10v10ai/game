@@ -24,6 +24,12 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
     newAbility: 'special_bonus_unique_earthshaker_upgrade',
     newLevel: 1,
   },
+  // 孽主 觉醒
+  {
+    heroName: 'npc_dota_hero_abyssal_underlord',
+    newAbility: 'special_bonus_unique_underlord_demons_reach_awaken',
+    newLevel: 1,
+  },
   // 斯拉克 觉醒
   {
     heroName: 'npc_dota_hero_slark',
@@ -258,6 +264,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  */
 export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_earthshaker', // 撼地者
+  'npc_dota_hero_abyssal_underlord', // 孽主
   'npc_dota_hero_slark', // 斯拉克
   'npc_dota_hero_abaddon', // 亚巴顿
   'npc_dota_hero_skywrath_mage', // 天怒法师
