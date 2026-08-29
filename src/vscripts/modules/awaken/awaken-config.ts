@@ -270,7 +270,6 @@ export const FREE_TRIAL_HEROES: string[] = [
   'npc_dota_hero_skywrath_mage', // 天怒法师
   'npc_dota_hero_dazzle', // 戴泽
   'npc_dota_hero_elder_titan', // 上古巨神
-  'npc_dota_hero_techies', // 炸弹人
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */
