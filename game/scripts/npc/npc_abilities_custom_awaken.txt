@@ -5,6 +5,67 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 哈斯卡 炙矛可热觉醒
+	"huskar_burning_spear_incendiary_awakened"
+	{
+		"BaseClass"					"huskar_burning_spear"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ATTACK"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
+		"AbilitySound"				"Hero_Huskar.Burning_Spear"
+		"AbilityTextureName"			"huskar_burning_spear"
+		"AbilityCastRange"			"450"
+		"AbilityCastPoint"			"0"
+		"AbilityCooldown"			"0"
+		"AbilityManaCost"			"0"
+		"MaxLevel"					"5"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityValues"
+		{
+			"max_health_cost"
+			{
+				"value"					"2.0"
+			}
+			"burn_damage"
+			{
+				"value"					"0"
+			}
+			"burn_damage_max_pct"
+			{
+				"value"					"0"
+			}
+			"pure_burn_damage"
+			{
+				"value"					"10 20 30 40 50"
+				"special_bonus_unique_huskar_2"	"+10"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+			}
+			"pure_burn_damage_max_pct"
+			{
+				"value"					"1 2 3 4 4"
+				"DamageTypeTooltip"		"DAMAGE_TYPE_PURE"
+			}
+			"duration"
+			{
+				"value"					"9"
+				"special_bonus_unique_huskar_5"	"+6"
+			}
+		}
+	}
+
+	// 哈斯卡 炙矛可热觉醒状态
+	"special_bonus_unique_huskar_incendiary_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ts_abilities/special_bonus_unique_huskar_incendiary_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"AbilityTextureName"			"huskar_burning_spear"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+	}
+
 	// 斯拉克 精华侵蚀觉醒
 	"special_bonus_unique_slark_permanent_essence_awaken"
 	{

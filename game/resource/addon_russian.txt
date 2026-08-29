@@ -628,6 +628,23 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// 哈斯卡 炙矛可热觉醒
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened"					"<font color='#d000ff'>Incendiary · Пробуждение</font>"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Description"		"Huskar поджигает копья, и его атаки наносят складывающийся периодический урон. Каждая атака расходует часть максимального здоровья Huskar.<br><br><font color='#d000ff'>Бонус пробуждения:</font> даёт эффект Incendiary с уроном от максимального здоровья цели. Весь периодический урон является <font color='#FFE56E'>чистым</font>."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_SummaryDescription"	"Чистый периодический урон и 1–4% урона от максимального здоровья цели."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Lore"				"Священный воин зажигает копья собственной кровью и испепеляет жизненную силу врагов."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note0"				"Эффекты Burning Spear складываются без ограничения."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note1"				"Huskar не может убить себя этой способностью."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_Note2"				"Не наносит Рошану дополнительный урон от максимального здоровья."
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_max_health_cost"		"%РАСХОД МАКС. ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_pure_burn_damage"			"ЧИСТЫЙ УРОН ОТ ГОРЕНИЯ:"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_pure_burn_damage_max_pct"	"%ЧИСТЫЙ УРОН ОТ МАКС. ЗДОРОВЬЯ:"
+		"DOTA_Tooltip_ability_huskar_burning_spear_incendiary_awakened_duration"				"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_huskar_incendiary_awaken"				"<font color='#d000ff'>Incendiary · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_huskar_incendiary_awaken_Description"		"Burning Spear получает эффект Incendiary и наносит 1–4% максимального здоровья цели как дополнительный периодический урон. Весь периодический урон становится <font color='#FFE56E'>чистым</font>."
+		"DOTA_Tooltip_modifier_special_bonus_unique_huskar_incendiary_awaken"				"<font color='#d000ff'>Incendiary · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_huskar_incendiary_awaken_Description"		"Burning Spear наносит 1–4% максимального здоровья цели как дополнительный урон, и весь периодический урон является <font color='#FFE56E'>чистым</font>."
+
 		// Skywrath Mage Staff of the Scion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Посох отпрыска · Пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Бонус пробуждения:</font> Skywrath Mage получает Staff of the Scion. Каждый раз, когда его способности наносят <font color='#05CAFF'>магический урон</font> вражескому герою, время восстановления всех его способностей сокращается на %cooldown_reduction% сек.<br><br><font color='#00CED1'>Автоприменение:</font> Если включено, Skywrath Mage автоматически применяет Ancient Seal, Concussive Shot, Mystic Flare и Arcane Bolt, когда вражеский герой находится в радиусе применения. Arcane Bolt также применяется по крипам, если героев поблизости нет."
