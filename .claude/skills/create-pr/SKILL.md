@@ -49,8 +49,10 @@ EOF
 
 ## Step 3：Push
 
+**推到该分支的上游 remote，不要固定写 `origin`。** 自己新切的分支上游就是 `origin`（首次推带 `-u`）；分支若跟着别人 fork 提的 cross-repo PR，上游是那个 fork 的 remote，推到 `origin` 只会在主仓库多出一个同名分支，PR 收不到新 commit。推之前先确认上游：
+
 ```bash
-git push -u origin feature/{issue-number}-{branch-name}
+git rev-parse --abbrev-ref --symbolic-full-name @{u}
 ```
 
 ---
@@ -84,6 +86,7 @@ gh pr create --base develop --title "<英文标题>" --body-file <填充后的�
 
 ## 常见陷阱
 
+- **推到 `origin` 而非分支真正的上游**：动手前先 `gh pr list --head <branch>` 查该分支是否已有 PR。已有就不再新建，改为推到它的 head 仓库（cross-repo PR 需 `maintainerCanModify` 为 true）后报告原 PR 链接；推错地方的表现是主仓库凭空多出同名分支、而 PR 的 head commit 没变
 - **分支不是从 develop 切出**：若在别的 feature 分支上直接 `checkout -b`，新分支会带着上一个分支未合并的改动，PR diff 会包含无关内容
 - **Release Note 手写**：必须先跑 `release-note` skill，不要直接照抄改动列表拼凑
 - **待确认事项写成独立段落**：应该和 `I have tested the changes works well.` 放在同一个 `## Checklist` 里，各自一个 checkbox

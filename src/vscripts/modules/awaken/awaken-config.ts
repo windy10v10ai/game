@@ -18,6 +18,12 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 撼地者 觉醒
+  {
+    heroName: 'npc_dota_hero_earthshaker',
+    newAbility: 'special_bonus_unique_earthshaker_upgrade',
+    newLevel: 1,
+  },
   // 孽主 觉醒
   {
     heroName: 'npc_dota_hero_abyssal_underlord',
@@ -257,13 +263,13 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_earthshaker', // 撼地者
   'npc_dota_hero_abyssal_underlord', // 孽主
   'npc_dota_hero_slark', // 斯拉克
   'npc_dota_hero_abaddon', // 亚巴顿
   'npc_dota_hero_skywrath_mage', // 天怒法师
   'npc_dota_hero_dazzle', // 戴泽
   'npc_dota_hero_elder_titan', // 上古巨神
-  'npc_dota_hero_techies', // 炸弹人
 ];
 
 /** 可觉醒英雄名去重列表（随机抽选的英雄池真源） */

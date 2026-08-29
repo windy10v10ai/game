@@ -172,31 +172,6 @@
 		"PauseDemo_Button"							"Pause"
 		"QuitDemo_Button"							"Quit"
 
-		// Elder Titan Astral Spirit - Awakened
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Autocast: automatically sends the spirit toward the farthest enemy hero and recalls it automatically."
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan sends forth his Astral Spirit, damaging any units it passes through.  When the spirit rejoins the Titan, it grants bonus damage and movement speed for each unit it passed through.\n\nThe Astral Spirit possesses the Echo Stomp, Return Spirit, and Natural Order abilities.<br><br><font color='#d000ff'>Awakening Bonus:</font> Reduced cooldown.<br><font color='#00CED1'>Autocast:</font> Whenever the ability is off cooldown and an enemy hero is nearby, automatically sends the spirit toward the farthest enemy hero, then recalls it automatically as soon as the recall is available, with no manual input required. While active, manually cast spirits are also recalled automatically."
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"DURATION:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"BUFF DURATION:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"DAMAGE:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"RADIUS:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%BONUS SPEED (CREEPS):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%BONUS SPEED (HEROES):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"BONUS DAMAGE (CREEPS):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"BONUS DAMAGE (HEROES):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Causes Elder Titan to become debuff immune and gain %immunity_resist%%% magic resistance for %scepter_magic_immune_per_hero% seconds per affected enemy Hero when the spirit returns."
-		// Undying Flesh Decay - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Flesh Decay Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every %trigger_cooldown% seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Flesh Decay Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every <font color='#FFFFFF'><b>0.6</b></font> seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
-
-		// 术士 地狱火献祭-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Infernal Immolation Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by <font color='#FFFFFF'><b>150%%</b></font> of the sum of Warlock's current Health Regeneration and Mana Regeneration."
-
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -1284,6 +1259,40 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 撼地者 余震觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Aftershock Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Each unit hit by Aftershock creates a small Aftershock at its position, dealing separate magical damage to nearby enemies. Multiple small Aftershocks can hit the same unit, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_damage_pct"		"%SMALL AFTERSHOCK DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%SMALL AFTERSHOCK RADIUS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%SMALL AFTERSHOCK STUN DURATION:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Aftershock Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Aftershock creates a small Aftershock at each hit position, dealing <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> of its damage as <font color='#05CAFF'>magical damage</font> in <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> of its radius. Its stun lasts half as long. Their damage can overlap, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."
+
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Astral Spirit Awakened</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Autocast: automatically sends the spirit toward the farthest enemy hero and recalls it automatically."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan sends forth his Astral Spirit, damaging any units it passes through.  When the spirit rejoins the Titan, it grants bonus damage and movement speed for each unit it passed through.\n\nThe Astral Spirit possesses the Echo Stomp, Return Spirit, and Natural Order abilities.<br><br><font color='#d000ff'>Awakening Bonus:</font> Reduced cooldown.<br><font color='#00CED1'>Autocast:</font> Whenever the ability is off cooldown and an enemy hero is nearby, automatically sends the spirit toward the farthest enemy hero, then recalls it automatically as soon as the recall is available, with no manual input required. While active, manually cast spirits are also recalled automatically."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"DURATION:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"BUFF DURATION:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%BONUS SPEED (CREEPS):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%BONUS SPEED (HEROES):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"BONUS DAMAGE (CREEPS):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"BONUS DAMAGE (HEROES):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Causes Elder Titan to become debuff immune and gain %immunity_resist%%% magic resistance for %scepter_magic_immune_per_hero% seconds per affected enemy Hero when the spirit returns."
+		// Undying Flesh Decay - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Flesh Decay Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every %trigger_cooldown% seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Flesh Decay Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"While Flesh Golem is active, each of Undying's normal attacks casts Decay centered on the enemy hit, triggering at most once every <font color='#FFFFFF'><b>0.6</b></font> seconds. This cast costs no mana and does not affect Decay's cooldown.<br>Cannot be triggered by illusions or while Broken.<br>Derived attacks with no attack cooldown cannot trigger this effect."
+
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by the sum of Warlock's current Health Regeneration and Mana Regeneration, multiplied by %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Infernal Immolation Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Increases Infernal's Permanent Immolation damage per second by <font color='#FFFFFF'><b>150%%</b></font> of the sum of Warlock's current Health Regeneration and Mana Regeneration."
 
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"

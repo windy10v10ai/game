@@ -172,31 +172,6 @@
 		"PauseDemo_Button"							"暂停"
 		"QuitDemo_Button"							"退出"
 
-		// 上古巨神 灵体游魂-觉醒
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"自动施法：自动朝最远的敌方英雄放出游魂并自动收回。"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"上古巨神放出他的灵体游魂，灵魂对任何经过的单位都会造成伤害。当它与巨神合体时，它每伤害过一个单位都会给予若干攻击力和移动速度加成。\n\n灵体游魂拥有回音重踏，回归和自然秩序三个技能。<br><br><font color='#d000ff'>觉醒强化：</font>冷却时间缩短。<br><font color='#00CED1'>自动施法：</font>技能冷却完毕且附近存在敌方英雄时，自动朝距离最远的敌方英雄放出游魂，游魂可召回时立即自动收回，无需手动操作；开启期间手动放出的游魂同样会被自动收回。"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"灵体持续时间："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"加成持续时间："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"伤害："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"作用范围："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%移动速度加成（非英雄）："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%移动速度加成（英雄）："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"攻击力加成（非英雄）："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"攻击力加成（英雄）："
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"游魂每碰到一名英雄就能使上古巨神在游魂回归后获得%scepter_magic_immune_per_hero%秒<font color='#d76907'>减益免疫</font>状态和%immunity_resist%%%魔法抗性提升。"
-		// 尸王 血肉腐朽-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.6</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
-
-		// 术士 地狱火献祭-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的%regen_to_damage_pct%%%。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>地狱火献祭 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的<font color='#FFFFFF'><b>150%%</b></font>。"
-
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -1279,6 +1254,40 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 撼地者 余震觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>余震 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"余震命中的每个单位都会在原地触发一次小余震，对附近敌人造成独立的魔法伤害。多个小余震可同时命中同一目标，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_damage_pct"		"%小余震伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%小余震作用范围："
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%小余震眩晕时间："
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>余震 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"余震会在每个命中位置触发一次小余震，造成原余震<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>的<font color='#05CAFF'>魔法伤害</font>，作用范围为原余震的<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font>。眩晕时间为原余震的一半。小余震伤害可以重叠，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"
+
+		// 上古巨神 灵体游魂-觉醒
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>灵体游魂 觉醒</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"自动施法：自动朝最远的敌方英雄放出游魂并自动收回。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"上古巨神放出他的灵体游魂，灵魂对任何经过的单位都会造成伤害。当它与巨神合体时，它每伤害过一个单位都会给予若干攻击力和移动速度加成。\n\n灵体游魂拥有回音重踏，回归和自然秩序三个技能。<br><br><font color='#d000ff'>觉醒强化：</font>冷却时间缩短。<br><font color='#00CED1'>自动施法：</font>技能冷却完毕且附近存在敌方英雄时，自动朝距离最远的敌方英雄放出游魂，游魂可召回时立即自动收回，无需手动操作；开启期间手动放出的游魂同样会被自动收回。"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"灵体持续时间："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"加成持续时间："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"伤害："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"作用范围："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%移动速度加成（非英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%移动速度加成（英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"攻击力加成（非英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"攻击力加成（英雄）："
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"游魂每碰到一名英雄就能使上古巨神在游魂回归后获得%scepter_magic_immune_per_hero%秒<font color='#d76907'>减益免疫</font>状态和%immunity_resist%%%魔法抗性提升。"
+		// 尸王 血肉腐朽-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>血肉腐朽 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每%trigger_cooldown%秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>血肉腐朽 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"血肉傀儡期间，尸王的普通攻击命中敌人时，会以该敌人为中心施放一次腐朽，最多每<font color='#FFFFFF'><b>0.6</b></font>秒触发一次。此次施放不消耗魔法，且不影响腐朽的冷却时间。<br>幻象和破坏状态下无法触发。<br>无攻击间隔的衍生攻击无法触发。"
+
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>地狱火献祭 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的%regen_to_damage_pct%%%。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>地狱火献祭 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"地狱火的永恒献祭每秒伤害提高，数值等于术士当前生命恢复与魔法恢复之和的<font color='#FFFFFF'><b>150%%</b></font>。"
 
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"
