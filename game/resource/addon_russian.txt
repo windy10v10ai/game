@@ -169,31 +169,6 @@
 		"DOTA_Tooltip_ability_item_sacred_six_vein_manacost_reduction"					"%+Снижение затрат и потери маны"
 		"DOTA_Tooltip_ability_item_sacred_six_vein_cast_speed_pct"						"%+Скорость применения"
 
-		// Elder Titan Astral Spirit - Awakened
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan призывает своего астрального духа, который наносит урон любым юнитам на своём пути. Когда дух воссоединяется с Titan, он даёт бонус к урону и скорости передвижения за каждый задетый юнит.\n\nАстральный дух обладает способностями Echo Stomp, Return Spirit и Natural Order.<br><br><font color='#d000ff'>Бонус пробуждения:</font> Сокращённое время восстановления.<br><font color='#00CED1'>Автоприменение:</font> Как только способность готова к использованию и поблизости есть вражеский герой, автоматически посылает духа к самому дальнему вражескому герою, а затем автоматически возвращает его, как только возврат становится доступен, без ручного управления. Пока способность активна, вручную призванный дух также возвращается автоматически."
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"ДЛИТЕЛЬНОСТЬ:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"ДЛИТЕЛЬНОСТЬ БОНУСА:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"УРОН:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"РАДИУС:"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (НЕ-ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"БОНУС УРОНА (НЕ-ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"БОНУС УРОНА (ГЕРОИ):"
-		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Elder Titan получает неуязвимость к дебаффам и %immunity_resist%%% сопротивления магии на %scepter_magic_immune_per_hero% сек. за каждого задетого вражеского героя, когда дух возвращается."
-		// Undying Flesh Decay - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в %trigger_cooldown% сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.6</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
-
-		// 术士 地狱火献祭-觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Адское пламя: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на <font color='#FFFFFF'><b>150%%</b></font> суммы текущих восстановления здоровья и маны Чернокнижника."
-
 		///////////////////////////////////////////////////
 		//
 		//            Data panel
@@ -693,14 +668,39 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
-		// Earthshaker Aftershock - Awakened
+		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Афтершок: пробуждение</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Каждый юнит, задетый собственным Афтершоком Earthshaker, создаёт малый Афтершок в точке попадания. Каждый малый Афтершок отдельно находит врагов поблизости и наносит отдельный магический урон; перекрывающиеся малые Афтершоки могут многократно наносить урон одной цели. В каждой серии цель оглушается только один раз. Малые Афтершоки не запускают этот эффект повторно."
+		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Каждая цель, задетая Афтершоком, создаёт малый Афтершок в своей точке, наносящий отдельный магический урон врагам поблизости. Несколько малых Афтершоков могут поразить одну цель, но в каждой серии оглушают её только один раз. Малые Афтершоки не создают новые малые Афтершоки."
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_damage_pct"		"%УРОН МАЛОГО АФТЕРШОКА:"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_radius_pct"		"%РАДИУС МАЛОГО АФТЕРШОКА:"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_small_aftershock_stun_pct"		"%ДЛИТЕЛЬНОСТЬ ОГЛУШЕНИЯ:"
 		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade"					"<font color='#d000ff'>Афтершок: пробуждение</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Каждый юнит, задетый Афтершоком, создаёт в точке попадания малый Афтершок без повторного срабатывания. Урон может накладываться; в каждой серии цель оглушается только один раз."
+		"DOTA_Tooltip_modifier_special_bonus_unique_earthshaker_upgrade_Description"		"Афтершок создаёт малый Афтершок в каждой точке попадания. Их урон может накладываться, но в каждой серии цель оглушается только один раз. Малые Афтершоки не создают новые малые Афтершоки."
+
+		// Elder Titan Astral Spirit - Awakened
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken"						"<font color='#d000ff'>Астральный дух: пробуждение</font>"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_SummaryDescription"		"Автоприменение: автоматически посылает духа к самому дальнему вражескому герою и автоматически возвращает его."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_Description"		"Elder Titan призывает своего астрального духа, который наносит урон любым юнитам на своём пути. Когда дух воссоединяется с Titan, он даёт бонус к урону и скорости передвижения за каждый задетый юнит.\n\nАстральный дух обладает способностями Echo Stomp, Return Spirit и Natural Order.<br><br><font color='#d000ff'>Бонус пробуждения:</font> Сокращённое время восстановления.<br><font color='#00CED1'>Автоприменение:</font> Как только способность готова к использованию и поблизости есть вражеский герой, автоматически посылает духа к самому дальнему вражескому герою, а затем автоматически возвращает его, как только возврат становится доступен, без ручного управления. Пока способность активна, вручную призванный дух также возвращается автоматически."
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_spirit_duration"		"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_buff_duration"		"ДЛИТЕЛЬНОСТЬ БОНУСА:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_pass_damage"			"УРОН:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_radius"				"РАДИУС:"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_creeps"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_move_pct_heroes"		"%СКОРОСТЬ ПЕРЕДВИЖЕНИЯ (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_creeps"		"БОНУС УРОНА (НЕ-ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_damage_heroes"		"БОНУС УРОНА (ГЕРОИ):"
+		"DOTA_Tooltip_ability_elder_titan_ancestral_spirit_awaken_scepter_description"	"Elder Titan получает неуязвимость к дебаффам и %immunity_resist%%% сопротивления магии на %scepter_magic_immune_per_hero% сек. за каждого задетого вражеского героя, когда дух возвращается."
+		// Undying Flesh Decay - Awakened
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade"					"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в %trigger_cooldown% сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade"			"<font color='#d000ff'>Гниение плоти: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_undying_upgrade_Description"	"Пока действует Голем из плоти, каждая обычная атака Undying при попадании применяет Гниение с центром на поражённом враге, но не чаще одного раза в <font color='#FFFFFF'><b>0.6</b></font> сек. Это применение не расходует ману и не влияет на перезарядку Гниения.<br>Иллюзии и отключение пассивных способностей не активируют эффект.<br>Производные атаки без задержки между атаками не активируют эффект."
+
+		// 术士 地狱火献祭-觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade"					"<font color='#D000FF'>Адское пламя: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на сумму текущих восстановления здоровья и маны Чернокнижника, умноженную на %regen_to_damage_pct%%%."
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade"			"<font color='#D000FF'>Адское пламя: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_warlock_upgrade_Description"	"Увеличивает урон в секунду от Постоянного пламени Адского пламени на <font color='#FFFFFF'><b>150%%</b></font> суммы текущих восстановления здоровья и маны Чернокнижника."
 
 		// 孽主 恶魔之势觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Демонический размах · Пробуждение</font>"
