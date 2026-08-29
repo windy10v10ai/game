@@ -18,17 +18,16 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
-  // 兽王 觉醒（复用原生 class 保留 hardcode 行为，觉醒 tooltip 单独隔离）
+  // 兽王 觉醒
+  {
+    heroName: 'npc_dota_hero_beastmaster',
+    newAbility: 'special_bonus_unique_beastmaster_awaken',
+    newLevel: 1,
+  },
   {
     heroName: 'npc_dota_hero_beastmaster',
     targetAbility: 'beastmaster_wild_axes',
     newAbility: 'beastmaster_wild_axes_awaken',
-    newLevel: 0,
-  },
-  {
-    heroName: 'npc_dota_hero_beastmaster',
-    targetAbility: 'beastmaster_drums_of_slom',
-    newAbility: 'beastmaster_drums_of_slom_awaken',
     newLevel: 0,
   },
   // 孽主 觉醒
