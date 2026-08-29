@@ -23,7 +23,7 @@ export class modifier_special_bonus_unique_underlord_demons_reach_awaken extends
     if (!IsServer()) return;
 
     this.updateCleaveDistance();
-    this.StartIntervalThink(0.2);
+    this.StartIntervalThink(0.5);
   }
 
   OnIntervalThink(): void {
