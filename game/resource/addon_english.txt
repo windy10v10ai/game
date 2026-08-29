@@ -1285,6 +1285,17 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 敌法师 觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken"						"<font color='#d000ff'>Mana Suppression Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_Description"			"Casting Blink prevents nearby enemies from gaining or regenerating mana and causes enemy heroes to lose mana equal to a portion of their maximum mana. Casting Mana Void also simultaneously casts Mana Void on other enemy heroes near the selected hero. These simultaneous casts ignore Spell Block and Spell Reflection, and each hero is affected only once."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_SummaryDescription"	"Blink suppresses nearby enemies' mana, while Mana Void is simultaneously cast on other enemy heroes near the selected hero."
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_blink_radius"			"BLINK EFFECT RADIUS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_mana_lock_duration"		"MANA GAIN PREVENTION DURATION:"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_max_mana_reduction_pct"	"MANA LOST BASED ON MAX MANA:"
+		"DOTA_Tooltip_ability_special_bonus_unique_antimage_mana_suppression_awaken_mana_void_spread_radius"	"MANA VOID SIMULTANEOUS CAST RADIUS:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken"					"<font color='#d000ff'>Mana Suppression Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_antimage_mana_suppression_awaken_Description"			"Casting Blink prevents enemies within <font color='#FFFFFF'><b>1000</b></font> of the destination from gaining or regenerating mana for <font color='#FFFFFF'><b>6</b></font> seconds and causes enemy heroes to lose mana equal to <font color='#FFFFFF'><b>50%%</b></font> of their maximum mana. Casting Mana Void also simultaneously casts Mana Void on other enemy heroes within <font color='#FFFFFF'><b>500</b></font> of the selected hero. These simultaneous casts ignore Spell Block and Spell Reflection, and each hero is affected only once."
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>Squee's Scope Awakened</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"Techies gains %attack_range_tooltip% attack range and attack projectile speed for each point of attack speed."
