@@ -1951,8 +1951,8 @@
 				{
 					"value"		"900"	// 750
 				}
-				"duration"		"2.5"	// 1.0
-				"knockback_distance"		"900"	// 600 +300
+				"duration"		"2.0"	// 1.0
+				"knockback_distance"		"300"	// 600 x0.5 拖拽太远会影响连招
 		}
 	}
 	// 洪流
