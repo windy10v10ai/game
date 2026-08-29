@@ -3572,6 +3572,16 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
+		// 孽主 恶魔之势觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Demon's Reach Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Underlord's attacks cleave while he has bonus damage from Atrophy Aura. Cleave distance increases with each point of bonus damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Underlord's attacks cleave while he has bonus damage from Atrophy Aura."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%CLEAVE DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"CLEAVE DISTANCE (BASE):"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"CLEAVE DISTANCE (PER STACK):"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Demon's Reach Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"While Atrophy Aura grants bonus attack damage, attacks deal <font color='#FFFFFF'><b>100%%</b></font> cleave damage, with cleave distance increasing for each point of bonus damage. Current cleave distance: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
+
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals %permanent_steal_pct%%% of the total attributes his Essence Shift has taken from that hero.<br>An enemy hero's base attributes never fall below <font color='#FFFFFF'><b>1</b></font>."

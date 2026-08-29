@@ -474,6 +474,34 @@
 			{
 				"value"							"30 40 50 60 70"
 			}
+			// 恶魔之势觉醒
+			"cleave_damage_pct"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=100"
+			}
+			"cleave_starting_width"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=150"
+				"affected_by_aoe_increase"		"1"
+			}
+			"cleave_angle"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=75"
+			}
+			"cleave_distance_base"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=100"
+				"affected_by_aoe_increase"		"1"
+			}
+			"cleave_distance_per_stack"
+			{
+				"value"							"0"
+				"special_bonus_unique_underlord_demons_reach_awaken"	"=2"
+			}
 		}
 	}
 	// 恶魔之扉 不扩展等级

@@ -9,9 +9,13 @@ description: >-
 # PR Review 流程
 
 1. **输入**：用户给出 PR 号或分支名。
-2. **确认 checkout**：询问是否需要切换。需要则执行：
-   - 有 PR 号：`gh pr checkout <PR号>`——fork 提交的 PR 也只会拉取该 PR 头部对应 commit 建本地分支，不会额外拉取 fork 的其它分支
-   - 只有分支名（同仓库）：`git checkout <branch>`
+2. **确认 checkout**：询问是否需要切换。需要时只 fetch 目标分支，同时保留向原 PR 分支 push 的能力：
+   - 有 PR 号：先用 `gh pr view <PR号> --json headRefName,headRepository,headRepositoryOwner` 取得 PR head 分支与仓库 URL。
+   - 为该 PR 使用独立 remote（如 `review-pr-<PR号>`），用 `git remote add --no-tags -t "<headRefName>" "review-pr-<PR号>" "<headRepositoryUrl>"` 把 fetch refspec 限定为该分支，再执行 `git fetch --no-tags "review-pr-<PR号>"`。**禁止**使用带 `+refs/heads/*` 的作者 fork remote，也不要使用会创建这种通配 remote 的 `gh pr checkout`；本地 Git 自动同步可能因此拉取整个 fork。
+   - 从 `review-pr-<PR号>/<headRefName>` 创建**同名本地分支**并设置 upstream；同名可让修改后直接 `git push` 回原 PR 分支。若本地同名分支或同名 review remote 已存在，先检查 URL、upstream 和工作区状态，不得直接覆盖或删除。
+   - checkout 后用 `git config --get-all remote.review-pr-<PR号>.fetch` 验证只存在 `+refs/heads/<headRefName>:refs/remotes/review-pr-<PR号>/<headRefName>`，并用 `git for-each-ref refs/remotes/review-pr-<PR号>` 确认只有目标分支。
+   - PR 完成且不再需要 push 后，可询问用户是否执行 `git remote remove review-pr-<PR号>` 清理该 PR 的 remote-tracking ref；本地修改分支不随 remote 删除。
+   - 只有分支名（同仓库）：`git switch <branch>`。
 3. **生成报告**：按下方判断标准审阅改动，从用户视角说明实现了什么功能、实现方式是否符合规范、是否有过度设计或冗余测试值得简化。同时：
    - 在对话中完整展示
    - 落盘为 `docs/review/pr-{PR号}.md`（没有 PR 号时退化为 `docs/review/review-{分支名}.md`）；`docs/review/` 已加入 `.gitignore`，报告不进版本控制
