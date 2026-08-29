@@ -65,7 +65,7 @@ export const abilityTiersActive: Tier[] = [
       'treant_overgrowth', // 疯狂生长
       'zuus_thundergods_wrath', // 雷神之怒
       'crystal_maiden_freezing_field', // 极寒领域
-      'enigma_black_hole', // 黑洞
+      // 'enigma_black_hole', // 黑洞 会导致电脑不推进
       'phantom_assassin_blur', // 魅影无形
       'furion_teleportation', // 自然传送
 

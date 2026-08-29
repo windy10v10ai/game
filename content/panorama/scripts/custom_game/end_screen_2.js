@@ -104,35 +104,65 @@ function Snippet_Player(playerId, rootPanel, index) {
   panel.SetDialogVariableInt('heroHealing', playerData?.healing ?? 0);
   panel.SetDialogVariableInt('towerKills', playerData?.towerKills ?? 0);
   panel.SetDialogVariableInt('stuns', Math.round(playerData?.stuns ?? 0));
-  const pointModifier = playerData?.pointModifier ?? 0;
+  const conductDelta = playerData?.conductDelta ?? 0;
   const conductPoint = playerData?.conductPoint ?? 100;
   const points = playerData?.points ?? 0;
+  const dailyTask = playerData?.dailyTask;
   const pointsContainer = panel.FindChildTraverse('PointsLabel');
   const pointsValueLabel = panel.FindChildTraverse('PointsValue');
   const pointsModifierLabel = panel.FindChildTraverse('PointsModifier');
+  const dailyTaskBadge = panel.FindChildTraverse('DailyTaskBadge');
+
   if (pointsValueLabel) pointsValueLabel.text = String(points);
-  if (pointsModifierLabel && pointsContainer) {
-    if (pointModifier !== 0) {
-      const sign = pointModifier > 0 ? '+' : '-';
-      pointsModifierLabel.text = sign + Math.abs(pointModifier);
+
+  if (pointsModifierLabel) {
+    if (conductDelta !== 0) {
+      const sign = conductDelta > 0 ? '+' : '-';
+      pointsModifierLabel.text = sign + Math.abs(conductDelta);
       pointsModifierLabel.visible = true;
+    } else {
+      pointsModifierLabel.visible = false;
+    }
+  }
+
+  if (dailyTaskBadge) {
+    if (dailyTask) {
+      const dailyTaskValueLabel = dailyTaskBadge.FindChildTraverse('DailyTaskBadgeValue');
+      if (dailyTaskValueLabel) dailyTaskValueLabel.text = '+' + dailyTask.rewardSeasonPoint;
+      dailyTaskBadge.visible = true;
+    } else {
+      dailyTaskBadge.visible = false;
+    }
+  }
+
+  // 每日任务徽章热区太小难以命中，行为分与每日任务的加成合并成一个提示，
+  // 挂在整个积分区域上，悬浮到 193/+13/+N 任意一处都能看到完整说明
+  if (pointsContainer) {
+    const tooltipLines = [];
+    if (dailyTask) {
+      const dailyTaskTooltip = BuildDailyTaskTooltip(dailyTask);
+      if (dailyTaskTooltip) tooltipLines.push(dailyTaskTooltip);
+    }
+    if (conductDelta !== 0) {
+      let tooltipKey;
+      if (conductDelta > 0) {
+        tooltipKey = '#conduct_point_bonus_tooltip';
+      } else if (conductPoint < 60) {
+        tooltipKey = '#conduct_point_heavy_penalty_tooltip';
+      } else {
+        tooltipKey = '#conduct_point_light_penalty_tooltip';
+      }
+      tooltipLines.push($.Localize(tooltipKey).replace('{0}', conductPoint));
+    }
+    if (tooltipLines.length > 0) {
+      const tooltipText = tooltipLines.join('<br>');
       pointsContainer.SetPanelEvent('onmouseover', () => {
-        let tooltipKey;
-        if (pointModifier > 0) {
-          tooltipKey = '#conduct_point_bonus_tooltip';
-        } else if (conductPoint < 60) {
-          tooltipKey = '#conduct_point_heavy_penalty_tooltip';
-        } else {
-          tooltipKey = '#conduct_point_light_penalty_tooltip';
-        }
-        const tooltipText = $.Localize(tooltipKey).replace('{0}', conductPoint);
         $.DispatchEvent('DOTAShowTextTooltip', pointsContainer, tooltipText);
       });
       pointsContainer.SetPanelEvent('onmouseout', () => {
         $.DispatchEvent('DOTAHideTextTooltip');
       });
     } else {
-      pointsModifierLabel.visible = false;
       pointsContainer.ClearPanelEvent('onmouseover');
       pointsContainer.ClearPanelEvent('onmouseout');
     }
@@ -190,6 +220,24 @@ function Snippet_Player(playerId, rootPanel, index) {
       CreateAbilityImage(abilitiesContainer, lotteryStatus.passiveAbilityName2);
     }
   }
+}
+
+/**
+ * 结算页每日任务 tooltip 文案，复用候选卡的本地化 key（#dailytask_task_<scope>_<metric>）。
+ * 与 dailytask-ui.ts 的 getTaskTitle 逻辑一致，但这里走独立于 webpack/TSTL 的旧版 Panorama 脚本管线，无法直接共享。
+ *
+ * @param {Object} candidate TaskCandidateDto
+ * @returns {string|null} 未知 metric（本地化模板缺失）时返回 null
+ */
+function BuildDailyTaskTooltip(candidate) {
+  const scopeKey = candidate.scope === 'personal_hero' ? 'hero' : 'general';
+  const key = '#dailytask_task_' + scopeKey + '_' + candidate.metric;
+  const template = $.Localize(key);
+  if (template === key) return null;
+  const hero = candidate.heroName ? $.Localize('#' + candidate.heroName) : '';
+  const target = String(candidate.target).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const sentence = template.replace(/\{hero\}/g, hero).replace(/\{target\}/g, target);
+  return $.Localize('#dailytask_settlement_tooltip_prefix') + sentence;
 }
 
 function CreateAbilityImage(abilitiesContainer, abilityName) {

@@ -40,6 +40,9 @@ interface CustomGameEventDeclarations {
   player_conduct: PlayerConductEventData;
 
   debug_panel_add_to_unit: DebugPanelAddToUnitEventData;
+
+  dailytask_select_candidate: DailyTaskSelectCandidateEventData;
+  dailytask_refresh_candidates: Record<string, never>;
 }
 
 interface CustomGameEventDataBase {
@@ -134,6 +137,11 @@ interface DebugPanelAddToUnitEventData {
   entindex: number;
   kind: string; // 'item' | 'ability'
   name: string;
+}
+
+// 玩家在候选卡里本地选择一个每日任务，taskId 不认识时服务端忽略
+interface DailyTaskSelectCandidateEventData {
+  taskId: string;
 }
 
 // 按地图记住/清除游戏预设的意图开关。仅传 remember，

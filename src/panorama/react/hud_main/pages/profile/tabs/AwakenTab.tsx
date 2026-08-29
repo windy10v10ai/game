@@ -20,6 +20,16 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_abyssal_underlord',
+    abilityName: 'special_bonus_unique_underlord_demons_reach_awaken',
+    freeTrial: true,
+  },
+  {
+    heroName: 'npc_dota_hero_slark',
+    abilityName: 'special_bonus_unique_slark_permanent_essence_awaken',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_abaddon',
     abilityName: 'special_bonus_unique_abaddon_quickening_awaken',
     freeTrial: true,
@@ -47,22 +57,18 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_undying',
     abilityName: 'special_bonus_unique_undying_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_lich',
     abilityName: 'special_bonus_unique_lich_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_doom_bringer',
     abilityName: 'doom_bringer_doom_awakened',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_keeper_of_the_light',
     abilityName: 'special_bonus_unique_keeper_of_the_light_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_crystal_maiden',
@@ -136,9 +142,9 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
 ];
 
 // 与后端 hero-awakening 接口保持一致（固定消耗，不分英雄）
-const HERO_AWAKEN_UNLOCK_COST_SEASON = 10000;
+const HERO_AWAKEN_UNLOCK_COST_SEASON = 8000;
 // 随机抽选半价，与 api 价格表一致
-const HERO_AWAKEN_RANDOM_COST_SEASON = 5000;
+const HERO_AWAKEN_RANDOM_COST_SEASON = 4000;
 // 会员积分档，与 api 价格表一致
 const HERO_AWAKEN_UNLOCK_COST_MEMBER = 4000;
 const HERO_AWAKEN_RANDOM_COST_MEMBER = 2000;

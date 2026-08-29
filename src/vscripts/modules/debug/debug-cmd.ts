@@ -8,7 +8,7 @@ export enum CMD {
   REFRESH_AI = '-r', // 刷新AI
   TIME = '-time', // 获取当前时间，不包含暂停
   D = '-d', // 获取当前伤害
-  S = '-s', // 获取控制时长
+  S = '-s', // 获取控制时长与治疗量
 
   KILL = '-k',
   KILL_ALL = '-kall',
@@ -22,6 +22,9 @@ export enum CMD {
   TREASURE = '-treasure', // 在 SPAWN_POINTS_INITIAL 刷新一个藏宝箱
   PICK_ITEM = '-pickitem', // 强制触发物品抽奖 UI（跳过宝箱）
 
+  BOT_THINKING_ENABLE = '-bte', // 开启/关闭 bot
+  BOT_THINKING_DISABLE = '-btd', // 开启/关闭 bot
+
   // ---- 当前英雄相关 ----
   REPLACE_HERO = '-rh', // 替换当前英雄
   /** 重置当前英雄技能 */
@@ -34,10 +37,6 @@ export enum CMD {
   STUN = '-stun',
   SILENCE = '-silence',
   ROOT = '-root',
-
-  // ---- ability ----
-  ADD_ABILITY = '-ab',
-  ADD_ABILITY_ALL = '-aball',
 
   // ---- item ----
   ADD_BKB_ALL = '-bkball', // 所有人添加bkb

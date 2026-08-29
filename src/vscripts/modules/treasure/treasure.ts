@@ -8,7 +8,7 @@ import { ItemLotteryPool } from '../lottery/item/item-lottery-helper';
 export class Treasure {
   static readonly UNIT_NAME = 'npc_treasure_chest';
 
-  static readonly RESPAWN_INTERVAL_SINGLE = 120; // 单人局
+  static readonly RESPAWN_INTERVAL_SINGLE = 180; // 单人局
   static readonly RESPAWN_INTERVAL_MULTI = 180; // 多人局（全队发奖励，避免刷太多）
   static readonly MAX_ACTIVE_CHESTS = 2;
   static readonly Z_SINK = 64;
@@ -147,6 +147,8 @@ export class Treasure {
   }
 
   spawnOne(): void {
+    this.cleanupInvalidChests();
+
     // 增加场上同时存在的最大个数兜底，避免玩家完全找不到第一只
     if (this.activeChests.size >= Treasure.MAX_ACTIVE_CHESTS) {
       return;
@@ -156,6 +158,22 @@ export class Treasure {
 
   debugSpawnAt(point: Vector): void {
     this.spawnAt(point);
+  }
+
+  private cleanupInvalidChests(): void {
+    for (const entIndex of this.activeChests.keys()) {
+      const entity = EntIndexToHScript(entIndex);
+
+      if (
+        !entity ||
+        entity.IsNull() ||
+        !entity.IsBaseNPC() ||
+        entity.GetUnitName() !== Treasure.UNIT_NAME ||
+        !entity.IsAlive()
+      ) {
+        this.activeChests.delete(entIndex);
+      }
+    }
   }
 
   /** 调试用 */

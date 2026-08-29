@@ -39,6 +39,7 @@
 							<Label text="14" id="14"/>
 							<Label text="15" id="15"/>
 							<Label text="20" id="20"/>
+							<Label text="30" id="30"/>
 							<Label text="#bot_gold_xp_multiplier_40" id="40"/>
 						</DropDown>
 					</Panel>
@@ -230,6 +231,10 @@
 				<Button id="ChatHideButtonShow" class="ChatHideButton" onactivate="ShowChatTeamActivate()">
 					<Label id="ChatHideButtonLabelShow" class="ChatHideButtonLabel" text="#show_chat_team" />
 				</Button>
+			</Panel>
+			<Panel id="LoadingFaqPanel" hittest="false">
+				<Label id="LoadingFaqQuestion" />
+				<Label id="LoadingFaqAnswer" />
 			</Panel>
 		</Panel>
 	</Panel>

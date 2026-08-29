@@ -3,7 +3,7 @@ import { AbilitySpec, TargetSide } from '../ability-spec';
 /**
  * 暗影萨满 - 巨蟒之瓮（Shard 群蛇守卫升级）：POINT | AOE / ENEMY。
  *
- * 逻辑与 mass_serpent_ward 相同：多英雄聚团或推塔波到来时施放。
+ * 逻辑与 mass_serpent_ward 相同：多英雄聚团或推塔波到来时施放，判据与落点口径也沿用同一套。
  */
 export const SPECS: AbilitySpec[] = [
   {
@@ -12,6 +12,8 @@ export const SPECS: AbilitySpec[] = [
     condition: {
       target: {
         count: { gte: 2 },
+        range: { lte: 900 },
+        castMode: 'projectedOnCastRange',
       },
     },
   },

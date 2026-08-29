@@ -41,6 +41,9 @@ export function TryCastBySpec(
   if (CheckNoEnemyHeroInRangeFailure(ai, condition?.self?.noEnemyHeroInRange)) {
     return false;
   }
+  if (CheckEnemyHeroInRangeFailure(ai, condition?.self?.enemyHeroInRange)) {
+    return false;
+  }
   if (CheckNoEnemyBuildingInRangeFailure(ai, condition?.self?.noEnemyBuildingInRange)) {
     return false;
   }
@@ -79,6 +82,16 @@ export function TryCastBySpec(
  *   限制为 cast range，失去意义。
  */
 
+function HasEnemyHeroInRange(ai: BotBaseAIModifier, range: number): boolean {
+  const hero = ai.GetHero();
+  for (const enemy of ai.aroundEnemyHeroes) {
+    if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= range) {
+      return true;
+    }
+  }
+  return false;
+}
+
 function CheckNoEnemyHeroInRangeFailure(
   ai: BotBaseAIModifier,
   noHeroRange: number | undefined,
@@ -86,13 +99,17 @@ function CheckNoEnemyHeroInRangeFailure(
   if (noHeroRange === undefined) {
     return false;
   }
-  const hero = ai.GetHero();
-  for (const enemy of ai.aroundEnemyHeroes) {
-    if (enemy.IsAlive() && hero.GetRangeToUnit(enemy) <= noHeroRange) {
-      return true;
-    }
+  return HasEnemyHeroInRange(ai, noHeroRange);
+}
+
+function CheckEnemyHeroInRangeFailure(
+  ai: BotBaseAIModifier,
+  heroRange: number | undefined,
+): boolean {
+  if (heroRange === undefined) {
+    return false;
   }
-  return false;
+  return !HasEnemyHeroInRange(ai, heroRange);
 }
 
 function CheckNoEnemyBuildingInRangeFailure(
@@ -198,27 +215,66 @@ function pickTarget(
   }
 
   const candidates = candidatesFor(ai, targetSide);
-  const filledCondition = fillRangeFromCastRange(condition, hero, castable);
-  return FilterTargetWithCondition(filledCondition, candidates, hero, castable);
+  const resolved = resolveTargetCondition(condition, hero, castable, targetSide);
+  return FilterTargetWithCondition(resolved, candidates, hero, castable);
 }
 
 /**
- * 当 spec 未显式指定 target.range.lte 时，自动补上技能/物品的有效搜索距离：
+ * 把 spec 声明的目标条件补齐成本次施法实际生效的条件。
+ *
+ * 两项调整都只在需要时发生，都不需要时原样返回，避免每 tick 无谓构造对象。
+ */
+function resolveTargetCondition(
+  condition: CastCoindition | undefined,
+  hero: CDOTA_BaseNPC_Hero,
+  castable: CDOTABaseAbility,
+  targetSide: TargetSide,
+): CastCoindition {
+  const existingTarget = condition?.target;
+  const range = resolveRange(existingTarget, hero, castable);
+  const count = resolveCount(existingTarget, hero, targetSide, condition?.action !== undefined);
+  if (range === undefined && count === undefined) {
+    return condition!;
+  }
+  // 必须构造全新对象而非复用/改写 existingTarget —— spec 是 Map 里的模块级单例，
+  // 跨所有英雄/所有 tick 共享同一个引用，原地写 target.range 会把第一次算出的
+  // cast range "冻结"进共享 spec，之后所有英雄、所有 tick 都读到这个过期值。
+  // 避免使用对象 spread —— TSTL 的 __TS__ObjectAssign 接到 nil 会崩。
+  const target: NonNullable<CastCoindition['target']> = {
+    unitCondition: existingTarget?.unitCondition,
+    ignoresMagicImmune: existingTarget?.ignoresMagicImmune,
+    rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
+    rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
+    castMode: existingTarget?.castMode,
+    excludeSelf: existingTarget?.excludeSelf,
+    facing: existingTarget?.facing,
+    range: range ?? existingTarget?.range,
+    count: count ?? existingTarget?.count,
+  };
+  return {
+    target,
+    self: condition?.self,
+    ability: condition?.ability,
+    action: condition?.action,
+    debug: condition?.debug,
+  };
+}
+
+/**
+ * 补上技能/物品的有效搜索距离，spec 已显式给出上限时返回 undefined 表示无需调整：
  * - 若 spec 设置了 target.rangeFromAbilityValue，则读取 ability.GetSpecialValueFor(key) 作为上限
  *   （适用于 NO_TARGET AoE 技能，如 axe_berserkers_call，cast range = 0 但实际作用域由 KV AbilityValues 定义）
  * - 否则使用 AbilityCastRange + 施法距离加成
  */
-function fillRangeFromCastRange(
-  condition: CastCoindition | undefined,
+function resolveRange(
+  existingTarget: CastCoindition['target'],
   hero: CDOTA_BaseNPC_Hero,
   castable: CDOTABaseAbility,
-): CastCoindition {
-  const existingTarget = condition?.target;
+): NumberRange | undefined {
   const existing = existingTarget?.range;
   if (existing?.lte !== undefined) {
-    return condition!;
+    return undefined;
   }
-  // 避免使用对象 spread —— TSTL 的 __TS__ObjectAssign 接到 nil 会崩。
   const abilityValueKey = existingTarget?.rangeFromAbilityValue;
   let castRange = abilityValueKey
     ? castable.GetSpecialValueFor(abilityValueKey)
@@ -230,25 +286,46 @@ function fillRangeFromCastRange(
   if (existing?.gte !== undefined) {
     range.gte = existing.gte;
   }
-  // 必须构造全新对象而非复用/改写 existingTarget —— spec 是 Map 里的模块级单例，
-  // 跨所有英雄/所有 tick 共享同一个引用，原地写 target.range 会把第一次算出的
-  // cast range "冻结"进共享 spec，之后所有英雄、所有 tick 都读到这个过期值。
-  const target: NonNullable<CastCoindition['target']> = {
-    unitCondition: existingTarget?.unitCondition,
-    count: existingTarget?.count,
-    ignoresMagicImmune: existingTarget?.ignoresMagicImmune,
-    rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
-    rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
-    castMode: existingTarget?.castMode,
-    range,
-  };
-  return {
-    target,
-    self: condition?.self,
-    ability: condition?.ability,
-    action: condition?.action,
-    debug: condition?.debug,
-  };
+  return range;
+}
+
+/**
+ * 对英雄计数时把数量下限收敛到该队伍的英雄总数，无需调整时返回 undefined。
+ * 只有声明了大于 1 的下限才会去查队伍人数，其余情况在进入查询前就返回。
+ *
+ * 两队人数在开局可配置，敌方只有 1 个英雄时「至少 2 个」这类阈值否则永远不成立，
+ * 整条规则失效。满编局下声明值不超过总数，收敛不生效。
+ *
+ * 开关类不参与收敛：它们的开与关是一对互补阈值，只压低其中一侧会让两条规则同时成立，
+ * bot 每 tick 反复开关。
+ */
+function resolveCount(
+  existingTarget: CastCoindition['target'],
+  hero: CDOTA_BaseNPC_Hero,
+  targetSide: TargetSide,
+  isToggleAction: boolean,
+): NumberRange | undefined {
+  const existing = existingTarget?.count;
+  // 下限不超过 1 时收敛不可能改变结果，先挡在查询队伍人数之前
+  if (existing?.gte === undefined || existing.gte <= 1 || isToggleAction) {
+    return undefined;
+  }
+  let heroTotal: number;
+  if (targetSide === TargetSide.EnemyHero) {
+    heroTotal = PlayerResource.GetPlayerCountForTeam(hero.GetOpposingTeamNumber());
+  } else if (targetSide === TargetSide.FriendlyHero) {
+    heroTotal = PlayerResource.GetPlayerCountForTeam(hero.GetTeamNumber());
+  } else {
+    return undefined;
+  }
+  if (existing.gte <= heroTotal) {
+    return undefined;
+  }
+  const count: NumberRange = { gte: heroTotal };
+  if (existing.lte !== undefined) {
+    count.lte = existing.lte;
+  }
+  return count;
 }
 
 /**

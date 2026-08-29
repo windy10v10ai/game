@@ -16,8 +16,8 @@ import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.3;
-  protected readonly ThinkIntervalTool: number = 0.3;
+  protected readonly ThinkInterval: number = 0.4;
+  protected readonly ThinkIntervalTool: number = 0.4;
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
@@ -113,6 +113,11 @@ export class BotBaseAIModifier extends BaseModifier {
     this.FindAround();
     // update state
     this.mode = GameRules.AI.FSA.GetMode(this);
+    if (this.mode === ModeEnum.RETREAT) {
+      GameRules.AI.BotTeam?.cancelJungleRecoveryMovement(this.hero);
+    } else if (GameRules.AI.BotTeam?.isJungleRecoveryMovementActive(this.hero)) {
+      return;
+    }
     if (this.gameTime < this.continueActionEndTime) {
       // print(`[AI] HeroBase Think break 持续动作中 ${this.hero.GetUnitName()}`);
       return;

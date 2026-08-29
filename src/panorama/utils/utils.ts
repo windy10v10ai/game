@@ -119,3 +119,18 @@ export function IsInHeroSelectionLayer(): boolean {
   }
   return false;
 }
+
+/**
+ * 当前 layout 是否运行在游戏内 HUD 层。
+ * hud_main 同时注册在 Hud / EndScreen / HeroSelection 三层，常驻组件只应渲染一份。
+ * 各层容器统一命名为 CustomUIContainer_<Type>，取祖先链上最近的那个即可判定所在层，
+ * 不用逐个硬编码其他层的容器名。
+ */
+export function IsInGameHudLayer(): boolean {
+  for (let panel: Panel | null = $.GetContextPanel(); panel; panel = panel.GetParent()) {
+    if (panel.id.startsWith('CustomUIContainer_')) {
+      return panel.id === 'CustomUIContainer_Hud';
+    }
+  }
+  return false;
+}

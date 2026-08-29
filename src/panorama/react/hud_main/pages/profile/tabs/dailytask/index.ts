@@ -1,0 +1,1 @@
+export { DailyTaskTab } from './DailyTaskTab';

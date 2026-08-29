@@ -16,6 +16,26 @@
 - 使用英文编写代码片段、变量名、函数名和技术标识符
 - 在讨论代码时可以混合使用中文和英文(解释用中文,代码引用用英文)
 
+## 回复风格
+
+读者每天处理大量事务、精力有限。回复必须做到：
+
+- **先说结论，再展开**。重点放第一句，细节往后放
+- **短**。短词、短句、短段落，段落之间用标题或列表分层
+- **说人话**。不用生僻词和行话，常见技术词（缓存、接口、轮询）可以用
+- **少提代码名字**。函数名、变量名先用中文说清它是干什么的，代码名只作为补充。路径和命令除外
+- **给出行动**。告诉用户下一步该做什么，不要只罗列现象
+- **砍掉不重要的细节**，不写客套和铺垫
+- **短不等于省略背景**。下结论前先交代清楚这是什么、发生在什么情况下。宁可多写一段背景，也不要让读者看不懂结论从哪来
+- **解释改动按固定顺序展开**：原来是什么 → 改成什么 → 代码要做的事 → 问题在哪 → 用户要做什么。跳过第一步读者就接不上
+
+这条规则约束的是**写给用户看的内容**：对话回复、review 报告、总结与说明文档。
+
+以下各有自己的规约，冲突时以各自规约为准：
+
+- 代码注释（见「注释规约」）、提交信息（英文单行标题）、本地化文案（见「本地化文案规约」）
+- CLAUDE.md / SKILL.md 这类规则文档：首要读者是模型，**准确优先于通俗**，该写全的字段名、API 名、路径要写全，不为了好懂而模糊化
+
 ## 项目概述
 
 Windy10v10AI 是一个 PVE Dota 2 自定义游戏,具有 10v10 对战、AI 对手和独特的技能抽奖系统。代码库使用 TypeScript 编译为 Lua 作为游戏逻辑(VScripts),使用 React + TypeScript 作为 UI(Panorama)。
@@ -180,6 +200,7 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 - **模拟**: 在测试中通过 `global.GameRules = { ... }` 模拟 Dota 全局变量
 - **运行**: `npm test` 执行所有测试并生成覆盖率报告
 - **只测自己的分支/计算逻辑，不测引擎契约**：判断标准是代码里是否包含足够分量的**自身逻辑**（如加权抽样、难度阶梯映射、tier 归属判断）。以下情况都**不需要**写单元测试，靠 Dota tools 实机验证：
+  - 纯函数、零 mock 不是该测的充分条件：只是把设计好的触发条件做布尔组合（如"满足 A 且 B 且距离 > 阈值就触发"）、不含实际计算时，同样不写测试——断言只会复述设计本身
   - 代码主体就是遍历/调用 Dota API（如 `hero.GetItemInSlot(i)` 循环计数、`FindUnitsInRadius` 后直接操作结果集），本身没有值得验证的分支
   - 需要 mock 多个 Dota 全局枚举/常量对象（如 `UnitTargetTeam` / `UnitTargetType` / `UnitTargetFlags` / `FindOrder`）才能让测试跑起来——这是"代码本身没有自身逻辑、只是在拼引擎调用参数"的强信号
   - 一段逻辑严重依赖一串 Dota API 行为（如 `AddAbility`→`GetMaxLevel`→`SetLevel` 的等级同步）时，不要为了覆盖它而搭建可控 mock 配置（如给 fake 注入 maxLevel 映射、构造多种引擎返回值）
@@ -206,10 +227,11 @@ CustomGameEventManager.RegisterListener("lottery_pick_ability", (userId, event) 
 
 1. `src/vscripts/` 中的所有 TypeScript 文件会编译为 Lua
 2. 使用 `@registerModifier()` 和 `@registerAbility()` 装饰器进行自动注册
-3. 从 `utils/dota_ts_adapter.ts` 扩展 `BaseModifier`、`BaseAbility` 或 `BaseItem`
-4. 通过 `GameRules.*` 单例访问模块(例如 `GameRules.Lottery.refresh()`)
-5. 开发期间在 VConsole 中使用 `script_reload` 进行热重载
-6. 在 `*.test.ts` 文件中使用 Jest 编写测试(根据需要模拟 Dota 全局变量)
+3. **modifier 类名一律 snake_case**：不传 name 参数时类名即注册到 Lua 的 modifier 名，须与 Dota 原生命名风格一致，如 `modifier_fountain_anti_camp_watcher`、`tinker_ai_modifier`。snake_case 类名会触发 lint，在类声明上方加 `// eslint-disable-next-line @typescript-eslint/naming-convention`。存量 PascalCase AI modifier（`BotBaseAIModifier` 等）是历史遗留，新增不要照抄
+4. 从 `utils/dota_ts_adapter.ts` 扩展 `BaseModifier`、`BaseAbility` 或 `BaseItem`
+5. 通过 `GameRules.*` 单例访问模块(例如 `GameRules.Lottery.refresh()`)
+6. 开发期间在 VConsole 中使用 `script_reload` 进行热重载
+7. 在 `*.test.ts` 文件中使用 Jest 编写测试(根据需要模拟 Dota 全局变量)
 
 ### Panorama UI 架构
 
@@ -251,6 +273,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 2. 使用 `src/panorama/utils/net-table.ts` 或 `shared/hooks/useNetTable` 处理 Net Table 订阅
 3. 通过 `GameEvents.SendCustomGameEventToServer()` 发送服务端事件；UI 间通信用 `GameEvents.SendEventClientSide()`
 4. Panorama UI 使用 React 16.14 配合函数式组件和 hooks
+5. **HUD 左右自适应用纯 CSS**：玩家开启翻转 HUD（小地图从左换到右）时，Dota 会在 HUD 根节点挂 `HUDFlipped` class。自定义 layout 都挂在 `Hud` 之下，用后代选择器 `.HUDFlipped .xxx { horizontal-align: right; }` 即可跟随，不需要 JS，也不用监听 `hud_flip_changed`，玩家中途改设置自动生效。参考 `content/panorama/layout/custom_game/eyeherodemo/eyeherodemo.css` 的 `.ControlPanel`
 
 ### 添加新的共享类型时:
 
@@ -283,11 +306,14 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **施法错误飘字须 CastFilterResult + GetCustomCastError 配套**: 自定义物品/技能要在施法前拦截并飘字提示时，仅实现 `GetCustomCastError()` 无效——引擎只在 `CastFilterResult()` 返回 `UnitFilterResult.FAIL_CUSTOM` 时才去取错误文本。两者须配套（用同一判据）。错误文本 key 在本地化文件中**定义不带 `#`**（如 `dota_hud_error_xxx`），代码返回时**带 `#`**（`#dota_hud_error_xxx`）
 - **新建 Net Table 必须双注册**: 在 `src/common/net_tables.d.ts` 的 `CustomNetTableDeclarations` 加类型只是 TS 契约，引擎运行时还要在 `game/scripts/custom_net_tables.txt` 注册表名，否则服务端 `SetTableValue` 会报 `Unknown custom nettable` 且客户端永远收不到。改完后必须**重启 Dota Tools**（script_reload 不重读 KV）
 - **Net Table 清行不能传 nil**: `CustomNetTables.SetTableValue(table, key, nil)` 在 Dota 引擎下是 **noop**，不会删除或同步空值给客户端。如需清行，传**空 table**（数组类用 `[]`、对象类用 `{}`），客户端 `Object.values(value).length === 0` 即可识别为空
+- **jest 用的是 vscripts 的 tsconfig，测不了引用 `$` 的 panorama 模块**: `package.json` 的 `jest.globals` 指定 `src/vscripts/tsconfig.json`，其中没有 panorama 类型。任何在**模块顶层**引用 `$` 的文件（如各 tab 的 `constants.ts` 用 `$.Localize` 初始化标签表）都不能被待测模块 import，否则报 `Cannot find name '$'`。要写单测的纯逻辑必须放在 `$`-free 的模块里；发现待测模块需要某个常量而它恰好和 `$.Localize` 混在同一文件时，把常量挪到同目录的 `$`-free 模块，而不是给 jest 加全局 stub
 - **React Panorama 条件返回不同 panel 结构会渲染失败**: 在 React 组件中根据状态返回**完全不同的 JSX 结构**（例如 `if (empty) return <Panel collapse />; return <Panel>...复杂子树...</Panel>;`）会导致 panel 在 Panorama DOM 中始终缺失。改为**始终渲染同一 panel 树**，用 `style={{ visibility: cond ? 'visible' : 'collapse' }}` 切换显隐
 - **`@keyframes` 不能写在 `@import` 进来的页面/组件 less 里（如 `hud_main/pages/*/*.less`）**: webpack `additionalData` 会给 keyframe 名加 Valve 必需的引号（`@keyframes 'Name'`），但**只作用于 layout.xml 直接引用的那个 styles.less**；`@import` 进来的子 less 内容由 less 编译器后续合并，拿不到这层转换，keyframe 名未加引号被 Valve 拒绝，**导致整张 styles.css 解析失败、该页所有样式丢失**（图标变紫块等）。hud_lottery 的 keyframe 能用是因为它写在 entry 直载的 `styles.less` 里。**结论：hud_main 页面的动画一律用 JS 驱动**（如 `$.Schedule` 定时改 prop），不要在页面 less 写 `@keyframes`。另注：`transform`/`scale3d` 等属性 Panorama 本就不支持，更不能用
 - **引用自己项目定义的 modifier/ability 名用类名 `.name`，不要另开重复字符串常量**：`@registerModifier`/`@registerAbility` 不传 `name` 参数时，注册到 Lua 的名字就是类本身的类名（见 `dota_ts_adapter.ts` 的 `registerModifier` 实现）。在同一或其他文件里引用这个自定义 modifier/ability（如 `AddNewModifier`/`FindModifierByName`/`HasModifier` 的名字参数）时直接写 `SomeModifierClass.name`，不要另外声明一个 `const XXX_MODIFIER_NAME = 'modifier_xxx'` 字符串常量——后者在改类名时容易忘记同步，导致两处不一致。此写法不适用于引用引擎原生 hardcoded modifier（如 `modifier_black_king_bar_immune`），那些没有本地类可取 `.name`，仍需写字符串字面量。
 - **不吃技能增强须显式标 flag，不靠物理类型**: 自定义技能用 `ApplyDamage` 造成物理伤害时，**不要**依赖「物理类型隐式不吃 spell amp」这条经验来确保不被技能增强放大。引擎判定是否吃技能增强的真正开关是伤害标志位，要明确排除时显式加 `damage_flags: DamageFlag.NO_SPELL_AMPLIFICATION`（本项目技能增强是自定义属性 `property_spell_amplify_percentage` 实现，更不应靠隐式行为）
 - **代码代为触发技能施放须补 `UseResources`**：代码直接调用某个技能的 `OnSpellStart()`（如自动检测循环里代玩家触发施法、监听某事件后连锁触发另一个技能）时，跳过了引擎原生施法管线，不会自动扣资源/进 CD，须显式调用 `this.UseResources(mana, useHealth, gold, cooldown)` 补上（四个布尔参数对应要不要消耗法力/生命/金钱、要不要进入冷却，按该技能实际消耗类型传参）。这一步只在「代码主动触发施放」时需要；玩家手动点技能触发的 `OnSpellStart()` 回调，引擎在调用前已经走完资源结算，不要重复调用，否则会双重扣资源/双重进 CD
+- **下达攻击命令前先查 `IsAttacking()`**：高频重复下达 `ATTACK_MOVE` / `ATTACK_TARGET`（如 0.1 秒一次的执行器）会不断重置攻击前摇，Bot 表现为反复抬手却打不出伤害。发命令前加 `if (hero.IsAttacking()) return;` 让当前这次攻击走完，参考 `ai/action/action-attack.ts` 的 `MoveToAttack`。判定要放在结束/中断条件**之后**、发命令**之前**，否则 Bot 被小兵缠住时会连中断条件都不再检查
+- **永久增减属性用 `Modify*` 改基础值，不要挂属性回调 modifier**：给英雄永久加/减全属性直接调 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect`（传负数即减，只动基础属性、不含装备加成），一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。**不要**为了承载这个数值而挂一个声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier——引擎每次重算属性都要跨进 Lua 调一遍回调，且数值还得靠 `SetHasCustomTransmitterData` 额外同步才能在客户端 tooltip 显示，漏同步就显示成 0。需要 buff 图标时另挂一个**不声明任何属性回调**的纯显示 modifier，数值放 stack count（引擎原生同步，客户端一定拿得到）。扣基础属性时须自行兜底下限，避免扣成负数
 
 ### 图片资源管理
 
@@ -409,17 +435,20 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - 两个 tab 缩进，键值多 tab 对齐；颜色代码**大写**
 - 注释用**中文**且中英一致；HTML 标签与换行（`\n` 分段、`<br><br>` 段内换行）中英一致
 - **文案不用分号**（`；`/`;`），句间用逗号或句号
+- **中文文案不用顿号**（`、`），并列关系一律用逗号
 - `_Description` **不同时既内联又单独成行同一个数值**：一个 `AbilityValues` 数值只能选其一 —— 该数值只在 Description/Note 中以 `%xxx%` 出现一次（不单独定义 `_xxx` 标签行），或者只作为 `_xxx` 单独成行展示（Description 不再重复 `%xxx%`）。多个关联数值（如同一机制下的若干档位/字段）建议各自单独成行；孤立的单个数值两种方式均可，按可读性选择，但不要两处都写
+- **不写内部实现细节**：向下取整、保底值、内部换算精度这类只影响代码怎么算的细节不进文案。只有会影响玩家决策的边界才写（如「基础属性最低保留 1 点」）
 - **UI 键**（按钮/标签/提示等 Panorama 文本）**必须**同步俄文；技能/物品/游戏逻辑类键在**本次新增或修改该键时一并写俄文**，存量中原本没有俄文的旧键不必特意补齐；已有的俄文一律保留并跟随中英同步更新，不得单方面删除
 
 > 完整规则、对齐示例见 `.claude/skills/localization-format-guide/references/localization-format-guide.md`。
 
 ## Implementation Style
 
-代码改动保持最小化，优先用最简单的机制实现：
+代码改动保持最小化，优先用最简单的机制实现，遵循 DRY（不重复自己）、KISS（保持简单）、YAGNI（不做用不上的设计）：
 
 - 复用一个字符串事件，而不是新增自定义事件
 - 避免过度还原、过度分析
+- 多处需要相同逻辑（尤其是要求口径一致的计算）时提取共享函数，不要各自维护一份；调用方各自实现一遍容易在后续修改时只改一处、悄悄产生口径分歧
 
 ## 注释规约
 
@@ -441,6 +470,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 - 选择某个数值/方案的**原因**（"1 级伤害太低、蓝耗占比高，2 级起才用"）
 - 与默认/约定不一致的**特殊处理**（"AoE 半径远大于 cast range，需要 castMode 投影到边缘"）
 - 一两句话点出技能中文名 / 设计目的
+- 公开方法（模块对外接口）的注释先用一句话说明**功能**，不点名具体文件/函数/API 端点等技术名词；边界情况和技术细节写成相应代码行上方的行内注释，不要堆进顶部方法说明——且只写不明显的边界情况，代码本身能读出来的分支不再注释
 
 整个文件一个 `/** 一两行 */` JSDoc 即可，不需要分段、不需要 bullet 列表。
 
@@ -455,7 +485,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 ## Git 工作流
 
 - 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
-- PR 的 base branch 固定为 `develop`；标题默认英文；创建前必须先调用 `release-note` skill 生成 Release Note 段
+- PR 的 base branch 固定为 `develop`；标题默认英文；创建前先问用户本次走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
 - Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 - `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
 

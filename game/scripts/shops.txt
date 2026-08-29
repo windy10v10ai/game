@@ -280,7 +280,7 @@
 
 		"item"		"item_wasp_golden"			// 黄金大核荣耀
 		"item"		"item_excalibur"			// EX咖喱棒
-		"item"		"item_rapier_ultra"			// 诅咒圣剑
+		"item"		"item_rapier_ultra_bot"			// 解放的诅咒圣剑
 		"item"		"item_forbidden_blade"			// 禁忌战刃
 
 		"item"		"item_six_paths_reincarnation_gun" // 六道轮回枪	// FIXME 暂时移动
