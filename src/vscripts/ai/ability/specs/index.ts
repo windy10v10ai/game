@@ -47,6 +47,7 @@ import { SPECS as omniknightMartyr } from './omniknight_martyr';
 import { SPECS as omniknightPurification } from './omniknight_purification';
 import { SPECS as phantomAssassinBlur } from './phantom_assassin_blur';
 import { SPECS as phantomAssassinFanOfKnives } from './phantom_assassin_fan_of_knives';
+import { SPECS as rikiSmokeScreen } from './riki_smoke_screen';
 import { SPECS as rikiTricksOfTheTrade } from './riki_tricks_of_the_trade';
 import { SPECS as sandkingBurrowstrike } from './sandking_burrowstrike';
 import { SPECS as sandkingScorpionStrike } from './sandking_scorpion_strike';
@@ -123,6 +124,7 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(chibiHit);
 
   // Riki 力丸
+  AbilityRegistry.registerAll(rikiSmokeScreen);
   AbilityRegistry.registerAll(rikiTricksOfTheTrade);
 
   // Witch Doctor 巫医
