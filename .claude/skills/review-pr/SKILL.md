@@ -9,20 +9,29 @@ description: >-
 # PR Review 流程
 
 1. **输入**：用户给出 PR 号或分支名。
-2. **确认 checkout**：询问是否需要切换。需要则执行：
-   - 有 PR 号：`gh pr checkout <PR号>`——fork 提交的 PR 也只会拉取该 PR 头部对应 commit 建本地分支，不会额外拉取 fork 的其它分支
-   - 只有分支名（同仓库）：`git checkout <branch>`
+2. **确认 checkout**：询问是否需要切换。需要时只 fetch 目标分支，同时保留向原 PR 分支 push 的能力：
+   - 有 PR 号：先用 `gh pr view <PR号> --json headRefName,headRepository,headRepositoryOwner` 取得 PR head 分支与仓库 URL。
+   - 为该 PR 使用独立 remote（如 `review-pr-<PR号>`），用 `git remote add --no-tags -t "<headRefName>" "review-pr-<PR号>" "<headRepositoryUrl>"` 把 fetch refspec 限定为该分支，再执行 `git fetch --no-tags "review-pr-<PR号>"`。**禁止**使用带 `+refs/heads/*` 的作者 fork remote，也不要使用会创建这种通配 remote 的 `gh pr checkout`；本地 Git 自动同步可能因此拉取整个 fork。
+   - 从 `review-pr-<PR号>/<headRefName>` 创建**同名本地分支**并设置 upstream；同名可让修改后直接 `git push` 回原 PR 分支。若本地同名分支或同名 review remote 已存在，先检查 URL、upstream 和工作区状态，不得直接覆盖或删除。
+   - checkout 后用 `git config --get-all remote.review-pr-<PR号>.fetch` 验证只存在 `+refs/heads/<headRefName>:refs/remotes/review-pr-<PR号>/<headRefName>`，并用 `git for-each-ref refs/remotes/review-pr-<PR号>` 确认只有目标分支。
+   - PR 完成且不再需要 push 后，可询问用户是否执行 `git remote remove review-pr-<PR号>` 清理该 PR 的 remote-tracking ref；本地修改分支不随 remote 删除。
+   - 只有分支名（同仓库）：`git switch <branch>`。
 3. **生成报告**：按下方判断标准审阅改动，从用户视角说明实现了什么功能、实现方式是否符合规范、是否有过度设计或冗余测试值得简化。同时：
    - 在对话中完整展示
    - 落盘为 `docs/review/pr-{PR号}.md`（没有 PR 号时退化为 `docs/review/review-{分支名}.md`）；`docs/review/` 已加入 `.gitignore`，报告不进版本控制
-4. **逐条确认**：按报告列出的问题逐条询问用户是否需要处理。
+4. **更新日志检查**：报告给出后，先用一两句向用户复述本次改动对玩家的实际影响（面向玩家，不是代码细节），再检测更新日志是否已写：
+   - 用 `gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url` 找到聚合 release PR，读其 body 看本次改动是否已有条目
+   - 缺失时用 `AskUserQuestion` 问用户是否补写；用户同意则调用 `release-note` skill 生成
+   - **日志只写进 release PR，不写进被 review 的功能 PR**
+   - 纯重构、文档、CI 等对玩家无感知的改动，直接说明无需日志，不必发问
+5. **逐条确认**：按报告列出的问题逐条询问用户是否需要处理。
    - 用户选择不处理的条目，回写进报告 md，标注为「已确认忽略」及原因
    - 用户额外指出报告未列出的问题，追加进报告 md 的独立小节「用户补充问题」，标注为「用户补充，Claude 未发现」，并入下一步逐条处理
-5. **选择处理方式**：对确认要处理的问题（含用户补充的），逐条询问用户选择「自己修改」还是「comment 到 PR」：
+6. **选择处理方式**：对确认要处理的问题（含用户补充的），逐条询问用户选择「自己修改」还是「comment 到 PR」：
    - 自己修改：在当前 checkout 的分支上直接编辑
    - comment 到 PR：按下方输出规范用 `gh pr comment` 或 inline 行内评论提交
-6. **追加反馈日志**：把本次「已确认忽略」和「用户补充」的条目分别标注所属判断标准分类（对应下方 1-6 或"依赖升级"；不属于任何现有分类的标「新增」），追加到 `docs/review/_feedback-log.md`（同样已 gitignore）：日期、PR/分支、类别、决策（忽略/补充）、简述。
-7. **触发自我优化**：追加后检查该日志——同一分类被连续忽略 ≥3 次，或用户补充问题在同一分类下出现 ≥2 次，调用 `doc-update` skill，提议调整本 SKILL.md 的判断标准（新增条目 / 调整表述或优先级 / 降低过时条目权重），经用户确认后写入。
+7. **追加反馈日志**：把本次「已确认忽略」和「用户补充」的条目分别标注所属判断标准分类（对应下方 1-6 或"依赖升级"；不属于任何现有分类的标「新增」），追加到 `docs/review/_feedback-log.md`（同样已 gitignore）：日期、PR/分支、类别、决策（忽略/补充）、简述。
+8. **触发自我优化**：追加后检查该日志——同一分类被连续忽略 ≥3 次，或用户补充问题在同一分类下出现 ≥2 次，调用 `doc-update` skill，提议调整本 SKILL.md 的判断标准（新增条目 / 调整表述或优先级 / 降低过时条目权重），经用户确认后写入。
 
 # PR Review 判断标准
 

@@ -1,4 +1,4 @@
-import { CastCoindition, DeepMerge } from './cast-condition';
+import { CastCoindition, CheckFacingFailure, DeepMerge } from './cast-condition';
 
 describe('DeepMerge', () => {
   it('should return the target if source is undefined', () => {
@@ -114,5 +114,43 @@ describe('DeepMerge', () => {
     expect(result).toEqual({
       debug: true,
     });
+  });
+});
+
+describe('CheckFacingFailure', () => {
+  // 施法者朝向 +X
+  const forward = { x: 1, y: 0 };
+
+  it('should not filter when facing is not declared', () => {
+    expect(CheckFacingFailure(undefined, forward, { x: -100, y: 0 })).toBe(false);
+  });
+
+  it('should accept a target in front when facing front', () => {
+    expect(CheckFacingFailure('front', forward, { x: 300, y: 0 })).toBe(false);
+    expect(CheckFacingFailure('front', forward, { x: 300, y: 200 })).toBe(false);
+  });
+
+  it('should reject a target behind when facing front', () => {
+    expect(CheckFacingFailure('front', forward, { x: -300, y: 0 })).toBe(true);
+    expect(CheckFacingFailure('front', forward, { x: -300, y: 200 })).toBe(true);
+  });
+
+  it('should accept a target behind when facing back', () => {
+    expect(CheckFacingFailure('back', forward, { x: -300, y: 0 })).toBe(false);
+    expect(CheckFacingFailure('back', forward, { x: -300, y: -200 })).toBe(false);
+  });
+
+  it('should reject a target in front when facing back', () => {
+    expect(CheckFacingFailure('back', forward, { x: 300, y: 0 })).toBe(true);
+  });
+
+  it('should reject a target straight to the side for both sides', () => {
+    expect(CheckFacingFailure('front', forward, { x: 0, y: 300 })).toBe(true);
+    expect(CheckFacingFailure('back', forward, { x: 0, y: 300 })).toBe(true);
+  });
+
+  it('should judge by the horizontal plane regardless of forward vector length', () => {
+    expect(CheckFacingFailure('front', { x: 0.3, y: -0.4 }, { x: 30, y: -40 })).toBe(false);
+    expect(CheckFacingFailure('front', { x: 0.3, y: -0.4 }, { x: -30, y: 40 })).toBe(true);
   });
 });

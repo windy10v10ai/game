@@ -50,6 +50,8 @@ URL 含 `/issues/` → Issue；拉取正文分两条路径：
 
 版本号须为具体 `v…` 字符串，**禁止**占位符。格式：主版本 `5.00`/`5.10`，补丁 `5.00a`/`5.00b`。
 
+调用方（如 `create-pr`）在参数里已注明本次走「大版本」还是「小版本补丁」时，**不要**重复提问，跳过步骤 3 的二选一，只按该轨道解出具体版本号。
+
 ### 1. 用户指定
 
 参数中出现 `v5.xxa` / `5.xx` 等，直接规范为 `v…` 采用。
@@ -66,7 +68,7 @@ Steam 最新去掉字母后缀 +0.01 得下一主版本（如 `v5.19b` → `v5.2
 gh pr list --repo windy10v10ai/game --state open --label release --json number,title,url
 ```
 
-- **release PR 大版本严格高于 Steam**（Steam `v5.45b`，release PR `v5.46`）→ release PR 版本只是**推荐值**，用 `AskUserQuestion` 让用户二选一：
+- **release PR 大版本严格高于 Steam**（Steam `v5.45b`，release PR `v5.46`）→ release PR 版本只是**推荐值**，用 `AskUserQuestion` 让用户二选一（轨道已由调用方注明时直接取对应那条）：
   - 大版本 `v5.46`（推荐，即 release PR 标题版本）
   - 小版本补丁 `v5.45c`（步骤 4 递增结果）
 - **Steam 已发布与 release PR 同大版本**（Steam `v5.46`，release PR `v5.46`）→ 进入步骤 4。
@@ -236,7 +238,7 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
    - URL 含 `/issues/` → Issue（有 checklist → 路径 A；无 → 路径 B）
    - URL 含 `/pull/`，或 `#N` / 纯数字 → PR
    - 其他 → 手动
-2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行；命中步骤 3 时必须让用户在大版本与小版本补丁间选。
+2. **确定版本**：按「版本号决策」1→2→3→4 优先级执行；命中步骤 3 时必须让用户在大版本与小版本补丁间选，调用方已注明轨道则沿用、不再提问。
 3. **生成更新日志**：Issue+checklist 列已完成英雄并附 `x/总数`；PR 列全部英雄；手动按用户列点。
 4. **GAME_VERSION 同步**：大版本变化时**必须立即**修改 `GameConfig.ts`，不得等用户提醒。
 5. **输出**中英文两版，标题含具体版本号。
@@ -245,7 +247,7 @@ gh pr list --repo windy10v10ai/game --head $(git branch --show-current) --state 
 ### 交付前自检
 
 - 版本号为具体字符串，中英文一致
-- open release PR 大版本高于 Steam 时，已用 `AskUserQuestion` 确认走大版本还是小版本补丁
+- open release PR 大版本高于 Steam 时，已用 `AskUserQuestion` 确认走大版本还是小版本补丁；调用方已注明轨道时沿用其选择，没有重复提问
 - 条目已合并进聚合 release PR 的对应版本块，大版本块与其他补丁块保持原样
 - Issue checklist `x/total` 统计正确；无 checklist 不编造
 - 多英雄列表与实际范围一致
