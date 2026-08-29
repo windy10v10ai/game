@@ -1280,6 +1280,13 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 邪影芳灵 影域留形觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_shadow_realm_awaken"					"<font color='#d000ff'>影域留形 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_shadow_realm_awaken_Description"		"施放暗影之境后，在施法位置留下一个不可移动的幻影。幻影继承施法时的属性，装备，局外属性和已获得的2+1技能，以<font color='#FFFFFF'><b>100%%</b></font>攻击伤害进行普通攻击。幻影优先攻击范围内最近的敌方英雄，其次攻击最近的普通敌方单位，最后攻击最近的敌方建筑，没有目标时留在原地。<br><br>幻影不能施放技能或使用物品，但会通过普通攻击触发可由幻象生效的攻击特效。未拥有<font color='#92ACF5'>阿哈利姆神杖</font>时，幻影的第一次攻击结束后消失。拥有<font color='#92ACF5'>阿哈利姆神杖</font>时，幻影持续到暗影之境结束。"
+		"DOTA_Tooltip_ability_special_bonus_unique_dark_willow_shadow_realm_awaken_SummaryDescription"	"施放暗影之境时在原地留下一个继承当前力量的自动攻击幻影。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dark_willow_shadow_realm_awaken"				"<font color='#d000ff'>影域留形 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dark_willow_shadow_realm_awaken_Description"		"施放暗影之境后，在施法位置留下一个不可移动的幻影。幻影继承施法时的属性，装备，局外属性和已获得的2+1技能，以<font color='#FFFFFF'><b>100%%</b></font>攻击伤害进行普通攻击。幻影优先攻击范围内最近的敌方英雄，其次攻击最近的普通敌方单位，最后攻击最近的敌方建筑，没有目标时留在原地。<br><br>幻影不能施放技能或使用物品，但会通过普通攻击触发可由幻象生效的攻击特效。未拥有<font color='#92ACF5'>阿哈利姆神杖</font>时，幻影的第一次攻击结束后消失。拥有<font color='#92ACF5'>阿哈利姆神杖</font>时，幻影持续到暗影之境结束。"
+
 		// 炸弹人 觉醒
 		"DOTA_Tooltip_ability_techies_squees_scope"					"<font color='#d000ff'>斯奎的瞄准镜 觉醒</font>"
 		"DOTA_Tooltip_ability_techies_squees_scope_Description"		"每点攻击速度都会让工程师获得%attack_range_tooltip%攻击距离和攻击弹道速度。"
