@@ -189,6 +189,19 @@ describe('applyAwakenByHero', () => {
     expect(f.abilities.some((a) => a.name === 'pudge_meat_hook_lua')).toBe(true);
   });
 
+  it('龙骑士觉醒只新增真龙被动并保留原古龙形态等级', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_dragon_knight',
+      abilities: [{ name: 'dragon_knight_elder_dragon_form', level: 4 }],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities.find((a) => a.name === 'dragon_knight_elder_dragon_form')?.level).toBe(4);
+    expect(
+      f.abilities.find((a) => a.name === 'special_bonus_unique_dragon_knight_upgrade')?.level,
+    ).toBe(1);
+  });
+
   it('未配置的英雄返回 false 且不改动技能', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_tinker',

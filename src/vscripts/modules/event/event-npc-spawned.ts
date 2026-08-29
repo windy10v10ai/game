@@ -182,6 +182,14 @@ export class EventNpcSpawned {
   // 英雄出生
   private OnRealHeroSpawned(hero: CDOTA_BaseNPC_Hero): void {
     this.SetHeroSpawnPoint(hero);
+
+    if (hero.GetName() === 'npc_dota_hero_dragon_knight') {
+      const dragonFormUpgrade = hero.FindAbilityByName('dragon_knight_elder_dragon_form_upgrade');
+      if (!dragonFormUpgrade) {
+        const addedAbility = hero.AddAbility('dragon_knight_elder_dragon_form_upgrade');
+        if (addedAbility !== undefined) addedAbility.SetLevel(1);
+      }
+    }
     // 近战buff，仅对玩家生效
     if (
       PlayerHelper.IsHumanPlayer(hero) &&
