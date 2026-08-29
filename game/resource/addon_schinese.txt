@@ -3581,6 +3581,13 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
 
+		// 巨牙海民 摔角行家觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken"					"<font color='#d000ff'>摔角行家 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken_Description"		"每次施放摔角行家时，巨牙海民会将本次持续期间实际受到伤害的%damage_taken_to_bonus_pct%%%累计为额外伤害。范围内敌人每次受到巨牙海民或友军造成的普攻、技能和装备主动伤害时，都会额外受到摔角行家当前基础伤害与累计伤害。普攻已包含摔角行家的基础伤害，因此只额外结算累计部分。追加伤害沿用原伤害类型，不受技能增强影响。生效期间再次施放会刷新持续时间并保留累计伤害，效果结束时清零。"
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken_SummaryDescription"	"摔角行家期间承受的伤害会转化为范围内所有友军伤害的固定追加伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tusk_tag_team_awaken"				"<font color='#d000ff'>摔角行家 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tusk_tag_team_awaken_Description"		"摔角行家期间，将实际受到伤害的<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>累计为额外伤害。范围内敌人每次受到巨牙海民或友军造成的伤害时，都会额外受到摔角行家当前基础伤害与累计伤害，普攻只额外结算累计部分。追加伤害沿用原伤害类型，不受技能增强影响。<br>当前累计伤害：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>"
+
 		// 斯拉克 精华侵蚀觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的%permanent_steal_pct%%%永久偷走该英雄的全属性。<br>敌方英雄的基础属性最低保留<font color='#FFFFFF'><b>1</b></font>点。"

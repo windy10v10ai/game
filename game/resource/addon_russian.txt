@@ -693,6 +693,13 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 巨牙海民 摔角行家觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken"					"<font color='#d000ff'>Tag Team · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken_Description"		"При каждом применении Tag Team Tusk накапливает %damage_taken_to_bonus_pct%%% фактически полученного урона за время действия в виде дополнительного урона. Каждый случай урона от Tusk или его союзников по врагам в радиусе Tag Team получает текущий базовый бонус Tag Team и накопленный урон. Атаки уже включают базовый бонус Tag Team, поэтому дополнительно получают только накопленную часть. Дополнительный урон сохраняет исходный тип и не усиливается увеличением урона от заклинаний. Повторное применение во время действия обновляет длительность и сохраняет накопленный урон; по окончании Tag Team он обнуляется."
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken_SummaryDescription"	"Урон, полученный во время Tag Team, превращается в фиксированный дополнительный урон для всего союзного урона в радиусе действия."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tusk_tag_team_awaken"				"<font color='#d000ff'>Tag Team · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tusk_tag_team_awaken_Description"		"Во время Tag Team <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> фактически полученного урона накапливается как дополнительный урон. Каждый случай урона от Tusk или его союзников по врагам в радиусе получает текущий базовый бонус Tag Team и накопленный урон, а атаки получают только накопленную часть. Дополнительный урон сохраняет исходный тип и не усиливается увеличением урона от заклинаний.<br>Текущий накопленный урон: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>"
+
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Разъедание сущности · Пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"Когда Slark убивает вражеского героя, он навсегда забирает %permanent_steal_pct%%% от общего количества атрибутов, похищенных у этого героя его Essence Shift.<br>Базовые атрибуты вражеского героя не опускаются ниже <font color='#FFFFFF'><b>1</b></font>."

@@ -3572,6 +3572,13 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
 
+		// 巨牙海民 摔角行家觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken"					"<font color='#d000ff'>Tag Team Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken_Description"		"Whenever Tag Team is cast, Tusk stores %damage_taken_to_bonus_pct%%% of damage actually taken during that activation as bonus damage. Every damage instance dealt by Tusk or his allies to enemies within Tag Team's radius gains Tag Team's current base bonus plus the stored damage. Attacks already include Tag Team's base bonus and therefore gain only the stored portion. The added damage keeps the original damage type and is not affected by spell amplification. Recasting while active refreshes the duration without clearing stored damage; the stored damage is cleared when Tag Team ends."
+		"DOTA_Tooltip_ability_special_bonus_unique_tusk_tag_team_awaken_SummaryDescription"	"Damage taken during Tag Team becomes fixed bonus damage for all allied damage dealt within its radius."
+		"DOTA_Tooltip_modifier_special_bonus_unique_tusk_tag_team_awaken"				"<font color='#d000ff'>Tag Team Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_tusk_tag_team_awaken_Description"		"During Tag Team, <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> of damage actually taken is stored as bonus damage. Every damage instance dealt by Tusk or his allies to enemies within its radius gains Tag Team's current base bonus plus the stored damage, while attacks gain only the stored portion. The added damage keeps the original damage type and is not affected by spell amplification.<br>Current stored damage: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%</b></font>"
+
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals %permanent_steal_pct%%% of the total attributes his Essence Shift has taken from that hero.<br>An enemy hero's base attributes never fall below <font color='#FFFFFF'><b>1</b></font>."
