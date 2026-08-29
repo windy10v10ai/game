@@ -68,6 +68,11 @@ export interface CastCoindition {
      */
     noEnemyHeroInRange?: number;
     /**
+     * 要求 self 周围该距离内存在存活的敌方英雄才施法，是 noEnemyHeroInRange 的反面。
+     * 用于本身不指向敌人、但只在交战时才该放的技能。
+     */
+    enemyHeroInRange?: number;
+    /**
      * 若 self 周围该距离内存在存活的敌方建筑（塔/兵营等），则跳过施法。
      * 由 dispatcher 在 tryCast 层检查（依赖 ai.aroundEnemyBuildings 缓存）。
      */
@@ -390,8 +395,20 @@ function isNumberRange(item: object): boolean {
   return keys.length > 0 && keys.every((k) => k === 'gte' || k === 'lte');
 }
 
+/**
+ * 自定义 Lua 技能（BaseClass 为 ability_lua）的 behavior 由引擎以 64 位 userdata 返回，
+ * 位运算函数只收 number，直接参与按位与会在运行时抛错。
+ */
+function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
+  const raw = ability.GetBehavior();
+  if (type(raw) === 'number') {
+    return raw as number;
+  }
+  return tonumber(tostring(raw)) ?? 0;
+}
+
 export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
-  const abilityBehavior = ability.GetBehavior() as number;
+  const abilityBehavior = GetAbilityBehaviorBits(ability);
   // check is behavior bit set in abilityBehavior
   const isBitSet = (abilityBehavior & behavior) === behavior;
   return !!isBitSet;

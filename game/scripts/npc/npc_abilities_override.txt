@@ -1951,8 +1951,8 @@
 				{
 					"value"		"900"	// 750
 				}
-				"duration"		"2.5"	// 1.0
-				"knockback_distance"		"900"	// 600 +300
+				"duration"		"2.0"	// 1.0
+				"knockback_distance"		"300"	// 600 x0.5 拖拽太远会影响连招
 		}
 	}
 	// 洪流
@@ -4566,7 +4566,7 @@
 			"hero_damage"
 			{
 				"value"				"50 100 150 200 250"	// 30 50 70 90
-				"special_bonus_unique_wisp"		"+150%"		// +50%
+				"special_bonus_unique_wisp"		"+100%"		// +50%
 			}
 			"max_range"
 			{
