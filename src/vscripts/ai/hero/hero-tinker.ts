@@ -177,26 +177,54 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     if (!teleport || !teleport.IsFullyCastable()) {
       return false;
     }
-    if (this.TryTeleportToFountain(hero, teleport)) {
+
+    if (this.NeedsFountainSupply(hero)) {
+      const fountain = this.GetFountainPosition(hero);
+      if (!fountain) {
+        return false;
+      }
+      // 引导会被控制打断，先跳开一段再传；跳刀冷却随后会被热机重置刷掉
+      if (this.TryBlinkToward(hero, fountain)) {
+        return true;
+      }
+      hero.CastAbilityOnPosition(fountain, teleport, hero.GetPlayerOwnerID());
       return true;
     }
+
     return this.TryTeleportToAlly(hero, teleport);
   }
 
-  private TryTeleportToFountain(hero: CDOTA_BaseNPC_Hero, teleport: CDOTABaseAbility): boolean {
-    if (
-      hero.GetMana() >= TELEPORT_FOUNTAIN_MANA &&
-      hero.GetManaPercent() >= TELEPORT_FOUNTAIN_MANA_PERCENT
-    ) {
+  private NeedsFountainSupply(hero: CDOTA_BaseNPC_Hero): boolean {
+    return (
+      hero.GetMana() < TELEPORT_FOUNTAIN_MANA ||
+      hero.GetManaPercent() < TELEPORT_FOUNTAIN_MANA_PERCENT
+    );
+  }
+
+  /**
+   * 朝目标点跳一次跳刀，跳完本轮结束，下一轮才继续传送。
+   */
+  private TryBlinkToward(hero: CDOTA_BaseNPC_Hero, destination: Vector): boolean {
+    if (hero.IsMuted()) {
       return false;
     }
 
-    const fountain = this.GetFountainPosition(hero);
-    if (!fountain) {
+    const blink = this.FindBlinkItem(hero);
+    if (!blink || !blink.IsFullyCastable()) {
       return false;
     }
 
-    hero.CastAbilityOnPosition(fountain, teleport, hero.GetPlayerOwnerID());
+    const blinkDistance = GetFullCastRange(hero, blink);
+    const heroPosition = hero.GetAbsOrigin();
+    const toward = destination.__sub(heroPosition);
+    const distance = toward.Length2D();
+    // 目的地本来就在一次跳刀之内，跳不跳都要传送
+    if (distance <= blinkDistance) {
+      return false;
+    }
+    const landing = heroPosition.__add(toward.__mul(blinkDistance / distance));
+
+    hero.CastAbilityOnPosition(landing, blink, hero.GetPlayerOwnerID());
     return true;
   }
 
