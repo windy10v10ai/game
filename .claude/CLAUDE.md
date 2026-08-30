@@ -485,7 +485,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 ## Git 工作流
 
 - 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
-- PR 的 base branch 固定为 `develop`；标题默认英文；创建前先问用户本次走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
+- PR 的 base branch 固定为 `develop`；标题默认英文；纯内部改动（重构、构建、CI、文档、测试）自行判定跳过 Release Note，不提问也不查版本号，其余情况问用户走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
 - Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 - `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
 
