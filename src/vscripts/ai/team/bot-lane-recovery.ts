@@ -21,7 +21,9 @@ const LANDING_OFFSET_MAX = 600;
 const TASK_TARGET_REACHED_RADIUS = 100;
 const TASK_ENEMY_INTERRUPT_RADIUS = 700; // 敌方英雄或塔在此范围内会中断强制位移
 const TASK_TICK_INTERVAL = 0.1;
-const FOUNTAIN_RADIUS = 1200;
+const FOUNTAIN_RADIUS = 1600;
+// 与正常回城补给的分界线：低于此线属于还在补给，高于则视为无谓滞留
+const FOUNTAIN_EVICTION_STATE_PERCENT = 90;
 const FOUNTAIN_EVICTION_INTERVAL = 10;
 
 // 时长从 TP 指令下达起算，含约 3 秒引导。TP 塔取候选中的最低层级，配合前排塔门槛只会是一塔或二塔
@@ -193,8 +195,10 @@ export class BotLaneRecovery {
     if (!this.IsAtFountain(hero)) {
       return false;
     }
-    // 满状态是与正常回城补给的分界线，残血或缺蓝属于合理回城
-    if (hero.GetHealth() < hero.GetMaxHealth() || hero.GetMana() < hero.GetMaxMana()) {
+    if (
+      hero.GetHealthPercent() < FOUNTAIN_EVICTION_STATE_PERCENT ||
+      hero.GetManaPercent() < FOUNTAIN_EVICTION_STATE_PERCENT
+    ) {
       return false;
     }
 
