@@ -4,7 +4,7 @@ description: >-
   生成 Steam Workshop 中英文更新日志。支持手动、PR、Issue（含 checklist 进度）。
   版本号：用户指定 > release PR 大版本（推荐值，须问用户）> Steam 递增补丁字母。
   用户确认后可写回 open PR（UTF-8 无 BOM）。
-  **创建 PR 时必须调用本 skill 生成 Release Note 段，不要手写。**
+  **创建 PR 且需要写 Release Note 时必须调用本 skill 生成，不要手写；纯内部改动不调用。**
   Use when creating a pull request to generate Steam Workshop release notes.
 ---
 
@@ -45,6 +45,10 @@ URL 含 `/issues/` → Issue；拉取正文分两条路径：
 5. 解析 JSON 时去掉 BOM（`\uFEFF`）。
 
 **B. 回退路径**（无 checklist）：据 Issue 标题与描述写 2–5 条玩家向 bullet，**不**编造 `x/总数`。
+
+## 适用范围
+
+纯内部改动（重构、构建、CI、文档、测试，玩家读不出一条更新内容）不调用本 skill，也不需要确定版本号；判定标准见 `create-pr` skill 的「Release Note 三选一」。
 
 ## 版本号决策（优先级由上至下，命中即用）
 

@@ -16,8 +16,8 @@ import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.4;
-  protected readonly ThinkIntervalTool: number = 0.4;
+  protected readonly ThinkInterval: number = 0.5;
+  protected readonly ThinkIntervalTool: number = 0.5;
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
@@ -42,6 +42,11 @@ export class BotBaseAIModifier extends BaseModifier {
   // 推塔时贴上去的最小距离：近战在此距离内才走过去A，远程则用自身攻击范围
   protected readonly MinPushTowerRange: number = 300;
   protected readonly AttackRangePushHero: number = 900;
+
+  // 撤退回泉水的血量上限：高于此值多半只是躲塔或让位，不值得消耗卷轴
+  protected readonly RetreatTeleportMaxHealthPercent: number = 30;
+  // 传送引导约 3 秒，塔攻击距离 700 之外再留一段缓冲，避免刚起手就被塔火力打断
+  protected readonly RetreatTeleportTowerSafeRange: number = 1200;
 
   public PushLevel: number = 10;
 
@@ -115,6 +120,7 @@ export class BotBaseAIModifier extends BaseModifier {
     this.mode = GameRules.AI.FSA.GetMode(this);
     if (this.mode === ModeEnum.RETREAT) {
       GameRules.AI.BotTeam?.cancelJungleRecoveryMovement(this.hero);
+      GameRules.AI.BotTeam?.suppressLaneRecoveryForRetreat(this.hero);
     } else if (GameRules.AI.BotTeam?.isJungleRecoveryMovementActive(this.hero)) {
       return;
     }
@@ -140,61 +146,6 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   // ---------------------------------------------------------
-  // Need Override
-  // ---------------------------------------------------------
-  /**
-   * 因自身而进行的施法
-   */
-  CastSelf(): boolean {
-    if (this.UseAbilitySelf()) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * 因敌人而进行的施法
-   */
-  CastEnemy(): boolean {
-    if (this.UseAbilityEnemy()) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * 因队友而进行的施法
-   */
-  CastTeam(): boolean {
-    return false;
-  }
-
-  /**
-   * 因小兵而进行的施法
-   */
-  CastCreep(): boolean {
-    if (this.UseAbilityCreep()) {
-      return true;
-    }
-    return false;
-  }
-
-  // ---------------------------------------------------------
-  // Ability usage
-  // ---------------------------------------------------------
-  UseAbilitySelf(): boolean {
-    return false;
-  }
-
-  UseAbilityEnemy(): boolean {
-    return false;
-  }
-
-  UseAbilityCreep(): boolean {
-    return false;
-  }
-
-  // ---------------------------------------------------------
   // Action Mode
   // ---------------------------------------------------------
   ActionMode(): boolean {
@@ -214,22 +165,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionLaning(): boolean {
-    if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
     if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (this.CastSelf()) {
-      return true;
-    }
-    if (this.CastEnemy()) {
-      return true;
-    }
-    if (this.CastTeam()) {
-      return true;
-    }
-    if (this.CastCreep()) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
     if (this.aroundFriendlyCreeps.length > 0) {
@@ -242,22 +181,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionAttack(): boolean {
-    if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
     if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (this.CastSelf()) {
-      return true;
-    }
-    if (this.CastEnemy()) {
-      return true;
-    }
-    if (this.CastTeam()) {
-      return true;
-    }
-    if (this.CastCreep()) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
     if (!this.isIntHero) {
@@ -270,16 +197,14 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionRetreat(): boolean {
-    if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
     if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (this.CastSelf()) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
-    if (this.CastTeam()) {
+
+    if (this.TryTeleport()) {
       return true;
     }
 
@@ -291,11 +216,51 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
 
-    if (this.CastEnemy()) {
-      return true;
-    }
-
     return false;
+  }
+
+  /**
+   * 撤退且四下无追兵时，是否该直接传送回泉水而不是一路走回家。
+   */
+  protected ShouldRetreatTeleportToFountain(): boolean {
+    if (this.mode !== ModeEnum.RETREAT) {
+      return false;
+    }
+    if (
+      this.hero.IsMuted() ||
+      this.hero.GetHealthPercent() >= this.RetreatTeleportMaxHealthPercent
+    ) {
+      return false;
+    }
+    if (this.aroundEnemyHeroes.length > 0) {
+      return false;
+    }
+    // 附近有敌方塔就不开引导，会被塔火力打断
+    const enemyTower = this.FindNearestEnemyTowerInvulnerable();
+    if (enemyTower && this.hero.GetRangeToUnit(enemyTower) <= this.RetreatTeleportTowerSafeRange) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * 撤退无追兵时用 TP 卷轴传送回自家泉水。英雄自带更好的传送手段时覆盖此方法。
+   */
+  protected TryTeleport(): boolean {
+    if (!this.ShouldRetreatTeleportToFountain()) {
+      return false;
+    }
+    const scroll = this.hero.FindItemInInventory('item_tpscroll');
+    if (!scroll || !scroll.IsFullyCastable()) {
+      return false;
+    }
+    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
+    if (!fountain) {
+      return false;
+    }
+    print(`[AI] HeroBase Retreat TryTeleport ${this.hero.GetUnitName()} 回泉水`);
+    this.hero.CastAbilityOnPosition(fountain, scroll, this.hero.GetPlayerOwnerID());
+    return true;
   }
 
   ThinkRetreatGetAwayFromTower(): void {
@@ -321,22 +286,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionPush(): boolean {
-    if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
     if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (this.CastSelf()) {
-      return true;
-    }
-    if (this.CastEnemy()) {
-      return true;
-    }
-    if (this.CastTeam()) {
-      return true;
-    }
-    if (this.CastCreep()) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
     // INT 英雄不强制推塔，攻击

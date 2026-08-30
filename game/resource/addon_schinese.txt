@@ -90,7 +90,7 @@
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_local_host_question"			"本地主机可以进行游戏吗？"
-		"loading_faq_local_host_answer"				"可以，但部分功能会受限。本地主机可以加载数据、会员签到和结算勇士积分。属性加点等操作请使用服务器主机，本地主机每天最多获得 1000 勇士积分。"
+		"loading_faq_local_host_answer"				"可以，但部分功能会受限。本地主机可以加载数据、会员签到和结算勇士积分。属性加点等操作请使用服务器主机，本地主机每天最多获得 2000 勇士积分。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
 		"loading_faq_pause_answer"				"受 Dota 2 服务器主机限制，暂停时间无法延长。需要更灵活的暂停时，请使用本地主机。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"

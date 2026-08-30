@@ -88,7 +88,6 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["spirit_breaker_charge_of_darkness"] = true,  -- 裂魂人 暗影冲刺
     ["rattletrap_hookshot"] = true,                -- 发条技师 发射钩爪
     ["huskar_life_break"] = true,                  -- 哈斯卡 牺牲
-    ["juggernaut_omni_slash"] = true,              -- 主宰 无敌斩
     ["pangolier_swashbuckle"] = true,              -- 石鳞剑士 虚张声势
     ["techies_suicide"] = true,                    -- 炸弹人 自爆
     ["weaver_time_lapse"] = true,                  -- 编织者 时光倒流
@@ -112,14 +111,14 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     -- 拖拽/击退类技能
     -- 原因：改变敌方位置会打乱队友的战术安排
     -- ========================================
-    ["tiny_toss"] = true,                          -- 小小 投掷
-    ["pudge_meat_hook"] = true,                    -- 帕吉 肉钩
-    ["batrider_flaming_lasso"] = true,             -- 蝙蝠骑士 燃烧枷锁
-    ["disruptor_glimpse"] = true,                  -- 干扰者 恶念瞥视
-    ["tusk_walrus_kick"] = true,                   -- 巨牙海民 海象飞踢
-    ["dark_seer_vacuum"] = true,                   -- 黑暗贤者 真空
-    ["earth_spirit_geomagnetic_grip"] = true,      -- 大地之灵 地磁之握
-    ["mars_spear"] = true,                         -- 玛尔斯 矛
+    ["tiny_toss"] = true,                     -- 小小 投掷
+    ["pudge_meat_hook"] = true,               -- 帕吉 肉钩
+    ["batrider_flaming_lasso"] = true,        -- 蝙蝠骑士 燃烧枷锁
+    ["disruptor_glimpse"] = true,             -- 干扰者 恶念瞥视
+    ["tusk_walrus_kick"] = true,              -- 巨牙海民 海象飞踢
+    ["dark_seer_vacuum"] = true,              -- 黑暗贤者 真空
+    ["earth_spirit_geomagnetic_grip"] = true, -- 大地之灵 地磁之握
+    ["mars_spear"] = true,                    -- 玛尔斯 矛
 
     ["elder_titan_ancestral_spirit"] = true,
     ["elder_titan_ancestral_spirit_awaken"] = true, -- 上古巨神 灵体游魂 觉醒
@@ -139,35 +138,35 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     -- 持续施法/引导类技能
     -- 原因：这些技能需要持续施法，被打断会浪费冷却时间
     -- ========================================
-    ["tiny_tree_channel"] = true,                          -- 小小 树木连掷
-    ["shredder_chakram"] = true,                           -- 伐木机 锯齿飞轮
-    ["shredder_twisted_chakram"] = true,                   -- 伐木机 锯齿飞轮2
-    ["earthshaker_enchant_totem"] = true,                  -- 撼地者 强化图腾
-    ["tiny_tree_grab"] = true,                             -- 小小 抓树
-    ["enigma_black_hole"] = true,                          -- 谜团 黑洞
-    ["bane_fiends_grip"] = true,                           -- 祸乱之源 魔爪
-    ["crystal_maiden_freezing_field"] = true,              -- 水晶室女 极寒领域
-    ["witch_doctor_death_ward"] = true,                    -- 巫医 死亡守卫
-    ["pudge_dismember"] = true,                            -- 屠夫 肢解
-    ["sandking_epicenter"] = true,                         -- 沙王 地震
-    ["storm_spirit_ball_lightning"] = true,                -- 风暴之灵 球状闪电
-    ["warlock_upheaval"] = true,                           -- 术士 剧变
-    ["enigma_midnight_pulse"] = true,                      -- 谜团 午夜凋零
-    ["goku_kamehameha"] = true,                            -- 悟空 龟派气功
-    ["yukari_moon_portal"] = true,                         -- 八云紫 3技能 月之门
-    ["ability_thdots_yukari04"] = true,                    -- 八云紫 A杖 深弹幕结界 -梦幻泡影
-    ["yukari_twin_trains"] = true,                         -- 八云紫 大招 无人废线车辆炸弹
-    ["artoria_excalibur"] = true,                          -- Artoria 誓约胜利之剑
-    ["miku_dance"] = true,                                 -- 初音未来 舞蹈
-    ["miku_get_down"] = true,                              -- 初音未来 Get Down
-    ["tinker_rearm_lua"] = true,                           -- 修补匠 重新装备
-    ["clinkz_burning_barrage"] = true,                     -- 火枪手 燃烧弹幕
-    ["tiny_toss_tree"] = true,                             -- 小小 丢树（注意有空格）
-    ["morphling_replicate"] = true,                        -- 水人 复制
-    ["ancient_apparition_ice_blast"] = true,               -- 冰魂 寒冰爆破
-    ["phantom_assassin_phantom_strike_datadriven"] = true, -- 幻刺b觉醒
-    ["keeper_of_the_light_illuminate"] = true,              -- 光之守卫 冲击波
-    ["keeper_of_the_light_illuminate_end"] = true,          -- 光之守卫 冲击波 释放
+    ["tiny_tree_channel"] = true,                                -- 小小 树木连掷
+    ["shredder_chakram"] = true,                                 -- 伐木机 锯齿飞轮
+    ["shredder_twisted_chakram"] = true,                         -- 伐木机 锯齿飞轮2
+    ["earthshaker_enchant_totem"] = true,                        -- 撼地者 强化图腾
+    ["tiny_tree_grab"] = true,                                   -- 小小 抓树
+    ["enigma_black_hole"] = true,                                -- 谜团 黑洞
+    ["bane_fiends_grip"] = true,                                 -- 祸乱之源 魔爪
+    ["crystal_maiden_freezing_field"] = true,                    -- 水晶室女 极寒领域
+    ["witch_doctor_death_ward"] = true,                          -- 巫医 死亡守卫
+    ["pudge_dismember"] = true,                                  -- 屠夫 肢解
+    ["sandking_epicenter"] = true,                               -- 沙王 地震
+    ["storm_spirit_ball_lightning"] = true,                      -- 风暴之灵 球状闪电
+    ["warlock_upheaval"] = true,                                 -- 术士 剧变
+    ["enigma_midnight_pulse"] = true,                            -- 谜团 午夜凋零
+    ["goku_kamehameha"] = true,                                  -- 悟空 龟派气功
+    ["yukari_moon_portal"] = true,                               -- 八云紫 3技能 月之门
+    ["ability_thdots_yukari04"] = true,                          -- 八云紫 A杖 深弹幕结界 -梦幻泡影
+    ["yukari_twin_trains"] = true,                               -- 八云紫 大招 无人废线车辆炸弹
+    ["artoria_excalibur"] = true,                                -- Artoria 誓约胜利之剑
+    ["miku_dance"] = true,                                       -- 初音未来 舞蹈
+    ["miku_get_down"] = true,                                    -- 初音未来 Get Down
+    ["tinker_rearm_lua"] = true,                                 -- 修补匠 重新装备
+    ["clinkz_burning_barrage"] = true,                           -- 火枪手 燃烧弹幕
+    ["tiny_toss_tree"] = true,                                   -- 小小 丢树（注意有空格）
+    ["morphling_replicate"] = true,                              -- 水人 复制
+    ["ancient_apparition_ice_blast"] = true,                     -- 冰魂 寒冰爆破
+    ["phantom_assassin_phantom_strike_datadriven"] = true,       -- 幻刺b觉醒
+    ["keeper_of_the_light_illuminate"] = true,                   -- 光之守卫 冲击波
+    ["keeper_of_the_light_illuminate_end"] = true,               -- 光之守卫 冲击波 释放
     ["special_bonus_unique_keeper_of_the_light_upgrade"] = true, -- 光之守卫 冲击波 觉醒
 
     -- ========================================
@@ -224,10 +223,10 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["wisp_relocate"] = true,
     ["wisp_spirits_in"] = true,
     ["wisp_spirits_out"] = true,
-    ["warlock_fatal_bonds"] = true, -- 术士 致命连接（计算量大可能导致游戏崩溃）
-    ["lich_chain_frost"] = true,    -- 巫妖 连环霜冻
-    ["doom_bringer_doom"] = true,   -- 末日
-    ["doom_bringer_devour"] = true, -- 末日 吞噬
+    ["warlock_fatal_bonds"] = true,        -- 术士 致命连接（计算量大可能导致游戏崩溃）
+    ["lich_chain_frost"] = true,           -- 巫妖 连环霜冻
+    ["doom_bringer_doom"] = true,          -- 末日
+    ["doom_bringer_devour"] = true,        -- 末日 吞噬
     ["doom_bringer_doom_awakened"] = true, -- 末日 觉醒
     -- ========================================
     -- 玛西技能组

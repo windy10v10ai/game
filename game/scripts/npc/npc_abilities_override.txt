@@ -9225,7 +9225,7 @@
 			"slow_attack_speed"
 			{
 				"value" "-200 -300 -400 -500"	// -110 -160 -210 x2
-				"special_bonus_unique_enchantress_3" "-7666"		// -70
+				"special_bonus_unique_enchantress_3" "-766"		// -70
 			}
 		}
 	}
