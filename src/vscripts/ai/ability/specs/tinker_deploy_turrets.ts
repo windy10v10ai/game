@@ -12,4 +12,15 @@ export const SPECS: AbilitySpec[] = [
       },
     },
   },
+  {
+    abilityName: 'tinker_deploy_turrets',
+    targetSide: TargetSide.EnemyCreep,
+    condition: {
+      target: { count: { gte: 2 } },
+      // 1 级导弹伤害 80、蓝耗 100，清兵不划算
+      ability: { level: { gte: 2 } },
+      // 0 表示不检查：炮台放下后持续输出，交战中同样有价值
+      self: { noEnemyHeroInRange: 0 },
+    },
+  },
 ];
