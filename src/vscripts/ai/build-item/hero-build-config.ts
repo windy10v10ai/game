@@ -1208,15 +1208,14 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_crellas_crozier', // 克莱拉牧杖
       ],
       [ItemTier.T3]: [
+        { item: 'item_arcane_blink_2', weight: 2 }, // 秘奥闪光
         'item_phylactery', // 灵匣
         'item_angels_demise', // 绝刃
         'item_dagon_5', // 达贡之神力
         'item_sheepstick', // 邪恶镰刀
         'item_magic_scepter', // 魔云法杖
-        'item_arcane_blink_2', // 秘奥闪光
         'item_meteor_hammer_2', // 星落
         'item_aeon_pendant', // 咸鱼之王
-        'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_sphere_2', // 真·林肯法球
         'item_bloodstone', // 血精神石
         'item_ethereal_blade', // 虚灵之刃
@@ -1232,7 +1231,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_gungir_2', // 风暴之锤
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_black_king_bar_2', // 天神杖
-        'item_devastator_2', // 神圣斧
       ],
       [ItemTier.T5]: [
         'item_magic_crit_blade', // 魔龙狂舞
