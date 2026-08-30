@@ -1201,31 +1201,30 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         { item: 'item_aether_lens_2', weight: 2 }, // 以太透镜2
         'item_glimmer_cape', // 微光披风
         'item_hand_of_group', // 团队之手
-        'item_yasha_and_kaya', // 慧夜对剑
+        'item_kaya_and_sange', // 散慧对剑
         'item_gungir', // 缚灵索
         'item_black_king_bar', // 黑皇杖
         'item_crellas_crozier', // 克莱拉牧杖
       ],
       [ItemTier.T3]: [
         { item: 'item_arcane_blink_2', weight: 10 }, // 秘奥闪光
-        'item_phylactery', // 灵匣
+        { item: 'item_arcane_octarine_core', weight: 2 }, // 奥术之心
+        { item: 'item_phylactery', weight: 2 }, // 灵匣
+        { item: 'item_magic_scepter', weight: 2 }, // 魔云法杖
         'item_dagon_5', // 达贡之神力
         'item_sheepstick', // 邪恶镰刀
-        'item_magic_scepter', // 魔云法杖
         'item_aeon_pendant', // 咸鱼之王
         'item_sphere_2', // 真·林肯法球
         'item_ethereal_blade', // 虚灵之刃
-        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         { item: 'item_arcane_blink', weight: 10 }, // 爱因斯坦闪光
-        'item_hallowed_scepter', // 仙云法杖
-        'item_necronomicon_staff', // 死灵法杖
+        { item: 'item_hallowed_scepter', weight: 2 }, // 仙云法杖
+        { item: 'item_necronomicon_staff', weight: 2 }, // 死灵法杖
+        { item: 'item_refresh_core', weight: 2 }, // 熔火核心
         'item_blue_fantasy', // 苍蓝幻想
-        'item_refresh_core', // 熔火核心
-        'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_gungir_2', // 风暴之锤
-        'item_kaya_and_sange_1', // 神器·散慧对剑
+        'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_black_king_bar_2', // 天神杖
         'item_angels_demise', // 绝刃
       ],
