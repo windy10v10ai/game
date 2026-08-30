@@ -203,6 +203,8 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
 
   /**
    * 朝目标点跳一次跳刀，跳完本轮结束，下一轮才继续传送。
+   *
+   * 落点直接给目的地，超出跳刀距离时引擎按最大距离释放。
    */
   private TryBlinkToward(hero: CDOTA_BaseNPC_Hero, destination: Vector): boolean {
     if (hero.IsMuted()) {
@@ -214,17 +216,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
       return false;
     }
 
-    const blinkDistance = GetFullCastRange(hero, blink);
-    const heroPosition = hero.GetAbsOrigin();
-    const toward = destination.__sub(heroPosition);
-    const distance = toward.Length2D();
-    // 落点固定推进一个跳刀距离，目的地更近时会越过它，反而离得更远
-    if (distance <= blinkDistance) {
-      return false;
-    }
-    const landing = heroPosition.__add(toward.__mul(blinkDistance / distance));
-
-    hero.CastAbilityOnPosition(landing, blink, hero.GetPlayerOwnerID());
+    hero.CastAbilityOnPosition(destination, blink, hero.GetPlayerOwnerID());
     return true;
   }
 
