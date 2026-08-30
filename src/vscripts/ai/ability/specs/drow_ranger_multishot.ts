@@ -14,6 +14,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyCreep,
     condition: {
       target: { count: { gte: 3 }, rangeFromAttackRange: true, attackRangeOffset: 400 },
+      ability: { level: { gte: 1 } },
     },
   },
 ];
