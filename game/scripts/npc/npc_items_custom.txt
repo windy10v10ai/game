@@ -647,7 +647,7 @@
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"                      "3850"
+			"ItemCost"                      "3200"
 			"ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
 			"ItemQuality"                   "rare"
 			"ItemAliases"                   "aether lens"
@@ -1554,7 +1554,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"
+		"ItemCost"						"1900"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -4702,7 +4702,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"19800"
+        "ItemCost"						"19200"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
@@ -6682,7 +6682,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"52300"
+		"ItemCost"					"51700"
 		"ItemShopTags"				"move_speed;boost_mana;mana_pool"
 		"ItemQuality"				"rare"
 		"ItemAliases"				"mana;mb;refresh core;refresher orb;octarine core"
