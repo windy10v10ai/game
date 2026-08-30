@@ -140,61 +140,6 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   // ---------------------------------------------------------
-  // Need Override
-  // ---------------------------------------------------------
-  /**
-   * 因自身而进行的施法
-   */
-  CastSelf(): boolean {
-    if (this.UseAbilitySelf()) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * 因敌人而进行的施法
-   */
-  CastEnemy(): boolean {
-    if (this.UseAbilityEnemy()) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
-   * 因队友而进行的施法
-   */
-  CastTeam(): boolean {
-    return false;
-  }
-
-  /**
-   * 因小兵而进行的施法
-   */
-  CastCreep(): boolean {
-    if (this.UseAbilityCreep()) {
-      return true;
-    }
-    return false;
-  }
-
-  // ---------------------------------------------------------
-  // Ability usage
-  // ---------------------------------------------------------
-  UseAbilitySelf(): boolean {
-    return false;
-  }
-
-  UseAbilityEnemy(): boolean {
-    return false;
-  }
-
-  UseAbilityCreep(): boolean {
-    return false;
-  }
-
-  // ---------------------------------------------------------
   // Action Mode
   // ---------------------------------------------------------
   ActionMode(): boolean {
@@ -220,18 +165,6 @@ export class BotBaseAIModifier extends BaseModifier {
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
-    if (this.CastSelf()) {
-      return true;
-    }
-    if (this.CastEnemy()) {
-      return true;
-    }
-    if (this.CastTeam()) {
-      return true;
-    }
-    if (this.CastCreep()) {
-      return true;
-    }
     if (this.aroundFriendlyCreeps.length > 0) {
       const enemy = this.FindNearestEnemyHero();
       if (enemy && ActionAttack.MoveToAttack(this.hero, enemy, this.AttackRangeLaning)) {
@@ -246,18 +179,6 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
-    if (this.CastSelf()) {
-      return true;
-    }
-    if (this.CastEnemy()) {
-      return true;
-    }
-    if (this.CastTeam()) {
-      return true;
-    }
-    if (this.CastCreep()) {
       return true;
     }
     if (!this.isIntHero) {
@@ -276,22 +197,12 @@ export class BotBaseAIModifier extends BaseModifier {
     if (AbilityDispatcher.Run(this)) {
       return true;
     }
-    if (this.CastSelf()) {
-      return true;
-    }
-    if (this.CastTeam()) {
-      return true;
-    }
 
     // 撤离动作持续
     const enemyTower = this.FindNearestEnemyTowerInvulnerable();
     if (enemyTower) {
       this.continueActionEndTime = this.gameTime + this.continueActionTime;
       this.ThinkRetreatGetAwayFromTower();
-      return true;
-    }
-
-    if (this.CastEnemy()) {
       return true;
     }
 
@@ -325,18 +236,6 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
     if (AbilityDispatcher.Run(this)) {
-      return true;
-    }
-    if (this.CastSelf()) {
-      return true;
-    }
-    if (this.CastEnemy()) {
-      return true;
-    }
-    if (this.CastTeam()) {
-      return true;
-    }
-    if (this.CastCreep()) {
       return true;
     }
     // INT 英雄不强制推塔，攻击

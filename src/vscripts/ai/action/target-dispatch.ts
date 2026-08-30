@@ -264,6 +264,7 @@ function resolveTargetCondition(
     ignoresMagicImmune: existingTarget?.ignoresMagicImmune,
     rangeFromAbilityValue: existingTarget?.rangeFromAbilityValue,
     rangeFromAttackRange: existingTarget?.rangeFromAttackRange,
+    attackRangeOffset: existingTarget?.attackRangeOffset,
     castMode: existingTarget?.castMode,
     excludeSelf: existingTarget?.excludeSelf,
     facing: existingTarget?.facing,
@@ -300,6 +301,9 @@ function resolveRange(
     : GetFullCastRange(hero, castable);
   if (existingTarget?.rangeFromAttackRange) {
     castRange += hero.Script_GetAttackRange();
+  }
+  if (existingTarget?.attackRangeOffset !== undefined) {
+    castRange += existingTarget.attackRangeOffset;
   }
   const range: NumberRange = { lte: castRange };
   if (existing?.gte !== undefined) {

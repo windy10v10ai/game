@@ -19,7 +19,7 @@ export function GetFullCastRange(self: CDOTA_BaseNPC_Hero, ability: CDOTABaseAbi
  * castPosition 可选：当 spec 配置了 castMode='projectedOnCastRange' 时，dispatcher 会
  * 算出投影点并传入，覆盖默认的"释放点 = 目标位置"。
  *
- * 抽自 ActionAbility.CastAbilityOnFindEnemy 内部分支，供 dispatcher 与现有 ActionAbility 共用。
+ * 由 dispatcher 根据技能 behavior 统一调用。
  */
 export function CastAbilityOnTargetByBehavior(
   hero: CDOTA_BaseNPC_Hero,
@@ -63,7 +63,7 @@ export function CastAbilityOnTargetByBehavior(
  *  - autoCastOn：开启自动施法（毒性攻击、霜冻之箭等攻击型法球）
  *
  * 仅当目标状态与当前状态不一致时才切换并返回 true（命中本 tick），避免反复点击。
- * dispatcher 与老链路 ActionAbility.doAction 共用。
+ * 由 dispatcher 在命中对应 action 条件时调用。
  */
 export function ApplyAbilityAction(
   ability: CDOTABaseAbility,
