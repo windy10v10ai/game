@@ -44,7 +44,7 @@ export class BotBaseAIModifier extends BaseModifier {
   protected readonly AttackRangePushHero: number = 900;
 
   // 撤退回泉水的血量上限：高于此值多半只是躲塔或让位，不值得消耗卷轴
-  protected readonly RetreatTeleportMaxHealthPercent: number = 50;
+  protected readonly RetreatTeleportMaxHealthPercent: number = 30;
   // 传送引导约 3 秒，塔攻击距离 700 之外再留一段缓冲，避免刚起手就被塔火力打断
   protected readonly RetreatTeleportTowerSafeRange: number = 1200;
 
@@ -258,6 +258,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!fountain) {
       return false;
     }
+    print(`[AI] HeroBase Retreat TryTeleport ${this.hero.GetUnitName()} 回泉水`);
     this.hero.CastAbilityOnPosition(fountain, scroll, this.hero.GetPlayerOwnerID());
     return true;
   }
