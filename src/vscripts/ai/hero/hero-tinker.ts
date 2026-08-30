@@ -2,7 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { ActionFind } from '../action/action-find';
 import { BotBaseAIModifier } from './bot-base';
 
-/** 修补匠专属 AI：跳刀切入与低蓝传送回泉水，两者都要先算落点，AbilitySpec 表达不了。 */
+/** 修补匠专属 AI：跳刀切入与传送，落点都要先算出来，AbilitySpec 表达不了。 */
 
 // 升级链上任意一件都能用，按拥有情况取第一件
 const BLINK_ITEM_NAMES = [
@@ -21,8 +21,16 @@ const BLINK_LANDING_DEGREE = 45;
 const BLINK_MIN_MANA_PERCENT = 20;
 const BLINK_MIN_HEALTH_PERCENT = 50;
 
-const TELEPORT_MANA = 300;
-const TELEPORT_MANA_PERCENT = 10;
+const TELEPORT_FOUNTAIN_MANA = 300;
+const TELEPORT_FOUNTAIN_MANA_PERCENT = 10;
+const TELEPORT_ALLY_MIN_LEVEL = 18;
+const TELEPORT_ALLY_MIN_MANA_PERCENT = 80;
+const TELEPORT_ALLY_MIN_HEALTH_PERCENT = 80;
+// 这个半径内除自己外没有别人才算落单
+const TELEPORT_ALONE_RADIUS = 5000;
+// 队友可能在地图任意角落，取一个覆盖全图的半径
+const TELEPORT_ALLY_SEARCH_RADIUS = 20000;
+const TELEPORT_ALLY_TARGET_HEALTH_PERCENT = 90;
 
 @registerModifier('ai/hero/hero-tinker')
 // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -34,6 +42,9 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     if (this.TryBlinkInitiate()) {
       return true;
     }
+    if (this.TryTeleport()) {
+      return true;
+    }
     return super.ActionAttack();
   }
 
@@ -41,18 +52,21 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     if (this.TryBlinkInitiate()) {
       return true;
     }
+    if (this.TryTeleport()) {
+      return true;
+    }
     return super.ActionPush();
   }
 
   override ActionRetreat(): boolean {
-    if (this.TryTeleportToFountain()) {
+    if (this.TryTeleport()) {
       return true;
     }
     return super.ActionRetreat();
   }
 
   override ActionLaning(): boolean {
-    if (this.TryTeleportToFountain()) {
+    if (this.TryTeleport()) {
       return true;
     }
     return super.ActionLaning();
@@ -86,7 +100,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     }
 
     const enemyPosition = enemy.GetAbsOrigin();
-    const ally = this.FindNearestAlly(
+    const ally = this.FindNearestAllyNear(
       hero,
       enemyPosition,
       landingDistance + BLINK_ALLY_SEARCH_EXTRA,
@@ -113,16 +127,27 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
   }
 
   /**
-   * 低蓝时传送回泉水补给。
+   * 低蓝时传送回泉水补给，落单且状态健康时传送到最近的队友身边。
+   *
+   * 与队伍的 TP 卷轴回线是两套机制：那边按所处位置判断、目标是己方塔，这里按周围有没有队友判断、目标是队友本人。
    */
-  private TryTeleportToFountain(): boolean {
+  private TryTeleport(): boolean {
     const hero = this.GetHero();
-    if (hero.GetMana() >= TELEPORT_MANA && hero.GetManaPercent() >= TELEPORT_MANA_PERCENT) {
-      return false;
-    }
-
     const teleport = hero.FindAbilityByName('tinker_keen_teleport');
     if (!teleport || !teleport.IsFullyCastable()) {
+      return false;
+    }
+    if (this.TryTeleportToFountain(hero, teleport)) {
+      return true;
+    }
+    return this.TryTeleportToAlly(hero, teleport);
+  }
+
+  private TryTeleportToFountain(hero: CDOTA_BaseNPC_Hero, teleport: CDOTABaseAbility): boolean {
+    if (
+      hero.GetMana() >= TELEPORT_FOUNTAIN_MANA &&
+      hero.GetManaPercent() >= TELEPORT_FOUNTAIN_MANA_PERCENT
+    ) {
       return false;
     }
 
@@ -132,6 +157,30 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     }
 
     hero.CastAbilityOnPosition(fountain, teleport, hero.GetPlayerOwnerID());
+    return true;
+  }
+
+  private TryTeleportToAlly(hero: CDOTA_BaseNPC_Hero, teleport: CDOTABaseAbility): boolean {
+    if (hero.GetLevel() < TELEPORT_ALLY_MIN_LEVEL) {
+      return false;
+    }
+    if (
+      hero.GetManaPercent() <= TELEPORT_ALLY_MIN_MANA_PERCENT ||
+      hero.GetHealthPercent() <= TELEPORT_ALLY_MIN_HEALTH_PERCENT
+    ) {
+      return false;
+    }
+    if (ActionFind.FindFriendlyHeroes(hero, TELEPORT_ALONE_RADIUS).length > 1) {
+      return false;
+    }
+
+    const ally = this.FindNearestTeammate(hero);
+    // 归队是为了跟上队友的节奏，残血的队友多半正在被追
+    if (!ally || ally.GetHealthPercent() <= TELEPORT_ALLY_TARGET_HEALTH_PERCENT) {
+      return false;
+    }
+
+    hero.CastAbilityOnPosition(ally.GetAbsOrigin(), teleport, hero.GetPlayerOwnerID());
     return true;
   }
 
@@ -145,7 +194,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     return undefined;
   }
 
-  private FindNearestAlly(
+  private FindNearestAllyNear(
     hero: CDOTA_BaseNPC_Hero,
     center: Vector,
     radius: number,
@@ -162,6 +211,16 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
       false,
     );
     return allies[0];
+  }
+
+  private FindNearestTeammate(hero: CDOTA_BaseNPC_Hero): CDOTA_BaseNPC | undefined {
+    const allies = ActionFind.FindFriendlyHeroes(hero, TELEPORT_ALLY_SEARCH_RADIUS);
+    for (const ally of allies) {
+      if (ally.GetEntityIndex() !== hero.GetEntityIndex()) {
+        return ally;
+      }
+    }
+    return undefined;
   }
 
   private GetFountainPosition(hero: CDOTA_BaseNPC_Hero): Vector | undefined {
