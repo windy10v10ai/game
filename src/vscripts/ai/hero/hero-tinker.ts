@@ -218,7 +218,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     const heroPosition = hero.GetAbsOrigin();
     const toward = destination.__sub(heroPosition);
     const distance = toward.Length2D();
-    // 目的地本来就在一次跳刀之内，跳不跳都要传送
+    // 落点固定推进一个跳刀距离，目的地更近时会越过它，反而离得更远
     if (distance <= blinkDistance) {
       return false;
     }
