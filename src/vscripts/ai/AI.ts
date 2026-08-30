@@ -7,6 +7,7 @@ import { MedusaAIModifier } from './hero/hero-medusa';
 import { NecrolyteAIModifier } from './hero/hero-necrolyte';
 import { SkeletonAIModifier } from './hero/hero-skeleton';
 import { SniperAIModifier } from './hero/hero-sniper';
+import { tinker_ai_modifier } from './hero/hero-tinker';
 import { ViperAIModifier } from './hero/hero-viper';
 import { FSA } from './mode/fsa';
 import { BotTeam } from './team/bot-team';
@@ -45,6 +46,9 @@ export class AI {
     }
     if (hero.GetUnitName() === 'npc_dota_hero_necrolyte') {
       return NecrolyteAIModifier.name;
+    }
+    if (hero.GetUnitName() === 'npc_dota_hero_tinker') {
+      return tinker_ai_modifier.name;
     }
 
     return BotBaseAIModifier.name;
