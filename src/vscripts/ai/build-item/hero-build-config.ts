@@ -1193,7 +1193,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_boots', // 奥术鞋
         'item_magic_wand', // 魔杖
         'item_soul_ring', // 灵魂之戒
-        'item_vanguard', // 先锋盾
         'item_hand_of_midas', // 点金手
       ],
       [ItemTier.T2]: [
