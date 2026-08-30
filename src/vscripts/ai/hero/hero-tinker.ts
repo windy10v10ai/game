@@ -1,5 +1,4 @@
 import { registerModifier } from '../../utils/dota_ts_adapter';
-import { GetFullCastRange } from '../ability/ability-cast';
 import { ActionFind } from '../action/action-find';
 import { BotBaseAIModifier } from './bot-base';
 
@@ -13,6 +12,8 @@ const BLINK_ITEM_NAMES = [
   'item_swift_blink',
   'item_arcane_blink_2',
 ];
+// 落点与敌人的距离取常见主动装备的施法距离，跳完即可直接接装备
+const BLINK_LANDING_RANGE = 900;
 const BLINK_ENEMY_SEARCH_RADIUS = 3500;
 // 己方英雄的搜索半径在落点距离之外再放宽一点，避免刚好卡在边界上不跳
 const BLINK_ALLY_SEARCH_EXTRA = 300;
@@ -58,7 +59,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
   }
 
   /**
-   * 跳到最近敌方英雄的己方一侧，落点距其一个激光施法距离。
+   * 跳到最近敌方英雄的己方一侧，落点距其一个主动装备施法距离。
    */
   private TryBlinkInitiate(): boolean {
     const hero = this.GetHero();
@@ -77,12 +78,7 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
       return false;
     }
 
-    const laser = hero.FindAbilityByName('tinker_laser');
-    if (!laser) {
-      return false;
-    }
-    // 落点与敌人保持激光施法距离，跳完立刻能接技能
-    const landingDistance = GetFullCastRange(hero, laser);
+    const landingDistance = BLINK_LANDING_RANGE + hero.GetCastRangeBonus();
 
     const enemy = ActionFind.FindEnemyHeroes(hero, BLINK_ENEMY_SEARCH_RADIUS)[0];
     if (!enemy) {
