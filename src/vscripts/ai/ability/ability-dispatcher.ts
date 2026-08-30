@@ -7,7 +7,7 @@ import { TargetSide } from './ability-spec';
 /**
  * 统一的 bot 技能 AI 入口。
  *
- * 由 bot-base ActionMode 内各 ActionXxx 顶部调用：
+ * 由 bot-base ActionMode 内各 ActionXxx 在 ItemDispatcher.Run 之后调用：
  *   if (AbilityDispatcher.Run(this)) return true;
  *
  * 工作流：

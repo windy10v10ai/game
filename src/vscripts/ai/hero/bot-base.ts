@@ -214,10 +214,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionLaning(): boolean {
-    if (AbilityDispatcher.Run(this)) {
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (ItemDispatcher.Run(this)) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
@@ -242,10 +242,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionAttack(): boolean {
-    if (AbilityDispatcher.Run(this)) {
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (ItemDispatcher.Run(this)) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
@@ -270,10 +270,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionRetreat(): boolean {
-    if (AbilityDispatcher.Run(this)) {
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (ItemDispatcher.Run(this)) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
@@ -321,10 +321,10 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   ActionPush(): boolean {
-    if (AbilityDispatcher.Run(this)) {
+    if (ItemDispatcher.Run(this)) {
       return true;
     }
-    if (ItemDispatcher.Run(this)) {
+    if (AbilityDispatcher.Run(this)) {
       return true;
     }
     if (this.CastSelf()) {
