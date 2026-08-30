@@ -1,8 +1,9 @@
 import { registerModifier } from '../../utils/dota_ts_adapter';
+import { GetFullCastRange } from '../ability/ability-cast';
 import { ActionFind } from '../action/action-find';
 import { BotBaseAIModifier } from './bot-base';
 
-/** 修补匠专属 AI：跳刀切入与传送，落点都要先算出来，AbilitySpec 表达不了。 */
+/** 修补匠专属 AI：跳刀切入与脱离、传送回泉水与归队，落点都要先算出来，AbilitySpec 表达不了。 */
 
 // 升级链上任意一件都能用，按拥有情况取第一件
 const BLINK_ITEM_NAMES = [
@@ -59,6 +60,9 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
   }
 
   override ActionRetreat(): boolean {
+    if (this.TryBlinkEscape()) {
+      return true;
+    }
     if (this.TryTeleport()) {
       return true;
     }
@@ -66,6 +70,9 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
   }
 
   override ActionLaning(): boolean {
+    if (this.TryBlinkInitiate()) {
+      return true;
+    }
     if (this.TryTeleport()) {
       return true;
     }
@@ -123,6 +130,39 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     );
 
     hero.CastAbilityOnPosition(rotated, blink, hero.GetPlayerOwnerID());
+    return true;
+  }
+
+  /**
+   * 撤退时朝最近敌人的反方向跳，只负责瞬间脱离，回家的走位交给后续撤退逻辑。
+   */
+  private TryBlinkEscape(): boolean {
+    const hero = this.GetHero();
+    if (hero.IsMuted()) {
+      return false;
+    }
+
+    const blink = this.FindBlinkItem(hero);
+    if (!blink || !blink.IsFullyCastable()) {
+      return false;
+    }
+
+    // 敌人在跳刀距离之外时威胁已经脱开，不必交
+    const escapeDistance = GetFullCastRange(hero, blink);
+    const enemy = ActionFind.FindEnemyHeroes(hero, escapeDistance)[0];
+    if (!enemy) {
+      return false;
+    }
+
+    const heroPosition = hero.GetAbsOrigin();
+    const awayFromEnemy = heroPosition.__sub(enemy.GetAbsOrigin());
+    const distance = awayFromEnemy.Length2D();
+    if (distance < 1) {
+      return false;
+    }
+    const landing = heroPosition.__add(awayFromEnemy.__mul(escapeDistance / distance));
+
+    hero.CastAbilityOnPosition(landing, blink, hero.GetPlayerOwnerID());
     return true;
   }
 
