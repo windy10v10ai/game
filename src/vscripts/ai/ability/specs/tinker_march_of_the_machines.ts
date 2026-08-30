@@ -21,7 +21,8 @@ export const SPECS: AbilitySpec[] = [
         range: { lte: 900 },
         castMode: 'projectedOnCastRange',
       },
-      ability: { level: { gte: 1 } },
+      // 1 级伤害 30、蓝耗 90，清兵不划算
+      ability: { level: { gte: 2 } },
     },
   },
 ];
