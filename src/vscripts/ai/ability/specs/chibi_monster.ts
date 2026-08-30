@@ -11,7 +11,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 900 } },
-      self: { unitCondition: { noModifier: 'modifier_chibi_monster' } },
+      self: { unitCondition: { noModifier: ['modifier_chibi_monster'] } },
     },
   },
 ];

@@ -1,4 +1,4 @@
-import { IMMORTALITY_MODIFIER } from '../../../modules/filter/dragon-wish-filter';
+import { AEON_DISK_BUFF, IMMORTALITY_MODIFIER } from '../../../modules/filter/dragon-wish-filter';
 import { AbilitySpec, TargetSide } from '../ability-spec';
 
 /**
@@ -14,7 +14,7 @@ export const SPECS: AbilitySpec[] = [
       target: {
         unitCondition: {
           healthAbilityValue: { key: 'damage', lte: true, includeSpellAmp: true },
-          noModifier: IMMORTALITY_MODIFIER,
+          noModifier: [IMMORTALITY_MODIFIER, AEON_DISK_BUFF],
         },
       },
     },
