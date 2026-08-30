@@ -872,13 +872,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9700,
     baseItems: ['item_hurricane_pike'],
   },
-  item_angels_demise: {
-    name: 'item_angels_demise',
-    nameCN: '绝刃',
-    tier: ItemTier.T3,
-    cost: 9800,
-    baseItems: ['item_hurricane_pike'],
-  },
   item_vladmir_2: {
     name: 'item_vladmir_2',
     nameCN: '强袭祭品',
@@ -955,6 +948,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     tier: ItemTier.T4,
     cost: 10100,
     baseItems: ['item_arcane_blink_2'],
+  },
+  item_angels_demise: {
+    name: 'item_angels_demise',
+    nameCN: '绝刃',
+    tier: ItemTier.T4,
+    cost: 10200,
+    baseItems: ['item_phylactery'],
   },
   item_overwhelming_blink_2: {
     name: 'item_overwhelming_blink_2',
