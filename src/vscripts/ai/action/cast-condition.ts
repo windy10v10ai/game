@@ -37,6 +37,10 @@ export interface CastCoindition {
      */
     rangeFromAttackRange?: boolean;
     /**
+     * 将攻击距离计入搜索半径时额外增加的距离。
+     */
+    attackRangeOffset?: number;
+    /**
      * 决定 POINT 技能的释放位置：
      * - 'targetPosition'（默认）：释放点 = 目标位置
      * - 'projectedOnCastRange'：
