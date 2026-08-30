@@ -130,7 +130,7 @@ export interface UnitCondition {
 
   hasScepter?: boolean;
   hasShard?: boolean;
-  noModifier?: string;
+  noModifier?: string[];
   notActionable?: boolean;
   /**
    * 排除远古野（大龙/小龙等）。
@@ -308,7 +308,8 @@ export function CheckUnitConditionFailure(
   if (unitCondition.hasShard && !unit.HasModifier('modifier_item_aghanims_shard')) {
     return true;
   }
-  if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
+  const noModifiers = unitCondition.noModifier;
+  if (noModifiers && noModifiers.some((modifier) => unit.HasModifier(modifier))) {
     return true;
   }
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {

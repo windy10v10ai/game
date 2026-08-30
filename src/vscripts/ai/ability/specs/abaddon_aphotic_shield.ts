@@ -13,7 +13,7 @@ export const SPECS: AbilitySpec[] = [
       target: {
         unitCondition: {
           healthPercent: { lte: 90 },
-          noModifier: 'modifier_abaddon_aphotic_shield',
+          noModifier: ['modifier_abaddon_aphotic_shield'],
         },
       },
     },

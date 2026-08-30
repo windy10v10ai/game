@@ -6,14 +6,14 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'viper_nethertoxin',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { unitCondition: { noModifier: 'modifier_viper_nethertoxin' } },
+      target: { unitCondition: { noModifier: ['modifier_viper_nethertoxin'] } },
     },
   },
   {
     abilityName: 'viper_nethertoxin',
     targetSide: TargetSide.EnemyCreep,
     condition: {
-      target: { unitCondition: { noModifier: 'modifier_viper_nethertoxin' } },
+      target: { unitCondition: { noModifier: ['modifier_viper_nethertoxin'] } },
     },
   },
 ];

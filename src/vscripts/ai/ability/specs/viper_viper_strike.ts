@@ -6,7 +6,7 @@ export const SPECS: AbilitySpec[] = [
     abilityName: 'viper_viper_strike',
     targetSide: TargetSide.EnemyHero,
     condition: {
-      target: { unitCondition: { noModifier: 'modifier_viper_viper_strike' } },
+      target: { unitCondition: { noModifier: ['modifier_viper_viper_strike'] } },
     },
   },
 ];
