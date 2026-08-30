@@ -2,6 +2,7 @@ import { registerModifier } from '../../utils/dota_ts_adapter';
 import { GetFullCastRange } from '../ability/ability-cast';
 import { ActionFind } from '../action/action-find';
 import { BotBaseAIModifier } from './bot-base';
+import { HeroUtil } from './hero-util';
 
 /** 修补匠专属 AI：跳刀切入与脱离、传送回泉水与归队，落点都要先算出来，AbilitySpec 表达不了。 */
 
@@ -36,9 +37,6 @@ const TELEPORT_ALLY_TARGET_HEALTH_PERCENT = 90;
 @registerModifier('ai/hero/hero-tinker')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class tinker_ai_modifier extends BotBaseAIModifier {
-  // 泉水位置全局固定，首次查到后不再变化
-  private fountainPosition: Vector | undefined;
-
   override ActionAttack(): boolean {
     if (this.TryBlinkInitiate()) {
       return true;
@@ -61,9 +59,6 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
 
   override ActionRetreat(): boolean {
     if (this.TryBlinkEscape()) {
-      return true;
-    }
-    if (this.TryTeleport()) {
       return true;
     }
     return super.ActionRetreat();
@@ -167,19 +162,20 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
   }
 
   /**
-   * 低蓝时传送回泉水补给，落单且状态健康时传送到最近的队友身边。
+   * 优先用热机传送：撤退无追兵或低蓝时回泉水，落单且状态健康时传送到最近的队友身边。
+   * 热机传送在冷却时回退到通用 TP 卷轴逻辑。
    *
-   * 与队伍的 TP 卷轴回线是两套机制：那边按所处位置判断、目标是己方塔，这里按周围有没有队友判断、目标是队友本人。
+   * 与队伍的 TP 卷轴回线是两套机制：那边按所处位置判断、目标是己方塔。
    */
-  private TryTeleport(): boolean {
+  protected override TryTeleport(): boolean {
     const hero = this.GetHero();
     const teleport = hero.FindAbilityByName('tinker_keen_teleport');
     if (!teleport || !teleport.IsFullyCastable()) {
-      return false;
+      return super.TryTeleport();
     }
 
-    if (this.NeedsFountainSupply(hero)) {
-      const fountain = this.GetFountainPosition(hero);
+    if (this.ShouldRetreatTeleportToFountain() || this.NeedsFountainSupply(hero)) {
+      const fountain = HeroUtil.GetTeamFountainPosition(hero.GetTeamNumber());
       if (!fountain) {
         return false;
       }
@@ -278,20 +274,6 @@ export class tinker_ai_modifier extends BotBaseAIModifier {
     for (const ally of allies) {
       if (ally.GetEntityIndex() !== hero.GetEntityIndex()) {
         return ally;
-      }
-    }
-    return undefined;
-  }
-
-  private GetFountainPosition(hero: CDOTA_BaseNPC_Hero): Vector | undefined {
-    if (this.fountainPosition) {
-      return this.fountainPosition;
-    }
-    const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
-    for (const fountain of fountains) {
-      if (!fountain.IsNull() && fountain.GetTeamNumber() === hero.GetTeamNumber()) {
-        this.fountainPosition = fountain.GetAbsOrigin();
-        return this.fountainPosition;
       }
     }
     return undefined;

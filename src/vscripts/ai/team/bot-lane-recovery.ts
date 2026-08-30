@@ -25,6 +25,8 @@ const FOUNTAIN_RADIUS = 1600;
 // 与正常回城补给的分界线：低于此线属于还在补给，高于则视为无谓滞留
 const FOUNTAIN_EVICTION_STATE_PERCENT = 90;
 const FOUNTAIN_EVICTION_INTERVAL = 10;
+// 撤退英雄每个 think 刷新一次抑制，取一个能覆盖数个 think 间隔的窗口
+const RETREAT_SUPPRESS_DURATION = 1.5;
 
 // 时长从 TP 指令下达起算，含约 3 秒引导。TP 塔取候选中的最低层级，配合前排塔门槛只会是一塔或二塔
 const RECOVERY_TARGETS: Record<
@@ -63,9 +65,8 @@ interface RecoveryCandidate {
 export class BotLaneRecovery {
   private readonly jungleRecoveryTasks = new Map<EntityIndex, JungleRecoveryTask>();
   private readonly fountainEvictionNextTime = new Map<EntityIndex, number>();
+  private readonly retreatSuppressedUntil = new Map<EntityIndex, number>();
   private taskExecutorRunning = false;
-  // 构造时机不保证地图实体已加载，首次使用时才查询；泉水坐标此后不再变化
-  private fountainPosition: Vector | undefined;
 
   public Run(): void {
     const towers = this.FindFriendlyTowers();
@@ -107,6 +108,12 @@ export class BotLaneRecovery {
       return undefined;
     }
     if (this.jungleRecoveryTasks.has(hero.GetEntityIndex())) {
+      return undefined;
+    }
+    if (
+      GameRules.GetDOTATime(false, true) <
+      (this.retreatSuppressedUntil.get(hero.GetEntityIndex()) ?? 0)
+    ) {
       return undefined;
     }
 
@@ -210,25 +217,11 @@ export class BotLaneRecovery {
   }
 
   private IsAtFountain(hero: CDOTA_BaseNPC_Hero): boolean {
-    const fountainPosition = this.GetFountainPosition();
+    const fountainPosition = HeroUtil.GetTeamFountainPosition(DotaTeam.BADGUYS);
     if (!fountainPosition) {
       return false;
     }
     return hero.GetAbsOrigin().__sub(fountainPosition).Length2D() <= FOUNTAIN_RADIUS;
-  }
-
-  private GetFountainPosition(): Vector | undefined {
-    if (this.fountainPosition) {
-      return this.fountainPosition;
-    }
-    const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
-    for (const fountain of fountains) {
-      if (!fountain.IsNull() && fountain.GetTeamNumber() === DotaTeam.BADGUYS) {
-        this.fountainPosition = fountain.GetAbsOrigin();
-        return this.fountainPosition;
-      }
-    }
-    return undefined;
   }
 
   private CastRecoveryTeleport(
@@ -261,6 +254,14 @@ export class BotLaneRecovery {
   /** Cancels the hero's post-teleport jungle recovery movement. */
   public CancelJungleRecoveryMovement(hero: CDOTA_BaseNPC_Hero): void {
     this.EndJungleRecoveryMovement(hero.GetEntityIndex(), 'retreat');
+  }
+
+  /** 撤退期间不把该英雄纳入团队回线候选。 */
+  public SuppressForRetreat(hero: CDOTA_BaseNPC_Hero): void {
+    this.retreatSuppressedUntil.set(
+      hero.GetEntityIndex(),
+      GameRules.GetDOTATime(false, true) + RETREAT_SUPPRESS_DURATION,
+    );
   }
 
   private CreateJungleRecoveryTask(

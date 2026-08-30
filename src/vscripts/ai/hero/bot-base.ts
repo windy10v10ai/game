@@ -16,8 +16,8 @@ import { HeroUtil } from './hero-util';
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
-  protected readonly ThinkInterval: number = 0.4;
-  protected readonly ThinkIntervalTool: number = 0.4;
+  protected readonly ThinkInterval: number = 0.5;
+  protected readonly ThinkIntervalTool: number = 0.5;
 
   // 持续动作结束时间
   protected readonly continueActionTime: number = 8;
@@ -42,6 +42,9 @@ export class BotBaseAIModifier extends BaseModifier {
   // 推塔时贴上去的最小距离：近战在此距离内才走过去A，远程则用自身攻击范围
   protected readonly MinPushTowerRange: number = 300;
   protected readonly AttackRangePushHero: number = 900;
+
+  // 撤退回泉水的血量上限：高于此值多半只是躲塔或让位，不值得消耗卷轴
+  protected readonly RetreatTeleportMaxHealthPercent: number = 50;
 
   public PushLevel: number = 10;
 
@@ -115,6 +118,7 @@ export class BotBaseAIModifier extends BaseModifier {
     this.mode = GameRules.AI.FSA.GetMode(this);
     if (this.mode === ModeEnum.RETREAT) {
       GameRules.AI.BotTeam?.cancelJungleRecoveryMovement(this.hero);
+      GameRules.AI.BotTeam?.suppressLaneRecoveryForRetreat(this.hero);
     } else if (GameRules.AI.BotTeam?.isJungleRecoveryMovementActive(this.hero)) {
       return;
     }
@@ -198,6 +202,10 @@ export class BotBaseAIModifier extends BaseModifier {
       return true;
     }
 
+    if (this.TryTeleport()) {
+      return true;
+    }
+
     // 撤离动作持续
     const enemyTower = this.FindNearestEnemyTowerInvulnerable();
     if (enemyTower) {
@@ -207,6 +215,49 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     return false;
+  }
+
+  /**
+   * 撤退且四下无追兵时，是否该直接传送回泉水而不是一路走回家。
+   */
+  protected ShouldRetreatTeleportToFountain(): boolean {
+    if (this.mode !== ModeEnum.RETREAT) {
+      return false;
+    }
+    if (
+      this.hero.IsMuted() ||
+      this.hero.GetHealthPercent() >= this.RetreatTeleportMaxHealthPercent
+    ) {
+      return false;
+    }
+    if (this.aroundEnemyHeroes.length > 0) {
+      return false;
+    }
+    // 敌方塔攻击范围内开引导会被打断
+    const enemyTower = this.FindNearestEnemyTowerInvulnerable();
+    if (enemyTower && HeroUtil.IsInAttackRange(enemyTower, this.hero)) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * 撤退无追兵时用 TP 卷轴传送回自家泉水。英雄自带更好的传送手段时覆盖此方法。
+   */
+  protected TryTeleport(): boolean {
+    if (!this.ShouldRetreatTeleportToFountain()) {
+      return false;
+    }
+    const scroll = this.hero.FindItemInInventory('item_tpscroll');
+    if (!scroll || !scroll.IsFullyCastable()) {
+      return false;
+    }
+    const fountain = HeroUtil.GetTeamFountainPosition(this.hero.GetTeamNumber());
+    if (!fountain) {
+      return false;
+    }
+    this.hero.CastAbilityOnPosition(fountain, scroll, this.hero.GetPlayerOwnerID());
+    return true;
   }
 
   ThinkRetreatGetAwayFromTower(): void {
