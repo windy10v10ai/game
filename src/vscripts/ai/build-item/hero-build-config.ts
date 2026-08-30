@@ -1193,35 +1193,31 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_boots', // 奥术鞋
         'item_magic_wand', // 魔杖
         'item_soul_ring', // 灵魂之戒
-        'item_falcon_blade', // 猎鹰战刃
         'item_vanguard', // 先锋盾
+        'item_hand_of_midas', // 点金手
       ],
       [ItemTier.T2]: [
+        { item: 'item_blink', weight: 10 }, // 闪烁匕首
         { item: 'item_aether_lens_2', weight: 2 }, // 以太透镜2
-        { item: 'item_blink', weight: 2 }, // 闪烁匕首
         'item_glimmer_cape', // 微光披风
         'item_hand_of_group', // 团队之手
         'item_yasha_and_kaya', // 慧夜对剑
-        'item_octarine_core', // 玲珑心
         'item_gungir', // 缚灵索
-        'item_refresher', // 刷新球
         'item_black_king_bar', // 黑皇杖
         'item_crellas_crozier', // 克莱拉牧杖
       ],
       [ItemTier.T3]: [
-        { item: 'item_arcane_blink_2', weight: 2 }, // 秘奥闪光
+        { item: 'item_arcane_blink_2', weight: 10 }, // 秘奥闪光
         'item_phylactery', // 灵匣
         'item_dagon_5', // 达贡之神力
         'item_sheepstick', // 邪恶镰刀
         'item_magic_scepter', // 魔云法杖
-        'item_meteor_hammer_2', // 星落
         'item_aeon_pendant', // 咸鱼之王
         'item_sphere_2', // 真·林肯法球
-        'item_bloodstone', // 血精神石
         'item_ethereal_blade', // 虚灵之刃
       ],
       [ItemTier.T4]: [
-        'item_arcane_blink', // 爱因斯坦闪光
+        { item: 'item_arcane_blink', weight: 10 }, // 爱因斯坦闪光
         'item_hallowed_scepter', // 仙云法杖
         'item_necronomicon_staff', // 死灵法杖
         'item_blue_fantasy', // 苍蓝幻想
