@@ -1230,10 +1230,11 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
+        { item: 'item_arcane_blink', weight: 10 }, // 爱因斯坦闪光
         { item: 'item_magic_crit_blade', weight: 2 }, // 魔龙狂舞
-        'item_time_gem', // 时间宝石
+        { item: 'item_time_gem', weight: 2 }, // 时间宝石
+        { item: 'item_shadow_impact', weight: 2 }, // 暗影法杖
         'item_forbidden_staff', // 禁忌法锤
-        'item_shadow_impact', // 暗影法杖
         'item_sacred_six_vein', // 六脉神剑
         'item_withered_spring', // 生命之心
         'item_hawkeye_turret', // 鹰眼炮台
