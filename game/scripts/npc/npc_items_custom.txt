@@ -2478,9 +2478,9 @@
 			"bonus_strength"				"180"
 			"bonus_agility"					"180"
 			"bonus_intellect"				"180"
-			"bonus_attack_speed"			"140"
+			"bonus_attack_speed"			"120"
 			"movement_speed_percent_bonus"	"40"
-			"status_resistance"				"50"
+			"status_resistance"				"46"
 			"hp_regen_amp"					"80"
 			"mana_regen_multiplier"			"120"
 			"spell_amp"						"60"
@@ -5278,8 +5278,8 @@
 		{
 				"bonus_strength"		"60"	// 16
 				"bonus_agility"			"60"	// 16
-				"status_resistance"		"35"	// 15
-				"bonus_attack_speed"	"50"	// 20
+				"status_resistance"		"30"	// 15
+				"bonus_attack_speed"	"40"	// 20
 				"movement_speed_percent_bonus"	"25" // 12
 				"hp_regen_amp"			"40"	// 25
 				"slow_resistance"		"50"	// 25
@@ -5314,7 +5314,7 @@
 		{
 				"bonus_agility"			"60"
 				"bonus_intellect"		"60"
-				"bonus_attack_speed"	"50" // 20
+				"bonus_attack_speed"	"40" // 20
 				"mana_regen_multiplier"	"60" // 30
 				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"25" // 12

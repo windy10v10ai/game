@@ -268,6 +268,11 @@ export class BotTeam {
     this.laneRecovery.CancelJungleRecoveryMovement(hero);
   }
 
+  /** 撤退中的英雄改由自身 AI 决定去泉水还是继续走，暂时退出团队回线。 */
+  suppressLaneRecoveryForRetreat(hero: CDOTA_BaseNPC_Hero): void {
+    this.laneRecovery.SuppressForRetreat(hero);
+  }
+
   /**
    * 给Bot发钱
    * 每1秒调用一次(原Lua实现是2秒调用一次,现在金额减半以保持总量不变)
