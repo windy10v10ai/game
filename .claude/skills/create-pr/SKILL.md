@@ -62,7 +62,7 @@ git rev-parse --abbrev-ref --symbolic-full-name @{u}
 - **base branch 固定为 `develop`**
 - 使用模板 `.github/pull_request_template.md`
 - **Issue 段**：分支名匹配 `^feature/(\d+)` 时，提取该数字填入模板的 `- [ ] fix #<issue-id>`；无匹配则保留占位或删除该行
-- **Release Note 段**：**必须先调用 `release-note` skill 生成**，不要手写；调用前先按下方「Release Note 三选一」确认本次走哪条轨道
+- **Release Note 段**：先按下方「Release Note 三选一」判定本次走哪条轨道；需要写时**必须调用 `release-note` skill 生成**，不要手写
 - **PR 标题默认使用英文**，简短概括改动（≤70 字符）
 - **待确认/待验证事项写进 `## Checklist` 段落，用 checkbox 形式**（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），不要另开"待确认"之类的散文段落——review 时需要能逐项勾选，不是读一段说明文字
 
@@ -72,13 +72,28 @@ gh pr create --base develop --title "<英文标题>" --body-file <填充后的�
 
 ### Release Note 三选一
 
-调用 `release-note` skill **之前**，先用 `AskUserQuestion` 让用户在三条轨道中选一条，选完再去查版本号——选「不写」时完全不必查 Steam 与 release PR：
+#### 先自行判定是否纯内部改动
+
+满足全部两条即是**纯内部改动**：
+
+1. 改动对象是代码结构、构建、CI、文档、注释、测试或开发调试工具
+2. 玩家在游戏内读不出一条「更新内容」——没有新增或移除玩家可见的内容，没有数值与平衡变化，没有 UI 与本地化文案变化，bot 会不会用某个技能或物品没有改变
+
+重构与代码迁移即使带来细微差异（阈值口径变化、去掉与现有系统重复的逻辑），只要玩家不会把它当成一条更新内容来读，仍算纯内部改动。
+
+**是纯内部改动**：直接跳过，不提问、不查版本号、不调用 `release-note` skill，删掉 PR 模板里的 `## Release Note` 段，并在 PR 描述中说明本次无玩法影响。
+
+**不是，或无法确定**：按下方三选一提问。
+
+#### 无法自行判定时的三选一
+
+用 `AskUserQuestion` 让用户在三条轨道中选一条，选完再去查版本号——选「不写」时完全不必查 Steam 与 release PR：
 
 | 选项 | 适用改动 | 后续动作 |
 |---|---|---|
 | 小版本补丁（默认推荐） | 常规改动，累积在当前大版本下 | 调用 `release-note`，参数注明「小版本补丁」 |
 | 大版本 | 本次作为新大版本发布 | 调用 `release-note`，参数注明「大版本」，由其同步 `GAME_VERSION` |
-| 不写 Release Note | 纯重构、文档、CI 等无玩法影响的改动 | 跳过 skill，并删掉 PR 模板里的 `## Release Note` 段 |
+| 不写 Release Note | 玩法影响处于边界、用户判断不必公告的改动 | 跳过 skill，并删掉 PR 模板里的 `## Release Note` 段 |
 
 具体版本号（`v5.xx` / `v5.xxa`）由 `release-note` skill 在此选择之后确定；本次提问只问轨道，不让用户直接报版本号。
 
@@ -91,3 +106,4 @@ gh pr create --base develop --title "<英文标题>" --body-file <填充后的�
 - **Release Note 手写**：必须先跑 `release-note` skill，不要直接照抄改动列表拼凑
 - **待确认事项写成独立段落**：应该和 `I have tested the changes works well.` 放在同一个 `## Checklist` 里，各自一个 checkbox
 - **先查版本号再问轨道**：轨道未定就去查 Steam 与 release PR，选「不写 Release Note」时这些查询全是白费，还会把用户拖进不需要的版本号决策
+- **纯内部改动还去提问**：重构、删死代码、构建与文档类改动自行判定跳过即可，问了只是让用户重复确认一遍显而易见的结论

@@ -64,6 +64,7 @@ import { SPECS as spectreSpectralDagger } from './spectre_spectral_dagger';
 import { SPECS as tinkerDeployTurrets } from './tinker_deploy_turrets';
 import { SPECS as tinkerLaser } from './tinker_laser';
 import { SPECS as tinkerMarchOfTheMachines } from './tinker_march_of_the_machines';
+import { SPECS as tinkerRearmLua } from './tinker_rearm_lua';
 import { SPECS as tinkerWarpGrenade } from './tinker_warp_grenade';
 import { SPECS as tuskWalrusPunch } from './tusk_walrus_punch';
 import { SPECS as viperPoisonAttack } from './viper_poison_attack';
@@ -181,6 +182,7 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(tinkerMarchOfTheMachines);
   AbilityRegistry.registerAll(tinkerWarpGrenade);
   AbilityRegistry.registerAll(tinkerDeployTurrets);
+  AbilityRegistry.registerAll(tinkerRearmLua);
 
   // Zuus 宙斯
   AbilityRegistry.registerAll(zuusArcLightning);
