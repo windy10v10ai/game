@@ -668,6 +668,20 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 暗影萨满 枷锁替身觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken"						"<font color='#d000ff'>Оковы двойника: пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_SummaryDescription"		"Применяется на точку. Двойник удерживает всех врагов в области, а Shadow Shaman может свободно действовать."
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_Description"				"Создаёт в месте применения Shadow Shaman неуязвимого двойника, которого нельзя выбрать целью. Двойник сковывает всех вражеских героев и обычных существ вокруг указанной точки, не позволяя им действовать и нанося периодический <font color='#05CAFF'>магический урон</font>. Shadow Shaman может свободно двигаться и применять способности, не прерывая Оковы. Применение на точку не активирует блокировку и отражение заклинаний."
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_scepter_description"		"Увеличивает дальность применения. Каждые %scepter_shock_interval% сек. каждый скованный враг выпускает радиальную волну Ether Shock, поражающую всех остальных врагов в радиусе %scepter_shock_radius% и наносящую %scepter_shock_pct%%% обычного урона Ether Shock."
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_total_damage"			"СУММАРНЫЙ УРОН КАЖДОЙ ЦЕЛИ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_channel_time"			"ДЛИТЕЛЬНОСТЬ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_radius"				"РАДИУС:"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_AbilityCastRange"		"ДАЛЬНОСТЬ ПРИМЕНЕНИЯ:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_status"				"<font color='#d000ff'>Оковы двойника: пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_status_Description"	"Двойник поддерживает Оковы, а Shadow Shaman может свободно двигаться, атаковать и применять способности. Применение на точку не активирует блокировку или отражение заклинаний."
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_debuff"				"Оковы двойника"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_debuff_Description"	"Скован двойником. Не может действовать и периодически получает магический урон."
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Афтершок: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Каждая цель, задетая Афтершоком, создаёт малый Афтершок в своей точке, наносящий отдельный магический урон врагам поблизости. Несколько малых Афтершоков могут поразить одну цель, но в каждой серии оглушают её только один раз. Малые Афтершоки не создают новые малые Афтершоки."

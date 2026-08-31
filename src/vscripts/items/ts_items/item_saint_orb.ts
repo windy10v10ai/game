@@ -226,6 +226,7 @@ export function GetAbsorbSpell(
 const reflectExceptions: string[] = [
   'rubick_spell_steal',
   'shadow_shaman_shackles',
+  'special_bonus_unique_shadow_shaman_shackles_awaken',
   'legion_commander_duel',
   'phantom_assassin_phantom_strike',
   'riki_blink_strike',

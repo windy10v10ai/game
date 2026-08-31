@@ -1255,6 +1255,20 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 暗影萨满 枷锁替身觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken"						"<font color='#d000ff'>替身枷锁 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_SummaryDescription"		"点地施放，由替身对范围内所有敌人维持枷锁，本体可自由行动。"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_Description"				"在暗影萨满施法位置生成一个无敌且不可被选中的替身，由替身将目标地点范围内所有敌方英雄和普通单位铐牢，使其无法行动并持续受到<font color='#05CAFF'>魔法伤害</font>。本体可以自由行动，移动或施法不会中断枷锁。点地施法不会触发法术格挡，也不会被法术反射。"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_scepter_description"		"提升施法距离。每隔%scepter_shock_interval%秒，每个被铐牢的敌人都会释放一次辐射状的苍穹震击，对其%scepter_shock_radius%范围内其他敌人造成%scepter_shock_pct%%%苍穹震击普通伤害。"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_total_damage"			"每个目标总伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_channel_time"			"持续时间："
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_radius"				"作用范围："
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_AbilityCastRange"		"施法距离："
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_status"				"<font color='#d000ff'>替身枷锁 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_status_Description"	"枷锁由替身维持，本体可以自由移动、攻击和施法。点地施放不会触发法术格挡或法术反射。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_debuff"				"替身枷锁"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_debuff_Description"	"被替身的枷锁铐牢，无法行动并持续受到魔法伤害。"
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>余震 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"余震命中的每个单位都会在原地触发一次小余震，对附近敌人造成独立的魔法伤害。多个小余震可同时命中同一目标，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"

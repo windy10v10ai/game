@@ -5,6 +5,70 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 暗影萨满 枷锁替身觉醒
+	"special_bonus_unique_shadow_shaman_shackles_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_shadow_shaman_shackles_awaken"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES_STRONG"
+		"FightRecapLevel"				"1"
+		"HasScepterUpgrade"				"1"
+		"AbilityTextureName"			"shadow_shaman_shackles"
+		"MaxLevel"						"5"
+
+		"AbilityCastPoint"				"0.3 0.3 0.3 0.3 0.3"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityManaCost"				"125 140 155 170 185"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_shadowshaman/shadowshaman_shackle.vpcf"
+			"particle"		"particles/units/heroes/hero_shadowshaman/shadowshaman_ether_shock.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"AbilityCastRange"
+			{
+				"value"					"600"
+				"special_bonus_scepter"	"+200"
+			}
+			"radius"
+			{
+				"value"					"350"
+				"affected_by_aoe_increase"	"1"
+			}
+			"total_damage"
+			{
+				"value"									"100 160 220 280 340"
+				"special_bonus_unique_shadow_shaman_6"	"+170"
+			}
+			"channel_time"
+			{
+				"value"									"3 4 5 6 7"
+				"special_bonus_unique_shadow_shaman_2"	"+1.0"
+			}
+			"scepter_shock_pct"
+			{
+				"special_bonus_scepter"	"100"
+			}
+			"scepter_shock_radius"
+			{
+				"special_bonus_scepter"	"600"
+			}
+			"scepter_shock_interval"
+			{
+				"special_bonus_scepter"	"0.6"
+			}
+		}
+	}
+
 	// 撼地者 余震觉醒
 	"special_bonus_unique_earthshaker_upgrade"
 	{
