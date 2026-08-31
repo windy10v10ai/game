@@ -21,6 +21,14 @@ interface ShackledTarget {
   endTime: number;
 }
 
+interface ScepterShockContext {
+  caster: CDOTA_BaseNPC;
+  ability: CDOTABaseAbility;
+  etherShock: CDOTABaseAbility;
+  damage: number;
+  radius: number;
+}
+
 @registerAbility('special_bonus_unique_shadow_shaman_shackles_awaken')
 export class SpecialBonusUniqueShadowShamanShacklesAwaken extends BaseAbility {
   GetIntrinsicModifierName(): string {
@@ -296,55 +304,72 @@ export class modifier_special_bonus_unique_shadow_shaman_shackles_awaken_proxy e
   }
 
   private tryEmitScepterShocks(now: number): void {
-    if (this.nextScepterShockTime === undefined || now < this.nextScepterShockTime) return;
+    if (!this.consumeScepterShockTimer(now)) return;
+
+    const context = this.getScepterShockContext();
+    if (!context) return;
+
+    for (const source of this.targets) {
+      if (source.unit.IsNull() || !source.unit.IsAlive()) continue;
+      this.emitScepterShocksFrom(source.unit, context);
+    }
+  }
+
+  private consumeScepterShockTimer(now: number): boolean {
+    if (this.nextScepterShockTime === undefined || now < this.nextScepterShockTime) return false;
 
     const ability = this.GetAbility();
-    if (!ability || ability.IsNull()) return;
+    if (!ability || ability.IsNull()) return false;
 
     const shockInterval = ability.GetSpecialValueFor('scepter_shock_interval');
     if (shockInterval <= 0) {
       this.nextScepterShockTime = undefined;
-      return;
+      return false;
     }
     this.nextScepterShockTime = now + shockInterval;
+    return true;
+  }
 
+  private getScepterShockContext(): ScepterShockContext | undefined {
+    const ability = this.GetAbility();
     const caster = this.GetCaster();
-    if (!caster || caster.IsNull()) return;
+    if (!ability || ability.IsNull() || !caster || caster.IsNull()) return undefined;
+
     const etherShock = caster.FindAbilityByName(ETHER_SHOCK_ABILITY);
-    if (!etherShock || etherShock.IsNull() || etherShock.GetLevel() <= 0) return;
+    if (!etherShock || etherShock.IsNull() || etherShock.GetLevel() <= 0) return undefined;
 
     const damage =
       etherShock.GetSpecialValueFor('damage') *
       (ability.GetSpecialValueFor('scepter_shock_pct') / 100);
     const radius = ability.GetSpecialValueFor('scepter_shock_radius');
-    if (damage <= 0 || radius <= 0) return;
+    if (damage <= 0 || radius <= 0) return undefined;
 
-    for (const source of this.targets) {
-      if (source.unit.IsNull() || !source.unit.IsAlive()) continue;
+    return { caster, ability, etherShock, damage, radius };
+  }
 
-      const victims = FindUnitsInRadius(
-        caster.GetTeamNumber(),
-        source.unit.GetAbsOrigin(),
-        undefined,
-        radius,
-        UnitTargetTeam.ENEMY,
-        UnitTargetType.HERO + UnitTargetType.BASIC,
-        UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,
-        FindOrder.ANY,
-        false,
-      );
-      for (const victim of victims) {
-        if (victim === source.unit) continue;
+  private emitScepterShocksFrom(source: CDOTA_BaseNPC, context: ScepterShockContext): void {
+    const victims = FindUnitsInRadius(
+      context.caster.GetTeamNumber(),
+      source.GetAbsOrigin(),
+      undefined,
+      context.radius,
+      UnitTargetTeam.ENEMY,
+      UnitTargetType.HERO + UnitTargetType.BASIC,
+      UnitTargetFlags.MAGIC_IMMUNE_ENEMIES,
+      FindOrder.ANY,
+      false,
+    );
+    for (const victim of victims) {
+      if (victim === source) continue;
 
-        ApplyDamage({
-          victim,
-          attacker: caster,
-          damage,
-          damage_type: etherShock.GetAbilityDamageType(),
-          ability,
-        });
-        this.playEtherShockParticle(source.unit, victim);
-      }
+      ApplyDamage({
+        victim,
+        attacker: context.caster,
+        damage: context.damage,
+        damage_type: context.etherShock.GetAbilityDamageType(),
+        ability: context.ability,
+      });
+      this.playEtherShockParticle(source, victim);
     }
   }
 
