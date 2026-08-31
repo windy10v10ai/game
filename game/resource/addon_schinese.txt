@@ -1263,6 +1263,13 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_SummaryDescription"	"生命值过低时自动对血量百分比最高的敌人施放魂断，不受控制影响。"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_status_Description"		"生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，<font color='#FF0000'>自动</font>对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#FF0000'>被眩晕、沉默、妖术等控制时也会自动施放。</font><br>需要魂断冷却完毕且魔法足够；敌方英雄生命值百分比都低于自己时不触发。"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status"					"<font color='#d000ff'>魂断 觉醒</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_status_Description"		"生命值低于<font color='#FFFFFF'><b>30%%</b></font>时，<font color='#FF0000'>自动</font>对施法距离内生命值百分比最高的敌方英雄施放魂断。<br><font color='#FF0000'>被眩晕、沉默、妖术等控制时也会自动施放。</font><br>需要魂断冷却完毕且魔法足够；敌方英雄生命值百分比都低于自己时不触发。"
+
 		// 赏金猎人 追踪术觉醒
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>追踪术 觉醒</font>"
 		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"追踪一个敌方英雄，获得目标的真实视域，使目标受到的伤害增加，同时掌握目标当前携带的金钱数额。如果目标在被追踪期间死亡，赏金猎人和附近友方英雄都将获得若干金钱奖励。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内有敌方英雄时自动施放，优先追踪尚未被追踪的英雄。<br><font color='#d000ff'>觉醒强化：</font>追踪术施放后，对目标额外投出一枚当前等级的投掷飞镖。该飞镖无视施法距离、不触发冷却，消耗投掷飞镖的魔法值；未学习投掷飞镖或魔法不足时不投出。"
