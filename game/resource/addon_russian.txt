@@ -668,6 +668,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened"						"<font color='#d000ff'>Пробуждённый Sunder</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_SummaryDescription"		"Автоматически применяет Sunder по области при низком здоровье, даже под контролем."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_Description"			"Выбирает область и обменивает текущий процент здоровья Terrorblade со всеми настоящими вражескими героями внутри неё. Все враги получают процент здоровья Terrorblade до применения, а Terrorblade получает наибольший процент здоровья среди затронутых врагов до применения. Игнорирует <font color='#FFCC66'>невосприимчивость к эффектам</font> и не активирует блокирование или отражение заклинаний. Не имеет минимального порога здоровья и времени применения.<br><br><font color='#00CED1'>Автоматическое применение:</font> При здоровье ниже %auto_trigger_health_pct%%% автоматически срабатывает вокруг Terrorblade, даже под оглушением или другим контролем."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_radius"					"РАДИУС:"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened"					"<font color='#d000ff'>Пробуждённый Sunder</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_Description"		"Sunder пробуждён. При здоровье ниже <font color='#FFFFFF'><b>20%%</b></font> он автоматически срабатывает, если рядом есть вражеский герой, даже под контролем."
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Афтершок: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Каждая цель, задетая Афтершоком, создаёт малый Афтершок в своей точке, наносящий отдельный магический урон врагам поблизости. Несколько малых Афтершоков могут поразить одну цель, но в каждой серии оглушают её только один раз. Малые Афтершоки не создают новые малые Афтершоки."

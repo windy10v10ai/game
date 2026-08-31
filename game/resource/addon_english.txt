@@ -1260,6 +1260,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened"						"<font color='#d000ff'>Sunder Awakened</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_SummaryDescription"		"Automatically unleashes an area Sunder at low health, even while disabled."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_Description"			"Targets an area and exchanges Terrorblade's current health percentage with every real enemy hero inside it. All enemies are set to Terrorblade's pre-cast health percentage, while Terrorblade gains the highest pre-cast health percentage among affected enemies. Ignores <font color='#FFCC66'>debuff immunity</font> and does not trigger Spell Block or Spell Reflect. Has no minimum health limit or cast point.<br><br><font color='#00CED1'>Automatic Cast:</font> Automatically activates around Terrorblade below %auto_trigger_health_pct%%% health, even while stunned or otherwise disabled."
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_radius"					"RADIUS:"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened"					"<font color='#d000ff'>Sunder Awakened</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_Description"		"Sunder is awakened. Below <font color='#FFFFFF'><b>20%%</b></font> health, it automatically activates when an enemy hero is nearby, even while disabled."
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Aftershock Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Each unit hit by Aftershock creates a small Aftershock at its position, dealing separate magical damage to nearby enemies. Multiple small Aftershocks can hit the same unit, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."

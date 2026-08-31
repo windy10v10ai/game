@@ -1255,6 +1255,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 恐怖利刃 魂断觉醒
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened"						"<font color='#d000ff'>魂断 觉醒</font>"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_SummaryDescription"		"生命值过低时，即使受到控制也会自动发动范围魂断。"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_Description"			"选定一个区域，交换恐怖利刃与区域内所有敌方真实英雄的当前生命百分比。所有敌人变为恐怖利刃施放前的生命百分比，恐怖利刃则获得命中目标中最高的施放前生命百分比。无视<font color='#FFCC66'>减益免疫</font>，不会触发法术抵抗或法术反弹。没有最低生命值限制，也没有施法前摇。<br><br><font color='#00CED1'>自动施法：</font>生命值低于%auto_trigger_health_pct%%%时，即使受到眩晕等控制也会以自身为中心自动释放。"
+		"DOTA_Tooltip_ability_terrorblade_sunder_awakened_radius"					"作用范围："
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened"					"<font color='#d000ff'>魂断 觉醒</font>"
+		"DOTA_Tooltip_modifier_terrorblade_sunder_awakened_Description"		"魂断已觉醒。生命值低于<font color='#FFFFFF'><b>20%%</b></font>且附近存在敌方英雄时，即使受到控制也会自动释放。"
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>余震 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"余震命中的每个单位都会在原地触发一次小余震，对附近敌人造成独立的魔法伤害。多个小余震可同时命中同一目标，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"

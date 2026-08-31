@@ -18,6 +18,18 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 恐怖利刃 觉醒
+  {
+    heroName: 'npc_dota_hero_terrorblade',
+    targetAbility: 'terrorblade_sunder',
+    newAbility: 'terrorblade_sunder_awakened',
+    newLevel: 0,
+  },
+  {
+    heroName: 'npc_dota_hero_terrorblade',
+    newAbility: 'terrorblade_sunder_awakened_status',
+    newLevel: 1,
+  },
   // 撼地者 觉醒
   {
     heroName: 'npc_dota_hero_earthshaker',
@@ -263,6 +275,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_terrorblade', // 恐怖利刃
   'npc_dota_hero_earthshaker', // 撼地者
   'npc_dota_hero_abyssal_underlord', // 孽主
   'npc_dota_hero_slark', // 斯拉克
