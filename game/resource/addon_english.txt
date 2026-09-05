@@ -90,7 +90,7 @@
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
 		"loading_faq_local_host_question"			"Can I play on a local host?"
-		"loading_faq_local_host_answer"				"Yes, but some features are limited. A local host supports data loading, member check-in, and Warrior Point settlement. Spend attribute points on a dedicated server. Local games can earn up to 1,000 Warrior Points per day."
+		"loading_faq_local_host_answer"				"Yes, but some features are limited. A local host supports data loading, member check-in, and Warrior Point settlement. Spend attribute points on a dedicated server. Local games can earn up to 2,000 Warrior Points per day."
 		"loading_faq_pause_question"				"Can pause time be extended?"
 		"loading_faq_pause_answer"				"Dedicated-server pause time is limited by Dota 2. Use a local host if you need more flexible pauses."
 		"loading_faq_attributes_question"			"When do attribute points take effect?"

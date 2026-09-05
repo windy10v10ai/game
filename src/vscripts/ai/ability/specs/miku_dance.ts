@@ -12,7 +12,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.EnemyHero,
     condition: {
       target: { range: { lte: 600 }, count: { gte: 2 } },
-      self: { unitCondition: { noModifier: 'modifier_miku_dance' } },
+      self: { unitCondition: { noModifier: ['modifier_miku_dance'] } },
     },
   },
 ];

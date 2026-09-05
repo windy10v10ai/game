@@ -1,3 +1,4 @@
+export const AEON_DISK_BUFF = 'modifier_item_aeon_disk_buff';
 export const IMMORTALITY_MODIFIER = 'modifier_item_helm_of_the_undying_active';
 const CULLING_BLADE = 'axe_culling_blade';
 

@@ -1,4 +1,4 @@
-import { IMMORTALITY_MODIFIER } from '../../modules/filter/dragon-wish-filter';
+import { AEON_DISK_BUFF, IMMORTALITY_MODIFIER } from '../../modules/filter/dragon-wish-filter';
 import { registerAbility } from '../../utils/dota_ts_adapter';
 import {
   AutoCastAbility,
@@ -51,6 +51,7 @@ export class AxeAutoCullingBlade extends AutoCastAbility {
         !enemy.IsNull() &&
         enemy.IsAlive() &&
         !enemy.HasModifier(IMMORTALITY_MODIFIER) &&
+        !enemy.HasModifier(AEON_DISK_BUFF) &&
         enemy.GetHealth() <= threshold
       ) {
         castImmediatelyOnTarget(caster, culling, enemy);

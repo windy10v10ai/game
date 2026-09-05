@@ -37,6 +37,10 @@ export interface CastCoindition {
      */
     rangeFromAttackRange?: boolean;
     /**
+     * 将攻击距离计入搜索半径时额外增加的距离。
+     */
+    attackRangeOffset?: number;
+    /**
      * 决定 POINT 技能的释放位置：
      * - 'targetPosition'（默认）：释放点 = 目标位置
      * - 'projectedOnCastRange'：
@@ -126,7 +130,7 @@ export interface UnitCondition {
 
   hasScepter?: boolean;
   hasShard?: boolean;
-  noModifier?: string;
+  noModifier?: string[];
   notActionable?: boolean;
   /**
    * 排除远古野（大龙/小龙等）。
@@ -304,7 +308,8 @@ export function CheckUnitConditionFailure(
   if (unitCondition.hasShard && !unit.HasModifier('modifier_item_aghanims_shard')) {
     return true;
   }
-  if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
+  const noModifiers = unitCondition.noModifier;
+  if (noModifiers && noModifiers.some((modifier) => unit.HasModifier(modifier))) {
     return true;
   }
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {

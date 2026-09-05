@@ -647,7 +647,7 @@
 
 			// Item Info
 			//-------------------------------------------------------------------------------------------------------------
-			"ItemCost"                      "3850"
+			"ItemCost"                      "3200"
 			"ItemShopTags"                  "int;regen_mana;move_speed;hard_to_tag"
 			"ItemQuality"                   "rare"
 			"ItemAliases"                   "aether lens"
@@ -1554,7 +1554,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2600"
+		"ItemCost"						"1900"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2478,9 +2478,9 @@
 			"bonus_strength"				"180"
 			"bonus_agility"					"180"
 			"bonus_intellect"				"180"
-			"bonus_attack_speed"			"140"
+			"bonus_attack_speed"			"120"
 			"movement_speed_percent_bonus"	"40"
-			"status_resistance"				"50"
+			"status_resistance"				"46"
 			"hp_regen_amp"					"80"
 			"mana_regen_multiplier"			"120"
 			"spell_amp"						"60"
@@ -4702,7 +4702,7 @@
 
         // Item Info
         //-------------------------------------------------------------------------------------------------------------
-        "ItemCost"						"19800"
+        "ItemCost"						"19200"
 		"ItemShopTags"					"move_speed;boost_mana;mana_pool"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"mana;mb;refresh core;refresher orb;octarine core"
@@ -5278,8 +5278,8 @@
 		{
 				"bonus_strength"		"60"	// 16
 				"bonus_agility"			"60"	// 16
-				"status_resistance"		"35"	// 15
-				"bonus_attack_speed"	"50"	// 20
+				"status_resistance"		"30"	// 15
+				"bonus_attack_speed"	"40"	// 20
 				"movement_speed_percent_bonus"	"25" // 12
 				"hp_regen_amp"			"40"	// 25
 				"slow_resistance"		"50"	// 25
@@ -5314,7 +5314,7 @@
 		{
 				"bonus_agility"			"60"
 				"bonus_intellect"		"60"
-				"bonus_attack_speed"	"50" // 20
+				"bonus_attack_speed"	"40" // 20
 				"mana_regen_multiplier"	"60" // 30
 				"movement_speed_percent_bonus"	"25" // 12
 				"spell_amp"				"25" // 12
@@ -6682,7 +6682,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"52300"
+		"ItemCost"					"51700"
 		"ItemShopTags"				"move_speed;boost_mana;mana_pool"
 		"ItemQuality"				"rare"
 		"ItemAliases"				"mana;mb;refresh core;refresher orb;octarine core"
