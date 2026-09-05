@@ -285,6 +285,14 @@ interface BorrowedAbilityState {
   originalCooldown: number;
 }
 
+interface PossessionContext {
+  caster: CDOTA_BaseNPC_Hero;
+  target: CDOTA_BaseNPC_Hero;
+  ability: CDOTABaseAbility;
+  casterPlayerId: PlayerID;
+  casterPlayer: CDOTAPlayerController;
+}
+
 /**
  * 唯一生命周期 owner：保存并切换目标身份、隐藏本体、延长持续时间，并在所有出口恢复双方。
  * 目标 modifier 只承担可见状态与 AI 暂停标记，不拥有恢复逻辑。
@@ -340,28 +348,46 @@ export class modifier_death_prophet_exorcism_ai_possession_controller extends Ba
     if (!IsServer()) return;
     const lifecycleStartedAt = Time();
 
+    const context = this.resolvePossessionContext(params);
+    if (!context) {
+      this.Destroy();
+      return;
+    }
+
+    this.startPossession(context, params, lifecycleStartedAt);
+  }
+
+  private resolvePossessionContext(params: PossessionParams): PossessionContext | undefined {
     const caster = this.GetParent() as CDOTA_BaseNPC_Hero;
     const target = params.target_entindex
       ? (EntIndexToHScript(params.target_entindex) as CDOTA_BaseNPC_Hero | undefined)
       : undefined;
-    if (!target || target.IsNull() || !isPossessableEnemyBot(caster, target)) {
-      this.Destroy();
-      return;
-    }
-
     const ability = this.GetAbility();
-    if (!ability || ability.IsNull()) {
-      this.Destroy();
-      return;
-    }
-
     const casterPlayerId = caster.GetPlayerOwnerID();
     const casterPlayer = caster.GetPlayerOwner();
-    if (!PlayerResource.IsValidPlayerID(casterPlayerId) || !casterPlayer || casterPlayer.IsNull()) {
-      this.Destroy();
-      return;
+
+    if (
+      !target ||
+      target.IsNull() ||
+      !isPossessableEnemyBot(caster, target) ||
+      !ability ||
+      ability.IsNull() ||
+      !PlayerResource.IsValidPlayerID(casterPlayerId) ||
+      !casterPlayer ||
+      casterPlayer.IsNull()
+    ) {
+      return undefined;
     }
 
+    return { caster, target, ability, casterPlayerId, casterPlayer };
+  }
+
+  private startPossession(
+    context: PossessionContext,
+    params: PossessionParams,
+    lifecycleStartedAt: number,
+  ): void {
+    const { caster, target, ability, casterPlayerId, casterPlayer } = context;
     this.target = target;
     this.originalTargetOwner = target.GetOwnerEntity();
     this.originalTargetPlayerId = target.GetPlayerID();
