@@ -5,6 +5,49 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 裂魂人 暗影冲刺觉醒
+	"spirit_breaker_charge_of_darkness_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"				"abilities/ts_abilities/spirit_breaker_charge_of_darkness_awaken"
+		"AbilityType"				"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"		"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_NO"
+		"AbilityTextureName"			"spirit_breaker_charge_of_darkness"
+		"AbilityCastAnimation"		"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCastRange"			"99999"
+		"AbilityCastPoint"			"0.3"
+		"AbilityCooldown"			"22 19 16 13 10"
+		"AbilityManaCost"			"90 100 110 120 130"
+		"MaxLevel"					"5"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_charge.vpcf"
+			"particle"		"particles/units/heroes/hero_spirit_breaker/spirit_breaker_greater_bash.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"echo_radius"
+			{
+				"value"						"300"
+				"affected_by_aoe_increase"	"1"
+			}
+			"movement_speed"				"275 325 375 425 475"
+			"collision_damage_pct"
+			{
+				"value"					"100"
+				"display_type"			"kMagicalDamagePercentage"
+			}
+		}
+	}
+
 	// 撼地者 余震觉醒
 	"special_bonus_unique_earthshaker_upgrade"
 	{

@@ -86,6 +86,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["void_spirit_dissimilate"] = true,            -- 虚无之灵 异化
     ["puck_illusory_orb"] = true,                  -- 帕克 幻象法球
     ["spirit_breaker_charge_of_darkness"] = true,  -- 裂魂人 暗影冲刺
+    ["spirit_breaker_charge_of_darkness_awaken"] = true, -- 裂魂人 暗影冲刺 觉醒
     ["rattletrap_hookshot"] = true,                -- 发条技师 发射钩爪
     ["huskar_life_break"] = true,                  -- 哈斯卡 牺牲
     ["pangolier_swashbuckle"] = true,              -- 石鳞剑士 虚张声势

@@ -668,6 +668,14 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Пробуждение Shallow Grave</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"После применения Shallow Grave на себя или союзника цель получает эффект <font color='#FFCC66'>Black King Bar</font> на время действия Shallow Grave."
 
+		// 裂魂人 暗影冲刺觉醒
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken"					"<font color='#d000ff'>Массовый теневой рывок: пробуждение</font>"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_Description"		"Charge of Darkness становится направленной на область способностью. Spirit Breaker устремляется к ближайшему к центру врагу, а к каждому другому врагу — временная копия, постоянно повторяющая его текущую скорость рывка. Во время рывка Spirit Breaker может использовать способности и предметы. Приказ движения, атаки или остановки отменяет только его рывок, а копии продолжают движение. Весь урон, оглушение и отбрасывание Greater Bash исходят от Spirit Breaker. При столкновении отброшенного врага с другим оба снова получают 100% эффекта Greater Bash. Каждая пара целей сталкивается только один раз за применение."
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_SummaryDescription"	"Выберите область: Spirit Breaker и временные двойники атакуют всех врагов в ней."
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_echo_radius"			"%РАДИУС ВЫБОРА:"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_movement_speed"			"%БОНУС СКОРОСТИ ТЕНИ:"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_collision_damage_pct"		"%УРОН GREATER BASH ПРИ СТОЛКНОВЕНИИ:"
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Афтершок: пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Каждая цель, задетая Афтершоком, создаёт малый Афтершок в своей точке, наносящий отдельный магический урон врагам поблизости. Несколько малых Афтершоков могут поразить одну цель, но в каждой серии оглушают её только один раз. Малые Афтершоки не создают новые малые Афтершоки."

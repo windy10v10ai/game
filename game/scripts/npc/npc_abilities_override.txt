@@ -3868,9 +3868,10 @@
 		"MaxLevel"						"5"
 		"AbilityValues"
 		{
+				"chance_pct"			"20"	// 17
 				"damage"
 				{
-					"value"	"25 30 35 40 45"	// 25 30 35 40
+					"value"	"30 40 50 65 80"	// 25 30 35 40
 				}
 				"duration"				"0.9 1.1 1.3 1.5 1.7"	// 0.9 1.1 1.3 1.5
 				"knockback_distance"	"143 152 158 162 165"	// 143 152 158 162
