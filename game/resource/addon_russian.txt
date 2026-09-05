@@ -603,6 +603,16 @@
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_ad"				"ad rate： "
 		"DOTA_Tooltip_ability_ancient_apparition_freezing_aura_duration"		"Длительность： "
 
+		// 琼英碧灵 越界觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken"					"<font color='#d000ff'>Pierce the Veil · Пробуждение</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_Description"		"Во время действия Pierce the Veil атаки Muerta наносят обычный урон врагам под защитой Black King Bar, а сама Muerta получает магический вампиризм.<br>Пока Pierce the Veil действует, личное убийство вражеского героя или смерть вражеского героя рядом с Muerta навсегда дают один заряд усиления заклинаний. Число зарядов не ограничено, и они не теряются после смерти."
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_SummaryDescription"	"Pierce the Veil позволяет атакам нормально наносить урон врагам под защитой Black King Bar и даёт магический вампиризм. Убийства героев и смерти героев поблизости навсегда накапливают усиление заклинаний."
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_spell_lifesteal"		"%МАГИЧЕСКИЙ ВАМПИРИЗМ:"
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_spell_amp_per_kill"		"%УСИЛЕНИЕ ЗАКЛИНАНИЙ ЗА ЗАРЯД:"
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_stack_collection_range"	"РАДИУС ПОЛУЧЕНИЯ ЗАРЯДА:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_muerta_pierce_the_veil_awaken"				"<font color='#d000ff'>Pierce the Veil · Пробуждение</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_muerta_pierce_the_veil_awaken_Description"		"Во время действия Pierce the Veil атаки наносят обычный урон врагам под защитой Black King Bar и дают <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font> магического вампиризма.<br>Каждый заряд навсегда даёт <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font> усиления заклинаний. Число зарядов не ограничено, и они не теряются после смерти. Текущее усиление заклинаний: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</b></font>."
+
 		// Skywrath Mage Staff of the Scion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>Посох отпрыска · Пробуждение</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade_Description"			"<font color='#d000ff'>Бонус пробуждения:</font> Skywrath Mage получает Staff of the Scion. Каждый раз, когда его способности наносят <font color='#05CAFF'>магический урон</font> вражескому герою, время восстановления всех его способностей сокращается на %cooldown_reduction% сек.<br><br><font color='#00CED1'>Автоприменение:</font> Если включено, Skywrath Mage автоматически применяет Ancient Seal, Concussive Shot, Mystic Flare и Arcane Bolt, когда вражеский герой находится в радиусе применения. Arcane Bolt также применяется по крипам, если героев поблизости нет."
