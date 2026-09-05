@@ -1255,6 +1255,13 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 兽王 野性之斧-觉醒
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>野性之斧 觉醒</font>"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧对同一个敌人只能击中一次，并且使受到来自兽王和其单位的伤害增加。减益持续时间受状态抗性影响。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内出现敌方单位时自动朝最远的敌方英雄投斧。<br><font color='#d000ff'>觉醒强化：</font>伤害加深更强且持续更久，飞斧以极快速度飞出并返回，斯洛姆战鼓的伤害，治疗和原始咆哮提供的敲鼓层数一并提高。"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"每把飞斧伤害："
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%每把加深伤害："
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"负面效果持续时间："
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_min_throw_duration"		"飞斧飞行时间："
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>余震 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"余震命中的每个单位都会在原地触发一次小余震，对附近敌人造成独立的魔法伤害。多个小余震可同时命中同一目标，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"

@@ -103,6 +103,72 @@
 			"cooldown_reduction"		"0.1"
 		}
 	}
+	// 兽王 觉醒
+	"special_bonus_unique_beastmaster_awaken"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"beastmaster_wild_axes"
+		"MaxLevel"						"1"
+
+		"Modifiers"
+		{
+			"modifier_special_bonus_unique_beastmaster_awaken"
+			{
+				"Passive"			"1"
+				"IsHidden"			"1"
+				"IsPurgable"		"0"
+				"RemoveOnDeath"		"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT"
+			}
+		}
+	}
+	// 兽王 野性之斧-觉醒
+	// 壳技能占原槽位提供自动施法开关，实际弹道与伤害由隐藏保留的原生技能负责
+	// AbilityValues 仅供技能面板显示，须与原版 + npc_abilities_override.txt 差分 + 觉醒加成后的最终值一致
+	"beastmaster_wild_axes_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/beastmaster_wild_axes_awaken"
+		"AbilityTextureName"			"beastmaster_wild_axes"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"AbilitySound"					"Hero_Beastmaster.Wild_Axes"
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityManaCost"				"50 55 60 65 70"
+		"MaxLevel"						"5"
+
+		"AbilityValues"
+		{
+			"radius"					"175"
+			"spread"					"450"
+			"axe_damage"
+			{
+				"value"							"80 160 240 320 400"
+				"CalculateSpellDamageTooltip"	"1"
+			}
+			"damage_amp"
+			{
+				"value"									"15 16 17 18 19"
+				"special_bonus_unique_beastmaster_9"	"+3"
+			}
+			"duration"					"18 19 20 21 22"
+			"AbilityCooldown"
+			{
+				"value"													"8"
+				"special_bonus_unique_beastmaster_wild_axe_cooldown"	"-8"
+			}
+			"min_throw_duration"		"0.3"
+			"max_throw_duration"		"0.3"
+		}
+	}
+
 
 	// 上古巨神 觉醒灵体游魂
 	// 除冷却（觉醒专属强化，免瞄准自动施放，缩短冷却体现觉醒增益）外，

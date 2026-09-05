@@ -34,6 +34,38 @@ description: 为英雄创作「觉醒技能」时使用——通过觉醒石（i
 
 > `targetSlot` 命中 `generic_hidden`（占位空槽）时走替换而非插入。
 
+## 选型：先决定用哪种实现
+
+动手前先判断这次觉醒**只改数值**还是**要新行为**。选错会带来大量无谓的 KV 复制和 hardcode 失效风险。
+
+| 觉醒内容 | 做法 | 参考 |
+| ---- | ---- | ---- |
+| 只改数值（伤害 / 范围 / 持续 / 冷却…） | **原技能不动**，在 `npc_abilities_override.txt` 的原技能数值块里加 `special_bonus_unique_<hero>_awaken` 加成行；觉醒发一个隐藏被动当触发器（纯新增，`newLevel: 1`） | `special_bonus_unique_bristleback_upgrade`、`special_bonus_unique_monkey_king_upgrade` |
+| 原版没有的新机制 | `ability_lua` 新技能 + TS 实现，纯新增不占原槽位 | `special_bonus_unique_underlord_demons_reach_awaken` |
+| 给原技能加自动施法 | `ability_lua` 壳技能 + `AUTOCAST`，用 `targetAbility` 替换原技能占**原槽位**；原生技能隐藏保留，壳技能调它的 `OnSpellStart()` | `elder_titan_ancestral_spirit_awaken`、`beastmaster_wild_axes_awaken` |
+
+**禁止为了改数值去克隆原版技能**（`BaseClass` 填原版技能名）。`BaseClass` 只继承代码类，**不继承 KV**：克隆块必须把原版 + override 的字段整份抄一遍，漏一个字段引擎就当 0 用；技能还换了名字，引擎按原名查找的 hardcode 联动（A 杖授予、碎晶升级、其他技能给它加层数）会静默失效。数值加成用 special bonus 一行就够，这些代价全部不存在。
+
+### special bonus 加成行
+
+在 `npc_abilities_override.txt` 原技能的数值块里加一行，`+N` 为增量、`=N` 为覆盖：
+
+```
+"damage_amp"
+{
+	"value"										"5 6 7 8 9"
+	"special_bonus_unique_beastmaster_awaken"	"+10"
+}
+```
+
+原版是**扁平值**（`"heal_pct" "20"`）时，改写成块必须把 `value` 一起写上，否则原值会丢；原版**已经是块**时只加 bonus 行，不要重复 `value`。
+
+触发器用独立的隐藏被动（`ability_datadriven` + `PASSIVE | HIDDEN` + `MaxLevel 1`），**不要拿壳技能兼任**——壳技能等级跟随玩家加点，没学就是 0 级，`special_bonus` 不生效。
+
+### 壳技能
+
+壳技能自己承担冷却与法力消耗，KV 里必须写全（含 `AbilityCooldown` 的天赋引用行）。**不要**在 TS 里覆写 `GetCooldown` / `GetManaCost` 转发给原生技能：那是服务端钩子，客户端技能面板直接读 KV、不跑这段 Lua，面板会显示成 0。
+
 ## 添加一个新觉醒的步骤
 
 ### 1) 配置

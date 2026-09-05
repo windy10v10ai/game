@@ -1260,6 +1260,13 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 兽王 野性之斧-觉醒
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes Awakened</font>"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"Beastmaster sends his axes flying and calls them home again, slicing through enemy units and trees along their path. Each axe can hit an enemy once, and amplifies subsequent damage from Beastmaster and his units. Debuff duration is affected by Status Resistance.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, throws the axes toward the farthest enemy hero whenever an enemy unit is within cast range.<br><font color='#d000ff'>AWAKENED:</font> Damage amplification is stronger and lasts longer, the axes travel out and back at extreme speed, and Drums of Slom gains increased damage, healing, and drum stacks from Primal Roar."
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"DAMAGE PER AXE:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%DAMAGE AMP PER STACK:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"DEBUFF DURATION:"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_min_throw_duration"		"AXE TRAVEL TIME:"
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Aftershock Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Each unit hit by Aftershock creates a small Aftershock at its position, dealing separate magical damage to nearby enemies. Multiple small Aftershocks can hit the same unit, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."
