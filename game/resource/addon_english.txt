@@ -3591,6 +3591,13 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Demon's Reach Awakened</font>"
 		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"While Atrophy Aura grants bonus attack damage, attacks deal <font color='#FFFFFF'><b>100%%</b></font> cleave damage, with cleave distance increasing for each point of bonus damage. Current cleave distance: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
 
+		// 司夜刺客 钻地觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>Burrow Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin can move freely at his normal movement speed while Burrowed, while retaining all other Burrow effects."
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_SummaryDescription"	"Allows Nyx Assassin to move normally while Burrowed without losing its other effects."
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"				"<font color='#d000ff'>Burrow Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin can move freely at his normal movement speed while Burrowed, while retaining all other Burrow effects."
+
 		// Slark Essence Erosion - Awakened
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals %permanent_steal_pct%%% of the total attributes his Essence Shift has taken from that hero.<br>An enemy hero's base attributes never fall below <font color='#FFFFFF'><b>1</b></font>."
