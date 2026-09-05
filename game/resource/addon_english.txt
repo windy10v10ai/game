@@ -1260,6 +1260,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 裂魂人 暗影冲刺觉醒
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken"					"<font color='#d000ff'>Mass Shadow Charge Awakened</font>"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_Description"		"Charge of Darkness becomes a point-targeted area ability. Spirit Breaker charges the enemy nearest the center, while a temporary clone that continuously matches his current charge speed charges every other enemy. Spirit Breaker can use abilities and items normally while charging. Move, attack, or stop orders cancel only his own charge while the clones continue. All Greater Bash damage, stun, and knockback are applied by Spirit Breaker. When a knocked-back enemy hits another enemy, both take 100% Greater Bash damage and stun and may continue colliding with new enemies. Each target pair can collide only once per cast."
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_SummaryDescription"	"Target an area; Spirit Breaker and temporary clones charge every enemy within it."
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_echo_radius"			"%SELECTION RADIUS:"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_movement_speed"			"%SHADOW CHARGE SPEED BONUS:"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_collision_damage_pct"		"%COLLISION BASH DAMAGE:"
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Aftershock Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Each unit hit by Aftershock creates a small Aftershock at its position, dealing separate magical damage to nearby enemies. Multiple small Aftershocks can hit the same unit, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."

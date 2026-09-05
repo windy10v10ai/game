@@ -18,6 +18,13 @@ export interface AbilityReplacement {
 }
 
 export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
+  // 裂魂人 觉醒
+  {
+    heroName: 'npc_dota_hero_spirit_breaker',
+    targetAbility: 'spirit_breaker_charge_of_darkness',
+    newAbility: 'spirit_breaker_charge_of_darkness_awaken',
+    newLevel: 0,
+  },
   // 撼地者 觉醒
   {
     heroName: 'npc_dota_hero_earthshaker',
@@ -263,6 +270,7 @@ export const ABILITY_REPLACEMENTS: AbilityReplacement[] = [
  * 新觉醒发布时加入，下次发版由 awaken-ability skill 流程确认移出。
  */
 export const FREE_TRIAL_HEROES: string[] = [
+  'npc_dota_hero_spirit_breaker', // 裂魂人
   'npc_dota_hero_earthshaker', // 撼地者
   'npc_dota_hero_abyssal_underlord', // 孽主
   'npc_dota_hero_slark', // 斯拉克

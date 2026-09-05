@@ -1255,6 +1255,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 裂魂人 暗影冲刺觉醒
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken"					"<font color='#d000ff'>群魂冲锋 觉醒</font>"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_Description"		"暗影冲刺变为点地范围技能。选定区域中最靠近圆心的敌人由裂魂人本体冲锋，其余每个敌人由同步本体实时冲锋速度的临时分身冲锋。本体在冲锋期间可正常使用技能和装备。移动，攻击或停止指令只取消本体冲锋，分身仍会继续。所有重击伤害，眩晕和击退均由本体施加。被击退的敌人碰到其他敌人时，双方再次受到100%巨力重击伤害和眩晕，并可继续撞向其他敌人。同一对目标每次施法只触发一次碰撞。"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_SummaryDescription"	"点选一个范围，本体与临时分身同时冲锋范围内的所有敌人。"
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_echo_radius"			"%选择范围："
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_movement_speed"			"%虚影冲锋速度加成："
+		"DOTA_Tooltip_ability_spirit_breaker_charge_of_darkness_awaken_collision_damage_pct"		"%碰撞重击伤害："
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>余震 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"余震命中的每个单位都会在原地触发一次小余震，对附近敌人造成独立的魔法伤害。多个小余震可同时命中同一目标，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"
