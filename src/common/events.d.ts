@@ -36,6 +36,7 @@ interface CustomGameEventDeclarations {
   alipay_order_clear: Record<string, never>;
 
   hud_open_page: HudOpenPageEventData;
+  death_prophet_possession_select: DeathProphetPossessionSelectEventData;
 
   player_conduct: PlayerConductEventData;
 
@@ -120,6 +121,11 @@ interface HudOpenPageEventData {
   page: string;
   param?: string;
   playerId: PlayerID;
+}
+
+interface DeathProphetPossessionSelectEventData {
+  entindex: EntityIndex;
+  active: 0 | 1;
 }
 
 interface AwakenUnlockHeroEventData {

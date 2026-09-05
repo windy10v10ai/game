@@ -5,6 +5,91 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 死亡先知 觉醒
+	"death_prophet_exorcism_ai_possession"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/death_prophet_exorcism_ai_possession"
+		"AbilityTextureName"			"death_prophet_exorcism"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_NOT_ILLUSIONS"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"MaxLevel"						"4"
+		"RequiredLevel"					"6"
+		"LevelsBetweenUpgrades"			"6"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCastRange"				"700"
+		"AbilityCooldown"				"150"
+		"AbilityManaCost"				"200 300 400 500"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"HasScepterUpgrade"				"1"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_death_prophet/death_prophet_spirit_model.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"duration"
+			{
+				"value"					"40"
+				"IsDuration"				"1"
+			}
+			"scepter_proc_damage"
+			{
+				"value"					"160 260 360 460"
+				"RequiresScepter"			"1"
+			}
+			"scepter_proc_cooldown"
+			{
+				"value"					"0.75"
+				"RequiresScepter"			"1"
+			}
+			"scepter_proc_heal_pct"
+			{
+				"value"					"25"
+				"RequiresScepter"			"1"
+			}
+		}
+	}
+
+	"special_bonus_unique_death_prophet_ai_possession_power"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityTextureName"			"death_prophet_exorcism"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"value"							"25"
+		}
+	}
+
+	"special_bonus_unique_death_prophet_ai_possession_duration_on_kill"
+	{
+		"BaseClass"						"special_bonus_base"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityType"					"ABILITY_TYPE_ATTRIBUTES"
+		"AbilityTextureName"			"death_prophet_exorcism"
+		"MaxLevel"						"1"
+
+		"AbilityValues"
+		{
+			"duration_increase_per_kill"
+			{
+				"value"						"8"
+				"IsDuration"					"1"
+			}
+		}
+	}
+
 	// 撼地者 余震觉醒
 	"special_bonus_unique_earthshaker_upgrade"
 	{

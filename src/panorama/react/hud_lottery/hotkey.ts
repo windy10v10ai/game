@@ -3,14 +3,28 @@ import { AddKeyBind, FindDotaHudElement } from '@utils/utils';
 const notTargetAbilityNames = ['earthshaker_enchant_totem'];
 // 拥有unit target，但是只能对友军释放的技能（特殊情况）
 const unitTargetOnlyFriendlyAbilityNames = ['abyssal_underlord_firestorm'];
+let abilityKeyUnitOverride: EntityIndex | undefined;
+
+export function setAbilityKeyUnitOverride(entindex: EntityIndex | undefined): void {
+  abilityKeyUnitOverride = entindex;
+}
+
+function getAbilityKeyUnit(): EntityIndex {
+  if (abilityKeyUnitOverride !== undefined && Entities.IsValidEntity(abilityKeyUnitOverride)) {
+    return abilityKeyUnitOverride;
+  }
+  return Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+}
 
 export function bindAbilityKey(abilityname: string, key: string, isQuickCast: boolean) {
-  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
-  const abilityID = Entities.GetAbilityByName(heroID, abilityname);
-  // 绑定施法
+  // 每次按键重新解析当前载体与技能实体；夺舍会把自选技能临时复制到另一名英雄上。
   AddKeyBind(
     key,
-    () => executeAbilityCast(heroID, abilityID, isQuickCast),
+    () => {
+      const abilityUnit = getAbilityKeyUnit();
+      const abilityID = Entities.GetAbilityByName(abilityUnit, abilityname);
+      if (abilityID !== -1) executeAbilityCast(abilityUnit, abilityID, isQuickCast);
+    },
     () => {},
   );
 }
@@ -42,7 +56,7 @@ export function bindInventorySlotKey(inventorySlot: number, key: string, isQuick
   AddKeyBind(
     key,
     () => {
-      const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+      const heroID = getAbilityKeyUnit();
       if (heroID === -1) {
         return;
       }
@@ -62,7 +76,7 @@ const INVENTORY_HOTKEY_LABEL_ID = 'InventorySlotHotkeyTextCustom';
 
 /** Keep custom key labels attached to the native backpack slot panels. */
 export function saveInventorySlotHotkeys(slot7Key: string, slot8Key: string, slot9Key: string) {
-  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const heroID = getAbilityKeyUnit();
   const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
   const showHeroHotkeys = heroID !== -1 && portraitUnitID === heroID;
   const keys = [slot7Key, slot8Key, slot9Key];
@@ -119,7 +133,7 @@ function executeAbilityCast(
   }
   if (GameUI.IsAltDown() === true) {
     // alt切换自动施法
-    const castSuccess = castAbilityWhenAltDown(abilityID, Abilities.GetBehavior(abilityID));
+    const castSuccess = castAbilityWhenAltDown(heroID, abilityID, Abilities.GetBehavior(abilityID));
     if (castSuccess) {
       return;
     }
@@ -186,6 +200,7 @@ function isValidTargetTeam(
  * 按住Alt键时，切换自动施法，对自己施法
  */
 function castAbilityWhenAltDown(
+  abilityUnit: EntityIndex,
   abilityID: AbilityEntityIndex,
   behavior: DOTA_ABILITY_BEHAVIOR,
 ): boolean {
@@ -193,7 +208,7 @@ function castAbilityWhenAltDown(
   if (Abilities.IsAutocast(abilityID)) {
     Game.PrepareUnitOrders({
       OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TOGGLE_AUTO,
-      TargetIndex: Players.GetLocalPlayerPortraitUnit(),
+      TargetIndex: abilityUnit,
       AbilityIndex: abilityID,
       ShowEffects: true,
     });
@@ -209,7 +224,7 @@ function castAbilityWhenAltDown(
     ) {
       Game.PrepareUnitOrders({
         OrderType: dotaunitorder_t.DOTA_UNIT_ORDER_CAST_TARGET,
-        TargetIndex: Players.GetLocalPlayerPortraitUnit(),
+        TargetIndex: abilityUnit,
         AbilityIndex: abilityID,
         ShowEffects: true,
       });
@@ -291,7 +306,7 @@ function castUnitTargetAbility(
   }
 
   // 检测目标队伍，如果目标不符合技能的目标队伍要求，跳过处理
-  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const heroID = getAbilityKeyUnit();
   if (!isValidTargetTeam(abilityID, abilityName, target.entityIndex, heroID)) {
     return false;
   }
@@ -461,7 +476,7 @@ export function saveInputKeyborard(
   const passiveKeyText = bindKeyToText(passiveKey);
   const passiveKeyText2 = bindKeyToText(passiveKey2);
 
-  const heroID = Players.GetPlayerHeroEntityIndex(Game.GetLocalPlayerID());
+  const heroID = getAbilityKeyUnit();
   const portraitUnitID = Players.GetLocalPlayerPortraitUnit();
   if (portraitUnitID !== heroID) {
     return;

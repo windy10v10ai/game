@@ -1415,6 +1415,26 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"Power Cogs Awakened"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"Damage taken is reduced by %dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%."
 
+		// Death Prophet Awakened
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession"					"<font color='#d000ff'>Spirit Possession</font>"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_SummaryDescription"	"Take over a real enemy AI hero for %duration% seconds, temporarily turning it to Death Prophet's side under her player's control."
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_SummaryDescription_scepter"	"Scepter: Damage dealt by Death Prophet or the possessed hero to a non-building enemy calls at most one pursuing spirit every 0.75s, dealing bonus physical damage and healing its source."
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_Description"		"Death Prophet merges herself and her spirits into a real enemy AI hero. Her body leaves play while her player controls the target's movement, attacks, original abilities, and items. The target also inherits Death Prophet's <font color='#FFD700'>account progression bonuses and abilities selected this match</font>, then temporarily joins her team; all kills, damage, assists, and damage taken during possession are credited to Death Prophet. If the target takes lethal damage or the duration ends, Death Prophet kills it and reappears at its location.\n\nCan only target real enemy AI heroes and can be blocked by Spell Block. After learning Exorcism's duration talent, kills on current enemy heroes by the possessed unit extend this possession by the talent's value. After awakening, the original “+4 Exorcism Spirits” talent instead increases the possessed target's total damage by 25%%.\n\nWith <font color='#92acf5'>Aghanim's Scepter</font>, damage dealt by Death Prophet or the possessed hero to a non-building enemy calls a pursuing spirit that deals bonus physical damage and heals its source based on actual damage dealt."
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_duration"			"POSSESSION DURATION:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_damage"	"SCEPTER SPIRIT DAMAGE:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_cooldown"	"SCEPTER SPIRIT INTERVAL:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_heal_pct"	"SCEPTER SPIRIT HEAL:"
+		"DOTA_Tooltip_ability_special_bonus_unique_death_prophet_ai_possession_power"	"+{s:value}% Possessed Target Total Damage"
+		"DOTA_Tooltip_ability_special_bonus_unique_death_prophet_ai_possession_duration_on_kill"	"Possessed Hero Kills Extend Possession by +{s:duration_increase_per_kill}s"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_awakened"				"Spirit Possession Awakened"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_awakened_Description"		"Exorcism has awakened into Spirit Possession."
+		"DOTA_Tooltip_modifier_death_prophet_exorcism_ai_possession_controller"		"Disembodied Spirits"
+		"DOTA_Tooltip_modifier_death_prophet_exorcism_ai_possession_controller_Description"	"Death Prophet's body is merged with the possessed hero. She reappears at the target's location when possession ends."
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_target"				"Spirit Possession"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_target_Description"		"Controlled by Death Prophet's player, inheriting her account progression and selected abilities while fighting for her team. Death Prophet kills this hero when possession ends. Remaining time: %dMODIFIER_PROPERTY_TOOLTIP%s."
+		"dota_hud_error_death_prophet_ai_possession_ai_only"					"Must target a real enemy AI hero"
+		"dota_hud_error_death_prophet_ai_possession_active"					"Target is already possessed"
+
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Doom Awakened</font>"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Inflicts a curse that dispels an enemy and prevents them from casting spells or healing in any way, while taking damage over time.\n\nDISPEL TYPE: Basic Dispel\n\nWith <font color='#92acf5'>Aghanim's Scepter</font>, Doom also applies <font color='#DD621E'>Break</font> and may target the caster or an <font color='#FFFFFF'>allied hero</font> instead, continuously Dooming enemies within a %scepter_aura_radius% radius without affecting the target itself.\n\nAfter awakening, neutral abilities gained through <font color='#FFFFFF'>Devour</font> are automatically raised to their maximum level."

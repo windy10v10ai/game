@@ -1,3 +1,5 @@
+import { DEATH_PROPHET_POSSESSION_TARGET_MODIFIER } from '../../abilities/ts_abilities/death-prophet-ai-possession-constants';
+
 export class HeroUtil {
   static stunModifiers = [
     'modifier_axe_berserkers_call', // 战吼
@@ -30,6 +32,10 @@ export class HeroUtil {
   }
 
   static NotActionable(hero: CDOTA_BaseNPC): boolean {
+    // 死亡先知附身期间，玩家是唯一 action owner，暂停 TS Bot 的全部动作。
+    if (hero.HasModifier(DEATH_PROPHET_POSSESSION_TARGET_MODIFIER)) {
+      return true;
+    }
     // 死亡
     if (hero.IsAlive() === false) {
       return true;

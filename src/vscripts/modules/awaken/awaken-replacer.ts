@@ -8,11 +8,16 @@ function addAbilityAtLevel(
   abilityName: string,
   level: number,
 ): CDOTABaseAbility | undefined {
-  const added = hero.AddAbility(abilityName);
-  if (added !== undefined) {
-    added.SetLevel(Math.min(level, added.GetMaxLevel()));
+  try {
+    const added = hero.AddAbility(abilityName);
+    if (added !== undefined) {
+      added.SetLevel(Math.min(level, added.GetMaxLevel()));
+    }
+    return added;
+  } catch (error) {
+    print(`[AwakenReplacer] AddAbility failed ability=${abilityName} error=${error}`);
+    return undefined;
   }
-  return added;
 }
 
 /** 解析替换目标技能名：优先 targetAbility，其次 targetSlot 当前占用的技能 */
@@ -55,12 +60,20 @@ function insertAbility(
     return false;
   }
   const savedLevel = oldAbility.GetLevel();
+  const originalAbilityPoints = hero.GetAbilityPoints();
   // 继承等级须在移除关联技能前求值（inheritLevelFrom 可能正是被插入槽位的技能）
   const newAbilityLevel = resolveNewLevel(hero, replacement, replacement.newLevel);
   hero.RemoveAbility(targetAbilityName);
-  hero.SetAbilityPoints(hero.GetAbilityPoints() + savedLevel);
-  addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
-  addAbilityAtLevel(hero, targetAbilityName, savedLevel);
+  hero.SetAbilityPoints(originalAbilityPoints + savedLevel);
+  const addedNewAbility = addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
+  const restoredOldAbility = addAbilityAtLevel(hero, targetAbilityName, savedLevel);
+  if (!addedNewAbility || !restoredOldAbility) {
+    if (hero.FindAbilityByName(replacement.newAbility)) hero.RemoveAbility(replacement.newAbility);
+    if (hero.FindAbilityByName(targetAbilityName)) hero.RemoveAbility(targetAbilityName);
+    addAbilityAtLevel(hero, targetAbilityName, savedLevel);
+    hero.SetAbilityPoints(originalAbilityPoints);
+    return false;
+  }
   return true;
 }
 
@@ -86,6 +99,7 @@ function replaceAbility(
   targetAbilityName: string | undefined,
 ): boolean {
   let savedLevel = 0;
+  let removedTarget = false;
   if (targetAbilityName !== undefined) {
     const oldAbility = hero.FindAbilityByName(targetAbilityName);
     if (oldAbility !== undefined) {
@@ -101,8 +115,15 @@ function replaceAbility(
     hero.FindAbilityByName(targetAbilityName) !== undefined
   ) {
     hero.RemoveAbility(targetAbilityName);
+    removedTarget = true;
   }
   const added = addAbilityAtLevel(hero, replacement.newAbility, newAbilityLevel);
+  if (added === undefined) {
+    if (removedTarget && targetAbilityName !== undefined) {
+      addAbilityAtLevel(hero, targetAbilityName, savedLevel);
+    }
+    return false;
+  }
   // 解除隐藏由标记技能自身的状态机负责（如 restoreWrapperAfterReturn 里的 SwapAbilities）
   if (keepHidden && added !== undefined) {
     added.SetHidden(true);
@@ -122,12 +143,13 @@ export function executeReplacement(
 
   // 纯新增
   if (replacement.targetAbility === undefined && replacement.targetSlot === undefined) {
-    addAbilityAtLevel(
-      hero,
-      replacement.newAbility,
-      resolveNewLevel(hero, replacement, replacement.newLevel),
+    return (
+      addAbilityAtLevel(
+        hero,
+        replacement.newAbility,
+        resolveNewLevel(hero, replacement, replacement.newLevel),
+      ) !== undefined
     );
-    return true;
   }
 
   const targetAbilityName = resolveTargetAbility(hero, replacement);
@@ -172,5 +194,5 @@ export function applyAwakenByHero(hero: CDOTA_BaseNPC_Hero): boolean {
       applied = true;
     }
   }
-  return applied;
+  return applied && isAwakened(hero);
 }

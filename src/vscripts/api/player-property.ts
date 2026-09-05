@@ -1,4 +1,7 @@
-import { PropertyController } from '../modules/property/property_controller';
+import {
+  PropertyController,
+  TemporaryHeroPropertyValues,
+} from '../modules/property/property_controller';
 import { ApiClient, HttpMethod } from './api-client';
 import { Player, PlayerInfoDto } from './player';
 
@@ -23,12 +26,33 @@ export class PlayerPropertyApi {
     }
     const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
     const playerInfo = Player.playerInfoMap.get(steamId.toString());
-
     if (playerInfo?.properties) {
       for (const property of playerInfo.properties) {
         PropertyController.LevelupHeroProperty(hero, property);
       }
     }
+  }
+
+  /** 英雄升级时只刷新实际跨档的属性，避免连续升级重复重建整套 modifier。 */
+  public static RefreshPlayerPropertyOnHeroLevelUp(hero: CDOTA_BaseNPC_Hero): number {
+    if (!hero) return 0;
+
+    const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
+    const playerInfo = Player.playerInfoMap.get(steamId.toString());
+    let refreshedCount = 0;
+    for (const property of playerInfo?.properties ?? []) {
+      if (PropertyController.RefreshHeroPropertyOnLevelUp(hero, property)) refreshedCount++;
+    }
+    return refreshedCount;
+  }
+
+  /** 临时载体专用：返回单 modifier 可直接使用的玩家成长数值。 */
+  public static GetTemporaryPlayerPropertyValuesForHero(
+    hero: CDOTA_BaseNPC_Hero,
+    steamId: number,
+  ): TemporaryHeroPropertyValues {
+    const playerInfo = Player.playerInfoMap.get(steamId.toString());
+    return PropertyController.BuildTemporaryHeroPropertyValues(hero, playerInfo?.properties ?? []);
   }
 
   /**
