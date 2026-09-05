@@ -180,6 +180,8 @@ end
 --------------------------------------------------------------------------------
 function IsHeroUncontrollable(hHero)
 	if hHero:IsNull() then return true end
+	-- 与 TS AI 共用同一附身标记：玩家接管期间旧 Lua 物品 AI 不再发出动作。
+	if hHero:HasModifier("modifier_death_prophet_ai_possession_target") then return true end
 	-- if hero is dead, do nothing
 	if hHero:IsAlive() == false then return true end
 	-- 眩晕

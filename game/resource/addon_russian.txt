@@ -638,6 +638,26 @@
 
 		// Сундук с сокровищами
 		"npc_treasure_chest"													"Сундук с сокровищами"
+		// Пробуждение Death Prophet
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession"					"<font color='#d000ff'>Одержимость духами</font>"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_SummaryDescription"	"Подчиняет настоящего вражеского героя под управлением ИИ на %duration% сек., временно переводя его на сторону Death Prophet и под контроль её игрока."
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_SummaryDescription_scepter"	"Scepter: Урон Death Prophet или одержимого героя вражескому существу, не являющемуся строением, призывает не чаще раза в 0,75 сек. духа, который наносит физический урон и лечит источник эффекта."
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_Description"		"Death Prophet сливается со своими духами и вселяется в настоящего вражеского героя под управлением ИИ. Её тело покидает игру, а игрок получает контроль над передвижением, атаками, исходными способностями и предметами цели. Цель также получает <font color='#FFD700'>внешние бонусы развития и выбранные в этом матче способности</font> Death Prophet, после чего временно переходит в её команду; все убийства, урон, содействия и полученный урон засчитываются Death Prophet. При смертельном уроне или окончании времени Death Prophet убивает цель и появляется на её месте.\n\nМожно применить только к настоящему вражескому герою под управлением ИИ. Способность блокируется Spell Block. После изучения таланта длительности Exorcism убийства текущих вражеских героев одержимой целью продлевают эффект на значение таланта. После пробуждения исходный талант «+4 духа Exorcism» вместо этого увеличивает общий урон одержимой цели на 25%%.\n\nС <font color='#92acf5'>Aghanim's Scepter</font> урон Death Prophet или одержимого героя вражескому существу, не являющемуся строением, вызывает преследующего духа: он наносит дополнительный физический урон и лечит источник эффекта в зависимости от фактического урона."
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_duration"			"ДЛИТЕЛЬНОСТЬ ОДЕРЖИМОСТИ:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_damage"	"УРОН ДУХА ОТ SCEPTER:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_cooldown"	"ИНТЕРВАЛ ДУХА ОТ SCEPTER:"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_heal_pct"	"ЛЕЧЕНИЕ ДУХА ОТ SCEPTER:"
+		"DOTA_Tooltip_ability_special_bonus_unique_death_prophet_ai_possession_power"	"+{s:value}% к общему урону одержимой цели"
+		"DOTA_Tooltip_ability_special_bonus_unique_death_prophet_ai_possession_duration_on_kill"	"Убийства одержимого героя продлевают одержимость на +{s:duration_increase_per_kill} сек."
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_awakened"				"Пробуждение одержимости"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_awakened_Description"		"Exorcism пробудился и стал Spirit Possession."
+		"DOTA_Tooltip_modifier_death_prophet_exorcism_ai_possession_controller"		"Дух вне тела"
+		"DOTA_Tooltip_modifier_death_prophet_exorcism_ai_possession_controller_Description"	"Тело Death Prophet слито с одержимым героем. После окончания эффекта она появляется на месте цели."
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_target"				"Одержимость духами"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_target_Description"		"Управляется игроком Death Prophet, получает её внешние бонусы и выбранные способности и временно сражается за её команду. В конце одержимости Death Prophet убивает цель. Осталось: %dMODIFIER_PROPERTY_TOOLTIP% сек."
+		"dota_hud_error_death_prophet_ai_possession_ai_only"					"Нужен настоящий вражеский герой под управлением ИИ"
+		"dota_hud_error_death_prophet_ai_possession_active"					"Цель уже одержима"
+
 		// Doom Awakened
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>Пробуждённый Doom</font>"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"Накладывает проклятие, которое развеивает врага и не позволяет ему использовать способности или лечиться, при этом враг постепенно получает урон.\n\nТИП РАЗВЕИВАНИЯ: Простое развеивание\n\nС <font color='#92acf5'>Aghanim's Scepter</font> Doom также накладывает <font color='#DD621E'>Разрушение</font> и может применяться к владельцу или <font color='#FFFFFF'>союзному герою</font>, который будет непрерывно накладывать Doom на врагов в радиусе %scepter_aura_radius%, сам не получая Doom.\n\nПосле пробуждения способности нейтральных крипов, полученные с помощью <font color='#FFFFFF'>Devour</font>, автоматически повышаются до максимального уровня."

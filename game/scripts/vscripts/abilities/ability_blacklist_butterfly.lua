@@ -228,6 +228,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["doom_bringer_doom"] = true,          -- 末日
     ["doom_bringer_devour"] = true,        -- 末日 吞噬
     ["doom_bringer_doom_awakened"] = true, -- 末日 觉醒
+    ["death_prophet_exorcism_ai_possession"] = true, -- 死亡先知 恶灵夺舍（切换队伍与玩家归属）
     -- ========================================
     -- 玛西技能组
     -- 原因:玛西的技能组有特殊的联动机制,随机触发会破坏技能连招

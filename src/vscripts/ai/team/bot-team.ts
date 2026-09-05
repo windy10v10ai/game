@@ -1,4 +1,5 @@
 import { Player } from '../../api/player';
+import { DEATH_PROPHET_POSSESSION_TARGET_MODIFIER } from '../../abilities/ts_abilities/death-prophet-ai-possession-constants';
 import { TowerPushStatus } from '../../modules/event/event-entity-killed';
 import { PlayerHelper } from '../../modules/helper/player-helper';
 import { reloadable } from '../../utils/tstl-utils';
@@ -288,6 +289,8 @@ export class BotTeam {
 
       const hero = PlayerResource.GetSelectedHeroEntity(playerId);
       if (!hero) return;
+      // 附身期间目标的 PlayerID 临时归死亡先知，不能再从原 Bot 槽位重复领取周期金币。
+      if (hero.HasModifier(DEATH_PROPHET_POSSESSION_TARGET_MODIFIER)) return;
 
       // 根据队伍选择倍率
       const multiplier = GameRules.GoldXPFilter.getPlayerGoldXpMultiplier(playerId);

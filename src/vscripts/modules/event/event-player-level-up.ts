@@ -27,8 +27,10 @@ export class EventPlayerLevelUp {
    */
   private UpdatePlayerAndBot(hero: CDOTA_BaseNPC_Hero): void {
     if (PlayerHelper.IsHumanPlayer(hero)) {
-      print(`[Event] OnPlayerLevelUp SetPlayerProperty ${hero.GetUnitName()}`);
-      PlayerPropertyApi.SetPlayerProperty(hero);
+      const refreshedCount = PlayerPropertyApi.RefreshPlayerPropertyOnHeroLevelUp(hero);
+      print(
+        `[Event] OnPlayerLevelUp RefreshPlayerProperty ${hero.GetUnitName()} refreshed=${refreshedCount}`,
+      );
     }
     if (PlayerHelper.IsBotPlayer(hero)) {
       BotAbility.LevelUpBotAbility(hero);

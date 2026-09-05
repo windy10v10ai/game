@@ -7,6 +7,11 @@ import KeyBind from './KeyBind';
 import ItemLottery from './ItemLottery';
 import PassiveTomeLottery from './PassiveTomeLottery';
 import WardSlot from './WardSlot';
+import { setAbilityKeyUnitOverride } from './hotkey';
+
+GameEvents.Subscribe('death_prophet_possession_select', ({ entindex, active }) => {
+  setAbilityKeyUnitOverride(active === 1 ? entindex : undefined);
+});
 
 function Root() {
   return (

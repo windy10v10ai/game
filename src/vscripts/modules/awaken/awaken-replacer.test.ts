@@ -6,10 +6,12 @@ function createFakeHero(opts: {
   unitName?: string;
   abilities?: { name: string; level: number; hidden?: boolean }[];
   abilityPoints?: number;
+  failAddNames?: string[];
 }) {
   const abilities: { name: string; level: number; hidden?: boolean }[] = opts.abilities ?? [];
   let abilityPoints = opts.abilityPoints ?? 0;
   const addOrder: string[] = [];
+  const swaps: [string, string, boolean, boolean][] = [];
 
   const makeAbility = (entry: { name: string; level: number; hidden?: boolean }) => ({
     GetAbilityName: () => entry.name,
@@ -45,14 +47,18 @@ function createFakeHero(opts: {
       if (idx >= 0) abilities.splice(idx, 1);
     },
     AddAbility: (name: string) => {
+      if (opts.failAddNames?.includes(name)) return undefined;
       const entry = { name, level: 0 };
       abilities.push(entry);
       addOrder.push(name);
       return makeAbility(entry);
     },
+    SwapAbilities: (first: string, second: string, enableFirst: boolean, enableSecond: boolean) => {
+      swaps.push([first, second, enableFirst, enableSecond]);
+    },
   };
 
-  return { hero, abilities, addOrder, getPoints: () => abilityPoints };
+  return { hero, abilities, addOrder, swaps, getPoints: () => abilityPoints };
 }
 
 describe('executeReplacement', () => {
@@ -150,9 +156,102 @@ describe('executeReplacement', () => {
     });
     expect(f.abilities.find((a) => a.name === 'newPassive')?.level).toBe(4);
   });
+
+  it('替换技能添加失败时恢复旧技能且返回 false', () => {
+    const f = createFakeHero({
+      abilities: [{ name: 'oldAbility', level: 3 }],
+      failAddNames: ['newAbility'],
+    });
+
+    expect(
+      executeReplacement(f.hero, {
+        heroName: 'npc_dota_hero_pudge',
+        targetAbility: 'oldAbility',
+        newAbility: 'newAbility',
+        newLevel: 0,
+      }),
+    ).toBe(false);
+    expect(f.abilities).toEqual([{ name: 'oldAbility', level: 3 }]);
+  });
+
+  it('插入任一步骤失败时恢复旧技能与技能点', () => {
+    const f = createFakeHero({
+      abilities: [{ name: 'oldAbility', level: 2 }],
+      abilityPoints: 1,
+      failAddNames: ['newAbility'],
+    });
+
+    expect(
+      executeReplacement(f.hero, {
+        heroName: 'npc_dota_hero_pudge',
+        targetSlot: 0,
+        newAbility: 'newAbility',
+        newLevel: 0,
+      }),
+    ).toBe(false);
+    expect(f.abilities).toEqual([{ name: 'oldAbility', level: 2 }]);
+    expect(f.getPoints()).toBe(1);
+  });
 });
 
 describe('applyAwakenByHero', () => {
+  it('死亡先知替换大招和两项原天赋后仍严格保持八个天赋', () => {
+    const f = createFakeHero({
+      unitName: 'npc_dota_hero_death_prophet',
+      abilities: [
+        { name: 'death_prophet_exorcism', level: 3 },
+        { name: 'special_bonus_hp_200', level: 1 },
+        { name: 'special_bonus_unique_death_prophet_2', level: 1 },
+        { name: 'special_bonus_unique_death_prophet', level: 1 },
+        { name: 'special_bonus_unique_death_prophet_3', level: 1 },
+        { name: 'special_bonus_unique_death_prophet_5', level: 1 },
+        {
+          name: 'special_bonus_unique_death_prophet_exorcism_duration_on_kill',
+          level: 1,
+        },
+        { name: 'special_bonus_unique_death_prophet_silence_aoe', level: 1 },
+        { name: 'special_bonus_attack_speed_50', level: 1 },
+      ],
+    });
+
+    expect(applyAwakenByHero(f.hero)).toBe(true);
+    expect(f.abilities).toHaveLength(9);
+    expect(f.abilities.filter((ability) => ability.name.startsWith('special_bonus_'))).toHaveLength(
+      8,
+    );
+    expect(
+      f.abilities.find((ability) => ability.name === 'death_prophet_exorcism'),
+    ).toBeUndefined();
+    expect(
+      f.abilities.find((ability) => ability.name === 'death_prophet_exorcism_ai_possession'),
+    ).toEqual({ name: 'death_prophet_exorcism_ai_possession', level: 3 });
+    expect(
+      f.abilities.find((ability) => ability.name === 'special_bonus_unique_death_prophet'),
+    ).toBeUndefined();
+    expect(
+      f.abilities.find(
+        (ability) => ability.name === 'special_bonus_unique_death_prophet_ai_possession_power',
+      ),
+    ).toEqual({ name: 'special_bonus_unique_death_prophet_ai_possession_power', level: 1 });
+    expect(
+      f.abilities.find(
+        (ability) =>
+          ability.name === 'special_bonus_unique_death_prophet_exorcism_duration_on_kill',
+      ),
+    ).toBeUndefined();
+    expect(
+      f.abilities.find(
+        (ability) =>
+          ability.name === 'special_bonus_unique_death_prophet_ai_possession_duration_on_kill',
+      ),
+    ).toEqual({
+      name: 'special_bonus_unique_death_prophet_ai_possession_duration_on_kill',
+      level: 1,
+    });
+    expect(f.swaps).toEqual([]);
+    expect(isAwakened(f.hero)).toBe(true);
+  });
+
   it('上古巨神觉醒替换二技能并继承原等级', () => {
     const f = createFakeHero({
       unitName: 'npc_dota_hero_elder_titan',

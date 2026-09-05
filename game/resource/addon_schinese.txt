@@ -1413,6 +1413,26 @@
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield"			"发条 觉醒"
 		"DOTA_Tooltip_modifier_special_bonus_unique_rattletrap_upgrade_shield_Description"	"受到的伤害降低%dMODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE%%%。"
 
+		// 死亡先知-觉醒
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession"					"<font color='#d000ff'>恶灵夺舍</font>"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_SummaryDescription"	"接管一名敌方真实AI英雄%duration%秒，使其临时加入己方并由死亡先知的玩家操控。"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_SummaryDescription_scepter"	"神杖：死亡先知或附身目标对敌方非建筑单位造成伤害时，每0.75秒最多召来一只恶灵，造成额外物理伤害并治疗触发者。"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_Description"		"死亡先知将自身与恶灵融入一名敌方真实AI英雄，本体暂时离场，并在持续时间内接管目标的移动、攻击、原有技能和物品。目标同时继承死亡先知的<font color='#FFD700'>局外成长属性与本局自选技能</font>，并临时加入死亡先知阵营；控制期间产生的击杀、伤害、助攻和承受伤害均按死亡先知结算。目标受到致命伤害或持续时间结束时，会由死亡先知完成击杀，死亡先知随后在其位置现身。\n\n仅能对敌方真实AI英雄施放，可被法术抵挡。学习驱使恶灵的持续时间天赋后，被接管单位击杀当前敌方英雄时，按天赋数值延长本次夺舍。觉醒后，原“+4 驱使恶灵数量”天赋改为使附身目标总伤害提高25%%。\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，死亡先知本人或附身目标对敌方非建筑单位造成伤害会召来恶灵追击，造成额外物理伤害并按实际伤害治疗触发者。"
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_duration"			"夺舍持续时间："
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_damage"	"神杖恶灵伤害："
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_cooldown"	"神杖恶灵触发间隔："
+		"DOTA_Tooltip_ability_death_prophet_exorcism_ai_possession_scepter_proc_heal_pct"	"神杖恶灵治疗："
+		"DOTA_Tooltip_ability_special_bonus_unique_death_prophet_ai_possession_power"	"附身目标总伤害 +{s:value}%"
+		"DOTA_Tooltip_ability_special_bonus_unique_death_prophet_ai_possession_duration_on_kill"	"附身期间击杀敌方英雄延长 +{s:duration_increase_per_kill}秒附身时间"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_awakened"				"恶灵夺舍·觉醒"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_awakened_Description"		"驱使恶灵已觉醒为恶灵夺舍。"
+		"DOTA_Tooltip_modifier_death_prophet_exorcism_ai_possession_controller"		"恶灵离体"
+		"DOTA_Tooltip_modifier_death_prophet_exorcism_ai_possession_controller_Description"	"死亡先知的本体已融入被接管的英雄；夺舍结束后会在目标位置现身。"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_target"				"恶灵夺舍"
+		"DOTA_Tooltip_modifier_death_prophet_ai_possession_target_Description"		"由死亡先知的玩家操控，继承其局外成长与自选技能，并临时为死亡先知阵营作战；结束时由死亡先知完成击杀。剩余时间：%dMODIFIER_PROPERTY_TOOLTIP%秒。"
+		"dota_hud_error_death_prophet_ai_possession_ai_only"					"只能接管敌方真实AI英雄"
+		"dota_hud_error_death_prophet_ai_possession_active"					"目标已被恶灵夺舍"
+
 		// 末日使者-觉醒
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened"							"<font color='#d000ff'>末日 觉醒</font>"
 		"DOTA_Tooltip_ability_doom_bringer_doom_awakened_Description"			"对敌人施加末日诅咒，对其进行驱散，并且使其<font color='#6db6e9'>无法施放技能</font>或获得任何<font color='#07d738'>治疗</font>效果，同时造成持续伤害。\n\n驱散类型：弱驱散\n\n持有<font color='#92acf5'>阿哈利姆神杖</font>时，末日额外施加<font color='#DD621E'>破坏</font>效果，并可对自己或<font color='#FFFFFF'>友方英雄</font>释放，持续对周围%scepter_aura_radius%范围内的敌人造成末日效果，自身不受影响。\n\n觉醒后，<font color='#FFFFFF'>吞噬</font>获得的野怪技能会自动提升至最高等级。"
