@@ -1255,6 +1255,16 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 琼英碧灵 越界觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken"					"<font color='#d000ff'>越界 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_Description"		"越界期间，琼英碧灵的攻击可以对开启黑皇杖的敌人正常造成伤害，并获得技能吸血。<br>在越界期间亲手击杀敌方英雄，或有敌方英雄在她身边阵亡时，永久获得一层技能增强。层数无上限，死亡不会损失。"
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_SummaryDescription"	"越界攻击可对开启黑皇杖的敌人正常造成伤害并提供技能吸血。英雄击杀与附近阵亡会永久累积技能增强。"
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_spell_lifesteal"		"%技能吸血："
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_spell_amp_per_kill"		"%每层技能增强："
+		"DOTA_Tooltip_ability_special_bonus_unique_muerta_pierce_the_veil_awaken_stack_collection_range"	"层数获取范围："
+		"DOTA_Tooltip_modifier_special_bonus_unique_muerta_pierce_the_veil_awaken"				"<font color='#d000ff'>越界 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_muerta_pierce_the_veil_awaken_Description"		"越界期间，攻击可以对开启黑皇杖的敌人正常造成伤害，并获得<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP2%%%</b></font>技能吸血。<br>每层永久提供<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%%%</b></font>技能增强。层数无上限且死亡不会损失。当前共获得<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_SPELL_AMPLIFY_PERCENTAGE%%%</b></font>技能增强。"
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>余震 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"余震命中的每个单位都会在原地触发一次小余震，对附近敌人造成独立的魔法伤害。多个小余震可同时命中同一目标，每批小余震只会将同一目标眩晕一次。小余震不会再次触发此效果。"

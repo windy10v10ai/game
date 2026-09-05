@@ -5,6 +5,25 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 琼英碧灵 越界觉醒
+	"special_bonus_unique_muerta_pierce_the_veil_awaken"
+	{
+		"BaseClass"					"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/special_bonus_unique_muerta_pierce_the_veil_awaken"
+		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_SKIP_FOR_KEYBINDS"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"		"muerta_pierce_the_veil"
+		"IsOnCastBar"				"0"
+		"MaxLevel"					"1"
+
+		"AbilityValues"
+		{
+			"spell_lifesteal"			"30"
+			"spell_amp_per_kill"			"2"
+			"stack_collection_range"		"925"
+		}
+	}
+
 	// 撼地者 余震觉醒
 	"special_bonus_unique_earthshaker_upgrade"
 	{

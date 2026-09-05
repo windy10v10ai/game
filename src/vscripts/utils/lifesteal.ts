@@ -18,9 +18,14 @@ function canLifestealFromTarget(target: CDOTA_BaseNPC, isAttack: boolean): boole
 /** 判断伤害是否可以触发吸血效果
  * @param damageEvent 伤害事件
  * @param isAttack 是否是攻击
+ * @param allowMagicAutoAttack 是否允许带 MAGIC_AUTO_ATTACK 标记的魔法普攻触发技能吸血
  * @returns 是否可以触发吸血效果
  */
-function canLifestealFromDamage(damageEvent: ModifierInstanceEvent, isAttack: boolean): boolean {
+function canLifestealFromDamage(
+  damageEvent: ModifierInstanceEvent,
+  isAttack: boolean,
+  allowMagicAutoAttack = false,
+): boolean {
   // 反弹的伤害不触发
   if ((damageEvent.damage_flags & DamageFlag.REFLECTION) === DamageFlag.REFLECTION) return false;
   // 移除生命值而不是造成直接伤害的技能不触发
@@ -32,10 +37,13 @@ function canLifestealFromDamage(damageEvent: ModifierInstanceEvent, isAttack: bo
   )
     return false;
   if (!isAttack) {
-    // 技能吸血时，NO_SPELL_AMPLIFICATION
+    // 明确允许时，魔法普攻即使不吃技能增强也仍按技能吸血结算。
+    const isMagicAutoAttack =
+      (damageEvent.damage_flags & DamageFlag.MAGIC_AUTO_ATTACK) === DamageFlag.MAGIC_AUTO_ATTACK;
     if (
       (damageEvent.damage_flags & DamageFlag.NO_SPELL_AMPLIFICATION) ===
-      DamageFlag.NO_SPELL_AMPLIFICATION
+        DamageFlag.NO_SPELL_AMPLIFICATION &&
+      !(allowMagicAutoAttack && isMagicAutoAttack)
     )
       return false;
   }
@@ -116,6 +124,7 @@ function handleSpellLifesteal(
   event: ModifierInstanceEvent,
   lifeStealPercent: number,
   owner: CDOTA_BaseNPC,
+  allowMagicAutoAttack = false,
 ): void {
   // 判定attacker是否是owner
   const attacker = event.attacker;
@@ -133,7 +142,7 @@ function handleSpellLifesteal(
   const target = event.unit;
   if (target.GetTeam() === owner.GetTeam()) return;
 
-  if (!canLifestealFromDamage(event, false)) return;
+  if (!canLifestealFromDamage(event, false, allowMagicAutoAttack)) return;
 
   if (!canLifestealFromTarget(target, false)) return;
 
@@ -152,6 +161,7 @@ declare global {
     event: ModifierInstanceEvent,
     lifeStealPercent: number,
     owner: CDOTA_BaseNPC,
+    allowMagicAutoAttack?: boolean,
   ): void;
 }
 
@@ -168,8 +178,9 @@ _G.TsSpellLifeSteal = (
   event: ModifierInstanceEvent,
   lifeStealPercent: number,
   owner: CDOTA_BaseNPC,
+  allowMagicAutoAttack = false,
 ) => {
-  handleSpellLifesteal(event, lifeStealPercent, owner);
+  handleSpellLifesteal(event, lifeStealPercent, owner, allowMagicAutoAttack);
 };
 
 export {};
