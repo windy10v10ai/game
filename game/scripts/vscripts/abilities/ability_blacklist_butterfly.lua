@@ -168,6 +168,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["keeper_of_the_light_illuminate"] = true,                   -- 光之守卫 冲击波
     ["keeper_of_the_light_illuminate_end"] = true,               -- 光之守卫 冲击波 释放
     ["special_bonus_unique_keeper_of_the_light_upgrade"] = true, -- 光之守卫 冲击波 觉醒
+    ["special_bonus_unique_shadow_shaman_shackles_awaken"] = true, -- 暗影萨满 枷锁替身觉醒
 
     -- ========================================
     -- 取消/停止类技能

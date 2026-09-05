@@ -1260,6 +1260,20 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 暗影萨满 枷锁替身觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken"						"<font color='#d000ff'>Proxy Shackles Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_SummaryDescription"		"Ground targeted. A proxy Shackles every enemy in the area while Shadow Shaman remains free to act."
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_Description"				"Creates an invulnerable and unselectable proxy at Shadow Shaman's cast position. The proxy Shackles all enemy heroes and basic units around the target point, preventing them from acting and dealing <font color='#05CAFF'>magical damage</font> over time. Shadow Shaman remains free to act, and moving or casting does not interrupt the Shackles. Ground targeting neither triggers Spell Block nor allows Spell Reflection."
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_scepter_description"		"Increases cast range. Every %scepter_shock_interval% seconds, each Shackled enemy emits a radial Ether Shock that hits all other enemies within %scepter_shock_radius% for %scepter_shock_pct%%% of Ether Shock's normal damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_total_damage"			"TOTAL DAMAGE PER TARGET:"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_channel_time"			"DURATION:"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_radius"				"RADIUS:"
+		"DOTA_Tooltip_ability_special_bonus_unique_shadow_shaman_shackles_awaken_AbilityCastRange"		"CAST RANGE:"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_status"				"<font color='#d000ff'>Proxy Shackles Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_status_Description"	"A proxy maintains the Shackles while Shadow Shaman remains free to move, attack, and cast. Ground targeting does not trigger Spell Block or Spell Reflection."
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_debuff"				"Proxy Shackles"
+		"DOTA_Tooltip_modifier_special_bonus_unique_shadow_shaman_shackles_awaken_debuff_Description"	"Shackled by a proxy. Unable to act and taking magical damage over time."
+
 		// 撼地者 余震觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade"						"<font color='#d000ff'>Aftershock Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_earthshaker_upgrade_Description"		"Each unit hit by Aftershock creates a small Aftershock at its position, dealing separate magical damage to nearby enemies. Multiple small Aftershocks can hit the same unit, but each batch stuns a unit only once. Small Aftershocks cannot trigger this effect again."
