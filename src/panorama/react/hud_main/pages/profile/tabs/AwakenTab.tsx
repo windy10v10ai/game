@@ -15,6 +15,11 @@ import { AwakenUnlockConfirmDialog } from './AwakenUnlockConfirmDialog';
 // freeTrial 与 vscripts awaken-config 的 FREE_TRIAL_HEROES 对应，同样需手动同步
 const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boolean }[] = [
   {
+    heroName: 'npc_dota_hero_terrorblade',
+    abilityName: 'terrorblade_sunder_awakened',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_earthshaker',
     abilityName: 'special_bonus_unique_earthshaker_upgrade',
     freeTrial: true,
