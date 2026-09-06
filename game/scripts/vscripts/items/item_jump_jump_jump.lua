@@ -3,7 +3,6 @@ item_jump_jump_jump = class({})
 LinkLuaModifier("modifier_item_jump_jump_jump", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_jump_jump_jump_meteor_form", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_jump_jump_jump_meteor_burn", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_item_jump_jump_jump_meteor_stun", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_item_arcane_blink_buff", "items/item_jump_jump_jump.lua", LUA_MODIFIER_MOTION_NONE)
 
 -- Item Passive
@@ -232,11 +231,14 @@ function modifier_item_jump_jump_jump_meteor_form:OnDestroy()
 
 		local stun_duration = stun_duration * (1 - enemy:GetStatusResistance())
 		if enemy:IsBuilding() then
+			damage_table_building.victim = enemy
 			ApplyDamage(damage_table_building)
 		else
 			ApplyDamage(damage_table)
 		end
-		enemy:AddNewModifier(caster, ability, "modifier_stunned", { duration = stun_duration })
+		if not enemy:GetUnitName():find("fort", 1, true) then
+			enemy:AddNewModifier(caster, ability, "modifier_stunned", { duration = stun_duration })
+		end
 	end
 end
 
