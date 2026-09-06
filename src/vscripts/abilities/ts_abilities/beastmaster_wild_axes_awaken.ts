@@ -9,6 +9,10 @@ const NATIVE_WILD_AXES = 'beastmaster_wild_axes';
  */
 @registerAbility('beastmaster_wild_axes_awaken')
 export class BeastmasterWildAxesAwaken extends AutoCastAbility {
+  getThinkInterval(): number {
+    return 1;
+  }
+
   OnUpgrade(): void {
     if (!IsServer()) return;
     this.ensureNativeAbility();
