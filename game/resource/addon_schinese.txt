@@ -1257,7 +1257,7 @@
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>野性之斧 觉醒</font>"
-		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧对同一个敌人只能击中一次，并且使受到来自兽王和其单位的伤害增加。减益持续时间受状态抗性影响。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内出现敌方单位时自动朝最远的敌方英雄投斧。<br><font color='#d000ff'>觉醒强化：</font>伤害加深更强且持续更久，飞斧以极快速度飞出并返回，斯洛姆战鼓的伤害，治疗和原始咆哮提供的敲鼓层数一并提高。"
+		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_Description"				"兽王投出他的斧头然后召回它们，切开飞过的敌人和树木。每把飞斧对同一个敌人只能击中一次，并且使受到来自兽王和其单位的伤害增加。减益持续时间受状态抗性影响。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内出现敌方单位时自动朝最远的敌方英雄投斧。<br><font color='#d000ff'>觉醒强化：</font>飞斧伤害提高，伤害加深持续时间延长，飞斧以极快速度飞出并返回，斯洛姆战鼓的伤害，治疗和原始咆哮提供的敲鼓层数一并提高。"
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_axe_damage"				"每把飞斧伤害："
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_damage_amp"				"%每把加深伤害："
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken_duration"					"负面效果持续时间："
