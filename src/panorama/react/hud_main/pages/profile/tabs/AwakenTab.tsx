@@ -52,12 +52,10 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
   {
     heroName: 'npc_dota_hero_dazzle',
     abilityName: 'special_bonus_unique_dazzle_upgrade',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_elder_titan',
     abilityName: 'elder_titan_ancestral_spirit_awaken',
-    freeTrial: true,
   },
   {
     heroName: 'npc_dota_hero_techies',
