@@ -566,6 +566,10 @@
 		"DOTA_Tooltip_ability_fountain_armor_aura_Description"					"增加附近友军%bonus_armor%点护甲。"
 		"DOTA_Tooltip_ability_fountain_magical_armor_aura"					"泉水魔抗光环"
 		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"				"增加附近友军%bonus_magical_armor%%%魔法抗性。"
+
+
+		// 藏宝箱
+		"npc_treasure_chest"															"藏宝箱"
 		///////////////////////////////////////////////////
 		//
 		//			itembuilds
@@ -1254,6 +1258,54 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 司夜刺客 钻地觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>钻地 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"钻地状态下可以保持正常移动速度并自由移动，同时保留钻地的其他效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_SummaryDescription"	"钻地状态下可以正常移动，同时保留其他钻地效果。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"				"<font color='#d000ff'>钻地 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"钻地状态下可以保持正常移动速度并自由移动，同时保留钻地的其他效果。"
+
+		// 巫妖 寒灾轮回觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力%intelligence_damage_multiplier%倍的魔法伤害，并叠加1层寒灾印记，持续%mark_duration%秒，叠满%mark_max_stacks%层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在%detonation_radius%范围内造成相当于智力%nova_detonation_multiplier_per_stack%倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人%freeze_duration%秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"幻象不计入真实英雄；肉山按普通单位处理。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"寒灾印记仅对真实英雄和肉山叠加；肉山会受到爆炸伤害，但不会被眩晕。"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"寒霜爆发可提前引爆寒灾印记，并按当前层数结算伤害。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍的魔法伤害，并叠加1层寒灾印记，持续<font color='#FFFFFF'><b>8</b></font>秒，叠满<font color='#FFFFFF'><b>3</b></font>层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在<font color='#FFFFFF'><b>350</b></font>范围内造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人<font color='#FFFFFF'><b>0.6</b></font>秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"寒灾印记"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"达到3层时触发寒灾冰爆；巫妖也可使用寒霜爆发提前引爆。"
+
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>薄葬 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
+
+		// 孽主 恶魔之势觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>恶魔之势 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"孽主在拥有衰退光环的攻击力加成时，攻击具有分裂效果。分裂距离随当前加成攻击力提高。"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"孽主在拥有衰退光环的攻击力加成时，攻击具有分裂效果。"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%分裂伤害："
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"分裂距离（基础）："
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"分裂距离（每点叠加攻击力）："
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>恶魔之势 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"拥有衰退光环的攻击力加成时，攻击造成<font color='#FFFFFF'><b>100%%</b></font>分裂伤害，分裂距离随当前加成攻击力提高。当前分裂距离：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>。"
+
+		// 斯拉克 精华侵蚀觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的%permanent_steal_pct%%%永久偷走该英雄的全属性。<br>敌方英雄的基础属性最低保留<font color='#FFFFFF'><b>1</b></font>点。"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"斯拉克击杀敌人时，将能量转移偷取属性总量的一部分永久偷走该英雄的全属性。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>精华侵蚀 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的<font color='#FFFFFF'><b>10%%</b></font>永久偷走该英雄的全属性。<br>已永久获得 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 点全属性。"
+
+		// 亚巴顿 畅快淋漓觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>畅快淋漓 觉醒</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"亚巴顿附近%radius%范围内有单位阵亡时，他的所有冷却时间都会减少。非英雄单位阵亡减少%cooldown_reduction_creeps%秒，英雄阵亡减少%cooldown_reduction_heroes%秒。"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"附近单位阵亡时，减少所有技能和物品的当前冷却。"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>畅快淋漓 觉醒</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"附近 <font color='#FFFFFF'><b>900</b></font> 范围内有单位阵亡时，亚巴顿所有技能和物品的当前冷却都会减少。非英雄单位阵亡减少 <font color='#FFFFFF'><b>0.2</b></font> 秒，英雄阵亡减少 <font color='#FFFFFF'><b>3</b></font> 秒。"
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>野性之斧 觉醒</font>"
@@ -3566,9 +3618,6 @@
 		"dota_hud_error_swift_glove_no_roshan"											"无法对肉山使用"
 		"dota_hud_error_swift_glove_no_building"										"无法对建筑使用"
 
-		// 藏宝箱
-		"npc_treasure_chest"															"藏宝箱"
-
 		// item_six_paths_reincarnation_gun 六道轮回枪
 		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun"                                  "六道轮回枪"
 		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Description"                      "<h1>主动：六道轮转</h1>持续%active_duration%秒。期间每次攻击都会独立随机转化为以下一种伤害类型：<br>- 物理伤害<br>- 魔法伤害<br>- 纯粹伤害<br>暴击伤害也会被转化。分裂箭及类似的额外攻击会分别随机伤害类型。转换伤害不受技能增强影响。\n<h1>被动：六道霰弹</h1>每次攻击时，对目标周围%attack_radius%范围内的其他敌人造成相当于本次攻击伤害%attack_percent%%%的额外伤害。额外伤害根据暴击后的攻击伤害计算，并在目标护甲、魔法抗性等减伤生效前确定数值。<br>每次触发随机造成以下一种伤害：<br>- 物理伤害<br>- 魔法伤害<br>- 纯粹伤害<br>六道霰弹造成的额外伤害不受技能增强影响。<br>多支分裂箭同时命中时，所有霰弹效果共享%internal_cooldown%秒全局内部冷却，单次攻击不会瞬间重复触发大量范围伤害。\n<h1>被动：法师克星</h1>攻击使目标造成的技能和物品伤害降低%mage_slayer_spell_damage_reduction%%%，持续%mage_slayer_duration%秒。效果期间，目标每秒受到：<br>- %mage_slayer_damage_per_type%点物理伤害<br>- %mage_slayer_damage_per_type%点魔法伤害<br>- %mage_slayer_damage_per_type%点纯粹伤害<br>持续伤害不受技能增强影响。"
@@ -3581,45 +3630,5 @@
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "每次攻击独立随机转化为物理、魔法或纯粹伤害。转换伤害不受技能增强影响。"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "法师克星"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "造成的技能和物品伤害降低30%，并持续受到物理、魔法和纯粹伤害。持续伤害不受技能增强影响。"
-		// 巫妖 寒灾轮回
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力%intelligence_damage_multiplier%倍的魔法伤害，并叠加1层寒灾印记，持续%mark_duration%秒，叠满%mark_max_stacks%层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在%detonation_radius%范围内造成相当于智力%nova_detonation_multiplier_per_stack%倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人%freeze_duration%秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"幻象不计入真实英雄；肉山按普通单位处理。"
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"寒灾印记仅对真实英雄和肉山叠加；肉山会受到爆炸伤害，但不会被眩晕。"
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"寒霜爆发可提前引爆寒灾印记，并按当前层数结算伤害。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>寒灾轮回</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"提升连环霜冻的弹道速度与跳跃范围，并延长减速和霜缚的持续时间。<br><br>命中英雄或肉山时额外造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍的魔法伤害，并叠加1层寒灾印记，持续<font color='#FFFFFF'><b>8</b></font>秒，叠满<font color='#FFFFFF'><b>3</b></font>层后自动引爆；也可对已叠加印记的敌人施放寒霜爆发提前引爆。引爆会在<font color='#FFFFFF'><b>350</b></font>范围内造成相当于智力<font color='#FFFFFF'><b>0.75</b></font>倍乘以当前印记层数的魔法伤害，并<font color='#2DD5E4'>眩晕</font>敌人<font color='#FFFFFF'><b>0.6</b></font>秒。<br><br>若已学会寒冰尖柱，连环霜冻命中附近唯一的敌方英雄时会自动在其位置施放寒冰尖柱。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"寒灾印记"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"达到3层时触发寒灾冰爆；巫妖也可使用寒霜爆发提前引爆。"
-		// 戴泽 薄葬觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>薄葬 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>薄葬 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"对自己或队友施放薄葬后，目标在薄葬持续期间获得<font color='#FFCC66'>黑皇杖</font>效果。"
-
-		// 孽主 恶魔之势觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>恶魔之势 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"孽主在拥有衰退光环的攻击力加成时，攻击具有分裂效果。分裂距离随当前加成攻击力提高。"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"孽主在拥有衰退光环的攻击力加成时，攻击具有分裂效果。"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%分裂伤害："
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"分裂距离（基础）："
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"分裂距离（每点叠加攻击力）："
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>恶魔之势 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"拥有衰退光环的攻击力加成时，攻击造成<font color='#FFFFFF'><b>100%%</b></font>分裂伤害，分裂距离随当前加成攻击力提高。当前分裂距离：<font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>。"
-
-		// 斯拉克 精华侵蚀觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>精华侵蚀 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的%permanent_steal_pct%%%永久偷走该英雄的全属性。<br>敌方英雄的基础属性最低保留<font color='#FFFFFF'><b>1</b></font>点。"
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"斯拉克击杀敌人时，将能量转移偷取属性总量的一部分永久偷走该英雄的全属性。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>精华侵蚀 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"斯拉克击杀敌人时，将能量转移偷取属性总量的<font color='#FFFFFF'><b>10%%</b></font>永久偷走该英雄的全属性。<br>已永久获得 <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> 点全属性。"
-
-		// 亚巴顿 畅快淋漓觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>畅快淋漓 觉醒</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"亚巴顿附近%radius%范围内有单位阵亡时，他的所有冷却时间都会减少。非英雄单位阵亡减少%cooldown_reduction_creeps%秒，英雄阵亡减少%cooldown_reduction_heroes%秒。"
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"附近单位阵亡时，减少所有技能和物品的当前冷却。"
-		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>畅快淋漓 觉醒</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"附近 <font color='#FFFFFF'><b>900</b></font> 范围内有单位阵亡时，亚巴顿所有技能和物品的当前冷却都会减少。非英雄单位阵亡减少 <font color='#FFFFFF'><b>0.2</b></font> 秒，英雄阵亡减少 <font color='#FFFFFF'><b>3</b></font> 秒。"
-
 	}
 }

@@ -565,6 +565,10 @@
 		"DOTA_Tooltip_ability_fountain_armor_aura_Description"				"Provides %bonus_armor% armor to nearby allies."
 		"DOTA_Tooltip_ability_fountain_magical_armor_aura"				"Fountain Magical Resistance Aura"
 		"DOTA_Tooltip_ability_fountain_magical_armor_aura_Description"			"Provides %bonus_magical_armor%%% magical resistance to nearby allies."
+
+
+		// 藏宝箱
+		"npc_treasure_chest"											"Treasure Chest"
 		///////////////////////////////////////////////////
 		//
 		//            itembuilds
@@ -1259,6 +1263,54 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 司夜刺客 钻地觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>Burrow Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin can move freely at his normal movement speed while Burrowed, while retaining all other Burrow effects."
+		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_SummaryDescription"	"Allows Nyx Assassin to move normally while Burrowed without losing its other effects."
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"				"<font color='#d000ff'>Burrow Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin can move freely at his normal movement speed while Burrowed, while retaining all other Burrow effects."
+
+		// 巫妖 寒灾轮回觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Frost Calamity Cycle</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"Increases Chain Frost's projectile speed and bounce range, and extends the duration of its slow and Frostbound.<br><br>Hits on a hero or Roshan deal bonus magical damage equal to %intelligence_damage_multiplier%x Intelligence and apply a stack of Frost Calamity lasting %mark_duration% seconds, detonating automatically at %mark_max_stacks% stacks; casting Frost Blast on a marked enemy also detonates it early. Detonation deals magical damage in a %detonation_radius% radius equal to %nova_detonation_multiplier_per_stack%x Intelligence per stack consumed and <font color='#2DD5E4'>Stuns</font> enemies for %freeze_duration% seconds.<br><br>If Ice Spire is already learned, hitting the only enemy hero nearby with Chain Frost casts Ice Spire at that hero automatically."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"Illusions do not count as real heroes. Roshan is treated as a regular unit."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"Frost Calamity marks only stack on real heroes and Roshan. Roshan takes the detonation damage but is not frozen."
+		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"Frost Blast can detonate Frost Calamity early, dealing damage based on its current stacks."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Frost Calamity Cycle</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Increases Chain Frost's projectile speed and bounce range, and extends the duration of its slow and Frostbound.<br><br>Hits on a hero or Roshan deal bonus magical damage equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence and apply a stack of Frost Calamity lasting <font color='#FFFFFF'><b>8</b></font> seconds, detonating automatically at <font color='#FFFFFF'><b>3</b></font> stacks; casting Frost Blast on a marked enemy also detonates it early. Detonation deals magical damage in a <font color='#FFFFFF'><b>350</b></font> radius equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence per stack consumed and <font color='#2DD5E4'>Stuns</font> enemies for <font color='#FFFFFF'><b>0.6</b></font> seconds.<br><br>If Ice Spire is already learned, hitting the only enemy hero nearby with Chain Frost casts Ice Spire at that hero automatically."
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
+		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"At 3 stacks, triggers a Frost Calamity detonation. Lich can also detonate it early with Frost Blast."
+
+		// 戴泽 薄葬觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Shallow Grave Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
+
+		// 孽主 恶魔之势觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Demon's Reach Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Underlord's attacks cleave while he has bonus damage from Atrophy Aura. Cleave distance increases with each point of bonus damage."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Underlord's attacks cleave while he has bonus damage from Atrophy Aura."
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%CLEAVE DAMAGE:"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"CLEAVE DISTANCE (BASE):"
+		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"CLEAVE DISTANCE (PER STACK):"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Demon's Reach Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"While Atrophy Aura grants bonus attack damage, attacks deal <font color='#FFFFFF'><b>100%%</b></font> cleave damage, with cleave distance increasing for each point of bonus damage. Current cleave distance: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
+
+		// 斯拉克 精华侵蚀觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals %permanent_steal_pct%%% of the total attributes his Essence Shift has taken from that hero.<br>An enemy hero's base attributes never fall below <font color='#FFFFFF'><b>1</b></font>."
+		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"When Slark kills an enemy hero, he permanently steals part of the attributes his Essence Shift has taken from that hero."
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Essence Erosion Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals <font color='#FFFFFF'><b>10%%</b></font> of the total attributes his Essence Shift has taken from that hero.<br>Permanently gained <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> to all attributes."
+
+		// 亚巴顿 畅快淋漓觉醒
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>The Quickening Awakened</font>"
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within %radius% range of Abaddon, all his cooldowns are reduced. Non-hero deaths reduce them by %cooldown_reduction_creeps%s; hero deaths reduce them by %cooldown_reduction_heroes%s."
+		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Nearby deaths reduce the current cooldowns of all abilities and items."
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
+		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Non-hero deaths reduce them by <font color='#FFFFFF'><b>0.2</b></font>s; hero deaths reduce them by <font color='#FFFFFF'><b>3</b></font>s."
 
 		// 兽王 野性之斧-觉醒
 		"DOTA_Tooltip_ability_beastmaster_wild_axes_awaken"							"<font color='#d000ff'>Wild Axes Awakened</font>"
@@ -3557,9 +3609,6 @@
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note6"    "• Two-stage skills and cancel skills"
 		"DOTA_Tooltip_ability_trigger_learned_skills_Note7"    "• Elemental balls and fusion skills of Kael"
 
-		// 藏宝箱
-		"npc_treasure_chest"											"Treasure Chest"
-
 		// item_six_paths_reincarnation_gun
 		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun"                                  "Six Paths Reincarnation Gun"
 		"DOTA_Tooltip_Ability_item_six_paths_reincarnation_gun_Description"                       "<h1>Active: Six Paths Rotation</h1>For %active_duration% seconds, each attack is independently converted into one of the following damage types:<br>- Physical damage<br>- Magical damage<br>- Pure damage<br>Critical strike damage is also converted. Split arrows and similar additional attacks roll their damage type separately. Converted damage is not affected by spell amplification.\n<h1>Passive: Samsara Scatter</h1>Each attack deals bonus damage to other enemies within %attack_radius% of the target equal to %attack_percent%%% of that attack's damage. The bonus damage is calculated after critical strikes, but before the target's armor, magic resistance, and other damage reductions.<br>Each proc randomly deals one of the following:<br>- Physical damage<br>- Magical damage<br>- Pure damage<br>Samsara Scatter bonus damage is not affected by spell amplification.<br>All shotgun effects share a %internal_cooldown% second attacker-wide internal cooldown, preventing simultaneous split arrows from producing many splash procs from a single attack.\n<h1>Passive: Mage Slayer</h1>Attacks reduce the target's ability and item damage by %mage_slayer_spell_damage_reduction%%% for %mage_slayer_duration% seconds. While affected, the target takes the following each second:<br>- %mage_slayer_damage_per_type% physical damage<br>- %mage_slayer_damage_per_type% magical damage<br>- %mage_slayer_damage_per_type% pure damage<br>The damage over time is not affected by spell amplification."
@@ -3572,45 +3621,5 @@
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_active_Description"              "Each attack is independently converted to physical, magical, or pure damage. Converted damage is not affected by spell amplification."
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff"                          "Mage Slayer"
 		"DOTA_Tooltip_modifier_item_six_paths_reincarnation_gun_debuff_Description"              "Ability and item damage dealt is reduced by 30%, while taking physical, magical, and pure damage over time. The damage over time is not affected by spell amplification."
-		// 巫妖 寒灾轮回
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Frost Calamity Cycle</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Description"		"Increases Chain Frost's projectile speed and bounce range, and extends the duration of its slow and Frostbound.<br><br>Hits on a hero or Roshan deal bonus magical damage equal to %intelligence_damage_multiplier%x Intelligence and apply a stack of Frost Calamity lasting %mark_duration% seconds, detonating automatically at %mark_max_stacks% stacks; casting Frost Blast on a marked enemy also detonates it early. Detonation deals magical damage in a %detonation_radius% radius equal to %nova_detonation_multiplier_per_stack%x Intelligence per stack consumed and <font color='#2DD5E4'>Stuns</font> enemies for %freeze_duration% seconds.<br><br>If Ice Spire is already learned, hitting the only enemy hero nearby with Chain Frost casts Ice Spire at that hero automatically."
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note0"		"Illusions do not count as real heroes. Roshan is treated as a regular unit."
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note1"		"Frost Calamity marks only stack on real heroes and Roshan. Roshan takes the detonation damage but is not frozen."
-		"DOTA_Tooltip_ability_special_bonus_unique_lich_upgrade_Note2"		"Frost Blast can detonate Frost Calamity early, dealing damage based on its current stacks."
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade"		"<font color='#d000ff'>Frost Calamity Cycle</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_Description"		"Increases Chain Frost's projectile speed and bounce range, and extends the duration of its slow and Frostbound.<br><br>Hits on a hero or Roshan deal bonus magical damage equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence and apply a stack of Frost Calamity lasting <font color='#FFFFFF'><b>8</b></font> seconds, detonating automatically at <font color='#FFFFFF'><b>3</b></font> stacks; casting Frost Blast on a marked enemy also detonates it early. Detonation deals magical damage in a <font color='#FFFFFF'><b>350</b></font> radius equal to <font color='#FFFFFF'><b>0.75x</b></font> Intelligence per stack consumed and <font color='#2DD5E4'>Stuns</font> enemies for <font color='#FFFFFF'><b>0.6</b></font> seconds.<br><br>If Ice Spire is already learned, hitting the only enemy hero nearby with Chain Frost casts Ice Spire at that hero automatically."
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark"		"Frost Calamity"
-		"DOTA_Tooltip_modifier_special_bonus_unique_lich_upgrade_mark_Description"		"At 3 stacks, triggers a Frost Calamity detonation. Lich can also detonate it early with Frost Blast."
-		// 戴泽 薄葬觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade"					"<font color='#d000ff'>Shallow Grave Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
-		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade"				"<font color='#d000ff'>Shallow Grave Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_dazzle_upgrade_Description"	"After casting Shallow Grave on yourself or an ally, the target gains the <font color='#FFCC66'>Black King Bar</font> effect for the duration of Shallow Grave."
-
-		// 孽主 恶魔之势觉醒
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken"					"<font color='#d000ff'>Demon's Reach Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_Description"		"Underlord's attacks cleave while he has bonus damage from Atrophy Aura. Cleave distance increases with each point of bonus damage."
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_SummaryDescription"	"Underlord's attacks cleave while he has bonus damage from Atrophy Aura."
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_damage_pct"		"%CLEAVE DAMAGE:"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_base"		"CLEAVE DISTANCE (BASE):"
-		"DOTA_Tooltip_ability_special_bonus_unique_underlord_demons_reach_awaken_cleave_distance_per_stack"	"CLEAVE DISTANCE (PER STACK):"
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken"				"<font color='#d000ff'>Demon's Reach Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_underlord_demons_reach_awaken_Description"		"While Atrophy Aura grants bonus attack damage, attacks deal <font color='#FFFFFF'><b>100%%</b></font> cleave damage, with cleave distance increasing for each point of bonus damage. Current cleave distance: <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font>."
-
-		// Slark Essence Erosion - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken"					"<font color='#d000ff'>Essence Erosion Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals %permanent_steal_pct%%% of the total attributes his Essence Shift has taken from that hero.<br>An enemy hero's base attributes never fall below <font color='#FFFFFF'><b>1</b></font>."
-		"DOTA_Tooltip_ability_special_bonus_unique_slark_permanent_essence_awaken_SummaryDescription"	"When Slark kills an enemy hero, he permanently steals part of the attributes his Essence Shift has taken from that hero."
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken"				"<font color='#d000ff'>Essence Erosion Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_slark_permanent_essence_awaken_Description"		"When Slark kills an enemy hero, he permanently steals <font color='#FFFFFF'><b>10%%</b></font> of the total attributes his Essence Shift has taken from that hero.<br>Permanently gained <font color='#FFFFFF'><b>%dMODIFIER_PROPERTY_TOOLTIP%</b></font> to all attributes."
-
-		// Abaddon The Quickening - Awakened
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken"					"<font color='#d000ff'>The Quickening Awakened</font>"
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within %radius% range of Abaddon, all his cooldowns are reduced. Non-hero deaths reduce them by %cooldown_reduction_creeps%s; hero deaths reduce them by %cooldown_reduction_heroes%s."
-		"DOTA_Tooltip_ability_special_bonus_unique_abaddon_quickening_awaken_SummaryDescription"		"Nearby deaths reduce the current cooldowns of all abilities and items."
-		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken"				"<font color='#d000ff'>The Quickening Awakened</font>"
-		"DOTA_Tooltip_modifier_special_bonus_unique_abaddon_quickening_awaken_Description"		"Whenever a unit dies within <font color='#FFFFFF'><b>900</b></font> range, the current cooldowns of all Abaddon's abilities and items are reduced. Non-hero deaths reduce them by <font color='#FFFFFF'><b>0.2</b></font>s; hero deaths reduce them by <font color='#FFFFFF'><b>3</b></font>s."
-
 	}
 }

@@ -170,6 +170,7 @@ grep "npc_dota_hero_pugna:n" docs/reference/7.41/abilities_english.txt
 ### 从 PR 提取信息
 
 - 优先从描述中的更新列表提取；无列表则从 commits 推断 3–5 条
+- 生成聚合 release PR 的大版本块时，已在其保留的小版本块或已发布小版本中出现的改动不重复写入；大版本块只保留本轮待发布内容。
 - 注释同步、KV 对照、纯文档变更若无玩法影响不写入
 - 多英雄技能同步归纳为一条玩家向 bullet
 - 数值改动用定性表述，除非用户指定
