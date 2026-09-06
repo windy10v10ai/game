@@ -20,6 +20,11 @@ const AWAKEN_ABILITIES: { heroName: string; abilityName: string; freeTrial?: boo
     freeTrial: true,
   },
   {
+    heroName: 'npc_dota_hero_beastmaster',
+    abilityName: 'beastmaster_wild_axes_awaken',
+    freeTrial: true,
+  },
+  {
     heroName: 'npc_dota_hero_earthshaker',
     abilityName: 'special_bonus_unique_earthshaker_upgrade',
     freeTrial: true,
