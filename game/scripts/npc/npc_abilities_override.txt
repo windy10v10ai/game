@@ -806,6 +806,7 @@
 			"axe_damage"
 			{
 				"value"					"80 160 240 320 400"	// 40 80 120 160 x2
+				"special_bonus_unique_beastmaster_awaken"	"+100"
 			}
 			"damage_amp"
 			{
@@ -815,6 +816,17 @@
 			"duration"
 			{
 				"value"					"10 11 12 13 14"
+				"special_bonus_unique_beastmaster_awaken"	"+6"
+			}
+			"min_throw_duration"
+			{
+				"value"					"0.4"
+				"special_bonus_unique_beastmaster_awaken"	"=0.3"
+			}
+			"max_throw_duration"
+			{
+				"value"					"1.0"
+				"special_bonus_unique_beastmaster_awaken"	"=0.6"
 			}
 		}
 	}
@@ -908,6 +920,31 @@
 			"base_damage"
 			{
 				"value"			"120"	// 80 x1.5
+				"special_bonus_unique_beastmaster_awaken"	"=180"
+			}
+			"radius"
+			{
+				"special_bonus_unique_beastmaster_awaken"	"=750"
+			}
+			"min_drum_hit_interval"
+			{
+				"value"			"0.5"
+				"special_bonus_unique_beastmaster_awaken"	"=0.2"
+			}
+			"heal_pct"
+			{
+				"value"			"20"
+				"special_bonus_unique_beastmaster_awaken"	"=30"
+			}
+			"creep_heal_pct"
+			{
+				"value"			"5"
+				"special_bonus_unique_beastmaster_awaken"	"=7.5"
+			}
+			"primal_roar_stacks"
+			{
+				"value"			"10"
+				"special_bonus_unique_beastmaster_awaken"	"=25"
 			}
 		}
 	}
