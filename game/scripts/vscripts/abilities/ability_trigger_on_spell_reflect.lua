@@ -272,10 +272,6 @@ function modifier_trigger_on_spell_reflect:TriggerRandomAbility(original_attacke
                 cast_target = enemies[1]
                 target_position = cast_target:GetAbsOrigin()
                 --print("[SpellReflect] Found enemy:", cast_target:GetUnitName())
-            else
-                cast_target = parent
-                target_position = parent:GetAbsOrigin()
-                --print("[SpellReflect] No enemies found, casting on self position")
             end
         end
     else

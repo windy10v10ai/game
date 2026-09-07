@@ -98,7 +98,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["queenofpain_blink"] = true,                  -- 痛苦女王 闪烁
     ["ember_spirit_activate_fire_remnant"] = true, -- 灰烬之灵 激活火焰残影
     ["earth_spirit_rolling_boulder"] = true,       -- 大地之灵 巨石翻滚
-    ["viper_nosedive"] = true,                     -- 冥界亚龙 俯冲
+    ["viper_nose_dive"] = true,                    -- 冥界亚龙 极恶俯冲
     ["winter_wyvern_cold_embrace"] = true,
     ["snapfire_firesnap_cookie"] = true,
     ["phantom_assassin_phantom_strike"] = true,
@@ -202,7 +202,7 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     -- 原因：这些技能有特殊的游戏机制，不适合随机触发
     -- ========================================
     ["ogre_magi_ignite"] = true,                -- 食人魔魔法师 引燃
-    ["viper_viper_strike"] = true,              -- 冥界亚龙 毒性攻击（大招）
+    ["viper_viper_strike"] = true,              -- 冥界亚龙 蝮蛇突袭
     ["death_prophet_carrion_swarm"] = true,     -- 死亡先知 腐尸群
     ["terrorblade_reflection"] = true,          -- 恐怖利刃 倒影
     ["goku_kaioken"] = true,                    -- 悟空 界王拳
@@ -212,7 +212,6 @@ EXCLUDED_ABILITIES_ALLBUTTER = {
     ["furion_teleportation"] = true,            -- 先知 传送
     ["dawnbreaker_solar_guardian"] = true,      -- 破晓辰星 太阳守护
     ["obsidian_destroyer_essence_flux"] = true, -- 黑鸟 精华变迁
-    ["viper_nethertoxin"] = true,               -- 冥界亚龙 剧毒攻击
     ["naga_siren_song_of_the_siren"] = true,    -- 娜迦海妖 海妖之歌
     ["tinker_keen_teleport"] = true,            -- 修补匠 传送
     ["lich_death_charge"] = true,               -- 巫妖 献身
