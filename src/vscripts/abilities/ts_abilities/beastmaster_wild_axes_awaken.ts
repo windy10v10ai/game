@@ -62,8 +62,12 @@ export class BeastmasterWildAxesAwaken extends AutoCastAbility {
     const native = this.ensureNativeAbility();
     if (native === undefined) return;
 
-    native.SetActivated(true);
     this.GetCaster().SetCursorPosition(location);
     native.OnSpellStart();
+
+    const throwDuration = this.GetSpecialValueFor('min_throw_duration');
+    if (this.GetCooldownTimeRemaining() < throwDuration) {
+      this.StartCooldown(throwDuration);
+    }
   }
 }
