@@ -88,7 +88,6 @@ no_support_abilitys = {
 	enchantress_impetus = 1,      -- 魅惑魔女 推进
 	silencer_glaives_of_wisdom = 1, -- 沉默术士 智慧之刃
 	viper_poison_attack = 1,      -- 冥界亚龙 毒性攻击
-	viper_nethertoxin = 1,        -- 冥界亚龙 幽冥剧毒
 	troll_warlord_switch_stance = 1, -- 巨魔战将 切换姿态
 
 	-- 位移与形态切换
@@ -109,7 +108,7 @@ no_support_abilitys = {
 	zuus_heavenly_jump = 1,              -- 宙斯 神圣一跳
 	snapfire_firesnap_cookie = 1,        -- 电炎绝手 龙炎饼干
 	weaver_time_lapse = 1,               -- 编织者 时光倒流
-	viper_nosedive = 1,                  -- 冥界亚龙 俯冲
+	viper_nose_dive = 1,                 -- 冥界亚龙 极恶俯冲
 	tinker_keen_teleport = 1,            -- 修补匠 传送
 	abyssal_underlord_dark_rift = 1,     -- 孽主 黑暗之门
 	keeper_of_the_light_recall = 1,      -- 光之守卫 召回
@@ -134,7 +133,7 @@ no_support_abilitys = {
 	axe_culling_blade = 1,
 	techies_suicide = 1,                 -- 炸弹人 自爆
 	ogre_magi_ignite = 1,
-	viper_viper_strike = 1,
+	viper_viper_strike = 1,                           -- 冥界亚龙 蝮蛇突袭
 	death_prophet_carrion_swarm = 1,
 	obsidian_destroyer_arcane_orb = 1,
 	terrorblade_reflection = 1,                        -- 倒影
