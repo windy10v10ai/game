@@ -1,27 +1,4 @@
-g_creeps_name = {
-	"npc_dota_goodguys_siege",
-	"npc_dota_goodguys_siege_upgraded",
-	"npc_dota_badguys_siege",
-	"npc_dota_badguys_siege_upgraded",
-	"npc_dota_creep_goodguys_melee",
-	"npc_dota_creep_goodguys_melee_upgraded",
-	"npc_dota_creep_goodguys_ranged",
-	"npc_dota_creep_goodguys_ranged_upgraded",
-	"npc_dota_creep_badguys_melee",
-	"npc_dota_creep_badguys_melee_upgraded",
-	"npc_dota_creep_badguys_ranged",
-	"npc_dota_creep_badguys_ranged_upgraded"
-}
 ability_thdots_yukari04 = {}
-
-function Yukari_CanMovetoGap(unit)
-	if unit == nil or unit:IsNull() then
-		return false
-	end
-	for _, name in pairs(g_creeps_name) do
-		if name == unit:GetUnitName() then return true end
-	end
-end
 
 function Yukari04_OnSpellStart(keys)
 	local ability = keys.ability
@@ -127,45 +104,17 @@ function Yukari04_OnSpellStart(keys)
 					return tick_interval
 				else
 					local elapsedPercent = (GameRules:GetGameTime() - channel_start_time) / ability:GetChannelTime()
-					local Ability02 = caster:FindAbilityByName("ability_thdots_yukari02")
-					local teleport_radius = 0 -- only teleport caster
-					local units = FindUnitsInRadius(
-						caster:GetTeamNumber(),
-						caster:GetOrigin(),
-						nil,
-						teleport_radius,
-						DOTA_UNIT_TARGET_TEAM_BOTH,
-						DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_HERO,
-						DOTA_UNIT_TARGET_FLAG_NONE,
-						FIND_ANY_ORDER,
-						false)
-					-- if #units > 0 then
-					-- 	for i=1,#units do
-					-- 		print_r(units)
-					-- 		if units[i]:HasModifier("modifier_ability_thdots_kogasa04") then
-					-- 			table.remove(units,i)
-					-- 		end
-					-- 	end
-					-- end
-					for _, u in pairs(units) do
-						if Yukari_CanMovetoGap(u) and u:GetTeam() ~= caster:GetTeam() and Ability02 then
-							Ability02:ApplyDataDrivenModifier(caster, u, Yukari02_MODIFIER_HIDDEN_NAME, { Duration = -1 })
-							Ability02:ApplyDataDrivenModifier(caster, creep, anti_bd_modifier_name, {})
-							--u:AddNewModifier(caster,ability,Yukari02_MODIFIER_HIDDEN_NAME,{})
-						elseif u:IsControllableByAnyPlayer() and u:GetTeam() == caster:GetTeam() then
-							local e3 = ParticleManager:CreateParticle(
-								"particles/heroes/yukari/ability_yukari_03_teleportflash.vpcf", PATTACH_CUSTOMORIGIN,
-								caster)
-							ParticleManager:SetParticleControl(e3, 0, caster:GetOrigin())
 
-							FindClearSpaceForUnit(u, vecPos, true)
+					local e3 = ParticleManager:CreateParticle(
+						"particles/heroes/yukari/ability_yukari_03_teleportflash.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(e3, 0, caster:GetOrigin())
+					FindClearSpaceForUnit(caster, vecPos, true)
+					local e4 = ParticleManager:CreateParticle(
+						"particles/heroes/yukari/ability_yukari_03_teleportflash2.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					ParticleManager:SetParticleControl(e4, 0, caster:GetOrigin())
+					ParticleManager:ReleaseParticleIndex(e3)
+					ParticleManager:ReleaseParticleIndex(e4)
 
-							local e4 = ParticleManager:CreateParticle(
-								"particles/heroes/yukari/ability_yukari_03_teleportflash2.vpcf", PATTACH_CUSTOMORIGIN,
-								caster)
-							ParticleManager:SetParticleControl(e4, 0, caster:GetOrigin())
-						end
-					end
 					caster:StopSound("Hero_Enigma.BlackHole.Cast.Chasm")
 					caster:StopSound("Hero_Enigma.Black_Hole")
 					caster:EmitSound("Hero_Enigma.Black_Hole.Stop")

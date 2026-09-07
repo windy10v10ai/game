@@ -9,6 +9,26 @@ export class HeroUtil {
     'modifier_necrolyte_reapers_scythe', // 死灵法师大招
   ];
 
+  // 泉水坐标全局固定，首次查到后按队伍缓存
+  private static readonly fountainPositionByTeam = new Map<DotaTeam, Vector>();
+
+  /** 返回指定队伍泉水的世界坐标。 */
+  static GetTeamFountainPosition(team: DotaTeam): Vector | undefined {
+    const cached = this.fountainPositionByTeam.get(team);
+    if (cached) {
+      return cached;
+    }
+    const fountains = Entities.FindAllByClassname('ent_dota_fountain') as CDOTA_BaseNPC[];
+    for (const fountain of fountains) {
+      if (!fountain.IsNull() && fountain.GetTeamNumber() === team) {
+        const position = fountain.GetAbsOrigin();
+        this.fountainPositionByTeam.set(team, position);
+        return position;
+      }
+    }
+    return undefined;
+  }
+
   static NotActionable(hero: CDOTA_BaseNPC): boolean {
     // 死亡
     if (hero.IsAlive() === false) {

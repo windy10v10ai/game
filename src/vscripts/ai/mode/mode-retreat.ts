@@ -6,7 +6,24 @@ import { ModeEnum } from './mode-enum';
 export class ModeRetreat extends ModeBase {
   mode: ModeEnum = ModeEnum.RETREAT;
 
+  // 血量低于此百分比的 bot 直接强制撤退，跳过 desire 竞争
+  private static readonly FORCE_RETREAT_HP_PERCENT = 30;
+  private static readonly MID_ONLY_FORCE_RETREAT_HP_PERCENT = 15;
+
   GetDesire(heroAI: BotBaseAIModifier): number {
+    const hero = heroAI.GetHero();
+    const pid = hero.GetPlayerOwnerID();
+    const forceRetreatHpPercent = GameRules.Option.midOnlyMode
+      ? ModeRetreat.MID_ONLY_FORCE_RETREAT_HP_PERCENT
+      : ModeRetreat.FORCE_RETREAT_HP_PERCENT;
+    if (
+      PlayerResource.IsValidPlayerID(pid) &&
+      PlayerResource.IsFakeClient(pid) &&
+      hero.GetHealthPercent() < forceRetreatHpPercent
+    ) {
+      return 1;
+    }
+
     let desire = 0;
     if (heroAI.mode === ModeEnum.RETREAT) {
       desire += 0.4;

@@ -12,7 +12,7 @@ export const SPECS: AbilitySpec[] = [
     condition: {
       self: {
         unitCondition: {
-          noModifier: 'modifier_phantom_assassin_blur_active',
+          noModifier: ['modifier_phantom_assassin_blur_active'],
         },
       },
     },

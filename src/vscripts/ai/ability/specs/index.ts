@@ -12,6 +12,9 @@ import { SPECS as dragonKnightBreatheFire } from './dragon_knight_breathe_fire';
 import { SPECS as dragonKnightDragonTail } from './dragon_knight_dragon_tail';
 import { SPECS as dragonKnightFireball } from './dragon_knight_fireball';
 import { SPECS as drowRangerFrostArrows } from './drow_ranger_frost_arrows';
+import { SPECS as drowRangerGlacier } from './drow_ranger_glacier';
+import { SPECS as drowRangerMultishot } from './drow_ranger_multishot';
+import { SPECS as drowRangerWaveOfSilence } from './drow_ranger_wave_of_silence';
 import { SPECS as enchantressImpetus } from './enchantress_impetus';
 import { SPECS as getDown } from './get_down';
 import { SPECS as imbaChaosKnightPhantasm } from './imba_chaos_knight_phantasm';
@@ -32,9 +35,16 @@ import { SPECS as lionImpale } from './lion_impale';
 import { SPECS as lionManaDrain } from './lion_mana_drain';
 import { SPECS as lionVoodoo } from './lion_voodoo';
 import { SPECS as liuKick } from './liu_kick';
+import { SPECS as lunaLunarOrbit } from './luna_lunar_orbit';
+import { SPECS as medusaGorgonGrasp } from './medusa_gorgon_grasp';
+import { SPECS as medusaMysticSnake } from './medusa_mystic_snake';
 import { SPECS as medusaSplitShot } from './medusa_split_shot';
+import { SPECS as medusaStoneGaze } from './medusa_stone_gaze';
 import { SPECS as mikuDance } from './miku_dance';
 import { SPECS as mikuHadouken } from './miku_hadouken';
+import { SPECS as necrolyteDeathPulse } from './necrolyte_death_pulse';
+import { SPECS as necrolyteDeathSeeker } from './necrolyte_death_seeker';
+import { SPECS as necrolyteReapersScythe } from './necrolyte_reapers_scythe';
 import { SPECS as ogreMagiBloodlust } from './ogre_magi_bloodlust';
 import { SPECS as ogreMagiFireblast } from './ogre_magi_fireblast';
 import { SPECS as ogreMagiIgnite } from './ogre_magi_ignite';
@@ -52,6 +62,7 @@ import { SPECS as rikiTricksOfTheTrade } from './riki_tricks_of_the_trade';
 import { SPECS as sandkingBurrowstrike } from './sandking_burrowstrike';
 import { SPECS as sandkingScorpionStrike } from './sandking_scorpion_strike';
 import { SPECS as sandkingSandStorm } from './sandking_sand_storm';
+import { SPECS as skeletonKingHellfireBlast } from './skeleton_king_hellfire_blast';
 import { SPECS as shadowShamanEtherShock } from './shadow_shaman_ether_shock';
 import { SPECS as shadowShamanMassSerpentWard } from './shadow_shaman_mass_serpent_ward';
 import { SPECS as shadowShamanShackles } from './shadow_shaman_shackles';
@@ -59,14 +70,20 @@ import { SPECS as shadowShamanUrnaconda } from './shadow_shaman_urnaconda';
 import { SPECS as shadowShamanVoodoo } from './shadow_shaman_voodoo';
 import { SPECS as silencerGlaivesOfWisdom } from './silencer_glaives_of_wisdom';
 import { SPECS as slarkSaltwaterShiv } from './slark_saltwater_shiv';
+import { SPECS as sniperShrapnel } from './sniper_shrapnel';
+import { SPECS as sniperTakeAim } from './sniper_take_aim';
 import { SPECS as spectreHaunt } from './spectre_haunt';
 import { SPECS as spectreSpectralDagger } from './spectre_spectral_dagger';
 import { SPECS as tinkerDeployTurrets } from './tinker_deploy_turrets';
 import { SPECS as tinkerLaser } from './tinker_laser';
 import { SPECS as tinkerMarchOfTheMachines } from './tinker_march_of_the_machines';
+import { SPECS as tinkerRearmLua } from './tinker_rearm_lua';
 import { SPECS as tinkerWarpGrenade } from './tinker_warp_grenade';
 import { SPECS as tuskWalrusPunch } from './tusk_walrus_punch';
+import { SPECS as viperNethertoxin } from './viper_nethertoxin';
+import { SPECS as viperNoseDive } from './viper_nose_dive';
 import { SPECS as viperPoisonAttack } from './viper_poison_attack';
+import { SPECS as viperViperStrike } from './viper_viper_strike';
 import { SPECS as windrunnerWhirlwindCustom } from './windrunner_whirlwind_custom';
 import { SPECS as winterWyvernArcticBurn } from './winter_wyvern_arctic_burn';
 import { SPECS as witchDoctorVoodooSwitcheroo } from './witch_doctor_voodoo_switcheroo';
@@ -181,6 +198,7 @@ export function registerAbilitySpecs(): void {
   AbilityRegistry.registerAll(tinkerMarchOfTheMachines);
   AbilityRegistry.registerAll(tinkerWarpGrenade);
   AbilityRegistry.registerAll(tinkerDeployTurrets);
+  AbilityRegistry.registerAll(tinkerRearmLua);
 
   // Zuus 宙斯
   AbilityRegistry.registerAll(zuusArcLightning);
@@ -192,6 +210,36 @@ export function registerAbilitySpecs(): void {
   // Abaddon 亚巴顿
   AbilityRegistry.registerAll(abaddonDeathCoil);
   AbilityRegistry.registerAll(abaddonAphoticShield);
+
+  // Drow Ranger 卓尔游侠
+  AbilityRegistry.registerAll(drowRangerWaveOfSilence);
+  AbilityRegistry.registerAll(drowRangerGlacier);
+  AbilityRegistry.registerAll(drowRangerMultishot);
+
+  // Luna 月之骑士
+  AbilityRegistry.registerAll(lunaLunarOrbit);
+
+  // Medusa 美杜莎
+  AbilityRegistry.registerAll(medusaMysticSnake);
+  AbilityRegistry.registerAll(medusaGorgonGrasp);
+  AbilityRegistry.registerAll(medusaStoneGaze);
+
+  // Necrolyte 死灵法师
+  AbilityRegistry.registerAll(necrolyteDeathPulse);
+  AbilityRegistry.registerAll(necrolyteDeathSeeker);
+  AbilityRegistry.registerAll(necrolyteReapersScythe);
+
+  // Skeleton King 冥魂大帝
+  AbilityRegistry.registerAll(skeletonKingHellfireBlast);
+
+  // Sniper 狙击手
+  AbilityRegistry.registerAll(sniperTakeAim);
+  AbilityRegistry.registerAll(sniperShrapnel);
+
+  // Viper 冥界亚龙
+  AbilityRegistry.registerAll(viperNethertoxin);
+  AbilityRegistry.registerAll(viperViperStrike);
+  AbilityRegistry.registerAll(viperNoseDive);
 
   // 抽奖法球 / 开关类：bot 抽到后主动开启自动施法 / 切换开关，否则永不生效。
   // CD 制 / 0 蓝法球常开（Self autoCastOn）

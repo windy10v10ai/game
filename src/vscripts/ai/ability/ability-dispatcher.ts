@@ -3,11 +3,12 @@ import { TryCastBySpec } from '../action/target-dispatch';
 import type { BotBaseAIModifier } from '../hero/bot-base';
 import { AbilityRegistry } from './ability-registry';
 import { TargetSide } from './ability-spec';
+import { GenericAbilityFallback } from './generic-ability-fallback';
 
 /**
  * 统一的 bot 技能 AI 入口。
  *
- * 由 bot-base ActionMode 内各 ActionXxx 顶部调用：
+ * 由 bot-base ActionMode 内各 ActionXxx 在 ItemDispatcher.Run 之后调用：
  *   if (AbilityDispatcher.Run(this)) return true;
  *
  * 工作流：
@@ -49,18 +50,21 @@ export class AbilityDispatcher {
       }
 
       const specs = AbilityRegistry.get(ability.GetName());
-      if (!specs) {
+      if (specs) {
+        for (const spec of specs) {
+          const condition =
+            spec.targetSide === TargetSide.EnemyCreep
+              ? DeepMerge(CREEP_DEFAULT_CONDITION, spec.condition)
+              : spec.condition;
+          if (TryCastBySpec(ai, ability, spec.targetSide, condition)) {
+            return true;
+          }
+        }
         continue;
       }
 
-      for (const spec of specs) {
-        const condition =
-          spec.targetSide === TargetSide.EnemyCreep
-            ? DeepMerge(CREEP_DEFAULT_CONDITION, spec.condition)
-            : spec.condition;
-        if (TryCastBySpec(ai, ability, spec.targetSide, condition)) {
-          return true;
-        }
+      if (GenericAbilityFallback.TryCast(ai, ability)) {
+        return true;
       }
     }
 

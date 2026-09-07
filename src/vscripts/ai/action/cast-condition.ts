@@ -37,6 +37,10 @@ export interface CastCoindition {
      */
     rangeFromAttackRange?: boolean;
     /**
+     * 将攻击距离计入搜索半径时额外增加的距离。
+     */
+    attackRangeOffset?: number;
+    /**
      * 决定 POINT 技能的释放位置：
      * - 'targetPosition'（默认）：释放点 = 目标位置
      * - 'projectedOnCastRange'：
@@ -126,7 +130,7 @@ export interface UnitCondition {
 
   hasScepter?: boolean;
   hasShard?: boolean;
-  noModifier?: string;
+  noModifier?: string[];
   notActionable?: boolean;
   /**
    * 排除远古野（大龙/小龙等）。
@@ -304,7 +308,8 @@ export function CheckUnitConditionFailure(
   if (unitCondition.hasShard && !unit.HasModifier('modifier_item_aghanims_shard')) {
     return true;
   }
-  if (unitCondition.noModifier && unit.HasModifier(unitCondition.noModifier)) {
+  const noModifiers = unitCondition.noModifier;
+  if (noModifiers && noModifiers.some((modifier) => unit.HasModifier(modifier))) {
     return true;
   }
   if (unitCondition.notActionable && HeroUtil.NotActionable(unit)) {
@@ -399,7 +404,7 @@ function isNumberRange(item: object): boolean {
  * 自定义 Lua 技能（BaseClass 为 ability_lua）的 behavior 由引擎以 64 位 userdata 返回，
  * 位运算函数只收 number，直接参与按位与会在运行时抛错。
  */
-function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
+export function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
   const raw = ability.GetBehavior();
   if (type(raw) === 'number') {
     return raw as number;

@@ -501,6 +501,7 @@
 		"ID"							"9627"
 		"AbilityTextureName"			"item_blessing_of_dragon_2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastPoint"				"0"
 		"AbilityHealthCost"				"0"
 		"AbilityCooldown"				"0"

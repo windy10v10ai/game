@@ -9,7 +9,7 @@ export const SPECS: ItemSpec[] = [
     condition: {
       target: { range: { lte: 1200 }, count: { gte: 3 }, ignoresMagicImmune: true },
       self: {
-        unitCondition: { noModifier: 'modifier_smoke_of_deceit' },
+        unitCondition: { noModifier: ['modifier_smoke_of_deceit'] },
         noEnemyHeroInRange: 1800,
         noEnemyBuildingInRange: 1800,
       },

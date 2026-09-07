@@ -67,7 +67,7 @@ Glob pattern: src/vscripts/ai/ability/specs/<abilityName>.ts
 2. **目标数量条件**：群体技能要求"施法范围内至少 N 个敌人才出手"`target.count.gte: 3`。**计数范围 = 生效的 `range.lte`**（spec 显式写的优先，未写时按 cast range / `rangeFromAbilityValue` 自动补齐），不是固定的 1800 预搜半径。计数只按存活与距离收窄，不受 `target.unitCondition` 影响。若判据需要比施法距离更大的观察范围，注意 `range` 同时决定目标筛选，放大会让 bot 追着远处目标跑。
 3. **施法者条件**：例如"蓝量够才用"`self.unitCondition.manaPercent.gte: 50`，或"血量低才用某保命技能"。
 4. **技能等级 / 充能条件**：`ability.level.gte: 3`、`ability.charges.gte: 1`。
-5. **避免重复施法**：`target.unitCondition.noModifier: 'modifier_xxx'`，常用于持续 debuff/buff。Modifier 名查 `DOTA_Tooltip_modifier_<name>` 取 `<name>`：**优先查项目 `game/resource/addon_schinese.txt`**（自定义/克隆/override 技能以项目本地化为准）；项目搜不到再查 reference 最新版本 `docs/reference/<version>/abilities_schinese.txt`（原版技能兜底）。例：寒霜魔盾 = `modifier_lich_frost_shield`；`lich_frost_armor` 是项目把奥术法师寒冰盔甲克隆给巫妖，原版 lich 无此技能，modifier 名 = `modifier_lich_frost_armor`，仅在项目本地化有定义。
+5. **避免重复施法**：`target.unitCondition.noModifier: ['modifier_xxx']`，常用于持续 debuff/buff。Modifier 名查 `DOTA_Tooltip_modifier_<name>` 取 `<name>`：**优先查项目 `game/resource/addon_schinese.txt`**（自定义/克隆/override 技能以项目本地化为准）；项目搜不到再查 reference 最新版本 `docs/reference/<version>/abilities_schinese.txt`（原版技能兜底）。例：寒霜魔盾 = `modifier_lich_frost_shield`；`lich_frost_armor` 是项目把奥术法师寒冰盔甲克隆给巫妖，原版 lich 无此技能，modifier 名 = `modifier_lich_frost_armor`，仅在项目本地化有定义。
 6. **跳过已被控目标**：`target.unitCondition.notActionable: true`，目标处于眩晕/变羊/噩梦/虚空大等硬控状态则跳过，对已被控的目标使用控制技能通常是浪费。
 7. **附近无敌方英雄才施法**：`self.noEnemyHeroInRange: 900`（距离可自定义），常用于对小兵或建筑施法前确认安全。此字段在 dispatcher `tryCast` 层检查，**不是** `self.unitCondition` 的子字段，直接挂在 `self` 下。
 8. **附近需要足够友方小兵**：`self.friendlyCreepNearby: { count: { gte: 3 } }`，常用于推塔场景（对 `EnemyBuilding` 施法时确认有推线波）。`range` 不填默认 900。此字段也直接挂在 `self` 下，dispatcher inline `FindUnitsInRadius` 检查。
@@ -165,7 +165,7 @@ export const SPECS: AbilitySpec[] = [
 - **不要在 spec 里手写 `range.lte`**：dispatcher 会用技能 KV 中的 `AbilityCastRange + GetCastRangeBonus` 自动填入。手写反而会覆盖默认值，导致超出施法距离也尝试施放。例外：spec 想要更小的搜索半径才显式覆盖。
 - **不要为 spec 加新的字段类型**：spec 字段只能是 `ability-spec.ts` 中已定义的；新需求先扩展 `cast-condition.ts` 与 dispatcher，再消费。
 - **不要往英雄文件 `UseAbilityXxx` 加新技能**：新技能一律走 spec。遇到已有手写规则时，将有效条件迁入 spec，并在确认行为等价后删除对应英雄覆盖，不能把英雄专属施法保留为长期第二执行层。
-- **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / autoCastOn` 表达。这条路径目前只在老 `ActionAbility.doAction` 中实现，dispatcher 暂未串接 —— 遇到这类技能告知用户「该开关类目前需要走老链路或扩展 dispatcher」，不要自行硬塞。
+- **toggle / autoCast 类技能**：通过 `condition.action.toggleOn / toggleOff / autoCastOn` 表达。dispatcher 命中 action 条件后只切换到目标状态，不走正常施法派发；已经处于目标状态时返回 false，继续尝试后续规则。
 - **TSTL 对象 spread 陷阱**：见 CLAUDE.md「常见陷阱」末条；spec 文件本身用不到 spread，但若需要扩展 dispatcher / cast-condition，**绝对**不能写 `{ ...maybeUndefined }`。
 - **KV 数值字段术语**：Dota 2 现行 KV 中数值字段块名为 `AbilityValues`（旧版 `AbilitySpecial` 已废弃）。在注释、字段命名、文档中统一使用 `AbilityValue` 表述；引擎 API `GetSpecialValueFor(key)` 仍可调用，但变量名和注释应写 `abilityValue` / `rangeFromAbilityValue`，不用 `specialValue`。
 - **spec 文件头部注释不要复述 condition 里的字段/数值**：注释只写意图（"范围内有敌人即用"），不要带上 `range.lte` 等字段的具体值（"900 范围内"）。同一个数值出现两处，后续只改其中一处就会自相矛盾，且无法判断哪个是真相源。此规则同样适用于 ItemSpec（`ai/item/specs/`）文件。发现注释数值与代码不一致时，**不要默认注释代表设计意图、代码是笔误就去改代码**——应先查 git blame / 实机测试确认谁是真相源，再决定改代码还是改注释。

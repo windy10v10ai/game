@@ -8,7 +8,7 @@ const BACKPACK_START_SLOT = InventorySlot.SLOT_7;
 /**
  * 统一的 bot 战斗物品 AI 入口，与 AbilityDispatcher 平级，共用 TryCastBySpec。
  *
- * 由 bot-base ActionMode 内各 ActionXxx 在 AbilityDispatcher.Run 之后调用：
+ * 由 bot-base ActionMode 内各 ActionXxx 在 AbilityDispatcher.Run 之前调用：
  *   if (ItemDispatcher.Run(this)) return true;
  *
  * 只遍历随身 0~8 号槽位（不含仓库、TP、中立槽），备用栏（6~8）物品默认跳过，

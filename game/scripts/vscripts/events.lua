@@ -104,13 +104,6 @@ function AIGameMode:OnNPCSpawned(keys)
 
 
     if hEntity:IsRealHero() and not hEntity.bInitialized then
-        -- Bots modifier 机器人AI脚本
-        if not IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
-            if not hEntity:HasModifier("modifier_bot_think_item_use") then
-                hEntity:AddNewModifier(hEntity, nil, "modifier_bot_think_item_use", {})
-            end
-        end
-
         -- Player Buff
         if IsHumanPlayer(hEntity:GetPlayerOwnerID()) then
             EnablePlayerModifier(hEntity)

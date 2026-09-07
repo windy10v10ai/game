@@ -448,6 +448,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 - 复用一个字符串事件，而不是新增自定义事件
 - 避免过度还原、过度分析
+- 布尔方法名用常见且直接的动词，避免抽象词和重复所属类或文件已经表达的语境，例如 `CanCast` 优于 `IsEligible` 或 `CanUseGenericFallback`
 - 多处需要相同逻辑（尤其是要求口径一致的计算）时提取共享函数，不要各自维护一份；调用方各自实现一遍容易在后续修改时只改一处、悄悄产生口径分歧
 
 ## 注释规约
@@ -485,7 +486,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 ## Git 工作流
 
 - 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
-- PR 的 base branch 固定为 `develop`；标题默认英文；创建前先问用户本次走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
+- PR 的 base branch 固定为 `develop`；标题默认英文；纯内部改动（重构、构建、CI、文档、测试）自行判定跳过 Release Note，不提问也不查版本号，其余情况问用户走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
 - Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 - `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
 

@@ -12,7 +12,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.FriendlyHero,
     condition: {
       target: {
-        unitCondition: { noModifier: 'modifier_lich_frost_armor' },
+        unitCondition: { noModifier: ['modifier_lich_frost_armor'] },
       },
     },
   },

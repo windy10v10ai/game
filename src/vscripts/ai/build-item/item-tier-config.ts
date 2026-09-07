@@ -872,12 +872,6 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9700,
     baseItems: ['item_hurricane_pike'],
   },
-  item_angels_demise: {
-    name: 'item_angels_demise',
-    nameCN: '绝刃',
-    tier: ItemTier.T3,
-    cost: 9800,
-  },
   item_vladmir_2: {
     name: 'item_vladmir_2',
     nameCN: '强袭祭品',
@@ -939,6 +933,13 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 9800,
     baseItems: ['item_monkey_king_bar'],
   },
+  item_arcane_octarine_core: {
+    name: 'item_arcane_octarine_core',
+    nameCN: '奥术之心',
+    tier: ItemTier.T3,
+    cost: 10000,
+    baseItems: ['item_aether_lens_2', 'item_octarine_core'],
+  },
 
   // ===== T4: 后期装备 (10000-30000金，不含30000) =====
   item_shotgun_v2: {
@@ -955,19 +956,19 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     cost: 10100,
     baseItems: ['item_arcane_blink_2'],
   },
+  item_angels_demise: {
+    name: 'item_angels_demise',
+    nameCN: '绝刃',
+    tier: ItemTier.T4,
+    cost: 10200,
+    baseItems: ['item_phylactery'],
+  },
   item_overwhelming_blink_2: {
     name: 'item_overwhelming_blink_2',
     nameCN: '泰森闪光',
     tier: ItemTier.T4,
     cost: 10600,
     baseItems: ['item_overwhelming_blink'],
-  },
-  item_arcane_octarine_core: {
-    name: 'item_arcane_octarine_core',
-    nameCN: '奥术之心',
-    tier: ItemTier.T4,
-    cost: 10600,
-    baseItems: ['item_aether_lens_2', 'item_octarine_core'],
   },
   item_swift_blink_2: {
     name: 'item_swift_blink_2',
@@ -1169,7 +1170,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_refresh_core',
     nameCN: '熔火核心',
     tier: ItemTier.T4,
-    cost: 19900,
+    cost: 19200,
     baseItems: [
       'item_aether_lens_2',
       'item_arcane_octarine_core',
@@ -1326,7 +1327,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     name: 'item_time_gem',
     nameCN: '时间宝石',
     tier: ItemTier.T5,
-    cost: 52300,
+    cost: 51700,
     baseItems: ['item_refresh_core'],
   },
   item_switchable_crit_blade: {

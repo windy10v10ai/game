@@ -11,7 +11,7 @@ export const SPECS: AbilitySpec[] = [
     targetSide: TargetSide.FriendlyHero,
     condition: {
       target: {
-        unitCondition: { noModifier: 'modifier_ogre_magi_smash_buff' },
+        unitCondition: { noModifier: ['modifier_ogre_magi_smash_buff'] },
       },
     },
   },

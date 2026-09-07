@@ -466,6 +466,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_satanic', // 撒旦之邪力
         'item_vladmir_2', // 强袭祭品
         { item: 'item_monkey_king_bar_2', weight: 2 }, // 定海神针
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_black_king_bar_2', // 天神杖
@@ -477,7 +478,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_excalibur', // EX咖喱棒
         'item_refresh_core', // 熔火核心
         'item_hydras_breath_2', // 神器·千年毒蛟之息
-        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T5]: [
         'item_hawkeye_turret', // 鹰眼炮台
@@ -919,11 +919,11 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       [ItemTier.T3]: [
         'item_aeon_pendant', // 永恒坠饰
         'item_phylactery', // 灵匣
-        'item_angels_demise', // 绝刃
         'item_dagon_5', // 达贡之神力
         'item_magic_scepter', // 魔云法杖
         'item_arcane_blink_2', // 秘奥闪光
         'item_sheepstick', // 邪恶镰刀
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_hallowed_scepter', // 神圣魔法权杖
@@ -931,8 +931,8 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
         'item_arcane_blink', // 大智力跳刀
         'item_gungir_2', // 风暴之锤
-        'item_arcane_octarine_core', // 奥术之心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -983,6 +983,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dodo_desolator', // 黯灭头
         'item_devastator', // 圣斧
         'item_aeon_pendant', // 咸鱼之王
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_hallowed_scepter', // 神圣魔法权杖
@@ -991,7 +992,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_blink', // 大智力跳刀
         'item_gungir_2', // 风暴之锤
         'item_shivas_guard_2', // 雅典娜的守护
-        'item_arcane_octarine_core', // 奥术之心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_devastator_2', // 神圣斧
@@ -1039,22 +1039,23 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_scepter', // 魔云法杖
         'item_meteor_hammer_2', // 星落
         'item_sacred_trident', // 三叉戟
-        'item_angels_demise', // 绝刃
+        'item_phylactery', // 灵匣
         'item_arcane_blink_2', // 秘奥闪光
         'item_sheepstick', // 邪恶镰刀
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_black_king_bar_2', // 天神杖
         'item_arcane_blink', // 大智力跳刀
         'item_necronomicon_staff', // 死灵法师权杖
         'item_refresh_core', // 熔火核心
-        'item_arcane_octarine_core', // 奥术之心
         'item_hallowed_scepter', // 神圣魔法权杖
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_saint_orb', // 圣女白莲
         'item_gungir_2', // 风暴之锤
         'item_undying_heart', // 不朽之心
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_withered_spring', // 生命之心
@@ -1093,7 +1094,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_yasha_and_kaya', // 慧夜对剑
       ],
       [ItemTier.T3]: [
-        'item_angels_demise', // 绝刃
         'item_sacred_trident', // 三叉戟
         'item_bloodstone', // 血精神石
         'item_magic_scepter', // 魔云法杖
@@ -1101,16 +1101,17 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_dagon_5', // 达贡之神力
         'item_meteor_hammer_2', // 星落
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_hallowed_scepter', // 仙云法杖
         'item_refresh_core', // 熔火核心
         'item_necronomicon_staff', // 死灵法杖
-        'item_arcane_octarine_core', // 奥术之心
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_gungir_2', // 风暴之锤
         'item_devastator_2', // 神圣斧
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -1148,7 +1149,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_witch_blade', // 巫师之刃
       ],
       [ItemTier.T3]: [
-        'item_angels_demise', // 绝刃
         'item_magic_scepter', // 魔云法杖
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
         'item_revenants_brooch_ultra', // 神器·魔武双修
@@ -1156,18 +1156,19 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_phylactery', // 灵匣
         'item_meteor_hammer_2', // 星落
         'item_devastator', // 圣斧
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_arcane_blink', // 爱因斯坦闪光
         'item_refresh_core', // 熔火核心
         'item_hallowed_scepter', // 仙云法杖
-        'item_arcane_octarine_core', // 奥术之心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_devastator_2', // 神圣斧
         'item_gungir_2', // 风暴之锤
         'item_necronomicon_staff', // 死灵法杖
         'item_black_king_bar_2', // 天神杖
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_hawkeye_fighter', // 鹰眼战机
@@ -1192,53 +1193,46 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_boots', // 奥术鞋
         'item_magic_wand', // 魔杖
         'item_soul_ring', // 灵魂之戒
-        'item_falcon_blade', // 猎鹰战刃
-        'item_vanguard', // 先锋盾
+        'item_hand_of_midas', // 点金手
       ],
       [ItemTier.T2]: [
+        { item: 'item_blink', weight: 10 }, // 闪烁匕首
         { item: 'item_aether_lens_2', weight: 2 }, // 以太透镜2
-        { item: 'item_blink', weight: 2 }, // 闪烁匕首
         'item_glimmer_cape', // 微光披风
         'item_hand_of_group', // 团队之手
-        'item_yasha_and_kaya', // 慧夜对剑
-        'item_octarine_core', // 玲珑心
+        'item_kaya_and_sange', // 散慧对剑
         'item_gungir', // 缚灵索
-        'item_refresher', // 刷新球
         'item_black_king_bar', // 黑皇杖
         'item_crellas_crozier', // 克莱拉牧杖
       ],
       [ItemTier.T3]: [
-        'item_phylactery', // 灵匣
-        'item_angels_demise', // 绝刃
+        { item: 'item_arcane_blink_2', weight: 10 }, // 秘奥闪光
+        { item: 'item_arcane_octarine_core', weight: 2 }, // 奥术之心
+        { item: 'item_phylactery', weight: 2 }, // 灵匣
+        { item: 'item_magic_scepter', weight: 2 }, // 魔云法杖
         'item_dagon_5', // 达贡之神力
         'item_sheepstick', // 邪恶镰刀
-        'item_magic_scepter', // 魔云法杖
-        'item_arcane_blink_2', // 秘奥闪光
-        'item_meteor_hammer_2', // 星落
         'item_aeon_pendant', // 咸鱼之王
-        'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_sphere_2', // 真·林肯法球
-        'item_bloodstone', // 血精神石
         'item_ethereal_blade', // 虚灵之刃
       ],
       [ItemTier.T4]: [
-        'item_arcane_blink', // 爱因斯坦闪光
-        'item_hallowed_scepter', // 仙云法杖
-        'item_necronomicon_staff', // 死灵法杖
+        { item: 'item_arcane_blink', weight: 10 }, // 爱因斯坦闪光
+        { item: 'item_hallowed_scepter', weight: 2 }, // 仙云法杖
+        { item: 'item_necronomicon_staff', weight: 2 }, // 死灵法杖
+        { item: 'item_refresh_core', weight: 2 }, // 熔火核心
         'item_blue_fantasy', // 苍蓝幻想
-        'item_refresh_core', // 熔火核心
-        'item_yasha_and_kaya_1', // 神器·慧夜对剑
-        'item_arcane_octarine_core', // 奥术之心
         'item_gungir_2', // 风暴之锤
-        'item_kaya_and_sange_1', // 神器·散慧对剑
+        'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_black_king_bar_2', // 天神杖
-        'item_devastator_2', // 神圣斧
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
-        'item_magic_crit_blade', // 魔龙狂舞
-        'item_time_gem', // 时间宝石
+        { item: 'item_arcane_blink', weight: 10 }, // 爱因斯坦闪光
+        { item: 'item_magic_crit_blade', weight: 2 }, // 魔龙狂舞
+        { item: 'item_time_gem', weight: 2 }, // 时间宝石
+        { item: 'item_shadow_impact', weight: 2 }, // 暗影法杖
         'item_forbidden_staff', // 禁忌法锤
-        'item_shadow_impact', // 暗影法杖
         'item_sacred_six_vein', // 六脉神剑
         'item_withered_spring', // 生命之心
         'item_hawkeye_turret', // 鹰眼炮台
@@ -1282,6 +1276,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_meteor_hammer_2', // 星落
         'item_bloodstone', // 血精神石
         'item_devastator', // 圣斧
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_refresh_core', // 熔火核心
@@ -1289,7 +1284,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_gungir_2', // 风暴之锤
         'item_shivas_guard_2', // 雅典娜的守护
         'item_necronomicon_staff', // 死灵法杖
-        'item_arcane_octarine_core', // 奥术之心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_devastator_2', // 神圣斧
         'item_kaya_and_sange_1', // 神器·散慧对剑
@@ -1342,13 +1336,13 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_meteor_hammer_2', // 星落
         'item_arcane_blink_2', // 秘奥闪光
         'item_phylactery', // 灵匣
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_hallowed_scepter', // 仙云法杖
         'item_refresh_core', // 熔火核心
         'item_shivas_guard_2', // 雅典娜的守护
         'item_guardian_greaves_artifact', // 神器·卫士胫甲
-        'item_arcane_octarine_core', // 奥术之心
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_gungir_2', // 风暴之锤
@@ -1507,6 +1501,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_bloodstone', // 血精神石
         'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_magic_scepter', // 魔云法杖
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_undying_heart', // 不朽之心
@@ -1514,7 +1509,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_black_king_bar_2', // 真·BKB
         'item_saint_orb', // 圣女白莲
         'item_shivas_guard_2', // 雅典娜的守护
-        'item_arcane_octarine_core', // 奥术之心
         'item_abyssal_blade_v2', // 一闪
         'item_insight_armor', // 洞察护甲
         'item_sange_and_yasha_1', // 神器·散夜对剑
@@ -1869,6 +1863,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_meteor_hammer_2', // 星落
         'item_dodo_desolator', // 黯灭头
         'item_wasp_despotic', // 大核荣耀暴虐
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 雅典娜的守护
@@ -1876,7 +1871,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_abyssal_blade_v2', // 一闪
         'item_undying_heart', // 不朽之心
         { item: 'item_jump_jump_jump', weight: 2 }, // 跳！跳！跳！刀
-        'item_arcane_octarine_core', // 奥术之心
         'item_black_king_bar_2', // 天神杖
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_hallowed_scepter', // 仙云法杖
@@ -1997,6 +1991,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_bloodstone', // 血精神石
         'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_sphere_2', // 真·林肯法球
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_saint_orb', // 圣女白莲
@@ -2006,7 +2001,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
         'item_shivas_guard_2', // 雅典娜的守护
         'item_black_king_bar_2', // 天神杖
-        'item_arcane_octarine_core', // 奥术之心
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_hallowed_scepter', // 仙云法杖
         'item_infernal_desolator', // 绝对破防之刃
@@ -2056,9 +2050,10 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 永恒吊坠
         'item_orb_of_the_brine', // 苍洋魔珠
         'item_magic_scepter', // 魔法权杖
-        'item_angels_demise', // 天使陨落
+        'item_phylactery', // 灵匣
         'item_arcane_blink_2', // 奥术闪烁2
         'item_ethereal_blade', // 虚灵之刃
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_gungir_2', // 风暴之锤
@@ -2067,7 +2062,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
         'item_shivas_guard_2', // 希瓦的守护2
         'item_hallowed_scepter', // 仙云法杖
-        'item_arcane_octarine_core', // 奥术之心
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -2113,13 +2108,13 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sacred_trident', // 三叉戟
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_arcane_blink_2', // 秘奥闪光
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_necronomicon_staff', // 死灵法师权杖
         'item_refresh_core', // 熔火核心
         'item_hallowed_scepter', // 神圣魔法权杖
         'item_black_king_bar_2', // 天神杖
-        'item_arcane_octarine_core', // 奥术之心
         'item_gungir_2', // 风暴之锤
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_kaya_and_sange_1', // 神器·散慧对剑
@@ -2164,10 +2159,11 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_aeon_pendant', // 永恒坠饰
         'item_sheepstick', // 邪恶镰刀
         'item_magic_scepter', // 魔云法杖
-        'item_angels_demise', // 绝刃
+        'item_phylactery', // 灵匣
         'item_sacred_trident', // 三叉戟
         'item_dagon_5', // 达贡之神力
         'item_orb_of_the_brine', // 苍洋魔珠
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_refresh_core', // 熔火核心
@@ -2175,9 +2171,9 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hallowed_scepter', // 神圣魔法权杖
         'item_necronomicon_staff', // 死灵法师权杖
         'item_shivas_guard_2', // 希瓦的守护2
-        'item_arcane_octarine_core', // 奥术之心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_kaya_and_sange_1', // 神器·散慧对剑
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -2221,12 +2217,12 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_meteor_hammer_2', // 星落
         'item_aeon_pendant', // 咸鱼之王
         'item_revenants_brooch_ultra', // 神器·魔武双修
-        'item_angels_demise', // 绝刃
+        'item_phylactery', // 灵匣
         'item_wind_waker', // 风之杖
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_refresh_core', // 熔火核心
-        'item_arcane_octarine_core', // 奥术之心
         'item_hallowed_scepter', // 仙云法杖
         'item_gungir_2', // 风暴之锤
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
@@ -2234,6 +2230,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_black_king_bar_2', // 天神杖
         'item_necronomicon_staff', // 死灵法杖
         'item_devastator_2', // 神圣斧
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -2276,22 +2273,23 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_arcane_blink_2', // 秘奥闪光
         'item_magic_scepter', // 魔云法杖
         'item_sheepstick', // 邪恶镰刀
-        'item_angels_demise', // 绝刃
+        'item_phylactery', // 灵匣
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_meteor_hammer_2', // 星落
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_gungir_2', // 风暴之锤
         'item_shivas_guard_2', // 雅典娜的守护
         'item_necronomicon_staff', // 死灵法杖
         'item_refresh_core', // 熔火核心
-        'item_arcane_octarine_core', // 奥术之心
         'item_arcane_blink', // 大智力跳刀
         'item_saint_orb', // 圣女白莲
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_hallowed_scepter', // 仙云法杖
         'item_kaya_and_sange_1', // 神器·散慧对剑
         'item_black_king_bar_2', // 天神杖
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -2338,13 +2336,13 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_heart', // 恐鳌之心
         'item_eternal_shroud_ultra', // 法师泳衣
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_insight_armor', // 洞察护甲
         'item_undying_heart', // 不朽之心
         'item_refresh_core', // 熔火核心
         'item_saint_orb', // 圣女白莲
-        'item_arcane_octarine_core', // 奥术之心
         'item_black_king_bar_2', // 天神杖
         'item_sange_and_yasha_1', // 神器·散夜对剑
         'item_shivas_guard_2', // 雅典娜的守护
@@ -2386,7 +2384,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sange_and_yasha', // 散夜对剑
       ],
       [ItemTier.T3]: [
-        'item_angels_demise', // 绝刃
         'item_dagon_5', // 达贡之神力
         'item_phylactery', // 灵匣
         'item_magic_scepter', // 魔云法杖
@@ -2398,10 +2395,10 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_meteor_hammer_2', // 星落
         'item_eternal_shroud_ultra', // 法师泳衣
         'item_blade_mail_2', // 刃甲2
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_refresh_core', // 熔火核心
-        'item_arcane_octarine_core', // 奥术之心
         'item_arcane_blink', // 大智力跳刀
         'item_abyssal_blade_v2', // 一闪
         'item_hallowed_scepter', // 仙云法杖
@@ -2411,6 +2408,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_undying_heart', // 不朽之心
         'item_black_king_bar_2', // 天神杖
+        'item_angels_demise', // 绝刃
       ],
       [ItemTier.T5]: [
         'item_time_gem', // 时间宝石
@@ -2464,6 +2462,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_consecrated_wraps_2', // 神器·急支糖衣
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_revenants_brooch_ultra', // 神器·魔武双修
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_undying_heart', // 不朽之心
@@ -2473,7 +2472,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_shivas_guard_2', // 雅典娜的守护
         'item_necronomicon_staff', // 死灵法师权杖
         'item_kaya_and_sange_1', // 神器·散慧对剑
-        'item_arcane_octarine_core', // 奥术之心
         'item_sange_and_yasha_1', // 神器·散夜对剑
         'item_insight_armor', // 洞察护甲
         'item_black_king_bar_2', // 天神杖
@@ -2525,6 +2523,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_magic_scepter', // 魔云法杖
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_radiance_2', // 圣焰之光
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 雅典娜的守护
@@ -2532,7 +2531,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hallowed_scepter', // 仙云法杖
         'item_necronomicon_staff', // 死灵法杖
         'item_black_king_bar_2', // 天神杖
-        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T5]: [
         'item_magic_crit_blade', // 魔龙狂舞
@@ -2575,6 +2573,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_dagon_5', // 达贡之神力
         'item_radiance_2', // 圣焰之光
         'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_saint_orb', // 圣女白莲
@@ -2583,7 +2582,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_gungir_2', // 风暴之锤
         'item_refresh_core', // 熔火核心
         'item_hallowed_scepter', // 仙云法杖
-        'item_arcane_octarine_core', // 奥术之心
         'item_yasha_and_kaya_1', // 神器·慧夜对剑
         'item_black_king_bar_2', // 天神杖
       ],
@@ -2639,6 +2637,7 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_armlet_pro_max', // 小鸡臂章Pro Max
         'item_revenants_brooch_ultra', // 神器·魔武双修
         'item_consecrated_wraps_2', // 神器·急支糖衣
+        'item_arcane_octarine_core', // 奥术之心
       ],
       [ItemTier.T4]: [
         'item_shivas_guard_2', // 雅典娜的守护
@@ -2646,7 +2645,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_refresh_core', // 熔火核心
         'item_undying_heart', // 不朽之心
         { item: 'item_jump_jump_jump', weight: 2 }, // 跳！跳！跳！刀
-        'item_arcane_octarine_core', // 奥术之心
         'item_hallowed_scepter', // 仙云法杖
         'item_saint_orb', // 圣女白莲
         'item_gungir_2', // 风暴之锤

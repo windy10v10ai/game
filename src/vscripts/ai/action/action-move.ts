@@ -44,15 +44,6 @@ export class ActionMove {
   }
 
   static GetAwayFromTower(hero: CDOTA_BaseNPC_Hero, enemyTower: CDOTA_BaseNPC): boolean {
-    // 如果英雄残血，return false
-    if (hero.GetHealthPercent() < 0.2) {
-      return false;
-    }
-    // const direction = hero
-    //   .GetAbsOrigin()
-    //   // 远离天辉泉水方向
-    //   .__sub(Vector(-7200, -6700, 386))
-    //   .Normalized();
     if (!enemyTower) {
       return false;
     }
