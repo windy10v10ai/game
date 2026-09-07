@@ -448,6 +448,7 @@ grep "DOTA_Tooltip_ability_dragon_knight_dragon_blood" docs/reference/<version>/
 
 - 复用一个字符串事件，而不是新增自定义事件
 - 避免过度还原、过度分析
+- 布尔方法名用常见且直接的动词，避免抽象词和重复所属类或文件已经表达的语境，例如 `CanCast` 优于 `IsEligible` 或 `CanUseGenericFallback`
 - 多处需要相同逻辑（尤其是要求口径一致的计算）时提取共享函数，不要各自维护一份；调用方各自实现一遍容易在后续修改时只改一处、悄悄产生口径分歧
 
 ## 注释规约

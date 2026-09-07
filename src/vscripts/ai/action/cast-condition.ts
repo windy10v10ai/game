@@ -404,7 +404,7 @@ function isNumberRange(item: object): boolean {
  * 自定义 Lua 技能（BaseClass 为 ability_lua）的 behavior 由引擎以 64 位 userdata 返回，
  * 位运算函数只收 number，直接参与按位与会在运行时抛错。
  */
-function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
+export function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
   const raw = ability.GetBehavior();
   if (type(raw) === 'number') {
     return raw as number;

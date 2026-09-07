@@ -183,7 +183,7 @@
 			"min_throw_duration"
 			{
 				"value"					"0.4"
-				"special_bonus_unique_beastmaster_awaken"	"=0.3"
+				"special_bonus_unique_beastmaster_awaken"	"=0.4"
 			}
 			"max_throw_duration"
 			{
