@@ -1,6 +1,5 @@
 import { AbilityItemType, LotteryDto } from '../../../../common/dto/lottery';
 import { LotteryStatusDto } from '../../../../common/dto/lottery-status';
-import { ApiClient } from '../../../api/api-client';
 import { PlayerMemberPointApi } from '../../../api/player-member-point';
 import { MemberLevel, Player } from '../../../api/player';
 import { reloadable } from '../../../utils/tstl-utils';
@@ -271,12 +270,6 @@ export class AbilityLottery {
       this.randomAbilityForPlayer(event.PlayerID, abilityType);
       this.setSlotRefreshed(lotteryStatus, abilityType, true);
       CustomNetTables.SetTableValue('lottery_status', steamAccountID, lotteryStatus);
-      return;
-    }
-
-    // 会员积分刷新仅限官方服务器
-    if (ApiClient.IsLocalhost()) {
-      print('非官方服务器不能付费刷新');
       return;
     }
 

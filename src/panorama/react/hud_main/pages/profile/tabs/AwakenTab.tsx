@@ -176,6 +176,11 @@ interface ConfirmTarget {
 export function AwakenTab() {
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
+  const serverEnv = useNetTable('server_env', 'server_env');
+  const isLocalHost = serverEnv?.is_local_host === 1;
+  const localHostDisabledTooltip = isLocalHost
+    ? $.Localize('#local_host_feature_unsupported_hint')
+    : undefined;
   const awakenedHeroes = player?.awakenedHeroes ?? [];
   const useableSeasonPoint = player?.useableSeasonPoint ?? 0;
   const useableMemberPoint = player?.useableMemberPoint ?? 0;
@@ -210,29 +215,30 @@ export function AwakenTab() {
   const hasEnoughPool = remainingPool >= AWAKEN_RANDOM_MIN_POOL;
 
   // 点开即显示（先滚动），候选到达后定格；确认弹窗叠在其上，故不因 confirmHero 卸载，避免取消后重新滚动
-  const showCandidates = candidatesOpen;
+  const showCandidates = candidatesOpen && !isLocalHost;
   const candidates = candidateNames.map((heroName) => ({
     heroName,
     abilityName: ABILITY_BY_HERO[heroName] ?? '',
   }));
 
   const handleUnlockClick = (heroName: string, abilityName: string) => {
-    if (isPending || !canAffordDirect) return;
+    if (isLocalHost || isPending || !canAffordDirect) return;
     setConfirmHero({ heroName, abilityName, isRandom: false });
   };
 
   const handleRandomClick = () => {
-    if (isPending || !canAffordRandom || !hasEnoughPool) return;
+    if (isLocalHost || isPending || !canAffordRandom || !hasEnoughPool) return;
     setCandidatesOpen(true);
     GameEvents.SendCustomGameEventToServer('awaken_random_request', {});
   };
 
   const handleCandidateSelect = (heroName: string, abilityName: string) => {
+    if (isLocalHost) return;
     setConfirmHero({ heroName, abilityName, isRandom: true });
   };
 
   const handleConfirm = (useMemberPoint: boolean) => {
-    if (!confirmHero) return;
+    if (!confirmHero || isLocalHost) return;
     const { heroName, isRandom } = confirmHero;
     setConfirmHero(null);
     setIsPending(true);
@@ -279,9 +285,10 @@ export function AwakenTab() {
         </Panel>
         <Panel className="awaken-grid">
           <AwakenRandomCard
-            enabled={!isPending && canAffordRandom && hasEnoughPool}
+            enabled={!isLocalHost && !isPending && canAffordRandom && hasEnoughPool}
             canAfford={canAffordRandom}
             hasEnoughPool={hasEnoughPool}
+            disabledTooltipText={localHostDisabledTooltip}
             onClick={handleRandomClick}
           />
           {AWAKEN_ABILITIES.map(({ heroName, abilityName, freeTrial }) => {
@@ -294,8 +301,9 @@ export function AwakenTab() {
                 isUnlocked={isUnlocked}
                 // 已买断的玩家不需要再看到限免提示
                 isFreeTrial={freeTrial === true && !isUnlocked}
-                enabled={!isPending && canAffordDirect}
+                enabled={!isLocalHost && !isPending && canAffordDirect}
                 canAfford={canAffordDirect}
+                disabledTooltipText={localHostDisabledTooltip}
                 onUnlockClick={handleUnlockClick}
               />
             );
@@ -310,7 +318,7 @@ export function AwakenTab() {
           onClose={() => setCandidatesOpen(false)}
         />
       )}
-      {confirmHero && (
+      {confirmHero && !isLocalHost && (
         <AwakenUnlockConfirmDialog
           heroName={confirmHero.heroName}
           abilityName={confirmHero.abilityName}

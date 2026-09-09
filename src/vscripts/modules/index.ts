@@ -1,6 +1,7 @@
 import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
 import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-language-tracker';
+import { ApiClient } from '../api/api-client';
 import { ConductApi } from '../api/conduct';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
@@ -40,6 +41,10 @@ declare global {
  * 因此在这里作为单例模式使用
  **/
 export function ActivateModules() {
+  CustomNetTables.SetTableValue('server_env', 'server_env', {
+    is_local_host: ApiClient.IsLocalhost() ? 1 : 0,
+  });
+
   // 初始化所有的GameRules模块
 
   if (GameRules.GameConfig == null) {
