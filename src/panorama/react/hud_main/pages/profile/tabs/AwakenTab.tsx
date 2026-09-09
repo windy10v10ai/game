@@ -253,6 +253,14 @@ export function AwakenTab() {
     $.Schedule(UNLOCK_PENDING_TIMEOUT_S, () => setIsPending(false));
   };
 
+  // 随机认领半价，直购原价；confirmHero 为 null 时不会渲染确认弹窗，值不会被使用
+  const confirmSeasonCost = confirmHero?.isRandom
+    ? HERO_AWAKEN_RANDOM_COST_SEASON
+    : HERO_AWAKEN_UNLOCK_COST_SEASON;
+  const confirmMemberCost = confirmHero?.isRandom
+    ? HERO_AWAKEN_RANDOM_COST_MEMBER
+    : HERO_AWAKEN_UNLOCK_COST_MEMBER;
+
   return (
     <Panel className="awaken-root">
       <Panel className="awaken-layout">
@@ -325,20 +333,10 @@ export function AwakenTab() {
           descKey={
             confirmHero.isRandom ? '#awaken_random_confirm_desc' : '#awaken_unlock_confirm_desc'
           }
-          seasonCost={
-            confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_SEASON : HERO_AWAKEN_UNLOCK_COST_SEASON
-          }
-          memberCost={
-            confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_MEMBER : HERO_AWAKEN_UNLOCK_COST_MEMBER
-          }
-          canAffordSeason={
-            useableSeasonPoint >=
-            (confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_SEASON : HERO_AWAKEN_UNLOCK_COST_SEASON)
-          }
-          canAffordMember={
-            useableMemberPoint >=
-            (confirmHero.isRandom ? HERO_AWAKEN_RANDOM_COST_MEMBER : HERO_AWAKEN_UNLOCK_COST_MEMBER)
-          }
+          seasonCost={confirmSeasonCost}
+          memberCost={confirmMemberCost}
+          canAffordSeason={useableSeasonPoint >= confirmSeasonCost}
+          canAffordMember={useableMemberPoint >= confirmMemberCost}
           onConfirm={handleConfirm}
           onCancel={() => setConfirmHero(null)}
         />
