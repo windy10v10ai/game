@@ -46,6 +46,9 @@ declare global {
     loading_status: {
       loading_status: { status: number };
     };
+    server_env: {
+      server_env: { is_local_host: number };
+    };
     ending_status: {
       ending_status: { status: number };
       ending_data: { winner_team_id: number };
