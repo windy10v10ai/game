@@ -16,6 +16,7 @@
     "player_stats",
     // TS tables
     "loading_status",
+    "server_env",
     "ending_status",
     "player_table",
     "ranking_table",  // 排行榜

@@ -483,6 +483,14 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 - **不写代码**：Plan 中不应出现具体函数签名、完整代码块、参数列表。这些留给实现阶段。
 - **文件列表简洁**：每个文件一行，说明"改什么"即可，不说"怎么改"。
 
+### 设计文档位置
+
+需要进版本控制、长期留档的设计文档统一放 `docs/design/<主题>/<阶段>.md`：
+
+- `<主题>` 一个目录，同主题的总体策略与各阶段设计都放在里面（如 `docs/design/local-host/`）
+- 总体策略用 `README.md`，分阶段设计用阶段名（如 `phase1-game.md`）
+- 与 `docs/superpowers/` 区分：后者是 brainstorming skill 的本地临时产出，已被 gitignore，不进版本控制
+
 ## Git 工作流
 
 - 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`

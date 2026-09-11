@@ -83,6 +83,7 @@
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"玩家数据加载成功！"
 		"loading_status_3"				"玩家数据加载失败，请使用服务器主机重新开始游戏。"
+		"local_host_feature_unsupported_hint"		"本地主机暂不支持该功能，新的操作方式正在开发中。"
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"什么情况容易导致游戏卡顿？"
@@ -90,7 +91,7 @@
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_local_host_question"			"本地主机可以进行游戏吗？"
-		"loading_faq_local_host_answer"				"可以，但部分功能会受限。本地主机可以加载数据、会员签到和结算勇士积分。属性加点等操作请使用服务器主机，本地主机每天最多获得 2000 勇士积分。"
+		"loading_faq_local_host_answer"				"可以。本地主机可正常游戏，设置、键位、排行榜和抽奖付费刷新可以使用，本地结算仍有每日上限。加点、洗点和觉醒暂不支持，新的操作方式正在开发中。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
 		"loading_faq_pause_answer"				"受 Dota 2 服务器主机限制，暂停时间无法延长。需要更灵活的暂停时，请使用本地主机。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"
