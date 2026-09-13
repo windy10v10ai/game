@@ -201,7 +201,7 @@
 		"data_panel_link_rule"			"经验属性规则说明"
 		"data_panel_member_point_rule_url"		"https://ifdian.net/p/24140a48680511ed9d3852540025c377"
 
-		"reset_property_use_season_point"		"消耗{seasonPoint}可用勇士积分重置<br>(不会降低等级)"
+		"reset_property_use_season_point"		"消耗2000可用勇士积分重置<br>(不会降低等级)"
 		"reset_property_use_member_point"		"消耗1000可用会员积分重置<br>(不会降低等级)"
 
 		"data_panel_player_property_label"		"使用属性点增强英雄，升级后属性及时生效。"

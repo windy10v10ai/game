@@ -1,3 +1,5 @@
+const RESET_PROPERTY_SEASON_POINT_COST = 2000;
+
 (function () {
   $.Schedule(0.1, PregameSetup);
 })();
@@ -210,8 +212,7 @@ function ClearPlayerProperty() {
 function SetResetPropertyButton(player, isLocalHost) {
   const resetUseSeasonPointButton = $('#ResetUseSeasonPoint');
   const resetUseMemberPointButton = $('#ResetUseMemberPoint');
-  const text = $.Localize(`#reset_property_use_season_point`);
-  $('#ResetUseSeasonPointText').text = text.replace('{seasonPoint}', player.seasonNextLevelPoint);
+  $('#ResetUseSeasonPointText').text = $.Localize(`#reset_property_use_season_point`);
 
   if (isLocalHost) {
     DisableLocalHostButton(resetUseSeasonPointButton);
@@ -223,7 +224,7 @@ function SetResetPropertyButton(player, isLocalHost) {
   SetLocalHostTooltip(resetUseMemberPointButton, false);
 
   // 勇士积分重置
-  if (player.useableSeasonPoint >= player.seasonNextLevelPoint) {
+  if (player.useableSeasonPoint >= RESET_PROPERTY_SEASON_POINT_COST) {
     resetUseSeasonPointButton.SetHasClass('deactivated', false);
     resetUseSeasonPointButton.SetHasClass('activated', true);
     resetUseSeasonPointButton.SetPanelEvent('onactivate', () => {
