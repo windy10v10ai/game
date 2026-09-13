@@ -24,9 +24,9 @@ export class ApiClient {
   private static RETRY_TIMES = 3;
 
   private static HOST_NAME: string = (() => {
-    return IsInToolsMode() ? 'http://localhost:5000/api' : 'https://windy10v10ai.com/api';
+    return IsInToolsMode() ? 'http://localhost:3001/api' : 'https://api.windy10v10ai.com/api';
   })();
-  // private static HOST_NAME: string = 'https://windy10v10ai.com/api';
+  // private static HOST_NAME: string = 'https://api.windy10v10ai.com/api';
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   // dont change this version, it is used to identify the server
