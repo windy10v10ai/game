@@ -134,7 +134,6 @@
 			<Image id="tome_of_strength" class="SeqImg" src="file://{images}/items/tome_of_strength.png" />
 			<Image id="ultimate_regalia" class="SeqImg" src="file://{images}/items/ultimate_regalia.png" />
 			<Image id="undying_heart" class="SeqImg" src="file://{images}/items/undying_heart.png" />
-			<Image id="universal_rune" class="SeqImg" src="file://{images}/items/universal_rune.png" />
 			<Image id="veil_of_discord_2" class="SeqImg" src="file://{images}/items/veil_of_discord_2.png" />
 			<Image id="vladmir_2" class="SeqImg" src="file://{images}/items/vladmir_2.png" />
 			<Image id="wasp_callous" class="SeqImg" src="file://{images}/items/wasp_callous.png" />

@@ -1144,7 +1144,7 @@
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"									"<font color='#FF0000'>Butterfly Effect: Red</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>Passive: Spell Echo</font></h1>When you cast an ability, there is a chance to trigger a random learned active ability. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution. Mutually exclusive with multiple cast. Monkey King model cannot trigger.<br><br>Basic Ability Trigger Chance: %basic_trigger_chance%%%<br>Ultimate Ability Trigger Chance: %ultimate_trigger_chance%%%<br>"
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"								"RN: Chewing gum, right? Little colorful flag, right? Can't stop, right?"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"								"Chewing gum, right? Little colorful flag, right? Can't stop, right?"
 
 		"DOTA_Tooltip_modifier_trigger_on_cast"							"Butterfly Effect: Red"
 		"DOTA_Tooltip_modifier_trigger_on_cast_Description"				"Casting abilities has a chance to trigger learned abilities."
@@ -1152,7 +1152,7 @@
 		// 蝴蝶效应·金身 (被攻击触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked"								"<font color='#FFFF00'>Butterfly Effect: Gold</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"					"<h1><font color='#FFFF00'>Passive: Golden Body</font></h1>When attacked, has a chance to trigger learned abilities. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution."
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"							"RN: You definitely have some strange fetish, windy has that whip ready, you buy the candles yourself"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"							"You definitely have some strange fetish, windy has that whip ready, you buy the candles yourself"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"			"%Basic Ability Trigger Chance:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"		"%Ultimate Ability Trigger Chance:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"			"Internal Cooldown:"
@@ -1163,7 +1163,7 @@
 		// 蝴蝶效应·橙影（移动触发）
 		"DOTA_Tooltip_ability_ability_trigger_on_move"									"<font color='#FFCC66'>Butterfly Effect: Orange</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_Description"						"<h1><font color='#FFCC66'>Passive: Shadow Step</font></h1>Triggers learned abilities based on the distance moved within a certain time period. The faster you move, the higher the trigger chance."
-		"DOTA_Tooltip_ability_ability_trigger_on_move_Lore"								"RN: I was just out for a run, why did you all start fighting?"
+		"DOTA_Tooltip_ability_ability_trigger_on_move_Lore"								"I was just out for a run, why did you all start fighting?"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"				"%Base Basic Ability Trigger Chance (at speed 500):"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance"			"%Base Ultimate Ability Trigger Chance (at speed 500):"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"					"Trigger Interval:"
@@ -1173,7 +1173,7 @@
 		// 蝴蝶效应·绿莲（指向技能反弹触发）
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"							"<font color='#90EE90'>Butterfly Effect: Green</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"				"<h1><font color='#90EE90'>Passive: Lotus</font></h1>When taking damage from targeted spells, has a chance to reflect the damage. Upon successful reflection, has a chance to trigger learned abilities."
-		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Lore"					"RN: Can't even look at you without wanting to fight?"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Lore"					"Can't even look at you without wanting to fight?"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"			"%Reflection Chance:"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"		"%Reflected Damage Percentage:"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"	"%Basic Ability Trigger Chance after reflection:"
@@ -1188,7 +1188,7 @@
 		// 蝴蝶效应·紫啸（主动释放）
 		"DOTA_Tooltip_ability_ability_trigger_on_active"								"<font color='#A74ABD'>Butterfly Effect: Purple</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_Description"					"<h1><font color='#A74ABD'>Active: Frenzy</font></h1>Unleash a barrage of spells at unprecedented speed on enemies within range at the target location, including all available abilities and items. During the effect, all cooldowns are reduced to 1/5, cast points are removed, channeling states cannot be interrupted, until mana is exhausted, but you cannot move.<br><br>Duration: %duration% seconds"
-		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"							"RN: Hey, I'm telling you, this patient should take it easy next time, it's all chafed, definitely not a drop left"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"							"Hey, I'm telling you, this patient should take it easy next time, it's all chafed, definitely not a drop left"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_duration"						"Duration:"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"					"Search Radius:"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"				"Cast Interval:"
@@ -1199,7 +1199,7 @@
 		// 蝴蝶效应·青凝（积蓄能量）
 		"DOTA_Tooltip_ability_ability_charge_damage"									"<font color='#87CEEB'>Butterfly Effect: Cyan</font>"
 		"DOTA_Tooltip_ability_ability_charge_damage_Description"						"<h1><font color='#87CEEB'>Passive: Focus</font></h1>Focus and calm, accumulating energy when abilities are off cooldown but not cast, amplifying the first damage dealt by the next cast.<br><br>Ultimate abilities start counting after %ultimate_ready_delay% seconds of charging, normal abilities after %normal_ready_delay% seconds of charging.<br>Upon reaching the threshold, gain an additional %base_amplify%x base amplification.<br>Damage amplification effect lasts %amplify_duration% seconds.<br>Maximum amplification multiplier: %max_times%x."
-		"DOTA_Tooltip_ability_ability_charge_damage_Lore"								"RN: You, holding back this... one ability for how long?"
+		"DOTA_Tooltip_ability_ability_charge_damage_Lore"								"You, holding back this... one ability for how long?"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"Focus"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"Next cast will deal %dMODIFIER_PROPERTY_TOOLTIP2%%% damage."
 
@@ -3345,11 +3345,6 @@
 		// 灵动符文
 		"DOTA_Tooltip_ability_item_fusion_agile"										"Agile Rune"
 		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"A mysterious fusion rune containing agile power. Can be obtained by killing neutral creeps. Currently available for limited-time purchase.\n\n<font color='#FFCC66'>Can craft:</font> Swift Glove"
-
-		// item_universal_rune 通用符文
-		"DOTA_Tooltip_Ability_item_universal_rune"										"Universal Rune"
-		"DOTA_Tooltip_ability_item_universal_rune_Description"							"<h1>Active: Craft</h1>Detects all components in the inventory. If any artifact crafting conditions are met (except runes), it will craft directly. Universal Rune can replace any fusion material (Hawkeye, Forbidden, Brutal, Life, Shadow, Agile, Beast, or Magic)."
-		"DOTA_Tooltip_ability_item_universal_rune_Lore"									"RN: 'The worst thing is having money but not being able to buy equipment'? Then you're still not rich enough"
 
 		// Hawkeye Turret
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"										"Hawkeye Turret"
