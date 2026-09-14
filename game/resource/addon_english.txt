@@ -1152,7 +1152,7 @@
 		// 蝴蝶效应·金身 (被攻击触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked"								"<font color='#FFFF00'>Butterfly Effect: Gold</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"					"<h1><font color='#FFFF00'>Passive: Golden Body</font></h1>When attacked, has a chance to trigger learned abilities. Basic abilities and ultimate abilities trigger independently with pseudo-random distribution."
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"							"You definitely have some strange fetish, windy has that whip ready, you buy the candles yourself"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"							"You're definitely itching for a beating, the harder they hit, the more fired up you get."
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"			"%Basic Ability Trigger Chance:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"		"%Ultimate Ability Trigger Chance:"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"			"Internal Cooldown:"
@@ -1188,7 +1188,7 @@
 		// 蝴蝶效应·紫啸（主动释放）
 		"DOTA_Tooltip_ability_ability_trigger_on_active"								"<font color='#A74ABD'>Butterfly Effect: Purple</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_Description"					"<h1><font color='#A74ABD'>Active: Frenzy</font></h1>Unleash a barrage of spells at unprecedented speed on enemies within range at the target location, including all available abilities and items. During the effect, all cooldowns are reduced to 1/5, cast points are removed, channeling states cannot be interrupted, until mana is exhausted, but you cannot move.<br><br>Duration: %duration% seconds"
-		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"							"Hey, I'm telling you, this patient should take it easy next time, it's all chafed, definitely not a drop left"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"							"Hey, I'm telling you, this patient should take it easy next time. Mashed the buttons till they smoked, not a drop of mana left."
 		"DOTA_Tooltip_ability_ability_trigger_on_active_duration"						"Duration:"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"					"Search Radius:"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"				"Cast Interval:"
