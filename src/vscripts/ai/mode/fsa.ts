@@ -33,11 +33,11 @@ export class FSA {
     }
 
     if (maxDesire >= FSA.MODE_SWITCH_THRESHOLD) {
-      if (desireMode !== currentMode) {
-        print(
-          `[AI] ${heroAI.GetHero().GetUnitName()} mode ${currentMode} → ${desireMode} (desire=${maxDesire})`,
-        );
-      }
+      // if (desireMode !== currentMode) {
+      //   print(
+      //     `[AI] ${heroAI.GetHero().GetUnitName()} mode ${currentMode} → ${desireMode} (desire=${maxDesire})`,
+      //   );
+      // }
       return desireMode!;
     } else {
       return currentMode;

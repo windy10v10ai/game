@@ -1,4 +1,8 @@
-import { CastCoindition, IsAbilityBehavior } from '../action/cast-condition';
+import {
+  CastCoindition,
+  GetAbilityBehaviorBits,
+  HasAbilityBehavior,
+} from '../action/cast-condition';
 
 /**
  * 技能的有效施法距离 = KV 中 AbilityCastRange + 施法者的施法距离加成。
@@ -28,30 +32,31 @@ export function CastAbilityOnTargetByBehavior(
   castPosition?: Vector,
 ): boolean {
   const playerId = hero.GetPlayerOwnerID();
-  const abilityName = ability.GetName();
+  // const abilityName = ability.GetName();
+  const behavior = GetAbilityBehaviorBits(ability);
 
-  if (IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
-    print(`[AI] CastByBehavior ${abilityName} on target`);
+  if (HasAbilityBehavior(behavior, AbilityBehavior.UNIT_TARGET)) {
+    // print(`[AI] CastByBehavior ${abilityName} on target`);
     hero.CastAbilityOnTarget(target, ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.POINT)) {
-    print(`[AI] CastByBehavior ${abilityName} on point`);
+  if (HasAbilityBehavior(behavior, AbilityBehavior.POINT)) {
+    // print(`[AI] CastByBehavior ${abilityName} on point`);
     hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.AOE)) {
-    print(`[AI] CastByBehavior ${abilityName} on position`);
+  if (HasAbilityBehavior(behavior, AbilityBehavior.AOE)) {
+    // print(`[AI] CastByBehavior ${abilityName} on position`);
     hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {
-    print(`[AI] CastByBehavior ${abilityName} no target`);
+  if (HasAbilityBehavior(behavior, AbilityBehavior.NO_TARGET)) {
+    // print(`[AI] CastByBehavior ${abilityName} no target`);
     hero.CastAbilityNoTarget(ability, playerId);
     return true;
   }
 
-  print(`[AI] ERROR CastByBehavior ${abilityName} behavior not supported`);
+  // print(`[AI] ERROR CastByBehavior ${abilityName} behavior not supported`);
   return false;
 }
 
@@ -70,17 +75,17 @@ export function ApplyAbilityAction(
   action: NonNullable<CastCoindition['action']>,
 ): boolean {
   if (action.toggleOn && !ability.GetToggleState()) {
-    print(`[AI] toggleOn ${ability.GetName()}`);
+    // print(`[AI] toggleOn ${ability.GetName()}`);
     ability.ToggleAbility();
     return true;
   }
   if (action.toggleOff && ability.GetToggleState()) {
-    print(`[AI] toggleOff ${ability.GetName()}`);
+    // print(`[AI] toggleOff ${ability.GetName()}`);
     ability.ToggleAbility();
     return true;
   }
   if (action.autoCastOn && !ability.GetAutoCastState()) {
-    print(`[AI] autoCastOn ${ability.GetName()}`);
+    // print(`[AI] autoCastOn ${ability.GetName()}`);
     ability.ToggleAutoCast();
     return true;
   }

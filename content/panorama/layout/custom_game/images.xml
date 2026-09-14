@@ -25,9 +25,12 @@
 			<Image id="conductThumbUpFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_up_fill.png" />
 			<Image id="conductThumbDownFill" class="SeqImg" src="file://{images}/custom_game/conduct/thumb_down_fill.png" />
 			<Image id="rightFlareBg" class="SeqImg" src="file://{images}/custom_game/hud/right_flare_bg.png" />
+			<Image id="hudAnimeVersion" class="SeqImg" src="file://{images}/custom_game/hud/anime_version.png" />
+			<Image id="hudDotaSurvivor" class="SeqImg" src="file://{images}/custom_game/hud/dota_survivor.png" />
 			<Image id="snsDiscordQrCode" class="SeqImg" src="file://{images}/custom_game/sns/discord_qr_code.png" />
 			<Image id="snsQqQrCode1" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code1.png" />
 			<Image id="snsQqQrCode2" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code2.png" />
+			<Image id="websiteIcon" class="SeqImg" src="file://{images}/custom_game/website/icon_website.png" />
 		</Panel>
 	</Panel>
 </root>

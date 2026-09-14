@@ -241,9 +241,9 @@ export class BotLaneRecovery {
     if (createTask && tower.lane !== undefined) {
       this.CreateJungleRecoveryTask(candidate.hero, tower.lane, tower.tier, reason);
     }
-    print(
-      `[BotLaneRecovery] ${reason} tp_order hero=${candidate.hero.GetUnitName()} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
-    );
+    // print(
+    //   `[BotLaneRecovery] ${reason} tp_order hero=${candidate.hero.GetUnitName()} tower=${tower.value.GetUnitName()} landing=(${Math.floor(landingPosition.x)},${Math.floor(landingPosition.y)},${Math.floor(landingPosition.z)})`,
+    // );
   }
 
   /** Returns whether lane recovery currently owns this hero's movement. */
@@ -316,7 +316,7 @@ export class BotLaneRecovery {
       if (task.phase === 'waiting_for_tp') {
         if (isTeleporting) {
           task.phase = 'teleporting';
-          print(`[BotLaneRecovery] ${task.source} tp_start hero=${task.heroName}`);
+          // print(`[BotLaneRecovery] ${task.source} tp_start hero=${task.heroName}`);
         }
         continue;
       }
@@ -337,9 +337,9 @@ export class BotLaneRecovery {
 
       if (task.phase === 'teleporting') {
         task.phase = 'moving';
-        print(
-          `[BotLaneRecovery] ${task.source} move_start hero=${hero.GetUnitName()} target=(${Math.floor(task.targetPosition.x)},${Math.floor(task.targetPosition.y)},${Math.floor(task.targetPosition.z)})`,
-        );
+        // print(
+        //   `[BotLaneRecovery] ${task.source} move_start hero=${hero.GetUnitName()} target=(${Math.floor(task.targetPosition.x)},${Math.floor(task.targetPosition.y)},${Math.floor(task.targetPosition.z)})`,
+        // );
       }
       // 正在攻击时不重复下指令，否则高频命令会持续打断攻击前摇
       if (hero.IsAttacking()) {
@@ -356,16 +356,16 @@ export class BotLaneRecovery {
 
   private EndJungleRecoveryMovement(
     entityIndex: EntityIndex,
-    reason: JungleRecoveryEndReason,
+    _reason: JungleRecoveryEndReason,
   ): void {
     const task = this.jungleRecoveryTasks.get(entityIndex);
     if (!task) {
       return;
     }
     this.jungleRecoveryTasks.delete(entityIndex);
-    if (task.phase === 'moving') {
-      print(`[BotLaneRecovery] ${task.source} move_end hero=${task.heroName} reason=${reason}`);
-    }
+    // if (task.phase === 'moving') {
+    //   print(`[BotLaneRecovery] ${task.source} move_end hero=${task.heroName} reason=${_reason}`);
+    // }
   }
 
   private HasNearbyEnemyHeroOrTower(hero: CDOTA_BaseNPC_Hero): boolean {

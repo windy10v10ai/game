@@ -285,7 +285,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 ### 修改 AI 时:
 
 1. 英雄特定 AI: 在 `src/vscripts/ai/hero/` 中添加/修改 modifiers
-2. 所有英雄 AI 扩展 `BotBaseAIModifier` 并实现 `OnIntervalThink()` (0.3秒间隔)
+2. 所有英雄 AI 扩展 `BotBaseAIModifier` 并实现 `OnIntervalThink()` (0.5 秒间隔，见 `ai/hero/bot-base.ts` 的 `ThinkInterval`)
 3. 模式: 在 `ai/mode/` 中实现 `GetDesire()` (返回 0-1 的浮点数)
 4. 动作: 在 `ai/action/` 中添加可重用的行为(attack, move, cast)
 5. 物品构建: 在 `ai/build-item/` 中定义
@@ -493,12 +493,51 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 ## Git 工作流
 
-- 功能分支从 `develop` 切出，命名 `feature/{issue-number}-{branch-name}`
+### 分支
+
+- issue 驱动的改动命名 `feature/<issue-id>-<short-kebab-summary>`（3–6 个英文小写单词，如 `feature/2411-web-link-refresh`）；非 issue 驱动用 `fix/` `chore/` `docs/` 前缀，命名规则同上
+- 一律从最新 `develop` 切出。**不要在 `develop` 上直接修改或 commit 任何文件**，包括 skill 产出的设计文档——一旦确定要写文件，先切好分支
+- 本地没有进行中的改动时，直接在当前 checkout 上切分支，不建 worktree；已有未提交改动或另一个分支正在进行时，用 `git worktree add` 隔离
+- 多个会话共用本地仓库时，主检出在哪个分支不由自己决定：动手前先看 `git branch --show-current`，不是自己要的分支就不要 `git checkout` 过去，改用 `git worktree add` 到 scratchpad
+
+### 提交与 PR
+
 - PR 的 base branch 固定为 `develop`；标题默认英文；纯内部改动（重构、构建、CI、文档、测试）自行判定跳过 Release Note，不提问也不查版本号，其余情况问用户走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
 - Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 - `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
 
-只 stage 与本次请求明确相关的文件，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
+只 stage 与本次请求明确相关的文件，commit 前先看 `git status`，不带入其他会话或用户自己的改动，无需逐个列给用户确认。但提交前若当前分支不符合预期（如本应在 feature 分支却处于 `develop`/`main`），先提示用户确认目标分支再提交。
+
+### 小改动搭车
+
+手上有未合并的 PR 时，文档措辞、注释、规约补充这类小改动直接并进去，不为每条单开 PR，并在 PR 正文补一句说明。以下任一条成立就另开分支：
+
+- 与当前 PR 的主题冲突
+- 当前 PR 已合并
+- 一两句话说不清
+
+没有开着的 PR 时先攒着等下一个 PR；只有改动有时效性（挡着别人、线上有问题）才单开。
+
+### 合并与清理
+
+用户给出合并指令时直接执行，没有指令不主动合并：
+
+| PR | 命令 |
+|---|---|
+| `feature` / `fix` / `chore` / `docs` → `develop` | `gh pr merge <编号> --squash` |
+| `develop` → `main`（release PR） | `gh pr merge <编号> --merge` |
+
+CI 还没跑完时加 `--auto`，不要用 `--admin` 绕过分支保护。
+
+合并后立刻清理本地分支，远端分支由仓库设置自动删除。squash 合并后 git 认不出分支已合并，必须用 `-D`：
+
+```bash
+git checkout develop
+git pull
+git branch -D <branch-name>
+```
+
+分支在 worktree 里时，先 `git worktree remove <path> --force`，删完分支再 `git worktree prune`。
 
 > 完整流程（分支创建、commit、push、PR 模板填写）见 `create-pr` skill（`.claude/skills/create-pr/SKILL.md`）。
 

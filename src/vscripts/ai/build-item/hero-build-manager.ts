@@ -50,15 +50,15 @@ export class HeroBuildManager {
     if (allBought && currentTier < ItemTier.T5) {
       const nextTier = (currentTier + 1) as ItemTier;
 
-      print(
-        `[AI] BuildItemManager.DetermineCurrentTier: ${hero.GetUnitName()} 升级到 T${nextTier}`,
-      );
+      // print(
+      //   `[AI] BuildItemManager.DetermineCurrentTier: ${hero.GetUnitName()} 升级到 T${nextTier}`,
+      // );
       return nextTier;
     }
 
     // T5 装备买完（或从未解锁，数组为空），进入 tome 循环购买阶段
     if (allBought && currentTier === ItemTier.T5 && !buildState.tomePhase) {
-      print(`[AI] BuildItemManager.DetermineCurrentTier: ${hero.GetUnitName()} 进入 tome 阶段`);
+      // print(`[AI] BuildItemManager.DetermineCurrentTier: ${hero.GetUnitName()} 进入 tome 阶段`);
       buildState.tomePhase = true;
     }
 
@@ -146,9 +146,9 @@ export class HeroBuildManager {
         const index = currentTierConsumables.indexOf(itemName);
         if (index !== -1) {
           currentTierConsumables.splice(index, 1);
-          print(
-            `[AI] BuildItem ${hero.GetUnitName()} 从消耗品列表移除: ${itemName} (T${currentTier})`,
-          );
+          // print(
+          //   `[AI] BuildItem ${hero.GetUnitName()} 从消耗品列表移除: ${itemName} (T${currentTier})`,
+          // );
         }
         // 购买成功后，更新当前 tier（减少调用次数）
         buildState.currentTier = this.DetermineCurrentTier(hero, buildState);
@@ -254,11 +254,11 @@ export class HeroBuildManager {
 
     const addedItem = hero.AddItemByName(itemName);
     if (!addedItem) {
-      print(`[AI] BuyItem ${hero.GetUnitName()} 购买失败: ${itemName} ${cost}金`);
+      // print(`[AI] BuyItem ${hero.GetUnitName()} 购买失败: ${itemName} ${cost}金`);
       return false;
     }
     hero.SpendGold(cost, ModifyGoldReason.PURCHASE_ITEM);
-    print(`[AI] BuyItem ${hero.GetUnitName()} 成功购买: ${itemName} ${cost}金`);
+    // print(`[AI] BuyItem ${hero.GetUnitName()} 成功购买: ${itemName} ${cost}金`);
     return true;
   }
 }

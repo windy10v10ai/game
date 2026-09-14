@@ -23,6 +23,7 @@ game/panorama/images/custom_game/member
 game/panorama/images/custom_game/conduct
 game/panorama/images/custom_game/hud
 game/panorama/images/custom_game/sns
+game/panorama/images/custom_game/website
 
 # tstl output
 game/scripts/vscripts/lualib_bundle.lua

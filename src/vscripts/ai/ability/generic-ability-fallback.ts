@@ -1,4 +1,4 @@
-import { GetAbilityBehaviorBits } from '../action/cast-condition';
+import { GetAbilityBehaviorBits, HasAbilityBehavior } from '../action/cast-condition';
 import { TryCastBySpec } from '../action/target-dispatch';
 import type { BotBaseAIModifier } from '../hero/bot-base';
 import { TargetSide } from './ability-spec';
@@ -14,7 +14,7 @@ export class GenericAbilityFallback {
       return false;
     }
 
-    print(`[AI] GenericAbility ${ability.GetName()}`);
+    // print(`[AI] GenericAbility ${ability.GetName()}`);
     return true;
   }
 
@@ -30,10 +30,10 @@ export class GenericAbilityFallback {
     if (this.HasUnsupportedBehavior(behavior)) {
       return false;
     }
-    if (this.HasBehavior(behavior, AbilityBehavior.UNIT_TARGET)) {
+    if (HasAbilityBehavior(behavior, AbilityBehavior.UNIT_TARGET)) {
       return this.CanTargetEnemyHero(ability);
     }
-    if (this.HasBehavior(behavior, AbilityBehavior.POINT)) {
+    if (HasAbilityBehavior(behavior, AbilityBehavior.POINT)) {
       return this.CanUseEnemyHeroPosition(ability);
     }
     return false;
@@ -41,19 +41,19 @@ export class GenericAbilityFallback {
 
   private static HasUnsupportedBehavior(behavior: number): boolean {
     return (
-      this.HasBehavior(behavior, AbilityBehavior.NO_TARGET) ||
-      this.HasBehavior(behavior, AbilityBehavior.CHANNELLED) ||
-      this.HasBehavior(behavior, AbilityBehavior.TOGGLE) ||
-      this.HasBehavior(behavior, AbilityBehavior.AUTOCAST) ||
-      this.HasBehavior(behavior, AbilityBehavior.ATTACK) ||
-      this.HasBehavior(behavior, AbilityBehavior.VECTOR_TARGETING) ||
-      this.HasBehavior(behavior, AbilityBehavior.OPTIONAL_UNIT_TARGET) ||
-      this.HasBehavior(behavior, AbilityBehavior.OPTIONAL_POINT) ||
-      this.HasBehavior(behavior, AbilityBehavior.OPTIONAL_NO_TARGET) ||
-      this.HasBehavior(behavior, AbilityBehavior.ITEM) ||
-      this.HasBehavior(behavior, AbilityBehavior.PASSIVE) ||
-      this.HasBehavior(behavior, AbilityBehavior.HIDDEN) ||
-      this.HasBehavior(behavior, AbilityBehavior.NOT_LEARNABLE)
+      HasAbilityBehavior(behavior, AbilityBehavior.NO_TARGET) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.CHANNELLED) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.TOGGLE) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.AUTOCAST) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.ATTACK) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.VECTOR_TARGETING) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.OPTIONAL_UNIT_TARGET) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.OPTIONAL_POINT) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.OPTIONAL_NO_TARGET) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.ITEM) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.PASSIVE) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.HIDDEN) ||
+      HasAbilityBehavior(behavior, AbilityBehavior.NOT_LEARNABLE)
     );
   }
 
@@ -82,9 +82,5 @@ export class GenericAbilityFallback {
 
   private static HasHeroTargetType(targetType: DOTA_UNIT_TARGET_TYPE): boolean {
     return (targetType & UnitTargetType.HERO) !== 0 && (targetType & UnitTargetType.CUSTOM) === 0;
-  }
-
-  private static HasBehavior(behavior: number, flag: AbilityBehavior): boolean {
-    return (behavior & flag) === flag;
   }
 }

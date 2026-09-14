@@ -109,6 +109,7 @@ export class Game {
       querys: { steamIds: steamIds.join(','), matchId, version: GameConfig.GAME_VERSION },
       successFunc: onSuccess,
       failureFunc: onFailure,
+      timeoutSeconds: 15,
       retryTimes: 6,
     };
 
