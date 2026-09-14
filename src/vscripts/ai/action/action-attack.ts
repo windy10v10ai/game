@@ -29,7 +29,6 @@ export class ActionAttack {
       return true;
     } else {
       // maxRange内，移动到目标处攻击
-      print(`[AI] MoveToTargetToAttack ${hero.GetUnitName()} to ${target.GetUnitName()}`);
       ExecuteOrderFromTable({
         OrderType: UnitOrder.ATTACK_MOVE,
         UnitIndex: hero.GetEntityIndex(),

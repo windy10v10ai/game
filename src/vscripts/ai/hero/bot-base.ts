@@ -1,7 +1,7 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { ActionAttack } from '../action/action-attack';
-import { ActionFind } from '../action/action-find';
+import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
 import { ActionMove } from '../action/action-move';
 import { getHeroBuildConfig } from '../build-item/hero-build-config';
 import { HeroBuildManager } from '../build-item/hero-build-manager';
@@ -86,7 +86,7 @@ export class BotBaseAIModifier extends BaseModifier {
 
   Init() {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
-    print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
+    // print(`[AI] HeroBase OnCreated ${this.hero.GetUnitName()}`);
 
     if (GameRules.AI.BotTeam) {
       this.PushLevel = GameRules.AI.BotTeam.botPushLevel;
@@ -159,7 +159,7 @@ export class BotBaseAIModifier extends BaseModifier {
       case ModeEnum.RETREAT:
         return this.ActionRetreat();
       default:
-        print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
+        // print(`[AI] HeroBase ThinkMode ${this.hero.GetUnitName()} mode ${this.mode} not found`);
         return false;
     }
   }
@@ -258,7 +258,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!fountain) {
       return false;
     }
-    print(`[AI] HeroBase Retreat TryTeleport ${this.hero.GetUnitName()} 回泉水`);
+    // print(`[AI] HeroBase Retreat TryTeleport ${this.hero.GetUnitName()} 回泉水`);
     this.hero.CastAbilityOnPosition(fountain, scroll, this.hero.GetPlayerOwnerID());
     return true;
   }
@@ -422,7 +422,7 @@ export class BotBaseAIModifier extends BaseModifier {
     const neutralItemConfig = this.getNeutralItemConfig();
     const selectedItem = NeutralItemManager.GetRandomTierItem(targetTier, neutralItemConfig);
     if (!selectedItem) {
-      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立物品`);
+      // print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立物品`);
       return false;
     }
 
@@ -432,7 +432,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.hero,
     );
     if (!selectedEnhancement) {
-      print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
+      // print(`[AI] HeroBase PickNeutralItem ${this.hero.GetUnitName()} 没有找到中立增强`);
       return false;
     }
 
@@ -494,13 +494,22 @@ export class BotBaseAIModifier extends BaseModifier {
   private FindAround(): void {
     this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
     this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
-    this.aroundEnemyBuildings = ActionFind.FindEnemyBuildings(this.hero, this.FindRadius);
     this.aroundEnemyBuildingsInvulnerable = ActionFind.FindEnemyBuildingsInvulnerable(
       this.hero,
       this.FindRadius,
     );
+    const vulnerableBuildings: CDOTA_BaseNPC[] = [];
+    for (const building of this.aroundEnemyBuildingsInvulnerable) {
+      if (!building.IsInvulnerable()) {
+        vulnerableBuildings.push(building);
+      }
+    }
+    this.aroundEnemyBuildings = vulnerableBuildings;
     this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
-    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(this.hero, 900);
+    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(
+      this.hero,
+      FRIENDLY_CREEP_SEARCH_RADIUS,
+    );
     this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);
   }
 
@@ -564,7 +573,7 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     const delay = RandomFloat(1, 2);
-    print(`[AI] HeroBase OnCreated delay ${delay}`);
+    // print(`[AI] HeroBase OnCreated delay ${delay}`);
     Timers.CreateTimer(delay, () => {
       this.Init();
     });

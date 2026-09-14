@@ -285,7 +285,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 ### 修改 AI 时:
 
 1. 英雄特定 AI: 在 `src/vscripts/ai/hero/` 中添加/修改 modifiers
-2. 所有英雄 AI 扩展 `BotBaseAIModifier` 并实现 `OnIntervalThink()` (0.3秒间隔)
+2. 所有英雄 AI 扩展 `BotBaseAIModifier` 并实现 `OnIntervalThink()` (0.5 秒间隔，见 `ai/hero/bot-base.ts` 的 `ThinkInterval`)
 3. 模式: 在 `ai/mode/` 中实现 `GetDesire()` (返回 0-1 的浮点数)
 4. 动作: 在 `ai/action/` 中添加可重用的行为(attack, move, cast)
 5. 物品构建: 在 `ai/build-item/` 中定义
