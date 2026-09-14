@@ -11,9 +11,9 @@ description: 创建功能分支、commit、push 并发起 Pull Request 的完整
 
 ## 分支命名
 
-- 格式：`feature/{issue-number}-{branch-name}`
-- 示例：`feature/123-add-new-hero-ai`
-- 没有对应 issue 时可省略编号段，但仍以 `feature/` 开头
+- issue 驱动：`feature/{issue-number}-{branch-name}`，如 `feature/123-add-new-hero-ai`
+- 非 issue 驱动：按改动性质用 `fix/` `chore/` `docs/` 前缀，如 `chore/remove-universal-rune`
+- 前缀选择、worktree 与多会话隔离规则见 CLAUDE.md「Git 工作流 › 分支」
 
 ---
 
@@ -24,7 +24,7 @@ description: 创建功能分支、commit、push 并发起 Pull Request 的完整
 ```bash
 git checkout develop
 git pull
-git checkout -b feature/{issue-number}-{branch-name}
+git checkout -b <prefix>/{issue-number}-{branch-name}
 ```
 
 ---
@@ -61,7 +61,7 @@ git rev-parse --abbrev-ref --symbolic-full-name @{u}
 
 - **base branch 固定为 `develop`**
 - 使用模板 `.github/pull_request_template.md`
-- **Issue 段**：分支名匹配 `^feature/(\d+)` 时，提取该数字填入模板的 `- [ ] fix #<issue-id>`；无匹配则保留占位或删除该行
+- **Issue 段**：分支名匹配 `^(feature|fix|chore|docs)/(\d+)` 时，提取该数字填入模板的 `- [ ] fix #<issue-id>`；无匹配则保留占位或删除该行
 - **Release Note 段**：先按下方「Release Note 三选一」判定本次走哪条轨道；需要写时**必须调用 `release-note` skill 生成**，不要手写
 - **PR 标题默认使用英文**，简短概括改动（≤70 字符）
 - **待确认/待验证事项写进 `## Checklist` 段落，用 checkbox 形式**（如 `- [ ] 在 Dota Tools 中验证 bot 是否正确开启臂章`），不要另开"待确认"之类的散文段落——review 时需要能逐项勾选，不是读一段说明文字
