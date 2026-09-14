@@ -158,7 +158,7 @@
 					<Panel id="PropertyWebsitePanel">
 						<Label class="WebsiteNoticeText" text="#website_local_host_notice" />
 						<Button id="PropertyWebsiteButton" class="WebsiteButton activated-gold">
-							<Label class="ButtonText" text="#website_open_button" />
+							<Label class="ButtonText" text="#website_open_property_button" />
 						</Button>
 					</Panel>
 					<Panel id="BpPropertiesButtons">

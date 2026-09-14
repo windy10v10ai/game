@@ -84,8 +84,10 @@
 		"loading_status_2"				"玩家数据加载成功！"
 		"loading_status_3"				"玩家数据加载失败，请使用服务器主机重新开始游戏。"
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，本地主机无法进行该操作，点击前往网站操作。"
-		"website_local_host_notice"		"为保护账号数据安全，本地主机无法加点，重置属性和觉醒。请前往网站 windy10v10ai.com 用 Steam 登录后操作，完成后点击刷新即可同步到本局。"
+		"website_local_host_notice"		"本地主机无法升级属性和觉醒。请前往 windy10v10ai 官网用 Steam 登录后操作，完成后点击游戏内刷新按钮即可同步。"
 		"website_open_button"				"前往网站"
+		"website_open_property_button"		"前往网站升级属性"
+		"website_open_awaken_button"		"前往网站觉醒"
 		"player_info_refresh"				"刷新"
 
 		// FAQ

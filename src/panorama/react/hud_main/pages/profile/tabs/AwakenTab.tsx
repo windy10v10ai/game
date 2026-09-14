@@ -286,7 +286,7 @@ export function AwakenTab() {
             <PrimaryButton
               className="awaken-website-btn"
               variant="gold"
-              label={$.Localize('#website_open_button')}
+              label={$.Localize('#website_open_awaken_button')}
               onClick={openAwakenWebsite}
             />
           </Panel>
