@@ -27,6 +27,8 @@ git pull
 git checkout -b <prefix>/{issue-number}-{branch-name}
 ```
 
+本地有要带进新分支的未提交改动时，直接切分支，改动会跟过去。不要用 `git stash` 搬运：stash 没存上时，`git stash pop` 会弹出更早留下的旧存档。
+
 ---
 
 ## Step 2：开发与提交
