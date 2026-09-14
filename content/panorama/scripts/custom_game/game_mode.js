@@ -41,6 +41,7 @@ var LOADING_FAQ_GROUPS = [
       'loading_faq_member_checkin',
       'loading_faq_duplicate_ability',
       'loading_faq_dragon_balls',
+      'loading_faq_dota_hotkeys',
     ],
   },
 ];

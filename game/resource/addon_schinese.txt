@@ -111,6 +111,8 @@
 		"loading_faq_treasure_rewards_answer"			"树林和地图角落会出现藏宝箱，开启即可获得一次物品抽奖，队友也能共享抽奖机会，抢先开启的人还能额外获得更好的奖励。开启的藏宝箱越多、击杀肉山，奖池档次越高。"
 		"loading_faq_dragon_balls_question"		"集齐 7 颗龙珠后无法合成怎么办？"
 		"loading_faq_dragon_balls_answer"			"龙珠和中立生物掉落的装备需放入主背包才会参与合成。请从备用背包或仓库移入主背包，或丢下后重新拾取。"
+		"loading_faq_dota_hotkeys_question"		"如何使用 Dota 传统键位？"
+		"loading_faq_dota_hotkeys_answer"		"在 Dota 2 设置中更改「自定义游戏期间禁用分单位快捷键」选项即可。"
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

@@ -111,6 +111,8 @@
 		"loading_faq_treasure_rewards_answer"			"Treasure Chests appear in forests and map corners. Opening one starts an item lottery the whole team shares, and whoever opens it first gets an even better reward. Open more chests, or kill Roshan, to raise the reward pool tier."
 		"loading_faq_dragon_balls_question"		"What if I can't combine all 7 Dragon Balls?"
 		"loading_faq_dragon_balls_answer"			"Dragon Balls and equipment dropped by neutral creeps must be in your main inventory to be used in combinations. Move them from your backpack or stash, or drop and pick them up again."
+		"loading_faq_dota_hotkeys_question"		"How do I use traditional Dota hotkeys?"
+		"loading_faq_dota_hotkeys_answer"		"Change the “Disable per unit hotkeys during Custom Games” option in the Dota 2 settings."
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//
