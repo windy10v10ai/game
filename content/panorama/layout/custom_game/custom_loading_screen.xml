@@ -215,12 +215,19 @@
 
 			<!-- 联动 按钮 -->
 			<Panel id="LinkButtonContainer" hittest="false">
+				<!--  二次元版 -->
+				<Panel id="AnimeVersionPanel" class="LinkPanel GameOptionsSubPanel">
+					<Button id="AnimeVersionButton" class="LinkButton ButtonBevel">
+						<Label id="AnimeVersionButtonLabel" text="#anime_version_button" />
+					</Button>
+					<Image id="AnimeVersionImage" class="LinkImg" src="file://{images}/custom_game/hud/anime_version.png"/>
+				</Panel>
 				<!--  吸血鬼幸存者 -->
 				<Panel id="DotaSurvivorPanel" class="LinkPanel GameOptionsSubPanel">
 					<Button id="DotaSurvivorButton" class="LinkButton ButtonBevel">
 						<Label id="DotaSurvivorButtonLabel" text="#dota_survivor_button" />
 					</Button>
-					<Image id="DotaSurvivorImage" class="LinkImg" src="file://{images}/custom_game/dota_survivor.png"/>
+					<Image id="DotaSurvivorImage" class="LinkImg" src="file://{images}/custom_game/hud/dota_survivor.png"/>
 				</Panel>
 			</Panel>
 			<!-- 聊天框 -->

@@ -68,6 +68,7 @@
 		"fixed_ability_ability_charge_damage_name"			"蝴蝶效应 · 青凝"
 
 		// link面板
+		"anime_version_button"			"二次元版"
 		"dota_survivor_button"			"联动地图 刀塔幸存者"
 		"join_qq"						"点击加群"
 		"join_discord"					"点击加入Discord"

@@ -127,10 +127,14 @@
 
 #LinkButtonContainer {
   width: 400px;
-  height: 250px;
+  height: fit-children;
   vertical-align: bottom;
   horizontal-align: center;
   margin-bottom: 120px;
+}
+
+/* 联动暂停，保留入口以便重新开启 */
+#DotaSurvivorPanel {
   visibility: collapse;
 }
 

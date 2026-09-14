@@ -491,13 +491,13 @@ function OnGameDifficultyChoiceChange(table, key, value) {
 
 // -------- 链接按钮 --------
 function DispatchLinkPanel() {
-  DispatchDotaSurvivor();
+  DispatchCustomGameLink('#AnimeVersionButton', 3788870952);
+  DispatchCustomGameLink('#DotaSurvivorButton', 3359951052);
 }
 
-function DispatchDotaSurvivor() {
-  const button = $('#DotaSurvivorButton');
-  button.SetPanelEvent('onactivate', () => {
-    $.DispatchEvent('DOTAShowCustomGamePage', 3359951052);
+function DispatchCustomGameLink(buttonId, workshopId) {
+  $(buttonId).SetPanelEvent('onactivate', () => {
+    $.DispatchEvent('DOTAShowCustomGamePage', workshopId);
   });
 }
 
