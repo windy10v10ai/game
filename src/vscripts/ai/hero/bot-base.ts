@@ -1,7 +1,7 @@
 import { BaseModifier, registerModifier } from '../../utils/dota_ts_adapter';
 import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { ActionAttack } from '../action/action-attack';
-import { ActionFind } from '../action/action-find';
+import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
 import { ActionMove } from '../action/action-move';
 import { getHeroBuildConfig } from '../build-item/hero-build-config';
 import { HeroBuildManager } from '../build-item/hero-build-manager';
@@ -506,7 +506,10 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     this.aroundEnemyBuildings = vulnerableBuildings;
     this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
-    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(this.hero, 900);
+    this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(
+      this.hero,
+      FRIENDLY_CREEP_SEARCH_RADIUS,
+    );
     this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);
   }
 

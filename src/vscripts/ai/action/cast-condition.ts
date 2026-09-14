@@ -83,7 +83,7 @@ export interface CastCoindition {
     noEnemyBuildingInRange?: number;
     /**
      * 要求 self 周围存在至少指定数量的友方小兵才施法。
-     * range 不填时默认 900。由 dispatcher 在 tryCast 层 inline FindUnitsInRadius 检查。
+     * range 不填时默认取 bot-base 预搜友方小兵的半径。
      */
     friendlyCreepNearby?: {
       count?: NumberRange;
@@ -421,9 +421,10 @@ export function GetAbilityBehaviorBits(ability: CDOTABaseAbility): number {
   return tonumber(tostring(raw)) ?? 0;
 }
 
+export function HasAbilityBehavior(behaviorBits: number, behavior: AbilityBehavior): boolean {
+  return (behaviorBits & behavior) === behavior;
+}
+
 export function IsAbilityBehavior(ability: CDOTABaseAbility, behavior: AbilityBehavior): boolean {
-  const abilityBehavior = GetAbilityBehaviorBits(ability);
-  // check is behavior bit set in abilityBehavior
-  const isBitSet = (abilityBehavior & behavior) === behavior;
-  return !!isBitSet;
+  return HasAbilityBehavior(GetAbilityBehaviorBits(ability), behavior);
 }
