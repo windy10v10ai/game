@@ -101,7 +101,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 
 分析前排除以下几类，不作为候选：
 
-- **消耗品/中立物/仪式类**：信使、守望、烟雾、宝石、tp卷、回复消耗品（tango/flask/clarity/faerie_fire/enchanted_mango/infused_raindrop）、cheese、universal_rune 等
+- **消耗品/中立物/仪式类**：信使、守望、烟雾、宝石、tp卷、回复消耗品（tango/flask/clarity/faerie_fire/enchanted_mango/infused_raindrop）、cheese 等
 - **融合/成就类原材料**：`item_fusion_*`、`item_dragon_ball_*`、名称含 `_part` 的中间件
 - **已由 `consumablesByTier` 自动处理的装备**：`item_wings_of_haste`、`item_ultimate_scepter`、
   `item_ultimate_scepter_2`、`item_aghanims_shard`、`item_moon_shard_datadriven`、

@@ -5630,40 +5630,6 @@
 	}
 
 	//=================================================================================================================
-	// 通用符文 - 自动合成物品
-	//=================================================================================================================
-	"item_universal_rune"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"ID"						"10335"
-		"BaseClass"					"item_lua"
-		"ScriptFile"				"items/item_universal_rune"
-		"AbilityTextureName"		"universal_rune"
-		"AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-
-		// Item Info
-		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"					"29999"
-		"ItemPermanent"				"0"
-		"ItemStackable"				"0"
-		"ItemPurchasable"			"1"
-		"ItemKillable"				"0"
-		"ItemSellable"				"0"
-		"ItemShareability"			"ITEM_FULLY_SHAREABLE"
-		"ItemInitialStockTime"		"0"
-		"ItemStockInitial"			"0"
-		"ItemStockMax"				"1"
-		"ItemStockTime"				"60"
-		"AbilityCooldown"			"1.0"
-
-		"ItemShopTags"				"consumable"
-		"ItemQuality"				"artifact"
-		"IsTempestDoubleClonable"	"0"
-		"ItemCanBeUsedWithoutInventory"	"1"
-	}
-
-	//=================================================================================================================
 	// 鹰眼炮台
 	//=================================================================================================================
 	"item_recipe_hawkeye_turret"

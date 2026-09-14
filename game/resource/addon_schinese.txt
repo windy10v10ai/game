@@ -1112,7 +1112,7 @@
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus"				"作用范围加成："
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_magic_resist_bonus"		"%魔法抗性加成："
 		"DOTA_Tooltip_ability_rubick_might_and_magus2_aoe_bonus_duration"		"额外持续时间："
-		"DOTA_Tooltip_ability_rubick_might_and_magus2_Lore"						"RN: 如果魔法不能打动你，贫僧也略通一些拳脚"
+		"DOTA_Tooltip_ability_rubick_might_and_magus2_Lore"						"如果魔法不能打动你，贫僧也略通一些拳脚"
 		"DOTA_Tooltip_modifier_rubick_might_and_magus2"							"力量与魔法"
 		"DOTA_Tooltip_modifier_rubick_might_and_magus2_Description"				"技能作用范围提升%dMODIFIER_PROPERTY_AOE_BONUS_CONSTANT_STACKING%，魔法抗性提升%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%。"
 
@@ -1138,7 +1138,7 @@
 		// 蝴蝶效应·红魔 (施法触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_cast"									"<font color='#FF0000'>蝴蝶效应 · 红魔</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_cast_Description"						"<h1><font color='#FF0000'>被动：入魔</font></h1>施放技能有概率触发一个学习过的主动技能，普通技能和终极技能独立伪随机触发。与多重施法互斥。孙悟空模型无法触发。<br><br>普通技能触发概率：%basic_trigger_chance%%%<br>终极技能触发概率：%ultimate_trigger_chance%%%<br>"
-		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"								"RN：炫迈是吧，小彩旗是吧，停不下来是吧"
+		"DOTA_Tooltip_ability_ability_trigger_on_cast_Lore"								"炫迈是吧，小彩旗是吧，停不下来是吧"
 
 		"DOTA_Tooltip_modifier_trigger_on_cast"							"蝴蝶效应 · 红魔"
 		"DOTA_Tooltip_modifier_trigger_on_cast_Description"				"施法有概率触发已学习的技能。"
@@ -1146,7 +1146,7 @@
 		// 蝴蝶效应·金身 (被攻击触发)
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked"								"<font color='#FFFF00'>蝴蝶效应 · 金身</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Description"					"<h1><font color='#FFFF00'>被动：金身</font></h1>被攻击时有概率触发已学习的技能。普通技能和终极技能独立伪随机触发。"
-		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"							"RN：你小子指定是有点奇怪的癖好，windy那鞭子现成的，你自己买蜡烛"
+		"DOTA_Tooltip_ability_ability_trigger_on_attacked_Lore"							"你小子指定是皮痒了，越挨揍越来劲"
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_basic_trigger_chance"			"%普通技能触发概率："
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_ultimate_trigger_chance"		"%终极技能触发概率："
 		"DOTA_Tooltip_ability_ability_trigger_on_attacked_cooldown_duration"			"内置冷却时间："
@@ -1157,7 +1157,7 @@
 		// 蝴蝶效应·橙影（移动触发）
 		"DOTA_Tooltip_ability_ability_trigger_on_move"									"<font color='#FFCC66'>蝴蝶效应 · 橙影</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_Description"						"<h1><font color='#FFCC66'>被动：绝影</font></h1>根据过去一定时间内的位移距离概率触发已学习的技能。腿儿倒腾的越快，触发概率越高。"
-		"DOTA_Tooltip_ability_ability_trigger_on_move_Lore"								"RN：我只是出来跑个步，你们怎么就始了"
+		"DOTA_Tooltip_ability_ability_trigger_on_move_Lore"								"我只是出来跑个步，你们怎么就打起来了"
 		"DOTA_Tooltip_ability_ability_trigger_on_move_basic_trigger_chance"				"%基础普通技能触发概率（对应移速500）："
 		"DOTA_Tooltip_ability_ability_trigger_on_move_ultimate_trigger_chance"			"%基础终极技能触发概率（对应移速500）："
 		"DOTA_Tooltip_ability_ability_trigger_on_move_check_interval"					"触发时间间隔："
@@ -1167,7 +1167,7 @@
 		// 蝴蝶效应·绿莲（指向技能反弹触发）
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect"							"<font color='#90EE90'>蝴蝶效应 · 绿莲</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Description"				"<h1><font color='#90EE90'>被动：幽莲</font></h1>受到指向性技能伤害时有概率反弹伤害，成功反弹时有概率触发已学习的技能。"
-		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Lore"					"RN：瞅你一眼都不行就要干啊"
+		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_Lore"					"瞅你一眼都不行，这就要动手啊"
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_chance"			"%反弹概率："
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_reflect_damage_pct"		"%反弹伤害百分比："
 		"DOTA_Tooltip_ability_ability_trigger_on_spell_reflect_basic_trigger_chance"	"%反弹触发后，普通技能触发概率："
@@ -1182,7 +1182,7 @@
 		// 蝴蝶效应·紫啸（主动释放）
 		"DOTA_Tooltip_ability_ability_trigger_on_active"								"<font color='#A74ABD'>蝴蝶效应 · 紫啸</font>"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_Description"					"<h1><font color='#A74ABD'>主动：狂潮</font></h1>以前所未有的速度对指定地点范围内的敌人疯狂倾泻法术，包括所有可用的技能和物品。效果期间所有冷却时间缩短为1/5，移除施法前摇，持续状态不会被打断，直至蓝尽人亡，但人无法移动。<br><br>持续时间：%duration% 秒"
-		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"							"RN：欸我说，这位病人下次悠着点，都特么秃噜皮了肯定一滴也不剩啊"
+		"DOTA_Tooltip_ability_ability_trigger_on_active_Lore"							"欸我说，这位病人下次悠着点，技能都搓冒烟了，蓝是一滴也不剩啊"
 		"DOTA_Tooltip_ability_ability_trigger_on_active_duration"						"持续时间："
 		"DOTA_Tooltip_ability_ability_trigger_on_active_search_radius"					"搜索范围："
 		"DOTA_Tooltip_ability_ability_trigger_on_active_auto_cast_interval"				"施法间隔："
@@ -1193,7 +1193,7 @@
 		// 蝴蝶效应·青凝（积蓄能量）
 		"DOTA_Tooltip_ability_ability_charge_damage"									"<font color='#87CEEB'>蝴蝶效应 · 青凝</font>"
 		"DOTA_Tooltip_ability_ability_charge_damage_Description"						"<h1><font color='#87CEEB'>被动：凝心</font></h1>凝心静气，在技能冷却好而不释放的时候积蓄能量，增幅下次释放造成的第一次伤害。<br><br>大招在充能%ultimate_ready_delay%秒后开始计数，小技能在充能%normal_ready_delay%秒后开始计数。<br>充能达到阈值后，额外获得%base_amplify%倍基础增幅。<br>伤害增幅效果持续%amplify_duration%秒。<br>最大增幅倍率：%max_times%倍。"
-		"DOTA_Tooltip_ability_ability_charge_damage_Lore"								"RN：你小子，憋这一...个技能是特么憋了特么多久啊"
+		"DOTA_Tooltip_ability_ability_charge_damage_Lore"								"你小子，憋这一……个技能，是憋了多久啊"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display"							"凝心"
 		"DOTA_Tooltip_modifier_ability_charge_damage_display_Description"				"下次施放将造成 %dMODIFIER_PROPERTY_TOOLTIP2%%% 伤害。"
 
@@ -1378,7 +1378,7 @@
 "DOTA_Tooltip_ability_pudge_meat_hook_lua_hook_base_distance"					"基础施法距离："
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_shard_description"					"肉钩击中敌人时，根据钩中时的距离造成额外纯粹伤害。"
 		"DOTA_Tooltip_ability_pudge_meat_hook_lua_distance_to_damage"					"%行进距离伤害："
-		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"						"RN: 这下总不用吵架了吧，真是踏马操碎了心"
+		"DOTA_Tooltip_ability_pudge_meat_hook_lua_Lore"						"这下总不用吵架了吧"
 
 		// 剑圣 剑刃风暴-觉醒
 		"DOTA_Tooltip_ability_juggernaut_blade_fury_custom"								"<font color='#d000ff'>剑刃风暴 觉醒</font>"
@@ -1412,7 +1412,7 @@
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_aura_damage"		"%每秒最大生命值伤害："
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_reduction_pct"	"治疗降低："
 		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_heal_regen_to_damage"	"%生命恢复转化为伤害（神杖）："
-		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Lore"						"RN: 竭心感染有救了"
+		"DOTA_Tooltip_ability_necrolyte_heartstopper_aura_datadriven_Lore"						"竭心感染有救了"
 
 		// 天怒法师 天裔之杖-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_skywrath_upgrade"						"<font color='#d000ff'>天裔之杖 觉醒</font>"
@@ -1426,7 +1426,7 @@
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Description"	"幻影刺客闪烁到一个目标单位身旁，获得短暂的攻击速度加成和<font color='#FFCC66'>黑皇杖</font>效果，并自动发起攻击。<br><br>窒碍短匕弹道速度提升。施放窒碍短匕后获得短暂<font color='#FFCC66'>黑皇杖</font>效果。"
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_bonus_attack_speed"	"攻击速度加成："
 		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_untargetable_duration"	"持续时间："
-		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Lore"						"RN: 这下敢B上去了吧"
+		"DOTA_Tooltip_ability_special_bonus_unique_phantom_assassin_upgrade_Lore"						"这下敢B上去了吧"
 
 		// 巫医 神语-觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_witch_doctor_upgrade"					"<font color='#d000ff'>神语 觉醒</font>"
@@ -3349,11 +3349,6 @@
 		"DOTA_Tooltip_ability_item_fusion_agile"										"灵动符文"
 		"DOTA_Tooltip_ability_item_fusion_agile_Description"							"一种神秘的融合符文,蕴含着灵动的力量。击杀中立生物有概率获得。目前限时开放购买\n\n<font color='#FFCC66'>可合成:</font> 无限手套"
 
-		// item_universal_rune 通用符文
-		"DOTA_Tooltip_Ability_item_universal_rune"										"通用符文"
-		"DOTA_Tooltip_ability_item_universal_rune_Description"							"<h1>主动:合成</h1>检测背包内的所有配件,如果满足任何神器的合成条件（除符文）,则直接合成。通用符文可以替代任意融合材料(鹰眼、禁忌、暴力、生命、暗影、灵动、兽化或魔化)。"
-		"DOTA_Tooltip_ability_item_universal_rune_Lore"									"RN: '最难受的是有钱买不了装备'？那你还是不够有钱"
-
 		// 鹰眼炮台
 		"DOTA_Tooltip_Ability_item_hawkeye_turret"										"鹰眼炮台"
 		"DOTA_Tooltip_ability_item_hawkeye_turret_Description"							"<h1><font color='#FFFF00'>主动：人形炮台（仅限远程）</font></h1>化身炮台，变为飞行单位，获得高空视野。持续%active_duration%秒，禁锢无法移动，获得额外攻击距离%active_attack_range%，视野范围为攻击距离 + %active_bonus_vision%。<br><br><font color='#FF6B6B'>近战英雄使用没有效果。</font>\n<h1>被动：霰弹（仅限远程）</h1>对攻击目标周围%attack_radius%范围内的敌人造成%attack_percent%%%溅射伤害。<br/>霰弹特效无法叠加，拥有%internal_cooldown%秒内置冷却。\n<h1>被动：绝对腐蚀</h1>物理攻击将降低目标%corruption_armor%点护甲，持续%corruption_duration%秒。<br><br>每次有英雄死于毁蚀效果下就会+%bonus_damage_per_kill%点攻击力，最多获得%max_damage%点。"
@@ -3613,11 +3608,11 @@
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_random"								"洗炼石"
 		"DOTA_Tooltip_ability_item_rune_transmuter_random_Description"					"<h1>使用：洗炼</h1>洗炼背包中所有符文、圣兽符的拥有者印记<br><br>只洗炼拥有者不是自己的符文、圣兽符，对自己的符文不会生效"
-		"DOTA_Tooltip_ability_item_rune_transmuter_random_Lore"							"RN: 尽量不是自己的还是别好奇"
+		"DOTA_Tooltip_ability_item_rune_transmuter_random_Lore"							"尽量不是自己的还是别好奇"
 
 		"DOTA_Tooltip_Ability_item_rune_transmuter_advanced"							"转化石"
 		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Description"				"<h1>使用：转化</h1>熔炼背包中的所有符文，转化为随机的类型，无视原有者<br><br><font color='#4CAF50'>不会失败，且优先转化为背包中没有的符文类型</font>"
-		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"RN: 也许就大力出奇迹了呢"
+		"DOTA_Tooltip_ability_item_rune_transmuter_advanced_Lore"						"也许就大力出奇迹了呢"
 		"dota_hud_error_no_runes"														"背包中没有可转化的符文!"
 		"dota_hud_error_awaken_stone_unsupported"										"该英雄暂未拥有可觉醒的技能"
 		"dota_hud_error_awaken_stone_awakened"											"该英雄已经觉醒过了"

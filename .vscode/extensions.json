@@ -7,7 +7,6 @@
     "donjayamanne.git-extension-pack",
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "gruntfuggly.todo-tree",
     "orta.vscode-jest"
   ]
 }
