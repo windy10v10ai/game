@@ -539,10 +539,24 @@ TextEntry.MonoFont {
 }
 
 .WebsiteButton {
-  width: 170px;
+  width: 200px;
   height: fit-children;
   padding: 8px 10px;
   vertical-align: center;
+}
+
+/* 网站入口人人可用，避开会员金色和蓝紫操作按钮，用 Steam 蓝呼应登录方式 */
+.activated-web {
+  background-color: gradient(linear, 0% 0%, 100% 0%, from(#3a8fd0), to(#1c4d7e));
+  border: 1px solid #7cc4f5aa;
+  box-shadow: 0px 0px 4px 1px #5aaeea70;
+  transition-property: brightness, box-shadow;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.activated-web:hover {
+  brightness: 1.2;
+  box-shadow: 0px 0px 6px 1px #7cc4f588;
 }
 
 /* 负上边距把按钮拉回导航行并在导航按钮高度内居中，上下边距之和与自身高度抵消以免推动下方布局，右边距对齐下方属性列表 */
