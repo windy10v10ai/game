@@ -494,11 +494,19 @@ export class BotBaseAIModifier extends BaseModifier {
   private FindAround(): void {
     this.aroundEnemyHeroes = ActionFind.FindEnemyHeroes(this.hero, this.FindRadius);
     this.aroundEnemyCreeps = ActionFind.FindEnemyCreeps(this.hero, this.FindRadius);
-    this.aroundEnemyBuildings = ActionFind.FindEnemyBuildings(this.hero, this.FindRadius);
+    // INVULNERABLE 标志只是放宽过滤，结果必然覆盖不带该标志时的全部建筑，
+    // 因此搜一次再按无敌与否拆开，省掉一次范围搜索
     this.aroundEnemyBuildingsInvulnerable = ActionFind.FindEnemyBuildingsInvulnerable(
       this.hero,
       this.FindRadius,
     );
+    const vulnerableBuildings: CDOTA_BaseNPC[] = [];
+    for (const building of this.aroundEnemyBuildingsInvulnerable) {
+      if (!building.IsInvulnerable()) {
+        vulnerableBuildings.push(building);
+      }
+    }
+    this.aroundEnemyBuildings = vulnerableBuildings;
     this.aroundFriendlyHeroes = ActionFind.FindFriendlyHeroes(this.hero, this.FindRadius);
     this.aroundFriendlyCreeps = ActionFind.FindFriendlyCreeps(this.hero, 900);
     this.aroundFriendlyBuildings = ActionFind.FindFriendlyBuildings(this.hero, this.FindRadius);

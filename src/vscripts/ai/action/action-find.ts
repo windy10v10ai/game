@@ -10,12 +10,6 @@ export class ActionFind {
     return this.FindEnemies(self, radius, UnitTargetType.CREEP, UnitTargetFlags.NOT_ANCIENTS);
   }
 
-  static FindEnemyBuildings(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
-    const enemies = this.FindEnemies(self, radius, UnitTargetType.BUILDING);
-
-    return enemies;
-  }
-
   static FindEnemyBuildingsInvulnerable(self: CDOTA_BaseNPC_Hero, radius: number): CDOTA_BaseNPC[] {
     const enemies = this.FindEnemies(
       self,

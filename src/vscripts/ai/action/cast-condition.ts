@@ -172,52 +172,63 @@ export function FilterTargetWithCondition(
     return undefined;
   }
 
+  const targetCondition = condition?.target;
+  const range = targetCondition?.range;
+  const excludeSelf = targetCondition?.excludeSelf;
+  const unitCondition = targetCondition?.unitCondition;
+  const facing = targetCondition?.facing;
+
+  // 以下各值与候选单位无关，循环外只求一次
+  const selfEntityIndex = excludeSelf ? self.GetEntityIndex() : -1;
+  const healthCondition = ability ? unitCondition?.healthAbilityValue : undefined;
+  let healthThreshold = 0;
+  if (ability && healthCondition) {
+    const baseValue = ability.GetSpecialValueFor(healthCondition.key);
+    // GetSpellAmplification 返回增量（如 0.15 表示 +15%），+1 得完整乘数
+    healthThreshold = healthCondition.includeSpellAmp
+      ? baseValue * (1 + self.GetSpellAmplification(false))
+      : baseValue;
+  }
+
   for (const unit of units) {
+    // 搜索半径远大于施法距离，多数候选都倒在距离这一关，而它只要一次引擎调用，
+    // 排在最前可以省掉后面成串的状态查询
+    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), range)) {
+      continue;
+    }
+
     if (!unit.IsAlive()) {
       continue;
     }
 
-    if (condition?.target?.excludeSelf && unit.GetEntityIndex() === self.GetEntityIndex()) {
+    if (excludeSelf && unit.GetEntityIndex() === selfEntityIndex) {
       continue;
     }
 
     // 魔法免疫过滤：有 ability 时才检查，避免影响非 dispatcher 调用路径
     if (ability && unit.IsMagicImmune()) {
       const canPierce =
-        condition?.target?.ignoresMagicImmune ||
+        targetCondition?.ignoresMagicImmune ||
         (ability.GetAbilityTargetFlags() & UnitTargetFlags.MAGIC_IMMUNE_ENEMIES) !== 0;
       if (!canPierce) {
         continue;
       }
     }
 
-    const unitCondition = condition?.target?.unitCondition;
-
     if (CheckUnitConditionFailure(unit, unitCondition)) {
       continue;
     }
 
     // healthAbilityValue：比较目标绝对 HP 与技能的 special value
-    if (ability && unitCondition?.healthAbilityValue) {
-      const cond = unitCondition.healthAbilityValue;
-      const baseValue = ability.GetSpecialValueFor(cond.key);
-      // GetSpellAmplification 返回增量（如 0.15 表示 +15%），+1 得完整乘数
-      const effectiveValue = cond.includeSpellAmp
-        ? baseValue * (1 + self.GetSpellAmplification(false))
-        : baseValue;
-      if (cond.lte && unit.GetHealth() > effectiveValue) {
+    if (healthCondition) {
+      if (healthCondition.lte && unit.GetHealth() > healthThreshold) {
         continue;
       }
-      if (cond.gte && unit.GetHealth() < effectiveValue) {
+      if (healthCondition.gte && unit.GetHealth() < healthThreshold) {
         continue;
       }
     }
 
-    if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), condition?.target?.range)) {
-      continue;
-    }
-
-    const facing = condition?.target?.facing;
     if (
       facing &&
       CheckFacingFailure(
