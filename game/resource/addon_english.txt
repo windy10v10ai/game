@@ -68,6 +68,7 @@
 		"fixed_ability_ability_charge_damage_name"			"Butterfly Effect - Cyan"
 
 		// link面板
+		"anime_version_button"			"Anime Version"
 		"dota_survivor_button"			"Also check out: Dota Survivor"
 		"join_qq"						"Click to join the QQ"
 		"join_discord"					"Click to join the Discord"
@@ -83,7 +84,12 @@
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Player data loaded successfully!"
 		"loading_status_3"				"Player data loading failed! This could be for a number of reasons, such as the game not hosted on a dedicated server, the data servers not being available, or if you are spectating a game."
-		"local_host_feature_unsupported_hint"		"This feature is not available on a local host yet. A new way to use it is in development."
+		"local_host_feature_unsupported_hint"		"To keep account data safe, this action is not available on a local host. Click to do it on the website."
+		"website_local_host_notice"		"Attributes and awakening cannot be upgraded on a local host. Sign in with Steam on the windy10v10ai website to do it, then click the in-game Refresh button to sync."
+		"website_open_button"				"Open Website"
+		"website_open_property_button"		"Level Up on Website"
+		"website_open_awaken_button"		"Awaken on Website"
+		"player_info_refresh"				"Refresh"
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"What tends to cause the game to lag?"
@@ -91,7 +97,7 @@
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
 		"loading_faq_local_host_question"			"Can I play on a local host?"
-		"loading_faq_local_host_answer"				"Yes. Local-host games work normally. Settings, key bindings, the leaderboard, and paid lottery refreshes are available, while local settlement still has a daily limit. Spending or resetting attribute points and awakening are not supported yet, and new ways to use them are in development."
+		"loading_faq_local_host_answer"				"Yes. Local-host games work normally. Settings, key bindings, the leaderboard, and paid lottery refreshes are available, while local settlement still has a daily limit. To keep account data safe, spend or reset attribute points and awaken heroes at windy10v10ai.com after signing in with Steam, then click Refresh in game to sync."
 		"loading_faq_pause_question"				"Can pause time be extended?"
 		"loading_faq_pause_answer"				"Dedicated-server pause time is limited by Dota 2. Use a local host if you need more flexible pauses."
 		"loading_faq_attributes_question"			"When do attribute points take effect?"
@@ -108,6 +114,8 @@
 		"loading_faq_treasure_rewards_answer"			"Treasure Chests appear in forests and map corners. Opening one starts an item lottery the whole team shares, and whoever opens it first gets an even better reward. Open more chests, or kill Roshan, to raise the reward pool tier."
 		"loading_faq_dragon_balls_question"		"What if I can't combine all 7 Dragon Balls?"
 		"loading_faq_dragon_balls_answer"			"Dragon Balls and equipment dropped by neutral creeps must be in your main inventory to be used in combinations. Move them from your backpack or stash, or drop and pick them up again."
+		"loading_faq_dota_hotkeys_question"		"How do I use traditional Dota hotkeys?"
+		"loading_faq_dota_hotkeys_answer"		"Change the “Disable per unit hotkeys during Custom Games” option in the Dota 2 settings."
 
 		// /////////////////////////////////////////////////////////////////////////////
 		//

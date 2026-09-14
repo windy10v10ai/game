@@ -99,6 +99,9 @@
 					<Label class="BPNavButtonText" text="#data_panel_property_button" />
 				</RadioButton>
 			</Panel>
+			<Button id="PropertyRefreshButton" class="activated">
+				<Label class="ButtonText" text="#player_info_refresh" />
+			</Button>
 
 			<Panel id="BpWindowMain" >
 				<!-- 数据页面 -->
@@ -152,6 +155,12 @@
 
 				<!-- 属性 页面 -->
 				<Panel id="BpWindowMainProperty" class="BpWindowMainContainer">
+					<Panel id="PropertyWebsitePanel">
+						<Label class="WebsiteNoticeText" text="#website_local_host_notice" />
+						<Button id="PropertyWebsiteButton" class="WebsiteButton activated-web">
+							<Label class="ButtonText" text="#website_open_property_button" />
+						</Button>
+					</Panel>
 					<Panel id="BpPropertiesButtons">
 						<RadioButton group="BpPropertiesButtons" class="RadioBox" id="RBPropertyList" onactivate="SwitchToPropertyList()">
 							<Label id="PlayerPropertyListLabel" class="SwitchLabel" text="#data_panel_property_list" />
