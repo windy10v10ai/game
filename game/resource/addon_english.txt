@@ -83,7 +83,10 @@
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Player data loaded successfully!"
 		"loading_status_3"				"Player data loading failed! This could be for a number of reasons, such as the game not hosted on a dedicated server, the data servers not being available, or if you are spectating a game."
-		"local_host_feature_unsupported_hint"		"This feature is not available on a local host yet. A new way to use it is in development."
+		"local_host_feature_unsupported_hint"		"To keep account data safe, this action is not available on a local host. Click to do it on the website."
+		"website_local_host_notice"		"To keep account data safe, spending or resetting attribute points and awakening are not available on a local host. Sign in with Steam at windy10v10ai.com to do it, then click Refresh to sync the changes to this game."
+		"website_open_button"				"Open Website"
+		"player_info_refresh"				"Refresh"
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"What tends to cause the game to lag?"
@@ -91,7 +94,7 @@
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
 		"loading_faq_local_host_question"			"Can I play on a local host?"
-		"loading_faq_local_host_answer"				"Yes. Local-host games work normally. Settings, key bindings, the leaderboard, and paid lottery refreshes are available, while local settlement still has a daily limit. Spending or resetting attribute points and awakening are not supported yet, and new ways to use them are in development."
+		"loading_faq_local_host_answer"				"Yes. Local-host games work normally. Settings, key bindings, the leaderboard, and paid lottery refreshes are available, while local settlement still has a daily limit. To keep account data safe, spend or reset attribute points and awaken heroes at windy10v10ai.com after signing in with Steam, then click Refresh in game to sync."
 		"loading_faq_pause_question"				"Can pause time be extended?"
 		"loading_faq_pause_answer"				"Dedicated-server pause time is limited by Dota 2. Use a local host if you need more flexible pauses."
 		"loading_faq_attributes_question"			"When do attribute points take effect?"

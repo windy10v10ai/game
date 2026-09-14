@@ -3,6 +3,7 @@ import {
   GetAfdianSubscribeUrl,
   KOFI_SHOP_URL,
   KOFI_SUBSCRIBE_URL,
+  WEBSITE_URL,
 } from '@utils/utils';
 
 export const enum MemberLevel {
@@ -23,8 +24,8 @@ export const MEMBER_SUB_TABS: { id: MemberSubTab; label: string }[] = [
   { id: 'points', label: $.Localize('#member_subtab_points') },
 ];
 
-export const AFDIAN_ACTIVATE_URL = 'https://windy10v10ai.com/regist/afdian';
-export const KOFI_ACTIVATE_URL = 'https://windy10v10ai.com/regist/kofi';
+export const AFDIAN_ACTIVATE_URL = `${WEBSITE_URL}/regist/afdian`;
+export const KOFI_ACTIVATE_URL = `${WEBSITE_URL}/regist/kofi`;
 
 export const openUrl = (url: string) => () => $.DispatchEvent('ExternalBrowserGoToURL', url);
 

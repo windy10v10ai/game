@@ -518,6 +518,48 @@ TextEntry.MonoFont {
   flow-children: right;
 }
 
+/* 显隐由脚本按是否本地主机切换 */
+#PropertyWebsitePanel {
+  width: 100%;
+  flow-children: right;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  background-color: #000000aa;
+  border-left: 2px solid #ca9b3c;
+  border-radius: 4px;
+  visibility: collapse;
+}
+
+.WebsiteNoticeText {
+  width: fill-parent-flow(1);
+  vertical-align: center;
+  margin-right: 10px;
+  color: white;
+  font-size: 15px;
+}
+
+.WebsiteButton {
+  width: 130px;
+  height: fit-children;
+  padding: 8px 10px;
+  vertical-align: center;
+}
+
+/* 负上边距把按钮拉回导航行并在导航按钮高度内居中，上下边距之和与自身高度抵消以免推动下方布局，右边距对齐下方属性列表 */
+#PropertyRefreshButton {
+  width: 70px;
+  height: 30px;
+  margin-top: -35px;
+  margin-bottom: 5px;
+  margin-right: 25px;
+  horizontal-align: right;
+  border-radius: 5px;
+}
+
+#PropertyRefreshButton .ButtonText {
+  font-size: 13px;
+}
+
 .RadioBox {
   width: fill-parent-flow(1);
   height: 80%;
@@ -569,7 +611,7 @@ TextEntry.MonoFont {
 .SubContainer {
   horizontal-align: center;
   width: 95%;
-  height: 100%;
+  height: fill-parent-flow(1);
   flow-children: down;
   overflow: squish scroll;
   visibility: collapse;

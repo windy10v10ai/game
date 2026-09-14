@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { GetLocalPlayerSteamAccountID, GetWebsiteProfileUrl } from '@utils/utils';
+import { PrimaryButton } from '../../../../shared/components';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
+import { usePlayerInfoRefresh } from '../../../../shared/hooks/usePlayerInfoRefresh';
 import { AwakenHeroCard } from './AwakenHeroCard';
 import { AwakenRandomCard } from './AwakenRandomCard';
 import { AwakenRandomCandidatesDialog } from './AwakenRandomCandidatesDialog';
@@ -181,6 +183,9 @@ export function AwakenTab() {
   const localHostDisabledTooltip = isLocalHost
     ? $.Localize('#local_host_feature_unsupported_hint')
     : undefined;
+  const { refreshing, refresh } = usePlayerInfoRefresh();
+  const openAwakenWebsite = () =>
+    $.DispatchEvent('ExternalBrowserGoToURL', GetWebsiteProfileUrl('awaken'));
   const awakenedHeroes = player?.awakenedHeroes ?? [];
   const useableSeasonPoint = player?.useableSeasonPoint ?? 0;
   const useableMemberPoint = player?.useableMemberPoint ?? 0;
@@ -222,12 +227,20 @@ export function AwakenTab() {
   }));
 
   const handleUnlockClick = (heroName: string, abilityName: string) => {
-    if (isLocalHost || isPending || !canAffordDirect) return;
+    if (isLocalHost) {
+      openAwakenWebsite();
+      return;
+    }
+    if (isPending || !canAffordDirect) return;
     setConfirmHero({ heroName, abilityName, isRandom: false });
   };
 
   const handleRandomClick = () => {
-    if (isLocalHost || isPending || !canAffordRandom || !hasEnoughPool) return;
+    if (isLocalHost) {
+      openAwakenWebsite();
+      return;
+    }
+    if (isPending || !canAffordRandom || !hasEnoughPool) return;
     setCandidatesOpen(true);
     GameEvents.SendCustomGameEventToServer('awaken_random_request', {});
   };
@@ -262,8 +275,22 @@ export function AwakenTab() {
     : HERO_AWAKEN_UNLOCK_COST_MEMBER;
 
   return (
-    <Panel className="awaken-root">
+    <Panel className={isLocalHost ? 'awaken-root awaken-root-local-host' : 'awaken-root'}>
       <Panel className="awaken-layout">
+        {isLocalHost && (
+          <Panel className="awaken-website-notice">
+            <Label
+              className="awaken-website-notice-text"
+              text={$.Localize('#website_local_host_notice')}
+            />
+            <PrimaryButton
+              className="awaken-website-btn"
+              variant="gold"
+              label={$.Localize('#website_open_button')}
+              onClick={openAwakenWebsite}
+            />
+          </Panel>
+        )}
         <Panel className="awaken-intro">
           <Panel className="awaken-intro-col awaken-intro-col-left">
             <Panel className="awaken-intro-col-header">
@@ -290,10 +317,17 @@ export function AwakenTab() {
               text={$.Localize('#awaken_unlock_intro_desc')}
             />
           </Panel>
+          <PrimaryButton
+            className="awaken-refresh-btn"
+            variant="ghost"
+            enabled={!refreshing}
+            label={$.Localize('#player_info_refresh')}
+            onClick={refresh}
+          />
         </Panel>
         <Panel className="awaken-grid">
           <AwakenRandomCard
-            enabled={!isLocalHost && !isPending && canAffordRandom && hasEnoughPool}
+            enabled={isLocalHost || (!isPending && canAffordRandom && hasEnoughPool)}
             canAfford={canAffordRandom}
             hasEnoughPool={hasEnoughPool}
             disabledTooltipText={localHostDisabledTooltip}
@@ -309,7 +343,7 @@ export function AwakenTab() {
                 isUnlocked={isUnlocked}
                 // 已买断的玩家不需要再看到限免提示
                 isFreeTrial={freeTrial === true && !isUnlocked}
-                enabled={!isLocalHost && !isPending && canAffordDirect}
+                enabled={isLocalHost || (!isPending && canAffordDirect)}
                 canAfford={canAffordDirect}
                 disabledTooltipText={localHostDisabledTooltip}
                 onUnlockClick={handleUnlockClick}

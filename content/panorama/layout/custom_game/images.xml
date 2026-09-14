@@ -28,6 +28,7 @@
 			<Image id="snsDiscordQrCode" class="SeqImg" src="file://{images}/custom_game/sns/discord_qr_code.png" />
 			<Image id="snsQqQrCode1" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code1.png" />
 			<Image id="snsQqQrCode2" class="SeqImg" src="file://{images}/custom_game/sns/qq_qr_code2.png" />
+			<Image id="websiteIcon" class="SeqImg" src="file://{images}/custom_game/website/icon_website.png" />
 		</Panel>
 	</Panel>
 </root>

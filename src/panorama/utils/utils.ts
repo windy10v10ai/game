@@ -22,6 +22,13 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
   return steamId32;
 }
 
+export const WEBSITE_URL = 'https://windy10v10ai.com';
+
+/** 网站上当前玩家的属性或觉醒页，未登录时网站先显示登录面板 */
+export function GetWebsiteProfileUrl(page: 'property' | 'awaken'): string {
+  return `${WEBSITE_URL}/profile/${GetLocalPlayerSteamAccountID()}/${page}`;
+}
+
 export function GetAfdianSubscribeUrl(): string {
   return (
     'https://ifdian.net/order/create?plan_id=6c206f360d4c11f0a2cb52540025c377&product_type=0&remark=' +

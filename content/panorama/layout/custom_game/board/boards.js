@@ -29,6 +29,11 @@ function AddLbButton() {
     button.style.backgroundImage = `url('file://{images}/trophy.png')`;
     button.style.backgroundSize = '100% 100%';
     button.className = 'MainLB';
+    // 排行榜数据晚于 hud_main 加载，网站入口需保持在按钮栏末尾
+    const websiteButton = container.FindChild('websiteButton');
+    if (websiteButton) {
+      container.MoveChildAfter(websiteButton, button);
+    }
     button.SetPanelEvent('onactivate', () => {
       ToggleLB();
     });

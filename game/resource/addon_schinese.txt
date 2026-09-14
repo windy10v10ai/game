@@ -83,7 +83,10 @@
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"玩家数据加载成功！"
 		"loading_status_3"				"玩家数据加载失败，请使用服务器主机重新开始游戏。"
-		"local_host_feature_unsupported_hint"		"本地主机暂不支持该功能，新的操作方式正在开发中。"
+		"local_host_feature_unsupported_hint"		"为保护账号数据安全，本地主机无法进行该操作，点击前往网站操作。"
+		"website_local_host_notice"		"为保护账号数据安全，本地主机无法加点，重置属性和觉醒。请前往网站 windy10v10ai.com 用 Steam 登录后操作，完成后点击刷新即可同步到本局。"
+		"website_open_button"				"前往网站"
+		"player_info_refresh"				"刷新"
 
 		// FAQ
 		"loading_faq_players_instant_revive_question"	"什么情况容易导致游戏卡顿？"
@@ -91,7 +94,7 @@
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
 		"loading_faq_local_host_question"			"本地主机可以进行游戏吗？"
-		"loading_faq_local_host_answer"				"可以。本地主机可正常游戏，设置、键位、排行榜和抽奖付费刷新可以使用，本地结算仍有每日上限。加点、洗点和觉醒暂不支持，新的操作方式正在开发中。"
+		"loading_faq_local_host_answer"				"可以。本地主机可正常游戏，设置，键位，排行榜和抽奖付费刷新可以使用，本地结算仍有每日上限。为保护账号数据安全，加点，重置属性和觉醒需前往网站 windy10v10ai.com 用 Steam 登录后操作，回到游戏点击刷新即可同步。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
 		"loading_faq_pause_answer"				"受 Dota 2 服务器主机限制，暂停时间无法延长。需要更灵活的暂停时，请使用本地主机。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"
@@ -204,7 +207,7 @@
 		"reset_property_use_season_point"		"消耗2000可用勇士积分重置<br>(不会降低等级)"
 		"reset_property_use_member_point"		"消耗1000可用会员积分重置<br>(不会降低等级)"
 
-		"data_panel_player_property_label"		"使用属性点增强英雄，升级后属性及时生效。"
+		"data_panel_player_property_label"		"使用属性点增强英雄。加点永久保留，每一局都带着。"
 		"data_panel_player_property_label_2"		"本地主机无法加点，请使用服务器主机进行游戏。"
 		"data_panel_player_property_label_3"		"英雄每2级将激活1级属性"
 		"data_panel_player_property_label_3_tooltip"		"英雄将在2，4，6，8，10，12，14，16级时，获得相应效果，直至该属性的最高等级。<br>如，施法距离点了2次+50时，英雄在2级时获得+25，4级时获得+50的效果。<br>部分属性除外"
