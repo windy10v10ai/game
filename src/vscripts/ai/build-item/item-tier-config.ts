@@ -1401,7 +1401,7 @@ let ItemReplaceMap: Map<string, string[]> = new Map();
  * 初始化装备替代关系（游戏开始时调用一次）
  */
 export function InitializeItemReplaceMap(): void {
-  print('[AI] InitializeItemReplaceMap 初始化装备替代关系');
+  // print('[AI] InitializeItemReplaceMap 初始化装备替代关系');
   ItemReplaceMap = BuildItemReplaceMap(ItemTierConfig);
 }
 

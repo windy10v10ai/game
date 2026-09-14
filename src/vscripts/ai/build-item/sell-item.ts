@@ -90,17 +90,17 @@ export class SellItem {
   ): boolean {
     // 检查物品数组和第一个物品
     if (!items) {
-      print(
-        `[AI] SellItem ERROR: items is null, hero: ${hero.GetUnitName()}, itemName: ${itemName}`,
-      );
+      // print(
+      //   `[AI] SellItem ERROR: items is null, hero: ${hero.GetUnitName()}, itemName: ${itemName}`,
+      // );
       return false;
     }
 
     const item = items[0];
     if (!item) {
-      print(
-        `[AI] SellItem ERROR: item is null, hero: ${hero.GetUnitName()}, itemName: ${itemName}`,
-      );
+      // print(
+      //   `[AI] SellItem ERROR: item is null, hero: ${hero.GetUnitName()}, itemName: ${itemName}`,
+      // );
       return false;
     }
 
@@ -138,7 +138,7 @@ export class SellItem {
       for (const bootItem of bootsList) {
         if (itemsMap.has(bootItem)) {
           const items = itemsMap.get(bootItem)!;
-          print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售急速之翼的配方鞋子: ${bootItem}`);
+          // print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售急速之翼的配方鞋子: ${bootItem}`);
           return this.SellItem(hero, items, bootItem, true);
         }
       }
@@ -150,14 +150,14 @@ export class SellItem {
       const aghanimsScepter = 'item_ultimate_scepter';
       if (itemsMap.has(aghanimsScepter)) {
         const items = itemsMap.get(aghanimsScepter)!;
-        print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售阿哈利姆神杖（已有真·神杖buff）`);
+        // print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售阿哈利姆神杖（已有真·神杖buff）`);
         return this.SellItem(hero, items, aghanimsScepter, true);
       }
       // 出售真·阿哈利姆神杖
       const ultimateScepter = 'item_ultimate_scepter_2';
       if (itemsMap.has(ultimateScepter)) {
         const items = itemsMap.get(ultimateScepter)!;
-        print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售真·阿哈利姆神杖`);
+        // print(`[AI] SellConsumedItems ${hero.GetUnitName()} 出售真·阿哈利姆神杖`);
         return this.SellItem(hero, items, ultimateScepter, true);
       }
     }
@@ -230,7 +230,7 @@ export class SellItem {
     for (const itemName of ValueBasedSellItemsList) {
       if (itemsMap.has(itemName)) {
         const items = itemsMap.get(itemName)!;
-        print(`[AI] SellItemsByValue ${hero.GetUnitName()} 按价值出售物品: ${itemName}`);
+        // print(`[AI] SellItemsByValue ${hero.GetUnitName()} 按价值出售物品: ${itemName}`);
         return this.SellItem(hero, items, itemName, true);
       }
     }
@@ -249,9 +249,9 @@ export class SellItem {
       for (const replacedItem of replacedItems) {
         if (itemsMap.has(replacedItem)) {
           const items = itemsMap.get(replacedItem)!;
-          print(
-            `[AI] SellReplacedItems ${hero.GetUnitName()} 出售被替代装备: ${replacedItem} (已拥有: ${ownedItem})`,
-          );
+          // print(
+          //   `[AI] SellReplacedItems ${hero.GetUnitName()} 出售被替代装备: ${replacedItem} (已拥有: ${ownedItem})`,
+          // );
           return this.SellItem(hero, items, replacedItem, true);
         }
       }

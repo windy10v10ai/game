@@ -9,7 +9,7 @@ import {
   getTemplateItemsByTier,
   GetTomePurchaseCap,
 } from './hero-build-config-template';
-import { getItemConfig, ItemTier } from './item-tier-config';
+import { ItemTier } from './item-tier-config';
 import { CandidatePoolEntry, SampleWeightedWithoutReplacement } from './weighted-pool';
 
 /** 每个 tier 装备槽位上限 */
@@ -85,22 +85,22 @@ export function InitializeHeroBuild(
   // 消耗品直接复制模板全部条目，不做抽样
   FillTemplateConsumables(config, consumables, tiersToResolve);
 
-  const toNames = (names: string[]) =>
-    names.map((name) => getItemConfig(name)?.nameCN ?? name).join(', ');
+  // const toNames = (names: string[]) =>
+  //   names.map((name) => getItemConfig(name)?.nameCN ?? name).join(', ');
 
-  print(
-    `[AI] InitializeHeroBuild ${hero.GetUnitName()} 初始化出装:\n` +
-      `  T1: ${toNames(resolvedItems[ItemTier.T1])}\n` +
-      `  T2: ${toNames(resolvedItems[ItemTier.T2])}\n` +
-      `  T3: ${toNames(resolvedItems[ItemTier.T3])}\n` +
-      `  T4: ${toNames(resolvedItems[ItemTier.T4])}\n` +
-      `  T5: ${toNames(resolvedItems[ItemTier.T5])}\n` +
-      `  消耗品 T1: ${toNames(consumables[ItemTier.T1])}\n` +
-      `  消耗品 T2: ${toNames(consumables[ItemTier.T2])}\n` +
-      `  消耗品 T3: ${toNames(consumables[ItemTier.T3])}\n` +
-      `  消耗品 T4: ${toNames(consumables[ItemTier.T4])}\n` +
-      `  消耗品 T5: ${toNames(consumables[ItemTier.T5])}`,
-  );
+  // print(
+  //   `[AI] InitializeHeroBuild ${hero.GetUnitName()} 初始化出装:\n` +
+  //     `  T1: ${toNames(resolvedItems[ItemTier.T1])}\n` +
+  //     `  T2: ${toNames(resolvedItems[ItemTier.T2])}\n` +
+  //     `  T3: ${toNames(resolvedItems[ItemTier.T3])}\n` +
+  //     `  T4: ${toNames(resolvedItems[ItemTier.T4])}\n` +
+  //     `  T5: ${toNames(resolvedItems[ItemTier.T5])}\n` +
+  //     `  消耗品 T1: ${toNames(consumables[ItemTier.T1])}\n` +
+  //     `  消耗品 T2: ${toNames(consumables[ItemTier.T2])}\n` +
+  //     `  消耗品 T3: ${toNames(consumables[ItemTier.T3])}\n` +
+  //     `  消耗品 T4: ${toNames(consumables[ItemTier.T4])}\n` +
+  //     `  消耗品 T5: ${toNames(consumables[ItemTier.T5])}`,
+  // );
 
   return {
     currentTier: ItemTier.T1,

@@ -75,7 +75,7 @@ export class BotTeam {
     // 初始化时，动态推进时间等于基础推进时间
     this.botPushMin = this.baseBotPushMin;
 
-    print(`[BotTeam] Base bot push min: ${this.baseBotPushMin}`);
+    // print(`[BotTeam] Base bot push min: ${this.baseBotPushMin}`);
 
     // 根据难度计算电脑推进等级
     const randomLevel = RandomInt(0, 2); // 随机额外增等级
@@ -86,7 +86,7 @@ export class BotTeam {
     } else {
       this.botPushLevel = requiredLevel + randomLevel;
     }
-    print(`[BotTeam] Bot push level: ${this.botPushLevel}`);
+    // print(`[BotTeam] Bot push level: ${this.botPushLevel}`);
   }
 
   /**
@@ -246,9 +246,9 @@ export class BotTeam {
     const levelBonus = totalLevel * this.addAmountNeedLevel;
 
     this.addAmount = Math.floor(this.addAmountBase + levelBonus + playerNumberBonus);
-    print(
-      `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumberBonus}, levelBonus: ${levelBonus})`,
-    );
+    // print(
+    //   `[BotTeam] Add amount: ${this.addAmount} (playerNumber: ${playerNumberBonus}, levelBonus: ${levelBonus})`,
+    // );
   }
 
   /**

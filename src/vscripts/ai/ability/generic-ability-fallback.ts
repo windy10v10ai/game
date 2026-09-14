@@ -14,7 +14,7 @@ export class GenericAbilityFallback {
       return false;
     }
 
-    print(`[AI] GenericAbility ${ability.GetName()}`);
+    // print(`[AI] GenericAbility ${ability.GetName()}`);
     return true;
   }
 
