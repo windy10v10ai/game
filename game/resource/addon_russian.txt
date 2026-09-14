@@ -59,7 +59,7 @@
 		"local_host_feature_unsupported_hint"		"Для защиты данных аккаунта это действие недоступно на локальном хосте. Нажмите, чтобы выполнить его на сайте."
 		"website_local_host_notice"		"На локальном хосте нельзя улучшать атрибуты и пробуждение. Войдите через Steam на сайте windy10v10ai, выполните действие и нажмите кнопку «Обновить» в игре для синхронизации."
 		"website_open_button"				"Открыть сайт"
-		"website_open_property_button"		"Улучшить атрибуты на сайте"
+		"website_open_property_button"		"Улучшить на сайте"
 		"website_open_awaken_button"		"Пробудить на сайте"
 		"player_info_refresh"				"Обновить"
 

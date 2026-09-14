@@ -86,7 +86,7 @@
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this action is not available on a local host. Click to do it on the website."
 		"website_local_host_notice"		"Attributes and awakening cannot be upgraded on a local host. Sign in with Steam on the windy10v10ai website to do it, then click the in-game Refresh button to sync."
 		"website_open_button"				"Open Website"
-		"website_open_property_button"		"Upgrade Attributes on Website"
+		"website_open_property_button"		"Level Up on Website"
 		"website_open_awaken_button"		"Awaken on Website"
 		"player_info_refresh"				"Refresh"
 
