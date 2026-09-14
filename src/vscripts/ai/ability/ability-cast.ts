@@ -1,4 +1,8 @@
-import { CastCoindition, IsAbilityBehavior } from '../action/cast-condition';
+import {
+  CastCoindition,
+  GetAbilityBehaviorBits,
+  HasAbilityBehavior,
+} from '../action/cast-condition';
 
 /**
  * 技能的有效施法距离 = KV 中 AbilityCastRange + 施法者的施法距离加成。
@@ -29,23 +33,24 @@ export function CastAbilityOnTargetByBehavior(
 ): boolean {
   const playerId = hero.GetPlayerOwnerID();
   const abilityName = ability.GetName();
+  const behavior = GetAbilityBehaviorBits(ability);
 
-  if (IsAbilityBehavior(ability, AbilityBehavior.UNIT_TARGET)) {
+  if (HasAbilityBehavior(behavior, AbilityBehavior.UNIT_TARGET)) {
     print(`[AI] CastByBehavior ${abilityName} on target`);
     hero.CastAbilityOnTarget(target, ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.POINT)) {
+  if (HasAbilityBehavior(behavior, AbilityBehavior.POINT)) {
     print(`[AI] CastByBehavior ${abilityName} on point`);
     hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.AOE)) {
+  if (HasAbilityBehavior(behavior, AbilityBehavior.AOE)) {
     print(`[AI] CastByBehavior ${abilityName} on position`);
     hero.CastAbilityOnPosition(castPosition ?? target.GetAbsOrigin(), ability, playerId);
     return true;
   }
-  if (IsAbilityBehavior(ability, AbilityBehavior.NO_TARGET)) {
+  if (HasAbilityBehavior(behavior, AbilityBehavior.NO_TARGET)) {
     print(`[AI] CastByBehavior ${abilityName} no target`);
     hero.CastAbilityNoTarget(ability, playerId);
     return true;

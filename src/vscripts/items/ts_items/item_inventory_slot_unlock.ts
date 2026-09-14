@@ -94,7 +94,7 @@ export class ItemInventorySlotUnlock extends BaseItem {
 export class ModifierItemInventorySlotUnlock extends BaseModifier {
   private forcedUnequippedItems: ForcedUnequippedItem[] = [];
   private observedInventoryItems: ObservedInventoryItem[] = [];
-  private lastInventorySignature = '';
+  private readonly inventoryState: number[] = [];
 
   OnCreated(): void {
     if (!IsServer()) {
@@ -133,7 +133,6 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
 
   OnStackCountChanged(): void {
     if (IsServer()) {
-      this.lastInventorySignature = '';
       this.SynchronizeInventory();
     }
   }
@@ -143,8 +142,7 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
       return;
     }
 
-    const parent = this.GetParent() as CDOTA_BaseNPC_Hero;
-    if (this.buildInventorySignature(parent) !== this.lastInventorySignature) {
+    if (this.RefreshInventoryState()) {
       this.SynchronizeInventory();
     }
   }
@@ -164,7 +162,7 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
 
     parent.CalculateStatBonus(true);
     this.observedInventoryItems = this.buildObservedInventoryItems(parent);
-    this.lastInventorySignature = this.buildInventorySignature(parent);
+    this.RefreshInventoryState();
   }
 
   /** Restore items that left the still-locked part of the backpack. */
@@ -295,15 +293,41 @@ export class ModifierItemInventorySlotUnlock extends BaseModifier {
     return items;
   }
 
-  private buildInventorySignature(parent: CDOTA_BaseNPC_Hero): string {
-    const parts = [`${Math.min(this.GetStackCount(), MAX_UNLOCKED_ITEM_SLOTS)}`];
+  /**
+   * 比对并就地记录各槽位状态，返回是否发生变化。
+   * 逐个数值比对而非拼装签名，让绝大多数「无变化」的轮询不产生任何临时对象。
+   */
+  private RefreshInventoryState(): boolean {
+    const parent = this.GetParent() as CDOTA_BaseNPC_Hero;
+    const state = this.inventoryState;
+    let changed = false;
+
+    const unlockedSlots = Math.min(this.GetStackCount(), MAX_UNLOCKED_ITEM_SLOTS);
+    if (state[0] !== unlockedSlots) {
+      state[0] = unlockedSlots;
+      changed = true;
+    }
+
+    let index = 1;
     for (let slot = 0; slot <= LAST_BACKPACK_SLOT; slot++) {
       const item = parent.GetItemInSlot(slot);
-      parts.push(
-        item ? `${item.entindex()}:${item.GetItemState()}:${item.IsActivated() ? 1 : 0}` : '-1',
-      );
+      const entIndex = item ? item.entindex() : -1;
+      const itemState = item ? item.GetItemState() : -1;
+      const activated = item && item.IsActivated() ? 1 : 0;
+      if (
+        state[index] !== entIndex ||
+        state[index + 1] !== itemState ||
+        state[index + 2] !== activated
+      ) {
+        state[index] = entIndex;
+        state[index + 1] = itemState;
+        state[index + 2] = activated;
+        changed = true;
+      }
+      index += 3;
     }
-    return parts.join('|');
+
+    return changed;
   }
 
   IsHidden(): boolean {

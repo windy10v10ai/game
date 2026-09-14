@@ -5,6 +5,7 @@ import {
   GetFullCastRange,
 } from '../ability/ability-cast';
 import { TargetSide } from '../ability/ability-spec';
+import { FRIENDLY_CREEP_SEARCH_RADIUS } from './action-find';
 import {
   CastCoindition,
   CheckAbilityConditionFailure,
@@ -47,7 +48,7 @@ export function TryCastBySpec(
   if (CheckNoEnemyBuildingInRangeFailure(ai, condition?.self?.noEnemyBuildingInRange)) {
     return false;
   }
-  if (CheckFriendlyCreepNearbyFailure(hero, condition?.self?.friendlyCreepNearby)) {
+  if (CheckFriendlyCreepNearbyFailure(ai, condition?.self?.friendlyCreepNearby)) {
     return false;
   }
   if (CheckCooldownTotalFailure(hero, castable, condition?.self?.cooldownTotal)) {
@@ -129,25 +130,36 @@ function CheckNoEnemyBuildingInRangeFailure(
 }
 
 function CheckFriendlyCreepNearbyFailure(
-  hero: CDOTA_BaseNPC_Hero,
+  ai: BotBaseAIModifier,
   friendlyCreepNearby: NonNullable<CastCoindition['self']>['friendlyCreepNearby'],
 ): boolean {
   if (friendlyCreepNearby === undefined) {
     return false;
   }
-  const range = friendlyCreepNearby.range ?? 900;
-  const creeps = FindUnitsInRadius(
-    hero.GetTeamNumber(),
-    hero.GetAbsOrigin(),
-    undefined,
-    range,
-    UnitTargetTeam.FRIENDLY,
-    UnitTargetType.CREEP,
-    UnitTargetFlags.NONE,
-    FindOrder.ANY,
-    false,
-  );
-  return CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count);
+  const hero = ai.GetHero();
+  const range = friendlyCreepNearby.range ?? FRIENDLY_CREEP_SEARCH_RADIUS;
+  if (range > FRIENDLY_CREEP_SEARCH_RADIUS) {
+    const creeps = FindUnitsInRadius(
+      hero.GetTeamNumber(),
+      hero.GetAbsOrigin(),
+      undefined,
+      range,
+      UnitTargetTeam.FRIENDLY,
+      UnitTargetType.CREEP,
+      UnitTargetFlags.NONE,
+      FindOrder.ANY,
+      false,
+    );
+    return CheckNumberRangeFailure(creeps.length, friendlyCreepNearby.count);
+  }
+
+  let count = 0;
+  for (const creep of ai.aroundFriendlyCreeps) {
+    if (creep.IsAlive() && hero.GetRangeToUnit(creep) <= range) {
+      count++;
+    }
+  }
+  return CheckNumberRangeFailure(count, friendlyCreepNearby.count);
 }
 
 /**
