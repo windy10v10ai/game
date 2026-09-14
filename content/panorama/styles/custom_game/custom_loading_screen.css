@@ -126,8 +126,8 @@
 }
 
 #LinkButtonContainer {
-  width: 470px;
-  height: fit-children;
+  width: 400px;
+  height: 250px;
   vertical-align: bottom;
   horizontal-align: center;
   margin-bottom: 120px;
@@ -146,12 +146,14 @@
 }
 .LinkButton {
   width: 100%;
+  height: 34px;
 }
 
-/* 与联动图原图尺寸一致，避免拉伸变形 */
+/* 联动图原图 470x260，在容器剩余高度内按原比例缩放，避免拉伸且不遮挡背景中央图标 */
 .LinkImg {
-  width: 470px;
-  height: 260px;
+  width: 390px;
+  height: 216px;
+  horizontal-align: center;
 }
 
 #ChatHideButtonContainer {
