@@ -35,10 +35,7 @@ const CREEP_DEFAULT_CONDITION: CastCoindition = {
   ability: { level: { gte: 3 } },
 };
 
-/**
- * 合并结果只由两个模块级常量决定，跨 tick 恒定；逐 tick 重算既是白做功，
- * 又要为中间对象反复触发 Lua 垃圾回收，因此按 spec 缓存。
- */
+/** 合并结果只由两个模块级常量决定，跨 tick 恒定，重算只会白白制造垃圾对象。 */
 const creepConditionCache = new Map<AbilitySpec, CastCoindition>();
 
 function GetCreepCondition(spec: AbilitySpec): CastCoindition {

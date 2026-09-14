@@ -178,7 +178,6 @@ export function FilterTargetWithCondition(
   const unitCondition = targetCondition?.unitCondition;
   const facing = targetCondition?.facing;
 
-  // 以下各值与候选单位无关，循环外只求一次
   const selfEntityIndex = excludeSelf ? self.GetEntityIndex() : -1;
   const healthCondition = ability ? unitCondition?.healthAbilityValue : undefined;
   let healthThreshold = 0;
@@ -191,8 +190,7 @@ export function FilterTargetWithCondition(
   }
 
   for (const unit of units) {
-    // 搜索半径远大于施法距离，多数候选都倒在距离这一关，而它只要一次引擎调用，
-    // 排在最前可以省掉后面成串的状态查询
+    // 搜索半径远大于施法距离，多数候选都倒在距离上，先筛距离可省掉后面成串的状态查询
     if (CheckNumberRangeFailure(self.GetRangeToUnit(unit), range)) {
       continue;
     }
