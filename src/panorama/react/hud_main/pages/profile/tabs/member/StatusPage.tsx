@@ -28,6 +28,7 @@ interface BenefitSectionProps {
   titleKey: string;
   active: boolean; // 权益是否已解锁（决定标题颜色和可点击性）
   isPremium?: boolean; // 是否高级专属区块（标题用金色）
+  canActivate: boolean; // 能否跳转开通页
   onActivate: () => void;
   children: React.ReactNode;
 }
@@ -36,6 +37,7 @@ function BenefitSection({
   titleKey,
   active,
   isPremium,
+  canActivate,
   onActivate,
   children,
 }: BenefitSectionProps) {
@@ -54,11 +56,11 @@ function BenefitSection({
   return (
     <ClickablePanel
       className={
-        active
+        active || !canActivate
           ? 'member-benefit-section'
           : 'member-benefit-section member-benefit-section-clickable'
       }
-      clickable={!active}
+      clickable={!active && canActivate}
       tooltipKey={tooltipKey}
       onActivate={onActivate}
     >
@@ -75,6 +77,7 @@ interface StatusPageProps {
   isNormalOnly: boolean; // 仅普通会员
   statusText: string;
   expireText: string;
+  canSubscribe: boolean; // 能否在游戏内开通会员
   onOpenSubscribe: () => void;
   refreshing: boolean;
   onRefresh: () => void;
@@ -87,6 +90,7 @@ export function StatusPage({
   isNormalOnly,
   statusText,
   expireText,
+  canSubscribe,
   onOpenSubscribe,
   refreshing,
   onRefresh,
@@ -94,14 +98,16 @@ export function StatusPage({
   const crownSrc = enable ? CROWN_GOLD : CROWN_GREY;
   const cardClass = enable
     ? 'member-status-card member-status-card-active'
-    : 'member-status-card member-status-card-inactive member-status-card-clickable';
+    : canSubscribe
+      ? 'member-status-card member-status-card-inactive member-status-card-clickable'
+      : 'member-status-card member-status-card-inactive';
 
   return (
     <Panel className="member-subpage">
       <Panel className="member-status-row">
         <ClickablePanel
           className={cardClass}
-          clickable={!enable}
+          clickable={!enable && canSubscribe}
           tooltipKey="#member_status_card_click_hint"
           onActivate={onOpenSubscribe}
         >
@@ -121,12 +127,19 @@ export function StatusPage({
         </Button>
       </Panel>
 
+      <Label
+        className="member-offline-hint"
+        style={{ visibility: canSubscribe ? 'collapse' : 'visible' }}
+        text={$.Localize('#member_offline_hint')}
+      />
+
       <Panel className="member-benefits-container">
         {isNormalOnly ? (
           <>
             <BenefitSection
               titleKey="#member_benefit_title_base"
               active={hasBaseBenefit}
+              canActivate={canSubscribe}
               onActivate={onOpenSubscribe}
             >
               <BenefitItem textKey="#member_benefit_exp_normal" active={hasBaseBenefit} />
@@ -141,6 +154,7 @@ export function StatusPage({
               titleKey="#member_benefit_title_premium"
               active={isPremium}
               isPremium
+              canActivate={canSubscribe}
               onActivate={onOpenSubscribe}
             >
               <BenefitItem textKey="#member_benefit_exp_premium" active={isPremium} isPremium />
@@ -152,11 +166,11 @@ export function StatusPage({
         ) : (
           <ClickablePanel
             className={
-              hasBaseBenefit
+              hasBaseBenefit || !canSubscribe
                 ? 'member-benefit-section'
                 : 'member-benefit-section member-benefit-section-clickable'
             }
-            clickable={!hasBaseBenefit}
+            clickable={!hasBaseBenefit && canSubscribe}
             tooltipKey="#member_status_card_click_hint"
             onActivate={onOpenSubscribe}
           >

@@ -4,7 +4,6 @@ import {
   GetPaymentPlatformOrder,
   PaymentPlatform,
 } from '@utils/utils';
-import { useDataOffline } from '../../../../../shared/hooks/useDataOffline';
 import { AlipayCardItem, AlipaySubscribeCard } from './alipay';
 import {
   AFDIAN_ACTIVATE_URL,
@@ -31,9 +30,7 @@ const defaultTier = (platform: MembershipPlatform) => MEMBERSHIP_PLATFORMS[platf
 
 export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: SubscribePageProps) {
   const steamId = GetLocalPlayerSteamAccountID();
-  const offline = useDataOffline();
-  // 支付宝下单要经服务端，读不到服务端时点了必定没有反应
-  const order = GetPaymentPlatformOrder().filter((p) => !offline || p !== 'alipay');
+  const order = GetPaymentPlatformOrder();
   const [expanded, setExpanded] = useState(false);
 
   const alipayItems: AlipayCardItem[] = MEMBERSHIP_PLATFORMS.alipay.tiers.map((tier) => ({
@@ -117,11 +114,6 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
             />
           </Panel>
           <Label className="member-subscribe-hint" text={$.Localize('#member_subscribe_hint')} />
-          <Label
-            className="member-subscribe-offline-hint"
-            style={{ visibility: offline ? 'visible' : 'collapse' }}
-            text={$.Localize('#member_subscribe_offline_hint')}
-          />
           {isNormalOnly && (
             <Label
               className="member-subscribe-upgrade-hint"
@@ -155,7 +147,7 @@ export function SubscribePage({ isNormalOnly, refreshing, onRefresh }: Subscribe
       {/* 其他支付方式：展开第 3 张，展开后按钮消失 */}
       <Panel
         className="member-other-payment-row"
-        style={{ visibility: expanded || order.length <= 2 ? 'collapse' : 'visible' }}
+        style={{ visibility: expanded ? 'collapse' : 'visible' }}
       >
         <Button className="member-other-payment-btn" onactivate={() => setExpanded(true)}>
           <Label

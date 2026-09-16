@@ -405,7 +405,7 @@
 		"member_steam_id"						"Dota2 Friend ID: "
 		"member_steam_id_select_hint"			"(select to copy)"
 		"member_subscribe_hint"					"For Afdian or Ko-fi, fill in your Friend ID above in the order remark, not required for Alipay."
-		"member_subscribe_offline_hint"			"Membership data cannot be read in game right now. A new subscription will not take effect in game yet, but it is recorded on the website and will apply once service is restored."
+		"member_offline_hint"					"Subscribing and buying points are unavailable in game for now. Please use the website instead, and they will apply in game once service is restored."
 		"member_subscribe_title"				"Subscribe Premium"
 		"member_subscribe_normal_upgrade_hint"	"You are a Normal Member. Remaining time will be converted at 0.6x when upgrading to Premium."
 		"member_platform_alipay"				"Alipay"
