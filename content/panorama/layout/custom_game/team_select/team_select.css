@@ -88,6 +88,8 @@
   padding: 10px;
 }
 #GameLoadingStatus {
+  /* 状态条内文字按剩余宽度折行，面板宽度随内容时两者循环依赖，会算出 0 宽把布局撑高 */
+  width: 100%;
   flow-children: down;
   padding: 20px;
   min-height: 100px;
