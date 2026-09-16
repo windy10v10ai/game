@@ -488,11 +488,10 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 ### 设计文档位置
 
-需要进版本控制、长期留档的设计文档统一放 `docs/design/<主题>/<阶段>.md`：
+设计文档统一放 `docs/superpowers/specs/<YYYY-MM-DD>-<主题>-<用途>.md`，**只在本地留档，不进版本控制**（`docs/superpowers/` 整个目录已被 gitignore）：
 
-- `<主题>` 一个目录，同主题的总体策略与各阶段设计都放在里面（如 `docs/design/local-host/`）
-- 总体策略用 `README.md`，分阶段设计用阶段名（如 `phase1-game.md`）
-- 与 `docs/superpowers/` 区分：后者是 brainstorming skill 的本地临时产出，已被 gitignore，不进版本控制
+- `<用途>` 区分同主题的多篇，方案设计用 `design`，实现记录用具体范围（如 `game-read`）
+- 不要新建 `docs/design/`，该目录已废弃删除
 
 ## Git 工作流
 

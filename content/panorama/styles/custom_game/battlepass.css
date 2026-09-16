@@ -190,77 +190,31 @@ TextEntry.MonoFont {
   text-overflow: shrink;
 }
 
-#LoadingFail {
-  height: 100%;
+/* 离线模式是正常的只读状态而非故障：石板蓝灰配灰色状态点，贴顶跟随窗口圆角 */
+#OfflineHint {
   width: 100%;
-  horizontal-align: center;
-  vertical-align: center;
-  flow-children: down;
+  flow-children: right;
+  padding: 6px 14px;
+  background-color: #4a5a6e4d;
+  border-bottom: 1px solid #7a8ca0;
+  border-radius: 15px 15px 0px 0px;
   visibility: collapse;
 }
-#LoadingFailLabel {
-  width: 90%;
-  horizontal-align: center;
-  margin-top: 18%;
-  color: white;
-  font-size: 24px;
-  text-align: center;
-  white-space: normal;
-}
-#LoadingFailConsoleHint {
-  width: 90%;
-  horizontal-align: center;
-  margin-top: 24px;
-  color: #c3cdd8;
-  font-size: 18px;
-  text-align: center;
-  white-space: normal;
-}
-#LoadingFailCommand {
-  width: 90%;
-  height: 32px;
-  horizontal-align: center;
-  margin-top: 10px;
-  padding: 0px 10px;
-  background-color: #0d0f12;
-  border: 1px solid #3a4048;
-  border-radius: 3px;
-  color: #8fd3a8;
-  font-size: 18px;
-}
-#LoadingFailActionRow {
-  horizontal-align: center;
-  margin-top: 10px;
-  flow-children: right;
-}
-/* ButtonBevel 自带 min-width，不压掉会撑成整行宽的大按钮 */
-#LoadingFailSelectButton {
-  width: fit-children;
-  min-width: 0px;
-  height: 30px;
-  padding: 0px 16px;
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a5f2e), to(#4a3818));
-  border: 1px solid #c9a55c;
-  border-radius: 3px;
-}
-#LoadingFailSelectButton:hover {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#9a7838), to(#5f4820));
-  box-shadow: #00000088 0px 0px 10px 0px;
-}
-#LoadingFailSelectButton:active {
-  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a3818), to(#7a5f2e));
-}
-#LoadingFailSelectLabel {
+#OfflineHintDot {
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
   vertical-align: center;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: bold;
+  border-radius: 50%;
+  background-color: #7a8ca0;
+  box-shadow: #7a8ca055 0px 0px 3px 1px;
 }
-#LoadingFailCopyHint {
-  margin-left: 10px;
+#OfflineHintLabel {
+  width: fill-parent-flow(1);
   vertical-align: center;
-  color: #e8c07d;
-  font-size: 16px;
+  color: #d6dee8;
+  font-size: 15px;
+  white-space: normal;
 }
 .AspectRatio4x3 #BPWindow {
   width: 54%;
