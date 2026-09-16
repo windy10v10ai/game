@@ -83,7 +83,8 @@
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
 		"loading_status_2"				"Player data loaded successfully!"
-		"loading_status_3"				"Player data loading failed! This could be for a number of reasons, such as the game not hosted on a dedicated server, the data servers not being available, or if you are spectating a game."
+		"loading_status_3"				"The Dota 2 update prevents custom games from reading player data. Membership, attribute points and hero awakening will not apply this game. We are working on it."
+		"offline_data_hint"				"The Dota 2 update prevents custom games from reading server data. Membership, attributes and hero awakening cannot be shown for now. Your data on the website is unaffected."
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this action is not available on a local host. Click to do it on the website."
 		"website_local_host_notice"		"Attributes and awakening cannot be upgraded on a local host. Sign in with Steam on the windy10v10ai website to do it, then click the in-game Refresh button to sync."
 		"website_open_button"				"Open Website"
@@ -404,6 +405,7 @@
 		"member_steam_id"						"Dota2 Friend ID: "
 		"member_steam_id_select_hint"			"(select to copy)"
 		"member_subscribe_hint"					"For Afdian or Ko-fi, fill in your Friend ID above in the order remark, not required for Alipay."
+		"member_subscribe_offline_hint"			"Membership data cannot be read in game right now. A new subscription will not take effect in game yet, but it is recorded on the website and will apply once service is restored."
 		"member_subscribe_title"				"Subscribe Premium"
 		"member_subscribe_normal_upgrade_hint"	"You are a Normal Member. Remaining time will be converted at 0.6x when upgrading to Premium."
 		"member_platform_alipay"				"Alipay"

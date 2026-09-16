@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { TabNavigation } from '../../../shared/components';
+import { useDataOffline } from '../../../shared/hooks/useDataOffline';
 import { useNetTable } from '../../../shared/hooks/useNetTable';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { useNavigation } from '../../store/NavigationContext';
@@ -27,6 +28,10 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
   const [tab, subTab] = initialTab.split(':');
   const [currentTab, setCurrentTab] = useState<ProfileTabId>(tab as ProfileTabId);
   const { closePage } = useNavigation();
+  const offline = useDataOffline();
+  // 每日任务的奖励要靠局末结算发放，读不到服务端时做完也拿不到，直接不展示
+  const tabs = offline ? PROFILE_TABS.filter((t) => t.id !== 'dailytask') : PROFILE_TABS;
+  const activeTab = offline && currentTab === 'dailytask' ? 'stats' : currentTab;
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
   const seasonPointTotal = player?.seasonPointTotal ?? 0;
@@ -109,17 +114,24 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
           <Button className="btn-close" onactivate={closePage} />
         </Panel>
 
+        <Panel
+          className="profile-offline-hint"
+          style={{ visibility: offline ? 'visible' : 'collapse' }}
+        >
+          <Label className="profile-offline-hint-label" text={$.Localize('#offline_data_hint')} />
+        </Panel>
+
         <Panel className="tab-nav-wrapper">
-          <TabNavigation tabs={PROFILE_TABS} currentTab={currentTab} onTabChange={setCurrentTab} />
+          <TabNavigation tabs={tabs} currentTab={activeTab} onTabChange={setCurrentTab} />
         </Panel>
 
         <Panel className="content-area">
-          {currentTab === 'stats' && <StatsTab />}
-          {currentTab === 'awaken' && <AwakenTab />}
-          {currentTab === 'member' && (
+          {activeTab === 'stats' && <StatsTab />}
+          {activeTab === 'awaken' && <AwakenTab />}
+          {activeTab === 'member' && (
             <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
           )}
-          {currentTab === 'dailytask' && <DailyTaskTab />}
+          {activeTab === 'dailytask' && <DailyTaskTab />}
         </Panel>
       </Panel>
     </Panel>
