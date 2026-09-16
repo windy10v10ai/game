@@ -82,8 +82,8 @@
 		"map_custom_warning"			"Current map cannot select this difficulty. <br>To select Custom difficulty, please select the 'custom' map before starting the game."
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
-		"loading_status_2"				"Player data loaded successfully!"
-		"loading_status_3"				"Offline mode. Points from this game will not be recorded.\nMembership, attributes and awakening use data as of {date}."
+		"loading_status_2"				"Online mode. Player data loaded successfully."
+		"loading_status_3"				"Offline mode. Points from this game will not be recorded.\nAttributes, awakening and membership use data as of {date}."
 		"offline_data_hint"				"Offline mode, data as of {date}. Upgrade attributes and awaken heroes on the website. Changes apply after the next map update."
 		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
 		"console_launch_title"			"How to start online mode"

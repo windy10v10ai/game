@@ -82,8 +82,8 @@
 		"map_custom_warning"			"当前地图无法选择此难度。<br>想选择自定义难度时，请在游戏开始前选择 [Custom] 地图"
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
-		"loading_status_2"				"玩家数据加载成功！"
-		"loading_status_3"				"离线模式，本局积分不会记录。\n会员，属性与觉醒沿用 {date} 的数据。"
+		"loading_status_2"				"在线模式，玩家数据加载成功。"
+		"loading_status_3"				"离线模式，本局积分不会记录。\n属性，觉醒与会员沿用 {date} 的数据。"
 		"offline_data_hint"				"离线模式，数据截至 {date}。加点与觉醒请前往网站操作，下次地图更新后生效。"
 		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
 		"console_launch_title"			"在线模式启动说明"

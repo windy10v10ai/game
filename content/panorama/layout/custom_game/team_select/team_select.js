@@ -274,16 +274,10 @@ function OnGameLoadingStatusChange(table, key, value) {
       '{date}',
       value.snapshotDate || '-',
     );
-    if (status === 1) {
-      $('#GameLoadingStatusText').style.color = '#FD841F';
-    }
-    if (status === 2) {
-      $('#GameLoadingStatusText').style.color = '#5DA7DB';
-    }
-    // 读到离线数据属于正常的只读模式，不是加载失败，不用警示红
-    if (status === 3) {
-      $('#GameLoadingStatusText').style.color = '#F5A623';
-    }
+    const statusPanel = $('#GameLoadingStatus');
+    statusPanel.SetHasClass('Loading', status === 1);
+    statusPanel.SetHasClass('Online', status === 2);
+    statusPanel.SetHasClass('Offline', status === 3);
   }
 }
 
