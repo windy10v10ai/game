@@ -70,17 +70,24 @@ function ShowLoadingFAQ() {
 var ADDON_WORKSHOP_ID = 2307479570;
 
 // 地图名同时是 dota_launch_custom_game 的难度参数，玩家看到的始终是本局这一条
-var g_consoleLaunchCommand = '';
+// map_name 形如 maps/dota.vpk，命令参数要的是去掉路径与后缀的地图名
+function GetConsoleLaunchCommand() {
+  var mapPath = Game.GetMapInfo().map_name;
+  if (!mapPath) {
+    return '';
+  }
+  var mapName = mapPath.split('/').pop().split('.')[0];
+  return 'dota_launch_custom_game ' + ADDON_WORKSHOP_ID + ' ' + mapName;
+}
 
 function ShowConsoleLaunchCommand() {
-  var mapName = Game.GetMapInfo().map_name;
+  var command = GetConsoleLaunchCommand();
   // 加载界面早期 map info 还没填充，等有值再写入
-  if (!mapName) {
+  if (!command) {
     $.Schedule(0.5, ShowConsoleLaunchCommand);
     return;
   }
-  g_consoleLaunchCommand = 'dota_launch_custom_game ' + ADDON_WORKSHOP_ID + ' ' + mapName;
-  $('#ConsoleLaunchCommand').text = g_consoleLaunchCommand;
+  $('#ConsoleLaunchCommand').text = command;
 }
 
 // Panorama 没有剪贴板接口，只能把命令选中后交给玩家自己按 Ctrl+C
@@ -94,9 +101,10 @@ function SelectConsoleCommand() {
 // TextEntry 是可编辑的，改动后立刻还原，避免玩家复制到残缺命令
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function RestoreConsoleCommand() {
+  var command = GetConsoleLaunchCommand();
   var entry = $('#ConsoleLaunchCommand');
-  if (entry.text !== g_consoleLaunchCommand) {
-    entry.text = g_consoleLaunchCommand;
+  if (command && entry.text !== command) {
+    entry.text = command;
   }
 }
 

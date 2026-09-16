@@ -93,7 +93,7 @@
 		"console_launch_step_4"			"4. 输入下面的命令启动游戏"
 		"console_launch_ingame_hint"	"下次开局前在控制台输入以下命令启动，数据即可正常读取"
 		"console_launch_select_button"	"选中命令"
-		"console_launch_copy_hint"		"再按 Ctrl+C"
+		"console_launch_copy_hint"		"按 Ctrl+C 复制"
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，本地主机无法进行该操作，点击前往网站操作。"
 		"website_local_host_notice"		"本地主机无法升级属性和觉醒。请前往 windy10v10ai 官网用 Steam 登录后操作，完成后点击游戏内刷新按钮即可同步。"
 		"website_open_button"				"前往网站"

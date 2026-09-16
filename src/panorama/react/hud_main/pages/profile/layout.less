@@ -133,13 +133,13 @@
 
 .profile-offline-hint-lead {
   vertical-align: center;
-  color: @color-text-muted;
-  font-size: 14px;
+  color: @color-text;
+  font-size: 15px;
 }
 
 .profile-offline-hint-command {
-  width: 340px;
-  height: 26px;
+  width: 360px;
+  height: 28px;
   vertical-align: center;
   margin-left: 8px;
   padding: 0px 8px;
@@ -147,31 +147,40 @@
   border: 1px solid @color-danger;
   border-radius: 3px;
   color: #8fd3a8;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .profile-offline-hint-select {
-  height: 26px;
+  width: fit-children;
+  min-width: 0px;
+  height: 28px;
   vertical-align: center;
   margin-left: 8px;
-  padding: 0px 12px;
+  padding: 0px 14px;
   background-color: @color-danger;
+  border: 1px solid lighten(@color-danger, 15%);
   border-radius: 3px;
 }
 
 .profile-offline-hint-select:hover {
   background-color: lighten(@color-danger, 10%);
+  box-shadow: #00000088 0px 0px 10px 0px;
+}
+
+.profile-offline-hint-select:active {
+  background-color: darken(@color-danger, 10%);
 }
 
 .profile-offline-hint-select-label {
   vertical-align: center;
   color: @color-text;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .profile-offline-hint-copy {
   vertical-align: center;
   margin-left: 8px;
-  color: @color-text-muted;
-  font-size: 13px;
+  color: @color-gold;
+  font-size: 15px;
 }

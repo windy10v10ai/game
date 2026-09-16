@@ -108,19 +108,32 @@
   width: fit-children;
   min-width: 0px;
   height: 28px;
-  padding: 0px 12px;
+  padding: 0px 14px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a5f2e), to(#4a3818));
+  border: 1px solid #c9a55c;
+  border-radius: 3px;
+}
+
+#ConsoleLaunchSelectButton:hover {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#9a7838), to(#5f4820));
+  box-shadow: #00000088 0px 0px 10px 0px;
+}
+
+#ConsoleLaunchSelectButton:active {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a3818), to(#7a5f2e));
 }
 
 #ConsoleLaunchSelectLabel {
   vertical-align: center;
   color: #ffffff;
   font-size: 15px;
+  font-weight: bold;
 }
 
 #ConsoleLaunchCopyHint {
   margin-left: 10px;
   vertical-align: center;
-  color: #9aa4ae;
+  color: #e8c07d;
   font-size: 15px;
 }
 

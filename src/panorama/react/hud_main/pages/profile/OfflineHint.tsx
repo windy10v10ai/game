@@ -10,7 +10,9 @@ interface OfflineHintProps {
 /** 服务端数据不可达时的降级提示，附带下一局可用的控制台启动命令。 */
 export function OfflineHint({ visible }: OfflineHintProps) {
   // 地图名同时是 dota_launch_custom_game 的难度参数，玩家看到的始终是本局这一条
-  const command = `dota_launch_custom_game ${ADDON_WORKSHOP_ID} ${Game.GetMapInfo().map_name}`;
+  // map_name 形如 maps/dota.vpk，命令参数要的是去掉路径与后缀的地图名
+  const mapName = Game.GetMapInfo().map_name.split('/').pop()?.split('.')[0] ?? '';
+  const command = `dota_launch_custom_game ${ADDON_WORKSHOP_ID} ${mapName}`;
 
   // Panorama 没有剪贴板接口，只能把命令选中后交给玩家自己按 Ctrl+C
   const selectCommand = (button: Panel) => {

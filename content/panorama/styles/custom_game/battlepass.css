@@ -233,19 +233,33 @@ TextEntry.MonoFont {
   margin-top: 10px;
   flow-children: right;
 }
+/* ButtonBevel 自带 min-width，不压掉会撑成整行宽的大按钮 */
 #LoadingFailSelectButton {
+  width: fit-children;
+  min-width: 0px;
   height: 30px;
-  padding: 0px 14px;
+  padding: 0px 16px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a5f2e), to(#4a3818));
+  border: 1px solid #c9a55c;
+  border-radius: 3px;
+}
+#LoadingFailSelectButton:hover {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#9a7838), to(#5f4820));
+  box-shadow: #00000088 0px 0px 10px 0px;
+}
+#LoadingFailSelectButton:active {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a3818), to(#7a5f2e));
 }
 #LoadingFailSelectLabel {
   vertical-align: center;
   color: #ffffff;
   font-size: 16px;
+  font-weight: bold;
 }
 #LoadingFailCopyHint {
   margin-left: 10px;
   vertical-align: center;
-  color: #9aa4ae;
+  color: #e8c07d;
   font-size: 16px;
 }
 .AspectRatio4x3 #BPWindow {
