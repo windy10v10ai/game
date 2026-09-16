@@ -195,14 +195,58 @@ TextEntry.MonoFont {
   width: 100%;
   horizontal-align: center;
   vertical-align: center;
+  flow-children: down;
   visibility: collapse;
 }
 #LoadingFailLabel {
+  width: 90%;
   horizontal-align: center;
-  vertical-align: center;
+  margin-top: 18%;
   color: white;
   font-size: 24px;
-  margin: 5%;
+  text-align: center;
+  white-space: normal;
+}
+#LoadingFailConsoleHint {
+  width: 90%;
+  horizontal-align: center;
+  margin-top: 24px;
+  color: #c3cdd8;
+  font-size: 18px;
+  text-align: center;
+  white-space: normal;
+}
+#LoadingFailCommand {
+  width: 90%;
+  height: 32px;
+  horizontal-align: center;
+  margin-top: 10px;
+  padding: 0px 10px;
+  background-color: #0d0f12;
+  border: 1px solid #3a4048;
+  border-radius: 3px;
+  color: #8fd3a8;
+  font-size: 18px;
+}
+#LoadingFailActionRow {
+  horizontal-align: center;
+  margin-top: 10px;
+  flow-children: right;
+}
+#LoadingFailSelectButton {
+  height: 30px;
+  padding: 0px 14px;
+}
+#LoadingFailSelectLabel {
+  vertical-align: center;
+  color: #ffffff;
+  font-size: 16px;
+}
+#LoadingFailCopyHint {
+  margin-left: 10px;
+  vertical-align: center;
+  color: #9aa4ae;
+  font-size: 16px;
 }
 .AspectRatio4x3 #BPWindow {
   width: 54%;

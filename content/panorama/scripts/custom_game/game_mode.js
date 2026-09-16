@@ -67,6 +67,34 @@ function ShowLoadingFAQ() {
   $('#LoadingFaqAnswer').text = $.Localize('#' + entryKey + '_answer');
 }
 
+var ADDON_WORKSHOP_ID = 2307479570;
+
+// 地图名同时是 dota_launch_custom_game 的难度参数，玩家看到的始终是本局这一条
+var g_consoleLaunchCommand = '';
+
+function ShowConsoleLaunchCommand() {
+  g_consoleLaunchCommand =
+    'dota_launch_custom_game ' + ADDON_WORKSHOP_ID + ' ' + Game.GetMapInfo().map_display_name;
+  $('#ConsoleLaunchCommand').text = g_consoleLaunchCommand;
+}
+
+// Panorama 没有剪贴板接口，只能把命令选中后交给玩家自己按 Ctrl+C
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function SelectConsoleCommand() {
+  var entry = $('#ConsoleLaunchCommand');
+  entry.SetFocus();
+  entry.SelectAll();
+}
+
+// TextEntry 是可编辑的，改动后立刻还原，避免玩家复制到残缺命令
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function RestoreConsoleCommand() {
+  var entry = $('#ConsoleLaunchCommand');
+  if (entry.text !== g_consoleLaunchCommand) {
+    entry.text = g_consoleLaunchCommand;
+  }
+}
+
 function CheckForHostPrivileges() {
   var player_info = Game.GetLocalPlayerInfo();
   if (!player_info) {
@@ -538,6 +566,7 @@ function SendPlayerLanguage() {
   }
   LockOption();
   ShowLoadingFAQ();
+  ShowConsoleLaunchCommand();
   // 游戏选择项目table监听
   CustomNetTables.SubscribeNetTableListener('game_options', ShowGameOptionsChange);
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);

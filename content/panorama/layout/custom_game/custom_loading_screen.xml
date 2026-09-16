@@ -239,9 +239,27 @@
 					<Label id="ChatHideButtonLabelShow" class="ChatHideButtonLabel" text="#show_chat_team" />
 				</Button>
 			</Panel>
-			<Panel id="LoadingFaqPanel" hittest="false">
-				<Label id="LoadingFaqQuestion" />
-				<Label id="LoadingFaqAnswer" />
+			<Panel id="LoadingRightColumn">
+				<Panel id="LoadingFaqPanel" hittest="false">
+					<Label id="LoadingFaqQuestion" />
+					<Label id="LoadingFaqAnswer" />
+				</Panel>
+				<!-- 控制台启动说明：游廊直接开局读不到玩家数据，固定展示不等加载失败 -->
+				<Panel id="ConsoleLaunchPanel">
+					<Label id="ConsoleLaunchTitle" text="#console_launch_title" />
+					<Label id="ConsoleLaunchDesc" text="#console_launch_desc" />
+					<Label class="ConsoleLaunchStep" text="#console_launch_step_1" />
+					<Label class="ConsoleLaunchStep" text="#console_launch_step_2" />
+					<Label class="ConsoleLaunchStep" text="#console_launch_step_3" />
+					<Label class="ConsoleLaunchStep" text="#console_launch_step_4" />
+					<TextEntry id="ConsoleLaunchCommand" ontextentrychange="RestoreConsoleCommand()" />
+					<Panel id="ConsoleLaunchActionRow">
+						<Button id="ConsoleLaunchSelectButton" class="ButtonBevel" onactivate="SelectConsoleCommand()">
+							<Label id="ConsoleLaunchSelectLabel" text="#console_launch_select_button" />
+						</Button>
+						<Label id="ConsoleLaunchCopyHint" text="#console_launch_copy_hint" />
+					</Panel>
+				</Panel>
 			</Panel>
 		</Panel>
 	</Panel>

@@ -15,11 +15,17 @@
   background-size: 100% 100%;
 }
 
-#LoadingFaqPanel {
+/* FAQ 与控制台说明共用一列，让后者跟随 FAQ 的实际高度往下排 */
+#LoadingRightColumn {
   width: 460px;
   horizontal-align: right;
   margin-top: 38px;
   margin-right: 460px;
+  flow-children: down;
+}
+
+#LoadingFaqPanel {
+  width: 100%;
   flow-children: down;
 }
 
@@ -40,6 +46,79 @@
   line-height: 22px;
   white-space: normal;
   text-shadow: 1px 1px 2px #000000cc;
+}
+
+#ConsoleLaunchPanel {
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px 14px;
+  background-color: #0a0c0fcc;
+  border: 1px solid #8a6a32;
+  border-radius: 4px;
+  flow-children: down;
+}
+
+#ConsoleLaunchTitle {
+  width: 100%;
+  color: #e8c07d;
+  font-size: 17px;
+  font-weight: bold;
+  white-space: normal;
+  text-shadow: 1px 1px 2px #000000cc;
+}
+
+#ConsoleLaunchDesc {
+  width: 100%;
+  margin-top: 6px;
+  color: #dfe8f2;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: normal;
+}
+
+.ConsoleLaunchStep {
+  width: 100%;
+  margin-top: 4px;
+  color: #c3cdd8;
+  font-size: 14px;
+  line-height: 19px;
+  white-space: normal;
+}
+
+#ConsoleLaunchCommand {
+  width: 100%;
+  height: 28px;
+  margin-top: 9px;
+  padding: 0px 8px;
+  background-color: #0d0f12;
+  border: 1px solid #3a4048;
+  border-radius: 3px;
+  color: #8fd3a8;
+  font-size: 14px;
+}
+
+#ConsoleLaunchActionRow {
+  width: 100%;
+  margin-top: 8px;
+  flow-children: right;
+}
+
+#ConsoleLaunchSelectButton {
+  height: 26px;
+  padding: 0px 12px;
+}
+
+#ConsoleLaunchSelectLabel {
+  vertical-align: center;
+  color: #ffffff;
+  font-size: 13px;
+}
+
+#ConsoleLaunchCopyHint {
+  margin-left: 10px;
+  vertical-align: center;
+  color: #9aa4ae;
+  font-size: 13px;
 }
 
 #game_options_container {

@@ -27,6 +27,11 @@
   box-shadow: 0px 8px 32px 0px #00000088;
 }
 
+/* 离线横幅占掉两行，加高避免把内容区压到 min-height 以下撑破外框 */
+.profile-modal-offline {
+  height: 78%;
+}
+
 /* ========== 标题栏积分 ========== */
 .profile-header-points {
   flow-children: right;
@@ -106,7 +111,7 @@
 /* ========== 服务端数据不可用提示 ========== */
 .profile-offline-hint {
   width: 100%;
-  flow-children: right;
+  flow-children: down;
   padding: @spacing-sm @spacing-md;
   background-color: @color-danger-soft;
   border-bottom: 1px solid @color-danger;
@@ -118,4 +123,55 @@
   text-align: center;
   color: @color-text;
   font-size: 15px;
+}
+
+.profile-offline-hint-row {
+  horizontal-align: center;
+  margin-top: 7px;
+  flow-children: right;
+}
+
+.profile-offline-hint-lead {
+  vertical-align: center;
+  color: @color-text-muted;
+  font-size: 14px;
+}
+
+.profile-offline-hint-command {
+  width: 340px;
+  height: 26px;
+  vertical-align: center;
+  margin-left: 8px;
+  padding: 0px 8px;
+  background-color: #0d0f12;
+  border: 1px solid @color-danger;
+  border-radius: 3px;
+  color: #8fd3a8;
+  font-size: 14px;
+}
+
+.profile-offline-hint-select {
+  height: 26px;
+  vertical-align: center;
+  margin-left: 8px;
+  padding: 0px 12px;
+  background-color: @color-danger;
+  border-radius: 3px;
+}
+
+.profile-offline-hint-select:hover {
+  background-color: lighten(@color-danger, 10%);
+}
+
+.profile-offline-hint-select-label {
+  vertical-align: center;
+  color: @color-text;
+  font-size: 13px;
+}
+
+.profile-offline-hint-copy {
+  vertical-align: center;
+  margin-left: 8px;
+  color: @color-text-muted;
+  font-size: 13px;
 }

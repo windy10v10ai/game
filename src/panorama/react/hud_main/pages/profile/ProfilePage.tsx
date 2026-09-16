@@ -9,6 +9,7 @@ import { AwakenTab } from './tabs/AwakenTab';
 import { MemberTab } from './tabs/member';
 import { MemberSubTab } from './tabs/member/constants';
 import { DailyTaskTab } from './tabs/dailytask';
+import { OfflineHint } from './OfflineHint';
 
 export type ProfileTabId = 'stats' | 'awaken' | 'member' | 'dailytask';
 
@@ -43,7 +44,11 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
 
   return (
     <Panel className="profile-overlay" onactivate={closePage}>
-      <Panel className="modal-panel profile-modal" hittest={true} onactivate={() => {}}>
+      <Panel
+        className={`modal-panel profile-modal ${offline ? 'profile-modal-offline' : ''}`}
+        hittest={true}
+        onactivate={() => {}}
+      >
         <Panel className="modal-header">
           <Label className="modal-title" text={$.Localize('#profile_title')} />
           <Panel className="profile-header-points">
@@ -114,12 +119,7 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
           <Button className="btn-close" onactivate={closePage} />
         </Panel>
 
-        <Panel
-          className="profile-offline-hint"
-          style={{ visibility: offline ? 'visible' : 'collapse' }}
-        >
-          <Label className="profile-offline-hint-label" text={$.Localize('#offline_data_hint')} />
-        </Panel>
+        <OfflineHint visible={offline} />
 
         <Panel className="tab-nav-wrapper">
           <TabNavigation tabs={tabs} currentTab={activeTab} onTabChange={setCurrentTab} />
