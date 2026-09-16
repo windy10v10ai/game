@@ -80,6 +80,7 @@ interface StatusPageProps {
   canSubscribe: boolean; // 能否在游戏内开通会员
   onOpenSubscribe: () => void;
   refreshing: boolean;
+  canRefresh: boolean;
   onRefresh: () => void;
 }
 
@@ -93,6 +94,7 @@ export function StatusPage({
   canSubscribe,
   onOpenSubscribe,
   refreshing,
+  canRefresh,
   onRefresh,
 }: StatusPageProps) {
   const crownSrc = enable ? CROWN_GOLD : CROWN_GREY;
@@ -121,17 +123,12 @@ export function StatusPage({
           className={
             refreshing ? 'member-refresh-btn member-refresh-btn-loading' : 'member-refresh-btn'
           }
+          style={{ visibility: canRefresh ? 'visible' : 'collapse' }}
           onactivate={onRefresh}
         >
           <Label className="member-refresh-label" text={$.Localize('#member_refresh')} />
         </Button>
       </Panel>
-
-      <Label
-        className="member-offline-hint"
-        style={{ visibility: canSubscribe ? 'collapse' : 'visible' }}
-        text={$.Localize('#member_offline_hint')}
-      />
 
       <Panel className="member-benefits-container">
         {isNormalOnly ? (

@@ -23,7 +23,7 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
     lastMemberSubTab = next;
     setSubTabRaw(next);
   };
-  const { refreshing, refresh: handleRefresh } = usePlayerInfoRefresh();
+  const { refreshing, refresh: handleRefresh, canRefresh } = usePlayerInfoRefresh();
   // 开通与购买都要经服务端下单，读不到服务端时只留状态页
   const offline = useDataOffline();
   const subTabs = offline ? MEMBER_SUB_TABS.filter((t) => t.id === 'status') : MEMBER_SUB_TABS;
@@ -71,6 +71,7 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
             canSubscribe={!offline}
             onOpenSubscribe={() => setSubTab('subscribe')}
             refreshing={refreshing}
+            canRefresh={canRefresh}
             onRefresh={handleRefresh}
           />
         )}
