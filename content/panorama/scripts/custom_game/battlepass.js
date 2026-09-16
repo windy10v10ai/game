@@ -1,5 +1,6 @@
 const RESET_PROPERTY_SEASON_POINT_COST = 2000;
 const WEBSITE_URL = 'https://windy10v10ai.com';
+const ADDON_WORKSHOP_ID = 2307479570;
 // 请求失败时 net table 不会更新，超时后也要恢复刷新按钮
 const PLAYER_INFO_REFRESH_TIMEOUT_S = 5;
 let playerInfoRefreshing = false;
@@ -44,6 +45,7 @@ function PlayerDataLoaded(player) {
   $('#LoadingFail').visible = player == null;
 
   if (player == null) {
+    ShowConsoleLaunchCommand();
     return;
   }
 
@@ -731,4 +733,37 @@ function GetDotaHud() {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FindDotaHudElement(id) {
   return GetDotaHud().FindChildTraverse(id);
+}
+
+// 地图名同时是 dota_launch_custom_game 的难度参数，玩家看到的始终是本局这一条
+// map_name 形如 maps/dota.vpk，命令参数要的是去掉路径与后缀的地图名
+function GetConsoleLaunchCommand() {
+  const mapPath = Game.GetMapInfo().map_name;
+  if (!mapPath) {
+    return '';
+  }
+  const mapName = mapPath.split('/').pop().split('.')[0];
+  return `dota_launch_custom_game ${ADDON_WORKSHOP_ID} ${mapName}`;
+}
+
+function ShowConsoleLaunchCommand() {
+  $('#LoadingFailCommand').text = GetConsoleLaunchCommand();
+}
+
+// Panorama 没有剪贴板接口，只能把命令选中后交给玩家自己按 Ctrl+C
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function SelectConsoleCommand() {
+  const entry = $('#LoadingFailCommand');
+  entry.SetFocus();
+  entry.SelectAll();
+}
+
+// TextEntry 是可编辑的，改动后立刻还原，避免玩家复制到残缺命令
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function RestoreConsoleCommand() {
+  const command = GetConsoleLaunchCommand();
+  const entry = $('#LoadingFailCommand');
+  if (command && entry.text !== command) {
+    entry.text = command;
+  }
 }

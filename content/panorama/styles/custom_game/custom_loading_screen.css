@@ -15,11 +15,17 @@
   background-size: 100% 100%;
 }
 
-#LoadingFaqPanel {
+/* FAQ 与控制台说明共用一列，让后者跟随 FAQ 的实际高度往下排 */
+#LoadingRightColumn {
   width: 460px;
   horizontal-align: right;
   margin-top: 38px;
   margin-right: 460px;
+  flow-children: down;
+}
+
+#LoadingFaqPanel {
+  width: 100%;
   flow-children: down;
 }
 
@@ -40,6 +46,95 @@
   line-height: 22px;
   white-space: normal;
   text-shadow: 1px 1px 2px #000000cc;
+}
+
+#ConsoleLaunchPanel {
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px 14px;
+  background-color: #0a0c0fcc;
+  border: 1px solid #8a6a32;
+  border-radius: 4px;
+  flow-children: down;
+}
+
+#ConsoleLaunchTitle {
+  width: 100%;
+  color: #e8c07d;
+  font-size: 19px;
+  font-weight: bold;
+  white-space: normal;
+  text-shadow: 1px 1px 2px #000000cc;
+}
+
+#ConsoleLaunchDesc {
+  width: 100%;
+  margin-top: 7px;
+  color: #dfe8f2;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: normal;
+}
+
+.ConsoleLaunchStep {
+  width: 100%;
+  margin-top: 5px;
+  color: #c3cdd8;
+  font-size: 16px;
+  line-height: 22px;
+  white-space: normal;
+}
+
+#ConsoleLaunchCommand {
+  width: 100%;
+  height: 32px;
+  margin-top: 10px;
+  padding: 0px 8px;
+  background-color: #0d0f12;
+  border: 1px solid #3a4048;
+  border-radius: 3px;
+  color: #8fd3a8;
+  font-size: 16px;
+}
+
+#ConsoleLaunchActionRow {
+  width: 100%;
+  margin-top: 9px;
+  flow-children: right;
+}
+
+/* ButtonBevel 自带 min-width，不压掉会撑成整行宽的大按钮 */
+#ConsoleLaunchSelectButton {
+  width: fit-children;
+  min-width: 0px;
+  height: 28px;
+  padding: 0px 14px;
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#7a5f2e), to(#4a3818));
+  border: 1px solid #c9a55c;
+  border-radius: 3px;
+}
+
+#ConsoleLaunchSelectButton:hover {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#9a7838), to(#5f4820));
+  box-shadow: #00000088 0px 0px 10px 0px;
+}
+
+#ConsoleLaunchSelectButton:active {
+  background-color: gradient(linear, 0% 0%, 0% 100%, from(#4a3818), to(#7a5f2e));
+}
+
+#ConsoleLaunchSelectLabel {
+  vertical-align: center;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#ConsoleLaunchCopyHint {
+  margin-left: 10px;
+  vertical-align: center;
+  color: #e8c07d;
+  font-size: 15px;
 }
 
 #game_options_container {
