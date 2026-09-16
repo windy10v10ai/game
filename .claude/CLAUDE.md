@@ -376,6 +376,7 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
 | 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
 | 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
+| 官方 ability/item ID 占用表（自定义 ID 不得与之冲突） | `docs/reference/<version>/npc_ability_ids.txt` |
 | 原版英文说明 | `docs/reference/<version>/abilities_english.txt` |
 | 原版中文说明 | `docs/reference/<version>/abilities_schinese.txt` |
 | Override KV | `game/scripts/npc/npc_abilities_override.txt` |
@@ -390,6 +391,8 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 | addon 俄文本地化 | `game/resource/addon_russian.txt` |
+
+> `game/scripts/npc/` 下 KV 文件的分工、`#base` 结构与自定义 ID 号段规则见该目录的 `CLAUDE.md`。
 
 #### 技能系统名查找
 
