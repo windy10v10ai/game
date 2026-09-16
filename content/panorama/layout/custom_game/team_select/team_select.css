@@ -91,7 +91,7 @@
   /* 状态条内文字按剩余宽度折行，面板宽度随内容时两者循环依赖，会算出 0 宽把布局撑高 */
   width: 100%;
   flow-children: down;
-  padding: 20px;
+  padding: 10px;
   min-height: 100px;
 }
 /* 三种加载状态同一个条形组件，底色、左边线、圆点与文字都取状态色 */
@@ -101,8 +101,8 @@
   padding: 8px 12px;
 }
 #GameLoadingStatusDot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   margin-right: 10px;
   vertical-align: center;
   border-radius: 50%;
@@ -119,9 +119,9 @@
 }
 .Loading #GameLoadingStatusDot {
   background-color: #fd841f;
-  box-shadow: #fd841f66 0px 0px 4px 1px;
+  box-shadow: #fd841f66 0px 0px 3px 1px;
   animation-name: LoadingStatusPulse;
-  animation-duration: 1.2s;
+  animation-duration: 1s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
 }
@@ -136,7 +136,7 @@
 }
 .Online #GameLoadingStatusDot {
   background-color: #6fcf73;
-  box-shadow: #6fcf7366 0px 0px 4px 1px;
+  box-shadow: #6fcf7366 0px 0px 3px 1px;
 }
 .Online #GameLoadingStatusText {
   color: #6fcf73;
@@ -160,7 +160,7 @@
     opacity: 1;
   }
   50% {
-    opacity: 0.35;
+    opacity: 0.15;
   }
   100% {
     opacity: 1;
