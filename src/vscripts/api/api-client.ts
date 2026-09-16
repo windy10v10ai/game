@@ -37,7 +37,10 @@ export class ApiClient {
 
   public static IsLocalhost() {
     const apiKey = this.GetServerAuthKey();
-    return apiKey === ApiClient.LOCAL_APIKEY && !IsInToolsMode();
+    // 开发时判定成服务器主机
+    // return apiKey === ApiClient.LOCAL_APIKEY && !IsInToolsMode();
+    // 开发时判定本地主机
+    return apiKey === ApiClient.LOCAL_APIKEY;
   }
 
   public static async send(
