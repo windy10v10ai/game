@@ -738,8 +738,9 @@ function FindDotaHudElement(id) {
 
 // 地图名同时是 dota_launch_custom_game 的难度参数，玩家看到的始终是本局这一条
 function ShowConsoleLaunchCommand() {
-  consoleLaunchCommand =
-    `dota_launch_custom_game ${ADDON_WORKSHOP_ID} ${Game.GetMapInfo().map_display_name}`;
+  consoleLaunchCommand = `dota_launch_custom_game ${ADDON_WORKSHOP_ID} ${
+    Game.GetMapInfo().map_name
+  }`;
   $('#LoadingFailCommand').text = consoleLaunchCommand;
 }
 

@@ -73,8 +73,13 @@ var ADDON_WORKSHOP_ID = 2307479570;
 var g_consoleLaunchCommand = '';
 
 function ShowConsoleLaunchCommand() {
-  g_consoleLaunchCommand =
-    'dota_launch_custom_game ' + ADDON_WORKSHOP_ID + ' ' + Game.GetMapInfo().map_display_name;
+  var mapName = Game.GetMapInfo().map_name;
+  // 加载界面早期 map info 还没填充，等有值再写入
+  if (!mapName) {
+    $.Schedule(0.5, ShowConsoleLaunchCommand);
+    return;
+  }
+  g_consoleLaunchCommand = 'dota_launch_custom_game ' + ADDON_WORKSHOP_ID + ' ' + mapName;
   $('#ConsoleLaunchCommand').text = g_consoleLaunchCommand;
 }
 
