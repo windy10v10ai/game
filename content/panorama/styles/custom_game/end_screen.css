@@ -48,6 +48,35 @@
   flow-children: right;
   vertical-align: middle;
 }
+/* 只提醒本局没记账，不抢胜负结果的视线：与个人中心、属性页共用状态点与字色，但不加底色 */
+#OfflineHint {
+  width: fill-parent-flow(1);
+  margin: 10px 10px 0px 10px;
+  vertical-align: center;
+  visibility: collapse;
+}
+#OfflineHintRow {
+  max-width: 100%;
+  horizontal-align: center;
+  flow-children: right;
+}
+#OfflineHintDot {
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  vertical-align: center;
+  border-radius: 50%;
+  background-color: #7a8ca0;
+  box-shadow: #7a8ca055 0px 0px 3px 1px;
+}
+/* 窄屏时折成两行 */
+#OfflineHintLabel {
+  vertical-align: center;
+  font-size: 18px;
+  color: #d6dee8;
+  text-shadow: 2px 2px 6px black;
+  white-space: normal;
+}
 
 #EndScreenWindow #MatchResultBlock #EndScreenVictory {
   margin-left: 10px;
@@ -68,7 +97,8 @@
   color: #00a2ff;
   text-shadow: 3px 3px 10px black;
   letter-spacing: 1.5px;
-  width: 50%;
+  /* 与离线提示均分按钮左侧的空间，4:3 屏幕上固定半宽会把提示挤没 */
+  width: fill-parent-flow(1);
   text-align: center;
 }
 

@@ -19,6 +19,9 @@ var imagefile = {
 
 var _ = GameUI.CustomUIConfig()._;
 
+// 与 game.ts 中 loading_status 的离线取值一致
+var LOADING_STATUS_OFFLINE = 3;
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FinishGame() {
   Game.FinishGame();
@@ -369,6 +372,9 @@ function OnGameResult(_table, key, value) {
   // $("#GameEndingStatusText").style.color = "#ffffff";
 
   $('#EndScreenWindow').visible = false;
+  // 离线模式在开局时就已确定，结算时读一次即可
+  const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
+  $('#OfflineHint').visible = loading != null && loading.status === LOADING_STATUS_OFFLINE;
   CustomNetTables.SubscribeNetTableListener('ending_status', OnGameResult);
   // CustomNetTables.SubscribeNetTableListener("ending_status", OnGameEndingStatusChange);
   OnGameResult(null, 'ending_data', CustomNetTables.GetTableValue('ending_status', 'ending_data'));

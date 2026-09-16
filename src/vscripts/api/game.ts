@@ -87,10 +87,11 @@ export class Game {
 
     // 定义失败回调
     const onFailure = (_: string) => {
-      PlayerSnapshot.Load();
+      const snapshotDate = PlayerSnapshot.Load();
       Game.PublishGamePresets();
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
         status: 3,
+        snapshotDate,
       });
     };
 

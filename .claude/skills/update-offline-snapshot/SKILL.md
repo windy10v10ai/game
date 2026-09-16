@@ -1,14 +1,14 @@
 ---
 name: update-offline-snapshot
 description: >-
-  刷新游戏内离线玩家数据快照：从 Firestore 直接导出会员、积分与属性、觉醒、玩家设置四个 KV 文件到
+  刷新游戏内离线玩家数据快照：从 Firestore 直接导出会员、积分与属性、觉醒、玩家设置 KV 文件与导出时间到
   game/scripts/kv/。7.41f 起本地主机发不出 HTTP 请求，游戏靠这批随地图发布的快照读玩家数据。
   Use when 用户说「更新快照」「拉一下离线数据」「刷新会员数据」，或准备发布创意工坊地图之前。
 ---
 
 # Update Offline Snapshot
 
-从 Firestore 导出四个 KV 快照，直接落到本仓库 `game/scripts/kv/`，随地图发布后由
+从 Firestore 导出 KV 快照，直接落到本仓库 `game/scripts/kv/`，随地图发布后由
 `src/vscripts/api/player-snapshot.ts` 在 `/game/start` 失败时读取。
 
 导出脚本住在 **firebase 仓库**（`api/scripts/offline-snapshot/export-player-snapshot.ts`），
@@ -23,6 +23,7 @@ description: >-
 | `player_snapshot_player.kv` | 积分、等级、属性加点（体积最大） |
 | `player_snapshot_awaken.kv` | 已解锁觉醒英雄 |
 | `player_snapshot_setting.kv` | 快捷键、快速施法、按地图游戏预设 |
+| `player_snapshot_meta.kv` | 导出时间，游戏内离线提示显示为「截至某日」 |
 
 ## 步骤
 
@@ -48,7 +49,7 @@ cd <firebase>/api && npm run export:snapshot -- <本仓库绝对路径>/game/scr
 
 脚本对每个文件打印 `<文件名>: <行数> 行, <字节数> 字节`。逐条核对：
 
-- 四个文件都在且都非空
+- 五个文件都在且都非空
 - 行数相对上次没有骤降。**骤降先查原因再决定发不发**——通常是查询窗口或字段口径出了问题，
   发出去会让一批玩家的会员或属性凭空消失
 
@@ -58,7 +59,7 @@ cd <firebase>/api && npm run export:snapshot -- <本仓库绝对路径>/game/scr
 
 - `game/scripts/kv/` **整个目录已 gitignore**（快照含明文 steamId 生产数据）。换机器
   clone 后必须重跑本 skill 才能发布，否则地图里没有任何玩家数据
-- 四个文件合计约 13MB，直接进地图包。每次发布玩家都要重新下载，体积变化值得留意
+- 五个文件合计约 13MB，直接进地图包。每次发布玩家都要重新下载，体积变化值得留意
 
 ## 常见错误
 

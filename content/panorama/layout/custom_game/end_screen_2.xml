@@ -103,6 +103,12 @@
 				<Panel id="EndingPanel">
 					<Panel id="EndingPanelTop">
 						<Label id="GameTime" text="#DOTA_Lobby_Settings_Scenario_GameTime" />
+						<Panel id="OfflineHint">
+							<Panel id="OfflineHintRow">
+								<Panel id="OfflineHintDot" />
+								<Label id="OfflineHintLabel" text="#end_screen_offline_hint" />
+							</Panel>
+						</Panel>
 						<TextButton id="CloseButton" class="ButtonBevel" onactivate="FinishGame()" text="#dota_safe_leave_game" />
 					</Panel>
 					<!-- <Label id="GameEndingStatusText" text="#ending_status_1" /> -->

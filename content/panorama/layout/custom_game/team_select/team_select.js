@@ -270,15 +270,19 @@ function UpdateTimer() {
 function OnGameLoadingStatusChange(table, key, value) {
   if (value) {
     const status = value.status;
-    $('#GameLoadingStatusText').text = $.Localize('#loading_status_' + status);
+    $('#GameLoadingStatusText').text = $.Localize('#loading_status_' + status).replace(
+      '{date}',
+      value.snapshotDate || '-',
+    );
     if (status === 1) {
       $('#GameLoadingStatusText').style.color = '#FD841F';
     }
     if (status === 2) {
       $('#GameLoadingStatusText').style.color = '#5DA7DB';
     }
+    // 读到离线数据属于正常的只读模式，不是加载失败，不用警示红
     if (status === 3) {
-      $('#GameLoadingStatusText').style.color = '#E14D2A';
+      $('#GameLoadingStatusText').style.color = '#F5A623';
     }
   }
 }

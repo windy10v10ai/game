@@ -19,16 +19,20 @@ const MEMBER_FILE = 'scripts/kv/player_snapshot_member.kv';
 const PLAYER_FILE = 'scripts/kv/player_snapshot_player.kv';
 const AWAKEN_FILE = 'scripts/kv/player_snapshot_awaken.kv';
 const SETTING_FILE = 'scripts/kv/player_snapshot_setting.kv';
+const META_FILE = 'scripts/kv/player_snapshot_meta.kv';
 
 type SnapshotRow = Record<string, unknown>;
 
 export class PlayerSnapshot {
-  /** 把快照中当前对局玩家的数据合并进玩家数据表 */
-  public static Load() {
+  /** 把快照中当前对局玩家的数据合并进玩家数据表，返回快照导出日期，无快照时为空串 */
+  public static Load(): string {
     const memberRows = PlayerSnapshot.ReadFile(MEMBER_FILE);
     const playerRows = PlayerSnapshot.ReadFile(PLAYER_FILE);
     const awakenRows = PlayerSnapshot.ReadFile(AWAKEN_FILE);
     const settingRows = PlayerSnapshot.ReadFile(SETTING_FILE);
+
+    const today = PlayerSnapshot.Today();
+    print(`[PlayerSnapshot] system date "${GetSystemDate()}" parsed as ${today}`);
 
     let member = 0;
     let player = 0;
@@ -41,7 +45,10 @@ export class PlayerSnapshot {
       const memberRow = memberRows?.get(key);
       if (memberRow) {
         member++;
-        Player.MergePlayerInfo({ id: key, member: PlayerSnapshot.ToMember(steamId, memberRow) });
+        Player.MergePlayerInfo({
+          id: key,
+          member: PlayerSnapshot.ToMember(steamId, memberRow, today),
+        });
       }
       const playerRow = playerRows?.get(key);
       if (playerRow) {
@@ -65,6 +72,15 @@ export class PlayerSnapshot {
     print(
       `[PlayerSnapshot] matched member ${member} player ${player} awaken ${awaken} setting ${setting}`,
     );
+    return PlayerSnapshot.ReadExportedDate();
+  }
+
+  private static ReadExportedDate(): string {
+    const meta = LoadKeyValues(META_FILE) as SnapshotRow | undefined;
+    const exportedAt = PlayerSnapshot.ToNumber(meta?.exportedAt);
+    return exportedAt > 0
+      ? PlayerSnapshot.FormatDay(PlayerSnapshot.DayFromTimestamp(exportedAt))
+      : '';
   }
 
   private static ReadFile(path: string): Map<string, SnapshotRow> | undefined {
@@ -81,27 +97,106 @@ export class PlayerSnapshot {
     return rows;
   }
 
-  private static ToMember(steamId: number, row: SnapshotRow): MemberDto {
+  private static ToMember(steamId: number, row: SnapshotRow, today: number): MemberDto {
     // 快照存的是到期时间戳，有效期在开局时现算，避免导出后过期仍显示有效
     const expireDate = PlayerSnapshot.ToNumber(row.expireDate);
+    const expireDay = expireDate > 0 ? PlayerSnapshot.DayFromTimestamp(expireDate) : 0;
     return {
       steamId,
       level: PlayerSnapshot.ToNumber(row.level) as MemberLevel,
-      enable: expireDate > os.time(),
-      expireDateString: expireDate > 0 ? (os.date('!%Y-%m-%d', expireDate) as string) : '',
+      enable: expireDay > today,
+      expireDateString: expireDay > 0 ? PlayerSnapshot.FormatDay(expireDay) : '',
     };
   }
 
+  /**
+   * 把 unix 时间戳换算成 UTC 的 `年*10000 + 月*100 + 日`，该形式可直接比较大小。
+   * Dota 的 Lua 沙箱没有 os 表，日历换算只能自己做（Howard Hinnant 的 civil_from_days）。
+   */
+  private static DayFromTimestamp(unixSeconds: number): number {
+    const shifted = Math.floor(unixSeconds / 86400) + 719468;
+    const era = Math.floor(shifted / 146097);
+    const dayOfEra = shifted - era * 146097;
+    const yearOfEra = Math.floor(
+      (dayOfEra -
+        Math.floor(dayOfEra / 1460) +
+        Math.floor(dayOfEra / 36524) -
+        Math.floor(dayOfEra / 146096)) /
+        365,
+    );
+    const dayOfYear =
+      dayOfEra - (365 * yearOfEra + Math.floor(yearOfEra / 4) - Math.floor(yearOfEra / 100));
+    // 以 3 月为起点编号，闰日落在年末，换算才不用分闰年讨论
+    const monthIndex = Math.floor((5 * dayOfYear + 2) / 153);
+    const day = dayOfYear - Math.floor((153 * monthIndex + 2) / 5) + 1;
+    const month = monthIndex < 10 ? monthIndex + 3 : monthIndex - 9;
+    const year = yearOfEra + era * 400 + (month <= 2 ? 1 : 0);
+    return year * 10000 + month * 100 + day;
+  }
+
+  private static FormatDay(day: number): string {
+    const year = Math.floor(day / 10000);
+    const month = Math.floor(day / 100) % 100;
+    const dayOfMonth = day % 100;
+    return `${year}-${PlayerSnapshot.Pad2(month)}-${PlayerSnapshot.Pad2(dayOfMonth)}`;
+  }
+
+  private static Pad2(value: number): string {
+    return value < 10 ? `0${value}` : tostring(value);
+  }
+
+  /**
+   * 今天的日期，与 DayFromTimestamp 同一种可比较形式。
+   * 引擎返回 MM/DD/YY，中文系统下同样如此，与系统区域设置无关。
+   */
+  private static Today(): number {
+    const raw = GetSystemDate();
+    const parts = PlayerSnapshot.ExtractNumbers(raw);
+    if (parts.length < 3) {
+      print(`[PlayerSnapshot] unrecognized system date "${raw}", member expiry not checked`);
+      return 0;
+    }
+    const [month, day, shortYear] = parts;
+    const year = shortYear < 100 ? 2000 + shortYear : shortYear;
+    return year * 10000 + month * 100 + day;
+  }
+
+  private static ExtractNumbers(text: string): number[] {
+    const numbers: number[] = [];
+    let current = '';
+    for (let i = 0; i < text.length; i++) {
+      const char = text.charAt(i);
+      if (char >= '0' && char <= '9') {
+        current += char;
+      } else if (current !== '') {
+        numbers.push(tonumber(current) ?? 0);
+        current = '';
+      }
+    }
+    if (current !== '') {
+      numbers.push(tonumber(current) ?? 0);
+    }
+    return numbers;
+  }
+
   private static ToPlayerPartial(steamId: number, row: SnapshotRow): Partial<PlayerInfoDto> {
+    const seasonLevel = PlayerSnapshot.ToNumber(row.seasonLevel);
+    const memberLevel = PlayerSnapshot.ToNumber(row.memberLevel);
+    const properties = PlayerSnapshot.ToProperties(steamId, row.properties);
+    // 属性点只是等级与加点的加减，游戏侧现算可省去导出；等级本身涉及档位公式，仍以导出值为准
+    const totalLevel = seasonLevel + memberLevel;
+    const usedLevel = properties.reduce((sum, property) => sum + property.level, 0);
     return {
       id: steamId.toString(),
       seasonPointTotal: PlayerSnapshot.ToNumber(row.seasonPointTotal),
       memberPointTotal: PlayerSnapshot.ToNumber(row.memberPointTotal),
       useableSeasonPoint: PlayerSnapshot.ToNumber(row.useableSeasonPoint),
       useableMemberPoint: PlayerSnapshot.ToNumber(row.useableMemberPoint),
-      seasonLevel: PlayerSnapshot.ToNumber(row.seasonLevel),
-      memberLevel: PlayerSnapshot.ToNumber(row.memberLevel),
-      properties: PlayerSnapshot.ToProperties(steamId, row.properties),
+      seasonLevel,
+      memberLevel,
+      totalLevel,
+      useableLevel: Math.max(0, totalLevel - usedLevel),
+      properties,
     };
   }
 

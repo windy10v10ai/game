@@ -1,8 +1,21 @@
 const RESET_PROPERTY_SEASON_POINT_COST = 2000;
 const WEBSITE_URL = 'https://windy10v10ai.com';
-const ADDON_WORKSHOP_ID = 2307479570;
 // 请求失败时 net table 不会更新，超时后也要恢复刷新按钮
 const PLAYER_INFO_REFRESH_TIMEOUT_S = 5;
+// 与 game.ts 中 loading_status 的离线取值一致
+const LOADING_STATUS_OFFLINE = 3;
+// 没有玩家数据时用它兜底，让页面照常显示而不是整页报错
+const EMPTY_PLAYER = {
+  seasonLevel: 0,
+  memberLevel: 0,
+  totalLevel: 0,
+  useableLevel: 0,
+  seasonPointTotal: 0,
+  memberPointTotal: 0,
+  useableSeasonPoint: 0,
+  useableMemberPoint: 0,
+  properties: [],
+};
 let playerInfoRefreshing = false;
 
 (function () {
@@ -17,8 +30,11 @@ function PregameSetup() {
   SubscribePlayer(PlayerDataLoaded);
   CustomNetTables.SubscribeNetTableListener('server_env', (_tableName, key) => {
     if (key !== 'server_env') return;
-    const currentPlayer = GetPlayer();
-    if (currentPlayer) SetPlayerProperty(currentPlayer);
+    SetPlayerProperty(Object.assign({}, EMPTY_PLAYER, GetPlayer()));
+  });
+  CustomNetTables.SubscribeNetTableListener('loading_status', (_tableName, key) => {
+    if (key !== 'loading_status') return;
+    UpdateOfflineHint();
   });
 
   SetDataSelected();
@@ -35,33 +51,28 @@ function PregameSetup() {
   }
 }
 
-function PlayerDataLoaded(player) {
+function PlayerDataLoaded(loadedPlayer) {
   $.Msg('LocalDataLoaded');
-  $.Msg(player);
+  $.Msg(loadedPlayer);
   EndPlayerInfoRefresh();
+  UpdateOfflineHint();
 
-  // 刷新同样要经服务端拉取，没有玩家数据时按钮点了不会有结果
-  $('#PropertyRefreshButton').visible = player != null;
-  $('#LoadingFail').visible = player == null;
-
-  if (player == null) {
-    ShowConsoleLaunchCommand();
-    return;
-  }
+  const player = Object.assign({}, EMPTY_PLAYER, loadedPlayer);
 
   $('#SeasonLevelNumber').text = player.seasonLevel;
-  $('#SeasonLevelNextRemainingNumber').text =
-    `${player.seasonCurrrentLevelPoint} / ${player.seasonNextLevelPoint}`;
+  SetLevelProgress(
+    '#SeasonLevelNextRemainingNumber',
+    '#SeasonLevelNextRemainingBarLeft',
+    player.seasonCurrrentLevelPoint,
+    player.seasonNextLevelPoint,
+  );
   $('#MemberLevelNumber').text = player.memberLevel;
-  $('#MemberLevelNextRemainingNumber').text =
-    `${player.memberCurrentLevelPoint} / ${player.memberNextLevelPoint}`;
-
-  $('#SeasonLevelNextRemainingBarLeft').style.width = `${
-    (player.seasonCurrrentLevelPoint / player.seasonNextLevelPoint) * 100
-  }%`;
-  $('#MemberLevelNextRemainingBarLeft').style.width = `${
-    (player.memberCurrentLevelPoint / player.memberNextLevelPoint) * 100
-  }%`;
+  SetLevelProgress(
+    '#MemberLevelNextRemainingNumber',
+    '#MemberLevelNextRemainingBarLeft',
+    player.memberCurrentLevelPoint,
+    player.memberNextLevelPoint,
+  );
 
   $('#RuleLink').SetPanelEvent('onactivate', () => {
     $.DispatchEvent('ExternalBrowserGoToURL', $.Localize(`#data_panel_member_point_rule_url`));
@@ -78,11 +89,31 @@ function PlayerDataLoaded(player) {
   // 英雄属性
   SetPlayerProperty(player);
 
-  if (player.useableLevel === player.totalLevel) {
+  // 空页面的 0 / 0 不代表有待分配的属性点，不跳属性页
+  if (loadedPlayer != null && player.useableLevel === player.totalLevel) {
     SetPropertySelected();
   }
 
   $.Msg('BP Loaded!');
+}
+
+// 离线快照不含升级进度，缺失时不显示数值，进度条留空
+function SetLevelProgress(numberId, barId, current, next) {
+  const known = current !== undefined && next > 0;
+  $(numberId).text = known ? `${current} / ${next}` : '-';
+  $(barId).style.width = `${known ? (current / next) * 100 : 0}%`;
+}
+
+function UpdateOfflineHint() {
+  const loading = CustomNetTables.GetTableValue('loading_status', 'loading_status');
+  const offline = loading != null && loading.status === LOADING_STATUS_OFFLINE;
+  $('#OfflineHint').visible = offline;
+  $('#OfflineHintLabel').text = $.Localize('#offline_data_hint').replace(
+    '{date}',
+    (loading && loading.snapshotDate) || '-',
+  );
+  // 刷新要经服务端拉取，离线或还没有玩家数据时点了不会有结果
+  $('#PropertyRefreshButton').visible = !offline && GetPlayer() != null;
 }
 
 // --------------------------------------------------------------------------------
@@ -733,37 +764,4 @@ function GetDotaHud() {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FindDotaHudElement(id) {
   return GetDotaHud().FindChildTraverse(id);
-}
-
-// 地图名同时是 dota_launch_custom_game 的难度参数，玩家看到的始终是本局这一条
-// map_name 形如 maps/dota.vpk，命令参数要的是去掉路径与后缀的地图名
-function GetConsoleLaunchCommand() {
-  const mapPath = Game.GetMapInfo().map_name;
-  if (!mapPath) {
-    return '';
-  }
-  const mapName = mapPath.split('/').pop().split('.')[0];
-  return `dota_launch_custom_game ${ADDON_WORKSHOP_ID} ${mapName}`;
-}
-
-function ShowConsoleLaunchCommand() {
-  $('#LoadingFailCommand').text = GetConsoleLaunchCommand();
-}
-
-// Panorama 没有剪贴板接口，只能把命令选中后交给玩家自己按 Ctrl+C
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function SelectConsoleCommand() {
-  const entry = $('#LoadingFailCommand');
-  entry.SetFocus();
-  entry.SelectAll();
-}
-
-// TextEntry 是可编辑的，改动后立刻还原，避免玩家复制到残缺命令
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function RestoreConsoleCommand() {
-  const command = GetConsoleLaunchCommand();
-  const entry = $('#LoadingFailCommand');
-  if (command && entry.text !== command) {
-    entry.text = command;
-  }
 }
