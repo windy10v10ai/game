@@ -68,11 +68,6 @@ export class ApiClient {
 
     print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${fullPath} body ${json.encode(body)}`);
     const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + fullPath);
-    // Dota 7.41f 起发布版的非专用服务器拿不到请求对象，引擎返回 nil
-    if (!request) {
-      print('[ApiClient] CreateHTTPRequestScriptVM returned nil, http is unavailable here');
-      return;
-    }
     const apiKey = this.GetServerAuthKey();
     const isLocalhost = this.IsLocalhost();
 
