@@ -68,6 +68,8 @@ function ShowLoadingFAQ() {
 }
 
 var ADDON_WORKSHOP_ID = 2307479570;
+// 与 game.ts 中 loading_status 的成功取值一致
+var LOADING_STATUS_LOADED = 2;
 
 // 地图名同时是 dota_launch_custom_game 的难度参数，玩家看到的始终是本局这一条
 // map_name 形如 maps/dota.vpk，命令参数要的是去掉路径与后缀的地图名
@@ -106,6 +108,23 @@ function RestoreConsoleCommand() {
   if (command && entry.text !== command) {
     entry.text = command;
   }
+}
+
+// 默认展示，只在确认读到玩家数据后收起：任何异常都宁可多显示一次，
+// 也不能让读不到数据的玩家等不到这段说明
+function UpdateConsoleLaunchVisibility(value) {
+  var loaded = value && value.status === LOADING_STATUS_LOADED;
+  $('#ConsoleLaunchPanel').style.visibility = loaded ? 'collapse' : 'visible';
+}
+
+function WatchPlayerDataStatus() {
+  UpdateConsoleLaunchVisibility(CustomNetTables.GetTableValue('loading_status', 'loading_status'));
+  CustomNetTables.SubscribeNetTableListener('loading_status', function (_table, key, value) {
+    if (key !== 'loading_status') {
+      return;
+    }
+    UpdateConsoleLaunchVisibility(value);
+  });
 }
 
 function CheckForHostPrivileges() {
@@ -580,6 +599,7 @@ function SendPlayerLanguage() {
   LockOption();
   ShowLoadingFAQ();
   ShowConsoleLaunchCommand();
+  WatchPlayerDataStatus();
   // 游戏选择项目table监听
   CustomNetTables.SubscribeNetTableListener('game_options', ShowGameOptionsChange);
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);
