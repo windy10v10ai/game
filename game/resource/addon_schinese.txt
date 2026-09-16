@@ -83,7 +83,8 @@
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
 		"loading_status_2"				"玩家数据加载成功！"
-		"loading_status_3"				"玩家数据加载失败，请使用服务器主机重新开始游戏。"
+		"loading_status_3"				"Dota 2 更新后游廊地图无法读取玩家数据，本局会员，属性加点与英雄觉醒不会生效，正在处理中。"
+		"offline_data_hint"				"Dota 2 更新后游廊地图无法读取服务器数据，会员，属性与英雄觉醒暂时无法显示，网站上的数据不受影响。"
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，本地主机无法进行该操作，点击前往网站操作。"
 		"website_local_host_notice"		"本地主机无法升级属性和觉醒。请前往 windy10v10ai 官网用 Steam 登录后操作，完成后点击游戏内刷新按钮即可同步。"
 		"website_open_button"				"前往网站"

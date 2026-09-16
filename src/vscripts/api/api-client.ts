@@ -68,6 +68,13 @@ export class ApiClient {
 
     print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${fullPath} body ${json.encode(body)}`);
     const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + fullPath);
+    // 发布版的本地主机自 7.41f 起拿不到请求对象。走一次失败回调，
+    // 让调用方的失败链路正常结束，否则加载状态会永远停在「加载中」。
+    if (!request) {
+      print('[ApiClient] http unavailable on this host');
+      callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
+      return;
+    }
     const apiKey = this.GetServerAuthKey();
     const isLocalhost = this.IsLocalhost();
 

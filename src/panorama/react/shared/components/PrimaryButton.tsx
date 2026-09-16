@@ -1,6 +1,7 @@
 interface PrimaryButtonProps {
   label: string;
   enabled?: boolean;
+  visible?: boolean;
   className?: string;
   onClick: () => void;
   tooltipText?: string;
@@ -18,6 +19,7 @@ interface PrimaryButtonProps {
 export function PrimaryButton({
   label,
   enabled = true,
+  visible = true,
   className,
   onClick,
   tooltipText,
@@ -32,6 +34,7 @@ export function PrimaryButton({
     <Button
       className={buttonClass}
       enabled={enabled}
+      style={{ visibility: visible ? 'visible' : 'collapse' }}
       onactivate={onClick}
       onmouseover={(panel) =>
         tooltipText && $.DispatchEvent('DOTAShowTextTooltip', panel, tooltipText)
