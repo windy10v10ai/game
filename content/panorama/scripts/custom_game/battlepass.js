@@ -39,8 +39,11 @@ function PlayerDataLoaded(player) {
   $.Msg(player);
   EndPlayerInfoRefresh();
 
+  // 刷新同样要经服务端拉取，没有玩家数据时按钮点了不会有结果
+  $('#PropertyRefreshButton').visible = player != null;
+  $('#LoadingFail').visible = player == null;
+
   if (player == null) {
-    $('#LoadingFail').visible = true;
     return;
   }
 
