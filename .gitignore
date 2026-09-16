@@ -46,3 +46,6 @@ game/.idea/
 /.superpowers
 /docs/superpowers
 /docs/review
+
+# 离线玩家数据快照（firebase 导出脚本生成，含明文 steamId 生产数据），不进版本控制
+game/scripts/kv/

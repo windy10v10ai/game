@@ -6,6 +6,7 @@ import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
 import { GA4 } from './analytics/ga4/ga4';
 import { ApiClient, HttpMethod } from './api-client';
 import { Player, PlayerInfoDto, PointInfoDto } from './player';
+import { PlayerSnapshot } from './player-snapshot';
 
 class GameStart {
   players!: PlayerInfoDto[];
@@ -54,19 +55,7 @@ export class Game {
         Player.MergePlayerInfo(player);
       }
 
-      // 按 playerId 发布，方便加载界面用 GetLocalPlayerID 读取
-      PlayerHelper.ForEachPlayer((playerId) => {
-        const steamId = PlayerResource.GetSteamAccountID(playerId);
-        const setting = Player.playerInfoMap.get(steamId.toString())?.playerSetting;
-        if (!setting) return;
-        if (setting.gamePresetDota || setting.gamePresetHard || setting.gamePresetCustom) {
-          CustomNetTables.SetTableValue('game_preset', playerId.toString(), {
-            dota: setting.gamePresetDota,
-            hard: setting.gamePresetHard,
-            custom: setting.gamePresetCustom,
-          });
-        }
-      });
+      Game.PublishGamePresets();
 
       // pointInfo 仅在开局一次性下发到 net table，无需保留在 class 中
       const pointInfoBySteamId = new Map<number, PointInfoDto[]>();
@@ -98,6 +87,8 @@ export class Game {
 
     // 定义失败回调
     const onFailure = (_: string) => {
+      PlayerSnapshot.Load();
+      Game.PublishGamePresets();
       CustomNetTables.SetTableValue('loading_status', 'loading_status', {
         status: 3,
       });
@@ -114,6 +105,22 @@ export class Game {
     };
 
     ApiClient.sendWithRetry(apiParameter);
+  }
+
+  /** 按 playerId 发布玩家存过的游戏预设，方便加载界面用 GetLocalPlayerID 读取 */
+  private static PublishGamePresets() {
+    PlayerHelper.ForEachPlayer((playerId) => {
+      const steamId = PlayerResource.GetSteamAccountID(playerId);
+      const setting = Player.playerInfoMap.get(steamId.toString())?.playerSetting;
+      if (!setting) return;
+      if (setting.gamePresetDota || setting.gamePresetHard || setting.gamePresetCustom) {
+        CustomNetTables.SetTableValue('game_preset', playerId.toString(), {
+          dota: setting.gamePresetDota,
+          hard: setting.gamePresetHard,
+          custom: setting.gamePresetCustom,
+        });
+      }
+    });
   }
 
   public static EndGame(gameEndDto: GameEndDto) {

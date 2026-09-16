@@ -1,34 +1,10 @@
-local dropTable = nil
-
-local function CreateItemLocal(sItemName, hEntity)
-    local item = CreateItem(sItemName, nil, nil)
-    local pos = hEntity:GetAbsOrigin()
-    CreateItemOnPositionSync(pos, item)
-    local pos_launch = pos + RandomVector(RandomFloat(150, 200))
-    item:LaunchLoot(false, 200, 0.75, pos_launch, nil)
-end
+local RAPIER_ULTRA_DROP_CHANCE = 33
 
 local function RollDrops(hHero)
-    if not dropTable then
-        dropTable = LoadKeyValues("scripts/kv/item_drops.kv")
-    end
-    for item_name, chance in pairs(dropTable) do
-        for i = 0, 8 do
-            local hItem = hHero:GetItemInSlot(i)
-            if hItem then
-                local hItem_name = hItem:GetName()
-                if item_name == hItem_name then
-                    if RollPercentage(chance) then
-                        -- Remove the item
-                        -- hHero:RemoveItem(hItem)
-                        UTIL_RemoveImmediate(hItem)
-                        -- Create the item
-                        if item_name == "item_excalibur" then
-                            CreateItemLocal(item_name, hHero)
-                        end
-                    end
-                end
-            end
+    for i = 0, 8 do
+        local hItem = hHero:GetItemInSlot(i)
+        if hItem and hItem:GetName() == "item_rapier_ultra" and RollPercentage(RAPIER_ULTRA_DROP_CHANCE) then
+            UTIL_RemoveImmediate(hItem)
         end
     end
 end
