@@ -6715,8 +6715,8 @@
 			// 主动技能
 			"active_duration"				"8"
 			"active_bonus_multiplier_tooltip"	"100"
-			// BKB
-			"magic_resist"					"100"
+			// modifier_black_king_bar_immune 的魔抗
+			"spell_reduce"					"100"
 
 			// 法师泳衣被动
 			// 禁用被动防止炸房
@@ -6751,11 +6751,10 @@
 				"Target"		"CASTER"
 			}
 
-			"ApplyModifier"
+			"RunScript"
 			{
-				"ModifierName"	"modifier_black_king_bar_immune"
-				"Target"		"CASTER"
-				"Duration"		"%active_duration"
+				"ScriptFile"	"items/item_beast_shield"
+				"Function"		"BeastShieldOnSpellStart"
 			}
 
 			"ApplyModifier"
