@@ -3,7 +3,7 @@
  * 负责决策购买哪些装备、何时出售旧装备
  */
 
-import { HeroBuildState } from './hero-build-state';
+import { HeroBuildState } from './bot-build-state';
 import { ItemTier } from './item-tier-config';
 
 /** 洛书（属性全能之书），T5 装备买完后优先购买一次 */

@@ -2,7 +2,7 @@
  * 测试 SellItem：tomePhase 装备保护、出售阈值计算、替代装备出售逻辑
  */
 
-import { HeroBuildState } from './hero-build-state';
+import { HeroBuildState } from './bot-build-state';
 import {
   BuildItemReplaceMap,
   InitializeItemReplaceMap,

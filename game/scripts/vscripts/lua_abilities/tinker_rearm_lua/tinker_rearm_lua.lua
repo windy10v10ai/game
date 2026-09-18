@@ -138,6 +138,7 @@ tinker_rearm_lua.ItemException = {
 	["item_time_gem"] = true,     -- 时间宝石
 	["item_beast_shield"] = true, -- 兽化盾
 	["item_withered_spring"] = true, -- 生命之心
+	["item_hawkeye_turret"] = true, -- 鹰眼炮台
 }
 
 --------------------------------------------------------------------------------
