@@ -1,4 +1,4 @@
-import { GetTomePurchaseCap, PrimaryAttributeTomeWeights } from './hero-build-config-template';
+import { GetTomePurchaseCap, PrimaryAttributeTomeWeights } from './bot-build-template';
 
 describe('PrimaryAttributeTomeWeights', () => {
   it('weights strength primary attribute towards strength tomes', () => {

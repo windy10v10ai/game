@@ -3,7 +3,7 @@
  * 基于 Tier 驱动的新系统
  */
 
-import { HeroTemplate } from './hero-build-config-template';
+import { HeroTemplate } from './bot-build-template';
 import { ItemTier } from './item-tier-config';
 import { CandidatePoolEntry } from './weighted-pool';
 
@@ -1235,7 +1235,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_forbidden_staff', // 禁忌法锤
         'item_sacred_six_vein', // 六脉神剑
         'item_withered_spring', // 生命之心
-        'item_hawkeye_turret', // 鹰眼炮台
       ],
     },
   },
