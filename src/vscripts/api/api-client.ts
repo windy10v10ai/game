@@ -1,5 +1,5 @@
-import { ApiRoute, type ApiTarget } from './api-route';
 import { GetApiTarget, GetLocalHostAPIKEY } from './api-client.local';
+import { ApiRoute, type ApiTarget } from './api-route';
 
 // enum http methods
 export enum HttpMethod {
@@ -87,6 +87,7 @@ export class ApiClient {
       chooseWhenComplete();
     });
   }
+
   public static send(
     apiParameter: ApiParameter,
     callbackFunc: (result: CScriptHTTPResponse) => void,
