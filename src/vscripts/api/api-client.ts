@@ -1,4 +1,5 @@
-import { GetLocalHostAPIKEY } from './api-client.local';
+import { GetApiTarget, GetLocalHostAPIKEY } from './api-client.local';
+import { ApiRoute, type ApiTarget } from './api-route';
 
 // enum http methods
 export enum HttpMethod {
@@ -22,11 +23,8 @@ export interface ApiParameter {
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
-
-  private static HOST_NAME: string = (() => {
-    return IsInToolsMode() ? 'http://localhost:3001/api' : 'https://api.windy10v10ai.com/api';
-  })();
-  // private static HOST_NAME: string = 'https://api.windy10v10ai.com/api';
+  private static PROBE_PATH = '/game/probe';
+  private static PROBE_TIMEOUT_SECONDS = 5;
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   // dont change this version, it is used to identify the server
@@ -37,13 +35,129 @@ export class ApiClient {
 
   public static IsLocalhost() {
     const apiKey = this.GetServerAuthKey();
-    // 开发时判定成服务器主机
-    // return apiKey === ApiClient.LOCAL_APIKEY && !IsInToolsMode();
-    // 开发时判定本地主机
     return apiKey === ApiClient.LOCAL_APIKEY;
   }
 
-  public static async send(
+  public static SelectRoute(onSelected: () => void): void {
+    if (IsInToolsMode()) {
+      const target = GetApiTarget();
+      if (target !== 'auto') {
+        this.setRoute(target, onSelected);
+        return;
+      }
+    }
+
+    let selected = false;
+    let directDone = false;
+    let directProbeAvailable = false;
+    let directCountry: string | undefined;
+    let cnProxyDone = false;
+    let cnProxyAvailable = false;
+
+    const select = (nextTarget: ApiTarget) => {
+      if (selected) return;
+      selected = true;
+      this.setRoute(nextTarget, onSelected);
+    };
+    const chooseWhenComplete = () => {
+      if (!directDone || !cnProxyDone) return;
+      select(ApiRoute.ChooseTarget(directProbeAvailable, directCountry, cnProxyAvailable));
+    };
+
+    this.sendTo('direct', this.probeParameter(), (result) => {
+      directDone = true;
+      directProbeAvailable = result.StatusCode >= 200 && result.StatusCode < 300;
+      directCountry = this.GetProbeCountry(result);
+      print(
+        `[ApiClient] direct probe status=${result.StatusCode} country=${directCountry ?? 'unavailable'}`,
+      );
+      if (!directCountry) print(`[ApiClient] direct probe body: ${result.Body}`);
+      if (directCountry && directCountry !== 'CN') {
+        select('direct');
+        return;
+      }
+      chooseWhenComplete();
+    });
+
+    this.sendTo('cn-proxy', this.probeParameter(), (result) => {
+      cnProxyDone = true;
+      cnProxyAvailable = result.StatusCode >= 200 && result.StatusCode < 300;
+      print(`[ApiClient] cn-proxy probe status=${result.StatusCode}`);
+      if (!cnProxyAvailable) {
+        select('direct');
+        return;
+      }
+      chooseWhenComplete();
+    });
+  }
+
+  public static send(
+    apiParameter: ApiParameter,
+    callbackFunc: (result: CScriptHTTPResponse) => void,
+  ) {
+    this.sendTo(ApiRoute.GetTarget(), apiParameter, callbackFunc);
+  }
+
+  public static sendWithRetry(apiParameter: ApiParameter) {
+    let retryCount = 0;
+    const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
+    const retry = () => {
+      this.send(apiParameter, (result: CScriptHTTPResponse) => {
+        // if 20X
+        print(`[ApiClient] return with status code: ${result.StatusCode}`);
+        if (result.StatusCode < 200 || result.StatusCode >= 300) {
+          print(`[ApiClient] failed response body: ${result.Body}`);
+        }
+        if (result.StatusCode >= 200 && result.StatusCode < 300) {
+          print(`[ApiClient] success: ${result.Body}`);
+          apiParameter.successFunc(result.Body);
+        } else if (result.StatusCode === 401) {
+          if (apiParameter.failureFunc) {
+            apiParameter.failureFunc(result.Body);
+          }
+        } else {
+          retryCount++;
+          if (retryCount < maxRetryTimes) {
+            print(`[ApiClient] getWithRetry retry ${retryCount}`);
+            retry();
+          } else {
+            if (apiParameter.failureFunc) {
+              apiParameter.failureFunc(result.Body);
+            }
+          }
+        }
+      });
+    };
+    retry();
+  }
+
+  private static probeParameter(): ApiParameter {
+    return {
+      method: HttpMethod.GET,
+      path: this.PROBE_PATH,
+      successFunc: () => undefined,
+      timeoutSeconds: this.PROBE_TIMEOUT_SECONDS,
+    };
+  }
+
+  private static GetProbeCountry(result: CScriptHTTPResponse): string | undefined {
+    if (result.StatusCode < 200 || result.StatusCode >= 300) return undefined;
+    try {
+      const body = json.decode(result.Body) as { country?: string };
+      return body.country;
+    } catch {
+      return undefined;
+    }
+  }
+
+  private static setRoute(target: ApiTarget, onSelected: () => void): void {
+    ApiRoute.SetTarget(target);
+    print(`[ApiClient] selected API route: ${target}`);
+    onSelected();
+  }
+
+  private static sendTo(
+    target: ApiTarget,
     apiParameter: ApiParameter,
     callbackFunc: (result: CScriptHTTPResponse) => void,
   ) {
@@ -66,8 +180,9 @@ export class ApiClient {
       }
     }
 
-    print(`[ApiClient] ${method} ${ApiClient.HOST_NAME}${fullPath} body ${json.encode(body)}`);
-    const request = CreateHTTPRequestScriptVM(method, ApiClient.HOST_NAME + fullPath);
+    const baseUrl = ApiRoute.GetBaseUrl(target);
+    print(`[ApiClient] ${method} ${baseUrl}${fullPath} body ${json.encode(body)}`);
+    const request = CreateHTTPRequestScriptVM(method, baseUrl + fullPath);
     // 发布版的本地主机自 7.41f 起拿不到请求对象。走一次失败回调，
     // 让调用方的失败链路正常结束，否则加载状态会永远停在「加载中」。
     if (!request) {
@@ -89,35 +204,5 @@ export class ApiClient {
     request.Send((result: CScriptHTTPResponse) => {
       callbackFunc(result);
     });
-  }
-
-  public static sendWithRetry(apiParameter: ApiParameter) {
-    let retryCount = 0;
-    const maxRetryTimes = apiParameter.retryTimes || ApiClient.RETRY_TIMES;
-    const retry = () => {
-      this.send(apiParameter, (result: CScriptHTTPResponse) => {
-        // if 20X
-        print(`[ApiClient] return with status code: ${result.StatusCode}`);
-        if (result.StatusCode >= 200 && result.StatusCode < 300) {
-          print(`[ApiClient] success: ${result.Body}`);
-          apiParameter.successFunc(result.Body);
-        } else if (result.StatusCode === 401) {
-          if (apiParameter.failureFunc) {
-            apiParameter.failureFunc(result.Body);
-          }
-        } else {
-          retryCount++;
-          if (retryCount < maxRetryTimes) {
-            print(`[ApiClient] getWithRetry retry ${retryCount}`);
-            retry();
-          } else {
-            if (apiParameter.failureFunc) {
-              apiParameter.failureFunc(result.Body);
-            }
-          }
-        }
-      });
-    };
-    retry();
   }
 }
