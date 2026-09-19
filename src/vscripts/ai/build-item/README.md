@@ -43,12 +43,12 @@
 
 ```
 src/vscripts/ai/build-item/
-├── hero-build-manager.ts        # 核心管理器
-├── item-tier-config.ts          # 装备等级配置 (160+装备，包含升级关系函数)
-├── hero-build-config-template.ts # 英雄模板配置 (4种模板)
-├── hero-build-config.ts         # 英雄出装配置 (示例9个英雄)
-├── hero-build-state.ts          # 出装状态管理
-└── README.md                    # 本文档
+├── bot-build-manager.ts   # 核心管理器
+├── item-tier-config.ts    # 装备等级配置 (160+装备，包含升级关系函数)
+├── bot-build-template.ts  # 英雄模板配置 (4种模板)
+├── bot-build-config.ts    # 英雄出装配置 (示例9个英雄)
+├── bot-build-state.ts     # 出装状态管理
+└── README.md              # 本文档
 ```
 
 ## 配置英雄出装
@@ -56,7 +56,7 @@ src/vscripts/ai/build-item/
 ### 1. 基础配置 - 选择模板
 
 ```typescript
-// 在 hero-build-config.ts 中添加，template 按英雄真实主属性选择
+// 在 bot-build-config.ts 中添加，template 按英雄真实主属性选择
 npc_dota_hero_your_hero: {
   template: HeroTemplate.Intelligence,  // 使用智力模板
 }
@@ -183,7 +183,7 @@ item_your_new_item: {
 
 ## 修改模板
 
-在`hero-build-config-template.ts`中修改对应模板的`itemsByTier`:
+在`bot-build-template.ts`中修改对应模板的`itemsByTier`:
 
 ```typescript
 const AgilityTemplate: HeroTemplateConfig = {

@@ -10,7 +10,6 @@ export class MemberDto {
 }
 
 export class PlayerProperty {
-  steamId!: number;
   name!: string;
   level!: number;
 }

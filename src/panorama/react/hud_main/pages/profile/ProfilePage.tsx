@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { TabNavigation } from '../../../shared/components';
+import { useDataOffline } from '../../../shared/hooks/useDataOffline';
 import { useNetTable } from '../../../shared/hooks/useNetTable';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
 import { useNavigation } from '../../store/NavigationContext';
@@ -8,6 +9,7 @@ import { AwakenTab } from './tabs/AwakenTab';
 import { MemberTab } from './tabs/member';
 import { MemberSubTab } from './tabs/member/constants';
 import { DailyTaskTab } from './tabs/dailytask';
+import { OfflineHint } from './OfflineHint';
 
 export type ProfileTabId = 'stats' | 'awaken' | 'member' | 'dailytask';
 
@@ -27,6 +29,10 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
   const [tab, subTab] = initialTab.split(':');
   const [currentTab, setCurrentTab] = useState<ProfileTabId>(tab as ProfileTabId);
   const { closePage } = useNavigation();
+  const offline = useDataOffline();
+  // 每日任务的奖励要靠局末结算发放，读不到服务端时做完也拿不到，直接不展示
+  const tabs = offline ? PROFILE_TABS.filter((t) => t.id !== 'dailytask') : PROFILE_TABS;
+  const activeTab = offline && currentTab === 'dailytask' ? 'stats' : currentTab;
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
   const seasonPointTotal = player?.seasonPointTotal ?? 0;
@@ -38,7 +44,11 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
 
   return (
     <Panel className="profile-overlay" onactivate={closePage}>
-      <Panel className="modal-panel profile-modal" hittest={true} onactivate={() => {}}>
+      <Panel
+        className={`modal-panel profile-modal ${offline ? 'profile-modal-offline' : ''}`}
+        hittest={true}
+        onactivate={() => {}}
+      >
         <Panel className="modal-header">
           <Label className="modal-title" text={$.Localize('#profile_title')} />
           <Panel className="profile-header-points">
@@ -109,17 +119,19 @@ export function ProfilePage({ initialTab = 'stats' }: ProfilePageProps) {
           <Button className="btn-close" onactivate={closePage} />
         </Panel>
 
+        <OfflineHint visible={offline} />
+
         <Panel className="tab-nav-wrapper">
-          <TabNavigation tabs={PROFILE_TABS} currentTab={currentTab} onTabChange={setCurrentTab} />
+          <TabNavigation tabs={tabs} currentTab={activeTab} onTabChange={setCurrentTab} />
         </Panel>
 
         <Panel className="content-area">
-          {currentTab === 'stats' && <StatsTab />}
-          {currentTab === 'awaken' && <AwakenTab />}
-          {currentTab === 'member' && (
+          {activeTab === 'stats' && <StatsTab />}
+          {activeTab === 'awaken' && <AwakenTab />}
+          {activeTab === 'member' && (
             <MemberTab initialSubTab={subTab as MemberSubTab | undefined} />
           )}
-          {currentTab === 'dailytask' && <DailyTaskTab />}
+          {activeTab === 'dailytask' && <DailyTaskTab />}
         </Panel>
       </Panel>
     </Panel>

@@ -183,7 +183,7 @@ export function AwakenTab() {
   const localHostDisabledTooltip = isLocalHost
     ? $.Localize('#local_host_feature_unsupported_hint')
     : undefined;
-  const { refreshing, refresh } = usePlayerInfoRefresh();
+  const { refreshing, refresh, canRefresh } = usePlayerInfoRefresh();
   const openAwakenWebsite = () =>
     $.DispatchEvent('ExternalBrowserGoToURL', GetWebsiteProfileUrl('awaken'));
   const awakenedHeroes = player?.awakenedHeroes ?? [];
@@ -320,6 +320,7 @@ export function AwakenTab() {
             className="awaken-refresh-btn"
             variant="ghost"
             enabled={!refreshing}
+            visible={canRefresh}
             label={$.Localize('#player_info_refresh')}
             onClick={refresh}
           />

@@ -27,6 +27,11 @@
   box-shadow: 0px 8px 32px 0px #00000088;
 }
 
+/* 离线横幅占掉一行，加高避免把内容区压到 min-height 以下撑破外框 */
+.profile-modal-offline {
+  height: 74%;
+}
+
 /* ========== 标题栏积分 ========== */
 .profile-header-points {
   flow-children: right;
@@ -101,4 +106,31 @@
   min-height: 480px;
   padding: 14px;
   flow-children: down;
+}
+
+/* ========== 离线模式提示 ========== */
+/* 离线模式是正常的只读状态而非故障：石板蓝灰配灰色状态点，与属性页的离线提示同一套 */
+.profile-offline-hint {
+  width: 100%;
+  flow-children: right;
+  padding: 6px @spacing-md;
+  background-color: #4a5a6e4d;
+  border-bottom: 1px solid #7a8ca0;
+}
+
+.profile-offline-hint-dot {
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  vertical-align: center;
+  border-radius: 50%;
+  background-color: #7a8ca0;
+  box-shadow: #7a8ca055 0px 0px 3px 1px;
+}
+
+.profile-offline-hint-label {
+  width: fill-parent-flow(1);
+  vertical-align: center;
+  color: #d6dee8;
+  font-size: 15px;
 }

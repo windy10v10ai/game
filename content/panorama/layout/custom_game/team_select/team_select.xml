@@ -91,8 +91,11 @@
 				</Panel>
 
 				<!--API Loading Status-->
-				<Panel id="GameLoadingStatus" class="DisplayOptionsSubPanel">
-					<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" style="color:#FD841F;" />
+				<Panel id="GameLoadingStatus" class="DisplayOptionsSubPanel Loading">
+					<Panel id="GameLoadingStatusBar">
+						<Panel id="GameLoadingStatusDot" />
+						<Label id="GameLoadingStatusText" class="DisplayOptionsLableTitle" text="#loading_status_1" />
+					</Panel>
 				</Panel>
 
 				<!--Start and lock button-->

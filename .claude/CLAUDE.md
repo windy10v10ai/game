@@ -376,6 +376,7 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
 | 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
 | 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
+| 官方 ability/item ID 占用表（自定义 ID 不得与之冲突） | `docs/reference/<version>/npc_ability_ids.txt` |
 | 原版英文说明 | `docs/reference/<version>/abilities_english.txt` |
 | 原版中文说明 | `docs/reference/<version>/abilities_schinese.txt` |
 | Override KV | `game/scripts/npc/npc_abilities_override.txt` |
@@ -390,6 +391,8 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 | addon 俄文本地化 | `game/resource/addon_russian.txt` |
+
+> `game/scripts/npc/` 下 KV 文件的分工、`#base` 结构与自定义 ID 号段规则见该目录的 `CLAUDE.md`。
 
 #### 技能系统名查找
 
@@ -485,11 +488,10 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 ### 设计文档位置
 
-需要进版本控制、长期留档的设计文档统一放 `docs/design/<主题>/<阶段>.md`：
+设计文档统一放 `docs/superpowers/specs/<YYYY-MM-DD>-<主题>-<用途>.md`，**只在本地留档，不进版本控制**（`docs/superpowers/` 整个目录已被 gitignore）：
 
-- `<主题>` 一个目录，同主题的总体策略与各阶段设计都放在里面（如 `docs/design/local-host/`）
-- 总体策略用 `README.md`，分阶段设计用阶段名（如 `phase1-game.md`）
-- 与 `docs/superpowers/` 区分：后者是 brainstorming skill 的本地临时产出，已被 gitignore，不进版本控制
+- `<用途>` 区分同主题的多篇，方案设计用 `design`，实现记录用具体范围（如 `game-read`）
+- 不要新建 `docs/design/`，该目录已废弃删除
 
 ## Git 工作流
 

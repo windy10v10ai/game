@@ -3,9 +3,9 @@ import { AbilityDispatcher } from '../ability/ability-dispatcher';
 import { ActionAttack } from '../action/action-attack';
 import { ActionFind, FRIENDLY_CREEP_SEARCH_RADIUS } from '../action/action-find';
 import { ActionMove } from '../action/action-move';
-import { getHeroBuildConfig } from '../build-item/hero-build-config';
-import { HeroBuildManager } from '../build-item/hero-build-manager';
-import { HeroBuildState, InitializeHeroBuild } from '../build-item/hero-build-state';
+import { getHeroBuildConfig } from '../build-item/bot-build-config';
+import { HeroBuildManager } from '../build-item/bot-build-manager';
+import { HeroBuildState, InitializeHeroBuild } from '../build-item/bot-build-state';
 import { SellItem } from '../build-item/sell-item';
 import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
@@ -33,6 +33,10 @@ export class BotBaseAIModifier extends BaseModifier {
 
   // 插眼节流：下次允许尝试的 gameTime
   public wardPlaceNextTime: number = -60;
+
+  // 出装节流：下次允许尝试的 gameTime
+  protected readonly buildItemInterval: number = 2;
+  protected buildItemNextTime: number = -60;
 
   protected readonly FindRadius: number = 1800;
   protected readonly CastRange: number = 900;
@@ -349,6 +353,13 @@ export class BotBaseAIModifier extends BaseModifier {
   // Build Item
   // ---------------------------------------------------------
   BuildItem(): boolean {
+    // 买装卖装都不要求即时响应，而 SellExtraItems 是先扫完物品栏才判断够不够出售阈值，
+    // 每 tick 跑一遍绝大多数时候只是在空扫
+    if (this.gameTime < this.buildItemNextTime) {
+      return false;
+    }
+    this.buildItemNextTime = this.gameTime + this.buildItemInterval;
+
     // 使用消耗品
     ConsumeItem.ConsumeKnownItems(this.hero);
     // SellItem.SellExtraItems 内部已包含智能出售系统

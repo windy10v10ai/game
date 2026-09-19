@@ -370,6 +370,7 @@ function modifier_ogre_magi_multicast_lua:OnAbilityExecuted(keys)
 		keys.unit:GiveMana(ability:GetManaCost(-1))
 		-- 还原cursor position target
 		keys.unit:SetCursorPosition(cursorPositionBeforeCast)
+		keys.unit:SetCursorCastTarget(nil)
 
 		ability.multicast = ability.multicast - 1
 		if ability.multicast <= 1 then
