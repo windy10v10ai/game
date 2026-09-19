@@ -1,7 +1,6 @@
 import { InitializeItemReplaceMap } from '../../ai/build-item/item-tier-config';
 import { BotTeam } from '../../ai/team/bot-team';
 import { GA4 } from '../../api/analytics/ga4/ga4';
-import { GA4ItemTracker } from '../../api/analytics/ga4/ga4-item-tracker';
 import { Game } from '../../api/game';
 import { modifier_fort_think } from '../../modifiers/global/fort_think';
 import { GameConfig } from '../GameConfig';
@@ -129,8 +128,6 @@ export class EventGameStateChange {
   private OnGameInProgress(): void {
     // 记录游戏开始时间用于 GA4 统计
     GA4.RecordGameStartTime();
-    // 启动物品持有时长采样
-    GA4ItemTracker.StartTracking();
     // 初始化Bot团队策略，挂载到 GameRules.AI 供 FSA 层访问
     GameRules.AI.BotTeam = new BotTeam();
     // 初始化Bot出装系统

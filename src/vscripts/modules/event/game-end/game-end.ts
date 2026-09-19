@@ -5,7 +5,6 @@ import {
 } from '../../../api/analytics/dto/game-end-dto';
 import { GA4 } from '../../../api/analytics/ga4/ga4';
 import { GA4DailyTaskTracker } from '../../../api/analytics/ga4/ga4-daily-task-tracker';
-import { GA4ItemTracker } from '../../../api/analytics/ga4/ga4-item-tracker';
 import { GA4PickAbilityTracker } from '../../../api/analytics/ga4/ga4-pick-ability-tracker';
 import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
@@ -203,8 +202,6 @@ export class GameEnd {
   private static SendAnalyticsEvent(gameEndDto: GameEndDto) {
     // 发送 GA4 游戏结束技能选择事件
     GA4PickAbilityTracker.SendAtGameEnd(gameEndDto);
-    // 发送 GA4 物品持有时长事件
-    GA4ItemTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 每日任务选择/完成事件
     GA4DailyTaskTracker.SendAtGameEnd(gameEndDto);
     // 发送 GA4 匹配时间事件
