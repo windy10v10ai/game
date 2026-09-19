@@ -105,7 +105,7 @@ export class Game {
       retryTimes: 6,
     };
 
-    ApiClient.sendWithRetry(apiParameter);
+    ApiClient.SelectRoute(() => ApiClient.sendWithRetry(apiParameter));
   }
 
   /** 按 playerId 发布玩家存过的游戏预设，方便加载界面用 GetLocalPlayerID 读取 */
