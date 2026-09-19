@@ -42,31 +42,40 @@ export class ApiClient {
     if (IsInToolsMode()) {
       const target = GetApiTarget();
       if (target !== 'auto') {
-        this.setRoute(target, onSelected);
+        this.setRoute(target, onSelected, `tools target=${target}`);
         return;
       }
     }
 
     let selected = false;
-    let directDone = false;
+    let directStatusCode: number | undefined;
     let directCountry: string | undefined;
-    let cnProxyDone = false;
-    let cnProxyAvailable = false;
+    let cnProxyStatusCode: number | undefined;
 
+    const selectionConditions = () => {
+      const directStatus = directStatusCode === undefined ? 'pending' : directStatusCode;
+      const country = directCountry ?? 'unavailable';
+      const cnProxyStatus = cnProxyStatusCode === undefined ? 'pending' : cnProxyStatusCode;
+      return `directStatus=${directStatus} directCountry=${country} cnProxyStatus=${cnProxyStatus}`;
+    };
     const select = (nextTarget: ApiTarget) => {
       if (selected) return;
       selected = true;
-      this.setRoute(nextTarget, onSelected);
+      this.setRoute(nextTarget, onSelected, selectionConditions());
     };
-
     const chooseWhenComplete = () => {
-      if (!directDone || !cnProxyDone) return;
-      select(ApiRoute.ChooseTarget(directCountry, cnProxyAvailable));
+      if (directStatusCode === undefined || cnProxyStatusCode === undefined) return;
+      select(
+        ApiRoute.ChooseTarget(directCountry, cnProxyStatusCode >= 200 && cnProxyStatusCode < 300),
+      );
     };
 
     this.sendTo('direct', this.probeParameter(), (result) => {
-      directDone = true;
+      directStatusCode = result.StatusCode;
       directCountry = this.GetProbeCountry(result);
+      print(
+        `[ApiClient] direct probe status=${result.StatusCode} country=${directCountry ?? 'unavailable'} body=${result.Body}`,
+      );
       if (directCountry && directCountry !== 'CN') {
         select('direct');
         return;
@@ -75,9 +84,10 @@ export class ApiClient {
     });
 
     this.sendTo('cn-proxy', this.probeParameter(), (result) => {
-      cnProxyDone = true;
-      cnProxyAvailable = result.StatusCode >= 200 && result.StatusCode < 300;
-      if (!cnProxyAvailable) {
+      cnProxyStatusCode = result.StatusCode;
+      const available = result.StatusCode >= 200 && result.StatusCode < 300;
+      print(`[ApiClient] cn-proxy probe status=${result.StatusCode} available=${available}`);
+      if (!available) {
         select('direct');
         return;
       }
@@ -99,6 +109,9 @@ export class ApiClient {
       this.send(apiParameter, (result: CScriptHTTPResponse) => {
         // if 20X
         print(`[ApiClient] return with status code: ${result.StatusCode}`);
+        if (result.StatusCode < 200 || result.StatusCode >= 300) {
+          print(`[ApiClient] failed response body: ${result.Body}`);
+        }
         if (result.StatusCode >= 200 && result.StatusCode < 300) {
           print(`[ApiClient] success: ${result.Body}`);
           apiParameter.successFunc(result.Body);
