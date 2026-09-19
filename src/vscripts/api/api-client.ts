@@ -39,10 +39,12 @@ export class ApiClient {
   }
 
   public static SelectRoute(onSelected: () => void): void {
-    const target = GetApiTarget();
-    if (this.IsLocalhost() && target !== 'auto') {
-      this.setRoute(target, onSelected);
-      return;
+    if (IsInToolsMode()) {
+      const target = GetApiTarget();
+      if (target !== 'auto') {
+        this.setRoute(target, onSelected);
+        return;
+      }
     }
 
     let selected = false;

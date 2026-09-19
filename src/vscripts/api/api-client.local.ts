@@ -1,7 +1,7 @@
 import type { ApiTargetPreference } from './api-route';
 
 export function GetApiTarget(): ApiTargetPreference {
-  return 'direct';
+  return 'auto';
 }
 
 export function GetLocalHostAPIKEY(): string {
