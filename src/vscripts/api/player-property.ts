@@ -37,8 +37,9 @@ export class PlayerPropertyApi {
    */
   public static ApplyPropertyModifiers(player: PlayerInfoDto) {
     if (!player.properties) return;
+    const steamId = Number(player.id);
     for (const property of player.properties) {
-      PropertyController.LevelupPlayerProperty(property);
+      PropertyController.LevelupPlayerProperty(steamId, property);
     }
   }
 
