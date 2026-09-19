@@ -23,10 +23,11 @@ export class ApiRoute {
   }
 
   public static ChooseTarget(
+    directProbeAvailable: boolean,
     directCountry: string | undefined,
     cnProxyAvailable: boolean,
   ): ApiTarget {
-    if (directCountry && directCountry !== 'CN') {
+    if (directProbeAvailable && directCountry !== 'CN') {
       return 'direct';
     }
     if (cnProxyAvailable) {
