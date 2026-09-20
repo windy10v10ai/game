@@ -1,4 +1,4 @@
-import { GetApiTarget, GetLocalHostAPIKEY } from './api-client.local';
+import { GetApiTarget, GetForceProxy, GetLocalHostAPIKEY } from './api-client.local';
 import { ApiRoute, type ApiTarget } from './api-route';
 
 // enum http methods
@@ -20,6 +20,12 @@ export interface ApiParameter {
   timeoutSeconds?: number;
 }
 
+// 服务端拿不到 HTTP 请求对象时，白名单路径转交客户端代理处理；由各业务模块自行注册
+export type ProxyHandler = (
+  apiParameter: ApiParameter,
+  callbackFunc: (result: CScriptHTTPResponse) => void,
+) => void;
+
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
@@ -27,10 +33,16 @@ export class ApiClient {
   private static PROBE_TIMEOUT_SECONDS = 5;
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
+  private static proxyHandlers = new Map<string, ProxyHandler>();
+
   // dont change this version, it is used to identify the server
   public static GetServerAuthKey() {
     const keyVersion = 'v3';
     return GetDedicatedServerKeyV3(keyVersion);
+  }
+
+  public static RegisterProxyHandler(path: string, handler: ProxyHandler): void {
+    ApiClient.proxyHandlers.set(path, handler);
   }
 
   public static IsLocalhost() {
@@ -180,12 +192,20 @@ export class ApiClient {
 
     const baseUrl = ApiRoute.GetBaseUrl(target);
     print(`[ApiClient] ${method} ${baseUrl}${fullPath} body ${json.encode(body)}`);
-    const request = CreateHTTPRequestScriptVM(method, baseUrl + fullPath);
-    // 发布版的本地主机自 7.41f 起拿不到请求对象。走一次失败回调，
-    // 让调用方的失败链路正常结束，否则加载状态会永远停在「加载中」。
+    // Dota Tools 里服务端能直连，调试白名单代理时用开关强制跳过直连
+    const forceProxy = IsInToolsMode() && GetForceProxy();
+    const request = forceProxy ? undefined : CreateHTTPRequestScriptVM(method, baseUrl + fullPath);
+    // 游廊创建的多人对局里服务端拿不到请求对象；白名单路径转交客户端代理发出，
+    // 其余路径走一次失败回调，让调用方的失败链路正常结束，否则加载状态会永远停在「加载中」
     if (!request) {
-      print('[ApiClient] http unavailable on this host');
-      callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
+      const proxyHandler = ApiClient.proxyHandlers.get(path);
+      if (proxyHandler) {
+        print(`[ApiClient] routing ${path} through client proxy`);
+        proxyHandler(apiParameter, callbackFunc);
+      } else {
+        print('[ApiClient] http unavailable on this host');
+        callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
+      }
       return;
     }
     const apiKey = this.GetServerAuthKey();

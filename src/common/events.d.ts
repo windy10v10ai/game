@@ -43,6 +43,11 @@ interface CustomGameEventDeclarations {
 
   dailytask_select_candidate: DailyTaskSelectCandidateEventData;
   dailytask_refresh_candidates: Record<string, never>;
+
+  api_proxy_ready: Record<string, never>;
+  api_proxy_request: ApiProxyRequestEventData;
+  api_proxy_response: ApiProxyResponseEventData;
+  api_proxy_failure: ApiProxyFailureEventData;
 }
 
 interface CustomGameEventDataBase {
@@ -142,6 +147,23 @@ interface DebugPanelAddToUnitEventData {
 // 玩家在候选卡里本地选择一个每日任务，taskId 不认识时服务端忽略
 interface DailyTaskSelectCandidateEventData {
   taskId: string;
+}
+
+// 客户端代发 HTTP 请求：服务端拿不到 CreateHTTPRequestScriptVM 请求对象时（游廊对局），
+// 交由一名已连接玩家的客户端用 DOTAHTMLPanel 代发，响应经由 title 带回
+interface ApiProxyRequestEventData {
+  requestId: string;
+  url: string;
+}
+
+interface ApiProxyResponseEventData {
+  requestId: string;
+  data: string;
+}
+
+interface ApiProxyFailureEventData {
+  requestId: string;
+  reason: string;
 }
 
 // 按地图记住/清除游戏预设的意图开关。仅传 remember，
