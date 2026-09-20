@@ -35,7 +35,6 @@ export class PlayerInfoProxy {
         print(`[PlayerInfoProxy] steamId=${steamId} proxy failed: ${reason}`);
         callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
       },
-      apiParameter.timeoutSeconds,
     );
   }
 }
