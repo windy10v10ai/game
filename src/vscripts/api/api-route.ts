@@ -4,7 +4,7 @@ export type ApiTargetPreference = ApiTarget | 'auto';
 const baseUrls: Record<ApiTarget, string> = {
   local: 'http://localhost:3001/api',
   direct: 'https://api.windy10v10ai.com/api',
-  'cn-proxy': 'https://1491237865-bd93b3q6ad.ap-guangzhou.tencentscf.com/api',
+  'cn-proxy': 'https://1491237865-7au6o0ylxt.ap-guangzhou.tencentscf.com/api',
 };
 
 export class ApiRoute {
