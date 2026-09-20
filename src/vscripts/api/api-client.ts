@@ -71,7 +71,6 @@ export class ApiClient {
       print(
         `[ApiClient] direct probe status=${result.StatusCode} country=${directCountry ?? 'unavailable'}`,
       );
-      if (!directCountry) print(`[ApiClient] direct probe body: ${result.Body}`);
       if (directCountry && directCountry !== 'CN') {
         select('direct');
         return;
@@ -143,7 +142,7 @@ export class ApiClient {
   private static GetProbeCountry(result: CScriptHTTPResponse): string | undefined {
     if (result.StatusCode < 200 || result.StatusCode >= 300) return undefined;
     try {
-      const body = json.decode(result.Body) as { country?: string };
+      const body = json.decode(result.Body)[0] as { country?: string };
       return body.country;
     } catch {
       return undefined;
