@@ -76,6 +76,8 @@ export class PlayerPropertyApi {
       method: HttpMethod.DELETE,
       path: `/player/${steamId}/property`,
       querys: { useMemberPoint: event.useMemberPoint === 1 ? 'true' : 'false' },
+      // 重置每次都扣一份积分，重试会重复扣
+      retryTimes: 1,
       successFunc: PlayerPropertyApi.PropertyResetSuccess,
       failureFunc: PlayerPropertyApi.PropertyResetFailure,
     });

@@ -1,5 +1,6 @@
 import { ApiClient, ApiParameter, ProxyPathParams } from './api-client';
 import { ApiHtmlProxy } from './api-html-proxy';
+import { type ApiTarget } from './api-route';
 
 const PLAYER_INFO_PATTERN = '/player/:steamId/info';
 const PROXY_PLAYER_INFO_PATH = '/proxy/player-info';
@@ -11,6 +12,7 @@ export class PlayerInfoProxy {
   }
 
   private static Handle(
+    target: ApiTarget,
     apiParameter: ApiParameter,
     pathParams: ProxyPathParams,
     callbackFunc: (result: CScriptHTTPResponse) => void,
@@ -23,6 +25,7 @@ export class PlayerInfoProxy {
     }
 
     ApiHtmlProxy.Send(
+      target,
       PROXY_PLAYER_INFO_PATH,
       querys,
       (data) => {

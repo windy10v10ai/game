@@ -16,6 +16,7 @@ export interface ApiParameter {
   body?: object;
   successFunc: (data: string) => void;
   failureFunc?: (data: string) => void;
+  /** 总尝试次数而非重试次数：1 表示只发一次不再重试，默认 3 表示首次加两次重试 */
   retryTimes?: number;
   timeoutSeconds?: number;
 }
@@ -24,6 +25,7 @@ export type ProxyPathParams = { [key: string]: string };
 
 // 服务端拿不到 HTTP 请求对象时，白名单路径转交客户端代理处理；由各业务模块自行注册
 export type ProxyHandler = (
+  target: ApiTarget,
   apiParameter: ApiParameter,
   pathParams: ProxyPathParams,
   callbackFunc: (result: CScriptHTTPResponse) => void,
@@ -52,7 +54,7 @@ export function matchProxyPath(pattern: string, path: string): ProxyPathParams |
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
-  private static PROBE_PATH = '/game/probe';
+  public static PROBE_PATH = '/game/probe';
   private static PROBE_TIMEOUT_SECONDS = 5;
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
@@ -164,6 +166,30 @@ export class ApiClient {
     retry();
   }
 
+  // 白名单路径转交客户端代理发出，其余路径走一次失败回调，让调用方的失败链路正常结束，
+  // 否则加载状态会永远停在「加载中」
+  private static sendThroughProxy(
+    target: ApiTarget,
+    apiParameter: ApiParameter,
+    callbackFunc: (result: CScriptHTTPResponse) => void,
+  ): void {
+    // 腾讯云网关给每个响应强制加 Content-Disposition: attachment，网页控件会当成下载而不渲染，
+    // 读不到标题还会弹出文件选择框。服务端直连用的是裸 HTTP 客户端，不看这个头，不受影响
+    if (target === 'cn-proxy') {
+      print('[ApiClient] cn-proxy unavailable through client proxy');
+      callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
+      return;
+    }
+    const proxy = ApiClient.findProxyHandler(apiParameter.path);
+    if (!proxy) {
+      print('[ApiClient] http unavailable on this host');
+      callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
+      return;
+    }
+    print(`[ApiClient] routing ${apiParameter.path} through client proxy`);
+    proxy.handler(target, apiParameter, proxy.pathParams, callbackFunc);
+  }
+
   private static findProxyHandler(
     path: string,
   ): { handler: ProxyHandler; pathParams: ProxyPathParams } | undefined {
@@ -233,17 +259,8 @@ export class ApiClient {
     // Dota Tools 里服务端能直连，调试白名单代理时用开关强制跳过直连
     const forceProxy = IsInToolsMode() && GetForceProxy();
     const request = forceProxy ? undefined : CreateHTTPRequestScriptVM(method, baseUrl + fullPath);
-    // 游廊创建的多人对局里服务端拿不到请求对象；白名单路径转交客户端代理发出，
-    // 其余路径走一次失败回调，让调用方的失败链路正常结束，否则加载状态会永远停在「加载中」
     if (!request) {
-      const proxy = ApiClient.findProxyHandler(path);
-      if (proxy) {
-        print(`[ApiClient] routing ${path} through client proxy`);
-        proxy.handler(apiParameter, proxy.pathParams, callbackFunc);
-      } else {
-        print('[ApiClient] http unavailable on this host');
-        callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
-      }
+      ApiClient.sendThroughProxy(target, apiParameter, callbackFunc);
       return;
     }
     const apiKey = this.GetServerAuthKey();

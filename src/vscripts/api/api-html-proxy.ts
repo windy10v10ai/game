@@ -1,10 +1,13 @@
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { ApiClient } from './api-client';
 import { GetLocalHostAPIKEY } from './api-client.local';
-import { ApiRoute } from './api-route';
+import { ApiRoute, type ApiTarget } from './api-route';
 
 const ERROR_PREFIX = 'ERR:';
 const TIMEOUT_SECONDS = 10;
+// 开局时客户端多半还没加载完，排队等它举手的时间不该占用请求预算。
+// 取 60 秒对齐客户端脚本自己的就绪重试窗口：它等不到就不会再举手，再等也没用
+const QUEUE_TIMEOUT_SECONDS = 60;
 
 interface PendingRequest {
   requestId: string;
@@ -14,6 +17,7 @@ interface PendingRequest {
   onFailure: (reason: string) => void;
   timerName: string;
   relayPlayerId: PlayerID | undefined;
+  timeoutSeconds: number;
 }
 
 /**
@@ -33,6 +37,7 @@ export function parseProxyError(data: string): string | undefined {
 export class ApiHtmlProxy {
   private static seq = 0;
   private static readyPlayerIds = new Set<PlayerID>();
+  private static failedPlayerIds = new Set<PlayerID>();
   private static pending = new Map<string, PendingRequest>();
   private static queue: PendingRequest[] = [];
 
@@ -52,13 +57,15 @@ export class ApiHtmlProxy {
   }
 
   public static Send(
+    target: ApiTarget,
     path: string,
     querys: { [key: string]: string },
     onSuccess: (data: string) => void,
     onFailure: (reason: string) => void,
+    timeoutSeconds = TIMEOUT_SECONDS,
   ): void {
     const requestId = ApiHtmlProxy.nextRequestId();
-    const url = ApiHtmlProxy.buildUrl(path, querys, requestId);
+    const url = ApiHtmlProxy.buildUrl(target, path, querys, requestId);
     const request: PendingRequest = {
       requestId,
       path,
@@ -67,10 +74,9 @@ export class ApiHtmlProxy {
       onFailure,
       timerName: '',
       relayPlayerId: undefined,
+      timeoutSeconds,
     };
-    request.timerName = Timers.CreateTimer(TIMEOUT_SECONDS, () => {
-      ApiHtmlProxy.finish(requestId, undefined, 'timeout');
-    });
+    ApiHtmlProxy.startTimeout(request, QUEUE_TIMEOUT_SECONDS);
     ApiHtmlProxy.pending.set(requestId, request);
 
     const relayPlayerId = ApiHtmlProxy.selectRelayPlayer();
@@ -116,12 +122,24 @@ export class ApiHtmlProxy {
       return;
     }
     request.relayPlayerId = relayPlayerId;
+    ApiHtmlProxy.startTimeout(request, request.timeoutSeconds);
     print(
       `[ApiHtmlProxy] dispatch ${request.requestId} player=${relayPlayerId} url=${request.url}`,
     );
     CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_request', {
       requestId: request.requestId,
       url: request.url,
+    });
+  }
+
+  // 计时重开到本次派发，排队等客户端就绪的时间不占用请求自己的超时预算
+  private static startTimeout(request: PendingRequest, seconds: number): void {
+    if (request.timerName !== '') {
+      Timers.RemoveTimer(request.timerName);
+    }
+    request.timerName = Timers.CreateTimer(seconds, () => {
+      ApiHtmlProxy.markRelayFailed(request.relayPlayerId);
+      ApiHtmlProxy.finish(request.requestId, undefined, 'timeout');
     });
   }
 
@@ -140,6 +158,7 @@ export class ApiHtmlProxy {
     if (!ApiHtmlProxy.isFromRelayPlayer(playerId, event.requestId)) return;
 
     print(`[ApiHtmlProxy] client failure ${event.requestId} reason=${event.reason}`);
+    ApiHtmlProxy.markRelayFailed(playerId);
     ApiHtmlProxy.finish(event.requestId, undefined, event.reason);
   }
 
@@ -175,11 +194,30 @@ export class ApiHtmlProxy {
     }
   }
 
-  // 第一个已就绪、在线、steamId > 0 的真人玩家；掉线或未就绪时顺延到下一个
+  // 拉黑代发失败过的玩家，让调用方已有的重试落到别人身上。
+  // 排队阶段超时时请求还没派发出去，不归咎于任何玩家
+  private static markRelayFailed(relayPlayerId: PlayerID | undefined): void {
+    if (relayPlayerId === undefined) return;
+    if (ApiHtmlProxy.failedPlayerIds.has(relayPlayerId)) return;
+    ApiHtmlProxy.failedPlayerIds.add(relayPlayerId);
+    print(`[ApiHtmlProxy] player ${relayPlayerId} failed to relay`);
+  }
+
   private static selectRelayPlayer(): PlayerID | undefined {
+    const relayPlayerId = ApiHtmlProxy.findRelayPlayer();
+    if (relayPlayerId !== undefined) return relayPlayerId;
+
+    // 候选通常只有三四人，一次抖动就永久排除会很快无人可用；全员失败过就清空重来
+    ApiHtmlProxy.failedPlayerIds.clear();
+    return ApiHtmlProxy.findRelayPlayer();
+  }
+
+  // 第一个已就绪、在线、steamId > 0 且没失败过的真人玩家；掉线或未就绪时顺延到下一个
+  private static findRelayPlayer(): PlayerID | undefined {
     for (let playerId = 0; playerId < DOTA_MAX_TEAM_PLAYERS; playerId++) {
       if (
         PlayerResource.IsValidPlayer(playerId) &&
+        !ApiHtmlProxy.failedPlayerIds.has(playerId) &&
         ApiHtmlProxy.readyPlayerIds.has(playerId) &&
         PlayerHelper.IsHumanPlayerByPlayerId(playerId) &&
         ApiHtmlProxy.isOnline(playerId)
@@ -203,6 +241,7 @@ export class ApiHtmlProxy {
   }
 
   private static buildUrl(
+    target: ApiTarget,
     path: string,
     querys: { [key: string]: string },
     requestId: string,
@@ -214,6 +253,6 @@ export class ApiHtmlProxy {
     }
     parts.push(`apiKey=${apiKey}`);
     parts.push(`_=${Math.floor(Math.random() * 1000000000)}`);
-    return `${ApiRoute.GetBaseUrl()}${path}?${parts.join('&')}`;
+    return `${ApiRoute.GetBaseUrl(target)}${path}?${parts.join('&')}`;
   }
 }

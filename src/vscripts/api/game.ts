@@ -132,6 +132,8 @@ export class Game {
       method: HttpMethod.POST,
       path: ApiClient.IsLocalhost() ? Game.LOCAL_GAME_END_URL : Game.GAME_END_URL,
       body: gameEndDto,
+      // 结算是累加写入，重试会让积分与战绩翻倍
+      retryTimes: 1,
       successFunc: (data: string) => {
         // CustomNetTables.SetTableValue('ending_status', 'ending_status', {
         //   status: 2,

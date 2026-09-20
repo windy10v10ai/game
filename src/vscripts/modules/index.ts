@@ -4,6 +4,7 @@ import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-langua
 import { ApiClient } from '../api/api-client';
 import { ApiHtmlProxy } from '../api/api-html-proxy';
 import { ConductApi } from '../api/conduct';
+import { GameProbeProxy } from '../api/game-probe-proxy';
 import { GameStartProxy } from '../api/game-start-proxy';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
@@ -77,6 +78,7 @@ export function ActivateModules() {
 
     // 客户端 HTTP 代理：服务端拿不到请求对象时（游廊对局），转交客户端代发白名单路径
     ApiHtmlProxy.Initialize();
+    GameProbeProxy.Register();
     GameStartProxy.Register();
     PlayerInfoProxy.Register();
   }
