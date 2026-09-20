@@ -20,11 +20,34 @@ export interface ApiParameter {
   timeoutSeconds?: number;
 }
 
+export type ProxyPathParams = { [key: string]: string };
+
 // 服务端拿不到 HTTP 请求对象时，白名单路径转交客户端代理处理；由各业务模块自行注册
 export type ProxyHandler = (
   apiParameter: ApiParameter,
+  pathParams: ProxyPathParams,
   callbackFunc: (result: CScriptHTTPResponse) => void,
 ) => void;
+
+/**
+ * 按注册的路由模式匹配请求路径，取出 `:` 开头那些段的值。
+ * 代理路由把路径参数一律挪进 query，取出的值交给处理函数拼进去。
+ */
+export function matchProxyPath(pattern: string, path: string): ProxyPathParams | undefined {
+  const patternParts = pattern.split('/');
+  const pathParts = path.split('/');
+  if (patternParts.length !== pathParts.length) return undefined;
+
+  const pathParams: ProxyPathParams = {};
+  for (let i = 0; i < patternParts.length; i++) {
+    if (patternParts[i].indexOf(':') === 0) {
+      pathParams[patternParts[i].slice(1)] = pathParts[i];
+    } else if (patternParts[i] !== pathParts[i]) {
+      return undefined;
+    }
+  }
+  return pathParams;
+}
 
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
@@ -41,8 +64,8 @@ export class ApiClient {
     return GetDedicatedServerKeyV3(keyVersion);
   }
 
-  public static RegisterProxyHandler(path: string, handler: ProxyHandler): void {
-    ApiClient.proxyHandlers.set(path, handler);
+  public static RegisterProxyHandler(pattern: string, handler: ProxyHandler): void {
+    ApiClient.proxyHandlers.set(pattern, handler);
   }
 
   public static IsLocalhost() {
@@ -141,6 +164,21 @@ export class ApiClient {
     retry();
   }
 
+  private static findProxyHandler(
+    path: string,
+  ): { handler: ProxyHandler; pathParams: ProxyPathParams } | undefined {
+    // 字面路由先命中，后来新增的带参数路由就吃不掉它，也不用关心注册顺序
+    const literal = ApiClient.proxyHandlers.get(path);
+    if (literal) return { handler: literal, pathParams: {} };
+
+    for (const [pattern, handler] of ApiClient.proxyHandlers) {
+      if (pattern.indexOf(':') < 0) continue;
+      const pathParams = matchProxyPath(pattern, path);
+      if (pathParams) return { handler, pathParams };
+    }
+    return undefined;
+  }
+
   private static probeParameter(): ApiParameter {
     return {
       method: HttpMethod.GET,
@@ -198,10 +236,10 @@ export class ApiClient {
     // 游廊创建的多人对局里服务端拿不到请求对象；白名单路径转交客户端代理发出，
     // 其余路径走一次失败回调，让调用方的失败链路正常结束，否则加载状态会永远停在「加载中」
     if (!request) {
-      const proxyHandler = ApiClient.proxyHandlers.get(path);
-      if (proxyHandler) {
+      const proxy = ApiClient.findProxyHandler(path);
+      if (proxy) {
         print(`[ApiClient] routing ${path} through client proxy`);
-        proxyHandler(apiParameter, callbackFunc);
+        proxy.handler(apiParameter, proxy.pathParams, callbackFunc);
       } else {
         print('[ApiClient] http unavailable on this host');
         callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
