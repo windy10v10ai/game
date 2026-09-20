@@ -37,6 +37,7 @@ export function parseProxyError(data: string): string | undefined {
 export class ApiHtmlProxy {
   private static seq = 0;
   private static readyPlayerIds = new Set<PlayerID>();
+  private static failedPlayerIds = new Set<PlayerID>();
   private static pending = new Map<string, PendingRequest>();
   private static queue: PendingRequest[] = [];
 
@@ -137,6 +138,7 @@ export class ApiHtmlProxy {
       Timers.RemoveTimer(request.timerName);
     }
     request.timerName = Timers.CreateTimer(seconds, () => {
+      ApiHtmlProxy.markRelayFailed(request.relayPlayerId);
       ApiHtmlProxy.finish(request.requestId, undefined, 'timeout');
     });
   }
@@ -156,6 +158,7 @@ export class ApiHtmlProxy {
     if (!ApiHtmlProxy.isFromRelayPlayer(playerId, event.requestId)) return;
 
     print(`[ApiHtmlProxy] client failure ${event.requestId} reason=${event.reason}`);
+    ApiHtmlProxy.markRelayFailed(playerId);
     ApiHtmlProxy.finish(event.requestId, undefined, event.reason);
   }
 
@@ -191,11 +194,30 @@ export class ApiHtmlProxy {
     }
   }
 
-  // 第一个已就绪、在线、steamId > 0 的真人玩家；掉线或未就绪时顺延到下一个
+  // 拉黑代发失败过的玩家，让调用方已有的重试落到别人身上。
+  // 排队阶段超时时请求还没派发出去，不归咎于任何玩家
+  private static markRelayFailed(relayPlayerId: PlayerID | undefined): void {
+    if (relayPlayerId === undefined) return;
+    if (ApiHtmlProxy.failedPlayerIds.has(relayPlayerId)) return;
+    ApiHtmlProxy.failedPlayerIds.add(relayPlayerId);
+    print(`[ApiHtmlProxy] player ${relayPlayerId} failed to relay`);
+  }
+
   private static selectRelayPlayer(): PlayerID | undefined {
+    const relayPlayerId = ApiHtmlProxy.findRelayPlayer(true);
+    if (relayPlayerId !== undefined) return relayPlayerId;
+
+    // 候选通常只有三四人，一次抖动就永久排除会很快无人可用；全员失败过就清空重来
+    ApiHtmlProxy.failedPlayerIds.clear();
+    return ApiHtmlProxy.findRelayPlayer(false);
+  }
+
+  // 第一个已就绪、在线、steamId > 0 的真人玩家；掉线或未就绪时顺延到下一个
+  private static findRelayPlayer(skipFailed: boolean): PlayerID | undefined {
     for (let playerId = 0; playerId < DOTA_MAX_TEAM_PLAYERS; playerId++) {
       if (
         PlayerResource.IsValidPlayer(playerId) &&
+        (!skipFailed || !ApiHtmlProxy.failedPlayerIds.has(playerId)) &&
         ApiHtmlProxy.readyPlayerIds.has(playerId) &&
         PlayerHelper.IsHumanPlayerByPlayerId(playerId) &&
         ApiHtmlProxy.isOnline(playerId)
