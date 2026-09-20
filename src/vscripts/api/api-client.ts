@@ -58,7 +58,6 @@ export class ApiClient {
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   private static proxyHandlers = new Map<string, ProxyHandler>();
-  private static directHttpAvailable: boolean | undefined;
 
   // dont change this version, it is used to identify the server
   public static GetServerAuthKey() {
@@ -73,21 +72,6 @@ export class ApiClient {
   public static IsLocalhost() {
     const apiKey = this.GetServerAuthKey();
     return apiKey === ApiClient.LOCAL_APIKEY;
-  }
-
-  /** 服务端自己能不能发出 HTTP 请求。游廊创建的多人对局里发不出，这是整局不变的环境属性 */
-  public static IsDirectHttpAvailable(): boolean {
-    if (ApiClient.directHttpAvailable === undefined) {
-      // Dota Tools 里服务端能直连，调试白名单代理时用开关强制跳过直连
-      if (IsInToolsMode() && GetForceProxy()) {
-        ApiClient.directHttpAvailable = false;
-      } else {
-        const probe = CreateHTTPRequestScriptVM(HttpMethod.GET, ApiRoute.GetBaseUrl('direct'));
-        ApiClient.directHttpAvailable = probe !== undefined;
-      }
-      print(`[ApiClient] direct http available: ${ApiClient.directHttpAvailable}`);
-    }
-    return ApiClient.directHttpAvailable;
   }
 
   public static SelectRoute(onSelected: () => void): void {
@@ -264,9 +248,9 @@ export class ApiClient {
 
     const baseUrl = ApiRoute.GetBaseUrl(target);
     print(`[ApiClient] ${method} ${baseUrl}${fullPath} body ${json.encode(body)}`);
-    const request = ApiClient.IsDirectHttpAvailable()
-      ? CreateHTTPRequestScriptVM(method, baseUrl + fullPath)
-      : undefined;
+    // Dota Tools 里服务端能直连，调试白名单代理时用开关强制跳过直连
+    const forceProxy = IsInToolsMode() && GetForceProxy();
+    const request = forceProxy ? undefined : CreateHTTPRequestScriptVM(method, baseUrl + fullPath);
     if (!request) {
       ApiClient.sendThroughProxy(target, apiParameter, callbackFunc);
       return;

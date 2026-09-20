@@ -111,6 +111,7 @@ export class GameStartProxy {
           print(`[GameStartProxy] steamId=${steamId} game-start proxy failed: ${reason}`);
           onOneDone();
         },
+        apiParameter.timeoutSeconds,
       );
 
       ApiHtmlProxy.Send(
@@ -129,6 +130,7 @@ export class GameStartProxy {
           print(`[GameStartProxy] steamId=${steamId} player-info proxy failed: ${reason}`);
           onOneDone();
         },
+        apiParameter.timeoutSeconds,
       );
     });
   }
