@@ -315,6 +315,8 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **下达攻击命令前先查 `IsAttacking()`**：高频重复下达 `ATTACK_MOVE` / `ATTACK_TARGET`（如 0.1 秒一次的执行器）会不断重置攻击前摇，Bot 表现为反复抬手却打不出伤害。发命令前加 `if (hero.IsAttacking()) return;` 让当前这次攻击走完，参考 `ai/action/action-attack.ts` 的 `MoveToAttack`。判定要放在结束/中断条件**之后**、发命令**之前**，否则 Bot 被小兵缠住时会连中断条件都不再检查
 - **永久增减属性用 `Modify*` 改基础值，不要挂属性回调 modifier**：给英雄永久加/减全属性直接调 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect`（传负数即减，只动基础属性、不含装备加成），一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。**不要**为了承载这个数值而挂一个声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier——引擎每次重算属性都要跨进 Lua 调一遍回调，且数值还得靠 `SetHasCustomTransmitterData` 额外同步才能在客户端 tooltip 显示，漏同步就显示成 0。需要 buff 图标时另挂一个**不声明任何属性回调**的纯显示 modifier，数值放 stack count（引擎原生同步，客户端一定拿得到）。扣基础属性时须自行兜底下限，避免扣成负数
 - **`ApiParameter.retryTimes` 是总尝试次数，不是重试次数**：`sendWithRetry` 的判断是 `retryCount < maxRetryTimes`，所以 `1` = 只发一次不重试，默认 `3` = 首次加两次重试共三次（401 任何情况都不重试）。**会扣积分、扣费或建订单的写入一律设 `1`**——重复执行造成的是真实损失，宁可失败让玩家重点一次，也不要静默扣两次。已确认后端本身幂等的保持默认重试（`PUT /player/:id/property` 是目标等级语义、`PUT hero-awakening` 已觉醒直接 no-op、`PUT setting` 与 `PUT game-preset` 是覆盖式写入）。新增 API 调用点时先去后端确认是累加还是覆盖，不要按路由名猜
+- **客户端代发走的是浏览器内核，会认 HTTP 响应头**：游廊对局里服务端发不出 HTTP，改由玩家客户端的 `DOTAHTMLPanel` 代发，那是真正的浏览器在加载页面。`Content-Disposition: attachment` 这类头会让它当成下载而不渲染，`<title>` 永远不会被设置，症状是请求一路超时到上限，并在游戏里弹出文件选择框。服务端直连用的 `CreateHTTPRequestScriptVM` 是裸 HTTP 客户端，不看这些头——所以同一个地址「直连正常、代发全挂」完全可能，不要用直连结果推断代发能不能用。新接一个代发地址前先 `curl -D -` 看响应头，别只看 body。**腾讯云函数的默认域名（`*.tencentscf.com`）给每个响应无条件加这个头**，函数自己返回 `inline` 也覆盖不掉，这类默认域名不能作为代发目标
+- **同一房间的玩家网络状况是相关的，不是独立的**：代发人选不出来时换个玩家重试，只能救个体故障（某人网络抽风、客户端卡住），救不了区域性问题——中国大陆的房间通常全员都在墙内，换谁都连不上。所以「找个能通的玩家代劳」不能替代「给连不上的地区准备一条线路」，两者各管各的
 
 ### 图片资源管理
 
