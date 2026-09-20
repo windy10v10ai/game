@@ -13,6 +13,7 @@ interface PendingRequest {
   onSuccess: (data: string) => void;
   onFailure: (reason: string) => void;
   timerName: string;
+  relayPlayerId: PlayerID | undefined;
 }
 
 /**
@@ -41,11 +42,11 @@ export class ApiProxy {
     );
     CustomGameEventManager.RegisterListener<ApiProxyResponseEventData>(
       'api_proxy_response',
-      (_, event) => ApiProxy.onResponse(event),
+      (_, event) => ApiProxy.onResponse(event.PlayerID, event),
     );
     CustomGameEventManager.RegisterListener<ApiProxyFailureEventData>(
       'api_proxy_failure',
-      (_, event) => ApiProxy.onFailure(event),
+      (_, event) => ApiProxy.onFailure(event.PlayerID, event),
     );
   }
 
@@ -64,6 +65,7 @@ export class ApiProxy {
       onSuccess,
       onFailure,
       timerName: '',
+      relayPlayerId: undefined,
     };
     request.timerName = Timers.CreateTimer(TIMEOUT_SECONDS, () => {
       ApiProxy.finish(requestId, undefined, 'timeout');
@@ -103,6 +105,7 @@ export class ApiProxy {
       ApiProxy.queue.push(request);
       return;
     }
+    request.relayPlayerId = relayPlayerId;
     print(`[ApiProxy] dispatch ${request.requestId} player=${relayPlayerId} url=${request.url}`);
     CustomGameEventManager.Send_ServerToPlayer(player, 'api_proxy_request', {
       requestId: request.requestId,
@@ -110,11 +113,13 @@ export class ApiProxy {
     });
   }
 
-  private static onResponse(event: ApiProxyResponseEventData): void {
+  private static onResponse(playerId: PlayerID, event: ApiProxyResponseEventData): void {
     const titleLength = event.requestId.length + 1 + event.data.length;
     print(
       `[ApiProxy] response ${event.requestId} titleLength(approx)=${titleLength} dataLength=${event.data.length}`,
     );
+    if (!ApiProxy.isFromRelayPlayer(playerId, event.requestId)) return;
+
     const errorCode = parseProxyError(event.data);
     if (errorCode) {
       ApiProxy.finish(event.requestId, undefined, errorCode);
@@ -123,9 +128,24 @@ export class ApiProxy {
     ApiProxy.finish(event.requestId, event.data, undefined);
   }
 
-  private static onFailure(event: ApiProxyFailureEventData): void {
+  private static onFailure(playerId: PlayerID, event: ApiProxyFailureEventData): void {
+    if (!ApiProxy.isFromRelayPlayer(playerId, event.requestId)) return;
+
     print(`[ApiProxy] client failure ${event.requestId} reason=${event.reason}`);
     ApiProxy.finish(event.requestId, undefined, event.reason);
+  }
+
+  // 回传只认当初派发给的那名玩家，别的客户端即便猜中 requestId 也顶替不了应答
+  private static isFromRelayPlayer(playerId: PlayerID, requestId: string): boolean {
+    const request = ApiProxy.pending.get(requestId);
+    if (!request) return false;
+    if (request.relayPlayerId !== playerId) {
+      print(
+        `[ApiProxy] ignore ${requestId} from player ${playerId}, relay is ${request.relayPlayerId}`,
+      );
+      return false;
+    }
+    return true;
   }
 
   private static finish(
