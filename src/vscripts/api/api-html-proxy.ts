@@ -204,20 +204,20 @@ export class ApiHtmlProxy {
   }
 
   private static selectRelayPlayer(): PlayerID | undefined {
-    const relayPlayerId = ApiHtmlProxy.findRelayPlayer(true);
+    const relayPlayerId = ApiHtmlProxy.findRelayPlayer();
     if (relayPlayerId !== undefined) return relayPlayerId;
 
     // 候选通常只有三四人，一次抖动就永久排除会很快无人可用；全员失败过就清空重来
     ApiHtmlProxy.failedPlayerIds.clear();
-    return ApiHtmlProxy.findRelayPlayer(false);
+    return ApiHtmlProxy.findRelayPlayer();
   }
 
-  // 第一个已就绪、在线、steamId > 0 的真人玩家；掉线或未就绪时顺延到下一个
-  private static findRelayPlayer(skipFailed: boolean): PlayerID | undefined {
+  // 第一个已就绪、在线、steamId > 0 且没失败过的真人玩家；掉线或未就绪时顺延到下一个
+  private static findRelayPlayer(): PlayerID | undefined {
     for (let playerId = 0; playerId < DOTA_MAX_TEAM_PLAYERS; playerId++) {
       if (
         PlayerResource.IsValidPlayer(playerId) &&
-        (!skipFailed || !ApiHtmlProxy.failedPlayerIds.has(playerId)) &&
+        !ApiHtmlProxy.failedPlayerIds.has(playerId) &&
         ApiHtmlProxy.readyPlayerIds.has(playerId) &&
         PlayerHelper.IsHumanPlayerByPlayerId(playerId) &&
         ApiHtmlProxy.isOnline(playerId)
