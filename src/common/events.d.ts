@@ -45,6 +45,7 @@ interface CustomGameEventDeclarations {
   dailytask_refresh_candidates: Record<string, never>;
 
   api_html_proxy_ready: Record<string, never>;
+  api_html_proxy_ack: Record<string, never>;
   api_html_proxy_request: ApiHtmlProxyRequestEventData;
   api_html_proxy_response: ApiHtmlProxyResponseEventData;
   api_html_proxy_failure: ApiHtmlProxyFailureEventData;

@@ -83,6 +83,15 @@ export class ApiHtmlProxy {
   }
 
   private static onClientReady(playerId: PlayerID): void {
+    // 自定义 UI 脚本加载得比玩家槽位分配还早，最初几条 ready 带的是 -1，登记了也选不出人
+    if (playerId < 0) return;
+
+    // 客户端会重发 ready 直到收到回执，重复的 ready 也要回一次，否则回执丢失就会一直重发
+    const player = PlayerResource.GetPlayer(playerId);
+    if (player) {
+      CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_ack', {});
+    }
+
     if (ApiHtmlProxy.readyPlayerIds.has(playerId)) return;
     ApiHtmlProxy.readyPlayerIds.add(playerId);
     print(`[ApiHtmlProxy] player ${playerId} ready`);
@@ -117,10 +126,6 @@ export class ApiHtmlProxy {
   }
 
   private static onResponse(playerId: PlayerID, event: ApiHtmlProxyResponseEventData): void {
-    const titleLength = event.requestId.length + 1 + event.data.length;
-    print(
-      `[ApiHtmlProxy] response ${event.requestId} titleLength(approx)=${titleLength} dataLength=${event.data.length}`,
-    );
     if (!ApiHtmlProxy.isFromRelayPlayer(playerId, event.requestId)) return;
 
     const errorCode = parseProxyError(event.data);
@@ -170,19 +175,25 @@ export class ApiHtmlProxy {
     }
   }
 
-  // 第一个已就绪、已连接、steamId > 0 的真人玩家；掉线或未就绪时顺延到下一个
+  // 第一个已就绪、在线、steamId > 0 的真人玩家；掉线或未就绪时顺延到下一个
   private static selectRelayPlayer(): PlayerID | undefined {
     for (let playerId = 0; playerId < DOTA_MAX_TEAM_PLAYERS; playerId++) {
       if (
         PlayerResource.IsValidPlayer(playerId) &&
         ApiHtmlProxy.readyPlayerIds.has(playerId) &&
         PlayerHelper.IsHumanPlayerByPlayerId(playerId) &&
-        PlayerResource.GetConnectionState(playerId) === ConnectionState.CONNECTED
+        ApiHtmlProxy.isOnline(playerId)
       ) {
         return playerId;
       }
     }
     return undefined;
+  }
+
+  // 开局拉数据时客户端多半还停在 LOADING，只认 CONNECTED 会把所有请求都挡在队列里
+  private static isOnline(playerId: PlayerID): boolean {
+    const state = PlayerResource.GetConnectionState(playerId);
+    return state === ConnectionState.CONNECTED || state === ConnectionState.LOADING;
   }
 
   private static nextRequestId(): string {
