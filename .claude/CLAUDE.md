@@ -314,6 +314,7 @@ GameEvents.SendCustomGameEventToAllClients('hud_open_page', { page: 'home', play
 - **代码代为触发技能施放须补 `UseResources`**：代码直接调用某个技能的 `OnSpellStart()`（如自动检测循环里代玩家触发施法、监听某事件后连锁触发另一个技能）时，跳过了引擎原生施法管线，不会自动扣资源/进 CD，须显式调用 `this.UseResources(mana, useHealth, gold, cooldown)` 补上（四个布尔参数对应要不要消耗法力/生命/金钱、要不要进入冷却，按该技能实际消耗类型传参）。这一步只在「代码主动触发施放」时需要；玩家手动点技能触发的 `OnSpellStart()` 回调，引擎在调用前已经走完资源结算，不要重复调用，否则会双重扣资源/双重进 CD
 - **下达攻击命令前先查 `IsAttacking()`**：高频重复下达 `ATTACK_MOVE` / `ATTACK_TARGET`（如 0.1 秒一次的执行器）会不断重置攻击前摇，Bot 表现为反复抬手却打不出伤害。发命令前加 `if (hero.IsAttacking()) return;` 让当前这次攻击走完，参考 `ai/action/action-attack.ts` 的 `MoveToAttack`。判定要放在结束/中断条件**之后**、发命令**之前**，否则 Bot 被小兵缠住时会连中断条件都不再检查
 - **永久增减属性用 `Modify*` 改基础值，不要挂属性回调 modifier**：给英雄永久加/减全属性直接调 `ModifyStrength` / `ModifyAgility` / `ModifyIntellect`（传负数即减，只动基础属性、不含装备加成），一次生效、零持续开销（参考 `game/scripts/vscripts/items/item_tome_of_luoshu.lua`）。**不要**为了承载这个数值而挂一个声明 `MODIFIER_PROPERTY_STATS_*_BONUS` 的自定义 modifier——引擎每次重算属性都要跨进 Lua 调一遍回调，且数值还得靠 `SetHasCustomTransmitterData` 额外同步才能在客户端 tooltip 显示，漏同步就显示成 0。需要 buff 图标时另挂一个**不声明任何属性回调**的纯显示 modifier，数值放 stack count（引擎原生同步，客户端一定拿得到）。扣基础属性时须自行兜底下限，避免扣成负数
+- **`ApiParameter.retryTimes` 是总尝试次数，不是重试次数**：`sendWithRetry` 的判断是 `retryCount < maxRetryTimes`，所以 `1` = 只发一次不重试，默认 `3` = 首次加两次重试共三次（401 任何情况都不重试）。**会扣积分、扣费或建订单的写入一律设 `1`**——重复执行造成的是真实损失，宁可失败让玩家重点一次，也不要静默扣两次。已确认后端本身幂等的保持默认重试（`PUT /player/:id/property` 是目标等级语义、`PUT hero-awakening` 已觉醒直接 no-op、`PUT setting` 与 `PUT game-preset` 是覆盖式写入）。新增 API 调用点时先去后端确认是累加还是覆盖，不要按路由名猜
 
 ### 图片资源管理
 

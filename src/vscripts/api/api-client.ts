@@ -16,6 +16,7 @@ export interface ApiParameter {
   body?: object;
   successFunc: (data: string) => void;
   failureFunc?: (data: string) => void;
+  /** 总尝试次数而非重试次数：1 表示只发一次不再重试，默认 3 表示首次加两次重试 */
   retryTimes?: number;
   timeoutSeconds?: number;
 }
