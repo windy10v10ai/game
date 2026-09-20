@@ -173,6 +173,13 @@ export class ApiClient {
     apiParameter: ApiParameter,
     callbackFunc: (result: CScriptHTTPResponse) => void,
   ): void {
+    // 腾讯云网关给每个响应强制加 Content-Disposition: attachment，网页控件会当成下载而不渲染，
+    // 读不到标题还会弹出文件选择框。服务端直连用的是裸 HTTP 客户端，不看这个头，不受影响
+    if (target === 'cn-proxy') {
+      print('[ApiClient] cn-proxy unavailable through client proxy');
+      callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
+      return;
+    }
     const proxy = ApiClient.findProxyHandler(apiParameter.path);
     if (!proxy) {
       print('[ApiClient] http unavailable on this host');
