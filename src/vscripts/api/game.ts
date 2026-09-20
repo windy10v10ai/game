@@ -102,7 +102,6 @@ export class Game {
       successFunc: onSuccess,
       failureFunc: onFailure,
       timeoutSeconds: 15,
-      retryTimes: 6,
     };
 
     ApiClient.SelectRoute(() => ApiClient.sendWithRetry(apiParameter));
