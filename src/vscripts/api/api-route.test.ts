@@ -35,7 +35,7 @@ describe('ApiRoute', () => {
     ApiRoute.SetTarget('cn-proxy');
 
     expect(ApiRoute.GetBaseUrl()).toBe(
-      'https://1491237865-455d5j25yx.ap-guangzhou.tencentscf.com/api',
+      'https://1491237865-bd93b3q6ad.ap-guangzhou.tencentscf.com/api',
     );
   });
 });
