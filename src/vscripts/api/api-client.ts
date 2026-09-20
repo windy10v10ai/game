@@ -53,7 +53,7 @@ export function matchProxyPath(pattern: string, path: string): ProxyPathParams |
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
-  private static PROBE_PATH = '/game/probe';
+  public static PROBE_PATH = '/game/probe';
   private static PROBE_TIMEOUT_SECONDS = 5;
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';

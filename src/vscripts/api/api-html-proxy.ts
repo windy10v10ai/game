@@ -14,6 +14,7 @@ interface PendingRequest {
   onFailure: (reason: string) => void;
   timerName: string;
   relayPlayerId: PlayerID | undefined;
+  timeoutSeconds: number;
 }
 
 /**
@@ -57,6 +58,7 @@ export class ApiHtmlProxy {
     querys: { [key: string]: string },
     onSuccess: (data: string) => void,
     onFailure: (reason: string) => void,
+    timeoutSeconds = TIMEOUT_SECONDS,
   ): void {
     const requestId = ApiHtmlProxy.nextRequestId();
     const url = ApiHtmlProxy.buildUrl(target, path, querys, requestId);
@@ -68,10 +70,10 @@ export class ApiHtmlProxy {
       onFailure,
       timerName: '',
       relayPlayerId: undefined,
+      timeoutSeconds,
     };
-    request.timerName = Timers.CreateTimer(TIMEOUT_SECONDS, () => {
-      ApiHtmlProxy.finish(requestId, undefined, 'timeout');
-    });
+    // 派发前这段计时管的是「始终没人能代发」，所以不用调用方给的预算，用固定上限
+    ApiHtmlProxy.startTimeout(request, TIMEOUT_SECONDS);
     ApiHtmlProxy.pending.set(requestId, request);
 
     const relayPlayerId = ApiHtmlProxy.selectRelayPlayer();
@@ -117,12 +119,23 @@ export class ApiHtmlProxy {
       return;
     }
     request.relayPlayerId = relayPlayerId;
+    ApiHtmlProxy.startTimeout(request, request.timeoutSeconds);
     print(
       `[ApiHtmlProxy] dispatch ${request.requestId} player=${relayPlayerId} url=${request.url}`,
     );
     CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_request', {
       requestId: request.requestId,
       url: request.url,
+    });
+  }
+
+  // 计时重开到本次派发，排队等客户端就绪的时间不占用请求自己的超时预算
+  private static startTimeout(request: PendingRequest, seconds: number): void {
+    if (request.timerName !== '') {
+      Timers.RemoveTimer(request.timerName);
+    }
+    request.timerName = Timers.CreateTimer(seconds, () => {
+      ApiHtmlProxy.finish(request.requestId, undefined, 'timeout');
     });
   }
 
