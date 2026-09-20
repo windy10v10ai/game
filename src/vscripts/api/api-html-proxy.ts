@@ -1,7 +1,7 @@
 import { PlayerHelper } from '../modules/helper/player-helper';
 import { ApiClient } from './api-client';
 import { GetLocalHostAPIKEY } from './api-client.local';
-import { ApiRoute } from './api-route';
+import { ApiRoute, type ApiTarget } from './api-route';
 
 const ERROR_PREFIX = 'ERR:';
 const TIMEOUT_SECONDS = 10;
@@ -52,13 +52,14 @@ export class ApiHtmlProxy {
   }
 
   public static Send(
+    target: ApiTarget,
     path: string,
     querys: { [key: string]: string },
     onSuccess: (data: string) => void,
     onFailure: (reason: string) => void,
   ): void {
     const requestId = ApiHtmlProxy.nextRequestId();
-    const url = ApiHtmlProxy.buildUrl(path, querys, requestId);
+    const url = ApiHtmlProxy.buildUrl(target, path, querys, requestId);
     const request: PendingRequest = {
       requestId,
       path,
@@ -203,6 +204,7 @@ export class ApiHtmlProxy {
   }
 
   private static buildUrl(
+    target: ApiTarget,
     path: string,
     querys: { [key: string]: string },
     requestId: string,
@@ -214,6 +216,6 @@ export class ApiHtmlProxy {
     }
     parts.push(`apiKey=${apiKey}`);
     parts.push(`_=${Math.floor(Math.random() * 1000000000)}`);
-    return `${ApiRoute.GetBaseUrl()}${path}?${parts.join('&')}`;
+    return `${ApiRoute.GetBaseUrl(target)}${path}?${parts.join('&')}`;
   }
 }

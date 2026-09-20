@@ -24,6 +24,7 @@ export type ProxyPathParams = { [key: string]: string };
 
 // 服务端拿不到 HTTP 请求对象时，白名单路径转交客户端代理处理；由各业务模块自行注册
 export type ProxyHandler = (
+  target: ApiTarget,
   apiParameter: ApiParameter,
   pathParams: ProxyPathParams,
   callbackFunc: (result: CScriptHTTPResponse) => void,
@@ -57,6 +58,7 @@ export class ApiClient {
 
   public static LOCAL_APIKEY = 'Invalid_NotOnDedicatedServer';
   private static proxyHandlers = new Map<string, ProxyHandler>();
+  private static directHttpAvailable: boolean | undefined;
 
   // dont change this version, it is used to identify the server
   public static GetServerAuthKey() {
@@ -71,6 +73,21 @@ export class ApiClient {
   public static IsLocalhost() {
     const apiKey = this.GetServerAuthKey();
     return apiKey === ApiClient.LOCAL_APIKEY;
+  }
+
+  /** 服务端自己能不能发出 HTTP 请求。游廊创建的多人对局里发不出，这是整局不变的环境属性 */
+  public static IsDirectHttpAvailable(): boolean {
+    if (ApiClient.directHttpAvailable === undefined) {
+      // Dota Tools 里服务端能直连，调试白名单代理时用开关强制跳过直连
+      if (IsInToolsMode() && GetForceProxy()) {
+        ApiClient.directHttpAvailable = false;
+      } else {
+        const probe = CreateHTTPRequestScriptVM(HttpMethod.GET, ApiRoute.GetBaseUrl('direct'));
+        ApiClient.directHttpAvailable = probe !== undefined;
+      }
+      print(`[ApiClient] direct http available: ${ApiClient.directHttpAvailable}`);
+    }
+    return ApiClient.directHttpAvailable;
   }
 
   public static SelectRoute(onSelected: () => void): void {
@@ -164,6 +181,23 @@ export class ApiClient {
     retry();
   }
 
+  // 白名单路径转交客户端代理发出，其余路径走一次失败回调，让调用方的失败链路正常结束，
+  // 否则加载状态会永远停在「加载中」
+  private static sendThroughProxy(
+    target: ApiTarget,
+    apiParameter: ApiParameter,
+    callbackFunc: (result: CScriptHTTPResponse) => void,
+  ): void {
+    const proxy = ApiClient.findProxyHandler(apiParameter.path);
+    if (!proxy) {
+      print('[ApiClient] http unavailable on this host');
+      callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
+      return;
+    }
+    print(`[ApiClient] routing ${apiParameter.path} through client proxy`);
+    proxy.handler(target, apiParameter, proxy.pathParams, callbackFunc);
+  }
+
   private static findProxyHandler(
     path: string,
   ): { handler: ProxyHandler; pathParams: ProxyPathParams } | undefined {
@@ -230,20 +264,11 @@ export class ApiClient {
 
     const baseUrl = ApiRoute.GetBaseUrl(target);
     print(`[ApiClient] ${method} ${baseUrl}${fullPath} body ${json.encode(body)}`);
-    // Dota Tools 里服务端能直连，调试白名单代理时用开关强制跳过直连
-    const forceProxy = IsInToolsMode() && GetForceProxy();
-    const request = forceProxy ? undefined : CreateHTTPRequestScriptVM(method, baseUrl + fullPath);
-    // 游廊创建的多人对局里服务端拿不到请求对象；白名单路径转交客户端代理发出，
-    // 其余路径走一次失败回调，让调用方的失败链路正常结束，否则加载状态会永远停在「加载中」
+    const request = ApiClient.IsDirectHttpAvailable()
+      ? CreateHTTPRequestScriptVM(method, baseUrl + fullPath)
+      : undefined;
     if (!request) {
-      const proxy = ApiClient.findProxyHandler(path);
-      if (proxy) {
-        print(`[ApiClient] routing ${path} through client proxy`);
-        proxy.handler(apiParameter, proxy.pathParams, callbackFunc);
-      } else {
-        print('[ApiClient] http unavailable on this host');
-        callbackFunc({ StatusCode: 0, Body: '' } as CScriptHTTPResponse);
-      }
+      ApiClient.sendThroughProxy(target, apiParameter, callbackFunc);
       return;
     }
     const apiKey = this.GetServerAuthKey();
