@@ -1,6 +1,6 @@
 import { DailyTaskStartDto } from '../../common/dto/daily-task';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
-import { ApiClient, ApiParameter } from './api-client';
+import { ApiClient, ApiParameter, ProxyPathParams } from './api-client';
 import { ApiHtmlProxy } from './api-html-proxy';
 import { PlayerInfoDto, PointInfoDto } from './player';
 
@@ -62,6 +62,7 @@ export class GameStartProxy {
 
   private static Handle(
     apiParameter: ApiParameter,
+    _pathParams: ProxyPathParams,
     callbackFunc: (result: CScriptHTTPResponse) => void,
   ): void {
     const querys = apiParameter.querys ?? {};

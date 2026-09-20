@@ -7,6 +7,7 @@ import { ConductApi } from '../api/conduct';
 import { GameStartProxy } from '../api/game-start-proxy';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
+import { PlayerInfoProxy } from '../api/player-info-proxy';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
 import { GameConfig } from './GameConfig';
@@ -77,6 +78,7 @@ export function ActivateModules() {
     // 客户端 HTTP 代理：服务端拿不到请求对象时（游廊对局），转交客户端代发白名单路径
     ApiHtmlProxy.Initialize();
     GameStartProxy.Register();
+    PlayerInfoProxy.Register();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();
