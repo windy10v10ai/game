@@ -5,6 +5,9 @@ import { ApiRoute, type ApiTarget } from './api-route';
 
 const ERROR_PREFIX = 'ERR:';
 const TIMEOUT_SECONDS = 10;
+// 开局时客户端多半还没加载完，排队等它举手的时间不该占用请求预算。
+// 取 60 秒对齐客户端脚本自己的就绪重试窗口：它等不到就不会再举手，再等也没用
+const QUEUE_TIMEOUT_SECONDS = 60;
 
 interface PendingRequest {
   requestId: string;
@@ -72,8 +75,7 @@ export class ApiHtmlProxy {
       relayPlayerId: undefined,
       timeoutSeconds,
     };
-    // 派发前这段计时管的是「始终没人能代发」，所以不用调用方给的预算，用固定上限
-    ApiHtmlProxy.startTimeout(request, TIMEOUT_SECONDS);
+    ApiHtmlProxy.startTimeout(request, QUEUE_TIMEOUT_SECONDS);
     ApiHtmlProxy.pending.set(requestId, request);
 
     const relayPlayerId = ApiHtmlProxy.selectRelayPlayer();
