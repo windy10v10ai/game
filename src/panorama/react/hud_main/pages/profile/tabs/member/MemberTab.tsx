@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { SubTabNavigation } from '../../../../../shared/components';
+import { useDataOffline } from '../../../../../shared/hooks/useDataOffline';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
 import { usePlayerInfoRefresh } from '../../../../../shared/hooks/usePlayerInfoRefresh';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
@@ -22,7 +23,12 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
     lastMemberSubTab = next;
     setSubTabRaw(next);
   };
-  const { refreshing, refresh: handleRefresh } = usePlayerInfoRefresh();
+  const { refreshing, refresh: handleRefresh, canRefresh } = usePlayerInfoRefresh();
+  // 开通与购买都要经服务端下单，读不到服务端时只留状态页
+  const offline = useDataOffline();
+  const subTabs = offline ? MEMBER_SUB_TABS.filter((t) => t.id === 'status') : MEMBER_SUB_TABS;
+  // 抽奖积分不足会直接跳 'points'，离线时兜回状态页
+  const activeSubTab = offline ? 'status' : subTab;
 
   const steamId = GetLocalPlayerSteamAccountID();
   const player = useNetTable('player_table', steamId);
@@ -52,9 +58,9 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
 
   return (
     <Panel className="member-layout">
-      <SubTabNavigation tabs={MEMBER_SUB_TABS} currentTab={subTab} onTabChange={setSubTab} />
+      <SubTabNavigation tabs={subTabs} currentTab={activeSubTab} onTabChange={setSubTab} />
       <Panel className="member-content">
-        {subTab === 'status' && (
+        {activeSubTab === 'status' && (
           <StatusPage
             enable={enable}
             hasBaseBenefit={hasBaseBenefit}
@@ -62,19 +68,23 @@ export function MemberTab({ initialSubTab }: MemberTabProps) {
             isNormalOnly={isNormalOnly}
             statusText={statusText}
             expireText={expireText}
+            canSubscribe={!offline}
             onOpenSubscribe={() => setSubTab('subscribe')}
             refreshing={refreshing}
+            canRefresh={canRefresh}
             onRefresh={handleRefresh}
           />
         )}
-        {subTab === 'subscribe' && (
+        {activeSubTab === 'subscribe' && (
           <SubscribePage
             isNormalOnly={isNormalOnly}
             refreshing={refreshing}
             onRefresh={handleRefresh}
           />
         )}
-        {subTab === 'points' && <PointsPage refreshing={refreshing} onRefresh={handleRefresh} />}
+        {activeSubTab === 'points' && (
+          <PointsPage refreshing={refreshing} onRefresh={handleRefresh} />
+        )}
       </Panel>
     </Panel>
   );

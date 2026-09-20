@@ -28,6 +28,7 @@ var LOADING_FAQ_GROUPS = [
       'loading_faq_players_instant_revive',
       'loading_faq_illusions_summons',
       'loading_faq_local_host',
+      'loading_faq_console_launch',
       'loading_faq_pause',
       'loading_faq_attributes',
       'loading_faq_treasure_rewards',
@@ -65,6 +66,33 @@ function ShowLoadingFAQ() {
   var entryKey = group.entries[entryIndex];
   $('#LoadingFaqQuestion').text = $.Localize('#' + entryKey + '_question');
   $('#LoadingFaqAnswer').text = $.Localize('#' + entryKey + '_answer');
+}
+
+// 与 game.ts 中 loading_status 的成功取值一致
+var LOADING_STATUS_LOADED = 2;
+
+var WEBSITE_URL = 'https://windy10v10ai.com';
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function OpenWebsiteLaunch() {
+  $.DispatchEvent('ExternalBrowserGoToURL', WEBSITE_URL + '/launch');
+}
+
+// 默认展示，只在确认读到玩家数据后收起：任何异常都宁可多显示一次，
+// 也不能让读不到数据的玩家等不到这段说明
+function UpdateConsoleLaunchVisibility(value) {
+  var loaded = value && value.status === LOADING_STATUS_LOADED;
+  $('#ConsoleLaunchPanel').style.visibility = loaded ? 'collapse' : 'visible';
+}
+
+function WatchPlayerDataStatus() {
+  UpdateConsoleLaunchVisibility(CustomNetTables.GetTableValue('loading_status', 'loading_status'));
+  CustomNetTables.SubscribeNetTableListener('loading_status', function (_table, key, value) {
+    if (key !== 'loading_status') {
+      return;
+    }
+    UpdateConsoleLaunchVisibility(value);
+  });
 }
 
 function CheckForHostPrivileges() {
@@ -538,6 +566,7 @@ function SendPlayerLanguage() {
   }
   LockOption();
   ShowLoadingFAQ();
+  WatchPlayerDataStatus();
   // 游戏选择项目table监听
   CustomNetTables.SubscribeNetTableListener('game_options', ShowGameOptionsChange);
   CustomNetTables.SubscribeNetTableListener('game_difficulty', OnGameDifficultyChoiceChange);

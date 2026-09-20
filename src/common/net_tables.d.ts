@@ -44,7 +44,8 @@ declare global {
       };
     };
     loading_status: {
-      loading_status: { status: number };
+      // snapshotDate 为离线快照导出日期（YYYY-MM-DD），仅在读取快照时下发
+      loading_status: { status: number; snapshotDate?: string };
     };
     server_env: {
       server_env: { is_local_host: number };

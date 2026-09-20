@@ -82,12 +82,16 @@
 		"map_custom_warning"			"Current map cannot select this difficulty. <br>To select Custom difficulty, please select the 'custom' map before starting the game."
 
 		"loading_status_1"				"Player data is loading. Please wait for loading to complete before starting."
-		"loading_status_2"				"Player data loaded successfully!"
-		"loading_status_3"				"Player data loading failed! This could be for a number of reasons, such as the game not hosted on a dedicated server, the data servers not being available, or if you are spectating a game."
-		"local_host_feature_unsupported_hint"		"To keep account data safe, this action is not available on a local host. Click to do it on the website."
-		"website_local_host_notice"		"Attributes and awakening cannot be upgraded on a local host. Sign in with Steam on the windy10v10ai website to do it, then click the in-game Refresh button to sync."
+		"loading_status_2"				"Online mode. Player data loaded successfully."
+		"loading_status_3"				"Offline mode. Points and stats from this game will not be recorded.\nAttributes, awakening and membership use data as of {date}."
+		"offline_data_hint"				"Offline mode, data as of {date}. Allocate attribute points, reset attributes, and awaken heroes on the website. Changes apply after the next map update."
+		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
+		"console_launch_title"			"Start the Game from the Website"
+		"console_launch_desc"			"Start the game from the website to load the latest data and record this match's settlement points and daily tasks."
+		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
+		"website_local_host_notice"		"Attribute points, attribute resets, and awakening cannot be done in game. To protect player data, sign in with Steam on the website to do it. Changes apply next game in online mode, or after the next map update in offline mode."
 		"website_open_button"				"Open Website"
-		"website_open_property_button"		"Level Up on Website"
+		"website_open_property_button"		"Manage on Website"
 		"website_open_awaken_button"		"Awaken on Website"
 		"player_info_refresh"				"Refresh"
 
@@ -96,8 +100,10 @@
 		"loading_faq_players_instant_revive_answer"		"More than six players, too many illusions or summoned units on the field, or enabling extreme Custom mode settings like instant revive can significantly increase server load and cause lag."
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
-		"loading_faq_local_host_question"			"Can I play on a local host?"
-		"loading_faq_local_host_answer"				"Yes. Local-host games work normally. Settings, key bindings, the leaderboard, and paid lottery refreshes are available, while local settlement still has a daily limit. To keep account data safe, spend or reset attribute points and awaken heroes at windy10v10ai.com after signing in with Steam, then click Refresh in game to sync."
+		"loading_faq_local_host_question"			"Do membership and attribute points work in offline mode?"
+		"loading_faq_local_host_answer"				"Yes. Games started from the arcade run in offline mode and use data exported at the latest map update, so changes made on the website apply after the next map update. Match points and daily tasks are not recorded."
+		"loading_faq_console_launch_question"		"What does online mode (starting the game from the website) support?"
+		"loading_faq_console_launch_answer"			"It loads live player data, records match points and daily tasks normally, and applies website changes from the next game, but only for single-player games."
 		"loading_faq_pause_question"				"Can pause time be extended?"
 		"loading_faq_pause_answer"				"Dedicated-server pause time is limited by Dota 2. Use a local host if you need more flexible pauses."
 		"loading_faq_attributes_question"			"When do attribute points take effect?"
@@ -2653,7 +2659,7 @@
 
 		// item_black_king_bar_2 黑皇杖2
 		"DOTA_Tooltip_Ability_item_black_king_bar_2"			"<font color='#C59C0C'>Upgraded</font> Black King Bar"
-		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Upgraded Avatar</h1> Applies a basic dispel. Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>Active: Upgraded Avatar</h1> Applies a basic dispel. Grants %spell_reduce%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect. <br><br>Duration: %duration% <br>Dispel Type: <span class=\"GameplayValues GameplayVariable\">Basic Dispel</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"A powerful staff imbued with the strength of giants."
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note0"						"Purchasing another Upgraded Black King Bar will not reset its immunity duration."
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"Abilities that pierce magic immunity will work fully even when Avatar is activated"
@@ -3523,7 +3529,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"Beast Shield"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, for %active_duration% seconds.<br>Grants %magic_resist%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>Active: Human Shield</h1>Applies a basic dispel. Enter defensive stance, all passive attribute bonuses are increased by %active_bonus_multiplier_tooltip%%%, for %active_duration% seconds.<br>Grants %spell_reduce%%% Magic resistance and immunity to pure and reflected damage. For the duration of the effect, any negative effect from enemy spells has no effect.\n<h1>Passive: Swimming</h1>%mana_restore_pct%%% of enemy skill damage is converted to magic before reduction.\n<h1>Passive: Assault Aura</h1>Grants %aura_positive_armor% armor and %aura_attack_speed% attack speed to nearby allies. Reduces %aura_negative_armor% armor of nearby enemies.<br><br>Radius: %aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"Diving Suit"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"Each layer increases %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%% magic resistance."
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"The ultimate defensive equipment fused with the power of the beast rune, allowing the user to become an indestructible fortress."

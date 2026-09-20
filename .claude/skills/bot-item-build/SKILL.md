@@ -3,15 +3,15 @@ name: bot-item-build
 description: >-
   基于 bot（英雄_BOT.csv）与玩家（英雄_玩家.csv）出装统计 CSV（列：物品,英雄,Average 时长_秒,胜率,事件数,Average 金钱），
   按装备在 src/vscripts/ai/build-item/item-tier-config.ts 的 canonical tier 过滤数据，
-  为 src/vscripts/ai/build-item/hero-build-config.ts / hero-build-config-template.ts 的候选池生成扩充建议：
+  为 src/vscripts/ai/build-item/bot-build-config.ts / bot-build-template.ts 的候选池生成扩充建议：
   bot 数据优先、玩家数据补充、同英雄模板兜底，目标每个 tier 候选数至少 8 件（最佳区间 8~10，不超过 12）。
   与用户确认后执行编辑并校验 tier 一致性。
 ---
 
 # Bot 出装候选池调整
 
-基于统计 CSV 调整 `src/vscripts/ai/build-item/hero-build-config.ts`（英雄专属候选池）与
-`hero-build-config-template.ts`（共享模板候选池）的 tier 装备构成。
+基于统计 CSV 调整 `src/vscripts/ai/build-item/bot-build-config.ts`（英雄专属候选池）与
+`bot-build-template.ts`（共享模板候选池）的 tier 装备构成。
 
 > 参考文件路径见 CLAUDE.md「Dota 2 参考文件速查」。
 
@@ -21,7 +21,7 @@ description: >-
 
 ### 候选池抽样机制
 
-`hero-build-state.ts` 里 `MAX_ITEMS_PER_TIER = 6`：每个 tier 初始化时用
+`bot-build-state.ts` 里 `MAX_ITEMS_PER_TIER = 6`：每个 tier 初始化时用
 `SampleWeightedWithoutReplacement`（`weighted-pool.ts`）从候选池加权随机抽 6 件进入实际购买列表
 （T5 数量按 `GetT5ItemCount` 难度阶梯浮动，非固定 6）。
 
@@ -56,7 +56,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 特殊道具需要偏离价格规则时（如 `item_hand_of_midas` 价格属于 T2 区间但特意定为 T1，
 `item_excalibur` 放在 T4 顶级），必须在该条目旁加注释说明原因，**不改规则本身**。
 
-英雄专属池（`hero-build-config.ts` 的 `targetItemsByTier`）若配置了某个 tier，
+英雄专属池（`bot-build-config.ts` 的 `targetItemsByTier`）若配置了某个 tier，
 **完全替代**该英雄所用 `HeroTemplate` 的对应 tier 池，不合并。
 
 ### HeroTemplate 分类与属性三选一配件
@@ -65,7 +65,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 `docs/reference/<version>/npc_heroes.txt` 对应英雄的 `AttributePrimary` 字段）分四种：
 `Strength` / `Agility` / `Intelligence` / `Universal`（ALL）。**新英雄首次配置 `template` 前必须查
 `AttributePrimary` 确认，不要凭"这个英雄玩起来像什么"或历史印象判断**——即使英雄名字听起来像力量/敏捷/
-智力，实际 `AttributePrimary` 也可能是 ALL。已迁移英雄的 `template` 字段以 `hero-build-config.ts`
+智力，实际 `AttributePrimary` 也可能是 ALL。已迁移英雄的 `template` 字段以 `bot-build-config.ts`
 当前代码为准，不要仅凭 `AttributePrimary` 反推去"纠正"已有配置——是否重新归类 Universal 需要用户确认。
 
 `item_bracer`（护腕）/`item_wraith_band`（怨灵系带）/`item_null_talisman`（空灵挂件）是同价位的
@@ -128,7 +128,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 ## 第三步：按 canonical tier 过滤数据（不是按当前摆放位置）
 
 读取 `item-tier-config.ts`，取每个装备的 `tier` 字段作为唯一权威依据。**过滤 CSV 数据时用这个字段**，
-不要看装备当前摆在 `hero-build-config.ts` 的哪个 tier 桶里——当前摆放位置可能本身就是待修正的错误
+不要看装备当前摆在 `bot-build-config.ts` 的哪个 tier 桶里——当前摆放位置可能本身就是待修正的错误
 （例如价格/tier 规则调整后遗留的历史归属）。
 
 **CSV 里出现但 `item-tier-config.ts` 完全没收录的装备**（不属于第二步噪音过滤名单，是真实遗漏）：
@@ -155,8 +155,8 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 
 对每个目标英雄：
 
-- `Read hero-build-config.ts`，取该英雄 `targetItemsByTier` 里各 tier 现有条目
-- 若某 tier 未被英雄专属覆盖，`Read hero-build-config-template.ts` 查该英雄 `template` 对应的
+- `Read bot-build-config.ts`，取该英雄 `targetItemsByTier` 里各 tier 现有条目
+- 若某 tier 未被英雄专属覆盖，`Read bot-build-template.ts` 查该英雄 `template` 对应的
   `HeroTemplate` 配置里同 tier 的条目（作为现状基线，也作为后续兜底来源）
 
 ---
@@ -187,7 +187,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 
 ### 5.1 关键约束：同一 tier 不能塞进互斥装备
 
-`resolvedItems[tier]` 是**买光整份清单**，不是"多选一"——`hero-build-manager.ts` 的
+`resolvedItems[tier]` 是**买光整份清单**，不是"多选一"——`bot-build-manager.ts` 的
 `TryPurchaseNormalItem` 会依次买掉该 tier 抽样命中的每一件，直到全部买完才进入下一 tier。
 所以**同一 tier 候选池里绝不能同时放入功能互斥的装备**，否则英雄会把它们全部买一遍，白白浪费金钱。
 
@@ -222,7 +222,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 
 ## 第七步：应用改动（用户确认后）
 
-- 编辑 `hero-build-config.ts`（或 `hero-build-config-template.ts`，若某 tier 在模板层本身普遍偏窄、
+- 编辑 `bot-build-config.ts`（或 `bot-build-template.ts`，若某 tier 在模板层本身普遍偏窄、
   且多个英雄共享该模板均会受益，优先扩模板而不是逐个英雄重复相同装备）
 - 装备条目注释**只写中文名**（如 `// 金手指`），不写"数据信号稀薄的补充""胜率强信号"这类取舍推导过程
   ——按项目注释规约，讨论过程不进代码注释。**例外**：若是真正的 tier 归属修正（如把某装备从错误的
@@ -232,7 +232,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 
 ### 7.1 首次迁移新英雄时的额外注册
 
-新出装系统已是 `BotBaseAIModifier` 的唯一默认行为——`Init()` 会对 `hero-build-config.ts` 中有配置的英雄无条件调用 `InitializeHeroBuild`，不再有英雄名单开关。老 Lua 出装系统（`modifier_bot_think_strategy`）已随全部英雄迁移完成一并移除。为新英雄首次添加 `hero-build-config.ts` 配置后**不需要**额外注册到任何名单，也**不需要**额外新建 `src/vscripts/ai/hero/hero-<name>.ts`：
+新出装系统已是 `BotBaseAIModifier` 的唯一默认行为——`Init()` 会对 `bot-build-config.ts` 中有配置的英雄无条件调用 `InitializeHeroBuild`，不再有英雄名单开关。老 Lua 出装系统（`modifier_bot_think_strategy`）已随全部英雄迁移完成一并移除。为新英雄首次添加 `bot-build-config.ts` 配置后**不需要**额外注册到任何名单，也**不需要**额外新建 `src/vscripts/ai/hero/hero-<name>.ts`：
 `AI.ts` 的 `getModifierName()` 对没有专属判断分支的英雄会默认落到通用的 `BotBaseAIModifier`，
 已迁移的 abaddon/axe/bane/bloodseeker/bounty_hunter 均无专属文件、全部走这条默认路径。只有当英雄
 需要**自定义技能施法逻辑**（超出通用出装/攻击行为）时才新建专属文件并在 `AI.ts` 的
@@ -243,7 +243,7 @@ tier 目标数量下限定为 **至少 8 件**（而不是恰好 6）的根本�
 ## 第八步：一致性校验
 
 改完后必须确认没有引入新的"摆放 tier 与 canonical tier 不一致"问题：写一个临时脚本（不提交进仓库，
-放 scratchpad 目录即可）解析 `hero-build-config.ts` / `hero-build-config-template.ts` 里每个
+放 scratchpad 目录即可）解析 `bot-build-config.ts` / `bot-build-template.ts` 里每个
 `[ItemTier.Tn]: [...]` 区块中的装备名，对照 `item-tier-config.ts` 的 `tier` 字段，确认 0 处不一致。
 
 同时检查第 5.1 节的互斥组问题：脚本里从 `item-tier-config.ts` 解析出所有共享同一 `baseItems`

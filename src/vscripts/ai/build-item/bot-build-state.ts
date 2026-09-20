@@ -3,12 +3,12 @@
  * 状态由 BotBaseAIModifier 管理，不使用全局 Map
  */
 
-import { HeroBuildConfig } from './hero-build-config';
+import { HeroBuildConfig } from './bot-build-config';
 import {
   getTemplateConsumablesByTier,
   getTemplateItemsByTier,
   GetTomePurchaseCap,
-} from './hero-build-config-template';
+} from './bot-build-template';
 import { ItemTier } from './item-tier-config';
 import { CandidatePoolEntry, SampleWeightedWithoutReplacement } from './weighted-pool';
 

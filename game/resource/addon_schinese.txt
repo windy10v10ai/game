@@ -82,12 +82,16 @@
 		"map_custom_warning"			"当前地图无法选择此难度。<br>想选择自定义难度时，请在游戏开始前选择 [Custom] 地图"
 
 		"loading_status_1"				"玩家数据加载中，请等待加载完成再开始游戏。"
-		"loading_status_2"				"玩家数据加载成功！"
-		"loading_status_3"				"玩家数据加载失败，请使用服务器主机重新开始游戏。"
-		"local_host_feature_unsupported_hint"		"为保护账号数据安全，本地主机无法进行该操作，点击前往网站操作。"
-		"website_local_host_notice"		"本地主机无法升级属性和觉醒。请前往 windy10v10ai 官网用 Steam 登录后操作，完成后点击游戏内刷新按钮即可同步。"
+		"loading_status_2"				"在线模式，玩家数据加载成功。"
+		"loading_status_3"				"离线模式，本局积分与战绩不会记录。\n属性，觉醒与会员沿用 {date} 的数据。"
+		"offline_data_hint"				"离线模式，数据截至 {date}。加点、重置属性与觉醒请前往网站操作，下次地图更新后生效。"
+		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
+		"console_launch_title"			"从网站启动游戏"
+		"console_launch_desc"			"从网站启动游戏，才能读取最新数据、记录本局的结算积分和每日任务。"
+		"local_host_feature_unsupported_hint"		"为保护账号数据安全，游戏内无法进行该操作，点击前往网站操作。"
+		"website_local_host_notice"		"游戏内无法加点、重置属性或觉醒，为了保护玩家数据安全，请前往网站用 Steam 登录后操作。在线模式下一局生效，离线模式下次地图更新后生效。"
 		"website_open_button"				"前往网站"
-		"website_open_property_button"		"前往网站升级属性"
+		"website_open_property_button"		"前往网站操作"
 		"website_open_awaken_button"		"前往网站觉醒"
 		"player_info_refresh"				"刷新"
 
@@ -96,8 +100,10 @@
 		"loading_faq_players_instant_revive_answer"		"玩家数超过 6 名，场上幻象或召唤单位过多，或在自定义模式中选择秒活等极端设置，都会明显增加服务器负担并导致卡顿。"
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
-		"loading_faq_local_host_question"			"本地主机可以进行游戏吗？"
-		"loading_faq_local_host_answer"				"可以。本地主机可正常游戏，设置，键位，排行榜和抽奖付费刷新可以使用，本地结算仍有每日上限。为保护账号数据安全，加点，重置属性和觉醒需前往网站 windy10v10ai.com 用 Steam 登录后操作，回到游戏点击刷新即可同步。"
+		"loading_faq_local_host_question"			"离线模式下会员和加点生效吗？"
+		"loading_faq_local_host_answer"				"生效。游廊直接开局即为离线模式，使用地图更新时导出的数据，网站上的改动要等下次地图更新。结算积分和每日任务不会记录。"
+		"loading_faq_console_launch_question"		"在线模式（从网站启动游戏）支持哪些功能？"
+		"loading_faq_console_launch_answer"			"可以读取实时玩家数据，结算积分和每日任务正常记录，网站上的改动下一局即生效，但只能单人游戏。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
 		"loading_faq_pause_answer"				"受 Dota 2 服务器主机限制，暂停时间无法延长。需要更灵活的暂停时，请使用本地主机。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"
@@ -2663,7 +2669,7 @@
 
 		// item_black_king_bar_2 黑皇杖2
 		"DOTA_Tooltip_Ability_item_black_king_bar_2"				"天神杖"
-		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>主动：天神下凡</h1>获得减益免疫状态。提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
+		"DOTA_Tooltip_ability_item_black_king_bar_2_Description"					"<h1>主动：天神下凡</h1>获得减益免疫状态。提供%spell_reduce%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。<br><br>持续时间：%duration%<br>驱散类型：<span class=\"GameplayValues GameplayVariable\">弱驱散</span>"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Lore"							"山丘之王的锤子年久失修，锤头掉了只剩一个锤柄，凑合能用。"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note0"						"再次购买黑皇杖也不会重置天神下凡的持续时间。"
 		"DOTA_Tooltip_ability_item_black_king_bar_2_Note1"						"即使天神下凡正在生效，无视减益免疫的技能也能产生全部的作用。"
@@ -3537,7 +3543,7 @@
 
 		// item_beast_shield 兽化盾
 		"DOTA_Tooltip_Ability_item_beast_shield"										"兽化盾"
-		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，持续%active_duration%秒。<br>提供%magic_resist%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
+		"DOTA_Tooltip_ability_item_beast_shield_Description"							"<h1>主动：人形肉盾</h1>获得减益免疫状态。进入防御姿态，所有被动属性加成提升%active_bonus_multiplier_tooltip%%%，持续%active_duration%秒。<br>提供%spell_reduce%%%魔法抗性加成，并且免疫纯粹和反弹伤害。持续时间内敌方技能的负面效果不会生效。\n<h1>被动：游泳</h1>受到敌人的技能伤害在减免前的%mana_restore_pct%%%会转化为自身的魔法。\n<h1>被动：强袭光环</h1>为附近友军提供%aura_positive_armor%点护甲和%aura_attack_speed%点攻击速度。降低附近敌军%aura_negative_armor%点护甲。<br><br>作用范围：%aura_radius%"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack"							"潜水服"
 		"DOTA_Tooltip_modifier_item_beast_shield_resist_stack_Description"				"每层增加%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%魔法抗性。"
 		"DOTA_Tooltip_ability_item_beast_shield_Lore"									"融合了兽化符文力量的终极防御装备，能让使用者化身为不可摧毁的堡垒。"

@@ -1,4 +1,4 @@
-import { HeroBuildState } from './hero-build-state';
+import { HeroBuildState } from './bot-build-state';
 import { GetReplacedItems, ItemTier } from './item-tier-config';
 import {
   NeverSellItems,

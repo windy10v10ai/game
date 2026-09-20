@@ -182,8 +182,8 @@ export class PropertyController {
   }
 
   // 属性加点后更新属性
-  public static LevelupPlayerProperty(property: PlayerProperty) {
-    const hero = PlayerHelper.FindHeroBySteeamAccountId(property.steamId);
+  public static LevelupPlayerProperty(steamId: number, property: PlayerProperty) {
+    const hero = PlayerHelper.FindHeroBySteeamAccountId(steamId);
     if (!hero) {
       return;
     }
@@ -257,7 +257,7 @@ export class PropertyController {
     property: PlayerProperty,
     activeLevel: number,
   ) {
-    const steamId = property.steamId;
+    const steamId = PlayerResource.GetSteamAccountID(hero.GetPlayerOwnerID());
     const shoudAddSP = Math.floor(activeLevel / 2);
     const currentAddedSP = PropertyController.bnusSkillPointsAdded.get(steamId) || 0;
     const deltaSP = shoudAddSP - currentAddedSP;

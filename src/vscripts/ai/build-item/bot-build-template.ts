@@ -78,10 +78,7 @@ const StrengthTemplate: HeroTemplateConfig = {
       'item_aghanims_shard', // 阿哈利姆魔晶
       'item_wings_of_haste', // 急速之翼
     ],
-    [ItemTier.T3]: [
-      'item_ultimate_scepter_2', // 真阿哈利姆神杖
-      'item_moon_shard_datadriven', // 真银月之晶
-    ],
+    [ItemTier.T3]: ['item_ultimate_scepter_2'], // 真阿哈利姆神杖
     [ItemTier.T4]: ['item_tome_of_strength'], // 力量之书
     [ItemTier.T5]: [],
   },

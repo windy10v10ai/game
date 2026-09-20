@@ -88,12 +88,83 @@
   padding: 10px;
 }
 #GameLoadingStatus {
+  /* 状态条内文字按剩余宽度折行，面板宽度随内容时两者循环依赖，会算出 0 宽把布局撑高 */
+  width: 100%;
   flow-children: down;
-  padding: 20px;
+  padding: 10px;
   min-height: 100px;
 }
+/* 三种加载状态同一个条形组件，底色、左边线、圆点与文字都取状态色 */
+#GameLoadingStatusBar {
+  width: 100%;
+  flow-children: right;
+  padding: 8px 12px;
+}
+#GameLoadingStatusDot {
+  width: 7px;
+  height: 7px;
+  margin-right: 10px;
+  vertical-align: center;
+  border-radius: 50%;
+}
 #GameLoadingStatusText {
+  width: fill-parent-flow(1);
+  vertical-align: center;
   font-size: 18px;
+}
+
+.Loading #GameLoadingStatusBar {
+  background-color: #fd841f1f;
+  border-left: 2px solid #fd841f;
+}
+.Loading #GameLoadingStatusDot {
+  background-color: #fd841f;
+  box-shadow: #fd841f66 0px 0px 3px 1px;
+  animation-name: LoadingStatusPulse;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+.Loading #GameLoadingStatusText {
+  color: #fd841f;
+}
+
+/* 绿与离线的灰冷暖相反，在线与离线一眼能分开 */
+.Online #GameLoadingStatusBar {
+  background-color: #4caf6a26;
+  border-left: 2px solid #4caf6a;
+}
+.Online #GameLoadingStatusDot {
+  background-color: #6fcf73;
+  box-shadow: #6fcf7366 0px 0px 3px 1px;
+}
+.Online #GameLoadingStatusText {
+  color: #6fcf73;
+}
+
+/* 与个人中心、属性页同款石板色；面板不贴窗口边缘，用左边线代替下边线 */
+.Offline #GameLoadingStatusBar {
+  background-color: #4a5a6e4d;
+  border-left: 2px solid #7a8ca0;
+}
+.Offline #GameLoadingStatusDot {
+  background-color: #7a8ca0;
+  box-shadow: #7a8ca055 0px 0px 3px 1px;
+}
+.Offline #GameLoadingStatusText {
+  color: #d6dee8;
+}
+
+@keyframes 'LoadingStatusPulse' {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 #UnassignedPlayersContainer {
   visibility: collapse;

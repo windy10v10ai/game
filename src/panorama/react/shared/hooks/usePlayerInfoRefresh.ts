@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { useDataOffline } from './useDataOffline';
 import { useNetTable } from './useNetTable';
 
 // 请求失败时 net table 不会更新，超时后也要解除刷新中状态
@@ -10,6 +11,8 @@ export function usePlayerInfoRefresh() {
   const [refreshing, setRefreshing] = useState(false);
   const refreshingRef = useRef(false);
   const player = useNetTable('player_table', GetLocalPlayerSteamAccountID());
+  // 刷新同样要经服务端拉取，读不到服务端时按钮没有意义
+  const canRefresh = !useDataOffline();
 
   const finish = () => {
     if (refreshingRef.current) {
@@ -30,5 +33,5 @@ export function usePlayerInfoRefresh() {
     $.Schedule(REFRESH_TIMEOUT_S, finish);
   };
 
-  return { refreshing, refresh };
+  return { refreshing, refresh, canRefresh };
 }

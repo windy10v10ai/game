@@ -87,11 +87,18 @@ function AddCurrentPlayerRank(rank, id) {
   panel.FindChildTraverse('PlayerNameDisplay').accountid = id;
 }
 
+// 读不到服务端数据时排行榜永远不会下发，限制重试次数避免一直空转
+const MAX_RANKING_WAIT_TRIES = 60;
+let rankingWaitTries = 0;
+
 function OnDataLoaded() {
   const topSteamIds = CustomNetTables.GetTableValue('ranking_table', 'topSteamIds');
 
   if (topSteamIds == null) {
-    $.Schedule(0.5, OnDataLoaded);
+    rankingWaitTries++;
+    if (rankingWaitTries <= MAX_RANKING_WAIT_TRIES) {
+      $.Schedule(0.5, OnDataLoaded);
+    }
     return;
   }
   $.Schedule(0.5, AddLbButton);

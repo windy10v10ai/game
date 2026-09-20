@@ -2,9 +2,9 @@
  * 测试 HeroBuildManager 的购买流程接入 tome 阶段
  */
 
-import { GetTomePurchaseCap } from './hero-build-config-template';
-import { HeroBuildManager } from './hero-build-manager';
-import { HeroBuildState } from './hero-build-state';
+import { GetTomePurchaseCap } from './bot-build-template';
+import { HeroBuildManager } from './bot-build-manager';
+import { HeroBuildState } from './bot-build-state';
 import { ItemTier } from './item-tier-config';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

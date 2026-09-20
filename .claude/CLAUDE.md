@@ -376,6 +376,7 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
 | 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
 | 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
+| 官方 ability/item ID 占用表（自定义 ID 不得与之冲突） | `docs/reference/<version>/npc_ability_ids.txt` |
 | 原版英文说明 | `docs/reference/<version>/abilities_english.txt` |
 | 原版中文说明 | `docs/reference/<version>/abilities_schinese.txt` |
 | Override KV | `game/scripts/npc/npc_abilities_override.txt` |
@@ -390,6 +391,8 @@ png 必须**同时**放两处，并在统一 xml 中登记，三步缺一不可�
 | addon 英文本地化 | `game/resource/addon_english.txt` |
 | addon 简体中文本地化 | `game/resource/addon_schinese.txt` |
 | addon 俄文本地化 | `game/resource/addon_russian.txt` |
+
+> `game/scripts/npc/` 下 KV 文件的分工、`#base` 结构与自定义 ID 号段规则见该目录的 `CLAUDE.md`。
 
 #### 技能系统名查找
 
@@ -485,11 +488,10 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 
 ### 设计文档位置
 
-需要进版本控制、长期留档的设计文档统一放 `docs/design/<主题>/<阶段>.md`：
+设计文档统一放 `docs/superpowers/specs/<YYYY-MM-DD>-<主题>-<用途>.md`，**只在本地留档，不进版本控制**（`docs/superpowers/` 整个目录已被 gitignore）：
 
-- `<主题>` 一个目录，同主题的总体策略与各阶段设计都放在里面（如 `docs/design/local-host/`）
-- 总体策略用 `README.md`，分阶段设计用阶段名（如 `phase1-game.md`）
-- 与 `docs/superpowers/` 区分：后者是 brainstorming skill 的本地临时产出，已被 gitignore，不进版本控制
+- `<用途>` 区分同主题的多篇，方案设计用 `design`，实现记录用具体范围（如 `game-read`）
+- 不要新建 `docs/design/`，该目录已废弃删除
 
 ## Git 工作流
 
@@ -503,6 +505,7 @@ Plan 阶段重点讲清楚**设计思路和数据流**，不要写代码细节�
 ### 提交与 PR
 
 - PR 的 base branch 固定为 `develop`；标题默认英文；纯内部改动（重构、构建、CI、文档、测试）自行判定跳过 Release Note，不提问也不查版本号，其余情况问用户走「小版本补丁 / 大版本 / 不写 Release Note」，需要写时必须调用 `release-note` skill 生成，不要手写
+- 只有 PR 完成 issue 的全部范围时，才在 Issue 段写 `Fixes #<issue-id>`，让 PR 合并后自动关闭该 issue；issue 分为多个 PR 时，各 PR 仅写 `#<issue-id>` 关联，最后完成全部范围的 PR 才使用 `Fixes`
 - Commit 格式：简短单行标题（≤72 字符）+ 正文只写 `Co-Authored-By`
 - `docs/superpowers/` 整个目录已被 `.gitignore` 排除，brainstorming skill 产出的 spec 文档仅本地留档，不进版本控制，无需尝试 `git add`
 
