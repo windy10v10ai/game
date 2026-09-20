@@ -71,7 +71,7 @@ export class ApiClient {
       print(
         `[ApiClient] direct probe status=${result.StatusCode} country=${directCountry ?? 'unavailable'}`,
       );
-      if (directCountry && directCountry !== 'CN') {
+      if (directCountry && !ApiRoute.IsProxyCountry(directCountry)) {
         select('direct');
         return;
       }

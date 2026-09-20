@@ -22,12 +22,16 @@ export class ApiRoute {
     return baseUrls[target];
   }
 
+  public static IsProxyCountry(country: string | undefined): boolean {
+    return country === 'CN';
+  }
+
   public static ChooseTarget(
     directProbeAvailable: boolean,
     directCountry: string | undefined,
     cnProxyAvailable: boolean,
   ): ApiTarget {
-    if (directProbeAvailable && directCountry !== 'CN') {
+    if (directProbeAvailable && !this.IsProxyCountry(directCountry)) {
       return 'direct';
     }
     if (cnProxyAvailable) {
