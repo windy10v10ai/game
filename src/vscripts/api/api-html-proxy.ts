@@ -30,23 +30,24 @@ export function parseProxyError(data: string): string | undefined {
  * 请求对象时，选一名已连接的真人玩家，用其客户端的 DOTAHTMLPanel 代发 GET 请求，
  * 响应经由 title 带回。不认识任何业务路径，拆分/合并由各业务调用方自行实现。
  */
-export class ApiProxy {
+export class ApiHtmlProxy {
   private static seq = 0;
   private static readyPlayerIds = new Set<PlayerID>();
   private static pending = new Map<string, PendingRequest>();
   private static queue: PendingRequest[] = [];
 
   public static Initialize(): void {
-    CustomGameEventManager.RegisterListener<Record<string, never>>('api_proxy_ready', (_, event) =>
-      ApiProxy.onClientReady(event.PlayerID),
+    CustomGameEventManager.RegisterListener<Record<string, never>>(
+      'api_html_proxy_ready',
+      (_, event) => ApiHtmlProxy.onClientReady(event.PlayerID),
     );
-    CustomGameEventManager.RegisterListener<ApiProxyResponseEventData>(
-      'api_proxy_response',
-      (_, event) => ApiProxy.onResponse(event.PlayerID, event),
+    CustomGameEventManager.RegisterListener<ApiHtmlProxyResponseEventData>(
+      'api_html_proxy_response',
+      (_, event) => ApiHtmlProxy.onResponse(event.PlayerID, event),
     );
-    CustomGameEventManager.RegisterListener<ApiProxyFailureEventData>(
-      'api_proxy_failure',
-      (_, event) => ApiProxy.onFailure(event.PlayerID, event),
+    CustomGameEventManager.RegisterListener<ApiHtmlProxyFailureEventData>(
+      'api_html_proxy_failure',
+      (_, event) => ApiHtmlProxy.onFailure(event.PlayerID, event),
     );
   }
 
@@ -56,8 +57,8 @@ export class ApiProxy {
     onSuccess: (data: string) => void,
     onFailure: (reason: string) => void,
   ): void {
-    const requestId = ApiProxy.nextRequestId();
-    const url = ApiProxy.buildUrl(path, querys, requestId);
+    const requestId = ApiHtmlProxy.nextRequestId();
+    const url = ApiHtmlProxy.buildUrl(path, querys, requestId);
     const request: PendingRequest = {
       requestId,
       path,
@@ -68,33 +69,33 @@ export class ApiProxy {
       relayPlayerId: undefined,
     };
     request.timerName = Timers.CreateTimer(TIMEOUT_SECONDS, () => {
-      ApiProxy.finish(requestId, undefined, 'timeout');
+      ApiHtmlProxy.finish(requestId, undefined, 'timeout');
     });
-    ApiProxy.pending.set(requestId, request);
+    ApiHtmlProxy.pending.set(requestId, request);
 
-    const relayPlayerId = ApiProxy.selectRelayPlayer();
+    const relayPlayerId = ApiHtmlProxy.selectRelayPlayer();
     if (relayPlayerId === undefined) {
-      print(`[ApiProxy] no relay player ready, queueing ${requestId} path=${path}`);
-      ApiProxy.queue.push(request);
+      print(`[ApiHtmlProxy] no relay player ready, queueing ${requestId} path=${path}`);
+      ApiHtmlProxy.queue.push(request);
       return;
     }
-    ApiProxy.dispatch(request, relayPlayerId);
+    ApiHtmlProxy.dispatch(request, relayPlayerId);
   }
 
   private static onClientReady(playerId: PlayerID): void {
-    if (ApiProxy.readyPlayerIds.has(playerId)) return;
-    ApiProxy.readyPlayerIds.add(playerId);
-    print(`[ApiProxy] player ${playerId} ready`);
+    if (ApiHtmlProxy.readyPlayerIds.has(playerId)) return;
+    ApiHtmlProxy.readyPlayerIds.add(playerId);
+    print(`[ApiHtmlProxy] player ${playerId} ready`);
 
-    if (ApiProxy.queue.length === 0) return;
-    const relayPlayerId = ApiProxy.selectRelayPlayer();
+    if (ApiHtmlProxy.queue.length === 0) return;
+    const relayPlayerId = ApiHtmlProxy.selectRelayPlayer();
     if (relayPlayerId === undefined) return;
 
-    const queued = ApiProxy.queue;
-    ApiProxy.queue = [];
+    const queued = ApiHtmlProxy.queue;
+    ApiHtmlProxy.queue = [];
     for (const request of queued) {
-      if (ApiProxy.pending.has(request.requestId)) {
-        ApiProxy.dispatch(request, relayPlayerId);
+      if (ApiHtmlProxy.pending.has(request.requestId)) {
+        ApiHtmlProxy.dispatch(request, relayPlayerId);
       }
     }
   }
@@ -102,46 +103,48 @@ export class ApiProxy {
   private static dispatch(request: PendingRequest, relayPlayerId: PlayerID): void {
     const player = PlayerResource.GetPlayer(relayPlayerId);
     if (!player) {
-      ApiProxy.queue.push(request);
+      ApiHtmlProxy.queue.push(request);
       return;
     }
     request.relayPlayerId = relayPlayerId;
-    print(`[ApiProxy] dispatch ${request.requestId} player=${relayPlayerId} url=${request.url}`);
-    CustomGameEventManager.Send_ServerToPlayer(player, 'api_proxy_request', {
+    print(
+      `[ApiHtmlProxy] dispatch ${request.requestId} player=${relayPlayerId} url=${request.url}`,
+    );
+    CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_request', {
       requestId: request.requestId,
       url: request.url,
     });
   }
 
-  private static onResponse(playerId: PlayerID, event: ApiProxyResponseEventData): void {
+  private static onResponse(playerId: PlayerID, event: ApiHtmlProxyResponseEventData): void {
     const titleLength = event.requestId.length + 1 + event.data.length;
     print(
-      `[ApiProxy] response ${event.requestId} titleLength(approx)=${titleLength} dataLength=${event.data.length}`,
+      `[ApiHtmlProxy] response ${event.requestId} titleLength(approx)=${titleLength} dataLength=${event.data.length}`,
     );
-    if (!ApiProxy.isFromRelayPlayer(playerId, event.requestId)) return;
+    if (!ApiHtmlProxy.isFromRelayPlayer(playerId, event.requestId)) return;
 
     const errorCode = parseProxyError(event.data);
     if (errorCode) {
-      ApiProxy.finish(event.requestId, undefined, errorCode);
+      ApiHtmlProxy.finish(event.requestId, undefined, errorCode);
       return;
     }
-    ApiProxy.finish(event.requestId, event.data, undefined);
+    ApiHtmlProxy.finish(event.requestId, event.data, undefined);
   }
 
-  private static onFailure(playerId: PlayerID, event: ApiProxyFailureEventData): void {
-    if (!ApiProxy.isFromRelayPlayer(playerId, event.requestId)) return;
+  private static onFailure(playerId: PlayerID, event: ApiHtmlProxyFailureEventData): void {
+    if (!ApiHtmlProxy.isFromRelayPlayer(playerId, event.requestId)) return;
 
-    print(`[ApiProxy] client failure ${event.requestId} reason=${event.reason}`);
-    ApiProxy.finish(event.requestId, undefined, event.reason);
+    print(`[ApiHtmlProxy] client failure ${event.requestId} reason=${event.reason}`);
+    ApiHtmlProxy.finish(event.requestId, undefined, event.reason);
   }
 
   // 回传只认当初派发给的那名玩家，别的客户端即便猜中 requestId 也顶替不了应答
   private static isFromRelayPlayer(playerId: PlayerID, requestId: string): boolean {
-    const request = ApiProxy.pending.get(requestId);
+    const request = ApiHtmlProxy.pending.get(requestId);
     if (!request) return false;
     if (request.relayPlayerId !== playerId) {
       print(
-        `[ApiProxy] ignore ${requestId} from player ${playerId}, relay is ${request.relayPlayerId}`,
+        `[ApiHtmlProxy] ignore ${requestId} from player ${playerId}, relay is ${request.relayPlayerId}`,
       );
       return false;
     }
@@ -153,16 +156,16 @@ export class ApiProxy {
     data: string | undefined,
     reason: string | undefined,
   ): void {
-    const request = ApiProxy.pending.get(requestId);
+    const request = ApiHtmlProxy.pending.get(requestId);
     if (!request) return;
-    ApiProxy.pending.delete(requestId);
-    ApiProxy.queue = ApiProxy.queue.filter((r) => r.requestId !== requestId);
+    ApiHtmlProxy.pending.delete(requestId);
+    ApiHtmlProxy.queue = ApiHtmlProxy.queue.filter((r) => r.requestId !== requestId);
     Timers.RemoveTimer(request.timerName);
 
     if (data !== undefined) {
       request.onSuccess(data);
     } else {
-      print(`[ApiProxy] request ${requestId} path=${request.path} failed: ${reason}`);
+      print(`[ApiHtmlProxy] request ${requestId} path=${request.path} failed: ${reason}`);
       request.onFailure(reason ?? 'unknown');
     }
   }
@@ -172,7 +175,7 @@ export class ApiProxy {
     for (let playerId = 0; playerId < DOTA_MAX_TEAM_PLAYERS; playerId++) {
       if (
         PlayerResource.IsValidPlayer(playerId) &&
-        ApiProxy.readyPlayerIds.has(playerId) &&
+        ApiHtmlProxy.readyPlayerIds.has(playerId) &&
         PlayerHelper.IsHumanPlayerByPlayerId(playerId) &&
         PlayerResource.GetConnectionState(playerId) === ConnectionState.CONNECTED
       ) {
@@ -183,9 +186,9 @@ export class ApiProxy {
   }
 
   private static nextRequestId(): string {
-    ApiProxy.seq++;
+    ApiHtmlProxy.seq++;
     const random = Math.floor(Math.random() * 1000000000);
-    return `p_${ApiProxy.seq}_${random}`;
+    return `p_${ApiHtmlProxy.seq}_${random}`;
   }
 
   private static buildUrl(

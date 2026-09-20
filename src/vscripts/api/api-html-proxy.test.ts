@@ -1,4 +1,4 @@
-import { parseProxyError } from './api-proxy';
+import { parseProxyError } from './api-html-proxy';
 
 describe('parseProxyError', () => {
   it('extracts the error code from an ERR: prefixed response', () => {

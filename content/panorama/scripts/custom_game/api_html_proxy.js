@@ -14,7 +14,7 @@
     var url = String(event.url);
     var finished = false;
 
-    var panel = $.CreatePanel('DOTAHTMLPanel', $.GetContextPanel(), 'ApiProxy_' + requestId);
+    var panel = $.CreatePanel('DOTAHTMLPanel', $.GetContextPanel(), 'ApiHtmlProxy_' + requestId);
     panel.style.width = '1px';
     panel.style.height = '1px';
     panel.style.opacity = '0.01';
@@ -34,7 +34,7 @@
 
       var data = title.substr(separatorIndex + 1);
       finish();
-      GameEvents.SendCustomGameEventToServer('api_proxy_response', {
+      GameEvents.SendCustomGameEventToServer('api_html_proxy_response', {
         requestId: requestId,
         data: data,
       });
@@ -45,14 +45,14 @@
     $.Schedule(REQUEST_TIMEOUT_SECONDS, function () {
       if (finished) return;
       finish();
-      GameEvents.SendCustomGameEventToServer('api_proxy_failure', {
+      GameEvents.SendCustomGameEventToServer('api_html_proxy_failure', {
         requestId: requestId,
         reason: 'client_timeout',
       });
     });
   }
 
-  GameEvents.Subscribe('api_proxy_request', onProxyRequest);
-  GameEvents.SendCustomGameEventToServer('api_proxy_ready', {});
-  $.Msg('[ApiProxy] ready');
+  GameEvents.Subscribe('api_html_proxy_request', onProxyRequest);
+  GameEvents.SendCustomGameEventToServer('api_html_proxy_ready', {});
+  $.Msg('[ApiHtmlProxy] ready');
 })();

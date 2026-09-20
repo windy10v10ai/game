@@ -1,7 +1,7 @@
 import { DailyTaskStartDto } from '../../common/dto/daily-task';
 import { GA4ConfigDto } from './analytics/ga4/dto/ga4-dto';
 import { ApiClient, ApiParameter } from './api-client';
-import { ApiProxy } from './api-proxy';
+import { ApiHtmlProxy } from './api-html-proxy';
 import { PlayerInfoDto, PointInfoDto } from './player';
 
 const GAME_START_PATH = '/game/start';
@@ -96,7 +96,7 @@ export class GameStartProxy {
     steamIds.forEach((steamId, index) => {
       const record = results[index];
 
-      ApiProxy.Send(
+      ApiHtmlProxy.Send(
         PROXY_GAME_START_PATH,
         { steamIds: String(steamId), matchId, version },
         (data) => {
@@ -109,7 +109,7 @@ export class GameStartProxy {
         },
       );
 
-      ApiProxy.Send(
+      ApiHtmlProxy.Send(
         PROXY_PLAYER_INFO_PATH,
         { steamId: String(steamId), include: PLAYER_INFO_INCLUDE },
         (data) => {

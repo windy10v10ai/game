@@ -2,7 +2,7 @@ import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
 import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-language-tracker';
 import { ApiClient } from '../api/api-client';
-import { ApiProxy } from '../api/api-proxy';
+import { ApiHtmlProxy } from '../api/api-html-proxy';
 import { ConductApi } from '../api/conduct';
 import { GameStartProxy } from '../api/game-start-proxy';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
@@ -75,7 +75,7 @@ export function ActivateModules() {
     new GA4PlayerLanguageTracker();
 
     // 客户端 HTTP 代理：服务端拿不到请求对象时（游廊对局），转交客户端代发白名单路径
-    ApiProxy.Initialize();
+    ApiHtmlProxy.Initialize();
     GameStartProxy.Register();
   }
 
