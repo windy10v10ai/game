@@ -1,24 +1,19 @@
 ---
 name: clone-ability
-description: >-
-  Create or fix a custom KV ability that inherits from a vanilla Dota ability
-  (BaseClass = original ability name). Supports ability lookup by Chinese name
-  or hero-ability format. Merges vanilla KV with override extras. Syncs keys
-  on update. Handles innate and regular abilities. Interactive menus for
-  ambiguous decisions.
+description: 继承原版 Dota 技能做差分克隆（BaseClass = 原版技能名），也用于修正已有克隆技能。触发：用户说「克隆 XX 技能」「基于 YY 做个自定义技能」。区别于 custom-ability（从零自制）、awaken-ability（觉醒槽位替换）。
 ---
 
 # 自定义继承技能（新建 / 修正）
 
 将原版 Dota 技能（先天或普通）克隆为自定义技能名，写入本图 KV 并补全本地化。
 
-> 参考文件路径及技能系统名查找规则见 CLAUDE.md「Dota 2 参考文件速查」章节。
+> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」，技能系统名查找规则见 `.claude/CLAUDE.md`「查原版技能」。
 
 ---
 
 ## 第一步：解析技能输入
 
-按 CLAUDE.md「技能系统名查找」规则处理（支持系统名 / 中文名 / 英雄名-技能名）。
+按 `.claude/CLAUDE.md`「查原版技能」规则处理（支持系统名 / 中文名 / 英雄名-技能名）。
 
 ---
 

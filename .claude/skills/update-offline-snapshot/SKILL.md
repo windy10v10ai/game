@@ -1,9 +1,7 @@
 ---
 name: update-offline-snapshot
-description: >-
-  刷新游戏内离线玩家数据快照：从 Firestore 直接导出会员、积分与属性、觉醒、玩家设置 KV 文件与导出时间到
-  game/scripts/kv/。游廊创建的多人对局里服务端发不出 HTTP 请求，游戏靠这批随地图发布的快照读玩家数据。
-  Use when 用户说「更新快照」「拉一下离线数据」「刷新会员数据」，或准备发布创意工坊地图之前。
+description: 从 Firestore 导出会员、积分、觉醒、玩家设置快照到 game/scripts/kv/，发布创意工坊地图前用。
+disable-model-invocation: true
 ---
 
 # Update Offline Snapshot

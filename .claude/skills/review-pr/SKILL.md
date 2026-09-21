@@ -1,9 +1,6 @@
 ---
 name: review-pr
-description: >-
-  review 一份 PR/代码改动时使用的判断标准清单，从本仓库历史上大量实质性 review
-  评论中提炼。当用户说"review 一下这个 PR"「检查一下这份改动」「这个 PR 有没有问题」
-  「按我们的标准看看这段代码」等时触发。
+description: 按本仓库历史 review 意见提炼的标准清单审查改动。触发：用户说「review 一下这个 PR」「检查一下这份改动」「这个 PR 有没有问题」。
 ---
 
 # PR Review 流程
@@ -39,7 +36,7 @@ description: >-
 
 ## 1. 根因优先于表面修补
 
-遇到 bug 先定位到真实机制，说明机制而不是只描述症状修复。常见根因类别：`LinkLuaModifier` 未注册导致引用的 modifier 从未生效、本地常量与 Dota 引擎全局同名被词法遮蔽（见 CLAUDE.md「本地常量不要与 Dota 引擎全局同名」）。发现类似问题时优先指出根因位置，而不是停留在"这里应该改成 X"。
+遇到 bug 先定位到真实机制，说明机制而不是只描述症状修复。常见根因类别：`LinkLuaModifier` 未注册导致引用的 modifier 从未生效、本地常量与 Dota 引擎全局同名被词法遮蔽（见 `src/vscripts/CLAUDE.md`「本地常量不要与 Dota 引擎全局同名」）。发现类似问题时优先指出根因位置，而不是停留在"这里应该改成 X"。
 
 ## 2. 优先复用 Dota 原生机制，警惕自造平行逻辑
 
@@ -49,11 +46,11 @@ description: >-
 
 ## 3. 测试有效性
 
-判断标准见 CLAUDE.md「测试」章节（只测自身分支/计算逻辑，不测引擎契约）。review 时对照该标准检查新增测试是否真的验证了逻辑分支，还是只是字符串匹配或纯 mock 调用断言。
+判断标准见 `src/vscripts/CLAUDE.md`「测试」章节（只测自身分支/计算逻辑，不测引擎契约）。review 时对照该标准检查新增测试是否真的验证了逻辑分支，还是只是字符串匹配或纯 mock 调用断言。
 
 ## 4. KV / 本地化一致性与去重
 
-- KV 字段对齐用 tab 不用空格,颜色代码大写（见 CLAUDE.md「本地化文案规约」)
+- KV 字段对齐用 tab 不用空格,颜色代码大写（见 `game/resource/CLAUDE.md`「文案规约」)
 - 多处硬编码的同一个常量/价格（如 bot 出装 tier 配置的 cost 与 KV 的 ItemCost）应收敛成单一来源
 - 机制变更后随之失效的 KV 字段（如目标选择方式改变后遗留的 `AbilityUnitTargetTeam`/`Flags`）要一并清理，不要留死配置
 
@@ -63,7 +60,7 @@ description: >-
 
 ## 6. Dota 专属正确性 checkpoint
 
-伤害标志位（`DamageFlag.REFLECTION`/`NO_SPELL_AMPLIFICATION` 等）与技能增强的显式声明、防止数值被无限刷高的上限设计，参见 CLAUDE.md「常见陷阱」里已有的对应条目。
+伤害标志位（`DamageFlag.REFLECTION`/`NO_SPELL_AMPLIFICATION` 等）与技能增强的显式声明、防止数值被无限刷高的上限设计，参见 `src/vscripts/CLAUDE.md`「常见陷阱」里已有的对应条目。
 
 ## 依赖 / package 升级 PR
 

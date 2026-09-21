@@ -1,15 +1,6 @@
 ---
 name: doc-update
-description: >-
-  Capture-correction workflow: record valuable learnings from the current
-  conversation into CLAUDE.md or the relevant SKILL.md so the same mistake never
-  recurs. Reviews conversation for corrections, new conventions, and doc-reality
-  mismatches; proposes targeted updates confirmed by user before writing. TRIGGER
-  whenever the user corrects Claude's approach or rejects an action — signals like
-  "不对", "不要这样", "应该是", "错了", "其实是", "no, do X instead", "that's wrong" —
-  and the correction reflects a reusable convention rather than a one-off. Also use
-  when a doc-vs-code discrepancy is found, or the user supplies a convention Claude
-  could not infer.
+description: 把本轮对话中的纠正与新约定沉淀进 CLAUDE.md、模块 README 或对应 SKILL.md。触发：用户纠正做法或否决动作且属于可复用约定；发现文档与代码不符；用户补充了推断不出的约定。
 ---
 
 # doc-update
@@ -48,11 +39,14 @@ description: >-
 
 ### 第二步：判断记录位置
 
+**就近优先**：能放进某一层的就不要放进根目录。
+
 | 内容类型 | 记录位置 |
 |---------|---------|
-| 项目级通用惯例、架构规则、常见陷阱 | `CLAUDE.md`（根目录） |
+| 只在某一层成立的规则与陷阱 | 该层的 `CLAUDE.md`（`src/`、`src/vscripts/`、`src/panorama/`、`game/scripts/npc/`、`game/resource/`） |
+| 某个模块的设计与决策 | 该模块目录下的 `README.md`（如 `src/vscripts/api/README.md`） |
 | 特定 skill 的执行细节、步骤修正 | 对应 `.claude/skills/<name>/SKILL.md` |
-| 某个模块/子目录的专属约定 | 该目录下新建 `CLAUDE.md` |
+| 真正跨全项目的规则 | `.claude/CLAUDE.md` |
 
 > 优先更新已有条目，避免新增冗余段落。
 

@@ -1,18 +1,14 @@
 ---
 name: adjust-lottery-tier
-description: >-
-  基于主动/被动技能统计 CSV（列：技能,等级维度,胜率,事件数），复盘抽奖池 Tier 分布。
-  读取 src/vscripts/modules/lottery/lottery-abilities.ts 当前池形状，
-  对照目标占比（T5 4–5% / T4 13–15% / T3 21–23% / T2 33–36% / T1 24–27%），
-  结合胜率与事件数为每条技能生成调整建议（升/降档、加强/削弱、移除、询问用户），
-  写入 plan 并与用户确认后执行池结构调整。数值加强/削弱类交给 update-abilities-override 接手。
+description: 基于技能胜率统计 CSV 复盘抽奖池 Tier 分布，生成升降档与增删建议。
+disable-model-invocation: true
 ---
 
 # 抽奖池 Tier 复盘与调整
 
 基于 CSV 统计数据调整 `src/vscripts/modules/lottery/lottery-abilities.ts` 的 Tier 分布。
 
-> 参考文件路径见 CLAUDE.md「Dota 2 参考文件速查」。
+> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
 
 ---
 

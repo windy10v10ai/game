@@ -54,3 +54,27 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 ## 格式
 
 所有 `.txt` 全程使用 **tab**，包括行首缩进与 key/value 之间的对齐间距，不得用空格。
+
+## 数值配置
+
+技能射程、伤害值及其他可调参数一律从 KV 文件**动态读取**，不要在 TS/Lua 里硬编码已存在于 KV 中的数值。
+
+- **让 tooltip 计入技能增强**：某条 `AbilityValues` 数值想在游戏中按住 ALT 时显示「被技能增强放大后」的值，在该数值块内加 `"CalculateSpellDamageTooltip" "1"`（**不是** `affected_by_spell_amplify`，没有这个字段）。原版默认多为 `"0"`（不计入）。配套字段：`"DamageTypeTooltip"`（伤害类型）、`"display_type"`（如 `kMagicalDamagePercentage` 百分比显示）
+
+## 原版 KV 参考
+
+`<version>` 取 `docs/reference/` 下最新数字版本目录。
+
+| 用途 | 路径 |
+|------|------|
+| 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
+| 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
+| 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
+| 原版物品 | `docs/reference/<version>/items.txt` |
+| 官方 ability/item ID 占用表 | `docs/reference/<version>/npc_ability_ids.txt` |
+
+技能名的中文↔系统名互查见 `.claude/CLAUDE.md`「查原版技能」。
+
+## 图标
+
+`AbilityTextureName` 引用 Dota2 已有的原版 texture 时直接写名字，无需放 png。自定义图标要放 png 并登记，走 `add-image` skill（漏步骤就是紫块）。
