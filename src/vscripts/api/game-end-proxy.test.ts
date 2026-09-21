@@ -25,6 +25,15 @@ describe('splitGameEndByPlayer', () => {
     expect(request.players[0].heroName).toBe('npc_dota_hero_axe');
   });
 
+  it('sends one single-player request per human in a 10 player game with the same playerCount', () => {
+    const players = [1, 2, 3, 4, 5, 6, 7, 8].map(player).concat([player(0), player(0)]);
+    const tenPlayers = { matchId: 'm2', playerCount: 8, players } as unknown as GameEndDto;
+    const requests = splitGameEndByPlayer(tenPlayers);
+    expect(requests).toHaveLength(8);
+    expect(requests.every((r) => r.players.length === 1)).toBe(true);
+    expect(requests.every((r) => r.playerCount === 8)).toBe(true);
+  });
+
   it('returns nothing when only bots played', () => {
     const botsOnly = { ...gameEnd, players: [player(0)] } as GameEndDto;
     expect(splitGameEndByPlayer(botsOnly)).toEqual([]);

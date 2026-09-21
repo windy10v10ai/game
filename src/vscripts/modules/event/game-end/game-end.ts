@@ -161,6 +161,7 @@ export class GameEnd {
       winnerTeamId,
       gameTimeMsec: Math.round(gameTime * 1000),
       countryCode: GA4.countryCode,
+      playerCount: Math.max(1, players.filter((player) => player.steamId > 0).length),
       players,
     };
 

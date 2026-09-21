@@ -62,8 +62,12 @@ export class GameEndProxy {
         target,
         PROXY_GAME_END_LOCAL_PATH,
         { body: base64UrlEncode(json.encode(request)) },
-        () => {
+        (data) => {
           succeeded++;
+          // recorded 为 false 是被限额或冷却拒绝，不是错误
+          if (!GameEndProxy.isRecorded(data)) {
+            print(`[GameEndProxy] steamId=${steamId} settlement not recorded: ${data}`);
+          }
           onOneDone();
         },
         (reason) => {
@@ -71,6 +75,14 @@ export class GameEndProxy {
           onOneDone();
         },
       );
+    }
+  }
+
+  private static isRecorded(data: string): boolean {
+    try {
+      return (json.decode(data)[0] as { recorded?: boolean }).recorded === true;
+    } catch {
+      return false;
     }
   }
 }
