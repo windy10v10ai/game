@@ -9,6 +9,7 @@ import { GameEndProxy } from '../api/game-end-proxy';
 import { GameStartProxy } from '../api/game-start-proxy';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
+import { DailyTaskProxy } from '../api/daily-task-proxy';
 import { PlayerInfoProxy } from '../api/player-info-proxy';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
@@ -83,6 +84,7 @@ export function ActivateModules() {
     GameEndProxy.Register();
     GameStartProxy.Register();
     PlayerInfoProxy.Register();
+    DailyTaskProxy.Register();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();

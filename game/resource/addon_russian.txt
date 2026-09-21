@@ -372,6 +372,7 @@
 		"dailytask_subtab_history"			"История"
 		"dailytask_history_today"			"Сегодня"
 		"dailytask_history_empty_hint"			"Пока нет истории. Выполненные задания появятся здесь."
+		"dailytask_history_loading"				"Загрузка истории..."
 		"dailytask_history_col_date"			"Дата"
 		"dailytask_history_col_tasks"			"Выполнено"
 		"dailytask_history_col_points"			"Всего очков"
