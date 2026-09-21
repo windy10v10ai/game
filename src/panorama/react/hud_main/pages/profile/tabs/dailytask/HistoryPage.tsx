@@ -19,8 +19,16 @@ export function HistoryPage() {
 
   useEffect(() => {
     historyRequested = true;
+    let mounted = true;
     GameEvents.SendCustomGameEventToServer('dailytask_load_history', {});
-    $.Schedule(LOAD_TIMEOUT_S, () => setLoading(false));
+    $.Schedule(LOAD_TIMEOUT_S, () => {
+      if (mounted) {
+        setLoading(false);
+      }
+    });
+    return () => {
+      mounted = false;
+    };
   }, []);
 
   // 缺失的 history 会被转换成空数组，无法靠它判断到没到，只能看 net table 有没有再更新

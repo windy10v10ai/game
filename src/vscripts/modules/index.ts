@@ -4,12 +4,12 @@ import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-langua
 import { ApiClient } from '../api/api-client';
 import { ApiHtmlProxy } from '../api/api-html-proxy';
 import { ConductApi } from '../api/conduct';
+import { DailyTaskProxy } from '../api/daily-task-proxy';
 import { GameProbeProxy } from '../api/game-probe-proxy';
 import { GameEndProxy } from '../api/game-end-proxy';
 import { GameStartProxy } from '../api/game-start-proxy';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
-import { DailyTaskProxy } from '../api/daily-task-proxy';
 import { PlayerInfoProxy } from '../api/player-info-proxy';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
