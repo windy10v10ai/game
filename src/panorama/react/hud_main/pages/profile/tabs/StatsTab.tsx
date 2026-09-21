@@ -35,14 +35,15 @@ export function StatsTab() {
   const winRate =
     matchCount > 0 ? Math.round(((player?.winCount ?? 0) / matchCount) * 100) + '%' : '0%';
   const conductPoint = player?.conductPoint ?? 100;
+  // 80-109 含默认起始值 100，用面板默认字色不额外强调；只在明显偏离基准时上色
   const conductColor =
     conductPoint < 60
       ? '#E87D7D'
       : conductPoint < 80
         ? '#FFA726'
         : conductPoint >= 110
-          ? '#FFD700'
-          : '#7FD47F';
+          ? '#7FD47F'
+          : undefined;
   const commendCount = player?.commendCount ?? 0;
   const reportCount = player?.reportCount ?? 0;
   const conductNet = commendCount - reportCount;
