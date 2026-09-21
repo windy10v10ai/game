@@ -1,12 +1,6 @@
 ---
 name: bot-item-usage
-description: >-
-  为指定 Dota 物品编写 bot AI 使用规则（ItemSpec），让 bot 在合适时机自动使用该战斗物品。
-  原版物品、克隆物品统一在 src/vscripts/ai/item/specs/ 下登记一个文件（升级链 + 使用逻辑相同的
-  多个物品合并为一个文件）。读取物品 KV 判断 behavior/cast range，与用户确认条件后写入并注册。
-  区别于购买/出售决策（见 bot-item-build skill）和购买后立即消耗的永久消耗品（见
-  src/vscripts/ai/item/consume-item.ts，不走这套框架）。
-  适用场景：用户说"让 bot 会用 XX 物品"、"给 bot 写 YY 的战斗使用逻辑"等。
+description: 为指定战斗物品编写 bot 使用规则（ItemSpec），让 bot 在合适时机自动使用。触发：用户说「让 bot 会用 XX 物品」「给 bot 写 YY 的战斗使用逻辑」。区别于 bot-item-build（买卖决策）、bot-ability-usage（技能）。
 ---
 
 # 编写 Bot 物品使用 Spec
@@ -63,7 +57,7 @@ Glob pattern: src/vscripts/ai/item/specs/<itemName>.ts
 
 ## 第三步：读取物品 KV，提取关键字段
 
-按 CLAUDE.md「Dota 2 参考文件速查」定位该物品的 KV 块（原版查 `docs/reference/<version>/items.txt`，克隆/自制查 `game/scripts/npc/npc_items_clone.txt` / `npc_items_custom.txt`，override 差分查 `npc_items_override.txt`）：
+按 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」定位该物品的 KV 块（原版查 `docs/reference/<version>/items.txt`，克隆/自制查 `game/scripts/npc/npc_items_clone.txt` / `npc_items_custom.txt`，override 差分查 `npc_items_override.txt`）：
 
 | KV 字段 | 用途 | 取值映射 |
 |---|---|---|

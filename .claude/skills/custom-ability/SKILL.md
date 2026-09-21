@@ -1,6 +1,6 @@
 ---
 name: custom-ability
-description: 从零自制一个全新自定义技能时使用——非继承原版、非觉醒替换的技能，从零新增一律走 TS。先查可复用的原版 modifier，再写实现骨架（被动 intrinsic modifier、弹道命中判定）。区别于 clone-ability（继承原版差分克隆）与 awaken-ability（觉醒石替换槽位）。当用户说「写一个新技能」「自制技能」「这个技能怎么实现」等时触发。
+description: 从零自制全新技能（走 TS，非继承原版、非觉醒替换）。触发：用户说「写一个新技能」「自制技能」「这个技能怎么实现」。区别于 clone-ability（继承原版差分）、awaken-ability（觉醒槽位替换）。
 ---
 
 # 自定义技能（从零自制）
@@ -13,7 +13,7 @@ description: 从零自制一个全新自定义技能时使用——非继承原�
 | 觉醒石替换/插入英雄技能槽 | `awaken-ability` |
 | **从零自制**（TS `@registerAbility`，KV `BaseClass` = `ability_lua`） | **本 skill** |
 
-> 图标、本地化、KV tab 缩进、`#base` 引入、技能系统名查找、参考文件路径 —— 全部见 CLAUDE.md「图片资源管理」「Dota 2 参考文件速查」与 `localization-format-guide`，本文不重复。
+> 图标、本地化、KV tab 缩进、`#base` 引入、技能系统名查找、参考文件路径 —— 全部见 `add-image` skill、`game/scripts/npc/CLAUDE.md` 与 `game/resource/CLAUDE.md`，本文不重复。
 
 ---
 
@@ -52,7 +52,7 @@ export class MyAbility extends BaseAbility {
 }
 ```
 
-KV `BaseClass` 写 `ability_lua`、`ScriptFile` 指向 TSTL 编译产物路径 `abilities/ts_abilities/<name>`。引擎枚举成员用 normalized 名（`UnitFilterResult.FAIL_CUSTOM`，见 CLAUDE.md）。
+KV `BaseClass` 写 `ability_lua`、`ScriptFile` 指向 TSTL 编译产物路径 `abilities/ts_abilities/<name>`。引擎枚举成员用 normalized 名（`UnitFilterResult.FAIL_CUSTOM`，见 `src/vscripts/CLAUDE.md`）。
 
 被动技能标准写法：`GetIntrinsicModifierName()` 返回一个隐藏内置 modifier，无需学习即生效，可调值全从 KV `AbilityValues` 读。
 
@@ -98,7 +98,7 @@ autocast 自动触发（共享基类 `AutoCastAbility`）、监听某技能施�
 
 ## 收尾
 
-- **图标 / 本地化 / `#base` 引入新 KV 文件** → 见 CLAUDE.md 与 `localization-format-guide`。
+- **图标 / 本地化 / `#base` 引入新 KV 文件** → 见 `add-image` skill 与 `game/resource/CLAUDE.md`。
 - **进抽奖池** → 在 `src/vscripts/modules/lottery/lottery-abilities.ts`（及 `lottery-abilities-bot.ts`）加技能名。
 - **bot 会用** → 见 `bot-ability-usage`。
 - **验证** → 收尾跑一次 `npm run build:vscripts` 看是否报错，不读编译产物；运行时行为靠 jest（自己的分支逻辑）+ Dota tools 实跑。维护已有纯 Lua 时 `script_reload` 实跑。

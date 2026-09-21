@@ -1,6 +1,6 @@
 ---
 name: custom-item
-description: 从零自制全新自定义物品（BaseClass = item_datadriven / item_lua，含多材料合成神器）。复用原版 modifier、两模式选型「DataDriven 主体」与「TS 主体」、回调税与镜像值取舍、合成配方与 ID 分配。区别于 clone-item（原版倍率克隆）。当用户说「做一个新物品」「合成神器」「物品属性会不会卡顿」「item_lua 还是 item_datadriven」时触发。
+description: 从零自制全新物品，含多材料合成神器。触发：用户说「做一个新物品」「合成神器」「item_lua 还是 item_datadriven」「物品属性会不会卡顿」。区别于 clone-item（原版倍率克隆）。
 ---
 
 # 自定义物品（从零自制）
@@ -10,7 +10,7 @@ description: 从零自制全新自定义物品（BaseClass = item_datadriven / i
 | 继承原版物品差分、数值倍率克隆（`BaseClass` = 原版物品名） | `clone-item` |
 | **从零自制**（`BaseClass` = `item_datadriven` / `item_lua`，含多材料合成神器） | **本 skill** |
 
-> 图标、本地化、KV tab 缩进、`#base` 引入、参考文件路径 —— 全部见 CLAUDE.md「图片资源管理」「Dota 2 参考文件速查」与 `localization-format-guide`，本文不重复。
+> 图标、本地化、KV tab 缩进、`#base` 引入、参考文件路径 —— 全部见 `add-image` skill、`game/scripts/npc/CLAUDE.md` 与 `game/resource/CLAUDE.md`，本文不重复。
 
 ---
 
@@ -268,7 +268,7 @@ ID 一旦写入不要再改（项目内已有惯例注释："Do not change this 
 
 ## 第六步：收尾
 
-- **图标 / 本地化 / `#base` 引入新 KV 文件** → CLAUDE.md 与 `localization-format-guide`（物品同时有主动 + 被动时，两段 `<h1>` 之间用 `\n` 分隔，不要用 `<br><br>`）
+- **图标 / 本地化 / `#base` 引入新 KV 文件** → `add-image` skill 与 `game/resource/CLAUDE.md`（物品同时有主动 + 被动时，两段 `<h1>` 之间用 `\n` 分隔，不要用 `<br><br>`）
 - **KV 落点** → 普通自制物品 `npc_items_custom.txt`；龙珠/祝福等神器系列 `npc_items_artifact.txt`；`item_apply_modifiers` 的 `_stats` 与独立 DataDriven modifier `npc_items_modifier.txt`（**不放**物品本体）
 - **bot 会买 / 会用** → `bot-item-build`（购买决策）、`bot-item-usage`（战斗使用）
 - **验证** → 改 KV 后重启 Dota Tools（`script_reload` 不重读 KV）；模式 1 的 Lua 改完 `script_reload` 即可；模式 2 收尾跑一次 `npm run build:vscripts` 只看报错，不读编译产物，运行时行为靠 jest（自己的分支逻辑）+ Dota Tools 实跑

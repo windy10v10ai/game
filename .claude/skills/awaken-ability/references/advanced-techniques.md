@@ -97,7 +97,7 @@ ApplyAwakenMagicImmunity(unit, ability, duration)
 
 - KV：`AbilityBehavior` 加 `DOTA_ABILITY_BEHAVIOR_HIDDEN`（不进技能栏），同时加一个 `Modifiers` 子块，子 modifier 设 `"Passive" "1"` + `"IsHidden" "0"`（非隐藏，展示为常驻 buff 图标，自动复用 `AbilityTextureName` 做图标）。
 - 本地化：ability 自身的 `DOTA_Tooltip_ability_<name>` / `_Description` **保留不删**——觉醒预览页 `AwakenTab.tsx` 用 `DOTAAbilityImage` 读取的是 ability 的 tooltip，不是 modifier 的。额外补一组 `DOTA_Tooltip_modifier_<modifier_name>` / `_Description`，内容与 ability 标题/描述完全一致，确保游玩时看到的 buff tooltip 与觉醒页说明一致。
-- modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 CLAUDE.md 本地化文案规约）。
+- modifier 描述里若有写死的字面 `%` 号，**同样要转义成 `%%`**（不要因为是 modifier 就漏掉，规则与正文一致，见 `game/resource/CLAUDE.md`「文案规约」）。
 - **modifier tooltip 不支持直接 `%key%` 读取 ability 的 `AbilityValues`**（会显示空白或吞掉百分号）；ability 自身的描述不受影响，仍可正常用 `%key%`。modifier 这边按实现方式分三种处理：
   - **DataDriven 且数值挂在内置 `MODIFIER_PROPERTY_*`**（如 `MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE`、`MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT` 等标准属性，`Properties` 块里已声明）：**可以**直接动态取值，本地化写 `%dMODIFIER_PROPERTY_<属性名>%%%` 即可，引擎自动读取该 modifier 当前的属性值，**不需要**任何 RunScript/OnTooltip 代码，也**不需要**手动包白色粗体（项目里已有先例：`monkey_king_defy`、`insight_armor_aura`）。
   - **DataDriven 且数值不对应任何内置 Property**（纯标记技能、无脚本）：没有代码可补，描述里**写死成具体数字**。
@@ -153,7 +153,7 @@ Timers.CreateTimer(duration, () => {
 - 关闭自动施法：技能栏显示原版技能本体，玩家手动操作，行为与不觉醒时完全一致
 - 打开自动施法：觉醒技能的 intrinsic modifier 用 `OnIntervalThink` 周期检测触发条件（如冷却是否转好、范围内是否有合适目标），满足条件时**代替玩家调用原版技能自身的 `OnSpellStart()`**（而不是重新实现一遍技能效果），原版技能命中判定、加成、伤害全部原样生效；需要玩家原本手动点第二步操作（如某个收尾/确认技能）时，同样在检测循环里判断该技能是否可施放，可施放就代为调用
 
-判断「简化操作」类需求是否走偏了的信号：如果实现过程中出现了原版技能本身没有的新数值字段（半径、持续时间、加成档位）、新的 buff/debuff modifier、或者需要"叠加/覆盖原版效果"的逻辑，那大概率是把"自动化操作"和"改变技能效果"这两件事混在一起了——先回头确认需求到底是哪一种，多数"简化操作"类诉求只需要前者。代码代为触发 `OnSpellStart()` 时须补 `UseResources`，见 CLAUDE.md「常见陷阱」。
+判断「简化操作」类需求是否走偏了的信号：如果实现过程中出现了原版技能本身没有的新数值字段（半径、持续时间、加成档位）、新的 buff/debuff modifier、或者需要"叠加/覆盖原版效果"的逻辑，那大概率是把"自动化操作"和"改变技能效果"这两件事混在一起了——先回头确认需求到底是哪一种，多数"简化操作"类诉求只需要前者。代码代为触发 `OnSpellStart()` 时须补 `UseResources`，见 `src/vscripts/CLAUDE.md`「常见陷阱」。
 
 **替换类觉醒仍需完整还原原版技能的 KV 数值和本地化文案**：这层"自动化外壳"不改变原版效果，因此觉醒技能自己的 KV（`AbilityValues`、`AbilityCooldown`、`AbilityManaCost`、`HasScepterUpgrade` 等）和本地化描述都应该与原版技能 + `npc_abilities_override.txt` 差分之后的最终值保持完全一致（玩家在未开自动施法时，看到的技能面板本质就是原版技能本身）。新增的自动施法说明追加在原版描述之后，不要替换掉原版的效果描述。
 

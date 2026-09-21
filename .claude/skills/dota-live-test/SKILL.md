@@ -1,11 +1,6 @@
 ---
 name: dota-live-test
-description: >-
-  在 Dota 2 Tools 里实机跑一局，把控制台输出落盘成文件后 grep 验证改动：启动参数加
-  -condebug -conclearlog，按需拉起本地 firebase 模拟器与 API，开局触发流程，再对照
-  [VScript]（服务端 print）与 [PanoramaScript]（客户端 $.Msg）两路日志。
-  Use when 用户说「实机验证」「跑一局看看」「帮我测一下」「用 tools 跑起来」，
-  或改动依赖引擎运行时行为（事件收发、modifier 生效、API 链路），jest 覆盖不到。
+description: 在 Dota 2 Tools 里实机跑一局，落盘控制台日志后 grep 验证改动。触发：用户说「实机验证」「跑一局看看」「帮我测一下」，或改动依赖引擎运行时行为（事件收发、modifier 生效、API 链路）而 jest 覆盖不到。
 ---
 
 # Dota Live Test

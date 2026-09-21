@@ -1,11 +1,7 @@
 ---
 name: bot-item-build
-description: >-
-  基于 bot（英雄_BOT.csv）与玩家（英雄_玩家.csv）出装统计 CSV（列：物品,英雄,Average 时长_秒,胜率,事件数,Average 金钱），
-  按装备在 src/vscripts/ai/build-item/item-tier-config.ts 的 canonical tier 过滤数据，
-  为 src/vscripts/ai/build-item/bot-build-config.ts / bot-build-template.ts 的候选池生成扩充建议：
-  bot 数据优先、玩家数据补充、同英雄模板兜底，目标每个 tier 候选数至少 8 件（最佳区间 8~10，不超过 12）。
-  与用户确认后执行编辑并校验 tier 一致性。
+description: 基于出装统计 CSV 扩充 bot 各 tier 的候选装备池。
+disable-model-invocation: true
 ---
 
 # Bot 出装候选池调整
@@ -13,7 +9,7 @@ description: >-
 基于统计 CSV 调整 `src/vscripts/ai/build-item/bot-build-config.ts`（英雄专属候选池）与
 `bot-build-template.ts`（共享模板候选池）的 tier 装备构成。
 
-> 参考文件路径见 CLAUDE.md「Dota 2 参考文件速查」。
+> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
 
 ---
 
