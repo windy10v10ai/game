@@ -476,6 +476,7 @@
 		"dailytask_subtab_history"			"History"
 		"dailytask_history_today"			"Today"
 		"dailytask_history_empty_hint"			"No history yet. Completed tasks will show up here."
+		"dailytask_history_loading"				"Loading history..."
 		"dailytask_history_col_date"			"Date"
 		"dailytask_history_col_tasks"			"Completed"
 		"dailytask_history_col_points"			"Total Points"

@@ -42,7 +42,7 @@ describe('transformDailyTask', () => {
       history: luaArray([{ dayId: '20260815', tasks: rawTasks, seasonPoint: 240 }]),
     };
     const result = transformDailyTask(raw);
-    const tasks = result.history[0].tasks;
+    const tasks = result.history![0].tasks;
     expect(Array.isArray(tasks)).toBe(true);
     expect(tasks).toHaveLength(3);
     expect(tasks[0]).toEqual({ taskId: 'general_kills', star: 1 });

@@ -1,4 +1,5 @@
 import {
+  DailyTaskHistoryEntryDto,
   DailyTaskResultDto,
   DailyTaskStartDto,
   TaskCandidateDto,
@@ -24,9 +25,12 @@ export interface DailyTaskCompletion {
 @reloadable
 export class DailyTask {
   private static readonly REFRESH_URL = '/daily-task/refresh';
+  private static readonly SNAPSHOT_URL = '/daily-task';
   // 需要和 useDailyTaskRefreshButton.ts 的本地兜底超时保持一致，请求卡住时两侧同时放开按钮
   private static readonly REFRESH_TIMEOUT_SECONDS = 10;
   private state: Map<PlayerID, DailyTaskPlayerState> = new Map();
+  // 历史只在进历史子页时拉，拉过（或正在拉）的玩家不重复请求
+  private historyRequested: Set<PlayerID> = new Set();
   private readonly PROGRESS_PUSH_INTERVAL = 1;
 
   constructor() {
@@ -35,6 +39,9 @@ export class DailyTask {
     );
     CustomGameEventManager.RegisterListener('dailytask_refresh_candidates', (_, event) =>
       this.RequestRefresh(event.PlayerID),
+    );
+    CustomGameEventManager.RegisterListener('dailytask_load_history', (_, event) =>
+      this.LoadHistory(event.PlayerID),
     );
     // 自定义模式的极端配置判定依赖 GameRules.Option，值在加载界面异步写入，
     // 可能晚于 SetStartData 的首次快照，需要在配置变化时重新同步 enabled
@@ -96,11 +103,44 @@ export class DailyTask {
         if (!current) {
           return;
         }
-        this.state.set(playerId, { ...snapshot, selectedTaskId: current.selectedTaskId });
+        // 刷新响应不带历史，整体覆盖会抹掉已拉回的历史
+        this.state.set(playerId, {
+          ...snapshot,
+          selectedTaskId: current.selectedTaskId,
+          history: current.history,
+        });
         this.setDailyTaskTable(playerId);
       },
       failureFunc: (data) => {
         print(`[DailyTask] RequestRefresh failed playerId=${playerId} data=${data}`);
+      },
+    });
+  }
+
+  /** 玩家打开历史子页时拉取历史，同一玩家只成功拉一次 */
+  LoadHistory(playerId: PlayerID): void {
+    const state = this.state.get(playerId);
+    if (!state || this.historyRequested.has(playerId)) {
+      return;
+    }
+    this.historyRequested.add(playerId);
+    ApiClient.sendWithRetry({
+      method: HttpMethod.GET,
+      path: `${DailyTask.SNAPSHOT_URL}/${state.steamId}`,
+      successFunc: (data) => {
+        const history = (json.decode(data)[0] as { history?: DailyTaskHistoryEntryDto[] }).history;
+        const current = this.state.get(playerId);
+        if (!current || !history) {
+          this.historyRequested.delete(playerId);
+          return;
+        }
+        current.history = history;
+        this.setDailyTaskTable(playerId);
+      },
+      failureFunc: (data) => {
+        // 放开标记，玩家下次进历史子页可以再试
+        this.historyRequested.delete(playerId);
+        print(`[DailyTask] LoadHistory failed playerId=${playerId} data=${data}`);
       },
     });
   }

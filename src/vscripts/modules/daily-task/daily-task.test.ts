@@ -41,6 +41,8 @@ global.GameRules = { IsCheatMode: () => mockIsCheatMode(), Option: { ...defaultO
 // 进度推送定时器只需占位防崩，回调不在单测里跑
 global.Timers = { CreateTimer: jest.fn() };
 
+global.json = { decode: (s: string) => [JSON.parse(s)] };
+
 const mockIsInToolsMode = jest.fn(() => false);
 global.IsInToolsMode = () => mockIsInToolsMode();
 
@@ -58,6 +60,7 @@ jest.mock('./daily-task-metric-reader', () => ({
 }));
 
 import { TaskCandidateDto } from '../../../common/dto/daily-task';
+import { ApiClient } from '../../api/api-client';
 import { DailyTask } from './daily-task';
 
 const GENERAL_CANDIDATE: TaskCandidateDto = {
@@ -300,6 +303,64 @@ describe('DailyTask', () => {
         },
         candidate: HERO_CANDIDATE,
       });
+    });
+  });
+  describe('历史懒加载', () => {
+    const START = {
+      steamId: 111,
+      dayId: '20260815',
+      candidates: [GENERAL_CANDIDATE],
+      completedTasks: [],
+      todaySeasonPoint: 0,
+      refreshRemaining: 1,
+    };
+    const HISTORY = [{ dayId: '20260814', tasks: [GENERAL_CANDIDATE], seasonPoint: 80 }];
+    let send: jest.SpyInstance;
+
+    beforeEach(() => {
+      send = jest.spyOn(ApiClient, 'sendWithRetry').mockImplementation(() => undefined);
+      dailyTask.SetStartData(PLAYER_ID, START);
+    });
+
+    afterEach(() => send.mockRestore());
+
+    const reply = (body: object) => send.mock.calls[0][0].successFunc(JSON.stringify(body));
+
+    it('同一玩家拉过一次就不再拉', () => {
+      dailyTask.LoadHistory(PLAYER_ID);
+      reply({ history: HISTORY });
+      dailyTask.LoadHistory(PLAYER_ID);
+      expect(send).toHaveBeenCalledTimes(1);
+      expect(netTable['daily_task'][PLAYER_ID.toString()].history).toEqual(HISTORY);
+    });
+
+    it('请求失败后放开标记，下次进子页可以重试', () => {
+      dailyTask.LoadHistory(PLAYER_ID);
+      send.mock.calls[0][0].failureFunc('boom');
+      dailyTask.LoadHistory(PLAYER_ID);
+      expect(send).toHaveBeenCalledTimes(2);
+    });
+
+    it('响应里没有 history 视为失败，放开标记', () => {
+      dailyTask.LoadHistory(PLAYER_ID);
+      reply({ steamId: 111 });
+      dailyTask.LoadHistory(PLAYER_ID);
+      expect(send).toHaveBeenCalledTimes(2);
+    });
+
+    it('拉回历史后再刷新，历史与已选任务都保留', () => {
+      dailyTask.LoadHistory(PLAYER_ID);
+      reply({ history: HISTORY });
+      dailyTask.SelectCandidate(PLAYER_ID, GENERAL_CANDIDATE.taskId);
+
+      dailyTask.RequestRefresh(PLAYER_ID);
+      const refresh = send.mock.calls[1][0];
+      refresh.successFunc(JSON.stringify({ ...START, candidates: [HERO_CANDIDATE] }));
+
+      const entry = netTable['daily_task'][PLAYER_ID.toString()];
+      expect(entry.history).toEqual(HISTORY);
+      expect(entry.selectedTaskId).toBe(GENERAL_CANDIDATE.taskId);
+      expect(entry.candidates).toEqual([HERO_CANDIDATE]);
     });
   });
 });

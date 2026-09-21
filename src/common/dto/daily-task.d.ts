@@ -47,7 +47,8 @@ export interface DailyTaskStartDto {
   candidates: TaskCandidateDto[];
   completedTasks: TaskCandidateDto[];
   todaySeasonPoint: number;
-  history: DailyTaskHistoryEntryDto[];
+  /** 开局与刷新响应不带，进历史子页时单独拉取 */
+  history?: DailyTaskHistoryEntryDto[];
   /** 本轮剩余刷新次数 */
   refreshRemaining: number;
 }

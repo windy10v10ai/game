@@ -43,6 +43,7 @@ interface CustomGameEventDeclarations {
 
   dailytask_select_candidate: DailyTaskSelectCandidateEventData;
   dailytask_refresh_candidates: Record<string, never>;
+  dailytask_load_history: Record<string, never>;
 
   api_html_proxy_ready: Record<string, never>;
   api_html_proxy_ack: Record<string, never>;
