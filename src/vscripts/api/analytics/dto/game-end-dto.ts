@@ -45,5 +45,7 @@ export class GameEndDto extends EventBaseDto {
   winnerTeamId: number;
   gameTimeMsec: number;
   countryCode: string;
+  /** 全场真人数（不含机器人），后端据此做限额判断，每次结算必带 */
+  playerCount: number;
   players: GameEndPlayerDto[];
 }
