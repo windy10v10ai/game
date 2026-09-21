@@ -112,7 +112,9 @@ grep -n "ApiHtmlProxy\|GameStartProxy" "C:/Program Files (x86)/Steam/steamapps/c
 
 要关的时候，`TaskStop` 只杀后台任务的外层 shell，模拟器的 java 和 API 的 node 会活下来，要按 PID 补杀，再确认三个端口都已释放。Dota 退出后按需删 `console.log`。
 
-完成判据：关掉时三个端口全部释放；留着时已经把留了什么告诉用户。
+派出去的子代理与子会话本身也要收尾：它回报完成后就停掉并归档，没提交过东西的 worktree 与分支一并删干净。这是一次派活的最后一步，不要等用户问「怎么又没关」。
+
+完成判据：关掉时三个端口全部释放；留着时已经把留了什么告诉用户；派出去的会话没有一个还挂着。
 
 ## 临时调试日志
 
