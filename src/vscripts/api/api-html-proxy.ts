@@ -4,6 +4,7 @@ import { GetLocalHostAPIKEY } from './api-client.local';
 import { ApiRoute, type ApiTarget } from './api-route';
 
 const ERROR_PREFIX = 'ERR:';
+const API_KEY_PARAM = 'apiKey=';
 const TIMEOUT_SECONDS = 10;
 // 开局时客户端多半还没加载完，排队等它举手的时间不该占用请求预算。
 // 取 60 秒对齐客户端脚本自己的就绪重试窗口：它等不到就不会再举手，再等也没用
@@ -18,6 +19,19 @@ interface PendingRequest {
   timerName: string;
   relayPlayerId: PlayerID | undefined;
   timeoutSeconds: number;
+}
+
+/**
+ * 遮掉网址里的 apiKey 再输出。日志会随 console.log 落盘，玩家拿得到。
+ * 手写切片而非正则：TSTL 不支持 JS 正则。
+ */
+export function maskApiKey(url: string): string {
+  const keyStart = url.indexOf(API_KEY_PARAM);
+  if (keyStart < 0) return url;
+  const valueStart = keyStart + API_KEY_PARAM.length;
+  const valueEnd = url.indexOf('&', valueStart);
+  const masked = `${url.slice(0, valueStart)}***`;
+  return valueEnd < 0 ? masked : `${masked}${url.slice(valueEnd)}`;
 }
 
 /**
@@ -124,7 +138,9 @@ export class ApiHtmlProxy {
     request.relayPlayerId = relayPlayerId;
     ApiHtmlProxy.startTimeout(request, request.timeoutSeconds);
     print(
-      `[ApiHtmlProxy] dispatch ${request.requestId} player=${relayPlayerId} url=${request.url}`,
+      `[ApiHtmlProxy] dispatch ${request.requestId} player=${relayPlayerId} url=${maskApiKey(
+        request.url,
+      )}`,
     );
     CustomGameEventManager.Send_ServerToPlayer(player, 'api_html_proxy_request', {
       requestId: request.requestId,
