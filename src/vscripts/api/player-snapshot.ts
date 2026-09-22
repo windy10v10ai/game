@@ -1,6 +1,5 @@
 import { PlayerHelper } from '../modules/helper/player-helper';
 import {
-  AwakenedHeroDto,
   GamePresetCustomOptions,
   MemberDto,
   MemberLevel,
@@ -213,11 +212,11 @@ export class PlayerSnapshot {
     return properties;
   }
 
-  private static ToAwakenedHeroes(row: SnapshotRow): AwakenedHeroDto[] {
-    const heroes: AwakenedHeroDto[] = [];
+  private static ToAwakenedHeroes(row: SnapshotRow): string[] {
+    const heroes: string[] = [];
     // 数字 key 只是 KV 表示数组的占位，取值即可
     for (const index in row) {
-      heroes.push({ heroName: tostring(row[index]) });
+      heroes.push(tostring(row[index]));
     }
     return heroes;
   }
