@@ -244,7 +244,7 @@
 					<Label id="LoadingFaqQuestion" />
 					<Label id="LoadingFaqAnswer" />
 				</Panel>
-				<!-- 从网站启动游戏说明：游廊直接开局只有离线数据，加载完成前固定展示，不等判定离线 -->
+				<!-- 游廊开局连不上服务器时的备用入口，加载完成前固定展示，不等判定离线 -->
 				<Panel id="ConsoleLaunchPanel">
 					<Label id="ConsoleLaunchTitle" text="#console_launch_title" />
 					<Label id="ConsoleLaunchDesc" text="#console_launch_desc" />

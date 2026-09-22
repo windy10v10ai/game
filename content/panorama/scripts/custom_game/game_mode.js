@@ -27,8 +27,7 @@ var LOADING_FAQ_GROUPS = [
     entries: [
       'loading_faq_players_instant_revive',
       'loading_faq_illusions_summons',
-      'loading_faq_local_host',
-      'loading_faq_console_launch',
+      'loading_faq_launch_mode',
       'loading_faq_pause',
       'loading_faq_attributes',
       'loading_faq_treasure_rewards',
