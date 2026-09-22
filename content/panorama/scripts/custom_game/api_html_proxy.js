@@ -32,7 +32,7 @@
     var requestId = String(event.requestId);
     var url = String(event.url);
     var finished = false;
-    $.Msg('[ApiHtmlProxy] request ' + requestId);
+    $.Msg('[ApiHtmlProxy] request ' + requestId + ' urlLength=' + url.length);
 
     var panel = $.CreatePanel('DOTAHTMLPanel', $.GetContextPanel(), 'ApiHtmlProxy_' + requestId);
     panel.style.width = '1px';

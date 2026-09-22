@@ -75,10 +75,11 @@ export class GameEnd {
       const damageTaken = PlayerHelper.GetDamageTaken(playerId);
       const totalGoldEarned = PlayerHelper.GetTotalGoldEarned(playerId);
       const stuns = PlayerHelper.GetStuns(playerId);
-      // 结算界面与上报取同一份，避免两处各读一次引擎后口径走偏
-      const strength = hero.GetStrength();
-      const agility = hero.GetAgility();
-      const intellect = hero.GetIntellect(false);
+      // 结算界面与上报取同一份，避免两处各读一次引擎后口径走偏。
+      // 引擎给的是小数，取整后上报的才等于界面上显示的那个整数
+      const strength = Math.floor(hero.GetStrength());
+      const agility = Math.floor(hero.GetAgility());
+      const intellect = Math.floor(hero.GetIntellect(false));
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
