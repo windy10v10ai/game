@@ -3046,19 +3046,6 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+施法速度加成"
 
-		// 神器除你武器
-		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>神器·除你武器</font>"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>主动：缴械</h1>阻止目标单位进行物理攻击，持续%disarm_melee%秒。\n\n<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"								"喵星人：现在上啊"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health"						"+$health"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health_regen"					"+$hp_regen"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_all_stats"						"+$all"
-
-		"DOTA_Tooltip_modifier_heavens_halberd_2_buff"						"残废"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_buff_Description"			"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff"						"缴械"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff_Description"			"被天堂之戟缴械，无法攻击。"
-
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>星落</font>"
 		"DOTA_Tooltip_ability_item_meteor_hammer_2_Description"                   "<h1>主动：星落</h1> 持续施法 - 成功施法后召唤一颗小行星，打击%impact_radius%范围内敌人，造成%stun_duration%秒眩晕和冲击伤害。对敌方单位和建筑造成持续伤害，持续%burn_duration%秒。非建筑单位在烧灼期间还会被减速%burn_slow%%%。<BR><BR>对建筑冲击伤害：%impact_damage_buildings%<BR>对建筑持续伤害：%burn_dps_buildings%<BR><BR>对非建筑冲击伤害：%impact_damage_units%<BR>对非建筑持续伤害：%burn_dps_units%<BR><BR>持续施法时间：%max_duration%秒<BR>落地时间：%land_time%秒"

@@ -2601,7 +2601,7 @@
 		"ItemResult"							"item_heavens_halberd_v2"
 		"ItemRequirements"
 		{
-			"01"								"item_heavens_halberd_2"
+			"01"								"item_heavens_halberd"
 		}
 	}
 
