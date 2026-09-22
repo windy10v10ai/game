@@ -57,16 +57,6 @@ declare global {
     player_table: {
       [steamAccountID: string]: PlayerInfoDto;
     };
-    ranking_table: {
-      topSteamIds: string[];
-      rankScores: {
-        top1000: number;
-        top2000: number;
-        top3000: number;
-        top4000: number;
-        top5000: number;
-      };
-    };
     point_info: {
       [steamAccountID: string]: PointInfoDto[];
     };
