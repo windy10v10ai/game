@@ -75,6 +75,10 @@ export class GameEnd {
       const damageTaken = PlayerHelper.GetDamageTaken(playerId);
       const totalGoldEarned = PlayerHelper.GetTotalGoldEarned(playerId);
       const stuns = PlayerHelper.GetStuns(playerId);
+      // 结算界面与上报取同一份，避免两处各读一次引擎后口径走偏
+      const strength = hero.GetStrength();
+      const agility = hero.GetAgility();
+      const intellect = hero.GetIntellect(false);
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
@@ -99,6 +103,9 @@ export class GameEnd {
         awaken: isAwakened(hero) ? 1 : 0,
       };
       if (playerDto.steamId > 0) {
+        playerDto.strength = strength;
+        playerDto.agility = agility;
+        playerDto.intellect = intellect;
         this.FillLoadout(playerDto, hero);
       }
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
@@ -146,9 +153,9 @@ export class GameEnd {
         points: playerDto.battlePoints,
         conductDelta,
         conductPoint,
-        str: hero.GetStrength(),
-        agi: hero.GetAgility(),
-        int: hero.GetIntellect(false),
+        str: strength,
+        agi: agility,
+        int: intellect,
         towerKills: playerDto.towerKills,
         stuns: playerDto.stuns,
         dailyTask: dailyTaskCompletion?.candidate,

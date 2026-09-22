@@ -37,9 +37,12 @@ export class GameEndPlayerDto {
   awaken: number;
 
   /**
-   * 结算界面那一行的出装与抽选技能，只有真人玩家上报：机器人的没有消费方，
+   * 结算界面那一行的属性、出装与抽选技能，只有真人玩家上报：机器人的没有消费方，
    * 填了只会撑大请求体。items 定长 6，下标即主物品栏槽位，空槽为空串。
    */
+  strength?: number;
+  agility?: number;
+  intellect?: number;
   items?: string[];
   neutralItem?: string;
   neutralPassiveItem?: string;
