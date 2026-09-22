@@ -13,6 +13,7 @@ import { PlayerInfoApi } from '../api/player-info';
 import { PlayerInfoProxy } from '../api/player-info-proxy';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
+import { PlayerWriteProxy } from '../api/player-write-proxy';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
 import { DailyTask } from './daily-task/daily-task';
@@ -85,6 +86,7 @@ export function ActivateModules() {
     GameStartProxy.Register();
     PlayerInfoProxy.Register();
     DailyTaskProxy.Register();
+    PlayerWriteProxy.Register();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();
