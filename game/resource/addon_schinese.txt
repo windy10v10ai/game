@@ -1267,6 +1267,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 赏金猎人 追踪术觉醒
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>追踪术 觉醒</font>"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"追踪一个敌方英雄，获得目标的真实视域，使目标受到的伤害增加，同时掌握目标当前携带的金钱数额。如果目标在被追踪期间死亡，赏金猎人和附近友方英雄都将获得若干金钱奖励。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内有敌方英雄时自动施放，优先追踪尚未被追踪的英雄。<br><font color='#d000ff'>觉醒强化：</font>追踪术施放后，对目标额外投出一枚当前等级的投掷飞镖。该飞镖无视施法距离、不触发冷却，消耗投掷飞镖的魔法值；未学习投掷飞镖或魔法不足时不投出。"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_target_damage_amp"			"%伤害加深："
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold"				"友军金钱奖励："
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold_self"			"自身金钱奖励："
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_duration"					"持续时间："
+
 		// 司夜刺客 钻地觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>钻地 觉醒</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"钻地状态下可以保持正常移动速度并自由移动，同时保留钻地的其他效果。"

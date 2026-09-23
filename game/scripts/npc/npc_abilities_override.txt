@@ -5002,7 +5002,7 @@
 		"MaxLevel"						"5"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"AbilityCastPoint"				"0.1"	// 0.3
-		"AbilityManaCost"				"75 80 85 90 95"
+		"AbilityManaCost"				"75 85 95 105 115"
 		"AbilityValues"
 		{
 			"bonus_damage"
@@ -5083,11 +5083,11 @@
 				"target_damage_amp"	"8 12 16 20"
 				"bonus_gold_self"
 				{
-					"value"		"130 225 320 415"
+					"value"		"80 160 240 320"
 				}
 				"bonus_gold"
 				{
-					"value"		"100 150 200 250"	// 50/90/130 增强
+					"value"		"80 160 240 320"	// 40 80 120 x2
 				}
 				"gold_steal"			"0.3 0.4 0.5 0.6"
 		}

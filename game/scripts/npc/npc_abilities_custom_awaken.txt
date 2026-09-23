@@ -5,6 +5,51 @@
 	// 英雄专属强化/替换技能，通过抽奖池获得
 	//=================================================================================================================
 
+	// 赏金猎人 追踪术觉醒
+	// 数值仅供技能面板显示，须与 Dota2 原版数值 + npc_abilities_override.txt 差分之后的内容保持一致
+	"bounty_hunter_track_awaken"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ts_abilities/bounty_hunter_track_awaken"
+		"AbilityTextureName"			"bounty_hunter_track"
+		"AbilityType"					"ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_NO"
+		"AbilitySound"					"Hero_BountyHunter.Target"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"6 5 4 3"
+		"AbilityManaCost"				"50"
+		"MaxLevel"						"4"
+
+		"AbilityValues"
+		{
+			"target_damage_amp"			"8 12 16 20"
+			"bonus_gold_radius"
+			{
+				"value"							"1200"
+				"affected_by_aoe_increase"		"1"
+			}
+			"bonus_gold_self"
+			{
+				"value"									"80 160 240 320"
+				"special_bonus_unique_bounty_hunter_3"	"+50"
+			}
+			"bonus_gold"
+			{
+				"value"									"80 160 240 320"
+				"special_bonus_unique_bounty_hunter_3"	"+50"
+			}
+			"duration"					"25"
+			"gold_steal"				"0.3 0.4 0.5 0.6"
+		}
+	}
+
 	// 撼地者 余震觉醒
 	"special_bonus_unique_earthshaker_upgrade"
 	{
