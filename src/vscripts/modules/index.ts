@@ -1,5 +1,6 @@
 import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
+import { AlipayProxy } from '../api/alipay-proxy';
 import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-language-tracker';
 import { ApiClient } from '../api/api-client';
 import { ApiHtmlProxy } from '../api/api-html-proxy';
@@ -87,6 +88,7 @@ export function ActivateModules() {
     PlayerInfoProxy.Register();
     DailyTaskProxy.Register();
     PlayerWriteProxy.Register();
+    AlipayProxy.Register();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();
