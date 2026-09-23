@@ -65,6 +65,8 @@ export class PlayerStatsLifetimeDto {
   healing!: number;
   towerKills!: number;
   totalGoldEarned!: number;
+  stuns!: number;
+  roshanKills!: number;
   // API 返回 Date，net table 传输后为字符串；UI 暂不展示，仅占位保持契约完整
   updatedAt?: string;
 }
