@@ -231,6 +231,9 @@ export class CreepBuffManager {
     return baseMaxHealth;
   }
 
+  /**
+   * 时间等级：10 分钟后每 5 分钟 +1，封顶 5 级，更高等级只能靠推塔获得
+   */
   private getCreepBuffByGameTime(): number {
     const gameTime = GameRules.GetDOTATime(false, false);
     if (gameTime <= 10 * 60) {
