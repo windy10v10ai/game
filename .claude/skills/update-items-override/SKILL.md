@@ -29,7 +29,8 @@ disable-model-invocation: true
 
 3. **克隆物品**：对每件改动物品，`grep` 出 `"BaseClass"\s+"<item>"` 的全部上位物品：
    - 行尾注释带原版值与规则（`// 175`、`// 15 x2`）→ 用新原版值按同一倍率重算，注释基数同步为新值
-   - 注释无法推出倍率 → 用 `AskUserQuestion` 逐项问
+   - 注释无法推出倍率，或值与旧原版值相同且无注释 → 用 `AskUserQuestion` 逐项问
+   - 自制物品（`npc_items_custom.txt` 等）整块没有原版值注释 → 视为独立设计，不改，在核对表里列出即可
 
    克隆块不继承原版 `AbilityValues`，原版改了而克隆块写死的键不会自动跟随，必须逐键过完。
 
@@ -44,7 +45,7 @@ disable-model-invocation: true
 
 6. **改完自检并 commit**：
    - `git diff` 只动了核对表里的行
-   - 每个被改的配方：材料有效价格之和 + 配方费 = 上位物品 `ItemCost`
+   - 每个被改的配方：材料有效价格之和 + 配方费 = 上位物品 `ItemCost`。改动前就不相等的（标价写错），出核对表时用 `AskUserQuestion` 逐件问（标价改成实际总价 / 本批不动），不自行反算配方费
    - 每批单独 commit
 
 ## 本图配方的写法

@@ -996,7 +996,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4500"
+		"ItemCost"						"4400"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -1554,7 +1554,7 @@
 		"Model"							"models/props_gameplay/recipe.vmdl"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"1900"
+		"ItemCost"						"1700"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2591,7 +2591,7 @@
 		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"								"3200"
+		"ItemCost"								"3300"
 		"ItemShopTags"							""
 
 
@@ -2625,7 +2625,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"10100"
+		"ItemCost"						"6600"
 		"ItemShopTags"					"armor;boost_armor"
 		"ItemQuality"					"rare"
 		"ItemAliases"					"jinkela;heaven's halberd;heaven's lament;heavens halberd;heavens lament"
@@ -2818,7 +2818,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"4250"
+		"ItemCost"						"4150"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -2849,7 +2849,7 @@
 		"AbilitySharedCooldown"			"force"
 
 		"AbilityManaCost"				"250"
-		"ItemCost"						"4450"
+		"ItemCost"						"9710"
 		"ItemShopTags"					"int;damage;attack_speed;hard_to_tag"
 		"ItemQuality"					"epic"
 		"ItemAliases"					"fs;force staff"
@@ -2974,7 +2974,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"2100"
+		"ItemCost"						"2000"
 		"ItemShopTags"					""
 
 		// Recipe
@@ -3009,7 +3009,7 @@
 
 		// Item Info
 		//-------------------------------------------------------------------------------------------------------------
-		"ItemCost"						"11000"
+		"ItemCost"						"10000"
 		"ItemShopTags"					"damage"
 		"ItemQuality"					"arcane"
 		"ItemAliases"					"DMD;daedalus;greater crit;"
