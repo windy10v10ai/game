@@ -3732,7 +3732,7 @@
 				}
 				"crush_damage"
 				{
-					"value"		"75 150 225 300 375"
+					"value"		"60 140 220 300 380"	// 60 140 220 300 延伸
 				}
 		}
 	}
@@ -4397,6 +4397,10 @@
 		{
 			"duration"				"0.75 1.0 1.25 1.5 1.75"
 			"flat_heal"				"30 50 70 90 110"	// 15 25 35 45 x2
+			"leech_heal"
+			{
+				"value"				"10 15 20 25 30"	// 10 15 20 25 延伸
+			}
 
 			"leech_damage"
 			{
@@ -4468,7 +4472,6 @@
 	{
 		"AbilityValues"
 		{
-			"grace_time"				"1.25"	// 2 显形和攻击后渐隐延迟
 			"cooldown_time"
 			{
 				"value"				"0.5"	// 2.75 不受到伤害获得树木穿行
@@ -12391,7 +12394,7 @@
 	{
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
 		"MaxLevel"						"5"
-		"AbilityCooldown"				"20"	// 26 24 22 20 减少前期CD
+		"AbilityCooldown"				"20"	// 29 26 23 20 减少前期CD
 		"AbilityValues"
 		{
 				"duration"				"7 8 9 10 11"
@@ -12448,7 +12451,7 @@
 				{
 					"special_bonus_shard"		"3.0"//2.0 cd已经减少
 				}
-				"heal_percentage"	"2 4 6 8 10"
+				"heal_percentage"	"1.5 2.5 3.5 4.5 5.5"	// 1.5 2.5 3.5 4.5 延伸
 				"damage_buff_pct"
 				{
 					"special_bonus_shard"	"=120"//**=60**
@@ -13339,7 +13342,7 @@
 			"song_cost_reduction_per_stack"	"1 1.5 2 2.5"
 			"heal_burst"
 			{
-				"value"			"150 300 450 600"			// 34 56 78 x8
+				"value"			"120 220 320 420"			// 30 55 80 x4
 				"special_bonus_unique_largo_7" "+50%"	// +30%
 			}
 			"radius"
