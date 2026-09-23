@@ -5,12 +5,12 @@ description: 本地化文件（addon_schinese / addon_english / addon_russian）
 
 # Localization Format Guide
 
-本技能用于维护 `game/resource/` 下的本地化 KeyValues 文件，确保**中英文内容与格式完全一致**，并遵循项目对缩进、注释、HTML 标签、颜色代码与变量占位符的规范。
+本技能用于维护 `game/resource/` 下的本地化 KeyValues 文件，确保**中英俄三语内容与格式完全一致、key 顺序与注释一致**，并遵循项目对缩进、注释、HTML 标签、颜色代码与变量占位符的规范。
 
 ## 使用时机
 
 - 新增/修改 UI、物品、技能、modifier 的本地化键
-- 同步中英文本地化文件内容与格式
+- 同步三语本地化文件内容与格式
 - 修复对齐、缩进、标签、占位符不一致导致的显示问题
 
 ## 参考资料（必须遵循）
@@ -19,9 +19,9 @@ description: 本地化文件（addon_schinese / addon_english / addon_russian）
 
 ## 执行步骤（建议）
 
-1. 明确要新增/修改的 key 列表与对应文本，判断是否为 UI 相关键
-2. 同时在 `addon_schinese.txt` 与 `addon_english.txt` 增删相同 key
-3. 同步添加/更新到 `addon_russian.txt`：UI 相关键必须；技能/物品类键在本次新增或修改时也一并写，存量缺俄文的旧键不必特意补齐，已有俄文不得单方面删除
+1. 明确要新增/修改的 key 列表与对应文本
+2. 同时在 `addon_schinese.txt`、`addon_english.txt`、`addon_russian.txt` 增删相同 key，三个文件中的位置与先后顺序一致，注释统一用中文
+3. 改动的条目在俄文中原本缺失时，把该条目的全部键（含 modifier、同系列条目）一并补齐；存量中无关条目不必顺手补，已有俄文不得单方面删除
 4. 对齐检查：
    - 缩进、tab 对齐、空行位置一致
    - HTML 标签位置一致（包括 `\n` 与 `<br>`）

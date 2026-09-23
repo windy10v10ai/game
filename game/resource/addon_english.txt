@@ -3192,23 +3192,19 @@
 
 		// item_wish_1 愿望1
 		"DOTA_Tooltip_Ability_item_wish_1"				"<font color='#FFFF00'>Wish 1</font>"
-		"DOTA_Tooltip_ability_item_wish_1_Description"		"<h1>Passive: Wish</h1>'I wish for immortality,' you say to the Dragon."
+		"DOTA_Tooltip_ability_item_wish_1_Description"		"<h1>Passive: Wish</h1>'I wish for immortality,' you say to the Dragon.\nRoshan always drops a Dragon Ball on death, and neutral creeps have a chance to drop one. Collect all seven to obtain Dragon's Blessing, then combine it with this wish to create Dragon's Blessing of Immortality."
 
 		// item_wish_2 愿望2
 		"DOTA_Tooltip_Ability_item_wish_2"				"<font color='#FFFF00'>Wish 2</font>"
-		"DOTA_Tooltip_ability_item_wish_2_Description"		"<h1>Passive: Wish</h1>'I wish to destroy the world,' you say to the Dragon."
+		"DOTA_Tooltip_ability_item_wish_2_Description"		"<h1>Passive: Wish</h1>'I wish to destroy the world,' you say to the Dragon.\nRoshan always drops a Dragon Ball on death, and neutral creeps have a chance to drop one. Collect all seven to obtain Dragon's Blessing, then combine it with this wish to create Dragon's Blessing of Destruction."
 
-		// item_wish_1 愿望3
+		// item_wish_3 愿望3
 		"DOTA_Tooltip_Ability_item_wish_3"				"<font color='#FFFF00'>Wish 3</font>"
-		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>Passive: Wish</h1>'I wish for the power of time,' you say to the Dragon."
+		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>Passive: Wish</h1>'I wish for the power of time,' you say to the Dragon.\nRoshan always drops a Dragon Ball on death, and neutral creeps have a chance to drop one. Collect all seven to obtain Dragon's Blessing, then combine it with this wish to create Dragon's Blessing of Time."
 
-		// item_wish_1 愿望4
+		// item_wish_4 愿望4
 		"DOTA_Tooltip_Ability_item_wish_4"				"<font color='#FFFF00'>Wish 4</font>"
-		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>Passive: Wish</h1>'I wish for the power of space,' you say to the Dragon."
-
-		// item_radar_of_dragon 龙珠雷达
-		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>Dragon Ball Radar</font><font color='#FF0000'>(NOT PURCHASEABLE!)</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>Passive: Guidance (Read Below)</h1>Dragon Balls are randomly dropped by neutral creeps, while Roshan will always drop one on death, assuming your team kills him. There are four different wishes that can be found in the shop.\n<font color='#e03e2e'>NOTE:</font> If Dragon Balls cannot be combined, try moving them from the backpack or stash to the main inventory, or drop it and pick it up again. All Dragon Balls are shareable with teammates."
+		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>Passive: Wish</h1>'I wish for the power of space,' you say to the Dragon.\nRoshan always drops a Dragon Ball on death, and neutral creeps have a chance to drop one. Collect all seven to obtain Dragon's Blessing, then combine it with this wish to create Dragon's Blessing of Space."
 
 		// 神器2.0
 		// item_light_part 圣光组件

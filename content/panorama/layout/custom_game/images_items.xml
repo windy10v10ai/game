@@ -99,7 +99,6 @@
 			<Image id="power" class="SeqImg" src="file://{images}/items/power.png" />
 			<Image id="qiji" class="SeqImg" src="file://{images}/items/qiji.png" />
 			<Image id="quelling_blade_2_datadriven" class="SeqImg" src="file://{images}/items/quelling_blade_2_datadriven.png" />
-			<Image id="radar_of_dragon" class="SeqImg" src="file://{images}/items/radar_of_dragon.png" />
 			<Image id="radiance_2" class="SeqImg" src="file://{images}/items/radiance_2.png" />
 			<Image id="radiance_2_inactive" class="SeqImg" src="file://{images}/items/radiance_2_inactive.png" />
 			<Image id="rapier_ultra" class="SeqImg" src="file://{images}/items/rapier_ultra.png" />
