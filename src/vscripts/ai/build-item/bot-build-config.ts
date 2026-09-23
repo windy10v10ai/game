@@ -1540,7 +1540,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_sange_and_yasha', // 散夜对剑
         'item_hand_of_group', // 团队之手
         'item_black_king_bar', // 黑皇杖
-        'item_hurricane_pike', // 飓风长戟
         'item_desolator', // 黯灭
         'item_maelstrom', // 漩涡
         'item_lotus_orb', // 清莲宝珠
@@ -1550,7 +1549,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_overwhelming_blink', // 盛势闪光
         'item_wasp_despotic', // 大核荣耀暴虐
         'item_vladmir_2', // 强袭祭品
-        'item_hurricane_pike_2', // 黄金魔龙枪 Ultimate
         'item_greater_crit', // 代达罗斯之殇
         'item_dodo_desolator', // 黯灭头
         'item_shotgun_v2', // 三管霰弹枪

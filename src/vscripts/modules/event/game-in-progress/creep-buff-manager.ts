@@ -164,11 +164,8 @@ export class CreepBuffManager {
     buffLevelGood: number;
     buffLevelBad: number;
   } {
-    // 添加基础buff等级
-    // 根据防御塔等级增加buff
-    let baseCreepBuffLevel = this.getCreepBuffByTowerPower();
     // 根据游戏时间增加buff
-    baseCreepBuffLevel += this.getCreepBuffByGameTime();
+    const baseCreepBuffLevel = this.getCreepBuffByGameTime();
 
     let buffLevelGood = baseCreepBuffLevel;
     let buffLevelBad = baseCreepBuffLevel;
@@ -177,20 +174,15 @@ export class CreepBuffManager {
     const totalTower12Good = TowerPushStatus.tower1PushedGood + TowerPushStatus.tower2PushedGood;
     const totalTower12Bad = TowerPushStatus.tower1PushedBad + TowerPushStatus.tower2PushedBad;
 
-    // 累计摧毁1个时增加1级，3个时增加2级，6个时增加3级
     if (totalTower12Good >= 6) {
-      buffLevelGood += 3;
-    } else if (totalTower12Good >= 3) {
       buffLevelGood += 2;
-    } else if (totalTower12Good >= 1) {
+    } else if (totalTower12Good >= 2) {
       buffLevelGood += 1;
     }
 
     if (totalTower12Bad >= 6) {
-      buffLevelBad += 3;
-    } else if (totalTower12Bad >= 3) {
       buffLevelBad += 2;
-    } else if (totalTower12Bad >= 1) {
+    } else if (totalTower12Bad >= 2) {
       buffLevelBad += 1;
     }
 
@@ -234,41 +226,19 @@ export class CreepBuffManager {
       // 额外百分比血量
       baseMaxHealth += baseMaxHealth * (0.05 * buffLevel);
       // 基础数值
-      baseMaxHealth += 200 * buffLevel;
+      baseMaxHealth += 150 * buffLevel;
     }
     return baseMaxHealth;
   }
 
-  private getCreepBuffByTowerPower(): number {
-    // 前15分钟不计算防御塔buff等级
-    const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 25 * 60) {
-      return 0;
-    }
-    const sumTowerPower = GameRules.Option.towerPower;
-    if (sumTowerPower <= 150) {
-      return 0;
-    } else if (sumTowerPower <= 400) {
-      return 1;
-    } else {
-      return 2;
-    }
-  }
-
+  /**
+   * 时间等级：10 分钟后每 5 分钟 +1，封顶 5 级，更高等级只能靠推塔获得
+   */
   private getCreepBuffByGameTime(): number {
     const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 5 * 60) {
+    if (gameTime <= 10 * 60) {
       return 0;
-    } else if (gameTime <= 15 * 60) {
-      return 1;
-    } else if (gameTime <= 25 * 60) {
-      return 2;
-    } else if (gameTime <= 35 * 60) {
-      return 3;
-    } else if (gameTime <= 45 * 60) {
-      return 4;
-    } else {
-      return 5;
     }
+    return Math.min(Math.ceil((gameTime - 10 * 60) / (5 * 60)), 5);
   }
 }

@@ -1272,6 +1272,14 @@
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
 
+		// 赏金猎人 追踪术觉醒
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>Track Awakened</font>"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"Tracks an enemy hero, granting True Sight of the target, increasing the damage they take and providing information on how much gold it is carrying. If the target dies, Bounty Hunter and nearby heroes collect a bonus bounty of gold.<br><br><font color='#00CED1'>AUTOCAST:</font> When enabled, casts automatically whenever an enemy hero is within cast range, prioritizing heroes that are not yet tracked.<br><font color='#d000ff'>AWAKENED:</font> After Track is cast, Bounty Hunter also throws a Shuriken Toss of its current level at the target. This Shuriken ignores cast range and does not trigger its cooldown, but costs Shuriken Toss's mana. It is not thrown if Shuriken Toss is unlearned or mana is insufficient."
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_target_damage_amp"			"%DAMAGE AMPLIFICATION:"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold"				"ALLIES BONUS GOLD:"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold_self"			"SELF BONUS GOLD:"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_duration"					"DURATION:"
+
 		// 司夜刺客 钻地觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>Burrow Awakened</font>"
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken_Description"		"Nyx Assassin can move freely at his normal movement speed while Burrowed, while retaining all other Burrow effects."
