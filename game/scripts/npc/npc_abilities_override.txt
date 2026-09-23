@@ -10041,7 +10041,7 @@
 			{
 				"value"			"210 340 470 600 730"	// 105 170 235 300 365 x2
 			}
-			"cooldown_reduction"	"2.5 3.5 4.5 5.5 6.5"
+			"cooldown_reduction"	"2.5 3.5 4.5 5.5 6.5"	// 2.5 3.5 4.5 5.5 延伸
 			"mana_leak_pct"	"4.5 5 5.5 6.0 6.5"
 			"AbilityCooldown"
 			{
@@ -12996,7 +12996,7 @@
 		{
 			"katana_bleed_attack_damage_pct"
 			{
-				"value"															"3 6 9 12 15"
+				"value"															"3 6 9 12 15"	// 3 6 9 12 延伸
 			}
 			"bleed_as_rupture_pct"
 			{
