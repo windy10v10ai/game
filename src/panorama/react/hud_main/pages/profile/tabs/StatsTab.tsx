@@ -19,6 +19,8 @@ const LIFETIME_STATS = [
   { key: 'damageTaken', label: '#profile_stat_lifetime_damage_taken', tone: 'bad' },
   { key: 'healing', label: '#profile_stat_lifetime_healing', tone: 'good' },
   { key: 'towerKills', label: '#profile_stat_lifetime_tower_kills', tone: 'neutral' },
+  { key: 'stuns', label: '#profile_stat_lifetime_stuns', tone: 'neutral' },
+  { key: 'roshanKills', label: '#profile_stat_lifetime_roshan_kills', tone: 'neutral' },
 ] as const;
 
 /**
@@ -124,7 +126,10 @@ export function StatsTab() {
         <Panel className="stats-lifetime-column">
           <Panel className="stats-lifetime-list">
             {LIFETIME_STATS.map(({ key, label, tone }) => {
-              const formatted = formatStatNumberParts(lifetimeStats?.[key] ?? 0, isChinese);
+              const formatted = formatStatNumberParts(
+                Math.round(lifetimeStats?.[key] ?? 0),
+                isChinese,
+              );
               return (
                 <Panel key={key} className={`stat-row lifetime-${tone}`}>
                   <Label className="stat-label" text={$.Localize(label)} />
