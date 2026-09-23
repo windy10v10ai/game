@@ -514,6 +514,7 @@ export const ItemTierConfig: Record<string, ItemConfig> = {
     nameCN: '飓风长戟',
     tier: ItemTier.T2,
     cost: 4450,
+    baseItems: ['item_force_staff'],
   },
   item_shotgun: {
     name: 'item_shotgun',

@@ -260,7 +260,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_monkey_king_bar', // 金箍棒
         'item_maelstrom', // 漩涡
         'item_shotgun', // 双管霰弹枪
-        'item_force_staff', // 原力法杖
       ],
       [ItemTier.T3]: [
         { item: 'item_hurricane_pike_2', weight: 2 }, // 黄金魔龙枪 Ultimate
@@ -323,7 +322,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_monkey_king_bar', // 金箍棒
         'item_specialists_array', // 行家阵列
         'item_sange_and_yasha', // 散夜对剑
-        'item_force_staff', // 原力法杖
       ],
       [ItemTier.T3]: [
         { item: 'item_hurricane_pike_2', weight: 2 }, // 黄金魔龙枪 Ultimate
@@ -573,7 +571,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_hurricane_pike', // 飓风长戟
         'item_hand_of_group', // 团队之手
         'item_desolator', // 黯灭
-        'item_force_staff', // 原力法杖
         'item_black_king_bar', // 黑皇杖
         'item_shotgun', // 双管霰弹枪
         'item_sange_and_yasha', // 散夜对剑
@@ -631,7 +628,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
         'item_desolator', // 黯灭
         'item_monkey_king_bar', // 金箍棒
         'item_specialists_array', // 行家阵列
-        'item_force_staff', // 原力法杖
         'item_black_king_bar', // 黑皇杖
         'item_hurricane_pike', // 飓风长戟
       ],
@@ -1256,7 +1252,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       [ItemTier.T2]: [
         'item_hand_of_group', // 团队之手
         'item_aether_lens_2', // 以太透镜2
-        'item_force_staff', // 原力法杖
         'item_rod_of_atos', // 阿托斯之棍
         'item_glimmer_cape', // 微光披风
         'item_octarine_core', // 玲珑心
@@ -2504,7 +2499,6 @@ export const HeroBuilds: Record<string, HeroBuildConfig> = {
       ],
       [ItemTier.T2]: [
         { item: 'item_aether_lens_2', weight: 2 }, // 以太透镜2
-        { item: 'item_force_staff', weight: 2 }, // 原力法杖
         'item_glimmer_cape', // 微光披风
         'item_cyclone', // Eul的神圣法杖
         'item_hand_of_group', // 团队之手
