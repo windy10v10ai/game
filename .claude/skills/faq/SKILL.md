@@ -48,7 +48,7 @@ loading_faq_<topic>_question
 loading_faq_<topic>_answer
 ```
 
-保持两个 tab 缩进、三语 key 完整对应和相同段落结构。UI 文本必须同步俄文。
+保持两个 tab 缩进、三语 key 完整对应和相同段落结构。三个文件中的 key 顺序与注释保持一致。
 
 ## 工作流
 

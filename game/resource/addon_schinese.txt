@@ -3195,23 +3195,19 @@
 
 		// item_wish_1 愿望1
 		"DOTA_Tooltip_Ability_item_wish_1"				"<font color='#FFFF00'>愿望1</font>"
-		"DOTA_Tooltip_ability_item_wish_1_Description"		"<h1>被动：许愿</h1>“我想要不死之身”你对神龙这样说道。"
+		"DOTA_Tooltip_ability_item_wish_1_Description"		"<h1>被动：许愿</h1>“我想要不死之身”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·不死。"
 
 		// item_wish_2 愿望2
 		"DOTA_Tooltip_Ability_item_wish_2"				"<font color='#FFFF00'>愿望2</font>"
-		"DOTA_Tooltip_ability_item_wish_2_Description"		"<h1>被动：许愿</h1>“我想要毁灭世界”你对神龙这样说道。"
+		"DOTA_Tooltip_ability_item_wish_2_Description"		"<h1>被动：许愿</h1>“我想要毁灭世界”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·毁灭。"
 
-		// item_wish_1 愿望3
+		// item_wish_3 愿望3
 		"DOTA_Tooltip_Ability_item_wish_3"				"<font color='#FFFF00'>愿望3</font>"
-		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>被动：许愿</h1>“我想要时间之力”你对神龙这样说道。"
+		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>被动：许愿</h1>“我想要时间之力”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·时间。"
 
-		// item_wish_1 愿望4
+		// item_wish_4 愿望4
 		"DOTA_Tooltip_Ability_item_wish_4"				"<font color='#FFFF00'>愿望4</font>"
-		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>被动：许愿</h1>“我想要空间之力”你对神龙这样说道。"
-
-		// item_radar_of_dragon 龙珠雷达
-		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>龙珠雷达</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>龙珠由击杀肉山和中立生物随机掉落得到。愿望一共有四种，在商店可以找到。\n<font color='#e03e2e'>注意：</font>龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。所有龙珠及合成后的装备可以与他人共享。"
+		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>被动：许愿</h1>“我想要空间之力”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·空间。"
 
 		// item_light_part 圣光组件
 		"DOTA_Tooltip_Ability_item_light_part"					"圣光组件"
