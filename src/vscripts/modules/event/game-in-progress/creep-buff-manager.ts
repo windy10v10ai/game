@@ -93,11 +93,14 @@ export class CreepBuffManager {
     const team = creep.GetTeamNumber();
 
     let buffLevel = 0;
+    let hasPushedTower1 = false;
 
     if (team === DotaTeam.GOODGUYS) {
       buffLevel = this.currentBuffLevels.buffLevelGood;
+      hasPushedTower1 = TowerPushStatus.tower1PushedGood > 0;
     } else if (team === DotaTeam.BADGUYS) {
       buffLevel = this.currentBuffLevels.buffLevelBad;
+      hasPushedTower1 = TowerPushStatus.tower1PushedBad > 0;
     }
 
     // 随时间增加金钱
@@ -112,8 +115,8 @@ export class CreepBuffManager {
     const baseMaxHealth = this.calculateCreepBaseMaxHealth(creep, buffLevel);
     creep.SetBaseMaxHealth(baseMaxHealth);
 
-    // 添加小兵buff
-    if (buffLevel > 0) {
+    // 攻击与减伤是推塔奖励，血量不受推塔门槛限制
+    if (hasPushedTower1 && buffLevel > 0) {
       if (unitName.indexOf('upgraded') === -1 && unitName.indexOf('mega') === -1) {
         const ability = creep.AddAbility('creep_buff');
         if (ability !== undefined) {
@@ -211,14 +214,6 @@ export class CreepBuffManager {
       buffLevelBad += 2;
     }
 
-    // 未推掉任何塔时，不设置小兵buff
-    if (TowerPushStatus.tower1PushedGood === 0) {
-      buffLevelGood = 0;
-    }
-    if (TowerPushStatus.tower1PushedBad === 0) {
-      buffLevelBad = 0;
-    }
-
     // 限制最大值为10级
     buffLevelGood = Math.min(buffLevelGood, 10);
     buffLevelBad = Math.min(buffLevelBad, 10);
@@ -239,7 +234,7 @@ export class CreepBuffManager {
       // 额外百分比血量
       baseMaxHealth += baseMaxHealth * (0.05 * buffLevel);
       // 基础数值
-      baseMaxHealth += 100 * buffLevel;
+      baseMaxHealth += 200 * buffLevel;
     }
     return baseMaxHealth;
   }
@@ -262,15 +257,15 @@ export class CreepBuffManager {
 
   private getCreepBuffByGameTime(): number {
     const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 10 * 60) {
+    if (gameTime <= 5 * 60) {
       return 0;
-    } else if (gameTime <= 20 * 60) {
+    } else if (gameTime <= 15 * 60) {
       return 1;
-    } else if (gameTime <= 30 * 60) {
+    } else if (gameTime <= 25 * 60) {
       return 2;
-    } else if (gameTime <= 40 * 60) {
+    } else if (gameTime <= 35 * 60) {
       return 3;
-    } else if (gameTime <= 50 * 60) {
+    } else if (gameTime <= 45 * 60) {
       return 4;
     } else {
       return 5;
