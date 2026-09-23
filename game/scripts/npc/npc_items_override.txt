@@ -119,7 +119,7 @@
 		"ItemStackable"					"1"
 		"AbilityValues"
 		{
-				"mana_regen"			"3.0"		// 0.8
+				"mana_regen"			"2.4"		// 0.6 x4
 				"magic_damage_block"	"600"		// 120
 				"min_damage"			"120"		// 75
 				"initial_charges"		"9"			// 6
