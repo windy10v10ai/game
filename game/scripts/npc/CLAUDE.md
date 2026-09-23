@@ -63,13 +63,15 @@ comm -12 /tmp/ours.txt /tmp/valve.txt   # 有输出即冲突
 
 ## 原版 KV 参考
 
-`<version>` 取 `docs/reference/` 下最新数字版本目录。
+`<version>` 取 `docs/reference/` 下最新版本目录（含字母后缀，如 `7.41f` 新于 `7.41`）。
 
 | 用途 | 路径 |
 |------|------|
-| 原版技能（合并本） | `docs/reference/<version>/npc_abilities.txt` |
-| 原版技能（按英雄） | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
-| 英雄列表及技能槽位 | `docs/reference/<version>/npc_heroes.txt` |
+| 原版技能（非英雄技能） | `docs/reference/<version>/npc_abilities.txt` |
+| 英雄基础属性、技能槽位、技能 KV | `docs/reference/<version>/heroes/npc_dota_hero_<hero>.txt` |
+| 英雄列表 | `docs/reference/<version>/npc_heroes.txt` |
+
+7.41f 起英雄数据全部并入 `heroes/npc_dota_hero_<hero>.txt`，`npc_heroes.txt` 只剩 `#base` 列表，`npc_abilities.txt` 里查不到英雄技能；更早版本英雄属性与槽位在 `npc_heroes.txt`，`heroes/` 下只有技能。
 | 原版物品 | `docs/reference/<version>/items.txt` |
 | 官方 ability/item ID 占用表 | `docs/reference/<version>/npc_ability_ids.txt` |
 

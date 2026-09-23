@@ -1,6 +1,6 @@
 ---
 name: update-abilities-override
-description: Dota 版本更新后，以官方技能 KV 为骨架重新维护 npc_abilities_override.txt 的差分。
+description: Dota 版本更新后维护 npc_abilities_override.txt 的差分：按英雄全量重整，或按官方补丁日志逐条同步。
 disable-model-invocation: true
 ---
 
@@ -16,11 +16,25 @@ disable-model-invocation: true
 
 判断某技能当前实际生效的数值（如蓝耗）时，**不能只看 docs/reference 原版，也不能只看顶层字段**——override 常把数值写成 `AbilityValues` 内的嵌套子块（如 `AbilityManaCost { "value" "9 10 11 12 13" }`）而非顶层字段。例：`drow_ranger_frost_arrows` 原版 0 蓝，本图 override 里实际是 `AbilityValues` 嵌套的 9-13 蓝/箭，只 grep 顶层 `AbilityManaCost` 会误判为 0 蓝。先精确读该技能整段（到下一个顶层技能名前），同时检查顶层字段和 `AbilityValues` 嵌套块；override 未覆盖时才回落原版。
 
-依据"官方公告但尚未正式上线"的改动清单维护时（`docs/reference` 尚未包含该次改动），判定改不改、改成什么应始终以用户给出的官方改动文本（旧值→新值）为准，不要直接拿 `docs/reference` 当前显示的数值当基准去反推新旧——同一份 reference 快照里不同技能的抓取时间点可能不一致，个别技能可能已经混入了比其余技能更新的数值。若发现 reference 显示的值与改动文本描述的"旧值"对不上，先向用户确认 reference 版本状态，不要自行假设。
+两种用法：用户给出**补丁日志**（逐条"旧值→新值"）时走「补丁日志同步」；只给英雄或版本时走「执行顺序（逐英雄）」全量重整。
+
+## 补丁日志同步
+
+用户分批贴日志，每批走一遍：
+
+1. **核对**：把本批每条改动交给 `model: "sonnet"` 的 subagent，对比上一版与新版 `docs/reference` 目录（布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」），返回每条的系统名、KV 键、新旧值，以及新旧 diff 里日志没提到的改动。主会话自己读 override 与 `npc_heroes_custom.txt`（subagent 不判定改法）。
+2. **出核对表**：每条日志一行，标出本图现状与处理——
+   - 本图没写该键 → **自动生效**（基础属性同理：英雄不在 `npc_heroes_custom.txt` 或没写该字段即继承）
+   - override 写了该键 → 按 P1–P3 给出新值
+   - 涉及天赋 → 核实天赋 key 仍在该英雄 `Ability10+` 槽位
+   - 顺带发现的旧偏差（官方本批没动、但 override 与参考不符）→ 每项一道 `AskUserQuestion`（保留补注释 / 同步官方 / 本批不动），不并入本批默认改动
+3. **等用户确认后再改**，改完 `git diff` 确认只动了核对表里的行。用户发下一批时回到第 1 步。
+
+以 reference 与日志文本对照时：reference 新版值与日志"新值"一致、旧版值与日志"旧值"一致才算核实。reference 尚未包含该次改动（官方公告未上线）时，以日志文本为准，不要拿 reference 当前值反推新旧——同一份快照里不同技能的抓取时间点可能不一致。两边对不上时先向用户确认 reference 版本状态。
 
 ## 技能范围
 
-用户未指定技能时，从参考 `npc_heroes.txt` 读取槽位：
+用户未指定技能时，从参考英雄文件读取槽位：
 
 | 槽位 | 规则 |
 |------|------|
@@ -176,7 +190,7 @@ disable-model-invocation: true
 
 ## 执行顺序（逐英雄）
 
-1. **定范围**：从 `npc_heroes.txt`（+ `npc_heroes_custom.txt`）确定技能列表
+1. **定范围**：从参考英雄文件（+ `npc_heroes_custom.txt`）确定技能列表
 2. **逐技能**：
    a. 读参考整段，列出全部多档键（全集）
    b. 读 override 该技能块，标出差集（参考有 override 无）
@@ -191,4 +205,4 @@ disable-model-invocation: true
    - [ ] 百分比键（`_pct` 等）：各档不超过 100；参考最大值 > 50 时已改写差值封顶
    - [ ] 有注释的键：参考基数与当前版本一致，规则标记与 value 重算结果一致
    - [ ] 无注释的键：value 与参考差值延伸完全吻合
-4. 所有英雄处理完毕后，调用 `update-heroes-custom` 对本次修改的英雄逐一验证 Bot.Build 合规性。
+4. 所有英雄处理完毕后，调用 `update-heroes-custom` 对本次修改的英雄逐一验证 Bot.Build 合规性（英雄不在 `npc_heroes_custom.txt` 时无 Bot.Build，跳过）。
