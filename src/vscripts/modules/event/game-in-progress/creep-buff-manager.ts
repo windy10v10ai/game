@@ -164,11 +164,8 @@ export class CreepBuffManager {
     buffLevelGood: number;
     buffLevelBad: number;
   } {
-    // 添加基础buff等级
-    // 根据防御塔等级增加buff
-    let baseCreepBuffLevel = this.getCreepBuffByTowerPower();
     // 根据游戏时间增加buff
-    baseCreepBuffLevel += this.getCreepBuffByGameTime();
+    const baseCreepBuffLevel = this.getCreepBuffByGameTime();
 
     let buffLevelGood = baseCreepBuffLevel;
     let buffLevelBad = baseCreepBuffLevel;
@@ -234,36 +231,11 @@ export class CreepBuffManager {
     return baseMaxHealth;
   }
 
-  private getCreepBuffByTowerPower(): number {
-    // 前15分钟不计算防御塔buff等级
-    const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 25 * 60) {
-      return 0;
-    }
-    const sumTowerPower = GameRules.Option.towerPower;
-    if (sumTowerPower <= 150) {
-      return 0;
-    } else if (sumTowerPower <= 400) {
-      return 1;
-    } else {
-      return 2;
-    }
-  }
-
   private getCreepBuffByGameTime(): number {
     const gameTime = GameRules.GetDOTATime(false, false);
-    if (gameTime <= 5 * 60) {
+    if (gameTime <= 10 * 60) {
       return 0;
-    } else if (gameTime <= 15 * 60) {
-      return 1;
-    } else if (gameTime <= 25 * 60) {
-      return 2;
-    } else if (gameTime <= 35 * 60) {
-      return 3;
-    } else if (gameTime <= 45 * 60) {
-      return 4;
-    } else {
-      return 5;
     }
+    return Math.min(Math.ceil((gameTime - 10 * 60) / (5 * 60)), 5);
   }
 }
