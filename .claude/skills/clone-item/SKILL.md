@@ -1,10 +1,6 @@
 ---
 name: clone-item
-description: >-
-  Create or update a custom upgraded clone of a vanilla Dota item. Copies item
-  KV from docs/reference items.txt into npc_items_clone.txt, creates recipe,
-  boosts stats ~x2, and writes localization. Supports lookup by Chinese name or
-  system name. Interactive menus for ambiguous decisions.
+description: 把原版 Dota 物品克隆成升级版（数值约 2 倍 + 配方 + 文案）。触发：用户说「克隆 XX 物品」「做个强化版 YY」。区别于 custom-item（从零自制）。
 ---
 
 # 自定义升级物品（新建 / 更新）
@@ -12,7 +8,7 @@ description: >-
 将原版 Dota 物品克隆为升级版（如 `item_shivas_guard` → `item_shivas_guard_2`），写入
 `game/scripts/npc/npc_items_clone.txt` 并补全本地化。
 
-> 参考文件路径见 CLAUDE.md「Dota 2 参考文件速查」章节。
+> 参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
 
 ---
 

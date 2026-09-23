@@ -65,6 +65,8 @@ export class AlipayApi {
       method: HttpMethod.POST,
       path: '/alipay/order/create',
       body: { steamId, productCode: event.productCode, quantity: event.quantity },
+      // 每次建单都生成新订单号，重试会凭空多出一张订单
+      retryTimes: 1,
       successFunc: (data) => {
         const dto = json.decode(data)[0] as AlipayOrderCreateResponseDto;
         AlipayApi.WriteNetTableIfEpoch(steamId, clientEpoch, {

@@ -1,12 +1,6 @@
 ---
 name: update-heroes-custom
-description: >-
-  校验 game/scripts/npc/npc_heroes_custom.txt 的 Bot.Build：
-  天赋名须逐字存在于合并后 Ability10-17 且档位正确（27=10-other / 28=15-other / 29=20-other / 30=25-other）；
-  技能名须在合并后 Ability 槽位内；加点次数 ≤ MaxLevel；大招间隔 ≥ 6（典型 6/12/18/24）；
-  仅 17/19/21/22 留空。
-  Use when a hero's Bot.Build in npc_heroes_custom.txt is modified, or after
-  update-abilities-override completes for a hero.
+description: 校验 npc_heroes_custom.txt 里各英雄 Bot.Build 的加点顺序与天赋档位。触发：某英雄的 Bot.Build 被改动，或 update-abilities-override 处理完一个英雄后接力调用。
 ---
 
 # Update Heroes Custom

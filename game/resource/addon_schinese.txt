@@ -86,8 +86,8 @@
 		"loading_status_3"				"离线模式，本局积分与战绩不会记录。\n属性，觉醒与会员沿用 {date} 的数据。"
 		"offline_data_hint"				"离线模式，数据截至 {date}。加点、重置属性与觉醒请前往网站操作，下次地图更新后生效。"
 		"end_screen_offline_hint"		"离线模式，本局积分与战绩未记录。"
-		"console_launch_title"			"从网站启动游戏"
-		"console_launch_desc"			"从网站启动游戏，才能读取最新数据、记录本局的结算积分和每日任务。"
+		"console_launch_title"			"游廊开局连不上服务器？"
+		"console_launch_desc"			"可以从网站启动游戏，连接更稳定，但只能单人。"
 		"local_host_feature_unsupported_hint"		"为保护账号数据安全，游戏内无法进行该操作，点击前往网站操作。"
 		"website_local_host_notice"		"游戏内无法加点、重置属性或觉醒，为了保护玩家数据安全，请前往网站用 Steam 登录后操作。在线模式下一局生效，离线模式下次地图更新后生效。"
 		"website_open_button"				"前往网站"
@@ -100,10 +100,8 @@
 		"loading_faq_players_instant_revive_answer"		"玩家数超过 6 名，场上幻象或召唤单位过多，或在自定义模式中选择秒活等极端设置，都会明显增加服务器负担并导致卡顿。"
 		"loading_faq_illusions_summons_question"		"部分幻象和召唤技能已削弱或移除"
 		"loading_faq_illusions_summons_answer"			"幻象和大量召唤单位会明显增加卡顿，因此相关技能已削弱或移除。"
-		"loading_faq_local_host_question"			"离线模式下会员和加点生效吗？"
-		"loading_faq_local_host_answer"				"生效。游廊直接开局即为离线模式，使用地图更新时导出的数据，网站上的改动要等下次地图更新。结算积分和每日任务不会记录。"
-		"loading_faq_console_launch_question"		"在线模式（从网站启动游戏）支持哪些功能？"
-		"loading_faq_console_launch_answer"			"可以读取实时玩家数据，结算积分和每日任务正常记录，网站上的改动下一局即生效，但只能单人游戏。"
+		"loading_faq_launch_mode_question"			"游廊开局能记录积分吗？"
+		"loading_faq_launch_mode_answer"				"能。游廊开局会连接服务器读取最新数据，结算积分和每日任务正常记录。偶尔连不上时进入离线模式，沿用地图更新时的数据，本局积分不记录，这时可以从网站启动游戏（仅单人）。"
 		"loading_faq_pause_question"				"暂停时间可以延长吗？"
 		"loading_faq_pause_answer"				"受 Dota 2 服务器主机限制，暂停时间无法延长。需要更灵活的暂停时，请使用本地主机。"
 		"loading_faq_attributes_question"			"加的属性点什么时候生效？"
@@ -313,15 +311,6 @@
 
 		///////////////////////////////////////////////////
 		//
-		//			Leaderboard
-		//
-		///////////////////////////////////////////////////
-		"leaderboard_title"				"勇士排行榜"
-		"leaderboard_rank"				"排名"
-		"leaderboard_name"				"玩家"
-
-		///////////////////////////////////////////////////
-		//
 		//			pointInfo
 		//
 		///////////////////////////////////////////////////
@@ -377,7 +366,7 @@
 		"profile_stat_lifetime_healing"		"治疗"
 		"profile_stat_lifetime_tower_kills"	"推塔数"
 		"profile_stat_lifetime_total_gold"	"金钱"
-		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 <font color='#7FD47F'>100</font> 分，上限 <font color='#FFD700'>120</font> 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#FFD700'>≥110</font>：×1.1<br>• <font color='#7FD47F'>80–109</font>：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
+		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 100 分，上限 120 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#7FD47F'>≥110</font>：×1.1<br>• 80–109：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
 		"profile_stat_conduct_net_tooltip"	"累计点赞 减 累计举报"
 
 		// Member Tab UI
@@ -476,6 +465,7 @@
 		"dailytask_subtab_history"			"历史记录"
 		"dailytask_history_today"			"今日"
 		"dailytask_history_empty_hint"			"暂无历史记录，完成任务后这里会显示你的记录"
+		"dailytask_history_loading"				"历史记录加载中..."
 		"dailytask_history_col_date"			"日期"
 		"dailytask_history_col_tasks"			"完成任务"
 		"dailytask_history_col_points"			"总积分"
@@ -3055,19 +3045,6 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+施法速度加成"
-
-		// 神器除你武器
-		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>神器·除你武器</font>"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>主动：缴械</h1>阻止目标单位进行物理攻击，持续%disarm_melee%秒。\n\n<h1>被动：伤害格挡</h1> 拥有%block_chance%%%几率格挡伤害，近战英雄可格挡%block_damage_melee%点伤害，远程英雄可格挡%block_damage_ranged%点。"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"								"喵星人：现在上啊"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health"						"+$health"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health_regen"					"+$hp_regen"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_all_stats"						"+$all"
-
-		"DOTA_Tooltip_modifier_heavens_halberd_2_buff"						"残废"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_buff_Description"			"移动速度减缓%dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%，攻击速度降低%dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff"						"缴械"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff_Description"			"被天堂之戟缴械，无法攻击。"
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>星落</font>"

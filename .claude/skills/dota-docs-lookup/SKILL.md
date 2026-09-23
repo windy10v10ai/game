@@ -1,13 +1,6 @@
 ---
 name: dota-docs-lookup
-description: >-
-  Routes Dota 2 custom game documentation: prefer ModDota (community-maintained,
-  searchable API indexes) for vscripts, game events, Panorama JS API, and Panorama
-  events; fall back to Valve Developer Wiki when ModDota is insufficient (concepts,
-  DataDriven KV depth, modifier Actions); use robincode.cn when checking what changed
-  in a recent official Dota 2 update (API/engine diffs). Use when you need to look up
-  a specific Dota 2 API, event name, modifier binding, or recent API change, or when
-  the user asks where to find modding documentation.
+description: 查 Dota 2 自定义游戏的官方与社区文档：API 签名、事件名、modifier 绑定、近期版本改动。触发：需要查某个 Dota API 或事件，或用户问某个引擎行为该去哪查。
 ---
 
 # Dota 2 文档查阅路由
@@ -59,7 +52,7 @@ description: >-
 
 - **TypeScript 类型**：本仓库 `@moddota/dota-lua-types` 与 ModDota/实机不一致时，以 **ModDota + 游戏实测** 为准。
 - **Valve Wiki**：部分页面在自动化抓取时可能被拦截；若工具无法读取，在浏览器中打开链接即可。
-- **版本更新引起的 API 行为变化**（如本仓库 CLAUDE.md 中记录的 `GetBaseAttackTime` 之类改动）应优先怀疑并查 robincode.cn 确认，而不是先假设是自己代码的问题。
+- **版本更新引起的 API 行为变化**（如某个引擎方法的返回值口径在新版本里变了）应优先怀疑并查 robincode.cn 确认，而不是先假设是自己代码的问题。
 
 ## 不要做的事
 

@@ -1,6 +1,6 @@
 ---
 name: awaken-ability
-description: 为英雄创作「觉醒技能」时使用——通过觉醒石（item_awaken_stone，抽奖发放）替换/插入/新增英雄技能槽的强化版技能。处理范围包括 src/vscripts/modules/awaken/ 的配置表与替换算法、game/scripts/npc/npc_abilities_custom_awaken.txt 的觉醒技能 KV、对应 Lua/TSTL 实现、game/scripts/npc/npc_abilities_override.txt 的关联差分，以及 addon_schinese.txt/addon_english.txt 的文案。当用户说「加一个觉醒技能」「给 XX 做觉醒」「觉醒后 XX 强化」「觉醒技能等级关联/自动触发/加魔免」等时触发。
+description: 新增或修改英雄觉醒技能（觉醒石替换英雄技能槽的强化版技能）。触发：用户说「加个觉醒技能」「给 XX 做觉醒」「觉醒后 XX 强化」。区别于 clone-ability（原版差分克隆）、custom-ability（从零自制）。
 ---
 
 # Awaken Ability

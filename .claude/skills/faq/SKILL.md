@@ -1,9 +1,6 @@
 ---
 name: faq
-description: >-
-  维护 Dota 10v10 AI 自定义加载界面的 FAQ。用户提供原始问题、答案或要求新增/优化加载提示时，
-  自动将其精简为面向玩家的问答，判断常见/冷门分类，写入传统 Panorama 加载屏及中英俄本地化。
-  适用于“加一个加载 FAQ”“优化加载页文案”“加载提示加 XX”等请求。
+description: 维护加载界面的 FAQ 问答，写入加载屏与中英俄本地化。触发：用户说「加一个加载 FAQ」「优化加载页文案」「加载提示加 XX」。
 ---
 
 # 维护加载屏 FAQ
@@ -55,7 +52,7 @@ loading_faq_<topic>_answer
 
 ## 工作流
 
-1. 读取 `.claude/CLAUDE.md` 与 `localization-format-guide` skill，查看现有 FAQ 和相关机制代码。
+1. 读取 `game/resource/CLAUDE.md` 与 `localization-format-guide` skill，查看现有 FAQ 和相关机制代码。
 2. 将用户原始文本优化为中文问答，并依照现有术语翻译为英文和俄文。
 3. 选择常见或冷门组，在 `LOADING_FAQ_GROUPS` 加入对应前缀，并在三语 `// FAQ` 段增加问答 key。
 4. 若修改问答结构或展示样式，同时检查 XML、脚本和 CSS 仍使用两个 Label 的无边框嵌入式设计。

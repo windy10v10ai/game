@@ -1,6 +1,6 @@
 ---
 name: create-pr
-description: 创建功能分支、commit、push 并发起 Pull Request 的完整工作流。当用户说"创建PR"、"create pr"、"提个PR"、"发 pull request"，或实现完成需要发起代码审查时触发。
+description: 创建功能分支、commit、push 并发起 Pull Request。触发：用户说「创建 PR」「create pr」「提个 PR」，或实现完成需要发起代码审查。
 ---
 
 # 创建 Pull Request 工作流

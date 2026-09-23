@@ -1,9 +1,7 @@
 ---
 name: update-abilities-override
-description: >-
-  Dota 版本更新时，以 docs/reference 中官方技能 KV 为骨架维护
-  game/scripts/npc/npc_abilities_override.txt：仅写差分，引擎合并缺失键。
-  按 P1 删同值 → P2 差分与 MaxLevel 扩展 → P3 注释校验 的优先级逐技能处理。
+description: Dota 版本更新后，以官方技能 KV 为骨架重新维护 npc_abilities_override.txt 的差分。
+disable-model-invocation: true
 ---
 
 # Update Abilities Override
@@ -12,7 +10,7 @@ description: >-
 
 ## 前置条件
 
-参考文件路径见 CLAUDE.md「Dota 2 参考文件速查」。英雄名 / 技能名查找规则见「技能系统名查找」章节。
+参考文件路径见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。英雄名 / 技能名查找规则见 `.claude/CLAUDE.md`「查原版技能」。
 
 用 `grep` / 片段读取定位，**禁止**一次读入整个 override 文件。
 

@@ -54,10 +54,6 @@ export class PlayerSetting {
   gamePresetCustom?: { gameOptions: GamePresetCustomOptions };
 }
 
-export class AwakenedHeroDto {
-  heroName!: string;
-}
-
 export class PlayerStatsLifetimeDto {
   id!: string;
   kills!: number;
@@ -104,7 +100,7 @@ export class PlayerInfoDto {
   // game/start 首场结算前不下发，可缺失
   statsLifetime?: PlayerStatsLifetimeDto;
   // 仅请求带 include=heroAwakening 时才会出现
-  awakenedHeroes?: AwakenedHeroDto[];
+  awakenedHeroes?: string[];
 }
 
 // Backward-compatible alias for existing imports.
@@ -178,7 +174,7 @@ export class Player {
     return player?.useableMemberPoint ?? 0;
   }
 
-  public static GetAwakenedHeroes(steamId: number): AwakenedHeroDto[] {
+  public static GetAwakenedHeroes(steamId: number): string[] {
     const player = Player.playerInfoMap.get(steamId.toString());
     return player?.awakenedHeroes ?? [];
   }

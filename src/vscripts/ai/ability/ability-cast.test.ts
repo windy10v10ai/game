@@ -1,8 +1,8 @@
 import { ApplyAbilityAction } from './ability-cast';
 
 /**
- * ApplyAbilityAction 只负责"目标状态与当前状态不一致才切换并返回 true"的分支逻辑，
- * 保证 bot 主动开关只在第一次切换那一 tick 占用 dispatcher，之后放行其他技能。
+ * ApplyAbilityAction 只负责"目标状态与当前状态不一致才切换"的分支逻辑，
+ * 开关只在第一次切换那一 tick 占用 dispatcher，自动施法切换不占用。
  * Dota 引擎 API（ToggleAbility / ToggleAutoCast）仅 mock 占位防崩，不断言其调用参数。
  */
 function fakeAbility(state: { toggle?: boolean; autoCast?: boolean }): CDOTABaseAbility {
@@ -45,13 +45,12 @@ describe('ApplyAbilityAction', () => {
     expect(ApplyAbilityAction(ability, { toggleOff: true })).toBe(false);
   });
 
-  it('autoCastOn enables autocast, returns true once', () => {
+  it('autoCastOn enables autocast without occupying the tick', () => {
     const state = { autoCast: false };
     const ability = fakeAbility(state);
 
-    expect(ApplyAbilityAction(ability, { autoCastOn: true })).toBe(true);
-    expect(state.autoCast).toBe(true);
     expect(ApplyAbilityAction(ability, { autoCastOn: true })).toBe(false);
+    expect(state.autoCast).toBe(true);
   });
 
   it('returns false when no action flag is set', () => {

@@ -4,6 +4,7 @@
 		<include src="file://{resources}/scripts/custom_game/replaceHeroImage.js"/>
 		<include src="file://{resources}/scripts/custom_game/replaceGold.js"/>
 		<include src="file://{resources}/scripts/custom_game/shop_fix.js"/>
+		<include src="file://{resources}/scripts/custom_game/api_html_proxy.js"/>
 	</scripts>
 	<styles>
 		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
@@ -15,7 +16,6 @@
 		<!-- <CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/pick_locker/pick_locker.xml" /> -->
 		<CustomUIElement type="HeroSelection"		layoutfile="file://{resources}/layout/custom_game/multiteam_hero_select_overlay.xml" />
 		<CustomUIElement type="FlyoutScoreboard"	layoutfile="file://{resources}/layout/custom_game/flyout_scoreboard/multiteam_flyout_scoreboard.xml" />
-		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/board/boards.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/battlepass.xml" />
 		<CustomUIElement type="Hud"					layoutfile="file://{resources}/layout/custom_game/point_info/point_info.xml" />
 		<CustomUIElement type="Hud" 				layoutfile="file://{resources}/layout/custom_game/end_screen_2.xml" />

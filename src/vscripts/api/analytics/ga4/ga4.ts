@@ -160,6 +160,11 @@ export class GA4 {
     print(`[GA4] Sending ${payload.events.length} event(s) to GA4: ${json.encode(payload)}`);
 
     const request = CreateHTTPRequestScriptVM('POST', fullUrl);
+    // 游廊对局的服务端拿不到请求对象，不守这一下会抛错并中断调用方的后续逻辑
+    if (!request) {
+      print('[GA4] http unavailable, event dropped');
+      return;
+    }
     request.SetHTTPRequestHeaderValue('Content-Type', 'application/json');
     request.SetHTTPRequestRawPostBody('application/json', json.encode(payload));
     request.SetHTTPRequestNetworkActivityTimeout(10);
@@ -185,6 +190,11 @@ export class GA4 {
 
     print(`[GA4] Fetching current time from: ${apiUrl}`);
     const request = CreateHTTPRequestScriptVM('GET', apiUrl);
+    if (!request) {
+      print('[GA4] http unavailable, cannot fetch time');
+      callback(null);
+      return;
+    }
     request.SetHTTPRequestNetworkActivityTimeout(5);
 
     request.Send((result: CScriptHTTPResponse) => {

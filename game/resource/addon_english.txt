@@ -86,8 +86,8 @@
 		"loading_status_3"				"Offline mode. Points and stats from this game will not be recorded.\nAttributes, awakening and membership use data as of {date}."
 		"offline_data_hint"				"Offline mode, data as of {date}. Allocate attribute points, reset attributes, and awaken heroes on the website. Changes apply after the next map update."
 		"end_screen_offline_hint"		"Offline mode. Points and stats from this game were not recorded."
-		"console_launch_title"			"Start the Game from the Website"
-		"console_launch_desc"			"Start the game from the website to load the latest data and record this match's settlement points and daily tasks."
+		"console_launch_title"			"Can't Connect from the Arcade?"
+		"console_launch_desc"			"Start the game from the website instead. The connection is more stable, but only single-player games are supported."
 		"local_host_feature_unsupported_hint"		"To keep account data safe, this cannot be done in game. Click to do it on the website."
 		"website_local_host_notice"		"Attribute points, attribute resets, and awakening cannot be done in game. To protect player data, sign in with Steam on the website to do it. Changes apply next game in online mode, or after the next map update in offline mode."
 		"website_open_button"				"Open Website"
@@ -100,10 +100,8 @@
 		"loading_faq_players_instant_revive_answer"		"More than six players, too many illusions or summoned units on the field, or enabling extreme Custom mode settings like instant revive can significantly increase server load and cause lag."
 		"loading_faq_illusions_summons_question"		"Some illusion and summon abilities have been weakened or removed."
 		"loading_faq_illusions_summons_answer"			"Illusions and large numbers of summons can cause noticeable lag."
-		"loading_faq_local_host_question"			"Do membership and attribute points work in offline mode?"
-		"loading_faq_local_host_answer"				"Yes. Games started from the arcade run in offline mode and use data exported at the latest map update, so changes made on the website apply after the next map update. Match points and daily tasks are not recorded."
-		"loading_faq_console_launch_question"		"What does online mode (starting the game from the website) support?"
-		"loading_faq_console_launch_answer"			"It loads live player data, records match points and daily tasks normally, and applies website changes from the next game, but only for single-player games."
+		"loading_faq_launch_mode_question"			"Are points recorded in games started from the arcade?"
+		"loading_faq_launch_mode_answer"				"Yes. Games started from the arcade connect to the server, load the latest data and record match points and daily tasks normally. If the connection occasionally fails, the game runs in offline mode with data from the latest map update and points are not recorded. In that case you can start the game from the website (single-player only)."
 		"loading_faq_pause_question"				"Can pause time be extended?"
 		"loading_faq_pause_answer"				"Dedicated-server pause time is limited by Dota 2. Use a local host if you need more flexible pauses."
 		"loading_faq_attributes_question"			"When do attribute points take effect?"
@@ -313,15 +311,6 @@
 
 		///////////////////////////////////////////////////
 		//
-		//			Leaderboard
-		//
-		///////////////////////////////////////////////////
-		"leaderboard_title"				"Battle Leaderboard"
-		"leaderboard_rank"				"Rank"
-		"leaderboard_name"				"Name"
-
-		///////////////////////////////////////////////////
-		//
 		//			pointInfo
 		//
 		///////////////////////////////////////////////////
@@ -377,7 +366,7 @@
 		"profile_stat_lifetime_healing"		"Healing"
 		"profile_stat_lifetime_tower_kills"	"Tower Kills"
 		"profile_stat_lifetime_total_gold"	"Gold Earned"
-		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default <font color='#7FD47F'>100</font>, cap <font color='#FFD700'>120</font>.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#FFD700'>≥110</font>: ×1.1<br>• <font color='#7FD47F'>80–109</font>: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
+		"profile_stat_conduct_tooltip"	"Conduct Score reflects your in-game behavior. Default 100, cap 120.<br><br><b>Score changes</b><br>• Finish a game: <font color='#7FD47F'>+1</font> (only below 100)<br>• Early disconnect: <font color='#E87D7D'>-10</font> (solo / all quit doesn't count)<br>• Commended <font color='#7FD47F'>+2</font> / Reported <font color='#E87D7D'>-2</font> (same player counts at most once per week)<br><br><b>End-game points multiplier</b> (team games only)<br>• <font color='#7FD47F'>≥110</font>: ×1.1<br>• 80–109: ×1.0<br>• <font color='#F5A623'>60–79</font>: ×0.8<br>• <font color='#E87D7D'>&lt;60</font>: ×0.5"
 		"profile_stat_conduct_net_tooltip"	"Total Commends minus Total Reports"
 
 		// Member Tab UI
@@ -476,6 +465,7 @@
 		"dailytask_subtab_history"			"History"
 		"dailytask_history_today"			"Today"
 		"dailytask_history_empty_hint"			"No history yet. Completed tasks will show up here."
+		"dailytask_history_loading"				"Loading history..."
 		"dailytask_history_col_date"			"Date"
 		"dailytask_history_col_tasks"			"Completed"
 		"dailytask_history_col_points"			"Total Points"
@@ -3055,19 +3045,6 @@
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_bonus_attack_speed"					"+$attack"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_movement_speed_percent_bonus"			"%+$move_speed"
 		"DOTA_Tooltip_ability_item_yasha_and_kaya_1_cast_speed_pct"				"%+Cast Speed Bonus"
-
-		// 神器除你武器
-		"DOTA_Tooltip_Ability_item_heavens_halberd_2"				"<font color='#e03e2e'>Artifact: Heaven's Halberd</font>"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Description"							"<h1>Active: Disarm</h1>Prevents a target from attacking for %disarm_melee% seconds.\n\n<h1>Passive: Damage Block</h1>Grants a %block_chance%%% chance to block %block_damage_melee% damage from incoming attacks on melee heroes, and %block_damage_ranged% damage on ranged."
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_Lore"			"Meow Star: Now go!"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health"	"+$health"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_health_regen"	"+$hp_regen"
-		"DOTA_Tooltip_ability_item_heavens_halberd_2_bonus_all_stats"	"+$all"
-
-		"DOTA_Tooltip_modifier_heavens_halberd_2_buff"				"Cripple"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_buff_Description"	"Movement speed reduced by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%, attack speed reduced by %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff"				"Disarmed"
-		"DOTA_Tooltip_modifier_heavens_halberd_2_debuff_Description"	"Disarmed by Heaven's Halberd, unable to attack."
 
 		// 神器星落
 		"DOTA_Tooltip_ability_item_meteor_hammer_2"                               "<font color='#e03e2e'>Asteroid Hammer</font>"

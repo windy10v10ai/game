@@ -10,6 +10,7 @@ import { Game } from '../../../api/game';
 import { reloadable } from '../../../utils/tstl-utils';
 import { isAwakened } from '../../awaken/awaken-replacer';
 import { GameConfig } from '../../GameConfig';
+import { NetTableHelper } from '../../helper/net-table-helper';
 import { PlayerHelper } from '../../helper/player-helper';
 import { GameEndPoint } from './game-end-point';
 
@@ -74,6 +75,11 @@ export class GameEnd {
       const damageTaken = PlayerHelper.GetDamageTaken(playerId);
       const totalGoldEarned = PlayerHelper.GetTotalGoldEarned(playerId);
       const stuns = PlayerHelper.GetStuns(playerId);
+      // 结算界面与上报取同一份，避免两处各读一次引擎后口径走偏。
+      // 引擎给的是小数，取整后上报的才等于界面上显示的那个整数
+      const strength = Math.floor(hero.GetStrength());
+      const agility = Math.floor(hero.GetAgility());
+      const intellect = Math.floor(hero.GetIntellect(false));
 
       const playerDto: GameEndPlayerDto = {
         heroName: PlayerResource.GetSelectedHeroName(playerId),
@@ -97,6 +103,12 @@ export class GameEnd {
         battlePoints: 0,
         awaken: isAwakened(hero) ? 1 : 0,
       };
+      if (playerDto.steamId > 0) {
+        playerDto.strength = strength;
+        playerDto.agility = agility;
+        playerDto.intellect = intellect;
+        this.FillLoadout(playerDto, hero);
+      }
       playerDto.score = GameEndPoint.CalculatePlayerScore(playerDto);
       const baseBattlePoints = this.CalculatePlayerBattlePoints(
         playerDto,
@@ -142,9 +154,9 @@ export class GameEnd {
         points: playerDto.battlePoints,
         conductDelta,
         conductPoint,
-        str: hero.GetStrength(),
-        agi: hero.GetAgility(),
-        int: hero.GetIntellect(false),
+        str: strength,
+        agi: agility,
+        int: intellect,
         towerKills: playerDto.towerKills,
         stuns: playerDto.stuns,
         dailyTask: dailyTaskCompletion?.candidate,
@@ -161,10 +173,34 @@ export class GameEnd {
       winnerTeamId,
       gameTimeMsec: Math.round(gameTime * 1000),
       countryCode: GA4.countryCode,
+      playerCount: Math.max(1, players.filter((player) => player.steamId > 0).length),
       players,
     };
 
     return gameEndDto;
+  }
+
+  /** 采集结算界面展示的出装与抽选技能 */
+  private static FillLoadout(playerDto: GameEndPlayerDto, hero: CDOTA_BaseNPC_Hero): void {
+    const items: string[] = [];
+    for (let slot = 0; slot <= InventorySlot.SLOT_6; slot++) {
+      items.push(this.GetItemName(hero, slot));
+    }
+    playerDto.items = items;
+    playerDto.neutralItem = this.GetItemName(hero, InventorySlot.NEUTRAL_ACTIVE_SLOT);
+    playerDto.neutralPassiveItem = this.GetItemName(hero, InventorySlot.NEUTRAL_PASSIVE_SLOT);
+
+    const lotteryStatus = NetTableHelper.GetLotteryStatus(playerDto.steamId.toString());
+    playerDto.abilities = [
+      lotteryStatus.activeAbilityName ?? '',
+      lotteryStatus.passiveAbilityName ?? '',
+      lotteryStatus.passiveAbilityName2 ?? '',
+    ];
+  }
+
+  private static GetItemName(hero: CDOTA_BaseNPC_Hero, slot: number): string {
+    const item = hero.GetItemInSlot(slot);
+    return item ? item.GetAbilityName() : '';
   }
 
   static CalculatePlayerBattlePoints(

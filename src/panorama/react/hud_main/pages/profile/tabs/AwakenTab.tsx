@@ -215,7 +215,7 @@ export function AwakenTab() {
     useableSeasonPoint >= HERO_AWAKEN_RANDOM_COST_SEASON ||
     useableMemberPoint >= HERO_AWAKEN_RANDOM_COST_MEMBER;
   const remainingPool = AWAKEN_ABILITIES.filter(
-    ({ heroName }) => !awakenedHeroes.some((h) => h.heroName === heroName),
+    ({ heroName }) => !awakenedHeroes.includes(heroName),
   ).length;
   const hasEnoughPool = remainingPool >= AWAKEN_RANDOM_MIN_POOL;
 
@@ -334,7 +334,7 @@ export function AwakenTab() {
             onClick={handleRandomClick}
           />
           {AWAKEN_ABILITIES.map(({ heroName, abilityName, freeTrial }) => {
-            const isUnlocked = awakenedHeroes.some((h) => h.heroName === heroName);
+            const isUnlocked = awakenedHeroes.includes(heroName);
             return (
               <AwakenHeroCard
                 key={abilityName}

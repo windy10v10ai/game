@@ -1,12 +1,20 @@
 import { AI } from '../ai/AI';
 import { AlipayApi } from '../api/alipay';
+import { AlipayProxy } from '../api/alipay-proxy';
 import { GA4PlayerLanguageTracker } from '../api/analytics/ga4/ga4-player-language-tracker';
 import { ApiClient } from '../api/api-client';
+import { ApiHtmlProxy } from '../api/api-html-proxy';
 import { ConductApi } from '../api/conduct';
+import { DailyTaskProxy } from '../api/daily-task-proxy';
+import { GameProbeProxy } from '../api/game-probe-proxy';
+import { GameEndProxy } from '../api/game-end-proxy';
+import { GameStartProxy } from '../api/game-start-proxy';
 import { PlayerHeroAwakeningApi } from '../api/player-hero-awakening';
 import { PlayerInfoApi } from '../api/player-info';
+import { PlayerInfoProxy } from '../api/player-info-proxy';
 import { PlayerPropertyApi } from '../api/player-property';
 import { PlayerGamePresetApi, PlayerSettingApi } from '../api/player-setting';
+import { PlayerWriteProxy } from '../api/player-write-proxy';
 import { GameConfig } from './GameConfig';
 import { VirtualGoldBank } from './bank/virtual-gold-bank';
 import { DailyTask } from './daily-task/daily-task';
@@ -71,6 +79,16 @@ export function ActivateModules() {
 
     // 玩家语言统计：监听 player_language 事件，收到即发 GA4 并缓存供 mid-only-mode 查询
     new GA4PlayerLanguageTracker();
+
+    // 客户端 HTTP 代理：服务端拿不到请求对象时（游廊对局），转交客户端代发白名单路径
+    ApiHtmlProxy.Initialize();
+    GameProbeProxy.Register();
+    GameEndProxy.Register();
+    GameStartProxy.Register();
+    PlayerInfoProxy.Register();
+    DailyTaskProxy.Register();
+    PlayerWriteProxy.Register();
+    AlipayProxy.Register();
   }
 
   if (GameRules.AI == null) GameRules.AI = new AI();

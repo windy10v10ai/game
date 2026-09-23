@@ -1,11 +1,6 @@
 ---
 name: release-note
-description: >-
-  生成 Steam Workshop 中英文更新日志。支持手动、PR、Issue（含 checklist 进度）。
-  版本号：用户指定 > release PR 大版本（推荐值，须问用户）> Steam 递增补丁字母。
-  用户确认后可写回 open PR（UTF-8 无 BOM）。
-  **创建 PR 且需要写 Release Note 时必须调用本 skill 生成，不要手写；纯内部改动不调用。**
-  Use when creating a pull request to generate Steam Workshop release notes.
+description: 生成 Steam Workshop 中英文更新日志，可写回 open PR。触发：创建 PR 且需要 Release Note 时必须调用本 skill 生成，不要手写；纯内部改动不调用。
 ---
 
 # Changelog

@@ -71,7 +71,6 @@
 			<Image id="hallowed_scepter" class="SeqImg" src="file://{images}/items/hallowed_scepter.png" />
 			<Image id="hand_of_group" class="SeqImg" src="file://{images}/items/hand_of_group.png" />
 			<Image id="hawkeye_turret" class="SeqImg" src="file://{images}/items/hawkeye_turret.png" />
-			<Image id="heavens_halberd_2" class="SeqImg" src="file://{images}/items/heavens_halberd_2.png" />
 			<Image id="heavens_halberd_v2" class="SeqImg" src="file://{images}/items/heavens_halberd_v2.png" />
 			<Image id="hurricane_pike_2" class="SeqImg" src="file://{images}/items/hurricane_pike_2.png" />
 			<Image id="hydras_breath_2" class="SeqImg" src="file://{images}/items/hydras_breath_2.png" />

@@ -1,6 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNetTable } from '../../../../../shared/hooks/useNetTable';
 import { formatHistoryDate, getMetricShortLabel, TOTAL_ROUNDS_PER_DAY } from './dailytask-ui';
+
+// 请求失败时 net table 不会更新，超时后也要放开加载态
+const LOAD_TIMEOUT_S = 5;
+// 本次会话已请求过就不再显示加载态，服务端同样只拉一次
+let historyRequested = false;
 
 /**
  * 每日任务历史记录子页：每天一行，今天的进行中记录排在最前。
@@ -9,6 +14,32 @@ import { formatHistoryDate, getMetricShortLabel, TOTAL_ROUNDS_PER_DAY } from './
 export function HistoryPage() {
   const playerId = Game.GetLocalPlayerID();
   const dailyTask = useNetTable('daily_task', playerId >= 0 ? String(playerId) : null);
+
+  const [loading, setLoading] = useState(!historyRequested);
+
+  useEffect(() => {
+    historyRequested = true;
+    let mounted = true;
+    GameEvents.SendCustomGameEventToServer('dailytask_load_history', {});
+    $.Schedule(LOAD_TIMEOUT_S, () => {
+      if (mounted) {
+        setLoading(false);
+      }
+    });
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  // 缺失的 history 会被转换成空数组，无法靠它判断到没到，只能看 net table 有没有再更新
+  const firstSnapshot = useRef(true);
+  useEffect(() => {
+    if (firstSnapshot.current) {
+      firstSnapshot.current = false;
+      return;
+    }
+    setLoading(false);
+  }, [dailyTask]);
 
   // history 只记录"跨天时已归档的天"，今天还在累积的完成记录单独从 completedTasks 拼进列表最前
   const todayEntry =
@@ -30,7 +61,12 @@ export function HistoryPage() {
         className="dailytask-hint"
         style={{ visibility: entries.length === 0 ? 'visible' : 'collapse' }}
       >
-        <Label className="dailytask-hint-text" text={$.Localize('#dailytask_history_empty_hint')} />
+        <Label
+          className="dailytask-hint-text"
+          text={$.Localize(
+            loading ? '#dailytask_history_loading' : '#dailytask_history_empty_hint',
+          )}
+        />
       </Panel>
       <Panel
         className="dailytask-history-header"

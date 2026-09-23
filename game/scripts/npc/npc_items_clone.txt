@@ -206,54 +206,6 @@
 	}
 
 	//=================================================================================================================
-	// 神器除你武器
-	//=================================================================================================================
-	"item_recipe_heavens_halberd_2"
-	{
-		"BaseClass"						"item_datadriven"
-		"Model"							"models/props_gameplay/recipe.vmdl"
-		"AbilityTextureName"			"item_recipe_heavens_halberd_2"
-		"ItemCost"						"1300"
-		"ItemRecipe"					"1"
-		"ItemResult"					"item_heavens_halberd_2"
-		"ItemRequirements"
-		{
-			"01"						"item_heavens_halberd;item_heavens_halberd"
-		}
-	}
-	"item_heavens_halberd_2"
-	{
-		"BaseClass"						"item_heavens_halberd"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"FightRecapLevel"				"1"
-		"AbilityCooldown"				"20"
-		"AbilityCastRange"				"900"	//650
-		"AbilityCastPoint"				"0.0"
-		"AbilityManaCost"				"150"
-		"ItemShopTags"					"str;damage;evasion"
-		"ItemQuality"					"artifact"
-		"ItemAliases"					"heaven\'s halberd"
-		"ItemDisassembleRule"			"DOTA_ITEM_DISASSEMBLE_NEVER"
-		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES | DECLARE_PURCHASES_IN_SPEECH | DECLARE_PURCHASES_TO_SPECTATORS"
-		"SuggestLategame"				"1"
-		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
-		"AbilityTextureName"			"item_heavens_halberd_2"
-		"AbilityValues"
-		{
-				"bonus_health"				"1000"	//275
-				"bonus_health_regen"		"18"	//6
-				"block_damage_melee"		"200"	//60
-				"block_damage_ranged"		"100"	//30
-				"block_chance"				"90"	//60
-				"bonus_all_stats"			"15"	//5
-
-				"disarm_range"				"6.0"	//3
-				"disarm_melee"				"6.0"	//3
-		}
-	}
-	//=================================================================================================================
 	// 神器蹦迪之鞋
 	//=================================================================================================================
 	"item_recipe_boots_of_bearing_2"
