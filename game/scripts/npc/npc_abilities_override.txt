@@ -2556,10 +2556,6 @@
 				"value"			"0.8 1.1 1.4 1.7 2.0"
 			}
 			"ally_buff_duration"	"4.0 4.5 5.0 5.5 6.0"	// 4.0
-			"ally_movespeed_pct"
-			{
-				"value"				"15 20 25 30 35"
-			}
 		}
 	}
 	// 健体术
@@ -4633,7 +4629,7 @@
 			"hero_damage"
 			{
 				"value"				"50 100 150 200 250"	// 30 50 70 90
-				"special_bonus_unique_wisp"		"+100%"		// +50%
+				"special_bonus_unique_wisp"		"+80%"		// +40% x2
 			}
 			"max_range"
 			{
@@ -5902,6 +5898,7 @@
 					"value"												"1.2 1.6 2.0 2.4 2.8"
 					"special_bonus_unique_lone_druid_entangle_duration"	"+1.2"	// +0.6
 				}
+				"counter_duration"	"7 8 9 10 11"	// 7 8 9 10 延伸
 		}
 	}
 
@@ -6225,7 +6222,7 @@
 	// 天界箭袋 先天技能
 	"mirana_celestial_quiver"
 	{
-		"AbilityChargeRestoreTime"		"3.0"	// 6.0 x0.5
+		"AbilityChargeRestoreTime"		"3.5"	// 7.0 x0.5
 		"AbilityValues"
 		{
 			"bonus_damage"
@@ -6255,7 +6252,7 @@
 				}
 				"arrow_speed"		"1200.0"		// 900
 				"arrow_min_stun"	"1.0"			// 0.01
-				"arrow_max_stun"	"2.6 3.4 4.2 5.0 5.8"
+				"arrow_max_stun"	"2.3 3.2 4.1 5.0 5.9"	// 2.3 3.2 4.1 5.0 延伸
 				"arrow_bonus_damage"
 				{
 					"value"				"360"	// 180 x2
@@ -9369,7 +9366,7 @@
 			}
 			"eidolon_bonus_damage"
 			{
-				"special_bonus_unique_enigma_3"	"+200"	// +40 x5
+				"special_bonus_unique_enigma_3"	"+150"	// +30 x5
 			}
 			"eidolon_bonus_attack_speed"
 			{
@@ -9377,7 +9374,7 @@
 			}
 			"eidelon_base_damage"		"80 140 200 260"	// 16 28 40 52 x5
 			"eidelon_base_movespeed"	"550"	// 280 310 340 370
-			"eidolon_attack_range"		"500 550 600 650"	// 425 450 475 500 差值+50
+			"eidolon_attack_range"		"500 550 600 650"	// 380 420 460 500 差值50
 		}
 	}
 	// 午夜凋零
@@ -9672,7 +9669,7 @@
 		{
 			"AbilityCooldown"
 			{
-				"value"					"10"	// 18
+				"value"					"10"	// 19
 			}
 			"freeze_damage"
 			{
@@ -10445,7 +10442,7 @@
 		{
 			"fiery_soul_attack_speed_bonus"
 			{
-				"value"								"10 20 30 40 50"	// 8 16 24 32
+				"value"								"7 14 21 28 35"	// 7 14 21 28 延伸
 			}
 			"fiery_soul_move_speed_bonus"
 			{
@@ -10625,7 +10622,7 @@
 			"duration"		"3 3.5 4 4.5 5"
 			"heal_bonus"
 			{
-				"value"			"55 65 75 85 95"
+				"value"			"45 55 65 75 85"	// 45 55 65 75 延伸
 			}
 			"movement_speed"
 			{
