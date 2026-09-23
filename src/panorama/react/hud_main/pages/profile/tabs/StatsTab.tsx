@@ -1,8 +1,9 @@
 import { useRef } from 'react';
+import { PrimaryButton } from '../../../../shared/components';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
 import { formatStatNumberParts } from '../../../../shared/utils/format-stat-number';
 import { isMemberActive } from '../../../../shared/utils/member';
-import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { GetLocalPlayerSteamAccountID, GetWebsiteProfileUrl } from '@utils/utils';
 
 const AVATAR_BORDER_GOLD =
   'url("s2r://panorama/images/custom_game/profile/avatar-square-gold-border.png")';
@@ -57,6 +58,8 @@ export function StatsTab() {
   const conductNetRef = useRef<Panel | null>(null);
   const lifetimeStats = player?.statsLifetime;
   const isChinese = $.Language() === 'schinese';
+  const openHistoryWebsite = () =>
+    $.DispatchEvent('ExternalBrowserGoToURL', GetWebsiteProfileUrl());
 
   return (
     <Panel className="stats-layout">
@@ -121,6 +124,12 @@ export function StatsTab() {
               onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
             />
           </Panel>
+          <PrimaryButton
+            className="stats-history-btn"
+            variant="ghost"
+            label={$.Localize('#profile_stat_history_button')}
+            onClick={openHistoryWebsite}
+          />
         </Panel>
 
         <Panel className="stats-lifetime-column">
