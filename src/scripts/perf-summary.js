@@ -58,6 +58,7 @@ function statOf(windows, frames = {}) {
       frameMs: mean(frameNum('frameMs')),
       maxFrame: fs.length ? Math.max(...frameNum('maxFrame')) : NaN,
       n: ws.length,
+      gameTime: ws.length ? ws[0].t : '-',
       tick,
       // 服务器跑满时每 tick 真实耗时；未跑满时包含等待，只能说明「不卡」
       msPerTick: 1000 / tick,
@@ -113,6 +114,7 @@ function summarize(text, { spreadLimit = 10 } = {}) {
 
   const out = [];
   out.push('# 性能自动测试汇总', '');
+  out.push(...summarizeKeyMetrics(steps, stat));
 
   const early = stat('early');
   if (early.n) {
@@ -195,6 +197,31 @@ function summarize(text, { spreadLimit = 10 } = {}) {
   }
   out.push(...summarizeWarnings(lines));
   return out.join('\n');
+}
+
+// 只有 1 倍速段反映玩家真实感受，放在报告最前面
+function summarizeKeyMetrics(steps, stat) {
+  const groups = {};
+  for (const [name, meta] of Object.entries(steps)) {
+    if (meta.timescale === 1) (groups[baseName(name)] ??= []).push(name);
+  }
+  if (!steps.realtime && stat('realtime').n) groups.realtime = ['realtime'];
+  if (!Object.keys(groups).length) return [];
+  const out = [
+    '## 关键指标（1 倍速）',
+    '',
+    '| 段 | 次数 | 画面 FPS | 平均帧 ms | 最长帧 ms | 服务器 tick/s | 速度比 | 游戏时间 |',
+    '|---|---|---|---|---|---|---|---|',
+  ];
+  for (const [group, names] of Object.entries(groups)) {
+    const stats = names.map(stat);
+    const m = (k) => mean(stats.map((s) => s[k]));
+    out.push(
+      `| ${group} | ${names.length} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('speed'), 2)} | ${stats.map((s) => s.gameTime).join(' / ')} |`,
+    );
+  }
+  out.push('', '正常值：tick 30、速度比 1.0、最长帧 < 100ms；画面 FPS 越高越好。', '');
+  return out;
 }
 
 const sourceLines = {};
