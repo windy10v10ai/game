@@ -10,9 +10,13 @@ import { SellItem } from '../build-item/sell-item';
 import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
+import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { ModeEnum } from '../mode/mode-enum';
 import { WardPlacement } from '../ward/ward-placement';
 import { HeroUtil } from './hero-util';
+
+// 性能排查只在工具模式生效，发布版每次思考只多一次常量判断
+const IS_TOOLS_MODE = IsInToolsMode();
 
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
@@ -112,6 +116,14 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   OnIntervalThink(): void {
+    if (IS_TOOLS_MODE) {
+      PerfSampler.measureAiThink(() => this.think());
+      return;
+    }
+    this.think();
+  }
+
+  private think(): void {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
 
     this.gameTime = GameRules.GetDOTATime(false, true);
