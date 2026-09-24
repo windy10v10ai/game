@@ -63,6 +63,21 @@ function readLog(file) {
 // 汇总脚本需要的行：自身输出、Lua 报错、客户端未登记的 modifier、引擎慢思考警告
 const KEEP_LINE = /\[perf|Script Runtime Error|unknown modifier type|thinking for [\d.]+ ms/;
 
+// 显示器休眠后 Dota 不再出画面，客户端帧数据全部失效；测试期间向系统申请保持常亮，进程退出即失效，不改电源设置
+function keepDisplayAwake() {
+  const script = [
+    'Add-Type -Name Power -Namespace Perf -MemberDefinition \'[DllImport("kernel32.dll")] public static extern uint SetThreadExecutionState(uint flags);\'',
+    '[Perf.Power]::SetThreadExecutionState([uint32]2147483651) | Out-Null',
+    'while ($true) { Start-Sleep -Seconds 60 }',
+  ].join('; ');
+  const child = spawn(
+    'powershell',
+    ['-NoProfile', '-EncodedCommand', Buffer.from(script, 'utf16le').toString('base64')],
+    { stdio: 'ignore' },
+  );
+  process.on('exit', () => child.kill());
+}
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const isDotaRunning = () => execSync('tasklist').toString().toLowerCase().includes('dota2.exe');
 
@@ -142,6 +157,7 @@ async function runGame(options, gameConfig, label) {
   if (isDotaRunning()) throw new Error('Dota 2 is already running, close it first');
   process.on('exit', removeConfig);
   process.on('SIGINT', () => process.exit(130));
+  keepDisplayAwake();
 
   const now = new Date();
   const pad = (n) => String(n).padStart(2, '0');

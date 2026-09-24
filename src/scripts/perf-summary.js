@@ -16,6 +16,8 @@ const mean = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : Na
 const fmt = (x, digits = 1) => (Number.isFinite(x) ? x.toFixed(digits) : '-');
 const pct = (x) => (Number.isFinite(x) ? `${x >= 0 ? '+' : ''}${x.toFixed(1)}%` : '-');
 const baseName = (name) => name.split('#')[0];
+// 客户端每 10 秒报一次，明显超过说明界面脚本中途停过
+const CLIENT_WINDOW_MAX_SECONDS = 15;
 
 function parseRun(text) {
   const lines = text.split(/\r?\n/);
@@ -23,6 +25,7 @@ function parseRun(text) {
   const steps = {};
   const prof = {};
   const frames = {};
+  let clientStalls = 0;
   let phase = 'before';
   for (const line of lines) {
     const at = line.indexOf('[perf');
@@ -32,6 +35,14 @@ function parseRun(text) {
     if (body.startsWith('[perf] ') && f.phase && !f.tick) {
       phase = f.phase;
     } else if (body.startsWith('[perf-client] ')) {
+      // 显示器休眠、窗口最小化时界面脚本停止运行，窗口会被拉长到几分钟，这种数据不代表帧率
+      if (
+        Number(f.sec) > CLIENT_WINDOW_MAX_SECONDS ||
+        Number(f.maxFrame) > CLIENT_WINDOW_MAX_SECONDS * 1000
+      ) {
+        clientStalls++;
+        continue;
+      }
       // 客户端不知道实验段，按日志先后归到最近一次切换的段
       (frames[phase] ??= []).push(f);
     } else if (body.startsWith('[perf] ') && f.tick) {
@@ -42,7 +53,7 @@ function parseRun(text) {
       ((prof[f.phase] ??= {})[f.level] ??= []).push({ name: f.name, ms: Number(f.ms) });
     }
   }
-  return { lines, windows, steps, prof, frames };
+  return { lines, windows, steps, prof, frames, clientStalls };
 }
 
 function statOf(windows, frames = {}) {
@@ -120,12 +131,18 @@ function unstableConditions(text, spreadLimit) {
 }
 
 function summarize(text, { spreadLimit = 10 } = {}) {
-  const { lines, windows, steps, prof, frames } = parseRun(text);
+  const { lines, windows, steps, prof, frames, clientStalls } = parseRun(text);
   const stat = statOf(windows, frames);
 
   const out = [];
   out.push('# 性能自动测试汇总', '');
   out.push(...summarizeKeyMetrics(steps, stat));
+  if (clientStalls) {
+    out.push(
+      `**注意**：客户端帧日志中断 ${clientStalls} 次（界面脚本停止运行，常见于显示器休眠、窗口最小化），这些窗口已丢弃，相关段的画面指标可能缺失。`,
+      '',
+    );
+  }
 
   const early = stat('early');
   if (early.n) {

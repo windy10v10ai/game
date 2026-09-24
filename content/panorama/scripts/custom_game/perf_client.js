@@ -40,7 +40,9 @@
           ' maxFrame=' +
           maxFrame +
           ' slow=' +
-          slowFrames,
+          slowFrames +
+          ' sec=' +
+          (elapsed / 1000).toFixed(1),
       );
       resetWindow(now);
     }
