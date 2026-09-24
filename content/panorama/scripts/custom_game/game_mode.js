@@ -187,8 +187,15 @@ function InitCustomSetting() {
 
   // 开发模式
   if (Game.IsInToolsMode()) {
-    $('#player_gold_xp_multiplier_dropdown').SetSelected('5');
-    $('#bot_gold_xp_multiplier_dropdown').SetSelected('5');
+    // 天辉 bot 也要出齐 T5 才能复现真实后期的负载，只在工具模式下临时放开天辉倍率上限
+    var playerMultiplier = $('#player_gold_xp_multiplier_dropdown');
+    if (!playerMultiplier.FindDropDownMenuChild('10')) {
+      var option = $.CreatePanel('Label', playerMultiplier, '10');
+      option.text = '10';
+      playerMultiplier.AddOption(option);
+    }
+    playerMultiplier.SetSelected('10');
+    $('#bot_gold_xp_multiplier_dropdown').SetSelected('10');
     $('#radiant_player_number_dropdown').SetSelected('10');
     $('#dire_player_number_dropdown').SetSelected('10');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
