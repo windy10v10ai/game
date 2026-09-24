@@ -5,6 +5,7 @@
   "scripts": {
     "postinstall": "patch-package && node src/scripts/install.js",
     "launch": "node src/scripts/launch.js",
+    "perf": "npm run build:vscripts && node src/scripts/perf.js",
     "predeploy": "npm run build && node src/scripts/deploy.js",
     "deploy": "node src/scripts/publish.js",
     "build": "run-p build:*",

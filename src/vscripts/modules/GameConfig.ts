@@ -1,3 +1,5 @@
+import { PerfAuto } from './debug/perf-auto';
+
 export class GameConfig {
   public static readonly GAME_VERSION = 'v5.58';
   public static readonly MEMBER_BUYBACK_CD = 120;
@@ -88,6 +90,10 @@ export class GameConfig {
       GameRules.SetHeroSelectPenaltyTime(1); // 选择英雄超时惩罚时间
       GameRules.SetStrategyTime(3);
       GameRules.SetPreGameTime(5); // 进入游戏后号角吹响前的准备时间
+      if (PerfAuto.config) {
+        GameRules.SetCustomGameSetupAutoLaunchDelay(3);
+        game.SetDraftingHeroPickSelectTimeOverride(5);
+      }
     }
   }
 

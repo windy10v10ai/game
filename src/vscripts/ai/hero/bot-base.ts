@@ -10,6 +10,7 @@ import { SellItem } from '../build-item/sell-item';
 import { ConsumeItem } from '../item/consume-item';
 import { ItemDispatcher } from '../item/item-dispatcher';
 import { NeutralItemConfig, NeutralItemManager, NeutralTierConfig } from '../item/neutral-item';
+import { PerfSampler } from '../../modules/debug/perf-sampler';
 import { ModeEnum } from '../mode/mode-enum';
 import { WardPlacement } from '../ward/ward-placement';
 import { HeroUtil } from './hero-util';
@@ -112,6 +113,17 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   OnIntervalThink(): void {
+    if (PerfSampler.aiThinkDisabled) return;
+    if (!PerfSampler.enabled) {
+      this.think();
+      return;
+    }
+    const start = Plat_FloatTime();
+    this.think();
+    PerfSampler.addAiTime(Plat_FloatTime() - start);
+  }
+
+  private think(): void {
     this.hero = this.GetParent() as CDOTA_BaseNPC_Hero;
 
     this.gameTime = GameRules.GetDOTATime(false, true);

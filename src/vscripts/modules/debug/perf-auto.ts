@@ -1,0 +1,219 @@
+import { PlayerHelper } from '../helper/player-helper';
+import { PerfProfiler } from './perf-profiler';
+import { findAllUnits, PerfSampler } from './perf-sampler';
+
+export interface PerfAutoConfig {
+  phaseSeconds: number;
+  reps: number;
+  warmupMinutes: number;
+  timescale: number;
+  // 测量时的加速倍率：服务器跑不满这个倍率时，实际达到的 tick 率就是它的处理能力，条件间的差值可以直接折算成每 tick 毫秒数
+  measureTimescale: number;
+  quitOnDone: boolean;
+}
+
+interface PerfStep {
+  name: string;
+  // 对照组：汇总时拿本段和它比，破坏性的步骤只能和上一段比
+  ref: string;
+  profile?: boolean;
+  timescale?: number;
+  setup?: () => void;
+  teardown?: () => void;
+}
+
+// 条件切换后等单位行为稳定下来再开始计数
+const SETTLE_SECONDS = 5;
+const EARLY_SECONDS = 30;
+const PROPERTY_MODIFIER_PREFIX = 'modifier_player_property_';
+
+// 由 `npm run perf` 在编译产物目录临时写入，平时不存在，正常开发不会进入自动测试
+function loadConfig(): PerfAutoConfig | undefined {
+  if (!IsInToolsMode()) return undefined;
+  const requireFn = (_G as unknown as { require: (this: void, name: string) => unknown }).require;
+  const [ok, result] = pcall(requireFn, 'perf_auto_config');
+  return ok ? (result as PerfAutoConfig) : undefined;
+}
+
+function forEachHero(callback: (hero: CDOTA_BaseNPC_Hero, playerId: PlayerID) => void) {
+  PlayerHelper.ForEachPlayer((playerId) => {
+    const hero = PlayerResource.GetSelectedHeroEntity(playerId);
+    if (hero) callback(hero, playerId);
+  });
+}
+
+export function clearUnits() {
+  let removed = 0;
+  for (const unit of findAllUnits(UnitTargetType.BASIC)) {
+    if (unit.IsHero() || unit.IsBuilding() || unit.IsCourier()) continue;
+    if (!unit.IsCreep() && !unit.IsNeutralUnitType() && !unit.IsSummoned()) continue;
+    UTIL_Remove(unit);
+    removed++;
+  }
+  print(`[perf] clearunits removed=${removed}`);
+}
+
+// 两队各刷一半在中路两侧，让它们互相交战，比静止的单位更接近团战时的负载
+export function spawnUnits(count: number) {
+  const half = Math.floor(count / 2);
+  const sides: [DotaTeam, string, Vector][] = [
+    [DotaTeam.GOODGUYS, 'npc_dota_creep_goodguys_melee', Vector(-600, -600, 0)],
+    [DotaTeam.BADGUYS, 'npc_dota_creep_badguys_melee', Vector(600, 600, 0)],
+  ];
+  for (const [team, unitName, center] of sides) {
+    for (let i = 0; i < half; i++) {
+      CreateUnitByName(unitName, center, true, undefined, undefined, team);
+    }
+  }
+  print(`[perf] spawnunits count=${half * 2}`);
+}
+
+function removePropertyModifiers() {
+  forEachHero((hero) => {
+    for (const modifier of hero.FindAllModifiers()) {
+      if (modifier.GetName().startsWith(PROPERTY_MODIFIER_PREFIX)) modifier.Destroy();
+    }
+  });
+}
+
+// 清空金钱，否则 bot 会在测量期间把装备买回来
+function removeItems() {
+  forEachHero((hero, playerId) => {
+    for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.NEUTRAL_PASSIVE_SLOT; slot++) {
+      const item = hero.GetItemInSlot(slot);
+      if (item) UTIL_RemoveImmediate(item);
+    }
+    PlayerResource.SetGold(playerId, 0, true);
+    PlayerResource.SetGold(playerId, 0, false);
+  });
+}
+
+function setBotThinking(enabled: boolean) {
+  GameRules.GetGameModeEntity().SetBotThinkingEnabled(enabled);
+}
+
+function buildSteps(reps: number): PerfStep[] {
+  const steps: PerfStep[] = [];
+  for (let rep = 1; rep <= reps; rep++) {
+    const base = `baseline#${rep}`;
+    steps.push(
+      { name: base, ref: base },
+      { name: `profile#${rep}`, ref: base, profile: true },
+      {
+        name: `botoff#${rep}`,
+        ref: base,
+        setup: () => setBotThinking(false),
+        teardown: () => setBotThinking(true),
+      },
+      {
+        name: `aioff#${rep}`,
+        ref: base,
+        setup: () => (PerfSampler.aiThinkDisabled = true),
+        teardown: () => (PerfSampler.aiThinkDisabled = false),
+      },
+      {
+        name: `alloff#${rep}`,
+        ref: base,
+        setup: () => {
+          setBotThinking(false);
+          PerfSampler.aiThinkDisabled = true;
+        },
+        teardown: () => {
+          setBotThinking(true);
+          PerfSampler.aiThinkDisabled = false;
+        },
+      },
+      { name: `spawn200#${rep}`, ref: base, setup: () => spawnUnits(200) },
+    );
+  }
+  // 1 倍速下的卡顿尖峰才是玩家实际感受到的，单独留一段
+  steps.push({ name: 'realtime', ref: 'realtime', timescale: 1 });
+  // 以下几步移除后无法还原，只跑一次，逐段叠加，各自和上一段比
+  steps.push(
+    { name: 'final', ref: 'final' },
+    { name: 'noproperty', ref: 'final', setup: removePropertyModifiers },
+    { name: 'noitems', ref: 'noproperty', setup: removeItems },
+    { name: 'clearunits', ref: 'noitems', setup: clearUnits },
+  );
+  return steps;
+}
+
+/**
+ * 性能自动测试：按控制变量逐段切换条件并采样，全程输出到控制台，供汇总脚本生成对照表。
+ */
+export class PerfAuto {
+  static readonly config = loadConfig();
+  private static running = false;
+
+  static onHeroSelection() {
+    if (!this.config) return;
+    PlayerHelper.ForEachPlayer((playerId) => {
+      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
+        PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
+      }
+    });
+  }
+
+  static onGameInProgress() {
+    const config = this.config;
+    if (!config) return;
+    // 玩家英雄也交给 AI，场上才是 20 个行为一致的英雄
+    forEachHero((hero, playerId) => {
+      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
+    });
+    PerfSampler.start();
+    PerfSampler.setPhase('early');
+    Timers.CreateTimer(EARLY_SECONDS, () => {
+      PerfSampler.setPhase('warmup');
+      SendToServerConsole(`host_timescale ${config.timescale}`);
+      Timers.CreateTimer(5, (): number | undefined => {
+        if (GameRules.GetDOTATime(false, false) < config.warmupMinutes * 60) return 5;
+        this.run(config);
+        return undefined;
+      });
+    });
+  }
+
+  static run(
+    config: Pick<PerfAutoConfig, 'phaseSeconds' | 'reps' | 'measureTimescale' | 'quitOnDone'>,
+  ) {
+    if (this.running) return;
+    this.running = true;
+    PerfSampler.start();
+    const steps = buildSteps(config.reps);
+    print(
+      `[perf-auto] begin phaseSeconds=${config.phaseSeconds} reps=${config.reps} measureTimescale=${config.measureTimescale} steps=${steps.length}`,
+    );
+    this.runStep(steps, 0, config);
+  }
+
+  private static runStep(
+    steps: PerfStep[],
+    index: number,
+    config: Pick<PerfAutoConfig, 'phaseSeconds' | 'measureTimescale' | 'quitOnDone'>,
+  ) {
+    const step = steps[index];
+    if (!step) {
+      this.running = false;
+      SendToServerConsole('host_timescale 1');
+      PerfSampler.setPhase('done');
+      print(`[perf-auto] done`);
+      if (config.quitOnDone) Timers.CreateTimer(3, () => SendToServerConsole('quit'));
+      return;
+    }
+    const timescale = step.timescale ?? config.measureTimescale;
+    SendToServerConsole(`host_timescale ${timescale}`);
+    step.setup?.();
+    PerfSampler.setPhase(`settle`);
+    Timers.CreateTimer(SETTLE_SECONDS * timescale, () => {
+      print(`[perf-auto] step name=${step.name} ref=${step.ref} timescale=${timescale}`);
+      PerfSampler.setPhase(step.name);
+      if (step.profile) PerfProfiler.start();
+      Timers.CreateTimer(config.phaseSeconds * timescale, () => {
+        if (step.profile) PerfProfiler.stop(step.name);
+        step.teardown?.();
+        this.runStep(steps, index + 1, config);
+      });
+    });
+  }
+}
