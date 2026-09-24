@@ -37,6 +37,13 @@ async function ensureThumbnailCachePlaceholders() {
 (async () => {
   // 在启动 Dota2 Tools 之前先放置同名占位目录，阻止 Tools 创建/锁定 tools_thumbnail_cache.sqlite3*，避免发布时因这些缓存文件导致崩溃。
   await ensureThumbnailCachePlaceholders();
+  // 性能测试被强行中断时来不及清理临时配置，残留下来会让普通开发也进入自动测试
+  fs.rmSync(
+    path.resolve(__dirname, '..', '..', 'game', 'scripts', 'vscripts', 'perf_auto_config.lua'),
+    {
+      force: true,
+    },
+  );
 
   const dotaPath = await getDotaPath();
   const win64 = path.join(dotaPath, 'game', 'bin', 'win64');
