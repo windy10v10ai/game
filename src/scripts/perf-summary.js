@@ -237,8 +237,8 @@ function summarize(text, { spreadLimit = 10 } = {}) {
   return out.join('\n');
 }
 
-// 团战规模的门槛：同时攻击或施法的英雄数，20 人局里过三成算在打团
-const TEAMFIGHT_HEROES = 6;
+// 团战规模的门槛：同时攻击或施法的英雄数；实测后期 5 秒平均多在 2–4 人，过 4 人已是交战最密集的一档
+const TEAMFIGHT_HEROES = 4;
 
 // 每个「关」片和前后相邻的「开」片配对，两者面对同一场交战；再按交战强度分组，看团战里原生 bot 的真实开销
 function summarizeFlip(slices, frames) {
@@ -286,13 +286,13 @@ function summarizeFlip(slices, frames) {
     '| 分组 | 配对数 | 帧时间变化（均值） | 中位数 | 帧 ms（开 → 关） | 交战英雄（开） | 交战英雄（关） |',
     '|---|---|---|---|---|---|---|',
     row('全部', pairs),
-    row(`团战（两侧都 ≥ ${TEAMFIGHT_HEROES} 人交战）`, pairs.filter(teamfight)),
     row(
-      '非团战',
-      pairs.filter((p) => !teamfight(p)),
+      '关的一片交战不少于开的',
+      pairs.filter((p) => p.offFighting >= p.onFighting),
     ),
+    row(`两侧都 ≥ ${TEAMFIGHT_HEROES} 人交战`, pairs.filter(teamfight)),
     '',
-    '交战英雄是这 5 秒内平均同时在攻击或施法的英雄数。开、关两列接近，说明对比没有被「关了就打得少」干扰。',
+    '交战英雄是这 5 秒内平均同时在攻击或施法的英雄数。关掉原生 bot 后交战往往变少，「关的一片交战不少于开的」这一组排除了这个影响，是原生 thinking 自身开销的保守估计。',
     '',
   ];
 }
