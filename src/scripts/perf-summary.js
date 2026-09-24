@@ -81,16 +81,27 @@ function conditionGroups(steps, stat) {
     (groups[baseName(name)] ??= []).push({ name, ...meta });
   }
   return Object.entries(groups).map(([group, runs]) => {
-    const deltas = runs
-      .map((r) => {
-        if (r.ref === r.name) return NaN;
-        // 对照可以是前后两段基线，取均值抵消同一局里的累积漂移
-        const refMs = mean(r.ref.split(',').map((name) => stat(name).msPerTick));
-        return ((stat(r.name).msPerTick - refMs) / refMs) * 100;
-      })
-      .filter(Number.isFinite);
-    return { group, runs, deltas };
+    const deltasOf = (key) =>
+      runs
+        .map((r) => {
+          if (r.ref === r.name) return NaN;
+          // 对照可以是前后两段基线，取均值抵消同一局里的累积漂移
+          const ref = mean(r.ref.split(',').map((name) => stat(name)[key]));
+          return ((stat(r.name)[key] - ref) / ref) * 100;
+        })
+        .filter(Number.isFinite);
+    const tickDeltas = deltasOf('msPerTick');
+    const frameDeltas = deltasOf('frameMs');
+    // 帧时间是玩家直接感受到的，有客户端数据时以它判断稳定与否
+    const deltas = frameDeltas.length ? frameDeltas : tickDeltas;
+    return { group, runs, tickDeltas, frameDeltas, deltas };
   });
+}
+
+function deltaText(deltas, spreadLimit) {
+  if (!deltas.length) return '-';
+  const each = deltas.length > 1 ? `（${deltas.map(pct).join(' / ')}）` : '';
+  return `${isUnstable(deltas, spreadLimit) ? '不稳定 ' : ''}${pct(mean(deltas))}${each}`;
 }
 
 // 各次变化方向不一致或极差超过阈值（百分点），说明波动盖过了条件本身的效果
@@ -102,8 +113,8 @@ function isUnstable(deltas, spreadLimit) {
 
 /** 返回各次结果还不一致的条件名，多局测试据此决定是否加局。 */
 function unstableConditions(text, spreadLimit) {
-  const { windows, steps } = parseRun(text);
-  return conditionGroups(steps, statOf(windows))
+  const { windows, steps, frames } = parseRun(text);
+  return conditionGroups(steps, statOf(windows, frames))
     .filter(({ deltas }) => isUnstable(deltas, spreadLimit))
     .map(({ group }) => group);
 }
@@ -126,24 +137,22 @@ function summarize(text, { spreadLimit = 10 } = {}) {
 
   out.push('## 第一层：条件对照', '');
   out.push(
-    '| 条件 | 对照 | 倍率 | 次数 | tick/s | ms/tick | 变化 | 速度比 | maxGap ms | 尖峰/分 | 画面 FPS | 帧 ms | 最长帧 ms | AI ms/tick | 单位 | modifier |',
+    '| 条件 | 对照 | 倍率 | 次数 | 帧时间变化 | tick 耗时变化 | 画面 FPS | 帧 ms | 最长帧 ms | tick/s | ms/tick | 速度比 | maxGap ms | 尖峰/分 | AI ms/tick | 单位 | modifier |',
   );
-  out.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|');
-  for (const { group, runs, deltas } of conditionGroups(steps, stat)) {
+  out.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|');
+  for (const { group, runs, tickDeltas, frameDeltas } of conditionGroups(steps, stat)) {
     const stats = runs.map((r) => stat(r.name));
-    const deltaText = deltas.length
-      ? `${isUnstable(deltas, spreadLimit) ? '不稳定 ' : ''}${pct(mean(deltas))}${deltas.length > 1 ? `（${deltas.map(pct).join(' / ')}）` : ''}`
-      : '对照组';
+    const isRef = runs.every((r) => r.ref === r.name);
     const m = (k) => mean(stats.map((s) => s[k]));
     // tick 率达不到倍率要求才说明服务器跑满，ms/tick 才是处理耗时；没跑满时 ms/tick 被封顶在 33ms 附近
     const saturated = m('tick') < 30 * runs[0].timescale * 0.97;
     out.push(
-      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${saturated ? '' : '（未跑满）'} | ${runs.length} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${deltaText} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
+      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${saturated ? '' : '（未跑满）'} | ${runs.length} | ${isRef ? '对照组' : deltaText(frameDeltas, spreadLimit)} | ${isRef ? '对照组' : deltaText(tickDeltas, spreadLimit)} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
     );
   }
   out.push(
     '',
-    `「变化」是 ms/tick 相对对照组的变化，负数表示关掉该条件后每 tick 省下的时间，括号里是逐次的值。服务器跑满时 ms/tick 才是处理耗时，本地主机下它还包含画面每帧的开销；没跑满说明已不卡，差值被封顶。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
+    `「帧时间变化」是画面平均帧时间相对对照组的变化，玩家直接感受到的就是它，排名以它为准；「tick 耗时变化」是服务器每 tick 耗时的变化。负数表示关掉该条件后省下的时间，括号里是逐次的值。服务器没跑满（tick 已到 30）时 tick 耗时被封顶，差值偏小。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
     '',
   );
 

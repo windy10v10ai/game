@@ -171,6 +171,8 @@ const CONDITIONS: Condition[] = [
   { name: 'spawn200', setup: () => spawnUnits(200) },
   { name: 'noitems', setup: stashItems, teardown: restoreItems },
   { name: 'nomagicres', setup: removeMagicResist, teardown: restoreMagicResist },
+  // 暂停时画面照常渲染、游戏逻辑停止，和基线的帧时间差就是随游戏运行产生的每帧开销
+  { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
 ];
 
 function shuffled<T>(items: T[]): T[] {
@@ -309,15 +311,26 @@ export class PerfAuto {
     SendToServerConsole(`host_timescale ${timescale}`);
     step.setup?.();
     PerfSampler.setPhase(`settle`);
-    Timers.CreateTimer(SETTLE_SECONDS * timescale, () => {
+    // 按真实时间计时：服务器跟不上时游戏时间会变慢，暂停时游戏时间不走，都会让各段长短不一
+    afterRealSeconds(SETTLE_SECONDS, () => {
       print(`[perf-auto] step name=${step.name} ref=${step.ref} timescale=${timescale}`);
       PerfSampler.setPhase(step.name);
       if (step.profile) PerfProfiler.start();
-      Timers.CreateTimer(config.phaseSeconds * timescale, () => {
+      afterRealSeconds(config.phaseSeconds, () => {
         if (step.profile) PerfProfiler.stop(step.name);
         step.teardown?.();
         this.runStep(steps, index + 1, config);
       });
     });
   }
+}
+
+function afterRealSeconds(seconds: number, callback: () => void) {
+  Timers.CreateTimer({
+    endTime: seconds,
+    useGameTime: false,
+    callback: () => {
+      callback();
+    },
+  });
 }
