@@ -192,7 +192,7 @@ function InitCustomSetting() {
     $('#radiant_player_number_dropdown').SetSelected('10');
     $('#dire_player_number_dropdown').SetSelected('10');
     $('#starting_gold_bot_dropdown').SetSelected('5000');
-    $('#tower_power_dropdown').SetSelected('700');
+    $('#tower_power_dropdown').SetSelected('500');
   }
 }
 
