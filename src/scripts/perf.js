@@ -15,7 +15,7 @@ function parseArgs() {
   const options = {
     phaseSeconds: 120,
     reps: 3,
-    warmupMinutes: 40,
+    warmupMinutes: 30,
     timescale: 8,
     measureTimescale: 3,
     timeoutMinutes: 300,
@@ -23,13 +23,15 @@ function parseArgs() {
     mode: 'steps',
     soakMinutes: 60,
     soakTimescale: 8,
+    repStart: 1,
+    includeTail: true,
   };
   const argv = process.argv.slice(2);
   for (let i = 0; i < argv.length; i += 2) {
     const key = argv[i].replace(/^--/, '');
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
-    if (key === 'quitOnDone') options[key] = value !== 'false';
+    if (key === 'quitOnDone' || key === 'includeTail') options[key] = value !== 'false';
     else if (key === 'mode') options[key] = value;
     else options[key] = Number(value);
   }

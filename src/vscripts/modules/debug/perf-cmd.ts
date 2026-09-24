@@ -26,6 +26,8 @@ export function handlePerfDebugCommand(cmd: string, args: string[]) {
       reps: Number(args[1] ?? 2),
       measureTimescale: Number(args[2] ?? 1),
       quitOnDone: false,
+      repStart: 1,
+      includeTail: true,
     });
   }
   if (cmd === CMD.AI_ON) {

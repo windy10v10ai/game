@@ -11,6 +11,10 @@ export interface PerfAutoConfig {
   measureTimescale: number;
   quitOnDone: boolean;
   mode: 'steps' | 'soak';
+  // 多局测试时由启动脚本逐局递增，保证各局的步骤名不重复，便于合并汇总
+  repStart: number;
+  // 不可还原的步骤只在最后一局跑一次
+  includeTail: boolean;
   soakMinutes: number;
   soakTimescale: number;
 }
@@ -79,16 +83,43 @@ function removePropertyModifiers() {
   });
 }
 
+interface StashedInventory {
+  hero: CDOTA_BaseNPC_Hero;
+  playerId: PlayerID;
+  items: [InventorySlot, string][];
+  gold: number;
+}
+
+let stashedInventories: StashedInventory[] = [];
+
 // 清空金钱，否则 bot 会在测量期间把装备买回来
-function removeItems() {
+function stashItems() {
+  stashedInventories = [];
   forEachHero((hero, playerId) => {
+    const items: [InventorySlot, string][] = [];
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.NEUTRAL_PASSIVE_SLOT; slot++) {
       const item = hero.GetItemInSlot(slot);
-      if (item) UTIL_RemoveImmediate(item);
+      if (!item) continue;
+      items.push([slot, item.GetName()]);
+      UTIL_RemoveImmediate(item);
     }
+    stashedInventories.push({ hero, playerId, items, gold: PlayerResource.GetGold(playerId) });
     PlayerResource.SetGold(playerId, 0, true);
     PlayerResource.SetGold(playerId, 0, false);
   });
+}
+
+// 按原格子放回，冷却与充能会重置，对测量没有影响
+function restoreItems() {
+  for (const { hero, playerId, items, gold } of stashedInventories) {
+    if (!IsValidEntity(hero)) continue;
+    for (const [slot, name] of items) {
+      const item = hero.AddItemByName(name);
+      if (item && item.GetItemSlot() !== slot) hero.SwapItems(item.GetItemSlot(), slot);
+    }
+    PlayerResource.SetGold(playerId, gold, false);
+  }
+  stashedInventories = [];
 }
 
 function setBotThinking(enabled: boolean) {
@@ -121,6 +152,7 @@ const CONDITIONS: Condition[] = [
     },
   },
   { name: 'spawn200', setup: () => spawnUnits(200) },
+  { name: 'noitems', setup: stashItems, teardown: restoreItems },
 ];
 
 function shuffled<T>(items: T[]): T[] {
@@ -133,11 +165,11 @@ function shuffled<T>(items: T[]): T[] {
 }
 
 // 同一局里东西只建不清会越跑越慢，每个条件前后都夹一段基线、和两者均值比，并逐轮打乱顺序，抵消这种漂移
-function buildSteps(reps: number): PerfStep[] {
+function buildSteps(reps: number, repStart: number, includeTail: boolean): PerfStep[] {
   const steps: PerfStep[] = [];
   let baselineIndex = 0;
   const nextBaseline = (rep: number) => `baseline#${rep}.${++baselineIndex}`;
-  for (let rep = 1; rep <= reps; rep++) {
+  for (let rep = repStart; rep < repStart + reps; rep++) {
     let before = nextBaseline(rep);
     steps.push({ name: before, ref: before });
     for (const condition of shuffled(CONDITIONS)) {
@@ -147,14 +179,14 @@ function buildSteps(reps: number): PerfStep[] {
       before = after;
     }
   }
+  if (!includeTail) return steps;
   // 1 倍速下的卡顿尖峰才是玩家实际感受到的，单独留一段
   steps.push({ name: 'realtime', ref: 'realtime', timescale: 1 });
   // 以下几步移除后无法还原，只跑一次，逐段叠加，各自和上一段比
   steps.push(
     { name: 'final', ref: 'final' },
     { name: 'noproperty', ref: 'final', setup: removePropertyModifiers },
-    { name: 'noitems', ref: 'noproperty', setup: removeItems },
-    { name: 'clearunits', ref: 'noitems', setup: clearUnits },
+    { name: 'clearunits', ref: 'noproperty', setup: clearUnits },
   );
   return steps;
 }
@@ -211,12 +243,15 @@ export class PerfAuto {
   }
 
   static run(
-    config: Pick<PerfAutoConfig, 'phaseSeconds' | 'reps' | 'measureTimescale' | 'quitOnDone'>,
+    config: Pick<
+      PerfAutoConfig,
+      'phaseSeconds' | 'reps' | 'measureTimescale' | 'quitOnDone' | 'repStart' | 'includeTail'
+    >,
   ) {
     if (this.running) return;
     this.running = true;
     PerfSampler.start();
-    const steps = buildSteps(config.reps);
+    const steps = buildSteps(config.reps, config.repStart, config.includeTail);
     print(
       `[perf-auto] begin phaseSeconds=${config.phaseSeconds} reps=${config.reps} measureTimescale=${config.measureTimescale} steps=${steps.length}`,
     );

@@ -4,7 +4,7 @@ interface LuaDebug {
     this: void,
     level: number,
     what: string,
-  ): { source: string; linedefined: number } | undefined;
+  ): { source: string; linedefined: number; what: string } | undefined;
 }
 
 // 每 1000 条指令采样一次，开销在几个百分点内，精度足够排出前几名
@@ -12,6 +12,7 @@ const HOOK_COUNT = 1000;
 // 两次采样间隔超过这个值，说明中间跨过了引擎自己的帧处理，不能算到 Lua 头上
 const MAX_SLICE = 0.01;
 const TOP_FUNCTIONS = 40;
+const MAX_STACK_DEPTH = 40;
 
 // 路径相对 vscripts 目录，按顺序取第一条命中的前缀，顺序决定归属
 const CATEGORY_RULES: [string, string][] = [
@@ -53,6 +54,8 @@ export class PerfProfiler {
   private static startReal = 0;
   private static lastSample = 0;
   private static costs = new Map<string, number>();
+  // 按引擎调进 Lua 的入口函数归账，区分属性回调、定时思考、事件等来源
+  private static rootCosts = new Map<string, number>();
 
   static available(): boolean {
     const dbg = (_G as unknown as { debug?: LuaDebug }).debug;
@@ -67,6 +70,7 @@ export class PerfProfiler {
     const dbg = (_G as unknown as { debug: LuaDebug }).debug;
     this.running = true;
     this.costs = new Map();
+    this.rootCosts = new Map();
     this.startReal = Plat_FloatTime();
     this.lastSample = this.startReal;
     dbg.sethook(
@@ -79,6 +83,15 @@ export class PerfProfiler {
         if (!info) return;
         const key = `${shortPath(info.source)}:${info.linedefined}`;
         this.costs.set(key, (this.costs.get(key) ?? 0) + slice);
+        let root = info;
+        for (let level = 3; level < MAX_STACK_DEPTH; level++) {
+          const frame = dbg.getinfo(level, 'S');
+          // 遇到第一个 C 帧就停：它下面那个 Lua 函数就是这一次被引擎（或引擎 API）调进来的入口
+          if (!frame || frame.what === 'C') break;
+          root = frame;
+        }
+        const rootKey = `${shortPath(root.source)}:${root.linedefined}`;
+        this.rootCosts.set(rootKey, (this.rootCosts.get(rootKey) ?? 0) + slice);
       },
       '',
       HOOK_COUNT,
@@ -114,6 +127,9 @@ export class PerfProfiler {
     }
     for (const [name, cost] of sorted(functions).slice(0, TOP_FUNCTIONS)) {
       print(`[perf-prof] phase=${label} level=function name=${name} ms=${toMs(cost)}`);
+    }
+    for (const [name, cost] of sorted(this.rootCosts).slice(0, TOP_FUNCTIONS)) {
+      print(`[perf-prof] phase=${label} level=root name=${name} ms=${toMs(cost)}`);
     }
     print(`[perf-prof] end phase=${label}`);
   }
