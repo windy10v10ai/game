@@ -105,6 +105,7 @@ export class PerfSampler {
       `creeps=${units.creeps}`,
       `summons=${units.summons}`,
       `mods=${units.modifiers}`,
+      ...leakCounters(),
       `mem=${string.format('%.1f', collectgarbage('count') / 1024)}`,
     ];
     print(`[perf] ${fields.join(' ')}`);
@@ -131,6 +132,21 @@ export function findAllUnits(unitType: UnitTargetType): CDOTA_BaseNPC[] {
     for (const unit of found) units.push(unit);
   }
   return units;
+}
+
+// 只增不减的数量就是泄漏的直接证据；计时器库每帧遍历全部计时器，数量本身就决定开销
+function leakCounters(): string[] {
+  let entities = 0;
+  let ent: CBaseEntity | undefined = Entities.First();
+  while (ent !== undefined) {
+    entities++;
+    ent = Entities.Next(ent);
+  }
+  const thinkers = Entities.FindAllByClassname('npc_dota_thinker').length;
+  let timers = 0;
+  const timerTable = (Timers as unknown as { timers?: LuaTable }).timers;
+  if (timerTable) for (const [_key] of pairs(timerTable)) timers++;
+  return [`ents=${entities}`, `thinkers=${thinkers}`, `timers=${timers}`];
 }
 
 function countUnits() {

@@ -91,8 +91,9 @@ function summarize(text) {
     const deltas = runs
       .map((r, i) => {
         if (r.ref === r.name) return NaN;
-        const ref = stat(r.ref);
-        return ((stats[i].msPerTick - ref.msPerTick) / ref.msPerTick) * 100;
+        // 对照可以是前后两段基线，取均值抵消同一局里的累积漂移
+        const refMs = mean(r.ref.split(',').map((name) => stat(name).msPerTick));
+        return ((stats[i].msPerTick - refMs) / refMs) * 100;
       })
       .filter(Number.isFinite);
     const deltaText = deltas.length
@@ -101,7 +102,7 @@ function summarize(text) {
     const m = (k) => mean(stats.map((s) => s[k]));
     const saturated = runs[0].timescale > 1 && m('speed') < runs[0].timescale * 0.9;
     out.push(
-      `| ${group} | ${baseName(runs[0].ref)} | ${runs[0].timescale}${runs[0].timescale > 1 && !saturated ? '（未跑满）' : ''} | ${runs.length} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${deltaText} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
+      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${runs[0].timescale > 1 && !saturated ? '（未跑满）' : ''} | ${runs.length} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${deltaText} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
     );
   }
   out.push(
@@ -149,7 +150,119 @@ function summarize(text) {
     table('第三层：函数', byLevel('function'), 25);
   }
 
+  out.push(...summarizeSoak(windows.soak ?? []));
+  out.push(...summarizeWarnings(lines));
   return out.join('\n');
+}
+
+// 浸泡测试按游戏时间分桶：每 tick 耗时和只增不减的数量一起看，区分「单位本来就多」和「东西越积越多」
+function summarizeSoak(rows) {
+  if (!rows.length) return [];
+  const BUCKET_MINUTES = 5;
+  const buckets = {};
+  for (const row of rows) {
+    const [minutes] = row.t.split(':').map(Number);
+    const bucket = Math.floor(minutes / BUCKET_MINUTES) * BUCKET_MINUTES;
+    (buckets[bucket] ??= []).push(row);
+  }
+  const out = ['## 浸泡测试：随游戏时间的变化', ''];
+  out.push(
+    '| 游戏分钟 | ms/tick | 速度比 | maxGap ms | 单位 | modifier | 实体 | thinker | 计时器 | Lua MB |',
+    '|---|---|---|---|---|---|---|---|---|---|',
+  );
+  for (const [bucket, ws] of Object.entries(buckets).sort((a, b) => a[0] - b[0])) {
+    const m = (k) => mean(ws.map((w) => Number(w[k])));
+    out.push(
+      `| ${bucket}–${Number(bucket) + BUCKET_MINUTES} | ${fmt(1000 / m('tick'), 2)} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...ws.map((w) => Number(w.maxGap))), 0)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} | ${fmt(m('ents'), 0)} | ${fmt(m('thinkers'), 0)} | ${fmt(m('timers'), 0)} | ${fmt(m('mem'), 1)} |`,
+    );
+  }
+  out.push('', '加速倍率下服务器跑满时 ms/tick 才是真实处理耗时；早期跑不满时它包含等待时间。', '');
+  return out;
+}
+
+// 报错和慢思考按所在实验段计数：用来判断它们是否只在高负载段出现，也作为耗时归因的补充
+function summarizeWarnings(lines) {
+  const byPhase = {};
+  const errors = {};
+  const unknownModifiers = {};
+  const thinkers = {};
+  let phase = 'before';
+  const bump = (phaseKey, field, value = 1) => {
+    const row = (byPhase[phaseKey] ??= { errors: 0, unknown: 0, slow: 0, slowMs: 0 });
+    row[field] += value;
+  };
+  for (const line of lines) {
+    const phaseMatch = line.match(/\[perf\] phase=(\S+)$/);
+    if (phaseMatch) {
+      phase = phaseMatch[1];
+      continue;
+    }
+    const error = line.match(/Script Runtime Error: \.*(.*?:\d+):/);
+    if (error) {
+      const key = error[1].replace(/^.*vscripts[\\/]/, '').replace(/\\/g, '/');
+      errors[key] = (errors[key] ?? 0) + 1;
+      bump(phase, 'errors');
+      continue;
+    }
+    const unknown = line.match(/unknown modifier type (\S+?)!?$/);
+    if (unknown) {
+      unknownModifiers[unknown[1]] = (unknownModifiers[unknown[1]] ?? 0) + 1;
+      bump(phase, 'unknown');
+      continue;
+    }
+    const slow = line.match(/SERVER: (\S+?)\(.*thinking for ([\d.]+) ms/);
+    if (slow) {
+      const ms = Number(slow[2]);
+      const row = (thinkers[slow[1]] ??= { count: 0, total: 0, max: 0 });
+      row.count++;
+      row.total += ms;
+      row.max = Math.max(row.max, ms);
+      bump(phase, 'slow');
+      bump(phase, 'slowMs', ms);
+    }
+  }
+
+  const out = [];
+  if (!Object.keys(byPhase).length) return out;
+  out.push('## 报错与引擎慢思考（按实验段）', '');
+  out.push(
+    '| 实验段 | Lua 报错 | 未登记 modifier | 慢思考次数 | 慢思考总 ms |',
+    '|---|---|---|---|---|',
+  );
+  for (const [name, row] of Object.entries(byPhase)) {
+    out.push(`| ${name} | ${row.errors} | ${row.unknown} | ${row.slow} | ${fmt(row.slowMs, 0)} |`);
+  }
+  out.push('');
+  const top = (map, limit) =>
+    Object.entries(map)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, limit);
+  if (Object.keys(errors).length) {
+    out.push('### Lua 报错位置', '', '| 位置 | 次数 |', '|---|---|');
+    for (const [key, count] of top(errors, 15)) out.push(`| \`${key}\` | ${count} |`);
+    out.push('');
+  }
+  if (Object.keys(unknownModifiers).length) {
+    out.push('### 未登记的 modifier', '', '| modifier | 次数 |', '|---|---|');
+    for (const [key, count] of top(unknownModifiers, 15)) out.push(`| \`${key}\` | ${count} |`);
+    out.push('');
+  }
+  if (Object.keys(thinkers).length) {
+    out.push(
+      '### 引擎慢思考（按单位）',
+      '',
+      '引擎对单次思考超时的单位打出的警告，覆盖 Lua 与原版 bot。',
+      '',
+      '| 单位 | 次数 | 总 ms | 最大 ms |',
+      '|---|---|---|---|',
+    );
+    const rows = Object.entries(thinkers).sort((a, b) => b[1].total - a[1].total);
+    for (const [unit, row] of rows.slice(0, 20)) {
+      out.push(`| \`${unit}\` | ${row.count} | ${fmt(row.total, 0)} | ${fmt(row.max, 1)} |`);
+    }
+    out.push('');
+  }
+  return out;
 }
 
 module.exports = { summarize };

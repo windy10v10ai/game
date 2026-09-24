@@ -10,6 +10,9 @@ export interface PerfAutoConfig {
   // 测量时的加速倍率：服务器跑不满这个倍率时，实际达到的 tick 率就是它的处理能力，条件间的差值可以直接折算成每 tick 毫秒数
   measureTimescale: number;
   quitOnDone: boolean;
+  mode: 'steps' | 'soak';
+  soakMinutes: number;
+  soakTimescale: number;
 }
 
 interface PerfStep {
@@ -92,39 +95,57 @@ function setBotThinking(enabled: boolean) {
   GameRules.GetGameModeEntity().SetBotThinkingEnabled(enabled);
 }
 
+type Condition = Omit<PerfStep, 'name' | 'ref'> & { name: string };
+
+const CONDITIONS: Condition[] = [
+  { name: 'profile', profile: true },
+  {
+    name: 'botoff',
+    setup: () => setBotThinking(false),
+    teardown: () => setBotThinking(true),
+  },
+  {
+    name: 'aioff',
+    setup: () => (PerfSampler.aiThinkDisabled = true),
+    teardown: () => (PerfSampler.aiThinkDisabled = false),
+  },
+  {
+    name: 'alloff',
+    setup: () => {
+      setBotThinking(false);
+      PerfSampler.aiThinkDisabled = true;
+    },
+    teardown: () => {
+      setBotThinking(true);
+      PerfSampler.aiThinkDisabled = false;
+    },
+  },
+  { name: 'spawn200', setup: () => spawnUnits(200) },
+];
+
+function shuffled<T>(items: T[]): T[] {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = RandomInt(0, i);
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+// 同一局里东西只建不清会越跑越慢，每个条件前后都夹一段基线、和两者均值比，并逐轮打乱顺序，抵消这种漂移
 function buildSteps(reps: number): PerfStep[] {
   const steps: PerfStep[] = [];
+  let baselineIndex = 0;
+  const nextBaseline = (rep: number) => `baseline#${rep}.${++baselineIndex}`;
   for (let rep = 1; rep <= reps; rep++) {
-    const base = `baseline#${rep}`;
-    steps.push(
-      { name: base, ref: base },
-      { name: `profile#${rep}`, ref: base, profile: true },
-      {
-        name: `botoff#${rep}`,
-        ref: base,
-        setup: () => setBotThinking(false),
-        teardown: () => setBotThinking(true),
-      },
-      {
-        name: `aioff#${rep}`,
-        ref: base,
-        setup: () => (PerfSampler.aiThinkDisabled = true),
-        teardown: () => (PerfSampler.aiThinkDisabled = false),
-      },
-      {
-        name: `alloff#${rep}`,
-        ref: base,
-        setup: () => {
-          setBotThinking(false);
-          PerfSampler.aiThinkDisabled = true;
-        },
-        teardown: () => {
-          setBotThinking(true);
-          PerfSampler.aiThinkDisabled = false;
-        },
-      },
-      { name: `spawn200#${rep}`, ref: base, setup: () => spawnUnits(200) },
-    );
+    let before = nextBaseline(rep);
+    steps.push({ name: before, ref: before });
+    for (const condition of shuffled(CONDITIONS)) {
+      const after = nextBaseline(rep);
+      steps.push({ ...condition, name: `${condition.name}#${rep}`, ref: `${before},${after}` });
+      steps.push({ name: after, ref: after });
+      before = after;
+    }
   }
   // 1 倍速下的卡顿尖峰才是玩家实际感受到的，单独留一段
   steps.push({ name: 'realtime', ref: 'realtime', timescale: 1 });
@@ -155,6 +176,10 @@ export class PerfAuto {
     PerfSampler.start();
     PerfSampler.setPhase('early');
     Timers.CreateTimer(EARLY_SECONDS, () => {
+      if (config.mode === 'soak') {
+        this.soak(config);
+        return;
+      }
       PerfSampler.setPhase('warmup');
       SendToServerConsole(`host_timescale ${config.timescale}`);
       Timers.CreateTimer(5, (): number | undefined => {
@@ -163,6 +188,26 @@ export class PerfAuto {
         return undefined;
       });
     });
+  }
+
+  // 浸泡测试：不切换任何条件一直跑到指定分钟，看每 tick 耗时和泄漏指标随游戏时间的变化
+  private static soak(config: PerfAutoConfig) {
+    PerfSampler.setPhase('soak');
+    SendToServerConsole(`host_timescale ${config.soakTimescale}`);
+    Timers.CreateTimer(5, (): number | undefined => {
+      const gameOver = GameRules.State_Get() >= GameState.POST_GAME;
+      if (!gameOver && GameRules.GetDOTATime(false, false) < config.soakMinutes * 60) return 5;
+      this.finish(gameOver, config.quitOnDone);
+      return undefined;
+    });
+  }
+
+  private static finish(gameOver: boolean, quitOnDone: boolean) {
+    this.running = false;
+    SendToServerConsole('host_timescale 1');
+    PerfSampler.setPhase('done');
+    print(gameOver ? `[perf-auto] aborted reason=game_over` : `[perf-auto] done`);
+    if (quitOnDone) Timers.CreateTimer(3, () => SendToServerConsole('quit'));
   }
 
   static run(
@@ -186,11 +231,7 @@ export class PerfAuto {
     const step = steps[index];
     const gameOver = GameRules.State_Get() >= GameState.POST_GAME;
     if (!step || gameOver) {
-      this.running = false;
-      SendToServerConsole('host_timescale 1');
-      PerfSampler.setPhase('done');
-      print(gameOver ? `[perf-auto] aborted reason=game_over` : `[perf-auto] done`);
-      if (config.quitOnDone) Timers.CreateTimer(3, () => SendToServerConsole('quit'));
+      this.finish(gameOver, config.quitOnDone);
       return;
     }
     const timescale = step.timescale ?? config.measureTimescale;

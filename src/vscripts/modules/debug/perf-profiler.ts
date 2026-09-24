@@ -13,17 +13,22 @@ const HOOK_COUNT = 1000;
 const MAX_SLICE = 0.01;
 const TOP_FUNCTIONS = 40;
 
+// 路径相对 vscripts 目录，按顺序取第一条命中的前缀，顺序决定归属
 const CATEGORY_RULES: [string, string][] = [
   // 采样器自身的开销单独成类，不混进业务代码
-  ['debug/perf-', 'perf'],
+  ['modules/debug/perf-', 'perf'],
   ['ai/', 'ai'],
-  ['property', 'property'],
-  ['/items/', 'items'],
-  ['item_', 'items'],
-  ['/modifiers/', 'modifiers'],
-  ['abilities', 'abilities'],
-  ['/heroes/', 'abilities'],
+  ['modifiers/property/', 'property'],
+  ['modules/property/', 'property'],
+  ['items/', 'items'],
+  ['modifiers/global/', 'global-modifiers'],
+  ['modifiers/', 'modifiers'],
+  ['abilities/', 'abilities'],
+  ['lua_abilities/', 'abilities'],
+  ['heroes/', 'abilities'],
+  ['modules/filter/', 'filters'],
   ['timers', 'timers'],
+  ['lualib_bundle', 'lualib'],
 ];
 
 // short_src 超过 60 字符会被截成省略号，只能从完整路径里截掉 vscripts 之前的部分
@@ -35,7 +40,7 @@ function shortPath(source: string): string {
 
 function categoryOf(file: string): string {
   for (const [pattern, category] of CATEGORY_RULES) {
-    if (file.includes(pattern)) return category;
+    if (file.startsWith(pattern)) return category;
   }
   return 'other';
 }
