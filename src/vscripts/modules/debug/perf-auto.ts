@@ -1,3 +1,4 @@
+import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { PlayerHelper } from '../helper/player-helper';
 import { PerfProfiler } from './perf-profiler';
 import { findAllUnits, PerfSampler } from './perf-sampler';
@@ -122,6 +123,21 @@ function restoreItems() {
   stashedInventories = [];
 }
 
+// 幻象也会复制这个 modifier，移除要覆盖全部单位；放回只给真身，幻象寿命短，新生成的会自己带上
+function removeMagicResist() {
+  for (const unit of findAllUnits(UnitTargetType.HERO)) {
+    unit.RemoveModifierByName(modifier_intelect_magic_resist.name);
+  }
+}
+
+function restoreMagicResist() {
+  forEachHero((hero) => {
+    if (!hero.HasModifier(modifier_intelect_magic_resist.name)) {
+      hero.AddNewModifier(hero, undefined, modifier_intelect_magic_resist.name, {});
+    }
+  });
+}
+
 function setBotThinking(enabled: boolean) {
   GameRules.GetGameModeEntity().SetBotThinkingEnabled(enabled);
 }
@@ -153,6 +169,7 @@ const CONDITIONS: Condition[] = [
   },
   { name: 'spawn200', setup: () => spawnUnits(200) },
   { name: 'noitems', setup: stashItems, teardown: restoreItems },
+  { name: 'nomagicres', setup: removeMagicResist, teardown: restoreMagicResist },
 ];
 
 function shuffled<T>(items: T[]): T[] {

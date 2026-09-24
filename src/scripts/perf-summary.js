@@ -1,4 +1,7 @@
 const fs = require('fs');
+const path = require('path');
+
+const VSCRIPTS_DIR = path.resolve(__dirname, '..', '..', 'game', 'scripts', 'vscripts');
 
 function parseFields(line) {
   const fields = {};
@@ -14,18 +17,8 @@ const fmt = (x, digits = 1) => (Number.isFinite(x) ? x.toFixed(digits) : '-');
 const pct = (x) => (Number.isFinite(x) ? `${x >= 0 ? '+' : ''}${x.toFixed(1)}%` : '-');
 const baseName = (name) => name.split('#')[0];
 
-// 只取最后一次自动测试的输出，console.log 会在多次启动间累积
-function lastRun(text) {
+function parseRun(text) {
   const lines = text.split(/\r?\n/);
-  let start = 0;
-  lines.forEach((line, i) => {
-    if (line.includes('[perf] start')) start = i;
-  });
-  return lines.slice(start);
-}
-
-function summarize(text) {
-  const lines = lastRun(text);
   const windows = {};
   const steps = {};
   const prof = {};
@@ -42,8 +35,11 @@ function summarize(text) {
       ((prof[f.phase] ??= {})[f.level] ??= []).push({ name: f.name, ms: Number(f.ms) });
     }
   }
+  return { lines, windows, steps, prof };
+}
 
-  const stat = (phase) => {
+function statOf(windows) {
+  return (phase) => {
     const ws = windows[phase] ?? [];
     const num = (k) => ws.map((w) => Number(w[k]));
     const tick = mean(num('tick'));
@@ -63,6 +59,45 @@ function summarize(text) {
       mem: mean(num('mem')),
     };
   };
+}
+
+// 同名多次重复（多局、多轮）合并成一组，逐次与各自对照组比，避免各次之间的整体漂移混进差值
+function conditionGroups(steps, stat) {
+  const groups = {};
+  for (const [name, meta] of Object.entries(steps)) {
+    (groups[baseName(name)] ??= []).push({ name, ...meta });
+  }
+  return Object.entries(groups).map(([group, runs]) => {
+    const deltas = runs
+      .map((r) => {
+        if (r.ref === r.name) return NaN;
+        // 对照可以是前后两段基线，取均值抵消同一局里的累积漂移
+        const refMs = mean(r.ref.split(',').map((name) => stat(name).msPerTick));
+        return ((stat(r.name).msPerTick - refMs) / refMs) * 100;
+      })
+      .filter(Number.isFinite);
+    return { group, runs, deltas };
+  });
+}
+
+// 各次变化方向不一致或极差超过阈值（百分点），说明波动盖过了条件本身的效果
+function isUnstable(deltas, spreadLimit) {
+  if (deltas.length < 2) return false;
+  const sameSign = deltas.every((d) => d >= 0) || deltas.every((d) => d <= 0);
+  return !sameSign || Math.max(...deltas) - Math.min(...deltas) > spreadLimit;
+}
+
+/** 返回各次结果还不一致的条件名，多局测试据此决定是否加局。 */
+function unstableConditions(text, spreadLimit) {
+  const { windows, steps } = parseRun(text);
+  return conditionGroups(steps, statOf(windows))
+    .filter(({ deltas }) => isUnstable(deltas, spreadLimit))
+    .map(({ group }) => group);
+}
+
+function summarize(text, { spreadLimit = 10 } = {}) {
+  const { lines, windows, steps, prof } = parseRun(text);
+  const stat = statOf(windows);
 
   const out = [];
   out.push('# 性能自动测试汇总', '');
@@ -75,29 +110,15 @@ function summarize(text) {
     );
   }
 
-  // 同名多次重复合并，逐次与各自对照组比，再取平均，避免两次之间的整体漂移混进差值
-  const groups = {};
-  for (const [name, meta] of Object.entries(steps)) {
-    (groups[baseName(name)] ??= []).push({ name, ...meta });
-  }
-
   out.push('## 第一层：条件对照', '');
   out.push(
     '| 条件 | 对照 | 倍率 | 次数 | tick/s | ms/tick | 变化 | 速度比 | maxGap ms | 尖峰/分 | AI ms/tick | 单位 | modifier |',
   );
   out.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|');
-  for (const [group, runs] of Object.entries(groups)) {
+  for (const { group, runs, deltas } of conditionGroups(steps, stat)) {
     const stats = runs.map((r) => stat(r.name));
-    const deltas = runs
-      .map((r, i) => {
-        if (r.ref === r.name) return NaN;
-        // 对照可以是前后两段基线，取均值抵消同一局里的累积漂移
-        const refMs = mean(r.ref.split(',').map((name) => stat(name).msPerTick));
-        return ((stats[i].msPerTick - refMs) / refMs) * 100;
-      })
-      .filter(Number.isFinite);
     const deltaText = deltas.length
-      ? `${pct(mean(deltas))}${deltas.length > 1 ? `（${deltas.map(pct).join(' / ')}）` : ''}`
+      ? `${isUnstable(deltas, spreadLimit) ? '不稳定 ' : ''}${pct(mean(deltas))}${deltas.length > 1 ? `（${deltas.map(pct).join(' / ')}）` : ''}`
       : '对照组';
     const m = (k) => mean(stats.map((s) => s[k]));
     const saturated = runs[0].timescale > 1 && m('speed') < runs[0].timescale * 0.9;
@@ -107,7 +128,7 @@ function summarize(text) {
   }
   out.push(
     '',
-    '「变化」是 ms/tick 相对对照组的变化，负数表示关掉该条件后每 tick 省下的时间。加速倍率下服务器跑满时 ms/tick 才等于真实处理耗时。',
+    `「变化」是 ms/tick 相对对照组的变化，负数表示关掉该条件后每 tick 省下的时间，括号里是逐次的值。加速倍率下服务器跑满时 ms/tick 才等于真实处理耗时。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
     '',
   );
 
@@ -148,11 +169,67 @@ function summarize(text) {
     table('第一层：分类', categories, 20);
     table('第二层：文件', byLevel('file'), 25);
     table('第三层：函数', byLevel('function'), 25);
+    out.push(...summarizeRoots(byLevel('root'), luaTotal));
   }
 
   out.push(...summarizeSoak(windows.soak ?? []));
   out.push(...summarizeWarnings(lines));
   return out.join('\n');
+}
+
+const sourceLines = {};
+
+// 定义行形如 `function A.prototype.B(self)`、`function A:B()`、`x.B = function(`，取最后一段作函数名
+function functionNameAt(file, line) {
+  if (!(file in sourceLines)) {
+    const full = path.join(VSCRIPTS_DIR, file);
+    sourceLines[file] = fs.existsSync(full) ? fs.readFileSync(full, 'utf8').split(/\r?\n/) : [];
+  }
+  const text = sourceLines[file][line - 1];
+  if (!text) return '?';
+  const match =
+    text.match(/function\s+([\w.:]+)\s*\(/) ?? text.match(/([\w.:]+)\s*=\s*function\b/);
+  return match ? match[1].split(/[.:]/).pop() : '(匿名)';
+}
+
+// 入口类型决定优化手段：属性回调只能降单次成本，定时思考和计时器还能降频
+function entryKind(file, name) {
+  if (file.startsWith('timers')) return '计时器';
+  if (name.startsWith('GetModifier')) return '属性回调';
+  if (name === 'OnIntervalThink') return '定时思考';
+  if (/^On[A-Z]/.test(name)) return '事件';
+  return '其他';
+}
+
+// 按引擎调进 Lua 的入口归账：同一个函数被不同路径调用时，能分清钱花在哪条路径上
+function summarizeRoots(rows, luaTotal) {
+  if (!rows.length) return [];
+  const entries = rows.map((r) => {
+    const [file, line] = r.name.split(':');
+    const fn = functionNameAt(file, Number(line));
+    return { ...r, fn, kind: entryKind(file, fn) };
+  });
+  const kinds = {};
+  for (const e of entries) kinds[e.kind] = (kinds[e.kind] ?? 0) + e.ms;
+  const share = (ms) => `${fmt((ms / luaTotal) * 100)}%`;
+  const out = ['### 入口：按类型', '', '| 类型 | ms/tick | 占 Lua |', '|---|---|---|'];
+  for (const [kind, ms] of Object.entries(kinds).sort((a, b) => b[1] - a[1])) {
+    out.push(`| ${kind} | ${fmt(ms, 3)} | ${share(ms)} |`);
+  }
+  out.push(
+    '',
+    '只统计排进前几十名的入口，合计略低于业务 Lua 总量。',
+    '',
+    '### 入口：按函数',
+    '',
+    '| 入口 | 函数 | 类型 | ms/tick | 占 Lua |',
+    '|---|---|---|---|---|',
+  );
+  for (const e of entries.slice(0, 25)) {
+    out.push(`| \`${e.name}\` | \`${e.fn}\` | ${e.kind} | ${fmt(e.ms, 3)} | ${share(e.ms)} |`);
+  }
+  out.push('');
+  return out;
 }
 
 // 浸泡测试按游戏时间分桶：每 tick 耗时和只增不减的数量一起看，区分「单位本来就多」和「东西越积越多」
@@ -265,13 +342,13 @@ function summarizeWarnings(lines) {
   return out;
 }
 
-module.exports = { summarize };
+module.exports = { summarize, unstableConditions };
 
 if (require.main === module) {
-  const file = process.argv[2];
-  if (!file) {
-    console.error('usage: node src/scripts/perf-summary.js <console.log>');
+  const files = process.argv.slice(2);
+  if (!files.length) {
+    console.error('usage: node src/scripts/perf-summary.js <log> [more logs...]');
     process.exit(1);
   }
-  console.log(summarize(fs.readFileSync(file, 'utf8')));
+  console.log(summarize(files.map((file) => fs.readFileSync(file, 'utf8')).join('\n')));
 }
