@@ -41,7 +41,7 @@ export class EventGameStateChange {
    * 选择英雄时间
    */
   private OnHeroSelection(): void {
-    PerfAuto.onHeroSelection();
+    if (IsInToolsMode()) PerfAuto.onHeroSelection();
     GameRules.Option.SetDefaultDifficulty();
     if (GameRules.Option.forceRandomHero) {
       HeroPick.PickRandomHeroes();
@@ -132,7 +132,7 @@ export class EventGameStateChange {
     GA4.RecordGameStartTime();
     // 初始化Bot团队策略，挂载到 GameRules.AI 供 FSA 层访问
     GameRules.AI.BotTeam = new BotTeam();
-    PerfAuto.onGameInProgress();
+    if (IsInToolsMode()) PerfAuto.onGameInProgress();
     // 初始化Bot出装系统
     InitializeItemReplaceMap();
   }

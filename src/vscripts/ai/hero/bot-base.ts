@@ -15,6 +15,9 @@ import { ModeEnum } from '../mode/mode-enum';
 import { WardPlacement } from '../ward/ward-placement';
 import { HeroUtil } from './hero-util';
 
+// 性能排查只在工具模式生效，发布版每次思考只多一次常量判断
+const IS_TOOLS_MODE = IsInToolsMode();
+
 @registerModifier('ai/hero/bot-base')
 export class BotBaseAIModifier extends BaseModifier {
   protected readonly ThinkInterval: number = 0.5;
@@ -113,14 +116,11 @@ export class BotBaseAIModifier extends BaseModifier {
   }
 
   OnIntervalThink(): void {
-    if (PerfSampler.aiThinkDisabled) return;
-    if (!PerfSampler.enabled) {
-      this.think();
+    if (IS_TOOLS_MODE) {
+      PerfSampler.measureAiThink(() => this.think());
       return;
     }
-    const start = Plat_FloatTime();
     this.think();
-    PerfSampler.addAiTime(Plat_FloatTime() - start);
   }
 
   private think(): void {

@@ -5,7 +5,9 @@ import { PerfSampler } from './perf-sampler';
 
 let profiling = false;
 
+// 线上白名单也能开调试，性能命令会改动整局状态，只在工具模式放行
 export function handlePerfDebugCommand(cmd: string, args: string[]) {
+  if (!IsInToolsMode()) return;
   if (cmd === CMD.PERF) {
     if (PerfSampler.enabled) PerfSampler.stop();
     else PerfSampler.start();

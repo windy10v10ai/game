@@ -44,8 +44,15 @@ export class PerfSampler {
     print(`[perf] phase=${name}`);
   }
 
-  static addAiTime(seconds: number) {
-    this.aiTime += seconds;
+  static measureAiThink(think: () => void) {
+    if (this.aiThinkDisabled) return;
+    if (!this.enabled) {
+      think();
+      return;
+    }
+    const start = Plat_FloatTime();
+    think();
+    this.aiTime += Plat_FloatTime() - start;
   }
 
   private static resetWindow() {
