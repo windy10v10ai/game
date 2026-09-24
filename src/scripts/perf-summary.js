@@ -25,6 +25,7 @@ function parseRun(text) {
   const steps = {};
   const prof = {};
   const frames = {};
+  const slices = {};
   let clientStalls = 0;
   let clientRestarts = 0;
   let phase = 'before';
@@ -46,8 +47,10 @@ function parseRun(text) {
         clientStalls++;
         continue;
       }
-      // 客户端不知道实验段，按日志先后归到最近一次切换的段
-      (frames[phase] ??= []).push(f);
+      // 新版客户端自带段名；旧日志没有时按日志先后归到最近一次切换的段
+      (frames[f.phase || phase] ??= []).push(f);
+    } else if (body.startsWith('[perf] slice ')) {
+      slices[f.name] = Number(f.fighting);
     } else if (body.startsWith('[perf] ') && f.tick) {
       (windows[f.phase] ??= []).push(f);
     } else if (body.startsWith('[perf-auto] step')) {
@@ -56,7 +59,7 @@ function parseRun(text) {
       ((prof[f.phase] ??= {})[f.level] ??= []).push({ name: f.name, ms: Number(f.ms) });
     }
   }
-  return { lines, windows, steps, prof, frames, clientStalls, clientRestarts };
+  return { lines, windows, steps, prof, frames, slices, clientStalls, clientRestarts };
 }
 
 function statOf(windows, frames = {}) {
@@ -134,7 +137,8 @@ function unstableConditions(text, spreadLimit) {
 }
 
 function summarize(text, { spreadLimit = 10 } = {}) {
-  const { lines, windows, steps, prof, frames, clientStalls, clientRestarts } = parseRun(text);
+  const { lines, windows, steps, prof, frames, slices, clientStalls, clientRestarts } =
+    parseRun(text);
   const stat = statOf(windows, frames);
 
   const out = [];
@@ -220,6 +224,7 @@ function summarize(text, { spreadLimit = 10 } = {}) {
     out.push(...summarizeRoots(byLevel('root'), luaTotal));
   }
 
+  out.push(...summarizeFlip(slices, frames));
   out.push(...summarizeSoak(windows.soak ?? []));
   const realtime = stat('realtime');
   if (realtime.n && !steps.realtime) {
@@ -230,6 +235,66 @@ function summarize(text, { spreadLimit = 10 } = {}) {
   }
   out.push(...summarizeWarnings(lines));
   return out.join('\n');
+}
+
+// 团战规模的门槛：同时攻击或施法的英雄数，20 人局里过三成算在打团
+const TEAMFIGHT_HEROES = 6;
+
+// 每个「关」片和前后相邻的「开」片配对，两者面对同一场交战；再按交战强度分组，看团战里原生 bot 的真实开销
+function summarizeFlip(slices, frames) {
+  const names = Object.keys(slices);
+  if (!names.length) return [];
+  const frameMs = (name) => mean((frames[name] ?? []).map((f) => Number(f.frameMs)));
+  const byRep = {};
+  for (const name of names) {
+    const [, state, rep, index] = name.match(/^botflip_(on|off)#(\S+)\.(\d+)$/) ?? [];
+    if (!state) continue;
+    (byRep[rep] ??= {})[Number(index)] = { name, state, fighting: slices[name], ms: frameMs(name) };
+  }
+  const pairs = [];
+  for (const list of Object.values(byRep)) {
+    for (const [index, slice] of Object.entries(list)) {
+      if (slice.state !== 'off' || !Number.isFinite(slice.ms)) continue;
+      const neighbors = [list[Number(index) - 1], list[Number(index) + 1]].filter(
+        (s) => s && Number.isFinite(s.ms),
+      );
+      if (!neighbors.length) continue;
+      const onMs = mean(neighbors.map((s) => s.ms));
+      pairs.push({
+        delta: ((slice.ms - onMs) / onMs) * 100,
+        offMs: slice.ms,
+        onMs,
+        offFighting: slice.fighting,
+        onFighting: mean(neighbors.map((s) => s.fighting)),
+      });
+    }
+  }
+  if (!pairs.length) return [];
+  const row = (label, group) => {
+    if (!group.length) return `| ${label} | 0 | - | - | - | - | - |`;
+    const m = (k) => mean(group.map((p) => p[k]));
+    const sorted = group.map((p) => p.delta).sort((a, b) => a - b);
+    const median = sorted[Math.floor(sorted.length / 2)];
+    return `| ${label} | ${group.length} | ${pct(m('delta'))} | ${pct(median)} | ${fmt(m('onMs'))} → ${fmt(m('offMs'))} | ${fmt(m('onFighting'))} | ${fmt(m('offFighting'))} |`;
+  };
+  const teamfight = (p) => Math.min(p.offFighting, p.onFighting) >= TEAMFIGHT_HEROES;
+  return [
+    '## 交替切换原生 bot（同一场交战内对比）',
+    '',
+    '段内每 6 秒切换一次原生 bot，开头 1 秒不计；每个「关」片和前后相邻的「开」片配对比较帧时间。',
+    '',
+    '| 分组 | 配对数 | 帧时间变化（均值） | 中位数 | 帧 ms（开 → 关） | 交战英雄（开） | 交战英雄（关） |',
+    '|---|---|---|---|---|---|---|',
+    row('全部', pairs),
+    row(`团战（两侧都 ≥ ${TEAMFIGHT_HEROES} 人交战）`, pairs.filter(teamfight)),
+    row(
+      '非团战',
+      pairs.filter((p) => !teamfight(p)),
+    ),
+    '',
+    '交战英雄是这 5 秒内平均同时在攻击或施法的英雄数。开、关两列接近，说明对比没有被「关了就打得少」干扰。',
+    '',
+  ];
 }
 
 function gameTimeRange(stats) {

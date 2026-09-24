@@ -27,6 +27,8 @@ interface PerfStep {
   // 对照组：汇总时拿本段和它比，破坏性的步骤只能和上一段比
   ref: string;
   profile?: boolean;
+  // 段内快速交替开关原生 bot，开和关面对同一场交战，排除「关了就打得少」的影响
+  flip?: boolean;
   timescale?: number;
   setup?: () => void;
   teardown?: () => void;
@@ -177,6 +179,7 @@ const CONDITIONS: Condition[] = [
       PerfSampler.aiThinkDisabled = false;
     },
   },
+  { name: 'botflip', flip: true, teardown: () => setBotThinking(true) },
   { name: 'spawn200', setup: () => spawnUnits(200) },
   { name: 'noitems', setup: () => stashItems(), teardown: restoreItems },
   ...SUSPECT_ITEMS.map((itemName) => ({
@@ -345,15 +348,66 @@ export class PerfAuto {
     // 按真实时间计时：服务器跟不上时游戏时间会变慢，暂停时游戏时间不走，都会让各段长短不一
     afterRealSeconds(SETTLE_SECONDS, () => {
       print(`[perf-auto] step name=${step.name} ref=${step.ref} timescale=${timescale}`);
+      const next = () => {
+        step.teardown?.();
+        this.runStep(steps, index + 1, config);
+      };
+      if (step.flip) {
+        runFlipSlices(step.name.split('#')[1], 0, next);
+        return;
+      }
       PerfSampler.setPhase(step.name);
       if (step.profile) PerfProfiler.start();
       afterRealSeconds(config.phaseSeconds, () => {
         if (step.profile) PerfProfiler.stop(step.name);
-        step.teardown?.();
-        this.runStep(steps, index + 1, config);
+        next();
       });
     });
   }
+}
+
+// 片要短到一场团战打不完，开和关才面对同一批交战；开头一秒原生 bot 重新规划，不计入
+const FLIP_SLICES = 20;
+const FLIP_SETTLE_SECONDS = 1;
+const FLIP_MEASURE_SECONDS = 5;
+const FIGHT_SAMPLE_SECONDS = 0.5;
+
+// 正在攻击或施法的英雄数，衡量这一片打得多不多
+function countFightingHeroes(): number {
+  let fighting = 0;
+  forEachHero((hero) => {
+    if (!hero.IsAlive()) return;
+    if (hero.IsAttacking() || hero.GetCurrentActiveAbility() || hero.IsChanneling()) fighting++;
+  });
+  return fighting;
+}
+
+function runFlipSlices(rep: string, index: number, done: () => void) {
+  if (index >= FLIP_SLICES || GameRules.State_Get() >= GameState.POST_GAME) {
+    done();
+    return;
+  }
+  const botOn = index % 2 === 1;
+  const name = `botflip_${botOn ? 'on' : 'off'}#${rep}.${index}`;
+  setBotThinking(botOn);
+  PerfSampler.setPhase('settle');
+  afterRealSeconds(FLIP_SETTLE_SECONDS, () => {
+    PerfSampler.setPhase(name);
+    let samples = 0;
+    let fighting = 0;
+    const sampleCount = FLIP_MEASURE_SECONDS / FIGHT_SAMPLE_SECONDS;
+    const sample = () => {
+      fighting += countFightingHeroes();
+      samples++;
+      if (samples < sampleCount) {
+        afterRealSeconds(FIGHT_SAMPLE_SECONDS, sample);
+        return;
+      }
+      print(`[perf] slice name=${name} fighting=${string.format('%.1f', fighting / samples)}`);
+      runFlipSlices(rep, index + 1, done);
+    };
+    afterRealSeconds(FIGHT_SAMPLE_SECONDS, sample);
+  });
 }
 
 function afterRealSeconds(seconds: number, callback: () => void) {

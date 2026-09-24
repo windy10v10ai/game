@@ -41,6 +41,8 @@ export class PerfSampler {
 
   // 切换实验段时丢掉未满的窗口，避免一个窗口混进两种条件的数据
   static setPhase(name: string) {
+    // 客户端按收到通知的时刻切窗口，并带上刚结束那段的名字，几秒长的短段也能单独统计
+    if (this.enabled) flushClientWindow(this.phase, name);
     this.phase = name;
     this.resetWindow();
     print(`[perf] phase=${name}`);
@@ -121,6 +123,13 @@ function setClientSampling(enabled: boolean) {
   CustomGameEventManager.Send_ServerToAllClients<{ enabled: number }>('perf_client', {
     enabled: enabled ? 1 : 0,
   });
+}
+
+function flushClientWindow(endedPhase: string, nextPhase: string) {
+  CustomGameEventManager.Send_ServerToAllClients<{ enabled: number; flush: string; next: string }>(
+    'perf_client',
+    { enabled: 1, flush: endedPhase, next: nextPhase },
+  );
 }
 
 // 敌方单位在战争迷雾里查不到，只能按阵营各查一次友方再合并

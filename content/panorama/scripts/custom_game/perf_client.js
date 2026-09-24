@@ -24,8 +24,31 @@
     slowFrames = 0;
   }
 
+  // 带上所属实验段名，汇总时不必靠日志先后猜归属
+  function report(phase, now) {
+    var elapsed = now - windowStart;
+    if (frames > 0) {
+      $.Msg(
+        '[perf-client] phase=' +
+          phase +
+          ' fps=' +
+          ((frames * 1000) / elapsed).toFixed(1) +
+          ' frameMs=' +
+          (elapsed / frames).toFixed(1) +
+          ' maxFrame=' +
+          maxFrame +
+          ' slow=' +
+          slowFrames +
+          ' sec=' +
+          (elapsed / 1000).toFixed(1),
+      );
+    }
+    resetWindow(now);
+  }
+
   // 每次重启换一代，旧的回调链自然结束，不会出现两条链同时计帧
   var generation = 0;
+  var currentPhase = '';
 
   function startLoop() {
     var current = ++generation;
@@ -44,22 +67,7 @@
     frames++;
     if (gap > maxFrame) maxFrame = gap;
     if (gap > SLOW_FRAME_MS) slowFrames++;
-    var elapsed = now - windowStart;
-    if (elapsed >= REPORT_MS) {
-      $.Msg(
-        '[perf-client] fps=' +
-          ((frames * 1000) / elapsed).toFixed(1) +
-          ' frameMs=' +
-          (elapsed / frames).toFixed(1) +
-          ' maxFrame=' +
-          maxFrame +
-          ' slow=' +
-          slowFrames +
-          ' sec=' +
-          (elapsed / 1000).toFixed(1),
-      );
-      resetWindow(now);
-    }
+    if (now - windowStart >= REPORT_MS) report(currentPhase, now);
   }
 
   // 逐帧回调在开局后可能一直不触发，服务器开局时暂停一下可以恢复；心跳用来发现漏网的停顿并留下记录
@@ -71,6 +79,12 @@
     if (!running) {
       running = true;
       startLoop();
+      return;
+    }
+    // 服务器切换实验段时发来刚结束那段的名字，当场结算
+    if (data.flush !== undefined) {
+      report(data.flush, Date.now());
+      currentPhase = data.next;
       return;
     }
     var stalled = Date.now() - lastFrame;
