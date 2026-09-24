@@ -26,6 +26,7 @@ function parseRun(text) {
   const prof = {};
   const frames = {};
   let clientStalls = 0;
+  let clientRestarts = 0;
   let phase = 'before';
   for (const line of lines) {
     const at = line.indexOf('[perf');
@@ -34,6 +35,8 @@ function parseRun(text) {
     const f = parseFields(body);
     if (body.startsWith('[perf] ') && f.phase && !f.tick) {
       phase = f.phase;
+    } else if (body.startsWith('[perf-client] restart')) {
+      clientRestarts++;
     } else if (body.startsWith('[perf-client] ')) {
       // 显示器休眠、窗口最小化时界面脚本停止运行，窗口会被拉长到几分钟，这种数据不代表帧率
       if (
@@ -53,7 +56,7 @@ function parseRun(text) {
       ((prof[f.phase] ??= {})[f.level] ??= []).push({ name: f.name, ms: Number(f.ms) });
     }
   }
-  return { lines, windows, steps, prof, frames, clientStalls };
+  return { lines, windows, steps, prof, frames, clientStalls, clientRestarts };
 }
 
 function statOf(windows, frames = {}) {
@@ -131,15 +134,15 @@ function unstableConditions(text, spreadLimit) {
 }
 
 function summarize(text, { spreadLimit = 10 } = {}) {
-  const { lines, windows, steps, prof, frames, clientStalls } = parseRun(text);
+  const { lines, windows, steps, prof, frames, clientStalls, clientRestarts } = parseRun(text);
   const stat = statOf(windows, frames);
 
   const out = [];
   out.push('# 性能自动测试汇总', '');
   out.push(...summarizeKeyMetrics(steps, stat));
-  if (clientStalls) {
+  if (clientStalls || clientRestarts) {
     out.push(
-      `**注意**：客户端帧日志中断 ${clientStalls} 次（界面脚本停止运行，常见于显示器休眠、窗口最小化），这些窗口已丢弃，相关段的画面指标可能缺失。`,
+      `**注意**：客户端逐帧回调停住后被心跳重启 ${clientRestarts} 次，统计时长异常的窗口丢弃 ${clientStalls} 个，相关段的画面指标可能缺失或偏少。`,
       '',
     );
   }

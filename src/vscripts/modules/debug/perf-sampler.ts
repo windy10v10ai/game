@@ -111,6 +111,8 @@ export class PerfSampler {
       `mem=${string.format('%.1f', collectgarbage('count') / 1024)}`,
     ];
     print(`[perf] ${fields.join(' ')}`);
+    // 兼作客户端心跳，客户端据此发现逐帧回调停住并重启
+    setClientSampling(true);
   }
 }
 

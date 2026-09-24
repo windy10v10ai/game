@@ -232,6 +232,9 @@ export class PerfAuto {
       undefined,
     );
     PerfSampler.start();
+    // 实测开局后客户端界面的定时回调不触发、暂停恢复一次后才正常，客户端帧数据依赖它
+    PauseGame(true);
+    afterRealSeconds(1, () => PauseGame(false));
     PerfSampler.setPhase('early');
     Timers.CreateTimer(EARLY_SECONDS, () => {
       if (config.mode === 'soak') {

@@ -7,6 +7,8 @@
   var REPORT_MS = 10000;
   // 与服务器侧尖峰阈值一致，便于两边对照
   var SLOW_FRAME_MS = 100;
+  // 后期最慢一帧也在 2 秒内，超过就当作回调链停住了
+  var STALL_MS = 3000;
   var running = false;
   var windowStart = 0;
   var lastFrame = 0;
@@ -22,8 +24,20 @@
     slowFrames = 0;
   }
 
+  // 每次重启换一代，旧的回调链自然结束，不会出现两条链同时计帧
+  var generation = 0;
+
+  function startLoop() {
+    var current = ++generation;
+    resetWindow(Date.now());
+    $.Schedule(0, function tick() {
+      if (!running || current !== generation) return;
+      onFrame();
+      $.Schedule(0, tick);
+    });
+  }
+
   function onFrame() {
-    if (!running) return;
     var now = Date.now();
     var gap = now - lastFrame;
     lastFrame = now;
@@ -46,16 +60,23 @@
       );
       resetWindow(now);
     }
-    $.Schedule(0, onFrame);
   }
 
+  // 逐帧回调在开局后可能一直不触发，服务器开局时暂停一下可以恢复；心跳用来发现漏网的停顿并留下记录
   GameEvents.Subscribe('perf_client', function (data) {
-    var enabled = data.enabled === 1;
-    if (enabled === running) return;
-    running = enabled;
-    if (running) {
-      resetWindow(Date.now());
-      $.Schedule(0, onFrame);
+    if (data.enabled !== 1) {
+      running = false;
+      return;
+    }
+    if (!running) {
+      running = true;
+      startLoop();
+      return;
+    }
+    var stalled = Date.now() - lastFrame;
+    if (stalled > STALL_MS) {
+      $.Msg('[perf-client] restart stalledMs=' + stalled);
+      startLoop();
     }
   });
 })();
