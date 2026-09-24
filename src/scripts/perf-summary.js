@@ -22,12 +22,19 @@ function parseRun(text) {
   const windows = {};
   const steps = {};
   const prof = {};
+  const frames = {};
+  let phase = 'before';
   for (const line of lines) {
     const at = line.indexOf('[perf');
     if (at < 0) continue;
     const body = line.slice(at);
     const f = parseFields(body);
-    if (body.startsWith('[perf] ') && f.tick) {
+    if (body.startsWith('[perf] ') && f.phase && !f.tick) {
+      phase = f.phase;
+    } else if (body.startsWith('[perf-client] ')) {
+      // 客户端不知道实验段，按日志先后归到最近一次切换的段
+      (frames[phase] ??= []).push(f);
+    } else if (body.startsWith('[perf] ') && f.tick) {
       (windows[f.phase] ??= []).push(f);
     } else if (body.startsWith('[perf-auto] step')) {
       steps[f.name] = { ref: f.ref, timescale: Number(f.timescale) };
@@ -35,16 +42,21 @@ function parseRun(text) {
       ((prof[f.phase] ??= {})[f.level] ??= []).push({ name: f.name, ms: Number(f.ms) });
     }
   }
-  return { lines, windows, steps, prof };
+  return { lines, windows, steps, prof, frames };
 }
 
-function statOf(windows) {
+function statOf(windows, frames = {}) {
   return (phase) => {
     const ws = windows[phase] ?? [];
     const num = (k) => ws.map((w) => Number(w[k]));
+    const fs = frames[phase] ?? [];
+    const frameNum = (k) => fs.map((w) => Number(w[k]));
     const tick = mean(num('tick'));
     const seconds = ws.length * 10;
     return {
+      fps: mean(frameNum('fps')),
+      frameMs: mean(frameNum('frameMs')),
+      maxFrame: fs.length ? Math.max(...frameNum('maxFrame')) : NaN,
       n: ws.length,
       tick,
       // 服务器跑满时每 tick 真实耗时；未跑满时包含等待，只能说明「不卡」
@@ -96,8 +108,8 @@ function unstableConditions(text, spreadLimit) {
 }
 
 function summarize(text, { spreadLimit = 10 } = {}) {
-  const { lines, windows, steps, prof } = parseRun(text);
-  const stat = statOf(windows);
+  const { lines, windows, steps, prof, frames } = parseRun(text);
+  const stat = statOf(windows, frames);
 
   const out = [];
   out.push('# 性能自动测试汇总', '');
@@ -112,23 +124,24 @@ function summarize(text, { spreadLimit = 10 } = {}) {
 
   out.push('## 第一层：条件对照', '');
   out.push(
-    '| 条件 | 对照 | 倍率 | 次数 | tick/s | ms/tick | 变化 | 速度比 | maxGap ms | 尖峰/分 | AI ms/tick | 单位 | modifier |',
+    '| 条件 | 对照 | 倍率 | 次数 | tick/s | ms/tick | 变化 | 速度比 | maxGap ms | 尖峰/分 | 画面 FPS | 帧 ms | 最长帧 ms | AI ms/tick | 单位 | modifier |',
   );
-  out.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|');
+  out.push('|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|');
   for (const { group, runs, deltas } of conditionGroups(steps, stat)) {
     const stats = runs.map((r) => stat(r.name));
     const deltaText = deltas.length
       ? `${isUnstable(deltas, spreadLimit) ? '不稳定 ' : ''}${pct(mean(deltas))}${deltas.length > 1 ? `（${deltas.map(pct).join(' / ')}）` : ''}`
       : '对照组';
     const m = (k) => mean(stats.map((s) => s[k]));
-    const saturated = runs[0].timescale > 1 && m('speed') < runs[0].timescale * 0.9;
+    // tick 率达不到倍率要求才说明服务器跑满，ms/tick 才是处理耗时；没跑满时 ms/tick 被封顶在 33ms 附近
+    const saturated = m('tick') < 30 * runs[0].timescale * 0.97;
     out.push(
-      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${runs[0].timescale > 1 && !saturated ? '（未跑满）' : ''} | ${runs.length} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${deltaText} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
+      `| ${group} | ${runs[0].ref.includes(',') ? '前后基线' : baseName(runs[0].ref)} | ${runs[0].timescale}${saturated ? '' : '（未跑满）'} | ${runs.length} | ${fmt(m('tick'))} | ${fmt(m('msPerTick'), 2)} | ${deltaText} | ${fmt(m('speed'), 2)} | ${fmt(Math.max(...stats.map((s) => s.maxGap)), 0)} | ${fmt(m('hitchPerMin'))} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('aiMsPerTick'), 2)} | ${fmt(m('units'), 0)} | ${fmt(m('mods'), 0)} |`,
     );
   }
   out.push(
     '',
-    `「变化」是 ms/tick 相对对照组的变化，负数表示关掉该条件后每 tick 省下的时间，括号里是逐次的值。加速倍率下服务器跑满时 ms/tick 才等于真实处理耗时。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
+    `「变化」是 ms/tick 相对对照组的变化，负数表示关掉该条件后每 tick 省下的时间，括号里是逐次的值。服务器跑满时 ms/tick 才是处理耗时，本地主机下它还包含画面每帧的开销；没跑满说明已不卡，差值被封顶。标「不稳定」的条件各次方向不一致或相差超过 ${spreadLimit} 个百分点，不作结论。`,
     '',
   );
 
@@ -173,6 +186,13 @@ function summarize(text, { spreadLimit = 10 } = {}) {
   }
 
   out.push(...summarizeSoak(windows.soak ?? []));
+  const realtime = stat('realtime');
+  if (realtime.n && !steps.realtime) {
+    out.push(
+      `浸泡终点 1 倍速：tick ${fmt(realtime.tick)}（${fmt(realtime.msPerTick, 2)}ms/tick），速度比 ${fmt(realtime.speed, 2)}，maxGap ${fmt(realtime.maxGap, 0)}ms，画面 FPS ${fmt(realtime.fps)}，帧 ${fmt(realtime.frameMs)}ms，最长帧 ${fmt(realtime.maxFrame, 0)}ms。`,
+      '',
+    );
+  }
   out.push(...summarizeWarnings(lines));
   return out.join('\n');
 }
@@ -187,8 +207,7 @@ function functionNameAt(file, line) {
   }
   const text = sourceLines[file][line - 1];
   if (!text) return '?';
-  const match =
-    text.match(/function\s+([\w.:]+)\s*\(/) ?? text.match(/([\w.:]+)\s*=\s*function\b/);
+  const match = text.match(/function\s+([\w.:]+)\s*\(/) ?? text.match(/([\w.:]+)\s*=\s*function\b/);
   return match ? match[1].split(/[.:]/).pop() : '(匿名)';
 }
 

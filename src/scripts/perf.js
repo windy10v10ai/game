@@ -15,9 +15,10 @@ function parseArgs() {
   const options = {
     phaseSeconds: 40,
     reps: 1,
-    warmupMinutes: 15,
+    warmupMinutes: 20,
     timescale: 8,
-    measureTimescale: 3,
+    // 1 倍速才是玩家的真实感受，加速只用于热身
+    measureTimescale: 1,
     // 每局的最长等待时间，超时强制结束这一局
     timeoutMinutes: 90,
     quitOnDone: true,
@@ -90,6 +91,9 @@ async function runGame(options, gameConfig, label) {
       '-condebug',
       '-addon',
       addonName,
+      // 失去焦点时引擎默认每帧主动睡一段，前后台切换会直接改变测到的帧率
+      '+engine_no_focus_sleep',
+      '0',
       '+dota_launch_custom_game',
       addonName,
       'custom',
@@ -97,6 +101,16 @@ async function runGame(options, gameConfig, label) {
     { detached: true, cwd: win64, stdio: 'ignore' },
   );
   child.unref();
+  // Windows 给前台窗口更高调度优先级，固定为高优先级后前后台差别变小，测试期间可以正常用电脑
+  setTimeout(() => {
+    try {
+      execSync(
+        `powershell -NoProfile -Command "(Get-Process -Id ${child.pid}).PriorityClass = 'High'"`,
+      );
+    } catch (error) {
+      console.error(`[perf] ${label}: failed to raise process priority`);
+    }
+  }, 5000);
 
   const deadline = Date.now() + options.timeoutMinutes * 60 * 1000;
   let text = '';

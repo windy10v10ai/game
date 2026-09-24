@@ -33,6 +33,7 @@ interface PerfStep {
 // 条件切换后等单位行为稳定下来再开始计数
 const SETTLE_SECONDS = 5;
 const EARLY_SECONDS = 30;
+const REALTIME_SECONDS = 120;
 const PROPERTY_MODIFIER_PREFIX = 'modifier_player_property_';
 
 // 由 `npm run perf` 在编译产物目录临时写入，平时不存在，正常开发不会进入自动测试
@@ -197,8 +198,6 @@ function buildSteps(reps: number, repStart: number, includeTail: boolean): PerfS
     }
   }
   if (!includeTail) return steps;
-  // 1 倍速下的卡顿尖峰才是玩家实际感受到的，单独留一段
-  steps.push({ name: 'realtime', ref: 'realtime', timescale: 1 });
   // 以下几步移除后无法还原，只跑一次，逐段叠加，各自和上一段比
   steps.push(
     { name: 'final', ref: 'final' },
@@ -222,6 +221,14 @@ export class PerfAuto {
     forEachHero((hero, playerId) => {
       if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
     });
+    // 结算阶段计时器可能不再推进，轮询发现不了游戏结束，直接听状态切换
+    ListenToGameEvent(
+      'game_rules_state_change',
+      () => {
+        if (GameRules.State_Get() === GameState.POST_GAME) this.finish(true, config.quitOnDone);
+      },
+      undefined,
+    );
     PerfSampler.start();
     PerfSampler.setPhase('early');
     Timers.CreateTimer(EARLY_SECONDS, () => {
@@ -246,17 +253,29 @@ export class PerfAuto {
     Timers.CreateTimer(5, (): number | undefined => {
       const gameOver = GameRules.State_Get() >= GameState.POST_GAME;
       if (!gameOver && GameRules.GetDOTATime(false, false) < config.soakMinutes * 60) return 5;
-      this.finish(gameOver, config.quitOnDone);
+      if (gameOver) {
+        this.finish(gameOver, config.quitOnDone);
+        return undefined;
+      }
+      // 加速时画面开销被摊到多个 tick 上看不出来，终点再按 1 倍速测一段玩家实际感受
+      PerfSampler.setPhase('realtime');
+      SendToServerConsole('host_timescale 1');
+      Timers.CreateTimer(REALTIME_SECONDS, () => this.finish(false, config.quitOnDone));
       return undefined;
     });
   }
 
+  private static finished = false;
+
   private static finish(gameOver: boolean, quitOnDone: boolean) {
+    if (this.finished) return;
+    this.finished = true;
     this.running = false;
     SendToServerConsole('host_timescale 1');
     PerfSampler.setPhase('done');
     print(gameOver ? `[perf-auto] aborted reason=game_over` : `[perf-auto] done`);
-    if (quitOnDone) Timers.CreateTimer(3, () => SendToServerConsole('quit'));
+    // 结算阶段按游戏时间计的计时器可能不触发，退出不能依赖它
+    if (quitOnDone) SendToServerConsole('quit');
   }
 
   static run(

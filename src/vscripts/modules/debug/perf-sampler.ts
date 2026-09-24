@@ -28,12 +28,14 @@ export class PerfSampler {
     this.resetWindow();
     print(`[perf] start`);
     GameRules.GetGameModeEntity().SetContextThink(THINK_NAME, () => this.onTick(), 0);
+    setClientSampling(true);
   }
 
   static stop() {
     if (!this.enabled) return;
     this.enabled = false;
     GameRules.GetGameModeEntity().SetContextThink(THINK_NAME, undefined, 0);
+    setClientSampling(false);
     print(`[perf] stop`);
   }
 
@@ -110,6 +112,13 @@ export class PerfSampler {
     ];
     print(`[perf] ${fields.join(' ')}`);
   }
+}
+
+// 服务器 tick 正常时画面仍可能掉帧，画面帧时间只能在客户端量
+function setClientSampling(enabled: boolean) {
+  CustomGameEventManager.Send_ServerToAllClients<{ enabled: number }>('perf_client', {
+    enabled: enabled ? 1 : 0,
+  });
 }
 
 // 敌方单位在战争迷雾里查不到，只能按阵营各查一次友方再合并
