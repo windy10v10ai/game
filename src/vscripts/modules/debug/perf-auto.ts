@@ -14,8 +14,10 @@ export interface PerfAutoConfig {
   mode: 'steps' | 'soak';
   // 多局测试时由启动脚本逐局递增，保证各局的步骤名不重复，便于合并汇总
   repStart: number;
-  // 不可还原的步骤只在最后一局跑一次
+  // 不可还原的步骤只在第一局跑一次
   includeTail: boolean;
+  // 逗号分隔的条件名，只复测其中几项时用；all 为全部
+  conditions?: string;
   soakMinutes: number;
   soakTimescale: number;
 }
@@ -95,21 +97,28 @@ interface StashedInventory {
 let stashedInventories: StashedInventory[] = [];
 
 // 清空金钱，否则 bot 会在测量期间把装备买回来
-function stashItems() {
+function stashItems(itemName?: string) {
   stashedInventories = [];
+  let removed = 0;
   forEachHero((hero, playerId) => {
     const items: [InventorySlot, string][] = [];
     for (let slot = InventorySlot.SLOT_1; slot <= InventorySlot.NEUTRAL_PASSIVE_SLOT; slot++) {
       const item = hero.GetItemInSlot(slot);
-      if (!item) continue;
+      if (!item || (itemName && item.GetName() !== itemName)) continue;
       items.push([slot, item.GetName()]);
       UTIL_RemoveImmediate(item);
+      removed++;
     }
     stashedInventories.push({ hero, playerId, items, gold: PlayerResource.GetGold(playerId) });
     PlayerResource.SetGold(playerId, 0, true);
     PlayerResource.SetGold(playerId, 0, false);
   });
+  // 单件物品的影响要结合持有数量看，持有的人少时效果自然小
+  print(`[perf] stash item=${itemName ?? 'all'} removed=${removed}`);
 }
+
+// 归因里排名靠前的物品，逐件移除量出各自对帧时间的影响
+const SUSPECT_ITEMS = ['item_sacred_six_vein', 'item_swift_glove', 'item_time_gem'];
 
 // 按原格子放回，冷却与充能会重置，对测量没有影响
 function restoreItems() {
@@ -169,7 +178,12 @@ const CONDITIONS: Condition[] = [
     },
   },
   { name: 'spawn200', setup: () => spawnUnits(200) },
-  { name: 'noitems', setup: stashItems, teardown: restoreItems },
+  { name: 'noitems', setup: () => stashItems(), teardown: restoreItems },
+  ...SUSPECT_ITEMS.map((itemName) => ({
+    name: `no_${itemName}`,
+    setup: () => stashItems(itemName),
+    teardown: restoreItems,
+  })),
   { name: 'nomagicres', setup: removeMagicResist, teardown: restoreMagicResist },
   // 暂停时画面照常渲染、游戏逻辑停止，和基线的帧时间差就是随游戏运行产生的每帧开销
   { name: 'paused', setup: () => PauseGame(true), teardown: () => PauseGame(false) },
@@ -185,14 +199,19 @@ function shuffled<T>(items: T[]): T[] {
 }
 
 // 同一局里东西只建不清会越跑越慢，每个条件前后都夹一段基线、和两者均值比，并逐轮打乱顺序，抵消这种漂移
-function buildSteps(reps: number, repStart: number, includeTail: boolean): PerfStep[] {
+function buildSteps(
+  conditions: Condition[],
+  reps: number,
+  repStart: number,
+  includeTail: boolean,
+): PerfStep[] {
   const steps: PerfStep[] = [];
   let baselineIndex = 0;
   const nextBaseline = (rep: number) => `baseline#${rep}.${++baselineIndex}`;
   for (let rep = repStart; rep < repStart + reps; rep++) {
     let before = nextBaseline(rep);
     steps.push({ name: before, ref: before });
-    for (const condition of shuffled(CONDITIONS)) {
+    for (const condition of shuffled(conditions)) {
       const after = nextBaseline(rep);
       steps.push({ ...condition, name: `${condition.name}#${rep}`, ref: `${before},${after}` });
       steps.push({ name: after, ref: after });
@@ -286,13 +305,22 @@ export class PerfAuto {
   static run(
     config: Pick<
       PerfAutoConfig,
-      'phaseSeconds' | 'reps' | 'measureTimescale' | 'quitOnDone' | 'repStart' | 'includeTail'
+      | 'phaseSeconds'
+      | 'reps'
+      | 'measureTimescale'
+      | 'quitOnDone'
+      | 'repStart'
+      | 'includeTail'
+      | 'conditions'
     >,
   ) {
     if (this.running) return;
     this.running = true;
     PerfSampler.start();
-    const steps = buildSteps(config.reps, config.repStart, config.includeTail);
+    const wanted =
+      config.conditions && config.conditions !== 'all' ? config.conditions.split(',') : undefined;
+    const conditions = wanted ? CONDITIONS.filter((c) => wanted.includes(c.name)) : CONDITIONS;
+    const steps = buildSteps(conditions, config.reps, config.repStart, config.includeTail);
     print(
       `[perf-auto] begin phaseSeconds=${config.phaseSeconds} reps=${config.reps} measureTimescale=${config.measureTimescale} steps=${steps.length}`,
     );

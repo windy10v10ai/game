@@ -26,6 +26,8 @@ function parseArgs() {
     soakMinutes: 40,
     soakTimescale: 8,
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
+    // 逗号分隔的条件名，只复测其中几项时用
+    conditions: 'all',
     minGames: 3,
     maxGames: 5,
     spreadLimit: 10,
@@ -36,7 +38,7 @@ function parseArgs() {
     if (!(key in options)) throw new Error(`unknown option --${key}`);
     const value = argv[i + 1];
     if (key === 'quitOnDone') options[key] = value !== 'false';
-    else if (key === 'mode') options[key] = value;
+    else if (key === 'mode' || key === 'conditions') options[key] = value;
     else options[key] = Number(value);
   }
   return options;

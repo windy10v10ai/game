@@ -191,7 +191,11 @@ function summarize(text, { spreadLimit = 10 } = {}) {
     const byLevel = (level) =>
       Object.entries(merged)
         .filter(([k]) => k.startsWith(`${level}\u0000`))
-        .map(([k, v]) => ({ name: k.split('\u0000')[1], ms: mean(v) }))
+        // 按全部采样段平均，没排进某段前几十名的记 0，否则只在少数段出现的会被高估
+        .map(([k, v]) => ({
+          name: k.split('\u0000')[1],
+          ms: v.reduce((a, b) => a + b, 0) / profPhases.length,
+        }))
         .sort((a, b) => b.ms - a.ms);
     const profTick = mean(profPhases.map((p) => stat(p).msPerTick));
     const categories = byLevel('category');
@@ -228,6 +232,14 @@ function summarize(text, { spreadLimit = 10 } = {}) {
   return out.join('\n');
 }
 
+function gameTimeRange(stats) {
+  const times = stats.map((s) => s.gameTime).filter((t) => t !== '-');
+  if (!times.length) return '-';
+  const seconds = (t) => t.split(':').reduce((m, s) => m * 60 + Number(s), 0);
+  times.sort((a, b) => seconds(a) - seconds(b));
+  return times.length > 1 ? `${times[0]}–${times[times.length - 1]}` : times[0];
+}
+
 // 只有 1 倍速段反映玩家真实感受，放在报告最前面
 function summarizeKeyMetrics(steps, stat) {
   const groups = {};
@@ -246,7 +258,7 @@ function summarizeKeyMetrics(steps, stat) {
     const stats = names.map(stat);
     const m = (k) => mean(stats.map((s) => s[k]));
     out.push(
-      `| ${group} | ${names.length} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('speed'), 2)} | ${stats.map((s) => s.gameTime).join(' / ')} |`,
+      `| ${group} | ${names.length} | ${fmt(m('fps'))} | ${fmt(m('frameMs'))} | ${fmt(Math.max(...stats.map((s) => s.maxFrame)), 0)} | ${fmt(m('tick'))} | ${fmt(m('speed'), 2)} | ${gameTimeRange(stats)} |`,
     );
   }
   out.push('', '正常值：tick 30、速度比 1.0、最长帧 < 100ms；画面 FPS 越高越好。', '');
