@@ -1,8 +1,9 @@
 import { useRef } from 'react';
+import { PrimaryButton } from '../../../../shared/components';
 import { useNetTable } from '../../../../shared/hooks/useNetTable';
 import { formatStatNumberParts } from '../../../../shared/utils/format-stat-number';
 import { isMemberActive } from '../../../../shared/utils/member';
-import { GetLocalPlayerSteamAccountID } from '@utils/utils';
+import { GetLocalPlayerSteamAccountID, GetWebsiteProfileUrl } from '@utils/utils';
 
 const AVATAR_BORDER_GOLD =
   'url("s2r://panorama/images/custom_game/profile/avatar-square-gold-border.png")';
@@ -19,6 +20,8 @@ const LIFETIME_STATS = [
   { key: 'damageTaken', label: '#profile_stat_lifetime_damage_taken', tone: 'bad' },
   { key: 'healing', label: '#profile_stat_lifetime_healing', tone: 'good' },
   { key: 'towerKills', label: '#profile_stat_lifetime_tower_kills', tone: 'neutral' },
+  { key: 'stuns', label: '#profile_stat_lifetime_stuns', tone: 'neutral' },
+  { key: 'roshanKills', label: '#profile_stat_lifetime_roshan_kills', tone: 'neutral' },
 ] as const;
 
 /**
@@ -55,6 +58,8 @@ export function StatsTab() {
   const conductNetRef = useRef<Panel | null>(null);
   const lifetimeStats = player?.statsLifetime;
   const isChinese = $.Language() === 'schinese';
+  const openHistoryWebsite = () =>
+    $.DispatchEvent('ExternalBrowserGoToURL', GetWebsiteProfileUrl());
 
   return (
     <Panel className="stats-layout">
@@ -119,12 +124,21 @@ export function StatsTab() {
               onmouseout={() => $.DispatchEvent('DOTAHideTextTooltip')}
             />
           </Panel>
+          <PrimaryButton
+            className="stats-history-btn"
+            variant="ghost"
+            label={$.Localize('#profile_stat_history_button')}
+            onClick={openHistoryWebsite}
+          />
         </Panel>
 
         <Panel className="stats-lifetime-column">
           <Panel className="stats-lifetime-list">
             {LIFETIME_STATS.map(({ key, label, tone }) => {
-              const formatted = formatStatNumberParts(lifetimeStats?.[key] ?? 0, isChinese);
+              const formatted = formatStatNumberParts(
+                Math.round(lifetimeStats?.[key] ?? 0),
+                isChinese,
+              );
               return (
                 <Panel key={key} className={`stat-row lifetime-${tone}`}>
                   <Label className="stat-label" text={$.Localize(label)} />

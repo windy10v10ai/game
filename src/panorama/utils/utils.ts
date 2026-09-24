@@ -24,9 +24,13 @@ export function ConvertSteamIdTo32Bit(steamId64: string): string {
 
 export const WEBSITE_URL = 'https://windy10v10ai.com';
 
-/** 网站上当前玩家的属性或觉醒页，未登录时网站先显示登录面板 */
-export function GetWebsiteProfileUrl(page: 'property' | 'awaken'): string {
-  return `${WEBSITE_URL}/profile/${GetLocalPlayerSteamAccountID()}/${page}`;
+/**
+ * 网站上当前玩家的资料页，未登录时网站先显示登录面板。
+ * 不传 page 时指向资料主页（生涯数据、近期战绩都在那），游戏内没有对应的子页面。
+ */
+export function GetWebsiteProfileUrl(page?: 'property' | 'awaken'): string {
+  const base = `${WEBSITE_URL}/profile/${GetLocalPlayerSteamAccountID()}`;
+  return page ? `${base}/${page}` : base;
 }
 
 export function GetAfdianSubscribeUrl(): string {

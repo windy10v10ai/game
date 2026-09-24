@@ -98,11 +98,11 @@ npm run build:vscripts   # TSTL build for VScripts (TypeScript → Lua)
 
 ## 查原版技能
 
-用户给出**技能系统名**（如 `dragon_knight_dragon_blood`）时直接使用。`<version>` 取 `docs/reference/` 下最新数字版本目录。
+用户给出**技能系统名**（如 `dragon_knight_dragon_blood`）时直接使用。`<version>` 取 `docs/reference/` 下最新版本目录（含字母后缀，如 `7.41f`），文件布局见 `game/scripts/npc/CLAUDE.md`「原版 KV 参考」。
 
 给出**中文名**（如「龙血」）或**英雄名-技能名**（如「幻影刺客-幻影之矛」）时，在 `abilities_schinese.txt` 中搜中文名，从匹配行的 key 提取系统名（`DOTA_Tooltip_ability_{系统名}`）。多个候选用 `AskUserQuestion` 让用户确认。
 
-给出**英雄名**时，在 `npc_heroes.txt` 中用中/英文关键词搜英雄 ID，再从 `heroes/npc_dota_hero_<hero>.txt` 读技能槽位。
+给出**英雄名**时，从 `heroes/` 下的文件名或 `abilities_schinese.txt` 定位英雄 ID，再从 `heroes/npc_dota_hero_<hero>.txt` 读技能槽位。
 
 编写自定义技能/物品说明时参考官方文本以保持术语一致：
 

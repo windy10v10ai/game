@@ -122,12 +122,23 @@
   height: 100%;
   flow-children: down;
   margin-right: 36px;
+  /* 只有三行，比右栏矮很多；覆盖 .stats-container 的居中，改成贴顶对齐，
+     按钮才能落在紧跟着行为分下面的空白里，而不是被推到整块居中后的位置 */
+  vertical-align: top;
 }
 
 .stats-lifetime-column {
   width: fill-parent-flow(1);
   height: 100%;
   flow-children: down;
+}
+
+/* 概览三行占不满整栏高度，按钮落在左栏剩下的空白里，不额外撑高整个卡片 */
+.stats-history-btn {
+  width: 200px;
+  height: 40px;
+  margin-top: 8px;
+  font-size: @font-size-sm;
 }
 
 .stat-row {

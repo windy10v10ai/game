@@ -366,6 +366,9 @@
 		"profile_stat_lifetime_healing"		"治疗"
 		"profile_stat_lifetime_tower_kills"	"推塔数"
 		"profile_stat_lifetime_total_gold"	"金钱"
+		"profile_stat_lifetime_stuns"		"眩晕"
+		"profile_stat_lifetime_roshan_kills"	"肉山击杀"
+		"profile_stat_history_button"		"查看历史战绩"
 		"profile_stat_conduct_tooltip"	"行为分反映你的游戏行为，默认 100 分，上限 120 分。<br><br><b>分数变化</b><br>• 完成一局 <font color='#7FD47F'>+1</font>（仅限 100 分以内）<br>• 秒退一局 <font color='#E87D7D'>-10</font>（单人 / 全员退出不计）<br>• 被点赞 <font color='#7FD47F'>+2</font> / 被举报 <font color='#E87D7D'>-2</font>（同一玩家每周对你最多生效一次）<br><br><b>结算积分倍率</b>（仅组队局）<br>• <font color='#7FD47F'>≥110</font>：×1.1<br>• 80–109：×1.0<br>• <font color='#F5A623'>60–79</font>：×0.8<br>• <font color='#E87D7D'>&lt;60</font>：×0.5"
 		"profile_stat_conduct_net_tooltip"	"累计点赞 减 累计举报"
 
@@ -1263,6 +1266,14 @@
 		//
 		///////////////////////////////////////////////////
 // 					Awaken Abilities 觉醒技能
+
+		// 赏金猎人 追踪术觉醒
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken"							"<font color='#d000ff'>追踪术 觉醒</font>"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_Description"				"追踪一个敌方英雄，获得目标的真实视域，使目标受到的伤害增加，同时掌握目标当前携带的金钱数额。如果目标在被追踪期间死亡，赏金猎人和附近友方英雄都将获得若干金钱奖励。<br><br><font color='#00CED1'>自动施法：</font>开启后，施法距离内有敌方英雄时自动施放，优先追踪尚未被追踪的英雄。<br><font color='#d000ff'>觉醒强化：</font>追踪术施放后，对目标额外投出一枚当前等级的投掷飞镖。该飞镖无视施法距离、不触发冷却，消耗投掷飞镖的魔法值；未学习投掷飞镖或魔法不足时不投出。"
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_target_damage_amp"			"%伤害加深："
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold"				"友军金钱奖励："
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_bonus_gold_self"			"自身金钱奖励："
+		"DOTA_Tooltip_ability_bounty_hunter_track_awaken_duration"					"持续时间："
 
 		// 司夜刺客 钻地觉醒
 		"DOTA_Tooltip_ability_special_bonus_unique_nyx_assassin_mobile_burrow_awaken"					"<font color='#d000ff'>钻地 觉醒</font>"
@@ -3184,23 +3195,19 @@
 
 		// item_wish_1 愿望1
 		"DOTA_Tooltip_Ability_item_wish_1"				"<font color='#FFFF00'>愿望1</font>"
-		"DOTA_Tooltip_ability_item_wish_1_Description"		"<h1>被动：许愿</h1>“我想要不死之身”你对神龙这样说道。"
+		"DOTA_Tooltip_ability_item_wish_1_Description"		"<h1>被动：许愿</h1>“我想要不死之身”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·不死。"
 
 		// item_wish_2 愿望2
 		"DOTA_Tooltip_Ability_item_wish_2"				"<font color='#FFFF00'>愿望2</font>"
-		"DOTA_Tooltip_ability_item_wish_2_Description"		"<h1>被动：许愿</h1>“我想要毁灭世界”你对神龙这样说道。"
+		"DOTA_Tooltip_ability_item_wish_2_Description"		"<h1>被动：许愿</h1>“我想要毁灭世界”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·毁灭。"
 
-		// item_wish_1 愿望3
+		// item_wish_3 愿望3
 		"DOTA_Tooltip_Ability_item_wish_3"				"<font color='#FFFF00'>愿望3</font>"
-		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>被动：许愿</h1>“我想要时间之力”你对神龙这样说道。"
+		"DOTA_Tooltip_ability_item_wish_3_Description"		"<h1>被动：许愿</h1>“我想要时间之力”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·时间。"
 
-		// item_wish_1 愿望4
+		// item_wish_4 愿望4
 		"DOTA_Tooltip_Ability_item_wish_4"				"<font color='#FFFF00'>愿望4</font>"
-		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>被动：许愿</h1>“我想要空间之力”你对神龙这样说道。"
-
-		// item_radar_of_dragon 龙珠雷达
-		"DOTA_Tooltip_Ability_item_radar_of_dragon"				"<font color='#FFFF00'>龙珠雷达</font>"
-		"DOTA_Tooltip_ability_item_radar_of_dragon_Description"		"<h1>被动：指引</h1>龙珠由击杀肉山和中立生物随机掉落得到。愿望一共有四种，在商店可以找到。\n<font color='#e03e2e'>注意：</font>龙珠无法合成时，请尝试从备用背包中移动至主背包或仓库，或扔下再捡起。所有龙珠及合成后的装备可以与他人共享。"
+		"DOTA_Tooltip_ability_item_wish_4_Description"		"<h1>被动：许愿</h1>“我想要空间之力”你对神龙这样说道。\n击杀肉山必定掉落一颗龙珠，击杀中立生物有几率掉落。集齐七颗龙珠召唤神龙后，与本愿望合成神龙赐福·空间。"
 
 		// item_light_part 圣光组件
 		"DOTA_Tooltip_Ability_item_light_part"					"圣光组件"

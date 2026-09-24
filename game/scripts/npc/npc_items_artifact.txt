@@ -608,25 +608,6 @@
 			"blink_damage_cooldown"	"0"
 		}
 	}
-	"item_radar_of_dragon"
-	{
-		"BaseClass"                     "item_circlet"
-		"ID"							"10121"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"item_radar_of_dragon"
-		"ItemCost"						"999999"
-		"ItemIsNeutralDrop"				"0"
-		"ItemShopTags"					""
-		"ItemQuality"					""
-		"ItemAliases"					""
-		"ItemPurchasable"				"1"
-		"ItemSellable"					"1"
-		"ItemInitialCharges"			"1"
-		"AbilityValues"
-		{
-			"bonus_all_stats"		"1"
-		}
-	}
 	//=================================================================================================================
 	// 神器2.0
 	//=================================================================================================================
