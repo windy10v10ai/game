@@ -15,7 +15,7 @@ function parseArgs() {
   const options = {
     phaseSeconds: 120,
     reps: 3,
-    warmupMinutes: 30,
+    warmupMinutes: 15,
     timescale: 8,
     measureTimescale: 3,
     timeoutMinutes: 300,
