@@ -4,7 +4,7 @@ interface LuaDebug {
     this: void,
     level: number,
     what: string,
-  ): { short_src: string; linedefined: number } | undefined;
+  ): { source: string; linedefined: number } | undefined;
 }
 
 // 每 1000 条指令采样一次，开销在几个百分点内，精度足够排出前几名
@@ -14,7 +14,9 @@ const MAX_SLICE = 0.01;
 const TOP_FUNCTIONS = 40;
 
 const CATEGORY_RULES: [string, string][] = [
-  ['/ai/', 'ai'],
+  // 采样器自身的开销单独成类，不混进业务代码
+  ['debug/perf-', 'perf'],
+  ['ai/', 'ai'],
   ['property', 'property'],
   ['/items/', 'items'],
   ['item_', 'items'],
@@ -23,6 +25,13 @@ const CATEGORY_RULES: [string, string][] = [
   ['/heroes/', 'abilities'],
   ['timers', 'timers'],
 ];
+
+// short_src 超过 60 字符会被截成省略号，只能从完整路径里截掉 vscripts 之前的部分
+function shortPath(source: string): string {
+  const path = source.split('\\').join('/');
+  const at = path.indexOf('vscripts/');
+  return at >= 0 ? path.substring(at + 'vscripts/'.length) : path;
+}
 
 function categoryOf(file: string): string {
   for (const [pattern, category] of CATEGORY_RULES) {
@@ -63,7 +72,7 @@ export class PerfProfiler {
         if (slice > MAX_SLICE) return;
         const info = dbg.getinfo(2, 'S');
         if (!info) return;
-        const key = `${info.short_src.split('\\').join('/')}:${info.linedefined}`;
+        const key = `${shortPath(info.source)}:${info.linedefined}`;
         this.costs.set(key, (this.costs.get(key) ?? 0) + slice);
       },
       '',

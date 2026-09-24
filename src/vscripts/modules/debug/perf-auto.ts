@@ -145,15 +145,6 @@ export class PerfAuto {
   static readonly config = loadConfig();
   private static running = false;
 
-  static onHeroSelection() {
-    if (!this.config) return;
-    PlayerHelper.ForEachPlayer((playerId) => {
-      if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) {
-        PlayerResource.GetPlayer(playerId)?.MakeRandomHeroSelection();
-      }
-    });
-  }
-
   static onGameInProgress() {
     const config = this.config;
     if (!config) return;
@@ -193,11 +184,12 @@ export class PerfAuto {
     config: Pick<PerfAutoConfig, 'phaseSeconds' | 'measureTimescale' | 'quitOnDone'>,
   ) {
     const step = steps[index];
-    if (!step) {
+    const gameOver = GameRules.State_Get() >= GameState.POST_GAME;
+    if (!step || gameOver) {
       this.running = false;
       SendToServerConsole('host_timescale 1');
       PerfSampler.setPhase('done');
-      print(`[perf-auto] done`);
+      print(gameOver ? `[perf-auto] aborted reason=game_over` : `[perf-auto] done`);
       if (config.quitOnDone) Timers.CreateTimer(3, () => SendToServerConsole('quit'));
       return;
     }

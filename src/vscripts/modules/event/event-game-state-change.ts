@@ -41,7 +41,6 @@ export class EventGameStateChange {
    * 选择英雄时间
    */
   private OnHeroSelection(): void {
-    if (IsInToolsMode()) PerfAuto.onHeroSelection();
     GameRules.Option.SetDefaultDifficulty();
     if (GameRules.Option.forceRandomHero) {
       HeroPick.PickRandomHeroes();

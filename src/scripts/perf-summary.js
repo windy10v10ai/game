@@ -129,11 +129,12 @@ function summarize(text) {
         .sort((a, b) => b.ms - a.ms);
     const profTick = mean(profPhases.map((p) => stat(p).msPerTick));
     const categories = byLevel('category');
-    const luaTotal = categories.reduce((a, b) => a + b.ms, 0);
+    // perf 是采样器自身的开销，不算进业务 Lua 的总量
+    const luaTotal = categories.filter((c) => c.name !== 'perf').reduce((a, b) => a + b.ms, 0);
 
     out.push('## Lua 耗时归因', '');
     out.push(
-      `采样阶段每 tick 共 ${fmt(profTick, 2)}ms，其中 Lua ${fmt(luaTotal, 2)}ms（${fmt((luaTotal / profTick) * 100)}%）。采样本身有少量开销，占比比绝对值更可信。`,
+      `采样阶段每 tick 共 ${fmt(profTick, 2)}ms，其中业务 Lua（不含采样器自身）${fmt(luaTotal, 2)}ms（${fmt((luaTotal / profTick) * 100)}%）。采样本身有少量开销，占比比绝对值更可信。`,
       '',
     );
     const table = (title, rows, limit) => {

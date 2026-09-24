@@ -8,6 +8,7 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const CONFIG_FILE = path.join(ROOT, 'game', 'scripts', 'vscripts', 'perf_auto_config.lua');
 const REPORT_DIR = path.join(ROOT, 'docs', 'superpowers', 'perf');
 const POLL_MS = 15000;
+const FINISHED = /\[perf-auto\] (done|aborted)/;
 
 function parseArgs() {
   const options = {
@@ -76,7 +77,7 @@ function readFrom(file, offset) {
       addonName,
       '+dota_launch_custom_game',
       addonName,
-      'dota',
+      'custom',
     ],
     { detached: true, cwd: win64, stdio: 'ignore' },
   );
@@ -94,10 +95,10 @@ function readFrom(file, offset) {
       console.log(`[perf] ${step.replace('[perf-auto] step ', '')} (${steps.length})`);
       lastStep = step;
     }
-    if (text.includes('[perf-auto] done')) break;
+    if (FINISHED.test(text)) break;
   }
   removeConfig();
-  if (!text.includes('[perf-auto] done')) {
+  if (!FINISHED.test(text)) {
     console.error('[perf] timeout before the run finished, summarizing partial data');
   }
 
