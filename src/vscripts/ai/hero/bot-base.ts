@@ -275,8 +275,11 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!engaged) {
       this.spentActions = 0;
     }
+    if (enemies.length === 0) {
+      return 'task';
+    }
     if (this.needsRecover && !engaged) {
-      return enemies.length > 0 ? 'avoid' : 'task';
+      return 'avoid';
     }
 
     let ourPower = 0;
@@ -303,7 +306,8 @@ export class BotBaseAIModifier extends BaseModifier {
       engaged,
       ourPower,
       enemyPower,
-      canEscape: this.CanEscape(enemies),
+      // 逃跑判定要扫全图的塔，只有打起来才用得到
+      canEscape: engaged ? this.CanEscape(enemies) : true,
       spentActions: this.spentActions,
     });
   }
