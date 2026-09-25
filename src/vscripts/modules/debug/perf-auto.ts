@@ -1,5 +1,6 @@
 import { modifier_intelect_magic_resist } from '../../modifiers/global/intelect_magic_resist';
 import { PlayerHelper } from '../helper/player-helper';
+import { HeroPick } from '../hero/hero-pick';
 import { PerfProfiler } from './perf-profiler';
 import { findAllUnits, PerfSampler } from './perf-sampler';
 
@@ -20,6 +21,8 @@ export interface PerfAutoConfig {
   conditions?: string;
   soakMinutes: number;
   soakTimescale: number;
+  // 工具模式下 bot 英雄按池子顺序固定选取，偏移后可以让多次测试覆盖池子里的其他英雄
+  botOffset: number;
 }
 
 interface PerfStep {
@@ -46,6 +49,15 @@ function loadConfig(): PerfAutoConfig | undefined {
   const requireFn = (_G as unknown as { require: (this: void, name: string) => unknown }).require;
   const [ok, result] = pcall(requireFn, 'perf_auto_config');
   return ok ? (result as PerfAutoConfig) : undefined;
+}
+
+// 选英雄早于自动测试启动，只能在模块加载时调整英雄池顺序
+const bootConfig = loadConfig();
+if (bootConfig && bootConfig.botOffset > 0) {
+  const pool = HeroPick.BotNameList;
+  const offset = bootConfig.botOffset % pool.length;
+  HeroPick.BotNameList = [...pool.slice(offset), ...pool.slice(0, offset)];
+  print(`[perf-auto] botOffset=${offset} first=${HeroPick.BotNameList[0]}`);
 }
 
 function forEachHero(callback: (hero: CDOTA_BaseNPC_Hero, playerId: PlayerID) => void) {
