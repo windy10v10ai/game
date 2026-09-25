@@ -51,6 +51,11 @@ export function matchProxyPath(pattern: string, path: string): ProxyPathParams |
   return pathParams;
 }
 
+// 4xx 是请求本身被拒，原样重发只会得到同样的结果；429 是后端实例不够时的限流，过一会儿能好
+export function isRetryableStatus(statusCode: number): boolean {
+  return statusCode === 0 || statusCode === 429 || statusCode >= 500;
+}
+
 export class ApiClient {
   private static TIMEOUT_SECONDS = 10;
   private static RETRY_TIMES = 3;
@@ -146,7 +151,7 @@ export class ApiClient {
         }
         if (result.StatusCode >= 200 && result.StatusCode < 300) {
           apiParameter.successFunc(result.Body);
-        } else if (result.StatusCode === 401) {
+        } else if (!isRetryableStatus(result.StatusCode)) {
           if (apiParameter.failureFunc) {
             apiParameter.failureFunc(result.Body);
           }
