@@ -153,10 +153,10 @@ export class Debug {
     }
 
     if (cmd === CMD.BOT_THINKING_ENABLE) {
-      GameRules.GetGameModeEntity().SetBotThinkingEnabled(true);
+      GameRules.AI.BotTeam?.SetNativeThinking(true);
     }
     if (cmd === CMD.BOT_THINKING_DISABLE) {
-      GameRules.GetGameModeEntity().SetBotThinkingEnabled(false);
+      GameRules.AI.BotTeam?.SetNativeThinking(false);
     }
 
     handlePerfDebugCommand(cmd, args);
