@@ -1,12 +1,13 @@
-/** 团队任务分派：按回复 → 防守 → 支援 → 推进的顺序把每个 bot 分到一个带目的地的任务。 */
+/** 团队任务分派：按回复 → 防守 → 交战 → 推进的顺序把每个 bot 分到一个带目的地的任务。 */
 import { distance, Lane, Point } from './lane-geometry';
+import { AVOID_POWER_RATIO } from './power';
 
-export type TaskKind = 'recover' | 'defend' | 'support' | 'push' | 'hold';
+export type TaskKind = 'recover' | 'defend' | 'fight' | 'regroup' | 'push' | 'hold';
 
 export interface Task {
   kind: TaskKind;
   pos: Point;
-  /** 防守的建筑、支援的英雄或推进的目标建筑 */
+  /** 防守的建筑、集火的敌方英雄或推进的目标建筑 */
   targetId?: number;
   lane?: Lane;
 }
@@ -16,6 +17,8 @@ export interface PlanBot {
   pos: Point;
   power: number;
   needsRecover: boolean;
+  /** 普攻输出，高的留下推塔，其余优先去打架 */
+  attackDps: number;
   previous?: Task;
 }
 
@@ -29,10 +32,17 @@ export interface DefendTarget {
   attackerPower: number;
 }
 
-export interface SupportTarget {
-  id: number;
+/** 一处交战点：一团看得到的敌方英雄，以及附近的我方情况。 */
+export interface FightSpot {
   pos: Point;
+  /** 敌方英雄战力，敌人在自家塔下时含塔 */
   enemyPower: number;
+  /** 附近不归团队调度的友方英雄（玩家）战力 */
+  allyPower: number;
+  /** 集火目标：这一团里血最少的敌方英雄 */
+  focusId: number;
+  /** 打不过时附近 bot 的集合点 */
+  rally: Point;
 }
 
 export interface PushLane {
@@ -50,7 +60,7 @@ export interface PlanInput {
   bots: PlanBot[];
   fountain: Point;
   defend: DefendTarget[];
-  support: SupportTarget[];
+  fights: FightSpot[];
   lanes: PushLane[];
   ourPower: number;
   enemyPower: number;
@@ -73,8 +83,13 @@ const DEFEND_POWER_MARGIN = 1.2;
 const DEFEND_GIVE_UP_RATIO = 0.5;
 // 外塔最多抽走的人数比例，剩下的人继续推进，逼玩家回防
 const DEFEND_MAX_SHARE = 0.6;
-const SUPPORT_RANGE = 3000;
-const SUPPORT_MAX_HELPERS = 3;
+// 这个范围内的 bot 可以赶来参战，打不过时这个范围内的 bot 一起撤
+export const FIGHT_JOIN_RADIUS = 2500;
+export const FIGHT_DANGER_RADIUS = 1500;
+// 派去打架的战力要高出对面一截才稳
+const FIGHT_POWER_MARGIN = 1.2;
+// 推塔手排在后面挑，相当于离交战点远了这么多
+const PUSHER_DISTANCE_PENALTY = 2000;
 const EVEN_MAIN_SHARE = 0.6;
 const MAIN_LANE_INERTIA = 0.3;
 // 敌方英雄战力超过这一路我方人数战力时才算「玩家在这一路」
@@ -107,7 +122,7 @@ export function planTasks(input: PlanInput): PlanResult {
   }
 
   free = assignDefend(input, free, tasks);
-  free = assignSupport(input, free, tasks);
+  free = assignFights(input, free, tasks);
   const mainLane = assignPush(input, free, tasks);
 
   for (const bot of input.bots) {
@@ -153,28 +168,52 @@ function assignDefend(input: PlanInput, free: PlanBot[], tasks: Map<number, Task
   return remaining;
 }
 
-function assignSupport(input: PlanInput, free: PlanBot[], tasks: Map<number, Task>): PlanBot[] {
-  const targets = [...input.support].sort((a, b) => b.enemyPower - a.enemyPower);
+/** 攻击输出排在全队前一半的 bot 算推塔手。 */
+function findPushers(bots: PlanBot[]): Set<number> {
+  const sorted = [...bots].sort((x, y) => y.attackDps - x.attackDps);
+  return new Set(sorted.slice(0, Math.floor(sorted.length / 2)).map((bot) => bot.id));
+}
+
+/**
+ * 能打的交战点从附近挑人去集火，推塔手最后才挑，战力够了就停，剩下的人继续推进；
+ * 明显打不过时，附近的 bot 一起撤向集合点。
+ */
+function assignFights(input: PlanInput, free: PlanBot[], tasks: Map<number, Task>): PlanBot[] {
+  const pushers = findPushers(input.bots);
+  const spots = [...input.fights].sort((a, b) => b.enemyPower - a.enemyPower);
   let remaining = free;
-  for (const target of targets) {
-    let assigned = 0;
-    let count = 0;
+  for (const spot of spots) {
+    const nearby = remaining.filter((bot) => distance(bot.pos, spot.pos) <= FIGHT_JOIN_RADIUS);
+    if (nearby.length === 0) {
+      continue;
+    }
+    const available = nearby.reduce((sum, bot) => sum + bot.power, 0) + spot.allyPower;
     const picked = new Set<number>();
-    for (const bot of byDistance(remaining, target.pos)) {
-      if (bot.id === target.id) {
-        continue;
+    if (spot.enemyPower > available * AVOID_POWER_RATIO) {
+      for (const bot of nearby) {
+        if (distance(bot.pos, spot.pos) <= FIGHT_DANGER_RADIUS) {
+          tasks.set(bot.id, { kind: 'regroup', pos: spot.rally });
+          picked.add(bot.id);
+        }
       }
-      if (
-        assigned >= target.enemyPower ||
-        count >= SUPPORT_MAX_HELPERS ||
-        distance(bot.pos, target.pos) > SUPPORT_RANGE
-      ) {
-        break;
+    } else {
+      const need = spot.enemyPower * FIGHT_POWER_MARGIN - spot.allyPower;
+      const order = [...nearby].sort(
+        (a, b) =>
+          distance(a.pos, spot.pos) +
+          (pushers.has(a.id) ? PUSHER_DISTANCE_PENALTY : 0) -
+          distance(b.pos, spot.pos) -
+          (pushers.has(b.id) ? PUSHER_DISTANCE_PENALTY : 0),
+      );
+      let assigned = 0;
+      for (const bot of order) {
+        if (assigned >= need) {
+          break;
+        }
+        tasks.set(bot.id, { kind: 'fight', pos: spot.pos, targetId: spot.focusId });
+        picked.add(bot.id);
+        assigned += bot.power;
       }
-      tasks.set(bot.id, { kind: 'support', pos: target.pos, targetId: target.id });
-      picked.add(bot.id);
-      assigned += bot.power;
-      count++;
     }
     remaining = remaining.filter((bot) => !picked.has(bot.id));
   }

@@ -24,13 +24,15 @@ const bots = (count: number) =>
     pos: { x: 0, y: 0 },
     power: 100,
     needsRecover: false,
+    // 编号越大普攻输出越高，4、5 号是推塔手
+    attackDps: (i + 1) * 10,
   }));
 
 const baseInput = (overrides: Partial<PlanInput>): PlanInput => ({
   bots: bots(5),
   fountain: { x: -1000, y: -1000 },
   defend: [],
-  support: [],
+  fights: [],
   lanes: [lane('top', -3000), lane('mid', 0), lane('bot', 3000)],
   ourPower: 500,
   enemyPower: 500,
@@ -157,12 +159,40 @@ describe('planTasks', () => {
     expect([...base.tasks.values()].every((task) => task.kind === 'defend')).toBe(true);
   });
 
-  it('only supports allies within range', () => {
-    const input = baseInput({ support: [{ id: 99, pos: { x: 500, y: 0 }, enemyPower: 150 }] });
+  const spot = (enemyPower: number, allyPower = 0) => ({
+    pos: { x: 500, y: 0 },
+    enemyPower,
+    allyPower,
+    focusId: 99,
+    rally: { x: -2000, y: 0 },
+  });
+
+  it('sends just enough nearby bots to a winnable fight and leaves pushers pushing', () => {
+    const input = baseInput({ fights: [spot(250)] });
     input.bots[4].pos = { x: 9000, y: 0 };
     const tasks = planTasks(input).tasks;
-    expect([...tasks.values()].filter((task) => task.kind === 'support')).toHaveLength(2);
+    expect([1, 2, 3].map((id) => tasks.get(id)?.kind)).toEqual(['fight', 'fight', 'fight']);
+    expect(tasks.get(1)?.targetId).toBe(99);
+    expect(tasks.get(4)?.kind).toBe('push');
     expect(tasks.get(5)?.kind).toBe('push');
+  });
+
+  it('pulls pushers in only when the fight needs them', () => {
+    const tasks = planTasks(baseInput({ fights: [spot(350)] })).tasks;
+    expect([...tasks.values()].every((task) => task.kind === 'fight')).toBe(true);
+  });
+
+  it('pulls nearby bots back to the rally point when clearly outmatched', () => {
+    const input = baseInput({ fights: [spot(1000)] });
+    input.bots[4].pos = { x: 5000, y: 0 };
+    const tasks = planTasks(input).tasks;
+    expect(tasks.get(1)).toEqual({ kind: 'regroup', pos: { x: -2000, y: 0 } });
+    expect(tasks.get(5)?.kind).toBe('push');
+  });
+
+  it('counts players already in the fight', () => {
+    const tasks = planTasks(baseInput({ fights: [spot(150, 300)] })).tasks;
+    expect([...tasks.values()].some((task) => task.kind === 'fight')).toBe(false);
   });
 
   it('groups on one lane when ahead', () => {

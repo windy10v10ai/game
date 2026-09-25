@@ -13,6 +13,9 @@ export interface CombatStats {
   spellAmp: number;
 }
 
+/** 没打起来时，敌方战力超过我方这么多倍才算「上去就是白送」，团队层与英雄层共用。 */
+export const AVOID_POWER_RATIO = 2;
+
 // 攻击输出算不到技能伤害，按等级补一项，否则法系英雄会被严重低估
 const SPELL_DPS_PER_LEVEL = 12;
 // 魔法伤害按基础魔抗估算，物理与魔法伤害各占一半

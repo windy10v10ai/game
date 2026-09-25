@@ -38,14 +38,14 @@ const TELEPORT_ALLY_TARGET_HEALTH_PERCENT = 90;
 @registerModifier('ai/hero/hero-tinker')
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export class tinker_ai_modifier extends BotBaseAIModifier {
-  override ActionAttack(): boolean {
+  override ActionAttack(task: Task | undefined): boolean {
     if (this.TryBlinkInitiate()) {
       return true;
     }
     if (this.TryTeleport()) {
       return true;
     }
-    return super.ActionAttack();
+    return super.ActionAttack(task);
   }
 
   override ActionTask(task: Task | undefined): boolean {
