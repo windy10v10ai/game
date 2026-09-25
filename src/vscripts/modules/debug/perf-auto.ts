@@ -23,6 +23,9 @@ export interface PerfAutoConfig {
   soakTimescale: number;
   // 工具模式下 bot 英雄按池子顺序固定选取，偏移后可以让多次测试覆盖池子里的其他英雄
   botOffset: number;
+  // 天辉人数与金钱经验倍率，模拟少量玩家对满编 bot 的真实对局；0 为沿用对局选项
+  radiantPlayers: number;
+  radiantMultiplier: number;
 }
 
 interface PerfStep {
@@ -58,6 +61,22 @@ if (bootConfig && bootConfig.botOffset > 0) {
   const offset = bootConfig.botOffset % pool.length;
   HeroPick.BotNameList = [...pool.slice(offset), ...pool.slice(0, offset)];
   print(`[perf-auto] botOffset=${offset} first=${HeroPick.BotNameList[0]}`);
+}
+
+// 界面在选英雄阶段仍会重新下发对局选项，只有在补 bot 的前一刻覆盖才不会被冲掉
+if (bootConfig && (bootConfig.radiantPlayers > 0 || bootConfig.radiantMultiplier > 0)) {
+  const config = bootConfig;
+  const originalPickBotHeroes = HeroPick.PickBotHeroes;
+  HeroPick.PickBotHeroes = function (this: typeof HeroPick) {
+    if (config.radiantPlayers > 0) GameRules.Option.radiantPlayerNumber = config.radiantPlayers;
+    if (config.radiantMultiplier > 0) {
+      GameRules.Option.radiantGoldXpMultiplier = config.radiantMultiplier;
+    }
+    print(
+      `[perf-auto] radiantPlayers=${GameRules.Option.radiantPlayerNumber} radiantMultiplier=${GameRules.Option.radiantGoldXpMultiplier}`,
+    );
+    originalPickBotHeroes.call(this);
+  };
 }
 
 function forEachHero(callback: (hero: CDOTA_BaseNPC_Hero, playerId: PlayerID) => void) {
@@ -253,6 +272,10 @@ export class PerfAuto {
   static onGameInProgress() {
     const config = this.config;
     if (!config) return;
+    // 选项在补 bot 之后仍可能被界面重新下发，开局再确认一次倍率
+    if (config.radiantMultiplier > 0) {
+      GameRules.Option.radiantGoldXpMultiplier = config.radiantMultiplier;
+    }
     // 玩家英雄也交给 AI，场上才是 20 个行为一致的英雄
     forEachHero((hero, playerId) => {
       if (PlayerHelper.IsHumanPlayerByPlayerId(playerId)) GameRules.AI.EnableAI(hero);
