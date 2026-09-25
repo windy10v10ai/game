@@ -27,6 +27,9 @@ function parseArgs() {
     soakTimescale: 8,
     // bot 英雄池的起始偏移，换一批英雄观察
     botOffset: 0,
+    // 天辉人数与金钱经验倍率，0 为沿用对局选项；--radiantPlayers 1 模拟 1v10
+    radiantPlayers: 0,
+    radiantMultiplier: 0,
     // 先跑 minGames 局；有条件各局结果不一致就逐局追加，最多 maxGames 局
     // 逗号分隔的条件名，只复测其中几项时用
     conditions: 'all',
