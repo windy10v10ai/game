@@ -12,8 +12,8 @@ export class ActionAttack {
     if (hero.GetRangeToUnit(target) > maxRange) {
       return false;
     }
-    // 正在攻击时不重复下指令
-    if (hero.IsAttacking()) {
+    // 正在攻击同一目标时不重复下指令，攻击别的单位（如塔）时要转火
+    if (hero.IsAttacking() && hero.GetAttackTarget() === target) {
       return true;
     }
     // if target in attack range perform attack order
