@@ -104,6 +104,11 @@ export class BotBaseAIModifier extends BaseModifier {
   private lastOrderType: UnitOrder | undefined;
   private lastOrderTime: number = -60;
 
+  // 开发模式决策日志：本轮交战判断的依据、选中的目标、上一次打印的内容
+  private traceInfo: string = '';
+  private traceTarget: string = '';
+  private lastTraceKey: string = '';
+
   protected getNeutralItemConfig(): Record<number, NeutralTierConfig> {
     return NeutralItemManager.GetDefaultConfig();
   }
@@ -208,7 +213,12 @@ export class BotBaseAIModifier extends BaseModifier {
     this.UpdateRecoverNeed(brain);
     this.stance = this.DecideStance(brain);
     const task = brain.GetTask(this.hero);
-    if (this.ActionStance(task)) {
+    this.traceTarget = '';
+    const acted = this.ActionStance(task);
+    if (IS_TOOLS_MODE) {
+      this.TraceDecision(task);
+    }
+    if (acted) {
       return;
     }
     if (WardPlacement.Run(this)) {
@@ -272,6 +282,7 @@ export class BotBaseAIModifier extends BaseModifier {
       this.engagedUntil = this.gameTime + this.EngageMemory;
     }
     const engaged = enemies.length > 0 && this.gameTime < this.engagedUntil;
+    this.traceInfo = '';
     if (!engaged) {
       this.spentActions = 0;
     }
@@ -283,9 +294,11 @@ export class BotBaseAIModifier extends BaseModifier {
     }
 
     let ourPower = 0;
+    const allies: CDOTA_BaseNPC[] = [];
     for (const ally of this.aroundFriendlyHeroes) {
       if (this.hero.GetRangeToUnit(ally) <= this.LocalFightRadius) {
         ourPower += UnitPower(ally);
+        allies.push(ally);
       }
     }
     let enemyPower = 0;
@@ -294,20 +307,26 @@ export class BotBaseAIModifier extends BaseModifier {
     }
     // 敌方英雄站在塔下时，塔也是对面的战力
     const tower = this.FindNearestEnemyTowerInvulnerable();
-    if (
-      tower &&
-      enemyPower > 0 &&
-      HeroUtil.GetDistanceToAttackRange(tower, this.hero) <= this.TowerDangerBuffer
-    ) {
+    const underTower =
+      tower !== undefined &&
+      HeroUtil.GetDistanceToAttackRange(tower, this.hero) <= this.TowerDangerBuffer;
+    if (tower && underTower) {
       enemyPower += UnitPower(tower);
+    }
+    // 逃跑判定要扫全图的塔，只有打起来才用得到
+    const escape = engaged ? this.CanEscape(enemies) : true;
+    if (IS_TOOLS_MODE) {
+      this.traceInfo =
+        `engaged=${engaged ? 1 : 0} escape=${escape ? 1 : 0} spent=${this.spentActions}` +
+        ` our=${Math.floor(ourPower)}(${allies.map(ShortName).join(',')})` +
+        ` enemy=${Math.floor(enemyPower)}(${enemies.map(ShortName).join(',')}${underTower ? ',tower' : ''})`;
     }
 
     return decideStance({
       engaged,
       ourPower,
       enemyPower,
-      // 逃跑判定要扫全图的塔，只有打起来才用得到
-      canEscape: engaged ? this.CanEscape(enemies) : true,
+      canEscape: escape,
       spentActions: this.spentActions,
     });
   }
@@ -347,6 +366,24 @@ export class BotBaseAIModifier extends BaseModifier {
     return best;
   }
 
+  /** 开发模式：判断结果、任务或目标变化时打一行日志，便于对照实机表现排查。 */
+  private TraceDecision(task: Task | undefined): void {
+    const taskText = task ? `${task.kind}${task.lane ? ':' + task.lane : ''}` : 'none';
+    const key = `${this.stance}|${this.mode}|${taskText}|${this.traceTarget}`;
+    if (key === this.lastTraceKey) {
+      return;
+    }
+    this.lastTraceKey = key;
+    const time = Math.max(0, Math.floor(this.gameTime));
+    const seconds = time % 60;
+    const clock = `${Math.floor(time / 60)}:${seconds < 10 ? '0' : ''}${seconds}`;
+    print(
+      `[bot-ai] t=${clock} ${ShortName(this.hero)} hp=${Math.floor(this.hero.GetHealthPercent())}%` +
+        ` stance=${this.stance} mode=${this.mode} task=${taskText}` +
+        ` target=${this.traceTarget === '' ? '-' : this.traceTarget} ${this.traceInfo}`,
+    );
+  }
+
   // ---------------------------------------------------------
   // Action
   // ---------------------------------------------------------
@@ -369,6 +406,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (!target) {
       return false;
     }
+    this.traceTarget = ShortName(target);
     const range = this.isIntHero
       ? this.hero.GetBaseAttackRange() + this.IntChaseExtra
       : this.ChaseRange;
@@ -553,6 +591,7 @@ export class BotBaseAIModifier extends BaseModifier {
     if (building.GetUnitName().includes('tower') && !this.CanDive(building)) {
       return false;
     }
+    this.traceTarget = building.GetUnitName();
     if (this.hero.IsAttacking() && this.hero.GetAttackTarget() === building) {
       return true;
     }
@@ -907,4 +946,8 @@ export class BotBaseAIModifier extends BaseModifier {
   IsHidden(): boolean {
     return true;
   }
+}
+
+function ShortName(unit: CDOTA_BaseNPC): string {
+  return unit.GetUnitName().replace('npc_dota_hero_', '');
 }
